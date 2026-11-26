@@ -1,140 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=148.163.154.28
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795692157;
-	b=gjqSsmuj41xusaXKoEF2lGcs2qVeKwPYCbxvwQjmvKiMVPb+aO1gTVcrlNRPXZa8c2cs
-	 5FNnVFggh4if6O97AXzPT1eiOlqfBZqUfu6vADTtu7F2jTWRG73Q0boqTYMLQr4RrZifi
-	 /UhX4JsmluTpB1+cX0+Xv2HT3wlg5J+Q+7fxSYDoqHoZg/yUgTQV9vWuJqek7Ayfbqs6x
-	 tnc+qICwUujI63jX7W1GvvgajMCb9PGTBSQMnGfQtSxSpPCziP3dPTFcekHdKJWGo0lXt
-	 shW1VN4hTn34b96H8VUW1cBIvFZPryVTHx7rG0GwgTkxFWFMttvs6edoVw1VYBh1/eA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795692157;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:DKIM-Signature:
-	 Received:Received:X-MS-Exchange-Authentication-Results:Received-SPF:
-	 Received:Received:Received:Received:Received:From:To:CC:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-OriginatorOrg:X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=TGJLGUZL5TdAYp0ot7buukDeqmlNr9nL/LEllHfAOaU=;
-	b=qlAqQvmjeSfrdZU1UiZEU4fUrvPZe8sqyyPX3BNro+x5evh84972RRVeJPPYjwNY2HAL
-	 Oc7R4+JChlgz0WnLJ7UigA4M1E5Q70WIDc9dcHnq9xS2D6iYvfIDCc81ifjOwrinNFpQq
-	 tSHIMmIxHrgnrBJVOghtAOyj1kTQbpvCDuUGSh+tYxMFFCOekqM8LuDhL026WclIoBCLv
-	 d+HToQmWYS7hJ+EmmOCuvb0R60ZnF6xBPeyhbj1HDLO+JRV9wt+AJczNFXCkZUGyzivmZ
-	 cpXc3UQOMwRHHLzPuNDhCIwJ31PRNV+7iDbYQRkQrm8FQPZNaBzceDMM5tWtKUF9IqQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ti.com;
-	spf=pass smtp.mailfrom=ti.com;
-	dkim=pass header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=X8NsmiHZ;
-	dkim=pass header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=IYTw205s;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=148.163.154.28
-Received: from mx0b-0002e601.pphosted.com (mx0b-0002e601.pphosted.com [148.163.154.28])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795692159;
+	b=GCq4ifKQ8lsVvcOZfW5Xa23m3ZPsPIhXL0JdYn/pDD3+xhlGXv0e9Mc4M8cRY2JOlsaF
+	 5i9oxxCFJKo8u91epkSwdVlad1x/R+RvRxo+vfm9IiE1PVvOmdh+Q8AY9hh+nsmC8YmtM
+	 tRYIdyu3UfI+jcwYyqgGmqlor/ZgDnlfEE+XrC8grvaKZJvKUBjpOOZZSRN+qmvuXJ/SO
+	 ddLYSQqGbGjpHxMxigFSntyFw07xjFSuOdm71spC/BukMhCInUryafYIGJmJ7HLtI2FWH
+	 mk4N7gSVDi8f+4UMEziaxuPVeQWixm3wBBC0mGy54zilqIT26Ktl/FiHuEHCHvOlVaQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795692159;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer;
+	bh=x9nhB1RW8+V8Xp4nOlz+JVECnctRj+T1Gz/CePKun4g=;
+	b=keEfqXgRoye+1LsZ6BLrTYfVl/w7uNJx7mQqWGVEHTJ7BfeAs4L59BNqG2G+zcCNAH0L
+	 o3XbmSkkaDhVvrDx2ohbGirCOPdLPdGSVe6cy/LbGiltIQEZaJXwKFvdWLtxLRtxiRwOC
+	 w5kp8BDVY3uXIymWFRwBdM23OS+RCVDpqfNtHweA7hGN8mdy2P1KQoQ72MAVvqHWHlXTa
+	 Kw8O6amJ712x54KwV+o5x23gta4hpbePEtT5zDMZjbObPDyr+nXhPlNbruiCCZR95Bx/8
+	 onT+qryH8AlSE+FRayVJoz0FGjZqgyeIwpiZRe1l0lyeWkUfztZaj9Y+0igqmr8tmYg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="OouPlr/S";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36F5C606A323;
-	Thu, 26 Nov 2026 11:22:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36F5C606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ti.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ti.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF5CA606A339;
+	Thu, 26 Nov 2026 11:22:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=X8NsmiHZ;
-	dkim=pass (1024-bit key) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=IYTw205s
-Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQAZbt33001768;
-	Thu, 26 Nov 2026 05:22:08 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=TGJLGUZL5TdAYp0ot7buukDeqmlNr9nL/LEllHfAO
-	aU=; b=X8NsmiHZz/1k01HehHqIH9LBlKNUJ4iGP8lYtmTunmWT3dFvcpYD2RLxD
-	GkdbnxWFmTth6Xzp148eABsAH/yp4wZHM6w9Shb2eeoJYMXnB4m5z17F4W+/vTCV
-	TyrD05YYMUuOvN7EmQCaRjnzHTJReFsCCCACxtVsRZcQou4O4UqaEkl18BOjhch+
-	b/W4fhLgGWZpCk7wqwGDWRdSHllCroTglGvs69K4uD6eLUWcfH3DXYIzonHX3sfG
-	qKl5kpB7LkdttP1hblrWo5EzW0Ij7JHL76aSOMa74pH30h5hOx38P9eP4GEaozuc
-	jinKMaiMXQaxVY/Dv6JdYZg5ZDDzQ==
-Received: from ph8pr06cu001.outbound.protection.outlook.com (mail-westus3azon11012052.outbound.protection.outlook.com [40.107.209.52])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4j6eq9sp4a-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 26 Nov 2026 05:22:06 -0600 (CST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=K4x+6O0QjkUmM9lvuD9uW2QQgx0Cp0WkSYNzyH0O6mhzCgAbqxUEO2T5MJKTIZejFyr/ByCnylHFDLtR1eHvOmrGJA2YCtYtiQbgN7/Odw09gdN6OxzR+yKWGvesZReg1lLUSGh0L5wbci8hYZWmK82h+mr73hoTo7kmBIJKcgYQYyJQLzgFjX/TBLR1mEsmUKEeUbiUMj08ReXRwbIRKd44k0kpkRTT3hY543pvQ/kOxnDL4Lxz7s2kOmHilfUpZQPERjYvMgqqFSTLU8942jZeZsJ5IfziSyA3xDXNERvYl81yl/a4+Um8U5k4Ms4+mUNL0MmN2x+MKrFKUt3uvQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TGJLGUZL5TdAYp0ot7buukDeqmlNr9nL/LEllHfAOaU=;
- b=WdI2l+0XK21yeeVyzFMl4Xkk8P7cQ3vV4CqcBzqJlCDuJcSJzV9AKPmDliVvQ1zicIL8NGPUNurq5KzX0+j3zUusb7yaDn/zOkP/4pZh5SOwvVKZ6g+H3S97MeWRDU7hi2puaPYILK8v6cPaLNGP0rzqpgpABPIOksswcJOYcbjZKwnINEMd1FcSkxJqxbN4STEkZ9hZtV4SJAl8+xUaccSyE8e24nALLiE7DNRv0qsLqk1lfpDfmQq/ULBhzxssE8PBAuIB3C3ojQKaRtz4SZFs7Hiog4JVOvpQywCK8EUQQWvppkGiAXq1sbQUG7ma8FudrIiB17wR6YllbWAjBg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=linux.dev smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TGJLGUZL5TdAYp0ot7buukDeqmlNr9nL/LEllHfAOaU=;
- b=IYTw205sq71seaEz0n1/EHULgQELOOfNPlzVBz7kAU0xNWl2CtInxeRpcY3fPoUr5OHxekE/w9q9WtMI4flWZDmg8DFG9Io6rk0Shs+QOg1o4KZ1X2cLBfryriZYF89pLIDwFyX2PMqc3hEW5F2KMYZ3uQlGyzHrNDg5eppCcf8=
-Received: from DS1P220CA0023.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:44c::16) by
- DM4PR10MB6085.namprd10.prod.outlook.com (2603:10b6:8:bd::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.7; Thu, 26 Nov 2026 11:22:03 +0000
-Received: from DM3PEPF000265BC.namprd04.prod.outlook.com
- (2603:10b6:8:44c:cafe::1a) by DS1P220CA0023.outlook.office365.com
- (2603:10b6:8:44c::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.7 via Frontend Transport; Thu, 26
- Nov 2026 11:22:03 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.21.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- DM3PEPF000265BC.mail.protection.outlook.com (10.167.23.249) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.688.5 via Frontend Transport; Thu, 26 Nov 2026 11:22:02 +0000
-Received: from DFLE209.ent.ti.com (10.64.6.67) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 26 Nov
- 2026 05:21:22 -0600
-Received: from DFLE203.ent.ti.com (10.64.6.61) by DFLE209.ent.ti.com
- (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 26 Nov
- 2026 05:21:21 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE203.ent.ti.com
- (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Thu, 26 Nov 2026 05:21:21 -0600
-Received: from LTPW0EX92E.dhcp.ti.com ([10.250.64.62])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6AQBKwHX1596498;
-	Thu, 26 Nov 2026 05:21:18 -0600
-From: Niranjan H Y <niranjan.hy@ti.com>
-To: <linux-sound@vger.kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <broonie@kernel.org>,
-        <ckeepax@opensource.cirrus.com>, <lgirdwood@gmail.com>,
-        <perex@perex.cz>, <tiwai@suse.com>, <cezary.rojewski@intel.com>,
-        <peter.ujfalusi@linux.intel.com>, <yung-chuan.liao@linux.intel.com>,
-        <kai.vehmanen@linux.intel.com>, <pierre-louis.bossart@linux.dev>,
-        <baojun.xu@ti.com>, <shenghao-ding@ti.com>, <sandeepk@ti.com>,
-        <v-hampiholi@ti.com>, Niranjan H Y <niranjan.hy@ti.com>
-Subject: [PATCH v2 5/5] ASoC: tac5xx2-sdw: drop DSP algo re-enable from port post-prepare
-Date: Thu, 26 Nov 2026 20:20:23 +0900
-Message-ID: <20261126112023.29054-5-niranjan.hy@ti.com>
-X-Mailer: git-send-email 2.33.0.windows.2
-In-Reply-To: <20261126112023.29054-1-niranjan.hy@ti.com>
-References: <20261126112023.29054-1-niranjan.hy@ti.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OouPlr/S
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 761211F00A3E;
+	Thu, 26 Nov 2026 11:22:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795692159;
+	bh=x9nhB1RW8+V8Xp4nOlz+JVECnctRj+T1Gz/CePKun4g=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=OouPlr/SAZWddhWz03Hx5JOd+oPtbY33NpRXwE5d7ae2uquSj5lbDn/AlNeEFLCTn
+	 0EylNMwOIIMTzBn7R5350kHm1n4Z3FOEz2uS0csQrk2g7m+jh6DtGWnkCGAwYylWDD
+	 gOK6Wl2ye6LnpJGYb1Ug+XRXogUmBXeZcNoToxEGcUodL91ZQcQ0iQ9Lf2l2bCA0WN
+	 eO2gSzH1DRY3brbY+byxbloPguegH3B9JNxtxwgfqs69AKWGEBl/25D4rtkyZBLW8Q
+	 Qutiv71ucCsvOWf75UIiVRU16q8Ni7tcNU2lzz0NkdYwb5cgTQUjY6YSOiWfdNx9Q8
+	 VxfpImA2nLJrg==
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Date: Thu, 26 Nov 2026 13:15:04 +0200
+Subject: [PATCH RFC v2 51/54] arm64: let the generic CPA core split large
+ mappings
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -144,128 +53,466 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM3PEPF000265BC:EE_|DM4PR10MB6085:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0155151d-4ca2-4a47-ab15-08df4baf7e6e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|7416014|376014|1800799024|82310400026|23010399003|10067099003|56012099006|261026140227099003|261022105027099003|261028144727099003|261021123027099003|261009223027099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info:
-	T7reEPsZFivYkWbsyf+Rkwi1cXy57a4kvmh0n1ZQ9uWS1oEqJBrXfCiWa3grZyXH6DdcEyL3YEqI8PVAxddmRz/H1ftQkdko4VUEr+2oXsyyh5QNxBRQo2q6aGcaVo5BWogk7jogn2TX18SeG78bubGFcLp7MdehiSVB4DaGUuf0AAsh3QncgZG7ZWhDsw6TcAj71rdZQkDdsjeNReEVMjXwUjNVyO5ghFN8zcMWTxtnbw/WmTBp5202brtWAqztKQyyT2yFDpGEMYCrcHw52J0X6/1PXpXZquLxNwRHk/S8jEvVVc2fXXuAOuWTYJib9MeNqTDsPvdyA7dUqaVDNx1t+W0ZNCgCtX9aTXzu3CFDeyLjR0CpJTZQCteHFjUMkZ/jIyUhgwy+n3Gak6LaK632FFVNQ750d8T11VyqjwCeK2wJwxSF2Svx1pWp0h5RO6Ln4ord8jPMXDLNQIO00ZEquTJ+HahuPEKx2o1q3zzHPA09erjuclcmhRpwy7itfk8U1aKUwWda1CxKujsLXiiJFVD2FGcWpcX+jfwyOH7482cKbCu7aMfDbOOdKo4C0ryVAEEncSCrRyiQX23m5Qwu8vlXT7/DnEsENEjkmO5GEdUylz9Ziq3yTHthW2ccnCy/87QtAB0lU0g1SgCsVFd3iiBUXn8ZN+alywoPcI8Z1zVKAHFo/tPxxajSCUAWECTVXAtD8KyHOz1y7RZ1iA==
-X-Forefront-Antispam-Report:
-	CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(1800799024)(82310400026)(23010399003)(10067099003)(56012099006)(261026140227099003)(261022105027099003)(261028144727099003)(261021123027099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	ilbvbjYEFm8rIZcN7dktDdA97DFDwMR+P2fSyDrkV+FlwTAqnHYyGpya+Bcn5rLc2w//ufBPGrEDZ0wKovHcQakzP92LxEwHid61T0Mg4cHZSXAcEsV7LX7BlRk0w4cx/zMjGdYkKzUH3YT8et8zwZHbBA3NkMcfgX/ZDh/FumMhX1ZFDXG3FqgJ51znklCMWMZyw4vrd609BG/32iDngOFLSRd6JtXv+IXVLkGSVkEjoU/w0nMFMTtvDCPSJxgypYdj60/nR3vJLkj5BSVXoOaK11+cfDzI28MDEcsDwvyG5OqFeboyg0iPckh3fw3pNWF5v/7+MIo4Rf+PaoWlQkoacKQaDf2GSFEF+mcNRoRStRhXx/8fczXT23ag5t7An2WBprxrpL/dAGwcLnctsBM2oCBKloelgFDZuGPDqOYrvlZjZP2CPso4Qi0x0m5i
-X-Exchange-RoutingPolicyChecked:
-	nVXnKKD1sThykN46Gm/Fm8CL7rbIUkGhIWIwnBnGqFD1Tv455QHGgRTlugHJW5YShG2E5e+Xc8T1tr3mk8LDFSU7ri0XY22rHUiZZRrPsfaXPC8OQUsnjIJCwVCjQTTJGT9JbDcp/HDpElzaKFCGFqPVoi2QjcJzBCzYLxEVwQSBkYPU5pZPtfq6uFQdyxvRwr4BMgJy8wdvsjDZrpisjNbHDI9Pbm5g0mNs4hFULWTO6lkqA85P+MLZ3lqxbAeJ+/0wZnmMEM6Gi+yuUm9Y4lDWZOCOny4lDYsmDo2JbjrqVSZGkqQQJLc88vmtcYIRRk5oKxMOfaAuFNn1BIdA0Q==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 11:22:02.1453
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0155151d-4ca2-4a47-ab15-08df4baf7e6e
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	DM3PEPF000265BC.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB6085
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA0NCBTYWx0ZWRfX1l/005gZXpLC
- 9RvxCJkaC8o8g31ESKdl7GRh8/ZmCukmQD9k+FCHPaFWtHZowFMlyCHFW8YtWu7uBTwtTbQAWgj
- D3BsMVrwtNL2+pFyCq1LRqiv/BfzG0k=
-X-Proofpoint-GUID: I2cg9iivkXSlrX_IRzfCFUGi7frPSmlW
-X-Proofpoint-ORIG-GUID: I2cg9iivkXSlrX_IRzfCFUGi7frPSmlW
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA0NCBTYWx0ZWRfXwolnPgPFA02R
- onKvv76I+/77S2V87eG9/58OnlWBga1HuX1Smqb1mjIeR0YxbAa1f/h30nBoQiuKzovLTZ/Cfhz
- Kl6YVBVfkrn26S16wnC6p8pH/5yzhpeWwPd1WprDHxJ4137saa9maYeXcpgwLxNJEDoEs+iNI6A
- RStWaOZTgp6rI/MrkiEDi5FbiGXYhMdYswRf4JrT/HQzTBHY9HfpMn5ZvDPptZHXOOoKzFYG5kU
- bhrXN6dUOLsUKwXLRR3ZDFKUAnUeCvh4iocSmOnqHnzBoxoMdn+pWNbAmHnBhO2evnibRA2gMIM
- N0kqt+biE5JJWsyPjYLCCzLlMYpjJJEsSMhcvqDoQpvR2x4rAM0xrYuQLKaYpHvwn49UF/FRF/3
- L+0nBy5qqbXUxrYUjukxxSrnJvCEXSlW7Mp+/leX2YzB1MmsW8ZCWAwOihkvk6aUeQUM+DaxQA1
- Xy3SCp0bf6O06KiACfw==
-X-Authority-Analysis: v=2.4 cv=d7JgWhjE c=1 sm=1 tr=0 ts=6b08165e cx=c_pps
- a=GeWWyO5P+zJVL7v3m8oIig==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=zJRp6_cAMcgA:10 a=AlMIdn_sM9wA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=jwouBfj2j3NM8CExmVVE:22
- a=sozttTNsAAAA:8 a=QyXUC8HyAAAA:8 a=zoeuGXUjLV_baAm5KpgA:9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-26_02,2026-11-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 spamscore=0 malwarescore=0 adultscore=0
- impostorscore=0 bulkscore=0 phishscore=0 clxscore=1015 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260044
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-generic-set-memory-v0-1-v2-51-723f1e33c3d8@kernel.org>
+References: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
+In-Reply-To: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
+To: linux-mm@kvack.org
+Cc: =?utf-8?q?Adrian_Barna=C5=9B?= <abarnas@google.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Borislav Petkov <bp@alien8.de>, Brendan Jackman <brendan.jackman@linux.dev>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ David Hildenbrand <david@kernel.org>, 
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
+ Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, 
+ Ingo Molnar <mingo@kernel.org>, Kevin Brodsky <kevin.brodsky@arm.com>, 
+ "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, Michal Hocko <mhocko@suse.com>, 
+ Mike Rapoport <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <pjw@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@kernel.org>, 
+ Vasily Gorbik <gor@linux.ibm.com>, Vlastimil Babka <vbabka@kernel.org>, 
+ Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, x86@kernel.org
+X-Mailer: b4 0.16.1-dev
 
-The post port prepare callback was re-enabling the DSP algorithm by
-writing TAC_DSP_ALGO_STATUS_RUNNING if the algo was found not running.
-This is not needed as the algorithm state is managed independently of
-the stream prepare sequence.
+When BBML3 is available, set_memory_*() calls split both ends of a request
+to base pages before updating the protections, under a mutex, whether the
+request needs that or not.
 
-Remove tac_port_prep() and clear the .port_prep ops entry.
+The KFENCE pool is split by a walk of its own under the same mutex.
 
-Signed-off-by: Niranjan H Y <niranjan.hy@ti.com>
-Reviewed-by: Bard Liao <yung-chuan.liao@linux.intel.com>
+Implement arch_cpa_can_split() and arch_cpa_split_leaf() hooks to let CPA
+core logic decide which large mappings should be split and synchronize the
+splits against other CPA operations.
+
+The CPA core makes sure that only the blocks and contiguous entries that
+must be split are actually split.
+
+Before it splits a mapping, the core calls arch_cpa_can_split(), which
+allows a split only where the CPU supports BBML3:
+
+* after the capabilities are finalized, when system_supports_bbml3()
+* before that, only on the boot CPU, when cpu_supports_bbml3()
+
+With BBML3 a translation of the old size may linger in the TLB, so the
+split needs no TLB flush, as before.
+
+With that:
+
+* the late KFENCE pool is split by a CPA_REQ_SPLIT request, straight to
+  base pages, so that it cannot race with the splits of the core
+* split_kernel_leaf_mapping(), the mutex and page_alloc_available go; a
+  split before the page allocator is populated fails with -ENOMEM from the
+  allocation instead of a warning
+* the boot time split of the linear map keeps its current implementation
+
+Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
-changes since v1:
-* newly added patch
+ arch/arm64/include/asm/mmu.h      |   3 -
+ arch/arm64/include/asm/pageattr.h |   5 +
+ arch/arm64/mm/init.c              |   3 -
+ arch/arm64/mm/mmu.c               | 222 +++++++-------------------------------
+ arch/arm64/mm/pageattr.c          |  22 +---
+ 5 files changed, 45 insertions(+), 210 deletions(-)
 
- sound/soc/codecs/tac5xx2-sdw.c | 34 ----------------------------------
- 1 file changed, 34 deletions(-)
-
-diff --git a/sound/soc/codecs/tac5xx2-sdw.c b/sound/soc/codecs/tac5xx2-sdw.c
-index d679a4194..7140cc111 100644
---- a/sound/soc/codecs/tac5xx2-sdw.c
-+++ b/sound/soc/codecs/tac5xx2-sdw.c
-@@ -1984,44 +1984,10 @@ static int tac5xx2_sdw_read_prop(struct sdw_slave *peripheral)
- 	return 0;
+diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
+index 5e1211c540ab..9b7f16fa24d0 100644
+--- a/arch/arm64/include/asm/mmu.h
++++ b/arch/arm64/include/asm/mmu.h
+@@ -70,7 +70,6 @@ extern void create_pgd_mapping(struct mm_struct *mm, phys_addr_t phys,
+ 			       pgprot_t prot, bool page_mappings_only);
+ extern void *fixmap_remap_fdt(phys_addr_t dt_phys, int *size, pgprot_t prot);
+ extern void mark_linear_text_alias_ro(void);
+-extern int split_kernel_leaf_mapping(unsigned long start, unsigned long end);
+ extern void linear_map_maybe_split_to_ptes(void);
+ 
+ /*
+@@ -104,7 +103,5 @@ void kpti_install_ng_mappings(void);
+ static inline void kpti_install_ng_mappings(void) {}
+ #endif
+ 
+-extern bool page_alloc_available;
+-
+ #endif	/* !__ASSEMBLER__ */
+ #endif
+diff --git a/arch/arm64/include/asm/pageattr.h b/arch/arm64/include/asm/pageattr.h
+index 9634cb523298..2f8c16d39d23 100644
+--- a/arch/arm64/include/asm/pageattr.h
++++ b/arch/arm64/include/asm/pageattr.h
+@@ -4,6 +4,11 @@
+ 
+ #define cpa_is_direct_map(addr)	__is_lm_address(__tag_reset(addr))
+ 
++int arch_cpa_split_leaf(struct cpa_data *cpa, struct cpa_leaf *leaf,
++			void *table);
++bool arch_cpa_can_split(struct cpa_data *cpa, struct cpa_leaf *leaf);
++#define arch_cpa_can_split arch_cpa_can_split
++
+ int arch_cpa_process_alias(struct cpa_data *cpa);
+ #define arch_cpa_process_alias arch_cpa_process_alias
+ 
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index 4e7682dfe366..84ba461861c5 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -379,11 +379,8 @@ void __init arch_mm_preinit(void)
+ 	}
  }
  
--static int tac_port_prep(struct sdw_slave *slave, struct sdw_prepare_ch *prep_ch,
--			 enum sdw_port_prep_ops pre_ops)
--{
--	struct device *dev = &slave->dev;
--	struct tac5xx2_prv *tac_dev = dev_get_drvdata(dev);
--	unsigned int val;
+-bool page_alloc_available __ro_after_init;
+-
+ void __init mem_init(void)
+ {
+-	page_alloc_available = true;
+ 	swiotlb_update_mem_attributes();
+ }
+ 
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index c8f3961b4555..40c5ac95f574 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -670,115 +670,44 @@ static void split_pud(pud_t *pudp, pud_t pud, pmd_t *pmdp, bool to_cont)
+ 	__pud_populate(pudp, pmd_phys, tableprot);
+ }
+ 
+-static void *split_pgtable_alloc(enum pgtable_level level, gfp_t gfp)
++bool arch_cpa_can_split(struct cpa_data *cpa, struct cpa_leaf *leaf)
+ {
+-	phys_addr_t phys;
++	if (system_capabilities_finalized())
++		return system_supports_bbml3();
+ 
+-	phys = pgd_pgtable_alloc_init_mm_gfp(level, gfp);
+-	if (phys == INVALID_PHYS_ADDR)
+-		return NULL;
+-
+-	return phys_to_virt(phys);
++	return num_online_cpus() == 1 && cpu_supports_bbml3();
+ }
+ 
+-static int split_kernel_leaf_mapping_locked(unsigned long addr)
++int arch_cpa_split_leaf(struct cpa_data *cpa, struct cpa_leaf *leaf,
++			void *table)
+ {
+-	pgd_t *pgdp, pgd;
+-	p4d_t *p4dp, p4d;
+-	pud_t *pudp, pud;
+-	pmd_t *pmdp, pmd;
+-	pte_t *ptep, pte;
+-	void *table;
+-	int ret = 0;
+-
+-	/*
+-	 * PGD: If addr is PGD aligned then addr already describes a leaf
+-	 * boundary. If not present then there is nothing to split.
+-	 */
+-	if (ALIGN_DOWN(addr, PGDIR_SIZE) == addr)
+-		goto out;
+-	pgdp = pgd_offset_k(addr);
+-	pgd = pgdp_get(pgdp);
+-	if (!pgd_present(pgd))
+-		goto out;
+-
+-	/*
+-	 * P4D: If addr is P4D aligned then addr already describes a leaf
+-	 * boundary. If not present then there is nothing to split.
+-	 */
+-	if (ALIGN_DOWN(addr, P4D_SIZE) == addr)
+-		goto out;
+-	p4dp = p4d_offset(pgdp, addr);
+-	p4d = p4dp_get(p4dp);
+-	if (!p4d_present(p4d))
+-		goto out;
++	bool to_cont = !(cpa->flags & CPA_REQ_SPLIT);
++	enum pgtable_level level = leaf->level;
++	pmd_t *pmdp = (pmd_t *)leaf->kpte;
++	pud_t *pudp = (pud_t *)leaf->kpte;
++	pte_t *ptep = leaf->kpte;
++	pud_t pud;
+ 
+-	/*
+-	 * PUD: If addr is PUD aligned then addr already describes a leaf
+-	 * boundary. If not present then there is nothing to split. Otherwise,
+-	 * if we have a pud leaf, split to contpmd.
+-	 */
+-	if (ALIGN_DOWN(addr, PUD_SIZE) == addr)
+-		goto out;
+-	pudp = pud_offset(p4dp, addr);
+-	pud = pudp_get(pudp);
+-	if (!pud_present(pud))
+-		goto out;
+-	if (pud_leaf(pud)) {
+-		table = split_pgtable_alloc(PGTABLE_LEVEL_PMD,
+-					    GFP_PGTABLE_KERNEL);
+-		if (!table) {
+-			ret = -ENOMEM;
+-			goto out;
+-		}
+-		split_pud(pudp, pud, table, true);
++	if (leaf->size != pgtable_level_size(level)) {
++		if (level == PGTABLE_LEVEL_PTE)
++			split_contpte(ptep);
++		else
++			split_contpmd(pmdp);
++		return 0;
+ 	}
+ 
+-	/*
+-	 * CONTPMD: If addr is CONTPMD aligned then addr already describes a
+-	 * leaf boundary. If not present then there is nothing to split.
+-	 * Otherwise, if we have a contpmd leaf, split to pmd.
+-	 */
+-	if (ALIGN_DOWN(addr, CONT_PMD_SIZE) == addr)
+-		goto out;
+-	pmdp = pmd_offset(pudp, addr);
+-	pmd = pmdp_get(pmdp);
+-	if (!pmd_present(pmd))
+-		goto out;
+-	if (pmd_leaf(pmd)) {
+-		if (pmd_cont(pmd))
+-			split_contpmd(pmdp);
+-		/*
+-		 * PMD: If addr is PMD aligned then addr already describes a
+-		 * leaf boundary. Otherwise, split to contpte.
+-		 */
+-		if (ALIGN_DOWN(addr, PMD_SIZE) == addr)
+-			goto out;
+-		table = split_pgtable_alloc(PGTABLE_LEVEL_PTE,
+-					    GFP_PGTABLE_KERNEL);
+-		if (!table) {
+-			ret = -ENOMEM;
+-			goto out;
+-		}
+-		split_pmd(pmdp, pmd, table, true);
++	if (level == PGTABLE_LEVEL_PMD) {
++		split_pmd(pmdp, pmdp_get(pmdp), table, to_cont);
++		return 0;
+ 	}
+ 
+-	/*
+-	 * CONTPTE: If addr is CONTPTE aligned then addr already describes a
+-	 * leaf boundary. If not present then there is nothing to split.
+-	 * Otherwise, if we have a contpte leaf, split to pte.
+-	 */
+-	if (ALIGN_DOWN(addr, CONT_PTE_SIZE) == addr)
+-		goto out;
+-	ptep = pte_offset_kernel(pmdp, addr);
+-	pte = __ptep_get(ptep);
+-	if (!pte_present(pte))
+-		goto out;
+-	if (pte_cont(pte))
+-		split_contpte(ptep);
++	pud = pudp_get(pudp);
++	if (level == PGTABLE_LEVEL_PUD && pud_leaf(pud)) {
++		split_pud(pudp, pud, table, to_cont);
++		return 0;
++	}
+ 
+-out:
+-	return ret;
++	return -EINVAL;
+ }
+ 
+ static inline bool force_pte_mapping(void)
+@@ -793,85 +722,17 @@ static inline bool force_pte_mapping(void)
+ 	return rodata_full || arm64_kfence_can_set_direct_map() || is_realm_world();
+ }
+ 
+-static DEFINE_MUTEX(pgtable_split_lock);
+ static bool linear_map_requires_bbml3;
+ 
+-int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
++static void *split_pgtable_alloc(enum pgtable_level level, gfp_t gfp)
+ {
 -	int ret;
 -
--	if (pre_ops != SDW_OPS_PORT_POST_PREP)
+-	/*
+-	 * If the region is within a pte-mapped area, there is no need to try to
+-	 * split. Additionally, CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE may
+-	 * change permissions from atomic context so for those cases (which are
+-	 * always pte-mapped), we must not go any further because taking the
+-	 * mutex below may sleep. Do not call force_pte_mapping() here because
+-	 * it could return a confusing result if called from a secondary cpu
+-	 * prior to finalizing caps. Instead, linear_map_requires_bbml3 gives us
+-	 * what we need.
+-	 */
+-	if (!linear_map_requires_bbml3 || is_kfence_address((void *)start))
 -		return 0;
 -
--	if (!tac_dev->fw_dl_success)
--		return 0;
+-	if (!system_supports_bbml3()) {
+-		/*
+-		 * BBML3 systems should not be trying to change
+-		 * permissions on anything that is not pte-mapped in the first
+-		 * place. Just return early and let the permission change code
+-		 * raise a warning if not already pte-mapped.
+-		 */
+-		if (system_capabilities_finalized())
+-			return 0;
 -
--	ret = regmap_read(tac_dev->regmap, TAC_DSP_ALGO_STATUS, &val);
--	if (ret) {
--		dev_err(dev, "Failed to read algo status: %d\n", ret);
--		return ret;
+-		/*
+-		 * Boot-time: split_kernel_leaf_mapping_locked() allocates from
+-		 * page allocator. Can't split until it's available.
+-		 */
+-		if (WARN_ON(!page_alloc_available))
+-			return -EBUSY;
+-
+-		/*
+-		 * Boot-time: Started secondary cpus but don't know if they
+-		 * support BBML3 yet. Can't allow splitting in this window
+-		 * in case they don't.
+-		 */
+-		if (WARN_ON(num_online_cpus() > 1))
+-			return -EBUSY;
 -	}
 -
--	if (val != TAC_DSP_ALGO_STATUS_RUNNING) {
--		dev_dbg(dev, "Algo not running (0x%02x), re-enabling\n", val);
--		ret = regmap_write(tac_dev->regmap, TAC_DSP_ALGO_STATUS,
--				   TAC_DSP_ALGO_STATUS_RUNNING);
--		if (ret) {
--			dev_err(dev, "Failed to re-enable algo: %d\n", ret);
--			return ret;
--		}
--	}
+-	/*
+-	 * Ensure start and end are at least page-aligned since this is the
+-	 * finest granularity we can split to.
+-	 */
+-	if (start != PAGE_ALIGN(start) || end != PAGE_ALIGN(end))
+-		return -EINVAL;
 -
--	return 0;
--}
--
- static const struct sdw_slave_ops tac_sdw_ops = {
- 	.read_prop = tac5xx2_sdw_read_prop,
- 	.update_status = tac_update_status,
- 	.interrupt_callback = tac_interrupt_callback,
--	.port_prep = tac_port_prep,
- };
+-	mutex_lock(&pgtable_split_lock);
+-	lazy_mmu_mode_enable();
++	phys_addr_t phys;
  
- static s32 tac_sdw_probe(struct sdw_slave *peripheral,
+-	/*
+-	 * The split_kernel_leaf_mapping_locked() may sleep, it is not a
+-	 * problem for ARM64 since ARM64's lazy MMU implementation allows
+-	 * sleeping.
+-	 *
+-	 * Optimize for the common case of splitting out a single page from a
+-	 * larger mapping. Here we can just split on the "least aligned" of
+-	 * start and end and this will guarantee that there must also be a split
+-	 * on the more aligned address since the both addresses must be in the
+-	 * same contpte block and it must have been split to ptes.
+-	 */
+-	if (end - start == PAGE_SIZE) {
+-		start = __ffs(start) < __ffs(end) ? start : end;
+-		ret = split_kernel_leaf_mapping_locked(start);
+-	} else {
+-		ret = split_kernel_leaf_mapping_locked(start);
+-		if (!ret)
+-			ret = split_kernel_leaf_mapping_locked(end);
+-	}
++	phys = pgd_pgtable_alloc_init_mm_gfp(level, gfp);
++	if (phys == INVALID_PHYS_ADDR)
++		return NULL;
+ 
+-	lazy_mmu_mode_disable();
+-	mutex_unlock(&pgtable_split_lock);
+-	return ret;
++	return phys_to_virt(phys);
+ }
+ 
+ static int split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
+@@ -1088,12 +949,6 @@ static void mark_linear_data_alias_valid(bool valid)
+ 		.mask_clr = valid ? invalid_prot : valid_prot,
+ 		.flags = CPA_REQ_NO_CHECK_ALIAS,
+ 	};
+-	int ret;
+-
+-	ret = split_kernel_leaf_mapping(cpa.addr,
+-					cpa.addr + cpa.numpages * PAGE_SIZE);
+-	if (WARN_ON_ONCE(ret))
+-		return;
+ 
+ 	arm64_change_page_attr(&cpa);
+ }
+@@ -1177,8 +1032,11 @@ static void __init arm64_kfence_map_pool(void)
+ 
+ bool arch_kfence_init_pool(void)
+ {
+-	unsigned long start = (unsigned long)__kfence_pool;
+-	unsigned long end = start + KFENCE_POOL_SIZE;
++	struct cpa_data cpa = {
++		.addr = (unsigned long)__kfence_pool,
++		.numpages = KFENCE_POOL_SIZE >> PAGE_SHIFT,
++		.flags = CPA_REQ_SPLIT,
++	};
+ 	int ret;
+ 
+ 	/* Exit early if we know the linear map is already pte-mapped. */
+@@ -1189,9 +1047,7 @@ bool arch_kfence_init_pool(void)
+ 	if (kfence_early_init)
+ 		return true;
+ 
+-	mutex_lock(&pgtable_split_lock);
+-	ret = range_split_to_ptes(start, end, GFP_PGTABLE_KERNEL);
+-	mutex_unlock(&pgtable_split_lock);
++	ret = arm64_change_page_attr(&cpa);
+ 
+ 	/*
+ 	 * Since the system supports bbml3, tlb invalidation is not
+diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+index 14a791b8e645..a2f5266b77b2 100644
+--- a/arch/arm64/mm/pageattr.c
++++ b/arch/arm64/mm/pageattr.c
+@@ -130,7 +130,6 @@ int arch_cpa_process_alias(struct cpa_data *cpa)
+ 	pteval_t prot = pgprot_val(cpa->mask_set) | pgprot_val(cpa->mask_clr);
+ 	unsigned long vaddr = cpa_addr(cpa, cpa->curpage);
+ 	struct cpa_data alias_cpa;
+-	unsigned long alias;
+ 	int ret;
+ 
+ 	if (!rodata_full || !(prot & PTE_RDONLY))
+@@ -140,14 +139,8 @@ int arch_cpa_process_alias(struct cpa_data *cpa)
+ 	if (cpa_is_direct_map(vaddr) || !pfn_valid(cpa->pfn))
+ 		return 0;
+ 
+-	alias = (unsigned long)page_address(pfn_to_page(cpa->pfn));
+-	ret = split_kernel_leaf_mapping(alias,
+-					alias + cpa->numpages * PAGE_SIZE);
+-	if (WARN_ON_ONCE(ret))
+-		return ret;
+-
+ 	alias_cpa = *cpa;
+-	alias_cpa.addr = alias;
++	alias_cpa.addr = (unsigned long)page_address(pfn_to_page(cpa->pfn));
+ 	pgprot_val(alias_cpa.mask_set) &= PTE_RDONLY | PTE_WRITE;
+ 	pgprot_val(alias_cpa.mask_clr) &= PTE_RDONLY | PTE_WRITE;
+ 
+@@ -181,19 +174,11 @@ static const struct cpa_op_prot cpa_ops[CPA_OP_NR] = {
+ 
+ int arch_cpa_prepare(struct cpa_data *cpa, enum cpa_op op)
+ {
+-	unsigned long start = PAGE_ALIGN_DOWN(cpa->addr);
+-	unsigned long end = start + cpa->numpages * PAGE_SIZE;
+-	int ret;
+-
+ 	/* Nothing in the linear map is invalid without can_set_direct_map() */
+ 	if ((op == CPA_OP_DIRECT_MAP_INVALID ||
+ 	     op == CPA_OP_DIRECT_MAP_DEFAULT) && !can_set_direct_map())
+ 		return 0;
+ 
+-	ret = split_kernel_leaf_mapping(start, end);
+-	if (WARN_ON_ONCE(ret))
+-		return ret;
+-
+ 	cpa_init_op(cpa, &cpa_ops[op]);
+ 
+ 	/*
+@@ -297,11 +282,6 @@ static int __change_memory_common(unsigned long start, unsigned long size,
+ 		.mask_clr = clear_mask,
+ 		.flags = CPA_REQ_NO_CHECK_ALIAS,
+ 	};
+-	int ret;
+-
+-	ret = split_kernel_leaf_mapping(start, start + size);
+-	if (WARN_ON_ONCE(ret))
+-		return ret;
+ 
+ 	return arm64_change_page_attr(&cpa);
+ }
+
 -- 
-2.34.1
+2.53.0
 
