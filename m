@@ -1,79 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.63
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795681249;
-	b=125G+3tIli3iltCuTwJS72q0oyiPaUKuZrhTpg98NKHfJixQOEQV2gd6c13kd800BysF
-	 n4IgCtsB21qajGp64FCvBzrPyWYwDIiJw0Hc6V8ti/qyRInMw8MUZbFHfkS631FrhzA7b
-	 BQUwSA+/6x6WCErh/ar4l3eYv/hvieZXnsxuj2M5fMUiHxbU8wj9f7JFLXijz/C/6Vazl
-	 hOgnyR7ZJldyMi1udnxmbwkjR81Z6ob+NpIsMjze60FaMOuTX3dmKrPbCd/w8JfMuBJsr
-	 pvbxBnWVYsKuPQYQoOebAI14MF/HHE/YmP066F0wlOlJp49bZow7QNdIeReLSVQ5iqg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	b=g38fzHFZ33sfcoWIty0+zAUdGKiJ0DOGw9qH2jmik4Ln/MwrKK74wluWPesRXXLURDkX
+	 rfE3fPlwDwqBwt/vnbJ7nPhu+Y1qN7Gdddfo9PF6qhNS/Hw8Kt1g7RJLZ1qE2xxn8PYUo
+	 IQ5cbdOoPpjmhkn0dE3XukUR8x79wjZOaeTUvFyqfDylWrPnh8/M5VO/KaARseo6iiYVa
+	 gjQ+/jJSyJJmGHVO2dNwo1vBTJQ7z3DFHnXeElapOEtjws4g/15JF2nClIKnYS44p8NLw
+	 dILBmRlisubCKSdLdkhtaU1IilvqfDBXl40sgnktSD88fJJoPeHq3GiaQ/Lp/IBc/gQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795681249;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
-	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-ClientProxiedBy;
-	bh=480ULLOLrifBd/vovICYhZKlfz9IIMZeCXmPHfiiLag=;
-	b=xeno+9C7cxT63Q4raXsqLAk3VysLGnJlOlb13qL//wvNxWS+AR9b73Dmgdqk1Rbw+6Pp
-	 VpZlNJHnFQnbBcQd92Rnpr0+/Vxyugn8PuMv4frRSTiZYxGBnL+Oit20DFTkwo86330Sz
-	 IhXuwOYb6s81rqJXXaxKDotVIUCdO1UCzL2gXdFB0tUc0Og8gkovjzXddTPoU6eEQxZc0
-	 fwfhN5XR9qjPaVanzzLjnj8yH4yq5pvEvWPbae8LBDPEb7+cHNo2Q/qfhkZ7BMXAHMY5n
-	 uS+lnWpsW8iHXGbADGNZI7FRPAsLik02yIz0ZjHGLsJS5Wti2Teewg5ESQoqdIg2x3Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=secunet.com;
-	spf=pass smtp.mailfrom=secunet.com;
-	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=JnIWVnot;
-	arc=none smtp.remote-ip=62.96.220.36
-Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Date:Subject:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:
+	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=WBevFF8TA5rvMdGJJPQPZiqCRmy0R5Npc2meGVNszEU=;
+	b=cuoSvB6IsISJdqVyzhOlLDIcNJFkEg2gFz3MPDMxoRxvzGHgGInJgs19sSzQsqW4C6LU
+	 y2GStd169q6KjKSxWTp/sQFsXVHCbIXnKeRSDbzSFuUMh7ibO7kNNgdfeKHE4VEteLcFF
+	 Z5BojbRTG7zaq/DQqIq8FmcV9plgsV6om1O538yfMf0BQ64o4Lg4cijtWGlUzAzYvKNKe
+	 bTXDWJXFMIAjl+2cWjz+IhLOVJjjO1E+93V+awNeOaJQPaHaAVj5cvNSsYRvDUk45MvaS
+	 eVK2/gS7r3Q9Kfj1faU+v0mQOvku/Y0RR4YuBaikxBreISv0HGoZDWa+DMfGtgfRNaA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=sodha8Jt;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.63
+Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010063.outbound.protection.outlook.com [52.101.201.63])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1111B606A6A1;
-	Thu, 26 Nov 2026 08:20:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1111B606A6A1
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81867606A69C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:20:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81867606A69C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=JnIWVnot
-Received: from localhost (localhost [127.0.0.1])
-	by mx1.secunet.com (Postfix) with ESMTP id 2323520764;
-	Thu, 26 Nov 2026 09:20:46 +0100 (CET)
-X-Virus-Scanned: by secunet
-Received: from mx1.secunet.com ([127.0.0.1])
- by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id vFVW2IQNZS1s; Thu, 26 Nov 2026 09:20:45 +0100 (CET)
-Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.secunet.com (Postfix) with ESMTPS id 26DF120728;
-	Thu, 26 Nov 2026 09:20:45 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com 26DF120728
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
-	s=202301; t=1795681245;
-	bh=480ULLOLrifBd/vovICYhZKlfz9IIMZeCXmPHfiiLag=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
-	b=JnIWVnotfwX0C9Q5tXToJSQmDkd84Ki4Ohw+ugwbLkOxHUkPzBi3VgVvYDjHEF3bP
-	 9dVUz32jIfWxImM5HV0aE/Fzz97xn99Oif3VG7I0yKpyATGl0no0y2G0A9uVbJxBXy
-	 OCBzi8dzxvs5NYz+yhVgIchZUc/V8hk3hmaLPsnt/nl4HHk6smKnMZLTXhCNRP58et
-	 cFRI6Vw5U41v5ihvbZnWZpOl3mVzoqDlOri8uqsUmXR0Fl1v536Qq6HVx3xfgdh3hU
-	 0D9bSraRP/GLiUL5jdT4pnCWW/GLMR5hAuoWBXbGR7Lne7rnO23KXniU0T/SJ71CNU
-	 71omklC9FZHPQ==
-Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=sodha8Jt
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tm7euJS13iDuQROcsgLPBkLuU6ZcvUz8Qyov/ShUEPyV8BePj/9Jphq1I1esEN8kXVzghr1c7cTYtjEsuXxKa/OW9hbRyRVsyfHPEUgLG0y46zJCbPFGN8geqyOFCT8QwtmtbWa8XnH/+osDSxBZ57euH6TMJx+1r+8JeRUph9Bj5tRbyrQEwG+eB9fFPlpgLaaV1xwWbEBjMc50EWFOoKzsLgcPilahdxZf7tLcboALZlVVctIcZCoL7u/WKNUl0xrKLd+sxZSELb66Hcman1sYhHxnDliSKym9fDRfSop1M4RpTMRjrHBWX7qThecB68os6FslvfrjVs1EN1sj4g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WBevFF8TA5rvMdGJJPQPZiqCRmy0R5Npc2meGVNszEU=;
+ b=jC4HxK/W1fQ4jFPlg4EsrQotbdMd3i3bbg4PiXZ5n8HFmUhzfdpIgT1e8/o3KaXaTTXfxC3TTmDABudRz3mj7lERitLfT6Zc0/URKSQlOw1HIgl1Y3dyPWvtRCOkorGOHg2oHdH9Rff0WLmvE5dSJgLR10Q8mbN5KAWrOJ9Ohp7rL34A6FnMCsTosUa0Xoucrbz3mwzDZF+0iBcPIyirDgxaxko3bDquhCDYHb8xnpZHKIDqccZHTPo5Y+Syysv6EYQ1Ol3smWjvG7ELO87SvjIhd4gNequ+EaSRGG29V3lwAUG7WHAIrXRIb4HrSR6cCeyDmnGf2UjdKt3/RB+0iQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WBevFF8TA5rvMdGJJPQPZiqCRmy0R5Npc2meGVNszEU=;
+ b=sodha8JtLNFwHF90V3+mcSPN5/l7HKpGSp+9JgFoxbIKC2tqIM/i/mKR3Zn3fcFFzkQUNwYSox9h5WPfOp0lu5Xzr9gdbLe98PyfENOLxLOWFMiq4lWW+XjKIlcaFxyE1ZmL+e+c46POoo6YnhAuJM30hHqaItXVzApF0dQDE6C6ZgH2hgaJa7Qla1f+fYvBIMNvOguWXDNaI8Tr52ag7BuhMc/2g3gwLJKrR6YC8idOLzxK8qs3t9Hbtf5T/M//gFd++rDVTA0qJzXh2em+P4sHKI9OgHJRemMIw8uW2/pKac9r9r1RCA3RhM4CuLSTiKZtSFYGDOM9oBAaZW02WA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB6413.namprd12.prod.outlook.com (2603:10b6:8:ce::10) by
+ LV0PR12MB248855.namprd12.prod.outlook.com (2603:10b6:408:603::17) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Thu, 26 Nov
- 2026 09:20:44 +0100
-Received: (nullmailer pid 1982003 invoked by uid 1000);
-	Thu, 26 Nov 2026 08:20:44 -0000
-Date: Thu, 26 Nov 2026 09:20:44 +0100
-From: Steffen Klassert <steffen.klassert@secunet.com>
-To: Jun Yao <yaojun8558363@gmail.com>
-CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <horms@kernel.org>, <herbert@gondor.apana.org.au>,
-	<dsahern@kernel.org>, <idosch@nvidia.com>, <lkp@intel.com>,
-	<victor@mojatatu.com>
-Subject: Re: [PATCH v2] xfrm: avoid stale tunnel pointers in deferred input
- callbacks
-Message-ID: <awfr3GBxx0WKz0-1@gauss4>
-References: <20261112111946.375692-1-yaojun8558363@gmail.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Thu, 26 Nov
+ 2026 08:20:45 +0000
+Received: from DS0PR12MB6413.namprd12.prod.outlook.com
+ ([fe80::e82a:6673:4142:37fa]) by DS0PR12MB6413.namprd12.prod.outlook.com
+ ([fe80::e82a:6673:4142:37fa%5]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
+ 08:20:45 +0000
+From: Eliot Courtney <ecourtney@nvidia.com>
+Date: Thu, 26 Nov 2026 17:20:11 +0900
+Subject: [PATCH 2/7] gpu: nova-core: gsp: remove unnecessary start of
+ `gsp_falcon`
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-boot-rework2-v1-2-99a1dc6c7cc4@nvidia.com>
+References: <20261126-boot-rework2-v1-0-99a1dc6c7cc4@nvidia.com>
+In-Reply-To: <20261126-boot-rework2-v1-0-99a1dc6c7cc4@nvidia.com>
+To: Danilo Krummrich <dakr@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+ Alexandre Courbot <acourbot@nvidia.com>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>
+Cc: John Hubbard <jhubbard@nvidia.com>, 
+ Alistair Popple <apopple@nvidia.com>, Timur Tabi <ttabi@nvidia.com>, 
+ nova-gpu@lists.linux.dev, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, Eliot Courtney <ecourtney@nvidia.com>
+X-Mailer: b4 0.15.2
+X-ClientProxiedBy: TYCP301CA0048.JPNP301.PROD.OUTLOOK.COM
+ (2603:1096:400:384::17) To DS0PR12MB6413.namprd12.prod.outlook.com
+ (2603:10b6:8:ce::10)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,215 +102,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261112111946.375692-1-yaojun8558363@gmail.com>
-X-ClientProxiedBy: EXCH-02.secunet.de (10.32.0.172) To EXCH-01.secunet.de
- (10.32.0.171)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB6413:EE_|LV0PR12MB248855:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0b9865b3-3dd7-4bad-2122-08df4b962b16
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|1800799024|376014|10070799003|366016|22082099003|18002099003|56012099006|11063799006|261009223027099003|261021123027099003|10067099003|261102123227099003|261022105027099003|261026140227099003|261021121427099003|261028144727099003;
+X-Microsoft-Antispam-Message-Info:
+	in1GlTCsSLN5qry54mPAEdhFtxXc2dmOfSlWS5SHYMAa1E8cqMBgUdj/xJ5cCagAf7eqBXJzVmsGmSfFajgieW2lUyiJLOWGLoECe880KFJUmaGO2a+7p3KSSixOozpQ+PfN0W1IpRTjWr6t/uVeLyVAj9rHPkM89FJRfylEElAMlMiKD77+4DLWhmANLZ0Hrl5TflSITU+AGFYagj/HkKBn8MylkFtUQznaRlTqSWbhwEkKCRvYl5ERKAqMbu+oitOPLYuxDalQUEINLlofe2B58dYklZ/jv4jt3zcjnPMNSoWZY1atDK0aO4N5gcHuvNuFK8FPXivIlkpY4nnQT/lN7OWeRQYdC00oGSsorkRYaeT+12Ke+iLzriHwBvLAOBQPuURicsEPbBZTL1554veGXtaPwTsiLHhX5be0+VHef2FTQlGyTK51E2/EOBN9mzHzk9mVYCraRrzGSHwCH6M9h/UYBEGkhpaPL6yFP7buQn0NwZIGvUHjM3aJmA2F6z3Q2kTsffMnDDd1+uWlcff8qp2MdsYGq4JqLDdxoqejjcw/SKU00+IoM/madP0W2c0/R4hRLVAgsy5HFCoaOhBwJQbJCthydF/PHmhlR5K2D6vmDwCMiuWU2AT9ifGBTbGpBuNi/BJaKggfUzph9ml5Y6m611s9pE91TBOxzAY=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB6413.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(10070799003)(366016)(22082099003)(18002099003)(56012099006)(11063799006)(261009223027099003)(261021123027099003)(10067099003)(261102123227099003)(261022105027099003)(261026140227099003)(261021121427099003)(261028144727099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?Y1ZaVGV6ZjVzekFJUWhYNkZqK2RWa08rREN0c3dPTm9McHJ0cEpmV0FWa2dW?=
+ =?utf-8?B?dkNzYmU4TW9mVUNKcUtLOXBzbkc2cW1PMmRsMXphcWxYN1Z6cDNHdUJLbytQ?=
+ =?utf-8?B?VDhXRFRTYmhwdmZwUkRORlJiV2E3dXpRZktpbklpeTdONGJ3MUNvRFBhUGpD?=
+ =?utf-8?B?bnBDRThTOXdCREhSL2JlVEQrRmNSUFZkUndFYWpNUFpYVUdpcGVIVVlnbThS?=
+ =?utf-8?B?UWxHRFVLdks3YUlCK2FGN3RtYmxLcy91ZEJwQ3FWMGdNYXRFL0ZCZnkwZ2Jr?=
+ =?utf-8?B?Qnk1SFl6T1F6elUrYXpaY045YlB2Ui9wazZoKzhDTEM3Wk42dExFTmlwb0Jv?=
+ =?utf-8?B?Uzk1OEhCbjhLSThoNW9hUkxaS1ZWZ1V3N1d6YjhoNXUvSUg4RWdCOTQ3NWxS?=
+ =?utf-8?B?TzVqMlVPZDJmNmtXelIwUHhVWFJVUHVnVGdhS2oxSFlEOWRyM2tVeURsWUZy?=
+ =?utf-8?B?aFZJMUR5aSsyd0ZKbVVMOG1wU01WMFZNVGl3M2x6Rm1TS1k2dmZGMmtkWWdN?=
+ =?utf-8?B?UlNZSndwVy9JNzVpditRQXN3QSt6SWxGYXhUaktyUWpENUkrRDFLQ0FsaVZT?=
+ =?utf-8?B?Qno0bnBzaTdzOVNZSUQxbDlsVldyUmF4NFNkc0p4Vk5FWjUwUjRHL3k4YWNp?=
+ =?utf-8?B?ZlBsdWdSRnZkRHFpWFgzQW5Sbk4yTWRpc3pkMi9LUXA0V0FhL1BqMFU2b0Jq?=
+ =?utf-8?B?RWVDdlg5UGwrU0N5MVh1ZFlCcWh4SEh0b2I0MHl3RnJqaW4vUlRleFp6VDB5?=
+ =?utf-8?B?M29mR0RvM3V2K1JVZGVnYXphVy9DWExaUHhrVG9aNkw0MGN1OTI0aFRRS3lq?=
+ =?utf-8?B?QmdqeEUveEJscVRMRG9XYkd5SnphUEFXMXAyeEpBZXROU2RoeUlsVndZc3Fm?=
+ =?utf-8?B?TEVyZG9ydVN4WkE4VmgyREhzbWNKU3puaE9vWjh5NVhrZHVNUnZOa25aQWVv?=
+ =?utf-8?B?OFNqVk1JcWFXL25NVGVQQVBVcFhLOThvQ3h5MzA3blB6aFVCamRMc3ZMcHho?=
+ =?utf-8?B?bmNuL2swRDhTcVhDQ1NWcEpwNGVOUXdsTXFPOStGV210OWxtQ05IdlBOSDE4?=
+ =?utf-8?B?TlhzaGM5SU9qSXlRU3BMTExyaXFmejhFTjlWN2w5K1Z1cjhUaE83aDJEMThl?=
+ =?utf-8?B?cHJaMVY5emlubjFXdGZjL3F4LythOG5QL0k1Ly9zZ1NJYnY4bVNtaUdkNXVN?=
+ =?utf-8?B?Vit2VWFEclpjMHJncFE2SW1nZVNtMTM3OFVpZjBET096eTVFMzIyY0l1V0hB?=
+ =?utf-8?B?WlNwdm91V2p2eUZkcW55Slp4cjVtVUV1L0gyeWE1S3U1K2xpOFhtS0F2NUQx?=
+ =?utf-8?B?eEdCQ2FvdjgzNUd2cGlQUit2Qzd3WUhudktYbDFXVC9YRGxNZWdlczF0ajNO?=
+ =?utf-8?B?czh2WEZmM0RUVU0xcTY2VzhYRDRsNDg5V3NGajVnd3BGUkQ5N0I5WjdwdEZq?=
+ =?utf-8?B?Sy9qWEFheW5ZTmhXMGJTcEt0WHVLVW0yQndhS3o3dDNtUEowZURESk81ZjJn?=
+ =?utf-8?B?ZzR4RTF1Qjk4cWVRbGlrNS8zL0VuL09GQU9DUU5ZNTI1Z1JLcWorRFQrcHdR?=
+ =?utf-8?B?bTVjYTExNGNHR1A4eHFVVEtMQnBGU3N3aWg1Wmp5TFZqMVhBNkhpSGUzU1Bw?=
+ =?utf-8?B?MU14bTZjVXhRaVhOdmxXNGZiSjFJRzBNRmVSVFB6dzljdW9CNW5vMkladGVD?=
+ =?utf-8?B?MzVUUW5YWU11VnI1UWJWazFxdmRhRndIaTV1b2wzRmU3MVBCS3FKUk8reU1T?=
+ =?utf-8?B?elZUVm5PNUl6NTIzSEU2SyszUVc1ci9MSnBCeXJpa2IrZTlMcU01MU4vcG5y?=
+ =?utf-8?B?N21NcTY5aEFtSzZKVnpvSGI5N2JYd2Q2emtVaEJEcWxKVUMvT1kzc0N1OXZ3?=
+ =?utf-8?B?cGxpZ2NSNzRIdFR0Z0lZTWJGeEhTaEV3ZzV3RUlXY2gyKzZUeTd2YU83TjFu?=
+ =?utf-8?B?VXBBM3dIN1cxNk9CV3lORnc5NWkvRkhka1ZZbFlMUURFcTFUWWZOZjdwUWkz?=
+ =?utf-8?B?R1ZTZ3pFV2h5cnpKanhES21MS0tVUVBzREludWZpcDR5V2VsWmhEZ2d1SHNU?=
+ =?utf-8?B?TG9zTjU4UElaRW94TXlYd085M2FDU2cyanczMFowdmhQVnVFUCtBclhUSEpp?=
+ =?utf-8?B?RTlYNXpxMGdRdWhONXpDOExpVXJjQTcwS2Z5MVpvSEk4NVd4eGdUTlFCeEYv?=
+ =?utf-8?B?VFNqY0ExTnJ0VEhJTkk1OVBlOGxxc3grUHNJSjg3SjljUG8wL3pmaC9OZDl3?=
+ =?utf-8?B?UFRERFo2dUxsMnZ4TG9tOTczTEM0RW9hYlJZV3NSWHU5bE91UjVDQlIzQllt?=
+ =?utf-8?B?TVI4RkFnNUJMTkxCZmZxM014eSt2b2tPMlhteFhmelpxM2dEaWtDeURJa3VZ?=
+ =?utf-8?Q?IniHCWBTAgzqT1qA32VE0bEDsrSZIaVmZCBmJdUQ/hOWN?=
+X-MS-Exchange-AntiSpam-MessageData-1: CkUQZASyP8KOZQ==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0b9865b3-3dd7-4bad-2122-08df4b962b16
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB6413.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 08:20:45.1401
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8upOLX2Onb7ThciQM3kuSJ1YUzaULlfN7oO+tRY14Ek46pAnwO/dzmLhPMrY3949lhi5HAvpYnY0FMaS0ugXjw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV0PR12MB248855
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
+At this point we just need to write in the DMA address of libos and that
+is sufficient for boot. Remove the unnecessary call to `boot`.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
+Signed-off-by: Eliot Courtney <ecourtney@nvidia.com>
 ---
-Author: Jun Yao <yaojun8558363@gmail.com>
+ drivers/gpu/nova-core/gsp/hal/tu102.rs | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-> xfrm: avoid stale tunnel pointers in deferred input callbacks
->
-> IP-TFS input can be deferred while its reordering queue waits for a missing
-> sequence number. The VTI receive callback stores a pointer to the tunnel in
-> skb->cb, and the device can be removed and freed before the callback runs.
->
-> The issue was discovered by Qihoo 360's Tulongfeng multi-agent system.
->
-> This IPv4 VTI use-after-free was reproduced on Linux 7.4-rc2 in an x86-64
-> QEMU guest. When the IP-TFS reorder timer resumes input after VTI deletion,
-> KASAN reports an 8-byte read from freed memory in vti_rcv_cb(). Relevant
-> parts of the report are:
->
->   BUG: KASAN: slab-use-after-free in vti_rcv_cb+0x696/0x770
->   Read of size 8 at addr ffff88810eae4b58 by task swapper/3/0
->   Call Trace:
->    [...]
->    vti_rcv_cb+0x696/0x770
->    xfrm4_rcv_cb+0xa6/0x110
->    xfrm_rcv_cb+0xca/0x140
->    xfrm_input+0x11eb/0x6660
->    __input_process_payload+0xb87/0x24c0
->    iptfs_input_ordered+0x560/0x8e0
->    iptfs_drop_timer+0x464/0x8e0
->    __hrtimer_run_queues+0x270/0x600
->    hrtimer_run_softirq+0x14b/0x270
->    [...]
->
->   Freed by task 394:
->    [...]
->    kfree+0x23c/0x490
->    kvfree+0x31/0x40
->    netdev_release+0x6d/0x90
->    device_release+0xce/0x250
->    kobject_put+0x18d/0x4f0
->    netdev_run_todo+0x724/0x1360
->    rtnl_dellink+0x401/0x1020
->    [...]
->
-> Keep only scalar tunnel metadata in an skb extension. The VTI callbacks
-> look up the device by ifindex under RCU and check its link configuration
-> before using its private data. If the VTI no longer exists, drop the
-> deferred packet. Use the same metadata to preserve tunnel mark handling
-> and IPv6 tunnel detection, and clear it when a new XFRM receive path starts
-> and after the callback completes.
->
-> Guard the skb extension accesses with CONFIG_XFRM and provide no-op or
-> NULL-returning helpers when it is disabled, since xfrm.h is also included
-> by code built without XFRM support.
->
-> Signed-off-by: Jun Yao <yaojun8558363@gmail.com>
+diff --git a/drivers/gpu/nova-core/gsp/hal/tu102.rs b/drivers/gpu/nova-core/gsp/hal/tu102.rs
+index e90db1a23032..2139279d40c4 100644
+--- a/drivers/gpu/nova-core/gsp/hal/tu102.rs
++++ b/drivers/gpu/nova-core/gsp/hal/tu102.rs
+@@ -294,11 +294,10 @@ fn boot<'gpu>(
+ 
+         gsp_falcon.reset()?;
+         let libos_dma_address = gsp.libos.dma_address();
+-        let (mbox0, mbox1) = gsp_falcon.boot(
++        gsp_falcon.write_mailboxes(
+             Some(libos_dma_address as u32),
+             Some((libos_dma_address >> 32) as u32),
+-        )?;
+-        dev_dbg!(dev, "GSP MBOX0: {:#x}, MBOX1: {:#x}\n", mbox0, mbox1);
++        );
+ 
+         dev_dbg!(
+             dev,
 
-Should this bug fix include a Fixes tag for the commit that introduced
-the tunnel pointer in skb->cb:
+-- 
+2.56.1
 
-  Fixes: 70be6c91c865 ("xfrm: Add xfrm_tunnel_skb_cb to the skb common buffer")
-
-[ ... ]
-
-> diff --git a/net/ipv4/ip_vti.c b/net/ipv4/ip_vti.c
-> index c4f14d42df248..3594254df9de9 100644
-> --- a/net/ipv4/ip_vti.c
-> +++ b/net/ipv4/ip_vti.c
-> @@ -58,10 +58,25 @@ static int vti_input(struct sk_buff *skb, int nexthdr, __be32 spi,
->  	tunnel = ip_tunnel_lookup(itn, skb->dev->ifindex, flags,
->  				  iph->saddr, iph->daddr, 0);
->  	if (tunnel) {
-> +		struct xfrm_tunnel_info *info;
-> +
->  		if (!xfrm4_policy_check(NULL, XFRM_POLICY_IN, skb))
->  			goto drop;
->
-> -		XFRM_TUNNEL_SKB_CB(skb)->tunnel.ip4 = tunnel;
-> +		info = xfrm_tunnel_info_add(skb);
-> +		if (!info)
-> +			goto drop;
-> +
-> +		*info = (struct xfrm_tunnel_info) {
-> +			.ifindex = tunnel->dev->ifindex,
-> +			.i_key = tunnel->parms.i_key,
-> +			.type = XFRM_TUNNEL_INFO_VTI4,
-> +			.ip4 = {
-> +				.link = tunnel->parms.link,
-> +				.saddr = tunnel->parms.iph.saddr,
-> +				.daddr = tunnel->parms.iph.daddr,
-> +			},
-> +		};
->
->  		if (update_skb_dev)
->  			skb->dev = tunnel->dev;
-> @@ -96,18 +111,28 @@ static int vti_rcv_proto(struct sk_buff *skb)
->
->  static int vti_rcv_cb(struct sk_buff *skb, int err)
->  {
-> +	const struct xfrm_tunnel_info *info = xfrm_tunnel_info(skb);
->  	unsigned short family;
->  	struct net_device *dev;
->  	struct xfrm_state *x;
->  	const struct xfrm_mode *inner_mode;
-> -	struct ip_tunnel *tunnel = XFRM_TUNNEL_SKB_CB(skb)->tunnel.ip4;
-> +	struct ip_tunnel *tunnel;
->  	u32 orig_mark = skb->mark;
->  	int ret;
->
-> -	if (!tunnel)
-> +	if (!info || info->type != XFRM_TUNNEL_INFO_VTI4)
->  		return 1;
->
-> -	dev = tunnel->dev;
-> +	dev = dev_get_by_index_rcu(dev_net(skb->dev), info->ifindex);
-
-Does looking up info->ifindex in dev_net(skb->dev) break cross-netns VTI
-and VTI6 tunnels in vti_rcv_cb() and vti6_rcv_cb()?
-
-When a VTI or VTI6 interface is created in or moved to a different network
-namespace from its underlay link netns (tunnel->net != dev_net(tunnel->dev),
-which skb_scrub_packet() at the end of vti_rcv_cb() and vti6_rcv_cb()
-handles), vti_input() is called with update_skb_dev = false, so skb->dev
-is still the underlay ingress device in tunnel->net when the callback runs.
-Looking up tunnel->dev->ifindex in dev_net(skb->dev) searches the underlay
-namespace instead of the overlay namespace where tunnel->dev is registered,
-dropping all inbound packets with -ENODEV (or matching an unrelated VTI
-device with the same ifindex and parameters in the underlay netns).
-
-> +	if (!dev || dev->rtnl_link_ops != &vti_link_ops)
-> +		return err ? 1 : -ENODEV;
-> +
-> +	tunnel = netdev_priv(dev);
-> +	if (tunnel->parms.i_key != info->i_key ||
-> +	    tunnel->parms.link != info->ip4.link ||
-> +	    tunnel->parms.iph.saddr != info->ip4.saddr ||
-> +	    tunnel->parms.iph.daddr != info->ip4.daddr)
-> +		return err ? 1 : -ENODEV;
-
-Should vti_rcv_cb() and vti6_rcv_cb() return 0 rather than 1 when err != 0
-and the tunnel device is gone or reconfigured?
-
-In xfrm4_rcv_cb() and xfrm6_rcv_cb(), cb_handler callbacks run in priority
-order until one returns <= 0; returning 1 means the packet was not claimed
-by this protocol handler.  Here info->type already shows VTI claimed the
-packet on input, and when vti_rcv_cb(skb, 0) returns -ENODEV, xfrm_input()
-jumps to drop: and calls xfrm_rcv_cb(skb, family, xfrm_proto, -1).
-Returning 1 on that second call lets xfrm4_rcv_cb() continue to
-lower-priority handlers such as xfrmi_rcv_cb(), which can match an xfrmi
-interface and increment rx_errors and rx_dropped on that unrelated device.
-
-[ ... ]
-
-> diff --git a/net/ipv6/ip6_vti.c b/net/ipv6/ip6_vti.c
-> index c790278391519..6cf40b0009845 100644
-> --- a/net/ipv6/ip6_vti.c
-> +++ b/net/ipv6/ip6_vti.c
-
-[ ... ]
-
-> @@ -342,18 +361,29 @@ static int vti6_rcv(struct sk_buff *skb)
->
->  static int vti6_rcv_cb(struct sk_buff *skb, int err)
->  {
-> +	const struct xfrm_tunnel_info *info = xfrm_tunnel_info(skb);
->  	unsigned short family;
->  	struct net_device *dev;
->  	struct xfrm_state *x;
->  	const struct xfrm_mode *inner_mode;
-> -	struct ip6_tnl *t = XFRM_TUNNEL_SKB_CB(skb)->tunnel.ip6;
-> +	struct ip6_tnl *t;
->  	u32 orig_mark = skb->mark;
->  	int ret;
->
-> -	if (!t)
-> +	if (!info || info->type != XFRM_TUNNEL_INFO_VTI6)
->  		return 1;
->
-> -	dev = t->dev;
-> +	dev = dev_get_by_index_rcu(dev_net(skb->dev), info->ifindex);
-
-Can dereferencing skb->dev via dev_net(skb->dev) before checking err cause
-a use-after-free in vti_rcv_cb() and vti6_rcv_cb()?
-
-When asynchronous crypto resumes in xfrm_input() via xfrm_input_resume()
-(encap_type == -1, async = 1) and later fails, the drop path releases the
-reference on skb->dev before running xfrm_rcv_cb():
-
-net/xfrm/xfrm_input.c:xfrm_input() {
-    ...
-drop:
-	if (async)
-		dev_put(dev);
-	xfrm_rcv_cb(skb, family, xfrm_proto, -1);
-	kfree_skb(skb);
-	return 0;
-}
-
-Previously, vti_rcv_cb() and vti6_rcv_cb() checked if (err) before touching
-skb->dev.  If the ingress device was unregistered while async crypto was in
-flight, dev_put(dev) can drop its last reference and allow netdev_run_todo()
-to free skb->dev before vti_rcv_cb() or vti6_rcv_cb() reads
-dev_net(skb->dev).
