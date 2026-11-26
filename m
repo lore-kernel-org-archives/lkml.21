@@ -1,55 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705302;
-	b=dDzPv2qLD5lHEoymeOePiob34hxZOVh8vmiLKAVisigNK3+K5I0oUOUZy7gaONrDKDnj
-	 p8HHz2w3PXMAiG21GwogRzhesT+obT1FLI9CN2OQdbzsFgko1fSJ1QfSxCEKXTTzZ/6T+
-	 jebaPKevJpGpiU+2CEkwMM4vLnIypLIHimGC8WxKdWve50Nd9zES/lXXt3pMmel3j/sBU
-	 4CzaiF11xpWrIOqsg7JMgB8zBFT6cnRYVg+jcoJ6ZufVJwLMy+3phPLjm6H7PMCdbNSON
-	 RgQm9qRpMojEDbKyp/AD+a/9EiaUd9hq1Ui4zKRyOq0TaPNzN1WCUJns1qORGuc6vww==
+	t=1795705307;
+	b=Cp2itRnASeOZIzynby6lZtx+TR5nDIQtIFzVLtzbwD9TLMch5n1HpzZ66LQsZuFzhljj
+	 6CHTfkNXx7LHHjQDz2pkpex9oddQ2luxtOsRlklh4kIA1/o+PRL1RUccxnqNaQITYWIAr
+	 FMS/T+gPVldLPBO+u/tewZFJBGLKtMz4S+c3BcvKn6hGnrztJAbYWpOECP0jLuA1lDww2
+	 fwwPD3RcFq7eJKgX3x+HbqmFoGP9Dv9160TA0X/Vnkl0ww8CZYDgXoyJtVN8RkMCC/aOO
+	 A9NwO5ketPE+zuAMC94j42IlrPBgfnQCAXmNc06oKvOTtStqOtmstBxBMz0I9c/D5Ew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705302;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=+4nWIKPEPbVU+/d8v2r18grz0OisG3omtzIuS+nUgBo=;
-	b=0tPHnbZiqr8DHOgK8D/QI7jdR0Y/UK8R5cTUSlLuXIodsD09HrAtzxZMWSvr1JAQcE1d
-	 XW4luZuRUlL4e11uEnMXTE/v8I8Rg3psj8jKoTPe4NMDUisEDF4fxICjQbpgapY5PhrGe
-	 q2pXi77VxE3FJ+L929n5wG6EM2iV81QPCcGOH0VGasTabu9cmdCOM2I3kNCO58R8IFmV8
-	 dkR+sgbETjreEP7IThTVZEjC1z1VZRIn3njjfAbj8qdOrL45WCQ1i+5lT1Q4XI4jn1aLZ
-	 rvSyKTarZ6/YI7sqgPGzA8+e/X6DIE10tmKK+ALxfbzEVwXI9llbB6ZhZPQM0gYgUfQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705307;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=BCBvJWUUzh4EABV/c2ZfxvfD28hjPtQ33YkZR/isC78=;
+	b=Cyiq2raUnSUK2U3jPeIlwWlYHK2nvbJP8jvGepjMgnIJ+uAkwdMnExxGSjfOwypi13HX
+	 /83+QZrLjCJi9UwyTLhRFiI/eMUzW1R/yjNtRnb7dFN3Sq/GgcNXQ6nzwprCe7orutYGY
+	 fsDyz1mobQJpbzVNCbX6mHT8CB2++T841AF01eHsL3wC+O2p18jdToHFkL7qetcqLxIeF
+	 ZqP7/NPgfiRAQHCeQ4aMzW4UONWMJTdjUSo8IZZZuZiy02M6JVJO8PqtJWrrajGkxlu9l
+	 2XAeW8bNxIxn08Mch2fPU+pR5uWiRzzr3sxO0fg8VsXp44buUhknqpubbTSUFzzuRsA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q5bpqt6J;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=lWclrFBy;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=cM1leVt6;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1EE3B606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:01:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 764B2606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:01:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 764B2606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q5bpqt6J
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC2261F000C4
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:01:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795705301;
-	bh=+4nWIKPEPbVU+/d8v2r18grz0OisG3omtzIuS+nUgBo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Q5bpqt6JrbN7V/hyYHRABYZ0hr2lTw2p4JIRvllEXeG1YWrtYWHTh22afjysq5tcB
-	 SFR7FLbBEWxIhQ3n4+X3z9VnePwpPJrIUMvn0DgO+WbMQCUKDYUNBaUYZXDns+CnqN
-	 XF2jPuJf/Pro/qZ1FiyhEHElx79epjw5yTvRq64MvxJNLLEJcVYZ6c6O2Hoe+j2/Qc
-	 oymTkZT6zRdR6N4hFnGdr/aV+VB4Yr1prRYDAP4r6nYmW+3ssyJtocnBQXi6G8UX8y
-	 gK7RY50KrWIO8NjwqOpDhtuDO1co1miAZ19MNoqP/FJXc6vM3tq+CGefrz2EYbznTn
-	 kPaTK9E/mRjCA==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5be4b61fd3dso6350643e87.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:01:41 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErEHRK+tZ5Je/dvtDq+xh7Bcs3HsU9+TMx0BynjDZ8M6JFWFatVpNKmNptwcaBi3wjvVBUDgdqKQwB/G5Dc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/HF1hyaKL0eX+KpA1mGYViMZoeQl9oUHxRjEbdX9oHZcskEafO
-	RXIfGoci1FmqUfJu6o+FZyJTcnS0yO43RvO5DLudKBBklImih2G8bTe8BQAsgvLzWt+bjDgKZWQ
-	OPG48Y46gLLJKp6isgRXkheqozu6Lnq0=
-X-Received: by 2002:a05:6512:6ce:b0:5c1:4f8a:8f5 with SMTP id
- 2adb3069b0e04-5c1bc817e5cmr5687419e87.25.1795705300282; Thu, 26 Nov 2026
- 07:01:40 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=lWclrFBy;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=cM1leVt6
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQEV5hm3664840
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:01:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	BCBvJWUUzh4EABV/c2ZfxvfD28hjPtQ33YkZR/isC78=; b=lWclrFBylEkYJmnz
+	uQqsbH3qxDtNpVUljF7B2i5IowP3/Oz5hHlLqH2U8Iyjwo1ACDZJplStp2qvZkyY
+	zBA9II2Mz9JjOZQGYlv+5Z6DuuuBpaanwklVZ6x7e/++ESCfR1/Laypp6cMYICX3
+	ajwQ4hQXebB8lLxGlADQnuWmKjmzAsREYHp7ecQW79cKIGkSlndiYEFMaDmRicVL
+	TcqeI8UcjjWNIoTakZqg3iJTrQlVoIjWRbaXZ1A0PAZhogBCX9AOnz902WUl8VWR
+	Lk46w7/BeCv5eKvATozGYNgNfetjve280PVTyMjT7zXWV1v2iZX+NFXNEPOAy4cn
+	VJvQ2g==
+Received: from mail-vk1-f198.google.com (mail-vk1-f198.google.com [209.85.221.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6h7g9dhc-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:01:45 +0000 (GMT)
+Received: by mail-vk1-f198.google.com with SMTP id 71dfb90a1353d-5eaab6f56c7so362171e0c.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:01:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795705305; x=1796310105; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BCBvJWUUzh4EABV/c2ZfxvfD28hjPtQ33YkZR/isC78=;
+        b=cM1leVt61HZ4VV3DoLtiB+baFd/YUABW7QazNIaiArAaQ12dDZTeKtStL2UqwY7OH5
+         GDIz58YvKpRoumvSKRj83IRoMyrKu/GaGlU8isWOKnYkBWRb2VM6214/Kjm098/HrBlC
+         77pLAdxoQMPdVFzpnf9SXpXfvP6MqkRF54aT0bFB0kFYM+GPbHJCBwK5aMip/VqpQkDv
+         vW8CUEysjNEumNq4Ub5qRrt0UCVn72HCCUZVd39zntCSewwXIKpnvVik/wQ6L8Kq5MhM
+         C6pB94yj4otSTSLr8+jnpXssGPM9UDi58RUDSc76x9B5cHst0vJurOEOBIlts0UTmxgp
+         EbPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795705305; x=1796310105;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BCBvJWUUzh4EABV/c2ZfxvfD28hjPtQ33YkZR/isC78=;
+        b=rWsp0WGsBw2c51hEF+EtWkUCatT4YdXXfK/glT8eFbsNtnRKIWoxTK2kcDmnnKD1uS
+         J070geFViICeXeQEDwVmRaUpq7nQEG8lsqxQMK1IWNVOVsIJ/2g/sDp8Xnny+RYzI/tq
+         sh9a04JNHHe1geu3pBptPGLSz6gcvJFhdBPg1R9mKXjwBRBYnM6NbtKiPpiFnKqaA5Lq
+         fbmk2sw4bleEZQl5Nav+5V1SQnMADyHhwrYXXaUSjQNBZJZHPBmhF/roq5g4qj1cy0mY
+         XXim+Ltoqn3Or0x7CKQ9splev6SUrTjKJ+Zl7dix3QR+3KmJ9MthLjK5q4Q9kZK9O9wQ
+         qFxQ==
+X-Forwarded-Encrypted: i=1; AL+hErH0dQHuzdvLKCwN3NZ4sUOqmNm7MxWZQohQROrfVv06lzZmSLQZB9iwQALrycHmsw5NF3nDdzXZC/kOsFY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/409vPy6LYzfDxQ1i0D9RtLol70A9HVVV/BCa+/abbxCXXOE7p
+	pytcWxpnQ6LV3DvON4HNkPTby+cM9EkPW2DXB2zEKrX29flMcjFIIIuZpYq2ApiHPnOnGIR88Ap
+	j1s4ePKBFP1oL5mYMMeetsXzu/apPqsPjC0xRIPzcPaXew8fJ8oSUKIsdfgkXViMAFGk=
+X-Gm-Gg: AZFdTZeWHK4iGzB9dunJm163wW2wQWleAljHbz9ir0/ZgsdVr5BB1QcFUA/nRbLHRbD
+	Zh04g5TkzLHVWbIwfYjegEbKnFyG65N3g29kENU5QNsSkhBCxDccxZHYwr+8svDTpe8bcl6fbmj
+	X/U/2RyDDEbWdr9IfCX3W075GK1MHcUlaSsjj0RuVDABJAm58Y3hizmMDowu/4HNJpqNEYJk+LU
+	LftZVMJ1HK6liwIn1aCg3eSra2+hR+GeEZEuZR6LOMGuS2IcO3K6C0VP3mWgbwuQ6au177Fir77
+	1+XMrV52kxXGwOA7lJMAhO4RpbpLxevFLp2FVXUmxnG7GoPYjaJp2qVc9apgGmP5ZaSZ0IAysry
+	Lm1RaKZ63GWarQkyDisoWfv1z7jH6GNqqOiFWorEOP0dFQrTFrjgx0KkrdV3pqfSLCsH5FCU=
+X-Received: by 2002:a05:6122:264d:b0:5e6:589b:eeec with SMTP id 71dfb90a1353d-5ee8af4a6c4mr13275377e0c.5.1795705304728;
+        Thu, 26 Nov 2026 07:01:44 -0800 (PST)
+X-Received: by 2002:a05:6122:264d:b0:5e6:589b:eeec with SMTP id 71dfb90a1353d-5ee8af4a6c4mr13275286e0c.5.1795705304183;
+        Thu, 26 Nov 2026 07:01:44 -0800 (PST)
+Received: from [192.168.226.72] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513acff65bsm790932366b.4.2026.11.26.07.01.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 07:01:43 -0800 (PST)
+Message-ID: <00422583-53fb-47a7-bcfc-f517b84283c2@oss.qualcomm.com>
+Date: Thu, 26 Nov 2026 16:01:39 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,157 +115,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261124-ssd-fix-v1-1-ee8ef43190b1@beagleboard.org>
- <CAJZ5v0hVX0vQ3oy_jiSAqERc4tmTZECFbsGfRi3=3Gz1Q2+H1w@mail.gmail.com> <8733sniquk.fsf@beagleboard.org>
-In-Reply-To: <8733sniquk.fsf@beagleboard.org>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Thu, 26 Nov 2026 16:01:27 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0iXaM6+_unQ5U7y5j2z_woPpQjQ13tOTb-RZHep7hJf-A@mail.gmail.com>
-X-Gm-Features: Aa3M54ovbQoVx0vdv95m6-nR230cjM7J8TmAxyLzsAQ0eFRknmhCdYXN5IBOflU
-Message-ID: <CAJZ5v0iXaM6+_unQ5U7y5j2z_woPpQjQ13tOTb-RZHep7hJf-A@mail.gmail.com>
-Subject: Re: [PATCH] ACPI: power: Add serialize_power_on_quirk
-To: Ayush Singh <ayush@beagleboard.org>
-Cc: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 06/11] drm/msm/dpu: Fix DSI tear interrupts broken by
+ adding INTF_9 and INTF_10
+To: Nabige Aala <nabige.aala@oss.qualcomm.com>, Vinod Koul
+ <vkoul@kernel.org>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov
+ <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Kuogee Hsieh <quic_khsieh@quicinc.com>,
+        Shawn Guo <shengchao.guo@oss.qualcomm.com>
+Cc: Ritesh Kumar <ritesh.kumar@oss.qualcomm.com>,
+        Mahadevan P <mahadevan.p@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org
+References: <20261116-nord-drv-dt-v3-0-e3d3bf0e2c49@oss.qualcomm.com>
+ <20261116-nord-drv-dt-v3-6-e3d3bf0e2c49@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20261116-nord-drv-dt-v3-6-e3d3bf0e2c49@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: s3BcVYFv_ZGMXwsDVe88EQ-MY9mgFYOl
+X-Proofpoint-GUID: s3BcVYFv_ZGMXwsDVe88EQ-MY9mgFYOl
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA1OCBTYWx0ZWRfX69fvX8n8M9TO
+ VrOJSOXNQSDaoEe5hhfe63xADOU5IAkEp4WeIOrDSpniPZED4nYYsm4tvW2+9jkvk8XExhEG4FK
+ kGQLk4x1maFXEWpi0yaZViojdSH6iKAMKr6UPph2mT1DSj9p+uQtusDrdFgFsAa+MfjSoYN2z2c
+ /BFweXS+69KGkF5eUaAP9pZyD1n7MKSVzuUK3udaV4hskRsOgplJkmTz3diSx68LIhGp47oIK3U
+ avsDBO48UK1YsFbHTfa2q4sD4Pz/HbqTY44/aGHeLjM9TJki5PmDgY901C8Rx+Rt6uGxyDBflrn
+ 7xjiL/tN8AGwb0Lu7hDChVOfmw5YnqMszlmBPQQSwovLUx/2xdgNbbpM1cuIb5Quy4C6gYJ7rwg
+ x6nWaARBT8vMwrqZPlqrMKX8am10IwClplwLRLE/sxDsmN9SwT23nyXQ5qcX9e1G5wwZwlEHXpm
+ uJAkVvaWWUkIG9YYubg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA1OCBTYWx0ZWRfX/ZeqLBR+Und5
+ TFmWBoU9tmJdXWugGjUJQuq/dTj1f/mqkI6v3yr+3im5fYX5rmYmp8Y+hLxHDuGeZ5zPxpmLNfZ
+ RXv9rzIigXh327/8D44hMxcGXqkG95k=
+X-Authority-Analysis: v=2.4 cv=L4GI0OT8 c=1 sm=1 tr=0 ts=6b0849d9 cx=c_pps
+ a=1Os3MKEOqt8YzSjcPV0cFA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=EUspDBNiAAAA:8 a=-NiRQLekuLvWmI5UBGoA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=hhpmQAJR8DioWGSBphRh:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_03,2026-11-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 bulkscore=0 suspectscore=0 malwarescore=0 lowpriorityscore=0
+ clxscore=1015 spamscore=0 impostorscore=0 phishscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260058
 
-On Thu, Nov 26, 2026 at 3:56=E2=80=AFPM Ayush Singh <ayush@beagleboard.org>=
- wrote:
->
-> "Rafael J. Wysocki (Intel)" <rafael@kernel.org> writes:
->
-> > On Tue, Nov 24, 2026 at 1:16=E2=80=AFPM Ayush Singh <ayush@beagleboard.=
-org> wrote:
-> >>
-> >> On the Lenovo Yoga Pro 7 14AKP10 (83KG, AMD Krackan), the NVMe drive i=
-n
-> >> the second M.2 slot is frequently lost after resuming from s2idle:
-> >>
-> >>   pcieport 0000:00:02.1: broken device, retraining non-functional down=
-stream link at 2.5GT/s
-> >>   pcieport 0000:00:02.1: retraining failed
-> >>   pcieport 0000:00:02.1: Data Link Layer Link Active not set in 100 ms=
-ec
-> >>   nvme nvme1: Disabling device after reset failure: -19
-> >>
-> >> The _ON methods of the two M.2 slots' power resources update a clock
-> >> control register shared by both slots without any locking, and sleep i=
-n
-> >> the middle of the update. Since the root ports are resumed
-> >> asynchronously, the two methods can run concurrently, and one of them
-> >> can undo the other's change, leaving that slot's reference clock
-> >> disabled. Its link then never trains.
-> >>
-> >> Evaluate power resource _ON methods one at a time on this machine.
-> >> With this, 20/20 s2idle cycles succeeded, versus failure within 1-2
-> >> cycles before. Also tested in normal laptop usage for a few days.
-> >>
-> >> The same symptom has been reported on the closely related IdeaPad Pro =
-5
-> >> 14AKP10 (83JL) [0], which may need this quirk as well, but it is not
-> >> included here as it could not be tested.
-> >>
-> >> [0]: https://ratatoskr.run/linux-pci/2026/04/6586201/t
-> >>
-> >> Assisted-by: claude-opus-5-5
-> >> Signed-off-by: Ayush Singh <ayush@beagleboard.org>
-> >> ---
-> >> On the Lenovo Yoga Pro 7 14AKP10 (83KG, AMD Krackan, BIOS QFCN29WW),
-> >> the NVMe drive behind root port 00:02.1 (ACPI GPP3) is lost on nearly
-> >> every s2idle resume, while the drive in the other M.2 slot (GP10) alwa=
-ys
-> >> comes back. Updating to the latest BIOS did not help, and neither did
-> >> disabling SSD power management via kernel parameters or recovering the
-> >> device from userspace.
-> >>
-> >> The "broken device, retraining non-functional downstream link at
-> >> 2.5GT/s" / "retraining failed" messages come from the Target Speed qui=
-rk
-> >> reacting to a link that cannot train at all. The actual cause is a rac=
-e
-> >> between the two slots' power resource _ON methods in firmware, which
-> >> can leave one slot's reference clock disabled, as described in the
-> >> patch. I can share the relevant AML and debug logs if useful.
-> >>
-> >> Testing: 20/20 s2idle cycles with real S0i3 residency, versus failure
-> >> within 1-2 cycles without the patch. I have also done normal daily use
-> >> testing outside of synthetic suspend.
-> >>
-> >> The IdeaPad Pro 5 14AKP10 (83JL) appears to have the same problem on
-> >> the same root port [0]. I don't have one to test, so it is not in the
-> >> DMI table.
-> >>
-> >> I went with a DMI quirk that serializes power resource _ON methods
-> >> on this machine only. If serializing them unconditionally, or some
-> >> other approach, is preferred, I'm happy to rework it.
-> >>
-> >> [0]: https://ratatoskr.run/linux-pci/2026/04/6586201/t
-> >
-> > So there is acpi_evaluate_object_exclusive() now and you can use it
-> > for _ON evaluation.
-> >
-> > It will serialize the method with other things too, but that's not a bi=
-g deal.
-> >
-> >> ---
-> >>  drivers/acpi/power.c | 41 ++++++++++++++++++++++++++++++++++++++++-
-> >>  1 file changed, 40 insertions(+), 1 deletion(-)
-> >>
-> >> diff --git a/drivers/acpi/power.c b/drivers/acpi/power.c
-> >> index 23a4e207a01e..b997d98f38c4 100644
-> >> --- a/drivers/acpi/power.c
-> >> +++ b/drivers/acpi/power.c
-> >> @@ -64,6 +64,10 @@ struct acpi_power_resource_entry {
-> >>
-> >>  static bool hp_eb_gp12pxp_quirk;
-> >>  static bool unused_power_resources_quirk;
-> >> +static bool serialize_power_on_quirk;
-> >> +
-> >> +/* Serializes _ON evaluation when serialize_power_on_quirk is set */
-> >> +static DEFINE_MUTEX(power_on_lock);
-> >>
-> >>  static LIST_HEAD(acpi_power_resource_list);
-> >>  static DEFINE_MUTEX(power_resource_list_lock);
-> >> @@ -362,13 +366,27 @@ void acpi_device_power_remove_dependent(struct a=
-cpi_device *adev,
-> >>                 acpi_power_resource_remove_dependent(entry->resource, =
-dev);
-> >>  }
-> >>
-> >> +static acpi_status acpi_power_evaluate_on(acpi_handle handle)
-> >> +{
-> >> +       acpi_status status;
-> >> +
-> >> +       if (!serialize_power_on_quirk)
-> >> +               return acpi_evaluate_object(handle, "_ON", NULL, NULL)=
-;
-> >> +
-> >> +       mutex_lock(&power_on_lock);
-> >> +       status =3D acpi_evaluate_object(handle, "_ON", NULL, NULL);
-> >> +       mutex_unlock(&power_on_lock);
-> >> +
-> >> +       return status;
-> >> +}
-> >> +
-> >>  static int __acpi_power_on(struct acpi_power_resource *resource)
-> >>  {
-> >>         acpi_handle handle =3D resource->device.handle;
-> >>         struct acpi_power_dependent_device *dep;
-> >>         acpi_status status =3D AE_OK;
-> >>
-> >> -       status =3D acpi_evaluate_object(handle, "_ON", NULL, NULL);
-> >> +       status =3D acpi_power_evaluate_on(handle);
-> >
-> > So I'd replace acpi_evaluate_object() above with
-> > acpi_evaluate_object_exclusive().
->
-> Sure, that sounds good. Just to confirm though, I should do that only for
-> devices with the quirk though, right? i.e. behind a conditional. Or do yo=
-u
-> mean that it should use acpi_evaluate_object_exclusive unconditionally?
+On 11/16/26 2:16 PM, Nabige Aala wrote:
+> Nord requires INTF_9 and INTF_10. However, enum dpu_hw_intr_reg relies
+> on all MDP_INTFn_INTR entries being sequential — MDP_INTFn_INTR() macro
+> computes the interrupt index as MDP_INTF0_INTR + (intf - INTF_0).
+> Appending INTF_9 and INTF_10 after the tear entries would break this
+> assumption, causing DSI tear interrupts on existing platforms to map to
+> wrong interrupt registers.
+> 
+> Fix this by inserting MDP_INTF9_INTR and MDP_INTF10_INTR before
+> MDP_INTF1_TEAR_INTR and MDP_INTF2_TEAR_INTR, keeping the sequential
+> block intact. Add the corresponding register entries to
+> dpu_intr_set_7xxx and dpu_intr_set_13xx.
+> 
+> Signed-off-by: Mahadevan P <mahadevan.p@oss.qualcomm.com>
+> Signed-off-by: Nabige Aala <nabige.aala@oss.qualcomm.com>
+> ---
 
-I would just use it unconditionally.
+The subject should be more along the lines of "add missing INTF9/10
+interrupts". Then, the commit message should explain the reasoning
+and effect.
 
-The extra locking overhead is small here and there are other locks
-acquired by the AML interpreter anyway.
+Konrad
