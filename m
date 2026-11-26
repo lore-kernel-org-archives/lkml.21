@@ -1,99 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795711343;
-	b=OyX6ulKn3DghEScNnngIJyBjsCaqxrrx8fSR0gn4M1kio3MNN8bXC4KxBzt57chtCRUM
-	 L29I92JpqotEbmK8/qX71vQ54wsSHTkBFJFa49mStHphCd+VyvpLMat7Q097JgoC5XJaY
-	 0X/KKT3trsYfDISJUOaKbZDVXA714L3SEO7arlU5SvEAItvZc8ZPDf82X9U/xSbNg0NFF
-	 a0mJ5WmbOOEMIHvYU7XrnA0iX1FyiV7KcUtWU7bmQ8on0zEDuDnjsTMubQifF7K8AIyCz
-	 1ru2F5A3j0pruoCcbEc9CYOAti7fAT7qUTRZXeHNblpqM7PYYZYoosgDm9HJLPKeU0Q==
+	t=1795711339;
+	b=jRWkooD1SVYGc/TiVLK23j6DhWcBby02Nucw9DDUMzyQRHpqeugACw7FZB1Y59OPFQpO
+	 rQAXDIoB341ATYurvXisqyumIl4WuNbKV07xy+lNQfVhSmCc1wH/75/19LdJaRV1DVaBO
+	 JruX9rlzlKxMZzcsBX4lhzi6OA8k54lzR0Sp1/5czFGOULt8NFU6wL47I5lL0JHCo1nz+
+	 IahffkGWYyCFe0QQY7tVwTdfUfI3kBCoO+xpfvfpY7Kbt8bBYxLXZ/XL4tSyaHZYnT84w
+	 8ikP7vH3TrM2uTUkL93dv5ie/HT5pGIWIbkITEUClM2J8Jwjf2JgwCfSXWU9ffLUHJA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795711343;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795711339;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=vYLe6Aye6cjPeLVGkLhVr6tiV642wkKY+G+lAL+UdWQ=;
-	b=igqPR0pGi5n7kq5zlsBdaPtMYuZxhQ44rjKUogAY80D4s9weD322HsxYggBP7nKMs6Ea
-	 rvM0YZSk3gr9dGWjy/dhlrSyu/GQNzGRWnA55YeTDkqX+cBwwnZ5UCynsWYZhJQ5ntQKE
-	 IEdsiTx2B2W2PsXKPgwyhW/LMqHuWSKuAi+dn25oxjjKM11tb7EQpnjOamYz/aRZFy+t7
-	 HAERtWKwCnSS+VKwbGKmSpMEvTfx2L2Onj7YU8CW8wN0qhIQR7hp544g3XOCxr0TONpht
-	 ehRZrafejDZfnRKXTyuT6HIzZlmCsbIHSq+bLnomE+VQrPpTwpICVw7W25r8Z1pKlPA==
+	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=yCpwmuq/d8uSHEUa04HTrUhqYayQ1lKiYDKTWrQZ+DU=;
+	b=m1u1dtxauFumxC9/aF7i4Bw6w8I65hpb9aHjQC7JWH39eTnGPXdz+BdXGX/3+0+H0P6t
+	 rzev44c3mo39Jbxpq71DLzwKIfOIoeA69GTIFT6EmKsBXVrUyEoi+B6uD3nGr3bXJMzN6
+	 vCVHGUgVt3a+GLAp1ihDSoJhbNDuoNtIs3GAEFIU7TDfMPft6IOECsCqdb1VBrRYDyxYD
+	 4pJBXlyj4JB8zsIC3SDV98X1UCuvfTqkmsAlnn9IozBpUzNw9j31EqBe84cTeDaTYRnKN
+	 vrb6qr2BshOBpkATYtQe+X7I3UWnDdZFfri90UkQILp5gBHSzGtHYuRGxWo1euH9yLQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ItlsisZg;
-	arc=none smtp.remote-ip=74.125.82.172
-Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bTj1dNCz;
+	arc=none smtp.remote-ip=74.125.82.174
+Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8964060A3831
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:42:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8964060A3831
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E1B5606A6A5
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:42:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E1B5606A6A5
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ItlsisZg
-Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-386bd881d39so7313220eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:42:22 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bTj1dNCz
+Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-386d1859e1cso1664675eec.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:42:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795711342; x=1796316142; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vYLe6Aye6cjPeLVGkLhVr6tiV642wkKY+G+lAL+UdWQ=;
-        b=ItlsisZgBsbLBK1VgS9ZB0PlWxT8mDUjm48+mrCX79lYJPOQ8c8rj5gbKOZZyF8KFM
-         jVOKBW8PN0sYgzM7Wi03VpnArAY4AZH2Xk9NawKQQH//EEk9tKpTuORygFksVccHbxci
-         MpeFeEYhAGypWCr/SmSEyOp+iyiJwNygswDunFOFPW/DSLJy1YzIqaNxtflbATlqzVK0
-         sLtqS6AM+InztaTEtkj2pUySpHkWJVyp6EcXfTLb6cYjzuY1qViGLXM1rT4LAdJpw3s6
-         5sxHptkWlX/8QJwLFOkHyesTb7NZ8DoceMB9axxcXNBHubMq129Y0H45vlCxabz05NI3
-         cUlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795711342; x=1796316142;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795711338; x=1796316138; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=vYLe6Aye6cjPeLVGkLhVr6tiV642wkKY+G+lAL+UdWQ=;
-        b=Z1ni9G0hYtk7PiWAm2W9mbiH+VihRpyF09QKBFG+aRTkPTXgTN4GilUyXtJeFYpyvb
-         37DTaL1g15UsmmUyaA+CZbFl3ydiIoaAmFje2TLlKDfnmPH+CKeDaGdYjG29EQdxP1Dr
-         KvLxvt/8mK8rpptiTOt8PJKS6OHVJ4MPfy9c6JTKwcJpVdtsp4r+pbrUpCX3kA+h5iCi
-         Xx8shNLl/ugpuz1LzYzRcsADvNmFt8jiaLQw/Faq6+8VAJwR4zjUiUchPEeQ78HLcBkO
-         VKbdPKpu1DXjgcN4wkYgtPStteO4PU0Gc1szCwkeKC2euloZL6D9RvNFgGm15y0P/BAG
-         jbuQ==
-X-Forwarded-Encrypted: i=1; AL+hErEup2iKk6Xt8ND9cmH+c6wQt+3cZHVbOB2NPKiBuxzEorEkrPnlMW9HXTDWCDTsLC0/jHNcFD4nIf9MHx8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ySWkMtBL9Hav02yVjHt7UdWjECD+SHhbB/aEJKpWu/ufUV8Gr
-	ZHEEJmlOItOV12Q28ezLp3WcKrMF9EfZ5CMDmirbbvpWvWZdroUvWnaJ
-X-Gm-Gg: AZFdTZcicxqNBgFR9Gx0VsYFcm6iQFHY4M8p6rRuI56spcIl/Du7G/wbO8gDd8ln/mM
-	kTlZhXcaEJZLNnuoRegRkPoB9iq1NRe9nyVqQdCJuFiNqDUpZSmG291OK/nOhRQ6MxBItWkRD0f
-	e79FAiza9+3rMgp3qn2kbXHVuhhn0wif6dZyLcFcydwYpKmx8Dra0u8bwS3BHpSSAVbnf8Hxlwg
-	VgcPQ2nJipQ2mEPk2FwtH6BtVPm2JkmlAmax+7vVAuRBvHlphMc3UEuSQUk7jvZZW8FV3MhIm6Z
-	ONMzfx71pGcbIiDu+iU/7RFn6t3NSvcvIEC0R04NpVdh69CfkqliAcIEVXa7qC510l/zoI4py/s
-	1erXKhrELScroiLofbY9sGFvOKCstXrid/SBGL+4Ovus4Hr0jwQlF0J79fYcfsWQwYpjviDekev
-	aZjlKDSbtf+jfgkgU3OB6nozdWVkW/4lAW3xbYsMygkRaLeLD+UWOp05jLgAWw9LP4z3EeJUuZr
-	ouB+/2xq7f3TJWk0zXWghwThP7nq2CK3TAIarSd4N6kB5ubrrWvQ2Pz+RiPyRgWqscQPvXSfJp/
-	LXxRUyDyNR10bZ2nFKGDWqCnbyZM
-X-Received: by 2002:a05:7300:c3aa:b0:385:c28b:a4d5 with SMTP id 5a478bee46e88-385c28baffbmr22699614eec.17.1795711341575;
-        Thu, 26 Nov 2026 08:42:21 -0800 (PST)
-Received: from ubuntu.. ([2405:201:8026:213e:d3fe:57ef:a814:ecbc])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm66709770eec.28.2026.11.26.08.42.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 08:42:21 -0800 (PST)
-From: mdshahid03@gmail.com
+        bh=yCpwmuq/d8uSHEUa04HTrUhqYayQ1lKiYDKTWrQZ+DU=;
+        b=bTj1dNCz0ssGhTkAVAaWGqjNZ/GKyMU52xi2PeTUb5Z1ipMIL1oYZN3rh4hQ2YFwhs
+         La10I30Ymj2a5D4MyiQnZ2Nen5Y10L31eWI0sKaQ7d9nXPlgfqUNhUfilrRXi/y2H0oa
+         NQRvG+P98elWBH7eZ9EIBkCN2K7YG9Y+A4BQV4cR1C1oL1XiCwu4gYiD0o0nuHLzHLPN
+         3Jo5fBQXCRFG7CFou60QtSxlC1jF89FiCthDHMGnuBnBzqw+AvrZGVuI9l62SYElUlta
+         57YL/Xbw7ByY4Cx5Q7h+UmxNxyLhw8NXZAJiIoENvlHEddj0DYKyoR/aVST6MQjagGey
+         +Okg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795711338; x=1796316138;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yCpwmuq/d8uSHEUa04HTrUhqYayQ1lKiYDKTWrQZ+DU=;
+        b=bSDaznGllqNd9XCHKlKYGydNyp90lgWOinsgdeDlivXFuhOaBzZyxE2m3cGlxNnypJ
+         OfvaF9P8kzSVDXI0u9SS4sxHtDpiC7ETZ3mil2545yCP6hjilOoyEKStVh9J+dnceGWo
+         7UfG9eUvyX9USeEI+dzRSa7cqJrPYdorktLCs1R7aV7SLfnUSHb+tep7vwkyX7RWc/C0
+         qg6rJZ3twfopo8DxokwJlveRS5v5fr21qnrgHnaSLYksFTENKrUo4frr8Gvdl4hx4pcn
+         S9uOzjgTb7Bek7YZf8rfLA0f5Qvom+QFAguTyuI+huhXvriBtHRZcN/VIW/WzIKjvfJ3
+         g3ZA==
+X-Forwarded-Encrypted: i=1; AL+hErGFLgnumOliQ7nvrsr9DnMcme6ZEopEwWSG0mum6ruGKFnVuF1Mc2w8HIDCfM8uHU+0t7rBCnZ10ehHrq0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Rl4/SrazzD2eQg4jglksRqpNsecD99EEyC4RCGiDGkkoheyIF
+	rub/3evLq58Ncl3W/eh7n3YJ9d2Fe4x9AcWVLByybimWR2g5Z6ivBER6
+X-Gm-Gg: AZFdTZdKmurJgCN8FyiziXvDwMFlTxD1oaWgFzZWZjvW0sxfENnz+AJfM+bENzs3uxh
+	tM4f9kQnoO4CqiIOiMnA9yuEMpbO9A8ZNJyr1za1aFamqLkzff18A9ezUOhGEMpdD1NN2x+9OfA
+	rmznJ3avfO1M2UC/c0VpmEcxgmByCTuA1UlTiXlktQS3weyveeqLho33YYkvT45VWmpNAFryvll
+	d6oSCY8yGClOByL2614itiiN2zLKceki4DFsw/C4TLEwF8u38lqMsFRj3BUJKue1XhTYOE48MpG
+	92pHg0cLjFZ3BkTr+r4U9GQ2v9YqCJy2xcnTJuikdXMQxB4i/zejS5CA8rUnFgqDjJNR8dmGEpB
+	zGeWKl8CGsF9mtu75cAs3aAdGgpRhzygj0tw6mydambiCkhrE9re/ew+SY6+QXsK9A3XBkTPGZI
+	qyLWAWiJ7ju3WYqnHAgb2nDdIbiP6fWAOg68JZWxkcfbQEcmRt71EqqTtinekXf5Xc+XZGDe1NL
+	A7zFxh2/k2IPu3MutGUWZNKYu9cU2vkts5yOom3l4MgJLpaki89TTuvNr4ZTkzlPUlfBEplZ2GR
+	mBZ1gyeaYb/7tdYE16Qpd/7JS3xfTq0w+WSHiN0pyudlNUoh/MEd2VUrNUKtCiNUDQ4rZAVUZ2i
+	AIo5YRZ/9EiPvmX+kApwY9BSV4/FamMf7+qTjoezxWHlklkktyDdNWEczfBiw8lqjUscPV97V
+X-Received: by 2002:a05:693c:88d5:10b0:386:9e9c:867 with SMTP id 5a478bee46e88-3869e9c2df2mr16951672eec.10.1795711337996;
+        Thu, 26 Nov 2026 08:42:17 -0800 (PST)
+Received: from Mac.localdomain (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm115299825eec.3.2026.11.26.08.42.16
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 26 Nov 2026 08:42:17 -0800 (PST)
+From: Ahmad Byagowi <ahmadexp@gmail.com>
 To: netdev@vger.kernel.org
-Cc: edumazet@kernel.org,
-	ncardwell@google.com,
-	kuniyu@google.com,
+Cc: richardcochran@gmail.com,
 	davem@davemloft.net,
+	edumazet@kernel.org,
 	kuba@kernel.org,
 	pabeni@redhat.com,
-	horms@kernel.org,
+	vladimir.oltean@nxp.com,
+	vadim.fedorenko@linux.dev,
+	andrew@lunn.ch,
 	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org,
-	willemb@google.com,
-	Mohammad Shahid <mdshahid03@gmail.com>
-Subject: [PATCH net v2] tcp: fix division by zero in tcp_cong_avoid_ai()
-Date: Thu, 26 Nov 2026 22:11:50 +0530
-Message-ID: <20261126164150.8838-1-mdshahid03@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	arkadiusz.kubalewski@intel.com,
+	jiri@resnulli.us,
+	jonathan.lemon@gmail.com
+Subject: [PATCH net v6 5/8] ptp: ocp: report disabled SMA inputs as zero Hz
+Date: Thu, 26 Nov 2026 08:42:06 -0800
+Message-ID: <20261126-timecard-driver-v6-5-ahmadexp@gmail.com>
+In-Reply-To: <20261126-timecard-driver-v6-0-ahmadexp@gmail.com>
+References: <20261126-timecard-driver-v6-0-ahmadexp@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,40 +109,33 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Mohammad Shahid <mdshahid03@gmail.com>
+From: ahmadexp <ahmadexp@gmail.com>
 
-The tcp_cong_avoid_ai() function divides tp->snd_cwnd_cnt by
-the argument w without checking whether w is zero.
+A disabled SMA input has no active signal and should report zero frequency through DPLL. The DPLL core reads the current frequency before applying a new value, so reporting the stale selector frequency can prevent a disabled input from being re-enabled.
 
-Since w is an unsigned value, the condition tp->snd_cwnd_cnt
->= w does not prevent division by zero when w is zero.
+Report zero for disabled input pins while leaving output and enabled-input reporting unchanged. This complements the separate initialization fix for preserving disabled state across rebind.
 
-The function is also exposed as BPF kfunc through the bpf-tcp-cc
-allowlist. The BPF verifier does not enforce a nonzero value for
-this argument.
+A coding assistant helped check the DPLL get-before-set behavior, develop the regression test and prepare this changelog.
 
-Return early when w is zero to prevent division by zero.
-
-Fixes: e78aea8b2170 ("bpf: tcp: Put some tcp cong functions in allowlist for bpf-tcp-cc")
-Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
+Fixes: 09eeb3aecc6c ("ptp_ocp: implement DPLL ops")
+Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
 ---
- net/ipv4/tcp_cong.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/ptp/ptp_ocp.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/net/ipv4/tcp_cong.c b/net/ipv4/tcp_cong.c
-index 8e83ef81fc18..f70f49b4b1e7 100644
---- a/net/ipv4/tcp_cong.c
-+++ b/net/ipv4/tcp_cong.c
-@@ -469,6 +469,9 @@ EXPORT_SYMBOL_GPL(tcp_slow_start);
-  */
- __bpf_kfunc void tcp_cong_avoid_ai(struct tcp_sock *tp, u32 w, u32 acked)
- {
-+	if (unlikely(!w))
-+		return;
-+
- 	/* If credits accumulated at a higher w, apply them gently now. */
- 	if (tp->snd_cwnd_cnt >= w) {
- 		tp->snd_cwnd_cnt = 0;
+diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
+index aa18c5e5eba4..3457c351958d 100644
+--- a/drivers/ptp/ptp_ocp.c
++++ b/drivers/ptp/ptp_ocp.c
+@@ -5924,6 +5924,8 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
+ 
+ 	val = bp->sma_op->get(bp, sma_nr + 1);
+ 	val &= SMA_SELECT_MASK;
++	if (sma->mode == SMA_MODE_IN && sma->disabled)
++		val = SMA_DISABLE;
+ 	tbl = bp->sma_op->tbl[sma->mode];
+ 	for (i = 0; tbl[i].name; i++)
+ 		if (val == tbl[i].value) {
 -- 
-2.43.0
+2.54.0 (Apple Git-157)
 
