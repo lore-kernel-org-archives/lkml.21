@@ -1,57 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.143.172.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795719749;
-	b=S5rDiuAbfkK2zxCKoWQ0p2BnjOIsoKKBEZvvybnkhvVLWJfF0KWepHholJrMAMKcjaH3
-	 o8KDwy/nhoPujbBfju1chqHnAq8vnE3GDhkZ0bDF9Ito7e2pAWH/yeYflgH7UQ2aZQ4VJ
-	 SdTcbvEB0h68yV3e8gWGCf9BQ1lbvt0TpCWVCK/t7c6j+Koc2468kJ53W9ENE/VibfXy4
-	 4DVMBDAizBNRm6at322NDwLTCBjMjvod3Dk9WaxpeERUmHjKQBfNc5wM9y06Oe4OyqFkR
-	 r0c4L/r3RMI9ZFtjv7twtAm+EbaCkO0xg197skE+f+NXghOjij+0lg7C58BjL2h/fuQ==
+	t=1795719758;
+	b=QS1g273qTgINgjb7NEIg39/q59vy/Q5FhM30ee65Lpwc5rCbgAC6qoa+OVP5TPeDOZEW
+	 uxSjf7QEvEz5+fHxk1xXXfVM0qpv/48rVGzLt3hvgVSUDfVZbrBZygCDBKhjDyZDG2j6D
+	 AxtAtzj30fb2iCQ3XS3wBmOEVnsHB9axp6yHihWBOK9JdnGXDynYpJ7b1JSLdpSjyzOye
+	 2wjrsFCNWFVJv4lSigsJkbpzfcpSeYQyySQ7smGZVoJDw/YBIO1TGALNWHlcJ/RjROuFR
+	 Fn487LAcoD2BBO1/tfevbL55jFyWsdX3xNMHBBU4w8k+W62M54J3fcAXfWOxmQYETkQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795719749;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=sgsm41cVrYVXRN/ZczPr+NXSABYCL273lk2seEqIQI0=;
-	b=DFwrZZnoHNrcGeB0476RaJ/D0iDpDgS2HAXY9qXGrX33f5+gS4X4n6tniBawWH5WCV3G
-	 UaehvHkr36QgxamMv/+5Rz+aTYoZQC422a1uN2Wj1LWh19KxDUtHnZoRwpFLw64/+MJCq
-	 x0ZH4DcxxIBJruk+N5tIDvvfvk0EYWkImDlJajq+xczYMlLTHIE6l2HlCcmtMYQlhoa+G
-	 vMk9bmk4D7e9jk/tJo9+2mfAFtpuiRNJAgE8upKsp3N17yEptiJk+2K5+/S5Wu0aeXCgw
-	 FMeX26F6L5ZVxwVdnB5JA7iI6h24S8nrSyb0MkWtOU6juoeD8eQRJ8UnkHb5kIMQRzA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795719758;
+	h=DMARC-Filter:Received:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Rspamd-Bar:X-Rspamd-Report:X-Rspamd-Score:DKIM-Signature;
+	bh=7G8VPKGbj3SVWed9rgrmiwZCexOnrdyvBRI2FSAwndk=;
+	b=Lsw4tfExuEpqaNRwzSsbgxMXZzeXazKL1Dl8wwnRVm/Kh6f3INNwWOGmslsz9ToFR1M7
+	 Jp2IbF7tasM9MkdV3fxDYld9q/1p2haMdCsApZ4KDaYmaU03PvFeETqJOAF+y8R6VTNgL
+	 7ognuVzExU4wdLo+VsQZ74owBPgpUivl9p8wp44Vpp+akGqPyi9WxVhiWxdMzUa6Izs5k
+	 NqatUkWN1sKpGo5eEv87LVq5gNEcJnhhJKdIq7HyhTBolfGQqK8h7NnifURIoXErdzFZa
+	 c6ZAI7hysDWjH60CSMZnA9RKsIChZJcS7aSQT2lMmse1X+d4RE+Kf2lgYSMpV5jomkA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fh+ol2ez;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=lausen.nl;
+	spf=pass smtp.mailfrom=lausen.nl;
+	dkim=pass header.d=lausen.nl header.i=@lausen.nl header.a=rsa-sha256 header.s=uberspace header.b=gqWtYW47;
+	arc=none smtp.remote-ip=95.143.172.20
+Received: from mailgate01.uberspace.is (mailgate01.uberspace.is [95.143.172.20])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 13C7D606A31C;
-	Thu, 26 Nov 2026 19:02:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4037B606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:02:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4037B606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lausen.nl
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lausen.nl
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fh+ol2ez
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id D27131F000C6;
-	Thu, 26 Nov 2026 19:02:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795719748;
-	bh=sgsm41cVrYVXRN/ZczPr+NXSABYCL273lk2seEqIQI0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Fh+ol2ezWUjyMhmE1tsESBXMONPu3gXFMuSY5sDYEdFAddpNy5P9x0P+dBQFZGML8
-	 b5VQRb6ASyBFBPVSoTjO5jqaWR7ArsBc/+KdYqv0FCmoMKZH5LMGl0ABaGVVM/fyO1
-	 rC1+BTag7S4+/Vu5SCqt00RtywNl+YAlY2cL1bfwvHNfD/3LvCVa+caMCVgrUfNUh8
-	 Yn0LqIMceBO4G7GyJvbsgTqc8Azw/UnHzQKLSVfp51j2kdJjs5HDy63u5pjq9BjLLW
-	 k4TYGBqvyb8w/9LhZJqerxeQzjmBViT6ImiFNR9fRVF7Or0Qogqtl/6VW3yaiAQ9P3
-	 5ltYe/aTG/g9w==
-Date: Thu, 26 Nov 2026 21:02:24 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Surendran Kanagaraj <surenkj@amazon.com>
-Cc: corbet@lwn.net, graf@amazon.de, gunnarku@amazon.com, jgg@ziepe.ca,
-	joshlev@amazon.com, leitao@debian.org, linux-doc@vger.kernel.org,
-	linux-integrity@vger.kernel.org, linux-kernel@vger.kernel.org,
-	nh-open-source@amazon.com, noodles@earth.li, peterhuewe@gmx.de,
-	rdunlap@infradead.org, skhan@linuxfoundation.org
-Subject: Re: [RFC PATCH v4 1/8] tpm: Add a single table for all TPM wait
- limits
-Message-ID: <awiCQCU-h8MQc6bQ@kernel.org>
-References: <20261118073852.81107-2-surenkj@amazon.com>
- <20261125230034.24726-1-surenkj@amazon.com>
+	dkim=pass (4096-bit key) header.d=lausen.nl header.i=@lausen.nl header.a=rsa-sha256 header.s=uberspace header.b=gqWtYW47
+Received: from devico.uberspace.de (devico.uberspace.de [185.26.156.185])
+	by mailgate01.uberspace.is (Postfix) with ESMTPS id 89230616F7
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:02:29 +0100 (CET)
+Received: (qmail 23903 invoked by uid 990); 26 Nov 2026 19:02:29 -0000
+Authentication-Results: devico.uberspace.de;
+	auth=pass (plain)
+Received: from unknown (HELO unknown) (::1)
+	by devico.uberspace.de (Haraka/3.1.1) with ESMTPSA; Thu, 26 Nov 2026 20:02:29 +0100
+From: Leonard Lausen <leonard@lausen.nl>
+To: Ping-Ke Shih <pkshih@realtek.com>
+Cc: leonard@lausen.nl,
+	Luka Gejak <luka.gejak@linux.dev>,
+	=?utf-8?q?David_H=C3=A4rdeman?= <david@hardeman.nu>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-wireless@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH rtw-next v4 0/2] wifi: rtw88: reduce RTL8822CS SDIO request overhead
+Date: Thu, 26 Nov 2026 19:02:13 +0000
+Message-ID: <20261126190217.1151186-2-leonard@lausen.nl>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,66 +64,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125230034.24726-1-surenkj@amazon.com>
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Bar: -
+X-Rspamd-Report: MID_CONTAINS_FROM(1) BAYES_HAM(-2.999699) MIME_GOOD(-0.1) R_MISSING_CHARSET(0.5)
+X-Rspamd-Score: -1.599699
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+	d=lausen.nl; s=uberspace;
+	h=from:to:cc:subject:date;
+	bh=j/ZX86lZZUp33NjxWpRwiiuZcmq3gSu/deMMo7y9vi8=;
+	b=gqWtYW475NXgvOzYRKKvYBmKSq4nqsIEdyGPrm6FZkE3HVOkw2ohNECRI47/2qdMeWbynJphQi
+	IHazYmcCyFGKH3bUumtTivGUmCDh8JXp4cnE8J8CczwoCNRgN2R+zepuIDKFN6aXfEEVyhLZdLCs
+	GB/cYNIE+ymRLe8powTZof40Sxjv20M8kMhIY7a1bLJswBjckRaQX2DaXxWJMue87fPnsTzBrHe9
+	nTAKlaModD5gYSTkrAGUFK9J3Vse3eSp8WQ6guhWVu+TkX9YTy/g92mzPrTib4ItOABsus0dqcgU
+	V3tmyRrFs6Y5DjAQjBuPsQgNTnIQGPy7FJAs9mZRqRs/XH/05BRlamRev/F/oPEL9TxpR3Ob8FTb
+	yfxAzCiNruu22oDc5NMgRKOJ7Ff9281nUWcm2AJEDyiOvZQ5tDCq/8vg3qRdAO/y/Qmpo5U729hW
+	+ymoyWSDva+7dBCi3+De+OqYgcna+1hoo+uPNcgEOduHhSpuOB6+CGYaxZuQH2XR+zi4oGQmdGTo
+	c94b9Q7lUkkdzlPWboC91orVUW35fHTqcRZg1qnlXeV3z3MGPahRcub6wQ+gyHrT04RQ/eSduPRd
+	c2VN/fm+hWGu2JlOTy5ZBOdKdZZqTbCipF0r/1JJtKFb9FFHpdWnzWBKfxgF04dT+ICrQdjFLshA
+	w=
 
-On Wed, Nov 25, 2026 at 11:00:34PM +0000, Surendran Kanagaraj wrote:
-> Hi Jarkko,
-> 
-> On Wed, Nov 18, 2026 at 07:38:45AM +0000, Surendran Kanagaraj wrote:
-> > +static const u32 tpm2_defaults[TPM_NR_LIMITS] = {
-> > +	[TPM_LIMIT_A]		= TPM2_TIMEOUT_A * USEC_PER_MSEC,
-> > +	[TPM_LIMIT_B]		= TPM2_TIMEOUT_B * USEC_PER_MSEC,
-> > +	[TPM_LIMIT_C]		= TPM2_TIMEOUT_C * USEC_PER_MSEC,
-> > +	[TPM_LIMIT_D]		= TPM2_TIMEOUT_D * USEC_PER_MSEC,
-> > +
-> > +	[TPM_LIMIT_SHORT]	= 750 * USEC_PER_MSEC,
-> > +	[TPM_LIMIT_MEDIUM]	= 2000 * USEC_PER_MSEC,
-> > +	[TPM_LIMIT_LONG]	= 3000 * USEC_PER_MSEC,
-> > +	[TPM_LIMIT_LONG_LONG]	= TPM2_DURATION_LONG_LONG * USEC_PER_MSEC,
-> > +	[TPM_LIMIT_DEFAULT]	= TPM2_DURATION_DEFAULT * USEC_PER_MSEC,
-> > +};
-> 
-> The TPM2_SelfTest duration bump [1] made me realize that mapping the
-> TPM 2.0 durations into these TPM 1.x style classes may not hold up long
-> term. A spec update to a single command turns into a change that
-> affects all commands under the class. I think it is better to keep the
-> existing maps as they are and let the driver modify the map if needed.
-> This is also what you suggested in commit 207696b17f38 ("tpm: use a
-> map for tpm2_calc_ordinal_duration()"): keep a per-chip copy of the
-> map and let the leaf driver patch it.
-> 
-> At a high level, the series would become:
-> 
-> 1) Set default interface timeouts and duration at chip allocation.
-> 2) Keep the chip durations in a union of TPM1.x and TPM2.0 durations.
-> 
->      union tpm_durations {
->              unsigned long tpm1[TPM1_NUM_DURATIONS];
->              struct tpm2_ordinal_duration tpm2[TPM2_NUM_DURATIONS];
->      };
-> 
->    struct tpm_chip holds the union tpm_durations in place of
->    chip->duration[]
+Reduce RTL8822CS SDIO request overhead by filtering hardware-handled
+control frames and combining adjacent TX-capacity reads.
 
-It isn't possible to have single struct tpm duration that is partially
-used by TPM1?
+Changes in v4:
+- Add the requested blank line, order RXFLTMAP1 bits from high to low,
+  and describe the filter as not forwarding the selected control frames.
+- Quantify patch 2's request time and isolated throughput gain, and add
+  Ping-Ke Shih's Acked-by with that description.
+
+Full-series testing on RTL8822CS/NanoPi M5 on 16 November with v3
+measured these TCP medians in Mbit/s:
+
+                              Upload   Download
+  Neither patch (rtw-next)      163.4      247.5
+  Both patches                  285.4      277.0
+
+That comparison used three 20-second samples per direction and build:
+74.6% higher median upload and 11.9% higher median download.
+
+The follow-up v4 tests on 17 November isolate patch 2, with patch 1
+enabled in both builds. Median TCP throughput in Mbit/s:
+
+                              Upload   Download
+  Filtering only                254.4      275.4
+  Both patches                  284.7      285.5
+
+Upload increased by 11.9% and download by 3.7%. Each configuration used
+six 20-second samples per direction in F/FC/FC/F blocks, three samples
+per block. The two tables report separate test sessions on a shared
+Wi-Fi network; download samples overlap and throughput can vary.
+
+Separate MMC traces timed the reads of available transmit-buffer space.
+Without patch 2, the driver reads three registers using three 4-byte SDIO
+requests; patch 2 reads the same 12 bytes in one request. The median time
+from the first request start to the final completion fell from 51 to
+13 us (74.5%). This measures the SDIO request span, excluding waiting to
+acquire the host before the first request and processing results after
+the last completion.
+
+Two traces per build reproduced the same respective median during
+15-second UDP uploads. The sender's requested rate was 600 Mbit/s;
+achieved TCP throughput was measured separately above. No MMC errors
+or dropped trace events were observed.
+
+AI assistance: Codex developed the changes and messages and automated
+builds, hardware checks and measurements. Prompts requested the review
+corrections and an isolated, repeated benchmark of the register reads.
+
+Earlier discussion:
+https://lore.kernel.org/linux-wireless/20261116100804.425592-2-leonard@lausen.nl/T/#t
+
+Leonard Lausen (2):
+  wifi: rtw88: 8822c: filter hardware-handled control frames on SDIO
+  wifi: rtw88: sdio: combine free TX page register reads
+
+ drivers/net/wireless/realtek/rtw88/bf.c       |  4 +-
+ drivers/net/wireless/realtek/rtw88/mac80211.c | 10 ++-
+ drivers/net/wireless/realtek/rtw88/main.c     | 11 ++++
+ drivers/net/wireless/realtek/rtw88/main.h     |  2 +
+ drivers/net/wireless/realtek/rtw88/reg.h      |  4 ++
+ drivers/net/wireless/realtek/rtw88/rtw8723x.c |  2 +-
+ drivers/net/wireless/realtek/rtw88/rtw8814a.c |  2 +-
+ drivers/net/wireless/realtek/rtw88/rtw8821c.c |  2 +-
+ drivers/net/wireless/realtek/rtw88/rtw8822b.c |  2 +-
+ drivers/net/wireless/realtek/rtw88/rtw8822c.c | 12 +++-
+ drivers/net/wireless/realtek/rtw88/rtw88xxa.c |  2 +-
+ drivers/net/wireless/realtek/rtw88/sdio.c     | 64 +++++++++++++++++--
+ drivers/net/wireless/realtek/rtw88/sdio.h     |  1 +
+ 13 files changed, 100 insertions(+), 18 deletions(-)
 
 
-
-> 3) update_durations() now gets the union which TPM1.x and TPM2
->    drivers can adjust.
-> 4) Show the durations sysfs file for TPM 2.0 chips.
-> 
-> With this, I would drop the limits table, poll APIs and tpm.limits=
-> parameter for now and keep the series focused on duration handling.
-> 
-> Does this sound reasonable to you?
-> 
-> [1] https://lore.kernel.org/linux-integrity/20261125182251.19360-1-surenkj@amazon.com/
-> 
-> Thanks,
-> Surendran
-
-Br, Jarkko
+base-commit: 61a5eb87b2d9b4d5e353780b781cf691f39ba9e1
