@@ -1,93 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=119.15.109.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.219
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795675434;
-	b=bmSucYhdH7U4lBtPPf5K48RBwMpdYmLA9DElaulSYjd4C3jTbGVv53SARgat+GgyK5ow
-	 nmOZ8VJAeWCLHYPKR2jGM30ZFzzCfcnJtghRAw5uM6sEEtCysRF8R3+tIMecpH2YLVJBL
-	 Q7wTggSlvRlMbO5pPfkZgYHx7zdEYfuvkoWYxbNv5JQM6wxsgr6mS7KbFFy/n9/BWDjmf
-	 /FHhhh17nteCoiM6aRwb3CGt8ZiIBeO/LyEUeqFvlsQE6eQdoJhhyz07RAA3fSfLeN4Lc
-	 qBmapjyE3+4l+/81yhXluPjFD/TbM8IiYZ/+F+Tm0tUwqNjuYJIK0X/IGjQyG4M2i9g==
+	t=1795675561;
+	b=ilpBVj1RxFei/71lmpr6HoImgte4S+Jtlwa2WTO6nAX2ssdXXyG5XXWEiPv4P+oN28UF
+	 oiT43IEzuqZmKRRL1STmVsCch00iQd9Xd5N9SDfsqinGiTPLOPCYk9v8S9pbtJ1d5jLEY
+	 QYxIl3cSS3/FsjvVTG+DXa/GUBWM4mjqgJ7/g6O35SeBZVxOWWyglAkKKgpnH4C9KoeCG
+	 ER8zJozVV+2CfNPU/BtJE//Jn6dr5nvP+nHCr0PzPXqj7UHEOdkP67RwbTSqlu2i9qm99
+	 RhDl+//U3zEp3OuwtEYBNKu48hoJ2OCV2TgXcDCSNCJMkyUVQ7NhclfxG/4v/ZB38xA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795675434;
-	h=DMARC-Filter:Received:DKIM-Signature:X-GPT-Reason:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=xDtIST3zZ9y4EzJ6NETBhs9+pFPleoAbssJ/eV+XnOE=;
-	b=FXL33MSTa+c1Gdfn5tIZ9xwXq+5kTGrmSGPqExAMA4Wh8Lty2vRlWio78HOnPR+i783P
-	 vg+BzykERhVhlc/qLKaryLStKk3tVuuuW8/txBrGGnbrYEvqfrb0AZc8rH6dkQ7d+vB67
-	 r8DopnekuKwKt9MR0UQvH0kKjA7R2PnLlX6rP036GxiToDBfBuzCqM43FHTmk3qSBT3Cr
-	 yCT8VKmwu6zZAcYR9tB5SX2LJmwqcXWMwIDbooHVe/eW5+wpB+QzuXSy6O0nGDTbg8Ssw
-	 o4uZGxmNUfsy9sWQ2xFjRXrgZypaCuf0YmbAJNm5GBmhsIU2SjEcMpMEV/SY6utnf1Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795675561;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:CC:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=+b7d3jVJ5W7Nxl0PqQTy3RSOU74Z82xEac1ynjpgAMw=;
+	b=YUKnoTwchgfzLhee2ljBoN0qYH1h4f/NtjWf+Yblv686cJVgV2Q2ZPr5rP8/ydkSlEcS
+	 Byhba/Nu4ZYqMya+TOGptD/ovYFFRrAWNMjZJgtS3qhRXqQYUGTGSCXu+yaQmTjHJn/8P
+	 Ax/VT7T5m7WLXyoNQKpbqfOXEXBKZE/p0u4Hu3jNBUMYs9RFWwPsMJ64MCdim1NDFWRvl
+	 WU0mORSZqradFQtvw4u0QmnYbCrvIia/X9/gh6h9VEF1zTQ6I49gTvSkaHWtWSbwLEWiW
+	 RsA6lFDnAQtr/1IAhCO4w3jvnsF8WwTp88UoOzqvroO4cBPLZ3ongXUe0Rw/gDZ9PTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=d-silva.org;
-	spf=pass smtp.mailfrom=d-silva.org;
-	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b="SjFKF5/t";
-	arc=none smtp.remote-ip=119.15.109.137
-Received: from www.nmnhosting.com (watt.d-silva.org [119.15.109.137])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=eahZGV4n;
+	arc=none smtp.remote-ip=113.46.200.219
+Received: from canpmsgout04.his.huawei.com (canpmsgout04.his.huawei.com [113.46.200.219])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77B8C606A31C;
-	Thu, 26 Nov 2026 06:43:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77B8C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=d-silva.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=d-silva.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C100606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:46:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C100606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=SjFKF5/t
-Received: from Hawking.lan (hawking.lan [10.0.1.4])
-	by www.nmnhosting.com (Postfix) with ESMTP id AEDCC403EF;
-	Thu, 26 Nov 2026 17:43:45 +1100 (AEDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
-	t=1795675425;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xDtIST3zZ9y4EzJ6NETBhs9+pFPleoAbssJ/eV+XnOE=;
-	b=SjFKF5/tk54Xz2Km9hT+o/URL72fTkx0Jsfqyqj9ECYBOS1JAbZ4S7UZoxx2E4V2K4nuDB
-	CjBsPCYkeTBKtm7tCpB39vnc3y8fYp0RUDSbMqzbdMo0NYwrrpVyyfGiqy77A82MWqLqts
-	gRaL3UUDOIhfL+EsjPfoSoH7g0fRDjTcg6QTYR5KEI6O/HGn4x4RiXa2zKhOgfrF1QXfFj
-	ouoHUeyW5wp7nutpSrq1e6v55JE0WM/h0mmwtyRn6cIEtxy7vLWwMS+q+ynDUgSBxrnsFY
-	S7x9GaxPK/NbWq9/tEZVBbWcdvdBdNLPoGw9S4PApBmkLScYonxN38gY5ENAdg==
-X-GPT-Reason: legitimate; this is a technical, personal, or professional
-	correspondence regarding a Linux kernel patch (net-next) that
-	perfectly aligns with the sender's identity (alastair@d-silva.org)
-	and the recipient's role; the content is highly specific technical
-	discussion about hardware clock inversion and GMAC210 support
-	with no marketing, phishing, or scam indicators; authentication is
-	supported by a consistent From domain and a lack of external links
-	or urgency tactics.
-From: Alastair D'Silva <alastair@d-silva.org>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Alastair D'Silva <alastair@d-silva.org>
-Subject: Re: [PATCH net-next v3 5/5] net: stmmac: sun55i: Add support for Allwinner A733 GMAC210
-Date: Thu, 26 Nov 2026 17:43:45 +1100
-Message-ID: <20261126064345.2569445-1-alastair@d-silva.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260923-allwinner-a733-gmac-support-v3-5-15735155a789@baylibre.com>
-References: <20260923-allwinner-a733-gmac-support-v3-0-15735155a789@baylibre.com> <20260923-allwinner-a733-gmac-support-v3-5-15735155a789@baylibre.com>
+	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=eahZGV4n
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=+b7d3jVJ5W7Nxl0PqQTy3RSOU74Z82xEac1ynjpgAMw=;
+	b=eahZGV4n8rqGAn5XdtRwzvENxShQaPxCzdbRQvsMPhSY5h4M5ip6/l3NWTDRYq28rGl1fWEf3
+	4f1KZE18N/48S5wnghtS9YGCoVDqYP6GNjyfW+Fje+/K62DVykmIQfWub1J+MystJIzcMK1aOYf
+	grajgcECOhGCt6xvTJd9fH4=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4jZn9l4ScJz1ps90;
+	Thu, 26 Nov 2026 14:45:31 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 313F14057D;
+	Thu, 26 Nov 2026 14:45:49 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 26 Nov
+ 2026 14:45:48 +0800
+Message-ID: <12c5bdb8-6d80-4d4b-9c40-14fabb7e4874@huawei.com>
+Date: Thu, 26 Nov 2026 14:45:47 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,32 +62,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/3] fs/resctrl: Allocate
+ rdt_l3_mon_domain::rmid_busy_llc using kvzalloc_objs()
+To: Ben Horgan <ben.horgan@arm.com>
+CC: <tony.luck@intel.com>, <reinette.chatre@intel.com>, <x86@kernel.org>,
+	<Dave.Martin@arm.com>, <james.morse@arm.com>, <babu.moger@amd.com>,
+	<fenghuay@nvidia.com>, <bp@alien8.de>, <linux-kernel@vger.kernel.org>
+References: <20261125164753.3759904-1-ben.horgan@arm.com>
+ <20261125164753.3759904-4-ben.horgan@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20261125164753.3759904-4-ben.horgan@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 
-Hi Jerome,
 
-While testing A733 GMAC210 on the Orange Pi 4 Pro (YT8531 PHY), we hit
-two hardware differences that also affect this series:
 
-1. External vs. internal RGMII TX clock (SYSCON_ETCS_EXT_GMII):
-   Unlike the Cubie A7A, the Orange Pi 4 Pro wires the PHY's 125 MHz
-   CLK_OUT back to the MAC and stalls on 1 Gbps TX with
-   SYSCON_ETCS_INT_GMII (0x2). It requires SYSCON_ETCS_EXT_GMII (0x1),
-   matching Allwinner's "aw,rgmii-clk-ext" BSP property. A733 GMAC210
-   will need a DT/clock way to select EXT_GMII vs. INT_GMII so both
-   boards work.
+在 2026/11/26 0:47, Ben Horgan 写道:
+> The bitmap rdt_l3_mon_domain::rmid_busy_llc has
+> resctrl_arch_system_num_rmid_idx() entries.  On an MPAM system this is the
+> number of PARTIDs multiplied by the number of PMGs. The maximum possible number
+> of PARTIDs is 0x10000 and the maximum number of PMGs is 0x100. On a system
+> approaching these limits the kmalloc() based allocation will consistently fail
+> and hence fail to bring the monitor domain online.
+> 
+> As there is no equivalent to bitmap_zalloc() that uses kvmalloc() or vmalloc(),
+> open code the allocation of rmid_busy_llc using kvzalloc_objs() so that large
+> allocations fall back to vmalloc().
+> 
+> Fixes: 264c285999fc ("arm_mpam: resctrl: Add monitor initialisation and domain boilerplate")
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> ---
+>  fs/resctrl/rdtgroup.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
+> index c55f125ce9a1..a8eebb5a5c4b 100644
+> --- a/fs/resctrl/rdtgroup.c
+> +++ b/fs/resctrl/rdtgroup.c
+> @@ -4503,7 +4503,7 @@ static void domain_destroy_l3_mon_state(struct rdt_l3_mon_domain *d)
+>  	int idx;
+>  
+>  	kvfree(d->cntr_cfg);
+> -	bitmap_free(d->rmid_busy_llc);
+> +	kvfree(d->rmid_busy_llc);
+>  	for_each_mbm_idx(idx) {
+>  		kvfree(d->mbm_states[idx]);
+>  		d->mbm_states[idx] = NULL;
+> @@ -4624,7 +4624,7 @@ static int domain_setup_l3_mon_state(struct rdt_resource *r, struct rdt_l3_mon_d
+>  	int idx;
+>  
+>  	if (resctrl_is_mon_event_enabled(QOS_L3_OCCUP_EVENT_ID)) {
+> -		d->rmid_busy_llc = bitmap_zalloc(idx_limit, GFP_KERNEL);
+> +		d->rmid_busy_llc = kvzalloc_objs(unsigned long, BITS_TO_LONGS(idx_limit));
 
-2. RX clock inversion (BIT(4), ERXIE in glue offset 0x00):
-   With BIT(4) = 0, Orange Pi 4 Pro required ~3.8-4.1 ns of total RX
-   delay (matching what you saw on Cubie A7A with 1800 ps MAC delay on
-   top of 2 ns PHY delay). Testing with BIT(4) = 1 (ERXIE) confirmed
-   it inverts RXC by ~4 ns (180 degrees at 125 MHz), centering RX at
-   0 ps MAC/PHY RX delay. Andrew Lunn requested fixing this clock
-   inversion rather than compensating with ~2-4 ns rx-internal-delay-ps.
 
-I plan to rebase the Orange Pi 4 Pro Ethernet support on top of this
-series and address these in follow-on patches unless you intend to
-roll them into a v4.
+LGTM
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
-Thanks,
-Alastair
+>  		if (!d->rmid_busy_llc)
+>  			return -ENOMEM;
+>  	}
+> @@ -4646,7 +4646,7 @@ static int domain_setup_l3_mon_state(struct rdt_resource *r, struct rdt_l3_mon_d
+>  
+>  	return 0;
+>  cleanup:
+> -	bitmap_free(d->rmid_busy_llc);
+> +	kvfree(d->rmid_busy_llc);
+>  	for_each_mbm_idx(idx) {
+>  		kvfree(d->mbm_states[idx]);
+>  		d->mbm_states[idx] = NULL;
+
