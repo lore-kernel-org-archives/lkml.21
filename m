@@ -1,92 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=219.87.157.213
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795659413;
-	b=WGiaEzv2u21TEBleg37GPsBQ+yRXodN8VDss/t60JPjjo/rXOucHx4WtGgGm9YOSVWfV
-	 oMlD8sTMav2HksNyXvVGHrliYboP48OeTm3O7F53MVEl/K2naUntpCDlqBrFpvl4dZUqq
-	 7Yzr8kmTZ30tGA9R+Rg9Mi68LY53NSiMHEY9hy/x6JyW/o6TB+6lFMBvlVwSSrU9lh6/+
-	 uMNDNE/cd7lbp2Wrl09gSx2xb1TINp6UXTKSVOULSzeB0mm85s2MgkLrsiZacg3SVgzRK
-	 yKOrlKEeas0LfX2wxGO3WiMkwxGbMHsABqTLe5RVt6nDNdCIPjDMk8aHr18hC3EWmvg==
+	t=1795659426;
+	b=FVsXHUEjPRjqifpaXqbOOmoTUJfzuRrFWPSq8PdLo7zpvG8mgImJMFKtflF0lRzgxHbR
+	 7NCo+xKckjAIdyHtmhqsWyyVZAOvwI0LcLLXN39aTttPmT7Ex8uH6VCAhG7G7lL7vYl00
+	 DhOeE6DRSa760aaN7N64m5XQrUzuTHNT8kNm0QBoHUdq+pxDA4Ssd/Ljmq3LzTxME7x1t
+	 IECfuJ3Nj+/xUI1HC7v2zOtDzM76JsM28CwflhJKboU6niXkNg8XDKdpxmTM0NYC2jhCB
+	 X1bBJFNOk884BMlnjZuR2Jz55CjqeOJpM4jkViuGNkqym9KGBIMnjCqA53Bdlm40X7A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795659413;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 Received:Received:Received:Received:From:To:CC:Subject:Thread-Topic:
-	 Thread-Index:Date:Message-ID:References:In-Reply-To:Accept-Language:
-	 Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-originating-ip:x-tm-snts-smtp:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-MAIL;
-	bh=9WHVu77k7FNQ11FtWv1h08ZNc7vcSlPMs7UA0+dd7Qg=;
-	b=m3juamdnAfAwJRZin84QIU8UEynmG7eyxC9YTg6nOQoBzDgzcVuy61ZYi+AQa6fuIAvZ
-	 yIR7SJ/N+kFXOhux7oy2EK2nsGskLCvrUvl0oO3AWPA8jQ7m/hAkrMELINyk4bqjkvta+
-	 qUEuUzEL5g8kv37U/C6YGVpO2X4mJKWKLymNmLuc4KB+q1ney5scU6omIjE9nBolJkf56
-	 qHXKo/hHSEj91ZAKEdNqg7PIxUnTDK8iFbxgdeHTLBGZmFP/VgQoXlwlPZaZXvPjJD77f
-	 heGoDWZ1mOQ5dqu+USZbOOuBgUTWNwuJRxS/aY5MPZ0lYNZw4hyxC5JgtAsmDN27hRA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795659426;
+	h=DMARC-Filter:X-Alimail-AntiSpam:Received:Subject:To:Cc:References:
+	 From:Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=7D1KDwdmyMYWSbEwbcIhiAAhhVSggZqewSdyEuJmEQY=;
+	b=kbv/Vbzs91qETU2OprI+0edKy0bNXHccjnFKVCjvVr9cKHpJHn4Y/vMdJPPnVQJY5yh2
+	 +OubgZXwVWtufS80zrEkAI8K6aOsR/YR0E/MdSXKFwr3j373xkkBoWY03OnRoSaWiExd6
+	 roY1WXglOjU+HSpA+7dLVeIoCoxo/AUWsWIfuVQf8DuWeOR4/aspWOmowGSWWQXw5aSkG
+	 JhBs6MkJWJh1kMaicDKmsZqlRsOTzgQGrHtAq8pcbktsJD4TOxhiA3L3KttCb4jibDiZi
+	 qhgoWGUEKoN0bWsc6qwz9JOuslo8EPqUkS8A7SNj7WG9VwRFseYCsyhyZkTXFZ7QTmw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ite.com.tw;
-	spf=pass smtp.mailfrom=ite.com.tw;
-	dkim=pass header.d=ite.com.tw header.i=@ite.com.tw header.a=rsa-sha256 header.s=dkim header.b=VN77K7DG;
-	arc=none smtp.remote-ip=219.87.157.213
-Received: from ironport.ite.com.tw (unknown [219.87.157.213])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=none header.from=open-hieco.net;
+	spf=pass smtp.mailfrom=open-hieco.net;
+	arc=none smtp.remote-ip=115.124.28.51
+Received: from out28-51.mail.aliyun.com (out28-51.mail.aliyun.com [115.124.28.51])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBCDD606A321;
-	Thu, 26 Nov 2026 02:16:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DBCDD606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ite.com.tw
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ite.com.tw
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ite.com.tw header.i=@ite.com.tw header.a=rsa-sha256 header.s=dkim header.b=VN77K7DG
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=ite.com.tw; s=dkim;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=9WHVu77k7FNQ11FtWv1h08ZNc7vcSlPMs7UA0+dd7Qg=;
-  b=VN77K7DGcafQTfJ/q3aLqCxnmQGx7GYZyi5x68aGawHVLj6OrFCIMo0N
-   Vjw0ZrD4rsi4izuT9PAQuoVUvCqaaLvxvA/5udVK0sWXIlagzd8r9GmgZ
-   1MgooGr+BPAwo3IYSNrgjpBg6RBPGi0GPZg8ka2qqfeXN75SlutsiL+21
-   MGGWG34P1KxKiiTEKJyJhQ9Uf2nsd58jbIqwz6rZxLs6fDqoIO3Pr21Q6
-   c2OR3jVX+EYY1E6UgBJedso9AlA4/2hhxGqQP2N7d2fv+eXEj+wG4MhzG
-   bIc+yYVuhGj+1STgjxtC9uP6NPtFpaGRQ8T22Kt7lCbdHle4xgENTDqhv
-   Q==;
-X-CSE-ConnectionGUID: 3rXS2iKbQ/q+tqTfv4+UVg==
-X-CSE-MsgGUID: XZcbSRNZSvGcf3GHv5iMSw==
-Received: from unknown (HELO mse.ite.com.tw) ([192.168.35.30])
-  by ironport.ite.com.tw with ESMTP; 26 Nov 2026 10:16:44 +0800
-Received: from tpemail1.internal.ite.com.tw (TPEMAIL1.internal.ite.com.tw [192.168.15.58])
-	by mse.ite.com.tw with ESMTP id 6AQ2Gd8I099846;
-	Thu, 26 Nov 2026 10:16:39 +0800 (+08)
-	(envelope-from Hermes.Wu@ite.com.tw)
-Received: from TPEMAIL1.internal.ite.com.tw (192.168.15.58) by
- TPEMAIL1.internal.ite.com.tw (192.168.15.58) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Thu, 26 Nov 2026 10:16:39 +0800
-Received: from TPEMAIL1.internal.ite.com.tw ([fe80::63c1:9095:c5a6:3291]) by
- TPEMAIL1.internal.ite.com.tw ([fe80::63c1:9095:c5a6:3291%3]) with mapi id
- 15.02.2562.046; Thu, 26 Nov 2026 10:16:39 +0800
-From: <Hermes.Wu@ite.com.tw>
-To: <hverkuil+cisco@kernel.org>, <mchehab@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <hverkuil@kernel.org>
-CC: <linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <broonie@kernel.org>,
-        <lgirdwood@gmail.com>, <linux-sound@vger.kernel.org>,
-        <linux-api@vger.kernel.org>
-Subject: RE: [PATCH v2 9/9] media: uapi: it6625: remove the driver-specific
- audio controls
-Thread-Topic: [PATCH v2 9/9] media: uapi: it6625: remove the driver-specific
- audio controls
-Thread-Index: AQHdfNqV9/U6qc1EEeqYH4GUceBqBbc/nnXA
-Date: Thu, 26 Nov 2026 02:16:39 +0000
-Message-ID: <bda1d2cb8f9b40c9a9b2fe8bcc803382@ite.com.tw>
-References: <20261124-upstream-it6625-alsa-i2s-v2-0-a154685f6989@ite.com.tw>
- <20261124-upstream-it6625-alsa-i2s-v2-9-a154685f6989@ite.com.tw>
- <c356089d-775d-4998-813f-644b15eddfc3@kernel.org>
-In-Reply-To: <c356089d-775d-4998-813f-644b15eddfc3@kernel.org>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-x-tm-snts-smtp: FE9D0D804F3E459055980357402D1545374A544AB0C7B9B092762B1DAF07EF882002:8
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75CF8606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:17:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75CF8606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=open-hieco.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=open-hieco.net
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.07445636|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_regular_dialog|0.0228038-0.000245648-0.976951;FP=1913840856086432982|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033045099153;MF=likunyu@open-hieco.net;NM=1;PH=DS;RN=13;RT=13;SR=0;TI=SMTPD_---.kAFFSgn_1795659411;
+Received: from 172.18.25.145(mailfrom:likunyu@open-hieco.net fp:SMTPD_---.kAFFSgn_1795659411 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Thu, 26 Nov 2026 10:16:54 +0800
+Subject: Re: [PATCH] sched/topology: Count LLCs per node from the sched groups
+To: Qiliang Yuan <qiliang.yuan@linux.dev>, Ingo Molnar <mingo@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+ K Prateek Nayak <kprateek.nayak@amd.com>,
+ "Gautham R. Shenoy" <gautham.shenoy@amd.com>
+Cc: linux-kernel@vger.kernel.org
+References: <20261125-feat-sched-nr-llcs-v1-1-05f8e23a5f8f@linux.dev>
+From: Li kunyu <likunyu@open-hieco.net>
+Message-ID: <71dc8425-c2bb-72ed-2627-186b6168d84e@open-hieco.net>
+Date: Thu, 26 Nov 2026 10:16:51 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.14.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,30 +59,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MAIL:mse.ite.com.tw 6AQ2Gd8I099846
+In-Reply-To: <20261125-feat-sched-nr-llcs-v1-1-05f8e23a5f8f@linux.dev>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
 
-SGkgSGFucywNCg0KT24gMjUvMTEvMjAyNiAxMzo0MywgSGFucyBWZXJrdWlsIHdyb3RlOg0KPj4g
-VjRMMl9DSURfSVQ2NjI1X0FVRElPX1NBTVBMSU5HX1JBVEUgYW5kIFY0TDJfQ0lEX0lUNjYyNV9B
-VURJT19QUkVTRU5UDQo+PiBoYXZlIGJlZW4gcmVwbGFjZWQgYnkgdGhlIHN0YW5kYXJkIFY0TDJf
-Q0lEX0RWX1JYX0FVRElPX1NBTVBMSU5HX1JBVEUNCj4+IGFuZCBWNEwyX0NJRF9EVl9SWF9BVURJ
-T19QUkVTRU5UIGNvbnRyb2xzLCBhbmQgdGhlIGRyaXZlciBubyBsb25nZXIgdXNlcw0KPj4gdGhl
-bS4gVGhleSB3ZXJlIGFkZGVkIHRvZ2V0aGVyIHdpdGggdGhlIGRyaXZlciBhbmQgYXJlIG5vdCBw
-YXJ0IG9mIGFueQ0KPj4gcmVsZWFzZWQga2VybmVsIHlldC4NCj4NCj4gV2VsbCwgdGhhdCdzIG5v
-dCByZWFsbHkgdHJ1ZS4gQnkgdGhlIHRpbWUgdGhpcyBwYXRjaCB3b3VsZCBnbyBpbiwgdGhlIGRy
-aXZlcg0KPiB3aWxsIGJlIHBhcnQgb2YgYSByZWxlYXNlZCBrZXJuZWwuDQoNCllvdSdyZSByaWdo
-dCwgdGhlIGRyaXZlciBhbmQgaXRzIHByaXZhdGUgY29udHJvbHMgYXJlIGFscmVhZHkgaW4NCnY3
-LjQtcmMxLiBJJ2xsIGNvcnJlY3QgdGhlIGNvbW1pdCBtZXNzYWdlIGluIHYzOiBpdCB3aWxsIHNh
-eSB0aGF0DQpyZW1vdmluZyB0aGUgY29udHJvbHMgYnJlYWtzIHRoZSB1QVBJLCB0aGF0IHRoZXkg
-YXJlIHJlcGxhY2VkIGJ5IHRoZQ0Kc3RhbmRhcmQgY29udHJvbHMsIGFuZCB0aGF0IHRoZSBpbXBh
-Y3QgaXMgZXhwZWN0ZWQgdG8gYmUgdmVyeSBzbWFsbC4NCg0KPiBUaGF0IHNhaWQsIHRoaXMgaXMg
-b25lIGNhc2Ugd2hlcmUgSSBhbSBpbiBmYXZvciBvZiBkcm9wcGluZyB0aGUgb2xkIGNvbnRyb2xz
-DQo+IGV2ZW4gdGhvdWdoIGl0IHN0cmljdGx5IHNwZWFraW5nIGJyZWFrcyB0aGUgdUFQSS4NCj4N
-Cj4gSSdtIG5vdCBhd2FyZSBvZiBhbnkgaGFyZHdhcmUgYm9hcmRzIHRoYXQgdXNlIHRoaXMgY2hp
-cCwgc28gdGhlIGltcGFjdCBpcyB2ZXJ5DQo+IHNtYWxsIGlmIG5vdCB6ZXJvLg0KDQpUaGFuayB5
-b3UsIEknbGwga2VlcCB0aGUgcGF0Y2guDQoNCj4gSXQncyBhY3R1YWxseSBhbiBpbnRlcmVzdGlu
-ZyBxdWVzdGlvbjogYXJlIHRoZXJlIGJvYXJkcy9TQkNzIGNvbW1lcmNpYWxseSBhdmFpbGFibGUN
-Cj4gdGhhdCB1c2UgdGhpcyBjaGlwPyBJdCdzIGFuIGludGVyZXN0aW5nIG9uZSwgaXQgbWlnaHQg
-YmUgbmljZSBpZiB0aGVyZSB3b3VsZCBiZQ0KPiBhIGJvYXJkIGZvciBlLmcuIHRoZSBSYXNwYmVy
-cnkgUGkuDQoNCldlIGRldmVsb3AgYW5kIHRlc3QgdGhlIGRyaXZlciBvbiBhIFJhc3BiZXJyeSBQ
-aSA1LCB3aXRoIHRoZSBJVDY2MjUNCmNvbm5lY3RlZCB0byBpdHMgQ1NJLTIgY2FtZXJhIGNvbm5l
-Y3RvciBhbmQgdGhlIGF1ZGlvIG92ZXIgSTJTLg0KDQpCZXN0IHJlZ2FyZHMsDQpIZXJtZXMNCg==
+Hi Qiliang,
+
+On 2026/11/25 21:19, Qiliang Yuan wrote:
+> adjust_numa_imbalance() sets imb_numa_nr from the number of LLCs under
+> the LLC's parent domain, so that tasks spill over to another node only
+> once every LLC of the local node is in use.  It estimates that number
+> by dividing the parent's span weight by the LLC's.
+> 
+> The division assumes all LLCs in a node are the same size.  On a Hygon
+> C86-4G 7493 each node has four CCXs of 4, 4, 3 and 3 cores, as two core
+> slots per node are fused off, giving LLCs of 8, 8, 6 and 6 CPUs out of
+> 28.  CPUs in the larger CCXs compute 28 / 8 = 3 LLCs and the others
+> 28 / 6 = 4, so CPUs of the same node apply different imbalance limits
+> at every NUMA level.
+> 
+> Count the parent's sched groups instead.  They are built from the child
+> domains, one per LLC, before imb_numa_nr is computed, and give the same
+> count as the division when all LLCs are the same size.
+> 
+> imb_numa_nr per domain on a KVM guest with that node layout (2 sockets
+> x 2 nodes, SLIT 15/25/27, fused-off core slots offlined), read through
+> a debugfs file added for the test; change is for the 4-core CCXs:
+> 
+>   domain (CPUs)  before, 4-core CCX  before, 3-core CCX  after  change
+>   NODE (28)                       3                   4      4    +33%
+>   NUMA (56)                       3                   4      4    +33%
+>   NUMA (84)                       3                   4      4    +33%
+>   NUMA (112)                      6                   8      8    +33%
+> 
+> Fixes: e496132ebedd ("sched/fair: Adjust the allowed NUMA imbalance when SD_NUMA spans multiple LLCs")
+> Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
+> ---
+>  kernel/sched/topology.c | 16 ++++++++++++++--
+>  1 file changed, 14 insertions(+), 2 deletions(-)
+> 
+> diff --git a/kernel/sched/topology.c b/kernel/sched/topology.c
+> index 99878da03bce7..7efb2cde5534f 100644
+> --- a/kernel/sched/topology.c
+> +++ b/kernel/sched/topology.c
+> @@ -2893,8 +2893,9 @@ static void adjust_numa_imbalance(struct sched_domain *sd_llc)
+>  {
+>  	struct sched_domain *parent;
+>  	unsigned int imb_span = 1;
+> +	unsigned int nr_llcs = 0;
+> +	struct sched_group *sg;
+>  	unsigned int imb = 0;
+> -	unsigned int nr_llcs;
+>  
+>  	WARN_ON(!(sd_llc->flags & SD_SHARE_LLC));
+>  	WARN_ON(!sd_llc->parent);
+> @@ -2918,8 +2919,19 @@ static void adjust_numa_imbalance(struct sched_domain *sd_llc)
+>  	 * enough logical CPUs per LLC to avoid SMT
+>  	 * factors and that there is a correlation
+>  	 * between LLCs and memory channels.
+> +	 *
+> +	 * Count the LLCs through the parent's groups, one
+> +	 * per LLC, rather than dividing the spans: LLCs
+> +	 * in a node need not be the same size (e.g. when
+> +	 * some cores of a CCX are fused off), and the
+> +	 * quotient then depends on which LLC the CPU is in.
+>  	 */
+> -	nr_llcs = sd_llc->parent->span_weight / sd_llc->span_weight;
+> +	sg = sd_llc->parent->groups;
+> +	do {
+> +		nr_llcs++;
+> +		sg = sg->next;
+> +	} while (sg != sd_llc->parent->groups);
+> +
+
+I have a suggestion: add a static key switch. During scheduling-domain
+initialization or rebuild, if an asymmetric LLC layout is detected, enable the
+key and take the new code path. The key is disabled by default, so the original
+code path is retained.
+
+>  	if (nr_llcs == 1)
+>  		imb = sd_llc->parent->span_weight >> 3;
+>  	else
+> 
+> ---
+> base-commit: c47af85667065c6dd5b79564203c2d29948ef60e
+> change-id: 20261125-feat-sched-nr-llcs-a1a82664eac0
+> 
+> Best regards,
+> 
+
+-- 
+thanks,
+kunyu
