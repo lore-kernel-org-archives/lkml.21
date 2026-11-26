@@ -1,77 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795712848;
-	b=s9yod5I3b3fitffiGOD4HfpXAMXsnyh9/z+HrpBqc+7k11bra3Ljn/djIjNRGIioLnBa
-	 hmArWsF4ICxHHEskKATvC9ZScxliCChomJe320vUkjQcnh1SgpcQN2dFKbd71GdvmRmLc
-	 G3TYdWKlsX3qB8x/VUAAMv/DduNEj0iMAlCgDHbg8O0o8r8VbWYcce5GBlnu/7MQiD9xS
-	 e22YooP4EiarYPpEpNyyUn9pcWsQQYvvGzio3WI9GJUe8SAmnROFAP8U4JxWeuQHp6txV
-	 M8uJyXQL9T1+0FN4H4KFiIo7C4F5ExJE4Fjbu4Nk5yAbQon5/DeyIyOeibCWBlGZrMA==
+	t=1795712927;
+	b=5FqfxFNEAxaGns9/zHE3JetgczxSjTnOVijrsIQSnspwIvuRcn2rB+UsXoJkr6OZ6u7D
+	 eA5kJ29dvucIW6tEEHpXB5yoH/44sNPou9fFjMRmxy5xEwjLi7XclgK3Mmv6KhpO11iff
+	 3Ke0U7yhe2QW6Eka4mMZ7bLptJTyndpQxNWTxB4sjJjUY7eZZGrffB1PaMcMY1hr35Y9+
+	 alwwuiWl/Tnkb/LDIsK2pNqZprrm90kFxl8E5DNLbkp8yoUaFdSM+z/uMLWDRNUFfeMHk
+	 H3apyaseojttxJkFJag1v8mF6iTy+HSAI8mhNuf0PSYyvKylTZxDrG3qIT/EhscC+0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795712848;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding;
-	bh=rRhwkGhKQgbihZnk9UaFtjSRGBOLT4pE9MFkULhOFVc=;
-	b=W42wp0TjhmB0Xd/PwlTamwjpJ7zVKfHubvqp6MmJo7XReaP6g0i1Wbzodl4Fw88MiqHd
-	 w7aafKLfrdCD0rqFszP3x83QHoY8uW4n+J67hQy+sKMb1B4jl/Id9I2c8T+3FBv1oUIbO
-	 CS2T1DsfkC/fVOCrmGGHicaPJOTEh6nFuVTEebSKt9JCqVHGF6A/kgx7WjrwWtkhNFhhw
-	 K/8OvcAEWRLkHhfmnxYK8g5MRYsbxLNF7nZqKfbs7NUHM145bg4jn/Zxeltvjzs/LPUZO
-	 WQbwpjLNYxK0OEFttkzaWtNUhf99sAr1PiPfUDy3xoBW0aULVG7L244WcMLYpI+zPiA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795712927;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=UtLU+Vh4EDesMjJE1JoJTCuUxgHCL2D+tpkF5ZBWsp0=;
+	b=Rajh1B2BrdVwWVkQaQePg9RYRjaDX+RaNDQnwrMG1t7vx5eE9hTbiGgMC+kcHlfD/AYk
+	 HIunkRgbGcNAo3M8DeZjX6Y47rqPcE8Ycla9WJ24D5bZskLJySaxQadAo45DlkdgiUwGI
+	 1FmBSKymJWnmEL5KwPpCxFzbRqnerAjN3McXgxdGBIrDbm/3ea6btbSNUJjfAcYS99mUE
+	 mRNqWawY8MoVB0UVM8jEleUnBE+KZaZBOno1MsyqUroKBeHrHCB9IXdyWPcmDw9tQXmk/
+	 tepHnWbFuGeamwEdaKdAhTJkMEUmvA4FEtYRd3GOyL0g0gV7hObMwXmcCRHH1aZDZ5w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=TyYS+yqV;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 377B9606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:07:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 377B9606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="MW/6CiGy";
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b="bKX/ANmW";
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8649C606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:08:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8649C606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=TyYS+yqV
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 77BB51BA8;
-	Thu, 26 Nov 2026 09:07:24 -0800 (PST)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 166A53F632;
-	Thu, 26 Nov 2026 09:07:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795712847; bh=ZfWATzofisBKF6MdkDGT7S22fCOay+KfrgQucX7BJ6E=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TyYS+yqVO9d2fZk7uIdOqUc1Ec+Z/aLAPLBb7p8GL+mcNliJIr4bHuvSb67roqjVz
-	 MSUnjfYRpwWQ4ab/+JLNoQqHmXcFVr+WQ+X5Q+GQp1JD3w0SjZXkwvkyzua4mskzXD
-	 IHmYkzLt6UDdsdHNfW+e69UEyrFzC+kLic2oj3To=
-From: Leonardo Bras <leo.bras@arm.com>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Usama Arif <usama.arif@linux.dev>,
-	maz@kernel.org,
-	oupton@kernel.org,
-	fuad.tabba@linux.dev,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	riel@surriel.com,
-	shakeel.butt@linux.dev,
-	kernel-team@meta.com,
-	rkeilty@meta.com,
-	atish.patra@linux.dev,
-	dgreid@meta.com
-Subject: Re: [PATCH] KVM: arm64: Reduce the stage-2 page cache on 64 KiB hosts
-Date: Thu, 26 Nov 2026 17:07:21 +0000
-Message-ID: <awhnFrt1GmrTlQZ9@LeoBrasDK>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <awhfXrdkHkY-riN3@gremlin>
-References: <20261124152842.2634495-1-usama.arif@linux.dev> <awcXhk885lqDRAHy@LeoBrasDK> <06a69a4f-59bb-49b8-9ed0-f4cfe0ecad37@linux.dev> <awcoCklLOKeuXPhh@LeoBrasDK> <e7bdcfa9-bbd8-4649-8318-2f6dc236db15@linux.dev> <4jxdf2pkuu2f7dftvf6ltpv27jctfuvvrfcrbfxudsgnp3hdfk@taur55wftexq> <awhODYKXnsBi_s_B@LeoBrasDK> <klnyvfxwhpw73wo55y5aq3qliglnf7xkfkmfj6cgzje7z3n2fq@aqjxshyjnldu> <awhWYdZVkESY9eJs@LeoBrasDK> <awhfXrdkHkY-riN3@gremlin>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=MW/6CiGy;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=bKX/ANmW
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795712925;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UtLU+Vh4EDesMjJE1JoJTCuUxgHCL2D+tpkF5ZBWsp0=;
+	b=MW/6CiGyvu+SHDKPGn8TWhtsKHC8aWoOWQBZon8IP8Y1D5lzVrr4V5GF9ENep5U5/Hu71w
+	CtRvp4Mspm6wNYG/p19tBeDvecUad0g5iICiFXMThAsn+1LzZRIWWyWy9p6MVNGo9OajVP
+	9KqeU/2pnbuIwPKKvUxEX+6pMP/fqSQ=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-85-Iy9nd1DWNy-6_86f0U90lQ-1; Thu, 26 Nov 2026 17:08:43 +0000
+X-MC-Unique: Iy9nd1DWNy-6_86f0U90lQ-1
+X-Mimecast-MFC-AGG-ID: Iy9nd1DWNy-6_86f0U90lQ_1795712922
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4bb69d84053so53215525e9.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:08:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795712922; x=1796317722; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=UtLU+Vh4EDesMjJE1JoJTCuUxgHCL2D+tpkF5ZBWsp0=;
+        b=bKX/ANmWQAHhPQG+3YQaI8YRtL6qPoxzn40CxVnISzL+Ur53vZamVILZpmLj1UN6gg
+         mMo2UTFyuDRxq17+6TpGSHlSbTpdZtZPn4GtFSQAlsRNWLyaUWGGGRynqfXVYBfYFtID
+         FsTu0RQ9F2jgHfct5MZDNMwKgIsK/cAcz9eILbjictcOSdNzFADWiwCtQsBGihH/UspL
+         kJIHvbRmRRxMe/YgJP4aAZtFVn7NKDL4zAkT8n7HJiclsA0tQcwpiSX4HDYhi7u77bLX
+         WVYIQpWNz6eDhXWtCARQmek/OfOUsWOKl7V9jBb589YQWoFNvsbcgPMj2MzKJLZJ2qol
+         yChA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795712922; x=1796317722;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=UtLU+Vh4EDesMjJE1JoJTCuUxgHCL2D+tpkF5ZBWsp0=;
+        b=gN8NGF83FoiX6RMPUyee8b7zus1uTv4yENMgsiADjlTbx/Wco15qXkFLELfcgAt48y
+         3LxYfzd/WKunTB33srgG+aq71WvYWlBCIimhG8yD9jeREZe9LAdf4DND8rSLynw8kRsI
+         qvcq9AytZoWAnyzvxqBQdWEUn23GiNH9Ytn1eDJOgNIMrGjRHrO+WXXAO7Mu7ri9yy7o
+         T52Rc7SrIe0w0alEZe6IFkBjkSnHSAUKwPYGGpXPPpASgaS6Fs3pYiHFgKvjyp7sz4Ns
+         6ps64tvpBsvKiG9+jIDHkyt4NnAC418HYr5/2Mo/eHJ/SC0KuBT1kx1V127MMbanCFWb
+         z4nA==
+X-Forwarded-Encrypted: i=1; AL+hErGuMcx6qCDl0W0fFzbEJKmwdLegFLH0fgsarVvxH4P8+w3mr/9wc3hZ5PiZvhSmzbQcBK982ER8q/rtLuI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8I+lpMkdSLg+YQk6tQoQCKxI0aKJC9fFviCeyecpbJk8SUwbQ6
+	e/Ztq8kfn2M4Q5nvT0CbxeLTcKRuKJAgx/OA8GEfsNceUweLpJBUZOxC2uN0CXrlj5Jtz/peI7p
+	Zvk8r8mDcliaf35h+J8pXPqb0uNb4XJVAb7gr533f376/gSfJecPB58tXZvfMGOF8xQ==
+X-Gm-Gg: AZFdTZfBjGZ8lsvyWtGk8GtIZ5EZVdZ4Qwfsf/LxZMYlJg640qsurOb5KKk8UIv4fN0
+	LdoDpeu/P2eQo0WcMnexb0TTqeXiE2+GyXQu9CBQo8+IIGEYvSZ/YtlLLN/2JUr9d0t56e11soZ
+	RGeY/X5e1m3dwu34ZkoC9k5BAjlvvGLSY5cHYB4qqHkiWdWfyeH8vjzTzjOTiSVVWEWslDMxHYF
+	++Xt5UVTsX0IcEkqDqui3BVoUcMWg5hmYkwHH58P5ZP0mukEZeNrxMTABrxZwD+XYllYVPKy7gh
+	kKDgCpL4XV9/1bH3s/yd3F5o9g3rp7r5KMRqpDelqGtoGmPb5GiHrJDf3mAoNJ1UEkpmHC6OQue
+	V4ci4njEWs4uk+C+L7JgI71bStZl/TSCNLwlZ5Az0H0Y4hMGKGGDIdA==
+X-Received: by 2002:a05:600c:a115:b0:4bb:a5e1:7257 with SMTP id 5b1f17b1804b1-4bba5e19362mr91351875e9.33.1795712922274;
+        Thu, 26 Nov 2026 09:08:42 -0800 (PST)
+X-Received: by 2002:a05:600c:a115:b0:4bb:a5e1:7257 with SMTP id 5b1f17b1804b1-4bba5e19362mr91351065e9.33.1795712921705;
+        Thu, 26 Nov 2026 09:08:41 -0800 (PST)
+Received: from sgarzare-redhat ([80.116.143.202])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b8429sm965894045e9.14.2026.11.26.09.08.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 09:08:40 -0800 (PST)
+Date: Thu, 26 Nov 2026 18:08:30 +0100
+From: Stefano Garzarella <sgarzare@redhat.com>
+To: Sergio Lopez <slp@redhat.com>
+Cc: Bobby Eshleman <bobbyeshleman@meta.com>, 
+	Alexei Starovoitov <ast@kernel.org>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	Bryan Tan <bryan-bt.tan@broadcom.com>, Vishnu Dasa <vishnu.dasa@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Stefan Hajnoczi <stefanha@redhat.com>, 
+	"Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowangio@gmail.com>, 
+	Eugenio =?utf-8?B?UMOpcmV6?= <eperezma@redhat.com>, Xuan Zhuo <xuanzhuo@linux.alibaba.com>, 
+	Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	virtualization@lists.linux.dev, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	kvm@vger.kernel.org, bpf@vger.kernel.org, linux-hyperv@vger.kernel.org, 
+	Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org, 
+	Sashiko AI bot <sashiko-bot@kernel.org>
+Subject: Re: [PATCH RFC v4 3/8] vsock/virtio: implement the datagram data path
+Message-ID: <awg7ZLAk468aeEo6@sgarzare-redhat>
+References: <20261124-vsock-dgram-support-v4-0-3607484e85e8@redhat.com>
+ <20261124-vsock-dgram-support-v4-3-3607484e85e8@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,216 +127,364 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=us-ascii; format=flowed
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261124-vsock-dgram-support-v4-3-3607484e85e8@redhat.com>
 
-On Thu, Nov 26, 2026 at 04:45:35PM +0000, Lorenzo Stoakes (ARM) wrote:
-> On Thu, Nov 26, 2026 at 03:55:13PM +0000, Leonardo Bras wrote:
-> > On Thu, Nov 26, 2026 at 03:34:19PM +0000, Wei-Lin Chang wrote:
-> > > On Thu, Nov 26, 2026 at 03:19:41PM +0000, Leonardo Bras wrote:
-> > > > On Thu, Nov 26, 2026 at 08:06:41AM +0000, Wei-Lin Chang wrote:
-> > > > > On Wed, Nov 25, 2026 at 09:42:33PM +0000, Usama Arif wrote:
-> > > > > >
-> > > > > >
-> > > > > > On 25/11/2026 10:25, Leonardo Bras wrote:
-> > > > > > > On Wed, Nov 25, 2026 at 05:55:29PM +0000, Usama Arif wrote:
-> > > > > > >>
-> > > > > > >>
-> > > > > > >> On 25/11/2026 09:14, Leonardo Bras wrote:
-> > > > > > >>> On Tue, Nov 24, 2026 at 07:28:42AM -0800, Usama Arif wrote:
-> > > > > > >>>> When a stage-2 fault may need new page tables, KVM first tops up the
-> > > > > > >>>> vCPU's page cache: if it holds fewer pages than the fault might need, it
-> > > > > > >>>> is refilled to KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE, which arm64 sets to
-> > > > > > >>>> 40. Unused pages stay in the cache until the vCPU is destroyed.
-> > > > > > >>>>
-> > > > > > >>>> With 64 KiB pages, that is 2.5 MiB per vCPU, and most of it is never
-> > > > > > >>>> used. Stage-2 has at most three levels and the root is preallocated, so
-> > > > > > >>>> a fault needs at most two new table pages (kvm_mmu_cache_min_pages()).
-> > > > > > >>>> As every last-level table covers 512 MiB, an 8 GiB guest needs just 17
-> > > > > > >>>> table pages to map all of its memory, while its four vCPU caches get
-> > > > > > >>>> filled with 160.
-> > > > > > >>>>
-> > > > > > >>>> On a production host with 64 KiB pages running 101 VMs with four vCPUs
-> > > > > > >>>> each, the caches were still 86% full. The memory used:
-> > > > > > >>>>
-> > > > > > >>>>                         before      after
-> > > > > > >>>>   per-vCPU capacity     2.5 MB     512 KB
-> > > > > > >>>>   all 404 vCPUs         869 MB     <= 202 MB
-> > > > > > >>>>
-> > > > > > >>>> Let's lower the capacity to 8 with 64 KiB pages, In the production
-> > > > > > >>>> usecase above, it frees at least 667 MB. That still covers the two-page
-> > > > > > >>>> minimum and leaves room for several table allocations per refill. 4 KB
-> > > > > > >>>> and 16 KB pages keep 40.
-> > > > > > >>>>
-> > > > > > >>>> The temporary cache in kvm_phys_addr_ioremap() uses the same capacity,
-> > > > > > >>>> but it is topped up before every page it maps, so 8 is sufficient there
-> > > > > > >>>> as well. The pKVM hypervisor memcache and the eager split cache don't
-> > > > > > >>>> use this capacity.
-> > > > > > >>>>
-> > > > > > >>>> Signed-off-by: Usama Arif <usama.arif@linux.dev>
-> > > > > > >>>> ---
-> > > > > > >>>>  arch/arm64/include/asm/kvm_types.h | 5 +++++
-> > > > > > >>>>  1 file changed, 5 insertions(+)
-> > > > > > >>>>
-> > > > > > >>>> diff --git a/arch/arm64/include/asm/kvm_types.h b/arch/arm64/include/asm/kvm_types.h
-> > > > > > >>>> index 9a126b9e2d7c99..28568da9ea4a7b 100644
-> > > > > > >>>> --- a/arch/arm64/include/asm/kvm_types.h
-> > > > > > >>>> +++ b/arch/arm64/include/asm/kvm_types.h
-> > > > > > >>>> @@ -2,7 +2,12 @@
-> > > > > > >>>>  #ifndef _ASM_ARM64_KVM_TYPES_H
-> > > > > > >>>>  #define _ASM_ARM64_KVM_TYPES_H
-> > > > > > >>>>
-> > > > > > >>>> +/* Must cover kvm_mmu_cache_min_pages(), at most 2 with 64 KiB pages. */
-> > > > > > >>>> +#ifdef CONFIG_ARM64_64K_PAGES
-> > > > > > >>>> +#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 8
-> > > > > > >>>> +#else
-> > > > > > >>>>  #define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 40
-> > > > > > >>>> +#endif
-> > > > > > >>>>
-> > > > > > >>>>  #endif /* _ASM_ARM64_KVM_TYPES_H */
-> > > > > > >>>>
-> > > > > > >>>> --
-> > > > > > >>>> 2.53.1-Meta
-> > > > > > >>>>
-> > > > > > >>>
-> > > > > > >>> Hi Usama,
-> > > > > > >>>
-> > > > > > >>
-> > > > > > >> Hello Leonardo,
-> > > > > > >>
-> > > > > > >>> Have you tried to reproduce this issue in v7.4-rc1 or newer?
-> > > > > > >>
-> > > > > > >> Yes. The patch is against kvmarm/next (v7.4-rc3), which includes
-> > > > > > >> Lorenzo's pre-fault series, and I A/B tested it there.
-> > > > > > >>
-> > > > > > >> On unpatched v7.4-rc3 with 64 KiB pages, a VM whose 16 vCPUs each fault
-> > > > > > >> in one page needs a single stage-2 table page, yet the vCPU caches hold
-> > > > > > >> 640 pages (40 MiB). With the patch they hold 127 pages.
-> > > > > > >>
-> > > > > > >>>
-> > > > > > >>> IIUC Lorenzo Stoakes introduced a change that would cause the memcache to
-> > > > > > >>> skip topup if the cache contains a minimum of ~4 pages, so it can possibly
-> > > > > > >>> improve that issue.
-> > > > > > >>
-> > > > > > >> I don't think that part is new. __kvm_mmu_topup_memory_cache() has
-> > > > > > >> returned early when mc->nobjs >= min since commit 6926f95accee ("KVM:
-> > > > > > >> Move x86's MMU memory cache helpers to common KVM code"). Lorenzo's
-> > > > > > >> commit d27acc152c62 ("KVM: arm64: Size the stage-2 memcache from the
-> > > > > > >> fault MMU") takes min from s2fd->mmu instead of vcpu->arch.hw_mmu. For a
-> > > > > > >> guest abort that is the same MMU, so nothing changes here.
-> > > > > > >>
-> > > > > > >> With 64 KiB pages, min is kvm_mmu_cache_min_pages(), which is at most 2.
-> > > > > > >>
-> > > > > > >>>
-> > > > > > >>> Although I can see that when it's below that minimum it fills the whole
-> > > > > > >>> capacity (40) of the cache.
-> > > > > > >>>
-> > > > > > >>
-> > > > > > >> Right, and that is the problem. Skipping the top-up avoids refilling
-> > > > > > >> the cache, but nothing ever drains it. A vCPU's first fault fills its
-> > > > > > >> cache to 40. Each last-level table covers 512 MiB, so a guest needs very
-> > > > > > >> few table pages, and most vCPUs never drop below min. The remaining
-> > > > > > >> pages stay allocated until the vCPU is destroyed, which is why the
-> > > > > > >> production caches were still 86% full.
-> > > > > > >>
-> > > > > > >> The patch keeps the early return and only lowers how far a refill goes.
-> > > > > > >
-> > > > > > > Right,
-> > > > > > >
-> > > > > > > I took a look in the cache workings, and it does not seem to receive freed
-> > > > > > > pages back in. It gets filled by topup and used by map, so IIUC it is used
-> > > > > > > only to avoid failing an allocation during the mapping walk.
-> > > > > > >
-> > > > > > > Maybe it could be the case to simplify this cache to have the capacity
-> > > > > > > about the same as the minimum (since it always topup before mapping) and
-> > > > > > > avoid the waste altogether.
-> > > > >
-> > > > > Well the more you reserve the less frequent you'd need to actually allocate at
-> > > > > topup, which saves time, so there's this trade-off to consider.
-> > > > >
-> > > > > Thanks,
-> > > > > Wei-Lin Chang
-> > > > >
-> > > >
-> > > > Hi Wei-Lin,
-> > > >
-> > > > IIUC, every time we topup, we call a mmu_memory_cache_alloc_obj() for every
-> > > > one of the objects in the array. So as it is today it runs it 40 times, and
-> > >
-> > > Not necessarily, I meant with 40,
-> > >
-> > > if (mc->nobjs >= min)
-> > > 	return 0;
-> > >
-> > > happens way more often.
-> >
-> > That's what I meant with 'waits until it runs down'. Basically we have
-> >
-> > if (mc->nobjs >= min)
-> > 	return 0;
-> >
-> > while (mc->nobjs < mc->capacity) {
-> > 	obj = mmu_memory_cache_alloc_obj(mc, gfp);
-> > 	...
-> >
-> > So, first use it allocates mc->capacity entries, and every further topup
-> > will return early unless it goes below min, when it populates again. The
-> > only reason for a larger cache being more performant would be to use
-> > that cache locality, which could indeed have a large impact, if we use this
-> > cache a lot.
-> 
-> I think there's confusion because of this being called a cache, this is more
-> pre-allocation than anything it seems. As per the comment above struct
-> kvm_mmu_memory_cache in include/linux/kvm_types.h:
-> 
->  * Memory caches are used to preallocate memory ahead of various MMU flows,
->  * e.g. page fault handlers.  Gracefully handling allocation failures deep in
->  * MMU flows is problematic, as is triggering reclaim, I/O, etc... while
->  * holding MMU locks.  Note, these caches act more like prefetch buffers than
->  * classical caches, i.e. objects are not returned to the cache on being freed.
-> 
-> The question is would going from 40 to 3 slow things down?
-> 
-> At 40 you do 40 __get_free_page() calls on topup for the _first_ fault that hits
-> it, which adds latency to a random s2 fault (not great).
-> 
-> (If the fault doesn't in fact use a page table, this is only done once until a
-> page table is next needed).
-> 
-> And then as 37 page tables are mapped, those ones don't get allocations at 38
-> you go again...
-> 
-> With 3 in the cache you allocate up to 3 for each fault.
-> 
-> So in both cases you allocate the same amount of pages but in the 40 case it's
-> all bunched up on one s2 fault with a jump in latency, in the 3 case it's spread
-> out.
-> 
-> I'd say 3 is therefore the better choice.
-> 
-> Also, as mentioned elsewhere, you end up leaking pages once the S2 page tables
-> are setup until the vCPU is destroyed, as nothing clears down the cache
-> AFAICT. With 40 that's way more than with 3.
-> 
-> --
-> Cheers, Lorenzo
+On Tue, Nov 24, 2026 at 01:20:21PM +0100, Sergio Lopez wrote:
+>Add the datagram feature bit and packet type, and implement the common
+>virtio transport operations needed to bind, send, and receive
+>datagrams.
+>
+>Send each message as an OP_RW packet with a maximum 64 KiB payload,
+>including support for empty messages. Bound pending sends by the
+>socket send buffer instead of connection-oriented peer credits. Use
+>the socket's skb memory charge for datagram SIOCOUTQ, including empty
+>messages, and release it through the normal skb ownership lifetime on
+>completion, rejection, or queued drops.
+>
+>Deliver incoming datagrams through the datagram bound-socket lookup
+>without entering the connection state machine. Connection-oriented
+>receive lookup excludes datagram sockets, so each class can use the
+>same destination CID and port. Validate the transport and connected
+>peer under the socket lock, including after shutdown, and silently
+>discard undeliverable messages. Use the socket datagram queue for
+>recvmsg(), including source addresses, peeking, and truncation
+>reporting based on the payload length after socket filtering. Reject
+>MSG_OOB and MSG_ERRQUEUE before accessing the receive queue. Reject
+>datagram sockmap admission until its receive callbacks support it.
+>
+>Signed-off-by: Sergio Lopez <slp@redhat.com>
+>---
+> include/uapi/linux/virtio_vsock.h       |   2 +
+> net/vmw_vsock/af_vsock.c                |  31 +++++---
+> net/vmw_vsock/virtio_transport_common.c | 132 ++++++++++++++++++++++++++++----
+> net/vmw_vsock/vsock_bpf.c               |   3 +-
+> 4 files changed, 140 insertions(+), 28 deletions(-)
+>
+>diff --git a/include/uapi/linux/virtio_vsock.h b/include/uapi/linux/virtio_vsock.h
+>index 64738838bee5..27b4b2b8bf13 100644
+>--- a/include/uapi/linux/virtio_vsock.h
+>+++ b/include/uapi/linux/virtio_vsock.h
+>@@ -40,6 +40,7 @@
+>
+> /* The feature bitmap for virtio vsock */
+> #define VIRTIO_VSOCK_F_SEQPACKET	1	/* SOCK_SEQPACKET supported */
+>+#define VIRTIO_VSOCK_F_DGRAM		3	/* SOCK_DGRAM supported */
+>
+> struct virtio_vsock_config {
+> 	__le64 guest_cid;
+>@@ -69,6 +70,7 @@ struct virtio_vsock_hdr {
+> enum virtio_vsock_type {
+> 	VIRTIO_VSOCK_TYPE_STREAM = 1,
+> 	VIRTIO_VSOCK_TYPE_SEQPACKET = 2,
+>+	VIRTIO_VSOCK_TYPE_DGRAM = 3,
+> };
+>
+> enum virtio_vsock_op {
+>diff --git a/net/vmw_vsock/af_vsock.c b/net/vmw_vsock/af_vsock.c
+>index 8a271eb66860..aef5389eeca2 100644
+>--- a/net/vmw_vsock/af_vsock.c
+>+++ b/net/vmw_vsock/af_vsock.c
+>@@ -1659,20 +1659,27 @@ static int vsock_do_ioctl(struct socket *sock, unsigned int cmd,
+> 	case SIOCOUTQ: {
+> 		ssize_t n_bytes;
+>
+>-		if (!vsk->transport || !vsk->transport->unsent_bytes) {
+>-			ret = -EOPNOTSUPP;
+>-			break;
+>-		}
+>+		if (sk->sk_type == SOCK_DGRAM) {
+>+			/* Match UDP: report charged send memory, including skb
+>+			 * overhead and empty datagrams.
+>+			 */
+>+			n_bytes = sk_wmem_alloc_get(sk);
+>+		} else {
+>+			if (!vsk->transport || !vsk->transport->unsent_bytes) {
+>+				ret = -EOPNOTSUPP;
+>+				break;
+>+			}
+>
+>-		if (sock_type_connectible(sk->sk_type) && sk->sk_state == TCP_LISTEN) {
+>-			ret = -EINVAL;
+>-			break;
+>-		}
+>+			if (sk->sk_state == TCP_LISTEN) {
+>+				ret = -EINVAL;
+>+				break;
+>+			}
+>
+>-		n_bytes = vsk->transport->unsent_bytes(vsk);
+>-		if (n_bytes < 0) {
+>-			ret = n_bytes;
+>-			break;
+>+			n_bytes = vsk->transport->unsent_bytes(vsk);
+>+			if (n_bytes < 0) {
+>+				ret = n_bytes;
+>+				break;
+>+			}
+> 		}
 
-Hi Lorenzo,
+Why this can't be in a preliminary commit?
 
-When I mention cache locality above, I mean the cpu cache. Running the same 
-routine 40 times in a row can be faster since all instructions are already 
-cached, and most of the data acessed by it could be local as well.
+>
+> 		ret = put_user(n_bytes, arg);
+>diff --git a/net/vmw_vsock/virtio_transport_common.c b/net/vmw_vsock/virtio_transport_common.c
+>index 1e762a480df4..08baa1181ba6 100644
+>--- a/net/vmw_vsock/virtio_transport_common.c
+>+++ b/net/vmw_vsock/virtio_transport_common.c
+>@@ -204,6 +204,8 @@ static u16 virtio_transport_get_type(struct sock *sk)
+> {
+> 	if (sk->sk_type == SOCK_STREAM)
+> 		return VIRTIO_VSOCK_TYPE_STREAM;
+>+	else if (sk->sk_type == SOCK_DGRAM)
+>+		return VIRTIO_VSOCK_TYPE_DGRAM;
+> 	else
+> 		return VIRTIO_VSOCK_TYPE_SEQPACKET;
+> }
+>@@ -303,6 +305,7 @@ static int virtio_transport_send_pkt_info(struct vsock_sock *vsk,
+> 	u32 src_cid, src_port, dst_cid, dst_port;
+> 	const struct virtio_transport *t_ops;
+> 	struct iov_iter_state msg_iter_state;
+>+	struct sock *sk = sk_vsock(vsk);
+> 	struct virtio_vsock_sock *vvs;
+> 	struct ubuf_info *uarg = NULL;
+> 	u32 pkt_len = info->pkt_len;
+>@@ -327,14 +330,27 @@ static int virtio_transport_send_pkt_info(struct vsock_sock *vsk,
+> 		dst_port = info->remote_port;
+> 	}
+>
+>-	vvs = vsk->trans;
+>+	/* Datagram sends use socket memory accounting instead of peer credits. */
 
-If you run it more often, it could be that something else used the 
-cachelines and the cpu has to fetch them again from lower level caches or 
-memory.
+This comment should be moved on top of the next if, no?
 
-That being said, that's the only reason batch allocating 40 would be faster 
-than 4 in the long run. For capacity=4, the number of 
-mmu_memory_cache_alloc_obj() calls can be even smaller than capacity=40, 
-since we don't leave unused pages in the kvm_mmu_memory_cache.
+>+	vvs = info->type == VIRTIO_VSOCK_TYPE_DGRAM ? NULL : vsk->trans;
+>
+>-	/* virtio_transport_get_credit might return less than pkt_len credit */
+>-	pkt_len = virtio_transport_get_credit(vvs, pkt_len);
+>+	if (info->type == VIRTIO_VSOCK_TYPE_DGRAM) {
+>+		if (pkt_len > VIRTIO_VSOCK_MAX_PKT_BUF_SIZE)
+>+			return -EMSGSIZE;
+>
+>-	/* Do not send zero length OP_RW pkt */
+>-	if (pkt_len == 0 && info->op == VIRTIO_VSOCK_OP_RW)
+>-		return pkt_len;
+>+		/* Datagram sends are serialized by the socket lock. */
+>+		if (sk_wmem_alloc_get(sk) >= READ_ONCE(sk->sk_sndbuf)) {
+>+			sk_set_bit(SOCKWQ_ASYNC_NOSPACE, sk);
+>+			set_bit(SOCK_NOSPACE, &sk->sk_socket->flags);
+>+			return -EAGAIN;
+>+		}
+>+	} else {
+>+		/* virtio_transport_get_credit might return less than pkt_len credit */
+>+		pkt_len = virtio_transport_get_credit(vvs, pkt_len);
+>+
+>+		/* Do not send zero length OP_RW pkt */
+>+		if (pkt_len == 0 && info->op == VIRTIO_VSOCK_OP_RW)
+>+			return pkt_len;
+>+	}
+>
+> 	if (info->msg && (info->msg->msg_flags & MSG_ZEROCOPY)) {
+> 		/* If 'info->msg' is not NULL, this is only VIRTIO_VSOCK_OP_RW.
+>@@ -348,7 +364,8 @@ static int virtio_transport_send_pkt_info(struct vsock_sock *vsk,
+> 			uarg = msg_zerocopy_realloc(sk_vsock(vsk), pkt_len,
+> 						    NULL, false);
+> 			if (!uarg) {
+>-				virtio_transport_put_credit(vvs, pkt_len);
+>+				if (info->type != VIRTIO_VSOCK_TYPE_DGRAM)
+>+					virtio_transport_put_credit(vvs, pkt_len);
+> 				return -ENOMEM;
+> 			}
+>
+>@@ -393,7 +410,8 @@ static int virtio_transport_send_pkt_info(struct vsock_sock *vsk,
+> 			break;
+> 		}
+>
+>-		virtio_transport_inc_tx_pkt(vvs, skb);
+>+		if (info->type != VIRTIO_VSOCK_TYPE_DGRAM)
+>+			virtio_transport_inc_tx_pkt(vvs, skb);
+>
+> 		ret = t_ops->send_pkt(skb, info->net);
+> 		if (ret < 0)
+>@@ -416,7 +434,8 @@ static int virtio_transport_send_pkt_info(struct vsock_sock *vsk,
+> 	if (info->msg && ret < 0)
+> 		iov_iter_restore(&info->msg->msg_iter, &msg_iter_state);
+>
+>-	virtio_transport_put_credit(vvs, rest_len);
+>+	if (info->type != VIRTIO_VSOCK_TYPE_DGRAM)
+>+		virtio_transport_put_credit(vvs, rest_len);
+>
+> 	/* msg_zerocopy_realloc() initializes the ubuf_info refcnt to 1.
+> 	 * skb_zcopy_set() increases it for each skb, so we can drop that
+>@@ -620,7 +639,7 @@ void virtio_transport_consume_skb_sent(struct sk_buff *skb, bool consume)
+> {
+> 	struct sock *s = skb->sk;
+>
+>-	if (s && skb->len) {
+>+	if (s && skb->len && s->sk_type != SOCK_DGRAM) {
+> 		struct vsock_sock *vs = vsock_sk(s);
+> 		struct virtio_vsock_sock *vvs;
+>
+>@@ -999,7 +1018,47 @@ virtio_transport_dgram_dequeue(struct vsock_sock *vsk,
+> 			       struct msghdr *msg,
+> 			       size_t len, int flags)
+> {
+>-	return -EOPNOTSUPP;
+>+	struct sock *sk = sk_vsock(vsk);
+>+	struct virtio_vsock_hdr *hdr;
+>+	struct sk_buff *skb;
+>+	size_t payload_len;
+>+	int err;
+>+
+>+	if (flags & (MSG_OOB | MSG_ERRQUEUE))
+>+		return -EOPNOTSUPP;
+>+
+>+	skb = skb_recv_datagram(sk, flags, &err);
+>+	if (!skb)
+>+		return err;
+>+
+>+	hdr = virtio_vsock_hdr(skb);
+>+	payload_len = skb->len;
+>+
+>+	if (payload_len > len) {
+>+		payload_len = len;
+>+		msg->msg_flags |= MSG_TRUNC;
+>+	}
+>+
+>+	err = skb_copy_datagram_iter(skb, 0, &msg->msg_iter, payload_len);
+>+	if (err)
+>+		goto out;
+>+
+>+	if (msg->msg_name) {
+>+		DECLARE_SOCKADDR(struct sockaddr_vm *, vm_addr, msg->msg_name);
+>+
+>+		vsock_addr_init(vm_addr, le64_to_cpu(hdr->src_cid),
+>+				le32_to_cpu(hdr->src_port));
+>+		msg->msg_namelen = sizeof(*vm_addr);
+>+	}
+>+
+>+	if (flags & MSG_TRUNC)
+>+		err = skb->len;
+>+	else
+>+		err = payload_len;
+>+
+>+out:
+>+	skb_free_datagram(sk, skb);
+>+	return err;
+> }
+> EXPORT_SYMBOL_GPL(virtio_transport_dgram_dequeue);
+>
+>@@ -1202,13 +1261,13 @@ EXPORT_SYMBOL_GPL(virtio_transport_stream_is_active);
+> int virtio_transport_dgram_bind(struct vsock_sock *vsk,
+> 				struct sockaddr_vm *addr)
+> {
+>-	return -EOPNOTSUPP;
+>+	return vsock_bind_common(vsk, addr);
+> }
+> EXPORT_SYMBOL_GPL(virtio_transport_dgram_bind);
+>
+> bool virtio_transport_dgram_allow(struct vsock_sock *vsk, u32 cid, u32 port)
+> {
+>-	return false;
+>+	return true;
 
+Should this check if the feature is negotiated?
 
-Thanks!
-Leo
+> }
+> EXPORT_SYMBOL_GPL(virtio_transport_dgram_allow);
+>
+>@@ -1246,7 +1305,17 @@ virtio_transport_dgram_enqueue(struct vsock_sock *vsk,
+> 			       struct msghdr *msg,
+> 			       size_t dgram_len)
+> {
+>-	return -EOPNOTSUPP;
+>+	struct virtio_vsock_pkt_info info = {
+>+		.op = VIRTIO_VSOCK_OP_RW,
+>+		.msg = msg,
+>+		.pkt_len = dgram_len,
+>+		.vsk = vsk,
+>+		.remote_cid = remote_addr->svm_cid,
+>+		.remote_port = remote_addr->svm_port,
+>+		.net = sock_net(sk_vsock(vsk)),
+>+	};
+>+
+>+	return virtio_transport_send_pkt_info(vsk, &info);
+> }
+> EXPORT_SYMBOL_GPL(virtio_transport_dgram_enqueue);
+>
+>@@ -1771,7 +1840,8 @@ virtio_transport_recv_listen(struct sock *sk, struct sk_buff *skb,
+> static bool virtio_transport_valid_type(u16 type)
+> {
+> 	return (type == VIRTIO_VSOCK_TYPE_STREAM) ||
+>-	       (type == VIRTIO_VSOCK_TYPE_SEQPACKET);
+>+	       (type == VIRTIO_VSOCK_TYPE_SEQPACKET) ||
+>+	       (type == VIRTIO_VSOCK_TYPE_DGRAM);
+> }
+>
+> /* We are under the virtio-vsock's vsock->rx_lock or vhost-vsock's vq->mutex
+>@@ -1805,6 +1875,38 @@ void virtio_transport_recv_pkt(struct virtio_transport *t,
+> 		goto free_pkt;
+> 	}
+>
+>+	/* Dgram packets are delivered directly to bound sockets without
+>+	 * going through the connection state machine. Undeliverable
+>+	 * datagrams are silently dropped (no RST).
+>+	 */
+>+	if (le16_to_cpu(hdr->type) == VIRTIO_VSOCK_TYPE_DGRAM) {
+>+		if (le16_to_cpu(hdr->op) != VIRTIO_VSOCK_OP_RW)
+>+			goto free_pkt;
+>+
+>+		sk = vsock_find_bound_dgram_socket_net(&dst, net);
+>+
+>+		if (!sk)
+>+			goto free_pkt;
+>+
+>+		vsk = vsock_sk(sk);
+>+		lock_sock(sk);
+
+A comment here would be appreciated.
+
+>+		if (sock_flag(sk, SOCK_DEAD) ||
+>+		    vsk->transport != &t->transport ||
+>+		    (sk->sk_socket->state != SS_UNCONNECTED &&
+>+		     !vsock_check_source(vsk, &t->transport, &src))) {
+>+			release_sock(sk);
+>+			sock_put(sk);
+>+			goto free_pkt;
+>+		}
+>+
+>+		if (sock_queue_rcv_skb(sk, skb))
+>+			kfree_skb(skb);
+>+
+>+		release_sock(sk);
+>+		sock_put(sk);
+>+		return;
+>+	}
+>+
+> 	/* The socket must be in connected or bound table
+> 	 * otherwise send reset back
+> 	 */
+>diff --git a/net/vmw_vsock/vsock_bpf.c b/net/vmw_vsock/vsock_bpf.c
+>index 9049d2648646..296e1fa7970b 100644
+>--- a/net/vmw_vsock/vsock_bpf.c
+>+++ b/net/vmw_vsock/vsock_bpf.c
+>@@ -161,7 +161,8 @@ int vsock_bpf_update_proto(struct sock *sk, struct sk_psock *psock, bool restore
+> 	if (!vsk->transport)
+> 		return -ENODEV;
+>
+>-	if (!vsk->transport->read_skb)
+>+	/* Datagram receive is not implemented by the sockmap callbacks. */
+
+So, it never worked on VMCI?
+
+Again, why this check is in this patch and not in a preliminary one?
+
+>+	if (sk->sk_type == SOCK_DGRAM || !vsk->transport->read_skb)
+> 		return -EOPNOTSUPP;
+>
+> 	vsock_bpf_check_needs_rebuild(psock->sk_proto);
+>
+>-- 
+>2.56.0
+>
