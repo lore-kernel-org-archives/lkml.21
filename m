@@ -1,54 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795709932;
-	b=fZdqM+NVfL2ZKW0lvPwfkbj5FBbC8u1UobLueLbtkw0p86ppIMvhA/HkduHgMnsZe5H9
-	 3yg2D8nZRSIugO1Tj4ZUvsN0G6swm1edt6tC47qkrU3DRT07iJbzhw8UilNFQVVLXGuhq
-	 TxDsuwWnEl5YOJI1L0Bzbl1NedNk+JSeGYZVAD/c1uaLaoqVtzTneKXtLe7JzuAaNoVmE
-	 lOUvqlRHV2ypBb3NEMC6FGdjhQiO2S8mjnJIW7hUN07wZsn2vukHpUtfpQ/xMEZeK4TcR
-	 3xfVFiuNIlC33MMCci58BUgDqDzHU5r8uxy9b828MvM/gOMrPEWB0UBNtqKVsY8C12Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795709932;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ZohoMailClient;
-	bh=Sheh8Re0PVDjBdVA3EltFLk4JbLOu8Er8OMJmYxJgaY=;
-	b=ssNClvzuq2iXTrEap2+WbBFmIwqI3b9uylYkH3gVWK3B61qXo1b9X873hXA/VJ4F9DEq
-	 5NITNryOWJlLyZQk1gh+orJcf42orS9Ow7+mEfsfDCqiqYkMmhPxaX+iVmKj71cQ5gOKB
-	 6lQxa+2jTAdBFaXSI6xRI542CWq3O6Q6TCBQSXgOCH7C0sSVimm+QEmiUiRmJbayaDwsj
-	 3WtVMF/mN72V4prrw7a0p/BnUBTx4KqJ5mgwim420EqqGDrYBBbmpT3iycqbRi1EOsIa/
-	 f1KRruoWy1iDx+OOJWy7IRSGmsFbQApw/zTkMt6m4lW4qWaM2vZS8AAlWsUS38QFxYA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=N4eJIi74;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
-Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.177
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795709936;
+	b=4x1OdkkfEhrTtLIr2PPL2H/TIZHXd+q/QPNsQ7RHTJNV4C7fMCdQNuECz2iVx8WQZ3Nf
+	 PnihPIja3oky8i+cRwxG3IhvnJavRzPVrWna+xxeMsSmdNKBeOhW6GswNznhP2gejU6cH
+	 aGZSbRadti/GU/OI1Wn0i88gpVPcZeUCtYiP+gc3SK9CME+y7EWvtVOZYJCFh8pmLs6OF
+	 fATxjo9RnljttoJ7rHh3aBAAfo1DbrihG+K7XWlySo7Hpzq6g3aLwlHgImsU1YU4P2B1v
+	 08EhhK9iH7TnNvUnH85mNTrq873grnuG8TRNwy30HTDBvUCg36NXX2Stik/DMS3/rag==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795709936;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:In-Reply-To:References:Subject:Message-Id:Date:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer;
+	bh=rtZBeAu55s7ZloA+uxO3vPTR6c/NwsIGOFMs0FGmw6Q=;
+	b=O8Ho2oQaT87Ouy0rnxFxWJIydC2dW28Z8t6aObh/Z83K16zx7mOgmIAhom4en00RldJa
+	 3s9OkwM54Ls5n7o5RDvFSvnFwQFlCK1oDkvnJEeck6tTRDS5gezU7k0Ix3VP8eSZbayLq
+	 hoCE7VYP2QWk0LSOI/Nbq2k6e3ftH/XCVgjN1p8vcK4DuM4e4E+wLj1VdwKco/kgbQ2lj
+	 ukxR6pssdDWmT8aFCMmiXvBk3NAtSKY0KBwnGPcRLEs/Px/1EeG0XDGbXuNJo8Pm9+T4I
+	 SHR7En9zZ2rfo77ETYOl1saZmquFyJVWBRdSw62cu6SyyJUJwIPsX4tax99ZgccS8xQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=kernel.dk;
+	spf=pass smtp.mailfrom=kernel.dk;
+	dkim=pass header.d=kernel.dk header.i=@kernel.dk header.a=rsa-sha256 header.s=google header.b=qxuxe3Q0;
+	arc=none smtp.remote-ip=209.85.210.177
+Received: from mail-pf1-f177.google.com (mail-pf1-f177.google.com [209.85.210.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A47C606A31C;
-	Thu, 26 Nov 2026 16:18:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A47C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 652B1606A33D
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:18:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 652B1606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=kernel.dk
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kernel.dk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=N4eJIi74
-ARC-Seal: i=1; a=rsa-sha256; t=1795709910; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=n8GT9DA/b/dufTX9LgvVofXdLlN3BC36O6/ydE/f9tMvhoEMheukiFTToQBb4e9KQwOr44+F71kpXAld8Ii9NNkvYn1IOcGODw93chYAUEr/q1noGfazPFSh5sVu+8ROoCgaJi+9s20n8qbNlQczS9scdv5tveLXC7h/JQT168I=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795709910; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Sheh8Re0PVDjBdVA3EltFLk4JbLOu8Er8OMJmYxJgaY=; 
-	b=flgEM/ggFBn4Sb+vjKM13wy3NygJ3i6HrKodCIWijtTmfXA5iUPbDb287PWYb0lS85KeoDsrnwhs7BzONfduUxuCYamOKgAWRhfvxb3tfjXbT8O79FR7eXOxegYVKXb14yb3hQcdcubFVqoVEFSH1VILgf4C+0vHfNifsZqBgcQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=dmitry.osipenko@collabora.com;
-	dmarc=pass header.from=<dmitry.osipenko@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=N4eJIi74vkSqP+pvXtfONpD3X2GWHG+f2PvYihGlAhDv/yO1ArA4Nek1pPPe3pewoUVF+TD7BVefLCVau7ny1vP2cUYFpXSx4DGZ9q+EgU5YlTDXf+meF8uGbfBGlQ7FzFlLGA3/spmGCa/io7yFhUtsFvnM2qCLWl7mUcIJi3k=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=Sheh8Re0PVDjBdVA3EltFLk4JbLOu8Er8OMJmYxJgaY=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795709907264444.03070160972027;
-	Thu, 26 Nov 2026 08:18:27 -0800 (PST)
-Message-ID: <b79882a0-d438-4798-9a28-5019ae3be4c0@collabora.com>
-Date: Thu, 26 Nov 2026 19:18:23 +0300
+	dkim=pass (2048-bit key) header.d=kernel.dk header.i=@kernel.dk header.a=rsa-sha256 header.s=google header.b=qxuxe3Q0
+Received: by mail-pf1-f177.google.com with SMTP id d2e1a72fcca58-8b32bc605d9so3530068b3a.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:18:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=kernel.dk; s=google; t=1795709935; x=1796314735; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:date:message-id
+         :subject:references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=rtZBeAu55s7ZloA+uxO3vPTR6c/NwsIGOFMs0FGmw6Q=;
+        b=qxuxe3Q0W5XXpl0fUvUZLskvRNe9SG5ofEfHdMDb3+R4KITuQjJ0XYanUY9xQ/nQul
+         whJS2fIcQz2/4QwDDjbOMiyf/Q3yGe5H1mwdJ97pnfaykqylS40+DYolz5Qy1dnW0sJi
+         +PEFJ1Pn3eHnkxQ53h7U9HJdXzh5OWXqOLTFYiPdQsRw7meUS8BS9NcsDNmvWE13L8X0
+         4teNlL6KnWoa33dBm73ssubc6KHK7V3ZH3yHz/z02CFt32uQeV1UBl5WLNer/lFfji8y
+         1KDJRNBVQ7IuZgsnHz454wS6PdudLpkTabwc9/A35NwoviY8aht5rBRYJ20Xj5sc0L0f
+         KBQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795709935; x=1796314735;
+        h=content-transfer-encoding:content-type:mime-version:date:message-id
+         :subject:references:in-reply-to:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=rtZBeAu55s7ZloA+uxO3vPTR6c/NwsIGOFMs0FGmw6Q=;
+        b=whv73veRim/JjzcL5/haUt4Gy1zGOIZiPDx9FHfFmPdAmpKrl0z6OAmCPzTWF8HJD7
+         it61KUQMBaYb8qPLxBD45KS/im3NWyks3UWBJqM4EG1PwsYQr6AsDb/GgD8aKk190Ik+
+         iYsEFdkERT+T0LPOzo0ZOA5Xrh0HkuvI2IFbAlrvbT1h+a+xEFad5slwdx9vKpQ6a7uw
+         M2nGPCjDGhCYXc7ct5F/71LUGVWJMNGj9ybMV8QWlBy4AyPxKPjaNA8+epN9s96zHaA0
+         dpP4znbuuWKYkMlcOPNEsvgtuAk6YnDBniYbv9e2KtXqYpW9HxuY7REJDFojeuihezsk
+         F+7Q==
+X-Forwarded-Encrypted: i=1; AL+hErFnYUzeJMfKnivM+cXyyDCh8f6FV4CFOpK9RS5WWtHPayOWuUs4jjqfIm9VY0aIqO2kkfmSGQTXX0n0iZY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/iEXen2qwqR6/nXxet90QCJoz+n4AUDLNaLi7+lJT+WqQ1pYrg
+	VYJH2gLzBpJF//GNxqqvu18Gr6Q+KlApjKSnQD5eoL93TqN+8hzY6deYiEQDiIe6yt0=
+X-Gm-Gg: AZFdTZfHEzz3/oL2+PgJKO++ONWr0EwFJRLmq8AUH0pH7jQMuCsHXWVxAYYpmhrBYeP
+	BAsuXlJ3lNPLZoIETtlbsnkeTtoCd/VpR0JQA2nBrPzf3a3PNwcLfuwFQkCiAVd+yAY0bEujgG9
+	6xtZRqypw10bRfqZtKZq16a4WO+9e0+rkb47NRWQvQOfoxmt3APYunK6x16RTVeKXhm5vK5a6zb
+	47EG/2ioKXpCV54+YrKC8kbQZS3ZKqszauWnqGQpdenDIHvqPf/tIXrJI6KA1uW2hXV//UCrH6I
+	XO9W/Fzlv0hvnblByvvbHJ3ifftbJ9bYrWadCsomXRdHRMxwA1QnMWKnJ0z8HRuh2Tg71tpWplv
+	I53OfaUcfmjkSTUsshQkcKrFRpBA8PejIX+LRnQidR4TEL2WrXB608+nKQqpYF7NJUGALVNdiG0
+	4GhNFW21GyIi9L9jnQZgwB4W1fknTeEGRij7vZ5TXlSHHW/X4dVoY4Jz11901G850FeYyXrpD4y
+	QXx/B63i3KQeofrFJHIK417wBukaGDRXWQo3rB2zcBn/LHbSJUqHd5y9dHTa4ZANg5Weu9f2zdh
+	LthWDBxhC3mntbAdY2dnN6LCDRTla4grGvABZaAUCfpdKeSK2fdMY0BsrVJ/YzvlkWki10fk5VX
+	WMZchGEWLw/N856dq8kTJhqr4nS6WjgPkQ4dbyRBuDKt3U9JkMnD4arHatjeR0AznPPqxVw==
+X-Received: by 2002:a05:6a00:1817:b0:8a0:5f63:5521 with SMTP id d2e1a72fcca58-8c8792bef60mr19479396b3a.8.1795709934821;
+        Thu, 26 Nov 2026 08:18:54 -0800 (PST)
+Received: from [192.168.1.142] ([198.8.77.135])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87344058bsm10863765b3a.41.2026.11.26.08.18.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 08:18:54 -0800 (PST)
+From: Jens Axboe <axboe@kernel.dk>
+To: asml.silence@gmail.com, Sechang Lim <rhkrqnwk98@gmail.com>
+Cc: io-uring@vger.kernel.org, bpf@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261119115942.3613868-1-rhkrqnwk98@gmail.com>
+References: <20261119115942.3613868-1-rhkrqnwk98@gmail.com>
+Subject: Re: [PATCH] io_uring/bpf-ops: validate loop_step before
+ registration
+Message-Id: <179570993387.7152.8807787806232376566.b4-ty@b4>
+Date: Thu, 26 Nov 2026 09:18:53 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,82 +99,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] media: synopsys: hdmirx: move the reset bulk data out of
- the driver data
-To: Sascha Hauer <s.hauer@pengutronix.de>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Hans Verkuil <hverkuil+cisco@kernel.org>
-Cc: linux-media@vger.kernel.org, kernel@collabora.com,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20261116-hdmirx-resets-uaf-v1-1-1903146a3118@pengutronix.de>
-Content-Language: en-US
-From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
-In-Reply-To: <20261116-hdmirx-resets-uaf-v1-1-1903146a3118@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
+X-Mailer: b4 0.15.2
 
-On 11/16/26 18:06, Sascha Hauer wrote:
-> devm_reset_control_bulk_get_exclusive() keeps a pointer to the bulk data
-> it is handed and releases the controls through it when devres is torn
-> down. Since the driver data is freed from the v4l2_device release
-> callback, remove() and the probe error paths may free it before that
-> happens: on every unbind without an open file descriptor, and on every
-> probe that fails after hdmirx_parse_dt(), in practice a deferral.
-> devm_reset_control_bulk_release() then reads the controls from freed
-> memory. KASAN reports the use-after-free, the controls stay claimed, and
-> the deferred probe fails for good with -EBUSY on the exclusive get.
-> 
-> Give the array an allocation of its own with devm_kcalloc(), so it lives
-> exactly as long as devres needs it.
-> 
-> Fixes: 03ec4aa9817b ("media: synopsys: hdmirx: free the driver data when the last user is gone")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
-> ---
-> Hans, this fixes the patch you applied from v3 of the hdmirx bridge
-> series. Sashiko pointed out the use-after-free on v3, and the fix was
-> meant to go into v4 of that patch. If you can still replace 03ec4aa9817b
-> in your tree, please squash this into it; otherwise it applies on top.
-> 
-> The remaining patches of the series will follow as v4, rebased onto this
-> and with the v4l2-compliance output you asked for.
-> 
-> The fix was developed with the help of an AI coding assistant (Claude),
-> which also drafted this message.
-> ---
->   drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c | 9 ++++++++-
->   1 file changed, 8 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c b/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c
-> index a241761b1bcd9..8a5304603c00d 100644
-> --- a/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c
-> +++ b/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c
-> @@ -144,7 +144,8 @@ struct snps_hdmirx_dev {
->   	struct mutex phy_rw_lock; /* to protect phy r/w configuration */
->   	struct mutex stream_lock; /* to lock video stream capture */
->   	struct mutex work_lock; /* to lock the critical section of hotplug event */
-> -	struct reset_control_bulk_data resets[HDMIRX_NUM_RST];
-> +	/* devres may release these after the driver data is freed */
-> +	struct reset_control_bulk_data *resets;
->   	struct clk_bulk_data *clks;
->   	struct regmap *grf;
->   	struct regmap *vo1_grf;
-> @@ -2296,6 +2297,12 @@ static int hdmirx_parse_dt(struct snps_hdmirx_dev *hdmirx_dev)
->   		}
->   	}
->   
-> +	hdmirx_dev->resets = devm_kcalloc(dev, HDMIRX_NUM_RST,
-> +					  sizeof(*hdmirx_dev->resets),
-> +					  GFP_KERNEL);
-> +	if (!hdmirx_dev->resets)
-> +		return -ENOMEM;
 
-hdmirx_dev->resets array is a part of hdmirx_dev struct, the hdmirx_dev 
-is used by hdmirx_v4l2_release(). This looks like a slop, what am I missing?
+On Thu, 19 Nov 2026 11:59:29 +0000, Sechang Lim wrote:
+> A struct_ops map with only ring_fd set leaves loop_step NULL. The
+> struct_ops update path skips a zero program fd, and bpf_ring_ops does
+> not validate the completed value. Without BPF_F_LINK, the update then
+> calls bpf_io_reg(), where io_install_bpf() triggers a kernel warning
+> before returning -EINVAL. With BPF_F_LINK, the warning occurs when the
+> link is created.
+> 
+> [...]
 
--- 
+Applied, thanks!
+
+[1/1] io_uring/bpf-ops: validate loop_step before registration
+      commit: ba0084f1402bdf2946282290a3fb0af8f3544759
+
 Best regards,
-Dmitry
+-- 
+Jens Axboe
+
+
+
