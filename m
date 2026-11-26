@@ -1,60 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.157.23.187
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795706178;
-	b=SMNxoAXh/tEo6uR+Kev2qaiPk2ysOoNOu9r6kKWlePIScTLIFhgkJCbBFQ6ITeQGDmz5
-	 k0x1V1foHH8f6lSiSzDyirLmFca2c2II578lQbWOW/TjnJxHMx6FpnouozwQWBlTiOwL5
-	 mfEAb70aK6F1J81F0fsFZ3Jjb5shljFAp/dvmTg/TBwp5M9ekkSV8u8tv41iuyvucZEPJ
-	 vABegPn0j219eI3fiF8T/+dgdDJyL6YUvoOw5ywNCAmgTPTMSeQOYuzGCsqTmOWE+G1mw
-	 wYUDb34RNTIS9Lauf/p6S9qC5+KldzWiMay7YvibHucZNktLsBcXqmB3/Pv1O50rGDA==
+	t=1795706187;
+	b=U0/I5vRgatiTAZikLzhnMIRdysqnUSu3uo1qEM9LwxPAeAZERII3BKWS6uSzKkfnXkp/
+	 vHIqMcRNNjq026+jArCl8bLbplf/eJfqDVSIsYnzWOA/O7G9Iu9jo5TYbOWQGIcz0c8Xu
+	 P7OZX2MvXKiQkCDEAHl8cNWwlm7zebLUbyyBPKuEqyx7aFm+8ky8BIiXPAGovBVy63rIx
+	 GZAUd97pP4IBS61Z9KMByMaKjbk8M3MBY56qdnqXbuqSM2/2pIUZaPCdeQiv2b9q8ojIA
+	 NqBLkzG4ZxIGesuaI9QVXuDp5iLItqDna4BhEaHJGMyAgz+SNxW0JA39vHS1MOgpqHQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795706178;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:CC:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
-	bh=8Hlh0el6b76DVPPCih0A1ziKHvFdtHwFJVd3gkLvbCo=;
-	b=Fujib9yA6H0exrsUQVUMSaSNwJcu6Bqx5ZRaOVCuexcWwganRwcvlZrYVg9uqHJGM6f0
-	 z7ZRwXl3nBUk5dahyyA57powPSFDGKSuZO2nJQpNG43eU1bRxHjKBV7QcnJSs5HdMyH1J
-	 u2yrpIEpVAaVF7DYMzL7pWv6DtcLJbpsbpbOc8y7prfhdWJ44B9edump7Z0vM6IYV63+W
-	 SLqY2p1zopco7+UkMvIH9NFWIeVntFxPjhqoj/jETAvkkKh0lUZrDDi3DFbS2yJx0MBsK
-	 BoLQyAXATdLuIZiovoNwxGjiLffCeUUXUG/4JrXHFpImsO9QJ1Zz6MTiwA7jm2RJc4g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795706187;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
+	bh=73RhbSCzzEXErQpCoUjkNFQF+UmJqC718yIoC62o/2I=;
+	b=lnDbN9F4HAJO8gQLsdgNPqonLxLm3o1h4zq+JbsmTieN6GR+auu5MopH6bg4DzKYjvLq
+	 EGyguSglb9g6cHgjuiZlTXKlLuBwjLN2A9ql5g6Pt3RmSzmKvM4uSvecXNZ+90UVtpPYh
+	 iMAVYecz6Vxk8vCK/8NieNntYE/AX4n6DU0MoK4aPlTp7UidP4/YugaB6JA2+ba4VsbwY
+	 CZ8J1JfBoQNvy254N7rGGtCrE5wwAciHD8y7sFDsVjPOVkx4N+wwBROOnMuZhg5jVXES9
+	 JbsYvSRtV8CD+Ihn2wyLN+i8INvlD9bT9ZS/JJRwTk5jvfBjrct4YORS9WSg/tycDjQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=paragon-software.com;
-	spf=pass smtp.mailfrom=paragon-software.com;
-	dkim=pass header.d=paragon-software.com header.i=@paragon-software.com header.a=rsa-sha256 header.s=mail header.b=YCpgWGZ5;
-	arc=none smtp.remote-ip=35.157.23.187
-Received: from relayaws-01.paragon-software.com (relayaws-01.paragon-software.com [35.157.23.187])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0bF0rIll;
+	arc=none smtp.remote-ip=209.85.222.45
+Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com [209.85.222.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A860606A31E;
-	Thu, 26 Nov 2026 15:16:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A860606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=paragon-software.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=paragon-software.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BE0E606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:16:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7BE0E606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=paragon-software.com header.i=@paragon-software.com header.a=rsa-sha256 header.s=mail header.b=YCpgWGZ5
-Received: from relayfre-01.paragon-software.com (relayfre-01.paragon-software.com [176.12.100.13])
-	by relayaws-01.paragon-software.com (Postfix) with ESMTPS id 596061D38;
-	Thu, 26 Nov 2026 15:16:57 +0000 (UTC)
-Authentication-Results: relayaws-01.paragon-software.com;
-	dkim=pass (1024-bit key; unprotected) header.d=paragon-software.com header.i=@paragon-software.com header.b=YCpgWGZ5;
-	dkim-atps=neutral
-Received: from dlg2.mail.paragon-software.com (vdlg-exch-02.paragon-software.com [172.30.1.105])
-	by relayfre-01.paragon-software.com (Postfix) with ESMTPS id 8A96A2092;
-	Thu, 26 Nov 2026 15:16:15 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0bF0rIll
+Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-99e09f4c44bso1346134241.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:16:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=paragon-software.com; s=mail; t=1795706175;
-	bh=8Hlh0el6b76DVPPCih0A1ziKHvFdtHwFJVd3gkLvbCo=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=YCpgWGZ59cjZCR5jN3dG615kSVLYt4xC1U8D2oQmHJ0LqG5Yos95y4uDuktFS3bDU
-	 04MwcHiTkr2029Ytp1SlfVFU8VJANpNkz9D4r55EEkTTY+LewbafH9ufwhYqG9QT3k
-	 +3Gg36b4xSi4fB9QZkBsS8xTcrOai0EoTI4u7JfE=
-Received: from [192.168.95.128] (172.30.20.193) by
- vdlg-exch-02.paragon-software.com (172.30.1.105) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.7; Thu, 26 Nov 2026 18:16:14 +0300
-Message-ID: <9aa9b7b5-63d3-4b18-8342-96a639c07fcd@paragon-software.com>
-Date: Thu, 26 Nov 2026 16:16:13 +0100
+        d=gmail.com; s=20260707; t=1795706186; x=1796310986; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=73RhbSCzzEXErQpCoUjkNFQF+UmJqC718yIoC62o/2I=;
+        b=0bF0rIllZMds9r3Rg/X9Bi+iVHdHNqm+S1vsVtFnT5IDmowjopX6s5Jm6OZvmfydcf
+         w5lvVkXo+toCwdm7KFyah1q0wvuXDdthl4mtV1SMGemFDmdUaV9OtHEJzjgNc31QkRUQ
+         QP2gJ5cVLG7u5Nv8uQCm8VC/oH67MbE9JLud1EqvFxMpaMMjQ7Q8lA5/TkHO5H85HMem
+         3q2/EbLhzaNpqlvkN9/vPueWbZyrRHUPorRN9t/t5ttzUwBv44QccQe1Tm1w4LMh/dh1
+         7dTGRzrwRiAAyCCCvPvRbgc+3gzRd+mc53T0xG7X1PAECRZEYWDSMxWBOeh2Mgr2Oe/b
+         PZCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795706186; x=1796310986;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=73RhbSCzzEXErQpCoUjkNFQF+UmJqC718yIoC62o/2I=;
+        b=WqmzgO6lVVggYwKwS/tJSQ3PplF9owWUueeHbwHExNWFYNgPLhfMfelfTsTFHFpwkU
+         ODCKzgCqCxramHRBSUMl5CA6OldBH5Ni2TzmUhCq7S0xQXlApYu63xsYP+xeqQ3QN61/
+         a3c3Owax9DjoApLpxDPCGlZmBnPlAEnxXlIkUfbQ8L4bW8Rc5u8WVUCa1LCNN99/EQRQ
+         wCQODztumUsPOI32cPlVKorZ5Wu7R3F2QIYqeSQ85YFpseOGTouZ/UBE59TooHvswjjj
+         /xPLgSX2WypHn/rvew+KCIXO6B1gsc+QOUH2sGvKF49WxHEirdWmF8sQK2wvX/L75Nqx
+         SzgA==
+X-Forwarded-Encrypted: i=1; AL+hErEM3DwE1a4wQ49BsggTWJCulScpyllwFLDeIR7vEtWIQ5N71yuf93pFn9xL+Zu+p3vkR11TYCaCgo3a13w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/b7k6AlExSGPBAQiJWewTlaf2umXjZDz3eryORsAt5svSBLGkA
+	j1cKsBRxqQCF7FrmeQ8ZxZmB0Gk/57df5dvzyX6mn+ukSdipMJIsaug=
+X-Gm-Gg: AZFdTZcrWvhYxOIG+NLqJO0/tsyVMNlbEbvA6JuxefMfiYVzzFIqtwbXZIy9oS53hPY
+	UIhyGfBKa2j5WHcs5SDMXK0ay2pnbJj4a4IXD4y71oZ5EtzL2wgkt6T40BTid2MmxeQKKnpRhYA
+	Ui1WE3qM9c4xMUTC12LaksBMFJuDPqYX1JEwMJscBZmPC22jHneJW5QxGnoZajCwO+9nnO1UE8v
+	pInTABc1e7uz9+LXQAwCLB8xGMgSg5hsNCutUj8uHbFwFZsO7UDl6qw+DOgN6BiT2SGZyoPz1uH
+	qDFqS3IupweJTbTF5yM6v7IuU/BhKas0ssD/+EvwBI5adHq/k8FQ4LH9wXuq8quNx5Qn7SCVaUq
+	Eot/LQNvpKcaZhrkvie8iEyhfCDEucH7031FPCsKY7ig2intYM9SSk5n0fHTV7SxSZh3wmzHhJo
+	9lbCUe8ipf3gSsmsrnnpePgrCRuz+/sBkZJFrXHfqFVKMCgaQo90yJeL5uf0ExbjUHmeCT8KpvH
+	Ccea4fWQJHeHw6DiDnwOM85SbqgcxRA5Ryx63KQL+dOhNx6YIvrUed6/30dO/BSqJRK4cuyOxhA
+	Z9vjS4lKR1akqXI2oX1qq1NE+YuCrTNtHE37FkKesuUddOa4M7eskVdlkTtFTw8qIw==
+X-Received: by 2002:a05:6122:8c8c:b0:5ec:e6b8:ebad with SMTP id 71dfb90a1353d-5ee8af4a759mr12322188e0c.10.1795706186471;
+        Thu, 26 Nov 2026 07:16:26 -0800 (PST)
+Received: from localhost ([186.158.238.108])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ee91a4e0cfsm19662910e0c.13.2026.11.26.07.16.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 07:16:26 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,79 +87,78 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] fs/ntfs3: bound asize by SIZEOF_NONRESIDENT in
- check_attr()
-To: Zhan Xusheng <zhanxusheng1024@gmail.com>
-CC: <ntfs3@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<zhanxusheng@xiaomi.com>, <stable@vger.kernel.org>
-References: <20260904065437.957677-1-zhanxusheng@xiaomi.com>
-Content-Language: en-US
-From: Konstantin Komarov <almaz.alexandrovich@paragon-software.com>
-In-Reply-To: <20260904065437.957677-1-zhanxusheng@xiaomi.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: vdlg-exch-02.paragon-software.com (172.30.1.105) To
- vdlg-exch-02.paragon-software.com (172.30.1.105)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 26 Nov 2026 12:16:18 -0300
+Message-Id: <DN58PQ0UNTCV.2C8E5QAXJ53I7@gmail.com>
+Cc: "Shuah Khan" <skhan@linuxfoundation.org>, "Alexandre Courbot"
+ <acourbot@nvidia.com>, "Andreas Hindborg" <a.hindborg@kernel.org>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Burak Emir"
+ <burak.emir@gmail.com>, "Rae Moar" <raemoar63@gmail.com>, "Tamir
+ Duberstein" <tamird@kernel.org>, "Trevor Gross" <tmgross@umich.edu>, "Yury
+ Norov" <yury.norov@gmail.com>, <kunit-dev@googlegroups.com>,
+ <linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+ <rust-for-linux@vger.kernel.org>, <linux-doc@vger.kernel.org>
+Subject: Re: [PATCH v3 1/3] rust: kunit: add #[should_panic] support
+From: =?utf-8?q?Nicol=C3=A1s_Antinori?= <nico.antinori.7@gmail.com>
+To: "David Gow" <david@davidgow.net>, "Alice Ryhl" <aliceryhl@google.com>,
+ "Benno Lossin" <lossin@kernel.org>, "Boqun Feng" <boqun@kernel.org>,
+ "Brendan Higgins" <brendan.higgins@linux.dev>, "Daniel Almeida"
+ <daniel.almeida@collabora.com>, "Danilo Krummrich" <dakr@kernel.org>, "Gary
+ Guo" <gary@garyguo.net>, "Miguel Ojeda" <ojeda@kernel.org>,
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>
+X-Mailer: aerc 0.20.0
+References: <20261113-rust_kunit_v6_send-v3-0-0d7832c07166@gmail.com>
+ <20261113-rust_kunit_v6_send-v3-1-0d7832c07166@gmail.com>
+ <0e68f60e-e9e0-4443-8189-72180ff07a14@davidgow.net>
+In-Reply-To: <0e68f60e-e9e0-4443-8189-72180ff07a14@davidgow.net>
 
-On 9/4/26 08:54, Zhan Xusheng wrote:
+On Mon Nov 23, 2026 at 10:36 AM -03, David Gow wrote:
+> Le 14/11/2026 =C3=A0 02:20, 'Nicol=C3=A1s Antinori via B4 Relay' via KUni=
+t=20
+> Development a =C3=A9crit=C2=A0:
+>> From: Nicol=C3=A1s Antinori <nico.antinori.7@gmail.com>
+>>=20
+>> KUnit tests in Rust are written using user-space like syntax. This patch
+>> adds support for the `#[should_panic]` attribute, enabling the user to
+>> test conditions that are expected to cause a panic and report the test
+>> as successful.
+>>=20
+>> Signed-off-by: Nicol=C3=A1s Antinori <nico.antinori.7@gmail.com>
+>> ---
+>
+> Okay -- this looks good to go to me. Thanks very much for all of your=20
+> effort!
 
-> check_attr() validates a file record attribute during log replay.  Its
-> non-resident branch reads through attr->nres.valid_size, which ends
-> SIZEOF_NONRESIDENT bytes into the attribute, but only checks that the
-> attribute fits the record, not that it is long enough to hold those
-> fields.  check_file_record() admits an attribute starting as late as
-> record_size - SIZEOF_RESIDENT, so one placed there with non_res set reads
-> up to 40 bytes past mi->mrec, a kmalloc(record_size) buffer.  The later
-> "run_off >= asize" rejection is too late: data_size, svcn, evcn and
-> valid_size have already been read.  Nothing earlier covers it, mi_read()
-> checks only rec->total, and do_action() gets here for the ordinary
-> record-modifying operations, so a crafted volume reaches it through
-> normal replay.
->
-> Reject an attribute that leaves fewer than SIZEOF_NONRESIDENT bytes in the
-> record, as mi_enum_attr() already does outside the log path.  A real
-> non-resident attribute cannot be smaller than its own header, so nothing
-> that mounts today is rejected.
->
-> Fixes: b46acd6a6a62 ("fs/ntfs3: Add NTFS journal")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Zhan Xusheng <zhanxusheng@xiaomi.com>
-> ---
-> Reproduced with ASAN in a userspace replica of the layout and of
-> check_attr()'s bounds: an attribute at record_size - SIZEOF_RESIDENT
-> gives "READ of size 8 ... located 24 bytes after 1024-byte region",
-> and is rejected once the guard is added.
->
-> I did not craft a volume, so there is no mount-level reproducer and no
-> KASAN splat from a real replay; the reachability above comes from
-> reading do_action(), mi_read() and ntfs_fix_post_read().
->
->   fs/ntfs3/fslog.c | 3 +++
->   1 file changed, 3 insertions(+)
->
-> diff --git a/fs/ntfs3/fslog.c b/fs/ntfs3/fslog.c
-> index ed50c1d0c23e..034d72929ac0 100644
-> --- a/fs/ntfs3/fslog.c
-> +++ b/fs/ntfs3/fslog.c
-> @@ -2772,6 +2772,9 @@ static inline bool check_attr(const struct MFT_REC *rec,
->   		break;
->   
->   	case 1:
-> +		if (asize < SIZEOF_NONRESIDENT)
-> +			return false;
-> +
->   		dsize = le64_to_cpu(attr->nres.data_size);
->   		svcn = le64_to_cpu(attr->nres.svcn);
->   		evcn = le64_to_cpu(attr->nres.evcn);
->
-> base-commit: a500db7819c50db59e55f1b4fa1c3baa5a2616f3
+Thank you for the reviews and explanations! I'll be sending the
+implementation for `#[should_panic =3D "message"]` once this lands.
 
-Hello,
+There's a sashiko observation [1] but I dismissed it because before this
+patch `KUNIT_ASSERT_NOT_ERR_OR_NULL` already aborted before setting
+`priv` and executing `kunit_init_test` and `kunit_resource_test_exit`
+performed the frees without any check. I assume that this is acceptable
+in this context, but let me know otherwise!=20
 
-The patch is applied, thanks.
+> I'm not 100% happy with how pushing the attributes into struct kunit has=
+=20
+> balooned into all of the different kunit_init_test() call, but I think=20
+> all of the other options are either worse, or involve even more invasive=
+=20
+> refactoring. (That being said, I do think this might be the thing which=
+=20
+> finally makes me look into refactoring how we handle the struct kunit /=
+=20
+> struct kunit_case dichotomy better... :-))
+
+Yes, this was tricky! The alternative I thought was setting attrs
+directly when declaring `struct kunit ...` (right before the two calls
+of `kunit_init_test` in `test.c`) but I was not sure if it was the right
+place (we would have avoided passing the attrs in all the calls if I am
+not mistaken though).
 
 Regards,
-Konstantin
+Nicol=C3=A1s=20
 
+[1] https://sashiko.dev/#/patchset/20261113-rust_kunit_v6_send-v3-0-0d7832c=
+07166@gmail.com?part=3D1
