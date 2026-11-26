@@ -1,51 +1,51 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795655339;
-	b=LMp0Z5tdKizK6HXSyOa/j7wEFcFRCxja2/zH2O3XGQCHjx4XZWFzyeaFLgLh4dPh1pwE
-	 dVibDoc4MpRaDVCTEn9SKVwlC7ROd9z61MxYNrH5mvaleDTb2yYuOGjzsSLMWnWJDIybz
-	 jlVjjNqDYsO7aLCkt/DTVhHS8lfk5YJL16UKWNXtoOxus2nfWFkmr7ZYbSfzuRQKF6zpR
-	 WQ2nf95nNP/YLPLleaQ3pBBsaIpghq29qUCH5pZFZL4ZF4FYdnGqvQ4hmozu6OGU38ODD
-	 lhogTJTpRF6ofKAq7ZDSxMu9vz5sCNVKTuV51GSoKntB5Pwm2KRchAV4RUaR0ZeHbnw==
+	t=1795655343;
+	b=WQL7fkSJAqxUlMEYVdKsgytW1FKwI8VhWIAVj+p4mFsSiJIQ40PY2u3NRuuDm0XvJXXI
+	 It67304IGYDP19YuR91AGwjqLZehqeDROJji8+SacO+S0YBSq2HWsG+T/z0mQNZlyCZ96
+	 0tccy6KAy8uPmWsDNdQXDyr0K2KzXddi9kqsX4k62TcAf/YfywUdFN/RjV5h0zkmyo1fy
+	 dqKWD9vY375UGZXW3WqUV1vGjR+5jWLe77wgv66J5FNVZXkoXqpGra0qhxXFMKzDNG0IV
+	 MgPhKjoGaoNrIpdxXfqPe64nzFNfvd3x3m18xsPHigdn1rVfT2lbibjLqC4WN8wWU1Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795655339;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795655343;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=Dfv08/N+kF+Mvy690ORsGCHE5ksDbaHpXa/TyHWA4Dw=;
-	b=j+s8lcNCKMN79ZpWVme4j/+OI/99Yqo5/8SZ1s0Dm4i2lRbJRO+YrYpy/WkkvK18jWVo
-	 1YgnR5DbIfKz5gph6DNTVPa3pS/fG4NHCIf9351m00o51j1haLk/mXyag2SVDX+RfoNkj
-	 WIxnGSBEvx1HodIH9NoGtxBz8ih42e/t5bfLgWauYN+VbQ09tzXIilXa3XKybGcPcreaS
-	 nctC1DnUsjgNyW00pGZvLcmvfRW0DZsRnHsqcpH9IXIc/6DirGWOsSzhZLc31IlFQEP6F
-	 sG7KojYhqffcYXUnV+Uv22YMA8Hq2T5tC2d8dEnL69YrEMJZtRX2YkeAcqu/FWbtDbw==
+	bh=H5QhXznND6BTbSk5hUu1eTUy8f5KgP0zL0Nh/RXtERo=;
+	b=36QYgkR+IkeZHGT1BfD+1ZACuHoISbkf478M97Apgvc7M26s8LBj3YgMr5QkA+EQA2hw
+	 H0Ty6oL5q1wOcI5ZF478eQBdiSJsyBB8/q5ZLDoH1w8m+2UoT3AKvaNztiqNjRXYazq0S
+	 Pyg5yBLnJKpqOPK7x+BVcKsEUKOLdXudUyeJW4C7YY94Qn4oRaqRtwh6Zim1t1pW6pyT7
+	 jL0nTsixOEAkrXn4/WpXst/asaNZxLcnu4S7mbUggZekmbE3Uv62iKU/8D8nHDA/ruaRr
+	 h+gmb5u1yZobmCDJYK5HF19i+qi0VJLXpcjzwjkc608rXyIoNPSIHEIpqhLsASQJC0A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=efficios.com;
 	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=A2FCa8z5;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=BilemX53;
 	arc=none smtp.remote-ip=158.69.130.18
 Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9684B606A335;
-	Thu, 26 Nov 2026 01:08:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9684B606A335
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70C3660A5BDD;
+	Thu, 26 Nov 2026 01:09:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70C3660A5BDD
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=A2FCa8z5
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=BilemX53
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795655331;
-	bh=Dfv08/N+kF+Mvy690ORsGCHE5ksDbaHpXa/TyHWA4Dw=;
+	s=smtpout1; t=1795655342;
+	bh=H5QhXznND6BTbSk5hUu1eTUy8f5KgP0zL0Nh/RXtERo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=A2FCa8z5tCpzOQeQJJDl6UhDqmCU/RBoTtE9aM40y2GpfNwhQ3toRC5lz0/5CBNV+
-	 0F5Lir6M85uxevWfMLHDYukveHG4E1DAuZ8WTHGjDSWF/5DZoFAEuTPVBRW90Ku0pc
-	 Wfp+68AwPs7Ymxlv/ki/VMfxgUyXpUnEI7mrWQSLxOayWyQRflUxcom5zHNGM2Cnro
-	 YEjceuM7IUGC6WhXdBnYc2IgH473nCy76xYhl9GugwDkubKLmXTelc21SGIwsMy9NC
-	 CkrnmLJS5AuitpDUbvGBOTRBxDseQOZnDZE9VM55DiUcxFh+2JvlusX7+dVGy9m1iF
-	 0PQ4/fnSe+9kw==
+	b=BilemX53sqHfRJtwpi7hKbX0dxwLDIKgvn5HRojXMWRib7iSFYSGpfrkHHMxnGS82
+	 DU2h/giwo6kWg4N8T9IhuqPaKHg5pN4nrVq29EJur/H+s7CapH4+KGy46WyAXNZ8y5
+	 UVjMsOeERopMTrRayhu1FNkJFyMgrNJuXQiyvhoZsB+uEoNY+dPAHdiw+ecTTwRLhr
+	 8Bp+ygMscARvTboQm382fJ4/T1BcKxDOX2V+4eXksvPF0TddwI2KyeEPanrryE7QE2
+	 62ZYED7ljIa1Y4FXy0mfJhy1d6tn4RIOTJXBXyy6XIHg6xPfU89foE2MkxjRTo1+RF
+	 S6Mx9RlCQadRA==
 Received: from thinkos.internal.efficios.com (unknown [IPv6:2606:6d00:100:4000:cacb:9855:de1f:ded2])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jZdjH31dKzW9r;
-	Wed, 25 Nov 2026 20:08:51 -0500 (EST)
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jZdjT6qY9zWp6;
+	Wed, 25 Nov 2026 20:09:01 -0500 (EST)
 From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 To: juri.lelli@redhat.com,
 	peterz@infradead.org,
@@ -81,9 +81,9 @@ Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
 	linux-kselftest@vger.kernel.org,
 	linux-rt-devel@lists.linux.dev,
 	stable@vger.kernel.org
-Subject: [PATCH v11 04/43] sched/deadline: Leave a dying task out of a rebuild of the accounting
-Date: Wed, 25 Nov 2026 20:08:03 -0500
-Message-ID: <257df8bcd4ff70527a197a7be6cea3bb9202b01a.1795646914.git.mathieu.desnoyers@efficios.com>
+Subject: [PATCH v11 19/43] sched/deadline: Count only active CPUs when spreading extra_bw
+Date: Wed, 25 Nov 2026 20:08:18 -0500
+Message-ID: <8ecd494e3b3a427f2c6a79cfb104c416eb2bb5ef.1795646914.git.mathieu.desnoyers@efficios.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1795646914.git.mathieu.desnoyers@efficios.com>
 References: <cover.1795646914.git.mathieu.desnoyers@efficios.com>
@@ -98,87 +98,63 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-A rebuild of the root domains' accounting takes the pi_lock of each
-deadline task, not its rq lock. A dying task past its 0-lag time
-releases its bandwidth at its last schedule. It holds its rq lock there,
-not its pi_lock. Then it clears dl_bw. The rebuild can find the task
-between the two steps.
+__dl_add() and __dl_sub() change the total_bw of a root domain. They
+also spread the change over the extra_bw of its CPUs, which GRUB uses
+for SCHED_FLAG_RECLAIM tasks. __dl_update() changes only the active
+CPUs, so the cpus argument must count those. Most callers pass
+dl_bw_cpus(), which does.
 
-In this diagram, T is a deadline task that exits on CPU 0 past its 0-lag
-time. bw is its dl_bw. CPU 1 rebuilds the accounting:
+dl_task_offline_migration() and dl_add_task_root_domain() pass
+cpumask_weight(rd->span) instead. That also counts the inactive CPUs of
+the span. A span holds one while that CPU goes offline, which is when
+dl_task_offline_migration() runs. Each active CPU then gets a smaller
+share of the change than it should. A later change made with
+dl_bw_cpus() does not undo it exactly. extra_bw stays off until the
+next rebuild of the root domains resets it. SCHED_FLAG_RECLAIM tasks
+would reclaim a little more or less than their share meanwhile. This
+was found by reading.
 
-  CPU 0 (T)                                  CPU 1 (rebuild)
+Fix this by passing dl_bw_cpus() of the CPU whose root domain changes.
 
-  do_task_dead(): TASK_DEAD, under pi_lock
-  __schedule(): T's rq lock taken
-    task_non_contending(T)
-      dl_task_release_bw(T)
-        total_bw -= bw
-        dl_bw_gen recorded
-        record cleared
-                                             dl_rebuild_rd_accounting()
-                                               dl_clear_root_domains()
-                                                 dl_bw_gen++
-                                                 total_bw reset
-                                               dl_add_task_root_domain(T)
-                                                 T's pi_lock taken
-                                                 dl_bw != 0, dl_bw_gen old
-                                                 total_bw += bw
-      __dl_clear_params(T): dl_bw = 0
-
-dl_bw_gen does not help, since the release came before the rebuild. The
-rebuild would count a bandwidth that nothing releases again. The root
-domain would then refuse deadline tasks it has room for, until the next
-rebuild.
-
-Fix this with the record of the bandwidth, dl_bw_cpu. The release
-clears it under dl_departed_lock, which the walk holds. So leave out a
-dead task with no record. A dead task with a record has not reached its
-last schedule. The walk counts it as a live task. That schedule then
-releases the bandwidth, or puts the task on the departed list. A dead
-task on the departed list keeps its bandwidth until its timer, and the
-rebuild counts it as before.
-
-This patch completes "sched/deadline: Rebuild the root domains'
-accounting from the task list". The walk of that patch finds exiting
-tasks, which the cpuset iterator skipped. The fix needs the record
-that "sched/deadline: Record the root domain holding a task's
-bandwidth" adds. The three go to stable together.
-
-The Sashiko AI review of this series found this window. It also found a
-gap in the first version of this fix. That version also left out a task
-between TASK_DEAD and its last schedule, with its 0-lag time ahead.
-
+Fixes: 59d06cea1198 ("sched/deadline: Fix bandwidth accounting at all levels after offline migration")
 Fixes: f9a25f776d78 ("cpusets: Rebuild root domain deadline accounting information")
 Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Reviewed-by: Juri Lelli <juri.lelli@redhat.com>
 Cc: stable@vger.kernel.org
 ---
- kernel/sched/deadline.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ kernel/sched/deadline.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-index 28fa8f0bc81b..5d065ad27cc2 100644
+index aa35933c0550..347db90e9e9b 100644
 --- a/kernel/sched/deadline.c
 +++ b/kernel/sched/deadline.c
-@@ -3834,6 +3834,17 @@ void dl_add_task_root_domain(struct task_struct *p)
- 		if (recorded < 0 || !cpu_active(recorded))
- 			goto unlock;
- 		cpu = recorded;
-+	} else if (READ_ONCE(p->__state) == TASK_DEAD && p->dl.dl_bw_cpu < 0) {
-+		/*
-+		 * Count nothing for a dead task with no record. Its last
-+		 * schedule released the bandwidth under its rq lock, and has
-+		 * not cleared dl_bw yet. The release clears the record under
-+		 * dl_departed_lock, which this walk holds. A dead task with a
-+		 * record has not reached its last schedule. Count it as a
-+		 * live task. That schedule then releases what the walk
-+		 * counted, or puts the task on the departed list.
-+		 */
-+		goto unlock;
- 	}
- 	rq = cpu_rq(cpu);
+@@ -1076,7 +1076,7 @@ static struct rq *dl_task_offline_migration(struct rq *rq, struct task_struct *p
+ 			dl_b = &src_rq->rd->dl_bw;
+ 			raw_spin_lock(&dl_b->lock);
+ 			__dl_sub(dl_b, p->dl.dl_bw,
+-				 cpumask_weight(src_rq->rd->span));
++				 dl_bw_cpus(cpu_of(src_rq)));
+ 			raw_spin_unlock(&dl_b->lock);
+ 		}
+ 		/*
+@@ -1088,7 +1088,7 @@ static struct rq *dl_task_offline_migration(struct rq *rq, struct task_struct *p
+ 		dl_b = &later_rq->rd->dl_bw;
+ 		raw_spin_lock(&dl_b->lock);
+ 		__dl_add(dl_b, p->dl.dl_bw,
+-			 cpumask_weight(later_rq->rd->span));
++			 dl_bw_cpus(cpu_of(later_rq)));
+ 		raw_spin_unlock(&dl_b->lock);
+ 		dl_record_bw_cpu(&p->dl, later_rq->cpu);
+ 		p->dl.dl_bw_gen = dl_bw_gen;
+@@ -4366,7 +4366,7 @@ void dl_add_task_root_domain(struct task_struct *p)
  	dl_b = &rq->rd->dl_bw;
+ 
+ 	raw_spin_lock(&dl_b->lock);
+-	__dl_add(dl_b, p->dl.dl_bw, cpumask_weight(rq->rd->span));
++	__dl_add(dl_b, p->dl.dl_bw, dl_bw_cpus(cpu));
+ 	raw_spin_unlock(&dl_b->lock);
+ 	dl_record_bw_cpu(&p->dl, cpu);
+ 	p->dl.dl_bw_gen = dl_bw_gen;
 -- 
 2.47.3
 
