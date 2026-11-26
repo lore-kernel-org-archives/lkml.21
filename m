@@ -1,58 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795690214;
-	b=LDSzC7dGPDS87cUP7FBvACqu2wQB042+HDmHIykrKY0bSFGTqanwkB1wMNChdTLuiZ4r
-	 FFfnXRyZ+g5RqlQbjPTeAb2exPFoVTXDd2J1YVbnnj/HVUCryGQNr8xj+mTTOTXLKH6Ot
-	 WG3+XYKNhsW/tKNk04C99wvWtaq55nfdYbdqvfDLz2WyU/0i8Dr6Wyd8t/XKY6ONgQLE2
-	 UrjnpERnPHOPeStwK6dSlj4mvt9hcB17GEDn6VHcK2nTAZFr6AnrP/jRz3kZzdh80xuqo
-	 d9ZKuYd5NfJPnXqat3qFpaznONMSOfEII6bMWSmWPVJnMKfW9B37HkN/WoAHUvVhMLg==
+	t=1795690241;
+	b=SUp2X3WXCdpB5UNyt7qp0b/vKFzN3LHZ6VBp6tkEn3Y4rKQC1NzUwgMlGO8m5xbDkcpU
+	 ZrgTycpNdUvmAKiRq1sqUQB6PHw1wsBJzPvyJagahOOO3jRrOj2oo7yEO2jF7denuc2VE
+	 CjeY4e/RRqh9bL/6cy2h5gIF4YuHYeo403OOr1ANA81h3rayGZmRjHFsy4QPeZgtWB0hC
+	 VQjqm00cR4rGj2o+bQpdLMcO3+lZQntUhBXdMmAqtrSKzWvuRUVR/7OpvgtRpSTngcED/
+	 Ds00l9/iJo3KcmQD9m4lWOGOjWNQ9S2b8QJPtdK3LQSMQwTXuWvoBZbzc1xzKA5brsQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795690214;
-	h=DMARC-Filter:X-Alimail-AntiSpam:Received:Subject:To:Cc:References:
-	 From:Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Q4PeqWB34ICJadcEnqA8c/plr+YDmTN4ORlSnZ5sEuo=;
-	b=JiQ7wUgUr+b0B0Cg9uh8+HZOTJhmpE/hA+mSqEoaX7YJMVWE+nq7cKlr4ADcde+VkXlg
-	 mmvtfBops1eH7B/Lifu+di96y3PXGPy8XiaYKjp7bHPV6QepiK27sCO6pe9KSRv6ym6tw
-	 yqJl/FFKmx0ItTSZzwRwZHz4w9q16H/vEv49kLFjWaVXo3WP8GXtayx4s1ZFxcLJKSjZI
-	 pvYG/UvowjUz3QXabr+lJ2Cgs6l+qvopM0LlStI+q+KQNTfNjzto9OYPwehXMcrSMKHnR
-	 vukjhVEBrgi0q7SXm8iPYN3ZCy/ZnYeIt79HCOYbFpLLGlh8r8/J9Vs/h+hfMbNUMdg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795690241;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Content-Type:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To;
+	bh=hHaAICVJRFQV+5hvz8NIKnPlYU9O7jSEUNCaXHXOOJ0=;
+	b=orZ109e2NnkhzFN/h4WXXp323UhD/qrk6v9eL8h27tGb0USMcTYs8pRtgA0ajTOvb67R
+	 gd6lJnnSW3qQ8+B8pmdUQfO8xWlCHbO/638uuXNIXCQsnETT9+02CsDWVJJaE/SQfgxio
+	 1oq9nLhF0s3np+N1O8Hc7TTXmTgXcK5cWNkjvxF8FjXsOKKsZNGs2NxTBuiMVgVpgz5h/
+	 +q+fYzcdgXbZdURA4rMxhib1TPxzp2mzx1AjRoZTRj1aYnI2mI02QgDpzTNkT9YwZ+QTE
+	 8UOwIMvT2c+8ne0PS7X+b5C6xheWubM/jHGntU/H4Cq5Spu1jFP0oizxcbEn1VrXUXg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=open-hieco.net;
-	spf=pass smtp.mailfrom=open-hieco.net;
-	arc=none smtp.remote-ip=115.124.28.4
-Received: from out28-4.mail.aliyun.com (out28-4.mail.aliyun.com [115.124.28.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACF1A606A32C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:50:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ACF1A606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=open-hieco.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=open-hieco.net
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.08028989|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_news_journal|0.00576181-0.00014206-0.994096;FP=4452848093057234459|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam011083034076;MF=likunyu@open-hieco.net;NM=1;PH=DS;RN=14;RT=14;SR=0;TI=SMTPD_---.kAltRSF_1795690199;
-Received: from 172.18.25.145(mailfrom:likunyu@open-hieco.net fp:SMTPD_---.kAltRSF_1795690199 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Thu, 26 Nov 2026 18:49:59 +0800
-Subject: Re: [PATCH v3 03/10] sched/pelt: Add a new function to approximate
- runtime to reach given util
-To: Qais Yousef <qyousef@layalina.io>, Ingo Molnar <mingo@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Viresh Kumar <viresh.kumar@linaro.org>
-Cc: Juri Lelli <juri.lelli@redhat.com>, Steven Rostedt <rostedt@goodmis.org>,
- John Stultz <jstultz@google.com>, Dietmar Eggemann
- <dietmar.eggemann@arm.com>, Tim Chen <tim.c.chen@linux.intel.com>,
- "Chen, Yu C" <yu.c.chen@intel.com>, Thomas Gleixner <tglx@kernel.org>,
- linux-kernel@vger.kernel.org
-References: <20261126051429.14091-1-qyousef@layalina.io>
- <20261126051429.14091-4-qyousef@layalina.io>
-From: Li kunyu <likunyu@open-hieco.net>
-Message-ID: <e64956eb-393e-6fa7-3351-acffa4ee779e@open-hieco.net>
-Date: Thu, 26 Nov 2026 18:50:00 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.14.0
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=b+i1b+n0;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 90129606A31E;
+	Thu, 26 Nov 2026 10:50:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90129606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=b+i1b+n0
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CF5BD1BA8;
+	Thu, 26 Nov 2026 02:50:36 -0800 (PST)
+Received: from [10.57.70.67] (unknown [10.57.70.67])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5A9C63F86C;
+	Thu, 26 Nov 2026 02:50:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795690239; bh=fWGD5Dldafq7CDVvnA4fh0lMfmOm+tGqV20EXnogxHE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=b+i1b+n0ngyxMfgdHOsulTM8kCg45tjDTrdIjffOrJniTp6sa7vGz4jWMpBAZc/8h
+	 xhakhDHXR1keja7K+cJwzkA5HbT18so8CcIvmfQj4sKNXdoFCV27QOKxZTtUceURlU
+	 u74suQyuEsXPGgBdyKu0Hw0yQCqVUvyBi0wd26So=
+Content-Type: multipart/mixed; boundary="------------UXZLA3h0BF9bz76QA0I0eRk5"
+Message-ID: <2162b02c-642a-446c-973e-ca80607da294@arm.com>
+Date: Thu, 26 Nov 2026 10:50:34 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,52 +54,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-In-Reply-To: <20261126051429.14091-4-qyousef@layalina.io>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCHv3] thermal/drivers/samsung/acpm-tmu: Fix spurious CPU
+ throttling
+To: Alexey Klimov <alexey.klimov@linaro.org>, tudor.ambarus@linaro.org
+Cc: bzolnier@gmail.com, krzk@kernel.org, rafael@kernel.org,
+ daniel.lezcano@kernel.org, lukasz.luba@arm.com,
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-pm@vger.kernel.org
+References: <20261125173959.2198116-1-christian.loehle@arm.com>
+ <CANgGJDp02H7-wLv6DoaPMeiy4UvDUC2nvSR=+mngEZ+Z4Hqgog@mail.gmail.com>
+From: Christian Loehle <christian.loehle@arm.com>
+Content-Language: en-US
+In-Reply-To: <CANgGJDp02H7-wLv6DoaPMeiy4UvDUC2nvSR=+mngEZ+Z4Hqgog@mail.gmail.com>
 
-Hi Qais,
+This is a multi-part message in MIME format.
+--------------UXZLA3h0BF9bz76QA0I0eRk5
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On 2026/11/26 13:14, Qais Yousef wrote:
-> +
-> +/*
-> + * Approximate the required amount of runtime in us required to reach @util.
-> + */
-> +u64 approximate_runtime(unsigned long util)
-> +{
-> +	struct sched_avg sa = {};
-> +	u64 delta = 1024; // period = 1024 = ~1ms
+On 11/26/26 09:16, Alexey Klimov wrote:
+> Hi Christian, Tudor,
+> 
+> On Wed, 25 Nov 2026 at 17:40, Christian Loehle <christian.loehle@arm.com> wrote:
+>>
+>> acpm_tmu_set_trips() supplies two thresholds, but the ACPM command writes
+>> all eight slots, zero-filling the rest. On GS101, slot 7 limits CPU clocks
+>> independently of its interrupt mask. Setting it to 0 C limits all three
+>> clusters to about 200 MHz while cpufreq reports the requested frequencies.
+>> This was found through trial and error while tracking EAS regressions.
+> 
+> Cpufreq reports the requested frequencies — are these cached values
+> being reported?
+> Or is this what the kernel gets via the ACPM call?
 
-Would it be clearer to name this period as the base unit? A delta of 1024
-corresponds to one full period:
+Requested frequencies are reported. The 200MHz I only deduced from PMU counters.
 
-u64 period = 1024; /* one period = 1024 delta units */
+> 
+>> Program slot 7 from the lowest active hot trip so hardware throttling can
+>> precede the critical trip's system shutdown. Cache the low/high window and
+>> update the hot limit from set_trip_temp(), because the thermal core skips
+>> set_trips() when that window is unchanged.
+> 
+> FWIW, Exynos850 control register for TMU has bits to enabled/disable
+> such behaviour (and it probably works).
+> Maybe gs101 also has it.
+> But it seems that cpufreq scaling feature itself is explicitly enabled.
 
-> +	u64 runtime = 0;
-> +
-> +	if (unlikely(!util))
-> +		return runtime;
-> +
-> +	if (unlikely(WARN_ON_ONCE(util > SCHED_CAPACITY_SCALE)))
-> +		util = SCHED_CAPACITY_SCALE;
-> +
-> +	while (sa.util_avg < util) {
-> +		accumulate_sum(delta, &sa, 1, 0, 1);
+Thanks for the hint Alexey!
+THERM_TRIP_EN is bit12 on Exynos850, clearing that on gs101 still stays on 200MHz
+for me. The downstream driver doesn't define it either.
+Clearing bit16, i.e. 0x09003 instead of 0x19003 does indeed remove the throttling
+even with all zeroes in slot7.
+I would probably still go with $SUBJECT, as I'd say the risk of this having unwanted
+side effects is lower IMHO, but I'm also happy with either.
+See attached patch.
+--------------UXZLA3h0BF9bz76QA0I0eRk5
+Content-Type: text/x-patch; charset=UTF-8;
+ name="0001-thermal-drivers-samsung-acpm-tmu-Disable-hardware-CP.patch"
+Content-Disposition: attachment;
+ filename*0="0001-thermal-drivers-samsung-acpm-tmu-Disable-hardware-CP.pa";
+ filename*1="tch"
+Content-Transfer-Encoding: base64
 
-accumulate_sum(period, &sa, 1, 0, 1);
+RnJvbSAyY2E1MDBjMGQxYjc2NjI0MTE3MGZiOGE0ZjRiMjAwMmI0MjI1MGNjIE1vbiBTZXAg
+MTcgMDA6MDA6MDAgMjAwMQpGcm9tOiBDaHJpc3RpYW4gTG9laGxlIDxjaHJpc3RpYW4ubG9l
+aGxlQGFybS5jb20+CkRhdGU6IFRodSwgMjYgTm92IDIwMjYgMTA6NDY6MzQgKzAwMDAKU3Vi
+amVjdDogW1BBVENIXSB0aGVybWFsL2RyaXZlcnMvc2Ftc3VuZy9hY3BtLXRtdTogRGlzYWJs
+ZSBoYXJkd2FyZSBDUFUKIHRocm90dGxpbmcKCmFjcG1fdG11X3NldF90cmlwcygpIHN1cHBs
+aWVzIHR3byB0aHJlc2hvbGRzLCBidXQgdGhlIEFDUE0gY29tbWFuZCB3cml0ZXMKYWxsIGVp
+Z2h0IHNsb3RzLCB6ZXJvLWZpbGxpbmcgdGhlIHJlc3QuIE9uIEdTMTAxLCBzbG90IDcgbGlt
+aXRzIENQVSBjbG9ja3MKaW5kZXBlbmRlbnRseSBvZiBpdHMgaW50ZXJydXB0IG1hc2suIFNl
+dHRpbmcgaXQgdG8gMCBDIGxpbWl0cyBhbGwgdGhyZWUKY2x1c3RlcnMgdG8gMjAwIE1IeiB3
+aGlsZSBjcHVmcmVxIHJlcG9ydHMgdGhlIHJlcXVlc3RlZCBmcmVxdWVuY2llcy4KCkNsZWFy
+IHRoZSBDUFUgdGhyb3R0bGluZyBlbmFibGUgYml0IGluIENPTlRST0wgYWZ0ZXIgQUNQTSBp
+bml0aWFsaXphdGlvbiwKbGVhdmluZyBDUFUgY29vbGluZyBhbmQgY3JpdGljYWwgc2h1dGRv
+d24gdG8gdGhlIHRoZXJtYWwgY29yZS4KCkZpeGVzOiA1MGEyYzVkNDA2MmEgKCJ0aGVybWFs
+L2RyaXZlcnMvc2Ftc3VuZzogQWRkIEV4eW5vcyBBQ1BNIFRNVSBkcml2ZXIgR1MxMDEiKQpT
+aWduZWQtb2ZmLWJ5OiBDaHJpc3RpYW4gTG9laGxlIDxjaHJpc3RpYW4ubG9laGxlQGFybS5j
+b20+Ci0tLQogZHJpdmVycy90aGVybWFsL3NhbXN1bmcvYWNwbS10bXUuYyB8IDEwICsrKysr
+KysrKysKIDEgZmlsZSBjaGFuZ2VkLCAxMCBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEv
+ZHJpdmVycy90aGVybWFsL3NhbXN1bmcvYWNwbS10bXUuYyBiL2RyaXZlcnMvdGhlcm1hbC9z
+YW1zdW5nL2FjcG0tdG11LmMKaW5kZXggNDc5OWVmNTE4YTdhLi5mYTFiZmMwZDEwNzAgMTAw
+NjQ0Ci0tLSBhL2RyaXZlcnMvdGhlcm1hbC9zYW1zdW5nL2FjcG0tdG11LmMKKysrIGIvZHJp
+dmVycy90aGVybWFsL3NhbXN1bmcvYWNwbS10bXUuYwpAQCAtMzcsNiArMzcsOCBAQAogI2Rl
+ZmluZSBHUzEwMV9DUFVDTDBfU0VOU09SX01BU0sgKEVYWU5PU19UTVVfU0VOU09SKDEpIHwJ
+XAogCQkJCSAgRVhZTk9TX1RNVV9TRU5TT1IoMikpCiAKKyNkZWZpbmUgR1MxMDFfUkVHX0NP
+TlRST0wJCTB4NTAKKyNkZWZpbmUgR1MxMDFfQ09OVFJPTF9DUFVfVEhST1RUTEVfRU4JQklU
+KDE2KQogI2RlZmluZSBHUzEwMV9SRUdfSU5UUEVORChpKQkJKChpKSAqIDB4NTAgKyAweGY4
+KQogCiBlbnVtIHsKQEAgLTQ3MCw2ICs0NzIsMTQgQEAgc3RhdGljIGludCBhY3BtX3RtdV9w
+cm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KQogCQlnb3RvIG91dF9wbV9wdXQ7
+CiAJfQogCisJLyogRGlzYWJsZSBzbG90IDcgQ1BVIHRocm90dGxpbmc7IHRoZSB0aGVybWFs
+IGNvcmUgbWFuYWdlcyBjb29saW5nLiAqLworCXJldCA9IHJlZ21hcF9jbGVhcl9iaXRzKHJl
+Z21hcCwgR1MxMDFfUkVHX0NPTlRST0wsCisJCQkJR1MxMDFfQ09OVFJPTF9DUFVfVEhST1RU
+TEVfRU4pOworCWlmIChyZXQpIHsKKwkJcmV0ID0gZGV2X2Vycl9wcm9iZShkZXYsIHJldCwg
+IkZhaWxlZCB0byBkaXNhYmxlIENQVSB0aHJvdHRsaW5nXG4iKTsKKwkJZ290byBvdXRfcG1f
+cHV0OworCX0KKwogCWZvciAoaSA9IDA7IGkgPCBwcml2LT5udW1fc2Vuc29yczsgaSsrKSB7
+CiAJCXN0cnVjdCBhY3BtX3RtdV9zZW5zb3IgKnNlbnNvciA9ICZwcml2LT5zZW5zb3JzW2ld
+OwogCQlzdHJ1Y3QgdGhlcm1hbF96b25lX2RldmljZSAqdHpkOwotLSAKMi4zNC4xCgo=
 
-> +		___update_load_avg(&sa, 0);
-> +		runtime++;
-> +	}
-> +
-> +	return runtime * 1024;
-
-return runtime * period;
-
-> +}
-
-Would the overall effect be better this way? Or is my understanding somewhat off?
-
--- 
-thanks,
-kunyu
+--------------UXZLA3h0BF9bz76QA0I0eRk5--
