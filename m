@@ -1,45 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=92.121.34.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795677113;
-	b=uEjq/uCD9RJ6M1LNhcWJimhQKybsKf4XyPn0Mnjq5eaVnfO+Ldv9WrDJ/U1IAb/s7CNy
-	 eI69UTX3KxaIO7EoJ0uldVxhFvzfKpbX6PLGgydvIdDiRpJdhBHGDrZ2tThD9OZDL1ZJg
-	 kMzPypf/mZKaFhpmPiPfYntWe0frCNqgBNHwn+LtIvGyhXy4zdCdC0APKJzyl3+o3cbbM
-	 55es5Hn3Y3ShnzvP1bKCS+gRhWLtCiU4NzIPQXlL6HcOdhUQXIBnkI8j0Jz6sdluTH9vy
-	 ALbQhixprk4sAkPQaEDDpe9Xv/sX2fJyNaVFqOFTeiu7wJgcLWxfZgQ4hpPUF+0yWhA==
+	t=1795677120;
+	b=d4MIKpZEICW8X/WXkmqLl0no3q8c9xKAbNOqvKIT+Tgyd9Ya7YTPzAF+kP3X5cZKn+3I
+	 +YELvZfaRxWQUK4iYmhnHPxqtzXi0Uf5oYUu7BER/h3brHiHy6iCh3KMY9zkBSnK3lG5v
+	 PDtKDaarQKXhs584niQ2wsw5rGB+Pc2jherjEjutcLq3vORq08nKiBzGjK/sVrRQLGd7n
+	 YNGt54kxkGHwg4dVTT1wsDbZjN7AmZLTTMdZfBvg+ScKoVDt9A9bp2W2aoBMWEv1xui12
+	 KJCaQzZHCz0man6cN8arSBRU/NX0ougI11y6uiPwsamdplLJbQS6Pk4kCERFtHd+G9Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795677113;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer;
-	bh=4YyEWwAkCQU+bFSGO99qgS4Bf2a+9peUpz7t0o/uWGE=;
-	b=G2RbekYcOE32nnAYk05r9unWcNhbYnyDjtzDBbexGrE/4QeA7bw4WVIFkKvU3n4y59n4
-	 3AUtQw7fnwlHLZD3dvI1a5Qx/E4dygKc2pGxuufKlC2bTeWP9eOFd7h7akOj3+Z80oM+p
-	 VbynMSEzg9L4bD5PuSaZKeeRI0Na2gp5bVmjCgQ760c+mQde77xPT4oVCsC418qxSzjEw
-	 8FGJ2j72He38vSXh+YA5QyjO2Lxap5feXRDQzmYeKsJIHFoZop/nXQ2oN/3D2Ud60i5XR
-	 m8M2Ylnb+zP+R23v2MkjovqWTFWj8hcHzUD9JW4hcQDVpVz2AvSl/gKo5qPetRkdjSw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795677120;
+	h=DMARC-Filter:Received:Received:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Virus-Scanned;
+	bh=IpdbXlmbi+WCtLausYX+4t8fpLe5gnoF1KcYEXYiPI8=;
+	b=Ib+COx114bxh1W7cAFr+JjhtOFBmdiKmcXuc33yJMmPwizeQFbSIeIQGt6jdHAjE4MdA
+	 qDaKnm+0RvYDB7ZAAf8BhbYiFuvyx6g3NKDz2cRLAX8WPHiZXG1Z9UOG8mZQ2cq2ocMAS
+	 btsbbdFe/aCmett6FrtqXgAZRVyb4JAT62jctDCmyBIzWh5uhj7GyXPc0/18eaYcwOcTs
+	 Knwl9mzjdmJuEwFj/zfgGm3VTLf6ihyB78P4eGSZ8XD91R08Nm+1jpChtMJAyLuHZ1Xb2
+	 8e52anKYNaVUYRJYzdmpM7TeXoeigkIrreyqaOEuv8EKoO8/ONtKmzB42FKh4Uk7NXg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EmnxEBiQ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=nxp.com;
+	spf=pass smtp.mailfrom=nxp.com;
+	arc=none smtp.remote-ip=92.121.34.13
+Received: from inva020.nxp.com (inva020.nxp.com [92.121.34.13])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D669606A69D;
-	Thu, 26 Nov 2026 07:11:52 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EmnxEBiQ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 247671F000D2;
-	Thu, 26 Nov 2026 07:11:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795677112;
-	bh=4YyEWwAkCQU+bFSGO99qgS4Bf2a+9peUpz7t0o/uWGE=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=EmnxEBiQ2we8OzqZSSUpuEIO00yeED7qfKBz7UYPbFY1VeUVc6EPIae2wwJbIamBP
-	 hsGAerkUoYPIC2tpHu80+9l9MufpHAlp9RPJ0hcvleJe+v7uDzB6bhnB5Kul5aL4uk
-	 hgKXpV0OSsQKhMunlU/5XLrtjy9IWeto8hzJL9DppEl0UZsOY/79Gg6xL7Rtg30rGD
-	 demWXX4eczRRkAoisvA8lkKM9GX+c7rZOELcjsJ485j5234h5gHVpkL28DQsdqcblc
-	 iO8ceRNxm22qrTd7U+L93JEWMBK2c95sTIlngtQwIqFiXYM88xeSZlBCEQjdvMh6LJ
-	 z5752lLHGObWw==
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7836E606A321;
+	Thu, 26 Nov 2026 07:11:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7836E606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
+Received: from inva020.nxp.com (localhost [127.0.0.1])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 7A5551A000A;
+	Thu, 26 Nov 2026 08:11:52 +0100 (CET)
+Received: from aprdc01srsp001v.ap-rdc01.nxp.com (aprdc01srsp001v.ap-rdc01.nxp.com [165.114.16.16])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 43E921A0005;
+	Thu, 26 Nov 2026 08:11:52 +0100 (CET)
+Received: from lsv031125.swis.in-blr01.nxp.com (lsv031125.swis.in-blr01.nxp.com [10.12.177.172])
+	by aprdc01srsp001v.ap-rdc01.nxp.com (Postfix) with ESMTP id 1C1B3180022C;
+	Thu, 26 Nov 2026 15:11:48 +0800 (+08)
+From: Shiv Prakash Gupta <shivprakash.gupta@nxp.com>
+To: linux-kernel@vger.kernel.org,
+	linux-rtc@vger.kernel.org,
+	linux-hwmon@vger.kernel.org,
+	linux-watchdog@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	alexandre.belloni@bootlin.com,
+	krzk+dt@kernel.org,
+	robh@kernel.org,
+	conor+dt@kernel.org,
+	linux@roeck-us.net,
+	wim@linux-watchdog.org
+Cc: vikash.bansal@nxp.com,
+	priyanka.jain@nxp.com,
+	lakshay.piplani@nxp.com,
+	Shiv Prakash Gupta <shivprakash.gupta@nxp.com>
+Subject: [PATCH v5 4/4] rtc: pcf8525: Add temperature sensor support via hwmon
+Date: Thu, 26 Nov 2026 12:41:24 +0530
+Message-Id: <20261126071124.2383368-5-shivprakash.gupta@nxp.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261126071124.2383368-1-shivprakash.gupta@nxp.com>
+References: <20261126071124.2383368-1-shivprakash.gupta@nxp.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,61 +69,241 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH 07/10] clk: samsung: exynos5420: Terminate PLL rate
- tables with sentinels
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Lee Jones <lee@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Thomas Abraham <thomas.ab@samsung.com>, 
- Chander Kashyap <k.chander@samsung.com>, 
- Amit Daniel Kachhap <amit.daniel@samsung.com>, 
- Tomasz Figa <t.figa@samsung.com>, Lukasz Luba <lukasz.luba@arm.com>, 
- Marian Mihailescu <mihailescu2m@gmail.com>, 
- linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org
-In-Reply-To: <179567696129.9086.5750343229179878451.b4-reply@b4>
-References: <20261123164834.3330320-1-lee@kernel.org>
- <20261123164834.3330320-8-lee@kernel.org>
- <179567696129.9086.5750343229179878451.b4-reply@b4>
-Date: Thu, 26 Nov 2026 08:11:49 +0100
-Message-Id: <179567710988.9086.18307051341647082138.b4-reply@b4>
-X-Mailer: b4 0.17-dev
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: ClamAV using ClamSMTP
 
-On 2026-11-26 08:09:21+01:00, Krzysztof Kozlowski wrote:
-> On 2026-11-23 16:47 +0000, Lee Jones wrote:
-> 
-> > _samsung_clk_register_pll() sizes each PLL rate table by scanning until
-> > it encounters an entry with .rate == 0, then copies the counted entries
-> > into pll->rate_table.  However, exynos5420_pll2550x_24mhz_tbl,
-> > exynos5422_bpll_rate_table, exynos5420_epll_24mhz_tbl, and
-> > exynos5420_vpll_24mhz_tbl all omit a terminating zero sentinel, causing
-> > out-of-bounds reads into adjacent read-only data and populating
-> > pll->rate_table with bogus entries.
-> > 
-> > Append a sentinel entry to each of the four PLL rate tables.
-> > 
-> > Fixes: ca5b40293822 ("clk: samsung: register exynos5420 apll/kpll configuration data")
-> > Fixes: 9842452acd3d ("clk: samsung: exynos542x: Add EPLL rate table")
-> > Fixes: 8b4a7acf7b30 ("clk: samsung: add BPLL rate table for Exynos 5422 SoC")
-> > Fixes: b92981de92cb ("clk: samsung: exynos5420: Add VPLL rate table")
-> > Closes: https://sashiko.dev/#/bug/linux-553831f9-0a7b-4e94-be60-222de60ca8c3
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Lee Jones <lee@kernel.org>
-> > ---
-> >  drivers/clk/samsung/clk-exynos5420.c | 4 ++++
-> >  1 file changed, 4 insertions(+)
-> 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Expose the PCF8525 on-chip temperature sensor through the hwmon
+subsystem as an optional feature controlled by
+CONFIG_RTC_DRV_PCF8525_HWMON.
 
-Actually let me just grab it and I still wait for other files as well.
+Signed-off-by: Lakshay Piplani <lakshay.piplani@nxp.com>
+Signed-off-by: Shiv Prakash Gupta <shivprakash.gupta@nxp.com>
+---
+ drivers/rtc/Kconfig       |  10 +++
+ drivers/rtc/rtc-pcf8525.c | 149 +++++++++++++++++++++++++++++++++++++-
+ 2 files changed, 158 insertions(+), 1 deletion(-)
 
+diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
+index 68b17ad29ed4..d5c3468e9867 100644
+--- a/drivers/rtc/Kconfig
++++ b/drivers/rtc/Kconfig
+@@ -537,6 +537,16 @@ config RTC_DRV_PCF8525
+ 	  This driver can also be built as a module. If so, the module
+ 	  will be called rtc-pcf8525.
+ 
++config RTC_DRV_PCF8525_HWMON
++	bool "HWMON support for NXP PCF8525"
++	depends on RTC_DRV_PCF8525 && HWMON && !(RTC_DRV_PCF8525=y && HWMON=m)
++	default y
++	help
++	  Say Y here to expose the PCF8525 on-chip temperature sensor
++	  through the hwmon interface (temp1_input in millidegrees Celsius).
++	  The sensor resolution is 1 degree C.  The measurement interval is
++	  programmable from 1 to 32 minutes via hwmon chip_update_interval.
++
+ config RTC_DRV_PCF85363
+ 	tristate "NXP PCF85363"
+ 	select REGMAP_I2C
+diff --git a/drivers/rtc/rtc-pcf8525.c b/drivers/rtc/rtc-pcf8525.c
+index 25420e7ad21c..e98dd0468cfb 100644
+--- a/drivers/rtc/rtc-pcf8525.c
++++ b/drivers/rtc/rtc-pcf8525.c
+@@ -1,10 +1,11 @@
+ // SPDX-License-Identifier: GPL-2.0-only
+ /*
+- * NXP PCF8525 RTC driver with alarm, timestamp and watchdog support.
++ * NXP PCF8525 RTC driver with alarm, timestamp, watchdog and hwmon support.
+  *
+  * Datasheet: https://www.nxp.com/docs/en/data-sheet/PCF8525.pdf
+  */
+ 
++#include <linux/array_size.h>
+ #include <linux/bcd.h>
+ #include <linux/bitfield.h>
+ #include <linux/bitops.h>
+@@ -13,6 +14,7 @@
+ #include <linux/device.h>
+ #include <linux/err.h>
+ #include <linux/errno.h>
++#include <linux/hwmon.h>
+ #include <linux/i2c.h>
+ #include <linux/interrupt.h>
+ #include <linux/limits.h>
+@@ -30,6 +32,7 @@
+ #include <linux/sysfs.h>
+ #include <linux/types.h>
+ #include <linux/uaccess.h>
++#include <linux/util_macros.h>
+ #include <linux/watchdog.h>
+ 
+ #define PCF8525_REG_CTRL1		0x00
+@@ -82,8 +85,10 @@
+ #define PCF8525_CTRL4_TSF		BIT(7)
+ 
+ #define PCF8525_CTRL5_TSIE		BIT(7)
++#define PCF8525_CTRL5_TEMP_RD_EN	BIT(2)
+ #define PCF8525_CTRL5_XTL_TYP		BIT(0)
+ 
++#define PCF8525_CLKOUT_TCR_MASK		GENMASK(7, 5)
+ #define PCF8525_CLKOUT_OTPR		BIT(4)
+ #define PCF8525_CLKOUT_CLKOE		BIT(3)
+ 
+@@ -232,6 +237,146 @@ static int pcf8525_rtc_set_offset(struct device *dev, long offset)
+ 				 buf, sizeof(buf));
+ }
+ 
++static const int pcf8525_hwmon_interval_ms[] = {
++	32 * 60 * 1000,
++	16 * 60 * 1000,
++	8 * 60 * 1000,
++	4 * 60 * 1000,
++	2 * 60 * 1000,
++	60 * 1000,
++};
++
++static int pcf8525_hwmon_read_interval(struct pcf8525 *pcf8525, long *val)
++{
++	unsigned int regval;
++	unsigned int tcr;
++	int ret;
++
++	ret = regmap_read(pcf8525->regmap, PCF8525_REG_CLKOUT, &regval);
++	if (ret)
++		return ret;
++
++	/* TCR values 5 to 7 all select a period of one minute. */
++	tcr = min_t(unsigned int, FIELD_GET(PCF8525_CLKOUT_TCR_MASK, regval),
++		    ARRAY_SIZE(pcf8525_hwmon_interval_ms) - 1);
++	*val = pcf8525_hwmon_interval_ms[tcr];
++
++	return 0;
++}
++
++static int pcf8525_hwmon_write_interval(struct pcf8525 *pcf8525, long val)
++{
++	unsigned int tcr;
++
++	tcr = find_closest_descending(val, pcf8525_hwmon_interval_ms,
++				      ARRAY_SIZE(pcf8525_hwmon_interval_ms));
++
++	return regmap_update_bits(pcf8525->regmap, PCF8525_REG_CLKOUT,
++				  PCF8525_CLKOUT_TCR_MASK,
++				  FIELD_PREP(PCF8525_CLKOUT_TCR_MASK, tcr));
++}
++
++static umode_t pcf8525_hwmon_is_visible(const void *data,
++					enum hwmon_sensor_types type,
++					u32 attr, int channel)
++{
++	switch (type) {
++	case hwmon_chip:
++		if (attr == hwmon_chip_update_interval)
++			return 0644;
++		break;
++	case hwmon_temp:
++		if (attr == hwmon_temp_input)
++			return 0444;
++		break;
++	default:
++		break;
++	}
++
++	return 0;
++}
++
++static int pcf8525_hwmon_read(struct device *dev, enum hwmon_sensor_types type,
++			      u32 attr, int channel, long *val)
++{
++	struct pcf8525 *pcf8525 = dev_get_drvdata(dev);
++	unsigned int regval;
++	int ret;
++
++	switch (type) {
++	case hwmon_chip:
++		if (attr == hwmon_chip_update_interval)
++			return pcf8525_hwmon_read_interval(pcf8525, val);
++		break;
++	case hwmon_temp:
++		if (attr != hwmon_temp_input)
++			break;
++
++		ret = regmap_read(pcf8525->regmap, PCF8525_REG_TEMP, &regval);
++		if (ret)
++			return ret;
++
++		*val = (s8)regval * 1000L;
++		return 0;
++	default:
++		break;
++	}
++
++	return -EOPNOTSUPP;
++}
++
++static int pcf8525_hwmon_write(struct device *dev, enum hwmon_sensor_types type,
++			       u32 attr, int channel, long val)
++{
++	struct pcf8525 *pcf8525 = dev_get_drvdata(dev);
++
++	if (type == hwmon_chip && attr == hwmon_chip_update_interval)
++		return pcf8525_hwmon_write_interval(pcf8525, val);
++
++	return -EOPNOTSUPP;
++}
++
++static const struct hwmon_channel_info * const pcf8525_hwmon_info[] = {
++	HWMON_CHANNEL_INFO(chip, HWMON_C_UPDATE_INTERVAL),
++	HWMON_CHANNEL_INFO(temp, HWMON_T_INPUT),
++	NULL
++};
++
++static const struct hwmon_ops pcf8525_hwmon_ops = {
++	.is_visible = pcf8525_hwmon_is_visible,
++	.read = pcf8525_hwmon_read,
++	.write = pcf8525_hwmon_write,
++};
++
++static const struct hwmon_chip_info pcf8525_hwmon_chip_info = {
++	.ops = &pcf8525_hwmon_ops,
++	.info = pcf8525_hwmon_info,
++};
++
++static void pcf8525_hwmon_register(struct device *dev, struct pcf8525 *pcf8525)
++{
++	struct device *hwmon_dev;
++	int ret;
++
++	if (!IS_ENABLED(CONFIG_RTC_DRV_PCF8525_HWMON))
++		return;
++
++	/* A cleared TEMP_RD_EN enables the digital readout in register 0x2e. */
++	ret = regmap_clear_bits(pcf8525->regmap, PCF8525_REG_CTRL5,
++				PCF8525_CTRL5_TEMP_RD_EN);
++	if (ret) {
++		dev_warn(dev, "failed to enable temperature readout: %d\n", ret);
++		return;
++	}
++
++	hwmon_dev = devm_hwmon_device_register_with_info(dev, "pcf8525", pcf8525,
++							 &pcf8525_hwmon_chip_info,
++							 NULL);
++	if (IS_ERR(hwmon_dev))
++		dev_warn(dev, "failed to register hwmon device: %ld\n",
++			 PTR_ERR(hwmon_dev));
++}
++
+ static int pcf8525_read_time(struct device *dev, struct rtc_time *tm)
+ {
+ 	struct pcf8525 *pcf8525 = dev_get_drvdata(dev);
+@@ -1225,6 +1370,8 @@ static int pcf8525_probe(struct i2c_client *client)
+ 			return ret;
+ 	}
+ 
++	pcf8525_hwmon_register(dev, pcf8525);
++
+ 	return 0;
+ }
+ 
 -- 
-Krzysztof Kozlowski <krzk@kernel.org>
+2.34.1
+
