@@ -1,65 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795679781;
-	b=xSgQkoCKPCPoC3bHKsOGELWdR2PldQknBEHecTUlbB3mbuI+ZjBiv3KfRTPi3lqGs9ox
-	 GC6K/x4jiSCAs43GrvXf/945CG60nbPSlyBYKtcOw+ta2J+N8/cYaZ4e39GKGRX4NC1F9
-	 ZgH7JNh5ONa7NzkQ9I0AUiq9Qgy20Dn8G58aYTYVgi10M2ELdeGfWUzvBQyNxrg/QFBXU
-	 I4rr1F5r9D7NQsR6aWHFA4Zn5ABR371QCdCPzwel6i6LFP7BxNXgrjb+o10fRWbFV33hH
-	 /W7YFuJYvIhRJJ8zkV2MVdngAO7lPsGnZFRiy/FWiLuYbLQ4ZdMvt/CPU57JKiu4dXw==
+	t=1795679833;
+	b=wzm1TjZgVrs48MRMXEcqw8QKB4g/X8P9f4BYW7F8TJoIYHcR4zdB63h0kbz1Zr4/wRun
+	 b6xoei+/x86MryWjB4COqVBgfviDLpUox3aDfTVjQjqLhaRlxNg6uajWi0W6KRahj2Ppy
+	 AJ0zDPb/Ce6ohpwrukK2dbWbjrq+IUeGZilwwf41NvLsVqaFL6Eoz6RZJjCxv3O7FTFMQ
+	 rhJYKe84gAhvQPbAVbs8qz+iwxONvlfqmoBNNMIhT0eul8LlI3OpDi1qMKCCVQs70r1Sl
+	 BvqXwda/wNE61737LNhe8B391si6JcBctSSSDzR9+DKDNgrB4U3TDKMF12qaL8sncJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795679781;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=Zp7KR/TTaOmH56UgO4iVbM4KLisFeV6A9K8Gnq9SP2c=;
-	b=YPDMkIlRgbYkbmXY215YNgzCcIaoJ8P8c0I01wd3QLEdMHRCx2x9jrYAwAp4R3Zt3uZd
-	 SxCfUuB+ojQTGzHqKJhy7z89r5oSgl1J/bTHgHzJtVKcG2N8wASNRF9v4UgtUnGqrUQNB
-	 Fs6Hy+tUxkLUgSXWjyl9P8TMYfqnHqIUEUNwY48mRPgLKsxzT7Gwqz9F/7wsZAq2BjeEw
-	 ytfKV1DbkPiYqLUe1TKLpMOHTnmtJWPnYuKLKItr0FyI89R/exfOCxQsM4cREAuhHWmSt
-	 hJ4kMUi7f4L8+ljBbJToZmmOpU8yPahkI3TqzKZJ4+zbRINe1dumAFf/6HvsMDlTHWg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795679833;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=kvqxuyKdqOZIctZ1RVDJiTTys7XqmGboeKGR0Mb/Lz0=;
+	b=K31b/yvXHaesLOTH3cGa6cZEtI8Da+43guIVEgZZiCZRL6rwaxml96Gf8IZ7G7kYY3wq
+	 4kAWrD4gUcpocBBIhRS7MOtyLTcK4/D93Fx75QQeyq4djkMtKwNZVuUu7iJqeqmMVOZqb
+	 vARVkIhJ3FJHKGQTT189NjBW+l8GR4jp4mFg20eRgsOp7vtoFNnXszy+ZmtgFBcyLkLg1
+	 wW+Ztzt6PlTY7srQwxZepZNI14rnpuU8tOLJaJvu5+jrdVecHKWsUhHpqr41neDed761Z
+	 W9FQEq8uWdTBJf0fcIznqu49JZJ89l84XYAto91LskVVYFitFQwA6wpCA7KV/Vojmjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=wopqudTI;
-	arc=none smtp.remote-ip=91.218.175.11
-Received: from mta0.migadu.com (out-11.mta0.migadu.com [91.218.175.11])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GVKL0CWE;
+	arc=none smtp.remote-ip=198.175.65.15
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6CEE606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:56:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D6CEE606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02742606A31E;
+	Thu, 26 Nov 2026 07:57:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02742606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=wopqudTI
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=hc7O1kDVjwwjdvW8dTk23z2Y41qPruXloCw6mIwLNgg=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795679777; v=1; x=1796284577;
- b=wopqudTI+GYAMTvbtvkHUvwJgyGDz440Xkvxa9G/BUX9txNM7C6aTMqZti2yNeiMB1x4ADGu
- k/svzrkGTP1csJ/brMPx9c3qE6IblIU1TNGnoqKXxVYuP2YccYO60nppwztoSxSEgXpD9DK2ZcZ
- fg5uNUF8MtHUClaKEWqT/bNU=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id 0c367e1d0eed308f;
-	Thu, 26 Nov 2026 07:56:17 +0000
-X-Mizu-Trace-ID: 0c367e1d0eed308f
-X-Migadu-Flow: FLOW_OUT
-Date: Thu, 26 Nov 2026 15:56:10 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: netdev-bot+sashiko@kernel.org
-Cc: jv@jvosburgh.net, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-	ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
-	john.fastabend@gmail.com, sdf@fomichev.me, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net-next] bonding: check XDP support before enslaving
- changes state
-Message-ID: <20261126075610.GA33976@Liu-laptop>
-References: <20261124-bond_xdp_fix-v1-1-e67983924324@kylinos.cn>
- <179561592046.3135.4020262152427481394@kernel.org>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GVKL0CWE
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795679832; x=1827215832;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=7gqO7mtbAkU5IaNVQpE0KYsTeEo00WqOION0Mo8l5RQ=;
+  b=GVKL0CWEFGDvI0s36/UX/xO8hKFVpwEIhE6S4vfUyI/75GmNN+rJRBq8
+   0wMZXHYKBq1dkDTUzLeTKUFGXoKBh8tyhy/dn96jJwQjZ0j8iH2r7K4yh
+   JMvZ5z5kX1XJ/7UtNulMh5ZXOEYLykCU1ZDk+69ezj+Q+0xCLDFuuXSQj
+   Qm0Kellht+VWiFXwk/FJ8nwPy+x+qqjDSnepuXoUuWGtyLpFMzzjji4Sz
+   7wDmnTR1cmPeXDmAwl09W0C0LrovZHZO53P+i8XdvBfv7eBDBSicfx1W0
+   t3SvxCwyomuU6rNFh4GE++dScWhfWqP2AoZ2lQGtJFWSnfaVEsFZGLmgi
+   g==;
+X-CSE-ConnectionGUID: U/mHqQRrT62GaoTfKFYiRA==
+X-CSE-MsgGUID: zeLOX7BqSHejhPD4KDLHTg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4567260"
+X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
+   d="scan'208";a="4567260"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 23:57:11 -0800
+X-CSE-ConnectionGUID: itKbRMG2R9iWVRnaqlN10Q==
+X-CSE-MsgGUID: sN7xmylnSZSZMY9a4fnawA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
+   d="scan'208";a="12152074"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by orviesa006.jf.intel.com with ESMTP; 25 Nov 2026 23:57:06 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xWULm-00000001TZw-2xrc;
+	Thu, 26 Nov 2026 07:57:02 +0000
+Date: Thu, 26 Nov 2026 15:56:28 +0800
+From: kernel test robot <lkp@intel.com>
+To: Alice Ryhl <aliceryhl@google.com>, Tejun Heo <tj@kernel.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Danilo Krummrich <dakr@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Trevor Gross <tmgross@umich.edu>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	John Hubbard <jhubbard@nvidia.com>,
+	Philipp Stanner <phasta@kernel.org>, rust-for-linux@vger.kernel.org,
+	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
+	Alice Ryhl <aliceryhl@google.com>
+Subject: Re: [PATCH v4 4/5] rust: workqueue: add creation of workqueues
+Message-ID: <20261126154348.RP9PjaYR-lkp@intel.com>
+References: <20261119-rust-workqueue-v4-4-707c68994940@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,43 +97,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179561592046.3135.4020262152427481394@kernel.org>
+In-Reply-To: <20261119-rust-workqueue-v4-4-707c68994940@google.com>
 
-Hi,
-On Wed, Nov 25, 2026 at 02:12:00PM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 1 (1) · Medium: 1 · Low: 0
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
+Hi Alice,
 
-Thanks for the review.
+kernel test robot noticed the following build warnings:
 
-> 
-> - [High] bonding: bond_xdp_xmit() checks ndo_xdp_xmit instead of
->   xdp_features
+[auto build test WARNING on aebb7274476403040d582c61478df8f4a7bf9cd3]
 
-Ack, I will check the xdp_feature instead, thanks!
+url:    https://github.com/intel-lab-lkp/linux/commits/Alice-Ryhl/rust-workqueue-support-stack-allocated-work-items/20261119-141242
+base:   aebb7274476403040d582c61478df8f4a7bf9cd3
+patch link:    https://lore.kernel.org/r/20261119-rust-workqueue-v4-4-707c68994940%40google.com
+patch subject: [PATCH v4 4/5] rust: workqueue: add creation of workqueues
+config: x86_64-rhel-9.4-rust (https://download.01.org/0day-ci/archive/20261126/20261126154348.RP9PjaYR-lkp@intel.com/config)
+compiler: clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
+rustc: rustc 1.96.0 (ac68faa20 2026-05-25)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261126/20261126154348.RP9PjaYR-lkp@intel.com/reproduce)
 
-> - [Medium] This patch fixes a kernel oops that is self-contained and goes
->   back years, but it has no Fixes: tag and it is mixed in with changes…
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/20261126154348.RP9PjaYR-lkp@intel.com/
 
-OK, I will split the patch and post the xdp_feature guard to net tree.
-> 
-> Pre-existing issues:
-> - [High] This problem wasn't introduced by this patch, but the XDP
->   propagate failure it keeps on the late path can leave freed memory…
+All warnings (new ones prefixed by >>):
 
-This issue is working by Jiapeng in
-https://lore.kernel.org/netdev/20261124024319.52145-1-ljp1205831794@gmail.com/
+   In file included from rust/helpers/helpers.c:110:
+>> rust/helpers/workqueue.c:27:9: warning: diagnostic behavior may be improved by adding the 'format(printf, 1, 4)' attribute to the declaration of 'rust_helper_alloc_workqueue' [-Wmissing-format-attribute]
+      23 | __rust_helper
+         | __attribute__((format(printf, 1, 4))) 
+      24 | struct workqueue_struct *rust_helper_alloc_workqueue(const char *fmt, unsigned int flags,
+      25 |                                                      int max_active, const void *data)
+      26 | {
+      27 |         return alloc_workqueue(fmt, flags, max_active, data);
+         |                ^
+   include/linux/workqueue.h:519:76: note: expanded from macro 'alloc_workqueue'
+     519 | #define alloc_workqueue(...)    alloc_hooks(alloc_workqueue_noprof(__VA_ARGS__))
+         |                                                                               ^
+   include/linux/alloc_tag.h:270:31: note: expanded from macro 'alloc_hooks'
+     270 |         alloc_hooks_tag(&_alloc_tag, _do_alloc);                        \
+         |                                      ^
+   include/linux/alloc_tag.h:256:9: note: expanded from macro 'alloc_hooks_tag'
+     256 |         typeof(_do_alloc) _res;                                         \
+         |                ^
+   rust/helpers/workqueue.c:24:26: note: 'rust_helper_alloc_workqueue' declared here
+      24 | struct workqueue_struct *rust_helper_alloc_workqueue(const char *fmt, unsigned int flags,
+         |                          ^
+   1 warning generated.
 
----
-pw-bot: cr
+
+vim +27 rust/helpers/workqueue.c
+
+    22	
+    23	__rust_helper
+    24	struct workqueue_struct *rust_helper_alloc_workqueue(const char *fmt, unsigned int flags,
+    25							     int max_active, const void *data)
+    26	{
+  > 27		return alloc_workqueue(fmt, flags, max_active, data);
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
