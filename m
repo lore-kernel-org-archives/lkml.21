@@ -1,45 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.71.93.99
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.71.94.104
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795698980;
-	b=mUDY/WYWkDFP8AUQqSTivmYXPQAxfVNw/itG/Je6RWhcy95FiwfPA6YSv0sar6SdMMqQ
-	 JFLdl1Jjm3XyfPwdoNuGuRmun8vqwhhSZkMB/kbh6VPObAhYDbZ42qxXdeRhY4Y9AzZbG
-	 ZIDFPHhovln5gzDCoBJeZjMURf7wntn2gvb8AfL9BaRVkY5eeyhNwnSXOgPEVNHMCGBeC
-	 LmJ+tVvKG3UtYoqxjgFeYIA8DvPszjEXR9SYMJ5lN5N3rcHmvB3oeWFRmWqfcF2CPdVz5
-	 XJR9ZzgXAP5tR9v/POHCVHAdFghoUxdkQpZcDY1+gvl11ED5OxZlUFZlAsJ6n4HEZ+w==
+	b=MhVa2FzzgUgrScoKRpDqFp04jdNZA2gwZll7l61J0cqS3X9mtAxwZHnYlo313T5DX/Th
+	 l0vzt6VRp6zTBUvitgopNOzcQoczRcTg9U53SOLBbM2jUp+vXabBFFffir4tu1EFNVD3Q
+	 x77W5upiAW8q9uqfEMUQs9/TpQZOm5WzHe8hqbddjJbKByDufYcPow3/Dba76fjh1/VkU
+	 36n/mtngTgUKrDGX5/0D7jcAwE+2O1eiLZAPce3QU58S6K/Eges/drICe64nPeEZLJQpB
+	 88wbSzpawZEnTAg0hX1WmmfneaM9x49S/MJknVtRc1gGFUr8kp7uxp4HcIhRvBYH7HQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795698980;
 	h=DMARC-Filter:Received:Received:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
 	 X-CM-SenderInfo;
-	bh=Dm3o7HWyrwQi/Bxo40IS1mpfQYFyG5QMf6JJuORWUwo=;
-	b=u5euFUbfETodt5LzuDntlQzUgS46D6JUEWD/gL79EUVo9HzGIBGEBplxNZQ1qeJJ4+U0
-	 p2nxMpHwviK65/V/Td5bwMDNhNdwvzhqSGCLf8/d5z38BBO8Fd6bJLcFSalCQlxa28IJk
-	 NZ6dHdYnhYOFgzvLOVwrWxpJHDKnqzXqZpNRI5K4c2ut11crcnjzc0hHul9BMMVpucMlb
-	 mpTB7wPkrosGX3hgyF7WiFNVk9vqAWnLHxkLwI6rpvKRj4kd5EIPYNxNEWb4P7IK5QGjq
-	 o9AJpEJDljdCu76n1Fkliv0hw0WAX2+YAXeWnGlvGMUe5o3F6+enOTUHltoP0fZlrVA==
+	bh=XTod620/gxjj9j03+rwV+9pqtXfHSZ+F/v3sKpSznuE=;
+	b=svsGVYWe3zC7e6U1qnnjCqrgR/2XCEDMBppMG23nOU0VoMcqZ85Bqvzfg4GsMyH/jZKS
+	 x6tgxp6h/avLpj51ynyZkQmS4PvXEERaVWvW9f0kZN4P4HsCmoh32/qXTRlUOtV0pK3mc
+	 Hk4dEs6fyg1BIqhDLOMvDjyh1eoYOCBU5YYwYXXtCI/kh73cTQJNRnm+DKquYWalZr/A2
+	 crkHjJTYisOzRY1dgiudKRMueeoh+soz3PAnwbXYwb6DZVszukWAhCQqTHdd4QuvGNP+N
+	 Vv390hQ9elWipYBr6aNUlh1z3yRdEnVTgs7JK5xxoTD/WD/jCbzuErXrG18xIJ8F+bg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=huaweicloud.com;
 	spf=none smtp.mailfrom=huaweicloud.com;
-	arc=none smtp.remote-ip=124.71.93.99
-Received: from dggmsgout11.his.huawei.com (dggmsgout11.his.huawei.com [124.71.93.99])
+	arc=none smtp.remote-ip=124.71.94.104
+Received: from dggmsgout13.his.huawei.com (dggmsgout13.his.huawei.com [124.71.94.104])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1276606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5CED606A338
 	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:16:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1276606A334
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A5CED606A338
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=huaweicloud.com
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=huaweicloud.com
-Received: from mail.maildlp.com (unknown [172.19.163.170])
-	by dggmsgout11.his.huawei.com (SkyGuard) with ESMTP id 4jZxrS1cmkz1c29T
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:16:08 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.19.163.177])
+	by dggmsgout13.his.huawei.com (SkyGuard) with ESMTP id 4jZxrV104Mz1rr8k
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:16:10 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.252])
-	by mail.maildlp.com (Postfix) with ESMTP id 2D71B40561
+	by mail.maildlp.com (Postfix) with ESMTP id 4890940974
 	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:16:15 +0800 (CST)
 Received: from huawei.com (unknown [10.67.174.193])
-	by APP3 (Coremail) with UTF8SMTPA id _Ch0CgAHDgEOMQhrq143Fw--.33284S5;
-	Thu, 26 Nov 2026 21:16:14 +0800 (CST)
+	by APP3 (Coremail) with UTF8SMTPA id _Ch0CgAHDgEOMQhrq143Fw--.33284S6;
+	Thu, 26 Nov 2026 21:16:15 +0800 (CST)
 From: Luo Gengkun <luogengkun@huaweicloud.com>
 To: Peter Zijlstra <peterz@infradead.org>,
 	Ingo Molnar <mingo@redhat.com>,
@@ -54,9 +54,9 @@ Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>,
 	Mel Gorman <mgorman@suse.de>,
 	Valentin Schneider <vschneid@redhat.com>,
 	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 3/7] sched/cache: Introduce the task affinity group
-Date: Thu, 26 Nov 2026 13:48:24 +0000
-Message-Id: <df8628df627d603e038f5228b08b8b63000b5e50.1795691926.git.luogengkun2@huawei.com>
+Subject: [RFC PATCH 4/7] sched/cache: Converge task accounting to the affinity root
+Date: Thu, 26 Nov 2026 13:48:25 +0000
+Message-Id: <cf5eaad0ece8894dfabc6498875b599ebff34899.1795691926.git.luogengkun2@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1795691926.git.luogengkun2@huawei.com>
 References: <cover.1795691926.git.luogengkun2@huawei.com>
@@ -70,430 +70,163 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_Ch0CgAHDgEOMQhrq143Fw--.33284S5
-X-Coremail-Antispam: 1UD129KBjvAXoWfGw4UuF43GrWUWFyrGw1fXrb_yoW8JFy7Zo
-	WSy3yrJr18K348JrZ5GFn5JrW8u34Y9r9xAr45urnxG3WDZ348G34UGwn8Wa4fXFWIkFs3
-	A3WkXan8Ca1Utw1rn29KB7ZKAUJUUUU5529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UjIYCTnIWjp_UUUO07kC6x804xWl14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK
-	8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr
-	Wl82xGYIkIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
-	xVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ew
-	Av7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY
-	6r1j6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14
-	v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8C
-	rVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8Zw
-	CIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x02
-	67AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r
-	4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjxU
-	FF4iUUUUU
+X-CM-TRANSID:_Ch0CgAHDgEOMQhrq143Fw--.33284S6
+X-Coremail-Antispam: 1UD129KBjvJXoW3Jw1fZr45CFWDKFWUKF18AFb_yoW7XF4fpF
+	Wq9rW5Jr4kta17X393A3yUZr1rX3s3Xa47GryxJFyfAw13tr4rtry0y34a9rWY9rs2ka42
+	vr4Y9ay2kF1DKaDanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPqb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUAV
+	Cq3wA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0
+	rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267
+	AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E
+	14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7
+	xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Y
+	z7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2
+	AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAq
+	x4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r
+	43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF
+	7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI
+	0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x
+	07UZTmfUUUUU=
 X-CM-SenderInfo: 5oxrwvpqjn3046kxt4xhlfz01xgou0bp/
 
-A cache group belongs to an mm today, and it is what gathers all the
-tasks of a thread group together.  But it cannot gather tasks from
-different mms: two processes talking through a pipe, for example, have
-data affinity, yet still cannot be gathered together.  To address this
-problem, add the affinity group: it belongs to no mm, so it can gather
-tasks from different mms.
+Merging two affinity groups only sets the loser's parent: the tasks of
+the loser keep accounting in their old group. Add
+sched_grp_refresh(), which walks a task's merge links up to the
+root and switches the task to it, so the entire affinity group ends up
+accounted in a single group.
 
-An mm's group and an affinity group are the two kinds of cache group,
-told apart by the new type field.  An affinity group adds two members:
-
-  - parent, used only by affinity groups: when two affinity groups
-    merge, the loser points to the winner
-  - rank, used only by affinity groups: when two affinity groups merge,
-    rank decides the winner
-
-Submitting sched_cache_hint(x, y) is all it takes to gather x and y
-into one affinity group.  An example:
-
-          before                     after
-
-      [ A ]      [ B ]            [ A ]----->[ B ]
-      /   \      /   \            /   \      /   \
-     t1    t2   t3   t4          t1    t2   t3   t4
-
-This commit only sets A->parent to B; updating the sched_cache_grp of
-the tasks in A to follow the link is implemented in the next commit.
+The convergence is lazy, triggered at the task's next accounting: a
+task outside any affinity group is untouched, while a task whose
+affinity group has not moved pays only a type read and a parent read.
+account_mm_sched() converges before accounting, and task_cache_work()
+does the same; the walk and switch happen at most once per member per
+merge.
 
 Signed-off-by: Luo Gengkun <luogengkun@huaweicloud.com>
 ---
- include/linux/sched.h      |  19 +++
- kernel/sched/cache_sched.c | 280 ++++++++++++++++++++++++++++++++++++-
- 2 files changed, 296 insertions(+), 3 deletions(-)
+ include/linux/sched.h      |  3 +++
+ kernel/sched/cache_sched.c | 54 ++++++++++++++++++++++++++++++++++++++
+ kernel/sched/fair.c        | 16 +++++++++++
+ 3 files changed, 73 insertions(+)
 
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 3073ed421b58..de270443cffa 100644
+index de270443cffa..769e2304f617 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
-@@ -2406,6 +2406,16 @@ struct sched_cache_time {
- 	unsigned long epoch;
- };
+@@ -2442,6 +2442,9 @@ void sched_cache_exit_mm(struct task_struct *p);
  
-+/*
-+ * The kind of a cache group.  An mm's group and an affinity group are the
-+ * only kinds there are, and only an affinity group ever carries a merge
-+ * link: the type tells them apart.
-+ */
-+enum cache_group_type {
-+	CACHE_GROUP_MM = 0,
-+	CACHE_GROUP_AFFINITY,
-+};
-+
- struct sched_cache_group {
- 	struct sched_cache_time __percpu *pcpu_sched;
- 	raw_spinlock_t lock;
-@@ -2416,6 +2426,9 @@ struct sched_cache_group {
- 	int cpu;
- 	refcount_t refcnt;
- 	atomic_t nr_threads;
-+	enum cache_group_type		type;
-+	struct sched_cache_group __rcu	*parent;
-+	unsigned int			rank;
- 	struct rcu_head rcu;
- } ____cacheline_aligned_in_smp;
+ int sched_cache_hint(struct task_struct *t1, struct task_struct *t2);
  
-@@ -2427,6 +2440,8 @@ void sched_cache_fork_cleanup(struct task_struct *p);
- void sched_cache_exec_mmap(struct task_struct *p, struct mm_struct *mm);
- void sched_cache_exit_mm(struct task_struct *p);
- 
-+int sched_cache_hint(struct task_struct *t1, struct task_struct *t2);
++struct sched_cache_group *sched_grp_refresh(struct task_struct *p,
++					    struct sched_cache_group *grp);
 +
  #else
  
  struct sched_cache_group { };
-@@ -2436,6 +2451,10 @@ static inline void sched_cache_fork_cleanup(struct task_struct *p) { }
- static inline void sched_cache_exec_mmap(struct task_struct *p, struct mm_struct *mm) { }
- static inline void sched_cache_exit_mm(struct task_struct *p) { }
- 
-+static inline int sched_cache_hint(struct task_struct *t1, struct task_struct *t2)
-+{
-+	return -EOPNOTSUPP;
-+}
- #endif
- 
- #ifndef MODULE
 diff --git a/kernel/sched/cache_sched.c b/kernel/sched/cache_sched.c
-index e1562b6af0bc..52106c3ac049 100644
+index 52106c3ac049..c5fce997c114 100644
 --- a/kernel/sched/cache_sched.c
 +++ b/kernel/sched/cache_sched.c
-@@ -1,5 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0-only
- #include "sched.h"
-+#include "cache_sched.h"
- 
- #define rcu_deref_sched_cache_grp(tsk) \
- 	rcu_dereference_check((tsk)->sched_cache_grp, (tsk) == current)
-@@ -9,8 +10,14 @@ static struct sched_cache_group *sched_cache_replace_grp(struct task_struct *p,
- {
- 	struct sched_cache_group *old;
- 
-+	/*
-+	 * A hint on another CPU may change the field concurrently.  cmpxchg
-+	 * makes sure @old is the group this call actually replaced: that is
-+	 * the one to detach, and a concurrent swap is left intact.
-+	 */
- 	old = rcu_deref_sched_cache_grp(p);
--	rcu_assign_pointer(p->sched_cache_grp, new);
-+	do {
-+	} while (!try_cmpxchg(&p->sched_cache_grp, &old, new));
- 
- 	return old;
- }
-@@ -19,10 +26,15 @@ static void sched_cache_group_free_rcu(struct rcu_head *rcu)
- {
- 	struct sched_cache_group *grp =
- 		container_of(rcu, struct sched_cache_group, rcu);
-+	struct sched_cache_group *parent;
- 
- 	WARN_ON_ONCE(atomic_read(&grp->nr_threads));
-+	/* Only affinity groups hold it; for an mm's group this is NULL. */
-+	parent = rcu_access_pointer(grp->parent);
- 	free_percpu(grp->pcpu_sched);
- 	kfree(grp);
-+
-+	sched_cache_group_put(parent);
- }
- 
- void sched_cache_group_put(struct sched_cache_group *grp)
-@@ -120,8 +132,7 @@ void sched_cache_exec_mmap(struct task_struct *p, struct mm_struct *mm)
- 	 * the store publishes it, so a reader that finds it in the field sees
- 	 * a group @p is already counted in.  The store then hands over that
- 	 * reference and the old group is detached, which drops both its
--	 * membership and the reference it was published with.  @p is current
--	 * and the only writer of its own pointer.
-+	 * membership and the reference it was published with.
- 	 */
- 	old = sched_cache_replace_grp(p,
- 			sched_cache_group_attach(mm->sched_cache_grp));
-@@ -194,3 +205,266 @@ sched_cache_alloc_group(struct sched_cache_time __percpu *_pcpu_sched)
- 	sched_cache_group_init(grp, _pcpu_sched);
- 	return grp;
+@@ -468,3 +468,57 @@ int sched_cache_hint(struct task_struct *t1, struct task_struct *t2)
+ 	}
+ 	return ret;
  }
 +
 +/*
-+ * Follow the merge links up to the root of @grp, which is where the
-+ * accounting lives.  Walking needs no lock of its own: the caller's
-+ * reference on @grp keeps it alive, and every live affinity group holds a
-+ * reference on its parent, so the chain cannot be freed under the walk.
-+ */
-+static struct sched_cache_group *scg_find_root(struct sched_cache_group *grp)
-+{
-+	struct sched_cache_group *parent;
-+
-+	while ((parent = rcu_dereference(grp->parent)))
-+		grp = parent;
-+
-+	return grp;
-+}
-+
-+/*
-+ * Allocate an affinity group: a fresh group typed CACHE_GROUP_AFFINITY,
-+ * never an mm's.  Returns with one reference, the caller's.  Sleeps, so
-+ * call it with no lock held.
-+ */
-+static struct sched_cache_group *scg_affinity_alloc(void)
-+{
-+	struct sched_cache_time __percpu *pcpu_sched;
-+	struct sched_cache_group *grp;
-+
-+	pcpu_sched = alloc_percpu(struct sched_cache_time);
-+	if (!pcpu_sched)
-+		return NULL;
-+
-+	/* Frees @pcpu_sched itself when it fails. */
-+	grp = sched_cache_alloc_group(pcpu_sched);
-+	if (!grp)
-+		return NULL;
-+
-+	grp->type = CACHE_GROUP_AFFINITY;
-+
-+	return grp;
-+}
-+
-+/*
-+ * Whether @p can be put into an affinity group.  A kernel thread has no mm
-+ * to pin, and a task on its way out of one - the last exec or exit - is past
-+ * the point where an affinity move means anything.
++ * Converge @p to the group its affinity group accounts in, and return the
++ * group the caller should account in.  A task outside any affinity group
++ * keeps its group, i.e. the default thread-group behaviour.
 + *
-+ * Both are racy reads from another CPU: a stale read only lets a hint
-+ * through, and the cmpxchg on the field settles that race like any other.
-+ * What the checks buy is skipping an affinity allocation and swap for a task
-+ * that is already gone.
++ * @p is always the task running on the rq being accounted, but the caller
++ * need not run on that CPU: a remote wakeup's enqueue or a bandwidth
++ * unthrottle calls account_mm_sched() on rq->curr under that rq's lock, so
++ * this can converge @p while @p itself is in exec_mmap() or exit_mm() on
++ * its own CPU.  The move is therefore a cmpxchg, mirrored by
++ * sched_cache_replace_grp() and scg_get_or_alloc_affinity(): whoever
++ * loses drops the reference it just took and converges again at the next
++ * accounting.
 + */
-+static bool scg_can_attach(struct task_struct *p)
++struct sched_cache_group *sched_grp_refresh(struct task_struct *p,
++					    struct sched_cache_group *grp)
 +{
-+	return !(p->flags & (PF_KTHREAD | PF_EXITING)) &&
-+	       !p->in_execve && p->mm;
-+}
++	struct sched_cache_group *new_root;
 +
-+/*
-+ * The task's entry into its affinity group: the group it accounts in.  A
-+ * task outside any affinity group accounts in its mm's group; first contact
-+ * switches it to a fresh affinity group here, so membership and accounting
-+ * are one fact in one field.
-+ *
-+ * The switch mirrors sched_cache_replace_grp(): exec and exit race it from
-+ * @t's own context, and two hints may race each other, so whoever wins the
-+ * cmpxchg owns the attach and the detach of what it installed and replaced.
-+ */
-+static struct sched_cache_group *
-+scg_get_or_alloc_affinity(struct task_struct *t)
-+{
-+	struct sched_cache_group *c, *new;
++	/* Outside any affinity group: keeps the mm's group, nothing to do. */
++	if (!grp || READ_ONCE(grp->type) != CACHE_GROUP_AFFINITY)
++		return grp;
 +
 +	scoped_guard(rcu) {
-+		c = rcu_dereference(t->sched_cache_grp);
-+		/* The type is stamped before publication and never changes. */
-+		if (c && (READ_ONCE(c->type) == CACHE_GROUP_AFFINITY)) {
-+			if (!sched_cache_group_get(c))
-+				return ERR_PTR(-EAGAIN);
-+			return c;		/* already an affinity group */
-+		}
-+	}
++		/* Still the root: the common case. */
++		if (!rcu_dereference(grp->parent))
++			return grp;
 +
-+	if (!scg_can_attach(t))
-+		return ERR_PTR(-ESRCH);
-+
-+	new = scg_affinity_alloc();			/* sleepable, outside any lock */
-+	if (!new)
-+		return ERR_PTR(-ENOMEM);
-+
-+	scoped_guard(rcu) {
-+		c = rcu_dereference(t->sched_cache_grp);
-+		if (!c) {
-+			/* Exit took the group away while we were allocating. */
-+			sched_cache_group_put(new);
-+			return ERR_PTR(-ESRCH);
-+		}
-+		if (READ_ONCE(c->type) == CACHE_GROUP_AFFINITY) {
-+			/* Another hint won the first contact while we allocated. */
-+			if (!sched_cache_group_get(c)) {
-+				sched_cache_group_put(new);
-+				return ERR_PTR(-EAGAIN);
-+			}
-+			sched_cache_group_put(new);
-+			return c;
-+		}
-+
++		/* The group we account in was merged away: follow the links. */
++		new_root = scg_find_root(grp);
 +		/*
-+		 * First contact: switch the accounting to the fresh affinity
-+		 * group.  A lost cmpxchg means @t moved on after the read
-+		 * above (exec installed a new mm's group, exit cleared it):
-+		 * drop the hint, not the task.
-+		 *
-+		 * Two references are in play: the allocator's, which the
-+		 * caller owns, and the field's.  Attaching takes the second
-+		 * and counts the membership in the same step.
++		 * Pinned by the reference @p holds on @grp: it keeps the whole
++		 * chain above alive, and an RCU-pending @grp holds its edge on
++		 * the parent until its free callback, so attaching cannot fail
++		 * here.
 +		 */
-+		if (!sched_cache_group_attach(new)) {
-+			/* Fresh from the allocator, so this cannot happen. */
-+			sched_cache_group_put(new);
-+			return ERR_PTR(-EAGAIN);
++		if (!sched_cache_group_attach(new_root))
++			return grp;
++		/*
++		 * Move @p's reference to the new root.  Losing means @p moved
++		 * on (exec installed a new mm's group, exit cleared it) after
++		 * the caller read @grp: give back the membership and the
++		 * reference just taken, the winner's is its own.
++		 */
++		if (!try_cmpxchg(&p->sched_cache_grp, &grp, new_root)) {
++			sched_cache_group_detach(new_root);
++			return grp;
 +		}
-+		if (!try_cmpxchg(&t->sched_cache_grp, &c, new)) {
-+			sched_cache_group_detach(new);	/* the field's */
-+			sched_cache_group_put(new);	/* the allocator's */
-+			return ERR_PTR(-EAGAIN);
-+		}
-+
-+		sched_cache_group_detach(c);
++		sched_cache_group_detach(grp);	/* nr_threads + the field's reference */
 +	}
 +
-+	return new;				/* the allocator's reference */
++	return new_root;
 +}
-+
-+/*
-+ * Put one root under the other; every member keeps converging to whatever
-+ * its root is now.
-+ *
-+ * The child's reference on the root keeps the chain up while the members
-+ * that cached the child are still converging through it; it is dropped only
-+ * in the child's free callback.
-+ *
-+ * The lock is the groups' own, shared with the tick's queueing, which runs
-+ * from interrupt context - hence the IRQ-disabled take.  The two groups are
-+ * locked in address order, the only nesting this lock ever sees.
-+ */
-+static int scg_merge(struct sched_cache_group *a, struct sched_cache_group *b)
-+{
-+	int ret = 0;
-+	struct sched_cache_group *root, *child;
-+	unsigned long flags;
-+
-+	if (a == b)
-+		return 0;		/* same affinity group already */
-+
-+	/* Merge links exist only between affinity groups, never an mm's. */
-+	if (WARN_ON_ONCE(a->type != CACHE_GROUP_AFFINITY ||
-+			 b->type != CACHE_GROUP_AFFINITY))
-+		return -EINVAL;
-+
-+	if (a > b)
-+		swap(a, b);
-+
-+	raw_spin_lock_irqsave(&a->lock, flags);
-+	raw_spin_lock_nested(&b->lock, SINGLE_DEPTH_NESTING);
-+
-+	if (rcu_dereference_protected(a->parent, 1) != NULL ||
-+	    rcu_dereference_protected(b->parent, 1) != NULL) {
-+		ret = -EAGAIN;
-+		goto out;
-+	}
-+	root = a->rank < b->rank ? b : a;
-+	child = root == a ? b : a;
-+	if (root->rank == child->rank)
-+		root->rank++;
-+
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index f5610cbc76ec..5be8a7c7076e 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -1788,6 +1788,14 @@ void account_mm_sched(struct rq *rq, struct task_struct *p, s64 delta_exec)
+ 	if (p->flags & PF_KTHREAD || !grp || !grp->pcpu_sched)
+ 		return;
+ 
 +	/*
-+	 * The child's per-CPU runtime history dies with the group - the
-+	 * merged affinity group's occupancy starts over from what accrues on
-+	 * the root.  These are advisory statistics, not accounting of record;
-+	 * keeping the sums continuous would mean walking the child's
-+	 * per-CPU array under both locks, for numbers that converge again
-+	 * within an epoch anyway.
++	 * Converge to the group the task's affinity group accounts in
++	 * before accounting into it; a no-op outside any affinity group.
 +	 */
-+	refcount_inc(&root->refcnt);	/* child owns one ref on root */
-+	rcu_assign_pointer(child->parent, root);
++	grp = sched_grp_refresh(p, grp);
++	if (!grp || !grp->pcpu_sched)
++		return;
 +
-+out:
-+	raw_spin_unlock(&b->lock);
-+	raw_spin_unlock_irqrestore(&a->lock, flags);
-+
-+	return ret;
-+}
-+
-+/*
-+ * Connect @t1 and @t2: they are accounted in one group from here on.  The
-+ * caller's references are enough, no tasks are pinned.
-+ *
-+ * Two threads of one mm need nothing of this only while neither is in an
-+ * affinity group: their accounting already meets in the mm's group.  Once
-+ * one of them joins an affinity group the pair is split, and the hint has
-+ * real work to do.
-+ */
-+int sched_cache_hint(struct task_struct *t1, struct task_struct *t2)
-+{
-+	struct sched_cache_group *c1, *c2;
-+	struct mm_struct *mm1;
-+	int ret = 0;
-+
-+	if (!sched_cache_enabled())
-+		return -EOPNOTSUPP;
-+
-+	if (t1 == t2)
-+		return 0;
-+
-+	/*
-+	 * The common same-mm case is two threads outside any affinity group:
-+	 * they share the mm's group already, so skip the lock.  These reads
-+	 * are racy and may skip a pair that just joined an affinity group;
-+	 * hints are advisory, and whatever still observes the relation
-+	 * submits again.
-+	 */
-+	mm1 = READ_ONCE(t1->mm);
-+	if (mm1 && mm1 == READ_ONCE(t2->mm)) {
-+		struct sched_cache_group *g1;
-+
-+		rcu_read_lock();
-+		g1 = rcu_dereference(t1->sched_cache_grp);
-+		if (g1 && g1 == rcu_dereference(t2->sched_cache_grp) &&
-+		    READ_ONCE(g1->type) != CACHE_GROUP_AFFINITY) {
-+			rcu_read_unlock();
-+			return 0;
-+		}
-+		rcu_read_unlock();
+ 	pcpu_sched = per_cpu_ptr(grp->pcpu_sched, cpu_of(rq));
+ 
+ 	scoped_guard (raw_spinlock, &rq->cpu_epoch_lock) {
+@@ -1912,6 +1920,7 @@ static inline void update_avg_scale(u64 *avg, u64 sample)
+ static void task_cache_work(struct callback_head *work)
+ {
+ 	struct sched_cache_group *grp __free(sched_cache_group_put) = NULL;
++	struct sched_cache_group *new_grp;
+ 	cpumask_var_t cpus __free(free_cpumask_var) = CPUMASK_VAR_NULL;
+ 	int cpu, m_a_cpu = -1, nr_running = 0, curr_cpu;
+ 	unsigned long next_scan, now = jiffies;
+@@ -1934,6 +1943,13 @@ static void task_cache_work(struct callback_head *work)
+ 	grp = task_cache_group_get(p);
+ 	if (!grp)
+ 		return;
++	new_grp = sched_grp_refresh(p, grp);
++	if (new_grp != grp) {
++		sched_cache_group_put(grp);
++		grp = sched_cache_group_get(new_grp);
++		if (!grp)
++			return;
 +	}
-+
-+	if (!scg_can_attach(t1) || !scg_can_attach(t2))
-+		return -ESRCH;
-+
-+	for (;;) {
-+		c1 = scg_get_or_alloc_affinity(t1);
-+		if (IS_ERR(c1)) {
-+			ret = PTR_ERR(c1);
-+			break;
-+		}
-+		c2 = scg_get_or_alloc_affinity(t2);
-+		if (IS_ERR(c2)) {
-+			sched_cache_group_put(c1);
-+			ret = PTR_ERR(c2);
-+			break;
-+		}
-+		rcu_read_lock();
-+		ret = scg_merge(scg_find_root(c1), scg_find_root(c2));
-+		rcu_read_unlock();
-+
-+		sched_cache_group_put(c1);
-+		sched_cache_group_put(c2);
-+
-+		if (ret != -EAGAIN)
-+			return ret;
-+		cond_resched();
-+	}
-+	return ret;
-+}
+ 
+ 	next_scan = READ_ONCE(grp->next_scan);
+ 	if (time_before(now, next_scan))
 -- 
 2.34.1
 
