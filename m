@@ -1,88 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.71.155.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795698289;
-	b=X5mtKsEU/FBFZCIlNGv97smubJ1Km7lK2RTZb+r9IHtKalt3E97tl4m42/XmnGmrfShP
-	 fKrvfZZYgxtuldaLVZAmRo5ajRdqlBExdQPbkDVZR+OJUJG/mnDMurT5okTJr8C/nn6hY
-	 oTob/lQcfse06rKGHLX9OOwVXz8MOuI0vtPL6anK7Rc85R8FX+beJiX1Yc5YQ4jB1ZEA7
-	 IjYyOYZq4tmpR5ESg4UwT6Ptyz+dsDizJ5itRC14YxANnRt6akr9XeOsrRdvSrjpPK+//
-	 5LWNtXXYbJ5EcJC/4HZifNPYugQtWb13dcIF7U2NOm+pbnWvTU3ZovFmEiSjUeZ1wOg==
+	t=1795698392;
+	b=jW9n44csnR1v0eKWgkMlaL2lsHtbCauVDJjyRfj83VTPFDJUOp26JJOEJwVeSmA8To03
+	 5iHBh0/b9SQNqk494dfaFsA+I2zo4pAYZLL9L3mTQeZA4tIYKG8bn9GGmp+4JdfABJA45
+	 u6Zb8k2XKhUU9Ymwv/7UTF6uu7nVRDWJY3uTAy8ghaewvoGH1UCw01WDJZ44VmvI2mZZc
+	 M8U83MZAppQCPDtLj742mL3/ZSzTTvEjOFfYeEhYlu8ea1ThkdoUKfzOy5LAl857TPAgl
+	 xulhN0WvxwSTd9R7qxxHlDiKvRgRstnfxmR4swpYAP7AxbtXhHdvQFR+V4apsUZ//ow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795698289;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
-	 Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=6vl//TEiVujCr0d0TeVQNkynM+ywZsLPCxfyBJsTqY8=;
-	b=zKUxFQaqb885VMXMOL1DgcJ8XF0d99c0crse6//p3WfiWbm4y2CdD2lsuDEzXgchxrND
-	 T+nLcDDj9zxXZHtstB0Man0nerzsr/C3G3HkIVBSg/UKF9xYHnkrulahiw7tV4s5e/t0B
-	 MGl3Wv3eaaaOVWQ8ciy6ASfwGudV2iT2NzsrsXE73Q/Mf5Jfpeqo5yBaDDArbkuQ+R1ax
-	 wGQUcfb+rOsChIEYI+vAtaMvyizxuQ0RTojO0cpntED96k/gY+/YzlXwVYgGQQwb/8weV
-	 0h/dN+Ev+QBkg2sCnkYwsHlJy/j7jPfNqbDjh39GPgFG0GpkQKPJTkNKhSE18NyElHw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795698392;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
+	 X-HM-Spam-Status:DKIM-Signature;
+	bh=mKr1keYM02EumLxC+PGjz0vKlqa4GJrbdZwQ+sNCyN8=;
+	b=UF4GATBmHphjvh9lLYoK6a8nFvM/sN5EBONO1HSd3c7l8Ot2JLTR1LyEpz8j6XCtRuad
+	 JommaNHUZpLhii2FMXNKreZDRB5L1WDZsbwuFcMkwmk9VOFRDwTnZnFSaFXbs/L5QBlbZ
+	 YhPxxExkTQPCZNTIeYNvFuP1YZEmmlIW1xVgTigpyMrTnw6M2vmLlkg1VvUhPGm3Qv5Oj
+	 194wVoyXzNtPRU+7llk1GC1OT3tT587py+cESwPo2HU7xo1kvYbfMkXysdV2yC/tOLtpK
+	 gnclUKTs3hGGj1d0w5TXbxTjLcf2np2nkL2o10547bqzDE4zXFdzP/hFXRq3LZWAE4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=googlemail.com;
-	spf=pass smtp.mailfrom=googlemail.com;
-	dkim=pass header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=QuTyQwPw;
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=mail.sdu.edu.cn;
+	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
+	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=VGVreo6J;
+	arc=none smtp.remote-ip=101.71.155.101
+Received: from mail-m155101.qiye.163.com (mail-m155101.qiye.163.com [101.71.155.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26E78606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:04:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26E78606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=googlemail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=googlemail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8897B606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:06:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8897B606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=QuTyQwPw
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4a3517554f7so63571965e9.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:04:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20260707; t=1795698287; x=1796303087; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6vl//TEiVujCr0d0TeVQNkynM+ywZsLPCxfyBJsTqY8=;
-        b=QuTyQwPw+9enggmusS7jA93tVKR7nQ0o+ac6AGqrFh0PN9Hw2vo4k2nSgoUvsg2Ukd
-         FOMr9Mj+8wChvuzimvyDPKZomWP5iOAmiAnZA5uEza3c04ytAOinYZwTO40i9Wc6Zt+x
-         itOTRX82Wt4Y0PLyHnexhTA3/f9/iKt10HzSPNVTzXrqxOqvgiR+mAIhtVR3CiIwZaCv
-         7CfKch2xv7bTdDKKVWOfV7raiS2nwjsUTa6DAzwPwDIlvXU9d/STkWbJeTzzMKnsvvE4
-         peXxhfnaDluA3XSsdJRKbbL9db009xdCb/jbCFfDX6LzWPtO1tpXWvkXYl2nGudEYycV
-         8pPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795698287; x=1796303087;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6vl//TEiVujCr0d0TeVQNkynM+ywZsLPCxfyBJsTqY8=;
-        b=Kn8zfiWgx02xLsHZmMibX6fDblgEz5dl0fAo95ldoxkzdl750eZc2tAPhLhse9FNN+
-         JeL7wVWr8MPAxXba/p4HIaVtfr53qi8padeW0d02tiBZGhFfKfEphEWUVSrdgsQu5zZc
-         uyWXsTsTF3jJiUX7ok3aq3cotNM2gNJnCOuYaohgtMmdBqXXBAM58JpKfRFSLAjFuZYL
-         p3mB5DkxcZOa6Raum18F0NRtLKlGr4iz5dxlvqzoKkLpkA5sQaiw9ivg2DwI3rvb9b84
-         bwd0KfkMzCYJqFcKl3naQIdU0vqXiS5qrtMzRWRLgTpql+Zpf5hEMbpw8yvhXr6r8h8A
-         vdJw==
-X-Forwarded-Encrypted: i=1; AL+hErFExrL6dR7OKWuCZlHNV7MoCayWaf6VoK/wSDysJB0fdUk/pDXhA6u4rjHSwoz3oCjcJXsX17rFjSzzP+Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+FnzYcRnZRiEk/Kd4pxasPQvy2FjzSuohUJPtyJAr67QP1HeXW
-	AdfeOaHiEejH3Nia03yesutnQCc2BPzSIWjPAXIrNt9rAB7EXjgGn4ec9MDt
-X-Gm-Gg: AZFdTZdg0CSactpAoybw8mdGu1m3y4T86UbNZOR7b0dSq0sbAl0SzWz2FQRnNO5pTmX
-	C814wx+HmLHyF6IkUQZjW4mVKEjmkuR+MTdK2EIatx7HeqFH4MZ8joqBgTzI7aVCf0PoKl3WNAR
-	oZPVoa8mN96Hc5YWiTViLd5MzSDY+sFbXq6u3z1U0Y0YMAiJVF1pf/NMla8x/S+Ov4oBR0ltmHr
-	Wd9D+unc786Abf20Xd8Gv5izz9eJvFoev8ZJStkAOXUYGGJUXmeOglfcvxGcwPQHKyLnz6L+HL+
-	EVflYN4QKAYBptvGrT5JvsqgCBMGze0koR80+O2ZYO2Six7UJRaqIPp+cKClyKThKLxXcqIMLwo
-	1HzeRapXFC55s/HXZARoVzmd7j/kBx/+s4cIIX33VAcmDU2JIkU380e/92RuQ7SU3UVgD/3UENg
-	DC52VdnBcvX1jKu7FHY1QIMyt3smGAdV7C2QYNBN1NAshrd3wsadAwwXw0AjxHYdKKcnLoD6aWQ
-	t4mnaJ5ctW03U/XsJVgv0JXyW6TEpZQXBjxfDiP5X3Pvhu0H76l+as3n1yzTBqqKC37Uh/6BspC
-	L5bmlhaDqfmxb/hhSd7PpdOdXdQ9N3S1quzMYwXbuOl1M+CuKbF/UH4b3EHQ6yu48umJcYxej71
-	V1HOV
-X-Received: by 2002:a05:600c:64c9:b0:4bb:8701:bb14 with SMTP id 5b1f17b1804b1-4bb88804d1cmr454203995e9.5.1795698287307;
-        Thu, 26 Nov 2026 05:04:47 -0800 (PST)
-Received: from [192.168.1.3] (p5b2ac210.dip0.t-ipconnect.de. [91.42.194.16])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bc8ce06sm39148222f8f.47.2026.11.26.05.04.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 05:04:47 -0800 (PST)
-Message-ID: <ca369fe5-dbb0-43b0-8f2c-74a971e1770b@googlemail.com>
-Date: Thu, 26 Nov 2026 14:04:46 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=VGVreo6J
+Received: from user.localdomain (unknown [223.80.110.101])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 561f6fac9;
+	Thu, 26 Nov 2026 21:06:23 +0800 (GMT+08:00)
+From: Tian Xuechen <202300460064@mail.sdu.edu.cn>
+To: chunkuang.hu@kernel.org,
+	p.zabel@pengutronix.de,
+	chunfeng.yun@mediatek.com,
+	vkoul@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	jie.qiu@mediatek.com,
+	junzhi.zhao@mediatek.com
+Cc: neil.armstrong@linaro.org,
+	mani@kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-phy@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	liguangshuo@mail.sdu.edu.cn
+Subject: [PATCH v2] phy: mediatek: hdmi: Fix potential stale PLL provider on unbind
+Date: Thu, 26 Nov 2026 21:06:22 +0800
+Message-Id: <20261126130622.4073620-1-202300460064@mail.sdu.edu.cn>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,47 +66,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH 7.3 0000/1002] 7.3.7-rc2 review
-Content-Language: de-DE
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
- conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
- achill@achill.org, sr@sladewatkins.com,
- Christian Brauner <brauner@kernel.org>
-References: <20261126105729.110697432@linuxfoundation.org>
-From: Peter Schneider <pschneider1968@googlemail.com>
-In-Reply-To: <20261126105729.110697432@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa217f6da9903a2kunmd1d1900f35cb30
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUtXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaTh9CVhhCH0MfQh0ZSk0ZHlYeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlJSUhVQ0tVSkpLVUpLSllXWRYaDxIVHRRZQVlLVUtVS1VLWQ
+	Y+
+DKIM-Signature: a=rsa-sha256;
+	b=VGVreo6JblqymZugb0+4qCtBedflwSKtMKFPEPUwtLOPRBf1bqaoOTw/IUQ1UtMTRhInHiPaD0h3NIHRYV0OacgYxdq4PaqbdqHKy1tM9bjdqoaMMzdAhehUUh30H1jXGEnP480VMFA2EK68jAkNk9VeOxAYhgiOxK/Bqk0BdvQ=; s=default; c=relaxed/relaxed; d=mail.sdu.edu.cn; v=1;
+	bh=mKr1keYM02EumLxC+PGjz0vKlqa4GJrbdZwQ+sNCyN8=;
+	h=date:mime-version:subject:message-id:from;
 
-Am 26.11.2026 um 11:58 schrieb Greg Kroah-Hartman:
-> This is the start of the stable review cycle for the 7.3.7 release.
-> There are 1002 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
+The HDMI PHY registers its PLL with devres but leaves the OF clock
+provider registered on unbind. Publish the PLL hardware through a
+managed provider so it is withdrawn before the PLL is unregistered.
 
-Builds, boots and works on my 2-socket Ivy Bridge Xeon E5-2697v2 server. No dmesg oddities or regressions found.
+This issue was found by our static analysis tool under development.
 
-I don't see the warning message in the dmesg output here which I reported against 6.18.66-rc1 
-("WARNING: CPU: 19 PID: 454 at fs/libfs.c:495 offset_readdir+0x1ae/0x1d0"). This 7.3 RC seems to be fine in this regard.
+Fixes: 8f83f26891e1 ("drm/mediatek: Add HDMI support")
+Signed-off-by: Tian Xuechen <202300460064@mail.sdu.edu.cn>
+---
+v2:
+  - Update the patch author attribution to Tian Xuechen.
+  - No code changes.
 
-Tested-by: Peter Schneider <pschneider1968@googlemail.com>
+ drivers/phy/mediatek/phy-mtk-hdmi.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/phy/mediatek/phy-mtk-hdmi.c b/drivers/phy/mediatek/phy-mtk-hdmi.c
+index d063fc787c28..06784393b0ef 100644
+--- a/drivers/phy/mediatek/phy-mtk-hdmi.c
++++ b/drivers/phy/mediatek/phy-mtk-hdmi.c
+@@ -178,8 +178,8 @@ static int mtk_hdmi_phy_probe(struct platform_device *pdev)
+ 			return ret;
+ 	}
+ 
+-	return of_clk_add_provider(dev->of_node, of_clk_src_simple_get,
+-				   hdmi_phy->pll);
++	return devm_of_clk_add_hw_provider(dev, of_clk_hw_simple_get,
++					   &hdmi_phy->pll_hw);
+ }
+ 
+ static const struct of_device_id mtk_hdmi_phy_match[] = {
 
-Beste Grüße,
-Peter Schneider
-
+base-commit: 4dce97c6c265544342e716e62fd24bbb232590c5
 -- 
-Climb the mountain not to plant your flag, but to embrace the challenge,
-enjoy the air and behold the view. Climb it so you can see the world,
-not so the world can see you.                    -- David McCullough Jr.
+2.43.0
 
-OpenPGP:  0xA3828BD796CCE11A8CADE8866E3A92C92C3FF244
-Download: https://www.peters-netzplatz.de/download/pschneider1968_pub.asc
-https://keys.mailvelope.com/pks/lookup?op=get&search=pschneider1968@googlemail.com
-https://keys.mailvelope.com/pks/lookup?op=get&search=pschneider1968@gmail.com
