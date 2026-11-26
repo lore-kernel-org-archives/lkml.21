@@ -1,96 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=96.67.55.147
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.194.8.81
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795714700;
-	b=xhscLQlygDmwaUzGTfMPgFjRtNW+PYnj+VCWK44yjv1Jzd5g6QddDgeRT7rxY1fw+rTs
-	 SOrwfv0cMnCcTnq1f9jKBJIytnNeLxuKih/VTtRR0krrlST4RrvwmBgdp2rDCQggyevWs
-	 2bi3o1uE+n64Sqj30hqp1/ViAehWsHJyDkCh26iZWzeJ+yl5U91epcZhOK48LvWz4PhP4
-	 7NxhQJPrq66PNb9/ERciZlr9DCvKQpbqltDAhPbzJmazIXoDlLIoiHneo7zvsmhMwgXd7
-	 vljcEo89ofEo5LCbNeKInoZifd941yI/dWCIrmLjjScQUwcHjyE3ZqxU9jEwE4fJEzQ==
+	t=1795714769;
+	b=PQqPSuE+ocz530gCXffvan5LLvEbSvcXPuTZRdRhZDmQPGoyXbijFkli3ZUkscS4vIPi
+	 n1/9MT2gRUi8gZdmJb3dDsRY5FZZ68moLUtoYiGEHOVCeLCBQdfdEsnCVauQ1RF7lwyTX
+	 IPQkVav9HYE6StFIyDq4eMFtZSnpFEGrHKd3yCVTVgWNQBSNPw1yh2+BfvFwXZfxmzFJR
+	 wcZETl5femhJN1PHlz1HvnGunaGcDLegVKExYsyr6LKi4gwp6OlZdsCzr/PkyzofjJDw2
+	 T4fsGdJUMRUpcoEvsEdSvff24sUIC8kDBXhOI4c1YhwRyftlqmv0J4ARqMt6E8a5ozw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795714700;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Content-Type:
-	 Content-Transfer-Encoding:User-Agent:MIME-Version;
-	bh=4teLVqdxHTIzeHzEWuOEGSiE2+RDD7y3+MbgjsgCQhI=;
-	b=HKQ7SeahMWmihQ7t9oa4oRd2sXmrEDcDWFIrYmUtGauPPVVxHIEQBSmdEYmcgg1C3y8A
-	 WdT4sNR2kVvERyXFSxBnMv3aKL3q6hKuawA9NkuI1ktyFsOwzkAcy+nDPlZ585pxfZrAk
-	 RMmAm+ENTLWphKwe4bGaGTgHZExahBCOy3ra7SeJHgQbvEhFMptmMkCOCVnWgytIzFLew
-	 Ao2B6+C5+qq9Z7bc3wPZ4r6flVvqkmkweyLJZmuiMNAnTQgNAB7vZ2EO8Z6COj5L/gM0h
-	 fortGqcTRxK2PfESi9Cgp1RgN2svfR7t6iotqVNYa+/3PwkV9UXQuB7ratT2Oo9Hd1g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795714769;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=vjKPx8Oct1fhU4GmmUv33pDO/iZO410ObJiapa+6LsY=;
+	b=HylIQGfaNwSPxL7Qa+qhz3Av7EamaErhy+tbbSGQTDGuoKqYK2dteQI6F3wUtPTl/Tau
+	 WBTlH8pOaFm6KubHIS+yPhuF84OCWNlGVFUegWyoWEMBHeD4fxKHpSymwl5nBl3crcoDt
+	 ywWdu1raKpTS1hj+VgnU3jx/rB1UGbluXtlULOJqC+apBzG0o66pkM9D6+yygn9aH5lXy
+	 6shhEmClwPJ10nJtIp/9S4tgmN8Hwe2ISbNJvxfj1ELfVQYrGdnL1/aembGBK0NIojXSJ
+	 vWMLGMT5ngVA6HQ1gvNbYvFvAWOU32FHAIslXwlYwBb6bgSufpLVFr+Aivn6dosiZ0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=surriel.com;
-	spf=pass smtp.mailfrom=surriel.com;
-	dkim=pass header.d=surriel.com header.i=@surriel.com header.a=rsa-sha256 header.s=mail header.b=TvIwMg+3;
-	arc=none smtp.remote-ip=96.67.55.147
-Received: from shelob.surriel.com (shelob.surriel.com [96.67.55.147])
+	dmarc=pass header.from=dolcini.it;
+	spf=pass smtp.mailfrom=dolcini.it;
+	dkim=pass header.d=dolcini.it header.i=@dolcini.it header.a=rsa-sha256 header.s=default header.b=p1DyyxhY;
+	arc=none smtp.remote-ip=217.194.8.81
+Received: from mail11.truemail.it (mail11.truemail.it [217.194.8.81])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 787C5606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:38:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 787C5606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=surriel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=surriel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32603606A31E;
+	Thu, 26 Nov 2026 17:39:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32603606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dolcini.it
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dolcini.it
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=surriel.com header.i=@surriel.com header.a=rsa-sha256 header.s=mail header.b=TvIwMg+3
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=surriel.com
-	; s=mail; h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID; bh=4teLVqdxHTIzeHzEWuOEGSiE2+RDD7y3+MbgjsgCQhI=; b=TvIwMg
-	+3sFwNPvLhoFzrimboVdCHWGmjGzP3mjH/aJwAcQ9ZNQb90BAkG9GHRaeOppEMN4+0sC+EImeFNev
-	aODfe95REu1AP2SHRRIQC6kzDXSZ6zSSdUCjywSUgdDQ+ITZukxheaoSOnDvnbkP+Wb/5Xqc9TnSL
-	wzQbXWQ9CjHXkC1g3ODtZIortRdF6u9MHAHlrss9N3xTTNrlH5KCgVnR1JmtnHM1/U18BQZ8qWksA
-	njO3/qIkKahO4yNGr1+QyPNyYsLefcLjeRZgbrl0S0QUUHBRM8tJ3MJgNq/YAcXXO5z9THXi3DhKJ
-	CI6T1MWBxeNT7+JGCyDpmWMK7Tig==;
-Received: from [2601:18c:8100:a0e0:5a47:caff:fe78:8708]
-	by shelob.surriel.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.5)
-	(envelope-from <riel@surriel.com>)
-	id 1xWdPy-000000001Yi-0BK6;
-	Thu, 26 Nov 2026 17:37:58 +0000
-Message-ID: <577d25b6aa80bcfc216eda5bb4311ffe796be49e.camel@surriel.com>
-Subject: Re: [PATCH 9/9] mm/gup: unshare-check every page of a pte batch
-From: Rik van Riel <riel@surriel.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>, 
-	linux-kernel@vger.kernel.org
-Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>, Suren
- Baghdasaryan <surenb@google.com>, Lorenzo Stoakes <ljs@kernel.org>,
- Christoph Hellwig <hch@infradead.org>,  Yuan-Hao Hsu
- <aa9736195201@gmail.com>, John Hubbard <jhubbard@nvidia.com>, Jason
- Gunthorpe <jgg@ziepe.ca>,  Peter Xu <peterx@redhat.com>
-Date: Thu, 26 Nov 2026 12:37:57 -0500
-In-Reply-To: <05de9fe1-9a3f-432d-9ce6-9f497852d1d6@kernel.org>
-References: <20261123195609.4115244-1-riel@surriel.com>
-	 <20261123195609.4115244-10-riel@surriel.com>
-	 <05de9fe1-9a3f-432d-9ce6-9f497852d1d6@kernel.org>
-Autocrypt: addr=riel@surriel.com; prefer-encrypt=mutual;
- keydata=mQENBFIt3aUBCADCK0LicyCYyMa0E1lodCDUBf6G+6C5UXKG1jEYwQu49cc/gUBTTk33A
- eo2hjn4JinVaPF3zfZprnKMEGGv4dHvEOCPWiNhlz5RtqH3SKJllq2dpeMS9RqbMvDA36rlJIIo47
- Z/nl6IA8MDhSqyqdnTY8z7LnQHqq16jAqwo7Ll9qALXz4yG1ZdSCmo80VPetBZZPw7WMjo+1hByv/
- lvdFnLfiQ52tayuuC1r9x2qZ/SYWd2M4p/f5CLmvG9UcnkbYFsKWz8bwOBWKg1PQcaYHLx06sHGdY
- dIDaeVvkIfMFwAprSo5EFU+aes2VB2ZjugOTbkkW2aPSWTRsBhPHhV6dABEBAAG0HlJpayB2YW4gU
- mllbCA8cmllbEByZWRoYXQuY29tPokBHwQwAQIACQUCW5LcVgIdIAAKCRDOed6ShMTeg05SB/986o
- gEgdq4byrtaBQKFg5LWfd8e+h+QzLOg/T8mSS3dJzFXe5JBOfvYg7Bj47xXi9I5sM+I9Lu9+1XVb/
- r2rGJrU1DwA09TnmyFtK76bgMF0sBEh1ECILYNQTEIemzNFwOWLZZlEhZFRJsZyX+mtEp/WQIygHV
- WjwuP69VJw+fPQvLOGn4j8W9QXuvhha7u1QJ7mYx4dLGHrZlHdwDsqpvWsW+3rsIqs1BBe5/Itz9o
- 6y9gLNtQzwmSDioV8KhF85VmYInslhv5tUtMEppfdTLyX4SUKh8ftNIVmH9mXyRCZclSoa6IMd635
- Jq1Pj2/Lp64tOzSvN5Y9zaiCc5FucXtB9SaWsgdmFuIFJpZWwgPHJpZWxAc3VycmllbC5jb20+iQE
- +BBMBAgAoBQJSLd2lAhsjBQkSzAMABgsJCAcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRDOed6ShMTe
- g4PpB/0ZivKYFt0LaB22ssWUrBoeNWCP1NY/lkq2QbPhR3agLB7ZXI97PF2z/5QD9Fuy/FD/jddPx
- KRTvFCtHcEzTOcFjBmf52uqgt3U40H9GM++0IM0yHusd9EzlaWsbp09vsAV2DwdqS69x9RPbvE/Ne
- fO5subhocH76okcF/aQiQ+oj2j6LJZGBJBVigOHg+4zyzdDgKM+jp0bvDI51KQ4XfxV593OhvkS3z
- 3FPx0CE7l62WhWrieHyBblqvkTYgJ6dq4bsYpqxxGJOkQ47WpEUx6onH+rImWmPJbSYGhwBzTo0Mm
- G1Nb1qGPG+mTrSmJjDRxrwf1zjmYqQreWVSFEt26tBpSaWsgdmFuIFJpZWwgPHJpZWxAZmIuY29tP
- okBPgQTAQIAKAUCW5LbiAIbIwUJEswDAAYLCQgHAwIGFQgCCQoLBBYCAwECHgECF4AACgkQznneko
- TE3oOUEQgAsrGxjTC1bGtZyuvyQPcXclap11Ogib6rQywGYu6/Mnkbd6hbyY3wpdyQii/cas2S44N
- cQj8HkGv91JLVE24/Wt0gITPCH3rLVJJDGQxprHTVDs1t1RAbsbp0XTksZPCNWDGYIBo2aHDwErhI
- omYQ0Xluo1WBtH/UmHgirHvclsou1Ks9jyTxiPyUKRfae7GNOFiX99+ZlB27P3t8CjtSO831Ij0Ip
- QrfooZ21YVlUKw0Wy6Ll8EyefyrEYSh8KTm8dQj4O7xxvdg865TLeLpho5PwDRF+/mR3qi8CdGbkE
- c4pYZQO8UDXUN4S+pe0aTeTqlYw8rRHWF9TnvtpcNzZw==
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
+	dkim=pass (2048-bit key, unprotected) header.d=dolcini.it header.i=@dolcini.it header.a=rsa-sha256 header.s=default header.b=p1DyyxhY
+Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id AE6222002F;
+	Thu, 26 Nov 2026 18:39:23 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1795714764;
+	bh=vjKPx8Oct1fhU4GmmUv33pDO/iZO410ObJiapa+6LsY=; h=From:To:Subject;
+	b=p1DyyxhY+A8szHG0kuJZ1T6qBOPiZnYBNsYTlSnQwjIT85yjA1xwZElY434wC+VHm
+	 zjh1GSFaEAKNskWDME0lS2n5kH2vZlhQ4e+njbrssOfWmz9e/4dR62ZDvyWJ53XO2m
+	 3nu88H8I0fTPTw5v4Rfa22J1Wr1PBMWYnBmGd0Mg/7QGw0+NLgHCGZCex+1uxt3JvI
+	 29forau0ijMMWw6YtNPd3p7Iqulfz8flzMPc4rrMWr3wujMz+5xDSJnWyC+Vi6C1h7
+	 /sliw18c7WHE9qrFDMwqa7BdIKaEeiCkgYBHZov5zdKI2CjGZVRdK+yUNZZz2xlag+
+	 h2ELbeWLYtPDg==
+Date: Thu, 26 Nov 2026 18:39:20 +0100
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	sungbyeongchan <tjdqudcks0424@naver.com>,
+	"Michael S. Tsirkin" <mst@redhat.com>, Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
+	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
+	patches@kernelci.org, lkft-triage@lists.linaro.org,
+	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
+	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
+	sr@sladewatkins.com
+Subject: Re: [PATCH 6.18 000/990] 6.18.66-rc1 review
+Message-ID: <20261126173920.GA180459@francesco-nb>
+References: <20261125143822.072087159@linuxfoundation.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,84 +71,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261125143822.072087159@linuxfoundation.org>
 
-On Thu, 2026-11-26 at 14:50 +0100, David Hildenbrand (Arm) wrote:
-> On 11/23/26 20:56, Rik van Riel wrote:
-> > A slow GUP write pin over a PTE batch can hand back pages that a
-> > later
-> > write fault replaces under the pin holder: the process writes to
-> > the copy, the holder keeps the old page:
-> >=20
-> > =C2=A0=C2=A0=C2=A0 pin holder=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 process (mm owner)
-> > =C2=A0=C2=A0=C2=A0 pin all 16 for write
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 batch passes unchecked
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 write to a page
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0 fault copies it elsewhere
-> > =C2=A0=C2=A0=C2=A0 read pinned page -> stale
-> >=20
-> > With GUP-fast, FOLL_WRITE | FOLL_PIN can never reach
-> > gup_pages_not_requiring_unshare, but slow GUP can reach it
-> > with a read-only head PTE.
->=20
-> I assume you mean FOLL_FORCE?
->=20
-Indeede, it is FOLL_FORCE. I need to rewrite that.
++Nishanth, Vignesh, Michael and sungbyeongchan
 
-> I don't quite understand the problem you are trying to solve reading
-> this.
->=20
-> So can you walk me through the exact sequence of events + flags that
-> are being
-> passed?
+Hello Greg,
 
-The sequence seems somewhat contrived, but it
-looks like it can happen, and some runtimes
-(maybe Java?) might actually do stuff like this.
+On Wed, Nov 25, 2026 at 03:22:47PM +0100, Greg Kroah-Hartman wrote:
+> This is the start of the stable review cycle for the 6.18.66 release.
+> There are 990 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
 
-1) mmap 64K private anon, touch it (one mTHP folio, 16 pages).
+Failure on various TI K3 boards (AM62, AM62P and AM69), during our CI/CD tests
 
-2) fork, child exits/execs
+[  477.440292] rtc-ds1307 0-0032: write error -110
+[  478.374406] wm8904 1-001a: ASoC error (-110): at snd_soc_component_update_bits() on wm8904.1-001a for register: [0x00000043]
+[  478.464258] rtc-ds1307 0-0032: read error -110
+[  479.520264] rtc-ds1307 0-0032: write error -110
+[  480.342404] wm8904 1-001a: ASoC error (-110): at snd_soc_component_update_bits() on wm8904.1-001a for register: [0x0000005a]
+[  480.576282] rtc-ds1307 0-0032: read error -110
+[  481.600274] rtc-ds1307 0-0032: write error -110
+[  482.310409] wm8904 1-001a: ASoC error (-110): at snd_soc_component_update_bits() on wm8904.1-001a for register: [0x0000000e]
+[  482.624288] rtc-ds1307 0-0032: read error -110
+[  483.680291] rtc-ds1307 0-0032: write error -110
+[  484.278402] wm8904 1-001a: ASoC error (-110): at soc_component_read_no_lock() on wm8904.1-001a for register: [0x0000004a]
+[  484.320383] INFO: task kworker/1:5:66 blocked for more than 362 seconds.
+[  484.330368]       Not tainted 6.18.66-rc2-8.1-devel #1
+[  484.338741] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  484.350050] INFO: task weston-simple-e:783 blocked for more than 241 seconds.
+[  484.360452]       Not tainted 6.18.66-rc2-8.1-devel #1
 
-3) Parent holds 16 pages, all PTEs read-only
+According to claude the issue is
 
-4) Parent writes first page, COW makes it exclusive.=C2=A0
-   This is now the only PageAnonExclusive page in the mTHP,
-   while the other pages in the folio are not.
+commit e498eb93f961 ("virtio_ring: use shadow flags when detaching split descriptors")
 
-5) mprotect the range read-only. Now all PTEs are read-only,
-   but the head is exclusive, while the 15 tails not.
+and those commits should be dropped
 
-6) Slow GUP pin_user_pages(FOLL_FORCE|FOLL_WRITE), which
-   pins all 16 pages without COW faults, since all the
-   PTEs have the same permissions, they all map the
-   same folio, and the first page is PageAnonExclusive.
+  e498eb93f961 ("virtio_ring: use shadow flags when detaching split descriptors") [22944d517ff8]
+  9dc6b944f16c ("virtio_ring: factor out split indirect detaching logic") [44b6e54e4a0a]
+  4b7bf8d55032 ("virtio_ring: code cleanup in detach_buf_split") [032159f85f3f]
 
-7) mprotect the range read-write again, this changes the
-   first PTE (on an exclusive page) back to read-write,
-   but GUP already did its thing
+I am not able to do any test now or tomorrow, unfortunately. And the
+above analysis is just claude. Might be correct, might be wrong.
 
-8) A write by the program to page 5 now causes a
-   COW fault, since that page is not PageAnonExclusive,
-   and the refcount is raised
-=20
-9) A write to page 5 by the GUP buffer holder
-   goes to the old page, and becomes invisible
-   to the program
+Francesco
 
-The fix is to simply do the same checks for
-FOLL_WRITE that we already have in place for
-FOLL_PIN.
-
-Want me to put the above explanation in the
-changelog, or tweak it some more?
-
---=20
-All Rights Reversed.
