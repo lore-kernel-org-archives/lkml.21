@@ -1,83 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.7
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.19
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795654462;
-	b=x4KapCCRYs67F064P5fdw08ciJWc0n5wtq4o0Ig0ZeDhx40aQP+aypgijm7esf9ftyvL
-	 q0PG4mUGdRiK4YfwNg0swrgiNQzIOTXDRyeWEtRmrbYpZT9eSVbVyypUMWxXcfhsPEpVt
-	 z3r8z+D5r0ebJY9k98XQtIqJMVOu0ybuJ+v8/kqvvbN/iELccCC+j08SMKqDibyOwRQ0z
-	 5IDcvYqafxOsc/o7muHRjrbH1YfqDpNiUV/FA+2DGFjnd0IPWD13Zg8187fuCWt0bhcHf
-	 QatNuVeZcOGCAYWZNoL39ICJL/UwrZjsKi4wefW8KtnOquCB/86B6uDKRrJ5Qsvsy3w==
+	t=1795654528;
+	b=GXgW2SngtV8zzCyRQh8roSPxYYjg8aSZfAlxIbfQImGq1T8SZVGDEwHe6Y9vWIsQGqMc
+	 TeBm4hXGiMeXt05KwNwucOTk0+VpyLg0Qn970YRJ603R+fzYOkR3aytYPeSALE+gE6IVG
+	 7lR6BIAy/NbDCjOjo45TGgDJDBDhHy5jk5XpP9I9pp71gu8yVZnmKEy+H2BExx/5QpjkO
+	 43l8uhScnkgV3Sy6i7t1iO2OC9Vl0Lk+SHUnZwqUxwLehc4y96BHPMUzqTtw38T07MW0b
+	 2KMUUvxYKSeNSig027uOedUDBHrEdlP7g0/Kwgvi/4oRZ/jZCVyIjQA0eN1YNtZB9zg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795654462;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795654528;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=L2C0qzwqXGDarmWGJ6KwwjtLtJRevC/w0KmERgIXMls=;
-	b=HeA70Oj3PwRkEsyCXb9gUZhCgh4Dc9ALYNh/feRWttr+MnMk75B9Hx7FzLvJfBAEnsUW
-	 yAhac+czJJWBmRibqLEFrpzRoIKPwEo3LHMbHWEJ1Kv+RY+04ovrc07UOdqU9IjaBZPzU
-	 NgpRgNtHl9xJUfS8AxOwE0iv14FnH8AtHlYnwV9E9ZdXBUDGmm02BeOZxz+IWh6G8aXdg
-	 Y9zeg9SgNS2dS6PAqFo6ekmDkgASFtHQYi4d5Y9dmAJqw9bCO7wHgsI+tllL6KrD5Ad51
-	 mPMvnQ0aTNFHp7VpLEJNP0m5nHiWFe1TMBo1v4OL1aS9Xj2DTDVvpAD6eLWgtbH3Utw==
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=2A9j+BDLkFG4cOZ+8gKgGAgg/4bYCsSFwMlWi8oGZEA=;
+	b=mcD/9BEl0u2b2ooqFnnIjtaREEpLT0zZia35QxCmByfnK3iVETtDfbcude2m+8WJsaDS
+	 C+fRl+k0tytEaiVTa7bDsYy9sT5sivHhl262txTgUK2cir7CHWKClpmxD4LfbUHE42/fk
+	 9rI1fb0fb4kiD0zzoA1HA0iM0dF7Zj0URB4cAhCwNGDfzVLN1i4UxzZXKb8LSrtEG7amf
+	 d9KeWmzyONVHuzX9eH6L2q5ZKevaODoSqH+M6miGHGZhPfGXQ1XlgOKGOxKSFmDJxRGl/
+	 X9/DOajJ6CXVEl7AnEPIdbm1oyiIEktS2ZiEGfRjp5d2svmZyUTnxGVIMipGBhDTj3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=BZqsy5Lh;
-	arc=none smtp.remote-ip=192.198.163.7
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.7])
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=nxM0GarR;
+	arc=none smtp.remote-ip=198.175.65.19
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.19])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98372606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:54:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98372606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA77E606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:55:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA77E606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=BZqsy5Lh
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=nxM0GarR
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795654462; x=1827190462;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=N8E55ttTMR3i3zmZnYSGMmiGLOKYTnsRSrVbR8jZZsI=;
-  b=BZqsy5LhjVPibCaQ25kSDve4woJEEJ7qGPsv5NpiJPbbeol5xPrM/1pK
-   0tznNqexuZm1pANcSi8aPeuTTYaLwLkaC5WDBqAnMa8TLwO45ZW5PgDbJ
-   tTnXbVX7ycuPOcf3OFpZqE5JG5dQifhoj+pn+KLTq24itQfYc4GfLR3nd
-   hcjCf3zdLl8q3n3N5mbSdqOAZTJULvpAJ9TAxVhY1VylTIF/1tv8GlXqS
-   f0mjnh6ROcht8yod90vT3JMUcrm0ei+QhP6ac0ey1uAt/YV5t68zMuxcW
-   exr4dbX4io7a3KnhrE1WLKMS9fvyYJY+gxMeloKcZecD9TcnQO+LwaQj+
+  t=1795654527; x=1827190527;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=pcikDXyhr+ETo28SOe5c+PfM88gq+rI74IfSFjRbHHU=;
+  b=nxM0GarRM8P4yW/SgLkh6lmY8qdKVevSRVpp65Nwu43iAQM0IcZjb5TQ
+   PiKuR4W2OQhdYfyStis2sU+ZJJvPS10J5RmLmEVxrTNeXJQ2KetolWZ4i
+   QLujG5Oupy3n6qKd8fL/GJ4LGqr6LfpdzdC3kLyn5LVaTXgDfb+lSm5Bi
+   qPbXBU0A6VPIMhKpvQw6pUX3a6GMdTI2DNcUyyi0V76rmjxSuGtPjU/Dy
+   zIm6glVUfJbxHExLOgS32RaB4s2xCeOXrmHv637lEHodh0kRBflABvSgr
+   Jj/qgldPp5MLHZ03ujAivK+8UiHX4CRYOLT8zXXs3mUtaFWgl+Qcc0AtH
    g==;
-X-CSE-ConnectionGUID: lSkYzVTXT0uBfqojpFSKfg==
-X-CSE-MsgGUID: V5mBk+OETHu348+zTDMGJw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4395980"
+X-CSE-ConnectionGUID: 7YKKMbcSQeSyDJmCgzUvSA==
+X-CSE-MsgGUID: yJQdq7RkTe6JEXEjMtpbqQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4616893"
 X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4395980"
-Received: from fmviesa012.fm.intel.com ([10.60.135.152])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 16:54:21 -0800
-X-CSE-ConnectionGUID: igP6M5h5SmeFCM2eOj7Ezg==
-X-CSE-MsgGUID: x+eHBIk8QTqtGFhd9GatXw==
+   d="scan'208";a="4616893"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 16:55:27 -0800
+X-CSE-ConnectionGUID: 8km/F1/dTYq0GpiF8yiFpg==
+X-CSE-MsgGUID: j7yqNdtxTZeXhTmc/G+OGQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="13682959"
-Received: from rpedgeco-desk.jf.intel.com ([10.24.81.149])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 16:54:21 -0800
-From: Rick Edgecombe <rick.p.edgecombe@intel.com>
-To: bp@alien8.de,
-	dave.hansen@intel.com,
-	hpa@zytor.com,
-	kas@kernel.org,
-	linux-kernel@vger.kernel.org,
-	mingo@redhat.com,
-	nik.borisov@suse.com,
-	tglx@kernel.org,
-	x86@kernel.org,
-	chao.gao@intel.com,
-	yan.y.zhao@intel.com,
-	yilun.xu@intel.com
-Cc: rick.p.edgecombe@intel.com
-Subject: [PATCH] x86/virt/tdx: Add command line param for DPAMT
-Date: Wed, 25 Nov 2026 16:54:16 -0800
-Message-ID: <20261126005417.976523-1-rick.p.edgecombe@intel.com>
-X-Mailer: git-send-email 2.56.1
+   d="scan'208";a="12023056"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 25 Nov 2026 16:55:25 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xWNli-00000001T1O-2ucd;
+	Thu, 26 Nov 2026 00:55:22 +0000
+Date: Thu, 26 Nov 2026 08:54:52 +0800
+From: kernel test robot <lkp@intel.com>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Abel Vesa <abelvesa@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] spmi: Drop struct spmi_device_id
+Message-ID: <20261126085245.HG2kUp4p-lkp@intel.com>
+References: <20261125112158.938835-2-u.kleine-koenig@baylibre.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,112 +84,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261125112158.938835-2-u.kleine-koenig@baylibre.com>
 
-The Physical Address Metadata Table (PAMT) holds TDX metadata for
-physical memory and must be allocated by the kernel during TDX module
-initialization. Dynamic PAMT (DPAMT) is a TDX module feature that can
-reduce this memory use by allocating part of the PAMT dynamically.
+Hi Uwe,
 
-In order to work with DPAMT, the kernel needs to perform upkeep on the 
-DPAMT for each page that it gives to the TDX module. Late during the 
-upstreaming of DPAMT, an optimization patch that avoided taking a global 
-lock for each maintenance operation was dropped. The plan was to follow up 
-the initial upstreaming with optimization work, however priority for this 
-work has yet to materialize.
+kernel test robot noticed the following build errors:
 
-Separately from the wrinkle of the global lock, TDX continues to struggle 
-with large patchsets to enable new features. Doing DPAMT maintenance for 
-the new types of memory these features require, further grows the initial
-patchsets.
+[auto build test ERROR on 3dd8c790a7b7027abdd568e36db5e82ffaea7c77]
 
-Adding a kernel parameter for DPAMT can help these two separate problems. 
-Having DPAMT be default off can make the offensive global lock the rare 
-case, while still giving some big memory conscious users the option to use 
-DPAMT. Having DPAMT capable of being off means that the upcoming TDX 
-features can be merged in smaller pieces by ignoring DPAMT to start.
+url:    https://github.com/intel-lab-lkp/linux/commits/Uwe-Kleine-K-nig/spmi-Drop-struct-spmi_device_id/20261125-122152
+base:   3dd8c790a7b7027abdd568e36db5e82ffaea7c77
+patch link:    https://lore.kernel.org/r/20261125112158.938835-2-u.kleine-koenig%40baylibre.com
+patch subject: [PATCH v1] spmi: Drop struct spmi_device_id
+config: arm-defconfig (https://download.01.org/0day-ci/archive/20261126/20261126085245.HG2kUp4p-lkp@intel.com/config)
+compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 2012344e5da8e03ea4b8283ecd6fad6e13f09d64)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261126/20261126085245.HG2kUp4p-lkp@intel.com/reproduce)
 
-So add a parameter and make DPAMT default off.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/20261126085245.HG2kUp4p-lkp@intel.com/
 
-Signed-off-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
----
-Dave, feel free to ignore.
+All errors (new ones prefixed by >>):
 
-TDX developers, this is small, but can I get a round of review on the 
-patch? One consideration I had was if tdx_supports_dynamic_pamt() should 
-be renamed, but I thought it wasn't worth the churn.
+>> drivers/spmi/spmi.c:68:11: error: use of undeclared identifier 'SPMI_NAME_SIZE'
+      68 |                                SPMI_NAME_SIZE) == 0;
+         |                                ^~~~~~~~~~~~~~
+   1 error generated.
 
-Another idea is to ignore the impact of the global lock until someone 
-complains. And for the new features, to make them mutually exclusive with 
-Dynamic PAMT support by simply keying off module support, rather than 
-allowing Dynamic PAMT to be disabled. But since Dynamic PAMT is available 
-on all newer modules, this would only appear to make the new features 
-enabled. In practice they would be dead code. And default off is arguably
-the best default option in DPAMT's current state. So prefer the kernel
-param.
 
-Also, I cherry-picked this from the last DPAMT patchset and didn't retest 
-it on upstream yet. Will do, but I'm not expecting problems.
----
- Documentation/admin-guide/kernel-parameters.txt |  7 +++++++
- arch/x86/virt/vmx/tdx/tdx.c                     | 12 ++++++++++++
- 2 files changed, 19 insertions(+)
+vim +/SPMI_NAME_SIZE +68 drivers/spmi/spmi.c
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 176648941aec2..af8b8eb54228e 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -7564,6 +7564,13 @@ Kernel parameters
- 
- 	tdfx=		[HW,DRM]
- 
-+	tdx_dpamt=
-+			[X86] Controls whether TDX will use Dynamic PAMT
-+			to save memory, when supported.
-+
-+			Valid parameters: "on", "off"
-+			Default: "off"
-+
- 	test_suspend=	[SUSPEND]
- 			Format: { "mem" | "standby" | "freeze" }[,N]
- 			Specify "mem" (for Suspend-to-RAM) or "standby" (for
-diff --git a/arch/x86/virt/vmx/tdx/tdx.c b/arch/x86/virt/vmx/tdx/tdx.c
-index 96ced0494b687..ed5f37e5ebb29 100644
---- a/arch/x86/virt/vmx/tdx/tdx.c
-+++ b/arch/x86/virt/vmx/tdx/tdx.c
-@@ -50,6 +50,8 @@
- /* Number of DPAMT pages to be provided to TDX module per 2MB region of PA */
- #define TDX_DPAMT_ENTRY_PAGE_CNT 2
- 
-+static bool tdx_enable_dpamt __ro_after_init;
-+
- struct tdx_module_state {
- 	bool initialized;
- 	bool sysinit_done;
-@@ -2055,6 +2057,9 @@ EXPORT_SYMBOL_FOR_KVM(tdh_phymem_page_wbinvd_hkid);
- 
- bool tdx_supports_dynamic_pamt(const struct tdx_sys_info *sysinfo)
- {
-+	if (!tdx_enable_dpamt)
-+		return false;
-+
- 	return sysinfo->features.tdx_features0 & TDX_FEATURES0_DYNAMIC_PAMT;
- }
- EXPORT_SYMBOL_FOR_KVM(tdx_supports_dynamic_pamt);
-@@ -2316,6 +2321,13 @@ void tdx_free_control_page(struct page *page)
- }
- EXPORT_SYMBOL_FOR_KVM(tdx_free_control_page);
- 
-+static int __init tdx_dpamt_setup(char *str)
-+{
-+	return kstrtobool(str, &tdx_enable_dpamt) == 0;
-+}
-+
-+__setup("tdx_dpamt=", tdx_dpamt_setup);
-+
- void tdx_sys_disable(void)
- {
- 	struct tdx_module_args args = {};
+5a86bf343976b9c Kenneth Heitke     2014-02-12  60  
+d69d804845985c2 Greg Kroah-Hartman 2024-07-01  61  static int spmi_device_match(struct device *dev, const struct device_driver *drv)
+5a86bf343976b9c Kenneth Heitke     2014-02-12  62  {
+5a86bf343976b9c Kenneth Heitke     2014-02-12  63  	if (of_driver_match_device(dev, drv))
+5a86bf343976b9c Kenneth Heitke     2014-02-12  64  		return 1;
+5a86bf343976b9c Kenneth Heitke     2014-02-12  65  
+5a86bf343976b9c Kenneth Heitke     2014-02-12  66  	if (drv->name)
+5a86bf343976b9c Kenneth Heitke     2014-02-12  67  		return strncmp(dev_name(dev), drv->name,
+5a86bf343976b9c Kenneth Heitke     2014-02-12 @68  			       SPMI_NAME_SIZE) == 0;
+5a86bf343976b9c Kenneth Heitke     2014-02-12  69  
+5a86bf343976b9c Kenneth Heitke     2014-02-12  70  	return 0;
+5a86bf343976b9c Kenneth Heitke     2014-02-12  71  }
+5a86bf343976b9c Kenneth Heitke     2014-02-12  72  
+
 -- 
-2.56.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
