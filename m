@@ -1,52 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.120
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795664328;
-	b=fvk1Kdz+E0Ai/1jk0CqGFGswK99k/IkMcALGzgNb3Mxwz0WSVVUlaD/MRHjAYqVl75/d
-	 dVkJCkV2S37v89onuKBSVDfqUSZ6X4mx2rNJS7GnU0n4gDcHMKi8VjtU0AGXTBr2GJrmt
-	 Od1qwt3tV4jRDLQJ4wMKFXeP/u4HJcoayVGx1QQ0KtE9odEJciV1TrGqfla/OnXzGjzsR
-	 9GdJXZecizEqrvZatprk14w3f8o5E+PDl6l1E1Iu1r0EYC8IBtL8pTBGx/fyfSIh9Skbi
-	 UwlG6/yIgX654RG//sZ+6Okm/fKynB6zAEEH/kCJWb1BTVWdPs1D2hcLd4WXAIoEO6g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795664328;
-	h=DMARC-Filter:DKIM-Signature:Received:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
-	 From:To:X-Mailer:References:In-Reply-To:X-ZohoMailClient;
-	bh=4FiZB15xhKIOJGy2ZwbI3s6k8WVaPRsBBgY+WA+DbhU=;
-	b=1E7wzQUVjEuyWckeH6RV4RecjP1DDFren9hTjuEUltpe7b1KvIudT2FWjlAv6uJ4A81d
-	 lyLZJdofdcVcGX9q7bSA8krQ303JpYwK0Ca7y37Y3CAnFM+WIeMiktKokJJL3MGoejJyX
-	 HpaSuIZDkKrpWZuosalceYZwTojSBWOAH8AymbeefoAu/x7M8IEJWJ3YtdNHzx5BHEcmT
-	 fcTtMC3vk9pnv73rN7Rsrsdu2YPnfDYzkZ19Wy6RiJx9iwsEBXXzHR90fyBvz8oUHHxzg
-	 MmGuYt07bvMHC9rP+ideEuWjF0iF2ogJVxK6fw1vDMAO9jqXhzU1iqkozJv7zsmAyhw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pigmoral.tech;
-	spf=pass smtp.mailfrom=pigmoral.tech;
-	dkim=pass header.d=pigmoral.tech header.i=@pigmoral.tech header.a=rsa-sha256 header.s=zmail header.b=EQ9IfgrN;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.120
-Received: from sender5-pp-g120.zoho.com (sender5-pp-g120.zoho.com [165.173.182.120])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.191
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795664346;
+	b=dnUzI6QgMzs5IZdiMsLZ80xiQZGAnmMdZoaTv7uFqL8gAkO5Qz3fqL+v1hWbf1ZbQHZe
+	 1FPt49QXaVkZB5rg7psD8NOHJspqqP15qPFe4cXRWooqEsF6LWM/Krl4yMYBbknajmayZ
+	 RsjctJPixtiHNQAiGtCvQmCdIt2gRitCPQ75PKwZ4vqYL7N9nujAlahvXh5u5b/N2vFzX
+	 0dZ8vn9FZOD110enx9qTJ0zXd26i86OHHN10YaP+nqavLusdKdxQOjAsfajCJbri60VKe
+	 GH06NSUvmLrDOsbbkmsi4j1Ln+5Q4rw3FqoeoPpppxUVc3oHFxkRV+JUr4g2lZMU4VA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795664346;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=WZXhqqMJtGtQSFqs9mp5EiyQrG4t9fKkEiiJJfk1V94=;
+	b=o+TqoJUZ8uI1T0Gupe6NIVidlyJI0a0xFVB9wfhIFhdwpf07W3qN9JybfARf2i54vzA2
+	 jFmt5tixaAS4OxZ0OJhm2/0WRnliYfnFRBj4L0JuIUvxG5G+KB3Qzqt+qNbEFUHpha0gO
+	 KSJZawHzqbBz/pyyd6uhPCwDwXuR2WnhhGtMILYCzI8GM8qRGIojiefuX3rAlw41YS/k4
+	 1ntud8yRFImd2mokcWrrB1XB3Tf5ZVLmrkzGPcc3KgtG4Q1WHvt+7P5cc/Xb4gwYA1gmO
+	 coEYPFhtY6bW/8xRyNwXRfMAT+P0v74jJbLwkJ263rhOuGHaAit2btj1gx3qjd+/FNQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LSdyAs8J;
+	arc=none smtp.remote-ip=95.215.58.191
+Received: from mta1.migadu.com (out-191.mta1.migadu.com [95.215.58.191])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA8AF606A321;
-	Thu, 26 Nov 2026 03:38:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA8AF606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pigmoral.tech
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pigmoral.tech
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90C0A606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:39:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90C0A606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=pigmoral.tech header.i=@pigmoral.tech header.a=rsa-sha256 header.s=zmail header.b=EQ9IfgrN
-ARC-Seal: i=1; a=rsa-sha256; t=1795664266; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=DCST9ByL27Upx2hl0RzcqKcwt9Z7EVBalVed5KTX5p0dqKgovEq5o1KKe0YRBS+WcivtXbO2HcSsag7nrcXRTvRkdF4ReXXxt9iz1s9PoVOFQmi11LbzT9r9B/kIjmriAHMWtZhI0m0IKdtNWOgQqyyY7Juu1hLpt/ZwF3YvN7A=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795664266; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=4FiZB15xhKIOJGy2ZwbI3s6k8WVaPRsBBgY+WA+DbhU=; 
-	b=lf8eHZZofR8MSZAryQsfxNMzo5nZCqRPrbimNdazOKSxaVgEnEWR/uLPY3JABWWMxEx00UTdHuMZsxS+SSV4W6jOFX1Pi4Acpks+U4XjEI1LxRRFyOdmOv9gBhq8shkdbZAH5IRd82yXsBpFzdPm5yALBN6RiHDsEb5EArE4SAE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: a=rsa-sha256; b=EQ9IfgrNgxR+Fh8LE3AvioVr5xbMX20L/NC1Z/s6ccpmAAcOkqIZk9M8kr1WRakP3rPB+5QW3B8Um0A1PiQPrZg5YshCazvMMtRztBSlhCuqO5kYenDFYKWtlDV8c8ZnJ9wfsjd94X0fu1WcsaTvBvnW5SygE1tQv93AXACAkOg=; c=relaxed/relaxed; s=zmail; d=pigmoral.tech; v=1; bh=4FiZB15xhKIOJGy2ZwbI3s6k8WVaPRsBBgY+WA+DbhU=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795664265088521.0475713937745;
-	Wed, 25 Nov 2026 19:37:45 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LSdyAs8J
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=3UV2O3vp01qJF08PlpVk7+NJu2+NXqvyVZ3Kr2qDcy8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795664342; v=1; x=1796269142;
+ b=LSdyAs8J7bC0cwji/tGdQecq8Tb/rUDxBvCZ8eA2i2W2wcoPx32DxmBSqPsZUXpyVC/jASZp
+ W5Q5gHCmigHcxUkWUsIUEaW4tZX8X/02c4qBdNrJInCsJGoAobC5G7g7oXcnSlYNUKq0omgJe+s
+ 93KKvNA1mcwtd7Dgk23bKn94=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 5700fc680564a234;
+	Thu, 26 Nov 2026 03:39:02 +0000
+X-Mizu-Trace-ID: 5700fc680564a234
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <8685acd8-4546-4414-9b92-217048766321@linux.dev>
+Date: Thu, 26 Nov 2026 11:38:48 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,100 +57,141 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 26 Nov 2026 11:37:34 +0800
-Message-Id: <DN4TUQIL3J9N.XYYN5MTODT2C@pigmoral.tech>
-Cc: <linux-clk@vger.kernel.org>, <linux-sunxi@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Andre Przywara" <andre.przywara@arm.com>, <netdev@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>, "Jerome
- Brunet" <jbrunet@baylibre.com>, "Enzo Adriano"
- <enzo.adriano.code@gmail.com>, "Norman Herms" <dockseed@proton.me>,
- "Vinicius Pedrosa" <vinicius.eduardo.pedrosa@gmail.com>
-Subject: Re: [PATCH v7 4/8] clk: sunxi-ng: a733: Add PLL clocks support
-From: "Junhui Liu" <junhui.liu@pigmoral.tech>
-To: "Alastair D'Silva" <alastair@d-silva.org>, "Junhui Liu"
- <junhui.liu@pigmoral.tech>, "Stephen Boyd" <sboyd@kernel.org>, "Brian
- Masney" <bmasney+clk@redhat.com>, "Jerome Brunet"
- <jbrunet+clk@baylibre.com>, "Chen-Yu Tsai" <wens@kernel.org>, "Jernej
- Skrabec" <jernej.skrabec@gmail.com>, "Samuel Holland"
- <samuel@sholland.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Philipp Zabel" <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>, "Richard Cochran"
- <richardcochran@gmail.com>
-X-Mailer: aerc 0.22.0
-References: <20261112-a733-clk-v7-4-db7c5451ffa2@pigmoral.tech>
- <20261125122452.3966873-1-alastair@d-silva.org>
-In-Reply-To: <20261125122452.3966873-1-alastair@d-silva.org>
-X-ZohoMailClient: External
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 03/18] mm/memcontrol: avoid potential counter leak when
+ reparenting local stats
+To: kasong@tencent.com, linux-mm@kvack.org
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>,
+ Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>,
+ Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>,
+ Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>,
+ Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>,
+ Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
+ Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>,
+ Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
+ Vlastimil Babka <vbabka@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Nhat Pham <nphamcs@gmail.com>, Youngjun Park <youngjun.park@lge.com>,
+ Zi Yan <ziy@nvidia.com>, Gregory Price <gourry@gourry.net>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+ Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>,
+ SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>,
+ Yu Zhao <yuzhao@google.com>, Vernon Yang <vernon2gm@gmail.com>,
+ Zicheng Wang <wangzicheng@honor.com>, Tal Zussman <tz2294@columbia.edu>,
+ Kairui Song <ryncsn@gmail.com>, Xiang Liu <liuxiang.277@bytedance.com>,
+ Ehab Ababneh <ehab.ababneh@intel.com>,
+ Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, Lian Wang
+ <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>,
+ Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>,
+ Maxim Muzafarov <maxmuzaf@gmail.com>, linux-kernel@vger.kernel.org,
+ cgroups@vger.kernel.org, damon@lists.linux.dev, linux-doc@vger.kernel.org,
+ Tianyi Chen <hi@tychen.cc>
+References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
+ <20261124-mglru-fg-v6-3-8ffea39934a6@tencent.com>
+From: Ridong Chen <ridong.chen@linux.dev>
+In-Reply-To: <20261124-mglru-fg-v6-3-8ffea39934a6@tencent.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Hi Alastair,
 
-On Wed Nov 25, 2026 at 8:24 PM CST, Alastair D'Silva wrote:
-> Hi Junhui,
->
-> On Thu, 12 Nov 2026, Junhui Liu wrote:
->> static struct ccu_nkmp pll_ref_clk =3D {
->> ...
->> };
->> ...
->> static CLK_FIXED_FACTOR_HWS(sys_24M_clk, "sys-24M", pll_ref_hws, 1, 1, 0=
-);
->
-> While testing this v7 series on the OrangePi 4 Pro (24 MHz HOSC), ttyS0
 
-Before ordering an Orange Pi 4 Pro to investigate this, I checked its
-schematic, "OPI 4 PRO V1_3_2_20260109.pdf". Y1 is marked
-"26M-20pF-10ppm", with a "USE 26M" note, and the CK-SEL resistors are
-configured for 26 MHz.
+On 11/24/2026 2:52 AM, Kairui Song via B4 Relay wrote:
+> From: Kairui Song <kasong@tencent.com>
+> 
+> lruvec_page_state_local() clamps negative values to zero on SMP.  That
+> is right for readers reporting page counts, but can be wrong for
+> reparenting once MGLRU updates the counters without the lruvec lock.
+> 
+> Reparenting runs after the forced stats flush, so a negative is a real
+> balance that has to move to the parent, not be discarded. We will
+> introduce lockless MGLRU promotion which may cause following problem:
+> 
+>   1. A refs CAS on a folio on the child's lruvec moves it from
+>      inactive to active, and its active/inactive counter update follows
+>      as a separate step.
+> 
+>   2. A concurrent isolation of the folio reads the folio as active,
+>      debits the child's NR_ACTIVE_* by delta before CSS_DYING is visible
+>      to it.
+> 
+>   3. The child is killed, and the two __update_lru_size() calls from
+>      step 1 land on the parent: NR_INACTIVE_* -delta, then NR_ACTIVE_*
+>      +delta.
+> 
+> The child is left with NR_ACTIVE_* -delta while the parent holds the
+> matching +delta, and reparenting the child's raw value is what cancels
+> the parent's credit.  However, if the child happens to hold few enough
+> folios for that counter to be negative, lruvec_page_state_local() clamps
+> the child's negative to zero, which drops the debit instead, so the
+> parent keeps NR_ACTIVE_* overcounted by delta, and its active + inactive
+> total overcounted as well, permanently: the child's local counters are
+> gone once reparenting is done.
+> 
+> So use a raw signed helper and reparent with that.  Ordinary readers
+> still keep the clamp.
+> 
+> Reported-by: Kunwu Chan <kunwu.chan@gmail.com>
+> Closes: https://lore.kernel.org/linux-mm/CAN_Opa-+nb0vxQ+HsENCG2fEEMZoxG9Sy_DBC4CLkWjNLzDWKw@mail.gmail.com/
+> Signed-off-by: Kairui Song <kasong@tencent.com>
+> ---
+>   mm/memcontrol.c | 15 +++++++++++----
+>   1 file changed, 11 insertions(+), 4 deletions(-)
+> 
+> diff --git a/mm/memcontrol.c b/mm/memcontrol.c
+> index 091401cecf39..3f551e2e3206 100644
+> --- a/mm/memcontrol.c
+> +++ b/mm/memcontrol.c
+> @@ -562,11 +562,10 @@ unsigned long lruvec_page_state_monotonic(const struct lruvec *lruvec,
+>   	return (unsigned long)READ_ONCE(pn->lruvec_stats->state[i]);
+>   }
+>   
+> -unsigned long lruvec_page_state_local(const struct lruvec *lruvec,
+> +static long __lruvec_page_state_local(const struct lruvec *lruvec,
+>   				      enum node_stat_item idx)
+>   {
+>   	const struct mem_cgroup_per_node *pn;
+> -	long x;
+>   	int i;
+>   
+>   	if (mem_cgroup_disabled())
+> @@ -577,7 +576,14 @@ unsigned long lruvec_page_state_local(const struct lruvec *lruvec,
+>   		return 0;
+>   
+>   	pn = container_of_const(lruvec, struct mem_cgroup_per_node, lruvec);
+> -	x = READ_ONCE(pn->lruvec_stats->state_local[i]);
+> +	return READ_ONCE(pn->lruvec_stats->state_local[i]);
+> +}
+> +
+> +unsigned long lruvec_page_state_local(const struct lruvec *lruvec,
+> +				      enum node_stat_item idx)
+> +{
+> +	long x = __lruvec_page_state_local(lruvec, idx);
+> +
+>   #ifdef CONFIG_SMP
+>   	if (x < 0)
+>   		x = 0;
+> @@ -595,7 +601,8 @@ void reparent_memcg_lruvec_state_local(struct mem_cgroup *memcg,
+>   
+>   	for_each_node(nid) {
+>   		struct lruvec *lruvec = mem_cgroup_lruvec(memcg, NODE_DATA(nid));
+> -		unsigned long value = lruvec_page_state_local(lruvec, idx);
+> +		/* Reparent the raw value: the clamp drops the child's debit. */
+> +		long value = __lruvec_page_state_local(lruvec, idx);
+>   
+>   		__mod_memcg_lruvec_state(memcg, nid, idx, -value);
+>   		__mod_memcg_lruvec_state(parent, nid, idx, value);
+> 
 
-Could you double check the crystal frequency on your board?
+LGTM.
 
-> switches from earlycon to garbled output with:
->
->   2500000.serial: ttyS0 MMIO32:0x0000000002500000 (irq =3D 414, base_baud=
- =3D 1384615) is a 16550A
->
-> Because the hardware bypasses pll-ref (0x02002000) when HOSC is 24 MHz,
-> sys-24M physically runs at 24 MHz from HOSC, while pll-ref remains
-> disabled with reset/unprogrammed N=3D12, M=3D13 fields. Since
-> ccu_nkmp_ops.recalc_rate() computes parent_rate * N / M regardless of
-> the enable bit, pll-ref reports 24000000 * 12 / 13 =3D 22153846 Hz.
+Reviewed-by: Ridong Chen <ridong.chen@linux.dev>
+Thanks.
 
-I also noticed that your DTS in your U-Boot patch sets sets the
-oscillator frequency to 24 MHz. If the board actually uses a 26 MHz
-crystal, but the DTB used by Linux declares 24 MHz, the PLL_REF N/M
-ratio of 12/13 would give:
-
-  Actual:   26000000 * 12 / 13 =3D 24000000 Hz
-  Reported: 24000000 * 12 / 13 =3D 22153846 Hz
-
-This would also explain the reported rate and UART baud error.
-
-Could you check the oscillator frequency in the DTB Linux is using and
-share the raw values of PLL_REF_CTRL (0x02002000) and RTC_XO_CTRL0
-(0x07090160)? That should help distinguish these possibilities.
-
->
-> sys-24M, apb-uart, and bus-uart0 inherit 22153846 Hz instead of
-> 24000000 Hz, so 8250_dw calculates base_baud =3D 1384615 (instead of
-> 1500000) and programs divisor 12 instead of 13 (+8.3% baud error).
->
-> If pll-ref is disabled/bypassed (or if sys-24M is physically fixed at
-> 24 MHz as the comment describes), either pll_ref_clk needs a recalc_rate
-> that returns 24 MHz when disabled/bypassed, or sys_24M_clk should not
-> inherit an unenabled pll-ref N/M ratio.
->
-> Tested on OrangePi 4 Pro (Allwinner A733).
->
-> Thanks,
-> Alastair
-
---=20
-Best regards,
-Junhui Liu
+-- 
+Best regards
+Ridong
 
