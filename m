@@ -1,58 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795715012;
-	b=c8Xvc41wPaa6ccUjWzxJ5LdrvATFpKPc1ifSy4lbOYgUNmiNO5nPa5Vp2I36cGU7Niq+
-	 t40Z0nNjPvZ8ZTMxf6L903y6xK7iANdV5INAg0Ru7OhYDZvqG0USDqh8OCykVt09EEL9Q
-	 Rrh1r/zMTNo7cslYI6PdDfmD5J7+D0SYLMGTcx8fY+RaSoPtM3/pV37fPy6e12hvOHqvU
-	 ZxGbDuHYjJtJG86gjabV/f/MYD/pYwpjIMLCg8UDQajeuMXp2wDqxRa8YzagA+FC8zSvN
-	 jZthlgwgC6QAIabs6CPYG8464DulEiEQG9bGPhTDUtso114U8Y1Howj0I/omE2h2+Jg==
+	t=1795715067;
+	b=YX/QmF60R1bwwBZ3SgJYFOP3x5wQdlZhHILTVhxoqqSwwxVVsXjELkIV7zZAsoTizHJa
+	 214J7w1Xw5MQNLF7CM6iGg9Aof3+6mNcccaUlAyileyVrl+YgcvwnTTB61U+d+q30vcrs
+	 2YebIJxxs/IiKlHaGj2+xH5zBiIldanchOuk0dCbN/hI0s9aoNG3PpB0vMwJ2b6WKds9S
+	 blmJYyzk5RJxkwCgsZAOqupMp0XnSytoMBEizfFQUxWucxZkUAYmAQl27w9hynNz93+Zt
+	 vZIMMvF4/flY/9kcJStuo0lGuW71LuWtUweY2Sjgxx44PxcUuSBEqslo8VJMGp/zzLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795715012;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=OSNcRORAEp8c/GzbLbRzoraEBpV6hWxv+lNz+5vcV7U=;
-	b=V7dhSjbb2AFWNwR3wn8WteAA6SNRrlPMl21Q3ww+dK4Ghdbe8j23kpWnxoxmtKkgG8X1
-	 4dB4OpjA0u1EVxM9no8dgj4DW4sYWCgT65GtF6jPjSlI05WryG+Y9wOi0Id9A5D7KiBGa
-	 TUYsKEBveNiw2lhrYLJjS3ud8TaCcDQYy88F4aQvwxgq6kRZrXfb48SPk5RCxmawlNh69
-	 tNHwed7UX0kdCQenI28DiDdt0LgjlKVcxoTnt3H/15NzyhdJXfcAKWTdCuWNPuIRJ1YLR
-	 MQArMWqNiUwq6FWc1KLVW39VchpkWlLWx9VL5Vh829DClA7fgePxZRq6ZYqMlCpunQA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795715067;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding;
+	bh=gEkkIJ/qWNi7EAZD7yoHdkh/exPFsNxJMByksA50ASQ=;
+	b=KRPiFb6l9K3G8+s1Wtprz74czHssxMBzNIBJg2YX20mdztQRTXqoVKSQuVcTFLcaa5mK
+	 xMTSIXMFYWlYaqVYtwF/E45JnIxWG78p6kQgYQwxXT0rexJbfb2BSWYo5/K0+jGNoECkI
+	 FoRsdVfSAqgagWsiwG8VyxF5K1dghgydsGW6gO0KsevG6XFfhfkcL7aeOc0mkHHRtUXE2
+	 v9LwkAvC9k9J3eNgYVzeLRWSFCMBYcO38bLkP7pAeLwi1tpKhsFhqWCOQGDuEV+eEMRFq
+	 kr0dcykoGkyX7crsFY+DOq2/7gb6mZphJ59nc2dVR1TA35ivhFLDp25yFSmvX1OavpQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=srzNOVLA;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C90F2606A31E;
-	Thu, 26 Nov 2026 17:43:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C90F2606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=XnpcqNbd;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6FF16606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:44:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6FF16606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=srzNOVLA
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 35D631A1824;
-	Thu, 26 Nov 2026 17:43:30 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 0371F60558;
-	Thu, 26 Nov 2026 17:43:30 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 76E1811E6919C;
-	Thu, 26 Nov 2026 18:43:21 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795715005; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=OSNcRORAEp8c/GzbLbRzoraEBpV6hWxv+lNz+5vcV7U=;
-	b=srzNOVLAeT8rAnrjofljDdJDQuervMIYU8rIncNmnxpIvle5154eREFn4dDWh8Kve1TCyf
-	q4zzE17tS1VxdUvE7Aar+TDbvPL3wBBV4lP6MQMg/flBD57o3tPhk0wKPMZkN4HT/cRp97
-	LGDU9goiLV8WhHzbEZiO+fHFF/fij3VVAhEHJ76YdH054TaccfTq72wiR3RrozorzsRbuN
-	bE2ST1i/7/X4dh85B+/YPRMYUuJpt8D5OTfplIwSN/YyrA3g+Z2F5ltEdruhsaTeNziXlk
-	jBH4NHJzKXS3tHWcna493Op/thA09rgi4dltScEkzpbKZJpA23I9QHMgvAvkqg==
-Message-ID: <42cbe8ff-cfe9-4720-8d5f-685e7ff1c560@bootlin.com>
-Date: Thu, 26 Nov 2026 18:43:20 +0100
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=XnpcqNbd
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C17C81BA8;
+	Thu, 26 Nov 2026 09:44:23 -0800 (PST)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 59D023F632;
+	Thu, 26 Nov 2026 09:44:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795715066; bh=RzMr+wOsn54fTvspSwDwUm0XU8ZkeIMlrzEzuHt/TKI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=XnpcqNbdXi7qBGNhlwyJSNvZiM42NfttpEr2uGsSpYDVHIPmPjQnZn1aL6jWBSuUK
+	 5WIE5RDd6KV366KhQvq4C7+5Iihf+pvD0/zEfcuqchaBOGU+jDlYvM/73/E7//layt
+	 akZ1+xaZ6B+OHd55xEg8PYa0Ja2aKBO99M9j/05g=
+From: Leonardo Bras <leo.bras@arm.com>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Usama Arif <usama.arif@linux.dev>,
+	maz@kernel.org,
+	oupton@kernel.org,
+	fuad.tabba@linux.dev,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	riel@surriel.com,
+	shakeel.butt@linux.dev,
+	kernel-team@meta.com,
+	rkeilty@meta.com,
+	atish.patra@linux.dev,
+	dgreid@meta.com
+Subject: Re: [PATCH] KVM: arm64: Reduce the stage-2 page cache on 64 KiB hosts
+Date: Thu, 26 Nov 2026 17:44:20 +0000
+Message-ID: <awhv9JeCtZxH3Y5x@LeoBrasDK>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <awhpQIWN3msQ2ruf@gremlin>
+References: <06a69a4f-59bb-49b8-9ed0-f4cfe0ecad37@linux.dev> <awcoCklLOKeuXPhh@LeoBrasDK> <e7bdcfa9-bbd8-4649-8318-2f6dc236db15@linux.dev> <4jxdf2pkuu2f7dftvf6ltpv27jctfuvvrfcrbfxudsgnp3hdfk@taur55wftexq> <awhODYKXnsBi_s_B@LeoBrasDK> <klnyvfxwhpw73wo55y5aq3qliglnf7xkfkmfj6cgzje7z3n2fq@aqjxshyjnldu> <awhWYdZVkESY9eJs@LeoBrasDK> <awhfXrdkHkY-riN3@gremlin> <awhnFrt1GmrTlQZ9@LeoBrasDK> <awhpQIWN3msQ2ruf@gremlin>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,55 +81,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/5] pinctrl: upboard: fix I2C pinmux-select set CPLD
- GPIO OUT not function mode
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Gary Wang <is0124@gmail.com>
-Cc: Andy Shevchenko <andy@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Daniele Cleri <danielecleri@aaeon.eu>, JunYingLai <junyinglai@aaeon.com.tw>,
- Louis Chen <louischen@aaeon.com.tw>, BillyChou <BillyChou@aaeon.com.tw>,
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20261126-upboard-pinctrl-add-intc1057-intc105e-support-v3-0-81d35c9ba246@gmail.com>
- <20261126-upboard-pinctrl-add-intc1057-intc105e-support-v3-4-81d35c9ba246@gmail.com>
- <awhPbIZjDazImfBf@ashevche-desk.local> <awhQ0mvdzSw9NaVM@ashevche-desk.local>
-Content-Language: en-US
-From: Thomas Richard <thomas.richard@bootlin.com>
-In-Reply-To: <awhQ0mvdzSw9NaVM@ashevche-desk.local>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 
-On 11/26/26 4:31 PM, Andy Shevchenko wrote:
-> On Thu, Nov 26, 2026 at 05:25:37PM +0200, Andy Shevchenko wrote:
->> On Thu, Nov 26, 2026 at 11:09:47PM +0800, Gary Wang wrote:
->>> The CPLD I2C pin mode setting through pinmux-select is not correct.
->>> Should be set UPBOARD_PIN_MODE_FUNCTION on AANT0F04 devices.
->>>
->>> Set UPBOARD_PIN_MODE_FUNCTION to 1 to prevent a NULL pointer
->>> dereference error on .modes[i] for any pin group using this setting.
+On Thu, Nov 26, 2026 at 05:18:00PM +0000, Lorenzo Stoakes (ARM) wrote:
+> On Thu, Nov 26, 2026 at 05:07:21PM +0000, Leonardo Bras wrote:
+> > On Thu, Nov 26, 2026 at 04:45:35PM +0000, Lorenzo Stoakes (ARM) wrote:
+> > > The question is would going from 40 to 3 slow things down?
+> > >
+> > > At 40 you do 40 __get_free_page() calls on topup for the _first_ fault that hits
+> > > it, which adds latency to a random s2 fault (not great).
+> > >
+> > > (If the fault doesn't in fact use a page table, this is only done once until a
+> > > page table is next needed).
+> > >
+> > > And then as 37 page tables are mapped, those ones don't get allocations at 38
+> > > you go again...
+> > >
+> > > With 3 in the cache you allocate up to 3 for each fault.
+> > >
+> > > So in both cases you allocate the same amount of pages but in the 40 case it's
+> > > all bunched up on one s2 fault with a jump in latency, in the 3 case it's spread
+> > > out.
+> > >
+> > > I'd say 3 is therefore the better choice.
+> > >
+> > > Also, as mentioned elsewhere, you end up leaking pages once the S2 page tables
+> > > are setup until the vCPU is destroyed, as nothing clears down the cache
+> > > AFAICT. With 40 that's way more than with 3.
+> > >
+> > > --
+> > > Cheers, Lorenzo
+> >
+> > Hi Lorenzo,
+> >
+> > When I mention cache locality above, I mean the cpu cache. Running the same
+> > routine 40 times in a row can be faster since all instructions are already
+> > cached, and most of the data acessed by it could be local as well.
+> >
+> > If you run it more often, it could be that something else used the
+> > cachelines and the cpu has to fetch them again from lower level caches or
+> > memory.
+> >
+> > That being said, that's the only reason batch allocating 40 would be faster
+> > than 4 in the long run. For capacity=4, the number of
+> > mmu_memory_cache_alloc_obj() calls can be even smaller than capacity=40,
+> > since we don't leave unused pages in the kvm_mmu_memory_cache.
 > 
-> Hmm... bit how the modes[i] can be messed up here? 0 is integer
-> and NULL is void *...
+> Ah right I see what you mean, true that would be warmer, but I suspect that'd be
+> lost in the noise vs. zeroing each page anyway, and additionally you can argue
+> that, if you just zeroed a page before the walk uses it, there's locality
+> advantages on that vs. batched too.
+
+Ah, you are right! I was ignoring the zeroing for some reason.
+
 > 
-> Can you provide a compiler warning or traceback of broken kernel with this?
+> But again I'd be very surprised if there was any impact on that either way,
+> really.
+
+Fully agree
+
+> 
+> In any case it seems we agree that a smaller capacity is the way to go :)
 > 
 
-I guess the problem is here [1]. It should triggers a NULL pointer error
-when you select the I2C0/1 functions.
-
-His patch fixes 2 issues:
-- The first one is the wrong pin mode for I2C0/1 functions
-(UPBOARD_PIN_MODE_FUNCTION instead of UPBOARD_PIN_MODE_GPIO_OUT) which
-makes the second one visible.
-- The second one is having UPBOARD_PIN_MODE_FUNCTION=0 because of [1].
-
-[1]
-https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/pinctrl/pinctrl-upboard.c#L713
-
-Best Regards,
-Thomas
-
-
-
+Awesome! Thanks!
+Leo
