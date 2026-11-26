@@ -1,55 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.252.183.203
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795703107;
-	b=T6UfUXZPIdukASYOQZo9f3PZ6t+8MmX6Jrlbr7Ksk7hGbvsScMXuXWPSlSlkvBTjWSVU
-	 m6xM6YWy0rdPo7xokBLODYCUlRcnP9GNcTbNVym8BNc2TdAsqNmyXaMNIuWXjH0KmVV5t
-	 w0mkaOec4O6kqu7RjuuKpqKioiCsH8H0OFXGbJobIziFx25u5/1vP/Cr5gEDr8NQBdw6N
-	 ypFmQ9O3PR4PuBlwIF625X0fQUPM899elVSupDiZvGpjACHddEzQ87ZD0F7MNC85iue99
-	 nXBZ2fCMuo3uN8n3/xM1bjI1Mk1roQOlBWSfnaTdrPvLfHMQw47wTVi8nu0kz1QMxQg==
+	t=1795703211;
+	b=dtsHVjXSIJOh7w1K5gRJ5qdwMV1PE8P/xxb9wJ9F0UR1T+EZ9yVA2Uara8GXuZPvqUc/
+	 qwsa484kVKe9LVecBOw2hIrq/JIfaj81URkOLcJJP0zYsheoN9daNEZdSat0KZyd2s3he
+	 9MYS33NmOPa49e45JOrlt+6dwbg/PbxSJu1+H7kNlVJCpGbv54R4Twjpgtv0HoNpMWddr
+	 BFftTZ8oToMclj0BJWV4QQz+HVFoTUDpszJDyIFhH8c5QFD1qKCpZfjbhsXTxCEiy033J
+	 3hz4//hgfDN760jrU4lMX+/JvCM1eDTrlm5ufx/iHMisuDwgAg6et/4QkDpQxid4jQA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795703107;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=urzqIBJWhB3yp5cZJ6SMEI3ey7WIN+40bKxuYnpO/4c=;
-	b=2Lwlf7CyarZtSZpV3vEnbWUyai3I4x5ecU/rCicwciQKRXPFJa9rQw6+IZ3enEY0VXlm
-	 dgGmrcdu3UBmCDNG7DIhY6H4roMcWXOheBgSfrAceM7iz2Uyk/ZOTfeDz838RqYTKh0RL
-	 /vsizWc8bL6Jf4DDdw9lycToxw3h6dnB7Gfc9aMl5zOPdglHqZHb14bH9ihC2sZ38jVcq
-	 /J8Iet5nmzskgXqTyr9IdkTnwGhtHAMjDAu4k/2OTZ2vnkgGXIDkhE69sjbgmIUGLObKZ
-	 KAAvALTUj3heWjIuihf+VUx7eNG49aMv/ghzww+OVcQEYCwJaD9GUR6+mxj2A6H8+Bg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795703211;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:Autocrypt:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=u6DOltPP0RVDz7PGdTyvk/45WxVfduZA0K1xLTMF/Qg=;
+	b=hzkuzoxwDfPss7GXUQgv/CGNM09mzBUTD4A/M1heTVF+Nof4bNP8Agd+cySEHHTNvPtJ
+	 KUWO5AL4lZ2XGQ5TZa101rRTDH5zsEiIHdpjHCwc1x7VLZwhb/A1k4S4NVvypfgW0aqem
+	 aYyhgm1R3tjoVR5hVPs0OdQ3HhopnjjYAFB0rT0d4SZFaFEvZWRd/xMGK+60+vo05CMVL
+	 sCpvHaofLAVZP/rfZTlXr12hUYJOQSNXE1Y0ImbF09pUpJEr4266RtU3y+VXFvojNR5+i
+	 3R6AtM2Ikziwc9+ncd20iDN86/nK3iit1Vi1Ytv/3Rfs3SGiK77G6ETmVLXu/JXOJ3A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KSTtVC5p;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=dev.snart.me;
+	spf=pass smtp.mailfrom=dev.snart.me;
+	dkim=pass header.d=dev.snart.me header.i=@dev.snart.me header.a=rsa-sha256 header.s=00 header.b=o7VAhE8N;
+	arc=none smtp.remote-ip=54.252.183.203
+Received: from embla.dev.snart.me (embla.dev.snart.me [54.252.183.203])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30672606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:25:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 345DF606A31C;
+	Thu, 26 Nov 2026 14:26:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 345DF606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=dev.snart.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dev.snart.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KSTtVC5p
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AC901F000E0
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:25:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795703106;
-	bh=urzqIBJWhB3yp5cZJ6SMEI3ey7WIN+40bKxuYnpO/4c=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=KSTtVC5p+dd+ataqWAVi5gHO8ZRd/RWVkYxhg/g/6O/b1O/+IcyQVPR4Ck5hWhnsj
-	 GLpAIFYIBB5z2571wc7HKkORsM4fGd2pHKEKF7CrFmBUK9GHlZlvsh0hLH587a4p5w
-	 6m9f+F7ygqG8eE340zHJOL51FHRno+Rd7yaTs2PQ3ubV7VgPuPyNtRzlBssWo1dJg5
-	 HlxlOHtvH2LQOtja8acqQmaeadF2/6pD81nSo5FoCrVstAIZUgRNq4CiLOZr+r8Byn
-	 /1dXa0dlXWgYRR1aY13eLfugSGd6HmHXAAZemCmuxbcEzHpQsdXY0KX6TNk/GEP3MF
-	 m+PlAIFxLV9oQ==
-Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4bba5e17728so17607675e9.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:25:06 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGJZFbBY4ZNA/mihEjjmclXPrONUGDd/gzY5kP3Yrsx50jRrhY99pVDIgnTMIzjb9lnSH4xXJdj2x3mbV4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8/jZxT4UKXt9SElImWLkKffnn2Xy4FpZC2kvNrLPP+BQHnkc1b
-	4rpHDORfNqSZsVFruhrqYIYMh6BJmrSeXh6Q3T0w2GQy/Be7vGlr0Cx0lZTX8nGT+Xu0tJBp1U0
-	vnUjTaFPBmA1ZuYBQlAn/paNDqTeenxo=
-X-Received: by 2002:a05:600c:190d:b0:4ba:2bfc:c8b5 with SMTP id
- 5b1f17b1804b1-4bb888267aemr431006395e9.10.1795703104940; Thu, 26 Nov 2026
- 06:25:04 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=dev.snart.me header.i=@dev.snart.me header.a=rsa-sha256 header.s=00 header.b=o7VAhE8N
+Received: from embla.dev.snart.me (localhost [IPv6:::1])
+	by embla.dev.snart.me (Postfix) with ESMTP id 3AE001D4A2;
+	Thu, 26 Nov 2026 14:26:42 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 embla.dev.snart.me 3AE001D4A2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=dev.snart.me; s=00;
+	t=1795703204; bh=9uBNsJ22+ox7vUCGd4FMmwz4iA922GLuuEcn/apNnV4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=o7VAhE8Njs7DGmqLeaWzKEKCZINuK5QmM57azcqdjP91g4GDTDpJj9KZbHEkcazp+
+	 V7ZShRFx3BEmlcUK2kOWE+gq9297NhhHCqInbYAnyNQbptA4Vy7ZLnVJNnvk1JxynE
+	 sBGQZ3tAZlpI3NYDo2Uz7vZ7cNYxrPXsbpEFE3c4=
+Received: from [192.168.1.18] ([182.226.25.243])
+	by embla.dev.snart.me with ESMTPSA
+	id wlgWMKFBCGur7QIA8KYfjw
+	(envelope-from <dxdt@dev.snart.me>); Thu, 26 Nov 2026 14:26:42 +0000
+Message-ID: <dcd27d38-60a2-4c1a-81ff-4a82e99520ab@dev.snart.me>
+Date: Thu, 26 Nov 2026 14:26:38 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,79 +59,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20260924-free_bitmap_initialized-v1-1-4cfb73a0d04b@kernel.org> <CAAhSdy0cfbfufYYhVCz6Tq0_1RrS0DEi5yfKyBJr=WhUnd+QZg@mail.gmail.com>
-In-Reply-To: <CAAhSdy0cfbfufYYhVCz6Tq0_1RrS0DEi5yfKyBJr=WhUnd+QZg@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 26 Nov 2026 22:24:52 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQJO-sGxTNUoVvU4bGcqPXJb6tpiVsyEPJP25Z7wjduNQ@mail.gmail.com>
-X-Gm-Features: Aa3M54qmSzszE-VR_RYTsVczrtCxMOXKk85r4dogNtwI2ZjOSGsCbY_eqm9_ZQU
-Message-ID: <CAJF2gTQJO-sGxTNUoVvU4bGcqPXJb6tpiVsyEPJP25Z7wjduNQ@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: KVM: AIA: Initialize per-CPU HGEI free_bitmap
- only once
-To: Anup Patel <anup@brainfault.org>
-Cc: Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7] exfat: add EXFAT_IOC_COMBINE to append a file's
+ clusters to another
+To: Shaopei Zhu <shaopei_1012@163.com>, Namjae Jeon <linkinjeon@kernel.org>
+Cc: Sungjong Seo <sj1557.seo@samsung.com>, Yuezhang Mo
+ <yuezhang.mo@sony.com>, exfat@lists.linux.dev,
+ linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Matthew Wilcox <willy@infradead.org>
+References: <20261124230746.850528-1-shaopei_1012@163.com>
+ <CAKYAXd_ap120uprmarov-GuO0fb1eXEgw-U8G08L1xRJ9bv18A@mail.gmail.com>
+ <20261126075247.850895-1-shaopei_1012@163.com>
+From: David Timber <dxdt@dev.snart.me>
+Content-Language: en-US, ko
+Autocrypt: addr=dxdt@dev.snart.me; keydata=
+ xjMEYmJg1hYJKwYBBAHaRw8BAQdAf5E+ri1XLtjqYbZdHOyc8oS+1/XJ5bSlbx5WHXmVBZzN
+ IERhdmlkIFRpbWJlciA8ZHhkdEBkZXYuc25hcnQubWU+wpQEExYKADwWIQQn/Jn96EMUaIoF
+ X+T/ldyyrZpWaAUCYmJg1gIbAwULCQgHAgMiAgEGFQoJCAsCBBYCAwECHgcCF4AACgkQ/5Xc
+ sq2aVmjJZwD8COjPlUwccrlRvbNQ6f87DWchtYO0o8W2DNRM3RLps0EA/jEhIbRV6AsyC8jr
+ 30Ut3aJ3/mO/6G4sLj7OvkEEBH0MzjgEYmJg1hIKKwYBBAGXVQEFAQEHQFpgtIgaByv9lIEY
+ EmpavMO0pYjtu7TMJynwdnGYkN9LAwEIB8J4BBgWCgAgFiEEJ/yZ/ehDFGiKBV/k/5Xcsq2a
+ VmgFAmJiYNYCGwwACgkQ/5Xcsq2aVmhFCwEA0kM9VyYB4bLCM7+SuXUUH+5Ec99Nj4RXxFad
+ Key9GuwA/2BZK6bNyrLSfEk2JDRoskqf7OIL0wa6JOD5SrBnMe8E
+In-Reply-To: <20261126075247.850895-1-shaopei_1012@163.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Hi Anup,
+Hello,
 
-On Wed, Nov 25, 2026 at 11:35=E2=80=AFPM Anup Patel <anup@brainfault.org> w=
-rote:
+This is Davo coming from exfatprogs. I noticed the PR in GH which
+brought me here.
+
+On 11/26/26 07:52, Shaopei Zhu wrote:
+[...]
+> The workflow: cameras and dashcams keep motion or position data with
+> the video, e.g. gyroscope and accelerometer samples for stabilization,
+> or GPS.
 >
-> On Thu, Sep 24, 2026 at 11:34=E2=80=AFAM GUO Ren (XuanTie) <guoren@kernel=
-.org> wrote:
-> >
-> > kvm_riscv_aia_enable() may run more than once on the same CPU.  The
-> > per-CPU free_bitmap only needs to be initialized once, from the HGEIE
-> > width discovered on that CPU.  Perform the HGEIE probe and bitmap
-> > setup only on the first call, and set free_bitmap_initialized after
-> > the bitmap has been populated.
+> The products on the market keep that data in one of three ways:
 >
-> The per-CPU free_bitmap for HGEI lines only one unsigned long so
-> I am not sure what you are trying to save by skipping one unsigned long.
+> - as a timed metadata track inside the MP4, e.g. GoPro's GPMF, muxed
+>   while recording, so that the samples are interleaved with the video
+>   in the mdat box and indexed in the moov box;
+> - as a separate sidecar file next to the video, e.g. the GPS logs of
+>   dashcams;
+> - as a trailer appended after the MP4 boxes when recording stops,
+>   which players ignore and stabilization tools read.
 >
-Thanks for the review. To clarify, the early-exit skips the entire
-block below =E2=80=94 not just the bitmap assignment:
----
-/* Figure-out number of bits in HGEIE */
-csr_write(CSR_HGEIE, -1UL);
-hgctrl->nr_hgei =3D fls_long(csr_read(CSR_HGEIE));
-csr_write(CSR_HGEIE, 0);
-if (hgctrl->nr_hgei)
-    hgctrl->nr_hgei--;
+> A sidecar file is lost in practice: users copy, share or import only
+> the video file, and matching the two by name breaks once either is
+> renamed or moved. 
+I think I understand the the problem being addressed here, but adding
+something to the kernel to solve that particular user error sounds like
+a lot of trouble to go through...
 
-if (lc)
-    hgctrl->nr_hgei =3D min((ulong)hgctrl->nr_hgei, lc->nr_guest_files);
-else
-    hgctrl->nr_hgei =3D 0;
+Also, there's issue of block alignment: Windows formats exfat volumes up
+to 32MB cluster size(I myself unsure of this MS's decision, but it is
+what it is). The release of 4TB SDUC cards are just around the corner.
+At most 2MB of space lost just to padding, just to append a few MB of
+metadata to a monolithic file to idiotproof the product.
 
-aia_nr_hgei =3D atomic_read(&kvm_riscv_aia_nr_hgei);
-do {
-    if (aia_nr_hgei <=3D hgctrl->nr_hgei)
-        break;
-} while (!atomic_try_cmpxchg(&kvm_riscv_aia_nr_hgei,
-                             &aia_nr_hgei, hgctrl->nr_hgei));
+I think most of the products on the market today just use multiple files
+for multiple streams at different rate(LRV and WAV - fs/exfat have long
+supported preallocation to alleviate the classical fragmentation issue
+inherent in linked-list based filesystems). GPX and gyro data is
+certainly not that big - most implementations including Gopros just
+interleave that in a single MP4 file with audio and video streams. But
+sensor data in industrial use may see a huge amount of data, but then
+again, not a consumer product. Something you don't really need to
+idiotproof. I think, if the metadata stream gets that big, we're no
+longer in the realm of consumer products.
 
-raw_spin_lock_irqsave(&hgctrl->lock, flags);
-if (!hgctrl->free_bitmap_initialized) {
-    hgctrl->free_bitmap =3D (hgctrl->nr_hgei) ?
-        GENMASK_ULL(hgctrl->nr_hgei, 1) : 0;
-    hgctrl->free_bitmap_initialized =3D true;
-}
-raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
----
-Once a hart has been initialized, nr_hgei is a hardware property that
-won't change. Re-probing CSR_HGEIE, re-running the atomic cmpxchg
-loop, and re-acquiring the irqsave spinlock on every subsequent
-kvm_riscv_aia_enable() is pure overhead.
+I have no share in the in-kernel fs/exfat implementaion so you don't
+have to sell it to me. I'm just a dude curious about all this. However,
+if you don't mind elaborating, I'd like to see some actual
+implementations in the wild that may benefit from the ioctl. I also have
+a bunch of ideas I'd share with the kernel devs, but I just keep them
+all to myself because the kernel development is hard and the ideas are,
+most of the times, not worth the trouble of maintaining it in the long
+run. I don't think it's not fair for the maintainers who have to stay
+behind for years to maintain things.
 
-The free_bitmap_initialized flag in the original code already
-anticipated repeated calls. This patch simply hoists that check to
-skip the redundant probe entirely.
+And, tbh with you, fs/exfat is not really the coolest part of the Linux
+kernel so expect more push backs :) Just speaking from my experience.
+Nothing personal. Thank you for reading my unsolicited two cents.
 
---=20
-Best Regards
- Guo Ren
+Davo
