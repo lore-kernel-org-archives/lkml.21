@@ -1,93 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795704510;
-	b=NwiPFEgNwTRxa78Ff3lFYskksf12e2EGAlXWEWYaD3HDprM2BqY+hpzNokKqicfX1tsO
-	 3jgxpNVrqy7wnknqZTvBn1LAawTDt/aUR9X65cOEco9JxbNqaTOvSe5wXbrEiaSd0yjXc
-	 CmhVtwFfsmE6Cco4Bm5SwVImW1lqvDlC9eE6qjOyoVv8/ADidYJ/emgvJYnpJyPe+6QxX
-	 YsEXGzBdlzOEZwVR/8T0Hfdnvd1bsCP+a/j4q13bS7GTqI0Tyn9jvqHIFa1NXPZeF2sAE
-	 VE7QIKTTB0iJ9iuOHJnRoO2Ix6sQxcLhd53x1pVcYD2I5ZjDtmVrHvV3jR1g2TXCmTQ==
+	t=1795704512;
+	b=XEuvcvRtR24G7hTFTP2PYTJAV2gWPnfilORcc5Cs6KYFlzvOu7kQw/bi+4V3zYw+qKgg
+	 5idfO6FuF1GsJDNanIL3GRQz8K8zKIQL0sy5E64UurixwwKu10Zi5+5Cb6FzVqvyOymzK
+	 /4BWWcu6ptnNnUEsHPoe4sq/yQtv10MH4G8Q5ugweBiuEhNKgufQChFvKpbRJ05H5aDVB
+	 WHhflytjqdyjpwxvbytMBClzmt4RoLabglknJi9NSSui7NhBTlHlpcPUMAlp71VBIdlgf
+	 4zWm9FOzOvV7EIUFM+iSLsvMHaHIoBwt2jgTwjfg0Fo3ItZzX44VoKEYfe/jobGK5Yw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795704510;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795704512;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Type:X-Developer-Signature:X-Developer-Key:
 	 Content-Transfer-Encoding;
-	bh=gBUmB6k+/zMjiupz2fSB05AdcI9Yft2uVfQwRfm54S4=;
-	b=SV9Xx+3AjHoyqcrm7JhXuE33zvGadKHuis4vj6Ar3paJslveWUP9jyRPN/J8YzszEtBT
-	 yEZn8kblcf07diRd+dI1PtAxa04vVlEcci5xqDINHecAC+XhN51puVW/1dBpVPOtavPH4
-	 9RL8f5pjREuguOzf7A+9reIAmKp6BLiIEj8a9SCtGbQTsuWzrBa/LEb9xsCT+9Hiit29H
-	 m6pfkHwWYOQcsDwDdAnmO2EuzROzUwCSMQRqp18LsfCMwUCHdvwgw3InqkFuntInXqPJS
-	 kUPuONg/9Y2WnJYQuvj+w0smzmngFRdOEWASumAQJ8rB4xI+ZuUbJwpBD6uOZVr2obQ==
+	bh=nJhbDW5oUPFRod6/Q+bK32hWEC41qaxTZHqJdNWk3HA=;
+	b=TDoGwtfZckCGjwMA6qnBz1KGYqEeg3c/N9JJnemTi73T1xp1TAuCufRDiSdiGW8lK6KC
+	 tqRXpViKqylZDLDgjdDZHHNWsbl6QAGNhriI17qYuOpE2Hhv2hwkYyeaIh/EKwgYHBo1b
+	 TgRcFogwi9Nmb63GHcwREWsWHi89021eYjKjHPYhs4pn7Gb0MpyLyphocQsH1JAdYNXH8
+	 nz3bJr4xg9HunmeifPIdRauPrmIHuESyFBwE+vxcOokicKLbXzwRRo8ZO71bK9prZ+2Jk
+	 tm3XwAO5K78+r1fWiS4cdjIZVhSB0bcmVdO+Ccj3OzkF6i3Ze5AqmhxVv0mun5PYHtw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=baylibre.com;
 	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=nJ5nJvVM;
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=DrIBDzp3;
+	arc=none smtp.remote-ip=209.85.221.46
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D3C5606A33E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:48:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D3C5606A33E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B821F606A692
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:48:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B821F606A692
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=nJ5nJvVM
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bb70074ab2so75882975e9.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:48:29 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=DrIBDzp3
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-4a7b8abe209so5545757f8f.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:48:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795704508; x=1796309308; darn=vger.kernel.org;
+        d=baylibre.com; s=google; t=1795704510; x=1796309310; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=gBUmB6k+/zMjiupz2fSB05AdcI9Yft2uVfQwRfm54S4=;
-        b=nJ5nJvVMQH3wwi5zifiF/xQexKqWquJVPhGMStzyZ3dOXMLI4QQLbTERfjUthHfH8o
-         8EOrzltcm+IRTFqRmnYDSuTeupT0Sqd1/h7FhqRNEjR79s1FLhCUeTJPSZ+CzCNdSc7R
-         XWn+tiUMpVUcz8hfRrNKGplEwRSTvgVVz6JAIuj9DS/Do9LcLqOBcpQVhClsZtaE/eCF
-         CDOJ17bY1Hny+u8hLfxBBS6kC+UtgPpG7I1h/G57E2MscwJodIptzVVsQNFLSKQL44UF
-         qrG5T3FDG1yhe88bfhoWXeT6rAGtqUJJqlNPXBkUrR5cxjCmzai7v/5sZEaMVKo3ZIGC
-         9Pbw==
+        bh=nJhbDW5oUPFRod6/Q+bK32hWEC41qaxTZHqJdNWk3HA=;
+        b=DrIBDzp3wmUZ5hQlOGGmu5GrgvvQC0qOuBfhiPLxfvu5+R3jVr71uLdqk5Bhc+s4th
+         M5X80VJrZ0pmzBYVOrzQw5stD2Ly6Xfn6Z9G8R/wx4HnJh9darUuS10XJQBececvs6nZ
+         ecVbYy1MzCDhe0k/aKixp/zT3Yv+Z/fuZ96HfW8AVh6E3qjYWnR5JxZEwuximsNqWzIY
+         cdOa1AUeY/UfmYWgNY7hrjY3VJpu46Pw0+nPGkOtg8sc7aE7jvAb2RBih8cwAeopLOIg
+         b6oqc23rfyZA7QfYnchjnaeOpYMbC124fkWmYXh6SQzKTCz5O1+kgNZlp2FRe4V7ye5n
+         4xwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795704508; x=1796309308;
+        d=1e100.net; s=20260707; t=1795704510; x=1796309310;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=gBUmB6k+/zMjiupz2fSB05AdcI9Yft2uVfQwRfm54S4=;
-        b=i8kE1Kp2/hglc6chHucgjwFORNoO1LshmJabTGoVnl5+xGOzhkiKGr75J+4iIOT2fJ
-         ZnnhgtPWpfXbBw7tCIrNTzydpdwXxxbln6luH9wrpl01ujaLb5RB/iqcAreHfifQX1SA
-         euQkSzdsqMCZk2139QI8ycM9Dq9jfVWVxHnqwirtL3Vq9+iNhNQZxbdEPijB8bvgrR4c
-         57WMD2zDEAwVGxPsH434q8hxj+bjHhrfftUUKXgOteiUZ919Raj3XvlGSR+mUw+4ooSy
-         CBb+VCCP0lAt3+vmc4nb8HvGIVI8/Ip9b4pJzxLrWQsYJlkx7Ph1mEdN+e35Zcj1CEuS
-         xEwg==
-X-Gm-Message-State: APuU4Z8LScgKKVfIRmmAjs6bnyCGV0SR1bnk+1qSL9vPbZy0WKPPgrKZ
-	nPWB9FXHy9J95YTF00lnXU1Y02JU3hDxx89I+EmFEmIpzQdCrHhpDjieNUQCm87UQgc=
-X-Gm-Gg: AZFdTZe4Wu+Bap+vUZpzo9sdRmEbZbN2McScKgSvAKjWnVRfvizR8iOI10xBSCgyIFP
-	yYq1ScUK+jQ7niYiwZMaV0NAluas4/WH3CH3EzOBgngdDRZRk9tvQHcdJCBjKEX7uXGOOl2vEWk
-	wwWF8YTMl8kFwSYoyEqFPQIfcfUjSdDmClVNwwXVDeaSDEzjp4jlo9rrxKSO8ApLvY+NNR4VThV
-	ZL+0mBSTbSN52dJP3+FZBTzeXSkhCntoTWWXu1fcV+/YR+6K9C9QsjDguLt3evHBmy2Rkzh2ay2
-	t9NVX/bt1AshdlEetGe9yJ9aADy/uT4RgLwlovEh+CF+xbw9XtaMEbvuRqOT16IOBWLBBU1a62N
-	LF/6/JhYz9KcaUXfQ4McPjd0ReuV4W950hI8WsKCfmgbNoKBqkBMWgXJwiG+llpC+NioH8pRXd0
-	IoRfPEWhawdmqpzGuN3rwdQdo6kiHf0wMNj6QjMG2VvHLexNfSIR5G5j+daRxb36rbDiL12D6vP
-	y1nUynmMWvuPBBxsMTUmjOiSdHGEESbYhYLL3BNMR1BiSf3uVFZqsy749TsO6vaL4iZOnTgrJE2
-	VuGZX3eTPGuzbDKOxrfSdnBJ5Hx2hZIUxueaVaWSFMRZzrikiD9re7dejXBHv0xOnI8duO8P8mA
-	g64kThxWl6Yf6Tb4=
-X-Received: by 2002:a05:600c:5395:b0:4a3:5a98:c279 with SMTP id 5b1f17b1804b1-4bb8880e599mr430139155e9.8.1795704508528;
-        Thu, 26 Nov 2026 06:48:28 -0800 (PST)
+        bh=nJhbDW5oUPFRod6/Q+bK32hWEC41qaxTZHqJdNWk3HA=;
+        b=KT57pH60/u8c1WKPOTNlvg/37xi+zwlgToa3PAeaIWJcxkIvaJFyFVhNkLA26qn6fC
+         F4MFbXy3x+LKuRvEQ2ED2B6EQ9pcA1f5CsSmPFVGTxc6FygCZuvQKZ4lxmkTQzxh6lsM
+         yksFXlrvYhvyCyKREV6gCMpo+3jcv1X4bobUiScJMEVGUiJqGyxWounfP6tlQGBYB7+8
+         MGqg2GW8UtLBpWX+CsKAmwS4v+FWft+b9wQ0ptlXeppn8X4ExXtZ2Wc5/QLnEUgh8Lzf
+         nl+1618nvWjt/CBjBxXPc7W1VsF6NgK1Dno8qsN/0buKGBKc/LAtBVq/Psq4VV53m9/T
+         ec2A==
+X-Gm-Message-State: APuU4Z9K9b3SdMA/exbbMF2dn4FX8p/WQ8qdQQch12IfEm0Q1eZMRr4U
+	/vdklDLTwTQjwxxpotGk1bFyJqdyR628iZTjhEfYXMIeXFqVE/Wf78G7XMgaUZkl/mU=
+X-Gm-Gg: AZFdTZepAeDLI5lC6lLGj/Ns0kDflWpgpFyk4kwMYtqBfHlRrchXnYrF+Mck7yrYyeN
+	KqG2iEgC9pZg8Wd8AP/zRfDzqmWhsmnzp/34Td2w2yucgcgvzqxmPYQwU2rOavgpJquZLVqplzT
+	HN1sz0xL4nt+w9ek7F+/ePEu9xFW8LPVVSpNipN+eFEtPrQMBVY9VXbWPHiwb3Wt3M2ENOaZBO1
+	8NwuQoMdn2UNbp0wn2ZMiTPT5c5xjN8+JHcaEMpptaGfEqt8F7Tba003+Xuber0hCWW18PuC4m5
+	xCzV/obnaN0ueAIjFGc0di3d0Q+Q4K4usN//vTbvNB4PqC8DqFce2i8nc47DfFDgH/cTLKXpeux
+	UDfqLTUCfvfXrUa2g6UNDinUbwR2eiQ1Pn/gSrBbJEJA/rIP3qH0b/tiLEmAa3b/uFl6m24Bb3p
+	6UkBRYw4kf6n1Yo9AJFlx8EgvEN3wPUhNaO98YDQaRW5MXlAbPUgCPLGhdpktOyr5E8IH7hlYCe
+	q+HG/fwtK8J36vrKEqirQfgEDCHpGacTA5l3VwnQJxQcOrWpWFxd4nLPr3FPIzQT5SthX3t+cPe
+	Kr/tvClTN/gMTZXxTOg/fwZBAGq0MnAoGizFtSiBD/Sry6ZVyNVpBa1NLYtaKpDyMsv3Z+VOPND
+	D9pjfSmCxsssY/f8=
+X-Received: by 2002:a05:6000:4304:b0:4b7:6d41:f12d with SMTP id ffacd0b85a97d-4b76d608a13mr16936131f8f.27.1795704510053;
+        Thu, 26 Nov 2026 06:48:30 -0800 (PST)
 Received: from localhost (p200300f65f19a904aae808b8a2e91502.dip0.t-ipconnect.de. [2003:f6:5f19:a904:aae8:8b8:a2e9:1502])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb853c9170sm675710655e9.14.2026.11.26.06.48.27
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4ab6baa397asm41780626f8f.48.2026.11.26.06.48.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 06:48:28 -0800 (PST)
+        Thu, 26 Nov 2026 06:48:29 -0800 (PST)
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
 To: Stephen Boyd <sboyd@kernel.org>,
 	Abel Vesa <abelvesa@kernel.org>
 Cc: linux-kernel@vger.kernel.org,
 	Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
-Subject: [PATCH v2 2/3] spmi: Drop struct spmi_device_id
-Date: Thu, 26 Nov 2026 15:48:12 +0100
-Message-ID:  <473f022082e95f68e4feeb49b98bce7544501d86.1795703292.git.u.kleine-koenig@baylibre.com>
+Subject: [PATCH v2 3/3] spmi: Don't export locally used function spmi_device_add()
+Date: Thu, 26 Nov 2026 15:48:13 +0100
+Message-ID:  <534f8f3eedc660003267cbc3c87967781a90fffa.1795703292.git.u.kleine-koenig@baylibre.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1795703292.git.u.kleine-koenig@baylibre.com>
 References: <cover.1795703292.git.u.kleine-koenig@baylibre.com>
@@ -101,58 +101,53 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1655; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=EU28X4vdtBqNKjyzUsAYRaVxwyOnJRB5cWGYlvwtouw=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBrCEavklLfccMJp3d2JFJRpmX6Eln9m+v3hH3sF BXjhcxY63WJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCawhGrwAKCRCPgPtYfRL+ Tv71B/4y28N+ZsaJ53RYgUpvv0IaxVHWKipUnpkOiku3Vi8pNhyn4Q45CjidxPlyrZ/Txla1Kbc vb33+OwZQF02UROzDcm5eFLGcmKY2jnjq2tLBMZ3Il0tJSgBUjLXOMSxVbUg68TIDr/wOJWP9sQ 7kGJS0uJGWBUfwawO78SgQkarBhjww0FEOhd1Foei9REaBU/7uS1iGUpCGB/RY/co6xuqGfh0g/ +5HrFZTFsMi3NFyiqi4F76c8nC6xEjPHic46Mlq6PZqSfCTvrWj4Zzlc2pJ+3YVo4QMvhfQ7Ak1 6NFlGqMeM/7iNPJ5PnQiYl3wlvQzvyYscJFnLbGvCgCdyMBZ
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1473; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=rkQgZ0YsBC9dqXJc/Ni+Qhd91yg7jB4tiTKPltAE97w=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBrCEaylXN4Ecc9LbG6TiZETDJRnYwLJvdFDV839 P+cONQShHKJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCawhGsgAKCRCPgPtYfRL+ ThKKB/9bQZt2Zz2ALyWnnbnehGzZMb5lVJMZiJXZGFToe6SCOhWq9UxtugFsAnVt1r4TKClwsXR fGdxjRSvfs6/gIFsPlqJPH5vpLZ6eUOupJA240BlWr5sqmgV69EGhCS2FhJfaAGWdaRcUe5+0JV Vlin4r6kHfnmggQu6smrbXpuqBE3AioGyMy0KSWFnDUvg/a+E0FUCkmxyBXJfuODhyA8dl6kRQ7 sNVuuH03cuS0zB9UYuGQGK4KKJ7KJKnjB6GUqiJ5mB+jK5rPCnxHeO1T2IgqeR2sBaRWoJW2TPj CQqfz2aiSZWzWd01CNnkEg7y00PEY45nKU204KwUUq6bAcNU
 X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 
-This was introduced by commit 5a86bf343976 ("spmi: Linux driver
-framework for SPMI") in 2014 for Linux 3.15 and already then was unused
-and no user was added since then. The only exception was a usage of
-SPMI_NAME_SIZE that was dropped in the previous commit.
+drivers/spmi/spmi.c is the only user of spmi_device_add(). So there is
+no need to export this function for module usage.
 
-Reviewed-by: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
 Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
 ---
- include/linux/device-id/spmi.h  | 17 -----------------
- include/linux/mod_devicetable.h |  1 -
- 2 files changed, 18 deletions(-)
- delete mode 100644 include/linux/device-id/spmi.h
+ drivers/spmi/spmi.c  | 3 +--
+ include/linux/spmi.h | 2 --
+ 2 files changed, 1 insertion(+), 4 deletions(-)
 
-diff --git a/include/linux/device-id/spmi.h b/include/linux/device-id/spmi.h
-deleted file mode 100644
-index a821c42cfc9a..000000000000
---- a/include/linux/device-id/spmi.h
-+++ /dev/null
-@@ -1,17 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--#ifndef LINUX_DEVICE_ID_SPMI_H
--#define LINUX_DEVICE_ID_SPMI_H
+diff --git a/drivers/spmi/spmi.c b/drivers/spmi/spmi.c
+index 6d6805a5ae69..c8b3e236db83 100644
+--- a/drivers/spmi/spmi.c
++++ b/drivers/spmi/spmi.c
+@@ -73,7 +73,7 @@ static int spmi_device_match(struct device *dev, const struct device_driver *drv
+  * spmi_device_add() - add a device previously constructed via spmi_device_alloc()
+  * @sdev:	spmi_device to be added
+  */
+-int spmi_device_add(struct spmi_device *sdev)
++static int spmi_device_add(struct spmi_device *sdev)
+ {
+ 	struct spmi_controller *ctrl = sdev->ctrl;
+ 	int err;
+@@ -89,7 +89,6 @@ int spmi_device_add(struct spmi_device *sdev)
+ 	dev_dbg(&sdev->dev, "device registered\n");
+ 	return 0;
+ }
+-EXPORT_SYMBOL_GPL(spmi_device_add);
+ 
+ /**
+  * spmi_device_remove(): remove an SPMI device
+diff --git a/include/linux/spmi.h b/include/linux/spmi.h
+index 4daebc980501..c81ff3eb8cbe 100644
+--- a/include/linux/spmi.h
++++ b/include/linux/spmi.h
+@@ -65,8 +65,6 @@ static inline void spmi_device_put(struct spmi_device *sdev)
+ 		put_device(&sdev->dev);
+ }
+ 
+-int spmi_device_add(struct spmi_device *sdev);
 -
--#ifdef __KERNEL__
--typedef unsigned long kernel_ulong_t;
--#endif
--
--#define SPMI_NAME_SIZE	32
--#define SPMI_MODULE_PREFIX "spmi:"
--
--struct spmi_device_id {
--	char name[SPMI_NAME_SIZE];
--	kernel_ulong_t driver_data;	/* Data private to the driver */
--};
--
--#endif /* ifndef LINUX_DEVICE_ID_SPMI_H */
-diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicetable.h
-index a69947f2c1dc..fd21238c99f5 100644
---- a/include/linux/mod_devicetable.h
-+++ b/include/linux/mod_devicetable.h
-@@ -51,7 +51,6 @@
- #include "device-id/serio.h"
- #include "device-id/slim.h"
- #include "device-id/spi.h"
--#include "device-id/spmi.h"
- #include "device-id/ssam.h"
- #include "device-id/ssb.h"
- #include "device-id/tb.h"
+ void spmi_device_remove(struct spmi_device *sdev);
+ 
+ /**
 -- 
 2.47.3
 
