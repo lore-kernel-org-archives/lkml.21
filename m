@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795697144;
-	b=ZMUn7hzepnjcUBevWu18u+mPhlEJ7C7wUAQJloQog10cF4dqEe+U0td0josV3nq87CEQ
-	 bhseC0IHCaUTYcICxPjJ+0rG1EMsvlnGAamUtGSdlC6rXiw6q4JPteqIuxi2OY5QkNz6b
-	 CJQ1F6BigKB29Bj/FWRJBxjMF3e0joIifMFm8HHqgxe4mJQika658nrR6uoQaon0exvXi
-	 QqomqN1TIbSpz0VFK7cPg+UtwMOm4iYAVlJz44FB8/l8qLCTAA9GGHHz4gmRHX7a7/qvb
-	 7PaME54HKfcQWeuEz5JGpgN8tkAy4w/NDRdipui/XudoYEdWfxs+lBjLEFipS5N04SQ==
+	t=1795697141;
+	b=Gj6j3YMOvmFyFUmY7jbcml8HdHDtldLe+SwvevqrJPvhWeVCVp9i3rmNIzWXUmx3ApEu
+	 Z/ZGIQpU2NSXY6HPlLV7f7bIVbQ6kCeOgHnqVOFGOjgMCgPRi6DJxtMnMV9iLHUKs0lx4
+	 IKN9PJ3yBKqEOsp8JsO1JxxcVo1W5in66XI7yOi4K33zuoZjEoWOzmO2rINnGKmVh9oAi
+	 s6tZTX8pfStXGUbiZv2Sr5jCD4n9/I2st6C8SFPk5rWrS+uOyCrIlExLgF2W9q4/c98s2
+	 Q4QOPH0GgJhFGoi22CK5U+2IoZRRyGA0RWntagOsLVkaj/8oth2x0GSFHoN+sbxW3Pw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795697144;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=jNPW/Pg0JpLswGfcRTLclR+xYs8LeJ8SC8w+XDaMugA=;
-	b=xF4FWnFYMzLmDWuSCFg1VZcp/J/R8Lltc+3+c3h1zTj7bzIpDrDRYyYhPKYcThI6GrgU
-	 ZiSQUL0kvsrEHiZV9Pkb8bwtoiHEJqs8lwg+9CegPG3uIvJHUGLV5QeMbmpQTPeG6Ycgf
-	 iF8OtJiro44UaCRgx7j5MPh5WsRvIYJHQt3MkRP17NuOnVZlXnI0LuXh9KzFuRGamUqXx
-	 Tx6NF9vGuYEhsMLIv5869sUdhXq792GOunVl+PhhjErmbJ1U40xWJNp/8TYun8GbGCs8j
-	 ceU5jmlbjH1sdCUAt/IUAc9jpzaWABj5y8lO3Glz3NcOQXpiCjnfEixlQyGg7nhOoSw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795697141;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=s19rvmzvb3Jb1aBdaC+tDaVA7/9YuJctSrB218VoRVM=;
+	b=Jc8/aL7m1EUrAjntDynODh8dGjDADyUgu2GVwgdd+H3LHEf10ksGf22A1EJ3TbxsxVBv
+	 6LD5iTAwOI6LZemFc/0C5GSY0JhclrCxy+eqNvYBkBrqXUQif8temnrQV91dDDmNU7KOp
+	 PsAxbRPTuTOewZmpMkqwWmToFodwoqsZabrU96X/7bFBzJNLcrKBDpbWYsqPbjijQLLbw
+	 HRoyMLOhqLIHZ3VAQ5RnPApWllsD8UDXIU9/rPu/zeuLtz0FUFhw9sT5qSahKyWLNQiBc
+	 a6R8pHO4x11Byp5yJitTPLUd9DhZOs2WC6xZL97grglD2hoQ7c3VrTS/noyeeEqdMPA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fAyAtLym;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VpGk25qG;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0AD0606A327;
-	Thu, 26 Nov 2026 12:45:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AB11606A331;
+	Thu, 26 Nov 2026 12:45:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fAyAtLym
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VpGk25qG
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795697144;
-	b=P0Sg6LSbajJIR3WKQ6i7HEyesqh9Nbm3+BHU4LqrV1UVg25tcDGISZxoaMKgpGNbWuot
-	 +h0DvS2t4WLkiIU3dH7dn7aBEiQO2p8dRnSmXAPrxGgLsm3uFzCR9CFSRjqu3LfXSEGqm
-	 WiLwi1lBgOkaRh+bG/rCNtUmHDjX0R3iliM2xsgraeuqWbiLU0/csFPG19QDb5f8m3anl
-	 JKcbbL3PcaVbjzk5eecgD+QahCzo5HSLhcBJAzfQXpoIRz5nlKTr+bWNnYbyitKUNl9HS
-	 pXiuyjISIS8o+M/PJs91cNzS2MGthrTwuXjlAdHB9MmGAiN78J1BXN64ZmP0QbNuvkQ==
+	t=1795697141;
+	b=OQ1ORq3bx52wlmUNwxng8F76T7H1rGHRFRXqWi7ZN+uDnjGGtwt9ydfGhWnsJlAPeTQ0
+	 E85MJLY2yNLWm+qG3SRxqgZZ1ROrg2J3MwbYdB0Mr1+yJZfXqS1Up3zwef2JNh1wCyYWm
+	 pt4H3AXJggFRTsRIKnTFi2gn+JBk8LSyNsaKFcPbBe2LxFsQKfJqTamVIu6IfDqt3lZyZ
+	 S1ybRTfnl1dR5PeLTKjf72Rj+RnjRoC3Y0mr+GWrarkT4AIiDZwxTlDW5D4FULdo3utGF
+	 N60fe55p/ivPiB33abcWyXIfsl5vuEXkkyLCYUMnXEiPJ1e3R09mESrAvVU1WxvlLmQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795697144;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=jNPW/Pg0JpLswGfcRTLclR+xYs8LeJ8SC8w+XDaMugA=;
-	b=R/l5gmLQ2hL0Z6aoUJxwlSl2/GfxiNzU2hhDylKTDwTuzHsQPRsmbHkCgW/fhHInCv9p
-	 G0SOhVRUBstWhJSsgzXBwZuAAwcqRfcdThN80tctYbVRYxzFkRuuQmz1pxLgpBnqstpPa
-	 lZHDV10q7Tw8kr1ABETARRnmBTGvnrGZyrLaUg2jIVap9aXOysNof7qi4iG6gLl6OKU4r
-	 efGybyXGSy18OAssNPkZmw7I0wieRq+xQx20eGF0qRRIIrkcOtcZn9DXKXC0yjySpTkTf
-	 mqC2tUIAw1IGgb5JzPW026muZZsxr+2hCIXZ0o8Wda/vWSowJjUEJA0KfZJmBFGWv+A==
+	c=relaxed/relaxed; t=1795697141;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=s19rvmzvb3Jb1aBdaC+tDaVA7/9YuJctSrB218VoRVM=;
+	b=2cQhupWwKNNxDX+r8nQnGOT3B1IkAQPtJ3v3ZRpVHYNZ0boQGDrhpcRQREt3KhzvgW0X
+	 Vkjuuk61XDYsmBEdLpvtv9gFIvIi3fnXISkCvaMnaNfrgercjOSsjtN6nFYdYyYY+18sx
+	 yZoSNilGJ6O2q5aVIEyU+t3a86SJ+4phs82N0eYoP3XW24eZ0vwjG/j5aFWtFB7S//ejD
+	 hB5EL3KRUKqLalXbXCTE+AtMtwvMi6Ve1jQgolwhjBQKy+AGe807d7jKGS1+OdWp8MSEs
+	 zGj5hLp7W7bIKuz+XpFSGOEN9wnZhY2w4bkIFnuAZpr9+f9KI7mHoeaQrhQxblH8dEg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 68A8B1F000CF;
-	Thu, 26 Nov 2026 12:45:35 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 4E45C1F000D8;
+	Thu, 26 Nov 2026 12:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795697144;
-	bh=jNPW/Pg0JpLswGfcRTLclR+xYs8LeJ8SC8w+XDaMugA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=fAyAtLympCZdZ2gtQL8PIilffuKrGOtDuMAkL2TmymSzNoEvuPTARkn0H0noZQJHQ
-	 u2ApStLtKoMdWM+fcKuRs1VdDntj7gIqry6hMRnoJB1KwU/E4L5bOeZTQcXrXGY4II
-	 K0uZWvAGrxqrHqFEE1/vloLExjAa6GUtzKzSKSmbRs61oWeAGeSOU1Qj6T3HPbgkbl
-	 GkF/AXw+j/ck2nGr6sjNGTFzGl3NVaqtz9/BYGx8t//DDLwFt4alvnWq0F4yjIWZRQ
-	 qgHYu43hJgL7n+TZozM03UFICrreqdxuMUxA5+2e47IvKKobJ/Oay/2VOc6yFgC5ch
-	 mchaMNxTBoqOA==
+	s=k20260515; t=1795697141;
+	bh=s19rvmzvb3Jb1aBdaC+tDaVA7/9YuJctSrB218VoRVM=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=VpGk25qGRQKKDDb5FNIfI692Kk+lsN2f098uy6gJo7zA3m+WVSVmypQgN9wwGJQne
+	 TgJWjTPYVrL9GCXKg0m/DZNz2QeFsPsP1Mv72A52Fsiux7HEpCOsw7DPMp/H5XTwDf
+	 RzEFuR9dw0ECYmSE1DwoOT4g+qNdvOz3XEFFgZFh4320an4L0mN83CFZR4tQOtosEk
+	 0X0RTHoJJCBOkeoygjYmrZg/rEmNp/TPuX56IadhEKKOqqeeu9BAGORObnLVA7rybt
+	 wG7NFpRCwTq91fDgMBJdP6VWWzxkVgN3s8gMNlqf2wF5RFPDgcXmrz8Kv7V9uCToLK
+	 EW2hPojbb+yFw==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 7EC014D50A;
-	Thu, 26 Nov 2026 12:45:33 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id D26B74D4C6;
+	Thu, 26 Nov 2026 12:45:28 +0000 (UTC)
 From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Thu, 26 Nov 2026 15:45:31 +0300
-Subject: [PATCH net-next v3 1/3] dt-bindings: net: Add Cortina CS7542
- network engine
+Subject: [PATCH v4 0/3] Add Cortina Systems CS7542 NAND controller support
+Date: Thu, 26 Nov 2026 15:45:26 +0300
+Message-Id: <20261126-b4-cs7542-nand-v4-0-38e488f6f8b1@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,216 +84,116 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-b4-cs7542-ethernet-v3-1-5db5d372e1bd@gmail.com>
-References: <20261126-b4-cs7542-ethernet-v3-0-5db5d372e1bd@gmail.com>
-In-Reply-To: <20261126-b4-cs7542-ethernet-v3-0-5db5d372e1bd@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33NQQ6CMBCF4auQrq2ZaQulrryHcQFlgBoBQ5FoC
+ He34IZodPmS+f6ZmKfekWeHaGI9jc67rg1D7SJm66ytiLsibCZAJIhC8lxx63WsBG+ztuCpNka
+ TBABtWEC3nkr3WIOn83v7e34hOyyV5aJ2fuj65/pxxOXuZ3xEDlxbQm0sIJI4Vk3mrnvbNWyJj
+ +I/F4GbwpSQJpDGUn1yueXxF5eBQ54UqNAiCNryeZ5fz+BxRjwBAAA=
+X-Change-ID: 20261123-b4-cs7542-nand-87997e300079
+To: Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, 
- Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
- Russell King <linux@armlinux.org.uk>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-mtd@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795697132; l=5895;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795697127; l=4360;
  i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=gW8wVv5EV4Zs86pnqMUV410Pvkh5hZkkf0TYPGZzyKQ=;
- b=k3XvSJ7GuhEEjrXXkxR+U0jWmnfJV1toVfJrUM4LtgrMKLnYbaoRI8THvHXBVDwQWneharEB8
- 1+25JD8YHCbA5fcsuO8K663bUjMAjtNoS8R5yHQF1wB9may7BUOlWVJ
+ bh=wQpDUS5b0pYxv/jtguM6xqTqewPkbwxTjWJdoV23J8Q=;
+ b=jqEQpn7bmgur8voLImXxF37PWNK0HpjRiGsLyBN4uiuJJihAoHnmHnl3GluetgtBhgI7lX6nt
+ SPCdr2NXWWYAKi4UePZq3FYhHXk+UC5byzS29/F4RokceCacFl7OIdM
 X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
  pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
 X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
  auth_id=1085
 X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
 Reply-To: filipp.dunsky@gmail.com
-Content-Transfer-Encoding: 7bit
 
-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Add the CS7542 programmed-I/O NAND controller independently of the
+platform series and ARCH_CORTINA_ACCESS.
 
-Describe the CS7542 network engine register windows, interrupts, GMACs
-and reserved queue-manager memory. Require exclusive ownership of the
-seven NI/FE/TM/SCH/QM/DMA/NI-XRAM reset controls from the global provider.
-The shared DMA line includes both LSO and SSP. Use rgmii-id for the
-example switch peer which inserts RX and TX clock delays.
+Describe the hardware's two chip selects, 8/16-bit bus and Hamming/BCH
+capabilities in the binding. The initial driver supports one connected
+8-bit target on either CS, on-host Hamming with 256-byte steps, software
+ECC and raw operation. It preserves firmware bus timing by retaining
+the AXI clock rate. The optional flash reset is acquired without a pulse;
+PIO polls completion without claiming the flash IRQ or shared SSP DMA.
 
-Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+Validate generic operation descriptors separately from execution. Use
+NAND core page-operation builders in the hardware ECC callbacks instead
+of assembling read/program opcodes independently. Preserve the existing
+Almond+ Hamming/OOB layout.
+
+Validation of this v4 candidate:
+- Full ARM vmlinux/modules builds with the driver =y and =m, without the
+  platform series and with COMPILE_TEST=n; software Hamming enabled.
+- Binding/example validation and strict source checkpatch.
+- Actual NAND core builders and the driver validator: 9815 cases each
+  against native and OpenWrt 6.18 headers, GCC and Clang ASan/UBSan.
+- Actual hardware-ECC sequencing versus v3: 240 cases per compiler,
+  including command/address registers, CS/bank selection, main/ECC/OOB
+  ordering and fault cleanup.
+- Exact driver compilation with the installed OpenWrt 6.18.64 headers.
+
+The exact new NAND driver booted on Almond+ in a combined OpenWrt
+6.18.64 RAM kernel. It read 56 MiB of protected regions with matching
+SHA-256 and matched raw/generic 64-byte OOB reads in all four banks.
+The real UBI stack created a temporary two-LEB volume, wrote/compared
+two 253952-byte patterns, physically erased both LEBs and read back ff.
+The temporary volume was removed and the normal reserve restored to
+80 blocks (free 0/bad 0, original five volumes intact). The independent
+fixed-deadline watchdog returned to installed OpenWrt automatically;
+all 13 protected hashes and all configuration hashes matched, and the
+four LCD services and normal 30-second watchdog were running.
+
+The RAM run tested the retained hardware Hamming layout. Software ECC
+was checked by compilation and the core-operation host tests, rather
+than changing the ECC format of the existing flash. No kernel image
+was installed by the RAM test. Native driver source bytes were identical
+to the tested 6.18 integration; the native full builds are separate.
+
 ---
- .../bindings/net/cortina,cs7542-ethernet.yaml      | 162 +++++++++++++++++++++
- 1 file changed, 162 insertions(+)
+Changes in v4:
+- Address Miquel Raynal's binding and driver review on v2.
+- Describe controller capabilities rather than only the initial driver.
+- Add the AXI clock, flash IRQ, optional reset and data aperture binding.
+- Separate supports_op() and remove the NAND opcode whitelist.
+- Use core page helpers for hardware ECC; allow software ECC/raw transfers.
+- Support either chip select and reject multiple connected targets explicitly.
+- Preserve bus timing through clock rate exclusivity; do not pulse flash reset.
+- Clarify the vendor EXTADDR convention; retain the existing Hamming layout.
+- Link to v3: https://patch.msgid.link/20261125-b4-cs7542-nand-v3-0-0b6d141c102e@gmail.com
 
-diff --git a/Documentation/devicetree/bindings/net/cortina,cs7542-ethernet.yaml b/Documentation/devicetree/bindings/net/cortina,cs7542-ethernet.yaml
-new file mode 100644
-index 000000000..c5ba9b30e
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/cortina,cs7542-ethernet.yaml
-@@ -0,0 +1,162 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/cortina,cs7542-ethernet.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Cortina Systems CS7542 network engine
-+
-+maintainers:
-+  - Fil Dunsky <filipp.dunsky@gmail.com>
-+
-+description: |
-+  The CS7542 network engine contains three GMACs, the network interface (NI),
-+  forwarding engine (FE), queue manager (QM), traffic manager (TM), scheduler,
-+  CPU XRAM interface and packet DMA. The CPU datapath uses the DMA-LSO TX
-+  queue and QM-managed RX buffers. The complete DMA-LSO/SSP register block
-+  and the combined reset domain must be exclusively owned by this device;
-+  a separate SSP DMA consumer cannot operate concurrently. A NAND controller
-+  using PIO does not consume that DMA block.
-+  The three GMAC station addresses share their first five bytes in NI
-+  registers; only the last byte is independent for each port.
-+
-+properties:
-+  compatible:
-+    const: cortina,cs7542-ethernet
-+
-+  reg:
-+    items:
-+      - description: NI registers
-+      - description: Complete DMA-LSO and DMA-SSP registers
-+      - description: FE registers and indirect table interfaces
-+      - description: QM registers
-+      - description: TM registers
-+      - description: Scheduler registers
-+      - description: CPU XRAM
-+
-+  reg-names:
-+    items:
-+      - const: ni
-+      - const: dma
-+      - const: fe
-+      - const: qm
-+      - const: tm
-+      - const: sch
-+      - const: xram
-+
-+  interrupts:
-+    items:
-+      - description: GMAC0 CPU receive queue interrupt
-+      - description: GMAC1 CPU receive queue interrupt
-+      - description: GMAC2 CPU receive queue interrupt
-+
-+  interrupt-names:
-+    items:
-+      - const: eth0
-+      - const: eth1
-+      - const: eth2
-+
-+  cortina,global-syscon:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: Global control syscon for network drive strength and status.
-+
-+  resets:
-+    items:
-+      - description: Network interface reset.
-+      - description: Forwarding engine reset.
-+      - description: Traffic manager reset.
-+      - description: Scheduler reset.
-+      - description: Queue manager reset.
-+      - description: Shared DMA-LSO/SSP reset, exclusively owned by this consumer.
-+      - description: Network interface XRAM reset.
-+
-+  reset-names:
-+    items:
-+      - const: ni
-+      - const: fe
-+      - const: tm
-+      - const: sch
-+      - const: qm
-+      - const: dma
-+      - const: xram
-+
-+  memory-region:
-+    maxItems: 1
-+    description: |
-+      Reserved no-map DDR region used by the packet queue manager. Initial
-+      support uses the upper 64 MiB of the 512 MiB DDR layout at 0x1c000000.
-+
-+  "#address-cells":
-+    const: 1
-+
-+  "#size-cells":
-+    const: 0
-+
-+patternProperties:
-+  "^ethernet-port@[0-2]$":
-+    type: object
-+    $ref: ethernet-controller.yaml#
-+    unevaluatedProperties: false
-+    properties:
-+      reg:
-+        maxItems: 1
-+      phy-mode:
-+        enum: [rgmii, rgmii-id, rgmii-rxid, rgmii-txid]
-+    required:
-+      - reg
-+      - phy-mode
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - interrupts
-+  - interrupt-names
-+  - cortina,global-syscon
-+  - resets
-+  - reset-names
-+  - memory-region
-+  - "#address-cells"
-+  - "#size-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/reset/cortina,cs7542-reset.h>
-+
-+    ethernet@f0010000 {
-+        compatible = "cortina,cs7542-ethernet";
-+        reg = <0xf0010000 0x500>, <0xf0090000 0x800>,
-+              <0xf0020000 0x4000>, <0xf0030000 0x400>,
-+              <0xf0040000 0x800>, <0xf0060000 0x100>,
-+              <0xf0400000 0x100000>;
-+        reg-names = "ni", "dma", "fe", "qm", "tm", "sch", "xram";
-+        interrupts = <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 38 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 39 IRQ_TYPE_LEVEL_HIGH>;
-+        interrupt-names = "eth0", "eth1", "eth2";
-+        cortina,global-syscon = <&global>;
-+        resets = <&global CS7542_RESET_NI>,
-+                 <&global CS7542_RESET_FE>,
-+                 <&global CS7542_RESET_TM>,
-+                 <&global CS7542_RESET_SCH>,
-+                 <&global CS7542_RESET_QM>,
-+                 <&global CS7542_RESET_DMA>,
-+                 <&global CS7542_RESET_NI_XRAM>;
-+        reset-names = "ni", "fe", "tm", "sch", "qm", "dma", "xram";
-+        memory-region = <&qm_reserved>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        ethernet-port@1 {
-+            reg = <1>;
-+            /* Fixed MAC-to-switch link; peer inserts RX/TX clock delays. */
-+            phy-mode = "rgmii-id";
-+            fixed-link {
-+                speed = <1000>;
-+                full-duplex;
-+            };
-+        };
-+    };
+To: Fil Dunsky <filipp.dunsky@gmail.com>
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Richard Weinberger <richard@nod.at>
+To: Vignesh Raghavendra <vigneshr@ti.com>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-mtd@lists.infradead.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
 
--- 
-2.53.0
+---
+Fil Dunsky (3):
+      dt-bindings: mtd: Add Cortina CS7542 NAND controller
+      mtd: rawnand: Add Cortina CS7542 controller support
+      MAINTAINERS: Add Cortina CS7542 NAND controller entry
+
+ .../bindings/mtd/cortina,cs7542-nand.yaml          |  90 +++
+ MAINTAINERS                                        |   7 +
+ drivers/mtd/nand/raw/Kconfig                       |  12 +
+ drivers/mtd/nand/raw/Makefile                      |   1 +
+ drivers/mtd/nand/raw/cs752x_nand.c                 | 743 +++++++++++++++++++++
+ 5 files changed, 853 insertions(+)
+---
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+change-id: 20261123-b4-cs7542-nand-87997e300079
+
+Best regards,
+--  
+Fil Dunsky <filipp.dunsky@gmail.com>
 
 
