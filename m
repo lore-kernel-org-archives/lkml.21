@@ -1,80 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795692084;
-	b=U6uNfWtZ6uWB3tP5ZPULRIUIs+MALmE9xpF5rX+/eo0hrr853KgZOECiULo/adWVWd+5
-	 7ayCXdVgQ3PBCdY/UquvZqYPidU+KQyrGYXcOzqxwPI9Lrhx/9eB/nDgREPkSLWxNUVSb
-	 7t+HkixRNWWsgPEcfIGSk8+scfTdjhtweMiIeUC7eqqY7zqTdjG5yZrjvlPdM6Oelbm8c
-	 m6OSe2QzL500tWFhkPapwmD7f/lhv4I5vbWhx0PowWg/akmweewOyVeJDpqegdVGe4xMM
-	 E98aL1FOFmhom9zJmiZU9jz/7Vgha6wgVut3JCTAkYjw0wWGeJHIBi0yKNkk2wlkrQQ==
+	b=5of/NEIyjBBfJyC+j59HhFiB3tFEAROtwV1I1gH5oWUScil+BuaKK9bxIE9l/90HqolQ
+	 CCc4CKwyq2OUAbM7TNGMfU+sfQdkasSvSr3gsfJYtCVMZZCsePtsAO63DQOHTU2RaEsrr
+	 Jt5Sg0cGhwyyl9mb8S4ydZclyKO00qQzatG2Xe5HQ9khq2PlAD02w3Yk2O5MX9IfmgCDy
+	 RfE96DSv5/L0j91q/7DI9JyJ2W7/QLzCiOrT9FEntap1GMriF+2XNKMj6WA/OPO+0HJdm
+	 wanxvLyi2QraZgE1zj0seCF3smwKeVmy5ENSqOcf84NEokLb75QUpRa8d7qYDViBTEA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795692084;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=3UuAdt7dSVCdcMjg2v0KRdp+uX84J2DmHB+3MfIgCio=;
-	b=VmLc+QW3BGDWa/8a3y7T9Ghy6Zbiq2u4ANb5cygZtzqUmraBuTWipin/MSS7RV6XI6ck
-	 N+Al4AtN5QY31StOz+Cm2P1u399SLkxgeGX3ineelDV8qXZ49gb9reAGqXQZQE84aHY4u
-	 8bUMadaA9TVGHyhQju1KSX4X2lk8cT5GIShs8DIGq8ln/p8nJofP6oKbW8XLEzP795nrR
-	 HiyBMqbjY6VoOi1BWUqujy1Nk4twaQ4G0vCMkYnUOQjCDXAUauyuEpeqeeF1BxUU6+/OM
-	 4PHyQXl+8yIUuu6r2Jcf9xUnwsahbh/tsc+Ejn+9T/sT2FRvrkvP5jqD6jVjVtGlQmw==
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer;
+	bh=oczPXoX6LmrOL71NJs0ylkVxm4d3C/x+BrDR38WYHaE=;
+	b=lD3fwaF9l1rb/9R2LjGZdBkr+5r9o7Adja5efqeHSAiT01ILm6sWHCMVqSsEbh125LWm
+	 Q06/jwJq71UCWRaoiifMoEMW40OWLgJylerGoMrwg1g3Mm9e7O6rz3QuduIuxxIROAXEw
+	 FsN0eDfZ9XcHBKLuwuifru4lJ9ivAlGOZim9CcawQqYxOFthH25auY6Hpj9N42OgMJOkw
+	 9u0lr+3icb1ycwpQ8rdYquMad5BVQED46mlhthNVpo06ESooOrNYfvAGakMhHUguT7xTu
+	 KPsl5npJb+6a0ZLYY7dv+spx/PHCnB2LvQBnPYWL0f+dWKsoTNV0DwCo9puMDQ5EBNA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fcMpkfYU;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MdONGc5D;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45118606A337;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 450F7606A332;
 	Thu, 26 Nov 2026 11:21:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fcMpkfYU
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 721DE1F000CF;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MdONGc5D
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E1641F000C0;
 	Thu, 26 Nov 2026 11:21:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1795692083;
-	bh=3UuAdt7dSVCdcMjg2v0KRdp+uX84J2DmHB+3MfIgCio=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fcMpkfYUPPxSdHrXBEDXH5r0pdjxRpjy93Zt4Kx20zZYirYAJUjl5pIDbOUxZecy9
-	 Z6lQHKg19QGO7V9fxFM3spvdLuYK6N3NLsSac6BlvrOBeV3KF7LnhY/sgcq8gYEInD
-	 yczJOoLOYSUrP88rqweUx8QDgqven4oPCZzNgQ3PvP5hHsn2/TNVrKqvbm8dQl6HjR
-	 1PG6SEttsPiCPgJdmoZU4DHzPCx7skKD2aFyv42T6DcZXpQhgI7rRUU6Nge0FvvTDb
-	 7veKQ6wKzE15RxQQ57HkIOQK+YOe0lgTrA5j0ufjwTuyRf/KkPx77g693TixMxVwx2
-	 89vRCFbq+I60Q==
-Date: Thu, 26 Nov 2026 13:21:10 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: David Matlack <dmatlack@google.com>
-Cc: kexec@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	linux-pci@vger.kernel.org,
-	Adithya Jayachandran <ajayachandra@nvidia.com>,
-	Alexander Graf <graf@amazon.com>,
-	Alex Williamson <alex@shazbot.org>,
-	Alex Williamson <alex.williamson@nvidia.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Chris Down <chris@chrisdown.name>, Chris Li <chrisl@kernel.org>,
-	David Rientjes <rientjes@google.com>,
-	Jacob Pan <jacob.pan@linux.microsoft.com>,
-	Jason Gunthorpe <jgg@nvidia.com>, Jonathan Corbet <corbet@lwn.net>,
-	Josh Hilke <jrhilke@google.com>,
-	Leon Romanovsky <leonro@nvidia.com>, Lukas Wunner <lukas@wunner.de>,
-	Parav Pandit <parav@nvidia.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Saeed Mahameed <saeedm@nvidia.com>,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Vipin Sharma <vipinsh@google.com>, William Tu <witu@nvidia.com>,
-	Yi Liu <yi.l.liu@intel.com>
-Subject: Re: [PATCH v11 00/13] PCI: liveupdate: PCI core support for Live
- Update
-Message-ID: <awgWJok0E3ASR7Q3@kernel.org>
-References: <20261118223704.3286085-1-dmatlack@google.com>
- <DN0FL1752MH5.1FSZE620OJBM0@google.com>
- <awKlfqlQYhphXCvf@kernel.org>
- <DN2TQRX57C04.ZT5UUS6AQ1L6@google.com>
- <awVjqLFrXY_PCm7X@kernel.org>
- <DN3L5XQDSVO9.1NJFYQJTS16ID@google.com>
+	bh=oczPXoX6LmrOL71NJs0ylkVxm4d3C/x+BrDR38WYHaE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=MdONGc5D6rm4fAIyBNnofa7zpl+ADVHNhC4NDJwfkNfn8091gbfJmZAzoRVlM/UAl
+	 38krRg5mk0qAmdNSn25jievEXiTiFYMnALk5q/eCta1QCgZ9gXPatAvYcRG58uVVBE
+	 3wm4HYstziFwb74euNhfATKEVwYpu+Z970spJ7A+TWt8ilM4sCBjHWuMBCVIPGSzRx
+	 /6zudqAJDsL4am9+DVg43+2gXxLgl6UsPiaIN70VlmvNQeb+uYNXnrQTMkVGavd135
+	 nxFSo02+WGH/4IoofGf/gRphDaH3v6Nduf1B5F3XSAOCSmOauduVMTOdJZelQ13K7m
+	 +/5p7bR7Qt+Hg==
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Date: Thu, 26 Nov 2026 13:14:56 +0200
+Subject: [PATCH RFC v2 43/54] mm/pageattr: let an architecture allocate the
+ page tables for a split
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,44 +53,112 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <DN3L5XQDSVO9.1NJFYQJTS16ID@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-generic-set-memory-v0-1-v2-43-723f1e33c3d8@kernel.org>
+References: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
+In-Reply-To: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
+To: linux-mm@kvack.org
+Cc: =?utf-8?q?Adrian_Barna=C5=9B?= <abarnas@google.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Borislav Petkov <bp@alien8.de>, Brendan Jackman <brendan.jackman@linux.dev>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ David Hildenbrand <david@kernel.org>, 
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
+ Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, 
+ Ingo Molnar <mingo@kernel.org>, Kevin Brodsky <kevin.brodsky@arm.com>, 
+ "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, Michal Hocko <mhocko@suse.com>, 
+ Mike Rapoport <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <pjw@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@kernel.org>, 
+ Vasily Gorbik <gor@linux.ibm.com>, Vlastimil Babka <vbabka@kernel.org>, 
+ Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, x86@kernel.org
+X-Mailer: b4 0.16.1-dev
 
-On Tue, Nov 24, 2026 at 08:36:22AM -0800, David Matlack wrote:
-> On Tue Nov 24, 2026 at 2:15 AM PST, Mike Rapoport wrote:
-> > On Mon, Nov 23, 2026 at 11:07:04AM -0800, David Matlack wrote:
-> >> On Sun Nov 22, 2026 at 12:19 AM PST, Mike Rapoport wrote:
-> >> 
-> >> Hopefully I did this all correctly... This is my first time sending
-> >> in-reply-to fixup! patches.
-> >
-> > This is my first time merging !fixup patches and it seems b4 managed it
-> > well :)
-> >
-> > Please check I didn't miss anything:
-> >
-> > https://git.kernel.org/liveupdate/linux/l/lu-pci-preservation
-> 
-> Thanks Mike!
-> 
-> I checked the updated lu-pci-preservation branch and the code is
-> identical to the v12 I had prepared locally.
-> 
-> One commit message nit: "Freeze preservation status during shutdown"
-> ended up with two Link: trailers, the original v11 patch and the amend!
-> patch:
-> 
->   Link: https://patch.msgid.link/20261118223704.3286085-12-dmatlack@google.com
->   Link: https://patch.msgid.link/20261123190045.2166865-4-dmatlack@google.com
+The core allocates the page table for a split with pte_alloc_one_kernel()
+and pmd_alloc_one(). s390 cannot use them.
 
-I dropped the second link. It's the same thread, so I think it's fine.
+vmem_map_init() write protects the kernel image before the page allocator
+is up, so a split at that time has to allocate from memblock.
+
+A fallback to memblock in the core would not be enough. With CMMA, the
+decompressor marks all memory as no-DAT, and a page has to be switched back
+to DAT before it is used as a page table.
+
+vmem_pte_alloc() and vmem_crst_alloc() do both: they fall back to memblock
+and initialize the page.
+
+Memory hot-remove frees the tables of the identity map with
+vmem_free_pages(), so a segment table in the identity map has to come from
+vmem_crst_alloc() rather than from pmd_alloc_one().
+
+Let an architecture provide arch_cpa_alloc_pgtable() and
+arch_cpa_free_pgtable().
+
+There are no users yet. s390 will use them when it switches to the core.
+
+Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+---
+ include/linux/pageattr.h | 6 ++++++
+ mm/pageattr.c            | 6 ++++--
+ 2 files changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/include/linux/pageattr.h b/include/linux/pageattr.h
+index 091408ad328f..1a4e7c5dca98 100644
+--- a/include/linux/pageattr.h
++++ b/include/linux/pageattr.h
+@@ -111,6 +111,12 @@ static inline int arch_cpa_split_leaf(struct cpa_data *cpa,
+ }
+ #endif
  
-> whereas "Adopt ACS controls in incoming preserved devices" only has the
-> original Link: (not the amend! Link).
-> 
-> Not sure which is correct.
++#ifndef arch_cpa_alloc_pgtable
++void *arch_cpa_alloc_pgtable(struct cpa_leaf *leaf);
++
++void arch_cpa_free_pgtable(struct cpa_leaf *leaf, void *table);
++#endif
++
+ #ifndef cpa_is_direct_map
+ static inline bool cpa_is_direct_map(unsigned long addr)
+ {
+diff --git a/mm/pageattr.c b/mm/pageattr.c
+index 2f357a8c24d2..e05281a2b169 100644
+--- a/mm/pageattr.c
++++ b/mm/pageattr.c
+@@ -249,7 +249,8 @@ static pte_t *cpa_lookup(struct cpa_data *cpa, unsigned long address,
+ 	return leaf->kpte;
+ }
+ 
+-static void *arch_cpa_alloc_pgtable(struct cpa_leaf *leaf)
++#ifndef arch_cpa_alloc_pgtable
++void *arch_cpa_alloc_pgtable(struct cpa_leaf *leaf)
+ {
+ 	if (leaf->level == PGTABLE_LEVEL_PMD)
+ 		return pte_alloc_one_kernel(&init_mm);
+@@ -257,13 +258,14 @@ static void *arch_cpa_alloc_pgtable(struct cpa_leaf *leaf)
+ 	return pmd_alloc_one(&init_mm, leaf->addr);
+ }
+ 
+-static void arch_cpa_free_pgtable(struct cpa_leaf *leaf, void *table)
++void arch_cpa_free_pgtable(struct cpa_leaf *leaf, void *table)
+ {
+ 	if (leaf->level == PGTABLE_LEVEL_PMD)
+ 		pte_free_kernel(&init_mm, table);
+ 	else
+ 		pmd_free(&init_mm, table);
+ }
++#endif
+ 
+ static int should_split_large_page(struct cpa_data *cpa, struct cpa_leaf *leaf)
+ {
 
 -- 
-Sincerely yours,
-Mike.
+2.53.0
+
