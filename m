@@ -1,49 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.136.64.228
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.136.65.226
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795707945;
-	b=j+2papE8tY4FF/sDENcATtJBrkvza/CD9d3QUi6Ffgb3mrHobHY68IyFbz0j3/ZzIx0D
-	 HpWmOXTMolkDZFSR75fjWfb7eEN+wr4nUFbUxAvfcdnQIjpISKX0Rns4AMgAjxy++7DQo
-	 /FK37A668vv3V4R67wX8KHpJA/E1SZC7D9JE5DZ7JfyWqBgsV3QfPJVQP2b1gt610cZe/
-	 qOhhTvkiPSOY4yy/6rf6eJhiP0DoPgw2xi1++Ej0UgSTrx8otV2E7zTvqhIVgeN6pP5HU
-	 7CJDEf5Wm1TTVeDzm6HPQoqkLVzR0q8g/SAoSdNrQv+EXUMbXLx/IOsYfLJXmhltWSg==
+	b=EUupB2gFZu0/hVDX9NuaR8RaCe63AFiZqrAp6w8ntSpnP9GxQUG8DatHnvt6RjdUodlP
+	 XWdL6yLKu8coZyYQE2pnRVQj7kCJkcK4Tl0VRj5pvCdXgq0ze+rVxQ7zD3JGMyVME6ch4
+	 6202KUf82p3mefXpxUR2xOh6hilqOjN1rYarm7R1sMzXcfuY9oG+LXcGAKBYL6ejoByLB
+	 hRZhxfgiGFSAyWVa81JVSjVDxjUSN/LI1alkABi0vgNajeQ+cTiZoWd9ZiNO7t9Bma6S0
+	 D6JS72ODUmWx7bpMSmrwTeZHleJvnyZmvDSxY6tYKQNSsRyHj+3zxx4isRMDSYxF84w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795707945;
 	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
 	 Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Flowmailer-Platform:Feedback-ID;
-	bh=PwFIKKz2y8o67G3ho/5uV17TqwfSzdRIlKLB5lCSaiU=;
-	b=S3F0P2K6p7Y+awES0ysP+tcUQ/Dhi6fKKGcS6ZwMmaNOb522HM93G5ikwIqkNqwKMoWt
-	 wIObcnAf9oH7vWARvq6hW0bEjoaE5/1sxbyNQUokzw0t4fIWJL/tcCXdAmZ+5KZmSJRuF
-	 Ldi0KfAV9UXiC7Xj+wuJnaTev4cGdXun1awLMZLxMAOQIzfa6BCrql6waXTWmnewMEW0k
-	 EW74pCUCgy9rII19PwdTMAonFUjrHeqjzuBgU7nu3PRxD5h3ItX6JxrfwvxJYJXJxME0g
-	 OcnqJaczpwtC9Dax2dAHD1l3r0qjH9NTzxz1q4er3c7/iRA+9lo7xOZPqqpnLKToEFQ==
+	bh=Zqe81CUvl0CetbkbGMnAV9O0XTNAJxsTRcckQyPgzXA=;
+	b=gFDu8O0Elf7OpLmJUpz0y2Emt7lX/l6wFf+jiNx5SwKkf1AQ2AKzASaWExu5ZwWbgZBY
+	 6xpFepkg5OjCmA9CTS73qY5DvppuyalGThaG6+sElECdRTeeEp6AWWTsRMdDJ2L+ifvAW
+	 zCv8G8eI8jt87GdOl/ktKuUeKajV428Vi0duhik6H6Ych0GMKiRid9kVmw5/p1HvYZ/FS
+	 pU9DtkLbH6xEv3NikBStuAAfD+0ymNQ7r9vQ9/AGWg1hie05xY+EKHXTaxy3RqEdQr5By
+	 dRRCYdLul7XbL8f/exRI4Ylx9X3VTnvHIqzL8F4MBeA4tHjyEbwpKfOX8sCXTTP/zUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=siemens.com;
 	spf=pass smtp.mailfrom=rts-flowmailer.siemens.com;
-	dkim=pass header.d=siemens.com header.i=alexander.sverdlin@siemens.com header.a=rsa-sha256 header.s=fm1 header.b=SE7nzdeu;
-	arc=none smtp.remote-ip=185.136.64.228
-Received: from mta-64-228.siemens.flowmailer.net (mta-64-228.siemens.flowmailer.net [185.136.64.228])
+	dkim=pass header.d=siemens.com header.i=alexander.sverdlin@siemens.com header.a=rsa-sha256 header.s=fm1 header.b=Kz7GrG4l;
+	arc=none smtp.remote-ip=185.136.65.226
+Received: from mta-65-226.siemens.flowmailer.net (mta-65-226.siemens.flowmailer.net [185.136.65.226])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 612AC606A338
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:45:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 612AC606A338
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 679C6606A683
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:45:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 679C6606A683
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=siemens.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rts-flowmailer.siemens.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=siemens.com header.i=alexander.sverdlin@siemens.com header.a=rsa-sha256 header.s=fm1 header.b=SE7nzdeu
-Received: by mta-64-228.siemens.flowmailer.net with ESMTPSA id 2026112615453527de42ba2d000207dd
+	dkim=pass (2048-bit key, unprotected) header.d=siemens.com header.i=alexander.sverdlin@siemens.com header.a=rsa-sha256 header.s=fm1 header.b=Kz7GrG4l
+Received: by mta-65-226.siemens.flowmailer.net with ESMTPSA id 2026112615453586aa2ab939000207c9
         for <linux-kernel@vger.kernel.org>;
         Thu, 26 Nov 2026 16:45:35 +0100
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm1;
  d=siemens.com; i=alexander.sverdlin@siemens.com;
  h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc:References:In-Reply-To;
- bh=PwFIKKz2y8o67G3ho/5uV17TqwfSzdRIlKLB5lCSaiU=;
- b=SE7nzdeuQnGTNL7AVbj8uWe8INuBujuA0BQdmMPl3FMwxkybIlsNdHvBvIQAfnLT11eUun
- I25RoOyN9dhZRpvzBJ6jPJxuGAh7LibcphY6FS94ojXNe9+qLg+32oocjKZ43grS4W/vBgcN
- QYRBnv77tTQQSD8xDNmHpdzAqOyqniPKweTxRaHk3m7X00YW7Vhuqxe+jO5XgarFJH0GA89i
- gHFgIU24WOnCJQTyFIsOYRCxctLZyXm/7WNThL0nAfXKDj/hgWWrXL8aDX1d1xbPOt5nLbB0
- RVbCJZlCl0H1T4Re/P4X8IUzxcOLMLhnGxiP+SwFH5bl5ueopfHL24jQ==;
+ bh=Zqe81CUvl0CetbkbGMnAV9O0XTNAJxsTRcckQyPgzXA=;
+ b=Kz7GrG4l+IPMRASsQ52hEw7hdl/YxyNPX4Th5GEcrg2x8Fv/cgTXMICYKDFyFLRyBgSpK+
+ eQ+cuaOusrCZt3aNofOMfERfSFO/RxIWqIwA0GjJiur71P0DHt94jN3kWlnBpA/3SeMWKl3r
+ WtBPI9cZ50l0MLDP1NOtRIz5DYCw4DLwAjcP3oOBeuvis9fiPkperbsuamDg1tvdJGjJFIDm
+ HJJNTVzhqxYQlIadIqoaOpyxV3AvbpQHsGoIdzPn+X/dA73sE4C71qItt0H41WlYR+SGJPrW
+ LdU8MRKToj1Op6ZAfFsYeNgQJAb9bogXe9Ro+rFDzA+6CYD15RUR46Pg==;
 From: "A. Sverdlin" <alexander.sverdlin@siemens.com>
 To: linux-gpio@vger.kernel.org
 Cc: Alexander Sverdlin <alexander.sverdlin@siemens.com>,
@@ -53,10 +53,11 @@ Cc: Alexander Sverdlin <alexander.sverdlin@siemens.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-omap@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Lee Jones <lee@kernel.org>
-Subject: [PATCH v2 2/4] pinctrl: single: Don't remove deduplicated groups and functions on error
-Date: Thu, 26 Nov 2026 16:45:23 +0100
-Message-ID: <20261126154529.1599568-3-alexander.sverdlin@siemens.com>
+	Lee Jones <lee@kernel.org>,
+	stable@vger.kernel.org
+Subject: [PATCH v2 1/4] pinctrl: single: Also free the pinconf table of a duplicate function
+Date: Thu, 26 Nov 2026 16:45:22 +0100
+Message-ID: <20261126154529.1599568-2-alexander.sverdlin@siemens.com>
 In-Reply-To: <20261126154529.1599568-1-alexander.sverdlin@siemens.com>
 References: <20261126154529.1599568-1-alexander.sverdlin@siemens.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -74,64 +75,36 @@ Feedback-ID: 519:519-456497:519-21489:flowmailer
 
 From: Alexander Sverdlin <alexander.sverdlin@siemens.com>
 
-pinctrl_generic_add_group() and pinmux_generic_add_function() return the
-selector of an existing entry with the same name instead of adding a new
-one. This is the normal case when a node is mapped again, e.g. on
-consumer re-probe. If parsing then fails, the error paths of
-pcs_parse_one_pinctrl_entry() and pcs_parse_bits_in_pinctrl_entry()
-remove the group and function by that selector anyway, i.e. the entries
-an earlier mapping is still using.
+pcs_parse_pinconf() attaches a devm-allocated pcs_conf_vals array to the
+function pcs_add_function() has just allocated. When a node is mapped
+again, e.g. on consumer re-probe, that function is a duplicate of the one
+the core keeps and is freed since commit ad2093840ca3 ("pinctrl: single:
+don't leak group/function tables on consumer re-probe"), but its conf
+array stays on the controller's devres list. It accumulates with every
+re-probe of a consumer whose pin group has pinconf properties, until the
+controller is unbound.
 
-Besides breaking that mapping, this corrupts the selector space: the
-selectors are allocated from num_groups/num_functions, which the removal
-decrements, so the last entry is no longer found by name and the next new
-entry collides with it in the radix tree (-EEXIST).
+Free it together with the function.
 
-Only remove them if this call actually added them, i.e. if the core's
-function refers to our pcs_function. As in the success path, testing the
-function is enough: the group has the same name and is always added and
-removed together with it.
-
-Fixes: a4ab10860723 ("pinctrl: single: Fix group and function selector use")
+Fixes: 9dddb4df90d1 ("pinctrl: single: support generic pinconf")
+Cc: stable@vger.kernel.org
 Signed-off-by: Alexander Sverdlin <alexander.sverdlin@siemens.com>
 ---
- drivers/pinctrl/pinctrl-single.c | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
+ drivers/pinctrl/pinctrl-single.c | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/drivers/pinctrl/pinctrl-single.c b/drivers/pinctrl/pinctrl-single.c
-index 64472465800c4..f5f0b95dc4282 100644
+index d72ebb186b894..64472465800c4 100644
 --- a/drivers/pinctrl/pinctrl-single.c
 +++ b/drivers/pinctrl/pinctrl-single.c
-@@ -1116,10 +1116,16 @@ static int pcs_parse_one_pinctrl_entry(struct pcs_device *pcs,
- 	return 0;
- 
- free_pingroups:
--	pinctrl_generic_remove_group(pcs->pctl, gsel);
-+	/*
-+	 * Only remove what we added, not an in-use deduplicated instance. The
-+	 * group is deduplicated together with the function.
-+	 */
-+	if (pinmux_generic_get_function(pcs->pctl, fsel)->data == function)
-+		pinctrl_generic_remove_group(pcs->pctl, gsel);
- 	*num_maps = 1;
- free_function:
--	pinmux_generic_remove_function(pcs->pctl, fsel);
-+	if (pinmux_generic_get_function(pcs->pctl, fsel)->data == function)
-+		pinmux_generic_remove_function(pcs->pctl, fsel);
- free_pins:
- 	mutex_unlock(&pcs->mutex);
- 	devm_kfree(pcs->dev, pins);
-@@ -1262,7 +1268,9 @@ static int pcs_parse_bits_in_pinctrl_entry(struct pcs_device *pcs,
- 	return 0;
- 
- free_function:
--	pinmux_generic_remove_function(pcs->pctl, fsel);
-+	/* See pcs_parse_one_pinctrl_entry() */
-+	if (pinmux_generic_get_function(pcs->pctl, fsel)->data == function)
-+		pinmux_generic_remove_function(pcs->pctl, fsel);
- free_pins:
- 	mutex_unlock(&pcs->mutex);
- 	devm_kfree(pcs->dev, pins);
+@@ -1107,6 +1107,7 @@ static int pcs_parse_one_pinctrl_entry(struct pcs_device *pcs,
+ 	if (pinmux_generic_get_function(pcs->pctl, fsel)->data != function) {
+ 		devm_kfree(pcs->dev, pins);
+ 		devm_kfree(pcs->dev, vals);
++		devm_kfree(pcs->dev, function->conf);
+ 		devm_kfree(pcs->dev, function);
+ 		devm_kfree(pcs->dev, pgnames);
+ 	}
 -- 
 2.56.1
 
