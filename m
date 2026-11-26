@@ -1,45 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795715109;
-	b=c/NYS/NUb9Uetw4gNANsdlBS/MoV+kv1snV8zWE/nm4XyxLVAHf4QLNEHdUk9i8DlAik
-	 twHTqSiaZvvuZ5I6XCphcI+7HKFfpQBHo4PTOoOxK6jfX4TDxsTTaafXdsFyUW89kHOl1
-	 vU3vyjhybsA8D9FBxH9UGCCTDpEX5jqvZHZkyB2o/Yn9dTw6nA/R0Rhvy8MxY6TGYusha
-	 CbvL4JhaO24CDG/1T1TXS6VEmoHLi9cFRjF8ndyiDPQEdeJPEmFjFQBuNbWV/iceOz8rp
-	 2q6jicR4xaI/UICk1uRINlYaFT8+S89s+jtt17tRvD89LcdojSxIPJfFqjRAgp9ImzA==
+	t=1795715273;
+	b=N3bQqhfVFv6X7RgFhlujBdgkoWSjKooXQEvrDg3tjQy7SgTv0UJzx9KywgBTjFxSN7/V
+	 PkLd4Jb+ww+uS+e+zR3Myv5ODzzAlhZKH74TtT+G4cEO4FYBQcslz0evroNs3SWxEdCfZ
+	 2AB4Eex3CZFAcyCxIHLYf0Jnkbuxp2tzwf3Wz3Kb57UoP5CWhAAh9v8hJ51cbJR2XPT7v
+	 YUhPA1/l+WlvbJSS8gYvNvmnz5XbQZr0qo2Isl/4x6BIzZRKW8cRK3fWw6zYvP2FvXs4k
+	 5nzyyC8NE8Q1+FFlDE5giVq+8YqRgnc0HEomUeAAHMNxM2SJqRpl1kGyEb0dAnSrMtA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795715109;
-	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
-	 In-Reply-To:References:Subject:From:To:Cc:Date;
-	bh=UVwKvUqZc3YTIGZQosfwnsDxlaSdrCZ8Jhlv1YMbjOM=;
-	b=z1r7xCc4l0RKTf0O9NIoFDtepIenkwQ/w6wrlY2ofdaCzqYRaWK52AiqazSiDPX2CvkZ
-	 bBlLcyBaT3BJdaEDvtlqJMUUK13toH6tKFc00/1NuaR7wZBpGuGzo8vTP1OIpTuAZAK3w
-	 JIPaLoxcyLvJCg+tudI3HUxv9lqyJ7kZ47AT8zm8XPO/aoWGmFseDLoWgCbUD5ADjmVJA
-	 JqM10zWLXmS+2eN9RGS+mAqt10W6ezm2U2VuJJjisC1vhHtRupjcIiiuPohKibrrbi9N9
-	 D+f/kl0Ay9Rwlo/21xqJrMXvkfz411/UJd5d2rF9Ym7yHOHe9ZHOpwFsLTql/xnzFjA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795715273;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=4RF2eH0e7xWbgvaos9fwTWu3mXTmWcfIqp3gKOpY418=;
+	b=n+7Qenj0PAXy0VhnNxpYHErgprphjYgsL92WFm/ydAW84HgJ46i1kZoMYi/yOEAybvCQ
+	 Uczwkq87W6a7v2bpaD05siKUDc7ltC6VMIgi/oTpCVm7Fcr5A0o+WuemSKAiSK8YfqlKU
+	 Z/B18PxlBtjNxRGVjNXHcx1/v4WiFNnB2Mza5wG1SBgCUR5dNoiq6+/bCePB9X0jwAmoe
+	 Fr/OwXXqnP9yOerMMPRAfrRaW6I+zm1y4vqIeLkWoK9vEVsJvfg/nRxlHzCNaGGOMSOzL
+	 d9/mxAFYudyZaAVoLnSgwOVPccEm8P3TdceFWmiPAmFHECiAyfP2HCc3AiR5dWaqZdA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B9KoWkCz;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mrg5+hTX;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F87C606A327;
-	Thu, 26 Nov 2026 17:45:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1C4E606A31C;
+	Thu, 26 Nov 2026 17:47:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B9KoWkCz
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02F411F000C6;
-	Thu, 26 Nov 2026 17:45:05 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mrg5+hTX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFEB01F000C4;
+	Thu, 26 Nov 2026 17:47:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795715108;
-	bh=UVwKvUqZc3YTIGZQosfwnsDxlaSdrCZ8Jhlv1YMbjOM=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=B9KoWkCz5lur7rU3+m/m0+34kzI7sd3+putoPB8nGh8af+bYaAqekCFoAHTTDTpTL
-	 ZsLUQQ56kuB289CSTCGySB/Nina/JbyRyZ68huuATJcYmq4quRmbRbbZbAyPENQaTB
-	 721r0/pqCreV8UMwFOSrd5GIrup56RPy2FDHsDeDB6bmCVukJFFBp6eanbSxnuyyG9
-	 g0Irzy2agVNA1W6bN2lZJ5C4OTVcKekAucDEZTtMeWNjHmGZSp8s6AHEwTh9XSuHDu
-	 SdmDi8WtP3LP0PT5NHhvQIVDNWEJIKBTTYFujFOLJB90Xq3M8rjaNHlpuIO3ns7rfv
-	 8n703OMD6826A==
-Content-Type: multipart/mixed; boundary="===============4556629013773228158=="
+	s=k20260515; t=1795715272;
+	bh=4RF2eH0e7xWbgvaos9fwTWu3mXTmWcfIqp3gKOpY418=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mrg5+hTX9HVLzhnrnl7ZzFK56BtlwoC9uSYStkvTSE4kME8V64xOd6ee0Sz+JorZP
+	 HL4/sIKP3eMyWE3DFl0T8PfjGLgh6eUOPo5hvBnmmI7qFfn/whhrFgsFc/zbWDI6YL
+	 cTgSAUJt+52+YMZbD9YrK2qU4zmtyKAskCBT7deqgclk9QkshlbjqH3MBlMPKtyXv7
+	 8sv1g++zANwOY0Sawtwpr0BvzO1tUD5wcIMcY8do/Tr/JykDgsmI1XYxi4rcNhix7D
+	 EDb2z3nXGEN68pcx6OR6HRNjxGo85oiMuOzaFauyFm9VQoeg1u2nAAo3hKFw87lCEb
+	 Th/3YnUdG9URQ==
+Date: Thu, 26 Nov 2026 18:47:49 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: "Thomas Richard (congatec GmbH)" <thomas.richard@bootlin.com>
+Cc: Lee Jones <lee@kernel.org>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Werner Gartner <Werner.Gartner@congatec.com>, 
+	mfd@lists.linux.dev, linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org
+Subject: Re: [PATCH v6 10/10] i2c: cgbc: Register known I2C devices on the bus
+Message-ID: <awhwiHGeUFnTvxzg@zenone.zhora.eu>
+References: <20261117-cgbc-i2c-storage-devices-support-v6-0-bb070ad3e9aa@bootlin.com>
+ <20261117-cgbc-i2c-storage-devices-support-v6-10-bb070ad3e9aa@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,66 +58,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-Id: <0eb06d3a00f2e4d56c2f25db16eb8b02160387281fe455b0e0e5d7466492657e@mail.kernel.org>
-In-Reply-To: <20261126170538.3471057-1-visitorckw@gmail.com>
-References: <20261126170538.3471057-1-visitorckw@gmail.com>
-Subject: Re: [PATCH v12] m68k, bpf: Add initial BPF JIT compiler support
-From: bot+bpf-ci@kernel.org
-To: visitorckw@gmail.com,corbet@lwn.net,geert@linux-m68k.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,eddyz87@gmail.com,memxor@gmail.com,gerg@linux-m68k.org
-Cc: skhan@linuxfoundation.org,rdunlap@infradead.org,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,marscheng@google.com,eleanor15x@gmail.com,jserv@ccns.ncku.edu.tw,linux-doc@vger.kernel.org,linux-kernel@vger.kernel.org,linux-m68k@lists.linux-m68k.org,bpf@vger.kernel.org,visitorckw@gmail.com,daniel@thingy.jp,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Thu, 26 Nov 2026 17:45:05 +0000 (UTC)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117-cgbc-i2c-storage-devices-support-v6-10-bb070ad3e9aa@bootlin.com>
 
---===============4556629013773228158==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+Hi Thomas,
 
-> m68k, bpf: Add initial BPF JIT compiler support
+...
 
-TL;DR: Nits only, no bug found: the m68k JIT hardcodes the tail-call limit
-(0x7021) and the 44/48-byte prologue jump offset; suggests named constants and
-a check so later edits don't quietly break tail calls.
-
-> diff --git a/arch/m68k/net/bpf_jit_comp.c b/arch/m68k/net/bpf_jit_comp.c
-> new file mode 100644
-> index 000000000000..96305a8478c7
-> --- /dev/null
-> +++ b/arch/m68k/net/bpf_jit_comp.c
-
-[ ... ]
-
-> +	emit_16(ctx, (u16)STACK_OFFSET(BPF_TC_LO));
+> @@ -385,7 +385,15 @@ static int cgbc_i2c_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		return dev_err_probe(i2c->dev, ret, "Failed to get I2C bus frequency");
+>  
+> -	return i2c_add_numbered_adapter(&i2c->adap);
+> +	ret = i2c_add_numbered_adapter(&i2c->adap);
+> +	if (ret)
+> +		return ret;
 > +
-> +	emit_16(ctx, 0x2068);					/* movea.l d16(%a0), %a0 */
-> +	emit_16(ctx, offsetof(struct bpf_prog, bpf_func));
+> +	/* Add known devices to the bus */
+> +	for (i = 0; i < pdata->nb_devices; i++)
+> +		i2c_new_client_device(&i2c->adap, pdata->devices + i);
+
+Please handle return values here.
+
+Thanks,
+Andi
+
 > +
-> +	emit_16(ctx, 0x4ee8);					/* jmp d16(%a0) */
-> +	emit_16(ctx, CPU_IS_COLDFIRE ? 48 : 44);
-> +
-
-[ ... ]
-
-> +static void build_prologue(struct jit_ctx *ctx)
-> +{
-> +	int total_stack = SCRATCH_SIZE + MAX_BPF_STACK + 8;
-> +
-> +	emit_16(ctx, 0x7021);					/* moveq #33, %d0 */
-> +
-
-this isn't a bug, but could the tail-call counter be emitted as
-0x7000 | MAX_TAIL_CALL_CNT instead of the literal 0x7021, so that a grep
-for MAX_TAIL_CALL_CNT finds this place if the limit ever changes?
-
-Similarly, emit_tail_call() jumps to bpf_func + (CPU_IS_COLDFIRE ? 48 : 44),
-which only holds while build_prologue() emits exactly 44 or 48 bytes.  Could
-that offset be a named constant that is checked against ctx->idx at the end
-of build_prologue(), so a later edit to the prologue cannot quietly break
-tail calls?
-
-
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/45866130532
---===============4556629013773228158==--
+> +	return 0;
