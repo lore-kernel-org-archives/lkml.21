@@ -1,98 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795708754;
-	b=KKLgaVP8nO66kP1uaV6zp6WdtH8IVJWMjmab4FehWwY/Lv+DzIXPEu09g7eX6VKTjKB8
-	 kV8iKg+Fdml+oheRKhzDKbfWgqAMLpINfzJV+3gt3OEhMQGYfNxF36HN25/8U/OWGRIfD
-	 ZIukT6Wl+7FuWpvYSwp2XfRPNOU98b47MiiXTNtBCjJUtZe3OE+zbq/FMd0sDFV/XBE80
-	 z30qkDiHMstBoMG7e110N/OC83V6lRi6DXdZB49gv4d4fjUybjmUpWvMyRukPlV0XWaSn
-	 OQyHqVguFkkACnOX0fUAgU8q+i2g5dprOxw5C5ban1CddO1pyDs5HPxkoAk4l/Xo8jw==
+	t=1795708808;
+	b=Ho4dpeBhBNDsz8HCe4tqc/Dnvo4/v/9riHdnwCXPCkDsBgqZKvcjsfj4O0Yi19UkUPhz
+	 VDfEeZHdhYjb+JJKlcjqDKcxc0KVGSaxwmrXwbI+l2JktGH09wxKrhogOHAshoZraSV//
+	 vZT+JYg0zWk9YaMC5Ww5QJH+EQ8GWCE018gltKNFGehOeBuJdD0GWdR7xRdTwTdmd+NX3
+	 VKLteJ39Rz7/0QTI9ID7bPvyUk0It5hNaC0b5MsXBn8OQFYV6Fp36CCyEnkp3wnMPGdlb
+	 5yHW4wcU57rumr3A9f7nrRgB+aLhl+GTrFxrE+T2Y5gksL0NUgGle0jGHQc6YHn4y8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795708754;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=xdJp+FlW0fAnBajETS7/P+7V0hYHEUFR0KWFN0IaqRA=;
-	b=iRJnemd8Lvt34i+Wf8+QXHszwcNSzOcCB0wobIR5SHlItBKbvcEVhLoqkrVPwGxnAOYd
-	 SVhXLvpDJfQNJMb/a4cA6tEk8wJQEdNr3WrNh3vcGzttTjcfnpk7KzScTWD84Xck78q6i
-	 gp8ZNQlcripOc/ojD6tk5aFgNEoRCeePLTxgxFJv5JJsOjFoXGUGMVcFrEmflKOzS2ked
-	 9b1sFpFZ8MKQ8KDLWn84vKdzKMJhDPZsY1Mli4JwJY2n1O6EUss4dU7Yvmda/L2GZDoXM
-	 skUkcjTNOSGmNHSfEToKU2UPFcDANgCE4dtQ68LyuSyGL7dQ1g0vEPhlJP8REuwNK+Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795708808;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=VE/MUdrae0rgGBZgvICrVU8zY9K62C8PJllKHbD1Ln4=;
+	b=EKfg41F8i6DZmPK+5ptjzu6AvtKn18MgKHNMWzMz++oP9I7eMdJHoJKdZisDHHExSQA/
+	 6+B/9qJ9c3F2ogul0p3tLba2j525+4N3jH815iokpB3tlikTdLD3VUnQo+Xgd2tbdutjl
+	 Mx9231wXc1155NYKIRy0pjevvAyIuc/bywwX9xUX/MxgSmRKgph9NrCjxt+RqJTozysYO
+	 YLXqzNt51Aur96qR8vxZCSYTPwjxrlE53n/iIavSDgFzv2xqWnc6/3MRbLUFBKCTWmWSP
+	 yKYktUiOfL+TlYwVhXr7ihnhPx3eJfnW20aQkUcpTroiRYqkqLVJKj5GwGo9tz9BG1A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dr2+JTZn;
-	arc=none smtp.remote-ip=74.125.82.176
-Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="hgFW/BRA";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FC06606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:59:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FC06606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 697CB606A31E;
+	Thu, 26 Nov 2026 16:00:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dr2+JTZn
-Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-385c497bf94so5832970eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:59:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795708753; x=1796313553; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xdJp+FlW0fAnBajETS7/P+7V0hYHEUFR0KWFN0IaqRA=;
-        b=dr2+JTZnoqQ5ydoqHLJw5HDebXiwsQxPv/wpFTjgGIVJyfNDsoFmgLKfkPx3ggrRqA
-         ngEZ6NeCmv1npWvMuch6Cix+6odE7FiPOOXMKNUtBrwr4FunUfR/kbF2VAXk/Pc2cA4J
-         1K0/xySxzaI5GKCIk0hwAHlu7O9ropeohMIjni0cn7/+FYi+GKF8K1f8Tfcu84EyI885
-         +7iEbxii6KCvbiupWUITr1vtEd0xNpHCVTjCsBuJ8wSAqxxcw2/bhOdp80UCcfbljhbr
-         Snqz2ptyQX95xjZw96jPsnibIPvgC5AwqfHyx5luSNEXfxZQeGQZlIy/+08zKXmBctU/
-         rEBg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795708753; x=1796313553;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xdJp+FlW0fAnBajETS7/P+7V0hYHEUFR0KWFN0IaqRA=;
-        b=HUeaAGm7eM/U7jDlOt+hMpQlIk7DNLeDbbDDWN2ubV7stHG05MkSboBlF5paIt6jBT
-         BCNu70CX3ooJ8aV5Y0RuTFrEe9oAtvl5rESQMkeMSQIIXGeEooDxz4HczjPR/PlZpPuL
-         RmAiXq7KsjKl5H1R73jl0zbb4OCzufgJO2iZxt5kEBCEK/C7roimZSf3V40X7+6DLEcQ
-         qnTSlR6AZ8KCHqecNI4YifzxaKGS4yBBNP8yRqL2UCkl43Vz/ExQ7SFYtVpp4ZxepXCd
-         h7DS3J7kEecVoywMCbm67Jvu7vJXbb/hulZG/VrS53Mur/rt/KALeEPGlmH8DPBGKAoJ
-         E2oQ==
-X-Forwarded-Encrypted: i=1; AL+hErGQDum1Yop3WFS6QojqzlsLH1CAUMWXTdE4UAJQJr0zIW9Qb9b5x5bO7UF3STlg+u50KeED2G5apE/Psrw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8EpED2iBtK00XbsuexW4l1lUJJERbPoplVKlnElK+7GDv5BY2i
-	GQJqGq7oXSCRl290ecVJe4v90MfXkKS+p6bZPk0F94seeRnJg1JsCFc=
-X-Gm-Gg: AZFdTZefzrzhkDXIcy1Evr2DhsV51DsX/X7WIsnsIIPpQ3hg6uALgw3quvGUm53xbi+
-	eOhQlgfoM9MxkrIa3V7ibk8XhuMUNyXf4uo8oTadMqboyIo7wSGziPPEtQsPS97sbZUfwwqI3iO
-	t3dhMUujj73aMzAZDLkrqI6Gyo0ecYoy1GHwtcu0jYgGLykFw5MpVWKfRKbQ8hGW5J/CyFhl23a
-	xhq+js0P8z33UQ9Yu2UDXmEs86zm8qdu12tu0w6Xwh+DJW9lrq7vpAP4gCFfC3cn1Mr4o+ES9WC
-	0dHJW1vAw3Ac58KS6HLs9QQrL9/7nSfpoSuOJdfYdqv2pq2BoHR4EwL7q7Qdq+PZGC0u7j4oP8E
-	smj/9RK+OaP+pYrp6Pq+QOv387QbR8EEeSXhBjGOy6FH06QUr0A+tmUlQQ6aJM+2zWr77EexBUT
-	QkCu02Zd1Pmasz/J2Zmapgreb/CkDNu5QkDX8zeA6roHPgotZ48gJ418gNcWnuQ8yEPjMRPpW8b
-	b8q7ch6BeLQKaz5HlPgmhRgxeg8A204G9ujcnkvBassXgQyyvyNH6gZ15YZi/sJKqEqTdak0UCZ
-	KO458ajYyCFZp8Zj/cM+xm3Q6vl/noUcvC98EMIdGoNfiNuxD+9JD1UfzeHr5r6+nmpMad4uNGJ
-	iF2INQLNy4FqL
-X-Received: by 2002:a05:7301:6407:b0:386:2300:db04 with SMTP id 5a478bee46e88-38623101ee2mr21471812eec.22.1795708753327;
-        Thu, 26 Nov 2026 07:59:13 -0800 (PST)
-Received: from localhost.localdomain ([2406:3003:2002:639c:a06e:23f:85ed:4cfe])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386aa203267sm35099691eec.0.2026.11.26.07.59.10
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 26 Nov 2026 07:59:13 -0800 (PST)
-From: Yige Jiang <yigejiang86@gmail.com>
-To: JC Kuo <jckuo@nvidia.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>
-Cc: Yige Jiang <yigejiang86@gmail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	linux-phy@lists.infradead.org,
-	linux-tegra@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] phy: tegra: xusb: Fix OF node reference leaks in enabled pad setup
-Date: Thu, 26 Nov 2026 23:59:07 +0800
-Message-ID: <rc-b1-20261126-vc-166-f94c6693453a@gmail.com>
-X-Mailer: git-send-email 2.50.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hgFW/BRA
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 032501F000D0;
+	Thu, 26 Nov 2026 16:00:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795708807;
+	bh=VE/MUdrae0rgGBZgvICrVU8zY9K62C8PJllKHbD1Ln4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=hgFW/BRA65DPqOWtWM/gHt/VabwCrxCgXXz+9nSIwQHhamHnemeygSa83/9p2C86W
+	 sRuwUIjwdLY9P+dmCPycLRIeZ74vCmzvHW/XWfVKc0bHU3jhXKiw2+jwiGnidRFGFs
+	 ixyhTw7zavr/KFwjQAOA/Y2TLLwfvDe6Cv/Ac0Ua/w2f/DP5b8fg7uE88BIMOqFyzw
+	 cgd5QVxwfDG9Swd2IwLE/EDFFCgjBKEdcUGAZIIIXBiVDMztZmz5v31qrbr0CtTAwx
+	 gRoiYPvthCWCPbcTt1H5hERTcX3kBT2u70PrryJgSZVNyValwweN9omZ3bAs+iYErm
+	 bS4Lv4zBSJbHA==
+Date: Thu, 26 Nov 2026 18:00:03 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Hannes Reinecke <hare@kernel.org>
+Cc: Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
+	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
+	Hannes Reinecke <hare@suse.de>, Chaitanya Kulkarni <kch@nvidia.com>,
+	Eric Biggers <ebiggers@kernel.org>,
+	David Howells <dhowells@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org,
+	keyrings@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	Martin Belanger <martin.nvme.dev@gmail.com>
+Subject: Re: [PATCH v7 00/14] nvme-auth: switch to use the kernel keyring
+Message-ID: <awhXg41rBQL982qk@kernel.org>
+References: <20261126-dhchap-keyring-v4-v7-0-ee438ffea527@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,76 +67,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261126-dhchap-keyring-v4-v7-0-ee438ffea527@kernel.org>
 
-tegra_xusb_pad_create() looks up the node for an enabled pad and passes
-it to the SoC probe. The pad device stores that pointer in dev.of_node.
-Neither the probe caller nor the pad release callback drops the lookup
-reference.
+On Thu, Nov 26, 2026 at 03:12:18PM +0100, Hannes Reinecke wrote:
+> Hey all,
+> 
+> the current NVMe authentication code is using a hand-crafted key
+> structure; idea was to have the initial implementation with a minimal
+> set of dependencies.
+> (And me not having a good grasp on how to use the kernel keyring :-)
+> That had the drawback that keys always had to be specified on the
+> nvme-cli commandline, which is far from ideal from a security standpoint.
+> 
+> So this patchset switches the authentication code over to use
+> 'struct key' to hold DH-HMAC-CHAP secrets. User-facing interfaces
+> (namely argument to 'nvme connect') remain the same, but the key data
+> is converted into keys which are stored as a new key type 'dhchap' with
+> a random UUID as description in the .nvme keyring.
+> 
+> With this I have updated the dhchap arguments to 'nvme connect' and
+> the configfs interface to either be the keydata (ie the original
+> interface), a key description, _or_ a key serial referring to a
+> pre-populated dhchap key in the kernel keyring. This allows for external
+> provisioning of keys and avoids the security risk from having to specify
+> the key data on the kernel commandline.
+> 
+> The entire patchset can be found at
+> git://git.kernel.org/pub/scm/linux/kernel/git/hare/nvme.git
+> branch dhchap-keyring.v6
+> 
+> As usual, comments and reviews are welcome.
+> 
+> Signed-off-by: Hannes Reinecke <hare@kernel.org>
+> ---
+> Changes in v7:
+> - Fixup next round of issues from sashiko
+> - Modify to use key_serial_t instead of 'struct key' to pass key references
+> - Include suggestions from Martin Belanger
+> - Link to v6: https://lore.kernel.org/r/20261123-dhchap-keyring-v4-v6-0-5082a49715ab@kernel.org
+> 
+> Changes in v6:
+> - Fixup next round of issues from sashiko
+> - Fixup kbuild robot issues
+> - Link to v5: https://lore.kernel.org/r/20261123-dhchap-keyring-v4-v5-0-81eefb4c0724@kernel.org
+> 
+> Changes in v5:
+> - Fixup issues found by sashiko
+> - Link to v4: https://lore.kernel.org/r/20261120-dhchap-keyring-v4-v4-0-5f8c7d9926ee@kernel.org
+> 
+> ---
+> Hannes Reinecke (14):
+>       nvme-auth: modify nvme_auth_transform_key() to return status
+>       nvme-keyring: add 'dhchap' key type
+>       nvme-keyring: drop nvme_tls_psk_revoked()
+>       Documentation/security/keys: fixup function name
+>       nvme-keyring: link addtional keyring into .nvme keyring
+>       nvme-auth: switch to use 'struct key'
+>       nvme: parse dhchap keys during option parsing
+>       nvmet-auth: parse dhchap key from configfs attribute
+>       nvme: allow to pass in key description as dhchap secret
+>       nvme-auth: allow to specify the key by key serial
+>       nvme-auth: wait for authentication to finish when changing keys
+>       nvme-fabrics: allow to pass in keyring by name
+>       nvme-auth: link pre-provisioned keys into .nvme keyring
+>       nvme-auth: allow to update pre-provisioned keys
+> 
+>  Documentation/ABI/stable/sysfs-nvme  |  10 +
+>  Documentation/security/keys/core.rst |   2 +-
+>  drivers/nvme/common/Kconfig          |   2 +
+>  drivers/nvme/common/auth.c           | 232 ++++++++++------------
+>  drivers/nvme/common/keyring.c        | 370 ++++++++++++++++++++++++++++++++---
+>  drivers/nvme/host/Kconfig            |   1 -
+>  drivers/nvme/host/auth.c             | 176 ++++++++++++-----
+>  drivers/nvme/host/fabrics.c          | 169 ++++++++++++----
+>  drivers/nvme/host/fabrics.h          |  12 +-
+>  drivers/nvme/host/nvme.h             |   6 +-
+>  drivers/nvme/host/sysfs.c            | 300 ++++++++++++++++++++++------
+>  drivers/nvme/host/tcp.c              |   5 +-
+>  drivers/nvme/target/Kconfig          |   1 -
+>  drivers/nvme/target/auth.c           | 250 +++++++++++++++--------
+>  drivers/nvme/target/configfs.c       |  84 ++++++--
+>  drivers/nvme/target/nvmet.h          |  15 +-
+>  include/linux/nvme-auth.h            |  17 +-
+>  include/linux/nvme-keyring.h         |  47 ++++-
+>  18 files changed, 1257 insertions(+), 442 deletions(-)
+> ---
+> base-commit: 68099cf27253a8c89d703a282d3d811446d9453b
+> change-id: 20261120-dhchap-keyring-v4-09f0bac1d8c5
+> 
+> Best regards,
+> -- 
+> Hannes Reinecke <hare@kernel.org>
+> 
 
-Give the pad device its own node reference before device_add() and drop
-it in tegra_xusb_pad_release(). The caller can then put its lookup
-reference as soon as the SoC probe returns, including on error.
+Without looking into detail to the changes, it'd be best if key type
+semantics would align with [1]. See the preparation patches for other
+subsystems.
 
-tegra_xusb_pad_register() also looks up the "lanes" child. The PHY
-provider takes its own reference to that node. Drop the local reference
-after successful registration, as the error paths already do.
+I'll send updated patch set after v7.5 merge window. The only reason
+I'm not moving forward sooner is to gather as many bug fixes as
+possible for the "previous world", which LLM bots kindly provide.
 
-I used an AI coding assistant to trace the node references and prepare
-the diff and commit message.
+Otherwise, this needs to be refactored very soon after the patch set is
+merged.
 
-Fixes: 53d2a715c240 ("phy: Add Tegra XUSB pad controller support")
-Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
----
-Based on linux-next next-20261109 (630059a5a632).
+[1] https://lore.kernel.org/keyrings/20261112040242.247168-1-jarkko@kernel.org/
 
-Julia Lawall posted a separate fix for disabled pads in 2019:
-https://lore.kernel.org/linux-tegra/1550928043-14889-5-git-send-email-Julia.Lawall@lip6.fr/
 
-An earlier version including the disabled-pad change was compile-tested
-on arm64 (GCC 14.2.0, W=1). This revision has not been compiled or
-tested on Tegra hardware.
-
- drivers/phy/tegra/xusb.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/phy/tegra/xusb.c b/drivers/phy/tegra/xusb.c
-index cd1cd985f36a..aa6ede9f4a21 100644
---- a/drivers/phy/tegra/xusb.c
-+++ b/drivers/phy/tegra/xusb.c
-@@ -161,6 +161,7 @@ static void tegra_xusb_pad_release(struct device *dev)
- {
- 	struct tegra_xusb_pad *pad = to_tegra_xusb_pad(dev);
- 
-+	of_node_put(pad->dev.of_node);
- 	pad->soc->ops->remove(pad);
- }
- 
-@@ -178,7 +179,7 @@ int tegra_xusb_pad_init(struct tegra_xusb_pad *pad,
- 	INIT_LIST_HEAD(&pad->list);
- 	pad->dev.parent = padctl->dev;
- 	pad->dev.type = &tegra_xusb_pad_type;
--	pad->dev.of_node = np;
-+	pad->dev.of_node = of_node_get(np);
- 	pad->padctl = padctl;
- 
- 	err = dev_set_name(&pad->dev, "%s", pad->soc->name);
-@@ -249,6 +250,8 @@ int tegra_xusb_pad_register(struct tegra_xusb_pad *pad,
- 		goto remove;
- 	}
- 
-+	of_node_put(children);
-+
- 	return 0;
- 
- remove:
-@@ -285,6 +288,7 @@ tegra_xusb_pad_create(struct tegra_xusb_padctl *padctl,
- 		return NULL;
- 
- 	pad = soc->ops->probe(padctl, soc, np);
-+	of_node_put(np);
- 	if (IS_ERR(pad)) {
- 		err = PTR_ERR(pad);
- 		dev_err(padctl->dev, "failed to create pad %s: %d\n",
-
-base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
+Br, Jarkko
