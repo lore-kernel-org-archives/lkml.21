@@ -1,48 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795690303;
-	b=bx86AgCgr+0Dge0j1GPwOOnfm0fZcf4rMuBe5cp2CD6AUw6OBuROCbVL3fd9pVC0nKgf
-	 epQUn0GQvAOivhA/fT1NBQsTqSBZksu4uyDAeTFhUWQcbWw2NdyEt4LAiRmtvdoNH+Djs
-	 fTtSOH5XaxeTsV7WzOtpX7G5svv9A1djOBquKYLr0A06AAgThE5xZ/yt5UJDOEft5sL8v
-	 gDoO3uu/d6xBBhy07oaDa48sTIxCtlMHOccJTThEStwCx0EZBgmgEgFKl63AIIF29OZHj
-	 QlFg8rWLFNoGxUPdggEdHQQnhh2ry6UNxrUDHQJcUW4UCpWzrXIoxXoKVY0EiatcZYg==
+	t=1795690424;
+	b=oFikFvRm/CFMnWkRpCWIqNn8/69+u/0o+oaits8ECFHTluzZy+0oKMPOjNHNX5Tlc54q
+	 j+9Etbq3asaBo88k6lA2eifuLtPny4aC8X3ij8qXtzXPtywj8T+Cw3WFeH3UWyntn6dT/
+	 s4OCLWNFGMVOXrLgaohQyOQP4bY2/G8SYvqRdmxiS56V4LALpkTctH9A0u+fV4jgV23lw
+	 SKCympiOlyNoY6L/7XoKmk/yP/+E7qBW0NCmUSZgqxFojZky0stNWahTMpqCAIM/LrgkJ
+	 Wi75lQaCTY7u/i/5NZ5IX+Alh0PjXcAh/G32yyYWwJSE0V35SFZivfJx+sRDzOW8cZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795690303;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=5ntCcjIuevH5QG1iJizV2FIttqGUB67AJd7kEb0bdV4=;
-	b=JseXVCDz6tYVqJnOEFe2NhXo4VOUpIv9txYUCLk+trZeRnIs2DYOMrXBKzJMActkG+6n
-	 iZYHbH1opKwXXSLed719blNZ8lxR4tC9+Oyuy0mb+ScGaacOPtBlrIc7FE7akpvpZ6Ysg
-	 A8OYte8GSetK0rRrW3YOOJo5zT2otO4Hv18irHFZ00xylvqJ44bV06hzKn2GEGX2tY/qS
-	 XhhxVuaGjSN+f2n81TTl89MZX9ssATFlKMCtKhY+Au8fEyfzq2MZocZYy3MpmQpMS8YIo
-	 IpP5OKczklG2d0UGvVcUUtXP5SadAevAO7U5Z9BgKCCFsxFwEA4eSDQELd1WuqD2vsA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795690424;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=8RnxPSTHJj6ssbwJH49Q6KtCPv2E9H09AK7eDPufzS8=;
+	b=McTsnzktiXacRE7Fecm2C4rslwb7pRwMJaBPPolIRgUG/OPbEKcIhV4X799ks+q6ejSR
+	 +AbMDYvaX9bVgMqn7bm9/QnII2gh3CYY9VbHx/GNioIL6f6PGNNPyTa024Qk5SyCha2aY
+	 +OjTWmLStgSNI2NM8AfIXes+yfFxNqbOguZRkcEw/SRsaNONwaZ6lcdjlSvI2jNWV0oVD
+	 LUI08xSF6VPkEkMSFzcWoDJM4sKP+9mqScZmAqzQv1RKJaVpY0dyk2K23pWLbj2OGShJg
+	 hPU+kUPuDApQlZ4lkusAr1RkNF+roSEjKJN4Fs/CcEu3O25IewVr4ps85bI8IQl+VIQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RA5CmdhA;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UHzlEe+O;
+	arc=none smtp.remote-ip=209.85.216.42
+Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com [209.85.216.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6739606A31E;
-	Thu, 26 Nov 2026 10:51:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F97F606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:53:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F97F606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RA5CmdhA
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84AA61F000D1;
-	Thu, 26 Nov 2026 10:51:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795690302;
-	bh=5ntCcjIuevH5QG1iJizV2FIttqGUB67AJd7kEb0bdV4=;
-	h=From:Date:Subject:To:Cc;
-	b=RA5CmdhAMT+egc98YLI0ZsR0M0/tFDHVOxP7ny5vkbAGijjYbnGs9/2+g9jKrVSMC
-	 aypeHRgox5NlkHzBhUwftQbTjECcoyyoZlPAXwDcERJ77aRfFdSJucPIS3TqgsShwd
-	 2NpryuZu9nu1U/66cqsR/JCeDzUuyWxnvBwdoh1nFBr8O45m5GuyOBiLqrEx2QWjql
-	 M+2egwZreLzSQu/3vcwTMAhpXHIVD+VAQ0dv9+Hp3RxCGgpQzS4SSQE2H1zDS6kCiM
-	 OVSZ4nKXhnjH9MtBxEcqJuA/5gvl4UtRAazl/oXuxxQOZGx0szlzjLcyY4Vnq+vl7Y
-	 mD5YxO/xMAzgw==
-From: Andreas Hindborg <a.hindborg@kernel.org>
-Date: Thu, 26 Nov 2026 11:51:14 +0100
-Subject: [PATCH v3] rust: time: implement `Debug` for `Delta`
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UHzlEe+O
+Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3b40d23e1adso4639269a91.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:53:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795690423; x=1796295223; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8RnxPSTHJj6ssbwJH49Q6KtCPv2E9H09AK7eDPufzS8=;
+        b=UHzlEe+O6HUZfKiZmTvjD3BKEi7wPYWRNQaRDqsQ+srgles2kuwJvCixsBGAjYuI4X
+         +cvUoqdUY3EgUTiKUUDvVOwEuNhfNPVYSMe3mTWqS9JQp58isO/WzRwes0LUgrJPWUBw
+         vGt/X+8oW28vIzuXmlTqtN92HJFrwC2yR28yGZ/e2MQsuh/zLudXngsEI141eB0cXTYb
+         UI/LfwPOtK+itWTpRVqZBulVDqIL34X9pTrPm0OBEMkkZ49dVfujLXK7csJH41I+xV4f
+         Fr3tX5V060HYFSFMM3uhJ5u0jcG8TJ7BVwMobox6N7YeLUjOlZamCvIHEVoCUw48Ez5C
+         LDSg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795690423; x=1796295223;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8RnxPSTHJj6ssbwJH49Q6KtCPv2E9H09AK7eDPufzS8=;
+        b=JH9yxAE9HembtGxhSdyvcu09mvhLJ+c6RlRBs7OnVlR75k3ech0NXfDXFkwHggOj+6
+         A8t6ny9MsiOaBXWLg0+XL8lviE9DsWIHC2Ukz0uKO+vPH0KKYCrdy9fd+RMA408efHEG
+         OtOOKL531I5WJsSdRFHRQr5rYtqWtJnfof+OJwaz2xY4TpuQAVDaCFwI3CpEU1p3LCar
+         HjUYqG+3eWJRth03AsP6k7EhuLDw6fPd4J3IA0fYgGSWFpzcqQofOKia1XaIhSlOhfaK
+         z8b31m1Wbzu0sqZUCVKIsfUPODgRpaEthYUVIQfvQHH07+ICAL/bQTmNRnw1Wj80RZo+
+         ZZJA==
+X-Forwarded-Encrypted: i=1; AL+hErEgo7Za4whX5+lUr1NNYzm0f9k4OM9U6G+UOvVuNvORv7NKSFiN7RhB23FrsLLpHhcMozii1HhgKyfq44M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+CLyLMcHfb1yqvB8bA2gFfjjye72wt7S4M4eZPKUqugTISx3SO
+	l9mr4oTmE3qF6XjgqeM9ID0/msiOEOMACKf2eGsRJYUgY2aALd7mY/cH
+X-Gm-Gg: AZFdTZcViMms2+5js3mzli93At65QF8+WVoMVRl4Fbk3swKrfxmPV1esyY5nTP2FyAF
+	cQvWopViY56yJlTj/lSeObYtpd/c90h1DkYDTEZuZuojYkquHL++PvJbrSe4mdl5CJvkl6ieEJ7
+	1SMRFoJ0CIiA6qIKJqjWnu4iqXf3yD2k+YtE64kdd5hIKGisMnCfLg9fS837+EgDnhXGZlxdCxW
+	8z/xgvwPBKuI7x0m4UhrAC2n6IZE2n742bM9mi2KkgJdk+BO0kZBYTX0GT8Y44Ov0otmdTdD4Vl
+	EOCxI2DavzdVsCBbFopAAifQKohi2NETeQ0jYTVd5XeaSAh07fdnVSg46mTFon1Q2wUbU9qPyqB
+	lGR1xb5yoiaR5tArlszbg7MQApXI6fGhXVyijH7OE0RuU2fiAG8nasnD8IJZA7X3iNByZ31kyQ9
+	OyihIcvRM0dR96rONBoTBOefbI5mCWW8NoHd0uZp8Ue7ihcyW6cN0DuTidoVNud5WuES93Jyesn
+	T+PzfZz4bo/qP2oPxBLhDBqSEAK87k19dmbaGGBtg1+5MZJS7qaSd2NY+CXHQjnE8LPk3lb4GgN
+	U3RI2kuXsuUnCfZuUZqfKTgHopFFaLCFXr0c354DnBA68cfIxIOH
+X-Received: by 2002:a17:90b:4b:b0:3ab:e588:c2a8 with SMTP id 98e67ed59e1d1-3b41c9ba0e4mr18519397a91.64.1795690422704;
+        Thu, 26 Nov 2026 02:53:42 -0800 (PST)
+Received: from anatasluo-Precision-5560 ([2408:820c:d29:db90:58ff:756e:834a:9b39])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40578dca0sm35469676a91.2.2026.11.26.02.53.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 02:53:42 -0800 (PST)
+From: Longjun Luo <luolongjuna@gmail.com>
+To: jpoimboe@kernel.org,
+	peterz@infradead.org
+Cc: mbenes@suse.cz,
+	pmladek@suse.com,
+	joe.lawrence@redhat.com,
+	song@kernel.org,
+	puranjay@kernel.org,
+	nathan@kernel.org,
+	ndesaulniers@google.com,
+	morbo@google.com,
+	justinstitt@google.com,
+	live-patching@vger.kernel.org,
+	llvm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Longjun Luo <luolongjuna@gmail.com>
+Subject: [PATCH 1/2] objtool/klp: Fix the offset and length used to read SHF_STRINGS data
+Date: Thu, 26 Nov 2026 18:53:24 +0800
+Message-ID: <20261126105325.2521938-1-luolongjuna@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,271 +106,228 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-time-delta-display-v3-1-aeeecc72f3a8@kernel.org>
-X-B4-Tracking: v=1; b=H4sIACEPCGsC/33NzwqCQBDH8VeRPTexM5J/OvUe0UHbWR0ylV1ZE
- vHdWz0EQXT8/mA+syjPTtirc7Iox0G8DH2M9JCoe1v1DYOY2Io0ZZrwBJM8GQx3UwVG/NhVM5h
- cE+d5URgyKh6Ojq28dvR6i92KnwY37z8CbutfLiAg1CZiGZcF1/byYNdzdxxcozYv0MdA1OlPg
- zZDY42WS2vLb2Nd1zeb+eSF+QAAAA==
-X-Change-ID: 20260215-time-delta-display-d702e7788d2d
-To: FUJITA Tomonori <fujita.tomonori@gmail.com>, 
- Frederic Weisbecker <frederic@kernel.org>, Lyude Paul <lyude@redhat.com>, 
- Thomas Gleixner <tglx@kernel.org>, 
- Anna-Maria Behnsen <anna-maria@linutronix.de>, 
- John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, 
- Miguel Ojeda <ojeda@kernel.org>, Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
- Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
- Boqun Feng <boqun@kernel.org>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
- Boqun Feng <boqun@kernel.org>
-Cc: rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Andreas Hindborg <a.hindborg@kernel.org>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8209; i=a.hindborg@kernel.org;
- h=from:subject:message-id; bh=XjIcO1LLn/3GXFoTuFkQ2wSXF1pgayDIVIQRVPfANq8=;
- b=owEBbQKS/ZANAwAKAfpQKQiqxb3QAcsmYgBrCA8lN8SuWPdF0REUrLLst3mj1PP9TgAunfsHV
- ISMP/pQoumJAjMEAAEKAB0WIQRXitnI2WZ2JirAaob6UCkIqsW90AUCawgPJQAKCRD6UCkIqsW9
- 0AdTD/wKcI+5u8LlPsoSvIV9ttNeRBZoc2+6Jb25mhsIL7CVvymbNREQOoJWLspNvYwQ6Qtv2XY
- 6hzohH1GQZXYLr3LDoPSqzGPyLJlkg9VbGH9q9EU0ESt2hzWafkb1f/zTLN3JRA6zuTOHRVo/ER
- COby8LuhuZJqYL1ivgd1g7Kr9A1H5eGoxjn79JWyBZn75oVxNRlnj4bYwyhdipy9BV5r2Mraj0v
- SN+FASgKowMpQm+lnBtfqqqTWbxDKC8GjaFiencISU6bULgP6exKYfwoPY7XYLM5N05qxsc7K3u
- t01OK77S/y9mbysBPGOvvjILU+buRDCgOS4ssoAxI4LfnCDrJ4FD8Kt0xGGqMYQS2m9ebcl49WC
- lWJCgDzsntaUIKTv1OCfHtEt+7Cqe4Yt1y8LJLqtIISxJpqRl3IJrd94akk5fXK5CbvdcDhe8WN
- t2wGo5eBBWYoDI9QtjyeS5oDifGw6nMBDzocKCHZuoJDL1yA3dxXSC8S/XxqCbC2iaY2kGoRQZ6
- AJAOUP2ZumPxELyEBM5kKjbTpfcX5+BPdGu2E6FmSPvXJkeNoNninwUsWsJROa0jdWmBXw/+iqp
- sFhYfRbUwooW9nN6HiyGssxxJIzsAssXkbTTRcCm1CAhmIM5+oEs2knWMkLCh26jOsNGq+/SW03
- qb5innV95SZorUw==
-X-Developer-Key: i=a.hindborg@kernel.org; a=openpgp;
- fpr=3108C10F46872E248D1FB221376EB100563EF7A7
+Content-Transfer-Encoding: 8bit
 
-Implement the `Debug` trait for `Delta` so that a span of time can be
-printed by a formatter.
+For offset, handle PC-relative references, like the one in
+proc_ns_dir_lookup() with Clang ThinLTO. Use arch_adjusted_addend()
+to read the string, and generate symbol-based relocations when needed.
 
-The span is printed as a count of the time unit it is stored in, suffixed
-with that unit, and with each group of three digits separated by an
-underscore the way Rust integer literals are written. A span of 12345
-nanoseconds is printed as `12_345 ns`.
+For length, add support for wide strings. The u16 psr_setup_time_us[]
+table is placed in a wide-string section by Clang. The table
+occupies 14 bytes, while strlen() gives objtool a length of only 5 bytes.
 
-`Debug` is implemented rather than `Display`, because `Delta` has no single
-obvious format and the other kernel types that carry a unit, `Hertz`,
-`MicroVolt` and `MicroWatt`, implement `Debug` only. Callers that need a
-specific format should use `Delta::as_nanos` and print the result
-themselves.
+With GCC and Clang, the test catches both wide string truncation and a
+missing PC-relative adjustment.
 
-Signed-off-by: Andreas Hindborg <a.hindborg@kernel.org>
+Fixes: 0d83da43b1e1 ("objtool/klp: Add --checksum option to generate per-function checksums")
+Fixes: dd590d4d57eb ("objtool/klp: Introduce klp diff subcommand for diffing object files")
+Fixes: 873a2208ea31 ("objtool/klp: Calculate object checksums")
+Signed-off-by: Longjun Luo <luolongjuna@gmail.com>
 ---
-Changes in v3:
-- Implement `Debug` rather than `Display`, as `Delta` has no single
-  obvious format and the other kernel types that carry a unit
-  implement `Debug` only (Tomonori).
-- Implement the formatting for every time unit rather than for
-  nanoseconds only, via a new `TimeUnit::SUFFIX`.
-- Separate each group of three digits with an underscore (Miguel).
-- Separate the value and the unit with a space.
-- Add KUnit tests for the formatting.
-- Link to v2: https://msgid.link/20261103-time-delta-display-v2-1-b01b1fe9ff9f@kernel.org
+Ran the test suite on x86-64 (tip/objtool/core, b99a5337da3c).
+Same results with patch 1 alone and with both patches.
 
-Changes in v2:
-- Rebased on v7.4-rc1.
-- Suffix the formatted value with `ns` (Alice, Gary, Miguel).
-- Write the value directly rather than via `write_fmt` and `fmt!` (Alice).
-- Document the format with a rustdoc example.
-- Drop the `rnull` user, which will call `Delta::as_nanos` instead (Gary).
-- Link to v1: https://msgid.link/20260215-time-delta-display-v1-1-bdd2d6e98ebf@kernel.org
----
- rust/kernel/time.rs | 134 +++++++++++++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 133 insertions(+), 1 deletion(-)
+GCC 12.2.0 (-fno-pie)  49 passed, 4 skipped
+Clang 17.0.6           51 passed, 2 skipped
 
-diff --git a/rust/kernel/time.rs b/rust/kernel/time.rs
-index b6a2aab12a50..8b38d4c70c87 100644
---- a/rust/kernel/time.rs
-+++ b/rust/kernel/time.rs
-@@ -309,6 +309,12 @@ pub trait TimeUnit: private::Sealed {
- 
-     /// The zero value of [`Self::Repr`].
-     const ZERO: Self::Repr;
-+
-+    /// The suffix that denotes this unit when a [`Delta`] is formatted.
-+    const SUFFIX: &'static str;
-+
-+    /// Widens `repr` to an [`i64`].
-+    fn repr_to_i64(repr: Self::Repr) -> i64;
+With this GCC's default PIE, the same 35 tests fail with or without
+the patches.
+
+Codex helped write the new tests.
+
+ tools/objtool/elf.c                           | 27 +++++++++++++-
+ tools/objtool/include/objtool/elf.h           |  1 +
+ tools/objtool/klp-checksum.c                  |  6 ++-
+ tools/objtool/klp-diff.c                      | 37 ++++++++++++++++---
+ .../tests/generic/fixtures/checksum_insn.c    | 11 ++++++
+ .../tests/generic/test-checksum-insn.sh       | 18 +++++++++
+ 6 files changed, 91 insertions(+), 9 deletions(-)
+
+diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
+index a791f4ea6ec1..4a8698114666 100644
+--- a/tools/objtool/elf.c
++++ b/tools/objtool/elf.c
+@@ -1382,9 +1382,32 @@ struct elf *elf_create_file(GElf_Ehdr *ehdr, const char *name)
+ 	return elf;
  }
  
- /// A time unit of nanoseconds.
-@@ -321,6 +327,12 @@ pub enum Nsec {}
- impl TimeUnit for Nsec {
-     type Repr = i64;
-     const ZERO: Self::Repr = 0;
-+    const SUFFIX: &'static str = "ns";
++static size_t __elf_strlen(const char *str, size_t width, size_t size)
++{
++	size_t len;
 +
-+    #[inline]
-+    fn repr_to_i64(repr: Self::Repr) -> i64 {
-+        repr
-+    }
- }
- 
- /// A time unit of jiffies.
-@@ -333,6 +345,14 @@ pub enum Jiffy {}
- impl TimeUnit for Jiffy {
-     type Repr = isize;
-     const ZERO: Self::Repr = 0;
-+    const SUFFIX: &'static str = "jiffies";
-+
-+    #[inline]
-+    fn repr_to_i64(repr: Self::Repr) -> i64 {
-+        // CAST: `isize` is 32 or 64 bits wide on the architectures the kernel
-+        // supports, so widening to `i64` preserves the value.
-+        repr as i64
-+    }
- }
- 
- /// A span of time.
-@@ -341,7 +361,7 @@ impl TimeUnit for Jiffy {
- /// [`TimeUnit`]); its value has type `U::Repr`. `U` defaults to [`Nsec`], so a
- /// plain [`Delta`] is a span in nanoseconds. The value can be negative, zero, or
- /// positive.
--#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
-+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
- pub struct Delta<U: TimeUnit = Nsec> {
-     value: U::Repr,
- }
-@@ -669,10 +689,122 @@ pub fn rem_nanos(self, dividend: i32) -> Self {
-     }
- }
- 
-+impl<U: TimeUnit> kernel::fmt::Debug for Delta<U> {
-+    /// Formats the span as a number of time units, followed by the unit.
-+    ///
-+    /// The value and the unit are separated by a space, and each group of three
-+    /// digits is separated by an underscore, the way Rust integer literals are
-+    /// written.
-+    ///
-+    /// ```
-+    /// # use kernel::{prelude::fmt, str::CString, time::Delta};
-+    /// let delta = Delta::from_micros(5);
-+    /// let formatted = CString::try_from_fmt(fmt!("{delta:?}"))?;
-+    /// assert_eq!(formatted.to_bytes(), b"5_000 ns");
-+    ///
-+    /// let negative = Delta::from_millis(-2);
-+    /// let formatted = CString::try_from_fmt(fmt!("{negative:?}"))?;
-+    /// assert_eq!(formatted.to_bytes(), b"-2_000_000 ns");
-+    ///
-+    /// let jiffies = Delta::from_jiffies(1234);
-+    /// let formatted = CString::try_from_fmt(fmt!("{jiffies:?}"))?;
-+    /// assert_eq!(formatted.to_bytes(), b"1_234 jiffies");
-+    /// # Ok::<(), kernel::error::Error>(())
-+    /// ```
-+    fn fmt(&self, f: &mut kernel::fmt::Formatter<'_>) -> kernel::fmt::Result {
-+        let value = U::repr_to_i64(self.value);
-+
-+        if value < 0 {
-+            f.write_str("-")?;
-+        }
-+
-+        // `unsigned_abs` is used because the magnitude of `i64::MIN` is not
-+        // representable as an `i64`.
-+        let mut magnitude = value.unsigned_abs();
-+
-+        // Split the magnitude into groups of three digits, least significant
-+        // group first. A `u64` holds at most 20 digits, so 7 groups suffice.
-+        //
-+        // Dividing by the constant keeps the compiler from emitting a check for
-+        // a division by zero with a potential panic.
-+        let mut groups = [0u64; 7];
-+        let mut used = 0;
-+
-+        for group in groups.iter_mut() {
-+            *group = magnitude % 1000;
-+            magnitude /= 1000;
-+            used += 1;
-+
-+            if magnitude == 0 {
-+                break;
-+            }
-+        }
-+
-+        let mut groups = groups.into_iter().take(used).rev();
-+
-+        // The leading group holds the most significant digits of the value, so
-+        // it is the only one that is not zero padded.
-+        if let Some(leading) = groups.next() {
-+            write!(f, "{}", leading)?;
-+        }
-+
-+        for group in groups {
-+            write!(f, "_{:03}", group)?;
-+        }
-+
-+        write!(f, " {}", U::SUFFIX)
-+    }
++	for (len = 0; size - len >= width; len += width) {
++		if (!memchr_inv(str + len, 0, width))
++			return len;
++	}
++	return 0;
 +}
 +
- #[cfg(CONFIG_RUST_TIME_KUNIT_TEST)]
- #[macros::kunit_tests(rust_kernel_time)]
- mod tests {
-     use super::*;
-+    use crate::{prelude::fmt, str::CString};
++/*
++ * Same as strlen, add support for wide strings like:
++ *   u16 psr_setup_time_us[] from the DRM DisplayPort helpers.
++ * Clang puts this data into a wide string section with sh_entsize = 2.
++ */
++size_t elf_strlen(struct section *sec, unsigned long offset)
++{
++	return __elf_strlen(sec->data->d_buf + offset, sec->sh.sh_entsize ?: 1,
++			    sec_size(sec) - offset);
++}
 +
-+    /// Formats `delta` with its [`kernel::fmt::Debug`] implementation.
-+    fn debug_fmt<U: TimeUnit>(delta: Delta<U>) -> Result<CString, crate::error::Error> {
-+        CString::try_from_fmt(fmt!("{delta:?}"))
-+    }
-+
-+    #[test]
-+    fn delta_debug_separates_digit_groups() -> Result<(), crate::error::Error> {
-+        // A value below one thousand is printed without a separator.
-+        assert_eq!(debug_fmt(Delta::from_nanos(999))?.to_bytes(), b"999 ns");
-+
-+        // Groups that do not lead the value are zero padded.
-+        assert_eq!(debug_fmt(Delta::from_nanos(1000))?.to_bytes(), b"1_000 ns");
-+        assert_eq!(
-+            debug_fmt(Delta::from_nanos(1_000_007))?.to_bytes(),
-+            b"1_000_007 ns"
-+        );
-+
-+        // Zero has a single group.
-+        assert_eq!(debug_fmt(Delta::<Nsec>::ZERO)?.to_bytes(), b"0 ns");
-+
-+        // The extremes of the representation are printed in full. The magnitude
-+        // of `i64::MIN` does not fit an `i64`, which makes it the interesting
-+        // one.
-+        assert_eq!(
-+            debug_fmt(Delta::from_nanos(i64::MAX))?.to_bytes(),
-+            b"9_223_372_036_854_775_807 ns"
-+        );
-+        assert_eq!(
-+            debug_fmt(Delta::from_nanos(i64::MIN))?.to_bytes(),
-+            b"-9_223_372_036_854_775_808 ns"
-+        );
-+
-+        Ok(())
-+    }
-+
-+    #[test]
-+    fn delta_debug_uses_the_unit_suffix() -> Result<(), crate::error::Error> {
-+        assert_eq!(debug_fmt(Delta::from_nanos(1))?.to_bytes(), b"1 ns");
-+        assert_eq!(debug_fmt(Delta::from_jiffies(1))?.to_bytes(), b"1 jiffies");
-+        assert_eq!(debug_fmt(Delta::<Jiffy>::ZERO)?.to_bytes(), b"0 jiffies");
-+
-+        Ok(())
-+    }
+ unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char *str)
+ {
+ 	unsigned int offset;
++	size_t width, len;
  
-     #[test]
-     fn to_jiffies_timeout_converts() {
-
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20260215-time-delta-display-d702e7788d2d
-
-Best regards,
---  
-Andreas Hindborg <a.hindborg@kernel.org>
-
+ 	if (!strtab)
+ 		strtab = find_section_by_name(elf, ".strtab");
+@@ -1399,8 +1422,10 @@ unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char
+ 	}
+ 
+ 	offset = ALIGN(sec_size(strtab), strtab->sh.sh_addralign);
++	width = strtab->sh.sh_entsize ?: 1;
++	len = __elf_strlen(str, width, SIZE_MAX);
+ 
+-	if (!elf_add_data(elf, strtab, str, strlen(str) + 1))
++	if (!elf_add_data(elf, strtab, str, len + width))
+ 		return -1;
+ 
+ 	return offset;
+diff --git a/tools/objtool/include/objtool/elf.h b/tools/objtool/include/objtool/elf.h
+index f7e6a652ee78..50d5b17907c8 100644
+--- a/tools/objtool/include/objtool/elf.h
++++ b/tools/objtool/include/objtool/elf.h
+@@ -180,6 +180,7 @@ struct symbol *elf_create_section_symbol(struct elf *elf, struct section *sec);
+ void *elf_add_data(struct elf *elf, struct section *sec, const void *data,
+ 		   size_t size);
+ 
++size_t elf_strlen(struct section *sec, unsigned long offset);
+ unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char *str);
+ 
+ struct reloc *elf_create_reloc(struct elf *elf, struct section *sec,
+diff --git a/tools/objtool/klp-checksum.c b/tools/objtool/klp-checksum.c
+index ebe25f9c5260..2547e142794b 100644
+--- a/tools/objtool/klp-checksum.c
++++ b/tools/objtool/klp-checksum.c
+@@ -138,7 +138,8 @@ static void checksum_update_insn(struct objtool_file *file, struct symbol *func,
+ 		char *str;
+ 
+ 		str = sym->sec->data->d_buf + sym->offset + offset;
+-		__checksum_update_insn(func, insn, str, strlen(str));
++		__checksum_update_insn(func, insn, str,
++				       elf_strlen(sym->sec, sym->offset + offset));
+ 		goto alts;
+ 	}
+ 
+@@ -215,7 +216,8 @@ static void checksum_update_object(struct objtool_file *file, struct symbol *sym
+ 
+ 			str = target->sec->data->d_buf + target->offset + offset;
+ 			__checksum_update_object(sym, sym_offset,
+-						 "reloc string", str, strlen(str));
++						 "reloc string", str,
++						 elf_strlen(target->sec, target->offset + offset));
+ 			continue;
+ 		}
+ 
+diff --git a/tools/objtool/klp-diff.c b/tools/objtool/klp-diff.c
+index 95d0d86666d7..dd5c4d604be3 100644
+--- a/tools/objtool/klp-diff.c
++++ b/tools/objtool/klp-diff.c
+@@ -1584,18 +1584,43 @@ static int clone_reloc(struct elfs *e, struct reloc *patched_reloc,
+ 		return -1;
+ 
+ 	/*
+-	 * For strings, all references use section symbols, thanks to
+-	 * convert_reloc_sym().  clone_symbol() has cloned an empty
+-	 * version of the string section.  Now copy the string itself.
++	 * For string relocations, in some cases, compilers generate
++	 * PC-relative code like:
++	 *
++	 *   xorw 0(%rip), %dx    # "mnt", R_X86_64_PC32, addend -4
++	 *   (from proc_ns_dir_lookup(), Clang ThinLTO).
++	 *
++	 * In that case, str_off is not equal to the addend.
++	 * To read the string, use arch_adjusted_addend instead.
++	 *
++	 * To write the string, we could use out_off + (addend - str_off)
++	 * as the section-based addend.
++	 * The addend may become negative, and make lld report
++	 * "offset is outside the section".
++	 * So for this case, create temp symbol to use symbol-based relocation.
+ 	 */
+ 	if (is_string_sec(patched_sym->sec)) {
+-		const char *str = patched_sym->sec->data->d_buf + addend;
++		long str_off = arch_adjusted_addend(patched_reloc);
++		const char *str = patched_sym->sec->data->d_buf + str_off;
++		struct section *out_sec = out_sym->sec;
++		unsigned int out_off;
+ 
+ 		__dbg_clone("\"%s\"", escape_str(str));
+ 
+-		addend = elf_add_string(e->out, out_sym->sec, str);
+-		if (addend == -1)
++		out_off = elf_add_string(e->out, out_sec, str);
++		if (out_off == -1)
+ 			return -1;
++
++		if (addend != str_off) {
++			out_sym = elf_create_symbol(e->out, ".L.str", out_sec,
++						    STB_LOCAL, STT_NOTYPE, out_off, 0);
++			if (!out_sym)
++				return -1;
++
++			addend -= str_off;
++		} else {
++			addend = out_off;
++		}
+ 	}
+ 
+ 	if (!elf_create_reloc(e->out, sec, offset, out_sym, addend,
+diff --git a/tools/objtool/tests/generic/fixtures/checksum_insn.c b/tools/objtool/tests/generic/fixtures/checksum_insn.c
+index 10f70a74a976..70c2e9106f8a 100644
+--- a/tools/objtool/tests/generic/fixtures/checksum_insn.c
++++ b/tools/objtool/tests/generic/fixtures/checksum_insn.c
+@@ -76,3 +76,14 @@ int target(int x)
+ 
+ 	return r;
+ }
++
++#ifdef WIDE_STRING
++unsigned short wide_string(void)
++{
++#ifdef PATCHED
++	return *(const volatile unsigned short *)u"\u0200";
++#else
++	return *(const volatile unsigned short *)u"\u0100";
++#endif
++}
++#endif
+diff --git a/tools/objtool/tests/generic/test-checksum-insn.sh b/tools/objtool/tests/generic/test-checksum-insn.sh
+index e1c04a1f518a..692ab1b174b2 100755
+--- a/tools/objtool/tests/generic/test-checksum-insn.sh
++++ b/tools/objtool/tests/generic/test-checksum-insn.sh
+@@ -46,4 +46,22 @@ build_pair checksum_insn.c
+ run_checksum
+ assert_checksum_matches target
+ 
++# The wide character changes while its low byte stays zero.
++build_pair checksum_insn.c -DWIDE_STRING -fno-pic
++assert_checksum_differs wide_string
++run_diff
++for obj in patched out; do
++	$OBJCOPY -O binary --only-section='*.str2.*' "$workdir/$obj.o" \
++		"$workdir/$obj.bin" || fail "cannot extract wide string from $obj.o"
++done
++[ -s "$workdir/patched.bin" ] || fail "fixture produced no two-byte string section"
++cmp -s "$workdir/patched.bin" "$workdir/out.bin" ||
++	fail "wide string was copied incorrectly"
++
++# The x86-64 RIP-relative load needs a string label with addend -4.
++if $READELF -h "$workdir/patched.o" | grep -q 'Machine:.*X86-64'; then
++	section_relocs .text.wide_string | grep -Eq 'R_X86_64_PC32.* \.L[^ ]* - 4$' ||
++		fail "wide_string() lost its PC-relative string reference"
++fi
++
+ pass "instruction checksums cover reloc targets, addends and string contents"
+-- 
+2.53.0
 
