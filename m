@@ -1,77 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795715067;
-	b=YX/QmF60R1bwwBZ3SgJYFOP3x5wQdlZhHILTVhxoqqSwwxVVsXjELkIV7zZAsoTizHJa
-	 214J7w1Xw5MQNLF7CM6iGg9Aof3+6mNcccaUlAyileyVrl+YgcvwnTTB61U+d+q30vcrs
-	 2YebIJxxs/IiKlHaGj2+xH5zBiIldanchOuk0dCbN/hI0s9aoNG3PpB0vMwJ2b6WKds9S
-	 blmJYyzk5RJxkwCgsZAOqupMp0XnSytoMBEizfFQUxWucxZkUAYmAQl27w9hynNz93+Zt
-	 vZIMMvF4/flY/9kcJStuo0lGuW71LuWtUweY2Sjgxx44PxcUuSBEqslo8VJMGp/zzLg==
+	t=1795715109;
+	b=c/NYS/NUb9Uetw4gNANsdlBS/MoV+kv1snV8zWE/nm4XyxLVAHf4QLNEHdUk9i8DlAik
+	 twHTqSiaZvvuZ5I6XCphcI+7HKFfpQBHo4PTOoOxK6jfX4TDxsTTaafXdsFyUW89kHOl1
+	 vU3vyjhybsA8D9FBxH9UGCCTDpEX5jqvZHZkyB2o/Yn9dTw6nA/R0Rhvy8MxY6TGYusha
+	 CbvL4JhaO24CDG/1T1TXS6VEmoHLi9cFRjF8ndyiDPQEdeJPEmFjFQBuNbWV/iceOz8rp
+	 2q6jicR4xaI/UICk1uRINlYaFT8+S89s+jtt17tRvD89LcdojSxIPJfFqjRAgp9ImzA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795715067;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding;
-	bh=gEkkIJ/qWNi7EAZD7yoHdkh/exPFsNxJMByksA50ASQ=;
-	b=KRPiFb6l9K3G8+s1Wtprz74czHssxMBzNIBJg2YX20mdztQRTXqoVKSQuVcTFLcaa5mK
-	 xMTSIXMFYWlYaqVYtwF/E45JnIxWG78p6kQgYQwxXT0rexJbfb2BSWYo5/K0+jGNoECkI
-	 FoRsdVfSAqgagWsiwG8VyxF5K1dghgydsGW6gO0KsevG6XFfhfkcL7aeOc0mkHHRtUXE2
-	 v9LwkAvC9k9J3eNgYVzeLRWSFCMBYcO38bLkP7pAeLwi1tpKhsFhqWCOQGDuEV+eEMRFq
-	 kr0dcykoGkyX7crsFY+DOq2/7gb6mZphJ59nc2dVR1TA35ivhFLDp25yFSmvX1OavpQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795715109;
+	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
+	 In-Reply-To:References:Subject:From:To:Cc:Date;
+	bh=UVwKvUqZc3YTIGZQosfwnsDxlaSdrCZ8Jhlv1YMbjOM=;
+	b=z1r7xCc4l0RKTf0O9NIoFDtepIenkwQ/w6wrlY2ofdaCzqYRaWK52AiqazSiDPX2CvkZ
+	 bBlLcyBaT3BJdaEDvtlqJMUUK13toH6tKFc00/1NuaR7wZBpGuGzo8vTP1OIpTuAZAK3w
+	 JIPaLoxcyLvJCg+tudI3HUxv9lqyJ7kZ47AT8zm8XPO/aoWGmFseDLoWgCbUD5ADjmVJA
+	 JqM10zWLXmS+2eN9RGS+mAqt10W6ezm2U2VuJJjisC1vhHtRupjcIiiuPohKibrrbi9N9
+	 D+f/kl0Ay9Rwlo/21xqJrMXvkfz411/UJd5d2rF9Ym7yHOHe9ZHOpwFsLTql/xnzFjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=XnpcqNbd;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6FF16606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:44:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6FF16606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B9KoWkCz;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F87C606A327;
+	Thu, 26 Nov 2026 17:45:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=XnpcqNbd
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C17C81BA8;
-	Thu, 26 Nov 2026 09:44:23 -0800 (PST)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 59D023F632;
-	Thu, 26 Nov 2026 09:44:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795715066; bh=RzMr+wOsn54fTvspSwDwUm0XU8ZkeIMlrzEzuHt/TKI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XnpcqNbdXi7qBGNhlwyJSNvZiM42NfttpEr2uGsSpYDVHIPmPjQnZn1aL6jWBSuUK
-	 5WIE5RDd6KV366KhQvq4C7+5Iihf+pvD0/zEfcuqchaBOGU+jDlYvM/73/E7//layt
-	 akZ1+xaZ6B+OHd55xEg8PYa0Ja2aKBO99M9j/05g=
-From: Leonardo Bras <leo.bras@arm.com>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Usama Arif <usama.arif@linux.dev>,
-	maz@kernel.org,
-	oupton@kernel.org,
-	fuad.tabba@linux.dev,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	riel@surriel.com,
-	shakeel.butt@linux.dev,
-	kernel-team@meta.com,
-	rkeilty@meta.com,
-	atish.patra@linux.dev,
-	dgreid@meta.com
-Subject: Re: [PATCH] KVM: arm64: Reduce the stage-2 page cache on 64 KiB hosts
-Date: Thu, 26 Nov 2026 17:44:20 +0000
-Message-ID: <awhv9JeCtZxH3Y5x@LeoBrasDK>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <awhpQIWN3msQ2ruf@gremlin>
-References: <06a69a4f-59bb-49b8-9ed0-f4cfe0ecad37@linux.dev> <awcoCklLOKeuXPhh@LeoBrasDK> <e7bdcfa9-bbd8-4649-8318-2f6dc236db15@linux.dev> <4jxdf2pkuu2f7dftvf6ltpv27jctfuvvrfcrbfxudsgnp3hdfk@taur55wftexq> <awhODYKXnsBi_s_B@LeoBrasDK> <klnyvfxwhpw73wo55y5aq3qliglnf7xkfkmfj6cgzje7z3n2fq@aqjxshyjnldu> <awhWYdZVkESY9eJs@LeoBrasDK> <awhfXrdkHkY-riN3@gremlin> <awhnFrt1GmrTlQZ9@LeoBrasDK> <awhpQIWN3msQ2ruf@gremlin>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B9KoWkCz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02F411F000C6;
+	Thu, 26 Nov 2026 17:45:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795715108;
+	bh=UVwKvUqZc3YTIGZQosfwnsDxlaSdrCZ8Jhlv1YMbjOM=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=B9KoWkCz5lur7rU3+m/m0+34kzI7sd3+putoPB8nGh8af+bYaAqekCFoAHTTDTpTL
+	 ZsLUQQ56kuB289CSTCGySB/Nina/JbyRyZ68huuATJcYmq4quRmbRbbZbAyPENQaTB
+	 721r0/pqCreV8UMwFOSrd5GIrup56RPy2FDHsDeDB6bmCVukJFFBp6eanbSxnuyyG9
+	 g0Irzy2agVNA1W6bN2lZJ5C4OTVcKekAucDEZTtMeWNjHmGZSp8s6AHEwTh9XSuHDu
+	 SdmDi8WtP3LP0PT5NHhvQIVDNWEJIKBTTYFujFOLJB90Xq3M8rjaNHlpuIO3ns7rfv
+	 8n703OMD6826A==
+Content-Type: multipart/mixed; boundary="===============4556629013773228158=="
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,70 +49,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+Message-Id: <0eb06d3a00f2e4d56c2f25db16eb8b02160387281fe455b0e0e5d7466492657e@mail.kernel.org>
+In-Reply-To: <20261126170538.3471057-1-visitorckw@gmail.com>
+References: <20261126170538.3471057-1-visitorckw@gmail.com>
+Subject: Re: [PATCH v12] m68k, bpf: Add initial BPF JIT compiler support
+From: bot+bpf-ci@kernel.org
+To: visitorckw@gmail.com,corbet@lwn.net,geert@linux-m68k.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,eddyz87@gmail.com,memxor@gmail.com,gerg@linux-m68k.org
+Cc: skhan@linuxfoundation.org,rdunlap@infradead.org,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,marscheng@google.com,eleanor15x@gmail.com,jserv@ccns.ncku.edu.tw,linux-doc@vger.kernel.org,linux-kernel@vger.kernel.org,linux-m68k@lists.linux-m68k.org,bpf@vger.kernel.org,visitorckw@gmail.com,daniel@thingy.jp,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Thu, 26 Nov 2026 17:45:05 +0000 (UTC)
 
-On Thu, Nov 26, 2026 at 05:18:00PM +0000, Lorenzo Stoakes (ARM) wrote:
-> On Thu, Nov 26, 2026 at 05:07:21PM +0000, Leonardo Bras wrote:
-> > On Thu, Nov 26, 2026 at 04:45:35PM +0000, Lorenzo Stoakes (ARM) wrote:
-> > > The question is would going from 40 to 3 slow things down?
-> > >
-> > > At 40 you do 40 __get_free_page() calls on topup for the _first_ fault that hits
-> > > it, which adds latency to a random s2 fault (not great).
-> > >
-> > > (If the fault doesn't in fact use a page table, this is only done once until a
-> > > page table is next needed).
-> > >
-> > > And then as 37 page tables are mapped, those ones don't get allocations at 38
-> > > you go again...
-> > >
-> > > With 3 in the cache you allocate up to 3 for each fault.
-> > >
-> > > So in both cases you allocate the same amount of pages but in the 40 case it's
-> > > all bunched up on one s2 fault with a jump in latency, in the 3 case it's spread
-> > > out.
-> > >
-> > > I'd say 3 is therefore the better choice.
-> > >
-> > > Also, as mentioned elsewhere, you end up leaking pages once the S2 page tables
-> > > are setup until the vCPU is destroyed, as nothing clears down the cache
-> > > AFAICT. With 40 that's way more than with 3.
-> > >
-> > > --
-> > > Cheers, Lorenzo
-> >
-> > Hi Lorenzo,
-> >
-> > When I mention cache locality above, I mean the cpu cache. Running the same
-> > routine 40 times in a row can be faster since all instructions are already
-> > cached, and most of the data acessed by it could be local as well.
-> >
-> > If you run it more often, it could be that something else used the
-> > cachelines and the cpu has to fetch them again from lower level caches or
-> > memory.
-> >
-> > That being said, that's the only reason batch allocating 40 would be faster
-> > than 4 in the long run. For capacity=4, the number of
-> > mmu_memory_cache_alloc_obj() calls can be even smaller than capacity=40,
-> > since we don't leave unused pages in the kvm_mmu_memory_cache.
-> 
-> Ah right I see what you mean, true that would be warmer, but I suspect that'd be
-> lost in the noise vs. zeroing each page anyway, and additionally you can argue
-> that, if you just zeroed a page before the walk uses it, there's locality
-> advantages on that vs. batched too.
+--===============4556629013773228158==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-Ah, you are right! I was ignoring the zeroing for some reason.
+> m68k, bpf: Add initial BPF JIT compiler support
 
-> 
-> But again I'd be very surprised if there was any impact on that either way,
-> really.
+TL;DR: Nits only, no bug found: the m68k JIT hardcodes the tail-call limit
+(0x7021) and the 44/48-byte prologue jump offset; suggests named constants and
+a check so later edits don't quietly break tail calls.
 
-Fully agree
+> diff --git a/arch/m68k/net/bpf_jit_comp.c b/arch/m68k/net/bpf_jit_comp.c
+> new file mode 100644
+> index 000000000000..96305a8478c7
+> --- /dev/null
+> +++ b/arch/m68k/net/bpf_jit_comp.c
 
-> 
-> In any case it seems we agree that a smaller capacity is the way to go :)
-> 
+[ ... ]
 
-Awesome! Thanks!
-Leo
+> +	emit_16(ctx, (u16)STACK_OFFSET(BPF_TC_LO));
+> +
+> +	emit_16(ctx, 0x2068);					/* movea.l d16(%a0), %a0 */
+> +	emit_16(ctx, offsetof(struct bpf_prog, bpf_func));
+> +
+> +	emit_16(ctx, 0x4ee8);					/* jmp d16(%a0) */
+> +	emit_16(ctx, CPU_IS_COLDFIRE ? 48 : 44);
+> +
+
+[ ... ]
+
+> +static void build_prologue(struct jit_ctx *ctx)
+> +{
+> +	int total_stack = SCRATCH_SIZE + MAX_BPF_STACK + 8;
+> +
+> +	emit_16(ctx, 0x7021);					/* moveq #33, %d0 */
+> +
+
+this isn't a bug, but could the tail-call counter be emitted as
+0x7000 | MAX_TAIL_CALL_CNT instead of the literal 0x7021, so that a grep
+for MAX_TAIL_CALL_CNT finds this place if the limit ever changes?
+
+Similarly, emit_tail_call() jumps to bpf_func + (CPU_IS_COLDFIRE ? 48 : 44),
+which only holds while build_prologue() emits exactly 44 or 48 bytes.  Could
+that offset be a named constant that is checked against ctx->idx at the end
+of build_prologue(), so a later edit to the prologue cannot quietly break
+tail calls?
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/45866130532
+--===============4556629013773228158==--
