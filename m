@@ -1,98 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795685886;
-	b=VHD/8xNOD+gejv/Atr98aVkCqlS09ls9pOegiViCKVVOf9ApLGiY6iLKntg3CYlyA1tm
-	 7HuhA//4U2geHZGIUda5w6ONHSJRcCEOhvgBXm78moFkii0f5iYDdRN10bqxamb2lt98H
-	 gVQAMjbbcWJMqOPMjIyj+64wPnCKpOBzGbFJbIO6J6f4ZLJr3mAitn/YKWJEZDsCZqfei
-	 uQcHQCSPruEbxFNhu6zL1Zd3mdPOXNHlLKHyJL/rMYnPRL9ZlTkgpSf/4Tg+7UTwBjb5z
-	 0mafvexuqfzzsz6rmf1DQVPOAAX+mKAUZ607XoCUWln5WfHo6uNpK2sR/39hsKdORNg==
+	t=1795685889;
+	b=byw24Q0BviD1e8JutZ8p3AwRkixI39+cYitLqSVIwlMLm5rNQGyzDF3P2X4QTgyxxdBH
+	 00A/mxR9c2QKi3+YPI00/oioldzypjTTIc066EVUS36l+DWfvS/7nMQ/Pp3TpdO4atZ7E
+	 gYmqOOeqQs83dhTYgVdP3Ql1gvxN1+UojeDI48ppcPWzStcPUBzLtDZttG0SJySy7Ssql
+	 752KOna4rk1eFx7SrXOA3rNBuykD3y/YoXzoDto5e8o0p2gMkKVIzNaPOwcUV1xberV+c
+	 2a2rILqKzWj7MLHEuvY2SmWwkD1lnSMgtFFAL4wYIKiuru5MRp23lpcESIWgvFj11YQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795685886;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795685889;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=P96TXcMA23WG6JolthiehBkQWMHEz8OJSyqIerT2P4Q=;
-	b=heIIowg18Uch9WFo2Yp5zwP1KppGtoFB7saEsX1kyen9JRNgjr91RMjmcSOW9zIxW8ne
-	 FqC3ihi8sJFkDn0981COYltT17LmPKPjQabOCjeIrVKv6HRHbKIKqmAxkqt6n3CQR5FPo
-	 LHveu9KwfTS/icdCt5USVWlWKRojbW4uBM7yGH5ts7txzMULnRB/yAHbwrOgrmRl2MOnE
-	 Md7hfzZztq4MkKY1cFKUqjPrJ+4UW9QXOmSlpwFB7tKRPXsLaVKstEIYWfzF9PO2kGLZ6
-	 s2/Am0Xj+BQQiSmv+Imn4E1KFyh3ZNJ7MfrEgJ6DdQcvEqvh/CMcZ78dVy1qzTbViSQ==
+	bh=rsNqaj+bXc/v5pLCFTeTs+S9z83Xe3DxebqgKuXb2Ic=;
+	b=wjWTwOysF+lQycpd/gtuHkgwJXYvNDvjleZAOjbq6ucrMgeC5ac+qVOcAvdByTzw+WL5
+	 UFPyhstIQE3YW1O1HjWLEx9RJa4dl9O95dLbzEX7PI4h9A18rksTUcZCRkM9LyqmIZwtB
+	 3JQvn1+DxlszwZhdoOqZMnWp50akuyyd0koew+H1LNkEp369u/WRx/5TtpMA4J2MuiwQX
+	 49tThYRlrAldB+6e3SznpYVr6I11FUJqan1UbKdMUAunP7lsbjZJy8KFQ/SdXw7Jyx5EF
+	 VpbIsb9QXmoY+WKuqmMMsblR5dbh/Yf7i4+K5KC/xHYD8Hom1l1D+9NufP6m9YFINqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=A308yLFB;
-	arc=none smtp.remote-ip=209.85.210.172
-Received: from mail-pf1-f172.google.com (mail-pf1-f172.google.com [209.85.210.172])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fSw66Vwg;
+	arc=none smtp.remote-ip=74.125.82.43
+Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 200EB606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:38:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 200EB606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBCE7606A690
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:38:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DBCE7606A690
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=A308yLFB
-Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-8b58d6f67a5so3439378b3a.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:38:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fSw66Vwg
+Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-14394530ec6so272954c88.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:38:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795685884; x=1796290684; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795685888; x=1796290688; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=P96TXcMA23WG6JolthiehBkQWMHEz8OJSyqIerT2P4Q=;
-        b=A308yLFBhfx0UWudxJTFF+TuS20TYf9zVWIZFL4i05qjBqsX0/xjKgIJqFnj9+Sw1r
-         uFIsuJ8JPosWuFpywVUdJrOJzMkUSwZwOxhzDuR/zafSv+aJOpEpKc092ZEJlc1PWn+I
-         UAWVu17XmPEEyJ43AU35EAeUsxhqr3/A1DjuFkjc83wCJwJDmOBCadCFxrcQmxuXKhIX
-         naaEMwPg2M08IMrAFUvD5Qo8aDBNqQ6XbbkaAqCa9ORR++jalF/96CzU/SFwhUspmij+
-         v6900A8Lv36NpYleS2ovLgpzwtfFXCDCLtHE3+2hfBXc2R1CojxUB/6+UZABLS7TgUm8
-         o0dw==
+        bh=rsNqaj+bXc/v5pLCFTeTs+S9z83Xe3DxebqgKuXb2Ic=;
+        b=fSw66Vwge0QjmaCrydvktO8QXKG8LEluTa1Zb5fBq+5ZOsYGUtfBQssVIInvAtBD5b
+         88Qry4se30oJNGuIyCaEyPctUhFLaA6dENbTmM1wna5wk/YOUEkNVAq/7pOk24x4VTqO
+         cWsRFFBIFwDlMT1rdpA7CbvF7NJ8jtU1AWJ0UoJDmOq7NWRUpeQUIcihjzJj9n3fimcE
+         l8xVUlwqGYGDIJybc5iyPIr+CFqz4TB6f4RAiJjAYxdgTQQgBzVTHUxYmyWqGwyXGs+3
+         iLxaR52q4O/AtS4im9iHZgzxPkEW2yUWSmAOJfTYhjqfnmU4Lgg7/siTjDT0PS5oHVly
+         Lgyw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795685884; x=1796290684;
+        d=1e100.net; s=20260707; t=1795685888; x=1796290688;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=P96TXcMA23WG6JolthiehBkQWMHEz8OJSyqIerT2P4Q=;
-        b=0e5p4pb7UgoI6qh8U2jdcyNzap/DKIHeI5/AWTdxX/FedfAxYV5MODD5E8hxOcgPdv
-         A6Bwr0kkOVSxkg27WHmjn/dEpLPaNOUAAVYPTqywzD82wN/BnMFI0qp8PfcyQiQovLVz
-         +eEtAZbg/BZvYmCMqboWikZjDRieAtxTM+J+PUZKMtBI5DmSOeAUMKLxtXvVkRGdmGoY
-         EZivf9M8/ptDt+9paH4LrY7KmLF9b0ac94wK1wanOuVXT+tlcnMTlOCAM1WBtCaX0Li3
-         EMjhfciiZm8p3jsvpJWvFSZ6jZDSZb2u5xTNlEPVasiBgepn3zYikx896BVw+hzJmSYG
-         r2oQ==
-X-Forwarded-Encrypted: i=1; AL+hErHxZYCMDLLFDPrWEpzE+vEC5SspkZ4aPWfb5IAOSkmcE8c1ZblwpJWFcfLLFpxfYsfu2tnpq43QR8GotnA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+mQ8mWbVCMJLid/nt4kGmkmmqILhxuDUu7JnM7MIMcph6lQHgL
-	/61L2FraPmn9KP8CjW0UG4pMEm/pyxl+oyyaAgTtwItAn+qOc61GtW+lEGeb6DmKqA==
-X-Gm-Gg: AZFdTZeSHu5DxLza01GEf4Kyhkd0ScKHSqCG9oWhdlU0gikVZq9oe+n1YTyqYmB/SVu
-	E4gKyE9vyh+FnsAHQOpqMNu/omUyqQUGoBPBe9G9cFOH4FTioorKG6Qa+Lj5XR4eouifnB5R2CG
-	HLl5ljnsLQOHWiaS+AJY/omBlrjdp6Mw7cHwlbyl8DdUtvX25KEyWWu3EeIrg62NIqxOb3efGmE
-	Gd5A+fUsqoTnNmGu84swRehTHbe2J8qKunPxF1nTwcAO7jRc5XxIgW1WA7je6VsInT/PlvS7rfj
-	5s9yAA6bpDask0zuWWdjqucDE6ubtyScBLL2rAk5V9aostD+SKSDFQv9TlbLS6IaQCXK9laSUZS
-	rqqDVm4BrDIZOlY+ULFLZfMT7YEiQZhLU47yVQnv+RMNM159JjgbH0UtNvCz2DOz1A2kqVz5F2Q
-	IgkTyomg9YMn2RqBWc/NY17Bcof2TGTBA0sOH3jpEbeXzI9VorhbWD3xeegM5vQfIVssfq7ktmj
-	9xa1mZ+ETCU2ladYueGCBdNS4asXanr2guqFXFOG4o8UsndBC4BHcNTA8ixMpTEQuHe3RPgChfc
-	+SDLAduj2Q9VmsJd53UX1Vs3YaBC137lBTZh8t9arNw4+vMdsIMwcBo0tNSyMhKU0a3+Umlxe7e
-	qcbd8JhIC1fyuPw==
-X-Received: by 2002:a05:6a00:4189:b0:8a3:23c1:c0e3 with SMTP id d2e1a72fcca58-8c87ded5130mr18749858b3a.59.1795685884373;
-        Thu, 26 Nov 2026 01:38:04 -0800 (PST)
-Received: from localhost.localdomain ([2406:3003:2002:639c:a06e:23f:85ed:4cfe])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872951febsm10357231b3a.14.2026.11.26.01.38.01
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 26 Nov 2026 01:38:04 -0800 (PST)
-From: Yige Jiang <yigejiang86@gmail.com>
-To: Madalin Bucur <madalin.bucur@nxp.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Yige Jiang <yigejiang86@gmail.com>,
-	Sean Anderson <sean.anderson@linux.dev>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net] fsl/fman: Drop device references when dpaa_eth_add_device() fails
-Date: Thu, 26 Nov 2026 17:37:56 +0800
-Message-ID: <rc-b1-20261110-vc-177-85d2478ac4b9@gmail.com>
-X-Mailer: git-send-email 2.50.1
+        bh=rsNqaj+bXc/v5pLCFTeTs+S9z83Xe3DxebqgKuXb2Ic=;
+        b=p6IeNJxT5820TwDbtPVJrE8FZ9n6B7RJhX5NocNjD4ALpLEnrL8t6fOBO80iLIrLqB
+         Xq6FIRjkQjEhLxuRhGjk+X++HEPsgVjlHCuOG/27wxzFTtCgAfj2ncRaKuA9+KikZnVT
+         vr5GzpRIPDD4DlJN0OBGUjadReuOm251dBk33jyaO9C3YQqYAB5bLmeVhISnCgzBO1hu
+         kWycKnJhiPwXvHoW9vU4LpZVa3wUlqtBmwJpT8Xbx+qD6T/lcygOElqQl36uUdbPfJr5
+         rwYZ7Oetenty5VJi+CNLA96KnLHOzYSXY3az7Edrh21n11FoJJ7xzw+4SGRhZCMQOE/f
+         OTtw==
+X-Forwarded-Encrypted: i=1; AL+hErFzx08xF/Lc0JHPKJ8kBg3E6LrFcMXZsemKYU6MLcN7hHkRhHRzmJobCisHvXli3OGaPSpa8dfOCdytOwc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+3JeOTvqls6owwtXD7/kOii8kdkKuJhkynNtQQjXIBJejUOAK/
+	D1vhN5xOhXuB62tbRBRf7J9gyuCMLcTH1Gt/G+uNxYugyst6IaCC55gS
+X-Gm-Gg: AZFdTZdHNSDIF5NalgGCtotDAdItp1kAE6ucGEGBjHLThEVAqb7ycGrV9nzUQcYU14r
+	6iApehGdeBw6xA9mAW/RfxTIfdIiK6+6vpjBeKIfBxJRRTGa4XgMZpYnIvp/s/h9BZwYpglVGh2
+	1s8LBmq3KjSj/kHLPGx6mUQ0fYjC01d91+AApFhcgLG2CcjfqRP52G377O2EfcHACBb9Bz5MIpT
+	uC8E+hPPe0ikg0NEpPvfIesPjacwoAr+fqf0sYqnp9BHAbk8Go86p7wxBkt5R+pfoglCvpo391i
+	TQkLmVR4FqMU0Xwolr+Noc8FgAMmqNDkhaYZbO5yMv/LD5eqSyQ0d+kXdtc1tn2WSWcV5GdM+jh
+	QSV5ZIeibZUpNEx/JXjVaHxkoHgcR51/m5E0b8HpIzskZWPcVY/CbtOBsAbtRvFsYpSqemcQGJP
+	P0XNFV9Df05v05hQDWLOH7Qt86VipEITUvzv0yG/FVv8cDQJZN/4JawAzUYifFKKsVNqIGqInBy
+	0G5oRUj0Izi3m11G5lq4wM+g0lpc3pQ24ZGDPv89Y8TgxI+cYkYVh3IbAgM9LSXHhqWqkn264+L
+	wZLopkunITZpDnSqvT/SWz7jPijcEIqWUQE7zQnanwvomjAkSuZ0j3ESgMQvY/4Ekaq0z3WCAzC
+	5gDJT44u2NKA2lQ==
+X-Received: by 2002:a05:701b:4502:20b0:152:9e88:daaa with SMTP id a92af1059eb24-1b55690040amr20145598c88.36.1795685887798;
+        Thu, 26 Nov 2026 01:38:07 -0800 (PST)
+Received: from hyeonjun-ThinkPad-X13-Gen-1.. ([124.197.199.8])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5568592adsm46845363c88.15.2026.11.26.01.38.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 01:38:07 -0800 (PST)
+From: Hyeonjun Hong <hyeonjunhong330@gmail.com>
+To: Coly Li <colyli@fygo.io>,
+	Kent Overstreet <kent.overstreet@linux.dev>
+Cc: Jens Axboe <axboe@kernel.dk>,
+	linux-bcache@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Hyeonjun Hong <hyeonjunhong330@gmail.com>,
+	Seojin An <love09010224@uos.ac.kr>,
+	GEONWOO HAN <gunwoo9643@uos.ac.kr>,
+	stable@vger.kernel.org
+Subject: [PATCH] bcache: fix out-of-bounds write in bch_data_verify()
+Date: Thu, 26 Nov 2026 18:36:55 +0900
+Message-Id: <20261126093655.393608-1-hyeonjunhong330@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,45 +103,69 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-When dpaa_eth_add_device() fails at the end of mac_probe(), the error
-is returned directly. This skips the _return_dev_arr_put and
-_return_dev_put labels, so the references held on the FMan device and
-on both FMan port devices are never dropped. mac_remove() would drop
-them, but it does not run after a failed probe.
+bch_data_verify() sizes its check bio from bio_segments() of the original
+read bio, which is an unsigned int.  bio_kmalloc() takes an unsigned short,
+so the count is truncated before bio_kmalloc() compares it against
+BIO_MAX_INLINE_VECS.  A read bio with 65536 segments is truncated to zero,
+passes the limit check and gets a bio with no bio_vec space.  bch_bio_map()
+then fills in bio_vecs from bi_size without looking at bi_max_vecs and
+writes far beyond the allocation.
 
-Jump to _return_dev_arr_put instead, as the init() failure above does.
-The devices are created from the device tree and are not normally
-removed, so the leaked references have no visible effect in practice.
-The MAC state allocated by init() is still not freed on this path, as
-in mac_remove(); that needs a separate change.
+A single read bio of this size reaches bcache through an io_uring
+registered buffer, which the block layer attaches to the bio without
+splitting.  Reading 256 MiB from a cached device with verify enabled on a
+KASAN/KFENCE kernel gives:
 
-Fixes: 1dec67e0d9fb ("fsl/fman: Fix refcount handling of fman-related devices")
-Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
+  BUG: KFENCE: out-of-bounds write in bch_bio_map+0x132/0x420
+  Out-of-bounds write at 0x00000000cb5c6057 (132B right of kfence-#252):
+   bch_bio_map+0x132/0x420
+   bch_data_verify+0x3d2/0xc40
+   cached_dev_read_done+0x6d4/0x890
+   process_one_work+0xafd/0x1ee0
+  kfence-#252: 0x000000008ee01c90-0x000000001f8e8fd6, size=120, cache=kmalloc-128
+  allocated by task 12 on cpu 0 at 63.371786s (0.000577s ago):
+   bio_kmalloc+0x45/0x80
+   bch_data_verify+0x2be/0xc40
+
+followed by a general protection fault and panic.  A 255 MiB read is not
+affected because its truncated count still exceeds BIO_MAX_INLINE_VECS and
+bio_kmalloc() returns NULL.
+
+The verify path needs CONFIG_BCACHE_DEBUG and the verify attribute to be
+set through sysfs.
+
+Check the segment count before it is narrowed and skip verification of
+bios that are too large, which is what already happens for every other
+count above BIO_MAX_INLINE_VECS.
+
+AI tools assisted the source audit, reproducer construction and patch
+drafting.
+
+Fixes: 0f2e6ab851ae ("block: turn the nr_iovecs argument to bio_alloc* into an unsigned short")
+Reported-by: Seojin An <love09010224@uos.ac.kr>
+Reported-by: GEONWOO HAN <gunwoo9643@uos.ac.kr>
+Cc: stable@vger.kernel.org
+Signed-off-by: Hyeonjun Hong <hyeonjunhong330@gmail.com>
 ---
-Based on linux-next next-20261109 (630059a5a632).
-Compile-tested: arm64, GCC 14.2.0, W=1, CONFIG_FSL_FMAN=y, CONFIG_FSL_DPAA=y, CONFIG_COMPILE_TEST=y; baseline and patched mac.o, no new warnings.
-No hardware or runtime test was performed.
+ drivers/md/bcache/debug.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-The path needs dpaa_eth_add_device() to fail (allocation failure or a
-platform_device_add() error) after the MAC was initialized.
-
- drivers/net/ethernet/freescale/fman/mac.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/net/ethernet/freescale/fman/mac.c b/drivers/net/ethernet/freescale/fman/mac.c
-index 29c2fa2be837..4180cec15c0f 100644
---- a/drivers/net/ethernet/freescale/fman/mac.c
-+++ b/drivers/net/ethernet/freescale/fman/mac.c
-@@ -307,6 +307,7 @@ static int mac_probe(struct platform_device *_of_dev)
- 		dev_err(dev, "failed to add Ethernet platform device for MAC %d\n",
- 			priv->cell_index);
- 		priv->eth_dev = NULL;
-+		goto _return_dev_arr_put;
- 	}
+diff --git a/drivers/md/bcache/debug.c b/drivers/md/bcache/debug.c
+index 2691a5da3368..fa665b4628b1 100644
+--- a/drivers/md/bcache/debug.c
++++ b/drivers/md/bcache/debug.c
+@@ -112,6 +112,14 @@ void bch_data_verify(struct cached_dev *dc, struct bio *bio)
+ 	struct bio_vec bv, cbv;
+ 	struct bvec_iter iter, citer = { 0 };
  
- 	return err;
-
-base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
--- 
-2.50.1 (Apple Git-155)
-
++	/*
++	 * bio_kmalloc() takes an unsigned short, so a larger segment count
++	 * would be truncated before its own limit check.  Skip verification
++	 * of bios which cannot be represented.
++	 */
++	if (nr_segs > BIO_MAX_INLINE_VECS)
++		return;
++
+ 	check = bio_kmalloc(nr_segs, GFP_NOIO);
+ 	if (!check)
+ 		return;
