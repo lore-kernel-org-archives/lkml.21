@@ -1,101 +1,164 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795676167;
-	b=Uhi2TdfBdSi6o6Fok57ZFw0eyg9N8fzQA+5o1sJmP9tf8wFrLcyH395PXjbffGoYugPT
-	 Ydxm0GMFajSIXaIOJVEeHQCElq1yMYp/VxyFaxGHfFpNeYDJy340HT2L9df82zLB3q7b3
-	 UZjRvMewnuh1Lny8Y9m3NPkNh3FhK5JGRJFHDkkzsGqbJbkjJ6rv20Sv/d3CN6qy3+4hZ
-	 6lH+a2KjxBoOLaZqevdlfIbbdWIfxaeyGo2BCEgTMEwGCILKRwvLQ0Dog7mjKYaIRD7mZ
-	 wEa48jxeZRW9qC8+Jt4myr7qeFNaKgbuTgySm/49Xw9HomyXDYvyXEDYtKGU+W6XsAA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795676167;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=pjAKdV6H7ho3CHl4fwxI87EmxvozgcXb/JceKUbGfHo=;
-	b=C2wASQapZNf6rpmTnA5E31aar6DzIZAEZpfyoP02U5XA7LUIy0xQyXQwse9pmvPp3dd9
-	 Unf4iml8YsGuhQivsLSLXy3mhXxieTBxtzpHWd+xJlkHLK2wA/WGNGy7gZ8ua7UoPTzXz
-	 nq3atQUWHKckF8RgfsAlR6sdWetjz/f8YUGO8t3bLAOJ5Uy2rHltxo0bP38XBhgR74Qfv
-	 wi0N1hm/mwVW+ePXdzRb7Wy87e3h4Q+mTwhle2/VodZ849slRMMiwFD15I6w1L3dD6yZe
-	 YmI7cY/OdfIu+nqzY+kjd2CiGS1MhW+BG448UCktDCG1dBidE8Bv/7K/SaH7y0N1/2w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=sifive.com;
-	spf=pass smtp.mailfrom=sifive.com;
-	dkim=pass header.d=sifive.com header.i=@sifive.com header.a=rsa-sha256 header.s=google header.b=HDEOs4Az;
-	arc=none smtp.remote-ip=74.125.82.179
-Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.229.69
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795676174;
+	b=QN6QBl1jXp9Xmu3L8KtReEbjtXyHpok3Pyj+s036QD07G0mJU+Q47jl0Of/nsJCl/3iW
+	 9aRwR4CUpVF9X0FvtcOqKZd94gC91aYr1zNWy4AFPx8Aid5MIU3qzirKzEEMIW4IMScaX
+	 NubHtxcFCZFMXy0DcNinIgujxukz1LXuzqWRd/jAgzwA3OrVid5pQBxlOCj/C9SF8cW69
+	 w4zcgX7dn9H4H2tqVFG3R5XHa1l/8GKXbBPCqRQ5kce5Q0OPHN19yVhmQb1Xfjx3FP8GE
+	 BP+xx5Rwf+pgFjoCLTmAr1W9aO5B2v9NiczbggOXQpDFqW+xbfKWNrGrCJsrIYRLchA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795676174;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 msip_labels:x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:
+	 X-Exchange-RoutingPolicyChecked:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=x3dGHRecRny2FLukUnx6jH5Qvh5oozDw5APiR9xdL5M=;
+	b=RD9YnAOTsWQnphiQS+dI+w6lZdsWkWudVOMb8o5fTYSDTNhbzfsBBKdgxPu+3+810CUB
+	 4G/h1MfvglVpbdbIX8UivJqJVS2UCq00um7cR+tFZWZNJUaZr8ketzXkNr3zqW2OxjAuB
+	 zGQ3FJ/rmOYJkeCF/wfZcnDe0RBIsiyGZA7PnaW9QLfU79k+/QBh/2QWbW4LZNa1EAM8b
+	 HVgUQt4pFNkRSauebAzAmKm88hwqmJzyRVTYFX2FFDAgRScH6Pd6dOSZhDOx4pvZ8YzEc
+	 J1du9PVJ6KAIG7Mr8g0/RfFEWFkBEyjfe7esfr/SNQaSLJdgs3cJvSeXf+Agtn7mA4g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=fujitsu.com;
+	spf=pass smtp.mailfrom=fujitsu.com;
+	dkim=pass header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=selector1 header.b="JXBZEI7/";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.229.69
+Received: from TY3P286CU002.outbound.protection.outlook.com (mail-japaneastazon11010069.outbound.protection.outlook.com [52.101.229.69])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 120EF606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:56:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 120EF606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=sifive.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sifive.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D115B606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:56:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D115B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=fujitsu.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fujitsu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=sifive.com header.i=@sifive.com header.a=rsa-sha256 header.s=google header.b=HDEOs4Az
-Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-38431138772so8674688eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:56:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1795676166; x=1796280966; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pjAKdV6H7ho3CHl4fwxI87EmxvozgcXb/JceKUbGfHo=;
-        b=HDEOs4AzXc4BVdFDsW8kQbCLVPkX9hjGoZIV/lcHoYWIodhvhziybVklzV2umtgIyf
-         D7BhPjn2+FXR+nrR9mrOlS1zuyHxzRV4fLQh/quAO18+fJ4/4X/8LqYKglLAaR55hXTl
-         piEH6AWZw1tnXCNRYtgpnQJy3uUfiPV2fhXvUWJiVeF+RSFc/gZ+NfvV4K7b3MezbXLG
-         XuJ2N2MQK/ELquZPcP/4BddBc3qlqTvfZMxfTiokI9jiAqG8WjTDrMEgTrtV4rfHO/m3
-         cpvfV2ZBdVVcThHIPwwl23tGv4rK8XNqltOAxd3YC2D0lqICCSd1EAoc66qy+YU4R7MM
-         URTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795676166; x=1796280966;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pjAKdV6H7ho3CHl4fwxI87EmxvozgcXb/JceKUbGfHo=;
-        b=EAMgottvSOjOeBG+Bqlyq6Dc0CaxXPhWqhN9EMe69zG9ym9kb2UM4XhnBZNWJ+7I3e
-         FbH0ZJfJIi5h2C7+3ereoITqiRx/7D04+KZsbXcKpAf5ybllfbXQ0N5LRlRFwZ77YXaR
-         vh/JNsMedR4hguoyVcnCmf+QLzi+I7tXalYPFQqpF2zg0wrlmTOZaCGKAMiGPdPNFQ/4
-         XXsr3Q4alfdjizLqL77eVF5bq02KwFiwP14cxlwg0gem2I+8lVvC+a+OG39UZ7hdaqNL
-         X3acNIk5LWrSHbsEh85Q5dUkJLAm68PuAPihzoUJSH1ZRXw8AsNbYvBf528hpaeF91kF
-         xD2g==
-X-Forwarded-Encrypted: i=1; AL+hErGqyy1t8Y0EdqnisQuL6Ky035kAyGGYb/PnBprtzR9R2mnbvxrlLsMcAy8DPo4o8213eHTNoIn5hBOBIjc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+B5vcbJr2GZQ7bgJUntH4z1dCYVtJxn2nJa3H00s1BVbPWVoJ6
-	32Kgwo9x3TvHvPMqc5Lmb2Y/YuSYGFfQSV1hbE0PdGrQs2dPARDzzL2Wri8+6l2nXb0=
-X-Gm-Gg: AZFdTZeRzcFhBzYIlnQKrmYjSTcwHo50cDrLji8zaaH/cBFbdlbHGdykzwW9KUi48VO
-	rjYenWdyAb4JxPLIQCtpd7H1hAr9IxNr4L1K6wE7SXCq7ecCdDicVuHvcL9Qjf/NPoDaSLIqCCm
-	BRrV2/ridMkQAzvJIm5nUJH74/Y8ZUCCLZS0fFZdVUjXl3j7h26VN+4+xnQL431W498SAtkgrcw
-	x9ULK+N4KPJKAKSc+sxhvBmoypz4q/Nud1TSibyCAbLJHXzPNETZnCnmr7onilEIWg0qEWOj4uo
-	AEcVeKAN5zgsGE2X7iQ1jGKSvcd6mazRwkH5ZzJZ4Ax4vnt0sgpfrNP35nQbIePU7K9nT/PDIyZ
-	0hJ8t3PhGQMtHcRvZXXuiH9VU5mcONHHkqx6zULBexXUb/QiCkbaiyUNxDSH5YdgVosGyvMnWJh
-	rPa7VzZne/TQ68qR2kKviIyg8XQYaAeplYPBKAUBzlx7uajDhJllypDbEGzyuljyIuARJ0RUq35
-	Q80UNXysxKjZhi0TWOL2KEH+zpFlOdEGdqh2QBv7wopgYWTQcIjcYdlfVBJyjVnA+oC25QfvWJE
-	tRBNB5Qwofnw1fur3sO5ZrBfwILE2t3WYxBZDZHkIUeU
-X-Received: by 2002:a05:693c:4143:10b0:36a:1f4f:3e9 with SMTP id 5a478bee46e88-386b1067bf5mr13281344eec.20.1795676166107;
-        Wed, 25 Nov 2026 22:56:06 -0800 (PST)
-Received: from sw08.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385f68bc0adsm55580030eec.13.2026.11.25.22.56.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 22:56:05 -0800 (PST)
-From: Leo Yu-Chi Liang <leo.liang@sifive.com>
-To: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
-Cc: Leo Yu-Chi Liang <leo.liang@sifive.com>,
-	Anup Patel <anup@brainfault.org>,
-	Zane Leung <liangzhen@linux.spacemit.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Andrew Jones <andrew.jones@oss.qualcomm.com>,
-	Sunil V L <sunilvl@oss.qualcomm.com>,
-	Eric Lin <eric.lin@sifive.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 09/14] gtrace: Add RISC-V Trace ramsink driver
-Date: Wed, 25 Nov 2026 22:55:35 -0800
-Message-ID: <20261126065537.705845-1-leo.liang@sifive.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261001052243.3042627-10-mayuresh.chitale@oss.qualcomm.com>
-References: <20261001052243.3042627-10-mayuresh.chitale@oss.qualcomm.com>
+	dkim=pass (2048-bit key, unprotected) header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=selector1 header.b=JXBZEI7/
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mE2sgFQRogS0SFupkSdW5KHjFwLYzyhya2SNEgVA1WIR9RKDh/M8sLcv3cg3H/orIQ2xE0crf5GSgW/4bKki4/WQtv0t2eb7sKIce4PKY00wQeklXLeNJopwEjUC8BdSfGmsFaSbZIyXA2xbHpicNu6c98BGjhViP+2Tw2zieCZN3hvjf78ydcMt0rotZrtCUcKuG+fJ55qE7gQXSTo+aIPGNEoe96JV+QfRlR1rYzs+E1HklbSb/AgNB6tS9E2BKdHTn3/27rXC7jULPRGGGIf75nFJDAHxbu+p438fK4DS/OSS0WB9IWYJr4DC4++lGCDAVbclynLgqe0Zb95pvQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=x3dGHRecRny2FLukUnx6jH5Qvh5oozDw5APiR9xdL5M=;
+ b=H5/JeXlcqRErjoZfbsCQJ8vsuwQ/uvKxdQqdZTUTM/hiULbuDcGwXWn8gr0L/CitdgxjznY008L64smo6pGn5BzCOXe7wbwWjcmSwSNfkHpP14Lj3b25lRuDCfZZDkUCQOPHv+6y/JrLncoBAWm5fF6eWX75XVuhnCRa/LzEWCSx6v0fQW6T+FhWPy/yoMc1z76rUyqeEYB9GHQXULJjcGtGAKvotszoCMIdutpukNXkJZ+gqhc4Xty6JOxTIwFPxSRswSeYtLY3+AB72DyHZ5yH0Doq+0WgY1ZiDLSAz92Z3GJLzh0KxeTJWHi+8H9pvxI6UUyiFljwp13vi9RIhA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
+ dkim=pass header.d=fujitsu.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=x3dGHRecRny2FLukUnx6jH5Qvh5oozDw5APiR9xdL5M=;
+ b=JXBZEI7/JSukM6WNMVSqyK2u7vA7StGKfua+Jc4wn7KPWlWLjWbYBJgF8CZkWf/f5pq3EqjdlPzxOPwx/McYSN7IXlxZtsWwA0lf3rkWH4Zo8X2lyIbykbpMElfh70XWozbuVsayO5mArht87cBLVpJj6EURnRXFqxCbbrs114IlGq6VgvY73J5OJtCvhUdxy56Sr6x5ZKqq72AzGwqalPdig/rBQvQtFL4LqpmNgKo1ZC6kdOLu7LllUDgKPyvheaf9Q9iKRpYbCv3UQ0im0lMD8SvElCZ+LJ+iKoV1ZuHQoFZ2TSOArGOJ5aMfMvweEboa/ZBeoLOJ0iZGxTRnng==
+Received: from TY4PR01MB16930.jpnprd01.prod.outlook.com
+ (2603:1096:405:338::19) by OS7PR01MB17540.jpnprd01.prod.outlook.com
+ (2603:1096:604:443::17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
+ 2026 06:56:11 +0000
+Received: from TY4PR01MB16930.jpnprd01.prod.outlook.com
+ ([fe80::38bc:7870:6f23:a957]) by TY4PR01MB16930.jpnprd01.prod.outlook.com
+ ([fe80::38bc:7870:6f23:a957%4]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
+ 06:56:11 +0000
+From: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
+To: Fenghua Yu <fenghuay@nvidia.com>, Reinette Chatre
+	<reinette.chatre@intel.com>, Tony Luck <tony.luck@intel.com>, Ben Horgan
+	<ben.horgan@arm.com>, James Morse <james.morse@arm.com>, Will Deacon
+	<will@kernel.org>, Dave Martin <Dave.Martin@arm.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Chen Yu <yu.c.chen@intel.com>, Babu Moger
+	<babu.moger@amd.com>, Drew Fustini <fustini@kernel.org>, Vikram Sethi
+	<vsethi@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>, Newton Liu
+	<newtonl@nvidia.com>, Richard Cheng <icheng@nvidia.com>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH RFC v3 08/15] arm_mpam: Include all MSC components during
+ domain setup
+Thread-Topic: [PATCH RFC v3 08/15] arm_mpam: Include all MSC components during
+ domain setup
+Thread-Index: AQHdcJDCPmvImW7qFkWuUW++5wasfLdABPbb
+Date: Thu, 26 Nov 2026 06:56:11 +0000
+Message-ID:
+ <TY4PR01MB16930FCD62AF481882AE43FB68B422@TY4PR01MB16930.jpnprd01.prod.outlook.com>
+References: <20261109212427.1409204-1-fenghuay@nvidia.com>
+ <20261109212427.1409204-9-fenghuay@nvidia.com>
+In-Reply-To: <20261109212427.1409204-9-fenghuay@nvidia.com>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+ MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=True;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2026-11-26T06:55:42.156Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=1;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fujitsu.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY4PR01MB16930:EE_|OS7PR01MB17540:EE_
+x-ms-office365-filtering-correlation-id: c1f21395-45c9-4ba0-79e6-08df4b8a5add
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|366016|4143699003|6133799003|261009223027099003|18002099003|22082099003|1580799027|3023799007|921020|5023799004|10067099003|11063799006|56012099006|261102123227099003|261028144727099003|261026121527099003|261022105027099003|261026140227099003|261022075727099003|261021121427099003|261021123027099003|38070700021;
+x-microsoft-antispam-message-info:
+ wo3HY3cIINk2vWZCtlPtmKjuXfEueS6YuenidhltqWp8sPtqagR+v0PbnvuTUQsfjg4qO9HX4RVBMt/VLnukRCtNPpjpF+ZneYawV6Dn1clS32XpB4HWvhKy7dv4/coh/aOAxvVljTWSWyIsi4VymLVcv60D676kax7vGWpqz44eipNMjZ8ctFB3MXNDyJ7O6IBn2+wdRcihaAvryeDW3gm3ZJzNs/Z2J8K1VKXmSwItuNmmGYVnFORK97ghNfvwRpFmIPfJppkbUqPH2jUpb0ZLBuo8K+llZmYjaTlelGu4UvlJaxaHBDH3gQNbdakMaIoPwVtkwkW76vT7F9hNTqh7LHRGcvaWa2yvWGBbF5awsv6W2cJg2Ht5wuS2gWcFBqs40bAYHFju2u8tjgFu4vThdst+1qJ9zjaQbiC/1OfyK0UaN5uiOgiXUPbMxqKKY0IlQerFhVPgwa5klqYEpVyiEP86gbT9lDaJJ4cbgTVUcn8Mf3UvblBW/yrUrDnH7pNC+v8CcDnlHTbXyorjJNi1Tb/MOX58cIm18fsitXF7Lqy2aWpwgmUhbeKue1W2Rux5QT6ak93ZcQLwIrMyL93OxmKf1NCMqhfU2KcfznwPtKlgR6WbIYY93aj+1a5YLp8c48EVvslvZBpOxlWbNEK0krUhP4cBHfRjhWphQSr+EVzd0PmTyloy7XoibNjFnulwG7/QZ1YxYQvDk2kZoog8/e4A6ov0yYaA6xb7jnaTM4+EaadLRjzrWOezXOaIkbp35P7GSdM5PALy+k4c9g==
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY4PR01MB16930.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(366016)(4143699003)(6133799003)(261009223027099003)(18002099003)(22082099003)(1580799027)(3023799007)(921020)(5023799004)(10067099003)(11063799006)(56012099006)(261102123227099003)(261028144727099003)(261026121527099003)(261022105027099003)(261026140227099003)(261022075727099003)(261021121427099003)(261021123027099003)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?iso-2022-jp?B?QlJtQUFyUkVhNUxsS2hTQ0JsUG1TYzYyWHh1ZmZwcjByWElGY1FTdEhX?=
+ =?iso-2022-jp?B?RFRiaEFZY0JQS3I3Z2RrbFFtdHYzOWxuSU8xaE9SQWV2THpucEQ5ejlD?=
+ =?iso-2022-jp?B?UzE0RWpTK1BnOStNTjdveE4yRi84YW5yM3NSTUI5VVN1WGN1cnJOTXZ3?=
+ =?iso-2022-jp?B?STJOUjZTejYrV1gvaUJvQjgwK3FUZWJ5elprVTJBWlBoUXhXRE9tRi82?=
+ =?iso-2022-jp?B?RjRsOEJDZEFkQmhzKzBQVEpxanpwRkl1MjZ3a1RqbFc5dG9sM3FTVnBJ?=
+ =?iso-2022-jp?B?VmtmTEl3U2dtV084bVdid3pzRGNxT1FHNjlGc3FOVHhSNllGN0htY0l1?=
+ =?iso-2022-jp?B?YW91T0d0QzB2bk1VNm1JZ2lSZzlsSTVnMW5VRkFPWnR4TmVjcUZZSVVw?=
+ =?iso-2022-jp?B?dVVHSERkU0RMbGd4SFdXMkozZjNzYVZqaTlDNDRQbWxVR2JCbVNZTVFt?=
+ =?iso-2022-jp?B?M2lIQ2xseE9neThXbGJRcXdsTEhyNFYwUllKTDlGZjJnbGlUVHFkOVM2?=
+ =?iso-2022-jp?B?T3JRMzFBVG5QUXJoUVI2ejJGYXJiKzFYWUxWZnY5K1FFaU5zVG4rQ01u?=
+ =?iso-2022-jp?B?N29FOXhLcmlwTHNKVGF6WXBrWmtYcER2YlBZRS9DZWZpc2VDNDA1Q2hN?=
+ =?iso-2022-jp?B?UXVLUnJyNFVIN3FBVkYvWmtpcnB4ZFdnUUJib2ZYN0hERnltaGdENUR1?=
+ =?iso-2022-jp?B?TmIwMDJkQnU4TWFpUXVKTktoM09TYVVCOE96S000WS9qWi8zaTVQRHB6?=
+ =?iso-2022-jp?B?YWw2K2hDNVhLeko4MXpjYXlvNFlFczdCWE5nTnNpNE56eU4rRTV1VDVD?=
+ =?iso-2022-jp?B?SWcwbUc4SmpHVlBNWjM1OXVtUWlKcFBGa3FScWhFOHZyQ3ZmMEFicWcw?=
+ =?iso-2022-jp?B?bGZza2ZLTG95TFlyRDhwSHlFUkxtNmVabi9uRVA5cGsxcFU5LzZjek5T?=
+ =?iso-2022-jp?B?M3ZzT280dUwvdkczYWp1T3hoZjBTaFNXRFFMVGswWjZTekc5VUtWZE9F?=
+ =?iso-2022-jp?B?SEs0WC9tdG0wK1FNbVZCbDNRWGdmTG9SUDc3OWlIRFdTS2V6T1BoWFo3?=
+ =?iso-2022-jp?B?ci9mOENWM3RkdER1THNHMzV3LzVkR3hKMkJNZkFFRFVJVXE0MVVDenpu?=
+ =?iso-2022-jp?B?UGkrdm9ZS2EwbW1sTkZCRmVwbFhIb0k0MXNtNkNWNW5CYklyZ2ozTHE1?=
+ =?iso-2022-jp?B?Z2liVzE4OG5Oa2IvbTdQTXg3K2ZNek9PY2ZjUEZGLzZ1ZldYY05RQ0Rl?=
+ =?iso-2022-jp?B?aWpONkRiN0tXdWU2Ym9rWlpraDd3dGoxMXcyRmpPVUUvb2xIT3RCSG95?=
+ =?iso-2022-jp?B?dkIrczMvNmwwcGN2ZVBQMHJKWDFqMG94Zm55ZGdsSjJ0U29JTjVKaFRL?=
+ =?iso-2022-jp?B?enFETlEzUyt0bi9rUWVMSHcvRDdPbFJ6SDVJMDNiQ1pXaTJlQUtCLzh3?=
+ =?iso-2022-jp?B?RFJDS0ZTWW9lQUR3VHdEeDlkNVYyOTZleUtXUDdQZGJBSkpDWDBUWUk5?=
+ =?iso-2022-jp?B?U2xZTjZYRi9qMldwcFA2cFlrd3RjVm9ub3RQRFdZNE9wSzUxeUdZbHNZ?=
+ =?iso-2022-jp?B?UnZJQ1Y4QlpFZlExOTRkbnE0ckdSTWpCc0tJbGZsNWRxYi9LTFJLOXp4?=
+ =?iso-2022-jp?B?Y2lNbkZMbG5hSzdhbVAzZVVlMENpZXhFdStIUmhJQlZmVDU5YVNIV0k5?=
+ =?iso-2022-jp?B?SktaeGg2VHlZMU1SWmFWdmJTUXlPZHNXYmNmaHBtMmhVVGt2SHJCWkRj?=
+ =?iso-2022-jp?B?SnNwSU1YaDJnQnBJZTk0by94S0k4WUVuWnR3eitJeEJFM21wRHZHRG9r?=
+ =?iso-2022-jp?B?Y1NabG50WHhPRklYRVQvTE92K2IzZkY2U0lpam9xY3FRNXhMVVdQVmNJ?=
+ =?iso-2022-jp?B?NXUvcWNEUnkwUFJ4OUExQmxkeExVT2k5VnJSenRqOE5aVEFudmtWa2JD?=
+ =?iso-2022-jp?B?ZDEra0Nva1VpZGVyRE5uSnNuSURDdTZNY2cxZjNJT1RTSHF4eDhlQmJE?=
+ =?iso-2022-jp?B?cEEwZmlhMnlRTHBneVVqSVZGcGpzdTRZVitSeEJCWG8xcWNITHFPNTBH?=
+ =?iso-2022-jp?B?NkViQURjcmhWcWUrVXE0ZWtpZkRPY05MVUNqT241aUs2KzNWaGNBVjNx?=
+ =?iso-2022-jp?B?T3E0ZmFwMXJtanpHYWNRM3NxREpDUm1lMHZEUFduSnVTaEdKcVc3T3RZ?=
+ =?iso-2022-jp?B?eDFHRzI4VWt4d2ViaG00NWNjcFpPcWNOUFE3YlhZN0pES2sxeEpUTVdV?=
+ =?iso-2022-jp?B?UWE1am5SaitBTVNyQ3hKUEpFd3RTelE0T252MVdXaktTRHdadEFoZ3ly?=
+ =?iso-2022-jp?B?bjNUKzNtS0JWbU95WFV2K01JNGF0SU11MDNyNXVRalk4UFpxNHE4WE1u?=
+ =?iso-2022-jp?B?bDhXNUZORDd1UzBNbXNWblhUaTlHbFc3N3VKUFBKMDMyajVDUXRJbGpJ?=
+ =?iso-2022-jp?B?alpCcUZLYUxIZnQ3UHJ6YmV5V2NEbkFsNXkvYVVKa1gxRVFqd0dnbjhI?=
+ =?iso-2022-jp?B?NUxsS3lSZVB5Tmd3ZVBpdDFYTnltZWlBRWlzUT09?=
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,72 +168,514 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Exchange-RoutingPolicyChecked:
+	RDVVY/VbvPljLQ+ZTlGP1j5D8Pjtsx/6kRq5rYDaAyNdrT+HLNbrZQu9WbhIMqP4EH9ckzaZs8VLbkSaE3EGS0qxEQoxvPaMPF6jkM5iv6Bdykcd+xw505ZnUzE6U3DSGDJZgkZHshREDL6EMvma8GcGXUmfMvEtmPxZtmqZvZF+fmA3X3hJTdXAtT3Uanh/UUbm8wVKa7YCkiLDgNpof9wE22ndiZbVzInH/r1jPH28y5FpbCaDzFiUEWiI0aB2HJWXGjXOBOHbMWTnoEwe1sMyQytgB+GSMLGztjT89HGhzi6M0K9kd7CuiH7oIb5uBBSIestOsWfWw5ZxOKyrKQ==
+X-OriginatorOrg: fujitsu.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY4PR01MB16930.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c1f21395-45c9-4ba0-79e6-08df4b8a5add
+X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Nov 2026 06:56:11.1707
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 8Fyyo+IH32IvnTGoyOhs7Xrro7dPsN+uCVpMD4AJelDAXU5QPQoo2kHvSxC+f3w6y7EaNp0FtR96iKGI9yDUGw/nMt3DFiE9ELKpiD+TZl8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS7PR01MB17540
 
-Hi Mayuresh,
-
-> +	if (wrap) {
-> +		rvtrace_ramsink_write_pair(comp->pdata, priv->start, RVTRACE_RAMSINK_WPLOW_OFF);
-> +		src.cur = wp - priv->start;
-> +		priv->prev_wp = priv->start;
-> +		/*
-> +		 * There is no way to tell if trRamWp wrapped around more than once. As a
-> +		 * result priv->prev_wp can't be used and the entire buffer must be copied
-> +		 * even though some data might be duplicated.
-> +		 */
-> +		bytes = priv->size;
-> +	} else {
-> +		src.cur =  priv->prev_wp - priv->start;
-> +		bytes = wp - priv->prev_wp;
-> +		priv->prev_wp = wp;
-> +	}
-
-Consider the following trace sessions:
-
-  session 1 writes 60 bytes, no wrap, WP = 60        buffer: [0,60) = S1
-  session 2 writes 70 bytes: [60,100), wraps, [0,30) WP = 30, wrap set
-                                                     buffer: [0,30)  = S2 (end of it)
-                                                             [30,60) = S1 (stale)
-                                                             [60,100)= S2 (start of it)
-
-The wrap path copies the whole buffer starting at WP, so the AUX buffer gets
-30 stale bytes of S1 followed by all 70 bytes of S2. Nothing from S2 is lost,
-but the output contains data that does not belong to the session.
-
-Could we reset WP to the start of the buffer after every copy ?
-The non-wrap case then always copies [start, wp), and a wrap can only
-happen when one session produces more data than the buffer holds.
-
-Does something like below make sense?
-
---- a/drivers/hwtracing/gtrace/rvtrace-ramsink.c
-+++ b/drivers/hwtracing/gtrace/rvtrace-ramsink.c
-@@ rvtrace_ramsink_copyto_auxbuf()
- 	if (wrap) {
--		rvtrace_ramsink_write_pair(comp->pdata, priv->start, RVTRACE_RAMSINK_WPLOW_OFF);
- 		src.cur = wp - priv->start;
--		priv->prev_wp = priv->start;
- 		/*
- 		 * There is no way to tell if trRamWp wrapped around more than once.
- 		 * The entire buffer must be copied even though some data might be duplicated.
- 		 */
- 		bytes = priv->size;
- 	} else {
--		src.cur =  priv->prev_wp - priv->start;
--		bytes = wp - priv->prev_wp;
--		priv->prev_wp = wp;
-+		src.cur = 0;
-+		bytes = wp - priv->start;
- 	}
- 
- 	tbuf_to_pbuf_copy(&src, &dst, bytes);
-+
-+	/* Next session starts at the beginning of the buffer */
-+	rvtrace_ramsink_write_pair(comp->pdata, priv->start, RVTRACE_RAMSINK_WPLOW_OFF);
-+
- 	dev_dbg(&comp->dev, "Copied %zu bytes\n", bytes);
- 	return bytes;
- }
-
-Best regards,
-Leo
+Hello Fenghua,=0A=
+=0A=
+> Iterate all MSC components per CPU when creating and looking up control=
+=0A=
+> and monitor domains on the controls branch. Key monitor domains by=0A=
+> component, support MBA mon_capable lookup, and report mon capability=0A=
+> from any L3 or MBA monitor resource.=0A=
+> =0A=
+> A memory-class MSC keeps control_mode legacy and names its control NODE,=
+=0A=
+> so the schemata line is MB_NODE in both legacy and native mode. A cache=
+=0A=
+> MSC keeps the MB line.=0A=
+> =0A=
+> Signed-off-by: Fenghua Yu <fenghuay@nvidia.com>=0A=
+> ---=0A=
+>  drivers/resctrl/mpam_resctrl.c | 209 +++++++++++++++++++--------------=
+=0A=
+>  fs/resctrl/ctrlmondata.c       |   1 +=0A=
+>  include/linux/resctrl.h        |   3 +=0A=
+>  3 files changed, 127 insertions(+), 86 deletions(-)=0A=
+> =0A=
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctr=
+l.c=0A=
+> index 72302f6021d7..ac0c488abe12 100644=0A=
+> --- a/drivers/resctrl/mpam_resctrl.c=0A=
+> +++ b/drivers/resctrl/mpam_resctrl.c=0A=
+> @@ -95,11 +95,27 @@ static bool mpam_class_memory(struct mpam_class *clas=
+s)=0A=
+>  =0A=
+>  bool resctrl_arch_mon_capable(void)=0A=
+>  {=0A=
+> -       struct mpam_resctrl_res *res =3D &mpam_resctrl_controls[RDT_RESOU=
+RCE_L3];=0A=
+> -       struct rdt_resource *l3 =3D &res->resctrl_res;=0A=
+> +       enum resctrl_event_id eventid;=0A=
+> +       struct mpam_resctrl_mon *mon;=0A=
+> +       struct mpam_resctrl_res *res;=0A=
+> +       struct rdt_resource *r;=0A=
+> +=0A=
+> +       for_each_mpam_resctrl_mon(mon, eventid) {=0A=
+> +               if (!mon->class)=0A=
+> +                       continue;       // dummy resource=0A=
+> +=0A=
+> +               if (mpam_class_memory(mon->class))=0A=
+> +                       res =3D &mpam_resctrl_controls[RDT_RESOURCE_MBA];=
+=0A=
+> +               else=0A=
+> +                       res =3D &mpam_resctrl_controls[RDT_RESOURCE_L3];=
+=0A=
+> +=0A=
+> +               r =3D &res->resctrl_res;=0A=
+> +=0A=
+> +               if (r->mon_capable)=0A=
+> +                       return true;=0A=
+> +       }=0A=
+>  =0A=
+> -       /* All monitors are presented as being on the L3 cache */=0A=
+> -       return l3->mon_capable;=0A=
+> +       return false;=0A=
+>  }=0A=
+>  =0A=
+>  bool resctrl_arch_is_evt_configurable(enum resctrl_event_id evt)=0A=
+> @@ -1293,8 +1309,18 @@ static int mpam_resctrl_control_init(struct mpam_r=
+esctrl_res *res)=0A=
+>                  break;=0A=
+>          case RDT_RESOURCE_MBA:=0A=
+>                  r->ctrl_scope =3D RESCTRL_L3_CACHE;=0A=
+=0A=
+Do we not need to consider RESCTRL_L3_NODE for the scope here?=0A=
+=0A=
+> +               /*=0A=
+> +                * control_mode stays legacy. emulated_by is left empty s=
+o=0A=
+> +                * legacy and native mode expose the same schemata line.=
+=0A=
+> +                * A memory-class MSC is node-scoped, so that line is=0A=
+> +                * MB_NODE. A cache MSC keeps the MB line.=0A=
+> +                */=0A=
+> +               r->ctrl_mode =3D RESCTRL_CTRL_MODE_LEGACY;=0A=
+>                  mpam_ctrl->r_ctrl.type =3D RESCTRL_CTRL_SCALAR;=0A=
+> -               mpam_ctrl->r_ctrl.name =3D RESCTRL_CTRL_NAME_DEF;=0A=
+> +               if (mpam_class_memory(class))=0A=
+> +                       mpam_ctrl->r_ctrl.name =3D RESCTRL_CTRL_NAME_NODE=
+;=0A=
+> +               else=0A=
+> +                       mpam_ctrl->r_ctrl.name =3D RESCTRL_CTRL_NAME_DEF;=
+=0A=
+>                  INIT_LIST_HEAD_RCU(&mpam_ctrl->r_ctrl.domains);=0A=
+>                  INIT_LIST_HEAD(&mpam_ctrl->r_ctrl.emulated_by);=0A=
+>  =0A=
+> @@ -1731,13 +1757,12 @@ static struct mpam_component *find_component(stru=
+ct mpam_class *class, int cpu)=0A=
+>  =0A=
+>  static struct mpam_resctrl_dom *=0A=
+>  mpam_resctrl_alloc_ctrl_domain(unsigned int cpu, struct mpam_resctrl_res=
+ *res,=0A=
+> -                              struct resctrl_ctrl *ctrl)=0A=
+> +                              struct resctrl_ctrl *ctrl,=0A=
+> +                              struct mpam_component *comp)=0A=
+>  {=0A=
+>          int err;=0A=
+>          struct mpam_resctrl_dom *dom;=0A=
+>          struct rdt_ctrl_domain *ctrl_d;=0A=
+> -       struct mpam_class *class =3D res->class;=0A=
+> -       struct mpam_component *comp_iter, *ctrl_comp;=0A=
+>          struct rdt_resource *r =3D &res->resctrl_res;=0A=
+>  =0A=
+>          lockdep_assert_held(&domain_list_lock);=0A=
+> @@ -1745,28 +1770,17 @@ mpam_resctrl_alloc_ctrl_domain(unsigned int cpu, =
+struct mpam_resctrl_res *res,=0A=
+>          if (!r->alloc_capable)=0A=
+>                  return ERR_PTR(-EINVAL);=0A=
+>  =0A=
+> -       ctrl_comp =3D NULL;=0A=
+> -       guard(srcu)(&mpam_srcu);=0A=
+> -       list_for_each_entry_srcu(comp_iter, &class->components, class_lis=
+t,=0A=
+> -                                srcu_read_lock_held(&mpam_srcu)) {=0A=
+> -               if (cpumask_test_cpu(cpu, &comp_iter->affinity)) {=0A=
+> -                       ctrl_comp =3D comp_iter;=0A=
+> -                       break;=0A=
+> -               }=0A=
+> -       }=0A=
+> -=0A=
+> -       /* class has no component for this CPU */=0A=
+> -       if (WARN_ON_ONCE(!ctrl_comp))=0A=
+> +       if (WARN_ON_ONCE(!comp))=0A=
+>                  return ERR_PTR(-EINVAL);=0A=
+>  =0A=
+>          dom =3D kzalloc_node(sizeof(*dom), GFP_KERNEL, cpu_to_node(cpu))=
+;=0A=
+>          if (!dom)=0A=
+>                  return ERR_PTR(-ENOMEM);=0A=
+>  =0A=
+> -       dom->ctrl_comp =3D ctrl_comp;=0A=
+> +       dom->ctrl_comp =3D comp;=0A=
+>  =0A=
+>          ctrl_d =3D &dom->resctrl_ctrl_dom;=0A=
+> -       mpam_resctrl_domain_hdr_init(cpu, ctrl_comp, r->rid, &ctrl_d->hdr=
+);=0A=
+> +       mpam_resctrl_domain_hdr_init(cpu, comp, r->rid, &ctrl_d->hdr);=0A=
+>          ctrl_d->hdr.type =3D RESCTRL_CTRL_DOMAIN;=0A=
+>          err =3D resctrl_online_ctrl_domain(r, ctrl, ctrl_d);=0A=
+>          if (err)=0A=
+> @@ -1784,13 +1798,12 @@ mpam_resctrl_alloc_ctrl_domain(unsigned int cpu, =
+struct mpam_resctrl_res *res,=0A=
+>  }=0A=
+>  =0A=
+>  static struct mpam_resctrl_dom *=0A=
+> -mpam_resctrl_alloc_mon_domain(unsigned int cpu, struct mpam_resctrl_res =
+*res)=0A=
+> +mpam_resctrl_alloc_mon_domain(unsigned int cpu, struct mpam_resctrl_res =
+*res,=0A=
+> +                             struct mpam_component *comp)=0A=
+>  {=0A=
+>          int err;=0A=
+>          struct mpam_resctrl_dom *dom;=0A=
+>          struct rdt_l3_mon_domain *mon_d;=0A=
+> -       struct mpam_class *class =3D res->class;=0A=
+> -       struct mpam_component *comp_iter, *ctrl_comp;=0A=
+>          struct rdt_resource *r =3D &res->resctrl_res;=0A=
+>          struct mpam_component *any_mon_comp =3D NULL;=0A=
+>          struct mpam_resctrl_mon *mon;=0A=
+> @@ -1801,24 +1814,14 @@ mpam_resctrl_alloc_mon_domain(unsigned int cpu, s=
+truct mpam_resctrl_res *res)=0A=
+>          if (!r->mon_capable)=0A=
+>                  return ERR_PTR(-EINVAL);=0A=
+>  =0A=
+> -       ctrl_comp =3D NULL;=0A=
+> -       guard(srcu)(&mpam_srcu);=0A=
+> -       list_for_each_entry_srcu(comp_iter, &class->components, class_lis=
+t,=0A=
+> -                                srcu_read_lock_held(&mpam_srcu)) {=0A=
+> -               if (cpumask_test_cpu(cpu, &comp_iter->affinity)) {=0A=
+> -                       ctrl_comp =3D comp_iter;=0A=
+> -                       break;=0A=
+> -               }=0A=
+> -       }=0A=
+> -=0A=
+> -       /* class has no component for this CPU */=0A=
+> -       if (WARN_ON_ONCE(!ctrl_comp))=0A=
+> +       if (WARN_ON_ONCE(!comp))=0A=
+>                  return ERR_PTR(-EINVAL);=0A=
+>  =0A=
+>          dom =3D kzalloc_node(sizeof(*dom), GFP_KERNEL, cpu_to_node(cpu))=
+;=0A=
+>          if (!dom)=0A=
+>                  return ERR_PTR(-ENOMEM);=0A=
+>  =0A=
+> +       dom->ctrl_comp =3D comp;=0A=
+>  =0A=
+>          /*=0A=
+>           * Even if the monitor domain is backed by a different=0A=
+> @@ -1833,7 +1836,7 @@ mpam_resctrl_alloc_mon_domain(unsigned int cpu, str=
+uct mpam_resctrl_res *res)=0A=
+>                  if (!mon->class)=0A=
+>                          continue;       // dummy resource=0A=
+>  =0A=
+> -               mon_comp =3D find_component(mon->class, cpu);=0A=
+> +               mon_comp =3D comp ? comp : find_component(mon->class, cpu=
+);=0A=
+>                  dom->mon_comp[eventid] =3D mon_comp;=0A=
+>                  if (mon_comp)=0A=
+>                          any_mon_comp =3D mon_comp;=0A=
+> @@ -1870,25 +1873,32 @@ mpam_resctrl_alloc_mon_domain(unsigned int cpu, s=
+truct mpam_resctrl_res *res)=0A=
+>   * for anything that is not a cache.=0A=
+=0A=
+The comment is outdated and should be updated to reflect these changes.=0A=
+=0A=
+Best regards,=0A=
+Shaopeng TAN=0A=
+=0A=
+>   */=0A=
+>  static struct mpam_resctrl_dom *=0A=
+> -mpam_resctrl_get_mon_domain_from_cpu(int cpu, struct mpam_resctrl_res *r=
+es)=0A=
+> +mpam_resctrl_get_mon_domain_from_cpu(int cpu, struct mpam_resctrl_res *r=
+es,=0A=
+> +                                    struct mpam_component *comp)=0A=
+>  {=0A=
+> -       int cache_id;=0A=
+>          struct mpam_resctrl_dom *dom;=0A=
+>          struct rdt_resource *r =3D &res->resctrl_res;=0A=
+> +       int id;=0A=
+>  =0A=
+>          lockdep_assert_cpus_held();=0A=
+>  =0A=
+> -       if (r->rid !=3D RDT_RESOURCE_L3)=0A=
+> -               return ERR_PTR(-EINVAL);=0A=
+> +       if (!r->mon_capable || !res->class || !comp)=0A=
+> +               return NULL;=0A=
+>  =0A=
+> -       if (!res->class)=0A=
+> -               return ERR_PTR(-EINVAL);=0A=
+> -       cache_id =3D get_cpu_cacheinfo_id(cpu, 3);=0A=
+> -       if (cache_id < 0)=0A=
+> -               return ERR_PTR(-EINVAL);=0A=
+> +       if (r->rid =3D=3D RDT_RESOURCE_L3) {=0A=
+> +               id =3D get_cpu_cacheinfo_id(cpu, 3);=0A=
+> +               if (id < 0)=0A=
+> +                       return NULL;=0A=
+> +       } else if (r->rid =3D=3D RDT_RESOURCE_MBA) {=0A=
+> +               id =3D comp->comp_id;=0A=
+> +       } else {=0A=
+> +               return NULL;=0A=
+> +       }=0A=
+>  =0A=
+> -       list_for_each_entry_rcu(dom, &res->resctrl_res.mon_domains, resct=
+rl_mon_dom.hdr.list) {=0A=
+> -               if (dom->resctrl_mon_dom.hdr.id =3D=3D cache_id)=0A=
+> +       list_for_each_entry_rcu(dom, &r->mon_domains, resctrl_mon_dom.hdr=
+.list) {=0A=
+> +               if (dom->ctrl_comp !=3D comp)=0A=
+> +                       continue;=0A=
+> +               if (dom->resctrl_mon_dom.hdr.id =3D=3D id)=0A=
+>                          return dom;=0A=
+>          }=0A=
+>  =0A=
+> @@ -1896,14 +1906,19 @@ mpam_resctrl_get_mon_domain_from_cpu(int cpu, str=
+uct mpam_resctrl_res *res)=0A=
+>  }=0A=
+>  =0A=
+>  static struct mpam_resctrl_dom *=0A=
+> -mpam_resctrl_get_ctrl_domain_from_cpu(int cpu, struct resctrl_ctrl *ctrl=
+)=0A=
+> +mpam_resctrl_get_ctrl_domain_from_cpu(int cpu, struct mpam_resctrl_res *=
+res,=0A=
+> +                                     struct resctrl_ctrl *ctrl,=0A=
+> +                                     struct mpam_component *comp)=0A=
+>  {=0A=
+>          struct mpam_resctrl_dom *dom;=0A=
+>  =0A=
+>          lockdep_assert_cpus_held();=0A=
+>  =0A=
+> +       if (!comp)=0A=
+> +               return NULL;=0A=
+> +=0A=
+>          list_for_each_entry_rcu(dom, &ctrl->domains, resctrl_ctrl_dom.hd=
+r.list) {=0A=
+> -               if (cpumask_test_cpu(cpu, &dom->ctrl_comp->affinity))=0A=
+> +               if (dom->ctrl_comp =3D=3D comp)=0A=
+>                          return dom;=0A=
+>          }=0A=
+>  =0A=
+> @@ -1914,6 +1929,7 @@ int mpam_resctrl_online_cpu(unsigned int cpu)=0A=
+>  {=0A=
+>          struct mpam_resctrl_res *res;=0A=
+>          enum resctrl_res_level rid;=0A=
+> +       struct mpam_component *comp;=0A=
+>  =0A=
+>          guard(mutex)(&domain_list_lock);=0A=
+>          for_each_mpam_resctrl_control(res, rid) {=0A=
+> @@ -1924,30 +1940,40 @@ int mpam_resctrl_online_cpu(unsigned int cpu)=0A=
+>                  if (!res->class)=0A=
+>                          continue;       // dummy_resource;=0A=
+>  =0A=
+> -               if (r->alloc_capable) {=0A=
+> -                       for_each_resource_ctrl(ctrl, r) {=0A=
+> -                               dom =3D mpam_resctrl_get_ctrl_domain_from=
+_cpu(cpu, ctrl);=0A=
+> -                               if (!dom) {=0A=
+> -                                       dom =3D mpam_resctrl_alloc_ctrl_d=
+omain(cpu, res, ctrl);=0A=
+> +               guard(srcu)(&mpam_srcu);=0A=
+> +               list_for_each_entry_srcu(comp, &res->class->components, c=
+lass_list,=0A=
+> +                                        srcu_read_lock_held(&mpam_srcu))=
+ {=0A=
+> +                       if (!cpumask_test_cpu(cpu, &comp->affinity))=0A=
+> +                               continue;=0A=
+> +=0A=
+> +                       if (r->alloc_capable) {=0A=
+> +                               for_each_resource_ctrl(ctrl, r) {=0A=
+> +                                       dom =3D mpam_resctrl_get_ctrl_dom=
+ain_from_cpu(cpu, res,=0A=
+> +                                                                        =
+           ctrl, comp);=0A=
+> +                                       if (!dom) {=0A=
+> +                                               dom =3D mpam_resctrl_allo=
+c_ctrl_domain(cpu, res,=0A=
+> +                                                                        =
+            ctrl, comp);=0A=
+> +                                       } else {=0A=
+> +                                               struct rdt_ctrl_domain *c=
+trl_d =3D=0A=
+> +                                                       &dom->resctrl_ctr=
+l_dom;=0A=
+> +=0A=
+> +                                               mpam_resctrl_online_domai=
+n_hdr(cpu, &ctrl_d->hdr);=0A=
+> +                                       }=0A=
+>                                          if (IS_ERR(dom))=0A=
+>                                                  return PTR_ERR(dom);=0A=
+> +                               }=0A=
+> +                       }=0A=
+> +                       if (r->mon_capable) {=0A=
+> +                               dom =3D mpam_resctrl_get_mon_domain_from_=
+cpu(cpu, res, comp);=0A=
+> +                               if (!dom) {=0A=
+> +                                       dom =3D mpam_resctrl_alloc_mon_do=
+main(cpu, res, comp);=0A=
+>                                  } else {=0A=
+> -                                       struct rdt_ctrl_domain *ctrl_d =
+=3D &dom->resctrl_ctrl_dom;=0A=
+> +                                       struct rdt_l3_mon_domain *mon_d =
+=3D &dom->resctrl_mon_dom;=0A=
+>  =0A=
+> -                                       mpam_resctrl_online_domain_hdr(cp=
+u, &ctrl_d->hdr);=0A=
+> +                                       mpam_resctrl_online_domain_hdr(cp=
+u, &mon_d->hdr);=0A=
+>                                  }=0A=
+> -                       }=0A=
+> -               }=0A=
+> -               if (r->mon_capable) {=0A=
+> -                       dom =3D mpam_resctrl_get_mon_domain_from_cpu(cpu,=
+ res);=0A=
+> -                       if (!dom) {=0A=
+> -                               dom =3D mpam_resctrl_alloc_mon_domain(cpu=
+, res);=0A=
+>                                  if (IS_ERR(dom))=0A=
+>                                          return PTR_ERR(dom);=0A=
+> -                       } else {=0A=
+> -                               struct rdt_l3_mon_domain *mon_d =3D &dom-=
+>resctrl_mon_dom;=0A=
+> -=0A=
+> -                               mpam_resctrl_online_domain_hdr(cpu, &mon_=
+d->hdr);=0A=
+>                          }=0A=
+>                  }=0A=
+>          }=0A=
+> @@ -1961,6 +1987,7 @@ void mpam_resctrl_offline_cpu(unsigned int cpu)=0A=
+>  {=0A=
+>          struct mpam_resctrl_res *res;=0A=
+>          enum resctrl_res_level rid;=0A=
+> +       struct mpam_component *comp;=0A=
+>  =0A=
+>          resctrl_offline_cpu(cpu);=0A=
+>  =0A=
+> @@ -1976,31 +2003,41 @@ void mpam_resctrl_offline_cpu(unsigned int cpu)=
+=0A=
+>                  if (!res->class)=0A=
+>                          continue;       // dummy resource=0A=
+>  =0A=
+> -               if (r->alloc_capable) {=0A=
+> -                       for_each_resource_ctrl(ctrl, r) {=0A=
+> -                               dom =3D mpam_resctrl_get_ctrl_domain_from=
+_cpu(cpu, ctrl);=0A=
+> +               guard(srcu)(&mpam_srcu);=0A=
+> +               list_for_each_entry_srcu(comp, &res->class->components, c=
+lass_list,=0A=
+> +                                        srcu_read_lock_held(&mpam_srcu))=
+ {=0A=
+> +                       if (!cpumask_test_cpu(cpu, &comp->affinity))=0A=
+> +                               continue;=0A=
+> +=0A=
+> +                       if (r->alloc_capable) {=0A=
+> +                               for_each_resource_ctrl(ctrl, r) {=0A=
+> +                                       dom =3D mpam_resctrl_get_ctrl_dom=
+ain_from_cpu(cpu, res,=0A=
+> +                                                                        =
+           ctrl, comp);=0A=
+> +                                       if (WARN_ON_ONCE(!dom))=0A=
+> +                                               continue;=0A=
+> +                                       ctrl_d =3D &dom->resctrl_ctrl_dom=
+;=0A=
+> +                                       dom_empty =3D mpam_resctrl_offlin=
+e_domain_hdr(cpu,=0A=
+> +                                                                        =
+           &ctrl_d->hdr);=0A=
+> +                                       if (dom_empty) {=0A=
+> +                                               resctrl_offline_ctrl_doma=
+in(&res->resctrl_res, ctrl,=0A=
+> +                                                                        =
+   ctrl_d);=0A=
+> +                                               kfree(dom);=0A=
+> +                                       }=0A=
+> +                               }=0A=
+> +                       }=0A=
+> +=0A=
+> +                       if (r->mon_capable) {=0A=
+> +                               dom =3D mpam_resctrl_get_mon_domain_from_=
+cpu(cpu, res, comp);=0A=
+>                                  if (WARN_ON_ONCE(!dom))=0A=
+>                                          continue;=0A=
+> -                               ctrl_d =3D &dom->resctrl_ctrl_dom;=0A=
+> -                               dom_empty =3D mpam_resctrl_offline_domain=
+_hdr(cpu, &ctrl_d->hdr);=0A=
+> +                               mon_d =3D &dom->resctrl_mon_dom;=0A=
+> +                               dom_empty =3D mpam_resctrl_offline_domain=
+_hdr(cpu, &mon_d->hdr);=0A=
+>                                  if (dom_empty) {=0A=
+> -                                       resctrl_offline_ctrl_domain(&res-=
+>resctrl_res, ctrl, ctrl_d);=0A=
+> +                                       resctrl_offline_mon_domain(&res->=
+resctrl_res, &mon_d->hdr);=0A=
+>                                          kfree(dom);=0A=
+>                                  }=0A=
+>                          }=0A=
+>                  }=0A=
+> -=0A=
+> -               if (r->mon_capable) {=0A=
+> -                       dom =3D mpam_resctrl_get_mon_domain_from_cpu(cpu,=
+ res);=0A=
+> -                       if (WARN_ON_ONCE(!dom))=0A=
+> -                               continue;=0A=
+> -                       mon_d =3D &dom->resctrl_mon_dom;=0A=
+> -                       dom_empty =3D mpam_resctrl_offline_domain_hdr(cpu=
+, &mon_d->hdr);=0A=
+> -                       if (dom_empty) {=0A=
+> -                               resctrl_offline_mon_domain(&res->resctrl_=
+res, &mon_d->hdr);=0A=
+> -                               kfree(dom);=0A=
+> -                       }=0A=
+> -               }=0A=
+>          }=0A=
+>  }=0A=
+>  =0A=
+> diff --git a/fs/resctrl/ctrlmondata.c b/fs/resctrl/ctrlmondata.c=0A=
+> index 4bc7090ad0c7..77a2f2e877a6 100644=0A=
+> --- a/fs/resctrl/ctrlmondata.c=0A=
+> +++ b/fs/resctrl/ctrlmondata.c=0A=
+> @@ -359,6 +359,7 @@ static const char * const resctrl_ctrl_name[] =3D {=
+=0A=
+>          [RESCTRL_CTRL_NAME_DEF]         =3D "",=0A=
+>          [RESCTRL_CTRL_NAME_MIN]         =3D "MIN",=0A=
+>          [RESCTRL_CTRL_NAME_MAX]         =3D "MAX",=0A=
+> +       [RESCTRL_CTRL_NAME_NODE]        =3D "NODE",=0A=
+>          [RESCTRL_CTRL_NAME_REGION0_MIN]         =3D "REGION0_MIN",=0A=
+>          [RESCTRL_CTRL_NAME_REGION0_MAX]         =3D "REGION0_MAX",=0A=
+>  };=0A=
+> diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h=0A=
+> index 195c0948b26d..3c4675656b51 100644=0A=
+> --- a/include/linux/resctrl.h=0A=
+> +++ b/include/linux/resctrl.h=0A=
+> @@ -398,6 +398,8 @@ struct resctrl_mon {=0A=
+>   *                             has the same name as the resource.=0A=
+>   * @RESCTRL_CTRL_NAME_MIN:     "MIN"=0A=
+>   * @RESCTRL_CTRL_NAME_MAX:     "MAX"=0A=
+> + * @RESCTRL_CTRL_NAME_NODE:    "NODE". With resource name "MB" the schem=
+ata=0A=
+> + *                             line is "MB_NODE".=0A=
+>   * @RESCTRL_CTRL_NAME_REGION0_MIN:     "REGION0_MIN"=0A=
+>   * @RESCTRL_CTRL_NAME_REGION0_MAX:     "REGION0_MAX"=0A=
+>   */=0A=
+> @@ -405,6 +407,7 @@ enum resctrl_ctrl_name {=0A=
+>          RESCTRL_CTRL_NAME_DEF,=0A=
+>          RESCTRL_CTRL_NAME_MIN,=0A=
+>          RESCTRL_CTRL_NAME_MAX,=0A=
+> +       RESCTRL_CTRL_NAME_NODE,=0A=
+>          RESCTRL_CTRL_NAME_REGION0_MIN,=0A=
+>          RESCTRL_CTRL_NAME_REGION0_MAX,=0A=
+>          RESCTRL_CTRL_NAME_LAST =3D RESCTRL_CTRL_NAME_REGION0_MAX=0A=
+> --=0A=
+> 2.53.0=0A=
