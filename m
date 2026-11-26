@@ -1,49 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705251;
-	b=Q7mIpJ4RHuPjB5qm/CYQV80JvQt7BuKwkBfftRQ9OjeFd94Xboi46nNhpPH+IaS6BOLU
-	 T5I/1PH+QMJg3ObJPIZURcZSzLjbuRgO8RVnLMdefGp19ioLIKN1n6sEe1pNBV2lgH6cm
-	 ZJ0ARRV8EBC9hB3Z/afWdP2CmTxWiU7JsndsP7+XIYQ9cWeVjjRHzpZoj5nVxzrZwX7a5
-	 RIw1zecJebScKZLlZyHbKv/TF4nt3/AHLldDx/LhOnfBRrv3/Y2evsPFFo1UmFqvzrdh1
-	 51WIGkOKNVIpY2qLIIzzG3qZc2Q1rRhX1o/ETcnUBbtJDMxdTgOPaydZTOSHcQ4Bteg==
+	t=1795705257;
+	b=pkUf0nUEqy0O+2vB4bW31DZckIDc6A1Yjm6CJQVLmwwoxlJxsg8YiNTyWYepy9fwhU+B
+	 sQNc8LxKaLN80rs8HiINlIU4a+pmax9IhmdEmdF5PlpofHquzWs7NEv+3Swa5epV747G4
+	 5pFXlmtHszuLBPbwT2yykbHJrvto8jObkV+b5/d302QfyAO7Z41EStkJno9zTPHVyfQp7
+	 mvWxsfm0URV0yxEQ2pL+vyZsnRHogYoyjnTaow9OEmswHcMxYwVFcLgKIfDhkNAVXZDs9
+	 9Oub6VdKAB5vFNJarAu/LiaOkfi5hiZIzXe8QyQbbqGs9dncTx2+N6nKrMQUf+m94uA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705251;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=7vlfz2YIOMsDpcgqil+TjE1DMAtwKpgtIEmyD66S1fo=;
-	b=XgWKA+9P+Q9jPK4PzzPcvWAII8bs+7GV9yhZsXuYaLQa3HSOhnNnnIuQTaErwprJPxSh
-	 qYTil5hCsSi8fiWHMWsSf/Yhxqakhs7Lixau2VSxsHSIb7Xc5pgFZAlGJ6Ix8PSAnb7rG
-	 z4N97P9swh3rwzrF6p0hMIRu6nW5PDKBFnUkLuep+nIcEPqTQhe6XKcyZSNuFzVSWM4AQ
-	 +WrbPBnc42TS0Q209uHcZ2xzkCk3Qo+4R/XS7tbE/uvCf3nvJVYg9ZmhaPBcm5PCRwdkm
-	 8Ks4cAJ5S05VcACrzDOv9gCDMa4amQvIQtqLBro5IAijABVZNoxr1CYBVo2+vwoanwQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705257;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=szQYCmCboKQhYRz5PIZ4ziRWGdQ3ul94B2U28ottxVQ=;
+	b=HMpgMT4+wLpU0pwwxWenuGSB+N56LgLW0s1jTCRbKXhVvoPqVxVztmHTIcxjCkSS/0lz
+	 avaIaudv5PxDkEJIr6TuhvxbxA+y6N7da5uAqAhM7Nea+VEzXwTCdidQeKM4cyO4aTezo
+	 /pGF8ISGCwKdBYBLuyL5HmHHZ/ay9Z7KjIOcNRakuPyRrSesaj4GCgoNKQkjthO03qqWb
+	 3E/KOS2aFnY1x3v/X5AkVwSFu1sOyW7tjMeNsJOFQEYN5EtgJQJOvS3W7t2M1bF0mmTlI
+	 hGUjV0lPgjKy4uh9wosezI+m5CMde6U3LIFOXsnvD6E4dPTQKKs9+w+xXy6dpdBvPMg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=OrG3TV0B;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id CD60E606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:00:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD60E606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e7vHMCXT;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60225606A31E;
+	Thu, 26 Nov 2026 15:00:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=OrG3TV0B
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 35C811BA8;
-	Thu, 26 Nov 2026 07:00:47 -0800 (PST)
-Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6BC1A3F86F;
-	Thu, 26 Nov 2026 07:00:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795705250; bh=0v9eO+W3RIJoIsk5MXrKv8kB1hjR+PMVi3bSCo2sPMs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OrG3TV0BjDDQtO89hf9CzY5NHvPY5KIPoBbiZ1loHZloMGV1TxRlJyliVPydymdET
-	 LS/WOwxi6aluc8ieVauOJeFcpwy48N/Ryx/GVcP2ayfjH/uiELcazNkhIQSWDLOqck
-	 mtMfnyJ7AAwgRPsbjO+0n4Ap1HcH9Du9+BuR6oZ8=
-Message-ID: <4dfed719-5f62-4ea3-8685-5dc4426ad3c9@arm.com>
-Date: Thu, 26 Nov 2026 15:00:46 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e7vHMCXT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E8291F000CF;
+	Thu, 26 Nov 2026 15:00:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795705257;
+	bh=szQYCmCboKQhYRz5PIZ4ziRWGdQ3ul94B2U28ottxVQ=;
+	h=Date:From:To:Cc:Subject;
+	b=e7vHMCXT1n2izuuYV7PVhPuyhrhPHivTqjA2PnuGEWAeKeKS7t8yW5PdKqt9m4O+7
+	 zGDOnXYsN/x09qb6iB/a9C0wM2LN5GfI5oiElF62S+LNDeJjHHxubT2r1a83rAakmo
+	 szyfJYSAkwtnyXBr/Ruy2EeSjvzp2VRbgf/Yn7NcsCW4t8Lag5A5udrv/QKZQhBAwq
+	 BbDTwg8fueW7HE6fRcdC5qKYLRDQPyUkiFmGjVghyIKdZl+1hoPtvDlW6POEf7OHnW
+	 IIGByVK6SV/GpwSiMqvgNVghvU4KJOhyPYyA2pJEDy6SfRPedXtEspPeYwcJLcXdvf
+	 i3HUDWfWVIOLA==
+Date: Thu, 26 Nov 2026 15:00:53 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Herbert Xu <herbert@gondor.apana.org.au>,
+	Linux Crypto List <linux-crypto@vger.kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Eric Biggers <ebiggers@kernel.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>,
+	soc@lists.linux.dev
+Subject: linux-next: manual merge of the crypto tree with the arm-soc tree
+Message-ID: <awhJpZy-x8Bcjy0W@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,117 +58,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 16/23] coresight: trbe: Always classify TRBSR when
- updating buffer
-To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>,
- James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Tamas Petz <tamas.petz@arm.com>, Tamas Zsoldos <tamas.zsoldos@arm.com>,
- Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- coresight@lists.linaro.org
-References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
- <20261016-trbe_enable_disable_irq_handle_refactor-v2-16-3f57cf3199b1@arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20261016-trbe_enable_disable_irq_handle_refactor-v2-16-3f57cf3199b1@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-
-On 16/10/2026 17:55, Leo Yan wrote:
-> arm_trbe_update_buffer() must account trace when perf stops a session,
-> even if no maintenance interrupt has been handled. Prepare it for
-> trigger and wrap modes by making the trace-size decision from the
-> drained TRBSR status rather than gating classification on IRQ.
-> Acknowledge IRQ only when it is set.
-> 
-> In FILL mode, reaching LIMIT sets WRAP and IRQ and returns TRBPTR to
-> BASE. Interrupt delivery can be delayed, so update_buffer() may run
-> before the IRQ handler. The existing IRQ-gated path uses WRAP to size
-> through LIMIT in that case; preserve this while also classifying
-> updates without a pending IRQ.
-> 
-> With classification on the no-IRQ path, a normal software stop can
-> have TRBSR.S clear and an ignored detected trigger can set TRBSR.TRG.
-> Neither should warn or discard valid trace. Mark fatal status as
-> truncated and return zero. 
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="DA9yH44D276z56l2"
+Content-Disposition: inline
 
 
-Use LIMIT for a filled WRAP and TRBPTR
-> otherwise.
+--DA9yH44D276z56l2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-This is already the case, right. Please could we remove this bit ?
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-trbe.c | 24 +++++++++---------------
->   1 file changed, 9 insertions(+), 15 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-> index ac49098aa08412a23a20d32f84c2e1977ee4a223..661f4a78e67c30652de8c834e4773819fa67b5ac 100644
-> --- a/drivers/hwtracing/coresight/coresight-trbe.c
-> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
-> @@ -662,8 +662,6 @@ static enum trbe_fault_action trbe_get_fault_act(struct perf_output_handle *hand
->   	int ec = get_trbe_ec(trbsr);
->   	int bsc = get_trbe_bsc(trbsr);
->   
-> -	WARN_ON(is_trbe_running(trbsr));
-> -
+Hi all,
 
-Why are we removing this ?  Do we expect to be called with TRBE running 
-? Both trbe_update_buffer and the irq_handler stops the trbe. So this
-must be held valid ?
+Today's linux-next merge of the crypto tree got conflicts in:
 
-Suzuki
+  arch/arm/configs/am200epdkit_defconfig
+  arch/arm/configs/spitz_defconfig
 
+between commit:
 
+  71a0ba7b39ad4 ("ARM: remove legacy pxa board files")
 
->   	if (is_trbe_abort(trbsr)) {
->   		err_str = "External abort";
->   		goto out_fatal;
-> @@ -844,7 +842,6 @@ static unsigned long arm_trbe_update_buffer(struct coresight_device *csdev,
->   	enum trbe_fault_action act;
->   	unsigned long size, status;
->   	unsigned long flags;
-> -	bool wrap = false;
->   
->   	WARN_ON(buf->cpudata != cpudata);
->   	WARN_ON(cpudata->cpu != smp_processor_id());
-> @@ -896,23 +893,20 @@ static unsigned long arm_trbe_update_buffer(struct coresight_device *csdev,
->   		 */
->   		clr_trbe_irq();
->   		isb();
-> +	}
->   
-> -		act = trbe_get_fault_act(handle, status);
-> -		/*
-> -		 * If this was not due to a WRAP event, we have some
-> -		 * errors and as such buffer is empty.
-> -		 */
-> -		if (act != TRBE_FAULT_ACT_WRAP) {
-> -			perf_aux_output_flag(handle, PERF_AUX_FLAG_TRUNCATED);
-> -			size = 0;
-> -			goto done;
-> -		}
-> +	act = trbe_get_fault_act(handle, status);
->   
-> +	/* If an error occurred, the buffer may be empty */
-> +	if (act == TRBE_FAULT_ACT_FATAL) {
-> +		perf_aux_output_flag(handle, PERF_AUX_FLAG_TRUNCATED);
-> +		size = 0;
-> +		goto done;
-> +	} else if (act == TRBE_FAULT_ACT_WRAP) {
->   		trbe_report_wrap_event(handle);
-> -		wrap = true;
->   	}
->   
-> -	size = trbe_get_trace_size(handle, buf, wrap);
-> +	size = trbe_get_trace_size(handle, buf, act == TRBE_FAULT_ACT_WRAP);
+=66rom the arm-soc tree and commit:
 
->   
->   done:
->   	local_irq_restore(flags);
-> 
+  fd29be9b99251 ("crypto: arc4 - Remove obsolete crypto API support for ARC=
+4")
 
+=66rom the crypto tree.
+
+I fixed it up (see below) and can carry the fix as necessary. This
+is now fixed as far as linux-next is concerned, but any non trivial
+conflicts should be mentioned to your upstream maintainer when your tree
+is submitted for merging.  You may also want to consider cooperating
+with the maintainer of the conflicting tree to minimise any particularly
+complex conflicts.
+
+[Deleted the files]
+
+--DA9yH44D276z56l2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsISaQACgkQJNaLcl1U
+h9C5wwf+O3eeP2CcirN4dxwXVhaEuICz2LDxY6YKO9ucNC4bpZCaWQBrBIGubcSq
+R7JZYvNHajezXgGr815Gz8yryhBfDdcDsFxzyWbiSCCBeWd53o93gyH4DTkw2uHq
+dQMV9AOGPn/E3sRr6JxWfLZTC3Qjm8bBLdDXSNJd2BRGd/VEF+RQ/lXkI1Hd2xPp
+hcivEgtgcxcedJ8eWnSgnlEJq0P4Yafwt7zaKn8SbFK4vvTfoO3oNBKkfFiXyHWp
+GPFWba25cNhfATyDaxkvsnAkGcAITXBqNuC4JYPhcCNOLcOGBMprv5Ao4/p+Z85n
+bf0CqEJig8OaqYCWqw736L+RpnC3Sg==
+=YFc8
+-----END PGP SIGNATURE-----
+
+--DA9yH44D276z56l2--
