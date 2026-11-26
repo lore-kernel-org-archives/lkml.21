@@ -1,91 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795683557;
-	b=DFiHFSiq32+cGqLvqeruCYtPEk2F3579gLaNCyRH01HCrB1Xuxfkm2D27xQLb5EwIk6e
-	 YVdn4D4WkN9i+vqLqNaAR6j1yoy8d4RPtxEsSvr7La0njMZoX2k05ztBpe2gsGFQBfjl/
-	 hzw4xZjcKvp/cSs/lP3yF6y9j3RvsfWm7aPOx1TiiqQMfSPMflA7rxoHc09Kek/qRLR71
-	 fL1SoFURMZ73XCO7GOGbRLJNQCRxcsluf/oPQNKd3b6itsaK59cn0y39GVNfLZDQOo8Ou
-	 m9nWIbqYetF6Sd+xHT9+yVwj7xf3WgiSqQHYaX802+cuXB7dcDAa9XtM7pfYkyeU16w==
+	t=1795683554;
+	b=GC37PDfh99wtUzA/rswtAhBFDRsTzWhyTMUIPtSWaX4CUFmifkGx5ljVwwEwkgnuMdPY
+	 TKhq82Cgt/Nfk0H5esIS9js6DoABNvXIeRleeqh9ZKCpinSOxuRjUK0futQz4wnpgBmAO
+	 yVy5sc5WCE9V1l0ZSdMGsN24nD1K2gNKi9UhbC6FCG8FY9vWFZCA+cMEevfLJTE847t55
+	 IocoDNkDIwY5A8NVQMeYnERvgWf5pAQW63h+tOFXnelz99+8/3Xt8C1dcLEPfdjsGD7fv
+	 m6RRxMDZXj/VlqSXTRqfXxuRzRO2dqtNQ/CoHJNELMq/xW24quJ+RLk5smQxjv6OCJA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795683557;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795683554;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=GPy4SQygtFEl73+yPefIfenUgwMOUWGTN4uUgLHCsrY=;
-	b=Q/fR3mvqaxIHsmHGpnO5D0oNINrXQ5Xxm0vjQPkAjUbSs54KiVk9zmhChPJOmrFBbdd2
-	 Ly6nTUMVuaHGYbLuB+PRjqAAg7zzGKHat1bArnoDqsLVcaFryOFjXMW6PkpkxxwGD3Inh
-	 +h/v7QuuqP7L/Ig9qEWn1xGZRa42OeVcgyc4a+OK2iNb5LWUs2frj3t/fZ+d4WjoJ16nG
-	 4L5U6xTlfv+dvHu1lzdSUTTL6GP1LsQgrgl38IcEkQXQm8tXuK71jaHfSFgMHqbZcluLS
-	 At9vKhyYQw1qluJnK7aekXr7QFQNt32dwT8fo2Ldr5ORci7U01nzUvo6+MRjqLIiK0A==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=OZeaCKjXj7rhQtKUY6dpSt9k3JcLhM/MuU5+xZ27Sxw=;
+	b=lIFTnInpZ2FJvrzJx8kvQfklcJBFR4hjYQDmGYVHwIfEOow1dGjnhRU0fcTi+0BrCFqR
+	 WDP7/LyHcYKOzcBKBsqCxBN+4su4wMdKmsuCLuH/+nR1O+BHcU5nLv625Titd/6b6FHYg
+	 QY4EkNFb/L8GqsXNYuSCU4qT5nt4PVdPAf3NdP8LVKTC8wjm15GQ1abhGo1OYVnTQg+jw
+	 2FQCnS8atbuReCqbz9nBaVBImTAYH4/a3EOvgvawDd0eO+1aivl7p/T2mEF6A7RxTX/AN
+	 FD2CHacLV/SJieY4KO3R9JcEUxpJoXactjEJl9S+EKT/w5wiDJXB8gBa4pLdzJ/LNPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=n37bb49i;
-	arc=none smtp.remote-ip=209.85.221.47
-Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="ESQ/A94D";
+	arc=none smtp.remote-ip=209.85.221.51
+Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9C50606A337
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:59:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9C50606A337
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7D24606A335
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:59:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7D24606A335
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=n37bb49i
-Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-491846221ffso5824819f8f.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:59:16 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ESQ/A94D
+Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-4a7b8abe209so5209810f8f.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:59:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795683555; x=1796288355; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=GPy4SQygtFEl73+yPefIfenUgwMOUWGTN4uUgLHCsrY=;
-        b=n37bb49iWbRzAmdIYS9lkTT2DFK9Qa9igez1eT882eCCZ3W/aQKhksetUkjqPQ3HP8
-         VBAkqNaifZJFqjZm8JrMmERn3kDkbvFEjKCGct7TIHoXs7y3D96CxGZZAay3z7qamd0d
-         DDih/ssSPD/sHhLirMPtv/Ez98oep3hrHwy8ktgEZt6N9eSqx4OBxvjVvCtT3sdxzCUG
-         GztAMX9EkA6Fu7YlJZoi/AGC3qXcishhihrKq3MYHXBKUNt7rUS5j27XQGbMtoXuJDg7
-         F/dCpQRarF6j2Akr/iQoCJ7fYGttASpeM9Fx8FFCsBeZZG+ysHjLrBzls7cqq/Y9TzPf
-         zqFg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795683555; x=1796288355;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795683552; x=1796288352; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=GPy4SQygtFEl73+yPefIfenUgwMOUWGTN4uUgLHCsrY=;
-        b=foKAQ+9hndc2G4ilPyVayZxKVqCgaZ7xqEZT98qh4L21NcDpXGfFuSnWPb1UKWGJP+
-         L1Q4XXMIt5CrBEG0b5ootAr53L5/ptSnOde0Z6hFQUjg29ke9ZZU4t/Op4zc/suQlGDT
-         KcVwwjUU+wutUWBh3W3u77tRtU4+9RInELL267Q3fV0I/Km7R+sK5bKuLlXAmkR664Eb
-         OHtOs5fapsLzS9n5oVYcKjo40QM4HFAg36v46HEFZoMUtSLUwqjic9neczhxoq8jhgRv
-         xXFeYDfoNM9HWN69dKWgKf7MtQM5auWgjmWiI6zqe1l1xX/29igoemoHRQPiKoqPgH3D
-         uvyQ==
-X-Forwarded-Encrypted: i=1; AL+hErEytZubVbL2wM7q7zrpY9n0HitIQB45FNqGgT3Kl8vrWRu42gbas2QMqstOdrl0aocUCSPw55f3m813Oio=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/MM2ZOVPJ8KA7ID41WnAsDhv/6ZDZubS/Klx1zJOM8fC4cln/Z
-	AtUG1A4K4FZa4HZY2FlMxuB1/Tb6EzvNJxBVhxYiupzF3stlm9rI0pgT
-X-Gm-Gg: AZFdTZe1ODwAbd67hu/FdoDKNcTwqnBVzTVq3v4mOLTJ6YXhSJsHWXpb62eG/oTh5E4
-	q8yaJMrzV2E/pbyrG2B6E7Yktx5CpPtsqKy7nRvZb+YEr0NTzvs8rvHmIzTkUExwY86eOXcnbCl
-	ykqFnERJrQfOZTsjzh6p9eZoYe12xEwwLYwz56uk1TIUjyics+1XIwZCPz+PESrrEu83Oab3sV6
-	qIBDoa16S6m7TCNeAFYBToXKQXfnVWxVs7KWcQax8ZI0/YKNtDsjVLk7vI1G1vtbxj3/PLaGs9i
-	7m/3X2XBIqwIuoKKi3CsmtdUFnpJQCVjHTQesOu/yo4glUQwqZoj/M4zEz/NMreQXyzYA5yqU/K
-	bQAj9lu3ExwFgkLR+r2ZkDi7d28sy2UCd78WOstimhavZ5fpWc2LihA8pj8p5HpsbghibEAk4EC
-	YVzHk1h456twJqAauORv3BFiA3MiJdswwth+w2/WHA5bjojXRuZAzj48AnOmqquZoqOaALtdc3y
-	XVXkWnvfDmxur1DkBlKKSWdgE9P8UIt03vosexshMzpVTRYc2QX/xqvb2ayR1vbt5faaSCOCsBO
-	OYPoJi5/TYnvdUrMR7kIsiwQmjsr5IiM7dKWS8LvH8GIXBn6Zc7n9g==
-X-Received: by 2002:a05:6000:3106:b0:4ac:2194:755a with SMTP id ffacd0b85a97d-4ac219475a1mr46280827f8f.41.1795683554934;
-        Thu, 26 Nov 2026 00:59:14 -0800 (PST)
+        bh=OZeaCKjXj7rhQtKUY6dpSt9k3JcLhM/MuU5+xZ27Sxw=;
+        b=ESQ/A94DmB3fiztDdkjl1M6gP/HpFUJntkthUI1KwO6oXvYXzWjkKV/Wp6RaClBmxF
+         fXlcUh5dhHs+Z9z3XLQIwz4DT37O1EA+9a8nq7c4liAo4GQzlnSTu4cEbpgW0Qx+FVIF
+         QQnOca8hez/hdUb04A/MEAeZ/xcF3A5/Y+l2jwx93ZBppfCZWVgMNBINJF43jcG5kuF7
+         woLumOqK0V2itMzOWCCcsNQFWnO6qAHdGJHek8NzO9nNVNbMxJGgxyHovLprbBWe8+Gh
+         ddBODu5c91vpVpB1Q4gR/EzB9/QPvgWx3YTYHznwy+r1CljfNiteC3HatNRYUV4MybuO
+         GZVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795683552; x=1796288352;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=OZeaCKjXj7rhQtKUY6dpSt9k3JcLhM/MuU5+xZ27Sxw=;
+        b=yWplLJUH0+B/XceO36gn14rAHcBwqNNmGePDE23J3Yy8U9PpYzuLu2dCQSPAKLM5/l
+         pEuwiQbwT5njQM21LCMlzxU5rWiCiOJq85+04tCGhQSe9KXbWd9l1VF5ywPNRkmso7tt
+         r0/KvJNy/xeesePbwjzPzbrBZpB+UKWSRf9WwjFgnHZL1gp10st/XaPKiDJQOF0KPPeD
+         HE3djqESmc1oYSyy3/7WZ9IYAU91jAGTAzEnjNgqMXaY4CJ/eILcgM+1obASzikOKvBk
+         ZensUPqKSEVyMD7spIa3KoUTDdzOKBXStsMCXf8OMw6dyJPpB1yYgETGCi2eG9jlUSf3
+         23MQ==
+X-Forwarded-Encrypted: i=1; AL+hErHQgJ0YNDluhNpUMObYbqzsqg9x0/F5Y6FHcSeX/DFFf0GS8TcASnIduoQgNf0i4/E4AUZdttfLRssz5Hg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+hqQAJBPS8Ep08mOvKn0mXcrw/w0OyyWSwFAGJtMFO5iZI523B
+	4df28QnoIJtJDTVWVIp6wV9o2q4PbzZXUBkdlkqu8PCbIFOX8giO4U2x
+X-Gm-Gg: AZFdTZeEIoZfsHoNnymHCgYggyonLfbDgocVkvIJLlTLCoELTU/TR2I4cNmu42OMjdo
+	EIj3ZdKKFjWTMy6GEouHUr/1M5gJ0ejEnsqOmln0+pymNrIcT09jP24/LN3Xf9Q2ahuWtMRvyuR
+	PlHwAHSyp6ZTXr0pq/N3KWHU4D9i57dVfjaRp9/FWemVr3+V+fPbl9tOJD9PAstoyWHbcJnRrZT
+	ER+PE0lTnOA9iO6TeNOZ32Ldr0yKMfxbpoKlcP55gLVb3aGLjAGAgxiGYQabL6H7rsR0e+JBQSg
+	a2K4xtt3l5vFAE0zjFuAdYu9JjBq0QTanuqZAEuzGqOrdZhcV95spqq65akK/whgAmulyyMsL38
+	7875ahEOgkq6HzsMZI/wHarO4581A03+fS8Vdf7ayY6BvGTNr5mRhx4gbYRCFxOxAAT6OEFPzxu
+	W0vrFAaFEM16fP4BiA7vZMnluF1lL6OdGWnRqTrlc34kPF67lfmSxnsWtLLaSca+AeK4bw02c82
+	fMxgwIjsPs9eWH8xdrN7mrk9P+uHgZH/+DBdGoliWCk3RrP+dE3fr3toJ5mnJQLRTDfu7TYG7DL
+	XhGr8PWcbaWZGaS4l6DHwIn4uiHKA5ihvqlMuVt7EaTmyIKlFzWLUA==
+X-Received: by 2002:a5d:64c8:0:b0:493:c0a:507d with SMTP id ffacd0b85a97d-4abaab633c7mr44200123f8f.1.1795683552059;
+        Thu, 26 Nov 2026 00:59:12 -0800 (PST)
 Received: from center.. ([131.189.143.225])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ad6403fdbbsm30455997f8f.15.2026.11.26.00.59.14
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c61f558sm40313744f8f.58.2026.11.26.00.59.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 00:59:14 -0800 (PST)
+        Thu, 26 Nov 2026 00:59:11 -0800 (PST)
 From: Orgad Shaneh <orgads@gmail.com>
-To: tsbogend@alpha.franken.de
-Cc: linux-mips@vger.kernel.org,
+To: miquel.raynal@bootlin.com,
+	richard@nod.at,
+	vigneshr@ti.com,
+	tsbogend@alpha.franken.de
+Cc: linux-mtd@lists.infradead.org,
+	linux-mips@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
+	linusw@kernel.org,
+	kaloz@kernel.org,
+	ulli.kroll@googlemail.com,
+	john@phrozen.org,
+	nico@fluxnic.net,
+	dwmw2@infradead.org,
+	corbet@lwn.net,
+	linux-doc@vger.kernel.org,
 	Orgad Shaneh <orgads@gmail.com>
-Subject: [PATCH RESEND] MIPS: OCTEON: use the free memory below the kernel
-Date: Thu, 26 Nov 2026 08:59:13 +0000
-Message-ID: <20261126085913.814434-1-orgads@gmail.com>
+Subject: [PATCH v5 3/4] MIPS: Octeon: flash: allocate the map per device
+Date: Thu, 26 Nov 2026 08:59:05 +0000
+Message-ID: <20261126085906.814373-4-orgads@gmail.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261126085906.814373-1-orgads@gmail.com>
+References: <20261126085906.814373-1-orgads@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,69 +112,125 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-plat_mem_setup() asks bootmem only for memory above _end. The kernel
-is loaded at 0x1100000, so whatever bootmem has free below _text is
-never added to memblock. On a CN6335 board with the Cavium bootloader
-that is 14MB, 0x200000-0xffffff:
+octeon_flash_probe() fills in one static map_info for every "cfi-flash"
+node it binds to, so a second chip select overwrites the phys, virt,
+size and bank width of the first while that MTD device still uses the
+map. A probe whose do_map_probe() finds no chip also keeps its
+ioremap() mapping and still returns success.
 
-  before: node 0: [mem 0x0000000001100000-0x0000000001cc6fff]
-  after:  node 0: [mem 0x0000000000200000-0x0000000000ffffff]
-          node 0: [mem 0x0000000001100000-0x0000000001cc6fff]
+Allocate the map with devm_kzalloc(), map it with devm_ioremap() and
+fail the probe when no chip is found or the partitions cannot be
+registered, so the mapping goes away with the device. mymtd was never
+read; drop it.
 
-Claim it before the main loop, in 1MB pieces since the holes there are
-small and unaligned. It counts towards max_memory like the rest, and a
-piece inside the crash kernel range, which is added on its own, is
-skipped as the main loop does. bootmem never hands out what the
-bootloader reserved (the exception vectors, its named blocks, the
-kernel image itself), so only free memory is claimed.
+The driver has no remove(), and the mapping is now device-managed: a
+sysfs unbind would unmap the flash while its MTD device stays
+registered. Set suppress_bind_attrs to rule that out.
 
+Fixes: 7f481716bc90 ("MIPS: OCTEON: Use device tree to probe for flash chips.")
 Signed-off-by: Orgad Shaneh <orgads@gmail.com>
 ---
-RESEND: no reply since the posting of 2026-10-27,
-https://lore.kernel.org/all/20261027060227.2687979-1-orgads@gmail.com/
-Unchanged and still applies to mips-next (dfe3ece66313); only the
-Assisted-by tag is dropped (an LLM helped write this patch).
+v5: add the Fixes tag (sashiko); join the split pr_notice() string.
+v4: new. sashiko flagged the shared static flash_map against v2 and
+    v3 of the next patch; v3 left it as it is in mainline, this fixes
+    it first.
 
-Tested on mips-next with cavium_octeon_defconfig (KEXEC=y, CRASH_DUMP=n)
-on a CN6335 board, 4GB, Cavium U-Boot 1.1.1: "Memory:" goes from
-4023588K/4169492K to 4037924K/4183828K available. Built with KEXEC=n
-and CRASH_DUMP=y as well.
 
- arch/mips/cavium-octeon/setup.c | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ arch/mips/cavium-octeon/flash_setup.c | 51 ++++++++++++++++-----------
+ 1 file changed, 31 insertions(+), 20 deletions(-)
 
-diff --git a/arch/mips/cavium-octeon/setup.c b/arch/mips/cavium-octeon/setup.c
-index 7497be7b9431..2b1bc8fafac5 100644
---- a/arch/mips/cavium-octeon/setup.c
-+++ b/arch/mips/cavium-octeon/setup.c
-@@ -1022,6 +1022,27 @@ void __init plat_mem_setup(void)
- 	 * which is handled by memblock
+diff --git a/arch/mips/cavium-octeon/flash_setup.c b/arch/mips/cavium-octeon/flash_setup.c
+index 66d173b57..d69249acf 100644
+--- a/arch/mips/cavium-octeon/flash_setup.c
++++ b/arch/mips/cavium-octeon/flash_setup.c
+@@ -18,8 +18,6 @@
+ 
+ #include <asm/octeon/octeon.h>
+ 
+-static struct map_info flash_map;
+-static struct mtd_info *mymtd;
+ static const char *part_probe_types[] = {
+ 	"cmdlinepart",
+ #if IS_ENABLED(CONFIG_MTD_REDBOOT_PARTS)
+@@ -71,6 +69,8 @@ static void octeon_flash_map_copy_to(struct map_info *map, unsigned long to,
+ static int octeon_flash_probe(struct platform_device *pdev)
+ {
+ 	union cvmx_mio_boot_reg_cfgx region_cfg;
++	struct map_info *map;
++	struct mtd_info *mtd;
+ 	u32 cs;
+ 	int r;
+ 	struct device_node *np = pdev->dev.of_node;
+@@ -85,6 +85,9 @@ static int octeon_flash_probe(struct platform_device *pdev)
  	 */
- 	cvmx_bootmem_lock();
-+	/*
-+	 * The loop below only takes memory above the kernel. Claim what
-+	 * bootmem has free below it as well, 1MB at a time: the holes the
-+	 * bootloader leaves there are small and not aligned to
-+	 * mem_alloc_size.
-+	 */
-+	while (total < max_memory) {
-+		memory = cvmx_bootmem_phy_alloc(0x100000, 0,
-+						__pa_symbol(&_text),
-+						0x100000,
-+						CVMX_BOOTMEM_FLAG_NO_LOCKING);
-+		if (memory < 0)
-+			break;
-+#ifdef CONFIG_KEXEC
-+		/* The crash kernel range is already added */
-+		if (memory < crashk_end && memory + 0x100000 > crashk_base)
-+			continue;
-+#endif
-+		memblock_add(memory, 0x100000);
-+		total += 0x100000;
-+	}
- 	while (total < max_memory) {
- 		memory = cvmx_bootmem_phy_alloc(mem_alloc_size,
- 						__pa_symbol(&_end), -1,
+ 	region_cfg.u64 = cvmx_read_csr(CVMX_MIO_BOOT_REG_CFGX(cs));
+ 	if (region_cfg.s.en) {
++		map = devm_kzalloc(&pdev->dev, sizeof(*map), GFP_KERNEL);
++		if (!map)
++			return -ENOMEM;
+ 		/*
+ 		 * The bootloader always takes the flash and sets its
+ 		 * address so the entire flash fits below
+@@ -94,26 +97,32 @@ static int octeon_flash_probe(struct platform_device *pdev)
+ 		 * access 4MB.
+ 		 */
+ 		/* Use this name so old part lines work */
+-		flash_map.name = "phys_mapped_flash";
+-		flash_map.phys = region_cfg.s.base << 16;
+-		flash_map.size = 0x1fc00000 - flash_map.phys;
++		map->name = "phys_mapped_flash";
++		map->phys = region_cfg.s.base << 16;
++		map->size = 0x1fc00000 - map->phys;
+ 		/* 8-bit bus (0 + 1) or 16-bit bus (1 + 1) */
+-		flash_map.bankwidth = region_cfg.s.width + 1;
+-		flash_map.virt = ioremap(flash_map.phys, flash_map.size);
+-		pr_notice("Bootbus flash: Setting flash for %luMB flash at "
+-			  "0x%08llx\n", flash_map.size >> 20, flash_map.phys);
+-		WARN_ON(!map_bankwidth_supported(flash_map.bankwidth));
+-		flash_map.read = octeon_flash_map_read;
+-		flash_map.write = octeon_flash_map_write;
+-		flash_map.copy_from = octeon_flash_map_copy_from;
+-		flash_map.copy_to = octeon_flash_map_copy_to;
+-		mymtd = do_map_probe("cfi_probe", &flash_map);
+-		if (mymtd) {
+-			mymtd->owner = THIS_MODULE;
+-			mtd_device_parse_register(mymtd, part_probe_types,
+-						  NULL, NULL, 0);
+-		} else {
++		map->bankwidth = region_cfg.s.width + 1;
++		map->virt = devm_ioremap(&pdev->dev, map->phys, map->size);
++		if (!map->virt)
++			return -ENOMEM;
++		pr_notice("Bootbus flash: Setting flash for %luMB flash at 0x%08llx\n",
++			  map->size >> 20, map->phys);
++		WARN_ON(!map_bankwidth_supported(map->bankwidth));
++		map->read = octeon_flash_map_read;
++		map->write = octeon_flash_map_write;
++		map->copy_from = octeon_flash_map_copy_from;
++		map->copy_to = octeon_flash_map_copy_to;
++		mtd = do_map_probe("cfi_probe", map);
++		if (!mtd) {
+ 			pr_err("Failed to register MTD device for flash\n");
++			return -ENXIO;
++		}
++		mtd->owner = THIS_MODULE;
++		r = mtd_device_parse_register(mtd, part_probe_types,
++					      NULL, NULL, 0);
++		if (r) {
++			map_destroy(mtd);
++			return r;
+ 		}
+ 	}
+ 	return 0;
+@@ -131,6 +140,8 @@ static struct platform_driver of_flash_driver = {
+ 	.driver = {
+ 		.name = "octeon-of-flash",
+ 		.of_match_table = of_flash_match,
++		/* No remove(): the map and the MTD device stay registered */
++		.suppress_bind_attrs = true,
+ 	},
+ 	.probe		= octeon_flash_probe,
+ };
 -- 
 2.53.0
 
