@@ -1,53 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=78.47.171.185
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795685041;
-	b=B7UPzP3rG96B9SgoZNdFBiancRfxbccpYqPQ7r10HQloEM20e94NdOpzjOXpXa36W3bK
-	 fJ2cXSACsCmoRDMX2P0gn+/ohowkG2UrkEZ9jMuG80CimyC+r7NyCuw33P9bK3rfmRMKH
-	 dyBx9E4nngW9V3e+ut6Djfiv14ujSCN/B2hlagvt1e19pJ/ECrwwHPrmFG+bAGhGHEKot
-	 k8/JMNq3//0Sv1VTNsfObMyG+ULkfJyZJ3W2frHKKCk4T7ibv9w2oHB8MePAxrzrbpTC0
-	 uK2vJhkW9VTHphfZN42EO3QClzSh076MuTvmptr6e9QiAkCqtM5trwyNGHQEabe6gfw==
+	t=1795685053;
+	b=wlC2vGmV02zopNbMKWXlibcccwYRCtolpocYcd7Xhqmky1uqNnUmLpfPwXwnoMS6aEbF
+	 WtXbHutP9Dj1vTv5ZDY1ewreOW1DABoaH/RkvLXI3d/oytFCLoivkhI//D2itB9ZZQ3qy
+	 PhDuIGJHZ/TTc2NGw3lxiz9bgsaDMQm3NE/4DSv3Bz3vMbErXfz216n1fX4tuBxIR0O8/
+	 CSxIudo4H/pJ/rAXWG4Ur1tONfv6DWyibS3vKB4jaK5L/4d1aqHQhBGwP0Rvv25P28ZXr
+	 e6ZwkPVxGbjjcif/0CyEaAkAv4NsyjDRjbfl6NCPK4f5YGBNkRjSWjrpQIXmHZdqDPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795685041;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=GO7tR5tDstSJhSy6pQPYRFiJw09Ox+GG2RpQbvbvyg8=;
-	b=uFB08f+7RnFD5/BIgDGoWZfyGiY5NNLOlwpcbYY2XnZtftB4lnO4SeURbOdy5o4A0PFW
-	 t8i8VwEB50WZkSkS3ikS6rNLri3rLQaQQ3jlk1wCzzeR0GeRNIW5+fY7qimD0RWjHjKNz
-	 wXz3P/OodGuG42SD50t8MXAWcdAL7aJCf2UBFUu2/JN50GJFhdtuFS4Pa0g8Z6oGfVk1h
-	 o5GUKFol0MtPVEzYMykcs4keDc2hCAO/RtJer1kaG8Pn/eG4cTGspABIHx8tcJX6bL+Fi
-	 VR93Od/76XxxHlHLOYbJi7a5XFl9oFtxvU9UmSux8w3s0O6YriF0KTq9egwPdobM98g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795685053;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=98AuoaBy6scAqdpD1bFpY8R263vuCvhHxS6e/zP2npM=;
+	b=xTjQE0IKrkNipZUqajEbNVGXKP/+I3WVFmuxo5srmxHk2SGTtiD8SHcWTku+RI2soIl2
+	 Vq00QRLz20xbtE9OL2Wy2sWNrjRjmWzoEQCxo57MZAP6eT2uV3y9pFisD5oeYxg0rlYQn
+	 6RrSKhinijEiJ62ZTMI9Gk09odJ7u9Okvz+NAAZFokAoL5uZdYT9emlDeeb2Wt1oajbh4
+	 0FgD02eYMpw9uI59oGtwD4MXSkVRGmpw2Uemqs+TNUF1WySBNy85fN0lZ1+r+I89uAV7f
+	 XGx94FkRLouYmp97QfHe3g8DHSbRyDKIk4LYCKIwqH7vS087zF2cuRV23DP9BUsQj1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fDjOh5se;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=datenfreihafen.org;
+	spf=pass smtp.mailfrom=datenfreihafen.org;
+	arc=none smtp.remote-ip=78.47.171.185
+Received: from proxima.lasnet.de (proxima.lasnet.de [78.47.171.185])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38023606A31C;
-	Thu, 26 Nov 2026 09:24:01 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fDjOh5se
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B97651F000CA;
-	Thu, 26 Nov 2026 09:23:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795685040;
-	bh=GO7tR5tDstSJhSy6pQPYRFiJw09Ox+GG2RpQbvbvyg8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fDjOh5seSIIWpBRULEBC/WNH6I+NL0X/nzSFUMOqXLkVs11Pr6lHTL3MGYKm+SC4M
-	 RNfUvQDiNrUFYgecSgqP+sSGy5AK0D+RIoOmeIvs0WpPFsIfdMKfcNb+evqEd4VCWP
-	 LKQyrsBsxdbZub5XudjGCZftR61JOZqECDNLU253PBP6pwEWjBahjLpQvS/L3E1Bgi
-	 0whwM7fG58lgMYRDhvcqm+P23peQ2t1UBtadW655dOwfZ6RudwK/m0dyYmTbmXBAwX
-	 U4uAi8hfLbn7Q1MVTIQfYMo3dIdl98kymJBMh2ahLMdhE4qpgYXMMWBzgqtzgFMZH+
-	 FN9aEP+TlownQ==
-Date: Thu, 26 Nov 2026 11:23:56 +0200
-From: Leon Romanovsky <leon@kernel.org>
-To: Ziyu Zhang <ziyuzhang201@gmail.com>
-Cc: sagi@grimberg.me, mgurtovoy@nvidia.com, jgg@ziepe.ca,
-	linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org,
-	baijiaju1990@gmail.com
-Subject: Re: [PATCH] IB/iser: Fix deadlock during blocking connect
-Message-ID: <20261126092356.GF774860@unreal>
-References: <20261123144440.65441-1-ziyuzhang201@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76BEA606A31C;
+	Thu, 26 Nov 2026 09:24:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76BEA606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=datenfreihafen.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=datenfreihafen.org
+Received: from work.datenfreihafen.local (unknown [46.253.254.165])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: stefan@sostec.de)
+	by proxima.lasnet.de (Postfix) with ESMTPSA id EFA8AC02DA;
+	Thu, 26 Nov 2026 10:24:10 +0100 (CET)
+From: Stefan Schmidt <stefan@datenfreihafen.org>
+To: linux-wpan@vger.kernel.org,
+	netdev@vger.kernel.org,
+	Yifan Zhang <yfzhang23@stu.pku.edu.cn>
+Cc: Stefan Schmidt <stefan@datenfreihafen.org>,
+	alex.aring@gmail.com,
+	miquel.raynal@bootlin.com,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	zihanx@nebusec.ai,
+	stable@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v3] mac802154: validate pinned interface before beacon transmission
+Date: Thu, 26 Nov 2026 10:24:06 +0100
+Message-ID: <179568504196.1941682.10640221246377134318.b4-ty@datenfreihafen.org>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <179378621331.55520.8126896786309171541@stu.pku.edu.cn>
+References: <179337523079.51423.6573078122047317758@stu.pku.edu.cn> <179378621331.55520.8126896786309171541@stu.pku.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,47 +67,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123144440.65441-1-ziyuzhang201@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 10:44:40PM +0800, Ziyu Zhang wrote:
-> iser_connect() holds state_mutex while waiting for up_completion. The
-> CMA handler for the same connection needs state_mutex before it can call
-> iser_connected_handler() and complete up_completion. A blocking connect
-> can therefore prevent its own connection completion and leave the waiter
-> blocked until a signal arrives.
-> 
-> Drop state_mutex around the wait and reacquire it before checking the
-> connection state, preserving serialization of state and cleanup paths.
+Hello Yifan Zhang.
 
-You can't randomly drop locks without any explanation why it is safe.
+On Wed, 04 Nov 2026 17:56:53 +0800, Yifan Zhang wrote:
+> mac802154_beacon_worker() selects a beacon request under RCU and pins
+> the corresponding netdev before dropping the read lock.  The transmit
+> helper used to read the request again, so a concurrent interface switch
+> could make it dereference an unpinned netdev.
+> 
+> Use the pinned wpan_dev throughout transmission.  Under RTNL, verify that
+> the request still belongs to that interface and that the interface is
+> running.  Build the beacon from the protected template while still
+> holding RTNL, then hand it to the locked MLME transmit helper.  Free the
+> skb only on errors before that handoff.
+> 
+> [...]
 
-Thanks
+Applied to wpan/wpan.git, thanks!
 
-> 
-> Fixes: 504130c039f9 ("IB/iser: Protect iser state machine with a mutex")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Ziyu Zhang <ziyuzhang201@gmail.com>
-> ---
->  drivers/infiniband/ulp/iser/iser_verbs.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/drivers/infiniband/ulp/iser/iser_verbs.c b/drivers/infiniband/ulp/iser/iser_verbs.c
-> index 55fe68e..9fe2d3f 100644
-> --- a/drivers/infiniband/ulp/iser/iser_verbs.c
-> +++ b/drivers/infiniband/ulp/iser/iser_verbs.c
-> @@ -778,7 +778,9 @@ int iser_connect(struct iser_conn *iser_conn, struct sockaddr *src_addr,
->  	}
->  
->  	if (!non_blocking) {
-> +		mutex_unlock(&iser_conn->state_mutex);
->  		wait_for_completion_interruptible(&iser_conn->up_completion);
-> +		mutex_lock(&iser_conn->state_mutex);
->  
->  		if (iser_conn->state != ISER_CONN_UP) {
->  			err =  -EIO;
-> -- 
-> 2.34.1
-> 
-> 
+[1/1] mac802154: validate pinned interface before beacon transmission
+      https://git.kernel.org/wpan/wpan/c/95f866334454
+
+regards,
+Stefan Schmidt
