@@ -1,49 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795688661;
-	b=HU9dGj92R4PIRyZb1LdRADmLrUGU2Q9k5k/RMV1SfLixx1h50hA3zIp9AAJiXE0b/8cj
-	 TeRvNKPMIIZyCVT1QUyZbb8HNIkMXI8YFn2Yag5xjHdtzwLZ9Z/xMFkDfVk7saPLnrvKD
-	 d1+qDysqlVXfjNeGG1Nw+Pq9q6nULH0GIDDL6heHjuWGqf7BJsC4/VcN8//MEPHR++Leh
-	 DBcjMGo/TSqtDNnb7rypYFiJKF3ywqe1jCuh+VrSdvNpdtrwaHKN+gL04gqCJdU0Qv4+O
-	 F6lWftwmU5WBK0tTXWS5z/x7rpL2E7dtWwvcaBe/jN9jm+v/hXRiZ64Xy4FyF8ydD8g==
+	t=1795688673;
+	b=Ru877SUGLpCOfsje5ysIIs2xQbnYwgt3TGmuT5aHc7H4JkUvDTXBbv8AHGG7wHprH8nZ
+	 hhLzuIqmZonXUFAPIZF+LoplIG/uOqn0onWJKfTY0EFcQmBdAx5LAmc5Pd4BjtRbsSIaE
+	 tKe9lik/SsFXYptay7QwX9jFJn9VYhBeI+LJYvmAi57fV3WoSdQOK8gSXct83a4oO8bYu
+	 GTyLNYZDqy7gShNfem2ntNj8dOWjVPR1nv6i680m30L8aM7Zb5a4OCj3x3cgOfgbMnpju
+	 9BdGCYOPhsxeZEhQ/Tr4knchimJ3TJI80BWkX0ykLN1lqSs3cBKx5vIyMvtoWm2RwPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795688661;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=I+ew5cOEbDh/QLeFMJP76BK0TfrUPvpXSZGqyop1UAM=;
-	b=yhx9Evcb5THnGJkCXyJ6ZMh75vKQdLM6blVvjXHjCGh+bGRrCLq3bZ7ABMP5Gxfg/QYQ
-	 P4d1hey9cN098u0oeU6eqWnEVSvK77ty4p9gUtnYVGuy6qScszRK0XBQsafRbJcY+VtK+
-	 OsU3RG/sYxyxjHOojMas6BbZT91mn0WUQO2uqNayBimoE53ajK2YptIB5bslj5rsVHcPB
-	 IRcgriP/UpZBGukPQFJF94/qGrms+vgHpMziWfO56ZgADQPdBLcKfs4ftIaJSs9/vwIiz
-	 qH+hAxEMh9jdDp35AsnLNWVTaX2Mzi6gzyDsHUrU1xuideG04kaY5bYMLgjG/F9VN9w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795688673;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=HWXhD2T0YqRDo710NdzVWCmw80S5rSuIE5qAwGglR9Q=;
+	b=pL1LmhWvIz1MgQaMw5HLL9G64Hro1V09PFVk2V1CZ067X7XjdJSOJfN+akPM7OKBt+hh
+	 Lq4wYg2cNl+EmMdxnbEOUC+QHn2oDm9Ul6CmgA9A7dltVX9BWwF0THFnW/ITbpAqi9gwj
+	 MIfWmT6S1b4TL7mx7mw6eyw7sa7tn1o7F7WDFAOBsR5UGNqfB5FGzorzD5hbqKx+dKfLi
+	 7EDxtjIWhbIaOrG1OJ9l7XLz0GVVuFm0Y8/iIIOQWlqJ/iI3NULn+GrFXv+COHNX1R5do
+	 E2FWRbdJ28OkYP9Yw4ayXlAUv1tyvIfi/sHy0n6i3JVux/UY4pJp0QAd6P2G7wNlKnA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="JNB3n/3T";
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 33C3B606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:24:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33C3B606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=hT2tNv90;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F734606A31E;
+	Thu, 26 Nov 2026 10:24:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F734606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=JNB3n/3T
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B63CD1BB0;
-	Thu, 26 Nov 2026 02:24:17 -0800 (PST)
-Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 99B8F3F86C;
-	Thu, 26 Nov 2026 02:24:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795688660; bh=wQ9WA3KUKppIPPOGHeAfDQAVdxSATD/CsMT0ApV5e74=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JNB3n/3T4XoK8AOUq/tL2QQ0AwgNH3fpXW7vRZlP5hX6lAr6TM1j5mUGn9yobBTpn
-	 06ma9Y1JdQzYArnaiB3L46VCBd+o+RqlAwLdvsVFK80A4d1Qthi3hiSnDMg+1Vbbhq
-	 gw8GRnXrFDwhqHEXvE7WxGgxTFESpI331en0Zoho=
-Message-ID: <dfea6dc5-6a2f-4006-8bbd-37844b6b5986@arm.com>
-Date: Thu, 26 Nov 2026 10:24:17 +0000
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=hT2tNv90
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id B0704C2B9C6;
+	Thu, 26 Nov 2026 10:24:39 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6E7F660237;
+	Thu, 26 Nov 2026 10:24:31 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CA70211E6A5EC;
+	Thu, 26 Nov 2026 11:24:28 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795688670; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=HWXhD2T0YqRDo710NdzVWCmw80S5rSuIE5qAwGglR9Q=;
+	b=hT2tNv90ahKjUQOa2PA9w+ig6qobgxqJGnnsNUsMe71Jj8uMN8jI0+7woKeG0XQaba8s0o
+	0rAl+v6dGXw4zWstY2by8epYPzTD5qX1FVC1uOwpzCXMj/WMNc3WlmvZm4NSX/XIvKuUtW
+	hauygcBny7aVlM+8z562vmsGNdssOq23cbAQyamxzOAtiIyXLuk+9+I7R6nF3vyIXQa8I1
+	ERBxzOI9xKVeJFR7U/5t3dHbdxa1y4cgcpbO2kj+tkIjnA5xEzjXeIDBLyZDweWd1yb5K2
+	HW8RIJYF3jsf2v2aGJ1gp/H/bR9/4AKnOtOKsGIv1UbbIAaM9Qz2PXhe93g5Tw==
+Message-ID: <0e983410-bc97-46cf-9ee0-c4cd11dcfa64@bootlin.com>
+Date: Thu, 26 Nov 2026 11:24:28 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,66 +63,40 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/23] arm64/sysreg: Define TRBSR_EL1.EC event classes
-To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>,
- James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Tamas Petz <tamas.petz@arm.com>, Tamas Zsoldos <tamas.zsoldos@arm.com>,
- Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- coresight@lists.linaro.org
-References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
- <20261016-trbe_enable_disable_irq_handle_refactor-v2-1-3f57cf3199b1@arm.com>
+Subject: Re: [PATCH v6 00/10] Congatec Board Controller: Add storage devices
+ support
+To: Lee Jones <lee@kernel.org>, Andi Shyti <andi.shyti@kernel.org>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Werner Gartner <Werner.Gartner@congatec.com>, mfd@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
+ stable@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
+References: <20261117-cgbc-i2c-storage-devices-support-v6-0-bb070ad3e9aa@bootlin.com>
+ <20261119190350.GB70182@joneslee-macbookpro.roam.internal>
 Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20261016-trbe_enable_disable_irq_handle_refactor-v2-1-3f57cf3199b1@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Thomas Richard <thomas.richard@bootlin.com>
+In-Reply-To: <20261119190350.GB70182@joneslee-macbookpro.roam.internal>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-Catalin, Will,
-
-
-On 16/10/2026 17:54, Leo Yan wrote:
-> TRBSR_EL1.EC identifies the cause of a trace buffer management event,
-> but the sysreg description does not name its architected values. Define
-> the five encodings as an unsigned enum so TRBE status handling can
-> refer to each cause by name.
+On 11/19/26 8:03 PM, Lee Jones wrote:
+> On Tue, 17 Nov 2026, Thomas Richard (congatec GmbH) wrote:
 > 
-> The values cover other events, Granule Protection Check faults,
-> implementation-defined events, and stage 1 and stage 2 Data Aborts on
-> writes to the trace buffer, as specified by Arm ARM (ARM DDI 0487 M.c).
+>> This is the 6th iteration. As discussed with Lee [1] I just picked his I2C
+>> patch [2] (to handle the conflict) and rebased the series on top of
+>> next-20261116.
+>>
+>> [1] https://lore.kernel.org/all/c9d26395-93f8-4e63-9cd0-586ce913931b@bootlin.com/
+>> [2] https://lore.kernel.org/all/20261027093306.2812695-27-lee@kernel.org/
 > 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-
-Are you ok with me taking this via the coresight tree ?
-
-Cheers
-Suzuki
-
-> ---
->   arch/arm64/tools/sysreg | 8 +++++++-
->   1 file changed, 7 insertions(+), 1 deletion(-)
+> I assume this all needs to go in at once?
 > 
-> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> index 94bf065c8ac71f20f482c91a5147cb6e001dfba2..f68c23dd4e83ee4d00610e097d9188d3a2c9ed15 100644
-> --- a/arch/arm64/tools/sysreg
-> +++ b/arch/arm64/tools/sysreg
-> @@ -5834,7 +5834,13 @@ EndSysreg
->   Sysreg	TRBSR_EL1	3	0	9	11	3
->   Res0	63:56
->   Field	55:32	MSS2
-> -Field	31:26	EC
-> +UnsignedEnum	31:26	EC
-> +	0b000000	OTHER
-> +	0b011110	FAULT_GPC
-> +	0b011111	IMP_DEF
-> +	0b100100	FAULT_WRITE_S1
-> +	0b100101	FAULT_WRITE_S2
-> +EndEnum
->   Res0	25:24
->   Field	23	DAT
->   Field	22	IRQ
-> 
+> So we just need the I2C Acks, then I can take the set and send out a PR.
 
+Hi Andi,
+
+Could you have a look to the I2C patches, Lee is waiting your ack to
+apply the series in his tree.
+
+Best Regards,
+Thomas
