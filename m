@@ -1,59 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.209.128.113
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.221
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795680221;
-	b=CLuDE/QrfjfdRWJexnr3JV1ne1hO2SIvJusX47IamOY40vWPxg8A+lTn0u98jy5iOMAo
-	 figh/fzDf0VIiJ/h/y2Cyspp7/aQ/lFe2divb6Ls8Mw9mTb1yl5/4OJxPnNTt6996cDF4
-	 F21MDGmCjQmc2fg+IqImvh+AxMEwGk+51XZvjUhBzKF2Nnwtd8sTN37g3wIjYojsCMuAd
-	 zPAKDcN7FPrU3iYIe89STpdu3SS3jERrB4NeA2ioHtF9jSL2v0iIfpuJ5PU57tVsVo7DF
-	 dzihV+hqpLK0Xgy6W0KD+UBDoTrNet0JFeaQ5EOUBm8Abc9Vx36c5lxHw6JRYGFcepQ==
+	t=1795680331;
+	b=WznpfLNHMIbroJfHGImrUNhk/XwHZvmkncC+Oaik9IO5sEE9cesfaEHSREB5O+sLew+2
+	 ZAhw5sXz/5AGKlWFMpD1FmTdZ5o0a99odiAwbzWLmWxhtLBvCkV10dypO3/aa2yym/mRD
+	 X182omkcfJEybiw/QoCPtRB+VSqT86xO4gQ/CBT5GVlKcKqGbBhnz5x22OMSTPsDWJ+R9
+	 rb7Nz/kNZgtsIcirN61MXtNvkvTgMhQgfq6tQVphQZDe0UzXJeCYBjyXJKND5zMDT+7bb
+	 NW1NDiitLo4dPCq/PAtTT88a1wGuEwciNVb0es2nHFXLIS+jz9ReZEhOcLaQGvgep0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795680221;
-	h=DMARC-Filter:Received:From:To:Cc:References:In-Reply-To:Subject:Date:
-	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:Thread-Index:Content-Language:X-HM-Tid:X-HM-MType:
-	 X-HM-Spam-Status:DKIM-Signature;
-	bh=vygooTiSjYbQO8/tsqc0vjgWPN/b7cF63dCgZbTAnpc=;
-	b=KpufbiE0gnPN0wLWX2yxqs/TGUn285nbIrhfNY7PCl27+RLcUsc/jCCP8XOJ1I22Z0Yt
-	 6zePuAhkf2kaX3Lf8vt7EHhgcqQbVHsYrbS/g5iiKTnveSavXQ2rcelxiYXoVzUt47yRP
-	 MhWCm4ojBP2bNh+8ivJ2gSsgzPD6Ea3o1/fkLX7EnNOWLYnIK+O0w0/ihgBExzaLgxVOQ
-	 4FBdD3U3MYjWa+rHABW0b7HTLTwng52BoN3LgfFD3/h3VqH8muueqRDYJxTyo1pTnG9Cc
-	 xjVdEj5bnM2un7gwNSKBkgIqxL1yxSK8qcwzyc1hmbc+5d0ZxodKvGNvQ8Y0KwFyz3A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795680331;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=8Z15m+NbNiZQiSnpZp29G5Mqn1yjW1kGCZAqukJTahE=;
+	b=CR7L0mScih/49b79E14CHJNrlKTS8JEhDRyKy63DJYHx5BQtcRqJOKPSocmLWlSQwDW8
+	 oux2Fk94WrLaMvSNNsRt5R8GImwKrUBuDFLccO125xjHqbonmqBhud4gtbuaur9rSW6M4
+	 AfC5YX3U8CxD1mDVf8I9ogJ/yy8fBR9WLQKqvfavt/VICppifH5q4o6+ORwAJVab9YpBL
+	 tbWLaqhl5CgWJpjsiHdrBJv7sKQRF+vPCd2muTTyehKWnANQuGiv/n8XkI97iWi3zEfJB
+	 ShJYB8EP86tuQ3sOdbyJrs7Drqldups1gzP4Om530yumff+aYEOa/2hHCGj2ty+Qw/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=senarytech.com;
-	spf=pass smtp.mailfrom=senarytech.com;
-	dkim=pass header.d=senarytech.com header.i=@senarytech.com header.a=rsa-sha256 header.s=default header.b=H2o7HWEm;
-	arc=none smtp.remote-ip=103.209.128.113
-Received: from mail-m128113.netease.com (mail-m128113.netease.com [103.209.128.113])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b="ZJgs/J6y";
+	arc=none smtp.remote-ip=113.46.200.221
+Received: from canpmsgout06.his.huawei.com (canpmsgout06.his.huawei.com [113.46.200.221])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A695F606A31C;
-	Thu, 26 Nov 2026 08:03:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A695F606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=senarytech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=senarytech.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49FA4606A321;
+	Thu, 26 Nov 2026 08:05:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49FA4606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=senarytech.com header.i=@senarytech.com header.a=rsa-sha256 header.s=default header.b=H2o7HWEm
-Received: from Wangqianghua (unknown [27.38.157.242])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 56164301b;
-	Thu, 26 Nov 2026 16:03:29 +0800 (GMT+08:00)
-From: <qianghua.wang@senarytech.com>
-To: "'Yige Jiang'" <yigejiang86@gmail.com>,
-	"'Liam Girdwood'" <lgirdwood@gmail.com>,
-	"'Mark Brown'" <broonie@kernel.org>,
-	"'Jaroslav Kysela'" <perex@perex.cz>,
-	"'Takashi Iwai'" <tiwai@suse.com>,
-	"'bo liu'" <bo.liu@senarytech.com>
-Cc: "'Bard Liao'" <yung-chuan.liao@linux.intel.com>,
-	"'Pierre-Louis Bossart'" <pierre-louis.bossart@linux.dev>,
-	<linux-sound@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>,
-	<stable@vger.kernel.org>
-References: <rc-b1-20261110-vc-07a-7c635620fec1@gmail.com>
-In-Reply-To: <rc-b1-20261110-vc-07a-7c635620fec1@gmail.com>
-Subject: reply: [PATCH 1/2] ASoC: sdw_utils: Drop rt_sdca_jack codec device reference on exit
-Date: Thu, 26 Nov 2026 16:03:28 +0800
-Message-ID: <000301dd7d7c$9fcd1fe0$df675fa0$@senarytech.com>
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=ZJgs/J6y
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=8Z15m+NbNiZQiSnpZp29G5Mqn1yjW1kGCZAqukJTahE=;
+	b=ZJgs/J6ySKZ7kivw/bNsrZv9YfSOpa1dxfURcrD/y/U+BbkZ21lhEoMSzKtQzH2A50BhzA6KE
+	OCkWEPr+wX16bDinL1RDNPjJ9cfqiXWrQ/6JCADg/tUn67HGXqZZb1wOx/xRKdabF6Mmsemf5x1
+	bNXZXCS7YvEjX9u6UqjBooI=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4jZpxY2NHtzRhQT;
+	Thu, 26 Nov 2026 16:05:05 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 9042C4056E;
+	Thu, 26 Nov 2026 16:05:24 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 26 Nov
+ 2026 16:05:23 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <oleg@redhat.com>, <linusw@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <mark.rutland@arm.com>, <shuah@kernel.org>,
+	<mathieu.desnoyers@efficios.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH 1/3] arm64: ptrace: Fix spurious pseudo-single-step for PTRACE_SYSEMU_SINGLESTEP
+Date: Thu, 26 Nov 2026 16:05:12 +0800
+Message-ID: <20261126080514.1523978-2-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261126080514.1523978-1-ruanjinjie@huawei.com>
+References: <20261126080514.1523978-1-ruanjinjie@huawei.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,105 +72,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
-	charset="us-ascii"
-Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: Ad19fJ6sRAfmq4G2QxSCaV7GDUoxxQ==
-Content-Language: zh-cn
-X-HM-Tid: 0aa216e18a4409d8kunm35a5610b95a460
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCQxgYVktPSh5JSU8aTxgeHlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlJTFVIQ1VKTkxVSU9JWVdZFhoPEhUdFFlBWU9LSFVKS0
-	lCQ0NMVUpLS1VLWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=H2o7HWEm/ziPQxKrJmoZlIPPnG+d+HdAZ2WxnZmKyz0op8jFQq5lZmZ9JgBMJrBdGJxIMiIzVKB/hhhi1gH3evxWDFWCQrkacfiW8jBPVcQYiZIUNJSxaIXOl2dvhPn4k6tNhkhBxS/awmManzLexBO4W/RwMSRLj9xd6pa3XKU=; c=relaxed/relaxed; s=default; d=senarytech.com; v=1;
-	bh=vygooTiSjYbQO8/tsqc0vjgWPN/b7cF63dCgZbTAnpc=;
-	h=date:mime-version:subject:message-id:from;
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 
-Thanks for the catch.
+PTRACE_SYSEMU_SINGLESTEP sets both _TIF_SYSCALL_EMU and _TIF_SINGLESTEP.
+Since commit ac2081cdc4d99 ("arm64: ptrace: Consistently use
+pseudo-singlestep exceptions"), syscall_trace_exit() injects a
+pseudo-single-step SIGTRAP (si_code SI_USER) whenever _TIF_SINGLESTEP is
+set, including for an emulated system call.
 
-asoc_sdw_rt_sdca_jack_init() always stores the bus_find_device_by_name()
-reference in ctx->headset_codec_dev, while
-rt_sdca_jack_add_codec_device_props()
-adds no software node when SOC_SDW_JACK_JDSRC() is zero. Returning early
-from asoc_sdw_rt_sdca_jack_exit() in that case therefore leaks the reference
-(and leaves a stale pointer) on card registration failure / EPROBE_DEFER
-/driver removal.
+That pseudo-step was added for PTRACE_SINGLESTEP: the system call runs,
+and the tracer must get a stop at the return address to inspect the
+result. An emulated system call does not run, and its syscall-enter-stop
+already reports the SVC, as the x86 implementation and generic entry
+(report_single_step()) both say. The extra stop is wrong:
 
-Your change matches the intended cleanup: only call
-device_remove_software_node() when a jack-source software node was added,
-and always put_device() + clear the pointer, as asoc_sdw_rt711_exit() does
-for the
-device reference. Cc:stable looks appropriate for Fixes: 526a1876fc48.
+1) Stepping armed before the SVC (the normal case). The SVC exception
+   leaves the step pending (SPSR_EL1.SS is 0, Arm ARM D2.11.5.1), so the
+   hardware step is taken at the return address anyway, and the tracer
+   now stops there twice without the tracee executing anything:
 
-Reviewed-by: Qianghua Wang <qianghua.wang@senarytech.com>
+	syscall-enter-stop  pc=L
+	pseudo-step         pc=L    si_code=SI_USER  <- added by that commit
+	hardware step       pc=L    si_code=TRAP_TRACE
+	hardware step       pc=L+4
 
------Original Message-----
-From: Yige Jiang <yigejiang86@gmail.com> 
-Sent: 11/26/2026 13:18
-To: Liam Girdwood <lgirdwood@gmail.com>; Mark Brown <broonie@kernel.org>;
-Jaroslav Kysela <perex@perex.cz>; Takashi Iwai <tiwai@suse.com>; bo liu
-<bo.liu@senarytech.com>; qianghua.wang <qianghua.wang@senarytech.com>
-Cc: Yige Jiang <yigejiang86@gmail.com>; Bard Liao
-<yung-chuan.liao@linux.intel.com>; Pierre-Louis Bossart
-<pierre-louis.bossart@linux.dev>; linux-sound@vger.kernel.org;
-linux-kernel@vger.kernel.org; stable@vger.kernel.org
-Subject: [PATCH 1/2] ASoC: sdw_utils: Drop rt_sdca_jack codec device
-reference on exit
+2) Stepping armed after the SVC, e.g. a tracer resuming a
+   PTRACE_EVENT_SECCOMP stop with PTRACE_SYSEMU_SINGLESTEP. The first
+   stop is the pseudo-step at L, so the instruction at L is not
+   executed before the step is reported. Before that commit, and on
+   x86, the first stop follows the instruction at L.
 
-asoc_sdw_rt_sdca_jack_init() takes a reference on the SoundWire codec device
-with bus_find_device_by_name() and stores it in
-ctx->headset_codec_dev, whatever the jack source quirk is. But
-asoc_sdw_rt_sdca_jack_exit() returns early when SOC_SDW_JACK_JDSRC() is
-zero, so then the reference is never dropped. One reference on the codec
-device leaks each time the card fails to register (including
--EPROBE_DEFER) or the machine driver is removed, when the quirk has no jack
-source (DMI quirk entries without one, or the quirk module parameter).
+Skip the pseudo-step when _TIF_SYSCALL_EMU is set, as generic entry
+does. The behaviour of PTRACE_SYSEMU_SINGLESTEP goes back to what it was
+before that commit. PTRACE_SINGLESTEP is unaffected and still gets the
+pseudo-step, so both problems fixed by that commit stay fixed.
 
-The jack source check in the exit path is only needed because
-rt_sdca_jack_add_codec_device_props() adds no software node when the jack
-source is not set. Use it to skip device_remove_software_node() only, and
-always drop the reference and clear the pointer, as
-asoc_sdw_rt711_exit() does.
+Only tracers using PTRACE_SYSEMU_SINGLESTEP see the difference. Measured
+in QEMU, L is the instruction after the SVC:
 
-Fixes: 526a1876fc48 ("ASoC: Intel: sof_sdw_rt_sdca_jack_common: test
-SOF_JACK_JDSRC in _exit")
-Cc: stable@vger.kernel.org
-Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
+  case          before that commit   v7.4-rc1      this patch
+  normal        L, L+4               L, L, L+4     L, L+4
+  after seccomp L+4                  L             L+4
+
+Fixes: ac2081cdc4d99 ("arm64: ptrace: Consistently use pseudo-singlestep exceptions")
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Oleg Nesterov <oleg@redhat.com>
+Cc: Linus Walleij <linusw@kernel.org>
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
-Based on linux-next next-20261109 (630059a5a632).
-Compile-tested: arm64, GCC 14.2.0, W=1, COMPILE_TEST=y,
-SND_SOC_INTEL_SOUNDWIRE_SOF_MACH=y, SND_SOC_SDW_UTILS=y;
-soc_sdw_rt_sdca_jack_common.o built before and after, no new warnings.
-No hardware or runtime test was performed.
-The path needs an rt_sdca jack codec and a quirk with no jack source; it
-runs on card registration failure (including -EPROBE_DEFER) and on machine
-driver removal.
+ arch/arm64/kernel/ptrace.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
 
- sound/soc/sdw_utils/soc_sdw_rt_sdca_jack_common.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
-
-diff --git a/sound/soc/sdw_utils/soc_sdw_rt_sdca_jack_common.c
-b/sound/soc/sdw_utils/soc_sdw_rt_sdca_jack_common.c
-index b4e427d55130..7902d423c8b9 100644
---- a/sound/soc/sdw_utils/soc_sdw_rt_sdca_jack_common.c
-+++ b/sound/soc/sdw_utils/soc_sdw_rt_sdca_jack_common.c
-@@ -188,10 +188,9 @@ int asoc_sdw_rt_sdca_jack_exit(struct snd_soc_card
-*card, struct snd_soc_dai_lin
- 	if (!ctx->headset_codec_dev)
- 		return 0;
+diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+index 6a0b3a9b6125..07c80ebe948a 100644
+--- a/arch/arm64/kernel/ptrace.c
++++ b/arch/arm64/kernel/ptrace.c
+@@ -2486,16 +2486,26 @@ int syscall_trace_enter(struct pt_regs *regs)
+ 	return regs->syscallno;
+ }
  
--	if (!SOC_SDW_JACK_JDSRC(ctx->mc_quirk))
--		return 0;
-+	if (SOC_SDW_JACK_JDSRC(ctx->mc_quirk))
-+		device_remove_software_node(ctx->headset_codec_dev);
++static inline bool report_single_step(unsigned long flags)
++{
++	if (flags & _TIF_SYSCALL_EMU)
++		return false;
++
++	return flags & _TIF_SINGLESTEP;
++}
++
+ void syscall_trace_exit(struct pt_regs *regs)
+ {
+ 	unsigned long flags = read_thread_flags();
++	bool step;
  
--	device_remove_software_node(ctx->headset_codec_dev);
- 	put_device(ctx->headset_codec_dev);
- 	ctx->headset_codec_dev = NULL;
+ 	audit_syscall_exit(regs);
  
-
-base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
+ 	if (flags & _TIF_SYSCALL_TRACEPOINT)
+ 		trace_sys_exit(regs, syscall_get_return_value(current, regs));
+ 
+-	if (flags & (_TIF_SYSCALL_TRACE | _TIF_SINGLESTEP))
++	step = report_single_step(flags);
++	if (step || flags & _TIF_SYSCALL_TRACE)
+ 		report_syscall_exit(regs);
+ 
+ 	rseq_syscall(regs);
+-- 
+2.34.1
 
