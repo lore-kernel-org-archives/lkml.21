@@ -1,118 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795718308;
-	b=nNEHqxyXfDXR3ECR7hagBtmkMvZjS1ppwyUkUofJn1VmJSNYkPDw7yzEIlfkqYwc+nAr
-	 oiU67rWigV5QGCuq7C69uhLQAhH6/X5zFhPT/66YJOgX83djJY+ePYsr67T49YvQ3ikyL
-	 f5AV41ZCasjQBA9jeGptIIu/r/B3cuk64Tvck95oyTG9eeEEq45219DJ47pxBGX5QG/po
-	 uYcSoWMFBM9Lcgwa+glcZmwDhBoPDnEh13K4XwPs63Ac9E1elvzqUy7qWHoZtTuz12eTP
-	 N0zXp7DETol+OS8wNIZD6vnaaJ5OuM0y1qmmYvVSeFqm23QTt9avPOP2ygoHMgs8pOg==
+	t=1795718394;
+	b=MSctGsE7UjU84/bnHdIJD6XrPJ7Ew6/gkZ6FhyvsS6IcSN/N03nlXjT1IuPXk3OPIESF
+	 ze2EEiwX8GtDOtYbEECSVr1X4C9rDSW1yL5VGw3QCFPIaiWOeqFdWEyNxaZX7lACDtXW6
+	 GCik/NCFA8y5AN0JNRteUd5XqVF2aXyVHiRYo40W5qxFrPvhSgr2dcaAIbFxWp3VCku3z
+	 n8bIxEeRuhrdFk9dxWIQJx30dqoU9liBo+oUpimN2SxQdgVlkDXiLeCOLTYJqSwSN6LpU
+	 OcOiNiwJkiVKyAF1tZei6JEOz7NVoXPaDDrxYU60VGIKQX3Vajyt1xy7V+YR7+E5/1w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795718308;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=rZ77rrPbpTMti4JAz9Xa5Id0mArJS7dhs7MItMO1ANA=;
-	b=aIKggU4Z6R6m87U2uX7imbLReHGG8E4yaAgnlq5gvz8yoQezdWT0w4r7U0YQYyU05jpP
-	 /b4r/zn13VqK/YYqPXCHDJSYIwCP1MMeXBB6cA19Wm1J2Zg+7rLzEVpbNPzElGyL3imHL
-	 m1LcoZAZ+hSJP7RYsJGGz9D1DusKsYtvOOjjoD/iTykGB6HVeXmZOiB8YJ76rHUM1cMHY
-	 hVMbqkSPHfqz0q5AWEQa1fpHDc9llYyRespPOVEP3ZBrCuWr7oUN0JSiKtDtXORde9g+c
-	 c2KMxGmYZcxVxM9/9rowAlPeivmeE87cKY89gO6Fr7/kGe5JVtzcIER0zd4AHOvvZ9w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795718394;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=YSTzqRwhJELRsBttl0aXsnSnkGgl9o+9N6c89t9SOdc=;
+	b=eR8bjzs3CnQTepoAx5i9GfPgmWP4djP4qSSM7Ja4zituHBKjifD7cJUlMFdbwtUfJr8H
+	 gI3W0Xogz3WuuNCNA1KyoAKkIQuwxqOP4py2cslo67Z497VBYBuPj0uGYj2UPKN1P3AzY
+	 E6DKYxONyZEwnQTK0YS3mbjbHRsH5830tyz/x/uRKKHQxvh88pObBGRsorpqaTJTTJEPa
+	 wp4Ta3WeCMhyM/0pDh2tKAntsF2df8IRqiC6wVMsw9NbaxT/sEiBvTfbSrSRxTozvMX+k
+	 i0YpV4jw22BQ/VraWDDoHUn7xPv3jOZcN/QHxLWzLih1ZwjbmkeHSmYZ4tyNQX2g6DA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fUE1YKph;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=eVl49IfZ;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UdwaDnjP;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 708D560A2616
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:38:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 708D560A2616
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12AE7606A31C;
+	Thu, 26 Nov 2026 18:39:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fUE1YKph;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=eVl49IfZ
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQGc0R7595724
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:38:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=rZ77rrPbpTM
-	ti4JAz9Xa5Id0mArJS7dhs7MItMO1ANA=; b=fUE1YKphOZWoz+N54PNqlhiZohq
-	S+3ResfSUS1JUfKlSiZuT3i9zpi9nqVy2gmjd9akn/ewSRtXKs777tLqTONWoVG1
-	Tu8veF2r2LM4YzOUVgBYYIe+12gQp0ljSW1VSNzUwrlDRty6sAvaRuHMc0juOzI5
-	74llgG+wyqE6cuFLkPGj60OShnUSmtJeZ7zPOQ/pNCtblgcKWHJVkt2sUd+f2MnD
-	nGNmf2W2081w52M75ulPUb6t04vtSUA0Btv+EIaxkAdrCUVRT9WfbQrGGibZ8iXw
-	OrJqyzOnYG09zWVojmohC7IaLbdj4V1S5IkfpVZvCRWqQgJd8NAvhRZmpKA==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6rf90c0p-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:38:26 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-5363763b556so134414981cf.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:38:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795718306; x=1796323106; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rZ77rrPbpTMti4JAz9Xa5Id0mArJS7dhs7MItMO1ANA=;
-        b=eVl49IfZCJ0V6WYzLGDHCAzGfo+qTKh2lDRjdclhMmnwEv2Mf4P0mXJWA6L2IoWfnO
-         jbrG+jrwvuTT/xNr4GE9p2IxPYp3QeTCj2PPM0fengQWDZmmYDJNVHIIH9ZYPWJQrpwD
-         NJXxMyHCG+Y9KiuPgAjci1/DtyNw2XNqLyMQnCgYbwBgOcerj+WBgnCD6cKbBTQ/Hy6b
-         2Ao9ogFLZZoeRIXueqFtMqnAjvnm2lGbyNPl9+2gr5r0RaPZlgoaLkhhu40ValA1ToYa
-         XKpKUXe7MTFMVRRHUWN8yeoN8ZubuPn3Jbs7L9+J1Jc9/FEy7AZzvVn8c6bw/LEBfVOw
-         Q8NQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795718306; x=1796323106;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rZ77rrPbpTMti4JAz9Xa5Id0mArJS7dhs7MItMO1ANA=;
-        b=j+Tu+X2UaAKBIIyqyvBDwjGIsV1Rnm1urQRBxKYfZoV+n/FQ+0lkJT73+B2LQS07d6
-         mEfcbXohdtPixcxJqZfUJlmf+GZSkBxH0XfAk7DK0qgelgRREb2LF3dS86f2eFu+a4Dd
-         r8vijs6o5cdE7lAUF9hesSwZ7/VQ2zbfB8+7Oze1RVohjwV6RzKTPAd5SZt3V4oBjKh9
-         bfH6vo/YJyYkirevZPIWnzSQy3gIHh09D6oheYJiKPYw2LlwlXRGTQRnLKCEGVYE7Z+Z
-         SYSjgq5vgVCevCXIxRqDKerOSLtIBRiEyIlP+IqfTMVSd7E8KaVOytsbt8gLrRYh85c8
-         fyMg==
-X-Forwarded-Encrypted: i=1; AL+hErFPffw7hoPBVVbInFcmXqdJgEsW2P0XHCtzc7EgYnK5ebin3uMpUUCMSx6lvkTbLZICAxgCn8ONW1z9hi8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+S9RAHgjZ8vN4cZOA+GAP0CBUkUFr8WY79our0W/eGBSZYe19U
-	8lioOFWeqE+dixJhA4TvTkIHEjiOb68BcHZCvMZiXjmjC2UzPbZmBCvyxDqAbIRZOKg8GnaqNuE
-	hmB6p56mM2tAOTh6nivKSj/6qfdcEpH75LO9OVlTtaZFVxAo/3HGo6C6Im3u10mC6Gi0=
-X-Gm-Gg: AZFdTZfjWrRc6XO/KXajWMuF+FZ02D5CNYSTM3QiYkC2tPgsi84bvmyesW1bE2yy3zh
-	UbnonMCpllBnntRKLYHuW9sI6dzz1jqUv59x901dWRnW0nzjI62fkvvr/3QrjlDK14mo/LBTkxe
-	tyva9JibJFnyIKeFleBmrPrLvxtgm0hvgJGGxEHQ3fSlbSK5Uvun1a3Yv7TVT3GauBou9zMwNnR
-	Efm54Y6ge+hWitNEMCeCqg3aOq0l2Yyq0GdCQn86A4vXV71yyXtrGOnWCUWfdBWbjGEoiHJ7WfL
-	NLHnu7wd0YPoz2mNNHoLhvamCM7479tcHZDHosWP1k0e24e3kCQFQZ1J8PolV5khCEB3mS+fsBF
-	gzMPZ4nvbhHNo5vqsipmdorElQQSp13OQH0akTe36XFx89XFMyP7Ljiunz6TY1MxZ
-X-Received: by 2002:a05:620a:2585:b0:949:727a:44e8 with SMTP id af79cd13be357-949ba9e6390mr3996340485a.35.1795718305810;
-        Thu, 26 Nov 2026 10:38:25 -0800 (PST)
-X-Received: by 2002:a05:620a:2585:b0:949:727a:44e8 with SMTP id af79cd13be357-949ba9e6390mr3996336885a.35.1795718305415;
-        Thu, 26 Nov 2026 10:38:25 -0800 (PST)
-Received: from debian ([5.133.47.210])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb895f7bc1sm239659035e9.3.2026.11.26.10.38.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 10:38:24 -0800 (PST)
-From: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
-To: andersson@kernel.org, konrad.dybcio@oss.qualcomm.com, abel.vesa@linaro.org,
-        robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        alsa-devel@alsa-project.org, linux-sound@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
-Subject: [PATCH 5/7] arm64: dts: qcom: glymur-asus-zenbook-a16: enable WCD9378 headset codec
-Date: Thu, 26 Nov 2026 18:38:04 +0000
-Message-ID: <20261126183806.172485-6-srinivas.kandagatla@oss.qualcomm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261126183806.172485-1-srinivas.kandagatla@oss.qualcomm.com>
-References: <20261126183806.172485-1-srinivas.kandagatla@oss.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UdwaDnjP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 174701F000C0;
+	Thu, 26 Nov 2026 18:39:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795718393;
+	bh=YSTzqRwhJELRsBttl0aXsnSnkGgl9o+9N6c89t9SOdc=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=UdwaDnjPGZvf8z73Rf0Dsyl1eO9t1u2CZq+QPxqNMz6P8icWAyxOcT3CgZt5DobFg
+	 T0TJcK4TCh8QfpreXQHh3aOUmOEDq/LZZ8IrWd33hyxVRkOFHVRA8EySgwf3JWga8h
+	 NiJNRBheXyUnpNThBwUuqShPUidg+Xg+f+OjAcJKCclS8yQp6oNZw5nhYpsfIBeOJM
+	 839h33IXwnz8sB1GtEc8bXGPlxdpu01KamUHYxv0+VaPbos02oZEyMrzXwimnl9OJq
+	 V3sJ6+1NbO7Z8zjvURLXbo3D2G6wwjC6/9YbJrexCyAydwSF8h0KvUZIolEkXruvj4
+	 1HRx0zqE8ls2g==
+Subject:
+ Re: [PATCH net-next v6 3/3] net: phy: dap8211r: add PHY LED control support
+From: netdev-bot+sashiko@kernel.org
+To: a.shimko.dev@gmail.com
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ maxime.chevallier@bootlin.com, pavel@ucw.cz, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-leds@vger.kernel.org,
+ netdev@vger.kernel.org
+Date: Thu, 26 Nov 2026 18:39:52 +0000
+Message-ID: <179571839263.3135.10510245952431569206@kernel.org>
+In-Reply-To: <20261125183742.3039752-4-a.shimko.dev@gmail.com>
+References: <20261125183742.3039752-4-a.shimko.dev@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -122,172 +66,176 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: 1wWJYUhI--4Kq4KUBXMPwq41cg9fdx6-
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA3MyBTYWx0ZWRfX/97ahrgP1ONP
- y//cB5N2mJGT9m6ffH091pf2USE5THyT7MK0uIRAsCM2q0A1XAdM1JedLNYhMbY67FKIB9sKcSx
- rxc4sKFzC6PHuwUVcIJyqhQrRPjInEacY2xTX8VYEjTrI2F+Nr8+Eh6uX1tp8wHunoywWwCTDjm
- HXdin8YyPBmeVwdVYVmhOJhiMiD3s3O/TeM680us4u5GbRSf9ByM2539MRqUb7vawATMKghSQbT
- lA0lY3Bx42rnDidsGUuxFX0S/caQedo0QXZhdFPzwfye1CwEx9gusLjom9e3QzxD+rqcnVHMFgo
- 2h+GGMfQSzzr2WrfNHDWXxMNmr7JGF+hs0PYlOqSmjePs+vd9ap8uXka4mIZ6V7mPuxg+ueKw5u
- xg0vraiAkTq9LVXjwyUjD9jUmsIgkBdGvKgvWpqpbzbmdDiVdwXiAkBXFFtFV9WkNbCVEZ5saO4
- iY37rzM/YjrRwOGytqA==
-X-Authority-Analysis: v=2.4 cv=cpkOAF4i c=1 sm=1 tr=0 ts=6b087ca2 cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=ZsC4DHZuhs/kKio7QBcDoQ==:17
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=EUspDBNiAAAA:8
- a=xQsMbUBcp26Z66NZsYQA:9 a=dawVfQjAaf238kedN5IG:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA3MyBTYWx0ZWRfX9QptDyS+Iiby
- sXavOh4zYh4IFnkRwveElFEYIKtW0FZGwP9+9CmbROhfc05N6gCdABAo1C8in7MDKuY4Ny/qks6
- 5JqGCmE1QmtYytOs/Z4Sw0mr5muENtw=
-X-Proofpoint-GUID: 1wWJYUhI--4Kq4KUBXMPwq41cg9fdx6-
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-26_04,2026-11-26_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 adultscore=0 priorityscore=1501 spamscore=0 phishscore=0
- suspectscore=0 malwarescore=0 lowpriorityscore=0 impostorscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260073
 
-Enable the WCD9378 SDCA-compliant headset codec on SoundWire,
-matching the Glymur CRD wiring.  Adds vreg_bob1_e0 as the MICBIAS
-rail.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Signed-off-by: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
----
- .../qcom/glymur-asus-zenbook-a16-ux3607oa.dts | 90 ++++++++++++++++++-
- 1 file changed, 89 insertions(+), 1 deletion(-)
+Critical: 0 · High: 0 · Medium: 2 · Low: 0
 
-diff --git a/arch/arm64/boot/dts/qcom/glymur-asus-zenbook-a16-ux3607oa.dts b/arch/arm64/boot/dts/qcom/glymur-asus-zenbook-a16-ux3607oa.dts
-index c253597b5a5a..ca035f10dc6c 100644
---- a/arch/arm64/boot/dts/qcom/glymur-asus-zenbook-a16-ux3607oa.dts
-+++ b/arch/arm64/boot/dts/qcom/glymur-asus-zenbook-a16-ux3607oa.dts
-@@ -272,7 +272,10 @@ sound {
- 				"WooferRight IN", "WSA2 WSA_SPK1 OUT",
- 				"TweeterRight IN", "WSA2 WSA_SPK2 OUT",
- 				"VA DMIC0", "vdd-micb",
--				"VA DMIC1", "vdd-micb";
-+				"VA DMIC1", "vdd-micb",
-+				"IT 41 Playback", "HPHL_OUT",
-+				"IT 41 Playback", "HPHR_OUT",
-+				"TX SWR_INPUT1", "OT 36 Capture";
- 
- 		va-dai-link {
- 			link-name = "VA Capture";
-@@ -308,6 +311,38 @@ platform {
- 				sound-dai = <&q6apm>;
- 			};
- 		};
-+
-+		wcd-playback-dai-link {
-+			link-name = "WCD Playback";
-+
-+			cpu {
-+				sound-dai = <&q6apmbedai RX_CODEC_DMA_RX_0>;
-+			};
-+
-+			codec {
-+				sound-dai = <&wcd9378c 0>, <&swr2 0>, <&lpass_rxmacro 0>;
-+			};
-+
-+			platform {
-+				sound-dai = <&q6apm>;
-+			};
-+		};
-+
-+		wcd-capture-dai-link {
-+			link-name = "WCD Capture";
-+
-+			cpu {
-+				sound-dai = <&q6apmbedai TX_CODEC_DMA_TX_3>;
-+			};
-+
-+			codec {
-+				sound-dai = <&wcd9378c 18>, <&swr2 1>, <&lpass_txmacro 0>;
-+			};
-+
-+			platform {
-+				sound-dai = <&q6apm>;
-+			};
-+		};
- 	};
- 
- 	wlan-connector {
-@@ -351,6 +386,13 @@ m2_e_uart_ep: endpoint@0 {
- };
- 
- &rpmh_vregs_b_e0 {
-+	vreg_bob1_e0: bob1 {
-+		regulator-name = "vreg_bob1_e0";
-+		regulator-min-microvolt = <2200000>;
-+		regulator-max-microvolt = <4224000>;
-+		regulator-initial-mode = <RPMH_REGULATOR_MODE_AUTO>;
-+	};
-+
- 	/* Unused */
- 	vreg_l2b0: ldo2 {
- 		regulator-name = "vreg_l2b0";
-@@ -763,6 +805,44 @@ right_tweeter: speaker@0,1 {
- 	};
- };
- 
-+/* WCD9378 multi-master: swr2 primary + swr1 dependent (DATA lanes 2/3). */
-+&swr1 {
-+	qcom,multi-master-mode = "dependent";
-+	qcom,multi-master-peer = <&swr2 0>;
-+	num-lanes = <2>;
-+
-+	status = "okay";
-+};
-+
-+&swr2 {
-+	qcom,multi-master-mode = "primary";
-+	qcom,multi-master-peer = <&swr1 5>;
-+	num-lanes = <2>;
-+
-+	status = "okay";
-+
-+	wcd9378c: codec@3,0 {
-+		compatible = "sdw20217011000";
-+		reg = <0 3>;
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&wcd_default>;
-+
-+		qcom,sdca-compliant;
-+
-+		qcom,port-mapping = <2 2 3 4 5 6 7 8>;
-+
-+		reset-gpios = <&tlmm 191 GPIO_ACTIVE_LOW>;
-+
-+		vdd-buck-supply = <&vreg_l15b0>;
-+		vdd-rxtx-supply = <&vreg_l15b0>;
-+		vdd-io-supply = <&vreg_l18b0>;
-+		vdd-mic-bias-supply = <&vreg_bob1_e0>;
-+
-+		#sound-dai-cells = <1>;
-+	};
-+};
-+
- &tlmm {
- 	gpio-reserved-ranges = <4 4>, /* EC Secure I3C */
- 			       <10 2>, /* OOB UART */
-@@ -920,6 +1000,14 @@ wake-n-pins {
- 			bias-pull-up;
- 		};
- 	};
-+
-+	wcd_default: wcd-reset-n-active-state {
-+		pins = "gpio191";
-+		function = "gpio";
-+		drive-strength = <16>;
-+		bias-disable;
-+		output-low;
-+	};
- };
- 
- &uart14 {
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] dap8211r_led_hw_control_get() (drivers/net/phy/dap8211r.c:322)
+  builds its rules only from LED_x_CON (0xA00C + index, read at line…
+- [Medium] Speculative, because it depends on the reset scope of
+  DAP8211R_PHY_CON (0xA001) bit 15, which the code cannot show.
+
+--
+
+net: phy: dap8211r: add PHY LED control support
+
+This commit adds LED support for the three LEDs on the DAP8211R PHY. It
+adds a dap8211r_write_ext() helper and implements the led_brightness_set,
+led_hw_is_supported, led_hw_control_set and led_hw_control_get callbacks.
+
+> diff --git a/drivers/net/phy/dap8211r.c b/drivers/net/phy/dap8211r.c
+> index 1fe20efd394d7..b029b53dc7ba2 100644
+> --- a/drivers/net/phy/dap8211r.c
+> +++ b/drivers/net/phy/dap8211r.c
+
+[ ... ]
+
+> @@ -114,6 +190,189 @@ static int dap8211r_modify_ext(struct phy_device *phydev, u16 reg, u16 mask, u16
+>  	return ret;
+>  }
+>  
+> +/**
+> + * dap8211r_led_brightness_set() - Modify the LEDs common control register
+> + * @phydev: PHY device structure
+> + * @index: LED index
+> + * @value: ON/OFF value for force mode of the LED
+> + *
+> + * Enables force mode and sets the LED to ON/OFF state.
+> + * It will be disabled when hardware LED control is requested.
+
+[ ... ]
+
+> +	if (value != LED_OFF)
+> +		set |= DAP8211R_LED_FORCE_ON(index);
+> +
+> +	return dap8211r_modify_ext(phydev, DAP8211R_LED_COMCON, mask, set);
+> +}
+
+[ ... ]
+
+> +static int dap8211r_led_hw_control_set(struct phy_device *phydev, u8 index, unsigned long rules)
+> +{
+
+[ ... ]
+
+> +	ret = dap8211r_write_ext(phydev, led_reg, led_mode);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return dap8211r_modify_ext(phydev, DAP8211R_LED_COMCON,
+> +				   DAP8211R_LED_FORCE_EN(index), 0);
+> +}
+
+[Severity: Medium]
+Will this LED setup survive the next call to dap8211r_config_init()? The
+driver keeps no copy of LED_COMCON or LED0..2_CON. config_init does a chip
+software reset and then reprograms only RGMII_CON:
+
+drivers/net/phy/dap8211r.c:dap8211r_config_init() {
+    ...
+	ret = dap8211r_modify_ext(phydev, DAP8211R_PHY_CON, DAP8211R_PHY_SW_RST, 0);
+    ...
+	ret = dap8211r_modify_ext(phydev, DAP8211R_RGMII_CON, DAP8211R_RGMII_CONFIG_MASK, set);
+    ...
+}
+
+config_init runs again from phy_init_hw(). phy_attach_direct() calls
+phy_init_hw(), so for MAC drivers that connect the PHY in ndo_open this
+happens on every ifup. mdio_bus_phy_resume() calls it too. The LED
+classdevs are registered only once, at probe.
+
+DAP8211R_PHY_SW_RST might also reset 0xA00B-0xA00E to their defaults. In
+that case the LEDs would go back to power-on behaviour after an
+ifdown/ifup or a suspend/resume. Meanwhile ledtrig-netdev would keep
+hw_control=true and its cached mode, or the LED core would keep its cached
+brightness.
+
+This depends on the reset scope of PHY_CON bit 15, and the code doesn't
+show it. If the LED registers survive the reset, this doesn't apply.
+
+Can the reset scope be confirmed? If the LED registers are cleared, could
+they be restored after the reset?
+
+> +static int dap8211r_led_hw_control_get(struct phy_device *phydev, u8 index, unsigned long *rules)
+> +{
+
+[ ... ]
+
+> +	led_mode = dap8211r_read_ext(phydev, led_reg);
+> +	if (led_mode < 0)
+> +		return led_mode;
+
+[Severity: Medium]
+Should this also check DAP8211R_LED_FORCE_EN(index) in DAP8211R_LED_COMCON?
+
+dap8211r_led_brightness_set() sets that bit and leaves LED_x_CON alone.
+The old rules stay in the register while the LED is forced on or off. Only
+dap8211r_led_hw_control_set() clears FORCE_EN.
+
+Consider switching the trigger from netdev to none:
+
+echo none > trigger
+  led_trigger_remove()
+    led_trigger_set(led_cdev, NULL)
+      __led_trigger_set()
+        led_set_brightness(led_cdev, LED_OFF)
+          ...
+            dap8211r_led_brightness_set()   <- FORCE_EN set, forced off
+
+In the same way, writing a non-zero value to brightness while no trigger
+is set leaves the LED forced on.
+
+Then switch back to netdev:
+
+echo netdev > trigger
+  __led_trigger_set()
+    flush_work(&led_cdev->set_brightness_work);
+    netdev_trig_activate()
+
+When the PHY has an attached netdev, netdev_trig_activate() does:
+
+    trigger_data->hw_control = true;
+    set_device_name(trigger_data, name, strlen(name));
+
+    rc = led_cdev->hw_control_get(led_cdev, &mode);
+    if (!rc)
+        trigger_data->mode = mode;
+
+On this path, set_device_name() skips set_baseline_state():
+
+    /* Skip if we're called from netdev_trig_activate() and hw_control is true */
+    if (!trigger_data->hw_control || led_get_trigger_data(trigger_data->led_cdev))
+        set_baseline_state(trigger_data);
+
+hw_control_set() is never called, so FORCE_EN stays set. hw_control_get()
+then returns 0 with the stale LED_x_CON rules.
+
+Does the LED then stay forced off (or on) while sysfs shows netdev as
+offloaded with link/rx/tx set? It looks like it only recovers when a mode
+attribute or device_name is written again.
+
+That doesn't match the kernel-doc above either, which says force mode
+"will be disabled when hardware LED control is requested".
+
+For comparison, gpy_led_brightness_set() in mxl-gpy.c clears the hardware
+rule register on LED_OFF:
+
+	if (value == LED_OFF)
+		return phy_write_mmd(phydev, MDIO_MMD_VEND1, VSPEC1_LED(index), 0);
+
+One option is for hw_control_get() to return no rules or an error when
+FORCE_EN(index) is set. Another is for brightness_set() to clear LED_x_CON.
+Would either of those work here?
+
+[ ... ]
+
 -- 
-2.53.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261125183742.3039752-1-a.shimko.dev%40gmail.com
