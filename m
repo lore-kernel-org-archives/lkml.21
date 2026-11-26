@@ -1,99 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795704785;
-	b=A976Tnb2zKCr36rC/5YzMcPiNjDgEXtouIF3AldeQPdHJIgdqdEBXlVl46nrIJ8VXOQh
-	 cbI64UVQOStdRIDxnV3oP0ldDHDQG0aP5+/5Uq+IU/wnUKFJos4CoOJHJ8+a2XTYxBq22
-	 7NToFlI2fpl2AY3fSVgvcUhDoKyRV6OCMlVgCw9ry6v3Q82LBON0p4nmbOOWNIkMoxnYI
-	 IaTyMbg1SkW3pgKSMYI8/WGNImHtx3bN402JzkCCAslLivVPhT4NBpZzPKvHIFJpHTA9t
-	 +on3fryQHjXTRsPX8T8nCILsR3276TgGnQyKtKT2K+Z72N7nLqlfKSvJ20IhPN09uxA==
+	t=1795704787;
+	b=lKaNVYI5ZPD3dusH3scgNLr/JM8FrwCOUIJ/okJn+FucvWeqNTzDqkorIVdX48rytJ7H
+	 p/afwYH4HCYIMyLJKlLMfwsYcphTXqxibPmX5gPZyhM9vVHGLqHwFAhec6FCI5gmGj5B8
+	 Ct6xt4YS8WA+SiECyEb5zXFeEmvPVW/icw28cjZ9lMLgTiCRwn/uE+0lQFT4y7Bxl8C+k
+	 Y0MoU/+jETR9v18ZUyBBaFYDAvtjDJSF5d+GwjxvWRF6BLU4CyUsxfeHdvY7lJkpdYGP5
+	 qO3xj9ztnZF7j9Ne1AO7acXO7jF7bfk7fLr3WfBUEOfI3sAAfoYA9iEy/gn+JDsfLDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795704785;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=TGfh22Ic+UUZqpUU8zmfI3BWZ3bedmz86wF+EG5USP4=;
-	b=S3w/a7PN6hI/R/8ltqDE8TB04xNEt6QcNxRju/l8EyP2j2dkDZLYP0RZJxmQDmPMUQ/c
-	 4ncG+Z2/zgPkPifv9Q7dx/NO7bCIvoqLFeaotFRbaDG2Gq1L5wl7Y07H8b3xmlkJ/qSgf
-	 PisYc/8Ja8O6V6Yky0GTTSfblNxE1LjiEmrgQ1+NDsgSIDwIVt+Rc1krhtumP929hlGp+
-	 BWCWEoOnOtLauoYHwIvMRP4Uj8rLoZmnvunF8+iAtj1fSmlvP+K/xq+QWkN0TiudZsQBS
-	 tA1tZm4haY0BOgyTgTicVlH1cSzf+LQLq1xJgd2tp31qMuH62IWES8cFgu9uJLjlJzg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795704787;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key;
+	bh=dhg9yeADsNHpXQA6o1ApIwgcZvzNhA3MGOJqzw1kW1c=;
+	b=oTueh5S2ceclisxpOtpiZZ0k9LWwoV2yo5D5qqL160dcKGRL/9RYQSMIDpMlCTYU9xhr
+	 BEr5sX60BH55zNtaHWBocLCqjdst+Czjk1WxIuMes/ZN8NYwSQtMwvnhndlMqTF+jrScw
+	 BOd2Y2J3kWy3MGRTVlPQJsOv2kVCXTKvGuYHEqrc+NCRkjVkbHXZHmVww9pWdPpJ5VXbR
+	 6G/2a8aVy+t0RXIH7qYovCK90BnvQsHA/egxxMh6DDHM7kE/3w+TTAMf0yq5yJAoXg4bm
+	 vAJLyoTflw2usXFIAXIeB5XunHXYcgSZbFGZRffVp7NZGQdHEuc/8xndwQaVdtUezFg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linbit.com;
-	spf=pass smtp.mailfrom=linbit.com;
-	dkim=pass header.d=linbit.com header.i=@linbit.com header.a=rsa-sha256 header.s=google header.b=pua8J2UW;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=YTz6949K;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0A7E606A32E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:53:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0A7E606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linbit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A4D6606A31C;
+	Thu, 26 Nov 2026 14:53:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A4D6606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linbit.com header.i=@linbit.com header.a=rsa-sha256 header.s=google header.b=pua8J2UW
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso71399035e9.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:53:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linbit.com; s=google; t=1795704783; x=1796309583; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=TGfh22Ic+UUZqpUU8zmfI3BWZ3bedmz86wF+EG5USP4=;
-        b=pua8J2UW2SaZdOacz6AlcAycR7hh/svS9ofaLn9PAwxeNj5N7HH8wfVEyNxf7c7FBF
-         7AEDexG3i+qG1n7cwREX8lMMYRgINXyLbEDh79ZB3Zowc69OMA7dMF5ITl3Dk0EOzKEM
-         0drcFnme9V6UxpV71Aw23ClrrQHcgyZ4Ay7gV0a8+rZFYY8adHaFb8BRegGvKYX4k0ns
-         Or3Rh54qDTzUCsvzkWDjtJfoEmiMKJMJE6j5tF21zfbfC3KNBe5tmW3+raRGXcGy8JCd
-         iq0z7yJyOtu97+kGQeIj4Bnyc6AaXshYEjNzCUNpm36Yp9gxqyFz7chhEymXnnm5r1b8
-         +iNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795704783; x=1796309583;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TGfh22Ic+UUZqpUU8zmfI3BWZ3bedmz86wF+EG5USP4=;
-        b=cN4FX0Sb2eEFslBwl537aM2oBKVHUSU2VpukakXVLmC1MbW7rHUO292UU+pS4OD24m
-         KwWG+CFdhcjta+YYoJFVy24jpG1NUGevBmRYFB5cSrOt1/LPvXi2HJYNW8f9MQ3L9YiC
-         15Hzy05W7bvhzLVEOYNFfk5u7R7zyqQHgcyJfmv4ymaQMuY8mlo+PS25ZG6dneQ1Ic45
-         ZGc5kd2zGrLBGNilQCeuyIFc9rRQb2ImkLXaysDHg+5yI6UdfWaOJ7BAnf0W/rMsLsNn
-         MXspv07Eeh90GfldKW42Xtel6SmpE+KOMSJOJg2/rdGpv4iHnbimNz+IdHZmtNzBpINL
-         +MaQ==
-X-Forwarded-Encrypted: i=1; AL+hErG8aUe8ccw+1COULGqhGKRrCnR6TV/qYyyObViTf+7Z04EwKG0sEywF7fSEUQPOMI7WHvnimesCrkCLh3c=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+D5OJef2tkLF5qp2neiokPRCNSU/EEXh7+e8SZYp8U332mkU3T
-	Xt0pJ5KZHaauZFZzyJzt95SyToK76tpVaJu+jyak7YBg6NV+6OlIhYbqLs4m10nJGs0=
-X-Gm-Gg: AZFdTZeoZmJ7a4KJzfTIORfWMysAv2FRL1ldgFAqkdZvNNymsJm/i/zRFx7AP0sHxQE
-	x0PnlX3vikBGjlNj1robU23qKxxCwfEwNtiH0ySg5JqlCyiUl9vZG8xgssGWT6T5vQa7fZdEY+R
-	6dCnKA584FR+gYeE3KhnFVd9x4URo9ELaMbmbd1YACiJoRhBnHmEheK8ADrF3UKntYifmKeM8yk
-	wate69AEgoHztWFht5tJk3Ipq4Now7AwI56vME0YCVQa81lZQg9nM312yDWwgmxVjcIHTVAkqut
-	Z1NYt+uxNvRz0GLBynyibkNot/36XM4Eo0vR77hp4Wz8jh3HfaiU016oPCDcqozYjwIBqf2M6nO
-	HPQA3D1cW5/4qhzRxEJUUOteY975eP9p0ucG9mAUEiNkPGbnhyQLUXI1URlTrNaK+8Zpv8SZLbN
-	gXXltzTuBUYnt5WeuNGEP+eWt8938VD9w10geDmwAwB5OfqllnaVVvEAilBOqQ2jt2cahx9s5UL
-	w/R7InEt7JWKcdFKW63eZecA1UMbPbWgPeYnewcd6Rq3ANIqpyScN7ytRdXobwOF9bQ5PMR5kf3
-	r19wAQ2TADpHWnFBkK6znUYCQMFttyujV4G41vntMfYI/C/BGMprYuQi4WBCPhzh2g3UNaF7tg=
-	=
-X-Received: by 2002:a05:600c:828e:b0:4a1:e6a9:4086 with SMTP id 5b1f17b1804b1-4bb88785a99mr406595745e9.0.1795704783242;
-        Thu, 26 Nov 2026 06:53:03 -0800 (PST)
-Received: from linbit.com (h082218129081.host.wavenet.at. [82.218.129.81])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906c089dsm356445905e9.1.2026.11.26.06.53.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 06:53:02 -0800 (PST)
-From: =?UTF-8?q?Christoph=20B=C3=B6hmwalder?= <christoph.boehmwalder@linbit.com>
-To: Jens Axboe <axboe@kernel.dk>
-Cc: Philipp Reisner <philipp.reisner@linbit.com>,
-	Lars Ellenberg <lars.ellenberg@linbit.com>,
-	drbd-dev@lists.linux.dev,
-	linux-block@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Christoph=20B=C3=B6hmwalder?= <christoph.boehmwalder@linbit.com>
-Subject: [PATCH 1/4] drbd: assume a capable peer for the discard limit before the handshake
-Date: Thu, 26 Nov 2026 15:52:54 +0100
-Message-ID: <20261126145257.592085-2-christoph.boehmwalder@linbit.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261126145257.592085-1-christoph.boehmwalder@linbit.com>
-References: <20261126145257.592085-1-christoph.boehmwalder@linbit.com>
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=YTz6949K
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795704784;
+	bh=x5lh/SnBYdgauWzgJW1VmYgxUZi6pNiqdl7QV0jMsrk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=YTz6949KHfr8mdBagMCR2CgGYzxmiplxtPmb9MnJ0q8YZGhVTdp0lY0huLTM4pB3B
+	 ti+Q8/D/xg+NJMYLqYvlR7J3MlHDHP72O/9MKiBARLi24uxyq8KC+0CeWjwa117HeY
+	 mxscrymJI0otyDhm1eDYYJNXVDb3GTQ0E8n9N/yeIuzmsASJ01mM3W3jKSbGJd3FAn
+	 iv0oRFZlFDQjQsSOh7v+k8DJqT9rGBOMpBzRmGOWdk6R7FRym60nd3DYpjbfAIw6UK
+	 aDwk0G0rcJictqxoBvk8aCqVdvpef1cN6JpC7qKBHewiUUuf9iG13MexDxjmozki+X
+	 NWhJzA2bXB3Iw==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A850C17E1031;
+	Thu, 26 Nov 2026 15:53:04 +0100 (CET)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 6549D480035; Thu, 26 Nov 2026 15:53:04 +0100 (CET)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Thu, 26 Nov 2026 15:52:39 +0100
+Subject: [PATCH v3 4/6] clk: rockchip: rk3576: add missing DFI clock branch
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,51 +65,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-dfi-clocks-and-rk3576-support-v3-4-0f33c1b8df48@collabora.com>
+References: <20261126-dfi-clocks-and-rk3576-support-v3-0-0f33c1b8df48@collabora.com>
+In-Reply-To: <20261126-dfi-clocks-and-rk3576-support-v3-0-0f33c1b8df48@collabora.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chanwoo Choi <cwchoi00@gmail.com>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel@collabora.com, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1647;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=H3GQwfzHoY547JOCdlVlgpdhn/jFBxUHgJfat1u3O8c=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGsIR9CI0k97g43kelSDCHB0tQh+Rpo9MpeO2
+ 1lTgkHucpFBn4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJrCEfQAAoJENju1/PI
+ O/qapxQP/AlPhxLBsLoTs+8YnEjTYy2dcO1GigrxwtQmnIq9xWle4QPvNMpyscDJnNKAn4ZAhEx
+ rwb3xF/sr01Sem+yjTy8E0DLZjaoIJm8YsBhxEbqgGbnr+/6UpyC/Wjcau0+MprYR8YrJ88iT5z
+ 6YOymiTobEePb1jqktHAVCzvQJZC1cJu3G47hMMMkAKPRcnnqr7UxoVpR1GcTSEgCC7ORTz6CNQ
+ AE0RxqJL0Cc1nfNnXP9YfClP46Sx5xTN/lY0hyghUcMriaXXVi038Vxv+PWRAiMiWLvTw6cFoUX
+ JkIEdQS6vSiWMevccvrskwq0oQQcxzKruZ/XURINLHMCX7BhU57FTbXLaBnsHZxEKE6aAN3IUMC
+ KfULhKSG24wTc+Y+/ZWnR1Zvt0OAi3zPOB+IKCn8rY/MJ5ASYipyHTS0NYMXjv0UZ9s6P/sfN1t
+ H2ZtGyHEUk8n04lUk4Vd7f9icGVq5aklzWX+7SyYLF+HLPLHMceDLeJxPOhR6GRYYDlkDxAXGpr
+ /IJu9oTpUYjYMTKQxXVthJUNU3vLnearUMLg6/s+QMjzBVUgATJMBfGKgYUeXiyOE9Ye53oE2VS
+ oMuvrx2Iyhh52C0XFsWms3skaZnankxL72HF9m1oW1c644ygB6151HS3CNcxkJ0zZh8WqBsGmkZ
+ EMlwAp7YS2J51imdxZcUpIg==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 
-From: Lars Ellenberg <lars.ellenberg@linbit.com>
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-Before the first handshake, agreed_features is 0, so
-drbd_max_discard_sectors() limits discards to 4 MiB, the limit for
-peers without WRITE_SAME support. Devices stacked on top of DRBD copy
-that limit at setup and keep it, even after DRBD connects to a capable
-peer and allows 128 MiB.
+RK3576 DFI has one pclk for each channel's monitor. However, mainline's
+clock tree does not model this second DDRMON PCLK gate, and got away
+with it so far because they both default to ungated and there is no
+upstream RK3576 DFI driver.
 
-Assume a capable peer until a handshake has completed. If the
-handshake finds an incapable peer, receive_sizes() lowers the limit
-again before DRBD sends any request to that peer.
+Add a clock gate branch for it, and remove the CLK_IGNORE_UNUSED flag
+from its sibling. In opposite to RK3588 we can add a mandatory
+requirement for a clock reference to the RK3576 DFI DT binding.
 
-A discard that DRBD split at 128 MiB before the handshake, and that
-DRBD submits to an incapable peer after it, exceeds the peer's limit.
-The peer then drops the connection, and the resync after the reconnect
-covers the range. A module parameter that rejects incapable peers
-would avoid this, but adds a permanent interface for a rare case.
-
-Signed-off-by: Lars Ellenberg <lars.ellenberg@linbit.com>
-Signed-off-by: Christoph Böhmwalder <christoph.boehmwalder@linbit.com>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/block/drbd/drbd_nl.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ drivers/clk/rockchip/clk-rk3576.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/block/drbd/drbd_nl.c b/drivers/block/drbd/drbd_nl.c
-index 3511a943e4b1..efa6e46326a2 100644
---- a/drivers/block/drbd/drbd_nl.c
-+++ b/drivers/block/drbd/drbd_nl.c
-@@ -1257,8 +1257,11 @@ static unsigned int drbd_max_peer_bio_size(struct drbd_device *device)
- static unsigned int drbd_max_discard_sectors(struct drbd_connection *connection)
- {
- 	/* when we introduced REQ_WRITE_SAME support, we also bumped
--	 * our maximum supported batch bio size used for discards. */
--	if (connection->agreed_features & DRBD_FF_WSAME)
-+	 * our maximum supported batch bio size used for discards.
-+	 * Until a handshake completed, assume a capable peer.
-+	 */
-+	if (connection->agreed_pro_version < PRO_VERSION_MIN ||
-+	    connection->agreed_features & DRBD_FF_WSAME)
- 		return DRBD_MAX_BBIO_SECTORS;
- 	/* before, with DRBD <= 8.4.6, we only allowed up to one AL_EXTENT_SIZE. */
- 	return AL_EXTENT_SIZE >> 9;
+diff --git a/drivers/clk/rockchip/clk-rk3576.c b/drivers/clk/rockchip/clk-rk3576.c
+index 577100659593..a48b7556df52 100644
+--- a/drivers/clk/rockchip/clk-rk3576.c
++++ b/drivers/clk/rockchip/clk-rk3576.c
+@@ -883,8 +883,10 @@ static struct rockchip_clk_branch rk3576_clk_branches[] __initdata = {
+ 	COMPOSITE(PCLK_DDR_ROOT, "pclk_ddr_root", gpll_cpll_24m_p, CLK_IS_CRITICAL,
+ 			RK3576_CLKSEL_CON(76), 5, 2, MFLAGS, 0, 5, DFLAGS,
+ 			RK3576_CLKGATE_CON(21), 0, GFLAGS),
+-	GATE(PCLK_DDR_MON_CH0, "pclk_ddr_mon_ch0", "pclk_ddr_root", CLK_IGNORE_UNUSED,
++	GATE(PCLK_DDR_MON_CH0, "pclk_ddr_mon_ch0", "pclk_ddr_root", 0,
+ 			RK3576_CLKGATE_CON(21), 1, GFLAGS),
++	GATE(PCLK_DDR_MON_CH1, "pclk_ddr_mon_ch1", "pclk_ddr_root", 0,
++			RK3576_CLKGATE_CON(21), 14, GFLAGS),
+ 	COMPOSITE(HCLK_DDR_ROOT, "hclk_ddr_root", gpll_cpll_p, CLK_IGNORE_UNUSED,
+ 			RK3576_CLKSEL_CON(77), 5, 1, MFLAGS, 0, 5, DFLAGS,
+ 			RK3576_CLKGATE_CON(22), 11, GFLAGS),
+
 -- 
-2.56.0
+2.53.0
 
