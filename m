@@ -1,92 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795673300;
-	b=ziywGHa0XOmkwcYK/q1kzDsziQ/6fOqLd6YRq5bfMAQ3THXe9l3NSVXnthSzvlBX8Q/C
-	 CqVOehLLFmBmjzl9itG/nlsRj+SIv6Y0VStojnKQCLI9I62AeFmSRkGDuNfSUqoxEzKv/
-	 xTINH5M11SJfqUPnpr31VBkyyaNebzj4wUXFvMcdbuXoHoYvxWt0E1+KP9F27kANBfJrJ
-	 5Wdi3P6493TwlgZX2uP08i0DhQLgt2bwi2+C4Cfe6Y8sEZOwreZceHA2Iu38HjcFMf5jm
-	 4oJejg9TE8P8FQ/+hJoa8x/USQ4X9ZimhAon5GbDqBDkUJMrv0eJrC40GiO/X95bt4g==
+	t=1795673307;
+	b=hwKu8yLtP4FHT9nnrrPek5v6N/Ly2E27u4QtQV9dSyd3b+jJ5jeItIFyeilHXoK4U5Sq
+	 5rTed8Yls3DKmdYRWQA6wJ41OJxzdgovCZfXEOqIobzPG9Fc2Yyw8ORpP5x8T3ZmlG56L
+	 L2wviv5HP0ANJhyr7bbcfYbOgSFNvicelLxC3/z5+/RciC4DAfbDsj90PTlOBoHSlsFqm
+	 CtsEKBTRlnya5d5YXCZFzI/0LqxUn0biYuQ6sRb+07nzfvi4DuWz47J05S1NAMdmpLmou
+	 jTupvuEmB9ZsSW6dCkhAuF2GMLKnkC92aG2WLBK4fPAa/U081Y3In0TWGN6xIWclSqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795673300;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795673307;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=DZH/wi6uV2Gi/BYsBvky+dhyis2kpdwF5WMhDFiOwFk=;
-	b=DqfbeoesnQkFURrY+U/AS0m1hroc0feyqLUdCrHtg0rV0CTpr85pA0GYqUUab2pa31rI
-	 t+JhlV+VrSjmQ07LuTUwxKr+XllNNTCr4O0JyvFIPNT3Wv4pCA6L/4myJdwf0JEOwaDjy
-	 Of/kSruqg/aP95xAcozGT8kz6+2YDTWhxJ0ywxogIcrrCaJanBAMbh7pMhBnyYI8LJdQw
-	 U/fOAbYAJT3DdL9fNIU85vG2ibc1GxHdHSyvgOX5et2Vx4J38TZbvmxv+dgnuz4P+cNeE
-	 Cu7FkylmL94sOjDDNlJlw4fFS0PnzW4C6M0uK6CKAZnA7PWbiSbzFg6ETDambj8vWCw==
+	bh=2yyDoeUfOAGstlBUWiMGIeqYp1mC1ESfIoYKc0SeXTw=;
+	b=T5ndhuHIzIyMdbMzZBSxvUT/1ESleFNzikQDN8+H9l1ITjBTjd6MbKwYQsTzPHVJMVHM
+	 WQ0ifYf2fSOl8KPRQKvI/IFLvwh26I5KZO0d8vgF2wuYTXPewpqrj7jDfRhkXZHhbrqL4
+	 oGbzY7ZQsglFcAxAJ0FQSGMVAGX1QtZBCW3Ro1f3eNc1bV3w+JDqey5/TwGAPJ/XPuGlk
+	 +oZwgN1WKmoy/Hqi7ffEnl3IKn9XunCqKv3I6o0q9+gXg9U+PtWTq0JAVEaDa4zmiZ5f0
+	 R+xcOTfDB9hdpiaCHynh4PasZJmE+S3q7vpqzLm0rGnqZyn+TUmR8aNHOlZ1L7sRZqg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=usnqNP+S;
-	arc=none smtp.remote-ip=209.85.216.51
-Received: from mail-pj1-f51.google.com (mail-pj1-f51.google.com [209.85.216.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uw0pDESL;
+	arc=none smtp.remote-ip=209.85.215.175
+Received: from mail-pg1-f175.google.com (mail-pg1-f175.google.com [209.85.215.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA78E606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:08:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA78E606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A220A606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:08:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A220A606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=usnqNP+S
-Received: by mail-pj1-f51.google.com with SMTP id 98e67ed59e1d1-3b3a42a4bcdso2845262a91.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:08:19 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uw0pDESL
+Received: by mail-pg1-f175.google.com with SMTP id 41be03b00d2f7-cddac941ed1so2977340a12.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:08:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795673299; x=1796278099; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795673306; x=1796278106; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=DZH/wi6uV2Gi/BYsBvky+dhyis2kpdwF5WMhDFiOwFk=;
-        b=usnqNP+SBpDNxE2DkrZuoELLOzn9K2ozJTnaL0TFcv/qZRb2iyFO1i0FNYDy1qYufF
-         obcbeLlb0qVRRM/9fuKjm3IDFAwdJ5uqXn2vR94PMwqJkpthTNsfEasICIKdQ9LdBo9Z
-         j6nq1EkI3GhbLOcBbAEjQdkZGLa85diZB5RVWzQT7dA43JDmUb6V1J2s2E1Rosi76sAU
-         rX4pajtIzeYRGGnoMIrB7i3BgGsmsoyA9Uxfm0sLc29W4TfkA78oxEcaLJYYS5+eYcr/
-         lXG1LqB2gGQVFZhFqxL7YMx42dWt1hZm0gV5lcYtuhe8jFUxb6vNJcYt++F5b3G1lzMn
-         FaeA==
+        bh=2yyDoeUfOAGstlBUWiMGIeqYp1mC1ESfIoYKc0SeXTw=;
+        b=uw0pDESLf6BfjH+EwEOgl9p+1updH/5RWW5Km2+xzSkR/ew0Yi9Wlt+hXE24MOEACD
+         5E+sH3ASINEGaFKRzWcjY28FlOIUbaZdlT/QXipqdXpab07irf8H/rV7q5kikMdfQA1E
+         e+quMxUQjjSs3BX8Nbl4FsVMAky52gTQqFwHlh4s0WlVUtwQtt87XTj04z2hasYsnPgF
+         5REKRvaYNOmDZrDWagvnsxTdi7JHSbOeg91cg+ZD2We5MinlSydRGpT13bpCfZysI9Tn
+         25vpqdZVS1XohpBW5dQdf1PsjMnL+35UGGKPp7wmR9OGz7lLuKlk1SKTR7WkCbRnVIuZ
+         aFoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795673299; x=1796278099;
+        d=1e100.net; s=20260707; t=1795673306; x=1796278106;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=DZH/wi6uV2Gi/BYsBvky+dhyis2kpdwF5WMhDFiOwFk=;
-        b=dxHCafR9kA5m0sTQ1UKaaFmYO1NzZVTQAdDu6dJKWGJ4DhR80L0d00wMgstkVTZSHh
-         cuVR07OXEYtgPLhFl/KCdardi0/Th1BF/7FapHud3L+oRj/gBcTm43247Yn0oq4myrKy
-         F5bZG0yiETD8YSXPc7blzfJqNJRfLz35YjMBJ3glJ/aSvDueFGLDvkLLi3t21ASgwuFZ
-         lY7ChrxqRZkImLGjPGKr6AJ+NJNd/VJbelw8jfMNZTrYxlsnV09dd4vH6kReelURyUZ2
-         0XS/uQ3+pWLKhBTEYiGYipgkdXXxF3ygtCMbn/8IiTNaqbGbsJ3ISEIsWEXaj9L/kpLy
-         Gt9A==
-X-Forwarded-Encrypted: i=1; AL+hErG1IkSr+rs7jgzJJyerYCTrHzZD0oh5dYbjOo4vIngZu4cTNhgr9itwhhx8z6p1Km2LCNKioRGFIQi4reA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/UDc3HGKde684HWY4cZ6wHsFOpiKSA5k1IIxRuVHbq+c8/UeLf
-	6kRwQSuUpGLVFrNKeDiJr3B+hLz/b7d86rGng+FIWcuRxOtnXJn82WB8
-X-Gm-Gg: AZFdTZdywfL32pWRwczawYwswFdHZDkUcAbr+I6xuzCD44LO9xfBh7P1I1E5FU8sf3C
-	te/gidr9Q49dhg2vdic7+MbSnmbDaq8sC2yjkXB3tkMNgOGRSvSdzA0huEPCbr5zwVtxu5HO0wL
-	Uwzt/9tEmkRQ1OE53aemr001QRzGKEkVXAudUj2LpgshytFE1f4VQMLjyRzB6TMB3oAbC+1bK+q
-	xQ+TwH8Qmq8AGx+drA5QeYhvVUAZTGy3kRW3Rh/VS0adKqHIiQVx4VgSjD0hASJ20xrzZuIEerF
-	91JY8b4YLRWlLLs6Yv6WAEGnq6TrRfo3xxrOWQlPRIiu5vdFeX+ebHZZlllSOusEVSKfj+V1g8J
-	kQkkMNFlGaNCPPrkBVCAr+iA6yD1WNbF/jPfxm3zyKgY8SFyxs09o7vHGKiPW0F4JPsFOSVI+4h
-	wG0Zx5yLvYnYpBvwajfL9u/mUqhV2zrUlSfR6gef8CaRpkfIAhan+wUZuCmDlimu7JMCJzTq21L
-	Pu6Mut9vKRXLZNIgKnyP0S40EuWWps8gu1rODCe0wjA+Yd7DvGxm999BGf8+pWs35l2cfpBg6Jq
-	rekujaW5fs6+xYvFn4DFVFKsBQopLB5sJ7tDtK5d5uPfLy0B+YmdjgtkY/PqrXlRQ9c9QeHKaKE
-	5IqRfEp4lWUWqNcB6oR9B+zMkvR2mKBfrgPqF0gOSTX6OHDDbpo1lJf8Yr2A1VXhJR5KMmQWCCt
-	uRMR27rJcC+pdHWbR3VXP1kKiJqxmBYuWMCW2bajEwYw==
-X-Received: by 2002:a17:90b:2f8f:b0:3b0:ad59:7199 with SMTP id 98e67ed59e1d1-3b41c942629mr17539691a91.32.1795673299196;
-        Wed, 25 Nov 2026 22:08:19 -0800 (PST)
+        bh=2yyDoeUfOAGstlBUWiMGIeqYp1mC1ESfIoYKc0SeXTw=;
+        b=ZdFtEk6OuNRs1CQpVbcWAEXho70g1x+UkpWAvL1CHpJh6VOhuOxo5MISKHCuzyYmUj
+         9031z/OYEj87Dp8z7xVNNWBru1jhwtsBXGynTg6l/oJKN/O0i6tNyuelmLFDBqd8dIcw
+         bQEl/15ZznjOkWHcQoYyxKGPOCzNRqmq+bZZnaTuInqH/MItZ/OnhFPa53LaBG6INVns
+         2hHbmitA9tgoKwFDEbBAT7rYAxHC47h/WBR1keX4q4NA/598jPAwtvn74UPD1Vfe1eJ/
+         2VmZ0KOjnfjfylykM8RMHRg1/nKQB4C8/Xk5gV7COG6yPZQBf4SY6i6mmwoEEarKZejB
+         XttA==
+X-Forwarded-Encrypted: i=1; AL+hErHV9cinEVXZQ6kRCEqPGjNw7/zKW1TiPMrQCWzNWSaSBqv2D5FoyGp/BvlTywMHeFz7x1Pj6v/GPGgG9ro=@vger.kernel.org
+X-Gm-Message-State: APuU4Z80YTNxNqEfAeHUoTsFDVG4r5M91enh16oY+gmGfEoKF5fY0Wou
+	w4xVak6v1rOusUlHaK27YBCf7gN/TDKsSnDij5Ej49LE6I561RtpfzJS
+X-Gm-Gg: AZFdTZc1sfWBdmvXx3pllqYXLHG4u5jjNcgdf59K1qoGqm6D6TJzstdP3EQrMcipDMl
+	nq3LCsMCrvBug0pyKQMhtkynQeoTBpQopB0VKRfTXntwtsqQ7kHKCEoBwyGF2X09H3i8R7dogBw
+	WnuGmwtjF0xK3DMkz4QSfV7wIEQFwhTgr3aZeHIAi+L090FOBzdoOrBT/SbVZTnmN9wu6opau/5
+	zQFChZ6EVH+39icsuVUsHqypo1O0Gat0ED4wZsqXYq8lLtK+30UWKh2LMZMJ6IM75BzRCR6LNU0
+	1YTVB74gfTk46N90PzMTiNTHCvSoPTnF6IagKp8bWWZSqwljcTEz36JEEDuQqAA+RfBLCqbvtMG
+	KtM8mhUiVKfAgluyDM2Ux9NM6aVRBDxEVZLFbT+tehzkWJ0CwnmGO1ztUz3yn9MDxJ62iqdYuqX
+	K6rh2v386cE2kjRzF8jhcscUkA18F0Ode6je39Uu2pxg9OrKi5d8LChSc+DWHW+oi5Rg7OSVEfZ
+	YlQ4Z5sYr/i4zG0SZwkEYWjwvvV6YxTUCQcbLGHNysBJQRSSTTpXUw4/BFxrq+exwzJWd8lT75r
+	lraJZ4IWOfpW1byHb++1Uzxs449ci5lw4WU1ngSB9H71vxCkloqg0CQj5UHWZkDtH1YOLyfKlKA
+	5EI4gedLXTVZWlqEasGsIIwrOkesKJe/oql+3BbOVLXn/P6hPUHIGhNZPoNcnoQYyxsIohMNVma
+	NS5bvnXZCwTH0g0+0jSnq7ft8iaoxPlog4zYaGP/92nQ==
+X-Received: by 2002:a17:90b:2ecb:b0:3ac:8446:c1a5 with SMTP id 98e67ed59e1d1-3b41c988620mr17565188a91.48.1795673305926;
+        Wed, 25 Nov 2026 22:08:25 -0800 (PST)
 Received: from LAPTOP-3B99V33A (ec2-3-38-183-164.ap-northeast-2.compute.amazonaws.com. [3.38.183.164])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b420e1307csm29928050a91.7.2026.11.25.22.08.17
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad92c07sm31324076a91.13.2026.11.25.22.08.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 22:08:18 -0800 (PST)
+        Wed, 25 Nov 2026 22:08:25 -0800 (PST)
 From: "Bin Luo (University of Electronic Science and Technology of China)" <luob87709@gmail.com>
-To: aahringo@redhat.com,
-	teigland@redhat.com
-Cc: gfs2@lists.linux.dev,
+To: jani.nikula@linux.intel.com,
+	rodrigo.vivi@intel.com
+Cc: intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] dlm: validate lockspace under ls_lock in dlm_release_lockspace()
-Date: Thu, 26 Nov 2026 14:08:12 +0800
-Message-ID: <20261126060812.2028-1-luob87709@gmail.com>
+Subject: [PATCH] drm/i915/display: hold frontbuffer ref across dirtyfb fence callback
+Date: Thu, 26 Nov 2026 14:08:18 +0800
+Message-ID: <20261126060818.1654-1-luob87709@gmail.com>
 X-Mailer: git-send-email 2.51.0.windows.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -99,61 +101,61 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-dlm_release_lockspace() currently calls dlm_find_lockspace_local(),
-which dereferences the raw lockspace pointer to increment ls_count, and
-immediately calls dlm_put_lockspace() before acquiring ls_lock.
+intel_user_framebuffer_dirty() stores the raw intel_frontbuffer pointer
+in frontbuffer_fence_cb without taking a frontbuffer reference. If the
+framebuffer is destroyed and its owner frontbuffer reference is dropped
+before the reservation dma_fence signals,
+intel_user_framebuffer_fence_wake() passes a freed intel_frontbuffer
+pointer to intel_frontbuffer_queue_flush(), causing a use-after-free.
 
-When two callers concurrently release the same lockspace (for example
-via concurrent DLM_USER_REMOVE_LOCKSPACE requests through
-device_remove_lockspace(), which also drops its lookup reference before
-calling dlm_release_lockspace()), the first caller can enter
-release_lockspace(), remove the lockspace from lslist, and queue
-ls_free_work to free ls before the second caller dereferences ls in
-dlm_find_lockspace_local() or release_lockspace().
+Take a frontbuffer reference via intel_parent_frontbuffer_ref() before
+registering the fence callback, and release it via
+intel_parent_frontbuffer_put() in intel_user_framebuffer_fence_wake()
+after queuing the flush.
 
-Since lockspaces are only added to and removed from lslist while holding
-ls_lock, move the lockspace lookup inside ls_lock and verify that
-lockspace is still present on lslist under lslist_lock before calling
-release_lockspace(). If it has already been removed, return -EINVAL
-without dereferencing the pointer.
-
-Fixes: e7fd41792fc0 ("[DLM] The core of the DLM for GFS2/CLVM")
+Fixes: 1bb2af547a4b ("drm/i915: Handle dma fences in dirtyfb callback")
 Signed-off-by: Bin Luo (University of Electronic Science and Technology of China) <luob87709@gmail.com>
 ---
 Found by code inspection. Compile-tested on x86_64 with W=1 and KASAN
-(fs/dlm/lockspace.o); not runtime-tested on a live DLM cluster.
+for both i915 (drivers/gpu/drm/i915/display/intel_fb.o) and xe
+(drivers/gpu/drm/xe/i915-display/intel_fb.o); not runtime-tested on
+Intel display hardware.
 
- fs/dlm/lockspace.c | 16 +++++++++++-----
- 1 file changed, 11 insertions(+), 5 deletions(-)
+ drivers/gpu/drm/i915/display/intel_fb.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/fs/dlm/lockspace.c b/fs/dlm/lockspace.c
-index a9c98b4..37ccb96 100644
---- a/fs/dlm/lockspace.c
-+++ b/fs/dlm/lockspace.c
-@@ -800,12 +800,18 @@ int dlm_release_lockspace(void *lockspace, unsigned int release_option)
- 	if (release_option > __DLM_RELEASE_MAX)
- 		return -EINVAL;
+diff --git a/drivers/gpu/drm/i915/display/intel_fb.c b/drivers/gpu/drm/i915/display/intel_fb.c
+index 9d71f59..3bbbedc 100644
+--- a/drivers/gpu/drm/i915/display/intel_fb.c
++++ b/drivers/gpu/drm/i915/display/intel_fb.c
+@@ -2148,8 +2148,10 @@ static void intel_user_framebuffer_fence_wake(struct dma_fence *dma,
+ 					      struct dma_fence_cb *data)
+ {
+ 	struct frontbuffer_fence_cb *cb = container_of(data, typeof(*cb), base);
++	struct intel_frontbuffer *front = cb->front;
  
--	ls = dlm_find_lockspace_local(lockspace);
--	if (!ls)
--		return -EINVAL;
--	dlm_put_lockspace(ls);
--
- 	mutex_lock(&ls_lock);
-+	spin_lock_bh(&lslist_lock);
-+	list_for_each_entry(ls, &lslist, ls_list) {
-+		if (ls == lockspace)
-+			goto found;
-+	}
-+	spin_unlock_bh(&lslist_lock);
-+	mutex_unlock(&ls_lock);
-+	return -EINVAL;
-+
-+found:
-+	spin_unlock_bh(&lslist_lock);
- 	error = release_lockspace(ls, release_option);
- 	if (!error)
- 		ls_count--;
+-	intel_frontbuffer_queue_flush(cb->front);
++	intel_frontbuffer_queue_flush(front);
++	intel_parent_frontbuffer_put(front->display, front);
+ 	kfree(cb);
+ 	dma_fence_put(dma);
+ }
+@@ -2160,6 +2162,7 @@ static int intel_user_framebuffer_dirty(struct drm_framebuffer *fb,
+ 					struct drm_clip_rect *clips,
+ 					unsigned int num_clips)
+ {
++	struct intel_display *display = to_intel_display(fb->dev);
+ 	struct drm_gem_object *obj = intel_fb_bo(fb);
+ 	struct intel_frontbuffer *front = to_intel_frontbuffer(fb);
+ 	struct dma_fence *fence;
+@@ -2185,6 +2188,7 @@ static int intel_user_framebuffer_dirty(struct drm_framebuffer *fb,
+ 	}
+ 
+ 	cb->front = front;
++	intel_parent_frontbuffer_ref(display, front);
+ 
+ 	intel_frontbuffer_invalidate(front, ORIGIN_DIRTYFB);
+ 
 -- 
 2.43.0
 
