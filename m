@@ -1,69 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=188.68.63.102
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=160.236.52.122
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795680006;
-	b=HKSNTb47Ka0A/cZqF1nUvS2irrgzGv2b7fnuhiUvtLwdpmL97QvPLRlRi6IpGPOhgBEy
-	 qTCt5kqvkdf/Z6a9MwMnN6Fkh9DigKnoDpyQg3vjj0sibaPzXKbPe62rw9Q5EA4E1S/Bl
-	 E9Y5g9vhE5+bcGcVkjmmR8Xf6e/+s0tkVg8lyJBGvsuzdmOpcEZ101uj1usCoSClrWOLX
-	 4jBuSzuiifod9qN0BXRzcBSu+7HatuzQZib/SYmjT947m/2DQUv9wqkmBS8Ajpr/b4nOB
-	 NJt3zdj4keQ2RJz+PPRQYArz8vVq2rUY0DYtykGeVJlJ4tVzLwI3aotM+myMQZAn1pQ==
+	t=1795680062;
+	b=wzhIQkr8cD9wGt0V73hD5kS/UYn2Pq2cEhdbcSgzSg0lL06ndOcNhYysGHLHMteuHTkm
+	 m4M4Y8yM9S8wEgqagMROmtekW6u+D39YdVpqe3NCE7FPWekZYsJpYaVSIEYIhmdD62pPj
+	 ctSCzL0cTgmrBhmEp3m6FAbQXq5hMHLKI+dW0UPKfKNnhZQR4fMCmkpESNpPsE9IMGNUD
+	 UKbqSUNPp6FUX2xP6UumWHlGiQt/lbKso/YYSSyne+AWNd6+0xQJEB1r/aEfaW8XESvbu
+	 3XBDUXrR9YFmKsJGxfRISF6RdEMEn7hDCzCeybl68qcUSXzr0RpnQ9LCAksGOPZfuIw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795680006;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received-SPF:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:From:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-PPP-Message-ID:X-NC-CID;
-	bh=v2cBIwuwZTTpBiqR0454ouMWhhQaLHGEGIiKzwAP7HU=;
-	b=AL++i3TiSJ67/GOnYiVJkslV1NznNSr9U3g2aj5sTdXLpEzXvnfpitQnh+oBQ3DzxryH
-	 J8DoHl97Za7roLFj8XXHPBR67N/8TFDvdz55Iyeis2GbL+duBxGUF34+VkTfY0QzzDzoJ
-	 n3KzaUiA1OX9SG7e2nZ+nQDopNjq6esmSxpbbxO2TEuVNcQfHiJ2o5+GGrCtRcfk2nCF/
-	 Tzne1XrwF53M2u+fBXz8gVzM0qR/HVT9MNxXDPdO7k/v85oxA839LmlmI5GmNjnBGi9za
-	 jNtZX6DMvQlEMhQYTZe4m2dezIovYgKztc7J1NQR5Yk4kgrzjlVJJO9LKQX4M2RkWog==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795680062;
+	h=DMARC-Filter:Received:From:To:Cc:References:In-Reply-To:Subject:Date:
+	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:Thread-Index:Content-Language:X-HM-Tid:X-HM-MType:
+	 X-HM-Spam-Status:DKIM-Signature;
+	bh=YCOqfm8jLdPUobiMOt/FWva32XOdIfsn2eVW9Fy6g68=;
+	b=w+EcgEy7x3oyb0eOlNmswH0hjm3d9Hu5qfpovtDnaSwvEXBZFr2TjhY8yU/pih2+YDt4
+	 Z0dyyekvyMrRJE+nLN1m39MUoZxYg/15LkpFxWyKpJp7Fa6LT1K2IkkVUGZXs5opnFpSO
+	 Zf9X91tqzveATQ2RUPbpr+gDCSiqYME72TfqmfIXRnbd7IFCyEkvS3G5l0NOP7HeA2RRW
+	 fhzFXOrZqIkLYL5kjS8e6qj27iPnc9W5w2307b8Gl6nPlGP8c7Ah6fRdrUYGLVxIcrwiv
+	 kzRA4qYK/ep8QQzt2kbOvQokkf+uaYqQYNihCC6FUqYb+PbtT8Lw72pInrZ6tfw6K8g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=leemhuis.info;
-	spf=pass smtp.mailfrom=leemhuis.info;
-	dkim=pass header.d=leemhuis.info header.i=@leemhuis.info header.a=rsa-sha256 header.s=key2 header.b=XjiAXlsa;
-	arc=none smtp.remote-ip=188.68.63.102
-Received: from relay.yourmailgateway.de (relay.yourmailgateway.de [188.68.63.102])
+	dmarc=pass header.from=senarytech.com;
+	spf=pass smtp.mailfrom=senarytech.com;
+	dkim=pass header.d=senarytech.com header.i=@senarytech.com header.a=rsa-sha256 header.s=default header.b=d4TEJH4O;
+	arc=none smtp.remote-ip=160.236.52.122
+Received: from mail-m16023652122.xmail.ntesmail.com (mail-m16023652122.xmail.ntesmail.com [160.236.52.122])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3BA7606A327
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:00:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3BA7606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=leemhuis.info
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=leemhuis.info
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 852F0606A321;
+	Thu, 26 Nov 2026 08:00:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 852F0606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=senarytech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=senarytech.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=leemhuis.info header.i=@leemhuis.info header.a=rsa-sha256 header.s=key2 header.b=XjiAXlsa
-Received: from mors-relay-2502.netcup.net (localhost [127.0.0.1])
-	by mors-relay-2502.netcup.net (Postfix) with ESMTPS id 4jZppy209gz6TSp;
-	Thu, 26 Nov 2026 08:59:22 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
-	s=key2; t=1795679962;
-	bh=ij3hnJcC4WfaTRrqHQlqNFWDVnAM9xmzZit58oeLRAY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XjiAXlsaMm8yVPMQlY5bRRl4kOrJxoy2KIgKiSkCty6+c8TeMvO3ItDQ60LMlkFo/
-	 A5pEPVsEdszn57IArzsNSpWrBiKyoWTwjqalB/17XKb680TXWCZ3w+zlCqu0KyisKM
-	 U1ceAxfBRjfP6GKBsX/PSaXl5lEbAblNr+E+pE9sAnxLz/66mX4y6Ie+3yeVhOPKCW
-	 2GaCU2lv+pOik7gOIlPZkqeUiwt+5hnuo1uRCFth5DcHL5zsGDUK1dZMxmDs7ZePA/
-	 W6h2PidiKyG0hE8ssjZwEiahC4Gbo4ko8xLGqpR8CvgBzxDzGmH22Xkk/5P68fUjZN
-	 WdB++PNjsWcMQ==
-Received: from policy02-mors.netcup.net (unknown [46.38.225.35])
-	by mors-relay-2502.netcup.net (Postfix) with ESMTPS id 4jZppy1CQfz4xp1;
-	Thu, 26 Nov 2026 08:59:22 +0100 (CET)
-Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by policy02-mors.netcup.net (Postfix) with ESMTPS id 4jZppw1rNtz8svJ;
-	Thu, 26 Nov 2026 08:59:19 +0100 (CET)
-Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
-	by mxe9fb.netcup.net (Postfix) with ESMTPSA id 5AA525F949;
-	Thu, 26 Nov 2026 08:58:50 +0100 (CET)
-Authentication-Results: mxe9fb;
-        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
-Received-SPF: pass (mxe9fb: connection is authenticated)
-Message-ID: <b27e10f8-840b-47ca-a5e6-50db3a73313d@leemhuis.info>
-Date: Thu, 26 Nov 2026 08:58:47 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=senarytech.com header.i=@senarytech.com header.a=rsa-sha256 header.s=default header.b=d4TEJH4O
+Received: from Wangqianghua (unknown [27.38.157.242])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 561622526;
+	Thu, 26 Nov 2026 16:00:47 +0800 (GMT+08:00)
+From: <qianghua.wang@senarytech.com>
+To: "'Yige Jiang'" <yigejiang86@gmail.com>,
+	"'Liam Girdwood'" <lgirdwood@gmail.com>,
+	"'Mark Brown'" <broonie@kernel.org>,
+	"'Jaroslav Kysela'" <perex@perex.cz>,
+	"'Takashi Iwai'" <tiwai@suse.com>,
+	"'bo liu'" <bo.liu@senarytech.com>
+Cc: "'Bard Liao'" <yung-chuan.liao@linux.intel.com>,
+	"'Pierre-Louis Bossart'" <pierre-louis.bossart@linux.dev>,
+	<linux-sound@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+References: <rc-b1-20261110-vc-07b-67948988e977@gmail.com>
+In-Reply-To: <rc-b1-20261110-vc-07b-67948988e977@gmail.com>
+Subject: reply: [PATCH 2/2] ASoC: sdw_utils: Drop senary_sdca_jack codec device reference on exit
+Date: Thu, 26 Nov 2026 16:00:46 +0800
+Message-ID: <000201dd7d7c$3f44e7c0$bdceb740$@senarytech.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,131 +62,114 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] Revert "nouveau: pci: quiesce GPU on shutdown"
-To: David Airlie <airlied@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, Danilo Krummrich <dakr@kernel.org>,
- Marek Vasut <marex@nabladev.com>, Li Chen <me@linux.beauty>,
- Lyude Paul <lyude@redhat.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Ole Carlsen <ole.carlsen@tutamail.com>,
- Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@debian.org>,
- linux-kernel@vger.kernel.org, nouveau@lists.freedesktop.org,
- Linux kernel regressions list <regressions@lists.linux.dev>
-References: <20261025213027.842978-1-marex@nabladev.com>
-From: Thorsten Leemhuis <regressions@leemhuis.info>
-Content-Language: de-DE, en-US
-In-Reply-To: <20261025213027.842978-1-marex@nabladev.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-PPP-Message-ID: <179567993099.1392972.9410511653682031592@mxe9fb.netcup.net>
-X-NC-CID: K/re8fuSYYOPP20M4/d2Cw5ZAXW/LSShXsWb7axahBVqe8RiaKI=
+Content-Type: text/plain;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: Ad19fD2VDdOCUhsmRX+EtT10miN4DQ==
+Content-Language: zh-cn
+X-HM-Tid: 0aa216df11b309d8kunm110b399495994b
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCHUlIVkMeHR8fSBlKGksaTVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlJTFVIQ1VKTkxVSU9JWVdZFhoPEhUdFFlBWU9LSFVKS0
+	lCQ0NMVUpLS1VLWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=d4TEJH4OS7CmkhH1hJMaFwZj0WPimopV7wlQpTg1ypmbLEWaY8uv4TC8+5Bre+WzKXLvzmxfGbTLgVlFEo3VtkwF/0ac6nkcevp/zO+rMgv2iPjqY9Kw/QVUt0jaRE5aHFp3uUziXxLDIQdoGPwDHAtDgzMncgArzI/WlqjqSq4=; c=relaxed/relaxed; s=default; d=senarytech.com; v=1;
+	bh=YCOqfm8jLdPUobiMOt/FWva32XOdIfsn2eVW9Fy6g68=;
+	h=date:mime-version:subject:message-id:from;
 
-On 10/25/26 22:30, Marek Vasut wrote:
-> This reverts commit 310326bb7df4bba094a3fc60364c641c547fd923.
-> 
-> This breaks shutdown on ThinkPad W510, without the offending commit
-> the system normally powers off, with the offending commit the system
-> ends up spinning indefinitely and the CPU fan goes full throttle on
-> shutdown.
-> 
-> The behavior was already reported in debian bugtracker multiple times
-> for various other computers too, and git bisect lands as this commit.
-> https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1141969
-> https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1146033
+Thanks for the catch.
+asoc_sdw_senary_sdca_jack_init() always stores the =
+bus_find_device_by_name()
+reference in ctx->headset_codec_dev, while
+senary_sdca_jack_add_codec_device_props()
+adds no software node when SOC_SDW_JACK_JDSRC() is zero. Returning early
+from asoc_sdw_senary_sdca_jack_exit() in that case therefore leaks the
+reference (and leaves a stale pointer) on card registration failure /
+-EPROBE_DEFER /driver removal.
+Your change matches the intended cleanup: only call
+device_remove_software_node() when a jack-source software node was =
+added,
+and
+always put_device() + clear the pointer. Same for the rt_sdca twin.
+Reviewed-by: Qianghua Wang <qianghua.wang@senarytech.com>
 
-@airlied: given that you recently applied a few nouveau bugfixes, could
-you maybe pick this one up, too?
+Email: qianghua.wang@senarytech.com
 
-I'd even say it's eligible for -fixes, as I'd say this is still a
-somewhat recent regressions and the fix hence "should be expedited", as
-Linus said some time ago[1].
+-----Original Message-----
+From: Yige Jiang <yigejiang86@gmail.com>=20
+Sent: 2026=C4=EA11=D4=C226=C8=D5 13:18
+To: Liam Girdwood <lgirdwood@gmail.com>; Mark Brown =
+<broonie@kernel.org>;
+Jaroslav Kysela <perex@perex.cz>; Takashi Iwai <tiwai@suse.com>; bo liu =
+<bo.
+liu@senarytech.com>; qianghua.wang <qianghua.wang@senarytech.com>
+CC: Yige Jiang <yigejiang86@gmail.com>; Bard Liao
+<yung-chuan.liao@linux.intel.com>; Pierre-Louis Bossart
+<pierre-louis.bossart@linux.dev>; linux-sound@vger.kernel.org;
+linux-kernel@vger.kernel.org
+Subject: [PATCH 2/2] ASoC: sdw_utils: Drop senary_sdca_jack codec device
+reference on exit
 
-And to make it obvious: this will reintroduce warnings during kexec the
-commit being reverted tried to fix. YMMV, but that seems like the
-smaller problem.
+asoc_sdw_senary_sdca_jack_init() takes a reference on the SoundWire =
+codec
+device with bus_find_device_by_name() and stores it in
+ctx->headset_codec_dev, whatever the jack source quirk is. But
+asoc_sdw_senary_sdca_jack_exit() returns early when SOC_SDW_JACK_JDSRC() =
+is
+zero, so then the reference is never dropped. One reference on the codec
+device leaks each time the card fails to register (including
+-EPROBE_DEFER) or the machine driver is removed, when the quirk has no =
+jack
+source (DMI quirk entries without one, or the quirk module parameter).
 
-Ciao, Thorsten
+This helper follows asoc_sdw_rt_sdca_jack_exit() and has the same =
+problem.
+senary_sdca_jack_add_codec_device_props() adds no software node when the
+jack source is not set, so use the check to skip
+device_remove_software_node() only, and always drop the reference and =
+clear
+the pointer.
 
-[1]
-https://lore.kernel.org/all/CAHk-=wis_qQy4oDNynNKi5b7Qhosmxtoj1jxo5wmB6SRUwQUBQ@mail.gmail.com/
+Fixes: 77272ecd96d7 ("ASoC: sdw_utils: add Senary SN624x helpers and
+codec_info")
+Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
+---
+Based on linux-next next-20261109 (630059a5a632).
+Compile-tested: arm64, GCC 14.2.0, W=3D1, COMPILE_TEST=3Dy,
+SND_SOC_INTEL_SOUNDWIRE_SOF_MACH=3Dy, SND_SOC_SDW_UTILS=3Dy;
+soc_sdw_senary_sdca_jack_common.o built before and after, no new =
+warnings.
+No hardware or runtime test was performed.
+The path needs a Senary SN624x jack codec and a quirk with no jack =
+source;
+it runs on card registration failure (including -EPROBE_DEFER) and on
+machine driver removal.
 
-> I tested the revert with Linux 7.2.12 from debian unstable, not next
-> or drm trees, mainly because it was easier with debian test-patches
-> script on that machine.
-> 
-> Signed-off-by: Marek Vasut <marex@nabladev.com>
-> ---
-> Cc: Danilo Krummrich <dakr@kernel.org>
-> Cc: David Airlie <airlied@gmail.com>
-> Cc: Li Chen <me@linux.beauty>
-> Cc: Lyude Paul <lyude@redhat.com>
-> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> Cc: Maxime Ripard <mripard@kernel.org>
-> Cc: Ole Carlsen <ole.carlsen@tutamail.com>
-> Cc: Simona Vetter <simona@ffwll.ch>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: Uwe Kleine-König <ukleinek@debian.org>
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: nouveau@lists.freedesktop.org
-> ---
-> NOTE: Maybe the revert is not the ideal solution, but it does fix my
->       problem, and I think being able to shut computer down is a good
->       functionality to have.
-> ---
->  drivers/gpu/drm/nouveau/nouveau_drm.c | 32 ---------------------------
->  1 file changed, 32 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/nouveau/nouveau_drm.c b/drivers/gpu/drm/nouveau/nouveau_drm.c
-> index 5e1336615cf6d..36c74f9edaa83 100644
-> --- a/drivers/gpu/drm/nouveau/nouveau_drm.c
-> +++ b/drivers/gpu/drm/nouveau/nouveau_drm.c
-> @@ -1090,37 +1090,6 @@ nouveau_pmops_resume(struct device *dev)
->  	return ret;
->  }
->  
-> -static void
-> -nouveau_drm_shutdown(struct pci_dev *pdev)
-> -{
-> -	struct nouveau_drm *drm = pci_get_drvdata(pdev);
-> -	int ret;
-> -
-> -	if (!drm)
-> -		return;
-> -
-> -	if (drm->dev->switch_power_state == DRM_SWITCH_POWER_OFF ||
-> -	    drm->dev->switch_power_state == DRM_SWITCH_POWER_DYNAMIC_OFF)
-> -		return;
-> -
-> -	ret = nouveau_do_suspend(drm, false);
-> -	if (ret)
-> -		NV_ERROR(drm, "shutdown suspend failed with: %d\n", ret);
-> -
-> -	pci_save_state(pdev);
-> -	pci_disable_device(pdev);
-> -	pci_set_power_state(pdev, PCI_D3hot);
-> -	/*
-> -	 *  This is just to give the pci power transition time to settle
-> -	 *  before an immediate kexec jump. it’s mirroring the existing
-> -	 *  nouveau_pmops_suspend() behavior, which already does
-> -	 *  udelay(200) right after pci_set_power_state(..., pci_d3hot). In
-> -	 *  ->shutdown() we’re allowed to sleep, so I used usleep_range()
-> -	 *  instead of a busy-wait udelay().
-> -	 */
-> -	usleep_range(200, 400);
-> -}
-> -
->  static int
->  nouveau_pmops_freeze(struct device *dev)
->  {
-> @@ -1480,7 +1449,6 @@ nouveau_drm_pci_driver = {
->  	.id_table = nouveau_drm_pci_table,
->  	.probe = nouveau_drm_probe,
->  	.remove = nouveau_drm_remove,
-> -	.shutdown = nouveau_drm_shutdown,
->  	.driver.pm = &nouveau_pm_ops,
->  };
->  
+ sound/soc/sdw_utils/soc_sdw_senary_sdca_jack_common.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/sound/soc/sdw_utils/soc_sdw_senary_sdca_jack_common.c
+b/sound/soc/sdw_utils/soc_sdw_senary_sdca_jack_common.c
+index 1dab6f99877d..6954041b7962 100644
+--- a/sound/soc/sdw_utils/soc_sdw_senary_sdca_jack_common.c
++++ b/sound/soc/sdw_utils/soc_sdw_senary_sdca_jack_common.c
+@@ -150,10 +150,9 @@ int asoc_sdw_senary_sdca_jack_exit(struct =
+snd_soc_card
+*card, struct snd_soc_dai
+ 	if (!ctx->headset_codec_dev)
+ 		return 0;
+=20
+-	if (!SOC_SDW_JACK_JDSRC(ctx->mc_quirk))
+-		return 0;
++	if (SOC_SDW_JACK_JDSRC(ctx->mc_quirk))
++		device_remove_software_node(ctx->headset_codec_dev);
+=20
+-	device_remove_software_node(ctx->headset_codec_dev);
+ 	put_device(ctx->headset_codec_dev);
+ 	ctx->headset_codec_dev =3D NULL;
+=20
+
+base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
 
