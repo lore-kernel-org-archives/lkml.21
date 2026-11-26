@@ -1,94 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795687708;
-	b=dLHTqkix6k0W7PluYOvJk0BTCRo+NelT/D/ZS9N90PI0+oKOh1HFi7JeyWt/haeSOaDj
-	 6tjQbkSmuwRKJQOCF9i1qu9WtfuT0Nd8x83/BlfrbXI+TOCz0dIcbXv5V8SAiNPdQID2m
-	 2eAgbZE6Ihrbwwi9SIgTXV/M8sD7LsWq2eVpYjk/KOhuC/tIPiQjKfEzxAHlJ7SedxLY9
-	 9QnvjNPaWH09e+Vf2sml39GsfTQFXVrWetDvDj11KSsm2nsLMsAPLApzlsOINkwpql760
-	 ecyMFz4l7attkNLezCuKVrcUYaJjzmSbQkkEe0Fqax6Aa1AOhPViJOI+PZOj0HFdexg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795687708;
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.208.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795687738;
+	b=3hsG4Vb8eHw/eUsz+SUiaUBfe6sOWEQWARNmLd9cDjx42uxUlZWRsTPPwKRX+FJg5PnJ
+	 QJ9WxvGYFJSQZreHaZ7Yo6Pamp2aKOXPAlUFS3YTEd8KO3SsEF52rcZ4Xnh9eFWaVThwD
+	 NNZpHHZKfTcyG4fjI5fTQAGzsH6Vd6Gh+2C2/22s2Qa4vVTvXQfrxW3bHW4PkSLrSUBCU
+	 vXXeNIDxvxVjDm3hacsF06od5Wh4aW2QegbcoRRpXGzWhKjYZAavzxghBAUHlXfN/T85B
+	 j4F6qFo9qul2jTZB0H+VwVXWBYonMOzyv6OlY3mmoVMMfBDsZVXrdIg1myOqJKU/HwQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795687738;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=yhJLheRK2k8iW0h1BrUFUeUwi944GYqdiiaue7ukRoM=;
-	b=Oqac8vAv/ruDhVpUpNP5HcEByCzq1q7BoydW7YE8BYNbeEQ8O0gsl/sHmjDxous4r3eu
-	 h0qROnjTDQ8r05xSij6RyB6TJTBMwB9jbwQIGHM17qpuKXiMcPgntbM1UGbWPJj/N85Mo
-	 9erxLK4buqu/YqZVhLbZev7i/UXs1JrZ47YMMlbojB7FxgmXemkP9QTbd+ieOS7fmqJyX
-	 rnBt3GOHIbT5+I2CGq2UK3p7bjz68tEVrL8ff3p3s9FBBqx+wtg545pUkNziJUu7rfWN6
-	 gmPgkyvq2nPp4/AJEyRSwuSv2VDmKzeQpuxtLcUBYzmnOPNtYKm1h3EM1cSFlkDrm/A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=B/vfwATZ+aTQb+3ShWrmO/WvkZL+j5UiTgHiGPHPM0A=;
+	b=as2moYpDHV8t5E7IZsYlmKz7gnBQ2kzYPJTu4JxTDJW3N+ieLfp1dHoQFbmudQviQs/p
+	 IHYRIBvF6aQrzgA8HrUkrAE+P7meFgrB04Yl1eHJbeQoV+9q5TorTByc/sts/zNlayeht
+	 7KkALEu3peZftyDwTBHqoivdTgf3183NB+R5DumUrlnLled+DKfpo5QXtU7v8ergvDIeh
+	 w6SoOxe4CAoNduhYTrz8efMjLqcsH4aU5LU8JSI8XYXLndvXuyA2F9TWjv/kjO7pov6J8
+	 +one3x5iIJhnOWDWBdz7dOupiJs2cQpjMKJ/tLBZVN6XRKAojELVRAvzanPyDkIlAGg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zmgTBLo2;
-	arc=none smtp.remote-ip=209.85.221.53
-Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BLnLq7sw;
+	arc=fail smtp.remote-ip=209.85.208.53
+Received: from mail-ed1-f53.google.com (mail-ed1-f53.google.com [209.85.208.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF283606A330
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:08:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF283606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84447606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:08:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84447606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zmgTBLo2
-Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-49412eb1474so4427842f8f.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:08:27 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BLnLq7sw
+Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-6b887ca9f5cso9775026a12.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:08:58 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795687737; cv=none;
+        d=google.com; s=arc-20260327;
+        b=TnYRQ6PXZdcjuMDRuD6ta2kK3EdRfTfpRC76Iz/X7p5IGZKGfmtVuLgu0HXy9dBEak
+         BQ8rDKIOsdUe5G478LMyvFZCnITxKNnpM50FUV7a6BsCfAIQIMMey+TNCN2bImS0noXg
+         yQTYTZWWwbJg9CaH2gP/Y/y+3yBblIZa9SrGozR+70C/3HUs622StNmnecHfFeDlFn6H
+         eeW7uupcBhnhHrNs5kO8ZJKvQmQhzJD/mLTdcZu0xaUslA4tsWyxEPax7oYVuu34wtXL
+         Oll8FxxyhQS7jIBP+2YdYaJzXtMcW7KE2G9STmGlgB3+nh6hwK/pTM3a5GZIa15n0g2H
+         4XFw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=B/vfwATZ+aTQb+3ShWrmO/WvkZL+j5UiTgHiGPHPM0A=;
+        fh=FIdMtxBcGi1trKgR7cwqxpM9eavhUx+2L8n4e/0pjHA=;
+        b=W+ALjyOCJVLTKMcNn9EQOA8W8Z7pzIVxxDrhZZeycAiWmiP47YPNOlHSPcPUyxFoBs
+         UbOnkw1c8kW6rHNFc7z/rl+Zb28VeCJyUPFsNLbeecq5OvwjVGQZnghXTGf71/G9h+4C
+         f8r4AJnkWXryFCm0H3uhBqkwHHzg5Zggq62/A5/1WVVVJbhO6ghY0/7tDZlPV9+xKXuV
+         eaJ+9siR4F5ZtTlkXio80UiN7C0R+LGDItKiEjq5xEmypNUBG4guFjIgV7K0IKkoJP1q
+         s5Aev9Nuxmz8f0vVS0maarajfHcqlIvN2zno+n0TTMYPFw3RqO2f1Lw3RZCGDHIRuMYd
+         P4pA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795687706; x=1796292506; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yhJLheRK2k8iW0h1BrUFUeUwi944GYqdiiaue7ukRoM=;
-        b=zmgTBLo27luXCYwakoBn1tfqpIuR9XRYiH9hY97k2rY8emO8toHDfYZY+poj9cEtzN
-         hlTWo05Wqnl9HaB94VSrynltCn8bZMciKwMxdHw/x1s3+MOupcVx5SluLOcUbCT5x2Lp
-         k8SAgaUMrI7vFCBw9/Je04NioiV62CJ9hmq2TmQxNkURZUl+LnGHLOS2IruzdawKfklp
-         sNaDUbnNAbxssrV0wf+GqDlijXrymPnOfdqV+hLEyvuwL2JGbh9X7AIdvRe8GYxDO0au
-         xLF2/UcHQQ6IOvXN4O3Cv9kNIAaYQxgFjkm9HDzrd4JYpdq06cg+Fg94pO3y1SnSoO0N
-         vhMA==
+        d=gmail.com; s=20260707; t=1795687737; x=1796292537; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=B/vfwATZ+aTQb+3ShWrmO/WvkZL+j5UiTgHiGPHPM0A=;
+        b=BLnLq7swDKkGqwuOkT88kDi/k5Wkx5oS93R+YopL4cpAdWoUggr1K/iXwHu9AMn7jW
+         YdCVPUsJFlfBA/kA/tjTHmEFgNHxTvJsTOvLzcq2//cNf0QTiA/3BC9fiqw9OnGi+rXk
+         ZwxF2DnIp0XOHmhNr1oRVzv8FMN2uwvjA7NNhW4osabSFGPHv46o/L57MH7b8bm2za+A
+         m2XggcYchWL5IHY3hFg+HAUeKqQDThIEHXs2Z8C9i2O6sSJM0IZ38NEn6RLh9z8JEHZD
+         VnL3TYvQFKyv3jpmH3mxanQdF/liqE7IP0ck90K68jb7cFne5MPTJyexbCgb/IUcT+A2
+         X7bQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795687706; x=1796292506;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yhJLheRK2k8iW0h1BrUFUeUwi944GYqdiiaue7ukRoM=;
-        b=2ZtThDLmhSGdtqgFJNtz/FjS204+0U6QGHPkpZo7m5ThrRtTAzThfMO7uADSLWgEYR
-         Nu0UXZcmQGIuW0Vljyi0eQQ/LGO9Kd+xbb0xUkLoUtmirAO1+XcJBjDp82OaLk5hI2Lw
-         IHQjv83O32k4I9Rxd9oANlHbo4MbcBCD8RK3conNN71Memlf/SBDWUWecg9A263fQ6pP
-         qy9aCvhPh2zNkRrAKLi5eTc6ElyGyS+VORV5I5r1iJGdYooBPfO+Bc5pLtk72WnFFT7B
-         VktM1buumSkFQE8qP1mN+khsjAWCBYmITjp9ymdDMjG7uhPPZ+4iowM0h8KyhWVLmHQH
-         3iWA==
-X-Forwarded-Encrypted: i=1; AL+hErHGdyuNQmJgtKWs/JzOWaH6KgTWXOuFaPIRveDU+1B4pBmSc/ZyATo1m1VBBoP3A+l0VQddv7UyO4li+UM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/yMO1auHgZ4U4XwvBVRzQhW9oCKa+Lk2eyXQXGR3jZZYDc2Cmw
-	s46hxWdTuk48TDWjXy2ByYRqhZTO63z/yADuShL8BFsbkQOowgXYl14nmj1dp3a+
-X-Gm-Gg: AZFdTZcPKW2JWhBYiBjhQUxx4790Hr2N2uQIYZ4UGDxb9MdumS8+QFkNfDZGMJh48xT
-	dMI6IAqEjJy4ZQPWuQwd/JGch1Ph2laRM/lxOt1zdFpmS9h89N5PO/zBeG75Cz8Oyu86u4hr8Vz
-	eTffPyg7HKheSMf3fM6ECf4gHHkppUsb5fOTdp61DTT3h26Ag4JwkBnbISSbJ/Way6lQJzGVRZN
-	a4X6gAGcWO39RD1YpIjrCWw8C2LuCneS92zxH42MXIa8B4KS/sWoilMLnPsO6NMtSLibEEpdbGI
-	Mim8KDRuZayI3j3Jmli7DWCJXiabzKgpls0xWrCKBVVi+x7NEpns0jfrarJUEIKTCB0EiP8QkUJ
-	3AgT8MnEb1mNXDIUUjrFfG3Q8qnwMA7EegTZXBM9iEBiPgudvEs6O7DETCM8tO5+0jdFG4JfzJq
-	2iLmUmAKbT2Np8Uu3fNkWnzME0asJTsXePQoXX7NkZHy7dQH5ZLEdWJ06wRQfKOLiCWwq8PAaPz
-	O5GGmTPeRO5dBNZfIPvGxpKNTS/8hWDlUK6EHKHtTAqOgY7cQI9l+BHgvgxCRodAYXSzzWHXYpa
-	0xKZh+E8CGTZVmeDDQL3961pC4cvCCFPjUB26kOgW/9s4TkmhUgapWYXNXXU2uZk+cbAbsI/1g/
-	v
-X-Received: by 2002:a05:600c:e549:10b0:4bb:a60a:fc8 with SMTP id 5b1f17b1804b1-4bba60a11d2mr59103625e9.35.1795687706012;
-        Thu, 26 Nov 2026 02:08:26 -0800 (PST)
-Received: from DESKTOP-V28CTA4.localdomain ([37.111.157.27])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853b2437sm830600705e9.13.2026.11.26.02.08.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 02:08:25 -0800 (PST)
-From: Arbab Haider <arbabhaider649@gmail.com>
-To: linux-media@vger.kernel.org
-Cc: mchehab@kernel.org,
-	linux-kernel@vger.kernel.org,
-	Arbab Haider <arbabhaider649@gmail.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	stable@vger.kernel.org
-Subject: [PATCH v3] media: em28xx: defer media device cleanup until final device release
-Date: Thu, 26 Nov 2026 15:08:07 +0500
-Message-ID: <20261126100807.356864-1-arbabhaider649@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        d=1e100.net; s=20260707; t=1795687737; x=1796292537;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=B/vfwATZ+aTQb+3ShWrmO/WvkZL+j5UiTgHiGPHPM0A=;
+        b=vDhlynpYfRejBrBqBHQPwTRQVBerKxw8EW6L8ESG4hIw/l+i2QXSHOsx3PrzIBUTcL
+         nCOGBObuR2DUAVn57lCT9gzyEPdL2tuHcQuoVtC8udhlswq/cSqH9rX3sEMC0twMK5yx
+         MQN8qN/iyInPEUBLEu3E57gRMWxrK43/TtcHffA3ygCPIHv0fkpZTYQuKbphJVUh2k0Q
+         wPI1G0VdVk3RgcwmDQqwU9kpDfzSeHPR66WTgI5xTkhmdeET6OedwGRhzXI/Yf3tEWUC
+         5bW8Ats1kSoovGJ3Q66MYRG0krn4udEwUoOGNKSI+sZJL05Xi22IfRDILMyL72RRrH7B
+         iWeA==
+X-Forwarded-Encrypted: i=1; AL+hErFTvYog83Ifg7uV24euRSjerJvH5VzYcHQsvFqm91xsy0ZcwxN+QAMipIpzyXNmBWB/tMTjKeg00wdf9aQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/L7MCXd22rYm6wFOFH1ngqto4ZtVAe88AnKt3KsJXlSHOxDcgq
+	n0I1xgkAC8nel9YBH4kXr7IDmXKQbmdwh+GLowX4Dtx/8bOEZc/m4C4U22NucpqpbclHyiZADYT
+	VgeMOpblUpW469WRTnLOVjDZSuq7Ddzw=
+X-Gm-Gg: AZFdTZefJJdrc76/WzQwvSv7mSnj5NGFOQbaOYV9XqsCBquKIianAUvPcvSwFWSkUVi
+	+iGjDZu2FLeRSl5Vj7+PODYWS1yv3m/dA0GMB9PRsbE/LLyKtiFREdG7nsYaha4na9duEzlMXHh
+	V3sDfagzV6Tg0HelTUmq9V66dSNbaIzNbjcP5j3VkhCVr97ygA47ZVjfDJH5nHbdpNklZVU7zs4
+	RNogk/Rsg1O1iteu8o2U4HMttkDPzQ7962jBSNWx5ZIPNwST8BpywUGpF9wWYpNBajtzyGJ8xCz
+	91cN3vjPbj0VmTA2UVr1FWNTtKAjtvuzq8bqzD+5h1FyoORClHohtfk2dV+830OkvvAxAn9F+N0
+	1VH5v8p/mIJC0pMzPU5m2Rtx1juUv8e/BEXE5IMaUsAiZVy91WuvEBHWFbXd8ilDmbi4af9CLVA
+	==
+X-Received: by 2002:a17:907:2d91:b0:c51:982e:28bf with SMTP id
+ a640c23a62f3a-c51982e29d1mr584103766b.40.1795687736599; Thu, 26 Nov 2026
+ 02:08:56 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,88 +105,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261116155147.769630-1-erwanaliasr1@gmail.com>
+In-Reply-To: <20261116155147.769630-1-erwanaliasr1@gmail.com>
+From: Erwan Velu <erwanaliasr1@gmail.com>
+Date: Thu, 26 Nov 2026 11:08:43 +0100
+X-Gm-Features: Aa3M54pPJggkTaxEZ8exgufSp3xG7DaTC8fi_wGV9VbwisqyDNi0qDOvXzZidkM
+Message-ID: <CAL2JzuzBNTCAQBf-O=bJACLbVBXRM68VJ+KE7_W975X6tpTktg@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] platform/x86/amd/hsmp: Unify per-socket sysfs metrics
+To: Naveen Krishna Chatradhi <naveenkrishna.chatradhi@amd.com>, 
+	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+	Hans de Goede <hansg@kernel.org>
+Cc: Carlos Bilbao <carlos.bilbao@kernel.org>, Muralidhara M K <muralidhara.mk@amd.com>, 
+	Suma Hegde <suma.hegde@amd.com>, Muthusamy Ramalingam <muthusamy.ramalingam@amd.com>, 
+	platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Erwan Velu <e.velu@criteo.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-em28xx_unregister_media_device() clears v4l2_dev.mdev and frees the
-media device during disconnect. The driver holds dev->lock, but
-v4l2_release() checks whether the device supports media requests before
-calling the driver's release callback, which takes that lock. A
-concurrent close can still dereference the media device after it has
-been freed.
+Hi !
+I'd love to have feedback on this v2 which tries to address the issues
+reported on v1.
+Erwan,
 
-Unregister the media device on disconnect and defer cleanup and freeing
-it to em28xx_free_device(). The V4L2 instance holds an em28xx device
-reference until the last V4L2 device reference is dropped, which keeps
-v4l2_dev.mdev valid throughout V4L2 release. Keep immediate cleanup in
-the probe error path, before any V4L2 nodes have been registered.
-
-Fixes: 37ecc7b1278f ("[media] em28xx: add media controller support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Arbab Haider <arbabhaider649@gmail.com>
----
-Changes in v3:
-- Rebase onto media-committers/next and replace its disconnect-time
-  mdev pointer clear with a lifetime guarantee for V4L2 users.
-- Send the cleanup fix on its own, following acceptance of v2 patch 2.
-
-Changes in v2:
-- Add the Fixes tag as requested by Media CI.
-
-Validation
-- Built drivers/media/usb/em28xx/ on x86_64 with MEDIA_CONTROLLER,
-  KASAN and UBSAN enabled.
-- Booted QEMU x86_64 with MEDIA_CONTROLLER, KASAN and UBSAN and passed
-  three em28xx and em28xx-v4l module load/unload cycles. This smoke test
-  ran without an attached em28xx device.
-
-Codex assisted with the rebase, source review, commit message and build.
-
- drivers/media/usb/em28xx/em28xx-cards.c | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/media/usb/em28xx/em28xx-cards.c b/drivers/media/usb/em28xx/em28xx-cards.c
-index f4b6dcf597..cf0312fc46 100644
---- a/drivers/media/usb/em28xx/em28xx-cards.c
-+++ b/drivers/media/usb/em28xx/em28xx-cards.c
-@@ -3773,11 +3773,16 @@ static int em28xx_media_device_init(struct em28xx *dev,
- static void em28xx_unregister_media_device(struct em28xx *dev)
- {
- #ifdef CONFIG_MEDIA_CONTROLLER
--	if (dev->media_dev) {
-+	if (dev->media_dev)
- 		media_device_unregister(dev->media_dev);
-+#endif
-+}
-+
-+static void em28xx_cleanup_media_device(struct em28xx *dev)
-+{
-+#ifdef CONFIG_MEDIA_CONTROLLER
-+	if (dev->media_dev) {
- 		media_device_cleanup(dev->media_dev);
--		if (dev->v4l2)
--			dev->v4l2->v4l2_dev.mdev = NULL;
- 		kfree(dev->media_dev);
- 		dev->media_dev = NULL;
- 	}
-@@ -3828,6 +3833,8 @@ void em28xx_free_device(struct kref *ref)
- 	if (!dev->disconnected)
- 		em28xx_release_resources(dev);
- 
-+	em28xx_cleanup_media_device(dev);
-+
- 	if (dev->ts == PRIMARY_TS)
- 		kfree(dev->alt_max_pkt_size_isoc);
- 
-@@ -4000,6 +4007,7 @@ static int em28xx_init_dev(struct em28xx *dev, struct usb_device *udev,
- 	em28xx_i2c_unregister(dev, 0);
- err_deinit_media:
- 	em28xx_unregister_media_device(dev);
-+	em28xx_cleanup_media_device(dev);
- 	return retval;
- }
- 
-
-base-commit: b4e3c4b6a36fd76f57bf3e48638f68ddecc54ba4
--- 
-2.53.0
-
+Le lun. 16 nov. 2026 =C3=A0 16:52, Erwan Velu <erwanaliasr1@gmail.com> a =
+=C3=A9crit :
+>
+> From: Erwan Velu <e.velu@criteo.com>
+>
+> The goal of this series is to ease server monitoring, by exposing the
+> HSMP metrics the same way whatever the driver, in a format that is
+> straightforward to integrate in metrics exporters.
+>
+> The per-socket HSMP telemetry attributes (c0_residency_input,
+> ddr_max_bw, pwr_current_active_freq_limit, ...) are only implemented by
+> the ACPI driver, although they are plain HSMP messages the platform
+> driver can send as well. Systems probed by the platform driver therefore
+> only get metrics_bin.
+>
+> Their location also depends on the driver: AMDI0097:0X with the ACPI
+> driver, amd_hsmp/socketN with the platform one. "modprobe amd_hsmp"
+> picks the right driver, but userspace cannot know in advance which tree
+> it has to read.
+>
+> This series moves the attributes to common code and adds an amd_hsmp
+> class with one socketN device per socket, registered by both drivers.
+> /sys/class/amd_hsmp/socketN/ is then the same path whichever driver
+> probed. The existing ACPI and platform sysfs paths keep working.
+>
+> Patch 1 is a pure code move. Patch 2 adds the class and wires it in the
+> ACPI driver, patch 3 does the same for the platform driver. Patch 4
+> exposes the pwr_current_active_freq_limit_source bitmask as a single
+> hexadecimal value, whose interpretation can be centralized in the
+> monitoring stack (e.g. Grafana value mappings). Patch 5 documents
+> /sys/class/amd_hsmp in Documentation/ABI/testing.
+>
+> This v2 reworks patches 2 and 3 following Carlos' review of v1, and is
+> meant as a basis for discussion: I would rather know early whether this
+> is heading in the right direction, in particular for the class approach
+> and the AMDI0097:0X ABI question raised in the v1 thread, before
+> polishing it further.
+>
+> Changes in v2:
+> - Replace the separate /sys/devices/amd_hsmp tree, its root device and
+>   its hand-rolled refcount by an amd_hsmp class, as suggested by Carlos.
+>   The kref.h remark from Ilpo no longer applies, as there is no shared
+>   object to refcount anymore.
+> - Platform driver: the socket devices replace the bare socketN
+>   attribute groups. As class devices land in an amd_hsmp glue directory
+>   below their parent, a socketN symlink keeps the existing
+>   /sys/devices/platform/amd_hsmp/socketN/metrics_bin path working.
+> - New patch 5: Documentation/ABI/testing/sysfs-class-amd_hsmp.
+>   Its content depends on the AMDI0097:0X ABI discussion with Carlos in
+>   the v1 thread, and can be dropped or reworked accordingly.
+> - Collected Acked-by from Carlos on patches 1 and 4.
+> - Rebased on v7.4-rc3.
+>
+> Tested on a Zen4 (Family 19h, HSMP protocol 5) server with the platform
+> driver, and on a dual socket Zen5 (Family 1Ah) server with the ACPI
+> driver: attributes read through /sys/class/amd_hsmp, legacy paths
+> still working, and 20 unload/reload cycles of the driver while reading
+> the attributes in a loop.
+>
+> v1: https://lore.kernel.org/platform-driver-x86/20261007125908.321186-1-e=
+rwanaliasr1@gmail.com/
+>
+> Erwan Velu (5):
+>   platform/x86/amd/hsmp: Move per-socket sysfs attributes to common code
+>   platform/x86/amd/hsmp: Add amd_hsmp class with per-socket devices
+>   platform/x86/amd/hsmp: Expose socket attributes from the platform
+>     driver
+>   platform/x86/amd/hsmp: Add pwr_current_active_freq_limit_source_raw
+>   Documentation/ABI: Add sysfs-class-amd_hsmp
+>
+>  .../ABI/testing/sysfs-class-amd_hsmp          | 120 +++++
+>  Documentation/arch/x86/amd_hsmp.rst           |  24 +-
+>  MAINTAINERS                                   |   1 +
+>  drivers/platform/x86/amd/hsmp/Makefile        |   2 +-
+>  drivers/platform/x86/amd/hsmp/acpi.c          | 345 +-------------
+>  drivers/platform/x86/amd/hsmp/hsmp.c          |  19 +
+>  drivers/platform/x86/amd/hsmp/hsmp.h          |   8 +
+>  drivers/platform/x86/amd/hsmp/plat.c          | 155 +++----
+>  drivers/platform/x86/amd/hsmp/sysfs.c         | 435 ++++++++++++++++++
+>  9 files changed, 681 insertions(+), 428 deletions(-)
+>  create mode 100644 Documentation/ABI/testing/sysfs-class-amd_hsmp
+>  create mode 100644 drivers/platform/x86/amd/hsmp/sysfs.c
+>
+>
+> base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+> --
+> 2.53.0
+>
