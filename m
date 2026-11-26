@@ -1,116 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795710710;
-	b=p8BAV32Ho6oGLb/78HQ87pcT64JtAVI58hn5WZ3e762wsoWXUWKnkAPY2O9ajKy/e/wQ
-	 JFre+8pQ8b4syH+gamIqvbRmXgKDQgo5sRiRSHmOUJSk5mmvTbhTTdTF0i5uH1PRt7TnZ
-	 YhAKtEON72H0rNYF9oWGyNf6uX16Oux2mHPydTE4QSnM5YQxmbOs+DEVRlX5kP6iCzL2l
-	 Pgnv+ycK7s5TM36OeTRR3q4d0ynuS4pErscLF5G7OHPW6EQwutjwnhTwgfJ4mlCEiiOwS
-	 /zYlj6lrw7HUKIydA98eI5uCfU1RNqzb+c9ncsA512kLVD2awXNC17McweRtKWBpUaQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795710710;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=6DGKGHZD1sWqO2WRSY4U0udOhpGKQXiV3WJqb4Fx1ZI=;
-	b=RHXLC1HSscAmXXJvswVFpmEbt/B4odlIQRTyGV3AGOglFQ3Smp84p8JCRcUyqwnHpNje
-	 biFBAx/P2t/X340Cme7QUzfwSeCr/W4b75wTsvzCnVey1yuV4hG8YXZCsdq9wHQGrHhqf
-	 RI+8OTCJ0z7V5EC3zd1T3LZtnIqGpxL9gfUdyOYe55GFkzcg7hmGZf4nmQnkw3D/TQ4qp
-	 UHkAsS4lY91BwbB1vVTz1jdpAJ+LYVT9joQPcHHknudRU5WUxUrchnwmmXEJQqFL3QQI4
-	 gbwL6sdlLfEYs1mg6ZN2tzWf7CDv53OoS/y8nBu1/9hXYFseg0ytiOxhTQxXkpQUabw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NgzesBph;
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795710703;
+	b=BWZVdOif1qYKZtdL/RLQpc2QsxxYx7US6xc2MrRpzkzBUB2fMXKLYipcl02lZ9x07kGQ
+	 AXNzINxvSd9EFB/PUpwXgkXBxiDSrxpFOFJrZpI5ii2GA24Div+RXMBBFy2Mf0zz271Ax
+	 Q6XBDgVVJRZaziFwai1RapGk+342Z+95Qk/OWvtkj3FEuO0RqeexumGcNwplSxOGTaAcp
+	 v7nxBE7k1+4iFGPS3qpySc+PYEx1gMCwSfZkK020iyqnX3CaSLHEn2+/zGliHPq9osa7D
+	 MHBDp+qLvT+EZ3dDdAQQYbV++rBwLdX1QLzvhZuXYtjBKScFd+Vw3xF2rgvtyGHHTDg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795710703;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date:
+	 MIME-Version:User-Agent:X-ZohoMailClient;
+	bh=frGnSKi8fHrUyzyLKk0ZNCUrhTr6NgD2D93OZ5RJh8U=;
+	b=qHzwPKI4NxZzj/GJnvRDkx60AFRECeP8vnmXQkKTtujb/aBOaXK60grSeSJZuNVBmx2n
+	 nTALSQ7IlyTbv49Hz+MKxmvjLlQxIdQFYExGGOpT+UbG48K+miJ4fAlfV4vWDrqba84B4
+	 Zt2QMcnlcMpVpLLyIEkuugHHdrYdXlBRyqPdksnM1y/qD/mOjwcQ3IU1qvCfYruMLS95G
+	 nO/CN53IGiXA96Z7LiGRco13nHz+d6yIUCtEL3WALifQ8C41FhUAyq+7fzVabYK7THhK5
+	 OPI9bFvg+NTeWAAHZuk/83zIs3qn4HbeXtqG0uHwA2lcHIkzsgUukGBLKUdq49Sbj9Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=rong.moe;
+	spf=pass smtp.mailfrom=rong.moe;
+	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=n0btPxGP;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E262606A6AA
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:31:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E262606A6AA
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62750606A31E;
+	Thu, 26 Nov 2026 16:31:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62750606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NgzesBph
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4a2153c8525so58531575e9.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:31:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795710708; x=1796315508; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6DGKGHZD1sWqO2WRSY4U0udOhpGKQXiV3WJqb4Fx1ZI=;
-        b=NgzesBpha5/UiuwtyApe4LBXa4J/ZEE9RKL51o52cHEQZvDJx1Io0LkMX9T4hggZMH
-         yMa0nLXZDeXh3OTT5Dceu8BR+qdcmeSaC9RWK6GGdpgvq67OWwu0N8mw3xfC+ykgxBkA
-         yEoRN9ICF95EXoJwq1ROoEh5ttxJozEqUgS4kFy2WgRT3O8gDHMMShxwnJZV/bfNq8gV
-         94Ff+uDAmyBMb5RFFUJa2wayxciw/19DqrWBprAc5PQ2xTH4mJm64KnLuI4iptKk72YS
-         FGHpM0M/l0unSVUyE9VXt42T1xN0phYdlNSwj0GuBcjfL5tAcfYo3HAercHmLDLsdKJ/
-         INoQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795710708; x=1796315508;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6DGKGHZD1sWqO2WRSY4U0udOhpGKQXiV3WJqb4Fx1ZI=;
-        b=T0LzLFXUkOvFrZu3ebTJHkOI8xr3ND7TMyoW4zyGi1o+8Fy5/i+yjm5vN4D99ZZY+s
-         9LYlkwluNbZ3Djry3ooO/9Yh0M9w4PUohThUnxwiASoKHAWxLwv2ukE4aFp329P8rFUp
-         H2fIV0DhYPNgHsvKr16Qe28mPI4le75+YGvP7hlT8E6ziXlsxxSnfEr0Dby/7cQztdNq
-         gxVahVk0HK7kyKtqpw7OgzEODDNK6ghMPugpkOBEBjWMFqlTf5WJYgEvNOi1sXaArSVe
-         re1DAYj3/PJCt7YlzMVSjNPWn5mP6rUeZuBUWs6ChKpxWeAfcbcblswUSESxIQutqOyx
-         YXVg==
-X-Forwarded-Encrypted: i=1; AL+hErFY2EY1OFd72Ur3LlEVAJiiswbeIkP+4csYgViH/LUfBBNu4kBZivQBCj//AgVvwq16hDfrSjMlAPuEaT4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8uP6W5i+WupiMYRi6e9nZNqpwgdh0VTg3XcpLjLDUBVdKotH9Y
-	O4IaeN7rwTvrkvs3Ul+eqVrpZeocrUnQUmb4/Btya72J119lPxkXAuiy
-X-Gm-Gg: AZFdTZcyvVug3/gwhJ3ed1uamhRBUdGOzjRRtLuGRsSmsqOlpDeWqb7J1lSiNzqbcmH
-	TCts69lbFVyYEQByN4n5xQFXQHbyD1Fmd8eQbPcqWBUf3VbSGZb7OHn30tr2jGz96YsSoEXQhe3
-	gh+YJw5OqmaMCJKqXdQ9S1sk4urNm5YQQ4Jt5ilTKjpD0bFtbdYaH97ZVimWcn3vP4pHch5Evy8
-	1FueL7DrYvVBjYDPxPUd7b4iIpdt1+Vh5MlIuyrfOtvdBLjsdTzu3Rnz4/8pkS2B4iE64S8dZI7
-	CJPkh1AV/s8R3L29lafiZ6rzIXP1xlCa5AqnfyzFQ0fJARPfyr0C+pJrvKQ56SDmZczwW/c1Dj7
-	Vkw4xqQfJeQ0tGB+2n8UvHX5P96Fz4pX2XVzG7LIrsTdhxNaZu5rM50+JIA1rMBWpGATOmcHEw9
-	wjyhEIzYXCZC2WSCa8REw55KuJNSmXkS0J8/TZugshNQlgi1OEjZTX49tyGFl4a5YFyVnXJaqld
-	Yi3Rhq+1SDNGNI0iydecogME13/5rKTMRK8lhO0rJYKw3oXUw/eh+jg28Y33AUJ5DyB2Uwv/2kB
-	aUsNsVfoiMwGUUFDOQT8VCZg
-X-Received: by 2002:a05:600c:3b83:b0:4b7:6b96:e431 with SMTP id 5b1f17b1804b1-4bb88822242mr502582645e9.28.1795710708243;
-        Thu, 26 Nov 2026 08:31:48 -0800 (PST)
-Received: from infinity ([2001:b07:5d26:7a6a:365a:60ff:fe0d:cfc6])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a9846sm721964995e9.11.2026.11.26.08.31.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 08:31:47 -0800 (PST)
-From: koraynilay <koray.fra@gmail.com>
-To: Namjae Jeon <linkinjeon@kernel.org>,
-	Hyunchul Lee <hyc.lee@gmail.com>,
-	Eric Biggers <ebiggers@kernel.org>,
-	"Theodore Y . Ts'o" <tytso@mit.edu>,
-	Jaegeuk Kim <jaegeuk@kernel.org>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>
-Cc: Chuck Lever <cel@kernel.org>,
-	Jeff Layton <jlayton@kernel.org>,
-	Jan Kara <jack@suse.cz>,
-	Alexander Aring <alex.aring@gmail.com>,
-	"Darrick J . Wong" <djwong@kernel.org>,
-	Andrey Albershteyn <aalbersh@kernel.org>,
-	Amir Goldstein <amir73il@gmail.com>,
-	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
-	Lauri Gates <lauri.gates@gmail.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	Dave Chinner <dgc@kernel.org>,
-	linux-btrfs@vger.kernel.org,
-	linux-xfs@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	ntfs@lists.linux.dev,
-	linux-nfs@vger.kernel.org,
-	linux-api@vger.kernel.org,
-	koraynilay <koray.fra@gmail.com>
-Subject: [PATCH v2 2/4] fscrypt: update fscrypt_prepare_setflags() to use xflags
-Date: Thu, 26 Nov 2026 17:31:12 +0100
-Message-ID: <20261126163114.403846-3-koray.fra@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261126163114.403846-1-koray.fra@gmail.com>
-References: <20261126163114.403846-1-koray.fra@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=n0btPxGP
+ARC-Seal: i=1; a=rsa-sha256; t=1795710686; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Y0K06x+kZ8vJJo/p7IdwhwAL5FtR94QibgvGftTf1tl9hSbnN+3CoLWGSiwfyKzxuSZoKmL0gjQbJxMJcJvW+DVpZ6Uz4gPAYSEtQ7GKLNrRseSBJcRfjNM9FVR9eA58StkRxh+e5wqyVmSNJCv0tdebDrUJ06uX+iQ6NWKhlgk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795710686; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=frGnSKi8fHrUyzyLKk0ZNCUrhTr6NgD2D93OZ5RJh8U=; 
+	b=C4IFDH3hTYoKawMMwYecwOoyHPj4mpWMWoL1hAFjA+DtngwOzLM8HOUw4AESmmjkp4+fN8MjBjahtQsqJC07ZTch2Seip3PSLNiBlQGpCJU0jJ4cM4Cy6fNSSvYC06cgpSF98L5xbbuBhoU0gXWI2QqE9Ak+7lFcIL8exeBooCg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=rong.moe;
+	spf=pass  smtp.mailfrom=i@rong.moe;
+	dmarc=pass header.from=<i@rong.moe>
+DKIM-Signature: a=rsa-sha256; b=n0btPxGPH0ljZ+DextXTk2RReaOZLGFAluOO/bYfvy5EY8JNrO7jcvv3G/26PPSCsVMohDv20A2XOZb0n9S/WG/IiF+bY9j5K+EYqw03HcetqRrHh19eYoUSKWWxcbzJ7lrtOjrW9M5NbeeQAcACpmxRvi77ZArvvnUgwjAoS10HQ8MCbF5aIbseRO+3fieskmxo/xiXYarFOtobCGt0/4F8oFUsy/BsUb9gfhPlcbV4jsBOKbNORQZzj5N/ZQgUXQtiSugck/IUtsVWpQzrhrtarkiMzPQPMCh2R105mqACkAoI2REFMqidO7++HNFnpNpUo1NTnnk+QTaBG+GlfA==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=frGnSKi8fHrUyzyLKk0ZNCUrhTr6NgD2D93OZ5RJh8U=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 179571068280348.0413320410413;
+	Thu, 26 Nov 2026 08:31:22 -0800 (PST)
+Message-ID: <11bf638c620500f8c042de6d1f2bf3f1d7225820.camel@rong.moe>
+Subject: Re: [PATCH] platform/x86: ideapad-laptop: don't warn about
+ keyboard backlight type 0
+From: Rong Zhang <i@rong.moe>
+To: Arnav Kapoor <kapoorarnav43@gmail.com>
+Cc: Hans de Goede <hansg@kernel.org>, Ilpo =?ISO-8859-1?Q?J=E4rvinen?=	
+ <ilpo.jarvinen@linux.intel.com>, Ike Panhc <ikepanhc@gmail.com>, Mark
+ Pearson	 <mpearson-lenovo@squebb.ca>, "Derek J . Clark"
+ <derekjohn.clark@gmail.com>,  Stuart Hayhurst
+ <stuart.a.hayhurst@gmail.com>, Punnay Sharma <punnaysharma805@gmail.com>, 
+	platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261126161131.962234-1-kapoorarnav43@gmail.com>
+References: <20261126073107.765676-1-kapoorarnav43@gmail.com>
+	 <3e932924940536878264c1ab46d24bd6db362183.camel@rong.moe>
+	 <20261126152448.847538-1-kapoorarnav43@gmail.com>
+	 <20261126161131.962234-1-kapoorarnav43@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 27 Nov 2026 00:26:16 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -120,91 +75,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Evolution 3.62.1-4 
+X-ZohoMailClient: External
 
-Update fscrypt_prepare_setflags() to use FS_XFLAG_* xflags instead of
-legacy FS_*_FL flags.
+Hi Arnav,
 
-Signed-off-by: koraynilay <koray.fra@gmail.com>
----
- fs/crypto/hooks.c       | 10 +++++-----
- fs/file_attr.c          |  2 +-
- include/linux/fscrypt.h |  6 +++---
- 3 files changed, 9 insertions(+), 9 deletions(-)
+On Thu, 2026-11-26 at 21:41 +0530, Arnav Kapoor wrote:
+> Correction, sorry: I replied before reading Punnay's patch closely. It
+> only skips the warning for type 1 (KBD_BL_NONE_TYPE); this V14 G2 ITL
+> returns 0, so the warning stays with it applied.
+>=20
+> Type 0 is a separate case: no bits set, and KBLC also returns 0 when
+> the EC or LFCM is unavailable, so it can't mean any backlight type.
+>=20
+> Hans, Ilpo, please ignore my earlier request to drop this patch. I'm
+> happy to rebase it on top of Punnay's patch, or to fold both cases into
+> a single check, whichever you prefer.
 
-diff --git a/fs/crypto/hooks.c b/fs/crypto/hooks.c
-index 149498bdab94..52d6a33fc9e9 100644
---- a/fs/crypto/hooks.c
-+++ b/fs/crypto/hooks.c
-@@ -182,10 +182,10 @@ int __fscrypt_prepare_setattr(struct dentry *dentry, struct iattr *attr)
- EXPORT_SYMBOL_GPL(__fscrypt_prepare_setattr);
- 
- /**
-- * fscrypt_prepare_setflags() - prepare to change flags with FS_IOC_SETFLAGS
-+ * fscrypt_prepare_setflags() - prepare to change xflags
-  * @inode: the inode on which flags are being changed
-- * @oldflags: the old flags
-- * @flags: the new flags
-+ * @oldxflags: the old xflags
-+ * @xflags: the new xflags
-  *
-  * The caller should be holding i_rwsem for write.
-  *
-@@ -193,7 +193,7 @@ EXPORT_SYMBOL_GPL(__fscrypt_prepare_setattr);
-  *	   another error occurs.
-  */
- int fscrypt_prepare_setflags(struct inode *inode,
--			     unsigned int oldflags, unsigned int flags)
-+			     unsigned int oldxflags, unsigned int xflags)
- {
- 	struct fscrypt_inode_info *ci;
- 	struct fscrypt_master_key *mk;
-@@ -204,7 +204,7 @@ int fscrypt_prepare_setflags(struct inode *inode,
- 	 * derive the secret key needed for the dirhash.  This is only possible
- 	 * if the directory uses a v2 encryption policy.
- 	 */
--	if (IS_ENCRYPTED(inode) && (flags & ~oldflags & FS_CASEFOLD_FL)) {
-+	if (IS_ENCRYPTED(inode) && (xflags & ~oldxflags & FS_XFLAG_CASEFOLD)) {
- 		err = fscrypt_require_key(inode);
- 		if (err)
- 			return err;
-diff --git a/fs/file_attr.c b/fs/file_attr.c
-index 40d6518f1d8e..1687891c526c 100644
---- a/fs/file_attr.c
-+++ b/fs/file_attr.c
-@@ -195,7 +195,7 @@ static int fileattr_set_prepare(struct inode *inode,
- 	    !capable(CAP_LINUX_IMMUTABLE))
- 		return -EPERM;
- 
--	err = fscrypt_prepare_setflags(inode, old_ma->flags, fa->flags);
-+	err = fscrypt_prepare_setflags(inode, old_ma->fsx_xflags, fa->fsx_xflags);
- 	if (err)
- 		return err;
- 
-diff --git a/include/linux/fscrypt.h b/include/linux/fscrypt.h
-index 28f2108e29f3..68d0983385d0 100644
---- a/include/linux/fscrypt.h
-+++ b/include/linux/fscrypt.h
-@@ -461,7 +461,7 @@ int fscrypt_prepare_lookup_partial(struct inode *dir, struct dentry *dentry);
- int __fscrypt_prepare_readdir(struct inode *dir);
- int __fscrypt_prepare_setattr(struct dentry *dentry, struct iattr *attr);
- int fscrypt_prepare_setflags(struct inode *inode,
--			     unsigned int oldflags, unsigned int flags);
-+			     unsigned int oldxflags, unsigned int xflags);
- int fscrypt_prepare_symlink(struct inode *dir, const char *target,
- 			    unsigned int len, unsigned int max_len,
- 			    struct fscrypt_str *disk_link);
-@@ -784,8 +784,8 @@ static inline int __fscrypt_prepare_setattr(struct dentry *dentry,
- }
- 
- static inline int fscrypt_prepare_setflags(struct inode *inode,
--					   unsigned int oldflags,
--					   unsigned int flags)
-+					   unsigned int oldxflags,
-+					   unsigned int xflags)
- {
- 	return 0;
- }
--- 
-2.56.0
+IIRC the KBLC methods of devices I've seen always return (whatever | 1).
 
+So I guess it should be safe to assume 0 as stubbed. I'd still like to
+defer to Mark's opinion, though.
+
+Thanks,
+Rong=20
+
+>=20
+> Thanks,
+> Arnav
