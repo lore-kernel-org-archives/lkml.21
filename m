@@ -1,67 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.194.8.81
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795714769;
-	b=PQqPSuE+ocz530gCXffvan5LLvEbSvcXPuTZRdRhZDmQPGoyXbijFkli3ZUkscS4vIPi
-	 n1/9MT2gRUi8gZdmJb3dDsRY5FZZ68moLUtoYiGEHOVCeLCBQdfdEsnCVauQ1RF7lwyTX
-	 IPQkVav9HYE6StFIyDq4eMFtZSnpFEGrHKd3yCVTVgWNQBSNPw1yh2+BfvFwXZfxmzFJR
-	 wcZETl5femhJN1PHlz1HvnGunaGcDLegVKExYsyr6LKi4gwp6OlZdsCzr/PkyzofjJDw2
-	 T4fsGdJUMRUpcoEvsEdSvff24sUIC8kDBXhOI4c1YhwRyftlqmv0J4ARqMt6E8a5ozw==
+	t=1795714774;
+	b=gGqvSYz5NH7/7aKGZQooLLzGhwWV31Y9Wv3yMjeXlwnKrrGJMbB3kH7ZSiaQP30lBncf
+	 SCq/a86KZpihUj+l3Qqq68A/ZS2Xn3bi+652PoUfan6n3yad3ArilC73Lewh2iM6sGC3A
+	 AQ3fVmORW3q6QeVM3igX2t67qX6mzewMOyJh4RQhudaNM/5xyQF5h/RtIeS8ObNr4oshi
+	 Gg+aV3ugV72O0+nMfjYR5VEH0KOwU5RyTXF1vKvtyXiY3Dr55VfuwbmRf7MW6SeyDl63A
+	 4m1I5IJ1pBaWr6b/ailhT4brKum7jBcPKFdiYKapAgmAiyU301HBRVwYyT6mbckvUxQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795714769;
-	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=vjKPx8Oct1fhU4GmmUv33pDO/iZO410ObJiapa+6LsY=;
-	b=HylIQGfaNwSPxL7Qa+qhz3Av7EamaErhy+tbbSGQTDGuoKqYK2dteQI6F3wUtPTl/Tau
-	 WBTlH8pOaFm6KubHIS+yPhuF84OCWNlGVFUegWyoWEMBHeD4fxKHpSymwl5nBl3crcoDt
-	 ywWdu1raKpTS1hj+VgnU3jx/rB1UGbluXtlULOJqC+apBzG0o66pkM9D6+yygn9aH5lXy
-	 6shhEmClwPJ10nJtIp/9S4tgmN8Hwe2ISbNJvxfj1ELfVQYrGdnL1/aembGBK0NIojXSJ
-	 vWMLGMT5ngVA6HQ1gvNbYvFvAWOU32FHAIslXwlYwBb6bgSufpLVFr+Aivn6dosiZ0Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795714774;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=C9sgm1CgEZ801Q+Y6Ntsh9N4G54PBN4x6AuEdyMRX2g=;
+	b=mnBaCg4E4T5nSDqtB7Hzyq+a3pffnsUkgliU7sFg5k6sCqQB8LOQAZUEA39rP2r61POw
+	 UmgDBASFEDphm1d/yCJWmKciawkE0Jfei7X4NesGlDiwGhXsR/K9hU1VVlKOgk5mWWagl
+	 NIBqrlIbmE1qopTopWTaoIgOCbjdRLYZyMZdx1dHtET7ctU/kWtz08arZRl6aQ7BCODD2
+	 bo5C1ywOAOSIJ5I7ZdEiUra3VwSadizhsUiJIsPmEYNOyd+vMQNb06+C57PKVz6o6fvGw
+	 cIMxhBSXNnL/lYCbKOLShTmtfckbG8RbVnzue/sWTUwvUU2n6dK0rMyGS89p3yiIxpQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=dolcini.it;
-	spf=pass smtp.mailfrom=dolcini.it;
-	dkim=pass header.d=dolcini.it header.i=@dolcini.it header.a=rsa-sha256 header.s=default header.b=p1DyyxhY;
-	arc=none smtp.remote-ip=217.194.8.81
-Received: from mail11.truemail.it (mail11.truemail.it [217.194.8.81])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="mA7WnHT/";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32603606A31E;
-	Thu, 26 Nov 2026 17:39:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32603606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dolcini.it
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dolcini.it
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29C02606A31C;
+	Thu, 26 Nov 2026 17:39:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=dolcini.it header.i=@dolcini.it header.a=rsa-sha256 header.s=default header.b=p1DyyxhY
-Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id AE6222002F;
-	Thu, 26 Nov 2026 18:39:23 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1795714764;
-	bh=vjKPx8Oct1fhU4GmmUv33pDO/iZO410ObJiapa+6LsY=; h=From:To:Subject;
-	b=p1DyyxhY+A8szHG0kuJZ1T6qBOPiZnYBNsYTlSnQwjIT85yjA1xwZElY434wC+VHm
-	 zjh1GSFaEAKNskWDME0lS2n5kH2vZlhQ4e+njbrssOfWmz9e/4dR62ZDvyWJ53XO2m
-	 3nu88H8I0fTPTw5v4Rfa22J1Wr1PBMWYnBmGd0Mg/7QGw0+NLgHCGZCex+1uxt3JvI
-	 29forau0ijMMWw6YtNPd3p7Iqulfz8flzMPc4rrMWr3wujMz+5xDSJnWyC+Vi6C1h7
-	 /sliw18c7WHE9qrFDMwqa7BdIKaEeiCkgYBHZov5zdKI2CjGZVRdK+yUNZZz2xlag+
-	 h2ELbeWLYtPDg==
-Date: Thu, 26 Nov 2026 18:39:20 +0100
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	sungbyeongchan <tjdqudcks0424@naver.com>,
-	"Michael S. Tsirkin" <mst@redhat.com>, Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>
-Cc: stable@vger.kernel.org, patches@lists.linux.dev,
-	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
-	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
-	patches@kernelci.org, lkft-triage@lists.linaro.org,
-	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
-	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
-	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
-	sr@sladewatkins.com
-Subject: Re: [PATCH 6.18 000/990] 6.18.66-rc1 review
-Message-ID: <20261126173920.GA180459@francesco-nb>
-References: <20261125143822.072087159@linuxfoundation.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mA7WnHT/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78F3C1F000D3;
+	Thu, 26 Nov 2026 17:39:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795714773;
+	bh=C9sgm1CgEZ801Q+Y6Ntsh9N4G54PBN4x6AuEdyMRX2g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mA7WnHT/tBMh2456y7+xCAQH5gGHseMSf/+Uxl8CZl9ouBP4lBrd1UuypbzuW/DwM
+	 9uRz+MYwTn+jkQaRtiFCWB2OH37m/gdrSDJ0PzIrpf9n2crdAl8YddOgZlDnXzXB3U
+	 X3NgC5DlhY9Sw3xdyYevmYd5DRlIrQMs/MzcDHew+LOr4tZzcKigerai06tE6jXrtU
+	 wPbYaqs2hadugasuQNb23uppB3h2Md88+TbeQQDhT/7kyX3KlPagOvaocv4rpJhFbL
+	 Goy6VKR0hFayGsF1LeBUIJEf/ii/KSE1a1je3JtApsdx5xSwM4pqTolMwdCfW3mnVj
+	 XHxakazLvIDDw==
+Date: Thu, 26 Nov 2026 18:39:29 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: "Thomas Richard (congatec GmbH)" <thomas.richard@bootlin.com>
+Cc: Lee Jones <lee@kernel.org>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Werner Gartner <Werner.Gartner@congatec.com>, 
+	mfd@lists.linux.dev, linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org
+Subject: Re: [PATCH v6 07/10] i2c: cgbc: Add support for fixed frequency buses
+Message-ID: <awhXXeFy-9vuqseH@zenone.zhora.eu>
+References: <20261117-cgbc-i2c-storage-devices-support-v6-0-bb070ad3e9aa@bootlin.com>
+ <20261117-cgbc-i2c-storage-devices-support-v6-7-bb070ad3e9aa@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,49 +60,34 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261125143822.072087159@linuxfoundation.org>
+In-Reply-To: <20261117-cgbc-i2c-storage-devices-support-v6-7-bb070ad3e9aa@bootlin.com>
 
-+Nishanth, Vignesh, Michael and sungbyeongchan
+Hi Thomas,
 
-Hello Greg,
+...
 
-On Wed, Nov 25, 2026 at 03:22:47PM +0100, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 6.18.66 release.
-> There are 990 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
+> +static int cgbc_i2c_get_frequency(struct i2c_adapter *adap)
+> +{
+> +	struct cgbc_i2c_data *i2c = i2c_get_adapdata(adap);
+> +	struct cgbc_device_data *cgbc = i2c->cgbc;
+> +	u8 cmd[2] = { CGBC_I2C_CMD_SPEED | i2c->bus_id };
+> +	unsigned int bus_frequency;
+> +	u8 data;
 
-Failure on various TI K3 boards (AM62, AM62P and AM69), during our CI/CD tests
+as we are here we can fix a pre-existing small bug, by
+initializing data to '0' and...
 
-[  477.440292] rtc-ds1307 0-0032: write error -110
-[  478.374406] wm8904 1-001a: ASoC error (-110): at snd_soc_component_update_bits() on wm8904.1-001a for register: [0x00000043]
-[  478.464258] rtc-ds1307 0-0032: read error -110
-[  479.520264] rtc-ds1307 0-0032: write error -110
-[  480.342404] wm8904 1-001a: ASoC error (-110): at snd_soc_component_update_bits() on wm8904.1-001a for register: [0x0000005a]
-[  480.576282] rtc-ds1307 0-0032: read error -110
-[  481.600274] rtc-ds1307 0-0032: write error -110
-[  482.310409] wm8904 1-001a: ASoC error (-110): at snd_soc_component_update_bits() on wm8904.1-001a for register: [0x0000000e]
-[  482.624288] rtc-ds1307 0-0032: read error -110
-[  483.680291] rtc-ds1307 0-0032: write error -110
-[  484.278402] wm8904 1-001a: ASoC error (-110): at soc_component_read_no_lock() on wm8904.1-001a for register: [0x0000004a]
-[  484.320383] INFO: task kworker/1:5:66 blocked for more than 362 seconds.
-[  484.330368]       Not tainted 6.18.66-rc2-8.1-devel #1
-[  484.338741] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
-[  484.350050] INFO: task weston-simple-e:783 blocked for more than 241 seconds.
-[  484.360452]       Not tainted 6.18.66-rc2-8.1-devel #1
+> +	int ret;
+>  
+>  	ret = cgbc_command(cgbc, &cmd, sizeof(cmd), &data, 1, NULL);
+>  	if (ret)
 
-According to claude the issue is
+... returning error (e.g. EIO) when !data. We avoid a potential
+division by '0' (a comment would help, as well).
 
-commit e498eb93f961 ("virtio_ring: use shadow flags when detaching split descriptors")
+Andi
 
-and those commits should be dropped
-
-  e498eb93f961 ("virtio_ring: use shadow flags when detaching split descriptors") [22944d517ff8]
-  9dc6b944f16c ("virtio_ring: factor out split indirect detaching logic") [44b6e54e4a0a]
-  4b7bf8d55032 ("virtio_ring: code cleanup in detach_buf_split") [032159f85f3f]
-
-I am not able to do any test now or tomorrow, unfortunately. And the
-above analysis is just claude. Might be correct, might be wrong.
-
-Francesco
-
+> -		return dev_err_probe(i2c->dev, ret,
+> -				     "Failed to get I2C bus frequency");
+> +		return ret;
+>  
