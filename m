@@ -1,79 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795680851;
-	b=brrxPLxgLbgCw3Xpl639kcUaTsNwgwb6ANSKPIemQwg3ddP2ESPJPXy0Rx6wT0d83UdX
-	 tWhh8LHHTmuuYnG7z2TmQJpnCz/ecHXvpj6DKIIHY3wOssOWCwKQXxKbRZHHMFqgiFO7z
-	 y+jNmhDtyixah7JPfn4LmqAtl5lglC1qMyETrp6qcnyJZGp8NIYXUiL8LuNhSFXCDRoTa
-	 lhqX5+dwfojyMZfb9nbSRr/uTVIQoCIaTuA8B+iDQ8wqRE+jD8M1uDjvZNSVk1JiD6Bb/
-	 +tMLasIL11hZRgwwbEpwgsLZHUHquPY9o0cd2A8spjcy1ItMVqdbGBcXAFOGBTBhicw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795680851;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=huqWM0eo0fyX26dQJHUvYM8kb6xLmmHqJZknA1XlnBI=;
-	b=qGamMa/dAmg+ZVPaqZXcIa56PQfp1KEr/kf6DrcDfW0cgd03ncFJapADkZPBpuNviWpL
-	 eRtgxuSHmzeD/386ihxbSptVwA7q+5JiT7wctmgjCXHa0Uqir5adPFWwj6dNTa2lnx0PJ
-	 Z9i/gG35XOuaClpAVPhm9Xr8mD/jRMIwc+785oPy8x+2BhTROTTxihpAChdnuI0k5biut
-	 4g/O24/xYpCQbqLNF/Xwj0ViQELqYZYKiR0cgTM9WFlK9QjYb/TW4KHEXbXtDwRwuMsEH
-	 oGAqUdcxLSui3z3C6MLzqmReDmFQfLNDPNv+7QtbjF3IxO+Pc40hQoa9rNMpI5OioyQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eax1i2c1;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14730606A321;
-	Thu, 26 Nov 2026 08:14:10 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eax1i2c1
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795680850;
-	b=W3PQtRonekxWOVZOoFHxfqcYxYccSf8VHwclQhuUD7F2bTfMsD3vM/DBrgmUxra2qy20
-	 mfyath2AxNcOd1rEoKIoHX9iYk12n5uD+W/ECBJQzpfQN5KQL0xWyCz40Tdo+SEW2oWpD
-	 v/Pegn1V0OrhrpJ4p25E0Dmr8pQ4B+2GhsZpDvy59ChSDJsX/3Xl6mNgu+fxA7omOL1/N
-	 rb14JZ7ZFM4baV/v/GHxWUBvsDm1PIiwgSuJfoR/GjiQu82zy/df9ViEvku8AhVdA8QVl
-	 3FePh/mj2bIWR6Z+mqBXAN6kdJr4NAgAehtrjwoqfkVm+0o13BOv44SM5CKJHXgqB+Q==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795680850;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=huqWM0eo0fyX26dQJHUvYM8kb6xLmmHqJZknA1XlnBI=;
-	b=UgesoyPYSga95dN5nSas6ZPy8kEC8lksk/5FHy8MXU0AedEg7cWenjHyEwXXRKyOo7kl
-	 LSMfPDKTB3PLrTKS2e5ubvpnvPbs8nH/whJK5EKaBIAaWXpskRdQ2xGK3qbJEd33xSnSP
-	 BNPv826ZVO88rHFhwg7aPJHFQ7pCKy2ew7xaga42T63frFne4Xe+MmmRGDwSFTf56685y
-	 rNEFVODIoDIB1XP6r5cEPsXErBO83ivkJMsxDpkE3fS3hQdNLolEl7aoQGTg1uercuWHm
-	 TulMwBhQB9JMIhprWWbCt2CpldQK5+DJxH+fIaF3XnZLER1KbJgEp4Pz4emWabWTDZQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.42
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795680856;
+	b=b2fFgi8jaIAfPx885qLkig2Ae5ee74k29GVng8ORykIG2aBoxmp7975i2aCT0asW05Zz
+	 DOndmgqlO/C7jPs7qUA9aO8FpXF8lOeQ+sJRWZ9R9Og5AeIJXgUqXBmZAfXEvXTQLGMaR
+	 FU2I09eL2BoMBBc9CruL37y6ewyXWgfL5lCHvnhUDcob+MVMXllNE2xUX7gjq25MZETGl
+	 pW2fLJLaEjPtBogpnmHemT2A8gd2ZGlgxcNlIzaoUwoijs2Lw2hNMj8mkqJU4SUmdQZpK
+	 quLu6QaTW1cfDOT/DF/H+HVVtOjaYYdI5vEcCtzv28YOrugW341yD/cH052sH+ou4eg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795680856;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Rspamd-Queue-Id;
+	bh=7J2wkcrNkzeTtVxHfayLP87adFuogRPt/IEKd/fTAXM=;
+	b=W3fTK6CWXiP5K35Bxu8e8SxED5tg5yXzKLWR2jsWvbXAwXx2kj6VpkTfpIF3D1sOJOkm
+	 pCjQtoPltR2MzsEoonpfGWHcONWP3teYIgQuh+majW+QRVdOzMeNGdkb7EV/3Q9GO72GB
+	 Ots30bvMKnqfS7lUPzOs/5i7aCqkNXS0j6XxDPoKQmGcNSl0IX2lClv7newLy6CEqs+RT
+	 SHiAHxhywZ+/SQG6kK6htmRra2Di+mUBWrFgBEq8diW1rjMuRgd8tWCeSK1lRkG6yvZDW
+	 s7bEiq3k2kj6rD7e87K/WqdMMXsZc4kIMV3tu6Ax0dBFrY1/Ny76RZbktFIzb32pmlw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=I8oXpLGw;
+	arc=none smtp.remote-ip=195.10.208.42
+Received: from mout-b-112.mailbox.org (mout-b-112.mailbox.org [195.10.208.42])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id A99881F000E1;
-	Thu, 26 Nov 2026 08:14:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795680850;
-	bh=huqWM0eo0fyX26dQJHUvYM8kb6xLmmHqJZknA1XlnBI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=eax1i2c196w9D4jYYrnIzZBTu8/Rn5Ii3lFWCS+uuIKAudBa7G60vPgLmgh34PB0c
-	 gGSln4w31I29gET9uG0kOsOQgrktc8toIn3NDeUKRDUTS1nx+ohRuaFzqJujZaJmUk
-	 z1Ql0Ek1KXPODyVPqdGUcIDnn5siJuhk5pGR1plFh7Ueg05AjhnBOY86R2Pnus2qL6
-	 jiDTEUnbCEMRFKnWTCDvCWJh7Nu+POxiT+Iodi9kn+Iv0WJpkcqJWPWYDGFKJWCwBs
-	 foL0PWRtxsMLXkuwwyh9jDB9Y2HI/tFOhqYp7raC2sx1fuLFSw1CEjm2y9NfsOMZw6
-	 TMCVwPb7nOZcQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 36C154D2EE;
-	Thu, 26 Nov 2026 08:14:05 +0000 (UTC)
-From: Robert Ijtsma via B4 Relay <devnull+robertijtsma.gmail.com@kernel.org>
-Date: Thu, 26 Nov 2026 09:14:05 +0100
-Subject: [PATCH net-next v2 1/3] dt-bindings: net: qcom,ipa: add
- qcom,sc8180x-ipa compatible
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A065F606A336;
+	Thu, 26 Nov 2026 08:14:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A065F606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=I8oXpLGw
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-b-112.mailbox.org (Postfix) with ESMTPS id 4jZq7x2Z6hz5wrZ;
+	Thu, 26 Nov 2026 09:14:05 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1795680845;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=7J2wkcrNkzeTtVxHfayLP87adFuogRPt/IEKd/fTAXM=;
+	b=I8oXpLGwdlJGKsH57NjV3Pq/hBt/2kfABUdikdqOm+EIP5W1XX+v1Z8kbvizChYqWVPK7N
+	64+8OPnoxCVJkuqOOKJ2S5RQ4kzK14kTPBxaiSnBSyuqQ2uuwmlCpOFuv2uKXvrhoSowxm
+	LKRIMN2C9shao99leI4qAfWbY50Ihyfv6U5SuknjYk6p0frWhYLXdT+FXqRVcjixEgM+aY
+	FTJ9fHseDU2IesJ9X3wYGvcvuWGWiBLhKssRd5nfFkq8ma+Uvo7F6fbh3LPpFPdMILEdZ/
+	3xPMPpl8KV7GFAO+XQ4LqkKKJnupY8wVE7ts9cuCcGqkv1/vQw5Ns8lxMyZRnw==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
+From: Ralf Lici <ralf@mandelbit.com>
+To: netdev@vger.kernel.org
+Cc: Ralf Lici <ralf@mandelbit.com>,
+	David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>,
+	Sagarika Sharma <sharmasagarika@google.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Xia Yan <yanxia@cmss.chinamobile.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] ipv6: advance the serial after rebalancing in fib6_ifup and fib6_ifdown
+Date: Thu, 26 Nov 2026 09:13:51 +0100
+Message-ID: <20261126081353.55240-1-ralf@mandelbit.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,58 +81,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-qcom-ipa-sc8180x-v2-1-89eba621da95@gmail.com>
-References: <20261126-qcom-ipa-sc8180x-v2-0-89eba621da95@gmail.com>
-In-Reply-To: <20261126-qcom-ipa-sc8180x-v2-0-89eba621da95@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alex Elder <elder@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Robert Ijtsma <robertijtsma@gmail.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795680844; l=911;
- i=robertijtsma@gmail.com; s=20261122; h=from:subject:message-id;
- bh=Zda+9Ammsc4s6lMXOWoTtjkZ/oA5KShVVsCnmBZdGAo=;
- b=I40e9SfuC+UdZBZLKwNCpF9MbOPhueCs93NphBRuYb6USVNiQaO/L3nOJhJ4Sj/u4o873DA3L
- BZHwwh72z74CLVsV7IH/QcJk/F3TwPAYyHqnSAhiKUZ34CUtCP3g1GG
-X-Developer-Key: i=robertijtsma@gmail.com; a=ed25519;
- pk=qiDyKVqFicxFIR5sB5m+p9SWPKL2/+mMoiQnUx0C9P0=
-X-Endpoint-Received: by B4 Relay for robertijtsma@gmail.com/20261122 with
- auth_id=1604
-X-Original-From: Robert Ijtsma <robertijtsma@gmail.com>
-Reply-To: robertijtsma@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jZq7x2Z6hz5wrZ
 
-From: Robert Ijtsma <robertijtsma@gmail.com>
+fib6_ifup and fib6_ifdown update the node serial before calling
+rt6_multipath_rebalance. A lookup that runs between the two can select a
+nexthop using the old ECMP upper bounds and read the new serial as its
+cookie. The cached dst then passes dst_check although it was selected
+from the old state, until the next relevant change.
 
-Document the Qualcomm SC8180X (IPA v4.1) compatible string in the
-Qualcomm IPA binding.
+Update the serial after rt6_multipath_rebalance, so that it is published
+only after the routing state it describes. fib6_new_sernum allocates the
+serial with a fully ordered atomic_try_cmpxchg, which orders the
+rebalance before the serial update. The invalidation scope is unchanged:
+fib6_ifup still updates the node and its ancestors, fib6_ifdown only the
+node.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Robert Ijtsma <robertijtsma@gmail.com>
+Validating dsts against the generation sampled before the lookup, as
+proposed in "ipv6: validate cached dsts against the netns route
+generation", relies on this order as well: a lookup that reads the new
+generation must also observe the routing change it describes.
+
+Reported by Sashiko while reviewing an earlier version of this change.
+
+Fixes: d7dedee184e7 ("ipv6: Calculate hash thresholds for IPv6 nexthops")
+Fixes: 4bc852006b62 ("ipv6: update route serial number on NETDEV_CHANGE")
+Link: https://lore.kernel.org/netdev/cover.1795642432.git.dahern@nvidia.com/
+Signed-off-by: Ralf Lici <ralf@mandelbit.com>
+Reviewed-by: Xia Yan <yanxia@cmss.chinamobile.com>
 ---
- Documentation/devicetree/bindings/net/qcom,ipa.yaml | 1 +
- 1 file changed, 1 insertion(+)
+Split out of v5 of "ipv6: tie dst validation to the lookup that
+returned the dst", which is withdrawn in favour of the series in the
+Link above:
+https://lore.kernel.org/netdev/cover.1795537128.git.ralf@mandelbit.com/
 
-diff --git a/Documentation/devicetree/bindings/net/qcom,ipa.yaml b/Documentation/devicetree/bindings/net/qcom,ipa.yaml
-index 38e3830512feb375572c8801e06fbb97c33d9d89..99e5464dc47e53514dc8012ecd06654789ef6019 100644
---- a/Documentation/devicetree/bindings/net/qcom,ipa.yaml
-+++ b/Documentation/devicetree/bindings/net/qcom,ipa.yaml
-@@ -48,6 +48,7 @@ properties:
-           - qcom,msm8998-ipa
-           - qcom,sc7180-ipa
-           - qcom,sc7280-ipa
-+          - qcom,sc8180x-ipa
-           - qcom,sdm845-ipa
-           - qcom,sdx55-ipa
-           - qcom,sdx65-ipa
+ net/ipv6/route.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
+diff --git a/net/ipv6/route.c b/net/ipv6/route.c
+index 1b2dcc066e19..194432f1fd66 100644
+--- a/net/ipv6/route.c
++++ b/net/ipv6/route.c
+@@ -4911,8 +4911,8 @@ static int fib6_ifup(struct fib6_info *rt, void *p_arg)
+ 	if (rt != net->ipv6.fib6_null_entry && !rt->nh &&
+ 	    rt->fib6_nh->fib_nh_dev == arg->dev) {
+ 		rt->fib6_nh->fib_nh_flags &= ~arg->nh_flags;
+-		fib6_update_sernum_upto_root(net, rt);
+ 		rt6_multipath_rebalance(rt);
++		fib6_update_sernum_upto_root(net, rt);
+ 	}
+ 
+ 	return 0;
+@@ -5015,8 +5015,8 @@ static int fib6_ifdown(struct fib6_info *rt, void *p_arg)
+ 			}
+ 			rt6_multipath_nh_flags_set(rt, dev, RTNH_F_DEAD |
+ 						   RTNH_F_LINKDOWN);
+-			fib6_update_sernum(net, rt);
+ 			rt6_multipath_rebalance(rt);
++			fib6_update_sernum(net, rt);
+ 		}
+ 		return -2;
+ 	case NETDEV_CHANGE:
+@@ -5024,8 +5024,8 @@ static int fib6_ifdown(struct fib6_info *rt, void *p_arg)
+ 		    rt->fib6_flags & (RTF_LOCAL | RTF_ANYCAST))
+ 			break;
+ 		rt->fib6_nh->fib_nh_flags |= RTNH_F_LINKDOWN;
+-		fib6_update_sernum(net, rt);
+ 		rt6_multipath_rebalance(rt);
++		fib6_update_sernum(net, rt);
+ 		break;
+ 	}
+ 
+
+base-commit: ef3e21c61baa74e39a49b75318bd4541562ec43f
 -- 
-2.47.3
-
+2.56.0
 
