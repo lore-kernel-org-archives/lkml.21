@@ -1,65 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.98
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795657622;
-	b=EIIpLb8RTA6clbful8g/8BmbFYWxS1DLmHpXelHwFhk6O5LxeOZutjogY0TfgBAE73sI
-	 GljhOTj+qSYqvG5gdzz44zrrD+h1YI7ht3GcktIeqraATUouAsGMhkUHSW0iwPD7XYI+h
-	 SuYNqCmZDvWleep/jJ99CQlLsn/wwPsNq7TTGPD61hmdjHYRrFFOan5ErMFQNReskovho
-	 cOLI7xHxgYus82PxUDHyJVzAr7TftkcrVcAHmCyeyK6Ko9s8v72O3PiC7W9uGLSO8GVZ/
-	 x7l0BC/+9M4jVQclraMAsPujqI40hfMy7mBZD6vFKVO5Sf9VLTUOoeBp3F1KkVWgXGA==
+	t=1795657633;
+	b=Uo3JPDf8eIeyDZz99UDm681i5rTLSkMQSz7L52ntT9X2xYm+gtY2Ux5lRJsydxD/6mQN
+	 UQnif//351k+slo7m9mpYODRo7zb+WWRmksWE9CtG68n0tl0ZzVDeHba8M4G22dZ2XSJq
+	 UeHOQ1Gd4vnHCWwPZHRNJZLXRb5NPVka9VdwW3mOC+x+13Ap9TC1C/nN4t1x8C+kznVpf
+	 A5d/QhHF5qM/zjwmtTI8IJ5nTDNoI012zN3saLXMuGAd5Tk1gSQ2N0f7nHTIMnogQXpLj
+	 bGFLEZGdmWLTxnW3WLAk62Kc18+zPM1fFJ6rsnGtpzymTsipPRVN/q1+Ti+fu4vU1zg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795657622;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 References:In-Reply-To:Subject:Date:Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-Mailer:Thread-Index:
-	 Content-Language;
-	bh=W2EQK2hOfQhR4mMPTSrPSxv8Zf/b5iZOJhmrVlnPr4w=;
-	b=RDp66c/I/wCYmoEhFsSVUKsx02uUahmfJ8hsk8T4oh8aqVIGZVVthUgBaGUbFEEVQbZW
-	 vCTEhRQqabClN9HKp2vOilIuxPjhdToX/iiQwgHbXY//W929LKR+JqK3TcffPCykr1eIu
-	 R7SqFX+/KwTV/0F47lvymVNV4JUXmCdXptISSrIwGhjYHgnOkvV0cUOc9Ukf8KABwolJf
-	 tDoOEU6jTpwPYmTqaOy0DVq6VjX2PYYNYM6fumAI8Uw90sFgqrvYho96+JLPDM5pS5A/c
-	 +CKdItUQ29686AULQxSHMpNylo/lQ1gGADkh14x6rCFD6qUJVHZj9Mo7FVZ7WLxdatg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795657633;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=C90z5eRMPRz7rm9tSvRsEhi09vVmUDZ/4/9fcRwxuPA=;
+	b=fV6Oi84Kv0r9HTjn08IQ5gv/iHqvKzkWk230b+v09VosXJVBF/YzgEJ7filJbaWlNfm5
+	 eWZORXzJ42IJRkz/JMfkweI/WldnnrokaBsVnAmHZKq7d10RLUtVK/eQf5mZ6RA6aseFk
+	 UKlAT/dfRotn5PPjt+HliAc02qmHk3mOcGTB7JkuE94/oXibOKMNnzl5u+1DE7GeRpD1x
+	 kFRwcQrBOuIf0Sa7G3f+RcVJLb5ylWG69yeTQBB7ZSxWWh24YvuNf3NT/yaRekRbgpNDw
+	 lUArj+mjuAUkPwvLDBcx6V7iE9+JT3qCQ4bm+zZyf9ryXIqrU38UkIhozsUI8Lh08DA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.alibaba.com;
-	spf=pass smtp.mailfrom=linux.alibaba.com;
-	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=cksJBI8v;
-	arc=none smtp.remote-ip=115.124.30.98
-Received: from out30-98.freemail.mail.aliyun.com (out30-98.freemail.mail.aliyun.com [115.124.30.98])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oiiwp6KB;
+	arc=none smtp.remote-ip=209.85.216.54
+Received: from mail-pj1-f54.google.com (mail-pj1-f54.google.com [209.85.216.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63EA2606A321;
-	Thu, 26 Nov 2026 01:47:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63EA2606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 125BB606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:47:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 125BB606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=cksJBI8v
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1795657612; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	bh=W2EQK2hOfQhR4mMPTSrPSxv8Zf/b5iZOJhmrVlnPr4w=;
-	b=cksJBI8vCDqOKJGJ+ED7qJB9iNfpsYlMIH00+6f72ymohmQp/Q53gsVHGASA9PPs7juQuWXx8rdyZVETagPifKuR4wd6NG2D8JvUCGb04c9EshEY1rh5eU96sgJG+WagJkP69mFcfo+Wjz9/vGbnJwBk72/Z9klTHG1irVEBX/8=
-X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R771e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=yadong.qi@linux.alibaba.com;NM=1;PH=DS;RN=11;SR=0;TI=SMTPD_---0XFSrPkD_1795657611;
-Received: from LG41624401116(mailfrom:yadong.qi@linux.alibaba.com fp:SMTPD_---0XFSrPkD_1795657611 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 26 Nov 2026 09:46:51 +0800
-From: <yadong.qi@linux.alibaba.com>
-To: "'Catalin Marinas'" <catalin.marinas@arm.com>
-Cc: <will@kernel.org>,
-	<mark.rutland@arm.com>,
-	<ying.huang@linux.alibaba.com>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>,
-	<ryan.roberts@arm.com>,
-	<robh@kernel.org>,
-	<gregkh@linuxfoundation.org>,
-	<ptg-linux-kernel@linux.alibaba.com>,
-	<stable@vger.kernel.org>
-References: <20261125063224.553-1-yadong.qi@linux.alibaba.com> <awb34Zfblg-A1tHQ@arm.com>
-In-Reply-To: <awb34Zfblg-A1tHQ@arm.com>
-Subject: RE: [PATCH v2] arm64: fixmap: fix missing break-before-make in __set_fixmap()
-Date: Thu, 26 Nov 2026 09:46:50 +0800
-Message-ID: <001001dd7d48$01c04cc0$0540e640$@linux.alibaba.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oiiwp6KB
+Received: by mail-pj1-f54.google.com with SMTP id 98e67ed59e1d1-3b41188c8b9so4573888a91.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:47:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795657632; x=1796262432; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=C90z5eRMPRz7rm9tSvRsEhi09vVmUDZ/4/9fcRwxuPA=;
+        b=oiiwp6KB2jn07gDx/FeG7aU1f+cY9kbOBZNdBq5aYpcBYZ78xSSKR/mxWqZO/r73hw
+         yq7Kdk7Dg/qQoOJ+jqaJdo0XtVvNtAqdDsOMvoGExjRRMGcuuPZXMTME17hBDF1dOoXl
+         dEg3TW4UL83EdVZNI6v8h+XR6Rld0UB2hE51BmauDmP0myrykmjoFLeUScN7xKnqV+jA
+         RfLak4V+WPIlZt7qyeNJM4zAsOj9RUl611Jr0Wz/Z3Ezp8VcTbxMLcWTIKFJdoHw9uep
+         mWYnJ1RKv4MmMB7hX60Sms/d/Sh+w+K5aJJwGzdU2OIKxyt6x5V6XkrJcGilmJKrFzhE
+         kSpw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795657632; x=1796262432;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=C90z5eRMPRz7rm9tSvRsEhi09vVmUDZ/4/9fcRwxuPA=;
+        b=Qt26vjL25zXFTM4g/aiEU7FMexvDCVguGQEVS5qSJ+VUx+OdIfDn+bMRQI4VPcre1X
+         Doi9tokCvmUEg0uGnX07ElrdVpOaATgFCpQeo7occSkqMLIGrirv1jjxhGFcQi9w3Sf+
+         hPriNrEglEutZlzBs/vA80sfomCmY1PP3xd4tNUs28ncAYIha0P2SMNRNGfFId1l5v1X
+         pPM1M0dP39pYTDY/wB1o7GeUYRsXijI98Edc7CAt+Nkvxo8jml/HZ2ckBlRS2Ovnbqz8
+         o519g5Vrpc2c63uF7N9sRDNef6RpgVN5yL51J0gm70vshqEqoQc2dAgU/e3lOetr8WCp
+         XkIw==
+X-Forwarded-Encrypted: i=1; AL+hErEPjaETGJ7n4FWXmJHuj3FSR3WQNtu8um8/FL7budkrd6maO7W6HH4css5VSvfloskge3gDDfQ8WPnDnxw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8laU2L+bufHWeqfPG9P+n8cEMu01ccv2mod3lG168tZUgvJBFK
+	1BxK4Xg3T/yCCZU/iH4baUDC2TOFJ2DvcZaRKq56eiOxmJ/jl8Mmydsa
+X-Gm-Gg: AZFdTZeuJoJexi0d0CTaENgbUPzfwCe8ruu8noSdEQn5IAdI/+rlUhZ0qTLS6MObu+u
+	ZoLYFHXS92GD9VUpQzp+jEt2FK4r2GpOahb7AQnGa7J8YmzyLYmyYL9M4vLcNI4Jwrjmin6B4q2
+	V0PRa3d0CI/LPn9QkznkTWJTWFahE7tC0STaLT31KNEpHs0cC5FNGmWMJQ7RkLYjX4cO8u6hsTI
+	lCBHFYZLOfpHfSlppA4l/OwxORXptLqtxMwTvyvHsZsC/sh5uEmKcvsSFNsVRIxLrfQspFqvjtA
+	Fa30Biy3PL2LSOstyPJIvLKlz3o6Q0Sv2NLkGyw5S2wRlWhdisoX7QaHUItfDRH15QWFyT+lcsn
+	o/JUb5J9nH10+wmiWggJRT9nBfylLAB0+pOjy7l7M1vWrg8wbYeV5WxGShcF8C+FIj0aDGyr95V
+	7zYZpuN1P++oSVupxsq5ft9nU7wyTpdmQLcAA43cDQROO4muqdBZLOBBva/Wbj+hQa6fm6tOPHZ
+	DR4tAx6hocv/auOB7iOtwEzXzvYjIduQ3xwUEd+Oqy4IQgNvNKkIOpBhgbH/8whgztyJffGAGI/
+	fnoxbY6Zf2ggI8LXrh0s/D/DJ9irT/NOdbTchQh0
+X-Received: by 2002:a17:90b:2c86:b0:3b0:a9de:9886 with SMTP id 98e67ed59e1d1-3b41c8d9179mr18731494a91.12.1795657632334;
+        Wed, 25 Nov 2026 17:47:12 -0800 (PST)
+Received: from localhost ([27.122.242.71])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cfc6130sm10007818a12.7.2026.11.25.17.47.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 17:47:11 -0800 (PST)
+Date: Thu, 26 Nov 2026 10:47:09 +0900
+From: Hyunchul Lee <hyc.lee@gmail.com>
+To: Showta Ishizaki <zakinko@snowrabbit.org>
+Cc: Namjae Jeon <linkinjeon@kernel.org>, ntfs@lists.linux.dev,
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ntfs: keep i_size of a directory equal to its index root
+Message-ID: <awePnaRhBQLahPpz@hyunchul-PC02>
+References: <20261125-ntfs-01-v1@snowrabbit.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,188 +96,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
-	charset="gb2312"
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQIlHPfcVfRmir7bpqVzZq45BGzU7gMX4XPYtpeU9nA=
-Content-Language: zh-cn
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261125-ntfs-01-v1@snowrabbit.org>
 
-> -----Original Message-----
-> From: Catalin Marinas <catalin.marinas@arm.com>
-> Sent: 2026=C4=EA11=D4=C225=C8=D5 23:00
-> To: Yadong Qi <yadong.qi@linux.alibaba.com>
-> Cc: will@kernel.org; mark.rutland@arm.com; =
-ying.huang@linux.alibaba.com;
-> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
-> ryan.roberts@arm.com; robh@kernel.org; gregkh@linuxfoundation.org;
-> ptg-linux-kernel@linux.alibaba.com; stable@vger.kernel.org
-> Subject: Re: [PATCH v2] arm64: fixmap: fix missing break-before-make =
-in
-> __set_fixmap()
->=20
-> On Wed, Nov 25, 2026 at 02:32:24PM +0800, Yadong Qi wrote:
-> > __set_fixmap() installs a new PTE with __set_pte() but never =
-invalidates
-> > the TLB; only the clear path calls flush_tlb_kernel_range(). The
-> > dsb(ishst)/isb that __set_pte() emits makes the new PTE visible to =
-the
-> > table walker but does not invalidate stale TLB entries. Overwriting =
-a
-> > still-valid slot therefore leaves the old translation cached and
-> > violates break-before-make: accesses may keep hitting the old output
-> > address, and changing the attributes of a cached entry can trigger =
-TLB
-> > conflict aborts or CONSTRAINED UNPREDICTABLE behaviour.
-> >
-> > Two in-tree callers overwrite a valid FIX_EARLYCON_MEM_BASE slot:
-> >
-> >  - earlycon: earlycon_map() maps the UART before match->setup() =
-runs.
-> >    If setup fails, con->write is unset, or the DT reg-io-width is
-> >    unsupported, the slot stays valid but no console is registered. =
-The
-> >    console_is_registered() guard only blocks successful =
-registrations,
-> >    so a later attempt (e.g. a failed DT earlycon followed by =
-earlycon=3D
-> >    on the command line) remaps the slot to a different UART.
-> >
-> >  - samsung_tty: apple_s5l_early_console_setup() overrides the
-> >    just-installed entry from PROT_DEVICE_nGnRE (FIXMAP_PAGE_IO) to
-> >    PROT_DEVICE_nGnRnE on the normal successful boot path.
-> >
-> > Both are valid-to-valid changes (different output address or memory
-> > type), which arm64 requires to be break-before-make.
-> >
-> > Fix this in __set_fixmap() by invalidating any existing valid =
-mapping
-> > up front: clear the old PTE and flush the TLB, then install the new =
-PTE
-> > only when setting. The old translation is gone before the new one is
-> > created, so the two can never coexist in the TLB. A first-time =
-mapping
-> > (old entry invalid) skips the invalidation and pays no extra cost, =
-and
-> > clearing a slot is handled by the same step.
-> >
-> > A clear (!flags) always clears and flushes, even when the PTE is =
-already
-> > invalid. An invalid PTE does not imply an invalid TLB: another CPU =
-may
-> > have cleared the PTE but not yet completed its TLB flush, leaving a =
-stale
-> > entry cached locally. The unconditional flush preserves =
-clear_fixmap()'s
-> > TLB shootdown guarantee, which callers such as the KVM VNCR unmap =
-path
-> > rely on when racing with a remote invalidation.
-> >
-> > This belongs in the callee, as on x86: __set_fixmap() there calls
-> > set_pte_vaddr(), which flushes the TLB unconditionally after writing =
-the
-> > PTE. x86 can flush after the write because it has no =
-break-before-make
-> > requirement; arm64 must invalidate and flush before installing the =
-new
-> > valid entry to avoid TLB conflict aborts.
-> >
-> > Fixes: 9aac5887595b ("tty/serial: add generic serial earlycon")
-> > Cc: stable@vger.kernel.org
-> > Reported-by: Huang Ying <ying.huang@linux.alibaba.com>
-> > Signed-off-by: Yadong Qi <yadong.qi@linux.alibaba.com>
->=20
-> Nit: commit 9aac5 added earlycon_map() -> set_fixmap_io() but I think =
-a
-> a few other commits later caused overriding this fixmap entry. I think
-> set_fixmap_io() was underspecified, not requiring a clear_fixmap() =
-after
-> use but they inherited the x86 behaviour already which did the =
-flushing.
-> Anyway, I think a better tag would be (to make it arm64-specific =
-issue):
->=20
-> Fixes: bf4b558eba92 ("arm64: add early_ioremap support")
-Agreed. Will switch to it in the next version.
+On Wed, Nov 25, 2026 at 11:18:20PM +0900, Showta Ishizaki wrote:
+> After mkdir, stat() gives a size of 0 for the directory until it is read
+> back from disk, where it gives the length of $INDEX_ROOT.
+> __ntfs_create() opens the index root but does not set i_size from it.
+> 
+> When the index root is moved out to an index block,
+> ntfs_ir_reparent() updates data_size but not i_size, which keeps the
+> length the root had before.
+> 
+> Set i_size in both, as ntfs_ir_truncate() does.
+> 
+> Without the patch a new directory was 0 bytes and became 48 after a
+> remount, and one with 300 files was 248 and became 56.  With it the sizes
+> are the same before and after.
+> 
+> Fixes: af0db57d4293 ("ntfs: update inode operations")
+> Fixes: 0a8ac0c1fa0b ("ntfs: update directory operations")
+> Signed-off-by: Showta Ishizaki <zakinko@snowrabbit.org>
 
->=20
-> > diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
-> > index 951004ad700c..5da49e201b6f 100644
-> > --- a/arch/arm64/mm/fixmap.c
-> > +++ b/arch/arm64/mm/fixmap.c
-> > @@ -126,13 +126,49 @@ void __set_fixmap(enum fixed_addresses idx,
-> >
-> >  	ptep =3D fixmap_pte(addr);
-> >
-> > +	/*
-> > +	 * Break-before-make: when the slot still holds a valid mapping
-> > +	 * (e.g. earlycon re-mapping FIX_EARLYCON_MEM_BASE), invalidate =
-the
-> > +	 * old entry and flush the TLB entries caching it before a new
-> > +	 * mapping is installed, so old and new translations never =
-coexist.
-> > +	 *
-> > +	 * A clear (!flags) always flushes even if the PTE is already =
-invalid:
-> > +	 * a remote CPU may have cleared the PTE but not yet completed its =
-TLB
-> > +	 * flush, leaving a stale entry cached locally. Take KVM VNCR =
-unmap as
-> > +	 * example:
-> > +	 * When CPU1 wins atomic_xchg_relaxed(&vt->cpu, -1) in =
-unmap_l1_vncr(),
-> > +	 * CPU0 calls clear_fixmap() on its own slot so it cannot finish
-> > +	 * vcpu_put() before the local TLB entry is invalidated:
-> > +	 *      CPU0                                  CPU1
-> > +	 *                                 invalidate_vncr()
-> > +	 *                                 unmap_l1_vncr()
-> > +	 *                                   atomic_xchg_relaxed(&vt->cpu, =
--1)
-> > +	 *                                   clear_fixmap(vncr_fixmap(0))
-> > +	 *                                     __pte_clear(..., ptep)
-> > +	 *                                     <delayed before TLB flush>
-> > +	 * kvm_vcpu_put_hw_mmu()
-> > +	 * this_cpu_reset_vncr_fixmap()
-> > +	 *   unmap_l1_vncr() =3D=3D -1
-> > +	 *   clear_fixmap(vncr_fixmap(0))
-> > +	 *     !pte_valid(__ptep_get(ptep))
-> > +	 *     <skips flush_tlb_kernel_range()>
-> > +	 *                    <stale TLB entry still live on CPU0>
-> > +	 * If another nested vCPU then schedules on CPU0 and calls
-> > +	 * kvm_map_l1_vncr() before CPU1 finishes =
-flush_tlb_kernel_range(),
-> > +	 * __set_fixmap() also sees !pte_valid(__ptep_get(ptep)) and =
-installs
-> > +	 * the new PTE while the old translation is still cached in CPU0's =
-TLB.
-> > +	 * Unconditionally clearing and flushing when !pgprot_val(flags)
-> > +	 * preserves clear_fixmap()'s TLB shootdown guarantee.
-> > +	 */
->=20
-> There's too much text here. Move it in the commit log if you want and
-> just write a few lines in the code, something like:
->=20
-> 	/*
-> 	 * Break-before-make if the slot holds a valid mapping. Always
-> 	 * flush on clear since another CPU may have cleared the pte
-> 	 * without completing its TLBI yet.
-> 	 */
->=20
-Much cleaner, thanks =A1=AA will fold this in and leave the details in =
-the
-commit log.
+Looks good to me.
 
-> > +	if (pte_valid(__ptep_get(ptep)) || !pgprot_val(flags)) {
-> > +		__pte_clear(&init_mm, addr, ptep);
-> > +		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
-> > +	}
-> > +
->=20
-> With these changes,
->=20
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Reviewed-by: Hyunchul Lee <hyc.lee@gmail.com>
 
-
-Best Regards
-Yadong
-
+-- 
+Thanks,
+Hyunchul
