@@ -1,147 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=2 smtp.remote-ip=52.101.84.47
-ARC-Seal: i=3; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795709618;
-	b=lj2Y8lEyLIuV/NbHExD+hDI/O6kuKd3SQLtXxQzt2jKiTZAH0knp1gWJrMddg3q8X3lV
-	 f5PAMD8E2XvyCjFP70SbQE7dtPmVefnxbFMJib3xhe7lU63fn1CnTxMtfg4lo4LbnWS5X
-	 4fU4/u2mCoo2IIqcyCjW6+2E0QdB+ft8eKC5K7qRqOKFh+djQPxTLxHyJNASe6QfEZlgG
-	 FErNIaGQS8eUjf8SR9oFVL8Ue9R+LbCBNfxltfTeKwNm/owoEeBkhymfUx8PE5PvgK2Bu
-	 hXGx/bMu1sSOyOgjRe/50NTN67EWXfhzrhpjaUOoX5g6QyDtGTEWQtyefl6IjAxK11g==
-ARC-Message-Signature: i=3; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795709618;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:
-	 DKIM-Signature:Authentication-Results-Original:Received:Received:Date:
-	 From:To:Cc:Subject:Message-ID:References:Content-Type:
-	 Content-Disposition:In-Reply-To:X-ClientProxiedBy:MIME-Version:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-LD-Processed:x-checkrecipientrouted:NoDisclaimer:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam-Untrusted:
-	 X-Microsoft-Antispam-Message-Info-Original:
-	 X-Forefront-Antispam-Report-Untrusted:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
-	 X-EOPAttributedMessage:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStripped:
-	 X-MS-PublicTrafficType:X-MS-Office365-Filtering-Correlation-Id-Prvs:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.83.43
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795709623;
+	b=wzuUzW6g8PiesvtmaMwwjmAtioZyj74XHFK0WVuQHlnT8OrV8yRXUzUVHNZ4j8+yFTvo
+	 SgPh3kAElJXQX5C0pOj4sFNa62t5AO+is3dP7aqhCFr1QIMlb28C/EoghUrpfshbMXzAy
+	 AEP/DQjCLKAhicn2qxRkw4utkjrU+vPx5giKPSQaDavzzG5BA36qmHnNMds680smmXylA
+	 Y4PCq8/CEfuu+C/guRdw00yPB9UUZv4NU+44ZL2P/9LcAGJHoSYEXQM43suqmgq9UKbsy
+	 a5OnXsfQlzg7jFGUwrblcExjuF/CmCFQm3ulXvt73P2Z5vdxRr82Ib0V7YgSjVGoLtA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795709623;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
 	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
 	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=A5TC7+9ZYCoDiyxifsXX9qp3QAvuHsRFSfibRB9KpkQ=;
-	b=BDmqRdPKGM4qDR5L1Sz4c2GIWBjisNveY4F2IpLWR47VDw0mMu6sQc/cqSSEs1t40zlD
-	 tPGcRXGSvPNX0XsOdpBa10irY0xPNif7nPhQkNlapxHKI9N+qb1rDDZWSpRMTAeSVs/ib
-	 rhSf3/78FfcmHfQ8xn61GilUMJkk2+zTzRFT480tBaexVmZk0YGaaY4yefBByQ0Mml5Aj
-	 rghF+wdV1wNpaOq0rwCTFm9mjfwohQAycPiu8+I7yzVbl6FM5+x4OGP+btCynnYr/dpbJ
-	 eijANYYkJhWM+hQcXCd0n+sA8yU0tYdNXpTldyDtw/COHZtGZN0FC5djuZ9X/WwdQpw==
-ARC-Authentication-Results: i=3; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b="Iz0CB//j";
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b="Iz0CB//j";
-	arc=pass header.oldest-pass=2 smtp.remote-ip=52.101.84.47
-Received: from DB3PR0202CU003.outbound.protection.outlook.com (mail-northeuropeazon11010047.outbound.protection.outlook.com [52.101.84.47])
+	bh=QLvfogjr4Ei0PaUqMegkXOAFTbLmw3Ew5FG88MvPGTQ=;
+	b=RzPGnXyinGUdWVtooyrOs8VLhce4x46LF7xBPrGxFEw3lxhlFJPIVEhfjQRxOoVj9iSQ
+	 CYZcCwrQ/VmQu7Da7iEF3rgp3mLxLSb3Um+nCiSrJWldMvLUD8mebQxrEOxBqeaN64XbP
+	 K8COYSiKq6oMms5PUdDrzINKReVx/Cd7mpBWS4yPKJIT4Adb2qw2zG5mPw/Nz1c3vJZpY
+	 FpcswXmb18cHQ77m/78MWNHGQJR6j11/p+EN3u0DlFiONMCFf9QL/NgDyLWFiqD3uMgKs
+	 NxpRWghv2PNjDxXgKg1cbf1Uw3sUm72QfKXI5FlHO8gtDuPl2zrExitjSToccuAltuQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=K7WkRaJQ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.83.43
+Received: from GVXPR05CU001.outbound.protection.outlook.com (mail-swedencentralazon11013043.outbound.protection.outlook.com [52.101.83.43])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43F1D606A321;
-	Thu, 26 Nov 2026 16:13:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43F1D606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DA58606A32C;
+	Thu, 26 Nov 2026 16:13:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3DA58606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=Iz0CB//j;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=Iz0CB//j
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=fgHutIE9hP0jH16piuar3cla/Ox1uxP5xzLB7/fHJpO+0MtimhkSQSvdKVeCE150z/C/XJi7pMW+hFvrQ03EFc6R90kOBSibWXtO/kuNkjuzH+k8iZonr5S7fhdXPzHOTApEUTCtYQqmKncro1y3O2YlvdqyJqE7xNPo4wN66NjUytLzH7NQiQ0YdqNf1D6CQ1v4EfEA/iXFLT+AYICb7H8o8r47PuziWbcyY+9KsLYMW4VPIhYx/F55x9A6/V9r6XV/ajqGIH7OsZVOXGRQUmlpdvmGrt5FIBHecik6+m0KgvkOcKFHewNB3vrofmPrVA5Oxuk6y/19TWs8CfWq8w==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=A5TC7+9ZYCoDiyxifsXX9qp3QAvuHsRFSfibRB9KpkQ=;
- b=E1CgIrJAB0z9JsQxkJo1fb5qLSOi4JwX9xLpYx/CoLk05/2HpWR7JJhb4f+Fj62l8vE2QgboR+xM7CpOiJi/dLrjrERFH4CkYTnYulymSciJZnFPG9dfOetQJYFe22GVmKNva4Q/IlyT1RJ7MboAdaorn+yGE+lVrO7sxfrCbHcDdgPr9ED/eZ+ENTw++k3C7jJjeZgVTThEYSe40BszJO5x/63M5Nr3hZWzvC8Jz5Qhc+yEx2VxTFrzBSQiQpjFFqfoXMnNa9HIRusDX/3jtcHituW47LagrMOTAqwP/kwqbYTTUqQeDwVfDpJetTIOg3L0lwsMcV81RFYb563BmQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=gmail.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=A5TC7+9ZYCoDiyxifsXX9qp3QAvuHsRFSfibRB9KpkQ=;
- b=Iz0CB//jOE0b6qRozc0CgxfnxFRthmyfj6aDteHvonrj0WMNJJXA4rMIm3RXr9lxKiJK7aYDJrCL52tujEMnfkV1hTg/MdUSXlA3DOa64q+y0PIT4Vq6e3/7GXhfDBD68QaxOHpSd/rdoZ5x2xY6S8PDOFzxKrLQj6B3TgZeJZA=
-Received: from AS4P251CA0017.EURP251.PROD.OUTLOOK.COM (2603:10a6:20b:5d3::6)
- by GV1PR08MB8401.eurprd08.prod.outlook.com (2603:10a6:150:a6::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Thu, 26 Nov
- 2026 16:13:26 +0000
-Received: from CPH1EPF0000052C.eurprd05.prod.outlook.com
- (2603:10a6:20b:5d3:cafe::88) by AS4P251CA0017.outlook.office365.com
- (2603:10a6:20b:5d3::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.7 via Frontend Transport; Thu, 26
- Nov 2026 16:13:26 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 4.158.2.129) smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- CPH1EPF0000052C.mail.protection.outlook.com (10.167.241.167) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.688.5
- via Frontend Transport; Thu, 26 Nov 2026 16:13:26 +0000
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=K7WkRaJQ
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SNH8lrLXlFgzqQwDk6EygEPq+BzmJCQqTymJnA1d2OOWYU54VpMO7OGPyDolynqEbxHFFVNEM7TWWa9ufahKuByzp0xaLffDQ7udogeDzTTRazHK+slkXiId7uF3fnhEoAMejpbJh8ZtvFy3WQ3QCY5ww56/TAfEAOE5i3uHbaSz2QHHk6FqsXvRPyFjicMVxi26xL/lNlC+8vy/5uUERDFaxhoZnFpAO8M2kCInLlXEFf1jX+ZOg/sS+wBpRAYQzDKskPtjMxJjZ//HkNKDxuqs9/L/SO26s5ziJmZRnDBCU7PHLRiDccIEPNfHkvzbhTq8e8UnFUOg0YWM4K3l8g==
+ b=NMO98HF9w+UmaqJVXzRPGdILyE0gwUHDYZ8eTaIn0qCVlOkDFlLrcvwHT07fdnIKF2SLQzH5PX4IzcPcKYB6DhJlVzulQKUK4BYnB1Sgo7F4BSLxt44vVlj06LpBa9fqIrzbKTDbGWoOz2gLDVSvc2uZ/fyPI80vRSswGXoAiE2G2Asmts0owhdK5n5dTGfsc3avO455H9SJnypeR2uqe2wVeLFKkWtXPZ//VmkRVlhoI7APfBIl8jJL44oTSxUIk7+UrNaIgeUGyoV5Gf+sVy6g/mEHuaJVjl8leNzqnv8hJDk9PLbdw1mjnum7OmmFs6seDqt67rGdaQY8CunU3Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=A5TC7+9ZYCoDiyxifsXX9qp3QAvuHsRFSfibRB9KpkQ=;
- b=jfcaJjOz4NaBFO3aCuvn3wUBtskQY2DJSfMP6LJDGAMFbyKg1bnsGGMy5Va/XXk77DrLi/EWZVAJwwT+pOvrzZPM0c954ZyrGuybYNdnwzoYcNUH9Ht+C4AWNrkBtWTn2rEW0T4EUAROocl6Zi51ETo3TVoS9dL/qnaqfBnrBuQETATICjP6puUZuwWxGMMZQIWjRFRDoE45O3WtVAJfwbcVSvpCJjpe2rrWhn4utPbXvg6kDwz1MDbont2bEx4iOGYI3KXD4yhsELZw8bc3+qvweKFA/lqlXdgzlShssiGp1WRu1SeEx27n8unZ8ecMj6027dSOhxpWAKEHP8I3Qw==
+ bh=QLvfogjr4Ei0PaUqMegkXOAFTbLmw3Ew5FG88MvPGTQ=;
+ b=jI4Vyv/bPcby3FWYGQC4qUZqdnwic0ojx+fHaiGkIZD8z89qYTpmDJ24VibjX3oZsH7rCQ+6BIcmLr3rB5aSf9uADYBXjup2Op1IMdxJnWhM8Qc6a2+ozl5MDnceEjBCnhDu2W6keRuNcD2qymvUjFYaDw2EBKiDvkPSiD88uzNi3xiYpiUYs8RGa421Jy/HAagDmVHC6X4i0oeEjQ70tF9yQBMykjvW/Vd8y7ziU3lc6Dub+tz/GDYLDNUIX3WoKBrO4VLfxgyRYcCnUGydcrMdPoXEG2UHPBMaFj2VcFa4kwzpOKCDU2J0H1y+yoxH3xmdRETjYwLyMuopDm0kBQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=A5TC7+9ZYCoDiyxifsXX9qp3QAvuHsRFSfibRB9KpkQ=;
- b=Iz0CB//jOE0b6qRozc0CgxfnxFRthmyfj6aDteHvonrj0WMNJJXA4rMIm3RXr9lxKiJK7aYDJrCL52tujEMnfkV1hTg/MdUSXlA3DOa64q+y0PIT4Vq6e3/7GXhfDBD68QaxOHpSd/rdoZ5x2xY6S8PDOFzxKrLQj6B3TgZeJZA=
-Authentication-Results-Original: mx.microsoft.com 1; dkim=none (message not
- signed) header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from AM9PR08MB6052.eurprd08.prod.outlook.com (2603:10a6:20b:2d5::15)
- by VI1PR08MB5520.eurprd08.prod.outlook.com (2603:10a6:803:135::15) with
+ bh=QLvfogjr4Ei0PaUqMegkXOAFTbLmw3Ew5FG88MvPGTQ=;
+ b=K7WkRaJQmjs+iV9so/Cg8QAKch0//RTVfT/dZEB7LRprooC9fL9XovqFwRawaAEmkpLsc1O3OYqFpwXZTiInaX/rTMCVQTFvIKIVR00tIupA8TqidH36OZxaor/v471IWPXtp2X08DXFfOwukab+4SK1a3dGt4Wh8Ghc+tKdNnLlAb0Qp9Z2el/frC2GPPuOAOTmXVd/OymIav/KVdz8//6GZRZ6AZ4F2OzbMSNOka61KTYKIkhN0AiZi81WrYK34C0p1riRWXU17FqHsDnd2b4R1Kg583lrCcLZ5udXDZB3sh/NtUpDfu6d3WpDWY94TTY4+T6OuWvnyow/wy2ZdQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by MI9PR04MB923983.eurprd04.prod.outlook.com (2603:10a6:290:87::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
- 2026 16:12:53 +0000
-Received: from AM9PR08MB6052.eurprd08.prod.outlook.com
- ([fe80::5ba6:c70c:1cd:48cd]) by AM9PR08MB6052.eurprd08.prod.outlook.com
- ([fe80::5ba6:c70c:1cd:48cd%7]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
- 16:12:53 +0000
-Date: Thu, 26 Nov 2026 16:12:52 +0000
-From: Lukas Zapolskas <lukas.zapolskas@arm.com>
-To: Christian Gmeiner <christian.gmeiner@gmail.com>
-Cc: Boris Brezillon <boris.brezillon@collabora.com>, 
-	Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Alice Ryhl <aliceryhl@google.com>, Paul Toadere <paul.toadere@arm.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	Christian Gmeiner <cgmeiner@igalia.com>
-Subject: Re: [PATCH v2 2/3] drm/panthor: Report the CS fatal errors through
- GROUP_GET_STATE
-Message-ID: <ntuhvyil3asuqou24m7ocj4riji5inrcn3jy47j4vohkrtpecj@e3vd2npna7cm>
-References: <20261104-panthor-fault-info-v2-v2-0-673b31f3840c@igalia.com>
- <20261104-panthor-fault-info-v2-v2-2-673b31f3840c@igalia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261104-panthor-fault-info-v2-v2-2-673b31f3840c@igalia.com>
-X-ClientProxiedBy: LO4P265CA0110.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:2c3::14) To AM9PR08MB6052.eurprd08.prod.outlook.com
- (2603:10a6:20b:2d5::15)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Thu, 26 Nov
+ 2026 16:13:40 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
+ 16:13:40 +0000
+From: Frank.Li@oss.nxp.com
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Lukasz Majewski <lukma@nabladev.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-hwmon@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v5 1/3] dt-bindings: arm: fsl: Add an entry for Cloos CBASE board
+Date: Thu, 26 Nov 2026 11:13:23 -0500
+Message-ID: <179570957586.1090217.11418226053025743919.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261126124402.3015577-1-lukma@nabladev.com>
+References: <20261126124402.3015577-1-lukma@nabladev.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: CPCP307CA0002.DNKP307.PROD.OUTLOOK.COM (2603:10a6:380::15)
+ To MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -151,286 +110,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic:
-	AM9PR08MB6052:EE_|VI1PR08MB5520:EE_|CPH1EPF0000052C:EE_|GV1PR08MB8401:EE_
-X-MS-Office365-Filtering-Correlation-Id: 09a2ca1b-90b4-4357-7c31-08df4bd833ad
-X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
-x-checkrecipientrouted: true
-NoDisclaimer: true
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|MI9PR04MB923983:EE_
+X-MS-Office365-Filtering-Correlation-Id: 245c6795-168c-447f-3069-08df4bd83c22
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted:
- BCL:0;ARA:13230040|23010399003|376014|7416014|1800799024|366016|10067099003|56012099006|11063799006|261021121427099003|261022105027099003|261022075727099003|261026121527099003|261028144727099003|261021123027099003|261026140227099003|261102123227099003|261009223027099003|18002099003|22082099003|4143699003|3023799007;
-X-Microsoft-Antispam-Message-Info-Original:
- C6jhYo2NwKugIcsBSrr2cTDJltz3uFkHAh+oXuJRpm3zjysQ4iY/Br3N5WZNPR1plzYc9c39LfepUSyLcKgm7juULG2gZyeYXQbL0Y5Gf4MBjc5Fr2EFWB7rOc9vB3IHWNUJye4hgAZJmc/kaXc5gLMyj/Tk5C581qYDziFEmQVgLbQzsk01k/LK/ZwJJzA0a9lOl5nPvyB2LiPxmkX7rXW9BJIsEQmtRmtLOB9tG6AA/uki35n8PTZAg4emMOVWy2H1yqtOPHDOOscrJ/5/PxJrrZLchFjbpk+1s2X1hoBHak+n5+zg9yk5V5ToaD5VblhD9rwkCHGMEJzYNtOSfKQLiPTkEqo/V1T0Dhq3sh6b/JGZE/d8MzrzjpAOK/r8IaXiP1I16ySUz96vWsk2PQUtnYIz5qdeZHKHSVN+a3ldqz1cWgBrVzMl/xPQtG2tQHZbxLLcKUkkc8Vv13Qvm28u3fnikCBOxPp8hUTGWy/Wbt8NPNS8ECkgGI8C1B0lO+FviHSKC5X6Pyi6AYd9eQshNX9hnssXOgZDErIhgMGTsmmGRx/uOM3kElf1U3yoyS4VdPh9UDl2rs94VrWCtN6bd9eEdox8IUL/0xG0iPU=
-X-Forefront-Antispam-Report-Untrusted:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB6052.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(1800799024)(366016)(10067099003)(56012099006)(11063799006)(261021121427099003)(261022105027099003)(261022075727099003)(261026121527099003)(261028144727099003)(261021123027099003)(261026140227099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(4143699003)(3023799007);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked:
- QGlEb4BhSEnbO8fbqPfB9gmEZbEut5Ss3518MKtOsB57m1th0IBuX1Ti7hOKiQrJvuY1VDh8I6SpyIpyzGiU/MuUow1IPyYGerjs2cyoBjYIhXJR5YuPQpIeKKcRt0qv5zi5xCkUFRUhvjpF1FA+A8JO9gyNOEd4a2EHvtOBz8vnNuzffOiMnyltAJl4PWnfAQAKKn0AT2rRmVjsomuQQ2rNs2RNmROFe+43NUL0QMhH6ty1971kutngVoTQt0zp5LNz1EiWpKg7c8GAE+L6qAyHLUatDkrOkD6AbvoVJcxPxgU/nyrPA1tn48jku1tUvPN1ADueJSiKySFji4j3sQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR08MB5520
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped:
- CPH1EPF0000052C.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs:
-	ad446c9a-9f0c-4748-c5a3-08df4bd8200b
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|7416014|376014|14060799003|35042699022|1800799024|23010399003|82310400026|261021121427099003|10067099003|56012099006|11063799006|261102123227099003|261026140227099003|261028144727099003|261026121527099003|261022105027099003|261022075727099003|261021123027099003|261009223027099003|22082099003|18002099003|4143699003|3023799007;
+	BCL:0;ARA:13230040|1800799024|366016|7416014|376014|23010399003|19092799006|10067099003|11063799006|56012099006|261009223027099003|18002099003|22082099003;
 X-Microsoft-Antispam-Message-Info:
-	bGR1ER+MQ0wRDVhW3ihsCc5+uzq31wF+y9+MYcYk4ZtVA42NOmcHdyTztNpCzt2zUfUacA1OsraNJqCSyoAggA0XR0V/O5SxVjkZBbm42XwAwR2lw9CVTClYhi5stsiRfYZBkf4ySX29c0hqdty3eZbOePZv2PwsUJRsgGEutfd8HkNlVHydh8alH2gMQdzbo+tUqrg+RoeeO3vHKhvt1gUp99LXXmjvNRfVMLURwSfKnMIi9d889wJl35ykbGgkHi6+Pu31sWOnHoi9hBAkRqrJ57LJ1XBiGzuLPdmp07j7HqNNBbDdYNjCu8W0xRku8L09a/AgsZ4iLhyOmOlUPLSUapGcKF2VmPIQsv4LBhv3CPBR7YypxY6PWyEdjOeo3pjt5MhUtn8+DCM7f4CCdhKGHUvSY1PzXbteLwOtGJ9lizWPhbQ17oaX/a/PlLKW7NFeLQd1KzofGErXY6clMoHlgYEXSKuBF+MJeSrpBwOmyH37lgZ0ga8Gt1dGbUhBxYGguW0Rs7PQrbHyYjXXqaCwPfxHc1vbFvyJLNc/cQPmKmL/CB6NnJsyu/3hIGgfwEPdm94NShoBKsKm0AMZpnPUTYo4P1PnsybBGmGTn8Fxu/IXEE7bcPlNedJfdpMP5zyGMbQuJKkAbXCkYAnocw==
+	3LQO6dSgSnPOexiwesyrbX6nlIoREoKs2/aVvzBPhGXXK28ysPKfsNhns86has8EePb3nZ3Xkn9gjqPxOTLTeARaj+ciqW3aAll1CwtfsPo+t7lPgenvMkpT5Or7HwbKGBEg6obBOR3V/6rJqq+ATtcMzvZ8pky3SyTCK4MAtesPMLIJ2zkYV7PnZ2TFrHiKBweQQvXPSHvWGxfoJPBLQi0JpCr4YoiFCcbHoExVD4l94pbsNKhIiHmqat5pUmZJHVA+h5Qc/I2P0mUib/hrCbgR+Rn7F7f0ts/7Jtz5+7lqQXvW/d46wcZwA9SbrAOKqFSI07+Kl/Hi0XYKWC3iLUl8asXXxyE14sg1t0PXcYfgUEysth3IcidHK/lZpUMtzFZBpW+p6f6dxaluUG3/v+vSHt7aVrljp93Gc2mrfDW135dgM7opZKqVOt4dxofbkZkFKslmGOnpbi4Ofsq5/l2irv1pHRq8VevczIjBCWe1Mbd2FksW9wmkPeacq/C02N9tcTeom6Q2Is4z2FugSA1A90tKjhs2h6UC6wHqrYYUU2SEOpWEk4FwJtAvPcEOhD923TT1Q1rOROB44s82c0ivUUl76oZgQw/M3MeEk2/4EuVYrTH7eFXYjljs3/jF0XFHwqlG8o9ZfetQYohC8jjQZd2Oj0EnJya8HbB8LR0=
 X-Forefront-Antispam-Report:
-	CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(14060799003)(35042699022)(1800799024)(23010399003)(82310400026)(261021121427099003)(10067099003)(56012099006)(11063799006)(261102123227099003)(261026140227099003)(261028144727099003)(261026121527099003)(261022105027099003)(261022075727099003)(261021123027099003)(261009223027099003)(22082099003)(18002099003)(4143699003)(3023799007);DIR:OUT;SFP:1101;
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(23010399003)(19092799006)(10067099003)(11063799006)(56012099006)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	lUKzl2fvD07y79nUwyiIQAp3805Ux9u/Fj0wfWuSMBRGV9UCPk5MoOd+Q6Wmxy9/g+igq9Jq6MGFwUwnj4e+n+vxxf/f9XcX7BmLLYg8eFexq8naqZIecp3vqgcrekcLzHzEUJrEapj8nby37RPOH4OCo9KBIFdqyShTkQXTavqQ6OVLfrPVmiVbgFHnroreVkqjsbDkB7dmz38oZpBsbxyjm1bCOHLLdbQ8BQBGuJP0Ia+ivvEyWPn0MbgIwVeLdVa7mLE2+T97mZEHqOIZNIRSQq2tWlYxu+wjJ6ibRdXGHFti7uR2yu8mPHqHNN4Fmuq9ZmYTgjrdeHJkHDvQF/fGDOg9aULY9/4bFqVh7bEGoj657Q7TZIGY/AydBD01J4RUXoRw6y9yL2eJToMCohWxdMGCEBJvoij9q+TnXDSFppQbC2+KjWoO1b4Z1/1b
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 16:13:26.0110
+	=?utf-8?B?UUNmSnl1cGVXTDE0WGEvbW1wZEtWeGtmSFhSanVaNkJSMVlzb0NOaTlsdER2?=
+ =?utf-8?B?K0JZNEd1bnY0aytjWWNDRkFNR2JhR01JYXJhVTY4K1VSZm5ZK2NYa3FjZ1o2?=
+ =?utf-8?B?aXhaT0Q4bU5scjVVdDNjYWVoK1Zab1JlQWpFblROZTduYWJuREFhRmJ5em1Y?=
+ =?utf-8?B?RjhvMnYvR05ES1dUVC92M2ZTS05jZnJ5MTJJYzBYS1NzZ2pWNlJhYXVCclBR?=
+ =?utf-8?B?cVA1UHNYWGw5Smc2OG9pVUdMMG1CbHMwc2ZBazRGbENNYjdtc2NJSTVRc3BP?=
+ =?utf-8?B?YUtic2d5d3NRODBYS3VXV1hDcGJHSnJYd0w5U3pxdTI0bi9yWDE2dG1pQzZR?=
+ =?utf-8?B?R05PK3VvTWtpcExPSHB1RG0xbEg2d0xNSkRlNGQ3ZE1CTDd5bFdncVZIZXU5?=
+ =?utf-8?B?QldxTlhkSVhMRFVJUEp2WGZCc2dYMVFKZUhpb0ZOQWpJTHVHOTdyVXI2aW5q?=
+ =?utf-8?B?anRLL0hyUzBWaEI4NjQraVh1bW9pNUVZNGJuMWRlcTJ5d05PNGJaV2hrK2Vx?=
+ =?utf-8?B?N2Fieks5em5YenlNcFBsb0xNbEVQYjFUSXgyVVBLSEtVLzBhU2NTc3NoUUh3?=
+ =?utf-8?B?Yys4cm9vdVRzOWU4WEx4YlZVU1IxZE5TQ2lUYXg4L0hKc3Z2UG0yRktKSXdU?=
+ =?utf-8?B?enViMjV0UktyaVZNbkF5ME5rZHpWT2ZDQ3NmbGVyWnFuTVJwS1NTUjdGRWxJ?=
+ =?utf-8?B?c2kyTi9wU0dPMm5zOTI2VGttcklieWtwQXptQ3pxUmR0Sm81Y1E0TE1NY0Zs?=
+ =?utf-8?B?RmJBc2ZHT1FaZkwrUGwxS2pORXY5bFNxWUhSbWhxQXczYmNCWko2MHhDd2pC?=
+ =?utf-8?B?RnFIWE9TWXFiN05YbGdMVzZldjRLY1FwNVhaMUZicUpsSG5FL3RNbkZZcFpW?=
+ =?utf-8?B?c3NSc3ZPbC8ra0tXODJGUGZIdlN3MG53aXdIc0RNcFdpUjVpMHJJQVhjbWRM?=
+ =?utf-8?B?V1RaR09XcWwyUWN5WkQ5eERwY1ZJbTRlZVlpNVBibUJsc3BIL2duZ3c2TFVx?=
+ =?utf-8?B?MTM3aW9pcWcwUGE1SmlHWnNFdVVpMnVUOFBNVFk5dnQrMDcrVXdPcnl6TWdI?=
+ =?utf-8?B?K3lsN1ZZNGNIcjduWmdOMVZTbFVCMXpqZkpGbVp6MkppR1lyVTVEKzJ6dUJ6?=
+ =?utf-8?B?VS9Yc2RwWm1CTjRXSDEwUW11dUgyRjd3SUVZbTJxTWhUSDgwc3UxWG5MWE9J?=
+ =?utf-8?B?YnNWZWZXcU9IRUg5cHZVUksyUGJoSkZuQmVFY2M4WjlXa3hqUGdHeVplOURT?=
+ =?utf-8?B?dmZBc1Bzam9MVTg1MXFmUXF1bjdld2FrMWhBNVRkLzdXZ1ovQUYxTUEzc1h4?=
+ =?utf-8?B?S3NqMUgrVUljT00rTjEya2NzWXgwb0QyUWh2SmJFcmxqcEJDNC82Rnk4SzZR?=
+ =?utf-8?B?Rlh3VVZ6Tng1cFNraVVWWFdTeVJYUlZjLzFFTVNTR2gyeWNCd1JwQ1BXVk9s?=
+ =?utf-8?B?SmVINlRPc2F3bWtQdHhtYWlia1E5cEsrQ0d5VVBiWGYzK2lqWDRZQkh2T0VH?=
+ =?utf-8?B?RWVYcDBxK1FzYVhTU2RhZkg4SlpQMWhaZGJTRlo0R1h4SmhER0JmcWM1K0lJ?=
+ =?utf-8?B?MncrdHlBRE9xL0NUR21NM3dFM3ZzMnBSbEp1S2l6Z1JlblFHTC82TmdZNHA3?=
+ =?utf-8?B?di9SdjJ0WjVSRjE3RWhqWmZFd0MzU3ZaS0taUDRuWkdHa0Mrc2JKS24rRmp3?=
+ =?utf-8?B?WTNZZHM4T0dtYnc4SXhHZFhpTEkrTytKcUVKV3lUQWFzaTBFcllYQ1Ryb3Ni?=
+ =?utf-8?B?elNWeEs5ZS8xN2tqZTZQTWRrTUNsRDdkTmtpa0Q2UzBseHVCSFcwSDRqNlEv?=
+ =?utf-8?B?b2Fadi9KRFhuaHM4eHkzb01BRDdEUjk4alk5bk01TWtjNDNiTDQvdU9Xd0N5?=
+ =?utf-8?B?NkJKQ1VWeUlscXArRVNGM2RtdnV5YXJLa2xlYjVEQkx2ZDZCWkZPZjdtYkR0?=
+ =?utf-8?B?a05nTU5yWVQxWHZQSEx3cjVWeHhhZThUT3RiaitBUXptTmFvY1ZHZGQrYjg4?=
+ =?utf-8?B?emNGQ0pzS2xUWUhRWC9zcDhtck9PRkduc3BPNHdxeml0VEY5TktGb0FzQXR5?=
+ =?utf-8?B?bG5ZditJdUxXZzZ3Y0cwdFFobDFwOUl1bkZLZFRPaGhrM2RxZEtkTTdqS1BL?=
+ =?utf-8?B?ZFJRNHBlMWl1UmE2MURFbEQwWm1iV0J4b3pocU9tVDF0SGxrRDltdVVkZ1RQ?=
+ =?utf-8?B?WTJwQWtGdEFhbm56WVlBdnVvdVBWa3BVR2JkOGl2cVh0elFSUDlmRkw3NXp3?=
+ =?utf-8?B?Nkk4cEEyN0VUa1BGaSt0L21HQ3dkVDNvQjJhQnVzY0hYckw1M0lJVWNwVEhj?=
+ =?utf-8?B?Y1RPQ2NTaGFoYlRzUHl1dFUwRmFZQzlqaXcvbHZIT0orOVh5WVdLQjhpVFJa?=
+ =?utf-8?Q?n70U13Crsf9JCECyaAezRdXIRU57SQuFYXtev?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 245c6795-168c-447f-3069-08df4bd83c22
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 16:13:40.4578
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 09a2ca1b-90b4-4357-7c31-08df4bd833ad
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	CPH1EPF0000052C.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB8401
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /9yssdE0OYqPuYe1wLaDHl86u+67T+XzRIlMpQHHO9ga8Ykd7WWa0eGwhn5HKeUUVBQCZmjBxvpOGWS0rFlXUmFQfl3p6qVjiG4LMbtRJv9fYOzDOYoq/meESZE5gOSo
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI9PR04MB923983
 
-On Wed, Nov 04, 2026 at 08:52:40AM +0100, Christian Gmeiner wrote:
-> From: Christian Gmeiner <cgmeiner@igalia.com>
->
-> Keep the raw CS_FATAL and CS_FATAL_INFO in the queue that hit them and
-> return them through GROUP_GET_STATE in an array indexed by queue.
-> Userspace decodes the values. No memory is allocated in the fatal path.
->
-> A queue stops at its first fatal error, so one slot per queue is
-> enough. The slot is a struct drm_panthor_queue_fatal, which is the uAPI
-> struct, so the ioctl can copy it with one assignment. The CS_FATAL
-> event handler writes the slot under events_lock. The ioctl reads it
-> under the same lock. The slot is never cleared, so the values can be
-> read again after the call.
->
-> The ioctl copies the slots of all queues to a stack array while the
-> locks are held and copies them to userspace after the locks are
-> dropped. It fills at most one entry per queue of the group and leaves
-> the rest of the user array untouched.
->
-> A queue can be flagged in fatal_queues without a CS_FATAL, for example
-> when the group was killed by a VM fault. Its entry then has a zero
-> exception. The VM fault itself is available through VM_GET_STATE.
+From: Frank Li <Frank.Li@nxp.com>
 
-From the caller's perspective, how do they discover that there is a VM
-fault and call VM_GET_STATE? Would they have to go through all of the
-fatal fault structs and check none of them have been populated with
-fault information?
 
-I wonder if it would make sense to add a new flag (something like
-DRM_PANTHOR_GROUP_VM_FAULT) to indicate that the group was killed by
-a VM fault instead, since for that case, DRM_PANTHOR_GROUP_STATE_FATAL_FAULT
-doesn't sound fully correct.
+On Thu, 26 Nov 2026 13:44:00 +0100, Lukasz Majewski wrote:
+> Add an entry for the i.MX8MM Cloos CBASE board.
 
->
-> Old userspace that passes the shorter struct still works, the DRM core
-> zero-fills the missing tail. A zero count skips the array.
->
-> Link: https://lore.kernel.org/r/20251215115457.2137485-3-lukas.zapolskas@arm.com
-> Link: https://lore.kernel.org/r/20251215115457.2137485-6-lukas.zapolskas@arm.com
-> Signed-off-by: Christian Gmeiner <cgmeiner@igalia.com>
-> ---
->  drivers/gpu/drm/panthor/panthor_drv.c   | 20 ++++++++++++++++++--
->  drivers/gpu/drm/panthor/panthor_sched.c | 32 +++++++++++++++++++++++++++++++-
->  drivers/gpu/drm/panthor/panthor_sched.h |  5 ++++-
->  include/uapi/drm/panthor_drm.h          | 30 ++++++++++++++++++++++++++++++
->  4 files changed, 83 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/gpu/drm/panthor/panthor_drv.c b/drivers/gpu/drm/panthor/panthor_drv.c
-> index 7572cd7d6423..fb5fdf848dec 100644
-> --- a/drivers/gpu/drm/panthor/panthor_drv.c
-> +++ b/drivers/gpu/drm/panthor/panthor_drv.c
-> @@ -181,7 +181,8 @@ panthor_get_uobj_array(const struct drm_panthor_obj_array *in, u32 min_stride,
->  		 PANTHOR_UOBJ_DECL(struct drm_panthor_queue_submit, syncs), \
->  		 PANTHOR_UOBJ_DECL(struct drm_panthor_queue_create, ringbuf_size), \
->  		 PANTHOR_UOBJ_DECL(struct drm_panthor_vm_bind_op, syncs), \
-> -		 PANTHOR_UOBJ_DECL(struct drm_panthor_bo_sync_op, size))
-> +		 PANTHOR_UOBJ_DECL(struct drm_panthor_bo_sync_op, size), \
-> +		 PANTHOR_UOBJ_DECL(struct drm_panthor_queue_fatal, exception_info))
->
->  /**
->   * PANTHOR_UOBJ_SET() - Copy a kernel object to a user object.
-> @@ -1254,10 +1255,25 @@ static int panthor_ioctl_group_create(struct drm_device *ddev, void *data,
->  static int panthor_ioctl_group_get_state(struct drm_device *ddev, void *data,
->  					 struct drm_file *file)
->  {
-> +	struct drm_panthor_queue_fatal fatals[MAX_CS_PER_CSG];
->  	struct panthor_file *pfile = file->driver_priv;
->  	struct drm_panthor_group_get_state *args = data;
-> +	u64 usr_ptr = args->queue_fatals.array;
-> +	u32 stride = args->queue_fatals.stride;
-> +	u32 count;
-> +	int ret;
->
-> -	return panthor_group_get_state(pfile, args);
-> +	ret = panthor_group_get_state(pfile, args, fatals, &count);
-> +	if (ret)
-> +		return ret;
-> +
-> +	for (u32 i = 0; i < count; i++) {
-> +		ret = PANTHOR_UOBJ_SET(usr_ptr + (u64)i * stride, stride, fatals[i]);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	return 0;
->  }
->
->  static int panthor_ioctl_tiler_heap_create(struct drm_device *ddev, void *data,
-> diff --git a/drivers/gpu/drm/panthor/panthor_sched.c b/drivers/gpu/drm/panthor/panthor_sched.c
-> index a343c5180e01..40400b2e4551 100644
-> --- a/drivers/gpu/drm/panthor/panthor_sched.c
-> +++ b/drivers/gpu/drm/panthor/panthor_sched.c
-> @@ -485,6 +485,15 @@ struct panthor_queue {
->  		/** @profiling.seqno: Index of the next available profiling information slot. */
->  		u32 seqno;
->  	} profiling;
-> +
-> +	/**
-> +	 * @fatal: Last CS_FATAL reported on this queue.
-> +	 *
-> +	 * Never cleared, a later CS_FATAL overwrites it. A zero exception
-> +	 * means no CS_FATAL was reported. Protected by
-> +	 * panthor_scheduler::events_lock.
-> +	 */
-> +	struct drm_panthor_queue_fatal fatal;
->  };
->
->  /**
-> @@ -1412,10 +1421,20 @@ cs_slot_process_fatal_event_locked(struct panthor_device *ptdev,
->  	info = cs_iface->output->fatal_info;
->
->  	if (group) {
-> +		struct panthor_queue *queue = cs_id < group->queue_count ?
-> +					      group->queues[cs_id] : NULL;
-> +
->  		drm_warn(&ptdev->base, "CS_FATAL: pid=%d, comm=%s\n",
->  			 group->task_info.pid, group->task_info.comm);
->
->  		atomic_or(BIT(cs_id), &group->fatal_queues);
-> +
-> +		if (queue) {
-> +			queue->fatal = (struct drm_panthor_queue_fatal){
-> +				.exception = fatal,
-> +				.exception_info = info,
-> +			};
-> +		}
->  	}
->
->  	if (CS_EXCEPTION_TYPE(fatal) == DRM_PANTHOR_EXCEPTION_CS_UNRECOVERABLE) {
-> @@ -3818,8 +3837,11 @@ static struct panthor_group *group_from_handle(struct panthor_group_pool *pool,
->  }
->
->  int panthor_group_get_state(struct panthor_file *pfile,
-> -			    struct drm_panthor_group_get_state *get_state)
-> +			    struct drm_panthor_group_get_state *get_state,
-> +			    struct drm_panthor_queue_fatal *fatals,
-> +			    u32 *fatal_count)
->  {
-> +	struct drm_panthor_obj_array queue_fatals = get_state->queue_fatals;
->  	struct panthor_group_pool *gpool = pfile->groups;
->  	struct panthor_device *ptdev = pfile->ptdev;
->  	struct panthor_scheduler *sched = ptdev->scheduler;
-> @@ -3833,6 +3855,9 @@ int panthor_group_get_state(struct panthor_file *pfile,
->  		return -EINVAL;
->
->  	memset(get_state, 0, sizeof(*get_state));
-> +	get_state->queue_fatals = queue_fatals;
-> +
-> +	*fatal_count = min(queue_fatals.count, group->queue_count);
->
->  	mutex_lock(&sched->lock);
->  	if (atomic_read(&group->timedout))
-> @@ -3844,6 +3869,11 @@ int panthor_group_get_state(struct panthor_file *pfile,
->
->  	if (group->innocent)
->  		get_state->state |= DRM_PANTHOR_GROUP_STATE_INNOCENT;
-> +
-> +	scoped_guard(spinlock, &sched->events_lock) {
-> +		for (u32 i = 0; i < *fatal_count; i++)
-> +			fatals[i] = group->queues[i]->fatal;
-> +	}
->  	mutex_unlock(&sched->lock);
->
->  	group_put(group);
-> diff --git a/drivers/gpu/drm/panthor/panthor_sched.h b/drivers/gpu/drm/panthor/panthor_sched.h
-> index d87cbdba4d40..dd3d31c06cf1 100644
-> --- a/drivers/gpu/drm/panthor/panthor_sched.h
-> +++ b/drivers/gpu/drm/panthor/panthor_sched.h
-> @@ -14,6 +14,7 @@ struct drm_minor;
->  struct drm_panthor_group_create;
->  struct drm_panthor_queue_create;
->  struct drm_panthor_group_get_state;
-> +struct drm_panthor_queue_fatal;
->  struct drm_panthor_queue_submit;
->  struct panthor_device;
->  struct panthor_file;
-> @@ -26,7 +27,9 @@ int panthor_group_create(struct panthor_file *pfile,
->  			 u64 drm_client_id);
->  int panthor_group_destroy(struct panthor_file *pfile, u32 group_handle);
->  int panthor_group_get_state(struct panthor_file *pfile,
-> -			    struct drm_panthor_group_get_state *get_state);
-> +			    struct drm_panthor_group_get_state *get_state,
-> +			    struct drm_panthor_queue_fatal *fatals,
-> +			    u32 *fatal_count);
->
->  struct drm_sched_job *
->  panthor_job_create(struct panthor_file *pfile,
-> diff --git a/include/uapi/drm/panthor_drm.h b/include/uapi/drm/panthor_drm.h
-> index 85e197d7a528..c9a681762b96 100644
-> --- a/include/uapi/drm/panthor_drm.h
-> +++ b/include/uapi/drm/panthor_drm.h
-> @@ -1072,6 +1072,27 @@ enum drm_panthor_group_state_flags {
->  	DRM_PANTHOR_GROUP_STATE_INNOCENT = 1 << 2,
->  };
->
-> +/**
-> + * struct drm_panthor_queue_fatal - Fatal error of a single queue.
-> + */
-> +struct drm_panthor_queue_fatal {
-> +	/**
-> +	 * @exception: Raw CS_FATAL value.
-> +	 *
-> +	 * Zero if no CS_FATAL was reported on this queue. A queue can be
-> +	 * flagged in drm_panthor_group_get_state::fatal_queues without a
-> +	 * CS_FATAL, for instance when the group was killed by a VM fault.
-> +	 * A later CS_FATAL overwrites the previous one.
-> +	 */
-> +	__u32 exception;
-> +
-> +	/** @pad: Will be zero on return. */
-> +	__u32 pad;
-> +
-> +	/** @exception_info: Raw CS_FATAL_INFO value, valid if @exception is non-zero. */
-> +	__u64 exception_info;
-> +};
-> +
->  /**
->   * struct drm_panthor_group_get_state - Arguments passed to DRM_IOCTL_PANTHOR_GROUP_GET_STATE
->   *
-> @@ -1093,6 +1114,15 @@ struct drm_panthor_group_get_state {
->
->  	/** @pad: MBZ */
->  	__u32 pad;
-> +
-> +	/**
-> +	 * @queue_fatals: Array of struct drm_panthor_queue_fatal, indexed by queue.
-> +	 *
-> +	 * Entry N describes the queue at index N of the group creation array.
-> +	 * The driver fills at most as many entries as the group has queues and
-> +	 * leaves the rest untouched. A zero count skips the array.
-> +	 */
-> +	struct drm_panthor_obj_array queue_fatals;
->  };
->
->  /**
->
-> --
-> 2.56.0
->
+Applied, thanks!
+
+[1/3] dt-bindings: arm: fsl: Add an entry for Cloos CBASE board
+      commit: 07b6d12c7f2fd20424dc6c28596e807aa68999b4
+[2/3] dt-bindings: hwmon: Add National/TI LM77 temperature sensor
+      commit: 4e2aee441a877bc5688ead92e33d9295ef610826
+[3/3] arm64: dts: imx8mm: Add Cloos CBASE support
+      commit: 24154ccfd63b6d151ed5557f769865e84b26b964
+
+Best regards,
+-- 
+Frank Li <Frank.Li@nxp.com>
