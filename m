@@ -1,58 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.97
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795706546;
-	b=32veDFKiik4iqvrYkHw9bDGPblfQIoheIAlYBNRecVUK/s6eMaNpSSOBuQkm+03dJU1V
-	 F/VUZ586NKSgz30wkLbkAaAKqcjRUKrDQGHByA0RmDL9jcP5eppK7I8p/0Tin1Qt9/u4j
-	 vPar/G0Rs4JnMu+J0BQqJFSFKTf3Y9R4DjUBwpDSKm1Sey7IqC3gY2gRobrQ2+/9itGbz
-	 Sf4K9E608OkWOm5M1q4KIkbZzxsfVDlmUsE6LP19wMwDzaCHqrblCLKbC/UJtMchjLC+q
-	 9/hf0RhdQx4va7mghuyVlaPUUUPdFfHnnsW3245A3gMkPbcv3RiLT3IyXHCPvD+QXZQ==
+	t=1795706557;
+	b=KLwtOIp/oFcnIAyhAPpYf7sVX+tAYN7/nH6/2ZWmDz8vT2IIumBZGgpsdXdhZom20jwy
+	 f2KqjXEhOAG8PrKjRXjSXDcWC3EKg7f0EhfrbPSdfhHEBfqJDmGmPNBvfk+eS7XQ3wCns
+	 zu6aTkakZ2ncCviSAgKriKU51Z6EJjwxv5ubk6ytSPCt63cPHEudlzbcisqdpOiCvvLkw
+	 GJ2xfF06tX4wSnOSLE6168tF8ouHwct8Jcbu1hDXoFyA0zIWt5IEUAzabt+YGGJVSqx+g
+	 VQ68vN7cITtvKdsy/tM9KJuoAOO47BpJ6GGeT9LF9rMvib04Njb9JI0fc3wHg/Yn2yQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795706546;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=VpEu+mJf+gvKieDmE+OajqJCgi0lHVmWfASEOdaIKk8=;
-	b=hOq1hWKyW/i8ZzWF06F/qfnCQN6bCUEOoGUYXUMNOKPTd3biWDGDEAfHzjZSoQRFanMu
-	 Q8RpQLQcAYtbEprvuon3kYzInZmlEgx5WUpfmmY35zR8FvLSu8e6AwyvKYK7295t6XHc4
-	 qpSn5ndGazcYLkW9i0XwcTVl7UDNAXUYN5zaYriWanfEkeJPdvbvtLx2NFZWWTR89WhYS
-	 GoX1PBupjPaZpTgQbzeqTRm8eJQuitVTqDVqS9hsyigQniLfVY4MYDoKemq+hZEgjM0KG
-	 2WwvCrI8s0c25E5VVfJxO5RK0sTqVJfwUB8sGzybIlsNW1+y/vw0X/TNIJ1bUQRZm1Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795706557;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ZvT7tk3P1HeqkH7Q6Z2/RmsaVAZjfaSe3LTozOquko0=;
+	b=XjlC8tJXZsV9dIMdBZwBoePoaidRuFYxS1y0aKgEPDJ8BpQDzUFMS7Qr3aKLdfj8JWaI
+	 dW8/zoLWNT0C1aV3x+AbXiHvf7/YL72tFflD64bBCuQJkBjNCZ7b2CmZebUZ/IWW2SS9k
+	 HNadJxd7b/xHVyfbJo6SuuKac7mDHIL6LKuISVylXkUvd/RKHhsLIZTRdDP9xedVZF1oE
+	 r04x8IekcYfLx0jiNODdqCsSwoVa7mzRNKCqIltcEyeXqyM2GMu5JDL5ZvwZ7UQB9yGE1
+	 bmTdByBz/FFUzcqLsKMkPqzz5pDgPqxYOMgRbQTXJURHMMjS0NM9h8RZ5MuebbRcsYQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OEc9OpLr;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Ks17Enb5;
+	arc=none smtp.remote-ip=95.215.58.97
+Received: from mta1.migadu.com (out-97.mta1.migadu.com [95.215.58.97])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9068D606A31C;
-	Thu, 26 Nov 2026 15:22:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DC03606A327
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:22:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9DC03606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OEc9OpLr
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E89BB1F000CA;
-	Thu, 26 Nov 2026 15:22:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795706546;
-	bh=VpEu+mJf+gvKieDmE+OajqJCgi0lHVmWfASEOdaIKk8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OEc9OpLrRQryRwxV8IddLVdgynynt92DYumKR2IFn+vEihjjtYB7gIC7tpDqjcXDy
-	 msJawpHjoufAASZpyAquIdGLtwwtMxgMiZshHvrKnCs76sBngY1nQcXcVQp9NbNY1x
-	 0obQ+bxUiA2AgXRJwr8zSPHYTWnvhOxoQlI+vJcOAOFo/qeTmkht8z29lYWZT4CLGd
-	 szmFmNtTipN5uQ8EeSOA0Bk8ZFS25blwR1Sloo9giQ2aA+b8fPYqFQjWJe1RMA3R6d
-	 qXBGLnhth2wbY4e3/93sXIHKfEKpiTJGOMLZlS8NIJQi9uQVWH59r83oYNTb4AAdgN
-	 wMntd0bjG+mag==
-Date: Thu, 26 Nov 2026 15:22:21 +0000
-From: Simon Horman <horms@kernel.org>
-To: netdev-bot+sashiko@kernel.org
-Cc: nshettyj@marvell.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, rkudurumalla@marvell.com,
-	sgoutham@marvell.com, rkannoth@marvell.com, gakula@marvell.com,
-	sbhatta@marvell.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com
-Subject: Re: [PATCH net v4] octeontx2-af: Fix BPID leaks in NIX backpressure
- enable/disable
-Message-ID: <20261126152221.GC31322@horms.kernel.org>
-References: <20261119085434.2598197-1-nshettyj@marvell.com>
- <179542493892.3135.7516887793037759713@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Ks17Enb5
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=XxWyPvAJ0IroYsLOy5V5ybJak6wZ0/ht/VqjPuOuhjc=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795706554; v=1; x=1796311354;
+ b=Ks17Enb5Bv5JBp2cuKuvKzhoShVMZG4mRbSJwl7OZUw3wz/j843U/gHujp3PmAtYu5LSdZi0
+ s0bhcvYbkh0XYprknwYneLk9cjUKIWo2y2SAW3gL9AnfJe10PfxWWYIdfm9z+nUut/o1Amh33/a
+ sqlnI4/DUwy6GFey0+Qrx30M=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id c2ce6ddd70b19568;
+	Thu, 26 Nov 2026 15:22:34 +0000
+X-Mizu-Trace-ID: c2ce6ddd70b19568
+X-Migadu-Flow: FLOW_OUT
+Date: Thu, 26 Nov 2026 07:22:26 -0800
+From: Shakeel Butt <shakeel.butt@linux.dev>
+To: Tejun Heo <tj@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org>, 
+	Roman Gushchin <roman.gushchin@linux.dev>, Muchun Song <muchun.song@linux.dev>, 
+	David Hildenbrand <david@kernel.org>, Qi Zheng <qi.zheng@linux.dev>, Lorenzo Stoakes <ljs@kernel.org>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, 
+	Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>, Greg Thelen <gthelen@google.com>, 
+	Greg KH <greg@kroah.com>, Ming Lei <tom.leiming@gmail.com>, linux-mm@kvack.org, 
+	cgroups@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RESEND] mm/vmscan: Fix legacy memcg reclaim deadlock
+ against filesystem freeze
+Message-ID: <20261126152137.GA738059@shakeel.butt@linux.dev>
+References: <17d0d1395c0237d201a1abb2473d51f5@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,38 +71,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179542493892.3135.7516887793037759713@kernel.org>
+In-Reply-To: <17d0d1395c0237d201a1abb2473d51f5@kernel.org>
 
-On Mon, Nov 23, 2026 at 09:08:58AM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 5 potential
-> issue(s) to consider.
+On Thu, Nov 26, 2026 at 02:08:56AM -1000, Tejun Heo wrote:
+> Legacy memcg reclaim has no dirty throttling, and shrink_folio_list() waits
+> for a folio that is under writeback and already marked for reclaim (case 3
+> in its comment). That wait can deadlock against a filesystem freeze:
 > 
-> Critical: 0 · High: 1 · Medium: 3 · Low: 1
+> 1. A task in write() to filesystem B holds freeze protection on B, enters
+>    memcg reclaim and waits for writeback of a folio of a filesystem on a
+>    loop device backed by a file on B.
 > 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
+> 2. A freeze of B waits for the task to drop its freeze protection.
 > 
-> - [High] The new channel range checks in nix_bp_disable()
->   (rvu_nix.c:672-677) and nix_bp_enable() (rvu_nix.c:822-827) validate…
-> - [Medium] nix_bp_enable() (rvu_nix.c:832-857) still leaks an LBK BPID
->   whenever NIX_BP_ENABLE or NIX_CPT_BP_ENABLE is sent for a channel that…
-> - [Medium] nix_bp_chan_disable() (rvu_nix.c:624-639) passes 'cfg &
->   GENMASK_ULL(8, 0)' to nix_bp_free_lbk_bpid() without checking that…
-> - [Medium] nix_bp_enable() now saves each allocated BPID in
->   rsp->chan_bpid[i] (line 844) and later reads it back from rsp to…
-> - [Low] The commit message undersells one of the problems this patch
->   fixes.
+> 3. The loop worker has to take freeze protection on B to write the folio out
+>    and blocks behind the freeze.
+> 
+> The same applies to any driver that writes to a file on a local filesystem
+> to serve block I/O and takes freeze protection for it.
+> 
+> Reclaim can't tell which filesystem a writeback depends on. Count the
+> superblocks that are being frozen and make the wait time out after 15
+> seconds. If one is being frozen at that point, warn and give up. Until none
+> is, treat such folios like case 2 and skip the legacy writeback throttle, so
+> that the task a freeze may be waiting for isn't held up.
+> 
+> This trades the deadlock for premature memcg OOM kills during such a freeze.
+> The wait also no longer hits the folio_wait_writeback tracepoint, and the
+> hung task detector no longer reports a task stuck in it for another reason
+> as the task wakes up every 15 seconds.
+> 
+> Fixes: e62e384e9da8 ("memcg: prevent OOM with too many dirty pages")
+> Reported-by: Christian Brauner <brauner@kernel.org>
+> Signed-off-by: Tejun Heo <tj@kernel.org>
+> Reviewed-by: Johannes Weiner <hannes@cmpxchg.org>
+> Reviewed-by: Christian Brauner (Amutable) <brauner@kernel.org>
 
-The above concerns look legit to me, especially the mailbox TOCTOU and the
-BPID lifetime issues.
-
--- 
-pw-bot: changes-requested
-
-...
+Acked-by: Shakeel Butt <shakeel.butt@linux.dev>
