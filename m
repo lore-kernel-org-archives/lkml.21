@@ -1,45 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.71.93.112
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.71.93.99
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795698980;
-	b=r7sFANC7tXR/wuch+J78ytoPGlpaHVBVlCZ8I9OmVf/akqVFzPZ8he0gW6z9hjgn1F5Z
-	 GNXBdvzg9U65Oh6q1eqOU2bO0YSGhnYc4SVYWwGdWGdmG7jPcG9msGhfdSqcYsNTqMDgs
-	 3IvcGJsNw/ObKgfigez4TKVPvgvBRj29/mSFSNd+P6mxaXwqlQR5KIShKggIv1pIocvqG
-	 o1y/WQLTboOHdattjfrz6CF00Pw2/JL9YUuupRGm2aChBGe1HtEmM7+mzgpNyIE3mhNOF
-	 JeEI7JDNPPw++rknFbwsO+fntX8phznELIO6j7XYugFzoVkVGUyiNglBcidSk3AxK4w==
+	b=mUDY/WYWkDFP8AUQqSTivmYXPQAxfVNw/itG/Je6RWhcy95FiwfPA6YSv0sar6SdMMqQ
+	 JFLdl1Jjm3XyfPwdoNuGuRmun8vqwhhSZkMB/kbh6VPObAhYDbZ42qxXdeRhY4Y9AzZbG
+	 ZIDFPHhovln5gzDCoBJeZjMURf7wntn2gvb8AfL9BaRVkY5eeyhNwnSXOgPEVNHMCGBeC
+	 LmJ+tVvKG3UtYoqxjgFeYIA8DvPszjEXR9SYMJ5lN5N3rcHmvB3oeWFRmWqfcF2CPdVz5
+	 XJR9ZzgXAP5tR9v/POHCVHAdFghoUxdkQpZcDY1+gvl11ED5OxZlUFZlAsJ6n4HEZ+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795698980;
 	h=DMARC-Filter:Received:Received:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
 	 X-CM-SenderInfo;
-	bh=7vMxn8cs6o/MxZq0DDy8EQsyxcWpTQpJsT6yJxc3BiY=;
-	b=c81R9tWvp9w77EFBjxfUJTYPzYdKwtieucy8P8Lijawc5+AgXoqAC7bWCZLVvrzVJHRW
-	 2/UEZY2xUi/Kt6IKSllSWMneiHRQs0/uRqtc2zbIRv24H9BfWhzkC21J385lyN9QYVmjE
-	 LyEk+bfuQi4Oj0MGKV9GNBXd5KI+4MWvHZOHeeBLR/j6mRY1GQYR1NRQcJ5sXLEL9bO/e
-	 p7gtcSBonMGNZxxTnV0n6MvN6RUbIOZTAMF/7VzyTyzFnFyyYyjZanOSb43MmxGCD66bX
-	 /cyPxrntYBEWpJqUpMbgnwPdXbmVxk50+tjOhGhec31B+qt0+ykPOAFcitEo0D7ykPQ==
+	bh=Dm3o7HWyrwQi/Bxo40IS1mpfQYFyG5QMf6JJuORWUwo=;
+	b=u5euFUbfETodt5LzuDntlQzUgS46D6JUEWD/gL79EUVo9HzGIBGEBplxNZQ1qeJJ4+U0
+	 p2nxMpHwviK65/V/Td5bwMDNhNdwvzhqSGCLf8/d5z38BBO8Fd6bJLcFSalCQlxa28IJk
+	 NZ6dHdYnhYOFgzvLOVwrWxpJHDKnqzXqZpNRI5K4c2ut11crcnjzc0hHul9BMMVpucMlb
+	 mpTB7wPkrosGX3hgyF7WiFNVk9vqAWnLHxkLwI6rpvKRj4kd5EIPYNxNEWb4P7IK5QGjq
+	 o9AJpEJDljdCu76n1Fkliv0hw0WAX2+YAXeWnGlvGMUe5o3F6+enOTUHltoP0fZlrVA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=huaweicloud.com;
 	spf=none smtp.mailfrom=huaweicloud.com;
-	arc=none smtp.remote-ip=124.71.93.112
-Received: from dggmsgout12.his.huawei.com (dggmsgout12.his.huawei.com [124.71.93.112])
+	arc=none smtp.remote-ip=124.71.93.99
+Received: from dggmsgout11.his.huawei.com (dggmsgout11.his.huawei.com [124.71.93.99])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CAE6606A330
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:16:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0CAE6606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1276606A334
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:16:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1276606A334
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=huaweicloud.com
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=huaweicloud.com
-Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggmsgout12.his.huawei.com (SkyGuard) with ESMTP id 4jZxrV1dQDz20dJ
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:16:10 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.19.163.170])
+	by dggmsgout11.his.huawei.com (SkyGuard) with ESMTP id 4jZxrS1cmkz1c29T
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:16:08 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.252])
-	by mail.maildlp.com (Postfix) with ESMTP id A261F40574
+	by mail.maildlp.com (Postfix) with ESMTP id 2D71B40561
 	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:16:15 +0800 (CST)
 Received: from huawei.com (unknown [10.67.174.193])
-	by APP3 (Coremail) with UTF8SMTPA id _Ch0CgAHDgEOMQhrq143Fw--.33284S9;
-	Thu, 26 Nov 2026 21:16:15 +0800 (CST)
+	by APP3 (Coremail) with UTF8SMTPA id _Ch0CgAHDgEOMQhrq143Fw--.33284S5;
+	Thu, 26 Nov 2026 21:16:14 +0800 (CST)
 From: Luo Gengkun <luogengkun@huaweicloud.com>
 To: Peter Zijlstra <peterz@infradead.org>,
 	Ingo Molnar <mingo@redhat.com>,
@@ -54,9 +54,9 @@ Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>,
 	Mel Gorman <mgorman@suse.de>,
 	Valentin Schneider <vschneid@redhat.com>,
 	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 7/7] samples/bpf: Add pipe-based cache hint example
-Date: Thu, 26 Nov 2026 13:48:28 +0000
-Message-Id: <6c3450d84aa6eb91ab6f22a04d7f724a77824ca1.1795691926.git.luogengkun2@huawei.com>
+Subject: [RFC PATCH 3/7] sched/cache: Introduce the task affinity group
+Date: Thu, 26 Nov 2026 13:48:24 +0000
+Message-Id: <df8628df627d603e038f5228b08b8b63000b5e50.1795691926.git.luogengkun2@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1795691926.git.luogengkun2@huawei.com>
 References: <cover.1795691926.git.luogengkun2@huawei.com>
@@ -70,700 +70,430 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_Ch0CgAHDgEOMQhrq143Fw--.33284S9
-X-Coremail-Antispam: 1UD129KBjvAXoW3Zw45XFW3Kw13Zw17Ar1xuFg_yoW8CrW8Ko
-	WfZws8AF48GFyUu3yDCrn5Cr43Z3yvg3sxAr4Ygr4fZa4xGry5Wr4xGrZ5J3W2vr4Ykwsr
-	Za40va1fXF4fZFn5n29KB7ZKAUJUUUU5529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UjIYCTnIWjp_UUUOY7kC6x804xWl14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK
-	8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF
-	0E3s1l82xGYIkIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vE
-	j48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxV
-	AFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x02
-	67AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I
-	80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCj
-	c4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4
-	kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E
-	5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtV
-	W8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4UMIIF0xvE2Ix0cI8IcVCY
-	1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67
-	AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZE
-	Xa7IU1aLvJUUUUU==
+X-CM-TRANSID:_Ch0CgAHDgEOMQhrq143Fw--.33284S5
+X-Coremail-Antispam: 1UD129KBjvAXoWfGw4UuF43GrWUWFyrGw1fXrb_yoW8JFy7Zo
+	WSy3yrJr18K348JrZ5GFn5JrW8u34Y9r9xAr45urnxG3WDZ348G34UGwn8Wa4fXFWIkFs3
+	A3WkXan8Ca1Utw1rn29KB7ZKAUJUUUU5529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UjIYCTnIWjp_UUUO07kC6x804xWl14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK
+	8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr
+	Wl82xGYIkIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
+	xVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ew
+	Av7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY
+	6r1j6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14
+	v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8C
+	rVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8Zw
+	CIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x02
+	67AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r
+	4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjxU
+	FF4iUUUUU
 X-CM-SenderInfo: 5oxrwvpqjn3046kxt4xhlfz01xgou0bp/
 
-Two BPF objects attach to the same pair of pipe hooks: a detector that
-learns who talks to whom and asks the kernel to account those tasks
-together, and an empty one that prices the hook itself.  Run them under
-the same workload and the difference is the cost of the policy.
+A cache group belongs to an mm today, and it is what gathers all the
+tasks of a thread group together.  But it cannot gather tasks from
+different mms: two processes talking through a pipe, for example, have
+data affinity, yet still cannot be gathered together.  To address this
+problem, add the affinity group: it belongs to no mm, so it can gather
+tasks from different mms.
 
- scg_pipe_hint.bpf.c
- -------------------
-The detector.  fentry on anon_pipe_read and anon_pipe_write, keyed by the
-pipe_inode_info the two ends share.  Every task that touches a pipe takes
-a slot on its own side and is counted there; it is admitted once its own
-traffic on that pipe passes 100 writes or reads, so a shell pipeline or a
-one-shot hand-off never counts, and a task that arrives when its side is
-full (16 slots) is dropped.
+An mm's group and an affinity group are the two kinds of cache group,
+told apart by the new type field.  An affinity group adds two members:
 
- scg_pipe_noop.bpf.c
- -------------------
-The same two hooks with an empty body.  It prices the fentry trampoline
-with the policy removed, so the two objects can be compared under one
-workload without guessing how much of a regression is the hook and how
-much is the hints.
+  - parent, used only by affinity groups: when two affinity groups
+    merge, the loser points to the winner
+  - rank, used only by affinity groups: when two affinity groups merge,
+    rank decides the winner
+
+Submitting sched_cache_hint(x, y) is all it takes to gather x and y
+into one affinity group.  An example:
+
+          before                     after
+
+      [ A ]      [ B ]            [ A ]----->[ B ]
+      /   \      /   \            /   \      /   \
+     t1    t2   t3   t4          t1    t2   t3   t4
+
+This commit only sets A->parent to B; updating the sched_cache_grp of
+the tasks in A to follow the link is implemented in the next commit.
 
 Signed-off-by: Luo Gengkun <luogengkun@huaweicloud.com>
 ---
- samples/bpf/Makefile             |   4 +
- samples/bpf/scg_pipe_hint.bpf.c  | 361 +++++++++++++++++++++++++++++++
- samples/bpf/scg_pipe_hint_user.c | 210 ++++++++++++++++++
- samples/bpf/scg_pipe_noop.bpf.c  |  24 ++
- 4 files changed, 599 insertions(+)
- create mode 100644 samples/bpf/scg_pipe_hint.bpf.c
- create mode 100644 samples/bpf/scg_pipe_hint_user.c
- create mode 100644 samples/bpf/scg_pipe_noop.bpf.c
+ include/linux/sched.h      |  19 +++
+ kernel/sched/cache_sched.c | 280 ++++++++++++++++++++++++++++++++++++-
+ 2 files changed, 296 insertions(+), 3 deletions(-)
 
-diff --git a/samples/bpf/Makefile b/samples/bpf/Makefile
-index 95a4fa1f1e44..90e166f5b129 100644
---- a/samples/bpf/Makefile
-+++ b/samples/bpf/Makefile
-@@ -32,6 +32,7 @@ tprogs-y += test_map_in_map
- tprogs-y += per_socket_stats_example
- tprogs-y += syscall_tp
- tprogs-y += cpustat
-+tprogs-y += scg_pipe_hint
- tprogs-y += xdp_adjust_tail
- tprogs-y += xdp_fwd
- tprogs-y += task_fd_query
-@@ -73,6 +74,7 @@ test_map_in_map-objs := test_map_in_map_user.o
- per_socket_stats_example-objs := cookie_uid_helper_example.o
- syscall_tp-objs := syscall_tp_user.o
- cpustat-objs := cpustat_user.o
-+scg_pipe_hint-objs := scg_pipe_hint_user.o
- xdp_adjust_tail-objs := xdp_adjust_tail_user.o
- xdp_fwd-objs := xdp_fwd_user.o
- task_fd_query-objs := task_fd_query_user.o $(TRACE_HELPERS)
-@@ -116,6 +118,8 @@ always-y += tcp_dumpstats_kern.o
- always-y += xdp2skb_meta_kern.o
- always-y += syscall_tp_kern.o
- always-y += cpustat_kern.o
-+always-y += scg_pipe_hint.bpf.o
-+always-y += scg_pipe_noop.bpf.o
- always-y += xdp_adjust_tail_kern.o
- always-y += xdp_fwd_kern.o
- always-y += task_fd_query_kern.o
-diff --git a/samples/bpf/scg_pipe_hint.bpf.c b/samples/bpf/scg_pipe_hint.bpf.c
-new file mode 100644
-index 000000000000..81f386572d06
---- /dev/null
-+++ b/samples/bpf/scg_pipe_hint.bpf.c
-@@ -0,0 +1,361 @@
-+// SPDX-License-Identifier: GPL-2.0-only
+diff --git a/include/linux/sched.h b/include/linux/sched.h
+index 3073ed421b58..de270443cffa 100644
+--- a/include/linux/sched.h
++++ b/include/linux/sched.h
+@@ -2406,6 +2406,16 @@ struct sched_cache_time {
+ 	unsigned long epoch;
+ };
+ 
 +/*
-+ * scg_pipe_hint.bpf.c -- hint a cache group for tasks exchanging pipe data.
-+ *
-+ * One LRU hash entry per anonymous pipe, keyed by the pipe_inode_info
-+ * address, holds the tasks seen on each side of it:
-+ *
-+ *	nwriters, writers[], wcnt[]	the writers and their write counts
-+ *	nreaders, readers[], rcnt[]	the readers and their read counts
-+ *	anchor				the first member to pass its
-+ *					threshold
-+ *	pending				bit i: writers[i] not linked
-+ *					yet, bit MAX_WRITERS + j:
-+ *					readers[j] not linked yet
-+ *
-+ * Every task that touches the pipe takes a slot on its own side and is
-+ * counted there.  It is admitted once its own traffic on this pipe passes
-+ * HINT_THRESHOLD, and dropped if it arrives when its side is full.
-+ *
-+ * Either hook may submit, so neither side waits for the other.  A pending
-+ * member is hinted once, against the anchor, never as a pair: hints merge
-+ * transitively, so N members need at most N-1 hints, and a reader switch
-+ * cannot resubmit the set the way a per-reader bitmap would.  A member that
-+ * has already exited is skipped; a hint is advisory, so a lost one is not
-+ * worth retrying.
-+ *
-+ * Cost.  A call below the threshold costs one slot scan and one saturated
-+ * counter bump; a member already linked costs the same scan plus two
-+ * compares.  No task is resolved in either case.  The metrics map is looked
-+ * up on every call and exists only to price this program.
++ * The kind of a cache group.  An mm's group and an affinity group are the
++ * only kinds there are, and only an affinity group ever carries a merge
++ * link: the type tells them apart.
 + */
-+#include "vmlinux.h"
-+#include <bpf/bpf_helpers.h>
-+#include <bpf/bpf_tracing.h>
-+
-+/* kernel kfuncs: connect two tasks in one accounting group */
-+extern s32 scg_bpf_submit_hint(u32 tid1, u32 tid2) __ksym;
-+extern s32 scg_bpf_submit_hint_tsk(struct task_struct *t1,
-+				   struct task_struct *t2) __ksym;
-+
-+#define MAX_PIPES	4096
-+/* Writes or reads one task needs on a pipe before it is admitted. */
-+#define HINT_THRESHOLD	100
-+/* Slots per pipe, each side.  A task that arrives when its side is full is
-+ * dropped, never displacing a member already there.
-+ */
-+#define MAX_WRITERS	16
-+#define MAX_READERS	16
-+#define MAX_MEMBERS	(MAX_WRITERS + MAX_READERS)
-+/* Per-slot counters saturate; past the threshold only "hot" matters. */
-+#define COUNT_MAX	255
-+
-+struct pipe_state {
-+	u32 nwriters;			/* used slots in writers[] */
-+	u32 nreaders;			/* used slots in readers[] */
-+	u32 anchor;			/* first member; the star's centre */
-+	u32 pending;			/* bit i: writers[i] not linked yet,
-+					 * bit MAX_WRITERS + j: readers[j]
-+					 */
-+	u32 writers[MAX_WRITERS];	/* admitted writers, in arrival order */
-+	u32 readers[MAX_READERS];	/* admitted readers, in arrival order */
-+	u8 wcnt[MAX_WRITERS];		/* writes seen from writers[i] */
-+	u8 rcnt[MAX_READERS];		/* reads seen from readers[j] */
++enum cache_group_type {
++	CACHE_GROUP_MM = 0,
++	CACHE_GROUP_AFFINITY,
 +};
 +
-+struct hint_stats {
-+	u64 accepted;
-+	u64 skipped;
-+	u64 slots_full;			/* task dropped, its side was full */
-+	u64 new_pipes;			/* write hook created the entry */
-+};
+ struct sched_cache_group {
+ 	struct sched_cache_time __percpu *pcpu_sched;
+ 	raw_spinlock_t lock;
+@@ -2416,6 +2426,9 @@ struct sched_cache_group {
+ 	int cpu;
+ 	refcount_t refcnt;
+ 	atomic_t nr_threads;
++	enum cache_group_type		type;
++	struct sched_cache_group __rcu	*parent;
++	unsigned int			rank;
+ 	struct rcu_head rcu;
+ } ____cacheline_aligned_in_smp;
+ 
+@@ -2427,6 +2440,8 @@ void sched_cache_fork_cleanup(struct task_struct *p);
+ void sched_cache_exec_mmap(struct task_struct *p, struct mm_struct *mm);
+ void sched_cache_exit_mm(struct task_struct *p);
+ 
++int sched_cache_hint(struct task_struct *t1, struct task_struct *t2);
 +
-+/* Per CPU: a shared element would be written from every CPU and cost more
-+ * than the work it measures.
+ #else
+ 
+ struct sched_cache_group { };
+@@ -2436,6 +2451,10 @@ static inline void sched_cache_fork_cleanup(struct task_struct *p) { }
+ static inline void sched_cache_exec_mmap(struct task_struct *p, struct mm_struct *mm) { }
+ static inline void sched_cache_exit_mm(struct task_struct *p) { }
+ 
++static inline int sched_cache_hint(struct task_struct *t1, struct task_struct *t2)
++{
++	return -EOPNOTSUPP;
++}
+ #endif
+ 
+ #ifndef MODULE
+diff --git a/kernel/sched/cache_sched.c b/kernel/sched/cache_sched.c
+index e1562b6af0bc..52106c3ac049 100644
+--- a/kernel/sched/cache_sched.c
++++ b/kernel/sched/cache_sched.c
+@@ -1,5 +1,6 @@
+ // SPDX-License-Identifier: GPL-2.0-only
+ #include "sched.h"
++#include "cache_sched.h"
+ 
+ #define rcu_deref_sched_cache_grp(tsk) \
+ 	rcu_dereference_check((tsk)->sched_cache_grp, (tsk) == current)
+@@ -9,8 +10,14 @@ static struct sched_cache_group *sched_cache_replace_grp(struct task_struct *p,
+ {
+ 	struct sched_cache_group *old;
+ 
++	/*
++	 * A hint on another CPU may change the field concurrently.  cmpxchg
++	 * makes sure @old is the group this call actually replaced: that is
++	 * the one to detach, and a concurrent swap is left intact.
++	 */
+ 	old = rcu_deref_sched_cache_grp(p);
+-	rcu_assign_pointer(p->sched_cache_grp, new);
++	do {
++	} while (!try_cmpxchg(&p->sched_cache_grp, &old, new));
+ 
+ 	return old;
+ }
+@@ -19,10 +26,15 @@ static void sched_cache_group_free_rcu(struct rcu_head *rcu)
+ {
+ 	struct sched_cache_group *grp =
+ 		container_of(rcu, struct sched_cache_group, rcu);
++	struct sched_cache_group *parent;
+ 
+ 	WARN_ON_ONCE(atomic_read(&grp->nr_threads));
++	/* Only affinity groups hold it; for an mm's group this is NULL. */
++	parent = rcu_access_pointer(grp->parent);
+ 	free_percpu(grp->pcpu_sched);
+ 	kfree(grp);
++
++	sched_cache_group_put(parent);
+ }
+ 
+ void sched_cache_group_put(struct sched_cache_group *grp)
+@@ -120,8 +132,7 @@ void sched_cache_exec_mmap(struct task_struct *p, struct mm_struct *mm)
+ 	 * the store publishes it, so a reader that finds it in the field sees
+ 	 * a group @p is already counted in.  The store then hands over that
+ 	 * reference and the old group is detached, which drops both its
+-	 * membership and the reference it was published with.  @p is current
+-	 * and the only writer of its own pointer.
++	 * membership and the reference it was published with.
+ 	 */
+ 	old = sched_cache_replace_grp(p,
+ 			sched_cache_group_attach(mm->sched_cache_grp));
+@@ -194,3 +205,266 @@ sched_cache_alloc_group(struct sched_cache_time __percpu *_pcpu_sched)
+ 	sched_cache_group_init(grp, _pcpu_sched);
+ 	return grp;
+ }
++
++/*
++ * Follow the merge links up to the root of @grp, which is where the
++ * accounting lives.  Walking needs no lock of its own: the caller's
++ * reference on @grp keeps it alive, and every live affinity group holds a
++ * reference on its parent, so the chain cannot be freed under the walk.
 + */
-+struct hint_metrics {
-+	u64 write_calls;
-+	u64 read_calls;
-+	u64 read_noop;			/* read returned without submitting */
-+	u64 submits;			/* hint attempts actually made */
-+};
-+
-+struct {
-+	__uint(type, BPF_MAP_TYPE_LRU_HASH);
-+	__uint(max_entries, MAX_PIPES);
-+	__type(key, u64);
-+	__type(value, struct pipe_state);
-+} pipes SEC(".maps");
-+
-+struct {
-+	__uint(type, BPF_MAP_TYPE_ARRAY);
-+	__uint(max_entries, 1);
-+	__type(key, u32);
-+	__type(value, struct hint_stats);
-+} stats SEC(".maps");
-+
-+struct {
-+	__uint(type, BPF_MAP_TYPE_PERCPU_ARRAY);
-+	__uint(max_entries, 1);
-+	__type(key, u32);
-+	__type(value, struct hint_metrics);
-+} metrics SEC(".maps");
-+
-+/* The pipe_inode_info shared by both ends; identity only, never dereferenced. */
-+static __always_inline u64 pipe_id(struct kiocb *iocb)
++static struct sched_cache_group *scg_find_root(struct sched_cache_group *grp)
 +{
-+	const struct file *filp = iocb->ki_filp;
++	struct sched_cache_group *parent;
 +
-+	if (!filp)
-+		return 0;
-+	return (u64)(unsigned long)filp->private_data;
++	while ((parent = rcu_dereference(grp->parent)))
++		grp = parent;
++
++	return grp;
 +}
 +
-+/* Index of @tid in p->writers[], or -1. */
-+static __always_inline int writer_slot(struct pipe_state *p, u32 tid)
-+{
-+	int i;
-+
-+	for (i = 0; i < MAX_WRITERS; i++) {
-+		if (i >= p->nwriters)
-+			break;
-+		if (p->writers[i] == tid)
-+			return i;
-+	}
-+	return -1;
-+}
-+
-+/* Index of @tid in p->readers[], or -1. */
-+static __always_inline int reader_slot(struct pipe_state *p, u32 tid)
-+{
-+	int i;
-+
-+	for (i = 0; i < MAX_READERS; i++) {
-+		if (i >= p->nreaders)
-+			break;
-+		if (p->readers[i] == tid)
-+			return i;
-+	}
-+	return -1;
-+}
-+
-+/* Bump @cnt and report whether this call admitted the task.  A task is
-+ * admitted exactly once, so the caller sets the pending bit on the true
-+ * return only.
++/*
++ * Allocate an affinity group: a fresh group typed CACHE_GROUP_AFFINITY,
++ * never an mm's.  Returns with one reference, the caller's.  Sleeps, so
++ * call it with no lock held.
 + */
-+static __always_inline bool just_admitted(u8 *cnt)
++static struct sched_cache_group *scg_affinity_alloc(void)
 +{
-+	if (*cnt > HINT_THRESHOLD)
-+		return false;
-+	if (*cnt < COUNT_MAX)
-+		*cnt = *cnt + 1;
-+	return *cnt > HINT_THRESHOLD;
++	struct sched_cache_time __percpu *pcpu_sched;
++	struct sched_cache_group *grp;
++
++	pcpu_sched = alloc_percpu(struct sched_cache_time);
++	if (!pcpu_sched)
++		return NULL;
++
++	/* Frees @pcpu_sched itself when it fails. */
++	grp = sched_cache_alloc_group(pcpu_sched);
++	if (!grp)
++		return NULL;
++
++	grp->type = CACHE_GROUP_AFFINITY;
++
++	return grp;
 +}
 +
-+/* Hint @tid against @anchor_task; clear its pending bit either way. */
-+static __always_inline void link_member(struct pipe_state *p, u32 bit, u32 tid,
-+					struct task_struct *anchor_task,
-+					struct hint_stats *s,
-+					struct hint_metrics *m)
-+{
-+	struct task_struct *t;
-+
-+	p->pending = p->pending & ~bit;
-+
-+	t = bpf_task_from_pid(tid);
-+	if (!t) {
-+		if (s)
-+			s->skipped++;
-+		return;
-+	}
-+
-+	if (m)
-+		m->submits++;
-+	if (scg_bpf_submit_hint_tsk(anchor_task, t) == 0) {
-+		if (s)
-+			s->accepted++;
-+	}
-+	bpf_task_release(t);
-+}
-+
-+/* Link every admitted member that is not linked yet.  The first pending one
-+ * becomes the anchor if there is none; it is a member by definition, so its
-+ * own bit is cleared rather than linked to itself.
++/*
++ * Whether @p can be put into an affinity group.  A kernel thread has no mm
++ * to pin, and a task on its way out of one - the last exec or exit - is past
++ * the point where an affinity move means anything.
++ *
++ * Both are racy reads from another CPU: a stale read only lets a hint
++ * through, and the cmpxchg on the field settles that race like any other.
++ * What the checks buy is skipping an affinity allocation and swap for a task
++ * that is already gone.
 + */
-+static __always_inline void link_pending(struct pipe_state *p,
-+					 struct hint_stats *s,
-+					 struct hint_metrics *m)
++static bool scg_can_attach(struct task_struct *p)
 +{
-+	struct task_struct *anchor_task;
-+	int i;
-+
-+	if (!p->pending)
-+		return;
-+
-+	if (!p->anchor) {
-+		for (i = 0; i < MAX_MEMBERS; i++) {
-+			if (p->pending & (1u << i))
-+				break;
-+		}
-+		if (i >= MAX_MEMBERS) {
-+			p->pending = 0;
-+			return;
-+		}
-+		p->anchor = (i < MAX_WRITERS) ? p->writers[i] :
-+					       p->readers[i - MAX_WRITERS];
-+		p->pending = p->pending & ~(1u << i);
-+		if (!p->pending)
-+			return;
-+	}
-+
-+	anchor_task = bpf_task_from_pid(p->anchor);
-+	if (!anchor_task) {
-+		/* The anchor is gone; forget it and pick a new one next time. */
-+		p->anchor = 0;
-+		return;
-+	}
-+
-+	for (i = 0; i < MAX_MEMBERS; i++) {
-+		u32 bit = 1u << i;
-+		u32 tid;
-+
-+		if (!p->pending)
-+			break;
-+		if (!(p->pending & bit))
-+			continue;
-+		if (i < MAX_WRITERS) {
-+			if (i >= p->nwriters)
-+				continue;
-+			tid = p->writers[i];
-+		} else {
-+			if (i - MAX_WRITERS >= p->nreaders)
-+				continue;
-+			tid = p->readers[i - MAX_WRITERS];
-+		}
-+		if (tid == p->anchor) {
-+			p->pending = p->pending & ~bit;
-+			continue;
-+		}
-+		link_member(p, bit, tid, anchor_task, s, m);
-+	}
-+
-+	bpf_task_release(anchor_task);
++	return !(p->flags & (PF_KTHREAD | PF_EXITING)) &&
++	       !p->in_execve && p->mm;
 +}
 +
-+SEC("fentry/anon_pipe_write")
-+int BPF_PROG(pipe_write, struct kiocb *iocb, struct iov_iter *from)
++/*
++ * The task's entry into its affinity group: the group it accounts in.  A
++ * task outside any affinity group accounts in its mm's group; first contact
++ * switches it to a fresh affinity group here, so membership and accounting
++ * are one fact in one field.
++ *
++ * The switch mirrors sched_cache_replace_grp(): exec and exit race it from
++ * @t's own context, and two hints may race each other, so whoever wins the
++ * cmpxchg owns the attach and the detach of what it installed and replaced.
++ */
++static struct sched_cache_group *
++scg_get_or_alloc_affinity(struct task_struct *t)
 +{
-+	struct hint_metrics *m;
-+	struct pipe_state *p;
-+	u64 id = pipe_id(iocb);
-+	u32 zero = 0;
-+	u32 me;
-+	int i;
++	struct sched_cache_group *c, *new;
 +
-+	m = bpf_map_lookup_elem(&metrics, &zero);
-+	if (m)
-+		m->write_calls++;
-+
-+	if (!id)
-+		return 0;
-+
-+	me = (u32)bpf_get_current_pid_tgid();	/* low half: the tid */
-+	p = bpf_map_lookup_elem(&pipes, &id);
-+	if (!p) {
-+		struct hint_stats *s;
-+		struct pipe_state fresh = {};
-+
-+		fresh.writers[0] = me;
-+		fresh.nwriters = 1;
-+		fresh.wcnt[0] = 1;
-+		bpf_map_update_elem(&pipes, &id, &fresh, BPF_NOEXIST);
-+		s = bpf_map_lookup_elem(&stats, &zero);
-+		if (s)
-+			s->new_pipes++;
-+		return 0;
++	scoped_guard(rcu) {
++		c = rcu_dereference(t->sched_cache_grp);
++		/* The type is stamped before publication and never changes. */
++		if (c && (READ_ONCE(c->type) == CACHE_GROUP_AFFINITY)) {
++			if (!sched_cache_group_get(c))
++				return ERR_PTR(-EAGAIN);
++			return c;		/* already an affinity group */
++		}
 +	}
 +
-+	i = writer_slot(p, me);
-+	if (i < 0) {
-+		/* writers[] full: drop this task rather than track it. */
-+		if (p->nwriters >= MAX_WRITERS) {
-+			struct hint_stats *s = bpf_map_lookup_elem(&stats, &zero);
++	if (!scg_can_attach(t))
++		return ERR_PTR(-ESRCH);
 +
-+			if (s)
-+				s->slots_full++;
++	new = scg_affinity_alloc();			/* sleepable, outside any lock */
++	if (!new)
++		return ERR_PTR(-ENOMEM);
++
++	scoped_guard(rcu) {
++		c = rcu_dereference(t->sched_cache_grp);
++		if (!c) {
++			/* Exit took the group away while we were allocating. */
++			sched_cache_group_put(new);
++			return ERR_PTR(-ESRCH);
++		}
++		if (READ_ONCE(c->type) == CACHE_GROUP_AFFINITY) {
++			/* Another hint won the first contact while we allocated. */
++			if (!sched_cache_group_get(c)) {
++				sched_cache_group_put(new);
++				return ERR_PTR(-EAGAIN);
++			}
++			sched_cache_group_put(new);
++			return c;
++		}
++
++		/*
++		 * First contact: switch the accounting to the fresh affinity
++		 * group.  A lost cmpxchg means @t moved on after the read
++		 * above (exec installed a new mm's group, exit cleared it):
++		 * drop the hint, not the task.
++		 *
++		 * Two references are in play: the allocator's, which the
++		 * caller owns, and the field's.  Attaching takes the second
++		 * and counts the membership in the same step.
++		 */
++		if (!sched_cache_group_attach(new)) {
++			/* Fresh from the allocator, so this cannot happen. */
++			sched_cache_group_put(new);
++			return ERR_PTR(-EAGAIN);
++		}
++		if (!try_cmpxchg(&t->sched_cache_grp, &c, new)) {
++			sched_cache_group_detach(new);	/* the field's */
++			sched_cache_group_put(new);	/* the allocator's */
++			return ERR_PTR(-EAGAIN);
++		}
++
++		sched_cache_group_detach(c);
++	}
++
++	return new;				/* the allocator's reference */
++}
++
++/*
++ * Put one root under the other; every member keeps converging to whatever
++ * its root is now.
++ *
++ * The child's reference on the root keeps the chain up while the members
++ * that cached the child are still converging through it; it is dropped only
++ * in the child's free callback.
++ *
++ * The lock is the groups' own, shared with the tick's queueing, which runs
++ * from interrupt context - hence the IRQ-disabled take.  The two groups are
++ * locked in address order, the only nesting this lock ever sees.
++ */
++static int scg_merge(struct sched_cache_group *a, struct sched_cache_group *b)
++{
++	int ret = 0;
++	struct sched_cache_group *root, *child;
++	unsigned long flags;
++
++	if (a == b)
++		return 0;		/* same affinity group already */
++
++	/* Merge links exist only between affinity groups, never an mm's. */
++	if (WARN_ON_ONCE(a->type != CACHE_GROUP_AFFINITY ||
++			 b->type != CACHE_GROUP_AFFINITY))
++		return -EINVAL;
++
++	if (a > b)
++		swap(a, b);
++
++	raw_spin_lock_irqsave(&a->lock, flags);
++	raw_spin_lock_nested(&b->lock, SINGLE_DEPTH_NESTING);
++
++	if (rcu_dereference_protected(a->parent, 1) != NULL ||
++	    rcu_dereference_protected(b->parent, 1) != NULL) {
++		ret = -EAGAIN;
++		goto out;
++	}
++	root = a->rank < b->rank ? b : a;
++	child = root == a ? b : a;
++	if (root->rank == child->rank)
++		root->rank++;
++
++	/*
++	 * The child's per-CPU runtime history dies with the group - the
++	 * merged affinity group's occupancy starts over from what accrues on
++	 * the root.  These are advisory statistics, not accounting of record;
++	 * keeping the sums continuous would mean walking the child's
++	 * per-CPU array under both locks, for numbers that converge again
++	 * within an epoch anyway.
++	 */
++	refcount_inc(&root->refcnt);	/* child owns one ref on root */
++	rcu_assign_pointer(child->parent, root);
++
++out:
++	raw_spin_unlock(&b->lock);
++	raw_spin_unlock_irqrestore(&a->lock, flags);
++
++	return ret;
++}
++
++/*
++ * Connect @t1 and @t2: they are accounted in one group from here on.  The
++ * caller's references are enough, no tasks are pinned.
++ *
++ * Two threads of one mm need nothing of this only while neither is in an
++ * affinity group: their accounting already meets in the mm's group.  Once
++ * one of them joins an affinity group the pair is split, and the hint has
++ * real work to do.
++ */
++int sched_cache_hint(struct task_struct *t1, struct task_struct *t2)
++{
++	struct sched_cache_group *c1, *c2;
++	struct mm_struct *mm1;
++	int ret = 0;
++
++	if (!sched_cache_enabled())
++		return -EOPNOTSUPP;
++
++	if (t1 == t2)
++		return 0;
++
++	/*
++	 * The common same-mm case is two threads outside any affinity group:
++	 * they share the mm's group already, so skip the lock.  These reads
++	 * are racy and may skip a pair that just joined an affinity group;
++	 * hints are advisory, and whatever still observes the relation
++	 * submits again.
++	 */
++	mm1 = READ_ONCE(t1->mm);
++	if (mm1 && mm1 == READ_ONCE(t2->mm)) {
++		struct sched_cache_group *g1;
++
++		rcu_read_lock();
++		g1 = rcu_dereference(t1->sched_cache_grp);
++		if (g1 && g1 == rcu_dereference(t2->sched_cache_grp) &&
++		    READ_ONCE(g1->type) != CACHE_GROUP_AFFINITY) {
++			rcu_read_unlock();
 +			return 0;
 +		}
-+		i = p->nwriters;
-+		p->writers[i] = me;
-+		p->wcnt[i] = 1;
-+		p->nwriters = p->nwriters + 1;
-+		return 0;
++		rcu_read_unlock();
 +	}
 +
-+	if (just_admitted(&p->wcnt[i]))
-+		p->pending = p->pending | (1u << i);
++	if (!scg_can_attach(t1) || !scg_can_attach(t2))
++		return -ESRCH;
 +
-+	if (p->pending) {
-+		struct hint_stats *s = bpf_map_lookup_elem(&stats, &zero);
-+
-+		link_pending(p, s, m);
-+	}
-+	return 0;
-+}
-+
-+SEC("fentry/anon_pipe_read")
-+int BPF_PROG(pipe_read, struct kiocb *iocb, struct iov_iter *to)
-+{
-+	struct hint_metrics *m;
-+	struct pipe_state *p;
-+	u64 id = pipe_id(iocb);
-+	u32 zero = 0;
-+	u32 me_pid;
-+	int j;
-+
-+	m = bpf_map_lookup_elem(&metrics, &zero);
-+	if (m)
-+		m->read_calls++;
-+
-+	if (!id)
-+		return 0;
-+
-+	p = bpf_map_lookup_elem(&pipes, &id);
-+	me_pid = (u32)bpf_get_current_pid_tgid();
-+	if (!p) {
-+		if (m)
-+			m->read_noop++;
-+		return 0;
-+	}
-+
-+	j = reader_slot(p, me_pid);
-+	if (j < 0) {
-+		/* readers[] full: drop this task rather than track it. */
-+		if (p->nreaders >= MAX_READERS) {
-+			if (m)
-+				m->read_noop++;
-+			return 0;
++	for (;;) {
++		c1 = scg_get_or_alloc_affinity(t1);
++		if (IS_ERR(c1)) {
++			ret = PTR_ERR(c1);
++			break;
 +		}
-+		j = p->nreaders;
-+		p->readers[j] = me_pid;
-+		p->rcnt[j] = 1;
-+		p->nreaders = p->nreaders + 1;
-+		if (m)
-+			m->read_noop++;
-+		return 0;
-+	}
-+
-+	if (just_admitted(&p->rcnt[j]))
-+		p->pending = p->pending | (1u << (MAX_WRITERS + j));
-+
-+	if (p->pending) {
-+		struct hint_stats *s = bpf_map_lookup_elem(&stats, &zero);
-+
-+		link_pending(p, s, m);
-+	} else if (m) {
-+		m->read_noop++;
-+	}
-+	return 0;
-+}
-+
-+char LICENSE[] SEC("license") = "GPL";
-diff --git a/samples/bpf/scg_pipe_hint_user.c b/samples/bpf/scg_pipe_hint_user.c
-new file mode 100644
-index 000000000000..35c6eb2c3719
---- /dev/null
-+++ b/samples/bpf/scg_pipe_hint_user.c
-@@ -0,0 +1,210 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * scg_pipe_hint_user.c -- load, attach and report the pipe-hint policy
-+ *
-+ * usage: scg_pipe_hint [seconds] [object]
-+ *
-+ * Attaches every program in the object, keeps it loaded for the given number
-+ * of seconds or until SIGINT/SIGTERM, and prints the counters once a second.
-+ * A final line is printed on the way out so a harness can read the totals
-+ * from the log without parsing the per-second samples.
-+ */
-+#include <errno.h>
-+#include <signal.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <unistd.h>
-+#include <bpf/bpf.h>
-+#include <bpf/libbpf.h>
-+
-+/* Must match struct hint_stats in scg_pipe_hint.bpf.c. */
-+struct hint_stats {
-+	__u64 accepted;
-+	__u64 skipped;
-+	__u64 slots_full;
-+	__u64 new_pipes;
-+};
-+
-+/* Must match struct hint_metrics in scg_pipe_hint.bpf.c. */
-+struct hint_metrics {
-+	__u64 write_calls;
-+	__u64 read_calls;
-+	__u64 read_noop;
-+	__u64 submits;
-+};
-+
-+static volatile sig_atomic_t stop;
-+
-+static void on_signal(int sig)
-+{
-+	(void)sig;
-+	stop = 1;
-+}
-+
-+static int ncpus;
-+
-+/* Per-CPU array values are padded to 8 bytes each. */
-+#define PERCPU_STRIDE	((sizeof(struct hint_metrics) + 7) & ~7UL)
-+
-+/* Sum a per-CPU array's single element across all CPUs. */
-+static int sum_percpu(int fd, struct hint_metrics *out)
-+{
-+	size_t sz = PERCPU_STRIDE * (size_t)ncpus;
-+	void *buf = calloc(1, sz);
-+	__u32 zero = 0;
-+	int cpu;
-+
-+	if (!buf)
-+		return -1;
-+	if (bpf_map_lookup_elem(fd, &zero, buf)) {
-+		free(buf);
-+		return -1;
-+	}
-+	memset(out, 0, sizeof(*out));
-+	for (cpu = 0; cpu < ncpus; cpu++) {
-+		struct hint_metrics *m =
-+			(void *)((char *)buf + (size_t)cpu * PERCPU_STRIDE);
-+
-+		out->write_calls += m->write_calls;
-+		out->read_calls  += m->read_calls;
-+		out->read_noop   += m->read_noop;
-+		out->submits     += m->submits;
-+	}
-+	free(buf);
-+	return 0;
-+}
-+
-+static void report(int stats_fd, int metrics_fd, __u32 stats_val_sz)
-+{
-+	struct hint_metrics mt;
-+	struct hint_stats st;
-+	__u32 zero = 0;
-+
-+	memset(&st, 0, sizeof(st));
-+	if (stats_fd >= 0 && stats_val_sz &&
-+	    !bpf_map_lookup_elem(stats_fd, &zero, &st))
-+		printf("hints accepted=%llu skipped=%llu "
-+		       "slots_full=%llu new_pipes=%llu\n",
-+		       (unsigned long long)st.accepted,
-+		       (unsigned long long)st.skipped,
-+		       (unsigned long long)(stats_val_sz > 2 * sizeof(__u64) ?
-+					    st.slots_full : 0),
-+		       (unsigned long long)(stats_val_sz > 3 * sizeof(__u64) ?
-+					    st.new_pipes : 0));
-+	fflush(stdout);
-+
-+	if (metrics_fd >= 0 && !sum_percpu(metrics_fd, &mt))
-+		printf("calls write=%llu read=%llu noop=%llu submits=%llu\n",
-+		       (unsigned long long)mt.write_calls,
-+		       (unsigned long long)mt.read_calls,
-+		       (unsigned long long)mt.read_noop,
-+		       (unsigned long long)mt.submits);
-+	fflush(stdout);
-+}
-+
-+int main(int argc, char **argv)
-+{
-+	const char *file = argc > 2 ? argv[2] : "scg_pipe_hint.bpf.o";
-+	int seconds = argc > 1 ? atoi(argv[1]) : 30;
-+	struct bpf_object *obj;
-+	struct bpf_program *prog;
-+	struct bpf_link **links;
-+	int nlinks, i, attached = 0;
-+	struct bpf_map *stats, *metrics;
-+	int stats_fd = -1, metrics_fd = -1;
-+	__u32 stats_val_sz = 0;
-+	long err;
-+
-+	ncpus = libbpf_num_possible_cpus();
-+	if (ncpus < 1) {
-+		fprintf(stderr, "scg_pipe_hint: cannot count CPUs: %d\n", ncpus);
-+		return 1;
-+	}
-+
-+	obj = bpf_object__open_file(file, NULL);
-+	err = libbpf_get_error(obj);
-+	if (err) {
-+		fprintf(stderr, "scg_pipe_hint: cannot open %s: %ld\n", file, err);
-+		return 1;
-+	}
-+	err = bpf_object__load(obj);
-+	if (err) {
-+		fprintf(stderr, "scg_pipe_hint: verifier rejected the object: %ld\n",
-+			err);
-+		bpf_object__close(obj);
-+		return 1;
-+	}
-+
-+	/* Links are owned by the loader, not by the object. */
-+	nlinks = 0;
-+	bpf_object__for_each_program(prog, obj)
-+		nlinks++;
-+	if (!nlinks) {
-+		fprintf(stderr, "scg_pipe_hint: %s has no programs\n", file);
-+		bpf_object__close(obj);
-+		return 1;
-+	}
-+
-+	links = calloc(nlinks, sizeof(*links));
-+	if (!links) {
-+		fprintf(stderr, "scg_pipe_hint: out of memory\n");
-+		bpf_object__close(obj);
-+		return 1;
-+	}
-+
-+	bpf_object__for_each_program(prog, obj) {
-+		struct bpf_link *link = bpf_program__attach(prog);
-+
-+		err = libbpf_get_error(link);
-+		if (err) {
-+			fprintf(stderr, "scg_pipe_hint: cannot attach %s: %ld\n",
-+				bpf_program__name(prog), err);
-+			goto out_destroy;
++		c2 = scg_get_or_alloc_affinity(t2);
++		if (IS_ERR(c2)) {
++			sched_cache_group_put(c1);
++			ret = PTR_ERR(c2);
++			break;
 +		}
-+		links[attached++] = link;
-+		fprintf(stderr, "scg_pipe_hint: attached %s\n",
-+			bpf_program__name(prog));
++		rcu_read_lock();
++		ret = scg_merge(scg_find_root(c1), scg_find_root(c2));
++		rcu_read_unlock();
++
++		sched_cache_group_put(c1);
++		sched_cache_group_put(c2);
++
++		if (ret != -EAGAIN)
++			return ret;
++		cond_resched();
 +	}
-+
-+	stats = bpf_object__find_map_by_name(obj, "stats");
-+	metrics = bpf_object__find_map_by_name(obj, "metrics");
-+	if (stats) {
-+		stats_fd = bpf_map__fd(stats);
-+		stats_val_sz = bpf_map__value_size(stats);
-+	}
-+	if (metrics)
-+		metrics_fd = bpf_map__fd(metrics);
-+	if (stats_fd < 0)
-+		fprintf(stderr, "scg_pipe_hint: no stats map, running blind\n");
-+
-+	signal(SIGINT, on_signal);
-+	signal(SIGTERM, on_signal);
-+	signal(SIGHUP, on_signal);
-+
-+	if (seconds > 0)
-+		fprintf(stderr, "scg_pipe_hint: running for %ds\n", seconds);
-+	else if (seconds == 0)
-+		fprintf(stderr, "scg_pipe_hint: running\n");
-+
-+	for (i = 0; (i < seconds || seconds <= 0) && !stop; i++) {
-+		report(stats_fd, metrics_fd, stats_val_sz);
-+		sleep(1);
-+	}
-+
-+	printf("FINAL ");
-+	report(stats_fd, metrics_fd, stats_val_sz);
-+
-+	for (i = 0; i < attached; i++)
-+		bpf_link__destroy(links[i]);
-+	free(links);
-+	bpf_object__close(obj);
-+	return 0;
-+
-+out_destroy:
-+	for (i = 0; i < attached; i++)
-+		bpf_link__destroy(links[i]);
-+	free(links);
-+	bpf_object__close(obj);
-+	return 1;
++	return ret;
 +}
-diff --git a/samples/bpf/scg_pipe_noop.bpf.c b/samples/bpf/scg_pipe_noop.bpf.c
-new file mode 100644
-index 000000000000..c14a5ab4778c
---- /dev/null
-+++ b/samples/bpf/scg_pipe_noop.bpf.c
-@@ -0,0 +1,24 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * scg_pipe_noop.bpf.c -- the same two hooks as scg_pipe_hint.bpf.c, empty.
-+ *
-+ * Prices the fentry trampoline alone, so running both objects under the same
-+ * workload separates the cost of the hook from the cost of the policy.
-+ */
-+#include "vmlinux.h"
-+#include <bpf/bpf_helpers.h>
-+#include <bpf/bpf_tracing.h>
-+
-+SEC("fentry/anon_pipe_write")
-+int BPF_PROG(noop_pipe_write, struct kiocb *iocb, struct iov_iter *from)
-+{
-+	return 0;
-+}
-+
-+SEC("fentry/anon_pipe_read")
-+int BPF_PROG(noop_pipe_read, struct kiocb *iocb, struct iov_iter *to)
-+{
-+	return 0;
-+}
-+
-+char LICENSE[] SEC("license") = "GPL";
 -- 
 2.34.1
 
