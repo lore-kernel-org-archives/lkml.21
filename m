@@ -1,106 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.5
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795705044;
-	b=Kdmi6fWFO+TpgVYSjC/cqVxoQnJpgq2rIuMbVaz0a+hVRIgIjAv1i4oLePV9khZzXfvN
-	 kpKl/LzAjSnuGRR2eq9NEhGZFbsqG8iNbQJLfXg6FDaxYcc13j+mdFqTAAcnZOXRYBV9t
-	 Lb5oNi0o5FKoCxhJBOqjvKT8cr6i5h4e/5Ms4AA2/v26Nk11PeKwX1+HDM0TJLh/ygqz+
-	 mTAWHufdZFmPkZ+ggzE25J3eRyyPqzipZcRt2kR+EETxgAahGpv/t33EIdzqlSyXk2vfk
-	 r75pPGi5aFFFd/KI0E/Me6TWMGm47TdEb2VK/HIAsVWJmWUAV5z7YklbCZ9Z4U+7F5Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705044;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=l939RF+Ks9Dtx1gdslC3Fzs4rnwdWZMh58x80xnBVpo=;
-	b=oj9jRjRjGLfa8fYW8j+QKC30sVr1VW+kJMPeuu1ZVasqg2dPACpXxIUEmHMuimSRkR4D
-	 angMlT6AR1tAE9w52qFGi6k9mhxW1blK0j6pys1OD4OA4bhsAsfIFUTGG0UfGYXfKHHA0
-	 Bo7QX85pW1M3DnSSpM7Ce+suNXjNfYuHQxZwtDeTQrEnK9x/3PrqVceWt6UsMdURwSnqy
-	 cyaAsuN6FFU3gJPfNlPh8a+LJYrAiMMPpmnUoPJU4gB8J8vaSb7KlyUnZZzEJOxb/LFja
-	 hLyYbHMfMzeB3O4V0H1dshn1/kZI/hnXvGmO0lwJl55LHdBQ6kVKMGq2AdwJbHuZ6Qw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=NzCUj5UR;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.5
-Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010005.outbound.protection.outlook.com [40.93.198.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795705051;
+	b=KWPSqgN8JzZpkmutegX248UC99ynso01IKnnCC99955njyHCBMrRQ+xPrwFIAI8ybTSR
+	 hGpSNjm75Lp1NdbdPC90r99CcGTqL53j/ChYBasT+jJXqsdfFye74Ml/wj9K6Ej3Ai92T
+	 FConwc8+LlBpsUx9UxeKpE3alebJhA9UmYTV5Pljuo8kTDQlbg5CxOlhsqYFVe5KUfqLt
+	 dyjVGO3ihzhtdwQUTzblUceMDSG7EkTnbgGvmhXfp0xjnTky40qqLF68BlJXRVzpDzNf9
+	 mvKzTL6u7wpcr0HbEfOjZ/snGNIEgsYW/FWIX4L/CO8qynkVu+f/acLsC5RyagKFvdw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705051;
+	h=DMARC-Filter:DKIM-Signature:Date:References:X-Original-From:To:
+	 Mime-Version:X-Mailer:Message-Id:In-Reply-To:
+	 Content-Transfer-Encoding:Cc:From:Subject:Content-Type:
+	 X-Lms-Return-Path:Received;
+	bh=bTKveouMaT+A6TZaLVjzx5FaUHxsQsCtsYgSd5VZTEQ=;
+	b=AIAF6gCK4WhyY9ksX31WILo489gKDi2DtSfqtnHXi69L+E/4My66O5lo5oS91l7lt9KQ
+	 ebMUb07W1/f/gaccwc37JdT7gD7suSjKT0lZ0qnjBQQGPDR9LJB/VGOaODM+wiBZ0vtsz
+	 M1aZiNbgQOHWvQJIsifysF59pQzrUEC2mkvKhX0KFsifT0pab3wkNkukNT+DAPqvsy6br
+	 uVSGp484O7SM++Wd/8bXoerNwKq0RAcJR/hZw8NluhOsnzR4YwAIyv/3P1fccbwRZufKt
+	 mEQC/BohVOIGTBtjeDmkiKBpEK/rlTGCLBlYUJ0WNZdk3H5Rx5D/UNyM6DpB5e4sTHg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=yunsilicon.com;
+	spf=pass smtp.mailfrom=yunsilicon.com;
+	dkim=pass header.d=yunsilicon.com header.i=@yunsilicon.com header.a=rsa-sha256 header.s=feishu2403070942 header.b=a9RByk+6;
+	arc=none smtp.remote-ip=209.127.231.18
+Received: from va-2-18.ptr.blmpb.com (va-2-18.ptr.blmpb.com [209.127.231.18])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D46E606A329
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:57:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D46E606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C81E6606A69D
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:57:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C81E6606A69D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=yunsilicon.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yunsilicon.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=NzCUj5UR
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=i1LNC0PCh2uL8MXBgj7VMnS6Q6BnnT8mZbicybk9AQ6ZQwHMXVUmzp5EsZjsNeH0K2uvVUO84xIDeDw++J7prrP8f17y53ryVoYsUyfqt7WIS+XXhExWlCd27dQrtgiWdtfX/ctLLUZRkcoYPY7qHW9DvgFFceTiUD2yKlQN2TLY8yUMHcwJH99xdZ2+lEIvgrkT0WG5mRRDASj3MeCG4z3ZmL4xN13buy8u4KVHQTPRSEEsbUK0xKWUys899r3A55Gt/TvRcHMiBwts9R1OjYSZqfUqCMXyj9lFFGkf52zm8E5CUh4NepXneiIeIR8gFuZRemJNLYQ2XUUFb5XGiA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=l939RF+Ks9Dtx1gdslC3Fzs4rnwdWZMh58x80xnBVpo=;
- b=teP3pEwmfO/OzqHrUy2hRz6ly8R17YEGkXaWb9Oq+aCWGf1HWtk63Ywcm5O/A5Wswg6yWIKdhXFKDrxm6WXYjqIKbdsEr51DZOGgeRUo+g1I3yfz23jUzf2EMMmsbY2bEhRxkQj01UUZPYNB+ZKP8IpZd3KRXKH42u8S9eymTiT7YECv2bqU7G2zH27putWh8EmIxiUSV+3H/6sh7kLisUq5UeuHDf8ud1X+FsMqRuXH70TbJ/uk3CDgD70GOKv4EpomHU7kq0XChm6VXt/DJKqTtu/9dPROGy6RyOjdvt9gp5DsFBhQW9CtS5l1qvpu57cEYy1KVAayklouD1gM6w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=l939RF+Ks9Dtx1gdslC3Fzs4rnwdWZMh58x80xnBVpo=;
- b=NzCUj5URvN2I4HtvJQlrfnxIFO0CAovjMMfNh0m8tpXEcl/VitwGJANkr6lhe8qlJa8qoEMbZtMzva+zeoRY8EpNNlB9MjPFbTLsGt9Gt4xSFID+NQ2HC/2UST1TfunIopzfeSYv+sIlx+tZw80G48jsREkOjTUAQi8EGrIfEYecL/1ijx393Hpb81bUzZ9vKe5O8nV8GXDTM7FsyzZPePyFB8V+a5RlBRSm7LLvl1P0+NwUvduT5bKTgPRlHQl/q6goKT/2bMFbZkz7stnjkNEVjiPxIgL6BJYP9mFQ9ZXJlj50gQ9+4d9GOsnCALMd4QVJJ23d8IydHIza7x8Y3w==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12) by IA1PR12MB7662.namprd12.prod.outlook.com
- (2603:10b6:208:425::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
- 2026 14:57:17 +0000
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
- 14:57:16 +0000
-Date: Thu, 26 Nov 2026 10:57:15 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: joro@8bytes.org, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>, rafael@kernel.org,
-	Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Pranjal Shrivastava <praan@google.com>,
-	Mostafa Saleh <smostafa@google.com>, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev, driver-core@lists.linux.dev,
-	Sonang Patel <sonangp@nvidia.com>,
-	Ankit Agrawal <ankita@nvidia.com>,
-	shameerali.kolothum.thodi@huawei.com
-Subject: Re: [PATCH v3 5/7] iommu: Introduce TDISP T=0 state for confidential
- IOMMUs
-Message-ID: <20261126145715.GG114472@nvidia.com>
-References: <cover.1794343501.git.nicolinc@nvidia.com>
- <07ea92910895a2b0db33afefaa3a0ef182b2968c.1794343501.git.nicolinc@nvidia.com>
- <179563006502.253973.9155049351516451537.b4-review@b4>
- <awe6WgoiKaBTgINn@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awe6WgoiKaBTgINn@nvidia.com>
-X-ClientProxiedBy: YT4PR01CA0465.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:d6::26) To CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12)
+	dkim=pass (2048-bit key) header.d=yunsilicon.com header.i=@yunsilicon.com header.a=rsa-sha256 header.s=feishu2403070942 header.b=a9RByk+6
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=feishu2403070942; d=yunsilicon.com; t=1795705046; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=bTKveouMaT+A6TZaLVjzx5FaUHxsQsCtsYgSd5VZTEQ=;
+ b=a9RByk+6DrsFgBVH7dIKiuM23hRcD62ujryWIrXTTp9atZTIGYbOUOnTSsPwLL1bw/iBS3
+ 8SZFZMa0aL3/uBgiVIp9nJEM/caxKbTxK03Vc9dM674iJuYM4lh+EJBUfxQXocuB7BCaOT
+ OWd4tcK6oodDlqgaRAiZD99vESbS/w2rH9wIjUSRZfaVJ9ta/XQ43nkwGD9msPVfUxDiSf
+ Q3ytndqIz5r8TLW0Mw1/6zYTpMOxeI/S+vP9Z9j0cGU5ClxVVXSMZmuPJGzS8zTtWG2oFD
+ Y06oHkAHFtTXXsqWLQQDRtuDr77kxVh9eyn3YrskI/XyseI6nEpWFbTcqyBHJA==
+Date: Thu, 26 Nov 2026 22:57:23 +0800
+References: <20261126145711.70868-1-tianx@yunsilicon.com>
+X-Original-From: Xin Tian <tianx@yunsilicon.com>
+To: "Andrew Lunn" <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, 
+	"Eric Dumazet" <edumazet@google.com>, "Jakub Kicinski" <kuba@kernel.org>, 
+	"Paolo Abeni" <pabeni@redhat.com>, "Jason Gunthorpe" <jgg@ziepe.ca>, 
+	"Leon Romanovsky" <leon@kernel.org>, 
+	"Junxian Huang" <huangjunxian6@hisilicon.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,79 +61,154 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|IA1PR12MB7662:EE_
-X-MS-Office365-Filtering-Correlation-Id: e6aa1895-a9c9-4c85-7d39-08df4bcd8fdc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|376014|7416014|1800799024|23010399003|10067099003|56012099006|11063799006|261026140227099003|261028144727099003|261026121527099003|261022105027099003|261021121427099003|261021135927099003|261102123227099003|18002099003|22082099003|4143699003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	CmZD0251tjwKq5PRBBo9eF0DTxAXmbKuXH8RwKswDwDB43lgYl/9Tf/PfPdjsjf1YDyeSPOBW7aMUHbpZnhkMLmH0V50A5CP1IYHXWrNfAQndRK0VOF6n43Ahr1qUDWVB6u4jUO8K2Ka4DGXT9/61lGujQAb1RPKITwpqeo7BUZ46KCxkpo5tR9Xl7tcwxXeG/VFJ5ycNWfuzskVOJseqIJ+4en4xvRQuJbnl0nWKY/PtzXPt33vNlUboUmZn4d91HH61xN5jOhEz5Kl0TdhjooaTdgQ0K5BXVkbqJbKvGBZrDeT41jNV0HWe9BYq/XFavHjQHxh2y7+KkYPbXG2qz5knB3WU1oyVsP0dgvqwUX7xwx2dL+7IVFfK7kS2OhwH4WKybMjJxn9p2Ac+/gybC4CxxCwEVxUQQccm+kLe7YAk0yzhoH7yy8w1O0MoFY8N0qmG87g1sCGLuRzbFU5uYDK28muBW6W0J83t/JPRNDsl5tS3BJ2yjuc93ddaEBNZIA90gIV4N4f5OTP0PlRJxXc5ioJRJN3iKuqTUmF9cEXv8oQeLwnLmdgXXtfXOeO8gAQ/edmDtTOkWusRy+7/KGI1ZYyoTKZ+761OTrGrJyQKN29yLdUHOylQzcP0gq8VGu+b3sMTIsrgH1hk6rVf0utXPyUkcSec0HXaA8OdPE=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(23010399003)(10067099003)(56012099006)(11063799006)(261026140227099003)(261028144727099003)(261026121527099003)(261022105027099003)(261021121427099003)(261021135927099003)(261102123227099003)(18002099003)(22082099003)(4143699003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?EyMGHvtmFdlnBfSOy0A5c3KmgUNDL3VqIBxwe3OYAQmKPfgD313pHGk336Nk?=
- =?us-ascii?Q?qzflcl2tntcz2b/hgZKCATTxkesJJ37d5RFSsjxjz+gBeXAb1sXFjqevoWZF?=
- =?us-ascii?Q?gIiVJZAAnmty0dIk1l+kFg9KW3ZGLp0rrv3Qdw+wUEcoj2n3Iy1YoqHnyhGo?=
- =?us-ascii?Q?PEtKfbhey02eEy5ESY/DvH9fZ0X2qJrnOZ2h7zA+UZjD5BpKumpktTx2eS/p?=
- =?us-ascii?Q?PvSFw0+YwdJYZfFjO+AMY+UMTqZcgXTfXlezXrmiOjXymZxdVvmImJQ5edhv?=
- =?us-ascii?Q?W50gZ9TpVIyUpYDiqUwmwrTIrlOtxvTOjIuLfnJ6qCUFUVUdrfgaRdD0HbEk?=
- =?us-ascii?Q?7GviC8YGR8n7A1BuSF7xN+fZjluieV1U7/uYrCXy5d4/0V1SDFLP/lWr0R6o?=
- =?us-ascii?Q?mu1pzdiIf79SvMCAZjkZYLk32HIk+0GWhEyTPJBqIVi8/YaybGXN9X31096B?=
- =?us-ascii?Q?LoYYhOiN2ZD4DAe1LKFR+jPhcDjZN9dK2Qk1rg/NB3zyJnQ4kMCcblJvcUyh?=
- =?us-ascii?Q?Qiu6ovr234YeGR4AjrqoXMF4zgq4FZHXdhYvw894eEOGSikJwczEOyCHFNJI?=
- =?us-ascii?Q?3cbsHQ2eEK806MGN4QUnJqKk6m9n7Vppq8GIseWcNDHqTuG49dQiCFuMQ6yc?=
- =?us-ascii?Q?XFkr7zrr8gA1bgE/TvzDiwG1mhMhJSo+VfHV/PfeBEYkKdGXO7eKzAKNyZeI?=
- =?us-ascii?Q?GqoVhuAexVviUC3xWtY+D1XFAr3N/Xwx9EIQYiqovoIwQHk5XHkmyfqqqaI5?=
- =?us-ascii?Q?Avw4PrXgxuOwaGX3G5R+r1aisb25/40LOSrWw7m/tvMptTC4VhRXBHeE/qR8?=
- =?us-ascii?Q?EKreobDuXcJStzwGLqxK2QD8xmvCJoKKI1X8HH0gV4ozfBAHw7kR0N1gcgMa?=
- =?us-ascii?Q?6cziGhY6YKjMOml+jDtCGBcAJEGA5IQcXCZ+/HXrY0SN2Kwcq4KG6zQJnWr7?=
- =?us-ascii?Q?QkUjhOxQEyWJ8+329bpDIPDHlzBZvRW3eBXtomK5t2Wib0rnFeDF1870hmpL?=
- =?us-ascii?Q?Wg3H1ukEMPMjTXleCqGG8c8b8K/HaMnofbmjHOY5vZZr2Ji6zCBcEvIOoOb1?=
- =?us-ascii?Q?PyFpZ878nbkhnZTCIjjWTRz8fp5S6SV6Kt7oMpBOEzu7YRDvSC3MBhqkTcmJ?=
- =?us-ascii?Q?6irTUuEbPovxSraFhx77OJKG+A3pouTQ/dwi0Dr3RTZg7WnvJRe0DfaMnW1u?=
- =?us-ascii?Q?Wa9HIsOU6/PhjYDMc6JwA45+O+pX44/5j41zQT1NiGhb8yPn1QRvTboWC3bF?=
- =?us-ascii?Q?3aXBS3gDN2RvqfnngppF9SAeCUltwuyHTGlxFuqmSMNP+ImxuFcCiILf10yD?=
- =?us-ascii?Q?UMS5uOcC9NEe/YK906DFOIvenrZgIAWeB85eJ51YLRm1ss0THOZcgurCpur0?=
- =?us-ascii?Q?AEj4orf5WFoAtozlkuvwf6juGAaOU93zPq05FjGs4emnkrVgmiOv8RY/X15k?=
- =?us-ascii?Q?0muhv35lYICMrVMtCnjtuHIwXxqobar/l8Z4ksC/MoC0U55Z+N93ACTt600F?=
- =?us-ascii?Q?zAlYqzt11vL8EIHKP1dhD6y2PUUEEE1Pr6yFsviTM+0A2muJjq2Myjv+RJQZ?=
- =?us-ascii?Q?etbYzAHc4gUorMRejDDjoh7DgXrlRwfyCIoZPhknBE1YgGVmpgYsw8NVStG5?=
- =?us-ascii?Q?5hZ5Ve9QbMuysV+pHVtyv94/vVbjg7edo7kzBifAwFubsabYfRSlMP08g+8w?=
- =?us-ascii?Q?IsANqUz/L80mW9VpwtCHF6rbRpF0NMdGqyyT2A7HdyE/yZSKqp4PSNM3SZ0g?=
- =?us-ascii?Q?gwwVRESEag=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e6aa1895-a9c9-4c85-7d39-08df4bcd8fdc
-X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 14:57:16.5789
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 00SdFspDSZDtTxKqEONpawg7JYXIIWDekzqJdJ6CBdgz++ps1v0stnDJ6tSuuEls
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7662
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.25.1
+Message-Id: <20261126145721.70868-5-tianx@yunsilicon.com>
+In-Reply-To: <20261126145711.70868-1-tianx@yunsilicon.com>
+Content-Transfer-Encoding: 7bit
+Cc: <weihg@yunsilicon.com>, <linux-kernel@vger.kernel.org>, 
+	<netdev@vger.kernel.org>, <linux-rdma@vger.kernel.org>, 
+	<kerneljasonxing@gmail.com>
+From: "Xin Tian" <tianx@yunsilicon.com>
+Subject: [PATCH v2 04/11] net/xsc: query HCA capabilities and reset function
+Content-Type: text/plain; charset=UTF-8
+X-Lms-Return-Path: <lba+26b0848d4+4daa74+vger.kernel.org+tianx@yunsilicon.com>
+Received: from DESKTOP-TGBQGEC.localdomain ([183.193.56.110]) by smtp.feishu.cn with ESMTPS; Thu, 26 Nov 2026 22:57:23 +0800
 
-On Wed, Nov 25, 2026 at 08:49:30PM -0800, Nicolin Chen wrote:
-> On Wed, Nov 25, 2026 at 02:07:45PM -0400, Jason Gunthorpe wrote:
-> > Though I am wondering if we really need the ATS stuff. Why do we need
-> > that? The pci_ats_required() in the hypervisor should force ATS since
-> > the hypervisor is not going to construct a vSTE or use a nesting
-> > domain that would inhibit that? Can we just drop this whole patch?
-> 
-> Ah, you're right. It was added for non-pci_ats_required (non-CXL)
-> cases where the ATS state needs to be in sync with the hypervisor.
-> 
-> However, the justification/usecase here is pci_ats_required alone.
-> 
-> One small concern is whether VMM always exposes the underlying ATS
-> state or not to the guest VM. QEMU seems to do so. I did a test by
-> dropping the patch: lspci in the VM still shows: ATSCtl: Enable+
+resources
 
-It probably shouldn't do that, but it is also not harmful. The guest
-PCI controls should be fully ignored by the VMM..
+Query the firmware HCA capabilities needed by the ethernet driver and
+reset the function resources during probe.
 
-Jason
+Signed-off-by: Xin Tian <tianx@yunsilicon.com>
+---
+ .../ethernet/yunsilicon/xsc/common/xsc_core.h | 18 +++++
+ .../net/ethernet/yunsilicon/xsc/pci/main.c    | 70 +++++++++++++++++++
+ 2 files changed, 88 insertions(+)
+
+diff --git a/drivers/net/ethernet/yunsilicon/xsc/common/xsc_core.h b/drivers/net/ethernet/yunsilicon/xsc/common/xsc_core.h
+index a6f0149ed..1ffbc2daa 100644
+--- a/drivers/net/ethernet/yunsilicon/xsc/common/xsc_core.h
++++ b/drivers/net/ethernet/yunsilicon/xsc/common/xsc_core.h
+@@ -24,6 +24,18 @@
+ #define XSC_PAGE_SHIFT_4K		12
+ #define XSC_PAGE_SIZE_4K		(_AC(1, UL) << XSC_PAGE_SHIFT_4K)
+ 
++struct xsc_caps {
++	u32		max_cqes;
++	u32		send_ds_num;
++	u32		recv_ds_num;
++	u8		log_max_qp_depth;
++	u16		msix_base;
++	u16		msix_num;
++	u32		nic_caps;
++};
++
++#define XSC_CAP_MAC_PORT_MASK			GENMASK(15, 8)
++
+ struct xsc_cmd;
+ 
+ struct xsc_core_device {
+@@ -33,6 +45,12 @@ struct xsc_core_device {
+ 	void __iomem		*bar;
+ 	int			bar_num;
+ 
++	u8			mac_port;
++	u8			pcie_no;
++	u8			pf_id;
++	u16			glb_func_id;
++
++	struct xsc_caps		caps;
+ 	struct xsc_cmd		*cmd;
+ };
+ 
+diff --git a/drivers/net/ethernet/yunsilicon/xsc/pci/main.c b/drivers/net/ethernet/yunsilicon/xsc/pci/main.c
+index 9b08580f5..42c5a1bae 100644
+--- a/drivers/net/ethernet/yunsilicon/xsc/pci/main.c
++++ b/drivers/net/ethernet/yunsilicon/xsc/pci/main.c
+@@ -29,6 +29,63 @@ static int xsc_set_dma_caps(struct pci_dev *pdev)
+ 	return err;
+ }
+ 
++static int xsc_cmd_query_hca_cap(struct xsc_core_device *xdev,
++				 struct xsc_caps *caps)
++{
++	struct xsc_cmd_query_hca_cap_mbox_out *out;
++	struct xsc_cmd_query_hca_cap_mbox_in in;
++	int err;
++
++	out = kzalloc_obj(*out, GFP_KERNEL);
++	if (!out)
++		return -ENOMEM;
++
++	memset(&in, 0, sizeof(in));
++	in.hdr.opcode = cpu_to_be16(XSC_CMD_OP_QUERY_HCA_CAP);
++	in.cpu_num = cpu_to_be16(num_online_cpus());
++
++	err = xsc_cmd_exec(xdev, &in, sizeof(in), out, sizeof(*out));
++	if (err)
++		goto err_free;
++
++	xdev->glb_func_id = be32_to_cpu(out->hca_cap.glb_func_id);
++
++	caps->max_cqes = 1 << out->hca_cap.log_max_cq_sz;
++	caps->send_ds_num = out->hca_cap.send_seg_num;
++	caps->recv_ds_num = out->hca_cap.recv_seg_num;
++
++	caps->nic_caps = (caps->nic_caps & ~XSC_CAP_MAC_PORT_MASK) |
++			 FIELD_PREP(XSC_CAP_MAC_PORT_MASK,
++				    out->hca_cap.mac_port & 0xff);
++	xdev->mac_port = FIELD_GET(XSC_CAP_MAC_PORT_MASK, caps->nic_caps);
++
++	caps->msix_base = be16_to_cpu(out->hca_cap.msix_base);
++	caps->msix_num = be16_to_cpu(out->hca_cap.msix_num);
++
++	caps->log_max_qp_depth = out->hca_cap.log_max_qp_depth & 0xff;
++
++	xdev->pcie_no = out->hca_cap.pcie_no;
++	xdev->pf_id = out->hca_cap.pf_id;
++
++	kfree(out);
++	return 0;
++err_free:
++	kfree(out);
++	return err;
++}
++
++static int xsc_reset_function_resource(struct xsc_core_device *xdev)
++{
++	struct xsc_function_reset_mbox_out out;
++	struct xsc_function_reset_mbox_in in;
++
++	memset(&in, 0, sizeof(in));
++	in.hdr.opcode = cpu_to_be16(XSC_CMD_OP_FUNCTION_RESET);
++	in.glb_func_id = cpu_to_be16(xdev->glb_func_id);
++
++	return xsc_cmd_exec(xdev, &in, sizeof(in), &out, sizeof(out));
++}
++
+ static int xsc_pci_init(struct xsc_core_device *xdev,
+ 			const struct pci_device_id *id)
+ {
+@@ -90,6 +147,19 @@ static int xsc_pci_init(struct xsc_core_device *xdev,
+ 		goto err_cmd_cleanup;
+ 	}
+ 
++	err = xsc_cmd_query_hca_cap(xdev, &xdev->caps);
++	if (err) {
++		pci_err(pdev, "failed to query hca caps: err=%d\n", err);
++		goto err_cmd_cleanup;
++	}
++
++	err = xsc_reset_function_resource(xdev);
++	if (err) {
++		pci_err(pdev, "failed to reset function resource: err=%d\n",
++			err);
++		goto err_cmd_cleanup;
++	}
++
+ 	return 0;
+ 
+ err_cmd_cleanup:
+-- 
+2.43.0
