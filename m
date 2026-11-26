@@ -1,96 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.11
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795686445;
-	b=OJXQLqUaXoIyLIrtn/O0IvyAXqDwjax+ZwTN9UoBmw7BNSZPaNWkek5N8KBXuzY1Ulrp
-	 QCMEMIjb+oLwb3/zNeMm4lna4ntJ3JtujBB92jzUQ9QSg/KjO0YbV6fxqsdsrLg4b4Viq
-	 IOR/wudITMF2Irij47NDLArYxwXRp4ygURHqh3jaJMvykhfnbtiykjg0i8pS+R63TQ6Vz
-	 qnS7weEgONetGqF9TuAgmfUspJBWyKpAcXMKO2abdyxPI3wU64FNVyEknyDQpcsA8f6p2
-	 IvkZG2zf/mo0szSbo4l/uVFe89Kfmv+knQJBWfo3WlMrBBxjwfm5mlgF8rT9rmhgvFA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795686445;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=ky9ofkePh4IJiZE3ot6txDaGySH57NxhR4MNlsnvGmM=;
-	b=cwzaUwpQQEsJ75ZQ2qUBNXzDazFLmSGDQjgYHEvkBSL8gZ1aHvQeg2PJ4Zt4Kr1a+t7Q
-	 BApEc9AIlEH7dJn4kv3r/KqeIeYjckbiJDFonN9HCdkEqQ/42S/LkMjD49oFxXDBQeD55
-	 Wo1miuAxBlM8hKahOiyJMDHAjujF/UB6MVufnq/oY21roFqEp/i15S51AR3qf6PYWYGVB
-	 IrXrOhKdCU3wlDlpjH6m+J54EBV0JytCDE1DCVTT8sY+KfEGFAHiKXx+sXfHfu5743djD
-	 /SRpi3POcNVM2PL5C0VN0Dap8Ar9YnFKNHE8+Mnx/j0vWoQtPJC6YbfBFw0Nizm5EGw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=p5ISgc2s;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.11
-Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011011.outbound.protection.outlook.com [52.101.57.11])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.41
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795686452;
+	b=mNZXiexKlatbFefuhsxyTTgyiBoELiXAjoh4jcgd4jmccQe6s2yh/hUIXsRpbbsAvUHn
+	 Eb4tPrR3Kw56PTA0c8czUN7d5ZjUKaRbXd3kRURGrNW61nq3lBmaL0IulZSfSoXcECvJh
+	 JjR7F9ubaQPajiWMUE4AKGGcjLz6py7Q9hjOPuGcjaHZA5auiYuIGU8wT3orWYiBUmVsX
+	 lmeGAs9S2HHIlKkLd0SSyb6xgqUe3feZus/bSWqphS1P32HlIGvxqdGOqLECT4NSRn3mD
+	 upjx+TZlZKEhStAhpilsCq59Xp4lRFhquoGLVhvwlpKDLsWpHm9CgTsXc4op+SAlU1A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795686452;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=Ebxm1DL45nJQcO9+sb8DXg3JXXQ3y5h9iFkKaPDLveg=;
+	b=n5O1abCZNcY2oCmX7pNOON2cU85ioWoYvnu2F0eTJhuyWxAIkIyAlCYsYBwsbEjcwAuS
+	 WfTUKSladcjCiAd0xH+XY4hARVbnX67UXHkflGjYrwXQGDP6AmuskSGUjLvzK6zKwY1PR
+	 ORFEG9DjKgWvVZUiltTMubzmiS7jN0eJiIZRnt1qkPIS5LKrlaR7THPIXMbEdxiGRGWRg
+	 3yc8cp998g38Mk04QW4ZpwV05QXciQprGUvNfrmPq055POpIpsX8r2Im4od3vEIT+EdVZ
+	 NienKlFmwZwEd7HEpt0H3C72eE8SzkQDqBFgGDLu0Ax+DxmkgFCv8HMO2M7vNwn8heQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gGKJDkKI;
+	arc=none smtp.remote-ip=209.85.218.41
+Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD751606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:47:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD751606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0FF8606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:47:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0FF8606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=p5ISgc2s
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Bw/kC00w4LCFJQpMktIe5+Rd6tO5Az7a++xjPluQ0xFXIr71rdsd23TTkmlptEur0rx8IFElVHO08/+1VFU1G/FsRws8bGETybUg/T0SG03N3i2/W+cEMP+RQyzoxtmYX0EtEiLwst/UiCWiY9wQO2KkY4fgSx5eA0S1CCXf3w2GxJqR64sW+sxAgbfgEMOAd5l/XKaaWq4y6JZ1DkvGbBXna9/1IAT7hnHRTBeyIScD6rU8j0xwvbo3oNdExKuJrDZZQ2BEtA4FN31aM8wY3+gSKTcnu4PbjNEYYN/IYVRmjANFnllKX4T4wQK7WD9CApy/q1320sMGcbc5Lz0SoA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ky9ofkePh4IJiZE3ot6txDaGySH57NxhR4MNlsnvGmM=;
- b=NT0keMS/iIeo6lr+7RyXi582/ErAAq8Lewa6aeT8QpYG5EZ/23xS5fRQcnUy7krkfekOZ32MHsWDZwiGRICrs5b/yVpdn1SYF5SIgj7WE2CDJjn9f7svxjB2/2IVEE5YgNEfUKps9NI1D81B4iyT+ztcmfIhzU+bLdzMiLiDbWBxRTbelM+RBilEmR/rmIP2hKWKqRy3//x02SmwZ3rQbcB2QALla56O4FBl+I6PJZQRE5Ys/jIv4gNpiblLo0Yq8iYCz49GxV1Evem453tOPG+Q00BszXjSCVJNO8bJ1xafn0NU/KbQs8N1zoSMpeeCLSaVnIRTz+JS7zPCaa98bw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ky9ofkePh4IJiZE3ot6txDaGySH57NxhR4MNlsnvGmM=;
- b=p5ISgc2s/qUOrR8jeo5gHC+15oBOhUt0ZWk4p3Vb4+IPhRq/2nK6OhKbZ6Cy/FjOaOiii+DqSE0YNdhq8GNVAofLiJd8CuSpIsjNYQCmmVHz+tbKrl7D6vivW9GOSyQMEE3thXakIRspejemR2veZTEBH+YEtf+o/iU0ZO5vLsgpiA8J2ez7rpMXUzGS8QCWgHkaFZbQlFZJiHkGtUS4BNTX+vXnH4wMIKqz8MX17e5vPItBVEYnafn5w++eRNF9psH92Jo1HkcyZK6RDs5sFJk+xt5FAexTOLf3pZoyJnfP04DBUOGdltyOkt3Op0y/hXomN1okiL6upAxyfHKlnw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB9730.namprd12.prod.outlook.com (2603:10b6:610:253::9)
- by DM4PR12MB5889.namprd12.prod.outlook.com (2603:10b6:8:65::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
- 2026 09:47:19 +0000
-Received: from CH3PR12MB9730.namprd12.prod.outlook.com
- ([fe80::843d:c1f0:b2ed:4128]) by CH3PR12MB9730.namprd12.prod.outlook.com
- ([fe80::843d:c1f0:b2ed:4128%4]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
- 09:47:19 +0000
-Date: Thu, 26 Nov 2026 20:47:14 +1100
-From: Balbir Singh <balbirs@nvidia.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: akpm@linux-foundation.org, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, Jason Gunthorpe <jgg@ziepe.ca>, 
-	Leon Romanovsky <leon@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
-	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
-	Shuah Khan <shuah@kernel.org>
-Subject: Re: [PATCH] selftests/mm: move the HMM migration benchmark out of
- selftests
-Message-ID: <awf_TiUylMTGCb_e@parvat>
-References: <20261126025653.1344932-1-balbirs@nvidia.com>
- <fba23668-add0-4787-b027-bfba1f66e090@kernel.org>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <fba23668-add0-4787-b027-bfba1f66e090@kernel.org>
-X-ClientProxiedBy: ME3P282CA0077.AUSP282.PROD.OUTLOOK.COM
- (2603:10c6:220:f6::10) To CH3PR12MB9730.namprd12.prod.outlook.com
- (2603:10b6:610:253::9)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gGKJDkKI
+Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c5126505cb3so880166266b.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:47:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795686450; x=1796291250; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Ebxm1DL45nJQcO9+sb8DXg3JXXQ3y5h9iFkKaPDLveg=;
+        b=gGKJDkKIKrjS/e3C0IpipinDtBBDVlS722h1FfEacoDIYwVLYuzltZxsazd3qs8OoQ
+         fUyErCNMV+QWTsLsFx+J18kWkZHo5IIWOmfm1owGHLnOcE6RtBeC2I/TFuX8VSB9zohz
+         YssXA3pkNplcxGq2wPU0a1+BTtmeZhWx+R2HYStPUwc6W716E+imrw95RIweGW4H27GX
+         KxsYVlovMjn7CeyYLC0wE191Pq68TIUxuQl4JD/S0D6La2OBUKjF8GSPbeNOy3z/lnMe
+         Cm+OUgYLyJ6981J3W1kSlz+miMoDxpKzU6IMHLU0iSvBldwvJ0lLIAKOtYxuMhOC+Cs1
+         3mfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795686450; x=1796291250;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Ebxm1DL45nJQcO9+sb8DXg3JXXQ3y5h9iFkKaPDLveg=;
+        b=1OFvcwYgCUs4tx0uL7JxOCofvnv6UfPxGX7AiqKFeAWfLoFPXkw9V+Tl6ZH07MrFAp
+         bv6oG/9ifkwDYPu6PEPm8is+6sFM/v2ogR7Rq3N6SYkoZTM93RFKokfiRFqanKj2enMj
+         MaZXx3jwyEinhimdbKbOtpTx0wjcc4Jl1okpHXx0WTLpn0cgOsLemnEDu8fJFjmPGw2l
+         mRoTbqEUfbJaubZY6uI5JwsagFiy5HZxFc3o8RfvnaZmwdbF6Aze1ozVQ4zZzLGqGZRf
+         LcOlN7Tb/C4tq76jj+ThZ0P7qbjqOJ7aBCtrAfZeGxZh4vD4JKrJSciH+e5txVt7y/EO
+         gJdw==
+X-Forwarded-Encrypted: i=1; AL+hErGWYvN2HKxLYZ5Aj4qQJZxsdmZBxbdZR7bAyryFHbQYZc/WosDYPlFTvwGIKxhGcfY2Bdx9qoE1Rgxe+A8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8gZ+XyDE6CfSrCiUysSIvm8S+1KxEfcCzZpuvh08cO2hvlvkeQ
+	WEmIXieZrunHIyfEsRzrkMW/C6bFqqntn8T283DyZA7TvgHRiq3b5O46
+X-Gm-Gg: AZFdTZfgX4r/wvAK8Ruujzh78HvnYoVqapSXVey07sCN9vwIhwvPMzV5+3v0IfdgqfB
+	Zrt4npB6i3w4f7Hq6hpq1ckq6irAFr+NZTjBlIp0/eEtMi/KzhMtVL69ZNwZa/7ZnhsmKBT8Neh
+	D6tLC4SQZJfrWlzPWz+L72fiUU3CTNHYzyZQZ9x3Ua/u5Nd2kpbkfDA83fQ4u1g4lt7LGJh+Dzl
+	cSx4XJEN8K5GXxTmB0LYxUlFoapA6OwkE95f7/AmBgY9YXkz59jeZ76ToCZXgS+EAy4gcASwlbw
+	8lnmVtXez/wU1SffqXMuCqf0v5fsFPgW9Tseq8ti2WTmI7YvaooW8m2qwxYAJJjH2n+33RC/YSn
+	SZ+MpaWNipsTtD6HIIllqtL/QKJxnWVLqQF2MOVPTvCfJF2LR6ldwnpwU6Ga6mzFc9s6KadbsEo
+	/xAxCHEVgSEQUP98+4Jv8i2sB14B2TNIiaoqGE+Wg6I+Mv0hVkhM98ciqSuxeYQC1Zwsakn8CBW
+	K4CZYApG9k52X8pfL06H1X9LSkFjseB3tR4FR7w/k0iOTTp7Sr/LZsua52uqgAnHj0mwt/Egnes
+	fMWfyZu7iLJrO7Pcox+K4U/nP7/CLyxE5Gkzlru+EmpJQrJ0
+X-Received: by 2002:a17:906:c10e:b0:c41:5e31:5184 with SMTP id a640c23a62f3a-c513a99abe6mr1685897766b.13.1795686450072;
+        Thu, 26 Nov 2026 01:47:30 -0800 (PST)
+Received: from Air-pasichndev ([188.163.8.107])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513b002b9fsm727100666b.78.2026.11.26.01.47.29
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 26 Nov 2026 01:47:29 -0800 (PST)
+From: Andrii Pasichnyk <apasichnik9@gmail.com>
+To: "Jason A . Donenfeld" <Jason@zx2c4.com>
+Cc: wireguard@lists.zx2c4.com,
+	netdev@vger.kernel.org,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net v2 1/2] wireguard: peer: free packets left on the per-peer queues on removal
+Date: Thu, 26 Nov 2026 11:47:21 +0200
+Message-ID: <20261126094722.73025-2-apasichnik9@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261126094722.73025-1-apasichnik9@gmail.com>
+References: <20261126094722.73025-1-apasichnik9@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,109 +105,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB9730:EE_|DM4PR12MB5889:EE_
-X-MS-Office365-Filtering-Correlation-Id: ab00f458-4a3c-4201-7d99-08df4ba24340
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|7416014|376014|366016|23010399003|1800799024|10067099003|56012099006|11063799006|4143699003|261022105027099003|261022075727099003|261102123227099003|261021121427099003|261009223027099003|261026140227099003|261026121527099003|261028144727099003|22082099003|18002099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	WpmX9EjEHokper8qW3CirBdgL5vKeme2jUXDTOwBq1ZeB7Xh0neoSdNsHLCxikp5kPUuJmPFhFT4Dsaj/vHaFS6i8T98fEQPJJp5qx/9rd6Mvp9iYu8XscDjJ90sO+sXIyu9m+NMzCNrTRiOnXREtBN+NgXnitHVHfIwoQEYFYwjMrx90S3ZX8eT89jT/8vEhZmAwHUt2zfeFkSFZ3ix4yrSwSiysy6dbAJSBNQUtgFtIyYoMPc9/3ZAfoJyw2KbAEMdhu8cYEq4bjq+S+g2hw5Cn2ttICqX3UgYmW88MT73vtmtUL6gWZtneabynhw/bqzH0VFNopR6EFHsJWwmJ0c1KEuZ7hfj/Jg/D5+3aNz6pWOwMSHxO3mmZ/TA9N/SWkAkLttH6E8eMm08pJUlR96IBelvqs6+mz80xu/0WCv8HJdye9dMlYDBtm1PaXc75IkuT2jPIupm6hFyDgQiQklbOqEK1vFbVpaOgjFSiVPaAa/sk0HrR2xIOwPlW/F+JXJ4arGGP1PHvVr4LJTkgaDYizcGAordNWC71TeacF0OHT0YdzJJxzrAjZ5lFQgme2TQswcNm5cXjylQSF76Z5cpNP/b8YWqFKHOCDdAjokc4tnB9op6T7ScjYKz8So9nryt4s+T/PbNgdvWpavekEozYLH6qSDxW7tyFtYJmU8=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB9730.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(23010399003)(1800799024)(10067099003)(56012099006)(11063799006)(4143699003)(261022105027099003)(261022075727099003)(261102123227099003)(261021121427099003)(261009223027099003)(261026140227099003)(261026121527099003)(261028144727099003)(22082099003)(18002099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?UVY4K0h2ckJDMGR1Mmd5MDAzSlBIZ00xWlhocnp5eXBuMytOUVg3Q2M3MVcx?=
- =?utf-8?B?bjRWWVVqTE1wVCtEWlVmU2dHeUROSWR4cEROK29IdjdyRDZpOFFDWlF4d0Qz?=
- =?utf-8?B?bmNDY3dmSU45UCtJdy9EZytsVk1LeGYvR1JGM0FGTFZxekFDSFErSmRxTVdt?=
- =?utf-8?B?VzRVVmlxSU83eTQvWWhodE1keTZMRDZ0Yi9hVzVLa3ZiTlNJMmpHaXFlOFpE?=
- =?utf-8?B?K1dGMjlRUWxMM1dUOWRqZlBBNDdVamtrMnFVTjNUaXJNY1Y4YzdSMlprV040?=
- =?utf-8?B?cWFiU0xCdDd5MERQQWpDSXUxVDRwcmFYdTI1aU5VQ2xsZGlBWnJoMEt4TjRR?=
- =?utf-8?B?TXBVTXpXV05Ma09wOEJkY0I0aGJ3cFJReWNDMEo5cXI4SXAzVUd6RVBzUzJO?=
- =?utf-8?B?N0RTdVJGcnJ6UkYyRDRLR3l4bWtTcUJjTGxHVUtzK1NOb0Qzc3orWmJaL295?=
- =?utf-8?B?WmpYWmYrZ3VEL0JYNlFJM2ZKdWkvbjlQaTNuSm5vMnFiQ2U1ZnVDZ2tBekpF?=
- =?utf-8?B?UEc0Uy9YMFJQOWRJbm9jZkhlVWVxanNrV2hkZVBIM2prcDNHeXRnWEVleGRv?=
- =?utf-8?B?SkJkYkdqQkduTWJVd3YrVW1ZZEJQaWE1SVhpWXRqMTZQYUVVb0h0dDZmV2xC?=
- =?utf-8?B?WXZQUnF6MFdtVG5yaWlMdGwvRSttR2E4TWlXbGJYRGdnT2pQZjI0TUVNRWN4?=
- =?utf-8?B?SkJMY01YREQ5eU56U09UMDVTWWZ5djdBdCsvMXhJUHVxQWQyekJVT3hGazNT?=
- =?utf-8?B?dVEraDl1Si9Ga05vWjVUWHhOOXdNVVRIT016OW1EZHp2SWUzK3pFbmZpMnBX?=
- =?utf-8?B?Y2V6MEFGcnVrYVZITW1icnRRbTlqS3JrYTNwcGNTTmEvUkpMUFFMKzNTQVVw?=
- =?utf-8?B?ZmIyTk9yd2E2SXUwSkgvZnhJYzF2Zms0VEJ2ZlY1bDRIMzZBNmx4M3lMZHNs?=
- =?utf-8?B?MmNqNFQ4azVhTWRWdHU5c0lhSXhWTjRTQ0RhbUc0dk1UWEtsZW5ZaFZ1QjBj?=
- =?utf-8?B?ZFBmS29kcGRvMkRHdHhQQnZQSXo4anU1RFZzWFhkU3JRSU1MQmQ3TEFwRytO?=
- =?utf-8?B?MG5GcmxxSDBpcEppQ1ljZmVWOW5qcTJFdzdCTlZkNisrd0xjMXlpcWJMK2x1?=
- =?utf-8?B?RmV4UzZlM21wUmxpUWFmRFRhTmxoOFdMZE4wMUIrQVJLUHY5Z1FqaFMrTWVO?=
- =?utf-8?B?dW1FRGxuTzhweEo1MVhWZVM3dFdDTGRPN05FSHk3Q28vYXVCeE9sc2xyMnFV?=
- =?utf-8?B?Ui9PSlZLck9iM2daTXBoVlZHQUlsbUR4RUtzTHU4M2lKcGtkcC9KalllTlZD?=
- =?utf-8?B?U2k5SmVTS0pCM1RzcldGZ0dvOWJvQ0VDMEJ6bWg4VmFiQ0dVZ3ppZEw3YUgx?=
- =?utf-8?B?T2NrR3QvRFJhdEpjZnM4WmZhdHJ2Ukp0VWJnMnlRanJyT2pLN1k0SE4vTWJi?=
- =?utf-8?B?V09ZbU1pelFCNURqMCtHV1V2QW41ZDBwU0NHWTU3amtSc3FuaWNvWjU4UTky?=
- =?utf-8?B?ZlNWZW1UT3VBbmxVUGFuOFdvNmZZOUxTaVYyRVB3WGxvWHoydDRZOEl0dEd6?=
- =?utf-8?B?VW5vaEhnV3RIZUVmbTN0RFFmREVYY1R1RDJBMTZsMFl4ek5GeVBNdUhCczZK?=
- =?utf-8?B?WXBIRnR4NC9XSWFCRHprdGpoRFBlQlJSc1FRMnZSaG4wK25oR1hWZnFwNEkx?=
- =?utf-8?B?cXgxU2dCTFdjczVtam9WUnNNWk1NOGNXQmtsZlM3SjVOUk1ZcFBNTmtPa3pM?=
- =?utf-8?B?QU9WTjNmZVgrc3JRU3AxazZuem8xRFprTVlRSjlUUzNPYXJoejQyTkZVQk5n?=
- =?utf-8?B?L3BEMUNnWXBRQmNxT0sxWG12K1FDczFpMURzdUIwL2x3bUFHbHdndnU4RVZw?=
- =?utf-8?B?U3V3TXlmTHZCK0QyeHE1TlJ3TDdzbEw2Y1VzcTBXSXdCdFZyVko5REtwd3I4?=
- =?utf-8?B?L3RiQkVuQUNMdUY2ZzNpd1NZajhGbGQyNVI0OGloSlFsL1hXTlI0NTQ2RUVq?=
- =?utf-8?B?WHROL3dwdytjQ1dZQjdRczhJTEs0VytrWDlVeVNaVjc3K1M1RnVTNUx6a042?=
- =?utf-8?B?RmQvT2piOUtYdFdiMzdFQXhXSWtFbTZEc0tsdVM2QVBJRHJyek8xN1BBa1oy?=
- =?utf-8?B?Z0FFSWRiM3FrY1ZEREtPMUQzRHFtVmRoL0pNQUpUSEdXMVpKY1oxbWZWcjRH?=
- =?utf-8?B?cnA3SFExNGRiSHN5T2s2cUt4eVhuaWMxaEVDVFBPZEE3VTEvaDU2TzFIK01F?=
- =?utf-8?B?ekM5WnVsSitxVXIrZk9aK2ZxZTVucFh3RmUyQnJRUHBrUUdRYnZWazdVVFUv?=
- =?utf-8?B?djgzNE53YWduaGp3emF4ZzU2SUZhMVVCYWtRN29JTGJVL0RZRmtoUT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ab00f458-4a3c-4201-7d99-08df4ba24340
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB9730.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 09:47:19.5837
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RW+6uEomy9zfTVRVuHHzoPjEHuvnZsppWdNnufiNYRsZgKIPL2YUZKdiWOKZePA+dzPbgB0o7xWflYzmzc6kkA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5889
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 26, 2026 at 07:41:48AM +0100, David Hildenbrand (Arm) wrote:
-> On 11/26/26 03:56, Balbir Singh wrote:
-> > The HMM selftest runs benchmark_thp_migration on every invocation.
-> > The benchmark repeatedly migrates buffers in both directions to measure
-> > latency and throughput with and without THP. Run it on demand so the
-> > regular suite spends its time checking correctness.
-> > 
-> > Move the benchmark into its own hmm-bench binary and share the device
-> > fixture, buffer helpers and migration ioctls with hmm-tests. To run it:
-> > 
-> >   make -C tools/testing/performance-tests/mm
-> >   sudo modprobe test_hmm
-> >   sudo tools/testing/performance-tests/mm/hmm-bench
-> > 
-> > Drop the 128-PMD buffer to bound the amount of memory migrated in one
-> > measurement. With 2 MiB PMDs, the largest buffer falls from 256 MiB to
-> > 16 MiB. The remaining sizes still cover buffers smaller than a PMD, a
-> > single PMD and multiple PMDs, with and without MADV_HUGEPAGE.
-> > 
-> > Call fflush(stdout) after printing the results for each buffer size.
-> > The kselftest harness ends the test child with _exit(0), so timing
-> > results still buffered in stdout can be lost when output is redirected
-> > to a file or pipe.
-> There was recently a discussion on where to put performance tests. Usually it's
-> much rather tools to test performance.
-> 
-> So what about tools/mm/ instead, where we also placed gup_bench.c ?
-> 
-> -- 
-> Cheers,
-> 
-> David
+peer_remove_after_dead() flushes the crypt workqueue and then disables
+the peer's NAPI. Once a disable is pending, __napi_poll() completes the
+instance after the poll returns even if it used its whole budget, so a
+peer removed while more than one budget of decrypted packets waits on
+rx_queue keeps the rest there. Each entry holds a keypair and a peer
+reference, so the peer is never released; the WARN_ON in rcu_release()
+that checks for leftovers is never reached either.
 
-I don't feel strongly about the location, happy to put it where it can
-be found and run. My motivation to put it where I did was to easily
-reuse lib.mk and hmm-common.h and other mm helpers from the test case
-(due to the dependence between the tests and benchmark). Let me
-refactor and see if I can find a good way of reusing bits and see how it
-looks like when I move it out to tools/mm
+Free whatever is left on both per-peer queues once nothing can feed them
+any more: receive entries are single packets, transmit entries lists.
 
-Thanks,
-Balbir
+Reproduced with the WireGuard selftest VM (x86 KVM): remove a peer while
+a UDP flood keeps its receive queue busy, re-add it, bring the session
+back up, repeat, then run the selftest's created/destroyed object check.
+With 1 vCPU the unpatched kernel leaks a peer and its keypair in 25-40%
+of such removals ("wg0: Peer 11: merely created"); with this patch, 0 in
+212 removals. The next patch adds the loop to netns.sh.
+
+Fixes: e7096c131e51 ("net: WireGuard secure network tunnel")
+Signed-off-by: Andrii Pasichnyk <apasichnik9@gmail.com>
+---
+ drivers/net/wireguard/peer.c | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+
+diff --git a/drivers/net/wireguard/peer.c b/drivers/net/wireguard/peer.c
+index 1cb502a93..3e08898ce 100644
+--- a/drivers/net/wireguard/peer.c
++++ b/drivers/net/wireguard/peer.c
+@@ -91,6 +91,25 @@ static void peer_make_dead(struct wg_peer *peer)
+ 	/* The caller must now synchronize_net() for this to take effect. */
+ }
+ 
++/* Each queue entry holds a keypair and a peer reference. Transmit entries
++ * are lists of packets, receive entries single packets.
++ */
++static void peer_purge_queue(struct wg_peer *peer, struct prev_queue *queue,
++			     bool lists)
++{
++	struct sk_buff *first;
++
++	while ((first = wg_prev_queue_peek(queue)) != NULL) {
++		wg_prev_queue_drop_peeked(queue);
++		wg_noise_keypair_put(PACKET_CB(first)->keypair, false);
++		wg_peer_put(peer);
++		if (lists)
++			kfree_skb_list(first);
++		else
++			dev_kfree_skb(first);
++	}
++}
++
+ static void peer_remove_after_dead(struct wg_peer *peer)
+ {
+ 	WARN_ON(!peer->is_dead);
+@@ -122,6 +141,11 @@ static void peer_remove_after_dead(struct wg_peer *peer)
+ 	 * here from process context.
+ 	 */
+ 	netif_napi_del(&peer->napi);
++	/* A NAPI being disabled completes after at most one more poll, which
++	 * may leave packets on rx_queue that still hold references.
++	 */
++	peer_purge_queue(peer, &peer->rx_queue, false);
++	peer_purge_queue(peer, &peer->tx_queue, true);
+ 
+ 	/* Ensure any workstructs we own (like transmit_handshake_work or
+ 	 * clear_peer_work) no longer are in use.
+
+base-commit: e509726660dd06ce107437aecf7c106c9d3fc1e7
+-- 
+2.43.0
+
