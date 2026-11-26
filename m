@@ -1,64 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795681951;
-	b=RzFYuiO46x9tkTi6DBA5YqdEsUfG8vxUQ4AnvrRFbrMW1X4iMzoAfnVeKMQXq06zQnPo
-	 Npmcupqsc8JwpXa9vaK0LItkEoEZbwDMu5TQhXgCCB1/2JZQSITywD93+6fGf6IfWAhkW
-	 GUxX6hyt4PycSCeSszeWWj0uUYd6gGxrJ+igAnbF1hzyh4VdQ3raIhN2vfw2gjeRkWm2E
-	 k3wemIFSAV19ht6C/YHDbZrIuJj4bB5WUBaJ52qoyMYe/hBdg+umr6Wx+q7eGElCxNiG8
-	 iGpLST1RMQfavP8RPg7g036xGAatsPJJmdxMxCTVkqriHrnNnu6vDTm6MRqqsf7AUpQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795681951;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-ZohoMailClient;
-	bh=TaON/7ceRuHwzhJ+NepJEX25n+5RZ9JBg0bJv2TdRiA=;
-	b=GeMbwqvCZNbPNP/lkzXI79We1Bw7dG7AhzXeC6va5BgLSgQHjWHHrrjBweksTpaMuoLs
-	 o412NdvGgXmGlExfckM1gtWNhVl77JtzMwcwx9XgZ6ekDsYRRjvamZhbAhGLxJz78kB+q
-	 ASdQfNwq5MIHfNVaGDqZlXIfQlA6UVHkui+bOX2kVt4EmNruTcTVp1rLNcFc0PP8O8iqy
-	 vfbdde0O0SHyAcZjoMnvnXxhOm9rBvAvVgSHaUOp9B5UENQ5ofKuNkvrJYeCTcWnhSpu2
-	 dRwnpNsGhoV8C41KxlgFPHg6K031SV18UruHwKZVGxlqpJAw07UFT5QjRie3PyScD5Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ph4ntom-rev.uz;
-	spf=pass smtp.mailfrom=ph4ntom-rev.uz;
-	dkim=pass header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=w6j9Y+ZS;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.54
-Received: from sender5-of-o54.zoho.com (sender5-of-o54.zoho.com [165.173.182.54])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795681962;
+	b=tUqIEjifca79o/aQsvmUncGzL9A7IumPQb1qhBkGCrrvDmrYbLr8lq3zLXTFnXLehovS
+	 L+VKn8iIskyiIXt6D+Q6eD/8qpJVTHr/3TlhXCO/u8/JJ7ZAQQy2pTsJwzcISK+3j3DQI
+	 VCkfmZITSOISSt39277soLeQ/id9up03Mujq5JhXOB5/tcT8aDsxm8pms81/3xCD3oAo5
+	 rfbXD7/MvaxyivKtCkl44PhePA4gW4Iohja++Irr/Eegd4anj2ZSghcLU62JKsll6GG0S
+	 t7ieqqiEFUqvI8aTWgVFlYgxDtxdpQv5YhvN7Q7LBUM+ysfRY4mfZFOo562DQA8HbRg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795681962;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Proofpoint-Reinject:
+	 X-QCInternal:X-QCInternal:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=/oFI4yeCEY61SAqilQ0jw7phfFVYCNEyusIUkRFXnCk=;
+	b=c/9Tysr3PZ+yyJWb73TD7wyv3tkpvrEfP26hi5VZRey1V1d5YHHAv6mrsrM8EU51E/q3
+	 y4UQh7PmwHnvPIHdmcvqcFXZH7XNlCQ0FQ+qh2WM6Oiu5PaPxLUQ0+8Z/dOYPSl1X/uTC
+	 zfdjNKIY/aa46OftSXvYC4RXL8Ba+r8NYnYAxKDhyYihRC7xVXgCbwg59ftxCZVdxBKdh
+	 V6TJpUF8xmIho3XR0kKwiY470DLqzVFWQviJ1YDJCSnmrQRKilStRyusjtA4AzFeNCs7O
+	 uZ4TFQv0+55sYBe1KDhoQl+rqwiYn1v5AY/y2r/plcn1nwiZe8P7ouDldgCjieha2Cw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=jc7fEmSC;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6B06606A323;
-	Thu, 26 Nov 2026 08:32:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6B06606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ph4ntom-rev.uz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ph4ntom-rev.uz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A79A606A31C;
+	Thu, 26 Nov 2026 08:32:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A79A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=w6j9Y+ZS
-ARC-Seal: i=1; a=rsa-sha256; t=1795681934; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=O1GA5YnG5DPJLCKeGk/wemwjdyJ0tN/9VIODMWDPsjtEYWS4A8NDdPOUbPFgtd73mgFJaUB/wNoP9M4JeFZ+LONN/NLBWDW2uweAM+gOgedR9QiWrllxuEaMMZ1lmG32sy2bdgiIkpBqKKr1A4fHy3U0m9V4Qca2v5gNoIKSKAs=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795681934; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=TaON/7ceRuHwzhJ+NepJEX25n+5RZ9JBg0bJv2TdRiA=; 
-	b=eT1KwFih2eZ/1Kdp5sm6uv94ZQTVYR3gGNDPsRwtW5jFfXRbDsTnmP1QuIB2FVmr+LNqWlQF2v9SoyXfYOUWmrV6bOMjNBT2C7C8qGbsiOrCbSFVut+iYYcg0hHSZRjPM5GanDEoWrvYFJ7nKYyUL8iJI0TV/0Y/VgFv1q+wK20=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ph4ntom-rev.uz;
-	spf=pass  smtp.mailfrom=owner@ph4ntom-rev.uz;
-	dmarc=pass header.from=<owner@ph4ntom-rev.uz>
-DKIM-Signature: a=rsa-sha256; b=w6j9Y+ZS5ysfu9gPZSOHN9dU/7SmXwubmo03hhmdUh138Cho2NyRqYQU+uE372JdsJHEZclkjVbQxLZfDKn2DT1P7p1XA1RGweu6LZj5QHANlNyKOfXTn+UkhhJx7qXw+ixJ5xzMdRLb+XxM5rA7/TpfDhxtT1VsahMwb+w4rt5VjiBrbtBNtRg9TwfyQuynMc4M7kTxuvTR+uV9ixP80S4QEWyMSqqgIzUthoaFct0JDvFYVJg+Vyl2i2zPgu+yHKQSFycmRRxcC51yAOtNNMgz7uuUlAtS3YvRljjewRlgzGFgKOVzGomKz6BuXrXMHFQGGn9byAt2iErITnHSvQ==; c=relaxed/relaxed; s=zoho; d=ph4ntom-rev.uz; v=1; bh=TaON/7ceRuHwzhJ+NepJEX25n+5RZ9JBg0bJv2TdRiA=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795681932571455.8790720297171;
-	Thu, 26 Nov 2026 00:32:12 -0800 (PST)
-From: Enver Ikromov <owner@ph4ntom-rev.uz>
-To: Ping-Ke Shih <pkshih@realtek.com>
-Cc: linux-wireless@vger.kernel.org,
-	Ahmet Zeren <niko3x@proton.me>,
-	Luka Gejak <luka.gejak@linux.dev>,
-	Bitterblue Smith <rtl8821cerfe2@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	Enver Ikromov <owner@ph4ntom-rev.uz>
-Subject: [PATCH rtw-next 0/2] wifi: rtw89: fix injected retry limit and NO_ACK TX status
-Date: Thu, 26 Nov 2026 13:31:39 +0500
-Message-ID: <20261126083141.1470-1-owner@ph4ntom-rev.uz>
-X-Mailer: git-send-email 2.56.0.windows.4
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=jc7fEmSC
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ7B54E3548359;
+	Thu, 26 Nov 2026 08:32:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	/oFI4yeCEY61SAqilQ0jw7phfFVYCNEyusIUkRFXnCk=; b=jc7fEmSCIvBkw5bj
+	nVW69U9xsxXxAwSegQd/1xRwuHKsH3Z0bM/mE0B3/egU2AsvDyKOwiy+Lcg8wOqc
+	QOqOKT/sZxenVUz2hHHVHpYUwJEaq/wgwYt0EsbQGXZOpeREL3i5OI23l6Brx/S5
+	yCjy0iUhV6PcLcWevMETyO3YajlhqDryyhALqnaFWZgzmrjfYopSDJ5l18p3s0fn
+	P13+eyOkaKUgN+rpiXW/6bpBFzzPdF/VebG6BIWZgeK6Bi7bSFQFtGQE9pilhBua
+	RZ8sP/ixWBrwDybKFvzpEEwZc2pHY288WdDX6sN1nvg52WZC0rKRr2NCn/2/vIax
+	WEbCOg==
+Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j62vau1hw-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 26 Nov 2026 08:32:27 +0000 (GMT)
+Received: from pps.filterd (apblrppmta01.qualcomm.com [127.0.0.1])
+	by APBLRPPMTA01.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ8WOfi2110217;
+	Thu, 26 Nov 2026 08:32:25 GMT
+Received: from hu-devc-hyd-u22-c.qualcomm.com (hu-mdsor-hyd.qualcomm.com [10.147.243.209])
+	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 6AQ8WPPk2110236
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 26 Nov 2026 08:32:25 +0000 (GMT)
+Received: by hu-devc-hyd-u22-c.qualcomm.com (Postfix, from userid 4770534)
+	id 24E0AA79; Thu, 26 Nov 2026 14:02:23 +0530 (+0530)
+From: mohit.dsor@oss.qualcomm.com
+Date: Thu, 26 Nov 2026 14:02:21 +0530
+Subject: [PATCH v3 6/7] arm64: dts: qcom: lemans-draco-evk: Add RPi 7-inch
+ DSI panel overlay
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,45 +77,199 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-draco-evk-display-v3-6-6864d09e916f@oss.qualcomm.com>
+References: <20261126-draco-evk-display-v3-0-6864d09e916f@oss.qualcomm.com>
+In-Reply-To: <20261126-draco-evk-display-v3-0-6864d09e916f@oss.qualcomm.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, Mohit Dsor <mohit.dsor@oss.qualcomm.com>,
+        venkata.valluru@oss.qualcomm.com,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Vishnu Saini <vishnu.saini@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795681943; l=4074;
+ i=mohit.dsor@oss.qualcomm.com; s=20260808; h=from:subject:message-id;
+ bh=u41TnHiALIwNCzwpLR6U0gxmy+WGoqxxiY1FcJuFa4A=;
+ b=HKCwi/pDQClHUPd4ALK2X/q1jTkw0NVqAAQnSHS+jZnpueRX7SGviDrc1Yp+3+ZCqQSitiKsd
+ 937gskKuUOSBEDExHpZhZzc0caV5lHBP7OiN8Jo5e2Jt1SkWY82HGrT
+X-Developer-Key: i=mohit.dsor@oss.qualcomm.com; a=ed25519;
+ pk=outHVBN53JhozDw1xkj3G1qrqqE5scMBP7M4WL3aHQQ=
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAzMiBTYWx0ZWRfXyqDhsOI6NGlW
+ y4XSfp4RyVFWkgq5FJ/qKjYQOQpPFW3glrRwyEWtUjx/jANF+mSYKOlUeoKflzTfRue9cUiWy1m
+ Y/QUC/mylA0Vl2uy5ALvd8wTajhqXsQ=
+X-Proofpoint-ORIG-GUID: bb-UZlQf9gmv8l3TftXPVglLIEoZDHSy
+X-Proofpoint-GUID: bb-UZlQf9gmv8l3TftXPVglLIEoZDHSy
+X-Authority-Analysis: v=2.4 cv=QZPzLcbv c=1 sm=1 tr=0 ts=6b07ee9c cx=c_pps
+ a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=EUspDBNiAAAA:8
+ a=j3tafkAdywyu2wedFDsA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAzMiBTYWx0ZWRfX77qEEvNh2TN3
+ Rl5idxEO4brqE80/76Nge1rDYdfukgI8vH9vFcRC/AxSmyI8H3Bjak1SDgItj/HT9OM0+cNDOax
+ poe5JHHLgEFhD2l9pmIxBP6H1ev9JxLdWwfOtkv5akzWEA/bNYz/QtiJA0xhCfq7Lo2kxGLhYC2
+ 2chT6dtJu3r3/8DhzvA8UNwcWewNXoOPfEuJC8QXOm4fIBhOASTrNZUyLjLNzQe7m2jGoB8a9Hh
+ sY2AmEhrgflswNwdNSNwhJs30w22aLdzwWujcOp4R5DAKBiIeUB8qzAs6ah6cQYs/botgVmTvYU
+ OWyZC2RV0xvu705FM8t54qyIA8SAhK6rYziwBz1EV13Uw1R7U9gomqt1Lf86ie/jOyw9LCgth+U
+ ieGCtOCUtBHEAo2PTEmp+p46YpIBnDZOIwrrSLlQhQEwAHhZqI1pYlUPCbFIt+yeSNBEkJ8Z//4
+ tocZE9vGVFd+OU8FonA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_02,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 lowpriorityscore=0 bulkscore=0 phishscore=0
+ adultscore=0 malwarescore=0 impostorscore=0 spamscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260032
 
-This two-patch series fixes three follow-up issues in commit
-92608bb5f14f ("wifi: rtw89: honor ASSIGN_SEQ, retries, and NO_ACK for
-injected frames") reported by Luka Gejak and Ahmet Zeren during the
-rtw88 injection review, along with the matching pre-existing NO_ACK TX
-status issue on the PCIe completion path.
+From: Vishnu Saini <vishnu.saini@oss.qualcomm.com>
 
-Patch 1 gates the per-packet retry override in
-rtw89_core_tx_update_injection() on IEEE80211_TX_CTRL_RATE_INJECT, caps
-hw->max_rate_tries at IEEE80211_MAX_TX_RETRY (31) so the 5-bit
-ieee80211_tx_rate::count field does not wrap around, and makes
-IEEE80211_TX_STAT_NOACK_TRANSMITTED and IEEE80211_TX_STAT_ACK mutually
-exclusive in rtw89_tx_rpt_tx_status() while accounting for Wi-Fi 6 AX
-unicast NO_ACK completions (RTW89_TX_RETRY_LIMIT with tx_cnt_lmt = 1)
-and excluding dropped frames (RTW89_TX_MACID_DROP / RTW89_TX_LIFE_TIME).
+Add a DT overlay to enable Raspberry Pi 7-inch DSI panel connected
+to JDSIP1 22pin connector on the carrier card.
 
-Patch 2 applies the same NO_ACK TX status and ring counter handling to
-rtw89_pci_tx_status() in pci.c, which handles TX completions on PCIe
-devices.
+DSI0 from SoC is routed through MUX which can be selected by DIP
+switch for enabling this 22pin connector. Add the regulator and
+backlight controller at I2C1 mux channel 0 address 0x45, panel power
+and reset control, and a 2-lane DSI connection. DIP Switch SW2.4 need
+to be OFF for this to work.
 
-Tested on RTL8852AE (10ec:8852, firmware 0.13.36.2) at 5 GHz using
-raw radiotap injection, tracefs kprobes, and hardware RPP completion
-telemetry across supported/unsupported radiotap rates, retry counts
-0..32, and broadcast, QoS No-Ack, and unicast NO_ACK frames.
+Disable the default HDMI bridge and connector in favour of the RPi
+DSI panel.
 
-Enver Ikromov (2):
-  wifi: rtw89: fix retry limit and NO_ACK status for injected frames
-  wifi: rtw89: pci: fix TX status and counters for NO_ACK frames
+Signed-off-by: Vishnu Saini <vishnu.saini@oss.qualcomm.com>
+Signed-off-by: Mohit Dsor <mohit.dsor@oss.qualcomm.com>
+---
+ arch/arm64/boot/dts/qcom/Makefile                  |  4 +
+ .../lemans-draco-evk-raspberrypi-dsi-7inch.dtso    | 98 ++++++++++++++++++++++
+ 2 files changed, 102 insertions(+)
 
- drivers/net/wireless/realtek/rtw89/core.c |  5 +++--
- drivers/net/wireless/realtek/rtw89/core.h |  1 -
- drivers/net/wireless/realtek/rtw89/mac.h  | 13 ++++++++-----
- drivers/net/wireless/realtek/rtw89/pci.c  |  7 +++++--
- 4 files changed, 16 insertions(+), 10 deletions(-)
+diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
+index b1c52bf66e9f..3faa50f9e63d 100644
+--- a/arch/arm64/boot/dts/qcom/Makefile
++++ b/arch/arm64/boot/dts/qcom/Makefile
+@@ -71,6 +71,10 @@ dtb-$(CONFIG_ARCH_QCOM)	+= lemans-draco-evk-dlc0697-dsi.dtbo
+ lemans-draco-evk-lvds-auo,g133han01-dtbs := lemans-draco-evk.dtb lemans-draco-evk-lvds-auo,g133han01.dtbo
+ dtb-$(CONFIG_ARCH_QCOM)	+= lemans-draco-evk-lvds-auo,g133han01.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= lemans-draco-evk-lvds-auo,g133han01.dtbo
++
++lemans-draco-evk-raspberrypi-dsi-7inch-dtbs := lemans-draco-evk.dtb lemans-draco-evk-raspberrypi-dsi-7inch.dtbo
++dtb-$(CONFIG_ARCH_QCOM)	+= lemans-draco-evk-raspberrypi-dsi-7inch.dtb
++dtb-$(CONFIG_ARCH_QCOM)	+= lemans-draco-evk-raspberrypi-dsi-7inch.dtbo
+ dtb-$(CONFIG_ARCH_QCOM)	+= mahua-crd.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= milos-fairphone-fp6.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= milos-nothing-asteroids.dtb
+diff --git a/arch/arm64/boot/dts/qcom/lemans-draco-evk-raspberrypi-dsi-7inch.dtso b/arch/arm64/boot/dts/qcom/lemans-draco-evk-raspberrypi-dsi-7inch.dtso
+new file mode 100644
+index 000000000000..ec172be7ce5f
+--- /dev/null
++++ b/arch/arm64/boot/dts/qcom/lemans-draco-evk-raspberrypi-dsi-7inch.dtso
+@@ -0,0 +1,98 @@
++// SPDX-License-Identifier: BSD-3-Clause
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/gpio/gpio.h>
++
++&{/} {
++	display_bl: backlight {
++		compatible = "pwm-backlight";
++		power-supply = <&reg_dsi_panel>;
++		pwms = <&mcu 0 255 0>;
++	};
++
++	reg_dsi_panel: regulator-dsi-panel {
++		compatible = "regulator-fixed";
++		regulator-name = "rpi-dsi-panel";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++	};
++
++	reg_dsi_touch: regulator-dsi-touch {
++		compatible = "regulator-fixed";
++		gpio = <&mcu 1 GPIO_ACTIVE_HIGH>;
++		regulator-name = "rpi-touch";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		startup-delay-us = <50000>;
++		enable-active-high;
++	};
++};
++
++&hdmi_bridge {
++	status = "disabled";
++};
++
++&hdmi_connector {
++	status = "disabled";
++};
++
++
++&i2c1 {
++	i2c-mux@70 {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		i2c@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			mcu: gpio@45 {
++				compatible = "raspberrypi,touchscreen-panel-regulator-v2";
++				reg = <0x45>;
++				gpio-controller;
++				#gpio-cells = <2>;
++				#pwm-cells = <3>;
++			};
++
++			touchscreen@5d {
++				compatible = "goodix,gt911";
++				reg = <0x5d>;
++				AVDD28-supply = <&reg_dsi_touch>;
++				touchscreen-size-x = <720>;
++				touchscreen-size-y = <1280>;
++			};
++		};
++	};
++};
++
++&mdss0_dsi0 {
++	status = "okay";
++
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	panel@0 {
++		compatible = "raspberrypi,dsi-7inch", "ilitek,ili9881c";
++		reg = <0>;
++
++		backlight = <&display_bl>;
++		power-supply = <&reg_dsi_panel>;
++		reset-gpios = <&mcu 0 GPIO_ACTIVE_LOW>;
++
++		port {
++			panel0_in: endpoint {
++				remote-endpoint = <&mdss0_dsi0_out>;
++			};
++		};
++	};
++};
++
++&mdss0_dsi0_out {
++	remote-endpoint = <&panel0_in>;
++	data-lanes = <0 1>;
++};
 
-
-base-commit: 18d0bedbb5f0538396cb7f763ed9cd1dd69c5b23
 -- 
-2.53.0
+2.34.1
 
