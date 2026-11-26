@@ -1,78 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795702228;
-	b=vlDTZGAktPU+78WdDYe7K433iTo+E2XC356eeRa/uZ6v3JZqa9EUjKXb5rA7l9wQs0xP
-	 rttrVCXSG2xHzOY/NgdYdsKx6rZGGR4tynLUH7hAIdSwazFGvdehRNnxdSNrey4IEzzdH
-	 GhrHuwhIRd9oDdF0QPXEJKyNazP7ekQ3EQXntd8eUEZAx9wvvjUaXM/aO+P6ScM5ImoE+
-	 0wPxm2pBJrrY+9MUj++BYok2mKfyA7fGfqfvu07J7/7MzSKRdRTyjV2MsQh6og1WH/WNU
-	 3VTUUWDI/zk+IVKn2TlxwYYxAN1O08vYul8DWv7w0JWBmKf6O0M/pIv6Te7+T+pLrSQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795702228;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=LnToH+VDSW/UE7qu5+Ee+lqVWVHx7RyNd7qITUAZXJA=;
-	b=5SeMDVtRtnY6LfgjdivzpdWUXtfGopKiMllz0Xj1nTisHjOTNqEMjEHiDM3oivJkuyn2
-	 oe8Ux4acoeQ/hn9TE8TY+ntbkwUPeIiEcMgnT9vA1mkquGFy877uCahEfpMzGCFCphGjE
-	 mU4rRPba8TSifQuhYcZO8rRNPewe/PwnMQj1WrrHpII9fjq+W0JLQ8kcdXMKALYocSgw4
-	 hKGkb8SYf/tUWAa4meJb7kZrEAdWvGqSSgRluXTtHzqffdwjorEhIYAiBXxvaM7s01aQu
-	 QnQVAfeGmV8MvufFJhRSbn3dZ1ot5jLT4bebbG6BQltiBxcWwqhO1+Gb/bdIhVmKyUA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ctD65HiJ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795702234;
+	b=n2VO0Wa123aBwj+1kelksx4UCCISloO9slg0/oKqJWp56Kt3rVitM+HKm+rVHk/QuLFB
+	 CozGORtg0133OrD7DYRY/Xh/S0gk50soosN7pQNlQYpb1HGzIbe0IuAoWWbdOg0jgQwlk
+	 9xwSboOtSJMOxx8bXAjoseKi5uDAruM0xHU3ZXFntvBkY/x0LvmQ137ExJK53TzuPCEZx
+	 /9mP/L1yRL1GYcNWvCgedXWwY6mH8CC4kJ8TiW+Mi3OGU8tbqjF9+9oRSobj6I2rsC0/o
+	 9PiAroT/G9JIVuwj+OY9ZImyw/YTjB3tx2edHQX3t4GQ+d8WhZEg+dUfJOHITPfSkwg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795702234;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=kuQQnzehbKD3n7lGa4bVON+mvIVi2hA/as2EAef6sqM=;
+	b=nz3S1nPiYQ/3lHiKZiziK04s2jfTa4w+4qjg+TS0ZfbcYDKPEf8tSIPR+NlVk4uJf0t/
+	 qF7inhwQULMkMFNO+2AGRbWujhOjSVsza4bPTfQAVNuZw+dn1jUAjpiyoZTEBMkwXEiOH
+	 4b4+Ciq91WbFj3fpGT+zPnBx8P/YDaAJjoJ44T29StIZG0NPAQ0ijS2T/W3kIckIlyuPe
+	 oP6+6joaqVCWw25O3RRuuXndqFjyEOQ194AQdE1OWTrmbOiViWiBgbdZq6shyidIGeGRe
+	 KHSyL7rYDMcf4rx7GmM5f5rcuLGXiFUQ2HEl3n8cp28DrQam/sPAlLV87WP+pqMqjBg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hOJaWzmj;
+	arc=none smtp.remote-ip=198.175.65.15
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6976E606A33F;
-	Thu, 26 Nov 2026 14:10:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0CE8606A32E;
+	Thu, 26 Nov 2026 14:10:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0CE8606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ctD65HiJ
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795702228;
-	b=UcmrJRxo0KBFalr3cv0Q8u7Bo5/gU602FJQ42uN1xv+iP2ioFPOJvsx8ZxmT8TI9zZWN
-	 GYe6B28ZE3oi2PaXoLRdLfydTJOcfaBTnkgabheJd68CuO0AlbJ9jGp6md1mfR0W4O5cb
-	 hmRRjK1Pzxq05sKVev5cxmikofouhsRivcOBVpvRPRie8WsxndOjYEwXAjSR9LEfCoxnd
-	 IOvMLT+Q8HpnFOve3yWhAYpV0WNK2YUYw52RxtbJsRGWvFjll47SN2Uq8AhCI0pD9QHJw
-	 AAowISg4dOU4LpgGFXplVasHZGyeQkkMx0MeMCtMOypPYpv3xirTgWbRgEPQdrtT0qA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795702228;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=LnToH+VDSW/UE7qu5+Ee+lqVWVHx7RyNd7qITUAZXJA=;
-	b=w4s5xyix/TEO11w4wqfOx7N7ui5FBBI5QH4ZQT+bEf4bMJuep3rs3UpNQsCnBMgro5zf
-	 4LZLuTqqLLvg+LQcB/ntx64owXx4z9beRXXNN/9U3Y0H1pcEK9d1EHJE/1hO1ZR1fQJ4Z
-	 8umekFeZLj78JAUCWZWlJq4p+vl+wGnU1NwUAw2pr0QjBUDXxQSfPQKgUJqOnySirj0MV
-	 m0vRjjsokPy0ImB7mTHIl8ivsgO4/7noiEl0jYRXHAra0cltEtWPA1tQPqooBzaCD3eHf
-	 XrJ6A71eMG2DcBL1R9I4oSJE8ImfTg5MVMIdlDLKEgRjBZFXJXdiUy3D/efyTjG0kyw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 311F41F000C4;
-	Thu, 26 Nov 2026 14:10:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795702227;
-	bh=LnToH+VDSW/UE7qu5+Ee+lqVWVHx7RyNd7qITUAZXJA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=ctD65HiJZgYyzUPdDs6DHFK6/+fWx8jgd+FpBvAkBjR6LNG4SHmbEKCgvSjX1EiGt
-	 ZeJoqM1gsFCiZV7cy2mGd4mZ9XlK+1wWw7oGeLxUg225kocC9M+/JlVvlb/O+2MktE
-	 zwilGWuijRnf5mwYx9WQ9myavhsxBhRrqZjH/SEd2b6pGnV8MnmhUBraOPskuStiSy
-	 3rCoy54uRkxucM8Q3/sT9Vlio2v8QqMWBFRNozwr1fXNO0LfeDbHg7LhrMbqQHeqfQ
-	 zY9RUuxo/znwejv3TkZrpHiDxH0ktuONlYF0MrC6RL0lPjonYhl5tPfZVMABC84Rze
-	 nnvkEJAEN6YGQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id AEFCA4D581;
-	Thu, 26 Nov 2026 14:10:16 +0000 (UTC)
-From: Robert Ijtsma via B4 Relay <devnull+robertijtsma.gmail.com@kernel.org>
-Date: Thu, 26 Nov 2026 15:10:17 +0100
-Subject: [PATCH v2 2/3] arm64: dts: qcom: sc8180x: add IMEM node
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hOJaWzmj
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795702234; x=1827238234;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=kgtB+l4EZTdNwkV7MWsWZYIewc7cT9kvWiX9nQy2AkE=;
+  b=hOJaWzmjlAI4lHxZfIbizBIbdwib4c1ijDLiYumGfd+RATg3rxdQmOdX
+   e5A9n/qZ7mEOzYMpBvcspFUk0iX69wmPeat7ivMoYB7nB4o201rjrrguh
+   TG1TMN0Vs+eWa28RSOyr8XVHIMbzzZZdOEFaSqs3crspXFqoIUU29VSb7
+   gC3OJCQKcXFOggfiQmZtbXc7HA9lD3DRvgxFURat3kUYvD0Lv++ALxdqk
+   XfBSTZFBgAHnnJunS/ZuROaSlqqDNSaPBf+R9L2r0h72oywmAHvou+3CO
+   12IXXT8eNCIcwjzHIG48zcGescznx9QxKrPHXzTUg7hIC8kPwK8YIqJsq
+   w==;
+X-CSE-ConnectionGUID: 44f7UI0qSBO2dujr6yUF6g==
+X-CSE-MsgGUID: 5x/7iZlmQLmGYFB8/++iiA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4605780"
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="4605780"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 06:10:34 -0800
+X-CSE-ConnectionGUID: W31SH9gLQiCF2IzC6X2k6A==
+X-CSE-MsgGUID: RUvMuKCeTO6s8IR0kr1jig==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="12440987"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.208])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 06:10:30 -0800
+Date: Thu, 26 Nov 2026 16:10:28 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: robertijtsma@gmail.com
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v2 0/2] iio: light: add support for ams OSRAM TCS3430
+Message-ID: <awg91DruXE0fZ8l-@ashevche-desk.local>
+References: <20261126-iio-tcs3430-v2-0-6c5329d20919@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,69 +84,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-sc8180x-dts-ipa-v2-2-e919ed1643c1@gmail.com>
-References: <20261126-sc8180x-dts-ipa-v2-0-e919ed1643c1@gmail.com>
-In-Reply-To: <20261126-sc8180x-dts-ipa-v2-0-e919ed1643c1@gmail.com>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Robert Ijtsma <robertijtsma@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795702215; l=1181;
- i=robertijtsma@gmail.com; s=20261122; h=from:subject:message-id;
- bh=rDI8dY7d2yAfqJnRnUuDpYfbnBT2kMndnLO0zvD8B3Q=;
- b=jQr9IKkUH8ADF2LBEVmig2kTt3UH3oHL3CXoxmXm/oGn9xJeqYxkCt1ejIHfPOviCM74Uh3oJ
- M7M1kpwSZfUCRGyNBo8WFLDRLyNdlANNFpob4xkR1xsTEaYZI5aEwWI
-X-Developer-Key: i=robertijtsma@gmail.com; a=ed25519;
- pk=qiDyKVqFicxFIR5sB5m+p9SWPKL2/+mMoiQnUx0C9P0=
-X-Endpoint-Received: by B4 Relay for robertijtsma@gmail.com/20261122 with
- auth_id=1604
-X-Original-From: Robert Ijtsma <robertijtsma@gmail.com>
-Reply-To: robertijtsma@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261126-iio-tcs3430-v2-0-6c5329d20919@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-From: Robert Ijtsma <robertijtsma@gmail.com>
+On Thu, Nov 26, 2026 at 09:11:46AM +0100, Robert Ijtsma via B4 Relay wrote:
+> Add Devicetree binding documentation and an IIO driver for the ams OSRAM
+> TCS3430 ambient light and CIE 1931 XYZ tristimulus color sensor.
+> 
+> Tested on Microsoft Surface Pro X SQ2 (SC8180X), where the sensor is
+> connected on I2C at 0x39 and used for ambient light sensing.
 
-Add the SC8180X IMEM SRAM node (sram@14680000) and describe the 8 KiB
-IPA modem tables region (0x146bd000) as a child slice so IPA can map
-it via the devicetree sram phandle.
-
-Signed-off-by: Robert Ijtsma <robertijtsma@gmail.com>
----
- arch/arm64/boot/dts/qcom/sc8180x.dtsi | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/qcom/sc8180x.dtsi b/arch/arm64/boot/dts/qcom/sc8180x.dtsi
-index be79608b7161a0786463fe93e22798080ebba93c..7865054a3fafb85e34daa31b985e3c66f8d7e03f 100644
---- a/arch/arm64/boot/dts/qcom/sc8180x.dtsi
-+++ b/arch/arm64/boot/dts/qcom/sc8180x.dtsi
-@@ -3623,6 +3623,21 @@ spmi_bus: spmi@c440000 {
- 			#interrupt-cells = <4>;
- 		};
- 
-+		sram@14680000 {
-+			compatible = "qcom,sc8180x-imem", "mmio-sram";
-+			reg = <0x0 0x14680000 0x0 0x40000>;
-+			ranges = <0x0 0x0 0x14680000 0x40000>;
-+
-+			no-memory-wc;
-+
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			ipa_modem_tables: modem-tables-sram@3d000 {
-+				reg = <0x3d000 0x2000>;
-+			};
-+		};
-+
- 		apps_smmu: iommu@15000000 {
- 			compatible = "qcom,sc8180x-smmu-500", "arm,mmu-500";
- 			reg = <0 0x15000000 0 0x100000>;
+It's still unclear why a branch new driver. Can you elaborate on this?
 
 -- 
-2.47.3
+With Best Regards,
+Andy Shevchenko
 
 
