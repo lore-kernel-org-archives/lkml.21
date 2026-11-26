@@ -1,99 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795704789;
-	b=DKsnGGlkhdGkRaUWtTRBMxZLn0tJNYXXbkH88ba01LezE/FLuq256DSijfcgcbU/3eIl
-	 131JBC1RdH7CBZiGTdSQqMWAtCiHoavdbNKm7nF6PPqRqT5rolsbSBqAuFtVbULjjiBtz
-	 dClFlXF3sFGNTvHLw1LGzXQI9Uq5hb+oQnJMEctkamU12s0RSRgNh2txFjvAaClCNAu9C
-	 E4I0OKYlFmapn4z6Xd6alWTLsUmURrKZZZlLUoLGSSynPW/95R0eWsmwfD/E5zg49kFJj
-	 ihDLjvP65nzJaX+MvVNhIGjDqLnMnE5kGRTEaSP3/DPiGxTLLR3Y6AwxsFoZlbDwnow==
+	t=1795704795;
+	b=0dIhq97Qvq4VQVHOiqAfk9ldhrxx90dqvbqVknasgjdkRxpYSfGuIzdnMs4ev1cxUTsP
+	 pZFaM2+zmMoUwnXaiQSz3TC6g0IgzUnEPEYsLleJDGQzRGjJTPhUn+kUN2J4GnwZKF7S0
+	 X4ZVZxoSTJXQMGLVQu0FqBFcxUhTJdQSj3u3hglgfAitI0wOim+lcuItzg6flN/A/t/Mj
+	 Y9ERTvJeymKMFjcbSRq0Wd1hMqZqAOf4dXEbEiqKml86gHfJCgT7Pn3mVhdy1vhzGcs+1
+	 kaLX7xSTyPW2WWHknAVL70ooMrBoH1I4cvnq0GGFyjOhF51C4cXdlothfKLjoJhvoVQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795704789;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795704795;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=a1dL6bz0M4wUZOGCZr+O+oOZ/mF4biIKzGjIH6tjykQ=;
-	b=nxgfGclCUBZs2SA07ElM6TuQ5G7Oo0oGzlyI7M0Vby8b0MhAqk0VzNfT7fTR061iTbfs
-	 yWd2W91j6l6QDaPFAFlINU57Li5zpVLsgqaJ4IgRdtKkP7upVS3i2X3ZPgXTVVJ1fqIXr
-	 5Ac3p8Nm3vCWfBXtEe33D2LGpidLegV8gkgYB+pBJKrtxVIsEdwCq8OdhQe1C/AzTZky5
-	 d3q0xblDbfM0chL/JtSrkeIMKDuAz70sLRKRZGyZA0e1P12PldduLol5oXHMDpMrMrMM+
-	 4XMgH5liKHy7AQTIY4xSUky5FgNXWueUrHMlM6cDM5agNgag7dlnmQUcf6JosKdn0eA==
+	 From:X-Google-Original-From:Date:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ZqMqbfj/cETQCXmO3wbil3gEmzGzk18Px5yh8y4lWVg=;
+	b=S9qkZEgKLZnkqAioC2mInypTrG4RhOkg2hecC/FigXBk6FTw3vSvxJQ6HuhA82AQyHOj
+	 tg3vdxnfBSXqnQHiJ/P6mLz9gfmvqnkhitA73PQ8rQxzfFLWxLHBq+lUWcICZFAAzLnSl
+	 UP64YONxSI97BJzoEH9weeAraBekhfhtJnXpHgcxxyaqOnq5VDXwxIjvMXh0ED29fid6F
+	 AUb6jqLjFPx1V4KiCq9VE6kGgKPT5C0JH/DKg39hnzMXZbl5FECUAIuniIerCTOIl1dYl
+	 NahMxh7WfVwf0IKANLADTnDS4KPzizvoXjLOFSiOu6R9hMtG8DxuC5MxZLDa+0cN7ew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linbit.com;
-	spf=pass smtp.mailfrom=linbit.com;
-	dkim=pass header.d=linbit.com header.i=@linbit.com header.a=rsa-sha256 header.s=google header.b="w5fB/s8L";
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=SbH0mZzT;
+	arc=none smtp.remote-ip=209.85.128.47
+Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6593606A6B3
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:53:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B6593606A6B3
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linbit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7129C60A3813
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:53:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7129C60A3813
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linbit.com header.i=@linbit.com header.a=rsa-sha256 header.s=google header.b=w5fB/s8L
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb55cda775so44334755e9.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:53:08 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=SbH0mZzT
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4a35ac4475dso51650205e9.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:53:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linbit.com; s=google; t=1795704787; x=1796309587; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+        d=suse.com; s=google; t=1795704794; x=1796309594; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=a1dL6bz0M4wUZOGCZr+O+oOZ/mF4biIKzGjIH6tjykQ=;
-        b=w5fB/s8LWy4/gebkyxo5ZlSKU/UVX0yB58wPFLGzA+Itdgzj+nlswOJ9byZPNZVx0I
-         XP3cdxZ+A/e83hu9AhTv4WTqtlcamLeGibCGFewUgQxMe3E+pqjJiUJO4HsaZcLMcJcf
-         LsDfxCEWGtFDJEa0RzKzgxdpY5+dkK2xdQkXgusXTBn/+noVePjvCcDywHKeuVgBMyuh
-         42I2hA0fo8w8nWJ2hccdIgJemJWF4eMqKugHou/fC7n6+s6WWGcHPqGGmUzal+ZWLDhD
-         sykdI7w7y/aE724spA/w9zyxB56VPvckaz+3TW0p1doGeRPtTQR9U9nBdos173lJLW3i
-         kiJA==
+        bh=ZqMqbfj/cETQCXmO3wbil3gEmzGzk18Px5yh8y4lWVg=;
+        b=SbH0mZzTQkyuq3Sga3blWcZFEfcQIFRZmyVP1q634WAIOy6CvybhvI93yuiE0JiTZ6
+         zZvpRZu7lDlbqxMnYYpy0mh8SunGI+MJP35P+iPhpvLMDf5hoqMNkbAXzngC4mawAh4R
+         T7eCVkrw5Htp2UBW2pMGLTLK/c6sfljG2P3zGVWxu45O1ZRKesy9JLyVJrouV4j3Ya3r
+         OzHu5iE8UznSx2fqb08zYWXAnqvB6c7uRLo7IWbSWHwTm5XvCYqgQ3prnXc4jLuXwwAz
+         BSXqrO9p5ZjjnbglFoq8anfSnyIhAgQv0yN3zqfPOHmgjCDwgQj7u9gtteiL8SocUNVn
+         Q3Aw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795704787; x=1796309587;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1795704794; x=1796309594;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=a1dL6bz0M4wUZOGCZr+O+oOZ/mF4biIKzGjIH6tjykQ=;
-        b=2fv5JFU0EraNSD5svHGjGDXpFb1tCg+TNWz+FoYEJNoVtLGkx+wpfyLjmAOPa3SIOl
-         t6JFEziOB+Vdk/eDXgFz6vIijQawggtWmWOz7JnI7lqVVUvNJH+R1u+x90D9jMHOP6CS
-         HN9cOxXfJVae6JWc4SaWk4FoNB8L2Vtde93Gd8rS9QYpY/86vr8qYr8bg52LmJqGMOYu
-         VNCtt1Hp+rmWoh4mJNHal5V1vF9BDLEru2LjJ2JqJoM3LC2C4OfCGON2wl93WyfXB6oO
-         +oinTAmpuhasXAZpJMVgkAckSMlbxGFT9t5GNFFJLp51ClnePQ2nTJiiY8XMShYfVg5l
-         8NHQ==
-X-Forwarded-Encrypted: i=1; AL+hErEtCLjrx4zqgTPjjCAJmp2iUr+9vK67AIHrWsiQ9lnXnU2/7+pysjmAX0eTWxSkFWE1eW7GwMMNYBnvADE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9HiymlMsI2pMRpBhP7cALHdYvsDzLlvLBWU7UMvtTazYf2CYOE
-	0A51DkRvbbb2iiXqmUB6NN73jCewddpWX92PDnDA3d9SYF3Hp02cyxsU22Xq6AI1rRo=
-X-Gm-Gg: AZFdTZcT7tc66NyjxsEa8C5MW0S7ZkiFvWz8FiaHV8NKwPKKjSO7phvqe7qW/OxZ/nc
-	JQrhZZslqWjQIn8LP/ecS1R7rZnC+OclspLhk6ghjUv8tOhIbbAFohmAdAsOvPWzlFBnzU/JDDV
-	1RxjetHc2arvXWvNPt4fPk48uC2OyzusgcwwOjKZUAtscRkRpehFyeQhWH+8hCnCXRS/c0MiSrP
-	32x6OfLPbDmwz8W3dFUPJCxdazRjkOpLjmwXLzJapG+7orAu4fpFjK4/oksmXmXOlQXp89czVeU
-	DIUkC7eh101RSvk8Jt2jjHoH6SLDgRbIEo0VKTq1qdSNWEDGNAdWD1E2Fg2hCBDB7ThLQiVhi86
-	zjZNBpWSuVtvSRAAbXkIutFe1D+tSqBTWnbBOpcdHP6E1U5/my1913Kh7iPOR36C3RsYRjPex9a
-	maPclz/RB4p4bxhCnNjZaVN2UJm7S0zZ2J8heu21nX0nstRDYIzs9JY/lBox3IRLFCyG2V468oU
-	mXzhcnwowDxUE4c6/NO0aMHniqyPn24P4UK7I6lsgWs680OAcIxhhd17lpHKr7uYt88er/XhJjn
-	fWKPdvLL4fOCAY5wa9Y5ZFrDjUTCyDGGW4iwLTTs9CUrccmWVTJAYF9fHWjAMSq3hGmy9RlYEA=
-	=
-X-Received: by 2002:a05:600c:4585:b0:4a1:c6f5:2450 with SMTP id 5b1f17b1804b1-4bb8881b8e4mr439545255e9.17.1795704787080;
-        Thu, 26 Nov 2026 06:53:07 -0800 (PST)
-Received: from linbit.com (h082218129081.host.wavenet.at. [82.218.129.81])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906c089dsm356445905e9.1.2026.11.26.06.53.06
+        bh=ZqMqbfj/cETQCXmO3wbil3gEmzGzk18Px5yh8y4lWVg=;
+        b=tsQjrNhqZRYNkL6mjXz0ppAxOFhU+MDEbxjFKo40TZfM7G53Qvy82qM1TCW1icfGMq
+         UWqGxcCGFVHpxTXA3I4BpNooiN1IxiH8zJUMAUiBsezNXApka4CVBPqFmsuTICC5lm2h
+         YMxMMIMO7Ku+WcB1X8ztCzbecbzcuYpSp1J7/YBA70RelEuTSXdgx9ex+TRewreYVx5+
+         4jvIwEyOfYr+vT/EK13V6SeqPTfDCGmwACp9nhYTCzcORBSnoDEPLrBPKGt+/DBvkJG4
+         VvcJ4UM1srrZy2eo0co4XW3iYIozGklwF+758dgvcmy2cAGbgMePUeMv2ZwCYX5to7fh
+         msxQ==
+X-Forwarded-Encrypted: i=1; AL+hErHG0QKGvL2rFa4z3oH8HqKLI4fxan/79xlL3ZpV5qLZt1pYB2v9HZQylfDzzks6Zoxo9iAUoN7jFj4nBBQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8/CKNe+QN2T+05cozKuWA001TFUXxgOC1DD5yRdsWNfY0NWS9m
+	yQff3FR8m8hP3xHu4400avXlx+WC1PG9BIYpYHDSQFrsaG7RIBIQIF6fguEDtSa5TcI=
+X-Gm-Gg: AZFdTZf+jO0XswhfzqiCR5cMgfzyU967zKoff8xpPam1Iit/wT0CLhlsPYYdlGyGIhv
+	CnvwRpWLrxlgycqj/hFY89YKzvrmMmKtf0xGCXEcC5fwlSPkiGsMeuGvrbL5hVZjmtej8pyF3Zm
+	M+A2awx8EAlJdUCen67Y1WeYhbQIodivf2P7vbec94um0S+f25YFp3gnh7MejCjn8koNRw1MS1p
+	5uf6iuRS0FiG5InVac+QLpShVF4IlUIi1yfKvYFo3baQwZfh72jjOGphueqYsbAVWrsx4K27DjF
+	+10KBPGSr/rnCjwSU152xdqQeBodLjuMQ52nxTGDE7RpI5YgaiQZC47neAmZQkddFQ/OwcVNMao
+	2iLd54KcYsKG8lF8joz2y7S1u6qkOycBiDJUxCCs0h3TRoiBN3xGveduWmdnM0va3DgXDXHqQX8
+	NkSSXS2sWsQGwN2bivXq5T8XYllrJTWWYp+Oce20eug1mzZERa9eeLc4XVNpW9N70rLZO7kCwTB
+	2mxnSdAUf5kS+WRVRcZxcFs4Oy7/QpnHKOiDMmde3785DKFaszISbHWzbGuFz5PvXteu6s1rroM
+	bXpWRE5zpCV/bpk0UxDv7l38wDso
+X-Received: by 2002:a05:600c:a11:b0:4a2:e0c:2b0a with SMTP id 5b1f17b1804b1-4bb888120famr434903565e9.16.1795704793802;
+        Thu, 26 Nov 2026 06:53:13 -0800 (PST)
+Received: from localhost ([195.94.148.180])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88442995sm636202395e9.2.2026.11.26.06.53.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 06:53:06 -0800 (PST)
-From: =?UTF-8?q?Christoph=20B=C3=B6hmwalder?= <christoph.boehmwalder@linbit.com>
-To: Jens Axboe <axboe@kernel.dk>
-Cc: Philipp Reisner <philipp.reisner@linbit.com>,
-	Lars Ellenberg <lars.ellenberg@linbit.com>,
-	drbd-dev@lists.linux.dev,
-	linux-block@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Christoph=20B=C3=B6hmwalder?= <christoph.boehmwalder@linbit.com>
-Subject: [PATCH 4/4] drbd: refuse to shrink on resize unless an explicit size is requested
-Date: Thu, 26 Nov 2026 15:52:57 +0100
-Message-ID: <20261126145257.592085-5-christoph.boehmwalder@linbit.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261126145257.592085-1-christoph.boehmwalder@linbit.com>
-References: <20261126145257.592085-1-christoph.boehmwalder@linbit.com>
+        Thu, 26 Nov 2026 06:53:13 -0800 (PST)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Thu, 26 Nov 2026 15:57:13 +0100
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Frank Li <Frank.Li@kernel.org>, dmaengine@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Saenz Julienne <nsaenz@kernel.org>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Dom Cobley <popcornmix@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 02/28] dmaengine: bcm2835: Add support for per-channel
+ flags
+Message-ID: <awhIyZ2weVtCrKN6@apocalypse>
+References: <20261123145728.29082-1-andrea.porta@suse.com>
+ <20261123145728.29082-3-andrea.porta@suse.com>
+ <7258e7d8-c968-4876-bfb4-de89e2fb05e3@gmx.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,91 +115,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <7258e7d8-c968-4876-bfb4-de89e2fb05e3@gmx.net>
 
-From: Lars Ellenberg <lars.ellenberg@linbit.com>
+Hi Stefan,
 
-There is a check for implicit shrinking, but it was only active
-when _also_ changing the activity log on disk layout.
+On 18:37 Mon 23 Nov     , Stefan Wahren wrote:
+> Hi Andrea,
+> 
+> Am 23.11.26 um 15:56 schrieb Andrea della Porta:
+> > From: Phil Elwell <phil@raspberrypi.org>
+> > 
+> > Add the ability to interpret the high bits of the dreq specifier as
+> > flags to be included in the DMA_CS register. The motivation for this
+> > change is the ability to set the DISDEBUG flag for SD card transfers
+> > to avoid corruption when using the VPU debugger.
+> actually I'm not against this feature, but this seems to pad out this
+> series. Is this really necessary for BCM2711 or 40 bit support?
 
-Make it active always.
+The flags of patches 3-5 have in-tree users in this series: the BCM283x HDMI
+audio channel uses wide source reads and no write response wait (patch 27),
+and the BCM2712 HDMI audio uses bursts, wide reads and the AXI priority/panic
+priority (patch 28), as done by the downstream device trees too.
+If you prefer, I can move them to a follow-up series together with the HDMI
+audio patches: in this case you'll have to wait for the upcoming new series
+in order to have the updated audio nodes in DTBs.
 
-Signed-off-by: Lars Ellenberg <lars.ellenberg@linbit.com>
-Signed-off-by: Christoph Böhmwalder <christoph.boehmwalder@linbit.com>
----
- drivers/block/drbd/drbd_nl.c | 15 +++++++--------
- 1 file changed, 7 insertions(+), 8 deletions(-)
+Many thanks,
+Andrea
 
-diff --git a/drivers/block/drbd/drbd_nl.c b/drivers/block/drbd/drbd_nl.c
-index efa6e46326a2..5c8a3ab326d7 100644
---- a/drivers/block/drbd/drbd_nl.c
-+++ b/drivers/block/drbd/drbd_nl.c
-@@ -981,7 +981,7 @@ drbd_determine_dev_size(struct drbd_device *device, enum dds_flags flags, struct
- 	struct drbd_md *md = &device->ldev->md;
- 	void *buffer;
- 
--	int md_moved, la_size_changed;
-+	bool md_moved, la_size_changed, al_layout_changed;
- 	enum determine_dev_size rv = DS_UNCHANGED;
- 
- 	/* We may change the on-disk offsets of our meta data below.  Lock out
-@@ -1009,7 +1009,6 @@ drbd_determine_dev_size(struct drbd_device *device, enum dds_flags flags, struct
- 	prev.al_stripe_size_4k = md->al_stripe_size_4k;
- 
- 	if (rs) {
--		/* rs is non NULL if we should change the AL layout only */
- 		md->al_stripes = rs->al_stripes;
- 		md->al_stripe_size_4k = rs->al_stripe_size / 4;
- 		md->al_size_4k = (u64)rs->al_stripes * rs->al_stripe_size / 4;
-@@ -1064,8 +1063,11 @@ drbd_determine_dev_size(struct drbd_device *device, enum dds_flags flags, struct
- 
- 	md_moved = prev.md_offset    != md->md_offset
- 		|| prev.md_size_sect != md->md_size_sect;
-+	al_layout_changed =
-+		   prev.al_stripes   != md->al_stripes
-+		|| prev.al_stripe_size_4k != md->al_stripe_size_4k;
- 
--	if (la_size_changed || md_moved || rs) {
-+	if (la_size_changed || md_moved || al_layout_changed) {
- 		u32 prev_flags;
- 
- 		/* We do some synchronous IO below, which may take some time.
-@@ -1098,7 +1100,7 @@ drbd_determine_dev_size(struct drbd_device *device, enum dds_flags flags, struct
- 		md->flags = prev_flags;
- 		drbd_md_write(device, buffer);
- 
--		if (rs)
-+		if (al_layout_changed)
- 			drbd_info(device, "Changed AL layout to al-stripes = %d, al-stripe-size-kB = %d\n",
- 				  md->al_stripes, md->al_stripe_size_4k * 4);
- 	}
-@@ -2861,7 +2863,6 @@ int drbd_nl_resize_doit(struct sk_buff *skb, struct genl_info *info)
- 	struct drbd_device *device;
- 	enum drbd_ret_code retcode;
- 	enum determine_dev_size dd;
--	bool change_al_layout = false;
- 	enum dds_flags ddsf;
- 	sector_t u_size;
- 	int err;
-@@ -2936,8 +2937,6 @@ int drbd_nl_resize_doit(struct sk_buff *skb, struct genl_info *info)
- 			retcode = ERR_MD_LAYOUT_CONNECTED;
- 			goto fail_ldev;
- 		}
--
--		change_al_layout = true;
- 	}
- 
- 	if (device->ldev->known_size != drbd_get_capacity(device->ldev->backing_bdev))
-@@ -2955,7 +2954,7 @@ int drbd_nl_resize_doit(struct sk_buff *skb, struct genl_info *info)
- 	}
- 
- 	ddsf = (rs.resize_force ? DDSF_FORCED : 0) | (rs.no_resync ? DDSF_NO_RESYNC : 0);
--	dd = drbd_determine_dev_size(device, ddsf, change_al_layout ? &rs : NULL);
-+	dd = drbd_determine_dev_size(device, ddsf, &rs);
- 	drbd_md_sync(device);
- 	put_ldev(device);
- 	if (dd == DS_ERROR) {
--- 
-2.56.0
-
+> 
+> Best regards
+> > 
+> > Signed-off-by: Phil Elwell <phil@raspberrypi.org>
+> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> > ---
+> >   drivers/dma/bcm2835-dma.c | 10 ++++++++--
+> >   1 file changed, 8 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/drivers/dma/bcm2835-dma.c b/drivers/dma/bcm2835-dma.c
+> > index b19182c6e3df..690f5ba1c439 100644
+> > --- a/drivers/dma/bcm2835-dma.c
+> > +++ b/drivers/dma/bcm2835-dma.c
+> > @@ -137,6 +137,10 @@ struct bcm2835_desc {
+> >   #define BCM2835_DMA_S_DREQ	BIT(10) /* enable SREQ for source */
+> >   #define BCM2835_DMA_S_IGNORE	BIT(11) /* ignore source reads - read 0 */
+> >   #define BCM2835_DMA_BURST_LENGTH(x) (((x) & 15) << 12)
+> > +#define BCM2835_DMA_CS_FLAGS(x) ((x) & (BCM2835_DMA_PRIORITY(15) | \
+> > +				      BCM2835_DMA_PANIC_PRIORITY(15) | \
+> > +				      BCM2835_DMA_WAIT_FOR_WRITES | \
+> > +				      BCM2835_DMA_DIS_DEBUG))
+> >   #define BCM2835_DMA_PER_MAP(x)	(((x) & 31) << 16) /* REQ source */
+> >   #define BCM2835_DMA_WAIT(x)	(((x) & 31) << 21) /* add DMA-wait cycles */
+> >   #define BCM2835_DMA_NO_WIDE_BURSTS BIT(26) /* no 2 beat write bursts */
+> > @@ -433,7 +437,8 @@ static void bcm2835_dma_start_desc(struct bcm2835_chan *c)
+> >   	c->desc = to_bcm2835_dma_desc(&vd->tx);
+> >   	writel(c->desc->cb_list[0].paddr, c->chan_base + BCM2835_DMA_ADDR);
+> > -	writel(BCM2835_DMA_ACTIVE, c->chan_base + BCM2835_DMA_CS);
+> > +	writel(BCM2835_DMA_ACTIVE | BCM2835_DMA_CS_FLAGS(c->dreq),
+> > +	       c->chan_base + BCM2835_DMA_CS);
+> >   }
+> >   static irqreturn_t bcm2835_dma_callback(int irq, void *data)
+> > @@ -460,7 +465,8 @@ static irqreturn_t bcm2835_dma_callback(int irq, void *data)
+> >   	 * if this IRQ handler is threaded.) If the channel is finished, it
+> >   	 * will remain idle despite the ACTIVE flag being set.
+> >   	 */
+> > -	writel(BCM2835_DMA_INT | BCM2835_DMA_ACTIVE,
+> > +	writel(BCM2835_DMA_INT | BCM2835_DMA_ACTIVE |
+> > +	       BCM2835_DMA_CS_FLAGS(c->dreq),
+> >   	       c->chan_base + BCM2835_DMA_CS);
+> >   	d = c->desc;
+> 
