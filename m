@@ -1,79 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795722701;
-	b=sC632TTJnRd5MHjrXA9B2ndzul8dnXKr5U3wpxLwstg/6Ofqjnt0JZKutwNIrsv6JaVN
-	 eeaYiU4hHrby5cGTeouH5tHSIuG4khnmUwEXTteCWg6D7hKzPgw1kMTDZR51OIwoDJd7A
-	 YlmSJOBRJa2Pj+VHDc75sKPO9z/exC+BcABXb0d/GjBkbbdiZ0Nyi6lhhS/nbqcbfz3aj
-	 TJSylNSR7USqr8/UyV5rXI+tBiwY+dbCN00VJ0Lv4eJ26yekXg308KmpEs67A+QHutT03
-	 ePEdJ4LY2lPzM0iDhFtSmv4uAuTA7coWSjcDjfLY7a2HSieWm2VzrguyBm1CfeJURkw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795722701;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=R2eFuVKMuKx/HT5/2aCPbO7MjOp+iQ1ERiIlQILhiRQ=;
-	b=jEHi/hM3qo9M+BAHkrKcndgShWUDGMHjSxiEqfl7pULcYsCcwHTlkZC+Ei8Bv3cfM/yn
-	 QjTVsqmvXf0TS8tP+GnVPKQbUnn2rbZwsi7FAz/uNlwAKL7c/4gIAc0I0oYNI7Q90rPWq
-	 UDTJI9tuea4VyFFAkLUoskfLSIfdlIOsKEJjCqjQaakUUCy+XkneFm6q/e4VJuOEZ43aA
-	 FvswaO/pr/A9OrJV85p5oy8P9ZLDP8LBY8uPXTlGpcIisHmlHdY0LDfQ7X52OJSiW2e3W
-	 MZYcD4eMlryf4yWHNU/buu0sW0lm0nGwuXkbCU5NDoDMNuV8v5G1cD4we3fZ4j89qcg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Oe0R7jCk;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795722756;
+	b=hnb/+0Lgr7yLfpNcXrzn1UW9YFzxt7ntsRbyANQlVOhXRT4Xvj88dEcE5XfW0FcbXTbj
+	 FoT9VDH8gvtGfWsWWElrP97bcfAIRrUudoFLdm0n/OrJPWV/TEgdqQ9ZnWJoCXKjcvwCh
+	 aVdlgpydbzXYAgIlAdXwbqiunWqzoudCQuZ+r31taSkFLP93ZVpmYj4OzlvnddAEd00h/
+	 rq92rltuJSH3/iSVVr2qxsPbYA/RcGa7vLnvWFm95w7ekJef8zR0aaMGluR+1+1Y+h4OO
+	 fK8gQc6WvXYDLpV+nNl3vv0jik8dNdmbB/EmAHWcOJl6W4E7LSub+A/amoDNy3v9CEQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795722756;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=ajvyWW3DQr1rCnfZEzkj7OTvm1pagyyvWLXifOTGWgs=;
+	b=UlCzxDHQ8/XXiJH1by64pu+BW47MXi5UPh4/TJbMX4S8kHZjLOimibTGBzlZRfAcTCUX
+	 03MmXF8zYEs6zQFrZtIAUufjhW+CpUK6htD67ZCjs4bTL89QrxcripO6EPF0y9JR6IAm2
+	 +/hy56TIYJRGbEZfUAv1GKku5+HhET2T+0fdLEVzo3ApsrqkobI7ObMYEznAjcK72Do5/
+	 sobxqnEp+w+7YQNvnXe4Obh+lky97lwqT8SgHWe5v6hK1e6DKFHYhA+8EM0Ta9R2aN+hX
+	 9XvvpJFdIJB9DzxOuqF0uX/mHFgS+wxHlSaLM3nrJJFZpxZWQdsP+9pZYuwnMVNrfbg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=euu3ZruD;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB728606A339;
-	Thu, 26 Nov 2026 19:51:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D23FB606A31C;
+	Thu, 26 Nov 2026 19:52:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Oe0R7jCk
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795722700;
-	b=zw27A1A5zJTnqU9MKgz/LGAfb/QfVcKOlZbapK45m0pboCZq//ODWOwFWS8x/K2pxaDl
-	 0C9i2ZadN1mUeS2tyB++mJ06AzQuf1Lh0RqQ1J3Jgf1/4HbyGn6wMnrJ5JMOv6yVDGWDn
-	 0WffJCL18zucZB3ijHtXhPczEIQ4iTfKR28a6k0ebAumWKWxbJmBWRt0E56NuiLnNU4cO
-	 582oYzZRaawjwQ6T2rP9NeEnBcPqg9t8Yfv18mk2piXWuKU3ZHNxY9541W1MThuhoW5LP
-	 eJuuJ3UB5th7L+N4NSprHYsskAEe+CCexob/MvTMUfcO9ks182ggNVQWI/lrWv5P8Jg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795722700;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=R2eFuVKMuKx/HT5/2aCPbO7MjOp+iQ1ERiIlQILhiRQ=;
-	b=HKptJJ9rqW8dfG6cA1Yk9PO3k14hJWiaFp+8GkWtHpiTx/DlKivHz7Hkgo/4UCVKMD2/
-	 sUZiyONiKSXMKDNNmcoA8Bf62SSoUFRXi2H3W1fMakkbq9OxzNfVfPQTtq0JIx7oj5tsQ
-	 lv5oyJV8SY3AtDCCwAiJOWHFKlU45TGHaN2qkZ8Z1KJ3ydTnZjiIs+cg3conCxSWXh7vX
-	 QKtLg215gptFeJ+Vs/HtPBBjo5r+CinbjxjIKejNbuavZHi6mpv+9PLCp7MNnkY75Yg7O
-	 DjElo5/1yuPu3+0V3Kr13YkHEQ0lUURukjuc9QNOfWJtWokriVuW3IM44Q4Yid20KDg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 52C7B1F000D0;
-	Thu, 26 Nov 2026 19:51:29 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=euu3ZruD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9403D1F000C6;
+	Thu, 26 Nov 2026 19:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795722700;
-	bh=R2eFuVKMuKx/HT5/2aCPbO7MjOp+iQ1ERiIlQILhiRQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Oe0R7jCk6cOqGTdPFcS95Otvw48XMn4d13CDXz++UA0kDzVUcsqBxGmEdbCOLeNxv
-	 Ydslxd/yYUgjG/2ZmadUf3qPqbYENo9ky4Dwx54EqLs8KcuUfr9MQC6X7ckfucCumQ
-	 Xs5IX0xFsEF9xzMgnABSBoE4OxwA1/NdPs0EvYVRyILYrCJ56Ds6UAjxbJngAXo6YW
-	 QN8uHrSjWlTzAOL3SzIFZCRxHDM6rviajsvagN5xxjzoZmlRQWH156cshTPsxmAONa
-	 DPX42HDMLusJhr7gm3JrAaWx9YPpf1FRqHOdzlneX80DWyfbo56U00WAKDsL+cRaNY
-	 koME2pr436i2Q==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id D38E14D7D6;
-	Thu, 26 Nov 2026 19:51:28 +0000 (UTC)
-From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-Date: Thu, 26 Nov 2026 19:51:30 +0000
-Subject: [PATCH v5 4/4] arm64: dts: rockchip: Add IEP2 deinterlacer to
- RK3588
+	s=k20260515; t=1795722756;
+	bh=ajvyWW3DQr1rCnfZEzkj7OTvm1pagyyvWLXifOTGWgs=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=euu3ZruD/jO/Cz59b2NnQ2b1peKqrTn8kO+SefyayWS1KE4BmNliv+1SGG32IJluR
+	 HE+Wnt4lNs2O+p0Sb7CBioN1hsFPgnPtOEqBick/8fnOwSZMmIJMF11Dp8ZQA2W4pn
+	 I2nCxfnJ29minJKzmridkdPEuF4ZbJZ32VtmElZZ49wUfn7NcM95JitWOUqKHZwjxz
+	 77EG/q/IMuqZJSZC8cSKn6XLotVbvPmi8H6TTceQsPDWbv2NQ62Q0V7G9lIEpN3P/J
+	 Tyfuaerh/opGBOb1bUIykjFwNy2VSxqeXCsBKh/QlVUq7sKIj9nq3/0jwh5bigr2dR
+	 Odj7yaMCZ4Bag==
+From: Mark Brown <broonie@kernel.org>
+To: Jerome Brunet <jbrunet@baylibre.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Jiebing Chen <jiebing.chen@amlogic.com>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
+ jian.xu@amlogic.com, shuai.li@amlogic.com, zhe.wang@amlogic.com
+In-Reply-To: <20261110-audio_drvier-v8-0-1489241e4c83@amlogic.com>
+References: <20261110-audio_drvier-v8-0-1489241e4c83@amlogic.com>
+Subject: Re: (subset) [PATCH v8 0/5] Add support for S4 audio
+Message-Id: <179570534680.142532.3364346752372243512.b4-ty@b4>
+Date: Thu, 26 Nov 2026 15:02:26 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,79 +69,57 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-iep2-v5-4-3deac0976f10@gmail.com>
-References: <20261126-iep2-v5-0-3deac0976f10@gmail.com>
-In-Reply-To: <20261126-iep2-v5-0-3deac0976f10@gmail.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
- Hans Verkuil <hverkuil@kernel.org>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Alex Bee <knaerzche@gmail.com>, Arun Iyengar <aiyengar1990@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795722687; l=1631;
- i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
- bh=pLFuCmNVRbb5CYDpQgDI0o9UDTdkG7B7CO7SPDGMaZU=;
- b=alHddsvsruCU7g11zR0BvJGXQYO6bpOx0AAe6gWdgS0Sh/ZGoU/3GK0SwCsupSBCow5AyPtDf
- 9etk8sa0MR4Cty6Wj3u3qvSj0PN0Ab9w0elVXIDA1KEThQ73jR86FK2
-X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
- pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
-X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
- auth_id=1480
-X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
-Reply-To: aiyengar1990@gmail.com
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1516; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=dN2PQHo40OLUF6RS5mHEqX2pS3hO9wRkmfDDYCTRwMA=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLI5ev/9cO3b/bdZ+OzM2NssB23Y2pT+fPqzJFJbtbWXL
+ 8b16UadjlIWBjEuBlkxRZa4LO6X9SWv1/AdXNgGM4eVCWQIAxenAExk8itGhv+by9Ott92ZrXBs
+ 4/Viz6+Xqv6mv3+xtfzMctunJ3y1baQZGZ55TVU4+9H2qNDMKgtH3wmTa5vna26RtplRJ/Hn9+a
+ kMA4A
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-From: Arun Iyengar <aiyengar1990@gmail.com>
+On Tue, 10 Nov 2026 10:28:23 +0800, Jiebing Chen wrote:
+> Add support for S4 audio
+> 
+> This series completes the end-to-end audio support
+> for S4 SoC from hardware bindings to driver implementation
+> and system integration.
+> 
+> 1 Device Tree Bindings Updates
+> Added audio power domain and S4 audio clock support for S4 SoC.
+> Added S4 audio tocodec binding support.
+> 
+> [...]
 
-Add the IEP2 deinterlacer and its IOMMU to the RK3588 base dtsi. Both
-share GIC SPI 117 and sit in the VDPU power domain.
+Applied to
 
-Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
----
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index aa69fd3793fd..5297519bd251 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-@@ -1397,6 +1397,28 @@ vepu121_3_mmu: iommu@fdbac800 {
- 		#iommu-cells = <0>;
- 	};
- 
-+	iep: deinterlace@fdbb0000 {
-+		compatible = "rockchip,rk3588-iep2", "rockchip,rk3568-iep2";
-+		reg = <0x0 0xfdbb0000 0x0 0x500>;
-+		interrupts = <GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru ACLK_IEP2P0>, <&cru HCLK_IEP2P0>, <&cru CLK_IEP2P0_CORE>;
-+		clock-names = "aclk", "hclk", "sclk";
-+		resets = <&cru SRST_A_IEP2P0>, <&cru SRST_H_IEP2P0>, <&cru SRST_IEP2P0_CORE>;
-+		reset-names = "axi", "ahb", "core";
-+		power-domains = <&power RK3588_PD_VDPU>;
-+		iommus = <&iep_mmu>;
-+	};
-+
-+	iep_mmu: iommu@fdbb0800 {
-+		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
-+		reg = <0x0 0xfdbb0800 0x0 0x100>;
-+		interrupts = <GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru ACLK_IEP2P0>, <&cru HCLK_IEP2P0>;
-+		clock-names = "aclk", "iface";
-+		power-domains = <&power RK3588_PD_VDPU>;
-+		#iommu-cells = <0>;
-+	};
-+
- 	vdec0: video-codec@fdc38000 {
- 		compatible = "rockchip,rk3588-vdec";
- 		reg = <0x0 0xfdc38000 0x0 0x100>,
+Thanks!
 
--- 
-2.55.0
+[2/5] dt-bindings: Asoc: axg-audio: Add S4 audio tocodec
+      https://git.kernel.org/broonie/sound/c/145707a7d371
+[3/5] ASoC: meson: g12a-toacodec: Add S4 tocodec driver
+      https://git.kernel.org/broonie/sound/c/61802135f743
 
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
