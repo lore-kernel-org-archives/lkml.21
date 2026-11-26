@@ -1,47 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795675315;
-	b=EOJvPI/KnbkPSkl+BbtoZhhvW98rYcot2GqcwV9N9RJaeLHk8dTCqC1d/B5N83DZUAh8
-	 Nw48Fz3OLRucw69oxfIewmloVlR8nffHHNhULc83zMRPAoVEtY7SklVPY97bC+kG804H4
-	 FUOO4BIH5YXuA92DWA2CDbviL7fpE2Ws5/SqSBYRgGm30mJEj6dNme8whlknQtqPyJiJ0
-	 1axjWe1qay3mSWlwflYCHBMjbKUGAcCG+EB5R4YpDykDI/enqKh0L7zJpP+6V/8ruHv7v
-	 o7Pw81P03NwySQTeQo+VksQQ8NnXy5QunKdPHVQcNb2HNm6wkm33INjyPB67F2mJcqQ==
+	t=1795675361;
+	b=C0JX/f2/F12VDNeNNzOinRKp0yk8gKdmb97W78hd9GIHBSqO+98QfnEKa1Xy3mTGm9k8
+	 JrrHl+HcjAPpQQ35522tLrzWdG8jvbKxNAuAmTlKEhGhQO0Gnqxg/lzlWAu8HmPUndfEl
+	 4NSoOBHgVbE72XGfOHLbNgO2iwlx4sOecZPDcENsCBfLfGJ5SEh/XzIJzAK8sWFS+Nd1j
+	 kUHVcJp+/A6xSN/mCKJiqGdZEsDuEFOEpkyWEQs6cYEiBUBIyPDshBX4Bmm2WwkRcNh5e
+	 8oz5az8tagHwql7iAENm8ylzuHaYKE+7dt60vrmVF9jo/SO0SfxheYT6eiKw5oISshw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795675315;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=wgeUolha0fJQH9UwTLcaDXErohxlBmGVPsT2catGQk4=;
-	b=F8jTLkgQij9um8lxG3e5zDlZS99l9GbdkkDSDGC/RplIceeUk8ax0jM8hkKejn71EP28
-	 aurgCSs2MPpkDrBJv3c4ntdB/WR0RNaOObuLGAc7gZx5eibdYrcShevKcHouTg9e/79Mh
-	 V8KpC7oJvZ0JcYMFcWsA3PT+MloUPJektVJwNKY1Xt375pMkMKe01hJl1udoFwcpWGtAW
-	 EtD1TUr2f3eAfKjU8ZPJBnI3rfKSMCV+4tpkaP8yZG4UU5f/LJ77wgrZ4H/lx8IkfRUpo
-	 rOxIoU/G04WvA4tulOiWadAOmKrlzGJkEljrFQ/XyEg9yCTSyRK1JEJzM9+1Ir96kkA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795675361;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:From:To:Cc:Subject:
+	 Date:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-TM-AS-GCONF:X-Proofpoint-Reinject:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=Zuj5nD0beqQBAgWy56Kh7Cw/sEgcsVkpt8nbhWH2Rng=;
+	b=jtZrYxFvGwnGq/5c1k21OHHdi7IioWMoaZLCL3+Zj5PiUTgoLb4/1YZbuvbaszR1s42S
+	 0yFRWe3xMROxB9Cg3uRH9tps/W7X47Bvi0/HK1aapyddGzXIg9I6hh9kjLOMDnwbLRU9U
+	 j6dQ66KD4AY6DGGEJ0Il9ZUtCdkMrWBiS9Q9VBWDH+Vux42Hi+MXddjLbJ27Jsf3Iw+nh
+	 IxcW+ygQsy7hx57TiTVWrVECg4u9PuLi3re4ABrcmbcR2pXxVSbON64SuerMRmWJqF3Kt
+	 dbmMlxKZ3UABxDF9u/sMcwNvgk7gSH/CFw5vxKmuQXBuP9debBvvJt7V8KNBFpY1lDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M47Q5eJ+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=gmzL8wrg;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA9A7606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:41:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90F03606A31E;
+	Thu, 26 Nov 2026 06:42:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90F03606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M47Q5eJ+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD1931F000CF;
-	Thu, 26 Nov 2026 06:41:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795675315;
-	bh=wgeUolha0fJQH9UwTLcaDXErohxlBmGVPsT2catGQk4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=M47Q5eJ+gBbg21TeYhMgcQJmEolXZeGyr1Z3yNmNIhsk8ZCUDRuYEPJdLV77mzPDt
-	 bs/OWPm7HRyz2gDPAT7YlDQ9F5FeGXPadxEC62HPXUdNKrcZ5KNYa0eKncwoZ34xba
-	 rNX0wPiDl01AO0GxeRZJXGI6FbZmbuVL12VmI6xOAtOnrtSuIaRR4FswZdpEdvM4s+
-	 ZCKU2WpeiAi+xs9SEY3M0zKI+z9k3SYhkrzPRDxiZuZuBwielUOgpc/5i/OFHARn0H
-	 0VHxvCMoMASX6x4Am6ugvOFAges/84GO2oj2jbmtQ6yZmdID/5k3651dfTxxcNS2N6
-	 zwjuHgmnR6Q/Q==
-Message-ID: <fba23668-add0-4787-b027-bfba1f66e090@kernel.org>
-Date: Thu, 26 Nov 2026 07:41:48 +0100
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=gmzL8wrg
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ34t1T3131253;
+	Thu, 26 Nov 2026 06:42:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=Zuj5nD
+	0beqQBAgWy56Kh7Cw/sEgcsVkpt8nbhWH2Rng=; b=gmzL8wrgiF7k3FI22Sy/YW
+	NC/EnQiCpxpleg6ayVfOhY1opjOcR5fqlC7mcQEryhNgVCOTQFocKsRqJacIt51+
+	X3Ou7v9KE5/bVW7t7ZhxglikfuQ/ZcZp3SvVVt+gIVyYwuAyFbgX8QmEuVh8+85o
+	ONhGaHAeqM08SZmJkuUDDoU/IZy2SGZobFEdDRbYdSn1TGVRamn5MYnrBPiGQgQO
+	wl9Ufo0wqm17DNAP/lTPGCoLRBBd0yWmIH7kbaBkp7hF6+wKeELCjOkFB+ccEbhk
+	TKa/R2unDdyu943v86L6WpEwFKqKKJB5ECjVgvEavfhfxHPbW8YOx0LPV0f+cUYw
+	==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34fkr1et-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 26 Nov 2026 06:42:29 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ34Uc82799106;
+	Thu, 26 Nov 2026 06:42:28 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3q4hhd57-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 26 Nov 2026 06:42:28 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AQ6gNa136831680
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 26 Nov 2026 06:42:23 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 187622004B;
+	Thu, 26 Nov 2026 06:42:23 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id EE9A220049;
+	Thu, 26 Nov 2026 06:42:22 +0000 (GMT)
+Received: from localhost (unknown [9.87.84.240])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Thu, 26 Nov 2026 06:42:22 +0000 (GMT)
+Message-ID: <2d0a26195a1867c67a204cf9327fe478@linux.ibm.com>
+From: Sidraya Jayagond <sidraya@linux.ibm.com>
+To: Bryam Vargas <hexlabsecurity@proton.me>
+Cc: Dust Li <dust.li@linux.alibaba.com>,
+        Mahanta Jambigi <mjambigi@linux.ibm.com>,
+        "D. Wythe" <alibuda@linux.alibaba.com>,
+        Jakub Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@kernel.org>,
+        "David S. Miller" <davem@davemloft.net>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Guangguan Wang <guangguan.wang@linux.alibaba.com>,
+        Tony Lu <tonylu@linux.alibaba.com>, netdev@vger.kernel.org,
+        Wenjia Zhang <wenjia@linux.ibm.com>,
+        Ursula Braun <ubraun@linux.ibm.com>,
+        Hidayath Khan <hidayath@linux.ibm.com>, linux-s390@vger.kernel.org,
+        linux-kernel@vger.kernel.org, Simon Horman <horms@kernel.org>,
+        Wen Gu <guwen@linux.alibaba.com>, Stefan Raspl <raspl@linux.ibm.com>,
+        linux-rdma@vger.kernel.org
+Subject: Re: [PATCH net 1/4] net/smc: take the socket spinlock across the
+ failover cursor switch
+Date: Thu, 26 Nov 2026 07:21:38 +0100
+In-Reply-To: <20261113-b4-disp-1a9ab9b0-v1-1-4a7c8d85d849@proton.me>
+References: <20261113-b4-disp-1a9ab9b0-v1-0-4a7c8d85d849@proton.me>
+ <20261113-b4-disp-1a9ab9b0-v1-1-4a7c8d85d849@proton.me>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,94 +106,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] selftests/mm: move the HMM migration benchmark out of
- selftests
-To: Balbir Singh <balbirs@nvidia.com>, akpm@linux-foundation.org,
- linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Jason Gunthorpe <jgg@ziepe.ca>,
- Leon Romanovsky <leon@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- Michal Hocko <mhocko@suse.com>, Shuah Khan <shuah@kernel.org>
-References: <20261126025653.1344932-1-balbirs@nvidia.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261126025653.1344932-1-balbirs@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAyNSBTYWx0ZWRfX63KmWeRV/9mV
+ L/pxHgTlcUy19S/1CS7dwZQ+0HHHns31U75XoYoBx3nEhojD9gCuVaCWJTlkND1pGFSSsl6CUP2
+ qDSyvnTk4kDqjj9LGqq+gCix3A1ljH042HKmlp0rPT3yxDlOtTkM8E0G4uICkyyekWUACg5lk/B
+ Su/G817S24k1j81j97JN2e/1O8FGh2Wso2SgGBYjlIcKvc8oT6TWfpczac3tqGSvOGQAKIImTvq
+ 6ILNFLFa+yBDxLND+jmvU+GXOU0SJs63PPkzcmM12gvNIn4AkqHIRonzN02+Vk97vrac5SxUkvk
+ F6x9H+GZHTTNF2wjpyjmJsl3YjCIDihUQwXGg/d1ZVnOlUKfSiEhGeXve1a/79pR8yv5jLRS9S2
+ LKHO+iuOFyvXUmSxVR9/LRYihwaS85a9Nxvk1pN+UXRyFP14XMrn3ZdHrYUkfflSp/EGT5ylTNJ
+ mWxMxruJhPHqZwFmdqA==
+X-Proofpoint-ORIG-GUID: KcYNs8WkSwc9G44BFGBHallykboitjft
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAyNSBTYWx0ZWRfX7IvPx+AyIuUF
+ MKVcAV10pQBb24Ow+FFE+OvSjsMhXfkX3zlm6/01zOYhNpPpNj+NLY07EgqAz9BykyFrVv+JIrK
+ u/oCDaK4bhkj/6Mqu3xJGq+qedoJTMY=
+X-Authority-Analysis: v=2.4 cv=A9z5rKWG c=1 sm=1 tr=0 ts=6b07d4d6 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=oUSw0pek__-I6iOKThAA:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: 3-Z4RQCW1OXIvPsVMPPc_jsZd2-MHk_n
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_01,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 adultscore=0 phishscore=0 priorityscore=1501 impostorscore=0
+ bulkscore=0 malwarescore=0 spamscore=0 lowpriorityscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260025
 
-On 11/26/26 03:56, Balbir Singh wrote:
-> The HMM selftest runs benchmark_thp_migration on every invocation.
-> The benchmark repeatedly migrates buffers in both directions to measure
-> latency and throughput with and without THP. Run it on demand so the
-> regular suite spends its time checking correctness.
-> 
-> Move the benchmark into its own hmm-bench binary and share the device
-> fixture, buffer helpers and migration ioctls with hmm-tests. To run it:
-> 
->   make -C tools/testing/performance-tests/mm
->   sudo modprobe test_hmm
->   sudo tools/testing/performance-tests/mm/hmm-bench
-> 
-> Drop the 128-PMD buffer to bound the amount of memory migrated in one
-> measurement. With 2 MiB PMDs, the largest buffer falls from 256 MiB to
-> 16 MiB. The remaining sizes still cover buffers smaller than a PMD, a
-> single PMD and multiple PMDs, with and without MADV_HUGEPAGE.
-> 
-> Call fflush(stdout) after printing the results for each buffer size.
-> The kselftest harness ends the test child with _exit(0), so timing
-> results still buffered in stdout can be lost when output is redirected
-> to a file or pipe.
-There was recently a discussion on where to put performance tests. Usually it's
-much rather tools to test performance.
-
-So what about tools/mm/ instead, where we also placed gup_bench.c ?
-
--- 
-Cheers,
-
-David
+Looks good.
