@@ -1,58 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795720627;
-	b=rdURSHX1GuXLyeQSw29T3kHo3eU5nEfYZlGpGtDScbzEazwbMqKoUDGGuHRd25A6/8+2
-	 IymuOhTrnjyh1s2syUkTvN9Zr/+Knzor3zImBOinuybQWBmLnVSqyI7CbF/jQF3xGxr+D
-	 YqtXYxTg8KQ49McE+s+LlALPPZIhc6HolkXXY9MAWetIMSXAlXsjgwzL3+JLTF9fgIG8Y
-	 GgHkIZBTViy35e+uasBFdzyFPZCPKA5r04M64Jx6G2HtSVl75c3E4vBZLJfx4IdasUh/h
-	 YGmX2WRnDyfFdEnzqzrlWS7a9eptO44r7FdHPPqFVEkMa/JmKD7fXWkSoFEfFNG+Org==
+	t=1795720622;
+	b=tRwFOo2loC0ksXU3fOg097GFmsUWVp44wOikSHQY4WKE910rtuEZTTmxTt9COBVWKUr+
+	 Egbj6IL7fGzdG4J3o7sSW/TC0rjPpmHCZtPn+ySRwvDaTpl1Vjkb7rFpoUYu5moFKi7AR
+	 O/NFvt0c6Xqbyj8eSt47z9eYohunu2bAojZCRhEv1HICAs0L9559odkpWlKzFhydiG0tP
+	 t7yj0vOmWrCP4fMr027VIz8EpNf5LEJ2c949yK1bsKx7bmXFJRzP2HFl8y8vWqVdz9/DD
+	 T80+WLOfNPwvmgooO5mdjeznOCgoXOkkvuuwo8GVf0l9GikvbdrNFyYZOglIqqmH2uw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795720627;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795720622;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=TeBv919u0tdzRATsjRKyQB2JzyijIcDOw/pARemxP80=;
-	b=dpALJ/hJIlxeSmmdW43+aw8jnA0MTU6VIk+BtbWqmbteur/4lQ7fbC14ji0w33ZlUpv4
-	 ndQt4+ZWwwlWFYNZ6h75mlX8NaN2ReEAdGr13lK0D7ubE80PX8ekaLKP5X4ujdCGa2lig
-	 immiZyg51J1w2SWcUS5bIZhF3Xwrb4M1Vr5SReRe6ell7u+/+Plgg1JPajzqDBiJjuUH4
-	 f9IHrsyaKd7t3+I4JVo7KUCqYQ4N7YUllG1GqCjAKzu99qMjZ+UhykDdoT9utMFSDOrmS
-	 Df+ckUX/tAQ/0GMEtbOpIPxyVXMcLNu6771hRKJ0onxn3xnvEFw6VSwFo4zP9l+myBQ==
+	bh=9OqSVe81H/kFXVcsDosZylHfevYu8i9Vnq49ubXZbkE=;
+	b=PHwB5NZ1UNjvuVIPDB2vD84irK+yyrlWqo9BpEwB+46d+qtbqErah+yGtAibVhINJoQx
+	 ZlYkQlJRsKyQ6i6u1HqjN1Hx6r4CyKdp/z8W5fJts1DLSpxWORM6Ss0zf/3tcjIx/GsT4
+	 1oF9zQjFwBZ1k/HZxnxi4XuzNkZkQq7yGhOyYDUBVmxAHJgX5Pp3FIDb/xSlcHIZUTPXj
+	 w0dccO7q9FzVUVkodRJmpZj3Fj4hCFX0+CBxfPX3m/E4Y8jkvibMaBUj3OhE39zuXXYRr
+	 RIqpSQAJGEVfZBGZMwf+RNUut2oeEUA1NWQoRJuXkguyhuDKXOAST8ZoCNVVxGD3rzw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H4oVjYa0;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n5d3XGnU;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6097D606A31E;
-	Thu, 26 Nov 2026 19:17:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79CB7606A6A2;
+	Thu, 26 Nov 2026 19:17:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H4oVjYa0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59C641F000D4;
-	Thu, 26 Nov 2026 19:17:06 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n5d3XGnU
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EB1D1F000D4;
+	Thu, 26 Nov 2026 19:17:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795720626;
-	bh=TeBv919u0tdzRATsjRKyQB2JzyijIcDOw/pARemxP80=;
+	s=k20260515; t=1795720622;
+	bh=9OqSVe81H/kFXVcsDosZylHfevYu8i9Vnq49ubXZbkE=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=H4oVjYa0yd00ENrH/AFrETnameCBDXf7RwHVT48HgftH5wKOaY2YRZF8R8C5ThMUI
-	 jcqOMw+CN6JXTkUHLDZ+T+B2n1COVN4btv2XxscVZpsr5Dc3lkolMGdrvGPtMimc6K
-	 NPcIowyAktvYl/oKk7fIycCb5tksJt1gNnvPkgVXBrWeuzlxDueqQkueHEZTHnzRpb
-	 VHzuut/K549ECV4rybQOhaowKgTFgT4AE4vHMpG8Kqk5+lz6aTk0+46rrt8sKiBYpN
-	 fRniFDWapuXffZwEkDI7F1QYu2JG38yLs4bwGBAmOThwYX6Po44KzSfPl33tklJYCv
-	 VNc7J7gXkAq0Q==
-Subject: Re: [PATCH net-next v2 12/12] selftests: net: add amt_gw_v6.sh for
- the IPv6 netlink attributes
+	b=n5d3XGnUAE1dtcrhVMepc7/5xGdGLWaWhjfeXJaaIBSvz20lnOAimPH/UcUXM03Ha
+	 rQ99HuqmekVytvtPUFfg5765tqorSGn0xtzt5+Ea+4fUgbBxJK+nJ6NlPAHzGOlZvY
+	 QSD9iQxuXxJZYlJzfmcBY/gWcuM/h0uZikSE0lCjF5eIlKlBKmyKzYVbmIk7dSgLjH
+	 6rPuxlPLPW8+ANeMaPpOiWLySXaZS0JrgehjivWOPiSlNJ7hmSIxQPghe4Seri0g06
+	 EtjPTwBHtF+PY80WeZL8pRfBIC4ikbbw5iYpsQcfwPobXmazvFDjAWcmHf1eLq7Ouq
+	 vwE3aH0B/eVzQ==
+Subject: Re: [PATCH net-next v2 06/12] amt: size the encapsulation headroom by
+ the outer IP version
 From: netdev-bot+sashiko@kernel.org
 To: omar@blockcast.net
 Cc: ap420073@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, shuah@kernel.org,
  horms@kernel.org, netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
  linux-kernel@vger.kernel.org
-Date: Thu, 26 Nov 2026 19:17:05 +0000
-Message-ID: <179572062595.3135.5756555149194177847@kernel.org>
-In-Reply-To: <20261125191450.2497936-13-omar@blockcast.net>
-References: <20261125191450.2497936-13-omar@blockcast.net>
-X-sashiko-severity: Medium
+Date: Thu, 26 Nov 2026 19:17:00 +0000
+Message-ID: <179572062093.3135.571620247087203844@kernel.org>
+In-Reply-To: <20261125191450.2497936-7-omar@blockcast.net>
+References: <20261125191450.2497936-7-omar@blockcast.net>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -65,184 +65,77 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 1
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] In probe_v6_gateway()
-  (tools/testing/selftests/net/amt_gw_v6.sh, lines 48-64), the first…
-- [Medium] In probe_v6_gateway()
-  (tools/testing/selftests/net/amt_gw_v6.sh, lines 66-80), the probe…
-- [Low] selftests: net: missing CONFIG_AMT skip handling in
-  probe_v6_gateway()
+- [Low] The commit message names the wrong drop site for the packets it
+  is meant to protect.
 
 --
 
-selftests: net: add amt_gw_v6.sh for the IPv6 netlink attributes
+amt: size the encapsulation headroom by the outer IP version
 
-This adds a netlink-only companion to amt_v6.sh. It checks that the IPv6
-local and discovery addresses of AMT gateways and relays read back through
-amt_fill_info(), and that each invalid combination is refused with the
-expected extack message. A probe at the start skips the test when iproute2
-or the kernel lacks IPv6 AMT support.
+This adds AMT_RELAY_HLEN6 and AMT_GW_HLEN6 and a new helper, amt_hlen(),
+that picks the IPv4 or IPv6 headroom size for the device's outer family.
+amt_hlen() is then used to size needed_headroom, mtu, max_mtu and
+min_mtu in amt_newlink(), and the new MTU on NETDEV_CHANGEMTU in
+amt_device_event().
 
-> diff --git a/tools/testing/selftests/net/amt_gw_v6.sh b/tools/testing/selftests/net/amt_gw_v6.sh
-> new file mode 100755
-> index 0000000000000..92e48d2f54a5c
-> --- /dev/null
-> +++ b/tools/testing/selftests/net/amt_gw_v6.sh
-
-[ ... ]
-
-> +probe_v6_gateway()
-> +{
-> +	local got
-> +
-> +	if ! add_amt amtprobe mode gateway local "$V6_LOCAL" \
-> +	     discovery "$V6_DISC"; then
-> +		case "$ADD_ERR" in
-> +		*"IPv6 address in an IPv4 attribute"*)
-> +			# An older iproute2 on this kernel: the rule that
-> +			# refuses the 16-byte IPv4 attribute is what ran.
-> +			RET=0
-> +			log_test "16-byte IPv4 address attribute is refused"
-> +			echo "SKIP: iproute2 lacks IPv6 AMT support"
-> +			exit "$ksft_skip"
-> +			;;
-> +		*"Local attribute is required"*|*"expected rather than"*|\
-> +		*"IPv6 support is disabled"*)
-> +			echo "SKIP: no IPv6 AMT support: $ADD_ERR"
-> +			exit "$ksft_skip"
-> +			;;
-> +		esac
-> +		echo "FAIL: cannot create an IPv6 gateway: $ADD_ERR"
-> +		exit "$ksft_fail"
-> +	fi
+> The amt device reserves AMT_RELAY_HLEN or AMT_GW_HLEN of headroom and
+> subtracts the same amount from the stream device's MTU. Both assume a
+> 20-byte IPv4 outer header. An IPv6 outer header is 40 bytes, so on an
+> IPv6 device an inner packet in the last 20 bytes below the MTU would
+> not fit the stream device once encapsulated, and ip6_fragment() drops
+> it: nothing sets ignore_df on the tunnel skb.
 
 [Severity: Low]
-What happens here on a kernel built without CONFIG_AMT, or where the
-amt module cannot be loaded?
 
-In that case __rtnl_newlink() in net/core/rtnetlink.c finds no link
-ops for "amt" and fails the request with -EOPNOTSUPP and the extack
-message "Unknown device type". ADD_ERR then holds "Error: Unknown
-device type.", or "RTNETLINK answers: Operation not supported" from
-an iproute2 that does not print extack. Neither matches any arm of the
-case statement, so probe_v6_gateway() prints "FAIL: cannot create an
-IPv6 gateway" and exits with ksft_fail.
+Is this description accurate for this tree? The previous patch in the
+series, "amt: forward multicast data over IPv6", added a tunnel MTU check
+to the relay's bulk transmit path. The check runs before encapsulation:
 
-An iproute2 with no amt link support at all ends up in the same place.
-It cannot parse the mode, local and discovery arguments, so it
-typically fails with "Garbage instead of arguments" before anything
-is sent to the kernel.
-
-Both are missing prerequisites, not failures of the code under test.
-The comment above probe_v6_gateway() says only failures of the code
-under test should be reported as FAIL. amt.sh already handles the
-iproute2 side by checking ip link help for amt before it starts.
-
-Would it make sense to do the same check here, and to add "Unknown
-device type" and "Operation not supported" to the skip arm? The test
-would then report SKIP rather than FAIL on such a setup.
-
-[Severity: Medium]
-Can the first case arm in probe_v6_gateway() ever match? I could not find
-the string "IPv6 address in an IPv4 attribute" anywhere in the kernel
-tree. It only shows up here and in probe_v6_relay() in amt_v6.sh.
-
-As far as I can tell, the only thing that refuses a 16-byte
-IFLA_AMT_LOCAL_IP or IFLA_AMT_DISCOVERY_IP is the policy in
-drivers/net/amt.c:
-
-amt_policy[] {
+drivers/net/amt.c:amt_send_multicast_data() {
     ...
-	[IFLA_AMT_LOCAL_IP]	= NLA_POLICY_EXACT_LEN(sizeof(__be32)),
-    ...
-	[IFLA_AMT_DISCOVERY_IP]	= NLA_POLICY_EXACT_LEN(sizeof(__be32)),
+		tmtu = amt_tmtu(dst);
+		if (amt_tmtu_exceeded(oskb, tmtu)) {
+			dst_release(dst);
+			...
+			DEV_STATS_INC(amt->dev, tx_dropped);
+			return;
+		}
     ...
 }
 
-validate_nla() checks that policy before amt_validate() or amt_newlink()
-runs. When the length is wrong, nla_validate_range_unsigned() in
-lib/nlattr.c reports:
+amt_tmtu() returns:
 
-		if (binary)
-			NL_SET_ERR_MSG_ATTR_POL(extack, nla, pt,
-						"binary attribute size out of range");
+	return dst_mtu(dst) - sizeof(struct ipv6hdr) - sizeof(struct udphdr) -
+	       sizeof(struct amt_header_mcast_data);
 
-Take an iproute2 that packs the IPv6 literal into the IPv4 attribute.
-Wouldn't ADD_ERR be "Error: binary attribute size out of range." in that
-case? That string matches none of the arms, so the script reaches the
-"FAIL: cannot create an IPv6 gateway" exit on a correct kernel, not the
-intended PASS and SKIP.
+That is dst_mtu - 50.
 
-The commit message also says:
+An inner packet that does not fit is dropped here, before
+skb_copy_expand() and amt_udp_xmit() are called, so it never reaches
+ip6_fragment(). The drop is counted in tx_dropped, and *ptb is lowered
+so amt_dev_xmit() sends a Packet Too Big if the payload is IPv6. An IPv4
+multicast payload is dropped without notice, because icmp_send() does
+not answer multicast.
 
-    this kernel refuses it ("IPv6 address in an IPv4
-    attribute").
+The size of the window also seems different from what the message
+says. sizeof(struct amt_relay_headers) is 12, so the old relay MTU is
+stream_mtu - 40 and the tunnel MTU is stream_mtu - 50. The affected
+packets fall in a 10-byte window, not the last 20 bytes.
 
-Does any rule in this series emit that message? The skip list in
-probe_v6_relay() in amt_v6.sh has the same pattern, so it would also
-report FAIL instead of SKIP with such an iproute2.
+The other relay sends (Advertisement, Membership Query) are small
+control messages. The gateway's Membership Update only carries IGMP/MLD
+reports.
 
-> +	got=$(amt_field amtprobe discovery)
-> +	ip -n "$GW" link del amtprobe
-> +	if [[ "$got" != *:* ]]; then
-> +		# A kernel with the IPv6 attributes names the missing
-> +		# discovery address this way, and must have refused the
-> +		# 16-byte IPv4 attribute that an older iproute2 sent.
-> +		add_amt amtprobe mode gateway local "$V4_LOCAL"
-> +		ip -n "$GW" link del amtprobe 2>/dev/null
-> +		if [[ "$ADD_ERR" == *"of the local family is required"* ]]; then
-> +			echo "FAIL: 16-byte IPv4 attribute read back as '$got'"
-> +			exit "$ksft_fail"
-> +		fi
-
-[Severity: Medium]
-Can this FAIL branch be reached through anything other than a userspace
-limitation?
-
-If the probe link was created, the exact-length policy on
-IFLA_AMT_LOCAL_IP and IFLA_AMT_DISCOVERY_IP means iproute2 sent 4-byte
-attributes, not 16-byte ones. A readback without a colon here, or an
-empty one from the "// empty" in amt_field(), would come from one of two
-sources:
-
-- an iproute2 that truncated 2001:db8:a::1 and 2001:db8:a::2 to
-  32.1.13.184. The kernel correctly accepts that as a valid IPv4 unicast
-  local and discovery address.
-- an iproute2 that prints IFLA_AMT_DISCOVERY_IP6 under a JSON key other
-  than discovery.
-
-The follow-up check then creates an IPv4 gateway with no discovery
-address. On this kernel, amt_validate() rejects every such gateway with
-the same message:
-
-	if (data[IFLA_AMT_LOCAL_IP6] ? !data[IFLA_AMT_DISCOVERY_IP6] :
-				       !data[IFLA_AMT_DISCOVERY_IP]) {
-		NL_SET_ERR_MSG_MOD(extack,
-				   "Discovery attribute of the local family is required");
-
-So doesn't this branch always print "16-byte IPv4 attribute read back"
-and exit with ksft_fail, even though the kernel did what it should?
-
-The commit message describes this case as:
-
-    If such
-    an iproute2 gets an IPv4 device back from a kernel that has the IPv6
-    attributes, recognised by its "Discovery attribute of the local family
-    is required" message, the refusal is broken and the probe fails.
-
-The four truncated bytes cannot be told apart from a real IPv4 address.
-Is there a kernel refusal that could be broken here, or should this case
-be a SKIP?
+The code change itself looks right. Only the stated reason seems off.
+Could the commit message say that the relay's own tunnel MTU check in
+amt_send_multicast_data() drops these packets, and that IPv4 multicast
+payloads are dropped without notice?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261125191450.2497936-1-omar%40blockcast.net
