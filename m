@@ -1,97 +1,117 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.8
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795729482;
-	b=VqwuFtQ639LJFbd9X588EX1UscSvPY+3Kg+NQN29pMsJKyyBKiFEzGLZaMDjwNTgmESq
-	 YB5DFky+A3bu3HuaDKm3Do+9OV3jng15t+0/mdww2L+uM3OHqXobPTKsdrCudVa9HGoRb
-	 SUFjZqjSxdOqVG+tPbdsvIBWpz87hg/swr7ZAAPHShaBqSm1hazn/NTHrXfCqzhXih45e
-	 2WQ37aE0X1tVg/H0hlRWKIQ7glOZqli0xebs+DEVF4B8jgLFXl+jxbeEjQMwPywbUQLk0
-	 Dk4IGfg7a7+roXTbq7cuned+q0cXDnPDeK3wj2NBoAesyo6cGYItlTTCZktBVNnpHiA==
+	b=OqIvvZj9GvmST7kgeSSmjln2AVlMJj/R/LdS/Reswniy1euABn2DigFXXAgpx9o/uY6b
+	 9tbdI4vgs1oxeZlqgLApdYWe7nknmZQfcn2sA02kvpXfTYsisff7gJ4D3bpmqcvYkwdPM
+	 84PcPVIhsFdbI1P5ahddYEKl6vOr+g7QT84jBeryFGaac3srb2CKVU6hyKvcwytsY0Ntj
+	 2e/qOP1+wApepob6gx67jBQHct3skTL+7U4RsYxf99XFv2g/NPEtwM5GEJPKPOACaHhPV
+	 +jyaGR7rXbT/LL8QiQmS8zJimhdm6ialeNacbjAQA+f1QBjdHYkXzdUo0Kgcz9UkfiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795729482;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=aBxl91IFHxSp98BX9SH0COzdVVb1RDUdXups0y1oPJc=;
-	b=TI5ijSF8hovjfXQZtPB/R6W8vw0T37c88eo4K3gdDJrU3z4E0ZHomULtPVlBPo3g0SuU
-	 qQd5jh1SnIBX9ZI/rdQZzYsB+8MJ2QRPeS7EslhFVlOTbEMiQzoCS4082gL0HabcGV6Qc
-	 29ViTwBmMDJI3iviL9pPthrJtYaUCIL1NyZhYITicGjb+/qAfkbssKz+yvYkr20YuoB4e
-	 1kOIC6CH8JPCa09AVBJX7K/WLVYpzoDx4wDxEkYNiLyIbECvdLIpBFVjRUEQM5p/DGN23
-	 A7Hu6MOH7LLlYdmEO68WFsFiOeYchb6yz37jmQYeF4EZArvpvWzcWHeUBwIr1K6dIzA==
+	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=UYJTRpYCZNTbQQiix5R88SQ1NUZI9ZYUAhpcRTfR3qA=;
+	b=JLjXlFVVIQ2ge3/ddr/WNDEwkqKHfEWnab6zIOGqzMTqol9LzCB0iBotj7mKJaL/Mwgo
+	 7RLx1aG5YZKL83/GymaIwUwLQyin5Fss3D4AZBKclFUvRlsipLmJAO4I8OxOllgUZTWVg
+	 A01fP02mzfsf/J7abBvRw8HHT1kptc2eYcK35RFLfThr8JrYR/f7IYKS1yH16LD6pXuPP
+	 ZffOzKBv5fAQvoaxaAu1akwe2R5ujVzqOwp1RSI2cvfTQArWxZ4slEfB6DsRGk6UKFa72
+	 CAD+pSUJOofEIGhtZF4CWL7g0QN4rMAaCDXZtEGBeWnBZ+Uu7dVp//+XQCzNoQWBs6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IW6BPGYV;
-	arc=none smtp.remote-ip=209.85.215.177
-Received: from mail-pg1-f177.google.com (mail-pg1-f177.google.com [209.85.215.177])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="P1QbyE+/";
+	arc=none smtp.remote-ip=74.125.229.8
+Received: from mail-dy2-f8.google.com (mail-dy2-f8.google.com [74.125.229.8])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39874606A6B7
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59FC7606A6BF
 	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:44:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39874606A6B7
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59FC7606A6BF
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IW6BPGYV
-Received: by mail-pg1-f177.google.com with SMTP id 41be03b00d2f7-cdab8873d9dso3531927a12.1
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=P1QbyE+/
+Received: by mail-dy2-f8.google.com with SMTP id 5a478bee46e88-382afece6d8so1527372eec.1
         for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:44:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795729482; x=1796334282; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=aBxl91IFHxSp98BX9SH0COzdVVb1RDUdXups0y1oPJc=;
-        b=IW6BPGYVOrol0f4wJZcjab8yATdY8piebeY5iaUxFJo1v9tlQOaY8ruNdgBoLdlHfB
-         bzmoXiSHiG9u135X/CbTkWqp9Y/InWcVRcO9+7ZqH5VrTCbFQlL8CTj28UhGBvcpj3LW
-         Ha6VdRLS9l7A0rlc/wTK4d5xmdaEv32XjOgstJkY5q6VwuthX5ygfZ3UFVT86couTDLE
-         H33E8uyS9aHATUmHvQvlKPiCL01H6sJbmkTml4HYbMXkVkT4znO019VMEY4oTTG8M3JS
-         DZM7SY5zLgGq9qeIx6ijRI4fEuuC6xRDvHbK9Urljii5KJzEs0Buw6hT5GFklzV0tvbd
-         LlsQ==
+        d=gmail.com; s=20260707; t=1795729481; x=1796334281; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:subject:cc:to:from:message-id:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=UYJTRpYCZNTbQQiix5R88SQ1NUZI9ZYUAhpcRTfR3qA=;
+        b=P1QbyE+/ZmZHXBAetcgcFJcSma35+komyh3M/D3cAlQBYTKdH2dBqUKPv7ssH5/Dit
+         hqAr5iGuk/2kXi7qcPizrV+eztl6Lv9vK+BEn8XX9am+s1wCz31+8CvEica98HDq6F3E
+         wT7g9EyOHWWgaLowjY8x8ERdBgr36dRTEBScqxJEdZLm9wthRgCVREvjGghKXdKU7Fp/
+         0wdmI6kd6L9tgwxG9v6g9XeRWQu302gZv4TWPzZ8WChgPFaD6KsTmq3HjcNdf6l5Y9dd
+         4Fqvo2jBhSp2YalxqxJcIEStoPHLN/BI35026hDGBmriCJQY7PnpcUNd1qsRiJZ9kzwa
+         O5oQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795729482; x=1796334282;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=aBxl91IFHxSp98BX9SH0COzdVVb1RDUdXups0y1oPJc=;
-        b=yFwGhZUmQ9BRlFzEad214OUGFoEqCkm/LpS0JMoH3ldfFeGUFUaHXkRWz7WI0gjDW+
-         T5lCc/Rb54aquNIiP5oRdVBn7VODXS3BbgJ0PTAQpKAVI5cZHRMyEYnXt2O5ktqg4M4O
-         X4Mo7vAUGJ8jE/rjzJyu5Vrn3ZDABhwwimcQrQBJp7nX0kwRTtYiz1hmZkSd5KtfrJ7Y
-         pezFQNyxn6h0zMSvX8X5XebsQ0CSrOxaleuv+T/cnB4zQ+NqeOv1KTVuhoLN0LpZ9MqK
-         /0Xzk/Tc1Kt6nvXwQ9n0P7mGqjJvXqfhCD/amn+cIv28Na7zVgzak1T8mraKxTc9HylC
-         TNOw==
-X-Forwarded-Encrypted: i=1; AL+hErGN3xvgt8p7Zc5KA7O6owvBpVyis5RNqTOowyMSbd1iW/JBQjE/d22ODwEHUXaHhymuACL3rF50ZnCDRpQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8o3nZr/NM7jrLpXNTK2uTUgSZTOcrLhGsy/PYwVur7IqyRkSvn
-	BNcoaD1zbvYNElCqM7dD6/+oJB8f0Hmy2LKXS1k682IjCFzRhLawzZ0g
-X-Gm-Gg: AZFdTZeDFQ9LFpFIaSy9PsGF804yd3LngML2oKmVUr3LTv7kx/HzxPqcmBfNkgxXQye
-	0NxMdx6uB0lYSgCGgtTYYUZg67xHvquvrbd2i6/rIUuCm3wP9ZxwlbdmxeSM9lYCQ2Y6N6NptK1
-	/l6Ek4/7aHitlpugWY+GOrp5EWW8oVuI7uSZzUd9cqOGeNXaz5zjUvNZfmWlUBh4pFjzNLPxXi4
-	yiEc7gJgWeGt/wmYJwOZYVQzlX+LwnzBJPAky2TFj7cqqyrQBgzdSd9JOcK/BHxfE75gUnTKEUC
-	lJ1Yx3gWhNe1XnBAour7fisaDMnnR0QcEsGpabpmIvEYRb0U7P6W+v6eRmgsP2Ad91yUDW7z78C
-	nu0zGQ846z/IKNPuBqSHf4g7ksfH1v1RvSE7xajzioVFktXbTJy4axNJzUi+r8YYy+PTvoQ1lJ+
-	0q0wyE0QllXE/1PhW8p7JBL2ovFoL0FOc2Lcw4S+z9stw1ur1+z1qe5Vn1MsbkU7X+nVevdmnjN
-	ew4E5dBJrczNjYGWctPOjlA2mBU6NNxVwpTarucGB0kUPCOFOGEp0auRa6P95+NppuJhx18ovVw
-	Bwcj+8sfJEi/NQGmuEA20Yms3YmZLBaPO0Zis0pAYjeED/7MBg==
-X-Received: by 2002:a17:90b:4a4f:b0:3ac:8af9:4a6a with SMTP id 98e67ed59e1d1-3b41c93c3b7mr22564159a91.42.1795729481653;
+        d=1e100.net; s=20260707; t=1795729481; x=1796334281;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:subject:cc:to:from:message-id:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=UYJTRpYCZNTbQQiix5R88SQ1NUZI9ZYUAhpcRTfR3qA=;
+        b=XEBLhkfgfo59/YNRNAhG1eANxJo/NL1eGorRgGNENpnCc39qZz6La7gAwFov5hkWUA
+         F6ADmzp9hblufVKihbJ3RpIXannIG5xC1KTxwMC3fmI97+CpIDYxOnPNCMhSvn81e8K8
+         9cjixZEsj76bWxaS+ebWddfEsM3fFlHou8SLhV3dWTZ2gWxehHe5hoc2IkJOcs65kGld
+         ku6KEaId2GqYTw6x0E1DRx1hKOLLVWeZvW9+nj97vcCtV/WKAb+iOkwZTTcPALXc7g/b
+         /ErbWosyGXjjaCyLZ0YuNqBEYiyua5HJwqIuUUl6X6IdvT5WoSZN8qGuXFHe6rKjegQ1
+         Sq4Q==
+X-Forwarded-Encrypted: i=1; AL+hErF/Ja+wY0cfK+CelrgR8f0FRrMJuWbPEI4BAfIh6hL1WzqQFzbOzHN+C2kuqZwhDiyDrLY6COHREqRHZNM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8cOhqzWcLDHwXrtvVUTk4pwniLfT+b18+vg4ov9TWiywrJlkGp
+	FGNt9hUxmm7efB9dMoP4AaAACyNfh1qWGhWaDpuvk07LpgL2bMH3mtpG
+X-Gm-Gg: AZFdTZcxOVfnx0Y8+uToN/4iQ9pV2YONKV8GQDI6H0s+MAxrsAoo+M8WeU1CsIZx7Nl
+	pUUeL3UVZRy3kVc8sp9qdQypim5QketPVGFOrcivfI2hrscNlz88Wltt2gnFHGvdz4w3/GnUBvv
+	xiRTUcZgLIenCXOg7nMT3gM3JxOpjKjg658HAu6FO94w7gU6IkB9qVyl7xLSH5oe7+ykMw+vgVh
+	kBjSN4v2hQWzIEBX2oB1Ns2MpVqnt+gMlNZMW6j2WnpgGLmSdl0rM7Dd061VLY4nAv2unnCtPj0
+	L+cCJ+KgtE0vsHvJOibWr4N2jZbzEE9cn/h7hlfeUFuYSmkORDx+hei7TFq4KJ9XHG+nM6itvaP
+	SH3+N+4XNmJVJ6otmUBneO6/nJGNCkW6yY5VeLXCQogw9OZgrb3eVVg7mM01y+JOue+ELXS8RVC
+	EEjwNzBRNmDmsw5VoYnePF96bu+i0qPcNqC0X9Q3nBBYPFLvb7NJ3ioSQS5JUnemSXoISMOsq1Q
+	P9Zf1ilr8RM9fkfUNH+ImNw5gecaMsYwsE5ySWI6yMlQzWSqetYeDcxXHSAzn9qV/BpqASBgSWE
+	z1qm0vJC6yNXcy6/YT1dMjEzA3ILZneOFTnYfEI37G56vqzNMbQeWgXy4Ebcij8=
+X-Received: by 2002:a05:7301:c089:b0:372:14fb:2573 with SMTP id 5a478bee46e88-3856fd5bf76mr21960944eec.20.1795729481384;
         Thu, 26 Nov 2026 13:44:41 -0800 (PST)
-Received: from fedora.tailc1fb0a.ts.net ([172.219.65.15])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40f4312dfsm36176538a91.3.2026.11.26.13.44.40
+Received: from localhost ([2604:a840:3:1e0::1080])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385665f21aesm79578155eec.4.2026.11.26.13.44.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Thu, 26 Nov 2026 13:44:40 -0800 (PST)
-From: Artem Novak <artem122novak@gmail.com>
-To: dlemoal@kernel.org
-Cc: cassel@kernel.org,
-	linus.walleij@linaro.org,
-	viresh.kumar@linaro.org,
-	linux-ide@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Artem Novak <artem122novak@gmail.com>
-Subject: [PATCH v2 4/4] ata: sata_gemini: add missing newlines to error messages
-Date: Thu, 26 Nov 2026 15:44:33 -0600
-Message-ID: <20261126214433.38317-5-artem122novak@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261126214433.38317-1-artem122novak@gmail.com>
-References: <20261126214433.38317-1-artem122novak@gmail.com>
+Date: Fri, 27 Nov 2026 05:44:37 +0800
+Message-ID: <73f6ebde526f60ff64064ef602e0cae9.codykang.hk@gmail.com>
+From: Cody Kang <codykang.hk@gmail.com>
+To: Guodong Xu <docular.xu@gmail.com>
+Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+ Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Haylen Chu <heylenay@4d2.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+ Brian Masney <bmasney+clk@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Yao Zi <me@ziyao.cc>,
+ Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Icenowy Zheng <uwu@icenowy.me>, Jerome Brunet <jbrunet+clk@baylibre.com>,
+ Sarah Emery <sarah.emery@canonical.com>, Ze Huang <ze.huang@oss.qualcomm.com>,
+ Dmitry Baryshkov <lumag@kernel.org>, Cody Kang <codykang@vsit.ai>,
+ dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-clk@vger.kernel.org, Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v3 12/17] drm/spacemit: add Innosilicon DP/eDP controller
+ bridge driver
+In-Reply-To: <9ec2f818084f2e723e8b82218a302258.docular.xu@gmail.com>
+References: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
+ <20261121-k3-display-v3-12-ec419e8e96b8@gmail.com>
+ <9ec2f818084f2e723e8b82218a302258.docular.xu@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,35 +121,27 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Terminate the SATA clock lookup error messages with newlines
-to keep kernel log messages properly separated.
+On Wed, 25 Nov 2026 20:16:25 -0500, Guodong Xu wrote:
+[...]
+> I noticed a corner case when testing module unload on v3.
+> spacemit_inno_dp can be removed while a process still has cardN open
+> (say Xorg or kmscube is running and somebody does rmmod
+> spacemit_inno_dp), and the DRM device then still holds references on
+> the bridge. When that process closes cardN later, the kernel oopses. On
+> a CoM260-IFX:
+>
+> 	sleep 20 < /dev/dri/card0 &
+> 	rmmod spacemit_inno_dp
 
-Signed-off-by: Artem Novak <artem122novak@gmail.com>
----
- drivers/ata/sata_gemini.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Thanks for reporting this. I can reproduce it.
 
-diff --git a/drivers/ata/sata_gemini.c b/drivers/ata/sata_gemini.c
-index 9d87603ef531..b69db749b49d 100644
---- a/drivers/ata/sata_gemini.c
-+++ b/drivers/ata/sata_gemini.c
-@@ -227,12 +227,12 @@ static int gemini_sata_bridge_init(struct sata_gemini *sg)
- 
- 	sg->sata0_pclk = devm_clk_get(dev, "SATA0_PCLK");
- 	if (IS_ERR(sg->sata0_pclk)) {
--		dev_err(dev, "no SATA0 PCLK");
-+		dev_err(dev, "no SATA0 PCLK\n");
- 		return -ENODEV;
- 	}
- 	sg->sata1_pclk = devm_clk_get(dev, "SATA1_PCLK");
- 	if (IS_ERR(sg->sata1_pclk)) {
--		dev_err(dev, "no SATA1 PCLK");
-+		dev_err(dev, "no SATA1 PCLK\n");
- 		return -ENODEV;
- 	}
- 
--- 
-2.56.1
+[...]
+> Other DRM drivers with the same structure, rockchipdrm for example,
+> put the bridge driver and the DRM driver into one module. I think doing
+> the same here (add spacemit_inno_dp.o to spacemit-drm) is the better
+> solution.
 
+Agreed. Will fix in v4.
+
+Cody
