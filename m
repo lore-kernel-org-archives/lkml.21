@@ -1,79 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795662945;
-	b=XaCgb92fT0lkyP1dYzA16ZdrAnlh18a55UyaM/4Zy+8L984EexqfmEW73S4uduoGxGSj
-	 YAMvgGvjbTIlGSo9f18pALz0JmxRe4xrLq/6tSD/mmTo+zqUQ5rDPg3WC+Oh6jjngh63K
-	 rB/NbI10B9K95Uc8tGTRJaO2GgThpebj7RWqaANpvvvLmf74ASRinCRextRSD3jBSHKk7
-	 i7/rkZ/Z9mc2q1bYxOZ1czpwW9MOmQ2KFVOJHjdq8z5Z2ZzUkzo4SkKxybECnHSFZ1yO3
-	 Z9PPDm/JqIZNxndF+KTyC+ChayMirEIjvYUgVhVYXbd8WqRyWpk+YOEXuzRGmjFotWA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795662945;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ZSmv7LTcmbL4aQ49F7az28aiJc5rqxHA7rjPOy2NtXg=;
-	b=PtQ6cO5bPC1G+eoonX08bRr3Gkk+dVeBElomq6xJFcvx3Fd9VQF399mnxLtptWNvQwwj
-	 DKScYJlJydciSp7j5kGCtihUk07wMV4OGciSfzqXpIrMkrFG0IHnK3TQB8WquuVarl5Uf
-	 N4mKWHoNdg3Bw62AekX4VhOCGojVeDYx8YhDfS8vIJuDMODIRVy+YbDs9hAXW9xVUkhK+
-	 OM2XlkXkTi7XkiP/9Qoully3BaPHInri63Ry6DL2mt0U7p2Mpzmkl+qx3oGSpbmBSwpSl
-	 p9dyNPpl4vIoaPR+cA3Zmb4PXYilsfh8Pq5F5TNJEEOC06ic8IrVzoclVd+iBcn1DaQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aV5HkW0A;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6613C606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:15:45 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aV5HkW0A
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795662945;
-	b=gyWjPmjtNxkrrR2p22uOGZSozQf0Cg3kyEuuzoDTjb1iNi+nmDY2POyU1nsO/VaaPOGs
-	 RY+UKHFseAL+YYqslUqkd0U34NkHd1lkc2IyWp2EubMpIFurOngI6V0TpVP9CfjfIXD1B
-	 tVdqQalrZG26bQFSD6YNa53UIpCKoArr4whWD7bH8OogRY+xLyAUta8Y9OgxA4UfHl+hX
-	 ssdXkBg2/h4O73UvA3jqiLuBIIBUFPv2Sfk/iylf/7gOv54DMfLDySfln7zVSlrXb2kq/
-	 DqYdhXkrqvbrjjvQmUHiaQs4Kxgb1REcHQD0knKlPHFYcDOyhrD6FRZhuF4uV8TXP1g==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795662945;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ZSmv7LTcmbL4aQ49F7az28aiJc5rqxHA7rjPOy2NtXg=;
-	b=e0wEDc2O6npA+5zaZTsw1bfMhEzYZElcL6yjtr0e+mUDn6R76YxOxifulKC2sAQIcGgg
-	 zQVvlzxti6OwroL4TQYxb6AljGZhJHv6suF/AKmDmMWKqWH7fQUSY8QLbmlOjKQytanB4
-	 TYsQcuoFOREYSAOB8V+e7xIy4BdCVcjFgzvtvA15QS5ya9ft9u4VHALqsJg6/Dq2GFa35
-	 mV0OYJJgdG9xBf1XFIzhBMlUhneW9bJ2y4qcC39AYAM+uEMbJSLkLvJPW7TSyibWDGzh1
-	 pexdkYGMDMsRwSFDt0mSTKVMj61KdVTJeR1BxuJ3f6/4nDzh9CA0TRdkCZBE7v/a/JA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.227
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795662947;
+	b=0EBvi/KHHLWktbBATtyB3wozDYgjtsQ3wGPANrNdGW32LYZHE2VnjNeS9JqYgFx8cHXp
+	 x5/NITy+Zy+vQRxO4lWliyULqqRQS+tdQhzTNtQhGhVJezuE6N31OK0GAoGDt+HYBIOtH
+	 oqxUnFvtHduDqDo4RdKbq3o4XgOGitGaDYpVOjR+b3vJt8nTsgHTPDQg5BacPndYSzI7M
+	 Ua6f10qo5dJkCaVUvPqJf1eFShsI1SD43RNk7yVqLjh11J8t5wEQNg3+0ISDTLjNiFEUH
+	 pgv8OTX7mWnFNaIbrNVANHJoZD/0NDDQjz3ZkBryzZ5JNvQcw+z15j41G+MAL09sjDA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795662947;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=0/ufY3zZei5D+1oZSH0r0Rl/3IgBUoWO7UopM5swggA=;
+	b=VaS2aoid6EYT6TWEUVL5IJIz1b8WQgWntfvTgw6l8LPnufgdl6/ivJYOxlAw4xePUytS
+	 K4RAoMw4fYAZlxrG2ZEOx0ogT6XGugsW5BlAPxFAMlpwhFDUJWE/OxZGMkS64HS6RDX86
+	 EX1nr4/LpNsOXFVWMtgpZuosiibdXfOYOHjscPKkYJ4F2wZP2bCf48jFrAqwS883dCdRU
+	 Y0logDVQauqPCoI66W0dLlFyYuQuvtdt19CrzTNtz1mr9iof3sRdKs+BXfIu3LZLl7LaZ
+	 cUg2s1t1HKXNAuOHR9/+hlxlpMGp7HM01bj3jm2fcpJpeoNahJMF5VvcBEg7jguyb7g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=DDZRWdQc;
+	arc=none smtp.remote-ip=113.46.200.227
+Received: from canpmsgout12.his.huawei.com (canpmsgout12.his.huawei.com [113.46.200.227])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 8E3291F000C6;
-	Thu, 26 Nov 2026 03:15:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795662945;
-	bh=ZSmv7LTcmbL4aQ49F7az28aiJc5rqxHA7rjPOy2NtXg=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=aV5HkW0AhFeiFTdi4TKO+lq2HxkFlp76nZBHcstkJES39wzzJi48sEoOB3pbKqJdJ
-	 Xjb4ULlqLI1zUWSuuww42UA75MuMhmcAzuMG26UOh9EzKPcWrqgyxjZ9Lg87CRydEc
-	 tmFXCEWzd08rgSqPWpMP9gP4hPFW6VNIiNqfBsfOHXwSlWcZCl58nx1whvxmpyjBep
-	 zya7c1GOHEb41xUHMdRNX45qBc1DcylyWXgKkjgqoLe8+uAKP57XlxEHO5f4BG47TP
-	 LrXRcutedPAsWbz6GX5xjRKMErbpc4neaoEblyamE+J/Te2LGmTZMK+EQCgfXxsVIX
-	 dpQAVFlsG8yyw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 202774D1C9;
-	Thu, 26 Nov 2026 03:15:43 +0000 (UTC)
-From: Hank Liou via B4 Relay <devnull+hank.liou.mediatek.com@kernel.org>
-Date: Thu, 26 Nov 2026 11:15:43 +0800
-Subject: [PATCH] drm/mediatek: dp: Disable HPD IRQ before cancelling
- debounce timer
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2615B606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:15:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2615B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=DDZRWdQc
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=0/ufY3zZei5D+1oZSH0r0Rl/3IgBUoWO7UopM5swggA=;
+	b=DDZRWdQcjmzcfWo+2sBUfVi5SmUXxWnsLeiwCzBrxrAfnawT2FBATO2dp8kZo55ygrhDrmy7H
+	G27s+yfok5R6DXJih8fpYjW8/PfEOSotiiWQ77CKaCQdaBgbLcRqUgT3vy6oLDRs1JKs0/iQmDj
+	aYenjyLM9DrvVTgh4ZyLT5M=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4jZhVc2mtZznTW8;
+	Thu, 26 Nov 2026 11:14:48 +0800 (CST)
+Received: from kwepemk200005.china.huawei.com (unknown [7.202.194.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 001BD4057A;
+	Thu, 26 Nov 2026 11:15:36 +0800 (CST)
+Received: from localhost.huawei.com (10.169.64.31) by
+ kwepemk200005.china.huawei.com (7.202.194.71) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Thu, 26 Nov 2026 11:15:36 +0800
+From: Yongbang Shi <shiyongbang@huawei.com>
+To: <tzimmermann@suse.de>, <dmitry.baryshkov@oss.qualcomm.com>,
+	<tiantao6@hisilicon.com>, <maarten.lankhorst@linux.intel.com>,
+	<mripard@kernel.org>, <airlied@gmail.com>, <daniel@ffwll.ch>,
+	<kong.kongxinwei@hisilicon.com>
+CC: <liangjian010@huawei.com>, <shuliubin@huawei.com>,
+	<chenjianmin@huawei.com>, <fengsheng5@huawei.com>, <shiyongbang@huawei.com>,
+	<helin52@h-partners.com>, <shenjian15@huawei.com>, <shaojijie@huawei.com>,
+	<dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH for drm-misc-fixes v6 0/2] Fix some bugs in the hibmc DP
+Date: Thu, 26 Nov 2026 11:06:46 +0800
+Message-ID: <20261126030648.3231196-1-shiyongbang@huawei.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,84 +73,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-mtk-dp-hpd-irq-v1-1-0b8663980732@mediatek.com>
-X-B4-Tracking: v=1; b=H4sIAF6kB2sC/x3MQQqAIBBA0avErBvIgSy6SrSoHGuIyjQiEO+et
- HyL/yME9sIBuiKC50eCnEeGKguY1/FYGMVkA1WklSKN+72hcbg6g+IvrO3cTto2xJohR86zlfc
- f9kNKHzLLnKdgAAAA
-X-Change-ID: 20261126-mtk-dp-hpd-irq-5fc8b6f72e6e
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- CK Hu <ck.hu@mediatek.com>, Jitao Shi <jitao.shi@mediatek.com>, 
- dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Hank Liou <hank.liou@mediatek.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795662942; l=1945;
- i=hank.liou@mediatek.com; s=20261126; h=from:subject:message-id;
- bh=l8xHL6bFv9F0w89mKejFr4yktC399A1FMDm4H5KqRU4=;
- b=GMsAhPoL7vpG1VsZ4mqOsHWU7s0UrcQwn0VDsAGlTrnk2NTX+fHABoTmEUf+xrjgHTZSOx5qV
- 8qi+ncW7drhCPh3Y5V+fsYw6ylYT6RVz4Z9L86R0hWFvc5cCKTeJoHC
-X-Developer-Key: i=hank.liou@mediatek.com; a=ed25519;
- pk=oQN2zU+HMrJQgqX4bhL5CVRrBmac4amZ/53yK20L/6M=
-X-Endpoint-Received: by B4 Relay for hank.liou@mediatek.com/20261126 with
- auth_id=1646
-X-Original-From: Hank Liou <hank.liou@mediatek.com>
-Reply-To: hank.liou@mediatek.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemk200005.china.huawei.com (7.202.194.71)
 
-From: Hank Liou <hank.liou@mediatek.com>
+From: Lin He <helin52@huawei.com>
 
-mtk_dp_remove() cancels debounce_timer with timer_delete_sync(), but the
-HPD interrupt that re-arms it from mtk_dp_hpd_event_thread() is
-requested with devm_request_threaded_irq() and stays enabled until
-devres runs after .remove returns. An HPD falling edge between the
-timer cancellation and the IRQ release re-arms the timer, which can
-then expire after the driver has been unbound, when the struct mtk_dp
-that embeds it may already be freed.
-
-Disable the IRQ first, which also waits for a running hard or threaded
-handler, then cancel the timer. Do this before the runtime PM calls so
-the interrupt is quiesced while the hardware is still powered.
-
-Fixes: 4652e95e7ea6 ("drm/mediatek: dp: Add hpd debounce")
-Signed-off-by: Hank Liou <hank.liou@mediatek.com>
----
-Fix the ordering of the HPD IRQ disable and the debounce timer cancellation in mtk_dp_remove().
----
- drivers/gpu/drm/mediatek/mtk_dp.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
-index 974c4fff6..7a5e380fd 100644
---- a/drivers/gpu/drm/mediatek/mtk_dp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dp.c
-@@ -2865,10 +2865,13 @@ static void mtk_dp_remove(struct platform_device *pdev)
- {
- 	struct mtk_dp *mtk_dp = platform_get_drvdata(pdev);
- 
-+	if (mtk_dp->data->bridge_type != DRM_MODE_CONNECTOR_eDP) {
-+		disable_irq(mtk_dp->irq);
-+		timer_delete_sync(&mtk_dp->debounce_timer);
-+	}
-+
- 	pm_runtime_put(&pdev->dev);
- 	pm_runtime_disable(&pdev->dev);
--	if (mtk_dp->data->bridge_type != DRM_MODE_CONNECTOR_eDP)
--		timer_delete_sync(&mtk_dp->debounce_timer);
- 	platform_device_unregister(mtk_dp->phy_dev);
- 	if (mtk_dp->audio_pdev)
- 		platform_device_unregister(mtk_dp->audio_pdev);
+Fix some bugs in the hibmc DP driver.
 
 ---
-base-commit: ebb7a8dc1e74c705daffe11c2faf38ec2628f838
-change-id: 20261126-mtk-dp-hpd-irq-5fc8b6f72e6e
+ChangeLog:
+v5 -> v6:
+  - Use a cleanup-based lock guard for aux_lock. (Thomas Zimmermann)
+  - Use cleanup-based lock guards for gpio_lock. (Thomas Zimmermann)
+v4 -> v5:
+  - Invalidate the link in the hardirq when an unplug is sampled, and
+    stop clearing the latched HPD status in hibmc_dp_hpd_cfg().
+    (sashiko-bot)
+  - Serialize a whole AUX transfer with hibmc_dp_hpd_cfg().
+    (sashiko-bot)
+  - Append HIBMC_HPD_UNKNOWN to the enum instead of prepending it, so
+    the existing HIBMC_HPD_OUT/HIBMC_HPD_IN values do not change.
+  - Only set the enable flag when DP was initialized, clear it only when
+    it was set, and do not request the DP interrupt if DP initialization
+    failed. (sashiko-bot)
+v3 -> v4:
+  - Fix the data race on hpd_status between hardirq and process
+    contexts with WRITE_ONCE()/READ_ONCE(). (sashiko-bot)
+  - Delete the HPD_IN early return in encoder_enable that breaks KMS
+    forced modesets. (sashiko-bot)
+v2 -> v3:
+  - Delete irq_status and use hpd_status directly for hotplug
+    detection. (sashiko-bot)
+  - Add debug logs when hpd_status is not HPD_IN in detect and
+    encoder_enable.
+  - Move hibmc_set_enable_flag() before drm_dev_register() and
+    hibmc_set_disable_flag() after drm_dev_unregister() to narrow the
+    race window. (sashiko-bot)
+  - Add spinlock_t gpio_lock to hibmc_drm_private to protect all
+    operations on 0x0802A4. (sashiko-bot)
+v1 -> v2:
+  - More states in HIBMC_DP_HPD_STATUS are added to the
+    'hibmc_dp_get_hpd_status'.
+  - The call to `hibmc_set_enable_flag()` has been moved before
+    `drm_client_setup()`, specifically before the connector detection
+    triggers the I2C bit operation. (sashiko-bot)
+  - A read-modify-write operation has been implemented instead of directly
+    writing to prevent clearing the I2C mask bits. (sashiko-bot)
+---
 
-Best regards,
+Lin He (2):
+  drm/hisilicon/hibmc: Modify the method of obtaining the hpd_status
+  drm/hisilicon/hibmc: Add a flag to indicate whether the OS-side driver
+    has been loaded
+
+ drivers/gpu/drm/hisilicon/hibmc/dp/dp_aux.c   |  2 +
+ drivers/gpu/drm/hisilicon/hibmc/dp/dp_comm.h  |  2 +-
+ drivers/gpu/drm/hisilicon/hibmc/dp/dp_hw.c    | 38 ++++++++------
+ drivers/gpu/drm/hisilicon/hibmc/dp/dp_hw.h    |  6 ++-
+ .../gpu/drm/hisilicon/hibmc/hibmc_drm_dp.c    | 32 ++++++------
+ .../gpu/drm/hisilicon/hibmc/hibmc_drm_drv.c   | 50 +++++++++++++++++--
+ .../gpu/drm/hisilicon/hibmc/hibmc_drm_drv.h   |  2 +
+ .../gpu/drm/hisilicon/hibmc/hibmc_drm_i2c.c   | 10 +++-
+ .../gpu/drm/hisilicon/hibmc/hibmc_drm_regs.h  |  3 ++
+ 9 files changed, 108 insertions(+), 37 deletions(-)
+
 -- 
-Hank Liou <hank.liou@mediatek.com>
-
+2.33.0
 
