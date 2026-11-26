@@ -1,50 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.5
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795657936;
-	b=EC3Xd/eEDkJDdHYFVAdtiwSPBkNuuvJ5c4CotTUCGVYHZEAC673WotcSwMqfwO0QXIy+
-	 iBge3PRPymds1XxhN3iCLIWxC5241L8h9LKcKApZPcfsjCSc/5d552SeEQxkgsaSIR9fB
-	 3Eo9Lcpe/Zw9x//NkNASrfSQG7EAeHG02SE9Y+7J+Xp5tbyoVip5s7yv4jkP25qQQxPGA
-	 hvWRKRDGcM9/Chz6bcDs2Z7Z+8i5TtLyO1S/Uht0Bm9XgAxUFs0klZUWZNm37dG6097a8
-	 TAV6sdtf+CowQCEYaaUX68Idfh2qdgF8W3XLTc/cQED6RfohgjBPgZjIg7altR4XErA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795657936;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
-	bh=InslSophhZR8ptLxuH18WsVK3o/vxwbo+9Lc8i/W61k=;
-	b=New86yAfBiXDStXBivC6rrGeqSHsbrbXC9UjGcuWTYP0TIldX3yC4AZUNM8LGb6U0SjT
-	 VhUYO0fY6PW7esYEhFXkfJ9TT/2YV7RapdP2fCWJ1O/E5FY9OAGzD7n2XRyxHJrkqJEe5
-	 eVaDyKrFhouwBR310pKDh37NV3QutOxhxS2t1friDiinEgsxShNO8YOSAZi8b2OTZrZkO
-	 d3YXOEKu3aIgqu5RuCCE+IDN6PAUvxRZQNDbisOCDoKunOXoaYekPBru0XL5QDOAD2JP5
-	 ClcmBQvWcxIL7EDlcuzJbswqHoPnPxOiCo0VL6A4uksFLHDZFmeg6giikUJKDmlch6w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=hFGnDDdL;
-	arc=none smtp.remote-ip=117.135.210.5
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.5])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795657951;
+	b=KSU6Bz2x/uX0d8HxtZPL7qWoeI0ZeyNmsk8sdiiNiSpgl4uevo6CyIy0wdYqG0MAf5lk
+	 ocT8EYs1xnnJXLdn7HOyvt7TiOtO/Xmp/gFtm038+7iV7B0O36LKv0V99nGc4Db86lvRx
+	 /UFm2WdaQ56azddmcEnK3y2eoUoThcvEfrHG/EKKh0rtX5As5taNEeEoMmVoPeQPgcLeS
+	 FXHAfUla7uZ1TY7CO2MFCN9sr7RkTJwSlVrVcTWZihq9USW0Yt2pFqSjfahibJFNvKoJG
+	 tpwnRRwihpovkU6gE50o9Pkr1nIdRKttWz5W8Caa9NG4pG4VjSdPT18I7/1DbXUsUvQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795657951;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=BYrIjamICZ6Y7Hb8ow5GXwmCuZ59CdnDiz69auQltyc=;
+	b=C+YLp1gPRqPufo9/EBmkMyamn0k4eCEec8gtwQiDXaUEsbGHTVsF9xH4tF2Pf+kci7PL
+	 1ag8sluFDnYJngL/SUAsM8HVjQw6mukKNbK3696FrBwsnp+nNFl/LNFBPUu/wL6EbyrwY
+	 W8t+aILCEMAQXsOTIKaIqcRXNvZM0SO9A/A7y2aaa00PWseDNsThATLjlzlrDpWyMi8GX
+	 mTMz+Mi+bL+ep+jBKA2nZVfVDm//4iRi4oSGLN17QaVf3xnKQLpV3TCDpksAFIOhAv+iW
+	 kAEOx7otr3WGhTS73V4vx7PDQ5W9uQNUMqnmsxdW+eHg8wVV5n887wa8M2xtzVznSPQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YWhdxqap;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C132606A31E;
+	Thu, 26 Nov 2026 01:52:30 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YWhdxqap
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795657950;
+	b=Qs7O2LQcCSQEABRwfcWBwiJ7ME6Zi9dZJIapvBJqfUYKueYRa8f0MqstT5kRBKWID+fE
+	 +LSkNYldmCC90xHFGUjqz9O7BFDfKH+j1SxLMfl29FNh+cPFzwgQFnKWb+5jbNeNHOCe8
+	 oryWO4J+PG75We5jlCHW4ULV2XaOBNz1D5fBKjrmhnZBAKCMANKqc4wNNPRQrNCNmFfNG
+	 qydSkSJUTdzgMCkgniRsD7SQoF93lE9fkCjbzHdMOM6o2uzDAlLFBvudn4POTseR7dV7P
+	 QoW0jeizdhIFxSV13guHAM2S/4+UhuCk7rGO1aGynxS+7dcuodkR6DpgGNPWM0W++3Q==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795657950;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=BYrIjamICZ6Y7Hb8ow5GXwmCuZ59CdnDiz69auQltyc=;
+	b=alXtimJy3pSUowUnlMMOB5J6RPereH0QFvXdc1qhS1KCk4tbvH/mgR6QjKRwDn9aAeGQ
+	 UDNcm+BkiQNw9etkTA++IIrO306ZyMQdNC8JvWBQAmXkKklk7zE/k35CxfFjuxnV1zHMs
+	 AEbEUyvwX94QPDNlsPBGBUh13m9I7eFxpOeKVcbFO0KmNd+WPzBVXi4iQbrGfvFTXG7jX
+	 unuT+KX3Y4Tko8car+GqVF1Yh4IUGdxYFhdZ94yM94c+b5kNjgPcWc4wjGgZqCTqys8QU
+	 Cv/NY16mrxcVHG7agJHB7cAI3D1JhpkuxB7I202pZSlAy9Lmyp96T6bT0+q9vsf+9kw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6D14606A31E;
-	Thu, 26 Nov 2026 01:52:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6D14606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=hFGnDDdL
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=InslSophhZR8ptLxuH18WsVK3o/vxwbo+9Lc8i/W61k=;
-	b=hFGnDDdLUt9A9KsPTLxHoUp8iLp4RHw62Xt0sKKHqdi1EklnCggyFfR44UkMXO
-	yL3WVoeoMiU7ptqe/QlsGKpG/V2rHjLV5RnkHY7ClIMsf0r2e7iGoCZbkall7s3A
-	KzjinljwqwX/40ig38rrk+OzOSOylqTpeEAlbRCF6xbX8=
-Received: from [IPV6:2409:8900:1fda:c14d:483b:2970:cae3:221a] (unknown [])
-	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wDXf0+rkAdrvRQPKA--.54445S2;
-	Thu, 26 Nov 2026 09:51:41 +0800 (CST)
-Message-ID: <d2887b0e-a852-490e-bb07-e4b17d979622@163.com>
-Date: Thu, 26 Nov 2026 09:51:38 +0800
+	by smtp.kernel.org (Postfix) with ESMTPS id AFD7C1F000CA;
+	Thu, 26 Nov 2026 01:52:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795657950;
+	bh=BYrIjamICZ6Y7Hb8ow5GXwmCuZ59CdnDiz69auQltyc=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=YWhdxqap+QFEfp7sQFfS3N7ZLRUR8G75uf9wQTpp3c6Hr8msWkWv+4DoRbqEVONAc
+	 3uIRu75oEObhokjU44XwqGtoO/P6jo6wdlOknwCCArNj9NqCBxcoEb+RsMopAsM3kY
+	 Fm2N6Wie6AyrRFn2pXe062R1vzK5MoUSAdmrFNZntwoz38ArPotWB0UABe3EmjDwGJ
+	 N3eYEjPqaAbyM/rMjvJcc1fL6/w/vQOgg/FNSo2lt2S1dXLAXANF2MbZSzWxIvPSB/
+	 CRYHHNfZUr8vaGQxnZrsWwDYvBqjZX0hwXe3xGW9OQ+XmOIu/u4Soy9eCiBAQqwjq6
+	 TjtjKFVG2oKsA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 0EE824D174;
+	Thu, 26 Nov 2026 01:52:25 +0000 (UTC)
+From: Daejun Park via B4 Relay <devnull+daejun7.park.samsung.com@kernel.org>
+Subject: [PATCH v2 0/2] exportfs, xfs, nfsd: map a whole pNFS block layout
+ in one ->map_blocks call
+Date: Thu, 26 Nov 2026 10:52:24 +0900
+Message-Id: <20261126-xfs-nfsd-map-blocks-v2-0-6d85b1388739@samsung.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,92 +84,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ntfs: keep i_size of a directory equal to its index root
-To: Showta Ishizaki <zakinko@snowrabbit.org>,
- Namjae Jeon <linkinjeon@kernel.org>, Hyunchul Lee <hyc.lee@gmail.com>
-Cc: ntfs@lists.linux.dev, linux-fsdevel@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261125-ntfs-01-v1@snowrabbit.org>
-Content-Language: en-US
-From: liubaolin <liubaolin12138@163.com>
-In-Reply-To: <20261125-ntfs-01-v1@snowrabbit.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wDXf0+rkAdrvRQPKA--.54445S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7tFWkZF1fAr4kKryUAFyxKrg_yoW5JF15pr
-	ZFkr4fK3ykX34UCrna9F98Ga1UurW09rZ0grW5Aw4293s5tw1SgF1jy3y0g3yIvrZ5J34U
-	XF4DArW8Xry3Zr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U24iUUUUUU=
-X-CM-SenderInfo: xolxutxrol0iasrtmqqrwthudrp/xtbC6g3rtmsHkK3MyAAA3v
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANiQB2sC/32NTQ6CMBSEr0Le2mfaBqpx5T0Ii/4BjbYlfUowp
+ He3cgCX32Tmmx3IZe8Ibs0O2a2efIoVxKkBM6s4OfS2MggmJGfsittIGEeyGNSC+pnMg7DlF9t
+ pqZRrBdTlkt3ot8PaD5VnT6+UP8fJyn/pf9/KkWEnWe0Ya4yWd1KB3nE6mxRgKKV8AbAM9Le4A
+ AAA
+To: Chuck Lever <cel@kernel.org>, Jeff Layton <jlayton@kernel.org>, 
+ NeilBrown <neil@brown.name>, Olga Kornievskaia <okorniev@redhat.com>, 
+ Dai Ngo <Dai.Ngo@oracle.com>, Tom Talpey <tom@talpey.com>, 
+ Christoph Hellwig <hch@lst.de>, Carlos Maiolino <cem@kernel.org>, 
+ Amir Goldstein <amir73il@gmail.com>
+Cc: "Darrick J. Wong" <djwong@kernel.org>, Dave Chinner <dgc@kernel.org>, 
+ Sergey Bashirov <sergeybashirov@gmail.com>, 
+ Christian Brauner <brauner@kernel.org>, linux-nfs@vger.kernel.org, 
+ linux-xfs@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Daejun Park <daejun7.park@samsung.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795657944; l=1642;
+ i=daejun7.park@samsung.com; s=20261006; h=from:subject:message-id;
+ bh=CHe9NdNoNWMN3OZLg6eYv1P0qljzfmwefVyC+JLRYlU=;
+ b=Z1FcxTUa6ywlKOAf0WRvfAHZbKqu+vWqFtZRcueStNEhUsXV3vakq9dGoNWDBwzG/KlU8r7Q7
+ seKi7tbjqBQCux9qLbNB9S3rpkBy3JzalZsPbA2BSFwjjDr8yGL9zQL
+X-Developer-Key: i=daejun7.park@samsung.com; a=ed25519;
+ pk=4yUfDqGRZTIj0Ik43z1GoMZRWCNm/rgX6uJuM9dtNIg=
+X-Endpoint-Received: by B4 Relay for daejun7.park@samsung.com/20261006 with
+ auth_id=1122
+X-Original-From: Daejun Park <daejun7.park@samsung.com>
+Reply-To: daejun7.park@samsung.com
 
+nfsd gets a pNFS block layout from XFS with one ->map_blocks call per
+extent. Patch 2 lets one call return all of them, as Christoph and
+Darrick suggested, and patch 1 prepares XFS for it. fstests and pynfs
+give the same results with and without the series.
 
+The series needs four fixes. The first two are posted separately, and
+the other two are in nfsd-testing:
 
-在 2026/11/25 22:18, Showta Ishizaki 写道:
-> After mkdir, stat() gives a size of 0 for the directory until it is read
-> back from disk, where it gives the length of $INDEX_ROOT.
-> __ntfs_create() opens the index root but does not set i_size from it.
-> 
-> When the index root is moved out to an index block,
-> ntfs_ir_reparent() updates data_size but not i_size, which keeps the
-> length the root had before.
-> 
-> Set i_size in both, as ntfs_ir_truncate() does.
-> 
-> Without the patch a new directory was 0 bytes and became 48 after a
-> remount, and one with 300 files was 248 and became 56.  With it the sizes
-> are the same before and after.
-> 
-> Fixes: af0db57d4293 ("ntfs: update inode operations")
-> Fixes: 0a8ac0c1fa0b ("ntfs: update directory operations")
-> Signed-off-by: Showta Ishizaki <zakinko@snowrabbit.org>
-> ---
->   fs/ntfs/index.c | 3 +++
->   fs/ntfs/namei.c | 7 +++++++
->   2 files changed, 10 insertions(+)
-> 
-> diff --git a/fs/ntfs/index.c b/fs/ntfs/index.c
-> index fe2a79b..73c8e6f 100644
-> --- a/fs/ntfs/index.c
-> +++ b/fs/ntfs/index.c
-> @@ -1434,6 +1434,8 @@ retry:
->   		icx->idx_ni->data_size = ix_root_size;
->   		icx->idx_ni->initialized_size = ix_root_size;
->   		icx->idx_ni->allocated_size = (ix_root_size + 7) & ~7;
-> +		/* As ntfs_ir_truncate() does; i_size kept the old length. */
-> +		i_size_write(VFS_I(icx->idx_ni), ix_root_size);
->   	}
->   
->   	ntfs_ir_nill(ir);
-> @@ -1455,6 +1457,7 @@ retry:
->   		icx->idx_ni->data_size = ix_root_size;
->   		icx->idx_ni->initialized_size = ix_root_size;
->   		icx->idx_ni->allocated_size = (ix_root_size + 7) & ~7;
-> +		i_size_write(VFS_I(icx->idx_ni), ix_root_size);
->   	}
->   	ntfs_ie_set_vcn(ie, new_ib_vcn);
->   	goto err_out;
-> diff --git a/fs/ntfs/namei.c b/fs/ntfs/namei.c
-> index 29f1bf5..e4b0fc4 100644
-> --- a/fs/ntfs/namei.c
-> +++ b/fs/ntfs/namei.c
-> @@ -611,6 +611,13 @@ static struct ntfs_inode *__ntfs_create(const struct mnt_idmap *idmap, struct in
->   		err = ntfs_attr_open(ni, AT_INDEX_ROOT, I30, 4);
->   		if (err)
->   			goto err_out;
-> +		/*
-> +		 * ntfs_attr_open() sets data_size to the length of the new
-> +		 * $INDEX_ROOT, as ntfs_read_locked_inode() does with i_size
-> +		 * too.  i_size stayed at the 0 set above, so stat() gave 0
-> +		 * until the directory was read back from disk.
-> +		 */
-> +		i_size_write(vi, ni->data_size);
->   	} else {
->   		/* Add DATA attribute to inode. */
->   		err = ntfs_attr_add(ni, AT_DATA, AT_UNNAMED, 0, NULL, 0);
+- nfsd: stop a block layout at the maximum file size
+- xfs: punch delalloc blocks past EOF before mapping a pNFS layout
+- nfsd: do not return overlapping extents in a block layout
+- nfsd: do not allocate blocks for an RW layout with a minlength of zero
 
+Once they are in mainline, I will rebase the series for the VFS tree,
+as Chuck suggested.
 
-Looks good to me.
+Changes in v2:
+- Drop v1 patches 1-3 and 6, now in mainline (2 in another form).
+- Fold the interface, the XFS loop and the nfsd caller into one patch.
+- Allocate the mapping array with kvmalloc (Chuck).
+- Keep nfsd's trim of a mapping that starts below the offset, instead
+  of refusing it.
 
-Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
+---
+Daejun Park (2):
+      xfs: factor the mapping of one pNFS extent out of xfs_fs_map_blocks()
+      exportfs, xfs, nfsd: map a whole pNFS block layout in one ->map_blocks call
+
+ fs/nfsd/blocklayout.c          | 137 ++++++++++++++++++----------------
+ fs/xfs/xfs_pnfs.c              | 163 +++++++++++++++++++++++++----------------
+ include/linux/exportfs_block.h |  17 +++--
+ 3 files changed, 187 insertions(+), 130 deletions(-)
+---
+base-commit: 25527067098f9d95562244fd64749ebaae3077f9
+change-id: 20261008-xfs-nfsd-map-blocks-417d5b6aae42
+
+Best regards,
+-- 
+Daejun Park <daejun7.park@samsung.com>
+
 
