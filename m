@@ -1,103 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.215
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795706701;
-	b=BM/KGTxMTm2SbFcj6CUSgIDRlWalssFOS9NfWkfBjpPAn4iQZp88WCVljKGV78KcyZ/K
-	 RK4Euc15ikU9rUDT5BEZeP5NLuEApHpGrojgK6eTgkUPhX68W8KJtwkOi+Owu6Pg9Y5/r
-	 TMiZDPm9H0oad6ozYAQ2uEWkYKq4FeXIb+6MtXcEpRO4QUYRp2cKigXz5H4hBzt5kL07f
-	 oMyN455cMpKY0W/q6h+MhYVY7WD1O6aNvL7UrGC/TBHs3iumyLyme2rmHIa1brynv1J0j
-	 iQYRCrWYDVhzNDJhHVPwZHPtq4cd0w4U40yohvIjj8S+EurkejUA3+pSd2yKR21IqIQ==
+	t=1795706702;
+	b=paJ/ok4ee/qj1a39+ov9AuFYbiByZT/I5NkFrlNrFcQPJD4bX6qpXFlFU+A1z3bdnUBX
+	 Sf/60lIRlt11fobxZmpmUNbXMK8mm4NvhRjpWzhqe2Fz6yNHPGCUyJkoFTknJAANgGzVy
+	 DpNTLttK5iUEjd1iS1CO/JRftCs7p5QtOt88Rz4w/CUbc99jOZxXghOHckRYDiTeg5rOF
+	 s3xwGVQyOxN+sycgEZ30DRroIX2QTAJuAwJSIbLiDNZSOGVncJnkg+Wy0QudRmkPaN4sp
+	 B5IQcG3/LWzqf/dsRpyhd+S/mHXlmcl31fEEjEid7cHhInLavDjJdhUiz1hkLC8uVJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795706701;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=xn/JakdLtzzNaeEXa2XMzMriecmeUnUrG6zt81Wp6lI=;
-	b=yFiDqvxzbv8aqE26a2CvUaMxkC4r6BZ8hlzu2Yrh+JDGd3yqWSsLWwDuh9QqvQFQ5GSo
-	 2cZ5gxylE3lZwlbOW5Gc/2D1+q5RjWKRLb9C0ybff8h81/7HMwJ7VgT4nowzQxC7gtxuZ
-	 BqUt9PY7rXq3vGW5ey82Itt33X/2fKgIkxXuouMxgYXeOgjDr29XA8EXbwoyNT9TVIp4K
-	 z2JP1o/Wgb3s1HAGRMznJpEqquNC9esQPpiAgt+Fv6XK5e+3jcs66KyuipS0B0oAmyKHR
-	 9+jKGJNOU0uw/uyFCx+TISMxuwjXVqUficwATL8zpxzT+rO8mk1tHs+SGVmTdDVqBqA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795706702;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=WaGhGP18N1e5WQjSL7Kf13XBuOe/Lyl+VKElqyiI+RE=;
+	b=th+B+uiIMJWVeUT8EtgrJsaIG3XDfSht7OP7q36GvJC6lXy8djaodkpyBGJPdglOkm8y
+	 IiJVml50FDNQ9vZz23qEP/lmrbDMd/9TQiuY0g8gjIsveHeaVsiMxYYpQ08O0WpLCwDmN
+	 Vl06T9OdGRpK9erREX1EEh69ED00ZCxdyt1qx8/165HXf2vKm7k9vvx0khQ/6qKVwj2yG
+	 U1qKXaOtRFO4/6rmd1lD5RNY4ExHq0yn0i/WyKD0slPDK4bISAHT1De1FtLUjuiloBtjR
+	 TnOHi7HjdvDwKYvd3lBEyzj2AchuJQAMvW9km8CNteg7uPYm2XW7qJTPtNMPnrb46XA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Mn992LY8;
-	arc=none smtp.remote-ip=209.85.214.171
-Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jVZ9h8Gk;
+	arc=none smtp.remote-ip=91.218.175.215
+Received: from mta0.migadu.com (out-215.mta0.migadu.com [91.218.175.215])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6347B606A329
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B48DF606A32E
 	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:25:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6347B606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B48DF606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Mn992LY8
-Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2f03920c4a0so44963975ad.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:25:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795706701; x=1796311501; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=xn/JakdLtzzNaeEXa2XMzMriecmeUnUrG6zt81Wp6lI=;
-        b=Mn992LY8voVClIyMUG0WWQbZNfWulJ61mjwP5Cku6NprsywIVg5eouVIzAKYkCG5H8
-         4NRgM4NC/AEmumt+C+WnTdxfw7ZlqWHyPJZxBHhbzjKjwuFrcZhMyncZbet4cgmX5HSc
-         7EBRPqslrcFgEhF4gAI1FKwTcxc/eQiTSk9tM26SP25KFlki8MGjUc8f0PlOLiYI/Z4B
-         hfXT5LyGs1Ud7GANF8lQO55yADDh+oQFhBIu1PZluKm9gHNiULRyI3pW9ZeUIXz5nRxW
-         +tmf4Icf0r2nDWYsIYUHfiaqFNsjmSOMmPW6YyJcfb698r6LQFLzmcrU2tLRVD/rujZq
-         RTHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795706701; x=1796311501;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xn/JakdLtzzNaeEXa2XMzMriecmeUnUrG6zt81Wp6lI=;
-        b=RHVQjucgCFwKDLWrGiMpwezCsbpzhqGesbZrBIczAMtCLke8fHHJnWAaakIerNT8Gr
-         I8RtLrM5a/Gm9Uu1v8/bjUMhb/NrQmTxuJ1OYUGSCOSdqn73K2f6UzR+3IcwH6u8X/Pd
-         mAmVDlpapN8g49D8YwRm+n2WiJe6JP80D4fdMVkE9oV3+wjdYs+ygivRhft6mxdZUD5R
-         2yGxxVWrcV5qK+0m4FolhigtPuBWYzsxkmByuwwj06D6JD3VtB8IHDr0Bkvf2FXb2twh
-         lVyicwOQQJjbmkazBmjukp/KbpRlw19fmFfi/gMzUatVWKi5FXTmZ4drMTHMw78ZW9ki
-         v65w==
-X-Forwarded-Encrypted: i=1; AL+hErHI4/8mJGEpJ7lJc3+G2JTv1ROJ+dRZJYxWjMlTbslZunO8PtRBUQFm5Xy0sXDiKfQojbsYsQQGSvUp6po=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8awABr1kIRUSq3rjkZUlkn1l9t4gW2UjCnMOdwGNS3Bdz1VkjF
-	a0HQ/qZ0/7MzkZ5Fa5oDJEDGTGGspur39HogB/zvyklChB4QiusA3eNu
-X-Gm-Gg: AZFdTZeRnmyi56gtQvb8tfJ5irf4w8Kh58T97w/LdBrPmKE4HK1jmth5O+ZKobtutxw
-	Nixk9W700H2srDZVWyfBrwVJD0Qg41sWjcvdxoohUhPd5D7rl4i2QfbdbO1l5mQFanWNMn1x9zU
-	0a3HraX6hZqd6Z5LSb2rn7UcjXj/VnWhTbJDjKSDKFMjeQmejfjmGB7AgFGCVca6VhwoQENqPdl
-	vdxaj0Z6Dra8rb2Mr2+yeBnyikhZHVy5AZggkRcdk0Y851CKAXaS6iPueD2QBZGulC4kXlsM3Yi
-	kpBQmOm3oEWufFfOMkD61dv7gK2P4EWTSbyemQ2YZINtxfi7BSFkSebTz6bwzr/psnezb4+Zz9N
-	K0IDw5cQswK9nsWIpcynSZ9BgTsbncmtiI5PchQj+CvRx5SgNZCANBcYDPsjIwrvgsLk/ROqDek
-	YAXy9/bbMFUVCpom6+/NYQXPjKLA5V+QiUFtps1F+NN6PiSUnuCpeh1f/33v2a16RRgfwKMliP0
-	08BEKH3pbqcGFqwu6OeM68IK70C3mlPRs1objEKvf6ci0w7oBa5vM6PRhJfvAbdYablBX7vwZZn
-	ZpQxoHSPWG4BDdLxD3u/ABn2ivbj8r+FqWL5grH06hTENqtokqIL2fNdOjVRZjxjI2yxq16iGpW
-	I0VY5zeWrSxB86KODd2HHnWDk1WWKGm/qxUHuK+6mCzh1XJ62LItwvLPB7qWvKTM3c0H30yun+b
-	ewnhKBtJk3cocjxgYceU1frA==
-X-Received: by 2002:a17:903:298d:b0:2e9:740c:36c with SMTP id d9443c01a7336-2f03f1ba67amr211995255ad.41.1795706700672;
-        Thu, 26 Nov 2026 07:25:00 -0800 (PST)
-Received: from kapoor ([149.40.62.9])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f04ed9620esm98281065ad.26.2026.11.26.07.24.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 07:25:00 -0800 (PST)
-From: Arnav Kapoor <kapoorarnav43@gmail.com>
-To: Rong Zhang <i@rong.moe>
-Cc: Hans de Goede <hansg@kernel.org>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Ike Panhc <ikepanhc@gmail.com>,
-	Mark Pearson <mpearson-lenovo@squebb.ca>,
-	"Derek J . Clark" <derekjohn.clark@gmail.com>,
-	Stuart Hayhurst <stuart.a.hayhurst@gmail.com>,
-	Punnay Sharma <punnaysharma805@gmail.com>,
-	platform-driver-x86@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] platform/x86: ideapad-laptop: don't warn about keyboard backlight type 0
-Date: Thu, 26 Nov 2026 20:54:48 +0530
-Message-ID: <20261126152448.847538-1-kapoorarnav43@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <3e932924940536878264c1ab46d24bd6db362183.camel@rong.moe>
-References: <20261126073107.765676-1-kapoorarnav43@gmail.com> <3e932924940536878264c1ab46d24bd6db362183.camel@rong.moe>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jVZ9h8Gk
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=e8n4p5I4AJEqksbOANyj0Uvx8iI2baqGaT4jyvFlF3s=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795706698; v=1; x=1796311498;
+ b=jVZ9h8GkT/80oZsox7YdODWAE02GuplGKSbcgwsB8WJxPqBNfi/VkjeXgScosK136kuJCEEV
+ fEKpAj82reCXYFpOFszgIwzveujI6pz2MajchchMeBoDbd0lSxVz8Ki/liZ5ujV+TuR4us4g6cG
+ D6QHk0fgIIze+WCiB2cnf79U=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id e28c61dcd929e842;
+	Thu, 26 Nov 2026 15:24:58 +0000
+X-Mizu-Trace-ID: e28c61dcd929e842
+X-Migadu-Flow: FLOW_OUT
+Date: Thu, 26 Nov 2026 07:24:42 -0800
+From: Shakeel Butt <shakeel.butt@linux.dev>
+To: "Harry Yoo (Meta)" <harry@kernel.org>
+Cc: Vlastimil Babka <vbabka@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org>, 
+	Roman Gushchin <roman.gushchin@linux.dev>, Hao Li <hao.li@linux.dev>, Christoph Lameter <cl@gentwo.org>, 
+	David Rientjes <rientjes@google.com>, Muchun Song <muchun.song@linux.dev>, Hao Ge <hao.ge@linux.dev>, 
+	Pedro Falcato <pfalcato@suse.de>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	kernel-team@meta.com, "Liam R. Howlett" <liam@infradead.org>, 
+	Alice Ryhl <aliceryhl@google.com>, Andrew Ballance <andrewjballance@gmail.com>, 
+	Matthew Wilcox <willy@infradead.org>, linux-fsdevel@vger.kernel.org, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Jiayuan Chen <jiayuan.chen@linux.dev>, netdev@vger.kernel.org, 
+	Kees Cook <kees@kernel.org>, David Hildenbrand <david@kernel.org>, 
+	Lorenzo Stoakes <ljs@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Robin Murphy <robin.murphy@arm.com>, 
+	"Joerg Roedel (AMD)" <joro@8bytes.org>, Amir Goldstein <amir73il@gmail.com>, 
+	Casey Schaufler <casey@schaufler-ca.com>, Paul Moore <paul@paul-moore.com>, 
+	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, 
+	linux-security-module@vger.kernel.org, Richard Weinberger <richard@nod.at>, 
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, 
+	Eric Dumazet <edumazet@kernel.org>, maple-tree@lists.infradead.org, Paolo Abeni <pabeni@redhat.com>, 
+	Simon Horman <horms@kernel.org>, Jason Xing <kerneljasonxing@gmail.com>, 
+	Willem de Bruijn <willemb@google.com>, Mina Almasry <almasrymina@google.com>, 
+	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+	Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	Anshuman Khandual <anshuman.khandual@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, linuxppc-dev@lists.ozlabs.org, 
+	Niklas Schnelle <schnelle@linux.ibm.com>, Matthew Rosato <mjrosato@linux.ibm.com>, 
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, iommu@lists.linux.dev, 
+	linux-s390@vger.kernel.org, linux-sunxi@lists.linux.dev, linux-um@lists.infradead.org, 
+	cgroups@vger.kernel.org
+Subject: Re: [PATCH slab/for-next v2 00/14] mm/slab: mandate SLAB_MAY_ACCOUNT
+ for __GFP_ACCOUNT allocations to avoid wasting memory for slab metadata
+Message-ID: <20261126152250.GB738059@shakeel.butt@linux.dev>
+References: <20261125-memalloc-prof-dont-waste-slabobj-ext-metadata-v2-0-7c680f02a734@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,19 +100,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261125-memalloc-prof-dont-waste-slabobj-ext-metadata-v2-0-7c680f02a734@kernel.org>
 
-On Thu, Nov 26, 2026 at 08:15:50PM +0800, Rong Zhang wrote:
-> See https://msgid.link/20261107140700.16036-1-punnaysharma805@gmail.com
+On Wed, Nov 25, 2026 at 09:37:01PM +0000, Harry Yoo (Meta) wrote:
+> TL;DR
+> -----
+> 
+> The purpose of this series is to convert existing slab users that
+> specify __GFP_ACCOUNT on allocations to specify SLAB_MAY_ACCOUNT on
+> cache creation, to reduce memory waste for slab metadata with
+> CONFIG_MEMCG=y && CONFIG_MEM_ALLOC_PROFILING=y.
+> 
+[...]
+> 
+> Signed-off-by: Harry Yoo (Meta) <harry@kernel.org>
 
-Thanks for the pointer, Rong. Punnay's patch fixes the same warning and
-was posted first. I missed it because I only checked pdx86 for-next,
-where it hasn't landed yet, and didn't search the list archive before
-sending. Sorry for the noise.
+For the series:
 
-Hans, Ilpo: please drop this one in favour of Punnay's patch. I'll test
-it on the V14 G2 ITL and reply on that thread.
+Acked-by: Shakeel Butt <shakeel.butt@linux.dev>
 
-Thanks,
-Arnav
