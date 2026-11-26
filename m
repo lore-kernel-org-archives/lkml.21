@@ -1,82 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795730580;
-	b=a4RyzSy4z0GxySChewTD/Aqqtjk3iQbonHGx6WiN/nbd007Oc/WXNOsl1ODTJvp6+ytU
-	 NhnB5St+tSSet8lJduKUG9v9h4KXNfYrT+3EqNCxGl7ZBHTGyDtE6L199n8ww4qi4t2E6
-	 PaqU6HQzCmU1Wqcm/Cf+4Kne8MMkq2GzTlqJbkZ5jcuDZ9ZrK7oC4KImW/ZdxS0PRcWt2
-	 zrNX9z+W0RI8Ik6H54riP9mLG63G+K5eKW0bMHfD6aoAavFMYA+2vcA7ELEqAUrN3m3Uw
-	 rM/Rkr3IwQRN7StKncH2zEfYsONqZ6gLVvSukzRHhl/FYlPrGxucB/VboDA4dEPhWDw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795730580;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=1GBNGDQ+Fpfo32tn2P/7vFYAKjTUM17/Hl82GZJuG7w=;
-	b=yyENHXM1Hpf+mf2AKZxhfTMKYumtfvuwv4MpTH0ou8n6otUJU88V/ewwxc8XcssBC1oV
-	 fn27kBTgzOct+F91/m+AyjInb/0TmXRve2GOHA1FCJMwQPBlPicMCBj/J3UMNqqI7i2Ln
-	 KNm6++nzORs318nNZFY3ccGYZN4rfpAooCfbOppmofIXZfVc2iI3MInGI5+jxy2Ld91Km
-	 Yw4argYlqnqnpZ3V4DbVO1cFOuiYGN2/s1BeQ4D4WW8vDX9kP66ia0TtUlfvT0HeJji7b
-	 YUqqmSK815qWVI3SwWGU3w2hL7ULTL3JjBoPWDkdHFYXS8kSck2ElKbG4vUPDKZbJNg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="kloLMIr/";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795730674;
+	b=P/GY2yhOkeNhgQJBGTSqlOA104bUuOXeMKlYFK/t5xOUncjaDR/9GD6V6ujhPg6kwEMO
+	 cMky2yrBwg09yYDGMHuCAp68kwhOYNzl+nzgwsYaTAg27sTJJCN4D9MwyJ3r2VMZtnj9c
+	 evhcCw3yeEI7RNlzn2A+V3Tv5XZI34jAU6bgd+V1STM9HL9QAH7txTnrc30IkRNXIP4Vu
+	 aas35ZfSiQsB1SOD3si0EvPJyZqk/ftMeF1KLRIygvkTOqUgGnY3AwdSGqGKVINmnQ/1D
+	 EaXWT19Oq20tkR2Yz3ItJL/ebRnSXdQOfEEuZnkYYlbHTUzt9DGAzNlNbttUfMiC5PQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795730674;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Zoho-Virus-Status:X-Zoho-AV-Stamp;
+	bh=hw8McZrr/i2QtioNMt/2FPRki729VlIIyXqALDbuHl4=;
+	b=Fjwu28S5SRQuXh67eXGTeOHgPJzIvxFE/oaCPn2O2uU3K7D9F0g9xkmMm6ER910a1XW7
+	 Gz/vptR+lGUFY53s3aouEDDASsaTVA2pFHZoUFiWVASFSa3IErar/sDPn2gasFUy2EfFN
+	 kSeb+/J/6o2u5vJljoHkIiJBMWsl0YgCOxCWUVTFs5jL4E4OWA50jix34wMRamq9hZLj0
+	 O8hILW6YNpxq+EFm6hclf9XJAnzHkrW3UphE4CHDbAStY6zMUl+j2ImxPq6hhDW9gJ77j
+	 8azz7Qmh6x/1WuCPQXDbzRiMmaL1kQQUCOoetsvaiLWI3aE53sKsMBM51iXx4DC3R/g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=WXgWcauu;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id A1AD0606A31E;
-	Thu, 26 Nov 2026 22:03:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44620606A31E;
+	Thu, 26 Nov 2026 22:04:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44620606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kloLMIr/
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 5CD7A1F00893;
-	Thu, 26 Nov 2026 22:02:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795730580;
-	bh=1GBNGDQ+Fpfo32tn2P/7vFYAKjTUM17/Hl82GZJuG7w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kloLMIr/z/Btp/nwC2OoOb1UbP0q6ypeSKRdfR3rE2MOQIwKwBZ5o/k2ebOyed+du
-	 Fkf1Bwx0tcxg47MqWNjZlglXVda8wXy6zPPSNEjpijpc6CnOMcXPG0D7RkVyvrZtrT
-	 55DUghWoZGWkrbFSq4oPr3Br9F1+gzesE3SvwQYz4Ev+FsaekI9mSMVKU07JLaHEzY
-	 N+VHwAxlEiviW2tGSPUWYjRKXy5Z6Gi0/mXaWCOWBdlRVdYFD1K1BlILlcOn3pXbY6
-	 QvibMQz58YXXeaRaUHyppP2R9VnCh0J2pJ1AYmYERWMvzEDR6IPdZMyI2QSH5s8tWl
-	 NNM3QO68EC3Rw==
-Date: Fri, 27 Nov 2026 00:02:56 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: keyrings@vger.kernel.org
-Cc: dm-devel@lists.linux.dev, linux-crypto@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-integrity@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-security-module@vger.kernel.org,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	Alasdair Kergon <agk@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Benjamin Marzinski <bmarzins@redhat.com>,
-	David Gstir <david@sigma-star.at>,
-	David Howells <dhowells@redhat.com>,
-	David Laight <david.laight.linux@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Ignat Korchagin <ignat@linux.win>,
-	James Bottomley <James.Bottomley@hansenpartnership.com>,
-	James Morris <jmorris@namei.org>,
-	James Prestwood <prestwoj@gmail.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>, Jonathan Corbet <corbet@lwn.net>,
-	Lukas Wunner <lukas@wunner.de>,
-	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
-	Mike Snitzer <snitzer@kernel.org>,
-	Mikulas Patocka <mpatocka@redhat.com>,
-	Mimi Zohar <zohar@linux.ibm.com>, Paul Moore <paul@paul-moore.com>,
-	Peter Huewe <peterhuewe@gmx.de>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Sumit Garg <sumit.garg@kernel.org>
-Subject: Re: [PATCH v4 11/11] KEYS: trusted: Add asymmetric key support for
- TPM2
-Message-ID: <awiskMGvLb5HINaj@kernel.org>
-References: <20261126205021.2200819-1-jarkko@kernel.org>
- <20261126205021.2200819-12-jarkko@kernel.org>
- <awipQFkjoBSEXnLh@kernel.org>
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=WXgWcauu
+ARC-Seal: i=1; a=rsa-sha256; t=1795730621; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=jl4wLsYDawNtwcnNWjsiarBQT18RpY78MB2KUO7tJYCv8ZZ17p4wYCekosi0fYt3l0u6g73nUTjNaEtC6qqYVVwDHPHVGvHZ9DCa8lKLXF52X9iWkstfrqxbcFCAl+zad9MfAXgBjk1hwmb1LraU4/1is2CXTTWF6g+T+U/lQ8Y=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795730621; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=hw8McZrr/i2QtioNMt/2FPRki729VlIIyXqALDbuHl4=; 
+	b=RyV56JSPBKt7QOYgEix4RRuFZG/vtHWcqx1gg1SUXfya71zTkBV7itSfFoQVljXtN0YRkiusaaFIlJ8vbtn9KCrYnHE0h3cLpZsmx4OZCIEgvFZAADYaUifQBCvMpyyz/SX5VQKZsyq+ys6t0kGlcYaAA88dL+5lWLLc033LX/8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=deborah.brouwer@collabora.com;
+	dmarc=pass header.from=<deborah.brouwer@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=WXgWcauuzQ8XqJsNMtnuE4jqjmZ2MD0uqLmTQrJGPz37XktCGFJFitZ0PjooVV0FLHYke3PFaovdiN1TQGD3YIUMfPbatM5n9jkaeQAATvPCL+MOvLEDn8uT50vL18z3TsIEm6RdiSvtWBHJLFr4XcICZpmi/SJ0sVKO48QlHxs=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=hw8McZrr/i2QtioNMt/2FPRki729VlIIyXqALDbuHl4=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795730618243839.0715114063554;
+	Thu, 26 Nov 2026 14:03:38 -0800 (PST)
+Date: Thu, 26 Nov 2026 15:03:37 -0700
+From: Deborah Brouwer <deborah.brouwer@collabora.com>
+To: Janne Grunau <j@jannau.net>
+Cc: Alice Ryhl <aliceryhl@google.com>, Miguel Ojeda <ojeda@kernel.org>,
+	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Lyude Paul <lyude@redhat.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, nova-gpu@lists.linux.dev,
+	stable+noautosel@kernel.org
+Subject: Re: [PATCH v2 3/5] rust: drm: gem: shmem: Implement
+ prime_import_sg_table callback
+Message-ID: <awisuf9_rnn2PUdK@um790>
+References: <20261124-rust-drm-gem-shmem-imported-sgt-v2-0-000f7a9ccb8d@jannau.net>
+ <20261124-rust-drm-gem-shmem-imported-sgt-v2-3-000f7a9ccb8d@jannau.net>
+ <awXA70GWssuU991c@google.com>
+ <20261125113846.GB372978@robin.jannau.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,36 +88,35 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <awipQFkjoBSEXnLh@kernel.org>
+In-Reply-To: <20261125113846.GB372978@robin.jannau.net>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/295.709.99
 
-On Thu, Nov 26, 2026 at 11:48:52PM +0200, Jarkko Sakkinen wrote:
-> On Thu, Nov 26, 2026 at 10:50:21PM +0200, Jarkko Sakkinen wrote:
-> > Extend the TPM 2.0 trusted key backend to load OID_TPMLoadableKey
-> > (2.23.133.10.1.3) RSA (2048/3072/4096) and ECC (NIST P-256/P-384/P-521)
-> > keys and expose query, sign, verify, and RSA encrypt/decrypt operations
-> > through key_type_trusted.
+On Wed, Nov 25, 2026 at 12:38:46PM +0100, Janne Grunau wrote:
+> On Tue, Nov 24, 2026 at 04:53:03PM +0000, Alice Ryhl wrote:
+> > On Tue, Nov 24, 2026 at 12:37:45PM +0100, Janne Grunau wrote:
+> > > +        // SAFETY: The DRM shmem helper only invokes this callback for a registered DRM device of
+> > > +        // type `T::Driver`, which is `Self`'s driver per the `AllocImpl` impl below.
+> > > +        let dev: &Device<T::Driver> = unsafe { Device::from_raw(raw_dev) };
 > > 
-> > The feature is controlled by CONFIG_TRUSTED_KEYS_ASYMMETRIC, which
-> > defaults to y when CONFIG_TRUSTED_KEYS_TPM is enabled.
+> > `drm::Driver` in `rust/kernel/drm/driver.rs` currently declares:
 > > 
-> > Co-developed-by: James Prestwood <prestwoj@gmail.com>
-> > Signed-off-by: James Prestwood <prestwoj@gmail.com>
-> > Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+> >     type Object: AllocImpl;
+> > 
+> > without any constraint that `T::Object::Driver = T`. I think we should
+> > introduce one similar to how Driver::File constrains this?
 > 
-> By rebasing this on top of these patches, I could drop tpm2_read*()
-> from this and use tpm_buf_read_*():
+> so changing it to `type Object: AllocImpl<Driver = Self>;`?
 > 
-> https://lore.kernel.org/keyrings/20261115233156.1485238-1-jarkko@kernel.org/
+> I think it's hard to get that accidentally wrong but since the change
+> relies on that constraint and we can express it sure.
 > 
-> See, also:
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/jarkko/linux-tpmdd.git/log/?h=tpm2-asymmetric
+> I added it locally for v3 but feel free to make that change before
+> pushing this series to drm-rust-next if there is nothing else that
+> warrants a v3.
 
-Also as a result of this tpm2_load_parent(), tpm2_load_blob(),
-tpm2_asym_rsa_decrypt(), and tpm2_asym_sign() resolve names via
-tpm2_read_public().
+Yeah, I agree the change is good, it's also similar to the constraint
+on type Object for trait DriverGpuVm.
 
-By combining these series pre-existing code is leveraged
-to its best extent.
-
-Br, Jarkko
+> 
+> Janne
