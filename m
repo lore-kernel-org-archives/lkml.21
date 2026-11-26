@@ -1,98 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795725299;
-	b=EVUeqsag9eJkueMZSldHWS/8XNncZ5FIa36V5Bp7WNU9iAaa1uMqwSVnwGFNt18fjs2K
-	 iqNq1vAtSnFCVnf6Wri/+wXEqvKQNX83o9WwEu/hggYIb20oykK1bpipE8uuVXMvhZBJM
-	 fQLRwmEoc0tZ1T+mmRH21rrrmJQODaDWFYGBl+/ztx6ZeV/xbBEC0v74ITpd0AQ7azu8s
-	 wPRn1fuurx3lACqcDRQUPES8WS0zfu0Iym5v3Lm0Y5lp0zzBga3z5hEXI2LFz7fn1mWB/
-	 Z55N6Zw092ZjeUxmoE7hV9T7ffYyn57LX5TLMVrp9aLENXhEK3oxi2IzEG84ZxdFqcg==
+	t=1795725331;
+	b=EjCPsynCVUiuhNW17srohhnn5to3/7eCeZtf4SwT4anT1/0Fnt3QwSiNJeIsNeXOmXHx
+	 t5gt02LXLkR1QAmH0+H6Yke1tox2pawtypyUDAxy4qSDGwG00x9Epv6+CgoVyPJdfzplA
+	 i2zHTedt7HgcC4x3SlejI4BsquUCPewzc3h5KIuHqT6Z0fCVPbJ/u0ivtI/IqBx7awkAX
+	 7L1GBsOwVVwTtpYVLSGb6UYwCPGXxTC4NkDcsxoxqliJa8/z1pfblbZa/No+YazI7vv1u
+	 M9hXhaOFzGDD8jmnL+xiCEYquPSi2DcsbtvciNxrbAfqencukD/y3jG4mP77Sro3B+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795725299;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=ZtIwCT3a4vXS9rYCNglRnCkULrvjfiTPxFncfyBIpu8=;
-	b=sbG3mgRgJFLCEj0Ff67aZdxKEqwU1VzpUJk+HGQDbYEoIwidZlhRDG6QSD159tsoGacW
-	 F7GEeCDj15e5QuWAcOcbDPSrUME3j0A+s0CSavwq9ZK1CQelRqqkMJLz17IosqS2+ehM4
-	 dRSIPMGfW7gbm45ozsiRnd0XizDcl4pyGcAkRJ+RAX2NOJb073cXQYYIx6p93PfH0N30W
-	 n7PIjTNiS07ofunDRm9qp6gmOZ4c+PQgrvTe25fR3wQ+XO8hUhBfs59oT8JGXFLBRtvP1
-	 9evydZ3tOv5/TID8ZyUcPhwKQ/9NSBcDLBPKyJcnUc/u5pE6vuAOKSjg1hSlNRPLpFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795725331;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=zqO3yiYGog30zyUcuMfbgRi3wkNhqWosSS3VtCYqruE=;
+	b=ahkwitb9V9VQeURKMQb/F8f4Vs9WuBvfPphvQGZ1X5OdQgfvfpBPSlri4GtE5uQ/cvM0
+	 GF7W9yO27IAHF9oJVp7apmFAVY6gjnWTzLLX2J26iCCypUsPC2hTKSdHAp+6wXFjEGqRh
+	 sypRt23v/2CcpMgPGB/7hAJq/IdW3Vpckozyzl/0W7REpp81pCyXdy2vGGuBz9QSJ1yF2
+	 qqC7YM5e7WB+9DR05maV3dpUgS2ZEITcmY1IIHcP5gQGQE9tCTVMNkRGkO0R6u602J2WB
+	 lH+Lo3yiOM0X1AvZDjZXZqLDCEf2rCS/vVurzZOr8gkQ7EiJUhoF/Do4378/U9wdwqA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=aQtumrve;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nZ6Lo+XT;
+	arc=none smtp.remote-ip=209.85.161.44
+Received: from mail-oo1-f44.google.com (mail-oo1-f44.google.com [209.85.161.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90547606A332
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:34:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90547606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9D7B606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:35:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9D7B606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=aQtumrve
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795725297;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZtIwCT3a4vXS9rYCNglRnCkULrvjfiTPxFncfyBIpu8=;
-	b=aQtumrvemF3D8ZBLXrJLqgNXoYgZ0+7baApd6/Fxnco6sm+vOcgIuws/uofSlGgQIDOvH+
-	NAmK8AvoBEOaZoU0g/nujPap/8s+Ruw+0cDzGMplA9tHBnspiToMPMUXKbnvPRm7JCKEnj
-	AP+RiOQ5+2g0Q3tMPapN1iUsAZKx9hI=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-509-FnEJEt8UPi6lUpDlNIUToA-1; Thu,
- 26 Nov 2026 20:34:51 +0000
-X-MC-Unique: FnEJEt8UPi6lUpDlNIUToA-1
-X-Mimecast-MFC-AGG-ID: FnEJEt8UPi6lUpDlNIUToA_1795725289
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DB34D19560B2;
-	Thu, 26 Nov 2026 20:34:48 +0000 (UTC)
-Received: from ivecera-thinkpadp16vgen1.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 95BFD1801977;
-	Thu, 26 Nov 2026 20:34:42 +0000 (UTC)
-From: Ivan Vecera <ivecera@redhat.com>
-To: netdev@vger.kernel.org
-Cc: Vadim Fedorenko <vadim.fedorenko@linux.dev>,
-	Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Donald Hunter <donald.hunter@gmail.com>,
-	Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-doc@vger.kernel.org,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nZ6Lo+XT
+Received: by mail-oo1-f44.google.com with SMTP id 006d021491bc7-6ddef424972so5929867eaf.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:35:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795725329; x=1796330129; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=zqO3yiYGog30zyUcuMfbgRi3wkNhqWosSS3VtCYqruE=;
+        b=nZ6Lo+XT2UOlucZG/6eYQiYzPIi0YoUWKLJaNoYSzJv58Yr34+x9p5r3H+n1Sl9sDI
+         RDZR8jKc1YTjs3HH37K0lC2rSZGCMIYBO5qO8bAPIQ/JOxiK1FDaDayw6dpUCihMX3Li
+         yZZYjGpPotrSxUKbREmLQF8sNvEiYMhae4Q4qkS/gUOJogGPpCEi86mGaDsPChTgJCXx
+         IBymGfXLFSWIDb1nU/4vkRI6ouJttK3nxJJYA9wHz7+Dr3uoNuw7Jehf9WNp89Z8kptB
+         ez21va4mi4ueieKcajNHuihi73GF6yGGp9U3QZeaGGzw6jFTNCsk21NoKvkmV4xEsyfu
+         OCwA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795725329; x=1796330129;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=zqO3yiYGog30zyUcuMfbgRi3wkNhqWosSS3VtCYqruE=;
+        b=KoTMLqe+113q7qGT/DXa5jlQyNyGuH/6Y8YnLtjD4P5+PfECaHIvl5Isj6Ei02HATB
+         FjkbaBLmEkdObCAMX8fBj3EPlDoAckGOiictKDzsa9pFlzYHqlbWOcGd4Y5n7YPGwqTP
+         7FBKm9dfl0yO4HROtq2izuxfqbhBkQ7GFP1Jj1Ern7W/Bwu+xqWeTdLWD4WcLZXLcGXp
+         DxZgbBG8XFn/x7Q+l0hP9Pkqd37Fhg45tapYbIdH4HEgNTiHFWduCbITxx9cQ+oZj1bi
+         DrrZgE1SeMyytNWqNJpRJeD4xsdMhhZVdp5bDzfzc0QSQci1xlSqY4x8qVV8LbMx/zQF
+         W+5Q==
+X-Forwarded-Encrypted: i=1; AL+hErFjjYLXxBLI7dd/d7QtmbLZpRRZq21gWe7ZZkXmwftCXvUE28c/zDhGeN0Tr4+Ya8/PP6HtwM0Q1F1Oxls=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8UyclLWzu7Vh6EjCGnjDRAtJfoz1gr5pJgXSIm//nW4MHdiD7a
+	Tz0KQkDtQqJScvJq5dJXIj5IghU0Incvd2VyJrkvEWQQfyzGUtppTPiY
+X-Gm-Gg: AZFdTZffPPVxU1P9hVW5JTMpMG04iiUQjh6gQ195te7RI1WO4ROClNFWaPXwJX+46rq
+	J8J1gv9Znw+Z8yS4/YU9gHh2E3kxmC/s9/sBke62ShpM6IJ3qDqvgmNMU0f0rkJL7Z9sJWGB246
+	1qVBRys3gqzszwFjQFaJ9y7kseisboT4TQmH9CjoN4huFuKjTLYVrvr1gYGWfW8mzuVYQWLLP2T
+	4EvtvA8TJR0MyRuImGdiIb7cXDK9QhkwTXK7EBnuuUA27OSDrW48g1vwQRNXPNso+kNK4xi8s+C
+	i+fr2mplTUekNZKla8kpc5rMDbfjkoRnVfmmHabR/vYCBRtRHlKFlDuxIcacY5SMrj5tyd+fzTe
+	T1/ucRpNiS6aE2hK9rAFMTW7a/idkOTGcy0peCry4HbX22yBimTl7Ze3zcJINvqp+39DkxWCOyl
+	9s20Lfd8iYdqSjief+ssrlkfhv5Sy1+46ZN9Ap6HpYQQlz2GmRd/qMziLWZhpq+kEMaqIcSwDNV
+	h514IHoHqr5skoX43NcyXdZJM7Uwi8S4hf5R9V7hcQmRTh6me7hxQsYhvgDdhJRfi92AZKXiJQD
+	LgQWGl3N+QTb5L+dYqUmm0Id0OeJL84c7rJBA5Dr8FYBnTQ8c1TjvxdwMr4eP5x+8+sZBe79nTx
+	j1pxjPw==
+X-Received: by 2002:a05:6820:1c86:b0:71b:790a:9ee7 with SMTP id 006d021491bc7-71b790aa590mr6624976eaf.67.1795725329526;
+        Thu, 26 Nov 2026 12:35:29 -0800 (PST)
+Received: from AMD.home.internal (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bc5f7ae7dcsm18946578fac.8.2026.11.26.12.35.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 12:35:28 -0800 (PST)
+From: Enzo Adriano <enzo.adriano.code@gmail.com>
+To: andre.przywara@arm.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org
+Cc: Maxime Ripard <mripard@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	intel-wired-lan@lists.osuosl.org,
-	Min Li <min.li@microchip.com>,
-	Grzegorz Nitka <grzegorz.nitka@intel.com>,
-	Karol Kolacinski <karol.kolacinski@intel.com>,
-	Saeed Mahameed <saeedm@nvidia.com>,
-	Tariq Toukan <tariqt@nvidia.com>,
-	Petr Oros <poros@redhat.com>
-Subject: [PATCH RFC net-next 19/19] dpll: add KUnit tests for the pin owner checks
-Date: Thu, 26 Nov 2026 21:32:31 +0100
-Message-ID: <20261126203231.934632-20-ivecera@redhat.com>
-In-Reply-To: <20261126203231.934632-1-ivecera@redhat.com>
-References: <20261126203231.934632-1-ivecera@redhat.com>
+	Junhui Liu <junhui.liu@pigmoral.tech>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Pablo Mazzini <pmazzini@gmail.com>,
+	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
+	Alexander Sverdlin <alex@sverdlin.org>,
+	Jun Yan <jerrysteve1101@gmail.com>,
+	Lukas Schmid <lukas.schmid@netcube.li>,
+	Cristian Filipescu <filipescu.cristian@gmail.com>,
+	Norman Herms <dockseed@proton.me>
+Subject: [PATCH v6 0/5] arm64: dts: allwinner: add A733 and Radxa Cubie A7 support
+Date: Thu, 26 Nov 2026 15:35:26 -0500
+Message-ID: <20261126-a733-cubie-a7s-dt-v6-0@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,255 +114,89 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 
-Check that dpll_pin_register() rejects a DPLL of another owner and a
-DPLL that is not registered, that dpll_pin_on_pin_register() rejects a
-parent pin of another owner and a parent pin registered with a DPLL
-that is not registered any more, and that a pin of the owner is still
-shared by its DPLLs and registered under its parent pin.
+Add the common Allwinner A733 device tree and initial Radxa Cubie A7A,
+A7S and A7Z support. V6 adds the tested A7A and A7Z board descriptions
+and their shared pin and binding updates. The A7S ELDO1 voltage range
+remains open pending Chen-Yu's answer on LPDDR5 VDD2L.
 
-The checks are WARN_ON_ONCE(), so the tests suppress the warning without
-counting it. A registration that is not rejected is undone, so the next
-case does not get the registered pin and the failure stays in its case.
+Base: sunxi/for-next (abcb290978fbfddb56fc77171918dd8b8ef3e81b).
+V5: https://lore.kernel.org/r/20261121-a733-cubie-a7s-dt-v5-0@gmail.com
 
-Signed-off-by: Ivan Vecera <ivecera@redhat.com>
----
- drivers/dpll/Kconfig            |   4 +-
- drivers/dpll/tests/dpll_kunit.c | 150 +++++++++++++++++++++++++++++---
- 2 files changed, 142 insertions(+), 12 deletions(-)
+Schema check: arm/sunxi.yaml and all three DTBs with arm64 defconfig
+and W=2 CHECK_DTBS=y. The three schema prerequisites, in apply order:
 
-diff --git a/drivers/dpll/Kconfig b/drivers/dpll/Kconfig
-index d57696652d450a..9be76330a1d1de 100644
---- a/drivers/dpll/Kconfig
-+++ b/drivers/dpll/Kconfig
-@@ -31,7 +31,9 @@ config DPLL_KUNIT_TEST
- 	help
- 	  KUnit tests for the DPLL core. They use a mock driver to check
- 	  that links between pins of two devices are reported and notified
--	  while the pins at both ends are registered.
-+	  while the pins at both ends are registered, and that a pin is
-+	  registered only with the registered devices and the parent pins
-+	  of its owner.
- 
- 	  The mock devices and pins are registered with the DPLL subsystem,
- 	  so user space sees them and their create and delete notifications
-diff --git a/drivers/dpll/tests/dpll_kunit.c b/drivers/dpll/tests/dpll_kunit.c
-index 1804e5836f7db2..20bda0934acb1d 100644
---- a/drivers/dpll/tests/dpll_kunit.c
-+++ b/drivers/dpll/tests/dpll_kunit.c
-@@ -1,11 +1,12 @@
- // SPDX-License-Identifier: GPL-2.0
- /*
-- * KUnit tests for links between DPLL pins.
-+ * KUnit tests for links between DPLL pins and for the owner checks of pin
-+ * registrations.
-  *
-  * Each test starts with two owners that differ in clock_id:
-  *
-  * Owner A: devices A0 and A1, pin P with firmware node F, pin U with
-- *          neither a firmware node nor a link
-+ *          neither a firmware node nor a link, MUX pin M
-  * Owner B: device B0, pin C with a link to F
-  *
-  * The devices are registered, the pins are not.
-@@ -40,9 +41,9 @@ struct dt_pin {
- 
- struct dt_ctx {
- 	struct dt_dev a0, a1, b0;
--	struct dt_pin p, u, c;
-+	struct dt_pin p, u, c, m;
- 	struct fwnode_handle *fwnode;
--	bool p_a0, p_a1, u_a0, c_b0;	/* registrations */
-+	bool p_a0, p_a1, u_a0, c_b0, m_a0, u_m;	/* registrations */
- };
- 
- static int dt_mode_get(const struct dpll_device *dpll, void *dpll_priv,
-@@ -89,10 +90,29 @@ static const struct dpll_pin_ops dt_pin_ops = {
- 	.direction_get = dt_direction_get,
- };
- 
-+static int dt_state_on_pin_get(const struct dpll_pin *pin, void *pin_priv,
-+			       const struct dpll_pin *parent_pin,
-+			       void *parent_pin_priv,
-+			       enum dpll_pin_state *state,
-+			       struct netlink_ext_ack *extack)
-+{
-+	*state = DPLL_PIN_STATE_CONNECTED;
-+	return 0;
-+}
-+
-+static const struct dpll_pin_ops dt_child_ops = {
-+	.state_on_pin_get = dt_state_on_pin_get,
-+	.direction_get = dt_direction_get,
-+};
-+
- static const struct dpll_pin_properties dt_pin_prop = {
- 	.type = DPLL_PIN_TYPE_EXT,
- };
- 
-+static const struct dpll_pin_properties dt_mux_prop = {
-+	.type = DPLL_PIN_TYPE_MUX,
-+};
-+
- /* Stub of __dpll_pin_change_ntf() that counts the notifications */
- static int dt_pin_change_ntf(struct dpll_pin *pin)
- {
-@@ -130,9 +150,9 @@ static void dt_dev_fini(struct dt_dev *dev)
- }
- 
- static void dt_pin_get(struct kunit *test, struct dt_pin *pin, u64 clock_id,
--		       u32 idx)
-+		       u32 idx, const struct dpll_pin_properties *prop)
- {
--	pin->pin = dpll_pin_get(clock_id, idx, THIS_MODULE, &dt_pin_prop,
-+	pin->pin = dpll_pin_get(clock_id, idx, THIS_MODULE, prop,
- 				&pin->tracker);
- 	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, pin->pin);
- }
-@@ -223,9 +243,10 @@ static int dt_init(struct kunit *test)
- 	dt_dev_init(test, &ctx->a0, DT_CLOCK_ID_A, 0);
- 	dt_dev_init(test, &ctx->a1, DT_CLOCK_ID_A, 1);
- 	dt_dev_init(test, &ctx->b0, DT_CLOCK_ID_B, 0);
--	dt_pin_get(test, &ctx->p, DT_CLOCK_ID_A, 0);
--	dt_pin_get(test, &ctx->u, DT_CLOCK_ID_A, 1);
--	dt_pin_get(test, &ctx->c, DT_CLOCK_ID_B, 0);
-+	dt_pin_get(test, &ctx->p, DT_CLOCK_ID_A, 0, &dt_pin_prop);
-+	dt_pin_get(test, &ctx->u, DT_CLOCK_ID_A, 1, &dt_pin_prop);
-+	dt_pin_get(test, &ctx->m, DT_CLOCK_ID_A, 2, &dt_mux_prop);
-+	dt_pin_get(test, &ctx->c, DT_CLOCK_ID_B, 0, &dt_pin_prop);
- 	dpll_pin_fwnode_set(ctx->p.pin, ctx->fwnode);
- 	ret = dpll_pin_link_add(ctx->c.pin, ctx->fwnode);
- 	KUNIT_ASSERT_EQ(test, ret, 0);
-@@ -242,11 +263,16 @@ static void dt_exit(struct kunit *test)
- 
- 	if (!ctx)
- 		return;
-+	if (ctx->u_m)
-+		dpll_pin_on_pin_unregister(ctx->m.pin, ctx->u.pin,
-+					   &dt_child_ops, &ctx->u);
-+	dt_unreg(&ctx->a0, &ctx->m, &ctx->m_a0);
- 	dt_unreg(&ctx->a0, &ctx->p, &ctx->p_a0);
- 	dt_unreg(&ctx->a1, &ctx->p, &ctx->p_a1);
- 	dt_unreg(&ctx->a0, &ctx->u, &ctx->u_a0);
- 	dt_unreg(&ctx->b0, &ctx->c, &ctx->c_b0);
- 	dt_pin_put(&ctx->c);
-+	dt_pin_put(&ctx->m);
- 	dt_pin_put(&ctx->u);
- 	dt_pin_put(&ctx->p);
- 	dt_dev_fini(&ctx->b0);
-@@ -404,7 +430,109 @@ static struct kunit_suite dt_suite = {
- 	.test_cases = dt_cases,
- };
- 
--kunit_test_suite(dt_suite);
-+/*
-+ * The checks are WARN_ON_ONCE(), so the tests suppress the warning without
-+ * counting it. A registration that is not rejected is undone, otherwise the
-+ * next case would get the registered pin from dpll_pin_get() and fail too.
-+ */
-+
-+/* Expect the registration of @pin with @dev to be rejected */
-+static void dt_expect_reg_rejected(struct kunit *test, struct dt_dev *dev,
-+				   struct dt_pin *pin)
-+{
-+	int ret;
-+
-+	kunit_warning_suppress(test) {
-+		ret = dpll_pin_register(dev->dpll, pin->pin, &dt_pin_ops, pin);
-+		KUNIT_EXPECT_EQ(test, ret, -EINVAL);
-+		if (!ret)
-+			dpll_pin_unregister(dev->dpll, pin->pin, &dt_pin_ops,
-+					    pin);
-+	}
-+}
-+
-+/* Expect the registration of @pin under @parent to be rejected */
-+static void dt_expect_on_pin_rejected(struct kunit *test,
-+				      struct dt_pin *parent,
-+				      struct dt_pin *pin)
-+{
-+	int ret;
-+
-+	kunit_warning_suppress(test) {
-+		ret = dpll_pin_on_pin_register(parent->pin, pin->pin,
-+					       &dt_child_ops, pin);
-+		KUNIT_EXPECT_EQ(test, ret, -EINVAL);
-+		if (!ret)
-+			dpll_pin_on_pin_unregister(parent->pin, pin->pin,
-+						   &dt_child_ops, pin);
-+	}
-+}
-+
-+/* A pin is registered with the DPLLs of its owner only */
-+static void dt_test_owner_register(struct kunit *test)
-+{
-+	struct dt_ctx *ctx = test->priv;
-+
-+	dt_expect_reg_rejected(test, &ctx->b0, &ctx->p);
-+	dt_reg(test, &ctx->a0, &ctx->p, &ctx->p_a0);
-+	dt_reg(test, &ctx->a1, &ctx->p, &ctx->p_a1);
-+}
-+
-+/* A pin is registered under the parent pins of its owner only */
-+static void dt_test_owner_on_pin(struct kunit *test)
-+{
-+	struct dt_ctx *ctx = test->priv;
-+	int ret;
-+
-+	dt_reg(test, &ctx->a0, &ctx->m, &ctx->m_a0);
-+	dt_expect_on_pin_rejected(test, &ctx->m, &ctx->c);
-+
-+	ret = dpll_pin_on_pin_register(ctx->m.pin, ctx->u.pin, &dt_child_ops,
-+				       &ctx->u);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+	ctx->u_m = true;
-+}
-+
-+/* A pin is registered with a registered DPLL only */
-+static void dt_test_unregistered_dpll(struct kunit *test)
-+{
-+	struct dt_ctx *ctx = test->priv;
-+	struct dt_dev a2 = {};
-+
-+	a2.dpll = dpll_device_get(DT_CLOCK_ID_A, 2, THIS_MODULE, &a2.tracker);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, a2.dpll);
-+	dt_expect_reg_rejected(test, &a2, &ctx->p);
-+	dt_dev_fini(&a2);
-+}
-+
-+/* A pin is registered under a parent pin with registered DPLLs only */
-+static void dt_test_unregistered_parent_dpll(struct kunit *test)
-+{
-+	struct dt_ctx *ctx = test->priv;
-+
-+	/* The parent pin stays registered with a0 after a0 goes, as on E810 */
-+	dt_reg(test, &ctx->a0, &ctx->m, &ctx->m_a0);
-+	dpll_device_unregister(ctx->a0.dpll, &dt_dev_ops, &ctx->a0);
-+	ctx->a0.registered = false;
-+	dt_expect_on_pin_rejected(test, &ctx->m, &ctx->u);
-+}
-+
-+static struct kunit_case dt_owner_cases[] = {
-+	KUNIT_CASE(dt_test_owner_register),
-+	KUNIT_CASE(dt_test_owner_on_pin),
-+	KUNIT_CASE(dt_test_unregistered_dpll),
-+	KUNIT_CASE(dt_test_unregistered_parent_dpll),
-+	{}
-+};
-+
-+static struct kunit_suite dt_owner_suite = {
-+	.name = "dpll_pin_owner",
-+	.init = dt_init,
-+	.exit = dt_exit,
-+	.test_cases = dt_owner_cases,
-+};
-+
-+kunit_test_suites(&dt_suite, &dt_owner_suite);
- 
--MODULE_DESCRIPTION("KUnit tests for links between DPLL pins");
-+MODULE_DESCRIPTION("KUnit tests for links and owners of DPLL pins");
- MODULE_LICENSE("GPL");
--- 
-2.56.1
+  AXP318W PMIC v8, 3/5
+  https://lore.kernel.org/r/20260910-axp318-regulator-v8-3-e906a61a7f3d@baylibre.com
+  Pinctrl IRQ-bank RESEND v3, 2/3
+  https://lore.kernel.org/r/20261124215048.42074-3-pmazzini@gmail.com
+  A733 UART binding v2, 3/4
+  https://lore.kernel.org/r/09f3a181436e6f19317224e583c2fdaa787797d7.1792439398.git.vinicius.eduardo.pedrosa@gmail.com
+
+The A733 CCU support is in the base. The remaining runtime dependencies
+are the full PMIC, IRQ-bank and UART series, firmware clocks for warm
+reboot with vendor firmware, and automatic pinctrl voltage detection:
+
+  https://lore.kernel.org/r/20260910-axp318-regulator-v8-0-e906a61a7f3d@baylibre.com
+  https://lore.kernel.org/r/20261124215048.42074-1-pmazzini@gmail.com
+  https://lore.kernel.org/r/cover.1792439398.git.vinicius.eduardo.pedrosa@gmail.com
+  https://lore.kernel.org/r/20261112-a733-fwclk-v2@gmail.com
+  https://lore.kernel.org/r/20261125-a733-pinctrl-v4@gmail.com
+
+The card-detect EINT-mux fix is in pinctrl fixes as a256b8c8083e.
+It is outside the stated sunxi base.
+https://lore.kernel.org/r/20261110130157.112155-1-vinicius.eduardo.pedrosa@gmail.com
+
+Boot: the v6 DTBs have yet to run on hardware.
+
+- A7S v5 booted with vendor firmware and the runtime dependencies.
+  Console, PMIC readback, MMC enumeration, LED and EEPROM probe,
+  and warm reboot worked. A follow-up with the EINT-mux fix read
+  a matching 16 MiB MMC prefix at 50 MHz and 3.3 V. An earlier read
+  from a different offset returned an unexplained digest mismatch.
+- Norman tested A7S v5 with his own firmware and a 2 MiB RAM
+  reservation. He verified PMIC readback, PMU counting and overflow
+  on all CPUs, MMC reads and write/readback, EEPROM reads, visible
+  LEDs, warm reboot and power-off.
+  https://lore.kernel.org/r/CqGMQaDysL6l016qtEM8oOEnYUMKACgmwLUbb0wruVAzPcwiqrz00WCOhTrhkVEaZt1YB3xfucXdEc-ZFi-sCPgn69RNqtW0v4Gn_HjQZXs=@proton.me
+- Vinicius tested A7Z v1.11 with a local 16 MiB RAM reservation
+  and a subset of the dependencies. Eight CPUs, PMU counting
+  and overflow, PMIC probe, MMC readback and the LED worked. He
+  tested card hotplug on the preceding DTS with the EINT-mux fix.
+  https://lore.kernel.org/r/20261125131435.33190-1-vinicius.eduardo.pedrosa@gmail.com
+- Andre tested A7A with pinctrl and PMIC patches. MMC and its
+  card-detect IRQ, LEDs and EEPROM reads worked. The external RTC
+  probed and reported an invalid calendar format.
+  https://lore.kernel.org/r/20261126172253.1097838-1-andre.przywara@arm.com
+
+Still untested: physical rail voltages and CPU/cache topology, EL2
+interrupts, ITS/MSI, stimulated PMIC/NMI interrupts, suspend, 1.8 V
+SD signalling, A7S card hotplug, EEPROM writes and write protection,
+A7Z v1.10 pull-up behaviour and A7Z v2.00.
+
+Andre Przywara (1):
+  arm64: dts: allwinner: add Radxa Cubie A7A board
+
+Enzo Adriano (3):
+  dt-bindings: arm: sunxi: document Radxa Cubie A7A, A7S and A7Z
+  arm64: dts: allwinner: add A733 SoC description
+  arm64: dts: allwinner: add Radxa Cubie A7S board
+
+Vinicius Pedrosa (1):
+  arm64: dts: allwinner: add Radxa Cubie A7Z board
+
+ .../devicetree/bindings/arm/sunxi.yaml        |  15 +
+ arch/arm64/boot/dts/allwinner/Makefile        |   3 +
+ .../dts/allwinner/sun60i-a733-cubie-a7a.dts   | 385 ++++++++++
+ .../dts/allwinner/sun60i-a733-cubie-a7s.dts   | 333 +++++++++
+ .../dts/allwinner/sun60i-a733-cubie-a7z.dts   | 349 +++++++++
+ .../arm64/boot/dts/allwinner/sun60i-a733.dtsi | 671 ++++++++++++++++++
+ 6 files changed, 1756 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7a.dts
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7s.dts
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7z.dts
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
+
+
+base-commit: abcb290978fbfddb56fc77171918dd8b8ef3e81b
 
