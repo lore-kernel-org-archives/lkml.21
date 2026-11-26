@@ -1,60 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795701137;
-	b=TAmD9XSrUfUGHLoa9j3XXyu9hIjb0asT/H2b8dDrfS9O1AA86clUTFr6MaM/aws9lEwi
-	 1iI28dN6GY4N0BJGilpvw0BWmj75iwIg24jWI5boBgqd0/b6hd6K9sbQv1ShYXThEOK+E
-	 8nCEnP59nGTON50Icxe0zBMCAofTO5WIjFZYMOLl0PeChgsG6BsJfwpa6jGzZ3N3JvH4H
-	 72ftgz12erArXcOqZArv2jt37qLHSMrvktnhuvtEeBcuYXbZS0feMLmswzkhpNJVaQJMm
-	 yHYCoPtCEil/qA8pUT5aMlaSlxYzONID177F6zURaALbOcNURfEjKudDpDTpTDUMgnQ==
+	t=1795701194;
+	b=3u6lU6r9AVjiwb3OAHaxmFqL+KSgG5NxXgg973yvlpsICpCcQYqIf3CSfo+/EOS7aA6l
+	 FVIrn1bMr9o5r/uxhzjRtCY1OdR0WoKwvbPsWjb8o0SSqrXVUyG/SwV1+5Kk3zXXDbcMg
+	 5gkG4F9vhODbXB9loIwZZ9+IZUk/JPuRikrvz8HTUD93V1pyODxfUCHueYC7Zl/BWA7v7
+	 6rua6yMW2jxH3CQ0TmvenfSJ7EBKSi4f8c6vMTkXUu7fCU2yvXBYF/iCmoGYDVwOINdLY
+	 KXnUCQyV+JV2ctBv8mAkzIONWDb5C8Qa3ctFaiJ0eVHqzb3NZEwpFwTEIgA0f8DBpYA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795701137;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=qmxdQdsYvQsbP6RvRUa+YT9fFm8Eok7knWdEbEHTcbI=;
-	b=yirq9ymLMqJ6tUmRhfJ4XVZyo6L5bcOUZf9RHU5bIyN1JE1VFS9XmI+jlvQGK+1dKyHS
-	 +xg+gGq2b6heOHcdumokY3/E711nkkTuWbYHehSb10ZVPfhhS4bGuSpY10uPafXH3XTLx
-	 Me+foZoYfh7BYacTqavY6RaMDVj/k14RILB8yk+r1qc2mCQRvLr8Uf3SYKayYkbNilogE
-	 nu5fkqCUtz3f3C1xBS2dNIzMckRkpe3nKFw+Z/C/KCIP9XhthSM66FOcJEYHe4Tzu3ypS
-	 i2D6py44FeKblLHXrzOItXDDSGcyrsbizbjRqaJxrq9yyRJwGxjsvUOpQdZK4qdwG1Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795701194;
+	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
+	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:From:To:Cc:
+	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=qPMaAqLcG/iqmUlSJ8jiYApihQzYsA/5A7Wr/u2o2Ro=;
+	b=O4vppOcNEQ9WE8GaYM5dWok7tBNHIO1b3WR/i+PZIzzOGOCVVBDd79YG52e8VEWpzyUS
+	 ewLL15cDVUo2nXbxr0CH/+P2ikCDfk/Yuh3hdVeitKoCrmmovdOtgARBn9vt0BwdI0Zuq
+	 EIUSx3TdtdOVyQbkGwAGSrCRLs/DtriR7Dm31wM2IWhw2w9lAYb54N59TQyyJ9dEii4CM
+	 GhDZtkfhCFG6EOcRUAndvu05GGk5XIwZoPABRbriwYcNlUdcqo7+5T9xlNop9KqyWSXY2
+	 E/y7x2H+y4EGnmMkxvXvbxfOwYbyiaiunzToZDSrU5tHmOnJS26Rtn8c3hYkjGCXT/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=protonmail.com;
-	spf=pass smtp.mailfrom=protonmail.com;
-	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=g8AKhFjV;
-	arc=none smtp.remote-ip=79.135.106.101
-Received: from mail-106101.protonmail.ch (mail-106101.protonmail.ch [79.135.106.101])
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8611606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:52:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8611606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=g8AKhFjV
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1795701134; x=1795960334;
-	bh=qmxdQdsYvQsbP6RvRUa+YT9fFm8Eok7knWdEbEHTcbI=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=g8AKhFjVLx5n0flhoNPdBQjEI/6SYzS1dRgak75zH6x8o0E25JXSR2rroR0VKk4l3
-	 jpciua5jiCcM1aV9WgkuNhy16l9/NP+6cod+9oVPwEI/BfYySX13B0ZYrOyMndVzfd
-	 3Wr0rAWgb/Aq36wUyH94nsMmP+uYV/Ii+hFMl4hfKxdHRcTQ3SUHlfzUihrwbdvhbI
-	 8pzE05OlEN6qiagfeI7zPL5azBtLK0Vset80C/37J0HIpacCEDwpU7frUkM4ZNnZ3d
-	 aWeR/V1utsiAylTpGjhcIkFdj9Va1selggcP0+CcZddlnXpOf+BYs0tZeiphr0WADn
-	 yaWAAcX1GlhcA==
-Date: Thu, 26 Nov 2026 13:52:06 +0000
-To: Laurence Oberman <loberman@redhat.com>
-From: 70sp <70sp@protonmail.com>
-Cc: Bart Van Assche <bvanassche@acm.org>, Lu Baolu <baolu.lu@linux.intel.com>, Jason Gunthorpe <jgg@ziepe.ca>, Joerg Roedel <joro@8bytes.org>, Thorsten Leemhuis <regressions@leemhuis.info>, Tobias Laas <tobias.laas@posteo.de>, Damien Le Moal <dlemoal@kernel.org>, Jens Axboe <axboe@kernel.dk>, regressions@lists.linux.dev, linux-block@vger.kernel.org, linux-ide@vger.kernel.org, iommu@lists.linux.dev, linux-kernel@vger.kernel.org, David Woodhouse <dwmw2@infradead.org>, Will Deacon <will@kernel.org>, Niklas Cassel <cassel@kernel.org>
-Subject: Re: [REGRESSION] DMAR fault by Intel H97 SATA controller since "block: Increase BLK_DEF_MAX_SECTORS_CAP" (6.17-rc1)
-Message-ID: <e_efhbm0Vxq0FxO3-QqPkyhGrjzTvBDYmUOsGgmebVSyd0qsXXxYFXwC9sSjRAP06gcpsttHunBLtc0Mmt0cIjEI_0sDXL61lnxHhmuaxWs=@protonmail.com>
-In-Reply-To: <f323c3d62265dfe90fa71514028af4d35f6e2420.camel@redhat.com>
-References: <5ad27a97aafbc08a8702d5b90d09cd59@posteo.de> <awSs5Cw3hFkf4O4T@ryzen> <ec36d13e-e4c2-4bfb-8b50-69d4a1628839@leemhuis.info> <87b1bbd8-8113-4890-8623-738b19a9cc7b@leemhuis.info> <a0ff3156-add0-4f7d-8373-09f95bd7036b@acm.org> <2adaf0ef9e1a2fa18590f7d8dbf203c0f7de2be7.camel@redhat.com> <uJluFNYGCCrdvnYT3MatN_4Om8UczTJX_dzxumJxyCAC7F-Ubrekb7LPwlRxhCW0J91UBf-TqeRoJQfgYIYBRvMsPmE-Qs1eAg5zbDP0s58=@protonmail.com> <0edb9525-5068-42e6-b6c3-a1dcebcbcea7@acm.org> <f323c3d62265dfe90fa71514028af4d35f6e2420.camel@redhat.com>
-Feedback-ID: 144929603:user:proton
-X-Pm-Message-ID: cb7dcd4e8530543ae7f0724237de0a0105a4e0b5
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 859AD606A32A;
+	Thu, 26 Nov 2026 13:53:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 859AD606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: b5820fc2e9a011f19a56ed5b684f684d-20261126
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:81ab290a-16ac-48ef-8077-1c22f3fffe39,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:7db8b62,CLOUDID:71d12a0e270c2bdd07bf44e0791b3936,BulkI
+	D:nil,BulkQuantity:0,SF:81|82|102|850|865|898,TC:nil,Content:0|15|50|99,ED
+	M:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:
+	0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: b5820fc2e9a011f19a56ed5b684f684d-20261126
+X-User: shitao@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <shitao@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 705664564; Thu, 26 Nov 2026 21:53:07 +0800
+From: shitao <shitao@kylinos.cn>
+To: gregkh@linuxfoundation.org,
+	linux-usb@vger.kernel.org
+Cc: davidm@egauge.net,
+	eeodqql09@gmail.com,
+	linux-kernel@vger.kernel.org,
+	Shi Tao <shitao@kylinos.cn>
+Subject: [PATCH v2] usb: host: max3421: fix the SPI thread teardown on remove
+Date: Thu, 26 Nov 2026 21:52:22 +0800
+Message-Id: <20261126135222.1428623-1-shitao@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20261126121148.1021526-1-shitao@kylinos.cn>
+References: <20261126121148.1021526-1-shitao@kylinos.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,23 +72,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-> @Simon,
-> To be clear, What I tested was the patch Bart suggested. Not your
-> original suggestion. We will still need a test from Tobias to make
-> sure.
->=20
-> Thanks
-> Laurence
+From: Shi Tao <shitao@kylinos.cn>
 
-I know. Mine and Barts patches work on the same basis. I just said my opini=
-on in general about this solution. I know we need a test from Tobias to con=
-firm whether it's exactly this and not something else related to superpages=
-. I just wanted to make sure everyone knows that it was just a patch made t=
-o confirm the exact issue, not the one that should be in mainline.
+max3421_remove() stops the SPI thread with the HCD spinlock held:
 
-Thank you.
+	spin_lock_irqsave(&max3421_hcd->lock, flags);
+	kthread_stop(max3421_hcd->spi_thread);
+	spin_unlock_irqrestore(&max3421_hcd->lock, flags);
 
-=C5=A0imon Posp=C3=ADchal
+kthread_stop() waits for the thread to exit, so it must not be called
+under a spinlock.  Worse, the thread takes the same lock in its main
+loop (in max3421_urb_done() and friends), so it can never finish its
+current iteration while remove() holds the lock, and remove() ends up
+waiting forever.
+
+The interrupt is freed after the thread is stopped, but its handler
+wakes up that very thread, so an interrupt arriving after the thread
+has exited calls wake_up_process() on a task_struct that may already
+have been freed.
+
+Free the interrupt first and stop the thread without the spinlock.
+The thread checks kthread_should_stop() at the top of its loop, so it
+exits without re-enabling the freed interrupt.
+
+Fixes: 2d53139f31626 ("Add support for using a MAX3421E chip as a host driver.")
+Signed-off-by: Shi Tao <shitao@kylinos.cn>
+---
+Changes in v2:
+  - Full name in the author, From: and sign-off, as requested.
+    My name is Shi Tao (surname Shi).
+  - To answer "how did you test this": compile-tested only.
+    No MAX3421E hardware was available, so the unbind path
+    was not exercised at runtime.
+Thanks!
+---
+ drivers/usb/host/max3421-hcd.c | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+diff --git a/drivers/usb/host/max3421-hcd.c b/drivers/usb/host/max3421-hcd.c
+index 73e76d0e6973..20e458809ac6 100644
+--- a/drivers/usb/host/max3421-hcd.c
++++ b/drivers/usb/host/max3421-hcd.c
+@@ -1936,21 +1936,16 @@ max3421_remove(struct spi_device *spi)
+ {
+ 	struct max3421_hcd *max3421_hcd;
+ 	struct usb_hcd *hcd;
+-	unsigned long flags;
+ 
+ 	max3421_hcd = spi_get_drvdata(spi);
+ 	hcd = max3421_to_hcd(max3421_hcd);
+ 
+ 	usb_remove_hcd(hcd);
+ 
+-	spin_lock_irqsave(&max3421_hcd->lock, flags);
++	free_irq(spi->irq, hcd);
+ 
+ 	kthread_stop(max3421_hcd->spi_thread);
+ 
+-	spin_unlock_irqrestore(&max3421_hcd->lock, flags);
+-
+-	free_irq(spi->irq, hcd);
+-
+ 	usb_put_hcd(hcd);
+ }
+ 
+-- 
+2.25.1
+
