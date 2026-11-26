@@ -1,49 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795691997;
-	b=TFasi/nEs1Bs0le3QEEF/OCQNuALh+92VMe5XWOuysCcltXKBhLXXd2NoYoNDmBvI0+6
-	 Wj73xv0/F8QIpMYuiFgHxwgThWfHnNpvv2W2tC/Y7wR336cYf6O43SRfgK2RnPBAWMEoI
-	 1X3WNSp9uqRuXX/CT8YNWjo+nYf3EqgNGaBg6U2nE5Is1iiwX4qXKpA7ybLJvH9Mnt/a7
-	 pDcGXeP7WDv0jBI8XsEM36eJWXDIrUX9sBueksbHWxyhU/XFqvHgU6wtgcnxzKYWLhZum
-	 QDd+UnyKlKjIT2h58//B3NnNb53cwieuhpzUM8rRQxOxJXW8QXEJ44uahDvhOIa+vcQ==
+	t=1795692001;
+	b=wRcQFYXAwfBcdhdgU2aiPc9ks5Gw/eFioYTgaKAszH7TYcrGpOSSwkWi/UlnWAku8QKE
+	 hLK4uxmpqYg4c0xAYNYBf6Evoruag5vBSVyX6r/knbRv87+c8O2FdN9ZbryfAwPOFy3sf
+	 jffp7a6QU3ciQMObVbl09KY1ziQhROH1zKETm+DMNle13/iNfpjv4LEdBU7xgW66rodYk
+	 /IApDaUx4RwO3Vb2TsTziV9vt4bXcNG5qO9CxWNWKjK9u4MJBhTQHtn1zXIcuya6d5wP0
+	 WJuJ7Q/30pqTJ2Pcno8kJuQV8PEDIVrBGb0wEs08v00YFRqrfpxTpgdXytmArIDP99w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795691997;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer;
-	bh=QjHPKIVW3NJ7hgK/PWATF9K0DetPjPAzIieyOSxd4IY=;
-	b=FkvgGRPyjrH7yig6ntNcZNaIjTjRsyM1DQAr674DRZ8BVhWUKAdEOWuPnoIIam/3YSLu
-	 y13uDdY3NX9L0G876qgMnFbLD1g8NJtA0bMaEgVpJOWFm2+p8imVkupmOu7LLvdiBZkNu
-	 BQHCKru41X2WtLmakEyYUyt/q50PSetq/QYWtgRgvLsawLWsHEYz3vAtahr/uCwuCdVSA
-	 A7nkZeof4jGPsUJhG3Ob+6z/2WWuYSt/NPQRCnld5cIV83G/On2Ypja7sNEjubuUYOeE9
-	 iCEhRyRQlJRfswaoBEF8J6PiNIAL5393uiyPRCM8a5ptQzfrz6abUrk5P9EiQrK7sCg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795692001;
+	h=DMARC-Filter:X-UUID:X-CTIC-Tags:X-CID-P-RULE:X-CID-O-INFO:X-CID-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=oy20coKOo4RVez7QDzR5SPGemys71Bilu2eltbE7agM=;
+	b=eJ8LIeoO+SqpyeTbpO6XdMFqc1BoVlSOiYwBWmT5/QwNWcliS6FZFkTWji66vAmTw4bm
+	 p5BRabMMm027YeRUJptJvXgel84RTQ3m4rc7hA8uK6Mu9qQuCHeCMP4LbpdVtymrWfPaP
+	 3zZi+eduTZ+qNnnBvgAzUEmx3H5bGxkqZIvQATQwIpOGGKvxSM9biTSIsh9fRwJY5r9Lu
+	 dRiF+f/7TGGgIEFVmqySD2rK5YHs6B/wJGF6XmNNlSA3LjWDPCCcpr9P7AiGq2fKNSCpK
+	 Y/QslyPRTQKGK9z/F4cgnq0voWGLb4kxlHprLs6TqpFDTdhstdz/qRXTUttlxDnEDBA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Td7WQqa3;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49868606A31C;
-	Thu, 26 Nov 2026 11:19:57 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Td7WQqa3
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CD1F1F000C0;
-	Thu, 26 Nov 2026 11:19:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795691996;
-	bh=QjHPKIVW3NJ7hgK/PWATF9K0DetPjPAzIieyOSxd4IY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Td7WQqa3c7ClvHl+OoEBfCYgP/n9WHRuAztnd/C+dWFx/SKyzf+rot9DehsBhdEMR
-	 XhXHzNONCqJnzktHcCzhsfRDZommDkcJRNBgrcK5izNOUg12XwVVEbLxKxPwcdg96C
-	 Xl3Viw8y3ZSm0/uWV18pSGWunvgmjwPqYGaPkfo+V0AWmO70GciFkYKDvcqzBBfPed
-	 ctZTYZalj6ONgdxp/Rpub5hd6TXezAF/ggB1Nb4/cI+LVmxeD4StvrlxIEMNlT+TVE
-	 oOptv6/WnyWRCi5WfRuMwlrbjSFlyQfXsQ/Wxn6Hzybs66OymbziDAuPFND4Y1ib3g
-	 lTQWRh5WHeHKQ==
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Thu, 26 Nov 2026 13:14:47 +0200
-Subject: [PATCH RFC v2 34/54] LoongArch: stop pretending LoongArch supports
- set_direct_map APIs
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1E02606A338;
+	Thu, 26 Nov 2026 11:19:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1E02606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: 49a4ca20e98b11f19a56ed5b684f684d-20261126
+X-CTIC-Tags:
+	HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NAME, HR_CC_NO_NAME, HR_CTE_8B
+	HR_CTT_TXT, HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_NAME
+	HR_MAILER_MTBG, HR_SJ_DIGIT_LEN, HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER
+	HR_SJ_NOR_SYM, HR_SJ_PHRASE, HR_SJ_PHRASE_LEN, HR_SJ_PRE_RE, HR_SJ_WS
+	HR_TO_COUNT, HR_TO_DOMAIN_COUNT, HR_TO_NAME, IP_UNTRUSTED, SRC_UNTRUSTED
+	IP_UNFAMILIAR, SRC_UNFAMILIAR, SA_TRUSTED, SA_EXISTED, SN_TRUSTED
+	SN_EXISTED, SPF_NOPASS, DKIM_NOPASS, DMARC_NOPASS, CIE_BAD
+	CIE_GOOD_SPF, CIE_UNKNOWN, GTI_FG_BS, GTI_RG_INFO, GTI_C_BU
+	AMN_GOOD, ABX_MISS_RDNS
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:5164b479-3906-4282-8c19-e641c61d65a5,IP:10,
+	URL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:10
+X-CID-INFO: VERSION:1.3.19,REQID:5164b479-3906-4282-8c19-e641c61d65a5,IP:10,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:10
+X-CID-META: VersionHash:7db8b62,CLOUDID:0a6e950a75cdc679f99637ba237caaba,BulkI
+	D:26112610033528PJVL0O,BulkQuantity:4,SF:10|38|64|66|78|80|81|82|83|102|12
+	7|153|841|865|898,TC:nil,Content:0|15|52|99,EDM:-3,IP:-2,URL:0,File:nil,RT
+	:nil,Bulk:40,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:
+	0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 49a4ca20e98b11f19a56ed5b684f684d-20261126
+X-User: lihongfu@kylinos.cn
+Received: from [192.168.43.7] [(114.246.238.190)] by mailgw.kylinos.cn
+	(envelope-from <lihongfu@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
+	with ESMTP id 2135561116; Thu, 26 Nov 2026 19:19:47 +0800
+Message-ID: <a7bb101b-e9d9-4e03-9854-33ccc6d6eda9@kylinos.cn>
+Date: Thu, 26 Nov 2026 19:19:41 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,166 +75,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-generic-set-memory-v0-1-v2-34-723f1e33c3d8@kernel.org>
-References: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
-In-Reply-To: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
-To: linux-mm@kvack.org
-Cc: =?utf-8?q?Adrian_Barna=C5=9B?= <abarnas@google.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
- Borislav Petkov <bp@alien8.de>, Brendan Jackman <brendan.jackman@linux.dev>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- David Hildenbrand <david@kernel.org>, 
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
- Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, 
- Ingo Molnar <mingo@kernel.org>, Kevin Brodsky <kevin.brodsky@arm.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, Michal Hocko <mhocko@suse.com>, 
- Mike Rapoport <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <pjw@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Russell King <linux@armlinux.org.uk>, 
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@kernel.org>, 
- Vasily Gorbik <gor@linux.ibm.com>, Vlastimil Babka <vbabka@kernel.org>, 
- Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, x86@kernel.org
-X-Mailer: b4 0.16.1-dev
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 02/21] mm/hugetlb: fix truncated copy result in
+ UFFDIO_COPY
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+ Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Jinmeng Zhou <jinmengzhou22@gmail.com>, Hongfu Li <lihongfu@kylinos.cn>,
+ Andrea Arcangeli <aarcange@redhat.com>,
+ Mike Kravetz <mike.kravetz@oracle.com>,
+ Naoya Horiguchi <nao.horiguchi@gmail.com>, Hugh Dickins <hughd@google.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>, Dave Airlie
+ <airlied@redhat.com>, Vivek Kasireddy <vivek.kasireddy@intel.com>,
+ Gerd Hoffmann <kraxel@redhat.com>, Mike Rapoport <rppt@kernel.org>,
+ Mel Gorman <mel@csn.ul.ie>, Dave McCracken <dave.mccracken@oracle.com>,
+ Andy Whitcroft <apw@shadowen.org>, Adam Litke <agl@us.ibm.com>,
+ Lorenzo Stoakes <ljs@kernel.org>, Rik van Riel <riel@surriel.com>,
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Harry Yoo <harry@kernel.org>, Jann Horn <jannh@google.com>,
+ Lance Yang <lance.yang@linux.dev>, James Houghton <jthoughton@google.com>,
+ Yang Shi <shy828301@gmail.com>, Suren Baghdasaryan <surenb@google.com>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Pedro Falcato <pfalcato@suse.de>,
+ Gregory Price <gourry@gourry.net>, Zi Yan <ziy@nvidia.com>,
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>,
+ Ying Huang <ying.huang@linux.alibaba.com>,
+ Matthew Brost <matthew.brost@intel.com>, Byungchul Park <byungchul@sk.com>,
+ Alistair Popple <apopple@nvidia.com>, Wanpeng Li
+ <liwanp@linux.vnet.ibm.com>, Andi Kleen <ak@linux.intel.com>,
+ Kenneth W Chen <kenneth.w.chen@intel.com>, Hugh Dickins <hugh@veritas.com>,
+ Michal Hocko <mhocko@suse.com>, David Rientjes <rientjes@google.com>,
+ Joern Engel <joern@logfs.org>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Michal Hocko <mhocko@suse.cz>,
+ "Aneesh Kumar K.V" <aneesh.kumar@linux.vnet.ibm.com>,
+ KAMEZAWA Hiroyuki <kamezawa.hiroyu@jp.fujitsu.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Sasha Levin <sasha.levin@oracle.com>, Guillaume Morin
+ <guillaume@morinfr.org>, Wanpeng Li <liwp.linux@gmail.com>
+Cc: linux-mm@kvack.org, Jason Gunthorpe <jgg@ziepe.ca>,
+ linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ Andrew Morton <akpm@osdl.org>, linux-doc@vger.kernel.org,
+ Chris Mason <mason@kernel.org>, stable@vger.kernel.org,
+ Hongfu Li <hongfu.li@linux.dev>
+References: <20261125-hugetlb_fixes_2-v1-0-db27fd2f71a8@kernel.org>
+ <20261125-hugetlb_fixes_2-v1-2-db27fd2f71a8@kernel.org>
+From: Hongfu Li <lihongfu@kylinos.cn>
+In-Reply-To: <20261125-hugetlb_fixes_2-v1-2-db27fd2f71a8@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-LoongArch selects ARCH_HAS_SET_DIRECT_MAP and implements set_direct_map*()
-APIs to allow coexistence of hibernation with KFENCE, see
-commit f04de6d8f252 ("LoongArch: Add ARCH_HAS_SET_DIRECT_MAP support").
 
-However, LoongArch does not have page tables for its direct map to begin
-with. It maps the physical memory with a hardware window, so there is no
-way to change the permissions of an individual page there.
+在 11/26/26 06:33, David Hildenbrand (Arm) 写道:
+> From: Chris Mason <mason@kernel.org>
+>
+> Folios that span more bytes than can fit into an unsigned integer (e.g.,
+> 16 GiB folios on arm64) are problematic with UFFDIO_COPY: the result
+> from copy_folio_from_user() can be truncated, possibly indicating
+> success instead of an error.
+>
+> We will then continue with the folio that has stale data, and make it
+> accessible to user space.
+>
+> For example, if copy_folio_from_user() fails such that the number of
+> bytes not copied is a multiple of 4 GiB, we'll get an effective ret ==
+> 0.
+>
+> Let's fix it by simply testing the return value directly.
+>
+> This has medium urgency, as it's an information leak.
+>
+> Fixes: 8fb5debc5fcd ("userfaultfd: hugetlbfs: add hugetlb_mcopy_atomic_pte for userfaultfd support")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Chris Mason <mason@kernel.org>
+> [ david: cleanup code and description ]
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 
-Protection of KFENCE pages is handled outside the direct map: they are
-mapped in the dedicated address space area and their virtual address is
-explicitly set with set_page_address() to keep page_address() working for
-those pages.
+Reviewed-by: Hongfu Li <lihongfu@kylinos.cn>
 
-Selecting ARCH_HAS_SET_DIRECT_MAP enables secretmem on LoongArch, although
-without the actual ability to modify the direct map, secretmem becomes a
-limited memfd and does not provide the security it promises.
-
-After the rework of the temporary mappings in the hibernation code [1],
-there is no need for LoongArch to pretend it supports direct map
-operations.
-
-Remove the set_direct_map*() implementation and stop enabling
-ARCH_HAS_SET_DIRECT_MAP.
-
-Removing support for ARCH_HAS_SET_DIRECT_MAP effectively disables
-secretmem, and memfd_secret() returns -ENOSYS on LoongArch.
-
-[1] https://lore.kernel.org/all/20260917-hibernation-v1-4-7f7dfae3dbe0@kernel.org
-
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
----
- arch/loongarch/Kconfig                  |  1 -
- arch/loongarch/include/asm/set_memory.h |  4 ---
- arch/loongarch/mm/pageattr.c            | 60 ---------------------------------
- 3 files changed, 65 deletions(-)
-
-diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
-index b5ed4881d3c0..bad699e2847f 100644
---- a/arch/loongarch/Kconfig
-+++ b/arch/loongarch/Kconfig
-@@ -27,7 +27,6 @@ config LOONGARCH
- 	select ARCH_HAS_PREEMPT_LAZY
- 	select ARCH_HAS_PTE_SPECIAL if 64BIT
- 	select ARCH_HAS_SET_MEMORY
--	select ARCH_HAS_SET_DIRECT_MAP
- 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
- 	select ARCH_HAS_UBSAN
- 	select ARCH_HAS_VDSO_ARCH_DATA
-diff --git a/arch/loongarch/include/asm/set_memory.h b/arch/loongarch/include/asm/set_memory.h
-index 4bb01172fbc2..64c7f942e8ec 100644
---- a/arch/loongarch/include/asm/set_memory.h
-+++ b/arch/loongarch/include/asm/set_memory.h
-@@ -14,8 +14,4 @@ int set_memory_nx(unsigned long addr, int numpages);
- int set_memory_ro(unsigned long addr, int numpages);
- int set_memory_rw(unsigned long addr, int numpages);
- 
--bool kernel_page_present(struct page *page);
--int set_direct_map_default_noflush(struct page *page, unsigned int nr);
--int set_direct_map_invalid_noflush(struct page *page, unsigned int nr);
--
- #endif /* _ASM_LOONGARCH_SET_MEMORY_H */
-diff --git a/arch/loongarch/mm/pageattr.c b/arch/loongarch/mm/pageattr.c
-index a728db40f9e0..7283059d6e1f 100644
---- a/arch/loongarch/mm/pageattr.c
-+++ b/arch/loongarch/mm/pageattr.c
-@@ -156,63 +156,3 @@ int set_memory_rw(unsigned long addr, int numpages)
- 
- 	return __set_memory(addr, numpages, __pgprot(_PAGE_WRITE | _PAGE_DIRTY), __pgprot(0));
- }
--
--bool kernel_page_present(struct page *page)
--{
--	pgd_t *pgd;
--	p4d_t *p4d;
--	pud_t *pud;
--	pmd_t *pmd;
--	pte_t *pte;
--	unsigned long addr = (unsigned long)page_address(page);
--
--	if (addr < vm_map_base)
--		return true;
--
--	pgd = pgd_offset_k(addr);
--	if (pgd_none(pgdp_get(pgd)))
--		return false;
--	if (pgd_leaf(pgdp_get(pgd)))
--		return true;
--
--	p4d = p4d_offset(pgd, addr);
--	if (p4d_none(p4dp_get(p4d)))
--		return false;
--	if (p4d_leaf(p4dp_get(p4d)))
--		return true;
--
--	pud = pud_offset(p4d, addr);
--	if (pud_none(pudp_get(pud)))
--		return false;
--	if (pud_leaf(pudp_get(pud)))
--		return true;
--
--	pmd = pmd_offset(pud, addr);
--	if (pmd_none(pmdp_get(pmd)))
--		return false;
--	if (pmd_leaf(pmdp_get(pmd)))
--		return true;
--
--	pte = pte_offset_kernel(pmd, addr);
--	return pte_present(ptep_get(pte));
--}
--
--int set_direct_map_default_noflush(struct page *page, unsigned int nr)
--{
--	unsigned long addr = (unsigned long)page_address(page);
--
--	if (addr < vm_map_base)
--		return 0;
--
--	return __set_memory(addr, nr, PAGE_KERNEL, __pgprot(0));
--}
--
--int set_direct_map_invalid_noflush(struct page *page, unsigned int nr)
--{
--	unsigned long addr = (unsigned long)page_address(page);
--
--	if (addr < vm_map_base)
--		return 0;
--
--	return __set_memory(addr, nr, __pgprot(0), __pgprot(_PAGE_PRESENT | _PAGE_VALID));
--}
-
--- 
-2.53.0
-
+> ---
+>   mm/hugetlb.c | 5 +----
+>   1 file changed, 1 insertion(+), 4 deletions(-)
+>
+> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+> index f46c85fc0cd0b..d57964914e18a 100644
+> --- a/mm/hugetlb.c
+> +++ b/mm/hugetlb.c
+> @@ -6568,11 +6568,8 @@ int hugetlb_mfill_atomic_pte(pte_t *dst_pte,
+>   			goto out;
+>   		}
+>   
+> -		ret = copy_folio_from_user(folio, (const void __user *) src_addr,
+> -					   false);
+> -
+>   		/* fallback to copy_from_user outside mmap_lock */
+> -		if (unlikely(ret)) {
+> +		if (unlikely(copy_folio_from_user(folio, (const void __user *)src_addr, false))) {
+>   			ret = -ENOENT;
+>   			/* Free the allocated folio which may have
+>   			 * consumed a reservation.
+>
