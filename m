@@ -1,55 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795693397;
-	b=eTR4Aa44BhqbwijdmQURMeRama6lP5dm50U8UDSfPaeO+dLUH/i3wlGf17lV1qXpfqxy
-	 l0akGK/+vx3MZDubEofHJNkLpLDl99Aq38V7SdCEUvwoZx4+r3eXrzSUJDG8nwPe9IDKj
-	 PX2t4k4nLoAIVLSvhN6c56oKMMJ/6M8idDOCUFFjbS6DJ7AZrVTTp56jdsDvXwQmtHJ1Q
-	 JYcHIeLYmey10MHW8c/2WLunKxHzpmtyfsXESMsWKu5DODD379B2vqAonFy1xwNftSQVh
-	 /S4j7g5AdW1my3Q+wOlOuXu+JeAVDEDSkdiiRBfOv4RcHSDkCodOIeveKRmpJJjTqxw==
+	t=1795693463;
+	b=AslB5gi4qTexrtnG88vyLAdagKgjjoz2tyc0c+9XysXuA3PwmDmgk1caVnVBLJbIq85x
+	 Hr2rbXSaoYejBhbGnmpBm3Y9heNs6FtiWJvyIc8yBWys0R0Rf/lkQrIiNGihnnNWO4jRu
+	 AYBMxvCnKBTAWU+VEdAxzaN6BqVgaJof13lwaW5IqNqzULWg8HNEPQrT977AbDEJgz1EF
+	 iaTO/3Uu8S0BECIAOdMbRzIUefNHoUS+9eUS0aokkjuJnCXPuMDDF4qk+QBQ/CbxnulvW
+	 sSIV8MI0QN4mpYFlpW/SphyAImD/wvZJ/DQ44UyYFeDM6uO6HNroMOyjk53eAtbwaKg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795693397;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795693463;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-AI-Review-Draft;
-	bh=7R4CH0zzGfCB2KOv8qhcvynv/km/UmTP3//CHtLZhNk=;
-	b=FjPzrlEPFDixcJVDgz3pFCemZGJWvJXFzk4Gt7C72QXHM7uX1fGsE6rEdK1VMDRIZt/G
-	 OLU6u7YUkurnjaNz8rYSia7bhJ0pO3Uw0WVraVfpXz/1NDL8W3fuWDd5QGJBIjwbowTpy
-	 S8yTNmWUOH6N9DYIB+u6eo9+vO+sM+681D350Dk46tKQOXpIT64K8C28bo1D7WztD23jF
-	 vs/s/IqCX0x67Q8tq/uO2Q0T9VDFBQ8HpL3hueqvhVaMXORLQ6qckU7gGhvmqPqHgTWSD
-	 OBsbdarxuB2TPawVVvyVmSSWts71EfwzNkptzj1xq34D3VF5mVv4ZoR8UTbgm2IOnbA==
+	 X-Cookie;
+	bh=GPBJLsJh7gQ+qJXgr4h2BZwP0qjmmcfqj8Qsq6esC70=;
+	b=roAxDNJCbBTt8clH9u/TQrjtsxjI2vnLOUgRFB513CJa7b3E99ZSlA0xU4Vz/tSFPap4
+	 1W/NymA1slCMVpvG9u1lUKSayuV9gzEg8SHtT3ZtwZ/S17W7jaJCWsaTjVuM2y8z17Bok
+	 Ja+PKiV3Ccoxyan4LlKka7+T23VD84fMyg1ZKclN5rkCj8wMYcmE/x2v6Isx2LmODyt76
+	 ejn+aE7xHQBSYM7cx24ZNavG8UA8KCW7RmzHblJNhtkD3zKu78Nz0C0AC9dtAJmreRul7
+	 PZbbJSA7Z29bTYAh5ksI/17UpfLnttBQ0Erg+SUMzXPdrNG0G5b+U/0up+nPWGckTlA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DL8e24uD;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I5KR91DZ;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 695E6606A31C;
-	Thu, 26 Nov 2026 11:43:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40FB5606A31C;
+	Thu, 26 Nov 2026 11:44:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DL8e24uD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B1661F000CF;
-	Thu, 26 Nov 2026 11:43:15 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I5KR91DZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E60BF1F000C6;
+	Thu, 26 Nov 2026 11:44:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795693396;
-	bh=7R4CH0zzGfCB2KOv8qhcvynv/km/UmTP3//CHtLZhNk=;
+	s=k20260515; t=1795693462;
+	bh=GPBJLsJh7gQ+qJXgr4h2BZwP0qjmmcfqj8Qsq6esC70=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DL8e24uDaV9+JEvYib5GRXA841xxKF0uJ0069RnkvGULDWI4FC8LZs77Krt+JLTao
-	 9LOfXbIT3qgxC6UpAK1r71rwhzrWwSp1BDiXS88XXilB40ZWgoqOd1qc7xyEqk+6m6
-	 DY0ftI20mklXEQKLWD+pWNYkpyo9C0eaYWnr19yU7qugQ7r2g4Nmia5aHZo/3sVDv5
-	 hN1VRsUyMpdhLCYeJRL7kIdr+gpetRDgg3+/781zgJmuiwVpZaQzYqTY7fcwaosGHY
-	 MdSWsh3P+FY4CqI55wsDjMPWJjKZsGRk+jTKPGrG6uOp1mxLDr03wrD1cyMICKOUfs
-	 8ixKECR0aR/Rw==
-Date: Thu, 26 Nov 2026 11:43:12 +0000
-From: Lee Jones <lee@kernel.org>
-To: Svyatoslav Ryhel <clamor95@gmail.com>
-Cc: Pavel Machek <pavel@kernel.org>,
-	Griffin Kroah-Hartman <griffin@kroah.com>,
-	linux-leds@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 2/2] leds: lm3533: Support getting LED sources from DT
-Message-ID: <179510281165.63755.6096974058338821986@kernel.org>
-References: <20261115084347.70592-1-clamor95@gmail.com>
- <20261115084347.70592-3-clamor95@gmail.com>
+	b=I5KR91DZ584LXSWHTtNd251Xc4KwiWYJ4AJRKVkJ1r0D3SY+CrS6hjK0ZdPxO5jcv
+	 zAp9f0i9i1SS6WnX2UkCWgy5XqFkqWskW3j87+iGXSBDb+wi+llCR1rYKEjuIWV4PP
+	 z61qtaLQefh0EyX7acLiYvq74cDIP+qycIP1IJMsHBh4Y30MYrHlmuxMbIE5UsJhN7
+	 OKeGpvBVZBngzFO5O5QA4O3UjAq0DhLMCG0Dy21gA0PbqV7gMwsjkZX9jBijwXU1XI
+	 +PkoElwyIKWl6JtcrzS0G6ZQ9OjM5Ylpoji0CCYNHI1Fi389eDBo8gi7PDPAxQdqDf
+	 wbFqknnn+UOSw==
+Date: Thu, 26 Nov 2026 11:44:17 +0000
+From: Mark Brown <broonie@kernel.org>
+To: iasnezhkov@gmail.com
+Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	flora.fu@mediatek.com, amergnat@baylibre.com,
+	leilk.liu@mediatek.com, me@adomerle.pw, devicetree@vger.kernel.org,
+	linux-spi@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] dt-bindings: spi: mediatek,spi-mt65xx: Add
+ compatible for MT6789
+Message-ID: <f42a3782-35d4-4bb1-8c72-0dc56b8e0642@sirena.org.uk>
+References: <20261126000711.16163-1-iasnezhkov@gmail.com>
+ <20261126000711.16163-4-iasnezhkov@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,132 +63,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="C66k9UD0zapb3tpO"
+Content-Disposition: inline
+In-Reply-To: <20261126000711.16163-4-iasnezhkov@gmail.com>
+X-Cookie: Sank heaven for leetle curls.
+
+
+--C66k9UD0zapb3tpO
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261115084347.70592-3-clamor95@gmail.com>
-X-AI-Review-Draft: <20261115084347.70592-3-clamor95@gmail.com>
+Content-Transfer-Encoding: quoted-printable
 
-On Sun, 15 Nov 2026, Svyatoslav Ryhel wrote:
+On Thu, Nov 26, 2026 at 12:07:14AM +0000, Ilia Snezhkov via B4 Relay wrote:
+> From: Arseniy Velikanov <me@adomerle.pw>
+>=20
+> Add the SPI controller compatible for the MediaTek MT6789 SoC with
+> mediatek,mt6893-spi as its fallback compatible, addressing v1 review
+> feedback that MT6789 SPI is programming-model compatible with MT6893
+> without requiring a driver change.
 
-> Add support for the standard `led-sources` device tree property to
-> configure the mapping between control banks and physical low-voltage LED
-> (LVLED) outputs.
->
-> Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
-> ---
->  drivers/leds/leds-lm3533.c | 57 ++++++++++++++++++++++++++++++++++++++
->  1 file changed, 57 insertions(+)
->
-> diff --git a/drivers/leds/leds-lm3533.c b/drivers/leds/leds-lm3533.c
-> index 7db1105bee5c2..ad8bc3751e3e5 100644
-> --- a/drivers/leds/leds-lm3533.c
-> +++ b/drivers/leds/leds-lm3533.c
-> @@ -26,6 +26,14 @@
->  #define LM3533_ALS_CHANNEL_LV_MIN	1
->  #define LM3533_ALS_CHANNEL_LV_MAX	2
->
-> +#define LM3533_REG_OUTPUT_CONF1			0x10
-> +#define   OUTPUT_CONF1_SHIFT			2
-> +#define   OUTPUT_LVLED_MASK			0x3
-> +#define   OUTPUT_CONF1_PREP(x)			(((x) << OUTPUT_CONF1_SHIFT) & 0xff)
-> +#define LM3533_REG_OUTPUT_CONF2			0x11
-> +#define   OUTPUT_CONF2_SHIFT			6
-> +#define   OUTPUT_CONF2_PREP(x)			(((x) >> OUTPUT_CONF2_SHIFT) & 0xff)
-> +
->  #define LM3533_REG_CTRLBANK_BCONF_BASE		0x1b
->  #define LM3533_REG_PATTERN_ENABLE		0x28
->  #define LM3533_REG_PATTERN_LOW_TIME_BASE	0x71
-> @@ -54,6 +62,9 @@ struct lm3533_led {
->  	u32 max_current;
->  	u32 pwm;
->
-> +	int num_leds;
-> +	u32 leds[LM3533_LVCTRLBANK_MAX];
+Please submit patches using subject lines reflecting the style for the
+subsystem, this makes it easier for people to identify relevant patches.
+Look at what existing commits in the area you're changing are doing and
+make sure your subject lines visually resemble what they're doing.
+There's no need to resubmit to fix this alone.
 
-Since LM3533_LVCTRLBANK_MAX is 5 (matching the maximum control bank ID)
-and there are 4 low-voltage LEDs, shouldn't this array size and the
-bounds checks below use LM3533_LVCTRLBANK_COUNT (4) instead?
+--C66k9UD0zapb3tpO
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Also, are 'num_leds' and 'leds' used anywhere after probe()?  If they
-are only consumed by lm3533_led_setup(), could they live on the stack
-instead of here?
+-----BEGIN PGP SIGNATURE-----
 
-> +
->  	bool have_als;
->  };
->
-> @@ -622,8 +633,36 @@ static const struct attribute_group *lm3533_led_attribute_groups[] = {
->
->  static int lm3533_led_setup(struct lm3533_led *led)
->  {
-> +	u32 output_cfg_shift = 0;
-> +	u32 output_cfg_val = 0;
-> +	u32 output_cfg_mask = 0;
->  	int ret;
->
-> +	for (int i = 0; i < led->num_leds; i++) {
-> +		if (led->leds[i] >= LM3533_LVCTRLBANK_MAX)
-> +			continue;
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsIG5AACgkQJNaLcl1U
+h9DVLgf9ESvlliyKURSSkiS05SjNzqq0K0AUAZ+Lw1hNyfPT1cQbMLU6KGxATUFk
+aRW2i5ZdLBxZ/ZI75fPxOZpHGGX6yvY45i7bo8L66kHm5zk32j3zZGOJm6XT+O+H
+k0sxzD0y3YOiSmF0ba7Nb0WTwNX9lS70ws5v4f6/CmrESq3U51r/vpEQfv3e25gb
+sj4XZo7W9B2Bf2Bh48BLMfMZoWvHbw1k81oEw2pv7JY17v+s8zklfaL5ot4N3nwH
+7XIuIpNiVMRb0gdHLWBCYavSy2+pM/KPRkgtzgcNXhHx8TUxTvzhyLevA9HY3Lky
+LRlR90pFAqH7HtnmRnaTkE42bnRqRg==
+=FF7l
+-----END PGP SIGNATURE-----
 
-If an out-of-range source index is provided in DeviceTree, shouldn't we
-fail probe() with -EINVAL rather than silently ignoring it?  Note that
-with LM3533_LVCTRLBANK_MAX (5), an index of 4 would pass this check and
-corrupt bits 4:5 (HVLED2) of LM3533_REG_OUTPUT_CONF2.
-
-> +
-> +		output_cfg_shift = led->leds[i] * 2;
-> +		output_cfg_val |= led->id << output_cfg_shift;
-> +		output_cfg_mask |= OUTPUT_LVLED_MASK << output_cfg_shift;
-> +	}
-> +
-> +	if (led->num_leds) {
-> +		/* LVLED1, LVLED2 and LVLED3 */
-> +		ret = regmap_update_bits(led->regmap, LM3533_REG_OUTPUT_CONF1,
-> +					 OUTPUT_CONF1_PREP(output_cfg_mask),
-> +					 OUTPUT_CONF1_PREP(output_cfg_val));
-> +		if (ret)
-> +			return ret;
-> +
-> +		/* LVLED4 and LVLED5 */
-> +		ret = regmap_update_bits(led->regmap, LM3533_REG_OUTPUT_CONF2,
-> +					 OUTPUT_CONF2_PREP(output_cfg_mask),
-> +					 OUTPUT_CONF2_PREP(output_cfg_val));
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
->  	ret = lm3533_ctrlbank_set_max_current(&led->cb, led->max_current);
->  	if (ret)
->  		return ret;
-> @@ -690,6 +729,24 @@ static int lm3533_led_probe(struct platform_device *pdev)
->
->  	device_property_read_u32(dev, "ti,pwm-config-mask", &led->pwm);
->
-> +	/*
-> +	 * If led-sources property is not set then either this Control Bank uses
-> +	 * its default LVLED or is not linked to any LVLED at all.
-> +	 */
-> +	led->num_leds = device_property_count_u32(dev, "led-sources");
-> +	if (led->num_leds > LM3533_LVCTRLBANK_MAX)
-> +		return dev_err_probe(dev, -EINVAL, "Number of LED sources exceeds max %d: %d\n",
-> +				     LM3533_LVCTRLBANK_MAX, led->num_leds);
-> +
-> +	if (led->num_leds < 0)
-> +		led->num_leds = 0;
-> +
-> +	if (led->num_leds > 0) {
-> +		ret = device_property_read_u32_array(dev, "led-sources", led->leds, led->num_leds);
-> +		if (ret)
-> +			return dev_err_probe(dev, ret, "Failed to get led-sources\n");
-> +	}
-> +
->  	ret = lm3533_led_setup(led);
->  	if (ret)
->  		return ret;
-> -- 
-> 2.53.0
->
->
-
--- 
-Lee Jones
+--C66k9UD0zapb3tpO--
