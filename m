@@ -1,78 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795709489;
-	b=txno3vZthJJoPjgmCU4RBQcYYITTfcfNhfyLzqYdXTCd6Vhq1kSSDbkNmW98p4RNJHKN
-	 Q+vRoBzPbLH5nhKsfEke2i9+1KXStNGECG78iOIfNb0LKL01ZHHt1KYing927DGYOCcZu
-	 nQfy0hQd7cL70o7gmIh76yw4izAWpaYrKs6B/tCkLteP/wmPFvzm/ptQUH9Ot4dn7xMVk
-	 0iNWTaYisXuSYj7huIvtncc8IBxXO8WIajHYO7+2EIF+/To2wJZSSWX1+xw58tWqJdthU
-	 CsWb38VaWyIVFzmBnTIIa6An9V8OI2R9NY+aoBoj4vRR6f08UaSkm9+mWqn4xR/HizQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795709489;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=jcQVmIDn9FBKfmQ1PlZYAu7JDZvGMn062EqTFp9zR2s=;
-	b=3b3cDGqNEwu8FzT1iKAJ2W+PuxEQAX9lgXVdSLXEIT8oves112obsRg2tHzMphFGDJM7
-	 BWyxzzs0+2yzvxH96Bzgjir+qytLv3Ks9t4qApgUHFfDv5PtUnwtW3Mz5mecS7YGrhJ6D
-	 1q0FZQt71LfZCq3SXLJlR5/Jjtl+RxDHVIdH+DL/48Qz7w49bK5ss6cC31DT6r9acDDT7
-	 ILsPMq9un25V2Y1PquACU+ci2qDhuUzgQlaUPq28u4DmuMcg1jx43eXXIeJVgfwaPddIE
-	 IDt/hOePSbdLLTkgAHWbYjsWDDYHdoy/nYlrXKNOfkdsrF2hZ9bkJ9vQXZ9UvOD3o8Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="bNO/ZuX/";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795709496;
+	b=ChIYswIqv7Eu52Mb8H2J4+zg1hGENcQJFhCdKutwoSkevn3zKl0AJ+cCmUb9Lrpbu89h
+	 XtpWk6l3fzUDZXhy9F6hsCLSRxlyTxWDSCFW5vYqVBHQpX2YhikNpjHHZqRHYGDI549tl
+	 34cebYEzF8q7cR0FASPTWu5VNuGaDSlnLQkM1EjBSxD2Y92qTWuOacJOutr2bgfk9XDgg
+	 vhFB0Si2pjOABZr9pUBd3F08s/mpoWZWhLhaYLgNT6baY4OqViEreP4+Zm24mfVkQBmf1
+	 0u4HueOdEzuKw6CzdzF/8rUvz2AyIBIwocuQT7MqytFXHEWl8D5QUHsR8j3HREDuBOA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795709496;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-Cookie;
+	bh=PndWGLfIPHhkLT7wWeXkF6zasrlrMwqpJFZ4kXLIVgA=;
+	b=ocCedF8qpda81woycYt/HRmjvaxzPafIn+80wKypbQFViufKrV2FvGBaEhwsQCl1IqB6
+	 OVkkF3VkACUpHV5B6B2vKOsbN6nfMGY2ja9CnGtRaPOla8ej040wgWlqUqUwP8KboRNa5
+	 4iqxTy31oXGnL/ZVBrhGFazC614u0nEfFkSg3kvoU1S0vgq3/oBxofmYTZtGCJ6Msphrb
+	 zGFOCVU6rf15EjRgjog9uci4jrweact5+E4hWWUqL2TU8ClPh7u1YpNyIonrYdB3OEx95
+	 c1phrEsn8BsESdymMQaIeDY+ONwG1HoupO3yU/edmbGov7vtBEFM66Qc9MIIb9e5D5Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qv7w+0cL;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE870606A686;
-	Thu, 26 Nov 2026 16:11:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0656C606A31C;
+	Thu, 26 Nov 2026 16:11:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bNO/ZuX/
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795709488;
-	b=AvKF5HmyZXrU1X5P/OBAGGNRo2pVlbENjNUFpuxgebKEBHCG2u4a+gX7jJiqY/CH0yyY
-	 SJGZh35KVyXT7OzNnZ0Wz0cFYfRHFOl1Rj/YSWwSiH//Ro8fO8VvV2/H1Nd24EFPQMMbf
-	 Y1rQQjgb+6Dec9c1t2v6gqvHrMhIyzFb0gCmoMnYNQGJNq1szxzgCdKi4R/xXdSQ2kaJo
-	 uq+kR5qQuUVPxggnuhdZNHrnC1LVtOs+HAiapw5R2+ycvyLgQdXHXXX5hU+ksP7O6a+th
-	 oxRtTRNKeafT+MvHDJlaF04fcaj3PlWYQzMta1VhxA9m4bjGxoMyzsdMPG9iiNekf+g==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795709488;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=jcQVmIDn9FBKfmQ1PlZYAu7JDZvGMn062EqTFp9zR2s=;
-	b=n99RknFUWXChQmXAZeH78z/Sxv39p4n3ypyn/HtZCsazLCtXENprVhrI3YobsR4N87Fz
-	 Lz9HdO2GO31FdKLWvqTkld6+waZKjbSEs4/gAtuEUrr/Wum221FAUsboSypgBt424yk43
-	 kKqmLg69hgSMZYqHDweyQXr9B8AsoVCbZMpULx49aYejCdJdkTu9mJxuvV5lHGd+NOZIX
-	 aw9opSuYmTOa4wg7y2SWyfXfbhndpUDPFk0m9E2sAy1/K4eCksRGmOZMdPXAqG6p33AkA
-	 MZusnIrget5Bjt80q1/4DZZMO+vaZP62t8dOA+qLyuyaMC3ZEK5d6JwvNtuG4BqPJEg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id DCF5D1F000D4;
-	Thu, 26 Nov 2026 16:11:14 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qv7w+0cL
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A13E1F000C6;
+	Thu, 26 Nov 2026 16:11:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795709488;
-	bh=jcQVmIDn9FBKfmQ1PlZYAu7JDZvGMn062EqTFp9zR2s=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=bNO/ZuX/DLH9jGTD0A4ZQwITOg+RxKYPvhiq45tjEEjTgNEiapB+owIqVgJt7mrVb
-	 snvgg1+Xy+Zq9Goavx10kp5GiDTBmaXHUwKX2j9evqSJ7o8z3/HM1SCFuvsiQwTXrv
-	 6GZpjcl8WEGxl+QgVf6ksFxTGrkLyeopNT8rRhdX92eIhPBPKGeGCClbeYe2edug2N
-	 yODxlGN90lDrATdZGEUE+XVpab1eZsR8DKBlnfcj40b238EZzDzJUZsiG0zfGnRm1S
-	 JMIG2qNnE7xjKab+Y/Op6faKggO/H8qpzaJu/qJl/+cKRNxqysayMP/Y23lhQyxiYk
-	 DA5Nrz65/5QLw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 65C814D704;
-	Thu, 26 Nov 2026 16:11:14 +0000 (UTC)
-From: Kyle Hendry via B4 Relay <devnull+khendry.reliablecontrols.com@kernel.org>
-Date: Thu, 26 Nov 2026 08:11:06 -0800
-Subject: [PATCH v4 2/3] clk: renesas: r9a06g032: Add reset controller
+	s=k20260515; t=1795709495;
+	bh=PndWGLfIPHhkLT7wWeXkF6zasrlrMwqpJFZ4kXLIVgA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Qv7w+0cLz2JdED5tHUu2UuErAR4/SBdDlCw9fF7lO83ZiDTnz+W2PuzJ69iEHagZp
+	 9glRJzWCg23UObMuQTGVd3HYahaNBLJqZzKHvsMHFx8fEYVe8M+7RHeQNzourpXhLb
+	 ABtqsIAjYqeDyu4/rbufAlLmM3PJliI4VxGej8zSrq4l+3NkZDMHbUU/DuIfQTGCHT
+	 sN9rgySP1Tn2SoKiqoJiVK0pbAHwiNB/YOHCjBdfm+WCNIpSGdzriSAVLXWVGiLwN6
+	 /yL/5QWlzgbDQGrKtWPYthWkRsXncO85SokFUP++grCoMUO7ysxYL9Ex+4RCd4/IOx
+	 LwysMme+JO6fw==
+Date: Thu, 26 Nov 2026 16:11:31 +0000
+From: Mark Brown <broonie@kernel.org>
+To: HyeongJun An <sammiee5311@gmail.com>
+Cc: Takashi Iwai <tiwai@suse.com>, Jaroslav Kysela <perex@perex.cz>,
+	Shuah Khan <shuah@kernel.org>,
+	Ivan Orlov <ivan.orlov0322@gmail.com>,
+	Ben Copeland <ben.copeland@linaro.org>, linux-sound@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] selftests: ALSA: pcmtest: Load the module when it is
+ missing
+Message-ID: <bd9dd7ee-a946-4901-9c94-13fdd35523d1@sirena.org.uk>
+References: <20261126035526.1779288-1-sammiee5311@gmail.com>
+ <20261126035526.1779288-3-sammiee5311@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,168 +62,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-rzn1-miic-resets-v4-2-4f73af81d779@reliablecontrols.com>
-References: <20261126-rzn1-miic-resets-v4-0-4f73af81d779@reliablecontrols.com>
-In-Reply-To: <20261126-rzn1-miic-resets-v4-0-4f73af81d779@reliablecontrols.com>
-To: Geert Uytterhoeven <geert+renesas@glider.be>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
- Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Kyle Hendry <khendry@reliablecontrols.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795709473; l=4247;
- i=khendry@reliablecontrols.com; s=20260813; h=from:subject:message-id;
- bh=d5S+pJMq+GdGiRcScbgQkAtDilD3W740omT+17Nfe0k=;
- b=63DE9o8hbeouiFQl6hghqGZ1wahGRCSPMMh1vnxOu6SS0VzTsImmOa6RGwqpG4BX5HQ0lwBX7
- c071KlN0HzcBr4gMC3EsZl8khwiPz3wWsGXenvH6n/Z6mlW/wEPEpmG
-X-Developer-Key: i=khendry@reliablecontrols.com; a=ed25519;
- pk=gbK6oghz3qBlBiaGCsEzALLOtj5VklmsuolHQNhDV5M=
-X-Endpoint-Received: by B4 Relay for khendry@reliablecontrols.com/20260813
- with auth_id=946
-X-Original-From: Kyle Hendry <khendry@reliablecontrols.com>
-Reply-To: khendry@reliablecontrols.com
-Content-Transfer-Encoding: 7bit
-
-From: Kyle Hendry <khendry@reliablecontrols.com>
-
-The rzn1 system controller has two resets that need to be cleared for the
-mii converter to work. They are not directly associated with any clocks
-so they need a reset controller to set them.
-
-They are documented in the PWRCTRL_SWITCHCTRL (0x4000C188) register as:
-
-Bit 3: RSTN_CLK25 - Active low Reset for Timestamp signal selection logic
-Bit 4: RSTN_ETH - Active low Reset for RGMII/RMII Converter (50 MHz).
-
-Add a reset controller and add resets for those bits.
-
-Signed-off-by: Kyle Hendry <khendry@reliablecontrols.com>
----
- drivers/clk/renesas/Kconfig            |  1 +
- drivers/clk/renesas/r9a06g032-clocks.c | 65 ++++++++++++++++++++++++++++++++++
- 2 files changed, 66 insertions(+)
-
-diff --git a/drivers/clk/renesas/Kconfig b/drivers/clk/renesas/Kconfig
-index a02ca6b096c0..a38795e2bca2 100644
---- a/drivers/clk/renesas/Kconfig
-+++ b/drivers/clk/renesas/Kconfig
-@@ -187,6 +187,7 @@ config CLK_R8A78000
- 
- config CLK_R9A06G032
- 	bool "RZ/N1D clock support" if COMPILE_TEST
-+	select RESET_CONTROLLER
- 
- config CLK_R9A07G043
- 	bool "RZ/G2UL clock support" if COMPILE_TEST
-diff --git a/drivers/clk/renesas/r9a06g032-clocks.c b/drivers/clk/renesas/r9a06g032-clocks.c
-index 3df3f2b2c6de..b2ed348c1ece 100644
---- a/drivers/clk/renesas/r9a06g032-clocks.c
-+++ b/drivers/clk/renesas/r9a06g032-clocks.c
-@@ -21,6 +21,7 @@
- #include <linux/pm_clock.h>
- #include <linux/pm_domain.h>
- #include <linux/reboot.h>
-+#include <linux/reset-controller.h>
- #include <linux/slab.h>
- #include <linux/soc/renesas/r9a06g032-sysctrl.h>
- #include <linux/spinlock.h>
-@@ -675,10 +676,16 @@ static const struct r9a06g032_clkdesc r9a06g032_clocks[] = {
- 		RB(0xec, 16), RB(0xec, 17), RB(0xec, 18), RB(0xec, 19)),
- };
- 
-+static const struct regbit r9a06g032_resets[] = {
-+	[R9A06G032_RST_TS]	= RB(0x188, 3),
-+	[R9A06G032_RST_MIIC]	= RB(0x188, 4),
-+};
-+
- struct r9a06g032_priv {
- 	struct clk_onecell_data data;
- 	spinlock_t lock; /* protects concurrent access to gates */
- 	void __iomem *reg;
-+	struct reset_controller_dev rcdev;
- };
- 
- static struct r9a06g032_priv *sysctrl_priv;
-@@ -1307,6 +1314,57 @@ static void __init r9a06g032_init_h2mode(struct r9a06g032_priv *clocks)
- 	writel(usb, clocks->reg + R9A06G032_SYSCTRL_USB);
- }
- 
-+static inline
-+struct r9a06g032_priv *priv_from_rcdev(struct reset_controller_dev *resetdev)
-+{
-+	return container_of(resetdev, struct r9a06g032_priv, rcdev);
-+}
-+
-+static int r9a06g032_reset_set(struct reset_controller_dev *rcdev,
-+				bool set, unsigned long id)
-+{
-+	struct r9a06g032_priv *priv = priv_from_rcdev(rcdev);
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(&priv->lock, flags);
-+	clk_rdesc_set(priv, r9a06g032_resets[id], set);
-+	spin_unlock_irqrestore(&priv->lock, flags);
-+
-+	/*
-+	 * Figure 7.3 and 7.4 in the RZN1 Introduction Manual recommends
-+	 * a 5us delay for reset to propegate after assert or deassert
-+	 */
-+	udelay(5);
-+
-+	return 0;
-+}
-+
-+static int r9a06g032_reset_assert(struct reset_controller_dev *rcdev,
-+					unsigned long id)
-+{
-+	return r9a06g032_reset_set(rcdev, false, id);
-+}
-+
-+static int r9a06g032_reset_deassert(struct reset_controller_dev *rcdev,
-+					unsigned long id)
-+{
-+	return r9a06g032_reset_set(rcdev, true, id);
-+}
-+
-+static int r9a06g032_reset_status(struct reset_controller_dev *rcdev,
-+					unsigned long id)
-+{
-+	struct r9a06g032_priv *priv = priv_from_rcdev(rcdev);
-+
-+	return !clk_rdesc_get(priv, r9a06g032_resets[id]);
-+}
-+
-+static const struct reset_control_ops r9a06g032_reset_ops = {
-+	.assert = r9a06g032_reset_assert,
-+	.deassert = r9a06g032_reset_deassert,
-+	.status = r9a06g032_reset_status,
-+};
-+
- static int __init r9a06g032_clocks_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -1394,6 +1452,13 @@ static int __init r9a06g032_clocks_probe(struct platform_device *pdev)
- 	if (error)
- 		return error;
- 
-+	clocks->rcdev.ops = &r9a06g032_reset_ops;
-+	clocks->rcdev.of_node = np;
-+	clocks->rcdev.nr_resets = ARRAY_SIZE(r9a06g032_resets);
-+	error =  devm_reset_controller_register(dev, &clocks->rcdev);
-+	if (error)
-+		return error;
-+
- 	error = r9a06g032_add_clk_domain(dev);
- 	if (error)
- 		return error;
-
--- 
-2.53.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="yW60I46ndAXTBx2V"
+Content-Disposition: inline
+In-Reply-To: <20261126035526.1779288-3-sammiee5311@gmail.com>
+X-Cookie: Sank heaven for leetle curls.
 
 
+--yW60I46ndAXTBx2V
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Nov 26, 2026 at 12:55:25PM +0900, HyeongJun An wrote:
+> test-pcmtest-driver skips when the pcmtest debugfs files are missing.
+> The driver has no device to bind to, so nothing loads the module, and the
+> test skips even on a kernel that builds it.
+
+> Run modprobe once before skipping, as the net pktgen test does. The
+> module stays loaded. In the default order the test runs after mixer-test
+> and pcm-test, so the extra card does not change what they check.
+
+> @@ -171,6 +172,9 @@ FIXTURE_SETUP(pcmtest) {
+>  		SKIP(return, "This test needs root to run!");
+> =20
+>  	err =3D read_patterns();
+> +	/* nothing loads the module on its own, so ask for it */
+> +	if (err && !system("modprobe -q snd-pcmtest"))
+> +		err =3D read_patterns();
+
+It'd be polite to unload the module if we caused it to be loaded, though
+potentially more trouble than it's worth.  I'm also not sure if this
+does the right thing if someone decided to build the driver in (to make
+it easier to deploy onto a test system for example).
+
+--yW60I46ndAXTBx2V
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsIWjIACgkQJNaLcl1U
+h9AyNgf/Vav3oI4f/yKn7v2f8IMW0a2ujBNxDys8GG15Vy0bQr0u4HKph3pQKHH0
+RilJbSRzLg4R3QC6j5MQjHc5TuOoIQGF3HNX0c4vHhft6ZkRNYP2PWkvgywsJPqE
+2OjdsvxNDK1Tmg/pWx2umwM2Q29++KgLCyRYImaYj13jIoGqmlKOLe8R0aN5GhhX
+n5sZ4nmU2T7NA9jS2Sbzudbt4POpCFaDUduw3wU8a4Lm3M/w8OU0smZhzQQnIYEA
+FVI2pZMEBpwV3R1j9Z50XtWHEsqTqy8Dpp8rRkhSbZIq1rAr7qigDiLViGVcWqH1
+hG44k0NXHjTMgYTga69VqXyhmEE7cA==
+=F4/q
+-----END PGP SIGNATURE-----
+
+--yW60I46ndAXTBx2V--
