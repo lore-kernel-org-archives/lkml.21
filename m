@@ -1,52 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.15
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795674876;
-	b=cK8O6z1GeZ2/LP93pOO+I77IAGfTkDTU56MxIoAl1VilQhWSxyf2yMvYLZML1jg+JuCE
-	 P/lKIAIH2Rks9e4Ynu2Y/HwHeE1EW6Pyfih6R9Z0Ai1NZOV1lMIfIkhhUDVCqrki5h4Lt
-	 tsQ/YP1581hRW3atUm24WRWjD7nlqLvXxVZFHD0iyLPyA+j6LIxDFk3e001CxMEnxvhqj
-	 InjgbHxYlriBqJIvJKYA41gO9QvdjpFfht3/gU73XUHl4OMFxualrq1oMRZ3tqVvPhh09
-	 DbIqI+a9A7BTlJQlDs2jtG2K8EL0swCR7xDbUgkLysNzgNWIeBIg45Y+BYaFb48I53Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795674876;
-	h=DMARC-Filter:DKIM-Signature:Received:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:From:
-	 To:Cc:X-Mailer:References:In-Reply-To:X-ZohoMailClient;
-	bh=NqJyxkyyF1EsKV7v+Tv9BOg2FJudE4UDZ7G53p9UBJo=;
-	b=pj+rlYhKLpquxvu5Jp1erkIN3QgKjBL8ZsIv/2ZyWLhdGJcIm79aMxcuvlCvXtzYpsl9
-	 X9coLNfq8z899GMFOSHe+7vtzJzs6uylU11R0ZDwM6HVgwytg07PIb6ixqC+uG5WaqED8
-	 OPMmAnkpFUxUaklhWlENg5GxsN1WNfOOi+RA5rNDoUGcVKAHLCKzUj8Eg8bx6AiVu9r+8
-	 lbjTurewWZLUeyTc2rxJ1e/a8jaK0UpljCHoGbnqFaiLQnGcPuhvAFi4oSNIaSvYC1ipo
-	 4vEL2/YBw5OSWbnTBHf6o49Rn4ZG/oBn4ShgUGH210yt9GGNuLNE37hc9zFw5ltbCBg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pigmoral.tech;
-	spf=pass smtp.mailfrom=pigmoral.tech;
-	dkim=pass header.d=pigmoral.tech header.i=@pigmoral.tech header.a=rsa-sha256 header.s=zmail header.b=KZCIsc4c;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.15
-Received: from sender6-op-o15.zoho.com (sender6-op-o15.zoho.com [165.173.180.15])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.6
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795674929;
+	b=0as60qUXEJc0NUVjMIymvV1HmCP/NhbpmBFHrRx2omKBytUkA7lqCO9uouezeUxuotH4
+	 gA0DfELDlJwX733PmUn/WM1LEsbta0/LttMA5C1yuu6PgIN7vfjDOpnh6yLYAX8QbYYiw
+	 xBe8ShvZ5307ZgYlY4+k72oKO4S15TXIZOXtCRq13/MBO22OkiEZaqj3wfF1vpgbJLAdp
+	 D9kfBa6s7hXsd0mXw3LXe0B5gw9G0w2xP6ERFTk9yv1DbcG2B7+1JqPQiwm9QokAy1JAI
+	 +7qYOsnIe5LD6X1DEjY0AyE6UebYbdjBuWawyuEUtXtq9nU+ocF4Sq7p4a34VIqWeBQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795674929;
+	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:X-Priority:
+	 X-Mailer:In-Reply-To:References:X-NTES-SC:Content-Transfer-Encoding:
+	 Content-Type:MIME-Version:Message-ID:X-Coremail-Locale:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-Coremail-Antispam;
+	bh=mPO0k9Um6B0EKx6Q6FI4sbj2CUg2TOA35nvg0waKMjM=;
+	b=2z5Caj1WAqti/T4lW4ANo8ICvy/6Bp/17MI3BqVAc2teDzk+b50I/J8bQ7AZ9n0HpaGO
+	 UoBU0b7zyAWDqcSnDHVimTDIkbswHppgsF9eB/QbxYvifad0GFrDB2z/k1A5R3DUMq1af
+	 QKGho64LoDuDhxZu4c7t4FIyEhrn/mO6PSs4IZotP5k+py5wm0SDeZRnbxKzllJGi/GOh
+	 ZlDjIRyPpBZK089tvrO2ArjOYQrhjSnHnw+IJO5MwRXaMXO4KB8Of14ayHzCLT5M1CjFo
+	 2HNqpV/MVscZSlxkFqpQhRtJ1o4guO3fyFephSPhGcDUWH1BJ4A9tUws+p/PoxFk6eg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=126.com;
+	spf=pass smtp.mailfrom=126.com;
+	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=N0YwHkvf;
+	arc=none smtp.remote-ip=220.197.31.6
+Received: from m16.mail.126.com (m16.mail.126.com [220.197.31.6])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22B45606A31C;
-	Thu, 26 Nov 2026 06:34:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 22B45606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pigmoral.tech
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pigmoral.tech
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8821606A31C;
+	Thu, 26 Nov 2026 06:35:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8821606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=pigmoral.tech header.i=@pigmoral.tech header.a=rsa-sha256 header.s=zmail header.b=KZCIsc4c
-ARC-Seal: i=1; a=rsa-sha256; t=1795674826; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=ZQvfHIW1p7x8TG0WrjfAXdkqZsXvdtX6h/tHO84gGwweCk7FdgZY0VAsEb9+K69id4KDDbRByhI13FX+PVF0F4DYAIoXM9NccLR74dMeersTm2vOaJJyUrILHvqXT8M0s9h3Jbsm1glok/FNswImy1OSwDsezaXQwkx9ESSYce4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795674826; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=NqJyxkyyF1EsKV7v+Tv9BOg2FJudE4UDZ7G53p9UBJo=; 
-	b=NAIY+LYjEN+rweT8lCfaKbiVYn+uEZfd5Zwr/AdWNykhBq0yFAuJTHIyVeQMQV9BJ7vjY7Rxp5H0ZSkZbmDLQXk84PYlKRkbuBVJxW4ISVcLR8zSem3b2eJka83BJwPw76fXopgMMKoDbGDH+WQkD1EcqZt+EYQw+penQaBilXs=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: a=rsa-sha256; b=KZCIsc4cdj6dVf/CubnCkDLGwAcGFTVU4PYw7PshqS4Va8YmA36ILwb2hvo4/sRmg0D5c7bc9Kqbrulaku+JiVdnSgoUSJJnimk/YjAEl0q8l2CleNJXwTy2hPs6OfIyvNf8b31lnXUnTIyS5hgkoTDYZy3pWVz1m5t4KRh6aLI=; c=relaxed/relaxed; s=zmail; d=pigmoral.tech; v=1; bh=NqJyxkyyF1EsKV7v+Tv9BOg2FJudE4UDZ7G53p9UBJo=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795674823263416.48353135502407;
-	Wed, 25 Nov 2026 22:33:43 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=N0YwHkvf
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=mPO0k9Um6B0EKx6Q6FI4sbj2CUg2TOA35nvg0waKMjM=; b=N
+	0YwHkvf/BLmOmqoLdRVP3qmj0B5FGAzuexlbzN1+8i2QCkFwZQ6ktIUAcvDdDv3W
+	B3NHGVHSrIQ/A+qlU4P6Cg4m1ewj6QNp79N6AHYkgF9JCOr5nP9egvtx92UxvCCw
+	wvDDxOc8z3TPp2MSnLRxWRC39NM7YOAsZLkXb7qGg8=
+Date: Thu, 26 Nov 2026 14:34:46 +0800 (CST)
+From: dd  <zhongling0719@126.com>
+To: liubaolin <liubaolin12138@163.com>
+Cc: "Hongling Zeng" <zenghongling@kylinos.cn>, linkinjeon@kernel.org,
+	hyc.lee@gmail.com, ntfs@lists.linux.dev,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re:Re: [PATCH 2/6] ntfs: roll back the size update when the
+ attribute lookup fails
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 126com
+In-Reply-To: <89ca24c7-1ba8-41e1-81ef-1b60b7cc64bd@163.com>
+References: <20261125073547.154150-1-zenghongling@kylinos.cn>
+ <20261125073547.154150-3-zenghongling@kylinos.cn>
+ <89ca24c7-1ba8-41e1-81ef-1b60b7cc64bd@163.com>
+X-NTES-SC: AL_Qu2SB/qcu0Aj4CCZYukfmUoQhu82WMW3uvog3I9UP514jAvj+BsGdFRZMlTSwMGzKieyiCCWSRNg7vxLXq1cXaYxeh7kbZxyVojwlIcfxq7RWw==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=GBK
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,70 +66,98 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 26 Nov 2026 14:33:33 +0800
-Message-Id: <DN4XLH7YJ13T.3O62DYGNJ67FQ@pigmoral.tech>
-Subject: Re: [PATCH 0/5] net: stmmac: dwmac-sun55i: Add Allwinner A733
- GMAC210 support
-From: "Junhui Liu" <junhui.liu@pigmoral.tech>
-To: "Alastair D'Silva" <alastair@d-silva.org>, <netdev@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-sunxi@lists.linux.dev>
-Cc: <linux-kernel@vger.kernel.org>, "Andrew Lunn" <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>, "Eric Dumazet"
- <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>, "Paolo Abeni"
- <pabeni@redhat.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Chen-Yu Tsai"
- <wens@kernel.org>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Samuel
- Holland" <samuel@sholland.org>, "Maxime Chevallier"
- <maxime.chevallier@bootlin.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Jerome Brunet" <jbrunet@baylibre.com>
-X-Mailer: aerc 0.22.0
-References: <20261125130613.4191841-1-alastair@d-silva.org>
-In-Reply-To: <20261125130613.4191841-1-alastair@d-silva.org>
-X-ZohoMailClient: External
+MIME-Version: 1.0
+Message-ID: <28017ef0.440e.1a216904f88.Coremail.zhongling0719@126.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID:cikvCgD3HxEG0wdrnFZoAA--.45027W
+X-CM-SenderInfo: x2kr0wpolqwiqxrzqiyswou0bp/xtbBoAaSY2sH0waxwwAA3c
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 
-Hi Alastair,
-
-On Wed Nov 25, 2026 at 9:06 PM CST, Alastair D'Silva wrote:
-> This series enables Gigabit Ethernet (GMAC0) on the Allwinner A733 SoC
-> and the Xunlong Orange Pi 4 Pro board.
->
-> The goal is working 1000BASE-T RGMII Ethernet with mainline drivers and
-> bindings. Tested on the Orange Pi 4 Pro with a YT8531 PHY (DHCP, ping,
-> and iperf3 at 1Gbps/Full).
->
-> Dependencies:
-> This series depends on the Allwinner A733 SoC and OrangePi 4 Pro core
-> bring-up series:
->   Based-on: <20261125124407.4098345-1-alastair@d-silva.org>
->
-> Alastair D'Silva (5):
->   dt-bindings: net: allwinner,sun8i-a83t-emac: Add Allwinner A733
->     GMAC210
->   net: stmmac: dwmac-sun55i: Add per-compatible match data
->   net: stmmac: dwmac-sun55i: Add Allwinner A733 GMAC210 support
->   arm64: dts: allwinner: sun60i-a733: Add GMAC0 node
->   arm64: dts: allwinner: sun60i-a733-orangepi-4-pro: Enable GMAC0
->     Ethernet
->
->  .../net/allwinner,sun8i-a83t-emac.yaml        | 136 ++++++++++-
->  .../allwinner/sun60i-a733-orangepi-4-pro.dts  |  28 +++
->  .../arm64/boot/dts/allwinner/sun60i-a733.dtsi |  41 ++++
->  .../ethernet/stmicro/stmmac/dwmac-sun55i.c    | 230 +++++++++++++++---
->  4 files changed, 389 insertions(+), 46 deletions(-)
-
-There is already a series [1] posted adding A733 GMAC210 support.
-Did you check that?
-
-I think it would be better to add Ethernet support for Orange Pi 4 Pro
-based on that series.
-
-[1] https://lore.kernel.org/all/20260923-allwinner-a733-gmac-support-v3-0-1=
-5735155a789@baylibre.com/
-
---=20
-Best regards,
-Junhui Liu
-
+CgoKCkF0IDIwMjYtMTEtMjUgMjI6MDU6NTAsICJsaXViYW9saW4iIDxsaXViYW9saW4xMjEzOEAx
+NjMuY29tPiB3cm90ZToKPgo+Cj7U2iAyMDI2LzExLzI1IDE1OjM1LCBIb25nbGluZyBaZW5nINC0
+tcA6Cj4+IG50ZnNfZW5sYXJnZV9hdHRyaWJ1dGUoKSB0cnVuY2F0ZXMgdGhlIGF0dHJpYnV0ZSB0
+byB0aGUgZW5kIG9mIHRoZQo+PiB3cml0ZSBiZWZvcmUgbG9va2luZyBpdCB1cCBhZ2FpbiwgYmVj
+YXVzZSB0aGUgdHJ1bmNhdGlvbiBjYW4gbW92ZSB0aGUKPj4gYXR0cmlidXRlIHRvIGEgZGlmZmVy
+ZW50IG1mdCByZWNvcmQuIElmIHRoYXQgbG9va3VwIGZhaWxzLCB0aGUgZXJyb3IKPj4gaXMgcmV0
+dXJuZWQgYnV0IHRoZSBhdHRyaWJ1dGUgc3RheXMgYXQgdGhlIGV4dGVuZGVkIHNpemUsIHNvIGEg
+ZmFpbGVkCj4+IHdyaXRlIGV4dGVuZHMgdGhlIGZpbGUuCj4+IAo+PiBVbmRvIHRoZSB0cnVuY2F0
+aW9uIGJlZm9yZSByZXR1cm5pbmcgdGhlIGVycm9yLiBJZiB0aGUgcm9sbGJhY2sgZmFpbHMKPj4g
+YXMgd2VsbCwgbWFyayB0aGUgdm9sdW1lIGFzIGhhdmluZyBlcnJvcnMgYW5kIHN5bmNocm9uaXpl
+IGlfc2l6ZSB3aXRoCj4+IHRoZSBjdXJyZW50IGRhdGFfc2l6ZSBpbnN0ZWFkIG9mIHRoZSBvbGQg
+c25hcHNob3QuCj4+IAo+PiBGaXhlczogYWYwZGI1N2Q0MjkzICgibnRmczogdXBkYXRlIGlub2Rl
+IG9wZXJhdGlvbnMiKQo+PiBDYzogc3RhYmxlQHZnZXIua2VybmVsLm9yZwo+PiBTaWduZWQtb2Zm
+LWJ5OiBIb25nbGluZyBaZW5nIDx6ZW5naG9uZ2xpbmdAa3lsaW5vcy5jbj4KPj4gLS0tCj4+ICAg
+ZnMvbnRmcy9pbm9kZS5jIHwgNDggKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
+KysrKysrKysrKy0tCj4+ICAgMSBmaWxlIGNoYW5nZWQsIDQ2IGluc2VydGlvbnMoKyksIDIgZGVs
+ZXRpb25zKC0pCj4+IAo+PiBkaWZmIC0tZ2l0IGEvZnMvbnRmcy9pbm9kZS5jIGIvZnMvbnRmcy9p
+bm9kZS5jCj4+IGluZGV4IDRmYmRjZDQ1OTY1Mi4uN2Q3YmI3NDE0NTVlIDEwMDY0NAo+PiAtLS0g
+YS9mcy9udGZzL2lub2RlLmMKPj4gKysrIGIvZnMvbnRmcy9pbm9kZS5jCj4+IEBAIC0zODQyLDgg
+KzM4NDIsMTkgQEAgc3RhdGljIGlubGluZSBpbnQgbnRmc19lbmxhcmdlX2F0dHJpYnV0ZShzdHJ1
+Y3QgaW5vZGUgKnZpLCBzNjQgcG9zLCBzNjQgY291bnQsCj4+ICAgewo+PiAgIAlzdHJ1Y3QgbnRm
+c19pbm9kZSAqbmkgPSBOVEZTX0kodmkpOwo+PiAgIAlzdHJ1Y3Qgc3VwZXJfYmxvY2sgKnNiID0g
+dmktPmlfc2I7Cj4+ICsJdW5zaWduZWQgbG9uZyBmbGFnczsKPj4gKwlzNjQgb2xkX2RhdGFfc2l6
+ZTsKPj4gICAJaW50IHJldDsKPj4gICAKPj4gKwkvKgo+PiArCSAqIFNuYXBzaG90IHRoZSBvbGQg
+ZGF0YV9zaXplIHVuZGVyIHNpemVfbG9jazogaXQgaXMgdGhlIHJvbGxiYWNrCj4+ICsJICogdGFy
+Z2V0LCB0aGUgb3RoZXIgc2l6ZXMgYXJlIHVwZGF0ZWQgYnkgbnRmc19hdHRyX3RydW5jYXRlKCkK
+Pj4gKwkgKiBpdHNlbGYKPj4gKwkgKi8KPj4gKwlyZWFkX2xvY2tfaXJxc2F2ZSgmbmktPnNpemVf
+bG9jaywgZmxhZ3MpOwo+PiArCW9sZF9kYXRhX3NpemUgPSBuaS0+ZGF0YV9zaXplOwo+PiArCXJl
+YWRfdW5sb2NrX2lycXJlc3RvcmUoJm5pLT5zaXplX2xvY2ssIGZsYWdzKTsKPj4gKwo+PiAgIAlp
+ZiAocG9zICsgY291bnQgPD0gbmktPmluaXRpYWxpemVkX3NpemUpCj4+ICAgCQlyZXR1cm4gMDsK
+Pj4gICAKPj4gQEAgLTM4NTMsNyArMzg2NCw3IEBAIHN0YXRpYyBpbmxpbmUgaW50IG50ZnNfZW5s
+YXJnZV9hdHRyaWJ1dGUoc3RydWN0IGlub2RlICp2aSwgczY0IHBvcywgczY0IGNvdW50LAo+PiAg
+IAlpZiAoTklub0NvbXByZXNzZWQobmkpKQo+PiAgIAkJcmV0dXJuIC1FT1BOT1RTVVBQOwo+PiAg
+IAo+PiAtCWlmIChwb3MgKyBjb3VudCA+IG5pLT5kYXRhX3NpemUpIHsKPj4gKwlpZiAocG9zICsg
+Y291bnQgPiBvbGRfZGF0YV9zaXplKSB7Cj4+ICAgCQlyZXQgPSBudGZzX2F0dHJfdHJ1bmNhdGUo
+bmksIHBvcyArIGNvdW50KTsKPj4gICAJCWlmIChyZXQpIHsKPj4gICAJCQludGZzX2RlYnVnKCJG
+YWlsZWQgdG8gdHJ1bmNhdGUgYXR0cmlidXRlIik7Cj4+IEBAIC0zODY1LDcgKzM4NzYsNDAgQEAg
+c3RhdGljIGlubGluZSBpbnQgbnRmc19lbmxhcmdlX2F0dHJpYnV0ZShzdHJ1Y3QgaW5vZGUgKnZp
+LCBzNjQgcG9zLCBzNjQgY291bnQsCj4+ICAgCQkJCSAgICAgICBDQVNFX1NFTlNJVElWRSwKPj4g
+ICAJCQkJICAgICAgIDAsIE5VTEwsIDAsIGN0eCk7Cj4+ICAgCQlpZiAocmV0KSB7Cj4+IC0JCQlu
+dGZzX2Vycm9yKHNiLCAiRmFpbGVkIHRvIGxvb2sgdXAgYXR0ciAlI3giLCBuaS0+dHlwZSk7Cj4+
+ICsJCQlpbnQgcm9sbGJhY2tfZXJyOwo+PiArCj4+ICsJCQkvKgo+PiArCQkJICogVGhlIHRydW5j
+YXRpb24gYWxyZWFkeSBoYXBwZW5lZCwgc28gdW5kbyBpdAo+PiArCQkJICogYmVmb3JlIHJldHVy
+bmluZyB0aGUgZXJyb3IKPj4gKwkJCSAqLwo+PiArCQkJcm9sbGJhY2tfZXJyID0gbnRmc19hdHRy
+X3RydW5jYXRlKG5pLCBvbGRfZGF0YV9zaXplKTsKPgo+SGkgSG9uZ2xpbmcsCj4gICAgVGhhbmtz
+IGZvciBzZW5kaW5nIHRoaXMgcGF0Y2ggc2VyaWVzLgo+Cj4gICAgQ291bGQgdGhpcyByb2xsYmFj
+ayBkZWFkbG9jayB3aXRoIHdyaXRlYmFjaz8KPiAgICBudGZzX2lub2RlX2F0dHJfcHdyaXRlKCkg
+aG9sZHMgbXJlY19uaS0+bXJlY19sb2NrIHdoZW4gY2FsbGluZwo+bnRmc19lbmxhcmdlX2F0dHJp
+YnV0ZSgpLiBGb3IgYSBub24tcmVzaWRlbnQgYXR0cmlidXRlLCB0aGUgcm9sbGJhY2sKPmNhbiBy
+ZWFjaCBudGZzX25vbl9yZXNpZGVudF9hdHRyX3NocmluaygpIGFuZCB0cnVuY2F0ZV9pbm9kZV9w
+YWdlcygpLAo+d2hpY2ggbWF5IHdhaXQgZm9yIGEgZm9saW8gbG9jay4KPiAgICBNZWFud2hpbGUs
+IGlvbWFwIHdyaXRlYmFjayBjYW4gaG9sZCB0aGF0IGZvbGlvIGxvY2sgYW5kIHdhaXQgZm9yIHRo
+ZQo+c2FtZSBtcmVjX2xvY2sgaW4gbnRmc193cml0ZV9pb21hcF9iZWdpbl9ub25fcmVzaWRlbnQo
+KToKPiAgIHJvbGxiYWNrOiAgbXJlY19sb2NrIC0+IGZvbGlvIGxvY2sKPiAgIHdyaXRlYmFjazog
+Zm9saW8gbG9jayAtPiBtcmVjX2xvY2sKPgo+ICAgIFRoZSBmb2xpbyBjb250YWluaW5nIHRoZSBv
+bGQgRU9GIG1heSBhbHJlYWR5IGJlIGRpcnR5IGZyb20gYW4gZWFybGllcgo+d3JpdGUsIHNvIHRo
+aXMgZG9lcyBub3QgcmVxdWlyZSB0aGUgZmFpbGVkIHdyaXRlIHRvIGhhdmUgY29waWVkIGFueQo+
+ZGF0YS4KPiAgICBDb3VsZCB3ZSBhdm9pZCB3YWl0aW5nIGZvciBmb2xpb3Mgd2hpbGUgaG9sZGlu
+ZyBtcmVjX2xvY2ssIHdpdGhvdXQKPmFsbG93aW5nIGNvbmN1cnJlbnQgd3JpdGVzIHRvIGludGVy
+ZmVyZSB3aXRoIHRoZSByb2xsYmFjaz8KPgo+VGhhbmtzLAo+QmFvbGluLgo+Cj4KClllcywgdGhh
+dCBpcyBhIHJlYWwgZGVhZGxvY2ssIHRoYW5rcyBmb3IgY2F0Y2hpbmcgaXQuCgpJIGNvbnNpZGVy
+ZWQgZHJvcHBpbmcgdGhlIGZvbGlvcyB1bmRlciBtcmVjX2xvY2sgd2l0aG91dCB3YWl0aW5nLCBi
+dXQKSSBkbyBub3Qgc2VlIGhvdyB0byBtYWtlIHRoYXQgd29yazogbWFwcGluZ19ldmljdF9mb2xp
+bygpIHJlZnVzZXMgdGhlCmRpcnR5IGFuZCB3cml0ZWJhY2sgZm9saW9zIHRoZSByb2xsYmFjayBt
+dXN0IGRyb3AsIHRoZSBwYXJ0aWFsIGZvbGlvCmF0IHRoZSBvbGQgRU9GIG5lZWRzIHNsZWVwaW5n
+IHRydW5jYXRlIHNlbWFudGljcywgYW5kIGJhaWxpbmcgb3V0CndvdWxkIHNldCB0aGUgc3RpY2t5
+IHZvbHVtZSBlcnJvciBmb3IgYSByb3V0aW5lIGZhaWx1cmUuCgpTbyB2MiBkZWZlcnMgYSBub24t
+cmVzaWRlbnQgcm9sbGJhY2sgdG8gbnRmc19pbm9kZV9hdHRyX3B3cml0ZSgpCmFmdGVyIGl0IHJl
+bGVhc2VzIG1yZWNfbG9jaywgcmV1c2luZyB0aGUgVkZTIHRydW5jYXRlIHBhdHRlcm4KKG50ZnNf
+c2V0YXR0cl9zaXplKCkpOiB0cnVuY2F0ZV9zZXRzaXplKCkgb3V0c2lkZSB0aGUgbG9jaywKX19u
+dGZzX2F0dHJfdHJ1bmNhdGVfdmZzKCkgdW5kZXIgaXQgYWZ0ZXIgcmUtY2hlY2tpbmcgdGhlIHNp
+emUuClJlc2lkZW50IGF0dHJpYnV0ZXMgc3RpbGwgcm9sbCBiYWNrIGlubGluZS4KClRoYW5rcyBh
+Z2FpbiBmb3IgdGhlIHJldmlldy4KCgo+PiArCQkJaWYgKHJvbGxiYWNrX2Vycikgewo+PiArCQkJ
+CXM2NCBjdXJyZW50X2RhdGFfc2l6ZTsKPj4gKwo+PiArCQkJCS8qCj4+ICsJCQkJICogUm9sbGJh
+Y2sgZmFpbGVkLCB0aGUgc2l6ZXMgbWF5IGJlCj4+ICsJCQkJICogaW5jb25zaXN0ZW50LiBNYXJr
+IHRoZSB2b2x1bWUgYXMgaGF2aW5nCj4+ICsJCQkJICogZXJyb3JzIGFuZCBzeW5jIGlfc2l6ZSB3
+aXRoIHRoZSBjdXJyZW50Cj4+ICsJCQkJICogZGF0YV9zaXplCj4+ICsJCQkJICovCj4+ICsJCQkJ
+cmVhZF9sb2NrX2lycXNhdmUoJm5pLT5zaXplX2xvY2ssIGZsYWdzKTsKPj4gKwkJCQljdXJyZW50
+X2RhdGFfc2l6ZSA9IG5pLT5kYXRhX3NpemU7Cj4+ICsJCQkJcmVhZF91bmxvY2tfaXJxcmVzdG9y
+ZSgmbmktPnNpemVfbG9jaywgZmxhZ3MpOwo+PiArCj4+ICsJCQkJaV9zaXplX3dyaXRlKHZpLCBj
+dXJyZW50X2RhdGFfc2l6ZSk7Cj4+ICsJCQkJTlZvbFNldEVycm9ycyhuaS0+dm9sKTsKPj4gKwkJ
+CQludGZzX2Vycm9yKHNiLAo+PiArCQkJCQkiRmFpbGVkIHRvIGxvb2sgdXAgYXR0ciAlI3ggYW5k
+ICIKPj4gKwkJCQkJInJvbGwgYmFjayB0aGUgc2l6ZSB1cGRhdGU6ICVkIiwKPj4gKwkJCQkJbmkt
+PnR5cGUsIHJvbGxiYWNrX2Vycik7Cj4+ICsJCQl9IGVsc2Ugewo+PiArCQkJCS8qCj4+ICsJCQkJ
+ICogUm9sbGJhY2sgc3VjY2VlZGVkLCB0aGUgc2l6ZXMgd2VyZSB1cGRhdGVkCj4+ICsJCQkJICog
+YnkgbnRmc19hdHRyX3RydW5jYXRlKCkgaXRzZWxmCj4+ICsJCQkJICovCj4+ICsJCQkJbnRmc19l
+cnJvcihzYiwgIkZhaWxlZCB0byBsb29rIHVwIGF0dHIgJSN4IiwKPj4gKwkJCQkJbmktPnR5cGUp
+Owo+PiArCQkJfQo+PiAgIAkJCXJldHVybiByZXQ7Cj4+ICAgCQl9Cj4+ICAgCX0K
