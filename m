@@ -1,79 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795661428;
-	b=D39OzXatuIVnsSd+aP0brOn7DDalh/ouBSaSdQ0JdYXn0LCSo33CLi6tLB1E3datx8ks
-	 tuK9iNRGgTgpp0w3cG7q1px92mKN2S9/W2i4zbP9mTeJmUyxOjrbCR7Ru54YDpESSZlBI
-	 BBxpJ8+UjczBKBewUTPtCLbgzliw5agTwMhVHscPTCA+e94hqhTwHW3bnuMejRgflLfxy
-	 PI06ZxWdeieW0IxuDLKcJzdVbXTYXHVbnerSdmULh2kGXcqsHEiTG5zhtvGrjTgar76M6
-	 9TixLd3p2Yo2F1Ru7o8wto4pl+L5iZQLX0OduSjW8KJrLerBlRsgA811uS6UIrDet3w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795661428;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=drpZa+uEdwJxfzKGf24OsKowM5rsFqQ++EwQIBk9YJo=;
-	b=h89IpUkYz8uuZTPfaly2qvGlPiqI1YznGlgaNW6IYdyR7n9FiszIhptsb5OCxnTt3750
-	 +9ASJZpIrWSyVXiJ0TrFFC5r9DcxkfijQdx3Bnmvms/KTmC6e189bHQXTD3Nv/lHZpFpJ
-	 bHK0xBHZxanVUQrsYkm3nv8eCUHuM+XhiDK2cIgPzTSFTXM8JtceAzHTHPeDESDSLonwk
-	 mtv6ByhHE6Ea+32Rp0+uMqgEkm/uFxAf6EQSinRh+2llFTN62OmAHDctfOMROjk68aX1i
-	 R3b4Hb1L82UOu8BeuTD8tN/5Sy389KFdZvNWKvfXIHih6copvEo6RMZ42+D3TZHXobQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="d0Sj/8Bp";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5907E606A31E;
-	Thu, 26 Nov 2026 02:50:28 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795661448;
+	b=3sU0hF9gdMyg8Djlsjjg4u69GTVyMaukj1j0WNqlte3SQloiiQzTEBlg32gLVHysVFpv
+	 JJ/FGsXAHkoP9aj8UQmBQeabHHI2HC2+NpflpdR0n/aPGViqed6OwLK6hEaWpnYgbrzfY
+	 QmxjlUwtZkdJOp15lCD8M4VH47w/66kVQSxyucT+yBHDj2Lawwpt1us510Zpa50wIN6Go
+	 zlZnhFg8xcLrgxmMZkElPla6JkeOH/aru+kEdTZfguh7Y8M3nGxb5ySJNdZPa4s+0xcSF
+	 1T55P1E5CsWcZrPnbp4/nezFIEl5wNnxHRImmgnXIvs+SEDAgNErtqqYuTc0lvbiI2Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795661448;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=tjFdlVVA7ekWCX0fNqw/SC5FFs7MiHWieiFjZJkC8e8=;
+	b=sgI2sJ3CX6t7dNM/jGEx1sCTrsWkotVZnZ4Q2coP2htP8X/aSnQD/bDFGsmtllAmTuQj
+	 SbD35/TS1Gg/Ryb+jdj16zThr33vxp0EHivsBaC8+x4emPxfHTJEXxXXpNBjvGH277CU4
+	 i6wbANLrCL+eNTpO0FXyG+obpOpSuEvwqiKYIKl8aZkb6Lxkp3TSBNoeBr5VHE8L8j3xk
+	 rDhuX3ccExP+VBp15tT4SRzKIbLpaT1sySY+ft2vJA1cQ3kDXdrUSWRo1Ws645Md2Qhea
+	 Jw1oBMttl4jORfUDXN1/3BVlWXG/IX6s5o5EPXC2MB0Fpy1HrDSWacdmGfhLvx728fQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=RDJwM465;
+	arc=none smtp.remote-ip=111.22.67.151
+Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 228CA606A323;
+	Thu, 26 Nov 2026 02:50:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 228CA606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d0Sj/8Bp
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795661427;
-	b=1FSqXk5MIry72RenxhbWpColfQg5PWJeJvotyXgiMXGfPYNbrpi4+2Fqwgc9laPmU2gy
-	 rWGR6ul4nE++9CsORhR9rCc8ExTB8OD2JZcrtHrWFfu9OYIf5Q3Kwf2cVgdDo3Bdk6Bng
-	 ahTpRBctSlDFcXDPwgVgUD+FNIkmWPItjUOGfsS/Z9aKWQXgd7skytWZjm461EguqC9T+
-	 Ss8BblGkhSujHqFif9irP3O30FvAHAHk2KxrBNWIxYiqqIrWfDSsC/uws0YS4/1dW2gJX
-	 M6KgvFCV042Pbd0Afl88pXXwVCpo9OUW2hZX1iH6etzjs8efiG/Y0p1YED+3cvqF4Ug==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795661427;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=drpZa+uEdwJxfzKGf24OsKowM5rsFqQ++EwQIBk9YJo=;
-	b=Wt7ewBsCtpobIv38PeSnl5NIKNTXAQcU9aL+jbbQNkNuX2MeBbAmqUvyEpMRb/cDy8al
-	 m5wvbISvqYn2oPJxQMZ6w+wGw0d1duVE0n/hOWe7JgVgDjWF/JgXcYrw8OvW4CxX4ArlR
-	 t9A+OmvNsIRpVNQeGPPqF0xanTPKsf09g3cs3ln28vyJv1wS7lk7CIGqdw0//nBeeP14F
-	 4fVeNKFz0MOIipH6PL2NhjVJDmyUNKv5pmAuxUzszrNq7E/7WEKp70XoltUFvS3UIZBS7
-	 gAiq1SlMGwRf5Sh4qIBwhXb57ISxWmfusoRoWVYqkGmgF4pBOiSimZhIRAwi8Bwga2w==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id C6B801F000C4;
-	Thu, 26 Nov 2026 02:50:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795661427;
-	bh=drpZa+uEdwJxfzKGf24OsKowM5rsFqQ++EwQIBk9YJo=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=d0Sj/8BpB2MxQUbZGW0q3VEuozb+SraNWcSQ+Jy+Jz3dzB2794xVahnnrT0kHj31u
-	 2kSnTgakWwfY5a61xYUUoL7ZeKy1c12brHDv6SRi++SVdncK9VkdF7cs1jI8O0QJE/
-	 1u40aDN7wxg43q61Kyu4Mc2kUNZWJZ/TvBMei2ZaaftGWjdE9ln8Ud8W8NfyiFHzAa
-	 TknkQqZQB4cHNum5yFYArN37qpbcMUSTXHJxfU3K6hDzXtLnxv0rummt1OtMbWkwvx
-	 DHt21vqww2sMBK/sypvPHcxfYiI8Lk9DRHz5gJdgXziEc1EUKEVDoHtlqdqQhcPJYx
-	 9bF/pNTiFjBcw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 2D8394D1B0;
-	Thu, 26 Nov 2026 02:50:24 +0000 (UTC)
-From: Fabricio Akio via B4 Relay <devnull+fabricioakio.gmail.com@kernel.org>
-Date: Wed, 25 Nov 2026 23:50:23 -0300
-Subject: [PATCH] soc: qcom: smp2p: Reset the last values only when the
- remote restarted
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=RDJwM465
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=RDJwM465hiRtcq2s0DiYhflvlDWymGKWrcBg7hZ5TVE6+A+DIk2CFyR4xm3kVwSU+1GZCeY/S0omw
+	 ToL+s9uA8RGy2Q4JsEsEF5yBjVDQAjKBWefd4mB61Pgf+i/iHp2oygGqMr2Wz3WdVoN8QT6tMjcCuI
+	 5HtsRcm9JkD1AYtg=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app06-12006 (RichMail) with SMTP id 2ee66b079e82045-23635;
+	Thu, 26 Nov 2026 10:50:43 +0800 (CST)
+X-RM-TRANSID:2ee66b079e82045-23635
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from  (unknown[104.224.130.48])
+	by rmsmtp-syy-appsvr08-12008 (RichMail) with SMTP id 2ee86b079e693eb-59c24;
+	Thu, 26 Nov 2026 10:50:43 +0800 (CST)
+X-RM-TRANSID:2ee86b079e693eb-59c24
+From: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
+To: netdev@vger.kernel.org
+Cc: David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Alice Mikityanska <alice.kernel@fastmail.im>,
+	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v2 1/6] ipip: Enable BIG TCP packets
+Date: Wed, 25 Nov 2026 18:50:10 -0800
+Message-ID: <20261126025015.10416-2-yanhaishuang@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261126025015.10416-1-yanhaishuang@cmss.chinamobile.com>
+References: <20261126025015.10416-1-yanhaishuang@cmss.chinamobile.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,101 +79,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261125-smp2p-ssr-reset-v1-1-ed442ed77950@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXM0QqCQBBG4VeRuW7AHXKRXiW6cPW3RsiWGYtAf
- HfXuvwuzlnJYQqnS7WS4aOur7kgnCrqH918B+tQTFJLDEEa9meWzO7GBsfCsYnn1NUtUhAqVTa
- M+v0dr7e//Z0m9MuxoW3bAZY5wDRzAAAA
-X-Change-ID: 20261125-smp2p-ssr-reset-6564ba08eb12
-To: Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
- Deepak Kumar Singh <deepak.singh@oss.qualcomm.com>, 
- Chris Lew <chris.lew@oss.qualcomm.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Fabricio Akio <fabricioakio@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795661423; l=2678;
- i=fabricioakio@gmail.com; s=20260928; h=from:subject:message-id;
- bh=Q1U2Pn/P1zafs/QofbW7Fr6+lX5ctVwV3JDZo//cqlw=;
- b=fvQpswV/HFL8fUj6KP2gcsjHea7zGyKS1Mz8UbNpHenHk50qWSa9BJc/b7Q/mIkTGo/QR93Yz
- sfdHHbhs5EgA9MGXbnRBqUwdathOTYkjwdQVBGLvoqvwdH6nJ2uD2tI
-X-Developer-Key: i=fabricioakio@gmail.com; a=ed25519;
- pk=TlMUT8bPI/ZQzp2q24BIQTb2qSx/jdUTBlGEXIRCm54=
-X-Endpoint-Received: by B4 Relay for fabricioakio@gmail.com/20260928 with
- auth_id=1076
-X-Original-From: Fabricio Akio <fabricioakio@gmail.com>
-Reply-To: fabricioakio@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Fabricio Akio <fabricioakio@gmail.com>
+Commit f3d0f753f066 ("vxlan: Enable BIG TCP packets") and
+commit 03ebe91b0f61 ("geneve: Enable BIG TCP packets") allowed BIG TCP
+on UDP tunnels. ipip can carry BIG TCP packets as well: the outer IPv4
+header gets its total length from iph_set_totlen() on output, the GSO
+and GRO paths already handle IPv4 BIG TCP, and FOU and GUE encapsulation
+set the UDP length with udp_set_len() since commit 47282504ad21 ("udp:
+Support BIG TCP GSO packets where they can occur").
 
-Once the SSR ack feature is negotiated, qcom_smp2p_check_ssr() clears
-last_value of every inbound entry on each interrupt. Every bit that is
-set is then reported as a new rising edge whenever the remote signals
-anything: on the SDM630 ADSP, stopping the DSP raises its ready and
-handover interrupts again.
+Bump tso_max_size up to GSO_MAX_SIZE so that the admin can use BIG TCP
+with ipip. The default gso_max_size and gso_ipv4_max_size stay at 64KB,
+so nothing changes unless they are raised explicitly.
 
-Clear the values only when a restart of the remote is detected.
+iperf3 TCP over ipip between two netns connected by veth, without
+encapsulation, 3 runs of 10 seconds each, in a KVM guest with 8 vCPUs
+on an Intel Core i7-14700 host:
 
-Fixes: 42c4cf5d4828 ("soc: qcom: smp2p: Add support for smp2p v2")
-Signed-off-by: Fabricio Akio <fabricioakio@gmail.com>
+  gso_max_size/gso_ipv4_max_size 65536:   94.2,  97.4,  97.2 Gbit/s
+  gso_max_size/gso_ipv4_max_size 196608: 133.7, 128.5, 130.5 Gbit/s (+36%)
+
+A later patch in this series extends big_tcp_tunnels.sh to cover ipip
+without encapsulation, and with FOU and GUE.
+
+Reviewed-by: Alice Mikityanska <alice.kernel@fastmail.im>
+Signed-off-by: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
 ---
-In v1 and v2 of the series that added the reset it ran only when a
-restart was detected and the remote's version was above 1; v3 dropped
-both conditions:
-https://lore.kernel.org/r/20250923-smp2p-v1-2-2c045af73dac@oss.qualcomm.com
-https://lore.kernel.org/r/20251103152929.2434911-3-deepak.singh@oss.qualcomm.com
-https://lore.kernel.org/r/20260127-smp2pv2-v3-2-4060b859b1e2@oss.qualcomm.com
+ net/ipv4/ipip.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Tested on a Motorola Moto X4 (SDM630), whose board file is not in
-mainline yet, on sdm660-mainline's 7.2 kernel, the same build with and
-without this patch. Stopping the ADSP:
-
-  without: smp2p_notify_in: smp2p-adsp: slave-kernel: status:0x86 val:0x86
-  with:    smp2p_notify_in: smp2p-adsp: slave-kernel: status:0x80 val:0x86
-
-Without it the ready and handover interrupts are counted again, and that
-kernel, which predates bb7c5d6f5b41 ("remoteproc: qcom: q6v5: Make
-handover IRQ one-shot"), logs "Handover signaled, but it already
-happened". With it, every start of the ADSP after a stop or a crash
-still traces "SSR detected" and raises ready.
-
-The ADSP's smp2p item reports version 1. No version 2 remote was tested:
-that such a remote's restart is still detected, so that the reset still
-runs for it, is taken from the description of 42c4cf5d4828.
----
- drivers/soc/qcom/smp2p.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/soc/qcom/smp2p.c b/drivers/soc/qcom/smp2p.c
-index cf06a49149be..d7f7345104e0 100644
---- a/drivers/soc/qcom/smp2p.c
-+++ b/drivers/soc/qcom/smp2p.c
-@@ -194,13 +194,16 @@ static bool qcom_smp2p_check_ssr(struct qcom_smp2p *smp2p)
+diff --git a/net/ipv4/ipip.c b/net/ipv4/ipip.c
+index 15189e1fa06..74af06b1d94 100644
+--- a/net/ipv4/ipip.c
++++ b/net/ipv4/ipip.c
+@@ -416,6 +416,7 @@ static void ipip_tunnel_setup(struct net_device *dev)
+ 	dev->addr_len		= 4;
+ 	dev->lltx		= true;
+ 	netif_keep_dst(dev);
++	netif_set_tso_max_size(dev, GSO_MAX_SIZE);
  
- 	restart_done = in->flags & BIT(SMP2P_FLAGS_RESTART_DONE_BIT);
- 	restart = restart_done != smp2p->ssr_ack;
-+	if (!restart)
-+		return false;
-+
- 	list_for_each_entry(entry, &smp2p->inbound, node) {
- 		if (!entry->value)
- 			continue;
- 		entry->last_value = 0;
- 	}
- 
--	return restart;
-+	return true;
- }
- 
- static void qcom_smp2p_do_ssr_ack(struct qcom_smp2p *smp2p)
+ 	dev->features		|= IPIP_FEATURES;
+ 	dev->hw_features	|= IPIP_FEATURES;
+-- 
+2.43.0
 
----
-base-commit: 909ef7a9a30fa139e69e555e3606680f5cca7726
-change-id: 20261125-smp2p-ssr-reset-6564ba08eb12
-
-Best regards,
---  
-Fabricio Akio <fabricioakio@gmail.com>
 
 
