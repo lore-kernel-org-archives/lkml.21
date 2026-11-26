@@ -1,48 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795691874;
-	b=pW3VTe9Un8akPfZie8rkH4nSaCQuKyroyCdG9WQAPeOPYg4DsPmGMQvIgoCnvBCvgBxW
-	 WXFbnKxDjxUNexfosso3jQfLmh8+dP9W8gCJ7wBgVqFU8KwtLQq4xDtPjCBjSi+ucW/Zf
-	 x3HX5Gqn/MP00pdEjtMKcd7NaTvLPBdI2N/e/z+2DcD/++br18Gc8HG7QzrqDFJJWsDh1
-	 YWyKZz/Yc8HpJ566q0bBC3bOgGpVoBcl0gk8gbTghfj9mb3w/vO9MB9lSPIzTXIzdPgQW
-	 ihdH6aCu8C0qH12fWg1QsvLkn4YCVSvvVnF4A+hwPA6lKAt1JyhSECs7+FBapUbpNdw==
+	t=1795691879;
+	b=0gX6Jkm3D3mSqQsZfO1qWtWIHSyxMJfM5zeoEuiDy8KNYmDvSS2jOSS9yQtYggIArT3W
+	 B/BT2zZxvaqL9E8jnVOrlr0VyiX8iU1rn+haFWnRb2fjV7kPGhAYOUQFvhRUmpdpsSl00
+	 lywDOONRzktA3z2B3zN+yRInOYIu+9pFECHYFfF5Xk/Kjomhbpxra6ZXKWDcbNSDW/f8y
+	 uBjDAI79U6P9guw5qjocjcvWhZ3Ig8X+o8ZkvQXmTPUYXi8kHO2nZRxhZ8ZqnxnPSdQXu
+	 JH/Fo/Gm213nfQrsvllqIuZ6OnYXQ5uFM2dnZOqrFjk+wuTA2Pb1N4ZDroqJlvgehCA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795691874;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer;
-	bh=9zfNRstAKqDcmy9+oyhz/qeqyjNth/cpMelt2bCIyNU=;
-	b=y23gbrJkN1PGhUWEr16SmTg4rXTxkanw4dUst8+guGGgfL+gtI9RswTCBvQGjMlvPqLq
-	 CwivF1euzM+V7M95ZwHSsOqVFpgc1hq3056EJUyXSjKZAbR6eRGVOJM4yLxzNXdWRmaJK
-	 43bB1ZjIiRy7a3aRpOBjNa0gyTapblxPFiBNTbEV9BvREAnDxfocUxKY5dmRV3X1Nlhhx
-	 2vyblwEL3go/3RUaWAnZkZfacdN3JVRew3mYdOlaEEVBtzCeeiaAEH7eHJdRBmOED8K5h
-	 NXAcsy66jFMN2ybNwbbqvvMDCccSQN0WkwCmPOK3I2aanLts/RJ1924dNxKvzyj+fUw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795691879;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:
+	 Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=F6HQWOoh/nVaYmp7DoAInfPCXZizy4+b0/OF/6XosPg=;
+	b=RcQ2s7883I3uxhzUY8OrTfMQBYiCLnys6S0LEWPaMn41h8qg/j8fByLO4/GM7YTW+HoR
+	 ihV5sx99qRg/aKi9d1GBsGb6d4C2iddkAtHBxgxTkNG1k+xw+8cIjGIKme0ECiB9PRIAi
+	 5NOQqP8r7IIgAp4BYkJEZfJPtiQgER/EcVEnJDaTDfs/JGIFylGBcFUNIXcwa2nJjT7ar
+	 TL0yjonlWv55BPEau3PPjnsgnlKkwZRLV7yIrMtj3QVUrN64mcBRaGoiieNLF0FFz8Z66
+	 nJu0c+aulB5eGPgrI8mYxLE/MpX3ac74PwMIk79sF/YJzidaSeWEc/s4Nl0rYYGsW8Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dcbFXVnB;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XhGcJM43;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=EJ0eup97;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84B2D606A31C;
-	Thu, 26 Nov 2026 11:17:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF68B606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:17:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF68B606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dcbFXVnB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 611F21F000E1;
-	Thu, 26 Nov 2026 11:17:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795691873;
-	bh=9zfNRstAKqDcmy9+oyhz/qeqyjNth/cpMelt2bCIyNU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=dcbFXVnBfT1s7qKP7tGcScBMYsU83rp+fAcwT8XfmGgLYSyRFs2M34BJKHaYR1hx1
-	 vp8GF7QJE3guwpFZAe++MU3SqjiPtcOiwRin1GwI799quo5MZHZHBaRkVOdTdWfWWd
-	 GMHQ5SBrChd4mT0GlRsOOR7pMITn4eIhjeoWzeBjsmXB0VBQ6c4OKtSnxPyAl75j2S
-	 wDOmfVxdRgbTFn+2BPKktPtPiMe0wf1JoVKZ1WwQgDhLKTyq9iQKDhorfgp+xK9wAn
-	 uqVNctkLJRbanUPFy8ocO3T2Kmt9oyn3dnUyJU1cHp3jR+GoT1mD4ysP5dke6uFihc
-	 xuzDO44U7LRBA==
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Thu, 26 Nov 2026 13:14:34 +0200
-Subject: [PATCH RFC v2 21/54] x86/mm/pat: introduce struct cpa_leaf
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XhGcJM43;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=EJ0eup97
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQBHwIK1465861
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:17:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=F6HQWOoh/nVaYmp7DoAInf
+	PCXZizy4+b0/OF/6XosPg=; b=XhGcJM43jdP1k7yXgmQF1m013hRvHlqR2umUxE
+	s6Qi7GhW6w/ty14OI2hfcBy+p8dOeYFop3EdGvGpWXdePKDA1oZSgyUCNpsL3PMy
+	MArZ9COR7KAPMjKfUSIBJyj45BNorlCwkSmnj/8+BFZUz7ui8/UTaktjWjLSrg5v
+	cfjyWjZc+WJ10hZfjjqjs8WO8AgRrBxsNzm5rTwozMuT2pSCMiTmsT2h0u8UXI1R
+	YJ9AWaVKXD1AYWGzjzpP9/2IEB8vMgya/5CaL1Kj7Aykm/hHlCXxtpCTKeVT/EBG
+	2p2aIk+48FuJ0C55lJegpNK0fx4r6/ZY4bf7HTnA5T18J0nQ==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j662y2tfx-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:17:56 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-55ca6405c20so132829151cf.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:17:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795691841; x=1796296641; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=F6HQWOoh/nVaYmp7DoAInfPCXZizy4+b0/OF/6XosPg=;
+        b=EJ0eup97m3mkZbO6fHiyJmJaMCvIF1j4iNH+PyqK81VC/5KVqCgLxZ3Z0p/aO96mra
+         0WCyiMDJFtzYXDE6TaNWtlZqmpRYaHGvNMBU1RQlETid2S+Vhzh8k5HuLLa7N2F5Zpdi
+         0XAUkXI7joyCrZOv5eCAOemoQxadLU5fptoMJkj+7XoUfsHXjtIEVRkkTIxMs2EsX13F
+         6fm4SWSwK+/bt9xl+XpMFjGvmKZTncguACHzQEFtJcDwvSy2IEM54Du8HUIq3lVhiIVy
+         s7vDBS3bZigCw8wWe5AGDlC/ymlHJm6h/m0iWSzROsUMBjKYk+SeOJUfM8MKU8oyzcf8
+         ierA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795691841; x=1796296641;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=F6HQWOoh/nVaYmp7DoAInfPCXZizy4+b0/OF/6XosPg=;
+        b=vp+sRIFW+xqtTX6RifTM6Yj3mdDFUyL8j1gn0E7JrArATXEMDtNDrPyAfNyVnLoM6M
+         877MmOqDqhRQ+iQWJvgSkghRVfmryIPEoCzv47e4JS7KByRASeXFp/pA8u/e2V8s1naZ
+         AOIGkvpN9ho/98LpH1uKqrlSWWRQIjg5oz+eSmPYHhx0Mb2mp0Ps7Q8PlU7itv0LFG5M
+         IE7PyGNh4ULqYivS+gmEOXeOJblim2chB/AqA8BHf+UXfj9V8MBZFGabue1c1d7E+o0m
+         W76p/XWh1WZix68bmNtNmUdpoD0e3ZgK1Mi5Ujyn54dsJrPknM5hwAeiAJyAplZEQnzs
+         zTpw==
+X-Forwarded-Encrypted: i=1; AL+hErHa/zHDwtgzqV8x7tCS7lJnYkANh+JrLIq+rwMD5+YxmOGOEGx796n35k1y6gKLR/VGYzv5QwHNk5nD46g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+TtHNM/Bj97Gju3wFtc4SP2i8YHE/OIzMJBTuDR85jfjnragGt
+	v7ofwgBBtLmMWIA2MOblyneFHLWuComnzfi/+MzVxDrAjKIQkJk6g2jWcCf8w/3Ih/mGFzGktF+
+	dklF1olabZUfeCo6ZYl0Q4cHkZ0l0yiz8xJWOQKNvlwIa/3kJBUEO28yPR34wGzaB6i4=
+X-Gm-Gg: AZFdTZfGgFTm02I7gw+Ard3BPIOC35zFhBMTGjqQOeMj9BgkoFni+Z/uWaydO6SNAeZ
+	9qnmnL9Q2IDJyz7NJoh6wQa2izA1cy56IfjH7VCF+m3sSqpyv2GbIBoDYKfyrTZQRPWbtKUtLwB
+	CyZvqhuz95HbxvCXtgDJM7fE3GP27TH+dUC+sqnIyEapyp8XOx4vOCj0kjGGEvhVFU/EYjHQ7dn
+	dXw0d2FdK1bLjHaKIAJLtc2qnDR/bzbjagcHojI2KkHi3FFrzfGY+k2io12HLSrFgcrN/v2vZjr
+	jmrEyiwruACx+UaLYWoZ7appN5FR6gMwhEH2avCOhvju6Lesze2c+IhqxcvpZF/XbqSdfAWdHdf
+	TTCd8Zi33sXatrBrjAlX5t+hAGW0QbWozIeSwSWa0tQDiWr8ARxxNFmkNA6ewEViaM19bL2bLMQ
+	heGdKFD/IonPJr+Rj+KQZ7NPHWesPyNQoGQwHuDD6vgQ==
+X-Received: by 2002:a05:622a:60e:b0:55d:3347:813a with SMTP id d75a77b69052e-55d76a3a0c4mr347524271cf.27.1795691840979;
+        Thu, 26 Nov 2026 03:17:20 -0800 (PST)
+X-Received: by 2002:a05:622a:60e:b0:55d:3347:813a with SMTP id d75a77b69052e-55d76a3a0c4mr347524011cf.27.1795691840481;
+        Thu, 26 Nov 2026 03:17:20 -0800 (PST)
+Received: from WENMLIU-LAB01.ap.qualcomm.com (Global_NAT1_IAD_FW.qualcomm.com. [129.46.232.65])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d788506b0sm177653661cf.17.2026.11.26.03.17.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 03:17:19 -0800 (PST)
+From: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
+Subject: [PATCH v6 0/3] media: camss: add support for purwa platform
+Date: Thu, 26 Nov 2026 19:15:56 +0800
+Message-Id: <20261126-purwa_camss-v6-0-5ab97aea3832@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,377 +117,116 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-generic-set-memory-v0-1-v2-21-723f1e33c3d8@kernel.org>
-References: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
-In-Reply-To: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
-To: linux-mm@kvack.org
-Cc: =?utf-8?q?Adrian_Barna=C5=9B?= <abarnas@google.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
- Borislav Petkov <bp@alien8.de>, Brendan Jackman <brendan.jackman@linux.dev>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- David Hildenbrand <david@kernel.org>, 
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
- Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, 
- Ingo Molnar <mingo@kernel.org>, Kevin Brodsky <kevin.brodsky@arm.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, Michal Hocko <mhocko@suse.com>, 
- Mike Rapoport <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <pjw@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Russell King <linux@armlinux.org.uk>, 
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@kernel.org>, 
- Vasily Gorbik <gor@linux.ibm.com>, Vlastimil Babka <vbabka@kernel.org>, 
- Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, x86@kernel.org
-X-Mailer: b4 0.16.1-dev
+X-B4-Tracking: v=1; b=H4sIAOwUCGsC/3XQ22rDMAwG4Fcpvp6L5fqUXe09xhiOrKyGpWntx
+ l0pefe6B9YF1hvBL6FPoBPLlCJl9ro4sUQl5jhsajAvC4Zrv/kiHkPNTApphBIN347p4D/R9zl
+ zZbV1tnWWQLG6sU3UxZ+r9v5xy4l2Y0X3j+Y65v2QjteLBS7dOw5ihhfgghMF7ExogiN6G3Je7
+ kb/jUPfL2thF67IB6EB5oSshKwD59sGpMEnhPolQAg3J1QlWuwA2k6i0eIJof8S8y8VXQntEFY
+ BLaog/yGmaToDYOqkOosBAAA=
+X-Change-ID: 20260409-purwa_camss-475787b87e14
+To: Bryan O'Donoghue <bod@kernel.org>,
+        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Loic Poulain <loic.poulain@oss.qualcomm.com>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>,
+        Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, Jesse Casco <jesse.casco@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795691835; l=2664;
+ i=wenmeng.liu@oss.qualcomm.com; s=20250925; h=from:subject:message-id;
+ bh=e72/IVoD6rcZ+Oh4llx7EJwNmBV/vw8PD6UK3LycWug=;
+ b=YBlONCQpr1RWzGpk1UyNhSH2MlinyHN+gFz2o/do4aFWwXowPSWu44Nz8s37pTKru4OhPmxNI
+ gWRheYSvhwEBRbgEVMeJ2KXUkpMpk9qR8Pu5JafmniYGL48m2NJ2Cfi
+X-Developer-Key: i=wenmeng.liu@oss.qualcomm.com; a=ed25519;
+ pk=fQJjf9C3jGDjE1zj2kO3NQLTbQEaZObVcXAzx5WLPX0=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA0MyBTYWx0ZWRfX76I7pNt58hTD
+ YIAvuLzfpPo2PtpS4YCy7PwajbRU1G5+KEDK0MqUxMPl6OUiR72waCJdTqaZK7IyRLhlA//f9DB
+ atSpbVN1AqLph9M7cftDciMU+E8dC+sJnKoPM8TzhktQ4iE3jp+3nzDDhQ+8+Ll6L0P69IimaPO
+ JnGbuhkW86GugTuyGmljZ/S5vPYG0YrsV8MdVQrTvITSDfAvStbcDcPHU2sU3xQVa/OSNuGn9Kc
+ 59WylBpTcJ/bbbv7FcFFZc+FHfM6aemHeFna9oikbzlLMO7uuePFtrLzFDCdOc6gjIPjkdNmVFE
+ 04TjnFwWhGlivl1RVgipqZeE5hqUTa9f8yUwH6wCSfjuT6boiGTQ4MGe5cIHZ4lh281DuFa8rdf
+ SjpkMw9MwYvdVdjzztMsgGG2xiBIn6MEMLj5owzsBVyTEi1Uo1MlKHzjoPct8aKiy7OC9PnAe4G
+ xgykHftge+EQhGElyGg==
+X-Proofpoint-GUID: GUQlmpu67kBt7m6skTYCMlWRHLTLpF5T
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA0MyBTYWx0ZWRfXxElopw9R82sc
+ BQ9MGz2SC0TJSDt+lFcQ1jOkFcxt0v+PwGsDuH88cJUj1BpvWbeuIutKupeOJPnPFQ0F1S/iykb
+ oywtrDYcTz2KOacfWs89KCSEHavVvxw=
+X-Proofpoint-ORIG-GUID: GUQlmpu67kBt7m6skTYCMlWRHLTLpF5T
+X-Authority-Analysis: v=2.4 cv=W/KtxhWk c=1 sm=1 tr=0 ts=6b081564 cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=C3Dk8TwHQYyIj7nOf9RCJw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8 a=-azpoqUCswQaV0tqBYUA:9
+ a=QEXdDO2ut3YA:10 a=dawVfQjAaf238kedN5IG:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_02,2026-11-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 impostorscore=0 phishscore=0 malwarescore=0 adultscore=0
+ suspectscore=0 spamscore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260043
 
-The functions that handle a mapping found by the CPA lookup get the page
-table entry, its level and the address. Each of them decodes the pfn and
-the protection again.
+This series adds camss support for purwa platform.
 
-Add struct cpa_leaf that describes the mapping and is filled once by
-cpa_lookup().
+Validated on the Purwa EVK with the OG0VA1B sensor and Hamoa EVK with
+IMX577 sensor.
 
-The leaf keeps the protection in the 4K format at every level, so the large
-page path applies the requested changes as is and converts the resulting
-protection to the large page format only to write a page table entry.
-
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- arch/x86/mm/pat/set_memory.c | 194 ++++++++++++++++++++++---------------------
- 1 file changed, 100 insertions(+), 94 deletions(-)
+Changes in v6:
+- Rebase on bryan/camss-next; drop the dt-bindings patch, already applied.
+- Include Jesse's "x1e80100: Use the lite clocks for the lite CSIDs" as a
+  dependency, already reviewed:
+  https://lore.kernel.org/all/bf48f3c809f33c060e2944e5896f8a5a93fd78ea.1795196107.git.jesse.casco@gmail.com/
+- New patch: use the HW CSID index for the CSID 680 wrapper IO path
+  config, the lite CSIDs program the wrong register since CSID2 was
+  dropped from the X1E80100 resources.
+- X1P42100: set the CSID hw_id, and use the vfe_lite_csid and
+  vfe_lite_cphy_rx clocks for the lite CSIDs.
+- X1P42100: align the clock rates with the X1P42100 camcc frequency tables.
+- Link to v5: https://lore.kernel.org/r/20261009-purwa_camss-v5-0-58c13dc7c4d2@oss.qualcomm.com
 
-diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index 44e350c54899..304b7ad26c45 100644
---- a/arch/x86/mm/pat/set_memory.c
-+++ b/arch/x86/mm/pat/set_memory.c
-@@ -51,6 +51,15 @@ struct cpa_data {
- 	unsigned int	state;
- };
- 
-+struct cpa_leaf {
-+	pte_t			*kpte;
-+	enum pgtable_level	level;
-+	unsigned long		addr;
-+	unsigned long		size;
-+	unsigned long		pfn;
-+	pgprot_t		prot;
-+};
-+
- enum cpa_warn {
- 	CPA_PROTECT,
- 	CPA_DETECT,
-@@ -887,12 +896,53 @@ static pte_t *cpa_lookup_in_pgd(pgd_t *pgdp, unsigned long address,
- 	return pte_offset_kernel(pmdp, address);
- }
- 
--static pte_t *_lookup_address_cpa(struct cpa_data *cpa, unsigned long address,
--				  enum pgtable_level *level)
-+static void cpa_decode_leaf(struct cpa_leaf *leaf)
-+{
-+	enum pgtable_level level = leaf->level;
-+	pte_t *kpte = leaf->kpte;
-+	pte_t pte;
-+	pmd_t pmd;
-+	pud_t pud;
-+
-+	switch (level) {
-+	case PGTABLE_LEVEL_PTE:
-+		pte = *kpte;
-+		leaf->pfn = pte_pfn(pte);
-+		leaf->prot = pte_pgprot(pte);
-+		break;
-+	case PGTABLE_LEVEL_PMD:
-+		pmd = *(pmd_t *)kpte;
-+		leaf->pfn = pmd_pfn(pmd);
-+		leaf->prot = pgprot_large_2_4k(pmd_pgprot(pmd));
-+		break;
-+	case PGTABLE_LEVEL_PUD:
-+		pud = *(pud_t *)kpte;
-+		leaf->pfn = pud_pfn(pud);
-+		leaf->prot = pgprot_large_2_4k(pud_pgprot(pud));
-+		break;
-+	default:
-+		leaf->pfn = 0;
-+		leaf->prot = __pgprot(0);
-+		break;
-+	}
-+}
-+
-+static pte_t *cpa_lookup(struct cpa_data *cpa, unsigned long address,
-+			 struct cpa_leaf *leaf)
- {
- 	pgd_t *pgd = cpa_pgd(cpa, address);
- 
--	return cpa_lookup_in_pgd(pgd, address, level);
-+	leaf->kpte = cpa_lookup_in_pgd(pgd, address, &leaf->level);
-+	if (!leaf->kpte)
-+		return NULL;
-+	if (leaf->level == PGTABLE_LEVEL_PTE && pte_none(ptep_get(leaf->kpte)))
-+		return NULL;
-+
-+	leaf->size = pgtable_level_size(leaf->level);
-+	leaf->addr = address & pgtable_level_mask(leaf->level);
-+	cpa_decode_leaf(leaf);
-+
-+	return leaf->kpte;
- }
- 
- /*
-@@ -1035,53 +1085,36 @@ static pte_t cpa_pte(enum pgtable_level level, unsigned long pfn, pgprot_t prot)
- 	return pfn_pte(pfn, prot);
- }
- 
--static int should_split_large_page(pte_t *kpte, unsigned long address,
--				   enum pgtable_level level,
--				   struct cpa_data *cpa)
-+static int should_split_large_page(struct cpa_data *cpa, struct cpa_leaf *leaf)
- {
--	unsigned long numpages, pmask, psize, lpaddr, pfn, old_pfn;
--	pgprot_t old_prot, new_prot, req_prot;
-+	unsigned long address = __cpa_addr(cpa, cpa->curpage);
-+	enum pgtable_level level = leaf->level;
-+	unsigned long lpaddr = leaf->addr;
-+	unsigned long old_pfn = leaf->pfn;
-+	unsigned long psize = leaf->size;
-+	pgprot_t old_prot = leaf->prot;
-+	unsigned long numpages, pfn;
-+	pgprot_t new_prot, req_prot;
-+	pte_t *kpte = leaf->kpte;
- 	pte_t new_pte;
- 
- 	if (cpa->flags & CPA_REQ_SPLIT)
- 		return 1;
- 
--	switch (level) {
--	case PGTABLE_LEVEL_PMD:
--		old_prot = pmd_pgprot(*(pmd_t *)kpte);
--		old_pfn = pmd_pfn(*(pmd_t *)kpte);
--		break;
--	case PGTABLE_LEVEL_PUD:
--		old_prot = pud_pgprot(*(pud_t *)kpte);
--		old_pfn = pud_pfn(*(pud_t *)kpte);
--		break;
--	default:
-+	if (level != PGTABLE_LEVEL_PMD && level != PGTABLE_LEVEL_PUD)
- 		return -EINVAL;
--	}
- 
- 	cpa_inc_pxd_checked(level);
- 
--	psize = pgtable_level_size(level);
--	pmask = pgtable_level_mask(level);
--
- 	/*
- 	 * Calculate the number of pages, which fit into this large
- 	 * page starting at address:
- 	 */
--	lpaddr = (address + psize) & pmask;
--	numpages = (lpaddr - address) >> PAGE_SHIFT;
-+	numpages = (lpaddr + psize - address) >> PAGE_SHIFT;
- 	if (numpages < cpa->numpages)
- 		cpa->numpages = numpages;
- 
--	/*
--	 * We are safe now. Check whether the new pgprot is the same:
--	 * Convert protection attributes to 4k-format, as cpa->mask* are set
--	 * up accordingly.
--	 */
--
--	/* Clear PSE (aka _PAGE_PAT) and move PAT bit to correct position */
--	req_prot = pgprot_large_2_4k(old_prot);
--
-+	req_prot = old_prot;
- 	pgprot_val(req_prot) &= ~pgprot_val(cpa->mask_clr);
- 	pgprot_val(req_prot) |= pgprot_val(cpa->mask_set);
- 
-@@ -1092,11 +1125,6 @@ static int should_split_large_page(pte_t *kpte, unsigned long address,
- 	pfn = old_pfn + ((address & (psize - 1)) >> PAGE_SHIFT);
- 	cpa->pfn = pfn;
- 
--	/*
--	 * Calculate the large page base address and the number of 4K pages
--	 * in the large page
--	 */
--	lpaddr = address & pmask;
- 	numpages = psize >> PAGE_SHIFT;
- 
- 	/*
-@@ -1105,7 +1133,7 @@ static int should_split_large_page(pte_t *kpte, unsigned long address,
- 	 * required independent of alignment and length of the requested
- 	 * range.
- 	 */
--	if (pgprot_val(req_prot) == pgprot_val(pgprot_large_2_4k(old_prot))) {
-+	if (pgprot_val(req_prot) == pgprot_val(old_prot)) {
- 		cpa_inc_pxd_sameprot(level);
- 		return 0;
- 	}
-@@ -1147,44 +1175,25 @@ static int should_split_large_page(pte_t *kpte, unsigned long address,
- }
- 
- static int
--__split_large_page(struct cpa_data *cpa, pte_t *kpte, unsigned long address,
--		   enum pgtable_level level, pte_t *pbase)
-+__split_large_page(struct cpa_data *cpa, struct cpa_leaf *leaf, pte_t *pbase)
- {
--	unsigned long ref_pfn, pfn, pfninc = 1;
-+	unsigned long address = __cpa_addr(cpa, cpa->curpage);
- 	struct page *base = virt_to_page(pbase);
--	pgprot_t ref_prot;
-+	enum pgtable_level level = leaf->level;
-+	unsigned long pfn = leaf->pfn;
-+	pgprot_t prot = leaf->prot;
-+	pte_t *kpte = leaf->kpte;
-+	unsigned long pfninc;
- 	unsigned int i;
- 
--	paravirt_alloc_pte(&init_mm, page_to_pfn(base));
--
--	switch (level) {
--	case PGTABLE_LEVEL_PMD:
--		ref_prot = pmd_pgprot(*(pmd_t *)kpte);
--		/*
--		 * Clear PSE (aka _PAGE_PAT) and move
--		 * PAT bit to correct position.
--		 */
--		ref_prot = pgprot_large_2_4k(ref_prot);
--		ref_pfn = pmd_pfn(*(pmd_t *)kpte);
--		break;
--
--	case PGTABLE_LEVEL_PUD:
--		ref_prot = pud_pgprot(*(pud_t *)kpte);
--		ref_pfn = pud_pfn(*(pud_t *)kpte);
--		pfninc = PMD_SIZE >> PAGE_SHIFT;
--		ref_prot = pgprot_large_2_4k(ref_prot);
--		break;
--
--	default:
-+	if (level != PGTABLE_LEVEL_PMD && level != PGTABLE_LEVEL_PUD)
- 		return -EINVAL;
--	}
- 
--	/*
--	 * Get the target pfn from the original entry:
--	 */
--	pfn = ref_pfn;
-+	paravirt_alloc_pte(&init_mm, page_to_pfn(base));
-+
-+	pfninc = pgtable_level_size(level - 1) >> PAGE_SHIFT;
- 	for (i = 0; i < PTRS_PER_PTE; i++, pfn += pfninc)
--		set_pte(pbase + i, cpa_pte(level - 1, pfn, ref_prot));
-+		set_pte(pbase + i, cpa_pte(level - 1, pfn, prot));
- 
- 	if (within(address, PAGE_OFFSET,
- 		   PAGE_OFFSET + (max_pfn_mapped << PAGE_SHIFT)))
-@@ -1222,10 +1231,11 @@ __split_large_page(struct cpa_data *cpa, pte_t *kpte, unsigned long address,
- 	return 0;
- }
- 
--static int split_large_page(struct cpa_data *cpa, pte_t *kpte,
--			    unsigned long address)
-+static int split_large_page(struct cpa_data *cpa, struct cpa_leaf *leaf)
- {
--	enum pgtable_level level;
-+	unsigned long address = __cpa_addr(cpa, cpa->curpage);
-+	pte_t *kpte = leaf->kpte;
-+	struct cpa_leaf tmp;
- 	pte_t *pte;
- 	int ret = 0;
- 
-@@ -1239,10 +1249,11 @@ static int split_large_page(struct cpa_data *cpa, pte_t *kpte,
- 	 * Check for races, another CPU might have split this page
- 	 * up for us already:
- 	 */
--	if (_lookup_address_cpa(cpa, address, &level) != kpte)
-+	if (cpa_lookup(cpa, address, &tmp) != kpte)
- 		goto out;
-+	*leaf = tmp;
- 
--	ret = __split_large_page(cpa, kpte, address, level, pte);
-+	ret = __split_large_page(cpa, leaf, pte);
- 	if (ret)
- 		goto out;
- 
-@@ -1851,26 +1862,21 @@ static int __cpa_process_fault(struct cpa_data *cpa, unsigned long vaddr)
- 
- static int __change_page_attr(struct cpa_data *cpa)
- {
--	enum pgtable_level level;
- 	unsigned long address;
--	pte_t *kpte, old_pte;
--	int do_split, err;
-+	struct cpa_leaf leaf;
-+	int do_split, ret;
- 
- 	address = __cpa_addr(cpa, cpa->curpage);
- repeat:
--	kpte = _lookup_address_cpa(cpa, address, &level);
--	if (!kpte)
-+	if (!cpa_lookup(cpa, address, &leaf))
- 		return __cpa_process_fault(cpa, address);
- 
--	old_pte = *kpte;
--	if (pte_none(old_pte))
--		return __cpa_process_fault(cpa, address);
--
--	if (level == PGTABLE_LEVEL_PTE) {
-+	if (leaf.level == PGTABLE_LEVEL_PTE) {
-+		pte_t old_pte = *leaf.kpte;
-+		pgprot_t old_prot = leaf.prot;
-+		pgprot_t new_prot = leaf.prot;
-+		unsigned long pfn = leaf.pfn;
- 		pte_t new_pte;
--		pgprot_t old_prot = pte_pgprot(old_pte);
--		pgprot_t new_prot = pte_pgprot(old_pte);
--		unsigned long pfn = pte_pfn(old_pte);
- 
- 		pgprot_val(new_prot) &= ~pgprot_val(cpa->mask_clr);
- 		pgprot_val(new_prot) |= pgprot_val(cpa->mask_set);
-@@ -1887,13 +1893,13 @@ static int __change_page_attr(struct cpa_data *cpa)
- 		 * after all we're only going to change its attributes
- 		 * not the memory it points to
- 		 */
--		new_pte = cpa_pte(level, pfn, new_prot);
-+		new_pte = cpa_pte(leaf.level, pfn, new_prot);
- 		cpa->pfn = pfn;
- 		/*
- 		 * Do we really change anything ?
- 		 */
- 		if (pte_val(old_pte) != pte_val(new_pte)) {
--			set_pte_atomic(kpte, new_pte);
-+			set_pte_atomic(leaf.kpte, new_pte);
- 			cpa->state |= CPA_ST_FLUSHTLB;
- 		}
- 		cpa->numpages = 1;
-@@ -1904,7 +1910,7 @@ static int __change_page_attr(struct cpa_data *cpa)
- 	 * Check, whether we can keep the large page intact
- 	 * and just change the pte:
- 	 */
--	do_split = should_split_large_page(kpte, address, level, cpa);
-+	do_split = should_split_large_page(cpa, &leaf);
- 	/*
- 	 * When the range fits into the existing large page,
- 	 * return. cp->numpages and cpa->tlbflush have been updated in
-@@ -1916,11 +1922,11 @@ static int __change_page_attr(struct cpa_data *cpa)
- 	/*
- 	 * We have to split the large page:
- 	 */
--	err = split_large_page(cpa, kpte, address);
--	if (!err)
-+	ret = split_large_page(cpa, &leaf);
-+	if (!ret)
- 		goto repeat;
- 
--	return err;
-+	return ret;
- }
- 
- static int __change_page_attr_set_clr(struct cpa_data *cpa);
+Changes in v5:
+- Set line_num of IFE0 to 3. -- Bryan
+- Introduce CAMSS_CSIPHY_RES_PHY_API() to describe PHY API based csiphy
+  resources and use it for X1P42100. -- Bryan
+- Link to v4: https://lore.kernel.org/r/20261008-purwa_camss-v4-0-bcf11bf2c650@oss.qualcomm.com
 
+Changes in v4:
+- Collect R-b tags from Bryan and Krzysztof on dt-bindings patch.
+- Rebase on linux-next and add Bryan`s vfe patch.
+- Link to v3: https://lore.kernel.org/all/20260930-purwa_camss-v3-0-0fe2a5b11208@oss.qualcomm.com
+
+Changes in v3:
+- Rebased on the latest CSIPHY code.
+- Link to v2: https://lore.kernel.org/r/20260511-purwa_camss-v2-0-22608ab9126c@oss.qualcomm.com
+
+Changes in v2:
+- Based on the old version of csiphy.
+- Remove Src clk. -- Bryan
+- Extend the register block of the VFE. -- Bryan
+- Add comments for IOMMU. -- Bryan
+- Link to v1: https://lore.kernel.org/r/20260410-purwa_camss-v1-0-eedcf6d9d8ee@oss.qualcomm.com
+
+---
+Jesse Casco (1):
+      media: qcom: camss: x1e80100: Use the lite clocks for the lite CSIDs
+
+Wenmeng Liu (2):
+      media: qcom: camss: csid-680: Use HW CSID index for wrapper IO path config
+      media: qcom: camss: Add support for X1P42100 CAMSS
+
+ drivers/media/platform/qcom/camss/camss-csid-680.c |   2 +-
+ drivers/media/platform/qcom/camss/camss-csid.h     |   1 +
+ drivers/media/platform/qcom/camss/camss-vfe.c      |   1 +
+ drivers/media/platform/qcom/camss/camss.c          | 188 ++++++++++++++++++++-
+ drivers/media/platform/qcom/camss/camss.h          |   1 +
+ 5 files changed, 188 insertions(+), 5 deletions(-)
+---
+base-commit: cfa8366bc71063b6078472d60dd47742d883923d
+change-id: 20260409-purwa_camss-475787b87e14
+
+Best regards,
 -- 
-2.53.0
+Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
 
