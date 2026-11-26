@@ -1,61 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795694520;
-	b=g1EkQJu1Ksbrpt9TRd8RzrUv2nWmGJ6pJ2DihnKUrfLN9rrslJxm9iAFlq5gEKLSzhFA
-	 4ycrrzfGsC1SvjCqxN1zYc1YoTSsrwlGUloHakf3J9+T4Ub20hm5z1phSuLPbneCzQ8SR
-	 zd/hdjoL9cT96FKKObvKa4CH3uQYrBtiSCN7WXLeRPO2qjZ1xU+6QF3FzF8C0F20zITVw
-	 XieytZ/ueQ2JF+vvjeKOSlnuW4Sq3Jlsmkn0/zkZ/IkvaPe1gk9pS+V0ke7F1El8zOQmT
-	 IE4kDXC3Og06uWGwyKK/Td8HYfzaIRX/5+BNze2A2SD5YAg/PwvIKKEGSCb7DVB42sw==
+	t=1795694584;
+	b=q9tUoBgMwMupsH72Q7tTyCWgWfDjOUNW1FuyR/T65HAwoOp0WcWIPSNc8uvMlQ5aneI7
+	 OUXl7APRhy4agNYZedO69oEtkm/+g9rPjoGM2MUfxlJm3PVTfQTGyUPnWzZfFIXEzyqK/
+	 hLZEWc9y5l40DyNKUnvMk0cO/QFJ1cbeWkW2U8oMINo4pbGr4xVih6sCKAjgEN2suWy52
+	 ihV7b8XSROXTy4YUkbLpry0sAbP2O0IEoRAt70pWJVSOIUMoTZOQYVYEDjgQPfHXTX6zD
+	 X+G1m4Ii8ws+vEWtc2Vvn8x0X0F4vBcbUaAjxFRwRgzKPyWvnOozpUYs4T63KsYzQ4A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795694520;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type;
-	bh=rwLLekRJb5EKbWEl2SvllkzjNL+TR1iW3hAQliLLc/I=;
-	b=kXCzVYpGmFm7j3z41MIhLVvdVi968vKWzuIfIPMrOwduiXDfXbSP0+ULneVcfE4ij2wc
-	 SoxCsy5jDKzEnzujXmMZUKqhmzumZAJKfjoVLUuE6R6Q/gQ/NchwHRMtlovq+djDP7LfB
-	 cut5S3zaXknp8AnzGpbBkpUoK4PTt+8bvDh7Dc323o6Xt48lEmtfdGpgo454suH/lZR2T
-	 2BDRxA+hiEPEB0mP4UJGfwwgEArfeFWDRwsLg04+rZH20XtBSMdp+QFwJe0VMxyCKpiXg
-	 X6EnkHrZr/fIhAInCQOr8GDkiHNDUJy4aDXuKI4AouUgu+gO8df4Vv1fvP0yVxlfIHQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795694584;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=tjY4VMD6ur+YRo7kgQD4h9llvSvso8DB1Z7wgH/PMD0=;
+	b=kf87O+IXY4GGZE8O1BVj9wQSvYaHkFhs6diTnt0BzBb3JjcMkRpbW+zHxBt23fdg2Suy
+	 dNu0Z1gFwbM/+Mm98zcfrHD5fGhY3HkDwSrz9Rfj378DIKO0ktybLDpruuOPwoEYojPoh
+	 6gYLhfrVChs6rgQkmcYIN97li/hWwjLZPjjVbJhiqG4B+7rHgz6SxOrU563e4iDdKRhXe
+	 irULIkSR1S73A8KVBnkHgKh8MGpAbjm3+zw5HZYyS6KUeXnvqWCtoES35eWjG82qhXfpq
+	 epGfCnCK+v+iGmI6pcPgya32+HGKOuZMSUx7m8wH4xn+Y505xBP2lYMbuogiMtFzPMw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XF+n74bX;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05D7F606A31C;
-	Thu, 26 Nov 2026 12:01:59 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=gxFYgeqM;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id D0C69606A31C;
+	Thu, 26 Nov 2026 12:03:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0C69606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XF+n74bX
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52D1B1F000C0;
-	Thu, 26 Nov 2026 12:01:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795694519;
-	bh=rwLLekRJb5EKbWEl2SvllkzjNL+TR1iW3hAQliLLc/I=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=XF+n74bXNHMwL2XNMo2pWipQHD2kmZUw6j8pPKmXb4RXS3gQDbh/WqOVhZZsl+q9L
-	 kZXGUl6NnLNJ7n9+J2WXkIwcug1BvO4Y7FxqjGxHeoWNP66HykE6biCvwoyr8TXMUY
-	 HnZ1QkXpBjyRk4t1vdgUibi7MipldgOpM2a0dtMa0J/JRhz6n2WkL6gJGVBUXJMnqS
-	 Qg4AKADnzVptSsgWx4uos8XI2HHnfX6PlGw7STDIfpWvqdWCX4APRZfCCpH/JEyAGp
-	 cX/f32Prb9GEsgV6HYeG5JOWXWjNS+DMIdTT0R2CT8ctHKkew5U2MJU+mLSOy/jqOi
-	 VnOGp6aE1BzTQ==
-From: Andreas Hindborg <a.hindborg@kernel.org>
-To: FUJITA Tomonori <tomo@flapping.org>
-Cc: fujita.tomonori@gmail.com, frederic@kernel.org, lyude@redhat.com,
- tglx@kernel.org, anna-maria@linutronix.de, jstultz@google.com,
- sboyd@kernel.org, ojeda@kernel.org, gary@garyguo.net,
- bjorn3_gh@protonmail.com, lossin@kernel.org, aliceryhl@google.com,
- tmgross@umich.edu, dakr@kernel.org, boqun@kernel.org,
- daniel.almeida@collabora.com, tamird@kernel.org, acourbot@nvidia.com,
- work@onurozkan.dev, rust-for-linux@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] rust: time: implement `Debug` for `Delta`
-In-Reply-To: <20261126.202530.1337423276496737821.tomo@flapping.org>
-References: <20261126-time-delta-display-v3-1-aeeecc72f3a8@kernel.org>
- <gTPebCrRzRVm17umQBmxYHsjnRVQuaK5YRL3GXYaDhmHwC6zMxULjOo0NuwitISKnfv7wNvW4jmrU165tp4RIA==@protonmail.internalid>
- <20261126.202530.1337423276496737821.tomo@flapping.org>
-Date: Thu, 26 Nov 2026 13:01:48 +0100
-Message-ID: <87o6bbu7gz.fsf@t14s.mail-host-address-is-not-set>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=gxFYgeqM
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 430FE1C2B;
+	Thu, 26 Nov 2026 04:03:00 -0800 (PST)
+Received: from [10.33.50.35] (e142021.arm.com [10.33.50.35])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 477EB3F632;
+	Thu, 26 Nov 2026 04:03:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795694583; bh=wDze3qxmOarI0bATetDdRV05lJwHBeC8KZ+rhYNobCs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=gxFYgeqMsEQCEYXUnpXyvqF3H5CqESiwrz1XbWaMwrXgkYEkwx6q2vf42m9fJidEf
+	 zhzN3l0m//JFQ+vACJEA/pAJXjxlz9mItF/RTVvIpxypGdMNgWEnvgpBGZeMv0ZuBo
+	 gW97HbZ7ITAkpXb+YYF/3hgVxAKbNiOMqumd3qP8=
+Message-ID: <0defdc40-a96c-4df3-aadf-3c3db3c48b7d@arm.com>
+Date: Thu, 26 Nov 2026 12:02:59 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,54 +53,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] pinctrl: sunxi: Drop unused parameter from
+ sunxi_grp_config_reg()
+To: Alastair D'Silva <alastair@d-silva.org>, Linus Walleij
+ <linusw@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>
+Cc: linux-gpio@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261126104954.441427-1-alastair@d-silva.org>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20261126104954.441427-1-alastair@d-silva.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-"FUJITA Tomonori" <tomo@flapping.org> writes:
+Hi,
 
-> On Thu, 26 Nov 2026 11:51:14 +0100
-> Andreas Hindborg <a.hindborg@kernel.org> wrote:
->
->> +    fn fmt(&self, f: &mut kernel::fmt::Formatter<'_>) -> kernel::fmt::Result {
->> +        let value = U::repr_to_i64(self.value);
->> +
->> +        if value < 0 {
->> +            f.write_str("-")?;
->> +        }
->> +
->> +        // `unsigned_abs` is used because the magnitude of `i64::MIN` is not
->> +        // representable as an `i64`.
->> +        let mut magnitude = value.unsigned_abs();
->> +
->> +        // Split the magnitude into groups of three digits, least significant
->> +        // group first. A `u64` holds at most 20 digits, so 7 groups suffice.
->> +        //
->> +        // Dividing by the constant keeps the compiler from emitting a check for
->> +        // a division by zero with a potential panic.
->> +        let mut groups = [0u64; 7];
->> +        let mut used = 0;
->> +
->> +        for group in groups.iter_mut() {
->> +            *group = magnitude % 1000;
->> +            magnitude /= 1000;
->
-> Code that uses this Debug impl fails to build on 32-bit ARM, for
-> example the doctests:
->
-> ld.lld-20: error: undefined symbol: __aeabi_uldivmod
->>>> referenced by doctests_kernel_generated.ea22ff07120af58c-cgu.0
->>>>               rust/doctests_kernel_generated.o:(<kernel::fmt::Adapter<&kernel::time::Delta<kernel::time::Jiffy>> as core::fmt::Debug>::fmt) in archive vmlinux.a
->
-> div64_u64() in my series [1] should work here:
->
->     let quotient = div64_u64(magnitude, 1000);
->     *group = magnitude - quotient * 1000;
->     magnitude = quotient;
->
-> If you prefer, we could also add div_u64_rem() to the math module.
+On 11/26/26 11:49, Alastair D'Silva wrote:
+> sunxi_grp_config_reg() takes a pctl parameter that is never used.
+> Drop it to match the original signature.
 
-Ah, thanks. I'll re-spin on top of that series, adding the remainder function.
+Ah yeah, looks like a development artefact. It's indeed not needed, so 
+changing it back to where it was makes complete sense.
 
-Best regards,
-Andreas Hindborg
+> Fixes: 8b367fc08be4 ("pinctrl: sunxi: refactor IRQ register accessors")
+> Assisted-by: LLM
+> Signed-off-by: Alastair D'Silva <alastair@d-silva.org>
 
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+
+Cheers,
+Andre
+
+> ---
+>   drivers/pinctrl/sunxi/pinctrl-sunxi.c | 5 ++---
+>   drivers/pinctrl/sunxi/pinctrl-sunxi.h | 3 +--
+>   2 files changed, 3 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> index bf4ec4665e2b..d30a562315aa 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> @@ -763,10 +763,9 @@ static int sunxi_pinctrl_set_io_bias_cfg(struct sunxi_pinctrl *pctl,
+>   		else
+>   			val = 0xD; /* 3.3V */
+>   
+> -		reg = readl(pctl->membase + sunxi_grp_config_reg(pctl, pin));
+> +		reg = readl(pctl->membase + sunxi_grp_config_reg(pin));
+>   		reg &= ~IO_BIAS_MASK;
+> -		writel(reg | val, pctl->membase +
+> -		       sunxi_grp_config_reg(pctl, pin));
+> +		writel(reg | val, pctl->membase + sunxi_grp_config_reg(pin));
+>   		return 0;
+>   	case BIAS_VOLTAGE_PIO_POW_MODE_CTL_INV:
+>   		inverted = true;
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> index 7c2f29e75519..3060cef3705d 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> @@ -328,8 +328,7 @@ static inline u32 sunxi_irq_status_offset(u16 irq)
+>   	return irq_num * IRQ_STATUS_IRQ_BITS;
+>   }
+>   
+> -static inline u32 sunxi_grp_config_reg(const struct sunxi_pinctrl *pctl,
+> -				       u16 pin)
+> +static inline u32 sunxi_grp_config_reg(u16 pin)
+>   {
+>   	u8 bank = pin / PINS_PER_BANK;
+>   
 
