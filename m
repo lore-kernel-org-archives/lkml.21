@@ -1,59 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795720279;
-	b=HFdKwJHsigkJSG24qUxd5w7IN03oVZ25eHfpIiBcGhbXxS1+wQ6h3LU8JfWAVMiBAE6Z
-	 0vJnZknR2Ob+xQYUuY23LpEBqvmgLX1vOhvxEUfXxAF60wA8uyuZFkT/nZbVIufKCk2Oz
-	 PymO8He+yweK+OuOpzunDmY5ZLqTmjZxMirNW2D/Rum9g0i/2gmfN1ilGcQ8oHjCuZRAi
-	 B5fipnZigHuWSjsfcYBfqD0dG9qE09/VTJ8ozZFOhVlEMdUWTAmOqEQeGkzS1LE0AbwT7
-	 XaqUq3+/z6YI6mWeH6vuTAcTzrJxuJQCEHh9zeNeX381NmVbJAm1pSeVAwm9dAVFEDA==
+	t=1795720289;
+	b=PScVIYaWnTcLNmjZeTxa1yiVi4xyAmuX0qk27sR6Qx+DkrvIZnnfd9UTVHCDUYp/1AIA
+	 35u5WtYynuKvRDvbw7pPCxiR7/cHQmaEdClGCtKZx42eV2deqDX6uQEkHwIh8zyv8/Ya8
+	 uKhmhnRq5/6l127MH6YDrtB75e2yl37ZFHMfr+fazsGzm3aPFISB/YEA8LA31lDhze4T+
+	 4SSalr4rYfgNpUiIkxOnwOBAweTnuzM7dI3HUGZb2g1vKu8R5jh3b73pdXALmEnML3/PP
+	 HDCOFAW4d82eIwtMEQ+qnpylto0qmqt+Pv9E2K1zBp7e26VsKSTy3TI2UY9FxK4oU3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795720279;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795720289;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Last-TLS-Session-Version;
-	bh=3wS3MrJJemfmkKmZHQvuQ5e1ha4PFkjkqrpxxc6PrgE=;
-	b=MDfevkHbjC0jAQStvWAxSyBYENGg40vOqIrRC5sbWsdYVyxxfg3dr1/kj1oKJrTMDBeg
-	 2JFCT//fXNLIjlsiPMLycvFiFR0ifmYP/7tV0oEo776i2yvlRbdC4XGHlQQqs8cgOCzVd
-	 LyA78GT6V69Fhaq1of9CMaN4tagvJeGpZgL39mzXFFPQl3F3pZonbYmPLBd7dwwN2PoV0
-	 I6sQk4cqT9o/4iN0AkFYSi8eHc4V/oZe/lffXh0jJgouFlqH/2teqo0u8TkONL0JODkEI
-	 WEkFfNVuPjvnVtoXpqpF8fVN6CHZ+SoFmt/Jx1tbWM6Ouy9TQIdtJCyWQmDtmsKwi0g==
+	bh=Z2SDAeMcZbzv6+qb40r4M3IxubYi8XKkur/4WIhWlrI=;
+	b=alTowCIhahWk/Mg5gu7dB/Sxz3vEBOGCubQVB7EmFYmo8ScjM8NfX404G6+XQcNvHnNn
+	 MU4acYL8fngZQuzUa3xWwD417ek+yq5qmwi23dJ5CHYp6dCZNMftOgaG+IzN5LcKeTrDU
+	 fYCgTegjiekv1FNy3pJbr7ayxbtOydhSQKAn0+8Erkg3mLG2Q2R8T1YVkFC07YxAqtG4y
+	 YB0Lsh8IN9oy0nUpt2IjPA2Y9lbj4Q4xfLE6aDoDxvL5hBs/Vgyq9OXAu6ndkPpVxKhLP
+	 6/ng0rs0fMf8nt1xWQzzZaFFF9A/RuodtVuoZNcSrTe2fcE7WPTRnV1A6T2QUf6TQsQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="r+Rlj/Uf";
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=TZNZ44V3;
 	arc=none smtp.remote-ip=185.246.84.56
 Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46EAB606A32E;
-	Thu, 26 Nov 2026 19:11:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46EAB606A32E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8547B606A323;
+	Thu, 26 Nov 2026 19:11:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8547B606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=r+Rlj/Uf
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=TZNZ44V3
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id E41991A181F;
-	Thu, 26 Nov 2026 19:11:17 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 3F0431A181E;
+	Thu, 26 Nov 2026 19:11:27 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B21F460558;
-	Thu, 26 Nov 2026 19:11:17 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CAF3611E691C9;
-	Thu, 26 Nov 2026 20:11:13 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0B0C160558;
+	Thu, 26 Nov 2026 19:11:27 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1F68211E691C6;
+	Thu, 26 Nov 2026 20:11:23 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795720276; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795720285; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=3wS3MrJJemfmkKmZHQvuQ5e1ha4PFkjkqrpxxc6PrgE=;
-	b=r+Rlj/Uf/5FUfMBke6i49V0U2qJVmcrX8309hbV1z32hKiLRldD1qjFotA7Ja8ONXy8F3m
-	Fhb+rIybEcSSNvmcrRPtgLiBHwl0lDXnZ/0GHavD9rLiHpOQ642VNudPJogJDVZe8D5L+L
-	EyzwitqTY6u3fTXK9kwvhK+dD2BN3kG6xjdEtxbY9UxRQ5D+pKOVAUjI2ufk8benFG0GKw
-	3pdEJ7GCwAM9yLJwCAGExPLM0FB5gn3Bfs3rEICp8hrZEiyJ8hAU26DpTXo5bT0TMzLRb7
-	UxmR4wGS6vxN2KfQqirbpKVYVHoDiaf49tAtJGCr94y8IucOft1P7+49XPnMqw==
+	bh=Z2SDAeMcZbzv6+qb40r4M3IxubYi8XKkur/4WIhWlrI=;
+	b=TZNZ44V3iWTnm4oCWdGoYBdBNuawXE6bixpW9HdFtyO39AMlXam6rU2aaC/zRszXEn0uWa
+	/OYQXP7kXn8APG7XqjuqfeKVhtzdCq1Oc6ixdWvi05EORBIPfo1YT5oSeIeIrL9O47fugU
+	daWTs5T7EyEfj5Pl5ybGTFeabf6ihIndwzC069qI9vAS/DWUGvF4kS8XvRA0LWvJ3ER9ov
+	3XqkP6N+WJI4zsH3FK/F2ORO5a5vgNOXbOVH2snB3hXHZxZ0MjBkGhDK5zjGdaShsiPsdE
+	qfmsEQw33P5bVKMOnfRnyFB8yizvLl99B9aDZeNIQ1Tjmm9VYXPsRfm3BAGltg==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Thu, 26 Nov 2026 20:10:23 +0100
-Subject: [PATCH 04/12] spi: ath79: Validate the dummy buswidth
+Date: Thu, 26 Nov 2026 20:10:26 +0100
+Subject: [PATCH 07/12] spi: atmel-quadspi: Advertise DTR for the octal
+ controller
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,7 +66,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-macronix-upstreaming-spi-driver-fixes-v1-4-ca8e924cca1b@bootlin.com>
+Message-Id: <20261126-macronix-upstreaming-spi-driver-fixes-v1-7-ca8e924cca1b@bootlin.com>
 References: <20261126-macronix-upstreaming-spi-driver-fixes-v1-0-ca8e924cca1b@bootlin.com>
 In-Reply-To: <20261126-macronix-upstreaming-spi-driver-fixes-v1-0-ca8e924cca1b@bootlin.com>
 To: Raju Rangoju <Raju.Rangoju@amd.com>, 
@@ -88,28 +89,27 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 
-The controller is single-lane. Reject operations asking for a dummy
-buswidth other than one.
+The octal SAMA7G5 controller implements DTR transfers, but the driver
+never advertised the capability, so the DTR code was unreachable. Set
+dtr_caps for the octal controllers.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/spi/spi-ath79.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/spi/atmel-quadspi.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/spi/spi-ath79.c b/drivers/spi/spi-ath79.c
-index 1f5d0fb03917..36f21918d790 100644
---- a/drivers/spi/spi-ath79.c
-+++ b/drivers/spi/spi-ath79.c
-@@ -145,7 +145,8 @@ static int ath79_exec_mem_op(struct spi_mem *mem,
+diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
+index 4f3ceef67b40..0b695b0b3c98 100644
+--- a/drivers/spi/atmel-quadspi.c
++++ b/drivers/spi/atmel-quadspi.c
+@@ -1429,6 +1429,7 @@ static int atmel_qspi_probe(struct platform_device *pdev)
+ 	ctrl->mode_bits = SPI_RX_DUAL | SPI_RX_QUAD | SPI_TX_DUAL | SPI_TX_QUAD;
+ 	if (aq->caps->octal)
+ 		ctrl->mode_bits |= SPI_RX_OCTAL | SPI_TX_OCTAL;
++	ctrl->dtr_caps = aq->caps->octal;
  
- 	/* Only use for fast-read op. */
- 	if (op->cmd.opcode != 0x0b || op->data.dir != SPI_MEM_DATA_IN ||
--	    op->addr.nbytes != 3 || op->dummy.nbytes != 1)
-+	    op->addr.nbytes != 3 || op->dummy.nbytes != 1 ||
-+	    op->dummy.buswidth != 1)
- 		return -EOPNOTSUPP;
- 
- 	/* disable GPIO mode */
+ 	if (aq->caps->has_gclk)
+ 		aq->ops = &atmel_qspi_sama7g5_ops;
 
 -- 
 2.56.0
