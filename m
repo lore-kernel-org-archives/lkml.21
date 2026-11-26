@@ -1,99 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.42
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795688570;
-	b=MKg8Y2FlhInM/e5ZB26guC5/2W9av4ohk1EeQ9NGADU5O9TB5eebdv8NQbMj+4L5Q6B7
-	 VTyr9QrL7vSSGUSTS18XklSfJjG9Yy6xEMh+8rSXm96QUH5DqBLdjIRLWuZNEWEi8yz/y
-	 iM0ykpOAQ0AJsilcJCrVuDwECCBbyv9AcvTPTwLpVjpvn9uZDM5WLeBTOlTI9KXzbSr4P
-	 3W/T2lVD1M6qQ6lTpL3uH0AaENQeFbAXhMsRVzVbCMbgA1WpvtzwggYpFDebwONDZXLLd
-	 +43dLafHro+80k6XkN7OqOPGy9JYXBms3Ba4rckxGvsClgNwIcWaxOabYuuPbDcRGNg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795688570;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795688598;
+	b=ax4hsv+JnSnLy7wck1rLpwZu31tqRUo2ALKUsZXTpuLa4yiuREq85ArcA78w7Au/9KyT
+	 xQhwVnEZR+qnQdQbi5HpH0X30c2xvnuvxPRKJPN+yrpidkWm4ULfK6rjpO6vVmRSTDkrE
+	 kMSvq+vAu7LbjLEvuYj2y1Sv+ZdyHsGPSxGkFWAUx4FZH8x9lfb11qqtaCQRLjF6JvVDJ
+	 iey1SiXybq51Zs9ZltZpqHX0QMW53UVmhk14QC0B8zUJ1qrbEH351zDxVOJqMxrFWueLL
+	 ickUAkjEOiP4ppRjKnvBrG/58My4Xdv4QQ8C0OzT6lxbJSqqp+LpSsYJsM40KuZ7R6w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795688598;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=ddV3AyM6dDP89kTV9C7uTPYK6u/O0e8Sk1//pYBvMLk=;
-	b=PaJopoBj0hxWfCug44qp5OsO9ui3WYQpT/QfPAjODX6MIpR/nEXDED1/OXifmarNQOoa
-	 4s+DQJUTu6FztReNnzgcP9EnpdsSbpyUn++xCIBsqnsOOTsOqlZQm29/2pjDJxeCKzr93
-	 Cip6VYJ/egoMqfTufLkqwGNuwt1yuXgUszX8sHnb8c61HOEIEz96ohoFSzRtQofOIpHKb
-	 SQPpxp/J9P0kn5FSDPtoFK8xxyUyaFuTn8f6hBF2U0eTldlao0KdQN7q7oYZ6fQmqaZ1v
-	 InQhrfdoIpRJO4d9LNekHOCOX90pJpzEfzR68qGTCnjK3JTDMSgCj6q9PT8F6yZ57sg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=H6N0X50m/DSlTn3HtbgXOmagDGxOT5v+Biy9jycT3iw=;
+	b=4ued+Qzz6Fg/yEnc6LOYgICult+Pw28KmAMPVAgvnxHwzwECZWgvrdHi6Gzb9raZF4hT
+	 8yv2JVJzvDluGDfjIL2eh6UcgBXSTdQrlIrBzH23FD/lPh1a/KWsEB5KpqB2mmagHZac6
+	 uYf3gbO1XOgqB70EiCaIlZ2ACV25N7ZtIyL5sCEX0ssWPOvAbdbzUO/PdaydxxV6xzzG+
+	 2ccFK3SbqEIz3Ihixrc+8TaxHvSaTn3dXauTPiBTRN9UEzPIXanq9TFIVF59vpTHGzwSA
+	 u6SodXhvSZqHQHQ1PfY8s0qDgKl4Ki+Dw/fc6zJduJQVCDbwqrCm4c7OTRM+sQMh1Lg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TGUMlgXV;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lUWUwqh1;
+	arc=none smtp.remote-ip=209.85.216.49
+Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A456C606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:22:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A456C606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B32DB606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:23:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B32DB606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TGUMlgXV
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4a7a3b29c11so6395155e9.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:22:49 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795688568; cv=none;
-        d=google.com; s=arc-20260327;
-        b=VqJO5rnzWBMFCMTgRgYjyrdiuBBamanly85aN6+DDn7flgVPVQwpBFKLU410r0Of4d
-         R0epd2SYumWxbImVnUrO6lrmcTMxWowDdU21n4XDVCndBZ3ju3ZCFjRTUP29aB0F9j8p
-         IYBvOwA+aySD4CFkflGXeRf2T32dWH/vqyEnpDlNOc0tF9NtPiUNtKRGkMExMZCxAWji
-         FiL87+78jHeh+rGLAYcFHEEmzzaUmlt3Lzsjn1UCoHsp8GMe4JIqalljE9NBvtdB7MQr
-         0pzc0GVQAMnz1A0+Saq/s2BDPTTvOmTLfRCu+sK91szPrUUYGbHGOBj1tCyhyujfR+7T
-         J9Jg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=ddV3AyM6dDP89kTV9C7uTPYK6u/O0e8Sk1//pYBvMLk=;
-        fh=owGD7cOSjdGiDEcAV8fQ0n0ksnvRTGx8lkYBwoADtAQ=;
-        b=INef2Ts+VK71Vowe4H30btFDqDDip+vncAAA4OXv+nmzejr8p2k49MQS/07F8SlDBd
-         CKzQIZH5JKIWh3v2wZ3+Vhj9rBNOKaFNfqCpe6pXerzjNWD1SQia8VdPXRxYL1QUlh8/
-         8q8yjHmLu5maHR7/wmx3iM84PhzGrW1w1DXx4jLsAC6bxcszN2wadfxgQ7Tbv/5HwS6g
-         BeHIrpOe7QuXoIIeiUtDGpjO7Y+sA2idiHErc//cIR6lhRdmFVu3dbvOZH0LFblZnqmQ
-         234C5hDp0P+sukZn7fbFk0LUkz9Iak+WSF1Bu2CPYpZpIHb9sYpXqYxlkbfGoLvxjiPr
-         G98w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lUWUwqh1
+Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3b4f6f98587so353635a91.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:23:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795688568; x=1796293368; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ddV3AyM6dDP89kTV9C7uTPYK6u/O0e8Sk1//pYBvMLk=;
-        b=TGUMlgXVvhvgTgKqqOO9T59oQrRiNo0oHvANZmmDaiIfPFIZCFKt6gH7lgmVjaNlPA
-         Bw2keeY5uu4Lh03FAI9hlaaLr3pbZ4HwbgT0Tz//KnlqEPDenLdAY5XH+TqDav+ui4nK
-         qiLGnTzOTt55HD8cT++ShrMRfaL1nade3B+LdVNKt/rU+lkCz3tRosdSn4cHYTd/khMM
-         TsSSpt51wrzLQL4uiLNChgp1idZyBDZGCJXvMyiLft72ABw5cC4ecafNAWljwzj3BB/n
-         KAtzMgEQqP+hXB+l5zryXszTOGvDV50C1LlJaSXqViBHHdGODNHtCThwnF1oijPJuxOV
-         uINg==
+        d=gmail.com; s=20260707; t=1795688597; x=1796293397; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=H6N0X50m/DSlTn3HtbgXOmagDGxOT5v+Biy9jycT3iw=;
+        b=lUWUwqh1//I1+LAJzb4Bzn8jaKQ3owOuo2IGg6EQUm0jdSwW2IJmNpwQ0Iwm1G2Hfk
+         KiIc887qpbEOK8lGwHWOA3GWhF4eNtK8vY+JsO1KzKgcrZR8NXpdwJJBUSy+lLG6jkp6
+         6vArsjUBS/AvDvOSnKKZGgWamlXZoGUrEl2T0B6ZP2LlfA58F+qfqLkajUmgvKxPaB1Q
+         jMkaX5+Rq4h6jcOtLqK0P6HQTW5wYMn1amgUD5YgVy5d+kmU7WfmjDHADxh7rEP+G/47
+         /lMCJhFLuO+cj0hKGvQTYrLIzCXfebdF5Kz72NPUf/Qik/lf1cKsj32v8CcxmSWeZoFs
+         PIFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795688568; x=1796293368;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=ddV3AyM6dDP89kTV9C7uTPYK6u/O0e8Sk1//pYBvMLk=;
-        b=fDpGG2PfMOQIQoPuZItzrhX2nTXdI5HIQcwVjXPL6VSlWVEUImluAdCkoCogzRZr+t
-         aYQtDtfVZQIF7jIfg4XmvhKpfq80INcpvnGvZZX3L24KjLzhQh8AbHbiqJxrfDmaf6Lp
-         /LLxcxZAEMk9zY+97gKfY2/N/2+MXNLXZPmMG5FKDik1IY4U24cqznfs30Q+D8D/rsPI
-         P0oGDuicHr08BeltSnfb5HxifZOVKDgsi0KO8WHke2l4mzOnQ3QK4YYw9SM3dNE8WC9f
-         mmOR2cGanNOpGHtu3YrMVF1K3MGCjKqXcazr4IImkjWOZnjj0piwqJbI/0omahUcsPY7
-         RibQ==
-X-Forwarded-Encrypted: i=1; AL+hErGMaMcTmW3IdtbH9oK/5wa2EVSXPxmQ8bd8rlJgSq5kLDGcmPiheeRHQhNHKHXXh4pZutSYghXIdmXIkHE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+2zx+73FVYMMqvxn9Kfu/R7HFl8dQbPBxDqK1kv/xla727MtfT
-	MKKjJI0GnSWpVGcOvPMtKC1OZ+nGud4uiZh26eoTaCLatrA6nWSIa2tzE/aod90K9pb9KWMDls4
-	YlVkAeBVqRjhTvHFqgrlQc4s+0bW6KA4=
-X-Gm-Gg: AZFdTZeTdXg8cfO3cNMcepmerAZx8/9DjfG44y0yVu1lVQSglv3ya+nqMdxFt19Qf/p
-	243rxCxJ96kAWmQ3F400FF/p3WYGFbENPJvskYBrJ0K3ARCms4n+l04iEMAym/i6pykSgDYjZoT
-	lq0AbkpoomKDpvioUYHttG1SIjhk+SPV0wqGX2v5yYHQfgmvjePNyQUjqkW6Ky7ZLrm+1+zb49+
-	2Yj5jtntAJAW7FTBAbyClWgWgtoz2HNYn5NHTF3o5/vcbOVsrJ8MGhdba0nAkxKO5Mlyh6vidYB
-	rdeXt8jnHcygBGoas1ZHkwJPZWfitlzPuiVdKgaQUlNgW3RADZRf4K/PxLLXNwgilSzS1YsMQ7z
-	Hzqq2HhOukRuTYLJX5dZTjAKJdDqDIp0hoOwMWw==
-X-Received: by 2002:a05:600c:154c:b0:4ad:5ec2:d3b3 with SMTP id
- 5b1f17b1804b1-4bb887f43d8mr396475205e9.1.1795688567655; Thu, 26 Nov 2026
- 02:22:47 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795688597; x=1796293397;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=H6N0X50m/DSlTn3HtbgXOmagDGxOT5v+Biy9jycT3iw=;
+        b=X0j8saQ3zYZbcX21deaqvy1zKI/wLYZNwSPFYfWBJWiBUirwFIbcgX/LY6hUdCbcHU
+         crivLOe3I5djxUrok8CHzrJ3D4qv4q9mb0p0gcg59+tu+qDz2icw8Iqdkg5wS7AkvMVa
+         95TSgqPlJJi1knRLqwn1vKOce/eTQGhd0toXeHVanOgE18gnkzhKZ7npTU9KdjkT2FJ4
+         IHpQiMpZszrXYtvWjYTMfTdxlyzoPc43AI5kgMmuEyLbJ3kuBHUxaArBwCsxwWpfBQcz
+         W+BatiN4XTDjpY8MO4J1M3zh6UhZ4eO4urUBBYVvIBjxked4d9x/6s/Q/hWuWs9FcgG8
+         nDdA==
+X-Forwarded-Encrypted: i=1; AL+hErHfJBapGn2w3qbyshpQCpE6H5+P/58Pot//3GDT44j/fIg7jL7uXWtBjRew7NelRr1cvDLrNYCYFpHn/mg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/eoD4dvvBKZMb+bSY+L5z8UXLAKZuF/h8OZC6Up238pKe57e1B
+	KD4PnplUr1EVvvukaK0Y5x2pa4IDcCaX/ci26D0jyF7uVblzivMPqZRd
+X-Gm-Gg: AZFdTZcWEUNLDIatXHz1bgH5fC5jGileczNI23EOzkCHoIVOTpckUNF+6QsRdis+SbP
+	qFCkLBWHkybRamWrz5zhPiCttkX982qrAma7Z1QZ82SRMpl02Qiqdryqfu76PE6nBJ+/rsnZQJT
+	fAwMlYdxlEoFCXYhf2JOADwzO46d0NRi+4vOk0H6MxsOsktm/a/IWIJ2LZ2ZHYQggVzmknLMVeY
+	kcEKdnQec/IMdbptRLM2aUkGjuUB1O/YOyOgBb2CuYUi6tYDOy9fusS4rRd+ueO9imJWNfGSZmk
+	q0V8UyzjfpUdxKkDkW/sQU/xipKnWC5QF+GlVuIvJksPkE0nzIXfhv1A8TgUx7OuQ0RTugMM6U5
+	6EaKCgZkmBHk2JKNf6e5yzGcAGY82GHFE5yON5iK0CR7biNdLeJKltektRFyljcKC46y8goW4+V
+	BbyCUAls1yZmysdQPfLgjJNErdncb3F30fdZTpsNCalPo0uCp3AWJ1HHaYPuq0fsU4GntuMiQf+
+	3hWpeNLlkKzKSlV+eBJAv+semetxpyVyfgXXCUeJIxsMlizs8xDIuv287BtYx61/0eNQZXJW9YJ
+	3aL47Z71M87E1DuCzWPZNZ/kQ8o/jeuDKvvh1L6huKlPbM6g8vurDukeAj64KE5ur1qcjY8REje
+	WF7atGpZXIQyM
+X-Received: by 2002:a17:90b:498c:b0:3ac:73c7:9c07 with SMTP id 98e67ed59e1d1-3b41c55b914mr29450973a91.0.1795688596883;
+        Thu, 26 Nov 2026 02:23:16 -0800 (PST)
+Received: from chenyou.. ([140.116.39.229])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cfc6130sm10758422a12.7.2026.11.26.02.23.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 02:23:16 -0800 (PST)
+From: Chen-Yu Yeh <chenyou910331@gmail.com>
+To: Vadim Yuzifovich <vadim@yuzi.co>
+Cc: gregkh@linuxfoundation.org,
+	thinhnguyen@synopsys.com,
+	inochiama@gmail.com,
+	linux-usb@vger.kernel.org,
+	sophgo@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/3] usb: dwc2: gadget: descriptor DMA fixes for BNA, found on Sophgo SG2002
+Date: Thu, 26 Nov 2026 18:23:06 +0800
+Message-ID: <20261126102309.859777-1-chenyou910331@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261116070433.2813951-1-vadim@yuzi.co>
+References: 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,77 +102,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123144440.65441-1-ziyuzhang201@gmail.com> <20261126092356.GF774860@unreal>
-In-Reply-To: <20261126092356.GF774860@unreal>
-From: ziyu zhang <ziyuzhang201@gmail.com>
-Date: Thu, 26 Nov 2026 18:22:35 +0800
-X-Gm-Features: Aa3M54okF6QAvzv7rzrr-ssSeI4k-zHxuIK9nsyTY1Ek-0XAWmQP1IvVSbC1QmQ
-Message-ID: <CACPoYJyqAKZiCJ1OU01njDuwEQzQ+FjT6Ca0m5kSgM0VL5Ndrg@mail.gmail.com>
-Subject: Re: [PATCH] IB/iser: Fix deadlock during blocking connect
-To: Leon Romanovsky <leon@kernel.org>
-Cc: sagi@grimberg.me, mgurtovoy@nvidia.com, jgg@ziepe.ca, 
-	linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	baijiaju1990@gmail.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-On Thu, 26 Nov 2026 at 17:24, Leon Romanovsky <leon@kernel.org> wrote:
->
-> On Mon, Nov 23, 2026 at 10:44:40PM +0800, Ziyu Zhang wrote:
-> > iser_connect() holds state_mutex while waiting for up_completion. The
-> > CMA handler for the same connection needs state_mutex before it can call
-> > iser_connected_handler() and complete up_completion. A blocking connect
-> > can therefore prevent its own connection completion and leave the waiter
-> > blocked until a signal arrives.
-> >
-> > Drop state_mutex around the wait and reacquire it before checking the
-> > connection state, preserving serialization of state and cleanup paths.
->
-> You can't randomly drop locks without any explanation why it is safe.
->
-> Thanks
+Hi Vadim,
 
-Thanks for pointing this out. I should have explained what keeps the
-connection alive while state_mutex is dropped.
+I tested v2 on a Milk-V Duo 256M (SG2002), on top of 65e4fd942f72
+(v7.4-rc3-406), with "p->g_dma = false;" removed from
+dwc2_set_cv1800_params() and dr_mode set to "peripheral" in the board
+DTS. The params file in debugfs shows g_dma 1 and g_dma_desc 1. The
+gadget is a configfs composite of ECM, mass storage (a 16 MiB file) and
+UAC1 with req_number 8, on an x86 host with xHCI, high speed.
 
-iscsi_if_rx() holds rx_queue_mutex for the entire ep_connect() call,
-so a netlink bind or disconnect cannot run against this endpoint
-during the wait. The endpoint is still unbound, and the connect path
-owns iser_conn. RDMA CM callbacks can advance the connection state
-or clean up RDMA resources during that window. The only operation
-between unlocking and relocking is the wait on up_completion, and
-iser_connect() checks the connection state under state_mutex after
-reacquiring it.
+Three kernels: A without the series, B with patches 1 and 2, C with all
+three. On each:
 
-I sent v2 after the bot review. It also wakes the waiter on
-establishment failure and fixes the endpoint double free on the
-connect error path.
+- iperf3 over ECM, 60 s in each direction
+- dd of the whole LUN with O_DIRECT, one write and 20 reads
+- sg_turs -n 200000 on the LUN, while the board copies a 32 MiB file
+  in tmpfs to /dev/null in a loop
+- speaker-test playing a 440 Hz sine into UAC1 for 5 minutes. After
+  30 s the board writes a 120-character KERN_ERR line to /dev/kmsg
+  every 2 s, so each line goes out on the 115200 baud serial console,
+  about 10 ms like the hold in your test.
 
-https://lore.kernel.org/r/20261124090121.77115-1-ziyuzhang201@gmail.com
+                        A           B           C
+  iperf3 in/out Mbit/s  138/94.9    149/97.9    142/95.9
+  dd write/read MB/s    6.6/18.8    5.8/23.6    8.9/23.5
+  sg_turs per second    3432        3279        3359
+  UAC1 runs wedged      3 of 4      0 of 2      0 of 1
 
->
-> >
-> > Fixes: 504130c039f9 ("IB/iser: Protect iser state machine with a mutex")
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Ziyu Zhang <ziyuzhang201@gmail.com>
-> > ---
-> >  drivers/infiniband/ulp/iser/iser_verbs.c | 2 ++
-> >  1 file changed, 2 insertions(+)
-> >
-> > diff --git a/drivers/infiniband/ulp/iser/iser_verbs.c b/drivers/infiniband/ulp/iser/iser_verbs.c
-> > index 55fe68e..9fe2d3f 100644
-> > --- a/drivers/infiniband/ulp/iser/iser_verbs.c
-> > +++ b/drivers/infiniband/ulp/iser/iser_verbs.c
-> > @@ -778,7 +778,9 @@ int iser_connect(struct iser_conn *iser_conn, struct sockaddr *src_addr,
-> >       }
-> >
-> >       if (!non_blocking) {
-> > +             mutex_unlock(&iser_conn->state_mutex);
-> >               wait_for_completion_interruptible(&iser_conn->up_completion);
-> > +             mutex_lock(&iser_conn->state_mutex);
-> >
-> >               if (iser_conn->state != ISER_CONN_UP) {
-> >                       err =  -EIO;
-> > --
-> > 2.34.1
-> >
-> >
+iperf3 is host to board / board to host. No retransmits, no sg_turs
+errors and no dd errors on any kernel.
+
+On A, two runs wedged within about 45 s of playback with the console
+lines: speaker-test failed with -EBADFD and the host reset the port.
+The third went through the 5 minutes and wedged when playback stopped.
+The SET_INTERFACE to alt 0 timed out on the host (-110), and at the
+port reset the board logged
+
+  dwc2_hsotg_ep_stop_xfr: timeout GINTSTS.GOUTNAKEFF
+  dwc2_hsotg_ep_stop_xfr: timeout DOEPCTL.EPDisable
+
+after which the host could not enumerate the device again. Rebinding the
+UDC on the board failed; only a reboot recovered it. This looks like
+what you describe for patch 1, EP0 not answering after the stall, but I
+cannot show the BNA itself: on A it is dev_dbg and my config has no
+CONFIG_DYNAMIC_DEBUG, so the link to BNA is from the symptoms only.
+
+On B and C no run wedged. After the console lines, arecord on the board
+captured the sine, and after playback stopped the gadget was still
+configured with no port reset.
+
+On C I also ran everything together for 30 minutes: the sine, the
+console lines, the copy loop, iperf3 -R for 1800 s and sg_turs
+9 x 200000. iperf3 moved 11.0 GB at 52.3 Mbit/s on average with no
+retransmits, sg_turs had no errors, and
+the host logged no reset. Afterwards arecord on the board still
+captured the sine.
+
+The "BNA, DxEPINT" warning from patch 2 did not appear on B or C, and A
+showed no bulk errors either. My copy loop is much lighter than your
+H.264 encode, so patches 2 and 3 ran here without being exercised; for
+those this shows only that nothing regressed. The UAC1 counts are also
+small, 4, 2 and 1 runs plus the 30 minutes.
+
+Tested-by: Chen-Yu Yeh <chenyou910331@gmail.com> # Milk-V Duo 256M
+
+Thanks,
+Chen-Yu
