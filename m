@@ -1,101 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795683605;
-	b=bgnpBW8/3VXOKbTouSj6JIrnHh8bo7ul8N3iv+u9I5MtivuC8Q5EafXKMTBJ5vlMXFxH
-	 +KGrtTotzb3HamKlYsqIbKImlHsZQzoabHVhIevgnSgq/xZS7XiZS1u/Lr4Jr1k3//nhf
-	 HIlVU7kDfWNXikDE4CU5RS1bzh7W7KyN06sfGcXkKAoRvZcnATLTVmvMp0XFq3N2UyDVA
-	 kQXc+UEjIYAMrkbQJF2ly/FTy3NSDYNtXcO8YxEuv5YuFf2vNzAmgzf3IfQ/7crccZLmj
-	 eMkBv58MkFGWVsB04U2FprMHjYJNGMqQGXDvyf5vjo8xdwRD0e1Qw4ZTep8YLzc9VFA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795683605;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Yh6+sXWyFXYfKUalssHUgOWkgYxwHId/9h6FjzDeYnw=;
-	b=PCkvN4TRdthjNcvFdTuk6qoLrx79h+FNQ6f53vMeuSRI6BJreLrxHGCaGW4Ocx4TQyz6
-	 R9XsPYuqVsjJQRrC/v+GuRoByxVCsoZTSXRHwtqSxwunKyFZYgvZPacop/BsXsHgMjlI4
-	 byxO0dzmMWzugy42UrlEf/f5oiyM3IWMY0YH4iY+NNZ9Z+3P/K6Yvv29JVpfkXIpO3FBV
-	 Y6wh9bVWn1KEQWEzMvbAyfmMl1cfjx4EvOh09uBVfES4wwdQ3JgZS3SplTsKfEa7+zp00
-	 CuKf2/xTPMIF7hyfnOFiiw50Iy0BJe8GhLK3pSqgj57yGTjfujq5fav3oAk/8U3mGig==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SYyUkC9p;
-	arc=none smtp.remote-ip=209.85.214.181
-Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795683691;
+	b=X6OF1yvy6v6B+YCa49OzUu8Cf7R8J4er+WwiCY16HQim52Fc1y2Wtnc4KKfmf1qwTocN
+	 M6R/QuIfkpx4W7KJeUjuT1jTQ2+mkn1rrlseYpG/OL9XvSWoFdmCp985yTZ56Vvgk1vNb
+	 MroNJCtFFEXIj355Eal8GyHeqOBo1pXZ5x/9/F3YK3XfNetk9d4JY8dEm0SDWNHNqzeUY
+	 hfVB91kZ+wd172V4SGDFAcCbkTdXZ+k+juzcLCiuKlITq226kvPK/Dnxi5330Z6KhG5k9
+	 A/7libx7WYrGUOCHA52GUSxDJMeOK2yy4U3Sjvks23jT5i1+g9K8ijdAcALS5wgiWJA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795683691;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=/0uv7wlnqwjf34IUQhcXoKJMYYHi9n6aoQ86OEYBRdw=;
+	b=VQHazObP5pGzFvQPY4YwZGWiMgix11h0GBHAn+6qGTuQ2j8K9g3yvdARwOE9+rAFb2e0
+	 jRgiG0c7NjBfjVu/PlAD4y3QL7tgA+Kpq5ghxlpr6rXAJFp7HBhXfRMtb2YZGWetCGhWE
+	 dFnl4JNqS0M2lRFjV6nWXv7izzAJTzGBq38X17Kxx0DYygT5VuoqDXbU/mBv/XZTg9AgO
+	 We665UiWkRdglt5vo9F4xTGWIO2W2wa2n4/S9B1pNnfcHvFXB7cx+H5rZDhTZ4Od6/72y
+	 uLvZHxGoTHjYliCi7k6Om86+JhY3GfqzWDgmRtBjM/bCEqV4wYdDf4IYMGUV749wKJw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Wpzv6YD/";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8674C606A31C;
+	Thu, 26 Nov 2026 09:01:31 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Wpzv6YD/
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795683690;
+	b=tD4nsTKm1jDfsjzclfebo4ZGdh7L19mLSk1cdZCKKNlQ9VVfheyggKRzV9PcJ/L946Et
+	 YEGAkuzziLA0MFa1JT3hroeuWP8sbehHRkUorgB8yonwUxoU1inuuOwnQDWIDqRzO+olV
+	 JcMTOCk3ahJXhp1rqgs+QexgVF95yb3nGRs69N3AhcbA+Iv0ADz+ex4ntbl/RAniMkVrU
+	 Xv3CM30wacI423rWkEp8eedDpcunhWwp5R5XkE4AzQLA8L0GPg9DxlzXWc+HszIP6vdjS
+	 AH+1CwRahoDYCgkWKoPQ6CZiH9jYFqOYIgMHU9B5lIl2RUghtrwItsPsTff4CkU57rQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795683690;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=/0uv7wlnqwjf34IUQhcXoKJMYYHi9n6aoQ86OEYBRdw=;
+	b=WBTLhmH8VnBWQWwrofNIAuDm+/E41UsRncPogz8bXU9Ps6z8PRZpgcMt3+NY8sCmx/Kv
+	 Fyu1h9abksAY+y8dmgXv81aAPy9XJwLAjcoYk+I0kCZ0djbImA/JWxGoXfedtNbhEoK8Z
+	 nBFQABLWVuW0j3DuQb8CINOU8meLuq7BweUtsqxQBIQKpAsduogysvkMT0uitTiePJZfu
+	 PS5Tp0EnbLa8FIRji39FO5PA/CgZj+GPnrz3F6wesAJzatF3hrGIxr3tMglkb7cb/KDRb
+	 ydgy/a587P4Jt5qOpn4On1HemAk8bPQRaG6Li/LmrAQ6h2aEZP3Y6i9nBAR3Y2Eamaw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14C1C606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:00:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14C1C606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SYyUkC9p
-Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2f07a960666so46663955ad.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:00:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795683604; x=1796288404; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Yh6+sXWyFXYfKUalssHUgOWkgYxwHId/9h6FjzDeYnw=;
-        b=SYyUkC9pyDvvYV8Jf92kRJ6WhPuREuUiQIUkxGQFo4JSwJ3/7amNxqy4amIcd9Ffro
-         TxlCQ58zYSWFxwpX9ixk274Vnf7t76tuf/9jtHs3IEu71zdmOppL4O7WcUWi5cFNjMzH
-         SqjvnmomCq2gBqkY7e+3fri6BuHLpaAgiZh+3MvCWGEqo5L/tDNOJ+OlEOhnEoZ5i1Sq
-         qMIn6qp164UW1QbKh/xoRZ0JKQOcVNGtoNQFKJda8yUysJg02rl3yr5f8Qlrr6U1gteE
-         ZqkQ5oaM+eEcOme6qok3l8vwUn4yWZVwrwrr54edEIM8TS7A67aidHnmPnGuoKkCu033
-         v+LQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795683604; x=1796288404;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Yh6+sXWyFXYfKUalssHUgOWkgYxwHId/9h6FjzDeYnw=;
-        b=qUcfQaOxCKfk4/d4hR+zQCtabERaQ4OTcOn9UbJg8fvGeRW9AQTrXvlRbrOoivKmsQ
-         T4lGzde5i1lKTujW5R8YqDbOUdnkBMYM+YZs0bvSqCnLwAhM8MODIF3cUCTl1UpCSQ+7
-         OxRamau2R3avFHgnODRHrSeX9uYSJF6CHdM++4BhhQ4IOD7LttbjnuZxkiEfKzFGyj5w
-         p9VppzL+paN60xT5bqYX+pFdOTCq8qnHGyWE9PjpA0wCd2ojEUBWthvTga3euu6oKXM1
-         wO/IQ8csaVrBks05jRwCqNJtnQQdaLIvBwBaa2F8m6srCVbkz7B0+SCZ8F3sHjRPDd4k
-         jW4A==
-X-Forwarded-Encrypted: i=1; AL+hErHAQfWHjR45pHUM2i6bUNOL9uDdjlQS54nLwqOrcLBHfxHqDpdIjVEBM8gooSkJXQmdOtaJp+LPFpwUan4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+FuLR7UksB4kflsMlyRPBtt3dtHuFqZLvexjEzfIVpgVOwbOBp
-	ZccVXZ8wMuCn+fccJrvSo3rd7aAWNMWPGfqBUMKN8Z8IPzUu9KvgCsdoAvfNFW8Z9YM=
-X-Gm-Gg: AZFdTZfKBZ4OULcw8uO2OdHayLV8p29WF46f2+Jnn8d2CwPkG7bZu0zC93qNKQVDPgT
-	LF+z4znbu7P+JOWYvt0hB3P+UtWep791iy2H5sX0KrfbUQ5iFgP9CephYp7NSn+0hS93AZzG7z2
-	54a7bkxyLZS305ttL4LmUh7kw16uZOmCJLjyKVNczVgyFEVvTzYRK9n16UGLJEw2eVarRDz1jJC
-	Km+xGwHA1jKtjkwpVfpfnONPtvbRxOgZyPOI2wEQSiRH80vZtMe4ZZpIrmadjvjLtFhtkswTKXQ
-	XWo8aLN5RiabAe+O0PWiCuK1lf8RFlO1fmklmvkeF4xoAWIXJ9tXUEtdd4WEpUhW01BG8Q/rCqB
-	40tpb/Ftd0tGbo3m0vHtt84362yF6i23+CpTVK43ALBKyLN1jzD+fvB521pH8S7CbMzzJ+FddwK
-	sxFGhnENpcFUAaacY/8AhEd2qieyKoiSuqdsgS3EnHMfdmclqW9WTSOBfHvwBJwGTx+PJLjWf6c
-	1PCFaHGigY8cVZIILhpjwNeQlx/y5WtDgHQGGzawVnZXODlAh2/ELAHMWXBeYWCKjdiHZBzXjfQ
-	ONgiHv0eZS+vEuGMMEpFPAHVBIkXkLQns7w/2+TXw6QEHQ0i+dmn0bVESdYgqClS4byOW7vYs/R
-	oAVBTWYU++s5WMe62xgS3BYoU20WM2BxW+Tt8Mk+Qlw==
-X-Received: by 2002:a17:902:da83:b0:2ef:e5b9:5841 with SMTP id d9443c01a7336-2f050c1d8cemr196509805ad.35.1795683604307;
-        Thu, 26 Nov 2026 01:00:04 -0800 (PST)
-Received: from aster-ThinkPad-X9-14-Gen-1 ([2400:2410:5f2b:700:da16:d35e:74e2:c7c])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f0ff28fda8sm424145ad.56.2026.11.26.01.00.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 01:00:03 -0800 (PST)
-From: Vishnu Sankar <vishnuocv@gmail.com>
-To: Hans de Goede <hansg@kernel.org>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: Mark Pearson <mpearson-lenovo@squebb.ca>,
-	"Derek J . Clark" <derekjohn.clark@gmail.com>,
-	Rong Zhang <i@rong.moe>,
-	Henrique de Moraes Holschuh <hmh@hmh.eng.br>,
-	Huang Wei <huangwei@kylinos.cn>,
-	platform-driver-x86@vger.kernel.org,
-	ibm-acpi-devel@lists.sourceforge.net,
-	linux-kernel@vger.kernel.org,
-	klorico2@lenovo.com,
-	vsankar@lenovo.com,
-	Vishnu Sankar <vishnuocv@gmail.com>
-Subject: [PATCH] platform/x86: thinkpad_acpi: Fix fan speed reporting on X9 Gen 1
-Date: Thu, 26 Nov 2026 17:59:37 +0900
-Message-ID: <20261126085937.53711-1-vishnuocv@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	by smtp.kernel.org (Postfix) with ESMTPS id 8E4851F000D0;
+	Thu, 26 Nov 2026 09:01:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795683690;
+	bh=/0uv7wlnqwjf34IUQhcXoKJMYYHi9n6aoQ86OEYBRdw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=Wpzv6YD/qs2FiU+Q89hcu2AYdx4LJso1vRlmIP2dbnKR7MDpvw6MdUhDYzNg5MBoc
+	 Ru88onufVIHPrQoJFOnVTF0covlNFnI4HhlTlgYWO0+oVOXcYMUvigDK106SdUz+gl
+	 M6JTaBx6VRNoSdV4SUVhZXDskEEHyBzsVrhkU2SN6qv61OR+ZXW/e6wYZZ16gRMWgT
+	 FHPiuo1CzkW6mO894krkn5gtH3k3Bsb+TleUNBOTKtlGJUP1B+mjpcAhO8jYJQqo+R
+	 25L7kVF56asKIZXESCKyXRlLLe/fxn4RvDTkg0vBB46yHLUkn0OWc1CzR0VryfVnXG
+	 PlWW6xFY3KvrQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 1FF634D31A;
+	Thu, 26 Nov 2026 09:01:20 +0000 (UTC)
+From: =?utf-8?q?St=C3=A9phane_Grosjean_via_B4_Relay?= <devnull+s.grosjean.peak-system.fr@kernel.org>
+Date: Thu, 26 Nov 2026 10:01:04 +0100
+Subject: [PATCH v9 03/14] can: peak_usb: replace open-coded bitmask
+ operations with bitops
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,206 +83,199 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261126-canfd_check_channel_idx-v9-3-abe0099b4585@peak-system.fr>
+References: <20261126-canfd_check_channel_idx-v9-0-abe0099b4585@peak-system.fr>
+In-Reply-To: <20261126-canfd_check_channel_idx-v9-0-abe0099b4585@peak-system.fr>
+To: Marc Kleine-Budde <mkl@pengutronix.de>, 
+ Vincent Mailhol <mailhol@kernel.org>, 
+ Wolfgang Grandegger <wg@grandegger.com>, 
+ =?utf-8?q?St=C3=A9phane_Grosjean?= <s.grosjean@peak-system.fr>, 
+ Dan Carpenter <error27@gmail.com>, Lukas Magel <lukas.magel@posteo.net>
+Cc: linux-can@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Tristan Madani <tristmd@gmail.com>, 
+ Joas Antonio dos Santos <joasantonio108@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795683678; l=6592;
+ i=s.grosjean@peak-system.fr; s=20261020; h=from:subject:message-id;
+ bh=+Goq8BnTw1yJujkBUo2VvSqYQyop2E0p4mPbB+A7U1I=;
+ b=QYnsvV57tmXVMkYmb7GLVYwRRtPClO0cm0ig4M4GRvjLTUyPNQmTMM8jPQuDh9JJOgaQs7t7V
+ eXBByWEhKRgCVEaQd23ZSF1jeBr+nKakrZRYu1zAA5PrhVsv7pHcMqa
+X-Developer-Key: i=s.grosjean@peak-system.fr; a=ed25519;
+ pk=bP7QV2zvvAKAfConZlUOGKGEcXL64SNUpVUm++Ai+/c=
+X-Endpoint-Received: by B4 Relay for s.grosjean@peak-system.fr/20261020
+ with auth_id=1250
+X-Original-From: =?utf-8?q?St=C3=A9phane_Grosjean?= <s.grosjean@peak-system.fr>
+Reply-To: s.grosjean@peak-system.fr
 Content-Transfer-Encoding: 8bit
 
-On the ThinkPad X9-14 Gen 1 and X9-15 Gen 1, the EC reports fan1 RPM
-in registers 0x84/0x85 and fan2 RPM in 0x82/0x83, and does not use
-bit 0 of 0x31 as a fan select. As a result fan2 reports fan1's speed,
-and every fan read overwrites an EC-owned bit.
+From: Stéphane Grosjean <s.grosjean@peak-system.fr>
 
-The EC also does not latch either register pair, so a read can combine
-the LSB of a new value with the MSB of an old one.
+The PCAN_USB_STATE_* flags of struct peak_usb_device are set, cleared
+and tested from different contexts (ndo_open/ndo_stop, USB disconnect,
+URB completion) with non-atomic open-coded bitmask operations.
 
-Add two quirks: TPACPI_FAN_2REG reads fan2 from 0x82/0x83 and never
-touches 0x31, and TPACPI_FAN_UNLATCH re-reads an RPM register pair
-until the MSB is stable. Enable both for the X9 Gen 1 models.
+Turn these flags into bit numbers, make the state field an unsigned
+long and use set_bit(), clear_bit() and test_bit() instead, so that
+updating one flag can no longer overwrite a concurrent update of
+another one. The next patch relies on this to clear CONNECTED while a
+channel may be opened.
 
-A single fan level write controls both fans on these models, so second
-fan control is disabled when TPACPI_FAN_2REG is set.
+dev->state is zeroed by alloc_candev(), so setting CONNECTED with
+set_bit() at creation is equivalent to the former assignment.
 
-Tested on X9-14 Gen 1 (BIOS N4DET42W, EC N4DHT39W).
-
-Signed-off-by: Vishnu Sankar <vishnuocv@gmail.com>
+Signed-off-by: Stéphane Grosjean <s.grosjean@peak-system.fr>
 ---
- drivers/platform/x86/lenovo/thinkpad_acpi.c | 79 ++++++++++++++++++---
- 1 file changed, 68 insertions(+), 11 deletions(-)
+ drivers/net/can/usb/peak_usb/pcan_usb.c      |  4 ++--
+ drivers/net/can/usb/peak_usb/pcan_usb_core.c | 10 +++++-----
+ drivers/net/can/usb/peak_usb/pcan_usb_core.h |  9 ++++++---
+ drivers/net/can/usb/peak_usb/pcan_usb_fd.c   |  2 +-
+ drivers/net/can/usb/peak_usb/pcan_usb_pro.c  |  6 +++---
+ 5 files changed, 17 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/platform/x86/lenovo/thinkpad_acpi.c b/drivers/platform/x86/lenovo/thinkpad_acpi.c
-index 4f81855ad721..266f774b8ac3 100644
---- a/drivers/platform/x86/lenovo/thinkpad_acpi.c
-+++ b/drivers/platform/x86/lenovo/thinkpad_acpi.c
-@@ -7964,6 +7964,8 @@ enum {					/* Fan control constants */
- 	fan_select_offset = 0x31,	/* EC register 0x31 (Firmware 7M)
- 					   bit 0 selects which fan is active */
+diff --git a/drivers/net/can/usb/peak_usb/pcan_usb.c b/drivers/net/can/usb/peak_usb/pcan_usb.c
+index f79b651ab4a7..76cf042a9f11 100644
+--- a/drivers/net/can/usb/peak_usb/pcan_usb.c
++++ b/drivers/net/can/usb/peak_usb/pcan_usb.c
+@@ -158,7 +158,7 @@ static int pcan_usb_send_cmd(struct peak_usb_device *dev, u8 f, u8 n, u8 *p)
+ 	int actual_length;
  
-+	fan2_rpm_offset = 0x82,		/* EC register 0x82: LSB, 0x83 MSB (fan2 RPM) */
-+
- 	fan_status_offset_ns = 0x93,	/* Special status/control offset for non-standard EC Fan1 */
- 	fan2_status_offset_ns = 0x96,	/* Special status/control offset for non-standard EC Fan2 */
- 	fan_rpm_status_ns = 0x95,	/* Special offset for Fan1 RPM status for non-standard EC */
-@@ -8012,6 +8014,8 @@ static int fan_watchdog_maxinterval;
- static bool fan_with_ns_addr;
- static bool ecfw_with_fan_dec_rpm;
- static bool fan_speed_in_tpr;
-+static bool fan2_with_own_rpm_reg;
-+static bool fan_rpm_unlatched;
+ 	/* usb device unregistered? */
+-	if (!(dev->state & PCAN_USB_STATE_CONNECTED))
++	if (!test_bit(PCAN_USB_STATE_CONNECTED, &dev->state))
+ 		return 0;
  
- static struct mutex fan_mutex;
+ 	dev->cmd_buf[PCAN_USB_CMD_FUNC] = f;
+@@ -188,7 +188,7 @@ static int pcan_usb_wait_rsp(struct peak_usb_device *dev, u8 f, u8 n, u8 *p)
+ 	int actual_length;
  
-@@ -8073,6 +8077,9 @@ static void fan_quirk1_handle(u8 *fan_status)
- /* Select main fan on X60/X61, NOOP on others */
- static bool fan_select_fan1(void)
- {
-+	if (fan2_with_own_rpm_reg)
-+		return true;
-+
- 	if (tp_features.second_fan) {
- 		u8 val;
+ 	/* usb device unregistered? */
+-	if (!(dev->state & PCAN_USB_STATE_CONNECTED))
++	if (!test_bit(PCAN_USB_STATE_CONNECTED, &dev->state))
+ 		return 0;
  
-@@ -8093,6 +8100,9 @@ static bool fan_select_fan2(void)
- 	if (!tp_features.second_fan)
- 		return false;
- 
-+	if (fan2_with_own_rpm_reg)
-+		return true;
-+
- 	if (ec_read(fan_select_offset, &val) < 0)
- 		return false;
- 	val |= 0x01U;
-@@ -8202,21 +8212,48 @@ static int fan_get_status_safe(u8 *status)
- 	return 0;
- }
- 
-+/* Read a 16-bit RPM register pair (LSB at offset, MSB at offset + 1) */
-+static bool fan_read_rpm(u8 offset, unsigned int *rpm)
-+{
-+	u8 hi, lo, hi2;
-+	int retries = 3;
-+
-+	if (fan_rpm_unlatched) {
-+		/* No latch: re-read until the MSB is stable */
-+		do {
-+			if (!acpi_ec_read(offset + 1, &hi) ||
-+			    !acpi_ec_read(offset, &lo) ||
-+			    !acpi_ec_read(offset + 1, &hi2))
-+				return false;
-+		} while (hi != hi2 && --retries);
-+
-+		if (hi != hi2)
-+			return false;
-+	} else {
-+		if (!acpi_ec_read(offset, &lo) || !acpi_ec_read(offset + 1, &hi))
-+			return false;
-+	}
-+
-+	*rpm = (hi << 8) | lo;
-+	return true;
-+}
-+
- static int fan_get_speed(unsigned int *speed)
- {
--	u8 hi, lo;
-+	unsigned int rpm;
-+	u8 lo;
- 
- 	switch (fan_status_access_mode) {
- 	case TPACPI_FAN_RD_TPEC:
- 		/* all except 570, 600e/x, 770e, 770x */
- 		if (unlikely(!fan_select_fan1()))
- 			return -EIO;
--		if (unlikely(!acpi_ec_read(fan_rpm_offset, &lo) ||
--			     !acpi_ec_read(fan_rpm_offset + 1, &hi)))
-+
-+		if (unlikely(!fan_read_rpm(fan_rpm_offset, &rpm)))
- 			return -EIO;
- 
- 		if (likely(speed)) {
--			*speed = (hi << 8) | lo;
-+			*speed = rpm;
- 			if (fan_speed_in_tpr && *speed != 0)
- 				*speed = FAN_CLOCK_TPM / *speed;
- 		}
-@@ -8238,7 +8275,8 @@ static int fan_get_speed(unsigned int *speed)
- 
- static int fan2_get_speed(unsigned int *speed)
- {
--	u8 hi, lo, status;
-+	unsigned int rpm;
-+	u8 lo, status;
- 	bool rc;
- 
- 	switch (fan_status_access_mode) {
-@@ -8246,14 +8284,16 @@ static int fan2_get_speed(unsigned int *speed)
- 		/* all except 570, 600e/x, 770e, 770x */
- 		if (unlikely(!fan_select_fan2()))
- 			return -EIO;
--		rc = !acpi_ec_read(fan_rpm_offset, &lo) ||
--			     !acpi_ec_read(fan_rpm_offset + 1, &hi);
-+
-+		rc = !fan_read_rpm(fan2_with_own_rpm_reg ? fan2_rpm_offset : fan_rpm_offset,
-+				   &rpm);
-+
- 		fan_select_fan1(); /* play it safe */
- 		if (rc)
- 			return -EIO;
- 
- 		if (likely(speed)) {
--			*speed = (hi << 8) | lo;
-+			*speed = rpm;
- 			if (fan_speed_in_tpr && *speed != 0)
- 				*speed = FAN_CLOCK_TPM / *speed;
- 		}
-@@ -8873,6 +8913,8 @@ static const struct attribute_group fan_driver_attr_group = {
- #define TPACPI_FAN_DECRPM	0x0020		/* For ECFW's with RPM in register as decimal */
- #define TPACPI_FAN_TPR		0x0040		/* Fan speed is in Ticks Per Revolution */
- #define TPACPI_FAN_NOACPI	0x0080		/* Don't use ACPI methods even if detected */
-+#define TPACPI_FAN_2REG		0x0100		/* Fan2 RPM in EC regs 0x82/0x83, no fan select */
-+#define TPACPI_FAN_UNLATCH	0x0200		/* RPM registers are not latched */
- 
- static const struct tpacpi_quirk fan_quirk_table[] __initconst = {
- 	TPACPI_QEC_IBM('1', 'Y', TPACPI_FAN_Q1),
-@@ -8908,6 +8950,8 @@ static const struct tpacpi_quirk fan_quirk_table[] __initconst = {
- 	TPACPI_Q_LNV3('R', '0', '0', TPACPI_FAN_NOACPI),/* E560 */
- 	TPACPI_Q_LNV3('R', '1', '2', TPACPI_FAN_NOACPI),/* T495 */
- 	TPACPI_Q_LNV3('R', '1', '3', TPACPI_FAN_NOACPI),/* T495s */
-+	TPACPI_Q_LNV3('N', '4', 'D', TPACPI_FAN_2REG | TPACPI_FAN_UNLATCH),	/* X9-14 Gen 1 */
-+	TPACPI_Q_LNV3('N', '4', 'C', TPACPI_FAN_2REG | TPACPI_FAN_UNLATCH),	/* X9-15 Gen 1 */
- };
- 
- static int __init fan_init(struct ibm_init_struct *iibm)
-@@ -8959,6 +9003,12 @@ static int __init fan_init(struct ibm_init_struct *iibm)
- 		tp_features.fan_ctrl_status_undef = 1;
+ 	/* first, send command */
+diff --git a/drivers/net/can/usb/peak_usb/pcan_usb_core.c b/drivers/net/can/usb/peak_usb/pcan_usb_core.c
+index 55aad01cd8ca..a1b17e1e6fea 100644
+--- a/drivers/net/can/usb/peak_usb/pcan_usb_core.c
++++ b/drivers/net/can/usb/peak_usb/pcan_usb_core.c
+@@ -263,7 +263,7 @@ static void peak_usb_read_bulk_callback(struct urb *urb)
+ 	/* protect from any incoming empty msgs */
+ 	if ((urb->actual_length > 0) && (dev->adapter->dev_decode_buf)) {
+ 		/* handle these kinds of msgs only if _start callback called */
+-		if (dev->state & PCAN_USB_STATE_STARTED) {
++		if (test_bit(PCAN_USB_STATE_STARTED, &dev->state)) {
+ 			err = dev->adapter->dev_decode_buf(dev, urb);
+ 			if (err)
+ 				pcan_dump_mem("received usb message",
+@@ -537,7 +537,7 @@ static int peak_usb_start(struct peak_usb_device *dev)
+ 			goto err_adapter;
  	}
  
-+	if (quirks & TPACPI_FAN_2REG)
-+		fan2_with_own_rpm_reg = true;
-+
-+	if (quirks & TPACPI_FAN_UNLATCH)
-+		fan_rpm_unlatched = true;
-+
- 	if (quirks & TPACPI_FAN_NOACPI) {
- 		/* E560, T495, T495s */
- 		pr_info("Ignoring buggy ACPI fan access method\n");
-@@ -8993,9 +9043,16 @@ static int __init fan_init(struct ibm_init_struct *iibm)
- 			if (res >= 0 && speed != FAN_NOT_PRESENT) {
- 				/* It responded - so let's assume it's there */
- 				tp_features.second_fan = 1;
--				/* fan control not currently available for ns ECFW */
--				tp_features.second_fan_ctl = !fan_with_ns_addr;
--				pr_info("secondary fan control detected & enabled\n");
-+				/*
-+				 * fan control not currently available for ns ECFW,
-+				 * and not needed with 2REG: one write drives both fans
-+				 */
-+				tp_features.second_fan_ctl = !fan_with_ns_addr &&
-+							     !fan2_with_own_rpm_reg;
-+				if (tp_features.second_fan_ctl)
-+					pr_info("secondary fan control detected & enabled\n");
-+				else
-+					pr_info("secondary fan detected\n");
- 			} else {
- 				/* Fan not auto-detected */
- 				tp_features.second_fan = 0;
+-	dev->state |= PCAN_USB_STATE_STARTED;
++	set_bit(PCAN_USB_STATE_STARTED, &dev->state);
+ 
+ 	/* can set bus on now */
+ 	if (dev->adapter->dev_set_bus) {
+@@ -631,7 +631,7 @@ static int peak_usb_ndo_stop(struct net_device *netdev)
+ {
+ 	struct peak_usb_device *dev = netdev_priv(netdev);
+ 
+-	dev->state &= ~PCAN_USB_STATE_STARTED;
++	clear_bit(PCAN_USB_STATE_STARTED, &dev->state);
+ 	netif_stop_queue(netdev);
+ 
+ 	close_candev(netdev);
+@@ -941,7 +941,7 @@ static int peak_usb_create_dev(const struct peak_usb_adapter *peak_usb_adapter,
+ 	dev->netdev = netdev;
+ 	dev->adapter = peak_usb_adapter;
+ 	dev->ctrl_idx = ctrl_idx;
+-	dev->state = PCAN_USB_STATE_CONNECTED;
++	set_bit(PCAN_USB_STATE_CONNECTED, &dev->state);
+ 
+ 	dev->ep_msg_in = peak_usb_adapter->ep_msg_in;
+ 	dev->ep_msg_out = peak_usb_adapter->ep_msg_out[ctrl_idx];
+@@ -1044,7 +1044,7 @@ static void peak_usb_disconnect(struct usb_interface *intf)
+ 		char name[IFNAMSIZ];
+ 
+ 		dev_prev_siblings = dev->prev_siblings;
+-		dev->state &= ~PCAN_USB_STATE_CONNECTED;
++		clear_bit(PCAN_USB_STATE_CONNECTED, &dev->state);
+ 		strscpy(name, netdev->name, IFNAMSIZ);
+ 
+ 		unregister_candev(netdev);
+diff --git a/drivers/net/can/usb/peak_usb/pcan_usb_core.h b/drivers/net/can/usb/peak_usb/pcan_usb_core.h
+index 65999f04f4b7..234d20f81154 100644
+--- a/drivers/net/can/usb/peak_usb/pcan_usb_core.h
++++ b/drivers/net/can/usb/peak_usb/pcan_usb_core.h
+@@ -103,15 +103,18 @@ struct peak_tx_urb_context {
+ 	struct urb *urb;
+ };
+ 
+-#define PCAN_USB_STATE_CONNECTED	0x00000001
+-#define PCAN_USB_STATE_STARTED		0x00000002
++/* bit numbers for struct peak_usb_device::state (used with set_bit()/
++ * clear_bit()/test_bit() for atomic read-modify-write across contexts)
++ */
++#define PCAN_USB_STATE_CONNECTED	0
++#define PCAN_USB_STATE_STARTED		1
+ 
+ /* PEAK-System USB device */
+ struct peak_usb_device {
+ 	struct can_priv can;
+ 	const struct peak_usb_adapter *adapter;
+ 	unsigned int ctrl_idx;
+-	u32 state;
++	unsigned long state;
+ 
+ 	struct usb_device *udev;
+ 	struct net_device *netdev;
+diff --git a/drivers/net/can/usb/peak_usb/pcan_usb_fd.c b/drivers/net/can/usb/peak_usb/pcan_usb_fd.c
+index 39f0740421c3..729d294f71e5 100644
+--- a/drivers/net/can/usb/peak_usb/pcan_usb_fd.c
++++ b/drivers/net/can/usb/peak_usb/pcan_usb_fd.c
+@@ -202,7 +202,7 @@ static int pcan_usb_fd_send_cmd(struct peak_usb_device *dev, void *cmd_tail)
+ 	ptrdiff_t cmd_len;
+ 
+ 	/* usb device unregistered? */
+-	if (!(dev->state & PCAN_USB_STATE_CONNECTED))
++	if (!test_bit(PCAN_USB_STATE_CONNECTED, &dev->state))
+ 		return 0;
+ 
+ 	/* if a packet is not filled completely by commands, the command list
+diff --git a/drivers/net/can/usb/peak_usb/pcan_usb_pro.c b/drivers/net/can/usb/peak_usb/pcan_usb_pro.c
+index b6be8c19e537..e38aee7834ce 100644
+--- a/drivers/net/can/usb/peak_usb/pcan_usb_pro.c
++++ b/drivers/net/can/usb/peak_usb/pcan_usb_pro.c
+@@ -210,7 +210,7 @@ static int pcan_usb_pro_send_cmd(struct peak_usb_device *dev,
+ 	int err;
+ 
+ 	/* usb device unregistered? */
+-	if (!(dev->state & PCAN_USB_STATE_CONNECTED))
++	if (!test_bit(PCAN_USB_STATE_CONNECTED, &dev->state))
+ 		return 0;
+ 
+ 	err = usb_bulk_msg(dev->udev,
+@@ -234,7 +234,7 @@ static int pcan_usb_pro_wait_rsp(struct peak_usb_device *dev,
+ 	int i, err = 0;
+ 
+ 	/* usb device unregistered? */
+-	if (!(dev->state & PCAN_USB_STATE_CONNECTED))
++	if (!test_bit(PCAN_USB_STATE_CONNECTED, &dev->state))
+ 		return 0;
+ 
+ 	req_data_type = pum->u.rec_buffer[4];
+@@ -318,7 +318,7 @@ int pcan_usb_pro_send_req(struct peak_usb_device *dev, int req_id,
+ 	unsigned int p;
+ 
+ 	/* usb device unregistered? */
+-	if (!(dev->state & PCAN_USB_STATE_CONNECTED))
++	if (!test_bit(PCAN_USB_STATE_CONNECTED, &dev->state))
+ 		return 0;
+ 
+ 	req_type = USB_TYPE_VENDOR | USB_RECIP_OTHER;
+
 -- 
 2.53.0
+
 
