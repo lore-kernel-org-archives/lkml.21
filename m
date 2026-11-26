@@ -1,98 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.71
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795664485;
-	b=q18nt+13zcKwNObxUU0IXgfQtTU4IzbvpHOkWFkzIFCmXQrx3lAq39PwhX/Y4SBGGI0B
-	 baeEv6o6XO1osuEWxk7t3P47Np5aExDgnYpUHSZgspoJEKRCkd5BWP1yGhPqldtggE2cC
-	 LrfCZF/9FVEUK86mcnsSFI5sR6YBgfhdk5/k9Gd6yvta6w0A+hAgAO94zUYz6PSQx61dr
-	 pWHafDT5uWrFWYyXpIbr0a/3dRie7Om3Dxcn52VI0pQ/ShzT0+ibplbdHJf9b1IfM/o2y
-	 FT6ERLGRZw1+7I0Wpo/04los5OvxRTYy3q1c8J1yKDkANRidJLqTuQjLcYHCFz2VLQg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795664485;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=NX49c+RsfDmzzDi6BsCJc72BXdQGAuH+1TStIPaaQ90=;
-	b=3dYO76G+Tr2oCg9ftSZUkqfUT3rUOaHQk1fMzvi9qoCynqIazgA2PMV3YquO7aOCZRFY
-	 cTPFH8iE+uuaxQT40iOWmAORhl0RBITlDp7Q8IZZPSx41UgvcMoC411tT8876at0C/Mt+
-	 sRIp+viO8uyru0MxK3y/jyp+vDYMwfE7PFos73LSrbqfVHvSsjYHaUPsbApprjF1Jtkuk
-	 PmTsREL0DhHIqxNgQRDVjLEDCI8C6cIHsVFRTQZslWtJ8uCLHGsYLesXqXlJ2wBlS+lZP
-	 CE/Og8ure20/G6bcI8qbec6lZGFJ0AgC28zj4MU25ewpRzy7SmhNh0xSLBrZPkb4AxA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=JW4y6y9w;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.71
-Received: from MW6PR02CU001.outbound.protection.outlook.com (mail-westus2azon11012071.outbound.protection.outlook.com [52.101.48.71])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.2
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795664545;
+	b=EHzoYSGr6oI+jbMTkNocPwKYpEzSm2IweZLIJgvX7SXhvSwc6QL5h1khBtzXASUBBGgd
+	 yMRKK1tCKuW82Dju9q1ZagWt5enPNBX6jPnI9Z5m5UkPeACRZu321piKVb0r0GfNF4gUG
+	 2V6bJZLocH3Ormlc17ff70p4yQGHzAbz4RwyimZhUJl+asaz1qclPeCPchQm29SZXC1/H
+	 SZNOuwg7cblHSaAbDmjVXzMyUfHJYmDh52vhPyic8NRlcs+fWTH6MWY2zdzH0APqGMit4
+	 wjoWOWaxQRxOq1RrEjxY0M53MhkB+xbILHu98upOYbyBN1RrGVJ3ZxqQG082cyldddg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795664545;
+	h=DMARC-Filter:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=ASc53FTdCDNtqSiOj4VcLem5LqRvCYBOPA4aTaaWJow=;
+	b=DGbk5CsFVsttz7c/Xq3Jxbmyu1uEE4qYoTtLd8gJAyT8Zhd0F15HzQGxAdGwBvk8Ndvg
+	 mVveozH4SWYZ4vqBLnSMvK8ENLPYt/m+jrhCAARvN3iwmZn5kRH4CSpIxTG7c4zWB87zT
+	 o7k8MdSVixHpYTp3XfjCT2MssaJ/5Ld9WjifJWoa+fmbvSgwTa8vd0hPHmnPC6tb+PDgU
+	 nNwX98jgAnMPm57Yen3zBTszDUCuexm72PdBMgVVlfzhOTXG8KsZMkDGL52oO7j6ijuny
+	 OVK4nrFBkVhO+Fj5Wo9F2fP0mD1SZ0jMpCODGfo4q07I1L0PKt/IVbsuIJdGeB2wqcw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=nL5Fj962;
+	arc=none smtp.remote-ip=117.135.210.2
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC6FB606A321;
-	Thu, 26 Nov 2026 03:41:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC6FB606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D13D606A31E;
+	Thu, 26 Nov 2026 03:42:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D13D606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=JW4y6y9w
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bfjV2bgcr+DzPc8rkV3P6RFNXXbjm/9PWmHqvDFSf1ebxKPRJoi+QE7grb5xhEWH+ig8+i26CCwruuejLTQ7kka0JA9TZOoA0tZ1EeC53PLU6TiHhfGtM86erBNxBFyHtzBYKEsdiwsaDtw2x3aZq0vvOKdaNkyavIGVp9CjwzSrlXzshjDzcYeIg+HB5N9TQSsXwewAx1Ruceg03F3O+0GjiKqZsFbGCTwarz/emauq2YLWdR8/kRFctjLCrgLU9aQowyRDAW7CrOpuNVbcecSP9P6F/8Kjl+jrNy4P8czZbqc8UYI+B8vmcH9dDjBPP1nYI458XIpLf7ON42477A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NX49c+RsfDmzzDi6BsCJc72BXdQGAuH+1TStIPaaQ90=;
- b=Rk7SSJyP7aXlInldzFK+luDAI+JjYygc+PquDp/5JeWh0kK96YzapFnco6V8flvGWEd5b/CZe16AHaOsrmdrPbxFNaWY7xFxbJ63pwuX+HR7SQc8AnFCZU8rWeBjmpTDyiWdG3/0FVt6XVNJ9q6fhm8aKMx5r9dM4bH8k1CCk4mfYJ2eLw5FMOZInn/wdM8NxqODhb/s/j02ysxIRjNhiQDzzToC3/wzw6hFKRolEanR6Xp7BpUpuFJ4IzPKqGoVE6RyhMhPZ2x5FQr6r8K9WtiF1u0LDGqCL1oDhvvpvNwHmfRPohS7R7pvb36nNUg4+bSv1MZcplm/pcpPTshiag==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NX49c+RsfDmzzDi6BsCJc72BXdQGAuH+1TStIPaaQ90=;
- b=JW4y6y9wF/oqycoUwZEn3FgqRHHAJV3HW4bzpnPKVNa8wdqPzQ7YcgMSi16f/FVj5D4eAjs0kD+jgFKWrFF8X5SfM+y0YfeVJYx/ikvY5Omgnx0wzmS3WT4yDsKcUQYEOGhTpTgMdGU5re5kTF8w0M5MbVQjA0TDv9CrJu5GbB0dEHIVeYVke9zzPc5sdImBDlc+9kF74acgFqI1NQLyiAvi9mdfuS+7TFZUeSFHqHshF2LUzuKb/ALlUWodzIJvYg17HNK1Jbl5sAfwg42hrZcpVdPo+0F/Uo72MCJK7Jj348QxIrb3IPVrYb2YkzYpeHSeKqFqBvPT18e6CFGb6Q==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB4354.namprd12.prod.outlook.com (2603:10b6:5:28f::22)
- by SA1PR12MB7126.namprd12.prod.outlook.com (2603:10b6:806:2b0::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Thu, 26 Nov
- 2026 03:41:21 +0000
-Received: from DM6PR12MB4354.namprd12.prod.outlook.com
- ([fe80::7106:c186:62e:bc0d]) by DM6PR12MB4354.namprd12.prod.outlook.com
- ([fe80::7106:c186:62e:bc0d%5]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
- 03:41:21 +0000
-Message-ID: <2b503e0e-8987-4e50-a968-09130e26d011@nvidia.com>
-Date: Thu, 26 Nov 2026 05:41:14 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 5/5] net/mlx4: flush pending doorbell when
- dropping a TX skb
-To: Joe Damato <joe@dama.to>, netdev@vger.kernel.org,
- Tariq Toukan <tariqt@nvidia.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: edumazet@google.com, horms@kernel.org, linux-kernel@vger.kernel.org,
- daniel.machon@microchip.com, linux-rdma@vger.kernel.org
-References: <20261125180021.1804204-1-joe@dama.to>
- <20261125180021.1804204-6-joe@dama.to>
-Content-Language: en-US
-From: Mark Bloch <mbloch@nvidia.com>
-In-Reply-To: <20261125180021.1804204-6-joe@dama.to>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: TLZP290CA0003.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:9::17) To SA0PR12MB4367.namprd12.prod.outlook.com
- (2603:10b6:806:94::13)
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=nL5Fj962
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID; bh=ASc53FTdCDNtqSi
+	Oj4VcLem5LqRvCYBOPA4aTaaWJow=; b=nL5Fj9622Rj8dx31cLHsrXtaxPFt87Y
+	AiOhUNgrFK9w2+Yx7YiFSL3d+wKw4EJD56wHi62QNegRtu7xjFn6zhKtFGUggtAx
+	y8LRMNsTB5x9kMtndf7YK6MDKJ6kCox3vTsnZq3UyfaTYr+8Fn0bsxlhYLC6lqMR
+	Z+z3I97cDRYE=
+From: shaos <shawnq1@163.com>
+To: Mickaël Salaün <mic@digikod.net>
+Cc: Günther Noack <gnoack@google.com>,
+    Jonathan Corbet <corbet@lwn.net>,
+    Shuah Khan <skhan@linuxfoundation.org>,
+    Randy Dunlap <rdunlap@infradead.org>,
+    Steven Rostedt <rostedt@goodmis.org>,
+    Masami Hiramatsu <mhiramat@kernel.org>,
+    Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+    Paul Moore <paul@paul-moore.com>,
+    James Morris <jmorris@namei.org>,
+    Serge E. Hallyn <serge@hallyn.com>,
+    linux-security-module@vger.kernel.org,
+    linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+    linux-trace-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: [PATCH] landlock: restrict opening namespace file descriptors
+Date: Thu, 26 Nov 2026 03:40:27 GMT
+Message-ID: <179566442733.1993761.8053687674090289362@163.com>
+X-CM-TRANSID:PygvCgCH74QrqgdrvLbtIA--.60447S4
+X-Coremail-Antispam: 1Uf129KBjvAXoW3KF47tFW7try8uw13XF4UXFb_yoW8GrykJo
+	WI93WIqa18Aw43ZFyDtFZFyFy5Aan5ua18Ar1IqrZ8A3WIqa4SkF18Cw40yF47JFyrtF13
+	Zr1xJrWFv3yDJa47n29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUxwvtDUUUU
+X-CM-SenderInfo: pvkd40jtr6il2tof0z/xtbC8g1SYGsHqi22iAAA3Y
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,127 +70,323 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB4354:EE_|SA1PR12MB7126:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0067f108-115b-4abb-f6b3-08df4b6f22e2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|1800799024|366016|7416014|376014|10067099003|11063799006|56012099006|4143699003|261021121427099003|261009223027099003|261102123227099003|261028144727099003|261022105027099003|261022075727099003|261026140227099003|261026121527099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	B0xPSVJOVXq3L/8hYjL6w6YHOPe9JONwFFQWWkwrnNG3T1Wtk3JS4EWMmabwC4Wdr56Bv9wSDM7j4A2O7SrA0QPK0VNxZQrUAlBNuCtlcACBaut9XCWS4S+lTuuJfvgUnuvE5VG40cgr9Gjr7u5nhdqwKO68XXalAB+Sr1k/kCGugSGuP6mmhfpt2WVZ4tGnlsBJteQrHtjdrZIUeqJCiSOPM6LuqiWdH3b0+XWFok7fILqox9csOa1jnBPMbip0fbJFJzlkHHf7JJjcc+NoCXD0TBDpnamhC4s7ZqpQyK8anzKbYWm2dFQxTO4ZzelrG3XLwfAllHrcskbDU3brJW7Ds4RqSi42Z9zRzaDqo0WXi1P40UGuhKYG9yrjE5+MWd8qebZcvH/s/EH3ALBFPm+YUTyzQhshJfsOdEnZ8qBYOGcFqMq3DpVILwwXXbGfOSMtWXH6+R2lwBXk7JwZnWT0lVIDSKzvljr9M0sVL66sTWc1fYkUB0DhLPrI4MdnGIoei+KsdGVWkZuHkuls4c6RVds9OCg29xsQx5Yjkw1j0h2HG8jKYJPtwNNYUklZxPS0E0VNhxRrqmsB26/330zJAOgX3sYOtervCgERrVa9uxLl50q9C0EBP7L1651gba8KPrqnv1Ryb9XIKQSlKi+iukVysh0FGxJI9gtyiSA=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4354.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(7416014)(376014)(10067099003)(11063799006)(56012099006)(4143699003)(261021121427099003)(261009223027099003)(261102123227099003)(261028144727099003)(261022105027099003)(261022075727099003)(261026140227099003)(261026121527099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?ZERCTFhhZm1FT1ZRYlRXRUpBK2tObFpoYndQYURJZDFyMnJXaTU2RVI0VTR4?=
- =?utf-8?B?TEdoUDJBNk9EaGw0MUNsd1BtZEIreHhvQXNQYmNuZ1NZb0h5ZkQyY21xcmxV?=
- =?utf-8?B?ZEhxUGxacE82QjlLM1NteWdUdFNPR0VNdUwwNXFJQ28vbE9yMUxMckNBQ25C?=
- =?utf-8?B?QUdGZ1VGU1VsbTFUWU1IQUNrN1IwZWdYdFEyeXJLTFVMcXE3UEFGOUJmVWR5?=
- =?utf-8?B?NExXWktYdUMvLzdjeDREVDV0Z05vaUk1OGhSd1VkSXdwWFF1YysxWHFKZ1hM?=
- =?utf-8?B?b3d3RGM5bng3SUpZZlhVWW44ZE9hSWs4ZzJwRzNLQmRvQWJnQ3plWmJvV01X?=
- =?utf-8?B?VHpySFVZZFhQL01pS25mOGlLQ2FGK29QNTJHR0hkdlpEZ050bW9tbnIrZnlK?=
- =?utf-8?B?RE93blFzcDJxMkIzblRZRXZwbm8zNXpIZHpPT2l3TEhYWVlRU1ozdEd3M0ha?=
- =?utf-8?B?T1FXNjF2emduMTQ0eTlaaXIzUnJQVEh4QmQ0V1BPQW44T2hpblhDT0NZWWpo?=
- =?utf-8?B?VlpsWDN2NjNObnp6MjJDRW1uZXJWRjNWWkh4MDU0a2Fjdk5uVHpMK0EyaFpu?=
- =?utf-8?B?eXZIbUpGVjdGWkhTc2d3Y21hL1VWdFNqYWFNMUxLWGU1aWNtNmU1Q3c4NnZp?=
- =?utf-8?B?NGJ0L3VJVy9JWXNlb05UcFhwWXpqRFQxT2E1M2ErSzVtR0g2NC9nQ0xINnBS?=
- =?utf-8?B?VTdVWnp1V0hza1E4TDV4Z2FzZDJkOHd5MWUxeU1CVDNLNTl2NExEclpSeTdH?=
- =?utf-8?B?SzYrN21MTDA4MUNCSDBtSDhmL0NFT2xwWnE5L0JUQTlqeW9XWkhBVWJtMjh5?=
- =?utf-8?B?UVRScStQV0tpOVRyRFR2OTBhUmxjVy8xa2E5RlFHT2pRbVg0T0JZbFVEeDNr?=
- =?utf-8?B?bXRGbDBLUmU1OGlkNnJGeU92MTRqWTNQbGd5cmRDKytZL0VlN3dsL2RVMEc3?=
- =?utf-8?B?QURFWFZVNENWNnZzM05henlvVmZvb2d1Q2J1S21MWXRHQTJGbStLOEdLZjcx?=
- =?utf-8?B?cXVCV2RKNkRidTlyZW14RjBOeUQzMkI3OGFEc2NUdVcvbUhJL3BkZkRjZHJp?=
- =?utf-8?B?a2FUSENydERXTGtJa3dzN2pvUGk2SEdweDV1Mm5hT2JmQnU2S2lnWEcwSE1s?=
- =?utf-8?B?bGJ3YTVvakV1aThEdmowWXp4b2xVUG5aTWp5Q3RwSjhQWDVWb2pFb2xycnBu?=
- =?utf-8?B?eXJSQngyQkFheDFTbHJZN2tIdnVBMnRaMmZrWVFCNzFwMktMMmo2MzdTZFFG?=
- =?utf-8?B?c0RDK29PaytvQVg0WU9QZituSGJCU09yM2FxYVA3R2d0UjQveXlYak9qSjlB?=
- =?utf-8?B?WDY5VE5sVmJNTWpnS2xkYjhDTjg3YzJLYkFsMTM5WFlPb2dtOGhXUUNrT0Nx?=
- =?utf-8?B?eXA0UUthZmZmU3dpYzI1TVU4RXYzMXlUQUJYSEJOTVgrc2ZYV1ZsWU9iVTBq?=
- =?utf-8?B?MU5wVW45b1dJdXZZNTJITGMzenNKMmVDYXJ4MWJIdWEvM2kzUUUraFNRTXo3?=
- =?utf-8?B?YlkvbVFiNDk2dytOTkZrODZPblJ2NWxDUURjOHJWTFU2QXFqSWp1UE43MUNR?=
- =?utf-8?B?V1gvZDVmSnA5aGlwbEkwU1ByTjZwSk5DczdXWDh5VkVmZmNxVXdUbTloOHRE?=
- =?utf-8?B?UlZZNHhlTU5SdVEzTU5xU3ZvcFlMRlFVZTJqL2VxY2RHOU8zRHVhdnFzbDNL?=
- =?utf-8?B?TnYzSEVyT1R5cGkrb0NxMXNzVnc0QVZOMi8yblNRMTJZcktnb1pDTXdVTzNU?=
- =?utf-8?B?WHV6eVFGQUxUaDdCek5Idjc4U1NSTmIxSkxlbS9rcE5WT3BBaGg1TWhWYktU?=
- =?utf-8?B?Ym9mRE9jMGNPMnJGc2ZWdVRUM0NoYW1WNmR0WmI2OWYwVmxVTEhCS3gvNjB1?=
- =?utf-8?B?ZXgvcnRzVkhDVU02OXpnbnlHWHZLaWxnTDlOZjl6a1hiQml2UVdBcHZDRUdE?=
- =?utf-8?B?RGhUM2xsQUlUWHJDRWVraWVPa3RybU1iWHp0OE5tcFhZRHY4MUl0TW9aZ2FC?=
- =?utf-8?B?VXFvWnpDK0JZZEJBWmxla0ZMZHhab0pJN3F0QXFNMEF4MkVlbjJNWXduUkpQ?=
- =?utf-8?B?a2pSVlFXRnZaM2p4YWI5NHdqMFU0N2Q4K3U4VjBPbXp5QWVkSk1zZC90dHRS?=
- =?utf-8?B?OXZwaERwbWZ0SDN0S2xXaHB5Q2RTZkg3Y2ZDelFmM0cxZEhXUURIK1E3K3NB?=
- =?utf-8?B?R1V6MVM2YjV4Ym9KdmNpeFF2dHJzdlB4alAwVTRhSUhUZ2h5QkFjV3BrbXU1?=
- =?utf-8?B?WGtIanh6YkdqN0lEVDdKL3FnWVZGZ0ZmNlpHZXpQR0l0aHRxUDJXRHhFMGFw?=
- =?utf-8?B?NHU2c0kvdklwUlBRN3NvTDY5VDk1RnZ5Q1o2d1dXK0JmTkpsOFY1QT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0067f108-115b-4abb-f6b3-08df4b6f22e2
-X-MS-Exchange-CrossTenant-AuthSource: SA0PR12MB4367.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 03:41:21.3046
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZRvONoVZdaOGSOV+x30U/kOfwCCGdL7pk5xEkyWLPmU/QK/uTX2uswBsbhPW0unXjG7Bp8m2VLqP48s/YqUu2w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7126
 
+Hello,
 
+Landlock checks NAMESPACE_USE when a task creates a namespace or
+installs one with setns(), but does not check acquisition of a file
+descriptor for an existing namespace. A sandboxed task can use
+SIOCGSKNS on a retained socket to obtain a descriptor for a network
+namespace denied by its Landlock rules, then pass that descriptor to
+RTM_SETLINK to move an interface into that namespace.
 
-On 25/11/2026 20:00, Joe Damato wrote:
-> If mlx4_en_xmit drops an skb (for example because DMA mapping fails) and
-> that skb happens to be the last one in the batch, the doorbell for the
-> WQEs posted earlier in the batch isn't written.
-> 
-> The queue stays awake, though, so those WQEs are eventually announced to
-> the HW after the next TX, but that depends on traffic and could induce
-> latency.
-> 
-> Avoid all of that by writing the pending doorbell in the drop path and
-> clearing the flag.
-> 
-> Suggested-by: Mark Bloch <mbloch@nvidia.com>
-> Signed-off-by: Joe Damato <joe@dama.to>
+The reproducer uses a task with CAP_NET_ADMIN in its own user namespace
+and a retained socket reference to the target namespace. It demonstrates
+a Landlock namespace-use policy bypass; it does not demonstrate
+privilege escalation beyond that capability.
 
-Thanks for the patch,
+This change checks nsfs file opens from Landlock's file_open hook. It
+covers proc namespace links and namespace ioctls that create an nsfs
+file. It keeps the current namespace implicitly accessible, consistent
+with the documented behavior, and records fd acquisition distinctly in
+audit and trace events.
 
-Reviewed-by: Mark Bloch <mbloch@nvidia.com>
+HEAD commit:    8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
+Git tree:       fe970b05333fb8e41da21e9e289f652abcc7cba7
+Source version: Linux 7.4.0-rc4
+Compiler:       gcc 11.4.0, GNU ld 2.38
+Test runtime:   QEMU 6.2.0, x86-64 TCG
 
-> ---
-> v3:
->   - Add mlx4_en_flush_pending_doorbell which clears the flag.
->   - Call it from mlx4_en_xmit (Mark).
->   - Dropped Daniel's Reviewed-by
-> 
->  drivers/net/ethernet/mellanox/mlx4/en_tx.c | 10 ++++++++++
->  1 file changed, 10 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/mellanox/mlx4/en_tx.c b/drivers/net/ethernet/mellanox/mlx4/en_tx.c
-> index 8a43c86f815c..8fd1850ba756 100644
-> --- a/drivers/net/ethernet/mellanox/mlx4/en_tx.c
-> +++ b/drivers/net/ethernet/mellanox/mlx4/en_tx.c
-> @@ -759,6 +759,14 @@ void mlx4_en_xmit_doorbell(struct mlx4_en_tx_ring *ring)
->  		  (__force u32)ring->doorbell_qpn, ring->doorbell_address);
->  }
->  
-> +static void mlx4_en_flush_pending_doorbell(struct mlx4_en_tx_ring *ring)
-> +{
-> +	if (ring->doorbell_pending) {
-> +		mlx4_en_xmit_doorbell(ring);
-> +		ring->doorbell_pending = false;
-> +	}
-> +}
-> +
->  static void mlx4_en_tx_write_desc(struct mlx4_en_tx_ring *ring,
->  				  struct mlx4_en_tx_desc *tx_desc,
->  				  union mlx4_wqe_qpn_vlan qpn_vlan,
-> @@ -1131,6 +1139,8 @@ netdev_tx_t mlx4_en_xmit(struct sk_buff *skb, struct net_device *dev)
->  
->  tx_drop_count:
->  	ring->tx_dropped++;
-> +	/* an earlier skb in this batch may have deferred the doorbell */
-> +	mlx4_en_flush_pending_doorbell(ring);
->  tx_drop:
->  	dev_kfree_skb_any(skb);
->  	return NETDEV_TX_OK;
+The PoC, complete configuration, console logs, and initramfs helpers
+are in this unlisted Gist:
+
+https://gist.github.com/shaos26/b2c0b1e1951692b79d2bc2f9421abfbc
+
+Console output:
+https://gist.githubusercontent.com/shaos26/b2c0b1e1951692b79d2bc2f9421abfbc/raw/d2278bbd001f2c62b611fc0a5325cc4c8f7451b0/console-output.txt
+Kernel config:
+https://gist.githubusercontent.com/shaos26/b2c0b1e1951692b79d2bc2f9421abfbc/raw/d2278bbd001f2c62b611fc0a5325cc4c8f7451b0/kernel-config.txt
+PoC source:
+https://gist.githubusercontent.com/shaos26/b2c0b1e1951692b79d2bc2f9421abfbc/raw/d2278bbd001f2c62b611fc0a5325cc4c8f7451b0/poc.c
+
+The reproduction script builds the specified kernel, builds the PoC and
+initramfs, and runs the baseline, deny, allow, and invalid-fd cases:
+
+    git clone https://gist.github.com/b2c0b1e1951692b79d2bc2f9421abfbc.git repro
+    git -C repro checkout d2278bbd001f2c62b611fc0a5325cc4c8f7451b0
+    chmod +x repro/*.sh
+    ./repro/reproduce.sh
+
+Two vulnerable boots allowed SIOCGSKNS and RTM_SETLINK despite the deny
+rule: the move request was acknowledged and the interface appeared in
+the denied namespace. With this patch, opening the current namespace
+still succeeds, setns() and unshare() remain denied, SIOCGSKNS returns
+EPERM, and the interface remains in its original namespace. Baseline,
+explicit allow-rule, and invalid-fd controls pass.
+
+Fixes: 15dd86021b57 ("landlock: Enforce namespace use restrictions")
+Cc: stable@vger.kernel.org
+Signed-off-by: shaos <shawnq1@163.com>
+
+---
+ Documentation/userspace-api/landlock.rst |  3 +++
+ include/trace/events/landlock.h          | 12 ++++++----
+ security/landlock/audit.c                |  4 ++++
+ security/landlock/fs.c                   | 11 +++++++++
+ security/landlock/log.c                  |  2 ++
+ security/landlock/log.h                  |  1 +
+ security/landlock/ns.c                   | 30 ++++++++++++++++--------
+ security/landlock/ns.h                   |  4 ++++
+ security/landlock/trace.c                |  1 +
+ 9 files changed, 54 insertions(+), 14 deletions(-)
+
+diff --git a/Documentation/userspace-api/landlock.rst b/Documentation/userspace-api/landlock.rst
+index 7cc5fde482623..b1e78eef17bac 100644
+--- a/Documentation/userspace-api/landlock.rst
++++ b/Documentation/userspace-api/landlock.rst
+@@ -598,6 +598,9 @@ that references it.  The covered syscall paths are:
+   descriptor referring to a newly-created mount namespace.
+ * :manpage:`fsmount(2)` (default): the caller obtains a file descriptor
+   referring to a newly-created anonymous mount namespace.
++* Opening an nsfs file descriptor, including through :manpage:`open(2)` on
++  ``/proc/<pid>/ns/`` or :manpage:`ioctl(2)` operations such as ``SIOCGSKNS``
++  and ``NS_GET_USERNS``.
+ 
+ Anonymous mount namespaces (created by ``open_tree(OPEN_TREE_CLONE)`` and the
+ default :manpage:`fsmount(2)`) are intentionally covered by the bit even though
+diff --git a/include/trace/events/landlock.h b/include/trace/events/landlock.h
+index 09e90e4a9cd7b..ae385ffb3a360 100644
+--- a/include/trace/events/landlock.h
++++ b/include/trace/events/landlock.h
+@@ -40,6 +40,7 @@ TRACE_DEFINE_ENUM(LANDLOCK_REQUEST_FS_ACCESS);
+ TRACE_DEFINE_ENUM(LANDLOCK_REQUEST_NET_ACCESS);
+ TRACE_DEFINE_ENUM(LANDLOCK_REQUEST_NAMESPACE_CREATE);
+ TRACE_DEFINE_ENUM(LANDLOCK_REQUEST_NAMESPACE_ENTER);
++TRACE_DEFINE_ENUM(LANDLOCK_REQUEST_NAMESPACE_ACQUIRE);
+ TRACE_DEFINE_ENUM(LANDLOCK_REQUEST_CAPABILITY);
+ 
+ #ifdef CREATE_TRACE_POINTS
+@@ -993,8 +994,8 @@ TRACE_EVENT(landlock_deny_access_net,
+  * @namespace_id: Namespace ID, not directly visible from user space when
+  *                creation was denied.
+  *
+- * Emitted when a Landlock domain denies namespace creation or entry.  The
+- * namespace_op field distinguishes these operations.
++ * Emitted when a Landlock domain denies namespace creation, entry, or fd
++ * acquisition. The namespace_op field distinguishes these operations.
+  */
+ TRACE_EVENT(landlock_deny_permission_namespace,
+ 
+@@ -1028,14 +1029,17 @@ TRACE_EVENT(landlock_deny_permission_namespace,
+ 	TP_printk("domain=%llx same_exec=%d logged=%d blockers=%s namespace_op=%s namespace_type=0x%x namespace_id=%llu",
+ 		  __entry->domain_id, __entry->same_exec, __entry->logged,
+ 		  (__entry->blockers_type == LANDLOCK_REQUEST_NAMESPACE_CREATE ||
+-		   __entry->blockers_type == LANDLOCK_REQUEST_NAMESPACE_ENTER) ?
++		   __entry->blockers_type == LANDLOCK_REQUEST_NAMESPACE_ENTER ||
++		   __entry->blockers_type == LANDLOCK_REQUEST_NAMESPACE_ACQUIRE) ?
+ 			  __print_flags(__entry->blockers_access, "|",
+ 					_LANDLOCK_PERMISSION_BLOCKER_NAMES) :
+ 			  "unknown",
+ 		  __entry->blockers_type == LANDLOCK_REQUEST_NAMESPACE_CREATE ?
+ 			  "create" :
+ 		  __entry->blockers_type == LANDLOCK_REQUEST_NAMESPACE_ENTER ?
+-			  "enter" : "unknown",
++			  "enter" :
++		  __entry->blockers_type == LANDLOCK_REQUEST_NAMESPACE_ACQUIRE ?
++			  "acquire" : "unknown",
+ 		  __entry->namespace_type, __entry->namespace_id)
+ );
+ 
+diff --git a/security/landlock/audit.c b/security/landlock/audit.c
+index 6d9e54f5deedf..ddd653b686d72 100644
+--- a/security/landlock/audit.c
++++ b/security/landlock/audit.c
+@@ -82,6 +82,7 @@ get_blocker(const enum landlock_request_type type,
+ 
+ 	case LANDLOCK_REQUEST_NAMESPACE_CREATE:
+ 	case LANDLOCK_REQUEST_NAMESPACE_ENTER:
++	case LANDLOCK_REQUEST_NAMESPACE_ACQUIRE:
+ 	case LANDLOCK_REQUEST_CAPABILITY:
+ 		if (WARN_ON_ONCE(access_bit >= ARRAY_SIZE(permission_strings)))
+ 			return "unknown";
+@@ -118,6 +119,7 @@ blocker_prefix(const enum landlock_request_type type)
+ 
+ 	case LANDLOCK_REQUEST_NAMESPACE_CREATE:
+ 	case LANDLOCK_REQUEST_NAMESPACE_ENTER:
++	case LANDLOCK_REQUEST_NAMESPACE_ACQUIRE:
+ 		return _LANDLOCK_PERMISSION_NAMESPACE_NAME ".";
+ 
+ 	case LANDLOCK_REQUEST_CAPABILITY:
+@@ -218,6 +220,8 @@ void landlock_audit_denial(const struct landlock_request *const request,
+ 		audit_log_format(ab, " namespace_op=create");
+ 	else if (request->type == LANDLOCK_REQUEST_NAMESPACE_ENTER)
+ 		audit_log_format(ab, " namespace_op=enter");
++	else if (request->type == LANDLOCK_REQUEST_NAMESPACE_ACQUIRE)
++		audit_log_format(ab, " namespace_op=acquire");
+ 	audit_log_lsm_data(ab, &request->audit);
+ 	audit_log_end(ab);
+ 
+diff --git a/security/landlock/fs.c b/security/landlock/fs.c
+index 2ab67bcad1983..97b30fbffa48e 100644
+--- a/security/landlock/fs.c
++++ b/security/landlock/fs.c
+@@ -31,6 +31,8 @@
+ #include <linux/net.h>
+ #include <linux/path.h>
+ #include <linux/pid.h>
++#include <linux/proc_fs.h>
++#include <linux/proc_ns.h>
+ #include <linux/rcupdate.h>
+ #include <linux/sched/signal.h>
+ #include <linux/spinlock.h>
+@@ -49,6 +51,7 @@
+ #include "fs.h"
+ #include "limits.h"
+ #include "log.h"
++#include "ns.h"
+ #include "object.h"
+ #include "ruleset.h"
+ #include "setup.h"
+@@ -1861,6 +1864,14 @@ static int hook_file_open(struct file *const file)
+ 	const struct landlock_cred_security *const subject =
+ 		landlock_get_applicable_subject(file->f_cred, any_fs, NULL);
+ 	struct landlock_request request = {};
++	int err;
++
++	if (proc_ns_file(file)) {
++		err = landlock_check_namespace_fd(file->f_cred,
++						  get_proc_ns(file_inode(file)));
++		if (err)
++			return err;
++	}
+ 
+ 	if (!subject)
+ 		return 0;
+diff --git a/security/landlock/log.c b/security/landlock/log.c
+index c132b343f0ee0..fbcfa962cca32 100644
+--- a/security/landlock/log.c
++++ b/security/landlock/log.c
+@@ -390,6 +390,7 @@ static bool is_valid_request(const struct landlock_request *const request)
+ 	switch (request->type) {
+ 	case LANDLOCK_REQUEST_NAMESPACE_CREATE:
+ 	case LANDLOCK_REQUEST_NAMESPACE_ENTER:
++	case LANDLOCK_REQUEST_NAMESPACE_ACQUIRE:
+ 		if (WARN_ON_ONCE(request->permission !=
+ 				 LANDLOCK_PERMISSION_NAMESPACE_USE) ||
+ 		    WARN_ON_ONCE(request->audit.type != LSM_AUDIT_DATA_NS))
+@@ -488,6 +489,7 @@ is_denial_quieted(const struct landlock_request *const request,
+ 			  LANDLOCK_SCOPE_ABSTRACT_UNIX_SOCKET);
+ 	case LANDLOCK_REQUEST_NAMESPACE_CREATE:
+ 	case LANDLOCK_REQUEST_NAMESPACE_ENTER:
++	case LANDLOCK_REQUEST_NAMESPACE_ACQUIRE:
+ 		return !!(youngest_denied->quiet_permission.ns_types &
+ 			  landlock_ns_type_to_bit(request->audit.u.ns.ns_type));
+ 	case LANDLOCK_REQUEST_CAPABILITY:
+diff --git a/security/landlock/log.h b/security/landlock/log.h
+index 5ca87870c7b78..dee55270a7b89 100644
+--- a/security/landlock/log.h
++++ b/security/landlock/log.h
+@@ -29,6 +29,7 @@ enum landlock_request_type {
+ 	LANDLOCK_REQUEST_SCOPE_SIGNAL,
+ 	LANDLOCK_REQUEST_NAMESPACE_CREATE,
+ 	LANDLOCK_REQUEST_NAMESPACE_ENTER,
++	LANDLOCK_REQUEST_NAMESPACE_ACQUIRE,
+ 	LANDLOCK_REQUEST_CAPABILITY,
+ };
+ 
+diff --git a/security/landlock/ns.c b/security/landlock/ns.c
+index 3d443599b16f4..1ef41ac4f977b 100644
+--- a/security/landlock/ns.c
++++ b/security/landlock/ns.c
+@@ -89,25 +89,28 @@ static const struct access_masks ns_permission = {
+ /**
+  * check_ns_type - Check namespace use permission
+  *
+- * @ns: The namespace being allocated or installed.
++ * @ns: The namespace being created, installed, or opened.
++ * @cred: Credentials whose Landlock domain is checked.
+  * @request_type: Namespace operation reported on denial.
+  *
+- * Shared check for namespace_init (creation via clone(2), unshare(2),
+- * open_tree(2), or fsmount(2)) and namespace_install (use via setns(2)): denies
+- * when the namespace type is not in the domain's allowed set.  At allocation
+- * time @ns->ns_id is already set even though the namespace is not reachable
+- * from user space yet.
++ * Shared check for namespace creation, installation, and nsfs file opening.
++ * Namespaces in which the current task is already a member remain accessible.
++ * At allocation time @ns->ns_id is already set even though the namespace is
++ * not reachable from user space yet.
+  *
+  * Return: 0 if allowed, -EPERM if denied.
+  */
+ static int check_ns_type(struct ns_common *const ns,
++			 const struct cred *const cred,
+ 			 const enum landlock_request_type request_type)
+ {
+ 	const struct landlock_cred_security *subject;
+ 	size_t denied_layer;
+ 
+-	subject = landlock_get_applicable_subject(current_cred(), ns_permission,
+-						  NULL);
++	if (is_current_namespace(ns))
++		return 0;
++
++	subject = landlock_get_applicable_subject(cred, ns_permission, NULL);
+ 	if (!subject)
+ 		return 0;
+ 
+@@ -132,13 +135,20 @@ static int check_ns_type(struct ns_common *const ns,
+ 
+ static int hook_namespace_init(struct ns_common *const ns)
+ {
+-	return check_ns_type(ns, LANDLOCK_REQUEST_NAMESPACE_CREATE);
++	return check_ns_type(ns, current_cred(),
++			     LANDLOCK_REQUEST_NAMESPACE_CREATE);
+ }
+ 
+ static int hook_namespace_install(const struct nsset *const nsset,
+ 				  struct ns_common *const ns)
+ {
+-	return check_ns_type(ns, LANDLOCK_REQUEST_NAMESPACE_ENTER);
++	return check_ns_type(ns, current_cred(),
++			     LANDLOCK_REQUEST_NAMESPACE_ENTER);
++}
++
++int landlock_check_namespace_fd(const struct cred *cred, struct ns_common *ns)
++{
++	return check_ns_type(ns, cred, LANDLOCK_REQUEST_NAMESPACE_ACQUIRE);
+ }
+ 
+ static struct security_hook_list landlock_hooks[] __ro_after_init = {
+diff --git a/security/landlock/ns.h b/security/landlock/ns.h
+index 46d3bd17479d2..cdf6dc2f7326e 100644
+--- a/security/landlock/ns.h
++++ b/security/landlock/ns.h
+@@ -10,8 +10,12 @@
+ 
+ #include <linux/types.h>
+ 
++struct cred;
++struct ns_common;
++
+ u64 landlock_ns_type_to_bit(u32 ns_type);
+ u64 landlock_ns_types_to_bits(u64 ns_types);
++int landlock_check_namespace_fd(const struct cred *cred, struct ns_common *ns);
+ 
+ __init void landlock_add_ns_hooks(void);
+ 
+diff --git a/security/landlock/trace.c b/security/landlock/trace.c
+index a47fb10dec459..9d71b31e9c27a 100644
+--- a/security/landlock/trace.c
++++ b/security/landlock/trace.c
+@@ -83,6 +83,7 @@ void landlock_trace_denial(
+ 	switch (request->type) {
+ 	case LANDLOCK_REQUEST_NAMESPACE_CREATE:
+ 	case LANDLOCK_REQUEST_NAMESPACE_ENTER:
++	case LANDLOCK_REQUEST_NAMESPACE_ACQUIRE:
+ 		if (trace_landlock_deny_permission_namespace_enabled()) {
+ 			const struct landlock_blockers blockers = {
+ 				.access = missing,
+-- 
+2.34.1
 
