@@ -1,73 +1,120 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795689667;
-	b=VnGUENL+2SHYNXL0gHf/PtBPLQNxkPyc7cWFib3AJmOOKCC9942/vpuw6VzUjl1tsFgj
-	 8/WwppUYv/067bHPveGMhW1zXpBIrp5jpCGK3k3ZeR8AmydEGNh40HQ/Ns3wHcb8RRPDg
-	 M7FPv1QWnYnx3ppWy98zizXfFpFlD8nhozRgobUIk2dkcE/w8QLo8qTkdjaOddvqBNopG
-	 rVPMyqS9bqvQnnAShn98lcDWj8Sb1UAwxM0Mq+CsJcbGdNoW03uf0pTV/lyuY3KDAdtFn
-	 282u1+S27frzTw1CD22vq4DdgQeJtYu/eI45qLmF+vjRUz5Pfsaa5umFH5DQX82iUfw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795689667;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=YudPHR0y7obhUcJd7K4kCSQc4O5wz3tOCyEJvIs0Smk=;
-	b=OFPgvNwyqqCGOrMYGzB/rjKpr27ZSnkGKeE5fuVm25K9iot8zltSKUiesb0AnndCuEAq
-	 Bs+EnjBze0gIfqCtLPqfAZ0OFOD89vioA+vWSEJahNgALL+CbIVrHzcmzZ4ui8uUmf4sJ
-	 4xP8sYMbVvXxDCXsldQMG7hvkW/KP+W7tHZ57dn2D3yuDZyCtp7b3Mjl/uqRMzyB7r1DZ
-	 cKXQTE2swPo88XFTtQdcghKq9NJ4RN7LmWLNPjrXLEINExILuCULHlFiN82LTW6NsOrLL
-	 3L5HA7b9tNtODSxQ1FwbC4paxWAirlrxaYcJcKAhommopV6dUt7KTpfj/h2TRXRO8ow==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=Hu9KkhKd;
-	arc=none smtp.remote-ip=90.155.92.199
-Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.133.124
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795689697;
+	b=pZ2wWBSX7+q0ZGEfP+IA9+yU/UaYZkXkf+3dQtndqxxzHKfDH6hagoa4iurw9cFo+tli
+	 OFuITwqyaiLQfJGBqJPoxBnh5/924ZyNzjqbI2BIFLedu8eXh6i45+iHaFNLnQm8j/BnU
+	 9XP3wpO2VBVSzHv1RkKpsD8egvR1/96sWMURxeOVaYWBoxpgRDhmK7VingTH9AbYHkJlF
+	 pZK83H5M5eVx6QqHOJeQanWJkJ6ovCakSAFx1TuQOyIyGEwlJj28RDrHSdmDhQKjaTAzh
+	 9KnYgLam0FeqjxwLvwgAknjKkSguOZ2YPyWL1DiYn2cn5myI5qSQg7QiM8yJImpcOEA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795689697;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=hTXpIfLZ2+j1ow8NmZB6JM/DU4spl29LunD6FR84AzA=;
+	b=JaKSSX/zGKIvqbdb9oOICs6nPhbhcysGnUFP99nyg3Y4b7UTQSPmF/1RBz0d9w8ZmCgz
+	 QGIDw84R6SVAn7SfOweDcFXMG79gxB6w6S5xcy33cy57lWYUV89jGMtDNWkkrPbwhaMLr
+	 2IIFBlHRB6t+n4gEAq7vlkAnslCBdpywAPWiACvOqga1l0bD1KTSZu5w/q//SgXZ71kef
+	 roJG382ML0Xa9c6VcLNs57DWLj92uo5AgTtYReBERkm/YUVN3tGTu//mounZCXi7hUj+Y
+	 H/UVAUTKwHTZGTDhbNIjxLiCigxmpJEmGVF/0MJ7hxDHEfXG6f5a2z3F9qlP2Cc292A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=UMS0jQSv;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=hTCfTUUg;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7581C606A32E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:41:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7581C606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42CBD606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:41:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42CBD606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=Hu9KkhKd
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=YudPHR0y7obhUcJd7K4kCSQc4O5wz3tOCyEJvIs0Smk=; b=Hu9KkhKd/9E9DnafUAmiWvQOfr
-	F2pDmgIiN0I4S8HeJzLJdDBgaLdnD4TEeiNQ5FXDMDa0k1dyS13/y7bhSOHpvt5T/pupmtoVu57SD
-	Dk9GxdFIOpa5R5D2CMRCUfXNVVUs42oWIrRqNsx5U9P889ZL+/OaveF7MV758fltgpbGi2xkDRlHl
-	ma8CUoFuXsSiGdWKLwkw41SHp3nPXlnfcQ8rDLMojGfCoLT6AO8RDVVBTx3YSvjV+6ynuMVgi7bp5
-	pZQtalI/jBEEev6TIv5mBgZY2h4KYtNdzEFKDShwc30aRB8SM09vmQ+XD7m5iDxJUyUAuO7JPO4jC
-	WeImeD5g==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWWuJ-00000006L7D-0nj9;
-	Thu, 26 Nov 2026 10:40:51 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 72C82302186; Thu, 26 Nov 2026 11:40:49 +0100 (CET)
-Date: Thu, 26 Nov 2026 11:40:49 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: linux-kernel@vger.kernel.org,
-	syzbot <syzbot+6835d5c11145e4f77057@syzkaller.appspotmail.com>,
-	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
-	Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>
-Subject: Re: [PATCH v3] sched: Reset cpumask if __migrate_task() failed for
- migration_cpu_stop()
-Message-ID: <20261126104049.GC49833@noisy.programming.kicks-ass.net>
-References: <20261120171658.Cf9qIU-Y@linutronix.de>
- <20261125172018.GD2668564@noisy.programming.kicks-ass.net>
- <20261125193735.qrxCdHTx@linutronix.de>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=UMS0jQSv;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=hTCfTUUg
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795689696;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hTXpIfLZ2+j1ow8NmZB6JM/DU4spl29LunD6FR84AzA=;
+	b=UMS0jQSvdq2S4rsm9u0skUQmuBmUuNempzXP+ufvTyrjyGBINublJWHvP64XZIU4OBj0DZ
+	kxKVPKAaCxwu473DSZuhkEV0M0VRr55c1ZisxOsCoJTXBMZkzxw4ETlC1dzLjXQrE0RHTK
+	qBbwQDqYboHEV5fM3VfHFLwdxFdGqvY=
+Received: from mail-ej1-f69.google.com (mail-ej1-f69.google.com
+ [209.85.218.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-108-f_LE8l4VPZG9uBtW5f3vnA-1; Thu, 26 Nov 2026 10:41:33 +0000
+X-MC-Unique: f_LE8l4VPZG9uBtW5f3vnA-1
+X-Mimecast-MFC-AGG-ID: f_LE8l4VPZG9uBtW5f3vnA_1795689692
+Received: by mail-ej1-f69.google.com with SMTP id a640c23a62f3a-c504b52eed3so667284766b.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:41:33 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795689692; cv=none;
+        d=google.com; s=arc-20260327;
+        b=mTi3U95Qpgy0CIKpwK0JsWp6Bs10s2TrdgIRTMAWAzgS3+EJ9wfQCRzOcinig3Mo92
+         acE4fi/qddyJ43LXsQGzJ+/YDonytjsVClqDxytCty32YLy5yk9p7Jh4QNONYhUgzhk3
+         MaA4/r+SfafcRZ0x4YyG6hBBpEQlwwXSK957VWFourgBTiKwrzAe6NbR/tnRXX66MRrm
+         aJK6U2LyDhvSLvlf2AbbKgyrGWiqfScch4JS4ayi4SiUagb3vCHY7pio6TctH0VASU1L
+         W9bp/k4VKCXyOGoqIs0AfiWU17Fcqjiu7d0MXjlDxyoodjXVIXEPB3zzbaUQEe5J91vB
+         0v5w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=hTXpIfLZ2+j1ow8NmZB6JM/DU4spl29LunD6FR84AzA=;
+        fh=ufJvYGg16bN158LGTq96pmiYUT6QvwXqQ7ysLlL80i4=;
+        b=TuPWK1Ao8WvyTVS9Enm3IJWT5BzNsO3+W/sPh+rIjwrdMHNKY/i6g1t1RVx/r1GHzy
+         KjRGp2iqUhqyQGjHHC4EkfzYgtZ/yG1SwRSnLQ3yBYNW2h2Z+aM/p/53dDbzapTyBBfu
+         LdYm69JwhSYdefDnktu2llnSB9AoxVzu4nv2WXlBHDXow11QEMORzyXIZezF/4dTUlEV
+         XI0tcv1W6JADSVoaEV9Yrdo0ISEXZzaNJx8veuI3f+XhFrMjdZpdo08gSqB5NYROpDs3
+         fQCPRIlOm05HnQa5zooBecvZyQFHksYN285M9eraGhCo55/WGYlQHKN5/ZfQ5tLkG5RV
+         YVUQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795689692; x=1796294492; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=hTXpIfLZ2+j1ow8NmZB6JM/DU4spl29LunD6FR84AzA=;
+        b=hTCfTUUg7pr49MvsKLqH2jm7NZjkHNrLsBC/hpsazdUfsEX9BTuii8cQlswoId2ReI
+         2P0C0QP2kwAw9l/liHoYw9M1ZQyagy6goIR0x33xX9w/Mo48AV6PtPrkaxf4n/FMQ9GR
+         g6GYJiqpo321fytk7lXhWwT3msyRoznvPyVDzRMNrF8xEJXPdmLLFyk0zq7uECo11aNi
+         W9/oOJy+x9/KMkj5B12fY4XF0BdsAzmpkA7bDt8MD2fsb6HUv35rzap4U93elGBfPGig
+         cdx0pO1yvZwDoiHE5fpVEqhVv2yUGyk/DJYbYapX6dZ2V552tUIlLCYg4h1tLDVPMxE9
+         ksgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795689692; x=1796294492;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=hTXpIfLZ2+j1ow8NmZB6JM/DU4spl29LunD6FR84AzA=;
+        b=S/o8qrMFvHEWkzABaWviMSaq0dUObD8/hZv2ZZ0hg9G9e0TLl5j7Ib0Ba0xGB1x2ii
+         1bM++38q+/7f6kTQz30rPVylYg/NUkJFZkhK5WTJir2vpBermS37L3sjKjf1ivhMjjAu
+         EZvTCEx5Pj9S59nTIcAvq42yO5yLeH62mwCpFyJc1W1SuIW7X2GwUYCUyP1JGbA+lJ6D
+         qYuDeeJ1wAIE3b5JAcWv9KY38wP6lqEGbysGyE7RJQu/Q2izdATOMB/j7zunnovY5I80
+         g5713H2KtgoyoFdvLbCfmz9KruBBVvVjbFYL/gJvbhRTaTPSUsnaogMH2IVGp2dORIJ/
+         YvSQ==
+X-Forwarded-Encrypted: i=1; AL+hErE1ki04UdUekbr+qL4kH7Di0M9pIQjnW0gAPsWJZa5uNg6R2nhSgotljgYTqfPZaK7IpII907PEYvo5vdc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8LvCTd8hOuML/dxz/a37vEc1iT+vyCXDMqXpem11Akh2wPNGYr
+	Cz9j36vlbBWweZl6KBky+BncYdu1FTZmgAHor5G6cTWoSsb7m/5kTDtiZwwJ6xFefBimN4AqwCa
+	z4BEXxwP0yeYGaGTzGHpglFqqK0g2A8bdYQe/6tKvATvDJIObj0enFQyJjfgeFb/AImS9tC5Izg
+	fv0QZK1+RvO9DrnodqbN9armXW4B1KSZGmSobQMPsg
+X-Gm-Gg: AZFdTZc7GQYU4MIj1xCu38h3r1575A/gscTckgkodLV5w6I7DVDSwnHLMnRf3/Nnykm
+	mgj7dok0H3/04xhJQWZqjIe6CZqbaQP67R76XW2a6H64TYJ6N5/EPJVhOrPbUtXHT1Mdhxbp60f
+	aCEu/oKuB0nsyjXjkrHlLaQevTUIUSD/vBayZfK6OrCtmoEenVdeSFAA==
+X-Received: by 2002:a17:907:6ea9:b0:c2e:856:2a08 with SMTP id a640c23a62f3a-c513a3a6598mr1792624266b.1.1795689692541;
+        Thu, 26 Nov 2026 02:41:32 -0800 (PST)
+X-Received: by 2002:a17:907:6ea9:b0:c2e:856:2a08 with SMTP id
+ a640c23a62f3a-c513a3a6598mr1792622666b.1.1795689692194; Thu, 26 Nov 2026
+ 02:41:32 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,232 +124,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125193735.qrxCdHTx@linutronix.de>
+References: <20261119054917.184758-2-ltao@redhat.com> <85438483-9843-4b14-b3eb-57a074275911@amd.com>
+In-Reply-To: <85438483-9843-4b14-b3eb-57a074275911@amd.com>
+From: Tao Liu <ltao@redhat.com>
+Date: Thu, 26 Nov 2026 23:40:54 +1300
+X-Gm-Features: Aa3M54qXSxe4Tv3kJZhv4-GTyuCU96H140dAQ2Bw9YC_NOs4WSOucEjet7OYzYQ
+Message-ID: <CAO7dBbV5Baw5SRCNCys21u0NwJ2CCJWu2Av9wzGUHUmMxaE0bQ@mail.gmail.com>
+Subject: Re: [PATCH] drm/amd/display: Fix pdev lifetime in dm_test_conn_init_ctx_alloc()
+To: "Chen, Chen-Yu" <Chen-Yu.Chen@amd.com>
+Cc: harry.wentland@amd.com, sunpeng.li@amd.com, siqueira@igalia.com, 
+	alexander.deucher@amd.com, christian.koenig@amd.com, airlied@gmail.com, 
+	simona@ffwll.ch, alex.hung@amd.com, bhawanpreet.lakha@amd.com, 
+	ivan.lipski@amd.com, george.zhang@amd.com, adrian.betschart@cinemaone.ch, 
+	rodrigo.vivi@intel.com, amd-gfx@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 25, 2026 at 08:37:35PM +0100, Sebastian Andrzej Siewior wrote:
-> On 2026-11-25 18:20:18 [+0100], Peter Zijlstra wrote:
-> > On Fri, Nov 20, 2026 at 06:16:58PM +0100, Sebastian Andrzej Siewior wrote:
-> > > syzbot reported a race of assigning a CPU affinity during CPU hotplug
-> > > operation.
-> > > After the affinity of an IRQ has been changed, the IRQ-core sets
-> > > IRQTF_AFFINITY and wakes the relevant interrupt threads which need to
-> > > adjust their affinity mask. The thread will then invoke
-> > > set_cpus_allowed_ptr() to update the mask. Based on the new mask a CPU
-> > > is chosen on which the thread should run.
-> > 
-> > This is irq_thread_check_affinity(), right?
-> 
-> This is what the bot used to trigger this, correct.
-> 
-> > So the problem begins here, by selecting a CPU that isn't guarded to
-> > remain online until after the operation completes.
-> 
-> Right, we don't enforce this so everyone without a CPU-HP lock held has
-> a problem here. From irq_thread_check_affinity() perspective, it is fine
-> because once the CPU goes down, there will be another update aligning
-> the thread with the CPU that has been picked to serve the interrupt.
+Hi Chen-Yu,
 
-Right, that is true in this case. But will that always be true for
-people that 'forget' hotplug.
+On Wed, Nov 25, 2026 at 11:31=E2=80=AFPM Chen, Chen-Yu <Chen-Yu.Chen@amd.co=
+m> wrote:
+>
+>
+> > Fix this by allocating pdev with kzalloc() and freeing it through
+> > the device release callback. This ensures pdev's lifetime is managed
+> > solely by the kobject.
+>
+> Hi Tao,
+>
+> Thanks for the report.
+>
+> The lifetime problem in dm_test_conn_init_ctx_alloc() is real, but it has
+> already been addressed in amd-staging-drm-next by commit 370bab028b38
+> ("drm/amd/display: Add more connector KUnit tests"). That commit allocate=
+s
+> pdev with devm_kzalloc() on the device and registers the unregister actio=
+n
+> with devm_add_action_or_reset(), so devres releases the i2c adapter befor=
+e
+> pdev is freed.
 
-> It is B) and CPU-A = CPU-C in this case. 
-> 	CPU-A                              	    CPU-B
-> 	irq_thread()
-> 	  irq_thread_check_affinity()
-> 	    irq_thread_check_affinity
-> 	      set_cpus_allowed_ptr(B)
-> 					   	<hotplug unplug>
-> 	      <returns with butchered mask>
-> 	  irq_forced_thread_fn()
-> 	    migrate_disable();
-> 	    schedule();
-> 	      migrate_disable_switch();
-> 
-> 	    migrate_enable();
-> 
-> > > At this point, affine_move_task() expects
-> > > task_struct::migration_pending set but it is NULL because noone
-> > > requested an affinity change while the task was in migrate-disable
-> > > section.
-> > 
-> > We're talking about:
-> > 
-> > 	migrate_enable()
-> > 	  ___migrate_able()
-> > 	    __set_cpus_allowed_ptr()
-> > 	      __set_cpus_allowed_ptr_locked()
-> > 	        affine_move_task();
-> > 
-> > Right? Where the target is a kthread while running on a CPU that isn't
-> > inside p->cpus_mask (because p->cpus_mask intersected with online_mask
-> > is empty).
-> 
-> Almost. The requested CPU wasn't part of online_mask and it got rejected
-> earlier in is_cpu_allowed(). But now in __set_cpus_allowed_ptr_locked()
-> has this at the end
-> 
-> |         dest_cpu = cpumask_any_and_distribute(cpu_valid_mask, ctx->new_mask);
-> |         if (dest_cpu >= nr_cpu_ids) {
-> |                 ret = -EINVAL;
-> |                 goto out;
-> |         }
-> 
-> and we don't take this exit. So the CPU is back.
+Thanks for the info, I didn't notice the issue has already been fixed.
 
-Ooh, cute. So not only was the CPU unplugged, it was then quickly
-brought back online again. Fun though; if we did hit this condition then
-migrate_enable() would have silently failed. Also not a good thing.
+>
+> Your patch no longer applies to the current tree for that reason. Could y=
+ou
+> please rebase it onto the latest amd-staging-drm-next and confirm whether=
+ the
+> issue still reproduces?
 
-We should probably have ___migrate_enable() warn on this.
+I tested the latest amd-staging-drm-next, the use-after-free issue
+doesn't reproduce, so my patch is no longer needed. Thanks again for
+your review and comments!
 
-> > So, affine_move_task() will fail the first branch; we're not inside
-> > cpus_mask. And we'll fail the second branch, because SCA_MIGRATE_ENABLE,
-> > and hit:
-> > 
-> > 	pending = p->migration_pending;
-> > 	WARN_ON_ONCE(!pending);
-> > 
-> > OK.
-> 
-> Yes.
-> 
-> > > --- a/kernel/sched/core.c
-> > > +++ b/kernel/sched/core.c
-> > > @@ -2710,17 +2710,16 @@ static int migration_cpu_stop(void *data)
-> > >  		if (task_on_rq_queued(p)) {
-> > >  			update_rq_clock(rq);
-> > >  			rq = __migrate_task(rq, &rf, p, arg->dest_cpu);
-> > > +			if (rq != cpu_rq(arg->dest_cpu)) {
-> > > +				struct affinity_context ac = {
-> > > +					.new_mask  = cpumask_of(rq->cpu),
-> > > +				};
-> > > +
-> > > +				do_set_cpus_allowed(p, &ac);
-> > > +			}
-> > >  		} else {
-> > >  			p->wake_cpu = arg->dest_cpu;
-> > >  		}
-> > > -
-> > > -		/*
-> > > -		 * XXX __migrate_task() can fail, at which point we might end
-> > > -		 * up running on a dodgy CPU, AFAICT this can only happen
-> > > -		 * during CPU hotplug, at which point we'll get pushed out
-> > > -		 * anyway, so it's probably not a big deal.
-> > > -		 */
-> > > -
-> > >  	} else if (pending) {
-> > >  		/*
-> > >  		 * This happens when we get migrated between migrate_enable()'s
-> > 
-> > So yes, this cures things, but I'm not sure silently updating the mask
-> > is nice. People could be surprised the cpumask isn't what they set --
-> > then again, perhaps such people should disable hotplug when changing
-> > affinity?
-> 
-> Yes, exactly. Use the HP-lock if it is needed. As I said earlier, it is
-> like select_fallback_rq() but without the printk.
+Thanks,
+Tao Liu
 
-Right -- so the printk is gated with p->mm, which kthreads will mostly
-fail. So even if the timing was different and we'd have hit
-select_fallback_rq() we'd not have seen a printk().
+>
+> Thanks,
+> Chenyu
+>
 
-However, the 'fixup' is different, select_fallback_rq() will set the
-widest possible mask, while this will set only the one CPU.
-
-Then there also are __balance_push_cpu_stop() and
-sched_non_preferred_cpu_push_stop() that use __migrate_task(). AFAICT
-both of those should also be able to hit this task, both of them run it
-through select_fallback_rq().
-
-Does something like so make sense? That routes them all through
-select_fallback_rq().
-
----
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 5ed660f099a5..6ec27dc5e0c2 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -2627,27 +2627,7 @@ struct set_affinity_pending {
- 	struct migration_arg	arg;
- };
- 
--/*
-- * Move (not current) task off this CPU, onto the destination CPU. We're doing
-- * this because either it can't run here any more (set_cpus_allowed()
-- * away from this CPU, or CPU going down), or because we're
-- * attempting to rebalance this task on exec (sched_exec).
-- *
-- * So we race with normal scheduler movements, but that's OK, as long
-- * as the task is no longer on this CPU.
-- */
--static struct rq *__migrate_task(struct rq *rq, struct rq_flags *rf,
--				 struct task_struct *p, int dest_cpu)
--	__must_hold(__rq_lockp(rq))
--{
--	/* Affinity changed (again). */
--	if (!is_cpu_allowed(p, dest_cpu))
--		return rq;
--
--	rq = move_queued_task(rq, rf, p, dest_cpu);
--
--	return rq;
--}
-+static int select_fallback_rq(int cpu, struct task_struct *p);
- 
- /*
-  * migration_cpu_stop - this will be executed by a high-prio stopper thread
-@@ -2670,7 +2650,7 @@ static int migration_cpu_stop(void *data)
- 	local_irq_save(rf.flags);
- 	/*
- 	 * We need to explicitly wake pending tasks before running
--	 * __migrate_task() such that we will not miss enforcing cpus_ptr
-+	 * move_queued_task() such that we will not miss enforcing cpus_ptr
- 	 * during wakeups, see set_cpus_allowed_ptr()'s TASK_WAKING test.
- 	 */
- 	flush_smp_call_function_queue();
-@@ -2708,19 +2688,16 @@ static int migration_cpu_stop(void *data)
- 		}
- 
- 		if (task_on_rq_queued(p)) {
-+			int cpu = arg->dest_cpu;
-+
- 			update_rq_clock(rq);
--			rq = __migrate_task(rq, &rf, p, arg->dest_cpu);
-+			if (!is_cpu_allowed(p, cpu))
-+				cpu = select_fallback_rq(rq->cpu, p);
-+
-+			rq = move_queued_task(rq, &rf, p, cpu);
- 		} else {
- 			p->wake_cpu = arg->dest_cpu;
- 		}
--
--		/*
--		 * XXX __migrate_task() can fail, at which point we might end
--		 * up running on a dodgy CPU, AFAICT this can only happen
--		 * during CPU hotplug, at which point we'll get pushed out
--		 * anyway, so it's probably not a big deal.
--		 */
--
- 	} else if (pending) {
- 		/*
- 		 * This happens when we get migrated between migrate_enable()'s
-@@ -8415,7 +8392,7 @@ static int __balance_push_cpu_stop(void *arg)
- 		rq_lock(rq, &rf);
- 		update_rq_clock(rq);
- 		if (task_rq(p) == rq && task_on_rq_queued(p))
--			rq = __migrate_task(rq, &rf, p, cpu);
-+			rq = move_queued_task(rq, &rf, p, cpu);
- 		rq_unlock(rq, &rf);
- 	}
- 
-@@ -11315,7 +11292,7 @@ static int sched_non_preferred_cpu_push_stop(void *arg)
- 		update_rq_clock(rq);
- 
- 		if (task_rq(p) == rq && task_on_rq_queued(p)) {
--			struct rq *dest_rq = __migrate_task(rq, &rf, p, cpu);
-+			struct rq *dest_rq = move_queued_task(rq, &rf, p, cpu);
- 
- 			if (rq != dest_rq)
- 				schedstat_inc(p->stats.nr_migrations_cpu_non_preferred);
