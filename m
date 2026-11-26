@@ -1,48 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.59
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.5
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795705044;
-	b=2FllS7+Jw5CWVVCfHkMPgCJNh42eKj4t2yefVIhogxVlRQO9XZFNhQ/0iLT7FrYu7g9n
-	 G5ftt0UTpO08GNi5IaC9r3ce7aJiKb5CDnr+puv4wqI/XqzEODndtOl+LGS0kz9lxb/8h
-	 FH725Yrh51OFSqIfFJGkuly6ng9f6I4v7JmxI2A2GoTBaOow8QVJv9XxCBNEdmWilV2Bi
-	 NV1k2VYdGEa+X9cNiqaRWFO0IbGbA/DjCbhC1PgIyW+b6ngfNmSHcQX9CvLZrHuqx0gp5
-	 grftVjQxFF0NMZ3FPWbmjUfGI+hHqdR1fK0zf2DRY9yJWD2/1A5FmHSXirhyl3/yvhQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	b=Kdmi6fWFO+TpgVYSjC/cqVxoQnJpgq2rIuMbVaz0a+hVRIgIjAv1i4oLePV9khZzXfvN
+	 kpKl/LzAjSnuGRR2eq9NEhGZFbsqG8iNbQJLfXg6FDaxYcc13j+mdFqTAAcnZOXRYBV9t
+	 Lb5oNi0o5FKoCxhJBOqjvKT8cr6i5h4e/5Ms4AA2/v26Nk11PeKwX1+HDM0TJLh/ygqz+
+	 mTAWHufdZFmPkZ+ggzE25J3eRyyPqzipZcRt2kR+EETxgAahGpv/t33EIdzqlSyXk2vfk
+	 r75pPGi5aFFFd/KI0E/Me6TWMGm47TdEb2VK/HIAsVWJmWUAV5z7YklbCZ9Z4U+7F5Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795705044;
-	h=DMARC-Filter:DKIM-Signature:Mime-Version:Content-Type:X-Mailer:
-	 X-Original-From:X-Lms-Return-Path:Content-Transfer-Encoding:Subject:
-	 Date:References:Received:In-Reply-To:To:Cc:From:Message-Id;
-	bh=tSPNpwqN1AGoxJR0sE1rKOU1eRM9nN9WA7toT4992TQ=;
-	b=OxuyIlFkHnesrDkT0q9rzo8sViQZQRTcNe58gs558zFzUs31W8MwEPVE5ZVgmwTF3Wdx
-	 IRv8qLX9X/5TQVkiHSYC0t7MYkTfcbPDzZ037v2v0GLSbL7Dx03BzBNIqakvvdRWuln8K
-	 OLU4UrU6u6SyovJ+9VxdTMV7PUXx1nU8veJgGGlyZyyIkR9kXOaqyiKCzBWP5pGL4FWGS
-	 uoVw/Zxnp8cfNvzce71tJ6PF+BqFiG44cmpjUyujm8MH3q6G4mBWf3MaWBQ42b5+C18Mr
-	 3A0VceOph+eLbdXw0u/6d/9uKsd0xehpL/c2tG1o4luARGJJzDBI1+uLfSHsa2z0RiQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=yunsilicon.com;
-	spf=pass smtp.mailfrom=yunsilicon.com;
-	dkim=pass header.d=yunsilicon.com header.i=@yunsilicon.com header.a=rsa-sha256 header.s=feishu2403070942 header.b=QlpQKaYB;
-	arc=none smtp.remote-ip=209.127.231.59
-Received: from va-2-59.ptr.blmpb.com (va-2-59.ptr.blmpb.com [209.127.231.59])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=l939RF+Ks9Dtx1gdslC3Fzs4rnwdWZMh58x80xnBVpo=;
+	b=oj9jRjRjGLfa8fYW8j+QKC30sVr1VW+kJMPeuu1ZVasqg2dPACpXxIUEmHMuimSRkR4D
+	 angMlT6AR1tAE9w52qFGi6k9mhxW1blK0j6pys1OD4OA4bhsAsfIFUTGG0UfGYXfKHHA0
+	 Bo7QX85pW1M3DnSSpM7Ce+suNXjNfYuHQxZwtDeTQrEnK9x/3PrqVceWt6UsMdURwSnqy
+	 cyaAsuN6FFU3gJPfNlPh8a+LJYrAiMMPpmnUoPJU4gB8J8vaSb7KlyUnZZzEJOxb/LFja
+	 hLyYbHMfMzeB3O4V0H1dshn1/kZI/hnXvGmO0lwJl55LHdBQ6kVKMGq2AdwJbHuZ6Qw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=NzCUj5UR;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.5
+Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010005.outbound.protection.outlook.com [40.93.198.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C973606A336
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:57:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C973606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=yunsilicon.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yunsilicon.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D46E606A329
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:57:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D46E606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yunsilicon.com header.i=@yunsilicon.com header.a=rsa-sha256 header.s=feishu2403070942 header.b=QlpQKaYB
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2403070942; d=yunsilicon.com; t=1795705039; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=tSPNpwqN1AGoxJR0sE1rKOU1eRM9nN9WA7toT4992TQ=;
- b=QlpQKaYBrzK8WMAWjTbuNI4ieREzo+65dy+FMvuxYWYjHF2DiacSQSf1Imw7YejAc1/3OU
- KysqVTkd7OpjXooKdr0yfmNx5CdB5IbCNZH/hwb0hU53/XSgK/VEKRqUf6XtSaNsJTHZYU
- PR1WkhuGKlKncCW6GzzkDHxvBAYippBXkQUuIUQBWFPq3JjUjDpapaN8goGLCuHoF7CG/E
- 7w1IqR8rAEV1IpSBiqDxE/depR6I79lQ1UlfHzQmGtevYvAYl3PqiSqlMawNgKFuL8Citx
- Hl6i+7CYVqO40HlMJ9ir9K5EtE/YSfbGQHgD/QOJNRSc3QAyXAkeoGjwwbWSdQ==
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=NzCUj5UR
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=i1LNC0PCh2uL8MXBgj7VMnS6Q6BnnT8mZbicybk9AQ6ZQwHMXVUmzp5EsZjsNeH0K2uvVUO84xIDeDw++J7prrP8f17y53ryVoYsUyfqt7WIS+XXhExWlCd27dQrtgiWdtfX/ctLLUZRkcoYPY7qHW9DvgFFceTiUD2yKlQN2TLY8yUMHcwJH99xdZ2+lEIvgrkT0WG5mRRDASj3MeCG4z3ZmL4xN13buy8u4KVHQTPRSEEsbUK0xKWUys899r3A55Gt/TvRcHMiBwts9R1OjYSZqfUqCMXyj9lFFGkf52zm8E5CUh4NepXneiIeIR8gFuZRemJNLYQ2XUUFb5XGiA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=l939RF+Ks9Dtx1gdslC3Fzs4rnwdWZMh58x80xnBVpo=;
+ b=teP3pEwmfO/OzqHrUy2hRz6ly8R17YEGkXaWb9Oq+aCWGf1HWtk63Ywcm5O/A5Wswg6yWIKdhXFKDrxm6WXYjqIKbdsEr51DZOGgeRUo+g1I3yfz23jUzf2EMMmsbY2bEhRxkQj01UUZPYNB+ZKP8IpZd3KRXKH42u8S9eymTiT7YECv2bqU7G2zH27putWh8EmIxiUSV+3H/6sh7kLisUq5UeuHDf8ud1X+FsMqRuXH70TbJ/uk3CDgD70GOKv4EpomHU7kq0XChm6VXt/DJKqTtu/9dPROGy6RyOjdvt9gp5DsFBhQW9CtS5l1qvpu57cEYy1KVAayklouD1gM6w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=l939RF+Ks9Dtx1gdslC3Fzs4rnwdWZMh58x80xnBVpo=;
+ b=NzCUj5URvN2I4HtvJQlrfnxIFO0CAovjMMfNh0m8tpXEcl/VitwGJANkr6lhe8qlJa8qoEMbZtMzva+zeoRY8EpNNlB9MjPFbTLsGt9Gt4xSFID+NQ2HC/2UST1TfunIopzfeSYv+sIlx+tZw80G48jsREkOjTUAQi8EGrIfEYecL/1ijx393Hpb81bUzZ9vKe5O8nV8GXDTM7FsyzZPePyFB8V+a5RlBRSm7LLvl1P0+NwUvduT5bKTgPRlHQl/q6goKT/2bMFbZkz7stnjkNEVjiPxIgL6BJYP9mFQ9ZXJlj50gQ9+4d9GOsnCALMd4QVJJ23d8IydHIza7x8Y3w==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by IA1PR12MB7662.namprd12.prod.outlook.com
+ (2603:10b6:208:425::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
+ 2026 14:57:17 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
+ 14:57:16 +0000
+Date: Thu, 26 Nov 2026 10:57:15 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: joro@8bytes.org, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>, rafael@kernel.org,
+	Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Pranjal Shrivastava <praan@google.com>,
+	Mostafa Saleh <smostafa@google.com>, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev, driver-core@lists.linux.dev,
+	Sonang Patel <sonangp@nvidia.com>,
+	Ankit Agrawal <ankita@nvidia.com>,
+	shameerali.kolothum.thodi@huawei.com
+Subject: Re: [PATCH v3 5/7] iommu: Introduce TDISP T=0 state for confidential
+ IOMMUs
+Message-ID: <20261126145715.GG114472@nvidia.com>
+References: <cover.1794343501.git.nicolinc@nvidia.com>
+ <07ea92910895a2b0db33afefaa3a0ef182b2968c.1794343501.git.nicolinc@nvidia.com>
+ <179563006502.253973.9155049351516451537.b4-review@b4>
+ <awe6WgoiKaBTgINn@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awe6WgoiKaBTgINn@nvidia.com>
+X-ClientProxiedBy: YT4PR01CA0465.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:d6::26) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,227 +109,79 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Mailer: git-send-email 2.25.1
-X-Original-From: Xin Tian <tianx@yunsilicon.com>
-X-Lms-Return-Path: <lba+26b0848cd+20df28+vger.kernel.org+tianx@yunsilicon.com>
-Content-Transfer-Encoding: 7bit
-Subject: [PATCH v2 02/11] net/xsc: add doorbell and cmdq MMIO accessors
-Date: Thu, 26 Nov 2026 22:57:17 +0800
-References: <20261126145711.70868-1-tianx@yunsilicon.com>
-Received: from DESKTOP-TGBQGEC.localdomain ([183.193.56.110]) by smtp.feishu.cn with ESMTPS; Thu, 26 Nov 2026 22:57:17 +0800
-In-Reply-To: <20261126145711.70868-1-tianx@yunsilicon.com>
-To: "Andrew Lunn" <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, 
-	"Eric Dumazet" <edumazet@google.com>, "Jakub Kicinski" <kuba@kernel.org>, 
-	"Paolo Abeni" <pabeni@redhat.com>, "Jason Gunthorpe" <jgg@ziepe.ca>, 
-	"Leon Romanovsky" <leon@kernel.org>, 
-	"Junxian Huang" <huangjunxian6@hisilicon.com>
-Cc: <weihg@yunsilicon.com>, <linux-kernel@vger.kernel.org>, 
-	<netdev@vger.kernel.org>, <linux-rdma@vger.kernel.org>, 
-	<kerneljasonxing@gmail.com>
-From: "Xin Tian" <tianx@yunsilicon.com>
-Message-Id: <20261126145715.70868-3-tianx@yunsilicon.com>
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|IA1PR12MB7662:EE_
+X-MS-Office365-Filtering-Correlation-Id: e6aa1895-a9c9-4c85-7d39-08df4bcd8fdc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|376014|7416014|1800799024|23010399003|10067099003|56012099006|11063799006|261026140227099003|261028144727099003|261026121527099003|261022105027099003|261021121427099003|261021135927099003|261102123227099003|18002099003|22082099003|4143699003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	CmZD0251tjwKq5PRBBo9eF0DTxAXmbKuXH8RwKswDwDB43lgYl/9Tf/PfPdjsjf1YDyeSPOBW7aMUHbpZnhkMLmH0V50A5CP1IYHXWrNfAQndRK0VOF6n43Ahr1qUDWVB6u4jUO8K2Ka4DGXT9/61lGujQAb1RPKITwpqeo7BUZ46KCxkpo5tR9Xl7tcwxXeG/VFJ5ycNWfuzskVOJseqIJ+4en4xvRQuJbnl0nWKY/PtzXPt33vNlUboUmZn4d91HH61xN5jOhEz5Kl0TdhjooaTdgQ0K5BXVkbqJbKvGBZrDeT41jNV0HWe9BYq/XFavHjQHxh2y7+KkYPbXG2qz5knB3WU1oyVsP0dgvqwUX7xwx2dL+7IVFfK7kS2OhwH4WKybMjJxn9p2Ac+/gybC4CxxCwEVxUQQccm+kLe7YAk0yzhoH7yy8w1O0MoFY8N0qmG87g1sCGLuRzbFU5uYDK28muBW6W0J83t/JPRNDsl5tS3BJ2yjuc93ddaEBNZIA90gIV4N4f5OTP0PlRJxXc5ioJRJN3iKuqTUmF9cEXv8oQeLwnLmdgXXtfXOeO8gAQ/edmDtTOkWusRy+7/KGI1ZYyoTKZ+761OTrGrJyQKN29yLdUHOylQzcP0gq8VGu+b3sMTIsrgH1hk6rVf0utXPyUkcSec0HXaA8OdPE=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(23010399003)(10067099003)(56012099006)(11063799006)(261026140227099003)(261028144727099003)(261026121527099003)(261022105027099003)(261021121427099003)(261021135927099003)(261102123227099003)(18002099003)(22082099003)(4143699003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?EyMGHvtmFdlnBfSOy0A5c3KmgUNDL3VqIBxwe3OYAQmKPfgD313pHGk336Nk?=
+ =?us-ascii?Q?qzflcl2tntcz2b/hgZKCATTxkesJJ37d5RFSsjxjz+gBeXAb1sXFjqevoWZF?=
+ =?us-ascii?Q?gIiVJZAAnmty0dIk1l+kFg9KW3ZGLp0rrv3Qdw+wUEcoj2n3Iy1YoqHnyhGo?=
+ =?us-ascii?Q?PEtKfbhey02eEy5ESY/DvH9fZ0X2qJrnOZ2h7zA+UZjD5BpKumpktTx2eS/p?=
+ =?us-ascii?Q?PvSFw0+YwdJYZfFjO+AMY+UMTqZcgXTfXlezXrmiOjXymZxdVvmImJQ5edhv?=
+ =?us-ascii?Q?W50gZ9TpVIyUpYDiqUwmwrTIrlOtxvTOjIuLfnJ6qCUFUVUdrfgaRdD0HbEk?=
+ =?us-ascii?Q?7GviC8YGR8n7A1BuSF7xN+fZjluieV1U7/uYrCXy5d4/0V1SDFLP/lWr0R6o?=
+ =?us-ascii?Q?mu1pzdiIf79SvMCAZjkZYLk32HIk+0GWhEyTPJBqIVi8/YaybGXN9X31096B?=
+ =?us-ascii?Q?LoYYhOiN2ZD4DAe1LKFR+jPhcDjZN9dK2Qk1rg/NB3zyJnQ4kMCcblJvcUyh?=
+ =?us-ascii?Q?Qiu6ovr234YeGR4AjrqoXMF4zgq4FZHXdhYvw894eEOGSikJwczEOyCHFNJI?=
+ =?us-ascii?Q?3cbsHQ2eEK806MGN4QUnJqKk6m9n7Vppq8GIseWcNDHqTuG49dQiCFuMQ6yc?=
+ =?us-ascii?Q?XFkr7zrr8gA1bgE/TvzDiwG1mhMhJSo+VfHV/PfeBEYkKdGXO7eKzAKNyZeI?=
+ =?us-ascii?Q?GqoVhuAexVviUC3xWtY+D1XFAr3N/Xwx9EIQYiqovoIwQHk5XHkmyfqqqaI5?=
+ =?us-ascii?Q?Avw4PrXgxuOwaGX3G5R+r1aisb25/40LOSrWw7m/tvMptTC4VhRXBHeE/qR8?=
+ =?us-ascii?Q?EKreobDuXcJStzwGLqxK2QD8xmvCJoKKI1X8HH0gV4ozfBAHw7kR0N1gcgMa?=
+ =?us-ascii?Q?6cziGhY6YKjMOml+jDtCGBcAJEGA5IQcXCZ+/HXrY0SN2Kwcq4KG6zQJnWr7?=
+ =?us-ascii?Q?QkUjhOxQEyWJ8+329bpDIPDHlzBZvRW3eBXtomK5t2Wib0rnFeDF1870hmpL?=
+ =?us-ascii?Q?Wg3H1ukEMPMjTXleCqGG8c8b8K/HaMnofbmjHOY5vZZr2Ji6zCBcEvIOoOb1?=
+ =?us-ascii?Q?PyFpZ878nbkhnZTCIjjWTRz8fp5S6SV6Kt7oMpBOEzu7YRDvSC3MBhqkTcmJ?=
+ =?us-ascii?Q?6irTUuEbPovxSraFhx77OJKG+A3pouTQ/dwi0Dr3RTZg7WnvJRe0DfaMnW1u?=
+ =?us-ascii?Q?Wa9HIsOU6/PhjYDMc6JwA45+O+pX44/5j41zQT1NiGhb8yPn1QRvTboWC3bF?=
+ =?us-ascii?Q?3aXBS3gDN2RvqfnngppF9SAeCUltwuyHTGlxFuqmSMNP+ImxuFcCiILf10yD?=
+ =?us-ascii?Q?UMS5uOcC9NEe/YK906DFOIvenrZgIAWeB85eJ51YLRm1ss0THOZcgurCpur0?=
+ =?us-ascii?Q?AEj4orf5WFoAtozlkuvwf6juGAaOU93zPq05FjGs4emnkrVgmiOv8RY/X15k?=
+ =?us-ascii?Q?0muhv35lYICMrVMtCnjtuHIwXxqobar/l8Z4ksC/MoC0U55Z+N93ACTt600F?=
+ =?us-ascii?Q?zAlYqzt11vL8EIHKP1dhD6y2PUUEEE1Pr6yFsviTM+0A2muJjq2Myjv+RJQZ?=
+ =?us-ascii?Q?etbYzAHc4gUorMRejDDjoh7DgXrlRwfyCIoZPhknBE1YgGVmpgYsw8NVStG5?=
+ =?us-ascii?Q?5hZ5Ve9QbMuysV+pHVtyv94/vVbjg7edo7kzBifAwFubsabYfRSlMP08g+8w?=
+ =?us-ascii?Q?IsANqUz/L80mW9VpwtCHF6rbRpF0NMdGqyyT2A7HdyE/yZSKqp4PSNM3SZ0g?=
+ =?us-ascii?Q?gwwVRESEag=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e6aa1895-a9c9-4c85-7d39-08df4bcd8fdc
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 14:57:16.5789
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 00SdFspDSZDtTxKqEONpawg7JYXIIWDekzqJdJ6CBdgz++ps1v0stnDJ6tSuuEls
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7662
 
-Provide doorbell writers and cmdq register accessors operating at
-fixed offsets in the compressed-BAR register window.
+On Wed, Nov 25, 2026 at 08:49:30PM -0800, Nicolin Chen wrote:
+> On Wed, Nov 25, 2026 at 02:07:45PM -0400, Jason Gunthorpe wrote:
+> > Though I am wondering if we really need the ATS stuff. Why do we need
+> > that? The pci_ats_required() in the hypervisor should force ATS since
+> > the hypervisor is not going to construct a vSTE or use a nesting
+> > domain that would inhibit that? Can we just drop this whole patch?
+> 
+> Ah, you're right. It was added for non-pci_ats_required (non-CXL)
+> cases where the ATS state needs to be in sync with the hypervisor.
+> 
+> However, the justification/usecase here is pci_ats_required alone.
+> 
+> One small concern is whether VMM always exposes the underlying ATS
+> state or not to the guest VM. QEMU seems to do so. I did a test by
+> dropping the patch: lspci in the VM still shows: ATSCtl: Enable+
 
-Signed-off-by: Xin Tian <tianx@yunsilicon.com>
----
- .../ethernet/yunsilicon/xsc/common/xsc_core.h |  15 ++
- .../net/ethernet/yunsilicon/xsc/pci/Makefile  |   2 +-
- .../ethernet/yunsilicon/xsc/pci/doorbell.c    | 148 ++++++++++++++++++
- 3 files changed, 164 insertions(+), 1 deletion(-)
- create mode 100644 drivers/net/ethernet/yunsilicon/xsc/pci/doorbell.c
+It probably shouldn't do that, but it is also not harmful. The guest
+PCI controls should be fully ignored by the VMM..
 
-diff --git a/drivers/net/ethernet/yunsilicon/xsc/common/xsc_core.h b/drivers/net/ethernet/yunsilicon/xsc/common/xsc_core.h
-index 2d0eda8a2..9580d89a1 100644
---- a/drivers/net/ethernet/yunsilicon/xsc/common/xsc_core.h
-+++ b/drivers/net/ethernet/yunsilicon/xsc/common/xsc_core.h
-@@ -32,4 +32,19 @@ struct xsc_core_device {
- 	int			bar_num;
- };
- 
-+void xsc_update_tx_db(struct xsc_core_device *xdev, u32 sqn, u32 next_pid);
-+void xsc_update_rx_db(struct xsc_core_device *xdev, u32 rqn, u32 next_pid);
-+void xsc_arm_cq(struct xsc_core_device *xdev, u32 cqn, u32 next_cid, u8 solicited);
-+void xsc_update_cq_ci(struct xsc_core_device *xdev, u32 cqn, u32 next_cid);
-+void xsc_update_eq_ci(struct xsc_core_device *xdev, u32 eqn, u32 next_cid, u8 arm);
-+void xsc_update_cmdq_req_pid(struct xsc_core_device *xdev, u32 req_pid);
-+void xsc_update_cmdq_rsp_cid(struct xsc_core_device *xdev, u32 rsp_cid);
-+u32 xsc_get_cmdq_req_pid(struct xsc_core_device *xdev);
-+u32 xsc_get_cmdq_rsp_pid(struct xsc_core_device *xdev);
-+u32 xsc_get_cmdq_rsp_cid(struct xsc_core_device *xdev);
-+void xsc_set_cmdq_req_buf_addr(struct xsc_core_device *xdev, u32 haddr, u32 laddr);
-+void xsc_set_cmdq_rsp_buf_addr(struct xsc_core_device *xdev, u32 haddr, u32 laddr);
-+u32 xsc_read_cmdq_err_status(struct xsc_core_device *xdev);
-+void xsc_clear_cmdq_err_status(struct xsc_core_device *xdev, u32 status);
-+
- #endif
-diff --git a/drivers/net/ethernet/yunsilicon/xsc/pci/Makefile b/drivers/net/ethernet/yunsilicon/xsc/pci/Makefile
-index c163aa950..4a08b92cd 100644
---- a/drivers/net/ethernet/yunsilicon/xsc/pci/Makefile
-+++ b/drivers/net/ethernet/yunsilicon/xsc/pci/Makefile
-@@ -6,4 +6,4 @@ ccflags-y += -I$(srctree)/drivers/net/ethernet/yunsilicon/xsc
- 
- obj-$(CONFIG_YUNSILICON_XSC_PCI) += xsc_pci.o
- 
--xsc_pci-y := main.o
-+xsc_pci-y := main.o doorbell.o
-diff --git a/drivers/net/ethernet/yunsilicon/xsc/pci/doorbell.c b/drivers/net/ethernet/yunsilicon/xsc/pci/doorbell.c
-new file mode 100644
-index 000000000..5bd64be67
---- /dev/null
-+++ b/drivers/net/ethernet/yunsilicon/xsc/pci/doorbell.c
-@@ -0,0 +1,148 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (C) 2024 - 2026, Shanghai Yunsilicon Technology Co., Ltd.
-+ * All rights reserved.
-+ */
-+
-+#include <linux/kernel.h>
-+#include <linux/pci.h>
-+
-+#include "common/xsc_core.h"
-+#include "common/xsc_reg.h"
-+
-+/* doorbell words */
-+#define XSC_TX_DB_DATA0_NEXT_PID_MASK	GENMASK(15, 0)
-+#define XSC_TX_DB_DATA0_QP_ID_MASK	GENMASK(30, 16)
-+#define XSC_RX_DB_DATA0_NEXT_PID_MASK	GENMASK(12, 0)
-+#define XSC_RX_DB_DATA0_QP_ID_MASK	GENMASK(27, 13)
-+#define XSC_CQ_DB_DATA0_NEXT_CID_MASK	GENMASK(15, 0)
-+#define XSC_CQ_DB_DATA0_CQ_ID_MASK	GENMASK(30, 16)
-+#define XSC_CQ_DB_DATA0_ARM		BIT(31)
-+#define XSC_EQ_DB_DATA0_NEXT_CID_MASK	GENMASK(10, 0)
-+#define XSC_EQ_DB_DATA0_EQ_ID_MASK	GENMASK(21, 11)
-+#define XSC_EQ_DB_DATA0_ARM		BIT(22)
-+
-+static u32 xsc_read32(void __iomem *bar, u32 off)
-+{
-+	return readl(bar + off);
-+}
-+
-+static void xsc_write32(void __iomem *bar, u32 off, u32 val)
-+{
-+	writel(val, bar + off);
-+}
-+
-+void xsc_update_tx_db(struct xsc_core_device *xdev, u32 sqn, u32 next_pid)
-+{
-+	u32 db = FIELD_PREP(XSC_TX_DB_DATA0_NEXT_PID_MASK, next_pid) |
-+		 FIELD_PREP(XSC_TX_DB_DATA0_QP_ID_MASK, sqn);
-+
-+	/* Make sure that descriptors are written before
-+	 * updating doorbell record and ringing the doorbell
-+	 */
-+	wmb();
-+
-+	writel(db, xdev->bar + TX_DB_FUNC_MEM_ADDR);
-+}
-+EXPORT_SYMBOL_GPL(xsc_update_tx_db);
-+
-+void xsc_update_rx_db(struct xsc_core_device *xdev, u32 rqn, u32 next_pid)
-+{
-+	u32 db = FIELD_PREP(XSC_RX_DB_DATA0_NEXT_PID_MASK, next_pid) |
-+		 FIELD_PREP(XSC_RX_DB_DATA0_QP_ID_MASK, rqn);
-+
-+	/* Make sure that descriptors are written before
-+	 * updating doorbell record and ringing the doorbell
-+	 */
-+	wmb();
-+
-+	writel(db, xdev->bar + RX_DB_FUNC_MEM_ADDR);
-+}
-+EXPORT_SYMBOL_GPL(xsc_update_rx_db);
-+
-+void xsc_arm_cq(struct xsc_core_device *xdev, u32 cqn, u32 next_cid,
-+		u8 solicited)
-+{
-+	u32 db = FIELD_PREP(XSC_CQ_DB_DATA0_NEXT_CID_MASK, next_cid) |
-+		 FIELD_PREP(XSC_CQ_DB_DATA0_CQ_ID_MASK, cqn) |
-+		 FIELD_PREP(XSC_CQ_DB_DATA0_ARM, !!solicited);
-+
-+	/* Make sure that the doorbell record in host memory is
-+	 * written before ringing the doorbell via PCI MMIO.
-+	 */
-+	wmb();
-+	writel(db, xdev->bar + DB_CQ_FUNC_MEM_ADDR);
-+}
-+EXPORT_SYMBOL_GPL(xsc_arm_cq);
-+
-+void xsc_update_cq_ci(struct xsc_core_device *xdev, u32 cqn, u32 next_cid)
-+{
-+	u32 db = FIELD_PREP(XSC_CQ_DB_DATA0_NEXT_CID_MASK, next_cid) |
-+		 FIELD_PREP(XSC_CQ_DB_DATA0_CQ_ID_MASK, cqn);
-+
-+	/* make sure val write to memory done */
-+	wmb();
-+	writel(db, xdev->bar + DB_CQ_CID_DIRECT_MEM_ADDR);
-+}
-+EXPORT_SYMBOL_GPL(xsc_update_cq_ci);
-+
-+void xsc_update_eq_ci(struct xsc_core_device *xdev, u32 eqn, u32 next_cid,
-+		      u8 arm)
-+{
-+	u32 db = FIELD_PREP(XSC_EQ_DB_DATA0_NEXT_CID_MASK, next_cid) |
-+		 FIELD_PREP(XSC_EQ_DB_DATA0_EQ_ID_MASK, eqn) |
-+		 FIELD_PREP(XSC_EQ_DB_DATA0_ARM, !!arm);
-+
-+	/* make sure val write to memory done */
-+	wmb();
-+	writel(db, xdev->bar + DB_EQ_FUNC_MEM_ADDR);
-+}
-+
-+void xsc_update_cmdq_req_pid(struct xsc_core_device *xdev, u32 req_pid)
-+{
-+	xsc_write32(xdev->bar, CMDQM_HOST_REQ_PID_MEM_ADDR, req_pid);
-+}
-+
-+void xsc_update_cmdq_rsp_cid(struct xsc_core_device *xdev, u32 rsp_cid)
-+{
-+	xsc_write32(xdev->bar, CMDQM_HOST_RSP_CID_MEM_ADDR, rsp_cid);
-+}
-+
-+u32 xsc_get_cmdq_req_pid(struct xsc_core_device *xdev)
-+{
-+	return xsc_read32(xdev->bar, CMDQM_HOST_REQ_PID_MEM_ADDR);
-+}
-+
-+u32 xsc_get_cmdq_rsp_pid(struct xsc_core_device *xdev)
-+{
-+	return xsc_read32(xdev->bar, CMDQM_HOST_RSP_PID_MEM_ADDR);
-+}
-+
-+u32 xsc_get_cmdq_rsp_cid(struct xsc_core_device *xdev)
-+{
-+	return xsc_read32(xdev->bar, CMDQM_HOST_RSP_CID_MEM_ADDR);
-+}
-+
-+void xsc_set_cmdq_req_buf_addr(struct xsc_core_device *xdev, u32 haddr,
-+			       u32 laddr)
-+{
-+	xsc_write32(xdev->bar, CMDQM_HOST_REQ_BUF_BASE_H_ADDR_MEM_ADDR, haddr);
-+	xsc_write32(xdev->bar, CMDQM_HOST_REQ_BUF_BASE_L_ADDR_MEM_ADDR, laddr);
-+}
-+
-+void xsc_set_cmdq_rsp_buf_addr(struct xsc_core_device *xdev, u32 haddr,
-+			       u32 laddr)
-+{
-+	xsc_write32(xdev->bar, CMDQM_HOST_RSP_BUF_BASE_H_ADDR_MEM_ADDR, haddr);
-+	xsc_write32(xdev->bar, CMDQM_HOST_RSP_BUF_BASE_L_ADDR_MEM_ADDR, laddr);
-+}
-+
-+u32 xsc_read_cmdq_err_status(struct xsc_core_device *xdev)
-+{
-+	return xsc_read32(xdev->bar, CMDQM_HOST_VF_ERR_STS_MEM_ADDR);
-+}
-+
-+void xsc_clear_cmdq_err_status(struct xsc_core_device *xdev, u32 status)
-+{
-+	if (status)
-+		xsc_write32(xdev->bar, CMDQM_HOST_VF_ERR_STS_MEM_ADDR, status);
-+}
--- 
-2.43.0
+Jason
