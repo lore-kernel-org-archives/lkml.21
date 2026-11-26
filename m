@@ -1,113 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=49.12.200.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795732424;
-	b=sp2oquqpJGvip13lLggJp6qmxUJDrINXRFRurTSOPiYm+Xlr2sAGlK1XVqQMYcUJm/zn
-	 D4d6jAIBCzexTT8f1BFi0gBIugdB/3yCIeKL2NL3i4geR3D0IZlp+OIpbh0jZIrOUJO7r
-	 +/9NN9cvfSY+1RsDDsJnsPITR9jfmTN6BzYRLigApHioP/hbDsU1f8aETVa4h7tTjG1KF
-	 p+2kUxxuAEPMx37pHBHh5j3CS2BCQY4xnY4KRXK1i9y1imoQh3ODj7q4jn/3sdDkXozC7
-	 QQtVi7AWhL0OuhWpJym8yIifoBPABRPaPVKybeXH6u6nRHkScbXkLNOT3LgpjrgpkTg==
+	t=1795732448;
+	b=vxyt03u0HJmESZtejfJncaH88p++CSrsmzYevg3PUOo2ka3VdzwARzxtqom9qcDHImWh
+	 OpmVFErDxeXA+/AMjp2k39/tj6AqgguLA+lCt/INDS52L5aKHE10GR+7MLFGZYCaZjWhS
+	 G+I+A/tDRyDd7FLxCnjJzJ201ZfjAdlYgwDf5kMQmMs7hac9Qw0hU7+Tg5SjmP1BXoHg7
+	 0LTO9cSIlfYttp/aIuoUsiPGfRorwEz8eMYc/ISPo8MlwoZzPjfIoUuCnn05VleVjuREJ
+	 HoUD1c132+cSKaUKT22eqH8gAO/NGCCX2ylVJ+zHkIyZ5EcusIAwn2oeXi/3iTOw69Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795732424;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
-	 Content-Type:User-Agent:MIME-Version;
-	bh=VAuiL2sK9KgcCNS1LCu1ZR6hGD2zR58kg8DLcx9J16M=;
-	b=gkbGqcH96X4HnZo1yaCJ7S2yA0sha/uCJA72jJUVrFGPBi6Y/yIWPuM0OhxlQeDkSCrq
-	 46vyMfaWRdCQy5UGxXQv/FGHeCr0jWQTFQ4IrcQIgMQB+feV/6692Od5NFTGu46rE5HK9
-	 Bvl3bA+gGjRgl4MmgMqEePJ7QqA8HLdEa3fE729etYSVLfzSmigWRaIvw5swiRsQugJqu
-	 lNKYwVwgm8TIvsC0DVna6u59Z/rkPF07/roOy6TUlDJco/LDG9XrozpNjkKkuMHXMX2Bo
-	 Jaan5J2c4FeJrxPz8AiDrOdlnuAuqJ8ml929HESRhex8jbGpRGmxsi871Xj9THWat3g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795732448;
+	h=DMARC-Filter:Message-ID:DKIM-Signature:Date:MIME-Version:Subject:To:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Spamd-Bar;
+	bh=11FD/p6QINVjHDRvHXvjog2NdwJ1xN/iIY+wHcZ1uIQ=;
+	b=Zs5chvSYcNomCGs48qBhYhYZaNq/fgpZ2YSx8Hp/7efUGtCOLSsxXrT5bkIeuECups4S
+	 QF5ezMu0tG05RA2P2T5gbYR9HxKk667FGKCUQsyP22nE487mmskyUxOkbCpOcy7JrnfcD
+	 XFz5XIcF5RkT1nL0wC6ivqWAJLAFRFszNUB71LQE9W3sqnP91TdPfWe3E2kqa91FzbMTg
+	 EdiqMHW4+nOHsiNiMI2Gi8L6Sz70XtY7rAq3OucaBiCVWsL3cfdrKzTE+1enXUHSYLVKU
+	 Eg595/uPus0LzHbvK7HfDuVe0J7GWdN1UTfg0rRf1otm56OgjDlAXD4BHccTxKZKGOA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ndufresne.ca;
-	spf=pass smtp.mailfrom=ndufresne.ca;
-	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=cH937ij2;
-	arc=none smtp.remote-ip=209.85.222.178
-Received: from mail-qk1-f178.google.com (mail-qk1-f178.google.com [209.85.222.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=rondom.de;
+	spf=pass smtp.mailfrom=rondom.de;
+	dkim=pass header.d=rondom.de header.i=@rondom.de header.a=rsa-sha256 header.s=dkim header.b=dGANsqts;
+	arc=none smtp.remote-ip=49.12.200.44
+Received: from non.nonmodosedetiam.net (non.nonmodosedetiam.net [49.12.200.44])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9FF8606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:33:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9FF8606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C973F606A68F;
+	Thu, 26 Nov 2026 22:34:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C973F606A68F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=rondom.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rondom.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=cH937ij2
-Received: by mail-qk1-f178.google.com with SMTP id af79cd13be357-93f3c616c84so579192485a.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:33:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795732423; x=1796337223; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=VAuiL2sK9KgcCNS1LCu1ZR6hGD2zR58kg8DLcx9J16M=;
-        b=cH937ij2nMOWPoz0H5x4MFp2v9WgHpeKWcVvHdiWudTu1+mHzfN+xsH0r5sysQq0e+
-         hVehXwboI8oGm7ES8S2H4MwQDdzT5l+mvdFj7FBrAUlK7UmwWGal5RipzB5JXFweg5OV
-         BCWq0X0vj/9/SwWidxEBznO4XKR/YgPKWV/MTC4xdygHfoEetio1WTOSWOlcRWKLc1az
-         hvEQLRYLHac0Akgb51dtM3v3qe2d4GHdQ0012O4zn8ArLtd/Va6wP/FN9SUqxNB4loxx
-         0R7HDjh3/9Z3bNpp1UvrX/b5i1HgbtRH/KiNgzy7Ewc+gPRJ+L+DcMcx76Ksid8KI89t
-         e9Rg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795732423; x=1796337223;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=VAuiL2sK9KgcCNS1LCu1ZR6hGD2zR58kg8DLcx9J16M=;
-        b=uRaa8BGR2wPruWXouGdRYnS+wtHc/vweNYiln/1TNFaOuKIbNw+PwuUIB+Xt73VfeY
-         oTvzgVCmNzTEPnT5bT2ZO+0mpZK63NMQFecKk2cvBWa71h0bTPfSwOidjcYLrJxYEKfb
-         2UosUH/dqSFbE68D4V60OSV2X6GCOuyZndDA4R8/a1bI4d3xm2a8NZj6UfcuPs9pdMC6
-         cBWREx6qKBn9tRLTVFdjDlF2nhU59Ilz6rHfQ+d47Q0rVL+Vst27W1qsF6e2meR1Tw9N
-         CNxHqpp1yYIFZl0uQhFAO4GObp5urjA49JGKgOTp7Y+YPoszrV5QbBw7iziRtfJekOUx
-         A81Q==
-X-Forwarded-Encrypted: i=1; AL+hErFpOHr9kG78420qVgHGlw51cP0cyclUBpzNIru8nbJsX0KRKsRSyDh5TSWa/ComCvd2VYrK7n2l+uJurag=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/fiw+/YPfiH4h2ES1gU6wRwOt0FT5dhayzDQJnV1YZ/Ar16HiM
-	nBD1E6neTraSw3b793yogypreh6CyE+uGoYWKeYVpK01hMMYa0pjkN6FZM9c9L6GS9M=
-X-Gm-Gg: AZFdTZfYqN1mUCefXgHToNMONPWpAf+YZS88KBDW6oKSkFSgAIgaa4HqpUERY6wO9Ti
-	udNTvnTulNoxE+dsO2RbDMZ7FknshJf2qY59f1XWevURXooo5reNfgAVCGORL3EenBU68caaujA
-	j2ws8cFyvIMKQbrsUkCFXiDUb73O6RnH0wzmc6k2XVlCs0LSROmYaSKteaAfM079NFUvcL6s+eC
-	/H1hmrP2fYaB6WcsZZuZ48JH7HjE937pPgOCnDY+vjfsl2d31pVjB+V6nPRaQRSmVIg8KI26HPH
-	daYMbnKE87aFOR9RU15a+7mqxdjpG6T278BVF+aMc9jj+m0lbn5T4CcqXks7TPTcKyUerWIDqNT
-	eKXkbG612n4/4Hg+pohIYlesnI0eonoGKCGaLPEhn7b8UHO9NkAMrNtCmyKgfNp1edKoVtpVjDG
-	8EhZ4PHx1hA51x3boZx0ZSoaPc6zxaU8Xp8rjBd6KYLRftjdlcQ/WzcQDyJ/rfZ0uyhaEP7vrX2
-	sGCKFy28g/QJOoAOiQziALabLnFGxdrragdutVqN6MSRD5VgdjHq9lC3wNVqB0b3acdZ3tcmaLZ
-	2x18DYsexp3AtOMO49Y7Os2rTl0zTjoQ7QiqBEtKxVWy5l11AxE7oMk=
-X-Received: by 2002:a05:620a:459f:b0:948:48b8:6736 with SMTP id af79cd13be357-949ba965a61mr3942304285a.16.1795732422570;
-        Thu, 26 Nov 2026 14:33:42 -0800 (PST)
-Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb41a341sm1681380685a.37.2026.11.26.14.33.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 14:33:41 -0800 (PST)
-Message-ID: <c0fc91738531352473bb7c830c4a1b6fb928bf60.camel@ndufresne.ca>
-Subject: Re: [PATCH] media: mediatek: mdp3: Fix potential use-after-free on
- SCP removal
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>, Mauro Carvalho Chehab	
- <mchehab@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Moudy
- Ho <moudy.ho@mediatek.com>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Date: Thu, 26 Nov 2026 17:33:40 -0500
-In-Reply-To: <20261107-0d0c29e10a-media-mediatek-mdp3-1@mail.sdu.edu.cn>
-References: <20261107-0d0c29e10a-media-mediatek-mdp3-1@mail.sdu.edu.cn>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-Wo+4Av8llfy936qRJ+9C"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key, unprotected) header.d=rondom.de header.i=@rondom.de header.a=rsa-sha256 header.s=dkim header.b=dGANsqts
+Message-ID: <cd519b00-247e-4dab-8b0f-b339b1908859@rondom.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rondom.de; s=dkim;
+	t=1795732433;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=11FD/p6QINVjHDRvHXvjog2NdwJ1xN/iIY+wHcZ1uIQ=;
+	b=dGANsqtsaAhnqI7KAiZcKoyfyTtO1dYGp1kz2zALU+lkIpVkKyFUDdlxUvmdbiEIBspkrJ
+	XzhfVx2CZPEfHQevIXqxBgXVRjF9+yZF02P2wFWAQ5MqXz/xZ5E+0KKm+Ya9yyLiXsI7qE
+	zlJeM26O4PStQupQ4GMaJ/boPa73vKRkx4mz3dleLyHqLAw130jnL1epHH47ZxLiigBdN5
+	FM8DCe1+ypCAB8YayY0+39tJ992RfVS2JPKR17i+iIx/5R/BYFE6Y35/mmSlXtI8mpgyfQ
+	+xFD6hii6eEEHBfKCFTyNL0lwn74JE3TSCj/4pFfJZb1EnDaQDIpIVZTInug/Q==
+Authentication-Results: non.nonmodosedetiam.net;
+	auth=pass smtp.mailfrom=rondom@rondom.de
+Date: Thu, 26 Nov 2026 23:33:51 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,370 +58,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Subject: Re: [PATCH v7 2/2] ASoC: airoha: Add support for AN7581 PCM driver
+To: Christian Marangi <ansuelsmth@gmail.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261120234640.169279-1-ansuelsmth@gmail.com>
+ <20261120234640.169279-3-ansuelsmth@gmail.com>
+Content-Language: en-US
+From: Andreas Gnau <rondom@rondom.de>
+In-Reply-To: <20261120234640.169279-3-ansuelsmth@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Spamd-Bar: -
 
---=-Wo+4Av8llfy936qRJ+9C
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Hi Christian,
 
-Hi,
-
-
-Le samedi 07 novembre 2026 =C3=A0 14:54 +0800, Guangshuo Li a =C3=A9crit=C2=
-=A0:
-> MDP contexts can outlive the SCP driver whose data they use for VPU
-> teardown. Unregistering only the V4L2 parent neither disconnects the
-> video node nor finishes these sessions.
->=20
-> Link MDP to SCP and disconnect the video node before draining jobs and
-> closing every VPU session. Release hardware dependencies during remove,
-> while retaining the software state for the last open file. Balance the
-> remoteproc references on session shutdown and failed initialization.
->=20
-> This issue was found by our static analysis tool under development.
->=20
-> Fixes: 61890ccaefaf ("media: platform: mtk-mdp3: add MediaTek MDP3 driver=
-")
-> Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
-
-Moudy, can you help with review please. Meanwhile there is enough sashiko
-complaints for me to skip.
-
-Nicolas
-
+On 21/11/2026 00:46, Christian Marangi wrote:
+> The Airoha AN7581 SoC provides a PCM interface for VoIP applications,
+> supporting playback and capture at sample rates of 8 kHz and 16 kHz.
+> The driver configures the PCM bit clock to 2.048 KHz and supports
+> 8-bit and 16-bit samples, with up to 32 channels.
+> 
+> Add an ASoC platform driver for the AN7581 PCM controller configured for
+> ZSI attached voice chip.
+> 
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 > ---
-> Validation: Changed-object compilation passed with W=3D1 in the recorded
-> configuration. No hardware/kernel runtime test or full linked-kernel
-> build.
-> OpenAI Codex assisted with source review, patch implementation and
-> commit-message drafting. The submitter has reviewed the changes.
->=20
->  .../platform/mediatek/mdp3/mtk-mdp3-core.c    | 84 ++++++++++++++-----
->  .../platform/mediatek/mdp3/mtk-mdp3-core.h    |  1 +
->  .../platform/mediatek/mdp3/mtk-mdp3-m2m.c     | 34 ++++++--
->  .../platform/mediatek/mdp3/mtk-mdp3-m2m.h     |  3 +-
->  .../platform/mediatek/mdp3/mtk-mdp3-vpu.c     |  2 +-
->  5 files changed, 96 insertions(+), 28 deletions(-)
->=20
-> diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c b/drive=
-rs/media/platform/mediatek/mdp3/mtk-mdp3-core.c
-> index f412aadb5996..9fe42181a08c 100644
-> --- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
-> +++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
-> @@ -108,6 +108,7 @@ int mdp_vpu_get_locked(struct mdp_dev *mdp)
->  err_init_vpu:
->  =09mdp_vpu_unregister(mdp);
->  err_reg_vpu:
-> +=09rproc_shutdown(mdp->rproc_handle);
->  err_load_vpu:
->  =09mdp->vpu_count--;
->  =09return ret;
-> @@ -118,19 +119,24 @@ void mdp_vpu_put_locked(struct mdp_dev *mdp)
->  =09if (--mdp->vpu_count =3D=3D 0) {
->  =09=09mdp_vpu_dev_deinit(&mdp->vpu);
->  =09=09mdp_vpu_unregister(mdp);
-> +=09=09rproc_shutdown(mdp->rproc_handle);
->  =09}
->  }
-> =20
-> -void mdp_video_device_release(struct video_device *vdev)
-> +static void mdp_hardware_cleanup(struct mdp_dev *mdp)
->  {
-> -=09struct mdp_dev *mdp =3D (struct mdp_dev *)video_get_drvdata(vdev);
->  =09int i;
-> =20
-> +=09flush_workqueue(mdp->job_wq);
-> +=09flush_workqueue(mdp->clock_wq);
-> +
->  =09for (i =3D 0; i < mdp->mdp_data->pp_used; i++)
->  =09=09if (mdp->cmdq_clt[i])
->  =09=09=09cmdq_mbox_destroy(mdp->cmdq_clt[i]);
-> =20
-> +=09mdp_vpu_shared_mem_free(&mdp->vpu);
->  =09scp_put(mdp->scp);
-> +=09mdp->scp =3D NULL;
-> =20
->  =09destroy_workqueue(mdp->job_wq);
->  =09destroy_workqueue(mdp->clock_wq);
-> @@ -151,10 +157,16 @@ void mdp_video_device_release(struct video_device *=
-vdev)
->  =09=09if (!IS_ERR_OR_NULL(m))
->  =09=09=09mtk_mutex_put(m);
->  =09}
-> +}
-> +
-> +void mdp_video_device_release(struct video_device *vdev)
-> +{
-> +=09struct mdp_dev *mdp =3D video_get_drvdata(vdev);
-> =20
-> -=09mdp_vpu_shared_mem_free(&mdp->vpu);
->  =09v4l2_m2m_release(mdp->m2m_dev);
-> +=09ida_destroy(&mdp->mdp_ida);
->  =09kfree(mdp);
-> +=09video_device_release(vdev);
->  }
-> =20
->  static void mdp_put_device(void *_dev)
-> @@ -213,11 +225,45 @@ static int mdp_mm_subsys_deploy(struct mdp_dev *mdp=
-, enum mdp_infra_id id)
->  =09return 0;
->  }
-> =20
-> +static int mdp_get_scp(struct mdp_dev *mdp)
-> +{
-> +=09struct device_node *node;
-> +=09struct platform_device *scp_pdev;
-> +=09struct device_link *link;
-> +=09int ret =3D -EPROBE_DEFER;
-> +
-> +=09node =3D of_parse_phandle(mdp->pdev->dev.of_node, "mediatek,scp", 0);
-> +=09if (node) {
-> +=09=09scp_pdev =3D of_find_device_by_node(node);
-> +=09=09of_node_put(node);
-> +=09} else {
-> +=09=09scp_pdev =3D __get_pdev_by_id(mdp->pdev, NULL, MDP_INFRA_SCP);
-> +=09}
-> +=09if (!scp_pdev)
-> +=09=09return -EPROBE_DEFER;
-> +
-> +=09link =3D device_link_add(&mdp->pdev->dev, &scp_pdev->dev,
-> +=09=09=09       DL_FLAG_AUTOREMOVE_CONSUMER);
-> +=09if (!link) {
-> +=09=09ret =3D -ENOMEM;
-> +=09=09goto err_put;
-> +=09}
-> +=09if (!device_is_bound(&scp_pdev->dev))
-> +=09=09goto err_put;
-> +
-> +=09mdp->scp =3D platform_get_drvdata(scp_pdev);
-> +=09if (mdp->scp)
-> +=09=09return 0;
-> +
-> +err_put:
-> +=09put_device(&scp_pdev->dev);
-> +=09return ret;
-> +}
-> +
->  static int mdp_probe(struct platform_device *pdev)
->  {
->  =09struct device *dev =3D &pdev->dev;
->  =09struct mdp_dev *mdp;
-> -=09struct platform_device *mm_pdev;
->  =09struct resource *res;
->  =09int ret, i, mutex_id;
-> =20
-> @@ -285,27 +331,16 @@ static int mdp_probe(struct platform_device *pdev)
->  =09=09goto err_destroy_job_wq;
->  =09}
-> =20
-> -=09mdp->scp =3D scp_get(pdev);
-> -=09if (!mdp->scp) {
-> -=09=09mm_pdev =3D __get_pdev_by_id(pdev, NULL, MDP_INFRA_SCP);
-> -=09=09if (WARN_ON(!mm_pdev)) {
-> -=09=09=09dev_err(&pdev->dev, "Could not get scp device\n");
-> -=09=09=09ret =3D -ENODEV;
-> -=09=09=09goto err_destroy_clock_wq;
-> -=09=09}
-> -=09=09mdp->scp =3D platform_get_drvdata(mm_pdev);
-> -=09}
-> -
-> -=09if (!mdp->scp) {
-> -=09=09ret =3D -EPROBE_DEFER;
-> +=09ret =3D mdp_get_scp(mdp);
-> +=09if (ret)
->  =09=09goto err_destroy_clock_wq;
-> -=09}
-> =20
->  =09mdp->rproc_handle =3D scp_get_rproc(mdp->scp);
->  =09dev_dbg(&pdev->dev, "MDP rproc_handle: %p", mdp->rproc_handle);
-> =20
->  =09mutex_init(&mdp->vpu_lock);
->  =09mutex_init(&mdp->m2m_lock);
-> +=09INIT_LIST_HEAD(&mdp->contexts);
-> =20
->  =09for (i =3D 0; i < mdp->mdp_data->pp_used; i++) {
->  =09=09mdp->cmdq_clt[i] =3D cmdq_mbox_create(dev, i);
-> @@ -373,10 +408,19 @@ static int mdp_probe(struct platform_device *pdev)
->  static void mdp_remove(struct platform_device *pdev)
->  {
->  =09struct mdp_dev *mdp =3D platform_get_drvdata(pdev);
-> +=09struct video_device *vdev =3D mdp->m2m_vdev;
-> =20
-> -=09v4l2_device_unregister(&mdp->v4l2_dev);
-> +=09if (!vdev) {
-> +=09=09kfree(mdp);
-> +=09=09return;
-> +=09}
-> =20
-> -=09dev_dbg(&pdev->dev, "%s driver unloaded\n", pdev->name);
-> +=09/* Keep the software state until removal and all open files finish. *=
-/
-> +=09get_device(&vdev->dev);
-> +=09mdp_m2m_device_unregister(mdp);
-> +=09mdp_hardware_cleanup(mdp);
-> +=09v4l2_device_unregister(&mdp->v4l2_dev);
-> +=09put_device(&vdev->dev);
->  }
-> =20
->  static int __maybe_unused mdp_suspend(struct device *dev)
-> diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.h b/drive=
-rs/media/platform/mediatek/mdp3/mtk-mdp3-core.h
-> index 05cade1d098e..cf9662bd2792 100644
-> --- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.h
-> +++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.h
-> @@ -134,6 +134,7 @@ struct mdp_dev {
->  =09struct v4l2_m2m_dev=09=09=09*m2m_dev;
->  =09/* synchronization protect for m2m device operation */
->  =09struct mutex=09=09=09=09m2m_lock;
-> +=09struct list_head=09=09=09contexts;
->  =09atomic_t=09=09=09=09suspended;
->  =09refcount_t=09=09=09=09job_count;
->  };
-> diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-m2m.c b/driver=
-s/media/platform/mediatek/mdp3/mtk-mdp3-m2m.c
-> index ad3ae89c231c..ce0efe15866d 100644
-> --- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-m2m.c
-> +++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-m2m.c
-> @@ -490,7 +490,7 @@ static int mdp_m2m_queue_init(void *priv,
->  =09src_vq->buf_struct_size =3D sizeof(struct v4l2_m2m_buffer);
->  =09src_vq->timestamp_flags =3D V4L2_BUF_FLAG_TIMESTAMP_COPY;
->  =09src_vq->dev =3D &ctx->mdp_dev->pdev->dev;
-> -=09src_vq->lock =3D &ctx->ctx_lock;
-> +=09src_vq->lock =3D &ctx->mdp_dev->m2m_lock;
-> =20
->  =09ret =3D vb2_queue_init(src_vq);
->  =09if (ret)
-> @@ -504,7 +504,7 @@ static int mdp_m2m_queue_init(void *priv,
->  =09dst_vq->buf_struct_size =3D sizeof(struct v4l2_m2m_buffer);
->  =09dst_vq->timestamp_flags =3D V4L2_BUF_FLAG_TIMESTAMP_COPY;
->  =09dst_vq->dev =3D &ctx->mdp_dev->pdev->dev;
-> -=09dst_vq->lock =3D &ctx->ctx_lock;
-> +=09dst_vq->lock =3D &ctx->mdp_dev->m2m_lock;
-> =20
->  =09return vb2_queue_init(dst_vq);
->  }
-> @@ -577,6 +577,11 @@ static int mdp_m2m_open(struct file *file)
->  =09=09goto err_free_ctx;
->  =09}
-> =20
-> +=09if (!video_is_registered(vdev)) {
-> +=09=09ret =3D -ENODEV;
-> +=09=09goto err_unlock_mutex;
-> +=09}
-> +
->  =09ret =3D ida_alloc(&mdp->mdp_ida, GFP_KERNEL);
->  =09if (ret < 0)
->  =09=09goto err_unlock_mutex;
-> @@ -593,7 +598,6 @@ static int mdp_m2m_open(struct file *file)
->  =09ctx->fh.ctrl_handler =3D &ctx->ctrl_handler;
->  =09v4l2_fh_add(&ctx->fh, file);
-> =20
-> -=09mutex_init(&ctx->ctx_lock);
->  =09ctx->m2m_ctx =3D v4l2_m2m_ctx_init(mdp->m2m_dev, ctx, mdp_m2m_queue_i=
-nit);
->  =09if (IS_ERR(ctx->m2m_ctx)) {
->  =09=09dev_err(dev, "Failed to initialize m2m context\n");
-> @@ -609,8 +613,6 @@ static int mdp_m2m_open(struct file *file)
->  =09=09goto err_release_m2m_ctx;
->  =09}
-> =20
-> -=09mutex_unlock(&mdp->m2m_lock);
-> -
->  =09/* Default format */
->  =09default_format.type =3D V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE;
->  =09default_format.fmt.pix_mp.width =3D limit->out_limit.wmin;
-> @@ -620,6 +622,9 @@ static int mdp_m2m_open(struct file *file)
->  =09default_format.type =3D V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
->  =09mdp_m2m_s_fmt_mplane(file, &ctx->fh, &default_format);
-> =20
-> +=09list_add_tail(&ctx->list, &mdp->contexts);
-> +=09mutex_unlock(&mdp->m2m_lock);
-> +
->  =09dev_dbg(dev, "%s:[%d]", __func__, ctx->id);
-> =20
->  =09return 0;
-> @@ -647,6 +652,7 @@ static int mdp_m2m_release(struct file *file)
->  =09struct device *dev =3D &mdp->pdev->dev;
-> =20
->  =09mutex_lock(&mdp->m2m_lock);
-> +=09list_del(&ctx->list);
->  =09v4l2_m2m_ctx_release(ctx->m2m_ctx);
->  =09if (mdp_m2m_ctx_is_state_set(ctx, MDP_VPU_INIT))
->  =09=09mdp_vpu_put_locked(mdp);
-> @@ -727,7 +733,25 @@ int mdp_m2m_device_register(struct mdp_dev *mdp)
-> =20
->  void mdp_m2m_device_unregister(struct mdp_dev *mdp)
->  {
-> +=09struct mdp_m2m_ctx *ctx;
-> +
-> +=09mutex_lock(&mdp->m2m_lock);
->  =09video_unregister_device(mdp->m2m_vdev);
-> +=09v4l2_m2m_suspend(mdp->m2m_dev);
-> +
-> +=09list_for_each_entry(ctx, &mdp->contexts, list) {
-> +=09=09vb2_queue_error(v4l2_m2m_get_src_vq(ctx->m2m_ctx));
-> +=09=09vb2_queue_error(v4l2_m2m_get_dst_vq(ctx->m2m_ctx));
-> +=09=09v4l2_m2m_streamoff(NULL, ctx->m2m_ctx,
-> +=09=09=09=09   V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE);
-> +=09=09v4l2_m2m_streamoff(NULL, ctx->m2m_ctx,
-> +=09=09=09=09   V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE);
-> +=09=09if (mdp_m2m_ctx_is_state_set(ctx, MDP_VPU_INIT)) {
-> +=09=09=09mdp_vpu_put_locked(mdp);
-> +=09=09=09atomic_andnot(MDP_VPU_INIT, &ctx->curr_param.state);
-> +=09=09}
-> +=09}
-> +=09mutex_unlock(&mdp->m2m_lock);
->  }
-> =20
->  void mdp_m2m_job_finish(struct mdp_m2m_ctx *ctx)
-> diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-m2m.h b/driver=
-s/media/platform/mediatek/mdp3/mtk-mdp3-m2m.h
-> index dfc59e5b3b87..f473f5f20aa2 100644
-> --- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-m2m.h
-> +++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-m2m.h
-> @@ -27,6 +27,7 @@ struct mdp_m2m_ctrls {
->  };
-> =20
->  struct mdp_m2m_ctx {
-> +=09struct list_head=09=09=09list;
->  =09u32=09=09=09=09id;
->  =09struct mdp_dev=09=09=09*mdp_dev;
->  =09struct v4l2_fh=09=09=09fh;
-> @@ -36,8 +37,6 @@ struct mdp_m2m_ctx {
->  =09u32=09=09=09=09frame_count[MDP_M2M_MAX];
-> =20
->  =09struct mdp_frameparam=09=09curr_param;
-> -=09/* synchronization protect for mdp m2m context */
-> -=09struct mutex=09=09=09ctx_lock;
->  };
-> =20
->  int mdp_m2m_device_register(struct mdp_dev *mdp);
-> diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-vpu.c b/driver=
-s/media/platform/mediatek/mdp3/mtk-mdp3-vpu.c
-> index 67f3001153ae..c1fd639930e5 100644
-> --- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-vpu.c
-> +++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-vpu.c
-> @@ -62,7 +62,7 @@ void mdp_vpu_shared_mem_free(struct mdp_vpu_dev *vpu)
->  {
->  =09struct device *dev;
-> =20
-> -=09if (IS_ERR_OR_NULL(vpu))
-> +=09if (IS_ERR_OR_NULL(vpu) || !vpu->scp)
->  =09=09return;
-> =20
->  =09dev =3D scp_get_device(vpu->scp);
->=20
-> base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
+>   MAINTAINERS                   |   7 +
+>   sound/soc/Kconfig             |   1 +
+>   sound/soc/Makefile            |   1 +
+>   sound/soc/airoha/Kconfig      |  11 +
+>   sound/soc/airoha/Makefile     |   3 +
+>   sound/soc/airoha/an7581-pcm.c | 929 ++++++++++++++++++++++++++++++++++
+>   6 files changed, 952 insertions(+)
+>   create mode 100644 sound/soc/airoha/Kconfig
+>   create mode 100644 sound/soc/airoha/Makefile
+>   create mode 100644 sound/soc/airoha/an7581-pcm.c
+> 
 
---=-Wo+4Av8llfy936qRJ+9C
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
+ > <snip>
 
------BEGIN PGP SIGNATURE-----
+> +	if ((unsigned long)rate * channels * bit_width > AN7581_PCM_DEFAULT_BCLK * HZ_PER_KHZ) {
+> +		dev_err(rtd->card->dev,
+> +			"%u channels at %u Hz and %d-bit exceed %u KHz BCLK\n",
+> +			channels, rate, bit_width,
+> +			AN7581_PCM_DEFAULT_BCLK);
+> +		mutex_unlock(&priv->user_lock);
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (priv->users <= 1) {
+> +		/* one bit delay for ZSI */
+> +		regmap_set_bits(priv->map, AN7581_PCM_PICR, AN7581_PCM_ONE_BIT_DELAY);
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawizxAAKCRDZQZRRKWBy
-9HTSAQCdw6kGRzy5B9+zXqQyV6Ynggd/rTVkgWVWQNpWAi2INgEAnB8jCbkkM0v6
-MPp3EnFDNhhmxlGQsiF3CnGD5qAX7gA=
-=PsR4
------END PGP SIGNATURE-----
+Sorry for coming so late with this and maybe it is not a big issue and 
+maybe you already thought about this:
 
---=-Wo+4Av8llfy936qRJ+9C--
+ZSI (Zarlink Serial Interface) is a Microsemi/Microchip/Zarlink protocol 
+that multiplexes the control channel of the SLIC over the PCM pins.
+Assuming that a conventionally connected SLIC (i.e. control via SPI and 
+voice via plain PCM) does not require this "one bit delay for ZSI", how 
+would we add support for it, without introducing a regression for 
+ZSI-attached SLICs? I mean, there is nothing in the device-tree telling 
+the driver that there is a SLIC attached via ZSI and this code here 
+suggests that the driver hardcodes some behaviour only desired when ZSI 
+rather than plain PCM+SPI is used.
+
+Best Regards,
+Andreas Gnau
