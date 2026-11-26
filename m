@@ -1,113 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.177
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795731077;
-	b=VVVr/HXBctABaiQPZvzjODRMjheY3IJ7E6nS9RIl+x7SAR1Q9eRNPYqzhzWZAWo+9TcF
-	 BWKwiyEstJMMBwjHzoKtmKdbZAMEbQDvgMQNZd82sC07LEWE1eDdrVxgkcHUhqgXT5yEP
-	 l6XhIlXP7OjMz4asjK/4Cor6t3Zk7TIYpSIqGDMBDmMiCP0pH3OdSj2WEwVjKnF3k9mmY
-	 lITYEBCvEplU46FBN234SazeXmRI/sjzxCZGbU4jrAALH8LkqwdsSBQ9MKprZy1sBgwXD
-	 Gnjqcwt7OqzJovQh1uW5VgG5MmWPBiFrlb9ZJdxVTUXmojYNXiXoD/l7vLasFDokV2w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795731077;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
-	 Content-Type:User-Agent:MIME-Version;
-	bh=EBJHUco/hzG0Sju8J8Gd4qY5V0VOeKsMcHwF08fQyis=;
-	b=h10S5IY8Rr7Uh1fnHrQ+WJZAjzdkBZoMSN0fEueWkl4GQBvOdaf7oqS03CXCfkB3bdxs
-	 rSbgm2nbOJrpVrUGGzTefG8CTrjN7EzASS4e3jybX6miP43bzIesdYglwoBux0YWFCUlu
-	 XCk7B14dvA/ea3Jr2bg8xSULOqIGutgMtPFV7vnYdeZyEQPJWrK22k25YK6LKtBTyZAlW
-	 gznspOpgzEydeWxzVX/VY2oTzVhjq2qDTDraLljD8S5bFsrTiI0FXsVucVFo/On1nKDWX
-	 DZqIbGYLLSlxLfMU1zHBaSYw1/o81zh4e4ryxgqiYzP83wmklWfXk+1pI0XqMzMlYcA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ndufresne.ca;
-	spf=pass smtp.mailfrom=ndufresne.ca;
-	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=K4P0sV8o;
-	arc=none smtp.remote-ip=209.85.222.177
-Received: from mail-qk1-f177.google.com (mail-qk1-f177.google.com [209.85.222.177])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795731164;
+	b=RpK8kHJoTvXQDxMkCk0PnG4VtoqeXiFCKqI4Uk/NoOqIZkhwO+zqryQPCQywsZdD0RYY
+	 NzhMBnoNf63Qj3YvVzNvrpEWmLP0yc1WskF7sfICmpyoS2BDgoe9/P0syTJbmv2UryFQd
+	 os1DNc4vXqUjtpPn4u7ievDoRDtOpHfKm5km2OKwagbbLAgJ4oCa6esYTk63I0NtQ3/3P
+	 eg1FbrY2RV9CNBregW/jlBPXUZhXEGRTiYKubFKgktwrDwsFnSN4K01upoIHYn38JHPIa
+	 0+glAsJcf7JYidnkxvzxU1IPU+bpa9HqraqtSbRfaEf6Qv2hnjiP/+3ctHOzrjOiUlA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795731164;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=EqDf286+LrX47m0DFMHqQFfG1PgixQWmbe5/LpoP+Js=;
+	b=Vp5/cn5HQR0k/xZD4v4pZtPGIclfqTYIUyvOpAofJR19QUMh5M6Qn/zTmm1snESKO3kz
+	 0/ERaexIfTmtSO+Jh+nPKeOioNNNGM7475kXU8BZjoYlvMDGA/7fQUaOBBWCSX2A2XBMW
+	 stxSfvvuDEDwYsP5zJMc4bWNQLiI15V1u2eCyW+0BliVR/d6214kXGU0JFnwBDrrm6MPE
+	 pYGacp5FNK7WcJDz8ClbBM8QMQWjJ03LjDVrU8/NZZ1bjIS2n4hENorUWVsD2zKJuM58M
+	 6SGDk/OsK4a028ckBbJI0iulqGTOgvdrUdlYN0ARvEjpVPXDzFPNg8WJBT7IXbZBq9Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fHC9+Keg;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0ECC606A31C;
+	Thu, 26 Nov 2026 22:12:44 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fHC9+Keg
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795731164;
+	b=fpFQiBWtIWh1haJqKj/KKLj4ZJBs6Z/4plJbY+nnKhC8qZPA22IfqY02Nkln/B3AYOdG
+	 T+w8KveEBq4G6xoBhQLm80zmFm/nwIhe5hBk72i1ROK+NQJCH9vybyFaOeGn00yfNTYRh
+	 Hz2BctakV8mHocHfEP0O8YSujVmx9mMRRQXg8QaqS7ffqDj44Dtz6asq5uYuvdjNr9rX7
+	 GbHd7gY3gK2T+Q5+9rJ6N/B4X+tR33oF7Zzc39gQ5EkSNsOyPj4UwhYuvgCWw5YQP682N
+	 G4btDAgoUyjeQMbLZ7rJI5CKe3J7sLAsY34PzR1PkIqgu9Bw8ewVqi4kk/zjS3HYdHQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795731164;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
+	 Content-Transfer-Encoding;
+	bh=EqDf286+LrX47m0DFMHqQFfG1PgixQWmbe5/LpoP+Js=;
+	b=UgeUyWfH2m4zlH63DrV54dFwRo+4wFav3U7KFhcw1Sbv3IS7wcIcrlU3mYDbSQuCr8N2
+	 5n+BDPNSbtB4ubrpP3PkgWIc/6zJurR9AtDQwv4g8ofTv9MaOpEUHzYqOIRin1xNKEggO
+	 8BgxwZVSt0cWMxvPPqA44EyM/iNBofntEx5KSqlDFv+jbs/J65LvwIR/mq7nEJSLSCfw8
+	 fsB4c1eV4kgM1UQcOgyvaB05DdVuLrHxbG2/2+dcmepcQS5DLy2rT/mfrZYtD5XTeg98z
+	 RZI7MrQoGN0DGHFWECGMB8zYSbR8YseMCxkoQsy0zsb3X1FLN1AU9TFY1fbP8DuUEkQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20EAC606A329
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:11:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20EAC606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=K4P0sV8o
-Received: by mail-qk1-f177.google.com with SMTP id af79cd13be357-94961b68685so608705085a.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:11:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795731076; x=1796335876; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=EBJHUco/hzG0Sju8J8Gd4qY5V0VOeKsMcHwF08fQyis=;
-        b=K4P0sV8oBUN1OFFzIPzXx/xgERW0VP6DhJf5sKWY44lG7EQAHJ9qJbf2ooJlb3eIjd
-         rdgM7ThXyX6p4Eyz+vf6nCL4fXqXhEjzyVXUP2GCuyraTnu9TV7PZncrs2fbMRvBNZE2
-         0opeX4MjYwds8ARwXT4Z73tO8cKEfglFh/+evyj6552eO2xS0Ub3fAiHyC7ICpP5KwZm
-         OTvyAYtKilWlZ5Kwy4ilsR4BHXfnP1FehQiNfLwIAf9aD3nAxu5NQSo6hRk21HKlToGu
-         ZgyG3MVcI4SueOB5jXtePjBcs5CMmlMDcu84Tjhl25y5zS5ncfemajvMOociU9yLADU+
-         9Mzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795731076; x=1796335876;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=EBJHUco/hzG0Sju8J8Gd4qY5V0VOeKsMcHwF08fQyis=;
-        b=vNWmk2vsIXQ70fzeU2Y4J3CJNUR7rZcVIQjcHulr8xfMP1sm+XGsFC7gUYYMqcS5VP
-         51Pk/3zmzoIx9RdTLKEbEaBqvHjiHDv+CvjVm2x1hL1VoYDtdH8ZJ2Tx6yEgCC5JX2ck
-         LcjzS8WxeWwqhlI7kwhACqImSlctvA/XIrq+NID0ZS+yPfysZON1qsGDN7a1tzvuVLMo
-         qpi3+5sFCuHRm/u808M1RSEN3TjEKii/TduW3QvxGVsqdocJE+swfbmznBVXnmHHKTUz
-         ffNlqR+0ZrQGve79G+Ghyf/HvVslZlYuXm9nzi8bsNGyKdGiq02gsOkEIXWZ2UHULFAD
-         /7eg==
-X-Forwarded-Encrypted: i=1; AL+hErHQhyLBGsLW7PbUGK3Vy20r2BH7vls3f8I1aRJDwGu7xIUjGqsA/70toZOyDnMQVsFLjx0vZV94y/nzstI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+NLsT0eaCV5w9Qn2H3yTleA+hEdiNkFEu/8FJ45V+bdL9UKj+y
-	mMsE0zWzMX9oMx7yZ7MJlQYjFx4ydKD64dux5s8F+bLDlfcpUtyAD4ZjdidaLWtAD1JLEjFQl+D
-	QuvRk
-X-Gm-Gg: AZFdTZe9FpRuvKIBjF2sufuJaZj7XUh+2TJhi9b0ygO2yTzKlHk9pEJcCQgooLSb2qJ
-	L8qRl+nUeTKsxjq3aNXN1s715UqOHrI7hFMSZ/Y49W52DOxOq2vFccGJ2M/KFoVtaEEGfYEqrrb
-	WMwUWe8Z1cMGxNbcjEVgCFH9BEYYN2htnGLqSx1V4aVnju42TxJsrHaZDBIlH9xmxOxcUxS/p04
-	0VZNKN9KVrLacii5lPYn9XYQawCB98C8vqi431DbOb6SeJRXC0JAqURoihV1HmOCxGUzxYs5lY5
-	U2vcgYIBIZRK1/E1mRpTdRTSH1521H6FvW+yvfn6Ufrn/iQu+/NaDwsU1qHeJqmk+Y9d1uQ15H1
-	fqWLcGn5jWt5hYPJHL+vNK0ntqvu82a173xMC2El71+8egwkTKKjCyMxM314Tl1O02do/+G7OqD
-	/P07OReAAj8wp/34IzMOZ1QGTv2Tp8i4bmaXiLmQPjG1XWp6i8ltk/AFdGSNrruR4u9LuSSIuCJ
-	9PLwrHYpBsheQaTv4NcGdBX1xBAnIPWIKWxJQ3sMtQdCh4xfI1VGYjsccqGsO0Sn48nq/oDa7/o
-	BRYJAGKdQIYo+Y8j09uCoW3H7d7p6+01wZ40WdHsHgCDyqmLZLSZJn8=
-X-Received: by 2002:a05:620a:270d:b0:949:3ea1:3021 with SMTP id af79cd13be357-949bab6d711mr3910620985a.68.1795731075981;
-        Thu, 26 Nov 2026 14:11:15 -0800 (PST)
-Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb3a646fsm1686563185a.22.2026.11.26.14.11.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 14:11:15 -0800 (PST)
-Message-ID: <d44dd85413d264b3536dcc2938ce7066a9fa0004.camel@ndufresne.ca>
-Subject: Re: [PATCH] media: sti: hva: Remove bogus mutex_unlock() in
- hva_hw_get_ip_version()
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>, Jean-Christophe Trotin	
- <jean-christophe.trotin@foss.st.com>, Mauro Carvalho Chehab
- <mchehab@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Thu, 26 Nov 2026 17:11:14 -0500
-In-Reply-To: <20261117011400.1667-1-laixiangwu@cmss.chinamobile.com>
-References: <20261103013440.1138-1-laixiangwu@cmss.chinamobile.com>
-	 <20261117011400.1667-1-laixiangwu@cmss.chinamobile.com>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-8ZFNuaxoCdWsEFtb942r"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	by smtp.kernel.org (Postfix) with ESMTPS id 6CE141F000C1;
+	Thu, 26 Nov 2026 22:12:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795731164;
+	bh=EqDf286+LrX47m0DFMHqQFfG1PgixQWmbe5/LpoP+Js=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=fHC9+KegDe5hSRUpRLBKXCc3ongN1xZa6GhGgg9mUp7DgXNySchSMWu0V0WQbNrrr
+	 E/oFY7K9+QKTZVTtHY7r+CD0kK89uNSS9INrd5JmczXjLEEWusM4wzfYgcWA0tRpMr
+	 Qg2ykTx170xrEFApqEC8zcj6cPSXcvg7GRtt/HHpzB0r37lhcdqgdjYVpPLqYe+IuA
+	 MDSrCJjVtpam9P9UsNo6Tw+kkXUJ2HL5Mfp6uUUiIELi7HXcI5eX0DLDKMAFmONibK
+	 ipXJ3Nn2W7nMB7YtDm1cH4RzG02DsxUHSVBJyxLC2wkzEvhuzPSdiFK2Im95a+zyEj
+	 VqvV3nKbxfZ6w==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id B57DA4D847;
+	Thu, 26 Nov 2026 22:12:40 +0000 (UTC)
+From: Mostafa Amin via B4 Relay <devnull+mostafa.amin.windriver.com@kernel.org>
+Date: Thu, 26 Nov 2026 17:12:39 -0500
+Subject: [PATCH] fs/ntfs3: serialize size changes with
+ mapping->invalidate_lock
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,53 +83,184 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261126-fix-krn-ntfs3-inline-read-v1-1-30d32e60a4f5@windriver.com>
+X-B4-Tracking: v=1; b=H4sIANauCGsC/x2MQQqAMAzAviI9W3CbDvQr4kFmp0Wp0okI4t8dH
+ gNJHkikTAm64gGlixPvksGUBYRllJmQp8xgK+uNsR4j37iqoJwxOWTZWAiVxglb52NT2RBq00D
+ uD6Us/+9+eN8P3b/+DGsAAAA=
+To: Konstantin Komarov <almaz.alexandrovich@paragon-software.com>
+Cc: ntfs3@lists.linux.dev, 
+ syzbot+079e16bc964fb91acb4a@syzkaller.appspotmail.com, 
+ linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, Mostafa Amin <mostafa.amin@windriver.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795731160; l=5919;
+ i=mostafa.amin@windriver.com; s=20261126; h=from:subject:message-id;
+ bh=XmeI61S+G6pjD7VI+NxHnOwVHDxsLsOyxgnSQMrMyvQ=;
+ b=OLuKjlFUHKqs6hefA7Vlu5Qxgeab18KkjBAxvZuyo37JMXNgduh/qVX8CwXSwvIwMG+i6yYFD
+ DzrpjlndoJ+AyE2G2+A/wicLzLl4Cd/yNp9zfU/KIcTvnha5KzNEQEK
+X-Developer-Key: i=mostafa.amin@windriver.com; a=ed25519;
+ pk=miyC6GYBn9SqytJ6Cgwe1MLT98rhnwuFEIO8ErmAetY=
+X-Endpoint-Received: by B4 Relay for mostafa.amin@windriver.com/20261126
+ with auth_id=1656
+X-Original-From: Mostafa Amin <mostafa.amin@windriver.com>
+Reply-To: mostafa.amin@windriver.com
+Content-Transfer-Encoding: 7bit
 
---=-8ZFNuaxoCdWsEFtb942r
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+From: Mostafa Amin <mostafa.amin@windriver.com>
 
-Le mardi 17 novembre 2026 =C3=A0 09:13 +0800, Xiangwu Lai a =C3=A9crit=C2=
-=A0:
-> Hi,
->=20
-> gentle ping for:
->=20
->   media: sti: hva: Remove bogus mutex_unlock() in hva_hw_get_ip_version()
->   https://lore.kernel.org/all/20261103013440.1138-1-laixiangwu@cmss.china=
-mobile.com/
->=20
-> When runtime resume fails, hva_hw_get_ip_version() unlocks
-> protect_mutex, but the only caller (hva_hw_probe()) never took that
-> lock; the line was copied from the encode path which does run under
-> the lock.  The patch removes the bogus unlock.
->=20
-> Is there anything blocking this patch, or does it just need more
-> time?
+syzbot reported a WARNING in iomap_read_inline_data() ("size >
+iomap->length") triggered by concurrent ftruncate() and mmap() page
+faults on a resident NTFS3 file:
 
-I'm trying to figure-out if its even worth the time to keep applying patche=
-s, if
-there is no ST reply next week, I'll send a patch to remove it, and that sh=
-ould
-also fix the issue.
+  CPU0 (filemap_fault)               CPU1 (ntfs_setattr / write_iter)
+  --------------------               --------------------------------
+  filemap_invalidate_lock_shared()
+  ntfs_read_folio()
+    ntfs_iomap_begin()
+      attr_data_get_block()
+        iomap->length = 5
+                                     truncate_setsize(inode, 20)
+                                       i_size_write(inode, 20)
+                                     ntfs_set_size(inode, 20)
+    iomap_read_inline_data()
+      size = i_size_read(inode) = 20
+      WARN_ON_ONCE(20 > 5) -> -EIO
 
-Nicolas
+iomap_read_inline_data() copies i_size_read(inode) - iomap->offset bytes
+out of iomap->inline_data and warns with -EIO if that exceeds
+iomap->length.  In ntfs3, attr_data_get_block_locked() snapshots a
+resident $DATA attribute into an allocated page under ni_lock and sets
+iomap->length to res.data_size, dropping ni_lock before returning from
+ntfs_iomap_begin().
 
->=20
-> Best regards,
-> Xiangwu Lai
->=20
->=20
+Meanwhile, ntfs_setattr() updates inode->i_size via truncate_setsize()
+before ntfs_set_size() grows res.data_size and without holding
+mapping->invalidate_lock.  Extending writes in ntfs_file_write_iter()
+and preallocation in ntfs_fallocate() likewise resize the attribute and
+inode->i_size via ntfs_set_size() without mapping->invalidate_lock,
+allowing a concurrent page fault or buffered read to observe the new
+inode->i_size against an inline iomap built from the old resident size.
 
---=-8ZFNuaxoCdWsEFtb942r
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
+Serialize regular-file size and resident/non-resident layout changes
+against pagecache readers and faults with filemap_invalidate_lock():
 
------BEGIN PGP SIGNATURE-----
+  - In ntfs_setattr(), hold mapping->invalidate_lock across ATTR_SIZE
+    updates; when extending, truncate any stray pagecache beyond oldsize
+    and run ntfs_set_size() before pagecache_isize_extended() so i_size
+    never leads res.data_size or transiently changes on error.
+  - In ntfs_file_write_iter(), reject extending IOCB_NOWAIT writes with
+    -EAGAIN and hold mapping->invalidate_lock around ntfs_set_size().
+  - In ntfs_fallocate(), hold mapping->invalidate_lock across all modes,
+    including default preallocation which converts resident files to
+    non-resident and extends i_size.
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawiuggAKCRDZQZRRKWBy
-9GJKAP40X/F3Jok+Mf+mGyPEt9dc4YPrSePyENDVB5NhmdUlBgD9G+Xkv+NsCBfL
-wi/Et2PiHfDw4fFbZgFDQaYC+XR4Vwg=
-=Cnt+
------END PGP SIGNATURE-----
+Fixes: 099ef9ab9203 ("fs/ntfs3: implement iomap-based file operations")
+Reported-by: syzbot+079e16bc964fb91acb4a@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=079e16bc964fb91acb4a
+Cc: stable@vger.kernel.org
+Signed-off-by: Mostafa Amin <mostafa.amin@windriver.com>
+---
+Tested on v7.4-rc4 (x86_64 QEMU/KVM, 4 vCPUs, CONFIG_KASAN=y,
+CONFIG_PROVE_LOCKING=y, CONFIG_UBSAN=y, CONFIG_DEBUG_ATOMIC_SLEEP=y,
+CONFIG_DEBUG_KMEMLEAK=y, panic_on_warn=1):
+  - syzbot C reproducer (ftruncate vs mmap + MADV_DONTNEED): 3/3
+    crashes before fix, 0/10 crashes after fix, 3/3 crashes with fix
+    reverted.
+  - Extending pwrite + fsync + POSIX_FADV_DONTNEED race and
+    resident-to-nonresident data-integrity suite: 1/1 crash before
+    fix, 0/3 after fix.
+  - W=1 build of fs/ntfs3/ on debug (CONFIG_NTFS3_FS=y) and
+    allmodconfig (CONFIG_NTFS3_FS=m): 0 warnings.
 
---=-8ZFNuaxoCdWsEFtb942r--
+Not tested: sparse/smatch/coccinelle, non-x86_64 runtime, full xfstests.
+---
+ fs/ntfs3/file.c | 34 ++++++++++++++++++++++++----------
+ 1 file changed, 24 insertions(+), 10 deletions(-)
+
+diff --git a/fs/ntfs3/file.c b/fs/ntfs3/file.c
+index 6c84a3e1c7fe..33fb6dd91503 100644
+--- a/fs/ntfs3/file.c
++++ b/fs/ntfs3/file.c
+@@ -518,12 +518,9 @@ static long ntfs_fallocate(struct file *file, int mode, loff_t vbo, loff_t len)
+ 		goto out;
+ 	}
+ 
+-	if (mode & (FALLOC_FL_PUNCH_HOLE | FALLOC_FL_COLLAPSE_RANGE |
+-		    FALLOC_FL_INSERT_RANGE)) {
+-		inode_dio_wait(inode);
+-		filemap_invalidate_lock(mapping);
+-		map_locked = true;
+-	}
++	inode_dio_wait(inode);
++	filemap_invalidate_lock(mapping);
++	map_locked = true;
+ 
+ 	if (mode & FALLOC_FL_PUNCH_HOLE) {
+ 		u32 frame_size;
+@@ -736,15 +733,25 @@ int ntfs_setattr(const struct mnt_idmap *idmap, struct dentry *dentry,
+ 			goto out;
+ 		}
+ 		inode_dio_wait(inode);
++		filemap_invalidate_lock(inode->i_mapping);
+ 		oldsize = i_size_read(inode);
+ 		newsize = attr->ia_size;
+ 
+ 		if (newsize != oldsize) {
+-			truncate_setsize(inode, newsize);
+-
+-			err = ntfs_set_size(inode, newsize);
++			if (newsize > oldsize) {
++				truncate_pagecache(inode, oldsize);
++				err = ntfs_set_size(inode, newsize);
++				if (!err)
++					pagecache_isize_extended(inode, oldsize,
++								 newsize);
++			} else {
++				truncate_setsize(inode, newsize);
++				err = ntfs_set_size(inode, newsize);
++				if (err)
++					i_size_write(inode, oldsize);
++			}
+ 			if (err) {
+-				i_size_write(inode, oldsize);
++				filemap_invalidate_unlock(inode->i_mapping);
+ 				goto out;
+ 			}
+ 
+@@ -753,6 +760,7 @@ int ntfs_setattr(const struct mnt_idmap *idmap, struct dentry *dentry,
+ 			inode_set_mtime_to_ts(inode,
+ 					      inode_set_ctime_current(inode));
+ 		}
++		filemap_invalidate_unlock(inode->i_mapping);
+ 	}
+ 
+ 	setattr_copy(idmap, inode, attr);
+@@ -1288,11 +1296,17 @@ static ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+ 	endbyte = vbo + ret;
+ 
+ 	if (endbyte > inode->i_size) {
++		if (iocb->ki_flags & IOCB_NOWAIT) {
++			ret = -EAGAIN;
++			goto out;
++		}
+ 		/*
+ 		 * Normal files: increase file size, allocate space.
+ 		 * Sparse/Compressed: increase file size. No space allocated.
+ 		 */
++		filemap_invalidate_lock(inode->i_mapping);
+ 		ret = ntfs_set_size(inode, endbyte);
++		filemap_invalidate_unlock(inode->i_mapping);
+ 		if (ret)
+ 			goto out;
+ 	}
+
+---
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+change-id: 20261126-fix-krn-ntfs3-inline-read-936f502cc415
+
+Best regards,
+-- 
+Mostafa Amin <mostafa.amin@windriver.com>
+
+
