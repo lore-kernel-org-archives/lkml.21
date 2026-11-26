@@ -1,83 +1,83 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795685487;
-	b=nU8RMhabLW2gwbNpeWz0sORrrZPaaPDogUTC0ayLfz9KmTw0ANn8PIMjioeXdHynQinf
-	 n9WndfsvELcxITz9Ap9FYm0874qDfeW3F65YCwpX72iEQDeWn0D3mL61MzIECTTVlD++c
-	 /7V/8TBxgirjW/2x0BBmz+ZnIJfhQFgyWnMbKZqR7mceor7KAlM4qpgc+5yHaoVGrmGlO
-	 FChdzTSTABUT4AIGrUyoCMONCLbGaQqMXCzZc0ALVaO84X36QLruqMg9WZ4bu2tm9aT6R
-	 64RIku1Nh4pnqlSKFh89ZdY6713f5QLeEW0OXDN4gEVg8sjzQwXHKEzQISTPDtde33g==
+	t=1795685495;
+	b=keJAmuHleqrZFctd+7vh+OUWaMMBeVkOpK3LRPNkpGsBMtBodroP/AhiYF1A23eInmN/
+	 o54GBbbTnTRqAtE03fABOMlT3nHnt3fUhiIxsWQobEZiYlZRq+cwoz1yNU54uTmnPrFqA
+	 8LrvCRkxol1SUK4JoBAx2ULIBrYN1q87tr1DKlo465l4Jkbtn2DU+YqM4MQV4+XmMt9Mj
+	 XkR05/lGyYVU7NKFHCo4DxPaCkh0K2yzaZCMT9gmjqhl5zj+e622i3iR+A1FN+eqYgIt9
+	 46EL/Z4bDKJ8J8PBMkvo8bjt4MjRH8dyhU8nFmq+Ad0w1kMgba+UVF29c/IPF0LjUwQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795685487;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795685495;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=JI0g72Qz4jcoRZ1TWDvybKstNSgg9xw32wUy5VYIBiU=;
-	b=YEl+iNFcS7SZ2uignC7PwZdC0ox/QfoeYwDOPMjcVWH/fdFcWbrq5RBSqIFVC4plm8X6
-	 wY1heFHeBH5Vv61fLs9HXvqJ7EdVqUxQ1aZbAo+OK1BMN1JwpP1LQB/XKiSQ8boHnQ59I
-	 UhDzuHZL/PLoKCjfCqz0aAF+OBsygGIMoTST7crbx5ikabEcGvDRdqTsHTKms4s+h6UnX
-	 jbIKm6KmpYgnKS2MEaRwl/W45gCsdlRmCxHZ+AkII7ialdcogHEYRIXGw5R879xeqdmw/
-	 BAheEEllDJgLqh0WiJyFNcCiqe/8MTCkRXfozetKZXtj107VOy7J2B74kTy2ilrWFvQ==
+	bh=8lJsCQlmSYKnZqPo3KXfCYUm3hUgy3XldOvtmxhX/5U=;
+	b=461tGSL6NxS6jbXWGY5iFpmmJEqwphj6fvxpQMQPomW7NXzhSHmxavy7wy1Bo2WbJ/Xu
+	 pAQKZydNwayXDGbCEUozMKvTayKN0AzhAhNh4AbZ5g/f6f7SdNWeiK/gKzX8C1aOblgeN
+	 ULREGK8bfvvRy0xl14d44kp4tPLFgYHwF4YanXl/amuDRFCz4+mHpFlvUmUIrCAvpAPo5
+	 NEm3RPFIhk1WJJhWrBkfULJlbRl3dKInt1iAVnrfCfroXu8fGrB4IfhH5KrISPjKWnXHJ
+	 nlGevwXUY1CvMY0DA95kRxvRFusHc4mlJIjFtjQtrYEhV/U8UZh3447EkGs+NNEm2Gg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NLIEXoAC;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VIfwSMC3;
 	arc=none smtp.remote-ip=209.85.218.45
 Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 490D6606A684
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:31:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 490D6606A684
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F39D1606A330
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:31:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F39D1606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NLIEXoAC
-Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c4cac7a7d3cso1011121166b.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:31:27 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VIfwSMC3
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c51a14bd405so265375766b.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:31:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795685486; x=1796290286; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795685493; x=1796290293; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=JI0g72Qz4jcoRZ1TWDvybKstNSgg9xw32wUy5VYIBiU=;
-        b=NLIEXoACBrLd1qXDnGnO+WaIvVmTHfswa0Z3T5gwTfjTJtLfjaQau8vJ+X3repNeH5
-         eq31x0IaKS/4Kiq6gACXje2COML7Gfes4N7TmYeLwoLsVyrVQhVW2W6G+gU8sPM/W+5Z
-         iLMCy2eAul21eKsG1gTWpqLEUAg0J7wQjAr0oSBPG9gdN1jxMSA77Rol4//Zc8pj+G5L
-         i4K2Z46fkzb9J+fq+sTHMjyDAwj7w/VSVmL+CMIWA40wB/OJxG1Q1sEnshUZ0q6xKHD9
-         twCECEI4Y7d+VvaX00eDHqjEZn4i9SH5mGFGNbPdIHtrUjA4I/pEycvJ5WTsKDXWHc/d
-         /ipA==
+        bh=8lJsCQlmSYKnZqPo3KXfCYUm3hUgy3XldOvtmxhX/5U=;
+        b=VIfwSMC31iCD8cVk+5pe7vnxLPjwT7enoDD0DE3wz0BW9qa6ipqhROzFP8phVAEesY
+         qSLUhJciKHtailWOGsez0xlJfJe2KC5YUxP3rBgDOSy5oZj+GUNYCoiFlIOQBTO0HzWe
+         LjK68XZwjQRjJjB8fUte0EVj+nNgradCSuVnxgmRaJqL+FPvApL3/cqUQA78Vc8rvGOa
+         idYaojdEVbgSPeMAyOR+da+T+lcT7cFEWqgpQqCyZL2F1CublEBnIzgZqYjElWu7IbV8
+         fn1mH2Hst5PhMq22LF4s3gMQeUuo7SfpWsgr3e88OEIarA8762obyYCKvcNWQuC40RcU
+         DX8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795685486; x=1796290286;
+        d=1e100.net; s=20260707; t=1795685493; x=1796290293;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JI0g72Qz4jcoRZ1TWDvybKstNSgg9xw32wUy5VYIBiU=;
-        b=l8hnMOGSbPX/rS/Jglp1y8UOaL/fu+cebNzkM6rM1SBnJIG/VY0ZlvcO+Bt5+VjyhW
-         gA/vovwk+MQC/MpZdSnlWO5TZpUY4WhlXkOALhduz02lNtLN7I2ILQsZf7gxCa8kqnDB
-         dvMfXv/iq+CNr3TZQt5vYKLGpL/vQUdnNwDs0rp/SSRqWPKHJtaSULkuHTlYXUQAMKcG
-         +4ewC0LTKhLvoaJiWY5fczTzRg4Dnui5USghCHuQtLmJyeNU87cMe1clqPML5IltSixJ
-         E25SPqcNVF4wPsS1EUl/Ps19RFpniPtgQEl1oN6jvdmfju16zBFPOjFrJWAvbtzD3l28
-         A+Jw==
-X-Forwarded-Encrypted: i=1; AL+hErFo+F8gVxqf1lAD5OBhoncugOWNZaxQ+VJUGy8psriAkvAasvLT42GYlVnk/UkJuF5pQxG/vGU8ca+U7Lg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8BYyETtKyzruQP+FuL64NKzIg5L9oQtG9QGE/KyTFzReRLqXLE
-	8ZMWt27De1/jgRP++JTDTUiqdL7C0QTU2E3NMBiEZNDrcbIv/ZemUjDQ
-X-Gm-Gg: AZFdTZeD+s/HQhvrY0sk8lFjCRQtFqI1fHz0yMKwH6oofalj+n631sJu6cWIZANyEI3
-	F87tH+peAXuxKTsrzC9vI3Sfy5oQILz4m1SRS6jh4548RIw7l8WnVV1Z+UonDzzllE+XGYr/kKo
-	AmPFgs9Tf2pFFCbut1xzgm9pqB9Z9Mp4argpGHw3eep3QdScD3zpi/HvKQN53IlD6IF8pG1nvQn
-	oCedRAWqHSD1zq3/VY/CKpfWROnb3xzqF4WYyD5IVu1FU3mjTMI3fCaBR5s1F/29NZjJMKhug60
-	0kAklO9gGi9ZrdVaHTfp0QwkSPVikf4DDwIrxwjvDp9Xn2p7YztinOCJWtDuV3d0MttfsjuYswN
-	t1FrrS+deMA0mMhakto42sAS96YirW1rngOjfnXPGUYIGdzU32esPHo4F45B4TmD7CSA7hXHWkd
-	q+Hgg+LXxgVht5wJIR9rNsJeWA1tY0pywg9jLuR981IPfbWYzWH1OBUvyqPQH6fzBUYAAWMuOwQ
-	trgAmZA6/5SANZ/qbM8/bWmot4WKB/nHYJ/cFGrvBWD1xR+vsDlrseWPGoMB2jvRD5JoFge7Vmk
-	QqO42QIljpYh2JjdPc/KFBF03xlysZYDPDLcZbyUvT95LoXaZ3OhFBRl6NX40RwP/oQzPeQ=
-X-Received: by 2002:a17:906:81da:b0:c51:1d9a:323c with SMTP id a640c23a62f3a-c513a88b0d1mr1322592666b.15.1795685485641;
-        Thu, 26 Nov 2026 01:31:25 -0800 (PST)
+        bh=8lJsCQlmSYKnZqPo3KXfCYUm3hUgy3XldOvtmxhX/5U=;
+        b=JObTTfTXkqsKzOUBh4Hz04BGTsep7AqSHw3v/cQNwezQor/W2eDPxS0stnO9Ft8KXS
+         fS5uWZGw3nmk1IdI/YUod5LRpLmjaBRe3jOqi67MZ0HPG/7l6cji0SrIvTQHnW/0kFFP
+         dp8+F69+xDaRAz6Pfr0ySEfzvS3BFspDlRl52WT81xcIW/f3fCY4DAdU4R8e4WAJsziq
+         OJ6E+CzKFiJTXbMDLK+Xh1lkgWkk5k0NQ87NDUeEGB4O6qFttMs3WHuldElmfRel2fRT
+         LilWCBGk5pa3JZtdjpVamQ2nWcU5hG8IKHGJbZOGjW2b64ZVldsdlDpo6wjqJlw2mc9q
+         n8dQ==
+X-Forwarded-Encrypted: i=1; AL+hErGwLnmKrVWrvwnStffa4FvYCshussZyl6gqkElpfZsUo128/iPARA+0PNPBWcUiR5eRPjo9Ll1RnGttFcU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Bi/CoIsXy3G2/LXD1cOvbt12shwzUNtk1guqkd0mZdhKwKOqY
+	9hvQvhDXzpG0ylV6hy2OoaDySJheyPxRvRd1Zf0P/Dx3fRlkFjUPk6Xg
+X-Gm-Gg: AZFdTZfN4kN/KSH+VFEu830ltT0rLbKIA8url6U+MZg/xqkPmoGZGpoCNmkKNq/8lfa
+	7RaV66lP2kk7tMHtLB2XtK0gA1zQwxn/8TcPPPxYhzzu+pyROR6iecKaBrPOeimUqKLcubKhrA3
+	ohKl/s0rBZgu6boApviR9wTybQNbq0yLXBNwx+QgRwXWd1fx19Wk6HInJRTcObytFVlkfaKHeud
+	ks7r60lKcA8dXYgVTPqc9x2pLmq8q7u1c/pFdpgtT4p2c+fMSgHg/mAoqEYYW1Me6PKLOvpWLkO
+	1Qw9jH8rnMVRXzpvNLgvY2O/CxQwwh9COn84NBGJVerRBQi0EsiPkuJrv5Pb8rEvDKtcpukvFOe
+	BmJ5X0r3jdVmpfyOyF+jlhTQFWePYOj/hrw/YOzzK5gGXBhXGmpO7cRt0sZ3kn2P1DgywZxYAmM
+	Mi0iyXN7eaWCkROJL742ufE9t6fbNYR/81T9RK6M83WdD0HdGZHFmEMpB0QYk9sRaQuPbl8SzUv
+	Z/qiXZe4fHfbbP6sN6GKo5+sCG619Gh3KPe+5nAzSgSVxb9gI8dG+ML7mZ0BLfkwJarZl9NxB/m
+	3/1QeMu5/+43R494nAPXgXhpqKArSd3/XRn04T8MmYNY4YLxn+ACDoZOYE4GrB0b2ye8OAg=
+X-Received: by 2002:a17:907:960f:b0:c31:e9b7:f10b with SMTP id a640c23a62f3a-c513ab4fb53mr1665093166b.42.1795685493247;
+        Thu, 26 Nov 2026 01:31:33 -0800 (PST)
 Received: from buildhost.darklands.se ([2001:9b1:ff:d701:51eb:176f:63d9:53f8])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afdee82sm597090066b.66.2026.11.26.01.31.24
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afdee82sm597090066b.66.2026.11.26.01.31.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 01:31:25 -0800 (PST)
+        Thu, 26 Nov 2026 01:31:32 -0800 (PST)
 From: Magnus Lindholm <linmag7@gmail.com>
 To: davem@davemloft.net,
 	andreas@gaisler.com
@@ -85,9 +85,9 @@ Cc: sam@ravnborg.org,
 	sparclinux@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linmag7@gmail.com
-Subject: [PATCH 06/18] sparc32: tolerate firmware nodes without a name property
-Date: Thu, 26 Nov 2026 10:30:11 +0100
-Message-ID: <20261126093106.1345825-7-linmag7@gmail.com>
+Subject: [PATCH 14/18] sparc32,leon: describe legacy AMBA I2C controllers
+Date: Thu, 26 Nov 2026 10:30:19 +0100
+Message-ID: <20261126093106.1345825-15-linmag7@gmail.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261126093106.1345825-1-linmag7@gmail.com>
 References: <20261126093106.1345825-1-linmag7@gmail.com>
@@ -102,41 +102,48 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Factory LEON U-Boot omits device-tree name properties, causing
-build_path_component() to dereference NULL. Use an empty root component
-and phandle-based child names when the property is absent.
+Describe I2CMST controllers discovered from legacy GRLIB plug-and-play
+with the compatible string, register spacing and input clock required
+by i2c-ocores. Do not infer attached peripherals from the ASIC system ID;
+RTC instantiation needs reliable board-specific information.
 
 Signed-off-by: Magnus Lindholm <linmag7@gmail.com>
 ---
- arch/sparc/kernel/prom_32.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ arch/sparc/kernel/leon_legacy.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-diff --git a/arch/sparc/kernel/prom_32.c b/arch/sparc/kernel/prom_32.c
-index cd94f1e8d644..804ca0b2a5b5 100644
---- a/arch/sparc/kernel/prom_32.c
-+++ b/arch/sparc/kernel/prom_32.c
-@@ -189,11 +189,21 @@ char * __init build_path_component(struct device_node *dp)
- 	char tmp_buf[64], *n;
- 	size_t n_sz;
+diff --git a/arch/sparc/kernel/leon_legacy.c b/arch/sparc/kernel/leon_legacy.c
+index a9364708e231..fa978620f4a6 100644
+--- a/arch/sparc/kernel/leon_legacy.c
++++ b/arch/sparc/kernel/leon_legacy.c
+@@ -201,6 +201,18 @@ static bool __init legacy_clocks(int cpu_bus)
+ 	return true;
+ }
  
-+	/* Old LEON firmware omits the root name; handle unnamed children too. */
-+	if (!name) {
-+		if (dp->parent)
-+			snprintf(tmp_buf, sizeof(tmp_buf), "node@%x", dp->phandle);
-+		else
-+			tmp_buf[0] = '\0';
-+		goto alloc_name;
-+	}
++static void __init legacy_i2c(struct device_node *np, u32 freq)
++{
++	legacy_property(np, "compatible", "aeroflexgaisler,i2cmst",
++			sizeof("aeroflexgaisler,i2cmst"));
++	legacy_u32(np, "reg-shift", 2);
++	legacy_u32(np, "reg-io-width", 4);
++	legacy_u32(np, "opencores,ip-clock-frequency", freq);
++	legacy_u32(np, "clock-frequency", 100000);
++	legacy_u32(np, "#address-cells", 1);
++	legacy_u32(np, "#size-cells", 0);
++}
 +
- 	tmp_buf[0] = '\0';
- 	__build_path_component(dp, tmp_buf);
- 	if (tmp_buf[0] == '\0')
- 		strscpy(tmp_buf, name);
- 
-+alloc_name:
- 	n_sz = strlen(tmp_buf) + 1;
- 	n = prom_early_alloc(n_sz);
- 	strscpy(n, tmp_buf, n_sz);
+ static void __init legacy_device(struct device_node *bus, u32 id, u32 freq,
+ 				 __be32 *regs, unsigned int count)
+ {
+@@ -235,6 +247,8 @@ static void __init legacy_device(struct device_node *bus, u32 id, u32 freq,
+ 	legacy_u32(np, "version", (id >> 5) & 0x1f);
+ 	if (irq)
+ 		legacy_u32(np, "interrupts", irq);
++	if (legacy_is(id, GAISLER_I2CMST))
++		legacy_i2c(np, freq);
+ 	pr_info("LEON PnP: %s at %08x irq %u clock %u\n", name,
+ 		be32_to_cpu(regs[0]), irq, freq);
+ }
 -- 
 2.43.0
 
