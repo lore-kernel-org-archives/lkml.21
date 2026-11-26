@@ -1,85 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.151
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795674277;
-	b=S8VUgXP2vqaGk3jrBaNMUk+zkL3YISZz3F/VOoGfADPTtU9zSA2CBw1anNYagvxW7OY3
-	 nDYIGdGSp93UR70rU7K+NuqcV/08dxujlt4ic2QcSh35gu8hNbtx6bIOnC2003x0BsE2L
-	 4/O9/QrgBwVtyGIcPlOZEbv6OiPLnqzuNgUPOh0qm3ISp/SBhQAY7plBRMTJ3AeOtrucG
-	 ccEH4nv5eA0uWM9Z4xGP9zVVTW8fymylPnLPwI8wbEQqZfmn9Z1hmRf0YivLtj3dgUVxF
-	 GdNgR7qsu8n4dBkZW223XZGk6A02eC1OMmExKRkwc8xaXim0bzyfRs9fWiX6MSJKxrQ==
+	t=1795674273;
+	b=KVTyRbDsEUSt7LGmUnQyIbByB2Hku3LTqqfdwm3N7WigUaBW6QKvRi0T3d4uBvGUUmt0
+	 M/bI671/kiQkGs32BkU5/4w/1GqI+UWZ/dNHPoDIYUVienY1QLT2WYGaM8WAnv01fxfkm
+	 fcYnOWQ1rd6/k2k6RK7IWJILJRAqeBXIdohk7Mxw4v5YxJxxj7dnlJV1PvHC0DWsylkNT
+	 wLHnE2mptWF1ZDg+LicJZdB8yEG3ox06mosEUk3EY4PlEJVO1bFeuORIx+ataorduI3vG
+	 ocNDhGW4GolFE7uKn2clrCr7Vs5CNtvHgMrcQWgVwGRM2/EWuFH/KVuAu/vdrwyYppg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795674277;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=ePKddXgsQ/sIOcUIgiDq+rw3pTmufgmB0dzzvy5WTTU=;
-	b=v1SBCg8rkeh6+Wm2H324KLpFcqic1nZ8JhcAPkMCNXGwRb141ysiiuFyHGJbmQgY9PmH
-	 EILdiiMMRExAOAh1LQfwQspeYrxgbtuE1rsbhzyCrbyCRncTq5BqVsLhrCGF+JC0u9T15
-	 ZBNDn1K2KxbfQzwOB4HVg/iRwPiAfHW7b4Q547WnAquntEvX5D0OevbGmwjl5SUChK2S2
-	 slkMLmu7FVp1Cpv7+vzWjJ95rXSg175MMLjHVMeJ9kfkKiJ2i9Oo2BZEixbmbPxSrwZCV
-	 0CznTqVtxKj4ZXKY8sYZdyCIiWpBmREsIqueZKbdLd1DurCpD56X6PbibGKvIPo4XfQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795674273;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-MBO-RS-ID:X-MBO-RS-META;
+	bh=54Gr52l2TYE8K41+i/7jlgfFtHwpt1TqVfCkux0de5Q=;
+	b=mJGcMIY5jGC4g0ih/40T4Xg8NZs1KE8/z39f28oWexNGMiYfB3197o1fG83Ga7agJ2IG
+	 HCc/CEdi62+QAzPZDqg7CXOf6bhpF6P0Mr3hult930RJ6YzBgDOrHBV2LTfIwETrP9ul0
+	 YIvF3POLD7p5Na4oz84oAeNn0Mpqon9Iud8tEZj82Lkp0Y1/MynrsCHnnPmcmuA/iq03j
+	 OQfvb3WndOp6RHtNBrfPoo04w8Z12LD8D52vdmNdGUsLFMqefkhZkjGsQmi3PYKtPcUBc
+	 GpNJIs/WvhYkD7GWTWjY/F3pR/OAa0i+J6BK5OdkREZi+ys8kC8c7Z3hG3tN3KJHZkw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=LIFvDPvW;
-	arc=none smtp.remote-ip=74.125.82.53
-Received: from mail-dl1-f53.google.com (mail-dl1-f53.google.com [74.125.82.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=mailbox.org;
+	spf=pass smtp.mailfrom=mailbox.org;
+	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=A5GSzsYV;
+	arc=none smtp.remote-ip=80.241.56.151
+Received: from mout-p-101.mailbox.org (mout-p-101.mailbox.org [80.241.56.151])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09A99606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:24:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 09A99606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8CF2B606A321;
+	Thu, 26 Nov 2026 06:24:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8CF2B606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=LIFvDPvW
-Received: by mail-dl1-f53.google.com with SMTP id a92af1059eb24-1b3b4944a0eso5039745c88.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:24:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795674276; x=1796279076; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ePKddXgsQ/sIOcUIgiDq+rw3pTmufgmB0dzzvy5WTTU=;
-        b=LIFvDPvW2Q4ON1mtKt+ZrHY4wmRlqR2atzM4VLHm84GX6Qku8c4P6LPdMzGT8DC0nt
-         /ADAmiUX6bU9yPCxYv5OEqNFmqGjUFTUcvnltlMi4LXrEA2MpqkVDjBum0wEG98ryW8p
-         TXxzTa2jXLitNUANDtOeucYsxGa28yDAY2GS4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795674276; x=1796279076;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ePKddXgsQ/sIOcUIgiDq+rw3pTmufgmB0dzzvy5WTTU=;
-        b=HSh+yHtCEQIrdL3b1QXfwNfK1s85oRE0UfcUfKdPiU05a53FhQOdX7bYkvs/UsZyUD
-         5s3raxcGXCqPpMhTIIt/NjlV1LXeTNzWP6RTxW1YEfdm4NvAK+KFEFEOgfaO2QkqiPSG
-         /lRTB/C+zkgq4MgJd7WQuEl6SlmdJRpP0iL8ESyPHmOzLRnyQqoOR/WXXITtmNgObKtt
-         YwhE+kNXB2xfx1/LPohog9U8cKMvrkhuPwBy5fFm9w7Fu6eE43WbfN5UnGkMgbUTTCwk
-         rGTOd2b62NIDS/XegkBdFNlK4aQJtb3atilPAoIrKWEvP78HhlBtTkoIsopWNwEln2TK
-         pvZQ==
-X-Forwarded-Encrypted: i=1; AL+hErHv+zswhYnsP32Fu0eCmQVgi4XZqnmz+GnTh0dUbk2xJAs07evbaHioi+XNzteiuQiqLhkRAj7CMIZDxYc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8rbbcnD3uw6673jexmyugxffR93RNTt2D86rAT7O4DP0V9JILc
-	9+fQyo7Ob3YDPoUi8PB1ZV9lhzgWzQB4EkXqmwKJaDwppkut8RTzczBvULx216No7Q==
-X-Gm-Gg: AZFdTZcMmpcAk+8eBzNI+ig+11SSeD4o4iNOEILAqPgXEgeJt+mUTn7XQ92d8VjmtUq
-	NjI9EMNMUguejx+24jwKMhk8L05YjPwshxrQDY7ZeOBi91HRbuqrIQoud/oUGUUq1DGWjk794GA
-	fzUfv6ef51KqGiRod7bYIcdKaoI848t5n67UNkXo9TqRu6IBipMi7AWn93128BDh2JJVCnDC+25
-	Ojr/DMqETp2dVlVBtAKhXyPZXjqNRo2IyJiaxsJbWIUhQFy4M8vDGFqgUeWZmUrTfUsc4P995hq
-	KyIwkstsCv+K4CNF3fucPH+YrGCNR6l+X2iF0eJByQvR2dXZOv8Qd8MRE/xwMuUfYeP0ueLB1i6
-	bsKxXoALr9s7AqbGJ1KKQ17bKZH7S+UcLeDZ0fWjqTh4bjx+JgetwNr4Bg4OfcAi+9/vXVnDAuO
-	OME3d4l2SmwmjI5EEDDR3zDAcsvQjItC9cP5gvQ9NJ8mGVBszdg87PZTvewEjUXg2y1cXWQAA1b
-	YARFGtegQNfWd8JkKHFs/sgG0gzTjcDt9fo29eS0mTacJz1WHGjNI0ahNWVW55Iff9toG6BuXA9
-	v8m5AZ98/40zNLx4ln9Zs50iA3kY2uWq3hjyedpRPYzX2rBUNkwC8ZlF4JgHxJNj7+pk5ys+0DW
-	ThhqxiBjGzcFU9Tmg2zDbMA==
-X-Received: by 2002:a05:701b:4585:10b0:1b5:8f22:9803 with SMTP id a92af1059eb24-1b58f229b6bmr2042435c88.1.1795674276127;
-        Wed, 25 Nov 2026 22:24:36 -0800 (PST)
-Received: from fshao-cloudtop.c.googlers.com (123.142.199.104.bc.googleusercontent.com. [104.199.142.123])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b56ef9fd16sm36793186c88.4.2026.11.25.22.24.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 22:24:35 -0800 (PST)
-From: Fei Shao <fshao@chromium.org>
-Date: Thu, 26 Nov 2026 14:23:44 +0800
-Subject: [PATCH 2/8] drm: Wire drm_show_fdinfo() into default fops helpers
+	dkim=pass (2048-bit key, unprotected) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=A5GSzsYV
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4jZmjM3PxSz8txw;
+	Thu, 26 Nov 2026 07:24:23 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1795674263;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=54Gr52l2TYE8K41+i/7jlgfFtHwpt1TqVfCkux0de5Q=;
+	b=A5GSzsYV5F7cxfaqKo9VMJQlSCwz02VM+yywBG1eoNEDgFi5GisMOszZbpKPU+VdOSRBOv
+	sU0LqZ4o/arXqts/A2jdPYCjoTe4l4pRz8v1jwrZjlz5zpeE8DZaswHGfn/joRNWDKgdgp
+	PkLm0Bo+fKbRh3IHctapS+7cFzzx8B+IfQgSjTfp1aB/FbT13PyoqTZgwCPuAKtJltGYsa
+	QctkjB0b9FGZ3Mx+quXZ4WCEMyLRWhx2IHvnUgjEW7H8yQbFNH/XWEhtCB2a7yldcz4F2t
+	EjN9fQOEZYX/17sVHO3HTsBliXq7ixpJSb1nsIPTYCLh7zxjYREAH7kTTOY9VQ==
+Date: Thu, 26 Nov 2026 07:24:21 +0100
+From: Benjamin Boortz <bennib@mailbox.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org, akpm@linux-foundation.org, 
+	linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org, 
+	lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com, 
+	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org, hargar@microsoft.com, 
+	broonie@kernel.org, achill@achill.org, sr@sladewatkins.com
+Subject: Re: [PATCH 7.3 0000/1005] 7.3.7-rc1 review
+Message-ID: <awfQdrf18IeLxpOT@bb-82jq>
+References: <20261125143821.729802100@linuxfoundation.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,96 +71,21 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-drm-fops-show-fdinfo-v1-2-7cb1d1a5d6ef@chromium.org>
-References: <20261126-drm-fops-show-fdinfo-v1-0-7cb1d1a5d6ef@chromium.org>
-In-Reply-To: <20261126-drm-fops-show-fdinfo-v1-0-7cb1d1a5d6ef@chromium.org>
-To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Oded Gabbay <ogabbay@kernel.org>
-Cc: Lucas Stach <l.stach@pengutronix.de>, 
- Russell King <linux+etnaviv@armlinux.org.uk>, 
- Christian Gmeiner <christian.gmeiner@gmail.com>, 
- Rob Clark <robin.clark@oss.qualcomm.com>, 
- Dmitry Baryshkov <lumag@kernel.org>, 
- Abhinav Kumar <abhinav.kumar@linux.dev>, 
- Jessica Zhang <jesszhan0024@gmail.com>, 
- Marijn Suijten <marijn.suijten@somainline.org>, 
- Boris Brezillon <boris.brezillon@collabora.com>, 
- Rob Herring <robh@kernel.org>, Steven Price <steven.price@arm.com>, 
- =?utf-8?q?Adri=C3=A1n_Larumbe?= <adrian.larumbe@collabora.com>, 
- Melissa Wen <mwen@igalia.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Karol Wachowski <karol.wachowski@linux.intel.com>, 
- Andrzej Kacprowski <andrzej.kacprowski@linux.intel.com>, 
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- etnaviv@lists.freedesktop.org, linux-arm-msm@vger.kernel.org, 
- freedreno@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, Fei Shao <fshao@chromium.org>
-X-Mailer: b4 0.16.0
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20261125143821.729802100@linuxfoundation.org>
+X-MBO-RS-ID: 4dc762b175a24d5dc2e
+X-MBO-RS-META: qsbj16bmgfeeyqgahx3zsdrj5rc9ir3f
 
-Wire drm_show_fdinfo() into DEFINE_DRM_*_FOPS() in the DRM headers, so
-drivers using the default fops helpers support showing standard fdinfo
-out of the box.
+On Wed, Nov 25, 2026 at 03:22:18PM +0100, Greg Kroah-Hartman wrote:
 
-Signed-off-by: Fei Shao <fshao@chromium.org>
----
- include/drm/drm_accel.h          | 1 +
- include/drm/drm_gem.h            | 2 ++
- include/drm/drm_gem_dma_helper.h | 1 +
- 3 files changed, 4 insertions(+)
+>This is the start of the stable review cycle for the 7.3.7 release.
+>There are 1005 patches in this series, all will be posted as a response
+>to this one.  If anyone has any issues with these being applied, please
+>let me know.
 
-diff --git a/include/drm/drm_accel.h b/include/drm/drm_accel.h
-index 20a665ec6f16..1f3088002e52 100644
---- a/include/drm/drm_accel.h
-+++ b/include/drm/drm_accel.h
-@@ -48,6 +48,7 @@
- 	static const struct file_operations name = {\
- 		.owner		= THIS_MODULE,\
- 		DRM_ACCEL_FOPS,\
-+		.show_fdinfo	= drm_show_fdinfo,\
- 	}
- 
- #if IS_ENABLED(CONFIG_DRM_ACCEL)
-diff --git a/include/drm/drm_gem.h b/include/drm/drm_gem.h
-index 56dd15921c7a..d0c30bf23e58 100644
---- a/include/drm/drm_gem.h
-+++ b/include/drm/drm_gem.h
-@@ -43,6 +43,7 @@
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
- #include <drm/drm_device.h>
- #endif
-+#include <drm/drm_file.h>
- #include <drm/drm_vma_manager.h>
- 
- struct iosys_map;
-@@ -501,6 +502,7 @@ struct drm_gem_object {
- 	static const struct file_operations name = {\
- 		.owner		= THIS_MODULE,\
- 		DRM_GEM_FOPS,\
-+		.show_fdinfo	= drm_show_fdinfo,\
- 	}
- 
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-diff --git a/include/drm/drm_gem_dma_helper.h b/include/drm/drm_gem_dma_helper.h
-index f2678e7ecb98..3fc22b426070 100644
---- a/include/drm/drm_gem_dma_helper.h
-+++ b/include/drm/drm_gem_dma_helper.h
-@@ -267,6 +267,7 @@ unsigned long drm_gem_dma_get_unmapped_area(struct file *filp,
- 		.read		= drm_read,\
- 		.llseek		= noop_llseek,\
- 		.mmap		= drm_gem_mmap,\
-+		.show_fdinfo	= drm_show_fdinfo,\
- 		.fop_flags = FOP_UNSIGNED_OFFSET, \
- 		DRM_GEM_DMA_UNMAPPED_AREA_FOPS \
- 	}
+Build and boot tested with QEMU for x86_64, i386, arm64, and riscv
+across multiple configurations, and boots on AMD Ryzen 7 5800H.
+No regressions observed.
 
--- 
-2.56.1.839.g22a8290db9-goog
-
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
