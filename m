@@ -1,56 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795704349;
-	b=G1UHfx3CgOJqaCnLSyqAYVkQrUZ9Pb+U32IS4O05tsx61UfJvKjohrVaVhiUwIrLgq4a
-	 C3MBAo4A796nvQo2uV3MIx+3jY+SC0k8zzKPzhI366o+spm8WyWI+SpIY3nmEKJUvz5Pu
-	 PZFJDR1vpvCCGDYZxjMjyKnzOlDEPAe1488U278tVf5yZj21YngASg7Nhd7jXw6NlrECv
-	 WszB0QWdGd6hq05Sh8XsK0N9MmMEXXsMyAVBs1QVUY7/SGPJH5EH196b8ZAgkl5rogT2P
-	 eLyj1DNicMVGFwy49o06FwIoYdFQg/EtGPAgsEglaBtFaJ9ZQQ1HI08VX7x49Qxbj/A==
+	t=1795704362;
+	b=LCCjWBgnt+Alju/APqSfNPzX7FB8CyN+q8tKwWSs6x1OBvj6GbHMMupZvm5ANmC+oQD0
+	 wdIhb82afBmRU7iU8pr/7jzbSun1ftChfdHRYFfCJRCkWl4fQkMBPXVTYNYa7uKYEuWLU
+	 FdyGgM4Z5K4yAoOz0vmsxQCM98rL/7tajkKsMk517mFTJ4oiGsOVoI1ED61OzX+e4EZGN
+	 zfaFZMWOcpRsAB7GtPvK3XMsQOCKewUwJQIcKcRrj+i/I82OCwdrLlgsuJnziWEgXNSjP
+	 2LDHsBC7N5WA28cEj1v5Ej/j5VQpW6nezGzBJ/MTRgvu1wQ+ldfq8vl7DU1xyZovyBQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795704349;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=jL8G5ucVxhl6XpniwOn5qtswk6ptTrbZ5+4HABky+sU=;
-	b=xHKNTgaPSrKLa++QdfyL0QllKx8g3gS/UfQrSXzw0RLZG9s3hZNThcRDXTzsSxN7us4X
-	 00i90xpZUWekPQbX0WJl7nHbPh7ZHt+OnvdkV5w2lk/EL6Op5qbQptjdYl0AbQKvlXp+g
-	 QjOpUu2swhhgIil27XQnplfo1x/5rn2hj3NT3j5bJJ3g6DKh9PwFSGKQbL+aMcV+GN7iR
-	 LFeg3CJr7d2TqAGjdZ8fCxRlKENoxbeJCosndtttZHflcms2EdAWZJMUthpsseuUhgvLR
-	 bw4kc4kNss5MhxG0zFXpkjwfYoUjt+1RmxZ30ULeXyeBFsCmvUCbpc5ot1V0ZFaYlXw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795704362;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:X-Google-Original-From:Date:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=Wu1agTFEkGcx3K6CnCdIJjGrSzPmSSzxOxrr1RuQESY=;
+	b=EOmk82X3IBBwVo0j0YmH/p39y9kFTd8uMoKBF1ICCjMU+y6gyy+Zl1GZjsHxY1/62wMI
+	 QSysBFX3HSGoC1wW2FdZ7mDhOzvHF+z6kdBXR+6mi8jXIsDV0yghcOnqLocLDJea/6IdT
+	 yUuknLOXNernAGPfXQw5/zFC47QSVKKMANKaTnLDgDe6GdF2ZrnJYZUTcltmV//FuZeqZ
+	 opSOBLl+dQ1HU4BpPU+opzSNghBDj518VhpUNYAIq696hDJ8wwX5yQlzFrYHGDlWgtQzB
+	 3A0Khgra9tNZCCxuVAIAMS+MilGXG1/lpn9/PSQVAlP4M9cME2uHpX5bH/QU+yeqbUw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QYpHcabK;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=PrY5X9JI;
+	arc=none smtp.remote-ip=209.85.218.45
+Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8EF2606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:45:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 819D0606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:46:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 819D0606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QYpHcabK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 143091F000CF;
-	Thu, 26 Nov 2026 14:45:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795704349;
-	bh=jL8G5ucVxhl6XpniwOn5qtswk6ptTrbZ5+4HABky+sU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=QYpHcabKB8A5uWvZwYP0lVVKukfxNBAoWXWIiefHci3pC7KeBZuK9SW74oFBLaL/n
-	 cqoy/YByLDr3wbHOeVLQpYgccznfeMUzUqdPzyy/mCPSRwNus9t2fEJhvgOyNiL3Ik
-	 CpxHXbHuwbSmrgI4HhKBY+dqG7HxT/ovasWRAo0bThZaUsMYGqyANx2X2Anu9ZHqac
-	 RWPcSr0SxN5twTU4v1fxRR5LjIFgxbooxghKmaVh6D3j6/M3FOYhCY0I3/Zdg+WZ6G
-	 iOxtN+NF8R5vwquyyXJSd3DGD1douEkXCCA5EFXRUm/A1kmTGvX3KeW7M5TR77O7KZ
-	 gdo+aWcLq46mg==
-Date: Thu, 26 Nov 2026 14:45:47 +0000
-From: Harry Yoo <harry@kernel.org>
-To: Andreas Hindborg <a.hindborg@kernel.org>
-Cc: Vlastimil Babka <vbabka@kernel.org>, Hao Li <hao.li@linux.dev>, 
-	Christoph Lameter <cl@gentwo.org>, David Rientjes <rientjes@google.com>, 
-	Roman Gushchin <roman.gushchin@linux.dev>, "Liam R. Howlett" <liam@infradead.org>, 
-	Suren Baghdasaryan <surenb@google.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	stable+noautosel@kernel.org
-Subject: Re: [PATCH 1/3] mm/slab: update the documentation of sheaf_capacity
-Message-ID: <awhCltyLWlLRBtsG@thinkstation>
-References: <20261125-sheaf-doc-update-v1-0-4a579abaf0b8@kernel.org>
- <20261125-sheaf-doc-update-v1-1-4a579abaf0b8@kernel.org>
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=PrY5X9JI
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c506a231b88so953712566b.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:46:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795704360; x=1796309160; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Wu1agTFEkGcx3K6CnCdIJjGrSzPmSSzxOxrr1RuQESY=;
+        b=PrY5X9JIHXb4qCOmbPGQEhCJ+snfEAQq9mqA6AkUzJOCOxr19TbiI+b7MJezD+vHrJ
+         W+VkhuxjOjmuopQgXRrNpHvvnXkokmXdYWt/sVqBNEdHwQqN9+taJREj/GIOPkl8FkN0
+         NS1jADcJh9CMWcvo+S9ltpiVfLtf4w5i+4irDDTeAf/nlXBAAMItr67neuhaqaQ4PXuS
+         LzT7WKYVvqXK6prhN9QrkNIe6cwWybOWLerzZF98j4R+4i8EZoSSHSg1MSXgM2Zie0n1
+         Fe2On8V0rn5A+qLKpV4IubjfLdxKfRd56TgbX/8dEoe7Ah6KXc2B43voULbrcwTzpenv
+         gYGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795704360; x=1796309160;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Wu1agTFEkGcx3K6CnCdIJjGrSzPmSSzxOxrr1RuQESY=;
+        b=P8xeQC31HDC76AN5uTL0AzxBBYzrzwVbKxjQe0bLWRwrSlh1VirSFy/ZiOliEo7t06
+         0+fVUPAzd/1QgMS/XekkCJF566OUxMr+PNFgixGObJqYOcNPcNvZkEdpLNvy5ibEpKKY
+         ddG3UgzQDsy+TC4SGnTALz4A20DIDLLlBCJD4oBcXFgge714OLiYTZ5Fl/FXO/Cy29rc
+         r2q6yK8vYNBpZ4zXQGfnXwDTCscf+w69fuDD083J75tjzu0f20dkmk7KdOKDGya5acJD
+         yPL0d+pAB50C4pO9FPObtyn8qh5/4YXdpw/SElj5vPBni/EPnSxBI+33o3puQ0B93W4D
+         zlfw==
+X-Forwarded-Encrypted: i=1; AL+hErEhcdF4XX+/VELAMBAm43PmM/PXVmosjPyTVFigFkXExdXo7qQxlN6j0i7omvVKmQaOVDKAvoSHNJBY1ps=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+OwVhSReNMt98HCGhhqzTd2REpVI4suayUGM+FNcC2G931pnt1
+	Jv4TpAuy2CCiSdDpr+vgMb5ZL41PP9/IJ7S03/kseTaotgsEw/GtQrj6RU1g7/jZfDg=
+X-Gm-Gg: AZFdTZc1OiuJtprBmVauZGuReXj8VmfwR0NmeiLKvvv8maS5ZPCIj3rKfiFfzDUB/CF
+	Ib1f7u6qCKihROdc9DX6ZrO1uU0BzwdDP9Q+/+JP+Vn5Ja+VDjEQQY7aPTK13GAkc5gQM5nnQw1
+	tSNGoZIPFYxNbSYxwd04D8EBSXc5eWm5uWNX8uFCGe3kaGV3V2jVJq1tqBY38uDQ23BCu+MZVc7
+	8mljffIDLIkVstuPoyei3kANEHA9eKAtr9NqCFN/BVeAcKwULhLbWusgPQHlhUrp53prGUrUVdo
+	yjyhIySThTQXOnWyfLXBRblvAB0gxgz04IeJZs/9srRAOUtQsAymjeO/RStYapL5Uh9YoCqK8vm
+	ugmtI/SmBB1ZpnUBbGZjpQzdG98wk1VnM40mGbn0KegnvabmAcJIMeWMO0ssAwLn1q5GR5HMQiu
+	CSm7kHIjnhpgBzVRrX9514NzM9OlUHUAbU1QbXApNX6ftN7t2on5O5oUdJgicDVBEF6l/IkcFT1
+	0fMtloUuk34HqdvDsywckauMdn9PsIbpXsA/jhPUbvfJBDOy6G7+MT+MPbxCCEzyL3WEBpJN9wo
+	T0HB3qsitisA/GyZ52NBmpHDvtki
+X-Received: by 2002:a17:906:4fc4:b0:c51:24a3:208 with SMTP id a640c23a62f3a-c513a5da66bmr1688802166b.9.1795704359748;
+        Thu, 26 Nov 2026 06:45:59 -0800 (PST)
+Received: from localhost ([195.94.148.180])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae698ccsm760181766b.26.2026.11.26.06.45.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 06:45:59 -0800 (PST)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Thu, 26 Nov 2026 15:49:59 +0100
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	dmaengine@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Saenz Julienne <nsaenz@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Dom Cobley <popcornmix@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 10/28] dmaengine: bcm2835: make address increment
+ platform independent
+Message-ID: <awhHF_MII6yCi1T9@apocalypse>
+References: <20261123145728.29082-1-andrea.porta@suse.com>
+ <20261123145728.29082-11-andrea.porta@suse.com>
+ <awXpsh-ZbSqbotIm@lizhi-Precision-Tower-5810>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,90 +117,96 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261125-sheaf-doc-update-v1-1-4a579abaf0b8@kernel.org>
+In-Reply-To: <awXpsh-ZbSqbotIm@lizhi-Precision-Tower-5810>
 
-On Wed, Nov 25, 2026 at 08:35:12PM +0100, Andreas Hindborg wrote:
-> The documentation of the sheaf_capacity member of struct kmem_cache_args
-> describes sheaves as an opt-in feature: a non-zero value enables sheaves of
-> the given capacity, and zero means that no sheaves are created.
+Hi Frank,
+
+On 14:46 Tue 24 Nov     , Frank Li wrote:
+> On Mon, Nov 23, 2026 at 03:56:48PM +0100, Andrea della Porta wrote:
+> > Actually the criteria to increment source & destination address isn't
+> > based on platform specific bits. It's just the DMA transfer direction which
+> > is translated into the info bits. So introduce two new helper functions
+> > and get the rid of these platform specifics.
+> >
+> > Signed-off-by: Stefan Wahren <stefan.wahren@i2se.com>
+> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> > ---
+> >  drivers/dma/bcm2835-dma.c | 28 ++++++++++++++++++++++------
+> >  1 file changed, 22 insertions(+), 6 deletions(-)
+> >
+> > diff --git a/drivers/dma/bcm2835-dma.c b/drivers/dma/bcm2835-dma.c
+> > index 77b3e2f58ac5..6180a2737e07 100644
+> > --- a/drivers/dma/bcm2835-dma.c
+> > +++ b/drivers/dma/bcm2835-dma.c
+> > @@ -273,6 +273,24 @@ static u32 bcm2835_dma_prepare_cb_extra(struct bcm2835_chan *c,
+> >  	return result;
+> >  }
+> >
+> > +static inline bool need_src_incr(enum dma_transfer_direction direction)
+> > +{
+> > +	return direction != DMA_DEV_TO_MEM;
+> > +}
+> > +
+> > +static inline bool need_dst_incr(enum dma_transfer_direction direction)
+> > +{
+> > +	switch (direction) {
+> > +	case DMA_MEM_TO_MEM:
+> > +	case DMA_DEV_TO_MEM:
+> > +		return true;
+> > +	default:
+> > +		break;
+> > +	}
+> > +
+> > +	return false;
+> > +}
+> > +
 > 
-> This has not been the case since sheaves were added to most caches.
-> calculate_sheaf_capacity() now calculates a capacity from the object size
-> for all caches and returns the larger of that and the requested capacity.
-> The requested capacity is thus a minimum, and zero selects the calculated
-> capacity, as pointed out in [1].
+> This is not 100% correct. there are case DMA_DEV_TO_DEV, and some peripheral
+> FIFO is a range of MMIO space, not fixed address.
 > 
-> Update the documentation to match.
 
-> While at it, mention that a non-zero
-> value makes the cache unmergeable,
+The driver only advertises DMA_MEM_TO_MEM, DMA_MEM_TO_DEV and DMA_DEV_TO_MEM
+(see .directions field), and all the peripherals it serves are accessed through
+a single FIFO register.
+The helpers keep the behaviour of the S_INC/D_INC bits they replace. In v4 I'll
+make them explicit about the supported directions and I'll document that DEV_TO_DEV
+is not supported.
+Supporting FIFO windows would be a separate feature, which no client needs right
+now.
 
-This is not something we want to guarantee in the API?
-Otherwise LGTM.
+Thanks,
+Andrea
 
-> that the requested capacity is also not
-> used when slab_tiny is enabled, and refer to the debugging parameter by its
-> current name, slab_debug.
+> Frank
 > 
-> The updated text refers to the slab_tiny boot parameter, which older
-> kernels do not have, so exclude the patch from stable autoselection.
-> 
-> Fixes: e47c897a2949 ("slab: add sheaves to most caches")
-> Cc: <stable+noautosel@kernel.org> # slab_tiny is not in older kernels
->
-> Link: https://lore.kernel.org/r/8a73da1c-0167-4aa5-a62c-4190327685cd@kernel.org [1]
-> Signed-off-by: Andreas Hindborg <a.hindborg@kernel.org>
-> ---
->  include/linux/slab.h | 26 +++++++++++++++++---------
->  1 file changed, 17 insertions(+), 9 deletions(-)
-> 
-> diff --git a/include/linux/slab.h b/include/linux/slab.h
-> index ad645967a3ee..64daeb239f78 100644
-> --- a/include/linux/slab.h
-> +++ b/include/linux/slab.h
-> @@ -351,13 +351,12 @@ struct kmem_cache_args {
->  	 */
->  	void (*ctor)(void *);
->  	/**
-> -	 * @sheaf_capacity: Enable sheaves of given capacity for the cache.
-> +	 * @sheaf_capacity: Minimum capacity of the sheaves of the cache.
->  	 *
-> -	 * With a non-zero value, allocations from the cache go through caching
-> -	 * arrays called sheaves. Each cpu has a main sheaf that's always
-> -	 * present, and a spare sheaf that may be not present. When both become
-> -	 * empty, there's an attempt to replace an empty sheaf with a full sheaf
-> -	 * from the per-node barn.
-> +	 * Allocations from the cache go through caching arrays called sheaves.
-> +	 * Each cpu has a main sheaf that's always present, and a spare sheaf
-> +	 * that may be not present. When both become empty, there's an attempt
-> +	 * to replace an empty sheaf with a full sheaf from the per-node barn.
-
->  	 * When no full sheaf is available, and gfp flags allow blocking, a
->  	 * sheaf is allocated and filled from slab(s) using bulk allocation.
-> @@ -375,10 +374,19 @@ struct kmem_cache_args {
->  	 * Bulk allocation and free operations also try to use the cpu sheaves
->  	 * and barn, but fallback to using slab pages directly.
->  	 *
-> -	 * When slub_debug is enabled for the cache, the sheaf_capacity argument
-> -	 * is ignored.
-> +	 * The allocator selects a default capacity for the sheaves based on the
-> +	 * size of the objects in the cache, with larger objects giving a lower
-> +	 * capacity. With a non-zero value, the capacity is at least the given
-> +	 * value. Use this to match the expected maximum size passed to
-> +	 * kmem_cache_prefill_sheaf(), to avoid low-performance oversize
-> +	 * sheaves. A cache created with a non-zero value is not merged with
-> +	 * other caches.
->  	 *
-> -	 * %0 means no sheaves will be created.
-> +	 * When slab_tiny is enabled, or when slab_debug is enabled for the
-> +	 * cache, no percpu sheaves are created and the requested capacity is
-> +	 * not used. A non-zero value still prevents merging of the cache.
-> +	 *
-> +	 * %0 means the calculated capacity is used.
->  	 */
->  	unsigned int sheaf_capacity;
->  };
-
--- 
-Cheers,
-Harry / Hyeonggon
+> >  static void bcm2835_dma_free_cb_chain(struct bcm2835_desc *desc)
+> >  {
+> >  	size_t i;
+> > @@ -338,10 +356,8 @@ static void bcm2835_dma_create_cb_set_length(struct bcm2835_chan *chan,
+> >   * @cyclic:         it is a cyclic transfer
+> >   * @info:           the default info bits to apply per controlblock
+> >   * @frames:         number of controlblocks to allocate
+> > - * @src:            the src address to assign (if the S_INC bit is set
+> > - *                  in @info, then it gets incremented)
+> > - * @dst:            the dst address to assign (if the D_INC bit is set
+> > - *                  in @info, then it gets incremented)
+> > + * @src:            the src address to assign
+> > + * @dst:            the dst address to assign
+> >   * @buf_len:        the full buffer length (may also be 0)
+> >   * @period_len:     the period length when to apply @finalextrainfo
+> >   *                  in addition to the last transfer
+> > @@ -413,9 +429,9 @@ static struct bcm2835_desc *bcm2835_dma_create_cb_chain(
+> >  			d->cb_list[frame - 1].cb->next = cb_entry->paddr;
+> >
+> >  		/* update src and dst and length */
+> > -		if (src && (info & BCM2835_DMA_S_INC))
+> > +		if (src && need_src_incr(direction))
+> >  			src += control_block->length;
+> > -		if (dst && (info & BCM2835_DMA_D_INC))
+> > +		if (dst && need_dst_incr(direction))
+> >  			dst += control_block->length;
+> >
+> >  		/* Length of total transfer */
+> > --
+> > 2.51.0
+> >
