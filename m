@@ -1,76 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.38.64.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795652495;
-	b=tni9ql+cMe/djjJ07V+dtZiqc0h1MBtxTWqKomycmLWpd4NBFw4zcEmgu5tMyjoGsxfz
-	 Xyc6tRDXtNNFced26oAkfiWXsZHzbr121LtnTA8qSvxiq5MaDsCtW6kyIt0IWuzPbFKza
-	 sjIcPo/dmvtk2bI6P1XGMgAOg5NDavYgiDJYzLdozBbgc+CFP1L/zMEGq0hFArWnK/aNT
-	 +XP/uXyk945jMSOpy5r6fNcWUrFO8wPE3HmxjHYlGv09lP+yTurxGdNuTFAPoU6m0oyZf
-	 gWEx5bVH97XkQ7LaWhJhVGBxJBHuPJVZPKKw6GWZg/zMfrsY+1wiD89SkaqNpTdTGMQ==
+	t=1795652536;
+	b=yTEO5FTPt5qQnZ5dIfreS2r2HM9va9jDuEmkE+2S5Uqeg3J3zlQr/t9VJnDzjBEqDe+d
+	 Wm6XbZJGSVCclFZ8lc5p+g2VSbk0cN5td6DUlZZQ5bRfE/KQmrNaZMdOhP8TsQkh7wbma
+	 iB06ca6EUA1mQBz8bQJAM0APc7W7IPVLMwvfSpp+6OnjFdLZmrExAIuKZ52fhoW7NMNG0
+	 s5eT8DfppHjfHzCYRC1RtVZCeCQhE7topUgri0OyFNuFeFdIaAaSvAeAJA9VKjeRQpm6B
+	 hreO5nws1o3yXgxPdSCDgTYmoUy2JEmxj7d2xwrUgb9FhNiNmWPXH6rT8qfMxvXyEUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795652495;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=dc/F7/hT52S+GWZn1h1x6UM/KO7qiTpd9NPpDZQkRLU=;
-	b=HdQ10Wx/bKu3pmT8ju4DKBLZ4mPenF9RQWvtjONHE95odhbAzau4MxtX5wuAT+1toTlo
-	 iZwslsC+kW+sLTmzZA9NLnb9vW7Aqk3j2REP/MROmQnhv9HbtZH0i9brry6cGyxe5q7tb
-	 DHcFSNiNYcBeCpe/vd7Rn+8jDMVGD4FeXptp1YGm+PV+doxbLL6uHTyr4mdDFoeZs23z3
-	 TUzr2SX1+pHhiXYWw/IiT9xPvEYPf2ISOwgZeGN2kYxnimIxWgmaZswmr9x1/PEw4EOB0
-	 sP1tb+ficPc+vDmNvSIQ7D5fQSkVorTft32iL030VRfpn7vnYLOXYQr8Zm2KA+AeV/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795652536;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=xNNL92OcqsGyu+v/1EvUmyOnv9Zhalz1FYFzTcPOxD0=;
+	b=tuw0l224R+9NcbzDi6lHiSMDtThxWKD5cBZKs6I7Py0uLzUEqlrqSaA1h3MMDF4hZ+Qd
+	 2DEKWOBNz9c9TDyaUED1hY5N3TxBH8fMNMVlr6COGEqUedACQmkMrD5zjcJmXYdTKJMlA
+	 DHNcWB97c9faE7ikaLE+pqMmjm5GN9fP9gejDbwhqpVb5uEOrmu75vt/Ic8uRpZ6baHKC
+	 AjjAWzAJc9MyjFRXgLl+IQgouAjyhyVbxUBZZ2b7naqDP7f/0pW2fE07zIM18624MSlQ+
+	 BSQp9Gy+EKS9+tNNoQsANBstwdfe2PozxVhmdgh75YOKS+oQQh1ls74SslumoSjMJzQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--willemb.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Pk+H8jdy;
-	arc=none smtp.remote-ip=74.125.224.72
-Received: from mail-yx1-f72.google.com (mail-yx1-f72.google.com [74.125.224.72])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92963606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:21:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92963606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--willemb.bounces.google.com
+	dmarc=pass header.from=mail.ustc.edu.cn;
+	spf=pass smtp.mailfrom=mail.ustc.edu.cn;
+	dkim=pass header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=U5FZ6Vcd;
+	arc=none smtp.remote-ip=202.38.64.46
+Received: from ustc.edu.cn (smtp.ustc.edu.cn [202.38.64.46])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id B730C606A323;
+	Thu, 26 Nov 2026 00:22:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B730C606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.ustc.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.ustc.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Pk+H8jdy
-Received: by mail-yx1-f72.google.com with SMTP id 956f58d0204a3-677c4ca2265so10425073d50.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:21:34 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=U5FZ6Vcd
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795652493; x=1796257293; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=dc/F7/hT52S+GWZn1h1x6UM/KO7qiTpd9NPpDZQkRLU=;
-        b=Pk+H8jdypoo6U8Y3RDJ71kVo3WGv7/dRSnuZx9jNY4DAsGeVLMluLeqN44pvczLHuk
-         aljUCpTXgdXY8+kkBejRIR3VXYgqB8sWj+oi5ocz5BRYy4tzb8Nk2BmHG0zdSKqzgwpN
-         oRu936tUMrKoNp6UhH2Hz5FpQI5d09JCJLgbbFhNw919eQOjCZVf4c8RYL+AXlRNlR7U
-         ioLsgOodMWk+mupdCEr8Q/z0J58GbAwXWisMw1171aREKeYwThSbxf1Ol/dRpmHlqSxS
-         FwPk/4rvuHcA4W/GRu5u785ZdcLnkdRYohfN5SHIwwqIaZ3iVJicsNF4tXwEQiVuBO2z
-         cQXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795652493; x=1796257293;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dc/F7/hT52S+GWZn1h1x6UM/KO7qiTpd9NPpDZQkRLU=;
-        b=z5gkVDGDuQ5YY3xBPZIRi/cIkjgvmJ5Wm6MMZszR5oiPNtFkQ+IkYgOYi2SSmbwlBB
-         E+iFAiawYE2Czupu910269+tNWvsoF4qHpDgWcEkNBjs5qRET/JV4ocZUcVSDNa+8cFY
-         aV4nsWlFDROS4Q9hTX5J5rgPOy1JNPvxm37INvoEKWfKFEAla/WxAe20UTMi6GOUwH/f
-         W/klsBZtM8CSLGT7nf2VGeLAlwwarSMN06Jw8LHuugyN6e4l9lNo4SDUP4sOtXOnFe9h
-         xXFsiLnTsO/J4K7vWw/aUbKQmiMvzYdg/y6LOOvZgaj71uuofJ01IWvpWaRpzgblZk9o
-         LzZg==
-X-Forwarded-Encrypted: i=1; AL+hErFEeMeEBUtwS5U+L5CfG/zvHBtWOBRk+QOy5UqKdjS7p0VoYoB5bobJGbZJbfTu0rpXaqsXamnN54IY4P4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9XnL8sdV1LKQOnH3AzF2mTjm6im5nJD6gAX/YcHJ2Op7vlw2uO
-	VHtZyT1HFqSlRxZILpDVASzvP48P3sotN4ZQGJj0+32xnfWHQmnQhvKvYzkferjpuxo3E6j1IMS
-	YF8bv49a42g==
-X-Received: from yxqs11.prod.google.com ([2002:a53:c78b:0:b0:67b:ef48:3a14])
- (user=willemb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:690e:4514:20b0:67d:babd:b7f5
- with SMTP id 956f58d0204a3-67df449b687mr4618019d50.68.1795652492982; Wed, 25
- Nov 2026 16:21:32 -0800 (PST)
-Date: Wed, 25 Nov 2026 19:21:31 -0500
-In-Reply-To: <awTJWtBSMubj4qQ9@devvm20253.cco0.facebook.com>
+	d=mail.ustc.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-ID:In-Reply-To:References:MIME-Version:
+	Content-Transfer-Encoding; bh=xNNL92OcqsGyu+v/1EvUmyOnv9Zhalz1FY
+	FzTcPOxD0=; b=U5FZ6VcdeWfYE6NQAxS5PoinqjzXyUWULdv9HgL6gO+WOkUTvn
+	DEJv4x/CXBqs70Ecb2Nelirkv29Y3gigSPRbESIyNmVP8OQR8ha+N3ecMZ/2+9ef
+	/dNMQQd6qfl7327HhHSq2bbMxOP2MTo9qbYs5i5KcWg9PxzDjjLzy4bZ8=
+Received: from xuqianhui.ustc.edu.cn (unknown [114.214.181.84])
+	by mailimap2024 (Coremail) with SMTP id 3pYKCgAnnzOmewdrvLr5AA--.1516S4;
+	Thu, 26 Nov 2026 08:22:05 +0800 (CST)
+From: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
+To: andersson@kernel.org,
+	konradybcio@kernel.org
+Cc: abelvesa@kernel.org,
+	mitltlatltl@gmail.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v9 2/2] arm64: dts: qcom: sm8750-lenovo-elden: add Lenovo Legion Y700 Gen4, a Qualcomm SM8750-based tablet
+Date: Thu, 26 Nov 2026 08:21:57 +0800
+Message-ID: <20261126002157.1954799-3-xiaqinghuan@mail.ustc.edu.cn>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261126002157.1954799-1-xiaqinghuan@mail.ustc.edu.cn>
+References: <20261126002157.1954799-1-xiaqinghuan@mail.ustc.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,94 +66,209 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261120152830.699712-6-joe@dama.to> <179545866419.3135.14423996277439097165@kernel.org>
- <awTJWtBSMubj4qQ9@devvm20253.cco0.facebook.com>
-Message-ID: <willemb.1401f0f6ad765@google.com>
-Subject: Re: [PATCH net v6 5/5] bnxt_en: stop the ULP around the reset task
-From: willemb@google.com
-To: Joe Damato <joe@dama.to>, netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, michael.chan@broadcom.com, 
-	pavan.chebbi@broadcom.com, andrew+netdev@lunn.ch, davem@davemloft.net, 
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
-	prashant@broadcom.com, edumazet@google.com, horms@kernel.org, 
-	selvin.xavier@broadcom.com, kalesh-anakkur.purayil@broadcom.com, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
-Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:3pYKCgAnnzOmewdrvLr5AA--.1516S4
+X-Coremail-Antispam: 1UD129KBjvJXoWxtw45Kr47Ww43Kw45Kr1Dtrb_yoW7Zr1rpF
+	srXFs3CrykuFyrKa15W34S93Z8Wws5CayvkryjkFW5C390kF97GF9FyF1rAF18JrZ7Xw4F
+	yFZxur92yF1kZ3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmvb7Iv0xC_KF4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
+	8067AKxVWUXwA2048vs2IY020Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF
+	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcV
+	CY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv
+	6xkF7I0E14v26F4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzV
+	Aqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S
+	6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7Mx
+	kF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVWDMxAIw28IcxkI7VAKI48JMxC20s026xCa
+	FVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_Jr
+	Wlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j
+	6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr
+	0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUv
+	cSsGvfC2KfnxnUUI43ZEXa7IU0XTmDUUUUU==
+X-CM-SenderInfo: 50ld1x5qjk3t3q6ptxnoox23vfohv3gofq/1tbiARECB2sGHiAuFQA2sL
 
-Sm9lIERhbWF0byB3cm90ZToNCj4gT24gTW9uLCBOb3YgMjMsIDIwMjYgYXQgMDY6MzE6MDRQTSAr
-MDAwMCwgbmV0ZGV2LWJvdCtzYXNoaWtvQGtlcm5lbC5vcmcgIA0KPiB3cm90ZToNCj4gPiBUaGFu
-ayB5b3UgZm9yIHlvdXIgY29udHJpYnV0aW9uISBTYXNoaWtvIEFJIHJldmlldyBmb3VuZCA2IHBv
-dGVudGlhbA0KPiA+IGlzc3VlKHMpIHRvIGNvbnNpZGVyLg0KPiA+DQo+ID4gQ3JpdGljYWw6IDAg
-wrcgSGlnaDogMyDCtyBNZWRpdW06IDMgwrcgTG93OiAwDQo+ID4NCj4gPiBJZiB5b3UgYmVsaWV2
-ZSBub25lIG9mIHRoZSBpc3N1ZXMgYXJlIGxlZ2l0aW1hdGUsIHBsZWFzZSByZXBseSB0byBlYWNo
-DQo+ID4gaXNzdWUgb2YgTWVkaXVtIHNldmVyaXR5IG9yIGhpZ2hlciBhbmQgZXhwbGFpbiB3aHkg
-dGhlIEFJIGlzIHdyb25nLg0KPiA+IElmIGFueSBvZiB0aGVtIGFyZSBsZWdpdGltYXRlIGFuZCB5
-b3UgcGxhbiB0byByZXNwaW4sIHBsZWFzZSBsZXQgIA0KPiBwYXRjaHdvcmsNCj4gPiBrbm93IGJ5
-IGluY2x1ZGluZyAicHctYm90OiBjciIgYXMgYSBzZXBhcmF0ZSBsaW5lIGF0IHRoZSBlbmQgb2Yg
-eW91ciAgDQo+IHJlcGx5DQo+ID4gKG9uZSBzdWNoIHJlcGx5IHBlciBzZXJpZXMgaXMgZW5vdWdo
-KS4NCj4gPg0KPiA+IC0gW0hpZ2hdIFBvc3NpYmxlIGRlYWRsb2NrLg0KPiA+IC0gW0hpZ2hdIGJu
-eHRfcmVzZXQoKSBkZWNpZGVzIHRvIGNhbGwgYm54dF91bHBfc3RhcnQoKSBvbmx5IGZyb20gIXNp
-bGVudA0KPiA+ICAgJiYgIUJOWFRfU1RBVEVfRE1BX1NUT1BQRUQsIGFmdGVyIGRyb3BwaW5nIGl0
-cyBsb2Nrcy4NCj4gPiAtIFtIaWdoXSBJbmNvbXBsZXRlIGZpeC4NCj4gPiAtIFtNZWRpdW1dIGJu
-eHRfcmVzZXRfdGFzaygpIGRpc2NhcmRzIHRoZSByZXR1cm4gdmFsdWUgb2YNCj4gPiAgIGJueHRf
-b3Blbl9uaWMoKSwgYW5kIGJueHRfcmVzZXQoKSBjYWxscyBibnh0X3VscF9zdGFydCgpIHdoZW5l
-dmVy4oCmDQo+ID4gLSBbTWVkaXVtXSBUaGUgbmV3IERNQV9TVE9QUEVEIGNoZWNrIGV4aXN0cyBv
-bmx5IGF0IHRoZSBibnh0X3Jlc2V0KCkgIA0KPiBjYWxsDQo+ID4gICBzaXRlLg0KPiA+IC0gW01l
-ZGl1bV0gRXZlcnkgbm9uLXNpbGVudCByZXNldCBub3cgdW5yZWdpc3RlcnMgYW5kIHJlLXJlZ2lz
-dGVycyB0aGUNCj4gPiAgIFJvQ0UgSUIgZGV2aWNlLCBpbmNsdWRpbmcgdGhlIGNvbW1vbiBjYXNl
-IHdoZXJlIERNQSBpcyBuZXZlciBzdG9wcGVkLOKApg0KPiA+DQo+ID4gLS0NCj4gPg0KPiA+IGJu
-eHRfZW46IHN0b3AgdGhlIFVMUCBhcm91bmQgdGhlIHJlc2V0IHRhc2sNCj4gPg0KPiA+IEZvciBu
-b24tc2lsZW50IHJlc2V0cywgYm54dF9yZXNldCgpIG5vdyBjYWxscyBibnh0X3VscF9zdG9wKCkg
-YmVmb3JlIGl0DQo+ID4gdGFrZXMgcnRubCBhbmQgdGhlIG5ldGRldiBsb2NrLiBBZnRlcndhcmRz
-IGl0IGNhbGxzIGJueHRfdWxwX3N0YXJ0KCkgIA0KPiB1bmxlc3MNCj4gPiBCTlhUX1NUQVRFX0RN
-QV9TVE9QUEVEIHdhcyBzZXQuIFRoZSBnb2FsIGlzIHRvIGtlZXAgdGhlIFJETUEgZHJpdmVyIG9m
-ZiAgDQo+IHRoZQ0KPiA+IGRldmljZSBvbmNlIHRoZSByZXNldCB0YXNrIGhhcyBzdG9wcGVkIERN
-QS4NCj4gPg0KPiA+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbmV0L2V0aGVybmV0L2Jyb2FkY29t
-L2JueHQvYm54dC5jICANCj4gYi9kcml2ZXJzL25ldC9ldGhlcm5ldC9icm9hZGNvbS9ibnh0L2Ju
-eHQuYw0KPiA+ID4gaW5kZXggOWRhZjA1MzI5M2E0Mi4uMmFiYjcyMWQ4N2RlOCAxMDA2NDQNCj4g
-PiA+IC0tLSBhL2RyaXZlcnMvbmV0L2V0aGVybmV0L2Jyb2FkY29tL2JueHQvYm54dC5jDQo+ID4g
-PiArKysgYi9kcml2ZXJzL25ldC9ldGhlcm5ldC9icm9hZGNvbS9ibnh0L2JueHQuYw0KPiA+ID4g
-QEAgLTE0NzEwLDEwICsxNDcxMCwxNCBAQCBzdGF0aWMgdm9pZCBibnh0X3RwaF91cGRhdGUoc3Ry
-dWN0IGJueHQgKmJwKQ0KPiA+ID4gIC8qIE9ubHkgY2FsbGVkIGZyb20gYm54dF9zcF90YXNrKCkg
-Ki8NCj4gPiA+ICBzdGF0aWMgdm9pZCBibnh0X3Jlc2V0KHN0cnVjdCBibnh0ICpicCwgYm9vbCBz
-aWxlbnQpDQo+ID4gPiAgew0KPiA+ID4gKwlpZiAoIXNpbGVudCkNCj4gPiA+ICsJCWJueHRfdWxw
-X3N0b3AoYnApOw0KPiA+ID4gIAlibnh0X3J0bmxfbG9ja19zcChicCk7DQo+ID4NCj4gPiBbU2V2
-ZXJpdHk6IEhpZ2hdDQo+ID4gQ2FuIHRoaXMgZGVhZGxvY2sgYWdhaW5zdCBibnh0X2Nsb3NlKCk/
-DQo+ID4NCj4gPiBibnh0X3NwX3Rhc2soKSBzZXRzIEJOWFRfU1RBVEVfSU5fU1BfVEFTSyBiZWZv
-cmUgaXQgY2FsbHMgYm54dF9yZXNldCgpLg0KPiA+IGJueHRfcnRubF9sb2NrX3NwKCkgY2xlYXJz
-IHRoYXQgYml0IG9ubHkgYWZ0ZXIgYm54dF91bHBfc3RvcCgpIGhhcw0KPiA+IHJldHVybmVkLCBh
-bmQgYm54dF9ydG5sX3VubG9ja19zcCgpIHNldHMgaXQgYWdhaW4gYmVmb3JlICANCj4gYm54dF91
-bHBfc3RhcnQoKQ0KPiA+IHJ1bnMuIFNvIGJvdGggbmV3IFVMUCBjYWxscyBydW4gd2l0aCBJTl9T
-UF9UQVNLIHNldC4NCj4gPg0KPiA+IEJvdGggVUxQIGNhbGxiYWNrcyB0YWtlIHJ0bmxfbG9jaygp
-Og0KPiA+DQo+ID4gYm54dF91bHBfc3RvcCgpDQo+ID4gICBibnh0X3JlX3N1c3BlbmQoKQ0KPiA+
-ICAgICBibnh0X3JlX3VwZGF0ZV9lbl9pbmZvX3JkZXYoKQ0KPiA+ICAgICAgIHJ0bmxfbG9jaygp
-DQo+ID4NCj4gPiBibnh0X3VscF9zdGFydCgpDQo+ID4gICBibnh0X3JlX3Jlc3VtZSgpDQo+ID4g
-ICAgIGJueHRfcmVfYWRkX2RldmljZSgpDQo+ID4gICAgICAgYm54dF9yZV91cGRhdGVfZW5faW5m
-b19yZGV2KCkNCj4gPiAgICAgICAgIHJ0bmxfbG9jaygpDQo+ID4gICAgICAgIA0KPiBibnh0X3Jl
-X2liX2luaXQoKS0+aWJfcmVnaXN0ZXJfZGV2aWNlKCktPi4uLi0+ZW51bV9hbGxfZ2lkc19vZl9k
-ZXZfY2IoKQ0KPiA+ICAgICAgICAgcnRubF9sb2NrKCkNCj4gPg0KPiA+IG5kb19zdG9wLCBtZWFu
-d2hpbGUsIGhvbGRzIHJ0bmwgYW5kIHRoZSBuZXRkZXYgaW5zdGFuY2UgbG9jayBhbmQgd2FpdHMg
-IA0KPiBmb3INCj4gPiBJTl9TUF9UQVNLIHRvIGNsZWFyLCB3aXRoIG5vIHRpbWVvdXQ6DQo+ID4N
-Cj4gPiBfX2JueHRfY2xvc2VfbmljKCkgew0KPiA+IAljbGVhcl9iaXQoQk5YVF9TVEFURV9PUEVO
-LCAmYnAtPnN0YXRlKTsNCj4gPiAJc21wX21iX19hZnRlcl9hdG9taWMoKTsNCj4gPiAJd2hpbGUg
-KGJueHRfZHJ2X2J1c3koYnApKQ0KPiA+IAkJbXNsZWVwKDIwKTsNCj4gPiAJLi4uDQo+ID4gfQ0K
-PiA+DQo+ID4gU3VwcG9zZSAiaXAgbGluayBzZXQgZGV2IFggZG93biIgcnVucyBqdXN0IGFmdGVy
-IGEgVFggdGltZW91dCBoYXMgIA0KPiBzY2hlZHVsZWQNCj4gPiBCTlhUX1JFU0VUX1RBU0tfU1Bf
-RVZFTlQuIHNwX3Rhc2sgY2FuIGJsb2NrIG9uIHJ0bmwgaW5zaWRlICANCj4gYm54dF91bHBfc3Rv
-cCgpDQo+ID4gKG9yIGJueHRfdWxwX3N0YXJ0KCkpLCB3aGlsZSBibnh0X2Nsb3NlKCkgc3BpbnMg
-b24gYm54dF9kcnZfYnVzeSgpICANCj4gaG9sZGluZw0KPiA+IHJ0bmwuIFRoZSBjb21tZW50IGFi
-b3ZlIGJueHRfbG9ja19zcCgpIHdhcm5zIGFib3V0IHRoaXMgZXhhY3QgY2FzZS4NCj4gPg0KPiA+
-IEJlZm9yZSB0aGlzIHBhdGNoLCBvbmx5IHRoZSByYXJlIFJFU1RBUlRfVUxQIGFuZCBmaXJtd2Fy
-ZSByZXNldCBldmVudHMNCj4gPiBjYWxsZWQgaW50byB0aGUgVUxQIHdpdGggSU5fU1BfVEFTSyBz
-ZXQuIFRoZSBmcmVxdWVudCByZXNldCBwYXRoIGRpZCAgDQo+IG5vdC4NCj4gPg0KPiA+IFNob3Vs
-ZCB0aGUgVUxQIGNhbGxzIGhhcHBlbiBvbmx5IHdoaWxlIElOX1NQX1RBU0sgaXMgY2xlYXI/DQoN
-Cj4gWWVhLCBJIHRoaW5rIHRoaXMgaXMgcmVhbC4NCg0KPiBOb3Qgc3VyZSBpZiBNaWNoYWVsIG9y
-IHRoZSBvdGhlciBCcm9hZGNvbSBmb2xrcyBoYXZlIGEgc3VnZ2VzdGlvbiBoZXJlPyAgDQo+IE1h
-eWJlDQo+IHRoZSBtaW5pbWFsIGZpeCBpcyB0byBjbGVhciBJTl9TUF9UQVNLIGJlZm9yZSBibnh0
-X3VscF9zdG9wKCkgYW5kIGNhbGwNCj4gYm54dF91bHBfc3RhcnQoKSBvbmx5IGFmdGVyIHVubG9j
-ay4NCg0KPiBUaGUgUkRNQSB0ZWFyZG93biBvbiBldmVyeSBUWCB0aW1lb3V0IGFuZCByZXN0YXJ0
-IHJhY2VzIGJlbG93IHdvdWxkIHN0aWxsICANCj4gbmVlZA0KPiBhbnN3ZXJzLCB0aG91Z2guDQoN
-CkFyZSB0aGlzIGFuZCB5b3VyIHF1ZXN0aW9ucyBpbiB0aGUgbWFpbiB0aHJlYWQgYSByZWFzb24g
-Zm9yIGEgdjc/DQo=
+The Lenovo Legion Y700 Gen4 (TB322FC) is an SM8750 tablet.  Add its
+devicetree with the board compatible, the chassis type, the GPIOs the boot
+firmware reserves and the board clocks, which the SM8750 dtsi consumes: the
+XO and sleep clocks and the two divided CXO derivatives, as on the other
+SM8750 boards.
+
+The camera devices are powered by a WL2868C camera PMIC on i2c10: LDO1
+feeds the rear sensor DVDD, LDO2 the front sensor DVDD, LDO3 the front
+sensor AVDD, LDO4 the rear sensor AVDD, LDO5 the VCM VDD, LDO7 the DOVDD of
+both sensors and the VCM VDDIO, all at fixed voltages including the offsets
+programmed by the stock firmware.  LDO6 is not wired out on this board.
+
+This is one logical action - "add this new hardware" - so the board and the
+regulators it carries are described in a single commit.
+
+Signed-off-by: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
+---
+Changes in v9:
+- State the dependency explicitly, as asked: this patch is waiting on the
+  willsemi,wl2868c regulator binding,
+  Documentation/devicetree/bindings/regulator/willsemi,wl2868c.yaml, which
+  is in regulator.git for-7.5 (84e67d2ee13f binding, 602f57223457 driver)
+  and not in v7.4-rc3.  Until it is in the tree, dtbs_check reports one
+  diagnostic here, on pmic@2f: "failed to match any schema with
+  compatible: ['willsemi,wl2868c']".  Merge this patch after that binding;
+  1/2 has no such dependency and can go in on its own.
+- No change to the device tree: the diff is byte-identical to v7 and v8.
+
+Changes in v8:
+- The series is split in two patches, with the board binding entry first;
+  no change to the device tree itself.  See the cover letter.
+
+Still open from the v6 thread (unchanged here, no way to validate them):
+SPMI PMIC, RPMh regulators and console are not described, so this is still
+the boot-infrastructure-less skeleton the v6 review commented on.
+
+diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
+index 88230c4e00..e0b65a36c5 100644
+--- a/arch/arm64/boot/dts/qcom/Makefile
++++ b/arch/arm64/boot/dts/qcom/Makefile
+@@ -453,6 +453,7 @@ dtb-$(CONFIG_ARCH_QCOM)	+= sm8650-hdk.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= sm8650-mtp.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= sm8650-qrd.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= sm8650-valve-deckard.dtb
++dtb-$(CONFIG_ARCH_QCOM)	+= sm8750-lenovo-elden.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= sm8750-mtp.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= sm8750-qrd.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= talos-evk.dtb
+diff --git a/arch/arm64/boot/dts/qcom/sm8750-lenovo-elden.dts b/arch/arm64/boot/dts/qcom/sm8750-lenovo-elden.dts
+new file mode 100644
+index 0000000000..73f4452f46
+--- /dev/null
++++ b/arch/arm64/boot/dts/qcom/sm8750-lenovo-elden.dts
+@@ -0,0 +1,129 @@
++// SPDX-License-Identifier: BSD-3-Clause
++/*
++ * Copyright (c) 2026, Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
++ */
++
++/dts-v1/;
++
++#include <dt-bindings/gpio/gpio.h>
++#include "sm8750.dtsi"
++
++/ {
++	model = "Lenovo Legion Y700 Gen4";
++	compatible = "lenovo,elden", "qcom,sm8750";
++	chassis-type = "tablet";
++
++	clocks {
++		xo_board: xo-board {
++			compatible = "fixed-clock";
++			clock-frequency = <76800000>;
++			#clock-cells = <0>;
++		};
++
++		sleep_clk: sleep-clk {
++			compatible = "fixed-clock";
++			clock-frequency = <32000>;
++			#clock-cells = <0>;
++		};
++
++		bi_tcxo_div2: bi-tcxo-div2-clk {
++			compatible = "fixed-factor-clock";
++			#clock-cells = <0>;
++
++			clocks = <&rpmhcc RPMH_CXO_CLK>;
++			clock-mult = <1>;
++			clock-div = <2>;
++		};
++
++		bi_tcxo_ao_div2: bi-tcxo-ao-div2-clk {
++			compatible = "fixed-factor-clock";
++			#clock-cells = <0>;
++
++			clocks = <&rpmhcc RPMH_CXO_CLK_A>;
++			clock-mult = <1>;
++			clock-div = <2>;
++		};
++	};
++
++	/*
++	 * VSYS of the camera PMIC is the always-on system rail of the tablet.
++	 * The SPMI PMICs that generate it are not described yet, so it is
++	 * modelled as a fixed regulator without a voltage constraint.
++	 */
++	wl2868c_vsys: regulator-vsys {
++		compatible = "regulator-fixed";
++		regulator-name = "wl2868c_vsys";
++		regulator-always-on;
++	};
++};
++
++&gpi_dma2 {
++	status = "okay";
++};
++
++&qupv3_2 {
++	status = "okay";
++};
++
++&i2c10 {
++	status = "okay";
++
++	pmic@2f {
++		compatible = "willsemi,wl2868c";
++		reg = <0x2f>;
++		reset-gpios = <&tlmm 126 GPIO_ACTIVE_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&camera_pmic_default>;
++		vsys-supply = <&wl2868c_vsys>;
++
++		regulators {
++			/* Voltages include the offsets programmed by stock firmware. */
++			camera_ldo1: ldo1 {
++				regulator-name = "camera_ldo1";
++				regulator-min-microvolt = <1128000>;
++				regulator-max-microvolt = <1128000>;
++			};
++
++			camera_ldo2: ldo2 {
++				regulator-name = "camera_ldo2";
++				regulator-min-microvolt = <1288000>;
++				regulator-max-microvolt = <1288000>;
++			};
++
++			camera_ldo3: ldo3 {
++				regulator-name = "camera_ldo3";
++				regulator-min-microvolt = <2816000>;
++				regulator-max-microvolt = <2816000>;
++			};
++
++			camera_ldo4: ldo4 {
++				regulator-name = "camera_ldo4";
++				regulator-min-microvolt = <2824000>;
++				regulator-max-microvolt = <2824000>;
++			};
++
++			camera_ldo5: ldo5 {
++				regulator-name = "camera_ldo5";
++				regulator-min-microvolt = <2808000>;
++				regulator-max-microvolt = <2808000>;
++			};
++
++			/* LDO6 is not wired out on this board. */
++			camera_ldo7: ldo7 {
++				regulator-name = "camera_ldo7";
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++			};
++		};
++	};
++};
++
++&tlmm {
++	gpio-reserved-ranges = <39 1>, <74 1>;
++
++	camera_pmic_default: camera-pmic-default-state {
++		pins = "gpio126";
++		function = "gpio";
++		bias-disable;
++	};
++};
+
