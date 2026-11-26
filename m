@@ -1,41 +1,41 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.71.155.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.254.49.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795681579;
-	b=PRB5F7wUSHjTaXwcrZbZGlSEeE7MMHKlF21/q0g67/TMvgaUfhnsLaazT4PDsfhNxqGv
-	 MKii6BpHCzSeoZ5nkYanh49wqIPZHNfMaD0o1ECQNwbwK/ft0qZgXLuBJZ21cmubdBhzS
-	 Rf8vEFMZDkCRXNwSAEOew7O7eAnEzbWwsxpqyDnO6diU95mEpWP0Dh7FPFtVM7x4Ds3R/
-	 yOUiEpwmL2QYNNnRw8wZbuNxOISP7A1gOlHpWxZlU0+tUz/OTrfDgv6OyyRRohkOk/RgR
-	 ODOm1I76PiYa8Dc1DX3f35QjAffGYHiQN46IZvi6cAkZ/32HjdRnpTBs7F9kdri63rA==
+	t=1795681575;
+	b=doW93+hZosTqu54ZQAZ03dHgl07NRRl2TlTceR22XPsSp8BG+TgC/y+sgqxjT9bJ3t+f
+	 7HIRINL8o4Lap8f+9eVdDPDKHBS4U4zBovaBuAAt1l6zmnnWJbt2PDUwvaUy4SWGHUi6W
+	 TWNcU6wW7S/7vP0yl2vB3j1ZJGVrzn7lPNAXKuhb69GhefXsXRpLlf/xzUaynssHJ3Vpu
+	 5Ctz0LjDLASSxXuZMIto4jur3JdHSAiU3kUwhShDu6qzlmaWnduWq18oHzXAGne8COM7S
+	 LWjNCf45BtI0F9dcmJ1Pzexln4bg99bdrwruqo00ZLW2WeLbJp6xeTI2XYygxW5pUAA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795681579;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795681575;
 	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 X-HM-Tid:X-HM-MType:X-HM-Spam-Status:DKIM-Signature;
-	bh=cZp7leX/EvS1RHP9nxX9IjWiqgwrvVJVZ99VhvC/wPE=;
-	b=ggZ4jAjUbEPbfvfzP1uZnmmDWLBS0ILG+QzlAZEcdO4Y30Mr+r20bMTfbhlhgIOLJB8G
-	 f+qF8rq7Qvit0GwDdYZV7WISNGvWYmsDiaSohkAyObP6IoQNuZQ9r/rHY7UG8Jy2Ag1gH
-	 wy2Xru/2IrvhA6n6s7nejxidmJksCjs4EQ93svaWAEAVB+v1NvBFPR1IEaPSP8458cNG1
-	 8RBFFmWsJlL6Z9R98PiFzJ9szAOpgSKtGVxiCbSnZUBZgloUNppLeSYuYotS/vnKv+zAd
-	 W0brXiR8PfU5L73oiXjPPRjlz5377Q17eo8ZhdzW4BciFOEbA91aqpRzxqvy7kNV7Dg==
+	 MIME-Version:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
+	 X-HM-Spam-Status:DKIM-Signature;
+	bh=VKh3LRPiqL+qmHvwynO0AT4XxatCBMljpCiYwmyf2vw=;
+	b=TXPrK1CnOGmWDMdxmLjxbirG0FtLb5PL98/pN8ysiJRBwv6awIo8fynmTpuMuGZwZelj
+	 l2K7z0B+2pcGObfESEaHpZIcXjULenFAKvba+rZFbJWqec7NofBstZsBcnBeQDkSv793j
+	 CRQX9fA6xinUlPZcVAIe+earvYPbNBGdyvCHw29gY9YFDIU3OOTv3/dZ6M6vKk+PR8e3Y
+	 065ZYM4GrLuhgjlbkIYmlkBcaD12/z6M3cWwR089FTVyqu4LCvSw93kzz6cmEcVDlMNvP
+	 Ex1cskbiNp202JFJui6Jp+wy7F8Oq7DeG4zwH7GTGlfzMC0q/2wYmKisy4PbZ+Y/izg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=mail.sdu.edu.cn;
 	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
-	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=UHDMOu3K;
-	arc=none smtp.remote-ip=101.71.155.101
-Received: from mail-m155101.qiye.163.com (mail-m155101.qiye.163.com [101.71.155.101])
+	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b="Fd6XlyI/";
+	arc=none smtp.remote-ip=45.254.49.198
+Received: from mail-m49198.qiye.163.com (mail-m49198.qiye.163.com [45.254.49.198])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90B92606A334;
-	Thu, 26 Nov 2026 08:26:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90B92606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44F6F606A32E;
+	Thu, 26 Nov 2026 08:26:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44F6F606A32E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=UHDMOu3K
+	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=Fd6XlyI/
 Received: from lgs.. (unknown [101.76.249.61])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 56172690b;
-	Thu, 26 Nov 2026 16:26:14 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 5617268fc;
+	Thu, 26 Nov 2026 16:26:04 +0800 (GMT+08:00)
 From: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
 To: angelogioacchino.delregno@collabora.com,
 	sboyd@kernel.org,
@@ -51,12 +51,10 @@ Cc: linux-clk@vger.kernel.org,
 	linux-mediatek@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 4/4] clk: mediatek: mt8516: Unregister apmixedsys clocks on unbind
-Date: Thu, 26 Nov 2026 16:26:13 +0800
-Message-ID: <20261126-a35bb25eb5-u14-4@mail.sdu.edu.cn>
+Subject: [PATCH 0/4] clk: mediatek: Unregister apmixedsys clocks on unbind
+Date: Thu, 26 Nov 2026 16:26:03 +0800
+Message-ID: <20261126-a35bb25eb5-u14-0@mail.sdu.edu.cn>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261126-a35bb25eb5-u14-0@mail.sdu.edu.cn>
-References: <20261126-a35bb25eb5-u14-0@mail.sdu.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,67 +65,23 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa216f65f7d03a1kunmd29da7933c29fb
+X-HM-Tid: 0aa216f637c803a1kunm4b0c20ce3c29ce
 X-HM-MType: 10
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCQ0hLVk8eT0pKQ0kfGhoZT1YeHw
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaH0xMVkkYHx4fGE1PH0lJTFYeHw
 	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0
 	NMVUpLS1VLWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=UHDMOu3K15gcGmHyt2/Uo+BLlwtuflI7V18WwWQRwgCH6CeGQCt7MI0KzjQsWDysnjAYWSq+4Y7VTL1jtOXR9AiNwjdmvD3zURqQmgFVt682S9xqbCrLg7KEQWbanC3dsGYJxDsemPDlnzJzNVOiYPV5XwyPliOgTjp4bub0eDw=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
-	bh=cZp7leX/EvS1RHP9nxX9IjWiqgwrvVJVZ99VhvC/wPE=;
+	b=Fd6XlyI/YzbJb7sHYEK/rZAxAwNyTs1vVyeCAcaNDO79fJ9fLQDvJj387CJnRkXFdWxMeON8g+cFFbXF5rnF8CGCIwWH6uF51WKVxyIVmCM5TGtVOZmK22ZlHcyAQtStfpBEmugQ7Kq/YXv4NhtCeaJ8c5Ivu9M8ubKHIXi7VUo=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
+	bh=VKh3LRPiqL+qmHvwynO0AT4XxatCBMljpCiYwmyf2vw=;
 	h=date:mime-version:subject:message-id:from;
 
-The apmixedsys driver leaves the OF provider and clocks registered
-on unbind. The clock table is device-managed, so the provider can
-retain a pointer to released storage.
+Pair apmixedsys clock registration with removal on four MediaTek SoCs.
 
-Remove the provider and unregister the PLLs during removal.
+Guangshuo Li (4):
+  clk: mediatek: mt8167: Unregister apmixedsys clocks on unbind
+  clk: mediatek: mt8183: Unregister apmixedsys clocks on unbind
+  clk: mediatek: mt8365: Unregister apmixedsys clocks on unbind
+  clk: mediatek: mt8516: Unregister apmixedsys clocks on unbind
 
-This issue was found by our static analysis tool under development.
-
-Fixes: f419069ad864 ("clk: mediatek: mt8516: Move apmixedsys clock driver to its own file")
-Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
----
- drivers/clk/mediatek/clk-mt8516-apmixedsys.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
-
-diff --git a/drivers/clk/mediatek/clk-mt8516-apmixedsys.c b/drivers/clk/mediatek/clk-mt8516-apmixedsys.c
-index 2a6206cae2f0..abb2a626628c 100644
---- a/drivers/clk/mediatek/clk-mt8516-apmixedsys.c
-+++ b/drivers/clk/mediatek/clk-mt8516-apmixedsys.c
-@@ -95,6 +95,8 @@ static int clk_mt8516_apmixed_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto unregister_plls;
- 
-+	platform_set_drvdata(pdev, clk_data);
-+
- 	return 0;
- 
- unregister_plls:
-@@ -103,6 +105,14 @@ static int clk_mt8516_apmixed_probe(struct platform_device *pdev)
- 	return ret;
- }
- 
-+static void clk_mt8516_apmixed_remove(struct platform_device *pdev)
-+{
-+	struct clk_hw_onecell_data *clk_data = platform_get_drvdata(pdev);
-+
-+	of_clk_del_provider(pdev->dev.of_node);
-+	mtk_clk_unregister_plls(plls, ARRAY_SIZE(plls), clk_data);
-+}
-+
- static const struct of_device_id of_match_clk_mt8516_apmixed[] = {
- 	{ .compatible = "mediatek,mt8516-apmixedsys" },
- 	{ /* sentinel */ }
-@@ -111,6 +121,7 @@ MODULE_DEVICE_TABLE(of, of_match_clk_mt8516_apmixed);
- 
- static struct platform_driver clk_mt8516_apmixed_drv = {
- 	.probe = clk_mt8516_apmixed_probe,
-+	.remove = clk_mt8516_apmixed_remove,
- 	.driver = {
- 		.name = "clk-mt8516-apmixed",
- 		.of_match_table = of_match_clk_mt8516_apmixed,
--- 
-2.43.0
-
+base-commit: 4dce97c6c265544342e716e62fd24bbb232590c5
