@@ -1,111 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795729498;
-	b=RDE3XkA5247Tao3XpCOHHcgdAYthDToVA1MIzoL/nQEKw7u/gzxQe77HCQrERCRLPhli
-	 bCBXmMuGTCcEfzWl9QbVUFmZy/+lt3UoSDk1LVbWoozIj95x5zJ1H7t6cTldiT2hn7xLt
-	 uKLapvT2487D3YlrwlrxUfyRuFsOoat+wswHNYStATM0arUEASxx2z2XI9QcgunhxWV99
-	 r+5QQhhhK40w5ukMwLgW2sLeEp02uDTsqhgQ9417g0RMmKLIBdacongSTG0XUobMgvEMo
-	 2ksTSXWoUx1kglWjs5jGkQFd6wpHEw/OJrxzNzK7qm8kNSg5vuyF2itHFhlXdn/0pyA==
+	t=1795729550;
+	b=doeGTyDrZaFqm58OlMsZIekmRKpFiCevuYwj3rHr0cWJn3/HTS//q5R0b5Pdn02UI55e
+	 lt8PyBzmXmvXLw2cmqk1zG45nfaRQNbpasa3Ao1P0IlHBRaTtzg/qJSOVRHkqzunEkXf1
+	 gcwlunEk1dqXdXC10AiNr4Ed0kJMYVIGIlGa1EG3tSEmJP7Nok5asiB2hxY8r9zF4vkxc
+	 NGyjS09q0gBVGZOEFmqko1zvirzr88MXecnjBiZdNC3krNV57zjWdK2MJnFD3kpDJ0l1A
+	 MDGI5Ogx7V/Xmx7CIRAo5h9WC/6o0xXcuq9QwEzZBqkP103eOmsBlaKFEP2vAQWMm6g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795729498;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795729550;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=rgoIgw35YcjRzBDNQLX8AgVyjJr3fxJKdB7QZhfiyn4=;
-	b=lsqizMowljeWH8HDz2WPuU22F6JVnWHQwPffPGznXH8x+YGB9ioigLjCvk+iKvBRocrJ
-	 dv9JramkhCoISi3voJjQ+K1dk7AqirSYTx1xahvxT5nQH96GrO69HNO0C+YCFutyudv2n
-	 Pi36cLZVcS+Q4B0XR4CdG/reX8wFFBMTcCRdyWsg2r+jWUfpumZEchShWDGKXAsCXOeuz
-	 Jb8Rw951ijkO3ZQeokCsaxhO35wZGAi/7RoYahhT3DfBBGHY5Y1JWMvxFbvUqjDLRTnS1
-	 12FkEA7jhe3Ia9FqtRRiTTwPHKbC+4/lYZZFP6OQzXLKXNSMUrqV415vvdeSs3U4y5A==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=rbnALwWQni6QwZzrT13h6XvdU083PfOU1t4S0GjBaUw=;
+	b=B44Vda6u5Tod9iLDP3b2C8DJYSFPpGrahd97M2QdkoKxaCdfGXOtP0pJccqrcvsJ6FfT
+	 RFHW/1CegF2s3xOsVh7WtP62Pn+pPAZIgSek6NNimW7ZRF2/ZkkQGBE8mCxQYLWaH3Tqc
+	 aZ9ilroy88Iq4dQYJM9Zp5fLCgc15HGrrCvznlUO1Fxja7d9Mx+XYbXZMd3sPPv6ea5eW
+	 3NOU4SaJdFJ1LPd7yjIw9B/4ii3AoG8yfMk4REobcGgSAXN0qfxjUY4F+SdD0/iedt953
+	 ln2HU6Y3mCnQtnqiRMOzi1O0FGc+qnTbQFWkJr9Do6eBt7/sPYMVDmq0jd2a5nrn8fw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=if2OflbX;
-	arc=none smtp.remote-ip=209.85.221.47
-Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Nvn5o3t4;
+	arc=none smtp.remote-ip=209.85.128.50
+Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D327606A32F
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:44:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D327606A32F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC6A9606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:45:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC6A9606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=if2OflbX
-Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-48dee593f18so6980705f8f.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:44:57 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Nvn5o3t4
+Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4a35ac4475dso54172055e9.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:45:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795729496; x=1796334296; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rgoIgw35YcjRzBDNQLX8AgVyjJr3fxJKdB7QZhfiyn4=;
-        b=if2OflbXmuyYRo69Gt8pGtCfSeU63GKVpVfStzqrfGvxVvesiVnUccGjkhxUvJqe8E
-         xWXuXZU+N86i3ohOWcmahDecGw7GQu9W/xU4+vtJpzOJKX5B4QqNFWYkmvK0dPA6XBnM
-         xsNNi4w5DxRKP4/Xav9NwhrxEVUjGktCWkbzcH357qbjmRDKa3H9G0zETVsvWBlvUHII
-         yp1lZWZEUEmB7nb10lR5Xoe4d0yykkVuXHL9vk1ZB8iSL7lllcWpRPdepvmFzLw/3zBm
-         Qlsnr16KpXz90H2gVAL5W+HR+EMs4lxq1It5Jn2JK/nH54wEpgSe//gfDWfOzuWggbU+
-         w2Qw==
+        d=gmail.com; s=20260707; t=1795729548; x=1796334348; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=rbnALwWQni6QwZzrT13h6XvdU083PfOU1t4S0GjBaUw=;
+        b=Nvn5o3t4utjFHwq8P8C6aVYApdvQi/eP6pXDMwbDBFNn+Zgs+Spze6FEolyTC2A32Z
+         w46FB8WOcZWJVaNrPLBu66odoBKakmSn6VG+/uO+VsppyYJU8O9cyQ8jmcSIp+bm7piE
+         URb3Is1TN7AbvHT04OMQVQnQ5gV430WRjcampM7+J7jQdNV7Ufq4+jUDbR4ztiYtABZk
+         S2gT+BLg97r0yPg6jKQNXzJyItAtSz3UxeyZ5CxFmA9EHnJAlsr2plu3Q4HqT5HN3HFf
+         Cz/FI32hxPt106VQserQpFlOmXee2KupSO1NBxKW17hz4yt0f+BRX68pg91EWjnNhkDd
+         l3BQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795729496; x=1796334296;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rgoIgw35YcjRzBDNQLX8AgVyjJr3fxJKdB7QZhfiyn4=;
-        b=LeWwqJ7z2GAD7IXUt9+Ci91B/TARgRcGdZLpsd7VmW6HJcZBQ7NSNCTvZfJJ/OaBuL
-         ZGHRP1IIbokEREagBp1AJhg/Ah3rTURlig/I/Z0h/neftzG5tpglCQqczVwqM0fnHvb/
-         FXjkJiqISM9xW7HcIWoMLXH6EnJKHJTivwbksUvar7+9jsH3S7+UcbIOC6i/JCb2pM1E
-         107660hG3lRDKYQsvXW2DsJNW02zVG9qHv3S1L/ow4KVfm0Wll+VP6uQO2zVLXGzntxc
-         HgJuNoXkw7Izta+8EE/FaSxbktJeLUdNOJJk5oZdyf2ruvfFGcDAa3FrT0Z2RsaN1q7H
-         wqLw==
-X-Forwarded-Encrypted: i=1; AL+hErE+7jeA0hciV4GneRu+YuF7Y533cB+zWYtw6HcNKkEscV2tROCKEAI4uUEx1a9CKPS6wHgKXKAsOPe7gwc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8QF8rYf0fRxV58180zN458Gf9aXRpn6vL/t/x2z4lMuWQ7nKNr
-	sM3a5w+S7HwEfNBIUIKyCBjnz6V/E1GZZKtriYX0OD7IvEf4EhK/Ck12
-X-Gm-Gg: AZFdTZdtwXSQsiY9CwYz1egO/pbQvyohjnUXNhgIIS4lXE/H+rc9yWXKNDrLO7ot0RB
-	Fn0KLb/kHqENWaVb/LO9att25foHVd8c+S7aKcRBfMFkDsft/DFVWwlfuXQQp7HhbT9aOoHcmAh
-	L/AQKUmVlqSLEV9bU5blee+qs1sUwdVb2oLi+qZhnMwdpr4xwtlGRa69jl4o50Y8ErAHqVFhwcf
-	P+KK+7q9Gnp/uZP1NYr40YHJT583y0t7EJE+Q6yceKMJfGaPMh/Z9XCH7/BTY7sf73snvm4OPSK
-	H4GxZ5yhQMkFTNItao06xklkMM/i5asn/nZVLC4pQWCdRgLEtxzJE3XVHEMz/V4DfHfwR1MjlGK
-	Skgrq2d0EBlmif4L3NtmSAqXFb0ZPCT4Bex5Uni/ymhfDU2ZJI40NzG1BPs9Me7nExlKclpwJ7H
-	XLohIjrYBwGrfcvN3I7uo0UXO433nD2Y9oi+thVzGuuhGyGgVHYK6JDjUh83BSr5R0S56NExkTA
-	1jDJZBgLp5yMB/5SdV3+Kks69/T0yAnvNyMMAvBrZzeFMxOBFtnx2Li4pbcbVS8M1Y5uUkHpyQn
-	6qBSK18uI9nlP8TPeyaaUFlm5M2Gldn+4lOOSCSbPDgx+JaVGrVLUxeHtggwBdId/5zMkR47aHT
-	YOLC0hCEJXhBaLlw+tOjBKPdWpSg0sK1GOMPv0NAh7oo2/tOiXiNF6pwnT9N81HJ+Uhx5vbfJaR
-	MYz6IZFNwj1onsQdCBoIF7a6/otvLO/ZU1IEAZXaixvSzAeYf6bYgJk7d2kAMG7HFe/+LHPSnH+
-	fW4ZiSMpTdJn4VvWERgimmwI8RLQh/TAEJ2bifZ3Q==
-X-Received: by 2002:a5d:5846:0:b0:4a6:4ac6:d950 with SMTP id ffacd0b85a97d-4abb400ae95mr45098156f8f.39.1795729495913;
-        Thu, 26 Nov 2026 13:44:55 -0800 (PST)
-Received: from jernej-laptop (77-38-7-250.dynamic.telemach.net. [77.38.7.250])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4abbd84e661sm40403963f8f.18.2026.11.26.13.44.53
+        d=1e100.net; s=20260707; t=1795729548; x=1796334348;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=rbnALwWQni6QwZzrT13h6XvdU083PfOU1t4S0GjBaUw=;
+        b=ewgnVfsfUv3K3ctWGr/o/chZJkOlfoNa/nqhYDvyobxjMYDCnrsOIGbL/msI7sjBnt
+         r3muc3Fxk/GbHyNTx4IlSpT77znvh693B/6+VLI/vxLRTFeqUmAQFJTBtkKjvz0UUF9i
+         7ONzHZT7PtHfQ7IMXh6/cSILtwIHkmo578ZYkLUwKKEu58UmvXJJlD5gg3s7/4jgrA8B
+         BMbrzqOcZCz8c2geSkt8rg5s5Zvi8YsqQjE+ATyhArXTLaW5DtZlFmyMHWjHZoBLBXZH
+         6H45dNDmiRZzGjp4OAkOKATAmODsCDgcoI2SbRmbuLvTdU6AIUC6HuWpFRdrq+z6i+Jl
+         O6xA==
+X-Forwarded-Encrypted: i=1; AL+hErGyvBvVR0p+pRKpyvdDnWF1/jtf+v7lhhD3btm0OuzdwwojWsz8kQIOtzuY8QTnXLRRC9vbC4pzO9JLJac=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+ZQBmHV3X7V+39coLjQJp2Uvio+CG3CUXG3Bn9jENzL6s50JsE
+	eAhVmkcXO999Minxo/7wKsmMulVucdY4y40Bv5N/eEngMukqAaQuDiZm
+X-Gm-Gg: AZFdTZcYNI1pP1nFZG3+m++2qej6P6E/lyK12qi9qKGJeOXuaxu87F/2nro3AgH4iGj
+	tfYVtVfqsdXDXfjvCV+kCIk41Z36/5DVB0hDwtuSdKHGQ5YAqz1JWt/7mS9yUthf1wN7Fa1eYQb
+	KOjTojLIhqDtFnQX9+oUkRsu5Ct4ODNxgQaH1UirFT5KW/llLxszxuM2baKH/ERGfMX/U3jngkJ
+	27c1v6WZmvbHM6TWdnVgGVygC1Di9sZzKVyxs0G2zioAFKuJHXSDGPVCQ9TRmwZw1kIH06rcwS1
+	N3Xv89C6bJ037A5thvJCQBgM72BcxShx37DzOWgGXsPzZiAT9er4vFwCaD8zCiP4jzecr5tFCA4
+	FdMQEjYxTsbU/u2DjtwskNyR94VsK6Y1V6I3oY9nOS1Eb1FLwvu5ME97dDA7o2sjnOOUpS0oZZv
+	K+EwOqQnTvx0Z0ADQ9zdeifDptonuF0aZb5JGd5kgRQIxdmjoTowPysOveYEiA32oiPnNq4Rg+H
+	1DsXQGjPjHrJkTh3dMjyPYRt2U/5QYuqrswXLKyVo6Si5qU+G4JMlmtxm8H9odCLxdx2rmXsxdo
+	I2nnqXX1xUT65/DSYTOxkWqu2+E/2nI8urSDUUmlU7+qGS9ceXy9OuOKF72zeWWRwx79BJzdBQj
+	LwgA2Ajaqc+D5aA==
+X-Received: by 2002:a05:600c:1d86:b0:4a1:fa27:df7c with SMTP id 5b1f17b1804b1-4bb88922972mr472705935e9.34.1795729547788;
+        Thu, 26 Nov 2026 13:45:47 -0800 (PST)
+Received: from dohko.chello.ie (188-141-5-72.dynamic.upc.ie. [188.141.5.72])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a3a3dsm623698185e9.10.2026.11.26.13.45.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 13:44:54 -0800 (PST)
-From: Jernej Skrabec <jernej.skrabec@gmail.com>
-To: Chen-Yu Tsai <wens@kernel.org>,
-	Samuel Holland <samuel@sholland.org>
-Cc: mripard@kernel.org,
-	maarten.lankhorst@linux.intel.com,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	jernej.skrabec@gmail.com,
-	p.zabel@pengutronix.de,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Andre Przywara <andre.przywara@arm.com>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 11/11] arm64: dts: allwinner: h616: Enable HDMI on several boards
-Date: Thu, 26 Nov 2026 22:44:33 +0100
-Message-ID: <20261126214433.3562326-12-jernej.skrabec@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261126214433.3562326-1-jernej.skrabec@gmail.com>
-References: <20261126214433.3562326-1-jernej.skrabec@gmail.com>
+        Thu, 26 Nov 2026 13:45:47 -0800 (PST)
+From: David Carlier <devnexen@gmail.com>
+To: Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>
+Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	linux-trace-kernel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	David Carlier <devnexen@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] tracing: Fix trace_event_file leak on read-only instances
+Date: Thu, 26 Nov 2026 21:45:44 +0000
+Message-ID: <20261126214544.1202386-1-devnexen@gmail.com>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,356 +101,61 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Now that H616 display pipeline is added, enable HDMI on several boards.
+event_create_dir() takes a reference on the trace_event_file that is
+dropped by the release callback of the "enable" eventfs entry. A
+read-only (backup) instance only registers the first
+NR_RO_EVENT_ENTRIES entries, so release_ei() never reaches that
+callback and every trace_event_file of the instance is leaked when it
+is removed.
 
-Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Move the release callback to the "format" entry, which all instances
+have.
+
+Fixes: 2c79da099aac ("tracing: Make the backup instance non-reusable")
+Cc: stable@vger.kernel.org # 7.1+
+Signed-off-by: David Carlier <devnexen@gmail.com>
 ---
- .../dts/allwinner/sun50i-h313-tanix-tx1.dts   | 30 +++++++++++++++++++
- .../allwinner/sun50i-h616-orangepi-zero.dtsi  | 25 ++++++++++++++++
- .../allwinner/sun50i-h616-orangepi-zero2.dts  |  5 ++++
- .../dts/allwinner/sun50i-h616-x96-mate.dts    | 30 +++++++++++++++++++
- .../allwinner/sun50i-h618-orangepi-zero3.dts  |  5 ++++
- .../sun50i-h618-transpeed-8k618-t.dts         | 30 +++++++++++++++++++
- .../sun50i-h618-yuzukihd-chameleon.dts        | 30 +++++++++++++++++++
- 7 files changed, 155 insertions(+)
+ kernel/trace/trace_events.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h313-tanix-tx1.dts b/arch/arm64/boot/dts/allwinner/sun50i-h313-tanix-tx1.dts
-index 7906b79c0389..c5226a427eaa 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h313-tanix-tx1.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h313-tanix-tx1.dts
-@@ -26,6 +26,17 @@ chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
+diff --git a/kernel/trace/trace_events.c b/kernel/trace/trace_events.c
+index 7f89160aeff3..b3f63b1f86e0 100644
+--- a/kernel/trace/trace_events.c
++++ b/kernel/trace/trace_events.c
+@@ -3276,7 +3276,7 @@ static int event_callback(const char *name, umode_t *mode, void **data,
+ 	return 0;
+ }
  
-+	connector {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi_con_in: endpoint {
-+				remote-endpoint = <&hdmi_out_con>;
-+			};
-+		};
-+	};
-+
- 	gpio-keys {
- 		compatible = "gpio-keys";
+-/* The file is incremented on creation and freeing the enable file decrements it */
++/* The file is incremented on creation and freeing the event directory decrements it */
+ static void event_release(const char *name, void *data)
+ {
+ 	struct trace_event_file *file = data;
+@@ -3298,6 +3298,7 @@ event_create_dir(struct eventfs_inode *parent, struct trace_event_file *file)
+ 		{
+ 			.name		= "format",
+ 			.callback	= event_callback,
++			.release	= event_release,
+ 		},
+ #ifdef CONFIG_PERF_EVENTS
+ 		{
+@@ -3317,7 +3318,6 @@ event_create_dir(struct eventfs_inode *parent, struct trace_event_file *file)
+ 		{
+ 			.name		= "enable",
+ 			.callback	= event_callback,
+-			.release	= event_release,
+ 		},
+ 		{
+ 			.name		= "filter",
+@@ -3380,7 +3380,7 @@ event_create_dir(struct eventfs_inode *parent, struct trace_event_file *file)
  
-@@ -75,6 +86,10 @@ &cpu0 {
- 	cpu-supply = <&reg_dcdc2>;
- };
+ 	file->ei = ei;
  
-+&de {
-+	status = "okay";
-+};
-+
- &ehci0 {
- 	status = "okay";
- };
-@@ -84,6 +99,17 @@ &gpu {
- 	status = "okay";
- };
+-	/* Gets decremented on freeing of the "enable" file */
++	/* Gets decremented by event_release() when the ei is freed */
+ 	event_file_get(file);
  
-+&hdmi {
-+	hvcc-supply = <&reg_aldo1>;
-+	status = "okay";
-+};
-+
-+&hdmi_out {
-+	hdmi_out_con: endpoint {
-+		remote-endpoint = <&hdmi_con_in>;
-+	};
-+};
-+
- &ir {
- 	status = "okay";
- };
-@@ -178,6 +204,10 @@ reg_dcdc3: dcdc3 {
- 	};
- };
- 
-+&tcon_tv0 {
-+	status = "okay";
-+};
-+
- &uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0_ph_pins>;
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi
-index 0d3e761f6466..51c8ebdbdc88 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi
-@@ -22,6 +22,17 @@ chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
- 
-+	connector {
-+		compatible = "hdmi-connector";
-+		type = "d";
-+
-+		port {
-+			hdmi_con_in: endpoint {
-+				remote-endpoint = <&hdmi_out_con>;
-+			};
-+		};
-+	};
-+
- 	leds {
- 		compatible = "gpio-leds";
- 
-@@ -64,6 +75,10 @@ &codec {
- 	status = "okay";
- };
- 
-+&de {
-+	status = "okay";
-+};
-+
- &ehci1 {
- 	status = "okay";
- };
-@@ -81,6 +96,12 @@ &gpu {
- 	status = "okay";
- };
- 
-+&hdmi_out {
-+	hdmi_out_con: endpoint {
-+		remote-endpoint = <&hdmi_con_in>;
-+	};
-+};
-+
- &mdio0 {
- 	ext_rgmii_phy: ethernet-phy@1 {
- 		compatible = "ethernet-phy-ieee802.3-c22";
-@@ -113,6 +134,10 @@ flash@0 {
- 	};
- };
- 
-+&tcon_tv0 {
-+	status = "okay";
-+};
-+
- &uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0_ph_pins>;
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero2.dts b/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero2.dts
-index 90c25e12e189..0f25b043e020 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero2.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero2.dts
-@@ -28,6 +28,11 @@ &gpu {
- 	mali-supply = <&reg_dcdcc>;
- };
- 
-+&hdmi {
-+	hvcc-supply = <&reg_bldo1>;
-+	status = "okay";
-+};
-+
- &mmc0 {
- 	vmmc-supply = <&reg_dcdce>;
- };
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616-x96-mate.dts b/arch/arm64/boot/dts/allwinner/sun50i-h616-x96-mate.dts
-index 085f3e4e8eaa..568de6f57015 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h616-x96-mate.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h616-x96-mate.dts
-@@ -23,6 +23,17 @@ chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
- 
-+	connector {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi_con_in: endpoint {
-+				remote-endpoint = <&hdmi_out_con>;
-+			};
-+		};
-+	};
-+
- 	reg_vcc5v: vcc5v {
- 		/* board wide 5V supply directly from the DC input */
- 		compatible = "regulator-fixed";
-@@ -42,6 +53,10 @@ &cpu0 {
- 	cpu-supply = <&reg_dcdca>;
- };
- 
-+&de {
-+	status = "okay";
-+};
-+
- &ehci0 {
- 	status = "okay";
- };
-@@ -55,6 +70,17 @@ &gpu {
- 	status = "okay";
- };
- 
-+&hdmi {
-+	hvcc-supply = <&reg_bldo1>;
-+	status = "okay";
-+};
-+
-+&hdmi_out {
-+	hdmi_out_con: endpoint {
-+		remote-endpoint = <&hdmi_con_in>;
-+	};
-+};
-+
- &ir {
- 	status = "okay";
- };
-@@ -202,6 +228,10 @@ sw {
- 	};
- };
- 
-+&tcon_tv0 {
-+	status = "okay";
-+};
-+
- &uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0_ph_pins>;
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts
-index c51d4d9120de..4a1754eeb0b6 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts
-@@ -31,6 +31,11 @@ &gpu {
- 	mali-supply = <&reg_dcdc1>;
- };
- 
-+&hdmi {
-+	hvcc-supply = <&reg_aldo1>;
-+	status = "okay";
-+};
-+
- &mmc0 {
- 	/*
- 	 * The schematic shows the card detect pin wired up to PF6, via an
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-transpeed-8k618-t.dts b/arch/arm64/boot/dts/allwinner/sun50i-h618-transpeed-8k618-t.dts
-index efe0faa252f5..2f09a5cabed5 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h618-transpeed-8k618-t.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-transpeed-8k618-t.dts
-@@ -24,6 +24,17 @@ chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
- 
-+	connector {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi_con_in: endpoint {
-+				remote-endpoint = <&hdmi_out_con>;
-+			};
-+		};
-+	};
-+
- 	reg_vcc5v: vcc5v {
- 		/* board wide 5V supply directly from the DC input */
- 		compatible = "regulator-fixed";
-@@ -61,6 +72,10 @@ &cpu0 {
- 	cpu-supply = <&reg_dcdc2>;
- };
- 
-+&de {
-+	status = "okay";
-+};
-+
- &ehci0 {
- 	status = "okay";
- };
-@@ -74,6 +89,17 @@ &gpu {
- 	status = "okay";
- };
- 
-+&hdmi {
-+	hvcc-supply = <&reg_aldo1>;
-+	status = "okay";
-+};
-+
-+&hdmi_out {
-+	hdmi_out_con: endpoint {
-+		remote-endpoint = <&hdmi_con_in>;
-+	};
-+};
-+
- &ir {
- 	status = "okay";
- };
-@@ -177,6 +203,10 @@ &pio {
- 	vcc-pi-supply = <&reg_dldo1>;
- };
- 
-+&tcon_tv0 {
-+	status = "okay";
-+};
-+
- &uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0_ph_pins>;
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-yuzukihd-chameleon.dts b/arch/arm64/boot/dts/allwinner/sun50i-h618-yuzukihd-chameleon.dts
-index 9e275f0217ec..11b087dad0c1 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h618-yuzukihd-chameleon.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-yuzukihd-chameleon.dts
-@@ -24,6 +24,17 @@ chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
- 
-+	connector {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi_con_in: endpoint {
-+				remote-endpoint = <&hdmi_out_con>;
-+			};
-+		};
-+	};
-+
- 	reg_vcc5v: vcc5v {
- 		/* board wide 5V supply directly from the USB-C socket */
- 		compatible = "regulator-fixed";
-@@ -52,6 +63,10 @@ &cpu0 {
- 	cpu-supply = <&reg_dcdc2>;
- };
- 
-+&de {
-+	status = "okay";
-+};
-+
- &ehci0 {
- 	status = "okay";
- };
-@@ -73,6 +88,17 @@ &gpu {
- 	status = "okay";
- };
- 
-+&hdmi {
-+	hvcc-supply = <&reg_aldo1>;
-+	status = "okay";
-+};
-+
-+&hdmi_out {
-+	hdmi_out_con: endpoint {
-+		remote-endpoint = <&hdmi_con_in>;
-+	};
-+};
-+
- &mmc0 {
- 	bus-width = <4>;
- 	cd-gpios = <&pio 5 6 GPIO_ACTIVE_LOW>;	/* PF6 */
-@@ -187,6 +213,10 @@ reg_dcdc3: dcdc3 {
- 	};
- };
- 
-+&tcon_tv0 {
-+	status = "okay";
-+};
-+
- &uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0_ph_pins>;
+ 	return 0;
 -- 
-2.43.0
+2.55.0
 
