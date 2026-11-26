@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795709191;
-	b=5K2waF6li7uHo2QXFTV+CGm+mpC0kJP2CgE1Od0FCXAyoO3GbrT4q2YxJDAPAEIwoTEa
-	 +F1EATjwCy94s87p2OSjylGB5MkrBD4Iz563Urgxjuifd2aYEnTkLofduLhSyrWSdaxjT
-	 +0+uMYjje+Ei3DXUGa1UqKGlehToWx8o18Cfi0DBpFnWKiFws29ai9V49KW3DDooR7M7A
-	 fCsHDFDLE4rr4wa3wWT3N+rALqhhQ3KPTe/lo3qsv5gY2LUzPMkpyBziGYFbgl9+PWX8u
-	 YXGouDS38g68obIDkGt3C6XRLgDq2BZddIgdQl5y2PXDsIgoY6qRDgcFe6wV9m985Zw==
+	t=1795709187;
+	b=KLrpgkEqOvHuyNRJju/2nHPN+9iPSD1B3s2BsnUMtkal3T4vk5NMeZAIe7eOZheM38RK
+	 IfBCDvSyStB61PEuVyKAKNwgQZnRatMiiZU6gMaMikBHfEeLR5hGdkRDzPk+ayv+i97N2
+	 rhLNp4CfHCXgjKlTcfTSn6ivLxA/N//lDw5HxFmn6gTKdPIXO6zcA/BxLD4oRnZFrDMGc
+	 lDnETfkwivRB157V7PKOrzDSObDTYMJ+HouSd2K3l56Cw5QWmTb/Ic+Iwjzh6ibQSnOaY
+	 hWCdzbJtQ07Hcz7hxjUojo561MxlKgccjvmkIJtzJzukDo6syms8Y8GAzivgZ5VK22g==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795709191;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-ZohoMailClient;
-	bh=hH+O4poUD8IDco5i9Wi+HTMOJ8P6lijm/qP4q5nqc9w=;
-	b=T8xYRb/W1k37enXFLHw2BOs3VQ3QucyB8aesASNqelC70Y9Y2FfoIEh1lnhN+dyzjlXv
-	 THbiVKC2urUpo5SP/pja1KEIMWNm89GGfyyyxbl4TWSgXHtFFHStmaOo1hO1VoiYP8wh9
-	 yf1mfDg8GONcxE9nTG6ERNKloWtU6Ec/rcaSBpMuj5wVFLmbNkA0/WTm+OwOxe6t9BEPl
-	 KbKGlRUHRWXl4dTIxrw2z7DoQbmYuX6mMenntdqPwTCkeFAmmuwHstiDWtULKLHFAM1vI
-	 OPNzlb1WVPhOtCEAdjorPKezWXRUjgBumlxHoGrMfGRndqjbJiyUSgep+7e23K53pew==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795709187;
+	h=DMARC-Filter:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-ZohoMailClient;
+	bh=Yyxvp9gohrAV1EarHFGlcgh89ssvG83TzXCqeBFpj4U=;
+	b=q8dGYRCT6Ox/rZxCW0h8+N3OkcHe89qY7EEIO8YxtIiIkR6JtMUkrK7qjzb8/uDjVl3v
+	 bNrzmH1LxYFhDtAnsTMbB+4x4FKYq1IHei78GoQgNi06+/8Uwn9F0DGcJFmHzykH9R6PT
+	 5upkZssiql+z77VU/T9ntESQJsYw47X61dObUs0Z8FGZrbiSuz2yFprPhjmUjr50l0TLf
+	 3KJNlQv24Se+7o/X5PZQ8ExLEjlKd7QeCipzEl3T2vNgmESKrE9Ueb0IOOVyunFY2kcUv
+	 eSbv+T9bVhbGk4ycfg7BKe1HYHnuaarTnmQT6ES/EPCshLyzmLsTcwrNYieHJbL8sHA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=collabora.com;
 	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=LAipYRBo;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b="NBrMf/dm";
 	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
 Received: from sender6-op-o11.zoho.com (sender6-op-o11.zoho.com [165.173.180.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1F97606A323;
-	Thu, 26 Nov 2026 16:06:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1F97606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32CD9606A31E;
+	Thu, 26 Nov 2026 16:06:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32CD9606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=LAipYRBo
-ARC-Seal: i=1; a=rsa-sha256; t=1795709101; cv=none; 
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=NBrMf/dm
+ARC-Seal: i=1; a=rsa-sha256; t=1795709083; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=AiT5EmWlElrYLYk4iA8AV/ClU0lpCCO3W0jqqSll0qkehbpvfy4LMs1bN97LmA9vzQ0sYgjVPNofAqHDK+iAtsF/W5l6iIFi3BmWuVtUmF83LutTIXYzS6FqeY8kj3HnL/uLXP9oNiLjStY4CgjoFMtHpx/Vchh4eATtF4P+OVg=
+	b=dkJV7LWKL/rZZMifblFI3iCphtTkx+fEJC+IYutOU4ksPsVlF/CvwEgGGge5jW0L9BLXexsY8AYbv3A4y21/KuWx+4EEH+Wh5ywXjnxdY6lv1iphANFotiC1rEPRgVWOjf28qGJ6Z+/NoOkJ6c7lD+1WYLeuyvYJj18FxXV7Jhg=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795709101; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=hH+O4poUD8IDco5i9Wi+HTMOJ8P6lijm/qP4q5nqc9w=; 
-	b=DaFJmv49hw56BSuQftShnOoGawnGlfAGWj035DC8I94CmO0k3JQGKU72t6UJKqZeNZ1pnKjvDSDjAFeTlvjzs4UXx93GpMBqU18EVOlNhiXmSqeViFJmrcZXg7NOwhpCGUS52j6dzZpH6jLZxFe9cdrwQxfiwWiqojLHpM+caS4=
+	t=1795709083; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Yyxvp9gohrAV1EarHFGlcgh89ssvG83TzXCqeBFpj4U=; 
+	b=AMeh4Q/vGnEw1/zv6Al+LJMiYgPAQ4jQChp/aUy+ugDf2s1lV2r0S6uaWfL5130FdSG1liop+D366m45n7+TGttvOSxg/Ji4gLLMMpOX62BChi+MiewHU9hGyVkyaZ3Hnm+CM7yQeuCx+QFZLxVPSXyS+SF6CnPkKwdtBxrvKcE=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
 	dmarc=pass header.from=<daniel.almeida@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=LAipYRBoa/XmOVpR1kxgt0DijMU5sZ8B3sU+J6dd1WnBF8QcW3x+PBjpMYoET63VlaU2nJSXaYDheDu2CjUhCRWuWJR22qmLxRyAo8s8yFxigpvamcqP0RbK+k77kWkIEcdvz5nx9itaKj2ChHyP8TTwwgozKDLT+UgGSynBYjo=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=hH+O4poUD8IDco5i9Wi+HTMOJ8P6lijm/qP4q5nqc9w=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 179570909891318.635666966732288;
-	Thu, 26 Nov 2026 08:04:58 -0800 (PST)
+DKIM-Signature: a=rsa-sha256; b=NBrMf/dmCTCdveLaejZVhlg9ZJ+EIoVWEWcG9jUkq4rGeduhUdLpVpYguOgHIeEN5bhzU0OpFK28lHJOELqdNon1Nb5MURF5whDZpwQtzC8JgTxyW0BxiRsqCFPnFGaKpGGIS+JYRuxff6XdLmh5umWCCasMM/gw+wSPPdrwc7g=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=Yyxvp9gohrAV1EarHFGlcgh89ssvG83TzXCqeBFpj4U=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795709079389205.15445158410614;
+	Thu, 26 Nov 2026 08:04:39 -0800 (PST)
 From: Daniel Almeida <daniel.almeida@collabora.com>
-Date: Thu, 26 Nov 2026 13:04:30 -0300
-Subject: [PATCH 3/7] rust: reset: add ExclusiveResetControl::get_array()
- and get_array_optional()
+Subject: [PATCH 0/7] rust: reset: add reset control abstractions
+Date: Thu, 26 Nov 2026 13:04:27 -0300
+Message-Id: <20261126-b4-rust-reset-v1-0-9c4c3d029080@collabora.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,9 +62,10 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-b4-rust-reset-v1-3-9c4c3d029080@collabora.com>
-References: <20261126-b4-rust-reset-v1-0-9c4c3d029080@collabora.com>
-In-Reply-To: <20261126-b4-rust-reset-v1-0-9c4c3d029080@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMOw6DMBBF0a2gqTMS5uOCrSAKY17CUACaMVEkx
+ N7jkPIU955kUIFRV5ykeIvJtma4R0FxDusLLFM2VWXlnXM1jw3rYYkVhsQxtBNi8ChrT7nZFU/
+ 53L9++NuOcUFMvwld1xfvTouCcQAAAA==
+X-Change-ID: 20261113-b4-rust-reset-ca5deca6e036
 To: Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
  Gary Guo <gary@garyguo.net>, 
  =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
@@ -83,164 +84,76 @@ Cc: linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
 X-Mailer: b4 0.15.2
 X-ZohoMailClient: External
 
-Add ExclusiveResetControl::get_array() and get_array_optional(), which
-get all the reset lines in the resets property of a device as a single
-reset control. This is for drivers that assert and deassert all the
-reset lines of their device together.
+This series adds a Rust abstraction for the consumer side of the reset
+controller API. A driver can get the reset lines of its device, as an
+exclusive or a shared reset control, and assert and deassert them.
 
-Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
+This will be used by the upcoming rkvenc driver that my colleagues
+Detlev Casanova, Nicolas Dufresne and I are working on, to recover a
+hung core of the encoder without stopping the other one. More details on
+this driver can be found by watching Nicolas Dufresne's talk at LPC 2026
+[0]. Samsung's Rust UFS RFC [1] also uses reset lines, through an
+abstraction that it has not posted.
+
+The abstraction follows the regulator abstraction and the clk series
+[2], with the reset state as a type parameter.
+
+Patch 1 adds the C helpers that patch 2 needs.
+
+Patch 2 adds ExclusiveResetControl, with the Unknown, Asserted and
+Deasserted states.
+
+Patch 3 adds ExclusiveResetControl::get_array() and
+get_array_optional(), which get all the reset lines of a device as one
+control.
+
+Patch 4 adds AssertedGuard, which asserts the line of an exclusive
+control in the Unknown state and deasserts it when dropped, as a
+convenience for drivers.
+
+Patch 5 adds SharedResetControl, with the Unknown and Deasserted states
+only, and patch 6 adds its array getters.
+
+Patch 7 adds ExclusiveResetControl::devm_deassert() and
+devm_deassert_optional(), for drivers that only need their line
+deasserted while they are bound.
+
+reset_control_reset(), the bulk API and the shared devm getters are not
+covered, and there is no guard for a Deasserted control or for a shared
+one. Nothing in the tree uses the abstraction yet.
+
+Patches 1 and 2 add the two new files to the RESET CONTROLLER FRAMEWORK
+entry of MAINTAINERS. Philipp, please let me know if you would rather
+have them elsewhere.
+
+This is based on v7.4-rc2.
+
+[0]: https://www.youtube.com/watch?v=75E15eHY7ac
+[1]: https://lore.kernel.org/r/20260912-rufs-private-v1-1-716db733e655@samsung.com
+[2]: https://lore.kernel.org/r/20261013-clk-type-state-v6-0-a5e9977b3509@collabora.com
+
 ---
- rust/helpers/reset.c |  7 ++++
- rust/kernel/reset.rs | 96 ++++++++++++++++++++++++++++++++++++++++++++++++++--
- 2 files changed, 101 insertions(+), 2 deletions(-)
+Daniel Almeida (7):
+      rust: reset: add reset control helpers
+      rust: reset: add ExclusiveResetControl
+      rust: reset: add ExclusiveResetControl::get_array() and get_array_optional()
+      rust: reset: add AssertedGuard
+      rust: reset: add SharedResetControl
+      rust: reset: add SharedResetControl::get_array() and get_array_optional()
+      rust: reset: add devm_deassert() and devm_deassert_optional()
 
-diff --git a/rust/helpers/reset.c b/rust/helpers/reset.c
-index ea2e6f09b7d5..435f2c7c815d 100644
---- a/rust/helpers/reset.c
-+++ b/rust/helpers/reset.c
-@@ -16,6 +16,13 @@ rust_helper_reset_control_get_optional_exclusive(struct device *dev,
- }
- 
- #ifndef CONFIG_RESET_CONTROLLER
-+__rust_helper struct reset_control *
-+rust_helper_fwnode_reset_control_array_get(struct fwnode_handle *fwnode,
-+					   enum reset_control_flags flags)
-+{
-+	return fwnode_reset_control_array_get(fwnode, flags);
-+}
-+
- __rust_helper void rust_helper_reset_control_put(struct reset_control *rstc)
- {
- 	reset_control_put(rstc);
-diff --git a/rust/kernel/reset.rs b/rust/kernel/reset.rs
-index 396f1e19ee2e..7ca83f2d6abf 100644
---- a/rust/kernel/reset.rs
-+++ b/rust/kernel/reset.rs
-@@ -9,6 +9,9 @@
- //! assert and deassert the line. A new control is in the [`Unknown`] state. Its `assert()` and
- //! `deassert()` methods, when they succeed, move it to the [`Asserted`] or [`Deasserted`] state.
- //!
-+//! A driver can also get a single reset control for all the reset lines in the `resets`
-+//! property of its device. Its operations then act on all of those lines.
-+//!
- //! C header: [`include/linux/reset.h`](srctree/include/linux/reset.h)
- //!
- //! See [Reset controller API](https://docs.kernel.org/driver-api/reset.html) for more information.
-@@ -96,8 +99,9 @@ fn from(err: Error<T>) -> Self {
- /// Exclusive means that the driver has direct control over the reset line. A reset line can be
- /// held by one [`ExclusiveResetControl`] at a time.
- ///
--/// A reset control obtained with [`ExclusiveResetControl::get_optional`] may have no reset line,
--/// in which case every operation on it succeeds and does nothing.
-+/// A reset control obtained with [`ExclusiveResetControl::get_optional`] or
-+/// [`ExclusiveResetControl::get_array_optional`] may have no reset line, in which case every
-+/// operation on it succeeds and does nothing.
- ///
- /// The reset control is released when the [`ExclusiveResetControl`] is dropped. The lifetime `'a`
- /// is that of the reference to the bound device it was obtained from, so an
-@@ -143,6 +147,8 @@ fn from(err: Error<T>) -> Self {
- ///
- /// - [`reset_control_get_exclusive()`]
- /// - [`reset_control_get_optional_exclusive()`]
-+/// - `fwnode_reset_control_array_get()` with the `RESET_CONTROL_EXCLUSIVE` or
-+///   `RESET_CONTROL_OPTIONAL_EXCLUSIVE` flag
- ///
- /// It is treated as an opaque token that may only be accessed using C API methods (e.g., it may be
- /// `NULL` if the C API returns `NULL`). The [`ExclusiveResetControl`] owns the reference that the
-@@ -213,6 +219,92 @@ pub fn get_optional(dev: &'a Device<Bound>, name: Option<&CStr>) -> Result<Self>
-             _phantom: PhantomData,
-         })
-     }
-+
-+    /// Gets the reset lines of `dev` as one [`ExclusiveResetControl`], as [`Self::get_array`] does
-+    /// or, if `optional` is set, as [`Self::get_array_optional`] does.
-+    fn get_array_internal(dev: &'a Device<Bound>, optional: bool) -> Result<Self> {
-+        let flags = if optional {
-+            bindings::reset_control_flags_RESET_CONTROL_OPTIONAL_EXCLUSIVE
-+        } else {
-+            bindings::reset_control_flags_RESET_CONTROL_EXCLUSIVE
-+        };
-+
-+        let fwnode = dev
-+            .fwnode()
-+            .map_or(ptr::null_mut(), |fwnode| fwnode.as_raw());
-+
-+        // SAFETY: `fwnode` is the firmware node of `dev` or `NULL`, which
-+        // `fwnode_reset_control_array_get()` checks for.
-+        let inner = unsafe { bindings::fwnode_reset_control_array_get(fwnode, flags) };
-+        let inner = from_err_ptr(inner)?;
-+
-+        // INVARIANT: `inner` comes from a successful call to `fwnode_reset_control_array_get()`
-+        // with one of the two flags above, and the returned value owns the reference from that
-+        // call.
-+        Ok(Self {
-+            inner,
-+            _phantom: PhantomData,
-+        })
-+    }
-+
-+    /// Gets the reset lines listed in the `resets` property of `dev` as one
-+    /// [`ExclusiveResetControl`].
-+    ///
-+    /// Its operations act on all the lines, in no guaranteed order. If one of them fails on a
-+    /// line, the opposite operation is run on the lines it had already succeeded on, whatever
-+    /// state they were in before. This includes operations that are done on drop. The caller only
-+    /// gets the error from the line that failed, while errors from the opposite operation are
-+    /// discarded.
-+    ///
-+    /// Equivalent to the kernel's `fwnode_reset_control_array_get()` on the firmware node of
-+    /// `dev`, as `devm_reset_control_array_get_exclusive()` does.
-+    ///
-+    /// # Examples
-+    ///
-+    /// Keeping all the reset lines of a device deasserted:
-+    ///
-+    /// ```
-+    /// use kernel::{
-+    ///     device::{
-+    ///         Bound,
-+    ///         Device, //
-+    ///     },
-+    ///     reset::{
-+    ///         Deasserted,
-+    ///         ExclusiveResetControl, //
-+    ///     },
-+    /// };
-+    ///
-+    /// struct Data<'a> {
-+    ///     // Dropping `Data` tries to assert the lines again.
-+    ///     resets: ExclusiveResetControl<'a, Deasserted>,
-+    /// }
-+    ///
-+    /// fn probe<'a>(dev: &'a Device<Bound>) -> Result<Data<'a>> {
-+    ///     let resets = ExclusiveResetControl::get_array(dev)?.deassert()?;
-+    ///
-+    ///     Ok(Data { resets })
-+    /// }
-+    /// ```
-+    #[inline]
-+    pub fn get_array(dev: &'a Device<Bound>) -> Result<Self> {
-+        Self::get_array_internal(dev, false)
-+    }
-+
-+    /// Gets the reset lines listed in the `resets` property of `dev` as one
-+    /// [`ExclusiveResetControl`], if there are any.
-+    ///
-+    /// Behaves the same as [`Self::get_array`], except when `dev` has no firmware node, when its
-+    /// `resets` property has no entry or cannot be read, or when `CONFIG_RESET_CONTROLLER` is
-+    /// disabled. In those cases, it returns an [`ExclusiveResetControl`] on which every operation
-+    /// succeeds and does nothing.
-+    ///
-+    /// Equivalent to the kernel's `fwnode_reset_control_array_get()` on the firmware node of
-+    /// `dev`, as `devm_reset_control_array_get_optional_exclusive()` does.
-+    #[inline]
-+    pub fn get_array_optional(dev: &'a Device<Bound>) -> Result<Self> {
-+        Self::get_array_internal(dev, true)
-+    }
- }
- 
- impl<'a, State: ResetState> ExclusiveResetControl<'a, State> {
+ MAINTAINERS                     |   2 +
+ rust/bindings/bindings_helper.h |   1 +
+ rust/helpers/helpers.c          |   1 +
+ rust/helpers/reset.c            |  67 ++++
+ rust/kernel/lib.rs              |   1 +
+ rust/kernel/reset.rs            | 870 ++++++++++++++++++++++++++++++++++++++++
+ 6 files changed, 942 insertions(+)
+---
+base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
+change-id: 20261113-b4-rust-reset-ca5deca6e036
 
--- 
-2.56.0
+Best regards,
+--  
+Daniel Almeida <daniel.almeida@collabora.com>
 
