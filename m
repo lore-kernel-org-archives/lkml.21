@@ -1,100 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.44
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795690850;
-	b=5pi/aPw12RhIqh7hX2bGdaQzG9hiMr8ivvVJ4EsUo21/zyA0IzlS73HZ+nPhfRawTqnN
-	 P1Mx4NrVKuDsQQWYBRH4JW1MciQGu48WkZfuOaHIZ0ZbnUVtgqdezZX9t6kDSkXFodw7E
-	 JpWDJL5A61dqoWEwH/fpsDtl5e/aZgArotjSnDT30+InlQ8jgjW7rGX48hEZIAttxa1y6
-	 cb6Nk+kWR/WFGYvSzJe2L2vWmaN+pv+szvDE/d9yAi8Z5tgLOOnLFh2VoBCR7GB4IDIAx
-	 SdVmq9pTSwmZz5zIeXc+3JQrk1Bt/2ZCyqhGaOIAoc932w7CySGdtJ8UVjB6FejS3CA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795690850;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=YBjrgG7MLY5ulGSrGu9idWUw2qJwnhY95Q5JsiJ363Y=;
-	b=ON2TLngqQh1FqoD9SVaPKMe5lFLKRK5k/ytlLkpX0K5TIqfHrOjiXu+l+PucGgJ1xmXi
-	 6qlYkD/GR39HzUXaeKRNa24cBgJDGrEWd8M5XX3+rlX0okGGpPjE6hp2C46Aq8B7wcsxZ
-	 HxT83k9VdtUK8aQQLM0h5KvrlBsqMvqvT3oa7rDsY+M3k8MOcpf50YKStt9IAhxtBz6A8
-	 KDeVGKWpYnWNhqrz5v2oF8ILnoiY/ju3bWjhzaxppsF0ujoSHx2WUpF59bd9jqMbaloAw
-	 jh0MZqO2tbrJXqKdb4Do802QOzcBY6f1O0V/GVWUYGklSusWnZeUnbinqHDh6sI6M9g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pvS1hfLx;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.44
-Received: from mail-yx1-f44.google.com (mail-yx1-f44.google.com [74.125.224.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.4
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795690871;
+	b=IdpILMX3a6fISCt8Y4gESoLaQGGYHchXMc6W1MPVVumfrnx2W7GEfT223pZ7zv9JX/E4
+	 nxJ/kDAF2VUFZXFxZoSNQ0ucN3w0sCmY955KWkjcfMv/ArsTfCvh9b9YKh1/t+JVm1mvX
+	 zfshbswiaonUiqoXtMztmni3bSW6K74dRQaVja6gS8W7ZI5m0tASR6T2qCNm2PFRWYsID
+	 ncGSZPG8HZC83LfPGaeM/aE+/ptcr1oKzelQ2VAfNpE+4oCl7d1FJxD3S+bt+2I7iaO6L
+	 0VjCb7NZ3l9+bJO90YPCt72FHibA9n83Mm/jKkDVuYkLtfMCrJmgs6GPDkcvdpd705Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795690871;
+	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:X-Priority:
+	 X-Mailer:In-Reply-To:References:X-NTES-SC:Content-Transfer-Encoding:
+	 Content-Type:MIME-Version:Message-ID:X-Coremail-Locale:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-Coremail-Antispam;
+	bh=U8H2aecc49XjNXoZYCGoat5dqHjwUPyU50NiRAmq9e4=;
+	b=Rkyjl2w5IwF7kk72Z3W/UYhPF6N7/Lud9TQ41hWgODpzm8JYuB8pvlLlMoUUgn3qyAW8
+	 9/knm+qHDBeRsqyRiDOVPef6pq6lwxPBnL9WWnzTdLFXvwLqlB67kO9fz67PqNL/H6PcX
+	 SntDkEI9uy87l7iXI3Acs6XkYYYSmDIjEplRf1nuq0JbBu5rZbcs+3O9OKdxaFHIuO6Cs
+	 qaU23dn7D9vF//mRzbjosFDjK8sijm0xhUeTja0dm/u6/s1uuYSmEYktvrOD0hX5Oyl4g
+	 kK6Z05cze4+XnGCzoCNsKDIUQENAYZqvSaAvmkNHUy+xKC4dknSvn1PBfDKH2aQGkQQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=gjKgQltO;
+	arc=none smtp.remote-ip=117.135.210.4
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8016A606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:00:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8016A606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7BA4606A31C;
+	Thu, 26 Nov 2026 11:01:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7BA4606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pvS1hfLx
-Received: by mail-yx1-f44.google.com with SMTP id 956f58d0204a3-67583c777abso7174234d50.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:00:50 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795690850; cv=none;
-        d=google.com; s=arc-20260327;
-        b=GC0f+cPbKatCcmvLt3zJQuZ+qXzKl/a5/Gy8u/WzEDPXTG2LAjaDPUiYp5hNRW8j+/
-         ekU2Jb2SjJYZM3SrBqmLrQhVW0zOayV3b/IxI2GgRv//37m/+f2iSqxgmCXKjQaoQ6ZG
-         cHzacKdw5513GdCWK5GDfgodPRbyniwut2eXwGPIzrI1kU3Aa68gIar3E9jKTqW9EBD1
-         GEvQazIi2GN7HLO2tfym6RjJWkLQW4piGtpJy7/9A8oRmvUFNEYOey4iMsRW8UIGTEXL
-         BfrSfVlSdzpsqB1ehE5B8GH+kXbNQkeBFHyvyoc2XAPhRA27u5lDfQ+gZwDo2btSrGyf
-         Y7Gg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=YBjrgG7MLY5ulGSrGu9idWUw2qJwnhY95Q5JsiJ363Y=;
-        fh=02pyRPzpfYTYorpSH+ez6eS9wh+rfVYK+PYQWiOmo7k=;
-        b=di10qoGzeFzuHnIoOAnDmW4aGUda9WDavhWMoHBry6MMoSTV9N3GLP4SuLaseVZe1J
-         gXI3NrCNb2+q8ZqWOUxMMUVPp0h5hiosOFSCMqn62BSthIWGxbcIKAvgQXj2uF3i0RAc
-         1lqKJuh/+jpGtB2qIpKZjse36oCeZh94GnKVaTfuxbeE7Iqd/J+FQyq8nu5x9T39+2xm
-         0g1hm5G8qK9Hhfl/FFEPcCpt6LN3RUodtc1as/jOvVSGYhZ3Ic2sHVz/kneSqnBrGd+I
-         m29NDaTYgO7Cgi0Irop3V+QhIiGdKse67m3uet3DA5cEKXf+GZK+UPSrYOGMQhOgt/Wp
-         5+cQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795690850; x=1796295650; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=YBjrgG7MLY5ulGSrGu9idWUw2qJwnhY95Q5JsiJ363Y=;
-        b=pvS1hfLxhlftEaWbAgidd2ly8kGrGI4XkzJQDvuzbvyETadHYLmBq7EEkYpOCtwMkn
-         XdER0L0sZyTM0GDLXrOe1uAC59a5Z7IHbTpipsKWfqA8s/CA3xE4ynITkny/kxfZwKP6
-         jLPiZAE9faAhc7/sO0ymg/Pa7sxvAv8PYYCpHVMKbGebBVlytTmF1IXEMraNZNRLdIpM
-         OOPwiJuvYuy/vmLJB8TJVRQFlA/NPikevlKIQ23YP4R43TEnaxmAWEGvs7VLW7lXQyTb
-         5+sVjLgppZPh8f7JVhiRoOk+/3ySPlcJ+6flvWPxv0GvulqZjViIqqcf8ICAokobqj+3
-         Ce/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795690850; x=1796295650;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YBjrgG7MLY5ulGSrGu9idWUw2qJwnhY95Q5JsiJ363Y=;
-        b=pdqXNGfJDuFyLw09S3ayaj1wNwUb7dBg5eJ1upN1GuP9pmibISrTNIEj+DS8DxbmC7
-         5CNDDg6QU4Vjbo7IUbtStLZaQ7g6sXMkulhVcT/VuT+RzStbzGHb6/1ZKShdoWAl3T5l
-         zOw5OIgXXPoEwCTKJW8/DiEtCQct/kbP+nn6YtoJ4hLhxpP4aHljyJ4TQeHgWqW9P5Rq
-         tdsDjcAu1EJJgLMXPVBqqiUxu8jgnua4p9JtUyayi3p5jNaLpnm5O2Crdm4Qh3gdg/4o
-         7Ur2s86flAglEDbulJ2e1Wt6zbuiMLgB0tnQm8bT4VSwXbjFoZHgLWC1Coxn5EQEJYUb
-         H+GQ==
-X-Forwarded-Encrypted: i=1; AL+hErFguDJr0OtYbzClPHFspA6qjZU3NzE0syMdTXAu5MggsOAp2JhKM5LtaWPPgicIsr/io4vHfYHG8SKqIjI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+B5AXHVOgBxyYbe6phU2tcnQhokNvw7snNKajW1WlpkVBMX4iB
-	a1+kN3JIiaKwbO7R6VGYIKwcN9XQLagtCcrA9lpWFKFLjjx1yGLLQw6ARt/P1HH4qSXKBoPHoZL
-	hv/FJdSWLsnY7QnjwTcL4/5VlllTm8b8=
-X-Gm-Gg: AZFdTZcaSjuzTniIeiyKyD0KRf3fWjqeVZDqBSfHvRsIqu7m6xI+ZiuUFMPVtSd7t+P
-	u9/bUTKkfDQFIaICq5AT8ZhTrbw8SCWQGecE4TfU9F8TYy3uGqk6SdeDSDEipmt0n5GfYQ6+oju
-	6aqHsmqnDxK5EjVTqxxcJyVVoiz/UiHK1br3PjbmemqE7UIORXI2jEJ03pM788iyCgZTmLDsC4A
-	U204pxsbsWhkluxSrIyCOGUcyyLx6mesP5C+dvvIhJEktUw7ZlToq2hDBY2lLQc5afEj1l3Obu5
-	a+65ZOUsQ0HqTVVm/BgTrnpkMYqU6UpG6cspRvfKYSqW71P6j30cOdZmYGuvKqczKBvRtp/qr06
-	/lJ9Jj1KbB7/FtrEMpbJ3318t30/bvqSzd1S2NA==
-X-Received: by 2002:a05:690e:480c:b0:67c:6bcd:b905 with SMTP id
- 956f58d0204a3-67df440791dmr4500687d50.10.1795690849512; Thu, 26 Nov 2026
- 03:00:49 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=gjKgQltO
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=U8H2aecc49XjNXoZYCGoat5dqHjwUPyU50NiRAmq9e4=; b=g
+	jKgQltOPCmnpIb9/x4OOtqzeC2kwbpu93CT2bhPQi0XrrydD1aP5tY8txbXHmofN
+	zcXHp3ANbVbxpCA2d3DriavnjUhQYRIqctN/6jsESEFNY8KRmgvLFg1ZIaTVWcFp
+	MmdxL077LGSb40iYs+pDtn7V41VqXg24ncRtEhHV6E=
+Date: Thu, 26 Nov 2026 19:00:20 +0800 (CST)
+From: zl020895  <zl020895@163.com>
+To: "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>
+Cc: longzhao@ambarella.com, "Bartosz Golaszewski" <brgl@kernel.org>,
+	linux-gpio@vger.kernel.org, "Linus Walleij" <linusw@kernel.org>,
+	"Michael Walle" <mwalle@kernel.org>, "Rob Herring" <robh@kernel.org>,
+	"Krzysztof Kozlowski" <krzk@kernel.org>,
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+	"Krzysztof Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>,
+	"Conor Dooley" <conor+dt@kernel.org>,
+	"Mika Westerberg" <westeri@kernel.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re:Re: [PATCH v15 03/14] gpio: regmap: remove gpiochip before
+ tearing down irqchip
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <av6n3oNVl2pyeLBK@ashevche-desk.local>
+References: <20261118-cv75-gpio-v15-0-e3c563673fe1@ambarella.com>
+ <20261118-cv75-gpio-v15-3-e3c563673fe1@ambarella.com>
+ <av6n3oNVl2pyeLBK@ashevche-desk.local>
+X-NTES-SC: AL_Qu2SB/qSv0Ap5iCcZOkdnUoTj+Y/XMK0uvwk1YdVc/MEkifv/wIGZm5NPWTN9f+eISWCghu2SxtW7+p4VrR6I6RwpZ+lUdQD0+jxaPLqQw==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=GBK
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,94 +73,21 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261104133158.3187525-1-luolongjuna@gmail.com>
- <20261104133158.3187525-2-luolongjuna@gmail.com> <avZ3jEbnuVu5Qv2G@jpoimboe>
- <CAKL4jwX=ctyjXmm=Oz_+HXe89vOHWHgT_-KGyL47fOBEQTYJiQ@mail.gmail.com> <avdWaZboJeDyyOMs@jpoimboe>
-In-Reply-To: <avdWaZboJeDyyOMs@jpoimboe>
-From: Longjun Luo <luolongjuna@gmail.com>
-Date: Thu, 26 Nov 2026 19:00:37 +0800
-X-Gm-Features: Aa3M54rwjsZu7jMc1Fcx0xLlcwpmIPWCqXj01ITTPuucs-yBR6GhxYBGJrQyqJo
-Message-ID: <CAKL4jwXZQKf2XrkRmpws3BK6x6iyMD+BRY-NMfqzR1DMmowadg@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 01/11] objtool/klp: Fix checksums and copying of
- wide strings
-To: Josh Poimboeuf <jpoimboe@kernel.org>
-Cc: peterz@infradead.org, mbenes@suse.cz, pmladek@suse.com, 
-	joe.lawrence@redhat.com, song@kernel.org, puranjay@kernel.org, 
-	nathan@kernel.org, ndesaulniers@google.com, morbo@google.com, 
-	justinstitt@google.com, live-patching@vger.kernel.org, llvm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Message-ID: <58bc2391.8c7d.1a2178371d0.Coremail.zl020895@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID:eCgvCgDXv+hFEQhrB8Z2AA--.1666W
+X-CM-SenderInfo: d2oqjiqyzvqiywtou0bp/xtbC7gQyo2sIEUQsGAAA35
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 
-I sent string-related fixes as a separate series.
-https://lore.kernel.org/live-patching/20261126105325.2521938-1-luolongjuna@=
-gmail.com/
-
-On Sat, Nov 14, 2026 at 2:27=E2=80=AFAM Josh Poimboeuf <jpoimboe@kernel.org=
-> wrote:
->
-> On Fri, Nov 13, 2026 at 12:32:20PM +0800, Longjun Luo wrote:
-> > Sorry, I left out the debugging context here. Both comments refer to
-> > specific kernel build artifacts:
-> >
-> > On Thu, Nov 12, 2026 at 06:42:36PM -0800, Josh Poimboeuf wrote:
-> > > Please give example(s) of such "wide strings" in the changelog.
-> > >
-> > > > +/* Wide strings, such as the u16 PSR setup table, end at an all-ze=
-ro element. */
-> > > > +ssize_t elf_string_len(struct section *sec, unsigned long offset)
-> > >
-> > > What is the "u16 PSR setup table"?
-> >
-> > PSR stands for Panel Self Refresh.
-> >
-> > Source    : drivers/gpu/drm/display/drm_dp_helper.c: drm_dp_psr_setup_t=
-ime()
-> >             /* macros expanded */
-> >             static const u16 psr_setup_time_us[] =3D { 330, 275, 220,
-> > 165, 110, 55, 0 };
-> > Section   : .rodata.str2.2 (SHF_STRINGS, sh_entsize =3D 2, Clang ThinLT=
-O)
-> > Bytes     : 4a 01 13 01 dc 00 a5 00 6e 00 37 00 00 00
-> >                         ^^^^^
-> >                         220 (0x00dc) contains a zero byte at offset +5
-> >
-> > objtool   : strlen() returns 5. The checksum hashes only 5 bytes, and
-> >             the copy includes only 6 of the table's 14 bytes.
-> >
-> > > > + /*
-> > > > + * FIXME: GCC's range_string() uses a one-past-end string pointer.
-> > > > + * strlen() reads past the section; preserve the string base and a=
-ddend.
-> > > > + */
-> > > > + if (entsize =3D=3D 1)
-> > > > + return strlen(sec->data->d_buf + offset);
-> > >
-> > > I don't understand what this comment means either.  Please make sure =
-all
-> > > comments and changelogs are written by humans, as LLMs tend to write
-> > > nonsensically.
-> >
-> > Source    : lib/vsprintf.c: range_string()
-> >             p =3D string_nocheck(p, pend, "[range ", default_str_spec);
-> > Section   : .rodata.range_string.isra.0.str1.1 (8 bytes: "[range \0")
-> > Reloc     : range_string.isra.0+0x9a: R_X86_64_32S .LC22+8
-> >
-> > GCC note  : Uses .LC22+8 (one-past-the-end pointer) as a loop bound wit=
-hout
-> >             dereferencing it.
-> > objtool   : Passes offset =3D 8 to strlen(sec->data->d_buf + 8), readin=
-g past
-> >             the 8-byte section. Fixing this requires tracking the base
-> >             string (.LC22) and the +8 addend separately (left as a FIXM=
-E).
-> >
-> > I came across both while testing on full kernel builds rather than in
-> > production livepatching, so I'll leave it to you whether they are worth
-> > addressing in practice.
->
-> It's probably worth fixing, just the comments and commit log need to be
-> clear about what exactly we're fixing.
->
-> --
-> Josh
+QXQgMjAyNi0xMS0xOSAxNTo0MDoxNCwgIkFuZHkgU2hldmNoZW5rbyIgPGFuZHJpeS5zaGV2Y2hl
+bmtvQGxpbnV4LmludGVsLmNvbT4gd3JvdGU6Cj5TbywgQUZBSVIgTWljaGFlbCByb3NlIHRoZSBx
+dWVzdGlvbiB0aGF0IHRoaXMgcGF0Y2ggbWFrZXMgdGhlIHVucmVnaXN0ZXIgZmxvdwo+bm90IHJl
+dmVyc2Ugc3ltbWV0cmljYWwgdG8gdGhlIHJlZ2lzdGVyIG9uZS4gSSB0b29rIGEgbG9vayBhdCB0
+aGlzIGFuZCBJIGNhbgo+c2F5IHRoYXQgdGhpcyBpcyBhIGJpdCB0d2lzdGVkLiBUaGUgcHVyZSBj
+cmVhdGlvbiBwYXJ0IGlzIGluZGVwZW5kZW50LCBidXQKPnRvIGZ1bmN0aW9uIGl0IHJlcXVpcmVz
+IEdQSU8gY2hpcCB0byBiZSBpbnN0YW50aWF0ZWQuIFNvLCB5ZWFoLCB0aGlzIHBhdGNoCj5pcyBh
+IGJpdCBjb250cm92ZXJzaWFsLiBMZXQgbWUgc2VlIHdoYXQgd2UgY2FuIGRvIGhlcmUuCkhpIEFu
+ZHksCgpBbnkgY29uY2x1c2lvbiBvbiB0aGUgdW5yZWdpc3RlciBvcmRlcmluZyBpbiAwMy8xND8g
+SSBoYXZlIGEgdjE2IHJlYWR5CihTYXNoaWtvIElSUS1kZWZlciBmaXgpLiBPSyB0byBzZW5kIHYx
+NiBhcy1pcywgb3Igc2hvdWxkIEkgd2FpdCBmb3IgeW91ciBwcm9wb3NhbApvbiB0aGUgdGVhcmRv
+d24gb3JkZXI/CgpCZXN0IHJlZ2FyZHMsCkxvbmcgWmhhbwo=
