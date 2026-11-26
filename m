@@ -1,103 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795716556;
-	b=K7kmtEGBDsSJRYtOrWai3hX9s9k44608Q88pUep+UI7qvjBPyGBenAmwiW6wfaOj3Kgq
-	 S1/cetOrSn3hremS43zvdkwMlNolzS4UqvqQ/1xWfmBu+dOtNSWmkP67uJv4qbw25CV96
-	 oQENbEpkG7Fk5PwmQECKxNfG9l8VxVl+g9EuCsPwOr7nakarrwDklcDklhXlwUnMHWMGW
-	 KfSZD4UNm6eUty7w5XQETJBDHEvocxv+vdSGKd3jnx8kVoNp7W0mzfcWScDv0kANDl61o
-	 JD57YMiOueknnRBKKvqGstvmYWx1EOqW+qc914AP0ITg/2+L247EgkG5yg1DvYjKFQQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795716556;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Type;
-	bh=5Ua8eli/eeePNuHrLso0Ijy+DWauR2C0WdOXLlgWKW4=;
-	b=LVs7oqjrm5BzOzkRVdAq071nFpQcm0QhOLwqftwEcDNfHIV9BOS27v0t592SUV7uV1zX
-	 maT2us/H1oPY9oXwmRoG8f8IT6LC75TzWar7rIKAtcIis/cic/0u7I2PClBGzi1cI772D
-	 pto5ZO/cmF6K6TEJpFaWl28WPJPnilRVyS5ucCDczd+46yEZqWh87kgn8+jPL4OXlLfOx
-	 YWiGAht8WQHYsmUwZrSiCe4UKSYG2fNg1IQTEKno52vgGihisZl7b4bKN2yybqvMV6ZcY
-	 1y62uJ2SCF0ptDv1pti4q0fhiSNGlABXUpXX1evCykQ+9PDOffaxIMcKiy4+iFlmKzw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z4ysYqZI;
-	arc=none smtp.remote-ip=209.85.221.44
-Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.30
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795716558;
+	b=DVTMiOQQsIUUNoRsURpnFPSAPnnSpHFOV9B9bT1Mv4Jy13qaH6atByn5njkDmKnD7A+a
+	 4b4obFXcJXfMmONIzGL2KcwqyF8UsGaO7/iBlLrAYlZRk5/sUbpSZDE7xrfJcYYREhOqU
+	 VYrlzyz9JKsTsAy+8cSLR2v7bcetTv4EdolGh5IRGJgcqTDBl4AxARAniRthHJ/MP2b0a
+	 kQ4F2C9/+1cTUm0vJsZCLdP0YuwRq2gSFD1w/6Ll8m0cnRdDtueCLkMq1ZNvK/3pWtiDW
+	 Nh12MxOGEgqc2E82dyEwg0rrIczC9eGQGRxBlUg0Cpf8NfIF3V6+ozb7WjPhJR8sVyQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795716558;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=UrM6jbITV8g6tXbOWteSa2AyYiNh1PYY8NVAj1l/sho=;
+	b=rh6XCPE8ev6RsFnfl+Rwmppa8y/vGeCEDo+mf5JGdTf9CBMtAJl5btxcB/rKvEsaQ9gL
+	 uXGBg5PwDK6/KzJN+usVioVeMaBpVc9lYElFuqOwdASKXnCXD8rMr6SdZ9BVAtGCQRmbr
+	 66+BWugTlk09qwJrlo+DvC/tkK6WAWsgEwtD8JHyaZ41Op/qVpU+gYA6eR5yxWPq0Lr9f
+	 gdCv7J1ZZLmSbhKaYRKN+jE3puisb5Nszv279hsu02loeE0g1+GkEDExDNi5Xr5tNC5Lo
+	 jrL8ZxH3fDJYCtZl0TD7sIljeH3rByXxpVFMaI/eyiJHrfl0Orqtx1LWhhV/scmOW7w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b="qUxq/6lr";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.30
+Received: from MW6PR02CU001.outbound.protection.outlook.com (mail-westus2azon11012030.outbound.protection.outlook.com [52.101.48.30])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7749606A329
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:09:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7749606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BFDDA606A339
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:09:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BFDDA606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z4ysYqZI
-Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-492f0a1b685so5163835f8f.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:09:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795716554; x=1796321354; darn=vger.kernel.org;
-        h=content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=5Ua8eli/eeePNuHrLso0Ijy+DWauR2C0WdOXLlgWKW4=;
-        b=Z4ysYqZIi8yTtEsGaz3PJPdELo5yah/1bnKBGrQNdDouR5yhyfZgAiqVpFk2dXVvNR
-         saVwKIPGbZ0WHF7+ScrB7Nn+ThzlMcjK4sI+u9ysAQpkDXIRhGd5iGa5sRNT5BEVUHlB
-         51yQUuvr1KzVN3EJl2MorHrHyXgbCLCyqu0ZAJMTHy2RlgdvtAa6A+w1+9nkA5RU5Jkw
-         zAqsyMWKeR50HjRN65BXcOyLcE615jvvZHikjzc/kq2xvqbbMYrUQ8mRrYd4LbcZJye8
-         dsDComUeHBZAMqWWwMe+eda/TqBmk9RUDBNQ56KOGC4Zf2HZYQIDV2KFGcx2+oYZP+f9
-         K7xw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795716554; x=1796321354;
-        h=content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=5Ua8eli/eeePNuHrLso0Ijy+DWauR2C0WdOXLlgWKW4=;
-        b=pJUyVi2LOZ6l5uZ2f1mgpxVVDNFDkblVkw1rvGRC86yUkM3hPbK78JLaCiC0SB+b3E
-         4qUueiW48WASdcQacVsyFOQl0MsFUnlRnMbfEFmqg5npvJCV2KUP1GmGBMyYPEUWmbub
-         PtSQMYkVHeKcHQfabU+JUZYLPwHIU/qSegVlSQupm079MJM4X9NUxSlPVPUKm3OndTuf
-         Kd6t/sp59/2yE6SMxwN5id/n0KDCctgn+l4+AJDqIR4jmp2H27A3rV+unADUspi4xrnU
-         cQBSP3BQmCG08DZ0DGEa97LQQrtCwe5FD+FahkzZrRznRqmaXG3js1gXBaiQMDmzjsN2
-         FP6A==
-X-Forwarded-Encrypted: i=1; AL+hErGfYcNGoHwvfNp+tG+aIEJmG8Pc5hUarGHhlUVLfkrFbcg2qqx3Xck1U+VTska86f45xQQrBk1Zj61KdZo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z//B1zw+YKSfC/I6Nb1W8LFuU05wkMjsEW+LF9yqsFvWM3vssgZ
-	wEyuECgOFKydO3H2I4a3W+0CVi6Cb0L3Dcl9W9HFGgrLmwAGgX+nZ4bQ
-X-Gm-Gg: AZFdTZfibHROoJl4GOoCHQ0vSbiRIGtAWFynnCfOD+1v5f/4NQYuuuuWUBWknsW+wM+
-	LMKTf8/s1r+MJAO+xJvRfG5uU81SZtfJG8zhCfsFuJEwkG/czqVTsEpzrfEo4itn3wgDCreVF2O
-	awgyn4QarLTGX4UUuVhkqA2r64qjZeC86t8ZWynxeh6me1fz0FE/M3xpJ831p0ZQwG/whOqTJRi
-	d0rz34M9H7kNF3cqzIMF62AfScS9eh/NqZHowO6ABPSVbBhyMxZ8D4xfsx7HFsb+lLsu6xJptyB
-	2dBswF0Zh+T/OB20OVxMLsKLN6eFdMi7kGjmXs2nPEeGd32/PQqQPm1460OfBj0QEMOp5fvQbR1
-	NcDy6xNxSjYuhDSA5RU95YEOpdmjye7+ppjSH8uaIESmfjjx1QkdjfjUhbNTe+sz7nNW5a/hhAk
-	WgzgEIX856q532VGF4viAUHauA+0FeI7wKK/n+AgrR48ix1hLaWV0LOkbgLB79mD6GLt+hQAtzg
-	Dz64wmSVtND+oYkmWKtCjUZgF6XKtuTVbSbQo4s6hQvoGoBUQ08k2fPmB4V1c5mfBOCJO7ogCE+
-	97LO+GWLJUIARPXiF9QN2cPbUWBc/ca6vE7GT6OsdA==
-X-Received: by 2002:a05:6000:2506:b0:48d:ba3b:af36 with SMTP id ffacd0b85a97d-4abb47b0f64mr52009407f8f.37.1795716553993;
-        Thu, 26 Nov 2026 10:09:13 -0800 (PST)
-Received: from strix.localnet ([197.250.160.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f204sm50447904f8f.21.2026.11.26.10.09.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 10:09:13 -0800 (PST)
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Lee Jones <lee@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>,
- Agustin Santiago Isasmendi <isasmendi.agus@gmail.com>,
- Navid Ghahremani <ghahramani.navid@gmail.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- mfd@lists.linux.dev, linux-pm@vger.kernel.org, linux-phy@lists.infradead.org
-Subject: Re: [PATCH 3/6] pmdomain: zte: Add a zx297520v3 power domain driver
-Date: Thu, 26 Nov 2026 20:26:25 +0300
-Message-ID: <qBBdBMwWSaK2Eq9RGMmPfg@gmail.com>
-In-Reply-To:
- <CAPx+jO_zuvcNnBWqUKJHJ246xEDb=FbN6FYKcrN+p6ERmjg2tQ@mail.gmail.com>
-References:
- <20261120-zx29usb-v1-0-b0433258e51b@gmail.com>
- <20261120-zx29usb-v1-3-b0433258e51b@gmail.com>
- <CAPx+jO_zuvcNnBWqUKJHJ246xEDb=FbN6FYKcrN+p6ERmjg2tQ@mail.gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=qUxq/6lr
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Xo85KGA4AMz8wrvGTaM7oT7SmdcS7ixvuzCKpV2OVhTJ799hC25wvBUa/MRYvmxnd5r/ap9CAr8fas94EK1/kPA/d/iGk7Jwt+EShRJyMIJbwtP6FOyCpu5GdoVQxK7iAqqqfgiL5e1+2KNGVq5TuFcy8TAl5b7bbuA3rXJoohTyH04ZS7ilT1Wnpnah+pEllYju9DpjNUevgSWR/s3Q8O53XfK2wgiKvYz736YoUpHgxvs00lWFk8ZwN2NoDV/jpsJVluwqWwmD8lu1RFZTN8TJKz+LljKRy74pLB6glAIWFc2pEE7652QQ1LJDNF31lgXHnNr/tDW37QaOy7JW+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UrM6jbITV8g6tXbOWteSa2AyYiNh1PYY8NVAj1l/sho=;
+ b=SZV5ZssNQKycpwhgq4qvupgsc8hlgtQqJKiVXWyrt7BudUr0vIR8otGK/TOcM8GcAaH/Myo5D8oPiT+oUKhZFSQGK2oiqxzCuGNrI5kL6hg4Ct3Q1A+p/nnaDnxs7YoDvL2bfpKtbBQeTjicl8LNTEVgaC++ovet1/ZAIQi+kx0HKb988qyBDf4O0MXE3pP/zgXrwkiCvUhoP81yY7KXz8/haaB0pmjbTL/PxKNHJvkD9KeKoNIyBvjBIepNgAszAIflxXM5qojPhisA7X3Mn5UexUI+RdRMZqgmNxdnbNDsuR8qeEJM+tp5hdQo7rOsHuwcM7XORqoRmzCRsHRpWw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UrM6jbITV8g6tXbOWteSa2AyYiNh1PYY8NVAj1l/sho=;
+ b=qUxq/6lr13y9qvPSqaL+cbCapONB5ShZFKw3ZUTE8FiAHKfcX5yXV+xoielF79qTeWNCT0Z4UtIJvnTzX3sd8s2iXCWAeDOT+LsCfy9ptDmshQxtdjE12YmAYT8v/+0RqZ1FQs4FZYihqfU5AAHjhBjgHm32InlOntOV4Q//9E0=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from FT1PR12MB863618.namprd12.prod.outlook.com (2603:10b6:170:e::18)
+ by DM6PR12MB4356.namprd12.prod.outlook.com (2603:10b6:5:2aa::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Thu, 26 Nov
+ 2026 18:09:13 +0000
+Received: from FT1PR12MB863618.namprd12.prod.outlook.com
+ ([fe80::9c1:e17d:1a5d:e5fe]) by FT1PR12MB863618.namprd12.prod.outlook.com
+ ([fe80::9c1:e17d:1a5d:e5fe%3]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
+ 18:09:13 +0000
+Message-ID: <bab490b8-ebdd-4aca-b344-a9182838ae32@amd.com>
+Date: Thu, 26 Nov 2026 23:39:07 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] MAINTAINERS: Add AMD Versal2 UFS firmware files
+To: "Buddhabhatti, Jay" <jay.buddhabhatti@amd.com>,
+ "Simek, Michal" <michal.simek@amd.com>, "Neeli, Ajay" <Ajay.Neeli@amd.com>,
+ "Potthuri, Sai Krishna" <sai.krishna.potthuri@amd.com>,
+ "git (AMD-Xilinx)" <git@amd.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Cc: "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>
+References: <20261126112754.907756-1-jay.buddhabhatti@amd.com>
+Content-Language: en-US
+From: Ajay Neeli <ajaneeli@amd.com>
+In-Reply-To: <20261126112754.907756-1-jay.buddhabhatti@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5P287CA0209.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1ab::6) To FT1PR12MB863618.namprd12.prod.outlook.com
+ (2603:10b6:170:e::18)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,77 +101,98 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPartfY-J0jcIRweO3vnQrxe_bQ";
- micalg="pgp-sha256"; protocol="application/pgp-signature"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: FT1PR12MB863618:EE_|DM6PR12MB4356:EE_
+X-MS-Office365-Filtering-Correlation-Id: 53f332d2-39a9-4ebf-24f0-08df4be86045
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|23010399003|376014|366016|18002099003|22082099003|261009223027099003|921020|56012099006|11063799006|261028144727099003|261102123227099003|261026121527099003|261026140227099003|261021121427099003|261022105027099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	gB2Z2MsoE9HHio8on+0XAzUoaktLLmahNycPSdx5T+BHd6jM4GUsctf+h9SQAQzMlQSkn0YO4P6CaZRuv03ZTLrzGyq36VbL+tmt2AbHNOlerz8zVTkUSmeOVsj07VohFHIIFdACLvEJ7RvwlCDVN5U624nsKHKwCa+JORyNOCWYbdHh3N5nkGx9Wo7t6GaqRHJhTCr74ni9A7261RnCA0AbaMJrM3YwdZgLGynMtHD0MmnrOdhHekPyZ16NpjxzxAGrlwJH/q1DxIMm6Ieg05dpM2cpf/q5J8D8XimfhfvvwDNRISAl+yPXgruNP2TovSShsgYkXNa03pYE8VL9mIdQY1m16Skg8Nr59wc/yOnEO3IpSLIVEH9z/2tp4qzq4oWX0SuZ+pLZ8lNrzzc4vRkhrDjIry7UxQand8QHnfV9fNhMCMN12vfuwGl90DcecxEM7hScDWTbybJEO8/SDR/6H7CS6ejOSOdZXd3/1fYGGCQYqQxPUxoab1ARcyIZwfqSDchW2RJnbzKwM58lSBGZ3S12fSFtMtP1T8iu7v5Xud7BZK1a8I0oCQrm7fp5+V3ZiLK31Q+rVlLxVNGd1Q0ywtOZHL/Nm4zdjx8BeTjk8x8/jTibncFFPXBu5HfMQxE9c0LSv5Qc7LiRxOlrWFk54TTO0pbBbew9hYPH7CCwbNJ24SMe9gTq9HPKRcN/RXNTtyxPMNIzqgAFG0uhTg==
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:FT1PR12MB863618.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(366016)(18002099003)(22082099003)(261009223027099003)(921020)(56012099006)(11063799006)(261028144727099003)(261102123227099003)(261026121527099003)(261026140227099003)(261021121427099003)(261022105027099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?bThteldCTDdzemduUmNueVY0SklzSERId0JjWktQV2ZEbUkwbUZMNUVUWjhv?=
+ =?utf-8?B?bkkyMGo2aXhZWm1RR3BiTXlJekdXK3ZldVlCQ0Q3Sk9VYmF1Z3FOVFVpZStD?=
+ =?utf-8?B?d3BwTmZYTVdlYUxpY3lOZGVMTHlZUk1VZXhBQkp1RE5hSms1RHVJOGd1ZFEz?=
+ =?utf-8?B?VlRadmNpTndub2Z1UkU2OFJtbldJNkNnZUNpdm1JN2MyN1JHUjlGRVpPK2Vq?=
+ =?utf-8?B?cVNYa2RrdGlyQmxoTzZmWEx2RWtRZkNHTlZjZFVORjNyTFAxdllJdmQ1QUJx?=
+ =?utf-8?B?YzBCdFVWV3luMitFd2U2Qml3SUhjYzlZbXI4bEJKd081Mk1jblNteGc0T0Za?=
+ =?utf-8?B?Sis4aElxMmR5K2w2eWxhUHdkY0lxZmVjR25tRHVHNnhicVlJeWxyZDNPQWtP?=
+ =?utf-8?B?RzZ1T3VObTBOQ2FBeUFHZkhqMEcrRG1EUmF4Qm9KV0dXVXEyRkdvZ0E5MFlu?=
+ =?utf-8?B?OUNqWXQ0YUFvemdSZHhnZklhVXovMXVNYmt6M3Zzekd1SVhkWWhTQUt0TXc4?=
+ =?utf-8?B?cjlNMHViaFZtdUJZdSt6VlkzUEhKbjJ4SGVwMVdKZERsSDF5VEhLcGQzRVIr?=
+ =?utf-8?B?MzFXZnJHOTVhQWNjR1hQWjdSR1dMMFBCNWw2bG4weUZiL3dwUWRUR25wVTRT?=
+ =?utf-8?B?VFM4ZjBVSFFBV2d6QjdOdlNNTVhWZlZ0Z0MrTXc1b3RTY3dGWXB1blVOYlhw?=
+ =?utf-8?B?MlJZZEVuTlZVbVR4VzJLRWhrdE56RmN2a1N0c1BxYkMvLzZIRjRXeVFzcVZU?=
+ =?utf-8?B?Z3pyYzRMNWI5VGFlRko0cDVrc1hFNGYvb21pK25tRmJ2dHlCMUFYSThSb0wy?=
+ =?utf-8?B?MjVhRi9QajJJQVBPUVA4Q0ZNTlZqM1A3MUE4cGtPR1c3TmJRMlZRNTVOajUx?=
+ =?utf-8?B?cGJ3VXZubHk4d09ITEdScExXOUhVK3c1TU5JRkk0VXFmK1AxbWlTUVk2bG9J?=
+ =?utf-8?B?cGhIa1dnbjVrUjdhZS9BL2VyK29CQzlIV3RSN2dQWVFqdnFFdnV0ekY5RlZr?=
+ =?utf-8?B?RXBTNndOUURkSnRLK1J5cFRKR3VpZDRDR281R3ZEVFRZYzZOYXhQb1NHN0J4?=
+ =?utf-8?B?UU9IZDk2QjFzVFZ6S2NwbEN0T1JFZ0JpNkU0RFJVWjdGUXpDMGYvYjZJUFlo?=
+ =?utf-8?B?ZEZYeHZRTmdNaFRQY2t1RXlZNm5FdFFQTlpZN3A1ZFIzZXowTE9FRk5Oc1ox?=
+ =?utf-8?B?K0VtMHRGVFQ3Znloa0F4bUtMTjVacjFTOGp2UDFOUzF0QWl4c3BMOC82NG96?=
+ =?utf-8?B?d0Ezek53WVhlM0xUZ2ZpZ0V5Y0dhSUVBMmVuaTNBU0UzZnlZRFZ1d2hIUy85?=
+ =?utf-8?B?Z09Ua0RUVm9TQ0FJQjl6aDV4djVLUVdLK3BnSkc0bVg2SUVKcTdnd3lCTnRs?=
+ =?utf-8?B?NThnMkR6d2ZFZ0FheDNXNzNFalVCdHgzbnVIR2dTVHlzZkxCYVQ1b1RMT3k4?=
+ =?utf-8?B?bmlya1lUOWQvc0dJR0haZXJlUDREbFByemwwa0hLZE4zMlpaK0l2czlIc0pQ?=
+ =?utf-8?B?WHV5d1o4Nk0rYys4OVR5ZTlnRmRoU01WMzIvZ0h5SmVUM0c5SVREOHZDSFJQ?=
+ =?utf-8?B?Z045a1dnYktlbzR2R2lQVTh5ZmJtbzNUNTlqS0FDN0lMQ1o2alpseVNkNWc0?=
+ =?utf-8?B?endtRDdPUkp0NGRoM0k4ajBnS1hQTWJ4VUlxNG5VRnZkR1hnd3huQkR0RVNW?=
+ =?utf-8?B?ekg4YWRJUVgwUlBEOCtSYTJ0YzhyNzNaL1FRWWQ5MkJuMnFNVUdvQjMxdEww?=
+ =?utf-8?B?Y041MGtDSk5jNWZSMG4wWlo5MWsxYmZrYS81YTNFS3NDd3d2cEcwYXozQ2ZJ?=
+ =?utf-8?B?SUFsWCtvNkNrMlJBK1JQenNIVEhjTFdWMjJKRHg1SXVFbW9zWjFNSDh2Mmpm?=
+ =?utf-8?B?UmRLaFdnbkxTcUcyYm4vQUxrZi9pVThKS3hCbjA2U2k1Z3BQQkl3WXM3MHEw?=
+ =?utf-8?B?TDFQN0xwbzNhOFp6Rlo0SnpXVjh3dHlQT05EbEU2d0NkdnVDYURwdHZyazRz?=
+ =?utf-8?B?ajhuS25MTU5qTVpFZ0JsY1pCVk9ielRTazFDWHJ5REd6UzhrTnZqT3dIYmJT?=
+ =?utf-8?B?ZjdqeXd5MDM4M3pRZXI0eWlEUW14eitQZlpGQlZiNTNRdmh0RmxyQnA0b01P?=
+ =?utf-8?B?YjNZT2tJTHI2TE9CbUJSeklQUEhKMzRUU3Z0STlWNnZhV0RiZkt4bC8vZHJ4?=
+ =?utf-8?B?d2hSTnR3RGdpRXNHVHlDL205U0RqeW9SY2lqakNsNGZCNU1yckFlRGNSVXl4?=
+ =?utf-8?B?U3JRMTJLVjNoOC9qSDBTNy9vZlhRT1hOSlVDaTFnMVNLQ3VHV1dkakJUWm5v?=
+ =?utf-8?Q?iEn8VW87qhILaX2rh/?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 53f332d2-39a9-4ebf-24f0-08df4be86045
+X-MS-Exchange-CrossTenant-AuthSource: FT1PR12MB863618.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 18:09:13.2919
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: q6ENv3QsljtSyeKc6kDGhU7rHZ7S7aocsk2NsM5onmDwswPgk6ZeA00wEjJRlBrHBJeqEKNPhiVBQZNS4gTAbQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4356
 
---nextPartfY-J0jcIRweO3vnQrxe_bQ
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Subject: Re: [PATCH 3/6] pmdomain: zte: Add a zx297520v3 power domain driver
-Date: Thu, 26 Nov 2026 20:26:25 +0300
-Message-ID: <qBBdBMwWSaK2Eq9RGMmPfg@gmail.com>
-In-Reply-To:
- <CAPx+jO_zuvcNnBWqUKJHJ246xEDb=FbN6FYKcrN+p6ERmjg2tQ@mail.gmail.com>
-MIME-Version: 1.0
 
-Hi Ulf,
+Acked-by: Ajay Neeli <ajay.neeli@amd.com>
 
-Thanks for the review!
+Regards,
+Ajay
 
-Am Donnerstag, 26. November 2026, 15:26:20 Ostafrikanische Zeit schrieb Ulf 
-Hansson:
-> This doesn't belong in this particular driver, but rather in the genpd
-> core. In fact, we have a proposed patch [1] that is being discussed;
-> but the bigger question is if we need genpd provider drivers to be
-> removable at all.
+On 11/26/2026 4:57 PM, Buddhabhatti, Jay wrote:
+> Add the AMD Versal2 UFS firmware files to the existing AMD Versal2 UFS
+> host controller entry.
 > 
-> What is your use case for this?
-
-It's extrapolated from the clock system maintainer's request to keep clk 
-drivers buildable as modules. The pmdomain is even less critical than clk and 
-can easily be unloaded and reloaded, even though I don't see much practical 
-application.
-
-I see the following options, in order of preference:
-
-1) Simply remove the device_link_add() call from the driver and add a line to 
-the patch description that this is deliberate to maybe shut up Sashiko.
-
-2) Set .suppress_bind_attrs = true and make the option bool.
-
-Note that the MFD parent is tristate and unbindable, but that should be ok as 
-the pmdomain consumers target its own node.
-
-.suppress_bind_attrs = true combined with tristate isn't going to help. Unlike 
-the phy subsystem, pmdomain doesn't hold a reference to the driver, so you can 
-rmmod the pmdomain driver while there are active consumers.
-
---nextPartfY-J0jcIRweO3vnQrxe_bQ
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmsIa8EbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxoiBIUP/05AbhnlM2LcacFX58EL
-N7rFiT+lhfKkTk2WyMVEI10KwIOop+Y/Am5zrnL5YXQPyLWu8N+pfkUki9SvJSBH
-iKKDQAncXwJ7lWkBISVb2/BxeqJxIHWfDJ0GYhYsaHxLyYo4PWMjT+tq9s+Naqvv
-gu5WXpYb3F5sqS0qshsJicHYiU4z1vU9hg4Qazrs61AjDU46L6XpevR5L8mONzHZ
-piLakQdu+Hp1LFMtu7mMqniIc/RnlRoL76NDcjP7BZ5iS9l+INN5R4bIYGP5uCJR
-84bozcygfkiO6tlkIIcumE/Z5DtZfUlC+u4vvpy1X3jbtMokGZ9K+hpKLCVOQkqq
-nklQEfe5EwJVW55bPLRj8LD3npSlBNsAWI5BdgyEqvBf4RuLdbVmodDK5dT8p4YM
-/u/o0m891tAX9tp9dMrkPPJyyhHe5rmRoV9mSBNDzqLuOUfQcvhsHdyPgi/xFLY2
-FHugaTeVu2QhrRUvurddqz6liNm5+sfy7uzYUtjVjQWxAQZ0GBnDKaVkIaYYUHnv
-i1VRm13aavhPdH3WgQh//hh7gZZxc3zO4ioU9gRtxWGwOoCZOYhM43WrTmImaRMG
-EMld6KpU6bCcuWmK9sC7u6W7PXOrExL+8Z6bO09no49EU90SimbONtaWrHM9i/jI
-0jucOU5MLX8n7BJ4G4cwpoor
-=3XcY
------END PGP SIGNATURE-----
-
---nextPartfY-J0jcIRweO3vnQrxe_bQ--
-
-
+> Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
+> ---
+>   MAINTAINERS | 2 ++
+>   1 file changed, 2 insertions(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 742c4e6b291f..3c0dcd9feb94 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -28818,7 +28818,9 @@ M:	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+>   M:	Ajay Neeli <ajay.neeli@amd.com>
+>   S:	Maintained
+>   F:	Documentation/devicetree/bindings/ufs/amd,versal2-ufs.yaml
+> +F:	drivers/firmware/xilinx/zynqmp-ufs.c
+>   F:	drivers/ufs/host/ufs-amd-versal2.c
+> +F:	include/linux/firmware/xlnx-zynqmp-ufs.h
+>   
+>   UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER DWC HOOKS
+>   M:	Pedro Sousa <pedrom.sousa@synopsys.com>
 
