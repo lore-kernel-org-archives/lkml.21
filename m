@@ -1,96 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795663207;
-	b=cB/W+pqkm01GOZOcSfAjpy9z+1SJpZ7afsYqycNYyFyZYO+xRXlra8QYPE3RXz/oF7sX
-	 0K4V0nrVXChVwWXBdVbu+O2Joc5ZLUFjAXKTJHFEMQmi7LbdWERwLICEHDbVv8sDarKsI
-	 fHxa7Ke7yxwfgXKM0FzyLDkaWQTPun12qFhHeaDZj87TOu9d00Iw99BVdgG43rhdtgYJE
-	 xN2rCBKy8PGdcrR6bLkQmMpmg/vKa/Nep/zdXIEQJOWyoCw5cOFrNRi+YhcBbmDEFgy4T
-	 QzHIehHFZq0+E9iP3MNEOdZ4IIkwT/xNI/6dFTc0YqZxzJvxo5WKuP7rPPfG7AkJwtQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795663207;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=ddFS5afo7Q+Q+cm9cTOpxmimaZ1i0Ia2B8XMfOPwFsk=;
-	b=4FCxqRLNjSKOQswrlyBZP5Glg0LjU9N16IXh+WiMV/fIQt8yN+UKMx4XtTj9Fuxw2pXH
-	 UNVOwIfbeKxBnhzi4cd8qabjZvD81R1wFQSDhEqvpMRP4KZv7x4Yegq5FxoCO3gl/JoRW
-	 eWSD+X2prM1ohk0p63ghXkL+6zxB0+nm5J5qULCRxn8tQlGy0APmlfoUuX3saUAxX5ps8
-	 FwLWKmGJs3wSakLfThIqKgjIKnomlWKC7boGe8DXuKyaoAknle6Kvw/Z9VcPSIhBo+Bux
-	 jUw9Ihj/lvXuGGJRcmO1XAT1uq/wY95VjUjh+GqLUmFV0IqFuzr4M3Mpi0/pm8f7Zig==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uYYmRu3R;
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.12
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795663257;
+	b=vuRpElAC40dK8FAAKOEc3pFvgAIVvBTw1nU/6+E9cyvNlKjyLXk3uf/raI9GNwmPbj5g
+	 eFOEuHbBDSjN25o+2z8qOrli5heOl8z5PEWTCtiEYmu0NrN+4XBmOlvqfpgPK+0p/YkRL
+	 vSyu8YHMf6B3YKrnjGlO1uNA3Vqo2pZWmSylqdyw4wMV6GgLgVj8McPeyf1IKWU1gbwIh
+	 gR5bhk7C+TcPNrYzzslfBAt5THGkTfD7lwgt2lQ7sVpVVnsiotngFWAMXV3qj00jrKacv
+	 yD4mDQ/pt4egPo2UNbsL4xSITzbBwgo+e8JM6/wl2CCapk7ml8rOb5TTEug3YgE7tTA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795663257;
+	h=DMARC-Filter:DKIM-Signature:Received:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
+	 From:To:X-Mailer:References:In-Reply-To:X-ZohoMailClient;
+	bh=wl1zFrlH173HoV75rMT0wWjqW6vBAlxFdSbEFwWvJuI=;
+	b=lIxn/RddZlHdxeRykGVRFCmBsjgCwgk1UD8YwXXoWwdyRKiS55ZJxA1JXNy1vlCw6tsc
+	 +EAgjkibZUM5oxT3V/rfmChkatoGPC6eU2RWWTIVpWAQvLM4cPMwOqxkHS7jHYtrnDHob
+	 QH/xXQKfqyiWnvBb6sewiS/5uOJ8fbArFtpJWSFsHKV4wAtemanXfIfAB9RDSvjl2sGxP
+	 p9kRxNWKTKn2xfpaIU5TG0YZpPXXYo8hRniOW+2TU6bkHqZpGMKUXX+X30pjJgCvOe9sk
+	 gr0MerXm6XohKV7BS2o6XvHtOexfe0f9OAd7JNh/Hwj/uUxmOsq9Q+oUyYyA3o9oxVQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pigmoral.tech;
+	spf=pass smtp.mailfrom=pigmoral.tech;
+	dkim=pass header.d=pigmoral.tech header.i=@pigmoral.tech header.a=rsa-sha256 header.s=zmail header.b=FAvk0CBL;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.12
+Received: from sender6-op-o12.zoho.com (sender6-op-o12.zoho.com [165.173.180.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60F44606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:20:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60F44606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CEC5606A31E;
+	Thu, 26 Nov 2026 03:20:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CEC5606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pigmoral.tech
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pigmoral.tech
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uYYmRu3R
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bb6ba3b244so66355575e9.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:20:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795663206; x=1796268006; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ddFS5afo7Q+Q+cm9cTOpxmimaZ1i0Ia2B8XMfOPwFsk=;
-        b=uYYmRu3RhA3xo+mDjNGMggA9qvI09pOAtqRznikY1fR3QNyRR/SIXN7iOiy25TWzA5
-         +UEjXMFT2DAe1FE+FP6mIOSqNiaZR17HTY4bdFbSZoE1O4fJVBJvURqitjOBy9Zbp9Wu
-         r9GKDsTS2Pz2GflqdncYNSt+l0cYyuPu/Z3BMFJQXJQT84oGBH3DFJ6RPLHN9iU80VJk
-         Llbmd1oJjGg3cu6VwLujHaWLEKd+3ntGwLCOcMGpp0vK57rs3BNevkOr33dg9mQVd3Uk
-         Vsa0tL2QlVfib2qSgcU2rFhkrX+lSEhv11J9kNKXVmtaKn559kw8oaG8g4YY0B9KDduX
-         jg+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795663206; x=1796268006;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ddFS5afo7Q+Q+cm9cTOpxmimaZ1i0Ia2B8XMfOPwFsk=;
-        b=ifHfDxvQxxcfiXZIByOH577a9wy3KG+TjzFcS+bcCbEu/R9d2nC//QQWQ81fMYW4q2
-         kgw0ly1C4q4uEUyR/LM30mt7xSGjaWsC2NBwQrr2sYalM2t2iEwG35qFqd7zp9iLLj9j
-         IQYPsIuSlSjncZnAYo8DGux3LqYUNd5WzSdcJnvilGvV9i2Ewrhxdi1PBMkEkSYpcbO+
-         XbaLcf3m22u6rwhCe0LtiZE3gvPshxfaRcCFyhqqWLSJCbCMxicNMqj1WPf1tGJeyk/R
-         QQjJVFCBBRm6zs0UlP7w4YupwzdDL4uPIH5Z9OOD/AfxFckOKtEJKZbo+yVDTuDOT+NG
-         Cp2g==
-X-Forwarded-Encrypted: i=1; AL+hErFm9h194OeCQF3oyjJ9baIzqygpjYtxvGsPs0xZQIEXmICF4PyyidVRDr1WNuksj52/FXhYSDqUqSmb4JU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/nWIHKESicXLboUGMnD/ZXY80rXv6XaG8bzUk6XsfdcHmw/Lgm
-	fArBhoa5z0340Stwv70Xu5q4NsXLEUHrarFMxIsAnzA7vIkz8aOpoM5hMOEeFOIl4DI=
-X-Gm-Gg: AZFdTZeJmm4KKBVKCY9js9IrAZcmS6tVNPwDIb2JpFb8fH5MkwW1f0CxWBKYLm2Vclk
-	Nj3ksaHVjrt3v3glpDxV9Nx70fNoPLKjGt67p0xk/1JhVHuf+CqCxohykn3hba33lPPM1gaciIY
-	BdKsMWppdUelr5dfFPlT7UaLHhUy4ipTj4a65RuDXkSXtQPWekwkXGnSEuvBbmRK0MKSgm4E2f6
-	2MR3K3893tZqtQ3n33ZYHt2HLuCItiKttr5eBS0EPXJpRdtANaFUnpcuveChjUs3IJrqb0742R9
-	eAU52Y2r7DmCEwF4M2h68Fgr12+tQL1ZlN6749drcvUNwcQSebEzqKCWLq0I9LIBwHdxo28QXlF
-	bF7UEe2z0f9rGP9p8vpSmWwvyoXvw4IHOXWZMxNKQzeXPcHLH1KHcQ29uArE7goCroQCLZcEWvR
-	4RMXOCWCH+5GQQOmraG5B9JtJjCisdej4cTbbBbi0eBeO1ehqIxC5npe0KOI9TMY76k0k+fC0mB
-	zU9wz3kwh1A68GHA+Oswt0EMzJ4fYHVa8yRhTOghYw+tbXIvh6eU5K9mHPwBSKF1Hs4OxpBoXLw
-	rbe3in1JIMOUh000e3nYkbg+3vvusxntk3UhwuixSJRtNnm1fs6jntmLsU1DtX5793/8Jhuc9+R
-	RChSsXG55sptv99pM+ezeGWsmCVKlCCAsN/u0f+KZrYuT+0dI2Ln+l301hfZvSxKmSgxYoya2cS
-	tWF76h/+Q+u581CWuzaEDBh3Sy2M5++Cfirg==
-X-Received: by 2002:a05:600c:a085:b0:4a2:526b:d410 with SMTP id 5b1f17b1804b1-4bb8881092bmr401946965e9.13.1795663205742;
-        Wed, 25 Nov 2026 19:20:05 -0800 (PST)
-Received: from localhost.localdomain ([31.223.101.75])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8849e598sm537902925e9.8.2026.11.25.19.20.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 19:20:05 -0800 (PST)
-From: Oguzhan KAYNAK <kaynak.oguzhan0@gmail.com>
-To: Jon Mason <jdmason@kudzu.us>,
-	Dave Jiang <dave.jiang@intel.com>,
-	Allen Hubbe <allenbh@gmail.com>
-Cc: ntb@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Oguzhan KAYNAK <kaynak.oguzhan0@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] ntb: ntb_tool: fix use-after-free of memory window debugfs files on remove
-Date: Thu, 26 Nov 2026 06:19:54 +0300
-Message-Id: <20261126031954.168544-1-kaynak.oguzhan0@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (1024-bit key) header.d=pigmoral.tech header.i=@pigmoral.tech header.a=rsa-sha256 header.s=zmail header.b=FAvk0CBL
+ARC-Seal: i=1; a=rsa-sha256; t=1795663192; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=e4FII9bZdXIdBe8LYq4IGbMGRvCRAqDjcHw9c8PyTsCwtiVOHVX5/o5BFvRZq0JzdHw4je5tOQNaP8jVIjuVYUPUqGGHM2gbGyvBK9FyNT8Kycg4BOOHwfPE7RnxlVPqV/ZCxlxkMgRkxdSOsnV7mkREAb/knXDALPMCKk0t7ks=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795663192; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=wl1zFrlH173HoV75rMT0wWjqW6vBAlxFdSbEFwWvJuI=; 
+	b=UUDe5cwvt/PXWuIAvUf7gV10dD720xJ276dIrDwnydvX0vcdz39b+TOiVIzKwtv0rWTBNc/hcSoszBNxJ9fhCrI6J3p/WVjxBu6hbPq+8o10JwFbnn0+/tb2RocfO8quJzYOua2SEEyGmP2fsWdF29PJKqhh0Ky4UKSiB+zECkA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: a=rsa-sha256; b=FAvk0CBLjnz+CVdmsl7/q3o4Fp2VSiuJJI4sTMUqqnfWurQhA1S0J/y6uFnL1wO8PJypOYhxEbmZYB28yoWSeEefIUxMG+jv39r2SBJ8lcFiQVUpBH0wno0yeu97zQDXIRopUT3Fgb/Kqtzd5SFHi9F9OFc6dMwE2FASRbwLjHQ=; c=relaxed/relaxed; s=zmail; d=pigmoral.tech; v=1; bh=wl1zFrlH173HoV75rMT0wWjqW6vBAlxFdSbEFwWvJuI=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795663189418348.39520229037566;
+	Wed, 25 Nov 2026 19:19:49 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,79 +55,99 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 26 Nov 2026 11:19:39 +0800
+Message-Id: <DN4TH0CNAM11.2OA7W5L11W78S@pigmoral.tech>
+Cc: <linux-clk@vger.kernel.org>, <linux-sunxi@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ "Andre Przywara" <andre.przywara@arm.com>, <netdev@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>, "Jerome
+ Brunet" <jbrunet@baylibre.com>, "Enzo Adriano"
+ <enzo.adriano.code@gmail.com>, "Norman Herms" <dockseed@proton.me>,
+ "Vinicius Pedrosa" <vinicius.eduardo.pedrosa@gmail.com>
+Subject: Re: [PATCH v7 4/8] clk: sunxi-ng: a733: Add PLL clocks support
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+To: "Alastair D'Silva" <alastair@d-silva.org>, "Junhui Liu"
+ <junhui.liu@pigmoral.tech>, "Stephen Boyd" <sboyd@kernel.org>, "Brian
+ Masney" <bmasney+clk@redhat.com>, "Jerome Brunet"
+ <jbrunet+clk@baylibre.com>, "Chen-Yu Tsai" <wens@kernel.org>, "Jernej
+ Skrabec" <jernej.skrabec@gmail.com>, "Samuel Holland"
+ <samuel@sholland.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Philipp Zabel" <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, "Richard Cochran"
+ <richardcochran@gmail.com>
+X-Mailer: aerc 0.22.0
+References: <20261112-a733-clk-v7-4-db7c5451ffa2@pigmoral.tech>
+ <20261125122452.3966873-1-alastair@d-silva.org>
+In-Reply-To: <20261125122452.3966873-1-alastair@d-silva.org>
+X-ZohoMailClient: External
 
-tool_remove() removes the device's whole debugfs directory with
-debugfs_remove_recursive() before tool_clear_mws() frees the memory
-windows. The per-window files peer<N>/mw<M> and peer<N>/peer_mw<M> are
-created in that directory, so they are already gone when
-tool_free_mw() and tool_free_peer_mw() pass their stored dentries to
-debugfs_remove() again. Those dentries have been killed (d_inode is
-NULL) and are freed after an RCU grace period.
+Hi Alastair,
 
-Removing ntb_tool, or unbinding it from the device, while a memory
-window is set up therefore crashes. With lockdep on x86-64:
+On Wed Nov 25, 2026 at 8:24 PM CST, Alastair D'Silva wrote:
+> Hi Junhui,
+>
+> On Thu, 12 Nov 2026, Junhui Liu wrote:
+>> static struct ccu_nkmp pll_ref_clk =3D {
+>> ...
+>> };
+>> ...
+>> static CLK_FIXED_FACTOR_HWS(sys_24M_clk, "sys-24M", pll_ref_hws, 1, 1, 0=
+);
+>
+> While testing this v7 series on the OrangePi 4 Pro (24 MHz HOSC), ttyS0
+> switches from earlycon to garbled output with:
+>
+>   2500000.serial: ttyS0 MMIO32:0x0000000002500000 (irq =3D 414, base_baud=
+ =3D 1384615) is a 16550A
+>
+> Because the hardware bypasses pll-ref (0x02002000) when HOSC is 24 MHz,
+> sys-24M physically runs at 24 MHz from HOSC, while pll-ref remains
+> disabled with reset/unprogrammed N=3D12, M=3D13 fields. Since
+> ccu_nkmp_ops.recalc_rate() computes parent_rate * N / M regardless of
+> the enable bit, pll-ref reports 24000000 * 12 / 13 =3D 22153846 Hz.
+>
+> sys-24M, apb-uart, and bus-uart0 inherit 22153846 Hz instead of
+> 24000000 Hz, so 8250_dw calculates base_baud =3D 1384615 (instead of
+> 1500000) and programs divisor 12 instead of 13 (+8.3% baud error).
 
-  BUG: kernel NULL pointer dereference, address: 0000000000000140
-  ...
-  Call Trace:
-   down_write_nested
-   __simple_recursive_removal
-   debugfs_remove
-   tool_free_peer_mw [ntb_tool]
-   tool_clear_mws [ntb_tool]
-   tool_remove [ntb_tool]
-   ntb_remove [ntb]
+Thanks for testing and reporting this. This is indeed a problem. I had
+assumed that PLL_REF would be used on all boards.
 
-(0x140 is offsetof(struct inode, i_rwsem) + offsetof(struct
-rw_semaphore, dep_map) read through the NULL d_inode.) With KASAN the
-same access is reported as "null-ptr-deref in range
-[0x0000000000000140-0x0000000000000147]". If an RCU grace period has
-passed by then, the dentries themselves are already freed.
+I also tried manually disabling or bypassing PLL_REF on my Radxa Cubie
+A7A, but have not yet managed to establish a working bypass
+configuration... I currently suspect that the selection is handled
+automatically by the hardware, but this needs further confirm.
 
-Found and tested on a virtual NTB device in QEMU: removing ntb_tool
-with an inbound window, an outbound window, or both set up crashed every
-time (tool_free_mw() or tool_free_peer_mw() in the trace); with this
-patch it unloads cleanly on lockdep and KASAN kernels.
+>
+> If pll-ref is disabled/bypassed (or if sys-24M is physically fixed at
+> 24 MHz as the comment describes), either pll_ref_clk needs a recalc_rate
+> that returns 24 MHz when disabled/bypassed, or sys_24M_clk should not
+> inherit an unenabled pll-ref N/M ratio.
 
-Forget the window files once the directory has been removed, so that the
-free functions only release the windows themselves. Removing debugfs
-first is kept: it ends all user space access to the files before the
-windows go away.
+The issue may affect not just sys-24M, but also the downstream PLLs.
+According to the vendor SDK, their control registers have a PLL_FREF_SEL
+mux at bit 24, selecting between HOSC and REFPLL. The driver currently
+models these PLLs as having PLL_REF as their only parent, so their rates
+could also be calculated incorrectly when they actually use HOSC. We
+should model those muxes as well.
 
-Fixes: 7f46c8b3a552 ("NTB: ntb_tool: Add full multi-port NTB API support")
-Cc: stable@vger.kernel.org
-Assisted-by: LLM
-Signed-off-by: Oguzhan KAYNAK <kaynak.oguzhan0@gmail.com>
----
- drivers/ntb/test/ntb_tool.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+However, my A7A, A7S and A7Z boards all use 26 MHz crystals, so I cannot
+properly validate the 24 MHz case until I get a board with a 24 MHz
+crystal. In the meantime, if you have a fix in mind, please feel
+free to send a separate patch.
 
---- a/drivers/ntb/test/ntb_tool.c
-+++ b/drivers/ntb/test/ntb_tool.c
-@@ -1599,7 +1599,22 @@ static void tool_setup_dbgfs(struct tool
- 
- static void tool_clear_dbgfs(struct tool_ctx *tc)
- {
-+	int pidx, widx;
-+
- 	debugfs_remove_recursive(tc->dbgfs_dir);
-+	tc->dbgfs_dir = NULL;
-+
-+	/*
-+	 * The memory window files lived in tc->dbgfs_dir and are gone now.
-+	 * Forget their dentries so that tool_clear_mws() doesn't remove
-+	 * them a second time.
-+	 */
-+	for (widx = 0; widx < tc->outmw_cnt; widx++)
-+		tc->outmws[widx].dbgfs_file = NULL;
-+
-+	for (pidx = 0; pidx < tc->peer_cnt; pidx++)
-+		for (widx = 0; widx < tc->peers[pidx].inmw_cnt; widx++)
-+			tc->peers[pidx].inmws[widx].dbgfs_file = NULL;
- }
- 
- static int tool_probe(struct ntb_client *self, struct ntb_dev *ntb)
--- 
-2.34.1
+>
+> Tested on OrangePi 4 Pro (Allwinner A733).
+>
+> Thanks,
+> Alastair
+
+--=20
+Best regards,
+Junhui Liu
+
