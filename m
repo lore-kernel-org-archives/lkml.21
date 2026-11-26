@@ -1,90 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.83
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795718296;
-	b=SsUo5oIBjFsWRpHLb/JtlqAHahsJBwDoSZIQ0Q9gAahQNbVN1hMyt2aW0JulU7eftWKC
-	 F0bJh4Jg91BSDhzhbWEk2vgpAyDiDWDdEO4H92WxK2VIdPQT0S8xPQXTJ8lklJ77fnIdQ
-	 cSY76FFX1CNhDfNDGf/qcWh0dKDd5BkUIPQ+AsKnP1rBY5uSqTbN/rEo3pCotXHfdeEq7
-	 v7GEme6IdV4mxuI3ldmZ2wnQrJBSiJfJMbd7asfhzqeTcur+URgWkoRa4q/T5DyG5mnfj
-	 mHCH59qUxUETE/uI62gA8fO3zCvPQI9C3UCBsRI+rzy1gVPesEWoa/ZSETT869jWazw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795718296;
-	h=DMARC-Filter:X-RZG-CLASS-ID:DKIM-Signature:DKIM-Signature:X-RZG-AUTH:
-	 Received:Content-Type:Mime-Version:Subject:From:In-Reply-To:Date:Cc:
-	 Content-Transfer-Encoding:Message-Id:References:To:X-Mailer;
-	bh=NYe3fpJiKO8+IsXNE3ip4kByrEDJ+wWHRmGWym8cbdo=;
-	b=lMLCaOkoTzzBAqRhcNwyM6YNILQVgpOJd09I34fyFptVCAqNdxe34IfuuzDv0I42wU+i
-	 JRt+yYVXRO7OY17gPYshjwH0TGOpcpaXluaycFGvC6X2rUo4CeLVfG6ObR9j09zqwdjss
-	 VWuuw/eHMnRg5tZgP3wiNPAW1jYYeG5RiQEivUVt2lPK6K1BqkckE25RqbbuTakaIbOsY
-	 ZhRpyK8NiSeX4RtoBgz0KI5NSBYsaN0NCoACDnrs731ny9EZar49X4Om4y4IX8Z6T/hKf
-	 5cCNApPo98nrm9EQV1t1liccJpx7npH4CdObJ3BEDDbh+YnVHuTVbPJK0wfak50JLww==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=goldelico.com;
-	spf=pass smtp.mailfrom=goldelico.com;
-	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=M5X5HITu;
-	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=VsiAfvSh;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.83
-Received: from mo4-p02-ob.smtp.rzone.de (mo4-p02-ob.smtp.rzone.de [85.215.255.83])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795718299;
+	b=NGcT4whaIKxx5kFkr+74nX2UREeXNvcsjWUancqe9qX6YmLl0LXwWb5XvWRXJKNmCoZW
+	 TkYYRynMCFZM03f6U2ifMzzYNT1siGRGbknm/0e1YUJzWurSjKr6TwBuxsr9s98MXelVz
+	 EJY/EAcPb+/pduuFFNbG64ybSXzsK/sJS2hyTh//QJHjSKxGY+927YLSEvHEkYxtThNai
+	 0bkbPClzExxggMiPIVyoybB8xEcAUc7g2uMXlB7QCJaCEur8eIOsZXLoTTXjcN2Tfv/vX
+	 TlEFuO7L9QVRKzu1eg6/WoFeFFxH1JlP5V+eNP+dhKbVYekZ5pZMqx+PZoBPoab098w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795718299;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=wKhRPqNkIG6fPCBwmHdWSXbw4/Nf0HqMxDnELoPBjMQ=;
+	b=MqG1C+klD5sGN9CqgGb7KiN48yK86XegloLNRM3PXSMBvHRzaSvpKpDhERN4c7R6va2a
+	 +uU1qQ7FprIYJuAHISLAmoZdZWwaUgxKvSc4LdjdbpEUVYVr5mNxoTx201pMFUeOFDich
+	 jPh4gmFwXW/BaDQyGK7SFiROI7+d2xMKDq/gUuEUgzIAKomy9zi+wt9YVEBQbFJSQhLk6
+	 rK2zRY/o620QFKxE381odpB+FRt1+0SkndDzUT48WBGOCaWG7Y6kYj2QgE53bJ8d82vko
+	 hfvfFCGrDzr5LB7PfJSVmin0DdKRi6mjRGB3T9k86g4D4jFTC8hK8ZFD2nkFxLHEzVw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fv4VTkli;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="g/ErBnnV";
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA83C606A327;
-	Thu, 26 Nov 2026 18:38:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CA83C606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=goldelico.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goldelico.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 556E1606A692
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:38:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 556E1606A692
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=goldelico.com header.i=@goldelico.com header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=M5X5HITu;
-	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=VsiAfvSh
-ARC-Seal: i=1; a=rsa-sha256; t=1795718191; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=J991VfTQxDV9HXTqDDuT+ttE7+L8zYNJmnh2n0bg29QdlQHeh7ymOY3PRDHsj4eMwk
-    2V54jEX5K5A0iGS/d3TLeY/9m5usQ+f6QTIw7JA2V2LKTr6LHhybM84kCHrNq/+bbQzC
-    vr/+6TlCxGEOZUTZqbPZ7N5TT/g+fErVdMg2wtjN1aa01pb2QcICY8M4zoeVStyGpli+
-    mLTMh3kUaY+P8AjwE9Lbr4aG0HLqtk4fQeg0X+hhQ/i8eylRqlm7LIbxg8gG2bBn8NxY
-    80B91p8OMusb2May46qmf/XwiDl0Y0+tJKbGb01AAOkfRxQGbQ7ckvKNZgyzwLxSGjrb
-    e6TA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1795718191;
-    s=strato-dkim-0002; d=strato.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=NYe3fpJiKO8+IsXNE3ip4kByrEDJ+wWHRmGWym8cbdo=;
-    b=g+IoJTz89+C1jquOfbCbjYnlDDOlOBjCOpL2E2hiZHiLieighaXdcSq5J53Grkq0Qa
-    wmH+MPtZ29jJSK/Pv7DhYKxuoWTheGFVqY+EUh06hU6/LO2fCKMhdw80zR8RJwMRtgHx
-    pMSPwBL7/gQ+MKvrkUEafypzmB0iBK4bFezt0pCROLZSxOx6kBK4rUyf6TPk25hdmuh3
-    xAJX1+Hdx0QKEkpfssen7eNs1GXxdz6921aMzeofB8OmMsRcMMyhxxNr9+X59EWvDnKA
-    h9il8RiIeFS2zd7kfTupI34TwBOC9sQOYdSwKTnUo8PJCDkn2+MOZq4rxlLyvqSayVUx
-    iFvw==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo02
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1795718191;
-    s=strato-dkim-0002; d=goldelico.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=NYe3fpJiKO8+IsXNE3ip4kByrEDJ+wWHRmGWym8cbdo=;
-    b=M5X5HITulfuTW6C706dwdeNdHxjT3tUE4Za+jZj/L94gV6qsfBCQ/I+1r7SCTdt1IJ
-    5gxBwbYOxs1izTnJDyDVMwqKj8yP3qC8YTmc0U7fK72fILK8VGehvONy9BDQM5PbkQdx
-    +KvsG1JYWm/hpJdX8EJ7NQPZmdj6j3sFIxXyPabDazYzV1zfq7PIePaX5vtna2+MMwph
-    b3eCH9Tf4C0aW+olQTzEL6ypSXtMpM8MdR/brA1dDlmI+Jcb3HCfTjN+wnkeTyPnXiTX
-    mv/TPdZuCoNDMuiY12JhjyojQ9Pkgcnw08nPzJiZzU5tlk9zcSuxYhqNZs6MaLqxtNsj
-    Yc3g==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1795718191;
-    s=strato-dkim-0003; d=goldelico.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=NYe3fpJiKO8+IsXNE3ip4kByrEDJ+wWHRmGWym8cbdo=;
-    b=VsiAfvShX038YzxMDGCBnWBKQXU15hM3/nec/5OEW9bdKrQ9KHQd68FEBeQVGf7Ad/
-    cj633Nrf/Dh7UfLW9KAQ==
-X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrSippbmsiNApeHDyjDkvgGuStcrkeTGFmktdrc"
-Received: from smtpclient.apple
-    by smtp.strato.de (RZmta 55.6.3 AUTH)
-    with ESMTPSA id Qb56a22AQIaTEph
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (curve X9_62_prime256v1 with 256 ECDH bits, eq. 3072 bits RSA))
-	(Client did not present a certificate);
-    Thu, 26 Nov 2026 19:36:29 +0100 (CET)
-Content-Type: text/plain;
-	charset=us-ascii
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fv4VTkli;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=g/ErBnnV
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQFuNWk3750277
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:38:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=wKhRPqNkIG6fPCBwmHdWSXbw4/Nf0HqMxDn
+	ELoPBjMQ=; b=fv4VTklixmFUYwjniiesSq2bKFQDtBm6qGnPZ0kLTT9SMCbGYKY
+	XxTAz9lMVwCh93OEhZkifCNe6nrpP4/ITinitYC49C/15WYLwFtoPcTkNAbP0/AJ
+	O+Z6E+7CKj/hBWT7qhWaSllGcxJB3k0hK4sYoa07fpgZYvQTGqP9ukfXdEbUxKgO
+	3A2teacFHPSlZ/aUchNYmxvghLpJPN6oEe1txM9ANxyWcJuVFfXU7/g4EUDglMEp
+	p2djehEwW8ng6UrA06hplwc0JcLIlFFfzii8i/sKf9lTOhZPuEqLSrH1JaUOTsbQ
+	CulWx8D1NoBuBNRi4yay4eyqpCIN2eSuJAQ==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j662scae2-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:38:18 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-55d2bde4c78so100518441cf.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:38:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795718297; x=1796323097; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=wKhRPqNkIG6fPCBwmHdWSXbw4/Nf0HqMxDnELoPBjMQ=;
+        b=g/ErBnnVTkcCyRkKxXMIf/GIiDEiCRB5R9p2DVwZOnKR0Nf1ZdmqkrcJIKFI9bpiaz
+         ZW50O0Yw2uWDnPjWZ/ZGpN+zP/bg6HADOW7oXa+4oPC/R0f7uUDncV+VVlACVF2+E6Z/
+         6fxAvg3pTGeLXM1kogGl5rLvHtJuGUjrwgjcLRxvaE2tGHhjuDl2FpSV56qsrmZx0grv
+         j4O5WiuVmP7AdGCZXXPRDsXeMVnpo6e5ReaKbRUY/4eTGFu/W9Sm80ndA3+/1yEFAnC0
+         rLqDldkcjzjUdTfUEYhNv3togS44N4/PEmBmsY6NNOb5FDP+1sh9nO3oQ64AIMfdfq8j
+         k7BA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795718297; x=1796323097;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wKhRPqNkIG6fPCBwmHdWSXbw4/Nf0HqMxDnELoPBjMQ=;
+        b=sRvl9y4qPcg0n6h/L2Q92fxNTq4+Ur3OiDEvytVpSS2qaUHCY6kpLd4FICKRO4D/+1
+         6CXW/nJF0cBza914jcsCvKtlpfvYyZB7Mep9A6ECxASkWFh/MJFO0ftzDfC9+fCJRZfY
+         IuA1CwN1iUZytscs4ndjwhFAwg854hGsCkbhPzInf+MAQ5reIkrVxj1w3HAYmd6IUe2l
+         YXwWbXRWIbAm4W6N1/Ja3NPIzIU8xUUi3ZIn+htcwfayOv3B3nnY0ThBKw+VLXQvSe0l
+         kkyvtkZV4M7sO3TyMH9s/QBRtyo5pw/qgdU11SfV4Br7NGWVg8DidJghYsqqTiU2nKIc
+         eNQQ==
+X-Forwarded-Encrypted: i=1; AL+hErEQOzFRa0VmQ9BDixdRLu2Q+3PiMcANOYW+YEkS7gYVbAzPREk9GrvHgQbU6qdRo34eva29l+WXWbjQfDQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9NqwSLxF1Yh1FKSvxhjSnr2mTCBbptrO8zimf8AjCv0ddrEaKN
+	wmgwT07JWm1HeZ69XgS6GvSG90A6JK/DYN2TUps3DMng4j+/fmSSof7JsoGUh1BN08gOiCAyfbn
+	YkdftzpmfdDRwTZMgwmZ4XrMj75PWVf6urOrdjcPo7Ua4FE6tqhBQ4FgQQDv2EOovBsE=
+X-Gm-Gg: AZFdTZdIZkvWqyrR9/0sglgJbibJ/K9W5iUw2VZm7kT9Og/4zeyxVP0AOTWEFlFw3Rm
+	iDT+s76b71SKvsafKPfCySfFED3c9NkAmiscBqnDq9w43GuDrhA7l93yDywdYEbWk2M6cuq+WZq
+	WVgtc8RjOHuIxJdEvPi/2sN0PP8mu7QLCk+lY4VBHhyIgatLiHhm6MhF3HMnAhkHvB5uHKuTgUn
+	EVzGpTuVcy6tf/m/nY85LYoeDrzhi+vsTuOx8XCNh1y7VekFHsputCjre6U3FaH5tNWGAD2bNyz
+	HU0wO85oteZyuf41YBI/18V0K5Vr+MU4Z3udENHT2RPzhranaCchdj8HCvuD8H9ccpDxQ77wlPQ
+	lcFrvv808bpTUVwI0WP8sy8ZNKaWiy8ybFSna6cZv1R4Nlql/VdbK0UfXFvbvbXqF
+X-Received: by 2002:a05:620a:4008:b0:947:832b:5527 with SMTP id af79cd13be357-949ba9a967emr3906147685a.42.1795718297370;
+        Thu, 26 Nov 2026 10:38:17 -0800 (PST)
+X-Received: by 2002:a05:620a:4008:b0:947:832b:5527 with SMTP id af79cd13be357-949ba9a967emr3906143185a.42.1795718296863;
+        Thu, 26 Nov 2026 10:38:16 -0800 (PST)
+Received: from debian ([5.133.47.210])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb895f7bc1sm239659035e9.3.2026.11.26.10.38.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 10:38:16 -0800 (PST)
+From: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
+To: andersson@kernel.org, konrad.dybcio@oss.qualcomm.com, abel.vesa@linaro.org,
+        robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        alsa-devel@alsa-project.org, linux-sound@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
+        Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
+Subject: [PATCH 0/7] arm64: qcom: enable WCD9378 headset and DisplayPort audio on Glymur boards
+Date: Thu, 26 Nov 2026 18:37:59 +0000
+Message-ID: <20261126183806.172485-1-srinivas.kandagatla@oss.qualcomm.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,107 +118,84 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.11\))
-Subject: Re: [PATCH v2 06/20] dt-bindings: sound: Document OpenPandora sound
- card
-From: "H. Nikolaus Schaller" <hns@goldelico.com>
-In-Reply-To: <20261126192036.6646c688@kemnade.info>
-Date: Thu, 26 Nov 2026 19:35:58 +0100
-Cc: linux-fbdev@vger.kernel.org,
- Lee Jones <lee@kernel.org>,
- linux-pwm@vger.kernel.org,
- Tony Lindgren <tony@atomide.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- dri-devel@lists.freedesktop.org,
- Jaroslav Kysela <perex@perex.cz>,
- =?utf-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- David Airlie <airlied@gmail.com>,
- linux-leds@vger.kernel.org,
- Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>,
- Aaro Koskinen <aaro.koskinen@iki.fi>,
- Kevin Hilman <khilman@baylibre.com>,
- Helge Deller <deller@gmx.de>,
- Bartosz Golaszewski <brgl@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- Peter Ujfalusi <peter.ujfalusi@gmail.com>,
- Daniel Thompson <danielt@kernel.org>,
- devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>,
- Pavel Machek <pavel@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>,
- Roger Quadros <rogerq@kernel.org>,
- linux-gpio@vger.kernel.org,
- Mark Brown <broonie@kernel.org>,
- linux-sound@vger.kernel.org,
- Takashi Iwai <tiwai@suse.com>,
- linux-omap@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Jingoo Han <jingoohan1@gmail.com>,
- Liam Girdwood <lgirdwood@gmail.com>,
- linux-kernel@vger.kernel.org,
- Thomas Zimmermann <tzimmermann@suse.de>,
- kernel@pyra-handheld.com,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Jarkko Nikula <jarkko.nikula@bitmer.com>,
- Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
- Discussions about the Letux Kernel <letux-kernel@openphoenux.org>
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <0CDC9F92-70F4-43CF-BBAD-255D98465F64@goldelico.com>
-References: <cover.1795505160.git.hns@goldelico.com>
- <5c6f7deca16f70f1f19cb40c57d70e30068d6000.1795505160.git.hns@goldelico.com>
- <20261124224300.519d8686@kemnade.info> <20261126192036.6646c688@kemnade.info>
-To: Andreas Kemnade <andreas@kemnade.info>
-X-Mailer: Apple Mail (2.3826.700.81.1.11)
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=B54sQ+tM c=1 sm=1 tr=0 ts=6b087c9a cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=ZsC4DHZuhs/kKio7QBcDoQ==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=H8Vl9kw8bzbrLTmWWJQA:9 a=dawVfQjAaf238kedN5IG:22
+X-Proofpoint-GUID: 2shXq51Wkycx_-l33VVBO2JKcb1b3I0L
+X-Proofpoint-ORIG-GUID: 2shXq51Wkycx_-l33VVBO2JKcb1b3I0L
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA3MyBTYWx0ZWRfXzQUpb50Y06RB
+ X9kIev6JT3sskS3RY48ZRwVgZpBmfgul1FJ0Q9LNPXLcut0QNty7zWhyL5b4pBuRvEkiWp84PZZ
+ oW+r/IjV/LNIccCLrOxCTqLRoLYwTjTXrBVezBptVEgLP+C+ZxhXgd916t1Z/gWxJo6AeQCjHjG
+ +JKQdRa1f7v6Evm74Zx3/cXxLTHv++0qIeIsxAzOD/O1QsdzM5vTES/JlvJcmo0FIxRxVmnXZU6
+ jGOByPEzWmCYlvsQh8E1IWoAoKxFcMWzRpuMzQkDuHYAEC6cJe+rBiT/kcAPWbWEAWwbwq42157
+ cStJ4tQTMlqVVyGaOWusL/5IX6/s3bb49FDXd+ycZE0XirBUNw7GFidLFNHsecZl9/qzpJXtzWG
+ wLUD3hHw2ZrzXWdBloFDUl4KrYJVE/T0HyZPodNAyFZlXcxi7ZUhZdrLTMqo/ZwVnmGbSMLNjWT
+ 2CPEwTTns3ewyV+9JCw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA3MyBTYWx0ZWRfX9deDGTxIJ30Z
+ SpH4fjx9k9Eyr0Lk1ImSTxGeq/c7ZTzWw1/zJM7YUmjTbqXDBF1WNjZsQUnuvkJ3blTRhZAruPP
+ G0dw2w0Gm/nZJ42eHK5R23pqMxqhVR8=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_04,2026-11-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 spamscore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0
+ phishscore=0 clxscore=1015 malwarescore=0 adultscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260073
 
-Hi Andreas,
+Wire up the WCD9378 (Tambora) SDCA headset codec and the DisplayPort
+audio DAI links on three Glymur boards: the reference CRD, the
+Lenovo ThinkPad T14s Gen 7 (Mahua) and the ASUS Zenbook A16.
 
-> Am 26.11.2026 um 19:20 schrieb Andreas Kemnade <andreas@kemnade.info>:
->=20
-> On Tue, 24 Nov 2026 22:43:00 +0100
-> Andreas Kemnade <andreas@kemnade.info> wrote:
->=20
->> On Tue, 24 Nov 2026 08:25:46 +0100
->> "H. Nikolaus Schaller" <hns@goldelico.com> wrote:
->>=20
->>> The OpenPandora audio subsystem describes the routing links between =
-the
->>> OMAP3 McBSP interface, the external PCM1773 DAC, and the TWL4030 =
-audio
->>> codec, alongside amplifiers and power supplies.
->>>=20
->> I think at least in some commit message should be commented why such
->> an interface is needed and the generic sound cards are not =
-sufficient,
+On all three boards swr2 is the SDCA primary and swr1 is a DATA-only
+multi-master dependent (lanes 2/3); playback and capture run through
+the LPASS RX/TX macros.  The WCD9378 SoundWire port-shaping arrays
+live on the SoC swr2 node in glymur.dtsi since every Glymur-based
+laptop uses the same codec wiring.
 
-I think there was a specific reason as I would be happy to remove the =
-board
-specific driver as well. But I have to check.
+Dependencies:
+ - SoundWire multi-master support and the Glymur LPASS clock
+   controllers are already in linux-next.
+ - WCD9378 SDCA codec changes are posted separately and must be
+   applied first:
+   https://lore.kernel.org/all/20261125171831.1458954-1-srinivas.kandagatla@oss.qualcomm.com/
 
->> also as a starting point to recheck that later if these reasons are =
-still
->> valid.
+Layout:
+ 1/7 adds the Glymur SoC-level LPASS glue (RX/TX macros, LPASS
+     AUDIOCC and LPASSCC, swr1/swr2 controllers with the WCD9378
+     port-shaping arrays).
+ 2/7 enables WCD9378 headset on Glymur CRD.
+ 3/7 enables WCD9378 headset on Mahua T14s.
+ 4/7 adds DP0/DP1 audio DAI links on Glymur CRD.
+ 5/7 enables WCD9378 headset on ASUS Zenbook A16.
+ 6/7 adds DP0/DP1/DP2 audio DAI links on ASUS Zenbook A16.
+ 7/7 turns on the SDCA class driver and the WCD9378 codec in the
+     arm64 defconfig.
 
-Agreed, that at least a comment would be necessary.
+Tested on CRD, T14s and A16.
 
->>=20
-> To clarify a bit what I am talking about:
-> there is e.g.
->=20
-> =
-https://lore.kernel.org/linux-omap/20261123-omap-mcbsp-tdm-slot-v2-0-3e3aa=
-e215952@telaak.dev/
->=20
-> which might be one piece of the puzzle.
+Srinivas Kandagatla (7):
+  arm64: dts: qcom: glymur: add LPASS macros and RX/TX SoundWire
+  arm64: dts: qcom: glymur-crd: enable WCD9378 headset codec
+  arm64: dts: qcom: mahua-t14s: enable WCD9378 headset codec
+  arm64: dts: qcom: glymur-crd: add DisplayPort audio DAI links
+  arm64: dts: qcom: glymur-asus-zenbook-a16: enable WCD9378 headset
+    codec
+  arm64: dts: qcom: glymur-asus-zenbook-a16: add DisplayPort audio DAI
+    links
+  arm64: defconfig: enable SDCA class driver and WCD9378 codec
 
-Yes, it looks like it may be a piece of solution.
+ .../qcom/glymur-asus-zenbook-a16-ux3607oa.dts | 138 +++++++++++++++++-
+ arch/arm64/boot/dts/qcom/glymur-crd.dtsi      | 115 ++++++++++++++-
+ arch/arm64/boot/dts/qcom/glymur.dtsi          | 100 +++++++++++++
+ .../mahua-lenovo-thinkpad-t14s-gen7-lcd.dts   |  83 ++++++++++-
+ arch/arm64/configs/defconfig                  |   3 +
+ 5 files changed, 436 insertions(+), 3 deletions(-)
 
-This should at least also be mentioned and checked if if it is applied =
-upstream to rely on.
-
-BR and thanks,
-Nikolaus
-
+-- 
+2.53.0
 
