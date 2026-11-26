@@ -1,57 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795697170;
-	b=0fj27DV1kgbVeRzbeziQm/ojrLqrNhCBQ1u8bhGevDz7sVQG6iwCRAEXEc3k/zN1ZARc
-	 zXilKo5zJYdOpAdxJbKAObiPkFnhDbbo7joII+367TqLSenK3UixFnrM3wh32M/SwgEIf
-	 jUF7y7nkL6Fu1+mjoAhEpolpRBjaWCaADq1iynW5KjhukpN2UaJudzWKqJdyghMZwHeX3
-	 cM5l/BgjxkXY6RqlKiN/7fQJcqftElMRvSZpJB8rAEy7PMLYO3wuPdTJOsNlvXCxhDLc3
-	 i5dE7MWzaTUx+tR+PlhIiiKr42RDj2o+/tXI/fI286E54yf6dUpFV5WfAGrEb+g+q3A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795697170;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=rdckaT7Rt0EQb8wTCfji2xEphbWqzL0dz1XZ9l8Clsc=;
-	b=qhKLMd9qKV9RTzZQTp3Bs0jHVQFKhVYTR4yfrD4kq3gfYDw24Z04QzdEvU5mBmVuScPA
-	 XtfuSeGmi71fyH5g78R7i2cF6o/ekwqbZR9wBrOSnfGzQ8b8CZZ7i+vgKZmWK9bwQeXcS
-	 omdFAdxM+8/PVmGTjXyaKwtKVHmrIdHaLuN7mOJRu6prYVVmMhitXGzAQIMhG2YVjzqMC
-	 dzMW9IJdarPZ1dPETwFvkZihde/JGGIJctjISA66BarcLCHrbV2bpVCUqLMpnXTITnAoW
-	 r1ID2L+f4gqpAm4FVNTWeG7UUWiYTsV2o9E6OoDtkpcgr1v9rRnY5n1G7nRCCN0Brpg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JorL3aJo;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.43
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795697226;
+	b=IQwiZTLpj0mZ511bTEr/h/vIfkRs3H4Pc87sr0QAQDeJoaStRwXX9OJqC9YxfD67grnm
+	 LnXEhFZUASvL8wgQn20ZtVNgqNPxuS213TibKwEXXJcwpz92b6BA1aabsSxKV+Rop14qT
+	 cZidoo+OQQrzyLqVE3iiof08ncmM2aNCJSLeEslQBffWpSTbUke0k4HsB/J4MnYJP6ZKt
+	 Hd2BeQRB1FVjwYqEkrWh9mhMjWjiW1Q/mW2wik3QqvTSr7tLrGF9kNcmRdOV2t4KhQRyn
+	 BaGbGjYZAc7sq7mdgmACAfmdCH4o7iTCBDtkv4AKK0LpnZBGu1mx7BVHosBe+fmOc6g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795697226;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=0sDCO1ovM17uMu/VOcrsRpcY05yXe7IWxHNvX+k7W9A=;
+	b=iMNYIY3+77yBW33kz1nOkMgwe3gMKAJyFlhJPIHTXxmAo/82SeflV+pg/A3SBmlwuSCL
+	 6ZpL2PICFxtC0DcbhWfkmR59O4oivpmHPbwetWlyobHUcqMqC6JasoimrIQ2l8PyjktK/
+	 WiGHCYMI4coLjFn0qF7eLFAySWC75CjUfVlbJT2m/SC9rcckgU1zqXkC2wWU3hRrBnHO6
+	 G3kuxRPHD/XIGLVXWXuZddaDP2+NJkPombMElvE5/fMGLNnq192gzThxjVH2abmRUVlXb
+	 yZHohAvcxrUqKQJFhRlXU+2Ei6tKJuIAHnD4M65Cbz452GqV1gvm6Qvx9e/WaUZ/rqA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=flashbots.net;
+	spf=pass smtp.mailfrom=flashbots.net;
+	dkim=pass header.d=flashbots.net header.i=@flashbots.net header.a=rsa-sha256 header.s=google header.b=EQ7J7XaI;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.43
+Received: from mail-oo1-f43.google.com (mail-oo1-f43.google.com [209.85.161.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E03A606A31C;
-	Thu, 26 Nov 2026 12:46:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 373C1606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:47:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 373C1606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=flashbots.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flashbots.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JorL3aJo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D33A1F000CF;
-	Thu, 26 Nov 2026 12:46:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795697169;
-	bh=rdckaT7Rt0EQb8wTCfji2xEphbWqzL0dz1XZ9l8Clsc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JorL3aJoW2gdhWICjJZWD9lShxKhQ3aR0FERUD/a77KVrVtieN41jVosl/Ng8vteW
-	 e6zG24bGmaK33JWWjSlqLWYtW04LUWdomEe99l3sFtRjQoIaTzqWjIEvvWPFK6wsfU
-	 Onjp4PZYkYghGmM6w+W8yDHQRobbwtj9+secXT8gVa+iOzTk2nHnoxkbp9ilciyYOE
-	 yB7orAik8emW3NxVWiTDMq8VRJXNAqzjiIqb06uWgVhwu3yAtGBMcXF0dIVH2OadCx
-	 wmfkKIjlrp6IFAtnJ8bsNGiwKsyHzeNaKZXzyJHmbvq78PjtVFGkn4qiYIufExgQyj
-	 cjHDti7AVJzzQ==
-Date: Thu, 26 Nov 2026 12:46:05 +0000
-From: Lee Jones <lee@kernel.org>
-To: Svyatoslav Ryhel <clamor95@gmail.com>
-Cc: Daniel Thompson <danielt@kernel.org>, Jingoo Han <jingoohan1@gmail.com>,
-	Helge Deller <deller@gmx.de>, dri-devel@lists.freedesktop.org,
-	linux-fbdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] video: leds: backlight: lm3533: Support getting LED
- sources from DT
-Message-ID: <20261126124605.GI38590@joneslee-macbookpro.roam.internal>
-References: <20261115085155.80043-1-clamor95@gmail.com>
- <20261126114506.GF38590@joneslee-macbookpro.roam.internal>
- <CAPVz0n1QApS9Y67WH1xJ34wg9AWz+RQ0DXEd5jAPEnAw=cTd2g@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=flashbots.net header.i=@flashbots.net header.a=rsa-sha256 header.s=google header.b=EQ7J7XaI
+Received: by mail-oo1-f43.google.com with SMTP id 006d021491bc7-6b1afdf5196so2725466eaf.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:47:05 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795697225; cv=none;
+        d=google.com; s=arc-20260327;
+        b=MUzEn5PhFXkCPV+3+Ze9ZsDBIJrx+GQNCkIOsJz8NvbI/n2HaR8sWMLvxm6c2cVv9q
+         PHfdMvL81Ra6rHA1ko/wT+aBoGc+EuyCRjsdeOGPtfRjfqAMs4EXgk+ncVyYFOxkHpTF
+         z3kNVuNTroqU6uGO3/LLwXMyFDgd+W4tt/Il0zoSBdhRZjUy82rUjh0e9ej2/a1TXhEi
+         +fEwPD2vcHt4McooL+YqWMajMTMZJuUFbLCai8BmIu2Ge96a31huvXQJMaqxyxemEh+w
+         6KBvdgUN/SZoFezlK8EBJHTtmgftCoojKUJe3PJ0vv+1b8ZS1wIpJyrOZgaP/djXAttx
+         auQQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=0sDCO1ovM17uMu/VOcrsRpcY05yXe7IWxHNvX+k7W9A=;
+        fh=bmAjQOyRXbpxv5MWukAJNEUmVi3zRyXYZc/TyqtyFqo=;
+        b=k513/TLd7STI4xLk2UBJS9U0dv/XZ32h0918uA/+wXgH3a6kEUm26Syswfgd6DOGYA
+         QLpireNNCf523rKL/cMP1i3VdjRE96JTPLCwemyzpi3r3qkon7Vbgq2YU2N8Qi0ZyZ8a
+         ezRg25jmEO/MtwpGerXjAIaVQbiauOvP/eRfURp+WP2mCoQHSyd9RVQQrU9SVZQCSvqw
+         FW2fuxK9fmbmZHBIwxEMJDgiA4Q0gJKFf06evrl6jCIYfbkwoO1Zqh/YcslpaYrZjk/J
+         Libsfg07rG7TzLgePG/Kp1w3m1UMtBxu59es0/fBDCBD0v9CQETmJDYyWzC7a8KMwsJN
+         0WBg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=flashbots.net; s=google; t=1795697225; x=1796302025; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0sDCO1ovM17uMu/VOcrsRpcY05yXe7IWxHNvX+k7W9A=;
+        b=EQ7J7XaIadF3uAn4gbGhDW9T79STu0JpBcKnGDPwJMdcYfp2vzoJ4A3jFOxtwEDQqp
+         dojXRykuli4jE+05IotP5k2+v+UoX3fCRGvkQg1TNhJMZWlrqhOPq83sBJicQc4pFHt2
+         /cleHU92klXpCLQCARLmfaNbraGAaItzY6T27iQIKsRh6G8Yf0L7y+PYNwhxGG42LuvG
+         YqEIdtE5gXippnFoyU8kI+xk6QL+vl8rwIzufLbB1GrLfLqKbuBo8Zek4uVaddpq3xvg
+         LuYEULMIbvaKfNsFn1u3pvqDrcI+/vEqpPxHzAIRwIIMCSNRDGj5FS87s4xkEfqOdC85
+         wZQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795697225; x=1796302025;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=0sDCO1ovM17uMu/VOcrsRpcY05yXe7IWxHNvX+k7W9A=;
+        b=nu8jIkbSA/xEqeb/7+M8wP/gSSwiMzW2FbNGZUK/MNYhI1J3QVW6sY0UNWdJUYuoV7
+         oht7sF1oGmdC2LyjVU+GRvch2BMwAOCiCyH84sNQxub5JT6YHxccg3S/Xg0gJ7yWwqX5
+         /YRpaF0PrfR0kz3KHt1MbeD7NCwyZnob0enTHGRb2c3PknbRa81eNPxoyQREHd74dHpD
+         h+ye+1x32Ghe1wm2P2nw+MJWH0LpyCLfgKbUuB+AZ9pEmHndy3ZLf1AS3xkL2g6Yx8ww
+         JA8jtCsF3J1eok+tocoLkp8LVrYCnSQ9ZFcsqUxB7X5keHBb9HZsOs9Ohh7VIAVGe5Bm
+         bJWA==
+X-Forwarded-Encrypted: i=1; AL+hErFsPyRe0pvoJV+9p/rq4OpLcYB8uro2Jxw7Hk2Z/NhHnfAtNm/ZiAzqZr1c2qhOiPgHdHAmOYZmrIKEF0A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+lLX0U+rjmgG3ELm05i2MvOh1fFAJCiVWcPuFC1RjFjK9j8GDS
+	DTN8WBdYoMt2fxo6QIL2LN0B0lPr1zu8iHopPw/qUtg1aXZa0/dd4GiiLwl8cr/b1++jTybuDGU
+	Gq8XVktYvOnNAO94/AmVKnAB08dR+V6EUP9sWqqDjGA==
+X-Gm-Gg: AZFdTZfDRHOx+rofkeDLe2eilZQnkOhUVN8hEpR0BZ6PU106WrhOHqDD2SnqzFENyi4
+	+ZIrnlHs/wcWVrpt7YFRhp4rRSegXvSxJOrW9G86Nq+xiIwxOaS5SoGTUjuIZUS0CKyEm0be7XY
+	ttyfMIFOwV+PgRe9f7reHTJhTQX3v3STB0X3Gse0Suu1WZ3+7aemZ7Ye67Jlb5kh9eBUJ8lBgGR
+	6I/Bow9YvBx0f76i2CBMZWo5iZyTBHu0Kp1/4GhnbPLPEuSRHjmCYFy9qliGj4hHLAKJNJKjcsk
+	v+mWnBrR3A/6BY7kYJ6hwEL+SZUG6YlSjREPof1xcZ+Ek/S2zCgNHhKxVxrYtqx+KvZjAc8UtdT
+	iqQCaEFJJiXcf5aprQ2LZhw9fFjx501ev4FHj3U0K6PFiyEZKKNIobS9+ebb9OAcIH4wVaJjWkj
+	7SBuh1qMRpVus/DXuZoAn4m/fGjUlkGhBYJK7vvZ5WzP0X7AIqbYwzZxxf29i8XsOwoWSUNgsN
+X-Received: by 2002:a05:6820:55da:20b0:717:da:ba2d with SMTP id
+ 006d021491bc7-71b3949694fmr12426690eaf.42.1795697225084; Thu, 26 Nov 2026
+ 04:47:05 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,119 +104,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAPVz0n1QApS9Y67WH1xJ34wg9AWz+RQ0DXEd5jAPEnAw=cTd2g@mail.gmail.com>
+References: <20261125-tdx-guest-quote-poll-v4-0-d89f26854b88@flashbots.net>
+ <cd7bd4428398413e16ff214fc46f5d65076757d8.camel@intel.com> <436c641a-9d35-4695-b41f-547c46479a5d@intel.com>
+In-Reply-To: <436c641a-9d35-4695-b41f-547c46479a5d@intel.com>
+From: Moe Mahhouk <moe@flashbots.net>
+Date: Thu, 26 Nov 2026 12:46:52 +0000
+X-Gm-Features: Aa3M54qbjy628W_XZiCsTaWPDZAxjlqcXQ_RCIdX0UR7G-Q3f0Ja4RKHzIf02Lc
+Message-ID: <CAKV3HMNoCbBeyAsH-UHHC2wWm5fE7ps0mo_E3TKJw0Vk47W43g@mail.gmail.com>
+Subject: =?UTF-8?Q?Re=3A_=5B=F0=9F=9A=A8ext=5D_Re=3A_=5BPATCH_v4_0=2F2=5D_virt=3A_tdx=2Dguest=3A_Fi?=
+	=?UTF-8?Q?x_and_speed_up_the_wait_for_a_Quote?=
+To: Xiaoyao Li <xiaoyao.li@intel.com>
+Cc: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>, 
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "kas@kernel.org" <kas@kernel.org>, 
+	"sathyanarayanan.kuppuswamy@linux.intel.com" <sathyanarayanan.kuppuswamy@linux.intel.com>, 
+	"thomas.lendacky@amd.com" <thomas.lendacky@amd.com>, "Aktas, Erdem" <erdemaktas@google.com>, 
+	"djbw@kernel.org" <djbw@kernel.org>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
+	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>, "Miao, Jun" <jun.miao@intel.com>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"stable@vger.kernel.org" <stable@vger.kernel.org>, "x86@kernel.org" <x86@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 
-On Thu, 26 Nov 2026, Svyatoslav Ryhel wrote:
+On 11/26/2026 5:42 AM, Edgecombe, Rick P wrote:
+> I think something went wrong in the send. All I got was the coverletter and it
+> looks like lore did too.
 
-> чт, 26 лист. 2026 р. о 13:45 Lee Jones <lee@kernel.org> пише:
-> >
-> > On Sun, 15 Nov 2026, Svyatoslav Ryhel wrote:
-> >
-> > > Add Control Bank to HVLED/LVLED muxing support based on the led-sources
-> > > defined in the device tree.
-> > >
-> > > Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
-> > > Reviewed-by: Daniel Thompson (RISCstar) <danielt@kernel.org>
-> > > ---
-> > > This was part of the original LM3533 controller DT/OF conversion patchset,
-> > > but it appears to have been accidentally separated during the final iteration.
-> > > Therefore, I am sending it as a follow-up.
-> > >
-> > > Changes in v2:
-> > > - leds: switch to macros in regmap_update_bits() calls to apply 0xff mask
-> > >   since regmap writes may cause unwanted writing.
-> > >
-> > > Changes in v3:
-> > > - leds part moved into a separate patchset
-> > > - switched to dev_err_probe()
-> > > - for loop moved out of if condition
-> > > ---
-> > >  drivers/video/backlight/lm3533_bl.c | 44 +++++++++++++++++++++++++++++
-> > >  1 file changed, 44 insertions(+)
-> > >
-> > > diff --git a/drivers/video/backlight/lm3533_bl.c b/drivers/video/backlight/lm3533_bl.c
-> > > index fd6e7f4f1f61c..cb9df6ff73001 100644
-> > > --- a/drivers/video/backlight/lm3533_bl.c
-> > > +++ b/drivers/video/backlight/lm3533_bl.c
-> > > @@ -7,6 +7,7 @@
-> > >   * Author: Johan Hovold <jhovold@gmail.com>
-> > >   */
-> > >
-> > > +#include <linux/bits.h>
-> > >  #include <linux/module.h>
-> > >  #include <linux/init.h>
-> > >  #include <linux/platform_device.h>
-> > > @@ -21,6 +22,7 @@
-> > >  #define LM3533_HVCTRLBANK_COUNT              2
-> > >  #define LM3533_BL_MAX_BRIGHTNESS     255
-> > >
-> > > +#define LM3533_REG_OUTPUT_CONF1              0x10
-> > >  #define LM3533_REG_CTRLBANK_AB_BCONF 0x1a
-> > >  #define   CTRLBANK_AB_BCONF_ALS(n)   BIT(2 * (n))
-> > >  #define   CTRLBANK_AB_BCONF_MODE(n)  BIT(2 * (n) + 1)
-> > > @@ -35,6 +37,9 @@ struct lm3533_bl {
-> > >       u32 max_current;
-> > >       u32 pwm;
-> > >
-> > > +     int num_leds;
-> > > +     u32 led_strings[LM3533_HVCTRLBANK_COUNT];
-> > > +
-> > >       bool have_als;
-> > >       bool linear;
-> > >  };
-> > > @@ -236,6 +241,8 @@ static const struct attribute_group *lm3533_bl_attribute_groups[] = {
-> > >  static int lm3533_bl_setup(struct lm3533_bl *bl)
-> > >  {
-> > >       int ctrlbank = lm3533_bl_get_ctrlbank_id(bl);
-> > > +     u32 output_cfg_val = 0;
-> > > +     u32 output_cfg_mask = 0;
-> > >       int ret;
-> > >
-> > >       ret = regmap_assign_bits(bl->regmap, LM3533_REG_CTRLBANK_AB_BCONF,
-> > > @@ -243,6 +250,21 @@ static int lm3533_bl_setup(struct lm3533_bl *bl)
-> > >       if (ret)
-> > >               return ret;
-> > >
-> > > +     for (int i = 0; i < bl->num_leds; i++) {
-> > > +             if (bl->led_strings[i] >= LM3533_HVCTRLBANK_COUNT)
-> > > +                     continue;
-> > > +
-> > > +             output_cfg_val |= ctrlbank << bl->led_strings[i];
-> > > +             output_cfg_mask |= BIT(bl->led_strings[i]);
-> > > +     }
-> > > +
-> > > +     if (bl->num_leds) {
-> > > +             ret = regmap_update_bits(bl->regmap, LM3533_REG_OUTPUT_CONF1,
-> > > +                                      output_cfg_mask, output_cfg_val);
-> > > +             if (ret)
-> > > +                     return ret;
-> > > +     }
-> > > +
-> > >       ret = lm3533_ctrlbank_set_max_current(&bl->cb, bl->max_current);
-> > >       if (ret)
-> > >               return ret;
-> > > @@ -320,6 +342,28 @@ static int lm3533_bl_probe(struct platform_device *pdev)
-> > >
-> > >       device_property_read_u32(&pdev->dev, "ti,pwm-config-mask", &bl->pwm);
-> > >
-> > > +     /*
-> > > +      * If led-sources property is not set then either this Control Bank uses
-> > > +      * its default HVLED or is not linked to any HVLED at all.
-> > > +      */
-> > > +     bl->num_leds = device_property_count_u32(&pdev->dev, "led-sources");
-> > > +     if (bl->num_leds > LM3533_HVCTRLBANK_COUNT)
-> > > +             return dev_err_probe(&pdev->dev, -EINVAL,
-> > > +                                  "num of LED sources %d exceeds max %d\n",
-> >
-> > Nit: As I mentioned before, this is user-documentation - should be number?
-> >
-> 
-> Daniel Thompson was fine with num
+Thanks Xiaoyao. Rick, both patches went out with the cover letter and
+were addressed to you. Lore has them in linux-coco, kvm and lkml:
 
-I'm not.  I'll let 'max' slide, but not 'num'.
+https://lore.kernel.org/all/20261125-tdx-guest-quote-poll-v4-1-d89f26854b88@flashbots.net/
+https://lore.kernel.org/all/20261125-tdx-guest-quote-poll-v4-2-d89f26854b88@flashbots.net/
 
--- 
-Lee Jones
+Maybe a filter on your side caught them. This pulls the whole series:
+
+  b4 am 20261125-tdx-guest-quote-poll-v4-0-d89f26854b88@flashbots.net
+
+Happy to resend if that is easier.
