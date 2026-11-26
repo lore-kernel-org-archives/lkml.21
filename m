@@ -1,92 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.193
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795701464;
-	b=ddakOYWkvUH73UyYWhJF7lYQQxPz8Sk+eAPeqhWDZx82OvtoSFsRLtBVk93LdiqFcf4g
-	 hkYmWgz/Wa1EjbHaERNM/u6PgzZ0Eby5rjLBIKeq8Vxma2mCQM5XK1PY1IlEdNcaYwStQ
-	 fiANAlSVErZ+VeSaMTvcgLxbGM6P24Iv4c/WpMmh/f9dW+OmfkO4aVazyQeUy0AO9RtHb
-	 /F2uUo9cktqLlyM1rAOWiBiY23EzC9Ks801ncjOgXj2LHCYWUNhpTbwChhy4V81KgxZGE
-	 AMui/2OMWHCUfEMbjR47ZseACrUYBlc+5Ze4LuqTzmY1SIrYt/NkWKiwlSjGhH1ObyA==
+	t=1795701474;
+	b=aUc7kG5LmpLRoePgCK/Z5GLyYzFux4srDEJchllS6flD5xL4zBuzGU0VhtG1/6UorGOt
+	 zBPRqjBjfG2vj2S8y44a2O20EJ3VjcVagYdwzWR5HhBWjh4dXkbeLau/JtvVdVLu8gV6G
+	 cv06iA8nZvGibCNZvfFrcfUpFgwQrtzVA6aiikzUYb8LNiKQwO4nkOzCdH3/KpiEjrV5J
+	 N1sRqsONdnqtubKkrNi+8XWq9g5qsmB60O4lCoYtV1AFcxLTteV7NOi+Q2oBUO6i5uS7E
+	 5oVm4XlgNvbAMHfe5flE4RJwJnPnGzILCY4SEtcM6dGKXEdF9kJwu+STfOGG2DlK3ZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795701464;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:User-Agent;
-	bh=gBovmTrABiLokh2i4ArfvqDEnoWzprwQsU/xF7x18sE=;
-	b=apw5FbX6Fd66+o9Z1ewLxogf639a0wX3eBq68oK8T6ZyrEy/1cItVMZv2f3H37uNhpvf
-	 V4Sy6LDc1tOJkR3sUTjq8UGZ2lMtslL0DJxd07NO0Ww9+0CtHDMq3+EnY34BrPTHkW71E
-	 ks5SmGcJlfUAIqg/xvUz7Pt4qbJ7P7EOcmZzOCFLvP7l+lw6umhABnitZP+qDkmiIJjON
-	 fnYe7u68qYj00lGSA04NO0xg2+cwUuEeO840JEZwK5UxAKXEw0/sA/NKTPlviG2Nrb1Wu
-	 wqe6iHCfwCXEPiufcK/xPmhYt3TRuoIX08TADnBaWApUMO7m5noE/gEJEYzp/nLo1/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795701474;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=oFxbX5GmOwQ/mB0J3seWtRVSnrdoHA20aPgMXi8ZrAE=;
+	b=45rmVMgEFfsH6Q1SoFRykFbkN6sHCsqjmOQsg9t8foxDs0nicjuaC2OfMqXY0FGDDt6M
+	 TIJj/88igcIpvX3jTMrEm1cGxOJpv1Rr5L5QPVqXgQmJMxq85OHAT6lsjatqnHPCA+Y/m
+	 yyie0WKgKnGbPTbA5T4UBHqCjX09UJragLKA9bOJgL/YN0qdLrFYrOBXCKidKzEotYjXb
+	 ylinDwcG+aNebVrliZl644Sg/+zTNX6SjOV185UPWT7h2yUWe3UgwiqsiL+wJt252yrWR
+	 iOfDdb5xFqkleLI5jJbSLbKQdqjZQ+9On5SOwXT7JPPDCLDJXHeI8mtPHNZ35Ql8xNg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="H/4z7pl9";
-	arc=none smtp.remote-ip=209.85.214.193
-Received: from mail-pl1-f193.google.com (mail-pl1-f193.google.com [209.85.214.193])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GuxfGXUW;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0488606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:57:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0488606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E40A606A31C;
+	Thu, 26 Nov 2026 13:57:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=H/4z7pl9
-Received: by mail-pl1-f193.google.com with SMTP id d9443c01a7336-2f02b9c1f6fso48385725ad.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:57:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795701463; x=1796306263; darn=vger.kernel.org;
-        h=user-agent:content-transfer-encoding:content-type:mime-version
-         :references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=gBovmTrABiLokh2i4ArfvqDEnoWzprwQsU/xF7x18sE=;
-        b=H/4z7pl9RA20KbF8J3Si8jSrphXhiQksVCnaUzj7RRdinRy5AhjsP/mxYDQOfaR/cm
-         SxLVg6LJuISuIcBdotF63WPCnCihYNebupidg2D1HoAOQD4PLBeLLmk6adfCZx8grbxv
-         8U8d51mmC+rbuESRPwnNqPrhgb2B+igO+toLUA1MkT/XYD/YUoOgCvrCXh8RwlEP1nzY
-         4Ld7nypQXPWDxo64Abt5Yp6izMk0BtNPXkJ6NS/gX8EOlA1HnnGzZZiqC0y7EnMP3Nh4
-         byVjw9IWa2Pth8IaSGYZOtxP8T/nyA80fPLntrVRG2OWE9+gxJAvIn3pKtYURCan2boW
-         km9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795701463; x=1796306263;
-        h=user-agent:content-transfer-encoding:content-type:mime-version
-         :references:in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gBovmTrABiLokh2i4ArfvqDEnoWzprwQsU/xF7x18sE=;
-        b=av0IWsq89OUxpQoezUWa3izGp6cIZRdSYoyDgTJzTBeRIiJk91SbzC3ilPdx5Hw2+/
-         r0QCwonUIOtuCowtHQYvoB1esu3QMm1EpCWt3H1uQuCW5vJF7JHaDLzFqm2EqF0SItnm
-         phjzLCjXzCln3HGMWLmH/oEIH5xh68YVzXJsJ43cnpld24v+yRWQIR7BnZOn/njvvyBA
-         EOvgo6E+tudJNWmWaIwbAT4MMMgVRUJpbztySBjfWHkcHH9iytaN73IDg6vxxNyLhyI8
-         SWfPGMTOa+jyw9IJLa8CTEyF0YpppwY+xjEQQUpWFEsA4ECUSi6YHXKm3/pZNBgACc2U
-         sx9A==
-X-Forwarded-Encrypted: i=1; AL+hErEjv3Zr1zsvLgOuEluGsvIGbEY8idMJwpKmXcVby4eplLMLNNtJ9mYBC/oAijJffPaWLu6sk3Rm3hGzHjw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9WN4AjYg1OB9sfV4C8yMAQrVDaGK7Y9hEphhZkVwpZtpYwj9qr
-	1wgS8YRfMu3qKeF1UJTwM+svAg/kKrm+zvLtCAqyck4JHV0F4TID0MJC
-X-Gm-Gg: AZFdTZcAEBAs3E2jOU+BFqK4ELfEMhu+EK6McXqse5loahag4lqbgAp/0x48pZpSPFu
-	rQT1Jvs9QTIdP+2boEqwriiexL3kqWFg5NlqLi6AFDppNPz3b6b7kvWz8aUPWBXGTBdmenxpRLA
-	duFumVCE/44xYM1TucPchng//MeOxHnFmZLkYda4Kii0CClpqiAR6/jU9bwOMQYjmZxgvJgR2F7
-	6nH6TjFDzB909PPVJ4z1kwazzHA3H+h0f8RJBOZaW4cJ6muS+zzpNFrdtb6Eki7b/n30gXq1whQ
-	+mP3IKg001bfivLmPR8k2S75r/8JVNmuGQqqi5HmiHMwUN797L1447Q43Ctda9Mx2jRlPeRiZ7a
-	aeJmd8VFxkK1QeoLILG9kwsN3pzfRcgxYeAfaSebt2qj1qjuorhcChxKZuWGfS+FB+8UFvCPgY+
-	kHc5gv9Jo/CByWNjudTOzI1+kTlaH8RmbJGuMo41kNLAYGZDlRmuxARRCWiF/chEKBBktIcp+M+
-	GLpL5Eu2EEJNvxAxKKDV+BA24guhTD5ft9zfR2e/+6GhIACKDtarOvguooZyU47OyobFI5k1T/6
-	tENnh7rMoJk9ao1T6kwUgRn+h98KfB6ncyqo3PU=
-X-Received: by 2002:a17:902:da91:b0:2ef:f6dd:87f7 with SMTP id d9443c01a7336-2f031e1aec9mr168022165ad.7.1795701462897;
-        Thu, 26 Nov 2026 05:57:42 -0800 (PST)
-Received: from [100.88.6.56] ([1.55.160.128])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f142b8bsm102157175ad.70.2026.11.26.05.57.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 05:57:42 -0800 (PST)
-From: Tran Van Tien <7enlab@gmail.com>
-To: ojeda@kernel.org
-Cc: a.hindborg@kernel.org, trev@trevrosa.dev, nico.antinori.7@gmail.com, boqun@kernel.org, gary@garyguo.net, lossin@kernel.org, aliceryhl@google.com, dakr@kernel.org, tmgross@umich.edu, rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] rust: sync: make AlwaysRefCounted::inc_ref an associated function
-Date: Thu, 26 Nov 2026 20:57:35 +0700
-Message-ID: <1795701455.1cac907f@gmail.com>
-In-Reply-To: <1795689815.75b422ec@gmail.com>
-References: <1795684556.6d661f19@gmail.com> <1795688552.31c01b07@gmail.com> <1795689815.75b422ec@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GuxfGXUW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3383B1F000C0;
+	Thu, 26 Nov 2026 13:57:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795701473;
+	bh=oFxbX5GmOwQ/mB0J3seWtRVSnrdoHA20aPgMXi8ZrAE=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=GuxfGXUWk5lu85fiRFsQvZzX+DoKoKavyQ0zBzdm2wPMzQ/GNDleLygUfU4xos1Ll
+	 g7fsP08KMJ9dvEOdKBVHWHjFFoLN75ebB6j29ZK33J3C+6eUD35KKt6K5jwPmN6C3l
+	 BgHu1q4WlPpn0hbWR0G4D8S+FAH0bimTVDfuVU06RQ8x+6jsMnf2L6nSME0GuwHgYs
+	 QPQzMBYRFgJ+RBBrlrTfFJzMK9WgJJJepVhSTye+xjTbfvNXEHrQoO44Q09kG5ek4g
+	 X4EMHOQFbbMDoGoHjJLeSOFiq2AchWmUtz/Kzc/JhAmRUjQ3cs9L/68n/16quS5+aO
+	 48v7wAIA7DehA==
+From: Leon Romanovsky <leon@kernel.org>
+To: Zhu Yanjun <zyjzyj2000@gmail.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+ Li Zhijian <lizhijian@fujitsu.com>, Qiliang Yuan <qiliang.yuan@linux.dev>
+Cc: linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Zhu Yanjun <yanjun.zhu@linux.dev>, stable@vger.kernel.org
+In-Reply-To: <20261123-bug-rdma-rxe-large-mr-v1-1-8d0748ac4a3f@linux.dev>
+References: <20261123-bug-rdma-rxe-large-mr-v1-1-8d0748ac4a3f@linux.dev>
+Subject: Re: [PATCH for-rc] RDMA/rxe: Allocate the MR page array with
+ kvzalloc()
+Message-Id: <179570147092.1268685.12258502184760865370.b4-ty@kernel.org>
+Date: Thu, 26 Nov 2026 08:57:50 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,31 +60,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-User-Agent: Mozilla/5.0 (X11; Linux x86_64)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-18f8f
 
-Hi all,
 
-I am withdrawing this series. Sorry for the noise, and for the sending
-rate in particular.
+On Mon, 23 Nov 2026 04:26:42 -0500, Qiliang Yuan wrote:
+> A user MR keeps a struct rxe_mr_page, 16 bytes on 64-bit, for every
+> PAGE_SIZE page it covers, in one array allocated with kzalloc() when the
+> MR is registered. Before the array, the pages were kept in an xarray.
+> 
+> With 4 KiB pages, the array of an MR larger than 1 GiB exceeds
+> KMALLOC_MAX_SIZE, so registering it fails with -ENOMEM, and the first
+> attempt warns:
+> 
+> [...]
 
-Andreas is right and I was wrong on the design. Making `inc_ref` unsafe
-and taking `NonNull<Self>` adds a safety contract that is not needed:
-leaking a reference is safe, so the function does not have to be unsafe,
-and the argument should stay `&Self`. The only change that is actually
-wanted is that `inc_ref` becomes an associated function.
+Applied, thanks!
 
-That has already been done, and done better than I did it. Trevor's v7
-does exactly that, is at v7 after review, and carries Reviewed-by from
-Alice and Andreas:
+[1/1] RDMA/rxe: Allocate the MR page array with kvzalloc()
+      https://git.kernel.org/rdma/rdma/c/80ca1d1f85f410
 
-  https://lore.kernel.org/rust-for-linux/20260628100731.64885-1-trev@trevrosa.dev/
-
-So there is nothing for this series to add. I will follow Trevor's thread
-rather than send another revision here.
-
-Thanks to Andreas, Nicolas and the sashiko bot for the reviews.
-
-Tran Van Tien
+Best regards,
+-- 
+Leon Romanovsky <leon@kernel.org>
 
