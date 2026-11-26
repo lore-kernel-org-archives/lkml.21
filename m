@@ -1,105 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.51
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795718930;
-	b=ZMH/JvtfXtG8cym8phE9WOIKANkoZhs2jfjLE8UzrIISReTLOfmkovhhdQhJVk9Nl75k
-	 DvfiC2AAt51X/aBCRzs9RaGWnTyKD4o5bTrs9AG7TgxRq5poTOcsPCAXzwOw0aNLJwJal
-	 KYKdVNiNVJrHKZeL6q//cBlzmgy+437LseU0L5lIA4Lvkk7jwMBe4v/iWxBcdiojhno8a
-	 lvjUFRGrclThEJJFylXRgfhSeqA/zLUYCaJJG6YPyl+SHhxHo7WliElMO6ow3uN3eW4Pn
-	 YlYR3wcnMoYsKR9tajt9+jQIUQySxTA3BB26A/WuXVCkEOSKYu+DEwAenxUIBjQTyXg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795718930;
-	h=DMARC-Filter:X-RZG-CLASS-ID:DKIM-Signature:DKIM-Signature:X-RZG-AUTH:
-	 Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
-	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
-	bh=wHbMfkEgeLbspY0fh0ArFGt8zK65HnmhBzUvEdl637s=;
-	b=GCIU4mAFYzhlG7OocyGKjARqLDlOzDSKkhwRqsF5blrKFx2cbLttriPRvtbMiwpVu6gI
-	 ZUTXUv1rVdVyGywMKHh6wEQEOYTxmsDjbsUNcibf3ovCv/v+LEnnBXzulwDtKSCpPCugT
-	 99nvRhEX9wXZUPLa0di10jwjDDOa9FiwXGBzk2CQEXK0oaUnxB4vtHWM6yXmUpolLSDlX
-	 JmPRlpmFI7iNvbty9psbgq2bllame9cc0pcCigRZRYTe6UDXoWhXspWDrcLltBsi8rwSQ
-	 jBEeh+M5om+00zIWztchTBWg1rYvV56iuK7qWqj2q5BMEnHYBItUqWXhWjUGjwyMjsg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=iokpp.de;
-	spf=none smtp.mailfrom=iokpp.de;
-	dkim=pass header.d=iokpp.de header.i=@iokpp.de header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=Kauqt8EY;
-	dkim=pass header.d=iokpp.de header.i=@iokpp.de header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=Lw36d0A4;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.51
-Received: from mo4-p01-ob.smtp.rzone.de (mo4-p01-ob.smtp.rzone.de [85.215.255.51])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795718971;
+	b=DliFpQuKO8An4SwNWfHup8T7yxZR27nQF1kkjLzXol2D73nIQryPoLTiCIMicuNWomrQ
+	 iYmtFaX3G85svq0I2Vz42Mb7G9dJ4cU0YJX96o5NZ0LZsHOk4S3cQJAjLtL9IsxiH2mn0
+	 s6OrYyeRkhqRpGdboba7zGnxya+2N9m0PeTySrKeBgZvuTVstWBAO/Z9E7e/9CdQJ5EzP
+	 pEoxWX6A3x2o6gCCbIMMj+mGhYeuhMXPpSzpJs28r8bw7nAPP8tWroHZTvwfNW7XgBvsf
+	 ZNaoVslQUXZLD7bGClCO5c1JJEWqedpKU29bKwm8t7CcL5QlxxYth1p3oJm7/THwIQw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795718971;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:User-Agent:MIME-Version:Content-Type;
+	bh=OJrIBssRihwY1hjT7BcClChtfC90/g3C4v7S4XKqBtA=;
+	b=1ErA4LhnGlgtuk8MKI7pnLmq49cXV/V2k5icPnzeNImobp3bnavyNU8END0emyu8WUSH
+	 7kFegIm5sZsaWAnLY5ZvI4Gp738I1dwxsPMklJFWSdoz6sRemFf0RFrRlhQpcPaYfzD3A
+	 Kq6UN7n8NDvn6RYZaCXg5rCJCsePDyO9E+8YMts6raCD556/PHJsxinmZSbrl70LBCAnK
+	 s0xisFOo6VBbC/JUduPrSC2o8qPZDhKGPKMVExYJnKoNuUUwvpzA/rDUsDkh3OrqTZOTG
+	 UEfVX6RV64JCtw5hat73RargdozJFqZVtepj9gz/tv/PFOkYyRb2TtzpR+/no4uJu6A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n2CNBE5+;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1EAB7606A31C;
-	Thu, 26 Nov 2026 18:48:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1EAB7606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=iokpp.de
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=iokpp.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDEA5606A31C;
+	Thu, 26 Nov 2026 18:49:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=iokpp.de header.i=@iokpp.de header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=Kauqt8EY;
-	dkim=pass header.d=iokpp.de header.i=@iokpp.de header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=Lw36d0A4
-ARC-Seal: i=1; a=rsa-sha256; t=1795718886; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=kKM8VgxghK10RHwIhT2P9WI+qUvgvTjsDu4BNZ+dy1tacknF8PJniVc2e41TWOQasQ
-    VEn0sAGEiGYhReBsCkLQVQdatwZznhxomiuFXik64aHPVuc+o31uqNFMUXSM/m9OjIbB
-    mTGL8Yb4pvNQu2G3O4xRi/5jBzqwsUz1eOjLnr2VFxsT0wYPIxzawZzH/3YOnmx01/9d
-    s+C4YG7p0rb7WNFNT5kkxz8DKTZ2aor91mx2EtEP7hstYhhASbszZj1kmx9hapB5n8DV
-    DyVwLG4X3RoD6VUesY/BVpt6G8W3pFK38RQFVGy50XcEL1BSdnMxUF3w3XjG38d/5vzN
-    v50g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1795718886;
-    s=strato-dkim-0002; d=strato.com;
-    h=References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=wHbMfkEgeLbspY0fh0ArFGt8zK65HnmhBzUvEdl637s=;
-    b=Gn6YiA5bt0n8lnXSRKf/IF2R3fUBWHEA+rIjnDp2Fj7VVeKx0re5yvYmf3+JsQKYQA
-    AliUedSmnROxV+XMHzMhw4anmuKxdeweX/SSyNWtOWocTMP9P3MKdcjAgzW2DHkATcqM
-    yWFFtRlo7EiXzzaDzrtTUaMZh1FW1oaFcaF22oKS/WQoTcvi/lQXHHbu0JLq/KCWs2rs
-    whLlvdYCz+iEV5BeyzhfQqhfcf/3nn/9t/5BoF+gfwseGUyOEDPkNSlv7lk6pgvKY1JD
-    MC5fidZ5+ZBRp4OIqfY4TudxEvQ3ka47WPKBhi5JCvfOt2qNGpuA52aJvIYRmIF1Ssia
-    4uXg==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo01
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1795718886;
-    s=strato-dkim-0002; d=iokpp.de;
-    h=References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=wHbMfkEgeLbspY0fh0ArFGt8zK65HnmhBzUvEdl637s=;
-    b=Kauqt8EY0CcJ9UlKsu2XIgPBQWyBfKWMn7JAOzwF8Eu+zr6jXxMrzebz0cP3iEkZH0
-    6W1z0XOs1zLlBujKejnyQL8bIt/cKgnoE2wBYBQuEn3T+3vzcGSX9syxD0ud00a2tHQr
-    VuJ2fTrGSh7ueSJ68xjYLMAr2XfjMRV4IuR8qJJT8wPz04OohZYZfSP3drDNItMxXAjI
-    t74QT13RLjfO+OQb0/elbzBdj6irLb0Lje4ycd3eqo9h0SJVV2bp7trTmJFFO1D4STkD
-    nfGvJHv3rlKlj/l07vPgxvekzIODSLbHi3JmTMhQV8ROyQPS2qAwS0qiMKTNLQfcSl0N
-    NhXw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1795718886;
-    s=strato-dkim-0003; d=iokpp.de;
-    h=References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=wHbMfkEgeLbspY0fh0ArFGt8zK65HnmhBzUvEdl637s=;
-    b=Lw36d0A4gBLJrk6w/FOkC7rZhMOkf6F8ty1NysrgQoJhH4ftF+1qA2usqagz/wbVBD
-    R4pbaz0EF116BVw0QVBA==
-X-RZG-AUTH: ":LmkFe0i9dN8c2t4QQyGBB/NDXvjDB6pBSe9tgBDSDt0V0zNriHg+YfT0rGaTpIu+/rGHySpF6c+UiLF2EuI+KdD9FHsLX5A="
-Received: from p200300c58723293d726ec4ea6d904a99.dip0.t-ipconnect.de
-    by smtp.strato.de (RZmta 55.6.3 AUTH)
-    with ESMTPSA id z831ad2AQIm6et8
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
-	(Client did not present a certificate);
-    Thu, 26 Nov 2026 19:48:06 +0100 (CET)
-Message-ID: <1c0167ce6f039db3453e77b1fa6f8efa193ff4f4.camel@iokpp.de>
-Subject: Re: [PATCH] scsi: ufs: rpmb: Return -EIO instead of SCSI result on
- failure
-From: Bean Huo <beanhuo@iokpp.de>
-To: nayeoni.kim@samsung.com, linux-scsi@vger.kernel.org, "Martin K.
- Petersen" <mkp@kernel.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>, Jorge Ramirez-Ortiz
- <jorge.ramirez@oss.qualcomm.com>, "James E.J. Bottomley"
- <James.Bottomley@HansenPartnership.com>, Bean Huo <beanhuo@micron.com>,
- Bart Van Assche <bvanassche@acm.org>, linux-kernel@vger.kernel.org, Stanley
- Jhu <stanleyjhu@google.com>
-Date: Thu, 26 Nov 2026 19:48:06 +0100
-In-Reply-To: <20261124-b4-ufs-3-rpmb-errno-v1-1-65b54643ca21@samsung.com>
-References: <20261124-b4-ufs-3-rpmb-errno-v1-1-65b54643ca21@samsung.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.44.4-0ubuntu2.1 
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n2CNBE5+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C5161F000C0;
+	Thu, 26 Nov 2026 18:49:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795718971;
+	bh=OJrIBssRihwY1hjT7BcClChtfC90/g3C4v7S4XKqBtA=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=n2CNBE5+M6S3Gti+E4h/BEiW+QZsCLWVg3Z07JmCFD4CJWtQOT7wmTFvMHay90J17
+	 FASidj/Tb9qKR6r+t0f8m5l2GSXoRaCyDUjouiMfYBDRAya375OAB8ifBdjby0L3cN
+	 XvZu0xkJxI/+pA9AAyI7y3aIotV8xSxGc2csYUvuvg6Uw1JsXVX+0NOYxmoIoYXxv2
+	 M34fX1uPVfxBkS9zufumLpfpKWYxQRuFEpxczh1v12sNbqWWyTovgyCerZ8wJElZbL
+	 qHPbpDy15BB/FUoYPImERW6CSIHqZ46EBBEwU+aASP6SbeqtKq5FQihbH4FEKfQfVt
+	 VyCXs6QVLSDTA==
+From: Pratyush Yadav <pratyush@kernel.org>
+To: Tarun Sahu <tarunsahu@google.com>
+Cc: Pasha Tatashin <pasha.tatashin@soleen.com>,  Mike Rapoport
+ <rppt@kernel.org>,  robin.murphy@arm.com,  maz@kernel.org,
+  will@kernel.org,  David Matlack <dmatlack@google.com>,  Alexander Graf
+ <graf@amazon.com>,  seanjc@google.com,  jgg@nvidia.com,
+  loganodell@google.com,  arnd@arndb.de,  dwmw2@infradead.org,
+  baolu.lu@linux.intel.com,  Bjorn Helgaas <bhelgaas@google.com>,
+  oupton@kernel.org,  alex@shazbot.org,  gle.com@google.com,
+  pbonzini@redhat.com,  Andrew Morton <akpm@linux-foundation.org>,
+  kevin.tian@intel.com,  joro@8bytes.org,  kvmarm@lists.linux.dev,
+  linux-pci@vger.kernel.org,  Pratyush Yadav <pratyush@kernel.org>,
+  kexec@lists.infradead.org,  kvm@vger.kernel.org,  iommu@lists.linux.dev,
+  linux-arm-kernel@lists.infradead.org,  skhawaja@google.com,
+  sagis@google.com,  linux-arch@vger.kernel.org,  linux-mm@kvack.org,
+  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 18/19] mm: memfd_luo: Add feature header to struct
+ memfd_luo_folio_ser
+In-Reply-To: <20261110050202.529473-19-tarunsahu@google.com> (Tarun Sahu's
+	message of "Tue, 10 Nov 2026 05:02:01 +0000")
+References: <20261110050202.529473-1-tarunsahu@google.com>
+	<20261110050202.529473-19-tarunsahu@google.com>
+Date: Thu, 26 Nov 2026 18:49:24 +0000
+Message-ID: <2vxz8q2fwhqj.fsf@kernel.org>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,40 +73,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain
 
-On Tue, 2026-11-24 at 13:52 +0900, Nayeon Kim via B4 Relay wrote:
-> From: Nayeon Kim <nayeoni.kim@samsung.com>
->=20
-> rpmb_route_frames() is documented to return a negative errno on
-> failure, but ufs_sec_submit() returns the value of scsi_execute_cmd()
-> as is. When a SECURITY PROTOCOL IN/OUT command fails, that value is a
-> positive SCSI result such as SAM_STAT_CHECK_CONDITION or
-> DID_ERROR << 16. ufs_rpmb_route_frames() passes it up and logs it as
-> "ret=3D%d". Since scsi_execute_cmd() sets RQF_QUIET, the sense data is
-> not logged anywhere.
->=20
-> handle_rpc_func_rpmb_frames(), the only caller of rpmb_route_frames(),
-> checks for a non-zero return, so OP-TEE still sees the failure.
->=20
-> Log the SCSI result and sense data in ufs_sec_submit() and convert
-> positive results to -EIO, as ufshcd_set_dev_pwr_mode() does.
->=20
-> Signed-off-by: Nayeon Kim <nayeoni.kim@samsung.com>
-> ---
-> Based on 7.4/scsi-fixes because it depends on commit 7bc9b854cd68
-> ("scsi: ufs: rpmb: Decouple device lifecycle from devres to avoid UAF").
-> Not urgent; fine for 7.5. Compile-tested (W=3D1) only.
-> ---
+On Tue, Nov 10 2026, Tarun Sahu wrote:
 
+> Precede each serialized folio entry in the preserved memfd folio array
+> with struct kho_ser_hdr via DECLARE_KHO_SER so future per-folio memfd
+> features can append fields to struct memfd_luo_folio_ser without breaking
+> compatibility between adjacent kernels.
+>
+> Allocate the preserved folio array using kho_ser_size(memfd_luo_folio_ser)
+> per entry and initialize each entry feature header in
+> memfd_luo_preserve_folios(). On the incoming path in
+> memfd_luo_discard_folios() and memfd_luo_retrieve_folios(), validate each
+> entry feature header with kho_ser_validate() and advance between entries
+> using fhdr->size so entries written with a different feature layout are
+> traversed accurately.
 
-this time sashiko is right, you need to add a fixes tag.=20
+No. The flags in each folio entry is a part of memfd's ABI. These flags
+don't have an ABI of their own. If the layout of memfd_luo_folio_ser
+changes, it goes in the memfd_luo_ser flags.
 
-Fixes: b06b8c421485 ("scsi: ufs: core: Add OP-TEE based RPMB driver for UFS
-devices")
+Doubling the memory needed to preserve a memfd is not acceptable.
 
-Reviewed-by: Bean Huo <beanhuo@micron.com>
+[...]
 
-Kind regards,
-Bean
-
-
+-- 
+Regards,
+Pratyush Yadav
