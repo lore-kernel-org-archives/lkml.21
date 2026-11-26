@@ -1,90 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795677773;
-	b=y+kt0uJch+bvpGxMKJlw8ctUhToEG596lxXAsf3++3xeDvvoQ/q2d+DNCEuHzPqbp/lz
-	 A7qaMQ5b6LDl4487ETPvGjGdDKsotgRKpWJWd5HuNt2/DwvXndIir8ysUkjHqfaCG2cIR
-	 dE6FFdOmP8dKqRPRdSxAaGeuvhkFw205ry0vir9WkP9LMgfs9DVl0HvoFPjPFISN9fTBd
-	 00BVvJzyBj8Fng50QwXoJhmqSMFcYb5EGvExPX8rWRyWdkbhkuQxskLV6l2Vesau0OGuI
-	 QD62pw1GNl+GrdBj6LuCNs8q2J5sUSY+sGXTaqqfYyQoJUIN8NyBTVo5NF7j21kowZQ==
+	t=1795677827;
+	b=jnlCUCTacoBw1PtSTBPYFR+hGrMKdj7FyrGqTdc87VQL+Qqj3891RcUy8RACtwp3/3N4
+	 uSSR65rx6T765e20xDEu2H+UzrCCEqM89JYYiE+qdrJlQ+FGkQnyaDyjfq4NSq+iek5MN
+	 VIxQrdtQAsGwGsBClLhtOxBaTuIN/mGbQCYGnBLzntDfngLVuH00ZuXIo7pmzk+hOtewd
+	 ukrYGq0Nzbgx0os8ITKAeiEbKIueT7H39d1fXQs3QysdSjrPgWOYMikFLYX0r7PG3dNY6
+	 qHq5hSgoQum2SPhjMpEn11z4uAGeeDDykTnfVMfQhUdfz7HooDBRvhWQSvmSzPHq2kQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795677773;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=tyDcKx9CSg/sf/Q8nvmg2kdcVjW3+Ux75hmWCkkVGgY=;
-	b=vYTTEqxK4lx4d64gcACYOji88moHgcgUxqUQAx2Y82EYrp9OaomkBEWDG/yEbVPfqj6O
-	 M6NDsn2X75kHuWv0bQgPPVcYdjqMhQ0oeBvwnWAc9ywUPTrhDqgMbHs20AHEomLhIZh4v
-	 n3+9zTDVmV6V3pgt/XCDmN13+u+vsl+141Jau/lVPTKvoKd+WFgyHDUFWjqlwtV3LXmpa
-	 fZRWL167TWL+laGNhOrT/tPAbyw4Ss3V/DWjGECijpfIbB5UM0V/pVRFSYgnSwHYLIf03
-	 NjIEJ2aiQqKuyaVQE8PoFEqgsEKVua88rRTdH862JVpj2YFgC1N/O8KLyCanDBM8wMQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795677827;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Spamd-Result:X-Spam-Score:
+	 X-Spam-Level:X-Spam-Flag;
+	bh=FnIv6zO8AKSebatR7MIAQFTrAPkbi7dRfDEicXhzfg8=;
+	b=iT6I3F024LsmMt2Z4LX1ZhSLSY8EpIUHjRMRQhwzmoJgf12iT4eEhB8e33THGvglF97i
+	 LZC2fLtlAEbpiMhJv1EfC2Op1ywn3Rkkm5DQH/j/CsZaAmKhQ+VhXnxRfvfq8A0aGO1gd
+	 u4aEdcw+a6TDEP75ICt0nQfeeCuEATqREzLpFJV9ft05OyCDz0WDulOda0pL0GUxMKZKW
+	 5mcrFqmIZJwp6+vHeOelUNbumsK2NucADQPrVUnfX7hAjrJDHHJPa00/lK8XRBA11il+D
+	 /vsDUOC3PPLM1SJIJjEUEgXQoAeZo7/ymLngaAFAsd71/oa5q2GTyOhikh3X5NhsVDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zFSxe0tK;
-	arc=none smtp.remote-ip=74.125.82.42
-Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=XPNuPDQA;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=AnxRiOSn;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=XPNuPDQA;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=AnxRiOSn;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6ABAB606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:22:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6ABAB606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2ABBE606A31C;
+	Thu, 26 Nov 2026 07:23:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2ABBE606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zFSxe0tK
-Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-1b3ada81853so7791863c88.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:22:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795677772; x=1796282572; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tyDcKx9CSg/sf/Q8nvmg2kdcVjW3+Ux75hmWCkkVGgY=;
-        b=zFSxe0tKCFqn8MxIMSdTCjZ9UDplsJ4eIz93lwm3oztmDyLdglyn7ek/tGsuMComAb
-         VkCPLPWJ4jJrIZXmRUsfOZQOdVEpevIRHfOGCRIYt8hAxadjdH8caxLLbe/o7Bg9ItXD
-         dR+1txKolmO5CHnbxPohxEEa/EECJPNnJT6qhxz2TSJsNL2ZZmFg00ouoUbeElwAJ5wB
-         QCPe48AYiAf8MnI1K2eN4X2RISOVwuveasiaOURpl4bpABxHGTTYOqtXT37WRyuqFcZa
-         Bv7JCo6M5jSZbbkiR1VS/VobJzzG4tPW+y8IoYgqut8R4uumr4FGFglHhvLmwNZbNYSY
-         I0Iw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795677772; x=1796282572;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=tyDcKx9CSg/sf/Q8nvmg2kdcVjW3+Ux75hmWCkkVGgY=;
-        b=WAsQLe279sFc0eQpYvsnO862cMDxkrFHtMHgJvsyRwtldQPnpF0OcLTZJtknrgRTjq
-         C5kyICMyXp3CzN3Z9BSoGx7WPfAIXrX4ZpklpTD8pb7puhzgnrCDegJ4SBmCrq+V5r8u
-         eEaHQkryEE+mEdRTX0Nt+1fzOr5ITnOJLsc2xPNuZAfNo5/TJenDJYMCZ0qNawqvUcU8
-         G7XI08qaPrxl4VXitGVSapjc2mevgQcjq815HOBWv5e3LCLJOxNhbnisI3h/QnmJiERk
-         eEjt5JczlDFNhbYSjIJ/5yOfI0MA9o9iEGHa5QEHl4WvU7vtq0NQchpRJ1ctqzhh5WCH
-         zLEQ==
-X-Gm-Message-State: APuU4Z9/khm8tUItXpslTGXOPt4lOd5JP0S/3Sc/+aqphjLBdY32O5B6
-	C53FwmhIC26G2RBVEvrg1anlqeG2mqNwaPpnW1QLUGtLZ82/DPz2hY88
-X-Gm-Gg: AZFdTZfYupll/LkOjLxYj24ot/CdTCp+WhcsgUCNweG6S9TZKbTswv2A6K1C173PQ0N
-	+5HZgqr6gmrrhdILHIE7genP6PVxpP3HND5O+lCvV+6R6niaidWNrPtzOfDvHPt1tIlQsJuAORU
-	M6M0YhTNfqQcCYGYPYPUm9lCVIbaCRtxZ1pYaLeMZlJrj2HR3swFTmUwCADyY+RT3S1W6x0rfMe
-	3pBGuCoXBil6wO454ZV6QilqSH5ifcoKOvM6ZNZ76GQQCM52dckE/ifP8489eIUWcxatlFCtNiK
-	jmc+o2Oo8+EAZteprfE56an+RJ6TcwMAt9kUx4FQgzb6EYAXHWtt0Q1ICp5eB0wAZomQQkIIhR9
-	CRv1WrGpyzqTS/NPu42q4jODLBHbzb/+vvEuIaqvkGtS/koYRWeTvl+xSv1J8QgGoKTBqNCVJGA
-	xMQdQlJWJ456SyYjreUDnXUbfizXo9F3exwMBxV9aj5tyjnAUOqsmUydfKpa4EAaQS1T1t+h2xH
-	NSQySpu2+DmTagDOC35kXYv8p/uhqJq4oh6kau4n6sVH7CG0J0dTq8zkntUcNc9ZWRjsFyxHxQQ
-	4bmxo1KYuuBqkC5euBzRgseT4qYjotAadW8ELF70MkSaQ2eo2XV7uZAH5Ly4Sr9pvGaPoyUM
-X-Received: by 2002:a05:693c:8843:b0:386:b429:fe0 with SMTP id 5a478bee46e88-386b429175cmr10099537eec.16.1795677772417;
-        Wed, 25 Nov 2026 23:22:52 -0800 (PST)
-Received: from localhost.localdomain ([103.179.230.77])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567ea2cc5sm55674215eec.29.2026.11.25.23.22.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 23:22:51 -0800 (PST)
-From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-To: perex@perex.cz,
-	tiwai@suse.de
-Cc: linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-Subject: [PATCH] ALSA: vmaster: Retry follower initialization on failure
-Date: Thu, 26 Nov 2026 07:22:20 +0000
-Message-ID: <20261126072220.4496-1-sreekuttan2156239@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=XPNuPDQA;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=AnxRiOSn;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=XPNuPDQA;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=AnxRiOSn
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 548782261C;
+	Thu, 26 Nov 2026 07:23:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795677825; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FnIv6zO8AKSebatR7MIAQFTrAPkbi7dRfDEicXhzfg8=;
+	b=XPNuPDQAw37v0M9hCgTlyx8/MCCnoEDV9aZ9/AlZYh61JLrkhtx0LI4AwPsznUvNXkMIDC
+	7a+rJJ9l2Oxlu3L9yOFM7Va57xABu5/5RFE+MR8dRL5fTDl0P2WYs+IWgZfSvUUdfX1c/i
+	JlFV1PD6fyiQ6xvOfuglYtEkpBFsjJc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795677825;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FnIv6zO8AKSebatR7MIAQFTrAPkbi7dRfDEicXhzfg8=;
+	b=AnxRiOSnvnRfk+vSbW8S8kzEDj51+b7Nfrh2Xxm1jq8xorV7xC3hb2aWldRqOnY7K9o3SS
+	jJjEYH44mcFnpGBw==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795677825; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FnIv6zO8AKSebatR7MIAQFTrAPkbi7dRfDEicXhzfg8=;
+	b=XPNuPDQAw37v0M9hCgTlyx8/MCCnoEDV9aZ9/AlZYh61JLrkhtx0LI4AwPsznUvNXkMIDC
+	7a+rJJ9l2Oxlu3L9yOFM7Va57xABu5/5RFE+MR8dRL5fTDl0P2WYs+IWgZfSvUUdfX1c/i
+	JlFV1PD6fyiQ6xvOfuglYtEkpBFsjJc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795677825;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FnIv6zO8AKSebatR7MIAQFTrAPkbi7dRfDEicXhzfg8=;
+	b=AnxRiOSnvnRfk+vSbW8S8kzEDj51+b7Nfrh2Xxm1jq8xorV7xC3hb2aWldRqOnY7K9o3SS
+	jJjEYH44mcFnpGBw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id D85D6134C3;
+	Thu, 26 Nov 2026 07:23:44 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id sSpCJ4DeB2uaZAAAD6G6ig
+	(envelope-from <hare@suse.de>); Thu, 26 Nov 2026 07:23:44 +0000
+Message-ID: <9544b932-3154-4185-98b5-4aa7004c2ca2@suse.de>
+Date: Thu, 26 Nov 2026 08:23:44 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,39 +106,92 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] scsi: fcoe: Fix use-after-free after pskb_may_pull() in
+ fcoe_rcv()
+To: Elkin Cruz <elkin@google.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ "Martin K. Petersen" <mkp@kernel.org>
+Cc: linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org,
+ llvm@lists.linux.dev, irogers@google.com, stable@vger.kernel.org
+References: <20261125221921.1425747-1-elkin@google.com>
+Content-Language: en-US
+From: Hannes Reinecke <hare@suse.de>
+In-Reply-To: <20261125221921.1425747-1-elkin@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-13.29 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-0.998];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	XM_UA_NO_VERSION(0.01)[];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_SEVEN(0.00)[8];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:email]
+X-Spam-Score: -13.29
+X-Spam-Level: 
+X-Spam-Flag: NO
 
-Reset the follower count when the initial follower update
-fails.
+On 11/25/26 11:19 PM, Elkin Cruz wrote:
+> In fcoe_rcv(), eh = eth_hdr(skb) is cached before pskb_may_pull(). If
+> pskb_may_pull() reallocates skb->head, eh is left pointing to freed
+> memory when validating eh->h_dest against the FC frame header.
+> 
+> Re-evaluate eh = eth_hdr(skb) after pskb_may_pull() succeeds.
+> 
+> Fixes: 0ee31cb5df4b ("[SCSI] fcoe: Fix broken NPIV with correction to MAC validation")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Elkin Cruz <elkin@google.com>
+> ---
+> 
+> I am trying out new Clang static analysis checks for kernel bug
+> classes, and they flagged this code as possibly buggy. The findings
+> were triaged/fixed and commit descriptions were drafted with help of AI,
+> then checked against linux-next (not runtime-tested on hardware).
+> 
+> Thanks,
+> Elkin
+> 
+>   drivers/scsi/fcoe/fcoe.c | 2 ++
+>   1 file changed, 2 insertions(+)
+> 
+> diff --git a/drivers/scsi/fcoe/fcoe.c b/drivers/scsi/fcoe/fcoe.c
+> index a2cf65fac297..23d6b9893793 100644
+> --- a/drivers/scsi/fcoe/fcoe.c
+> +++ b/drivers/scsi/fcoe/fcoe.c
+> @@ -1365,6 +1365,8 @@ static int fcoe_rcv(struct sk_buff *skb, struct net_device *netdev,
+>   		     !pskb_may_pull(skb, FCOE_HEADER_LEN)))
+>   		goto err;
+>   
+> +	eh = eth_hdr(skb);
+> +
+>   	skb_set_transport_header(skb, sizeof(struct fcoe_hdr));
+>   	fh = (struct fc_frame_header *) skb_transport_header(skb);
+>   
 
-This allows follower initialization to be retried on the
-next access.
+Please move that two lines down, just before
+	if (ntoh24(&eh->h_dest[3]) != ntoh24(fh->fh_d_id))
 
-Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
----
- sound/core/vmaster.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+that'll make the patch easier to read. And please add a comment
+that the skb->head might have been reallocated.
 
-diff --git a/sound/core/vmaster.c b/sound/core/vmaster.c
-index f43144ba2797..d97d7bb33e16 100644
---- a/sound/core/vmaster.c
-+++ b/sound/core/vmaster.c
-@@ -102,7 +102,14 @@ static int follower_init(struct link_follower *follower)
- 	follower->info.min_val = uinfo->value.integer.min;
- 	follower->info.max_val = uinfo->value.integer.max;
- 
--	return follower_update(follower);
-+	err = follower_update(follower);
-+	if (err < 0) {
-+		/* allow initialization to be retried */
-+		follower->info.count = 0;
-+		return err;
-+	}
-+
-+	return 0;
- }
- 
- /* initialize master volume */
+Cheers,
+
+Hannes
 -- 
-2.55.0
-
+Dr. Hannes Reinecke                  Kernel Storage Architect
+hare@suse.de                                +49 911 74053 688
+SUSE Software Solutions GmbH, Frankenstr. 146, 90461 Nürnberg
+HRB 36809 (AG Nürnberg), GF: I. Totev, A. McDonald, W. Knoblich
