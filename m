@@ -1,72 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795686684;
-	b=zcCtvNdYweCCMbD5kdKfXK8dseJl/+VOQohWrQ8gCXIt8stVWLef6eeF28DBq/E6Vahv
-	 lfF8B3PZK7lGAgpZot57zuVMZ5bXpf80Vga5bmgbfPIG3ZsEwCpDSwwJJDnunoo+0tI1p
-	 hjKcR6fOb1XWrEUuqDlCnpIyeYHvignV/cq54RL670q54X5wF6VzEI5P4lMHMiiTAx57/
-	 NT6aOyvdKHxhqJZ0CGAyiWMHoluNYj1Ah83c551IwgTAbhn2C/27b6h2fAr1uHX9GOKLx
-	 7a4JzT8VBsR0Ao2XvGRiKFT7tpFwA/jRAdi6vDlGkN3HJmP0UzfQ4gfy/tfpXslQRKA==
+	t=1795686702;
+	b=Ws0njZ67Y8VxPckbz8+2IFl3Je6R7e0IUbTP2C08+St3+88ABUgOoon4Fl01PFO5U3xq
+	 mBs+nB2oXc9IlSb2wODBtZubD0pwL9MPY7dyhamTMWrahynoEs2zNdm+p9MIrVDXsxvTx
+	 jvsBQUmFM9OG93bqEelDesSeYkvaR0hmF7Fuhog5Gc+69zDb8zPYxpNsK+UALWUHWIwk6
+	 rCHz7LuVb51yEH2Qe7O2OwwrORVETUWp1RJXlizGiJm+xB6IQWuGM058S+Yfr7WjYg1X/
+	 ZKFSCVb/G8oUqpGXHsWi8D6O/wqfQbAs/B21Ayk7NPp5KpU5Hgl4fpxApdFQsa4dioA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795686684;
-	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:
-	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
-	bh=ui+mQBeZjuiXLe6iiFq6l4jBGumd9YivK17br+RnUvE=;
-	b=yVxMXMuKAHti/lPjC7N20QzkHulGqvpwpBrKb6anWKC4ON8AqG0f/QQFHC0RdHd0EOv/
-	 eYCWaJHa0aSPCAiFdGxIZxqpn4u2b7LB5qde2PpuG+/pw/Dh6HAZrRe55+zMD11Go7Un2
-	 JXN4sMBL7Z26R7/peR11iLAtqkIrHgkDATnbPyyx2YsdFlwMB5r+ojjGVRJ3my6q2Kln5
-	 5vntx0cilU2HCGMYlRQPN+cT2ug9RfMTsO5X6L32A/N9Ml6vPHOjPrm6qqcnwfMYwENhE
-	 kZlnh4RvVp/yr2Z5+gk3O4iABGSyd9B7IAF+oapi3sEYLR9OFzmb/+M+gYNSyZfq2Tg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795686702;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=b2b0R37N0cNDG6LwdnW9AOEOCqhnsuMIntkJk3OiCVk=;
+	b=ACQu0ExWy3L45p2gF4rCDPSU1baeq2qGQIqRbKVnkaC4RG0uf/6ljRWvmRg4w1Z6TxgY
+	 ECoJVGrU/NaGHfcWLpwvcx0r/Tg7A2l7shYVcBI2066zoTW0ZDPjA5DPYp9uk6V5abXS0
+	 xKukAE0/Z09zrQ8O2JvWF8ml4fBbqCwWUec++N7Ndlj/VTW4u+13kjBlV6sK8dcGsn7qZ
+	 R2iD4MtXqNS4xlm0Rlc1Mcx/5xynsSGXCYxalxhfsYT9SPsG8IO6PML6yb9QoS40kUw4O
+	 Q+9vTf6rmhVpGrQ0+gJlzyrsdtfrIFgQxkJwyEGlBKpQmoqYLeh1zFD+QRg3e/ezk6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b="sZeHJW9/";
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=qcwnLsAt;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=NglhJyuj;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=eSf5YhDs;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3486606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:51:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3486606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92258606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:51:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92258606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=sZeHJW9/;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=qcwnLsAt
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795686681;
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=NglhJyuj;
+	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=eSf5YhDs
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795686700;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ui+mQBeZjuiXLe6iiFq6l4jBGumd9YivK17br+RnUvE=;
-	b=sZeHJW9/xzagjXOTRGpO3Smr/hxJdadjl/ZCdmFQ3zPHqSBMDwg0DbkNelnK1WCuD42RO6
-	dq8NsGRAIN4fnZlWhIXa6dpJLl3htu5aBqCArK7RwCmkYlWvXNREJmJDx9OGP+TpYU++h3
-	harLGKrgogQr2I3M3tfQvmaU7UNOpwi7xfAKr+5fhrlPiBVfXMKnaPwqdcJ1noq1KckBo3
-	wNouQnHdajwq3hw7bccQWC5dmZxmRQhzhPO6epdULF8vejfB/yS9bMYTQYo7Ynj5B6t1be
-	jLLt+avHHcNnxO3Q3ze/0TqdQNBjQIkuW3x71D5X3caoS3HqN+wxPUOw7S2zyg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795686681;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ui+mQBeZjuiXLe6iiFq6l4jBGumd9YivK17br+RnUvE=;
-	b=qcwnLsAt//oR6mAWhAkdgtyBrXvyrpzLrbSRQsSDnUlNHHTsS4nR0Ws8DnGfia1vRj5YJ1
-	UraM1qVsy/n5xXCA==
-To: Petr Mladek <pmladek@suse.com>
-Cc: Sergey Senozhatsky <senozhatsky@chromium.org>, Steven Rostedt
- <rostedt@goodmis.org>, Ryan Roberts <ryan.roberts@arm.com>, Breno Leitao
- <leitao@debian.org>, printk@lists.linux.dev, linux-kernel@vger.kernel.org,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: Re: [PATCH printk v4 3/8] printk: Move unsafe takeover check out of
- console_is_usable()
-In-Reply-To: <awW3u4xEwwbQARPl@pathway.suse.cz>
-References: <20261121163557.963029-1-john.ogness@linutronix.de>
- <20261121163557.963029-4-john.ogness@linutronix.de>
- <awW3u4xEwwbQARPl@pathway.suse.cz>
-Date: Thu, 26 Nov 2026 10:57:20 +0106
-Message-ID: <87o6bb7wfb.fsf@jogness.linutronix.de>
+	bh=b2b0R37N0cNDG6LwdnW9AOEOCqhnsuMIntkJk3OiCVk=;
+	b=NglhJyujZidG1wh9KnE18o4xefEtv14FMcA8ak08V8XoQBmG1b/fEVGJVd93CrD2oKQcEL
+	BfK9jY60wQ/5xihueEr7sr0WBEX6qLW+zwl6kFe7MB78aGE4j3q+XqVaOHzFE/VuEvQPPk
+	1W1N1J9zC+JGOaMEj4ahFxjpNHuJLP4=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-620-CVWBCjc8NYu-OfwgDoCzVQ-1; Thu, 26 Nov 2026 09:51:38 +0000
+X-MC-Unique: CVWBCjc8NYu-OfwgDoCzVQ-1
+X-Mimecast-MFC-AGG-ID: CVWBCjc8NYu-OfwgDoCzVQ_1795686697
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-48e4d1e29f3so5617921f8f.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:51:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795686697; x=1796291497; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=b2b0R37N0cNDG6LwdnW9AOEOCqhnsuMIntkJk3OiCVk=;
+        b=eSf5YhDs7s4d/I+PuOqPG7GnNpSXVv5YHZf2MTaDiGSvROudWXnjtlOkgjVsqw+WpP
+         lTDSssv14eAoLBy0bl1Ci2jfbWBegKn7XEOaliLTA5vt1Z6j1pZiFCA0AAj3hDDltBos
+         6C3+AdPdLxVsXx8Xv/cyIHWJ4ltIx7vVQKZE/K8Nue9lFYlJMLTfgqalzC2E/rzpZQPA
+         O1mCoK87jRv6TIUQaOmHgKqRFIOu4HKDLbFnkUfgPdOLYDcP41qbWWBllhlVS+lVs3lb
+         QH0d9NXFvc+ZBTENAKxP/WwA5UuA0jDFKl8yuoT0dYbrNJ8LouJ070V2AyeDNGcZVAq1
+         XW/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795686697; x=1796291497;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=b2b0R37N0cNDG6LwdnW9AOEOCqhnsuMIntkJk3OiCVk=;
+        b=SjyeV7CMZQuMII7tAr7UrmkYnwVPOcKyUqo4HOQluns5GlrzVNknZMW/Q710D0Lb1b
+         W01eRQ2sE1ouZv3n3Lyn98Od39FX19fwNM22Ih8GxjXV0Qi/S7nPqr9DFDp85SZidKII
+         awMEEBtkoM+9pz43w/79nmYLU/Yp1rmvlZ+gEtsOHB6m5u9p0RTNkm3sS7as04Meidaf
+         eFvMJqqr8DTC/gO/vJ+tqu8kMFxe2d2CauZZKOLwWkCkXnavvfSvsPqfIGMZvuAJAXc/
+         Fmmp21R3kOjXsGrSKAPKt37uCvapmAJnjOw4S3qTEJE9S6nDAOsSj32NNE9ZQlYAJr1U
+         YE/w==
+X-Forwarded-Encrypted: i=1; AL+hErEOoYnrQNUl3FRBIOFbsz0zWfC0cV1WfV6oYCDdVTHCmojXBCRv0rHXBbiXJ9s/2M7SmdRLpdonbVBYaho=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9bo8MpwSk2dqUJSKrQ7DATrBKTvai83vAXOYHjC3eXdOZsUP2V
+	h1fCl/rbFGqO4xLS/DDVpGxL945vQHZDa1tnpaeF2CvOnNu1HRKxIo0OC/y1eW3zWf8K9Ky4cH3
+	YcEVNElbkyg/UF/aJW9/Atmkps1YHwcpSx9SlaBPZwF5a6FSP4g4MTnpnisq3781q7Q==
+X-Gm-Gg: AZFdTZdKdnm31Lkadp5zUY3QIUuCEqmmx9+iNP1HQfPGbNahDpzI7YzpdJHFadXvOzg
+	RdGc1WAeg+LZIp+QzgQWCy9PwBw8E7et3KUpcn9QN+rocEPYJANVPPLRHQR+HwcOdWs6xm/iC5N
+	wK+i3vhnsIoToB5anGplzjkiHr6jvFQU+0dGx9aagENyCQofzCl1wZh7A43fzVLnu6WeuYtQsRE
+	QQS48QEACqT2jCG7jpZFuz+11Y8UokKnR5lAPiax3i84taU+qboN/51yGDyXxlt5LLqYq5QQofh
+	pxUxgYRHWv1/KP7DQxwCCjBAubVKr7W3wCgO96PUyN0OUUxubz7diud3uQ+B4Ye0wzOrabJzQaE
+	0xPjt12C+wWkeoAYdNgMQnb6Bo3+RjyntJsoXSncCaXoVz/uDTcfEmgbSwmy6zC9RN/ZywaE/J8
+	a4jBy8enYUwzH/UnO8ap5IjFuHtYbqbxfIYyprjJUBslNb
+X-Received: by 2002:a05:6000:2c13:b0:4a6:9f2f:4153 with SMTP id ffacd0b85a97d-4abaac57ba9mr38614704f8f.1.1795686697231;
+        Thu, 26 Nov 2026 01:51:37 -0800 (PST)
+X-Received: by 2002:a05:6000:2c13:b0:4a6:9f2f:4153 with SMTP id ffacd0b85a97d-4abaac57ba9mr38614627f8f.1.1795686696684;
+        Thu, 26 Nov 2026 01:51:36 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb989e3sm39627871f8f.52.2026.11.26.01.51.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 01:51:36 -0800 (PST)
+Message-ID: <e07adc3e-838a-4c46-a56c-eb47bb9e77f4@redhat.com>
+Date: Thu, 26 Nov 2026 10:51:34 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,89 +112,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3 2/2] selftests: net: check TCP IP IDs across
+ tunnels after GRO and GSO
+To: Julius Bairaktaris <julius@bairaktaris.de>, netdev@vger.kernel.org
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ willemb@google.com, horms@kernel.org, andrew+netdev@lunn.ch,
+ dsahern@kernel.org, idosch@nvidia.com, ncardwell@google.com,
+ kuniyu@google.com, steffen.klassert@secunet.com,
+ herbert@gondor.apana.org.au, richardbgobert@gmail.com,
+ ecree.xilinx@gmail.com, andy.moreton@amd.com, alex.austin@amd.com,
+ linux-net-drivers@amd.com, saeedm@nvidia.com, tariqt@nvidia.com,
+ mbloch@nvidia.com, leon@kernel.org, linux-rdma@vger.kernel.org,
+ alexei.starovoitov@gmail.com, ast@kernel.org, daniel@iogearbox.net,
+ andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
+ martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev,
+ jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
+ john.fastabend@gmail.com, sdf@fomichev.me, izaiahsun@gmail.com,
+ corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org,
+ shuah@kernel.org, bpf@vger.kernel.org, ipsec@lists.linux.dev,
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1795284858.git.julius@bairaktaris.de>
+ <2f75527eb49d7d4ffec32a61fd7dd080673dc57f.1795284858.git.julius@bairaktaris.de>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <2f75527eb49d7d4ffec32a61fd7dd080673dc57f.1795284858.git.julius@bairaktaris.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On 2026-11-24, Petr Mladek <pmladek@suse.com> wrote:
->> @@ -645,11 +639,7 @@ static inline bool console_is_usable(struct console *con, short flags, bool use_
->>  			if (!con->write_atomic)
->>  				return false;
->>  
->> -			/*
->> -			 * An unsafe write_atomic() callback is only usable
->> -			 * when unsafe takeovers are allowed.
->> -			 */
->> -			if ((flags & CON_NBCON_ATOMIC_UNSAFE) && !nbcon_allow_unsafe_takeover())
->> +			if (!allow_atomic_unsafe && (flags & CON_NBCON_ATOMIC_UNSAFE))
->
-> This is a good example that different people have different mental mode and
-> prefers another ordering of the checks ;-)
+On 11/21/26 19:27, Julius Bairaktaris wrote:
+> Send TCP segments with fixed or incrementing IPv4 IDs from a packet
+> socket, let GRO on a veth merge them, forward the merged packets into
+> IPIP, GRE and VXLAN tunnels over IPv4 and IPv6 and into ESP tunnel and
+> transport mode SAs offloaded to netdevsim, with segmentation done in
+> software, and check that the IDs of the IPv4 header in front of TCP come
+> out as they went in and the IDs of a new outer IPv4 header are unique,
+> or for ESP tunnel mode increment within each packet. Also forward a
+> VXLAN stream with one header's IDs fixed after decapsulation into IPIP,
+> and send the merged packets through a tunnel that the far end
+> decapsulates without segmenting them before it forwards them.
+> 
+> A test where GRO merged nothing is skipped.
+> 
+> Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
+This test is very unstable:
 
-The reason for the switch was because this function becomes a helper
-that operates in 2 modes: with atomic_unsafe, without atomic_unsafe. So
-I felt it was appropriate to make the "mode of operation" the primary
-component of the condition. But since you suggest to move away from
-making this a helper, I will switch it back.
+https://netdev.bots.linux.dev/flakes.html?tn-needle=tcp-fixed
 
->> --- a/kernel/printk/nbcon.c
->> +++ b/kernel/printk/nbcon.c
->> @@ -1468,7 +1468,7 @@ static bool panic_nbcon_allow_unsafe_takeover;
->>   * This is also used by console_is_usable() to determine if it is allowed to
->>   * call write_atomic() callbacks flagged as unsafe (CON_NBCON_ATOMIC_UNSAFE).
->>   */
->> -bool nbcon_allow_unsafe_takeover(void)
->> +static bool nbcon_allow_unsafe_takeover(void)
->>  {
->>  	return panic_on_this_cpu() && panic_nbcon_allow_unsafe_takeover;
->>  }
->> @@ -1672,11 +1672,24 @@ static void __nbcon_atomic_flush_pending(enum pr_flush_reason reason, u64 stop_s
->>  		if (!(flags & CON_NBCON))
->>  			continue;
->>  
->> -		if (!console_is_usable(con, flags, true))
->> +		/*
->> +		 * Using variant of console_is_usable() to include consoles
->> +		 * with unsafe write_atomic() implementations. They might be
->> +		 * allowed depending on nbcon_allow_unsafe_takeover().
->> +		 */
->> +		if (!nbcon_is_unsafe_usable(con, flags))
->>  			continue;
->
-> The above function pretends that an unsafe takeover is enabled.
+/P
 
-This series establishes that:
-
-unsafe takeover != unsafe usage
-
-At this point in the series that distinction is not yet possible. I was
-attempting to:
-
-- keep patch sizes small
-- have as many "no functional changes" steps as possible
-
-I will see what I can do here. It might be easier after following your
-suggestions.
-
->>  		allow_unsafe_takeover = nbcon_allow_unsafe_takeover();
->
-> Here we get the information whether it is actually allowed.
->
->> +		/*
->> +		 * Since nbcon_is_unsafe_usable() was used, ensure @con does
->> +		 * not have an unsafe write_atomic() if this context expects
->> +		 * safe printing.
->> +		 */
->> +		if ((flags & CON_NBCON_ATOMIC_UNSAFE) && !allow_unsafe_takeover)
->> +			continue;
->
-> Here we duplicate the check from __console_is_usable() using the updated
-> information.
->
-> It is a bit hairy. It might be better to use the up-to-date
-> information in console_is_usable*().
->
-> I suggest to rename __console_is_usable() -> console_is_usable_unsafe().
-> It would take 4 parameters, including @allow_unsafe_takeover.
-
-Agreed. That is clean and fits the end of the series as well.
-
-John
