@@ -1,70 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795731536;
-	b=E2fe/vrT21UF830gZ6T27CAVWRgB4OY/DJVcfdBD7z2WQ4gVDiAPvSNP5XZQvibiErv0
-	 PAG5Da3pU0RXKEV2GwsNQZcW1EpzXq2V/Py6xQ17Q9RE/rD33BqiKR41KxJiintSQc4B/
-	 bcnuqjU2xP30HUBpMumvoCEgH73AI2UHq1zxRMULrcZj2YcGDMjWinGy/iiTXV0O3Gh2u
-	 Pn00G6tEt9U4Xz/5gYvSfHxtxh4+GeoY5rY38Tbtogpn0trr+AcS3DP0pvkdFyxyR8LZW
-	 Vd57In97E/afiOuZcWtxAFNbbF9Oaz/pgkum4vPoYHL/3bhXGMCUQkiBdi7lzhZ12+w==
+	t=1795731577;
+	b=3ZYYet/cgaJJgm+LQW66KVY2r943TwUx9XDfBHsiQzbSW9R8fwplYOgHoOgo07nqCeyc
+	 1UD/OVgoyHTODdN8bEhN576uKqob5TPyOW9+3oIrfKfGPpFepqgap8L1k2q6NysSwSwNq
+	 ugVNTTli/ixEkqE7ZBI4ZdAAmuJ9J9Q2CYj3Vg7b6VrQ7KXRmaiJmCWtxFvyJE1aPA9B1
+	 rAY09s2ZzaZQUuaLENEuCIOScsi2bXrq0qQtuwjLPOCDAQtlyPSOMw59j79wv2k5zLnTJ
+	 o8HjTAtUvfBnIs9kfLtmaMRY0JbnBRMVI4EusPh1YNi7IHBmgcXY2DtHc94P1OxSmEQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795731536;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
-	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=pDZ4T9HNnrhv7OW06Bv3skkU7QYMWt1sIx+VN6xDhm4=;
-	b=x2vRxQa3Lt15rEXYnTNT9I+mIQdj/Z/vMkVv+AMJqGzL2aCkiGOfDAbB229nGMULb4oh
-	 stta1LxY5mk8YGT35D8/5OI4icxHkUKwwTCxYzK/ixYCdrFVVCx+4bI5Ir00bUuAKckNP
-	 PKHgpFRxrwiZQfiAVulQxn7q5MAcGVj5bojkAKkXSBBpUU0RvzYawK9D42d/+j+zffXUy
-	 IehNwEVPcTj4CV42DUsJTLMas65ZJX4MYcPif0qX8eYFj4rSA3LgaUH1ShH+OUiNbowOy
-	 JxhdSq6mlwHopf9vMwH8eiV0wuc93Lm2RPReSQPHvHb2hkWsqT5mLGhfRe+RoRofSTw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795731577;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:X-Patch-Reply:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=msVtQwJ8MB3TQUWXvhQpkRrmVLPQaGbQMTulmR3wqwE=;
+	b=amqFY5TzTVxe5qZOJIGCjeRkzbNtk1LozDY0xEMnZQFZkvw61Y7gryrqAD75J4Eo+U5a
+	 vc8QEz79Dwtu0pV6i6muMdJ+BQxsn1iMoJck78vBuQlyrWQEMPhu9Q6v5VedePy/QzpvM
+	 WYQLAJe8DPrxN5JmXF5zxBWhFDredaFzcc/f9JL25F+qkJjUIcx1XC4amGTL5Qu1eAAUA
+	 9tCjqSpcml5d2JdLYjtdYFVNXY72EWA2al8O4Mm/GUFkqufLjddk8VHvEPEeuAnJI2FI9
+	 A5Wu9nEgPcVVGl39ji69TnxUIFN5gVWxGSOCpxVVFlvpuaZX+y3P29xlJGGy2UxFGag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=sang-engineering.com;
-	spf=pass smtp.mailfrom=sang-engineering.com;
-	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=ieb0EkxN;
-	arc=none smtp.remote-ip=194.117.254.33
-Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iRKYnB40;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6C34606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:18:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6C34606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BAD3606A31C;
+	Thu, 26 Nov 2026 22:19:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=ieb0EkxN
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=pDZ4
-	T9HNnrhv7OW06Bv3skkU7QYMWt1sIx+VN6xDhm4=; b=ieb0EkxN4E9ZZby8SQZs
-	UlL/MTM6xVE0Mbavjg2DtVN9RfLw2vmFcSi2zVYOTMhy66/gxsm+hmn0tM0aQ/y0
-	ERnKqY00O9S8aQNwiwNbn6+icalaCIAs+GddSF27QvVhdcvmE4LADHI1LBPWlcyb
-	Sk2pWHLvejW/3AHhgpg1Zi22MWwCNeMl9SJVqG/UbGioUYk+ReWWKm7b7UopvCNl
-	WGoL6AcV4MVUrPYU6Tc83lxhQnWQ7Q01/aOJgyjJ6J8JckDKrLVblpdbhab3/yb3
-	rJ1nsP0mBgHkJlKnOCARmSy/KFWiY1g5Ft384tOdVn9qTi7gm7vi6NOgtd7LUIg2
-	nQ==
-Received: (qmail 1766453 invoked from network); 26 Nov 2026 23:18:50 +0100
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 26 Nov 2026 23:18:50 +0100
-X-UD-Smtp-Session: l3s3148p1@qTL4UzVhiMIujnv5
-Date: Thu, 26 Nov 2026 23:18:50 +0100
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: khendry@reliablecontrols.com
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/3] clk: renesas: r9a06g032: Add reset controller
-Message-ID: <awiwRTNx-Qi-aNzZ@ninjato>
-References: <20261126-rzn1-miic-resets-v4-0-4f73af81d779@reliablecontrols.com>
- <20261126-rzn1-miic-resets-v4-2-4f73af81d779@reliablecontrols.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iRKYnB40
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFA4E1F00897;
+	Thu, 26 Nov 2026 22:19:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795731577;
+	bh=msVtQwJ8MB3TQUWXvhQpkRrmVLPQaGbQMTulmR3wqwE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=iRKYnB40rjL1zPUbITPs7GbPCTDfcHy4p+clJnYT+C4QGsXDU+8PG1D4vF8ZUWQ6c
+	 J6NqvLgYbM8gEZnm/Sm8ABO3WTb5SQNL4ljy1kEnOM5zjiLfRlX/wzqI919zSbZNkH
+	 Fzm2Xpez91t8wxKY7jNMW3YdfE0owRH+zuMKU4iELYDZnOOF2P0HLlyzpgJ1lTFdUU
+	 Xl9fZ9BU7pzQ5a3sRHnQq65JO11hYWyKvm7vtBYRJqeFjnhY9E2uRTdAcPl6okru9b
+	 L8Gye6g+7dc7Qmwnqed5krMzkm0fnjsO9DvdM3LY6+xknKE5T8wGg8StWXHKM74dbp
+	 L0CFZL/u1DXlA==
+From: Danilo Krummrich <dakr@kernel.org>
+To: Peder Bergan <peder.bergan@gmail.com>
+Cc: Danilo Krummrich <dakr@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Trevor Gross <tmgross@umich.edu>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	=?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>,
+	Asahi Lina <lina+kernel@asahilina.net>,
+	Lyude Paul <lyude@redhat.com>,
+	dri-devel@lists.freedesktop.org,
+	rust-for-linux@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-api@vger.kernel.org,
+	Janne Grunau <j@jannau.net>
+Subject: Re: [PATCH v2] rust: drm: enable standard fdinfo for Rust drivers
+Date: Thu, 26 Nov 2026 23:19:30 +0100
+Message-ID: <20261126221930.3790327-1-dakr@kernel.org>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261126-fix-drm-rust-fdinfo-v2-1-b1653edf1e4f@gmail.com>
+References: <20261126-fix-drm-rust-fdinfo-v2-1-b1653edf1e4f@gmail.com>
+X-Patch-Reply: applied
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,53 +80,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="t2Y4PbylN5J00VDt"
-Content-Disposition: inline
-In-Reply-To: <20261126-rzn1-miic-resets-v4-2-4f73af81d779@reliablecontrols.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
---t2Y4PbylN5J00VDt
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Thu, 26 Nov 2026 18:39:33 +0100, Peder Bergan wrote:
+> [PATCH v2] rust: drm: enable standard fdinfo for Rust drivers
 
-On Thu, Nov 26, 2026 at 08:11:06AM -0800, Kyle Hendry via B4 Relay wrote:
-> From: Kyle Hendry <khendry@reliablecontrols.com>
->=20
-> The rzn1 system controller has two resets that need to be cleared for the
-> mii converter to work. They are not directly associated with any clocks
-> so they need a reset controller to set them.
->=20
-> They are documented in the PWRCTRL_SWITCHCTRL (0x4000C188) register as:
->=20
-> Bit 3: RSTN_CLK25 - Active low Reset for Timestamp signal selection logic
-> Bit 4: RSTN_ETH - Active low Reset for RGMII/RMII Converter (50 MHz).
->=20
-> Add a reset controller and add resets for those bits.
->=20
-> Signed-off-by: Kyle Hendry <khendry@reliablecontrols.com>
+Applied, thanks!
 
-Tested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+  Branch: drm-rust-next
+  Tree:   https://gitlab.freedesktop.org/drm/rust/kernel.git
 
+[1/1] rust: drm: enable standard fdinfo for Rust drivers
+      commit: 02efea879e87
 
---t2Y4PbylN5J00VDt
-Content-Type: application/pgp-signature; name=signature.asc
+The patch will appear in the next linux-next integration (typically within 24
+hours on weekdays).
 
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmsIsEUACgkQFA3kzBSg
-Kbb25BAAscL31qp38pQcZ9Veug/0oHqeKBKjoMr/H7cX+GGbUuE6Pu3jrdGLBGMO
-st3/gw3ru5XMTUoOU9myYZnltdbq2TajaRgTDZpD15fsIpFxbiUS3syS9A/fq3jB
-unpUzggvHq3YKtXe3kgPsPnABkRMAdodicXTe/FJdItBeYtw8YqiwKS0UK5+d458
-GDU+uSk7gGcJXCvYx+NkFhAf7c4yPV7hMCS2Dea8l5iYrK87DXI2dDJ8PUrakwSF
-BUyaKvZgveF5Vf00VbRFm991YkN6mdvrY2UFqn/TEU3cNx7iAvJGg/0UKilsI0OQ
-TBeMs9Hr0uneDIetcP2qNalWnZ73JAoSO/X4nETS1It09MMSTmwrjGuPWYYTEIMG
-kVULn80hlC/pQTTJy4WO8YacC+NUeJ7LOcjy+Wmo1qEG5fwTU/P4GrJVk5CHxhfx
-ey97vd7dWsBnDW3ZBzLTsunmj6Q/DT26qgbJf0w/2zMrnsYzcgIPgGaom5Fmc5Yd
-Q9DmYpGOLawT/isIM1+Il6nsUwZ31nEdkyWyKzIRd0girHZpTZ5GsORlNlpcbKHY
-8gXu84XxPkjuGM3CF/pPq7nhYzkDt8d/QokPFt+Tqh31ESpOaGChqFmV9W9mcVyh
-Lqlpq8UKBeACf5IUZdKm+NKgo/8XByAmHkWdViJRyLqHqXZiNuo=
-=wHPG
------END PGP SIGNATURE-----
-
---t2Y4PbylN5J00VDt--
+The patch is queued up for the upcoming merge window for the next major kernel
+release.
