@@ -1,82 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.98
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795657583;
-	b=FaeXnt3LdcBvleK5Okxq/NYHI7doxKEzG00rRD5ce23jCR8SLmcyEKD/rogXxn2epk/s
-	 cjI9H5j2xSxjIXoJVMz/mw8VA8FOgXliYNGErUuGFF3ZCrJyHAVo55o5vgQwoUxrb0wEF
-	 ljmYHEU267DqR/W7zi9kXGpwhBgX518lp9SJlu0AHPjmcuC8yNbY6viIGfP0eQ2cXz/FF
-	 k9mEyhtGPXHw76Ho2hxGiJFJ+qkeE2kfkJ8zZLtUByYizX8vyjLuhEFpEdB/xOT6ufX86
-	 A0wnPYVPP/6+u/AMFM/GktcaFgnf1PrezgvwIALrColdUEbylxlCNmhaOONO3sDH2AA==
+	t=1795657622;
+	b=EIIpLb8RTA6clbful8g/8BmbFYWxS1DLmHpXelHwFhk6O5LxeOZutjogY0TfgBAE73sI
+	 GljhOTj+qSYqvG5gdzz44zrrD+h1YI7ht3GcktIeqraATUouAsGMhkUHSW0iwPD7XYI+h
+	 SuYNqCmZDvWleep/jJ99CQlLsn/wwPsNq7TTGPD61hmdjHYRrFFOan5ErMFQNReskovho
+	 cOLI7xHxgYus82PxUDHyJVzAr7TftkcrVcAHmCyeyK6Ko9s8v72O3PiC7W9uGLSO8GVZ/
+	 x7l0BC/+9M4jVQclraMAsPujqI40hfMy7mBZD6vFKVO5Sf9VLTUOoeBp3F1KkVWgXGA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795657583;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:Received:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-Spamd-Result:X-Spam-Score:X-Spam-Level:
-	 X-Spam-Flag;
-	bh=rTQibs8/o/dW90vH0yd86yddZhse5CdEmpfptRgvpO8=;
-	b=vaMDEUbo58SlTv/9N7ZhV6RGaMedADppE/s5q//PfbeCuyUjEGdSX3MphHkTaFXyC6VX
-	 76OerckQH+EUMHXaDOsES0VGyp90oJrvj0Ra6VElpNl719pcnqYQaR8G7l4yCen5YzNbQ
-	 V3vTmUU29m/Y5FWEEVqmF55NunnLyn6JsmtwxaysiPxbvcmWobv0iVMxi3xdul6IdvEYi
-	 F15PeCSxWwpDdcfIR+Lp7HJ/YhCt+0eTRlnGVzlG5OKxilueVu/oAt91OaInLou2r5Vnk
-	 hVrLXrh/lXbItptsyGIBBA8glrnHmI6z4FcgaJ4N6PP8R38rGibGpCj2YASnvqCrp6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795657622;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 References:In-Reply-To:Subject:Date:Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-Mailer:Thread-Index:
+	 Content-Language;
+	bh=W2EQK2hOfQhR4mMPTSrPSxv8Zf/b5iZOJhmrVlnPr4w=;
+	b=RDp66c/I/wCYmoEhFsSVUKsx02uUahmfJ8hsk8T4oh8aqVIGZVVthUgBaGUbFEEVQbZW
+	 vCTEhRQqabClN9HKp2vOilIuxPjhdToX/iiQwgHbXY//W929LKR+JqK3TcffPCykr1eIu
+	 R7SqFX+/KwTV/0F47lvymVNV4JUXmCdXptISSrIwGhjYHgnOkvV0cUOc9Ukf8KABwolJf
+	 tDoOEU6jTpwPYmTqaOy0DVq6VjX2PYYNYM6fumAI8Uw90sFgqrvYho96+JLPDM5pS5A/c
+	 +CKdItUQ29686AULQxSHMpNylo/lQ1gGADkh14x6rCFD6qUJVHZj9Mo7FVZ7WLxdatg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=susede1 header.b="RAMmUxy/";
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=susede1 header.b=ulSRO3C1;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=cksJBI8v;
+	arc=none smtp.remote-ip=115.124.30.98
+Received: from out30-98.freemail.mail.aliyun.com (out30-98.freemail.mail.aliyun.com [115.124.30.98])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99713606A31E;
-	Thu, 26 Nov 2026 01:46:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99713606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63EA2606A321;
+	Thu, 26 Nov 2026 01:47:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63EA2606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=susede1 header.b=RAMmUxy/;
-	dkim=pass (1024-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=susede1 header.b=ulSRO3C1
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 57F9922525;
-	Thu, 26 Nov 2026 01:46:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
-	t=1795657580; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=rTQibs8/o/dW90vH0yd86yddZhse5CdEmpfptRgvpO8=;
-	b=RAMmUxy/fGkphMAGt5Cfazz5Y+mn1+V8WuTovSjbuQmbXyf/W3QjsKM+uBD1ux77HCgCrx
-	lIKD+VSV1UIETAeqQWMoGnT872Uslq/W3iZPYAwsXUMYl80aIT0MMCFhw22961crPerWFG
-	Em30SFZaEDLMktgtd8W8t8j/gwKC/jE=
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
-	t=1795657579; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=rTQibs8/o/dW90vH0yd86yddZhse5CdEmpfptRgvpO8=;
-	b=ulSRO3C1sAEtHXo0qcc3jtU4ag1wUSx6v5BOInEqmzVcPUJXxzSUxraStJed8mzt8BOc9q
-	wYtNTQG1ABs1zV9EpFMyZVXTLhAgwGXazKygNnDEdKpHNnjCUdNS+UAxU8QlpMm4nXwlG9
-	lDKjToKyUMcCMLx5kbYlht5kkSyLiWQ=
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 3170C134C1;
-	Thu, 26 Nov 2026 01:46:19 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id xuXZA2uPB2uSFAAAD6G6ig
-	(envelope-from <dsterba@suse.com>); Thu, 26 Nov 2026 01:46:19 +0000
-From: David Sterba <dsterba@suse.com>
-To: torvalds@linux-foundation.org
-Cc: David Sterba <dsterba@suse.com>,
-	linux-btrfs@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] Btrfs fixes for 7.4-rc7
-Date: Thu, 26 Nov 2026 02:46:16 +0100
-Message-ID: <cover.1795641319.git.dsterba@suse.com>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=cksJBI8v
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795657612; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	bh=W2EQK2hOfQhR4mMPTSrPSxv8Zf/b5iZOJhmrVlnPr4w=;
+	b=cksJBI8vCDqOKJGJ+ED7qJB9iNfpsYlMIH00+6f72ymohmQp/Q53gsVHGASA9PPs7juQuWXx8rdyZVETagPifKuR4wd6NG2D8JvUCGb04c9EshEY1rh5eU96sgJG+WagJkP69mFcfo+Wjz9/vGbnJwBk72/Z9klTHG1irVEBX/8=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R771e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=yadong.qi@linux.alibaba.com;NM=1;PH=DS;RN=11;SR=0;TI=SMTPD_---0XFSrPkD_1795657611;
+Received: from LG41624401116(mailfrom:yadong.qi@linux.alibaba.com fp:SMTPD_---0XFSrPkD_1795657611 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 26 Nov 2026 09:46:51 +0800
+From: <yadong.qi@linux.alibaba.com>
+To: "'Catalin Marinas'" <catalin.marinas@arm.com>
+Cc: <will@kernel.org>,
+	<mark.rutland@arm.com>,
+	<ying.huang@linux.alibaba.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>,
+	<ryan.roberts@arm.com>,
+	<robh@kernel.org>,
+	<gregkh@linuxfoundation.org>,
+	<ptg-linux-kernel@linux.alibaba.com>,
+	<stable@vger.kernel.org>
+References: <20261125063224.553-1-yadong.qi@linux.alibaba.com> <awb34Zfblg-A1tHQ@arm.com>
+In-Reply-To: <awb34Zfblg-A1tHQ@arm.com>
+Subject: RE: [PATCH v2] arm64: fixmap: fix missing break-before-make in __set_fixmap()
+Date: Thu, 26 Nov 2026 09:46:50 +0800
+Message-ID: <001001dd7d48$01c04cc0$0540e640$@linux.alibaba.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,131 +69,188 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-11.80 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-0.995];
-	MIME_GOOD(-0.10)[text/plain];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo];
-	FROM_HAS_DN(0.00)[];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	TO_DN_SOME(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	DKIM_SIGNED(0.00)[suse.com:s=susede1];
-	RCPT_COUNT_THREE(0.00)[4];
-	RCVD_TLS_ALL(0.00)[]
-X-Spam-Score: -11.80
-X-Spam-Level: 
-X-Spam-Flag: NO
+Content-Type: text/plain;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQIlHPfcVfRmir7bpqVzZq45BGzU7gMX4XPYtpeU9nA=
+Content-Language: zh-cn
 
-Hi,
+> -----Original Message-----
+> From: Catalin Marinas <catalin.marinas@arm.com>
+> Sent: 2026=C4=EA11=D4=C225=C8=D5 23:00
+> To: Yadong Qi <yadong.qi@linux.alibaba.com>
+> Cc: will@kernel.org; mark.rutland@arm.com; =
+ying.huang@linux.alibaba.com;
+> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
+> ryan.roberts@arm.com; robh@kernel.org; gregkh@linuxfoundation.org;
+> ptg-linux-kernel@linux.alibaba.com; stable@vger.kernel.org
+> Subject: Re: [PATCH v2] arm64: fixmap: fix missing break-before-make =
+in
+> __set_fixmap()
+>=20
+> On Wed, Nov 25, 2026 at 02:32:24PM +0800, Yadong Qi wrote:
+> > __set_fixmap() installs a new PTE with __set_pte() but never =
+invalidates
+> > the TLB; only the clear path calls flush_tlb_kernel_range(). The
+> > dsb(ishst)/isb that __set_pte() emits makes the new PTE visible to =
+the
+> > table walker but does not invalidate stale TLB entries. Overwriting =
+a
+> > still-valid slot therefore leaves the old translation cached and
+> > violates break-before-make: accesses may keep hitting the old output
+> > address, and changing the attributes of a cached entry can trigger =
+TLB
+> > conflict aborts or CONSTRAINED UNPREDICTABLE behaviour.
+> >
+> > Two in-tree callers overwrite a valid FIX_EARLYCON_MEM_BASE slot:
+> >
+> >  - earlycon: earlycon_map() maps the UART before match->setup() =
+runs.
+> >    If setup fails, con->write is unset, or the DT reg-io-width is
+> >    unsupported, the slot stays valid but no console is registered. =
+The
+> >    console_is_registered() guard only blocks successful =
+registrations,
+> >    so a later attempt (e.g. a failed DT earlycon followed by =
+earlycon=3D
+> >    on the command line) remaps the slot to a different UART.
+> >
+> >  - samsung_tty: apple_s5l_early_console_setup() overrides the
+> >    just-installed entry from PROT_DEVICE_nGnRE (FIXMAP_PAGE_IO) to
+> >    PROT_DEVICE_nGnRnE on the normal successful boot path.
+> >
+> > Both are valid-to-valid changes (different output address or memory
+> > type), which arm64 requires to be break-before-make.
+> >
+> > Fix this in __set_fixmap() by invalidating any existing valid =
+mapping
+> > up front: clear the old PTE and flush the TLB, then install the new =
+PTE
+> > only when setting. The old translation is gone before the new one is
+> > created, so the two can never coexist in the TLB. A first-time =
+mapping
+> > (old entry invalid) skips the invalidation and pays no extra cost, =
+and
+> > clearing a slot is handled by the same step.
+> >
+> > A clear (!flags) always clears and flushes, even when the PTE is =
+already
+> > invalid. An invalid PTE does not imply an invalid TLB: another CPU =
+may
+> > have cleared the PTE but not yet completed its TLB flush, leaving a =
+stale
+> > entry cached locally. The unconditional flush preserves =
+clear_fixmap()'s
+> > TLB shootdown guarantee, which callers such as the KVM VNCR unmap =
+path
+> > rely on when racing with a remote invalidation.
+> >
+> > This belongs in the callee, as on x86: __set_fixmap() there calls
+> > set_pte_vaddr(), which flushes the TLB unconditionally after writing =
+the
+> > PTE. x86 can flush after the write because it has no =
+break-before-make
+> > requirement; arm64 must invalidate and flush before installing the =
+new
+> > valid entry to avoid TLB conflict aborts.
+> >
+> > Fixes: 9aac5887595b ("tty/serial: add generic serial earlycon")
+> > Cc: stable@vger.kernel.org
+> > Reported-by: Huang Ying <ying.huang@linux.alibaba.com>
+> > Signed-off-by: Yadong Qi <yadong.qi@linux.alibaba.com>
+>=20
+> Nit: commit 9aac5 added earlycon_map() -> set_fixmap_io() but I think =
+a
+> a few other commits later caused overriding this fixmap entry. I think
+> set_fixmap_io() was underspecified, not requiring a clear_fixmap() =
+after
+> use but they inherited the x86 behaviour already which did the =
+flushing.
+> Anyway, I think a better tag would be (to make it arm64-specific =
+issue):
+>=20
+> Fixes: bf4b558eba92 ("arm64: add early_ioremap support")
+Agreed. Will switch to it in the next version.
 
-please pull a number of fixes as reported on Bugs page of Sashiko and
-usual bag of regular fixes.
+>=20
+> > diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
+> > index 951004ad700c..5da49e201b6f 100644
+> > --- a/arch/arm64/mm/fixmap.c
+> > +++ b/arch/arm64/mm/fixmap.c
+> > @@ -126,13 +126,49 @@ void __set_fixmap(enum fixed_addresses idx,
+> >
+> >  	ptep =3D fixmap_pte(addr);
+> >
+> > +	/*
+> > +	 * Break-before-make: when the slot still holds a valid mapping
+> > +	 * (e.g. earlycon re-mapping FIX_EARLYCON_MEM_BASE), invalidate =
+the
+> > +	 * old entry and flush the TLB entries caching it before a new
+> > +	 * mapping is installed, so old and new translations never =
+coexist.
+> > +	 *
+> > +	 * A clear (!flags) always flushes even if the PTE is already =
+invalid:
+> > +	 * a remote CPU may have cleared the PTE but not yet completed its =
+TLB
+> > +	 * flush, leaving a stale entry cached locally. Take KVM VNCR =
+unmap as
+> > +	 * example:
+> > +	 * When CPU1 wins atomic_xchg_relaxed(&vt->cpu, -1) in =
+unmap_l1_vncr(),
+> > +	 * CPU0 calls clear_fixmap() on its own slot so it cannot finish
+> > +	 * vcpu_put() before the local TLB entry is invalidated:
+> > +	 *      CPU0                                  CPU1
+> > +	 *                                 invalidate_vncr()
+> > +	 *                                 unmap_l1_vncr()
+> > +	 *                                   atomic_xchg_relaxed(&vt->cpu, =
+-1)
+> > +	 *                                   clear_fixmap(vncr_fixmap(0))
+> > +	 *                                     __pte_clear(..., ptep)
+> > +	 *                                     <delayed before TLB flush>
+> > +	 * kvm_vcpu_put_hw_mmu()
+> > +	 * this_cpu_reset_vncr_fixmap()
+> > +	 *   unmap_l1_vncr() =3D=3D -1
+> > +	 *   clear_fixmap(vncr_fixmap(0))
+> > +	 *     !pte_valid(__ptep_get(ptep))
+> > +	 *     <skips flush_tlb_kernel_range()>
+> > +	 *                    <stale TLB entry still live on CPU0>
+> > +	 * If another nested vCPU then schedules on CPU0 and calls
+> > +	 * kvm_map_l1_vncr() before CPU1 finishes =
+flush_tlb_kernel_range(),
+> > +	 * __set_fixmap() also sees !pte_valid(__ptep_get(ptep)) and =
+installs
+> > +	 * the new PTE while the old translation is still cached in CPU0's =
+TLB.
+> > +	 * Unconditionally clearing and flushing when !pgprot_val(flags)
+> > +	 * preserves clear_fixmap()'s TLB shootdown guarantee.
+> > +	 */
+>=20
+> There's too much text here. Move it in the commit log if you want and
+> just write a few lines in the code, something like:
+>=20
+> 	/*
+> 	 * Break-before-make if the slot holds a valid mapping. Always
+> 	 * flush on clear since another CPU may have cleared the pte
+> 	 * without completing its TLBI yet.
+> 	 */
+>=20
+Much cleaner, thanks =A1=AA will fold this in and leave the details in =
+the
+commit log.
 
-Thanks.
+> > +	if (pte_valid(__ptep_get(ptep)) || !pgprot_val(flags)) {
+> > +		__pte_clear(&init_mm, addr, ptep);
+> > +		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+> > +	}
+> > +
+>=20
+> With these changes,
+>=20
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
-- send fixes:
-  - fix sending file hole punching command in incremental mode
-  - fix invalid memory access for inline extent
 
-- fixes for nowait semantics
-  - fix memory allocation in encoding read ioctl
-  - don't wait for ordered extents in buffered write
+Best Regards
+Yadong
 
-- don't propagate nodatacow from mount option to files with compression
-  flag inherited from parent directory
-
-- fix fsync mode in encoded write so the data are fully written
-
-- fix race between reflink and compressed write on the same folio
-
-- fix rchar accounting in io_uring after error
-
-- drop link count for a deleted subvolume early so eventual open file
-  does not keep showing the subvolume in the list
-
-- fix livelock during transaction commit on RT kernel
-
-- fix inode locking inode for concurrent sync direct IO writes
-
-- reject subvolume ids that don't fit 32bit long
-
-- error handling and resource management fixes: sysfs objects, block
-  group refs, bio control structures, delayed inode refs
-
-----------------------------------------------------------------
-The following changes since commit d27d0039bc1334be8a72c769e14c0b0c3efc317d:
-
-  btrfs: fix bio counter and bioc leak when async checksumming fails (2026-11-09 18:50:58 +0100)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/kdave/linux.git tags/for-7.4-rc4-tag
-
-for you to fetch changes up to 3100f46985fd14148e79a0e79912180934ef7231:
-
-  btrfs: fix delayed inode count leak after failure to delete inode ref (2026-11-23 19:53:01 +0100)
-
-----------------------------------------------------------------
-Binbin Deng (1):
-      btrfs: wait for a grace period before freeing a new device
-
-Boris Burkov (1):
-      btrfs: fix block group ref leak when scrub races with unused bg deletion
-
-Cheng Yongkang (1):
-      btrfs: remove devid kobject when deleting a missing device
-
-Daniel Vacek (1):
-      btrfs: fix a livelock in wait_for_commit() on PREEMPT_RT
-
-Filipe Manana (13):
-      btrfs: send: fix missing hole punching during incremental send
-      btrfs: send: fix invalid access to inline extents in clone_range()
-      btrfs: don't propagate nodatacow mount option on files with inherited compression
-      btrfs: drop the link count of a subvolume inode when deleting the subvolume
-      btrfs: fix race between concurrent sync direct IO writes
-      btrfs: zstd: fix UAF due to race between putting workspace and reclaim
-      btrfs: fiemap: deal with inline extent in fiemap_find_last_extent_offset()
-      btrfs: fix off-by-one max tree level bound when replaying log trees
-      btrfs: fix double release of space when cloning compressed inline extent
-      btrfs: abort transaction on failure to update inode after hole punching
-      btrfs: fix blocking allocation for nowait encoded reads of inline extents
-      btrfs: fix incorrect task accounting on error during io_uring read
-      btrfs: fix delayed inode count leak after failure to delete inode ref
-
-Joseph Qi (1):
-      btrfs: don't wait for ordered extents in nowait buffered writes
-
-Qu Wenruo (3):
-      btrfs: reject subvolume ids that do not fit into unsigned long
-      btrfs: skip fast sync for inodes with encoded writes
-      btrfs: fix a race between reflink and compressed writes
-
- fs/btrfs/block-group.c   |  7 +++-
- fs/btrfs/delayed-inode.c |  3 +-
- fs/btrfs/direct-io.c     | 15 +++++++-
- fs/btrfs/disk-io.c       | 31 +++++++++------
- fs/btrfs/disk-io.h       | 18 +++++++++
- fs/btrfs/extent_io.c     |  5 +--
- fs/btrfs/extent_io.h     |  3 +-
- fs/btrfs/fiemap.c        |  2 +
- fs/btrfs/file.c          | 16 +++++++-
- fs/btrfs/inode.c         | 86 ++++++++++++++++++++++++------------------
- fs/btrfs/ioctl.c         |  9 +++--
- fs/btrfs/reflink.c       | 15 +++++++-
- fs/btrfs/send.c          | 98 +++++++++++++++++++++++++++++++++++++++---------
- fs/btrfs/transaction.c   | 15 +++-----
- fs/btrfs/tree-log.c      |  2 +-
- fs/btrfs/volumes.c       |  9 +++--
- fs/btrfs/zstd.c          |  8 +++-
- 17 files changed, 244 insertions(+), 98 deletions(-)
