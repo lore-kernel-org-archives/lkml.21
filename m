@@ -1,64 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795686916;
-	b=DlCg6n8pLvdErxStwhIXBI9YIMexk38tou75LMGZWU3K/Yboy/UXFNdiLAYbnBRQPT5x
-	 RE1hUWQEfIaCypsKgTkH704mTpiNUpbfvdIvmLyh3a0Dwg6gOAa2M/WLhKehF6xRV8mC5
-	 JGVCXfbReGcdxooHxc/OJjM0+uLBl03L/H9b2Y3gFOTRxOgXqq+ztQqCmii4o2D2lPp13
-	 Kssk7h59ez0UYFxYQsefHdS+E6VpxN39gjkTW9uw5jj55OlgwPmu0QmEPP8gTz6G/ulB6
-	 s3PAj8TtLgRlNXgYNT3/uHP7cmsQqX9ACrMNkyuaCsqSRGvYHXc/KCtKIKM21gDnHhA==
+	t=1795686937;
+	b=IWdhUC5YYL/3iSaADpigF4IcN74DlBp4PJBbO0HWX3fCRxGNnH1/6S4qii5Z7rT3p7Sa
+	 wtT0ZEzG0iBVEdTLeHh7IKJ6CXD00TEETqKugpQyeLikD0WG27awKelvq4GAdEWhCBziR
+	 OzO89b7ImK3O9fkeIBOb6qIrvcYu9rSJ+yXIoQAl6EdoD95eqLCawkr3DgqBmVMIPcyeI
+	 OOffLNUSKlXj+Fo4LYy9Mxfb4QTlNWdgLSFo3D/J7j5o0MU9q37CGJ8iYZZze15nkeoOg
+	 hTCb5v8HCKeNPsCZKIxn6+rfKArBn+AvBkncb4RZMdxEOOc7it1i4HR8GZ4zwECHn5g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795686916;
-	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
-	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:From:To:Cc:
-	 Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=/OEyTMCovgqBPEWFhNHogwKOonGrCtBiqR8NpYfRMdo=;
-	b=ztmepI4gR/fpE7vBahnTi7VkzNwsAe/YyYoTWqBRp2W1BeoDeBiTSvWVi0UjIpFB7mtV
-	 NbP0pEGqkr+90gqxOf8jJWlLqitThMiyWruSBdXHLB8kGlUqkEKIFnHGr757eCXSeTV9Z
-	 QSUuQKQAxFLOQgc0vXSo2plVUTpJLFSWuCB8DS2gefRB43SdRB9zTPrjTWKQTxol1hJ0Q
-	 WyiEzuqDm5zQn7agPewQEI4S66+XgwBkpKMvs5p4hntZg4srbWGqBBOOQrcATtmFEI3sp
-	 BIdsTubaXvKxPDCzUSxzkavWReGZIQulAI+QyxBTvCw4bTSy/YnvKsZnbLGumHcNB3g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795686937;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=zG6hcFBKaarnvsPjlDpXRoRvjH17xCtphvN+Zm9vGko=;
+	b=kpXmUgOo/AjUA9NkkkMMvD38MqOFjb/LNyaLjobsgItjQ+MS0YT9+jCCmDRACX7HBrpk
+	 dUI+dCzkEIohOPW5M+WPV95owJN1Xw1x8snMzLZ5i7B0UIP0/dMn5iY2Nu92uoG+2xn1Z
+	 yy0iq+QOGsnEJZ65hvZOqj3t5Etf6nXEMhw4LLCUDFO9qVBfkrR7AtAzw1NyfxzOkO3CQ
+	 Kv92Xc3hWik0ZgCyc08n3AWVjZBMLDiyHZY84AGaKcHqfKS+KwunfG0jSm0aOYbnwTLA8
+	 4+l2U8QIpfrhRw/U2Cm7eXUX3M8di/sliiPUc0KYKhWcCsjmmI2/NooPuOgrozNnmfA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kylinos.cn;
-	spf=pass smtp.mailfrom=kylinos.cn;
-	arc=none smtp.remote-ip=124.126.103.232
-Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RQCyQK5O;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2BF6606A32E;
-	Thu, 26 Nov 2026 09:55:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2BF6606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
-X-UUID: 75c5f45ae97f11f19a56ed5b684f684d-20261126
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:8b1403e3-ea85-455f-af42-6449f7675028,IP:0,U
-	RL:0,TC:0,Content:0,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:25
-X-CID-META: VersionHash:7db8b62,CLOUDID:da0a6ff5f0934499b3419666d96728ce,BulkI
-	D:nil,BulkQuantity:0,SF:102|850|865|898,TC:nil,Content:0|15|50|99,EDM:5,IP
-	:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 75c5f45ae97f11f19a56ed5b684f684d-20261126
-X-User: zhangheng@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <zhangheng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1582135308; Thu, 26 Nov 2026 17:55:07 +0800
-From: Zhang Heng <zhangheng@kylinos.cn>
-To: broonie@kernel.org
-Cc: linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Zhang Heng <zhangheng@kylinos.cn>
-Subject: [RESEND PATCH] ASoC: amd: yc: Add DMI quirk for Acer Nitro AN515-46
-Date: Thu, 26 Nov 2026 17:54:46 +0800
-Message-Id: <20261126095446.889320-1-zhangheng@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31454606A326;
+	Thu, 26 Nov 2026 09:55:37 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RQCyQK5O
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1558E1F000C4;
+	Thu, 26 Nov 2026 09:55:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795686936;
+	bh=zG6hcFBKaarnvsPjlDpXRoRvjH17xCtphvN+Zm9vGko=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RQCyQK5Oq863s9k3aYw7AiGhCho+53i2v7J+kSej0aI/ocNQVdUq4lvFt6yS9wDZv
+	 eCN9kR32v3YmlB/SCi1D7U1M3Yghd7ekpfHMVmDLJ8msrjkNmvWAaj900YHKs1hvGp
+	 YnX6O6H4V9W/1pNJqxgzNl0xLKCS3U9TMe2E71AQzKN9QTE+sPrGtJJd1otT7qyw6d
+	 1WR0AjIp4ETTblf/GUeArbyJo07h2JKtDDX5MXID8jJW5XoE+vZDJEI1sC1gAFkyzh
+	 wzsEQxIclL9uLGe5CKnhkKSuyNpSFlgLP/eSEDgwJyAr1fkfLDBR5MgGx3D4lV2p2J
+	 rl0qGXU1iXcDg==
+Date: Thu, 26 Nov 2026 10:55:17 +0100
+From: "Oscar Salvador (SUSE)" <osalvador@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Jinmeng Zhou <jinmengzhou22@gmail.com>,
+	Hongfu Li <lihongfu@kylinos.cn>,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	Mike Kravetz <mike.kravetz@oracle.com>,
+	Naoya Horiguchi <nao.horiguchi@gmail.com>,
+	Hugh Dickins <hughd@google.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Dave Airlie <airlied@redhat.com>,
+	Vivek Kasireddy <vivek.kasireddy@intel.com>,
+	Gerd Hoffmann <kraxel@redhat.com>, Mike Rapoport <rppt@kernel.org>,
+	Mel Gorman <mel@csn.ul.ie>,
+	Dave McCracken <dave.mccracken@oracle.com>,
+	Andy Whitcroft <apw@shadowen.org>, Adam Litke <agl@us.ibm.com>,
+	Lorenzo Stoakes <ljs@kernel.org>, Rik van Riel <riel@surriel.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>,
+	Jann Horn <jannh@google.com>, Lance Yang <lance.yang@linux.dev>,
+	James Houghton <jthoughton@google.com>,
+	Yang Shi <shy828301@gmail.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Pedro Falcato <pfalcato@suse.de>, Gregory Price <gourry@gourry.net>,
+	Zi Yan <ziy@nvidia.com>, Joshua Hahn <joshua.hahnjy@gmail.com>,
+	Rakie Kim <rakie.kim@sk.com>,
+	Ying Huang <ying.huang@linux.alibaba.com>,
+	Matthew Brost <matthew.brost@intel.com>,
+	Byungchul Park <byungchul@sk.com>,
+	Alistair Popple <apopple@nvidia.com>,
+	Wanpeng Li <liwanp@linux.vnet.ibm.com>,
+	Andi Kleen <ak@linux.intel.com>,
+	Kenneth W Chen <kenneth.w.chen@intel.com>,
+	Hugh Dickins <hugh@veritas.com>, Michal Hocko <mhocko@suse.com>,
+	David Rientjes <rientjes@google.com>, Joern Engel <joern@logfs.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, Michal Hocko <mhocko@suse.cz>,
+	"Aneesh Kumar K.V" <aneesh.kumar@linux.vnet.ibm.com>,
+	KAMEZAWA Hiroyuki <kamezawa.hiroyu@jp.fujitsu.com>,
+	"Kirill A. Shutemov" <kirill@shutemov.name>,
+	Sasha Levin <sasha.levin@oracle.com>,
+	Guillaume Morin <guillaume@morinfr.org>,
+	Wanpeng Li <liwp.linux@gmail.com>, linux-mm@kvack.org,
+	Jason Gunthorpe <jgg@ziepe.ca>, linux-kernel@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@osdl.org>,
+	linux-doc@vger.kernel.org, Chris Mason <mason@kernel.org>
+Subject: Re: [PATCH 01/21] mm/hugetlb: charge the copy made at fork to the
+ parent
+Message-ID: <awgCBU9wSBa_mh1D@localhost.localdomain>
+References: <20261125-hugetlb_fixes_2-v1-0-db27fd2f71a8@kernel.org>
+ <20261125-hugetlb_fixes_2-v1-1-db27fd2f71a8@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,34 +103,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261125-hugetlb_fixes_2-v1-1-db27fd2f71a8@kernel.org>
 
-Add a DMI match entry so the ACP6x sound card is selected on the
-Acer Nitro AN515-46.
+On Wed, Nov 25, 2026 at 11:32:59PM +0100, David Hildenbrand (Arm) wrote:
+> When copying page tables during fork(), the child is not yet assigned to
+> the right memcg. When copying possibly pinned anon hugetlb folios, we
+> must charge them to the parent's memcg, otherwise we can end up
+> allocating more hugetlb folios than allowed.
+> 
+> Let's fix it by charging the copy to the parent's mm, like we do when
+> copying small folios in copy_present_page(), introducing a new helper
+> function alloc_hugetlb_folio_for_fork().
+> 
+> This is a hotfix for v7.4.
+> 
+> Fixes: c2deb1356d82 ("mm/hugetlb: charge folios to the target mm's memcg")
+> Reported-by: Chris Mason <mason@kernel.org>
+> Acked-by: Michal Hocko <mhocko@suse.com>
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 
-Closes: https://bugzilla.kernel.org/show_bug.cgi?id=222239
-Signed-off-by: Zhang Heng <zhangheng@kylinos.cn>
----
- sound/soc/amd/yc/acp6x-mach.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+Acked-by: Oscar Salvador (SUSE) <osalvador@kernel.org>
 
-diff --git a/sound/soc/amd/yc/acp6x-mach.c b/sound/soc/amd/yc/acp6x-mach.c
-index 7ab48e3629be..667a49a1c642 100644
---- a/sound/soc/amd/yc/acp6x-mach.c
-+++ b/sound/soc/amd/yc/acp6x-mach.c
-@@ -661,6 +661,13 @@ static const struct dmi_system_id yc_acp_quirk_table[] = {
- 			DMI_MATCH(DMI_PRODUCT_NAME, "Swift SFA16-41"),
- 		}
- 	},
-+	{
-+		.driver_data = &acp6x_card,
-+		.matches = {
-+			DMI_MATCH(DMI_BOARD_VENDOR, "RB"),
-+			DMI_MATCH(DMI_PRODUCT_NAME, "Nitro AN515-46"),
-+		}
-+	},
- 	{
- 		.driver_data = &acp6x_card,
- 		.matches = {
+ 
+
 -- 
-2.25.1
+Oscar Salvador
+SUSE Labs
