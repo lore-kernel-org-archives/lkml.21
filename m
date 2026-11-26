@@ -1,76 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795706828;
-	b=lfee4/YD3U/VFTB3tlVgyyWrqPLsHrYiqqEb2uSolpbFCEDTrWw3K+AKBDiFuUR80XJh
-	 4Z90mq4CxnLn6pTzIrrRaFqKsJgtPYEJRyX7ZrlG+7V9EPHFfetiA0CQ/1usSaguBroNY
-	 seyKHRTbOg6QppHWyJsqkioNMDuu1FUdOgAdWzTTRT6EvdbrrFcz9cx4zZBJBLML7B5BI
-	 dakHnqBL9n75lEH/3dBTYlWqTfjyjGWm0tU0U8spp377v1b2ct0Rx1gjAB81fwGuslX/A
-	 rEZSJ1QQ7B8UuZLd00KjHgNiPYxMa8+QX2NNNZg7eRGIh33vvVlcts7C7MfC/nWiRWw==
+	t=1795706842;
+	b=JhMh3ytMvpx2qo+QquyIlQjHpmC/mQXp2K089OmbJWpAk7IxeT3C2OAjBLXjAiU2DxHB
+	 QGRLzpXhhjsWZTo7khY6L35kMCfIzufMqU7OYJUgDpIKArhhl0V6drqNTEO9DSxmD0qW5
+	 mocKMoZWKXuMb8lHp2RevHL3uUPJPyI11iM9UsHGOQHOKrx8Pr2eLEdYGtVbOxh5ge8Jf
+	 iFE/TLYEb770TgICMO+604HvSQtAZzT3jryGRHXz7tfOR1b7D/EG55dHTJf1kpxCtxuD/
+	 0nH/JyCTM3U29zImUgJLhrB8kYfOqCwAw16yaRnV73DaJ6Q+dvbzmLPD1QHXFnlxtzA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795706828;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=pQbqZcGbxJ+uscPuSMz/IRzY0GOV2w0fU4mvW1Tzpqk=;
-	b=IKLXwfYwgetExAe9AEQ6Tc8v/gxC5h2w6oRIj5qvuaqQs0wEUGrXvgnQ95tdnybd22pW
-	 8kS7tNf7Tnbba6gfsL8c15uQpvh26eUPAviKdJi/TYWUJ3GedE64o/eaz2jZjNwgb1yWX
-	 usKlF2hs0mTquMnqKGJQnoEiben0iVebUF23i4bpM+OD8wOUfV6XDY9j8aeo4CTnzBuR7
-	 vm34NhXIj1vEL4DROUdjYVl+43YVV3tAKShannROwWm8GIpI4Flw1Z4ZrxntFVOJuWbE5
-	 NDs9EowhDZVS05dN/K0inQ2JoOqHegL0ALIcmRBzRLjQVQ9z9Nf3dBgwcb9aTdkOCUQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795706842;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=OEHmps0eUNKGl/kt8l21tfZRtQlqHVz3052EVcNzTEM=;
+	b=P3n+nOpB9aXOLnd0Jkobd839lcfd5xhofbRrq5evB/SPRPrtnQb8iHhdHedHTpXLRqEC
+	 iYgIcpsFNH00Qmrvzred363oMY6ovJTolB6pZa/LW0+++9BCGe34bVzw4K8MUq1kFQtfL
+	 RLH7/FO/02eyERNXW9R9A5EyiRE39eSPqqo9dfkBrf+3LSaWJHFU4XO/KKxi2obi1LSMU
+	 n/mTQUCAZjjlsVx/fSjA/e2t2twRSes9rkvMWrI1R1cOy58om0LlXWxE+KlL+TNxkiHNN
+	 28qnG4z+XJQQxn9V0O6VCH3x1i0TRpYbCdr5u9AOwPkb6qcA5MrPdKPkRkGpgEbpnSg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i98MPiPp;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=TtYvNF20;
+	arc=none smtp.remote-ip=220.197.31.2
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DE24606A326;
-	Thu, 26 Nov 2026 15:27:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A6AE606A31C;
+	Thu, 26 Nov 2026 15:27:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A6AE606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i98MPiPp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DA9C1F000C0;
-	Thu, 26 Nov 2026 15:27:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795706828;
-	bh=pQbqZcGbxJ+uscPuSMz/IRzY0GOV2w0fU4mvW1Tzpqk=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=i98MPiPpHdRyKLUYgLKAMej7QhKr9tu3lSzCbrCqmNcCmrUAQDfMibatJjZerutim
-	 oett7b21vDlQ56v9pKMwpj92D+qZjZEybmAHikLaNAluJkqWeO3xqWWGWIfVAYxWHF
-	 aqbUSEq5jMk47WVsUupd3b7L28mhah6QHl5FG6/y7oszmYeYAQrfIQ7Pei2p94nKOE
-	 ybPrKVIpfZN2ZqwQk8F9c8roJ5lgpfOGdGR4fw0ZQiG5uQojAVQDAd5RuyU82vUzQH
-	 zwEKLkqeQP/rczVL8hCbZZtybfgvxPPHPYtAlRWhodjw2Debmz8B9L7F9824TbxkA+
-	 597gUVt/ctzRg==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Todd Freed <toddfreed@meta.com>, netdev@vger.kernel.org
-Cc: "David S. Miller" <davem@davemloft.net>, Andrew Lunn
- <andrew+netdev@lunn.ch>, Boris Pismenny <borisp@nvidia.com>, Cosmin Ratiu
- <cratiu@nvidia.com>, Daniel Zahka <daniel.zahka@gmail.com>, Donald Hunter
- <donald.hunter@gmail.com>, Dragos Tatulea <dtatulea@nvidia.com>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Jamal
- Hadi Salim <jhs@mojatatu.com>, Jiri Pirko <jiri@resnulli.us>, Leon
- Romanovsky <leon@kernel.org>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-rdma@vger.kernel.org, Mark Bloch <mbloch@nvidia.com>, Paolo Abeni
- <pabeni@redhat.com>, Pedro Tammela <pctammela@mojatatu.com>, Saeed
- Mahameed <saeedm@nvidia.com>, Simon Horman <horms@kernel.org>, Tariq
- Toukan <tariqt@nvidia.com>, Wei Wang <weiwan@google.com>, Willem de Bruijn
- <willemdebruijn.kernel@gmail.com>, Kuniyuki Iwashima <kuniyu@google.com>,
- bpf@vger.kernel.org, =?utf-8?Q?Asbj=C3=B8rn?= Sloth =?utf-8?Q?T=C3=B8nnes?=
- =?utf-8?Q?en?= <ast@fiberby.net>, Qingfang
- Deng <qingfang.deng@linux.dev>, Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgense?=
- =?utf-8?Q?n?= <toke@redhat.com>,
- Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah
- Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>,
- Matthieu
- Baerts <matttbe@kernel.org>, David Ahern <dsahern@kernel.org>, Jonas
- =?utf-8?Q?K=C3=B6ppeler?= <j.koeppeler@tu-berlin.de>, Hangbin Liu
- <hangbin.liu@linux.dev>
-Subject: Re: [PATCH net-next v3 05/12] net: add METADATA_PSP dst to carry a
- psp association on an skb
-In-Reply-To: <20261124221758.3230929-6-toddfreed@meta.com>
-References: <20261124221758.3230929-1-toddfreed@meta.com>
- <20261124221758.3230929-6-toddfreed@meta.com>
-Date: Thu, 26 Nov 2026 16:27:04 +0100
-Message-ID: <875wxjipfb.fsf@all.your.base.are.belong.to.us>
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=TtYvNF20
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=OE
+	Hmps0eUNKGl/kt8l21tfZRtQlqHVz3052EVcNzTEM=; b=TtYvNF20wS4epGsE6I
+	FcaotzxaZkYKtre7I/C/pBS6y4nznJo7BPoMFfgpSLnY3ta5JO2JvkKumzWZUh2V
+	jJk2BQeVnoRfQHZhCxi7Gt8+VwXdaz9HPkJm02Ub6KBMo8MWaJsTfM+Gfzd5LfPh
+	8LdWL9JPI9oQ/905Lbf1ClKzg=
+Received: from ubuntu (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wDnD72RTwhrvq_gJw--.40930S2;
+	Thu, 26 Nov 2026 23:26:23 +0800 (CST)
+From: Shaopei Zhu <shaopei_1012@163.com>
+To: David Timber <dxdt@dev.snart.me>
+Cc: Namjae Jeon <linkinjeon@kernel.org>,
+	Sungjong Seo <sj1557.seo@samsung.com>,
+	Yuezhang Mo <yuezhang.mo@sony.com>,
+	exfat@lists.linux.dev,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Matthew Wilcox <willy@infradead.org>
+Subject: Re: [PATCH v7] exfat: add EXFAT_IOC_COMBINE to append a file's clusters to another
+Date: Thu, 26 Nov 2026 23:26:07 +0800
+Message-ID: <20261126152607.933070-1-shaopei_1012@163.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <dcd27d38-60a2-4c1a-81ff-4a82e99520ab@dev.snart.me>
+References: <20261124230746.850528-1-shaopei_1012@163.com> <CAKYAXd_ap120uprmarov-GuO0fb1eXEgw-U8G08L1xRJ9bv18A@mail.gmail.com> <20261126075247.850895-1-shaopei_1012@163.com> <dcd27d38-60a2-4c1a-81ff-4a82e99520ab@dev.snart.me>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,384 +67,139 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wDnD72RTwhrvq_gJw--.40930S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3JF45Zr1fGFWUur1DGF4fAFb_yoWxGr4Upa
+	y5trnxt3WDGw17Cr1kZw18XFyYkrZ3JFW3Jrn0gry0kws8Wr4Syr4xK398u3srC3yrA3WY
+	yw4j9a43uF98AaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UHuWLUUUUU=
+X-CM-SenderInfo: pvkd01phlbiiirs6il2tof0z/xtbC6h-XZmsIT5+70AAA3c
 
-Todd Freed <toddfreed@meta.com> writes:
+Hi Davo,
 
-> Add a metadata_dst type holding a reference to a PSP association, so
-> that an association can be attached to an skb that has no socket, e.g.
-> by a tc action.
->
-> Change psp_skb_get_assoc_rcu() to check for METADATA_PSP, then fall back
-> to the socket, so that existing driver Tx paths (mlx5, netdevsim)
-> encrypt such packets without any changes.
->
-> Once an skb has been marked for PSP xmit, it must be transmitted on the
-> correct device, otherwise it may go onto the wire in clear text. For
-> packets of a PSP socket, sk_validate_xmit_skb() handles this.
->
-> For socket-less PSP packets, the PSP metadata dst carries this
-> information, but __dev_queue_xmit() normally releases the dst before
-> queueing. Add a new check for a PSP metadata dst at that point. If it's
-> the wrong device, drop the packet; if it's the right device, keep the
-> dst so that the driver can use it.
->
-> The right device is the PSP device's main netdev: devices associated
-> with it (dev-assoc, e.g. veth or netkit) have its psp_dev too, but
-> forward the packet rather than encrypt it, and drop the dst on the way.
-> Prevent xmit on those.
->
-> Also check that the packet will still fit the device's MTU once the
-> device adds the PSP encapsulation (UDP + PSP + ICV, 40 bytes), and drop
-> it with SKB_DROP_REASON_PKT_TOO_BIG otherwise. Note that no ICMP error
-> is sent in this case. PSP sockets do leave room for it
-> (psp_sk_overhead()).
->
-> Check a packet with a METADATA_PSP dst again when it is validated at
-> dequeue, in sk_validate_xmit_skb(). If the PSP device was unregistered
-> since enqueue, the packet is dropped.
->
-> A packet of a socket with its own encryption offload (PSP or kTLS) must
-> not carry a METADATA_PSP dst: sk_validate_xmit_skb() would apply the
-> socket's validator instead of checking the association. Whatever attaches
-> the dst refuses such packets, but the socket can gain an offload while
-> the packet is queued, so sk_validate_xmit_skb() drops a packet which has
-> both. It reads sk->sk_validate_xmit_skb with READ_ONCE(), which pairs
-> with the WRITE_ONCE() in psp_sock_set_tx_key().
->
-> Put the new checks behind a static key, psp_md_needed, so that
-> configurations which aren't using socket-less PSP don't pay to evaluate
-> them. It's enabled while any METADATA_PSP dst exists.
->
-> Signed-off-by: Todd Freed <toddfreed@meta.com>
-> ---
->  include/net/dst_metadata.h  |  19 +++++++
->  include/net/psp/functions.h | 105 +++++++++++++++++++++++++++++++++++-
->  net/core/dev.c              |  50 ++++++++++++++---
->  net/core/dst.c              |   5 ++
->  net/psp/psp_main.c          |  31 +++++++++++
->  5 files changed, 201 insertions(+), 9 deletions(-)
->
-> diff --git a/include/net/dst_metadata.h b/include/net/dst_metadata.h
-> index 02fffbb85099..bc6ac51dde9c 100644
-> --- a/include/net/dst_metadata.h
-> +++ b/include/net/dst_metadata.h
-> @@ -13,6 +13,7 @@ enum metadata_type {
->  	METADATA_HW_PORT_MUX,
->  	METADATA_MACSEC,
->  	METADATA_XFRM,
-> +	METADATA_PSP,
->  };
->=20=20
->  struct hw_port_info {
-> @@ -30,6 +31,14 @@ struct xfrm_md_info {
->  	struct dst_entry *dst_orig;
->  };
->=20=20
-> +/**
-> + * struct psp_md_info - PSP association to encrypt a packet with
-> + * @pas: association, the metadata_dst holds a reference on it
-> + */
-> +struct psp_md_info {
-> +	struct psp_assoc *pas;
-> +};
-> +
->  struct metadata_dst {
->  	struct dst_entry		dst;
->  	enum metadata_type		type;
-> @@ -38,6 +47,7 @@ struct metadata_dst {
->  		struct hw_port_info	port_info;
->  		struct macsec_info	macsec_info;
->  		struct xfrm_md_info	xfrm_info;
-> +		struct psp_md_info	psp_info;
->  	} u;
->  };
->=20=20
-> @@ -51,6 +61,13 @@ static inline struct metadata_dst *skb_metadata_dst(co=
-nst struct sk_buff *skb)
->  	return NULL;
->  }
->=20=20
-> +static inline bool skb_psp_md(const struct sk_buff *skb)
-> +{
-> +	struct metadata_dst *md_dst =3D skb_metadata_dst(skb);
-> +
-> +	return md_dst && md_dst->type =3D=3D METADATA_PSP;
-> +}
-> +
->  static inline struct ip_tunnel_info *
->  skb_tunnel_info(const struct sk_buff *skb)
->  {
-> @@ -127,6 +144,8 @@ static inline int skb_metadata_dst_cmp(const struct s=
-k_buff *skb_a,
->  	case METADATA_XFRM:
->  		return memcmp(&a->u.xfrm_info, &b->u.xfrm_info,
->  			      sizeof(a->u.xfrm_info));
-> +	case METADATA_PSP:
-> +		return a->u.psp_info.pas !=3D b->u.psp_info.pas;
->  	default:
->  		return 1;
->  	}
-> diff --git a/include/net/psp/functions.h b/include/net/psp/functions.h
-> index 2380af3b9c86..8704e41a7fda 100644
-> --- a/include/net/psp/functions.h
-> +++ b/include/net/psp/functions.h
-> @@ -5,7 +5,10 @@
->=20=20
->  #include <linux/skbuff.h>
->  #include <linux/rcupdate.h>
-> +#include <linux/jump_label_ratelimit.h>
->  #include <linux/udp.h>
-> +#include <net/dst_metadata.h>
-> +#include <net/gso.h>
->  #include <net/sock.h>
->  #include <net/tcp.h>
->  #include <net/psp/types.h>
-> @@ -22,10 +25,25 @@ bool psp_dev_encapsulate(struct net *net, struct sk_b=
-uff *skb, __be32 spi,
->  int psp_dev_rcv(struct sk_buff *skb, u16 dev_id, u8 generation, bool str=
-ip_icv);
->=20=20
->  /* Kernel-facing API */
-> +#if IS_ENABLED(CONFIG_INET_PSP)
->  void psp_assoc_put(struct psp_assoc *pas);
->  struct psp_assoc *psp_assoc_get_by_id(struct net *net, u32 id);
-> +struct metadata_dst *psp_md_alloc(struct psp_assoc *pas);
-> +
-> +extern struct static_key_false_deferred psp_md_needed;
-> +
-> +/* A METADATA_PSP dst may exist: the transmit path has to check for it */
-> +static inline bool psp_md_needed_on(void)
-> +{
-> +	return static_branch_unlikely(&psp_md_needed.key);
-> +}
-> +
-> +/* Pairs with psp_md_alloc(), from metadata_dst_free() */
-> +static inline void psp_md_put(void)
-> +{
-> +	static_branch_slow_dec_deferred(&psp_md_needed);
-> +}
->=20=20
-> -#if IS_ENABLED(CONFIG_INET_PSP)
->  unsigned int psp_key_size(u32 version);
->  void psp_sk_assoc_free(struct sock *sk);
->  void psp_twsk_init(struct inet_timewait_sock *tw, const struct sock *sk);
-> @@ -137,14 +155,84 @@ static inline struct psp_assoc *psp_sk_get_assoc_rc=
-u(const struct sock *sk)
->  	return pas;
->  }
->=20=20
-> +static inline struct psp_assoc *psp_skb_md_assoc(const struct sk_buff *s=
-kb)
-> +{
-> +	struct metadata_dst *md_dst;
-> +
-> +	if (!psp_md_needed_on())
-> +		return NULL;
-> +
-> +	md_dst =3D skb_metadata_dst(skb);
-> +	if (md_dst && md_dst->type =3D=3D METADATA_PSP)
-> +		return md_dst->u.psp_info.pas;
-> +
-> +	return NULL;
-> +}
-> +
->  static inline struct psp_assoc *psp_skb_get_assoc_rcu(struct sk_buff *sk=
-b)
->  {
-> +	struct psp_assoc *pas;
-> +
-> +	pas =3D psp_skb_md_assoc(skb);
-> +	if (pas)
-> +		return pas;
-> +
->  	if (!skb->decrypted || !skb->sk)
->  		return NULL;
->=20=20
->  	return psp_sk_get_assoc_rcu(skb->sk);
->  }
->=20=20
-> +/**
-> + * psp_xmit_md() - validate psp association attached as a metadata dst
-> + * @skb: packet about to be queued for transmission, or validated before
-> + *	 the device transmits it
-> + * @dev: device it is queued on, or transmitted by
-> + *
-> + * If the skb has a psp association attached as metadata dst, this indic=
-ates
-> + * intent to transmit encrypted, which will only happen when transmit on
-> + * the main netdev of its psp device.
-> + *
-> + * Also check that the packet will still fit @dev's MTU once the device =
-has
-> + * added the PSP encapsulation. Sockets leave room for it (psp_sk_overhe=
-ad()),
-> + * whoever attached the association may not have.
-> + *
-> + * returns:
-> + *   0 if @skb carries no psp association
-> + *   1 if it does and the dst must be kept for the driver
-> + *  -EINVAL if the packet must be dropped, @dev isn't the main netdev of
-> + *	    its psp device
-> + *  -EMSGSIZE if the packet must be dropped, too big once encapsulated
-> + */
-> +static inline int psp_xmit_md(const struct sk_buff *skb,
-> +			      const struct net_device *dev)
-> +{
-> +	unsigned int psp_encap =3D sizeof(struct udphdr) + PSP_HDR_SIZE +
-> +				 PSP_TRL_SIZE;
-> +	struct psp_assoc *pas =3D psp_skb_md_assoc(skb);
-> +	unsigned int mtu;
-> +
-> +	if (likely(!pas))
-> +		return 0;
-> +
-> +	if (rcu_access_pointer(dev->psp_dev) !=3D pas->psd ||
-> +	    dev !=3D pas->psd->main_netdev)
-> +		return -EINVAL;
-> +
-> +	mtu =3D READ_ONCE(dev->mtu);
-> +	if (mtu <=3D psp_encap)
-> +		return -EMSGSIZE;
-> +	mtu -=3D psp_encap;
-> +	if (skb_is_gso(skb)) {
-> +		if (!skb_gso_validate_network_len(skb, mtu))
-> +			return -EMSGSIZE;
-> +	} else if (skb->len - skb_network_offset(skb) > mtu) {
-> +		return -EMSGSIZE;
-> +	}
-> +
-> +	return 1;
-> +}
-> +
->  static inline unsigned int psp_sk_overhead(const struct sock *sk)
->  {
->  	int psp_encap =3D sizeof(struct udphdr) + PSP_HDR_SIZE + PSP_TRL_SIZE;
-> @@ -153,6 +241,21 @@ static inline unsigned int psp_sk_overhead(const str=
-uct sock *sk)
->  	return pas && pas->tx.spi ? psp_encap : 0;
->  }
->  #else
-> +static inline void psp_assoc_put(struct psp_assoc *pas) { }
-> +static inline bool psp_md_needed_on(void) { return false; }
-> +static inline void psp_md_put(void) { }
-> +
-> +static inline struct psp_assoc *psp_assoc_get_by_id(struct net *net, u32=
- id)
-> +{
-> +	return NULL;
-> +}
-> +
-> +static inline int psp_xmit_md(const struct sk_buff *skb,
-> +			      const struct net_device *dev)
-> +{
-> +	return 0;
-> +}
-> +
->  static inline void psp_sk_assoc_free(struct sock *sk) { }
->  static inline void
->  psp_twsk_init(struct inet_timewait_sock *tw, const struct sock *sk) { }
-> diff --git a/net/core/dev.c b/net/core/dev.c
-> index a44b314f387b..2b1a2736ab3f 100644
-> --- a/net/core/dev.c
-> +++ b/net/core/dev.c
-> @@ -111,6 +111,7 @@
->  #include <net/pkt_cls.h>
->  #include <net/checksum.h>
->  #include <net/xfrm.h>
-> +#include <net/psp/functions.h>
->  #include <net/tcx.h>
->  #include <linux/highmem.h>
->  #include <linux/init.h>
-> @@ -4141,9 +4142,14 @@ int skb_csum_hwoffload_help(struct sk_buff *skb,
->  }
->  EXPORT_SYMBOL(skb_csum_hwoffload_help);
->=20=20
-> -/* Checks if this SKB belongs to an HW offloaded socket
-> - * and whether any SW fallbacks are required based on dev.
-> - * Check decrypted mark in case skb_orphan() cleared socket.
-> +/* Validate an skb for device encryption offload. If the skb belongs to =
-an HW
-> + * offloaded socket, apply the socket's callback, unless the skb also ca=
-rries a
-> + * PSP association: then it is dropped. Otherwise, an skb which carries =
-a PSP
-> + * association is checked again against dev: the PSP device may have been
-> + * unregistered while the skb was queued. An skb marked decrypted (to be
-> + * encrypted by the device) without either is dropped rather than sent i=
-n clear
-> + * text. The mark survives losing the socket to skb_orphan(), or the PSP
-> + * metadata dst to routing.
->   */
->  static struct sk_buff *sk_validate_xmit_skb(struct sk_buff *skb,
->  					    struct net_device *dev)
-> @@ -4156,13 +4162,32 @@ static struct sk_buff *sk_validate_xmit_skb(struc=
-t sk_buff *skb,
->  	sk_validate =3D NULL;
->  	if (sk) {
->  		if (sk_fullsock(sk))
-> -			sk_validate =3D sk->sk_validate_xmit_skb;
-> +			sk_validate =3D READ_ONCE(sk->sk_validate_xmit_skb);
->  		else if (sk_is_inet(sk) && sk->sk_state =3D=3D TCP_TIME_WAIT)
->  			sk_validate =3D inet_twsk(sk)->tw_validate_xmit_skb;
->  	}
->=20=20
->  	if (sk_validate) {
-> -		skb =3D sk_validate(sk, dev, skb);
-> +		/* the socket's validator would apply instead of checking the
-> +		 * association. A METADATA_PSP dst isn't given to the packets
-> +		 * of a socket with its own offload, but the socket can gain
-> +		 * one while such a packet is queued.
-> +		 */
-> +		if (psp_md_needed_on() && skb_psp_md(skb)) {
-> +			kfree_skb_reason(skb, SKB_DROP_REASON_PSP_OUTPUT);
-> +			skb =3D NULL;
-> +		} else {
-> +			skb =3D sk_validate(sk, dev, skb);
-> +		}
-> +	} else if (psp_md_needed_on() && skb_psp_md(skb)) {
-> +		int psp =3D psp_xmit_md(skb, dev);
-> +
-> +		if (psp <=3D 0) {
-> +			kfree_skb_reason(skb, psp =3D=3D -EMSGSIZE ?
-> +					 SKB_DROP_REASON_PKT_TOO_BIG :
-> +					 SKB_DROP_REASON_PSP_OUTPUT);
-> +			skb =3D NULL;
-> +		}
->  	} else if (unlikely(skb_is_decrypted(skb))) {
->  		pr_warn_ratelimited("unencrypted skb with no associated socket - dropp=
-ing\n");
->  		kfree_skb(skb);
-> @@ -5002,7 +5027,7 @@ int __dev_queue_xmit(struct sk_buff *skb, struct ne=
-t_device *sb_dev)
->  	struct net_device *dev =3D skb->dev;
->  	struct netdev_queue *txq =3D NULL;
->  	enum skb_drop_reason reason;
-> -	int cpu, rc =3D -ENOMEM;
-> +	int cpu, psp, rc =3D -ENOMEM;
->  	bool again =3D false;
->  	struct Qdisc *q;
->=20=20
-> @@ -5051,10 +5076,19 @@ int __dev_queue_xmit(struct sk_buff *skb, struct =
-net_device *sb_dev)
->  			txq =3D netdev_tx_queue_mapping(dev, skb);
->  	}
->  #endif
-> +	psp =3D psp_xmit_md(skb, dev);
-> +	if (unlikely(psp < 0)) {
-> +		reason =3D psp =3D=3D -EMSGSIZE ? SKB_DROP_REASON_PKT_TOO_BIG :
-> +					    SKB_DROP_REASON_PSP_OUTPUT;
-> +		rc =3D psp;
-> +		goto drop;
-> +	}
-> +
+Thanks for taking a look, both here and at the exfatprogs pull request.
 
-Performance thoughts. These two functions (__dev_queue_xmit and
-sk_validate_xmit_skb) are in the hotpath. The static key is globally for
-all netdevs. My worry is that packets that doesn't care about PSP has to
-touch more cachelines during ptr chasing. Cheaper, less instrusive
-(flag?) per-skb check possible? (Or proof that it doesn't matter! ;-))
+On 11/26/26 14:26, David Timber wrote:
+>> A sidecar file is lost in practice: users copy, share or import only
+>> the video file, and matching the two by name breaks once either is
+>> renamed or moved.
+> I think I understand the the problem being addressed here, but adding
+> something to the kernel to solve that particular user error sounds like
+> a lot of trouble to go through...
 
+The remark about sidecar files in my previous mail was part of the
+discussion with Namjae about whether the kernel or user space should
+unlink the source: it explained why the sensor file should not be left
+next to the video.  Following Namjae's suggestion, v8 [1] leaves the
+unlink to user space, so that point is settled, and it was never the
+reason for the ioctl itself.
 
-Bj=C3=B6rn
+The reason for merging is that the camera records more than the video:
+custom data such as GPS and per-frame exposure data, which is used in
+post-processing.  It is written to separate files while recording, but
+the product has to hand the user a single file, so when recording stops
+these files are merged into the main MP4 file.  They grow with the
+length of the recording, from tens to hundreds of MiB.
+
+On an SD card, merging them by copying takes time proportional to their
+size.  With the write speed dropping to around 10 MB/s under jitter, a
+few hundred MiB take tens of seconds, which users waiting for the
+camera do not accept.  Relinking the clusters makes the time depend on
+the length of the FAT chain instead of the amount of data.  Measured on
+a disk throttled to SD card speeds (30 MiB/s write), appending to a
+300 MiB file with 128 KiB clusters:
+
+  source     EXFAT_IOC_COMBINE   copy_file_range() + fsync()
+  50 MiB          13.7 ms                 2.2 s
+  500 MiB         14.3 ms                22.3 s
+  1 GiB           13.6 ms                45.7 s
+
+The ioctl stays at 12 to 15 ms whatever the size; the time to build a
+FAT chain for a contiguous file grows with its number of clusters, but
+stays far below that of copying the data.
+
+> Also, there's issue of block alignment: Windows formats exfat volumes up
+> to 32MB cluster size(I myself unsure of this MS's decision, but it is
+> what it is). The release of 4TB SDUC cards are just around the corner.
+> At most 2MB of space lost just to padding, just to append a few MB of
+> metadata to a monolithic file to idiotproof the product.
+
+On the padding: it does not take any extra space on the volume, but it
+is worth explaining why it is there at all.
+
+Clusters can only be moved whole.  The data of the source starts at the
+beginning of its first cluster on disk, so once that cluster is linked
+after the last cluster of the destination, the appended data starts at
+the next cluster boundary of the destination, i.e. at
+round_up(old size, cluster size).  If the size of the destination is
+not a multiple of the cluster size, the unused tail of its last cluster
+ends up in the middle of the combined file.
+
+That tail has never been written by the destination and may still hold
+stale data, e.g. from a file deleted earlier, so it must not become
+readable.  exFAT can only mark a range as uninitialized at the end of a
+file: each file has a single valid_size, and everything below it is
+read from the disk.  A gap in the middle cannot be described, so the
+only way to keep the stale data out is to write zeroes into it.  For
+the same reason, any range of the destination below its size that was
+never written, e.g. after fallocate(), is zeroed as well before the
+clusters are appended.
+
+The zeroes go into the tail of the last cluster, which is already
+allocated to the destination.  No cluster is allocated or freed, so the
+combined file occupies exactly the clusters the two files occupied
+before, whatever the cluster size.
+
+What the padding does cost is that the gap becomes part of the file: up
+to one cluster less one byte of zeroes is written, and the file format
+has to skip it.  A trailer located from the end of the file is not
+affected.  A writer that prefers its own padding, e.g. an MP4 'free'
+box, can pad the destination up to the cluster boundary itself before
+the call, and then nothing is zeroed.  The cluster size is reported in
+st_blksize.
+
+> I think most of the products on the market today just use multiple files
+> for multiple streams at different rate(LRV and WAV - fs/exfat have long
+> supported preallocation to alleviate the classical fragmentation issue
+> inherent in linked-list based filesystems).
+[...]
+> However,
+> if you don't mind elaborating, I'd like to see some actual
+> implementations in the wild that may benefit from the ioctl.
+
+On implementations in the wild: a similar implementation, though not
+this version, is already used in mature camera products.  I would
+rather not name the vendor for now, as that involves other matters, but
+the use is real.  The open source user is exfatcombine in the
+exfatprogs pull request.
+
+Products that deliver several files, like LRV proxies or separate
+audio, do not need this, and preallocation already serves them well.
+The ioctl is for the case where data written to separate files during
+recording has to end up in one file, and where it is too large to copy
+quickly, as described above.
+
+> I also have
+> a bunch of ideas I'd share with the kernel devs, but I just keep them
+> all to myself because the kernel development is hard and the ideas are,
+> most of the times, not worth the trouble of maintaining it in the long
+> run. I don't think it's not fair for the maintainers who have to stay
+> behind for years to maintain things.
+
+On the maintenance burden: that is a fair concern, and it is the
+maintainers' call to make.  To keep it small, the change is
+self-contained in fs/exfat/file.c: it touches neither the VFS nor the
+on-disk format, and only uses structures exFAT already has.  The
+interface is a single ioctl with an 8-byte argument, whose flags field
+is reserved for later extensions.  v8 dropped the unlink from the
+kernel, as Namjae suggested, which removed about 170 lines.  It is
+covered by a test for fstests (exfat/002), and exfatcombine exercises
+it from user space.
+
+Thanks for taking the time to write this; the feedback is welcome, and
+I don't take it personally.
+
+Shaopei
+
+[1] https://lore.kernel.org/all/20261126125216.927053-1-shaopei_1012@163.com/
+
