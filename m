@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795720616;
-	b=l7yctpNMBBTZj6wkjT49pJNzj+iAKcdEHN9hnalnaSut5ni+UhGFH7nrg73g76QLm2Tn
-	 v47u49phJC7MFLrTbz+mvEB4/mpSHgxUc2sypdjA6rOntZQSx1JfDIV16WyqQ4ySnVlEV
-	 xb78rD+uHPTbq6kdOMRoE8yaNMhKY5JXRPQFIRKvpCQ47/NF01i4FihLLZ275zPJ3LiXj
-	 0Rfjk5OBXds+kMCwhEO0j0e0Aocy9r0SDGVFZh0metVmUL8eTMTKg+qokCpl10RddF16y
-	 J1AS7e3U75f7C6Mp5hMF1XYc7dQOwp4I8ztLiqwqEYy9P1V3Ko5w3nFsgklZx+5P7RQ==
+	t=1795720619;
+	b=m+YkzDK+l+a5EYiEU2Z125p2GigOG/xgWaWxl9SGkOy+k9OQ6gfo29ArU8aH8sA5gmuZ
+	 sLxCKVOMOAUM6R02HPn+pVUqEZQmbG6FIf4v4s3XYtnDdjcDU2Q2iwYqstQENEYOV2YNY
+	 ipi9v6Q3gJEuqNq78XtI+SqtM0UMGvK2c4YMVQmJIBymQnjL8z/NRwuCeoLLgW3ni7N/V
+	 LNFsv8aBkCezgHlgF9r1dDQLIX9ieAB+kuRnGIa1/R14KxiMjTOMVG7WYF6wU9ulUnzTH
+	 Vb+RbU2u1C3EmydkL4Za7aM9dzoLecQRPVs/7uqg6WnJHBTv6Log+lzFxYYJmlJhMbQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795720616;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795720619;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=9u7fRQ27JKwPMHMRI8HVbLu3Ly/w1IeOYPfKtu1UK/o=;
-	b=ux7Iaa0I+vXk66oaM4O2IEs1B6/sGmWiBjFxnQcJbDLrdwKOUIoTkve0OD/Dn5JJgdt6
-	 lGH55niRgiviAdUoFWyF7KZh3O6ucdEHw/M3M0K+6g5QRQWiMvGncmw68pZVnr7qOgwsz
-	 QnEbiIRAk6Vh/LhWcvOdqKKwk/xJ0FrSnUmg25zpEYsY4LPEUmT32+Mv8iiX350fUn1Ql
-	 0woaHYOf0A374BB70N1JLjJTwv9Yo8+eirACtPxVcr7SwtS/3XJVE/TqE1Q7iI2F6vxHN
-	 8fZeKWSnrzczfmjupsrakCfDZKpyGfETLWdr6jtrvPB6VLCUpJYHfVEbljw5xONk4EA==
+	bh=Au7X9g8S+wRNBldlyzgHg+a+fOYg56MJAjZoJiJYHWI=;
+	b=CHhYgKWiBJXfyzFaaYtnefJyXaq0W9pRFeEIPaFGUfmUrk2VDB3n7hGLOm/oHwGzXWiF
+	 UqE1b9MlOfzX4zZNJReSBKmSbNLnY5RW09qzUB/99zLJF+QRe9ORj5qVxeK+1ajpcFpiN
+	 rSPRsBDlBsEVuLHiP1C1uTGBas4xVU3AgjABWe3ZApeTyqdkIjEfsFpcC/JpgpgeYJY1g
+	 YXe3dniXWcoZJWXd/ZGzHMxIgzMzWh5WxAlkW7t3MOWQtnkdtHFNYZS5N/dRrEGQDZsfa
+	 rh/rVKzMdTUPQbD03YATeS89kvdoxsBiYrUFvRa0NQ5Yra58WI0wcLsVaGmLSt9X+kA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=olxQeprM;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WjtcyxUL;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47D07606A329;
-	Thu, 26 Nov 2026 19:16:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53445606A333;
+	Thu, 26 Nov 2026 19:16:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=olxQeprM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 066481F000C0;
-	Thu, 26 Nov 2026 19:16:54 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WjtcyxUL
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41DBE1F000C6;
+	Thu, 26 Nov 2026 19:16:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795720615;
-	bh=9u7fRQ27JKwPMHMRI8HVbLu3Ly/w1IeOYPfKtu1UK/o=;
+	s=k20260515; t=1795720618;
+	bh=Au7X9g8S+wRNBldlyzgHg+a+fOYg56MJAjZoJiJYHWI=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=olxQeprMulgqGjf255Cn9iNfWmrYFIJkPpm2Qi6+uFTL0Gkz/ExN8w1mhcIE7cXaS
-	 J8OD+0K4CzDwIquWpZThRF3IgqxlBv8TzY/ifp9nHPUwM0rxiJpe37CpIQ0YGCYBSF
-	 Fk8QzQfBB3JKTjgve0aIe3ZDX3rlstXy+O50HK2B9283L40kenewalAAbnDHkRJ/UN
-	 5aVAWnjcUFpBCLuViqP1OpRtX4N/hhgumtBihAld09buGbwJWfTSkGFch6hf1FAQtL
-	 b2aoX3m+6awUjqMmhUq2WlSrc8P2ykbuipMYGTEe7wLXaJUnHYUMvGEmvep4oyYulV
-	 66E2832Rb/0mw==
+	b=WjtcyxULCNS9+GyTSL7Zk2kazdXOngzMnA4InQRhtrcJW3CcIbCCPFc1/UAlDqaO8
+	 /fT+ovEqLn8xrI9nMv+QGhByckNA+Zh0C4vyrrq/r9MVegzU8rT11jLtONo20brTXA
+	 TaNoT+wOfJzYUH0BgAGTmpE/YI9VDO15rwgAvBW9mH34DwvC3hl+eAxSM7bwag8sH7
+	 FF8IUTSmEniZLF/1vg2+2xn5fR9+UM9NSXkGFPCZfJT+DBdNm/bNrMRvXI06IWYVJu
+	 k3LwnnR0zGxlfFyCe/nhsrkMHz8/WnnMIku4qccaJIaVX/9ve9yngvbkUHzv7HnFit
+	 OIZE7Dfp7u5ig==
 Subject:
- Re: [PATCH net-next v2 02/12] amt: send the Relay Advertisement over IPv6
+ Re: [PATCH net-next v2 04/12] amt: send the Membership Query over IPv6
 From: netdev-bot+sashiko@kernel.org
 To: omar@blockcast.net
 Cc: ap420073@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, shuah@kernel.org,
  horms@kernel.org, netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
  linux-kernel@vger.kernel.org
-Date: Thu, 26 Nov 2026 19:16:54 +0000
-Message-ID: <179572061450.3135.6022071464185625512@kernel.org>
-In-Reply-To: <20261125191450.2497936-3-omar@blockcast.net>
-References: <20261125191450.2497936-3-omar@blockcast.net>
+Date: Thu, 26 Nov 2026 19:16:57 +0000
+Message-ID: <179572061781.3135.626653301105013571@kernel.org>
+In-Reply-To: <20261125191450.2497936-5-omar@blockcast.net>
+References: <20261125191450.2497936-5-omar@blockcast.net>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -71,96 +71,58 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] The IPv6 control-message helper does not count send failures that
-  happen after the packet is handed to the IPv6 stack.
+- [Low] This patch changes `daddr` in amt_send_membership_query()
+  (drivers/net/amt.c) from `__be32 daddr` to `const union amt_addr…
 
 --
 
-amt: send the Relay Advertisement over IPv6
+amt: send the Membership Query over IPv6
 
-This patch adds the IPv6 form of the AMT Relay Advertisement
-(struct amt_header_advertisement_v6) and a new amt_send_ctrl_v6() helper.
-The helper routes with ip6_dst_lookup_flow() and sends with
-udp_tunnel6_xmit_skb(). amt_discovery_handler() now answers a Discovery on
-an IPv6 device with this form, sourced from the Discovery's destination
-address.
+This moves the routing and transmit step of amt_send_membership_query()
+into a new amt_udp_xmit() helper. The helper sends over IPv4 or IPv6
+depending on the device's outer family. amt_send_igmp_gq(),
+amt_send_mld_gq() and amt_send_membership_query() now take the gateway's
+endpoint as a union amt_addr pointer.
 
 > diff --git a/drivers/net/amt.c b/drivers/net/amt.c
-> index 3f3205d2df3e8..52ccaca08b5ec 100644
+> index 38740e0ace424..7e8219a0cdf9e 100644
 > --- a/drivers/net/amt.c
 > +++ b/drivers/net/amt.c
 
 [ ... ]
 
-> +/* Send an AMT control message over the IPv6 outer transport from @saddr.
-> + * udp_tunnel6_xmit_skb() adds the UDP and IPv6 headers, including the UDP
-> + * checksum that IPv6 requires. Returns 0 once the message is handed to the
-> + * IPv6 stack.
-> + */
-> +static int amt_send_ctrl_v6(struct amt_dev *amt, const struct in6_addr *saddr,
-> +			    const struct in6_addr *daddr,
-> +			    __be16 sport, __be16 dport,
-> +			    const void *msg, unsigned int len)
-> +{
-
-[ ... ]
-
-> +	skb_reserve(skb, hlen);
-> +	skb_put_data(skb, msg, len);
-> +	skb->priority = TC_PRIO_CONTROL;
-> +	udp_tunnel6_xmit_skb(dst, sk, skb, NULL, saddr, daddr, AMT_TOS,
-> +			     ip6_dst_hoplimit(dst), 0, sport, dport, false, 0);
-> +	err = 0;
+> @@ -1364,13 +1431,12 @@ static void amt_send_multicast_data(struct amt_dev *amt,
+>   */
+>  static bool amt_send_membership_query(struct amt_dev *amt,
+>  				      struct sk_buff *skb,
+> -				      __be32 daddr, __be16 dport,
+> +				      const union amt_addr *daddr,
+> +				      __be16 dport,
+>  				      __be32 nonce, u64 mac,
+>  				      bool v6)
+>  {
 
 [Severity: Low]
-If the packet is dropped after it is handed to the IPv6 stack, should that
-drop show up in amt->dev tx_errors the way it does for the IPv4 control
-messages?
+This isn't a bug, but should the comment above amt_send_membership_query()
+be updated as well? It still says:
 
-udp_tunnel6_xmit_skb() returns void, and ip6tunnel_xmit() only looks at the
-ip6_local_out() result when a netdev is passed:
+/* Send a Membership Query in reply to an unauthenticated Request.
+ *
+ * No per-source state is read or created: the gateway echoes the nonce and
+ * the keyed MAC in its Membership Update, where the MAC is recomputed, so
+ * everything this needs is passed by value.
+ */
 
-include/net/ip6_tunnel.h:ip6tunnel_xmit() {
-    ...
-	err = ip6_local_out(skb_dst_dev_net(skb), sk, skb);
+With this change, daddr is passed by reference. It points to the stack
+variable saddr in amt_request_handler(), and reaches this function through
+amt_send_igmp_gq() and amt_send_mld_gq():
 
-	if (dev) {
-		if (unlikely(net_xmit_eval(err)))
-			pkt_len = -1;
-		iptunnel_xmit_stats(dev, pkt_len);
-	}
-    ...
-}
+	amt_send_igmp_gq(amt, &saddr, udph->source, amtrh->nonce,
+			 mac);
 
-Since dev is NULL here, a drop by netfilter, neighbour resolution or the
-qdisc is never counted. The IPv4 senders, including
-amt_send_advertisement(), do count it:
-
-	err = ip_local_out(amt->net, sk, skb);
-	if (unlikely(net_xmit_eval(err)))
-		DEV_STATS_INC(amt->dev, tx_errors);
-
-Route lookup and allocation failures in amt_send_ctrl_v6() still increment
-tx_errors. So the IPv4 and IPv6 paths differ only for drops after the
-handoff.
-
-The commit message says:
-
-    Like the IPv4 control messages, it marks the
-    skb TC_PRIO_CONTROL, uses AMT_TOS as the traffic class and passes no
-    netdev, so control traffic stays out of the amt device's tunnel stats.
-
-Passing NULL also hides these post-handoff errors, and the message doesn't
-mention that.
-
-At the end of the series the same udp_tunnel6_xmit_skb(..., NULL, ...);
-err = 0; sequence is still present. That means every later IPv6 control
-sender that uses this helper has the same gap.
-
-> +out:
-> +	rcu_read_unlock();
-> +	return err;
-> +}
+The first half of the comment, that no per-source state is read or created,
+still holds. Only the "passed by value" part no longer matches the new
+signature.
 
 [ ... ]
 
