@@ -1,99 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795732370;
-	b=GhtVWdgLHpqz1Nldzt7DCiNSDwIaS4O6/YI/2WE8q78hn7JI8afDufI3QO2SDg5n77hN
-	 DqBiFig73wiQbAI955DuaGUSpqzxzk4ZndRAfnzQLtKuxpsbVrXmj1q3s4njr9Qx4ZO6E
-	 X5YWpv1kkUHODjNv+EpkbYkwv2WXWesOyi5VdOKTXpCZ6LMsm+5b4nJqcoJocfpLFHjho
-	 xZB7Nw+8CipvSPE55fWp7WsKfn9pdQb9yjKceP2EmvGtm6qXYq7LDCapmjbUoKYH9YBsC
-	 dJhVom9OJW4fWX/HeVpqPhRxaXy1JHPS9uN82xNx3QhbtqTus5bd/zeIXuW3PvSNzvw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795732370;
-	h=DMARC-Filter:X-RZG-CLASS-ID:DKIM-Signature:DKIM-Signature:X-RZG-AUTH:
-	 Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type;
-	bh=L8BgtXNBzYX1GjQ1VVae357SREfMavFxSODIa4qd32A=;
-	b=TrvphVX43X43pSqLbtNHp7bSLcvvrPe3ox23tn3joNnNguojyI6VkceRyFq/AdeITmWN
-	 b5NY4bdIlO7mC2vOZf9d9izunTk2xJA5r+7+tatfikjlnv+/Rv82Qx10qO63iaN5V7FPr
-	 ReNlDHhOiEXUZDAvSAP6HHPbatNup/ATweejv6FiSwoD/enhTX2pDA+k7iAef7ZYJyJEj
-	 dcweedhTbYry+NNuzJUB0+hlacW1Y+dAwCePVxvv/jjKUGQBykSZzIePW88nkrVYgKp/D
-	 UnmdPClCnsN7GNHvzqkAltUJ5Hkip8O1qVYRyOSMhk8rQqCXCwmAyzh3Gx31s99IrrQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=iokpp.de;
-	spf=none smtp.mailfrom=iokpp.de;
-	dkim=pass header.d=iokpp.de header.i=@iokpp.de header.a=rsa-sha256 header.s=strato-dkim-0002 header.b="Ljc/TmRO";
-	dkim=pass header.d=iokpp.de header.i=@iokpp.de header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=VR416GXq;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.54
-Received: from mo4-p01-ob.smtp.rzone.de (mo4-p01-ob.smtp.rzone.de [85.215.255.54])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.178
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795732424;
+	b=sp2oquqpJGvip13lLggJp6qmxUJDrINXRFRurTSOPiYm+Xlr2sAGlK1XVqQMYcUJm/zn
+	 D4d6jAIBCzexTT8f1BFi0gBIugdB/3yCIeKL2NL3i4geR3D0IZlp+OIpbh0jZIrOUJO7r
+	 +/9NN9cvfSY+1RsDDsJnsPITR9jfmTN6BzYRLigApHioP/hbDsU1f8aETVa4h7tTjG1KF
+	 p+2kUxxuAEPMx37pHBHh5j3CS2BCQY4xnY4KRXK1i9y1imoQh3ODj7q4jn/3sdDkXozC7
+	 QQtVi7AWhL0OuhWpJym8yIifoBPABRPaPVKybeXH6u6nRHkScbXkLNOT3LgpjrgpkTg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795732424;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
+	 Content-Type:User-Agent:MIME-Version;
+	bh=VAuiL2sK9KgcCNS1LCu1ZR6hGD2zR58kg8DLcx9J16M=;
+	b=gkbGqcH96X4HnZo1yaCJ7S2yA0sha/uCJA72jJUVrFGPBi6Y/yIWPuM0OhxlQeDkSCrq
+	 46vyMfaWRdCQy5UGxXQv/FGHeCr0jWQTFQ4IrcQIgMQB+feV/6692Od5NFTGu46rE5HK9
+	 Bvl3bA+gGjRgl4MmgMqEePJ7QqA8HLdEa3fE729etYSVLfzSmigWRaIvw5swiRsQugJqu
+	 lNKYwVwgm8TIvsC0DVna6u59Z/rkPF07/roOy6TUlDJco/LDG9XrozpNjkKkuMHXMX2Bo
+	 Jaan5J2c4FeJrxPz8AiDrOdlnuAuqJ8ml929HESRhex8jbGpRGmxsi871Xj9THWat3g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ndufresne.ca;
+	spf=pass smtp.mailfrom=ndufresne.ca;
+	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=cH937ij2;
+	arc=none smtp.remote-ip=209.85.222.178
+Received: from mail-qk1-f178.google.com (mail-qk1-f178.google.com [209.85.222.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 243D7606A326;
-	Thu, 26 Nov 2026 22:32:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 243D7606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=iokpp.de
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=iokpp.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9FF8606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:33:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9FF8606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=iokpp.de header.i=@iokpp.de header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=Ljc/TmRO;
-	dkim=pass header.d=iokpp.de header.i=@iokpp.de header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=VR416GXq
-ARC-Seal: i=1; a=rsa-sha256; t=1795732359; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=gF3bMkcuhVsspSwtUBQSYQxk6l0miaY5mIAD+KkdExgRl4KexAMFfC1GCTvIckrb0t
-    OS/nNkov9NPPwVUJmEb1vXgjrIQZjQIH8axxys7mpAENTGP4XWpbJ8GLwx2EP65QeArP
-    x601Zh8kXwx+70YUzrWj7e/s9C6zDhPVjZpCQ2S3WVY1Uzz4AMomeuqqaIBexrzROMXr
-    O1CnviablrCq4DNLy2fIF02UqjHXlOF7sa1yWUgUd1ZvnPzZ3aQAjKd0LqO0C/tGUVIm
-    3ozDPwMCP4RRpbS3kgBNnij5BVPmeDwXTcCqu3EuVHMv4e01PIjOb+EFnlI4dZWebzgy
-    2BeA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1795732359;
-    s=strato-dkim-0002; d=strato.com;
-    h=Message-Id:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
-    bh=L8BgtXNBzYX1GjQ1VVae357SREfMavFxSODIa4qd32A=;
-    b=rR9+wATxxIKklUQlRvWT2Fb8KnbBn4VhZb87SKGfSAsC6JoyM2TyMoPhzJb0Fl58S7
-    bvh1cAu02d8Agy69YQ+CkHb+eP0Icf2amuREIYhuxlTtR6ynVyw+aJBXVoaESKzGeJ1J
-    KNy8pA9rl43vKZ0Z+HkuMl6yK5h7iZoy6OrZMSB7E8ePsuEjFNxH83nz6zvnyd4qqCGi
-    zl4TS3iUhyv/Er5Ex5TLWW/wV6eclGSXKI4S3ekzlwjEoBpsTDyb2QNBkfIstmeQYzRP
-    m7cHcXKBPi6sZ+H/wb5xQgfoaKmAJqd+p7dbWqb0Sw3y8o6Pra1kJ71N5XuS34rbfUBQ
-    XnCw==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo01
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1795732359;
-    s=strato-dkim-0002; d=iokpp.de;
-    h=Message-Id:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
-    bh=L8BgtXNBzYX1GjQ1VVae357SREfMavFxSODIa4qd32A=;
-    b=Ljc/TmROpM+bJDQo+LaN/dxqoFhxVnByB8o9k/JP8Xg+W4lJSEMS5OBNGcHQCm+yIB
-    FoJSkgRU/zxV1/xptQA/7CUeESCereufeo+OGWPZuC4yD6cuYpRmWuiZh6OAEc5nGwAN
-    C1n0R31JHWhODvk3Nvl4I2rht7ao1iSvlA1FtjUtXB5BbXkmOlSshnPo1XnLhOHZ7BH9
-    HlwJJe0I1b2F6pva0nxGdm9q5jnPdw6K6iWrc5owcxcJ4/Ux8iAZAHm9nDzPn13ROKeb
-    S3Bqy1Tl5WhswrwADmIznQfDOOGjE6BbMSiLbLblF0akZmn0GRtuCaKn2NKFd/7Qj+XN
-    DetQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1795732359;
-    s=strato-dkim-0003; d=iokpp.de;
-    h=Message-Id:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
-    bh=L8BgtXNBzYX1GjQ1VVae357SREfMavFxSODIa4qd32A=;
-    b=VR416GXqVdQv5kjCqzg2TduE6mwD1RdWtppeAYAdQNGngYsblF0BrjuUOuO0O290EE
-    59uOV09EVhJROpw8NfDw==
-X-RZG-AUTH: ":LmkFe0i9dN8c2t4QQyGBB/NDXvjDB6pBSfNuhhDSDt3O256fJ4HnWXON1RP16IHIszTD3hB2bKri1qswmSmZySpVjD67C0o="
-Received: from Munilab01-lab.speedport.ip
-    by smtp.strato.de (RZmta 55.6.3 AUTH)
-    with ESMTPSA id z831ad2AQMWcfOj
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
-	(Client did not present a certificate);
-    Thu, 26 Nov 2026 23:32:38 +0100 (CET)
-From: Bean Huo <beanhuo@iokpp.de>
-To: Chanwoo Choi <cw00.choi@samsung.com>,
-	MyungJoo Ham <myungjoo.ham@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>
-Cc: Bean Huo <beanhuo@micron.com>,
-	Jie Zhan <zhanjie9@hisilicon.com>,
-	Avri Altman <avri.altman@sandisk.com>,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-scsi@vger.kernel.org
-Subject: [PATCH v3 0/2] PM / devfreq: check the get_cur_freq() return value
-Date: Thu, 26 Nov 2026 23:32:23 +0100
-Message-Id: <20261126223225.2257410-1-beanhuo@iokpp.de>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=cH937ij2
+Received: by mail-qk1-f178.google.com with SMTP id af79cd13be357-93f3c616c84so579192485a.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:33:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795732423; x=1796337223; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=VAuiL2sK9KgcCNS1LCu1ZR6hGD2zR58kg8DLcx9J16M=;
+        b=cH937ij2nMOWPoz0H5x4MFp2v9WgHpeKWcVvHdiWudTu1+mHzfN+xsH0r5sysQq0e+
+         hVehXwboI8oGm7ES8S2H4MwQDdzT5l+mvdFj7FBrAUlK7UmwWGal5RipzB5JXFweg5OV
+         BCWq0X0vj/9/SwWidxEBznO4XKR/YgPKWV/MTC4xdygHfoEetio1WTOSWOlcRWKLc1az
+         hvEQLRYLHac0Akgb51dtM3v3qe2d4GHdQ0012O4zn8ArLtd/Va6wP/FN9SUqxNB4loxx
+         0R7HDjh3/9Z3bNpp1UvrX/b5i1HgbtRH/KiNgzy7Ewc+gPRJ+L+DcMcx76Ksid8KI89t
+         e9Rg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795732423; x=1796337223;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=VAuiL2sK9KgcCNS1LCu1ZR6hGD2zR58kg8DLcx9J16M=;
+        b=uRaa8BGR2wPruWXouGdRYnS+wtHc/vweNYiln/1TNFaOuKIbNw+PwuUIB+Xt73VfeY
+         oTvzgVCmNzTEPnT5bT2ZO+0mpZK63NMQFecKk2cvBWa71h0bTPfSwOidjcYLrJxYEKfb
+         2UosUH/dqSFbE68D4V60OSV2X6GCOuyZndDA4R8/a1bI4d3xm2a8NZj6UfcuPs9pdMC6
+         cBWREx6qKBn9tRLTVFdjDlF2nhU59Ilz6rHfQ+d47Q0rVL+Vst27W1qsF6e2meR1Tw9N
+         CNxHqpp1yYIFZl0uQhFAO4GObp5urjA49JGKgOTp7Y+YPoszrV5QbBw7iziRtfJekOUx
+         A81Q==
+X-Forwarded-Encrypted: i=1; AL+hErFpOHr9kG78420qVgHGlw51cP0cyclUBpzNIru8nbJsX0KRKsRSyDh5TSWa/ComCvd2VYrK7n2l+uJurag=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/fiw+/YPfiH4h2ES1gU6wRwOt0FT5dhayzDQJnV1YZ/Ar16HiM
+	nBD1E6neTraSw3b793yogypreh6CyE+uGoYWKeYVpK01hMMYa0pjkN6FZM9c9L6GS9M=
+X-Gm-Gg: AZFdTZfYqN1mUCefXgHToNMONPWpAf+YZS88KBDW6oKSkFSgAIgaa4HqpUERY6wO9Ti
+	udNTvnTulNoxE+dsO2RbDMZ7FknshJf2qY59f1XWevURXooo5reNfgAVCGORL3EenBU68caaujA
+	j2ws8cFyvIMKQbrsUkCFXiDUb73O6RnH0wzmc6k2XVlCs0LSROmYaSKteaAfM079NFUvcL6s+eC
+	/H1hmrP2fYaB6WcsZZuZ48JH7HjE937pPgOCnDY+vjfsl2d31pVjB+V6nPRaQRSmVIg8KI26HPH
+	daYMbnKE87aFOR9RU15a+7mqxdjpG6T278BVF+aMc9jj+m0lbn5T4CcqXks7TPTcKyUerWIDqNT
+	eKXkbG612n4/4Hg+pohIYlesnI0eonoGKCGaLPEhn7b8UHO9NkAMrNtCmyKgfNp1edKoVtpVjDG
+	8EhZ4PHx1hA51x3boZx0ZSoaPc6zxaU8Xp8rjBd6KYLRftjdlcQ/WzcQDyJ/rfZ0uyhaEP7vrX2
+	sGCKFy28g/QJOoAOiQziALabLnFGxdrragdutVqN6MSRD5VgdjHq9lC3wNVqB0b3acdZ3tcmaLZ
+	2x18DYsexp3AtOMO49Y7Os2rTl0zTjoQ7QiqBEtKxVWy5l11AxE7oMk=
+X-Received: by 2002:a05:620a:459f:b0:948:48b8:6736 with SMTP id af79cd13be357-949ba965a61mr3942304285a.16.1795732422570;
+        Thu, 26 Nov 2026 14:33:42 -0800 (PST)
+Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb41a341sm1681380685a.37.2026.11.26.14.33.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 14:33:41 -0800 (PST)
+Message-ID: <c0fc91738531352473bb7c830c4a1b6fb928bf60.camel@ndufresne.ca>
+Subject: Re: [PATCH] media: mediatek: mdp3: Fix potential use-after-free on
+ SCP removal
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>, Mauro Carvalho Chehab	
+ <mchehab@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Moudy
+ Ho <moudy.ho@mediatek.com>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Date: Thu, 26 Nov 2026 17:33:40 -0500
+In-Reply-To: <20261107-0d0c29e10a-media-mediatek-mdp3-1@mail.sdu.edu.cn>
+References: <20261107-0d0c29e10a-media-mediatek-mdp3-1@mail.sdu.edu.cn>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-Wo+4Av8llfy936qRJ+9C"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,42 +117,370 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="us-ascii"
 
-From: Bean Huo <beanhuo@micron.com>
+--=-Wo+4Av8llfy936qRJ+9C
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-devfreq_set_target() does not check the return value of the optional
-->get_cur_freq() callback, so a failing callback can leave an
-uninitialized frequency in freqs.old for the transition notifiers.
-Patch 1 fixes that by falling back to previous_freq, like the other two
-callers already do. Patch 2 writes down what a driver is expected to
-return from the callback.
-
-v2 had four patches. Martin applied patches 3 and 4 (the ufshcd part)
-to the SCSI tree, so this v3 only has the two devfreq patches.
-
-Changes since v2:
-- Patch 1: do not call ->get_cur_freq() inside the if condition. Read
-  the frequency into a local variable and only use it when the callback
-  returns 0, as Chanwoo suggested. Behavior is the same as in v2. I kept
-  the Reviewed-by tags from Avri and Jie, since only the form of the
-  code changed; please tell me if that is not OK.
-- Patch 1 and 2: add Reviewed-by from Jie Zhan.
-- Patch 2: add Acked-by from Chanwoo Choi. No change in the patch.
-
-v2: https://lore.kernel.org/all/20260907192140.2701755-1-beanhuo@iokpp.de/
-
-Bean Huo (2):
-  PM / devfreq: Fall back to previous_freq when get_cur_freq() fails
-  PM / devfreq: Add more details to the get_cur_freq() comment
-
- drivers/devfreq/devfreq.c | 12 +++++++-----
- include/linux/devfreq.h   |  7 +++++--
- 2 files changed, 12 insertions(+), 7 deletions(-)
+Hi,
 
 
-base-commit: 4ff20abe28d65a0c52f0b280008fcfb93c3ee2b2
--- 
-2.34.1
+Le samedi 07 novembre 2026 =C3=A0 14:54 +0800, Guangshuo Li a =C3=A9crit=C2=
+=A0:
+> MDP contexts can outlive the SCP driver whose data they use for VPU
+> teardown. Unregistering only the V4L2 parent neither disconnects the
+> video node nor finishes these sessions.
+>=20
+> Link MDP to SCP and disconnect the video node before draining jobs and
+> closing every VPU session. Release hardware dependencies during remove,
+> while retaining the software state for the last open file. Balance the
+> remoteproc references on session shutdown and failed initialization.
+>=20
+> This issue was found by our static analysis tool under development.
+>=20
+> Fixes: 61890ccaefaf ("media: platform: mtk-mdp3: add MediaTek MDP3 driver=
+")
+> Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
 
+Moudy, can you help with review please. Meanwhile there is enough sashiko
+complaints for me to skip.
+
+Nicolas
+
+> ---
+> Validation: Changed-object compilation passed with W=3D1 in the recorded
+> configuration. No hardware/kernel runtime test or full linked-kernel
+> build.
+> OpenAI Codex assisted with source review, patch implementation and
+> commit-message drafting. The submitter has reviewed the changes.
+>=20
+>  .../platform/mediatek/mdp3/mtk-mdp3-core.c    | 84 ++++++++++++++-----
+>  .../platform/mediatek/mdp3/mtk-mdp3-core.h    |  1 +
+>  .../platform/mediatek/mdp3/mtk-mdp3-m2m.c     | 34 ++++++--
+>  .../platform/mediatek/mdp3/mtk-mdp3-m2m.h     |  3 +-
+>  .../platform/mediatek/mdp3/mtk-mdp3-vpu.c     |  2 +-
+>  5 files changed, 96 insertions(+), 28 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c b/drive=
+rs/media/platform/mediatek/mdp3/mtk-mdp3-core.c
+> index f412aadb5996..9fe42181a08c 100644
+> --- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
+> +++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
+> @@ -108,6 +108,7 @@ int mdp_vpu_get_locked(struct mdp_dev *mdp)
+>  err_init_vpu:
+>  =09mdp_vpu_unregister(mdp);
+>  err_reg_vpu:
+> +=09rproc_shutdown(mdp->rproc_handle);
+>  err_load_vpu:
+>  =09mdp->vpu_count--;
+>  =09return ret;
+> @@ -118,19 +119,24 @@ void mdp_vpu_put_locked(struct mdp_dev *mdp)
+>  =09if (--mdp->vpu_count =3D=3D 0) {
+>  =09=09mdp_vpu_dev_deinit(&mdp->vpu);
+>  =09=09mdp_vpu_unregister(mdp);
+> +=09=09rproc_shutdown(mdp->rproc_handle);
+>  =09}
+>  }
+> =20
+> -void mdp_video_device_release(struct video_device *vdev)
+> +static void mdp_hardware_cleanup(struct mdp_dev *mdp)
+>  {
+> -=09struct mdp_dev *mdp =3D (struct mdp_dev *)video_get_drvdata(vdev);
+>  =09int i;
+> =20
+> +=09flush_workqueue(mdp->job_wq);
+> +=09flush_workqueue(mdp->clock_wq);
+> +
+>  =09for (i =3D 0; i < mdp->mdp_data->pp_used; i++)
+>  =09=09if (mdp->cmdq_clt[i])
+>  =09=09=09cmdq_mbox_destroy(mdp->cmdq_clt[i]);
+> =20
+> +=09mdp_vpu_shared_mem_free(&mdp->vpu);
+>  =09scp_put(mdp->scp);
+> +=09mdp->scp =3D NULL;
+> =20
+>  =09destroy_workqueue(mdp->job_wq);
+>  =09destroy_workqueue(mdp->clock_wq);
+> @@ -151,10 +157,16 @@ void mdp_video_device_release(struct video_device *=
+vdev)
+>  =09=09if (!IS_ERR_OR_NULL(m))
+>  =09=09=09mtk_mutex_put(m);
+>  =09}
+> +}
+> +
+> +void mdp_video_device_release(struct video_device *vdev)
+> +{
+> +=09struct mdp_dev *mdp =3D video_get_drvdata(vdev);
+> =20
+> -=09mdp_vpu_shared_mem_free(&mdp->vpu);
+>  =09v4l2_m2m_release(mdp->m2m_dev);
+> +=09ida_destroy(&mdp->mdp_ida);
+>  =09kfree(mdp);
+> +=09video_device_release(vdev);
+>  }
+> =20
+>  static void mdp_put_device(void *_dev)
+> @@ -213,11 +225,45 @@ static int mdp_mm_subsys_deploy(struct mdp_dev *mdp=
+, enum mdp_infra_id id)
+>  =09return 0;
+>  }
+> =20
+> +static int mdp_get_scp(struct mdp_dev *mdp)
+> +{
+> +=09struct device_node *node;
+> +=09struct platform_device *scp_pdev;
+> +=09struct device_link *link;
+> +=09int ret =3D -EPROBE_DEFER;
+> +
+> +=09node =3D of_parse_phandle(mdp->pdev->dev.of_node, "mediatek,scp", 0);
+> +=09if (node) {
+> +=09=09scp_pdev =3D of_find_device_by_node(node);
+> +=09=09of_node_put(node);
+> +=09} else {
+> +=09=09scp_pdev =3D __get_pdev_by_id(mdp->pdev, NULL, MDP_INFRA_SCP);
+> +=09}
+> +=09if (!scp_pdev)
+> +=09=09return -EPROBE_DEFER;
+> +
+> +=09link =3D device_link_add(&mdp->pdev->dev, &scp_pdev->dev,
+> +=09=09=09       DL_FLAG_AUTOREMOVE_CONSUMER);
+> +=09if (!link) {
+> +=09=09ret =3D -ENOMEM;
+> +=09=09goto err_put;
+> +=09}
+> +=09if (!device_is_bound(&scp_pdev->dev))
+> +=09=09goto err_put;
+> +
+> +=09mdp->scp =3D platform_get_drvdata(scp_pdev);
+> +=09if (mdp->scp)
+> +=09=09return 0;
+> +
+> +err_put:
+> +=09put_device(&scp_pdev->dev);
+> +=09return ret;
+> +}
+> +
+>  static int mdp_probe(struct platform_device *pdev)
+>  {
+>  =09struct device *dev =3D &pdev->dev;
+>  =09struct mdp_dev *mdp;
+> -=09struct platform_device *mm_pdev;
+>  =09struct resource *res;
+>  =09int ret, i, mutex_id;
+> =20
+> @@ -285,27 +331,16 @@ static int mdp_probe(struct platform_device *pdev)
+>  =09=09goto err_destroy_job_wq;
+>  =09}
+> =20
+> -=09mdp->scp =3D scp_get(pdev);
+> -=09if (!mdp->scp) {
+> -=09=09mm_pdev =3D __get_pdev_by_id(pdev, NULL, MDP_INFRA_SCP);
+> -=09=09if (WARN_ON(!mm_pdev)) {
+> -=09=09=09dev_err(&pdev->dev, "Could not get scp device\n");
+> -=09=09=09ret =3D -ENODEV;
+> -=09=09=09goto err_destroy_clock_wq;
+> -=09=09}
+> -=09=09mdp->scp =3D platform_get_drvdata(mm_pdev);
+> -=09}
+> -
+> -=09if (!mdp->scp) {
+> -=09=09ret =3D -EPROBE_DEFER;
+> +=09ret =3D mdp_get_scp(mdp);
+> +=09if (ret)
+>  =09=09goto err_destroy_clock_wq;
+> -=09}
+> =20
+>  =09mdp->rproc_handle =3D scp_get_rproc(mdp->scp);
+>  =09dev_dbg(&pdev->dev, "MDP rproc_handle: %p", mdp->rproc_handle);
+> =20
+>  =09mutex_init(&mdp->vpu_lock);
+>  =09mutex_init(&mdp->m2m_lock);
+> +=09INIT_LIST_HEAD(&mdp->contexts);
+> =20
+>  =09for (i =3D 0; i < mdp->mdp_data->pp_used; i++) {
+>  =09=09mdp->cmdq_clt[i] =3D cmdq_mbox_create(dev, i);
+> @@ -373,10 +408,19 @@ static int mdp_probe(struct platform_device *pdev)
+>  static void mdp_remove(struct platform_device *pdev)
+>  {
+>  =09struct mdp_dev *mdp =3D platform_get_drvdata(pdev);
+> +=09struct video_device *vdev =3D mdp->m2m_vdev;
+> =20
+> -=09v4l2_device_unregister(&mdp->v4l2_dev);
+> +=09if (!vdev) {
+> +=09=09kfree(mdp);
+> +=09=09return;
+> +=09}
+> =20
+> -=09dev_dbg(&pdev->dev, "%s driver unloaded\n", pdev->name);
+> +=09/* Keep the software state until removal and all open files finish. *=
+/
+> +=09get_device(&vdev->dev);
+> +=09mdp_m2m_device_unregister(mdp);
+> +=09mdp_hardware_cleanup(mdp);
+> +=09v4l2_device_unregister(&mdp->v4l2_dev);
+> +=09put_device(&vdev->dev);
+>  }
+> =20
+>  static int __maybe_unused mdp_suspend(struct device *dev)
+> diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.h b/drive=
+rs/media/platform/mediatek/mdp3/mtk-mdp3-core.h
+> index 05cade1d098e..cf9662bd2792 100644
+> --- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.h
+> +++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.h
+> @@ -134,6 +134,7 @@ struct mdp_dev {
+>  =09struct v4l2_m2m_dev=09=09=09*m2m_dev;
+>  =09/* synchronization protect for m2m device operation */
+>  =09struct mutex=09=09=09=09m2m_lock;
+> +=09struct list_head=09=09=09contexts;
+>  =09atomic_t=09=09=09=09suspended;
+>  =09refcount_t=09=09=09=09job_count;
+>  };
+> diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-m2m.c b/driver=
+s/media/platform/mediatek/mdp3/mtk-mdp3-m2m.c
+> index ad3ae89c231c..ce0efe15866d 100644
+> --- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-m2m.c
+> +++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-m2m.c
+> @@ -490,7 +490,7 @@ static int mdp_m2m_queue_init(void *priv,
+>  =09src_vq->buf_struct_size =3D sizeof(struct v4l2_m2m_buffer);
+>  =09src_vq->timestamp_flags =3D V4L2_BUF_FLAG_TIMESTAMP_COPY;
+>  =09src_vq->dev =3D &ctx->mdp_dev->pdev->dev;
+> -=09src_vq->lock =3D &ctx->ctx_lock;
+> +=09src_vq->lock =3D &ctx->mdp_dev->m2m_lock;
+> =20
+>  =09ret =3D vb2_queue_init(src_vq);
+>  =09if (ret)
+> @@ -504,7 +504,7 @@ static int mdp_m2m_queue_init(void *priv,
+>  =09dst_vq->buf_struct_size =3D sizeof(struct v4l2_m2m_buffer);
+>  =09dst_vq->timestamp_flags =3D V4L2_BUF_FLAG_TIMESTAMP_COPY;
+>  =09dst_vq->dev =3D &ctx->mdp_dev->pdev->dev;
+> -=09dst_vq->lock =3D &ctx->ctx_lock;
+> +=09dst_vq->lock =3D &ctx->mdp_dev->m2m_lock;
+> =20
+>  =09return vb2_queue_init(dst_vq);
+>  }
+> @@ -577,6 +577,11 @@ static int mdp_m2m_open(struct file *file)
+>  =09=09goto err_free_ctx;
+>  =09}
+> =20
+> +=09if (!video_is_registered(vdev)) {
+> +=09=09ret =3D -ENODEV;
+> +=09=09goto err_unlock_mutex;
+> +=09}
+> +
+>  =09ret =3D ida_alloc(&mdp->mdp_ida, GFP_KERNEL);
+>  =09if (ret < 0)
+>  =09=09goto err_unlock_mutex;
+> @@ -593,7 +598,6 @@ static int mdp_m2m_open(struct file *file)
+>  =09ctx->fh.ctrl_handler =3D &ctx->ctrl_handler;
+>  =09v4l2_fh_add(&ctx->fh, file);
+> =20
+> -=09mutex_init(&ctx->ctx_lock);
+>  =09ctx->m2m_ctx =3D v4l2_m2m_ctx_init(mdp->m2m_dev, ctx, mdp_m2m_queue_i=
+nit);
+>  =09if (IS_ERR(ctx->m2m_ctx)) {
+>  =09=09dev_err(dev, "Failed to initialize m2m context\n");
+> @@ -609,8 +613,6 @@ static int mdp_m2m_open(struct file *file)
+>  =09=09goto err_release_m2m_ctx;
+>  =09}
+> =20
+> -=09mutex_unlock(&mdp->m2m_lock);
+> -
+>  =09/* Default format */
+>  =09default_format.type =3D V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE;
+>  =09default_format.fmt.pix_mp.width =3D limit->out_limit.wmin;
+> @@ -620,6 +622,9 @@ static int mdp_m2m_open(struct file *file)
+>  =09default_format.type =3D V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
+>  =09mdp_m2m_s_fmt_mplane(file, &ctx->fh, &default_format);
+> =20
+> +=09list_add_tail(&ctx->list, &mdp->contexts);
+> +=09mutex_unlock(&mdp->m2m_lock);
+> +
+>  =09dev_dbg(dev, "%s:[%d]", __func__, ctx->id);
+> =20
+>  =09return 0;
+> @@ -647,6 +652,7 @@ static int mdp_m2m_release(struct file *file)
+>  =09struct device *dev =3D &mdp->pdev->dev;
+> =20
+>  =09mutex_lock(&mdp->m2m_lock);
+> +=09list_del(&ctx->list);
+>  =09v4l2_m2m_ctx_release(ctx->m2m_ctx);
+>  =09if (mdp_m2m_ctx_is_state_set(ctx, MDP_VPU_INIT))
+>  =09=09mdp_vpu_put_locked(mdp);
+> @@ -727,7 +733,25 @@ int mdp_m2m_device_register(struct mdp_dev *mdp)
+> =20
+>  void mdp_m2m_device_unregister(struct mdp_dev *mdp)
+>  {
+> +=09struct mdp_m2m_ctx *ctx;
+> +
+> +=09mutex_lock(&mdp->m2m_lock);
+>  =09video_unregister_device(mdp->m2m_vdev);
+> +=09v4l2_m2m_suspend(mdp->m2m_dev);
+> +
+> +=09list_for_each_entry(ctx, &mdp->contexts, list) {
+> +=09=09vb2_queue_error(v4l2_m2m_get_src_vq(ctx->m2m_ctx));
+> +=09=09vb2_queue_error(v4l2_m2m_get_dst_vq(ctx->m2m_ctx));
+> +=09=09v4l2_m2m_streamoff(NULL, ctx->m2m_ctx,
+> +=09=09=09=09   V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE);
+> +=09=09v4l2_m2m_streamoff(NULL, ctx->m2m_ctx,
+> +=09=09=09=09   V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE);
+> +=09=09if (mdp_m2m_ctx_is_state_set(ctx, MDP_VPU_INIT)) {
+> +=09=09=09mdp_vpu_put_locked(mdp);
+> +=09=09=09atomic_andnot(MDP_VPU_INIT, &ctx->curr_param.state);
+> +=09=09}
+> +=09}
+> +=09mutex_unlock(&mdp->m2m_lock);
+>  }
+> =20
+>  void mdp_m2m_job_finish(struct mdp_m2m_ctx *ctx)
+> diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-m2m.h b/driver=
+s/media/platform/mediatek/mdp3/mtk-mdp3-m2m.h
+> index dfc59e5b3b87..f473f5f20aa2 100644
+> --- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-m2m.h
+> +++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-m2m.h
+> @@ -27,6 +27,7 @@ struct mdp_m2m_ctrls {
+>  };
+> =20
+>  struct mdp_m2m_ctx {
+> +=09struct list_head=09=09=09list;
+>  =09u32=09=09=09=09id;
+>  =09struct mdp_dev=09=09=09*mdp_dev;
+>  =09struct v4l2_fh=09=09=09fh;
+> @@ -36,8 +37,6 @@ struct mdp_m2m_ctx {
+>  =09u32=09=09=09=09frame_count[MDP_M2M_MAX];
+> =20
+>  =09struct mdp_frameparam=09=09curr_param;
+> -=09/* synchronization protect for mdp m2m context */
+> -=09struct mutex=09=09=09ctx_lock;
+>  };
+> =20
+>  int mdp_m2m_device_register(struct mdp_dev *mdp);
+> diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-vpu.c b/driver=
+s/media/platform/mediatek/mdp3/mtk-mdp3-vpu.c
+> index 67f3001153ae..c1fd639930e5 100644
+> --- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-vpu.c
+> +++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-vpu.c
+> @@ -62,7 +62,7 @@ void mdp_vpu_shared_mem_free(struct mdp_vpu_dev *vpu)
+>  {
+>  =09struct device *dev;
+> =20
+> -=09if (IS_ERR_OR_NULL(vpu))
+> +=09if (IS_ERR_OR_NULL(vpu) || !vpu->scp)
+>  =09=09return;
+> =20
+>  =09dev =3D scp_get_device(vpu->scp);
+>=20
+> base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
+
+--=-Wo+4Av8llfy936qRJ+9C
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawizxAAKCRDZQZRRKWBy
+9HTSAQCdw6kGRzy5B9+zXqQyV6Ynggd/rTVkgWVWQNpWAi2INgEAnB8jCbkkM0v6
+MPp3EnFDNhhmxlGQsiF3CnGD5qAX7gA=
+=PsR4
+-----END PGP SIGNATURE-----
+
+--=-Wo+4Av8llfy936qRJ+9C--
