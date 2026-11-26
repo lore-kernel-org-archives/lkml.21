@@ -1,67 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.247
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795680802;
-	b=rR5RriUHUaWDpPmUDR5c8d8Cdyw75QbTVTWIUpptmkCdLp+6tO34qBQ6nqdEOY0yeQ5n
-	 J8CXRrkVMwYUZjLNh18Nic1okKs0qqJAAHgmAridGRMlBvyq798+H9LVge/s8HfOgA5Pe
-	 IluudtnqXm/Wu+QLT4SolvSPnD6cQ5uo1kjJGY7dGJfWL20MveIQrXt+LVj4/o04XEavT
-	 e1jDzYK+h1f5YxiPC61cn46SjazT2uLl7tSwoqbJBjqwzLBa+7LNw1OeNEIBg+TptPxLi
-	 wembxF4L2gJTBlk6vgymvLA/uOoIOqsmImKHs8s5QCllfv8dubejVke1FU4F5Q6mjJg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795680802;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=8ngE5yHiDIx7vBCYimPDgiAaC44Sef/mO5m2HnMkQ3g=;
-	b=LWKMiLEVQ969XCDYNhpgbbdaLuFYCAV2ZTshQSS+uz70YcoadBw04NXL88UNaO4GmGlR
-	 hB0AUrhusE9lhi9qVUoyDtjtSuLL+wVmGrx1BvH9LvVbdsa6e3fcXb754kKcmkgFPS77j
-	 /s2TUBLuiLlV4PdZA68lrBA3sulaJQxdcmNqvoqfTfOdIkDIdr8pPYemn8esez4219O+S
-	 brY+NIXEIE3KkDbfbsmxXiejRH7OI/ogmgTU4biKru/gTfI3fXjxPdZaQqWphomt2IMSu
-	 EVK2QNjt8zb5Sf+Sc0wukqSmIsYOV2mx1ioWi7f1wpaAVT1vAXiS9QwhPE3IwT+EtQA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=HDgwxbPG;
-	arc=none smtp.remote-ip=95.215.58.247
-Received: from mta1.migadu.com (out-247.mta1.migadu.com [95.215.58.247])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795680816;
+	b=3iOKzJYLAM37jSWBnqA7EVHQqq+2VNQW6rzfOaXnRR7gvMFX1blquBhr9Ivm+h5eYzgi
+	 jtweJsJBpiGVvA8V2FKBxKuepirke1jsymAZ4uTHc8slUKZexLrTvECO7YltOcszBFbzA
+	 R3c1dM+ttbcntw7uh7o6JhqhcVtK9E8kkqaID2G/JcKn8NaFI153/NtMHpXk+0KK8qH+1
+	 nuDav18d2jdEBfN/eyWOHvA7MiIp1t2Dvag0fG850uLET2JEYOpZMJ6tt7eLZMB6/d0Cm
+	 YRWnT/XKT+dgUQ4nxDHS+fGe2O8NiXPC47BnkCHtW6obUeBHSW5yqCu5vduZmY6YtsA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795680816;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=6g3oE9O+R1XLM2iPW2rgKpt+xVr7YudApomdQV3VjNI=;
+	b=BK3TQfqiwOR+/Z6AhQIZTzmfIvV7PRae0+Rt7WZHdy6dnf798w1zRAAMGxmnlwY2VoCV
+	 gDAIwBITuEPpoLmxT7tN9FwtFqL/At7Fj87NGHnwmGIQYndiGQcywOcjQpFYEUH1RnATq
+	 czV9ZiiH4XV3B6wr9DsuFOKq9muwg2hSAGUw+VO1yKFPw1jNdR8OPgTdAfwCAVe9JI8PJ
+	 yc7z5AJZlJgid2II0AarxcFPUswTtfovg8P5aV2fULuUQQNux/B5qi9ryOBkloaxK/lHh
+	 dbKm30cOVMOb+fyQCdQxUz8ds2AacKe9zAd8xPtELHx33u8G82pE0lsWQODnJYWP9sA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=VaChOyNm;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 083BA606A33A
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:13:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 083BA606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56BF8606A33A;
+	Thu, 26 Nov 2026 08:13:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56BF8606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=HDgwxbPG
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=TWd5PYsIUK42+eVyOks+ZcrzBLgJCP2EqIb2/tZIif4=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795680799; v=1; x=1796285599;
- b=HDgwxbPGV+SOoxUcQzUMVT9i3l1EcBh1rMtwVT0oMISsd3H3agHFXh+81KT9vrOxXdAPBtdR
- eUmihKIKfkAsS+QeYGTBfxZ2t8UaCZl8JE2yXizle+mREwib/eH+12RpT/7uGk0OwMN2umtg3LI
- M3ix4aaPd8vorYG9hnGD+Y18=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta11.migadu.com with ESMTPS id 3b2fb38026ca545c;
-	Thu, 26 Nov 2026 08:13:18 +0000
-X-Mizu-Trace-ID: 3b2fb38026ca545c
-X-Migadu-Flow: FLOW_OUT
-Date: Thu, 26 Nov 2026 16:13:11 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
-Cc: netdev@vger.kernel.org, David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Alice Mikityanska <alice.kernel@fastmail.im>,
-	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2 4/6] ip6_tunnel: Enable BIG TCP packets
-Message-ID: <20261126081311.GF33976@Liu-laptop>
-References: <20261126025015.10416-1-yanhaishuang@cmss.chinamobile.com>
- <20261126025015.10416-5-yanhaishuang@cmss.chinamobile.com>
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=VaChOyNm
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id EEA722007F9;
+	Thu, 26 Nov 2026 09:13:32 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795680812;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=6g3oE9O+R1XLM2iPW2rgKpt+xVr7YudApomdQV3VjNI=;
+	b=VaChOyNm2kcnPPsZ1Aiy8Ct5unwUo2JUhuvqE8zoEuN6Owv1U9HxDKhF6ioKzhCTg9Scxo
+	1v9u4D2MRD04yIjgxpHsK1zxVoXBhkoQhme+cpDpy6295EhUEV8vLbTcIZUWG7UEU2ARM7
+	pNSambJRmoLqzFzS0u2tQ9yCdyi7XDLeurKllioe9JcOIcWyPWlKRWSstZLx4+SbDLH04q
+	wz+Z9ZRLnNq8/raVUbW66tS22xqjDk/Dgq3zYIlrfh6ZcLai1nHUxNtvA0X4nqHvkyZJEx
+	+xXHQl8Z7eAe42HBCuOp+0fzNm2WcWGprBiwRMyqU4GY/CkEmAmCrAoBPjHKVQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795680812;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=6g3oE9O+R1XLM2iPW2rgKpt+xVr7YudApomdQV3VjNI=;
+	b=bdoE4RfamCaVUsrpHNQXaIP1I+QYHfDE7pJGSwUZqcMyrfrVF6Lu9vFzogUCh92+t/bTCO
+	6GwVN3roFKmEaZxsuq5li/qqyWOWVHPgxr8yIzmeWtqZo7voJOClmJbHmjS7EI0uRqQM0j
+	+4MgMpF1vHZCrN5eE/GSgRdFyW5JKX5YdrddoN7GdJON6qGxt6H3MrZAouJbujtg0llYpL
+	U+wKCSkh6eaKCeVJa2JIHHE1+6qHUdzhkJ15wFqUjWPJdNUSsdPk7ekm6Mce5yokBRr3R8
+	68LMQAPk8DqUELZAas6bqsSUuj6YcO2yqiggYJad6KKIH+FjIG7Uds2mJnbW3Q==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=f.diener@pengutronix.de
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795680812; a=rsa-sha256;
+	cv=none;
+	b=Pc/hlvVTnnuCUiZbjJwl5iri5rLz4BGCx+sNXgz+UXOltekFitRqoh5Dd8RYayLmXhtIod
+	UC5VyEgl6HXkoiE8eryW/3pWVQJkgoVcl2srOfd9L1PPi2cTF2zaiEetDhgsyXECMNjlWN
+	EGqZRpqyqsEa48w4xgcL38X59mmvlQl05fE2DA3oPuY++Um50Q0xWa8eIKgS2nLtlRnCCy
+	jeJLWZ44NFaHl4iVHpREnly4oGi7IWi2KDBBjXxd97HMhTSbK2glDP5OdSVNRLS6Y6jEsi
+	5VpQQTCLOh51w+h85eDsumvNufJsGuWSrYMazWBRoyEWXBh1Y0eHHaPVIbKN4Q==
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.2])
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.96)
+	(envelope-from <f.diener@pengutronix.de>)
+	id 1xWUbk-001XUF-1C;
+	Thu, 26 Nov 2026 09:13:32 +0100
+From: Freimut Diener <f.diener@pengutronix.de>
+Date: Thu, 26 Nov 2026 09:13:28 +0100
+Subject: [PATCH] arm64: dts: ti: k3-am625-beagleplay: Add EEPROM supply
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,54 +86,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261126025015.10416-5-yanhaishuang@cmss.chinamobile.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-beagleplay-eeprom-supply-v1-1-19c543de6ab5@pengutronix.de>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQrCMBBG4auUWTuQBJXiVcRFmvytkdgOmVYsp
+ Xc36vJbvLeRoiQoXZqNCl5J0zRW2END4e7HAZxiNTnjzta6E3fwQ4ZkvzIgZXqyLiJ55ehiezS
+ 9N7ENVHMp6NP7t77e/taleyDM3x/t+wcVGwHBfAAAAA==
+X-Change-ID: 20261125-beagleplay-eeprom-supply-d2d840fa0d8c
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Robert Nelson <robertcnelson@gmail.com>, 
+ Dhruva Gole <d-gole@ti.com>, Andrew Davis <afd@ti.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Freimut Diener <f.diener@pengutronix.de>
+X-Mailer: b4 0.15.2
 
-On Wed, Nov 25, 2026 at 06:50:13PM -0800, Haishuang Yan wrote:
-> Commit f3d0f753f066 ("vxlan: Enable BIG TCP packets") and
-> commit 03ebe91b0f61 ("geneve: Enable BIG TCP packets") allowed BIG TCP
-> on UDP tunnels. ip6tnl can carry BIG TCP packets as well: IPv6 BIG TCP
-> no longer needs a hop-by-hop jumbo header, the GSO and GRO paths already
-> handle it, and FOU encapsulation sets the UDP length with udp_set_len()
-> since commit 47282504ad21 ("udp: Support BIG TCP GSO packets where they
-> can occur").
-> 
-> Bump tso_max_size up to GSO_MAX_SIZE so that the admin can use BIG TCP
-> with ip6tnl. The default gso_max_size and gso_ipv4_max_size stay at
-> 64KB, so nothing changes unless they are raised explicitly.
-> 
-> iperf3 TCP over ip6tnl, with IPv4 traffic between two netns connected by
-> veth, without encapsulation, 3 runs of 10 seconds each, in a KVM guest
-> with 8 vCPUs on an Intel Core i7-14700 host:
-> 
->   gso_max_size/gso_ipv4_max_size 65536:   93.0,  90.8,  83.3 Gbit/s
->   gso_max_size/gso_ipv4_max_size 196608: 134.8, 123.4, 112.8 Gbit/s (+39%)
-> 
-> A later patch in this series extends big_tcp_tunnels.sh to cover ip6tnl
-> with IPv4 and IPv6 traffic, without encapsulation and with FOU and GUE.
-> 
-> Reviewed-by: Alice Mikityanska <alice.kernel@fastmail.im>
-> Signed-off-by: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
-> ---
->  net/ipv6/ip6_tunnel.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/net/ipv6/ip6_tunnel.c b/net/ipv6/ip6_tunnel.c
-> index 64a184bca46..040012cdf15 100644
-> --- a/net/ipv6/ip6_tunnel.c
-> +++ b/net/ipv6/ip6_tunnel.c
-> @@ -1919,6 +1919,7 @@ static void ip6_tnl_dev_setup(struct net_device *dev)
->  	dev->lltx = true;
->  	dev->pcpu_stat_type = NETDEV_PCPU_STAT_TSTATS;
->  	netif_keep_dst(dev);
-> +	netif_set_tso_max_size(dev, GSO_MAX_SIZE);
->  
->  	dev->features		|= IPXIPX_FEATURES;
->  	dev->hw_features	|= IPXIPX_FEATURES;
-> -- 
-> 2.43.0
-> 
-> 
-> 
-Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
+The BeaglePlay board ID EEPROM at address 0x50 is wired to the
+VDD_3V3 rail, but its device tree node does not describe the supply.
+When at24 probes, the regulator core warns that the vcc supply was not
+found and falls back to a dummy regulator:
+
+    at24 0-0050: supply vcc not found, using dummy regulator
+
+Set vcc-supply to vdd_3v3 so at24 uses the regulator that powers the
+EEPROM.
+
+Fixes: f5a731f0787fd ("arm64: dts: ti: Add k3-am625-beagleplay")
+Link: https://docs.beagleboard.org/boards/beagleplay/03-design.html#board-eeprom
+Signed-off-by: Freimut Diener <f.diener@pengutronix.de>
+---
+The BeaglePlay board device tree already describes the 3.3 V regulator.
+This patch adds the missing supply reference for the board ID EEPROM.
+
+The BeaglePlay DTB compiles without warnings, and the EEPROM node passes
+validation against the at24 binding.
+
+Boot-tested on BeaglePlay: with the updated DTB, the at24 dummy
+regulator warning no longer appears, and regulator_summary lists
+0-0050-vcc under vdd_3v3.
+---
+ arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts b/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
+index 898e4ca3fd87e..4ddd5e7b3843e 100644
+--- a/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
++++ b/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
+@@ -671,6 +671,7 @@ &main_i2c0 {
+ 	eeprom@50 {
+ 		compatible = "atmel,24c32";
+ 		reg = <0x50>;
++		vcc-supply = <&vdd_3v3>;
+ 	};
+ 
+ 	rtc: rtc@68 {
+
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261125-beagleplay-eeprom-supply-d2d840fa0d8c
+
+Best regards,
+--  
+Freimut Diener <f.diener@pengutronix.de>
+
