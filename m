@@ -1,120 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=216.71.153.141
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795707729;
-	b=ZhQbg1W7G8qopZQerdYcRDbrSr8HMkxrzzJv3HVrG4wNueTxvnjDJzAj2SxgA2nAV11J
-	 9qgMqqVhh7FuRGWxeGwaUnLliiZyXNxJd/r/+8TAlRz8djZumrMDbAUXHUYa/daa2LqU8
-	 MmaTFoV37fWHhWx90sv4yrlJNoYXcimFyVKhTIStLgXD/uQkzrOoG/UDobzCfdhcUHbVY
-	 6evf41q5rEQ4RuaIo7tV+IlfRV3CVR3nVCovRPjw2GGrdW/NYi7IkVYLDsQRJnXUIQoto
-	 +d1lfen9WqrMHvL3evkCzunt8x1gj6HDqXSmN+1GXl7ML8O8tFDZjGdkrLALro0vOLw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795707729;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:Received:DKIM-Signature:Received:Received:Message-ID:
-	 Date:User-Agent:Subject:To:Cc:References:Content-Language:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:
-	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:WDCIPOUTBOUND:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=f8FzAuRIFJOVYgMqDZZfwFOr4pM7ys4HIeCsUpU/uzA=;
-	b=dWAYKCkz9gupWLklzdcX7QW3DRtD3xAqBEVR8zH54A1Q32UJWe/rs4O3YIuJMmArqch5
-	 YrW9TjyYPV0XNq5sB2yleSHz0W8oVXkSlahqr3AM8a3Z2ps/Xq8R8+IWsve5kBQLjVqUK
-	 CqQ+Oc1U8uLPwryAYcUjxn56eVB5C6yARg3+vnwEGhQjavBr8YzyqrdIXajTd03SQED5X
-	 ZgNRd2iIDdBc1qqWG4lzTHu5Cai+IXZ5rBPimSMyyK4RrmGFjNL/PHDSjuw0yp/sEpHx7
-	 HvIRBLNZwxYJZCifMIP8r3bhItQgugj7znKsg0VhzFZxGWSjt8GZHvLteunnlN0qaag==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=wdc.com;
-	spf=pass smtp.mailfrom=wdc.com;
-	dkim=pass header.d=wdc.com header.i=@wdc.com header.a=rsa-sha256 header.s=dkim.wdc.com header.b=gF04tSt0;
-	dkim=pass header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-sharedspace-onmicrosoft-com header.b=tXTKNmme;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=216.71.153.141
-Received: from esa3.hgst.iphmx.com (esa3.hgst.iphmx.com [216.71.153.141])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.132.180.163
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795707739;
+	b=jI9Jn9esIm1Mpxg5kSZDb2o2YDBYaQ0JfHauKDLwKIsiBPrJbRlKSWItnvRoP4fR2G3F
+	 iz8pBkdfK+kkuIQQvk3I6Dadow5htnCJADIi7pACf31krVu1MDDTHFDtfD5gRbRBDnG2a
+	 4U+EyBIpowyuymldtAUpasbIkC38PibHP6rpXeexoctLfylxKaYdCqXhejNaYsOL8mk4D
+	 KuTt5dU/mQVniTnJpkS39Ke8BDxafxGTrcE7GLdr90NwvpgMwlHcJ5dJuElaigT9FtjtD
+	 dsEHrT0vA+R3VZPsCMeZfaG4c2C1/s2enMTp64u2Cas64nT4QbmTck1L20O2NNiC9NA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795707739;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Message-ID:
+	 Subject:From:To:CC:Date:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:User-Agent:MIME-Version:X-Originating-IP:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID;
+	bh=R0vk9Xr0GAeNMLaj1AyxWvtgdsYa2pacID3HohZ4fAY=;
+	b=h+KvvpDQVSjzMbSJKatPtmAsgX93CrXX7Gd8m9VqjeQQJZM6fZZHHaYLz63RdEcvrb8u
+	 ATEyXNSmhjQSjay/JYTD7iJrVTNrOXBsT3KI2dD6hMs/JOG8bPcm4dNDAVUDFnVIc2rW2
+	 n6qDoul+sgri5Ic7cJAntWrxUkCjLw2sj3hi7Efl4vXFLx0Y8TvdjDJmoXCspLTU1bTRe
+	 jmhnowd8g9vjXGfKeDlPUBDtAA95SsgQRJEaaEldQX9UFsqQviVGJCNGkG2tyLJKpe1fJ
+	 RLxPxQ00o7R+K5qpBooOqQlSHkk8Nm5IbmHbvFD2g4fXGMDsR+Gci8Rz3/426vIcaLw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=imgtec.com;
+	spf=pass smtp.mailfrom=imgtec.com;
+	dkim=pass header.d=imgtec.com header.i=@imgtec.com header.a=rsa-sha256 header.s=dk201812 header.b=quDvWSPp;
+	arc=none smtp.remote-ip=185.132.180.163
+Received: from mx07-00376f01.pphosted.com (mx07-00376f01.pphosted.com [185.132.180.163])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 713C2606A321;
-	Thu, 26 Nov 2026 15:42:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 713C2606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=wdc.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wdc.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61F54606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:42:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61F54606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=imgtec.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=imgtec.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=wdc.com header.i=@wdc.com header.a=rsa-sha256 header.s=dkim.wdc.com header.b=gF04tSt0;
-	dkim=pass (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-sharedspace-onmicrosoft-com header.b=tXTKNmme
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
-  t=1795707729; x=1827243729;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=f8FzAuRIFJOVYgMqDZZfwFOr4pM7ys4HIeCsUpU/uzA=;
-  b=gF04tSt0fECKYxgN6ZfVbzQZGHnfnFTv8IiUiQ5lMxwECGuwcB/eRgFD
-   UFDiuQAbeDg3Kyt/SeINJw6/2ahBbD36RNDnfaAodFij07mx0sNNL/jdv
-   DM+JJBd6p9tMRotz4nUQpAftp/zNVdkValLAXRAVXKzP+VoJQnEvfvuV6
-   z3frlOjaW3/48WDlnXqJWl8o7zqwKmisS5/W8LxeZalKOeSRDebGqguWE
-   SQASoOU3SvDF2OYjgcaeiNR2KeWQO390q9D5A8eqTSPEX8M7tAY4cRglo
-   WOjxxtrCm4Q4d0+OAd2/pc3jdtMVQe+4LPZpDH7Riv6yatYoTq78Rox0c
-   A==;
-X-CSE-ConnectionGUID: LMsb54frRG6e4OwQIRDL3Q==
-X-CSE-MsgGUID: BbdwAsFkSqKPpFxj71Mkzg==
-X-IronPort-AV: E=Sophos;i="6.27,235,1786982400"; 
-   d="scan'208";a="161837515"
-Received: from mail-westus3azon11011034.outbound.protection.outlook.com (HELO PH0PR06CU001.outbound.protection.outlook.com) ([40.107.208.34])
-  by ob1.hgst.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 26 Nov 2026 23:42:08 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TBA9SnOqsaTseDINfqKOAPurBarE/caLxvZ6pnsUNqB89I8ZhdPovzQFW8QvBT8B5rLyAAHL4/TXha298AekgIYLo+EeUNmkM0qRlj8TyZCAJqJ1QGBRwzNaZMWm//3atdjlFyBzRVtHywbFis/rz8VQTIbi9Vw8hDSraQywiR9Tdve6AvdhafMEqCk+UzC/HwRo3jLTJpKaoeyROjudLzi8CPnn9e0PHuIw0G6O5fF4YDF1EJu+JWosl7+vuQWAjiHTusyxYwKPl1SUkozXcgUHigJVTCNkm7eZ7d7W1fNFo0SUdggsjMtVHRom9kaKlhGbT1Ne7vUEAd5w63oa9Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=f8FzAuRIFJOVYgMqDZZfwFOr4pM7ys4HIeCsUpU/uzA=;
- b=C67eWL75nRA79LbhIOd6AAApnLSHp4ogSfX9kAmPwA6cJiSWzRm48ULusKuXwArhJ8erSf0aU/TLlR5dfo4IZzRfNxTu3tohBv/yKr2Sl7XpaI7t1SStGrQY52CG6c816A4kcIyMPJ9qqfAK32DggpqpJGajMn4DkqVvF/7Ys3XFfqfM0pS2Ypzpi7MCQn9F2k/lgT08e6wxQih8Pk9PpOS94aZ79lzPg0701BEVn4ModPKTjbBoUjBDrwYx/RcWZfkx1/CwoLhGtnIGb1pzWE/j7t0kH8hyfwyvWHu8O1Z3FoSzk2eivHFkt7WNFJbC7zhjfrM3dHgOELYhFJRuMA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=f8FzAuRIFJOVYgMqDZZfwFOr4pM7ys4HIeCsUpU/uzA=;
- b=tXTKNmmerwLS6QlQCNMtdYXGsNQuR7H4xjpvb/4OyBpXuZGzSN0pB36IvQJpiB1DmvXUPufflYTcYBjM7Gh5zGxBPpWtek0DE9mc50p43vSCcZXxSWb8hM3HMRF/tbAwh7fTYNpEqjtgyb6QJih55KHOvz5ncU32BPKqcl1PwBk=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=wdc.com;
-Received: from SA6PR04MB9447.namprd04.prod.outlook.com (2603:10b6:806:436::21)
- by BL4PR04MB993738.namprd04.prod.outlook.com (2603:10b6:207:301::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
- 2026 15:42:05 +0000
-Received: from SA6PR04MB9447.namprd04.prod.outlook.com
- ([fe80::14c6:1c14:485f:1825]) by SA6PR04MB9447.namprd04.prod.outlook.com
- ([fe80::14c6:1c14:485f:1825%6]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
- 15:42:05 +0000
-Message-ID: <5130364b-be16-4c4b-a756-cd8fdd281a32@wdc.com>
-Date: Thu, 26 Nov 2026 16:41:58 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] btrfs: zoned: handle a failed zone finish on one
- device
-To: Miroslav Cimerman <mc@raidlab.org>, linux-btrfs@vger.kernel.org
-Cc: David Sterba <dsterba@suse.com>, Chris Mason <mason@kernel.org>,
- Naohiro Aota <naohiro.aota@wdc.com>, Qu Wenruo <wqu@suse.com>,
- Damien Le Moal <dlemoal@kernel.org>, linux-kernel@vger.kernel.org
-References: <20261122232310.4099580-1-mc@raidlab.org>
-Content-Language: en-US
-From: Johannes Thumshirn <johannes.thumshirn@wdc.com>
-In-Reply-To: <20261122232310.4099580-1-mc@raidlab.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0018.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:c9::10) To SA6PR04MB9447.namprd04.prod.outlook.com
- (2603:10b6:806:436::21)
+	dkim=pass (2048-bit key) header.d=imgtec.com header.i=@imgtec.com header.a=rsa-sha256 header.s=dk201812 header.b=quDvWSPp
+Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
+	by mx07-00376f01.pphosted.com (8.18.1.12/8.18.1.12) with ESMTP id 6AQ601L7207786;
+	Thu, 26 Nov 2026 15:41:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=R
+	0vk9Xr0GAeNMLaj1AyxWvtgdsYa2pacID3HohZ4fAY=; b=quDvWSPpQHwtg9jo/
+	ie39tlZQqn+pKlEZ7RiOuR4NHeSA1JGZ3aCHlRtCbvS0+EWqt9nxQPJ9Dj+KTWD9
+	OHnYBaNj4zqT8xpY1CbK1shxdgTeeVFW5ve+lE4d6CntpTeRXPURBxvnIxi6rmmI
+	Pwj8ogy9w6qnb8zNHje+g7ftvaxIm8wyb72w9TJep5qDuZhN/a5gC/w0O5TEE7mg
+	Kt4So1+sGZ2OkPma4Ee6EtullmTq5DnW7zCXfOlzmi8EtSqb8s4n7NYUs6DVj9bj
+	aS29v02dGfCP+gwznnYgY3rPbmf4wOpA+wHyX+D6HnWHk2s+JKy3SUkygXNx+0uL
+	4Ec1Q==
+Received: from hhmail01.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
+	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 4j3491mf0e-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT key_exchange=secp384r1);
+	Thu, 26 Nov 2026 15:41:44 +0000 (GMT)
+Received: from np-a-belle.kl.imgtec.org (172.25.6.177) by
+ HHMAIL01.hh.imgtec.org (10.100.10.19) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Thu, 26 Nov 2026 15:41:42 +0000
+Message-ID: <2a2762cc2a4ec785a8b390b2b01900a8fcd18bc4.camel@imgtec.com>
+Subject: Re: [PATCH v2 1/2] drm/imagination: Switch the GPUVM to immediate
+ mode
+From: Luigi Santivetti <luigi.santivetti@imgtec.com>
+To: Gyeyoung Baek <gye976@gmail.com>,
+        Alessio Belle
+	<alessio.belle@imgtec.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+CC: Alexandru Dadu <alexandru.dadu@imgtec.com>,
+        Brajesh Gupta
+	<brajesh.gupta@imgtec.com>,
+        Frank Binns <frank.binns@imgtec.com>,
+        <imagination@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
+        <linux-kernel@vger.kernel.org>
+Date: Thu, 26 Nov 2026 15:41:37 +0000
+In-Reply-To: <20261011-pvr-gpuvm-immediate-v2-1-744ddc6644c3@gmail.com>
+References: <20261011-pvr-gpuvm-immediate-v2-0-744ddc6644c3@gmail.com>
+	 <20261011-pvr-gpuvm-immediate-v2-1-744ddc6644c3@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -124,80 +90,237 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA6PR04MB9447:EE_|BL4PR04MB993738:EE_
-X-MS-Office365-Filtering-Correlation-Id: 817bcb9d-f009-4bc2-fd88-08df4bd3d275
-X-LD-Processed: b61c8803-16f3-4c35-9b17-6f65f441df86,ExtAddr
-WDCIPOUTBOUND: EOP-TRUE
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
- BCL:0;ARA:13230040|376014|1800799024|10070799003|23010399003|19092799006|366016|10067099003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
- kS+BZ1uThHp69EfKBkHzntyeTrICrG09uCou1VdlHqiUc+RRsh1M0Ef+n7R00JLVRlgrdl31amFh4yPNYPjfsIXpvqhJP+1H1MDyM82PjevM8KYT3kK+Myg+Rg7juBwDeRMVwfjXJnclzuhmpfbzPH/TMVMpROCt3sZFCoVVACmBadTJvG1d3XDnx3bKdaGqobuc+uMiVjWUkMhJaXc/rB2Spm2oBAjt8oqcm93s716d9zxbD6GyfKJU5Z/6AqSMmbfMKQGw9qYAoRu0rPfVLU/uPlSngimt17OIhw1GQ7LK+3pcRqC3+CIlHO76l4y3EAnvebGmnh9Feb5fd1Ypb4IWRZMwCjXx4RsBu6om24xOTYsXIn90pTEkNTXr4RsruPRC8m0KWtVcinscozd6mu0A3GiJY5GbUVU6sX3RscEuh0kS4oT+FxhPKBFHcobyJVUTR51qZpecT2hPqwoCbJU8hWzAqhvY21dAvcXhehQ/VfbfhQLJnqlYxDGd8rtIzgOYL+ZET5gDdgM/yuaakAkteYzKm0y9PEFmHTw3Y7LPlKlJyOsHfA5AaS/kH8zKV2yGO2YFYsSxtRE5itxNh9xa4eOvp7XUvAUNIaowjjU1MdKJ55KPNHLZAJUxGPE+o2MRo60d4z2OZZiBKExJ4Hqxy3z8e1aZYEZPozujd5s=
-X-Forefront-Antispam-Report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA6PR04MB9447.namprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(10070799003)(23010399003)(19092799006)(366016)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
- =?utf-8?B?ZXF5SVBkdFNFUG03TnRGUzhwVkNwbFpCNGI5RUExeHU3akdBUEZ6NlpCSkVB?=
- =?utf-8?B?bHdkYzlpaHRSdWhhUkQvSlgvMjRud2lNV0JFVUZHWFN3SHpMWTJqUmpRbFBi?=
- =?utf-8?B?TFVYRTllL0JOY2lscUFkd012NExoL1JyamZ4dm9qbythcUdVOUNWQzExSU1O?=
- =?utf-8?B?S215V011eWlObHNsUzVtMlZOZ09kNXgydWJndmQvUGJUWEg5ZjVSZXBqcHFW?=
- =?utf-8?B?bmV4WDZ0b1A2UTNkVTIya21CM1JmRmhTMVNuR0NiNjRBdkZIWWpyQXNzOGt5?=
- =?utf-8?B?dzRUZDFudHlGaVlvMGsyeFNiQ2NIUkdlYU8vbjgvQm13WGkrNUhWOS8wZ0FY?=
- =?utf-8?B?dUdXb0lKeW9vU1k3U24wUkdFN0JQVGRhT3BlbE9GMGp2YVEwVWZudWVnRnc2?=
- =?utf-8?B?OTFGWS9WVlovMExxT1pDOCtIeTdwNUtZcURnZXdPZFFaazVzZWN3bkp0QStI?=
- =?utf-8?B?VU85NFFwQ1JDYTNhS3Irb3ZmRjVTNEFXN081OTVrNyt5TVlUUm1oSTFKaGk4?=
- =?utf-8?B?cDNyaVpWdmsvbUp1d3FpWXN2R29DQVYxSjZ0Z2ZTVXMrandKdXllK3o1ZkIx?=
- =?utf-8?B?QlJoSmZwSTkxOWpvcGtzN2ZTZytxVktGZGJMZlVhemZESSt3TVVJYTFHY1Bh?=
- =?utf-8?B?YWpsZGpoZnhmQ0E2UUY3Q28xZXZNYnJ4ZFQyRzd4RHVlV2cvenY5S25lMkVS?=
- =?utf-8?B?RURXaHB6WnBFcmJwSDZucVo4MmFjWnUvalpUMzFWa0U5K0pnNUEwbFJPeldl?=
- =?utf-8?B?TXdDWXlERlVpOGEyYlhZWWRRQndmWmVnTE9JaVRjM3Q3am5LSG9ucGVnd2pv?=
- =?utf-8?B?TkNnaHZnYnkwTnlVODlzQlBIYTRTVnQ5czVKUzFLYnFVdUI1czF0dUtIT0pv?=
- =?utf-8?B?MURLS2Z1bFRnZlBYRkp0dkU0SkVaUFVuR2w2eU5vZ0pFclloeDRwV04rNjVN?=
- =?utf-8?B?Z0JXZ1ZGVkJsN0k2TTVwYU10ZDlFaDBYQ1hPaU1wYW5NbVRMRFVlQ2xJNGEr?=
- =?utf-8?B?VThQeGw3enRyOVpKZldFclhoRDdwVG0vR1ZUU2VnZFg4a0tKZEN6MWYvdnZ6?=
- =?utf-8?B?Y3F4V0JuZC9VUW9DZ3U3OFk4TmxCSmh5WlZjcEdPODhocWFmTzFOTjIyanBW?=
- =?utf-8?B?d0ptUHI3dERXOWM2ME5NZkNtYXZvUWdieDQ5KzJ2VlNwMkV2SWhLb0thUWRK?=
- =?utf-8?B?OEJnT3ltRk5FeEN1OWhiRTluYXFzQ3g2TGYya3prZlowYWVyL1dkYjZBMW9p?=
- =?utf-8?B?ZmFPeXBhamtFZlF4bUtsU3U3ejJnYStuRlRLRDNmMXQwZDJFY0Q3THcyZ0Nw?=
- =?utf-8?B?LzU5VW43MkVyTmZncys4T2M5NzRBM0NzVitEZjRqRkJXNlJLR0V5Mm5kSnhB?=
- =?utf-8?B?REpILzZVTkszRno5bzllbE43QXJ6bmtHSy9XUW9ZVWJGVEFLQXM0eUdTVU5o?=
- =?utf-8?B?ZUVqUnhVbWJFeDJ5N1c4V2N4Mm5pTk5PQ0R3Nm5aZTFyNUJtYXFjT1VzVUw2?=
- =?utf-8?B?ZFdDRXl2VVAwS1RiRzNoSWh4cHFzYkQ3cXZRNEtSRTZqcDhBNVRINWlqTjlQ?=
- =?utf-8?B?MFl1TWY2eXFxQ1czeExzQ2JzSnhRdy9xbm9jdU95K1JBQ010QjlnUlF4RnpF?=
- =?utf-8?B?ZWpFTDdCTSt2MFhRRHlaS1p3OTZNa1dyR3ovWmJmS3ozYkE3Q2FjczlqWDZq?=
- =?utf-8?B?T0NyVzZEVDVralF3UlpFUnBSMG92VVVvUTRDRlFzbENZbnZ4WEVxdTRpOTkv?=
- =?utf-8?B?UHFabnpockFYay9vZ2hTcDRMMTFyNWVLSlRjeXdicXRGZEZQMWlRQ3M2UjZI?=
- =?utf-8?B?R1oyOUh5TGhiQlJVcDc5NUhKa1JjNHNSQmNCbzBUaE5iZFFSeFZYY0VxM2Zv?=
- =?utf-8?B?WWZqNEFLS1Ayb08vc3p6eDFiVkZGdHVSaTBYRHlMUS9aYTB5cFlMY2xTVXhT?=
- =?utf-8?B?MkJCcEYxYzEwVmI5bitQQ3h3WXdhSWpJRmFCSjNhV2U5dVRUTk5nV1F3MExO?=
- =?utf-8?B?aDA1LzhlNkFkZHBBV3RMYTBVTEN3NElOcUpHMk1KajJPaWRYZkJ4RFNoQSs0?=
- =?utf-8?B?QUd3MFd2Yk1wWW9Pa0QzYzJUeDhoU2ZpOGtFdXREUUNNOTc2TnpUSFFDTisx?=
- =?utf-8?B?S3F6bDlBblgzaEdXS2p2M2phbDhJTG1QOUtMa1puTkEzSlhDR2VTSDBhc1Zk?=
- =?utf-8?B?SXlZaXJ4dVc4N3VkNHdJdUJEUE4rbkdpWDBQZ01zZ3QwWVJmc3RRUjZNVUF5?=
- =?utf-8?B?ZkUxQ3FQcFVSR3ZOZDNkUjhKanZkcVorYXdjaTBzbnBteVUrUk5mWnhGcXZ1?=
- =?utf-8?B?NmxKZGo5TUI3aVkvUnhweHNsNm85QXZCNHJkbmZkUDdkaDBUcmJpQzZMWXVw?=
- =?utf-8?Q?LW3J/bt+yEO1DQwgmwm7L5So2GNaJcRf1s2CnhyLMBNds?=
-X-MS-Exchange-AntiSpam-MessageData-1: w/sil5COFPkkkq1zEWDra1imqsOOJCIa5ck=
-X-Exchange-RoutingPolicyChecked:
-	WDtYCxtMHbxrY8Nwop54e8BJCoAnfkISw5HfhUJieAD9wLLKUrTMJeRsr4hzHbfUS0ML+ieshhSBE2eHE5a2pQ8gn3nwWoY16bj6/+NKK3bmySn+GEZlUMF3d2KLNVTMFy3HdWr+1x5ZV++u8rPm+DUUwizMJJQ2pgxtb9pL+Gf9Jpst98eU895djAGtm/1NGU1qXk5zoMG7dNHb9o2PBNp9cxLv6Vl4x9BZiUY1jWElAta7SUlU68M4oSSs4JYeNxqLurJjh1wLPulc03Upm+9rJiYpGvTpnI1F1dTw6dsBTki1YKrO7wRRctNnGd5ZTQheu+TnqGMTCtoO9X5Ipw==
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0:
-	EtD3w63mzV0YUSdXoFwMG8/vkqd+Qg/yrAIe4tgovHyLwUxMFabPuVh7uZ31UlExImf4DHFkV+oH32Nw5LoZJTn6eHqXF3/GMaR+K0R0MPUQQR08tfP2DlTw56X+eYYrfH65j+9BaK/SxYflX7H5DgzEwXb7tjBmlQlGF2hq9QvwDtyhAIjFiwLPO9IUdDRyYXtnRviNMfWOKu8bnoOFtYPcH55YRAhGlYiSU30wwtvP5XhZgAeFJEwjfP0i/80xilEdNESZScsQXx8+oze9JhKDzYSnX/b9VDqad6Ck1wd/VZe0IFahrDFI1bCv4UuCpteaRPpvmthsx2g4vrPORhKZUROhXEhvS+lMEkEDkkTupiXNq0QI3bkCR41ktaLnUhNgyaeAbfjHsx0BLBXZi4fQ1WqaNdU1PveaM0llbHzjQX+rPBduhpxy3JFJUOkX9pyNJzgHgsJ4hUnzQs5H77bRat3G85rM89VKUaDlTJHmYAIZYkeEwyI6I1Vx++WGsEfU4qqww8SwSM0JmD/TAdtvXeRHvzNGtVb0DiFfFLF+qOzDrQWvAuZyPHSn48Z5Dcy/dSkRSyrJGTEEMwkNVZhHYwWSJctziCAv/yA8epwZZ/Ge6qKf2DhVWDorX973
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 817bcb9d-f009-4bc2-fd88-08df4bd3d275
-X-MS-Exchange-CrossTenant-AuthSource: SA6PR04MB9447.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 15:42:05.3561
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /pOCgYTTKE4QUr6Ea8OOQPIkpyHVFetS2ePEhCeE6/8IitaEd7gpqLjyhZV4jRw85FadSbs0Z7sHd2GephniW1/A4sGGywr8nJlYT6rYWbs=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL4PR04MB993738
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA2MSBTYWx0ZWRfXzvp3Ldqltkq6
+ ObbEXMrgnOM5TVwUQzVhFnnuI33AUZMvYXFI+mFX++4GCtrmFM0Q2mGeGMWr4+k2KbjAeI2s6F9
+ AmX6x3v6x2Ja9ZCp5tZAbt0zbHj9rewOFrgCUFp0VsfJvTwT/uRD/OrPBvNMrJE8ahd1COjLW69
+ sT1K9HJtwHkuyjTKB9Q8Xj4yHKSAb8Cf5pwdkqYi4iLHHDeffXyTdhEXpKGC103Tk5O6XHVAb7+
+ Bdp9BjwHOKVrafT5H5PGC7JgFjp/cFyjQ1YCythOiz2/dlVhqhayhUqaxSeTMs3VPVfqPZUIm+J
+ Smqj1OGeivyDiyNPZXRGB/94DEgrGlbfbwfXowraoi1WrUUoFtrGlT3T5s/Zd/U0RAahw8B3g0f
+ miZ0KKnr3cewkCKs0qlvt+DE1OI3qt3onq5bFgyvXnQ+yyYa0fMurL7om4Qc0a0HsXNTUJ34OGk
+ WgkJyLh9pM4Pppauz0A==
+X-Authority-Analysis: v=2.4 cv=OaENnRTY c=1 sm=1 tr=0 ts=6b085338 cx=c_pps
+ a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17
+ a=2JH569OHYJkA:10 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=kQ-hrUj2-E3RCbRHssb7:22 a=7RYWX5rxfSByPNLylY2M:22
+ a=pGLkceISAAAA:8 a=r_1tXGB3AAAA:8 a=tVqdclijkGfU5qPxdxoA:9 a=QEXdDO2ut3YA:10
+ a=O8hF6Hzn-FEA:10 a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA2MSBTYWx0ZWRfXzZOZdfU3lIpm
+ p3Vu1lQ3tAKoE3dS/fjQ/7HKTbHq8fdbnHZabNoZ0CbTu7RPqmxZn971e7KX5F+/oc7wowbfeSM
+ KB/3fatClfJ/skaIXdEqMrJnJC/WfOI=
+X-Proofpoint-GUID: DGfp3y2LbSSuiq_8Bj_yk8GrEEZVuo9y
+X-Proofpoint-ORIG-GUID: DGfp3y2LbSSuiq_8Bj_yk8GrEEZVuo9y
 
-Pushed to for-next,
+Hi Gyeyoung,
 
-Thanks.
+this patch (and the next) was tested with a CTS cycle and results showed no
+regressions.
+
+On Sun, 2026-10-11 at 18:45 +0900, Gyeyoung Baek wrote:
+> Use DRM_GPUVM_IMMEDIATE_MODE so that each GEM's GPUVA list is protected
+> by its gpuva.lock instead of its dma_resv. This prepares for
+> asynchronous VM_BIND, whose run_job() will update the GPUVA lists
+> before signalling its fence. That section imposes three rules:
+>=20
+> 1. No dma_resv: another thread may hold it while waiting for the job's
+>    fence, directly or through a dependency.
+>    -> Protect the lists with gpuva.lock, and take it around
+>       drm_gpuva_link().
+>=20
+> 2. No allocation under a lock run_job() takes: reclaim may wait for a
+>    fence that depends on the job.
+>    -> Allocate the vm_bo before taking gpuva.lock:
+>       drm_gpuvm_bo_obtain_locked() becomes drm_gpuvm_bo_create() +
+>       drm_gpuvm_bo_obtain_prealloc().
+>=20
+> 3. No freeing of GEM objects: that takes their dma_resv, and under
+>    gpuva.lock would free the held lock too.
+>    -> Defer it: drm_gpuva_unlink() and drm_gpuvm_bo_put() become
+>       drm_gpuva_unlink_defer() and drm_gpuvm_bo_put_deferred(), and
+>       drm_gpuvm_bo_deferred_cleanup() frees once the locks are dropped.
+>=20
+> This also fixes an unlocked GPUVA list update: when a map fails,
+> pvr_vm_bind_op_fini() drops the last vm_bo reference without holding
+> the object's dma_resv.
+>=20
+> Failing VM_MAP allocations with fail-nth shows
+> it on a lockdep kernel (real allocation failures under memory pressure
+> take the same path):
+>=20
+>   WARNING: drivers/gpu/drm/drm_gpuvm.c:1661 at drm_gpuvm_bo_put+0x2ec/0x6=
+60 [drm_gpuvm]
+>   Call trace:
+>    drm_gpuvm_bo_put
+>    pvr_vm_bind_op_fini
+>    pvr_vm_map
+>    pvr_ioctl_vm_map
+>=20
+> Fixes: ff5f643de0bf ("drm/imagination: Add GEM and VM related code")
+> Signed-off-by: Gyeyoung Baek <gye976@gmail.com>
+
+Reviewed-by: Luigi Santivetti <luigi.santivetti@imgtec.com>
+
+> ---
+>  drivers/gpu/drm/imagination/pvr_vm.c | 39 +++++++++++++++++++++++++++---=
+------
+>  1 file changed, 30 insertions(+), 9 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/imagination/pvr_vm.c b/drivers/gpu/drm/imagi=
+nation/pvr_vm.c
+> index cbdd15ed74f..807a01aab1d 100644
+> --- a/drivers/gpu/drm/imagination/pvr_vm.c
+> +++ b/drivers/gpu/drm/imagination/pvr_vm.c
+> @@ -214,7 +214,7 @@ static int pvr_vm_bind_op_exec(struct pvr_vm_bind_op =
+*bind_op)
+> =20
+>  static void pvr_vm_bind_op_fini(struct pvr_vm_bind_op *bind_op)
+>  {
+> -	drm_gpuvm_bo_put(bind_op->gpuvm_bo);
+> +	drm_gpuvm_bo_put_deferred(bind_op->gpuvm_bo);
+> =20
+>  	kfree(bind_op->new_va);
+>  	kfree(bind_op->prev_va);
+> @@ -255,11 +255,11 @@ pvr_vm_bind_op_map_init(struct pvr_vm_bind_op *bind=
+_op,
+> =20
+>  	bind_op->type =3D PVR_VM_BIND_TYPE_MAP;
+> =20
+> -	dma_resv_lock(obj->resv, NULL);
+> -	bind_op->gpuvm_bo =3D drm_gpuvm_bo_obtain_locked(&vm_ctx->gpuvm_mgr, ob=
+j);
+> -	dma_resv_unlock(obj->resv);
+> -	if (IS_ERR(bind_op->gpuvm_bo))
+> -		return PTR_ERR(bind_op->gpuvm_bo);
+> +	bind_op->gpuvm_bo =3D drm_gpuvm_bo_create(&vm_ctx->gpuvm_mgr, obj);
+> +	if (!bind_op->gpuvm_bo)
+> +		return -ENOMEM;
+> +
+> +	bind_op->gpuvm_bo =3D drm_gpuvm_bo_obtain_prealloc(bind_op->gpuvm_bo);
+> =20
+>  	bind_op->new_va =3D kzalloc_obj(*bind_op->new_va);
+>  	bind_op->prev_va =3D kzalloc_obj(*bind_op->prev_va);
+> @@ -293,6 +293,8 @@ pvr_vm_bind_op_map_init(struct pvr_vm_bind_op *bind_o=
+p,
+> =20
+>  err_bind_op_fini:
+>  	pvr_vm_bind_op_fini(bind_op);
+> +	/* Drain what fini() deferred. */
+> +	drm_gpuvm_bo_deferred_cleanup(&vm_ctx->gpuvm_mgr);
+> =20
+>  	return err;
+>  }
+> @@ -366,7 +368,11 @@ pvr_vm_gpuva_map(struct drm_gpuva_op *op, void *op_c=
+tx)
+>  		return err;
+> =20
+>  	drm_gpuva_map(&ctx->vm_ctx->gpuvm_mgr, &ctx->new_va->base, &op->map);
+> +
+> +	mutex_lock(&op->map.gem.obj->gpuva.lock);
+>  	drm_gpuva_link(&ctx->new_va->base, ctx->gpuvm_bo);
+> +	mutex_unlock(&op->map.gem.obj->gpuva.lock);
+> +
+>  	ctx->new_va =3D NULL;
+> =20
+>  	return 0;
+> @@ -396,7 +402,7 @@ pvr_vm_gpuva_unmap(struct drm_gpuva_op *op, void *op_=
+ctx)
+>  		return err;
+> =20
+>  	drm_gpuva_unmap(&op->unmap);
+> -	drm_gpuva_unlink(op->unmap.va);
+> +	drm_gpuva_unlink_defer(op->unmap.va);
+>  	kfree(to_pvr_vm_gpuva(op->unmap.va));
+> =20
+>  	return 0;
+> @@ -418,6 +424,7 @@ pvr_vm_gpuva_unmap(struct drm_gpuva_op *op, void *op_=
+ctx)
+>  static int
+>  pvr_vm_gpuva_remap(struct drm_gpuva_op *op, void *op_ctx)
+>  {
+> +	struct drm_gem_object *obj =3D op->remap.unmap->va->gem.obj;
+>  	/* The split parts belong to the object of the mapping being split. */
+>  	struct drm_gpuvm_bo *vm_bo =3D op->remap.unmap->va->vm_bo;
+>  	struct pvr_vm_bind_op *ctx =3D op_ctx;
+> @@ -435,16 +442,20 @@ pvr_vm_gpuva_remap(struct drm_gpuva_op *op, void *o=
+p_ctx)
+>  	drm_gpuva_remap(&ctx->prev_va->base, &ctx->next_va->base, &op->remap);
+> =20
+>  	if (op->remap.prev) {
+> +		mutex_lock(&obj->gpuva.lock);
+>  		drm_gpuva_link(&ctx->prev_va->base, vm_bo);
+> +		mutex_unlock(&obj->gpuva.lock);
+>  		ctx->prev_va =3D NULL;
+>  	}
+> =20
+>  	if (op->remap.next) {
+> +		mutex_lock(&obj->gpuva.lock);
+>  		drm_gpuva_link(&ctx->next_va->base, vm_bo);
+> +		mutex_unlock(&obj->gpuva.lock);
+>  		ctx->next_va =3D NULL;
+>  	}
+> =20
+> -	drm_gpuva_unlink(op->remap.unmap->va);
+> +	drm_gpuva_unlink_defer(op->remap.unmap->va);
+>  	kfree(to_pvr_vm_gpuva(op->remap.unmap->va));
+> =20
+>  	return 0;
+> @@ -588,7 +599,8 @@ pvr_vm_create_context(struct pvr_device *pvr_dev, boo=
+l is_userspace_context)
+>  	drm_gem_private_object_init(&pvr_dev->base, &vm_ctx->dummy_gem, 0);
+>  	drm_gpuvm_init(&vm_ctx->gpuvm_mgr,
+>  		       is_userspace_context ? "PowerVR-user-VM" : "PowerVR-FW-VM",
+> -		       0, &pvr_dev->base, &vm_ctx->dummy_gem,
+> +		       DRM_GPUVM_IMMEDIATE_MODE, &pvr_dev->base,
+> +		       &vm_ctx->dummy_gem,
+>  		       0, 1ULL << device_addr_bits, 0, 0, &pvr_vm_gpuva_ops);
+> =20
+>  	mutex_init(&vm_ctx->lock);
+> @@ -622,6 +634,7 @@ pvr_vm_context_release(struct kref *ref_count)
+>  		pvr_fw_object_destroy(vm_ctx->fw_mem_ctx_obj);
+> =20
+>  	pvr_vm_unmap_all(vm_ctx);
+> +	drm_gpuvm_bo_deferred_cleanup(&vm_ctx->gpuvm_mgr);
+> =20
+>  	pvr_mmu_context_destroy(vm_ctx->mmu_ctx);
+>  	drm_gem_private_object_fini(&vm_ctx->dummy_gem);
+> @@ -758,7 +771,9 @@ pvr_vm_map(struct pvr_vm_context *vm_ctx, struct pvr_=
+gem_object *pvr_obj,
+> =20
+>  err_cleanup:
+>  	mutex_unlock(&vm_ctx->lock);
+> +
+>  	pvr_vm_bind_op_fini(&bind_op);
+> +	drm_gpuvm_bo_deferred_cleanup(&vm_ctx->gpuvm_mgr);
+> =20
+>  	return err;
+>  }
+> @@ -840,6 +855,8 @@ pvr_vm_unmap_obj(struct pvr_vm_context *vm_ctx, struc=
+t pvr_gem_object *pvr_obj,
+>  	err =3D pvr_vm_unmap_obj_locked(vm_ctx, pvr_obj, device_addr, size);
+>  	mutex_unlock(&vm_ctx->lock);
+> =20
+> +	drm_gpuvm_bo_deferred_cleanup(&vm_ctx->gpuvm_mgr);
+> +
+>  	return err;
+>  }
+> =20
+> @@ -874,6 +891,8 @@ pvr_vm_unmap(struct pvr_vm_context *vm_ctx, u64 devic=
+e_addr, u64 size)
+> =20
+>  	mutex_unlock(&vm_ctx->lock);
+> =20
+> +	drm_gpuvm_bo_deferred_cleanup(&vm_ctx->gpuvm_mgr);
+> +
+>  	return err;
+>  }
+> =20
+> @@ -906,6 +925,8 @@ pvr_vm_unmap_all(struct pvr_vm_context *vm_ctx)
+>  	}
+> =20
+>  	mutex_unlock(&vm_ctx->lock);
+> +
+> +	drm_gpuvm_bo_deferred_cleanup(&vm_ctx->gpuvm_mgr);
+>  }
+> =20
+>  /* Static data areas are determined by firmware. */
+>=20
 
