@@ -1,55 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795698438;
-	b=y7+VqFG3q7jGhVru7eh3qnRU+FrAk1NDDLjx6TvIFQbqbSF19aV7dtYBD+C4XP/FQQ/0
-	 H6sE9SJfPWrS6IlHBH3gYp4khwFdAQeAdHnVkuHfdDKjOrm43dLLsr/i3BM5sc4n/thV8
-	 avpnLvWKzjJHFjq679Gvr7/lgbHE6wV5vwnhJEgb8bUU9HxxBLZbVk91DubVLvhe74uYL
-	 /TlHvHhvhkPfH4lqKCMyepK1yBqVVxT9Fv+vwPG2bVkPIrcwUBbHnFVQkBE+9PdCbib1e
-	 IRlTlOt923rHiYAcLQFHNap2zTNL4bCW2c1B8fOUqU5CKmucZM7SGBTBptqUDAEyIHA==
+	t=1795698445;
+	b=Gh2AXN5zNPizNt3xoNfJnCEEUTa1PTu+2XhOxQK3yYcYr+2z80Jtzj4j3FHCnsDNQc2Q
+	 SWDJcvpEC4cq0agLTKGTNrPM+b5M+R19wycw175OSiibgpPAD8hGGjiqIjETWo6V5atRJ
+	 Y5hzvHDKRK+deLQQc1iHtVzcs8U6WBtzZ6pEfHZdsTL8OFyN/WGit/gKlj4qn0kG+8U69
+	 gdzTZDvIBOI59n8e7LLNF9dXHPScz7sxNAD5JyGeGhcCn/V1KKgg2Es3IQt7NK0T7kg/6
+	 XH+b+FImpZHsv9HOx/HoBw95tdWKgZQlxpPAQOSoLOFKL0d6HPGORcVYD4Qy4nwOQ0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795698438;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=k6MLydfrU5dN1iQDZDbtilSOMTOBZOStE4iUqdVk/Q4=;
-	b=TiM/6luqe96zoPb+dNzVZKIl7mMiXcQ18t8CSJq/c7xCWA4CvkygDbhbX8/DdFK1poQs
-	 qE6ZZ/M78twNL5CXkQYV9dP02Thk+ahl1Z/r6h45hLEGxdd6TQCyhKm+xgRHFVzQP3GkB
-	 ZXn8zn3jK7oSu6EK0UN7IJ8qQS/AEsj6YAmDUaJ6aWAY6rzL6a0F1LEuw0OLpYsiz/4Zv
-	 sjVWgcYdgM00B225L4lR4KIHnhyfYJ8QdnyDAq6v1KtL6k1aoA+K4rn/BvX3Nm1eWm42b
-	 6zsQKUvKOJmtiGNCX4H1lNtA51LDOb4Az7+jNr+fVG6sV2gyjIOjg6EwbaJ7Ri/SaRg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795698445;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=foknlsobLC1fmFyqK5JuWlMNEp3Cfb1HNvIorEGGP60=;
+	b=z9w25ZZOTssVnZylGaAumZT1OoVpCztvD0HIeWWVJJQUagRk6OpUpUFNRIXdpK4GSWhM
+	 NhbekyBYNn6cn6BpS189NFJrjoW8wqEzIpAT5/dGxwmRcJdePq6uyOHM4uLEvsAporsMB
+	 K6mGP7s7uyYzdxSePwsjuFk8XnZ75rZavN4b9r8bbFrLaKgyxIN1nNZNlPwxA4ROpV/DQ
+	 fPMcNavtYoalNpigTIF8LzQrGbxxtuisRTsN53Emp6OlGlfLd7JvIM46hPwDZnHz+hTHR
+	 xL4BQ6qZhqZdSrvSMK5OBhrAkO+wrlxFCSwLGsdAMK1G5yqpqHqadr7R2Zx5tuC+PNA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jkwy0Pw6;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g0huoPLA;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD95E606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:07:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F33E4606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:07:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jkwy0Pw6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 370C21F000D0
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:07:18 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g0huoPLA
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 297E11F000D0;
+	Thu, 26 Nov 2026 13:07:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795698438;
-	bh=k6MLydfrU5dN1iQDZDbtilSOMTOBZOStE4iUqdVk/Q4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=jkwy0Pw6kheEy3Bf54lDMZfIwZbTP0UhNeq6TrUDmAwiib+pNkpMEpSZMLBkMFpk0
-	 9QxxnryKn7D4iRJQunPjHgv0MQcyA4WveEXdsAh4Om4HwcNHnppuzXiYMAVG/nBxfM
-	 N451kxiOk4jDmJMI4fXYIqZP8XMVWFZ9R1NFLO8BHJhZYp9ryFtXWPMXRf3Qk/Nlt1
-	 7uRpvWq3GVmLQcMoyat6UoUTOwsrACZdsRoz89k8wxpNUi6OMcStndOvPUP+whZgSK
-	 2ls2p8yhJSgYsHw2e5RZZYqbZu1YhAaobwvMmyRZwQJ98xWNZqwM9j82olirp2/kv4
-	 YR8u2DQqYHCeA==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5c08539c827so5513235e87.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:07:18 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHThpjZYIIxX7tNHiiTG9j9Xf/bdAJIwUCQDim3ylAaGanqh090yMoVocxokUgYL7dEHJ3DFmOBuijXphY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/v7bOfltOEBOzIxZwS6yxnZoHlORbq6+lP5hQa3OAtxrMgl6Rl
-	9kzylIuPLxCypXDU6g9QeJSC7kwohx6t9WKy7rVhVt4pIHMg2l7OGHVQSLLb4jnod//u81YaQ3Y
-	8Hh92Nv/00Rd8EKKWYhe7mO2IXf1rG9Q=
-X-Received: by 2002:a05:6512:3b14:b0:5c0:465:3fb5 with SMTP id
- 2adb3069b0e04-5c1bc806862mr6763468e87.10.1795698436999; Thu, 26 Nov 2026
- 05:07:16 -0800 (PST)
+	s=k20260515; t=1795698444;
+	bh=foknlsobLC1fmFyqK5JuWlMNEp3Cfb1HNvIorEGGP60=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=g0huoPLAbF7NU2cha7D8a91bsfXr5lvj0dpFIJcLsM453MTh23seN7Mo0dXxnu2qC
+	 xN3ZgRasgaszBgksxHfwMbSXsLcd2O9/rZWZLCTvE74vIXMgR5jFrjVrguesR/dFQt
+	 IeBvu2o7iVXpognac2ufIxexQxZ3p2R/kpy1OhpHewwntJh/LiN2+tvylVcB9ba4Hg
+	 4gpXntdXbtr1QSSEqNXJaUxkL9wGU99NMiMFBef2CFoLjVOBL/wfGOHS0rd3kZS/qi
+	 mVJguYEu76rGOSonjL/iXaakgV3DIjaZRnsAjrOkxMVSjHTttCSt9WS+jdJYQid2ar
+	 WYuuFzBc9V5+w==
+Message-ID: <931acd3e-0689-4517-bbd2-d06109ac4a6e@kernel.org>
+Date: Thu, 26 Nov 2026 14:07:16 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,51 +51,132 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116031043.502-1-laixiangwu@cmss.chinamobile.com>
-In-Reply-To: <20261116031043.502-1-laixiangwu@cmss.chinamobile.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 26 Nov 2026 14:07:04 +0100
-X-Gmail-Original-Message-ID: <CAD++jLmJt8+Yz3hWPwA7wo63crAj6E+qD2b83h9pPLSV4ktu_A@mail.gmail.com>
-X-Gm-Features: Aa3M54oOpmRcJWcEY0wb-eeul9G7QcTYb_X8Hc7Y0lyAIc5DHSEcaFmVlL8EIqk
-Message-ID: <CAD++jLmJt8+Yz3hWPwA7wo63crAj6E+qD2b83h9pPLSV4ktu_A@mail.gmail.com>
-Subject: Re: [PATCH v3] pinctrl: stm32: Fix reset control leak in
- stm32_pctl_probe() error paths
-To: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-Cc: antonio.borneo@foss.st.com, mcoquelin.stm32@gmail.com, 
-	alexandre.torgue@foss.st.com, linux-gpio@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mm/cma: reject long-term pins of HugeTLB folios
+ overlapping crashkernel CMA
+To: Usama Arif <usama.arif@linux.dev>, Sang-Heon Jeon
+ <ekffu200098@gmail.com>, Andrew Morton <akpm@linux-foundation.org>
+Cc: "Liam R. Howlett" <liam@infradead.org>, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Qi Zheng <zhengqi.arch@bytedance.com>, Muchun Song <muchun.song@linux.dev>,
+ Oscar Salvador <osalvador@suse.de>, Frank van der Linden <fvdl@google.com>,
+ Kiryl Shutsemau <kas@kernel.org>, Baoquan He <baoquan.he@linux.dev>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Pratyush Yadav <pratyush@kernel.org>, Jiri Bohac <jbohac@suse.cz>,
+ kexec@lists.infradead.org
+References: <20261125155108.24098-1-ekffu200098@gmail.com>
+ <1b0242ef-49ad-4d7d-820e-d1e6569eacf8@linux.dev>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <1b0242ef-49ad-4d7d-820e-d1e6569eacf8@linux.dev>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Mon, Nov 16, 2026 at 4:10=E2=80=AFAM Xiangwu Lai
-<laixiangwu@cmss.chinamobile.com> wrote:
+On 11/25/26 22:49, Usama Arif wrote:
+> 
+> 
+> On 25/11/2026 07:51, Sang-Heon Jeon wrote:
+>> crashkernel=size,cma uses existing hugetlb_cma memory, so
+>> crashk_cma_ranges[] may contain HugeTLB folios. HugeTLB folios allocated
+>> from hugetlb_cma can be long-term pinned without being migrated.
+>>
+>> After a crash, the crash kernel uses the memory in crashk_cma_ranges[],
+>> but a device can still write to a long-term pinned folio.
+>>
+>> So reject long-term pins of HugeTLB folios overlapping
+>> crashk_cma_ranges[].
+>>
+> 
+> Is spending the workload to protect the dump the right way round for this
+> option?  kdump.rst describes it as
+> 
+> 	This reservation method is intended for systems that can't afford to
+> 	sacrifice enough memory for standard crashkernel reservation and where
+> 	less reliable and possibly incomplete kdump is preferable to no kdump at
+> 	all.
+> 
+> so the dump is the part the admin has already agreed to give up.
 
-> stm32_pctl_probe() acquires an exclusive reset control for every GPIO
-> bank with of_reset_control_get_exclusive(), but none of the error
-> paths release them again: the bank loop returns directly on
-> -EPROBE_DEFER and on a failed clock lookup, and the
-> clk_bulk_prepare_enable() failure and the err_register path also
-> leave the already acquired reset controls behind.
->
-> On success the reset controls are kept for the lifetime of the device
-> and are never released either (the driver has no .remove), but that
-> is harmless.  On a failed probe, and in particular when the probe is
-> retried after -EPROBE_DEFER, every attempt leaks another set of
-> reset control references.
->
-> Release the acquired reset controls on all error paths.
->
-> Also release the clocks of the already processed banks on the
-> -EPROBE_DEFER path, which was missed by the earlier clock leak fix
-> dfd8259507c5 ("pinctrl: stm32: Fix clock reference leak in
-> stm32_pctl_probe()").
->
-> Fixes: 2254e77665d5 ("pinctrl: stm32: defer probe if reset resource is no=
-t yet ready")
-> Signed-off-by: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+We have in there:
 
-Patch applied for fixes.
+"This option increases the risk of a kdump failure: DMA transfers configured by
+the first kernel may end up corrupting the second kernel's memory."
 
-Yours,
-Linus Walleij
+... but I recall some discussions about short-term vs. long-term vs. cma
+discussions.
+
+Ah: https://lore.kernel.org/all/ZWJllXCN0SDIELrX@dwarf.suse.cz/
+
+"User pages for RDMA, should be pinned with FOLL_LONGTERM and that
+would migrate them away from the CMA area.
+
+But you're right that DMA to user pages pinned without
+FOLL_LONGTERM would still be possible. Would this be a problem in
+practice? Do you see any way around it?
+"
+
+And later (me):
+
+https://lore.kernel.org/all/04904e86-5b5f-4aa1-a120-428dac119189@redhat.com/
+
+"What does "short" mean? At least in theory, long-term pinning is
+forbidden for MIGRATE_CMA, so we should not have such pages mapped into
+an iommu where DMA can happily keep going on for quite a while.
+
+But that assumes that our old kernel is not buggy, and doesn't end up
+mapping these pages into an IOMMU where DMA will just continue. I recall
+that DRM might currently be a problem, described here [1]."
+
+
+And in the end, we settled for the 10s wait, crossing our fingers that it will
+be alright :)
+
+-- 
+Cheers,
+
+David
