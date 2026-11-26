@@ -1,112 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795722528;
-	b=y/kCVpxSefbFoF5qdRfp2cifzLfVCCDm0noOTYZfiAmRdbdxuOXXj49XATa1HDmhk+uh
-	 4c5xwCgMezdw0KZvUzr3lKDhmjW0qF/60q0Wdy5dHlYWIgIXGs8LL0fsO7l2S7itktKcw
-	 nS3Aq9PhuIeEMBDsB/Qif2pm7GJNxyTEnzeV1mGoLUGrrdldVug7kRqYmLRPvofnFY44B
-	 ZH9GJFvVPRXSiZLsjqNh/s7xy6A1KHb7ucd89oaJX5wm6zvqJ1ghpdaCob66iNPHqEtfA
-	 NXJD2alwT9FqeD2DmMC20WZa8Ll3SjjFP2v3KrZyp/GXbyhe4L4fX42FfK0nbIeyKiA==
+	t=1795722634;
+	b=OVOj0Pm4WlepRfunKh0HDPvuZaCgOfQuALzDjN/jP+GCoX5v1y+B/c1uGklDcXSNZr3q
+	 pHDmohqvpceRBoAX611eF/RfZfv65Gbq8uJAOKAsQDVPMh4V2tBfZWK0DpUY6JCr+M6Xp
+	 eANpCYJnSL+TMuW7J5Z8jF6TCzIPBH2QHeQdp+HWh+aBQeecWcLKrP3POKjHsVsCjG+3X
+	 wU2LzfFCaHgEr2GDjBC3QJcGuPl3ZMHQ+umN7GA8BRbaNvdePJXuM0RRQipbLcNPd2sbr
+	 +80V+G5MC1VfoRL4NOWqQ1OZczk0IEz8059goaDUCBz+1UM2VdzO0oAkXRWFI256Nig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795722528;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=cb4cbrx5kZY+Yme6rnhcpB882HS6oqTOJ86HCQTYrak=;
-	b=JZMkug8gOPi+uTc+CyCqVv1juhaPHL93Rbu4yDFpmdAL/IAYW0hRResABMO4XuoW9Sjz
-	 uU2e3nPcEsMEJDi23MOdqLKRjwjIHgEYBm/wrU3Ug4qg7kWTOOsgmmVE+lUM1H0qTSkYc
-	 CPZsT35nBj3oGLv9/6mu6qEbtZblTIMZGOCK4cL1KlWQUho6gXEKPNtFoaqBMBlGJw4s2
-	 U+LJamnKpS2QVkF68mfgGIzrEx938l4tMT3Hvhy5wBelM2ohh35QixoYptHw27XZxOLNU
-	 3MiIyzDSV3xTIJh/1bNkLUdL1vc2vT9Ni6rn4W4IOMMHpv5wM4Y/+puC6dRBaiwPW8g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795722634;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=PApAgSiln+hh6JflyYnfRekc/2BSzRX8bTBW8ZT3ly4=;
+	b=T8qF7FvBEDXxr4Rk2HkkIMxAWyRhTSlBFzUfeK4c7gT2c8fm1znO6rBYRq20qod501tI
+	 ThFv/Gi+vaAuZQdQDpPyw7ge9A3Ka7IiQeoCLqrj6rnWIZ16fJicX1P3qY95YJM75zJdU
+	 UpRcQ/W79o2jJzpUhsUaQcTbWDmIDeW5BIpPFeFfE6jSPDv+O6nTwe+jbuwwS/3KZRv/V
+	 m8wpEriMAlJKkjSahcoYQxHsSY6gTtmRqOK3MlVTE+vFD4zNK8L/fYD6N6CSFyMBgoLn5
+	 GHFw5ri+rK1n+l3UT0EIt6g4YcgOB7BbcrSv11D0Y7ukK/xR+ib5RFShALw3kwCmQKA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=YkzDBpou;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=ebZ7ZVIe;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=AfzfecGW;
+	arc=none smtp.remote-ip=192.198.163.13
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0992C606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:48:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0992C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2695606A323;
+	Thu, 26 Nov 2026 19:50:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2695606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=YkzDBpou;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=ebZ7ZVIe
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQJdnXW2536157
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:48:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	cb4cbrx5kZY+Yme6rnhcpB882HS6oqTOJ86HCQTYrak=; b=YkzDBpouGmTgUZwV
-	n3FFqPM8RqNM690b8Ns3q+tXhs2VHZxIKF5NaMs+H7tiElze7GGHZlPx8Ka0NhGd
-	st7mMLPt3WaqxSOU4vbK8LIFqF0XNXzBrEz0sLEApjptSE4r1LNk9xv4Dr6FUkCZ
-	5IBsVgWANUgvWUeyW7+ECfG1xdtkgLwuNXJJOwyDTs325a98MYBc5JOSMBj3lKFQ
-	OnA6M20tkqB1HYXQbWkvTwGP89nmyLJ48557p51OQbQzUjnSSaZXTYt4T4AP7IO3
-	j04qTFYWWFEPOP61ymxNHOlzgdhBvRbpR2U7Gj80AR2i4dkd4h/NG4k1f5UIiUXm
-	t+89qg==
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6u4980nu-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:48:47 +0000 (GMT)
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-382af5cfc58so4017338eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:48:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795722527; x=1796327327; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=cb4cbrx5kZY+Yme6rnhcpB882HS6oqTOJ86HCQTYrak=;
-        b=ebZ7ZVIepTLb62zudL/CKkdjnQO4H75HVpUX2kUNQrokyXiaRvW7z46G6GZTUnh5ky
-         ecsC0RCG+XZNcaQPnwkjrckit19+fsV/otnbhplJ+y8gaa6KAvqE20NwRPCZVs04aSzi
-         xBwfj2CcRJW5pygvtuZNKgDpv50uf/OsizZcYneQ/Ah7pjVHbW3zncVm4V7RGve6f5KA
-         xIdqoqNOpRxq6LemNSfKJOwGGsG+VYFRzt82Gu3GP0NrwENmeVcf7Uo68JWlerLKPc5x
-         rBOu/JtB2pJxbw5Bkp8mI2GRd1vhP4gWpFveX35crsBkYhFgrZM9jiDpmITIxCXukPYb
-         JmSg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795722527; x=1796327327;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=cb4cbrx5kZY+Yme6rnhcpB882HS6oqTOJ86HCQTYrak=;
-        b=FUmJbvOBvDg4SuPua9OsyYiV+wuGexk3LdW6Kdgz6FgzCm1OHlMt1IfOJCKTZpBRlQ
-         2TOoh3KIeOOGvxoRhevdeSHdE6tKBLqGNMaDgwSb8lEOPdNxWCDqI1VVYAnIi6nGVU0p
-         +i7kl9nEVTmm6ZaBS6Sm8swxhI9HWWRxw9yHLy6uDJ5nNJ4VnHe6jM6eLSjH3nPvY4Lp
-         76Il9IeXvfbnaPs0Ssf0LhQIYkFdzoCs5HYRkBc+EUoDTOh9K/O44BJCk4r7WsFTN06L
-         HhYMmkFBJo7SvOXJSPnhQ3ny0K8rE8RQqpXdxZ9Iyhd/1xVJr9w7KGph2iGC6pvXMZ/E
-         Bv4w==
-X-Forwarded-Encrypted: i=1; AL+hErGgU/sH448yYEMUV7drkxf+s9RuSPnSVB64DNkoQPw8wRwQ/1SaNoL3dCxi4BDXP7k4LAMcVtQCiy6yTVg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8S/sSx6sox4k4PVPS2O+mDMAqGVnWMrbmxV+RtihsFc7ecU7Q0
-	jECQeAKPuwZ/l195ogCIedz4a07hCBvFGKwlQ1aOb4zArsi5XkCtbUo/JMARBdkf25yc07Im1DX
-	1rBqENUGu1BhQbQZZ1limtofbMxKIdHENrm14GIuY35rl1NX/BlZKo0BoZiwhOWM/ypk=
-X-Gm-Gg: AZFdTZcHPUjxzsJHsDRFo7YjrP4zMYA2aLIyMA/xM8gM7PzRj/PrelVvdTRzi6bFykP
-	OCgoyNMwI3DL88gCV7aJliw1hpq+m6ZjZ/V839/b11Z699dGlF56yoo73+bUlN4SKP38iJL4VGS
-	RGf2Sdhy2dSnQdZhpRF3+5Yn5oZ6QvBZLSreXc5GHANxMmjblC4j96gh/32l95NxNVaiLX3rkB8
-	2lwe40PrBD1DSi9WiG0fj7S+4wFZfADdWX+8v8XLHD52+y7s4dnoWb0Ineggi1KuiMcA2vCe58V
-	9q3b5taWM3WNCj3ETel/XpvJEaNYt2GKWP5yBFpO+e+gcx7Xeiq70UV6fEGfkDxRGHIkDdDnM3A
-	L68RQIArJuyfH158fZ8lj4r6toHlL6q47+eAU3QPk/+C5HORQluxufOx8Ot7XCLqiTQ+GhTl47A
-	==
-X-Received: by 2002:a05:693c:414e:10b0:386:a1ae:6762 with SMTP id 5a478bee46e88-386a1ae6d5fmr19047973eec.36.1795722526654;
-        Thu, 26 Nov 2026 11:48:46 -0800 (PST)
-X-Received: by 2002:a05:693c:414e:10b0:386:a1ae:6762 with SMTP id 5a478bee46e88-386a1ae6d5fmr19047950eec.36.1795722526108;
-        Thu, 26 Nov 2026 11:48:46 -0800 (PST)
-Received: from [10.204.104.211] ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567cafec4sm74349135eec.26.2026.11.26.11.48.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 11:48:45 -0800 (PST)
-Message-ID: <b95594e1-fb17-4058-abaa-e889eb6e952c@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 01:18:40 +0530
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=AfzfecGW
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795722633; x=1827258633;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=7XbhYgmt9VIR+gaczvT2AxUQBvDrnRwFqc75UL7ToJo=;
+  b=AfzfecGWw/Y/IOyS8PqfSX/QdPDsWNaLd28HzINxXPH1hjDywWXwge65
+   gHlvnrD0Ln4lGyr4T24Zf9c/qCDKnwww7goGNjjFYlwPqMGznMBVPp6Y8
+   cQQMmTek3KqwFpCH2mxc7rbc4/ERRgK12FRHOlCLZ0Z5kFJlAodlXh4U0
+   8mzIWlW/aIUcyRkeaDsowIStZuMSpRlkJaapaQvE9C85WIHP31b0fU/f3
+   hhM1OSy9LPWdTV3+BnGsMTB4dURB+Ojkuce/OX35ZWfKk8tccbqWgtt39
+   NCz/xUR6RWxYFRRr1dRAEwO7yQ/JsX9NTQTMVNwPzY9uTnC8xcnD2S/zu
+   A==;
+X-CSE-ConnectionGUID: OkXnngiJTVasE51NZl98zA==
+X-CSE-MsgGUID: RbgBQxaWTQCdW+KBINpmRw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4607424"
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="4607424"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 11:50:32 -0800
+X-CSE-ConnectionGUID: o83//Om2QLucrqmvDUMgkQ==
+X-CSE-MsgGUID: 5IP6TDIYQaaw1vayA23NAQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="12657769"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 26 Nov 2026 11:50:28 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xWfU8-00000001Uj6-0ghg;
+	Thu, 26 Nov 2026 19:50:24 +0000
+Date: Fri, 27 Nov 2026 03:49:52 +0800
+From: kernel test robot <lkp@intel.com>
+To: Hannes Reinecke <hare@kernel.org>, Keith Busch <kbusch@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
+	Sagi Grimberg <sagi@grimberg.me>, Hannes Reinecke <hare@suse.de>,
+	Chaitanya Kulkarni <kch@nvidia.com>,
+	Eric Biggers <ebiggers@kernel.org>,
+	David Howells <dhowells@redhat.com>,
+	Jarkko Sakkinen <jarkko@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org,
+	keyrings@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v7 05/14] nvme-keyring: link addtional keyring into .nvme
+ keyring
+Message-ID: <20261127034638.jk3QPDaD-lkp@intel.com>
+References: <20261126-dhchap-keyring-v4-v7-5-ee438ffea527@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,108 +95,138 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/msm/gpu: Unwind power and clocks on resume failure
-To: Haoxiang Li <haoxiang_li2024@163.com>, robin.clark@oss.qualcomm.com,
-        sean@poorly.run, konradybcio@kernel.org, lumag@kernel.org,
-        abhinav.kumar@linux.dev, jesszhan0024@gmail.com,
-        marijn.suijten@somainline.org, airlied@gmail.com, simona@ffwll.ch
-Cc: linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        freedreno@lists.freedesktop.org, linux-kernel@vger.kernel.org
-References: <20261119034718.2818183-1-haoxiang_li2024@163.com>
-Content-Language: en-US
-From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-In-Reply-To: <20261119034718.2818183-1-haoxiang_li2024@163.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: RlcMbR6MRkptV2rCQii-XhumK2CrlP5V
-X-Proofpoint-ORIG-GUID: RlcMbR6MRkptV2rCQii-XhumK2CrlP5V
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA3NyBTYWx0ZWRfX5OWfVhrOTci0
- yDMuh7sD7NvZ3+QuT6+2Yaresoltm6GfTH/94H/Z3hdJILrIc58sAB1Yfi/f1sq1lbqrEuPw+wd
- 2PsmHv6Kp19/tMkpGyOwbKbtyLNGfXk=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA3NyBTYWx0ZWRfX7ugsB0f3DuAJ
- mk+wLODYLmne8Jwai75ksqVwKDxecWoUPZV/DSTW9LJIM5RUUuUgMvGEpt6QkHIQrummtGER53+
- 1qVEpiWPVlsj1Coj2K+BpzhzQoe9sXdUjf+YzdAQvULDkEl8GXsTiPn4Msxc9P+GWcSJon0G0Xh
- sPazKUx6YGT+t2wK8vPzM0PU4n40cYD1mBuHCZpNKNXCPo6y3c0e9rOYjRYvlsPEoGoO1E7QmIZ
- HZBVCNhZjenzDPclxjImML6sNU7D+AOIjA2xEaZzux+ybdabIs4sfI4GBm+zLPmiF+Bm8/1B+wM
- stsUbsDtBz6ug+c3m2ux24tn3hz6s2HgI0s6nsDbjQ8NJGxlmy/K/ck5BHMNGESIVl0LsbXdwT/
- MQdowGc6Ed1tp8vF9i23IQwchVQGg08MXHCfYoGaSVbRIpMtWb/8DYEeDB0Zi86cipN8+ArXY/6
- LQUgqTN6X2WohCBQHgQ==
-X-Authority-Analysis: v=2.4 cv=A875rKWG c=1 sm=1 tr=0 ts=6b088d1f cx=c_pps
- a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=Byx-y9mGAAAA:8 a=EUspDBNiAAAA:8 a=9G38XQudUm-3WiMgdEYA:9 a=QEXdDO2ut3YA:10
- a=6Ab_bkdmUrQuMsNx7PHu:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-26_04,2026-11-26_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 spamscore=0 lowpriorityscore=0 bulkscore=0 malwarescore=0
- priorityscore=1501 adultscore=0 clxscore=1015 suspectscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260077
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261126-dhchap-keyring-v4-v7-5-ee438ffea527@kernel.org>
+
+Hi Hannes,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on 68099cf27253a8c89d703a282d3d811446d9453b]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Hannes-Reinecke/nvme-auth-modify-nvme_auth_transform_key-to-return-status/20261126-151219
+base:   68099cf27253a8c89d703a282d3d811446d9453b
+patch link:    https://lore.kernel.org/r/20261126-dhchap-keyring-v4-v7-5-ee438ffea527%40kernel.org
+patch subject: [PATCH v7 05/14] nvme-keyring: link addtional keyring into .nvme keyring
+config: loongarch-defconfig (https://download.01.org/0day-ci/archive/20261127/20261127034638.jk3QPDaD-lkp@intel.com/config)
+compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project fb29ca8163c3309160711e5a14eb46bc6d4fdad2)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261127/20261127034638.jk3QPDaD-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/20261127034638.jk3QPDaD-lkp@intel.com/
+
+All error/warnings (new ones prefixed by >>):
+
+   In file included from drivers/nvme/host/sysfs.c:9:
+>> include/linux/nvme-keyring.h:47:5: warning: no previous prototype for function 'nvme_keyring_unlink' [-Wmissing-prototypes]
+      47 | int nvme_keyring_unlink(struct key *keyring)
+         |     ^
+   include/linux/nvme-keyring.h:47:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+      47 | int nvme_keyring_unlink(struct key *keyring)
+         | ^
+         | static 
+   include/linux/nvme-keyring.h:39:20: warning: unused function 'nvme_keyring_name' [-Wunused-function]
+      39 | static const char *nvme_keyring_name(void)
+         |                    ^~~~~~~~~~~~~~~~~
+   include/linux/nvme-keyring.h:43:12: warning: unused function 'nvme_keyring_link' [-Wunused-function]
+      43 | static int nvme_keyring_link(struct key *keyring)
+         |            ^~~~~~~~~~~~~~~~~
+   3 warnings generated.
+--
+   In file included from drivers/nvme/host/fabrics.c:15:
+>> include/linux/nvme-keyring.h:47:5: warning: no previous prototype for function 'nvme_keyring_unlink' [-Wmissing-prototypes]
+      47 | int nvme_keyring_unlink(struct key *keyring)
+         |     ^
+   include/linux/nvme-keyring.h:47:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+      47 | int nvme_keyring_unlink(struct key *keyring)
+         | ^
+         | static 
+   include/linux/nvme-keyring.h:39:20: warning: unused function 'nvme_keyring_name' [-Wunused-function]
+      39 | static const char *nvme_keyring_name(void)
+         |                    ^~~~~~~~~~~~~~~~~
+   2 warnings generated.
+--
+   In file included from drivers/nvme/host/tcp.c:15:
+>> include/linux/nvme-keyring.h:47:5: warning: no previous prototype for function 'nvme_keyring_unlink' [-Wmissing-prototypes]
+      47 | int nvme_keyring_unlink(struct key *keyring)
+         |     ^
+   include/linux/nvme-keyring.h:47:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+      47 | int nvme_keyring_unlink(struct key *keyring)
+         | ^
+         | static 
+>> drivers/nvme/host/tcp.c:2420:34: error: too few arguments to function call, expected 3, have 2
+    2419 |                         pskid = nvme_tls_psk_default(ctrl->opts->host->nqn,
+         |                                 ~~~~~~~~~~~~~~~~~~~~
+    2420 |                                                       ctrl->opts->subsysnqn);
+         |                                                                            ^
+   include/linux/nvme-keyring.h:30:28: note: 'nvme_tls_psk_default' declared here
+      30 | static inline key_serial_t nvme_tls_psk_default(struct key *keyring,
+         |                            ^                    ~~~~~~~~~~~~~~~~~~~~
+      31 |                 const char *hostnqn, const char *subnqn)
+         |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 warning and 1 error generated.
+--
+   In file included from tcp.c:15:
+>> include/linux/nvme-keyring.h:47:5: warning: no previous prototype for function 'nvme_keyring_unlink' [-Wmissing-prototypes]
+      47 | int nvme_keyring_unlink(struct key *keyring)
+         |     ^
+   include/linux/nvme-keyring.h:47:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+      47 | int nvme_keyring_unlink(struct key *keyring)
+         | ^
+         | static 
+   tcp.c:2420:34: error: too few arguments to function call, expected 3, have 2
+    2419 |                         pskid = nvme_tls_psk_default(ctrl->opts->host->nqn,
+         |                                 ~~~~~~~~~~~~~~~~~~~~
+    2420 |                                                       ctrl->opts->subsysnqn);
+         |                                                                            ^
+   include/linux/nvme-keyring.h:30:28: note: 'nvme_tls_psk_default' declared here
+      30 | static inline key_serial_t nvme_tls_psk_default(struct key *keyring,
+         |                            ^                    ~~~~~~~~~~~~~~~~~~~~
+      31 |                 const char *hostnqn, const char *subnqn)
+         |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 warning and 1 error generated.
 
 
+vim +2420 drivers/nvme/host/tcp.c
 
-On 11/19/2026 9:17 AM, Haoxiang Li wrote:
-> msm_gpu_pm_resume() returns without disabling the power rails when
-> enabling the GPU clocks fails. If enabling the AXI clock fails, both
-> the GPU clocks and power rails remain enabled. In addition,
-> enable_pwrrail() leaves gpu_reg enabled if enabling gpu_cx fails.
-> 
-> Disable gpu_reg when enabling gpu_cx fails, and unwind the completed
-> power and clock stages in reverse order when resume fails.
-> 
-> Fixes: 7198e6b03155 ("drm/msm: add a3xx gpu support")
-> Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
+3f2304f8c6d6ed Sagi Grimberg   2018-12-03  2409  
+3f2304f8c6d6ed Sagi Grimberg   2018-12-03  2410  static int nvme_tcp_alloc_admin_queue(struct nvme_ctrl *ctrl)
+3f2304f8c6d6ed Sagi Grimberg   2018-12-03  2411  {
+3f2304f8c6d6ed Sagi Grimberg   2018-12-03  2412  	int ret;
+be8e82caa68599 Hannes Reinecke 2023-08-24  2413  	key_serial_t pskid = 0;
+be8e82caa68599 Hannes Reinecke 2023-08-24  2414  
+363895767fbfa0 Hannes Reinecke 2024-07-22  2415  	if (nvme_tcp_tls_configured(ctrl)) {
+adf22c520b5ec4 Hannes Reinecke 2023-08-24  2416  		if (ctrl->opts->tls_key)
+adf22c520b5ec4 Hannes Reinecke 2023-08-24  2417  			pskid = key_serial(ctrl->opts->tls_key);
+e88a7595b57f2a Hannes Reinecke 2025-02-24  2418  		else if (ctrl->opts->tls) {
+83137991c12380 Hannes Reinecke 2026-11-26  2419  			pskid = nvme_tls_psk_default(ctrl->opts->host->nqn,
+be8e82caa68599 Hannes Reinecke 2023-08-24 @2420  						      ctrl->opts->subsysnqn);
+be8e82caa68599 Hannes Reinecke 2023-08-24  2421  			if (!pskid) {
+be8e82caa68599 Hannes Reinecke 2023-08-24  2422  				dev_err(ctrl->device, "no valid PSK found\n");
+ef184b8844bf98 Guixin Liu      2023-12-31  2423  				return -ENOKEY;
+be8e82caa68599 Hannes Reinecke 2023-08-24  2424  			}
+be8e82caa68599 Hannes Reinecke 2023-08-24  2425  		}
+363895767fbfa0 Hannes Reinecke 2024-07-22  2426  	}
+3f2304f8c6d6ed Sagi Grimberg   2018-12-03  2427  
+be8e82caa68599 Hannes Reinecke 2023-08-24  2428  	ret = nvme_tcp_alloc_queue(ctrl, 0, pskid);
+3f2304f8c6d6ed Sagi Grimberg   2018-12-03  2429  	if (ret)
+ef184b8844bf98 Guixin Liu      2023-12-31  2430  		return ret;
+3f2304f8c6d6ed Sagi Grimberg   2018-12-03  2431  
+3f2304f8c6d6ed Sagi Grimberg   2018-12-03  2432  	ret = nvme_tcp_alloc_async_req(to_tcp_ctrl(ctrl));
+3f2304f8c6d6ed Sagi Grimberg   2018-12-03  2433  	if (ret)
+3f2304f8c6d6ed Sagi Grimberg   2018-12-03  2434  		goto out_free_queue;
+3f2304f8c6d6ed Sagi Grimberg   2018-12-03  2435  
+3f2304f8c6d6ed Sagi Grimberg   2018-12-03  2436  	return 0;
+3f2304f8c6d6ed Sagi Grimberg   2018-12-03  2437  
+3f2304f8c6d6ed Sagi Grimberg   2018-12-03  2438  out_free_queue:
+3f2304f8c6d6ed Sagi Grimberg   2018-12-03  2439  	nvme_tcp_free_queue(ctrl, 0);
+3f2304f8c6d6ed Sagi Grimberg   2018-12-03  2440  	return ret;
+3f2304f8c6d6ed Sagi Grimberg   2018-12-03  2441  }
+3f2304f8c6d6ed Sagi Grimberg   2018-12-03  2442  
 
-Reviewed-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-
--Akhil
-
-> ---
->  drivers/gpu/drm/msm/msm_gpu.c | 13 +++++++++++--
->  1 file changed, 11 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/msm/msm_gpu.c b/drivers/gpu/drm/msm/msm_gpu.c
-> index 8319119041eb..5480abe1aba2 100644
-> --- a/drivers/gpu/drm/msm/msm_gpu.c
-> +++ b/drivers/gpu/drm/msm/msm_gpu.c
-> @@ -40,6 +40,8 @@ static int enable_pwrrail(struct msm_gpu *gpu)
->  		ret = regulator_enable(gpu->gpu_cx);
->  		if (ret) {
->  			DRM_DEV_ERROR(dev->dev, "failed to enable 'gpu_cx': %d\n", ret);
-> +			if (gpu->gpu_reg)
-> +				regulator_disable(gpu->gpu_reg);
->  			return ret;
->  		}
->  	}
-> @@ -110,17 +112,24 @@ int msm_gpu_pm_resume(struct msm_gpu *gpu)
->  
->  	ret = enable_clk(gpu);
->  	if (ret)
-> -		return ret;
-> +		goto err_disable_pwrrail;
->  
->  	ret = enable_axi(gpu);
->  	if (ret)
-> -		return ret;
-> +		goto err_disable_clk;
->  
->  	msm_devfreq_resume(gpu);
->  
->  	gpu->needs_hw_init = true;
->  
->  	return 0;
-> +
-> +err_disable_clk:
-> +	disable_clk(gpu);
-> +
-> +err_disable_pwrrail:
-> +	disable_pwrrail(gpu);
-> +	return ret;
->  }
->  
->  int msm_gpu_pm_suspend(struct msm_gpu *gpu)
-
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
