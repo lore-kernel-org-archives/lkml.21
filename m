@@ -1,47 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=78.47.171.185
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795678086;
-	b=hTGLRGgAooE/31NtqWhNLjGhgoKOPl3uae2B0Z9XUruZlipNb8GvW51d+PaKXFyQUgxT
-	 Q7AcXIK4dHEWBsM+mGJu3GGV+UaZgWISpbqzEJCt87jG3iTG6rfofdmI5vLbEmMXNSbKG
-	 SkSTOe9ZulYPn+6Csxg2G3NN7vdKnnt8Tcag76oVr8dU2hL1M8DHZqOi3BwvjPf3eDjgZ
-	 a+uYrvJB1o0Iy+fHdoi8od+DkOUp87rhFamcfj6xA0Xuolyt8JgpkDbpMmorXH45fLkfe
-	 Vh+0WouyutcqRhNyC8cmedWI+/y6gkYhvQsEH5s+rSsnRIOA8y95NbvucZUSCvQbTqg==
+	t=1795678118;
+	b=Rrn0WCcXNCGRglPgEIwhsLw66611ThXxz9nVW0oFk5Uwp53PyxWOULWzzba3J+cJX1ST
+	 RRhVuR6lUCqMWq+BaBULrCG4CsrgTuzr1vXb+Z82drv+N/8P1QZQon2jTIsdpk3CW8Pi3
+	 kvc9cDnqQ8nZ3GM60D/ZF0tN00P/zqO71PZkQyKggAESLSKg4OIj93FU8wTrlTEVaUxIy
+	 GeGZyr5VMvilumlIW+dMRG986giiNnAP6rWML+JJjP3iYlRCG+R+JVrPMHk71k1oiZX7a
+	 /d4BEJp2g9Yd9jO/PbWEjcNV1Ccgbpvp/vk+uXM4hIZAZkgiTpYvQID0VW25m/CGAJQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795678086;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=x/OD6fcp2rPpLfPl9B2D5fZUfkOyLZDg7EWK5Xblte4=;
-	b=2mM63O4SapjrriZQ6Z2ce8awlfe8oAOM9CFu9vM8GIfe8FLOPc7nS2Wtbe/YXXLmqVGV
-	 lkg66MQ4HiTiR0BynjgWIlgV0Xnw8pO+mgtlbVzC2uZZf/2yEFFDGkblXHQlcF4hFlkFJ
-	 pEpp2GPcm0xWryGsCP8GunmrLbCVa45+Ynx3AmErVfWpzaPQwop879R3l+NGbt9ENk+XG
-	 eWsyamE/owsLXXHOGQpihaQHYDsxtpNGcpbdUq8VoaNnOTP8z3Log9BF/daYS6GTsK8ie
-	 qA0lT7ZP04F/I6euGZRHrZ/zcBNZR6A4RRHNj/dhuQoSeZk5VFwU5f1XXDcTnFAAyZA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795678118;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=9er3puoTvMyRaWiL3gMCIc4iB91P1C4PLn8ZexfgLKY=;
+	b=Gw8ZNtGGAr6KXCI4kVA/ZpZShyTMzhSZya31QVgM7ewaLoWfOf+2atG67lDAbw8s2g5N
+	 4ij6syHOt2Qhpf1HfR0QudpdLA8jEosTFDewqKtVW+erhjIOc+9JX4oshDZ7hpz3xK3Yl
+	 p6UvnAZOzc7EY8yEVSgjfTIVCU0KP5wiKhjeHX2itxZSY728x/u7FzCdgewU6H1zChuiu
+	 YJw5+ZR0ohiNzE3ZselSopkjcxyUe/lSGb0FvbeULaeTSSZwY2HggPeVlhP9x+TMkZDon
+	 NH/3fFGD7xSwHUFdc+ZX/N6gCqoEtXbXivWol7Ow/EWZ7mQNjKsPAMEmk9jrplEphbA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CMleBN71;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=datenfreihafen.org;
+	spf=pass smtp.mailfrom=datenfreihafen.org;
+	arc=none smtp.remote-ip=78.47.171.185
+Received: from proxima.lasnet.de (proxima.lasnet.de [78.47.171.185])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60BA2606A31E;
-	Thu, 26 Nov 2026 07:28:06 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CMleBN71
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3160A1F000C6;
-	Thu, 26 Nov 2026 07:28:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795678086;
-	bh=x/OD6fcp2rPpLfPl9B2D5fZUfkOyLZDg7EWK5Xblte4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=CMleBN717YCQnesJABLw9AlZ9hmQpUyt/zmtZW876/7qefuTLcp+7UvM07LsFTRPg
-	 FMhjQgHpbwzuc2do06SKn1q8x+eFiv7uiJ5YtDAKQIE12GxTKsskbf4dt2VcAiBZ5t
-	 0HT33GQwNKHahrsI2lhdwrcPvjrLO5eopAl2GLqQueDsTQJ+fNbndZFrQ3bjD7XGHF
-	 CSMfDh5/IWjGmqbmHUnVo1t6FuhBHDYYgUb2awjcDb5a7pQ8WYpmhri1ueBCeFSA8N
-	 WmHGrvayK/VxSypHmQSRwDsBfHc/gKEFPcYNMzmPzzJKXC25YENvlQ0p6Tu4XocTfB
-	 axpsIKl+oXHsQ==
-Message-ID: <921c97fc-dfa7-403b-aba5-6e6b41c62664@kernel.org>
-Date: Thu, 26 Nov 2026 16:28:03 +0900
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6862D606A31C;
+	Thu, 26 Nov 2026 07:28:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6862D606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=datenfreihafen.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=datenfreihafen.org
+Received: from work.datenfreihafen.local (unknown [46.253.254.165])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: stefan@sostec.de)
+	by proxima.lasnet.de (Postfix) with ESMTPSA id DD0AEC06DB;
+	Thu, 26 Nov 2026 08:28:27 +0100 (CET)
+From: Stefan Schmidt <stefan@datenfreihafen.org>
+To: linux-wpan@vger.kernel.org,
+	Xuanqiang Luo <xuanqiang.luo@linux.dev>
+Cc: Stefan Schmidt <stefan@datenfreihafen.org>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	alex.aring@gmail.com,
+	miquel.raynal@bootlin.com,
+	david.girault@qorvo.com,
+	davem@davemloft.net,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	stable@vger.kernel.org,
+	Xuanqiang Luo <luoxuanqiang@kylinos.cn>,
+	Eric Dumazet <edumazet@kernel.org>
+Subject: Re: [PATCH net v1] mac802154: avoid extra skb references in RX queues
+Date: Thu, 26 Nov 2026 08:28:15 +0100
+Message-ID: <179567678219.1859476.7303574828087613735.b4-ty@datenfreihafen.org>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20260905061524.91223-1-xuanqiang.luo@linux.dev>
+References: <20260905061524.91223-1-xuanqiang.luo@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,31 +68,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] ata: pata_pxa: add missing newline to DMA warning
-To: Artem Novak <artem122novak@gmail.com>, vireshk@kernel.org,
- cassel@kernel.org, linusw@kernel.org
-Cc: linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261126051523.14431-1-artem122novak@gmail.com>
- <20261126051523.14431-3-artem122novak@gmail.com>
-Content-Language: en-US
-From: Damien Le Moal <dlemoal@kernel.org>
-Organization: Western Digital Research
-In-Reply-To: <20261126051523.14431-3-artem122novak@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 
-On 11/26/26 14:15, Artem Novak wrote:
-> Terminate the DMA completion timeout warning with a newline to
+Hello Xuanqiang Luo.
 
-s/warning/error message
-
-> keep kernel log messages properly separated.
+On Sat, 05 Sep 2026 14:15:23 +0800, Xuanqiang Luo wrote:
+> __ieee802154_rx_handle_packet() passes each cloned skb to
+> ieee802154_subif_frame() and does not release it after the call. The
+> callee consumes the skb on every path: it either frees it, hands it to
+> the networking stack, or stores it in a queued RX descriptor.
 > 
-> Signed-off-by: Artem Novak <artem122novak@gmail.com>
+> The beacon and MAC command paths nevertheless call skb_get() before
+> storing the skb. The worker drops only that additional reference, leaving
+> the original clone reference without an owner and leaking every queued
+> skb.
+> 
+> [...]
 
-Reviewed-by: Damien Le Moal <dlemoal@kernel.org>
+Applied to wpan/wpan.git, thanks!
 
--- 
-Damien Le Moal
-Western Digital Research
+[1/1] mac802154: avoid extra skb references in RX queues
+      https://git.kernel.org/wpan/wpan/c/6b4e5919526f
+
+regards,
+Stefan Schmidt
