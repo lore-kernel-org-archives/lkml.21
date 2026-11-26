@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795712462;
-	b=LahwrhLZqS4scPRlt/Qj9TPkUAXnB1DEGwFmRQJmrcl7xXKDmAc0RiulTgHwnMe4yl/P
-	 DP3T/X9jlsEL/nLGLhBhY1yRlNw70QK2pK8I/prsvAu9T30JhJ9fkLahbIRjA9S+Kc545
-	 79MdjZ5tGO+/s2u7OAx2exV+K+0US/JPQWVgsDzR7St1AI/gBkKOu05mvaXjhI75jJVhD
-	 +MOORyn4R+u5Ruf4wrOJByQG8zbPvZbH4vhRWAalw2GX5LhytLtQIP2RwvSr7R1fgAbvo
-	 IlABbZIJJfYDzueiscxE/02W+7XegojjUVerP+0xA/gPV7EoTeIvDeViQKZ/6DU4Ltw==
+	t=1795712469;
+	b=1Oq5yPiJlj620xC6diz0ed938keM4Pk/6ilTWJAx+t5WUWoJHcXUM6N6lEdaTxRUjtH5
+	 zK1crWuvvonriSEBSCG7urtznD77Hh/5AMmUChbwOlUo8S+2od6Q9CKdFJ7XNcZ5Nx5Gx
+	 ybv9wAi+r0oQ0FrhYmiPMqFf0H1v4rFiPTA/HsSkIsfLEcIScHyIdIulCE/VOV34IPV4h
+	 quwqRja3jKYQ0JbYb4BwaNu1ZBOSq6z08uQ20G8lkDqCldlLknxINM4jSYtNAyvgwafI+
+	 nl6uW6SVEU9RB48BfE/txoGKYhuRTh6tiKsdDFW5EDrm7Ch11mha48A5nc54kBgXo8w==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795712462;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795712469;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=n51tRsSR1uv4ce5V1bvi8pKtqFtfK02ZhkRTz+VN5TU=;
-	b=vZNvLiFMzkVHedjXRTMKPPst8uOQ4fvQCjEXWFOyCpiSp29K0iSV+GFjweS6BYd+C9hc
-	 t7qoacyKtdCD+2O07Gjx31Hw/ost5W4qui3l5uy8fh8p3JTOd/J3phbxUdxUIFfH4ONAR
-	 bqTXJ1cwFOxe9diSv90/UKWj2Fe44Ob+om5iotOyptwSoXXB2qf3uqZr9oBIqzpV4apgs
-	 tlGPE+7hsmX7dIKrX5+7qkY+0dwu1C+6IzmQ1SNkmGKmVDkYlHqxbs4XrtX+RRIiV4Oh1
-	 tErk8hpNbzluztDYZTMcgqMxZ2O4v1RM5UBCcdo0O2PwzsXvZOlbT9s1R7YhUe709RQ==
+	bh=Y7oQXXW4iOeWRPRZ9YEQsiDsKsFyaejYKJ2MzAPKYmQ=;
+	b=tC/v7CE4xFc9yrQMUWdQm+hl3q5Zr8DqV4c406x694wb6BpTzvowgmVyAnm2vYjtw/Zh
+	 HClnCdNmEUV03LO2qm/1TBVDWHTIOwyHBajIKbhihoX44f/lpZ1bn3ZxnwjsfVWR4GpMu
+	 9Fv6w+RhwejYPSNESIxetAdyF5UuOP6aq365FdkQRSrzMFNcgL9Wl4qtEI6e7+cOGuER4
+	 cevwnIYNgqv49naQmHb4jEONFE/I5pcx67qcCV94zW+e7AtqPSP1PNYQqrBI5Z2/7QPgm
+	 lj4b9TAWtougOTHq/pANGPTRc9S4xMQMZGV+44NjxHEb+ZmzmzwvqOg3t3BBV8KXc4A==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aFUosOlt;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NDc5j65+;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CB1B606A31E;
-	Thu, 26 Nov 2026 17:01:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD66E606A323;
+	Thu, 26 Nov 2026 17:01:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aFUosOlt
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NDc5j65+
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795712462;
-	b=kQNR8UhkHKEhzRavm4oI6GSItwtkRSAFs9Rhz4eDSWRCxPR7Nb+kc0KlqosXi54s0S7e
-	 Dz2SEEvbgz0gEsp+UQS5gnIp4iIbuAtUZPbGtASvxzxIZ5JxcbWRXmdXT3mfw06RuaGF0
-	 xlFamz4LgHqC7NxDUhrs7OcShWPT9hiVTxzFfHI8SEGwHVG3v+lfRteFN9XslNoten1Ur
-	 YwIsXQNfRagZWXgSnz9Yd9UugSQVrvgUVqlG+WKzhmHcud6NQwYQ9CmppFbe/YtX5Ja6d
-	 pLOd1cJe1sx9OtxsM5yd1H9f+/m21iphTfSd/GGx+qma0kqIZZWx+fKQ0i5PFA4hpcg==
+	t=1795712469;
+	b=2SziPIWIqOibrpz25GyDtt8J86WfM6YTqq36j2pyfjOP4loNBjTCoqxq8UbXf6pXJcCs
+	 qaxhwu8HF3vCjr9qbBkJEavIoxUdmxFWq8s5Q74vrUjhTvTa+lLd1hmez8WKWGCDASBEd
+	 Y5kOR4pep+qC9s5mhszesrxrDU+r4+frMxmH2ktcuYn5ENiVN1PiiVINo1vC4ekdJR//v
+	 199wmAJUnBByjc4AQ77iCKk6+gSxP3mk+ZfE2rB3yt6tZiqeVYz9npPzZbFVL940807rG
+	 jeK/SZyZ6Q1jW5YBQhmUNJ/oHmFIBkWXWK9TUKt2dnDABvAfTV5UBGFvbl3HnUf2NwA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795712462;
+	c=relaxed/relaxed; t=1795712469;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=n51tRsSR1uv4ce5V1bvi8pKtqFtfK02ZhkRTz+VN5TU=;
-	b=wActME7RlSpROiTA9FvZYnf6udKq/O0JvV7KnvjzA3xrnIcogLdlkm9LI2u0xYXTRE/2
-	 aUXuMsAG62kohSJk8ldHvk3RZwM8DL7n7limfXJ8V31xpQqsppw6RZqmkSPWVA9bnTiTK
-	 xrutRYNtVfjqOdhFKsuiic0iwXvDYZ2q1MvUU978yuMQc5ISV2m6tilbtNC2+Skj4bmNR
-	 3KUCbZQU9RlRYtejxScUTOu/vWnYfGJlxClOAHOYawz+cK8rLaelzvciRDR8D0txoscMd
-	 taHTpjhGujvrw+79KTr65NFL37Ykfqx6fgVJ1DXIidffRJM96u+bytSFFx83xBv+wNQ==
+	bh=Y7oQXXW4iOeWRPRZ9YEQsiDsKsFyaejYKJ2MzAPKYmQ=;
+	b=KOtvYkBPiTIKOI5eSVi2qxFVuJczRy3YdYGZZ73DIV2OvxPa8Wwh9czww4fjGhSyrIwt
+	 gPk5+8tWl/cGV78o9U7fl1VuQbG14KtA1hiHi9GyucHp+fbraWoOL3HBJ5lKpm9T0j/Kl
+	 Xq8Wlm/Oqn9YOOpD8wbjVs0ymxxme8zxAlDLpIntxM5MVSBgcmNJqdmLXeBx9qGbSBE5h
+	 GCAz4/XXX5QoOsVvbPzDPg8+Doi8ahvIGhiLU6s4mhw8d3KX4TnYNXjnUCk3ks7EAHXBI
+	 Om8IvSp8RYgwoU+BScgrKStiMTBa5N2DA/vAh+pBZl6YJ2dGZdxP+KzCHVVOEqxA/TQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 8C1A41F000D4;
-	Thu, 26 Nov 2026 17:00:56 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 24AD91F000CA;
+	Thu, 26 Nov 2026 17:00:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795712462;
-	bh=n51tRsSR1uv4ce5V1bvi8pKtqFtfK02ZhkRTz+VN5TU=;
+	s=k20260515; t=1795712469;
+	bh=Y7oQXXW4iOeWRPRZ9YEQsiDsKsFyaejYKJ2MzAPKYmQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=aFUosOltN0N3sS9lbhVGvad2KurYAe6SrVlIH1C1LcdjUoob3pqD0FPkAx5uFzfZ4
-	 D/FMn+kry3SlTe4WaxhYYHr6/ABMukj5lEjmsbmsSqUSa6y3nnAJFM9VPPan5+zcFU
-	 2Phk4CAV+TFdoReRSq51oeqBGKo87+B3RtaQmmDHVvxnm1SyboXqAY63Y9W2Wd/TiV
-	 8JM4css8n51UrDC/dvTTU/w6T/D25eXV02N9n7fteCu7sy5khdx/o77cwwT9u3d66z
-	 lUgUz7t9VHom39NSwVLGzA04gVnAZN55iim1HqFtNxkqttOF+ejWYGvLxuePrW326d
-	 8d7pvbaowmnOQ==
+	b=NDc5j65+nEjemCyKYfH0rrA9xI/Bq+NWgdmS/dYceovP6v3lD62rGVhbLBzLGukdV
+	 tU0urMWEhGZGtfwCVZD4DOlgddTRFZuG6WRgY0GX91r0Lj0OvDKuP8qmy922QOWOqx
+	 3kzimmymjx1tnIebmJDKuohPDNyRiMAcuCqZBK79AI5o6tAx2BEHX18OK1R1x2JCKX
+	 ke73t9G0iTeRFLV2Gr/QIFEAoKXxu7cUGLTdFbN6OFLeATyznY8VU8WjdFoa/RRy5i
+	 jKIO+3yPWobQrpEt8kHpItwilnSfTZmwaSexBR+uezJMbKrXDBtnDqKHXdp1MgvxzA
+	 HjRp2+e+znosw==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id E1E534D75B;
+	by lkml.kernel.org (Postfix) with ESMTP id A18984D753;
 	Thu, 26 Nov 2026 17:00:53 +0000 (UTC)
 From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-Date: Thu, 26 Nov 2026 17:00:57 +0000
-Subject: [PATCH v3 5/5] media: verisilicon: rockchip: Limit the JPEG
- encoder to 8176x8176
+Date: Thu, 26 Nov 2026 17:00:55 +0000
+Subject: [PATCH v3 3/5] media: verisilicon: Report fixed JPEG colorimetry
+ on the encoder
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-hantro-jpeg-enc-fixes-v3-5-07357d84a64b@gmail.com>
+Message-Id: <20261126-hantro-jpeg-enc-fixes-v3-3-07357d84a64b@gmail.com>
 References: <20261126-hantro-jpeg-enc-fixes-v3-0-07357d84a64b@gmail.com>
 In-Reply-To: <20261126-hantro-jpeg-enc-fixes-v3-0-07357d84a64b@gmail.com>
 To: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
@@ -101,11 +101,11 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  Sergei Khomenkov <shomenkow@gmail.com>, 
  Arun Iyengar <aiyengar1990@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795712452; l=1336;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795712452; l=1351;
  i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
- bh=Ov3GnRRy9PGD1C66aiFxQPkVwaFypntQvwUeWFjwO4M=;
- b=4zCWrSusBdi/YNvGLj4TcvK+ryXPUWYhee6coY44Tddp6uv3l9Pn7/UgsfTYaqYX7oIZMcVzY
- uUANa/519+nBeuhjtcGEb6b9NgxTHX5AAYByreDRTCoFaq2NEhPlcOd
+ bh=jQGwq2ezjyS5OLBIC3b8uIm11FWRMfbVW9fV1IdCb0w=;
+ b=tXEbeaN9I4IMEXcW5M9uBtrdJN/78BRij3bVNmt+vhPG1Y8YDzU02itwWpfXoS77yLI3qnVC7
+ h8ni9TI72ioBXwrC5F5TOvUG3Xr/Urp2ELusDrnmCcWyM+PARNHxnGn
 X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
  pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
 X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
@@ -116,43 +116,39 @@ Content-Transfer-Encoding: 7bit
 
 From: Arun Iyengar <aiyengar1990@gmail.com>
 
-The VEPU2 and H1 JPEG encoders take the picture size in 9-bit
-macroblock counts: 8192 pixels is programmed as 0 on VEPU2 and runs
-into the width field on H1. Limit both dimensions to 511 macroblocks.
+The JPEG encoder accepts any colorimetry and reports
+V4L2_COLORSPACE_JPEG on the raw queue, which v4l2-compliance rejects:
+
+  fail: v4l2-test-formats.cpp(892): fmt_raw.g_colorspace() != V4L2_COLORSPACE_SRGB
+
+JPEG colorimetry is fixed and the hardware does not convert, so report
+sRGB with full range BT.601 Y'CbCr on both queues.
 
 Fixes: 775fec69008d ("media: add Rockchip VPU JPEG encoder driver")
 Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 ---
- drivers/media/platform/verisilicon/rockchip_vpu_hw.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ drivers/media/platform/verisilicon/hantro_v4l2.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-index 02673be9878e..d295e9571a8e 100644
---- a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-+++ b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-@@ -20,6 +20,9 @@
+diff --git a/drivers/media/platform/verisilicon/hantro_v4l2.c b/drivers/media/platform/verisilicon/hantro_v4l2.c
+index 88b1cf66b713..b91c0ef9b6a3 100644
+--- a/drivers/media/platform/verisilicon/hantro_v4l2.c
++++ b/drivers/media/platform/verisilicon/hantro_v4l2.c
+@@ -396,6 +396,14 @@ static int hantro_try_fmt(const struct hantro_ctx *ctx,
+ 			pix_mp->width * pix_mp->height * fmt->max_depth;
+ 	}
  
- #define ROCKCHIP_VPU981_MIN_SIZE 64
- 
-+/* 9-bit macroblock counts */
-+#define ROCKCHIP_VPU_JPEG_ENC_MAX_SIZE (511 * MB_DIM)
++	if (ctx->is_encoder && vpu_fmt->codec_mode == HANTRO_MODE_JPEG_ENC) {
++		/* JPEG colorimetry is fixed; the hardware does not convert. */
++		pix_mp->colorspace = V4L2_COLORSPACE_SRGB;
++		pix_mp->ycbcr_enc = V4L2_YCBCR_ENC_601;
++		pix_mp->xfer_func = V4L2_XFER_FUNC_SRGB;
++		pix_mp->quantization = V4L2_QUANTIZATION_FULL_RANGE;
++	}
 +
- /*
-  * Supported formats.
-  */
-@@ -52,10 +55,10 @@ static const struct hantro_fmt rockchip_vpu_enc_fmts[] = {
- 		.header_size = JPEG_HEADER_SIZE,
- 		.frmsize = {
- 			.min_width = 96,
--			.max_width = 8192,
-+			.max_width = ROCKCHIP_VPU_JPEG_ENC_MAX_SIZE,
- 			.step_width = MB_DIM,
- 			.min_height = 32,
--			.max_height = 8192,
-+			.max_height = ROCKCHIP_VPU_JPEG_ENC_MAX_SIZE,
- 			.step_height = MB_DIM,
- 		},
- 	},
+ 	return 0;
+ }
+ 
 
 -- 
 2.55.0
