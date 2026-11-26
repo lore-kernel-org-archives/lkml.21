@@ -1,88 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.134
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795670052;
-	b=YVuhlIEZc/lNFbNK1Yfyqywtripe79+GD/vcszGV75NxKY4sOHsBtt1msQNP1VNWfIQn
-	 S88s09r3h4JhHc34deaFDHvv4qua7PMU+Qe2Ak1fgxOT+4I+2s2xE2BEZlYxqLss9ShLX
-	 YDaqa31nAR3p8Rl7gJ3vRIuUheJGcuCeosPqYRqOv3+J9c1GB7Tbb5wstezDCR8gDF4+C
-	 fmZnKbLRGKaCp2LBRIyv598wRpfvwDLK3sQ+edefSL0wQXKEqGTQ2+Bpv75KwV5PYJVOK
-	 YkuTh3ZOIMYP4gVeSg4eDedMk/MJowfjCy84h6SyONQ4gColkjKS85dVLpkkf9/Ipxg==
+	t=1795670079;
+	b=BP9jIuYsyvJWs3ViEPS7WHYT1bqMH7JynjhKdGvbMtmKgmNfV0EIAVuGgfH6/za0uc7g
+	 YKQM67mymfQuSEB5SrfngX+4QqDCQi2IWjuRdQ9oNrlZVqu7yfeqaHEItI7YbHs8z10jC
+	 mp0ZyNLnIZ2CqGHi5P8UV7E09MJCvz74w9wH0DfZiYIH+q6HXLLZyqyvBhif+GWyC0cCX
+	 XwwYk+NnOBaNS9aZY8hCEkbg8ibQe+4EKEDXy4k+Zcz/JBBv/HVrMAOVc6tTkTGujKJOr
+	 QIyw3yNcRaY/euZG08cnG6imSMcOQh8B0gROJD24WvZXnxn3psqSRJYSjwpyDQjTD3g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795670052;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795670079;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=IQC0rmb60+7fGUy4+e3ojRybTycBzBk8+WNROPwteGo=;
-	b=aAHFMfuu7EAQG2EntNp6d8/HCRbX2aX27NmDW82zeojbDLfFj3C8CLDm6ZX20bmOnlos
-	 /UqMzyVRPaHipUMF85sy0rexNFOrxMS+F3Yx9dB5pXEatFp0a9EwdZVOOL5FJkmMXwMrd
-	 Eh/VMuYkbTB4uV+BmszJGdtv+3SwjveTHpNg/6QexrsD7sNmXBRRN0xKmkltURDQ9lO7O
-	 ja3EmTpgZaad7JFzBRw9WKekKB9HNIdApzALfZpiP1scJ3r/PxMa16JifD5Zpyhl8/nle
-	 MpcW0MFsMO0pMnKhomqfBH/7GIx4KynI9fMojTCjKDiMFWy8XMRRpRmsZFvsUrqcqFw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=4Ad2tE+Mv1vxfx2Y30i+azuH5kIRW9Z23B1JR08v3MI=;
+	b=OEo9baE3YkPJRHk08LH1NK1qHYKb5RTD9lm3zW/6KepuT1ENuR1aGiqbPluWevAzqg/k
+	 8/BRxWI/NWwk7RHhmVLDOUYz6IMJP3OB9t7F/dX14MVnldYi+vjAAkvAZTV6yqTNmBIdU
+	 Hpu4CCLBEoRQUYJ8Bftls1RmIL3ediTbJYHwyC4BHlGwiZKWIzygr12y83Z3p0QhKu8zy
+	 dBCxaunboX2qGaE844DFDvChDJclFcYd3e2E2Gw7WKqXunSd4hv6SyTDdiWtytoW+TbVk
+	 0BI+IOFPKtFmXwpkcEFkOXXXnw+ftpO1gqQBk2Kt+baf5wIk/slIu7HVdehz/VIAz7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Y4oV/WTq";
-	arc=none smtp.remote-ip=74.125.231.134
-Received: from mail-oo2-f6.google.com (mail-oo2-f6.google.com [74.125.231.134])
+	dmarc=none header.from=layalina.io;
+	spf=pass smtp.mailfrom=layalina.io;
+	dkim=pass header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="QS/LfIFo";
+	arc=none smtp.remote-ip=209.85.221.43
+Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C03C606A335
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:14:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C03C606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1553A606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:14:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1553A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=layalina.io
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=layalina.io
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Y4oV/WTq
-Received: by mail-oo2-f6.google.com with SMTP id 006d021491bc7-6ddeba3e85dso1523236eaf.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:14:11 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=QS/LfIFo
+Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-48e3b22e971so3431627f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:14:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795670050; x=1796274850; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=IQC0rmb60+7fGUy4+e3ojRybTycBzBk8+WNROPwteGo=;
-        b=Y4oV/WTqQf60XDmdlbzlvAs9plP+oYr5Omh1x6HZG1tGER6gmpff1C5qaJAnLT59H5
-         4uaHS6i/smhjk2wxdX4SvGvOUkMdiSV8PLdbgeEE7pIjnD6SFWaS8a/8W8gbOCRFf3P+
-         pLVVParmBydTqKAhx3ghUgcHbQ2oWHk80GcTGllM9053jdzBXLHEbPOn/oCFQpA5L9hj
-         0wVpjR3OqP38IpfQl2B74V3CMT2NruDNomxoEc/CuvrRcz7+8Y1BaD5yzCO2VZ2UNslD
-         +iD/rI3MTEQ+1JL8Ja2Pxo/HA+a53k6jVH3D6T17hb1Q4FigJK6Vj7YCGSxpKcy2g+ge
-         ZsOw==
+        d=layalina-io.20260707.gappssmtp.com; s=20260707; t=1795670077; x=1796274877; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4Ad2tE+Mv1vxfx2Y30i+azuH5kIRW9Z23B1JR08v3MI=;
+        b=QS/LfIFojvrwB2LT3C5hQmGcW5ZbvooyGhGJ1D2xQFxu5cpZHzwYaPw1A38aRpx1Pl
+         aHUdMKOS/Crg5WUR9SMtZQgosjOzb1hNEisAod3KwEkSMwN87+cdsv4gJuV0PEAOlSfQ
+         pCfAPS8GzCBfBb7AEaHDtIBBmHgcLBqo6Rtfq/rdM4L36ouFhtgYeGv1vhCJ5iuyj2fk
+         wKwwXNM2loVTYwCyqwxocnSQsjTfxQQS+FCeVykEXABDWaMayyOy5cZwL/v5jQ6sxeCk
+         oaRZ+DPJQ9TMiZ6xQDlCo9pnRZXx89Z222ssnz0y+9dBLGi0alWxqWpFgHcEyOUcdwnQ
+         NGKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795670050; x=1796274850;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=IQC0rmb60+7fGUy4+e3ojRybTycBzBk8+WNROPwteGo=;
-        b=ygEygVAydmljgl/HX7uAuPYJBLeHhtdzeegYrk/KAhJxTDsziLI/dCdw6DZQWG2+ec
-         Kzj3+2CEBy5ZIyFp1bEpM3r+wg0lX7Qx29FL8iqGHA/TbshUBZSjrQjJlhIfO4qj5cV9
-         ZMhJbUAl3MFSOF0y0ylngegs4NbcKWWRTGsO83hYAmd0+pFbmjM1BY39IwNuWiGwYcJJ
-         2g4FMXPpN7um2KdmGsuAOGkJ802sSsZqZQchRD7E0N3NUaFGYQJC+nXiATIWXwUeMoz9
-         YSA33t4Zwts918yzSS3OzcHQzDQISgbHCTXgDU8G7n3z/wDaCuMeHwy605JXCSi/zXmd
-         v8uA==
-X-Forwarded-Encrypted: i=1; AL+hErFMjjOfTluvZeOa40HFezu8NF5KVL1CN21wFjkQt/5HijmqfkJHnoolI1HvPFpNfRKzv7ymOlCpHFVOqyA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8S2hT6Pd3nbwVWbp9RSS6R2SfXFP6BEmJWcDk9azUoPHSxZ0a6
-	ECimAInEbM1r9auSa+uRn/TxI6CDAL183HT3ZsoClBMCMEzuoRkDyICj
-X-Gm-Gg: AZFdTZeqouoP1F4KM+HCC19aJpGViTG7/m02MKwsIZDV7pHTMquxmQUgCI5LasCA7Qf
-	Nbj2/W34LNyD1hFZ6f8Jn3RLr5D+NDnDg2KoSs3sVy3melPRd4KJhJuv7gI8+HdI8KWkhiWnwV/
-	mmOeS2RZXlkr8nzDzwEBw4Ls4sSwkz0fXCfq28zRHwnc4g2Rr49okKoGc1uCHmaT1wA5GYM6RrA
-	LrsyIxvc3IHz4GageYsBANHoA407otxqTpII2C7llcecHrWo8u7tQ/5OQSJEyqcmqLKfcvMCows
-	IfxuehN4hWjQYZh4gYHlKFLvdLZL2C/I7QyKCl/mTVcu9xIVXhvr2X0YdfZjMaAAdMVIksk4y3t
-	aPgCcDBJ+swn1lkoAHxI+ho6pBbI27dbk7g4lgdLcKBJ/1OPt7C+r8lYWFQJ+eUTYu7QJVUQpmA
-	6BaqQ1e8r9qFyBiyB3/Mx6h+ffn2afkY3n1NzQfNWO9tmI96uOTFJ6jCLWHnvjRRRoIqPBj7WJW
-	C3Y1XONExmXIYNyFt8TzVd0Y20KRftUDfayTzoz9bq+5DMraokz4wTJIeFbbNSFkMvWtgrwjkiT
-	6fzcCEjRxDmbokdhtQTRB/KlsYAchtNg63M=
-X-Received: by 2002:a05:6820:83c2:20b0:716:c772:c70f with SMTP id 006d021491bc7-71b39623cd7mr12571634eaf.86.1795670050407;
-        Wed, 25 Nov 2026 21:14:10 -0800 (PST)
-Received: from [192.168.0.98] ([50.26.120.197])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380e4a6dsm13907873eaf.13.2026.11.25.21.14.07
+        d=1e100.net; s=20260707; t=1795670077; x=1796274877;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=4Ad2tE+Mv1vxfx2Y30i+azuH5kIRW9Z23B1JR08v3MI=;
+        b=ABG+05wUYeHvEskLQ6lyALyTxNofHgIkGTBraI0zXwEi3Lj4bi5R0S10VayNgO3QQn
+         dh2fFti/HM1n+99MlUPgzbMzu4pe4Cf9JbQ3TbUEQs304a/i1sFBm6RP4nPinF2hf/7Y
+         l6TE3JtZ6a4bCbJ2KRr8xS3YkQo5brrwbB9V/l7t5FEygTXsA8OW/nh3i0QvnHC/Vexn
+         tmKXNHvsyCbT6ktJrcDljLluKZtZJa1M+fLyqKUI6hwTd1op9eimLInb9aVU8SoDTdST
+         Izeec1gJ/rLE5Kot82B8q6kD93C+xJF3S2T3M3QVKq3J9lO4hFvJXuqbbB1XTjn+2uqe
+         /bTw==
+X-Forwarded-Encrypted: i=1; AL+hErGWEGpnYBpJg1syXqhiadztuL7MEb52gwRoGvwIPE83w8EkEjfUHHpxYOC/wzcAuNhPOjV8rnTLVzSCha4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+FxasrvC14tu7K9LohqL3ziiG9vfwlk9azo7O1MNbCX3ey3mRO
+	qg47lYCw5pCUgKEA6JFKEwDeU3IpboBGvuzNTIN2pmkIGbM+DSY2nwkn4BYVNZzclZtAOjVHhTQ
+	4Xrir
+X-Gm-Gg: AZFdTZdTWWZJQtNNYkTJ4SQPGRj46qx7zZn+IFoX/c98G1W/7B9+3XWeQfyQOviDSsj
+	rOG/APlTgtUZ/U0x/y3THgh4O+ewxeLhzM70389RM8KouPu5Ye23kGfvOBZPqGmLV6t1WsGTrbB
+	AxKC/wOnwHQsOLFGkT8nNX0JlAftY5Q+uFaHTCwb8U8XtRMdnHWpP8xvrM6bdoureO9jynDXmd7
+	kc7QB0VAGQDFEV6JT1rVW0L9b1uxrO3iTOiXS/qyg38PEnEujcRMb+taxpKHZJcMhm4ZfSrDrgx
+	wLXS3aPytLiR4ROnAMxKRiqf77fIt0bbuPnjJWLT5Hci6/a3KXmPB5tOYkl7edFlCNwhfPHq59Y
+	g84HSLRnYbwNH35rQZd4amnWTB/dqtYC+XWSVxUToQ9bbqKuLuT8FmRQEEx1rocRhOpJksVASEZ
+	S5uTDR1M/qm9ggZeXs3r3IdmU27kHwm32YGJUzPcBr5ET3qKUiwaJMOoegHdFvi+na1mLSkR3Eu
+	Gd35S98tQfBrLVINvSBAMJ/GaK4J/wkq6UUgijLvYydDPnXpEg8R99dTUbGoFmK656i9UXTRCPl
+	a4XBuDQaOpVNtJCRqIyV8+QjLoii5kl31cjGiO9jr37UhMMCVe1S2VeDbXjz/l5MPTZo3GdnffS
+	2gfQdtGWGFtEtQLHG/MVvo/qpL8iTgA==
+X-Received: by 2002:a05:6000:1a8f:b0:4ae:43e9:da61 with SMTP id ffacd0b85a97d-4ae43e9daa2mr33501492f8f.4.1795670077165;
+        Wed, 25 Nov 2026 21:14:37 -0800 (PST)
+Received: from aerith (host109-153-232-219.range109-153.btcentralplus.com. [109.153.232.219])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b1ebsm39548128f8f.33.2026.11.25.21.14.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 21:14:09 -0800 (PST)
-From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Wed, 25 Nov 2026 23:13:50 -0600
-Subject: [PATCH v2] clocksource/drivers/timer-mediatek: Enable the GPT irq
- before registering
+        Wed, 25 Nov 2026 21:14:35 -0800 (PST)
+From: Qais Yousef <qyousef@layalina.io>
+To: Ingo Molnar <mingo@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>
+Cc: Juri Lelli <juri.lelli@redhat.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	John Stultz <jstultz@google.com>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Tim Chen <tim.c.chen@linux.intel.com>,
+	"Chen, Yu C" <yu.c.chen@intel.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Qais Yousef <qyousef@layalina.io>
+Subject: [PATCH v3 00/10] Better manage system response time
+Date: Thu, 26 Nov 2026 05:14:19 +0000
+Message-ID: <20261126051429.14091-1-qyousef@layalina.io>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,114 +108,171 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-timer-mediatek-gpt-irq-order-v2-1-e9e793bd87d4@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/43NsQ6CMBCA4VdpbuYMrUgrk+9hGAg94KKleBCiI
- by7ARdH1n/4/gVGEqYRCrWA0Mwjxx4KZRIFdVf1LSF7KBSY1ORap2ecOJBgIM/VRA9shwlZXhj
- Fk2DlrCPv8mvjMkgUDEINv3f+XiYKOh6nKJ/9NuutHoRnjRpzr71vrtYak93aUPHzVMewfX6Iu
- RxALJksz1Jyxv8j5bquXwydN+QNAQAA
-X-Change-ID: 20261103-timer-mediatek-gpt-irq-order-a878ed869f84
-To: Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>, 
- Chen-Yu Tsai <wenst@chromium.org>, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Ryan Brue <ryanbrue.dev@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795670047; l=4132;
- i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=sn1/LETHb9l5ZV1gGwt2OIOVEadtpiYZmU8VXT/KLM4=;
- b=Fspx+wv2picpFbsKN9ogP399KLyj59R3MswLn7ymZsrv0ULnFVlAH1GfHX93CuEIG85Yc6w2A
- iZtsCrtCZ4pD4u29I631RHiV9upWNfX/oTc7T/+NexXnKxgAnX0Wje1
-X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
- pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Since the driver probes as a platform device, the GPT clock event is
-registered late in boot, when PSCI CPU idle may already have put CPUs
-into a state that stops their local timer. Those CPUs wait in the
-oneshot broadcast mask on the hrtimer broadcast, and
-tick_install_broadcast_device() arms the new broadcast device to expire
-at once so that it wakes them.
+v1 discussion: https://lore.kernel.org/lkml/20240820163512.1096301-1-qyousef@layalina.io/
+v2 discussion: https://lore.kernel.org/all/20260504020003.71306-1-qyousef@layalina.io/
 
-mtk_gpt_init() sets the timer's bit in GPT_IRQ_EN only after
-clockevents_config_and_register(). The forced event fires while the bit
-is clear, the status register stays clear, and the waiting CPUs are
-never woken. On an MT8173 tablet with the CPU_SLEEP_0 idle state in
-use, this hung the boot in 20 of 40 boots; with this change it booted
-16 of 16.
+I hope this is now in good shape for considering for inclusion.
 
-Enable the interrupt before registering the clock event. The IRQ line
-stays disabled until enable_irq(), so the handler still can't run before
-the clock event is set up. With the bit set, the timer that
-mtk_gpt_setup() leaves running could latch an interrupt that
-registration doesn't acknowledge, the kind of pending interrupt that
-commit fc686d0037d7 ("clockevents/drivers/mtk: Fix spurious interrupt
-leading to crash") acknowledges in mtk_gpt_enable_irq(). So stop the
-timer before enabling the interrupt, until the core programs an event.
+v1 cover letter has the full details for those interested with the full
+background, link available above. LPC discussion from 2024 is available
+in [1].
 
-Fixes: 7a097aba7255 ("clocksource/drivers/timer-mediatek: Convert to OF probing")
-Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
----
-Since v7.4-rc1 the MediaTek timer probes as a platform device, and on
-MT8173 with PSCI CPU idle the boot then hangs about half the time: the
-broadcast device is armed at once to wake CPUs that are already idle,
-and that event is lost because the GPT's interrupt is enabled only after
-registration. Traced on the board with prints in
-tick_install_broadcast_device() and mtk_gpt_init().
+Major changes in this series is dropping the sched_qos interface as this
+will be taken on its own discussion now. I also moved away from sysctl
+to debugfs interface for setting default rampup_multiplier. Along with
+new debugfs entries for fits_capacity_threshold for each CPU to help
+understand how these values end up being on different systems if we need
+to debug them.
 
-v2 answers Sashiko's review of the resend: enabling the interrupt early
-also enabled it while the clock event timer was still running from
-mtk_gpt_setup(), so it could latch an interrupt that registration does
-not acknowledge. v2 stops the timer before enabling the interrupt.
-On the MT8173 tablet, with CPU_SLEEP_0 in use and prints around
-registration, v2 booted 16 times out of 16. The status register read 0
-before registration in every boot, with v1 (3 boots) as well, so the
-stale interrupt never showed up on this board. In 3 of the 16 v2 boots
-it read 1 just before enable_irq(): the event registration armed, then
-delivered once the line was enabled. The tags from v1 are dropped,
-since the code changed.
+Code changes required reworking how we do the util_est_update_running()
+and introduce new running arg to util_est_update(). But other than that
+it is exactly the same.
 
-This patch was developed with the help of an LLM.
----
-Changes in v2:
-- Stop the clock event timer before enabling its interrupt, so nothing is
-  pending when the IRQ line is enabled (Sashiko, via Daniel).
-- Dropped the Reviewed-by and Tested-by tags. The code changed in a way
-  that I think merits that, but let me know if not.
-- Link to v1: https://lore.kernel.org/r/20261103-timer-mediatek-gpt-irq-order-v1-1-6d1ddf977224@gmail.com
-- Link to the resend: https://lore.kernel.org/r/20261125-timer-mediatek-gpt-irq-order-v1-1-7e24640e82d4@gmail.com
----
- drivers/clocksource/timer-mediatek.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+I should have addressed all review comments from last round too,
+particularly from Vincent to use us for approximate_runtime() and ensure
+that fits_capacity_threshold is updated once; which I attached to
+build_sched_domains().
 
-diff --git a/drivers/clocksource/timer-mediatek.c b/drivers/clocksource/timer-mediatek.c
-index 842d6ee4259e..14723c6f5f5e 100644
---- a/drivers/clocksource/timer-mediatek.c
-+++ b/drivers/clocksource/timer-mediatek.c
-@@ -339,10 +339,12 @@ static int mtk_gpt_init(struct platform_device *pdev)
- 
- 	/* Configure clock event */
- 	mtk_gpt_setup(&to, TIMER_CLK_EVT, GPT_CTRL_OP_REPEAT);
-+	/* Stop it so that nothing is pending when its irq is enabled */
-+	mtk_gpt_clkevt_time_stop(&to, TIMER_CLK_EVT);
-+	mtk_gpt_enable_irq(&to, TIMER_CLK_EVT);
- 	clockevents_config_and_register(&to.clkevt, timer_of_rate(&to),
- 					TIMER_SYNC_TICKS, 0xffffffff);
- 
--	mtk_gpt_enable_irq(&to, TIMER_CLK_EVT);
- 	enable_irq(timer_of_irq(&to));
- 
- 	return 0;
+Users can retain the old behavior with these commands (except for
+fits_capacity_threshold which I think the new behavior is correct)
 
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261103-timer-mediatek-gpt-irq-order-a878ed869f84
+	echo 0 | sudo tee /sys/kernel/debug/sched/rampup_multiplier
+	echo CONST_DVFS_HEADROOM | sudo tee /sys/kernel/debug/sched/features
+	echo NO_UTIL_EST_RAMPUP_ZERO | sudo tee /sys/kernel/debug/sched/features
+	echo UTIL_EST_FORCE_POST_INIT | sudo tee /sys/kernel/debug/sched/features
 
-Best regards,
+A branch of the changes along side with the sched_qos interface is
+available here:
+
+	git clone https://github.com/qais-yousef/linux -b schedqos
+
+schedqos utility [2] has support for this interface on ToT and will
+allow per-task control of rampup multiplier to get different response
+time for different tasks which is key to get best results in terms of
+perf and power. Look at configs/qos_mappings.json - sudo make install
+and sudo schedqos restart --daemon.
+
+Testing on 8 CPU SMT2 Ryzen 7 Speedometer 3.1 on Chrome I get the
+following results (5 iterations)
+
+tip amd pstate:
+
+	23.3 23.7 23.5 23.9 24.0
+	avg: 23.68
+
+tip schedutil:
+
+	20.7 20.5 20.8 20.9 20.3
+	avg: 20.64
+
+tip + patch amd pstate:
+
+	23.1 23.9 24.0 23.9 23.8
+	avg: 23.74
+
+tip + patch schedutil:
+
+rampup 0:
+	13.2 13.2 13.4 13.4 13.2
+	avg: 13.28
+
+rampup 1:
+	17.5 17.6 17.6 17.7 17.7
+	avg: 17.62
+
+rampup 2:
+	20.7 20.7 20.6 20.9 20.8
+	avg: 20.74
+
+rampup 3:
+	21.7 22.0 21.7 21.8 21.5
+	avg: 21.74
+
+rampup 4:
+	22.5 22.3 22.7 22.4 22.3
+	avg: 22.44
+
+rampup 5:
+	22.8 22.9 22.8 22.6 22.9
+	avg: 22.8
+
+rampup 6:
+	23.1 23.1 23.2 23.1 23.2
+	avg: 23.14
+
+rampup 7:
+	23.4 23.5 23.6 23.4 23.3
+	avg: 23.44
+
+rampup 8:
+	23.5 23.6 23.5 24.3 24.3
+	avg: 23.84
+
+disable cmds (retain old behavior):
+
+	20.7 20.5 20.3 20.5
+	avg: 20.5
+
+Notes:
+	- rampup 0 and 1 are slower since we no longer have the
+	  aggressive const 1.25% dvfs headroom although util signal
+	  rises faster for 1. For 0 util_est is completely disabled.
+	- rampup 2 we get parity with schedutil.
+	- Rampup 8 gives parity with amd pstate behavior, too aggressive
+	  for perf. We cross 23 barrier on rampup 6.
+	- For rampup 8, battery got low and last 2 iterations ran with
+	  power plugged into laptop and this lead to higher score.. Some
+	  fimware magic I wasn't aware of and since it was a tedious
+	  task I didn't re-run with power plugged.
+	- Only 4 iterations for disable cmds
+
+I picked the default rampup_multiplier to be 4 based on this results.
+There's power trade-off to be had with different values which I can't
+evaluate. Having a per task sched_qos interface to set these values
+- which is the intention and final goal - makes this trade-off a lot
+easier to be made since as you can see rampup 1 and 0 will get slower
+behavior.
+
+This result is based on few weeks old tip/sched/core. Current
+tip/sched/core has runnable_avg bug that causes schedutil to run at max
+all the time. I managed to workaround it and numbers look different
+(higher) but I think the result above are more or less correct in terms
+of rampup multiplier value to get parity. Once this bug is fixed I'll
+recollect the data.
+
+[1] https://lpc.events/event/18/contributions/1880/
+[2] https://github.com/qais-yousef/schedqos
+
+Qais Yousef (10):
+  sched: cpufreq: Rename map_util_perf to sugov_apply_dvfs_headroom
+  sched/pelt: Add a new function to approximate the future util_avg
+    value
+  sched/pelt: Add a new function to approximate runtime to reach given
+    util
+  sched/fair: Remove magic hardcoded margin in fits_capacity()
+  sched: cpufreq: Remove magic 1.25 headroom from
+    sugov_apply_dvfs_headroom()
+  sched/fair: Extend util_est to improve rampup time
+  sched/fair: util_est: Take into account periodic tasks
+  sched/debugfs: Add rampup_multiplier to debugfs
+  sched/fair: Disable util_est when rampup_multiplier is 0
+  sched/fair: Don't mess with util_avg post init
+
+ include/linux/sched.h            |   3 +
+ include/linux/sched/cpufreq.h    |   5 --
+ kernel/sched/core.c              |   5 ++
+ kernel/sched/cpufreq_schedutil.c |  41 +++++++++++-
+ kernel/sched/debug.c             |  12 +++-
+ kernel/sched/fair.c              | 107 ++++++++++++++++++++++++++++---
+ kernel/sched/features.h          |  21 ++++++
+ kernel/sched/pelt.c              |  44 +++++++++++++
+ kernel/sched/sched.h             |  38 +++++++++++
+ kernel/sched/topology.c          |   1 +
+ 10 files changed, 259 insertions(+), 18 deletions(-)
+
 -- 
-Ryan Brue <ryanbrue.dev@gmail.com>
+2.53.0
 
