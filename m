@@ -1,58 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.157.23.187
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795706049;
-	b=reWeWInrJGFFrzQYHWAhWAnGKHD1duZyGyI+MdlkmFX9Nh/QZ7z5q+Stq+eOhLkWDsyk
-	 Cgd8gV9KM0JZT5BpXXaPdwYdOGiiNuhSr1hy3GyIlOqyOf2EIfdfDSOEnHNEaNhlDkokh
-	 29NRzKy2fEBPFE9gXro7G0gwt2dmwnwQkuoxUDZ7jmNhxFSSyTaaY4KVqcxnySONYyMWC
-	 gZpdGgZDTPYIRx+KeLkB1tM60Zp352THSIS1MJdHFxm8WMLM/sV+6K+B+AVbPRo6bjeIV
-	 GUvhX0VGNnIHnfQiS23Exnfgva5ckmlMv9vL5KcKF+dsgSHj0qbO3V4FqHWK+1UKSEA==
+	t=1795706092;
+	b=CSp/nSpb/uzwsepE+bW0q1/pYdBbwPfkCnYkiK772GTOlnRqPIMkihZpD2dPRKcyN+Zg
+	 aYV85KcVxgOCOPW1NVSVZmiXF5Kq3S21YlZN54M6gvkPqhjUMlZkrZ/2g2VZ8imV3BiPV
+	 5VJ39dD0PxxwP992vYcFq3yt95PMvA7EsZKW6bwXbmsDq2BKGe2g9BQWz2fRc1805Ncqe
+	 bGVwHGJM43iYvYDNYgGGShM6prhYIJnANA8cVYK2+muCDzwKksvcBoRs+qnU/YjkB1uwX
+	 nYzYB/on9efx0JOqS2Bea7yKTQPFAP2l3kSZPnD4opI/WAxi5HLwiyO38g+SZlxzfhg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795706049;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=5qrK3dPHIDLDJCAK7pwOhgo0XUjp026/y7N6Gkx7MIE=;
-	b=fCvVSVEQ9qof2sF12Kql2xwDby3t9J6bMRlt+52qPFiN3ruW/quuodiL2uLGDVYTLPv5
-	 CMkvW3pqErVuF+YiQhEiyZF7AE1IqM0+md6Bn9DZY+wZ+1tt9wCAOMoKFkEyhRDIopBEh
-	 HT+mcu3pZvIfuaHq2/7rHPwTfJjO8bo1kFaIGzq5p59b1spcpg2opzjgs3TTAXoaWnjPY
-	 bI7uBHWbtObOfSrFe5g3boYttqcoDB+K5VnAw1AZsnDwHc2T79YmuSjDI7EY25tS0d8Qq
-	 y30C2tizDGi8nPr/yGdfgdnWni0IVCG2bOZOPt1oc+kUFPpNgdIM/p7MAZw7HxIvAdA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795706092;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:CC:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
+	bh=6L3q4ZhrpSCtwdgfs27CULhdBC1Pa7E9uSNe6YrUgDE=;
+	b=LC6QakqW9La67Z0jNpa8JqgcdYq1re5/niMrS9OQkoWJpc9t40AvIFyl6P68mFODzsaj
+	 hlKzzZVqKxrTNpw1r8UC5RwmSmZTOaiH5X6yVaEVyU1AFCq6cgfq2sa53lfoQknzxZaVc
+	 PBJOhdmyvrn5JYpgpHufgIwvYc95C31KozYso/ynjhKCZHkulY7EMDn8wai+qOf+K0Ba0
+	 R0nv8vvxTU44GCWN5KwZVtRkRfPvyp3CKK+oYwzOmWUGk2N0C6DMO1txMNVcnuCzHhxPA
+	 18sZj2vGsQgNLSNyBUKLErNQUkGVYLWXfAt+qWCXfBDcvbjVu90r9vSe3CH0qA9nIQQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IAXbYM0L;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=paragon-software.com;
+	spf=pass smtp.mailfrom=paragon-software.com;
+	dkim=pass header.d=paragon-software.com header.i=@paragon-software.com header.a=rsa-sha256 header.s=mail header.b=AOyBUP3I;
+	arc=none smtp.remote-ip=35.157.23.187
+Received: from relayaws-01.paragon-software.com (relayaws-01.paragon-software.com [35.157.23.187])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C84EC606A321;
-	Thu, 26 Nov 2026 15:14:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37863606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:14:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37863606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=paragon-software.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=paragon-software.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IAXbYM0L
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DE021F000D2;
-	Thu, 26 Nov 2026 15:14:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795706049;
-	bh=5qrK3dPHIDLDJCAK7pwOhgo0XUjp026/y7N6Gkx7MIE=;
-	h=Date:From:To:Cc:Subject;
-	b=IAXbYM0LViE4DbsqLtsI5fM6bOaOQcik3jL5Wx8fGhA2+UndCSyRh4Xi2n3ufECmj
-	 neInWeuwKCmXk770VYXhFqEKRjy10h1PMy/GBwwO17jqm8/zwzSqLZAPgNtwgpwtSS
-	 2j7GDS3/NoUeyWv+ZGzFToxGuTRqu9rThbA4klkeEZXnSYQlGSAoHyZO0JMH7sGkez
-	 5XGbYIX4i4D7ufo9Gy1Iw6ne2nxgngJ6Z51gNYs/IwwFqYT518F4LbXBzFFoqWxtLl
-	 FhbRwQTiXdM+yfgqB5m1MZZGta58VvlPR8bqztIk6XVU88RJEP7owiuaOUmurDi7Vu
-	 tkiqxvbwk2+vA==
-Date: Thu, 26 Nov 2026 15:14:04 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Pratyush Yadav <pratyush@kernel.org>
-Cc: Dmitry Kasatkin <dmitry.kasatkin@gmail.com>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Mimi Zohar <zohar@linux.ibm.com>,
-	Mimi Zohar <zohar@linux.vnet.ibm.com>,
-	Roberto Sassu <roberto.sassu@huawei.com>
-Subject: linux-next: manual merge of the kexec tree with the integrity tree
-Message-ID: <awhMvDnzcpc5mv7G@sirena.org.uk>
+	dkim=pass (1024-bit key, unprotected) header.d=paragon-software.com header.i=@paragon-software.com header.a=rsa-sha256 header.s=mail header.b=AOyBUP3I
+Received: from relayfre-01.paragon-software.com (relayfre-01.paragon-software.com [176.12.100.13])
+	by relayaws-01.paragon-software.com (Postfix) with ESMTPS id 555301D38;
+	Thu, 26 Nov 2026 15:15:26 +0000 (UTC)
+Authentication-Results: relayaws-01.paragon-software.com;
+	dkim=pass (1024-bit key; unprotected) header.d=paragon-software.com header.i=@paragon-software.com header.b=AOyBUP3I;
+	dkim-atps=neutral
+Received: from dlg2.mail.paragon-software.com (vdlg-exch-02.paragon-software.com [172.30.1.105])
+	by relayfre-01.paragon-software.com (Postfix) with ESMTPS id 79F5D21D2;
+	Thu, 26 Nov 2026 15:14:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=paragon-software.com; s=mail; t=1795706083;
+	bh=6L3q4ZhrpSCtwdgfs27CULhdBC1Pa7E9uSNe6YrUgDE=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=AOyBUP3IHDZsvodrpODDdgacWJnDcPIO8a1Ok7aqrCd5KI3rr80ordoPjKJulALrD
+	 718G4PwDcbh9f3q3CvR/pATmxf2OmqNoQhAPTGhY7uZmlP4D15QKJnfs2doj+kemMo
+	 KaSgrOL6wyzTRw9F5cuujw2doEcmUEIVqMj4yxTU=
+Received: from [192.168.95.128] (172.30.20.193) by
+ vdlg-exch-02.paragon-software.com (172.30.1.105) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.7; Thu, 26 Nov 2026 18:14:42 +0300
+Message-ID: <27742381-113b-48f8-953c-8b1d32bc8066@paragon-software.com>
+Date: Thu, 26 Nov 2026 16:14:41 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,73 +64,162 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mwi5A3M40icvYNF4"
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND] fs/ntfs3: fix out-of-bounds read in the index root
+ ops of do_action()
+To: Stanley Shen <stanleyshen1886@gmail.com>
+CC: <ntfs3@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+References: <20260929204106.41921-1-stanleyshen1886@gmail.com>
+Content-Language: en-US
+From: Konstantin Komarov <almaz.alexandrovich@paragon-software.com>
+In-Reply-To: <20260929204106.41921-1-stanleyshen1886@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: vdlg-exch-02.paragon-software.com (172.30.1.105) To
+ vdlg-exch-02.paragon-software.com (172.30.1.105)
 
+On 9/29/26 22:41, Stanley Shen wrote:
 
---mwi5A3M40icvYNF4
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> The five index root redo handlers in do_action() (AddIndexEntryRoot,
+> DeleteIndexEntryRoot, SetIndexEntryVcnRoot, UpdateFileNameRoot and
+> UpdateRecordDataRoot) read the index root before anything has validated
+> the offset the attribute was derived from:
+>
+>          root = resident_data(attr);
+>          hdr = &root->ihdr;
+>          used = le32_to_cpu(hdr->used);
+>
+>          if (!check_if_index_root(rec, lrh) ||
+>              !check_if_root_index(attr, hdr, lrh)) {
+>
+> attr is Add2Ptr(rec, le16_to_cpu(lrh->record_off)) and rec is the
+> record_size-sized buffer allocated in mi_init(), while record_off comes
+> verbatim from the on-disk log record header. check_if_index_root() is
+> what bounds it, by walking the attribute chain from rec->attr_off (which
+> check_file_record() has already validated) and accepting record_off only
+> when it is the offset of an ATTR_ROOT of that chain. Until it has run,
+> both the attr->res.data_off read inside resident_data() and the hdr->used
+> read that follows can land outside the allocation; record_off and
+> data_off are both __le16, so a crafted log record can push the access
+> almost 128K past a 1K or 4K record.
+>
+> Once check_if_index_root() has passed, check_attr() has already bounded
+> the attribute and its resident data inside the record, so run it first in
+> all five handlers. check_if_root_index() needs hdr and stays put.
+>
+> Fixes: b46acd6a6a62 ("fs/ntfs3: Add NTFS journal")
+> Assisted-by: LLM
+> Signed-off-by: Stanley Shen <stanleyshen1886@gmail.com>
+> ---
+>   fs/ntfs3/fslog.c | 39 +++++++++++++++++++++++++--------------
+>   1 file changed, 25 insertions(+), 14 deletions(-)
+>
+> diff --git a/fs/ntfs3/fslog.c b/fs/ntfs3/fslog.c
+> index ed50c1d0c23..c7c2b477643 100644
+> --- a/fs/ntfs3/fslog.c
+> +++ b/fs/ntfs3/fslog.c
+> @@ -3471,12 +3471,19 @@ static int do_action(struct ntfs_log *log, struct OPEN_ATTR_ENRTY *oe,
+>          case AddIndexEntryRoot:
+>                  e = (struct NTFS_DE *)data;
+>                  esize = le16_to_cpu(e->size);
+> +
+> +               /*
+> +                * check_if_index_root() is what validates lrh->record_off, so
+> +                * it has to run before attr is dereferenced.
+> +                */
+> +               if (!check_if_index_root(rec, lrh))
+> +                       goto dirty_vol;
+> +
+>                  root = resident_data(attr);
+>                  hdr = &root->ihdr;
+>                  used = le32_to_cpu(hdr->used);
+>
+> -               if (!check_if_index_root(rec, lrh) ||
+> -                   !check_if_root_index(attr, hdr, lrh) ||
+> +               if (!check_if_root_index(attr, hdr, lrh) ||
+>                      Add2Ptr(data, esize) > Add2Ptr(lrh, rec_len) ||
+>                      esize > le32_to_cpu(rec->total) - le32_to_cpu(rec->used)) {
+>                          goto dirty_vol;
+> @@ -3498,14 +3505,15 @@ static int do_action(struct ntfs_log *log, struct OPEN_ATTR_ENRTY *oe,
+>                  break;
+>
+>          case DeleteIndexEntryRoot:
+> +               if (!check_if_index_root(rec, lrh))
+> +                       goto dirty_vol;
+> +
+>                  root = resident_data(attr);
+>                  hdr = &root->ihdr;
+>                  used = le32_to_cpu(hdr->used);
+>
+> -               if (!check_if_index_root(rec, lrh) ||
+> -                   !check_if_root_index(attr, hdr, lrh)) {
+> +               if (!check_if_root_index(attr, hdr, lrh))
+>                          goto dirty_vol;
+> -               }
+>
+>                  e1 = Add2Ptr(attr, le16_to_cpu(lrh->attr_off));
+>                  esize = le16_to_cpu(e1->size);
+> @@ -3526,13 +3534,14 @@ static int do_action(struct ntfs_log *log, struct OPEN_ATTR_ENRTY *oe,
+>                  break;
+>
+>          case SetIndexEntryVcnRoot:
+> +               if (!check_if_index_root(rec, lrh))
+> +                       goto dirty_vol;
+> +
+>                  root = resident_data(attr);
+>                  hdr = &root->ihdr;
+>
+> -               if (!check_if_index_root(rec, lrh) ||
+> -                   !check_if_root_index(attr, hdr, lrh)) {
+> +               if (!check_if_root_index(attr, hdr, lrh))
+>                          goto dirty_vol;
+> -               }
+>
+>                  e = Add2Ptr(attr, le16_to_cpu(lrh->attr_off));
+>
+> @@ -3541,13 +3550,14 @@ static int do_action(struct ntfs_log *log, struct OPEN_ATTR_ENRTY *oe,
+>                  break;
+>
+>          case UpdateFileNameRoot:
+> +               if (!check_if_index_root(rec, lrh))
+> +                       goto dirty_vol;
+> +
+>                  root = resident_data(attr);
+>                  hdr = &root->ihdr;
+>
+> -               if (!check_if_index_root(rec, lrh) ||
+> -                   !check_if_root_index(attr, hdr, lrh)) {
+> +               if (!check_if_root_index(attr, hdr, lrh))
+>                          goto dirty_vol;
+> -               }
+>
+>                  e = Add2Ptr(attr, le16_to_cpu(lrh->attr_off));
+>                  fname = (struct ATTR_FILE_NAME *)(e + 1);
+> @@ -3556,13 +3566,14 @@ static int do_action(struct ntfs_log *log, struct OPEN_ATTR_ENRTY *oe,
+>                  break;
+>
+>          case UpdateRecordDataRoot:
+> +               if (!check_if_index_root(rec, lrh))
+> +                       goto dirty_vol;
+> +
+>                  root = resident_data(attr);
+>                  hdr = &root->ihdr;
+>
+> -               if (!check_if_index_root(rec, lrh) ||
+> -                   !check_if_root_index(attr, hdr, lrh)) {
+> +               if (!check_if_root_index(attr, hdr, lrh))
+>                          goto dirty_vol;
+> -               }
+>
+>                  e = Add2Ptr(attr, le16_to_cpu(lrh->attr_off));
+>
+> --
+> 2.50.1 (Apple Git-155)
 
-Hi all,
+Hello,
 
-Today's linux-next merge of the kexec tree got a conflict in:
+Your patch was applied, thanks.
 
-  kernel/Kconfig.kexec
+Regards,
+Konstantin
 
-between commit:
-
-  4e15e8ed59e07 ("kexec: Select ima_get/free_kexec_buffer() with CONFIG_HAV=
-E_IMA_KEXEC(_OF)")
-
-=66rom the integrity tree and commit:
-
-  e583fcbe5b585 ("arch, kexec: declare kexec and crash capabilities in Kcon=
-fig.kexec")
-
-=66rom the kexec tree.
-
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
-
-diff --cc kernel/Kconfig.kexec
-index 86a230505931a,af03cc773145b..0000000000000
---- a/kernel/Kconfig.kexec
-+++ b/kernel/Kconfig.kexec
-@@@ -17,10 -20,9 +20,13 @@@ config KEXEC_EL
-  config HAVE_IMA_KEXEC
-  	bool
- =20
- +config HAVE_IMA_KEXEC_OF
- +	bool
- +	select HAVE_IMA_KEXEC
- +
-+ config ARCH_SUPPORTS_KEXEC
-+ 	bool
-+=20
-  config KEXEC
-  	bool "Enable kexec system call"
-  	depends on ARCH_SUPPORTS_KEXEC
-
---mwi5A3M40icvYNF4
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsITLsACgkQJNaLcl1U
-h9B9zgf/UGCo8KEeQ4L21Z4sU7flB0MvRCs0XrS3logxJ3av4K79nucY6H9ycBCR
-AfoPdhXHNvyytaOSObWbPEvrbY8W1Ggoqs1V5sG4a0vwfb6a74jYWhnHv/hMKAVl
-MNFBInanYQI93Z/bW9HRqlmw1waCAfu23iIwNolAxgLP51JVJydkjQscCgclr+EI
-HPR1N1L5+ipOC+55BChp27l7zlzLnJQT/eo6QLbFNO6L+jJcoDC+nshQjk67Rg8Q
-WUlgF3xnTyvgpYWK7gTtOPiWRiJbUuJv91VYrDPvBR2enLInO3SFt/7SAdM13x9P
-IeFZR8aoPwxHa6kW0THKHMHLpYXlig==
-=9q5+
------END PGP SIGNATURE-----
-
---mwi5A3M40icvYNF4--
