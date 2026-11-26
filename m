@@ -1,47 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.47.186.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.187
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795680733;
-	b=hZDNUh277+uth1t/zyWcjyh9gW9NmBxF8/2QrGGErVI50DSEWx78+ucASwFvcWEq2D9z
-	 38qhCNXgc11LjKq0i6cSiRHS1x+4vYn4cBRz8y0ilwVF+kSezRVhNo0IEkoQ+4Ni1bzse
-	 74p9+s5yQIsmQt5aTPglWWxNn/htQ4gCj+3gSQhgvhE3HOvdtI6kXvtL/J8KUpYWYJYni
-	 9lSNv389mooARjdZjThMSUqeFP0+P+clJVBIneYU7dbVyhVR9YDFkOk1czyfl/Uwhltuk
-	 /u1vIJFtuHs+yvYRc8SHlozoPDP8q1aEK8xuafzEzGhOmz6EbtWav1iDj7KjX5saC6g==
+	t=1795680740;
+	b=JKRioRFjDR4fY/VytAdWR6dfpF5zFrXeCZzZ4FBOO9tE0ALRu+/DR09pv/iMSMrtngPk
+	 s6PnLwbf1mKZFpuBlxOzXETq6fNAkmTim0FADTyESiGYorj891IyNgGTiJAbjkjnPru3z
+	 z9ivkN1YzFiZXEz/zo9zKYNTC12f0sURN75HCotdTymUl7f/mWqOrX7l9F2Oa4fHWQojc
+	 AoIhp5qHRG0DL5mF1sCvSO1U2P1iDkR6KZbzYd5h0S60asSUU0FmYijmwDY+a3Hu6Wmx2
+	 sI6L0A32SAv/NJT+0JVcmZ5h70LpHR9i2j/aoUeV/PJinK5+9WPfy99bdlGX66u5yNg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795680733;
-	h=DMARC-Filter:Received:Date:From:To:CC:Subject:User-Agent:In-Reply-To:
-	 References:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=tebrHz3IvqJVQW9ErRGoXMPDohyN/Z67oVCXnCoU/hg=;
-	b=z+dSdAOoItYg10rrgPmKKPa8XPuMbJBMhho6Tv+fEUMWEg29hmJ5Vep7Hr2kp15dsXuN
-	 Glj0CgcFy+iELU42nBxS4eWKk2XGolbs9tgBXtbuXu8DCbmvOFjvpPPC2xfHMBDqhH4CZ
-	 +AzC5wBxl+hYgtoJX0EDQ9PiFmgNoe92kW5B3wOAfP7KSuDFlM5jT8IyouAcE+XsvmSZM
-	 QST0vk32qb73IBoGD1oKSEpXQ/kDygGi2N84Omk9mNrXBcfmZJ2RbINai/WUlsTO5Is0O
-	 ydUuxNTJGoDKaRvP/6M+qwjT/wftaitSxbWf4rW6W5qnjsR51yftnY7VET2teW4JBGQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795680740;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=Lt2W2OTrkjivIClcb6pJV3VzVc47DEMwu0EDTWnTE10=;
+	b=uzA4itU5OtP1I8vLpmkhJ2dq9I/9i+v00QeV+6NZEpW5tPFwEKa641vZvfWinx9X9n9V
+	 RH4un9cybH5k7nLvfWU35mV5YdGdd/ll1gZHVcMG1xjIuiYAxu4CYm4OqPdimiLgh3KF6
+	 ZsE2hzcm5EBaOI444rNfLOyxNuqV57abtLkMw/PXDYK6I6AwSpJsGmk0+36zMImZ4ca3b
+	 prdNiep8ywrf3hl0q18oKk3bdFh+4hiwjwupXCJkMN4GgkyXulpCl8IJrw71iiUbloFQ3
+	 ChGltyhlrbQFNjAIJbacPOj+HzcDl0FEvter26h5meShS5GvlBB1uWt2iOzzehHAm9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=krgm.moe;
-	spf=pass smtp.mailfrom=krgm.moe;
-	arc=none smtp.remote-ip=103.47.186.116
-Received: from krgm.moe (krgm.moe [103.47.186.116])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 58C66606A31C;
-	Thu, 26 Nov 2026 08:12:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 58C66606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=krgm.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=krgm.moe
-Received: from ehlo.thunderbird.net (unknown [IPv6:240e:404:1a32:1906:6486:8bff:fe17:3abb])
-	by krgm.moe (Postfix) with ESMTPSA id A7B2B82E;
-	Thu, 26 Nov 2026 13:42:09 +0530 (IST)
-Date: Thu, 26 Nov 2026 16:12:01 +0800
-From: SignKirigami <prcups@krgm.moe>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>
-CC: Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] dt-bindings: regulator: qcom,rpmh: Add PM6450
-User-Agent: Thunderbird for Android
-In-Reply-To: <20261126-netrani-pm6450-v1-v3-1-2343209bbf4c@krgm.moe>
-References: <20261126-netrani-pm6450-v1-v3-0-2343209bbf4c@krgm.moe> <20261126-netrani-pm6450-v1-v3-1-2343209bbf4c@krgm.moe>
-Message-ID: <2D9293CF-5F1C-4CE5-AD68-4214DACD1C99@krgm.moe>
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ClZTMiUX;
+	arc=none smtp.remote-ip=95.215.58.187
+Received: from mta1.migadu.com (out-187.mta1.migadu.com [95.215.58.187])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CB17606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:12:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4CB17606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ClZTMiUX
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=oX5t4fq6E1hsGhDXl7ngJctWdFTSMPrw40BAF+ejwYM=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795680737; v=1; x=1796285537;
+ b=ClZTMiUX5Kn4nvmqqs6Pf5/Wt0i/EZzzQ9G9LIUQeiAp9d3d+F2ptWKeeGBi5eCT8ezz2Az8
+ CaOVpV9RFrccrrJ0F7YMex948weREo1me94BTP+M/SacZiDbCh5/HifF/5x0r3QurpnuVX7p0+o
+ Y6wkxUO6lz1yAIwQAK+Zro/w=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id 1252e3651f26e1a8;
+	Thu, 26 Nov 2026 08:12:17 +0000
+X-Mizu-Trace-ID: 1252e3651f26e1a8
+X-Migadu-Flow: FLOW_OUT
+Date: Thu, 26 Nov 2026 16:12:08 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
+Cc: netdev@vger.kernel.org, David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	Alice Mikityanska <alice.kernel@fastmail.im>,
+	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v2 2/6] gre: Enable BIG TCP packets
+Message-ID: <20261126081208.GD33976@Liu-laptop>
+References: <20261126025015.10416-1-yanhaishuang@cmss.chinamobile.com>
+ <20261126025015.10416-3-yanhaishuang@cmss.chinamobile.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,72 +71,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261126025015.10416-3-yanhaishuang@cmss.chinamobile.com>
 
-
-
-=E4=BA=8E 2026=E5=B9=B411=E6=9C=8826=E6=97=A5 GMT+08:00 15:39:11=EF=BC=8CS=
-ignKirigami <prcups@krgm=2Emoe> =E5=86=99=E9=81=93=EF=BC=9A
->Document the PM6450 compatible and the eight RPMh LDO resources used by
->Motorola Portov (SM7435)=2E Add the parent supply properties for the
->PM6450 package input groups used by those LDOs=2E
-The remaining PM6450 resources are omitted from this initial change
-because their RPMh types and voltage capabilities have not been fully
-established=2E
-
-Regards,
-SignKirigami
->
->Signed-off-by: SignKirigami <prcups@krgm=2Emoe>
->---
-> =2E=2E=2E/bindings/regulator/qcom,rpmh-regulator=2Eyaml           | 15 +=
-++++++++++++++
-> 1 file changed, 15 insertions(+)
->
->diff --git a/Documentation/devicetree/bindings/regulator/qcom,rpmh-regula=
-tor=2Eyaml b/Documentation/devicetree/bindings/regulator/qcom,rpmh-regulato=
-r=2Eyaml
->index 9115885e7985b=2E=2Ec91f01d785174 100644
->--- a/Documentation/devicetree/bindings/regulator/qcom,rpmh-regulator=2Ey=
-aml
->+++ b/Documentation/devicetree/bindings/regulator/qcom,rpmh-regulator=2Ey=
-aml
->@@ -37,6 +37,7 @@ description: |
->       For PM6150, smps1 - smps5, ldo1 - ldo19
->       For PM6150L, smps1 - smps8, ldo1 - ldo11, bob
->       For PM6350, smps1 - smps5, ldo1 - ldo22
->+      For PM6450, ldo5, ldo7, ldo13, ldo16, ldo19, ldo23 - ldo25
->       For PM660, smps1 - smps6, ldo1 - ldo3, ldo5 - ldo19
->       For PM660L, smps1 - smps3, smps5, ldo1 - ldo8, bob
->       For PM7325, smps1 - smps8, ldo1 - ldo19
->@@ -72,6 +73,7 @@ properties:
->       - qcom,pm6150-rpmh-regulators
->       - qcom,pm6150l-rpmh-regulators
->       - qcom,pm6350-rpmh-regulators
->+      - qcom,pm6450-rpmh-regulators
->       - qcom,pm660-rpmh-regulators
->       - qcom,pm660l-rpmh-regulators
->       - qcom,pm7325-rpmh-regulators
->@@ -203,6 +205,19 @@ allOf:
->         "^vdd-l([14]|1[1367])-supply$": true
->         "^vdd-s[1-6]-supply$": true
->=20
->+  - if:
->+      properties:
->+        compatible:
->+          enum:
->+            - qcom,pm6450-rpmh-regulators
->+    then:
->+      properties:
->+        vdd-l5-l7-l9-l11-supply: true
->+        vdd-l13-supply: true
->+        vdd-l16-supply: true
->+        vdd-l19-l23-supply: true
->+        vdd-l24-l25-l26-l27-l28-supply: true
->+
->   - if:
->       properties:
->         compatible:
->
+On Wed, Nov 25, 2026 at 06:50:11PM -0800, Haishuang Yan wrote:
+> Commit f3d0f753f066 ("vxlan: Enable BIG TCP packets") and
+> commit 03ebe91b0f61 ("geneve: Enable BIG TCP packets") allowed BIG TCP
+> on UDP tunnels. gre and gretap can carry BIG TCP packets as well: the
+> outer IPv4 header gets its total length from iph_set_totlen() on output,
+> the GRE header has no length field, the GSO and GRO paths already handle
+> IPv4 BIG TCP, and FOU and GUE encapsulation set the UDP length with
+> udp_set_len() since commit 47282504ad21 ("udp: Support BIG TCP GSO
+> packets where they can occur").
+> 
+> Bump tso_max_size up to GSO_MAX_SIZE so that the admin can use BIG TCP
+> with gre and gretap. erspan is left alone. The default gso_max_size and
+> gso_ipv4_max_size stay at 64KB, so nothing changes unless they are
+> raised explicitly.
+> 
+> iperf3 TCP over gre and gretap between two netns connected by veth,
+> without encapsulation, 3 runs of 10 seconds each, in a KVM guest with 8
+> vCPUs on an Intel Core i7-14700 host:
+> 
+>   gre,    65536:   92.9,  94.2,  93.0 Gbit/s
+>   gre,    196608: 130.6, 128.6, 123.3 Gbit/s (+37%)
+>   gretap, 65536:  105.5, 106.6, 106.6 Gbit/s
+>   gretap, 196608: 124.7, 129.7, 127.5 Gbit/s (+20%)
+> 
+> A later patch in this series extends big_tcp_tunnels.sh to cover gre and
+> gretap with IPv4 and IPv6 traffic, without encapsulation, and with FOU
+> and GUE.
+> 
+> Reviewed-by: Alice Mikityanska <alice.kernel@fastmail.im>
+> Signed-off-by: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
+> ---
+>  net/ipv4/ip_gre.c | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/net/ipv4/ip_gre.c b/net/ipv4/ip_gre.c
+> index f8a7c435350..41ec54dcbfd 100644
+> --- a/net/ipv4/ip_gre.c
+> +++ b/net/ipv4/ip_gre.c
+> @@ -1007,6 +1007,7 @@ static void ipgre_tunnel_setup(struct net_device *dev)
+>  {
+>  	dev->netdev_ops		= &ipgre_netdev_ops;
+>  	dev->type		= ARPHRD_IPGRE;
+> +	netif_set_tso_max_size(dev, GSO_MAX_SIZE);
+>  	ip_tunnel_setup(dev, ipgre_net_id);
+>  }
+>  
+> @@ -1394,6 +1395,7 @@ static void ipgre_tap_setup(struct net_device *dev)
+>  	dev->netdev_ops	= &gre_tap_netdev_ops;
+>  	dev->priv_flags &= ~IFF_TX_SKB_SHARING;
+>  	dev->priv_flags	|= IFF_LIVE_ADDR_CHANGE;
+> +	netif_set_tso_max_size(dev, GSO_MAX_SIZE);
+>  	ip_tunnel_setup(dev, gre_tap_net_id);
+>  }
+>  
+> -- 
+> 2.43.0
+> 
+> 
+> 
+Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
