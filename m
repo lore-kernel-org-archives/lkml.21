@@ -1,57 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795717702;
-	b=B7jL6v12OCj2/+CWUe2Q6MIZ8gHFBERGILl4G4kSj92B7gqllpKCWer/H6VicMA6q5EE
-	 78nuj6+zl/Ory/skqosic43KrG9gdJLHgsoadCibuLQq3S5ugStbZ10dX3M/UqJ61PkUG
-	 cwjwQ3SmgRZtrh2pzlz4DK+YuLOiusSo5okS8J5Ba1HWJxUflYyXwB0XwNZliN5DhaWYz
-	 iHewChlDuFHNBo3+onrNMzqQUvu+kMkVYPijXB/yDdngPzy7tdv1F7MEHnmoHnjN1J80f
-	 peSYVPRNWlUFu4/XygzkOA/6TDoKSMqFGhLZkKbHLjneeMI4KXAM/86pu0PznmopeJw==
+	t=1795717712;
+	b=shsICgF9yyuL8N8dQwbrf5iVHqNA/W3qPqwAz8HqXOUfF/ZXomg7RFbQuMJtZqOIQRMq
+	 iHMujxvl+0IGv+nZjYEGw34H40n3cPNJ5ujFRfv9CR1biHO7tI4GMQYXpGAWGZEX8Uicl
+	 dlLsTkWyeW7FRmtTqvjjsuZk9YbMiF6hetk/4DNqLaU5AjDtnPq0WNmn9Bq38/vKk0TEh
+	 54Ux9kA6oFHbQUCa/Tvzb5kvyemuStjOKlsHqmupenjO83SGlHLN9i1taCTnvArVN26kA
+	 NTn5555CmZ8vIqTzuI56v51eD6n461ejkr4DP+zvhZTDdyy6uT5l44ZYYizDzLjKBjQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795717702;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=SgEXTnV8G+RJXc5Z7bgG1FhksN70TN1v7tDQK7jcQno=;
-	b=T086o56meZ1DT16eF+Q+rWs0iuzj+yOQ+EcNuyH88XfGLWzgyqTA5k8SXzW9eHs7rGHF
-	 5ddi0e32Ajw/10NyB4ZtszUGnHh5XO7ZgY7VmKfDMDmljU/QwDDSuxvdNdrEkqOUnn0t7
-	 7gU0DAJsXPe2uNIxddtdsqZkgOThUACAZTweOqRHy5qyPTIXZ8sUFv67kGwCBN5/uvddE
-	 3H75vL33C7Vmv5sWSZD5oLemHfzQW4zJj3opt4OiiWS8MBqVLSuMXl1hPpY8UJ8fAIefV
-	 4AmGgnRL2ON4D1zR2SwJseX6S4krMG7rGA5dMXdKa+0lE/pKiKLz0HCisBpjZlg3BOw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795717712;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=TXpL0iKQ4koaW9ORT5KKPDTcDPfFf4c9CnXseUynUFA=;
+	b=1GHFKUjUREfg4mRTKbwM3dtFzco8B8pYlhu15JygML3zQZSpuInQ10WWuaBHTIu6bq/x
+	 DxgqLPshJ0yr6qFPUMb63lJiiPuB63xPYvD1YeQZm6cFWEhNJvcPzqAZDycEqYvC23C0k
+	 JGAT5zUiYCdulrcx7aSFgaHKCE7vFCFkS3AKR87+oqyC2aVhSedF5aMbqSQ/Gchbmke0p
+	 npKHeZWScKWzLfJrgx1Mokcypx7l9rUee+8PZDmBj36+OaoNHRv2S/7eP6VYI32B+1iSJ
+	 dfvPPJjgecyN6lFuNc2kwiJMTNu295wRrbgmHDtX4ec3XlKaJO8TX3A5WdEX8ha9gFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=rjHla4Zd;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 42BA9606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:28:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42BA9606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nN5X8EQx;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 261CF606A31C;
+	Thu, 26 Nov 2026 18:28:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=rjHla4Zd
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B4FB61BA8;
-	Thu, 26 Nov 2026 10:28:18 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C864F3F86F;
-	Thu, 26 Nov 2026 10:28:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795717701; bh=ECKrBhRZGoMv8l0eh6hXdfHU+etv5qKLM+IN744ApMc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rjHla4ZdxoOln5FT9RBk4AKTaSFTot7WAo7RH/foFNIjZNiF7/1FPToatwqioRhTR
-	 APrFtzeA8oSIktJtLveVYom5CxtQQ7BW17rgUv9SpsSdxR+q82qCuRja+tTjPLT7DW
-	 FcK5JbXvAyUPJSPYCow1FkWACmcDttWkoiglznWA=
-Date: Thu, 26 Nov 2026 18:28:15 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Tal Zussman <tz2294@columbia.edu>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] arm64: mte: drop the huge zero folio check in
- __access_remote_tags()
-Message-ID: <awh6P5njoJ3eOVlI@arm.com>
-References: <20261031-arm64-mte-folio-v1-0-a8bc2960d11e@columbia.edu>
- <20261031-arm64-mte-folio-v1-2-a8bc2960d11e@columbia.edu>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nN5X8EQx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A35F1F000D1;
+	Thu, 26 Nov 2026 18:28:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795717711;
+	bh=TXpL0iKQ4koaW9ORT5KKPDTcDPfFf4c9CnXseUynUFA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=nN5X8EQxX27K1HxI69N72N4KFZGpt3nlNJ4ea9eUF8sSQbCC9m09eSrSL8IRSomcn
+	 XAAmoLchSpRMuScmNSbjHP0PjeUj2t994/KVwwMU55G8SQ3lM3g4YzjKdNT2WYBblD
+	 sH1KrajoQiEtq8JMeUP4S1/VfpKsNm5IFclgpKyIfbgzJp+hQC/6lxx0lMiH44Dho/
+	 vo3d01xyyBJXEUDScLwuKVGEVJzPkvHQLDEkN4hXUpUMzW5OvUxckjIWP47v8e86QJ
+	 9otVI1s+3CAU0WPAK61E1U4eRdFr3Ex8TMayBXj6EP+L+Up5/HtOFQDZ2sOSMg8v3i
+	 D0YgMcfysOaOQ==
+Date: Thu, 26 Nov 2026 18:28:27 +0000
+From: Lee Jones <lee@kernel.org>
+To: Thomas Richard <thomas.richard@bootlin.com>
+Cc: Andi Shyti <andi.shyti@kernel.org>, mfd@lists.linux.dev,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Markus Haberlander <markus.haberlander@rosenberger.com>
+Subject: Re: [PATCH] i2c: cgbc: Fetch the status of a write transfer
+Message-ID: <20261126182827.GL38590@joneslee-macbookpro.roam.internal>
+References: <20261123-cgbc-i2c-write-status-v1-1-5b0fa0322b57@rosenberger.com>
+ <179568834099.302193.16315749597111506309.b4-review@b4>
+ <awgwO98qx3zX4MaY@zenone.zhora.eu>
+ <awhxAlhwF4QF3V6a@zenone.zhora.eu>
+ <ef2953ba-1510-4bd8-85c1-81d4e45d2693@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,35 +64,32 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261031-arm64-mte-folio-v1-2-a8bc2960d11e@columbia.edu>
+In-Reply-To: <ef2953ba-1510-4bd8-85c1-81d4e45d2693@bootlin.com>
 
-On Sat, Oct 31, 2026 at 04:44:54PM -0400, Tal Zussman wrote:
-> Commit adfb6609c680 ("mm/huge_memory: initialise the tags of the huge
-> zero folio") added an is_huge_zero_folio() check to the hugetlb branch,
-> but the huge zero folio is a THP, so it is never reached. It doesn't
-> need to be checked in the other branch either, as its pages are tagged
-> by __GFP_ZEROTAGS on allocation. Remove the check.
-> 
-> Signed-off-by: Tal Zussman <tz2294@columbia.edu>
-> ---
->  arch/arm64/kernel/mte.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
-> index f8d39e70857e..8615732567e6 100644
-> --- a/arch/arm64/kernel/mte.c
-> +++ b/arch/arm64/kernel/mte.c
-> @@ -483,8 +483,7 @@ static int __access_remote_tags(struct mm_struct *mm, unsigned long addr,
->  		}
->  
->  		if (folio_test_hugetlb(folio))
-> -			WARN_ON_ONCE(!folio_test_hugetlb_mte_tagged(folio) &&
-> -				     !is_huge_zero_folio(folio));
-> +			WARN_ON_ONCE(!folio_test_hugetlb_mte_tagged(folio));
->  		else
->  			WARN_ON_ONCE(!page_mte_tagged(page) && !is_zero_folio(folio));
+On Thu, 26 Nov 2026, Thomas Richard wrote:
 
-Hmm, I added it to the wrong branch but it wasn't needed anyway since
-the huge zero folio has PG_mte_tagged set. Patch looks fine:
+> On 11/26/26 6:49 PM, Andi Shyti wrote:
+> > Hi Thomas,
+> > 
+> > ...
+> > 
+> >>> Yes it conflicts (compile issue) with the series [1]. The possibilies are:
+> >>> - I pick this patch in my series and send a v7.
+> >>> - [1] is applied, an immutable branch is created, you rebase your patch on
+> >>>   top of it, and patch is applied in I2C tree.
+> >>> - [1] is applied, you rebase on top of mfd-next, and your patch is applied
+> >>>   in MFD tree.
+> >>>
+> >>> Andi, Lee, what do you prefer?
+> >>
+> >> Let's wait your patches to get in first and then Markus can
+> >> rebase on top of them.
+> > 
+> > as you are going to resend your series, would you be so kind to
+> > include this, as well?
+> Yes no problem. Thanks for the review!
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+No preference.  Happy with whatever.
+
+-- 
+Lee Jones
