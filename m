@@ -1,97 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795699805;
-	b=Mbg6App1JUfj9vImShpKbI7cWmgVimiIjZbSc9BOFhddE0K2Swq4+PmfaXcAWkDF1gMq
-	 nLlfZAPjgE6O16dbc+XZ9awHOgNdcXUOsA91hxgQqSYhIcmCSvlvvq+TsZR3HVc0k6Rmx
-	 A8gs3D6gRyzVy6vSlv4y+UvPkERbEyO2hbB7qDBws0tQl3NDzm69Rny0njgimxbaknD98
-	 /D+nEwYRj5tLCydJ5yZL1A9RSKTdPvTClnNLTVGqPHWY4K8n/Bb1r6Fi9Uf6Mz5Aw5DCx
-	 KxKB77T//T2nmAYPmTd8O75+ozNCJN/n9toc/VsE1iF1UwbdeQ1NYY6AqAbshUGjwUA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795699805;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.174
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795699836;
+	b=QN/5mvHJkkuF5KvtZel8AX+8zOSju3xphZLuKB1n2Jpw1v15Y+z1o6njbGZCRY/u+GTH
+	 M7qAnwfIPt7VdIhQDQJ3z7XluuQft04t2M/PnzUNmebGMUet29Qgz+XhmYyVMWHeJNdns
+	 wz35coZMSiBuqaDm7DwcY+efYlOHcdJzkVV9WKZebQX5crzUDmdvG8MjlzfsOv13L4Knc
+	 uyDx4ZNlyyBgkisCtW+ovyBnv6G8jFU+XJ5eYpg99wp/QEs6+Nanx6gx2JYy4kRKKwMIh
+	 yHtd6lfxGPf5BRNp2pi3IhRVienrn/OVinlICYhmdo528evRqz1xgLI/qLrXYq+wWNQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795699836;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=DSqP+Zr9m0+4cRuXqQzsW+yKYGuSsncKqOmsGZULKn0=;
-	b=w+wCnRVkD1D1YJp9FR+HabfZGlQapQI6hJK8cSztas98IxMZjkD0D2jNW1BfKh7SoW24
-	 LW+qZMSVLXFa5Xk8HpyGqyOzjDjoYvFI554k/YpZMKOcoN/x23a4OIX5xqcVVyov8rnN2
-	 A0nxoqtjNiROXclEZ3rC+yl/wFesHiOVqBkvsEjSnkiUBlPb8lj9aNbXkl5XHMSZBQ2eM
-	 iw3T3y83WkjhLQ+F66lA0ptFXzS3w+B2LobTTEnd1VLTkz1ZoV+a2DGPaU7e/56A/VrsS
-	 UPm8aR++KwU2xqc3wRv5iNCvMdlvEEK+7MLO4duVakbKra/PN4yfFA/Y2hIj6G5KAbQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=cpHsV5w2JYbXJ1AFl+wqh6QNZT0CRx63Sll+q8RneTQ=;
+	b=MNbL8IKA3A0iSaYAX6VrY30FtBlwTGAPTMILGuy9KM6GEN/iTpjWqsqJqTO5YvOOnzv9
+	 LqsSGgfN0F6qccwuGnO8/yIxl8eWJhFyqZn9lNU/XNlygXFYXY/e9zkFpm8eQzwSAuZIN
+	 iQa8m73n1zgUl6Rmvs4ykSovh1H5cxao4XlvXwmhHpyir3wuPuv/L61lzrIT6iiIOK68G
+	 0hZMrNihpH4obitpcv8KFhYU9OsVveOjydRx8MYYIgJj24C5cPpPpH/yUBx8KSDR/Ti6p
+	 aEkRFQfhpPI6yXQ4XyQpB+buP03aPMVhh1kB7daJ41GHlH84zbMMPC8AYHj7SPHj3Ww==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SvwNXSeN;
-	arc=none smtp.remote-ip=74.125.82.178
-Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iz8oGwyO;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.174
+Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8E9E606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:30:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8E9E606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56835606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:30:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56835606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SvwNXSeN
-Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-386c4d2e2ccso4713365eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:30:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iz8oGwyO
+Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso14873137eec.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:30:36 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795699835; cv=none;
+        d=google.com; s=arc-20260327;
+        b=INigs2awEYvin19gqDnSpXo9tfNIzrORwKTO+OJcGV5pa9T1CUnBGI1OseyWdqwVa/
+         aw8FKETFyCI7Dr9NOkI8zTgnB8p3dKqMLzwx0MEEAfvekDj9w+AKWi+KxQ0L3S0+33Oe
+         0d3LIL22QuSY4O5gpJuMmTaH9BWDfEiOYiNhURhRsAvRDd/I41mLC6vFvaYyhsdz+Cl/
+         RwA2pYh8WVAbhqQLdiVX38OV543yTkvMe8GAvsP4OvN9wgjKijbwn4AC1agZETR8JLcb
+         hYKT5SUom/tCnOl4BUl+xeW4mdJcya1nZ72UryayXDhuI0qSHLrP04omNTUOTZBPjURh
+         WbdA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=cpHsV5w2JYbXJ1AFl+wqh6QNZT0CRx63Sll+q8RneTQ=;
+        fh=sJhw8QvSRu5l9HhjTDT//puXFmEvBv9Do7RmTVpVtPM=;
+        b=QPKSh8qt8rPO7aA7UxoQd+AwCdBLF9VXsWINPIw26eYQomaMHN9IKMOGo2OnpZ+nWa
+         UTS7i7RjVV1NflEMF7wEA/DfWtiwNKdAEXebinkZiOBXgJIQaUPiKt+9DjlT84QLAgHz
+         ix98F1KCItICe4Jflo5+6tA6MNSErEYYmBx7mxBXIZJZv7luGykkaT+V464qw8bybIM9
+         wRuey2pbFnrs59dl66g0kGofm+o19ElWRRxHeMcIrcqIM0pJ0tCNRbTc0SAXD01UUfzN
+         ICZEqXOmfDBScV5d72DIIY011Qq1PcNRL26nAwpN6dNbBqlXk7yxtl2h/wOXvdUA0Jb/
+         aN0A==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795699804; x=1796304604; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=DSqP+Zr9m0+4cRuXqQzsW+yKYGuSsncKqOmsGZULKn0=;
-        b=SvwNXSeNexZcPxTqjz5x2Qo9VSiFLHbr2P06wGSBxU6ly3+OyvZ7cyf2/vz2xQdOeW
-         h9WYE7oG/FUXSq0IlbcihxCn7ycTkeC8x3PFaQeOEMSEnmct3VA0N2RhrvubzoB3FkRp
-         KkMg5wW0piUcDXAnaBqxSsxlU0GFHRTG2NawvNWyw+Q09JZd5nDIt7LOmsd/lnikCS5t
-         3hx3ekH4zD6vNB8+1kC6zr3YyVu+9s+w5QvHEIOKV7rOjYS8a7oENzlX533j+q8HmOEs
-         o1PSq8fIyF+0sOsUxFgdfmlh/dKH0Bike97GDAlJ/lAsBG9rIV4o1aj6ElK/Q38nUbdD
-         2qlw==
+        d=gmail.com; s=20260707; t=1795699835; x=1796304635; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=cpHsV5w2JYbXJ1AFl+wqh6QNZT0CRx63Sll+q8RneTQ=;
+        b=iz8oGwyOO09o4i5dWB91D4ghISsBxmFjH2tehPipI789M9ucTYLpa7LONDMVVl6ICL
+         v6QuocHdAeNYP9nvTFW9XIXOBgQGaueGU2YlbdDOPj5vcjRZgbC8tm3zZxQ9omvYcXDi
+         xB1pI6bJGoMuTKu37WkNP4tGErBsJVIZnBjisgqpvYrk/cF7dCP66d56rMov1NMAvlKM
+         h85ENOl4S8WOzUZMZUA0MCIy5oGQ0AyLFlKk+AK1WfOvUS1/jSUjI/8rI33VxjXZ+mc3
+         EAY74D0kL7j3CP0Z/HH5p80XtoxuTKyA6lmTbLid4SC68C1wk5YyGkNvgeHQVoZm6sd8
+         b7jA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795699804; x=1796304604;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=DSqP+Zr9m0+4cRuXqQzsW+yKYGuSsncKqOmsGZULKn0=;
-        b=Uomgb8S+qGI5wBF6vXLlTDC0pB51GuAeJT5Z4j8nSpLyWzsxHeBdKqL1ijkDkxKOgx
-         kG30ptvTkHRfIcvhzlH5mLm46fptfUrWZ1Mr/cYeFYoMWrPAsPWC9DxTtvvH5YJhGqXn
-         2Ow8oOygrpu3YNYr7UkP/xQhxB8+J1a5taj21DTaM2nlz+MI8R9gu2A1lfjFz/DYm5e7
-         rAaQ9dQMDCpGjtcOarNby3HiMAy92a/yEYpqoJEGNExjq0dtEkCv1HuQFzW56PsFOFKn
-         vPZGZqSvCc+rJBEhLcaJX2h+IuQg7pkBnnKdF8GPJ1G/XbhAigDmGChs+96hAI7YDUFb
-         MQTw==
-X-Forwarded-Encrypted: i=1; AL+hErFoq3EmPpgMHWZAamABdS1ZS4mglBLzur0NTrtFzLytgb7uRnPs7VQhmlDtn9UlJwJM+cNWfyns/rCG1PM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+9+mktQGPGoF9MnMH0KaYjw5AVh0G0cz3acuxHijVF2qXIBvXc
-	sceA6s1e32XB7mxJXmsup/4yNgAvXESolkCtNMNDwWHdegfVb8ff3rw=
-X-Gm-Gg: AZFdTZcUKXE1JMr/zNR0Mzv+h1Wkse6WNOzUex8zXu8wA7huN2D27K3U1R5hguLEjOs
-	o3igUZtVC5Es3GaalZAdwTIaeLQSNitDwafiZpio1PEJJjNMe6+gyMIQaG67qs1T4l1062drUu0
-	Jz1l5LfFeFlBgpqXQRiRNWylXmNXaKOae9f8dVZlQHDeQEy+k77CjhHYKFbumvCTiPZ4onvDsbD
-	LxQyuZGhg2PR9qglkRmK/GUMR3fattcX9kLZsSMMVj3Ra1uMwM/2gevJbKAeU4WcZgBurzPllr+
-	hq5aL01rf6GXuhAH4qqU/YyCRmrr0rN+A5dsIHSvisdIJ35ZVnSA5iUaBVnWNVC9uW8rFE1JHcp
-	2VbQMqh/KfP8f45+WjodukKnwvNHqeYLORK1sWmkO5Zg4Jqtu/8qFe/vTuxlWy/PCBHXgNthOok
-	7JYJIsh9BJRLBKzy8EE5+2BPJQ4700LtmDrg0Y1enjgVf2YmGlliXync856/15ht+7dmjWZXuDF
-	D5ZFsgaFDaauo1p1ABsuCsFUlhA75+V2WDa+WOfiKDV846fVonLyjxQ/XAPgl1evST+aqktDgJ9
-	DrrisGJLskOwVByqS08qnh1cqIXqU/w3Yx45BwPKzN2+3cFMZ6sFX5qZYs7Cnj3fsapX6cvh0i+
-	qRB1DIuISPAAN
-X-Received: by 2002:a05:693c:39cc:b0:386:48c1:6c5e with SMTP id 5a478bee46e88-38648c1719dmr18979641eec.37.1795699803763;
-        Thu, 26 Nov 2026 05:30:03 -0800 (PST)
-Received: from localhost.localdomain ([2406:3003:2002:639c:a06e:23f:85ed:4cfe])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567cafec4sm71811250eec.26.2026.11.26.05.30.01
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 26 Nov 2026 05:30:03 -0800 (PST)
-From: Yige Jiang <yigejiang86@gmail.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: Yige Jiang <yigejiang86@gmail.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Leo Yan <leo.yan@arm.com>,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] coresight: tpdm: Fix fwnode reference leak on probe failure
-Date: Thu, 26 Nov 2026 21:29:57 +0800
-Message-ID: <rc-b1-20261110-vc-178-2d9055f946c8@gmail.com>
-X-Mailer: git-send-email 2.50.1
+        d=1e100.net; s=20260707; t=1795699835; x=1796304635;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=cpHsV5w2JYbXJ1AFl+wqh6QNZT0CRx63Sll+q8RneTQ=;
+        b=b2HQBlcwzOC+6s5tLA+vWO0MPGvD2jVVPLxFjnNZBA89yZnIYuP/vONvwTDwyuAFE9
+         LcRnAZZ4Sdayyox7Y1DbA5vpdXiyn6jxMWhfILkKFDV+/sgKsy8PE8UYw+HoWfetm0/X
+         eWglN6X6VbFexXc4uoQqoyEN8c/Se/OWy4y9EFal70n8edmwK9Bcz6YYalptTWC7eDIc
+         XFVEAiwjQGYCx6CiGtcCtofswGNPoR+5e43xNyReC/HDVkYkwXZ4apyca2BiDJbLSMZu
+         LqSn6ltfXB3eJ/yD6blcKnQtCquas8+3txzz+TbIDe1i0LlphVAQKFRd6feN2dluflot
+         3Wxw==
+X-Forwarded-Encrypted: i=1; AL+hErGGGMDyUhgC+bI60Nm+askEGUdXLrF41Y7Dj34SC0G3e5zenDtk2r/W1Pwl8//fVipEVVsRJUjNXvoA9e0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8rDl9Gfyz6ROTscfYE73+xJqrdTXXqv1/PNm3hd7tUOafOrFkw
+	8M9jLigfpyhTg6Yp4QY1PPD4avMNGBuYT2nmu1M5txL/z+Mp8AgOh4dDDAiYBub1Nu3pZ3HPI1w
+	HcmMa1l5oVOd4pCikUQ0Y/iS4pAQ0TXWmqYzQ
+X-Gm-Gg: AZFdTZdsBzrvUpk2+gLYQ8VtbhWf4XBJXk6BMMcKZlAIrj9sH3iyvnG5w5yNK9noAYi
+	qbH2S2o+U2Qu+3+dFyfwyAr/Y6DcrobzflpD+wRJGg7lM8fXLeBpDsk3JIh2Ie9PX123hcQbr7V
+	7raxvILnzYLGrE0l6l9IfFxrsgxOyV4xrPR9nQbRSxKG+iEda2qnA7Ls/8shU8lGO+pFLf21u0l
+	RzW4U8gOWN7QGlriM+vZWsXwUpNads7lEHDF4+Cgw7o6pLB+pZhzvvpK08Ckh/ysrLwAv4qF4YP
+	IHkXpKjXiZ+rnC7+My9/JnGBiRqWLYG2BSohhX0LHOA65KgMEbtcpk8wYxzeK/QOLYv+ac2woOH
+	iRkrCjRowjbaBDzFh7N32YJxHmzgX8SpdqQZNqsOz4CQJ64B1yz48S+1M89XkV0Lw6Uof9+uiIr
+	MOTyOq+VXTX/g0THd3kds5Fgq4SAq+uzhAKOXG5W7S8c0X2tJivPI=
+X-Received: by 2002:a05:7300:4721:b0:386:da66:671f with SMTP id
+ 5a478bee46e88-386da66762cmr2781680eec.28.1795699835188; Thu, 26 Nov 2026
+ 05:30:35 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,61 +105,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261115090520.102216-1-clamor95@gmail.com> <20261115090520.102216-2-clamor95@gmail.com>
+ <0670d537-0f9a-43dd-9d48-90272f04f1e2@sirena.org.uk> <20261126122936.GH38590@joneslee-macbookpro.roam.internal>
+ <c0bc9e91-fe8d-4c0c-a6c0-f7c8d4d086a9@sirena.org.uk>
+In-Reply-To: <c0bc9e91-fe8d-4c0c-a6c0-f7c8d4d086a9@sirena.org.uk>
+From: Svyatoslav Ryhel <clamor95@gmail.com>
+Date: Thu, 26 Nov 2026 15:30:22 +0200
+X-Gm-Features: Aa3M54phpO9TY-BjFhMXHRwC2_FlICHLesKqjIioZHRgOyOaeZaLBv9530oQbas
+Message-ID: <CAPVz0n3tpcEteSfU+51_FeJaYYMwz522h968nWHSw2gz6+336g@mail.gmail.com>
+Subject: Re: [PATCH v6 1/3] regulator: dt-bindings: maxim,max8907: Document
+ LED support
+To: Mark Brown <broonie@kernel.org>, Lee Jones <lee@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Pavel Machek <pavel@kernel.org>, Griffin Kroah-Hartman <griffin@kroah.com>, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-leds@vger.kernel.org, mfd@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-coresight_get_platform_data() takes a reference on the fwnode of each
-output connection's destination. These references are not devres
-managed; the core drops them in coresight_release_platform_data(),
-called by coresight_register() on failure and by coresight_unregister().
-tpdm_probe() gets the platform data first and then returns directly
-when the drvdata allocation, the MMIO mapping, the dataset setup or the
-device name allocation fails, so these references are leaked. The nodes
-come from the base DT, so this only leaves their refcounts unbalanced
-unless they are dynamically allocated.
+=D1=87=D1=82, 26 =D0=BB=D0=B8=D1=81=D1=82. 2026=E2=80=AF=D1=80. =D0=BE 15:2=
+4 Mark Brown <broonie@kernel.org> =D0=BF=D0=B8=D1=88=D0=B5:
+>
+> On Thu, Nov 26, 2026 at 12:29:36PM +0000, Lee Jones wrote:
+> > On Sun, 15 Nov 2026, Mark Brown wrote:
+> >
+> > > On Sun, Nov 15, 2026 at 11:05:18AM +0200, Svyatoslav Ryhel wrote:
+> > > > The Maxim MAX8907 PMIC supports a single LED; document it.
+> > >
+> > > Acked-by: Mark Brown <broonie@kernel.org>
+> >
+> > You should just apply this, I think.
+>
+> Well, it doesn't apply so...  :/
 
-Get the platform data just before coresight_register(), after the other
-steps that can fail, as the funnel, replicator and TMC drivers already
-do. Nothing before that point uses it.
-
-Fixes: b3c71626a933 ("Coresight: Add coresight TPDM source driver")
-Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
----
-Based on linux-next next-20261109 (630059a5a632).
-Compile-tested: arm64, GCC 14.2.0, W=1, CONFIG_CORESIGHT=m, CONFIG_CORESIGHT_TPDM=m, CONFIG_COMPILE_TEST=y; baseline and patched coresight-tpdm.o, no new warnings.
-No hardware or runtime test was performed.
-The paths need an allocation failure, an MMIO region already claimed, or a dataset setup failure in tpdm_probe() after the output connections were parsed.
-
- drivers/hwtracing/coresight/coresight-tpdm.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
-index 102b8b7edf87..07e19c1a94b6 100644
---- a/drivers/hwtracing/coresight/coresight-tpdm.c
-+++ b/drivers/hwtracing/coresight/coresight-tpdm.c
-@@ -1404,11 +1404,6 @@ static int tpdm_probe(struct device *dev, struct resource *res)
- 	struct coresight_desc desc = { 0 };
- 	int ret;
- 
--	pdata = coresight_get_platform_data(dev);
--	if (IS_ERR(pdata))
--		return PTR_ERR(pdata);
--	dev->platform_data = pdata;
--
- 	/* driver data*/
- 	drvdata = devm_kzalloc_obj(dev, *drvdata);
- 	if (!drvdata)
-@@ -1444,6 +1439,12 @@ static int tpdm_probe(struct device *dev, struct resource *res)
- 	desc.name = coresight_alloc_device_name("tpdm", dev);
- 	if (!desc.name)
- 		return -ENOMEM;
-+
-+	pdata = coresight_get_platform_data(dev);
-+	if (IS_ERR(pdata))
-+		return PTR_ERR(pdata);
-+	dev->platform_data = pdata;
-+
- 	desc.type = CORESIGHT_DEV_TYPE_SOURCE;
- 	desc.subtype.source_subtype = CORESIGHT_DEV_SUBTYPE_SOURCE_TPDM;
- 	desc.ops = &tpdm_cs_ops;
-
-base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
+Obviously, Lee did not pick up
+https://lore.kernel.org/lkml/20261123150224.199601-1-clamor95@gmail.com/
