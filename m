@@ -1,59 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795656935;
-	b=C4ObEi9wBmbF7eZnYUa/b18fZlMdESn4EancmuXNZ3aa9WrnZ/CteoX4b/onx1z6j1tT
-	 6pHS8MlIMw+E3VaQOStL3hP6KRl3IidflaarCdbQ8SgBZ2PbLyXHwG2ti2fe1hixOS0J6
-	 WoC51qy/YO+dElPNtYlXoHwbgjYthfmz9l8pNwOpf0jC1kU1Tl2yKfnbXNLCuh/vDKta8
-	 2xTP7rI4iOvGKycwV3XAXHvc0hr0fHpigWr13kMRbrbO6hveWKaSeeHEHy2S5ZO2/PfTr
-	 /ChBVaeULgRrtjJf8XXZeOQa052oheqXSvkH7GAUeTh1nGXyZridsQ+td5TCvHKkU3A==
+	t=1795656947;
+	b=ziyVun3iE+Vd10R7hbB93RMDYvGKe3s2LBNr1+zh0v8AYbsuAx6brLXGkaa2s/IASmuH
+	 UmiQKWHZNucq5ARlhnMk0MWjlL1r3rVvuG9FWqJy8F/kSNkdGFCI4HmKeK/IyrLcgFqnr
+	 inFYB6XkYYzBHbgGHsyFgrZ8wD4GA2Oy6a759hAdC1m/P/+fMH4cAjkYTh/WedEsSe4Zx
+	 u0ou8gh8XmmT+qErJ7vVYYreaVLJEOVwwnIlIXDWSKy90TnAf0fCDowfu8ePB6FUP1hnh
+	 XR2hwOSt+4TDMDEGknrttJNFXUKhN0Bg/ErKyVdwOVMf/cwUOKUyARkc1KEPpEEn48Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795656935;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=i+t3krcnrSYsZa5AgyFFMlylA+OGXI+XKMafwE7Z/Lg=;
-	b=uxZgmG/KJjCfLMWohfZCeDo+iZnJ+dgPIKbNFFhzBxEQJyyvaNjfWnCnqMVtPG/H2g4J
-	 EtIjlx0mV6xoIcXDU9Y5QC9hfLPfnIHv/n2lfuUCQo0SORnqYV3divbdfWoqYO8tN+Uun
-	 f6H0LcJJGBX2rM/RCQuvXL1XtZUQMz6mVPw9eJWdBmLGObU2NZZd7TN7gY6BJ9ezTI71+
-	 icSjcwQYkI7FpvGRGx+Q4EL6WTvMdM/4LVT4M34qvNeJt1W2pweTpvOZ6My268BuX0YdX
-	 sA6GpZ9nWaJhpJO3/5RK4mbGxhcuhMostAlQYAMPeig50k4nJpfg854alOL1Kv/5eGA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795656947;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=KlCKwLKEIcdcb9Z/f+8gfIqoz04BE7KsEMO27vlUrI4=;
+	b=t7AJS78X9uQGrsI+YoVD7TaJOsRgZMmcgob5+ta0bmbchFq5fZnxOov30PuI5XtYDHB/
+	 poTM6x0leI+nKttVjsxFWjY/MdVBvjH83eJPONvilVemw0YmEyCCfn/dlEdpS/1C6QZ5c
+	 Q/EvwF6ZMTlrMdW1zcMZdGGssOb+Kbjsqc/88nJS2cn+yHwuVaOor8K8Lu4zCp0I8gISY
+	 uuv4kfPJ5WPTajs3sK4k0uwsVNNrP+qlkKfJSYiUw/tfnqyETPzwn2W/B0vC7i3J4t8WX
+	 Xa9IPbIoSUAzoV+vdWsV7xFlvbxZQd5zefFewsO0vee4jRMsWOtC3A2sXhGIMf+KtKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RY0qDRz9;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XYfy5cax;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04F2F606A327;
-	Thu, 26 Nov 2026 01:35:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54D1A606A321;
+	Thu, 26 Nov 2026 01:35:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RY0qDRz9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9A371F000C0;
-	Thu, 26 Nov 2026 01:35:31 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XYfy5cax
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D34B1F000CA;
+	Thu, 26 Nov 2026 01:35:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795656934;
-	bh=i+t3krcnrSYsZa5AgyFFMlylA+OGXI+XKMafwE7Z/Lg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=RY0qDRz92XwftN8jwUG1FGkMah/MuCM+qbBLbTir/QPXAqUMB2N91eHWfuKF0P5SP
-	 GNZ5ltx/1uBdC8ZxWMMwp4svktXC8HnTW7/dDOjTSLnaCrqOTOJ+GRdokzoM96IdSN
-	 JdnWomiPk1lu/TOTnEF5Ual1TvAMBppMghCXIvcb6tLDlPwMbvttn4Dc9HalkyXyqW
-	 730+MDAJ40W/aWceh5T6SVaRbtH8YpX8AeRct+yM0pspWsvmwRITHDuBFVtUVevUzZ
-	 8lYb0KKjMWcYlAHInTyXuo+iNe7vWYH45USpzWQv7xNRHFefS73atnRReqKZsL8Zsx
-	 1gFxwXdX4yUig==
-Date: Thu, 26 Nov 2026 01:35:27 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Ilia Snezhkov via B4 Relay <devnull+iasnezhkov.gmail.com@kernel.org>
-Cc: iasnezhkov@gmail.com, dlechner@baylibre.com, nuno.sa@analog.com,
- andy@kernel.org, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, linux-iio@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] iio: adc: mt6359: divide scale by ADC resolution
-Message-ID: <20261126013527.15aa8cd6@jic23-hlaptop>
-In-Reply-To: <20261126005326.71926-2-iasnezhkov@gmail.com>
-References: <20261126005326.71926-1-iasnezhkov@gmail.com>
-	<20261126005326.71926-2-iasnezhkov@gmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1795656946;
+	bh=KlCKwLKEIcdcb9Z/f+8gfIqoz04BE7KsEMO27vlUrI4=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=XYfy5caxq3RMNo1qeo42I+ipEYGFPTHFY7Gwp0AoIicX40avZUdTc8Q+vdEo/FGYp
+	 KI5cMldPRejYL3GbC/JbpKzJcI24AbKn3CQFJiPQB6TSeOHoy0ZyMkeUFSVTEdBcpn
+	 +BAc6rZzWf0lpXJOqLDGJ/bHvQYECvN6YxelIYAN+F02G9RTV25MqexeeF/HdwL3H9
+	 s7S+Mmuh78tfYrwigWIimmNqF3/tkALhjae6pqmo1ggyD4gP4akB7Aw6FuU1KwkyUY
+	 9IW4R6dQNre4WFOhHneXKl1um1EUTvmyQ4hhxUFNoyslbxuZM0ROhuGJDnZSK7857G
+	 yZt92/mTduVwA==
+Message-ID: <sashiko-outbox-234565@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v11 25/43] sched/deadline: Count the 0-lag time from the
+ next period
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
+In-Reply-To: <1d535c0c45a21d94ebadfce2883ce8d8b6789c44.1795646914.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795646914.git.mathieu.desnoyers@efficios.com>
+ <1d535c0c45a21d94ebadfce2883ce8d8b6789c44.1795646914.git.mathieu.desnoyers@efficios.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 26 Nov 2026 01:35:46 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,63 +60,52 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
 
-On Thu, 26 Nov 2026 00:53:27 +0000
-Ilia Snezhkov via B4 Relay <devnull+iasnezhkov.gmail.com@kernel.org> wrote:
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue to consider:
+- [Medium] sched/deadline: dl_time_to_zerolag() miscomputes 0-lag when
+  deadline is 0
+--
 
-> From: Ilia Snezhkov <iasnezhkov@gmail.com>
-> 
-> mt6359_auxadc_read_raw() returns raw ADC counts for IIO_CHAN_INFO_RAW
-> (12-bit or 15-bit depending on the channel), and returns only
-> (r_ratio.numerator * vref_mV) / r_ratio.denominator for
-> IIO_CHAN_INFO_SCALE without dividing by the ADC full-scale range
-> (1 << chan->scan_type.realbits).
-> 
-> As a result, iio_read_channel_processed() and userspace consumers
-> multiplying raw * scale obtain millivolt values that are 4096x (12-bit)
-> or 32768x (15-bit) too large.
-> 
-> Include the 1 << chan->scan_type.realbits divisor in
-> IIO_CHAN_INFO_SCALE: shift r_ratio.denominator left by realbits for
-> IIO_VAL_FRACTIONAL when denominator > 1 (r_ratio.denominator is u8 and
-> realbits is at most 15, so the result fits comfortably in int), and
-> return IIO_VAL_FRACTIONAL_LOG2 with realbits otherwise so channels with
-> denominator == 1 use an exact shift and unpopulated descriptors (such
-> as MT6357 VDCXO where denominator == 0) cannot trigger division by zero.
-> 
-> Found and drafted with an AI coding assistant.
+commit 03d5dc8d2f6d0b382a7bed954bd1379667e09042
+Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 
-This details now belongs below the ---
-The idea is we won't care much about that going forwards, so let us not
-put it in the commit log.
+sched/deadline: Count the 0-lag time from the next period
 
-> 
-> Fixes: 3587914bf61d ("iio: adc: Add support for MediaTek MT6357/8/9 Auxiliary ADC")
-> Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
-> ---
->  drivers/iio/adc/mt6359-auxadc.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/iio/adc/mt6359-auxadc.c b/drivers/iio/adc/mt6359-auxadc.c
-> index 88b0e26..54c9048 100644
-> --- a/drivers/iio/adc/mt6359-auxadc.c
-> +++ b/drivers/iio/adc/mt6359-auxadc.c
-> @@ -772,11 +772,12 @@ static int mt6359_auxadc_read_raw(struct iio_dev *indio_dev,
->  		*val = desc->r_ratio.numerator * cinfo->vref_mV;
->  
->  		if (desc->r_ratio.denominator > 1) {
-> -			*val2 = desc->r_ratio.denominator;
-> +			*val2 = (int)desc->r_ratio.denominator << chan->scan_type.realbits;
->  			return IIO_VAL_FRACTIONAL;
->  		}
->  
-> -		return IIO_VAL_INT;
-> +		*val2 = chan->scan_type.realbits;
-> +		return IIO_VAL_FRACTIONAL_LOG2;
->  	}
->  
->  	scoped_guard(mutex, &adc_dev->lock) {
+This commit computes a deadline entity's 0-lag time relative to
+dl_next_period(dl_se) rather than dl_se->deadline so that tasks with
+constrained deadlines do not reach their 0-lag time prematurely.
 
+> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+> index 74b3c6b967eee..1d2dcf478f95d 100644
+> --- a/kernel/sched/deadline.c
+> +++ b/kernel/sched/deadline.c
+[ ... ]
+> @@ -633,12 +637,12 @@ static unsigned int dl_task_root_domain_cpu(struct =
+task_struct *p);
+>   */
+>  static s64 dl_time_to_zerolag(struct sched_dl_entity *dl_se, struct rq *=
+rq)
+>  {
+> -	/* Time to the deadline. Negative if the deadline has passed. */
+> -	s64 left =3D dl_se->deadline - rq_clock(rq);
+> +	/* Time to the next period. Negative if it has started. */
+> +	s64 left =3D dl_next_period(dl_se) - rq_clock(rq);
+
+[Severity: Medium]
+Can dl_time_to_zerolag() return a positive delay when dl_se->deadline is 0?
+
+If a sleeping task with no active period (dl_se->deadline =3D=3D 0 and
+dl_se->runtime =3D=3D 0) is switched into SCHED_DEADLINE with a constrained
+deadline (dl_deadline < dl_period) and then switched back out while still
+asleep, switched_from_dl() -> task_non_contending() calls
+dl_time_to_zerolag().  Previously, dl_se->deadline - rq_clock(rq) was
+negative and the bandwidth was released immediately.  With dl_next_period(),
+0 - dl_deadline + dl_period evaluates to dl_period - dl_deadline; whenever
+rq_clock(rq) is smaller than that difference, left is non-negative and
+inactive_timer is armed, holding the task's bandwidth in root-domain
+total_bw and causing subsequent admission checks to fail with -EBUSY.
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795646914.gi=
+t.mathieu.desnoyers@efficios.com?part=3D25
