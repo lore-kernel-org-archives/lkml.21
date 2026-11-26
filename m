@@ -1,85 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795707104;
-	b=MP10QJo2ZJ5frrEGbvgi+3xPlJmQBtFh4NoWt8Za7MFJUex6FG4YMzFNTVtHI0G+VoL3
-	 boAN+ZXKDy+pPR0/WPJ2Nsca79bHHXP57fVe0Z5swK9Byw/Q3lbmJrEiHnhqZuK0YUZDX
-	 BaB/2GxAp36ev57Kb+kK6B+Tam2OUVkT+gQx368TXpz9UiPz/MdyoIr488Y1h3M9Wy22W
-	 EL+hsrm5r3f62Pt72nrqCHAmas0seXDCCyT7U4Jpw3BrRYK+M4rhYEwAiGYRH2ScjVnQD
-	 hUqYXZZjDcR97IX9m61dGpUJF7j/6hW8WUP69VMKWhSCYi/cUrny7s3Q0XG/6E6hVIw==
+	t=1795707105;
+	b=UXegYYMrd4885MuGn9Dz3eAt73lNyHKmCEGoSQGuB2hH2TdaHJNIphRJcE+q6cO6wXVZ
+	 +VzRcJfQPj9ssBdS3cvaa92vfiGp177bgNFOG69CCLqtA3+5WiSrV6azABDO0yXE2us3G
+	 QTKRhD2i/qr16oNnZ4O+FHfea3dGkhFeGpgPpa7iCh/eAn2MpWojngV0hsos1c/MXHzbl
+	 ssxO0gwn3FFli7fLlh82qz2l7e4zHDrU0qSAM45fHXIGVuSNfgfzfxIBDl4mcVxFz9iU8
+	 chive7zJMG/wpwebE+l/rhJ5/uiIdu7aCR30yp0Cgs1eqHRwkN+3nhCZmSSLjFJRNgg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795707104;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
-	bh=CNCCU62jDJl9wNoG3rW1B0EyVBtl7xnr4/sj56FZ3Ck=;
-	b=lNdfm6SRqRMj2NymfRvkKD0+VLYbxrmEx4ZBqpY7MQNqv7IEn74P7CbFHGaxGLFwPLBG
-	 4uqBsgPTre5P6m9RQrpxUj9g97hIPVa71JcMcxVASm/todexuqpm89IDt3zZnncpFsKPO
-	 6wwOhzyhKxn/ptUzlktly4gMzarpqCkoaMOivlCO5RQqTK1ajafWSbCTac69dxofP5aBa
-	 YCh2jivjCn/o/yZUEKbfRhj55dIg6eZqO1NX7rMBXxCgYIqg7aE/qdq1i0EdC0GrcrK2t
-	 yMy6d6us1iVjjVcpopC4l/aXGKED+zFC61JctDYuNK9hfN5qbp6yv/OU+DcAtJZR8Hw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795707105;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
+	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=VTt6jbaht2zGBYKNI2lpBkMP4t0i6MoEcGFYwP5l2hs=;
+	b=2xPgN3EB9H2XcyKGiFqYQN7xB88hOIiWUACaLYpZVl54TxLPrdYhCswKysEjICUNz/HT
+	 NJgClLSeXJW4I8DtxxV/XBupGc7zRxB/2Ar7MW6MmYKlJ46l1k9B1yNOq0ky5TAGDfdmf
+	 zEXcicvFivKZLmXaVbrcG6iPbvzHITZtlKxLN0gLOlLUlDSpxDHnN5ufYOCITnM/Kjkqu
+	 MZduJ3j1NOVL6RMzEtlofG9MmxAn7UCkyeL9D7Z3BMDUZ3anvRMKIFlrt5kCmzedUyqtJ
+	 yqj6w219lapm+ULcOm9NkyOs3WxhMIjmBwZrfjYZhrpBfeHUSHWQNlN+wrUZH83Ty4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=mG3JMuiu;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	dmarc=fail header.from=linux-m68k.org;
+	spf=pass smtp.mailfrom=gmail.com;
+	arc=none smtp.remote-ip=209.85.222.179
+Received: from mail-qk1-f179.google.com (mail-qk1-f179.google.com [209.85.222.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 579CF606A327
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C12C5606A32E
 	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:31:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 579CF606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=mG3JMuiu
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4bb9d8e8e90so42772575e9.3
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C12C5606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Received: by mail-qk1-f179.google.com with SMTP id af79cd13be357-945e6d9ceeaso614682385a.0
         for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:31:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795707103; x=1796311903; darn=vger.kernel.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=CNCCU62jDJl9wNoG3rW1B0EyVBtl7xnr4/sj56FZ3Ck=;
-        b=mG3JMuiuTh0qJHEgtqlWO1QzHe5cXadqiY6ZbiCRf+9Y8OuZWFJTbOjRFCdDV0FHiF
-         yo0/VV2mjXJounpOzQuaQcP0fXNpVw+6YBwUaLe2xUfdvyGWUvICyeR59pkYmRVfcA6+
-         kgkjGNxQTU3tC6HVXAulQUDLlerh4h/dQEl+qmJ/CJcHfWqcNJ4UzNOqdrqy7UyKy0QY
-         FsZmLJSYWdagR2ZBAcO18fcAR84OutmANWh4TbzudwM3ILZwz8UMw31C9GKoSq278m2C
-         48fpAArBX7F7UrlFa8Y5fM9pkq82TnCqjs6LqjApE60izruG0XhF9XZKgVA1peF9ozW3
-         NpWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795707103; x=1796311903;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=CNCCU62jDJl9wNoG3rW1B0EyVBtl7xnr4/sj56FZ3Ck=;
-        b=R7HoYZSyoIfoaWbjfADMg0FYSUJsB8f0JyX2eY5jAAuZJZvZfoAHrJbZhQ3U8gc6ZG
-         WMymm9oD1/o5lKMgua4XZG8qhkVCtSv0pQsnoW8DRHQIHe8eTpxhbFS1e5XVavuV9ki3
-         QLfu/3Q0fTZQx3YgOZQVeUflbKk0besFIF01VFn0nxvpmPJMkqyU0K/UZnUppwQM/5be
-         PzawSMalCGPlGrUa87dNkessLUPsXUoHamYjodnoRC6LXRDwoaevTIsl5dhjGm5mXcUb
-         pY+FiXmQUxS9tcp5MaGcJqtUb+JiOEYTXQp7U92SQuGEhyv9KzDoz8ICVrARyfJoBGLQ
-         EMAw==
-X-Forwarded-Encrypted: i=1; AL+hErEda9d/wsDYSjfhchF616o6LYjidnz++9qNaeuPlmCddObS3dDAEYrLw7MIAjsQXxL9C7NLMZL1bmdq+pc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+g4FRAk0/FEwk4eg9To193DUlgkMmDBmcuaWcl3lkkcLE84YCI
-	mm09bXLlkRqdJxJWXyI9cGxo+NcC0aksTo8vuKQAcY4oOf5nHUNfbx5+1Oe2HMFsmPA=
-X-Gm-Gg: AZFdTZcTQSGZxR+TMrA+sJTkKFY+u4aIvbnBi1vxM8agF0+IJB6j/qW21sG0bvz36iX
-	hA6lrJkTrLqH6mgfMkI49Y4HyadUZBRs8zk2s+Xpthh5WDaxPPaDawJrOiHSibPzuNLdAUiuAWq
-	u7PkRh5cwbUfvFaBc5Z/awce67u6kcRzNBbE14MxKGE87oZbeTPsi0aH74/8euPGytCrzWBJYn5
-	Ja30Eiblz3f+qF0+J5nH6QxItuG6I73FH3UKL7eVPdayhtHlewhWhepaeGvXwRgD8M4KOec8ZhP
-	Pgnx2RtDTrySC+alPrOY/boOqjLC6qwqHUL9fYpi/iv98ZTMzbABqAROlnZX3FUHuGeKRqdKuLW
-	ZcmSKHt82Xe5B1+N4Ca0sLlySDljZd9swQA4xijGLBT7tAl5BAFzrO5KCNWIAPVPuO0hmnq/3jP
-	9fdi3LAbex+y7qCoxxSlG+/J4SttD64h9aHAcutMrc6wOf/+BqhxQOTV+ZxfwNwmayr7EH1kCYN
-	oJ8aIKmQZ/0cYNH5rNDxxFn9aXiUe75SM0W+BHmbtYQKS62HX59+mOF25G3NZOiV13XPZenWrYR
-	zvs3sqjjn3koHfBKmMInlVJEKvsbldTsA6VOeAW5UzZL0p86jaQ3mkrWfA1S1kLxo3BT63N/RCx
-	MPI+NgWEub1CdcQ0xckw=
-X-Received: by 2002:a05:600c:4753:b0:4a1:cfa7:e968 with SMTP id 5b1f17b1804b1-4bb8880c73emr448397385e9.21.1795707102651;
-        Thu, 26 Nov 2026 07:31:42 -0800 (PST)
-Received: from localhost ([2a00:2381:fd67:101:11a1:dfac:b1c2:1000])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853c9170sm678687845e9.14.2026.11.26.07.31.41
+        bh=VTt6jbaht2zGBYKNI2lpBkMP4t0i6MoEcGFYwP5l2hs=;
+        b=ASF7cva8oYSrO34hwyODxFfl+BfXCL/zGZjre4IK/Ezs3uFB46xeVpQWZF68MdzL1G
+         dxJUhZ/DQEVSmxUc0g8JMBUPHcBhwlHKQivjNXCUGfoqpwNQ5SA69XEzM0PN132zgkYa
+         jlUeZsYdaBOevz466bIm8upk/3SBdPH4qNAkDXC76cRy0T6G79g26mFHmqdeGMEVmlbr
+         CY2DoI41UxGgSVrad1zlfiiRl46R2TgrPSeBnBi5FQ80Np5zNB0FtKR/B9jUZ7qNEK78
+         GPuPQnkDF6HgaOMwI2o1O0p7koE/bX7NQ63y6IPMjkiqYDoN6Lo04Zw80na2+dK8jf/I
+         PX1Q==
+X-Forwarded-Encrypted: i=1; AL+hErHYgchAtPDeed1FEPszxGbnS57v2kOEkb2qM7fmSC+hUXFKHdQYNnJgX6qiV3tU/LAiGtKI4zxAaLaOe9U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8eCYWpvp5dbH6zPwcJyayrqlgGZ0tBimY4LZaJ4NJInlbGCzoX
+	XMqhg1eKDrmWxGI0AIVCFcGfVbJfLtYecrtD8OWICgMiSgCFgoBdj8RspiI4gI41
+X-Gm-Gg: AZFdTZdPlM/57FBAzvgJQ4FRrZSBAFFqRlTdPO5JgCWyTYLrm4FnRgR9aIWDZXMbO+T
+	ndMP4HWzAjzlaM9DZyxeqweyOE3KkWtD3ElR6FMj478n6DC0zhGcKJ2dKwLhLQvgL1GbgStu9XO
+	69HmHLNvbceSVEmLukDSXdGfSoePpSBIwRmzQxG9eRLOI9gfa9NUx9AlRkdNj+3LoNOsCzRMC30
+	GATJcQvdMKSigsP2ter+hDJ+sAgZ4T47z5Em1s5A3RRgqkyiA0xGJqdm+Xh658XrwW+hNQmHgwj
+	1FncqbALqoYu4e0feLyerC3tagDVfw07yaKZCSakVhOrTGtX3GumStPQpy/xcWq/1i+CBVx9zEg
+	LO/gE00yHtxqQI/oEzgTvWc1G3AIWxNG3tlPKEUGb4zFJU7o0Psljb5rNJes4Umuq8cMHu/rRe8
+	DILl7LxP41zmK5q6xI9izbGYlBcUBZzL7kuK4U5+X498RdnaX6gml24TAG0TBej0DdPuRd4zI/x
+	186Ey0LoIHWtyoLqw40OrMv1xzI7eaCWQfvcBJ8nHvDwcM6v6gtOsYQb4ZKngc821SVgk/Kac6P
+	AoM4Hf8c3AViK8FT7siErLnRXVSsviI3XJpbboyq+hRnQq1y/f6gxpobGRXvtL45kNs=
+X-Received: by 2002:a05:620a:2913:b0:93e:7939:acd0 with SMTP id af79cd13be357-949ba9a9b03mr4006737685a.37.1795707103390;
+        Thu, 26 Nov 2026 07:31:43 -0800 (PST)
+Received: from mail-ua1-f53.google.com (mail-ua1-f53.google.com. [209.85.222.53])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb031617sm1583165485a.1.2026.11.26.07.31.42
+        for <linux-kernel@vger.kernel.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
         Thu, 26 Nov 2026 07:31:42 -0800 (PST)
+Received: by mail-ua1-f53.google.com with SMTP id a1e0cc1a2514c-99c042cee7dso3741967241.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:31:42 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErH30k7iGdmNFplYqLJ9cnIbQey+ez2RMwQyRFaLXmpdUAvqq5+v15yUwIGDLoT5wJBypqqPb3EDObHeKMQ=@vger.kernel.org
+X-Received: by 2002:a05:6122:1352:b0:5ea:d247:adb0 with SMTP id
+ 71dfb90a1353d-5ee8aec0273mr12525476e0c.4.1795707102063; Thu, 26 Nov 2026
+ 07:31:42 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,82 +80,97 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
+MIME-Version: 1.0
+References: <20261110080727.2377040-1-niklas.soderlund+renesas@ragnatech.se>
+ <20261110080727.2377040-4-niklas.soderlund+renesas@ragnatech.se>
+ <CAMuHMdWpZfsaJOcTEBCugyDgKDXNRje68n59OrGFx-0hJXG+4Q@mail.gmail.com> <20261126151633.GO3898744@ragnatech.se>
+In-Reply-To: <20261126151633.GO3898744@ragnatech.se>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 26 Nov 2026 16:31:30 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdWS=HmLkWJayNjWiuaWaCEsq=TZe3Z2d955FiqiT3R0LA@mail.gmail.com>
+X-Gm-Features: Aa3M54pKeTC5hUFcgZHzefDJuLY0GDmu_UJnMCzuy7g_xoL8fTHhTprfIbzhyhc
+Message-ID: <CAMuHMdWS=HmLkWJayNjWiuaWaCEsq=TZe3Z2d955FiqiT3R0LA@mail.gmail.com>
+Subject: Re: [PATCH net-next v8 3/3] arm64: dts: renesas: r8a779g0: Add gPTP node
+To: =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, Richard Cochran <richardcochran@gmail.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "DavidS. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Vadim Fedorenko <vadim.fedorenko@linux.dev>, Sergey Shtylyov <sergei.shtylyov@gmail.com>, 
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 26 Nov 2026 15:31:41 +0000
-Message-Id: <DN591I26AVUH.11MO49ZCF9V8U@linaro.org>
-Cc: <bzolnier@gmail.com>, <krzk@kernel.org>, <rafael@kernel.org>,
- <daniel.lezcano@kernel.org>, <lukasz.luba@arm.com>,
- <linux-kernel@vger.kernel.org>, <linux-samsung-soc@vger.kernel.org>,
- <linux-pm@vger.kernel.org>
-Subject: Re: [PATCHv3] thermal/drivers/samsung/acpm-tmu: Fix spurious CPU
- throttling
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: "Christian Loehle" <christian.loehle@arm.com>,
- <tudor.ambarus@linaro.org>
-X-Mailer: aerc 0.20.0
-References: <20261125173959.2198116-1-christian.loehle@arm.com>
- <CANgGJDp02H7-wLv6DoaPMeiy4UvDUC2nvSR=+mngEZ+Z4Hqgog@mail.gmail.com>
- <2162b02c-642a-446c-973e-ca80607da294@arm.com>
-In-Reply-To: <2162b02c-642a-446c-973e-ca80607da294@arm.com>
 
-On Thu Nov 26, 2026 at 10:50 AM GMT, Christian Loehle wrote:
-> On 11/26/26 09:16, Alexey Klimov wrote:
->> Hi Christian, Tudor,
->>=20
->> On Wed, 25 Nov 2026 at 17:40, Christian Loehle <christian.loehle@arm.com=
-> wrote:
->>>
->>> acpm_tmu_set_trips() supplies two thresholds, but the ACPM command writ=
-es
->>> all eight slots, zero-filling the rest. On GS101, slot 7 limits CPU clo=
-cks
->>> independently of its interrupt mask. Setting it to 0 C limits all three
->>> clusters to about 200 MHz while cpufreq reports the requested frequenci=
-es.
->>> This was found through trial and error while tracking EAS regressions.
->>=20
->> Cpufreq reports the requested frequencies =E2=80=94 are these cached val=
-ues
->> being reported?
->> Or is this what the kernel gets via the ACPM call?
+Hi Niklas,
+
+On Thu, 26 Nov 2026 at 16:17, Niklas S=C3=B6derlund
+<niklas.soderlund+renesas@ragnatech.se> wrote:
+> On 2026-11-26 14:33:17 +0100, Geert Uytterhoeven wrote:
+> > On Tue, 10 Nov 2026 at 09:10, Niklas S=C3=B6derlund
+> > <niklas.soderlund+renesas@ragnatech.se> wrote:
+> > > The gPTP module is shared between the RAVB and RTSN Ethernet devices =
+on
+> > > the SoC.
+> > >
+> > > Signed-off-by: Niklas S=C3=B6derlund <niklas.soderlund+renesas@ragnat=
+ech.se>
+> >
+> > Thanks for your patch!
+> >
+> > > --- a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
+> > > +++ b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
+> > > @@ -606,6 +606,15 @@ mfis: system-controller@e6260000 {
+> > >                         status =3D "disabled";
+> > >                 };
+> > >
+> > > +               gptp: ptp@e6449000 {
+> > > +                       compatible =3D "renesas,r8a779g0-gptp", "rene=
+sas,rcar-gen4-gptp";
+> > > +                       reg =3D <0 0xe6449000 0 0x500>;
+> >
+> > Can you please remind me again where I can find this base address in
+> > the documentation?
 >
-> Requested frequencies are reported. The 200MHz I only deduced from PMU co=
-unters.
+> It's very well hidden. The gPTP device itself is only described in the
+> attached files to the datasheet, but it does not describe how it is
+> wired into the V4H.
 >
->>=20
->>> Program slot 7 from the lowest active hot trip so hardware throttling c=
-an
->>> precede the critical trip's system shutdown. Cache the low/high window =
-and
->>> update the hot limit from set_trip_temp(), because the thermal core ski=
-ps
->>> set_trips() when that window is unchanged.
->>=20
->> FWIW, Exynos850 control register for TMU has bits to enabled/disable
->> such behaviour (and it probably works).
->> Maybe gs101 also has it.
->> But it seems that cpufreq scaling feature itself is explicitly enabled.
+> For the longest time I assumed each RAVB (and RTSN/RSWITCH) had its own
+> gPTP device as it where on Gen3. I got feedback from Renesas this is not
+> the case and there is only a single device on Gen4 which is shared
+> between all users. That is RTSN and RAVB on V4H and RWSITCH and RAVB on
+> S4. To make it even more fun the gPTP device uses the same clock and
+> reset as RTSN on V4H and RSWITCH on S4.
 >
-> Thanks for the hint Alexey!
-> THERM_TRIP_EN is bit12 on Exynos850, clearing that on gs101 still stays o=
-n 200MHz
-> for me. The downstream driver doesn't define it either.
-> Clearing bit16, i.e. 0x09003 instead of 0x19003 does indeed remove the th=
-rottling
-> even with all zeroes in slot7.
-> I would probably still go with $SUBJECT, as I'd say the risk of this havi=
-ng unwanted
-> side effects is lower IMHO, but I'm also happy with either.
+> I got final confirmation of the address itself from the address map in
+> 002_R-CarV4H_Address_Map_D_r1p30.xlsx.
 
-Sure, no objections about the patch here!
+Thanks, found it!
 
-I just thought that for exynos850 we might need to initialise it manually
-since we rely there less on ACPM and what bootloader leaves for kernel.
+> > The size looks too small to me, though, as there are registers at offse=
+ts
+> > 0x500 - 0x788.
+>
+> You are correct, it should be 0x1000. I will send a new version in a few
+> days in case you have feedback from the question above.
 
-Thanks for checking.
+I can fix that while applying, no need to resend.
 
-Best regards,
-Alexey
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v7.5.
 
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
