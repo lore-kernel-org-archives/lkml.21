@@ -1,77 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795696079;
-	b=XajKpDwYqLUNJNEE/SCfaQ7WzpM0v9u9MFe6t0nVZ1R+A3WsokcRmJmYrOKS3AFEN/6g
-	 LddTeCCilGUBvKpwsv2lWopNl9QZVBJzFmcv7Tb9SyWSCs0A+u6rM0+fvkpkrjDNnwupr
-	 edzcVX7usJfubrvGuLu7IQwUyvgLmMqhro5UHihbOXBP81vA+H7wnpprMeb6O0HcQLHkH
-	 fe8p5BszEBvyQ3c8Ygq3XWl5VovYSQAf03WVyYLI1q6Ty6O+kgthe9NmCnLYr0RIObGSt
-	 tB6pytPW1QcCKFPrdff0/Bj51eSSzJb6OAHqvryE/tx15k586nz2BfPWtu4oEQ/o9Fg==
+	t=1795696102;
+	b=Lm47Q4PK0am4qOq2zEt9OMY5x9/MhLez2MBIwsQLykrTNlCYxlydnmjR4dDGcJkdYV7M
+	 vZiA41mnWhZcBXsjy6NKaUGQIn6C7XpumpFU5Db6FNpGj7rDPzjHJSMoM/OeKv8tqfLX8
+	 xifNwFFNqsIviTvL3KnkB0f32tCUiCFWP8tZVHOWhRCL8hQUnGJkj9CwaKfsOzbppM77W
+	 CU29VDluZ5fVgDHb5NPCMJL6XijS4vNyV7wjqsaJwv3oT+TL1jONPXdlQFKrzZA2VFHzx
+	 RKVnHhVlgEbzIx20p89YsmpGJIRluxCom9iTPLc+SocRThfHshgR0QupbKT4yGmoPxw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795696079;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795696102;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
 	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=Pp5rk/qh54GKQJ0E3WMEabU8snT7wc6IwafEvL/lrSM=;
-	b=rTGlPDo39nZECGXW6KQ5R5xG48MRYgUV7jZg2kVLp3y66ALGMRvN5/ga+cuH1ik6h7Os
-	 YI2cDUsVS6hiOLRDYN2ZQWt/9K1nxEEGemY7p2Ed7zrdqerB0b7B4gnLaWWbFiV6klFIE
-	 mSKG88/5CwWB0vF0Md8Wt9GlVKADZR0PFHD+3ZIpQ56nIGtDElwoSEz3Wn9j8vxkwe5ST
-	 7zpo9XNjqv0dwUldQRpqWrlFPUTSfDuxDItSFk7x70e2D/wPIAaYpfpmD66FL9Y9WUGy1
-	 mbWrELPl3se7wAlQgPuoWLpOQigbnp4lvKpsoJD82YnrsgPcUmjp4iJK0bAidU4THBA==
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
+	bh=ArlvmEMGN27jBhN3Cy984yIjnWKIqYZFJD4/EaUdqjQ=;
+	b=AWsAQIbAWJHom9Zb4vdGdXHTTVd6oK+54OSyuGM8CU890bxosBRrtDjFXfGEedAS9viE
+	 13faRnKckPMKUKdUuh1VbqyjarzvWqjBMA98qMn45b4mZwNC4VEzSTamdM6tq50ndDhKn
+	 WcjrLDq7CFYa0t3slLoOwN0eRwBxoGxQ+ZqBwueVAHCr/Rs3LpwY8emQLWQj0efyfnbGk
+	 yvCtfmdl2cjzmusv7PeKfMg8dS2apTBiGJf3hvulTPr8KGHgQG9SEP8X1PK4rznzmWrsH
+	 yRdiav6e3ixgX93qPaXc8tjOWmazVgbz3eSVSUmYvc4Y4BCKpyILE+qxJmE0ywZee+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=gmQWy2CA;
-	arc=none smtp.remote-ip=90.155.50.34
-Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCDC1606A31E;
-	Thu, 26 Nov 2026 12:27:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DCDC1606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=AfzYxK3P;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 88E62606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:28:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88E62606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=gmQWy2CA
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Pp5rk/qh54GKQJ0E3WMEabU8snT7wc6IwafEvL/lrSM=; b=gmQWy2CAop8sfj/0usbBQUuucN
-	s1B2/e/BjrJ+pfDlF0XUTz2GNUxjdFYJHCyrHWoDOhJ6W2ol+tn6U2Wa2+jPFga/UN2Pg5q0N6v3f
-	WcZdFoays6NXz1/mLF+dRWCkR++2qVr4mLTnBGsr0bggvr3rUMeDQQb/0A6N16bf0mEUGOMbOU6sP
-	IgiWVlagn6CxTlUW1kAsoGWMJy5osZyHkC2rxoT9inoaErm0gp6uh/sIDuN8PtGleoZ1vIj3Ikfh7
-	t/iPc7zY78KPBUh8zaltlahe0TjtE3WIJnIhapuV/bk6N3nyVZIJlF8YXZFLopwOIe9dvaaKLmIcA
-	MrHIhUBw==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWYZu-000000036CH-0BQo;
-	Thu, 26 Nov 2026 12:27:54 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id EAD8A302186; Thu, 26 Nov 2026 13:27:52 +0100 (CET)
-Date: Thu, 26 Nov 2026 13:27:52 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, stable@vger.kernel.org
-Subject: Re: [PATCH v3] sched/topology: Avoid unsequenced accesses to jiffies
- in sd_init()
-Message-ID: <20261126122752.GB83911@noisy.programming.kicks-ass.net>
-References: <20261125-topology-wunsequenced-v3-1-efa3db7e0bf8@kernel.org>
- <20261125094643.GY2668804@noisy.programming.kicks-ass.net>
- <CAKwvOdmyGdn4ES6Ku+Yovd7a5imzmtmYtd7KB=OMCqKpv1X8rg@mail.gmail.com>
- <20261125200311.GA3625068@ax162>
- <20261126115032.GE49833@noisy.programming.kicks-ass.net>
- <20261126120809.GA83911@noisy.programming.kicks-ass.net>
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=AfzYxK3P
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E21AF1C2B;
+	Thu, 26 Nov 2026 04:28:17 -0800 (PST)
+Received: from e142392.arm.com (e142392.arm.com [10.2.213.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 882243F86C;
+	Thu, 26 Nov 2026 04:28:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795696100; bh=HCbX/IbazWKscucgT5cWE9fT0tX8wPV3R692kWKmp2g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AfzYxK3Pjv7BE1onmPbYnITfBJtYkGApfxkf84coUMyq/ikkSSiuok7/U26301SFW
+	 4sgz+Z6fwGvMaNz1l5c0tmQebjLImimHCBuVkQapkeHXNXbIF7VniC/jMIwmVXaEbH
+	 UIHBj6Yssf3HCc7Iz8RIoCy4IjyPIgw6tE13W0aM=
+Date: Thu, 26 Nov 2026 12:28:13 +0000
+From: Kristina =?utf-8?Q?Mart=C5=A1enko?= <kristina.martsenko@arm.com>
+To: Jirka Hladky <jhladky@redhat.com>
+Cc: will@kernel.org, catalin.marinas@arm.com, luyang@redhat.com, 
+	dockseed@proton.me, jmario@redhat.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Claude Code <noreply@anthropic.com>
+Subject: Re: [PATCH v2] arm64: clear_user: keep alignment padding out of the
+ zeroing loop
+Message-ID: <lnh4ij6zpo5haddbkvxjp2gui6xlgjzaxkrmh26xgovc2b3muz@2wapkzpfnceq>
+References: <CAL2CeByu46f48j8O9=237fvhpPUCsKjOZkFuuHU3xrr3wVF5Eg@mail.gmail.com>
+ <20261124233043.1289050-1-jhladky@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,56 +62,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261126120809.GA83911@noisy.programming.kicks-ass.net>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261124233043.1289050-1-jhladky@redhat.com>
 
-On Thu, Nov 26, 2026 at 01:08:09PM +0100, Peter Zijlstra wrote:
-> On Thu, Nov 26, 2026 at 12:50:32PM +0100, Peter Zijlstra wrote:
-
-> > I just don't understand any of this. Perhaps I'm being super dense, but
-> > calling this UB is utterly stupid IMO. It is trivial to define what
-> > should happen here and make the compiler do it, although perhaps it is
-> > not what people expect -- but at that point you can have a warning about
-> > performance, rather than it being UB.
-> > 
-> > Most all of this is me being distrustful towards the C committee about
-> > volatile; they hate it while we live by it.
-> > 
-> > But I really don't see the difference between two jiffie reads in an
-> > initializer vs two jiffie reads in random code. Its just two reads that
-> > cannot be fused, big deal.
-> > 
-> > So they're making a big deal out of the unsequenced thing; but at the
-> > same time they're eroding actual sequence points; I mean WTF ?!
-> > 
-> > So function calls used to be a sequence point; but then they allowed
-> > auto inlining (without the use of the inline keyword), and guess what?
-> > An inlined function is explicitly not a sequence point.
-> > 
-> > So they cannot be both concerned about sequence *and* erode sequence.
-> > 
-> > All of this just sounds like a whole pile of wankery without actual
-> > merit.
-> > 
-> > Also; the purported justification of UB has always been room for
-> > optimization, but volatile is the anti-thesis of that, it explicitly
-> > does not allow optimization. Marking something with volatile as UB is
-> > just batshit.
-> > 
-> > I mean, I suppose I can apply the patch, but I'm not buying any of it.
-> > This is not an improvement, it actively makes clang worse!
+On Wed, Nov 25, 2026 at 12:30:43AM +0100, Jirka Hladky wrote:
+> Commit fe59e0358d9b ("arm64: lib: Use MOPS for usercopy routines")
+> restructured __arch_clear_user() and moved the loop alignment inside
+> the function. In doing so, the loop label ended up in front of its
+> own alignment directive:
 > 
-> So, if we hide this evil volatile in an external function call; then the
-> C frontend will not see this most evil of UB. If we then LTO these
-> objects together, the optimizer will happily merge it all back together
-> again.
+> 	1:	.p2align 4
+> 	USER(9f, sttr	xzr, [x0])
+> 	add	x0, x0, #8
+> 	subs	x1, x1, #8
+> 	b.hi	1b
 > 
-> There is no spoon^WUB.
+> The backward branch at the bottom of the loop therefore lands in the
+> alignment padding, and every iteration of the 8-byte zeroing loop
+> executes however many padding NOPs the linker happened to need (0-3).
+> Because that count depends on where the function lands, unrelated
+> code changes anywhere in the kernel can shift /dev/zero read
+> performance: an irqbypass reorganisation in 6.17 [1] left two NOPs
+> in the loop and cost about 30% of /dev/zero read throughput on
+> affected builds.
+> 
+> Norman Herms diagnosed this and proposed moving the label below the
+> directive, so the padding is executed only once on the fall-through
+> path and the loop body starts 16-byte aligned as intended:
+> 
+> 	.p2align 4
+> 	1:
+> USER(9f, sttr	xzr, [x0])
+> 
+> Measured on Ampere Altra (Neoverse N1, no FEAT_MOPS), reading 4 GiB
+> from /dev/zero, two otherwise identical kernels built from the same
+> tree and toolchain, differing only in this change (two NOPs of
+> padding in the unpatched loop):
+> 
+>   kernel instructions per MiB:	797.5k -> 536.4k
+>   throughput:			11.6 GB/s -> 22.3 GB/s (+92%)
+> 
+> The instruction delta is exactly the two removed NOPs: 2 x 131072
+> instructions per MiB at 8 bytes per iteration.
+> 
+> [1] https://lore.kernel.org/all/20250516230734.2564775-6-seanjc@google.com/
+> 
+> Fixes: fe59e0358d9b ("arm64: lib: Use MOPS for usercopy routines")
+> Reported-by: Luke Yang <luyang@redhat.com>
+> Suggested-by: Norman Herms <dockseed@proton.me>
+> Signed-off-by: Jirka Hladky <jhladky@redhat.com>
+> 
+> Co-Authored-By: Claude Code <noreply@anthropic.com>
+> ---
+>  arm64/lib/clear_user.S | 3 ++-
 
-Further idiocy; the only case where it would actually matter is with
-MMIO; and there the multi register case is far more interesting than the
-single register case. However, the C language is very specific about
-only declaring the single object multiple times UB.
+This patch doesn't apply. The file path is missing the "arch" directory,
+it should be arch/arm64/lib/clear_user.S.
 
-The more I look at this; the less sense it makes.
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arm64/lib/clear_user.S b/arm64/lib/clear_user.S
+> index de9a303..143d2f7 100644
+> --- a/arm64/lib/clear_user.S
+> +++ b/arm64/lib/clear_user.S
+> @@ -37,7 +37,8 @@ USER(6f, setet	[x0]!, x1!, xzr)
+>  	subs	x1, x1, #8
+>  	b.mi	2f
+>  
+> -1:	.p2align 4
+> +	.p2align 4
+> +1:
+>  USER(9f, sttr	xzr, [x0])
+>  	add	x0, x0, #8
+>  	subs	x1, x1, #8
+
+Looks correct to me. I didn't realize that putting the label on the same
+line as the alignment directive would have this side effect.
+
+Reviewed-by: Kristina Martšenko <kristina.martsenko@arm.com>
+
+Thanks,
+Kristina
+
