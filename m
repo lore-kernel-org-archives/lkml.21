@@ -1,90 +1,126 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795710823;
-	b=YZF5F6yIGgj1Nw9u8N/Duf9GfI05Y5tnL0nyAcUFLvtcW/z3n9qBjlDwQzW6LhRd6rQN
-	 yRiqInR8onmLB72L8yTuE1YUODsL1vDFETsFFVQnYKzAFv54zrqSHIGVwU0IpVXKskAXy
-	 Y7UtpozZY2TixscZ0ttku8xD7Vgjjk7Wgdt35glENwRDe+317oHoAtktVPmj2GPPdIRPy
-	 KZbqwlSDaJ35jxopipoY2KS6mS2vHBF7nCDqPnfwbPU+hm4a9IvRdgxu8T54QsSLQquuA
-	 A3mJqjp/BZ94012WkFdELfXA0f2RDyIDNXMgcqCVatZWkcmtltWY+xkkMbNOIBeIvvQ==
+	t=1795710845;
+	b=jhFlwaW9ro10IF41CIlwqucsVABzqLZSHQuK3HB8xBrZb+7yTxkK9/bJtxVBRd7kt8x5
+	 L6EtDYBI+nFBl0UdEASAD8UI1viycqANKbufQtB7o1hwZWT8TaYUV3hkx1jf9lN/pAS6t
+	 DPssQUgwSktRY37/0p9Q4U7YaQ5eBtKFTmT5jLmBvgunOzev+WVqhilnedVgPxcMy37XE
+	 JTQvhYoxtzQiJn2YpNeeuYtmClvttAr2br650Z2NztVX62CSCyac/zyMNmRFsabohGzkE
+	 g3lRWN1cwWb7RWQ5JBFnhh96G4ItzvirsFpVb+g/9lMuvDtDkstgnpR/3oVdyCXKU+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795710823;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=ljMFoUndqljimP66YywQunDkEpcTJOIrLBTd3W9j6y0=;
-	b=PqqX5eefwL2TlBlEUrek1Dr8QC9iJmY8qJqhoAxk2CAgj00bHW0FeuaujGemQB5AA3zT
-	 hJl/YW3jL46xddwL+1uub3Gdd1IRCVXhwNlgxXCAwBeM8HtUeLg7QhK48JFX3GHSFAqND
-	 p6/UAEGIEl6MGSXJyf5JRl7vpGRz+TFChpRw7G/1YZ+wxjjOT1UMTtAhgOYAjn1Z6rjIo
-	 nxHQjyJsqqUU+e+IlY3y/J+vboqo2UjSNwP4I56dIpj8cDTUF/vCsgTMuBm1CJxeVASl9
-	 a+UveWC9eaMXgx+9hj3CGsIrVHGP1okCidt4e9w4Aq+5CExLa3fjrkOXvqDocFSGlJA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795710845;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=PDQh4Crk4HMl6k2OmnDfKytSQVD4stRFrNvCtlRZkH0=;
+	b=GHFNoR+7P++Nvq+yHgvL/8DW4GdvCix9zADjYR6t+jE6Epjgi40UWQr0PlZZWR458+C1
+	 wbiGMyItVerWUJ2G3FbqtkdloqwnOpWExyaIcuOfLlHygBBeCHcSlsJu6jgU+kxQGyn71
+	 EshIDL6q/sBe9Nv+MOCeOy9Qlk7Cb7zMS6Dfvg6vz7JbtQnMb8j6k2+iwPbtP+LfuQCGX
+	 l9ne/jYDP0efqvXz8ZgQHR9NOUfAaZHcEjg4fMJ+C5GqpHWBADyM7U3b9QC5orfv+Ms+e
+	 QmHqG2EFNVkCKX6covtlf1qX5dEwXXniDfwiuCWlWsaDZ9rtJc3Ve6iMXZWRUqkPDjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b="E/tS3je4";
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=elQgKMeb;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=ofUVuq9t;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56622606A329;
-	Thu, 26 Nov 2026 16:33:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56622606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96114606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:34:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 96114606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=E/tS3je4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795710820;
-	bh=tLux+u6vTEYaRFgKBzK8JskAeEiQ147wYTo1MXDvPpU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=E/tS3je4dVu1YnQoDd+8uvwVrfRhXrADOujXndtmAydcAwweGtqQy+/i3B6AyRZMN
-	 ypg4ixz5bm0R7oR/TlQBpXbuSbmmwr5X9qRY/l2jJQHNmmbjCbXghmJE6nfdM1kdU1
-	 cETKd2LDploKf0iloSLIcnY2HFNEqHtMLfNbFV64rCYf6GAwYWmdVhw6HtozJ8zRnz
-	 s7hLvYHvgPv2/z08T9kSd+l5evx1pHpVKm5RN8Sytogu00rbtv6Pwm99r+g8iJXGCm
-	 ZFDKS9PtWB9DqaS7Johur3n4CUupfVbwz/bibV73/L0F+MjTwBHK/MK634JGaqh8X3
-	 c1JQ5vAt17K/A==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 32F1117E07B5;
-	Thu, 26 Nov 2026 17:33:38 +0100 (CET)
-Message-ID: <6300821339d6891983af704e2044fd1ed25285f6.camel@collabora.com>
-Subject: Re: [PATCH 0/7] rust: reset: add reset control abstractions
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Daniel Almeida <daniel.almeida@collabora.com>, Miguel Ojeda	
- <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo
- <gary@garyguo.net>,  =?ISO-8859-1?Q?Bj=F6rn?= Roy Baron	
- <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, Andreas
- Hindborg	 <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross	 <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,
- Tamir Duberstein	 <tamird@kernel.org>, Alexandre Courbot
- <acourbot@nvidia.com>, Onur =?ISO-8859-1?Q?=D6zkan?=	 <work@onurozkan.dev>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, Detlev Casanova
- <detlev.casanova@collabora.com>
-Date: Thu, 26 Nov 2026 11:33:36 -0500
-In-Reply-To: <20261126-b4-rust-reset-v1-0-9c4c3d029080@collabora.com>
-References: <20261126-b4-rust-reset-v1-0-9c4c3d029080@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-/hUEU0543EdNAHwwISi5"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=elQgKMeb;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=ofUVuq9t
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795710843;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=PDQh4Crk4HMl6k2OmnDfKytSQVD4stRFrNvCtlRZkH0=;
+	b=elQgKMebSdzuIhgkztbmSxCP8Uvo6QTd/9wnxUsr71TQiy3+yZF24LJ5/RTgliX6TAOW3P
+	VU1quu4BJBWJYjJT7K+tK+worP+zxR0GcTgrQ9Chd/9TRpXD3GA0XP77jDsCIbi9Z/25TR
+	vIbhYATnEOt2NrCABK0jy/KQFQUmonk=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-70-b3W--k2FOP6X_21seqgi3Q-1; Thu, 26 Nov 2026 16:34:01 +0000
+X-MC-Unique: b3W--k2FOP6X_21seqgi3Q-1
+X-Mimecast-MFC-AGG-ID: b3W--k2FOP6X_21seqgi3Q_1795710840
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4a204ac318aso34272375e9.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:34:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795710840; x=1796315640; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=PDQh4Crk4HMl6k2OmnDfKytSQVD4stRFrNvCtlRZkH0=;
+        b=ofUVuq9tTLt7pCnggrubrOqVYuGpVXVUDUIViJOAHlCfZ1BBvc9vgs1Hv/ot4fR/Ek
+         EUkKps02ZmBMXgdyt+mWP1yn5YokrL7UTjPFl2sUCfui/KwjJi+CLuXwmW58wvsbn6Wv
+         A4gdLft+J0Lp2kqWM/84ZUpqrnGgswWn5CyUXrg1NBI9C6nr5VjI1FYXSf7/h3tPcerS
+         N0oQNqAPiGV2EfUKSp0sDfOn7JkDjMmSFUt/8RnSuI/HlbggeMuzgDaKO8EkKHyyA8Hw
+         xM6R6ax58zE29qZ/7akaVw0ds4XeEYkHw+Xywp00mrVCxx+BGgNTuiQOjmVjkA569JG/
+         xlRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795710840; x=1796315640;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PDQh4Crk4HMl6k2OmnDfKytSQVD4stRFrNvCtlRZkH0=;
+        b=Y0imNp95zIOLjyOEfp67GhP/W6wx5eM4ZdabV9GbWyeYxYTZISdscUyqgULP8hJMmE
+         ZG1UVX2wRh1qY71JFu35JmOX7tTi0l+QfSlTEI04+8pYSlyUfMp5SDaHeBbaa6x23t/r
+         QH3TA0id3fitZ3jVR8gf10zfaN3Bp14pm4wij3O2E/v2aU/UCAcVzqT1moZTkEv5oKgC
+         NgHlaBjiNR+edRMg1xrOkY7nN9oa1qsVYkafUNfexrZTW/ojFnErycNh4ibDsQS8xg1q
+         QmrgOLa5pht1kSiUpRghxg9swqWWFke8FG9NT1oDUAKhd4KtOYldS83TlhIfN3pC0Qr8
+         bbJA==
+X-Forwarded-Encrypted: i=1; AL+hErGlpqf/l5OMTOWeE3Spbr0ii1Hj07REotOekp4HdrdomOsWntOfz/N6z7KkmZtBKrcHEzwpnJNu94g0GAY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+hGuY3hN3IZpfCNEeHCAKwW8uFNB/9tj4Cs/t5JnBW/MXt0saN
+	UjDSPlNM90DnTf862LzX/vJAF/O+7dw2xlP07MVGNsrh4JK5//7MR4pqy8mjKV4rLj3QTbU1LE4
+	1aDWtALGsQuPSsS/srXGDtXPd5K65Qijol6h0x8NlRk5nHRs2nABhauXXJBkXJmNulg==
+X-Gm-Gg: AZFdTZfFAstOrhktkRo0lxk5pzWU9tBNxT7hM5eZeg6dT/Co7MnvFXHYY+Gtgk/aJye
+	FeTuW594bd2kYGirRIBWgT6/PBzYfbUzD9IA+A++sDGBaEh0MizmieJah14gQsoa3AtR8cZ0Tbm
+	latMBnLCVe9j9k2ClLquxo81blezm6vq3Cdy2JT1TIMKMGO/s/9SkEW6FTS9ZsAt2pb2aEkx8aQ
+	5Cz/6yOoPGK9YHf5tJLSYepEuq3JQdTqWDpbvPUeZm5oOrbxb0/3UnU1PCbAD3UjLHY61XioTp/
+	Yb9nP32deGsaCqqh028B+ORYJeiPmbuWcAjMtzYkz3a5WiZsTsD9SjwBp+LoOQi0UXSEM6U575Z
+	WB41ex7d6C2pMPxKA74F/7+wcfl24ogqA5KZuk2OXVEpWeScD2C1LMVbORKSnAt7O1RBehTH5Ym
+	/xn9M3
+X-Received: by 2002:a05:600c:530f:b0:4bb:781f:6067 with SMTP id 5b1f17b1804b1-4bb887e21e4mr425796095e9.1.1795710840558;
+        Thu, 26 Nov 2026 08:34:00 -0800 (PST)
+X-Received: by 2002:a05:600c:530f:b0:4bb:781f:6067 with SMTP id 5b1f17b1804b1-4bb887e21e4mr425795515e9.1.1795710840185;
+        Thu, 26 Nov 2026 08:34:00 -0800 (PST)
+Received: from jlelli-thinkpadt14gen4.remote.csb ([151.29.146.153])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bc8ce06sm40151988f8f.47.2026.11.26.08.33.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 08:33:59 -0800 (PST)
+Date: Thu, 26 Nov 2026 17:33:57 +0100
+From: Juri Lelli <juri.lelli@redhat.com>
+To: luca abeni <luca.abeni@santannapisa.it>
+Cc: Tejun Heo <tj@kernel.org>, Yuri Andriaccio <yurand2000@gmail.com>,
+	bsegall@google.com, cgroups@vger.kernel.org,
+	dietmar.eggemann@arm.com, hannes@cmpxchg.org,
+	kprateek.nayak@amd.com, linux-kernel@vger.kernel.org,
+	mgorman@suse.de, mingo@redhat.com, mkoutny@suse.com,
+	peterz@infradead.org, rostedt@goodmis.org,
+	vincent.guittot@linaro.org, vschneid@redhat.com,
+	yuri.andriaccio@santannapisa.it
+Subject: Re: [RFC PATCH v7 00/29] Hierarchical Constant Bandwidth Server
+Message-ID: <awhfdTbfDhpklaTN@jlelli-thinkpadt14gen4.remote.csb>
+References: <471bf8d446becabfca00041fb2a78067@kernel.org>
+ <20261120120659.2e902463@linux.fritz.box>
+ <6fef47e08a37079c08806b3c57994778@kernel.org>
+ <20261120212418.10221f2e@linux.fritz.box>
+ <06f4c157677f99fc5386dba4c9d68cd2@kernel.org>
+ <20261123084345.4e24e3ca@luca64>
+ <awQTy09VbrDn9RpA@jlelli-thinkpadt14gen4.remote.csb>
+ <20261123151846.3fdcbf4e@linux.fritz.box>
+ <awfe_r5McCTzr84x@jlelli-thinkpadt14gen4.remote.csb>
+ <20261126155736.20e64e65@linux.fritz.box>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,113 +130,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261126155736.20e64e65@linux.fritz.box>
 
---=-/hUEU0543EdNAHwwISi5
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On 26/11/26 15:57, luca abeni wrote:
+> Hi all again,
+> 
+> sorry about sending the n^th message, I just have an additional
+> question to check if my understanding is correct.
+> 
+> 
+> On Thu, 26 Nov 2026 08:25:50 +0100
+> Juri Lelli <juri.lelli@redhat.com> wrote:
+> [...]
+> >   P/          cpuset.cpus=0-10
+> >               cpu.rt.max: 4-10 runtime=400 period=1000
+> >   P/noncrit   cpuset.cpus=0-3   (threaded, no cpu.rt.max entries)
+> >   P/crit      cpuset.cpus=4-10  (threaded, no cpu.rt.max entries)
+> > 
+> > Threads in P/crit are served by P's servers on CPUs 4-10. Threads in
+> > P/noncrit find no entry up to the root on CPUs 0-3 and run as plain
+> > FIFO, as they do today. cpuset keeps the two sets apart, so no task
+> > ever moves between a server and the root runqueue, which I think
+> > addresses Luca's concern about tasks changing reservation on
+> > migration, at least for setups that care about the analysis.
+> > 
+> > The mixed config ends up on P because of _delegation_. P's cpu.rt.max
+> > belongs to whoever delegated P, and it's what bounds how much the
+> > container can reserve. The application only arranges its threads below
+> > it. If a cgroup had to be "all or nothing", the admin would have to
+> > give P either zero on CPUs 0-3 (no RT threads there at all, not very
+> > flexible) or a budget there (reserving DL bandwidth for threads that
+> > don't need it).
+> 
+> Uhm... In my original "all of nothing" idea, my plan was not to set
+> cpu.rt.max in P, and to set it only in P/crit. In this way, the RT
+> threads in P/nocrit should be served by P's parent (up to the root),
+> while the RT threads in P/crit are directly served by the dl servers
+> configured in P/crit/cpu.rt.max.
+> 
+> Would this solution address the requirements of this use-case?
 
-Hi Daniel,
+If the admin configures the whole tree, yes, I think so.
 
-Le jeudi 26 novembre 2026 =C3=A0 13:04 -0300, Daniel Almeida a =C3=A9crit=
-=C2=A0:
-> This series adds a Rust abstraction for the consumer side of the reset
-> controller API. A driver can get the reset lines of its device, as an
-> exclusive or a shared reset control, and assert and deassert them.
->=20
-> This will be used by the upcoming rkvenc driver that my colleagues
-> Detlev Casanova, Nicolas Dufresne and I are working on, to recover a
-> hung core of the encoder without stopping the other one. More details on
-> this driver can be found by watching Nicolas Dufresne's talk at LPC 2026
-> [0]. Samsung's Rust UFS RFC [1] also uses reset lines, through an
-> abstraction that it has not posted.
+In my understanding, it doesn't if P is delegated, though. Moving
+threads between P/noncrit and P/crit needs write access to P (the common
+ancestor), so P is what the container gets. P's own cpu.rt.max then
+stays with the admin, while P/crit's is the container's to write. With P
+at "max", nothing bounds what the container can reserve in P/crit, other
+than what's left at the nearest configured ancestor (or the root).
 
-I don't mind being cited, but please give a heads-up, we haven't discussed =
-any
-of this, so I can't really comment if its a good or bad idea. On the C side=
-,
-shared reset don't really work today, so I'm left wondering.
-
-Nicolas
-
->=20
-> The abstraction follows the regulator abstraction and the clk series
-> [2], with the reset state as a type parameter.
->=20
-> Patch 1 adds the C helpers that patch 2 needs.
->=20
-> Patch 2 adds ExclusiveResetControl, with the Unknown, Asserted and
-> Deasserted states.
->=20
-> Patch 3 adds ExclusiveResetControl::get_array() and
-> get_array_optional(), which get all the reset lines of a device as one
-> control.
->=20
-> Patch 4 adds AssertedGuard, which asserts the line of an exclusive
-> control in the Unknown state and deasserts it when dropped, as a
-> convenience for drivers.
->=20
-> Patch 5 adds SharedResetControl, with the Unknown and Deasserted states
-> only, and patch 6 adds its array getters.
->=20
-> Patch 7 adds ExclusiveResetControl::devm_deassert() and
-> devm_deassert_optional(), for drivers that only need their line
-> deasserted while they are bound.
->=20
-> reset_control_reset(), the bulk API and the shared devm getters are not
-> covered, and there is no guard for a Deasserted control or for a shared
-> one. Nothing in the tree uses the abstraction yet.
->=20
-> Patches 1 and 2 add the two new files to the RESET CONTROLLER FRAMEWORK
-> entry of MAINTAINERS. Philipp, please let me know if you would rather
-> have them elsewhere.
->=20
-> This is based on v7.4-rc2.
->=20
-> [0]: https://www.youtube.com/watch?v=3D75E15eHY7ac
-> [1]: https://lore.kernel.org/r/20260912-rufs-private-v1-1-716db733e655@sa=
-msung.com
-> [2]: https://lore.kernel.org/r/20261013-clk-type-state-v6-0-a5e9977b3509@=
-collabora.com
->=20
-> ---
-> Daniel Almeida (7):
->       rust: reset: add reset control helpers
->       rust: reset: add ExclusiveResetControl
->       rust: reset: add ExclusiveResetControl::get_array() and get_array_o=
-ptional()
->       rust: reset: add AssertedGuard
->       rust: reset: add SharedResetControl
->       rust: reset: add SharedResetControl::get_array() and get_array_opti=
-onal()
->       rust: reset: add devm_deassert() and devm_deassert_optional()
->=20
->  MAINTAINERS                     |   2 +
->  rust/bindings/bindings_helper.h |   1 +
->  rust/helpers/helpers.c          |   1 +
->  rust/helpers/reset.c            |  67 ++++
->  rust/kernel/lib.rs              |   1 +
->  rust/kernel/reset.rs            | 870 ++++++++++++++++++++++++++++++++++=
-++++++
->  6 files changed, 942 insertions(+)
-> ---
-> base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
-> change-id: 20261113-b4-rust-reset-ca5deca6e036
->=20
-> Best regards,
-> -- =20
-> Daniel Almeida <daniel.almeida@collabora.com>
-
---=-/hUEU0543EdNAHwwISi5
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawhfYAAKCRDZQZRRKWBy
-9PjzAPwOqaQY632vWiu5y53v91i+GrIPS5ltUGUihhnNdUe6gQEA9cpJBFdro6ud
-QtTqWPkZ0+twlFg+7dBfc0PHrfZCogs=
-=sZUj
------END PGP SIGNATURE-----
-
---=-/hUEU0543EdNAHwwISi5--
+So the admin has to put the cap on P. If P also had to carry entries
+on CPUs 0-3, P/noncrit would be served by P there: with zero its RT
+threads couldn't run at all, and with a budget they'd use a reservation
+they don't need. Leaving P without entries on 0-3 (i.e. the mixed
+config) is what lets them keep running as plain FIFO, as they do today.
