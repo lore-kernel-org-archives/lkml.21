@@ -1,101 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795729097;
-	b=1OiffLigj0pXAxZyJ7RrVi/7LqscQdUNc23u3XjDQ//ilK6DUI+sRZJsGQDNV6ZV6GSW
-	 dWsQaqw1y/5VgS3IJ7dQs+y+L+VwaZ4jXMYgnfSCVAYSfME+tn9X2pTyG1I5KuIsiDQpG
-	 dwB7/GDFWLUinE7nmvYMD8PT1t3+/riyOyjUmhfT5k8EPiKRgBYfI09s9xQ2lKgbWdTbS
-	 D6wT5qgErZ/R53TWkrZxvoQ3TJkOhOrPd1PegJbI2BBLyws3RDnpwLkaMumxhrLj9kBz+
-	 5nBarzmgdDpnhKQ635MWEmCypxJr4uaeuTvyqAa51SxYYyzS9NI0CIfKYTrf21H6kMA==
+	t=1795729128;
+	b=WqKLV3EJ/j5lVd8YMckLFZNxLnCO8gVwo2ydZKyX1WZkjeEPov7NigLuK2YWge5X3yMb
+	 gEDIXQRE5qoEgsxXBCTmUZ1yth1feAS3UJemhEPi6kwoDmzfIoxeXe9pAxTGyoRz1wd4J
+	 KgVwXCwYf14kBlRSydyuheaCKdN2cGi9VmpMbEKOm3FVGHTGkM4TnDHHe3iEHTyg5WEpk
+	 V0DwuFZkENIjcs9ItSs0xOKIJiz5bDZNcaww8VuSgn1cWKFgnMdtjMGYRcrA6mTKqGubG
+	 5nh61wSvu4024ZYQYOSt94ik1axS+kXdHH6ciKv4Z0WvGVbuzyVswPrHCDFrHXLtt2A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795729097;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=F1pncYdCQPYqKl02KctTzcxHlBl0h69nvP+CZBv6X9M=;
-	b=piTSqWTeE0GrowayPmhUGAphKcHsfi3umo9eE1HtWU61KMOgmpC/vqooxKzOt93xmBp+
-	 NJ2h+Qtaz2MdBvBZ4PBj9+K15YE0xb2VWzRgPKFybHEKKcUFlYRG/KxDzY+XR4bqSsiwQ
-	 l1EkN7lwBESXG4v1kGVWKTJlXe7R34KJiX+CeWIFycBI05d36otGIaF2Ha1ciNAjFPEQ8
-	 4xKipwXePmyydbqYD4NttlfJQDeu77rL8suujs9jeOsXguwCxv1mYqHx1BAOAgs9viZvu
-	 alsDa4UdSe/kA0cYiUenXcQxFcnICNPhRNC3wlUqJfvVBPpfUS46z2Ye1kjdFELvdZA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795729128;
+	h=Received:DKIM-Signature:Mime-Version:Content-Transfer-Encoding:
+	 Content-Type:Date:Message-Id:Subject:Cc:To:From:References:
+	 In-Reply-To;
+	bh=le0OILRxgvc/hUwSc0GSpHpYWxUpD6OdgP9vLsaiIbk=;
+	b=QF7ZWWk6MTKfsRBTgLIXWkEe98+mImR3HMX8UlXrFM4v/R3xPhW+EK7mA1d9JVg9pqsq
+	 S5RC8wJ5PDbZIto558q6rzOvl1hRnGrW36Q/sa1jgrdr7pYdCc53/qG2lkYAo4bNZRf8M
+	 Xuq4cyjkZ4/0v+YMgLRruBGAbVaOC+cbSNRJKxb1c3+hXKFGPanaz+nTKb39EmwruURfs
+	 8dQWvRNXSlMz2kphqk/xPKSUmDYNedz4ZVG0IYkIL0qUeZOpuGbJ+WL3ca5I2o5TSPtLT
+	 zwoDyViZsPYjyVuvGPwPcFrkhYmrPF7rDZojue/SnQPWhaNH7FrmbeNIVlv/vAL0vgg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LCd+6YUJ;
-	arc=none smtp.remote-ip=209.85.210.176
-Received: from mail-pf1-f176.google.com (mail-pf1-f176.google.com [209.85.210.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AKPy7iDP;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B312606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:38:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B312606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49A4A606A31E;
+	Thu, 26 Nov 2026 21:38:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LCd+6YUJ
-Received: by mail-pf1-f176.google.com with SMTP id d2e1a72fcca58-8c70c2ab5a2so2925010b3a.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:38:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795729097; x=1796333897; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=F1pncYdCQPYqKl02KctTzcxHlBl0h69nvP+CZBv6X9M=;
-        b=LCd+6YUJ62QRUVvAFAIUT7r7G3Uk9Ecc4qbUzB7gZSXWlXa6KVDFoP3jLX23Iuvf4q
-         nxjKHwzsH4R+f5REozi+DNgz0a/Sz6O295rSeH3Ya66cqa+lYqdiPDeQN4q6+sHfXMGH
-         p0n3i3vrATHWlxgF8MNGVfZS0/juyYTy6QDYRJzhfta8h8crAE+4R3Eyn6CDlQK1sYdY
-         ldi2Er1CzC7ldyDez+UnckmxPQd39OsArBzCklf0UiSvdNEbFZXqSRqM3otmc9jO0WGX
-         xvKjo4jiFoNnJT875sKyFkixiD9E+bgsncGWLpccjllwjuBRgP9m71MwSWthGtZjMJRO
-         zZHA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795729097; x=1796333897;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=F1pncYdCQPYqKl02KctTzcxHlBl0h69nvP+CZBv6X9M=;
-        b=YbxnQsY8ClkqCokVSykuyBatSIMZSjsmGmn3xcQbjXE/tToaA59+WhsRneVwompeY5
-         vyjYQDdqB2eOB0myTrFNKoABUGLv/9QA8+KXeYIewp+3Ul4q3Ghs/ecdEJllu1jrOkD8
-         wfD27GGvgdNwQmG5PNlzzfhrFNcPk4BUjtPesTvUo0FevVuG6xlrzuyxRDWicu4aX3tS
-         Qhk41V9Sd3ocQuKT1Q+jZP/FtreuQiDg09Q8Ehs10a2xxP3xirZ0U+g+IEKy+KqnfI9k
-         qFTZUOonuwCwXuKZvnTMYuViYZRkyaJg0J9YGda6u6tQ1W0aP/AbzbGUZLvoFrm15EJw
-         X7gg==
-X-Forwarded-Encrypted: i=1; AL+hErGvym0z+pIdyAV0L2Z92auyMcHI436NS7QwO6tpiPH3JiFaD9kMbXZXlwNVyMeMLUeU4u+6ixn3PHFaHDk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9GXzmSn/8cUdt45po/wYk8DrnyfXyN8FFS4GdpJHYvsZYO0iSS
-	X+eOXfsIwzTmaTErqrhCRrKJD5RuQGN0clvAYOoLKf6poW1VfadFJgJL
-X-Gm-Gg: AZFdTZdJ/+62eDxV/AC/JAEIjENYW4sfNhnaTXP40sQ9iBS3/j+/nsdrIhMUFB4YZTC
-	Teg0tgO1x2KyX83o1d+2wcwnFLhtRzSrmCfXyHKHzjujwapOZCryCagg34IUrB7H1iMkEErJYSp
-	wL2ZvXb2jIfh1kRvxm0q8qB1jphpIEGHEc4HyempmSp1WtWnmgEKvb+Jv4L2pxkysbgxRi9z0SY
-	zVmKAXH5YOkoTHTGZt0MQc4kVmN5DuWDM2VmddhjqSkVRpcQx2nHjyQLp9MP7Obq6cgLFl0alr5
-	NmSHCnnQoiVSO3+Sv3vByNcHESgks6vThv7bmlKdtIG6MnQv0Z5NdDGnL1+/emUYmfw9UCLSQU+
-	XIrQ+hvBxHK1eVLXUrj8uNciQiktCiRojNIKci5dcHlwwWfc0s32D7vbV1t/8ccGXPa2sVQHVUJ
-	ud5dRjjtsNah3nqjohks4VvI43cPcijmD3ozWG02V9sig03u/pQPtumQInUzctoCedphoEveAfG
-	7XZrgsQXu2GbpgOkCkJev8qvWlGwgTXdtRB9++nC57dDF+F5fYwgQ4w6w0fIeRoN+DOXLbioXOs
-	bxspb0+wFRqWrMSsNbR73pLDpHSfqIyYU4UPizOAgike2l9inxkLej4RLrLgEb+blHlGnfV8Sqk
-	6YUeoKlr/JK5evRwPMxYK2GqT+lZwUBKzlpyNGEWxDGn9uwioJ6PBm05bAXy+YjR4F9zyYqaTlj
-	she0qCRZemTHraiw6Q5lTm1Q==
-X-Received: by 2002:a05:6300:408a:b0:3f9:a6b6:e184 with SMTP id adf61e73a8af0-4014dd5f981mr20640395637.74.1795729096794;
-        Thu, 26 Nov 2026 13:38:16 -0800 (PST)
-Received: from kapoor ([149.40.62.9])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cea7c38sm11703905a12.2.2026.11.26.13.38.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 13:38:15 -0800 (PST)
-From: Arnav Kapoor <kapoorarnav43@gmail.com>
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Yasin Lee <yasin.lee.x@gmail.com>,
-	linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Arnav Kapoor <kapoorarnav43@gmail.com>
-Subject: [PATCH v2 6/6] iio: proximity: hx9023s: use plain division in get_samp_freq
-Date: Fri, 27 Nov 2026 03:06:51 +0530
-Message-ID: <20261126213710.1047676-7-kapoorarnav43@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261126213710.1047676-1-kapoorarnav43@gmail.com>
-References: <20261126213710.1047676-1-kapoorarnav43@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AKPy7iDP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 534771F000C1;
+	Thu, 26 Nov 2026 21:38:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795729127;
+	bh=le0OILRxgvc/hUwSc0GSpHpYWxUpD6OdgP9vLsaiIbk=;
+	h=Date:Subject:Cc:To:From:References:In-Reply-To;
+	b=AKPy7iDPt/3jLSg1ILgmyKSkFOltCY3Ucnzt5Hl7PX6j8e0Lxz+e88gkonwy0iB3w
+	 oXn8TzcdYJKNy9BhpU5/ZEG8iy1nTE6N6h3QP9Su/m/dNb4gAonlk9zFG9aGx4CEbi
+	 BUf6VM87VU4wxGkdsUvyztLA4catj3jXsC+AcrLxCg4dt8J8z+fx842cr+azOI7crz
+	 TzhTc1utDtT25sVqdnZ7jApzTBlIEQXOpQxutWJOgEirKtkzn5EZAa0aN1Qv15FZd9
+	 +J018XK8m3xzNH/z3bTiSH/0iwihYID8VQ7JVV5zm185giQqttiy9/Hjp25Y1J5+6z
+	 90VGWeq31swRg==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,45 +48,63 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 26 Nov 2026 22:38:37 +0100
+Message-Id: <DN5GUG9ZOIR0.1MSRUTV4H8B67@kernel.org>
+Subject: Re: [PATCH v5 15/35] gpu: nova-core: mm: add SharedGpuMm
+Cc: <acourbot@nvidia.com>, <kvm@vger.kernel.org>,
+ <rust-for-linux@vger.kernel.org>, <nova-gpu@lists.linux.dev>,
+ <linux-pci@vger.kernel.org>, <alex@shazbot.org>, <jgg@nvidia.com>,
+ <yishaih@nvidia.com>, <skolothumtho@nvidia.com>, <kevin.tian@intel.com>,
+ <airlied@gmail.com>, <simona@ffwll.ch>, <ojeda@kernel.org>,
+ <alex.gaynor@gmail.com>, <boqun.feng@gmail.com>, <gary@garyguo.net>,
+ <bjorn3_gh@protonmail.com>, <lossin@kernel.org>, <a.hindborg@kernel.org>,
+ <aliceryhl@google.com>, <tmgross@umich.edu>, <markus.probst@posteo.de>,
+ <jhubbard@nvidia.com>, <apopple@nvidia.com>, <joelagnelf@nvidia.com>,
+ <ecourtney@nvidia.com>, <cjia@nvidia.com>, <smitra@nvidia.com>,
+ <kjaju@nvidia.com>, <ankita@nvidia.com>, <aniketa@nvidia.com>,
+ <kwankhede@nvidia.com>, <targupta@nvidia.com>,
+ <linux-kernel@vger.kernel.org>, <zhiwang@kernel.org>, <zhiw@nvidia.com>,
+ <boqun@kernel.org>, <daniel.almeida@collabora.com>, <tamird@kernel.org>,
+ <work@onurozkan.dev>, <jgg@ziepe.ca>, <bhelgaas@google.com>,
+ <kwilczynski@kernel.org>, <dri-devel@lists.freedesktop.org>,
+ <peter@colberg.org>, <xinmengs@nvidia.com>
+To: "Alok Kumar" <alkumar@nvidia.com>
+From: "Danilo Krummrich" <dakr@kernel.org>
+References: <20261124135937.18583-1-alkumar@nvidia.com>
+ <20261124135937.18583-16-alkumar@nvidia.com>
+In-Reply-To: <20261124135937.18583-16-alkumar@nvidia.com>
 
-hx9023s_get_samp_freq() computes the fractional part of the sampling
-frequency with div_u64(), but nothing here needs 64 bits: KILO % odr
-is at most 1000, so the dividend is at most 10^9 and fits in an
-unsigned long on 32-bit as well. Use a plain division, and drop the
-linux/math64.h include, which has no other user left after the
-previous patches.
+On Tue Nov 24, 2026 at 2:59 PM CET, Alok Kumar wrote:
+> +/// A [`GpuMm`] shared between several users, serialized by a mutex.
+> +#[pin_data]
+> +pub(crate) struct SharedGpuMm<'gpu>
+> +where
+> +    // Hide the mutex's invariant resource lifetime so `SharedGpuMm` rem=
+ains covariant.
+> +    exists<'res>: 'gpu,
+> +{
+> +    #[pin]
+> +    #[uses('res: invariant)]
+> +    inner: Mutex<GpuMm<'res>>,
+> +}
 
-No functional change.
+I don't think GpuMm should have a global lock; it contains GpuBuddy, Pramin=
+ and
+Tlb.
 
-Suggested-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-Signed-off-by: Arnav Kapoor <kapoorarnav43@gmail.com>
----
- drivers/iio/proximity/hx9023s.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+The reason some APIs want &mut GpuMm<'a> is that the contained Pramin does =
+not
+implement mutal exclusion; GpuBuddy and Tlb already have inner locks.
 
-diff --git a/drivers/iio/proximity/hx9023s.c b/drivers/iio/proximity/hx9023s.c
-index c2718723db27..98b65a3e69e1 100644
---- a/drivers/iio/proximity/hx9023s.c
-+++ b/drivers/iio/proximity/hx9023s.c
-@@ -18,7 +18,6 @@
- #include <linux/i2c.h>
- #include <linux/interrupt.h>
- #include <linux/irqreturn.h>
--#include <linux/math64.h>
- #include <linux/module.h>
- #include <linux/mutex.h>
- #include <linux/pm.h>
-@@ -702,7 +701,7 @@ static int hx9023s_get_samp_freq(struct hx9023s_data *data, int *val, int *val2)
- 
- 	odr = hx9023s_samp_freq_table[index];
- 	*val = KILO / odr;
--	*val2 = div_u64((KILO % odr) * MICRO, odr);
-+	*val2 = (KILO % odr) * MICRO / odr;
- 
- 	return IIO_VAL_INT_PLUS_MICRO;
- }
--- 
-2.53.0
+Please also consider, if GpuBuddy, Pramin and Tlb share a common lock, this
+would violate DMA fence rules if Pramin and Tlb are used from the fence
+signaling critical path.
 
+I just came across this independently from this series and sent out a patch
+series [1] for this.
+
+[1] https://lore.kernel.org/nova-gpu/20261126213652.3716162-1-dakr@kernel.o=
+rg/
