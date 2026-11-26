@@ -1,101 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.170
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795709137;
-	b=ukAUjYWy6X39968AUHWxXhF/weuf1iuE52UErCOzveIAZKi9k8DdULYUwcGf4C6lSp12
-	 9gkDbHPiaB5T5+ViCzz62Cm3CDkny9Y55ixKgUb/3hSmJVW6jFM0QbeABxNjUlFqxe2LS
-	 06Vv4FG0XBVXatnoJhCq7vwo9EJbrNMZfrErZ8wO6fKqJrYxwu6ntFZNUKvuQr4B+BOUC
-	 sMDe/C7pqGnUOebzsPCqgG4GV77pLi73qAVcvMy8Nr9IS+NixjC0PC2Hp+d2NRvBR8iyV
-	 qNvRw7FV63qKD6Ub71betCQ08omGKfFPuxVtFnnx9Q9/elOcPstN+AE0WkZ/54TJsRw==
+	t=1795709168;
+	b=I7QQdWCDxbqYHnn2/bbllIS5VcqwwmozZY/5tPa5gpgny0al1fhsLgAdXHN8PjFTSxJP
+	 lSKw6B+XJ+WuFfXZC1MEvfqgiMhv29PUCc68ejp6c5BGhJFOtvp2yg/czX0HYp21a8fCF
+	 0jcuhb/Cc67FVFYUSWRjv0mV0iDmi3+AOE8Ab9gADxaV7iyi2OiFiv4SzTDxQRHqrDTxj
+	 aWLhWq/dtYMMEC8DUCqhj6UFyGTO1KyJOO9faXbtBIbO5+p1KZcILuEw8ArJQ8Sr3766c
+	 nb0zT2K62HdAwbCYjTHfJiNX+G1EUWrQZE4sYft36gb4XbICPAQQizCUqj06PYTjYYg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795709137;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=SUnFJ20ylsoLsoRM/3+fupg/CFOT8c8i8zd/epg5cmI=;
-	b=St32d6gkIh2JFAizGcdi9GYxVLp3B4uvAuzRh4jCIuztwmDW/zkApYhNTIaaBf+DTTux
-	 9N7+9+SuKgQGbEfJ1FVZw5420HYZB0bn3MPTI8+plIznpPj/gcV7ObIPnaI41/Y+9b3GT
-	 0PkZHBLqOVj58HWh91de4ggeUF5+l/etWfhFV3ijsMjpFy/VkD3WSbnmW/PPLKch/Q9fI
-	 KhYQiiIZ2v3wIu8zScW/ibROvcdAPrzplTznAW14BqNLEetx/tqGlyXWDfyMh0H/K/Xaa
-	 fhmz+dCVeIv40UA0HvxEhg5114KZtULldhfr9jGnnKfj5XvF88+Z7sEWkmSTbLJI8OQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795709168;
+	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-ZohoMailClient;
+	bh=6szz3JIe+2EagVt2iFHYcOqoDNNeZy/b4iIy8g//F4U=;
+	b=OoWB/d1jE9t4iQDegrVS9Xa+1yMltTnse0nw3ADu1hPnwal3CLw6oTML/YAPeveRsNxj
+	 AZ2VtXkSctDZnvOEE+jC0j6zS/sN4FKUE422e9g1hpGjmM0nL6/HbvBDpjPIoyBEA/8zH
+	 jJksG3KaPfBP6fA8sUm97Wd/H7zr4jSHtI2sRdrLeRuG5o/GZa+qERtuLy4tv3faNtSvq
+	 neWLCLLsa28qPszd2i0JqSLlRha++dTba2y6YKfLMDCcJSC0dy3y5GA/3luJSbw4CwlBT
+	 lI593j4laUHhnksSvT12ZNyB9j+EnI9T+3e5mMFR/UPlFSN075fWfGTXxoYX3tsnFZg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LHSFx1QJ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.170
-Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=TtfsZjWy;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA2C9606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:05:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA2C9606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6EA57606A321;
+	Thu, 26 Nov 2026 16:06:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6EA57606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LHSFx1QJ
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-3869f03af6aso6300793eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:05:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795709136; cv=none;
-        d=google.com; s=arc-20260327;
-        b=etEFcKBwO2B66BLwG5i1Vi9WuFiV3gqa+F3F9cz09gkmp/STxWl9wwIY31VywN0gQt
-         v6X4BJc0VhZc+igWu+sbpn3in+glWJLQHxH8+V30tEa81QNo4+4FBdRSbzcP2zi1ZMBj
-         y68xAVj6a6+ULS1CNbPDQz7ZZIL/2SZcwzl0T+Ookx2VZQbqF2aIgibU8aiCkur0laCO
-         62lO2RmPy2IWho6A9GhiE+mOd4tBHMvmowgqTfIdpbxvMbm/r1+ZnPqa9aoRflmJ+xhX
-         v+ZOG354/vUM3wIqQ42qdewQVcB6n+yIOUp6HSV9mnw8/ak0QB2yRWp4iPvQvEjZjb/4
-         Py4w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=SUnFJ20ylsoLsoRM/3+fupg/CFOT8c8i8zd/epg5cmI=;
-        fh=ryJu1bAE4l4luRn3G/ruYpwxOmZwYIWJOq//4II+0eg=;
-        b=T2UV5TuKfZeixwGiAcY7RAUyhHDltTFfrzc1caMCYd7nQOlcF+mfFfjy4lkT197wIG
-         YnQGNWXEAxmdA/UPTHiyHeGI9vvNsbR2E6iV5teQ9Oq3Q9cylpyxM5IN6H76EMQUOMIo
-         s8kqMdpM+Qjp6e8VQG7Km3hRA5tF/buQR+3AMOueBxRyLrd/CEjww+YHoljPuGq3tY8H
-         iAq8pzAFi5EH/7DahfwKi98ZNCsAcuH3zYP7MBDIM7FDHUHyawiXWsAp1jWzVd7LiY8E
-         /bFcdIigDdpDzcQ/SM+HprAPI4gqE9EUvU7mMixe/JiQ5UiYopmLpbjhbQNhELKwUZKk
-         Qijg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795709136; x=1796313936; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=SUnFJ20ylsoLsoRM/3+fupg/CFOT8c8i8zd/epg5cmI=;
-        b=LHSFx1QJD64NxrJTjVySmgdy1+QyIpvCZsYsHetuKrtGZ73f+yuvN6vVAQpjFgMJUi
-         VMebqlntGR9XwTnjXCDaI+DIdtf3eb2aF7NzhdKB+TAA1SpPsymVwDdhRZSoDISFZBhy
-         gT3iGb69VLDLPi9SbtnLFXY/8PaeK0RPmcJMc/viANOYEle757NWA7VFKq9hCFqzP2lG
-         PHdadIr7rt0xyZDOTl/9sp4H2DE1XwTnuwY+DK2k8n1YF40bHvHKVFg9lhRaEeysJymQ
-         egJfvS/KrIqmEnVEjlJQrOyfCZ07jPJk5/NRhra/84mmDWdhjgDezO0k8WppPYOSFRyl
-         cHKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795709136; x=1796313936;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SUnFJ20ylsoLsoRM/3+fupg/CFOT8c8i8zd/epg5cmI=;
-        b=X0sgjoekncVU8z2Ur4znvsKCvzeGxnTXdwO95hbKeBCyJcNzc8kEIo/E6kB3oNSj8Z
-         kj1PC+WCg6EVwXEtOC8x7s3eqRxcrB3CcgbFa1CCVVKkEkDV9T/DHXt4jZ4bzNJN6ALp
-         N2tomEk+vaxhycVFl852MyIUvYGY2ipNWZ+stlL2SW9lpPsTeOgiPPbFTqf+GJp5i/od
-         E5IbbnxdQpJn92UiH+aaE71fjMd8P39XityeLruZmABtv1AYZ3I9EuuL7axcAL9fDnHI
-         BahoQK1/frnFVTapLODLUROUYi+XOT1YAz8KeBmqqVKKpRLgMeAU+7fLQpOMHjxtSXwV
-         FzZQ==
-X-Forwarded-Encrypted: i=1; AL+hErEAEM/1aGJ16eL+lpGX3tZpFkJtQfOHIQIxBuxsZfK5c3XTdwtOxU1LfyxWFgo2mpxo5UtGHLFWeOlkOv8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ad3s3OUw36YH5cMYN6AJIDKD0Q9jL+aa4ed3f4B2vOuLiybEp
-	fmIts6kCa0dedtk174qd74iDojR515HDY7rvJCvcpFxb1+L7l53oH55AYHWH67RIomRHqXk6yJh
-	lQttlIUSFVFPXNrUew64qCiv4w4c+oQY=
-X-Gm-Gg: AZFdTZcX4iG4dNuBSkkRNrPdEEaDRWMvATVKQGzo6l1H1dVfWgnyzTju1+M0Rg/TQu5
-	2K5rmD9EJpJ7elVlFZcmRJb5zItBUiKW0L96EFWXKKVY+T+gp72cr6RsgXb7WEVFyrYQFpWdSZF
-	SHnTkhdve3nk31IBJSb517+JRxgmFKK6XIvZKtWHRUe2AE+0Sq5NdqyEk9k5tNz66jdHmTO4Jey
-	v5IaYCfImmlRMYamBMIsfKbUXcQpo/VvBpKCdZzZmPEfyBP3HPH+ifCG22RefZG0c+2qRRO4kjn
-	8zF2Jvqaqq0Gpb8rPzNB9HwEalbI9VX1ISmgOTd4Hq0N73RUW1ECTjpNtDEOGZ+hHvxfjewhW5U
-	dNsHZHjYwmiYxj5aqdxKPykqyuvGUFD6U9PE3LUxfIrFjIhU1PdZ9HM7+Q4m95l6B553Q4cX9B0
-	QCacIkgpnlzI98h1yjQALfdD4p1JQuJg==
-X-Received: by 2002:a05:7301:b8c:b0:36a:2f6c:490e with SMTP id
- 5a478bee46e88-384b3986ef2mr24979842eec.6.1795709136002; Thu, 26 Nov 2026
- 08:05:36 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=TtfsZjWy
+ARC-Seal: i=1; a=rsa-sha256; t=1795709087; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=DVDttbD8RVxmi7V1oSiJISFk6r3uzAKi+C/RbIYDCRV60PhJHbOjKL/RqvedBIEBvcuqlpWw+DHGVK5pYPNxOy4H0yGEQsVFGqZle9vPSbUtF+Bj0sZksWR1hdY3RJOf6nsoDFYfNsWw7A+QOLeZba/3KoPBLiTRA+lrtv5W5S4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795709087; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=6szz3JIe+2EagVt2iFHYcOqoDNNeZy/b4iIy8g//F4U=; 
+	b=h/widPORPpds9B1MQnNj3Bz6wri7M5GzZkaaS2Q+FRvmQfFrgMqLXGRzzNeGP13eTMh7efe7cAle9yi0M/3sK+iFJg9zC1W12LmNi64vV34lcw3fiMZ5jWywVbJKweXlE666/dmtNFjhA+UV0tWJJ5FAssGpRUN65P6pqkJW09U=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
+	dmarc=pass header.from=<daniel.almeida@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=TtfsZjWyVP/VSuckY9ZHkJG0VKzJN+cK0OVzaEBpdu2FuAI2NqYGISHNTr0UjV8SdNcuEa+qxiLHWGUPBpTK3494RhVOUPIH/yim4PH2NLIFrpxTOApOW2FX0LgI+CUMTPaIiGc2Q0KuHHTdwsgpW35Ho1GoyYxRcnNqiXNv80U=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=6szz3JIe+2EagVt2iFHYcOqoDNNeZy/b4iIy8g//F4U=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795709085055527.4889555397564;
+	Thu, 26 Nov 2026 08:04:45 -0800 (PST)
+From: Daniel Almeida <daniel.almeida@collabora.com>
+Date: Thu, 26 Nov 2026 13:04:28 -0300
+Subject: [PATCH 1/7] rust: reset: add reset control helpers
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,35 +59,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123150224.199601-1-clamor95@gmail.com> <20261123150224.199601-2-clamor95@gmail.com>
- <CAPVz0n1GzY5BJLUZrdCgJHrkZ+45Kix7VP05EJeiY5FVycwKBA@mail.gmail.com> <9a9cac1b-edaa-429e-a5b5-46adba2841ab@sirena.org.uk>
-In-Reply-To: <9a9cac1b-edaa-429e-a5b5-46adba2841ab@sirena.org.uk>
-From: Svyatoslav Ryhel <clamor95@gmail.com>
-Date: Thu, 26 Nov 2026 18:05:24 +0200
-X-Gm-Features: Aa3M54q_Z-vb7dO5r0L6AcMqg8jjKTFPI9XHDJLIFJzWvQsLcNuaX0nGCAYJczI
-Message-ID: <CAPVz0n2-0e6L57FZBwz_azNOq-1Bn6023vke-=KB3a+GmyPjCA@mail.gmail.com>
-Subject: Re: [PATCH v6 1/5] regulator: dt-bindings: maxim,max8907: Convert to
- DT schema
-To: Mark Brown <broonie@kernel.org>
-Cc: Lee Jones <lee@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, mfd@lists.linux.dev, 
-	Conor Dooley <conor+dt@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-b4-rust-reset-v1-1-9c4c3d029080@collabora.com>
+References: <20261126-b4-rust-reset-v1-0-9c4c3d029080@collabora.com>
+In-Reply-To: <20261126-b4-rust-reset-v1-0-9c4c3d029080@collabora.com>
+To: Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
+ Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+ Danilo Krummrich <dakr@kernel.org>, 
+ Daniel Almeida <daniel.almeida@collabora.com>, 
+ Tamir Duberstein <tamird@kernel.org>, 
+ Alexandre Courbot <acourbot@nvidia.com>, 
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, 
+ Detlev Casanova <detlev.casanova@collabora.com>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>
+X-Mailer: b4 0.15.2
+X-ZohoMailClient: External
 
-=D1=87=D1=82, 26 =D0=BB=D0=B8=D1=81=D1=82. 2026=E2=80=AF=D1=80. =D0=BE 18:0=
-3 Mark Brown <broonie@kernel.org> =D0=BF=D0=B8=D1=88=D0=B5:
->
-> On Thu, Nov 26, 2026 at 05:52:22PM +0200, Svyatoslav Ryhel wrote:
->
-> > This patch is prerequisite for MAX8907 LED patch. Since Lee is quite
-> > strict to what he picks maybe you can pick this, LED and ADC[1] device
-> > tree patches?
->
-> Please send a coherent series that can actually be applied, it's too
-> much work to pick random patches out of independent serieses.  In
-> general you should try to avoid dependencies on in flight serieses, it
-> makes everything much harder to manage.
+In preparation for the reset control abstraction added by the next
+patch, make the static inline functions it uses available to bindgen.
 
-Ok. This is how work with Lee and mfd usually looks like :(
+Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
+---
+ MAINTAINERS                     |  1 +
+ rust/bindings/bindings_helper.h |  1 +
+ rust/helpers/helpers.c          |  1 +
+ rust/helpers/reset.c            | 33 +++++++++++++++++++++++++++++++++
+ 4 files changed, 36 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 222b7fc2c3aa..d8bcacb7d8ef 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -24063,6 +24063,7 @@ F:	include/dt-bindings/reset/
+ F:	include/linux/reset-controller.h
+ F:	include/linux/reset.h
+ F:	include/linux/reset/
++F:	rust/helpers/reset.c
+ K:	\b(?:devm_|of_)?reset_control(?:ler_[a-z]+|_[a-z_]+)?\b
+ 
+ RESTARTABLE SEQUENCES SUPPORT
+diff --git a/rust/bindings/bindings_helper.h b/rust/bindings/bindings_helper.h
+index 3791af0aadc7..c96634bfaacb 100644
+--- a/rust/bindings/bindings_helper.h
++++ b/rust/bindings/bindings_helper.h
+@@ -85,6 +85,7 @@
+ #include <linux/random.h>
+ #include <linux/refcount.h>
+ #include <linux/regulator/consumer.h>
++#include <linux/reset.h>
+ #include <linux/sched.h>
+ #include <linux/security.h>
+ #include <linux/serdev.h>
+diff --git a/rust/helpers/helpers.c b/rust/helpers/helpers.c
+index d62c7be1ca7b..a5a127935961 100644
+--- a/rust/helpers/helpers.c
++++ b/rust/helpers/helpers.c
+@@ -92,6 +92,7 @@
+ #include "rcu.c"
+ #include "refcount.c"
+ #include "regulator.c"
++#include "reset.c"
+ #include "scatterlist.c"
+ #include "security.c"
+ #include "serdev.c"
+diff --git a/rust/helpers/reset.c b/rust/helpers/reset.c
+new file mode 100644
+index 000000000000..ea2e6f09b7d5
+--- /dev/null
++++ b/rust/helpers/reset.c
+@@ -0,0 +1,33 @@
++// SPDX-License-Identifier: GPL-2.0
++
++#include <linux/reset.h>
++
++__rust_helper struct reset_control *
++rust_helper_reset_control_get_exclusive(struct device *dev, const char *id)
++{
++	return reset_control_get_exclusive(dev, id);
++}
++
++__rust_helper struct reset_control *
++rust_helper_reset_control_get_optional_exclusive(struct device *dev,
++						 const char *id)
++{
++	return reset_control_get_optional_exclusive(dev, id);
++}
++
++#ifndef CONFIG_RESET_CONTROLLER
++__rust_helper void rust_helper_reset_control_put(struct reset_control *rstc)
++{
++	reset_control_put(rstc);
++}
++
++__rust_helper int rust_helper_reset_control_assert(struct reset_control *rstc)
++{
++	return reset_control_assert(rstc);
++}
++
++__rust_helper int rust_helper_reset_control_deassert(struct reset_control *rstc)
++{
++	return reset_control_deassert(rstc);
++}
++#endif
+
+-- 
+2.56.0
+
