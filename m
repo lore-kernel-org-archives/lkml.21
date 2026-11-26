@@ -1,72 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=150.107.74.76
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795661554;
-	b=b7nCPOGphoqIRvb66+Fso+VbOw5hvnc1jnioRh5xzY2Zt3VGAwx8CGjJO0SW0dIsNZ4v
-	 Vw7bAQVQ7JeAdEcKC133D6w+bYYCQO6KEMuKjWDpVhPWxHtO7GmShkSjdBJqlUdAsy/pd
-	 U90I3/bMc+X9erGgt4e4AVWCt+KHXA38KBwh780Gy5Mo5SLXXPhpZHHtV8UxKtijTE0J0
-	 e3Z6SkQpDXKkeJCjmv8RcdJs0LnnZPTcWVjqN+//0VPewjIX+wS7Lvx4duHfxlebU/ZSX
-	 G3Jpwe7mvME6PLA7eE8uxJvRbu582rj9wDaGi54l/GDo3/jTAvwADBuJ/ouvPJc6eMA==
+	t=1795661597;
+	b=T3NtCV7AvUTosU7KydQ2y/YOp7ViMe5AnQO5Q3f/c1V21HYXuFLd6rmZ1NzkOLs7nE3/
+	 J5IE+8uxJMWlktiUhWWWgs/PZZiAcjAO5aulovlwVcvWUeBIU9bsbbjdzdM499L4SRKRA
+	 2Xeutt1jwr851THGguIXQIXDkE3grjaxU7HmgrFg95Mi1mk/Za1x6ENGulJO7DoBiF2Ps
+	 LtX1p60FS9/TrZ0OXg+dCfy27pshuKzOF3C0AnmwsFLz9/cLPLYqqBM8oK9LL4eVfRZPL
+	 an5NksdXL864e/EahYp/fh6JEgfIJ2Vd/KuI7L3q7PLEqT7Ijqc7V/x9hhPIRTF099Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795661554;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=y38aCOrdnSNqtkhQ3bYVQSQEytyK68gWZGtURBVFos0=;
-	b=jVbYAHRBNAPjjl1ajteroHgTsN5qjQvfg0iTYWmGzCng9TisrShX7gpj6ZQFGuxMuNgf
-	 WafQL7SNgB7s4D8dMCMZp2LyOojguun4Y/uSMkGxKp6JnWVbU0mcXoWyhPk9AQvaC++9v
-	 YVTAIUV1xuRMav6FXRKn7I0ztofJVfmDVJKGNR+x+iGbzK3PjzgeYsWZGHr7FI6MRiQl9
-	 J104wjeR0XuWomV3BAVcR8kO2XY6g7WJ7p0n3XNB5OTP6f3Il8e9oTeXoV2haSJyQAjWN
-	 S9AW8LPZmDoZtO7tmOhOuPo1epSB0v6JJWt9Zzckyf9nMFN+xa/D2A1jclVvzqIsn+w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795661597;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=HTpYziNr2PAVPjcMV9h6mD6LtVNtvdaTWVXPJB6QgmI=;
+	b=aAEvwxsDhU5iO+G6LxhSCZbH2JVK+vfEFdF+MDzypoz0LASWUB7qTpWHNZdDuR3A/Uoa
+	 udPIJ1rexf8fjNLgEucImH8gClzNlG/2ewt57iN2PYT5kYQ1cnoWDQvtJLiovwR9xElEa
+	 iTb8eNS4t8DikQ2zQxg/O17qHtn3fjv0hlzuk3bXtRpzHTKpcXM/6Lx/r33dpxjwNRN2a
+	 YVRhrmdwC5Nd6VtRjUOmXYxS5kO4GZlhuGKwne8YjmK3tsGeMJlJ0I9HdZOfv9g667TKV
+	 7oYi9sZFbUkYZV40MI88k8xnJZ3aahusXS4Gi/Z+MytzbyuH61WYVB62dVOwNw/Mvcw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=gibson.dropbear.id.au;
-	spf=pass smtp.mailfrom=gandalf.ozlabs.org;
-	dkim=pass header.d=gibson.dropbear.id.au header.i=@gibson.dropbear.id.au header.a=rsa-sha256 header.s=202610 header.b=uYZ0Zi7F;
-	arc=none smtp.remote-ip=150.107.74.76
-Received: from mail.ozlabs.org (gandalf.ozlabs.org [150.107.74.76])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YbiDmxpa;
+	arc=none smtp.remote-ip=209.85.216.49
+Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE16F606A31E;
-	Thu, 26 Nov 2026 02:52:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE16F606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=gibson.dropbear.id.au
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gandalf.ozlabs.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67C00606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:53:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67C00606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gibson.dropbear.id.au header.i=@gibson.dropbear.id.au header.a=rsa-sha256 header.s=202610 header.b=uYZ0Zi7F
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YbiDmxpa
+Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3b402824d07so4397983a91.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:53:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=gibson.dropbear.id.au; s=202610; t=1795661550;
-	bh=y38aCOrdnSNqtkhQ3bYVQSQEytyK68gWZGtURBVFos0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uYZ0Zi7FEmkQeLep0kpOnb4JflNvFIpset4nldd3CYPxgZjAg+a5XaesuOhw3MrLJ
-	 GcmbMjp7/pqmDITvoMKhAR7UnpQwA65oIcX6O4Ii53+XsyXqADVlz8jiVycCTt3/MY
-	 I8t1ZJqrMW0OYdYTwJAWhTLuE93QLiM/OYCpHKui1dVZOdiWvzTgDxKGmmv75duSSc
-	 eOUV3S/kQXcL+c/pp1pZlL/nbSq8uXOv+EfNhBks/U2e6dYx48Wb2R7DADDGFSnrKw
-	 b3GM2AGbhSloI8nJ6XmFZoeQ2A+j+M5euEBo1IsV+XSW9U3iw2ss8TJ461thUHOy0H
-	 7LqVBxVsJRK3g==
-Received: by gandalf.ozlabs.org (Postfix, from userid 1007)
-	id 4jZh0t4q6vz4whd; Thu, 26 Nov 2026 13:52:30 +1100 (AEDT)
-Date: Thu, 26 Nov 2026 13:52:22 +1100
-From: David Gibson <david@gibson.dropbear.id.au>
-To: Herve Codina <herve.codina@bootlin.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	David Lechner <dlechner@baylibre.com>,
-	Ayush Singh <ayush@beagleboard.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	devicetree-compiler@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree-spec@vger.kernel.org,
-	Hui Pu <hui.pu@gehealthcare.com>,
-	Ian Ray <ian.ray@gehealthcare.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [RFC PATCH v2 35/74] checks: Get 'chosen' node using
- get_subnode()
-Message-ID: <awee2VKhTF0bpPYa@gractus.seuss>
-References: <20260826094950.1088288-1-herve.codina@bootlin.com>
- <20260826094950.1088288-36-herve.codina@bootlin.com>
- <awan_SrUGC7OEMIL@gractus.seuss>
- <20261125132129.4f4695ac@bootlin.com>
+        d=gmail.com; s=20260707; t=1795661597; x=1796266397; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=HTpYziNr2PAVPjcMV9h6mD6LtVNtvdaTWVXPJB6QgmI=;
+        b=YbiDmxpa7NiLG14QBxFuhSQtaoNXg1QjOZB+xBwCIjiGeB7HUSQP0aaMIu6cu+dphm
+         vn7ZFAlRyjtsiTpKLrThelRunLT3RVJwFXX1b2DDdr/ZiCjnbq3gYElNx8BmdoP0tmDR
+         OYfv2d7fhuFUjzDoIRH/yy+SbJBFN6OvQU/AfgmW9xdgf7jrDmlDcx/ZCq5CW5eY9lWD
+         GZjN+UpntG2sVcd9ocxuByVL3ITfRGgGaBaT0YOWE7CBeqbMUNegixmI6NVBkNacvtI+
+         SuRPtJMBs0OwUNGmHPA+xIi7wH2VxVtPXvrz9E/CuXe2vqEqsYlQNjGwZcTw57TyMtwX
+         lrEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795661597; x=1796266397;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=HTpYziNr2PAVPjcMV9h6mD6LtVNtvdaTWVXPJB6QgmI=;
+        b=m1MRcZs37BvZZHZbYTtxRWeAdRmousMoqNutkDdfpaOjekCendw8pUpzpJ/YQOmntz
+         FFIWVbYkqTnGSCLhwqsYXgaIRCT6irs6ubqeCUQcOSUcBqy7P7G4FMVYNL/6MXZ94ojM
+         CWpYNhY0T1q7sCehLI3sfcm12clKLgJdHj6coOQxDKOhliYljlL6W0Mtep6cLnopJ/QF
+         ZarKV+75r+hUMlQneEtsGAzEODxtwwx3fAj7+xiS2O0jCBi2rCXagL5MGZFWuF05Q1GC
+         lAV0sUKM0ZDaIjqQpRasGdKxhT+06f4acaZNUxQ86XsazEvcPNP32rgD2RNORtPNGG06
+         WTEw==
+X-Forwarded-Encrypted: i=1; AL+hErFthLnaLD6phNtpLIx7za89ZTn7KkMhpm0A/C2xMxUWZEF6l5qeG7Kv5Cn75pgzNF1fus8+/gkgyAAK8+U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/zmeYfzj88a5ZrGySUMwpPwGSJhVSg9QgBMgFhHu04HpZsBPyi
+	MD3MgZqCqpf4uj24FV042+qAzg9iXU4Aa1/4+hujxDgaMPi8efvAiS/g
+X-Gm-Gg: AZFdTZeYO/5afQvpZKIC/YoQpE+Iuuk36L7U0FWHKPWh7PHsIOWI3MtcABboC4I7ARn
+	XKBSD47+SuJHaLNDVyWtHWlqIrI16bSHAko9LxTPBZn2XBD8dELDsax4LEgcxRcF00GxJeLC9hX
+	MCmXXAS85Y1hU6id3GO8lXyryL/KSqEQTCeVCRaFQt/IOZWwkfrJ5M4RxYh6D7pgJJBnDVgtTcD
+	vw/rIuHt1uJSgjkjd3H8NvONgLYShI4/NSzifRHvnpV281X4kQ5aVFZ3YjWMmwxPo1Cl/4Ho0d3
+	A+h5/tMbNPzZtFIZc93xdF6/KPIx/vfRwp9J64bCseF2zf2teBxxQ4VbEsAtyHHLZKtqrDUuP3L
+	VeUBf5FKXvbSDWlCa4TtalR3B0vt7bNVwmkEriIHD4Lr9nQK9Xlny6QXU5JbwmafxkMw1wuiwKh
+	F7KTg9GVOgAs/syF0o9gZx0dZiLyxqqpw7bUacr0A/9hFzfEkc4LQgRC1sC0CI1qr/PNvPjvSiw
+	Zxp5jELIvnh8r09JEiVzt8BvRCg2q9h1BxxSMOKbRtV9Z3z19ZMOKHQUWfyHBIHB3K6O8DTpCo9
+	wftEOSUEgj3eNgBUVLlN3+qS9g6uLTecqCM0OQcSaiT8Z/X1LC1Tgqv18LANGvGR6FIvtDa/qBQ
+	UPUghGWZcHdqizbLDUPYNeCcqzyCUgFI=
+X-Received: by 2002:a17:90b:2e49:b0:3a4:b0f3:6597 with SMTP id 98e67ed59e1d1-3b41c58ae4dmr18404220a91.0.1795661596519;
+        Wed, 25 Nov 2026 18:53:16 -0800 (PST)
+Received: from DESKTOP-TPPBPA1 (36-226-201-204.dynamic-ip.hinet.net. [36.226.201.204])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b50234fb25sm1768700a91.2.2026.11.25.18.53.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 18:53:16 -0800 (PST)
+From: Roy <rongh7426@gmail.com>
+To: Maxime Ripard <mripard@kernel.org>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>
+Cc: =?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>,
+	Raspberry Pi Kernel --confirm=neverMaintenance <kernel-list@raspberrypi.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	Roy <rongh7426@gmail.com>
+Subject: [PATCH] drm/vc4: hdmi: Reject modes that don't fit the BCM2711 timing registers
+Date: Thu, 26 Nov 2026 10:53:11 +0800
+Message-ID: <20261126025311.640543-1-rongh7426@gmail.com>
+X-Mailer: git-send-email 2.51.1.windows.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,117 +103,164 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="QAC8C0zioRHVFZzG"
-Content-Disposition: inline
-In-Reply-To: <20261125132129.4f4695ac@bootlin.com>
+Content-Transfer-Encoding: 8bit
 
---QAC8C0zioRHVFZzG
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+vc5_hdmi_set_timings() packs the mode timings into register fields that
+are much narrower than the values a mode can carry (for example 11 bits
+for the horizontal back porch and 9 bits for the vertical back porch),
+but nothing checks that a mode fits before it gets there. Such a mode
+passes the atomic check, VC4_SET_FIELD() warns once for every field
+that overflows, and the truncated timings are written to the hardware.
 
-On Wed, Nov 25, 2026 at 01:21:29PM +0100, Herve Codina wrote:
-> hi David,
->=20
-> On Wed, 25 Nov 2026 20:19:04 +1100
-> David Gibson <david@gibson.dropbear.id.au> wrote:
->=20
-> > On Wed, Aug 26, 2026 at 11:49:04AM +0200, Herve Codina wrote:
-> > > get_node_by_path() is going to be updated in order to handle orphan n=
-ode
-> > > support for addon device-tree.
-> > >=20
-> > > The 'chosen' node is a subnode of the root node and can perfectly be
-> > > retrieved using get_subnode(). =20
-> >=20
-> > The change certainly shouldn't break anything, but I don't really
-> > understand the rationale for it.  AIUI, get_node_by_path() should
-> > still work, even if it's (trivially) more expensive.
->=20
-> Removing the get_node_by_path() call here avoid a later modification when
-> get_node_by_path() is changed.
+The igt test kms_invalid_mode, subtest overflow-vrefresh, hits this on a
+Raspberry Pi 5: it sets a mode with htotal = vtotal = 32768, the commit
+succeeds and four warnings are printed:
 
-Ok, "an upcoming change will be made simpler by avoiding
-get_node_by_path()" is a reasonable thing to put into the commit message.
+  WARNING: CPU: 0 PID: 64500 at vc4_hdmi.c:1282 vc5_hdmi_set_timings+0x970/0xed8 [vc4]
+  WARNING: CPU: 0 PID: 64500 at vc4_hdmi.c:1284 vc5_hdmi_set_timings+0x980/0xed8 [vc4]
+  WARNING: CPU: 0 PID: 64500 at vc4_hdmi.c:1288 vc5_hdmi_set_timings+0x994/0xed8 [vc4]
+  WARNING: CPU: 0 PID: 64500 at vc4_hdmi.c:1311 vc5_hdmi_set_timings+0xbb4/0xed8 [vc4]
 
-> The code can use get_subnode() here. I thought that using it was more rel=
-evant
-> here (getting the 'choosen' sub-node from the root node) than using the m=
-ore
-> generic get_node_by_path() function.
->=20
-> Well, if you prefer the get_node_by_path() call here, no problem, I can
-> revert this change.
->=20
-> Best regards,
-> Herv=E9
->=20
-> >=20
-> >=20
-> > > In preparation of the future change related to get_node_by_path(),
-> > > replace its usage to get the 'chosen' node by a call to get_subnode().
-> > >=20
-> > > The modification doesn't introduce any functional changes.
-> > >=20
-> > > Signed-off-by: Herve Codina <herve.codina@bootlin.com>
-> > > ---
-> > >  checks.c | 3 +--
-> > >  1 file changed, 1 insertion(+), 2 deletions(-)
-> > >=20
-> > > diff --git a/checks.c b/checks.c
-> > > index 13e8b121..1332acc4 100644
-> > > --- a/checks.c
-> > > +++ b/checks.c
-> > > @@ -1349,8 +1349,7 @@ static void check_obsolete_chosen_interrupt_con=
-troller(struct check *c,
-> > >  	if (node !=3D dt)
-> > >  		return;
-> > > =20
-> > > -
-> > > -	chosen =3D get_node_by_path(dt, "/chosen");
-> > > +	chosen =3D get_subnode(dt, "chosen");
-> > >  	if (!chosen)
-> > >  		return;
-> > > =20
-> > > --=20
-> > > 2.55.0
-> > >=20
-> > >  =20
-> >=20
->=20
->=20
->=20
-> --=20
-> Herv=E9 Codina, Bootlin
-> Embedded Linux and Kernel engineering
-> https://bootlin.com
->=20
+Add a timings_valid() variant hook, implemented for the BCM2711 and
+BCM2712 controllers, that computes the same values as
+vc5_hdmi_set_timings() and checks each one against its field, and call
+it from the encoder's mode_valid(). Modes that don't fit are now
+rejected at atomic check time, and dropped from the probed mode list.
 
---=20
-David Gibson (he or they)	| I'll have my music baroque, and my code
-david AT gibson.dropbear.id.au	| minimalist, thank you, not the other way
-				| around.
-http://www.ozlabs.org/~dgibson
+The BCM2835 controller (vc4_hdmi_set_timings()) has the same kind of
+narrow fields but is left alone here, as I have no hardware to test it.
 
---QAC8C0zioRHVFZzG
-Content-Type: application/pgp-signature; name=signature.asc
+Tested on a Raspberry Pi 5 (Raspberry Pi OS kernel 6.18.39, with this
+change applied to its vc4 driver):
+- kms_invalid_mode: 12 pass / 1 fail, 4 warnings -> 13 pass / 0 fail,
+  no warnings
+- all 12 modes from the monitor's EDID (including 1920x1080i and
+  720x480) are still listed, and none is reported as rejected
 
------BEGIN PGP SIGNATURE-----
+The failure was found with igt-gpu-tools. The fix and this changelog
+were written with the help of an AI coding assistant (Claude); the
+testing above was done on real hardware.
 
-iQIzBAABCgAdFiEEO+dNsU4E3yXUXRK2zQJF27ox2GcFAmsHntkACgkQzQJF27ox
-2Gck4g/+JGpvHqRANIaQXFgTvlykIGciPaCaDaNoHHZriUjywNtZ+ynQkcPNOBFQ
-ko2Iftt7UxqLaMePQoS8R5gNN2YQ3jUV8yLVTVtyohw+7Z8Mt9JjYGo0rYC3PgGj
-UI810GUV4sSBxO+KWkkqedLjLfPUC37jWQVSIf5HNX0uZq32R2j9azh5532ffzuk
-hKmgOb/U+Ys3ZF0/GOCVl50bAfVRKtoYJAhzij0Xa7oQ98u/+Sp9vLypTwPhl+Tp
-rIHDu8PFtBumPTTex2goMHa5Smp/qVDRwjKOm9GnU99sisQKkSYXdaoJsgwhFiTJ
-+TGw5GQFFcB1pDCOQ5Aqxpl6MZmz+3fKFbngz4KAXxtPO/RNVn4N+KRM2PdyNnGR
-/dapZxxS/J7Tnrl6A1DRkhECLPz3bmppGDYZaTqNs18y8MXf7lOvm1/I1UE7g0U+
-rgLJX0E8K9EuIMYg8vKqYweN/YkboxLD/kBoke5Xyh4EUj1Psd22FLpwLUmDo27a
-ZYkqLCf5BIS/f789bLODtFJU9WTYdcXBYDteC0COuaGEXaE/w97RNibq1RERzG6a
-VQy9wINBDgJmGGiYarC1BMFaHyhAlYX9vOTbK6bLMu4mNXRlfwDvMddnjeXsBHNk
-b4xyfChSIjahzFpJLNmnVHtosIAJdOvd4qWfo/utvdN4PQF+Y5M=
-=oMiV
------END PGP SIGNATURE-----
+Fixes: 8323989140f3 ("drm/vc4: hdmi: Support the BCM2711 HDMI controllers")
+Signed-off-by: Roy <rongh7426@gmail.com>
+---
+ drivers/gpu/drm/vc4/vc4_hdmi.c | 50 ++++++++++++++++++++++++++++++++++
+ drivers/gpu/drm/vc4/vc4_hdmi.h |  6 ++++
+ 2 files changed, 56 insertions(+)
 
---QAC8C0zioRHVFZzG--
+diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
+index f3ec65d..4e10cde 100644
+--- a/drivers/gpu/drm/vc4/vc4_hdmi.c
++++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
+@@ -1254,6 +1254,44 @@ static void vc5_hdmi_set_timings(struct vc4_hdmi *vc4_hdmi,
+ 	drm_dev_exit(idx);
+ }
+ 
++/*
++ * Check that every value vc5_hdmi_set_timings() writes fits in its
++ * register field. Such a mode would otherwise be programmed with
++ * truncated timings, and VC4_SET_FIELD() would warn about it on every
++ * modeset.
++ */
++static enum drm_mode_status
++vc5_hdmi_timings_valid(const struct drm_display_mode *mode)
++{
++	bool interlaced = mode->flags & DRM_MODE_FLAG_INTERLACE;
++	u32 pixel_rep = (mode->flags & DRM_MODE_FLAG_DBLCLK) ? 2 : 1;
++	struct drm_display_mode m;
++
++	drm_mode_init(&m, mode);
++	drm_mode_set_crtcinfo(&m, CRTC_INTERLACE_HALVE_V);
++
++	if (!FIELD_FIT(VC5_HDMI_HORZA_HAP_MASK, m.hdisplay * pixel_rep) ||
++	    !FIELD_FIT(VC5_HDMI_HORZA_HFP_MASK,
++		       (m.hsync_start - m.hdisplay) * pixel_rep) ||
++	    !FIELD_FIT(VC5_HDMI_HORZB_HBP_MASK,
++		       (m.htotal - m.hsync_end) * pixel_rep) ||
++	    !FIELD_FIT(VC5_HDMI_HORZB_HSP_MASK,
++		       (m.hsync_end - m.hsync_start) * pixel_rep) ||
++	    !FIELD_FIT(VC5_HDMI_VERTB_VSPO_MASK, m.htotal >> (2 - pixel_rep)))
++		return MODE_H_ILLEGAL;
++
++	if (!FIELD_FIT(VC5_HDMI_VERTA_VSP_MASK,
++		       m.crtc_vsync_end - m.crtc_vsync_start) ||
++	    !FIELD_FIT(VC5_HDMI_VERTA_VFP_MASK,
++		       m.crtc_vsync_start - m.crtc_vdisplay) ||
++	    !FIELD_FIT(VC5_HDMI_VERTA_VAL_MASK, m.crtc_vdisplay) ||
++	    !FIELD_FIT(VC4_HDMI_VERTB_VBP_MASK,
++		       m.crtc_vtotal - m.crtc_vsync_end + interlaced))
++		return MODE_V_ILLEGAL;
++
++	return MODE_OK;
++}
++
+ static void vc4_hdmi_recenter_fifo(struct vc4_hdmi *vc4_hdmi)
+ {
+ 	struct drm_device *drm = vc4_hdmi->connector.dev;
+@@ -1656,6 +1694,14 @@ vc4_hdmi_encoder_mode_valid(struct drm_encoder *encoder,
+ {
+ 	struct vc4_hdmi *vc4_hdmi = encoder_to_vc4_hdmi(encoder);
+ 
++	if (vc4_hdmi->variant->timings_valid) {
++		enum drm_mode_status status;
++
++		status = vc4_hdmi->variant->timings_valid(mode);
++		if (status != MODE_OK)
++			return status;
++	}
++
+ 	if (vc4_hdmi->variant->unsupported_odd_h_timings &&
+ 	    !(mode->flags & DRM_MODE_FLAG_DBLCLK) &&
+ 	    ((mode->hdisplay % 2) || (mode->hsync_start % 2) ||
+@@ -3233,6 +3279,7 @@ static const struct vc4_hdmi_variant bcm2711_hdmi0_variant = {
+ 	.csc_setup		= vc5_hdmi_csc_setup,
+ 	.reset			= vc5_hdmi_reset,
+ 	.set_timings		= vc5_hdmi_set_timings,
++	.timings_valid		= vc5_hdmi_timings_valid,
+ 	.phy_init		= vc5_hdmi_phy_init,
+ 	.phy_disable		= vc5_hdmi_phy_disable,
+ 	.phy_rng_enable		= vc5_hdmi_phy_rng_enable,
+@@ -3261,6 +3308,7 @@ static const struct vc4_hdmi_variant bcm2711_hdmi1_variant = {
+ 	.csc_setup		= vc5_hdmi_csc_setup,
+ 	.reset			= vc5_hdmi_reset,
+ 	.set_timings		= vc5_hdmi_set_timings,
++	.timings_valid		= vc5_hdmi_timings_valid,
+ 	.phy_init		= vc5_hdmi_phy_init,
+ 	.phy_disable		= vc5_hdmi_phy_disable,
+ 	.phy_rng_enable		= vc5_hdmi_phy_rng_enable,
+@@ -3289,6 +3337,7 @@ static const struct vc4_hdmi_variant bcm2712_hdmi0_variant = {
+ 	.csc_setup		= vc5_hdmi_csc_setup,
+ 	.reset			= vc5_hdmi_reset,
+ 	.set_timings		= vc5_hdmi_set_timings,
++	.timings_valid		= vc5_hdmi_timings_valid,
+ 	.phy_init		= vc6_hdmi_phy_init,
+ 	.phy_disable		= vc6_hdmi_phy_disable,
+ 	.channel_map		= vc5_hdmi_channel_map,
+@@ -3315,6 +3364,7 @@ static const struct vc4_hdmi_variant bcm2712_hdmi1_variant = {
+ 	.csc_setup		= vc5_hdmi_csc_setup,
+ 	.reset			= vc5_hdmi_reset,
+ 	.set_timings		= vc5_hdmi_set_timings,
++	.timings_valid		= vc5_hdmi_timings_valid,
+ 	.phy_init		= vc6_hdmi_phy_init,
+ 	.phy_disable		= vc6_hdmi_phy_disable,
+ 	.channel_map		= vc5_hdmi_channel_map,
+diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.h b/drivers/gpu/drm/vc4/vc4_hdmi.h
+index b1f41d5..397ebaf 100644
+--- a/drivers/gpu/drm/vc4/vc4_hdmi.h
++++ b/drivers/gpu/drm/vc4/vc4_hdmi.h
+@@ -71,6 +71,12 @@ struct vc4_hdmi_variant {
+ 			    struct drm_connector_state *state,
+ 			    const struct drm_display_mode *mode);
+ 
++	/*
++	 * Callback to check that the video timings of a mode fit in the
++	 * timing registers of the HDMI block. Optional.
++	 */
++	enum drm_mode_status (*timings_valid)(const struct drm_display_mode *mode);
++
+ 	/* Callback to initialize the PHY according to the connector state */
+ 	void (*phy_init)(struct vc4_hdmi *vc4_hdmi,
+ 			 struct drm_connector_state *conn_state);
+-- 
+2.51.1.windows.1
+
