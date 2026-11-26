@@ -1,65 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795706733;
-	b=5Z3N5STCymNVlFGdKMw+oQi2HkZc0KT9n4SuOus6u3uJlitXVVEDnsRt8K8ybyjtT9+f
-	 0IRdZV9pkCHSPmT/qQv8jMJLaKufiSkhMPRnjZ9nJc5URmI1zWmrpY5v0y/IF9yaMY9dy
-	 fjSXP4MUpTMhbWx0J+MZcC/AUFe/o4Rbjqs3E8ri7ENYuIHAYFg6wsRBBaON+mdeg59dU
-	 CGwQjNtZsb9SQH63sQpleqjtvEzY/aNWmUmvHB3aVhOGnLTenJB2+senm8FuzMtiy2QFX
-	 jhMbbByIHXgMV+VsdP76xsrTpjTSdFxY/5VFyAwTlTh4EpYmiuI/g56+e3vwQRwzqgg==
+	t=1795706755;
+	b=jBOvo+QjUB7zswQk1vnEC2WwLEG1VuXPGi+XYeoeaSRBW2y12u3FLbEp6ntTp1WWR8EM
+	 UTq3yj/X1WiHzqF1AmDO4DOiDlsGuivhoE3Uar/oDCFvxW83IC8RZLUhr9sfno8mRrVbc
+	 eEpr9bNcGHYkklfIv9sBNrW1S+X/Rv0GRShBTxmY9EkLuN5cm9HgkQVeWc8FZt/GhnkY2
+	 95NOiDd03y42cQNOjy/LvKebjEYr+elo+7R1UfA5WDOUClVnig7vdit96ZsB8yisrw16Y
+	 r5t4PhokpWBvcL0rZ78wEFIqEJ4lAddXa+8JxwYHyTKSEW96I4e8Fehckb7QTZoQsag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795706733;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=BCdHGJp82IQM22hQ2Wqg/5L0lUHyT6/T/gJH8BjyT0o=;
-	b=xUiGXORoy4OrIVz2B8iZVOiIzHoPmVR6lOdTDWCE9ptsS+Et+YpTIhb6giALs/Fqdab8
-	 XKDSM8J3t/4DqfBgcnb88F8m/eEPhpLlFyGSB1FHe0lchMKA1F0glEkmVABQ4Qod94Tfx
-	 +f55MNDh6bNtRgV9dBKZYaFHxvcTL8MMiWHsRXFcyWuGQT1+H/U/jmXzH+SOfVhkMYk3N
-	 LrOXEfxnLe7UO5oQtiMsdnhuxd6DkEhc92KsBymS5AI1CpxYmKuAIvoTUN3xxIKQb3tII
-	 0Wqa5ckSZkibzxFtKtaIU3LzTKg/cuOwsk6w+LIb6alOjaZvYXIvKeoAlVv+20xhEbg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795706755;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=KMptWImjHXycMNTW8oPyt+TUsWhqT9gdSiNtzXrM0Gg=;
+	b=WzyVrAviQRN8rvibIN3JLvucCLc/x8jQJoihpikYvQw0XpzuYYUO1AG52DbLUo+QbdV6
+	 j7r0SQ+jXGHmEfcMil5McDdFjQOriKpXu0vuJ+Z+voJoeJdhKA/TJJ9vYsD7AH3dBwP9T
+	 rELWMaYaO1GheItN2vBRhHvhDhOTPZOGulxQwrVcqMA+bRD2fomkG2qtvZU0QJ2evHtog
+	 W3BSApBRRTfDaN7v9uUBoCnttZZ5j5qTzTorpS892nmUdExOph7S16qZyeMQZDqyGROXx
+	 vlIV2FBjFHt+KshNaxO1M5+D8nxzlahpSx32h95xmMNezH9OCMMpL3kMJzaxFNU9oyA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="ZhWvMs/7";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=KbwvB+6R;
+	arc=none smtp.remote-ip=192.198.163.12
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12DF9606A327;
-	Thu, 26 Nov 2026 15:25:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D048606A31E;
+	Thu, 26 Nov 2026 15:25:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D048606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZhWvMs/7
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4DE61F000CA;
-	Thu, 26 Nov 2026 15:25:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795706732;
-	bh=BCdHGJp82IQM22hQ2Wqg/5L0lUHyT6/T/gJH8BjyT0o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZhWvMs/7JK6zkWUKM5XM4vSRCW44q9letrqUunmnuhC1f5wKSR6g8O5rrr4Q7JjfT
-	 f/DaUYqBgTKBhzsVzSBHfEQ0NN2hmQkirtG6pVjZ/HScmBdNprHuqHhGIkQN7sBlli
-	 W8FuRdw0w4cpu7UKrGRXvw/CW/s8C4m9x7a86Wqu1cz3xgTQydlliYBZ8Mzfq4R32V
-	 hh9DVCn+WNA9YPjQeXtsxKhOpa8T4MdXAxYW1le/QQylf42UITE3V4jBEurDAuA5AM
-	 MB5UNy0Y8ZJkmDxuq6c7UXI9dubhXj4Ed26ieEr8WP98kO+PlIiw7jMvUvG+128gAP
-	 z4lYGCfH0qyrw==
-Date: Thu, 26 Nov 2026 15:25:25 +0000
-From: Simon Horman <horms@kernel.org>
-To: Meghana Malladi <m-malladi@ti.com>
-Cc: netdev-bot+sashiko@kernel.org, marco.crivellari@suse.com,
-	kees+treewide@kernel.org, laixiangwu@cmss.chinamobile.com,
-	philippe.schenker@impulsing.ch, haokexin@gmail.com,
-	devnexen@gmail.com, jacob.e.keller@intel.com, sdf@fomichev.me,
-	john.fastabend@gmail.com, hawk@kernel.org, daniel@iogearbox.net,
-	ast@kernel.org, pabeni@redhat.com, kuba@kernel.org,
-	edumazet@kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
-	bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	srk@ti.com, vigneshr@ti.com, danishanwar@ti.com
-Subject: Re: [PATCH net-next 1/2] net: ti: icssg-prueth: Add multi-flow RX
- support with per-flow NAPI
-Message-ID: <20261126152525.GD31322@horms.kernel.org>
-References: <20261118184729.2302130-2-m-malladi@ti.com>
- <179537406410.3135.5804903978186343042@kernel.org>
- <20261125121153.GU31322@horms.kernel.org>
- <0eed48e6-c525-4274-afd9-c42d99d860d5@ti.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=KbwvB+6R
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795706756; x=1827242756;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Bge/QNbozAwSy7v+JU5WeK6/7O+gLlh/hdbIgD/7JVs=;
+  b=KbwvB+6Rsmsq7q90idSQazzh+V3zx8OIU8gBnGMAmFp4UpVMDefcWRtt
+   cPweaSDUKp+EUURxBJXru11BSgpt/e9Tm07ApmsVAj0+zDUS6RZKHLSuE
+   Fjit+wVYyCIzPTcyRwNs8rnEkvz3mKpea7NuWCmGJGYcwG/C1PSX7ikBY
+   nc0XUjgr4TG1amQcTWshJiET87DrN51u9FBtCRKEURzBMAWqE4jl18WZ2
+   z9rqhXqieq0mrLGt5p5GojbQC4oFva11yqFKnoGlKy6+jo/AwwRmtfDxS
+   FgmGEofgozGZkIXBuDQDDkr33MY0HvsbjqXQknlHtgiPndgRFt77URIMP
+   Q==;
+X-CSE-ConnectionGUID: fmx0hZR2RyWY6QGULaVO5Q==
+X-CSE-MsgGUID: CCEjsPJgRh+a5BFXQFGueg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4525689"
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="4525689"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 07:25:38 -0800
+X-CSE-ConnectionGUID: bFXaUQIIQAGwk6M3YJCFVQ==
+X-CSE-MsgGUID: S7nUUpvRRVCk3tBXrynx8Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="12795244"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.208])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 07:25:34 -0800
+Date: Thu, 26 Nov 2026 17:25:32 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Gary Wang <is0124@gmail.com>
+Cc: Andy Shevchenko <andy@kernel.org>, Linus Walleij <linusw@kernel.org>,
+	Thomas Richard <thomas.richard@bootlin.com>,
+	Daniele Cleri <danielecleri@aaeon.eu>,
+	JunYingLai <junyinglai@aaeon.com.tw>,
+	Louis Chen <louischen@aaeon.com.tw>,
+	BillyChou <BillyChou@aaeon.com.tw>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v3 4/5] pinctrl: upboard: fix I2C pinmux-select set CPLD
+ GPIO OUT not function mode
+Message-ID: <awhPbIZjDazImfBf@ashevche-desk.local>
+References: <20261126-upboard-pinctrl-add-intc1057-intc105e-support-v3-0-81d35c9ba246@gmail.com>
+ <20261126-upboard-pinctrl-add-intc1057-intc105e-support-v3-4-81d35c9ba246@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,84 +85,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <0eed48e6-c525-4274-afd9-c42d99d860d5@ti.com>
+In-Reply-To: <20261126-upboard-pinctrl-add-intc1057-intc105e-support-v3-4-81d35c9ba246@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Thu, Nov 26, 2026 at 11:29:43AM +0530, Meghana Malladi wrote:
-> Hi Simon,
+On Thu, Nov 26, 2026 at 11:09:47PM +0800, Gary Wang wrote:
+> The CPLD I2C pin mode setting through pinmux-select is not correct.
+> Should be set UPBOARD_PIN_MODE_FUNCTION on AANT0F04 devices.
 > 
-> On 11/25/26 17:41, Simon Horman wrote:
-> > On Sun, Nov 22, 2026 at 07:01:04PM +0000, netdev-bot+sashiko@kernel.org wrote:
-> > > Thank you for your contribution! Sashiko AI review found 19 potential
-> > > issue(s) to consider.
-> > > 
-> > > Critical: 2 · High: 1 · Medium: 12 · Low: 4
-> > > 
-> > > If you believe none of the issues are legitimate, please reply to each
-> > > issue of Medium severity or higher and explain why the AI is wrong.
-> > > If any of them are legitimate and you plan to respin, please let patchwork
-> > > know by including "pw-bot: cr" as a separate line at the end of your reply
-> > > (one such reply per series is enough).
-> > > 
-> > > - [Critical] SR1 data RX path is out of bounds.
-> > > - [Critical] SR1 management-channel buffers get invalid DMA addresses.
-> > > - [High] On a running interface, a failed XSK enable/disable leaves the
-> > >    flow half torn down, and the next ndo_stop then hangs or the driver…
-> > > - [Medium] Multi-flow RX does not work on AM65x SR2 ('ti,am654-icssg-
-> > >    prueth'), which uses NAVSS UDMA rather than PKTDMA, but the driver…
-> > > - [Medium] SR1 management-channel teardown is incomplete compared with
-> > >    before the patch.
-> > > - [Medium] Misplaced error label in SR1 emac_ndo_open().
-> > > - [Medium] An AF_XDP pool bound while the interface is down silently
-> > >    stops working after ndo_open.
-> > > - [Medium] All flows share one desc_pool, and the XSK runtime refill
-> > >    budget comes from the pool-wide free count, which other CPUs change…
-> > > - [Medium] The SR1 data-flow page pool is never destroyed.
-> > > - [Medium] SR1 now gets an RX coalescing hrtimer but never cancels it.
-> > > - [Medium] prueth_xsk_pool_disable() can return an uninitialised value.
-> > > - [Medium] On a running interface, XSK enable/disable now reconfigures a
-> > >    single flow while the shared UDMA RX channel stays enabled.
-> > > - [Medium] Racy irq_disabled handling in prueth_destroy_rxq() and the
-> > >    prueth_create_rxq() error path.
-> > > - [Medium] RX drop and error counters can lose updates now that RX runs
-> > >    in several NAPIs at once.
-> > > - [Medium] A coalesce setting is not applied to RX flows added later.
-> > > - [Low] The ethtool channel range does not match what SR1 implements.
-> > > - [Low] In the SR1 mgm flow setup in emac_ndo_open(), the IRQ check is
-> > >    wrong for the signed field.
-> > > - [Low] Leftover field and mixed-in cleanups.
-> > > - [Low] net: ti: icssg: missing skb_record_rx_queue() in RX packet paths
-> > 
-> > This is quite a list of issues. And I would appreciate if you could
-> > respond to them as requested above. For patch 1/2, the four that look most
-> > likely to require a respin are:
-> > 
-> >    - [Critical] SR1 data RX path is out of bounds.
-> >    - [Critical] SR1 management-channel buffers get invalid DMA addresses.
-> >    - [High] On a running interface, a failed XSK enable/disable leaves the
-> >      flow half torn down, and the next ndo_stop then hangs or the driver...
-> >    - [Medium] Multi-flow RX does not work on AM65x SR2 ('ti,am654-icssg-
-> >      prueth'), which uses NAVSS UDMA rather than PKTDMA, but the driver...
-> > 
-> > Patch 2/2 likely needs attention as well, but I have not reviewed it.
-> > 
-> 
-> Yes, I am working on addressing the issues for both patches. There's been a
-> gap in my upstreaming work and I've gotten a bit rusty, so I'm picking
-> things back up slowly.
-> 
-> I am a bit confused about the bot reviews here. I receive reviews from two
-> bots—sashiko-bot and netdev-bot_sashiko—and both provide a different set of
-> comments. For every patch series I post, should I wait for reviews from both
-> of them before posting the next version? Also, one expects a response while
-> the other doesn't. Should I respond only to the one that asks, or to both?
+> Set UPBOARD_PIN_MODE_FUNCTION to 1 to prevent a NULL pointer
+> dereference error on .modes[i] for any pin group using this setting.
 
-I suggest focussing on the one that asks.
+...
 
-> Additionally, how do I ensure that any comments I skip (false positives) are
-> not flagged by Sashiko again?
+>  enum upboard_pin_mode {
+> -	UPBOARD_PIN_MODE_FUNCTION,
+> +	UPBOARD_PIN_MODE_FUNCTION = 1,
+>  	UPBOARD_PIN_MODE_GPIO_IN,
+>  	UPBOARD_PIN_MODE_GPIO_OUT,
+>  	UPBOARD_PIN_MODE_DISABLED,
 
-I think Sashiko is getting better there.
-But I for one do try to examine mailing list history in this regard.
+This won't make it robust enough against shuffling. We better to assign
+them all.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
