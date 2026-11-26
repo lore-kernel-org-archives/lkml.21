@@ -1,99 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.45
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795717785;
-	b=usLA2Rctqv9ZWgBwzK03bcBFwqThw1bNlsm/f4UUyH6c42tQNehJZH0q40BUO6PXEwjL
-	 InppDhGt6FFe4PO1QPo53wOo5OC6Ca20g8ERcO7kGMtZI7QbrHscgSkOmcJhrACVFkXJp
-	 2zagqvR6QCMJiA/gluFIM9fWBfn76Topl7iFkdeSfYzgWZ5XDLDevOiaiTSpXyrl6tGDe
-	 WXqUR2JUbKf6vcTkkmyOR0h8wG6jOslQ2H+v4GWiuFJiFr9C6QVGbIMCItEp/8fdnm4dc
-	 V7ZFZoJovL+s4AwaU4qYSxxQUugv+kV1NizQ8wl6tITMG/O5VmvtbOy5SmpCZTgTiTA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795717785;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795717791;
+	b=dFWGUl3ORSdDsp9DAyfICALOhu0UOIu9q2pe0Dj4FBWEhfNo3wZpJvWkyFK8kUAzKW6g
+	 dsuXcwuDUnbhN6prm27YcR8fymmi50v/L9S/GR1PmB/j3Ym0JgrAEv2w9H4FA8WSMjitf
+	 mByg1AAYAqehZqRcaW61EZ0PKuOK7+FB4vWiVwmDazgl5/Ytn6Cc+VtlXI4NMuGdZQASJ
+	 QbjUDTsZpZF9W6JK9PKXGyWTX79DwBjWAZNhxae8z1k0iwgqqk+Ga8Qrb/2vCIsdbmARx
+	 Xg+5dj2ALYx7GrKG4iQkp1eFleMhoinfqGxP1s78v3mel5aDs7mPJAzP1vYnC5bkipg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795717791;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=jQrziGWAtB1RIEv+Kll114OCtYDogfBv1KaAhc31nK4=;
-	b=BuSBSdtz0BWfyV/gW7HyCl1I91QTx2VsCiRJKnWQiiPp4H81u/+egVIQNspPlzTuvxa1
-	 qNj9rhGK2wjvDu3yZ8NfgUI1nBJvJw8ETl109NSebI9Q58y57r7K5/aJxBaJzWq1QYTAD
-	 VcfFMIIc+JmsO0Wb4NhO0euDn9HEyqaSIpxSP6kKX3iP/+IG2WQmZOZPv/cjnlMqyo7O9
-	 MVJdDiZixG6Cpew1R97bfbiVmHCB8tcMIbEu2bVXg9rjN9rAPP0tLhZB60z6BTsTEWqN0
-	 TEK/IeEQt0DYBfN0X8u2jUsyUD3ekrP43XOv2ab/l843cQgw3gutc0iOf/oNIV/FnwQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=owBndUl6B98qwPRw0FXk88D41lLAkcYrE6f1l+yGymg=;
+	b=nqCKuTm3h1OuuZXfR1TTaIJy08EFgo++F/m6BRzAQcEdjgjEKGkdaotVbfxYop5FdWHS
+	 t8eUpovNbQUSc6YQ24U5Ag9pjEb3pYjR7zcnNebf95pzqbb70x2c4v1NVvhph51rIHtZu
+	 uedRMV2pU/Cxtq1ZxELLXRvZ9GzvAzSyOvWDfseV1QqF0zpxm76BTpH5g/yu+L5vuIjJ8
+	 Qa5yXUEaO4+yxT0dRVI2l0LYZheX+4T3Sh8Use2YjombI0CjH1vBYj+C0NYd0rtOIi41C
+	 MofCJ2/bpQFKEGyYSz1TQWnmD12HvF8zONWs2e0OkJawCjiQv5u1KvozRtI4JQo4iYg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MJ4k8yGD;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.45
-Received: from mail-yx1-f45.google.com (mail-yx1-f45.google.com [74.125.224.45])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Y675L+Sf;
+	arc=none smtp.remote-ip=209.85.128.52
+Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45178606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:29:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 45178606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 154F8606A327
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:29:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 154F8606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MJ4k8yGD
-Received: by mail-yx1-f45.google.com with SMTP id 956f58d0204a3-677bc4704cbso8577811d50.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:29:45 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795717784; cv=none;
-        d=google.com; s=arc-20260327;
-        b=N5vKDyt5eC+6HU0cBpxUWEoSQYgwTuNjUT8hLaa3zdl3/rAumxqmzBvQTnPK3aV3jG
-         YbN3pUIwijWwzWR9WIrgakUPCOrk/S9av/UiMTd3gEs/7k8zpvy8QoGkYbHl57BMaOCu
-         yJR7bWGtqsZnliMSDZd3iSRv1BdQ/eduuEQ7oQYDBfswLWit1AGAqTEGdQaXpL07j5sg
-         Akh4aU8wwsUOu2ibDjvceVIoSymqkTb1Y1NVkTGSbp/CgHXSsC6Lyntaa2JqYBxv0gYN
-         Y0uZIju7gnJWkguK9d7sJRjNrgrD9AKcuOSmuURU86kfpsF6Lf0KeCd4nc3MJwx9u3Tn
-         aakg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=jQrziGWAtB1RIEv+Kll114OCtYDogfBv1KaAhc31nK4=;
-        fh=ihR/HanlL8HeYGVmv871iZERnm0MLfsujAzHcXoiGEE=;
-        b=Op4aWVb8aphdMIaGZKrVRvMlAqIKVQPYup9RTUqBTAkm59Zyf5bfNxJtwa8Q+8NKnT
-         Bnnvup/RaGp3Iu9UIEnzHmp0zi8cDeX60ReyUja4xuhSrGT+Ba46PLTF8mY61DzPDgSC
-         Zq6CTtA+CnwFs4Ix0gf7vViYsB+IQjeDECvEk39lO0h2KSxlifOsMlX6ZWSuCjhsSsO8
-         lcIE9vEWEpSrSmMACA9RM1ejZlwi1AbzpAItEmImVzMjwdXWHCKjKY6DeG9dOuTzLDID
-         iVfhs4BDOusn245olSCYMAN0vyJMgKRcqgEddv9MNMAihSVNtGn6rsCIWiDF0zc/6ipr
-         ZtlQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Y675L+Sf
+Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4bb9d8e8e90so44509795e9.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:29:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795717784; x=1796322584; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jQrziGWAtB1RIEv+Kll114OCtYDogfBv1KaAhc31nK4=;
-        b=MJ4k8yGDxGzVLtMMOUe/mfQbMrHzNuoGQG2qy4lERWypTHxAZz7bBXaUgDRdws89qL
-         OvJjWJjs7yKZkDjLoc0J2MDSRVp2hmxl5/nyCXIAtJEg+NpWQvJv9IV7D2V9XL96+GYa
-         kzUgFyqK33+zcNcePU8wE1ldNzg0le2XnLNkfT3JquXQBMZFED0AK4nHgpMHLBKbX2HA
-         EB5QyKNfp846LM9nMXSKtNz6n2KunpWGVQRiVJ74ng+FyIYvm9ko024J8bonudJicvCP
-         81A8MSJ3XQ25RhPgVK/AR76pgdmKprD6ouGk3JIYYCW8WaFB/XCOxxa6nJ668dJAmvDg
-         JLtQ==
+        d=gmail.com; s=20260707; t=1795717789; x=1796322589; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=owBndUl6B98qwPRw0FXk88D41lLAkcYrE6f1l+yGymg=;
+        b=Y675L+SfSBGgIp4gbRlqYw83S3pfbhJAzzPw5nqXcBq6ljlY86fpJGR3BdtNu04vWV
+         a9Vyk8hnGgxUIh+vCOimccWs+lPaCJx5sYduXTaBfagVyUQ/r0KYAWbXQPq3cDjTWvlC
+         ofDy4WFwyZE8FsOEOQ2HyA5EZi2aQgvwgsY4dXggjYHEI56rDiunjzl+hfCBQo5OOs0L
+         B1zg/Z5jkToLM0X4U5RY7eA0Iz+1Kh0mOLmvPndBEg24tSbkspdEHmgrNKYDcOkAItU+
+         T4r/80re9A+yDhu0vo1rV90lEu/m+o4UlOe0ANNCxDQAGCk6f7GNUypevDl89XT31IP8
+         h2+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795717784; x=1796322584;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=jQrziGWAtB1RIEv+Kll114OCtYDogfBv1KaAhc31nK4=;
-        b=j9ORO0v7VEHbhFe61nXG8RCaxNGR1+kyHfHq21jChYnauh9KOc4REIJtaLx1i44zlz
-         zcaWYKofNViYvaNdff22Fj+5cJjeHCWRcKch0fS08RnacEsfkpuUM37KCD8NjghVvrO6
-         q1pURORJfumUKwdHRtm/PoQZeQPAUPX334Dks7WE2kIsaK8gCUZ+VRRmi5aBo8EbV7w+
-         k68xhJKzqip0QNd82jILH85ikha0nh9yDjpUnOpkxQjklS3bqwvwmwIY1pOVQLiSeUhG
-         Zm0LrfrK3MdyBT809f5N/yXoMOdlunk3YXTphNoaWnmGdXFu37XIQ9dMIPQCZ9tlqrk6
-         gTqw==
-X-Forwarded-Encrypted: i=1; AL+hErEocD4ZdEkIMO1KlkFF0N9W2lHtkNtLCKVmXO5qtMnC5N+VV8rFTHgybz3oq47AN7vrqYE+jDnv7F9hH4Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z81ykTV3BV1tz75GUeRW1VVTfyb9wE6qGPvbF7wbPupVojpnbBh
-	4zEAEOWQgYWRj7TQqA8g7o4Y3PQJ+XmvuwYSk2X86k3LnpPJP7WAQKzvPg3ffDXbuIo9GvNWNKl
-	lPS+8fWUl0Lwx0686hSVqdIXYBGyXTEI=
-X-Gm-Gg: AZFdTZfOhxtp5DspoyYwxygRfiup/RK9vya5rK8/Lvx3uISSa/hCwYXw3BAm+FUotqT
-	PuPmHuAZnQxN6Adxx1gMpgO3+LcNQvtrhJfF9pFTGY3+xEualGT6kdV+FKhXSBLeY0Ked46VVQO
-	QXnqAMW4lWPUwynx26i2CpGoY4/Rp+Ey5PSNzujT36oTaXtjlA0Hl+z7VmsKK38C9noaQceyniP
-	viYf8YF1D2OqawfUWByOH1SEnIop4Jp5043U1hckBBrNLEE3gcZv0CYJ7upTyxNjQjhGCREDBFt
-	EgJlVYFdT4J6yOGB99zyeW843cEfGSuBx2p2yY/lpP/maFJkKBYOwNg9IhGL+rqSlvVfZZZaIpa
-	KiKJhwuM2B9pQt2oaGOSQuc7sbiODjL0jcJd+01eNP/COIkaQ5K487xsptfE=
-X-Received: by 2002:a05:690e:190a:b0:67c:1b55:8b28 with SMTP id
- 956f58d0204a3-67df441503fmr8107822d50.56.1795717784170; Thu, 26 Nov 2026
- 10:29:44 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795717789; x=1796322589;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=owBndUl6B98qwPRw0FXk88D41lLAkcYrE6f1l+yGymg=;
+        b=ONYSQw3IqOQlPeOe0sRVdbKB1rpQ8gfygT7xBbvgUwk42ismnh2iBcZoT4NDjq45AG
+         ppXv/s0nQ4NsGCTCOgSLji83XJVKMWP1TJEyXqTQ0o9lezGA9hEbpkAY/rFqGtej7fQk
+         CRrJwyQPjhr3bE3a+j0BZahp144AgRLbc9XGpKxH/DFBnH58GMy1GHwdDV89dTldObXd
+         g0LXwYQywnILSWpZg5XccoXf2yMKCtNLtoh6BTlISLi+EW3FOagkCapRs102dAEma1Fa
+         fdeZ7WlFh5f16RSvOb9+aLDTLyhmXUd92b9oIXDTyiAPLPHW57pAw7dHfUoQ49ktu8IR
+         mIUQ==
+X-Forwarded-Encrypted: i=1; AL+hErHP3eTYm1VougXrkfO85vF5exH1WGj1D3ZKvTFBFMqSHWLOFzUsUr3eIZjoNkaSIgJhmhMkeoYfhEzTFmk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8xzsWZdKif06mD3LWjj2pHSpj7Awp7Vf7ryJmusAM7eXPQzYFE
+	Owxy4wFp2CqzDd6z0RLbGDDa3oBqGspPVQj1KBskqgnvAYKUE23WhKZc
+X-Gm-Gg: AZFdTZem94Y7mP9LoEMYsPU+AIGKlQ8FCdldvmM2GIC0IUWHJz9qZyJl+qDvHV20vk2
+	QKYjmCxadk/1PkdK2KmOGnllKnMbMpIPp6X05Ec9RGNvlpOicLFe5ktnXkOr+lS1r+4t5vHSY8C
+	tJc0DXoXpjhAYdjEqA3yKtoOopUVkmz9Zcv61Rs9L44tqLgsOS7CjwO5Fp4YW4AN07DMdd9FuQH
+	KH2ZxBsx3fVKaxtX8T90BwhXL4o6QF39vfGRLwbnKvdpK1Fy1p8geNeWA/5JV7aCuZLrnIp6eGh
+	u9KK72RYhqC3LNoluD99Qu+0I7q9w2Muyp44pEidA8i1SdUVBJEZwZquskpQzWDYAAPE7AYUMIb
+	prfVaukKDT01gH3ruFdLPNwdvFU4tyNfCULTpTUFSueE3k76Sr73wGG4za6jRcWbpd5sE3ifHGv
+	Jim8peHRCx+ZGNfT81CSQK+IfmqQbP8FlikaxBdi+z6Itc2++rKaxga9HvXc0A67ETUFCLNh23o
+	g3c5ywMAfETJ7C1hjVZRTZqKjNAM2G7bRG7DA2f/0b8vfNfQGqvBkRVEVoJ7bQAoj8sua2yxePu
+	lc03isu8+noAkdkKEqCTESi3RDOiNCa+Ev4va/yE4D3OxgkzM5eX+a0bcFy9glEDL4ZwlyzisZk
+	qn7dlZnopQFOgPwTmvrxGp+FPCj9Uyal1Uh94EjWLyJ5QtL1ijDLroFaSqmFrqcFtx0h5z7LqFM
+	GdxOpRr3Po343sPF6n+r2nPYg7DIVyIPd9EL5oqQuQ/v3zzJSZyeI/Lb7E5igyu26i0DC46T4lD
+	r3enHH3xUhP9BYWAAYub2JIrsyMlBLej2f8BZ+F0A==
+X-Received: by 2002:a05:600c:a087:b0:4bb:5c92:ce22 with SMTP id 5b1f17b1804b1-4bb887fe887mr443791125e9.8.1795717789172;
+        Thu, 26 Nov 2026 10:29:49 -0800 (PST)
+Received: from jernej-laptop (77-38-7-250.dynamic.telemach.net. [77.38.7.250])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b2052c8sm42382159f8f.41.2026.11.26.10.29.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 10:29:48 -0800 (PST)
+From: Jernej Skrabec <jernej.skrabec@gmail.com>
+To: Ulf Hansson <ulfh@kernel.org>
+Cc: Chen-Yu Tsai <wens@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Anfernee Cao <anferneemelokc5@gmail.com>,
+	linux-mmc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Jernej Skrabec <jernej.skrabec@gmail.com>
+Subject: [PATCH v2 0/3] mmc: sunxi: preparation for A523 UHS support
+Date: Thu, 26 Nov 2026 19:29:41 +0100
+Message-ID: <20261126182944.3136900-1-jernej.skrabec@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,83 +104,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <CAL57YxZDQFH4cuv+dRbWwN5rv9K-45XbaznSQTQd9xBZLP9Dew@mail.gmail.com>
-In-Reply-To: <CAL57YxZDQFH4cuv+dRbWwN5rv9K-45XbaznSQTQd9xBZLP9Dew@mail.gmail.com>
-From: Tabby <nyanpasu256@gmail.com>
-Date: Thu, 26 Nov 2026 10:29:32 -0800
-X-Gm-Features: Aa3M54pKAPB-9zE_8Hy8qWxuUulTRImDGR5BuveBaYBrSjzO9wztKHtrRSFHXAw
-Message-ID: <CAL57YxZ5eVuKC6u0uRN96vx7Hr6Pa+2HgE2mLoj4H087ARoOEQ@mail.gmail.com>
-Subject: Fwd: Inaccurate unwinding/symbol resolution in `perf report/script`?
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>
-Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-Hi,
+This series paves the way for SD card UHS-I support on the A523, which
+will follow in a later series together with the A523 clock phases,
+delay-chain tuning and the PF bank supply switch.
 
-While using perf for userspace time-based profiling
-(speedscope/Firefox Profiler stack charts), I noticed an issue where
-`perf record -g` traces have incorrectly reconstructed stack traces
-when I run `perf script` and import the profiling trace into a
-time-axis viewer.
+It improves the DMA setup and error reporting, which the UHS-I work
+builds upon: a DMA mask matching the shifted IDMA addresses, IDMA
+descriptors built from the mapped DMA segments as the DMA API requires,
+and CRC errors reported as -EILSEQ instead of -ETIMEDOUT, so the MMC
+core can request retuning.
 
-For instance, when I run `perf record -e sched:sched_switch -e
-cycles/freq=99/ -g htop`, I get extra and missing stack frames when
-viewing the trace with `perf script` or `perf report`. Interestingly
-the perf.data file *does* have enough information to reconstruct
-proper call stacks, and `samply import` performs this but `perf
-report/script` does not.
+Tested on H3, H6 and H616 SoCs, on multiple boards, including Tanix TX6
+and OrangePi Plus2E.
 
-## Debugging
+Changes in v2:
+- dropped patch 1, applied to mmc fixes
+- rebased on mmc next, which now contains the probe error path fix
+  the DMA mask patch depended on
+- Link to v1: https://lore.kernel.org/r/20261103183030.81078-1-jernej.skrabec@gmail.com
 
-I initially suspected that perf failed to query all necessary debug
-info. Running `DEBUGINFOD_VERBOSE=1 perf script` shows that perf is
-querying debuginfod for every build ID found in `perf buildid-list`,
-but still outputs inaccurate frames from `-g/--call-graph fp` stacks.
-I do not know if perf can't find downloaded debug info, can't find
-on-disk binaries, or has an algorithmic deficiency.
+Best regards,
+Jernej
 
-I took a look at the call stack captured by `sched:sched_switch`,
-where htop blocks on user input within wgetch.
+Jernej Skrabec (3):
+  mmc: sunxi: Set the IDMA DMA mask
+  mmc: sunxi: Build IDMA descriptors from mapped SG list
+  mmc: sunxi: Distinguish CRC and timeout errors
 
-- `perf script` reports the blocking call stack as `_start >
-__libc_start_main > call_init > unknown > CommandLine_run >
-Platform_done > LibSensors_cleanup > ScreenManager_run > wgetch >
-[unknown] > __poll > syscall_cancel > internal_syscall_cancel.` This
-has both missing and incorrect stack frames; notably in the source
-code, `CommandLine_run()` directly calls `ScreenManager_run()` without
-the intermediate frames.
+ drivers/mmc/host/sunxi-mmc.c | 116 +++++++++++++++++++++++------------
+ 1 file changed, 77 insertions(+), 39 deletions(-)
 
--  If I run `perf report` and view the call chain from `_start`, it
-reports the extraneous stack frames as `Platform_done (inlined)` and
-`LibSensors_cleanup (inlined)`. Expanding further, it reports that
-`wgetch` calls an unbranched chain of `0x7ffb69c4ada2 > __poll >
-syscall_cancel (inlined) > internal_syscall_cancel (inlined)`. Here it
-fails to resolve wgetch's function calls (whereas gdb and `layout src`
-reports that wgetch calls _nc_wgetch > check_mouse_activity >
-_nc_timed_wait > poll`.
 
-- If I run `samply import perf.data` on the same capture, and load the
-trace in Firefox Profiler, I see `start > _libc_start_main_impl >
-_libc_start_call_main > CommandLine_run > ScreenManager_run > wgetch >
-nc_wgetch > check_mouse_activity > _GI___poll > syscall_cancel >
-internal_syscall_cancel`. This shows that `samply import` and the
-Firefox Profiler it spawns knows to omit the false frames between
-CommandLine_run and ScreenManager_run, and properly resolves the
-frames between wgetch and ...poll... This call stack is also
-comparable to what gdb reports.
+base-commit: 299ac25f5af7cbba27d80e4eaa8f9c703c96b2dc
+-- 
+2.43.0
 
-- - Unfortunately samply is not a full replacement as-is, because it
-only includes the first `-e` (I've reported to Samply and not heard
-back yet) and doesn't symbolize in-kernel stack frames.
-
-Is there an explanation or possible solution for this issue?
-
-Kernel: 7.3.5-arch1-1 (64-bit)
-
-## Prior art
-
-It does seem that perf unwinding is a subject in flux.
-https://lore.kernel.org/linux-perf-users/CAP-5=fWkUW787c4dGx9rccucqD67dfRgwBB_SoCxFnfZXtXP-w@mail.gmail.com/T/#t
-indicates that in-kernel DWARF unwinding is being proposed, but it
-presumably will not be ready for some months.
