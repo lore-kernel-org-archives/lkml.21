@@ -1,73 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.102
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795708089;
-	b=4PPou/RAZ77YxDZJnR6KiPLr98xbtS5rOOTq4fH5nxk5ar7BPsBxMQbdGv3cr+F/DjTT
-	 uFhB4GeuFRpqzAPIqM2FyG3csYnz0AARaqasK5XODhOQd96I45LGHsBkBwGRHdky6O74I
-	 9HZTCxOXZ96gux83rnZCsfQnMljGwuck6tw+1svXshulVWWjExnJTuWJW1Yi/1MYrsPBS
-	 r1guK09nHk+lJcHdIXPW5kYZbP+ZwbDZ3ba6czjgLntOA1gvPglr6R2eKf4oqtmXtwYKq
-	 jqApbXmnM1yUSH9VeCRz2NLarSAxdKcLj1KpZ8/i9soYzA42Go1I84n/iM/susfZVZQ==
+	t=1795708104;
+	b=h6vxl5VCNmCQdasXq6OxfBqED49jxeYpPVik2+T58SAFgia/2BVObIZtq/D/uAsEz2qS
+	 EFeR04izMwzzpGopWbjCIVm3oXbCk+Vl9Fy3mXuU/qmZfuQxptXi8umlCU4WBOWod08jw
+	 3PV/Dzb/kMCUVuwz+5/f2agR7Um+gO6YsLh8uxEbX2oWLd1Gr1a4NUSCEjdVdJbk/cAZV
+	 gk/WgAKi+Or9SSz6blR9SR1xDMxHFTmz3ulNZCp3qz/d3ZsaxX1r0ysH4luj/WIDJoI6X
+	 tH2KLbYEa4cA4fJcKxJhfskXpbsKaPcrPGOBmJvSWIQbPIN3aQuWr5aiKXqw5PnKhKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795708089;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=ih8tzc09CooWgckjqEd6PhiYBuj8ZOLowYuFuY6jsT4=;
-	b=W9fDEzgWxzaL1tn3XkP83CR1tUKKV/2qYYNKdDRMQHqz7CKpoWU0eSwNw6uHcOIWwVkZ
-	 b25KBDRKkVBX4UuqhHe+zKqBR3AI9hJLWIZK5/pppAYD84hfSn4bn6HeLMbcaDwtlvSTC
-	 A0ScJ8nGQ/n2lOvttlUEyd9CmHYn0zVHjIAbQwZdUQEDzAeXoj/P8JoPBGQiubFAa/eeZ
-	 X7jyzY+6S2c6dQY8rKezxh8O6w1yXuNtzuheJrbrQjlZDol8f5wfnsV2M2yzK/Q/Br9Jd
-	 w4tuR43tunmh7z+oW4R6Et0o9ZyuzpjuCEjX3o0C5aBrNRahHXyZAwF1PkPFCKaVpBg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795708104;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=wwXbWs7ZT8w0B3EdWM8PC+MO7PRX2Vvlhf0W84STFS8=;
+	b=ELRTjjKhJdLW8epMh1y1HQe6zWorn0PYdp2H6upyUvVZGXVKYLFQfvXfewxoGZAc1fWB
+	 zPtBEr33Ia8Q0CSz6KZq6SliPSbQSFqTrEXH4/3/tIUCvLrGqh5YevDj6V+JGhoX1P1UP
+	 0vnh+c9u/m5XT/qdo7frvVj05ps1V9dhpPbtM2yFquLrv51e1COsNW/9pUPJzMuEcnYQ0
+	 Vsec67SE28DHXBIdqB2oU4rkSaReHgGJbY+YorBRApjSwxSgknABhit1PwYVirVJIsW1h
+	 6KiRY39yJ8Lm/i6uUqWOBNV3Vpe+EmV/PfTAVdmjKaznvDkQYodwk01nhSpjrPtOqJQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=CZuc94Lx;
-	arc=none smtp.remote-ip=90.155.92.199
-Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bBeTE3pq;
+	arc=none smtp.remote-ip=95.215.58.102
+Received: from mta1.migadu.com (out-102.mta1.migadu.com [95.215.58.102])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DCAD606A31C;
-	Thu, 26 Nov 2026 15:48:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8DCAD606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA554606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:48:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA554606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=CZuc94Lx
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ih8tzc09CooWgckjqEd6PhiYBuj8ZOLowYuFuY6jsT4=; b=CZuc94LxPGCIcwUtE7XLmnQHPJ
-	T0hnaVTlz8rWvJfIVlqGpaoDPa1A2VbCUby39FEXpAqvwnvKXR1iQDXnL1Fr9QDx0kpoX0FHB9bCi
-	InIvchiEdbUJRhTQqpyWsWgQTB1PNpqv+fzhkcI9INz3PA4acZpDNLr8uxsXEHB7wRypWboVe/J7s
-	cD0nlzioGgOt9Zvmfyi3JeNV0mGsN2etcNEreo3I0MnSRVVm+56Ec5d+a6DNdlyF/L/32zMtFBFwG
-	BN/qgJaGU8q8QbTGLo8xhPRaeOATgaaloQiKxB/VFfK7d9+xV31axp2Sol7/AVHzWOnXgsi9hfoaK
-	aY1Wl0sw==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWbhd-00000006pCp-2nHy;
-	Thu, 26 Nov 2026 15:48:05 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 9CAEF302186; Thu, 26 Nov 2026 16:48:04 +0100 (CET)
-Date: Thu, 26 Nov 2026 16:48:04 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Oleg Nesterov <oleg@redhat.com>, mt4022@columbia.edu,
-	Jens Axboe <axboe@kernel.dk>, Ingo Molnar <mingo@redhat.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Michal Nazarewicz <mina86@mina86.com>,
-	Wen Yang <wen.yang@linux.dev>, linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org, tz2294@columbia.edu,
-	stable@vger.kernel.org
-Subject: Re: [PATCH 5/7] sched/wait: always queue new waiters at the tail
-Message-ID: <20261126154804.GK49833@noisy.programming.kicks-ass.net>
-References: <20261122-b4-sched-wait-intr-head-v2-0-4a764b64e8ce@columbia.edu>
- <20261122-b4-sched-wait-intr-head-v2-1-4a764b64e8ce@columbia.edu>
- <CAHk-=wj_eqNh+gNhCQh3exrL5Pmo5hbZBcL0W-4Ah_Nw0Kegzw@mail.gmail.com>
- <awWSwmvaTwBxfU-r@redhat.com>
- <CAHk-=wj3GCXZohdFWWPAOkC_LHno4X0oQW+0sQFJzRMvjpODUg@mail.gmail.com>
- <CAHk-=wgYc9vFEmyV0Ch_e49j6GOhUCMQMnMV4f1FLLvumZOmRw@mail.gmail.com>
- <CAHk-=wgNZfCN5qW-0pOK_TFBscqTu6an7fK5pEkxewg-Aif1Fg@mail.gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bBeTE3pq
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=Xp1PCLxg8xh6Qga6z1Nt+omOhAOKOgmPzF6xiXqJdvM=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795708102; v=1; x=1796312902;
+ b=bBeTE3pqoAFuYc1sZObyBmPAEbMFLHiva5YLbjCTrFWTAb+/uIQ5nEt/WDc+FqrE5t0Ls/yY
+ 7NdboCbHTrj65AfEDMFyn6K0IKG+SsrWNwN3+dhVxdcjtdzxYpZNrTWbWf/zHChAO9S3uzrML+a
+ ++90/er/G6BeYwlaYZJsJluM=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id a48e11f5e7f05f55;
+	Thu, 26 Nov 2026 15:48:21 +0000
+X-Mizu-Trace-ID: a48e11f5e7f05f55
+X-Migadu-Flow: FLOW_OUT
+From: Leon Hwang <leon.hwang@linux.dev>
+To: stable@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Guillaume Laporte <glapt.pro@outlook.com>,
+	Vincent Thiberville <vincent@harfanglab.fr>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Tiezhu Yang <yangtiezhu@loongson.cn>,
+	KaFai Wan <kafai.wan@linux.dev>,
+	Leon Hwang <leon.hwang@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>
+Subject: [PATCH 6.18.y 1/4] bpf: Introduce jit_required flag and remove bpf_prog_has_kfunc_call()
+Date: Thu, 26 Nov 2026 15:47:10 +0000
+Message-ID: <20261126154714.169698-2-leon.hwang@linux.dev>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261126154714.169698-1-leon.hwang@linux.dev>
+References: <20261126154714.169698-1-leon.hwang@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,45 +76,147 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAHk-=wgNZfCN5qW-0pOK_TFBscqTu6an7fK5pEkxewg-Aif1Fg@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026 at 12:46:30PM -0500, Linus Torvalds wrote:
-> From: Linus Torvalds <torvalds@linux-foundation.org>
-> Date: Mon, 23 Nov 2026 16:48:44 -0800
-> Subject: [PATCH 5/7] sched/wait: always queue new waiters at the tail
-> 
-> Non-exclusive waiters have been added at the head and exclusive ones at
-> the tail, so that an exclusive wakeup stopping early still woke every
-> non-exclusive waiter.
-> 
-> That only matters for waiters that mix both kinds on one queue like
-> read() and poll() on a pipe - and even then it doesn't actually buy
-> anything but complexity and fragility of the code.
-> 
-> An exclusive reader consumes the event, the poller had nothing to see,
-> so there's no real point in keeping the two ordered.
-> 
-> The pointless ordering results in a special rule for everybody adding
-> themselves to the wait queue, and that rule has not been consistently
-> followed anyway (see for example do_wait_intr() and do_wait_intr_irq())
-> 
-> So just queue everyone in FIFO order.  LIFO might be better for
-> throughput, but every time we've ever tried that optimization in real
-> life, it has caused fairness issues, so let's just do the obvious thing
-> and add new waiters at the end of the list.
-> 
-> Priority entries (used by the hypervisor code - questionable special
-> case) are still placed at the head by add_wait_queue_priority*().
-> 
-> And because epoll is a pile of stinking manure that I am afraid to touch
-> this leaves __add_wait_queue_exclusive() alone and it adds its entry at
-> the head for epoll's ep->wq so its own wakeup order doesn't change.
-> 
-> Now that it isn't a "real" exclusive wake event, its ordering thankfully
-> doesn't actually matter for anybody else.  It should be fixed, but it's
-> now basically just an internal epoll thing (and that will be made more
-> obvious in following patches).
+From: Tiezhu Yang <yangtiezhu@loongson.cn>
 
-I like this :-)
+[ Upstream commit 9a6df65d5c6a9947ddab4e563e329720f44b8747 ]
+
+Introduce a 'jit_required' bitfield flag in struct bpf_prog to track
+whether a BPF program strictly requires the JIT compiler to run. This
+prevents a dangerous runtime fallback to the interpreter for features
+that are only implemented in the JIT compiler.
+
+Currently, bpf_prog_has_kfunc_call() is used only for kernel function
+calls, replace the kfunc-specific helper with the new 'jit_required'
+flag. This makes it easy to support other JIT-only BPF features, such
+as inlined helpers.
+
+Suggested-by: Alexei Starovoitov <ast@kernel.org>
+Suggested-by: KaFai Wan <kafai.wan@linux.dev>
+Suggested-by: Leon Hwang <leon.hwang@linux.dev>
+Acked-by: Leon Hwang <leon.hwang@linux.dev>
+Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+Signed-off-by: Eduard Zingerman <eddyz87@gmail.com>
+[edit]
+  Adapt the bpf_fixup_call_args() change to fixup_call_args() in
+  kernel/bpf/verifier.c, and the __bpf_prog_select_runtime() change to
+  bpf_prog_select_runtime() in kernel/bpf/core.c.
+Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
+---
+ include/linux/bpf.h   |  9 ++-------
+ kernel/bpf/core.c     |  7 ++-----
+ kernel/bpf/verifier.c | 12 ++++--------
+ 3 files changed, 8 insertions(+), 20 deletions(-)
+
+diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+index d018a74a882d..bb78a97085f6 100644
+--- a/include/linux/bpf.h
++++ b/include/linux/bpf.h
+@@ -1704,8 +1704,9 @@ struct bpf_prog_aux {
+ 
+ struct bpf_prog {
+ 	u16			pages;		/* Number of allocated pages */
+-	u16			jited:1,	/* Is our filter JIT'ed? */
++	u32			jited:1,	/* Is our filter JIT'ed? */
+ 				jit_requested:1,/* archs need to JIT the prog */
++				jit_required:1, /* program strictly requires JIT compiler */
+ 				gpl_compatible:1, /* Is filter GPL compatible? */
+ 				cb_access:1,	/* Is control block accessed? */
+ 				dst_needed:1,	/* Do we need dst entry? */
+@@ -2854,7 +2855,6 @@ const struct bpf_func_proto *bpf_base_func_proto(enum bpf_func_id func_id,
+ 						 const struct bpf_prog *prog);
+ void bpf_task_storage_free(struct task_struct *task);
+ void bpf_cgrp_storage_free(struct cgroup *cgroup);
+-bool bpf_prog_has_kfunc_call(const struct bpf_prog *prog);
+ const struct btf_func_model *
+ bpf_jit_find_kfunc_model(const struct bpf_prog *prog,
+ 			 const struct bpf_insn *insn);
+@@ -3137,11 +3137,6 @@ static inline void bpf_task_storage_free(struct task_struct *task)
+ {
+ }
+ 
+-static inline bool bpf_prog_has_kfunc_call(const struct bpf_prog *prog)
+-{
+-	return false;
+-}
+-
+ static inline const struct btf_func_model *
+ bpf_jit_find_kfunc_model(const struct bpf_prog *prog,
+ 			 const struct bpf_insn *insn)
+diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
+index c99d3f396fdc..dfdcb30ea5ca 100644
+--- a/kernel/bpf/core.c
++++ b/kernel/bpf/core.c
+@@ -125,6 +125,7 @@ struct bpf_prog *bpf_prog_alloc_no_stats(unsigned int size, gfp_t gfp_extra_flag
+ 	fp->aux->main_prog_aux = aux;
+ 	fp->aux->prog = fp;
+ 	fp->jit_requested = ebpf_jit_enabled();
++	fp->jit_required = IS_ENABLED(CONFIG_BPF_JIT_ALWAYS_ON);
+ 	fp->blinding_requested = bpf_jit_blinding_enabled(fp);
+ #ifdef CONFIG_CGROUP_BPF
+ 	aux->cgroup_atype = CGROUP_BPF_ATTACH_TYPE_INVALID;
+@@ -2564,15 +2565,11 @@ struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err)
+ 	/* In case of BPF to BPF calls, verifier did all the prep
+ 	 * work with regards to JITing, etc.
+ 	 */
+-	bool jit_needed = false;
++	bool jit_needed = fp->jit_required;
+ 
+ 	if (fp->bpf_func)
+ 		goto finalize;
+ 
+-	if (IS_ENABLED(CONFIG_BPF_JIT_ALWAYS_ON) ||
+-	    bpf_prog_has_kfunc_call(fp))
+-		jit_needed = true;
+-
+ 	if (!bpf_prog_select_interpreter(fp))
+ 		jit_needed = true;
+ 
+diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+index b89a5d717e42..e91ee66c8e31 100644
+--- a/kernel/bpf/verifier.c
++++ b/kernel/bpf/verifier.c
+@@ -3370,6 +3370,8 @@ static int add_kfunc_call(struct bpf_verifier_env *env, u32 func_id, s16 offset)
+ 		prog_aux->kfunc_tab = tab;
+ 	}
+ 
++	env->prog->jit_required = 1;
++
+ 	/* func_id == 0 is always invalid, but instead of returning an error, be
+ 	 * conservative and wait until the code elimination pass before returning
+ 	 * error, so that invalid calls that get pruned out can be in BPF programs
+@@ -3478,11 +3480,6 @@ static void sort_kfunc_descs_by_imm_off(struct bpf_prog *prog)
+ 	     kfunc_desc_cmp_by_imm_off, NULL);
+ }
+ 
+-bool bpf_prog_has_kfunc_call(const struct bpf_prog *prog)
+-{
+-	return !!prog->aux->kfunc_tab;
+-}
+-
+ const struct btf_func_model *
+ bpf_jit_find_kfunc_model(const struct bpf_prog *prog,
+ 			 const struct bpf_insn *insn)
+@@ -22420,7 +22417,6 @@ static int fixup_call_args(struct bpf_verifier_env *env)
+ #ifndef CONFIG_BPF_JIT_ALWAYS_ON
+ 	struct bpf_prog *prog = env->prog;
+ 	struct bpf_insn *insn = prog->insnsi;
+-	bool has_kfunc_call = bpf_prog_has_kfunc_call(prog);
+ 	int i, depth;
+ #endif
+ 	int err = 0;
+@@ -22434,8 +22430,8 @@ static int fixup_call_args(struct bpf_verifier_env *env)
+ 			return err;
+ 	}
+ #ifndef CONFIG_BPF_JIT_ALWAYS_ON
+-	if (has_kfunc_call) {
+-		verbose(env, "calling kernel functions are not allowed in non-JITed programs\n");
++	if (prog->jit_required) {
++		verbose(env, "program requires BPF JIT compiler but it is not available\n");
+ 		return -EINVAL;
+ 	}
+ 	if (env->subprog_cnt > 1 && env->prog->aux->tail_call_reachable) {
+-- 
+2.55.0
+
