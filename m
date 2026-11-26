@@ -1,93 +1,95 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795685485;
-	b=Xb0aBHSEduvy53NsrzLeDCcfD+avD7gzud6je93PkdLikuMU9p6gwYSBT8D0s7+i0lPM
-	 Am/ucALmY29zudG1XkeYa3vYVo2aE7q1FuZuHFYCmsHFDNKcs0/lCGlWKNjWqnTkaHvwY
-	 f6Y2okrnQwl4JxI9tfeL4jLWk50tOIxWozXdqGvsmdketK/eRtHu68NIRvos0EMsB1H6N
-	 UdWbgjikOrgAuZOLcqUUVqhU0d7S0DkIZcUlm3xMIB/xdl6TWhVrN55wyVtR1HuTOInms
-	 W12HQWMP7+waSue0c6AUUtPr2Ty+SllkXV2FtYgppL0KveSSGvM1SAFy25dyZOHHgmg==
+	b=UFwoT4oZOf8ikqLTxlp1/5pYj7BbaF0d7+R17ur8cAM7NiXL2hjkfpZPnaN+RpcWwvti
+	 WCN9kJvf6jMkwxpq6+Mu5YM9T4tXcldjB7aFSJgN8iNxbYMtawzGAE8ugppAuVCINeuTw
+	 OQchltft+6R8vWl0hp1X5wLo1QuMczlTC0GLoK0JOStX6hgf1Lh6NERIqUdS57d+MLR0z
+	 zIWGddoeRsz/sBl2EXHoe9AURRs34nQPpvOcnjVkV9vlxMxd+Gk/69e5bbEuQn1vFkaKj
+	 5ybFoLge/0HvSa8a4agQjOYUZMwkpFv9T5i3k0wEfgP+0+lPdYbLv9xyYXnWb/SXhRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795685485;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=KxYz0Rx58uvG878VN3POGtPURCrxZ6nQaRpf1JD8omk=;
-	b=sKoo/n562gPMpKGiY2I/lFEUDvN11NbyX2oh0KWQrnAA/8Yq7uIZXxIG93muWQ31MUlT
-	 rO0zuolzrEoQfcKcmwuD3btahc1zwVJfxm55shlomFDUIxHQLWXsCLHyqf+9zuj8tOOqd
-	 NkkqIpPcYyqYyUvgBdxThLRMh33PsqDWBEqTG/w97eHlz2BjHJpAsIIhOhaD6cuvnBrgE
-	 2+xfhQvpJi5I9SUmOQ7vzbZhxiTKuiMeVowQi/WXCVqMLeMMhKLbe9qH74tn8bjBSjFIP
-	 dZPTXtA3yE+LhREymsVfJG0U0gY6nQmncxDkbkkl50HQDY2CBsWOXC5aK5BW6tNMJVg==
+	bh=9TO3Aq7knsuXUdH7NBurIbnP0YvlZ2ZwCn4tGtf47GQ=;
+	b=lgB5MK/k3NMW36Eb0m7tNtdJPi/4X3ZQGJyygVayOSETWAtez0e2mnanuXRHMWj5h4Wk
+	 cPTr7MDbHnGbiblUxoto5r3NXUDNdxPDrKB8+m+ZDyi/8gOnD/cTplrjQ6+HmcLEjTr5j
+	 6MrSU/3AKPjpPPBZMJvukDalO5PgKbXyFThvigUUcQmrN6Tgs5q/KM3aBvGG+RAtExkti
+	 +7wYQrqA7Ay1CB4IxMCPeqKJxXDUrLL7hhpobamtDFxGdH85ZD1itjAdpPNVKdlCnp4fY
+	 JtV6V0Wb1iRt4v7NhTF7yDZLNJ/TBv5icmF1Am0UUGlhAel9DkzTG3z0dJRvUPJGngw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zbssfSJ7;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=E43HplFt;
 	arc=none smtp.remote-ip=209.85.218.49
 Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4D75606A680
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:31:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4D75606A680
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87F9A606A331
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:31:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87F9A606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zbssfSJ7
-Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c505b2e1cb9so1237901066b.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:31:24 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=E43HplFt
+Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c4395d31228so1158047666b.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:31:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795685483; x=1796290283; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795685484; x=1796290284; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=KxYz0Rx58uvG878VN3POGtPURCrxZ6nQaRpf1JD8omk=;
-        b=zbssfSJ7kR1tm3zM3tuzkXG/552spqHTV5kKqqofoN+VyodkEEjs2vYFuLekFgrJIb
-         lg+Gr4GD4PH7RlMBBqLVrCWQxnumnh/QK3PNcev68ONjmqLugeN3yFlicfc99TidF/0P
-         Kock3PcxjXPRTfJuFyytLa0sTnMq4Ekzt8LYJj3E4HPRPTskjvysCpDQ4u+7IIMh01sH
-         a0AMbrg+7pcSti83ZiTdQfqxtTqrXSMstgyipvUzXdhlS2Kar3GCujw3VW/asv9Qjo5Q
-         w3e2YRT4yz32aCtj7Vwhs5OUux9t1jLonF30dbTWHpjvbprccujmyaPqcXzYmYKRqRQ5
-         7w3Q==
+        bh=9TO3Aq7knsuXUdH7NBurIbnP0YvlZ2ZwCn4tGtf47GQ=;
+        b=E43HplFtGOMrWrrUbPSnQUTjl/zR46WD34Dkq/2vWpUQly/l9mnDTQHLg/dWDh1u1x
+         2qbK/SOnbyTjm6uiGdvvVObvQn4oBHyPVhgIkQZGZ97ZzOlesguUCA7czvpyU78TmK/W
+         95IhtxBLTni3M7IBH+xtB4rKRIxHemytv7X+nxj0aylc8DXOWmvcG9RM1sMuNLRWQPgP
+         pmAvsIYM1s7LM1fStCycGyIG77JCVydr7HOrc+0EO8E/nyqMX5bcExiinMlyAYU3CKjs
+         f8xBU8pS16aLKsVbJmb+tU18V7XgnxIRpPuEf6NfP5zLYOYcTuFTRQ4V7B9GNhXu6BQ/
+         pn5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795685483; x=1796290283;
+        d=1e100.net; s=20260707; t=1795685484; x=1796290284;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=KxYz0Rx58uvG878VN3POGtPURCrxZ6nQaRpf1JD8omk=;
-        b=Fnxx3QcAV3baLinwFxt4Dc1Qj6V5QFFT0alM00p5Lc33PgnbRXrAcMXdEwamSyhf43
-         2dKbv3QbLS+F+MXoTyEHKFuCka5G67PAahAOAxtfhDY5/TayU3eMufVKWiWa3bAy8FCk
-         +1h61QZ6dexTwi1sxEtAG8wODya/xJtscUVP98Wp6vsV1df3rPKRnRKu4DLuT538rmue
-         VK8+3owQwU1OCQinJUTwlSNsutrwoi0exdKBfGPwk6CLHxBa+rtdUW34ED6IzTs8P0tV
-         Tyxjf0Xmo6WrUoVMHOqaeQmkCkXltowG7EqbtmTLsWO58xzJ/FqpeZzF5mJil5AKLDWu
-         2vfg==
-X-Forwarded-Encrypted: i=1; AL+hErFMXMTIiSVS0M0xZFrEnwlrVrOzB72j9GuDm+BLjOMVcYTdlwKdB0YjL8Pt8ei8gvozxyq1TftovlXsoZQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z89cxWDi+CH3+MXrOJASAimPRYYRdl+hxDT3hVCoIaF4vW97qeD
-	+GBWFIi7mfatmf8Lfqg+bbx5cSQi6jmANbTR+uZ7FOPzNSAILNgzz89+
-X-Gm-Gg: AZFdTZcJgJ/suOsw9eW416TiwMcrbJuENXyHqSLdAa/bYsZy2fJibN8utGv2H+m3c0/
-	K8pR/aNs8FiCVWkyCATXtXeSkJCXAhSlbWoVd62OHtQsT/FbANgUzk3aX9U+Vn89mpP1seLe44F
-	0ylM99Z5Yr/sE81PGpMs6JfSHscmRKYb8AWWvjgQ8RYhIbp70YfhBE/S2HVzBS8beCT+6Gn2bHG
-	ddNlNdW7KnlxBibntVE4CZy+bff28/r+oJPCR7yt2CjykqMsy7gG+V49VmAotapZzR9m4gzJkjt
-	lMq7f5FPdIP5+L0Kkea85gaTYLacZZpN8qY7lKW0vEb4zW/41hH+eQOmSy/sNqZQkfMIoXRPYx4
-	fygP9knlSPgpSApeckVcL4RPgcPLthYRkBGxa+H62wxQEKFOf9psz+YHFVFllLsL167yMn2Q9Rz
-	t+IwYeWPXEOtKPAdqbb8a8RNvkGIShXkOAuOdH98wAhkBNMLmAh4Ee9uLr2DF+oLTA81IEJXId7
-	70I2wPff/KbzEJlhtB7auolWH5b6WhHpy+XHiqydOsNPZWFDvnuxyyXiiZU08ii42AZgfF6xrcb
-	BccBfINSZYoviNcA0tmohxzdy3/f279lD5MOBfxlHHllEFtoo+vbymj3AeE7p+d56nEaaw0=
-X-Received: by 2002:a17:907:fd15:b0:c50:f1c5:f815 with SMTP id a640c23a62f3a-c513ab49777mr1628525566b.31.1795685482808;
-        Thu, 26 Nov 2026 01:31:22 -0800 (PST)
+        bh=9TO3Aq7knsuXUdH7NBurIbnP0YvlZ2ZwCn4tGtf47GQ=;
+        b=zrONSg4ucImyPrqCh3ykZV6mOJ+2No+6qpbDUHD02OXD1WxDYtdP1tuJyEjQhMTDMr
+         UKUCIB+Ix93DPZrjrreKselJcqA/bqEtz5U5dK2h581IrrqbGIqtBQGytnhgDkVIFrOl
+         0OLlZkrF5NClOvW2nPm6WPsKony+FMBbFJHnzQItqPWjeLOXT0YjX3k8GV0jJHbACTq7
+         jIjKomNzZe7AwQ9KkgINlkHes90PBvixSr5jO/jM8O6K/yDm1fUuhNnlJRgYPkYxmnHw
+         W6h0uuCwM8653P9zLx7d2n2pgtHdyXQERoeako7djurtn/B9ZM5rYPF8SZb2ih9yCrVZ
+         3w+Q==
+X-Forwarded-Encrypted: i=1; AL+hErGQ1BSXTk4OMGn93fM4HVuLOavmQ2Xqgb12x54rOAJrZfFkFk9I2DvoQJC9p17Ai0Gs0gYLJSEqqyAIFUQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8X40qBL4IfQ6S/p7RyKuConAWN0K7D11PYsfgnHYSGorwXzV/9
+	6dV8XhcUPNLSUhHg52LyAm5Etn5Pi22Xn0oBABPCXRWiJ/gq2lWrY+etS/iOJdQA
+X-Gm-Gg: AZFdTZdWHkt/jZlhgPhjCYV0lyFRW2HjJPywo2IRhoEhLtErn54jlrFd6F9XP3vJP77
+	4Lh1Pqy4J1SGnUN8vdHpwRe8d1dRmaWdiUmkymfqIBFe01TakByw+pMMVR9umJtKJzH92QzeSgm
+	I5Y9krFAhPXjcREHXiChqeUu27pktKN7VrbnP2lvsMOtPkcwxghCOSMxOGOHeslj/S23fgGC0FG
+	YbadkSybpAGS5u0UU6XwVsShsdtfI3LbIwYu39ALLZ524mMKQRs6ICD9+EQVkg0bgFwTXblp14j
+	QCv1k5qLTG5Cn4z3wo181JCu9x+oLky6kdnM4DCtjlI5lrZi7LZ4x6TmanmsuSiW3txj1bLiWVu
+	4BvguvLaqg/RlZVeosYOYX/blVeeG6zUJeHpf4pRPVuLCGJAQ+fBZrjyCEFd4e3mbDn3d6LvWkz
+	Os8FqWvkyZXzOg0KngtGdE0XZT8JDREJbHS/ElfueakTdBd5pt+YVxVWc8MT+awYB2vXMgggCKA
+	XFc7eAYFQBfrgH1njSCmBf57HN+PAiDBPsIVDVlFRkgTADsnyoekOWTzH0PUttEEAGdyQ71+ZzK
+	vxo4T3Bel7/zk9ZYTOB6Z8Rx0kczVqFDCWpVtIIOm51YEF0Yb9ZMEIllZaqiTwKMhHzbhk6Js6Y
+	3HE5eGn7JNsJ7qhsedA==
+X-Received: by 2002:a17:906:c14b:b0:c35:babe:ab44 with SMTP id a640c23a62f3a-c513a1e0076mr2020213366b.0.1795685483801;
+        Thu, 26 Nov 2026 01:31:23 -0800 (PST)
 Received: from buildhost.darklands.se ([2001:9b1:ff:d701:51eb:176f:63d9:53f8])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afdee82sm597090066b.66.2026.11.26.01.31.21
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afdee82sm597090066b.66.2026.11.26.01.31.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 01:31:22 -0800 (PST)
+        Thu, 26 Nov 2026 01:31:23 -0800 (PST)
 From: Magnus Lindholm <linmag7@gmail.com>
 To: davem@davemloft.net,
 	andreas@gaisler.com
 Cc: sam@ravnborg.org,
 	sparclinux@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linmag7@gmail.com
-Subject: [PATCH 03/18] sparc32,leon: publish instruction updates across CPUs
-Date: Thu, 26 Nov 2026 10:30:08 +0100
-Message-ID: <20261126093106.1345825-4-linmag7@gmail.com>
+	linmag7@gmail.com,
+	stable@vger.kernel.org
+Subject: [PATCH 04/18] sparc32,leon: avoid nested IRQ accounting in the timer handler
+Date: Thu, 26 Nov 2026 10:30:09 +0100
+Message-ID: <20261126093106.1345825-5-linmag7@gmail.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261126093106.1345825-1-linmag7@gmail.com>
 References: <20261126093106.1345825-1-linmag7@gmail.com>
@@ -102,61 +104,39 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-flush_icache_range() is a no-op on sparc32, so another LEON CPU can
-execute old instructions after code is rewritten at an existing mapping.
-The LEON4 data cache snoops bus writes (GRIP 104.3.8); publishing code
-also requires invalidating the other CPU's instruction cache.
+handler_irq() enters hardirq context before genirq dispatches the LEON
+per-CPU timer. Entering it a second time around the clockevent makes
+account_process_tick() charge idle, system and softirq ticks to hardirq
+time. As a result, htop shows idle CPUs as busy.
 
-Flush locally and through a synchronous cross-call with preemption
-disabled. Keep empty ranges and non-LEON systems as runtime no-ops;
-generic SPARC32 kernels can detect LEON without CONFIG_SPARC_LEON.
-This covers in-place code updates. The module loader already flushes
-caches when creating mappings for module text.
+Remove the inner irq_enter()/irq_exit() pair. Commit 2cf9530420e4
+("sparc32,leon: per-cpu ticker use genirq per-cpu handler") removed
+it when LEON switched to genirq. The clockevent conversion restored
+it. The sun4m and sun4d tickers enter through dedicated traps and
+still need their own pair.
 
+Fixes: 62f082830d63 ("sparc32: generic clockevent support")
+Cc: stable@vger.kernel.org
 Signed-off-by: Magnus Lindholm <linmag7@gmail.com>
 ---
- arch/sparc/include/asm/cacheflush_32.h |  2 +-
- arch/sparc/mm/srmmu.c                  | 14 ++++++++++++++
- 2 files changed, 15 insertions(+), 1 deletion(-)
+ arch/sparc/kernel/leon_kernel.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/arch/sparc/include/asm/cacheflush_32.h b/arch/sparc/include/asm/cacheflush_32.h
-index 9fee0ccfccb8..4249663efacc 100644
---- a/arch/sparc/include/asm/cacheflush_32.h
-+++ b/arch/sparc/include/asm/cacheflush_32.h
-@@ -15,7 +15,7 @@
- 	sparc32_cachetlb_ops->cache_range(vma, start, end)
- #define flush_cache_page(vma,addr,pfn) \
- 	sparc32_cachetlb_ops->cache_page(vma, addr)
--#define flush_icache_range(start, end)		do { } while (0)
-+void flush_icache_range(unsigned long start, unsigned long end);
+diff --git a/arch/sparc/kernel/leon_kernel.c b/arch/sparc/kernel/leon_kernel.c
+index a43cf794bb1e..e560f0237165 100644
+--- a/arch/sparc/kernel/leon_kernel.c
++++ b/arch/sparc/kernel/leon_kernel.c
+@@ -289,10 +289,8 @@ static irqreturn_t leon_percpu_timer_ce_interrupt(int irq, void *unused)
  
- #define copy_to_user_page(vma, page, vaddr, dst, src, len) \
- 	do {							\
-diff --git a/arch/sparc/mm/srmmu.c b/arch/sparc/mm/srmmu.c
-index fb95865d7ddd..d2963fab829c 100644
---- a/arch/sparc/mm/srmmu.c
-+++ b/arch/sparc/mm/srmmu.c
-@@ -1736,6 +1736,20 @@ static struct sparc32_cachetlb_ops smp_cachetlb_ops __ro_after_init = {
- };
- #endif
+ 	ce = &per_cpu(sparc32_clockevent, cpu);
  
-+void flush_icache_range(unsigned long start, unsigned long end)
-+{
-+	if (start >= end || sparc_cpu_model != sparc_leon)
-+		return;
-+
-+	preempt_disable();
-+	leon_flush_cache_all();
-+#ifdef CONFIG_SMP
-+	xc0(leon_flush_cache_all);
-+#endif
-+	preempt_enable();
-+}
-+EXPORT_SYMBOL(flush_icache_range);
-+
- /* Load up routines and constants for sun4m and sun4d mmu */
- void __init load_mmu(void)
- {
+-	irq_enter();
+ 	if (ce->event_handler)
+ 		ce->event_handler(ce);
+-	irq_exit();
+ 
+ 	return IRQ_HANDLED;
+ }
 -- 
 2.43.0
 
