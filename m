@@ -1,98 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.222
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795662948;
-	b=3PnGKcIMeEAow/MPX51+PQlZ3WGQpKysScInlRzRtWKc8fRVY8JM6t1KdvD5Hz1/k2OE
-	 xSSTNsYyMjdqTk1pcRXji4E/sCe/mSrYTcmaV2CTu/r+vHVcyQ+GDFLhRLL6gA12+ZQj/
-	 Ukoo8tyQN1cdvCXVnR15e3eT3+GNxh9QNLnBEPL3nrngduYfwEIaujMP316vU0kKCMR2X
-	 B1XLnVT44JIG15ZWtC19c5a2hegRsKUCufbao1tGriVrVUT65elFXbjwsEs3LLtJHDrbD
-	 qg8+GDB1H133B+psWC41YxwTGs8CWJv24eKI4dr92d3nM+JkXn6Ui/yh+Y4GaxSevLA==
+	b=AIC5Xi4wuKsodyrBDO6TSYi1Nokedw/FNzT9A6Zgrm2YVOMcCMR+a8dn5I9kRm6Eu8zy
+	 VL4AESSo3QYx9xoqlVhKITjTMkJMXJT6cnP+juwMD2xbq4Kj1+aexvhxY0NdJAmDf/zw2
+	 wTeZDGEyd8b/PMaT7k684iWbnQ9t/BanbPkP/iPYMIO31rbcOBd4dQB1aHdg05sJ6V3d9
+	 b9eNIVt2D1OAkg0aRfYrck173Rl8Y7+Uc4woB2sZSavC3AHP1YbN8J0oQSfBInYISq4Ou
+	 5GePmNPlJKtKCVJYnr1H3R0pPRIdFjUIXu17Cq08ToAAJjr43/VOCPFDTPENa9MTNEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795662948;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=Uz5Xnl2AfSCtii2DAKq2bHJm7Z1k2Z78VEojlr0dwow=;
-	b=ys44TtzQqSO+s/yKc6ISG/zuY5QPCG5bwIxYYUEr9wi0C/yzgULRvSw6aRemkJHN8jh1
-	 e5BVpkl4jB39Iyw/NJ4pEEntGZKYB68gKQFsmB+5/co4ULHKebmmVI+LlpkutkdDm5sNx
-	 6j8BMYzqH7P869rVAxZeJPWg+a3d2EHQfFCu/CPvkSI2PYQw51s6f6GSmlGopjlWdKASd
-	 /DP9XSiIINfs7xoUPWr1xrVjaMAczUtU0t6rqAqKOxmXlw9y7SHjJbdvsyY287kCT4dAm
-	 vY+b6FDwtEXdfVRCzC4G0iF2fJ2Y5fXOus14g6BSjHp3mM22yE6tSGJF5k1AqCCU+cA==
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=K0uADk5t5f28gc5ONMqfpyCukoB4CpFM4vCIHiGdkTk=;
+	b=hlOmDFlm4Wp1JLTGWIpJQ3mRfke6vJHgKVBtznJsiXmhORBdI+mkUYqXHEqrFCPdREV7
+	 ryEI7C8Y8q6MaFmYrDbsaK8sWiYtAppkX7hpryLUvwob2EIXh+XmmEl2eBDdX2Ctnk6vv
+	 plj5HhdYJ23S5rm//uF4d6tfwBFwQzLiVOvruHc953qh4ZWGENi2YEC8h7DVgIH4j1vUM
+	 Od6al1BgpKEsNWh+i624qKc/WAHhsBg4vOUE13BYpvsXcVh1TQL5jy1YbwhjlhPU2CS4l
+	 vSN/JvwRrYuQC5/6ncD9GB7wS0L3acIvnjTZqobZ1Xc5+TbmpI7VDhyMJj07BAz7npg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rowland.harvard.edu;
-	spf=fail smtp.mailfrom=g.harvard.edu;
-	dkim=pass header.d=rowland.harvard.edu header.i=@rowland.harvard.edu header.a=rsa-sha256 header.s=google header.b="lXX3H1/A";
-	arc=none smtp.remote-ip=209.85.222.178
-Received: from mail-qk1-f178.google.com (mail-qk1-f178.google.com [209.85.222.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=UEYTPVwy;
+	arc=none smtp.remote-ip=113.46.200.222
+Received: from canpmsgout07.his.huawei.com (canpmsgout07.his.huawei.com [113.46.200.222])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38CC9606A684
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:15:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38CC9606A684
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rowland.harvard.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=g.harvard.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95F34606A329
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:15:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95F34606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=rowland.harvard.edu header.i=@rowland.harvard.edu header.a=rsa-sha256 header.s=google header.b=lXX3H1/A
-Received: by mail-qk1-f178.google.com with SMTP id af79cd13be357-9496317b730so749254685a.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:15:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rowland.harvard.edu; s=google; t=1795662947; x=1796267747; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Uz5Xnl2AfSCtii2DAKq2bHJm7Z1k2Z78VEojlr0dwow=;
-        b=lXX3H1/ADsjXeAjpJPsORX6gkMO1WFd7JCpJ6lgGjADil6c1A057LJ3NCN3g7Hik/o
-         2qjv9+FyuyBMeCQJldxkVXJiqcDbmc3NmNVpPxfOr3g3DUguVJIPADkT24y9Xo15ZfNc
-         qb84dA34F/Ffp4ihgEOLh7ug+KTL8zKkv4qy+DQdWlRG1Q2iFWlHOuxS2p6CtJEX8jzv
-         BurKCmvMNAYVrD4CEduefmdA7eEAX8CmPGmBhJDmpJqOmsckacy/Jg/2wjG3XEij3StU
-         cOSU4Uh6jJvq+2MXX//EDy/Gg9jH0DkV+Ch6Jc/Nz/Ws20CAju1ljwH2qAk6GrYyfhM8
-         rDCA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795662947; x=1796267747;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Uz5Xnl2AfSCtii2DAKq2bHJm7Z1k2Z78VEojlr0dwow=;
-        b=d6g7lZNzQydlxqgc0p8TPj133bt9mCo5FyLgbaRq0Vqxq8NgrwAQlpfYUw/h/WdTKk
-         Tec0glYQJhub7fOXSoVTMXz0+Iu3eLVzad6Y4yfxIKU2R9BC+1ckXyWvQ/3kcZvp8aWv
-         6zQVrij/ILdUl9h0TQ5rLOaGvnNdWZvYlSfSkHOlqgv9SIfQIF+TC3qtITXrQR3ADx6t
-         xumjN/xUqicu/Uu0QExMVLYKkOseNXRa3Ciy6Q+P3jy0aNVHiAtAbR3ZtcK9nU511unC
-         zLHsZt1F4NFpFaGD95+WMQcn5LGO9cb0ZW2ZDPH2DVg7H12Epb1goStcNsnv3YIIiiia
-         5mEA==
-X-Forwarded-Encrypted: i=1; AL+hErFngpTDTW2yxCDYlvVbVLfRWwvV56oTUDhiZMi10aySHcoJ7FzARKIqTl2u7SER51fOq1jtVg7aX7p9vWk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ikkMkhXkOXHhK6Wpq6THANCangM3OFGlVk6iNLR0QnbwSlIzy
-	i+ulNd5Icx4oIe4MKsQgXfbLIMrb3GK0SDVL1Hcg80s2DVqaDJR+IDQun85GKSpjTy1p7Wh8aBY
-	y73Z4wQ==
-X-Gm-Gg: AZFdTZdNveDhULNpRv6Yw4vflPmxaCsiyUnzBROtSmfUSUvwhzyGjT0yZW4nTGW6hIJ
-	5noKXbFGf3hlY/ULPS1iY5ZtmanX3VdUgCmV+UhCAW+nTL50bmA+/KdVbwGCr+ZwVH2pD43j7Gp
-	5NyYDWz6SiBZH9+LE/KZtLcz+9KqCsLNlaTr/yXihcbAypTzou2VsPd9Do7z8bHHErwONswWqEM
-	vK6a/YdW06nR8DeE5I56VpxDJBesqYkVVMzVYvmz44SN+/xKzesu95AMrWr2O8CTqp3IJuY5hUw
-	vH+Rq7ES3ufrtK5i2Wp5iE0UFH1dhvSORt5+nxb/LjZAMssRw075Ry9OpE1xLh5SHR0+3ZmIeql
-	jMatj/uDrLoFxUDKvI+rZlnfEOwAb4yMph3oGVF8vqg6g3Yt582IjikyPFzpdJ8ZHvfzLKxnLij
-	bTpm2K4jqghxKWdjhksDzBGgx4iXzTVE+aTRdXkbR9NfwXBGTWH/sXEeor3Gj5KLQaCwIcfM11x
-	DteeJx+Cnh/yB56wub8onK7ZrYgzfmY6XCDci+2wNlS6ObNWFrT1AZ017FqoroXKBKEywMk/qyQ
-	Igb2bdpDmA0aX+tDmwCJOusWieKk9g==
-X-Received: by 2002:a05:620a:2605:b0:949:9f1e:d8b with SMTP id af79cd13be357-949ba99cb12mr3436849885a.16.1795662947036;
-        Wed, 25 Nov 2026 19:15:47 -0800 (PST)
-Received: from rowland.harvard.edu ([2601:19b:d00:161a::9a34])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949ca846322sm1290787985a.34.2026.11.25.19.15.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 19:15:46 -0800 (PST)
-Date: Wed, 25 Nov 2026 22:15:43 -0500
-From: Alan Stern <stern@rowland.harvard.edu>
-To: kayano050408@gmail.com
-Cc: Neill Kapron <nkapron@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
-	syzbot+c73e1942197af9f54ca3@syzkaller.appspotmail.com,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v8 1/4] usb: gadget: gadgetfs: fix ep0 request lifetime
- and buffer races
-Message-ID: <b71d58f5-ca09-4f11-bac1-ab9720cac5dc@rowland.harvard.edu>
-References: <20261110-gadgetfs-ep0-v8-v8-0-8f90434574fe@gmail.com>
- <20261110-gadgetfs-ep0-v8-v8-1-8f90434574fe@gmail.com>
+	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=UEYTPVwy
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=K0uADk5t5f28gc5ONMqfpyCukoB4CpFM4vCIHiGdkTk=;
+	b=UEYTPVwy8JIKLiSq2hMDllKINy/ovOJvWT3NM6iVA5zdsoHhWPV9hbDfOdvZ99LqJrVhIU7+w
+	vz0A5C6EcYWLFa3Zg9VN0VZJH2Au2ALR8EzzNAsTAsOGGbUIKtqQuqaJoUgqYZuavTbeaVs+H3x
+	62AI7r5rmwegq1vrPaFPprg=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4jZhW50VvgzLm34;
+	Thu, 26 Nov 2026 11:15:13 +0800 (CST)
+Received: from kwepemk200005.china.huawei.com (unknown [7.202.194.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 6D3FB40565;
+	Thu, 26 Nov 2026 11:15:37 +0800 (CST)
+Received: from localhost.huawei.com (10.169.64.31) by
+ kwepemk200005.china.huawei.com (7.202.194.71) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Thu, 26 Nov 2026 11:15:36 +0800
+From: Yongbang Shi <shiyongbang@huawei.com>
+To: <tzimmermann@suse.de>, <dmitry.baryshkov@oss.qualcomm.com>,
+	<tiantao6@hisilicon.com>, <maarten.lankhorst@linux.intel.com>,
+	<mripard@kernel.org>, <airlied@gmail.com>, <daniel@ffwll.ch>,
+	<kong.kongxinwei@hisilicon.com>
+CC: <liangjian010@huawei.com>, <shuliubin@huawei.com>,
+	<chenjianmin@huawei.com>, <fengsheng5@huawei.com>, <shiyongbang@huawei.com>,
+	<helin52@h-partners.com>, <shenjian15@huawei.com>, <shaojijie@huawei.com>,
+	<dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH for drm-misc-fixes v6 1/2] drm/hisilicon/hibmc: Modify the method of obtaining the hpd_status
+Date: Thu, 26 Nov 2026 11:06:47 +0800
+Message-ID: <20261126030648.3231196-2-shiyongbang@huawei.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261126030648.3231196-1-shiyongbang@huawei.com>
+References: <20261126030648.3231196-1-shiyongbang@huawei.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,95 +75,306 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261110-gadgetfs-ep0-v8-v8-1-8f90434574fe@gmail.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemk200005.china.huawei.com (7.202.194.71)
 
-At last, I finally got some time to go over this material.
+From: Lin He <helin52@huawei.com>
 
-On Tue, Nov 10, 2026 at 12:13:22PM +0800, Jing Lin via B4 Relay wrote:
-> From: Jing Lin <kayano050408@gmail.com>
-> 
-> gadgetfs_unbind() frees the preallocated ep0 request after disconnecting
-> the gadget, assuming that no I/O remains active.
-> 
-> With controllers such as dummy_hcd, disconnecting does not necessarily
-> drain ep0, so a delayed userspace response can leave dev->req queued
-> when it is freed.  This triggers the warning in dummy_free_request() and
-> a use-after-free when dummy_udc_stop() subsequently drains the endpoint
-> queue.
+To more accurately determine whether the current HPD status matches the
+interrupt status, the polling mechanism in the lower half of the HPD
+interrupt (via hibmc_dp_check_hpd_status) has been replaced with directly
+retrieving the interrupt status in the upper half of the interrupt (via
+hibmc_dp_get_hpd_status).
 
-This is a genuine problem.
+* Connector detection is skipped when hpd_status is not HPD_IN.
 
-> gadgetfs_setup() and the userspace copy helpers also race on dev->req
-> and req->buf:
-> 
-> 1. ep0_read() versus gadgetfs_setup().  A delegated control OUT request
->    is queued by gadgetfs_setup() and completed by ep0_complete(), which
->    leaves the payload in dev->req->buf and sets setup_out_ready.
->    ep0_read() copies that payload with copy_to_user() after dropping
->    dev->lock, so the copy can fault and sleep.  If a new control
->    transfer arrives during that window, gadgetfs_setup() reuses dev->req
->    for it; for example, GET_DESCRIPTOR(config) points req->buf at
->    dev->config.  When ep0_read() resumes, clean_req() frees whatever
->    req->buf points to, which is now dev->config.
+* Set the initial status of hpd_status to HPD_OUT.
 
-But this isn't.  Or at least, your analysis is incomplete.
+* Wait 100 ms after enabling the DP block, so a sink that is already
+  connected can latch its HPD interrupt before the first detect.
 
-The real problem here is that gadgetfs does not handle "aborted" 
-control-OUT transfers correctly.  The request for the OUT data stage is 
-submitted when the setup packet arrives, and the host is told that the 
-transfer was successful when the request completes correctly, but the 
-user program doesn't receive the data until some time later.  And if 
-another control transfer arrives in the meantime, "aborting" the earlier 
-transfer, the user program doesn't ever receive the data.  It's not good 
-for the host and the peripheral to disagree over whether a transfer was 
-successful!
+* Invalidate the link as soon as an unplug is sampled in the hardirq,
+  so an unplug that is followed by a plug before the threaded handler
+  runs is not lost.
 
-The start of a new transfer should not be allowed to erase all knowledge 
-of a properly completed control-OUT transfer until the data has been 
-read.  Instead, the gadget should NAK the new transfer until then (i.e., 
-not submit any request in response to the new setup).
+Fixes: 3906e7a3b26d ("drm/hisilicon/hibmc: fix dp probabilistical detect errors after HPD irq")
+Fixes: b11bc1ae4658 ("drm/hisilicon/hibmc: Add MSI irq getting and requesting for HPD")
+Acked-by: Thomas Zimmermann <tzimmermann@suse.de>
+Signed-off-by: Lin He <helin52@huawei.com>
+Signed-off-by: Yongbang Shi <shiyongbang@huawei.com>
+---
+ChangeLog:
+v5 -> v6:
+  - Use a cleanup-based lock guard for aux_lock. (Thomas Zimmermann)
+v4 -> v5:
+  - Invalidate the link in the hardirq when an unplug is sampled, and
+    stop clearing the latched HPD status in hibmc_dp_hpd_cfg().
+    (sashiko-bot)
+  - Serialize a whole AUX transfer with hibmc_dp_hpd_cfg().
+    (sashiko-bot)
+  - Append HIBMC_HPD_UNKNOWN to the enum instead of prepending it, so
+    the existing HIBMC_HPD_OUT/HIBMC_HPD_IN values do not change.
+v3 -> v4:
+  - Fix the data race on hpd_status between hardirq and process
+    contexts with WRITE_ONCE()/READ_ONCE(). (sashiko-bot)
+  - Delete the HPD_IN early return in encoder_enable that breaks KMS
+    forced modesets. (sashiko-bot)
+v2 -> v3:
+  - Delete irq_status and use hpd_status directly for hotplug
+    detection. (sashiko-bot)
+  - Add debug logs when hpd_status is not HPD_IN in detect and
+    encoder_enable.
+v1 -> v2:
+  - More states in HIBMC_DP_HPD_STATUS are added to the
+    'hibmc_dp_get_hpd_status'.
+---
+ drivers/gpu/drm/hisilicon/hibmc/dp/dp_aux.c   |  2 +
+ drivers/gpu/drm/hisilicon/hibmc/dp/dp_comm.h  |  2 +-
+ drivers/gpu/drm/hisilicon/hibmc/dp/dp_hw.c    | 38 ++++++++++++-------
+ drivers/gpu/drm/hisilicon/hibmc/dp/dp_hw.h    |  5 ++-
+ .../gpu/drm/hisilicon/hibmc/hibmc_drm_dp.c    | 31 +++++++--------
+ .../gpu/drm/hisilicon/hibmc/hibmc_drm_drv.c   |  9 ++++-
+ 6 files changed, 54 insertions(+), 33 deletions(-)
 
-Fixing that will be a fairly substantial change.  Furthermore, this 
-whole issue is so entirely different from the race involving 
-gadgetfs_unbind() above that it belongs in its own patch.
+diff --git a/drivers/gpu/drm/hisilicon/hibmc/dp/dp_aux.c b/drivers/gpu/drm/hisilicon/hibmc/dp/dp_aux.c
+index 8732cd1d8cb6..d90a714402a6 100644
+--- a/drivers/gpu/drm/hisilicon/hibmc/dp/dp_aux.c
++++ b/drivers/gpu/drm/hisilicon/hibmc/dp/dp_aux.c
+@@ -131,6 +131,8 @@ static ssize_t hibmc_dp_aux_xfer(struct drm_dp_aux *aux, struct drm_dp_aux_msg *
+ 	int ret;
+ 	u32 val; /* val will be assigned at the beginning of readl_poll_timeout function */
+ 
++	guard(mutex)(&dp->aux_lock);
++
+ 	writel(0, dp->base + HIBMC_DP_AUX_WR_DATA0);
+ 	writel(0, dp->base + HIBMC_DP_AUX_WR_DATA1);
+ 	writel(0, dp->base + HIBMC_DP_AUX_WR_DATA2);
+diff --git a/drivers/gpu/drm/hisilicon/hibmc/dp/dp_comm.h b/drivers/gpu/drm/hisilicon/hibmc/dp/dp_comm.h
+index f53dac256ee0..e56bfca886cb 100644
+--- a/drivers/gpu/drm/hisilicon/hibmc/dp/dp_comm.h
++++ b/drivers/gpu/drm/hisilicon/hibmc/dp/dp_comm.h
+@@ -38,12 +38,12 @@ struct hibmc_dp_dev {
+ 	struct drm_device *dev;
+ 	void __iomem *base;
+ 	struct mutex lock; /* protects concurrent RW in hibmc_dp_reg_write_field() */
++	struct mutex aux_lock; /* serializes AUX transfers with hpd_cfg() */
+ 	struct hibmc_dp_link link;
+ 	u8 dpcd[DP_RECEIVER_CAP_SIZE];
+ 	u8 downstream_ports[DP_MAX_DOWNSTREAM_PORTS];
+ 	struct drm_dp_desc desc;
+ 	bool is_branch;
+-	int hpd_status;
+ 	void __iomem *serdes_base;
+ };
+ 
+diff --git a/drivers/gpu/drm/hisilicon/hibmc/dp/dp_hw.c b/drivers/gpu/drm/hisilicon/hibmc/dp/dp_hw.c
+index d5bd3c45649b..e3f70a367af7 100644
+--- a/drivers/gpu/drm/hisilicon/hibmc/dp/dp_hw.c
++++ b/drivers/gpu/drm/hisilicon/hibmc/dp/dp_hw.c
+@@ -162,6 +162,7 @@ int hibmc_dp_hw_init(struct hibmc_dp *dp)
+ 		return -ENOMEM;
+ 
+ 	mutex_init(&dp_dev->lock);
++	mutex_init(&dp_dev->aux_lock);
+ 
+ 	dp->dp_dev = dp_dev;
+ 
+@@ -191,6 +192,10 @@ int hibmc_dp_hw_init(struct hibmc_dp *dp)
+ 	writel(HIBMC_DP_HDCP, dp_dev->base + HIBMC_DP_HDCP_CFG);
+ 	/* clock enable */
+ 	writel(HIBMC_DP_CLK_EN, dp_dev->base + HIBMC_DP_DPTX_CLK_CTRL);
++	/* To latch the HPD interrupt, ensuring that DP can support more modes
++	 * within the fbcon framework when connected alone.
++	 */
++	msleep(100);
+ 
+ 	return 0;
+ }
+@@ -214,13 +219,12 @@ void hibmc_dp_hpd_cfg(struct hibmc_dp *dp)
+ {
+ 	struct hibmc_dp_dev *dp_dev = dp->dp_dev;
+ 
++	guard(mutex)(&dp_dev->aux_lock);
++
+ 	hibmc_dp_reg_write_field(dp_dev, HIBMC_DP_AUX_REQ, HIBMC_DP_CFG_AUX_SYNC_LEN_SEL, 0x0);
+ 	hibmc_dp_reg_write_field(dp_dev, HIBMC_DP_AUX_REQ, HIBMC_DP_CFG_AUX_TIMER_TIMEOUT, 0x1);
+ 	hibmc_dp_reg_write_field(dp->dp_dev, HIBMC_DP_AUX_REQ, HIBMC_DP_CFG_AUX_MIN_PULSE_NUM, 0x9);
+ 	writel(HIBMC_DP_HDCP, dp_dev->base + HIBMC_DP_HDCP_CFG);
+-	writel(0, dp_dev->base + HIBMC_DP_INTR_ENABLE);
+-	writel(HIBMC_DP_INT_RST, dp_dev->base + HIBMC_DP_INTR_ORIGINAL_STATUS);
+-	writel(HIBMC_DP_INT_ENABLE, dp_dev->base + HIBMC_DP_INTR_ENABLE);
+ 	writel(HIBMC_DP_DPTX_RST, dp_dev->base + HIBMC_DP_DPTX_RST_CTRL);
+ 	writel(HIBMC_DP_CLK_EN, dp_dev->base + HIBMC_DP_DPTX_CLK_CTRL);
+ }
+@@ -322,20 +326,26 @@ void hibmc_dp_set_cbar(struct hibmc_dp *dp, const struct hibmc_dp_cbar_cfg *cfg)
+ 	writel(HIBMC_DP_SYNC_EN_MASK, dp_dev->base + HIBMC_DP_TIMING_SYNC_CTRL);
+ }
+ 
+-bool hibmc_dp_check_hpd_status(struct hibmc_dp *dp, int exp_status)
++int hibmc_dp_get_hpd_status(struct hibmc_dp *dp)
+ {
++	int hpd_status = HIBMC_HPD_UNKNOWN;
+ 	u32 status;
+-	int ret;
+ 
+-	ret = readl_poll_timeout(dp->dp_dev->base + HIBMC_DP_HPD_STATUS, status,
+-				 FIELD_GET(HIBMC_DP_HPD_CUR_STATE, status) == exp_status,
+-				 1000, 100000); /* DP spec says 100ms */
+-	if (ret) {
+-		drm_dbg_dp(dp->drm_dev, "wait hpd status timeout");
+-		return false;
++	status = FIELD_GET(HIBMC_DP_HPD_CUR_STATE,
++			   readl(dp->dp_dev->base + HIBMC_DP_HPD_STATUS));
++	switch (status) {
++	case 0: /* idle */
++	case 3: /* unplug */
++	case 4: /* unplug intermediate */
++		hpd_status = HIBMC_HPD_OUT;
++		break;
++	case 1: /* plug */
++	case 2: /* plug intermediate */
++		hpd_status = HIBMC_HPD_IN;
++		break;
++	default:
++		break;
+ 	}
+ 
+-	dp->dp_dev->hpd_status = exp_status;
+-
+-	return true;
++	return hpd_status;
+ }
+diff --git a/drivers/gpu/drm/hisilicon/hibmc/dp/dp_hw.h b/drivers/gpu/drm/hisilicon/hibmc/dp/dp_hw.h
+index 0f3662d8737e..84faa1a7439d 100644
+--- a/drivers/gpu/drm/hisilicon/hibmc/dp/dp_hw.h
++++ b/drivers/gpu/drm/hisilicon/hibmc/dp/dp_hw.h
+@@ -17,6 +17,7 @@ struct hibmc_dp_dev;
+ enum hibmc_hpd_status {
+ 	HIBMC_HPD_OUT,
+ 	HIBMC_HPD_IN,
++	HIBMC_HPD_UNKNOWN,
+ };
+ 
+ enum hibmc_dp_cbar_pattern {
+@@ -54,7 +55,7 @@ struct hibmc_dp {
+ 	void __iomem *mmio;
+ 	struct drm_dp_aux aux;
+ 	struct hibmc_dp_cbar_cfg cfg;
+-	u32 irq_status;
++	int hpd_status;
+ 	int phys_status;
+ };
+ 
+@@ -66,7 +67,7 @@ void hibmc_dp_reset_link(struct hibmc_dp *dp);
+ void hibmc_dp_hpd_cfg(struct hibmc_dp *dp);
+ void hibmc_dp_enable_int(struct hibmc_dp *dp);
+ void hibmc_dp_disable_int(struct hibmc_dp *dp);
+-bool hibmc_dp_check_hpd_status(struct hibmc_dp *dp, int exp_status);
++int hibmc_dp_get_hpd_status(struct hibmc_dp *dp);
+ u8 hibmc_dp_get_link_rate(struct hibmc_dp *dp);
+ u8 hibmc_dp_get_lanes(struct hibmc_dp *dp);
+ 
+diff --git a/drivers/gpu/drm/hisilicon/hibmc/hibmc_drm_dp.c b/drivers/gpu/drm/hisilicon/hibmc/hibmc_drm_dp.c
+index 2e9403b8bf3c..6ea70c31d1a9 100644
+--- a/drivers/gpu/drm/hisilicon/hibmc/hibmc_drm_dp.c
++++ b/drivers/gpu/drm/hisilicon/hibmc/hibmc_drm_dp.c
+@@ -15,8 +15,6 @@
+ #include "dp/dp_comm.h"
+ #include "dp/dp_config.h"
+ 
+-#define DP_MASKED_SINK_HPD_PLUG_INT	BIT(2)
+-
+ static int hibmc_dp_connector_get_modes(struct drm_connector *connector)
+ {
+ 	const struct drm_edid *drm_edid;
+@@ -61,13 +59,13 @@ static int hibmc_dp_detect(struct drm_connector *connector,
+ {
+ 	struct hibmc_dp *dp = to_hibmc_dp(connector);
+ 	struct hibmc_dp_dev *dp_dev = dp->dp_dev;
++	int hpd_status = READ_ONCE(dp->hpd_status);
+ 	int ret = connector_status_disconnected;
+ 
+-	if (dp->irq_status) {
+-		if (dp_dev->hpd_status != HIBMC_HPD_IN) {
+-			ret = connector_status_disconnected;
+-			goto exit;
+-		}
++	if (hpd_status != HIBMC_HPD_IN) {
++		drm_dbg_dp(dp->drm_dev, "dp detect skipped, hpd (%d)\n",
++			   hpd_status);
++		goto exit;
+ 	}
+ 
+ 	if (!hibmc_dp_get_dpcd(dp_dev)) {
+@@ -189,24 +187,26 @@ irqreturn_t hibmc_dp_hpd_isr(int irq, void *arg)
+ {
+ 	struct drm_device *dev = (struct drm_device *)arg;
+ 	struct hibmc_drm_private *priv = to_hibmc_drm_private(dev);
+-	int idx, exp_status;
++	int status = READ_ONCE(priv->dp.hpd_status);
++	int idx;
+ 
+ 	if (!drm_dev_enter(dev, &idx))
+ 		return -ENODEV;
+ 
+-	if (priv->dp.irq_status & DP_MASKED_SINK_HPD_PLUG_INT) {
++	if (status == HIBMC_HPD_IN) {
++		/* Plug takes aux_lock, so it must run in the thread. */
+ 		drm_dbg_dp(&priv->dev, "HPD IN isr occur!\n");
+ 		hibmc_dp_hpd_cfg(&priv->dp);
+-		exp_status = HIBMC_HPD_IN;
+-	} else {
++	} else if (status == HIBMC_HPD_OUT) {
+ 		drm_dbg_dp(&priv->dev, "HPD OUT isr occur!\n");
+-		hibmc_dp_reset_link(&priv->dp);
+-		exp_status = HIBMC_HPD_OUT;
++	} else {
++		drm_err(&priv->dev, "HPD status (%d) error\n", status);
++		goto exit;
+ 	}
+ 
+-	if (hibmc_dp_check_hpd_status(&priv->dp, exp_status))
+-		drm_connector_helper_hpd_irq_event(&priv->dp.connector);
++	drm_connector_helper_hpd_irq_event(&priv->dp.connector);
+ 
++exit:
+ 	drm_dev_exit(idx);
+ 
+ 	return IRQ_HANDLED;
+@@ -223,6 +223,7 @@ int hibmc_dp_init(struct hibmc_drm_private *priv)
+ 
+ 	dp->mmio = priv->mmio;
+ 	dp->drm_dev = dev;
++	dp->hpd_status = HIBMC_HPD_OUT;
+ 
+ 	ret = hibmc_dp_hw_init(&priv->dp);
+ 	if (ret) {
+diff --git a/drivers/gpu/drm/hisilicon/hibmc/hibmc_drm_drv.c b/drivers/gpu/drm/hisilicon/hibmc/hibmc_drm_drv.c
+index 4d85c89f3f88..7920f03895fe 100644
+--- a/drivers/gpu/drm/hisilicon/hibmc/hibmc_drm_drv.c
++++ b/drivers/gpu/drm/hisilicon/hibmc/hibmc_drm_drv.c
+@@ -58,11 +58,18 @@ static irqreturn_t hibmc_dp_interrupt(int irq, void *arg)
+ {
+ 	struct drm_device *dev = (struct drm_device *)arg;
+ 	struct hibmc_drm_private *priv = to_hibmc_drm_private(dev);
++	int hpd_status;
+ 	u32 status;
+ 
+ 	status = readl(priv->mmio + HIBMC_DP_INTSTAT);
+ 	if (status) {
+-		priv->dp.irq_status = status;
++		hpd_status = hibmc_dp_get_hpd_status(&priv->dp);
++		WRITE_ONCE(priv->dp.hpd_status, hpd_status);
++
++		/* Reset here so a later plug cannot hide this unplug. */
++		if (hpd_status == HIBMC_HPD_OUT)
++			hibmc_dp_reset_link(&priv->dp);
++
+ 		writel(status, priv->mmio + HIBMC_DP_INTCLR);
+ 		return IRQ_WAKE_THREAD;
+ 	}
+-- 
+2.33.0
 
-> 2. ep0_write() versus gadgetfs_setup().  For a delegated control IN
->    request, ep0_write() prepares dev->req and copies the response from
->    userspace with copy_from_user() after dropping dev->lock.  A control
->    request that arrives during that copy can point req->buf at dev->dev
->    or dev->config, so the userspace copy overwrites a descriptor buffer,
->    or reset req->buf to dev->rbuf so completion calls clean_req() on the
->    wrong object.
-
-It should be possible to handle this problem without copying the buffer.  
-For instance, the user data could be put in its own kmalloc-ed buffer 
-instead of in dev->rbuf.
-
-> Copy completed control OUT payloads into a private setup_buf in
-> ep0_complete(), copy control IN payloads into a stack buffer before
-> preparing dev->req and leaving STATE_DEV_SETUP in ep0_write(), and track
-> buffers allocated by setup_req() separately in dev->ep0_req_buf so
-> clean_req() never frees descriptor storage.  Ignore zero-length reads
-> while a non-zero control OUT data stage is pending so they cannot queue
-> a status request early and clobber setup_out_len.
-> 
-> Submit ep0 requests through a shared queue_ep0_req() helper that tracks
-> dev->ep0_req_queued and wakes dev->wait whenever the flag clears.  In
-> gadgetfs_unbind(), tear down non-ep0 endpoints first, then dequeue any
-> active ep0 request and wait under dev->lock with wait_event_lock_irq()
-> for completion to finish.  If the controller rejects ep0 dequeue, keep a
-> reference on dev and let the completion handler free the request when
-> udc_stop() drains ep0.
-
-These descriptions are a little confusing to read, because they mix 
-together your solutions to three separate problems.  Each solution 
-really should be in its own patch.
-
-Also, don't worry about a rejected dequeue call.  In practice, the only 
-reason such a call can fail is because the request to be dequeued has 
-already completed (or was never successfully submitted in the first 
-place).
-
-Alan Stern
