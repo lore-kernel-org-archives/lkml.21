@@ -1,79 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795686831;
-	b=DG7yR23Ae3Fc/vBeYQACnySySUM64EsDN56eDCJPxXYF4WtLDp/APHzFYy62vyNxuEbr
-	 gxSHKVzksbNAYARA8o29lJOZC/njw4DBozOpJjmDtJSK81fVaFmYznGnOgT8V2aaVFGWO
-	 c41GWUkS9Pec42Ju9wsYhoFjYPdZqjGipHoFmu4FJU3/8el5/m3NsxBsFiVOr4Ai4/0A7
-	 Z76r9QU1Vr9xDH0kmJCO52WdnMQ6G3QKsoh1NB56PrRLidurMcyK/EDhPAW8NLrNRW6EM
-	 Q5rfAhYwmxqsHhDRwGBI58zeQhTHU+ScqvIw0I5VPapnJjwNSXFN3dJMYOgQa9O1R0A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795686831;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ncZEOFwP6rVHKLPZIgaSh4joPCImz4xzJxYzeEGBoGA=;
-	b=lb2wmq4DkpRHdy8aa2+ddiH39A/lHIwUefmtgx23tmVA7qbGW+L3huXOAkwfeCGGK1YH
-	 5joSHn0zbSonf2StOLFfhrSVrtuuNkhy7J4hOG/E/qcLYj9LEmZN8OZFOeFOzjM4Fm3Dq
-	 dMFCBk8TAZGGPnmFvUpOI+UfiTUA60vS/jI++3k6CF7d6YizHDYa7aC89nPwGrAxmM/kB
-	 M3NclD1W8YtCh4XqBDp01DJ37VXrKzQkV3x6azVueGrE8cMeFyWksL5Xe4JCsiBeD2ytI
-	 5Da9Qkz/A1heoHrNgVR8oMsb7Vn2cqWFUgHQdkHH/lfEkhOSJ8oiFkvK05xpgZ5qpNw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QkxKWwtk;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACF55606A69B;
-	Thu, 26 Nov 2026 09:53:51 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QkxKWwtk
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795686831;
-	b=0IfKGXjz15YBjyNMeGMO7hXeI7STB4GBojugFtfpF4a04MHkfJPAciWZxc3yo73i62Fq
-	 KHcrVHUdXu04U8uJu8wq1f6SHRv65VatzJc1TGnEFEt9UUOVMmz4cdKfAXHAXrhJ1IZie
-	 uyZQo64TtVduTib7pTsvyiTW5MMKtO5r0MSVIzVzT6WIVJNoMj449q4VGWrtTNPxQIS7R
-	 Oz7OdIVrA6Y0u0OwmeGxoPtFcB3Q6Fz8lPEGwkCgkQl6n1JLiJ3UFmbPTmc2wJMtpfsGc
-	 1IFWuR5FnAmKngdBnnLgSWsT3+jcPyqn7XiYz58l9lYxBMoiyWtgv/Laa9z0eGBiDJg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795686831;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ncZEOFwP6rVHKLPZIgaSh4joPCImz4xzJxYzeEGBoGA=;
-	b=qlN42smftSJjJnUKER/yIH825YxOu8jPWkV1rROAY5hc5H5qfVY9XAxJ17i+6XMKXhl8
-	 I/5o9EHfqxQCZsoyGsGCIlbDNr5/SDGqh1iTzgfQVQLzJYtK1cvwxSQVDEGlj+XWRAq4S
-	 0044TCRhIkdDE+HLC5cohAimVFhIeLuq9/vSZ/xWD/kUxDkI2f5paqaEV6u/injcNNUvs
-	 8yhuFeceVpyZ+5WqmBj8COhJfRYLbNaeZOkTro7Sw3fwBrfk1YV50ZiEv/CwmrupehjGD
-	 21MrqTuUA8mJcX4oDYi1ZJfocyrhnOaK7V51ZFZKVsPAMfhGzFpXVK3vEQ6qwQt2Rrg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795686845;
+	b=Df0SpeUWb0pu3euqRRe3LVqDu1tpqhBlEhtc+cedPuPiN+NSTzhcfjBFnliL7RR1+JVq
+	 gAMr10ju6R8B6roHA49zGngPTd15N7J9TXmxt1ORYPrDVVk00IJq83IF4RmFcXjZa8qSb
+	 vbYwyLAjfs2hblRz3NZsI/LMxUoenb0dY2DLaSi36dTYWT2lahAsMuik1nI5TBa64XMqb
+	 Zn1mVsuGiAF7eoStwd0MAbJjUNJpItEZe4g7CVDLcy8O171jGbrWKG6FTgZjKoUZXFZyb
+	 rERzwDXDBoaf3q1ionCeMWdj8T3r8b1UzjPQfYzdR0J2Bg7zKjnE2FGuT0mocylnmQA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795686845;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=7CCtYtbFe6le29oXXPU1ooKs9Dx0yxyQEI4GjlG+sf0=;
+	b=m57W5AgB55ltmQw6EY4DeL7wQ0fdkI0yc7u0LQ5QptDSGCfYa8rDWGwP3imePO6IG82I
+	 CP+vnGcWWBu+sWv4R1eJaoKLOl0VxGcyWuBmudrO4rb87x4ZHwFiabg+R4dq8ybxb9Ipt
+	 /VFF6pYcJ+rTAkqeIZDjoBDU++CcCMct9noM7irNy7Y/NyuU1KyZjI1FQz7d4KX9t/0sn
+	 sJyfqo2WBp1pI+Cp56QHt0hTcx8dCeR9KcDmPjMKq0Nnf75NpBSEakPmPmAleLkGKOUGq
+	 1hoXL7QQMYi4DVk2+DFPr/8ELuijxIGa2PpqY+0vVNXQ07xhjjbGxDkhYfeSbAjOZJw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=YiiihWau;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=lLANQDpJ;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 576B91F000E1;
-	Thu, 26 Nov 2026 09:53:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795686831;
-	bh=ncZEOFwP6rVHKLPZIgaSh4joPCImz4xzJxYzeEGBoGA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=QkxKWwtkX/nVhcHv1Y+WkL5e7li+hZeXB7ko/ox22pjS36GsgE/T3cfPAsl129467
-	 9+ld0JoB1Z1EGXMsnItsad5NlXKWlYNa6rq92KRUuPjq9HBYMOiZ+AEKMZZD3X9mAD
-	 zHGNLOP+NfS7Ex2H029bEOzfEqVhz7cqyh7xiA9UES6AccEABe0YqMxMW4QVVk9iuR
-	 cIVnJexExWesJzvIlCs0YPND62uo+okOb7I73skhLRIFW1d6ThCfsKOIN5LDpk0AQY
-	 rZoIkgeH5I26APVmmQxkiaQqt9da6uiLwX3T4kNNZXly6qRKYqT8tuUY2K6P62S1wJ
-	 8cpbbwFgVoysw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id C73864D3C6;
-	Thu, 26 Nov 2026 09:53:40 +0000 (UTC)
-From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Thu, 26 Nov 2026 09:53:38 +0000
-Subject: [PATCH v3 1/3] dt-bindings: reset: amlogic: Add A9 reset
- compatibles
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27731606A6AB
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:54:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27731606A6AB
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=YiiihWau;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=lLANQDpJ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795686844;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7CCtYtbFe6le29oXXPU1ooKs9Dx0yxyQEI4GjlG+sf0=;
+	b=YiiihWaunlPPyQivd2jzQAwNt4kxGtfBKvvNRpDzuX4ruCGpEJSUJZOTwcLlJwKHudqYqJ
+	hL6aJAmqOZL4d4lEmaMPZb/OwdhrnoNx9fQqSBux8G8X98GjhN+8Flp5sONSAhywpzfSB0
+	Mje6FnHx9OiXTMYylgChkQKJGROiwMI=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-688-9nbytldZPie1quiQLs2v7Q-1; Thu, 26 Nov 2026 09:54:01 +0000
+X-MC-Unique: 9nbytldZPie1quiQLs2v7Q-1
+X-Mimecast-MFC-AGG-ID: 9nbytldZPie1quiQLs2v7Q_1795686840
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4a20e41008cso30635715e9.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:54:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795686840; x=1796291640; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7CCtYtbFe6le29oXXPU1ooKs9Dx0yxyQEI4GjlG+sf0=;
+        b=lLANQDpJub1DKFq7TEwFDOcI3TJRHlZmh/96ElOaxlirzCADY6GEeAAS0Ytz4xY9ac
+         5B1akJcEHITQjWhDe8R0Pnm0DnHAKpgdvwivbzSVQMYqVO2uQbxzKM/G0ulUAQBFOCbU
+         oej8brmCszD1p185zkHyss2sZ+zOsT6Qvgpub0JOaSbzWMrEqPYip1KYARYYkNnFmv6V
+         wu+0jdFe5/Tg9vPOBQ2dyGMB4w72BWETBgiI8GoSNbYX9y1MLJLbhsHuR347/DiYP+eO
+         njm3nb5bzAMHRw7otWLdk9Gkb8UUOazx9ZrH/dhp1I6vG5mBOSZjRbcjITQEtmneLnVO
+         YnsA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795686840; x=1796291640;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=7CCtYtbFe6le29oXXPU1ooKs9Dx0yxyQEI4GjlG+sf0=;
+        b=nUS6rfmTVNgyQ5oV3HtztqPggJiYDagBmjRglf1/b/xgvDlW7nPeboLbJPfBax7miS
+         i9+5aEKAec9z6XObsiZZtK+BtfmgTE6BeDYZK7OVhCOwhQ4zU9uNiAMzvqmSSNvHhjYh
+         wGY2166+zDzTvuptVYFAQPvm0421mgHaUAN/LNy429fr4ECZFjK1PD4NRNdhBOgjnlNq
+         qtezMIF52qdHwNhFFNGikNKKhMVJ0Og2zc+ihfDdDV0LR31A3VyNsDGsvuxNYFfCZs1n
+         01qa7I9gGxmcF8xdlo3kmb6PWKvbKa099JJWedohG4eahHZXA5wRgEvKscJWj7hfLH8A
+         /r2w==
+X-Forwarded-Encrypted: i=1; AL+hErFwsSdRWZP+ttHa1zmshVLwIlQrpPmBcWsM2VRw56rIR/11SwJBhH1VBGxPNxPrfgPDaXhmx9YAL+k51dY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8mLpSJ7icBykyLvi6+eLkdYL6bsX+bctoPYFlstjXMG8fvTiyM
+	X3/7OQ/xfCCEIdxmFvcK/W+dTd0lZQX/sGlbakiaiFT6kl0K2nTKCuCUmfdvPeqJqoe5SDe4sdX
+	aziayKOsfW90RONY8/Yu1Cq0Qrq38pPopATzQaGtOCpySXDSPhSGwFF/wagU7JvGrbg==
+X-Gm-Gg: AZFdTZdKOToMUsvb9jOX/vSML/0+qfkokLPRpHQXaTaY2lNvZingrr1z+zVDt9k4zea
+	Wq6+zinabBma8u4YLoMCnjE8lKZnwR0oQfmg37XBeIYaEdOMFvdbZD+U6uXS5G57/xKHQ8PUJdf
+	28Y/BW6k2r7uFT9ddxJSYW7RejZn9b8UjbL1sBVYxioXqvtuEIZtcnKU0Z5vQQ+ToYa6NAI5rSx
+	dCcEIqGG95SwkIaz10CmrXRQHCTHWPZ3/8NgvzncDyS94wb4UCQECZbKi0N7UejWJioLay/BBui
+	4YXFGYVCjhnq21ZkFepng3B+l7cJg6qd67ZkB8j+qFsw0FQRaCIv2LYfamv5TDuoE3lc+E3ppQQ
+	4FvXqQEd/PJ9SQwMomzbCb8IEeAJcuwUm4duhFADPRDO5rPYzI2nCPqEV/ULsvnudioc+Vb7SPF
+	5pqfxEoq4/M+RhPwfVInwfbwu+/F8+Lg==
+X-Received: by 2002:a05:600c:4e16:b0:4bb:6f77:1e35 with SMTP id 5b1f17b1804b1-4bb88810991mr440507255e9.21.1795686839786;
+        Thu, 26 Nov 2026 01:53:59 -0800 (PST)
+X-Received: by 2002:a05:600c:4e16:b0:4bb:6f77:1e35 with SMTP id 5b1f17b1804b1-4bb88810991mr440506695e9.21.1795686839381;
+        Thu, 26 Nov 2026 01:53:59 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d1bsm41250729f8f.8.2026.11.26.01.53.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 01:53:58 -0800 (PST)
+Message-ID: <34e77fff-c57b-4ed0-9035-b9682ad3914e@redhat.com>
+Date: Thu, 26 Nov 2026 10:53:56 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,71 +112,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-a9-reset-v3-1-fb9bb01f33d1@amlogic.com>
-References: <20261126-a9-reset-v3-0-fb9bb01f33d1@amlogic.com>
-In-Reply-To: <20261126-a9-reset-v3-0-fb9bb01f33d1@amlogic.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>, 
- Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795686819; l=1488;
- i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
- bh=5WFk+q6Lu4hN8rJdO/6ZEotdvqyA2ABmhWD4G7n6Cis=;
- b=dF+zC/R2hKdYjOk4FgQd/q+Qc5H0I9rypOWA/RdenL6HJf8CfhzudBCo6SHCCW8vGDSmT1FaC
- CKiEAc1L0ItAEFTjMNPdKPtipcsVj0bPQgJRqN+lBIC5/muiTPnlptU
-X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
- pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
-X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
- auth_id=578
-X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-Reply-To: xianwei.zhao@amlogic.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3 1/2] net: keep the TCP fixed-ID flags on the header
+ they describe
+To: Julius Bairaktaris <julius@bairaktaris.de>, netdev@vger.kernel.org
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ willemb@google.com, horms@kernel.org, andrew+netdev@lunn.ch,
+ dsahern@kernel.org, idosch@nvidia.com, ncardwell@google.com,
+ kuniyu@google.com, steffen.klassert@secunet.com,
+ herbert@gondor.apana.org.au, richardbgobert@gmail.com,
+ ecree.xilinx@gmail.com, andy.moreton@amd.com, alex.austin@amd.com,
+ linux-net-drivers@amd.com, saeedm@nvidia.com, tariqt@nvidia.com,
+ mbloch@nvidia.com, leon@kernel.org, linux-rdma@vger.kernel.org,
+ alexei.starovoitov@gmail.com, ast@kernel.org, daniel@iogearbox.net,
+ andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
+ martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev,
+ jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
+ john.fastabend@gmail.com, sdf@fomichev.me, izaiahsun@gmail.com,
+ corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org,
+ shuah@kernel.org, bpf@vger.kernel.org, ipsec@lists.linux.dev,
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1795284858.git.julius@bairaktaris.de>
+ <7c74b2076dc7dee1d481d39a135e0946d5e04145.1795284858.git.julius@bairaktaris.de>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <7c74b2076dc7dee1d481d39a135e0946d5e04145.1795284858.git.julius@bairaktaris.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+On 11/21/26 19:26, Julius Bairaktaris wrote:
+> Commit 3271f19bf7b9 ("net: gso: restore ids of outer ip headers
+> correctly") made SKB_GSO_TCP_FIXEDID describe the outermost IPv4 header
+> and added SKB_GSO_TCP_FIXEDID_INNER for the inner header of an
+> encapsulated packet. Every path that adds or removes a header then has to
+> move the flags, and none does. A TCP stream that GRO merged with fixed
+> IDs and that is forwarded into an IPIP tunnel, or into an ESP tunnel mode
+> SA with crypto offload, is segmented with one outer ID for all segments
+> and with incrementing inner IDs. A tunnel that decapsulates such a packet
+> in iptunnel_pull_offloads() leaves the state of the removed outer header
+> on the new outer one, and the inner header of a GRE or UDP tunnel, which
+> segmentation reads at encap_level 0, gets the state of the outer header.
+> 
+> Let SKB_GSO_TCP_FIXEDID describe the innermost IPv4 header again, as it
+> did before that commit, and replace SKB_GSO_TCP_FIXEDID_INNER with
+> SKB_GSO_TCP_FIXEDID_OUTER for the outermost header of an encapsulated
+> packet. Where a header is added in front of a GSO packet, in
+> iptunnel_handle_offloads() and in the BPF LWT encapsulation, clear the
+> outer flag, so that the new header gets incrementing IDs as it does on a
+> packet that was not encapsulated before. Clear it as well where
+> iptunnel_pull_offloads() and bpf_skb_net_shrink() remove the outer
+> header. ESP transport and BEET mode with crypto offload set
+> skb->encapsulation but keep the IPv4 header and its ID, so xfrm_output()
+> copies the inner flag to the outer one for them. Convert mlx5 and sfc,
+> the two drivers that use the inner flag.
+> 
+> Two flags cannot describe a header between the outermost and the
+> innermost one of a packet with three IPv4 headers: software segmentation
+> uses SKB_GSO_TCP_FIXEDID for it, as it used SKB_GSO_TCP_FIXEDID_INNER
+> before.
+> 
+> Fixes: 3271f19bf7b9 ("net: gso: restore ids of outer ip headers correctly")
+> Suggested-by: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+> Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
+This patch is IMHO too invasive for 'net' at this point of the cycle.
 
-Document the reset controller compatibles used by the Amlogic A9 SoC.
-Add support for the A9 AO reset controller and add the A9 reset
-compatible with the T7 reset controller as fallback.
+I suggest targeting net-next in the next iteration
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
----
- Documentation/devicetree/bindings/reset/amlogic,meson-reset.yaml | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/reset/amlogic,meson-reset.yaml b/Documentation/devicetree/bindings/reset/amlogic,meson-reset.yaml
-index 150e95c0d9be..e585f71879f2 100644
---- a/Documentation/devicetree/bindings/reset/amlogic,meson-reset.yaml
-+++ b/Documentation/devicetree/bindings/reset/amlogic,meson-reset.yaml
-@@ -19,6 +19,7 @@ properties:
-           - amlogic,meson-axg-reset # Reset Controller on AXG and compatible SoCs
-           - amlogic,meson-a1-reset # Reset Controller on A1 and compatible SoCs
-           - amlogic,meson-s4-reset # Reset Controller on S4 and compatible SoCs
-+          - amlogic,a9-ao-reset
-           - amlogic,c3-reset # Reset Controller on C3 and compatible SoCs
-           - amlogic,t7-reset
-       - items:
-@@ -26,6 +27,10 @@ properties:
-               - amlogic,a4-reset
-               - amlogic,a5-reset
-           - const: amlogic,meson-s4-reset
-+      - items:
-+          - enum:
-+              - amlogic,a9-reset
-+          - const: amlogic,t7-reset
- 
-   reg:
-     maxItems: 1
-
--- 
-2.52.0
-
+/P
 
