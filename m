@@ -1,47 +1,74 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795713656;
-	b=HatPr7kGvEEH41u3Lw0FgPRhowbzPvFinfCxjDzpciXN/yu/mPjpEjqky3vtXFZGCR2b
-	 2z+nZRvjVpacHP3N0sNjm1SVjYKhvdCM2ZSauHVAWJ7YMhAZouKKj9mw+SmI1zLz6NLpe
-	 mcCCSRyHRZAXmmyg0zDQG6WNn3vIKAXdioe/49xELIlu2axL9EtEiLdoxDgLozfXXmxKc
-	 +ozc+7AOrUMQQHLz9Jm/t3i+1b5CktSgIgEpwLGe7bXWrhKhHdXGIKfpm4pji11XNMyAE
-	 SVWJsemsivnp1qMVRIqO3VL53S0OpB///S6DrgbxoaEYBTr74fOF5/8iTrvA3A/7geA==
+	t=1795713668;
+	b=mB3bkbB0Tr6HUyyLccnYMajXhO8Lb/ME/tCrDIEmjQENDHUXgwG3W+uF07CbA0/tOSd9
+	 GjllnBqslVaItPRaEhxZ8Bj+Mx86X/kufAKGYohndQBx2O4mYMWC5gEnEd2MMkpcNQOF2
+	 FYcxTgekOf18eBDN+BU9mBpzlPHCHyzIqWk9QItnbe3p7DUhuTGcXkfbNaXulHZ6DoTzK
+	 gUwJL8bGGS1UUQBzfpk4tIYe75k8gWl7qOrGTt8n6L5TBJH5C6RDGwDXDChyh3LF7uPEC
+	 KKOzSoAalIzPAe+b0w9ry093INE2IcvnMCYeLY8tIb5nTXb4hizFHAZo8CpMjBqQoqg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795713656;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=UXzTB7gQh7zbXr6B/PkegdLCNlD6oxxGSmPQZVdL3CY=;
-	b=Ud+a6dOdm/xkYFwIpoHRzC4/CgssrTVcrEuXRXrHUkL7TCa1rhQ/UXPNaC3cmFKlX6Vi
-	 00jZGuARfyHTR6ei0fm1v7lvstMDljkVwGaRPPUaqYIifnw6zjUBcslMCVSHqmpS/ojD2
-	 WcVHBLHXWwIt/QWNgFWmr/0ctz1Swf8mb1qLR4KwTH87OzpB22PhDryGM5rDTXhwsnhwU
-	 X+A/GQXafcsnsHfeHsXlBps4+f6GlMphfFkg/op3oByX61VaFVpydmjaJzAMAEAQcOXR3
-	 kMEjRP4/vOdgRLCEJbp2xr+nRjSKFXF/iDuWgNJEwNN8UWUiuJfAIkSkNTMxqSS3K+g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795713668;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=3U4ZmO6S4QfEt/0nkql9n+zraERnhGp5O1oAWKI8DhM=;
+	b=fweHW+F/l0NBLWWTLypwUgIAWPyiLLLpO/DV0gIvFlbAQ20zGtxZBgr3CrHI1CJd5zjv
+	 yY0J+PZg+3lJtabrQ9+4K7Th/3Vp/QCbqGX8gDNs7/f94HMO+2JfS2QPn6yP70lC+u3Ew
+	 eFou/o1u54sLm9tJQ5lndHWstR2gKHPIxRVVcuQuA3D83aI5XUk07qW0gfd3NON+YxGLs
+	 ZkgB2o9/aNglkesCOPqLTxdULNnIpxAOn+Q9wIi4XI0yi6soNVPv1I7DSStLZFL6LqeNw
+	 /MM/kTS3EAepKBE1xmfTUWi8aLLiCbgnMU/bLWcLOKRJuFlX1qUQA1Okj1iKuzNH5AQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LVnKl0R7;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mTJwNm4m;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4412606A31C;
-	Thu, 26 Nov 2026 17:20:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE5FC606A31C;
+	Thu, 26 Nov 2026 17:21:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LVnKl0R7
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D2021F000C0;
-	Thu, 26 Nov 2026 17:20:53 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mTJwNm4m
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9239D1F000C4;
+	Thu, 26 Nov 2026 17:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795713656;
-	bh=UXzTB7gQh7zbXr6B/PkegdLCNlD6oxxGSmPQZVdL3CY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=LVnKl0R7i/LaW5iHWa3PxWRpXrINDfyA3MNqWWAkePjBGX1RWMHsiNPAamKC3h9tI
-	 qQFTEaClD3Pl8KRIdN9W1CVQSfeNbHgKoF5XZmcOZntBud2dKmOQLnSznCbaEgjl6A
-	 oTWydRsuzNX44wQY8a+finaZutLxkm0IDxYuatAXNsvlj/D5t2+KjbU0JH1EcnfB+i
-	 ONzOuJMg2gk/GwzNC9rgpyZSQX+CUDgqVJaFUlMpqzjvBAH5/ga78e8bV4tjztQls9
-	 /f/hnQmlYOd0N20/SpuwwsB6Ka6iTZU/2zpqQr8suLJI3mkDJWwKkXxceMr5ULDEAc
-	 8+5H3KEO3lCiA==
-Message-ID: <452f2156-2040-4d9b-81e2-6e2b2ffe520c@kernel.org>
-Date: Thu, 26 Nov 2026 19:20:52 +0200
+	s=k20260515; t=1795713668;
+	bh=3U4ZmO6S4QfEt/0nkql9n+zraERnhGp5O1oAWKI8DhM=;
+	h=From:To:Cc:Subject:Date;
+	b=mTJwNm4muBgPSCGc64/Nxa/Yqq8VD8DExUAgAmSaFUqoqQogRhM3TaRi+/0fHv+UF
+	 gIOnIcyf5/tLdiZordWsLWTYWAv+kF5m4ISeXMXSwEf4Ld18dsbc/ywSTp3fgQySwg
+	 j1YKVGEcc5kZ03yxNqXZGri3/e1VY4l7me75qvhHXTf2FJfM37MknEiCvknRFxOYiQ
+	 0gLyX/te8A0rpHwrwQJviE7u3wbUVJ+0kNL/PaeH9SO1N+p+8odmzCGDLTPK2h+zy3
+	 QXifcEdJn0akMa1x/s1fBLQDCrfntJ0RY22qQ6kpXkO/d1eaCYB8S2x29GALOw19sf
+	 J+xCbh2ySobTA==
+From: Philipp Stanner <phasta@kernel.org>
+To: Sumit Semwal <sumit.semwal@linaro.org>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	Philipp Stanner <phasta@kernel.org>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Matthew Brost <matthew.brost@intel.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Tvrtko Ursulin <tvrtko.ursulin@igalia.com>,
+	"Mario Limonciello (AMD)" <superm1@kernel.org>,
+	Aurabindo Pillai <aurabindo.pillai@amd.com>,
+	Pierre-Eric Pelloux-Prayer <pierre-eric.pelloux-prayer@amd.com>,
+	Gustavo Padovan <gustavo.padovan@collabora.com>,
+	Chris Wilson <chris@chris-wilson.co.uk>,
+	Luben Tuikov <ltuikov89@gmail.com>,
+	Shashank Sharma <shashank.sharma@amd.com>,
+	"Paul E . McKenney" <paulmck@kernel.org>,
+	Gary Guo <gary@garyguo.net>
+Cc: linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	amd-gfx@lists.freedesktop.org
+Subject: [PATCH 0/3] dma-fence: Properly order timestamps
+Date: Thu, 26 Nov 2026 18:20:44 +0100
+Message-ID: <20261126172046.2473303-2-phasta@kernel.org>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,55 +78,27 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 08/14] PCI: rzg3s-host: Drop nop instructions
-To: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
- robh@kernel.org, bhelgaas@google.com, p.zabel@pengutronix.de,
- geert+renesas@glider.be, magnus.damm@gmail.com, claudiu.beznea@tuxon.dev,
- linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org,
- Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20261019065025.2146539-1-claudiu.beznea@kernel.org>
- <20261019065025.2146539-9-claudiu.beznea@kernel.org>
- <179562566319.5580.8113747221186721413.b4-reply@b4>
-Content-Language: en-US
-From: Claudiu Beznea <claudiu.beznea@kernel.org>
-In-Reply-To: <179562566319.5580.8113747221186721413.b4-reply@b4>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+
+I propose stuffing these hotfixes into the stable kernel / misc-fixes
+while we move on on misc-next with a more proper solution. I'll post a
+series for that soonish, too.
+
+P.
+
+Philipp Stanner (3):
+  dma-buf: dma-fence: Hot-fix timestamp misordering
+  drm/sched: Hot-fix timestamp misordering
+  drm/amdgpu: Hot-fix timestamp misordering
+
+ drivers/dma-buf/dma-fence.c             |  9 +++++++++
+ drivers/gpu/drm/amd/amdgpu/amdgpu_ctx.c |  4 ++--
+ drivers/gpu/drm/scheduler/sched_main.c  | 12 ++++++++++--
+ include/linux/dma-fence.h               |  8 ++++++--
+ 4 files changed, 27 insertions(+), 6 deletions(-)
 
 
+base-commit: bf57105b00e32d37b666c029c8c6b8708391da20
+-- 
+2.56.0
 
-On 11/25/26 18:54, Manivannan Sadhasivam wrote:
-> On 2026-10-19 09:50 +0300, Claudiu Beznea wrote:
->> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
->>
->> On the RZ/G3S PCIe IP variant (which is similar to those used on the
->> RZ/G3E, RZ/V2H, and RZ/V2N SoCs), access to the PCIe Type 1 registers
->> requires setting the PCI_PERM.CFG_HWINIT_EN bit. Since this bit is not
->> set on the code paths where rzg3s_pcie_set_max_link_speed() is called,
->> the writes to PCI_EXP_LNKCTL2.TLS are nops. Drop them.
->>
-> 
-> Shouldn't you ensure that TLS is written by setting HWINIT_EN? If not required,
-> please state the reason.
-The manual don't mention setting PCI_EXP_LNKCTL2.TLS when changing the link 
-speed. It specified this should be done through the 
-PCI_PCCTRL2.UI_LINK_SPEED_CHANGE instead. Steps to follow, described in [1], 
-chapter 34.6.3 Caution when Changing the Speed Spontaneously are:
-
-1. Wait until the home node is placed in the L0 state.
-2. Read the value of the STATE_DATA_RATE_IDENTIFIER_RECEIVED bit to check the
-    supported speed of the other-party node.
-3. If the home node supports the speed to which the other-party node wants to
-    change, set the UI_LINK_SPEED_CHANGE[1:0] bits and assert the
-    UI_LINK_SPEED_CHANGE_REQ bit.
-4. Wait for the UI_LINK_SPEED_CHANGE_DONE bit to be asserted (wait for the
-    completion).
-
-Thank you for your review,
-Claudiu
-
-[1] https://www.renesas.com/en/document/mah/rzg3s-group-hardware-manual?r=25458591
