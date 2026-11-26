@@ -1,75 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.19
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795680598;
-	b=Ke614CSy9a407j9aVyGHFWhQYX3EvIdf9uVjk86Q3VCq51RKR2rTyHuB1aiAHK/f7/uX
-	 NeqwnZYwFYEtLLyKPC9ERYh1LSOMHyO7SySjn/c4wiZF7r6RfAyCCH877D4jZ5y2O1mJg
-	 LLI2P+CMDwiQvMfpt3S+ZqMna4EEAdwmjSdEy5DSliPbIOx8F9zyViBSK6VmC1zrzAj9r
-	 sosvO59C2UnkT7jtHtcV9cvDrOSv8cAVfGUDNOBvui+hedm2ki4YJ235dNbCufVd7ueZl
-	 xvIjbEsKR+2iKDkMrQEH5DbXrRJKaRBGaqe8pucGgGZsWmVLuRzA7O4w8fIkj9h2zNw==
+	t=1795680611;
+	b=l/bxF3ZWT3+PqUg8GPGrCPE3QwEBDHamhMXpDAMcYG0ocMaSb69MkFfLhTdw6UFy99tr
+	 0IOMTQE1v4Dxu43kBefiKZi2zMtBqIW1nYTJSrBRq8medPmiMbAGqjUpm+/gU+ZmscFOE
+	 Hg43eCk7mfk2BExFxqzuzm3kjL0yjx8F4pSJyOehxZ0kzE1M7iyR3GUMjS5yruhX+fBdJ
+	 FV2wClY7ZCuYarMeh12nj0DHwBUQ4CdH77S2x52r3NV4G7VeV1afxipZa3EHhVA8+PRHa
+	 MOPqQK6ZaoziSIX2unGjUhH3qjprQRbuR/mvhNSA9Lk9PsYI9pbX4eUVfh/nxIZk9LQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795680598;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:To:
-	 Cc:References:Subject:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
-	bh=LZmleDIFvqIjLQ3cU4aTXi7jZyx8/cIELc+ontle6cc=;
-	b=GEIH9eAFw2VSY7qcinVy1bIT6JHoura4QbpHV9KnLSOOsl2UFPE5puxVpOAfB8+bC+Z/
-	 eZxAEVBsJVMDuElGV5SNjkKLPcrrxN2odn+TU7V5WdPAjwv6QemHLSNhHBhZUYnSZRXrL
-	 5p9MFbfNBo5DNI7p1Y+fv0I6IvUNzCTyzW5bnKYy1N4R1jlrIjpMsnizQOB7F6fqfrsRq
-	 vk6D2OKXgzx4Wt6EfBAhKiuFIQPSjwujYOGtEXlrmO74lAP9JQZJ9MNCP6DAQC8oWSFHy
-	 djodm5tJz6P1mGeG5yYCZbJKc0infoWyLbJYE8OSYbm/G9Q0K7iae4uFg4wz/kOokXg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795680611;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=NSZ/5tknTniK+hABgavJZWei7Qcx5bOH7BLj51t6rCo=;
+	b=gPRM88jav0+X9Es/bMYj6+19+W9pm3BTQHOy8cKlZHFvK8QRoKJF3ZjeeU+8wcGrvlcA
+	 dxxznnE6NUERpntCxdZ/6rdSE6Cx7yWNF5o/oCiLF25GQF1Rp5PBLv79FgdSrF94EAxec
+	 zr+sOAvnCeIEZ3aD/WQKaePpIGbQeUjBvtjZWqDIEXbYxseRT42GRSN05s37d58K+5Kqa
+	 BuMGonpUbysW6SgdpHG46ysVhAUOJ4ZZ8OBHbB9WzFhjeClAJklbvi5ZpeuYpthiaOxPn
+	 rk9Md+w1utt7BXJUGSzFvxTbLwjheg3L/P84GOJBH+3qDB65N3yqbUMTeo3ZQXVHJ9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=web.de;
-	spf=pass smtp.mailfrom=web.de;
-	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=vnD5ClNz;
-	arc=none smtp.remote-ip=212.227.17.11
-Received: from mout.web.de (mout.web.de [212.227.17.11])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	arc=none smtp.remote-ip=192.198.163.19
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.19])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EBC12606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:09:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EBC12606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=vnD5ClNz
-DKIM2-Signature:  i=1; m=1; t=1795680594;
- mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=web.de;
- s=s29768273:rsa-sha256:O3/KvWVFYWOOf/qzDEuysgGZNg7E
-   o4/eJDXYga3r4qBw3eOmDy0sg/hgXwtc1RVT46FYc68oQbAikcfnc3Ugl9WGq/rwHBro2+aG/gv
-   TMtEIbpZDXVqyaCilgxz9dNnaWNPxJFKP8Xbzx/XLkLhzubqKsVqbEJp5kSlVn+9kJnN5HHNw4M
-   eBvikHT756p163oo+EASUF2dhPb7VkEhuUDo8/92siJ4u5qx4JsSf84VO1UyjGrAyGtRmUhYvKV
-   uD4osLI1J02GF/X72VfADDo64glGIm/JgeIXhrIBTGpPkL1paCtE6RRKCY5p51VJiU3k5gBfur0
-   X+071mEVgi3bqA==;
-Message-Instance:  m=1;
- h=sha256:
-   vZGEr+hSbxio8VkTN1JNQckIgfK3U6f4lmqO+Rel2x8=:
-   bafd/2f+pVK3eKwC63Ea+oIbjtu5jAWcpJbE5ZbrgBQ=,
-  sha512:
-   cTjlJn4hDZoDdoTfmcs6QKXQPC6aZq0aTf3V5aJU53N8DWQSj7Jhs8CgUmjoWWLjvEMIvtiKLX7BKNW629dlJg==:
-   eb07pZk1uQZB9P1jL5WTIkU3nxuX4rHrtSzdtZ43tYSAmx2FmMdzNTfDM1wtBudo1Hdf5895DlEQI0Ikjp58bQ==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1795680593; x=1796285393; i=markus.elfring@web.de;
-	bh=LZmleDIFvqIjLQ3cU4aTXi7jZyx8/cIELc+ontle6cc=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=vnD5ClNzVO3McpwqrF4t8YqOFkQwIAYUlngvFJJMOOm2oF8wmh0l/WvV4L9DSVd/
-	 JbIxzjHC7aeqvD6qB6l6hUTjnlKkucnpPF8IHWuos239kHdZl/q5izhfiBWm16OdK
-	 5t982vKlCaHex3NXy3Dooc2qnyQoHBOgz365v2N0LKpxqGGYQUNH1Psr9PiXEw52h
-	 3CtW2WnFapyfiR0+WAvw6vPnHsE9XPLr9Wou6EBfuTxvEch6S0Z6F6E2NC8hZ036O
-	 ClmY538L5cG+aGvAaAqW87BRkdqHNuaitHSLIw6IGawGVJhoOV/DNMps00QaROz9K
-	 h5NVg2dafEKZt81lyQ==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MBjIE-1xgLvR2bRU-009CNu; Thu, 26
- Nov 2026 09:09:53 +0100
-Message-ID: <825b308c-0a5e-4577-9f45-9bfe571ef36a@web.de>
-Date: Thu, 26 Nov 2026 09:09:52 +0100
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37AB1606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:10:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37AB1606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795680607; x=1827216607;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=qTXS6YzU5JKBNXUMDXqtypPM3AhkfLKmFSkYIsprXLs=;
+  b=QBlArL1MnyBkAokI9gYb3vHoNmWKV58ymv1GkUE1DGMaP0lYalmNmNxo
+   pYuBiiP3yduLleZn2KsxviHtzHT8TD/krwJikwEfWytI2cGdVD0vnTDv1
+   JLHZ5gIq/+ADjVYBW2wvNeQ/ZTzR7poWM8E1ocfwes7VwWJ/9wXMpQuNG
+   KnMz2k6getsg9DoYgr1s3LX3+BmCneFAGHCR/8pjVK3obj6S1zYAfY/f8
+   dUaYVcQ1VmrzLS6hfGF3FJ9kJ9n8ZNl7hTkndLA7LYor0++VeA/MQTHSl
+   Nd5tilciNPpDa3AIX8TG+UntezHWfmn8qlpPdam5j+w1IyY6eUAolf02s
+   g==;
+X-CSE-ConnectionGUID: T7J36SpsRU+mDtTuPi0BZQ==
+X-CSE-MsgGUID: awOMzNQZQ5ij3w5s/VZbhQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4594624"
+X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
+   d="scan'208";a="4594624"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 00:10:06 -0800
+X-CSE-ConnectionGUID: 710jmm1ATDWyHhU5dZ5mQg==
+X-CSE-MsgGUID: vBDbsdyZS7acLKD7JVVXxw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
+   d="scan'208";a="13879634"
+Received: from unknown (HELO [10.238.0.68]) ([10.238.0.68])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 00:09:57 -0800
+Message-ID: <b87c690b-9be1-475a-a63a-eb0d7825d794@intel.com>
+Date: Thu, 26 Nov 2026 16:09:53 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,145 +70,225 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-To: Matthew Laux <matthew.laux@gmail.com>, linux-media@vger.kernel.org
-Cc: LKML <linux-kernel@vger.kernel.org>, Hans Verkuil <hverkuil@kernel.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Mehdi Djait <mehdi.djait@bootlin.com>
-References: <20261125194951.19072-13-matthew.laux@gmail.com>
-Subject: Re: [PATCH v8 12/12] media: add driver for StarTech USB3HDCAP
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20261125194951.19072-13-matthew.laux@gmail.com>
+Subject: Re: [RFC PATCH 00/15] PCI/TSM: coco/tdx-guest: Implement TDX-Connect
+ PCIe TDISP (phase2)
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
+ "linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "Duan, Zhenzhong" <zhenzhong.duan@intel.com>, "x86@kernel.org"
+ <x86@kernel.org>
+Cc: "Hansen, Dave" <dave.hansen@intel.com>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "kas@kernel.org" <kas@kernel.org>, "seanjc@google.com" <seanjc@google.com>,
+ "mingo@redhat.com" <mingo@redhat.com>, "Peng, Chao P"
+ <chao.p.peng@intel.com>, "pbonzini@redhat.com" <pbonzini@redhat.com>,
+ "Tian, Kevin" <kevin.tian@intel.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
+ "aneesh.kumar@kernel.org" <aneesh.kumar@kernel.org>,
+ "Verma, Vishal L" <vishal.l.verma@intel.com>, "hpa@zytor.com"
+ <hpa@zytor.com>, "tglx@kernel.org" <tglx@kernel.org>,
+ "nicolinc@nvidia.com" <nicolinc@nvidia.com>, "Gao, Chao"
+ <chao.gao@intel.com>, "bp@alien8.de" <bp@alien8.de>,
+ "aik@amd.com" <aik@amd.com>,
+ "yilun.xu@linux.intel.com" <yilun.xu@linux.intel.com>
+References: <20260924041032.1096569-1-zhenzhong.duan@intel.com>
+ <de1262f3-4097-4aa0-bcee-0dad05ec5538@intel.com>
+ <8acf514600526e3a2b0af151b0fa8a7b7a779c81.camel@intel.com>
+ <5b6837a8-f8bc-4e7f-8419-01853eecd531@intel.com>
+ <244d504ddfefd2c2bfc17da62f71685dc8b4205c.camel@intel.com>
+Content-Language: en-US
+From: Xiaoyao Li <xiaoyao.li@intel.com>
+In-Reply-To: <244d504ddfefd2c2bfc17da62f71685dc8b4205c.camel@intel.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:hLQdcTIEhV8rcrlBCkh0AQx43xLwzkiwLtQxq+SEiEqiRbUc7hv
- i1Ycf6TITre7pNClMV7feBdhDMJtrb040N951KehM8/a8xoaM321Nurgd010pSfNfFrhU5c
- 4MM/wtO4fnf+sR0wm+3EQApnRF6vEf8YgMXtD+z1rjoJa6jyBd6AHmPZlQFV793IBqYXYd6
- 86+6w5UbhPxWd68pIOmAQ==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:eO56Mv77k04=;XEX1GTJ5g3KqpmarjxyEymS3OvW
- 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
- 7hpIwtqNIHlQVorXfw==
+Content-Transfer-Encoding: 8bit
 
-=E2=80=A6
-> +++ b/drivers/media/usb/usb3hdcap/usb3hdcap-composite.c
-> @@ -0,0 +1,212 @@
-=E2=80=A6
-> +int usb3hdcap_composite_init(struct usb3hdcap *hdcap)
-> +{
-=E2=80=A6
-> +	/* disable MST3367 */
-> +	v4l2_subdev_call(hdcap->sd_mst3367, video, s_routing,
-> +			 MST3367_INPUT_NONE, 0, 0);
+On 11/26/2026 1:47 AM, Edgecombe, Rick P wrote:
+> On Wed, 2026-11-25 at 16:32 +0800, Xiaoyao Li wrote:
+>> On 11/25/2026 3:41 AM, Edgecombe, Rick P wrote:
+>>> On Tue, 2026-11-24 at 14:01 +0800, Xiaoyao Li wrote:
+>>>> 1. The requirement of R8-R15 are reserved to 0 on TDG.DMAR.ACCEPT.
+>>>>
+>>>>    This is the first leaf in TDCALL/SEAMCALL that explicitly requires some
+>>>>    unused  registers to be 0. Without justification of why it must to be
+>>>> such,
+>>>>    we are going to propose to remove this requirement and it helps drop
+>>>> the
+>>>>    PATCH 13.
+>>>
+>>> Ah, ok so the problem is we need to make sure those registers are saved in
+>>> the
+>>> wrapper, if we will set them to 0 before SEAMCALL. So the seamcall code
+>>> doesn't
+>>> clobber the callers registers.
+>>>
+>>> But I tend to think an ABI rejecting reserved input is a general good thing.
+>>> Since SEAMCALLs are not fast, I wonder why care about optimizing the
+>>> wrappers to
+>>> save and restore the minimum. If we just always saved and restored the
+>>> general
+>>> purpose registers, we wouldn't need so many wrappers. And then when TDX
+>>> module
+>>> wanted to add new SEAMCALL ABI we wouldn't need to do the whole version
+>>> selection thing. Just pass a new bit or whatever. 
+>>
+>> So we reserve the unused registers as 0. When new SEMACALL ABI is going to be
+>> added, just directly extend the reserved registers and allow them to be
+>> non-zero.
+>>
+>> This implies that value 0 becomes the ABI indicator, or value 0 represents the
+>> old behavior in the new ABI. However, this simply doesn't work for
+>> TDH.VP.INIT,
+>> as the version 1 of TDH.VP.INIT extends bit[31:0] of R8 to be the 'X2APIC_ID',
+>> where value 0 is a valid value and cannot represent the old behavior.
+> 
+> True it can't always work, without some reserved bit becoming a selector. In the
+> case of seamcalls that is basically the seamcall version thing.
+> 
+>>
+>>> That would have simplified the
+>>> TDH.SYS.CONFIG changes for DPAMT and add-ons.
+>>
+>> It works for TDH.SYS.CONFIG, because
+>>
+>>   R8[16] = 0           means Static PAMT
+>>   R9 = 0 and R10 = 0   means enable no add-on feature
+> 
+> I'm making some guess work here because I dont actually know the history...
+> 
+> I assume that since r8 already had some bits in use, TDX could just define new
+> bits in the register. 
 
-How do you think about to achieve consistent error detection?
-https://elixir.bootlin.com/linux/v7.4-rc1/source/include/media/v4l2-subdev=
-.h#L1942-L1971
+Per my understanding, the key is old spec explicitly defined bit 63:16 of R8 as
+reserved to 0. So DPAMT can extend bit 16 for DPAMT with value 0 meaning the old
+behavior, static PAMT. And it can work without increasing the leaf version.
 
-=E2=80=A6
-> +	ret =3D v4l2_subdev_call(hdcap->sd_tw9900, video, s_routing,
-> +			       hdcap->input =3D=3D INPUT_SVIDEO ?
-> +			       TW9900_INPUT_SVIDEO : TW9900_INPUT_COMPOSITE,
-> +			       0, 0);
-> +	if (ret < 0)
-> +		return ret;
-=E2=80=A6
+> But then TDX extensions wanted to match the extension bits
+> semantics in the register, and so needed a new register. Which then required a
+> version selector in case some VMM was passing garbage in the register. Instead
+> we could have had one register that had all the extra TDX module features.
 
-Regards,
-Markus
+yeah. The key is old spec doesn't reserve the R9/R10 to 0.
+
+>>
+>> where value 0 means the old behavior.
+>>
+>>> So I'm thinking that old seamcalls were maybe incorrect and this new way is
+>>> correct. Yes we would need a new patch, but what if it was a simplication
+>>> patch
+>>> that got rid of all the seamcall variants and just always saved/restored?
+>>> Consider those premature optimization. Any problems?
+>>
+>> I agree an always unified saved/restored helper is a good thing if the
+>> additional overhead is not a concern.
+> 
+> I think saving and restoring general purpose registers across a seamcall would
+> not be a big overhead given the amount of other work happening during a
+> seamcall. Probably small enough that we could not even have to measure it to
+> make the case for the patch. Any counter points?
+
+No. It looks doable to me.
+
+IIUC, you want us to set aside the decision of whether to remove the requirement
+of "R8-R15 are reserved to 0 on TDG.DMAR.ACCEPT". But to explore the direction
+of unifying the SEAMCALL/TDCALL helper to always save and restore the registers.
+If the unification is accepted, then whether "R8-R15 are reserved to 0 on
+TDG.DMAR.ACCEPT" won't matter much. Is my understand correct?
+
+<snip>
+
+>>>> 4. TDX_PAGE_ALREADY_ACCEPTED is listed as the possible return code for
+>>>>    TDG.TDI.MMIO.ACCEPT while the description of TDG.TDI.MMIO.ACCEPT reads:
+>>>>
+>>>>      If the page is already MMIO_MAPPED, skip the page.
+>>>>
+>>>>    They conflict with each other and lead to confusion.
+>>>
+>>> I'd think if the page size is incorrect it should return
+>>> TDX_MMIO_ACCEPT_SIZE_MISMATCH. If it is already accepted it should return
+>>> TDX_PAGE_ALREADY_ACCEPTED. In the case of mismatched size but already
+>>> accepted
+>>> page, ideally it would return TDX_PAGE_ALREADY_ACCEPTED, but it would be ok
+>>> if
+>>> it returns TDX_MMIO_ACCEPT_SIZE_MISMATCH.
+>>
+>> For private memory accept, if the mapping is not accepted by the guest yet:
+>>
+>>  - when accept level > mapped level, SIZE_MISMATCH is returned so that guest
+>> can
+>>    try accepting at a lower level.
+>>
+>>    TDX_MMIO_ACCEPT_SIZE_MISMATCH is also returned for MMIO in such case. They
+>>    are consistent.
+>>
+>>  - when accept level < mapped level, EPT violation happens so that host can
+>>    demote the mapping.
+>>
+>>    There is no behavior defined for such case. But I think the reasonable
+>> option
+>>    is also to EPT violation to the host to request the host maps at lower
+>> level.
+>>    Forcing the guest to a higher level doesn't sound reasonable because the
+>>    guest might not want the whole range of 2M MMIO is accessible by the
+>> driver.
+>>
+>> Regarding ALREADY_ACCEPT, we need it for private memory because a successful
+>> acceptance of private memory will clear the content to 0. TDX module don't
+>> know
+>> the intent of the guest, so it makes sense to return an error code to tell
+>> guest
+>> the page is already accepted without clearing it. If guest wants to clear the
+>> page, it can do it itself.
+>>
+>> But for MMIO, there is no such clearing semantic. Skip on the already-accepted
+>> MMIO page and return success seems to have no problem. Besides, private memory
+>> accept is operating on a single (huge) page but the MMIO accept is operating
+>> on
+>> a range. Return ALREADY_ACCEPT would increase the complexity on the output to
+>> tell the current status but without any real benefit.
+> 
+> In the past discussion on private memory accept, someone made the point that re-
+> accepting memory should be fixed in the caller because it could be a weakness
+> used to attack the guest. If the kernel is confused, the host could zero memory
+> for the guest as part of some attack, or the new caller of accept could be
+> surprised by un-zeroed memory. This came up when the memory hot replug bug that
+> was eventually fixed in qemu partly to avoid allowing survival of re-accepting
+> memory in the guest. (and caught by the already accepted error code). We
+> discussed if the guest could handle the error by simply re-zeroing the memory
+> after a double accept. But then the debate was whether this would cover up bugs.
+> 
+> I think a similar case could be made for MMIO, which is probably the purpose of
+> this error? 
+
+Re-accept of memory has the effect to reset the memory content 0. But re-accept
+of MMIO doesn't do any harm, as I see it.
+
+> The guest could get confused about which MMIO address is mapped at a
+> particular GPA?
+
+I'm not sure. Guest doesn't care the mapping between MMIO and GPA. The TSM and
+secure firmware will help validate that the host VMM has mapped the GPA to the
+correct MMIO resource of the corresponding haredware device.  And MMIO cannot be
+converted between shared/private back and forth runtime. During the lifetime,
+guest kernel only needs to accept the private MMIO once after the device is
+locked and accepted.
+
+> There must be some trusting intended as part of the operation or
+> why even have the MMIO accept in the guest in the first place.
+
+We have two reasons:
+1. the same for the page accept. Accepting the page/MMIO by the guest prevents
+host from mapping a new page/MMIO to the GPA without guest's awareness.
+
+2. TDX module will validate that the host maps the correct MMIO resource to the
+GPA.
+
+> So I think if we don't need the error, why even need the MMIO accept call at
+> all? But we probably want both.
+
+The ALREADY_ACCEPT error code and MMIO accept are two things. We care if the
+MMIO is accepted or not, but we don't care how many times the MMIO is accepted.
+
+> And I also don't see a major simplicity benefit to dropping error. What is the
+> savings?
+
+It makes the guest code simpler that the guest doesn't need to implement the
+skipping itself.
