@@ -1,68 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.220
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795697781;
-	b=bjDr54PwndgOeJrsiZqKdcCOyD3PPJrvfmPWk8trdp0+5S4eL4xTLwU2fCqROiiEHSwv
-	 CBhIkYVW8XdbXrEILw0Af7g8YmH06/4BH94bdiDJqYod04EBhAK8jmI3JqFFeqdPJ5Dt/
-	 BIMLTCKrUpr9NGkjCe9cOxGzi/dzzhXCOKATGfqYQU6oTIWniXFIwvHJ6IfxRZJgdTrxu
-	 NMiIT/BFZ0JIH8fvJ8QRayK0FNzR1CVPr/YM5RMwrm2Dr+V9jPeigb+dnN/kUuRq5Z3Zf
-	 eBH61nhQUVxOjZ1MoGTwDJrROUBT6nI1dMleIoGb53I2CltVqxTlSPSgX1MEoOdR/aw==
+	t=1795697776;
+	b=A0zbZsy9NYaSNRxEpGSAXIdy94fHUROgsO+QU7SyzrMSSpfqbob1kSRDmjKo3iXzkJHJ
+	 wXrkRxdluiNQ3vlqlBz7Vg91ZQef1hbK+x43caYmqmSfI3Ym1GcfBV+mNIyVyuxuxVjRm
+	 xYL3D6cJvO1kq1xYnHDo9+K8F2/cWC1M/0HLaXMDSOl1U2bCpEXRAMgGjxRDRPqvL//fb
+	 qdm42fBD/PVXmcJQx84k5/0FQPLPBzCIB73sKCIPpLFr/gi0/qv6zj75N+t3PvT1O9Z2Y
+	 qUFSWVH9ke3xWuZ3BDRl7i8N5zK4QKg5u2v1/LfgKMpyYuWwhzbqrQUxBprcK9F4wfQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795697781;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=58hb1JUkizKcvYpieBEuU5KEwx15qhIK09NZzjLHXWw=;
-	b=FOAfd/ECAT/cTPhE7e3dSXY18RQREk7qk4Cl6PSb6IddlHn5CyAGyY1LuWCB7sooxJ4b
-	 /okPRXljVCiNVTm71+RFcEB6EAjiwW4pxe1V0sweEvbnf9V5pN9pzVop+Slg81qTtp/x2
-	 uuSdh4sHFjDc2zs6cmG24fAU4XohM8FZwc7UBB2jXs39PGNp+NbPbtu0+jl4+8KjEJ5pX
-	 48+jAS+fwcu2NzNbnpJHe36Uy/Hx66/ShgWC9DKzMOR9zWKh7+WwgzZRKNCQXbHn/jHFa
-	 FWF/NPTaxY9CFQzSBD9eHTNcJA30uroX3iGpaiAihnPa1Gwlx948YC0lkrGpWahszxA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795697776;
+	h=Received:DKIM-Signature:Received:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
+	 X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:
+	 X-SA-Exim-Scanned;
+	bh=qVr7AACT3RL5bvofLShn/Pbzkp0suXLu1heNlRCcBQQ=;
+	b=0CwV4fduOMZdhTKza1mPJAtvRE3RURUTc2UBKDA9eGsveE1EuFS7ooAHjRqFk6A2j9FW
+	 QBjYuanAQTSF5m2KnHy/CJR1EPpzqyLNT6fUNES5LErr+glcL9Co8LQuKrF6vbYAkewGo
+	 K3UxDm6fZFYjFREFR18qOJZ40hwcdUZDDiTrgeJKEzJ3e4gXFo9mX+kPDCQZabnkYRyvg
+	 zvhBcQyL3f6GvyX8mDLSPyJRfWtU9KhBVR7RgCPy8eob6/Ke754HiQlUKsBg+0CMrgHhl
+	 gTZWEwshWyksd2MKfBd8FHDLYup9JjhJRBTtQmt8sB6eQrxAuazvZKcO9ZTW6Q8/vIw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=oggTPtwE;
-	arc=none smtp.remote-ip=113.46.200.220
-Received: from canpmsgout05.his.huawei.com (canpmsgout05.his.huawei.com [113.46.200.220])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="nz9j/5BI";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46CE9606A32C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:56:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46CE9606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05606606A31E;
+	Thu, 26 Nov 2026 12:56:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=oggTPtwE
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=58hb1JUkizKcvYpieBEuU5KEwx15qhIK09NZzjLHXWw=;
-	b=oggTPtwEFoztiPe+KGK0ATj2ui9oLosZhZzyve1xjKhZat6pibB4am5RVj99EoLO9VejY5Jmp
-	i7GmASL4Ls01bB4pY++0QfWtIsaKGxC+nOtn1U7V45kXHcukGdJq4Cm69uyjUNw8Ecrjpk/sRKG
-	scBUYFg7DTtfaMw9G+O+Zoc=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4jZxNc0nsdz12LDD;
-	Thu, 26 Nov 2026 20:55:28 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 971AA4056D;
-	Thu, 26 Nov 2026 20:56:15 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 26 Nov
- 2026 20:56:14 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <james.morse@arm.com>, <ben.horgan@arm.com>, <reinette.chatre@intel.com>,
-	<fenghuay@nvidia.com>, <gshan@redhat.com>, <jic23@kernel.org>,
-	<catalin.marinas@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [RFC PATCH v2 2/2] arm_mpam: Save and restore the MSC state across system sleep
-Date: Thu, 26 Nov 2026 20:56:07 +0800
-Message-ID: <20261126125607.2304487-3-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261126125607.2304487-1-ruanjinjie@huawei.com>
-References: <20261126125607.2304487-1-ruanjinjie@huawei.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nz9j/5BI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B71201F000C4;
+	Thu, 26 Nov 2026 12:56:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795697775;
+	bh=qVr7AACT3RL5bvofLShn/Pbzkp0suXLu1heNlRCcBQQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=nz9j/5BIJS+5IJjZpKS6g28I3cmR6tYenAFesSBnC2t3iBXpcdA1Ia4gFQtuoT/c4
+	 ANVpSkZU+4Dm1/OAzZbVwqPuiKaGYfnyt4Bsk6lQi/qf/32jhRYt/b6DidINhvl1Y3
+	 iRO117gQ/Lo9fVf1/bMtEkyfIcj7R11hRoP6n7hnC3eHNUy+x5Fz+6H6Xf91h9Gu3h
+	 wooAg9fWxShV8WotHHfDjmISm8nv9WFdnNKppJS43bukCbjhCJfzSErynT3uJ4fkp8
+	 F4LAN85MDgMhwl2dOxN1JNIrbQz2NakP+ZI9riYogIHxGsMyMnTABuADFD8YPGrU2Y
+	 r8cgGgAvAlgFA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xWZ1J-00000003dor-15Cs;
+	Thu, 26 Nov 2026 12:56:13 +0000
+Date: Thu, 26 Nov 2026 12:56:12 +0000
+Message-ID: <86wlpzycnn.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Usama Arif <usama.arif@linux.dev>
+Cc: oupton@kernel.org,
+	fuad.tabba@linux.dev,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	riel@surriel.com,
+	shakeel.butt@linux.dev,
+	kernel-team@meta.com,
+	rkeilty@meta.com,
+	atish.patra@linux.dev,
+	dgreid@meta.com
+Subject: Re: [PATCH] KVM: arm64: Reduce the stage-2 page cache on 64 KiB hosts
+In-Reply-To: <20261124152842.2634495-1-usama.arif@linux.dev>
+References: <20261124152842.2634495-1-usama.arif@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,193 +83,89 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: usama.arif@linux.dev, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, riel@surriel.com, shakeel.butt@linux.dev, kernel-team@meta.com, rkeilty@meta.com, atish.patra@linux.dev, dgreid@meta.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 
-The driver saves an MSC's state when its last CPU goes offline, and
-restores it when the first CPU comes online. The CPU that suspends
-the system stays online, so these cpuhp callbacks never save the
-MSCs it can access, such as the L3 and memory side MSCs. An MSC can
-still lose its registers while the system sleeps, for example when
-its power domain is not retained across suspend-to-RAM. resctrl
-then reports the cached configuration while the hardware is back at
-its defaults. The bandwidth monitor counters restart from zero,
-losing the traffic counted before the sleep.
+On Tue, 24 Nov 2026 15:28:42 +0000,
+Usama Arif <usama.arif@linux.dev> wrote:
+> 
+> When a stage-2 fault may need new page tables, KVM first tops up the
+> vCPU's page cache: if it holds fewer pages than the fault might need, it
+> is refilled to KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE, which arm64 sets to
+> 40. Unused pages stay in the cache until the vCPU is destroyed.
+> 
+> With 64 KiB pages, that is 2.5 MiB per vCPU, and most of it is never
+> used. Stage-2 has at most three levels and the root is preallocated, so
+> a fault needs at most two new table pages (kvm_mmu_cache_min_pages()).
+> As every last-level table covers 512 MiB, an 8 GiB guest needs just 17
+> table pages to map all of its memory, while its four vCPU caches get
+> filled with 160.
+> 
+> On a production host with 64 KiB pages running 101 VMs with four vCPUs
+> each, the caches were still 86% full. The memory used:
+> 
+>                         before      after
+>   per-vCPU capacity     2.5 MB     512 KB
+>   all 404 vCPUs         869 MB     <= 202 MB
+> 
+> Let's lower the capacity to 8 with 64 KiB pages, In the production
+> usecase above, it frees at least 667 MB. That still covers the two-page
+> minimum and leaves room for several table allocations per refill. 4 KB
+> and 16 KB pages keep 40.
 
-Save the state from the driver's system sleep callbacks, which run
-while the MSC is still accessible, and restore it from the matching
-resume callbacks; hibernation runs the same pair. The cpuhp
-callbacks leave a suspended MSC alone, so the saved monitor state is
-not overwritten by a second save as the secondary CPUs go offline.
+I'll glance over the use of 64kB pages, because that's definitely a
+niche configuration that hardly anyone uses. But the scale of the
+numbers strike me a bit: 808GB worth of guest memory, and you're
+complaining about 869MB? That's roughly 0.1% of the total, and the
+savings you're gaining are even less... I know memory is expensive,
+but you'd save a lot more than that by using a realistic page size.
+Just saying...
 
-The resctrl overflow and limbo workers are not frozen, and keep
-reading the monitors while the MSC is suspended. A read reprograms
-the monitor's control registers, re-enabling the monitor that the
-save just disabled and restarting its counter from zero. Make the
-monitor reads report the counter as unavailable instead, and let
-the config writes update the cached configuration only, while the
-MSC is suspended.
+I also question the assumption you are making that the guest is
+strictly using IPA contiguous memory, and that therefore a very small
+set of pages are all you need to map a guest. Guests with multiple,
+disjoint memslots are (sadly) extremely common, specially in these
+days of tiered memory and other random horrors.
 
-Fixes: 09b89d2a72f3 ("arm_mpam: Allow configuration to be applied and restored during cpu online")
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: <stable@vger.kernel.org> # 6.19+
-Cc: James Morse <james.morse@arm.com>
-Cc: Ben Horgan <ben.horgan@arm.com>
-Cc: Reinette Chatre <reinette.chatre@intel.com>
----
- drivers/resctrl/mpam_devices.c  | 76 +++++++++++++++++++++++++++++++--
- drivers/resctrl/mpam_internal.h |  7 +++
- 2 files changed, 80 insertions(+), 3 deletions(-)
+> 
+> The temporary cache in kvm_phys_addr_ioremap() uses the same capacity,
+> but it is topped up before every page it maps, so 8 is sufficient there
+> as well. The pKVM hypervisor memcache and the eager split cache don't
+> use this capacity.
+> 
+> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+> ---
+>  arch/arm64/include/asm/kvm_types.h | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_types.h b/arch/arm64/include/asm/kvm_types.h
+> index 9a126b9e2d7c99..28568da9ea4a7b 100644
+> --- a/arch/arm64/include/asm/kvm_types.h
+> +++ b/arch/arm64/include/asm/kvm_types.h
+> @@ -2,7 +2,12 @@
+>  #ifndef _ASM_ARM64_KVM_TYPES_H
+>  #define _ASM_ARM64_KVM_TYPES_H
+>  
+> +/* Must cover kvm_mmu_cache_min_pages(), at most 2 with 64 KiB pages. */
+> +#ifdef CONFIG_ARM64_64K_PAGES
+> +#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 8
+> +#else
+>  #define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 40
+> +#endif
 
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 562f21a8869c..4ab8de49f02d 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -23,6 +23,7 @@
- #include <linux/mailbox_client.h>
- #include <linux/mutex.h>
- #include <linux/platform_device.h>
-+#include <linux/pm.h>
- #include <linux/printk.h>
- #include <linux/property.h>
- #include <linux/srcu.h>
-@@ -1601,7 +1602,16 @@ static void __ris_msmon_read(void *arg)
- 		return;
- 	}
- 
--	__ris_msmon_read_locked(m);
-+	/*
-+	 * A read would re-enable the monitor disabled for system sleep
-+	 * and restart its counter from zero, only to read back NRDY.
-+	 * Report the counter as unavailable instead of -EBUSY, which the
-+	 * resctrl workers would keep retrying.
-+	 */
-+	if (READ_ONCE(msc->pm_suspended))
-+		m->err = -EINVAL;
-+	else
-+		__ris_msmon_read_locked(m);
- 
- 	mpam_mon_sel_unlock(msc);
- }
-@@ -2267,7 +2277,7 @@ static int mpam_cpu_online(unsigned int cpu)
- 		if (msc->reenable_error_ppi)
- 			_enable_percpu_irq(&msc->reenable_error_ppi);
- 
--		if (atomic_fetch_inc(&msc->online_refs) == 0)
-+		if (atomic_fetch_inc(&msc->online_refs) == 0 && !READ_ONCE(msc->pm_suspended))
- 			mpam_msc_power_on(msc);
- 	}
- 
-@@ -2329,13 +2339,65 @@ static int mpam_cpu_offline(unsigned int cpu)
- 		if (msc->reenable_error_ppi)
- 			disable_percpu_irq(msc->reenable_error_ppi);
- 
--		if (atomic_dec_and_test(&msc->online_refs))
-+		if (atomic_dec_and_test(&msc->online_refs) && !READ_ONCE(msc->pm_suspended))
- 			mpam_msc_power_off(msc);
- 	}
- 
- 	return 0;
- }
- 
-+static int mpam_msc_suspend(struct device *dev)
-+{
-+	struct mpam_msc *msc = dev_get_drvdata(dev);
-+
-+	if (!msc)
-+		return 0;
-+
-+	guard(mutex)(&mpam_cpuhp_state_lock);
-+	if (!mpam_is_enabled())
-+		return 0;
-+
-+	guard(cpus_read_lock)();
-+	guard(srcu)(&mpam_srcu);
-+	if (!atomic_read(&msc->online_refs))
-+		return 0;
-+
-+	/*
-+	 * The save disables the monitors. Set the flag before it so the
-+	 * resctrl workers stop reading them: a reader takes cfg_lock or
-+	 * mon_sel_lock, and the save takes both, so a read either completes
-+	 * before the save or sees the flag.
-+	 */
-+	WRITE_ONCE(msc->pm_suspended, true);
-+	mpam_msc_power_off(msc);
-+
-+	return 0;
-+}
-+
-+static int mpam_msc_resume(struct device *dev)
-+{
-+	struct mpam_msc *msc = dev_get_drvdata(dev);
-+
-+	if (!msc)
-+		return 0;
-+
-+	guard(mutex)(&mpam_cpuhp_state_lock);
-+	if (!mpam_is_enabled() || !READ_ONCE(msc->pm_suspended))
-+		return 0;
-+
-+	guard(cpus_read_lock)();
-+	guard(srcu)(&mpam_srcu);
-+	if (atomic_read(&msc->online_refs))
-+		mpam_msc_power_on(msc);
-+
-+	/* Let the monitor reads back in once the state is restored. */
-+	WRITE_ONCE(msc->pm_suspended, false);
-+
-+	return 0;
-+}
-+
-+static DEFINE_SIMPLE_DEV_PM_OPS(mpam_msc_pm_ops, mpam_msc_suspend, mpam_msc_resume);
-+
- static void mpam_register_cpuhp_callbacks(int (*online)(unsigned int online),
- 					  int (*offline)(unsigned int offline),
- 					  char *name)
-@@ -2586,6 +2648,7 @@ static struct platform_driver mpam_msc_driver = {
- 	.driver = {
- 		.name = "mpam_msc",
- 		.suppress_bind_attrs = true,
-+		.pm = pm_sleep_ptr(&mpam_msc_pm_ops),
- 	},
- 	.probe = mpam_msc_drv_probe,
- 	.remove = mpam_msc_drv_remove,
-@@ -3443,6 +3506,13 @@ int mpam_apply_config(struct mpam_component *comp, u16 partid,
- 		msc = vmsc->msc;
- 
- 		guard(mutex)(&msc->cfg_lock);
-+		/*
-+		 * The cache was updated above; the MSC is reprogrammed from
-+		 * it on resume, so this write is not lost.
-+		 */
-+		if (READ_ONCE(msc->pm_suspended))
-+			continue;
-+
- 		list_for_each_entry_srcu(ris, &vmsc->ris, vmsc_list,
- 					 srcu_read_lock_held(&mpam_srcu)) {
- 			arg.ris = ris;
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 1f86cc158100..0a2f2d35871d 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -87,6 +87,13 @@ struct mpam_msc {
- 
- 	atomic_t		online_refs;
- 
-+	/*
-+	 * Set while the MSC state is saved for system sleep. The cpuhp
-+	 * callbacks then leave the MSC alone, and the monitor reads and
-+	 * config writes skip the hardware.
-+	 */
-+	bool			pm_suspended;
-+
- 	/*
- 	 * probe_lock is only taken during discovery. After discovery these
- 	 * properties become read-only and the lists are protected by SRCU.
+Now, to the patch itself: I see no reason to special-case this. If
+kvm_mmu_cache_min_pages() is an indication of what is needed, then
+this macro should be driven by it, or the whole allocator take it into
+account. And then you adjust it by whatever fudge factor seems
+appropriate.
+
+Thanks,
+
+	M.
+
 -- 
-2.34.1
-
+Without deviation from the norm, progress is not possible.
