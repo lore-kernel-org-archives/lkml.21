@@ -1,106 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795661305;
-	b=ceRxHODwjVQQ5kpRZylRyAhHx/+92WV4qONt+mddWUxZiAxmnpMqDKRebnctRQ3iXUCd
-	 g7NfbDBUi+h/I1G8CzjWFG1akHPi3NuYO1cGzz3bZmV2vc38GwEWKDlhj61+YXo1kwkdQ
-	 8DCKeRBrQ9Cvnun6gz5VtoJE6B8tF3EXr+Ggb6ZEkYoF1lJpHBK8plxDcJ2BUFh/X32xR
-	 AAvpAZxn0tPWr80AG9KFuyFzCm9gzKejzs3BI4tOrqRgFxyG3JAljRZrczjcEsWe/b6Da
-	 uB1d5j4+Yhgt5P4iSVpdWN6bSWM11wwZocMkI6lnQ2p4tOy8mX+K5YXzpaWxCyi+puA==
+	t=1795661345;
+	b=XxdaJcG0p11dcS+8wHTcNT33E7A+MyzdYRuwNUinSn4Gk7Fogw7GEwjYFDd2qP+QuvXQ
+	 DLcWTFf4RI2ao0AbxeaqdJJ9olGg0koRvadcbrv8yTPPKKBgPEw4htpC1PYVvrVHGrdtF
+	 TGzF8KHIYTmtkyzey30b7ufCVFVO5NWPmrDQjEJbw7gs2DxCCoqj0zAOFzheITQ5neWmg
+	 59lam5Uc+rc8VCEZ8xfiuBq3K4LaUCd0VDN2j/p28R0lDs2B+2SC4tVFkTv1wvTOVidhb
+	 XLj227RwtmzwpO9//8vIrukyV/iIYg+4rIqRDRqomuJ67RrhRGbM4VZc5wNgYAA6xWg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795661305;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795661345;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:Cc:Subject:From:To:In-Reply-To:
-	 References:Content-Transfer-Encoding:MIME-Version;
-	bh=uXsG/J8SjUA+u6xV5gQi3ekCpADG/Nmz2q3u5DO1GSw=;
-	b=VhDpPz3Z5UXqFf7uQxAjCbpzzeZ1z5pb8/bTKCXR2yzf1qPeS2KE9r/A+N8Zx/jNOCZJ
-	 xkITPphL1ht71X8e3emCeGQ4Vplf8CThT5S6d2s6C/DMfdDYlZP8yklWISQWBFOCw6jts
-	 XcBd5Wqsdh956Utqpv1ioi40PW4fHqss+pIk4PhTQFsUaFssG3JBSLzrvJQi3q6RxZeZs
-	 RRMDHbiPTMW91kbtvkmjPz9mK3KJIJfVn3PvMj3jem85+1CqvTZKM37+5DR3963rxioeO
-	 84Y7yZn/1RIrPiQcwnpuoocVGXpzVNdtSMQsWcazS0AXAOvxzW/N/+ZxsBsYBRnqQbA==
+	 X-Gm-Message-State:X-Received:Date:Mime-Version:X-Mailer:Message-ID:
+	 Subject:From:To:Cc:Content-Type;
+	bh=S5Xf0dq7djJOyag1DG5P/5wzKwC4wT62MOh8WMXjPgs=;
+	b=Ef+0Up8fdkP8TTGYAMzaM7+SMmhMOFd6cVe/p2uA7DmFIN0bV0vCqJFTam1I4V408W4p
+	 JCzuFcUmUM47FFaDfqzB9k5kIyU2sjPrwrkmNopzYz88zHqKFiSXjtvzB0Oey/Fp6RGM2
+	 iQduSM7M2Urd5HKZkOC0Pwa7XLuexX7eBFZIby+07T3mNGa4bEsPpGoEVkZgshTbw63xl
+	 gbWKHdx3NGiIOVloa2VH2N4a0xLP3n/O4coFBFHOW5iTvdpVwwCyswyUZ+XlMQBnh4Iem
+	 8nta8ZcPNBXWrtoCGZmd0Oi/szYk7GTMjDu7pw4LqjQ3kHBoxhcLg/eEdxBKPi8K8cw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hWIL7Kkf;
-	arc=none smtp.remote-ip=209.85.216.43
-Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--sammc.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=arR7VQp5;
+	arc=none smtp.remote-ip=209.85.167.200
+Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78D8C606A327
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:48:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78D8C606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC4AA606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:49:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC4AA606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--sammc.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hWIL7Kkf
-Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3b4a93d0814so2151165a91.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:48:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=arR7VQp5
+Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-574f8578e48so5874577b6e.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:49:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795661305; x=1796266105; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=uXsG/J8SjUA+u6xV5gQi3ekCpADG/Nmz2q3u5DO1GSw=;
-        b=hWIL7KkfCL3yaQsFQRKV2YraC7VVF3oAMqKIMdyD7qlk22rGclRIkoua5vlMpTMBr5
-         rxPT1fKoNqe54FlsoE7dBShxb0WCzgSMpiLoPk2N93Dc0zNZHGX9eD6E1Lex6wcECS0M
-         A+RRExWB5fzKTz1t8NJ4ieU3InEGHWU3TBv8jgNNXp/FGXAiOx0TZa2hoDqb6Pp9+lwI
-         gWFOiqYZURGXSvKxHqj2oDh1MmESQqc97X8TuspANrgz+xqlEgKbl2F1HN1RKUVSRIUv
-         2FuaOyz9D3e++Xel+ceknSPbtOhxPE5eaIFWuFUEiv80ZwxkNWwaKaEpJ4v5NJ3yN6rr
-         3Lzw==
+        d=google.com; s=20260707; t=1795661344; x=1796266144; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=S5Xf0dq7djJOyag1DG5P/5wzKwC4wT62MOh8WMXjPgs=;
+        b=arR7VQp5azQ5b6hju7KGOB7V6ClhAWrxmzkeZ9IITkugl3PI4ByVVbrEF24yrUH6fq
+         gstOjY2waspQjNey/GwSzVvsbUD8T9q0ayX5K5WnkH4zzjCUJo+LZRJkh+zDtjaGXbWw
+         TAcav06zp001mulhD7+tfyaBOeOHbson4ER5X/8Xx1CoPru8vXL3l7QNrQ7gUL8ZZHk+
+         MOZuG4KI+DGoggDorzMITDtQ+nE2R+sRQAVwVp2EdzbMgkMWrNMntgreFThfMJaBiFhG
+         v8Tjt5AnyQDc1chclyBragsg/fIiGQkeNe7gXMu3ppDBPCq56yRl3/J4e/Z4jPOiZeg4
+         W5Mg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795661305; x=1796266105;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:x-gm-gg
+        d=1e100.net; s=20260707; t=1795661344; x=1796266144;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=uXsG/J8SjUA+u6xV5gQi3ekCpADG/Nmz2q3u5DO1GSw=;
-        b=frEtpMyM6i5+hJWTroQdV7BjaUWLp+IDFkbdqkKorbRQliBYNhnbTx02XwAWDHiVPg
-         ds5BJJ8OCKBM2z/qphryjFmZYja/a4FXcCHnx0+2KCNwJ2Sm0c/He4S/qSah8rvsXjIi
-         /ZTQj0Wyr9oSYOJBPMrloUxZwweS3cbF41mUb3B61262u8m/4ojY5RFniofpWs8V9QJe
-         CHYVd4q8KDGkTNxeHSPEmtIRdk7YOO+nEn5SpdRYrfsdBVTiHd7EfiJxCcQwhhweo2ip
-         XXo6Kfn+c7so9efDzrBp3wGAmlmtCWZ6KVJNdmkeLQK6siuPagjjV2JyMoD2qqV+zDXo
-         wMpQ==
-X-Forwarded-Encrypted: i=1; AL+hErFTrlUpEDnL6HFuICD0Xi1pn2uU0dAiJ/PCEVJc2wCemZV0YKTbbTcw4Vec5mL2sAP/tbNij/EeNkeUTU0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+BpLiTgMvkOusP6aiFeguMseIqymCo+olOan+JQ4ulWs3UUhCb
-	m+DymFGwKxyyZ68N3AgCSQyBVNELF1Ke0eGPnX0s55vMrD2P0UMXjKhQ
-X-Gm-Gg: AZFdTZfkT2eSK6+o/AgkNc6F8fyqxWarucMabwdR7H+1vP068P2rgKLG1wA2mmSIIpw
-	9SWNm5+v1GhnflQ/BvZW+LrFiFe/W1fu7CL3atSqIn+vjBWv4FwRHiaztov6CanPAJ8gJzyg9BZ
-	rPMDKR1Wir5sSZJB0tMEo0NPGofAgEqSfOP5TpgtWscAzgkYLDOssrsHf0nU8HdqoXe4h3KPFd0
-	EMBo6w9OtwkL2EEDr5ncQVSOKwVeaE5cpvA8u2Jd8aatGVeEp19sFfgcp/eaDljI2isB/SQ0qX1
-	alyd/wgwwBWME3LWKmbuPRDDbtkAimhEJsZFh8s/YHDo6zJM86m4oOuolkexiQjFIwxLdag6GrS
-	Ivop13+11Q5qeWQIGpa3XbS81XCl++5MmKCIyY3kXLT8XOkZLUSwTJDkXpDo0IHdu8m9DI8OAXc
-	7673iXfcNJ9PitgBIbj7fOtH/SvaiLmvVDIemhU5od259LDWhgPw7Jsvr9EwuTQLaEq2MSpGV13
-	9Be7rapRxlhzUhY6GqiZfrK37hTxMjWX5wsfyhQ2hqdnOLVriL6BjQmiqRc38iAYomWnL3I0w1O
-	vDHK5qa4Fs53+rDnz/WSMF1pQ+UrKgXgrZa5Q7y1GxzGUD6fTz+05cuJKANWsEd84HGQb4/bqhk
-	MW3B2GwgJEuV1j1rcW+ZhO0nwKGNJ0A00eA==
-X-Received: by 2002:a17:90b:4d86:b0:3ad:4a8b:c6fd with SMTP id 98e67ed59e1d1-3b41c93b159mr16040203a91.28.1795661304665;
-        Wed, 25 Nov 2026 18:48:24 -0800 (PST)
-Received: from localhost ([153.61.198.245])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b420e1307csm29193554a91.7.2026.11.25.18.48.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 18:48:24 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 26 Nov 2026 02:48:23 +0000
-Message-Id: <DN4ST2VP3GVF.GGKMH8CNILM2@gmail.com>
-Cc: <bpf@vger.kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii
- Nakryiko" <andrii@kernel.org>, "Martin KaFai Lau" <martin.lau@linux.dev>,
- "Eduard Zingerman" <eddyz87@gmail.com>, "Kumar Kartikeya Dwivedi"
- <memxor@gmail.com>, "Song Liu" <song@kernel.org>, "Yonghong Song"
- <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "John Fastabend"
- <john.fastabend@gmail.com>, "Emil Tsalapatis" <emil@etsalapatis.com>, "Ihor
- Solodrai" <ihor.solodrai@linux.dev>, "Steven Rostedt"
- <rostedt@goodmis.org>, "Masami Hiramatsu" <mhiramat@kernel.org>, "Mathieu
- Desnoyers" <mathieu.desnoyers@efficios.com>, "JP Kobryn"
- <jp.kobryn@linux.dev>, <linux-trace-kernel@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH bpf-next v3 0/4] bpf: Check recursion per task for
- preemptible programs
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "Mike Bazov" <mikeba@sentinelone.com>
-In-Reply-To: <CAPnbwjpLcyJF70D5j-q23L3TQSFXebB_RndQRmDe+_5h02YazA@mail.gmail.com>
-References: <20261117-bpf-preempt-v2-r2-v3-0-586376ec3672@sentinelone.com> <DN38312WXPDJ.2KLUTCWSDFL3P@gmail.com> <CAPnbwjpP9Fin=CyD0WiA2c4sxqbfyK7AziE64PCX4w9kbz55Kw@mail.gmail.com> <DN3Q2CZJSC2C.IM2EYLF1NR9X@gmail.com> <CAPnbwjpLcyJF70D5j-q23L3TQSFXebB_RndQRmDe+_5h02YazA@mail.gmail.com>
-Content-Transfer-Encoding: 8bit
+        bh=S5Xf0dq7djJOyag1DG5P/5wzKwC4wT62MOh8WMXjPgs=;
+        b=fUT9XStyqsiSfa6lz5pC7Bnts0qFQyX5m2Cc1MMdB6lZN7rIjqQ6bkolkxPeHaACs/
+         DDYaLN7Izg1fq7L15j12u4x3zVC+32B81Mf1DBeuuB+rEcFB56uisbDQFprJfcVO4PXL
+         32iiLxsKbyf1C0qjhj8ttFyyidX6LCL+7Q2FwiOfBR2J1807tY/HhWveRfX9xqLdu15H
+         qfh0JPrvZK8puQ6jrgcfSoMc1W50arSBGo+VPctXYIiVkrR1zBPZJgpomdV4x7kX0UEW
+         Fcf5i69bTvX3EHrcP/sX/ynLhITIVzs1p2Tv8GbspjGKSwSPhcrdImzQVq4LM8HkhNRm
+         +CjA==
+X-Gm-Message-State: APuU4Z/koYJype0B30JNv9H1IfWUKGkVNo2nMuKiyC5DyI1nBgQJ0VDC
+	33B4inP36XPEht2deLYhHMTMmlF0g1e+Pes6FSXiO3UAApFUARLGVeENbo+3l8rs1DLoJ8smSV+
+	uxg==
+X-Received: from ilqh16.prod.google.com ([2002:a92:d850:0:b0:54f:e3ff:ca5f])
+ (user=sammc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6808:6615:b0:573:d802:fc1
+ with SMTP id 5614622812f47-57a0a70c27bmr21744377b6e.30.1795661343537; Wed, 25
+ Nov 2026 18:49:03 -0800 (PST)
+Date: Thu, 26 Nov 2026 13:48:58 +1100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,20 +74,67 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.911.g883d8bcb20-goog
+Message-ID: <20261126024858.4013811-1-sammc@google.com>
+Subject: [PATCH net-next] ipv4: route: do not allocate unreachable dst for
+ non-IP packets
+From: Sam McNally <sammc@google.com>
+To: netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>, 
+	David Ahern <dsahern@kernel.org>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>
+Cc: linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Wed, Nov 25, 2026 at 04:03 AM Mike Bazov <mikeba@sentinelone.com> wrote:
-> i tried it, it works when the run that preempts finishes first, as
-> with bpf_timer_cb(). With preemption it can be preempted too, and the
-> preempted run can go on before it ends:
+When ip_route_input_slow() reaches no_route: (from a missing FIB entry
+or !IN_DEV_FORWARD(in_dev) for a non-local target), falling through to
+local_input: allocates an uncached RTN_UNREACHABLE rtable
+(dst.input = ip_error), increments in_slow_tot, inserts it into
+rt_uncached_list under spin_lock_bh(), and attaches it via
+skb_dst_set().
 
-ohh right. save/restore works only when the runs nest.
+Non-IPv4 callers such as arp_process() never invoke dst_input(skb) to
+send ICMP errors; they ignore RTN_UNREACHABLE and release the dst in
+consume_skb(), unlinking it from rt_uncached_list under spin_lock_bh()
+and queuing dst_destroy_rcu() via call_rcu_hurry(), which wakes RCU
+kthreads immediately since
+commit 483c26ff63f4 ("net: Use call_rcu_hurry() for dst_release()").
 
-> A fix for all of them has to change how may_goto keeps its budget:
-> lsm, cgroup and sk_msg progs never go through bpf_prog_enter_run_ctx().
-> I'd rather split it out of this series: v4 takes may_goto out of the
-> mark, so tracing progs behave like lsm ones today, and a separate
-> series fixes the budget for all prog types. Does that work for you?
+Return SKB_DROP_REASON_INVALID_PROTO at no_route: when skb->protocol !=
+htons(ETH_P_IP), matching brd_input: and ip_mc_validate_source(), while
+preserving ip_route_input_noref() rp_filter source validation when tip
+is RTN_LOCAL.
 
-Makes sense. Let's split.
+Observed during idle power testing on CONFIG_RCU_LAZY=y systems, where
+background broadcast ARP traffic with IPv4 forwarding disabled
+repeatedly woke RCU kthreads. Tested on x86_64 and arm64 under
+synthetic broadcast ARP load (~45 ARPs/s) and live /16 network traffic
+(~20-40 ARPs/s): live in_slow_tot dropped by >95% and 60s idle
+rcu_preempt wakeups fell by ~70% on arm64 and ~75-88% on x86_64,
+raising x86_64 package C10 residency from 62.5% to 84.6% and saving
+~100-250 mW of SoC package power. An AI coding assistant was used to
+help analyze the code path and draft the patch and changelog.
+
+Signed-off-by: Sam McNally <sammc@google.com>
+---
+ net/ipv4/route.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/net/ipv4/route.c b/net/ipv4/route.c
+index 11d990703d31..1f1b09b4ac8d 100644
+--- a/net/ipv4/route.c
++++ b/net/ipv4/route.c
+@@ -2463,6 +2463,10 @@ ip_route_input_slow(struct sk_buff *skb, __be32 daddr, __be32 saddr,
+ 
+ no_route:
+ 	RT_CACHE_STAT_INC(in_no_route);
++	if (skb->protocol != htons(ETH_P_IP)) {
++		reason = SKB_DROP_REASON_INVALID_PROTO;
++		goto out;
++	}
+ 	res->type = RTN_UNREACHABLE;
+ 	res->fi = NULL;
+ 	res->table = NULL;
+-- 
+2.56.1.911.g883d8bcb20-goog
 
