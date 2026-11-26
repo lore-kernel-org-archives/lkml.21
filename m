@@ -1,39 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.47.186.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795709994;
-	b=TbXaFISB/isLOWuqk2ZrIbnqmynCQ85urCIl+BwEM/keALSkg4PjA4MbEwjuRly2xDL0
-	 oDCidpyX/9uCATIJoxPIDUwhen4ecjOxv4iZnTkw5q1fEfDXrLg6uy9jeOODLPUc+/G+2
-	 n7lv8GYvbtxXEaoSO83CfORSJVWMSjmgEIjaYG+aFQhgpo/tlhmzpF3LJXCiqAt+pkKuj
-	 ppwp26svEXmYKFEsfobnUqhYcve2FjDC+1FIHw118ZFDPIvzG15PsMKi40/VRseHPbAmg
-	 VmkO2YmCXJXFemxIdz+spdKIFkKrPnlP1yDZPzncbWZv6jZ5yUrHKbOdL6wto4mYL5A==
+	t=1795709995;
+	b=AVuBhU52pFmzrTa2MLzsDDNLlqPytFuLB8liAMgpQhQqjj10wjBq9qvzj4UQ/MNY75AU
+	 h9bnN7jOEY4s0QIY9/o5AeD4SO9afeEDPsH2Uz3JnvY0YId2eIU72XbqxRB3V/N8ApgEH
+	 p/HSfuStSeGH25mrlCMjRYUCJ46vpUiKwk90Ml2wHKh53h9wumjMLSJJYXavugfLiPxrQ
+	 S5iUk5iZKPgxyBV4hlubA1Ceo7iYKecwaWqvM2EzmBRzh51LyQxPgIpXkDHeNgqKpwQJg
+	 7od13b5HQvhcuXbI1W57HJTn4ild6OSo0nkdm3DR9951lOSauTeT8/Ubd10HYc/AFBg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795709994;
-	h=DMARC-Filter:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=u8DcG5trqoOFrEsTub6wl986H7TT+KgeRiiZN3CVNiM=;
-	b=iZxBAAHjMnKkFOblpWTXjt9inpdEJRHE4C2/mdykIdDF7OpVPae88lP3Vtv9+chOb3Cx
-	 MS8RQKPG1ylOTt4nelacLDYTWtMdpjTuZqrmalQw47aPvLiX227YHupDtgDmSTICFkEy0
-	 +tUnQ8NEjfjRcc1uE59C5u6nTyAKqXNnSt3jKh23PpS3sknwDXsGQ5OfgdcP5ZIVjkiri
-	 WdczlrGN8Zoe4uEDTDaSSlBBosI5bMnAt1NyPyPZJEj1EHqqgsLJ7hX59CqbWlVoePHDm
-	 vGMCnRptbsnlzzV124xpGSQZFikFaaPkTaR+d1S45tCXCltef01XHrMnYd5AsUyo+5Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795709995;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-Cookie;
+	bh=pyA6BrWRGqBT9InERBycylr81NGVwDNi1NcN77e1IJo=;
+	b=JSa6fILu+k5WlpFDuexrIgIxAImImH0MBcTGGCJ3jl0LkJrX6V8BQHfYF0n1jxn7Y1cM
+	 5Gh4Ki9bMNFseASC+WVvR5xrx09dlWnq6YJB/1wfmNrpqye341tc3Jnk9KusSawbA/RKp
+	 2Nq8CXMtg3QMCuOm4jS2UmM1TxTFQvR2T2TGIqUpt5bbO2IVdVC5m4RFWbgIw58+qPnx1
+	 UA9NA4beM36NTk1pSwaW0W2RSaGIfnDHkLKlDVrCIJ7G3BtbioPaAMcXKtzlcyFQ1G/vO
+	 552nEiDW+7RjpH08KQi/GEiSzXYy5clmsyBhVoNvIRpefoh2rMIgJ350Fn5Z3p7qdGQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=krgm.moe;
-	spf=pass smtp.mailfrom=krgm.moe;
-	arc=none smtp.remote-ip=103.47.186.116
-Received: from krgm.moe (krgm.moe [103.47.186.116])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id CF1D2606A31C;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XIT+E6O3;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FF33606A333;
+	Thu, 26 Nov 2026 16:19:55 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XIT+E6O3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F7F51F000C4;
 	Thu, 26 Nov 2026 16:19:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF1D2606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=krgm.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=krgm.moe
-Received: from yuno-laptop.local (unknown [103.47.186.116])
-	by krgm.moe (Postfix) with ESMTPSA id 20C6E82E;
-	Thu, 26 Nov 2026 21:49:48 +0530 (IST)
-From: SignKirigami <prcups@krgm.moe>
-Subject: [PATCH v3 0/2] pinctrl: qcom: Add Netrani TLMM support
-Date: Fri, 27 Nov 2026 00:19:26 +0800
-Message-Id: <20261127-netrani-tlmm-v3-v3-0-3bf3f0bbe5df@krgm.moe>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795709994;
+	bh=pyA6BrWRGqBT9InERBycylr81NGVwDNi1NcN77e1IJo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=XIT+E6O3QkSAIeSdQUWbAieX64eHJW2apQe7OExqFcnOz051lI+JenPRrjSlYH5XQ
+	 QhKsTt/wafUqyMfWE0dGzGpFyjpzDe4jnLUdntu40sNW91jaumOU4h/2ACGbm4Y33+
+	 Xu8GqitGD2j5egDkk9XHPVCe52obOrZghYb7iYuboVaQqulVP9I3JnEoHstxDgWSet
+	 gghICGrhC1WsR9eQnqkGIa1fHqBPeZwfFzL966bgmaK17A3VFUg4IF6GDwPdrCu6W9
+	 LJpybgQ48uQUsxNLJTkUKV1qtYbTN55SIMtUFhg8SVriJ24SBFNI0GLGj5MaN6pEKL
+	 4TWPfjKjm9AIA==
+Date: Thu, 26 Nov 2026 16:19:51 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Sasha Levin <sashal@kernel.org>
+Cc: linux-next@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: Please drop the kapi tree from linux-next
+Message-ID: <413af506-a99e-4d82-8078-89b8ca5543f2@sirena.org.uk>
+References: <20261126150925.2347325-1-sashal@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -43,60 +56,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ5AMBBA0avIrE1CK4SriEXLYISStkQi7q5Yv
- sX/FziyTA6q6AJLBzteTYCMI2hHZQZC7oJBJCJPU1GgIW+VYfTzsuAhUUldJiqnotMZhGqz1PP
- 5Hevmt9v1RK1/N3DfD+7UkRVzAAAA
-X-Change-ID: 20261127-netrani-tlmm-v3-a3b90a6e7db4
-To: Bartosz Golaszewski <brgl@kernel.org>, 
- Bjorn Andersson <andersson@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, SignKirigami <prcups@krgm.moe>
-Cc: linux-arm-msm@vger.kernel.org, linux-gpio@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=994; i=prcups@krgm.moe;
- h=from:subject:message-id; bh=uuepb73Q4TUDnoK3QYwqPYiU5YZoRXG0qxAoTAtXNuA=;
- b=owEBCQL2/ZANAwAIAUNLJdlxtMKiAcsmYgBrCFwfER4wgMgWf9LYOJwVv5SZp0+qD7VPgwiSf
- 6qZUe+ynFiJAc8EAAEIADkWIQQKI/ZJLAWGn9r1JLZDSyXZcbTCogUCawhcHxsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQQ0sl2XG0wqIkZgwAu2tVhRnYnIbPkwLMrLf2pH3768Dww19
- uSYfoWDwMJNuew3X93B/dwrEnJKrBaVoRBZLUnFe7Ac7GuZp49oSj2iuGp79zDamzSAUo9BNV0Y
- ADcTZzyR4JlDaVT014JNYKZAuZNd5KnR8GdAqtMGe3MWYWkIH4A3HpFdIByxuphTU5GMdguYd3p
- WaFcuuEXT0wcybk7qFn6pOW03sxu9ik4oz0TCTSUtGzUCALTPQPNAkfGBS461ObJT8+pVJXN+ez
- CTAoMV0mTKQdQx9w/VAX6CTIYce4Olu2x0GQkxLL3u72CBmGlAhsR50lr0WOArf8c4cL9o1KNqj
- 0mH/qs+mGhleB0V+yl3HjTxy6WICdMJ7aKcn98Dhui6tRFqK7W34pUpjuh/nqwYcVUS6IsVmcJt
- 0fuOP3L/DGcXbd3Mz1vHjaWiw6HmRPYY++EeTcRmX54JKIsEy6dzKbEIj+OfEJQKEymn1mzzkIl
- LzCUNBBoGYi6hFCEGVtW+IIhRXzuE5R
-X-Developer-Key: i=prcups@krgm.moe; a=openpgp;
- fpr=0A23F6492C05869FDAF524B6434B25D971B4C2A2
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="FZeC48/CZXojmDZA"
+Content-Disposition: inline
+In-Reply-To: <20261126150925.2347325-1-sashal@kernel.org>
+X-Cookie: Sank heaven for leetle curls.
 
-Add devicetree bindings and a pinctrl driver for the Qualcomm Netrani
-(SM7435) TLMM block. The controller provides 142 GPIOs, dedicated UFS
-reset and SD card groups, eGPIO selection for GPIO114-140, and a PDC
-wakeup mapping.
 
-Changes in v3:
-- Add gp_mn on GPIO18 slot 2 to the binding and driver.
+--FZeC48/CZXojmDZA
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-v2:
-https://lore.kernel.org/all/20261126-netrani-tlmm-v1-v2-0-3426fca870c1@krgm.moe/
+On Thu, Nov 26, 2026 at 10:09:24AM -0500, Sasha Levin wrote:
 
----
-SignKirigami (2):
-      dt-bindings: pinctrl: Add Qualcomm Netrani TLMM
-      pinctrl: qcom: Add Netrani TLMM support
+> Could you please drop the kapi tree from linux-next:
 
- .../bindings/pinctrl/qcom,netrani-tlmm.yaml        |  190 ++
- drivers/pinctrl/qcom/Kconfig.msm                   |   10 +
- drivers/pinctrl/qcom/Makefile                      |    1 +
- drivers/pinctrl/qcom/pinctrl-netrani.c             | 2093 ++++++++++++++++++++
- 4 files changed, 2294 insertions(+)
----
-base-commit: 55d571be69fa9b1ecf8b417fdf768c4eb8b28d23
-change-id: 20261127-netrani-tlmm-v3-a3b90a6e7db4
+>   https://git.kernel.org/pub/scm/linux/kernel/git/sashal/kapi.git spec
 
-Best regards,
---  
-SignKirigami <prcups@krgm.moe>
+> Linus didn't pull it, and it isn't going in the way it is now.
 
+I've updated the config, it'll be gone tomorrow.
+
+--FZeC48/CZXojmDZA
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsIXCYACgkQJNaLcl1U
+h9CFCwf/c5sEIiko5m89dseJtE1bGPP5vlqIoLLYQ5hmdZTfQokCiJi0h0VdBm6d
+QRfi/eyny5rKvw6wGHS6iBSgUOfmoQTc+vVl1DYHhh78EMi+wI70KFbPD/4HYrI9
+9w/pWh74/sE0X4dqejbW34Vx3jUrTDpqXYOWTqHnAlvii0tH/tSKYpEKkBjXSSY7
+v8pH8fnuMI+ZzLyXS4sif6n7yj6r3I2uzsApS1+8hS54bdCYHL8YzSazpyS8ZaA/
+XJ4iwHi2bOzu/omXOIY2DmyOhZeqiWR0UGesUOVc7PU24uRjWUUdcGC4fbcoe/fY
+jBRmMvmc3l4mDkbxbiFV+zcQaHXZtw==
+=B/H9
+-----END PGP SIGNATURE-----
+
+--FZeC48/CZXojmDZA--
