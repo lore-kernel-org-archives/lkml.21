@@ -1,71 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795684667;
-	b=ivXO7yhJohR66o6g0bQXZKX2yEcdtMKPfp73kYBpMIOae7390lZdFqzZX0F0p6dHAjuJ
-	 XvE6a+1dnzZ3JOPyC1x5mx0i7WXcEandU9s0bSTVQNozWLtnQATxQjcAKr1+wWjWVcbET
-	 L9NPkbSwntoqfixQJjPipfHuIDUzvMG01eqCezsUaKO+TVeGRA2V9YnMNqscJp946zCLw
-	 SKFd7YsklrdAZK+CokrQElfffWcChxW4RUBsbNzXbq9VeaZiiOOzJaHgVzke8q4fUF3/N
-	 RP76ythycVTnCgMfEqpQ6ZWVtTvk5/AU5G4VFC2a9jPSqoC4Rume/bTH8zHY82Ws+Dw==
+	t=1795684672;
+	b=P1iEPbZ4/by8fiGi7YXS9Ms7YsyVo9Lv4/M0ML6pGdwFTIVlv5P+z2EL1h0nwgkh5STw
+	 jcC9muR3OGjXirubkqmvLUVcSfEqNPOooJQlw8wZhwJ/nysS3pvH6nbAuKDDM/GRKxcXE
+	 PZjZGBlhuTHf3kJlsGNh8J/onxkxH0vfPnkmOUKZu1DWGQwSSKmq5okSkqUQNH3MnM/cv
+	 YjMjAIsRAhlvvRPk0KUJ8ZgoFvrlVW7km1yC+gM9x3RobLBQnPZvrEI2YOsZH3AHFz+z8
+	 ZHO0qLv2osajElUrYWG5P6c0IBwm11BvfJnT70gXX69Xzmf8Fz2IwitVkjgUZjRiOlQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795684667;
-	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:
-	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
-	bh=Vs361lXj+ccNg7scnBDY+PPWxIYArALWaEjIZmnxvHk=;
-	b=ZX2J/OXzsWVmp+WqlRLmBiFZU41t0GUGlAdHYPBQ/elKkcSd4AWLILtXsmOiFE4a3/8a
-	 vVl5bU2uvpUcBYDUb+IIAvx5KUOl+H/Gm3p9d3xKL+ifGbkFhBcBBXBD9EWHskNCErS+J
-	 UeUInEflIqXoyE4g91cu91TH8MDOywMMz4xrIH5cvdxOOu7nhvk0UV1WJii56diDu1kCd
-	 /zWfq5+zaiUuHZXdS6qQyX/fUriX1oWu81WPbwbb+KXgrri9vzlOSelm62QXJ3xf+p99+
-	 HOIDegbVCtrVtmD9ckCP+XpUDCUDPZs/qWoaE1xhCHedlC3Co0KxFgTwFV7v9lkO49w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795684672;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=d1IwY0SZ93EHNkqt/Svz5shK9e8xm3IUrcVs2KOn+U4=;
+	b=q4uukUjdJvUQ17gxWYfvtEqTGl8mX/cRWwo3jm9NeIfcrk26govc0OY8KxmgRHUm7Rb9
+	 ujtMEmW01zl7b6zR483ItQ//12Jw99ypuOk2IWMYPbHoo7/D/vTVpY9v62lVUnfkxuA7X
+	 LrAjWzxpw/LrId7h6PYbBvuq7rjNJOPO6gIKmzsRIiiVdu9qI1tK+HWT9hNzCdmCX1CbI
+	 itW5xNu6iVbWB2FJ9PcTf3b/wne4uX/h+ED1HTMn1/Mj9DSx3MR+r4TJ3+j5jwUdp6csw
+	 NywNoLeNYuEMZT/zoHFFJptVQ7gJCqmup6MIFMdR5Oylot0qimpRcL9/4eFSD8SXzCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=ugpoMvB1;
-	dkim=temperror header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=R0l4rrrh;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UKdPkNX1;
+	arc=none smtp.remote-ip=74.125.82.49
+Received: from mail-dl1-f49.google.com (mail-dl1-f49.google.com [74.125.82.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0366606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:17:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0366606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70EDB606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:17:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70EDB606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=ugpoMvB1;
-	dkim=temperror header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=R0l4rrrh
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795684658;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Vs361lXj+ccNg7scnBDY+PPWxIYArALWaEjIZmnxvHk=;
-	b=ugpoMvB104v1IFEPAMKVK12DkzSBS6mF8OgMJD4beo3Q9zmHyRBKj5wgupOe+dSpS/CmFr
-	7HHTs2DnbSPuXsZtJSH/tFhXL4xlnoWHkfuwAmciudzmz9CoN3lgp1CxsbRguAGcXPpLXG
-	WS43r5N15ykgZ1FkRuIcymrUfzYl343S3tA7AgeB2Ejb8oImA53Tl2f+34OQok+JHMhYME
-	4/aqZ/9wNDSeN6Nyu/l3xJ7RUX/5ZxFVX0VV7TD5bCoFDopxNp2O7s6nxBXWMeSo3CxkAj
-	p3yaD7Zy22AtW5j/J9AJL0kx0jTyBlpM759r5bppOLP6AEuzaCw22oLVOBcFEQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795684658;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Vs361lXj+ccNg7scnBDY+PPWxIYArALWaEjIZmnxvHk=;
-	b=R0l4rrrhC9f0SV5yuoPTLTCiphRf0KYxzJvKAZ3GhHzaOWsX2yx4+SDKWplkhjsBF7GFCG
-	29az0nrU8mWqIwBg==
-To: Jim Cromie via B4 Relay <devnull+jim.cromie.gmail.com@kernel.org>, Petr
- Mladek <pmladek@suse.com>, Steven Rostedt <rostedt@goodmis.org>, Sergey
- Senozhatsky <senozhatsky@chromium.org>, Jason Baron <jbaron@akamai.com>,
- Andrew Morton <akpm@linux-foundation.org>, "Jason A. Donenfeld"
- <Jason@zx2c4.com>
-Cc: printk@lists.linux.dev, linux-kernel@vger.kernel.org, Philipp Hahn
- <phahn-oss@avm.de>, Jim Cromie <jim.cromie@gmail.com>
-Subject: Re: [PATCH] printk.h: fix overzealous pr_fmt in pr_debug_ratelimited
-In-Reply-To: <20261125-pr-fmt-v1-1-3ff6832f5a50@gmail.com>
-References: <20261125-pr-fmt-v1-1-3ff6832f5a50@gmail.com>
-Date: Thu, 26 Nov 2026 10:23:38 +0106
-Message-ID: <87qzg86jf1.fsf@jogness.linutronix.de>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UKdPkNX1
+Received: by mail-dl1-f49.google.com with SMTP id a92af1059eb24-1a3c08d6928so10078321c88.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:17:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795684671; x=1796289471; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=d1IwY0SZ93EHNkqt/Svz5shK9e8xm3IUrcVs2KOn+U4=;
+        b=UKdPkNX1ksh4wLR19uqs7yJzY0seBapvvpUzVeiK7gjO85SXZLkRlJnYN7yFl0t7qw
+         WXUBDT6+entzA1nyOEsU5xoLnqB2ZYFsPUGYC9cTzJWpC+/HDV3o3s8yU3QMh0IH3ajt
+         mBCUSFpdrFPdCxo3BPyfl3/F596w10zpEUTAnOuKSPjyLEamF+J/VuAJ3F55any5YnLd
+         48x26MOZ4ku33OsQB+b8cWbajtTqvinim4ojQTHcMunlOekR23zpQmKqzORG1QdTAmPW
+         BI2N+GNTUAKopZ9BnBsRsLVHS6Nnqa0xjjqq3nG3/I3queyRn3wmaS4WYRQam+M9D4Dg
+         NiAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795684671; x=1796289471;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=d1IwY0SZ93EHNkqt/Svz5shK9e8xm3IUrcVs2KOn+U4=;
+        b=ECdeNdh7AinL5ez0jdRk59UwGcGwHZlSEWla27YGh2ktafPOSUM66mwuz8CHQVSZu8
+         D/qBSV/aQaIXObA+KeLzgPqhSQj5/F62FyRu25TaPS0l4FATTBfGhZkt6DGmg4C8R55C
+         oRr8ZrYfrcqnlDOAjhwfxKq6z1MRmrVaGEALDg9BDtOspadqPZO7bSCjL+A9ldPOeuQr
+         r0hJjbWMKbKA1BW+TFKZ2EjndcL7XTRm7NaX8dQbaohmMaiEjP4U0U/IVTavA0Qr1UWT
+         GuvdW8puSIfVladYwWpreLyqQWw3bGPYFis8LuHXOqAjE+mynEEeJTsTDQ3TBEDvZzVl
+         oSAw==
+X-Forwarded-Encrypted: i=1; AL+hErHOvCuRII8l4riic8BlCum0VU1dhlWFSp3n5d1OvgGekse4w3oUfvNm/EFYprBUoOh9lbTFSnQ964agbuA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/nZNV91FIEy9yCzLS/x1VUXXXnzvV5igu/aYwaiIPrsFMh1BRR
+	S7WDZ+aTEX9BzJYpmsbpb+3mhtdSZV30T5OkDS2b3F5uBCqYUZrLc375
+X-Gm-Gg: AZFdTZfl7FsYeb1giT5F2Q53EAq9i7VpRc7tAp4ZiofryUIftYHRW2NrqdCRHU91UxG
+	vYPVG2UkC0w0Oa8k3qtQ1njTnOheXbQLJsqz4p0UoV8m3icFvMsNnRjs1+p2C3unxqp03JzzSNI
+	lhFi4nbMUEUhJ9bsvDuwdqg+D68Y/uVSpwCmcDDl5iEmE+bW8tHTHMrbH26q/LonNqSrMcikILQ
+	AfwWvRaLKNhLOWDvvAZRuNod5ItaSaec/uixWATSUxn3X860l2Htlhwt5uEIhQTh/SitzuvRo7K
+	3BBcMEk5d3x6iLQ6EY/vbBp+U9IHnV42zsUCBmPxGfQ94XTAbJ5ViSzlrjipS4XdLOVkpNZcKwR
+	sUDIjD4547OMU2jDgFGal1SzefhZTxfolEVXrB1cUexb4pYFdfU1b2eahu4szONEX2llTvbb3HQ
+	TPyAsE7PHMCtAVnTEjkRFjv7clXI13lZO0x64K0DTN/2YleN4VcWOfm7y2yPsKQHB9WHCGnXfc6
+	SLDE8KPoYJ6Uy32qJy/ieXyiNbO8B32FD76jzd5ijYKk4zG6UYTvqeJ0P73Vt4XS4RrmCg3RXb1
+	4YPiN1RK82CwFpBdT7T5Y40yu0OlnRBqoV5iEBt++YrRb+gYcPV7Ww78bTo0DY0=
+X-Received: by 2002:a05:693c:8803:20b0:386:9b9c:ef1b with SMTP id 5a478bee46e88-3869b9cf99amr15512715eec.3.1795684671328;
+        Thu, 26 Nov 2026 01:17:51 -0800 (PST)
+Received: from 10-86-27-207.ban-spse ([165.204.217.251])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386992b404bsm48060697eec.1.2026.11.26.01.17.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 01:17:50 -0800 (PST)
+From: Gokul K <gokul02k@gmail.com>
+To: Yazen Ghannam <yazen.ghannam@amd.com>,
+	Tony Luck <tony.luck@intel.com>,
+	Borislav Petkov <bp@alien8.de>,
+	linux-edac@vger.kernel.org
+Cc: John Allen <john.allen@amd.com>,
+	Aichun Shi <shiaichun@open-hieco.net>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] RAS/AMD/ATL: Check the legacy MMIO hole after the address map is read
+Date: Thu, 26 Nov 2026 14:47:44 +0530
+Message-ID: <20261126091744.2096611-1-gokul02k@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,51 +98,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
 
-On 2026-11-25, Jim Cromie via B4 Relay <devnull+jim.cromie.gmail.com@kernel.org> wrote:
-> From: Jim Cromie <jim.cromie@gmail.com>
->
-> Historically, the CONFIG_DYNAMIC_DEBUG implementation of
-> pr_debug_ratelimited() passed raw fmt to both metadata and runtime:
->
->   DEFINE_DYNAMIC_DEBUG_METADATA(descriptor, fmt);
->   if (unlikely(...) && __ratelimit(&_rs))
->      __dynamic_pr_debug(&descriptor, fmt, ##__VA_ARGS__);
->
-> While descriptor metadata was clean, emitted dmesg records lacked the
-> pr_fmt prefix present in the !CONFIG_DYNAMIC_DEBUG fallbacks.
->
-> In 2015, commit 515a9adce0f0 ("include/linux/printk.h: include pr_fmt
-> in pr_debug_ratelimited") fixed the missing prefix by wrapping fmt in
-> __dynamic_pr_debug() with pr_fmt().  However, it also wrapped fmt in
-> the metadata macro:
->
->   DEFINE_DYNAMIC_DEBUG_METADATA(descriptor, pr_fmt(fmt));
->
-> This causes two problems:
->
->   1. Build failure when pr_fmt() expands to multiple arguments, e.g.:
->        #define pr_fmt(fmt) KBUILD_MODNAME ".%s " fmt, __func__
->      Passing pr_fmt(fmt) into DEFINE_DYNAMIC_DEBUG_METADATA() expands
->      across the comma in DEFINE_DYNAMIC_DEBUG_METADATA_CLS(), supplying
->      4 arguments where it takes 3.
->
->   2. Metadata pollution even for single-argument pr_fmt(): baking the
->      prefix into .format breaks anchored queries such as:
->        echo format "^foo" > /proc/dynamic_debug/control
->
-> Drop the pr_fmt() wrapper from DEFINE_DYNAMIC_DEBUG_METADATA() in
-> pr_debug_ratelimited(), restoring consistency with dynamic_pr_debug,
-> dev_dbg_ratelimited, and net_dbg_ratelimited.  Update
-> lib/test_dynamic_debug.c to exercise pr_fmt() with __func__ in
-> pr_debug_ratelimited().
->
-> Reported-by: Philipp Hahn <phahn-oss@avm.de>
-> Link: https://lore.kernel.org/lkml/a5e3c89fe5f4126873d58dd3472e66c56550ff91.1773779753.git.phahn-oss@avm.de/
-> Fixes: 515a9adce0f0 ("include/linux/printk.h: include pr_fmt in pr_debug_ratelimited")
-> Cc: Jason A. Donenfeld <Jason@zx2c4.com>
-> Cc: Petr Mladek <pmladek@suse.com>
-> Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
+norm_to_sys_addr() refuses to translate an address when the legacy MMIO
+hole is enabled but the DRAM hole base is unknown.  That check cannot
+fire.  It runs on a freshly zeroed addr_ctx, and legacy_hole_en() reads
+ctx->map.base, or ctx->map.ctl on DF4 and later.  Both are only filled in
+by get_address_map(), which runs two calls further down, so FIELD_GET()
+always sees a zeroed register and reports the hole as disabled.
 
-Reviewed-by: John Ogness <john.ogness@linutronix.de>
+The situation the check was added for is still reachable.
+get_df_system_info() only warns when get_dram_hole_base() fails and
+leaves df_cfg.dram_hole_base at zero, so the library loads either way.
+On a system whose hole is enabled, add_legacy_hole() then compares
+against a base of zero, takes the branch for every address, and adds
+BIT_ULL(32).  The system physical address handed back is 4 GiB too high,
+and the caller retires the wrong page.
+
+This has not been observed on hardware; it needs the DRAM hole base read
+to fail on a system that has the hole enabled.
+
+Move the check below get_address_map(), where ctx.map holds the values
+read from the Data Fabric.
+
+Fixes: 1233aa3fb342 ("RAS/AMD/ATL: Read DRAM hole base early")
+Signed-off-by: Gokul K <gokul02k@gmail.com>
+---
+Compile-tested only.  ATL needs an AMD Zen system with a Data Fabric, and
+norm_to_sys_addr() is only entered from a DRAM ECC error, so I cannot run it
+here.  Built at W=1 with CONFIG_AMD_ATL=m, and confirmed core.o is not built
+with it =n.  I also replayed the guard outside the kernel, with the same field
+masks, across DF2 through DF4p5: it lets every address through today and the
+result is 4 GiB too high in each case.
+
+Noticed while reading the Hygon Family 0x18 series, which clones this function
+as hygon_norm_to_sys_addr() and places the same check after its own
+get_address_map() call [1].  That is the ordering this patch moves to.
+
+Based on origin/master; drivers/ras/amd/atl/core.c is identical in
+ras.git edac-for-next, so it applies there too.
+
+[1] https://lore.kernel.org/all/20260528035246.526012-6-shiaichun@open-hieco.net/
+
+ drivers/ras/amd/atl/core.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/ras/amd/atl/core.c b/drivers/ras/amd/atl/core.c
+index d77dacdd4f56..06744d3aaf0c 100644
+--- a/drivers/ras/amd/atl/core.c
++++ b/drivers/ras/amd/atl/core.c
+@@ -125,15 +125,15 @@ unsigned long norm_to_sys_addr(u8 socket_id, u8 die_id, u8 coh_st_inst_id, unsig
+ 	ctx.inputs.die_id = die_id;
+ 	ctx.inputs.coh_st_inst_id = coh_st_inst_id;
+ 
+-	if (legacy_hole_en(&ctx) && !df_cfg.dram_hole_base)
+-		return -EINVAL;
+-
+ 	if (determine_node_id(&ctx, socket_id, die_id))
+ 		return -EINVAL;
+ 
+ 	if (get_address_map(&ctx))
+ 		return -EINVAL;
+ 
++	if (legacy_hole_en(&ctx) && !df_cfg.dram_hole_base)
++		return -EINVAL;
++
+ 	if (denormalize_address(&ctx))
+ 		return -EINVAL;
+ 
+-- 
+2.54.0
+
+
