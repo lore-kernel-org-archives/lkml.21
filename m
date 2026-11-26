@@ -1,58 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.216
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795675404;
-	b=lJtpRgImQKToVtAiaIqcXvxlXMYXJxOQJurcOjNJPjmEMABsJbvmiYCZ21gvJ9ercUOg
-	 TjAZQHbtA+R9ZS+UV64rkK4+9JljT7+Rou3C92S9Pt/g85oq2BbGNf+kCkin0xN9OHFCK
-	 r5NaBUc0i1qFOAgWaRg4Fuagq1dMLqXU33ZI6qjiOX+rnS7ui4/b5kPascqCr4FdXD2JN
-	 iGDGNn6Y8jbyMAFfk48xZSiKHh+4dqPVupdKBvnHXQKA+fzb15p/7N5OJjSSqjOjMldKN
-	 6gc0mZlE+ByehM/K047zmLmVa/3ts5TjNsFt5EPauKwVBQSQPMSj/9XyWA9+uBeJWgw==
+	t=1795675400;
+	b=jtmaBPjN8nIKnr37RIVvGF8FM6c/kdLvTZGJlcWDda9tOLsooMo7YVGPYM5XToBk1d74
+	 SvrCOe4QJ42pEK71h4ffFTj3H2a1miALFCJpqxM+solrQfjnEiOuNhfhIDoGb8JOVg3Tl
+	 y0+DW8ynPNvFm6YyBkkegZYYsHjLW4w1hfzlGonySC8HS3b6vVRnsSRwK5Y7R4CxhxbxX
+	 8/jpx0dZcSx9pYd8efcYikNUxbquOes9RBm7OYhUgI4D78CSZZJ+A1rLhC9J7t0GRdxVN
+	 w8oSvoFDuIq+BdTJMkEL+5uzhRbTlPIKk0OVKCFXpqs2AbX4XAyfADgB0dVcO4i7yLw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795675404;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:CC:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=hyYv8jsheMChRIlTPySvEzCqXb+bzoALYrzIuClqamI=;
-	b=1K9tvZiOveoC2RTGVrrRXEfLD5hLdFsRjoA9xXiiq84YU1RrAL6T1gqi94E7lvHXxoPH
-	 VIuOgxB44SS2p88YClefy0gEMexyJsu+Qgtgyoh18TTfcv5mC3jd3DxmqrOCwAM8pNNJK
-	 nwj/4uEewsdMZN5YZkfLO+dRAa8ymtJNlQQGvdgdRdhQTQSllB1UY+ZAlBMz03HxHSM/W
-	 HB1ztH+kqmVgRu0TooSAH3Uu62zPy9IovkUpoTEHnsiOzCJlJed9lOQZnLKMuiudKBDkI
-	 Luh95A/MiKiMr/qWRU/FTLtvee0TnKPyqwtE41lepNs8jpg+mxcTYrqFjkmR31iPirA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795675400;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:From:To:Cc:Subject:
+	 Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 MIME-Version:X-TM-AS-GCONF:X-Proofpoint-Reinject:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=Kw9FYGMoWGha+atXC8tXkrwTERGaM0lIewiTNWFke10=;
+	b=mGyq3EXIq/DMS/H3OIagXLorEaMThZ3yqEhXu2WaDJpE3sNcg0kOf8yMdZy1QpruK1WZ
+	 2fiZQOclPLHZJKPsuoXfkwSAxD+kdsXpIO28Et1GM/oKqdbhH/CxON0pSvCzlTJFLOQF8
+	 lteKaaDJi/b5TsCCNpCl/kFn7cH3X+pTn4AiDosjRHQgyamT6QSfZu6KGzSv5m/kTLTlu
+	 769N5gUmNfSBMSAP84XC67CGCnHP9oqKpCbgvJwNwAuR2jmA0P12E2sgXnnJk4HtA+6MN
+	 Y15EWHw/VKQTUp+NKZyAow2pcA5cbEqzYOIAz+099tRy1WMKbTlg2iWpoAMeG1FKRXA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=HJkYipD0;
-	arc=none smtp.remote-ip=113.46.200.216
-Received: from canpmsgout01.his.huawei.com (canpmsgout01.his.huawei.com [113.46.200.216])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=NObQbStW;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70F94606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:43:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70F94606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45817606A31E;
+	Thu, 26 Nov 2026 06:43:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 45817606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=HJkYipD0
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=hyYv8jsheMChRIlTPySvEzCqXb+bzoALYrzIuClqamI=;
-	b=HJkYipD00CKbqYItgxqmvIT7KCsM/QkT+yE3xbmqiitsLy4IDepWMxrlVHh/7RXdvSbOoW7RU
-	TwCYlYIdI9dYA/JRRws8jgx1cdjaz/VhavRdRRJyC/lO6E6naRG8snIanb9Z4PzkmLai3R6Iwfs
-	9SW+l8wVXn5EyzQcy0KZ/ck=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4jZn6D5Lkkz1T4Fv;
-	Thu, 26 Nov 2026 14:42:28 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id BC07E40561;
-	Thu, 26 Nov 2026 14:43:19 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 26 Nov
- 2026 14:43:18 +0800
-Message-ID: <4f28008c-d5a1-41eb-9066-ee368ebdc96d@huawei.com>
-Date: Thu, 26 Nov 2026 14:43:18 +0800
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=NObQbStW
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ34qv03281780;
+	Thu, 26 Nov 2026 06:42:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=Kw9FYG
+	MoWGha+atXC8tXkrwTERGaM0lIewiTNWFke10=; b=NObQbStW4cSKOQn7Mk44DU
+	OxJtXU82uwRslC6oLJ3Kj8otwIFLxG1qgUzmbQvhkT3Bj1wZvT8NzrR46YBg4xYA
+	sOkE3pjXaqkhVyO4v2+3TqpQe1PuOZTHmt13Jbfywd5TTYBA8dSEpRL/CBoJks+R
+	sjJGJAji3BC+2xQ7in8HRFh7n0PH/onS6ZnyluMwVLkgtA6gIuCH/qf8qnETDkhw
+	z0Cx5oEqXaVoMtvhV3dYIDp+C6tYZmR8RxhpFeNUlTNrEFmuUrxXXIVMeE9jPkV5
+	MrT/p4oeyR0jjJvgIRy1Xf9VnyU4iBPnMZ4bKYTejb2KQFHju5TF326R4sUVQxRg
+	==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34fag2wf-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 26 Nov 2026 06:42:56 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ34V8g3117327;
+	Thu, 26 Nov 2026 06:42:55 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j5a4172aj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 26 Nov 2026 06:42:55 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AQ6gnnM25232030
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 26 Nov 2026 06:42:49 GMT
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8AB6B20040;
+	Thu, 26 Nov 2026 06:42:49 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 6FDBD2004B;
+	Thu, 26 Nov 2026 06:42:49 +0000 (GMT)
+Received: from localhost (unknown [9.87.84.240])
+	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Thu, 26 Nov 2026 06:42:49 +0000 (GMT)
+Message-ID: <83784e4c2e7a0df1e16a791dfe588f36@linux.ibm.com>
+From: Sidraya Jayagond <sidraya@linux.ibm.com>
+To: Bryam Vargas <hexlabsecurity@proton.me>
+Cc: Dust Li <dust.li@linux.alibaba.com>,
+        Mahanta Jambigi <mjambigi@linux.ibm.com>,
+        "D. Wythe" <alibuda@linux.alibaba.com>,
+        Jakub Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@kernel.org>,
+        "David S. Miller" <davem@davemloft.net>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Guangguan Wang <guangguan.wang@linux.alibaba.com>,
+        Tony Lu <tonylu@linux.alibaba.com>, netdev@vger.kernel.org,
+        Wenjia Zhang <wenjia@linux.ibm.com>,
+        Ursula Braun <ubraun@linux.ibm.com>,
+        Hidayath Khan <hidayath@linux.ibm.com>, linux-s390@vger.kernel.org,
+        linux-kernel@vger.kernel.org, Simon Horman <horms@kernel.org>,
+        Wen Gu <guwen@linux.alibaba.com>, Stefan Raspl <raspl@linux.ibm.com>,
+        linux-rdma@vger.kernel.org
+Subject: Re: [PATCH net 2/4] net/smc: do not credit stale CDC completions
+ after a link switch
+Date: Thu, 26 Nov 2026 07:21:38 +0100
+In-Reply-To: <20261113-b4-disp-1a9ab9b0-v1-2-4a7c8d85d849@proton.me>
+References: <20261113-b4-disp-1a9ab9b0-v1-0-4a7c8d85d849@proton.me>
+ <20261113-b4-disp-1a9ab9b0-v1-2-4a7c8d85d849@proton.me>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,99 +108,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/3] fs/resctrl: Allocate the arrays in struct
- rdt_l3_mon_domain using kvzalloc_objs()
-To: Ben Horgan <ben.horgan@arm.com>
-CC: <tony.luck@intel.com>, <reinette.chatre@intel.com>, <x86@kernel.org>,
-	<Dave.Martin@arm.com>, <james.morse@arm.com>, <babu.moger@amd.com>,
-	<fenghuay@nvidia.com>, <bp@alien8.de>, <linux-kernel@vger.kernel.org>
-References: <20261125164753.3759904-1-ben.horgan@arm.com>
- <20261125164753.3759904-3-ben.horgan@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20261125164753.3759904-3-ben.horgan@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAyNSBTYWx0ZWRfX4EImtPN9XaYR
+ 3QGHGtYo4432MqGiK2TDsliT+BJAqyFV4YoEYVeXsUckTrE6dHEmMFuaJ2301QZVWfDGl6jmkJ+
+ dgAGvM5qnWmVV9Py6iAOIDkSpBSomVq0L3vaAx1Eyu/mE1SEX3TGW1y1wTLWKV03tzimbBee+La
+ I4s31WOGIJUjVJmbjUI+4dANXQwHjsRgb2ic/z/eb0nq9LwZffpp7/KLRKFCfvZ+O3r/IHlyyks
+ m/h8npK7QiR4IJ6Y9NH5jaYAzAIVph8qrZW3iTfMu2z+U4ndyIKuyUzRS3rIEuYE7sXVsshVaT9
+ Z12d1JnW+wxgE8V6E/JKiQnJmICQvK5/u/ls9uVLX9dXLceeJS8yxd5douY6C/TUlXOv8iUgZmU
+ ydCZW9r46p4Eb1mzgMIrp9Q0VpnA79rqk5yWKihc8+90qM0BAin5gtsCSwOn5RnKJ0Qa2YgJYL5
+ zRu50OMhwmpXMNEucBA==
+X-Proofpoint-ORIG-GUID: tn8TYgHWZ2BCK9yM9ZstpJFClP1LMqUA
+X-Authority-Analysis: v=2.4 cv=U6QHnuru c=1 sm=1 tr=0 ts=6b07d4f0 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VwQbUJbxAAAA:8
+ a=gNxIf0SVXD2PMDUOH5gA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: Wluwzk3ey7rcEWtlbJEWohqLru8UHaE3
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAyNSBTYWx0ZWRfX96dhDU+dGkZj
+ Iq1dCjCdlSop1hhSUCMqsNZ3MTSxSuHp/yH9DMvbFhou/YISPhpra1G0vlE6DYBpE+vIWMM+Uqb
+ CVPczpnaVODVCzpS2vfP69JBZbz1J+0=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_01,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 lowpriorityscore=0 spamscore=0 impostorscore=0
+ clxscore=1015 bulkscore=0 suspectscore=0 adultscore=0 phishscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611260025
 
+The review comment on this patch looks valid: smc_switch_cursor() advances
+conn->tx_curs_sent in place with smc_curs_add(), and a concurrent reader can
+observe a torn cursor. This is pre-existing, but the series touches this code,
+so please address it or explain why the current locking makes it safe.
 
-
-在 2026/11/26 0:47, Ben Horgan 写道:
-> Each element of rdt_l3_mon_domain::mbm_states[] has
-> resctrl_arch_system_num_rmid_idx() entries.  On an MPAM system this is the
-> number of PARTIDs multiplied by the number of PMGs. The maximum possible number
-> of PARTIDs is 0x10000 and the maximum number of PMGs is 0x100. On a system
-> approaching these limits the kmalloc() based allocation will consistently fail
-> and hence fail to bring the monitor domain online.
-> 
-> The number of entries of rdt_l3_mon_domain::cntr_cfg is equal to the number of
-> counters. On an MPAM system the maximum number of counters is 0x1000 and so
-> potentially larger than a 4K page. Allocations of this size can benefit from the
-> fallback to vmalloc() in kvmalloc().
-> 
-> Switch to allocating cntr_cfg and the elements of mbm_states[] using
-> kvzalloc_objs() so that large allocations fall back to vmalloc().
-> 
-> Fixes: 264c285999fc ("arm_mpam: resctrl: Add monitor initialisation and domain boilerplate")
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> ---
->  fs/resctrl/rdtgroup.c | 12 +++++-------
->  1 file changed, 5 insertions(+), 7 deletions(-)
-> 
-> diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
-> index 57ab090072c2..c55f125ce9a1 100644
-> --- a/fs/resctrl/rdtgroup.c
-> +++ b/fs/resctrl/rdtgroup.c
-> @@ -4502,10 +4502,10 @@ static void domain_destroy_l3_mon_state(struct rdt_l3_mon_domain *d)
->  {
->  	int idx;
->  
-> -	kfree(d->cntr_cfg);
-> +	kvfree(d->cntr_cfg);
->  	bitmap_free(d->rmid_busy_llc);
->  	for_each_mbm_idx(idx) {
-> -		kfree(d->mbm_states[idx]);
-> +		kvfree(d->mbm_states[idx]);
->  		d->mbm_states[idx] = NULL;
->  	}
->  }
-> @@ -4620,7 +4620,6 @@ void resctrl_offline_mon_domain(struct rdt_resource *r, struct rdt_domain_hdr *h
->  static int domain_setup_l3_mon_state(struct rdt_resource *r, struct rdt_l3_mon_domain *d)
->  {
->  	u32 idx_limit = resctrl_arch_system_num_rmid_idx();
-> -	size_t tsize = sizeof(*d->mbm_states[0]);
->  	enum resctrl_event_id eventid;
->  	int idx;
->  
-> @@ -4634,14 +4633,13 @@ static int domain_setup_l3_mon_state(struct rdt_resource *r, struct rdt_l3_mon_d
->  		if (!resctrl_is_mon_event_enabled(eventid))
->  			continue;
->  		idx = MBM_STATE_IDX(eventid);
-> -		d->mbm_states[idx] = kcalloc(idx_limit, tsize, GFP_KERNEL);
-> +		d->mbm_states[idx] = kvzalloc_objs(struct mbm_state, idx_limit);
->  		if (!d->mbm_states[idx])
->  			goto cleanup;
->  	}
->  
->  	if (resctrl_is_mbm_enabled() && r->mon.mbm_cntr_assignable) {
-> -		tsize = sizeof(*d->cntr_cfg);
-> -		d->cntr_cfg = kcalloc(r->mon.num_mbm_cntrs, tsize, GFP_KERNEL);
-> +		d->cntr_cfg = kvzalloc_objs(struct mbm_cntr_cfg, r->mon.num_mbm_cntrs);
-
-LGTM
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-
->  		if (!d->cntr_cfg)
->  			goto cleanup;
->  	}
-> @@ -4650,7 +4648,7 @@ static int domain_setup_l3_mon_state(struct rdt_resource *r, struct rdt_l3_mon_d
->  cleanup:
->  	bitmap_free(d->rmid_busy_llc);
->  	for_each_mbm_idx(idx) {
-> -		kfree(d->mbm_states[idx]);
-> +		kvfree(d->mbm_states[idx]);
->  		d->mbm_states[idx] = NULL;
->  	}
->  
-
+Link: https://lore.kernel.org/all/sashiko-outbox-215218@kernel.org/
