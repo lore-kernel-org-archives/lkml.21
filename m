@@ -1,91 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795716707;
-	b=eIBXZNA2JG5NRD23fNp9KQdAoKPctr/fH7rABv6/mYcsdnXGupRAVrQ6lE65nGN8EZ+s
-	 zlnCgCA2pYbZjoLcNJZ9auut6zjERbR8ntCdj2R4OwH6uvkBFK1Ay3/5iZT1r+Ic4N6BS
-	 24mGsotTUrV6hmxxWpqZ+7cBkoNjTjBAFH50qVL673lNkbP2LKKL2o/PZRQ1DBDIRGw/k
-	 RgAzlbjOIMO5DnP1iBFjxP+tKeLKd61AHOzIFEw3AxJETHWfoMzlRBzEJkxx/YDwDT4hr
-	 MPWvxCivpNCvWc0+IeySGLvQEv7cnnA8nbCg22JwBD/bk9JNGEZ438X/G/RtbZfFuwg==
+	t=1795716715;
+	b=o686F+iqjoOdPL8gbL82IhuNySEpzqYbuE7RFvtvXPOPqrje9pGwsCDagSGCh+YEHBoR
+	 U33dJbEkvzuSK2ROfh+C90ETA+1PorAjU5ktAh4C+Y51gvBubr1CYRutMW1JG0eCmrPvT
+	 7qRYirk3Ut5Me8xoP4VYDbH99Ln9zq5hv9QmUplgdirQewMiSk5BDB3oZligS5eKaxeHF
+	 B7+s7KPl/aPC0CzezLnqg593UaZy3nx0o/lf7/T+9lWf8rdB8mErhdPsqYGPULN2KKVOs
+	 v5k4Sl/cevf/QapTYMcZDrEjC6eJiarGFNfB3LvT2+M50ghX7n4LEF/5/CsxRogLJ1Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795716707;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=J45DM/79XkDUz+9MFe0paS9NLO9/t5HXTgpgj6CYPC4=;
-	b=ZeDbdDIpuTPlJYPRi1oNhjCRHc0pr6C0MS0tc+0qmtl8QKxozjnMKpW5AnXyrKNE7cqi
-	 9JHq8ja+1pZ02gxVEMO/+hTqX5yBaHydVWrpw0AWpznyJ1lFSKDDnI2yLyTb5kwBzaVbO
-	 uEcCu+yJS8P9D2Dwdg3JZpJcZxUx2bdJ1qm7rqoLZFT7aq5TKGTg+7WFiHgU2z4GaOG17
-	 /hVxfrayBMBxkWMpJTRGvyL3yczeNKqpJcvmEmA87WBXUvyUGVIFlFZZzt3NG3KeR4wlN
-	 jbU05vUhFgbnzbYMEUq7hIkQHQQCGeqQC0PgmyU4tPX7l4MEUEctmDk77WvXn14hGmQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795716715;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=ohcenfLUMndMbNU9mTZepLoct+4NVwlucM8NCOZrsDE=;
+	b=XBEkYSLIEzhKhtddel8gUD89sgW+SlQlzVecXU22lMx+azf9CPxrRiNSXWJp1PeG/iPN
+	 JQqAwIu/T568Va/fTD2TZIWJ31X2b7Cr4ZfCtgDtLNRDPrmcL72OcRu3m27dSxhkChfaj
+	 Wr4+xZBAtAtTHsvE2/mI5WskkvxK+vu4Tc/S3Vml5XETgwyRhA+11Y3UwCsjb477/PDXQ
+	 BYoKCx4Nhcn+TeYCnKFrFV5UNABykjRY9hNBSCC+BOHtELc+pEIIyq3T0gwDwWhnz6evI
+	 drs2BOBrYUtiHS76SBtiCKcRVEzVCPGDKzVReIEaGZQedqJ9agVMM2xjTmGGbk41CVw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=KWTlFatz;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BFUy8yci;
+	arc=none smtp.remote-ip=74.125.82.42
+Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DD4C606A326;
-	Thu, 26 Nov 2026 18:11:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DD4C606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3A8B606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:11:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E3A8B606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=KWTlFatz
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795716704;
-	bh=J45DM/79XkDUz+9MFe0paS9NLO9/t5HXTgpgj6CYPC4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=KWTlFatzLtdl87wEXNEn1azFU+URb5owRObPaG8hrTpBK5SzThztCt16mEhvNOP2f
-	 NXs+mvOVupJga5wjEgEaBCQWvdHQ68KwKO0Yaqz/THJRQDrrOmYweeZP09QRNxGlte
-	 sMlYy7l5YSXb60i7f9NnZrZlZK8i4tYxb3R7OoZztaqabKQj/lReBQAT83btNBANyz
-	 hBCoOixT4zFOxIdjaDI20oUE+0VntNuWbnFmHJzc6cQP9BE59njzgSZop37OejP0Wd
-	 2tyt4LA9pdMBxyMoEfda5ttiWJlCsCWTdh1quMMxPMKyP3jJcA+13j3tWf4VELIfjf
-	 ieKRWkO3rFCqg==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 55D2C17E02F2;
-	Thu, 26 Nov 2026 19:11:42 +0100 (CET)
-Message-ID: <ffb55e45af601f0afaf5071f92e123c81de22a70.camel@collabora.com>
-Subject: Re: [PATCH 0/7] rust: reset: add reset control abstractions
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Daniel Almeida <daniel.almeida@collabora.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo
-	 <gary@garyguo.net>, =?ISO-8859-1?Q?Bj=F6rn?= Roy Baron	
- <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, Andreas
- Hindborg	 <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross	 <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,
- Tamir Duberstein	 <tamird@kernel.org>, Alexandre Courbot
- <acourbot@nvidia.com>, Onur =?ISO-8859-1?Q?=D6zkan?=	 <work@onurozkan.dev>,
- Philipp Zabel <p.zabel@pengutronix.de>, 	linux-kernel@vger.kernel.org,
- rust-for-linux@vger.kernel.org, 	dri-devel@lists.freedesktop.org, Detlev
- Casanova <detlev.casanova@collabora.com>
-Date: Thu, 26 Nov 2026 13:11:40 -0500
-In-Reply-To: <299B626E-DC60-4175-9D66-2DE58BA5070A@collabora.com>
-References: <20261126-b4-rust-reset-v1-0-9c4c3d029080@collabora.com>
-	 <6300821339d6891983af704e2044fd1ed25285f6.camel@collabora.com>
-	 <299B626E-DC60-4175-9D66-2DE58BA5070A@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-CD3+zv2xaF645oZLhcaN"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BFUy8yci
+Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-1b244fb7fffso7847649c88.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:11:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795716714; x=1796321514; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ohcenfLUMndMbNU9mTZepLoct+4NVwlucM8NCOZrsDE=;
+        b=BFUy8yciA2wZCBYPBCFc7r6kP8CekNVrj73LFtzZZupLuq239O/THBkWIUSr9sn/3S
+         WaqSuYBWD9WV9mZg2FXldC1oC1D6ABC/FoSVwJR41kzNIBVmR8ZiJtGWOwXi2kDWMM+1
+         HyZ8b0JXjK4qUmuov+aKKZUtKz55WcabWMbLq0GeQ3cgR3U0BIFc/H2N91nsPFB38Sf6
+         fVA6TzIyL8lgmzR1qQSOw64wDyZ6EvGwX+jVnXxXEq90MlcGKcbVGBs7MIam9gNrQUF4
+         HTwJif5S+/VBl+HPetA//I5La415kjewoAKt2+mgV2Gbj/Xs0qc8RTedTKixPrasWU9a
+         ejbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795716714; x=1796321514;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ohcenfLUMndMbNU9mTZepLoct+4NVwlucM8NCOZrsDE=;
+        b=i7DlnBJ6mSzAaLRXaRnQ+dv4DxE5IbQdFo7UNL66oiejvMttDlqId0/swkscr2mTjt
+         HbgHh578+bO2N9G2RHKAq5rDxoXjZGvg6CkJ0BYpwQ9hbUKZybQXRg3YG2avsC+Tbq2z
+         4kCsjrMtiTLtxXswP61aMrgaKaDi3JLHDLEwmCRVPlQOj9ABasbIS1UOq5PtY+sJE8wl
+         7xqhBu5le+IxEWAiCf3cBv9yT9uThl6QJYL2hECNeEYwNnKPu5jxSKmnF57iXiu/HLuT
+         vcxN8/UqCdx58LGCgUYKN+GImhoWShypglpUXqp0vs+kkBDMHvRONx05j8K9/PFUH/8D
+         L7bQ==
+X-Forwarded-Encrypted: i=1; AL+hErEna6VsrICKG4mGwtF5u4VMZbpdouNA+D8BlGgclCi+24FFyliCS7d59cG7Z9fS2zWa/fBGTQbXOLbHBvM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+k4A9qSNTTX6NSgzRUhKYFmxyHSHqN2v4J4OzKkejvwZXcgfvq
+	n4bcS2/is8p2rHcAJOJLEWg7+sj2lyjf3OwSCDXwiPGY9d/Dtn3Q0PDo
+X-Gm-Gg: AZFdTZdao0pvwFEfLavydtM+1yA8uXg/qfzkaGpTkgqzYBYssLfWVRoeJRJuot1/U02
+	wKDzalTSTuxaYhJnfUU/qewiNuN1n386g9YJINjfSctC0i6wR9y3dH9o8iR9HfnvHRgWKDgjrPs
+	ufR77j87OKH6EVRwilxKvymyOez+Iowwu2zTIoU7qdfzjK/HiR6eqxWobqJIFKrtfbtHDz3u5r/
+	INdsHJi5kMzdOsUf3lTNHv23aIJEKc3EEmMJyr1rLsFA8QT/Q9lJWllJhM4eRTgQkDI9uK4bNsh
+	/D6tf5j0aDyc6OQJDJVz3PoKhh2faoqOWSkXBooT3A3JO8YB2bw0ZGAqRSBAN5DaNFFYCkK1mPi
+	Va5875msWHEdQcedQ2r+78QQjiBEN1sy9lifq94HkJCnuFz5TOn67phenLPKUKd9Z9ageR8xba6
+	aDdAHvURoJQdZo69XciSzqo5bWim6d4qxOZyA1cxGIfVkkcqwHonsMWXxFYqAba3FYljtH1LRfB
+	ySu/ISUQftApeXYx3UIE4EveEduQryZH740swfpg1c5tdk8NhTtXvCJtUtqRiDGUCzFL+mHF4YF
+	nxKC6Kgn8qd4ibAjR1WO84mX+ctk6VSm4LGdweC3sdPoCxNabu9sBQzyMe4JOBU2W1y6t2XnjIH
+	+sVXCjov2+CIsLh1WrSrVLVA=
+X-Received: by 2002:a05:7022:f111:b0:1a8:ff0b:a4e1 with SMTP id a92af1059eb24-1b55688ee19mr25310636c88.18.1795716714042;
+        Thu, 26 Nov 2026 10:11:54 -0800 (PST)
+Received: from visitorckw-work01.c.googlers.com.com (55.11.81.34.bc.googleusercontent.com. [34.81.11.55])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55681301asm51183875c88.8.2026.11.26.10.11.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 10:11:53 -0800 (PST)
+From: Kuan-Wei Chiu <visitorckw@gmail.com>
+To: daniel.lezcano@kernel.org,
+	tglx@kernel.org
+Cc: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	geert@linux-m68k.org,
+	laurent@vivier.eu,
+	marscheng@google.com,
+	eleanor15x@gmail.com,
+	jserv@ccns.ncku.edu.tw,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-m68k@lists.linux-m68k.org,
+	Kuan-Wei Chiu <visitorckw@gmail.com>
+Subject: [PATCH v2 8/9] clocksource/drivers/timer-goldfish: Add device tree probing support
+Date: Thu, 26 Nov 2026 18:11:00 +0000
+Message-ID: <20261126181101.3715754-9-visitorckw@gmail.com>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+In-Reply-To: <20261126181101.3715754-1-visitorckw@gmail.com>
+References: <20261126181101.3715754-1-visitorckw@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,42 +109,183 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
---=-CD3+zv2xaF645oZLhcaN
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+The driver currently only supports board-level initialization via
+goldfish_timer_init() on m68k virt.
 
-Le jeudi 26 novembre 2026 =C3=A0 15:02 -0300, Daniel Almeida a =C3=A9crit=
-=C2=A0:
-> What does not work with shared resets on the C side?
+Register a platform driver matching "google,goldfish-rtc" so device
+tree platforms can also probe the timer. Since DT platforms typically
+expose a single goldfish-rtc device that cannot be bound by both
+drivers at once, depend on M68K || RTC_DRV_GOLDFISH=n in Kconfig to
+avoid conflicting with rtc-goldfish whether built-in or as a module.
 
-Above make sense, for shared, you need a mechanism to coordinate the reset.=
- A
-bit like the comment above you made about flushing active jobs, and holding=
- on
-new jobs until the reset has completed. I think for multiple instance of th=
-e
-same driver its quite feasible, but when the triggering driver have no clue=
- what
-other driver it shares with, there is nothing as far as I know to help with=
- this
-coordination, and its possibly non-trivial, specially if that was not part =
-of
-the initial design.
+Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
+---
+ drivers/clocksource/Kconfig          |  5 +-
+ drivers/clocksource/timer-goldfish.c | 93 +++++++++++++++++++++-------
+ 2 files changed, 74 insertions(+), 24 deletions(-)
 
-Nicolas
+diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
+index da83483296d5..852fb1f2d8d2 100644
+--- a/drivers/clocksource/Kconfig
++++ b/drivers/clocksource/Kconfig
+@@ -760,8 +760,9 @@ config MICROCHIP_PIT64B
+ 
+ config GOLDFISH_TIMER
+ 	bool "Clocksource using goldfish-rtc"
+-	depends on M68K || COMPILE_TEST
+-	depends on RTC_DRV_GOLDFISH
++	depends on M68K || OF || COMPILE_TEST
++	depends on M68K || RTC_DRV_GOLDFISH=n
++	depends on HAS_IOMEM
+ 	help
+ 	  Support for the timer/counter of goldfish-rtc
+ 
+diff --git a/drivers/clocksource/timer-goldfish.c b/drivers/clocksource/timer-goldfish.c
+index f5019a6bb340..b4b0388c01f9 100644
+--- a/drivers/clocksource/timer-goldfish.c
++++ b/drivers/clocksource/timer-goldfish.c
+@@ -5,6 +5,8 @@
+ #include <linux/clocksource.h>
+ #include <linux/clockchips.h>
+ #include <linux/module.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
+ #include <linux/slab.h>
+ #include <linux/spinlock.h>
+ #include <linux/goldfish.h>
+@@ -102,15 +104,11 @@ static irqreturn_t goldfish_timer_irq(int irq, void *dev_id)
+ 	return IRQ_HANDLED;
+ }
+ 
+-int __init goldfish_timer_init(int irq, void __iomem *base)
++static int goldfish_timer_common_init(struct goldfish_timer *timerdrv,
++				      int irq, void __iomem *base)
+ {
+-	struct goldfish_timer *timerdrv;
+ 	int ret;
+ 
+-	timerdrv = kzalloc_obj(*timerdrv);
+-	if (!timerdrv)
+-		return -ENOMEM;
+-
+ 	timerdrv->base = base;
+ 	raw_spin_lock_init(&timerdrv->lock);
+ 
+@@ -125,18 +123,6 @@ int __init goldfish_timer_init(int irq, void __iomem *base)
+ 		.set_next_event		= goldfish_timer_next_event,
+ 	};
+ 
+-	timerdrv->res = (struct resource){
+-		.name  = "goldfish_timer",
+-		.start = (unsigned long)base,
+-		.end   = (unsigned long)base + 0xfff,
+-	};
+-
+-	ret = request_resource(&iomem_resource, &timerdrv->res);
+-	if (ret) {
+-		pr_err("Cannot allocate '%s' resource\n", timerdrv->res.name);
+-		goto err_free;
+-	}
+-
+ 	timerdrv->cs = (struct clocksource){
+ 		.name		= "goldfish_timer",
+ 		.rating		= 400,
+@@ -148,26 +134,89 @@ int __init goldfish_timer_init(int irq, void __iomem *base)
+ 	ret = clocksource_register_hz(&timerdrv->cs, NSEC_PER_SEC);
+ 	if (ret) {
+ 		pr_err("Couldn't register goldfish-timer clocksource\n");
+-		goto err_release_res;
++		return ret;
+ 	}
+ 
+ 	ret = request_irq(irq, goldfish_timer_irq, IRQF_TIMER,
+ 			  "goldfish_timer", timerdrv);
+ 	if (ret) {
+ 		pr_err("Couldn't register goldfish-timer interrupt\n");
+-		goto err_unregister_cs;
++		clocksource_unregister(&timerdrv->cs);
++		return ret;
+ 	}
+ 
+ 	clockevents_config_and_register(&timerdrv->ced, NSEC_PER_SEC,
+ 					1, 0xffffffff);
+ 
+ 	return 0;
++}
++
++int __init goldfish_timer_init(int irq, void __iomem *base)
++{
++	struct goldfish_timer *timerdrv;
++	int ret;
++
++	timerdrv = kzalloc_obj(*timerdrv);
++	if (!timerdrv)
++		return -ENOMEM;
++
++	timerdrv->res = (struct resource){
++		.name  = "goldfish_timer",
++		.start = (unsigned long)base,
++		.end   = (unsigned long)base + 0xfff,
++	};
++
++	ret = request_resource(&iomem_resource, &timerdrv->res);
++	if (ret) {
++		pr_err("Cannot allocate '%s' resource\n", timerdrv->res.name);
++		goto err_free;
++	}
++
++	ret = goldfish_timer_common_init(timerdrv, irq, base);
++	if (ret)
++		goto err_release_res;
++
++	return 0;
+ 
+-err_unregister_cs:
+-	clocksource_unregister(&timerdrv->cs);
+ err_release_res:
+ 	release_resource(&timerdrv->res);
+ err_free:
+ 	kfree(timerdrv);
+ 	return ret;
+ }
++
++static int goldfish_timer_probe(struct platform_device *pdev)
++{
++	struct goldfish_timer *timerdrv;
++	void __iomem *base;
++	int irq;
++
++	base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(base))
++		return PTR_ERR(base);
++
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0)
++		return irq;
++
++	timerdrv = devm_kzalloc(&pdev->dev, sizeof(*timerdrv), GFP_KERNEL);
++	if (!timerdrv)
++		return -ENOMEM;
++
++	return goldfish_timer_common_init(timerdrv, irq, base);
++}
++
++static const struct of_device_id goldfish_timer_of_match[] = {
++	{ .compatible = "google,goldfish-rtc", },
++	{},
++};
++
++static struct platform_driver goldfish_timer_driver = {
++	.probe = goldfish_timer_probe,
++	.driver = {
++		.name = "goldfish_timer",
++		.of_match_table = goldfish_timer_of_match,
++		.suppress_bind_attrs = true,
++	},
++};
++builtin_platform_driver(goldfish_timer_driver);
+-- 
+2.56.1.839.g22a8290db9-goog
 
---=-CD3+zv2xaF645oZLhcaN
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawh2XAAKCRDZQZRRKWBy
-9IFBAP0R4CNVguRuu1LdCKCpOw0V0DakpyddN93v30C5U7/NfAD7BqWyKtPGaZpc
-JoJkkyS97s6EkFimhUg0uylSQ5V7yQA=
-=XNtD
------END PGP SIGNATURE-----
-
---=-CD3+zv2xaF645oZLhcaN--
