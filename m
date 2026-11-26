@@ -1,100 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.134.164.83
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795695227;
-	b=XSz7BM2LiZF0V3AwV11UmQhdLXfFmEZYBb2jyynzoSdeHraVHG7cxNhhvv/6QYejRZKW
-	 pAz0wxfi5siixUx3kdMCfmPGFMTQrJwzgB6eeCcQsfOkG3KR0+E1UStgZhI9Z80ECZwiz
-	 bzhIcq+xcIVEWPovwCVX3yLuh4qwKXcIS4H0C2KStcN5dK61npgXqQg8u2r/3fHej8Dgy
-	 izMdBGZGr3nCZ/+AJ1dwlZJqPG/Rzk7u3WYkHn12RDanNfh0UxlFriJtTGQk/5C2vfMmt
-	 YFlc+nmtaS7Wc9nuZg8C9nFWZIQ4P5ygDBmWBs/9vX7eFkvV0HgKzQlB16tHmmBmwVA==
+	t=1795695263;
+	b=ypA1CDG9UvFQsLFNC0q5MoQ3558N8G1YRqgCFOsOS68MVUNN52ussnW+7c9ANK/L17Q0
+	 TjhBIFvj2FfVMLnjl2Jd98DJXYf3bTtPglqhTDAZbJpWF/uFwUldo9oGz09VD2vj7HG9w
+	 bcafsF5N5H5DEceJMzVvejYSLchUccyiXh/jZI4PuRsH93pD1tEnddOcmnBRxHF9eCEtx
+	 NcmqZT9E3qIzEsJ+Gpzqd2AH3Q1DN/0B7hJsm/HI1RIMJn9dDPVH5eoUqg4pp2JhCn8Vv
+	 oJ2NDTVTodYk3AhOL2wco678Ais9LRWTqWoz/HDkUFIOHkw6nGOuuV/WzpPetBJNKhA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795695227;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=D8Hl+ZArBMHl5ZMBuXt18rLKsISWNonXQJoD4xB5WWk=;
-	b=ZcIjDYBCA44/+fufDY4tXzyAjlvDSJ4cM2dNon6kKO04jRpYU5YzcG1YbjIycgG5YO+9
-	 7wBtoGRxaFKD3i3FxeO/47fTjZmMeZLmvoDtjkVQc2L39GmZQCOzaNM58vpRHTdKmgVbD
-	 fjZvarIhr0ZYELuZCs05TFPY09dY9LQo1e67HFY0+SwVI/QYKrlvqq0pDMrXrTRW0Pl/T
-	 tKLBLB/KgAWD0KK5eaYQEYtl83gjtrJ1seqTNgIDEH3T/Jf46Nw9z0YEeNnbnLbdRUWXW
-	 8OkWMm+qJaBuq6HS/VYN9suI5a9DUhvrCz47XSWfFk31aPVlhD2S9gddu6pOxfpxBOg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795695263;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=546S0vvCdApwscsNAZ8CZi4emsV4mPDm/U+dt6ePpK8=;
+	b=pKKA6/dDqU/QMaNTWEJv2wKhjnEibDn7kl+UtA1rPJa29Km6Z2Y6eyUl835yoOjiQh3o
+	 gG10VanPJ9Z1BewQ7140yzvr8T8z2lOwhrPcxMtjg5y/w/GYTkKy+1YRZMdmmFGxpKKHx
+	 hAXYTcJYV9swvwgVxIjiVmVXFGAQ3TG5Zqhxes0F58IbtiaXcOadc+nQLoRFAYVuyRvMf
+	 OUdAD/ZT1UW7v3k++N/8OHNoIsUgdAv5AaGl2NJ0Ei0XIMQD83sXkgArN2lNXJ00cmCQ6
+	 uBeXgRPr7LpzQoEUpF32djUgQ3+lz38N6/4qRysZpys7EOyhLWEVyugT1c2ZxiWBLoA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0dbZRonn;
-	arc=none smtp.remote-ip=209.85.208.171
-Received: from mail-lj1-f171.google.com (mail-lj1-f171.google.com [209.85.208.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=inria.fr;
+	spf=pass smtp.mailfrom=inria.fr;
+	dkim=pass header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b=D8ZEtQOF;
+	arc=none smtp.remote-ip=192.134.164.83
+Received: from mail2-relais-roc.national.inria.fr (mail2-relais-roc.national.inria.fr [192.134.164.83])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55B66606A33C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:13:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55B66606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F44E606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:14:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9F44E606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=inria.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=inria.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0dbZRonn
-Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-3adfed9a887so63090811fa.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:13:47 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b=D8ZEtQOF
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795695225; x=1796300025; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=D8Hl+ZArBMHl5ZMBuXt18rLKsISWNonXQJoD4xB5WWk=;
-        b=0dbZRonn2vtZEp8dpn687vWKKWl/p9+l/gLUQQ6AI8/C/06FwxEo+x2JxOOWDLeCSD
-         eKq0mVr5bYdSdjVRjx2PRzn0k9/PuTOLspjr9m0cLO86Q+/0FY8IKy6b4EQ2JzkCTvSV
-         wLhGpuqsIVrAlgQVsXZwM0z407UfyeaAeOlNIs6oqIJ4GGIWlEXsI+qX2IpM33bs8Syf
-         j1pJcebOrGuuFsblz/84xrzI473CobGuD8tXsw6w485ASJ3mzl1fLz9pnKnDXnmbvr8+
-         o8CnUth/KemgSZkRrXzLcFlv+d20jdpO3H5Nuwtj4+IHRVFkDf1i2OdqrvvvQyGZpWWL
-         RO/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795695225; x=1796300025;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=D8Hl+ZArBMHl5ZMBuXt18rLKsISWNonXQJoD4xB5WWk=;
-        b=wyJCJmHCRjm6rag0XDB1/IEAGEdL5lzaw3MDgLZcITR7Z/I1MUwRlx6OLCNuYV1wry
-         ndIDAPUTTt7G0mL7GsXBsD63b6S0PpQ65IEAkKRjy/qao6NVwDGLLCIeyNtBmndDRMVH
-         O61JRvRNaPszrYYQzYFSx3MQmkamLcrmFo9kkFQm4gEhbN7IVjlaqoFd9tUWEUUWtHer
-         Bb716I6ZRObTrizWBMrVLoas96IE0bwwQDq1oN0MLbQn2DBkbOk5S3boKcWfML4k7Sav
-         ReIn1apH/U3aj97K8YVTQF7dVSI/aOre57E/jMVDUwgv9S54z7OKFuPOkcFps6Xfo59S
-         GeoQ==
-X-Forwarded-Encrypted: i=1; AL+hErGhkmv0VH5TO3IqNukE3GlIPUd8JhNHuohkiOiEf6/0wc6bD+fHXdTwnLJSwlYMjKmWV9qfI40hUX4WIGs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9bkOR/JpKUJWYi0AXhHh6Fm0iHuq78lwcwiy8TWGUNuJUk/b6W
-	QQ5KvTI96gxLdSnmudlcWmgI5LvzfeFP24lQlUcio6Ytz/+jm3E0g5+nNpAahHRn
-X-Gm-Gg: AZFdTZcxd1VO16Ollkdb5A8AnDhnGWO5kgh3PzSjB7r3CWeeE0C77RPr//YdYRoRJuB
-	MUVd5IC4VsPwJZOY8d/iuP16/32qsJBYMjwaQiXZjzPZsJDrOssnlgbYl3oTVetHV1sIHpn87L6
-	SKo0PafPhcgKl9W4ALJVxvosU/AvF9It4nppovbuQalAOgVTYutOTKeSGw9+lVQGcJfl6vXUCE0
-	NZHM/iWpN2gqCHdnY+zRdXqyjcf7Y6LMvqDbWZyx1ffrwBqy2R+e13ogi8aR0HkFg/OgIRJluYy
-	SJl6zEVLICeaSUWxoQdyAxyS57aOA440fo+Snc4Fvz3rH4hq6TOONGCXmTx32dqHImuZlSRQKIP
-	L7zrpMxLc9xUcOK66I6SMIIurwNJkBlBeOj2z7H9HcsK39xmhpVYt1RG8yDZ2uQFhKd3PzpIHP1
-	EQXiYUz+TabFbh3B10JkQ9RfhAF3FhY9H5kQoPlF8+D+XJKdd5JkvzSEsiRFjHCZbnYRq6+l4Ge
-	M5r1n7bSzKWRnN/7VeZv4um0x3aZvHWKMOlomZfXAdGVcGyS5uvv3dmxlrgiWXOP5Bc3DC+aCbW
-	tztJC/4hOXcC0zHjHsvzxoeEpbuY67h8q481Lhn9gyLTIXCXupeDNp7KtBdf3HSFtePj+m5JZaC
-	EB5WrgRucvgkmrE0kEU/eJ+e9zxfqiDmgoYmc
-X-Received: by 2002:a2e:8a94:0:b0:3a9:d9db:61b0 with SMTP id 38308e7fff4ca-3ae7fa718c7mr56022941fa.24.1795695225369;
-        Thu, 26 Nov 2026 04:13:45 -0800 (PST)
-Received: from yantra.. (nekmmqtmzjx8yvukhae-1.v6.elisa-laajakaista.fi. [2001:99a:d7d:c300:68b4:f70:61d8:6e86])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae8044e8e0sm56541791fa.5.2026.11.26.04.13.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 04:13:45 -0800 (PST)
-From: Rupesh Majhi <zoone.rupert@gmail.com>
-To: Andy Shevchenko <andy@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Eddie James <eajames@linux.ibm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>
-Cc: linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Rupesh Majhi <zoone.rupert@gmail.com>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>
-Subject: [PATCH v2 4/7] iio: pressure: dps310: use KILO for the Pa to kPa conversion
-Date: Thu, 26 Nov 2026 14:13:27 +0200
-Message-ID: <20261126121331.10438-5-zoone.rupert@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261126121331.10438-1-zoone.rupert@gmail.com>
-References: <20261126121331.10438-1-zoone.rupert@gmail.com>
+  d=inria.fr; s=dc;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=546S0vvCdApwscsNAZ8CZi4emsV4mPDm/U+dt6ePpK8=;
+  b=D8ZEtQOFgEu7xBEzSaT/h3eUQQTwgoebpvNJpXsuBSV5UePoyvzcgPCG
+   Wm0gwR1X65o7jWVUbV+ChGG7e6ZyQQTYgwVNatiqeA+5xJiU2IJCH1ZsV
+   vKBWkWL2yuZ1bsI7AeEhD+wMk59Lb9lMIBxTxDa3lRumDibbSV667mqHo
+   E=;
+X-CSE-ConnectionGUID: feh5mozUQwWGM+Qdn6kukg==
+X-CSE-MsgGUID: nPMBlAtvTMW8rpoD0riTdg==
+Authentication-Results: mail2-relais-roc.national.inria.fr; dkim=none (message not signed) header.i=none; spf=SoftFail smtp.mailfrom=keisuke.nishimura@inria.fr; dmarc=fail (p=none dis=none) d=inria.fr
+X-IronPort-AV: E=Sophos;i="6.27,234,1787004000"; 
+   d="scan'208";a="307507729"
+Received: from dt-aponte.paris.inria.fr (HELO [128.93.67.66]) ([128.93.67.66])
+  by mail2-relais-roc.national.inria.fr with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 13:14:12 +0100
+Message-ID: <8e3f3ce6-2194-489a-9f30-91eb71f5e33f@inria.fr>
+Date: Thu, 26 Nov 2026 13:14:12 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,44 +60,118 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] sched/fair: Don't pick recent_used_cpu if target has
+ no sched domain
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Juri Lelli <juri.lelli@redhat.com>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+ K Prateek Nayak <kprateek.nayak@amd.com>, linux-kernel@vger.kernel.org,
+ julia.lawall@inria.fr, jean-pierre.lozi@inria.fr
+References: <20261125003653.1264087-1-keisuke.nishimura@inria.fr>
+ <CAKfTPtBY=U5voby+_6=JErmsHoaXFqxYLFib6ESKFmO_pmGZyg@mail.gmail.com>
+ <CAKfTPtCaWVApT+6WAreKapk2wRCrXCngZPLt8oayuZT9cB1k+Q@mail.gmail.com>
+Content-Language: en-US
+From: Keisuke Nishimura <keisuke.nishimura@inria.fr>
+In-Reply-To: <CAKfTPtCaWVApT+6WAreKapk2wRCrXCngZPLt8oayuZT9cB1k+Q@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Spell the Pa to kPa divisor as KILO from units.h, in both places.
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-Signed-off-by: Rupesh Majhi <zoone.rupert@gmail.com>
----
- drivers/iio/pressure/dps310.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/iio/pressure/dps310.c b/drivers/iio/pressure/dps310.c
-index 493eb56bde98..f802c2c59072 100644
---- a/drivers/iio/pressure/dps310.c
-+++ b/drivers/iio/pressure/dps310.c
-@@ -33,6 +33,7 @@
- #include <linux/slab.h>
- #include <linux/time.h>
- #include <linux/unaligned.h>
-+#include <linux/units.h>
- #include <linux/workqueue.h>
- 
- #include <linux/iio/buffer.h>
-@@ -895,13 +896,13 @@ static int dps310_read_pressure(struct dps310_data *data, int *val, int *val2,
- 		if (rc)
- 			return rc;
- 
--		*val2 = 1000; /* Convert Pa to KPa per IIO ABI */
-+		*val2 = KILO; /* Convert Pa to KPa per IIO ABI */
- 		return IIO_VAL_FRACTIONAL;
- 
- 	case IIO_CHAN_INFO_SCALE:
- 		/* The raw value is in Pa, the ABI wants kPa */
- 		*val = 1;
--		*val2 = 1000;
-+		*val2 = KILO;
- 		return IIO_VAL_FRACTIONAL;
- 
- 	case IIO_CHAN_INFO_OVERSAMPLING_RATIO:
--- 
-2.43.0
+On 11/26/26 12:26, Vincent Guittot wrote:
+> On Thu, 26 Nov 2026 at 12:21, Vincent Guittot
+> <vincent.guittot@linaro.org> wrote:
+>>
+>> On Wed, 25 Nov 2026 at 01:54, Keisuke Nishimura
+>> <keisuke.nishimura@inria.fr> wrote:
+>>>
+>>> select_idle_sibling() can return recent_used_cpu if it is idle and
+>>> shares the LLC with target. However, it does not check if target is an
+>>> isolated CPU where the scheduler should not move tasks.
+>>>
+>>> Consider the following situation:
+>>> * isolcpus=1,2
+>>> * recent_used_cpu=1
+>>> * target=prev=2
+>>> * affinity=1,2
+>>>
+>>> When CPU 1 is idle but CPU 2 is busy, select_idle_sibling() returns
+>>> recent_used_cpu (CPU 1).
+>>>
+>>> To prevent the scheduler from moving the task among isolated CPUs, check
+>>> whether target has a sched domain before searching for an idle CPU.
+>>>
+>>> This bug was found with the help of verification using Frama-C.
+>>>
+>>> Fixes: 32e839dda3ba ("sched/fair: Use a recently used CPU as an idle candidate and the basis for SIS")
+>>> Signed-off-by: Keisuke Nishimura <keisuke.nishimura@inria.fr>
+>>> ---
+>>> Changes in v2:
+>>> - Return early at the beginning of select_idle_sibling() if target has
+>>>    no sched domain.
+>>> - Instead of `per_cpu(sd_llc, target)`, use `cpu_rq(target)->sd` to
+>>>    check if target is isolated or not. A CPU might be in an asymmetric
+>>>    capacity domain, but not in an LLC domain. In this case, returning
+>>>    early based only on the LLC domain would miss the chance to run
+>>>    select_idle_capacity().
+>>> - Rewrite the explanation, because sd_llc is not the main issue anymore.
+>>> ---
+>>>   kernel/sched/fair.c | 4 ++++
+>>>   1 file changed, 4 insertions(+)
+>>>
+>>> diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+>>> index da0d9e19c457..9746fc55241b 100644
+>>> --- a/kernel/sched/fair.c
+>>> +++ b/kernel/sched/fair.c
+>>> @@ -9155,6 +9155,10 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
+>>>          unsigned long task_util, util_min, util_max;
+>>>          int i, recent_used_cpu, prev_aff = -1;
+>>>
+>>> +       /* Do not search for idle CPUs if target has no sched domain. */
+>>> +       if (!rcu_dereference_all(cpu_rq(target)->sd))
+>>> +               return target;
+>>
+>> After more thought,  You have to move this check one level up at the
+>> beg of select_task_rq_fair().
+>> Something like:
+>>
+>> --- a/kernel/sched/fair.c
+>> +++ b/kernel/sched/fair.c
+>> @@ -9979,6 +9979,11 @@ select_task_rq_fair(struct task_struct *p, int
+>> prev_cpu, int wake_flags)
+>>           * required for stable ->cpus_allowed
+>>           */
+>>          lockdep_assert_held(&p->pi_lock);
+>> +
+>> +       /* Do not search for a CPU if prev has no sched domain. */
+>> +       if (!rcu_dereference_sched_domain(cpu_rq(target)->sd))
+>> +               return;
+>> +
+>>          if (wake_flags & WF_TTWU) {
+>>                  record_wakee(p);
+>>
+> 
+> And this still doesn't fix the case when cpus are isolated at runtime
+
+Thanks. Moving the check to select_task_rq_fair() makes sense.
+
+Could you elaborate on the case where CPUs are isolated at runtime? I would 
+expect rq->sd to be NULL in that case as well?
+
+Best,
+Keisuke
+
+> 
+>>
+>>> +
+>>>          /*
+>>>           * On asymmetric system, update task utilization because we will check
+>>>           * that the task fits with CPU's capacity.
+>>> --
+>>> 2.34.1
+>>>
 
