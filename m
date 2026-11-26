@@ -1,87 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795684047;
-	b=U2XfMivr+WU+v4iELkeos8niQKjxNxIvd9AZVrbOnQ2qKu3RKWE7JhNv0bw6x1++hbEA
-	 vg2WFejW3RX9QqSKNb2HtoBA45qMEc4JxsEUhSlQt9T5GFugm0vC1gJe96wizy5yApSkp
-	 HhSGHq2gLxpFHLSuZzYpFMAQ11MpsQv8RnDBTYE652uHsSx/DpT+SZliT1oAlR2lU91Ih
-	 j1E2651/h9v2LoHelHPy9RvG29/1j95Q1LhERM6HVZg5TPNJfob98g+q51dmH8azmSZ4X
-	 LcH6jSTYbXrM5GVTTCYzl3Qe29JGoVoFZ9cRji3bMKXPNXMBnpMMJYG/nWiSAaOYfsg==
+	t=1795684048;
+	b=kx9GeTsmYqewer37oVQIJ99QNYLALQhJqDsvPIDnzp22PfXgRbtGOh5gH/0g3VFyWTBv
+	 VQPA84+8K0p65un2UuVERxi+zj3rDnhxSL9wif3VH6l1v8SvSr4Hkw29Jkli9cmhQRFom
+	 HyDlEQPMFMRsYbAHA7i/42q61+L3aLNEK0pvgoX0TejsabfT3wbYN0Mu6rVr6yV1Npg7F
+	 cT8KjitCvCUA6czTTCPcd6GDkfj93yMxE5aV5MM5uqEq7lUTQRxaZUf5ow+IpUswmH4UC
+	 wATUbqcZi1EFmfTFLqM1pi6tbzdvOzp7gMT9LVqG2DX1iNag0pqm3XHkH3eocbDLWRg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795684047;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795684048;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=zePae+AgwsxBTIqUJW1YaRElDL4kYS7QZ0ec/q5slnw=;
-	b=gCUqOZdUC9xLGaZukvlY9siWrSB+8p7HGogtEvIyAInzSXuu/y1oFb1UW24fZIt2PcYX
-	 FsEHN2ql6r6LO8rX+4BWJOxWjzvb+FfXeQS/O82MsrEk2W313j/6lPt6fA4air9sa3uhN
-	 iGgSx22/f7bMXsSVpryA9moLLC+ruTaZBiU+4XLQb7TF8lQL/plBxbHESB1JfdsLEwigx
-	 Rc0bCfKAO2Mg85ha6XjFUgVnN2WBKVegjcg88C2E9XVyJwz7i+KLJB6RiccqYHGfssqf2
-	 PmHrCsZUYoacpHs7ZuOlFMCjLw/BHQdo4lUBNQwPnuF+le7YZu7Vy0FcSoG10aD5P5A==
+	bh=+TlTxiGjN2I2Df5Efr9+11VWHUXjBjD+ps0uEd++xWg=;
+	b=PS0+SFsDrN2Na3WtoCK5TRQEXX7Y2rzRKIIX+R1YAUrkiyQLoedVQkWcmzqPnvn4KBmG
+	 qfJ9ICjsZ2C/p+k7r+4sz23jFCe0xneJe4WkzvDKz6gMJC35glupGTPKDJGBUpTva09MO
+	 fuJ6bIFra+70K4Bk1rrnDzSjoi7o6UiVJ7qlMj58QmY8YPKY/3877hJn2rXSCvVK30T85
+	 fL4q4ipxX0OPg5KV99XCAHi1oV230P8FvxpjZYpBjbi9Kj+enJNXSVE+zIQjS6gDczSCI
+	 ZF4fOpk0aFeHJkeMlOJjTW40KtTRndv3YJTXgPAfs7178pu6GRzdjKx/dSxNhykunQQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=sifive.com;
 	spf=pass smtp.mailfrom=sifive.com;
-	dkim=pass header.d=sifive.com header.i=@sifive.com header.a=rsa-sha256 header.s=google header.b=hHv8mFAz;
-	arc=none smtp.remote-ip=74.125.82.53
-Received: from mail-dl1-f53.google.com (mail-dl1-f53.google.com [74.125.82.53])
+	dkim=pass header.d=sifive.com header.i=@sifive.com header.a=rsa-sha256 header.s=google header.b=UEQSAZcI;
+	arc=none smtp.remote-ip=74.125.82.172
+Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C561C606A6A1
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:07:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C561C606A6A1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E207606A32A
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:07:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E207606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=sifive.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sifive.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.a=rsa-sha256 header.s=google header.b=hHv8mFAz
-Received: by mail-dl1-f53.google.com with SMTP id a92af1059eb24-1b563e32936so2653547c88.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:07:26 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.a=rsa-sha256 header.s=google header.b=UEQSAZcI
+Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-38699cf08dfso8270168eec.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:07:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1795684046; x=1796288846; darn=vger.kernel.org;
+        d=sifive.com; s=google; t=1795684047; x=1796288847; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zePae+AgwsxBTIqUJW1YaRElDL4kYS7QZ0ec/q5slnw=;
-        b=hHv8mFAzvJzoEeNvXlYjWXgKGgYVtMVe6lz4ToGV3M23A0dGYbOcMoOq2FlEY1Afma
-         aRbtxgPQ2yFl/IgVHp0xa8WbU6iqzdeCXMcn046JHmVg6RQCRzb+hitIM1yf+pmk8ptd
-         qwm3VaH6LaS8t5/FRD1JkmwLGAcPJfl21gTVMGonL4PN5kXHfmbhWNbuEDaZO63eyZou
-         BudppUrg5MkNe5G9OWrc13IR6vVRcrmeuD2TNUZvBi1cM6iBigibF0sdhM3CSXndh7gn
-         KsTblrHEc71h3xjG5xX5BkQVqTiSaSqYEvJ7yQBChlDqE3T7Xk1s7Uc4vxKOY3UtzJ3j
-         WUIA==
+        bh=+TlTxiGjN2I2Df5Efr9+11VWHUXjBjD+ps0uEd++xWg=;
+        b=UEQSAZcIa546zCzCqTUO2ZUh1P+O+jja379HiVFOBPN9s2YBu9VpyQpTNfrO/vJoMS
+         TtG3AMNxvJ5n+SWPpNfuCvGZ0IosWryyeughJ09e9pnAuTjOx8PMcBsgM9pYh/Z22I1J
+         8tGw7WXiY3ZBLhK+eqaTPU/zU+eqw5m0i1ZBzlnd0amADx3yFApYdfyN2OY2otFLJ5PO
+         E8t2qePffp+NZYXaY3TriefAJt+FEcMsUu4gBa4vnyWM1eirueLRmat8R0O59BMpII/x
+         O1PH2WIuVKIzR2BYzKiDlswNq9wrQ4jgEYpZz1mX+3iZeYn0EIjqUqOF4KIEBOzGwAAB
+         K5Jg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795684046; x=1796288846;
+        d=1e100.net; s=20260707; t=1795684047; x=1796288847;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=zePae+AgwsxBTIqUJW1YaRElDL4kYS7QZ0ec/q5slnw=;
-        b=AoY6BhuIygDgRlaFBMFQlHuT3dywOHilZy3CfrGm0hm7c8Rp5heAyAoF5bRNgaAnQO
-         qUXnUIrGaI+PdNC2Skqs2CpOOQZaVjqL+9uRMc+LOzi+31kIWm5tvB+dPlmHrxF46mMZ
-         bN+MZHOAGHQMwd3hJJ9ly81vq5Ueja65HzQUqE2t/ZJEvSBg3e8ipPj5g5smX+yi3r1y
-         Yjbo9bri4LCHdEWnFI4HpJ0VVNgENdTGIO1PGrDZXAlim8R7rSdJo7r1CSyAC0hRMNS4
-         TpFY/TLr0noMvTV2mwAeMQRQm7dUBWjCGEha/SRzr6oejkm9gh3QV0yDo1Ac75SlHG8w
-         xT6A==
-X-Forwarded-Encrypted: i=1; AL+hErG4Mq+GtHjG/DLkoLo8GPVqY8bCUWmqZh4FhyuvN4XKvg4kK/w4kDnqafPFh5Zp9o44astfgdoO0YYIA2E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ttCKu5jIwbioqqHSnp5z5Z4yZnwltNu3w7HmsPRjLI+3HqU/v
-	3KrmMv7w8MyYT16qrVTGnn+xzVJd3DdbMTENhgn3P1Y2pHt2Bo/pla0t/I05W1MUMfI=
-X-Gm-Gg: AZFdTZeD3elGqvrQFXBEi1LvHf7w7jRroD7hKoBldBI41G4yQc0jOXtwi86qyGS4gin
-	jgvStLQrbted6xztDq9hWjMmaC2vW13bbLsEa9OILKzk0pNufH1eKFBvSBemQyRKxio/lxO/x+t
-	L3Ct6X0Eo18aDo1k4Minx2rHY7QIxf6YT92qLkJ2ZA7im65UJe0wBUVydORgYC+T0yw86uRu+0V
-	+I7IE073NF8YyuKEo9/UEGkyOTsxYPLYKfcx1LlEPIumOl73X1MhcCru5I+PAXi3jtX+M0xQsFq
-	j0ebBzKDQVD+ITWDGJRPeHooJlqITQXZ3EbhQYiITu1bxRnEVkMUnweRPaq8WZF3Ey9zWPS0qy8
-	HbNiyLlAaiwozXC4Pg2+xqm/3zyLOnFlu8wYvw2uJA7rtTPvy59gVbVSOpPc0oItwKMTDp0W1qE
-	aR9RpAeopXpdQywWMdB9dmv2wPWv97QP12logUq5q9+dIcrKA+G5AX5/V7RcQkytWyHc0C6qhhL
-	SfknUddCwvuFBwrAlc7ST3Ko53S23TDRNCKBGUeekyNS0/Nr6ofsGG5usRO55dJGjv4dtKqQK0h
-	10xwrrAnnPPS1in+fd2z5n12SJImWk0C4QMWW+l3c4ot
-X-Received: by 2002:a05:7022:b0c8:b0:1b3:a22e:b74d with SMTP id a92af1059eb24-1b5569225afmr18971488c88.34.1795684045709;
-        Thu, 26 Nov 2026 01:07:25 -0800 (PST)
+        bh=+TlTxiGjN2I2Df5Efr9+11VWHUXjBjD+ps0uEd++xWg=;
+        b=wvKNvtn7a7m6H5fPYnzUW+5VRJ0K94ZWtpxSw6JkKLurUogSbMBwfXgrfsazEvKQVq
+         1LZdgdM075P40QH4wKbRr/dA2q7fWNXq2Q+JEs/U+Fa1BoG89CG4oV0aJ1csR8RzFqQC
+         XV3UKpevi6x/o6CIvBEuZK4QmBTEhzMnVu7F8yf/ahTm6a8vB/kdx4Pju0/XiiExpuf9
+         FPwKED2F1f72HpOVOfR2Eli9ZBeXK6k99c753YJFbROrZhbUNs1noajJ1PIXsb6gJzZA
+         tU3y+E9CiQrLRz876LGqvrP3wPCsB1kRRxIZlV4JWpz/p6mGTHoPl3G6Eis1nOeMrMCb
+         0Ksw==
+X-Forwarded-Encrypted: i=1; AL+hErH/spmNwIsTi6NkukUhi+qpl6No9WVNseGc0g+9a2VwvH8gXu+l5PxZwi3u7zXI+cohEPpIjTjxP4gV800=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+cTyRbxfo5O3tn/b1YigC6906uI2xcPaAXfnW39+P59aj37xoD
+	eJOr3bhJyCkAsf8cz0NngVqGRvXGdAuuznp/Y8qssFzFdcLNraN5jjPDIiTt+EMSG8o=
+X-Gm-Gg: AZFdTZd8jsi0vmykvrTcT555b2mhXT1/5UPYKm+qR1xk6H7EnQwsOg1AWiOXpJXg0xe
+	vlGN3Yoep46uISCjHFeQbUMh29JsXl1DX4h4aXPW3kHYgmQbpZ6c3n4KoPI2qObfchNZX/gky6X
+	mfZXq/uStHeaHwGvfZJiV9gj2g3u10YhO9K97XidceOhV9LyXgufNu7ISXkXX//SRybaMM6K6OH
+	Br0lnwcMSYInMWEg3kk2Er4mJYGaUJz2zEyDAwOQO3tdc+Q4W+TP/ZTX5Jy4DJnNLk4TxoCoNwK
+	zA3te1C1ZqHz8TvKdyTYGHx3S1F+MscThQRWvFPnzq+CGCEX58MXSstqQDTkkwYS+Lj+M1VUxx3
+	11HhFq3lipjT7Sr+o2Q0rBnPq2+jwU4l3hneYK4qFzOmtqj+Uj8gn/xr40wZ7vQPDHVp42o7bPT
+	Q+3upScl+IVImqoGdvaVVgiouRwoDLPku4vKUAMqY3sHRIQTsKnKu87wRCV0GCVMrqaEI9uR5O0
+	Y+3FirKpWbHREntyAzjZS6TcluUCqopZ6gJSrpNgERl6NmLr9TlrzZgbH2GvVfK+aIjdQPlQJ8a
+	nG7IRYvmHwFIzacDXdhMh474o5HW8DovozS56XreIpQqrjcb/LlikSvrLQjKsCUw4g==
+X-Received: by 2002:a05:693c:37c8:b0:386:a0d1:1b41 with SMTP id 5a478bee46e88-386a0d136aemr22307891eec.34.1795684046741;
+        Thu, 26 Nov 2026 01:07:26 -0800 (PST)
 Received: from sw08.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7fc3sm54058730eec.8.2026.11.26.01.07.24
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7fc3sm54058730eec.8.2026.11.26.01.07.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 01:07:25 -0800 (PST)
+        Thu, 26 Nov 2026 01:07:26 -0800 (PST)
 From: Leo Yu-Chi Liang <leo.liang@sifive.com>
-Date: Thu, 26 Nov 2026 01:07:10 -0800
-Subject: [PATCH 04/10] gtrace: rvtrace: Add pre-ratified encoder support
+Date: Thu, 26 Nov 2026 01:07:11 -0800
+Subject: [PATCH 05/10] gtrace: Terminate id_table iteration on
+ GTRACE_COMPONENT_TYPE_NONE
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,7 +94,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-send-preratified-trace-v1-4-1e686fd75be7@sifive.com>
+Message-Id: <20261126-send-preratified-trace-v1-5-1e686fd75be7@sifive.com>
 References: <20261126-send-preratified-trace-v1-0-1e686fd75be7@sifive.com>
 In-Reply-To: <20261126-send-preratified-trace-v1-0-1e686fd75be7@sifive.com>
 To: Mayuresh Chitale <mchitale@gmail.com>, Anup Patel <anup@brainfault.org>, 
@@ -111,155 +112,47 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  huangyifeng@eswincomputing.com, darshan.prajapati@einfochips.com
 X-Mailer: b4 0.16.0
 
-From: Eric Lin <eric.lin@sifive.com>
+gtrace_match_id() uses a non-zero id->version as the end-of-table
+sentinel when walking a driver's id_table. This does not work for
+pre-ratified components, whose version is 0, i.e.
+rvtrace_component_mkversion(0, 0): an id_table holding only such an
+entry is treated as empty, so the component never matches its driver.
 
-Add pre-ratified version support to the encoder driver. This allows
-pre-ratified trace hardware to leverage the gtrace driver framework.
+Add GTRACE_COMPONENT_TYPE_NONE as the zero value of enum
+gtrace_component_type and use it as the terminator instead. Existing
+id_tables end with an empty entry, which maps to this value.
 
-The pre-ratified encoder has a different register layout for the
-source ID: the SRC field width (nSrcBits) and value are preset by
-hardware in teImpl, while offset 0x8 is the read-only teImplExtra
-register rather than trTeInstFeatures. Add rvtrace_comp_is_v0() and,
-for pre-ratified encoders, derive srcbits from teImpl and skip
-programming the trTeInstFeatures source ID fields.
-
-Another difference is the encoding of the trTeInstMode field,
-so set the corresponding "Optimized intruction trace" for
-the pre-ratified encoder.
-
-Co-developed-by: Nick Hu <nick.hu@sifive.com>
-Signed-off-by: Nick Hu <nick.hu@sifive.com>
-Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Eric Lin <eric.lin@sifive.com>
 Signed-off-by: Leo Yu-Chi Liang <leo.liang@sifive.com>
 ---
- drivers/hwtracing/gtrace/rvtrace-encoder.c | 42 +++++++++++++++++++++++++-----
- drivers/hwtracing/gtrace/rvtrace-v0.h      |  4 +++
- drivers/hwtracing/gtrace/rvtrace.h         |  6 +++++
- 3 files changed, 45 insertions(+), 7 deletions(-)
+ drivers/hwtracing/gtrace/gtrace-core.c | 2 +-
+ include/linux/gtrace.h                 | 1 +
+ 2 files changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/hwtracing/gtrace/rvtrace-encoder.c b/drivers/hwtracing/gtrace/rvtrace-encoder.c
-index 1f06b1a2b412..0a23c78c0caf 100644
---- a/drivers/hwtracing/gtrace/rvtrace-encoder.c
-+++ b/drivers/hwtracing/gtrace/rvtrace-encoder.c
-@@ -11,6 +11,9 @@
- #include <linux/slab.h>
- #include <linux/types.h>
- #include "rvtrace.h"
-+#include "rvtrace-v0.h"
-+
-+#define RVTRACE_V0_COMPONENT_CTRL_INSTMODE_OPIT	0x7
- 
- #define RVTRACE_COMPONENT_CTRL_ITRACE_SHIFT	2
- #define RVTRACE_COMPONENT_CTRL_INSTMODE_MASK	0x7
-@@ -95,6 +98,23 @@ static int rvtrace_encoder_probe(struct gtrace_component *comp)
- 	if (!priv)
- 		return -ENOMEM;
- 
-+	if (rvtrace_comp_is_v0(comp)) {
-+		/*
-+		 * Pre-ratified encoders have the SRC field width and value preset
-+		 * by hardware in teImpl. Offset 0x8 is the read-only teImplExtra
-+		 * register rather than trTeInstFeatures, so don't program it.
-+		 */
-+		val = gtrace_read32(pdata, RVTRACE_COMPONENT_IMPL_OFFSET);
-+		priv->srcbits = (val >> RVTRACE_V0_IMPL_NSRCBITS_SHIFT) &
-+				RVTRACE_V0_IMPL_NSRCBITS_MASK;
-+		if (priv->srcbits) {
-+			val = gtrace_read32(pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
-+			val &= ~BIT(RVTRACE_COMPONENT_CTRL_INHIBITSRC_SHIFT);
-+			gtrace_write32(pdata, val, RVTRACE_COMPONENT_CTRL_OFFSET);
-+		}
-+		goto out;
-+	}
-+
- 	ret = rvtrace_encoder_set_format(pdata);
- 	if (ret) {
- 		dev_err(&comp->dev, "failed to set format %d\n", pdata->format);
-@@ -123,6 +143,7 @@ static int rvtrace_encoder_probe(struct gtrace_component *comp)
- 			priv->srcbits = srcbits;
- 		}
- 	}
-+out:
- 	if (!priv->srcbits) {
- 		dev_warn(&comp->dev, "cpu %d trace will not carry source id\n",
- 			 pdata->bound_cpu);
-@@ -141,13 +162,15 @@ static int rvtrace_encoder_start(struct gtrace_component *comp)
- 	int ret;
- 	u32 val;
- 
--	if (priv->srcbits)
--		rvtrace_encoder_set_srcid(pdata, priv->srcbits);
-+	if (!rvtrace_comp_is_v0(comp)) {
-+		if (priv->srcbits)
-+			rvtrace_encoder_set_srcid(pdata, priv->srcbits);
- 
--	ret = rvtrace_encoder_set_format(pdata);
--	if (ret) {
--		dev_err(&comp->dev, "failed to set format %d\n", pdata->format);
--		return ret;
-+		ret = rvtrace_encoder_set_format(pdata);
-+		if (ret) {
-+			dev_err(&comp->dev, "failed to set format %d\n", pdata->format);
-+			return ret;
-+		}
- 	}
- 
- 	ret = gtrace_enable_component(comp);
-@@ -159,7 +182,10 @@ static int rvtrace_encoder_start(struct gtrace_component *comp)
- 	/* set mode */
- 	val = gtrace_read32(pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
- 	val &= ~(RVTRACE_COMPONENT_CTRL_INSTMODE_MASK << RVTRACE_COMPONENT_CTRL_INSTMODE_SHIFT);
--	val |= (RVTRACE_COMPONENT_CTRL_INSTMODE_OPIT << RVTRACE_COMPONENT_CTRL_INSTMODE_SHIFT);
-+	if (!rvtrace_comp_is_v0(comp))
-+		val |= (RVTRACE_COMPONENT_CTRL_INSTMODE_OPIT << RVTRACE_COMPONENT_CTRL_INSTMODE_SHIFT);
-+	else
-+		val |= (RVTRACE_V0_COMPONENT_CTRL_INSTMODE_OPIT << RVTRACE_COMPONENT_CTRL_INSTMODE_SHIFT);
- 	gtrace_write32(pdata, val, RVTRACE_COMPONENT_CTRL_OFFSET);
- 
- 	val = gtrace_read32(pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
-@@ -204,6 +230,8 @@ static int rvtrace_encoder_stop(struct gtrace_component *comp)
- static const struct gtrace_component_id rvtrace_encoder_ids[] = {
- 	{ .type = GTRACE_RVTRACE_ENCODER,
- 	  .version = rvtrace_component_mkversion(1, 0), },
-+	{ .type = GTRACE_RVTRACE_ENCODER,
-+	  .version = rvtrace_component_mkversion(0, 0), },
- 	{},
- };
- 
-diff --git a/drivers/hwtracing/gtrace/rvtrace-v0.h b/drivers/hwtracing/gtrace/rvtrace-v0.h
-index 0681405fa414..5abdc4788f64 100644
---- a/drivers/hwtracing/gtrace/rvtrace-v0.h
-+++ b/drivers/hwtracing/gtrace/rvtrace-v0.h
-@@ -24,6 +24,10 @@
- #define RVTRACE_V0_IMPL_HAS_SBA_SINK_MASK	BIT(RVTRACE_V0_IMPL_HAS_SBA_SINK_BIT)
- #define RVTRACE_V0_IMPL_HAS_FUNNEL_SINK_MASK	BIT(RVTRACE_V0_IMPL_HAS_FUNNEL_SINK_BIT)
- 
-+/* Number of SRC bits preset by hardware in the Nexus messages */
-+#define RVTRACE_V0_IMPL_NSRCBITS_SHIFT		24
-+#define RVTRACE_V0_IMPL_NSRCBITS_MASK		0xf
-+
- struct rvtrace_v0_comp_features {
- 	bool has_sram_sink;
- 	bool has_atb_sink;
-diff --git a/drivers/hwtracing/gtrace/rvtrace.h b/drivers/hwtracing/gtrace/rvtrace.h
-index b0cf2e1d875f..308de9fe39ae 100644
---- a/drivers/hwtracing/gtrace/rvtrace.h
-+++ b/drivers/hwtracing/gtrace/rvtrace.h
-@@ -72,6 +72,12 @@ enum rvtrace_component_impid {
- #define rvtrace_component_mkversion(__major, __minor)	\
- 	((((__major) & 0xffff) << 16) | ((__minor) & 0xffff))
- 
-+/* Pre-ratified (version 0.x) components are identified by major version 0 */
-+static inline bool rvtrace_comp_is_v0(struct gtrace_component *comp)
-+{
-+	return rvtrace_component_version_major(comp->id.version) == 0;
-+}
-+
- /* Map a RISC-V hardware component type to the global gtrace type */
- static inline int rvtrace_type_to_gtrace(enum rvtrace_component_type type)
+diff --git a/drivers/hwtracing/gtrace/gtrace-core.c b/drivers/hwtracing/gtrace/gtrace-core.c
+index 034987237abc..09b200bd1690 100644
+--- a/drivers/hwtracing/gtrace/gtrace-core.c
++++ b/drivers/hwtracing/gtrace/gtrace-core.c
+@@ -103,7 +103,7 @@ const struct gtrace_component_id *gtrace_match_id(struct gtrace_component *comp,
  {
+ 	const struct gtrace_component_id *id;
+ 
+-	for (id = ids; id->version; id++) {
++	for (id = ids; id->type != GTRACE_COMPONENT_TYPE_NONE; id++) {
+ 		if (comp->id.type != id->type)
+ 			continue;
+ 
+diff --git a/include/linux/gtrace.h b/include/linux/gtrace.h
+index da8ba3779193..b8826b25d35a 100644
+--- a/include/linux/gtrace.h
++++ b/include/linux/gtrace.h
+@@ -19,6 +19,7 @@
+  * uses the entries relevant to it.
+  */
+ enum gtrace_component_type {
++	GTRACE_COMPONENT_TYPE_NONE,
+ 	GTRACE_RVTRACE_ENCODER,
+ 	GTRACE_RVTRACE_FUNNEL,
+ 	GTRACE_RVTRACE_RAMSINK,
 
 -- 
 2.43.7
