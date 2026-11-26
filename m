@@ -1,55 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795688371;
-	b=WlNDaNpgnBYk9BFTkRdstMaq4vx6YqZmAKJM2z+hf4MWV3TiqCJZc/NSlo1AJIkghy54
-	 AOm1b9VUoXWgsIPfl5dgmb3yqHonK0iBCQJ7csyglsP3TOL0/zzJdACeeHgoFTJK87mHS
-	 GwRRDh/vhg1eXLQHz8iLMejUP7k4jzVB3jbXsOzwsc97lN9yIc0jciUkJgmSgxcsMAUb7
-	 8jCtbHvNM26ootuu88Ugb822rFmGgzPKupsj2qd3FQIcnLUVCagC7Kp4/qLS2I1OXL7uX
-	 sS9CiQIz9jfM3Zz/1mnVe9c9s/8g2euO0LCy4sLnf9HwPok8GlE2yVZGixAotrCWvkg==
+	t=1795688462;
+	b=ONHG4Er1kjOqaF2jK0RdCTmukSMSv/1XqGPUEvvi9eRM3te4bzvjHm+cGkpfE377Bjte
+	 aJcCCtXQCmKoCleZISxRcveP8j0xsrbYxV7pKYA27lksL0cnDFK4wQKk46bgwA7z5PJ+x
+	 ZCZAuzRmLvdkqapxPERyy6UWivn8KTXEtT9b30y2NH1hxDjjhS02cdDsAeo8lzwNeG9Ta
+	 qxQnlELW2NmOZDSj+pwM4RnM/iCkOLAeb0vSErHjuiWKrbKsrMTGtzXrE2jUwpzBlcpF7
+	 SnvQdkzKOwEJr8P/ydRIhq3fuZnUy8vKt17HweN/lpfrNMOqAE8/Qm5Ofl+pxM0YCdw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795688371;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
-	 References:Date:Message-Id:X-Mailer:X-Last-TLS-Session-Version;
-	bh=SQGonsD2PK7GWC/netIzR2TM8App6Wl9rs87xlw6FJA=;
-	b=g7xyMvsYwtMj9DSzOBr02aCS/+7oejY0hdzQ/BZczF4ck5sONQ56yWutesOUR5Ikzbfz
-	 sgCfhYqfPicte+zx+/QumQLEDcTU0FbHDHj1e9Lo+bc/wY/3ppEW3piA1Gtc+sULmG8aJ
-	 zx4eZ+ZGtEDzK0XVW8UCeOHrnuOJox2i6NVzIK654H56MfWIl8LRrRtDrQ09ken6qx996
-	 IAbq8xOaO2SnrssxMhwU//rVtdYoVTcDbReICsN7Fs9HwgYAJiKAmNmdEe2xcVLxbD+aJ
-	 wxkw5/DpFrQCDvlna9/AHqBuCZd2Fb6PS7o4nvkNhLo/hvUHqhLsYEiKPe0kq8aCHzA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795688462;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=Dz5Obh5lP0tOLHLiHWSWNzgVimL59XKVdrhzCbJPLAQ=;
+	b=Fmhx0or9Mq1U8MFn5NJUIP2v6VhfZ5SR0P/FbsebbS9aV6fX4bJAivc0W4/k/AzoY9dy
+	 nXP0O/8J6l3D5pcac2maEee0J7EbmWD0fcWPlSzxdNCGv2Tfzgm2rh+ix8H/wRSx+81de
+	 g8KpQX63AEacTzic6o26nysDIWJujBs80qeMVJ6f/xB8IM/sh7Gw5/3yaRsizEfEB+vyw
+	 3bzWU8GFAbx/R0/KDPxJzbQwmRy7TQ/reusaufVfQmtTOwnzItj2/JsdRWdRYsp0r1D2W
+	 SWSx/CRlv6OLaD7JPwRfkDyvajwTX8U9pWHoIN0aCoVEcugHpP12J6AEZXxZMkz1qlw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=jSP6Whf8;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="CD7VT//B";
+	arc=none smtp.remote-ip=209.85.128.44
+Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA3F9606A32E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:19:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA3F9606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32687606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:21:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32687606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=jSP6Whf8
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 928214E41799;
-	Thu, 26 Nov 2026 10:19:23 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5E74460237;
-	Thu, 26 Nov 2026 10:19:23 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1193411E68598;
-	Thu, 26 Nov 2026 11:19:20 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795688362; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=SQGonsD2PK7GWC/netIzR2TM8App6Wl9rs87xlw6FJA=;
-	b=jSP6Whf85i8qwAwUPYtobw53QR/zvwF7ux1WIRVyNkmwbjC7lft1m8mbr3ZDXw37LKN2ex
-	CcLFjBpRmKMgzesx6tQlAFflXr8iIW1t2TSMpdVov0chWqNdd9qAuuKrdmnA9vxHGKDx8a
-	DQpMxmA+7iLu2OybHA25A2Jj0MsRwTJjk2Lpd22A/st1zirAJLlRtA99QdEeZzvzZhfck2
-	OYDo/rf+uV/DUWkny+fBpPs3Kz8RkS5lt9k67MSMY2UWIZUxo2SUga9HSfhruJQeT8DyeF
-	rQgMRHwzCfFBpKFeOOWfp3790ywOTl4V1EqmE+mjdpAoCsPcVWXinN9B8v4Y6g==
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CD7VT//B
+Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4a214c5c4c0so65112805e9.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:21:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795688460; x=1796293260; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Dz5Obh5lP0tOLHLiHWSWNzgVimL59XKVdrhzCbJPLAQ=;
+        b=CD7VT//BnwjcVd/x9W08z4hh0qia6Xph8wF/i4minXZySyXu8zsDolv0LFjazmM/6m
+         pIGU6L76Mawk8H2KfnDIrG2oDmO7Tv7sO/LEOBXhymVTUcYfViwFwrXpTpNkkpHs8gl4
+         otBJYE9GgyVPV2IUsre2NvaRLOV2zPcBDOjAv1YT/TJrss4Pq0CevX+URUlIVbdF1LB+
+         iN55YZDkHNufNljGtkNuEStzk9IaQR+nbcYV+y7g4IE4bHodjC1+Z4Qpfkkd525fXANf
+         yjTMIfngYNzhYLbG2HD7dSz7i6QkbKb7sIKmnwYNW0QDrTCnZACMi6z8+NrNv2a+YLfm
+         iQJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795688460; x=1796293260;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Dz5Obh5lP0tOLHLiHWSWNzgVimL59XKVdrhzCbJPLAQ=;
+        b=LsirpH4/PDZeudYkjr9skDfjHr5d1XFJKy/mG6lS5V73MpDRIchA/ze/xUl8QjLMF4
+         L55iUXW8OcoqxAEB2cDiVJA0UyPqqAZjenWx/9alW9eSY7iqkMN6ouRJpEsan7P8S6eX
+         5jsEtNXCGYO+2HssF0M0mFTOtmlOqGFQnOxKt6vM/ruy5ZQuY4q9dvC7SUQuwxHVW18n
+         DU34Zx7H7+RxblRrg7cYr7AzJOqAoucuH+2FHcAY+mqKSCn0Zls2KUgaItG1xu5EY1i8
+         /o9OSD3xez/R0B8CC3KD4fWVMPMIMR1YGKkTbZiRJ08zVrc1cGCQajsQKDr/ov7k4dVv
+         c+gQ==
+X-Forwarded-Encrypted: i=1; AL+hErGNThFmzPMKR7IMqTMotAQsxwaRt/mZ7yHSJShKfUb5FMzsyS+vBMqEXifP4VjsS33mcsIH9uJ3UvnX51s=@vger.kernel.org
+X-Gm-Message-State: APuU4Z80nH94TOPiDBr6N/VWbfMSX2UcIXCziyOHWlsg5+6jfWH8MPFR
+	W1dc8Meg+I6WNqnhai7UiKMBLG1hUBS30hFQRUNsvLg+SvBlMzBs8EhX
+X-Gm-Gg: AZFdTZdz97zgHIgjvPrFvroDuElDcgPX4Wg6mDYrhlzJ5ftXsKbzUiA2OAMd0aYxaIq
+	ErOyfb9W32BFgJSwe1+VpDIf4rLuCnbznuJOsbBud1SxcspLOOp0F2Gjq7JPP1xR1pJ9d9E4b1X
+	vPMlu8ah6xbSyEOm2hIK6dRIhCGsaUTa0whv4eGIxX0zgWEbP3gFeIoS91aTMleWfws2WHMnNCD
+	rS068JHvFif1Y58XHAj4OfzwtLZuK4aymRs79TwmzvKxE1JJJTSI1akYObUWNkIzOjGiUcTgfB5
+	TCEQ6wr09LzxOe6TI0pqa3rifezRuwAgkI7YgpvweWN55Tff5y1Nx/ELaMNrYfju8ym9+u06/UH
+	HffPWZ0izweP1OMTHJLaJFklOTwMfZ6EmEyHcNafKie94+HSao470Jhvh+UGBAcPq0lMELsbDkq
+	mubv0Nmci6V7SE79/Zp02KQkOL9VbI9/zlEJaQxBjXD5TErfqqi4ulf0GNj93FOFf1aHuPSUgof
+	RpBqNjnSXHpRcq04r6925obWLZRsqniYNQgE/2+Ab1btoHFFES6mMOjzt6VG21N2+H5h9zzZL2n
+	Z2U1TQZS65pEe2F5H6qS9v3Mv0fEHUOrUW48I4e/DVsnfBdp15s4ThIQhaFTyN9LCw==
+X-Received: by 2002:a05:600c:3ac9:b0:4a2:a3b:7aa8 with SMTP id 5b1f17b1804b1-4bb887e068emr432378915e9.3.1795688460499;
+        Thu, 26 Nov 2026 02:21:00 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b2c5sm581334935e9.5.2026.11.26.02.20.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 02:21:00 -0800 (PST)
+Date: Thu, 26 Nov 2026 10:20:58 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Xuanqiang Luo <xuanqiang.luo@linux.dev>
+Cc: netdev@vger.kernel.org, "David S . Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo
+ Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Alexei
+ Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, John
+ Fastabend <john.fastabend@gmail.com>, Andrii Nakryiko <andrii@kernel.org>,
+ Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi
+ <memxor@gmail.com>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu
+ <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa
+ <jolsa@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai
+ <ihor.solodrai@linux.dev>, Matthieu Baerts <matttbe@kernel.org>, Mat
+ Martineau <martineau@kernel.org>, Geliang Tang <geliang@kernel.org>, David
+ Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>, Stanislav
+ Fomichev <sdf@fomichev.me>, Neal Cardwell <ncardwell@google.com>, Kuniyuki
+ Iwashima <kuniyu@google.com>, Pablo Neira Ayuso <pablo@netfilter.org>,
+ Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org, mptcp@lists.linux.dev,
+ netfilter-devel@vger.kernel.org, coreteam@netfilter.org, Xuanqiang Luo
+ <luoxuanqiang@kylinos.cn>
+Subject: Re: [PATCH net-next v1 0/6] net: avoid stack canaries in TCP/IPv4
+ fast paths
+Message-ID: <20261126102058.1fecf50f@pumpkin>
+In-Reply-To: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
+References: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,111 +115,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH] i2c: cgbc: Fetch the status of a write transfer
-From: "Thomas Richard (congatec GmbH)" <thomas.richard@bootlin.com>
-To: Thomas Richard <thomas.richard@bootlin.com>, 
- Andi Shyti <andi.shyti@kernel.org>, Lee Jones <lee@kernel.org>
-Cc: mfd@lists.linux.dev, linux-i2c@vger.kernel.org, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
- Markus Haberlander <markus.haberlander@rosenberger.com>
-In-Reply-To: <20261123-cgbc-i2c-write-status-v1-1-5b0fa0322b57@rosenberger.com>
-References: <20261123-cgbc-i2c-write-status-v1-1-5b0fa0322b57@rosenberger.com>
-Date: Thu, 26 Nov 2026 11:19:00 +0100
-Message-Id: <179568834099.302193.16315749597111506309.b4-review@b4>
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
 
-> A write transfer sends the I2C command to the board controller and
-> returns without reading the controller's I2C status, while a read polls
-> the status until the controller is no longer busy. The status of a write
-> is therefore never fetched:
+On Tue, 24 Nov 2026 22:06:25 +0900
+Xuanqiang Luo <xuanqiang.luo@linux.dev> wrote:
+
+> From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
 > 
-> - the write reports success before the bus transfer has finished, and
->   an error such as a NAK is only reported by the next transfer;
-> - the controller keeps the status of the last write pending. On a
->   conga-PA7 (BIOS PA70R026, board controller CGBCP032), a board reset
->   with a write status pending does not power the board up again: after
->   a reboot that follows a write on the general purpose bus, the board
->   stays off until it is power cycled.
+> With CONFIG_STACKPROTECTOR_STRONG=y, a function that has a local array or
+> passes the address of one of its locals to another function needs a stack
+> canary. The canary is set up and checked on every call, also when the
+> local is only used on a path that almost never runs.
 > 
-> Read the status after a write as well, as the read path does: poll until
-> the controller is no longer busy, return the error it reports, and treat
-> any state other than idle as an error.
+> This series removes the canary from functions of the TCP/IPv4 fast paths,
+> by returning results by value, by using storage that is not on the stack,
+> or by not calling a function that has nothing to do.
 > 
-> Tested on a conga-PA7 with v6.18.64 and "i2c: cgbc: Propagate hardware
-> errors when polling read status": without this patch, a write to an
-> absent address returns success, the next read fails, and a reboot after
-> a write does not come back. With it, the write itself fails, the next
-> transfer succeeds, and 14 reboots, each right after an acknowledged or a
-> NAKed write, all came back.
-> 
-> The patch and this changelog were drafted with the help of Claude
-> Opus 5.5 and reviewed and tested by me.
-> 
-> Fixes: 6894f640b8f3 ("i2c: Congatec Board Controller i2c bus driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Markus Haberlander <markus.haberlander@rosenberger.com>
->
-> diff --git a/drivers/i2c/busses/i2c-cgbc.c b/drivers/i2c/busses/i2c-cgbc.c
-> index dfdb9ffc6447..2361591a1e31 100644
-> --- a/drivers/i2c/busses/i2c-cgbc.c
-> +++ b/drivers/i2c/busses/i2c-cgbc.c
-> @@ -254,6 +254,22 @@ static int cgbc_i2c_xfer_msg(struct i2c_adapter *adap)
->  		ret = cgbc_command(cgbc, &cmd, cmd_len, NULL, 0, NULL);
->  		if (ret)
->  			goto err;
-> +
-> +		ret = read_poll_timeout(cgbc_i2c_get_status, status,
-> +					status != CGBC_I2C_STAT_BUSY, 0,
-> +					2 * algo_data->read_maxtime_us, false, adap);
-> +		if (ret)
-> +			goto err;
-> +
-> +		if (status < 0) {
-> +			ret = status;
-> +			goto err;
-> +		}
-> +
-> +		if (status != CGBC_I2C_STAT_IDL) {
-> +			ret = -EIO;
-> +			goto err;
-> +		}
->  	} else if (i2c->state == CGBC_I2C_STATE_READ) {
->  		xfer.write = 0;
->  		xfer.read = len;
+> Patch 1 returns the two mptcp_space() values in a structure, so that
+> __tcp_select_window() no longer needs a canary.
 
-I was able to reproduce the issue on conga-SA7 (and also the reboot crash).
+While all (I think) architectures can return a big integer in two
+registers (dx:ax on x86), not all ABI do the same for small structures.
+For those architectures returning a struct by value is implemented by
+passing the address of a hidden on stack structure.
+So code generation may be worse than passing the values by reference.
+I can't remember the list of architectures, mostly old ones - but not
+32bit x86 because the compiler option was set when regparm=3 was added
+for 2.6.
+(Note that this is different from passing small structures by value.)
 
-$ i2ctransfer -y 11 w1@0x40 0x00	 <- non-existing device
-$ i2ctransfer -y 11 w1@0x50 0x00 r1@0x50 <- read EEPROM
-Error: Sending messages failed: Input/output error
-$ i2ctransfer -y 11 w1@0x50 0x00 r1@0x50 <- read EEPROM
-0x01
-
-And with your patch:
-
-$ i2ctransfer -y 11 w1@0x40 0x00	 <- non-existing device
-Error: Sending messages failed: Input/output error
-$ i2ctransfer -y 11 w1@0x50 0x00 r1@0x50 <- read EEPROM
-0x01
-
-Reviewed-by: Thomas Richard (congatec GmbH) <thomas.richard@bootlin.com>
-Tested-by: Thomas Richard (congatec GmbH) <thomas.richard@bootlin.com>
-
-Yes it conflicts (compile issue) with the series [1]. The possibilies are:
-- I pick this patch in my series and send a v7.
-- [1] is applied, an immutable branch is created, you rebase your patch on
-  top of it, and patch is applied in I2C tree.
-- [1] is applied, you rebase on top of mfd-next, and your patch is applied
-  in MFD tree.
-
-Andi, Lee, what do you prefer?
-
-[1] https://lore.kernel.org/all/20261117-cgbc-i2c-storage-devices-support-v6-0-bb070ad3e9aa@bootlin.com/
-
--- 
-Best Regards,
-Thomas Richard
-
+David
