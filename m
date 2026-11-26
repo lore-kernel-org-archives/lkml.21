@@ -1,55 +1,137 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795704907;
-	b=S5ZKvLC6bu7azV1riRLjpGxDQFMxa5K46PL6Yv8MCC6syFhRQKpiF+oE+QGw6Bkrw6Of
-	 vNm8zbLM9zclUSZz8NSYmLALFpz1NE6eMNy1IgfYbt4hmFepet0xrMz01RHHKZxXZ+aNu
-	 vTof9QH7UwcVUnBK39qWxpxmf8V5xwSWU5HlZqt2ZjA8WLfqjEwhGlkvsziCu3ta9HUiP
-	 adtrGCYFwKcT+rlm3lUZBLdL9SOhkXXgELaiIqrq9kIm9JkKXUpMmJKJ3aguYlwVmOBbG
-	 O00iwYyKARi1Kq5c+l88ZiLQi/HxPk6LWHQSrXY6FYK1a1rPto5XGKwPh/eAwxMPqLA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795704907;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=7PJS4YPTW/2+JkJ8MOH+4k5FYkGwMDLSJYs6Tli8Sqs=;
-	b=Fc7vb3G8CftqKLryBqB6TVVAS+KlJvo+FZNnZ3lFuo+Z3Kx6nxW/Qs+JjTjsfN2zOKMb
-	 SvLl1YgwIzyhEjAfYje2pJzTSl3l3YXJmq+dHv9I3kRgu/B4WVxN3+Z5ZU0LMuCDbvRkF
-	 yYlSGsEm6mhDSAkb70zDr8YH7NdPS3QEPVYN74ddj66XsfzaryZyCyYxsbpA8kF+DqZSE
-	 pSbf4dWGRGHaD51FAMjISxLgsWSkgNQ6CYfQf5Lw8cEj5JN+J4MxArEBDVblqp5rwgwcm
-	 GFPZx9oZDXIP5XLrB9EcDJZGyzPYA9mN4t7r4cOTRzCEK4Qlq0bi3Xu3Rpt8vibztrA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m2NCdfZv;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.149.25
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795704914;
+	b=yq+QFAgc3FKlrdj+lFqs4mNiSLi0tFRFZP5XyT/3vZqeeEeOklGJNvxF5EIn8tRbx1om
+	 YsWqD+q5/vJ2mXBlDpvzbw5sMvomtDiLE34oNYV2QEyHi18jNX2tE0bJcCmarpEiQcfZO
+	 YQyzjxh1TUO/ABAWCXsBol1r+EafvMkE6CyLe6nL6LeSfFJFRFdLJfa5D4LhkK4mXgKuI
+	 ekAHeidj7jxiZkkVutx8Bwknlmk451VH+YBPpO7imJZe098yqRq89l4lB8xJY3MU0rWzo
+	 UF3hDwYlTvduDWQAZh6OR5rQA6eLZe8CLYYxVcSpszccnzQfbezYUSKG43fc8aQ7Evg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795704914;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:DKIM-Signature:
+	 Received:Received:X-MS-Exchange-Authentication-Results:Received-SPF:
+	 Received:Received:Received:Message-ID:Subject:From:To:Cc:Date:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 User-Agent:MIME-Version:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-OriginatorOrg:X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Reason;
+	bh=Cjfgi07lE5Q/Izx5/yFCFBHgShZS0yuWas0sD31J5lU=;
+	b=ucUIrKwqmXkhcO++MjzGVA0mjv9ndGKxFEef7fpMxIo2OLph8prX7j+ztG2EWd/SDMcV
+	 aH6mIvqVcU2SyGGKe65QUtvbW2FGkfullSMKPzS6E/s6mMc6Z86438RdKdKW7EmUXZqlD
+	 8joXyOHunv0iDq4eXCT3yUcJQgJKr4LMyItBV10+pFEUsDDlrRN6skxwCbur45Xo2fBDV
+	 KFiihI7+BAf2VmpLgWC+RjvjYKYrcoyM6ppRs6jZ9595ZDI9HPIQyCAu36wn6LfK5b3rj
+	 h9nrk8NUWpvKC3zcPHbLlzE6Ki3uN9YlmMPSXKYD63VP4chum5WiUSg6sUU1iv7LQ4g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=opensource.cirrus.com;
+	spf=pass smtp.mailfrom=opensource.cirrus.com;
+	dkim=pass header.d=cirrus.com header.i=@cirrus.com header.a=rsa-sha256 header.s=PODMain02222019 header.b=KalRREYy;
+	dkim=pass header.d=cirrus4.onmicrosoft.com header.i=@cirrus4.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-cirrus4-onmicrosoft-com header.b=Kb6Hu39D;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.149.25
+Received: from mx0b-001ae601.pphosted.com (mx0a-001ae601.pphosted.com [67.231.149.25])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E875606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:55:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2BE0606A31C;
+	Thu, 26 Nov 2026 14:55:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2BE0606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=opensource.cirrus.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=opensource.cirrus.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m2NCdfZv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD65D1F000CA
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:55:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795704906;
-	bh=7PJS4YPTW/2+JkJ8MOH+4k5FYkGwMDLSJYs6Tli8Sqs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=m2NCdfZvPnTxM3+6ECqGj1cWrqH8MBe54WVloxOn4Y9tva3ia7Awv/7zxf7kpWFdH
-	 3Bg+Zr1xf/DejeiDxxI1m4DZmfbfsy3mNmsQciEqdFKTSbiqUrsIA6i1E9m8CErW8w
-	 gsxQ4ulhAwEmLjIjmfTQ5RZeUoZTGQ7zqzsJko3aZ3/zJFg6XX4p3za9qoA8CcoLOC
-	 nFEClvbQtGnhsT+SqNiTDX1kOvFVuU4Y/7AVlQbVh0pbuLTNELOmRROHVzRjiKbT6Y
-	 GYYrjbQ78mBOZ5aUTJ7A12GwA+m4GVseiKxWw4krlxQMesjFk5daZgarYz9JFwSh4r
-	 R/IdOWyBluoBw==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5be3cff0f6cso4711402e87.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:55:06 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFjZPakXGmbaxbu8RRDNE6xltkL2SRxv570Yz3g4ekTGyUC9Qa0nQQBsuekzp3PqqEWwW+42V67E4k9pnM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+8JOo3I+Yrlb8TDK9MpgK/1coFTAiVf9pzrFNh1D5wx/BR7PVg
-	v77YqMJZbdt030oo9e4ObElGvEI/Jf+byZVu7W6azA7zhxt4nVvJOxbIKjE/pBG5+PfI3ppL/P/
-	BWLNttvU9OBN4JmeST8V/EqZtHuTsgxw=
-X-Received: by 2002:a05:6512:b9d:b0:5c1:513b:5729 with SMTP id
- 2adb3069b0e04-5c1bc81a0bbmr7539234e87.51.1795704905312; Thu, 26 Nov 2026
- 06:55:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=cirrus.com header.i=@cirrus.com header.a=rsa-sha256 header.s=PODMain02222019 header.b=KalRREYy;
+	dkim=pass (1024-bit key) header.d=cirrus4.onmicrosoft.com header.i=@cirrus4.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-cirrus4-onmicrosoft-com header.b=Kb6Hu39D
+Received: from pps.filterd (m0077473.ppops.net [127.0.0.1])
+	by mx0a-001ae601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQEI0Q2154892;
+	Thu, 26 Nov 2026 08:55:02 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	PODMain02222019; bh=Cjfgi07lE5Q/Izx5/yFCFBHgShZS0yuWas0sD31J5lU=; b=
+	KalRREYyVwJdaL7wvZ+FmgehjctYQ/ilGVGii8rYv2DIYp2AhPl6FeVPnV0f5Y4c
+	wHCH6XZKDWkAgE7Vsw6iOFQSsW99kAFC5WWvN323IakJfHbGx/SSFkUFxfrWu4WQ
+	pwVEbHnEQzLh712YOBPN3o31ESVjrzCIlM3o5tP1civjNmuQHqRmzcO++2joASpm
+	ICfQAZLcmjN/iirUve1jkNCgW4/mabwW3HfCEix5Wth6OL0nuVEr3Qy8egypZZqi
+	Omy9tRt1MgbEaXSYKnWu6u5/cU5dPeqqxncSxVtyLd5X6hKD6DO+dE2UFRsG8f5X
+	GGoeli8LXO7Fj7HCrQkhoQ==
+Received: from sn4pr0501cu005.outbound.protection.outlook.com (mail-southcentralusazon11021085.outbound.protection.outlook.com [40.93.194.85])
+	by mx0a-001ae601.pphosted.com (PPS) with ESMTPS id 4j51884aw3-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 26 Nov 2026 08:55:01 -0600 (CST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=zDIqRxqrXLzbfRRLEBlYQ9YYQC1JqaD6+72YFE+WB7suplCFa66g96OSGdSPIUVLZ405FjV9uZAeCOsvpd6L33TbfyfEN0oKoBlLf9qLDF9uQV2aW5KYgJ7yXJ/z/n0nHobJAx/sRvFHZDOW+2sve7BqGgnL2Byv/J5CrtXAD2z6+i+lz/m6+EPj5mLrnr+leMZ1Ln0lNheQuGJohscaLJ+IgbzOG+ag5akOui0izw9E0WtK24ckyuEFa8Dq+D5oCvUSxIj3mTn22Yenj08GIzmmsOiWIIy0L/0POgrXiLb86tGDrG1jsW7GI3Yv6RArvWhwrdjq7tqrynpnDZzI/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Cjfgi07lE5Q/Izx5/yFCFBHgShZS0yuWas0sD31J5lU=;
+ b=bbFdBlKNSBcfVNpyUwfrVArIIMg2rI9MEcBkIE00Yg6bkFzD3J1KP2PwnEgbvic7TY7313xGSGeHTlGn4FcVh9eVzwedjh7j0hPX/Ak5AHU7742RmIFRkn3TJsgG4HgEhvFh5KC7iWvo5nRWhyyidvD4yOZ8ooNc11gNoW5sD6MmhPS6vMfN/e8RO68bOyfw6WFfgp238jPxunbf2lCPw7LeEM1dS/T6e4/NgqqLXzAHdpNVryydUg5bkziKyh+4rxuE76YlR202lnPk+TE0UGBgk/LfvNl6pf5asM2NtMCJpdiZ0wRC3rT1tQj5rnMoDGcP0bK/fW1xJItzeSXV6A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 84.19.233.75) smtp.rcpttodomain=cirrus.com
+ smtp.mailfrom=opensource.cirrus.com; dmarc=fail (p=reject sp=reject pct=100)
+ action=oreject header.from=opensource.cirrus.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Cjfgi07lE5Q/Izx5/yFCFBHgShZS0yuWas0sD31J5lU=;
+ b=Kb6Hu39DfpqAtuox5eCSWFLGqXyPubfWeNzX4Zs+RM7bg2aj4l9vTQdFPvCxL7dkDjFJeRpRxKBZaO5gEDRZJZgd+4iNxZbHOgm67vOVn9UryIyWiOsKcUt3X7p8GSUhhbg5VD1WPLdmV3sBDR1Avl8zEeFzaCpQ4cqKfOiGI5c=
+Received: from MW4PR04CA0054.namprd04.prod.outlook.com (2603:10b6:303:6a::29)
+ by SN7PR19MB7353.namprd19.prod.outlook.com (2603:10b6:806:345::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Thu, 26 Nov
+ 2026 14:54:58 +0000
+Received: from SJ1PEPF000037B7.namprd05.prod.outlook.com
+ (2603:10b6:303:6a:cafe::71) by MW4PR04CA0054.outlook.office365.com
+ (2603:10b6:303:6a::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.7 via Frontend Transport; Thu, 26
+ Nov 2026 14:54:57 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=softfail (sender
+ IP is 84.19.233.75) smtp.mailfrom=opensource.cirrus.com; dkim=none (message
+ not signed) header.d=none;dmarc=fail action=oreject
+ header.from=opensource.cirrus.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ opensource.cirrus.com discourages use of 84.19.233.75 as permitted sender)
+Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
+ SJ1PEPF000037B7.mail.protection.outlook.com (10.167.244.201) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.688.5
+ via Frontend Transport; Thu, 26 Nov 2026 14:54:56 +0000
+Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
+	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id 6278D406550;
+	Thu, 26 Nov 2026 14:54:55 +0000 (UTC)
+Received: from ediswws03.ad.cirrus.com (ediswws03.ad.cirrus.com [198.90.251.17])
+	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPSA id 524C1822540;
+	Thu, 26 Nov 2026 14:54:55 +0000 (UTC)
+Message-ID: <2ca86476fafdaec37ebf27646167fa706866e285.camel@opensource.cirrus.com>
+Subject: Re: [PATCH] pinctrl: cs42l43: Add GPIO controlled mic/spk mute LEDs
+From: Maciej Strozek <mstrozek@opensource.cirrus.com>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>,
+        Mika Westerberg
+	 <mika.westerberg@linux.intel.com>
+Cc: Linus Walleij <linusw@kernel.org>, Andy Shevchenko <andy@kernel.org>,
+        brgl@kernel.org, patches@opensource.cirrus.com,
+        linux-gpio@vger.kernel.org, linux-sound@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Date: Thu, 26 Nov 2026 14:54:55 +0000
+In-Reply-To: <awg9hXmlaX4zjmQH@ashevche-desk.local>
+References: <20261110142058.354518-1-mstrozek@opensource.cirrus.com>
+	 <CAD++jLmUNxbVBLXg1aGysRGCjcQFjo=JSwx4-=8TWa7bj-iXuA@mail.gmail.com>
+	 <20261126073545.GM191152@black.igk.intel.com>
+	 <awg9hXmlaX4zjmQH@ashevche-desk.local>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,329 +141,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261122-fdo-gitlab-6061-v1-1-8380b1ec4e09@amd.com>
-In-Reply-To: <20261122-fdo-gitlab-6061-v1-1-8380b1ec4e09@amd.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Thu, 26 Nov 2026 15:54:53 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0gBSKw87PSY2R2N3PNNXihPqS66U7Vk1orFqOtzW+9cOQ@mail.gmail.com>
-X-Gm-Features: Aa3M54o63X66mkiIqef_kj1ui40niKeIwHOcDrquhMWzH7MwDm70uUV3N1E35j0
-Message-ID: <CAJZ5v0gBSKw87PSY2R2N3PNNXihPqS66U7Vk1orFqOtzW+9cOQ@mail.gmail.com>
-Subject: Re: [PATCH] ACPI: x86: Work around AMD CPM _L05 notifying a missing
- dGPU on ASUS G513QY
-To: Mario Limonciello <mario.limonciello@amd.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, Mike Lothian <mike@fireburn.co.uk>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000037B7:EE_|SN7PR19MB7353:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4680d52d-fd78-4b8e-3509-08df4bcd3cdd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|82310400026|376014|61400799027|23010399003|36860700016|6133799003|18002099003|16102099003|22082099003|4143699003|56012099006|11063799006|261102123227099003|261022105027099003|261028144727099003|261021121427099003|261022075727099003|261026121527099003|261021123027099003|261022113327099003|261026130827099003|261022115727099003|261021135927099003|261021130227099003|261026140227099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	Wg4tcqTWWoUa26JAnK0VYmwPdnsta6rzHfJMWDuGbvKXSsYfSRCsIO7maR3/UDRd8dxg1l0uPS/YReBrh141XiQrIoLrkGE2QGrQBnHMW46UW6X/cfff9/HjgwAmuLkv8qUPhE4D0rv0EQOZvvqRrPIn2yoHJf0GY8PlsRuqU8i0FKC4fy8dokM40r18K9130o3oMtBGCnREeBffQreAZb5pDi80sdhResx1o3GA2m69rz1HX51WQ2QBHyu5iTvVaox3ofyZLUxTE9Y/VZjVY+TJStumFYu0cjl9H2XwMwun3p22PxSzXZPudwlO+gfQx960HF1VyaInucuDgVePfRHc2oGanZouRMf34heJyBH7fPQgA9oQSQ9tIDpsVokSQvK5Zh6ZYFyPJoDiKFvVVGxSZED2rHOfFqCOOAFTp6F8s7ZaatRoZvQhefCo/bsQ2rIYml0TpebtN0WAWAo/XQ3iOxLavUc02g9uY9qZwWHqEeMk/eHQK16d/kC4C0k5Q6HYa++KDekx8bWXFP2XWxkZBbEi7Nhj/yD5A3bg6Tjmd7sEnx1k+AOKZ1BKHPcDyc9drppWpnM4KOuG5va8HAfxrZCi8igLcu7BD4OzPZqL12AkBFzRq1aPseF1djrySQZwZaVK2u6YUead5XzJ/qcmFAWJ5qUwzrGfwsEet4QceYyNCjtKGGqM6CxrGRO/gXrKI5LVhP1Lwu05Upap1Q==
+X-Forefront-Antispam-Report:
+	CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(61400799027)(23010399003)(36860700016)(6133799003)(18002099003)(16102099003)(22082099003)(4143699003)(56012099006)(11063799006)(261102123227099003)(261022105027099003)(261028144727099003)(261021121427099003)(261022075727099003)(261026121527099003)(261021123027099003)(261022113327099003)(261026130827099003)(261022115727099003)(261021135927099003)(261021130227099003)(261026140227099003)(10067099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	CEJnjkrDuaw8N65iqk4hPxLKsLIPSou80UEclDIkIPH7h/oaVzxsGtrM4Mp/FMQ8PbDNAKq/irKj2sJmx7LSvDtyaE6lVqBU1tOnupvxu7rtKKSkauNBbjgAhVfcl+jRnX/wNl1LQOYDH/GwQi9DRugX00KpyQC7aCMLTDazqkrJAOT3M1zJngEvox7hqa7u7Mjlo8RBAW+J0pEUc94FRjOSt5Duiyw7HYI6vDcxqedOMpkisPVMf6G58g+5fFeuVF+0xu5jzXM5DfimfHGYEHXgTzeSAf2498bAZoqa2mW+99kFQxadTi5UqQ8apZwPV+1KL8twhOqhOI3j1JCQ1QTNPvsH42eozgFoAKAXnbwB8nD1iyIl6KXJqDQBcuRFGoA2T/tgcT4jsnmFfqEybhVDwEGMCkcIlsDbIA1xas8/tePTRjvvepn9PCusV9xF
+X-Exchange-RoutingPolicyChecked:
+	Sh0qIja2axT7fPcYSrb8whw9ZeJ8iVaFAWCbTe2KMLtK56WzsypMViCldzbny/dSHIHhkWuVsR6R1Qhn82ivg1yVlirmz3c1igD2HJ273fc+YGnZglBBn6SVW/A38R/VRQCoA8HDtJd+kG3a2NvJRLb33NA0/WAKOrAY5Q+q7i8ix2izic/6/aZ0hN7AN8j4mHG0ufE2g6Kii4sPYF391uh043mT5GL0OK0gTvaPoMhzpDofYl0MQyrFMiglICPRoiAAcsDCzbv3FGbD0603LQ2da4N06bddpfsDKmaWXLEL4RufrqMaM3t45fSErMsQUX8jbUKn/EcxqhDIVMY1Hw==
+X-OriginatorOrg: opensource.cirrus.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 14:54:56.8166
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4680d52d-fd78-4b8e-3509-08df4bcd3cdd
+X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-SJ1PEPF000037B7.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR19MB7353
+X-Proofpoint-ORIG-GUID: IqYe1CdH4XniYveXxrs0j8a62e2lq-W3
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA1OCBTYWx0ZWRfX859x32ej/pF8
+ JEcM4TVVR8g6cHzTgY6JowK9xdi01t61aZzV1PKRts5DEbC5mnihTXiynj1C/fbjpehhXCcBi2/
+ AUKsUNH5ax5PU/VyQwTcLuCrAkxlvNvsEjNZGf+Y8FZpC2RlGRxG1nhwmgPzSaQQz4a2hq4raEb
+ pSW+w9LUtWAJTZHqsBX0/h+NrNQK+goDxDkcNcoU2upYaC2i7JpAGe6aKNBdWxWmrOKmDtAe/rr
+ pQvRvKITUX/JexwliuIHMqDLZTgTLgd2TDGp8kU96qHOJjiJqBOF8KC69sPnjvpazdlKNjpi7LR
+ YFz6Utf9Wz8pyuxWtqb705JLoMaOABAGRH5WDBfkbk5j2lE6TNalCYMoGzlKkv74J33ryJmE96N
+ tijy5QdLnH9DACePUz4uBE0pwi0K4YbYosfa/UKwXfpoPa33aslIWd/6u7nyIuSpJ55csQBdvIk
+ LST5fy3vmipsVXzJtrw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA1OCBTYWx0ZWRfXw1UuUdY0FFG+
+ +kHKQY6rTImn9wkJxO/5snKIF5tzT6HKSKCu08s9dTNRL1akyErxiqqvcbSYHEqRw2pkDbe6LTF
+ puWqZup37LF4ygx182ijfYCu1e2h22w=
+X-Proofpoint-GUID: IqYe1CdH4XniYveXxrs0j8a62e2lq-W3
+X-Authority-Analysis: v=2.4 cv=BuEIUoX5 c=1 sm=1 tr=0 ts=6b084846 cx=c_pps
+ a=iGL7HXglQbQLghhqflXdXw==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s63m1ICgrNkA:10 a=RWc_ulEos4gA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=iX4cTi3TZMoOKdANLEfx:22 a=Dj2-6B8FqX4mGL0U3gbX:22
+ a=w1d2syhTAAAA:8 a=UyaBMqvpDKnjaZITGHoA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Reason: safe
 
-On Sun, Nov 22, 2026 at 7:14=E2=80=AFPM Mario Limonciello
-<mario.limonciello@amd.com> wrote:
->
-> The AMD CPM D3cold SSDT (OEM table ID "CPMD3CLD") on the ASUS ROG Strix
-> G513QY (BIOS G513QY.335) handles the dGPU hotplug GPE with:
->
->   Scope (\_GPE) { Method (_L05) { Notify (\_SB.PCI0.GPP0.VGA, 0x81) } }
->
-> On this board the Navi 22 sits behind an on-package PCIe switch and is
-> \_SB.PCI0.GPP0.SWUS.SWDS.VGA; \_SB.PCI0.GPP0.VGA is not defined by any
-> table.  The interpreter correctly aborts the method:
->
->   ACPI BIOS Error (bug): Could not resolve symbol [\_SB.PCI0.GPP0.VGA], A=
-E_NOT_FOUND
->   ACPI Error: Aborting method \_GPE._L05 due to previous error (AE_NOT_FO=
-UND)
->   ACPI Error: AE_NOT_FOUND, while evaluating GPE method [_L05]
->
-> so the Notify is lost and a dGPU in D3cold is never woken for the
-> hotplug.
+W=C2=A0dniu czw, 26.11.2026 o=C2=A0godzinie 16=E2=88=B609=E2=80=89+0200, u=
+=C5=BCytkownik Andy
+Shevchenko napisa=C5=82:
+> On Thu, Nov 26, 2026 at 08:35:45AM +0100, Mika Westerberg wrote:
+> > On Wed, Nov 25, 2026 at 07:06:24PM +0100, Linus Walleij wrote:
+> > > On Tue, Nov 10, 2026 at 3:21=E2=80=AFPM Maciej Strozek
+> > > <mstrozek@opensource.cirrus.com> wrote:
+>=20
+> ...
+>=20
+> > > > Add ability to use cs42l43's GPIOs to drive speaker and
+> > > > microphone mute
+> > > > LEDs. The LEDs must be described using
+> > > > 01fa-global-mute-led-(spk|mic)-mute-gpio ACPI property, which
+> > > > tells
+> > > > which of the 3 available cs42l43's GPIOs to use for the
+> > > > respective
+> > > > function.
+> > > >=20
+> > > > Signed-off-by: Maciej Strozek <mstrozek@opensource.cirrus.com>
+> > >=20
+> > > ACPI property, so Andy and Mika need to decide if this is a
+> > > reasonable
+> > > way to go about this issue.
+> >=20
+> > I think the properties themselves are already "known" so that
+> > should be
+> > okay (but let's see if Andy has any comments), there is though a
+> > tiny
+> > observation below.
+>=20
+> Yeah, I think it's some kind of vendor/device specific MIPI
+> properties.
+> Would be nice to know if they are specified somewhere or is it just a
+> vendor
+> push.
 
-Which presumably doesn't happen in Windows.
+It's only for Cirrus devices (it starts with the '01fa' cirrus vendor
+code)
 
-Do you know what the difference is?
-
-> Other firmware on the same board (the _L00 handler and the
-> ATIF dispatchers) guards both the GPP0.VGA and GPP0.SWUS.SWDS.VGA paths
-> with CondRefOf(), so only this method was missed.
->
-> Aliasing the missing name is not an option: those guarded branches would
-> then both resolve and dispatch to the dGPU twice.  Instead, load a small
-> built-in SSDT with a method that notifies the real node and replace _L05
-> with a GPE handler that runs it.  The handler defers to a workqueue, as
-> AML can't run in interrupt context, and re-arms the level-triggered GPE
-> behind the notify queue as ACPICA does for _Lxx methods.
->
-> Match the DMI for the G513QY and introduce a new quirk behind a new
-> ACPI_AML_QUIRKS option.
-
-I'm totally not a fan of adding AML blobs to the kernel.
-
-It would be better to avoid putting the device in question into D3cold
-on the affected system IMV.
-
-> Reported-by: Mike Lothian <mike@fireburn.co.uk>
-> Closes: https://gitlab.freedesktop.org/drm/amd/-/work_items/6061
-> Tested-by: Mike Lothian <mike@fireburn.co.uk>
-> Link: https://lore.kernel.org/amd-gfx/20261029151422.56791-1-mike@firebur=
-n.co.uk/
-> Signed-off-by: Mario Limonciello <mario.limonciello@amd.com>
-> ---
->  drivers/acpi/Kconfig          |  16 +++++
->  drivers/acpi/x86/Makefile     |   1 +
->  drivers/acpi/x86/cpm_d3cold.c | 161 ++++++++++++++++++++++++++++++++++++=
-++++++
->  3 files changed, 178 insertions(+)
->
-> diff --git a/drivers/acpi/Kconfig b/drivers/acpi/Kconfig
-> index fa3eb52b22cd8..70a8d3c79a1b5 100644
-> --- a/drivers/acpi/Kconfig
-> +++ b/drivers/acpi/Kconfig
-> @@ -393,6 +393,22 @@ config ACPI_TABLE_OVERRIDE_VIA_BUILTIN_INITRD
->
->           See Documentation/admin-guide/acpi/initrd_table_override.rst fo=
-r details
->
-> +config ACPI_AML_QUIRKS
-> +       bool "Workarounds for known AML bugs in system firmware"
-> +       depends on X86
-> +       help
-> +         Some systems ship AML that cannot work as written, for example =
-a
-> +         method that notifies a device which does not exist in the names=
-pace.
-> +         This option builds workarounds for such firmware bugs. Each one=
- is
-> +         enabled only on the specific systems it is known to be needed o=
-n
-> +         (matched by DMI), and loads small built-in tables and/or takes =
-over
-> +         an ACPI event from the firmware's own method on those systems.
-> +
-> +         Currently this covers the AMD CPM D3cold dGPU hotplug GPE on th=
-e
-> +         ASUS ROG Strix G513QY.
-> +
-> +         Systems that are not on the list are unaffected. If unsure, say=
- N.
-> +
->  config ACPI_DEBUG
->         bool "Debug Statements"
->         default y
-> diff --git a/drivers/acpi/x86/Makefile b/drivers/acpi/x86/Makefile
-> index 63c99509ed9de..04c2c7ffc3a1c 100644
-> --- a/drivers/acpi/x86/Makefile
-> +++ b/drivers/acpi/x86/Makefile
-> @@ -4,5 +4,6 @@ acpi-x86-y              +=3D cmos_rtc.o
->  acpi-x86-$(CONFIG_PCI) +=3D lpss.o
->  acpi-x86-y             +=3D s2idle.o
->  acpi-x86-y             +=3D utils.o
-> +acpi-x86-$(CONFIG_ACPI_AML_QUIRKS) +=3D cpm_d3cold.o
->
->  obj-$(CONFIG_X86)      +=3D blacklist.o
-> diff --git a/drivers/acpi/x86/cpm_d3cold.c b/drivers/acpi/x86/cpm_d3cold.=
-c
-> new file mode 100644
-> index 0000000000000..8db5d5ba1a2af
-> --- /dev/null
-> +++ b/drivers/acpi/x86/cpm_d3cold.c
-> @@ -0,0 +1,161 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * cpm_d3cold.c - Work around AMD CPM D3cold tables that notify a missin=
-g dGPU
-> + *
-> + * The AMD CPM D3cold SSDT (OEM table ID "CPMD3CLD") handles the dGPU ho=
-tplug
-> + * GPE with:
-> + *
-> + *     Scope (\_GPE) { Method (_L05) { Notify (\_SB.PCI0.GPP0.VGA, 0x81)=
- } }
-> + *
-> + * On boards where the dGPU sits behind an on-package PCIe switch the de=
-vice is
-> + * \_SB.PCI0.GPP0.SWUS.SWDS.VGA and \_SB.PCI0.GPP0.VGA does not exist.  =
-The
-> + * interpreter correctly aborts _L05 with AE_NOT_FOUND, the Notify is lo=
-st and
-> + * a dGPU in D3cold is never woken for the hotplug.  Other tables from t=
-he same
-> + * firmware (e.g. the _L00 handler) already guard both paths with CondRe=
-fOf().
-> + *
-> + * Aliasing the missing name is not an option: those other tables would =
-then
-> + * see both paths and dispatch to the dGPU twice.  Instead, on boards kn=
-own to
-> + * be affected, load a small SSDT that notifies the real node and run it=
- from a
-> + * GPE handler that replaces _L05.
-> + *
-> + * The built-in SSDT is the following, compiled with iasl:
-> + *
-> + *     DefinitionBlock ("", "SSDT", 2, "LINUX", "CPML05FX", 1)
-> + *     {
-> + *         External (\_GPE, DeviceObj)
-> + *         External (\_SB.PCI0.GPP0.SWUS.SWDS.VGA, DeviceObj)
-> + *
-> + *         Scope (\_GPE)
-> + *         {
-> + *             Method (FX05, 0, NotSerialized)
-> + *             {
-> + *                 Notify (\_SB.PCI0.GPP0.SWUS.SWDS.VGA, 0x81)
-> + *             }
-> + *         }
-> + *     }
-> + */
-> +
-> +#define pr_fmt(fmt) "ACPI: CPM: " fmt
-> +
-> +#include <linux/acpi.h>
-> +#include <linux/dmi.h>
-> +#include <linux/init.h>
-> +#include <linux/printk.h>
-> +#include <linux/slab.h>
-> +
-> +#define CPM_D3COLD_GPE         0x05
-> +
-> +#define CPM_L05_PATH           "\\_GPE._L05"
-> +#define CPM_FIX_PATH           "\\_GPE.FX05"
-> +#define CPM_MISSING_PATH       "\\_SB.PCI0.GPP0.VGA"
-> +#define CPM_DGPU_PATH          "\\_SB.PCI0.GPP0.SWUS.SWDS.VGA"
-> +
-> +static const u8 cpm_l05_ssdt[] __initconst =3D {
-> +       0x53, 0x53, 0x44, 0x54, 0x79, 0x00, 0x00, 0x00, 0x02, 0x7e, 0x4c,=
- 0x49,
-> +       0x4e, 0x55, 0x58, 0x00, 0x43, 0x50, 0x4d, 0x4c, 0x30, 0x35, 0x46,=
- 0x58,
-> +       0x01, 0x00, 0x00, 0x00, 0x49, 0x4e, 0x54, 0x4c, 0x28, 0x06, 0x23,=
- 0x20,
-> +       0xa0, 0x28, 0x00, 0x15, 0x5c, 0x5f, 0x47, 0x50, 0x45, 0x06, 0x00,=
- 0x15,
-> +       0x5c, 0x2f, 0x06, 0x5f, 0x53, 0x42, 0x5f, 0x50, 0x43, 0x49, 0x30,=
- 0x47,
-> +       0x50, 0x50, 0x30, 0x53, 0x57, 0x55, 0x53, 0x53, 0x57, 0x44, 0x53,=
- 0x56,
-> +       0x47, 0x41, 0x5f, 0x06, 0x00, 0x10, 0x2b, 0x5c, 0x5f, 0x47, 0x50,=
- 0x45,
-> +       0x14, 0x24, 0x46, 0x58, 0x30, 0x35, 0x00, 0x86, 0x5c, 0x2f, 0x06,=
- 0x5f,
-> +       0x53, 0x42, 0x5f, 0x50, 0x43, 0x49, 0x30, 0x47, 0x50, 0x50, 0x30,=
- 0x53,
-> +       0x57, 0x55, 0x53, 0x53, 0x57, 0x44, 0x53, 0x56, 0x47, 0x41, 0x5f,=
- 0x0a,
-> +       0x81
-> +};
-> +
-> +static const struct dmi_system_id cpm_l05_dmi_table[] __initconst =3D {
-> +       {
-> +               .ident =3D "ASUS ROG Strix G513QY",
-> +               .matches =3D {
-> +                       DMI_MATCH(DMI_SYS_VENDOR, "ASUSTeK COMPUTER INC."=
-),
-> +                       DMI_MATCH(DMI_BOARD_NAME, "G513QY"),
-> +               },
-> +       },
-> +       {}
-> +};
-> +
-> +static acpi_handle cpm_fix_handle;
-> +
-> +static void cpm_l05_rearm(void *unused)
-> +{
-> +       acpi_finish_gpe(NULL, CPM_D3COLD_GPE);
-> +}
-> +
-> +static void cpm_l05_work(void *unused)
-> +{
-> +       acpi_status status;
-> +
-> +       status =3D acpi_evaluate_object(cpm_fix_handle, NULL, NULL, NULL)=
-;
-> +       if (ACPI_FAILURE(status))
-> +               pr_err("%s failed: %s\n", CPM_FIX_PATH,
-> +                      acpi_format_exception(status));
-> +
-> +       /*
-> +        * Notify() handlers run from the notify workqueue.  As for a fir=
-mware
-> +        * _Lxx method, only clear and re-enable the level-triggered GPE =
-once
-> +        * they have been dispatched so it can't storm while the dGPU res=
-umes.
-> +        */
-> +       if (ACPI_FAILURE(acpi_os_execute(OSL_NOTIFY_HANDLER, cpm_l05_rear=
-m,
-> +                                        NULL)))
-> +               cpm_l05_rearm(NULL);
-> +}
-> +
-> +static u32 cpm_l05_gpe_handler(acpi_handle gpe_device, u32 gpe_number,
-> +                              void *context)
-> +{
-> +       /*
-> +        * Interrupt context, AML can't run here.  Don't return
-> +        * ACPI_REENABLE_GPE: the GPE stays disabled until cpm_l05_rearm(=
-).
-> +        */
-> +       if (ACPI_FAILURE(acpi_os_execute(OSL_GPE_HANDLER, cpm_l05_work, N=
-ULL)))
-> +               pr_err("unable to queue GPE %02X handler\n", gpe_number);
-> +
-> +       return ACPI_INTERRUPT_HANDLED;
-> +}
-> +
-> +static int __init cpm_d3cold_l05_init(void)
-> +{
-> +       struct acpi_table_header *ssdt;
-> +       acpi_status status;
-> +
-> +       if (!dmi_check_system(cpm_l05_dmi_table))
-> +               return 0;
-> +
-> +       /* ACPICA keeps using the table, so it must never be freed */
-> +       ssdt =3D kmemdup(cpm_l05_ssdt, sizeof(cpm_l05_ssdt), GFP_KERNEL);
-> +       if (!ssdt)
-> +               return -ENOMEM;
-> +
-> +       status =3D acpi_load_table(ssdt, NULL);
-> +       if (ACPI_FAILURE(status)) {
-> +               pr_err("unable to load fixup table: %s\n",
-> +                      acpi_format_exception(status));
-> +               kfree(ssdt);
-> +               return -ENODEV;
-> +       }
-> +
-> +       status =3D acpi_get_handle(NULL, CPM_FIX_PATH, &cpm_fix_handle);
-> +       if (ACPI_FAILURE(status))
-> +               return -ENODEV;
-> +
-> +       status =3D acpi_install_gpe_handler(NULL, CPM_D3COLD_GPE,
-> +                                         ACPI_GPE_LEVEL_TRIGGERED,
-> +                                         cpm_l05_gpe_handler, NULL);
-> +       if (ACPI_FAILURE(status)) {
-> +               pr_err("unable to install GPE %02X handler: %s\n",
-> +                      CPM_D3COLD_GPE, acpi_format_exception(status));
-> +               return -ENODEV;
-> +       }
-> +
-> +       /* Installing the handler dropped the reference taken for _L05 */
-> +       status =3D acpi_enable_gpe(NULL, CPM_D3COLD_GPE);
-> +       if (ACPI_FAILURE(status))
-> +               pr_err("unable to enable GPE %02X: %s\n", CPM_D3COLD_GPE,
-> +                      acpi_format_exception(status));
-> +
-> +       pr_info("%s notifies missing %s, using %s instead\n", CPM_L05_PAT=
-H,
-> +               CPM_MISSING_PATH, CPM_DGPU_PATH);
-> +       return 0;
-> +}
-> +subsys_initcall_sync(cpm_d3cold_l05_init);
->
-> ---
-> base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
-> change-id: 20261122-fdo-gitlab-6061-d6cbed847dbc
->
-> Best regards,
-> --
-> Mario Limonciello <mario.limonciello@amd.com>
->
->
+--=20
+Regards,
+Maciej
