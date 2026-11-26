@@ -1,93 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795675900;
-	b=DY/hCsaw0t+k8+6gFQOPAkJ9sWejsQPRAaw34Hkto3bOiKOP7adnSmldmBGSxYE3loLw
-	 8uEIg5uN1y4XllV18F/IKjFKP6WwjCOFDW0wZJ0CG08qc8+MQXAlRcRA496KLG9ClmLNf
-	 4lRC4WxqEfo7HxVoTeMyKicDYhpOOWWnHVLunChRN5kbo3n3B0JZLsrPy2VfAAVI1KvXE
-	 dSFXW96Z9FozKlA8LSulFwJ3Px5mHVdWxcJCqKeXUKzKj8P1nQ2mI4qaIB5c0hDJzQwc7
-	 W54Cc9lNfQa+uO5BZr5bKeIlBkGI4Z6uT8bEAbRCRGeS3N7k8zkY7AKs2KvlH/PNC1A==
+	t=1795675907;
+	b=bKUALBhOZwgcR4QfymDM1Hq36F303b1fo5W63LScsBE2hJFGow+FTQ6qzRtDKP2J5me7
+	 IyiIc13HQUFw7szrfsSHvOe1IPZNlgRp9oMZDDGELpZFxthh3bgFlURSVIRdulR+B0yDN
+	 ZdDIJJ1T6+c1gUsIeC2Dbf9MZpTIgCe8NTmsjp80NW46ghzZFUGRpOqATDZk209CrvX7E
+	 rKL3yQCd7+WiZgmhr1MG1lZJGSXUYNr5TXjQuPU7fzU76DSX15NInOqcNH3dKtaBTUq26
+	 E8c+BAspkv5FL4xwV2xRJJaCxc1zry1wiSL15RKuvwPNQ4aNW83HKYbE8ZXVURUGwig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795675900;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795675907;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=ZYTbVZm8c9pPfQXQr0mcNexiI7K3UauJcjFD8QyNtGY=;
-	b=5i3Nv7AfuTrwuu2Bm4tEO2qMVFM5hKtJGD5ClyYRyupUa/V64eRnHjf7GPAzmH6HGfs1
-	 XA7N4fxXi8kawklpWByYMgBiqCUJ/NuhoDMfNnw9VTcUxuwrIWabyLR2jALG6k801t1Ju
-	 hzqKtFp1BHlnq/iJCgwl7kyAziYZH79O1e3sKRbwYyUvSV3bu9QQgJt205OHYOulEar/X
-	 u3pyx1D6qhzVvBjzn+DO1bOTgNuUTIbHMpmUZE7l/rRNwEQ0LvSUkSFghBEs9M2o0Tuho
-	 AShgzk3+SxdHEm14a4RCnwueSslS0gIBKb01ZZSVVMSDVNkuaQuIWKyEyQxY57yIjqg==
+	bh=2BppQ3jU5OncwED0Bv8UIvkdFXg3MIQgk7zc4gTIqe0=;
+	b=ad4+JLMNPucoM29wkvVH9TncoKqqsGmhBTIz/2PFPBsTA+mJABWUflZpWX6Cx5yo8DPe
+	 28Nck3UKPH1tY+X3tgIdl7/ATLjYi8Sh0IXvjq1tBXhFSl4iDk8w2bjW7qlIX09/tAy3U
+	 I/6nN7pTOG6GA3PPx5Dh8MkCZTIA/VA7xUsb8yKnL8308kO23WkqhGsnYntlGx6aE8Qbr
+	 nxjb25ZzB8YyZvy/N5IkpeH8q+4hGF2Dlcij5qPL1wnJ+hJ8Y+0L1pDoL7oFbgYv0Ma50
+	 KG4/9i6L89KKfHX1d5VW25lR5c0Hf1vG600IUqqtMSnz925TBauMyq6y57YByYc0+Cg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="GmtSUu//";
-	arc=none smtp.remote-ip=209.85.215.175
-Received: from mail-pg1-f175.google.com (mail-pg1-f175.google.com [209.85.215.175])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R28l8zOM;
+	arc=none smtp.remote-ip=209.85.216.51
+Received: from mail-pj1-f51.google.com (mail-pj1-f51.google.com [209.85.216.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F890606A331
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:51:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F890606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B180A606A336
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:51:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B180A606A336
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GmtSUu//
-Received: by mail-pg1-f175.google.com with SMTP id 41be03b00d2f7-cddac941ed1so2992265a12.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:51:40 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R28l8zOM
+Received: by mail-pj1-f51.google.com with SMTP id 98e67ed59e1d1-3b40f4d4b5dso2982229a91.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:51:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795675900; x=1796280700; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795675906; x=1796280706; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ZYTbVZm8c9pPfQXQr0mcNexiI7K3UauJcjFD8QyNtGY=;
-        b=GmtSUu//MHseD16Q+WXmBG/a4G0emLEiXQJRuhGXOubj2mJQpur6EMboa5wXs6VOwg
-         bmFcTNb6kY8KNANP2I1ZrhttcUHQ7f/sP8dKDPDRowMcF+d3Ru+GKDoEhYp8S0JqEP1A
-         CPXV0UzLKiXHN9dTMg1MzzBE0Fdp8Yg4S4XmUQ+m4f3nqqY0imAKQZ4lT/PoYmrsOHpa
-         MBiVx65yJlqlGWUlhc8x0zUKjGksph0Nni9UfW1DgkLudyeb8tifRVGGej7wtIrEwowY
-         e3hZqLlej8XSB6tKwzmzPI355eDRcnWbxtwfEloy8tLx4WRhq9WqqIsqG9Vfu0Lp5Gn3
-         y5nA==
+        bh=2BppQ3jU5OncwED0Bv8UIvkdFXg3MIQgk7zc4gTIqe0=;
+        b=R28l8zOMUqGgFv4TiT31BV3/hk1GeI2VM0sepDvfQmPEQz1RlCBCjEtOnJCENWrVOr
+         dQmFEuOUpVIOGlntdEwxC1Hg9EG12lrQem+F6tOXbXXGMrZdE3W6GB5iV9ZHfUFyFQko
+         EVuZet0XpewNG6DrfjZZCubc52SFPLvP3KwCNAlDWmkgZaMbM/RdfYzKkJSkzShbp/2D
+         uqNYPdgyCngW5rLBdxl9bDByUEDsApFIhBlpuOnd1bWN+x7M1WncBBsuK4+k9rZN1lrp
+         38YRnVuyil7H0lVoAtjI0mttts9k7jZ6CFgCw3XixJJZ2eWusVKSmkriPHq7SFM3P5wt
+         QVkw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795675900; x=1796280700;
+        d=1e100.net; s=20260707; t=1795675906; x=1796280706;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ZYTbVZm8c9pPfQXQr0mcNexiI7K3UauJcjFD8QyNtGY=;
-        b=BMFwCrkZbQzG/u7iueiMI65hXcs4WL1Ot9zyWtxi/rM72ULraHDxS9OToY5G3fSxhs
-         nZf6RJcP1UHBIiX2Ix5uyE/PfTJv9X3/UEmVemoVzHdvIiPBnVC56lrc/m7In2vEb2rU
-         1nLbAh6Ke/Xj25PY9bx3UE1H/14O4GzD1zKisNQf0owK+chmS5T7iwcJL/HjuDsmk7Us
-         BTTqeG0VV//b/mOi3nhZXa85jXpjKqsHcqU0NMZY0O12UdR1QcGm3VOKIai+/ss++rMY
-         Yt5WwxuV+UZ0rJvZdLE0uDVy+FQun2XYkQTWHayAKP2pGBTfvqbjuajtVLZ/eOkk7+Da
-         GSaQ==
-X-Forwarded-Encrypted: i=1; AL+hErFhOAm0rOYKrsi+Nv7Uh5mP2sHasp4KNixfwIFSEOKFFsc7TMKzx2akaPvQys3XmWRgjHfLDoaD92gl00Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/85RGrq+4D6GiMS9qpTOHiVoWXK/QdZnW1RRHObkytTYBbn+E1
-	p+Psusd3KkfYIC4oHk6CtlD/13Vp6ZEM2GgbXTLIxkDtgTm8SADpNL0Moa32+2cNGeoaVme23y4
-	=
-X-Gm-Gg: AZFdTZfIdVsyvpmdndrn1yluYLjLjdlTpPQYGRz+HhCGISLtqP4sq3p7xCWu+oDBebH
-	VcT8t2J0xQvMfEVNT//C0kXq3GsqlrP4KjxoSB+Z24yePkspMnAVIu/bN5l60Z9KP331+hfCgbe
-	OuUgUqiDWSY5oXOxSPTZpHG1k6e+XsLkfJVOEktl9xTeLybXK5gjlt4+EUTwpntEKgudFs8Amtq
-	AifuIFXJ+wB39IYKJuxxohjUrW0/PV+yX7OdUuzJvET+tEP9v5Rcj8dghzOtTFUkGaJHOPt+aEp
-	BIdyb/9Ll1sISUoicE1Qk4qP9RUVZldpAYLvDSQz/c5t6jsZ8lAFNICTCQzMIdfw8ue3dEmrhUo
-	c+VvaHqop6ZDoUebMRq8TWzyii77gj4Ls2uYSdDsugRyGi+Bq26nGVESXC7h3ExBJQvmLjn47M7
-	OEs+DNC1VrFD8Yn4WiPZwMAhL4OdwtvKxszzienKPpCjp6nzbFdVGexnAQVlM4CXO8TJussCwfg
-	NDChopH0C6HJRXwjH8+8y2jgKNax8tBB3J9yWONZMCFJve2D/FseOkLDNlAjIBGXnpYjV3LIbuM
-	l05pHohDHkTByxmkOnZEGXqx1KXqRZStFXHJK2cv0SfVWoHOV0THqRRijKKb/XZh6GKrion0cd0
-	OS9/RdIgZ8iJ86eZtWc+Vbr5PixGrSSiJ6A2jDDbnFzJOQMiYTIeCXd191ZopBJA33AgQ8BARLE
-	JL7WJLsGPwEkal9XNyK9u36tblnWe5ODdSIaQ6Jt46
-X-Received: by 2002:a17:90b:390b:b0:3b4:1336:4f6c with SMTP id 98e67ed59e1d1-3b41c7b6994mr18471889a91.2.1795675899422;
-        Wed, 25 Nov 2026 22:51:39 -0800 (PST)
+        bh=2BppQ3jU5OncwED0Bv8UIvkdFXg3MIQgk7zc4gTIqe0=;
+        b=wB/bVy6qjewop2n6ZQ8LQUgybHj79XbtC0r0G8rs8be9tPOjgw45mYuPFtaRcnUpv+
+         43v1g72d+nLGfdPj78tt6JIdin9+IwWQNVkDgmmoXqIL9VZqjiLzyCf7MbAFRUKu4aSF
+         k97YbgA+J8E9IrtWy3chUI/dxKRpmUI3h83STQsf7jdmNJoCr7vZJmA4tiUK3jzl0jdw
+         Vsg4TgybRUZcS1J2yMxmemwk7bdp+dE7WpbtwEq+6LnYoQLmyn+jqheqVxaGvTOWt9+Y
+         kxZpH8W7NQksr2GsYiMnRIVjF7K3iEyO+gBvCt8aeMK5h3KMnZhogUHOrCGuLw/JS2KX
+         6Omw==
+X-Forwarded-Encrypted: i=1; AL+hErGL0PjoXXectBVSiVogEZG1b1cGPORtAeJKl7K429h4eccdpMGVOIB6BSkLK9Xg1iTkaL2VEoaT7ETZpao=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+saenMOEvEZRjJJOivsVMPGQx19W+guErIosYIcmOHPvlo9B7q
+	Whbhqug0olXa+X7W+E6oeaEXyyCKKX4AnxvtbkjhCPWKU/4ZDwIW1IDh
+X-Gm-Gg: AZFdTZcPFxQfJMPi/7zxm74bfy90TGTXwXKPz+dzjl9iLa8q7DQigyxUW31YCn7w1Bv
+	8LwM58GLmGZSyIILLsF06E58GWzNTBQHkYnL9IBrImcj/nyymA/t1ZLo3nzXM+HL8yFZQZ+jipX
+	3XG4jbGRtI2S/GyKtPwMwyQYTAP75wHKzMbaVmRmDmr7f3MaR/cgEICnjnMiYXODk3QI7f+qalo
+	sD5ZeXKtveZbMgrI+9TkptmWCsn8P8ObOWorKqHukq/8ZVisltvhwbxxwPBMXK0sAFVTraH9/sb
+	bHT/VK6Es+oM+Z7OPikFP+WhENDiY6P6wInq1BU2gs5jeGatiaU/bFjcLmIy6HETduOcAhKCsPu
+	4W6yNgceb0FqZ8BvFNL43F/3s+wKPI9aoF2sc+YcQKhj914PWSqfAlmZuW1In+brCk7SF/EBOJ3
+	P0u5gT7iUT5pXUKPkee9crKKhAaJQWWJLO+BGmkzu+zZxZqQlUVU/9mm7Wo33g9xzPz2MxRVHe1
+	FmV1HB+vtvEJC+YSzB4viZohzt/5KXXIdU9/hIxuQbTi9A3ZNl4QqYnfw2Y1quOG7tmlISR28d9
+	JafetRJMQh8Vu7ObhgbVBSSpooz5XvfuA+d6zaaRBtR6NvVcHmfD7nsfW8RCaMUrNlUGQjJGHwN
+	lH34Ich247RKt99HvK9TdhvaxYTcAwIyYIBgsT/6w+KPknLZsDsuxXjFzYM6b3h/MEFqa+8m9Yn
+	71Rs9/64Hiu4lH1976i7vfAdKIAA7IF/NnuClBIpkq
+X-Received: by 2002:a17:90b:4490:b0:3ae:a531:4e73 with SMTP id 98e67ed59e1d1-3b41c7b606cmr19992479a91.7.1795675906092;
+        Wed, 25 Nov 2026 22:51:46 -0800 (PST)
 Received: from LAPTOP-3B99V33A (ec2-3-38-183-164.ap-northeast-2.compute.amazonaws.com. [3.38.183.164])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40578dca0sm34380982a91.2.2026.11.25.22.51.37
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b776a14sm13997686a91.2.2026.11.25.22.51.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 22:51:39 -0800 (PST)
+        Wed, 25 Nov 2026 22:51:45 -0800 (PST)
 From: "Bin Luo (University of Electronic Science and Technology of China)" <luob87709@gmail.com>
-To: stf_xl@wp.pl,
-	johannes@sipsolutions.net
-Cc: linux-wireless@vger.kernel.org,
+To: gregkh@linuxfoundation.org
+Cc: linux-usb@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] wifi: rt2x00: prevent txstatus_timer rearm during USB uninitialize
-Date: Thu, 26 Nov 2026 14:51:32 +0800
-Message-ID: <20261126065132.971-1-luob87709@gmail.com>
+Subject: [PATCH] usb: phy: twl6030: init work before comparator and clear comparator on teardown
+Date: Thu, 26 Nov 2026 14:51:39 +0800
+Message-ID: <20261126065139.127-1-luob87709@gmail.com>
 X-Mailer: git-send-email 2.51.0.windows.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -100,79 +98,87 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-rt2x00usb_uninitialize() cancels rt2x00dev->txstatus_timer before
-calling cancel_work_sync(&rt2x00dev->txdone_work). Because
-rt2800usb_work_txdone() calls rt2800usb_async_read_tx_status() and
-rearms txstatus_timer, the timer can remain armed after
-rt2x00usb_uninitialize() frees queue entries via
-rt2x00usb_free_entries(), allowing rt2800usb_tx_sta_fifo_timeout() to
-submit new async register-read URBs and queue txdone_work on torn-down
-queues.
+twl6030_usb_probe() publishes &twl->comparator via
+omap_usb2_set_comparator() before initializing twl->set_vbus_work and
+twl->lock. If the OMAP USB2 PHY invokes twl6030_set_vbus() before
+INIT_WORK() runs, schedule_work(&twl->set_vbus_work) operates on an
+uninitialized work_struct.
 
-Because rt2x00lib_uninitialize() clears DEVICE_STATE_INITIALIZED before
-calling rt2x00usb_uninitialize(), guard txstatus_timer rearming and
-timer-driven async register reads with DEVICE_STATE_INITIALIZED and
-cancel txstatus_timer after cancel_work_sync(&rt2x00dev->txdone_work).
+In addition, neither the probe error paths nor twl6030_usb_remove()
+clears the comparator via omap_usb2_set_comparator(NULL). Because twl
+is devm-allocated, a subsequent VBUS callback from the OMAP USB2 PHY
+dereferences freed twl memory and schedules set_vbus_work after
+teardown.
 
-Fixes: 6232c17438ed ("rt2x00: avoid introducing a USB dependency in the rt2x00lib module")
+Initialize twl->lock and work items before registering the comparator,
+and clear the comparator with omap_usb2_set_comparator(NULL) before
+canceling set_vbus_work in both probe failure paths and
+twl6030_usb_remove().
+
+Fixes: 0e98de67bacb ("usb: otg: make twl6030_usb as a comparator driver to omap_usb2")
 Signed-off-by: Bin Luo (University of Electronic Science and Technology of China) <luob87709@gmail.com>
 ---
-Found by code inspection. Compile-tested on x86_64 with W=1 and KASAN (drivers/net/wireless/ralink/rt2x00/rt2800usb.o and rt2x00usb.o); not runtime-tested on Ralink USB hardware.
+Found by code inspection; not compile-tested on ARM/OMAP or runtime-tested on TWL6030 hardware.
 
- drivers/net/wireless/ralink/rt2x00/rt2800usb.c | 10 +++++++++-
- drivers/net/wireless/ralink/rt2x00/rt2x00usb.c |  2 +-
- 2 files changed, 10 insertions(+), 2 deletions(-)
+ drivers/usb/phy/phy-twl6030-usb.c | 18 +++++++++++-------
+ 1 file changed, 11 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/net/wireless/ralink/rt2x00/rt2800usb.c b/drivers/net/wireless/ralink/rt2x00/rt2800usb.c
-index 15de3db..57e04c6 100644
---- a/drivers/net/wireless/ralink/rt2x00/rt2800usb.c
-+++ b/drivers/net/wireless/ralink/rt2x00/rt2800usb.c
-@@ -118,7 +118,8 @@ static bool rt2800usb_tx_sta_fifo_read_completed(struct rt2x00_dev *rt2x00dev,
- 	if (rt2800_txstatus_timeout(rt2x00dev))
- 		queue_work(rt2x00dev->workqueue, &rt2x00dev->txdone_work);
+diff --git a/drivers/usb/phy/phy-twl6030-usb.c b/drivers/usb/phy/phy-twl6030-usb.c
+index 9bfcb2c..a9da7aa 100644
+--- a/drivers/usb/phy/phy-twl6030-usb.c
++++ b/drivers/usb/phy/phy-twl6030-usb.c
+@@ -355,26 +355,26 @@ static int twl6030_usb_probe(struct platform_device *pdev)
+ 	twl->comparator.set_vbus	= twl6030_set_vbus;
+ 	twl->comparator.start_srp	= twl6030_start_srp;
  
--	if (rt2800_txstatus_pending(rt2x00dev)) {
-+	if (rt2800_txstatus_pending(rt2x00dev) &&
-+	    test_bit(DEVICE_STATE_INITIALIZED, &rt2x00dev->flags)) {
- 		/* Read register after 1 ms */
- 		hrtimer_start(&rt2x00dev->txstatus_timer,
- 			      TXSTATUS_READ_INTERVAL,
-@@ -142,6 +143,8 @@ stop_reading:
- 
- static void rt2800usb_async_read_tx_status(struct rt2x00_dev *rt2x00dev)
- {
-+	if (!test_bit(DEVICE_STATE_INITIALIZED, &rt2x00dev->flags))
-+		return;
- 
- 	if (test_and_set_bit(TX_STATUS_READING, &rt2x00dev->flags))
- 		return;
-@@ -164,6 +167,11 @@ static enum hrtimer_restart rt2800usb_tx_sta_fifo_timeout(struct hrtimer *timer)
- 	struct rt2x00_dev *rt2x00dev =
- 	    container_of(timer, struct rt2x00_dev, txstatus_timer);
- 
-+	if (!test_bit(DEVICE_STATE_INITIALIZED, &rt2x00dev->flags)) {
-+		clear_bit(TX_STATUS_READING, &rt2x00dev->flags);
-+		return HRTIMER_NORESTART;
-+	}
++	/* init spinlock and work items before publishing comparator */
++	spin_lock_init(&twl->lock);
++	INIT_WORK(&twl->set_vbus_work, otg_set_vbus_work);
++	INIT_DELAYED_WORK(&twl->get_status_work, twl6030_status_work);
 +
- 	rt2x00usb_register_read_async(rt2x00dev, TX_STA_FIFO,
- 				      rt2800usb_tx_sta_fifo_read_completed);
+ 	ret = omap_usb2_set_comparator(&twl->comparator);
+ 	if (ret == -ENODEV) {
+ 		dev_info(&pdev->dev, "phy not ready, deferring probe");
+ 		return -EPROBE_DEFER;
+ 	}
  
-diff --git a/drivers/net/wireless/ralink/rt2x00/rt2x00usb.c b/drivers/net/wireless/ralink/rt2x00/rt2x00usb.c
-index c9fbc37..bfd5a81 100644
---- a/drivers/net/wireless/ralink/rt2x00/rt2x00usb.c
-+++ b/drivers/net/wireless/ralink/rt2x00/rt2x00usb.c
-@@ -746,9 +746,9 @@ void rt2x00usb_uninitialize(struct rt2x00_dev *rt2x00dev)
- 	struct data_queue *queue;
+-	/* init spinlock for workqueue */
+-	spin_lock_init(&twl->lock);
+-
+ 	err = twl6030_usb_ldo_init(twl);
+ 	if (err) {
+ 		dev_err(&pdev->dev, "ldo init failed\n");
+-		return err;
++		status = err;
++		goto err_clear_comparator;
+ 	}
  
- 	usb_kill_anchored_urbs(rt2x00dev->anchor);
--	hrtimer_cancel(&rt2x00dev->txstatus_timer);
- 	cancel_work_sync(&rt2x00dev->rxdone_work);
- 	cancel_work_sync(&rt2x00dev->txdone_work);
-+	hrtimer_cancel(&rt2x00dev->txstatus_timer);
+ 	platform_set_drvdata(pdev, twl);
  
- 	queue_for_each(rt2x00dev, queue)
- 		rt2x00usb_free_entries(queue);
+-	INIT_WORK(&twl->set_vbus_work, otg_set_vbus_work);
+-	INIT_DELAYED_WORK(&twl->get_status_work, twl6030_status_work);
+-
+ 	status = request_threaded_irq(twl->irq1, NULL, twl6030_usbotg_irq,
+ 			IRQF_TRIGGER_FALLING | IRQF_TRIGGER_RISING | IRQF_ONESHOT,
+ 			"twl6030_usb", twl);
+@@ -404,6 +404,9 @@ err_free_irq1:
+ 	free_irq(twl->irq1, twl);
+ err_put_regulator:
+ 	regulator_put(twl->usb3v3);
++err_clear_comparator:
++	omap_usb2_set_comparator(NULL);
++	cancel_work_sync(&twl->set_vbus_work);
+ 
+ 	return status;
+ }
+@@ -412,6 +415,7 @@ static void twl6030_usb_remove(struct platform_device *pdev)
+ {
+ 	struct twl6030_usb *twl = platform_get_drvdata(pdev);
+ 
++	omap_usb2_set_comparator(NULL);
+ 	cancel_delayed_work_sync(&twl->get_status_work);
+ 	twl6030_interrupt_mask(TWL6030_USBOTG_INT_MASK,
+ 		REG_INT_MSK_LINE_C);
 -- 
 2.43.0
 
