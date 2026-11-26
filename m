@@ -1,110 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=188.68.63.102
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795679992;
-	b=sTI5+EWYjIG4dZNcF9rLa8mXet2RH9ouoiBz60t4uYVSYAKnocfv5/Wr3a398Cj25sCe
-	 ORg/XElsgI0iBZLhVDlFw+uy/XE5ruKMNeWsZct+srCjIdWNSaPTvRxHXls0ERH0hWjdb
-	 UWZVCYATcgh0pkfTSAlUypaAX4tQqnEMu/10gcRD8gxTWYv2q+I3OYEdUehdrapI0aRa1
-	 3yfLD28/6b0veeeYs2uu+HcKRX+cmW6sv4ejx4SM4y9yAm3U4NNtRolhB4S9tBD7U3Kax
-	 5mB5tv+Vlp3B0vhVzoZgr3jjjMxu67UiDuPyW3M0Gxi2ucQz7qPieLF6GuCgd8wf5+A==
+	t=1795680006;
+	b=HKSNTb47Ka0A/cZqF1nUvS2irrgzGv2b7fnuhiUvtLwdpmL97QvPLRlRi6IpGPOhgBEy
+	 qTCt5kqvkdf/Z6a9MwMnN6Fkh9DigKnoDpyQg3vjj0sibaPzXKbPe62rw9Q5EA4E1S/Bl
+	 E9Y5g9vhE5+bcGcVkjmmR8Xf6e/+s0tkVg8lyJBGvsuzdmOpcEZ101uj1usCoSClrWOLX
+	 4jBuSzuiifod9qN0BXRzcBSu+7HatuzQZib/SYmjT947m/2DQUv9wqkmBS8Ajpr/b4nOB
+	 NJt3zdj4keQ2RJz+PPRQYArz8vVq2rUY0DYtykGeVJlJ4tVzLwI3aotM+myMQZAn1pQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795679992;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-Rspamd-Queue-Id:X-Spam-Level:X-Rspamd-Server:X-Rspamd-Action:
-	 X-Spam-Flag:X-Spamd-Result:X-Spam-Score;
-	bh=gCPt567FbipQ8XQWwv7dIOHhbEG1keVFm7aWXmFbupg=;
-	b=pIuqcCsZPxyb2OBKUoUpdyvo79yh/UFAXwC0QLzQw3uip2zBWhQUMf8I3F5Dq4fqkfjc
-	 A6Rk5szoRkIPHNPjaRGk+lk511h/zXALdVDrDPRl8HnVKMWb+MWqSa/wc0QAcAWgXMVLs
-	 DoOV4j27maLShfNbitpXNk8dK4gf6bMH6vy7f9OQvX0fg45uXm8OMPsrvQEZbUQQE5Rz+
-	 H01GIf5zcfGHirEFJaaNr9GcyUnKgmJNVGzY3r8FbSF7t5WWYiy2FzgiV6F41BeVQTbCl
-	 EW8K6QZiDXCuNmg3JaAydwP2i+C3C1gRrm1qsggNLH5Y39kUwO7pXupLwI/sozttJTA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795680006;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received-SPF:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:From:Content-Language:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-PPP-Message-ID:X-NC-CID;
+	bh=v2cBIwuwZTTpBiqR0454ouMWhhQaLHGEGIiKzwAP7HU=;
+	b=AL++i3TiSJ67/GOnYiVJkslV1NznNSr9U3g2aj5sTdXLpEzXvnfpitQnh+oBQ3DzxryH
+	 J8DoHl97Za7roLFj8XXHPBR67N/8TFDvdz55Iyeis2GbL+duBxGUF34+VkTfY0QzzDzoJ
+	 n3KzaUiA1OX9SG7e2nZ+nQDopNjq6esmSxpbbxO2TEuVNcQfHiJ2o5+GGrCtRcfk2nCF/
+	 Tzne1XrwF53M2u+fBXz8gVzM0qR/HVT9MNxXDPdO7k/v85oxA839LmlmI5GmNjnBGi9za
+	 jNtZX6DMvQlEMhQYTZe4m2dezIovYgKztc7J1NQR5Yk4kgrzjlVJJO9LKQX4M2RkWog==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=MYgQ6js8;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=amPlUiyF;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=MYgQ6js8;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=amPlUiyF;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	dmarc=pass header.from=leemhuis.info;
+	spf=pass smtp.mailfrom=leemhuis.info;
+	dkim=pass header.d=leemhuis.info header.i=@leemhuis.info header.a=rsa-sha256 header.s=key2 header.b=XjiAXlsa;
+	arc=none smtp.remote-ip=188.68.63.102
+Received: from relay.yourmailgateway.de (relay.yourmailgateway.de [188.68.63.102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A49D4606A31C;
-	Thu, 26 Nov 2026 07:59:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A49D4606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3BA7606A327
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:00:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3BA7606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=leemhuis.info
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=leemhuis.info
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=MYgQ6js8;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=amPlUiyF;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=MYgQ6js8;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=amPlUiyF
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	dkim=pass (2048-bit key, unprotected) header.d=leemhuis.info header.i=@leemhuis.info header.a=rsa-sha256 header.s=key2 header.b=XjiAXlsa
+Received: from mors-relay-2502.netcup.net (localhost [127.0.0.1])
+	by mors-relay-2502.netcup.net (Postfix) with ESMTPS id 4jZppy209gz6TSp;
+	Thu, 26 Nov 2026 08:59:22 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
+	s=key2; t=1795679962;
+	bh=ij3hnJcC4WfaTRrqHQlqNFWDVnAM9xmzZit58oeLRAY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=XjiAXlsaMm8yVPMQlY5bRRl4kOrJxoy2KIgKiSkCty6+c8TeMvO3ItDQ60LMlkFo/
+	 A5pEPVsEdszn57IArzsNSpWrBiKyoWTwjqalB/17XKb680TXWCZ3w+zlCqu0KyisKM
+	 U1ceAxfBRjfP6GKBsX/PSaXl5lEbAblNr+E+pE9sAnxLz/66mX4y6Ie+3yeVhOPKCW
+	 2GaCU2lv+pOik7gOIlPZkqeUiwt+5hnuo1uRCFth5DcHL5zsGDUK1dZMxmDs7ZePA/
+	 W6h2PidiKyG0hE8ssjZwEiahC4Gbo4ko8xLGqpR8CvgBzxDzGmH22Xkk/5P68fUjZN
+	 WdB++PNjsWcMQ==
+Received: from policy02-mors.netcup.net (unknown [46.38.225.35])
+	by mors-relay-2502.netcup.net (Postfix) with ESMTPS id 4jZppy1CQfz4xp1;
+	Thu, 26 Nov 2026 08:59:22 +0100 (CET)
+Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 662A12261F;
-	Thu, 26 Nov 2026 07:59:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795679989; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gCPt567FbipQ8XQWwv7dIOHhbEG1keVFm7aWXmFbupg=;
-	b=MYgQ6js8aXpLrX4w3gZOX3/L7t6pU3fUCT7WpwXDySv6BnAjiv0JX0m+bZmchfrCBNrpHY
-	lYf4gdYrbc0UKeP5vD+4J5n+cvUguA2XOo2XQkYE+ui/nri2luoH0lzMutBKFsbZSGOCrX
-	vb+kMkBGv35RCUHE/9KCCq71Wk48nk0=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795679989;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gCPt567FbipQ8XQWwv7dIOHhbEG1keVFm7aWXmFbupg=;
-	b=amPlUiyFq26eSZasWvCZOLZoxf4F78BljD2e3knhZ1Co28BBr0ry9kuwULGwUtOhD/mSKr
-	W0PVFDx4dEBs5dCw==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=MYgQ6js8;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=amPlUiyF
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795679989; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gCPt567FbipQ8XQWwv7dIOHhbEG1keVFm7aWXmFbupg=;
-	b=MYgQ6js8aXpLrX4w3gZOX3/L7t6pU3fUCT7WpwXDySv6BnAjiv0JX0m+bZmchfrCBNrpHY
-	lYf4gdYrbc0UKeP5vD+4J5n+cvUguA2XOo2XQkYE+ui/nri2luoH0lzMutBKFsbZSGOCrX
-	vb+kMkBGv35RCUHE/9KCCq71Wk48nk0=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795679989;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gCPt567FbipQ8XQWwv7dIOHhbEG1keVFm7aWXmFbupg=;
-	b=amPlUiyFq26eSZasWvCZOLZoxf4F78BljD2e3knhZ1Co28BBr0ry9kuwULGwUtOhD/mSKr
-	W0PVFDx4dEBs5dCw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id D14B813432;
-	Thu, 26 Nov 2026 07:59:48 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id U3/GKPTmB2vsCQAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Thu, 26 Nov 2026 07:59:48 +0000
-Date: Thu, 26 Nov 2026 08:59:48 +0100
-Message-ID: <87pkvs58gb.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: Rongen Wang <security@nitrohex.com>
-Cc: perex@perex.cz,
-	tiwai@suse.com,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] ALSA: timer: Protect the slave instance flags with the timer lock
-In-Reply-To: <20261125192053.5664-1-security@nitrohex.com>
-References: <20261125192053.5664-1-security@nitrohex.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
+	by policy02-mors.netcup.net (Postfix) with ESMTPS id 4jZppw1rNtz8svJ;
+	Thu, 26 Nov 2026 08:59:19 +0100 (CET)
+Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
+	by mxe9fb.netcup.net (Postfix) with ESMTPSA id 5AA525F949;
+	Thu, 26 Nov 2026 08:58:50 +0100 (CET)
+Authentication-Results: mxe9fb;
+        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
+Received-SPF: pass (mxe9fb: connection is authenticated)
+Message-ID: <b27e10f8-840b-47ca-a5e6-50db3a73313d@leemhuis.info>
+Date: Thu, 26 Nov 2026 08:58:47 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,90 +72,132 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-Rspamd-Queue-Id: 662A12261F
-X-Spam-Level: 
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Flag: NO
-X-Spamd-Result: default: False [-12.51 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TO_DN_SOME(0.00)[];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_TLS_ALL(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from,2a07:de40:b281:106:10:150:64:167:received];
-	RCPT_COUNT_FIVE(0.00)[6];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	DKIM_TRACE(0.00)[suse.de:+]
-X-Spam-Score: -12.51
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] Revert "nouveau: pci: quiesce GPU on shutdown"
+To: David Airlie <airlied@gmail.com>
+Cc: dri-devel@lists.freedesktop.org, Danilo Krummrich <dakr@kernel.org>,
+ Marek Vasut <marex@nabladev.com>, Li Chen <me@linux.beauty>,
+ Lyude Paul <lyude@redhat.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Ole Carlsen <ole.carlsen@tutamail.com>,
+ Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@debian.org>,
+ linux-kernel@vger.kernel.org, nouveau@lists.freedesktop.org,
+ Linux kernel regressions list <regressions@lists.linux.dev>
+References: <20261025213027.842978-1-marex@nabladev.com>
+From: Thorsten Leemhuis <regressions@leemhuis.info>
+Content-Language: de-DE, en-US
+In-Reply-To: <20261025213027.842978-1-marex@nabladev.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-PPP-Message-ID: <179567993099.1392972.9410511653682031592@mxe9fb.netcup.net>
+X-NC-CID: K/re8fuSYYOPP20M4/d2Cw5ZAXW/LSShXsWb7axahBVqe8RiaKI=
 
-On Wed, 25 Nov 2026 20:21:12 +0100,
-Rongen Wang wrote:
+On 10/25/26 22:30, Marek Vasut wrote:
+> This reverts commit 310326bb7df4bba094a3fc60364c641c547fd923.
 > 
-> snd_timer_start_slave() and snd_timer_stop_slave() set and clear
-> SNDRV_TIMER_IFLG_RUNNING in timeri->flags while holding only
-> timeri_lock.  For a slave that is linked to a master, the interrupt
-> path updates the same word under timer->lock:
-> snd_timer_process_callbacks() sets SNDRV_TIMER_IFLG_CALLBACK before it
-> calls the instance callback and clears it afterwards.  Both sides do a
-> plain read-modify-write, so when they overlap one of the two updates is
-> lost.
+> This breaks shutdown on ThinkPad W510, without the offending commit
+> the system normally powers off, with the offending commit the system
+> ends up spinning indefinitely and the CPU fan goes full throttle on
+> shutdown.
 > 
-> If the set of SNDRV_TIMER_IFLG_CALLBACK is lost,
-> snd_timer_close_locked() does not wait for the callback that is still
-> running, the owner frees the instance, and the interrupt path clears
-> the flag in the freed object:
-> 
->   BUG: KASAN: slab-use-after-free in snd_timer_process_callbacks+0x269/0x2b0
->   Read of size 4 at addr ffff888007e5cc10 by task poc/90
->    snd_timer_process_callbacks+0x269/0x2b0
->    snd_timer_interrupt+0x7b8/0x1100
->    snd_utimer_ioctl+0x7c/0xb0
->   Freed by task 91:
->    kfree+0x127/0x3b0
->    __snd_timer_
-> user_ioctl.isra.0+0xe93/0x28f0
-> 
-> If the clear is lost instead, the flag stays set: the instance gets no
-> further callbacks, and closing it spins in the drain loop of
-> snd_timer_close_locked() with register_mutex held, which blocks every
-> other open and close of an ALSA timer.
-> 
-> Take timer->lock around the whole flag update of a linked slave, as
-> snd_timer_start1() and snd_timer_stop1() do for master instances.  The
-> callers hold timeri_lock, so timeri->timer is stable, and the lock
-> order is the one these functions already use.  A slave that is not
-> linked to a master cannot be reached from any timer and needs no
-> additional protection.
-> 
-> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Rongen Wang <security@nitrohex.com>
+> The behavior was already reported in debian bugtracker multiple times
+> for various other computers too, and git bisect lands as this commit.
+> https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1141969
+> https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1146033
 
-The code change looks OK, but the patch can't be applied cleanly,
-as some lines are strangely broken in the middle.
+@airlied: given that you recently applied a few nouveau bugfixes, could
+you maybe pick this one up, too?
 
-Please resubmit a clean patch, at best, verify that the posted patch
-can be applied cleanly beforehand.
+I'd even say it's eligible for -fixes, as I'd say this is still a
+somewhat recent regressions and the fix hence "should be expedited", as
+Linus said some time ago[1].
 
+And to make it obvious: this will reintroduce warnings during kexec the
+commit being reverted tried to fix. YMMV, but that seems like the
+smaller problem.
 
-thanks,
+Ciao, Thorsten
 
-Takashi
+[1]
+https://lore.kernel.org/all/CAHk-=wis_qQy4oDNynNKi5b7Qhosmxtoj1jxo5wmB6SRUwQUBQ@mail.gmail.com/
+
+> I tested the revert with Linux 7.2.12 from debian unstable, not next
+> or drm trees, mainly because it was easier with debian test-patches
+> script on that machine.
+> 
+> Signed-off-by: Marek Vasut <marex@nabladev.com>
+> ---
+> Cc: Danilo Krummrich <dakr@kernel.org>
+> Cc: David Airlie <airlied@gmail.com>
+> Cc: Li Chen <me@linux.beauty>
+> Cc: Lyude Paul <lyude@redhat.com>
+> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+> Cc: Maxime Ripard <mripard@kernel.org>
+> Cc: Ole Carlsen <ole.carlsen@tutamail.com>
+> Cc: Simona Vetter <simona@ffwll.ch>
+> Cc: Thomas Zimmermann <tzimmermann@suse.de>
+> Cc: Uwe Kleine-König <ukleinek@debian.org>
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: nouveau@lists.freedesktop.org
+> ---
+> NOTE: Maybe the revert is not the ideal solution, but it does fix my
+>       problem, and I think being able to shut computer down is a good
+>       functionality to have.
+> ---
+>  drivers/gpu/drm/nouveau/nouveau_drm.c | 32 ---------------------------
+>  1 file changed, 32 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/nouveau/nouveau_drm.c b/drivers/gpu/drm/nouveau/nouveau_drm.c
+> index 5e1336615cf6d..36c74f9edaa83 100644
+> --- a/drivers/gpu/drm/nouveau/nouveau_drm.c
+> +++ b/drivers/gpu/drm/nouveau/nouveau_drm.c
+> @@ -1090,37 +1090,6 @@ nouveau_pmops_resume(struct device *dev)
+>  	return ret;
+>  }
+>  
+> -static void
+> -nouveau_drm_shutdown(struct pci_dev *pdev)
+> -{
+> -	struct nouveau_drm *drm = pci_get_drvdata(pdev);
+> -	int ret;
+> -
+> -	if (!drm)
+> -		return;
+> -
+> -	if (drm->dev->switch_power_state == DRM_SWITCH_POWER_OFF ||
+> -	    drm->dev->switch_power_state == DRM_SWITCH_POWER_DYNAMIC_OFF)
+> -		return;
+> -
+> -	ret = nouveau_do_suspend(drm, false);
+> -	if (ret)
+> -		NV_ERROR(drm, "shutdown suspend failed with: %d\n", ret);
+> -
+> -	pci_save_state(pdev);
+> -	pci_disable_device(pdev);
+> -	pci_set_power_state(pdev, PCI_D3hot);
+> -	/*
+> -	 *  This is just to give the pci power transition time to settle
+> -	 *  before an immediate kexec jump. it’s mirroring the existing
+> -	 *  nouveau_pmops_suspend() behavior, which already does
+> -	 *  udelay(200) right after pci_set_power_state(..., pci_d3hot). In
+> -	 *  ->shutdown() we’re allowed to sleep, so I used usleep_range()
+> -	 *  instead of a busy-wait udelay().
+> -	 */
+> -	usleep_range(200, 400);
+> -}
+> -
+>  static int
+>  nouveau_pmops_freeze(struct device *dev)
+>  {
+> @@ -1480,7 +1449,6 @@ nouveau_drm_pci_driver = {
+>  	.id_table = nouveau_drm_pci_table,
+>  	.probe = nouveau_drm_probe,
+>  	.remove = nouveau_drm_remove,
+> -	.shutdown = nouveau_drm_shutdown,
+>  	.driver.pm = &nouveau_pm_ops,
+>  };
+>  
+
