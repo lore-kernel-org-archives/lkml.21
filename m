@@ -1,88 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795684050;
-	b=VLh2MBJoVtWQYoIzIkNSR9TK0UQRtmsFU513enj2FrZtVht9FYx282JMtKWw35n/RkRD
-	 JKvfHtLr3zNqX/5RVqYWQr8hT/VH+MPAuERDC5PBrdvxR9s97BlBREb9Fq+9oLb1QqEJn
-	 VcOC4TuurhNzdF2TSosLxKOXzlDz6L/qyPxyHE9OJfVx4YPA0i4GuYtVKt6Y9qcxWdOQk
-	 Tb0buHU7yOZsVe1dT6KRLJmBXgXLBTR2QBU8UyvlpDigBo8J+AYGmKQGdYVEwT9d8Z76L
-	 TTZYu1oz07OB6NJ5HTMgZw597vLmzgyB3QtFeKQyFX0sFlkRhDyeT23PurugFxV2Wtw==
+	t=1795684051;
+	b=bsENYp01K6gBKdjei2g7qOzB4UCyvCEHCe8vfnKZNZnwcy9lJ1lqIzTt0hT5vh4Nm0Lz
+	 2SwKB78Bjxldz8334leEvtyZvszvmyS6G5fudbLKrpv0lM73+eQz+LhkVrVg0WMsyvA2X
+	 KW5d5yPi7oLG3PssRNqOZ13RRUdcIxv8TGFZfNPQM2neahEyGY0oD34upRUAbJIivG1nQ
+	 2F0f4VAtZqmgzsLZERHQTob+g2rgNw7SI1HNfhAWlMG0HPQEOBR4GAY8+nhCQwr0dibqb
+	 7zw1l9yxpLsmn9uOdoU3ZGzp4g7Ve/WRYAo7tqKr2bRQqKeoKuPAr05j45rZ46aagTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795684050;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795684051;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=D34z4LAKYnHU9cCU4CpSl7aFm0LZ4mxwUeYBCb2GPa8=;
-	b=SVtaYoA1N7p8g1360gxkvEDFwML7OewFeZep7MIX2yMWScCP/KmuBPe/hugdgJcl87ee
-	 iZ4bktYWiLWC81IXw1hbKXxdmECNcLq4jIopobGXdLJBa4dKqdWSoFExSWhTm4ugYfUCt
-	 pJP9Z4w7vDdGClELg+bjNHbB8i5/2ibXzGrGKb2h4frSHDM3WrPXDPy5rHBh5a5qOyu6b
-	 Dt4vrxh1PjfSTg8PSnvESqwUa8U/h4dy3BUoX8i9ratztN2GH1teC+G2byDJYSEp0nkf/
-	 Yy5jIpSpa1Dlo9YH8hqmCS411fsM+hzQ2jl4k/8QT/IYAfAOeTmFEtXlqL1yK7DeEhg==
+	bh=496JOXpOEHemKz8UL2GWW4yob5VAkawIc7w2N9x0+W4=;
+	b=P5P/FtTxg5FBUZ0Ux2ca0nqJDmr7G/hTNP1fkF7JVnIKEUL8YKYx31AHbjpexYVT0Rev
+	 gbn0sF/EpGq9Lx+16eX8SLI0PYxcpcBrDjeZmn1Q39NMuHZxnOSmUabMOFg+fE7EajJtn
+	 2vVOOWs7JCVoJpZ9ew5DSlrGVszf+k+Jzl9xFweynfin8YXhPwNGdtoKQS8X5gM3OxJgI
+	 8Tdf1mfMvr5Q2D1iKaeTwLS30W2rlEQNfCY/GnRC7HlF0DtQJWHSSDfwfsy7/OInW70GG
+	 YPDVLCqM5uUw22SJTQvIw+jEU2rkRJnhrCArU0shbeCWhwcDK2DAKG56jlta36l/yUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=sifive.com;
 	spf=pass smtp.mailfrom=sifive.com;
-	dkim=pass header.d=sifive.com header.i=@sifive.com header.a=rsa-sha256 header.s=google header.b=ejpAtzhQ;
-	arc=none smtp.remote-ip=74.125.82.170
-Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
+	dkim=pass header.d=sifive.com header.i=@sifive.com header.a=rsa-sha256 header.s=google header.b=EpB1ZKf6;
+	arc=none smtp.remote-ip=74.125.82.182
+Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FDEB60A2617
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:07:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FDEB60A2617
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FD3360A262B
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:07:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1FD3360A262B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=sifive.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sifive.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.a=rsa-sha256 header.s=google header.b=ejpAtzhQ
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-386c336eab8so3257045eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:07:29 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.a=rsa-sha256 header.s=google header.b=EpB1ZKf6
+Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-3866a784546so9260393eec.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:07:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1795684049; x=1796288849; darn=vger.kernel.org;
+        d=sifive.com; s=google; t=1795684050; x=1796288850; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=D34z4LAKYnHU9cCU4CpSl7aFm0LZ4mxwUeYBCb2GPa8=;
-        b=ejpAtzhQJJfX+zeG609ydxFLuwyxKIE9hOlNLCcuH0EZyryg7JlBZpNMtIjWCAURES
-         GBU0NWjhxMuITwnSXZ9LGKjZ3iu/gkrtbTR8uy8PSDBZ1spA+6sOavFgeuFklNGIZgf1
-         PK9e86FndRZff9I8TYGFqcmGkbWe4bzyWRcJiptqdtg47AWFRGYkJAZ9vsvViIOoMULk
-         R6mFScu9g8g/WTpdvVDlzB4tTuwPCOKHmTV5xTstq06aZCiaPy5GoNrG3SXi7BRg8gwk
-         v51scUg4ifp4t5JNLZlXumQ9EpMk3UhKTFn8j2H2MpPfTrzWcm3Ppzm9wm3fz57IcnFY
-         b7ow==
+        bh=496JOXpOEHemKz8UL2GWW4yob5VAkawIc7w2N9x0+W4=;
+        b=EpB1ZKf6ohYzLuR3qFJEHmXT8RUVIvLrkogUbkZZwOKj8jkJCM92285IzDMqMBDMsH
+         dgId/tzm3iH/WwoIwPvyMr8mt85+gKWhxcHJOf7UQqnevhH4rKpHtlLLTpPZ8y5YcFD7
+         1l+uNTr5jgtMRKPmWlr+KgKMBepoJMttKEDYYHj7atpcMFAaimgtOJSbm0XmqM+a2EJU
+         J3JbEXhTPhlbCEUVqV2asLwaVpVEktXQPl6a0pEaFSBYucX6k/6ob1g1IdtHvvgf8Ro1
+         OQiJFkMUMLnkFQym/copn+nFDlFRSMynCqd/+73eHdADLW2BT/EqUsvskB5k5X0PY46Q
+         Y7+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795684049; x=1796288849;
+        d=1e100.net; s=20260707; t=1795684050; x=1796288850;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=D34z4LAKYnHU9cCU4CpSl7aFm0LZ4mxwUeYBCb2GPa8=;
-        b=de2h0iQ1qioTwjMLizwrqdWJwt+QnXmmmkEXzkUEGrbYNN+nOyNXVx9CHsI1BmumFa
-         uRkp63Al1OzKrxAEYsEkckPiPVmZMSgA6lHSSKecddvE8WoqvdAdlTBZrzyHoE90IdDc
-         Zrb6OZy05kNcBGs4SwDlGmXFqwpzuf1+o8Cv7fEHYjuV+dRL6QA25zUaErPVH7eB7egL
-         sVGO4GbYIVOkw2z/EXt08qqJHCECSHDAysK+busdgUl7rAl6kNU08dxAaNRDyMTUJZBo
-         w2ClFKHqXaNd+yhAyYjY4beDrMyOSnE5mu6ALAyAHRIpxn0H/vWIPDCrsSFVhOe08xLq
-         OLIg==
-X-Forwarded-Encrypted: i=1; AL+hErGbUO7XvA6KeIFeIc1T/MuXbweqzlTAeUKCWJQoVu+99GtO3qPbdx90U8+8rlht8tBlOItWhC+enrXGGWc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+QZDrhu7g7w2KbE0/ViSoNJ71UydF3HNOl6Wiuz79wiJoi18qU
-	iZ/Qzv69s4CuPKx5lvlrPnt1U57nb4q8oyiW3maCjMsljNlt8GiBMMUPvdpkc9oOI4I=
-X-Gm-Gg: AZFdTZcChvxR5G4uAdjhtqLWmiFJAMSSnNFYatG2iVoiCfP+Ee2Z7iAmhndG5EDtymn
-	wM9rHW9kCTJnqWm1bde+zJBIXPDBT18g4QHscUtNe+lGnMxczo92vWIR4Ck107ocWlhslAasyha
-	zavzJHkwnOZdYkzgk5hD1oqlhp893MFr1lrj5GWKvg2RdAe4vvmXKIvKO/T+8ARTagdbdedv9Yu
-	c2N16wcjqwwZxk7uUTQiq0wk2kh866Panpjy9oQc3ZWcZ8TGK9Eor21f6T7YzTq4GAO7SAKDsw6
-	DVRWVej0yt7xJzTLt9fXoVpcjj7fZv5Ytolwamyvmrp8F/NzOjhkLmyKmmrLHZmpC2cv6pf/m5N
-	TTtYIdLVPhPYLo5oQEUQANta/+fckpvIeVxwWev3ljzA3k5ftgQFbEV7meLwlPaB5+vU4NaA5VC
-	ga4X0i6c/Oz9Wudi39R8yuCqKSXSwC/P7bwyR9qUJV330qIZr9ox+dcrCLwKla8IsSOztI23776
-	VwSW8328tEgXCmeWtUjjDTib1bgjDlhMWGyDZ9HA3zSqkXkWFop09QY3IAsw92XXvlqf4UCSjY1
-	oQojE3+JRJmeUvbxq7i3Qx/DNzmC1fmx5RLbp6P6jMxK
-X-Received: by 2002:a05:7301:6782:b0:385:2ea8:aac7 with SMTP id 5a478bee46e88-3852ea8d7d4mr29001166eec.23.1795684048801;
-        Thu, 26 Nov 2026 01:07:28 -0800 (PST)
+        bh=496JOXpOEHemKz8UL2GWW4yob5VAkawIc7w2N9x0+W4=;
+        b=tKPojlYApfUvWDod4RhQ/cYrhV59Smi6AVPmouxwiRV0H6P/QSTO3fr8OhCGZpnIyi
+         8em2cKiuBp09is/AJcnAsFuIsT78roj+rGU0AU5iG7r4GCNGUC9kK+jrcft/fT3YSH2X
+         JDzXVJdnIJxwBtG0YA0GMm1CvZ0SVImtOjhN59YqpL4fEB9oIWfZXsmySsLbSv4iSrX+
+         G72FCN+KMl8ZINQKdTD8YxxOdcCMShupFP0SSyIResDf2U26rwpoPA9orPK72BZYdw48
+         JlE4d6NJegKkFJhF1TmLsUNZ8dkAr1G2LI7yR/kRYYkiT3He480NVkKZR5EIlLwPEJrP
+         EElQ==
+X-Forwarded-Encrypted: i=1; AL+hErGQyp+O5o0m4U7uIU4He5p6n80xIjULW+jwgn994IHm5Yndu899XSkY8mcrkqSjyiTtwYbaxY6JGLPUXkA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+SJdmxtiqkGqkmQMO2bSwYtsdu3XZXG18eFOhC2GjonpDrwu8b
+	IV2Igimpb+DabR2Q08FPjlJzW5q98D8gbGglZ1lZzVcXcByveYBdPO4+F43dPEwcRGQ=
+X-Gm-Gg: AZFdTZfzOFuQU3jWZD6PBRblxaYzhA8WzeSUyTlziRQzM8sP0S4e85jlcz6oHXURfM5
+	MEywbyHBEinEfm32zvXWqKoNz1Udv6WhHR8qrZ3XrlsJrCFMeudtzdtrFoOAvDkLzHWKbCjL8QA
+	p1fS9qF7BU0lvDml+h91mdoknlXRGCUwpi/6FHOGom9DzZqPurXpTKnKeM8E/Fy6VP3Q8aS+jaZ
+	M009Jb64oekuzwv0+DNcYpeULR/9stMNgjO+aQnhB2yIwCuw4BkQ/gESxUIk/5Ri8m2WSd8iVKi
+	RvNy/GipbwObDr0BKauUcohdZxf0Uivqxul5MJ4kqjOy8sUtVtTvLlYdgBLNUfhZJjxWUFgfjYr
+	6l21XeC6B4EF2zIoE+KYEwgZ8sqKohoD56NUd+6mfHeuPqQ93GKd+thrs1HL2qWRNgBDvwdj6GR
+	TKZxx9GI1vP9mjJ2PMmKdKTIpu1xbLq7sqCA5tkUlZEyRq4aGaGOu1h2rGPErrRyzBnFG2WkRIR
+	EoEgSW5vcNpk8EdZ9Y9kNDC5S+16B1myYiPI7NWDn69y4EbM6IB2PjIdDlFoRaP+YatvQkqhbvc
+	FZppGOve+xMOYeMpOE2ttDNtxmJfBodt6huunlikf17x
+X-Received: by 2002:a05:7300:881a:b0:385:8aea:11bf with SMTP id 5a478bee46e88-3858aea13eamr24314577eec.41.1795684050228;
+        Thu, 26 Nov 2026 01:07:30 -0800 (PST)
 Received: from sw08.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7fc3sm54058730eec.8.2026.11.26.01.07.27
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7fc3sm54058730eec.8.2026.11.26.01.07.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 01:07:28 -0800 (PST)
+        Thu, 26 Nov 2026 01:07:29 -0800 (PST)
 From: Leo Yu-Chi Liang <leo.liang@sifive.com>
-Date: Thu, 26 Nov 2026 01:07:13 -0800
-Subject: [PATCH 07/10] gtrace: rvtrace: Add pre-ratified trace funnel
- driver
+Date: Thu, 26 Nov 2026 01:07:14 -0800
+Subject: [PATCH 08/10] gtrace: rvtrace: Introduce struct
+ rvtrace_ramsink_regs to abstract register offsets
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,7 +94,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-send-preratified-trace-v1-7-1e686fd75be7@sifive.com>
+Message-Id: <20261126-send-preratified-trace-v1-8-1e686fd75be7@sifive.com>
 References: <20261126-send-preratified-trace-v1-0-1e686fd75be7@sifive.com>
 In-Reply-To: <20261126-send-preratified-trace-v1-0-1e686fd75be7@sifive.com>
 To: Mayuresh Chitale <mchitale@gmail.com>, Anup Patel <anup@brainfault.org>, 
@@ -114,10 +114,15 @@ X-Mailer: b4 0.16.0
 
 From: Eric Lin <eric.lin@sifive.com>
 
-Add the initial implementation to support the pre-ratified RISC-V
-trace funnel. This implementation provides basic functionality to
-enable the trace funnel, configure its next sink when tracing starts,
-and disable the funnel when tracing stops.
+The pre-ratified trace ramsink implementation uses different register
+offsets compared to the ratified RISC-V trace specification. To allow
+the pre-ratified trace ramsink to leverage the rvtrace ramsink setup
+and copy functions, introduce 'struct rvtrace_ramsink_regs'. This
+abstracts the register map, enabling both pre-ratified and ratified
+trace hardware to provide their own register layouts.
+
+The read/write pair helpers no longer assume that the high register
+is located right after the low register, and take both offsets.
 
 Co-developed-by: Nick Hu <nick.hu@sifive.com>
 Signed-off-by: Nick Hu <nick.hu@sifive.com>
@@ -126,149 +131,170 @@ Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
 Signed-off-by: Eric Lin <eric.lin@sifive.com>
 Signed-off-by: Leo Yu-Chi Liang <leo.liang@sifive.com>
 ---
- drivers/hwtracing/gtrace/Kconfig          | 13 ++++
- drivers/hwtracing/gtrace/Makefile         |  1 +
- drivers/hwtracing/gtrace/rvtrace-funnel.c | 98 +++++++++++++++++++++++++++++++
- 3 files changed, 112 insertions(+)
+ drivers/hwtracing/gtrace/rvtrace-ramsink.c | 69 ++++++++++++++++++++++++------
+ 1 file changed, 56 insertions(+), 13 deletions(-)
 
-diff --git a/drivers/hwtracing/gtrace/Kconfig b/drivers/hwtracing/gtrace/Kconfig
-index b1f9ca8f73cb..66fc2791d8f4 100644
---- a/drivers/hwtracing/gtrace/Kconfig
-+++ b/drivers/hwtracing/gtrace/Kconfig
-@@ -43,6 +43,19 @@ config RVTRACE_ENCODER
- 	  To compile this driver as a module, choose M here: the module
- 	  will be called rvtrace-encoder.
+diff --git a/drivers/hwtracing/gtrace/rvtrace-ramsink.c b/drivers/hwtracing/gtrace/rvtrace-ramsink.c
+index 52aeb7626a55..a164db57167f 100644
+--- a/drivers/hwtracing/gtrace/rvtrace-ramsink.c
++++ b/drivers/hwtracing/gtrace/rvtrace-ramsink.c
+@@ -15,8 +15,11 @@
+ #include "rvtrace.h"
  
-+config RVTRACE_FUNNEL
-+	tristate "RISC-V Trace Funnel driver"
-+	depends on RVTRACE_V0
-+	default y
-+	help
-+	  This driver provides support for the RISC-V trace funnel component
-+	  which combines the trace data from multiple upstream components
-+	  into a single trace stream. Only pre-ratified trace funnels are
-+	  supported for now.
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called rvtrace-funnel.
-+
- config RVTRACE_RAMSINK
- 	tristate "RISC-V Trace Ramsink driver"
- 	depends on RVTRACE
-diff --git a/drivers/hwtracing/gtrace/Makefile b/drivers/hwtracing/gtrace/Makefile
-index 0a2e2d1732c2..38dd96b3dc34 100644
---- a/drivers/hwtracing/gtrace/Makefile
-+++ b/drivers/hwtracing/gtrace/Makefile
-@@ -8,4 +8,5 @@ obj-$(CONFIG_RVTRACE) += rvtrace.o
- rvtrace-y := rvtrace-platform.o
- rvtrace-$(CONFIG_RVTRACE_V0) += rvtrace-v0.o
- obj-$(CONFIG_RVTRACE_ENCODER) += rvtrace-encoder.o
-+obj-$(CONFIG_RVTRACE_FUNNEL) += rvtrace-funnel.o
- obj-$(CONFIG_RVTRACE_RAMSINK) += rvtrace-ramsink.o
-diff --git a/drivers/hwtracing/gtrace/rvtrace-funnel.c b/drivers/hwtracing/gtrace/rvtrace-funnel.c
-new file mode 100644
-index 000000000000..2e0843d233ab
---- /dev/null
-+++ b/drivers/hwtracing/gtrace/rvtrace-funnel.c
-@@ -0,0 +1,98 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2026 SiFive Inc.
+ #define RVTRACE_RAMSINK_STARTLOW_OFF		0x010
++#define RVTRACE_RAMSINK_STARTHIGH_OFF		0x014
+ #define RVTRACE_RAMSINK_LIMITLOW_OFF		0x018
++#define RVTRACE_RAMSINK_LIMITHIGH_OFF		0x01c
+ #define RVTRACE_RAMSINK_WPLOW_OFF		0x020
++#define RVTRACE_RAMSINK_WPHIGH_OFF		0x024
+ #define RVTRACE_RAMSINK_WPLOW_WRAP		0x1
+ #define RVTRACE_RAMSINK_CTRL_MODE_MASK		0x1
+ #define RVTRACE_RAMSINK_CTRL_MODE_SHIFT		0x4
+@@ -33,7 +36,39 @@ enum rvtrace_ramsink_mode {
+ 	MODE_SMEM
+ };
+ 
++/**
++ * struct rvtrace_ramsink_regs - Register offsets for RAM sink implementations
++ * @start_low:  Offset of the start address low register
++ * @start_high: Offset of the start address high register
++ * @limit_low:  Offset of the limit address low register
++ * @limit_high: Offset of the limit address high register
++ * @wp_low:     Offset of the write pointer low register
++ * @wp_high:    Offset of the write pointer high register
 + *
++ * Different RAM sink implementations may have different register layouts.
++ * This structure allows the common code to work with any layout.
 + */
-+
-+#include <linux/device.h>
-+#include <linux/gtrace.h>
-+#include <linux/module.h>
-+#include <linux/types.h>
-+#include "rvtrace.h"
-+#include "rvtrace-v0.h"
-+
-+static int rvtrace_funnel_start(struct gtrace_path_node *node)
-+{
-+	struct gtrace_component *comp = node->comp;
-+	int ret;
-+
-+	/* Set pre-ratified comp's next sink */
-+	ret = rvtrace_v0_sink_config(node);
-+	if (ret) {
-+		dev_err(&comp->dev, "failed to set next sink.\n");
-+		return ret;
-+	}
-+
-+	ret = gtrace_enable_component(comp);
-+	if (ret)
-+		dev_err(&comp->dev, "failed to enable funnel.\n");
-+
-+	return ret;
-+}
-+
-+static int rvtrace_funnel_stop(struct gtrace_component *comp)
-+{
-+	int ret;
-+
-+	ret = gtrace_disable_component(comp);
-+	if (ret) {
-+		dev_err(&comp->dev, "failed to disable funnel.\n");
-+		return ret;
-+	}
-+
-+	return rvtrace_comp_poll_empty(comp);
-+}
-+
-+static int rvtrace_funnel_probe(struct gtrace_component *comp)
-+{
-+	int ret;
-+
-+	ret = gtrace_enable_component(comp);
-+	if (ret)
-+		return dev_err_probe(&comp->dev, ret, "failed to enable funnel.\n");
-+
-+	return 0;
-+}
-+
-+static void rvtrace_funnel_remove(struct gtrace_component *comp)
-+{
-+	int ret;
-+
-+	ret = gtrace_disable_component(comp);
-+	if (ret)
-+		dev_err(&comp->dev, "failed to disable funnel.\n");
-+}
-+
-+static const struct gtrace_component_id rvtrace_funnel_ids[] = {
-+	{ .type = GTRACE_RVTRACE_FUNNEL,
-+	  .version = rvtrace_component_mkversion(0, 0), },
-+	{},
++struct rvtrace_ramsink_regs {
++	u32 start_low;
++	u32 start_high;
++	u32 limit_low;
++	u32 limit_high;
++	u32 wp_low;
++	u32 wp_high;
 +};
 +
-+static struct gtrace_driver rvtrace_funnel_driver = {
-+	.id_table = rvtrace_funnel_ids,
-+	.start = rvtrace_funnel_start,
-+	.stop = rvtrace_funnel_stop,
-+	.probe = rvtrace_funnel_probe,
-+	.remove = rvtrace_funnel_remove,
-+	.driver = {
-+		.name = "rvtrace-funnel",
-+	},
++/* Register offsets for the standard RISC-V trace ramsink */
++static const struct rvtrace_ramsink_regs rvtrace_std_ramsink_regs = {
++	.start_low	= RVTRACE_RAMSINK_STARTLOW_OFF,
++	.start_high	= RVTRACE_RAMSINK_STARTHIGH_OFF,
++	.limit_low	= RVTRACE_RAMSINK_LIMITLOW_OFF,
++	.limit_high	= RVTRACE_RAMSINK_LIMITHIGH_OFF,
++	.wp_low		= RVTRACE_RAMSINK_WPLOW_OFF,
++	.wp_high	= RVTRACE_RAMSINK_WPHIGH_OFF,
 +};
 +
-+static int __init rvtrace_funnel_init(void)
-+{
-+	return gtrace_register_driver(&rvtrace_funnel_driver);
-+}
+ struct rvtrace_ramsink_priv {
++	const struct rvtrace_ramsink_regs *regs;
+ 	size_t size;
+ 	void *va;
+ 	dma_addr_t start;
+@@ -56,20 +91,22 @@ struct trace_buf {
+ };
+ 
+ /* Helper to access start, limit, wp pair registers */
+-static u64 rvtrace_ramsink_read_pair(struct gtrace_platform_data *pdata, u32 low_off)
++static u64 rvtrace_ramsink_read_pair(struct gtrace_platform_data *pdata,
++				     u32 low_off, u32 high_off)
+ {
+ 	u32 low, high;
+ 
+ 	low = gtrace_read32(pdata, low_off);
+-	high = gtrace_read32(pdata, low_off + 4);
++	high = gtrace_read32(pdata, high_off);
+ 
+ 	return (u64)high << 32 | low;
+ }
+ 
+-static void rvtrace_ramsink_write_pair(struct gtrace_platform_data *pdata, u64 val, u32 low_off)
++static void rvtrace_ramsink_write_pair(struct gtrace_platform_data *pdata, u64 val,
++				       u32 low_off, u32 high_off)
+ {
+ 	gtrace_write32(pdata, lower_32_bits(val), low_off);
+-	gtrace_write32(pdata, upper_32_bits(val), low_off + 4);
++	gtrace_write32(pdata, upper_32_bits(val), high_off);
+ }
+ 
+ static int rvtrace_ramsink_start(struct gtrace_path_node *node)
+@@ -152,6 +189,7 @@ static size_t rvtrace_ramsink_copyto_auxbuf(struct gtrace_component *comp,
+ 					    u64 *format)
+ {
+ 	struct rvtrace_ramsink_priv *priv = dev_get_drvdata(&comp->dev);
++	const struct rvtrace_ramsink_regs *regs = priv->regs;
+ 	struct trace_buf src, dst;
+ 	size_t bytes = 0;
+ 	bool wrap;
+@@ -163,12 +201,13 @@ static size_t rvtrace_ramsink_copyto_auxbuf(struct gtrace_component *comp,
+ 	src.base = priv->va;
+ 	src.len = priv->size;
+ 	*format = PERF_AUX_FLAG_GTRACE_FORMAT_ETRACE;
+-	wp = rvtrace_ramsink_read_pair(comp->pdata, RVTRACE_RAMSINK_WPLOW_OFF);
++	wp = rvtrace_ramsink_read_pair(comp->pdata, regs->wp_low, regs->wp_high);
+ 	wrap = wp & RVTRACE_RAMSINK_WPLOW_WRAP;
+ 	wp &= ~RVTRACE_RAMSINK_WPLOW_WRAP;
+ 
+ 	if (wrap) {
+-		rvtrace_ramsink_write_pair(comp->pdata, priv->start, RVTRACE_RAMSINK_WPLOW_OFF);
++		rvtrace_ramsink_write_pair(comp->pdata, priv->start,
++					   regs->wp_low, regs->wp_high);
+ 		src.cur = wp - priv->start;
+ 		priv->prev_wp = priv->start;
+ 		/*
+@@ -191,13 +230,14 @@ static size_t rvtrace_ramsink_copyto_auxbuf(struct gtrace_component *comp,
+ static int rvtrace_ramsink_setup_buf(struct gtrace_component *comp,
+ 				     struct rvtrace_ramsink_priv *priv)
+ {
++	const struct rvtrace_ramsink_regs *regs = priv->regs;
+ 	struct device *pdev = comp->pdata->dev;
+ 	u64 limit_max, end;
+ 	int ret;
+ 
+ 	/* Probe max value for limit register */
+-	rvtrace_ramsink_write_pair(comp->pdata, U64_MAX, RVTRACE_RAMSINK_LIMITLOW_OFF);
+-	limit_max = rvtrace_ramsink_read_pair(comp->pdata, RVTRACE_RAMSINK_LIMITLOW_OFF);
++	rvtrace_ramsink_write_pair(comp->pdata, U64_MAX, regs->limit_low, regs->limit_high);
++	limit_max = rvtrace_ramsink_read_pair(comp->pdata, regs->limit_low, regs->limit_high);
+ 	if (!limit_max) {
+ 		dev_err(&comp->dev, "trRamLimit register not implemented\n");
+ 		return -EINVAL;
+@@ -218,13 +258,14 @@ static int rvtrace_ramsink_setup_buf(struct gtrace_component *comp,
+ 	 * Check if DMA start and end addresses allocated by the kernel can be set in the ramsink
+ 	 * start, limit registers respectively.
+ 	 */
+-	rvtrace_ramsink_write_pair(comp->pdata, priv->alloc_start, RVTRACE_RAMSINK_STARTLOW_OFF);
++	rvtrace_ramsink_write_pair(comp->pdata, priv->alloc_start,
++				   regs->start_low, regs->start_high);
+ 	/* Limit address needs to be set to end - mem_access_width to avoid overflow */
+ 	end = priv->alloc_start + priv->alloc_size - priv->mem_acc_width;
+-	rvtrace_ramsink_write_pair(comp->pdata, end, RVTRACE_RAMSINK_LIMITLOW_OFF);
++	rvtrace_ramsink_write_pair(comp->pdata, end, regs->limit_low, regs->limit_high);
+ 
+-	priv->start = rvtrace_ramsink_read_pair(comp->pdata, RVTRACE_RAMSINK_STARTLOW_OFF);
+-	priv->end = rvtrace_ramsink_read_pair(comp->pdata, RVTRACE_RAMSINK_LIMITLOW_OFF) +
++	priv->start = rvtrace_ramsink_read_pair(comp->pdata, regs->start_low, regs->start_high);
++	priv->end = rvtrace_ramsink_read_pair(comp->pdata, regs->limit_low, regs->limit_high) +
+ 		    priv->mem_acc_width;
+ 
+ 	/* Sanity check start, end addresses */
+@@ -245,7 +286,7 @@ static int rvtrace_ramsink_setup_buf(struct gtrace_component *comp,
+ 	priv->va = priv->alloc_va + (priv->start - priv->alloc_start);
+ 	priv->size = priv->end - priv->start;
+ 	priv->prev_wp = priv->start;
+-	rvtrace_ramsink_write_pair(comp->pdata, priv->start, RVTRACE_RAMSINK_WPLOW_OFF);
++	rvtrace_ramsink_write_pair(comp->pdata, priv->start, regs->wp_low, regs->wp_high);
+ 
+ 	return 0;
+ 
+@@ -275,6 +316,8 @@ static int rvtrace_ramsink_setup(struct gtrace_component *comp)
+ 		break;
+ 	}
+ 
++	priv->regs = &rvtrace_std_ramsink_regs;
 +
-+static void __exit rvtrace_funnel_exit(void)
-+{
-+	gtrace_unregister_driver(&rvtrace_funnel_driver);
-+}
-+
-+module_init(rvtrace_funnel_init);
-+module_exit(rvtrace_funnel_exit);
-+
-+/* Module information */
-+MODULE_DESCRIPTION("RISC-V Trace Funnel Driver");
-+MODULE_LICENSE("GPL");
+ 	if (priv->mode != MODE_SMEM) {
+ 		dev_err(&comp->dev, "only smem mode is supported\n");
+ 		return -EOPNOTSUPP;
 
 -- 
 2.43.7
