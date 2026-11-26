@@ -1,60 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795702455;
-	b=4MLA4Jrgr+vOPckvAf1jNTvPru2QHlu4xDmbOH4ZJnEiqtFsp6mt61IRxTlaKpWVIW1J
-	 5IQQ/oCQkYDAyxi9ozvtWvWWSfsjkMMsTfJpGGNSbcefflcyKHbMbVHP/iDZCVPC+wTPO
-	 ELHhnJrvL2uGkmPGrmGLZGUBDTSSTK3Zbyy9puRS3bL7aAIJK+4NmYeDAXnKugm452R/r
-	 d0X/XJ0md+qFaneBbfPQulhEySV3sJOnVZZUdHhImfSCLCiO/HmQiNzhXSJB8eVz3Z8p4
-	 R97a2rRuQ1kj41b/3vlwU84xNnfxWn5rOACvKp8wWIFWqxAyUX1woSRW0h9qW26H6vw==
+	t=1795702459;
+	b=RPvu1AV4OlMB0oME4Tb2WijkJVaIl9WaWH0W5qOAUnnSIGfQKjm/UyVJtepebg1OecNy
+	 9d0V97KMbJGFIWGVr8Nx4Go9HBhtj546s9YLjHfnCC5zAh8LhYge24M2yDy1U7ers7/1c
+	 klT1OFtIjr6J/ISe010DK29VGIkE4MJEQ3q8PCFRljSpIp9i3uydiV59IDqF3LMX7rbgh
+	 /ahs8QwNhMUYYKAmUL7sKo6oPZyTE3z48hfbVPU4+9upkTf1p255kr6wosH/1CbpL7ZqS
+	 cxt2Y3bMrWBx9mc4tsGuugX7ID0ykGJUE4a8TO9mmwSVIeA401swrsQxZMYkSRHB60g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795702455;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795702459;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Last-TLS-Session-Version;
-	bh=2af9+w00uzOD6FRM91HNOb040wzCwbe4fv9IMgKEHAQ=;
-	b=CIeK1uP/ab4ow3/0l+8P4HV0k+mRP+3L6Kaogv8v19eM3nM9s3KKMzidZG1bPeW5T/cl
-	 3jgt0Z7CpW5pGkgTpb61ESnRxhK2MDrKvh0hAlPdZr2WCVXYUzUkrkHKMui24gILx3T2U
-	 3aPblV8CEqG73ZuvSnxtLpwRXSHVRHhIVMef+HWkos1JQMEGjcyb4ob350sHKw1Rk4p+j
-	 pPWVPMEnTPTTHKQQjP1vkUJNwpGdFnad0jH/IGWlZej41UjMNClzpyIPlg7ogtTzKZFc5
-	 txuyXpCOJBBGlc2qejO2zQjIGFYKU27GjUZe/92ujft/njvxfF037YTTuI4XLn3OOkw==
+	bh=qVAXqerUP7sbqeSVsjtLE6JO9kSq/GRwAU1fb/UnAj8=;
+	b=xVtAr/rWaVaE2ZgGwIp6FzfquLjFzoHpX2JwIY9LCxmY9jBTASql8ObC/4u4YX7pIfUl
+	 R9hyXNxTa+SNWd0Hpo/0PkFiRmK4sdfuUcByZ+3/Fy8FNWDcxwGnPutj5udEN3JBhMsge
+	 0OR/kN9l0bmgwqD6KeChA3x9e7/4CrkBGCzOpF2QxgWjp3+fhw5VZ8gH11+PC7pdMP6qZ
+	 X4Zku6zaub1tnl2I4pH5HXdMXl/NkqHYFbZWM4hLNuDUTyHjgIzgBXq6PZzSb5DFBpujz
+	 wM05jP6UfqrJetDEvDMP/rs/JFhizaf7xJ5kxELGXh2EkrvYPGv1tyvdEk36aAe4U5w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=i73bhyEy;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="Arv5g/Zc";
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 772EB606A334;
-	Thu, 26 Nov 2026 14:14:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 772EB606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7BFF606A6A1
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:14:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7BFF606A6A1
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=i73bhyEy
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Arv5g/Zc
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 271B51A17F9;
-	Thu, 26 Nov 2026 14:14:13 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 89636C2B9D4;
+	Thu, 26 Nov 2026 14:14:25 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id EF830604ED;
-	Thu, 26 Nov 2026 14:14:12 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 49CCD11E683C9;
-	Thu, 26 Nov 2026 15:14:08 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 341E6604ED;
+	Thu, 26 Nov 2026 14:14:17 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D9EC911E68308;
+	Thu, 26 Nov 2026 15:14:13 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795702450; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795702456; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=2af9+w00uzOD6FRM91HNOb040wzCwbe4fv9IMgKEHAQ=;
-	b=i73bhyEysgiDbwbL4Upc+N2TxHgqSZ3wKu04/T9EAo6xU5p3/QQ7X4jo4u0f7kP9N0lu24
-	el+AQ92tEE5YF0qdtcvpQtP6Lg9Ee7xz+4Idkd4ezKzizOXJiqJoB/6i793+OS3fymenfs
-	GA1sVPmKkbnFVYr4iJjf4cuBH9OHFZyJQ1KmQzSYY7fJxKF1a+gg5TyQPP/LlX1pbGLtRs
-	xxpuDf36RRQwWk67IEn4nsGLT7MexTTDo9GXi3BrvJFtNp6o+xGvjdojBo32YKOSIfK19o
-	Ks1bvYvo7YS4xF2UWtW7hJfrraPIEFn+6mSAA41stAI+u1p9BRv0ue82pVyWCA==
+	bh=qVAXqerUP7sbqeSVsjtLE6JO9kSq/GRwAU1fb/UnAj8=;
+	b=Arv5g/Zc2q7Y0+jNBs9+vNA9VhFMRh6GxMA7CGHYbvqW++2AXQP+GrmfuP0kEhwXNsx+8u
+	9iwk9voWrhRB34qryXDWqt28oPtWG+jktsb1ZEP6Hm5wBZxuIzy5+ACuPxw0y2RsJQo9+/
+	wcw1san2dwKqCbszPRm4QQRih5uuMlXNrDvifRtMWJAxERixSQzcX257s4j2fC2ODAox4W
+	RonbNxoWiTWL8xmLrm6h7LC5Orp7wuFl0aKG7SaUbCHKMnIo7aGl/ONfkIPB7lrZ/XkdsU
+	mZmY2bFl2WfiC/0ya516Hbl6bf/NtQ0twIUCj2sCzJsmAaWJ/RTGVY36GfZS3Q==
 From: Paul Louvel <paul.louvel@bootlin.com>
-Date: Thu, 26 Nov 2026 15:13:43 +0100
-Subject: [PATCH net-next 1/3] dt-bindings: net: dsa: lan9303: add Microchip
- LAN9354 compatible
+Date: Thu, 26 Nov 2026 15:13:45 +0100
+Subject: [PATCH net-next 3/3] net: dsa: lan9303: add LED mode configuration
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,7 +65,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-lan9303-leds-v1-1-a96731317859@bootlin.com>
+Message-Id: <20261126-lan9303-leds-v1-3-a96731317859@bootlin.com>
 References: <20261126-lan9303-leds-v1-0-a96731317859@bootlin.com>
 In-Reply-To: <20261126-lan9303-leds-v1-0-a96731317859@bootlin.com>
 To: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
@@ -82,61 +81,194 @@ Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
  Miquel Raynal <miquel.raynal@bootlin.com>, 
  Paul Louvel <paul.louvel@bootlin.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795702442; l=2028;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795702442; l=5781;
  i=paul.louvel@bootlin.com; s=20260313; h=from:subject:message-id;
- bh=Bre0xRv5cdfdmi0n2iDaeMyZE3i4rxiXnVfwYy2Mo04=;
- b=+y7euHTOrSppXg9QtAhXYrvWZiw4RNV7tEXS/9ekoO8VHDwkW7nVohtEbqILICQ2ZeTO3S67x
- 0vV8gSN6NVvD2kD/l6Vb/OZ6HGee/uLGqmW+6+RkRBXA4gQoh+NAzKm
+ bh=VkpmakpVMIRR3BKgz/6UzbYCPxlQNuFUuiQRVFARBuQ=;
+ b=0sNtOK/KKjYbJb4VQvoDF31FHCevr/ifbLunu1RehpjxCsRRTPJVEVFt2YOWpue6CDsYdBmRT
+ cdbox+L6O4UC8f3s13/162ONYl0dVjM48SdmEoTmi5RrIxmzr2rvJVl
 X-Developer-Key: i=paul.louvel@bootlin.com; a=ed25519;
  pk=eLW50NT18UAvUT5cAcYf88zNbBCZDLFXuptpyLVhVIU=
 X-Last-TLS-Session-Version: TLSv1.3
 
-The driver has matched "microchip,lan9354-mdio" since commit 13248b975038
-("net: dsa: LAN9303: Add basic support for LAN9354"), but the binding only
-documents the two SMSC compatibles. A board using the LAN9354 therefore
-fails dtbs_check even though the driver binds.
+The LED function of the LAN9303 and LAN9354 is selected by a single
+LED_FUN field that applies to all six LED pins of the two external
+ports.
 
-Add the compatible to the enum and mention the LAN9354 in the title and
-description.
+On some boards the LED straps double as configuration straps for other
+functions, such as the PHY address or the EEPROM size, so the desired
+LED mode cannot be strapped and has to be programmed by the driver.
+
+The LED subsystem is not used here: it models each LED independently,
+while this hardware has one function field for all LEDs.
+
+Read the optional "smsc,led-mode", and configure the device accordingly.
 
 Signed-off-by: Paul Louvel (Schneider Electric) <paul.louvel@bootlin.com>
 ---
- Documentation/devicetree/bindings/net/dsa/smsc,lan9303.yaml | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+ drivers/net/dsa/lan9303-core.c | 74 ++++++++++++++++++++++++++++++++++++++++--
+ include/linux/dsa/lan9303.h    |  8 +++++
+ 2 files changed, 80 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/net/dsa/smsc,lan9303.yaml b/Documentation/devicetree/bindings/net/dsa/smsc,lan9303.yaml
-index 42f8473538a0..95abf043a118 100644
---- a/Documentation/devicetree/bindings/net/dsa/smsc,lan9303.yaml
-+++ b/Documentation/devicetree/bindings/net/dsa/smsc,lan9303.yaml
-@@ -4,15 +4,16 @@
- $id: http://devicetree.org/schemas/net/dsa/smsc,lan9303.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/net/dsa/lan9303-core.c b/drivers/net/dsa/lan9303-core.c
+index 8eeb8953ff24..6a9ade873e42 100644
+--- a/drivers/net/dsa/lan9303-core.c
++++ b/drivers/net/dsa/lan9303-core.c
+@@ -10,6 +10,7 @@
+ #include <linux/mutex.h>
+ #include <linux/mii.h>
+ #include <linux/of.h>
++#include <linux/property.h>
+ #include <linux/phy.h>
+ #include <linux/if_bridge.h>
+ #include <linux/if_vlan.h>
+@@ -63,6 +64,13 @@
+ #define LAN9303_SWITCH_CSR_CMD_BUSY BIT(31)
+ #define LAN9303_SWITCH_CSR_CMD_RW BIT(30)
+ #define LAN9303_SWITCH_CSR_CMD_LANES (BIT(19) | BIT(18) | BIT(17) | BIT(16))
++#define LAN9303_LED_CFG 0x6f
++# define LAN9303_LED_CFG_LED_FUN_MAX_VAL 0x7
++# define LAN9303_LED_CFG_LED_FUN_SHIFT 8
++# define LAN9303_LED_CFG_LED_FUN_MASK GENMASK(9, 8)
++# define LAN9303_LED_CFG_LED_MODES GENMASK(3, 0)
++# define LAN9354_LED_CFG_LED_FUN_MASK GENMASK(10, 8)
++# define LAN9354_LED_CFG_LED_MODES (GENMASK(5, 0) | BIT(7))
+ #define LAN9303_VIRT_PHY_BASE 0x70
+ #define LAN9303_VIRT_SPECIAL_CTRL 0x77
+ #define  LAN9303_VIRT_SPECIAL_TURBO BIT(10) /*Turbo MII Enable*/
+@@ -240,6 +248,16 @@ static unsigned int flow_ctl_reg[] = {
+ 	LAN9303_MANUAL_FC_2
+ };
  
--title: SMSC/MicroChip LAN9303 three port ethernet switch
-+title: SMSC/MicroChip LAN9303/LAN9354 three port ethernet switch
++static const struct lan9303_led_info lan9303_led_info = {
++	.fun_mask = LAN9303_LED_CFG_LED_FUN_MASK,
++	.avail_modes = LAN9303_LED_CFG_LED_MODES,
++};
++
++static const struct lan9303_led_info lan9354_led_info = {
++	.fun_mask = LAN9354_LED_CFG_LED_FUN_MASK,
++	.avail_modes = LAN9354_LED_CFG_LED_MODES,
++};
++
+ static int lan9303_read(struct regmap *regmap, unsigned int offset, u32 *reg)
+ {
+ 	int ret, i;
+@@ -778,6 +796,20 @@ static int lan9303_enable_processing_port(struct lan9303 *chip,
+ 				LAN9303_MAC_TX_CFG_X_TX_ENABLE);
+ }
  
- maintainers:
-   - Frank Li <Frank.Li@nxp.com>
++static int lan9303_setup_leds(struct lan9303 *chip)
++{
++	unsigned int val;
++
++	if (chip->led_sel_mode >= 0) {
++		val = chip->led_sel_mode << LAN9303_LED_CFG_LED_FUN_SHIFT;
++
++		return regmap_update_bits(chip->regmap, LAN9303_LED_CFG, chip->led_info->fun_mask,
++					  val);
++	}
++
++	return 0;
++}
++
+ /* forward special tagged packets from port 0 to port 1 *or* port 2 */
+ static int lan9303_setup_tagging(struct lan9303 *chip)
+ {
+@@ -902,8 +934,14 @@ static int lan9303_check_device(struct lan9303 *chip)
+ 		return ret;
+ 	}
  
- description:
--  The LAN9303 is a three port ethernet switch with integrated PHYs for the
--  two external ports. The third port is an RMII/MII interface to a host
--  processor. The device can be managed via I2C or MDIO.
-+  The LAN9303 and LAN9354 are three port ethernet switches with integrated
-+  PHYs for the two external ports. The third port is an RMII/MII interface
-+  to a host processor. The LAN9303 can be managed via I2C or MDIO. The
-+  LAN9354 is supported in MDIO mode.
+-	if (((reg >> 16) != LAN9303_CHIP_ID) &&
+-	    ((reg >> 16) != LAN9354_CHIP_ID)) {
++	switch (reg >> 16) {
++	case LAN9303_CHIP_ID:
++		chip->led_info = &lan9303_led_info;
++		break;
++	case LAN9354_CHIP_ID:
++		chip->led_info = &lan9354_led_info;
++		break;
++	default:
+ 		dev_err(chip->dev, "unexpected device found: LAN%4.4X\n",
+ 			reg >> 16);
+ 		return -ENODEV;
+@@ -932,6 +970,30 @@ static int lan9303_check_device(struct lan9303 *chip)
+ 	return 0;
+ }
  
-   Note - always use 'reg = <0/1/2>;' for the three DSA ports, even if the
-   device is configured to use 1/2/3 instead. This hardware configuration
-@@ -23,6 +24,7 @@ properties:
-     enum:
-       - smsc,lan9303-i2c
-       - smsc,lan9303-mdio
-+      - microchip,lan9354-mdio
++static int lan9303_parse_dt(struct lan9303 *chip)
++{
++	u32 led_mode;
++	int ret;
++
++	if (!device_property_present(chip->dev, "smsc,led-mode")) {
++		chip->led_sel_mode = -1;
++	} else {
++		ret = device_property_read_u32(chip->dev, "smsc,led-mode", &led_mode);
++		if (ret)
++			return ret;
++
++		if (led_mode > LAN9303_LED_CFG_LED_FUN_MAX_VAL ||
++		    !(chip->led_info->avail_modes & BIT(led_mode))) {
++			dev_err(chip->dev, "invalid led mode %u\n", led_mode);
++			return -EINVAL;
++		}
++
++		chip->led_sel_mode = led_mode;
++	}
++
++	return 0;
++}
++
+ /* ---------------------------- DSA -----------------------------------*/
  
-   reg:
-     maxItems: 1
+ static enum dsa_tag_protocol lan9303_get_tag_protocol(struct dsa_switch *ds,
+@@ -964,6 +1026,10 @@ static int lan9303_setup(struct dsa_switch *ds)
+ 		regmap_write(chip->regmap, LAN9303_VIRT_SPECIAL_CTRL, reg);
+ 	}
+ 
++	ret = lan9303_setup_leds(chip);
++	if (ret)
++		dev_err(chip->dev, "failed to setup leds %d\n", ret);
++
+ 	ret = lan9303_setup_tagging(chip);
+ 	if (ret)
+ 		dev_err(chip->dev, "failed to setup port tagging %d\n", ret);
+@@ -1477,6 +1543,10 @@ int lan9303_probe(struct lan9303 *chip, struct device_node *np)
+ 	if (ret)
+ 		return ret;
+ 
++	ret = lan9303_parse_dt(chip);
++	if (ret)
++		return ret;
++
+ 	ret = lan9303_register_switch(chip);
+ 	if (ret) {
+ 		dev_dbg(chip->dev, "Failed to register switch: %d\n", ret);
+diff --git a/include/linux/dsa/lan9303.h b/include/linux/dsa/lan9303.h
+index 3ce7cbcc37a3..f0111ad7fb7f 100644
+--- a/include/linux/dsa/lan9303.h
++++ b/include/linux/dsa/lan9303.h
+@@ -17,6 +17,11 @@ struct lan9303_alr_cache_entry {
+ 	u8  stp_override;     /* non zero if set LAN9303_ALR_DAT1_AGE_OVERRID */
+ };
+ 
++struct lan9303_led_info {
++	u32 fun_mask;
++	u32 avail_modes;
++};
++
+ struct lan9303 {
+ 	struct device *dev;
+ 	struct regmap *regmap;
+@@ -30,6 +35,9 @@ struct lan9303 {
+ 	const struct lan9303_phy_ops *ops;
+ 	bool is_bridged; /* true if port 1 and 2 are bridged */
+ 
++	const struct lan9303_led_info *led_info;
++	int led_sel_mode;
++
+ 	/* remember LAN9303_SWE_PORT_STATE while not bridged */
+ 	u32 swe_port_state;
+ 	/* LAN9303 do not offer reading specific ALR entry. Cache all
 
 -- 
 2.56.1
