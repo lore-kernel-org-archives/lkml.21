@@ -1,100 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.214.170
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795653252;
-	b=HJaETK4DrsRsDd63ac8aJx9W3jxa5hhPz92HKPOU9ZcHgEgGMau9nUTTeLrr8Y1A2q+Q
-	 qiG5q5OxoEdF6lSEfloumb0rFMnfieqmFCWTUtrrmV68xacFIYb17F7m0LA2PrgaoWaEk
-	 3LhNMkX/2FuhTe/xASsPubnlhm28pO9lVhvOxRZ3MoB6OC1ev3cAj5pJEHXRXHNLGO8wT
-	 6g1/l02nFZi+uLZP7Iz3+Be8AP04+H/6bRR5ey0C9zu9UYhXLBYn80I0XAtaY1Gqsvlzh
-	 b2aj7jsqJdaCiYE/HWwbQpVUS2ZZ6xFoZyUTb1gPNKseAva6ccImOP/UCsGvkoqviFA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795653252;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=d6I9qfDDhxE3qwmEK7cNTIsxnZEM41yNcM0rvHlRyTY=;
-	b=eZfWFg3a5fBIUMjPU3do2NdyIyBrvQ/ZSfugFonJG/qvoc8FqE/G5A6gOaYLjC44fY8p
-	 O9PIKiPeNXpW/6AJ9zUWUXPfh+Eb7j1ufbqlb1geS2BijVEMA9aRc21UYd+BGfZlDpHRG
-	 hiyvC/d9qhS+Zo7fnXvgS0uS2Bsjj9UV9YLb9x+UK6JvUY8A6z0HGbzHoc/rNthgmuLs9
-	 o38RKocoWcmB0Z5gd/2gDotoOI8jD7aiD9cJtqyaPytQZEeDGXdIMKuUdvwiOFIuGZ5o6
-	 wXJzcrXRef7eHkwFv1XQ4VTlw3aeTcdXINl97Aj5LaduRK8NfGtgl0zX+0h7jjFMkBg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BFK3p5jX;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.214.170
-Received: from mail-pl1-f170.google.com (mail-pl1-f170.google.com [209.85.214.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.58.211
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795653298;
+	b=vy++/B/zDsA124OGbHmJATFQKRA0Fu2Mv0VbWbFsALezE+O8nkdMk4yj8Rip9vqdqekO
+	 pdwKy9iHUvC8Z+Oa16xYxNY5WGSf14UdkVGumY6AS7E4OmzjqovfAhVRYPHVYakSeLWaE
+	 stfgB/T9Z3fZr/rjvRFqqaeKdu0dooMLyU4xeUiPhisWVOI/OFpt/DxoZ5M3fpmJg5/HW
+	 r32aPHeWe193gLTeCXLsMvdtZRv4iFQOFa8F8AIdRvXTTuGHlpF5BJYBlFgEe8OVBBqAn
+	 /qd3WicSAI28z72klCkznYd3jNa6Y3WU4wOg0A+wX9YjDjuqyQRTXm/XcUPfYb0YCWg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795653298;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=bqinDQN+cZ7qIF0PTtyQEbakguVUSKCjXZGxurM9Gv0=;
+	b=hdDUBW61rjQ8yb3bJAHcV5mE/x3uJJYJAXVjzh7wObazZN5n7VuVfNPvCY5ThoR5+GIt
+	 lG+1xyJCJyS1E5pT0yinMGh1dZm2hDuLIrWRN6UGGeDo3ACmBs1NCHtKa+cEAJb03V/PE
+	 uOW1FuKTT5VALgaSpen95YjaTxu6Bjp7oBqsTE6rcvfyFmltUtNoxfjw1hiNt6Ayzz7wV
+	 iS/SPcFwq56vwyRbhOOsRVsd5IMxr/K9KfcrfLAWk54+kBhZUfSGxEP/+F2BhrA/c9jRU
+	 UYYdD66/1E3juuZwDCJm/Oatzmtv6l9P6YMz8ZMkiduz/zSkYcWGrvV3nR58i1ZW7ig==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=oFGHZjhC;
+	arc=none smtp.remote-ip=162.62.58.211
+Received: from out162-62-58-211.mail.qq.com (out162-62-58-211.mail.qq.com [162.62.58.211])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 962E8606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:34:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 962E8606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E90D3606A31E;
+	Thu, 26 Nov 2026 00:34:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E90D3606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BFK3p5jX
-Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2f0464dd6b6so39950775ad.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:34:11 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795653251; cv=none;
-        d=google.com; s=arc-20260327;
-        b=UR2mNy5bvDbThEW8I66irFLrJvIKaba5QedHECfN2Iaohig41cAWzmcJ+mMalwqjcm
-         KiR7TFZwMCa6FiksVvcB9hYNf9pc6MC66RPBf0RnhLgR/e647zaLVUOlsXYa4eT1DCOZ
-         Y9mR5FrvEPv4Q4/T3KEOnWCJnzkgMVBViezgMqf3aU07x3OhALt+ghq/4Tsf9AcdWdSf
-         BkTiXsnBrwum2di6VsjHuKkhcRm4vgL/pOnastdmCItjHkGiHkDKkJ2z0ITTe8ak9ifo
-         DfLnpEGzdECxCAr/WPFzbjbBhMv4p1mVhvV8NdfsJ8ypoWlZ4XD1WOCVagTvDyr+LJ5P
-         zXdw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=d6I9qfDDhxE3qwmEK7cNTIsxnZEM41yNcM0rvHlRyTY=;
-        fh=FP0MDl0lMTKZClv6c/eRpsUsHh+qEq2njmDT0RrbE38=;
-        b=K1LANpMxlcOTj2gdK7hW+ZdbRJ9FeVgdzkNe820W1lJdDR3YMaPqskZat6pBiyalKT
-         z9ko2o6+tybbDWi0RYHt0SIg99AW3GMfo5Sf0Hp7Evp/ieO0m3Jnu8IS6KqaAWJq1Wiu
-         bUARfYSS8u7+ff9X6SzQZ4qwQQpXlUHCqCZL4UWHp5B33cE247KLxKGXFHRrEyibPGC+
-         ekEY+VI08LqCOo+n9vjUR3v6gc48e7tyabBNgSAssZo0PWGuDqyIZEf0qiIMWckHoGjn
-         3TuhPqrm7UAWN9kTOht99nNH7BJwG7FPzSq9Bsoim1he7vF+DVpXGajWqwNBo3j/n/ub
-         SoZA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795653251; x=1796258051; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=d6I9qfDDhxE3qwmEK7cNTIsxnZEM41yNcM0rvHlRyTY=;
-        b=BFK3p5jXUv6YeG8nVgnndSuyNzUBzepo47YrdeRrPgSYT/bpdp/D9Kz3pOOIyhvZbq
-         7wUD9sxhWwX3O6NBYldGrSkH2l+wdvnF0erXnBbqC85Bin4mSccI0ozZo6NyBuL0xaXL
-         T8bwjcQgSBY/Tox8DMELTTRWN7Vq2Y57Ecz1xlb94lZqtJyGHw3PAwCbaIWGILvAYScQ
-         tXzF5oPXN6dxOO5Y8DyVHL3ZMtOKIjFdlq6EfH8naOh3MGyFtbDpIRryUyJBvz2bltv7
-         RjJQVlebqdnba4qGpUaWEdjQ/VoGtSuksTzBXHFpOvmyOzA36BB+tiJQ/TYEuIOiTy9a
-         e1wQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795653251; x=1796258051;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=d6I9qfDDhxE3qwmEK7cNTIsxnZEM41yNcM0rvHlRyTY=;
-        b=XeGEYXAJyjnOBaB3np6uiJEgzRv3rfvb6r1rz3OPH/sB93omMYHtObVykmmBilrfMl
-         L7yZf34j6jJT0p6ycYo814p2kHnl8j/8FunpNOd6Th8334E5abnT6GB2G21cbvVRfvcy
-         9i7zU5ax4YVKcmqIx9nIVqtdgJoHU7TCcZfC61ktgeZUUL5UPhmTm3fOTKWlBF7Bzvsn
-         1bHo7NEs3N8wwU4z6ctokwX8+m6PtXujbJTk6uIoSF12E1qUvt7dyICG3Pfs4p/ft/p7
-         2NFj9dzFvWMiCjNobn+GC7WEViTk0Ul2SZAP1iIsNUQBGagWXFnOqfbjQNCUHJrWaqy3
-         o0lg==
-X-Forwarded-Encrypted: i=1; AL+hErGrE4r4xGvbjh4lnBVI5GXTDZKmgwKJ0pAlZmJUCeUG9So6pUv+1Z01DWL61gE7Vxz4vF0nyydErn5d7u0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8FI78l7p8n/a+eO3sRrjJBFoxoxVbThEd9gYVbGNfxoo1ygPT+
-	cjc5hiirNxTKRVWdRkAYfzg1T0sv83t/ErDSf1NMlWmLDMXV+TcCSizF6pxpW8N4Ang8Vit8wFS
-	hMxTg5Zf8rVYC0JwL5R117RXdX3sZvPY=
-X-Gm-Gg: AZFdTZe7WDRUDqZ6cABdESWLx0ZSbLrLjtGkP73FneDBbNS8b5CLDNDjTGlrs1CTX+M
-	Cf8GuxWYT7i0k4bFtqK5f/S/etadZq7qWregW3Utjn8xg4dyw4/15xgkuGNn0NEVn9brMDAJRM3
-	KUSgNpA78gLhoi5kiPcjSVwx4i2iG8bzWGCArL1T+J+WlJSoC+0/K/FSRoJ88sVzo+OJirKDGTG
-	0pAstJHnavys55MMlJV60ILD4U+2MqIxL26UthYZWIOflkXmlTmwv30+6tKBDLTxMDTvy2PUb4k
-	05o4GFx0oLgv79V3s1qZrSe+f5QIp+sVVzsEZ02n5fkbOPDAtHx/42CDA32LPkiobHoE6zFr1P1
-	z7XoZf7zS7XHPFe1MXjITNPIwQcYj9nr5wjg/Xd4F0fsmgwnQo7XPeyqkXwf2L/h1Mo/ryBcSSz
-	1KLDkK/RDx5tW0KLlU2IrTQcMLrtcjNg==
-X-Received: by 2002:a17:903:2f87:b0:2ef:e285:7085 with SMTP id
- d9443c01a7336-2f03f1b1946mr190849675ad.44.1795653250879; Wed, 25 Nov 2026
- 16:34:10 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=oFGHZjhC
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1795653291; bh=bqinDQN+cZ7qIF0PTtyQEbakguVUSKCjXZGxurM9Gv0=;
+	h=From:To:Cc:Subject:Date;
+	b=oFGHZjhCWNABo5//G2T80aSDmK8u55WolVTKj5/W4XStZNS3wkrMEWl9yOZcyqUW2
+	 gB38nRet5sGLEJmCAHEreWsgsw5vH6K2GfHzvaP9uLFMRW0aPyIYTGLd0/fkiYKqPK
+	 rD8xFnWScdywqku+B+EUMbHUS+Dnh8ZvBg6PS6mg=
+Received: from shuai-VMware-Virtual-Platform.. ([117.158.156.198])
+	by newxmesmtplogicsvrsza63-0.qq.com (NewEsmtp) with SMTP
+	id 8B01F4B6; Thu, 26 Nov 2026 08:34:48 +0800
+X-QQ-mid: xmsmtpt1795653288t73q4h236
+Message-ID: <tencent_934E899D4D24BB3B4827B2A0C9D73461E00A@qq.com>
+X-QQ-XMAILINFO: MqswyhUqVe0CRC25e21QnVsEQWYU2BVBdfLZmOozyc3VIIy1KxxCoOs8PXkHIz
+	 d05XOAXMuLfGM/pBUcrHnGz1xYZoE3rIqD1Ud/VbPHUEHjVj8AObhQZxHWE4F7rn6oiy37FyF0fN
+	 I2cWTrf0DxwFwoN49bQjCSDBe91VZuySsbHD9//7KQ7oJUDdj+PNwWdn7Xvlm9JqfJNOhCzbBFXp
+	 Uh0eoxJlzT7t9Br0lCQu/kZQOltzKeJhHqSZgmthus1i+XzkP/GUdgjAhDNSuOfXETUjecYc1too
+	 VfpM9tINIGfY95PPLnxLDqGH+95zo1FjupE0UzN5+fQzNJEIZGYIQn9iuB5N4XTIYx4pfqyI6HBt
+	 ySwofG5ypfDw/heQ6IOxvLqbXC7dVsUhB3bk96ylOy4YNSoV0qaXexBgd2VGBEBo4dCusNwyri9I
+	 P0r3GiiQguZUfyRoKi/DemJOoYGVbAWhRTuvzeERwqZ8lnbJk0HeZ7H3lgf+tDd2ZIY5OHrYzz4V
+	 m4tYSer4+sNLD/sJc1bHLMZGPZ8JTtSljbxk+nc+4f1SypJbilW9fBJCXw7CJXyPV9PYvt8PC0cF
+	 qBg5KBQKISue/Qwtc26OEpEg8gONte3wVeU3MjT2nirQAoLQAlx6LJ9mL9ljZcNW5FWFUkDM7EN1
+	 v2KZbXkJpH0l91s7nqAViPuBG9v/u+H6fgdWew0/AZTkNRLWlUq3hrUXjxOXIQFvWrMIi7N3WM+t
+	 ShsIUA0EuZOe6ji0/ikz5Plqhck/YFfsA9oJ15kDGYVLyyQTPOnkj2TlXsg1p4IFLHKvpTZw2iIV
+	 gAn1Ye2mPbHDHp5KpEcS89Xc3R1hG7XN6zPCye/ufAflUS2UKrPzwFGbRajjIvwB3n8DUrPamsXG
+	 dJkcLV0tLcSVIsFefyiDO0qZ2pChhFQYF1RgO6q14ZlCyTVjQzYMxUzDlJW8f6SzXiViHSmp/m3I
+	 /U3kTS9yH6Un2KUQXS+k34ALuxhZxdUM+EWrrVVyqgQ67a30Oe9ViuuKJgEpHTGIf/zH+vGZ8bGo
+	 LTaFFsn/7AglrQKm0Sgw0d9aIwKNcSsrRQVzTBp/aJvTOYBZuQj2JSjhIPZiYpNAcyjAvZMcLGsd
+	 5n8QjP
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+From: Shuai Liu <847807867@qq.com>
+To: willemdebruijn.kernel@gmail.com,
+	jasowangio@gmail.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: syzbot+a2220efe757ca2a7358d@syzkaller.appspotmail.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Shuai Liu <847807867@qq.com>
+Subject: [PATCH] net: tap: fix inconsistent lock state in tap_sock_destruct
+Date: Thu, 26 Nov 2026 08:34:48 +0800
+X-OQ-MSGID: <20261126003448.3113461-1-847807867@qq.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,41 +85,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <CAAHj5qjM7BoGKD35gVCn_XCf6ec-LKq7-5_1YMewOYfskyATjQ@mail.gmail.com>
- <179565312892.3294.7644425039287858356@kernel.org>
-In-Reply-To: <179565312892.3294.7644425039287858356@kernel.org>
-From: Tom <tomasbortoli@gmail.com>
-Date: Thu, 26 Nov 2026 01:33:59 +0100
-X-Gm-Features: Aa3M54qD5FyaWdtuVokZHy_lZB3X7QDUh9rblmh5PsTmuj8sNj9upDDnBunSuGA
-Message-ID: <CAAHj5qirck7vmD3ugQXA-TgaYp_Az4RbiRDw9ogqeYDy=+NJ+g@mail.gmail.com>
-Subject: Re: [PATCH net] udp: don't apply socketless ICMP PMTU/redirect
- updates on end hosts
-To: netdev-bot+sinfo@kernel.org
-Cc: netdev <netdev@vger.kernel.org>, David Miller <davem@davemloft.net>, dsahern@kernel.org, 
-	eric.dumazet@gmail.com, kuba@kernel.org, willemdebruijn.kernel@gmail.com, 
-	LKML <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-manual code inspection + runtime validated
+tap_sock_destruct() calls ptr_ring_cleanup(), which in turn uses
+ptr_ring_consume() with a plain spin_lock() for consumer_lock.
+This destructor runs in two distinct contexts:
 
-Il giorno gio 26 nov 2026 alle ore 01:32 <netdev-bot+sinfo@kernel.org>
-ha scritto:
->
-> Hi!
->
-> This is an automated message. This series looks like a fix, but its
-> commit messages seem to be missing some information:
->
->  - How the issue was discovered, e.g. hit in production, hit during
->    development, syzbot report, manual code inspection, LLM or static
->    analysis tool scan.
->
-> Please do not repost the series just to address the above. Instead,
-> reply to this email with the missing information, so that reviewers
-> can take it into account.
->
-> *IMPORTANT*: If you do repost (for other reasons) - please include
-> the relevant info in the cover letter or commit messages.
-> --
-> The evaluation is done by an LLM so it may be wrong, if you think
-> that is the case please reply and explain.
+1. softirq context: from softirq rx drop paths via
+   skb_release_head_state() -> sock_wfree() -> __sk_free() ->
+   sk_destruct() -> tap_sock_destruct().  In softirq the BH
+   state is already disabled, so consumer_lock is taken with
+   SOFTIRQ-ON-W semantics.
+
+2. process context: from tap_release() -> __fput() -> sk_free()
+   -> sk_destruct() -> tap_sock_destruct() (triggered by
+   close_range syscall).  Here softirq is enabled when the
+   same consumer_lock is taken.
+
+lockdep flags this as inconsistent {IN-SOFTIRQ-W} ->
+{SOFTIRQ-ON-W} usage of (&r->consumer_lock) and warns about
+a possible deadlock scenario.
+
+Fix by hand-rolling the cleanup loop with spin_lock_irqsave() /
+spin_unlock_irqrestore() so consumer_lock is always taken from a
+uniform softirq state.  irqsave is a no-op on the softirq path
+(interrupts are already off), so there is no extra cost there.
+
+Reported-by: syzbot <syzbot+a2220efe757ca2a7358d@syzkaller.appspotmail.com>
+Link: https://syzkaller.appspot.com/bug?extid=a2220efe757ca2a7358d
+Signed-off-by: Shuai Liu <847807867@qq.com>
+---
+ drivers/net/tap.c | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/tap.c b/drivers/net/tap.c
+index 2f19fb07bb2d4..d749c7e73858a 100644
+--- a/drivers/net/tap.c
++++ b/drivers/net/tap.c
+@@ -440,8 +440,18 @@ static void tap_sock_write_space(struct sock *sk)
+ static void tap_sock_destruct(struct sock *sk)
+ {
+ 	struct tap_queue *q = container_of(sk, struct tap_queue, sk);
+-
+-	ptr_ring_cleanup(&q->ring, __skb_array_destroy_skb);
++	unsigned long flags;
++	void *ptr;
++
++	while (true) {
++		spin_lock_irqsave(&q->ring.consumer_lock, flags);
++		ptr = __ptr_ring_consume(&q->ring);
++		spin_unlock_irqrestore(&q->ring.consumer_lock, flags);
++		if (!ptr)
++			break;
++		__skb_array_destroy_skb(ptr);
++	}
++	kvfree(q->ring.queue);
+ }
+ 
+ static int tap_open(struct inode *inode, struct file *file)
+-- 
+2.43.0
+
