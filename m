@@ -1,97 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795732906;
-	b=c5yvv2qWfzigTWsZZaBAL6BVHAoLOwsk2Y7Am3rIHkITBYMl9lHzHnaKoKgFPkSa0vP1
-	 OUbf/fY7qeZtCZLPcSCSD/V0T/9HkPB8Zt3wa36WNwdldFTVe21wk+Cs3MEbmpTDBg0Vp
-	 aO5hMYxnE4Rjz1G5h/3hkUh/A1MFzy1QxveA4QvlNP5gksILjFAzTvkhA0/DLaYoLRgWf
-	 SNe05EpEe1Z+pRO7L0/WOFPTT+YgTALcYu1uphgT+jJJ9swxejom4cRgIl2s/GZrnk9w+
-	 hOBpoWG3yIwFlTHFpsON0ttv6Agz1k/mFp2oE2hXhFY3LtNf2gEMrj0Q4e9sXQe4U9g==
+	t=1795733039;
+	b=48AVhTfx6EQPoGmsFQ2FLj0OWg545TaDSpCQ0m/NxkDMKx5mgSOHqU0F/QhhmeR0uLMN
+	 ffUtnpjE034zUlE/SYe2jzN18PZnnuhWiTYstmIFk0re9HOMWoS1E0P7q7Tn37m31bJ3z
+	 IqZCbGhP2r3JjkLg3tPvFksIkqXew04TrQgxUKzJVGMWurq57nqyKVjab7b89njr4af/k
+	 vJrxRSd4CijVd4V2SxymD1JzI1IbEms8sFWyfVdq1RvLl0KwSmDdKOo97kEyuPbkhz3OR
+	 a9CkNepUGESwgoStiEm8HBzGIZ7tQdZ+iivWXQY4sCpALSYU60DCmiAr1+4vBr4Fcyg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795732906;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795733039;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=wbe8qmGR7CaI/J85PN2eS5B1PjlxJ4Y+2/7Z8JgkW/g=;
-	b=fqc8UYPJV8U2NnEYL2g6YUaJ0TbPMPfJNgjiWss+C18VJN+V892Vsw3NLyPuDj997f8a
-	 MhcsHzQKXQmleh5XRFNbDb1Zrx/DXtOOb2mM9oNrGGJXu4Q7b30fhciB5+gNYNc1KfaUw
-	 dJ3Ctv+oGrXVQPnKylnyF9fMvFPkv71cmQ63KTtTyw76j33Fu4CPqZcjXpLBmxPZ88ME1
-	 ryKpHnFLuGly7i62XxfnqXkglpQwsl8hHijWlYDMC7CJae46CH1mxByItylU834+8+y3F
-	 DrmWtar8o0ULdeDzhKCjQ957UOmHg+/Ppz6+yoYmcKXkbtOir6qY1QWbk5T4xp45VmA==
+	bh=cLa+CAwX+D2UaLX+KhLXrVWaDplpvg83zGJVrNeSRbU=;
+	b=a0jNHoMSHut+FQZkY1k6ZRUe1Rc8ACMFnoW5nm2D1qRL1SaLJbtL61gXQDlnU6168L/h
+	 CFXUkAT6VdaD1u3p0MfKspHAiLrVm0y1UCiq/4pg/1tLsfAFRUX8exEb3KJbUZ6K9Ewo6
+	 h+VMMLQwLXVQK/at9TrIPwUuJ5Et9o0GLu5MjKI082LFI3n/WN0iariOrGGSfmJENORO4
+	 W3kDoh49RxB+9NTr5xaqVrX8/3q+/OXJP0b/9cuuneqUZgrMJ/5R8bAw2pc5jXrAfybCy
+	 LYoBFkXJPozQc9Sfamsmq/oEng8KYZYab1sLEcA4e2u3Wo73LTsdPAcGjF6HbBYhO3Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=stellman-greene.com;
-	spf=none smtp.mailfrom=stellman-greene.com;
-	dkim=pass header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=JTmHMyAN;
-	arc=none smtp.remote-ip=209.85.160.171
-Received: from mail-qt1-f171.google.com (mail-qt1-f171.google.com [209.85.160.171])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Nxh9Cl5y;
+	arc=none smtp.remote-ip=209.85.215.173
+Received: from mail-pg1-f173.google.com (mail-pg1-f173.google.com [209.85.215.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55AF0606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:41:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55AF0606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=stellman-greene.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2AD55606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:43:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2AD55606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=JTmHMyAN
-Received: by mail-qt1-f171.google.com with SMTP id d75a77b69052e-5364042eecfso91059391cf.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:41:46 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Nxh9Cl5y
+Received: by mail-pg1-f173.google.com with SMTP id 41be03b00d2f7-cde1479f76fso4015837a12.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:43:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=stellman-greene-com.20260707.gappssmtp.com; s=20260707; t=1795732905; x=1796337705; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795733038; x=1796337838; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=wbe8qmGR7CaI/J85PN2eS5B1PjlxJ4Y+2/7Z8JgkW/g=;
-        b=JTmHMyANPlI9jW7h9rI9H34UhqZmDzBwiUOu3ycs11iWGQT5Md3RPZwFn3jd2IEljK
-         pJaoJVDmM1mrzByZq4yh5tgWnA+gSt60TVXrSZqt24cXxNJB59HODarhyXLJ/fZg+LU+
-         O1UPL8IvJdZRHR5utR7CSYsoljA3YV0gEtukIMFzw3EF7ZvJTvuQXN1XVDFwv239lag+
-         ytxJroSa76NKZ3c99Z7jAvuxArkW//3Wl0O2IMn0LE6nZaKTDmTA5Xhm5A0n7jBnTObv
-         JFdm3qmeHF+PwOOQIpt238IjurWkJnVVXlzvW0OFLC7ILeGwwmnHC3Wfpa3hRFCDLz9D
-         C6xA==
+        bh=cLa+CAwX+D2UaLX+KhLXrVWaDplpvg83zGJVrNeSRbU=;
+        b=Nxh9Cl5yfsEvyxwPii+x2gA8Em9TuQY3w1Yc5Haj1KghoOG2Z4czmQvTmaJ8dvaIeU
+         sZ7WpqmRYUfc1vaeoyWphtWjIGfsa/NHLLP/8Nb1GfZ1Mi2ik9HEVSSHeSEsQ5hDVJbj
+         pQXsO4ZyLDbXL10fykYGqgd5TTRynNjWypHGlozvgIA6kfP+cuLBVuW12KxxwO70l8//
+         kmB0n+BOPDvRnk2eZfs9hFDHWMKg425EjmKWecdvCMwf+3rElfO+WlfV8Ytrk8FY/pwa
+         9qikW+0IHEXneMg5Jmmwf0mj+RqbU/nb4mhClFnlt/op5O0vEwzMg25pU6GrGqz1+rrU
+         sKCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795732905; x=1796337705;
+        d=1e100.net; s=20260707; t=1795733038; x=1796337838;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=wbe8qmGR7CaI/J85PN2eS5B1PjlxJ4Y+2/7Z8JgkW/g=;
-        b=lMLlaDP1CcvmKJnekB/xWZ7EkBqUbNkpbWuIlXOv6557jG5YyLMHTub3niu9a08LOZ
-         OT423JCSb4CSydViCIZYXAkmmIdHNqDyJB0XEawOL61VTpskK+Lo+FaVf3Nphn5bbkCE
-         T/+Tei0llsZpOZtPviU8gbcjzHKoijXYznNJVB9zS+ItcZSBRBaaI68SE7VKR/ACchAR
-         SoSbE6RCm8uiA0uE/d1OvBYFGdl+CD9A7bw0TQ8JnNUYY3/ARXtS8lzGNoNutj/Eae6w
-         jyv1Hc6Gk+06+d/VutGUVyrUNUWqQMdjE2Kl268dNZsqayE1hYgRZ/sEJnQ2aVbpa/cx
-         Ob/A==
-X-Forwarded-Encrypted: i=1; AL+hErGTFaVtsc9ROaOJloO95MkBXn+3nugJmjrz538xkf83ZnIQyJgwmbYYNs/Uj0zTesegXfI9MHpPf3g3pZ4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/AArMe9OZ+BPzWEeuqk6NV+AWoQr3RLAxRD/DPUASyWEmzfxt5
-	QPWEDfj4kr/1mvau7LiU/mxjuAGNFEaHQHaaZJUN/Pfr8B/H5sMby42ySktfvi/za30=
-X-Gm-Gg: AZFdTZdMprA1DN7LgqtWHYaB69d6Srk/DSSWcfoa5JmYDgSKN662MWt/54F1VLu77pa
-	+aUTF/dRghtpofijiHiHujeK1AmbF+NoWRlhppJOYeRSqTOkl+XTUxUPiZk3g06ReTZcysX3ocZ
-	4GcbR1deMJpDiCSouzE1DtPQBHHuz+6ob53gwLCf2Uo6IkKENQMuspFLRLa1Ka5RyBpyetnS620
-	sqSIKTV21GYCgMxmaejacZhK76c6Eo+P4IIZcLqdvqzTb/sLWAyXnRqAyL5Yv7a9wyPTYXOet9h
-	NDuGEoNK39StZ189MQmgUWQWPyGfaYtczJM/y/l3J6G01arMjTK+a5qix8KIdTVE99YeYlis9lH
-	556Nh6HN8HHF9/Bt0QbuiZ4mcy24xCE8pzymcyc2S8QntcJ5p+dGAxxH1pudhVe2crKwRObCcc2
-	KB7VMmex8XMzOK27wSgXFBTEyvGVymNKPQ3a+CmmwmSpBGVTywnAQau0WGnW0ioaAPFpEr0QKQ7
-	GI6y6/PL+Dmf1Amo2gd3Jr5MhUepGEkUprOxYx2LMdkTiE+SUIYFyPWTLr8Rk64rVuTbQ726aHx
-	qRHXj6xtg2DGVtQhBMCWMUigJKGK7WSuAf/LqCoZX44WhQFBn/q1XGhrbhAAnWY=
-X-Received: by 2002:a05:620a:2b9a:b0:949:6d95:f63a with SMTP id af79cd13be357-949bac834c8mr3664200485a.78.1795732905223;
-        Thu, 26 Nov 2026 14:41:45 -0800 (PST)
-Received: from Mac.mynetworksettings.com ([2600:4041:5c28:200:a9a3:d406:9193:c9bb])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb3bec3dsm1675981885a.23.2026.11.26.14.41.44
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 26 Nov 2026 14:41:44 -0800 (PST)
-From: Andrew Stellman <bugs@stellman-greene.com>
-To: David Howells <dhowells@redhat.com>,
-	Marc Dionne <marc.dionne@auristor.com>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-afs@lists.infradead.org,
-	netdev@vger.kernel.org,
+        bh=cLa+CAwX+D2UaLX+KhLXrVWaDplpvg83zGJVrNeSRbU=;
+        b=zgAiUM8T6EDHBbP2FO/v87BIDKYuP/Tko5pi0MJoC2tfs1z0h+FIEYAQTfV6uuaiuu
+         JpP1ZXBLvOTBLKKbwtn3XKgHGjbmmi1GtsmuoAiLpGRV1Ezf6GkYumZWTpUop1WP9yk7
+         6GAJuMXAHEuPB7/+w/+nNs9WMZKkMvkXs4YJ0yFr/7sB+vg+rGmUDGvu47HFg4fsh/16
+         5jwOTu/j0Kjc5DDd9ce7rz5TSEBNi/i2sGaILwxKdDNw3GnM7N7XJS6U26xHCw9CzcgP
+         0WSC/DQZBWNM5wFQDDqvkA1ag3o9WmBMQJ9ZIf4L4pc+rX5GZbIEbt5W/2msZPi8fcZE
+         nM6Q==
+X-Forwarded-Encrypted: i=1; AL+hErEx2zW9DD+NL1r8ASAHtFVSEy+YlAZvWH5rQXoA46M2tk3TP11o5rnJJXv0Mo5+QnmnvGHcWj93MNAFx2k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9qGSuevys7FxSnmOZCulzBvyQzhON3vqQj1NBvmarjNaXO4Jua
+	8j+7aunvCi4TRO4Eu1a6TV4IRohvTuqmZGvndbW9sHmDseEm+3bbzqAv
+X-Gm-Gg: AZFdTZebWHvu0dTF/j6tiWvG27dzM+HbeELrBdTqqSPsnH0nml0J8xhfYKRAgN2x8wG
+	aG6RS7vljbLhjbiq2zxB50DzqmH1Ik+cSMNHWhTovM0nlCrOchBVjLZxaktv6B4UqADv+7KIsSn
+	JL+029yDsnSHp3r/wc9SFM7g/gu6HNKZ2bKRX3/2FtQ1FjNJ22G1SBjkpjejKh1yx62lg0138PV
+	orvYyfKge8EM1XjFXENmWRgqNlj20At63yZsAcdX5PfoIzysIxx2dFqWhmrqRhBHsWVt9Ln40Ql
+	B8kHdjGxPW0JQwleiU1PMEwgMDIr+oEJ2eH9ta2lAj1OQ3nZsEJ45QNWNgqoEGpp0ACb0+Xv/2k
+	52ZiIRdNLcKn83nUBDP0qivv5qG4LkeEQJGan+T3K0YPPVYAhLkfbUQnlTkelfZ42M+TEL6cAV6
+	MoSk6emiO7cweHTHrdTVcrTFR9vgRm+w8ocUvXrKhrcVTQ9ZiXTsD9fJYshCC3Cq8krE7drVsRw
+	zBVKxIsbJBO8zdx7eCK7UFc1dtxGBHaESdU01/4znWZ2gUc61TqcZ8RzIncVY1bTTCiQoRxj+Br
+	dSLm4ORytAApX7zHJDUoCcKw2O8ozzy3ZfnpPGYJ9N5Gae3Frg==
+X-Received: by 2002:a17:90b:2c86:b0:3b0:a9de:9886 with SMTP id 98e67ed59e1d1-3b41c8d9179mr21639195a91.12.1795733038229;
+        Thu, 26 Nov 2026 14:43:58 -0800 (PST)
+Received: from localhost.localdomain ([112.170.44.210])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b420e1307csm33755428a91.7.2026.11.26.14.43.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 14:43:57 -0800 (PST)
+From: Junyoung Jang <graypanda.inzag@gmail.com>
+To: Jan Kara <jack@suse.cz>
+Cc: Junyoung Jang <graypanda.inzag@gmail.com>,
+	Gwanhyun Lee <gwanhyunlee@gmail.com>,
+	linux-fsdevel@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next] rxrpc: Reject unsecured calls to userspace services with a minimum level
-Date: Thu, 26 Nov 2026 17:41:37 -0500
-Message-ID: <20261126224137.55862-1-bugs@stellman-greene.com>
-X-Mailer: git-send-email 2.53.0
+Subject: [PATCH] udf: check device specification EA size before reading impUseLength
+Date: Fri, 27 Nov 2026 07:43:52 +0900
+Message-ID: <20261126224353.1552397-1-graypanda.inzag@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,56 +98,88 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Andrew Stellman <astellman@stellman-greene.com>
+udf_get_extendedattr() only verifies that the 12-byte genericFormat
+header and the declared attrLength fit within the inode's i_data buffer.
+However, udf_device_spec_valid() reads the 4-byte impUseLength field at
+offset 12 before checking that attrLength covers struct deviceSpec.
 
-rxrpc_get_incoming_security() doesn't check rx->min_sec_level, so a
-userspace service socket that sets RXRPC_MIN_SECURITY_LEVEL above
-RXRPC_SECURITY_PLAIN still accepts incoming calls with security index
-RXRPC_SECURITY_NONE.
+If a crafted UDF image places a truncated device specification EA (with
+attrLength shorter than 16 bytes) at the end of i_data, reading
+impUseLength triggers a KASAN slab-out-of-bounds read in __udf_iget():
 
-Refuse security index NONE in that case. Kernel sockets are skipped,
-because kAFS and rxperf set RXRPC_SECURITY_ENCRYPT on the kernel sockets
-they serve on. This changes behaviour for a userspace service that sets
-the minimum and relies on unsecured incoming calls being accepted.
+  BUG: KASAN: slab-out-of-bounds in __udf_iget+0x3d41/0x3f20
+  Read of size 4 at addr ffff8881025a0f27 by task busybox/51
 
-Tested in an arm64 QEMU guest built from mainline 9437ee8b6cf6, as uid
-1000 with no capabilities: a service socket with the minimum set to
-RXRPC_SECURITY_ENCRYPT received an unsecured call over loopback without
-this patch, and with it didn't receive the call within four seconds. A
-service with no minimum received the call in both cases.
+  Call Trace:
+   <TASK>
+   __udf_iget+0x3d41/0x3f20
+   udf_lookup+0x1b5/0x1d0
+   __lookup_slow+0x18f/0x330
+   walk_component+0x2b1/0x4e0
+   path_lookupat+0x112/0x670
+   filename_lookup+0x17b/0x4f0
+   vfs_statx+0xd8/0x160
+   vfs_fstatat+0x77/0xb0
+   __do_sys_newfstatat+0x9f/0x100
+   __x64_sys_newfstatat+0x91/0xf0
+   x64_sys_call+0x331/0x9f0
+   do_syscall_64+0x47/0x110
+   entry_SYSCALL_64_after_hwframe+0x67/0x6f
+   </TASK>
 
-The issue was found by Claude Fable 5.2 and Claude Opus 5.5 running
-Quality Playbook, an LLM-driven code review tool:
-https://github.com/andrewstellman/quality-playbook
-The fix was drafted with OpenAI GPT-6 (Codex) and this changelog with
-Claude Opus 5.5, and both were reviewed by me.
+  Allocated by task 51:
+   __kmalloc_noprof+0x13c/0x250
+   udf_alloc_i_data+0x19/0x60
+   __udf_iget+0x2b03/0x3f20
+   udf_lookup+0x1b5/0x1d0
+   ...
 
-Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
+  The buggy address belongs to the object at ffff8881025a0000
+   which belongs to the cache kmalloc-4k of size 4096
+  The buggy address is located 3879 bytes inside of
+   allocated 3880-byte region [ffff8881025a0000, ffff8881025a0f28)
+
+Check attrLength against sizeof(*dsea) before reading impUseLength.
+
+Fixes: 9a2390959685 ("udf: validate the device specification EA before using it")
+Cc: stable@vger.kernel.org
+Co-developed-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
+Signed-off-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
+Signed-off-by: Junyoung Jang <graypanda.inzag@gmail.com>
 ---
-This only covers security index NONE. I didn't test rxkad or rxgk, but
-nothing in them reads rx->min_sec_level, so calls secured below the
-minimum look like they would still be accepted. I can send a v2 that
-enforces the minimum for those too, or a documentation patch if the
-option is meant for client calls only.
+Tested on 6.12.118 with KASAN; with this patch applied, the malformed
+inode is rejected with -EIO and no KASAN report is triggered.
 
-A reproducer is available on request.
+Disclosure: An in-house LLM-based analysis tool developed by the authors
+assisted in surfacing this bug candidate and drafting the initial notes.
+All root-cause analysis, patch code, and QEMU/KVM reproducer results
+were manually reviewed and independently verified by the authors.
 
- net/rxrpc/security.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ fs/udf/inode.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-diff --git a/net/rxrpc/security.c b/net/rxrpc/security.c
-index 2bfbf2b2bb37a..52015c73c583c 100644
---- a/net/rxrpc/security.c
-+++ b/net/rxrpc/security.c
-@@ -138,6 +138,11 @@ const struct rxrpc_security *rxrpc_get_incoming_security(struct rxrpc_sock *rx,
+diff --git a/fs/udf/inode.c b/fs/udf/inode.c
+index 29900065673c..b4e34b345ff8 100644
+--- a/fs/udf/inode.c
++++ b/fs/udf/inode.c
+@@ -1345,10 +1345,12 @@ static bool udf_device_spec_valid(struct deviceSpec *dsea)
+ 	u32 attr_length, imp_use_length;
  
- 	_enter("");
- 
-+	if (sp->hdr.securityIndex == RXRPC_SECURITY_NONE &&
-+	    rx->min_sec_level > RXRPC_SECURITY_PLAIN &&
-+	    !rx->sk.sk_kern_sock)
-+		return NULL;
+ 	attr_length = le32_to_cpu(dsea->attrLength);
++	if (attr_length < sizeof(*dsea))
++		return false;
 +
- 	sec = rxrpc_security_lookup(sp->hdr.securityIndex);
- 	if (!sec) {
- 		rxrpc_direct_conn_abort(skb, rxrpc_abort_unsupported_security,
+ 	imp_use_length = le32_to_cpu(dsea->impUseLength);
+-	if (attr_length < sizeof(struct deviceSpec) ||
+-	    imp_use_length < sizeof(struct regid) ||
+-	    imp_use_length > attr_length - sizeof(struct deviceSpec))
++	if (imp_use_length < sizeof(struct regid) ||
++	    imp_use_length > attr_length - sizeof(*dsea))
+ 		return false;
+ 
+ 	return true;
+
+base-commit: 25faec9ce61c01fb45abf812a222c5b43c3cd5c5
+-- 
+2.43.0
+
