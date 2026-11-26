@@ -1,90 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795656971;
-	b=e4MhIPzd3yRJAk4I5Z4axCTlcGEW5VUSqVMwshB32JOYJDjKKZU55iNgsgMJTq6EFOVu
-	 9Ov04Sk3lKnTeJLT9Pv5u8njhnS1jhniUDdQd5quqWYL08GWdrxslYcw6ItJRRmA2EoKK
-	 gu9jZYKL4PDDXxgtvNxau0VgyWvJ3HgiIHFjV4B6eMoGzomo6O1x5muIcdQDy3Mw9OILg
-	 TEkDie7RTCmvULCZo/+49onILGO8u5TrCzmcOAxKvcH/XxYVxT/eKzhw6al87f/92jLky
-	 lrSZYN0FygTcFoF8dwG0nlzCDtn5Hcy+FPzl1nYLAnGGetBy6t/rPlFiT/egeEWdsXA==
+	t=1795656993;
+	b=qhYutM1wQOGv9Euq6EvN7Pq3SBsL8+qozmCeFqDERJ7nJ2pK/2/wFCfuDlTg4dgUkppl
+	 s6/wSTW85bDzbYgim1x1H43T+fZGQoD4P49iXGIjhwcD3KeHbysVFz8R3pMnsJ/OU6KyZ
+	 Jd5zEoHs+lcPQk6gBJjxxz7tteOMb8thsp0hfYYB9HiBGP704lPoY0s4GMeVMM4A6Eesy
+	 KrlZbNdygF3ZkvAHIjYX6uetVhkqj4NR/+3RGjwlTS2QbRPW0FUTfls9R42omV1qjRwLj
+	 89iw7EoXA8kQwPeRk/CL65RBQ8UFENqBVXeODhdgexFhGw93yH7SI3RDvRNAEchXokQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795656971;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795656993;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=5tMp4+nCkrdqMXbrytBsy8KUnTj5f9f9jbnW4fe3cDk=;
-	b=DtxHzasTCkC1Kd/tQoFgqQJHV43TCZ9R2FysnbHtqEKdM7JhVydkkZ8Ly39PqF9yvLCN
-	 +EmVw49/knsEzsXljScn+rqohpaNLZ29+4v5yx7ODuNZxuQy3kaE7f11RyVFWwn5bPhZK
-	 TOugpLImbgUJL/nVCcJrd/DgP0lgcyBla5vUdVB9TM7b1wxnDd1+5828F5LTYSHROSI3b
-	 75JNUs3r7uowl715yfaFPjoIwxVSDjv5Zo52vdemVbXlRBEeGrFoksOduFxhQFpIgRUaM
-	 ac5rILUQaFJA3C3t3VGSiQoYr2ng5BqMhcbnaYSWNNPLJU1W4Zc8GEHuuKufgS2Trjw==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=SP15XaZUbGtlp60P327+ssWhkCWUemMIccsR99IzlyI=;
+	b=NHZG+NwcIx2VVdJ5++V18+ALETRaIgWbXB4GPETVph8zCoS6hHokfgmBJUMrHVHV4wcb
+	 y6uZG+Kb8zFnQnttANPwXcDBpd9hR5pl3BsJ7HEqYgcE6E99PUkSbLCre/Q2/x2hHCPqa
+	 G+yvPrD2tzBKyH9IyUUfxr17yXJioqnxXNCX+GYe65b67MU+0xvH0YxFXXQxWETtgQU1D
+	 OiXqHnaGmamRNsTIOsoA8CzVF1dY2MGphZ3Y6yG1T1YkTubG73CxyqSDPBGP5qzS4EzV4
+	 7Xxq5wUT2Mw4xStIwqHEmGSg34vcI0Ozwfiu90EaQwsPTYd1AjMZ9yJucrLMR/Ch3Nw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=if6kqgG0;
-	arc=none smtp.remote-ip=209.85.216.41
-Received: from mail-pj1-f41.google.com (mail-pj1-f41.google.com [209.85.216.41])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IkOtKQEs;
+	arc=none smtp.remote-ip=209.85.210.174
+Received: from mail-pf1-f174.google.com (mail-pf1-f174.google.com [209.85.210.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06B93606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:36:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06B93606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F9AF606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:36:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F9AF606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=if6kqgG0
-Received: by mail-pj1-f41.google.com with SMTP id 98e67ed59e1d1-3ae6b4c669fso6032462a91.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:36:10 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IkOtKQEs
+Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-8b600fae14dso2327318b3a.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:36:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795656970; x=1796261770; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=gmail.com; s=20260707; t=1795656992; x=1796261792; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=5tMp4+nCkrdqMXbrytBsy8KUnTj5f9f9jbnW4fe3cDk=;
-        b=if6kqgG0b0+6/sY8VbrVQFAzpHTn0s/OAz0OUONut6y0pcwFsIzHguAiKdbwmWr6Vj
-         unGhAOmLA4sWAMEmCPWt3gUMQXFNgOxBhlLvCNood6T9LCJc8qz7nxdJ0XknHS3dtrmX
-         4B5eLSNZpA6BPgBCJAkX/EnyyS73NxwOyhxH4=
+        bh=SP15XaZUbGtlp60P327+ssWhkCWUemMIccsR99IzlyI=;
+        b=IkOtKQEsw1P6Qem2Ym5jSb3VAZZX8TmwwUNgxT9DOWowClgIO3DlHf2mSKx2B1wjbP
+         0AuxWFLGf2lq1RyFgUQmH0XHDv5gGI6zu00dAbb1L3ezjWpjf/dHnE3u6ZDt6C3W2TXm
+         wCtQo4bG4EUmvmT+u7tNN8sQpQAUygbvQN71LN3myFzJpYq9OOmdyDDHqWv1MW2fSCXa
+         KG4PzYEqRyb/zxyv6KU3eJyGm4QF82Yn4VGnsmLb9lcqpNh59TNXFGjGac6mTkymDYLn
+         suV+97W7fCn7Go40/Ef6MQaiyG5Wd0MQjt2aCFYx7uWUaJLuEqukfQZd9cq0TmzDfUCo
+         nksg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795656970; x=1796261770;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795656992; x=1796261792;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=5tMp4+nCkrdqMXbrytBsy8KUnTj5f9f9jbnW4fe3cDk=;
-        b=sJvVezbgk751pE++2vs0NhjFFk/JwXW025IPS+jRXQ/PVkaif+/ARd9slS6rv67Dnn
-         7AYEHpdMnXowi77SNlaWCDbeYjHieNPHueucf2ZDkzmgbkaWjEtEviGf8npDVd3rWLRt
-         Mvc79r5GmwjuLl8/1pqwik/+c2WmWPYOAQVDc47AULiVTsnQkGr6BZdTzy7Lvn9m/bNa
-         gmTXjjAN5r3he8qC+kxdN1YH8Y3ZLiBpMuMkToypu+7gpaSwzxoYB0Pnj5x9H7UiYOoW
-         rA/39niS87UuJRV3I17ePfP9zHekYV+w2sPmuMHa4lS3ksracZ/cgofsaDrav1W1fDI4
-         1mXg==
-X-Gm-Message-State: APuU4Z8GTrQS8saIElKqm+ttzeKz9Z98sARe2wJnu9RsfwZc9hvusLbU
-	Mkn2fcWA+ufMMRBtSVqW3QTNvc8ujmoYm30gQ7A1avK6Kj6jX7r6h8lJ80CM4aTz7Q==
-X-Gm-Gg: AZFdTZegkdI/BYBE+RZp+dbFDnvJfWM0AjsWXdc3oxeZAmBTCn5bTNg8hyVmnvkMbF4
-	CIoH7J8MVs8bPO7YxQcmCq82HdJnralLCS4+f7uwC8k+D3GkqeHAvSoCGQEnFWiwe4qzOhe2AgH
-	VV68j6WEOCkmOfc4UXukk/Hcm2MwwWm+lfW3jsMwBW/Q9ts3q89y6ovMEuhq3evipmK08iipXR/
-	dl6UwUjH+dbo/hS4pGwts4AB8Iu8iTbORIJ2n+/53RgdcKSHX0gbYQlgy5aGsfqg28+wBf5nc8i
-	XTQ3ZkgWBkVw2klgqwIhidpYiIvqImynqUpCtxHNbkzoGL20OlevpQ9iCeas6QkY6davV7ZgU+B
-	jVYltBCRH8pVR+Bgz3rFuGXefl0/oFKAHdczo1M3RZPeHlDNXwVFeFHGxu4rQe4sWnSeSERNSOW
-	DEH+U85NwR+RSR+2zwsJMC2uWhRqUACyA3MS2n+1l+PWaHfiVQuRCy1W3uMNzLvPVMt9yvjPfTQ
-	/brjD+gvkDT5QdlZvlYT8lZFdickzLm011Y0fWKJ1F6hjfgAOrx3RCoj4W8iIN4qKbDfZS5BK19
-	E7AeKdboeFHyfK5b5SvGaM8ArJKtz0oesN88xtNMFuSE+WBI8HlEJvILX38Rnfx1uA==
-X-Received: by 2002:a17:90b:3b8f:b0:3ac:b3c7:de04 with SMTP id 98e67ed59e1d1-3b41c95f0e1mr13115867a91.34.1795656970314;
-        Wed, 25 Nov 2026 17:36:10 -0800 (PST)
-Received: from google.com ([2a00:79e0:2031:6:59ac:90a:64:4bd7])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4afeaaa84sm14278085a91.10.2026.11.25.17.36.07
+        bh=SP15XaZUbGtlp60P327+ssWhkCWUemMIccsR99IzlyI=;
+        b=TPh72aMJtTqgdUnVQGsPXwnIZr2Z2a81v/ggvueRqqndonZfp2toNc6l57lvl3nDIA
+         9WWSHGWDGpNBfscJPc8aTuIdmLLYDkJsizdG1nhEODt3NLQP7ZfGyE0n4PAOFMz8xJ7z
+         JIugh/ofIDZqWPw0jf7UPIVRVVJ3sJ86/KHLCvw1YLRQm7Sw1gaX2YRkFNgQZojvZe9A
+         sNejuUHwUNiye/rXdUoErqitmD/vr/zx3dykIkoQJpcUCfxQzmY2EZeEIH5l7EmYO3/V
+         q2kUbyhQyvQrKTyvpuHLtSZyce3kpc9UxdVMUoVJIKR+R2M09LcGgFxrskppx9A2CtxA
+         z5eA==
+X-Forwarded-Encrypted: i=1; AL+hErF0NAt1KrAsKjsB7CXxZiwsre0x2Ehbb9DgY9BUsRjM7XOmvAd6YtUiedmGvcJeOqRvQlOTFKWpgp2txTs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z86W9hR3tsLoTn3CuUNQQffGO/6aIYRiujkgwrpF5ksIz27vYtm
+	oU2+hJoQ+bQuM0s5FslJgzMdqAlB7dYMiD7JjiVPWUfyvam+jDJWZkFp
+X-Gm-Gg: AZFdTZfXrQqsCbIroMub0Ird5tL+O41I1JpAWKsJNDWTN+Py8Npfp3Fa+5KEy9amInJ
+	R0eB1Nsr5rOeViOSiQqsi9DOQwooTFU7y6TVTzHdUvBKvGnFd641kDRWeaXb8UO7fhPYOrV7rvW
+	MayzVpy1q1+O+S+VSqrmi1LPo4U+vIh0Y1WIsjJDgsFvt4OCVfJraBF4+0Pwse6bLggHogSS90M
+	bbAEF8r/vr6b8wUL8aXqH1FbixIyiQROA3SBMQNQl/CM+Ln3gnM8DMgW3PuL2f6QJVnvuQvuKMe
+	Jwo4jxG0ZvRNHHtrfqGJVqOZ9kyxrd6wAacSjo3M2BMuNN1+wrAR6dxM8csWycdj5zD/fewBPSC
+	a2lqJ8VeluAMc+epy0gR5uyUwCI1c1BVmPenjjlv8cJ5QZskpDL1OIeQZ5G6oUd5Q9XDdb2K3gK
+	zm0TZkgDkXjmQ1a1wOK3GhwGXAK7wDGOJwuZUr9Lki9ENLeBxInu0mSx9Yfp81Ial1P/LePtFZK
+	S7BsEUPCCDdl2wxrRFFZfIFUw52SMffQ/Gal2NymTqG+EFQ7LfG2M/+Gjd7zwGWbC2vs35XjxoC
+	G/Cukl1pLs1M37487dNCwmqprQ//7AuR/5rvis8NGOX3T2s4doC0vxNklsELVfQ9/XalRj2XsZW
+	Bde97BepgbyeoNEkN1Kg9st7cOG21gUikQCnKdXuGekT7HFw=
+X-Received: by 2002:a05:6a00:8015:b0:89e:92e:4211 with SMTP id d2e1a72fcca58-8c87bcbcecdmr16856465b3a.16.1795656992438;
+        Wed, 25 Nov 2026 17:36:32 -0800 (PST)
+Received: from lwq-server.tail118c18.ts.net ([74.176.208.23])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872951febsm9748633b3a.14.2026.11.25.17.36.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 17:36:09 -0800 (PST)
-Date: Thu, 26 Nov 2026 10:36:05 +0900
-From: Sergey Senozhatsky <senozhatsky@chromium.org>
-To: Alejandro Colomar <alx@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Minchan Kim <minchan@kernel.org>, 
-	Sergey Senozhatsky <senozhatsky@chromium.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	linux-hardening@vger.kernel.org
-Subject: Re: Writing through const-qualified pointer in next_arg() from
- recomp_algorithm_store()
-Message-ID: <aweJUDMS7yF3b7R2@google.com>
-References: <awcpkJD6K1xtx_Pe@devuan>
+        Wed, 25 Nov 2026 17:36:31 -0800 (PST)
+From: Yaohan Li <shunsheng1218@gmail.com>
+To: =?UTF-8?q?Niklas=20S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>
+Cc: Zhang Rui <rui.zhang@intel.com>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	linux-renesas-soc@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v5] thermal: rcar_gen3: check for sensors before reading the fuses
+Date: Thu, 26 Nov 2026 09:36:26 +0800
+Message-Id: <20261126013626.2168810-1-shunsheng1218@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261125060429.GK3898744@ragnatech.se>
+References: <20261125060429.GK3898744@ragnatech.se>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,129 +105,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awcpkJD6K1xtx_Pe@devuan>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Hi,
+rcar_gen3_thermal_read_fuses() reads the THSCP register through the
+first TSC. If the device has no TSC resources, priv->tscs[0] is NULL,
+and the read causes a NULL pointer dereference.
 
-On (26/11/25 20:08), Alejandro Colomar wrote:
-> I'm working on preserving the const qualifier in some <linux/string.h>
-> APIs.  That uncovered some places where we are currently discarding the
-> const qualifier.
-> 
-> Here's one of the cases I've found:
-> 
-> 	$ grepc recomp_algorithm_store drivers/block/zram/zram_drv.c \
-> 	| grep -e '^\S' -e '\<buf\>' -e '\<args\>';
-> 	drivers/block/zram/zram_drv.c:static ssize_t recomp_algorithm_store(struct device *dev,
-> 					      const char *buf,
-> 	{
-> 		char *args, *param, *val;
-> 		args = skip_spaces(buf);
-> 		while (*args) {
-> 			args = next_arg(args, &param, &val);
-> 	}
+Before hardware calibration support was added, leaving the
+!priv->num_tscs check at the end of probe was safe because TSCs were
+only accessed inside loops over the discovered sensors.
+rcar_gen3_thermal_read_fuses() introduced an unconditional access to
+priv->tscs[0] before that check.
 
-kernfs_fop_write_iter() gives us a kmalloc(len + 1, GFP_KERNEL) copy of
-the user buffer, so it's "safe" to write to it, per se.  But I get the
-correctness of the code point of view, so... probably another copy of
-the buffer?  :/
+Move the existing zero-TSC check right after discovering the sensors,
+before reading the calibration fuses.
 
+Fixes: c3131bd5586d ("thermal: rcar_gen3_thermal: Read calibration from hardware")
+Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
 ---
-diff --git a/drivers/block/zram/zram_drv.c b/drivers/block/zram/zram_drv.c
-index 96b135e3f727..ca12c1918aec 100644
---- a/drivers/block/zram/zram_drv.c
-+++ b/drivers/block/zram/zram_drv.c
-@@ -1279,10 +1279,15 @@ static ssize_t writeback_store(struct device *dev,
- 	unsigned long lo = 0, hi;
- 	struct zram_pp_ctl *pp_ctl = NULL;
- 	struct zram_wb_ctl *wb_ctl = NULL;
-+	char *kbuf __free(kfree) = NULL;
- 	char *args, *param, *val;
- 	ssize_t ret = len;
- 	int err, mode = 0;
- 
-+	kbuf = kstrndup(buf, len, GFP_KERNEL);
-+	if (!kbuf)
-+		return -ENOMEM;
-+
- 	guard(rwsem_write)(&zram->dev_lock);
- 	if (!init_done(zram))
- 		return -EINVAL;
-@@ -1303,7 +1308,7 @@ static ssize_t writeback_store(struct device *dev,
- 		goto out;
+Changes since v4 (split out from the withdrawn 3-patch series):
+  - Split out as a standalone single patch per Niklas Söderlund's feedback
+    (<20261125060429.GK3898744@ragnatech.se>,
+     <20261125113106.GM3898744@ragnatech.se>).
+  - Rewrote the commit message and added the Fixes tag per Niklas's review.
+  - No functional code change relative to v4 patch 1/3.
+
+Testing:
+  Compile tested only (no Renesas R-Car Gen3 hardware): arm64
+  (aarch64-linux-gnu-gcc, CONFIG_ARCH_RENESAS=y, CONFIG_RCAR_GEN3_THERMAL=y,
+  W=1, 0 warnings) against 666539eecdf4.
+
+AI assistance:
+  AI tools assisted with initial static analysis and commit/patch drafting;
+  the author manually reviewed the probe/remove paths, verified commit
+  c3131bd5586d, ran the arm64 compile check, and takes full responsibility
+  for the patch.
+
+ drivers/thermal/renesas/rcar_gen3_thermal.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/thermal/renesas/rcar_gen3_thermal.c b/drivers/thermal/renesas/rcar_gen3_thermal.c
+index 9c64cbc2ee670..a96f02d4a8adf 100644
+--- a/drivers/thermal/renesas/rcar_gen3_thermal.c
++++ b/drivers/thermal/renesas/rcar_gen3_thermal.c
+@@ -557,6 +557,10 @@ static int rcar_gen3_thermal_probe(struct platform_device *pdev)
  	}
  
--	args = skip_spaces(buf);
-+	args = skip_spaces(kbuf);
- 	while (*args) {
- 		args = next_arg(args, &param, &val);
+ 	priv->num_tscs = i;
++	if (!priv->num_tscs) {
++		ret = -ENODEV;
++		goto error_unregister;
++	}
  
-@@ -1779,12 +1784,17 @@ static ssize_t algorithm_params_store(struct device *dev,
- 	char *args, *param, *val, *algo = NULL, *dict_path = NULL;
- 	struct deflate_params deflate_params;
- 	struct zram *zram = dev_to_zram(dev);
-+	char *kbuf __free(kfree) = NULL;
- 	bool prio_param = false;
- 	int ret;
+ 	if (!rcar_gen3_thermal_read_fuses(priv))
+ 		dev_info(dev, "No calibration values fused, fallback to driver values\n");
+@@ -588,11 +592,6 @@ static int rcar_gen3_thermal_probe(struct platform_device *pdev)
+ 		dev_info(dev, "Sensor %u: Loaded\n", i);
+ 	}
  
- 	deflate_params.winbits = ZCOMP_PARAM_NOT_SET;
+-	if (!priv->num_tscs) {
+-		ret = -ENODEV;
+-		goto error_unregister;
+-	}
+-
+ 	return 0;
  
--	args = skip_spaces(buf);
-+	kbuf = kstrndup(buf, len, GFP_KERNEL);
-+	if (!kbuf)
-+		return -ENOMEM;
-+
-+	args = skip_spaces(kbuf);
- 	while (*args) {
- 		args = next_arg(args, &param, &val);
- 
-@@ -1899,12 +1909,17 @@ static ssize_t recomp_algorithm_store(struct device *dev,
- 				      size_t len)
- {
- 	struct zram *zram = dev_to_zram(dev);
-+	char *kbuf __free(kfree) = NULL;
- 	int prio = ZRAM_SECONDARY_COMP;
- 	char *args, *param, *val;
- 	char *alg = NULL;
- 	int ret;
- 
--	args = skip_spaces(buf);
-+	kbuf = kstrndup(buf, len, GFP_KERNEL);
-+	if (!kbuf)
-+		return -ENOMEM;
-+
-+	args = skip_spaces(kbuf);
- 	while (*args) {
- 		args = next_arg(args, &param, &val);
- 
-@@ -2578,6 +2593,7 @@ static ssize_t recompress_store(struct device *dev,
- 	struct zram *zram = dev_to_zram(dev);
- 	char *args, *param, *val, *algo = NULL;
- 	u64 num_recomp_pages = ULLONG_MAX;
-+	char *kbuf __free(kfree) = NULL;
- 	struct zram_pp_ctl *ctl = NULL;
- 	s32 prio = ZRAM_SECONDARY_COMP;
- 	u32 mode = 0, threshold = 0;
-@@ -2586,7 +2602,11 @@ static ssize_t recompress_store(struct device *dev,
- 	bool prio_param = false;
- 	ssize_t ret;
- 
--	args = skip_spaces(buf);
-+	kbuf = kstrndup(buf, len, GFP_KERNEL);
-+	if (!kbuf)
-+		return -ENOMEM;
-+
-+	args = skip_spaces(kbuf);
- 	while (*args) {
- 		args = next_arg(args, &param, &val);
- 
----
+ error_unregister:
+-- 
+2.34.1
 
-[..]
->
-> Should we make the 'buf' parameter of recomp_algorithm_store() non-const?
->
-
-device attr store requires a const chat *.
