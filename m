@@ -1,54 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795718281;
-	b=FvpO6ZrkZPB3PXkBguxTYTqZpdJRDEX75CAup+sM/rVCAY218Az+C5+iTMD6Vg3Tfwh7
-	 kAsOa4DszzX/WqFRwxMIXX+rXlUpECHKJxZjCoTZBSKZvOUsMCd5DG1ucq2YKI3lwE23o
-	 aSdmFjggft4MW0ZtcNjjDEvGta5Lhqjl7sCrv5UJ9At2HQBw5sLCXC82K9jUu3hwju61Y
-	 EGkhsK1X9llQ37yDVrVzIIJhUa1mrfNbUl/QnfV1SdSIcQYegL9q9fy+NXpDY1FY7g/Jp
-	 ehijzRV+kGb0KWMLlT/lmRW7SCyhonCS/RXc4mIkw9c7ZfPppneRC9ol9/1ELnAPs2w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795718281;
-	h=DMARC-Filter:DKIM-Signature:Received:Content-Type:Mime-Version:
-	 Subject:From:In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:
-	 References:To:X-Mailer:X-ZohoMailClient;
-	bh=eY8jWJFPHqeyb/HkuAKihPr1I/XvOpTtt7B78KGWqzc=;
-	b=iffMvkdkMcKJauTZPOE0yVRUTtZg7WGjQdLhDxWU9VCShfeyupIxWGBJ/pjzKd72ZJGg
-	 o79jfNXgjsYXT4Avpp571r+CC/2hFIrFJl2oFHgLlz048mLNc3gPgDiHlOgFyFwFX9qc8
-	 cJOeK6/3I7TMwkRUg6Ggdh8o2tmLSDJXA7rAWhEo0mvXf/QLo9zUxCfqmRel6ex9sfkOC
-	 ZNLV8Zca8klr47kxiSgsJFXLVgd7LjfYTHtg1RFx8RNuNvalQDLp+oXNxhKHP7VClN+Ul
-	 89rwm1pN2+/656caP6MC/8C1lNrLf4kgMFUlAMizabcid38aK/LPm8orP8URvvI+CKA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=lRGZ26Jw;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
-Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795718294;
+	b=dV8jk0CWe/wYXGJjr8XBStfZOPbB6EqFtnLqVRsoesFKvUo1HZP14NiAiThscb9MofKg
+	 cNfRQUTGrEw+KAuYxHO07KdcEEuxQ+y4twJDJGH1eJFkc5kWVk3h1ZyZ8fPR9zFlDJbuY
+	 cVdLHX4zUw7nvVRpLfBrMxfC0kmMm2AERyfgQcb8A906WYUPVc1LdVFVoTwoW0oAEnyc8
+	 HC8bCIvF9A1koaUC6IUOIfj4i1jCbFthVyxYl8xcIGy96jEGcA/g1DWJtLuzZ9NxCsfK1
+	 iv2eLK5a6xBWz6r9si1p8gHsdpRf795P57v0UW4M6J+/B0Rs9K9gFSiqOAiUe6ARAEw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795718294;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=0JG6aovU53Gj28fQBHTFybyaNfmBaXUxB5wClm6BRjM=;
+	b=Ajf3sJXFmBasmL8akVacGKmNsBGSWO17uZy8uuQ5rbwQjN6CLoTkiC0wXya+xfFALKyT
+	 4AL5R3UkhA6yI2E98EDuysGx0w1h7D7KOxVE7x7KbsTtASctbcp5EBE14AV4OJywrPyjY
+	 2ElyL0b56usUQSF4U7LiAwtrGHJ9VdThDLwNkT6kbgpliobANWSctrXFAMc4YAYotPcdg
+	 R4oJz9VCjb+Qc1+Te+gHV8jUsezbv/vfDvSwqU0wGc0Te7qThADcjjBNW+51ZWpC5zylo
+	 OnENFWnHF2WixIdBbcPAGE6YsNGkykAXUheNY7fCOlaGu0//aNYtm2vxYcSXXwsz6pQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="F/3vuzP+";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66C69606A31C;
-	Thu, 26 Nov 2026 18:38:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66C69606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4DC8606A32A;
+	Thu, 26 Nov 2026 18:38:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=lRGZ26Jw
-ARC-Seal: i=1; a=rsa-sha256; t=1795718235; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=G1ASujFLBFV51mXh8IlS3jA9c8VoNpxlKWfeDdbF9qQfiGcfrPOQ2Ll7J5OAV7wqrdZuJvEogGJenXbos1k/5p2/WxALtdSbNU6OJ4SBXtJNKEh10J7uehbj5nd6hYCXpVqqJa+/XqH9WDoqq7ABEonMxXFrW46yXL+wdcEYcZI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795718235; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=eY8jWJFPHqeyb/HkuAKihPr1I/XvOpTtt7B78KGWqzc=; 
-	b=b+j062L9Ogl5pt3qil9usw2Ob95GycMrgxxWWibjqgDpvZHqVbory3At83r4ccE4D+VuAzbadwyXefK4TgtU+vWeIUPNmI5dCDQtYwMaohhYlmq60ANlSSm3cqYyXlejcAWJ+VNR6ebEsx1vwpDHWR5TEsbBtDPLZ8lYDIxeoCU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
-	dmarc=pass header.from=<daniel.almeida@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=lRGZ26Jw1gn4h0yNVxFKIj3uGKUc67fKSlt6j8/MotGWmwXyD/gWojhVzaQvMLSfBWTNscsRl+clSagY/MPNpIWupdpn0fwK09J1/4UBgK4ybDnTsJC1ofS5hQe8mmyer7G0Rw34+eoHCqCcY9VVT29MXRZSF6vFOwdys/aq8wQ=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=eY8jWJFPHqeyb/HkuAKihPr1I/XvOpTtt7B78KGWqzc=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795718234041548.7559792769806;
-	Thu, 26 Nov 2026 10:37:14 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F/3vuzP+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FB581F000C4;
+	Thu, 26 Nov 2026 18:38:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795718293;
+	bh=0JG6aovU53Gj28fQBHTFybyaNfmBaXUxB5wClm6BRjM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=F/3vuzP+6n/+79X4tAfOZ1aSAZe4UF9ef3Y85F8LU/Jl9IGTaGLzqvWUbStGYCrcG
+	 wGheNCN2HLV7oh7s/OwpOp9KvQbgFUkSb5K95Xl7a56mt3yx58EpmlBgC4auXUbJN7
+	 KI5QHihgn0ejBG5k4zg6w50K7oYV+EJo2IdN5nG80l2E+5TUsOu1zcAQOIMpzjA+47
+	 4xb/WZqK/0UZIoWsXEZxr+1ZehqXpWThVt3nMpl3aFKuqNnHD6AWtF6pBGdvp+L78b
+	 dAJpoo+VJwjzE8jLmF9X4+2LOGuXXl95FyOgBuRTk1TtRbJ2B9EOlisKwr9/9TFwbr
+	 tKOpT8Q6EJQgg==
+Message-ID: <d125e248-1300-477a-b60d-fc0842103905@kernel.org>
+Date: Thu, 26 Nov 2026 20:38:08 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,83 +50,78 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH 0/7] rust: reset: add reset control abstractions
-From: Daniel Almeida <daniel.almeida@collabora.com>
-In-Reply-To: <ffb55e45af601f0afaf5071f92e123c81de22a70.camel@collabora.com>
-Date: Thu, 26 Nov 2026 15:36:56 -0300
-Cc: Miguel Ojeda <ojeda@kernel.org>,
- Boqun Feng <boqun@kernel.org>,
- Gary Guo <gary@garyguo.net>,
- =?utf-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>,
- Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross <tmgross@umich.edu>,
- Danilo Krummrich <dakr@kernel.org>,
- Tamir Duberstein <tamird@kernel.org>,
- Alexandre Courbot <acourbot@nvidia.com>,
- =?utf-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- linux-kernel@vger.kernel.org,
- rust-for-linux@vger.kernel.org,
- dri-devel@lists.freedesktop.org,
- Detlev Casanova <detlev.casanova@collabora.com>
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <D28A86A5-8077-49BA-B366-FF29E9E75736@collabora.com>
-References: <20261126-b4-rust-reset-v1-0-9c4c3d029080@collabora.com>
- <6300821339d6891983af704e2044fd1ed25285f6.camel@collabora.com>
- <299B626E-DC60-4175-9D66-2DE58BA5070A@collabora.com>
- <ffb55e45af601f0afaf5071f92e123c81de22a70.camel@collabora.com>
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
-X-ZohoMailClient: External
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 00/14] PCI: rzg3s-host: Add PCIe hotplug support
+To: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+ robh@kernel.org, bhelgaas@google.com, p.zabel@pengutronix.de,
+ geert+renesas@glider.be, magnus.damm@gmail.com, claudiu.beznea@tuxon.dev,
+ linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org,
+ Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>,
+ Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+References: <20261019065025.2146539-1-claudiu.beznea@kernel.org>
+ <179562868433.5580.1979396952125967073.b4-reply@b4>
+Content-Language: en-US
+From: Claudiu Beznea <claudiu.beznea@kernel.org>
+In-Reply-To: <179562868433.5580.1979396952125967073.b4-reply@b4>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
+Hi, Mani,
 
+On 11/25/26 19:44, Manivannan Sadhasivam wrote:
+> On 2026-10-19 09:50 +0300, Claudiu Beznea wrote:
+>> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+>>
+>> Hi,
+>>
+>> Series adds hotplug support for the rzg3s-host driver. This is a
+>> continuation of the series John posted initially at [1]. Along with it,
+>> prerequisites fixes and cleanup patches were added.
+>>
+>> Series was tested on RZ/G3S and RZ/G3E boards by generating consecutive
+>> link down/up events. The RZ/G3S has an I2C device which, depending on
+>> the way it is programmed, it controls the state of the PCIe link. The
+>> board has 3 PCIe interface: PCIE_SLOT, M.2 Key E, M.2 Key B. The
+>> following script was executed for ~9 hours:
+>>
+>> #!/bin/sh
+>>
+>> echo performance > /sys/module/pcie_aspm/parameters/policy
+>>
+>> while :; do
+>>          i2cset -y 1 0x18 0xf4 0x8 # Link down
+>>          i2cset -y 1 0x18 0xf4 0xc # Link up: PCIE_SLOT (NVMe Micron)
+>>          i2cset -y 1 0x18 0xf4 0x8 # Link down
+>>          i2cset -y 1 0x18 0xf4 0xd # Link up: M.2 Key B (NVMe Transcend)
+>>          i2cset -y 1 0x18 0xf4 0x8 # Link down
+>>          i2cset -y 1 0x18 0xf4 0xb # Link up: M.2 Key E (WiFi AX200)
+>> done
+>>
+> 
+> Given that this series is already 14 patches, you should really consider
+> splitting it into atleast two. Patches 1-12 are mere code cleanups/refactors, so
+> they can get merged independently and you can post the follow-up series after
+> incorporating comments for patches 13 and 14.
+I agree. Yesterday, when I got your review comments, I was in the process of 
+preparing a fixes series (patches 1-6 + [1]). I've added [1] since its becoming 
+necessary for our testing (and Ovidiu proposed it like this).
 
-> On 26 Nov 2026, at 15:11, Nicolas Dufresne =
-<nicolas.dufresne@collabora.com> wrote:
->=20
-> Le jeudi 26 novembre 2026 =C3=A0 15:02 -0300, Daniel Almeida a =C3=A9cri=
-t :
->> What does not work with shared resets on the C side?
->=20
-> Above make sense, for shared, you need a mechanism to coordinate the =
-reset. A
-> bit like the comment above you made about flushing active jobs, and =
-holding on
-> new jobs until the reset has completed. I think for multiple instance =
-of the
-> same driver its quite feasible, but when the triggering driver have no =
-clue what
-> other driver it shares with, there is nothing as far as I know to help =
-with this
-> coordination, and its possibly non-trivial, specially if that was not =
-part of
-> the initial design.
->=20
-> Nicolas
+If you consider OK, I can also add the cleanups along with the fixes series, thus:
+- patches 1-6
+- patch [1]
+- patches 7-12
 
+Or go with 3 series:
+1/ fixes (patches 1-2, 4-6, [1])
+2/ cleanups (patches 3, 7-12)
+3/ link event + reset root port
 
-My understanding (correct me if I am wrong?) is that this coordination =
-is
-indeed needed, but baked into the C assert/deassert API:
+Please let me know which option you would prefer
 
-Someone on a shared line has no power to assert the line
-unconditionally, all a single consumer can say is "I'd like this line to
-be asserted". The line is only asserted when all users agree (i.e.: when
-all other users also ask for a reset).
+Thank you for your review,
+Claudiu
 
-So if driver A wants a reset, it gets its house in order, and asks for
-it. Same for all other drivers, and it goes through when the last one
-does so. This is the de-facto coordination between consumers and it is
-not something that Rust influences one way or the other.
-
-Sure, B is not told that A wants a reset, and A is not told by the reset
-APIs when the reset goes through, but at least no user gets its hardware
-yanked from them all of a sudden.
-
-In fact, we do enforce this even harder by making sure that one cannot
-construct a SharedResetControl<Asserted>, for the reasons above.
-
--- Daniel=
+[1] https://lore.kernel.org/all/20261029172831.9409-1-ovidiu.panait.rb@renesas.com
