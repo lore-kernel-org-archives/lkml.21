@@ -1,79 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795732834;
-	b=2RM3sC/bNZ9altHU5ws9iV/J+U8YOqesCxgK9AOU4ckWqeU8LaFd8U4DV4tmTskJdX7B
-	 U2gatAg1wjbmXODo8tsgVgR765Gxs9uFp4kZOyVDjmW0Qv1grfbNkEOG+yqLNLv8h5ySZ
-	 EypZFScatm8NyPSBNpkMGkGi6knEo3gwsSB9aOjmJVby8SYSqGEFC3sEV+GaI+3hsbn/N
-	 0MSN14iiTUtycff6dyR/VrapaRZfFpBfWqeok46P/EHfC+w/lem2ocmgnmDOOvUL/gMQ5
-	 QKYXtuxEWSIYc6BKBpGnBj5bfZ+TUHike8xC2mMCKoxk/YaZOMwgvkFsbjLSh+qgZCw==
+	t=1795732863;
+	b=FtTAuMydKDMJTTToya08lIEFJRxxdMk9Pk0v52kdpIZENQKrHnj2OURyC5SptNO8wMr1
+	 qQ78nSJyjFUqkTN5FFbWuL6XgtDtrHzbVuKxTnfEnZ+kFO1xj1uwRpjX3Kd/sd84uPYnB
+	 uYBID6HRrer7VfrBZGKiGN0//sdaGJp/ivJtNcGENrpU1MI5o3O6cp9uVYvbSayq8y9W2
+	 i/iMm9WphYL4J5ENnGpP+YTCPUTalnQFh+RujNDUpY3Tc4Pr++ziksh6ZqXeZpZmPqeeo
+	 Se2quQQEIzz35C83F4Ckt6fGzESD7TgFYnlqEIIyFO2jpZsoSo9LXmtblCBfGneVBZw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795732834;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
-	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=5/KydILYgp1MqJro7NmxMhzqTKDk500tIwuyQxLYRaw=;
-	b=tkOPoUaIQJfV3BWmIhlxdvRRMFuCjdCXhKoxnr8ieL+hDypz59fpLlkt268YgsvI6FFO
-	 EyVUOgseYTRVUmJI8XX9dAaf7EaiTnPcQJiPPaHWZ1OiC9W0jFTasXreN/VRXC4+Gfal/
-	 MocKFyCAkZ9TIH1kiVBr9vxK8pYYr5qKMEZ5zzRCU39d/t1P0O8NvCd5TV0CBLFZOQN3F
-	 l08mptt3X/Yuz7DR06hJiWk8TGbBkrjI3l8OT+m8NkxK0sE+dCXE1v2Gfz3hbdo4njvV8
-	 ICHa5pOKknD07QKLHFj+bnmn1MMrxTnonUbRgDJBeyBGILd236eVtF2b+BobcJQsVjQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795732863;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:X-Patch-Reply:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=TNtqi5O4nLzvfHhnFH9DEQT5sHkW4Kx4CS3oVdX8k7k=;
+	b=JCPSzb1wbjXDKnYd5OxL5CmMnUcipewrOFcL5uX5qYtkVNNT1wfKETEV68K1Xdacxmlk
+	 fTpEmrwULkTGUW7RdSw8WpoKbVrl7XIxVxHPLiT3TGkILZuN4ALwXVlODjBlUt1G/qlWA
+	 EtQC1dsRNlwVat8KZNEwMqTcIS56bf6AsHcn5+sGUiN2715iAw8Nbu0a5fpiaFMwokG5k
+	 WOYHXLiKRPhuHYv7NEaLNWOpFkHfo3dBqFaxHKzRwZpUQ5zig+Fm57KzKDxQd4mW96rFr
+	 iIFP+Ej58pYDMxTCo5t5SZrvXn7zGdUiTaNCVRTJ1yb4At+bcdnksJ0434TtqK8wQdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=sang-engineering.com;
-	spf=pass smtp.mailfrom=sang-engineering.com;
-	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=ZQzn9QkR;
-	arc=none smtp.remote-ip=194.117.254.33
-Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=icoJSpSB;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E889606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:40:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E889606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99176606A31E;
+	Thu, 26 Nov 2026 22:41:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=ZQzn9QkR
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=5/Ky
-	dILYgp1MqJro7NmxMhzqTKDk500tIwuyQxLYRaw=; b=ZQzn9QkRXYYLVXowFjeF
-	9/KwQCXjfY7n1nL3GRsUbl6bPgLD0vY97rUitxizM3BkCevuOeT7/3L+1Jw9lXFX
-	Xb7bzITN5dCF6T/wHcopj3IjWtxrEav3YvfNbfabmJNr0mclhlzQd9wa7u++A6CQ
-	/P/uPO75jjRAajIdM1fZ7WWsFXVYjRCNiKrpdnc6tIaITSLCgEu20N/NtXfCmW7W
-	QE3XmECpWUkHDR/mApGR/C2esic6WTNqCU7JRoSLMj5BKc9ufO16GiLFX96aJl/5
-	6buZZQXBxCTN5bTeqc9OUZIzsstzhvsU6eW0MVEMUU7VMFxE4KjOPrbtNBLZltPl
-	Vg==
-Received: (qmail 1773729 invoked from network); 26 Nov 2026 23:40:29 +0100
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 26 Nov 2026 23:40:29 +0100
-X-UD-Smtp-Session: l3s3148p1@zClqoTVhHKUujnv5
-Date: Thu, 26 Nov 2026 23:40:28 +0100
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Koichiro Den <den@valinux.co.jp>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	Shawn Lin <Shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
-	Niklas Cassel <cassel@kernel.org>,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Serge Semin <fancer.lancer@gmail.com>, linux-pci@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=icoJSpSB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC4871F00896;
+	Thu, 26 Nov 2026 22:41:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795732863;
+	bh=TNtqi5O4nLzvfHhnFH9DEQT5sHkW4Kx4CS3oVdX8k7k=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=icoJSpSByMLM/bYlvB+6OF7hYB6Pl63TD1Id7GaGvLBgzm168zP4Q/mvICPEr1Nzw
+	 nTKz5j4j+pH+tZTclOqk/8F4yfbg0MbcxII+B4rReuquOZ/Atw5mYfhSzzJK2+hVn5
+	 EI5Diqbhnvwt+LawUVp1t3Dzu+XO+Us93KwJNIK22z2jq6K+p56pBPMh3z7MBRgB/r
+	 qed8tIlatoH6BfgGwG5QMN81EmgyBuNnHkcnk79miRJEwAPJLNChzFAiuQXdYcNwNz
+	 5kvVYHl/0/x4abA1Xf2056UegGzu9sBNOHLi9TzS8K5aYCFWOhraU+cg0adEchA5CA
+	 UcdAa2aPZJeyw==
+From: Danilo Krummrich <dakr@kernel.org>
+To: Danilo Krummrich <dakr@kernel.org>
+Cc: acourbot@nvidia.com,
+	nova-gpu@lists.linux.dev,
+	dri-devel@lists.freedesktop.org,
+	rust-for-linux@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 17/17] arm64: dts: renesas: r8a779h0: Describe the
- PCIe AER interrupt
-Message-ID: <awi1WNQZ8jEGLQaS@shikoro>
-References: <20261020031049.969895-1-den@valinux.co.jp>
- <20261020031049.969895-18-den@valinux.co.jp>
- <CAMuHMdWk9pZdJ+eh0dNHrZSMVDe84_rsvmrD=pC1Fjy9wEyp1Q@mail.gmail.com>
- <awhXFPlyc3vnmjtC@z790sl>
+Subject: Re: [PATCH v2] gpu: nova-core: use Init for firmware initialization
+Date: Thu, 26 Nov 2026 23:40:59 +0100
+Message-ID: <20261126224059.3856051-1-dakr@kernel.org>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261122171353.963020-1-dakr@kernel.org>
+References: <20261122171353.963020-1-dakr@kernel.org>
+X-Patch-Reply: applied
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,47 +63,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+Y/kQlCkEpvPUpzt"
-Content-Disposition: inline
-In-Reply-To: <awhXFPlyc3vnmjtC@z790sl>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
---+Y/kQlCkEpvPUpzt
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Sun, 22 Nov 2026 18:13:50 +0100, Danilo Krummrich wrote:
+> [PATCH v2] gpu: nova-core: use Init for firmware initialization
 
-Hi Koichiro Den-san,
+Applied, thanks!
 
-> Mani, mind if I ask whether the series still in your review queue (it looks so
-> on patchwork [1]), or whether there's no hope of it landing for some reason?
+  Branch: driver-core-next
+  Tree:   git://git.kernel.org/pub/scm/linux/kernel/git/driver-core/driver-core.git
 
-You added more people to CC and got no response. Maybe it is time to
-send out v6 now? Maybe this will get attention then... sometimes it is
-easier to talk over code.
+[1/1] gpu: nova-core: use Init for firmware initialization
+      commit: a3c13b902f14
 
-Happy hacking,
+The patch will appear in the next linux-next integration (typically within 24
+hours on weekdays).
 
-   Wolfram
-
-
---+Y/kQlCkEpvPUpzt
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmsItVgACgkQFA3kzBSg
-KbZIMhAAk+dqUXk+MuLSLKoKuO+Biu//82UdOdypJYIsTOH8C2ycdMkd3QyKQZlu
-Mfz0AsrrExl6f1eoDVrtgSl4PbDPwC+FGkomdl5+xjLhHydSj4vVYMyb2aRA+LR0
-FsCQVkNdQxionGgQ7sKtdryFannXETGGywUvtL3Q0V/sCpwh7sUl21LExUjS0Ie6
-YfMZgElbXsn2dEn23FHE7PveumSWapjOty/qFrwZJStaaDKaO1grsrOQkeuYJcnJ
-YAEHfF2//Oh/V9LK5y2AZT05q7QqFskU3FtXBJKop3j7gPZ1oovfN3Lm+k9CpLUc
-b8KjFDMgo6obv1G2m6Hlbd8IjnyDrPJPEO/ameJCSAc3aQsZKZIVUEztEXWcBkbp
-lxnfj3Vl8XZ/+yef6huoegXbbpABGTjQ1ocbAd8/71HW5295mmHN8Bto3fSYW7dJ
-Yi7W5UGSpfEX6cvPxVogZk4HplZy42ThA8lYPc7H+Y/v4XgN26O/zz1Epnvt1jqP
-pg8wK12mdXpu/N1QABqieSOgQAMUdw6kdbWB428a8Z5c4iRw4RlfZ6mPkx/tc8oy
-KG8A1ogmewmI9hMFaXuPTu/tMtdqFKaDEO7aoEyztTjgFSni4TEEy5Cwp+DSKu2z
-s1+kNTcY/uSNPe6iFtXgfq3WO945rGDoz/OzotdgNKI/c3n538Q=
-=pJea
------END PGP SIGNATURE-----
-
---+Y/kQlCkEpvPUpzt--
+The patch is queued up for the upcoming merge window for the next major kernel
+release.
