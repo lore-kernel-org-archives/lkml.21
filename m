@@ -1,55 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795709705;
-	b=aw/hljEwXV5/afRmThxzBTzWxCh4TT3OoZzQf+LhMqkHiSgW/tovkgkLYqTGImPX2t/T
-	 rLjikQBkjFvxWv8LbideHVYyy7pW70a3E/TR90DXQ8YG3kV+4OGqQIunGndTyhrfh9KfV
-	 k8WWOGZqvn/6kaKhaB8V/9AOHTLE50YHEeKM1xaZ+majW+VnQdLmuhw6mvjNOwEtqBE8i
-	 SThj2K5qag8Kk5OU2ymiJNi5zoxj/eEXMjDLDQC0nlcl8UEYs/LKYnmXmyj2nloOS1tuB
-	 kZYLglZzlerpJ3TmQg4S+YkCo9k1ii/4Jn3cxBFI9dZRbfxVnqw28RrPqxqBNuOtKEQ==
+	t=1795709741;
+	b=cf2/2x+M0czixNoetxV+8meyrTLYKkeMnR88uS44QE9+rNXqm6rWw2SkYB74Jf5suWzW
+	 0E237M9DwCELM6f8QY1ss1cd7NUWV8szeDkvdACgZZctnhd6k927FI+A/fp+ZJpzWyQe2
+	 FKw9aSj00BxpstSUKSbSCLo9+aRzhMUsJmtdcg10xDe+7IZasYpbKTMulBaesFd8id3AG
+	 oQZ2lUhZoJTf0bYN9v8Hvx7vbLom7kD6R+PaKFaZYhqK8k+k9/493yKULPpy4DjpBDvlI
+	 Q51Mlp2ApY7wuKiBpJiOTmxgfjOSa5a6Mgc413KUH/nQZa2sp2BYjXveyB9HMmuAuRg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795709705;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=3lKSc+Bc+1wSufdoeF5bFWTjYJCqmuJF4q+Yk/oXdGQ=;
-	b=fHTENPEUOjR6W4hGKX6xHnIdPVoQ9SOcOPelstS8LAZDnO8011Ks517+l7VTFPcdAUBw
-	 NUm0Hlgmqpb4v4lakCFiUbWCOmtrM1E0/YIpiCbC1ovpBW37x1kL7yOKHauPKSTi9SE2D
-	 Ep95AILBAlitxxBznhQj4DYTDwEKR+zyjXOvpNAil6MgIdrdZqMJv7Ks40Sh6s4i62GiK
-	 PWltu+GtuH6LIKcD5AT0fzLdqE8qRTFVOpbEh0sBQJaeGFz2JDsSh1ghCtyiQfe7kw0jQ
-	 MpIA6DrUMfuNwx0yY3FaXDWmPsrMc1xGRTUP6tK7H1sXwP1KCthSD2wOGE39GKQoJ7g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795709741;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Scanned-By;
+	bh=UQkC8Tq1xe+vqF6ekMwTzZzbCpLMKq5QVP3VvlYU/kM=;
+	b=K7hn9uDkdcw4TtFujfFp5dkaTauYXS5Ut3+C2mGbd6NYxDqcTwBVejnhIf02S/EpgW7G
+	 zRfNUAZm5UO8lJE4bDJ5GRkdH5vUQcmmney8V8ErMKZHAn5zQmAWhWqr57s5ukfNrguZn
+	 Ip+la8AG5tp72rYweUZY/VUSyEIvHLWhYqs5kGHaj/q2g2bx/wgd/wEegG8758TrwOJnv
+	 rdLco8KOs6Kg5yjx5P6rb4KlZjSUtWpL5RtC0Lzt+5DCJsroBBn+zH7Oyhclo2/h7r/Ps
+	 Xv9/aUVcqVuuxZ0dkauCv33tiaXTceTLKJX3WD228ekDMYNBjb5eRlyOozid7gF11GA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=MdINvNsj;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id CCCE660A2639
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:15:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCCE660A2639
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=JuP46dOs;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9014C606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:15:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9014C606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=MdINvNsj
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3DB481BA8;
-	Thu, 26 Nov 2026 08:15:00 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 58DE03F86F;
-	Thu, 26 Nov 2026 08:15:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795709703; bh=YbnSTX7ECabj5Kpk98lfgm3U879E7bHUwxxQyn3DVZo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MdINvNsjaxy3RRyoti23H/RAjpnn5we+doDDB2J4iLXsEWNA4PciuUHkY4S9rmvW9
-	 KGBKC3hmabiW3RgyXHJ+kF0KVxTZx1HIbM/Kf+mDXlGBJrUJDZQIc5HQ1GjxrkSQen
-	 aYhBSkVOVHuPL0zuXw6RauaOcWG9cJ9jyDD7qSb0=
-Date: Thu, 26 Nov 2026 16:14:59 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Thorsten Blum <blum@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: cacheinfo: Simplify init_cache_level()
-Message-ID: <awhbA7pxop_WyMTK@arm.com>
-References: <20261104083632.65715-2-blum@kernel.org>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=JuP46dOs
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795709740;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UQkC8Tq1xe+vqF6ekMwTzZzbCpLMKq5QVP3VvlYU/kM=;
+	b=JuP46dOs1uiX38gRyqCy9t1SS6Wk7IQLjfRzk5o+1vpXKkW5Yc5cGpEI2B9iBFzD6663iM
+	b3LyVzkHLsj8qoZDG34NccnQpWeO/gOoTW1FsB8FtA9fD2ggSX8XKXTIzDf0gX1NJC91ay
+	U76cUW6s6+FFhxBFO3fyjfUe8cxNCtg=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-33-pCsuPvD5MMOkSc40pWq5yw-1; Thu,
+ 26 Nov 2026 16:15:35 +0000
+X-MC-Unique: pCsuPvD5MMOkSc40pWq5yw-1
+X-Mimecast-MFC-AGG-ID: pCsuPvD5MMOkSc40pWq5yw_1795709734
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0D4CD1955DE1;
+	Thu, 26 Nov 2026 16:15:34 +0000 (UTC)
+Received: from jhladky-thinkpadp1gen7.redhat.corp (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 0CC401956045;
+	Thu, 26 Nov 2026 16:15:30 +0000 (UTC)
+From: Jirka Hladky <jhladky@redhat.com>
+To: will@kernel.org
+Cc: catalin.marinas@arm.com,
+	kristina.martsenko@arm.com,
+	luyang@redhat.com,
+	dockseed@proton.me,
+	jmario@redhat.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH v4] arm64: clear_user: keep alignment padding out of the zeroing loop
+Date: Thu, 26 Nov 2026 17:15:26 +0100
+Message-ID: <20261126161526.1745191-1-jhladky@redhat.com>
+In-Reply-To: <CAL2CeByu46f48j8O9=237fvhpPUCsKjOZkFuuHU3xrr3wVF5Eg@mail.gmail.com>
+References: <CAL2CeByu46f48j8O9=237fvhpPUCsKjOZkFuuHU3xrr3wVF5Eg@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,57 +84,90 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261104083632.65715-2-blum@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 
-On Wed, Nov 04, 2026 at 09:36:31AM +0100, Thorsten Blum wrote:
-> acpi_get_cache_info() already sets fw_level to 0 on failure, so drop the
-> redundant check and the manual assignment.
-> 
-> Use unsigned int for fw_level to match the expected type, and remove the
-> now-unused local ret variable.
-> 
-> Signed-off-by: Thorsten Blum <blum@kernel.org>
-> ---
->  arch/arm64/kernel/cacheinfo.c | 12 ++++--------
->  1 file changed, 4 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/cacheinfo.c b/arch/arm64/kernel/cacheinfo.c
-> index 309942b06c5b..881131fb4934 100644
-> --- a/arch/arm64/kernel/cacheinfo.c
-> +++ b/arch/arm64/kernel/cacheinfo.c
-> @@ -67,19 +67,15 @@ int early_cache_level(unsigned int cpu)
->  
->  int init_cache_level(unsigned int cpu)
->  {
-> -	unsigned int level, leaves;
-> -	int fw_level, ret;
-> +	unsigned int level, leaves, fw_level;
->  	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
->  
->  	detect_cache_level(&level, &leaves);
->  
-> -	if (acpi_disabled) {
-> +	if (acpi_disabled)
->  		fw_level = of_find_last_cache_level(cpu);
-> -	} else {
-> -		ret = acpi_get_cache_info(cpu, &fw_level, NULL);
-> -		if (ret < 0)
-> -			fw_level = 0;
-> -	}
-> +	else
-> +		acpi_get_cache_info(cpu, &fw_level, NULL);
+Commit fe59e0358d9b ("arm64: lib: Use MOPS for usercopy routines")
+restructured __arch_clear_user() and moved the loop alignment inside
+the function. In doing so, the loop label ended up in front of its
+own alignment directive:
 
-I wouldn't assume the caller always sets *levels to 0. It may do this
-now but the kernel-doc is not entirely clear. It claims that it sets it
-only on success with some muddled text about returning 0 on failure,
-which I guess may have been intended as setting *levels to 0.
+	1:	.p2align 4
+	USER(9f, sttr	xzr, [x0])
+	add	x0, x0, #8
+	subs	x1, x1, #8
+	b.hi	1b
 
-This also relies on ACPI_PPTT being selected which is true for arm64 but
-we can't simplify the checks here just because of Kconfig options. It
-doesn't cost us anything to check the return value, the patch doesn't
-make the code easier to read. So, NAK.
+The backward branch at the bottom of the loop therefore lands in the
+alignment padding, and every iteration of the 8-byte zeroing loop
+needlessly executes the padding NOPs. The NOP count is fixed at
+assembly time (the assembler aligns the .text section of clear_user.o
+to 16 bytes), so the NOPs have been executed on every iteration since
+the MOPS update. What link-time layout can change is the position of
+the function, in 16-byte increments, and with it whether the NOPs and
+the first sttr straddle a cache-line boundary: an irqbypass
+reorganisation in 6.17 [1] moved the function, and the loop's cost
+showed up as a ~30% /dev/zero read throughput regression on affected
+builds.
 
+Norman Herms diagnosed this and proposed moving the label below the
+directive, so the padding is executed only once on the fall-through
+path and the loop body starts 16-byte aligned as intended:
+
+	.p2align 4
+	1:
+USER(9f, sttr	xzr, [x0])
+
+Measured on Ampere Altra (Neoverse N1, no FEAT_MOPS), reading 4 GiB
+from /dev/zero, two otherwise identical kernels built from the same
+tree and toolchain, differing only in this change (two NOPs of
+padding in the unpatched loop):
+
+  kernel instructions per MiB:	797.5k -> 536.4k
+  throughput:			11.6 GB/s -> 22.3 GB/s (+92%)
+
+The instruction delta is exactly the two removed NOPs: 2 x 131072
+instructions per MiB at 8 bytes per iteration.
+
+[1] https://lore.kernel.org/all/20250516230734.2564775-6-seanjc@google.com/
+
+Fixes: fe59e0358d9b ("arm64: lib: Use MOPS for usercopy routines")
+Reported-by: Luke Yang <luyang@redhat.com>
+Suggested-by: Norman Herms <dockseed@proton.me>
+Reviewed-by: Kristina Martšenko <kristina.martsenko@arm.com>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Cc: stable@vger.kernel.org
+Signed-off-by: Jirka Hladky <jhladky@redhat.com>
+---
+Changes since v3 (commit message only, no code change since v2):
+
+- reworded the explanation per Catalin Marinas: the padding NOP
+  count is fixed by the assembler rather than by link-time layout,
+  and the NOPs have been in the loop since the MOPS update (the
+  irqbypass rework only moved the function)
+- dropped the Co-Authored-By trailer per Catalin; for the record,
+  this patch and its verification were prepared with the help of an
+  AI assistant
+- added Cc: stable
+---
+ arch/arm64/lib/clear_user.S | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/lib/clear_user.S b/arch/arm64/lib/clear_user.S
+index de9a303..143d2f7 100644
+--- a/arch/arm64/lib/clear_user.S
++++ b/arch/arm64/lib/clear_user.S
+@@ -37,7 +37,8 @@ USER(6f, setet	[x0]!, x1!, xzr)
+ 	subs	x1, x1, #8
+ 	b.mi	2f
+ 
+-1:	.p2align 4
++	.p2align 4
++1:
+ USER(9f, sttr	xzr, [x0])
+ 	add	x0, x0, #8
+ 	subs	x1, x1, #8
 -- 
-Catalin
+2.56.1
+
