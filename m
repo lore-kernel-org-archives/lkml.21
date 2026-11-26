@@ -1,85 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795660604;
-	b=bphmaR5Zmecucg1lJAM0ZMMvI83+SRth59fTCCEntO5hGwqUbmguD8AiZY6yzMsN5huT
-	 zobeRgZZD6xum0H95VJT1UjjoaDR9sQ8iOgl78BSekXbKINf1DOMBB2lh4GbKkBwYbwDr
-	 1vkNQD/tTSJrKrg+AGzpifPHrQ0AD4BlHIyKP39+K6AZSB7C25YsviWLLJrOwZRKvTmfk
-	 GiX5f6bzOTX49doxiJKjAWnqTYIpJRXmPuRrtt2NEGWJZs3g9JhCKITtU2Ga5y4RrDTtc
-	 +mimEhnlC9BpiY+eHAppw/ZeYavuRThJk5E/oZ0pPZ8NFnk4Dfr62jTk3qKZQVh232g==
+	t=1795660722;
+	b=EBW67E2l7jlz0YyjEkxhdKTLq7XP6Ulxtg6ixI5M8R3m0dpCGfHrHQFtWmtOxX26O3Hw
+	 1u5qrsMCxEGnLo1I012VqSH+YfYykylm8p7Qcn1qpx/K5KBd2dRWZFMU4wtb/Dzxvl6Mf
+	 D89H5EXAr8VV+RNJKW/KybG3vjLD0FU5YX42CfM20DgeBCPsNcZoO+RMPbwlCe9Mxwu5k
+	 il0nFRNFyqN6Qtj+Li6VZg/caGK2W954zQDPa9tsNq1ojy1F3dBPJHeozc6YkriiDU6om
+	 p+tC0WJKElOJUIIPnmYOh8EsGn2eOWVv2n4mS6xRWJKEuhnYJFu2HnGAZoVRI8Y7LkA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795660604;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=K/aHZfwOuM3vv3+Mu5WDfRhGgSzCzcwBQ2N9xkpTI/8=;
-	b=u15TGmv6s1HwI7ogs0N9ED6Ti6YGVY9kv/BX0y2OVpa8E0OuIwvxF4Ie8tYUEyQLZ7Ri
-	 iMfxjI9U36waxCFJarWOwo4aqONk0e1gz1nGYLr9jEnyc/WN7lsQMnBHTOOIVs4XjqURQ
-	 Gz6hJ3Pv3nN5jD7HkpMn6cp+XyjJcEK95cC0nyGOtm3LEJ8uY2a7tSHuxVfLAjbk8or4V
-	 eKWBiuMburyYqS72F7UnQxmb3yXXeIb7LNaz1rHB+TzN3MNJbWyFp8nb88/k9fCkhr+wu
-	 aHu7LVR8H+24PEN83QsrPH2h88hv+cLuuzEH3IRbwdy+9w7tNmNmBOAHcChwMIw/n3Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795660722;
+	h=Received:DKIM-Signature:To:Cc:Subject:From:In-Reply-To:Message-ID:
+	 References:Date:MIME-Version:Content-Type;
+	bh=FrsA9VM2RRDYw3dIWHPlcPU2Tzr0ACPscINTsZ3wYKU=;
+	b=WWMIasQGqN79o41MA1tXSiyHnwKxIHRBBEJn4KeH6a/X6eZVTFauFEQKdCwFrw1+2ZDr
+	 YSEf+Tf87qJs44tTna9Fpy8dAqpYmUuEFx8bWK7+4/JroIrJ3swNkrXDN+8zffwmiewNe
+	 UIPkCtAacP2ctc15Jld8SN0DPdo2Q51RLBzJDIkniaGV+DBGokBnL662U4GSZFelRah1E
+	 s0XO1Ufq65pN4bIwgYSAUY7Ockt3WqXVo/414cLtd9mfFMflIWrxHm5EDrWh57hmOA3TE
+	 04ghyoFogXcsjJhhCwWzvAuVJvj2Cz0jQZwHout0TeNA0Z0jFjUwyVwnbHHeEECSAvg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=linux.com;
-	spf=pass smtp.mailfrom=korea.io;
-	arc=none smtp.remote-ip=74.125.82.174
-Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bQ0PGikm;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE94F606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:36:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE94F606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=korea.io
-Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-386b8f2f671so3463380eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:36:43 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795660603; x=1796265403;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=K/aHZfwOuM3vv3+Mu5WDfRhGgSzCzcwBQ2N9xkpTI/8=;
-        b=WmxofqS+7pkvQA1Y8yK7MPCcPMouAXstUk87mA9Dvs9LIEFB0uBgapdwHrg9UrCH4F
-         p2voPFUdLM82MlZjryxx+kYDx1s+GjwbAh9/w2Ku41W1IeWNGu6zPbb9h/oPTFcRV6V1
-         RSnzAmon9+SyE5atzGXfXEI5D+6Ex/RyFeiMrspfqkPiQSZJTY6RPax1g0aExREY7oHG
-         oBGAu2haSpgbgir2PCJMq8hNrKyHQknDxNNEWO6wqzjmbnke8qrQ3TaENZiNYn86JFUn
-         Sz4/OQJpwOKDtLr65ky603sRBqVpWhnfKM5CGg/LvbpqzOKaCAXAqAvrv1jhr6ufitGB
-         aGuw==
-X-Forwarded-Encrypted: i=1; AL+hErFHS98jkIK2hJXXohbOxD1/oqoE+R3nLNd+gu+c1q/WVF5auHsokrLOOHRUFZZ7Pvmrz3DYNyaSu0RfLFg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9CV5BjPNqQvmzi9CnSqCv19JPIJixsieDcN38KL+X5RbHrgEx3
-	yP2cEyls+eDqwUWlVglN0k+V6IIsI/0na+8bhyP02n5vL23hmA4FpekBH+O5qYrOJJHVpn9X823
-	gi4bxEFho
-X-Gm-Gg: AZFdTZcPaHNx4y8X89oOcY9jcwreZb3ACGXRuFXn2EMYRIEjaRruFQHV/5cboMS7hSn
-	zKYwnQiXQ8p2NDk+TJXrI1PNXM1vVpxyUaFWBzCb2SRce4+Oi7ZtPGxwtG0WGYlujiZdGTnfKwB
-	MQFDXLBZqSZBmdBpyitcuBmPl9wgXjROD7IWQy2fgoG7FB/hGPClPvFJVJA4wl/2iWyA9m3Os6h
-	UaGaRDWOQfwNmtCszt4sVtZM42TbAbOhdARELB7c2ItNVyhP+0SU4b3eRb0BXyFPi2vMBVemdWR
-	XHRvFpkZL9ZlX/bfABQlWWkFo/DIzjhgBU4tyChDL0lPz9n50KfE4Hc1XbBT585GuqAEmAkhV4H
-	IEcR/fPC9OljspCtikKCN1vgijVtH2CF9VZ0ww0O7T3qmjPb6TLGuZLO2fINgajMDlpvWoJZwQw
-	KlktVsg6CjqZcZficSoG9v3E4jZ/c/mCKvYh8RpoCF/ZmAc7DmZSb64/doC+pAM7zpZbTX+9mvz
-	ATUNzxTw3fV77N5xmpPEsH/pdollnTubGiG1jbhtVg5tCExag2ivH+lkhLGme6VnwqztmvKm5aM
-	rzPTPMP9P0e7J5r1GdIP7e2h/h2Q8BmpjqGMzM9jzdJkEgBXPg==
-X-Received: by 2002:a05:7301:391c:b0:379:f7aa:1013 with SMTP id 5a478bee46e88-3856fd59fcemr20034878eec.15.1795660602731;
-        Wed, 25 Nov 2026 18:36:42 -0800 (PST)
-Received: from alanui-MacBookPro.local ([118.217.70.161])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b1965c02sm26703230eec.27.2026.11.25.18.36.37
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Wed, 25 Nov 2026 18:36:41 -0800 (PST)
-From: Jongwon Lee <ai@linux.com>
-To: Alison Schofield <alison.schofield@intel.com>
-Cc: Davidlohr Bueso <dave@stgolabs.net>, Jonathan Cameron <jic23@kernel.org>,
- Dave Jiang <dave.jiang@intel.com>, Vishal Verma <vishal.l.verma@intel.com>,
- Dan Williams <djbw@kernel.org>, Ira Weiny <iweiny@kernel.org>,
- Li Ming <ming.li@zohomail.com>, Richard Cheng <icheng@nvidia.com>,
- linux-cxl@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/3] cxl/edac: Skip event records marked NOT_REPAIRABLE
-Date: Thu, 26 Nov 2026 11:35:32 +0900
-Message-ID: <20261126023520.39368-r3-ai@linux.com>
-In-Reply-To: <av0ENg0EwkGRVY1R@aschofie-mobl2.lan>
-References: <20261108022022.3352-1-ai@linux.com>
- <20261108022022.3352-3-ai@linux.com> <av0ENg0EwkGRVY1R@aschofie-mobl2.lan>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E5E2606A31E;
+	Thu, 26 Nov 2026 02:38:42 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bQ0PGikm
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69E091F000C4;
+	Thu, 26 Nov 2026 02:38:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795660721;
+	bh=FrsA9VM2RRDYw3dIWHPlcPU2Tzr0ACPscINTsZ3wYKU=;
+	h=To:Cc:Subject:From:In-Reply-To:References:Date;
+	b=bQ0PGikmMVpCXzr2+ogQGCzmWiJsDojV8YuLw94SOoEP+6af4SDkg1Hz05ayFBKaU
+	 T2Kkn6ace5P/sBOVer3k6SEGH0Ev/B4bIxNUbkMzLaVWTX2m84EjwxigZ9zr7C5ta3
+	 Io/6ySL6xk7/Wb0+RLCQabC0jimBgxFCnQtIxULviz7f7YZ0WX+nGUMUl+NqjmIh09
+	 S4gN31qaEurmnHa5pYbcSItay35YwpXukelvdSK/KB8u3jxbJ51CUjMQpidqSu7hwC
+	 vP12nZVTa+DWYWW3MwC5TGg10y40os0eK+YRpCmXvbizboj6O+CuHCfcEKzmPUCQZF
+	 gIUMuxcOfUvVg==
+To: Stanislav Aleksandrov <lightofmysoul@gmail.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,  Konrad Dybcio
+ <konradybcio@kernel.org>,  Abel Vesa <abelvesa@kernel.org>,  Rob Herring
+ <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor
+ Dooley <conor+dt@kernel.org>,  Robert Marko <robimarko@gmail.com>,  Guru
+ Das Srinagesh <linux@gurudas.dev>,  Thomas Gleixner <tglx@kernel.org>,
+  Radu Rendec <radu@rendec.net>,  Will Deacon <will@kernel.org>,  Robin
+ Murphy <robin.murphy@arm.com>,  "Joerg Roedel (AMD)" <joro@8bytes.org>,
+  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Wesley Cheng
+ <wesley.cheng@oss.qualcomm.com>,  Vinod Koul <vkoul@kernel.org>,  Neil
+ Armstrong <neil.armstrong@linaro.org>,  Manivannan Sadhasivam
+ <mani@kernel.org>,  Alim Akhtar <alim.akhtar@samsung.com>,  Bart Van
+ Assche <bvanassche@acm.org>,  Bean Huo <beanhuo@micron.com>,  Stanley Jhu
+ <stanleyjhu@google.com>,  Herbert Xu <herbert@gondor.apana.org.au>,
+  "David S. Miller" <davem@davemloft.net>,  "Rafael J. Wysocki"
+ <rafael@kernel.org>,  Viresh Kumar <viresh.kumar@linaro.org>,  Amit
+ Kucheria <amitk@kernel.org>,  Thara Gopinath <thara.gopinath@gmail.com>,
+  Daniel Lezcano <daniel.lezcano@kernel.org>,  Zhang Rui
+ <rui.zhang@intel.com>,  Lukasz Luba <lukasz.luba@arm.com>,  Georgi Djakov
+ <djakov@kernel.org>,  Sibi Sankar <sibi.sankar@oss.qualcomm.com>,  Ulf
+ Hansson <ulfh@kernel.org>,  linux-arm-msm@vger.kernel.org,
+  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-arm-kernel@lists.infradead.org,  iommu@lists.linux.dev,
+  linux-usb@vger.kernel.org,  linux-phy@lists.infradead.org,
+  linux-scsi@vger.kernel.org,  linux-crypto@vger.kernel.org,
+  linux-pm@vger.kernel.org,  Krzysztof Kozlowski
+ <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v3 07/14] dt-bindings: ufs: qcom,sc7180-ufshc: Add
+ Halliday UFS
+From: "Martin K. Petersen" <mkp@kernel.org>
+In-Reply-To: <20261125-halliday-dts-v3-7-5c8311c0b70b@gmail.com>
+Message-ID: <yq1tsl4jp07.fsf@mail.kernel.org>
+References: <20261125-halliday-dts-v3-0-5c8311c0b70b@gmail.com>
+	<20261125-halliday-dts-v3-7-5c8311c0b70b@gmail.com>
+Date: Wed, 25 Nov 2026 21:38:40 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,22 +83,14 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain
 
-On Tue, 17 Nov 2026 17:49:42 -0800, Alison Schofield wrote:
-> How about writing "so these records cannot satisfy the cached-event requirement
-> for an online repair"? Offline repairs skip these lookups, so the current wording
-> sounds broader than the check.
 
-Right, the lookups only run when the memory is online. v6 uses your
-wording:
+Stanislav,
 
-  Skip NOT_REPAIRABLE records in both lookups, so these records cannot
-  satisfy the cached-event requirement for an online repair. The trace
-  events already show dpa_flags='NOT_REPAIRABLE' for them, so user
-  space can tell before it asks for a repair.
+> Document the UFS host controller on the Qualcomm Halliday SoC.
 
-v6: https://lore.kernel.org/r/20261126023520.39368-1-ai@linux.com
+Applied to 7.5/scsi-staging, thanks!
 
-Thanks for the reviews.
-
-Jongwon
+-- 
+Martin K. Petersen
