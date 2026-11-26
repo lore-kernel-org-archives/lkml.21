@@ -1,63 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795729030;
-	b=0Pxqp+EfaThN0gzDDZwVZXiVsF2CbobGyTy7CUdMED4GAEyFntRcV4g4xrTg6QiFQsXw
-	 Er3/5tEsdHFt+IXz2MV626IIjqkN0s6K7WuFC8lp+4waDqXAK0hV6fiY3hxhTDth7Kcau
-	 2omUEE9hheZsSrReq6mHtVVxx3S6/YryhpsuI29T5Q19twlPKQulEM9QjD1IafIFiL8SY
-	 x5BXgqQlmoD1LuW4rgTt4Yh7Ai4Ki8LFadvOzA2YSe87pnC2YjZVHPFoc1F7oJrJR/siy
-	 WTsbx1fbKvekd5RVwwOk1yI24Pa6tttd7R4yCNmkL6F3vbw60cZGkE8v/hs1KkBrrwg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795729030;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=08UknIj2H8XWGwN1HnLhO6QQEtyNW4lOtE/RfCqlWbs=;
-	b=OzEuk0mec+sit8PLpf9U9/cJNlgO6mFcOsrmXY+GPWp538lIJvKz6Dmm/a2GkNdro6ce
-	 H2uABMwljUjV/LeRbE2CdTb4x0SQ83kd8oMjCFZlyRLKD45iRiGymOfsQaiVaXOx0ylkq
-	 ASM5buMY4iZ+FfreNpy9SaGmftHEX32/OPI7nwI/PV4QvSHMZw559/DI15T/3k8MWsjWn
-	 B/Jq5kbM08rwlCRWf56cCeqC40U9qwz5h3sV3FhSu8Rw/UpUu0JRiTOs8OeqGbGNGzit8
-	 +7EXFyoaqClGBuHu1M+Oq5eGYfdRIO49uD622BDxNSC5lwb3+nxUHor/qnW/xrmEa0w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a1lMsQZ2;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795729045;
+	b=TtC0qP26iQjRCtqRkcvw0o9QagPBynWd5+EaWJ+A62v8o6n/x4NP7aKYIRFZ20TmpuJq
+	 y7S/tucjOsywm8v7cpoWoURBa3HsSKFjuIYwBEP4VWcoPv0QxU0D5hwwwmUql5mIygOhK
+	 LHkrdfoptDAulY8XDfpUVEFdran++WoPq7iQAUeqdatReJlFqrXBvFmKSYVsRvAKqUK8k
+	 kmg+/ZC1/MKEANNod8BTW/Ek/pfOdBMm5d+UFku+3zv1yhbUKHjLDZu0Umpbnqf/9WdBi
+	 J1UI441qBpwC3daKyP+FP9+VLmb0J5+GStsuRKRQP4RIUBYmh2S8LKEZL/XiSUaaf8g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795729045;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=k9P5r4zRavs9vWI7FzZxFkeTlmp2ngkFeToAzBYyCXg=;
+	b=4otioArmzPLqh2GhRHQrq7s7weUpE8J+sX6SIkCS4I6cvm5dErojqVUsXmFIngOv9dvY
+	 DZFeLQ55D3LlWXYBWIQ6Dz5AUVZUqwNVcCAHXkM6YqM3dw5E7mw+xZs+hn+F9IRNO1d2e
+	 2MVuZH7TlcFRrhWjBe59Z0B1YSzLvOVisdfbf8PdEmYUAxHg4wmoN9y+aG1wDidt5ueeb
+	 h8/ZLcbqdHgkXGHZKOcPd///rqKOX4lw8N3AeyWM+2uf9uuvbHT2kkXTC38B5nKsGZBpD
+	 sgbQgM3Qz2W0M5AnrLLvU4Qo+I9iinhOJ0Ty17k4iNLOwViERld7TdkV67VryGFXgoA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="LQwV/OGI";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CEEE606A31C;
-	Thu, 26 Nov 2026 21:37:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B265A606A327;
+	Thu, 26 Nov 2026 21:37:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a1lMsQZ2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 477E21F0089A;
-	Thu, 26 Nov 2026 21:37:07 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LQwV/OGI
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795729044;
+	b=FNb5s7DWjHMj2pYVoru3/xJWYaxSJCu763MNqiArtmEcYGschy9yiguAfM04Lb66/lr1
+	 CmZbNHPfUBXLCLCR6Vki8XbbMUs4ZVCiswD9ifn6w8pW6DH4tDWKu6V1tSuQcmOFjQQdj
+	 Zhn6unO5kNkcsPxrh1sHwatR+PQ3hNuD2kmHgn36dk/R2CT5l8jTAzTfF9VYfNfP4Qyy2
+	 1c5t5nmdSlgymGBC1SVUqsc+GFKCFtEO+G6dCUqalPRX/vN+eb574K70ZYUBFzLrKHS+Y
+	 eDsr9RMJ/1LER2x+fmHiKLQVzG2eEwJinMyprmEv9vVXR4GNqPb/a+KfEN9W34OBdGA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795729044;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=k9P5r4zRavs9vWI7FzZxFkeTlmp2ngkFeToAzBYyCXg=;
+	b=JAnpY1ZWY8g3IdWac/uSgC8mD7QBwggSGLacvoacj6J5YhmiD5d5127onTyFAQJ/7Z9u
+	 zCsLX2wvJf+nMphp6VAS9vJncrCut8OlRIcGqlnNSF3C+Osb12NoHrj8DnvwXDpr0VzkB
+	 DhdPMQB/nM/AjBH+gUXCScoNAVokExzzSniYfcoJyzSvPJVvUHP3zKwyIOb/FClZmjgOT
+	 dBSr4QGsHenShzIYJpDEGFC/qK93iA/qk3MLKdDiDibUTSVurSMg0EQ5BQC64c0/btvlU
+	 29ke8DgE7rKYPb7xgzBD0qlkYtRsHQmdIcak7tcd6vG15y9/sNnnpSkSfrwarX7wd9Q==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 3D8A81F0089A;
+	Thu, 26 Nov 2026 21:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795729029;
-	bh=08UknIj2H8XWGwN1HnLhO6QQEtyNW4lOtE/RfCqlWbs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=a1lMsQZ21RbIGbZzYOKqI8Q1wwQ+WFF+EcaH1QhxHEbg5f22Pjb8VHlbFRRSYmNn+
-	 y+Q23d36rydgr3I99u4Gqf0bYYxBSFUncvTrXu4Vrf1JL19yoBYLRWcZpTm2PP27kU
-	 i0kTmyHHhaKaefbaCUr7+HREwja1QzyGRItenJYO+qpQH1MdoAuNOQxddl+pyBkv+R
-	 utp5iegaJzwZxmwcWZSrzCE5KSSOFnhTQhKrnGMV8C2V/eET4yRa9cy6Ih5E3xSU57
-	 382wdINqNZV91l1kHifzrJp5XU0YS0a8LcBxhnXsw9NY4BcmDbO1BqX5Z/D38wIbEV
-	 BMk4J8NFuD5nQ==
-From: Danilo Krummrich <dakr@kernel.org>
-To: dakr@kernel.org,
-	acourbot@nvidia.com,
-	aliceryhl@google.com,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	lossin@kernel.org,
-	gary@garyguo.net,
-	ecourtney@nvidia.com,
-	jhubbard@nvidia.com
-Cc: nova-gpu@lists.linux.dev,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/4] gpu: nova-core: mm: remove SharedPramin
-Date: Thu, 26 Nov 2026 22:36:05 +0100
-Message-ID: <20261126213652.3716162-5-dakr@kernel.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261126213652.3716162-1-dakr@kernel.org>
-References: <20261126213652.3716162-1-dakr@kernel.org>
+	s=k20260515; t=1795729044;
+	bh=k9P5r4zRavs9vWI7FzZxFkeTlmp2ngkFeToAzBYyCXg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=LQwV/OGIio3krmgBqoLyUijouKqGfkqypxtiLmA7U/4jToTJvNifj98D7MMyK/uNp
+	 /CdxLyrUgxr+DrkCM8rnv3R1agTLpNoQ4p4p8bhWYTBVFeZwdytQS3wgLL44Fidhp+
+	 ru6A4ZtZoyrZd58Xh1oKGmWc6Ae7Ig2jNbR2Tck7WEwxINF0ObmlG7zXKekAyB29R2
+	 +scFMxhRvsSbBrD5O5GEbLRs2o/pCx7ZAc0nAEL6+JsEiOrL34CsOKJJDPNGmm+To5
+	 0oj1Ei6+ZuGYfuzgd1zMCnHDrbEhP6RNAz9eaDZWorI4vqrTfIQEwTjhB1pmp9xO8M
+	 r3EDk6ec/a3xA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id BA6314D833;
+	Thu, 26 Nov 2026 21:37:16 +0000 (UTC)
+From: Vincent Jardin via B4 Relay <devnull+vjardin.free.fr@kernel.org>
+Date: Thu, 26 Nov 2026 22:37:06 +0100
+Subject: [PATCH net-next 2/5] netlink: specs: rt-link: add the lisp link
+ type
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,143 +83,98 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261126-for-upstream-lisp-v1-v1-2-7382a4bcfd9b@free.fr>
+References: <20261126-for-upstream-lisp-v1-v1-0-7382a4bcfd9b@free.fr>
+In-Reply-To: <20261126-for-upstream-lisp-v1-v1-0-7382a4bcfd9b@free.fr>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Vincent Jardin <vjardin@free.fr>, Donald Hunter <donald.hunter@gmail.com>, 
+ Nicolas Dichtel <nicolas.dichtel@6wind.com>, 
+ Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, Shuah Khan <shuah@kernel.org>
+Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795729035; l=1837;
+ i=vjardin@free.fr; s=20260525; h=from:subject:message-id;
+ bh=/PetGQdaL3uGENm+cDP7KlWMMRtUNnnGqpSboQO7TLs=;
+ b=E90lr2hKe1x4TnsDVNUoOwWTCZltXA4bw9DS5wKuTSk+fWZ6CXchra3RrZninHAl4MaHdgMXe
+ z2BSm9SwulKCs8JwJBmfrKl4D8RVhQwABMgwJhTvY8PyZqp9+YHTIeO
+X-Developer-Key: i=vjardin@free.fr; a=ed25519;
+ pk=hppgLeFpGpKOi7LNwGEZ4jOYofJCoGd4Jf1ltAabiLw=
+X-Endpoint-Received: by B4 Relay for vjardin@free.fr/20260525 with
+ auth_id=871
+X-Original-From: Vincent Jardin <vjardin@free.fr>
+Reply-To: vjardin@free.fr
+Content-Transfer-Encoding: 7bit
 
-SharedPramin was introduced as a temporary wrapper so its mutex could be
-pin-initialized separately while GpuMm remained movable. This allowed
-PRAMIN locking to remove the need for mutable GpuMm references before
-converting GpuMm itself to pin initialization.
+From: Vincent Jardin <vjardin@free.fr>
 
-Now that GpuMm is pin-initialized, it can embed Mutex<Pramin> directly
-and hide the mutex's invariant resource lifetime itself. Remove the
-temporary wrapper.
+Describe the attributes of the LISP devices.
 
-Signed-off-by: Danilo Krummrich <dakr@kernel.org>
+Signed-off-by: Vincent Jardin <vjardin@free.fr>
 ---
- drivers/gpu/nova-core/mm.rs        | 19 +++++++++++------
- drivers/gpu/nova-core/mm/pramin.rs | 34 ------------------------------
- 2 files changed, 13 insertions(+), 40 deletions(-)
+ Documentation/netlink/specs/rt-link.yaml | 35 ++++++++++++++++++++++++++++++++
+ 1 file changed, 35 insertions(+)
 
-diff --git a/drivers/gpu/nova-core/mm.rs b/drivers/gpu/nova-core/mm.rs
-index 94c6f425c867..7aa8906d2cb2 100644
---- a/drivers/gpu/nova-core/mm.rs
-+++ b/drivers/gpu/nova-core/mm.rs
-@@ -44,13 +44,15 @@ macro_rules! impl_pfn_bounded {
-         GpuBuddy,
-         GpuBuddyParams, //
-     },
-+    new_mutex,
-     num::Bounded,
-     prelude::*,
-     ptr::{
-         Alignable,
-         Alignment, //
-     },
--    sizes::SZ_4K, //
-+    sizes::SZ_4K,
-+    sync::Mutex, //
- };
+diff --git a/Documentation/netlink/specs/rt-link.yaml b/Documentation/netlink/specs/rt-link.yaml
+index 81b58633911d6..30a8e36c212f4 100644
+--- a/Documentation/netlink/specs/rt-link.yaml
++++ b/Documentation/netlink/specs/rt-link.yaml
+@@ -2368,6 +2368,38 @@ attribute-sets:
+         name: mode
+         type: u8
+         enum: ovpn-mode
++  -
++    name: linkinfo-lisp-attrs
++    name-prefix: ifla-lisp-
++    attributes:
++      -
++        name: id
++        type: u32
++        doc: |
++          Instance ID of the packets that the device sends and receives,
++          24 bits.
++      -
++        name: collect-metadata
++        type: flag
++        doc: |
++          The device serves the instance IDs that have no device: it takes
++          the instance ID of a packet from its tunnel metadata, and
++          provides it when it receives.
++      -
++        name: local
++        type: u32
++        byte-order: big-endian
++        display-hint: ipv4
++        doc: |
++          Source address of the packets sent to an IPv4 RLOC, when the
++          tunnel metadata do not give it.
++      -
++        name: local6
++        type: binary
++        display-hint: ipv6
++        doc: |
++          Source address of the packets sent to an IPv6 RLOC, when the
++          tunnel metadata do not give it.
  
- use crate::{
-@@ -72,13 +74,18 @@ macro_rules! impl_pfn_bounded {
- ///
- /// Provides centralized ownership of memory management resources:
- /// - [`GpuBuddy`] allocator for VRAM page table allocation.
--/// - [`pramin::SharedPramin`] for direct VRAM access.
-+/// - [`pramin::Pramin`] for direct VRAM access.
- /// - [`Tlb`] manager for translation buffer flush operations.
- #[pin_data]
--pub(crate) struct GpuMm<'gpu> {
-+pub(crate) struct GpuMm<'gpu>
-+where
-+    // Hide the mutex's invariant resource lifetime so `GpuMm` remains covariant.
-+    exists<'res>: 'gpu,
-+{
-     buddy: GpuBuddy,
-     #[pin]
--    pramin: pramin::SharedPramin<'gpu>,
-+    #[uses('res: invariant)]
-+    pramin: Mutex<pramin::Pramin<'res>>,
-     #[pin]
-     tlb: Tlb<'gpu>,
- }
-@@ -97,7 +104,7 @@ pub(crate) fn new(
- 
-         try_pin_init!(Self {
-             buddy: GpuBuddy::new(buddy_params)?,
--            pramin <- pramin::SharedPramin::new(bar, chipset, vram_region),
-+            pramin <- new_mutex!(pramin::Pramin::new(bar, chipset, vram_region)?, "pramin"),
-             tlb <- Tlb::new(bar),
-         })
-     }
-@@ -111,7 +118,7 @@ pub(crate) fn buddy(&self) -> &GpuBuddy {
-     ///
-     /// Do not perform reclaimable allocations in `f`.
-     fn with_pramin_locked<R>(&self, f: impl FnOnce(&mut pramin::Pramin<'_>) -> R) -> R {
--        self.pramin.with_locked(f)
-+        self.with_pramin(|pramin| f(&mut pramin.lock()))
-     }
- 
-     /// Access the [`Tlb`] manager.
-diff --git a/drivers/gpu/nova-core/mm/pramin.rs b/drivers/gpu/nova-core/mm/pramin.rs
-index 841289d7bccc..c83b1681d241 100644
---- a/drivers/gpu/nova-core/mm/pramin.rs
-+++ b/drivers/gpu/nova-core/mm/pramin.rs
-@@ -13,7 +13,6 @@
-         Io,
-         Mmio, //
-     },
--    new_mutex,
-     prelude::*,
-     ptr::{
-         Alignable,
-@@ -23,7 +22,6 @@
-         SizeConstants,
-         SZ_1M, //
-     },
--    sync::Mutex, //
- };
- 
- use crate::{
-@@ -56,38 +54,6 @@
-     PRAMIN: PraminWindow @ 0x700000;
- }
- 
--/// A [`Pramin`] shared between users, serialized by a mutex.
--#[pin_data]
--pub(super) struct SharedPramin<'gpu>
--where
--    // Hide the mutex's invariant resource lifetime so `SharedPramin` remains covariant.
--    exists<'res>: 'gpu,
--{
--    #[pin]
--    #[uses('res: invariant)]
--    inner: Mutex<Pramin<'res>>,
--}
--
--impl<'gpu> SharedPramin<'gpu> {
--    /// Creates the shared window manager for the given VRAM region.
--    pub(super) fn new(
--        bar: Bar0<'gpu>,
--        chipset: Chipset,
--        vram_range: Range<VramAddress>,
--    ) -> impl PinInit<Self, Error> {
--        try_pin_init!(Self {
--            inner <- new_mutex!(Pramin::new(bar, chipset, vram_range)?, "pramin"),
--        })
--    }
--
--    /// Runs `f` with exclusive access to the PRAMIN window.
--    ///
--    /// Do not perform reclaimable allocations in `f`.
--    pub(super) fn with_locked<R>(&self, f: impl FnOnce(&mut Pramin<'_>) -> R) -> R {
--        self.with_inner(|inner| f(&mut inner.lock()))
--    }
--}
--
- /// Owner of the PRAMIN window state.
- ///
- /// [`Pramin::window_at()`] repositions the window as needed and returns a typed MMIO view into
+ sub-messages:
+   -
+@@ -2427,6 +2459,9 @@ sub-messages:
+       -
+         value: ovpn
+         attribute-set: linkinfo-ovpn-attrs
++      -
++        value: lisp
++        attribute-set: linkinfo-lisp-attrs
+   -
+     name: linkinfo-member-data-msg
+     formats:
+
 -- 
-2.56.1
+2.43.0
+
 
