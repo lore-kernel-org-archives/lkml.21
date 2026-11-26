@@ -1,108 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795686845;
-	b=Df0SpeUWb0pu3euqRRe3LVqDu1tpqhBlEhtc+cedPuPiN+NSTzhcfjBFnliL7RR1+JVq
-	 gAMr10ju6R8B6roHA49zGngPTd15N7J9TXmxt1ORYPrDVVk00IJq83IF4RmFcXjZa8qSb
-	 vbYwyLAjfs2hblRz3NZsI/LMxUoenb0dY2DLaSi36dTYWT2lahAsMuik1nI5TBa64XMqb
-	 Zn1mVsuGiAF7eoStwd0MAbJjUNJpItEZe4g7CVDLcy8O171jGbrWKG6FTgZjKoUZXFZyb
-	 rERzwDXDBoaf3q1ionCeMWdj8T3r8b1UzjPQfYzdR0J2Bg7zKjnE2FGuT0mocylnmQA==
+	t=1795686869;
+	b=5gUkyAVe/Oof4mL4l0dd1CsKGc63xTWWB6Mqbeg+eS+2qXO/5FUtPJJDOSdt0uaaE8Ji
+	 NVvKqam8tOCDx6ja5+gIonDXmvpsJnPZAYayM+WkA01jME1bVrsvFSyFDIdcSxsRGhO5X
+	 5TTAeMZCWVnPLkJ+PK4UZqzn8b+/9rn50ITsaNyGPNs+3UuiY0mGNk3VD2uvdsRvDiRGr
+	 sU/HHqKU0dwNd26OOlsiDO8eJDaQfL5xrraKxMcnid0sAoNbL3Mpy2xo/nwI7AU+KhPah
+	 2al8rY6eiQUvVl0VvoV94+DuD3XyNG0Hq8gF10G4pBNjtvOx+3WPX0rRaKCG14uSjsg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795686845;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=7CCtYtbFe6le29oXXPU1ooKs9Dx0yxyQEI4GjlG+sf0=;
-	b=m57W5AgB55ltmQw6EY4DeL7wQ0fdkI0yc7u0LQ5QptDSGCfYa8rDWGwP3imePO6IG82I
-	 CP+vnGcWWBu+sWv4R1eJaoKLOl0VxGcyWuBmudrO4rb87x4ZHwFiabg+R4dq8ybxb9Ipt
-	 /VFF6pYcJ+rTAkqeIZDjoBDU++CcCMct9noM7irNy7Y/NyuU1KyZjI1FQz7d4KX9t/0sn
-	 sJyfqo2WBp1pI+Cp56QHt0hTcx8dCeR9KcDmPjMKq0Nnf75NpBSEakPmPmAleLkGKOUGq
-	 1hoXL7QQMYi4DVk2+DFPr/8ELuijxIGa2PpqY+0vVNXQ07xhjjbGxDkhYfeSbAjOZJw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795686869;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:References:Content-Language:From:Autocrypt:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spam-Flag:
+	 X-Spam-Level:X-Spamd-Result:X-Spam-Score;
+	bh=QenZ8YvSWTF9Tgw3lW7F/FgP3vciOBQFZTK4/U065X8=;
+	b=dnW4J+TTBhU7fZDTArO7uD5qobCkjheDQv0b5NPxHKFD0Dop5VxFxFcsP2K1yNnrrQT9
+	 md8xIqEiEOH1c+Ai/LtuXoAsdFmHk0hTLxGyefIfdDCmnwg7w07XMqhKhpAZP49MpwXFN
+	 YmkRTe7RbH/+Tq+L6+DTpuGDE5gzZC/lwB/WmJaemecxi8gbkmaKe0QSBNBbLE7gLi+yy
+	 mbeEoKlJ+DJ1OZ2uwB9fmCDVMXf3JpGs+P04GSxuovLjbSmXCV6KRt8By2xxqjT+g8wU8
+	 Zx8knWZY6mhMZ8SsbGul5zVQIR9LkMypJYwUiHEHpkZH8VFEYRJTcNpw3GA98gMZsUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=YiiihWau;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=lLANQDpJ;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=O9BXcHzM;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=HLGMGUA8;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=O9BXcHzM;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=HLGMGUA8;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27731606A6AB
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:54:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27731606A6AB
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D0C2606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:54:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D0C2606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=YiiihWau;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=lLANQDpJ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795686844;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=O9BXcHzM;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=HLGMGUA8;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=O9BXcHzM;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=HLGMGUA8
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 339AE22780;
+	Thu, 26 Nov 2026 09:54:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795686867; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
+	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7CCtYtbFe6le29oXXPU1ooKs9Dx0yxyQEI4GjlG+sf0=;
-	b=YiiihWaunlPPyQivd2jzQAwNt4kxGtfBKvvNRpDzuX4ruCGpEJSUJZOTwcLlJwKHudqYqJ
-	hL6aJAmqOZL4d4lEmaMPZb/OwdhrnoNx9fQqSBux8G8X98GjhN+8Flp5sONSAhywpzfSB0
-	Mje6FnHx9OiXTMYylgChkQKJGROiwMI=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-688-9nbytldZPie1quiQLs2v7Q-1; Thu, 26 Nov 2026 09:54:01 +0000
-X-MC-Unique: 9nbytldZPie1quiQLs2v7Q-1
-X-Mimecast-MFC-AGG-ID: 9nbytldZPie1quiQLs2v7Q_1795686840
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4a20e41008cso30635715e9.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:54:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795686840; x=1796291640; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7CCtYtbFe6le29oXXPU1ooKs9Dx0yxyQEI4GjlG+sf0=;
-        b=lLANQDpJub1DKFq7TEwFDOcI3TJRHlZmh/96ElOaxlirzCADY6GEeAAS0Ytz4xY9ac
-         5B1akJcEHITQjWhDe8R0Pnm0DnHAKpgdvwivbzSVQMYqVO2uQbxzKM/G0ulUAQBFOCbU
-         oej8brmCszD1p185zkHyss2sZ+zOsT6Qvgpub0JOaSbzWMrEqPYip1KYARYYkNnFmv6V
-         wu+0jdFe5/Tg9vPOBQ2dyGMB4w72BWETBgiI8GoSNbYX9y1MLJLbhsHuR347/DiYP+eO
-         njm3nb5bzAMHRw7otWLdk9Gkb8UUOazx9ZrH/dhp1I6vG5mBOSZjRbcjITQEtmneLnVO
-         YnsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795686840; x=1796291640;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=7CCtYtbFe6le29oXXPU1ooKs9Dx0yxyQEI4GjlG+sf0=;
-        b=nUS6rfmTVNgyQ5oV3HtztqPggJiYDagBmjRglf1/b/xgvDlW7nPeboLbJPfBax7miS
-         i9+5aEKAec9z6XObsiZZtK+BtfmgTE6BeDYZK7OVhCOwhQ4zU9uNiAMzvqmSSNvHhjYh
-         wGY2166+zDzTvuptVYFAQPvm0421mgHaUAN/LNy429fr4ECZFjK1PD4NRNdhBOgjnlNq
-         qtezMIF52qdHwNhFFNGikNKKhMVJ0Og2zc+ihfDdDV0LR31A3VyNsDGsvuxNYFfCZs1n
-         01qa7I9gGxmcF8xdlo3kmb6PWKvbKa099JJWedohG4eahHZXA5wRgEvKscJWj7hfLH8A
-         /r2w==
-X-Forwarded-Encrypted: i=1; AL+hErFwsSdRWZP+ttHa1zmshVLwIlQrpPmBcWsM2VRw56rIR/11SwJBhH1VBGxPNxPrfgPDaXhmx9YAL+k51dY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8mLpSJ7icBykyLvi6+eLkdYL6bsX+bctoPYFlstjXMG8fvTiyM
-	X3/7OQ/xfCCEIdxmFvcK/W+dTd0lZQX/sGlbakiaiFT6kl0K2nTKCuCUmfdvPeqJqoe5SDe4sdX
-	aziayKOsfW90RONY8/Yu1Cq0Qrq38pPopATzQaGtOCpySXDSPhSGwFF/wagU7JvGrbg==
-X-Gm-Gg: AZFdTZdKOToMUsvb9jOX/vSML/0+qfkokLPRpHQXaTaY2lNvZingrr1z+zVDt9k4zea
-	Wq6+zinabBma8u4YLoMCnjE8lKZnwR0oQfmg37XBeIYaEdOMFvdbZD+U6uXS5G57/xKHQ8PUJdf
-	28Y/BW6k2r7uFT9ddxJSYW7RejZn9b8UjbL1sBVYxioXqvtuEIZtcnKU0Z5vQQ+ToYa6NAI5rSx
-	dCcEIqGG95SwkIaz10CmrXRQHCTHWPZ3/8NgvzncDyS94wb4UCQECZbKi0N7UejWJioLay/BBui
-	4YXFGYVCjhnq21ZkFepng3B+l7cJg6qd67ZkB8j+qFsw0FQRaCIv2LYfamv5TDuoE3lc+E3ppQQ
-	4FvXqQEd/PJ9SQwMomzbCb8IEeAJcuwUm4duhFADPRDO5rPYzI2nCPqEV/ULsvnudioc+Vb7SPF
-	5pqfxEoq4/M+RhPwfVInwfbwu+/F8+Lg==
-X-Received: by 2002:a05:600c:4e16:b0:4bb:6f77:1e35 with SMTP id 5b1f17b1804b1-4bb88810991mr440507255e9.21.1795686839786;
-        Thu, 26 Nov 2026 01:53:59 -0800 (PST)
-X-Received: by 2002:a05:600c:4e16:b0:4bb:6f77:1e35 with SMTP id 5b1f17b1804b1-4bb88810991mr440506695e9.21.1795686839381;
-        Thu, 26 Nov 2026 01:53:59 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d1bsm41250729f8f.8.2026.11.26.01.53.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 01:53:58 -0800 (PST)
-Message-ID: <34e77fff-c57b-4ed0-9035-b9682ad3914e@redhat.com>
-Date: Thu, 26 Nov 2026 10:53:56 +0100
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=QenZ8YvSWTF9Tgw3lW7F/FgP3vciOBQFZTK4/U065X8=;
+	b=O9BXcHzMphuVpZ2Wv19qyEju7P3lbOGNlvG+bmB4p7YF3uBPZwJPVAo5srTpmFUdPDfOma
+	xg4kykYWNyXKUaBKGPv9GYTkhp2Iwe7BFFrGbgKEbxwuHfsh4NETWaWUtRDFWeAZ82ZQrY
+	zPytpBtpStWrRSJpN2sgpnIu4PmARNA=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795686867;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=QenZ8YvSWTF9Tgw3lW7F/FgP3vciOBQFZTK4/U065X8=;
+	b=HLGMGUA8ZGSR/1AAhfsSollqWtO6QX/x9Vd3H09lvjNxjgJ1drm5r61/yu4Dm14TrrFw+I
+	O76g2pedCz+9RMBA==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795686867; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=QenZ8YvSWTF9Tgw3lW7F/FgP3vciOBQFZTK4/U065X8=;
+	b=O9BXcHzMphuVpZ2Wv19qyEju7P3lbOGNlvG+bmB4p7YF3uBPZwJPVAo5srTpmFUdPDfOma
+	xg4kykYWNyXKUaBKGPv9GYTkhp2Iwe7BFFrGbgKEbxwuHfsh4NETWaWUtRDFWeAZ82ZQrY
+	zPytpBtpStWrRSJpN2sgpnIu4PmARNA=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795686867;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=QenZ8YvSWTF9Tgw3lW7F/FgP3vciOBQFZTK4/U065X8=;
+	b=HLGMGUA8ZGSR/1AAhfsSollqWtO6QX/x9Vd3H09lvjNxjgJ1drm5r61/yu4Dm14TrrFw+I
+	O76g2pedCz+9RMBA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id CB738134C3;
+	Thu, 26 Nov 2026 09:54:26 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 6sNTItIBCGvDfgAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Thu, 26 Nov 2026 09:54:26 +0000
+Message-ID: <e9d6ae3e-585b-4240-8f07-8c06911d83cd@suse.de>
+Date: Thu, 26 Nov 2026 10:54:26 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,71 +107,216 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v3 1/2] net: keep the TCP fixed-ID flags on the header
- they describe
-To: Julius Bairaktaris <julius@bairaktaris.de>, netdev@vger.kernel.org
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- willemb@google.com, horms@kernel.org, andrew+netdev@lunn.ch,
- dsahern@kernel.org, idosch@nvidia.com, ncardwell@google.com,
- kuniyu@google.com, steffen.klassert@secunet.com,
- herbert@gondor.apana.org.au, richardbgobert@gmail.com,
- ecree.xilinx@gmail.com, andy.moreton@amd.com, alex.austin@amd.com,
- linux-net-drivers@amd.com, saeedm@nvidia.com, tariqt@nvidia.com,
- mbloch@nvidia.com, leon@kernel.org, linux-rdma@vger.kernel.org,
- alexei.starovoitov@gmail.com, ast@kernel.org, daniel@iogearbox.net,
- andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
- martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev,
- jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
- john.fastabend@gmail.com, sdf@fomichev.me, izaiahsun@gmail.com,
- corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org,
- shuah@kernel.org, bpf@vger.kernel.org, ipsec@lists.linux.dev,
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+Subject: Re: [PATCH] drm/log: Add an automatic integer scaling
+To: Jocelyn Falempe <jfalempe@redhat.com>,
+ Javier Martinez Canillas <javierm@redhat.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org,
  linux-kernel@vger.kernel.org
-References: <cover.1795284858.git.julius@bairaktaris.de>
- <7c74b2076dc7dee1d481d39a135e0946d5e04145.1795284858.git.julius@bairaktaris.de>
+References: <20261124224408.728354-1-jfalempe@redhat.com>
+ <b5f237cf-582a-42f5-8ebc-c006ccecf62f@suse.de>
+ <fe5485e4-c3fc-4f18-86b2-d37106876c47@redhat.com>
 Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <7c74b2076dc7dee1d481d39a135e0946d5e04145.1795284858.git.julius@bairaktaris.de>
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <fe5485e4-c3fc-4f18-86b2-d37106876c47@redhat.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Spam-Flag: NO
+X-Spam-Level: 
+X-Spamd-Result: default: False [-13.29 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	XM_UA_NO_VERSION(0.01)[];
+	RCPT_COUNT_SEVEN(0.00)[8];
+	FREEMAIL_TO(0.00)[redhat.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch,lists.freedesktop.org,vger.kernel.org];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,imap1.dmz-prg2.suse.org:helo]
+X-Spam-Score: -13.29
 
-On 11/21/26 19:26, Julius Bairaktaris wrote:
-> Commit 3271f19bf7b9 ("net: gso: restore ids of outer ip headers
-> correctly") made SKB_GSO_TCP_FIXEDID describe the outermost IPv4 header
-> and added SKB_GSO_TCP_FIXEDID_INNER for the inner header of an
-> encapsulated packet. Every path that adds or removes a header then has to
-> move the flags, and none does. A TCP stream that GRO merged with fixed
-> IDs and that is forwarded into an IPIP tunnel, or into an ESP tunnel mode
-> SA with crypto offload, is segmented with one outer ID for all segments
-> and with incrementing inner IDs. A tunnel that decapsulates such a packet
-> in iptunnel_pull_offloads() leaves the state of the removed outer header
-> on the new outer one, and the inner header of a GRE or UDP tunnel, which
-> segmentation reads at encap_level 0, gets the state of the outer header.
-> 
-> Let SKB_GSO_TCP_FIXEDID describe the innermost IPv4 header again, as it
-> did before that commit, and replace SKB_GSO_TCP_FIXEDID_INNER with
-> SKB_GSO_TCP_FIXEDID_OUTER for the outermost header of an encapsulated
-> packet. Where a header is added in front of a GSO packet, in
-> iptunnel_handle_offloads() and in the BPF LWT encapsulation, clear the
-> outer flag, so that the new header gets incrementing IDs as it does on a
-> packet that was not encapsulated before. Clear it as well where
-> iptunnel_pull_offloads() and bpf_skb_net_shrink() remove the outer
-> header. ESP transport and BEET mode with crypto offload set
-> skb->encapsulation but keep the IPv4 header and its ID, so xfrm_output()
-> copies the inner flag to the outer one for them. Convert mlx5 and sfc,
-> the two drivers that use the inner flag.
-> 
-> Two flags cannot describe a header between the outermost and the
-> innermost one of a packet with three IPv4 headers: software segmentation
-> uses SKB_GSO_TCP_FIXEDID for it, as it used SKB_GSO_TCP_FIXEDID_INNER
-> before.
-> 
-> Fixes: 3271f19bf7b9 ("net: gso: restore ids of outer ip headers correctly")
-> Suggested-by: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-> Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
-This patch is IMHO too invasive for 'net' at this point of the cycle.
+Hi
 
-I suggest targeting net-next in the next iteration
+Am 26.11.26 um 10:02 schrieb Jocelyn Falempe:
+> On 11/26/26 08:47, Thomas Zimmermann wrote:
+>> Hi Jocelyn
+>>
+>> Am 24.11.26 um 23:42 schrieb Jocelyn Falempe:
+>>> On HiDPI screen, the default font might be too small, so if no
+>>> scaling is specified, try to upscale reasonably.
+>>> The auto scaling is computed for each display.
+>>>
+>>> Signed-off-by: Jocelyn Falempe <jfalempe@redhat.com>
+>>> ---
+>>>   drivers/gpu/drm/clients/drm_log.c | 36 
+>>> ++++++++++++++++++++-----------
+>>>   1 file changed, 24 insertions(+), 12 deletions(-)
+>>>
+>>> diff --git a/drivers/gpu/drm/clients/drm_log.c b/drivers/gpu/drm/ 
+>>> clients/drm_log.c
+>>> index 4654091fe11a..7a0db2690b55 100644
+>>> --- a/drivers/gpu/drm/clients/drm_log.c
+>>> +++ b/drivers/gpu/drm/clients/drm_log.c
+>>> @@ -25,9 +25,9 @@ MODULE_AUTHOR("Jocelyn Falempe");
+>>>   MODULE_DESCRIPTION("DRM boot logger");
+>>>   MODULE_LICENSE("GPL");
+>>> -static unsigned int scale = 1;
+>>> +static unsigned int scale = 0;
+>>>   module_param(scale, uint, 0444);
+>>> -MODULE_PARM_DESC(scale, "Integer scaling factor for drm_log, 
+>>> default is 1");
+>>> +MODULE_PARM_DESC(scale, "Integer scaling factor for drm_log, 
+>>> default is 0 (auto)");
+>>>   /**
+>>>    * DOC: overview
+>>> @@ -42,6 +42,7 @@ struct drm_log_scanout {
+>>>       const struct font_desc *font;
+>>>       u32 rows;
+>>>       u32 columns;
+>>> +    u32 scale;
+>>>       u32 scaled_font_h;
+>>>       u32 scaled_font_w;
+>>>       u32 line;
+>>> @@ -72,17 +73,17 @@ static struct drm_log *console_to_drm_log(struct 
+>>> console *con)
+>>>   static void drm_log_blit(struct iosys_map *dst, unsigned int 
+>>> dst_pitch,
+>>>                const u8 *src, unsigned int src_pitch,
+>>> -             u32 height, u32 width, u32 px_width, u32 color)
+>>> +             u32 height, u32 width, u32 blit_scale, u32 px_width, 
+>>> u32 color)
+>>>   {
+>>>       switch (px_width) {
+>>>       case 2:
+>>> -        drm_draw_blit16(dst, dst_pitch, src, src_pitch, height, 
+>>> width, scale, color);
+>>> +        drm_draw_blit16(dst, dst_pitch, src, src_pitch, height, 
+>>> width, blit_scale, color);
+>>>           break;
+>>>       case 3:
+>>> -        drm_draw_blit24(dst, dst_pitch, src, src_pitch, height, 
+>>> width, scale, color);
+>>> +        drm_draw_blit24(dst, dst_pitch, src, src_pitch, height, 
+>>> width, blit_scale, color);
+>>>           break;
+>>>       case 4:
+>>> -        drm_draw_blit32(dst, dst_pitch, src, src_pitch, height, 
+>>> width, scale, color);
+>>> +        drm_draw_blit32(dst, dst_pitch, src, src_pitch, height, 
+>>> width, blit_scale, color);
+>>>           break;
+>>>       default:
+>>>           WARN_ONCE(1, "Can't blit with pixel width %d\n", px_width);
+>>> @@ -122,7 +123,7 @@ static void drm_log_draw_line(struct 
+>>> drm_log_scanout *scanout, const char *s,
+>>>           if (src)
+>>>               drm_log_blit(&map, fb->pitches[0], src, font_pitch,
+>>>                        scanout->scaled_font_h, scanout->scaled_font_w,
+>>> -                     px_width, color);
+>>> +                     scanout->scale, px_width, color);
+>>>           iosys_map_incr(&map, scanout->scaled_font_w * px_width);
+>>>       }
+>>> @@ -206,6 +207,15 @@ static u32 drm_log_find_usable_format(struct 
+>>> drm_plane *plane)
+>>>       return DRM_FORMAT_INVALID;
+>>>   }
+>>> +/* Find the biggest integer scaling to get about 120x50 chars on 
+>>> the screen */
+>>
+>> Something like 80x30 (VGA mode 0x17) or 80x50 (VGA mode 0x102) seems 
+>> natural. But what is the reason for 120x50?
+>
+> I think this was a good default with old 15" CRT at 640x480. But for 
+> example for code line length, it's now configured in the 100-120 range 
+> in most codebase.
+> When looking at dmesg, a lot of lines are longer than 100, so 120 
+> allows to avoid too much line splitting.
+> For the number of rows, it's important to have some log history, so 50 
+> looks to be the sweet spot.
+> User can set a scaling manually, or build the kernel with bigger fonts 
+> if they don't like the default.
 
-/P
+Some general thoughts on this:
+
+Each font is designed for it's specific glyph resolution. Therefore, I 
+think it is a problem to scale x and y independent from each other. That 
+can mess up the font. I'd suggest to make the output aim for a certain 
+display height. Text runs from top to bottom and number of lines is 
+usually what people care for most. OTOH the display's right side is 
+usually empty.
+
+I agree that the original VGA mode 0x17 is a bit short one lines. The 50 
+lines you choose seem right to me. For the number of lines, I'd start 
+with the current font and scale if the number of lines becomes too 
+large. So that the resulting console has between 30 and 70 lines.
+
+For the number of columns, why not pick the preferred number of columns 
+in relation to the scaled font height and the display-mode resolution? 
+That keeps the font geometry at a correct ratio.
+
+
+I know all this is close to nitpicking and maybe the code does some of 
+this already. I just think it's important to make it look good on a 
+variety of displays.
+
+
+>
+> Currently, with 8x16 font (which is the most common), the default in 
+> full HD is 240x67. In 4K it's 480x135. So doing some integer scaling 
+> make the default experience much better.
+
+Right, the current fonts are too small on modern displays.
+
+Best regards
+Thomas
+
+>
+> Best regards,
+>
+
+-- 
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Stefan Gaiser, Jochen Jaser, Abhinav Puri, (HRB 36809, AG Nürnberg)
+
 
