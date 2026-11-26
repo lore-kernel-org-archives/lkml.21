@@ -1,104 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795727488;
-	b=OozewBPp3LlJ6eLqKAKPmQTpCPS4JZ3eAQXTOJeqRpln0HXennW9psaCRDGzyz3547eQ
-	 lfWc+rt3FUiRP6i1qW/n9uJsOGarzhZqkIvwCMQzJzaGi8oKNXzA9Lkn8qU0uh6DqWSx4
-	 4ZN7BQgrFuGegaEuEZD25nJRT1M0zZMY92rSaheMLsgPPO3+RD/uGRYfhY+Xv5QgluuZ9
-	 g37eA598zQPRGyaxIFBUC9PeV0COAARHMOeqjFGkrdN66t9UDwcwAXIjnJ+uq0Lj+l4Z1
-	 PRNLdfnfgwcaRtPymrhY9sumIHyfb8V7x+ICdaOrgkz13jCVu1Tftnq9lczVuU2mN7g==
+	t=1795727801;
+	b=Ht72IPyGaGGwoK52EOA8m+FK+Kp3BB9qMXWelCiXMejPGyx0xYX+aGrcywPLxxJfY65q
+	 C8jwwcGKq98ROUcw3kkdEahr8P9MJpSc0Rs7FuuIvEek9zB3Z6TRQbf/c1SYPEp8fyAFU
+	 GJQfpy4PGkbuAc2xl4HfR8hw43izT7FZEvevClG0IcNpEGhArU6haOX86npki5Fy0ajQ/
+	 KLPypCsGc6LBnUOlVwhaCFWEFtlnwjvb+YLMMuu2I+nsQ9NvVqwKsepdLqb+8kVopx+hl
+	 cvkmW7++T1NOHOcCLouMwESGdcrSuKMf5/HaehxACly1sbLeeiwYkgVtWN5Yxacspbg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795727488;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:Subject:From:To:Cc:In-Reply-To:
-	 References:Content-Transfer-Encoding:MIME-Version;
-	bh=1eGhF9wa+InSW4Ry7zowJx6R0jLY/ryLtxDc7jirqqQ=;
-	b=GAqOsVh2qR1RtJJxdLWFsF1S/lvJG2uba3lxIYhYNnxi7As2ONv3P2wqUNSPo1S0vBgn
-	 HypPRh+ugLHn9i0Pp4lncQcBbCXiyuPFrb9Pn9lySNVWIC5uKuPDnDXHw1GfsdHQa9ibT
-	 Qwghiyk89A7hbYGBCEzOtjvA1KTz+Si74Zrwlc4I5Sn8qRid+kswl3rDKoRQZhQ27amhb
-	 YLrv5gDyLPkeO8+0lKuZsP+5czlWVJkoCs43hSerRJe/Q/qTlvHxYryGlUiXNlsP4SznQ
-	 I/0Emb9LzRcMB+9m4gXsdzGMPPzeTQVMVOLsyNnDngkdd2iS0oHnpYvLIChzapKygCg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795727801;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=5nCW4MAO5U33E60itT1BNYSCNPq+U7Gmtnf0gOZEkcs=;
+	b=5k+27wBPWnRvQ2ZpjTdhez/Y21m9Niq3H+z0zjZE5d/nox70q3C4fRVHMmSvMPI7XWVV
+	 aNEoNTSqgT+oU00EhyoQOr4Dsbw3EyjOwPNHbfQlMc8ZhNWildlRi5Y3EAXf8S8FFKYiC
+	 u0aMC2n253EEvXgg1b6XAVq/OX1v7MZZS+ibKuXyG/+9uyGxNNBJr92Jmpt97oWLCYee0
+	 BZPlgLeoMwyYPEnHJDw78+e3QWSt6alQoVoVKJkiZe1X3iAbZ5fB48A7jmtQFXT/0HGs+
+	 FhQ3ICseCo/tpkBPfAi0LxzhROhXWPT/MKV6OnoBp6ZTwXSAnOcF/ghlk1pV7BdtnOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jcLm4e3K;
-	arc=none smtp.remote-ip=209.85.214.182
-Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=RFCPfX6o;
+	arc=none smtp.remote-ip=192.198.163.14
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.14])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0397A606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:11:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0397A606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4C85606A326;
+	Thu, 26 Nov 2026 21:16:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4C85606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jcLm4e3K
-Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2f0464dd6b6so45645835ad.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:11:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795727486; x=1796332286; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:cc:to
-         :from:subject:message-id:date:content-type:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1eGhF9wa+InSW4Ry7zowJx6R0jLY/ryLtxDc7jirqqQ=;
-        b=jcLm4e3Kr4LRZNOQm7TsamIhRQAYCemljovkkU3TOUej7mwnQKEsCh9AjHMYvZoOIM
-         l6WjPISP+9d68Nz8fiGelOJmiMruep+oH2AhR9EW8yi8zsmxzICA6BN8B4wOM0dO+Fjk
-         adfEy9NCNDiYa+ZsAv/KJ0aYFPBgtcEc8IMwXK577/HgPV5JZFz0vtM+ANoCHTH1js+P
-         yhUINFlY3YWofsCwixNJmIXrh/UvZ7OX0qxK+dfels9uDi6MGxmR+h2nM49pADIPGL1B
-         dLZpsh5cwBqugKHHikoqdcxEaQwitTiFoF5JS7KDOmYNk1kHnIZLlPn5ZDEMYj03o6v7
-         6nQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795727486; x=1796332286;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:cc:to
-         :from:subject:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1eGhF9wa+InSW4Ry7zowJx6R0jLY/ryLtxDc7jirqqQ=;
-        b=eyO0DFOWECh5Mt1gaI+wwCC0dt4jNdbLQw/2zSsPdpM44SWr368ZwMgWDXDpARVe9g
-         p5o3HSSkz5MApv7+dk5JtCyNCp3Kkbhsu//Rkd8+Auh0KJMdIzzkYnJBj4+4URyqlZu0
-         DbMgiPp5178plMFvJQX8/q/ohw1sRMSyAp1H0Nqkv/NMFGqFgYPFI4F7rVfPbzAzS9dX
-         YEezOqNKMpIGVcFqhCkmwY4yRO6+LFpX8/b6PNNX0oWyySk4jZutr8sbVXkz0v1ILpbR
-         WBnhK/ERnoi5U/M94HIO+nWlFi8n2iHB1hp6btpXv2yfiG+vZsVhhSFCJ/kHLhi0/ZVA
-         Ki+w==
-X-Forwarded-Encrypted: i=1; AL+hErGC19ShFcY1rNl+ivCaPsL5PpAw5GnH8goq04VI3exi3/duPkJtBxFo+m5ty2lekcUaCxPNXR7dHXyqy5Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9DbJR4c9C1frB5TFag6ykIOij6SyWH6YPPXET59+62sa7nloSE
-	NfSnuVALjPdI7CIXfyVjI5I//NpfJE58q3C97hePe+yaIDWlla/pQDG3
-X-Gm-Gg: AZFdTZfxQhLfuHATNnl06+fdAzc5kG96UV1ZBsVFab96vW6Dx21omFaoq3RjFBNqY7N
-	sojjvgVT9k1BFRHAskRRArVVmK8lZJ6ThXKuIBjxkXZEG+7LloXG8aVGLFDQkUQ+URJAoXNDF/9
-	blG7n54ZcBogK/f69nxNYEBxL24ZA1dWZWjR8w4d2bZr+fVlfLgQkHpsVJEgAn6fNLXh4IyDhkM
-	5MyADZPhRqekoMdOdYpHCxjVUfolWKPN5DhKlZIBF7BcL4Xj/FhTSK/+P+yHWkSDrnIY0NV8qbp
-	Y4m+hyF+9ak21dr8QMVosPrxlaLYWz1+1IlqAWy3715D7K0OKv2ocA066PpO/GXIo2G/Uww4nCw
-	KV577Q+nLMHmN9MJ47l6ZBjyijr0o5K76Vhxf1+VpoHRGdtceXTTxV+5iV+xEUNQv3cr2Yy25DB
-	byyHCNdiTtiH7JPn0FX9c7Jeyv09tuWhKJxurfhgjA1cvkVO0gWojYAzETGdKeIMxL1IJhxQOtS
-	u1JcfjsTC+0bqhiTVlegr2PWc7ps+4Dp0DzWXcGRW3QWFfecB5Un1LIc9jtKE1wkApQlYq5ce3i
-	R6+f9484ni7YYphFoMGqfyaFZiuUYUib7BQtjshtRWd6In7ZWw8o7ZmXwQ5NPi1xld8yuaYjVBi
-	7+jK2UPKk4+Bye8MLaSmaFgRyprt8hPEw6A==
-X-Received: by 2002:a17:902:f642:b0:2ed:fdb:b37a with SMTP id d9443c01a7336-2f03ef84acbmr222699935ad.4.1795727486118;
-        Thu, 26 Nov 2026 13:11:26 -0800 (PST)
-Received: from localhost ([153.61.198.255])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0dcbe3sm109123135ad.28.2026.11.26.13.11.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 13:11:25 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 26 Nov 2026 21:11:25 +0000
-Message-Id: <DN5G9M8G2IKK.Y4INWFA4JESW@gmail.com>
-Subject: Re: [PATCH bpf-next 1/2] bpf: account for local storage map
- elements memory
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "Mahe Tardy" <mahe.tardy@gmail.com>, <bpf@vger.kernel.org>
-Cc: "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii Nakryiko"
- <andrii@kernel.org>, "Eduard Zingerman" <eddyz87@gmail.com>, "Kumar
- Kartikeya Dwivedi" <memxor@gmail.com>, "Martin KaFai Lau"
- <martin.lau@linux.dev>, "Song Liu" <song@kernel.org>, "Yonghong Song"
- <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "Emil
- Tsalapatis" <emil@etsalapatis.com>, "Ihor Solodrai"
- <ihor.solodrai@linux.dev>, "Shuah Khan" <shuah@kernel.org>, "Christian
- Brauner" <brauner@kernel.org>, "Amery Hung" <ameryhung@gmail.com>,
- <linux-kselftest@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-In-Reply-To: <20261126131318.470837-1-mahe.tardy@gmail.com>
-References: <20261126131318.470837-1-mahe.tardy@gmail.com>
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=RFCPfX6o
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795727801; x=1827263801;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=+b15UN31lbPZUO5Fe6FPuB2I9AA36yHOS5UK/Pyl0sw=;
+  b=RFCPfX6oZca+iTCx98JcUXUmvqFmjgq6iTKPpDmXA/hyF6ps1vZ41eSb
+   CuJKGuWJop2d+RJId+nSxZWqgP5bEp609FYP9pxMBhXzQOQ+89mzQC6vY
+   yc5/wmJxOWLiU9Co5kslMy4JmSLaCDlKqMqX4nUYuwGT+keo53R9ThfJ+
+   cNpu2HikD8MihSO/HTj//gkaur644ijjgh27r42JXE1TseGSM4iV1V8vR
+   7zgVJczP7Gk8W2Cz+JME1EysDcUxU0IYL/UYWk0WOZo5W3ANamIj6nsQw
+   78Ib/LOb60mWf9P8Dql5TbVKMkdN4wHEOZgoCJrOV5SkXB7XQjTFrFMBU
+   A==;
+X-CSE-ConnectionGUID: 79mQUgnMR0SN4ELZgZOxRg==
+X-CSE-MsgGUID: QnSSJprBTuu7W6NeIBIhaA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4599560"
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="4599560"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 13:16:39 -0800
+X-CSE-ConnectionGUID: 9EmEOJZOQTioQ3ydyd6Vhg==
+X-CSE-MsgGUID: D3JfsdMOTOOZuFRZPvpAsA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="12167196"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by orviesa003.jf.intel.com with ESMTP; 26 Nov 2026 13:16:35 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xWgpT-00000001Uu6-3uKA;
+	Thu, 26 Nov 2026 21:16:31 +0000
+Date: Fri, 27 Nov 2026 05:15:40 +0800
+From: kernel test robot <lkp@intel.com>
+To: Hannes Reinecke <hare@kernel.org>, Keith Busch <kbusch@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
+	Sagi Grimberg <sagi@grimberg.me>, Hannes Reinecke <hare@suse.de>,
+	Chaitanya Kulkarni <kch@nvidia.com>,
+	Eric Biggers <ebiggers@kernel.org>,
+	David Howells <dhowells@redhat.com>,
+	Jarkko Sakkinen <jarkko@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org,
+	keyrings@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	Martin Belanger <martin.nvme.dev@gmail.com>
+Subject: Re: [PATCH v7 14/14] nvme-auth: allow to update pre-provisioned keys
+Message-ID: <20261127044024.YlqHcQQx-lkp@intel.com>
+References: <20261126-dhchap-keyring-v4-v7-14-ee438ffea527@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,129 +95,126 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261126-dhchap-keyring-v4-v7-14-ee438ffea527@kernel.org>
 
-On Thu, Nov 26, 2026 at 05:13 AM Mahe Tardy <mahe.tardy@gmail.com> wrote:
-> Walk the bucket's list to count the number of elements in the map, note
-> that concurrent insertions and deletions can make the count imprecise.
+Hi Hannes,
 
-No other map_mem_usage() walks the elements. All of them read a counter.
-'bpftool map show' reads memlock of every map.
-An sk_storage map has one selem per socket, so every read of its fdinfo
-is one cache miss per socket.
+kernel test robot noticed the following build warnings:
 
-Lets count in map->elem_count, like htab.
-It costs one this_cpu_inc/dec under b->lock. Update and delete take
-that lock already.
-bpf_map_sum_elem_count() and cur_entries in maps.debug start to work
-for local storage maps too.
+[auto build test WARNING on 68099cf27253a8c89d703a282d3d811446d9453b]
 
-diff --git a/kernel/bpf/bpf_local_storage.c b/kernel/bpf/bpf_local_storage.c
-index b12fcec..6f7c2e5 100644
---- a/kernel/bpf/bpf_local_storage.c
-+++ b/kernel/bpf/bpf_local_storage.c
-@@ -259,14 +259,17 @@ static int bpf_selem_unlink_map(struct bpf_local_storage_elem *selem)
- 		return err;
+url:    https://github.com/intel-lab-lkp/linux/commits/Hannes-Reinecke/nvme-auth-modify-nvme_auth_transform_key-to-return-status/20261126-151219
+base:   68099cf27253a8c89d703a282d3d811446d9453b
+patch link:    https://lore.kernel.org/r/20261126-dhchap-keyring-v4-v7-14-ee438ffea527%40kernel.org
+patch subject: [PATCH v7 14/14] nvme-auth: allow to update pre-provisioned keys
+config: hexagon-randconfig-1001-20261127 (https://download.01.org/0day-ci/archive/20261127/20261127044024.YlqHcQQx-lkp@intel.com/config)
+compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project fb29ca8163c3309160711e5a14eb46bc6d4fdad2)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261127/20261127044024.YlqHcQQx-lkp@intel.com/reproduce)
 
- 	hlist_del_init_rcu(&selem->map_node);
-+	bpf_map_dec_elem_count(&smap->map);
- 	raw_res_spin_unlock(&b->lock);
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/20261127044024.YlqHcQQx-lkp@intel.com/
 
- 	return 0;
- }
+All warnings (new ones prefixed by >>):
 
--static void bpf_selem_unlink_map_nolock(struct bpf_local_storage_elem *selem)
-+static void bpf_selem_unlink_map_nolock(struct bpf_local_storage_map *smap,
-+					struct bpf_local_storage_elem *selem)
- {
- 	hlist_del_init_rcu(&selem->map_node);
-+	bpf_map_dec_elem_count(&smap->map);
- }
+>> drivers/nvme/host/sysfs.c:891:17: warning: variable 'old_key' is uninitialized when used here [-Wuninitialized]
+     891 |             key_serial(old_key) != key_serial(key)) {
+         |                        ^~~~~~~
+   drivers/nvme/host/sysfs.c:853:27: note: initialize the variable 'old_key' to silence this warning
+     853 |         struct key *key, *old_key;
+         |                                  ^
+         |                                   = NULL
+   drivers/nvme/host/sysfs.c:996:17: warning: variable 'old_key' is uninitialized when used here [-Wuninitialized]
+     996 |             key_serial(old_key) != key_serial(key)) {
+         |                        ^~~~~~~
+   drivers/nvme/host/sysfs.c:959:27: note: initialize the variable 'old_key' to silence this warning
+     959 |         struct key *key, *old_key;
+         |                                  ^
+         |                                   = NULL
+   2 warnings generated.
 
- int bpf_selem_link_map(struct bpf_local_storage_map *smap,
-@@ -284,15 +287,18 @@ int bpf_selem_link_map(struct bpf_local_storage_map *smap,
- 		return err;
 
- 	hlist_add_head_rcu(&selem->map_node, &b->list);
-+	bpf_map_inc_elem_count(&smap->map);
- 	raw_res_spin_unlock_irqrestore(&b->lock, flags);
+vim +/old_key +891 drivers/nvme/host/sysfs.c
 
- 	return 0;
- }
+   848	
+   849	static ssize_t dhchap_secret_store(struct device *dev,
+   850			struct device_attribute *attr, const char *buf, size_t count)
+   851	{
+   852		struct nvme_ctrl *ctrl = dev_get_drvdata(dev);
+   853		struct key *key, *old_key;
+   854		char *dhchap_secret;
+   855		bool generated = false;
+   856		size_t len;
+   857		int ret;
+   858	
+   859		if (!ctrl->host_key || !count)
+   860			return -EINVAL;
+   861	
+   862		len = strcspn(buf, "\n");
+   863		dhchap_secret = kzalloc(len + 1, GFP_KERNEL);
+   864		if (!dhchap_secret)
+   865			return -ENOMEM;
+   866		memcpy(dhchap_secret, buf, len);
+   867		nvme_auth_stop(ctrl);
+   868	
+   869		key = nvme_auth_extract_key(dhchap_secret, len,
+   870					    &generated);
+   871		if (IS_ERR(key)) {
+   872			kfree_sensitive(dhchap_secret);
+   873			return PTR_ERR(key);
+   874		}
+   875		down_read(&key->sem);
+   876		ret = key_validate(key);
+   877		up_read(&key->sem);
+   878		if (ret) {
+   879			dev_warn(ctrl->device, "key %08x invalidated\n",
+   880				 key_serial(key));
+   881			if (generated) {
+   882				dev_dbg(ctrl->device, "revoke host key %08x\n",
+   883					key_serial(key));
+   884				key_revoke(key);
+   885			}
+   886			key_put(key);
+   887			kfree_sensitive(dhchap_secret);
+   888			return ret;
+   889		}
+   890		if (!generated &&
+ > 891		    key_serial(old_key) != key_serial(key)) {
+   892			dev_warn(ctrl->device, "cannot change pre-populated key %08x\n",
+   893				 key_serial(old_key));
+   894			key_put(key);
+   895			kfree_sensitive(dhchap_secret);
+   896			return -EPERM;
+   897		}
+   898		mutex_lock(&ctrl->dhchap_auth_mutex);
+   899		old_key = ctrl->host_key;
+   900		if (old_key && old_key == key) {
+   901			dev_warn(ctrl->device, "using existing key %08x\n",
+   902				 key_serial(old_key));
+   903			old_key = key;
+   904		} else {
+   905			if (ctrl->host_key_generated) {
+   906				dev_dbg(ctrl->device, "revoke host key %08x\n",
+   907					key_serial(old_key));
+   908				key_revoke(old_key);
+   909			}
+   910			ctrl->host_key = key;
+   911			ctrl->host_key_generated = generated;
+   912		}
+   913		mutex_unlock(&ctrl->dhchap_auth_mutex);
+   914		key_put(old_key);
+   915		kfree_sensitive(dhchap_secret);
+   916		/* Start re-authentication */
+   917		dev_info(ctrl->device, "re-authenticating controller\n");
+   918		queue_work(nvme_wq, &ctrl->dhchap_auth_work);
+   919		flush_work(&ctrl->dhchap_auth_work);
+   920		return count;
+   921	}
+   922	
 
--static void bpf_selem_link_map_nolock(struct bpf_local_storage_map_bucket *b,
-+static void bpf_selem_link_map_nolock(struct bpf_local_storage_map *smap,
-+				      struct bpf_local_storage_map_bucket *b,
- 				      struct bpf_local_storage_elem *selem)
- {
- 	hlist_add_head_rcu(&selem->map_node, &b->list);
-+	bpf_map_inc_elem_count(&smap->map);
- }
-
- /*
-@@ -377,7 +383,7 @@ static void bpf_selem_unlink_nofail(struct bpf_local_storage_elem *selem,
- 			 * is sleepable: see below.
- 			 */
- 			if (likely(selem_linked_to_map(selem))) {
--				hlist_del_init_rcu(&selem->map_node);
-+				bpf_selem_unlink_map_nolock(smap, selem);
- 				if (sleepable_users)
- 					keep_fields = true;
- 				else
-@@ -556,7 +562,7 @@ int bpf_local_storage_alloc(void *owner,
- 	 * such a storage through the map. b->lock holds off those who find
- 	 * first_selem through the owner and want to unlink it.
- 	 */
--	bpf_selem_link_map_nolock(b, first_selem);
-+	bpf_selem_link_map_nolock(smap, b, first_selem);
- 	raw_res_spin_unlock_irqrestore(&b->lock, flags);
-
- 	return 0;
-@@ -673,14 +679,14 @@ bpf_local_storage_update(void *owner, struct bpf_local_storage_map *smap,
-
- 	alloc_selem = NULL;
- 	/* First, link the new selem to the map */
--	bpf_selem_link_map_nolock(b, selem);
-+	bpf_selem_link_map_nolock(smap, b, selem);
-
- 	/* Second, link (and publish) the new selem to local_storage */
- 	bpf_selem_link_storage_nolock(local_storage, selem);
-
- 	/* Third, remove old selem, SELEM(old_sdata) */
- 	if (old_sdata) {
--		bpf_selem_unlink_map_nolock(SELEM(old_sdata));
-+		bpf_selem_unlink_map_nolock(smap, SELEM(old_sdata));
- 		bpf_selem_unlink_storage_nolock(local_storage, SELEM(old_sdata),
- 						&old_selem_free_list);
- 	}
-@@ -794,8 +800,9 @@ u64 bpf_local_storage_map_mem_usage(const struct bpf_map *map)
- 	struct bpf_local_storage_map *smap = (struct bpf_local_storage_map *)map;
- 	u64 usage = sizeof(*smap);
-
--	/* The dynamically callocated selems are not counted currently. */
-+	/* The maps of an owner share its bpf_local_storage. It's not counted. */
- 	usage += sizeof(*smap->buckets) * (1ULL << smap->bucket_log);
-+	usage += (u64)smap->elem_size * max(bpf_map_sum_elem_count(map), 0);
- 	return usage;
- }
-
-@@ -830,6 +837,10 @@ bpf_local_storage_map_alloc(union bpf_attr *attr,
- 		raw_res_spin_lock_init(&smap->buckets[i].lock);
- 	}
-
-+	err = bpf_map_init_elem_count(&smap->map);
-+	if (err)
-+		goto free_smap;
-+
- 	smap->elem_size = offsetof(struct bpf_local_storage_elem,
- 				   sdata.data[attr->value_size]);
-
-@@ -902,6 +913,7 @@ restart:
- 	/* smap remains in use regardless of kmalloc_nolock, so wait unconditionally. */
- 	rcu_barrier_tasks_trace();
- 	rcu_barrier();
-+	bpf_map_free_elem_count(map);
- 	kvfree(smap->buckets);
- 	bpf_map_area_free(smap);
- }
-
-pw-bot: cr
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
