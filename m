@@ -1,85 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.171
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795663797;
-	b=fGdDsXoptldLenX0/RJA3Xs8l4hMHKYTd57C86MWxjKIKYTnF01glcoaU6d8BmPK1zuB
-	 XigwXMQvNg6/ut+xcoSFuDnFjMs1fLhrxZfuSWGLrIz2f6DrFFZqs48ZAGJBRsqr1e6E1
-	 kzoSKLY+uwtTM9IBzQi+qobu29S0hW5CukWxdT4SvY8ieyUapJLVFrjE8siTka1mfuWRg
-	 FJ9zGw/TfxTb8rLpaew1zwhSySYidzgJktOwpsnAWRvVCgx2nCgsZSjwMLv0Elj8xxReP
-	 pafEF4RJd4Q4F5BGHqtRIbzaXDnt/WZ58yNX7BfATGWpWbx5OSgnwIoshqa+Z+Twlaw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795663797;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
-	bh=IpBPoqnT7XRaUUtao4GwnTNrNP2Jb9pC0p7vG2cG0EM=;
-	b=h8qPYgXafij0ZkHAAhzwSqSNC052vPZLdOU0PixZrDWHiIGZUT3ts8a446PenCbmMeW2
-	 jMfdgdHcxPndvAwrLtEgBtRfot7pkXZMVQcSmD3feKWh1TfFJNSIchg9ZJZp/KB/D8+sR
-	 iIjO2KhFBgV15QUMqOnRaJOcgERuq31wMKHV16zbpvZlbQ4wCmgvlk5dX+NvS96+Qef+S
-	 EqTkvX2J9y10DnG4exDOXtUhvlg57SeAaKmzVMXwmuApvv/5cVPQd81XcnR8cf7RtcyfY
-	 R9d0VesoSi9uTes5PWtqMhBxo9OVmeORtz1IhEcekdyYhLW0vEf3bq7u9x3t0BqwOUw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ge74aeZ9;
-	arc=none smtp.remote-ip=209.85.215.171
-Received: from mail-pg1-f171.google.com (mail-pg1-f171.google.com [209.85.215.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.153.242
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795663864;
+	b=qA39ljNqang1IKX9gMiThiz/4HxWG+BZRivM+vd7YaoYLrx7cnX/4/TkzIqaf6vLSNII
+	 hfffCoUs700gWHjscRunEOqQb33NckTCY6DCWi8XjIwmLQKHFxFZMq5lSLnWEU+CXHN2U
+	 B8kQ4Bja/gvwqhWMOtqZ+xNOQET17mHnIQLUfCiWol+r7gkvUeH7nlLsYvmaAKn8Uqp3S
+	 69UHFKk9mhsg4KCt/DDEPainHmaffWTp4XwhZ7UKTe6FKz69bKyEPotfkmvXHXIiBeHFd
+	 oguWnl6iaD2KMDiak4QEq24rP0Z3VKLI+lVgYqi1B+UFW6U5XiijYYrkSObskxOA1Xg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795663864;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
+	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
+	 Cc:Content-Type:Content-Transfer-Encoding:X-Authority-Analysis:
+	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:X-Orig-IP:
+	 X-Proofpoint-Spam-Details;
+	bh=N+P3dYoO5kNdjktkieB+BYanGibwmSgEVeuarspyJBc=;
+	b=nm9PYbk/H9khuV+b/J8aaN0fAYH4VNP4A3+dZimSNgp3/1QvbPEyUK048u6vXE8Q9SVc
+	 mSAFjxCs3Ls2HqYvOlw2x97gvk83sX0Kcc1kb84IKrT0ZcGcjV3RTq9cYyxHUB2+RnOOa
+	 auTALok3+qXfEAV2x87JEJvlcQhgQDO0cmRr59BhFQxui42cF3IJATiIm1Snw28K6kHLK
+	 LnLk+qstB3KSJA1WCONj/BOVQ/TP+eH0rpJAIdBUgHdGwiSIjMNwlnbsTBHQEJfgl0BRY
+	 3AFrVKGvD+HiyVHE58mQ8txTEMFQ/OCKbemZ/eQ0DZMm7Ifduu2YJJChY/0oQ2z9Vxw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nyu.edu;
+	spf=pass smtp.mailfrom=nyu.edu;
+	dkim=pass header.d=nyu.edu header.i=@nyu.edu header.a=rsa-sha256 header.s=20180315 header.b=COd8mw49;
+	dkim=pass header.d=nyu.edu header.i=@nyu.edu header.a=rsa-sha256 header.s=nyu-googleapps1 header.b=JiuSLZDI;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.153.242
+Received: from mx0b-00256a01.pphosted.com (mx0b-00256a01.pphosted.com [67.231.153.242])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41123606A690
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:29:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41123606A690
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5545E606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:31:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5545E606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nyu.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nyu.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ge74aeZ9
-Received: by mail-pg1-f171.google.com with SMTP id 41be03b00d2f7-cdb2e0062bbso2614437a12.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:29:57 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=nyu.edu header.i=@nyu.edu header.a=rsa-sha256 header.s=20180315 header.b=COd8mw49;
+	dkim=pass (2048-bit key) header.d=nyu.edu header.i=@nyu.edu header.a=rsa-sha256 header.s=nyu-googleapps1 header.b=JiuSLZDI
+Received: from pps.filterd (m0119691.ppops.net [127.0.0.1])
+	by mx0b-00256a01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ25css1342464
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:31:03 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nyu.edu; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=20180315; bh=N
+	+P3dYoO5kNdjktkieB+BYanGibwmSgEVeuarspyJBc=; b=COd8mw49C9yb8fluf
+	eIy7xKCBDO2NqfQ6VAl1RZHBzlf3A8FWyBtI3QxWFYNXNWK75UJvvtc7WdlZ1IzN
+	ER90msZ/mgmPX13hDztWwhQhgTZAaeDPxvEGwJ5v6lcUUP7NQoNQ10EMIznCVmWn
+	LyC7TFQf6f+c6Gf8fjBcklYPSlrNRmr0kGQYalOnkV6wCDxAZO75UbPrcv24KW1D
+	fGJurblv5FqeYMvRTWR++vxeUGMg3UkbZIovuagYiuGAzqaMCE4+8wRcoF2yLRaN
+	ocn7fTwSIEMocOHL9pSTNoaoB5kEeXupx5YwAHVqcXLhow01S2zYSYc01cIrZ7im
+	+jwHg==
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	by mx0b-00256a01.pphosted.com (PPS) with ESMTPS id 4j66kamvdg-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:31:03 -0500 (EST)
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-386c3309469so2496803eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:31:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795663862; cv=none;
+        d=google.com; s=arc-20260327;
+        b=rwdJ/YnykFbmTvnUxNRTQZrROy/3rRgCGYmJRnkt9JH/ysElvxxkNsdhw+CSVMpuuF
+         eFeEqAvQ5bo6SR2fJNSojJAXYTrm4mVGDHmPXrIjHO4JHCXSyM2Ev5nPeVtRs6dzt3UU
+         H9Zr8dYMqryUdpj0piBTDRGO0NbQwRXJ7ew/Mydwk42dGHoOg8p/FxqDYBOhqb/WwWwS
+         86UOEuS2J9EsqkjtFnPbsGB17zqlV1B+q4Q9/Ql9xZcgQvFu0a93eAJylBfIuRfvwZCY
+         jXrzUhgNMDbsobK0EA306Yx9e21GwvRW4a9PqYnIUQxRND/P4beYvB1w3yN8LMMGp5Ny
+         aBIA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=N+P3dYoO5kNdjktkieB+BYanGibwmSgEVeuarspyJBc=;
+        fh=9Wwd1IJJRmF29hmO2mStaosowvKyWeXiub/FV1EMNvo=;
+        b=geFfwIPkoC8XNvv15seG4EYXC40QeFMs/pRVQ56qJb5BLW2Wlk6+yDDOprO66v85mz
+         vKEotwLTSf3boM2+IC6M/D5t/xeuFFMrx1y2LOloxpCq6Lrhwkc6AC7ycaavhPSdAZKl
+         5vA87rc+EMU3dBQ1WGT3XdJHiu4zOPF6cWTz2okFPTp4RSMNcWv+HiJPpl893DdawCZU
+         WwgQ7Kmo5k+z18G1mJwAaWkrsVJZLN3oVZxXFrHrLOa4L+vAy4Iit+J/dheDFEFymDOZ
+         1V/qWVGt1JAw1JsVPbPSvcmZqHvF69+kufLuQXVNA+s4+T478KkDM3FrDysppIjGqAjs
+         2cIA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795663796; x=1796268596; darn=vger.kernel.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=IpBPoqnT7XRaUUtao4GwnTNrNP2Jb9pC0p7vG2cG0EM=;
-        b=Ge74aeZ9dydOcRkiioTsqEpJtsFEIaP6vYCZeCjABFSs7FcbSagrDKjdNDqExJ2OHc
-         lMlLqUIv0U6OJHLrfjihR7nT2vs1FRTjZjYNJK7cwbsmjp3WyTU5M/P1hfAwjqbb/1Bf
-         uAKeS+uvL/l+4lOvI4wqObv935uvCp8kcqszPQQvA/m3bGbb4e109JkdYuIr4oOHdb3y
-         y67zBtmUukRrJ64tGN6gG93dMJvuE7KnrGAgl4yzXfXGKgPRCVLffLCNkDP1yahMniA8
-         41HMs4QhGiHaW2V9kzfQekghes5I7HYCD8pHKPRNQusAh0c7QmzvFP3Vgtx0HKo3nJAs
-         DMDw==
+        d=nyu.edu; s=nyu-googleapps1; t=1795663862; x=1796268662; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=N+P3dYoO5kNdjktkieB+BYanGibwmSgEVeuarspyJBc=;
+        b=JiuSLZDImeXzsqgLNJRNnubrt/KHtLo+zGC+u700XKldyjRDyaauQv0cvlJ6SWaBKn
+         q9y5vmDFMZQDa5P6gqtCrGhtvTxcUl/yUTYSPwnq7zZJEK5BBElpXeoKok4F/Ks/Sa5E
+         7wN5aOOrALqravaHGYmt8TFat99+3aML3njfkzmcmxMaMHneCmQUagYp7xrkw9DRZf3L
+         BUwINFVvQjIblpglMLi+yxVgWfE2ICRIW6bOvG2l3hDzUjD3Lc2Il18ndBxHWglpBZnL
+         sSo2MewM7TRYrhPigOUejjzpzDKEH6oj3dSxG+KGaLIJxpGWpUGDQAL/5QIdBlkrEja4
+         M8ZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795663796; x=1796268596;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795663862; x=1796268662;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=IpBPoqnT7XRaUUtao4GwnTNrNP2Jb9pC0p7vG2cG0EM=;
-        b=dFhi6Z4xNU/3VZeB2gKnFqMtQDunuPUdEPnixaUIIJf0FFKeUp4GovH120t/C8Q/UP
-         Y5IhI5zm1Gqf8rDe0cpNFnhoxHkhj1l39bn38BSa1MaYNoSvhXqOkjXkUY/W9/rpDken
-         cbj1VVcdUAy2Lypoc6sMOepMKlOqQPlVVIHTRHBUIxGeWj2Ic4HztnchSqagi2h7Kcla
-         sED6iRwlcEn2nzCb/B6TLeZOvwEhn4V3IMpts+ohdsUNahTSZs6PfMF9q9MXSmmxGk3L
-         63Zd21wINyAQfqqPl2dt4/GSvHRtbtiDgGXI7O/ujHTebBwhFaCBauzf3UWixyhP06BP
-         42KQ==
-X-Forwarded-Encrypted: i=1; AL+hErGXOM7rggF+TmKFGPqF6tVCJ+lcA8OqI2sl1rhLt+V9FrCTG7gvAq10pUS6Joq3qiEniHQm9Lx64J6/R2g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+6Mx2ip4ZbWs5V7M6buT5hN+LiQFQVXPIKzhjKhGOjdg4nEYV7
-	f3VYB8vL1EVVsYAqi30M1jZ9McZOmk9zOH87zoLVVnhcUzEsuA15REsq
-X-Gm-Gg: AZFdTZfLyuLq6oRoe1UhZXqPLsqrntbLzR6m7AwadUtpkSLBd7q3pmj+/FzQAKF71l7
-	EFO1+JMithuXWMTO0QyfmqXwLRE9jGzodD9kzYwlJmMl/uhrPwUxM8K9FEbnSbHam4IVtCphn6D
-	02SHu/hn2WNUiAjdRI7VKt1m1GsJGliPe8h3LIH+v+wgul/Pqs20VgFOVUaLDcPgyUwW2378OUZ
-	DkOkzU3X/TctxHOXGBDePoka6YFKxERsfm5r0srUIufyPGkjsSGidAQWorVYZugpZ0sXd0emfPX
-	+5NPPzuSzRZx6jGTcoe4+gkrqNzPdPuUJ536oKDo9gxGIJIUXzHrOaEZlOIbnHTKYiczj2WamQa
-	SWvG6fVLrWtb7LWW7CaJJt0IIE8FyPv2bSPtWSc6gPOQZ/WDiSxMUdnQRiDEf6SLMIY2dz4i4tC
-	vR3vUNY3gES/BcLfjbC1XVI730HY86RaXafDJpO34QywcLxtefQ7Aigh9vNoGVTDMj296hbJkI7
-	cqF845zfCe5EcGlSmsd4eiTXBuEr2OtauVpniffxkrnjnxgCDM2vLyuYjXZmTpVz39JqDceBcqd
-	Bxfd8l2psiongUkus95RQPwetvqmf9B9qtuAr3EsAuij5dMXq7Ey+CYQeVEolUn9LhZZ6ULjRzu
-	QYoZ6napmkQgVku8kPXmRfHNVAwFbDAAG0w==
-X-Received: by 2002:a17:90b:35c2:b0:3a8:c0cd:57f3 with SMTP id 98e67ed59e1d1-3b41c8e0c7emr16856091a91.18.1795663796337;
-        Wed, 25 Nov 2026 19:29:56 -0800 (PST)
-Received: from localhost ([153.61.198.254])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40578d771sm32691589a91.1.2026.11.25.19.29.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 19:29:55 -0800 (PST)
+        bh=N+P3dYoO5kNdjktkieB+BYanGibwmSgEVeuarspyJBc=;
+        b=nRVAjjBNaWjhOU2CqRV+7bbvEdxu6vQuoacks6eHIzUeNULdRZQqynwcuTgAudLsZy
+         z8K1paGzOlXfqkPGT3EWtE5aCzxy7Wkf24/NQK3rE4YRWi5CI8Af1zXP6J1q+zKkDIMS
+         saCLjeAsEQdy+JiLsIVdlY4v95eY/I+1pCx9j+xLuLDO2yZ5+XpDVWZYjlbtTDnniKil
+         Y5OnD2oxrdSac6THmoxEYkviQoxbioXEaRL8qRcu6R76q2cq6fdkQPOn+wlk211YwH7L
+         1KYbSzPIvYml/7zG6DG2Tv+CSMHC39JaRA7+pm+YbS1sXOo7laDX8Zns2S75eLhBFXCq
+         Onmg==
+X-Forwarded-Encrypted: i=1; AL+hErHFyVIINnOr6M75k2Un1VLK/3PzKGRNywFyvH/vWCcOryTsXKxGfSC9DAdei/I2r5d9/lYP0nz2fYhfu00=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/at3IIeyeEM+t7b0CD+oiosWDJYfwRlM0bIFgAyi3bE9Sl27Zz
+	7AX28hwdEAGW+/p42/pcP2OiaJVa92GHGHu+4x5QLH6H6CZXgOy6tx9+QJ4F49bU5EuLEP7UWn6
+	F9yAXsL0G2E+cz8n+4F1mcQNbaOuTlPF/8cmRr2bYaN3yqroxTP+zKNhCXVKXJrkyRkdxkXvMnw
+	VV8/l6FeX4TSEM3Qwikgg3rWcaP7aahNP43JlI3w==
+X-Gm-Gg: AZFdTZcMVAfHurAAvqNgAkYZSuwg1H29Gyeaai3w8SLm/8/bUu04IDOdbFOERzGP5IP
+	4+QA40YFS0vKvC6ADZppJqxZmJVK98nAO/0M2CUXaFMQ+N0rLzH57+dxwMS9WhQc4Ziz7QWxDBh
+	kQ1wqwasv4KqBHS7LWCoa+NhFtL98umKjvs+Ey8jFPkLl4TOLYSNfEYup8KA==
+X-Received: by 2002:a05:7301:391c:b0:384:df31:69fd with SMTP id 5a478bee46e88-3856fb6a672mr23198235eec.14.1795663861908;
+        Wed, 25 Nov 2026 19:31:01 -0800 (PST)
+X-Received: by 2002:a05:7301:391c:b0:384:df31:69fd with SMTP id
+ 5a478bee46e88-3856fb6a672mr23198198eec.14.1795663861013; Wed, 25 Nov 2026
+ 19:31:01 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,103 +126,82 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
+MIME-Version: 1.0
+References: <20261123050440.223436-2-kj2864@nyu.edu> <20261124113412.2078323-1-amarkuze@redhat.com>
+In-Reply-To: <20261124113412.2078323-1-amarkuze@redhat.com>
+From: Jerry Jiang <kj2864@nyu.edu>
+Date: Wed, 25 Nov 2026 22:30:49 -0500
+X-Gm-Features: Aa3M54o04nhg0P2_1uYOfzaZLCGV6LCP0jYuR67VeYdioWcby2Gl3ug3k86xqRo
+Message-ID: <CAPqbLS0EbbsQ6Z8P_vep-nMfDKbe8S9cKiOS5fWp8qQdFTp_eA@mail.gmail.com>
+Subject: Re: [PATCH v3] ceph: Use unsigned types for snapshot split counts
+To: Alex Markuze <amarkuze@redhat.com>
+Cc: Ilya Dryomov <idryomov@gmail.com>, Xiubo Li <xiubo.li@clyso.com>,
+        Viacheslav Dubeyko <slava@dubeyko.com>, ceph-devel@vger.kernel.org,
+        linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+        co+408fcc361565713f@bugs.sh
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 26 Nov 2026 03:29:55 +0000
-Message-Id: <DN4TOVIA1HK7.HEPNDE8WF6HZ@gmail.com>
-Cc: <mikeba@sentinelone.com>, <bpf@vger.kernel.org>, "Daniel Borkmann"
- <daniel@iogearbox.net>, "Andrii Nakryiko" <andrii@kernel.org>, "Martin
- KaFai Lau" <martin.lau@linux.dev>, "Eduard Zingerman" <eddyz87@gmail.com>,
- "Kumar Kartikeya Dwivedi" <memxor@gmail.com>, "Song Liu" <song@kernel.org>,
- "Yonghong Song" <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>,
- "John Fastabend" <john.fastabend@gmail.com>, "Emil Tsalapatis"
- <emil@etsalapatis.com>, "Ihor Solodrai" <ihor.solodrai@linux.dev>, "Steven
- Rostedt" <rostedt@goodmis.org>, "Masami Hiramatsu" <mhiramat@kernel.org>,
- "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>, "JP Kobryn"
- <jp.kobryn@linux.dev>, <linux-trace-kernel@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH bpf-next v3 0/4] bpf: Check recursion per task for
- preemptible programs
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "Andrii Nakryiko" <andrii.nakryiko@gmail.com>
-X-Mailer: aerc 0.20.1-355-gf870624f6c37
-References: <20261117-bpf-preempt-v2-r2-v3-0-586376ec3672@sentinelone.com>
- <DN38312WXPDJ.2KLUTCWSDFL3P@gmail.com>
- <CAEf4BzavErcSOZhGobqEo68d+2bCnJ8vFxxT_vqb+oQw1j1d7g@mail.gmail.com>
- <DN3X5OIRXSWR.2Y70DWFMPDXQF@gmail.com>
- <CAEf4BzYxBM3R1s6XDSpN5htzMho4Jp2uBsx9ZBKTPNBvmEffxw@mail.gmail.com>
-In-Reply-To: <CAEf4BzYxBM3R1s6XDSpN5htzMho4Jp2uBsx9ZBKTPNBvmEffxw@mail.gmail.com>
+X-Authority-Analysis: v=2.4 cv=Mcb5KJ/f c=1 sm=1 tr=0 ts=6b07a7f7 cx=c_pps
+ a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=x7bEGLp0ZPQA:10 a=S0S_EcBMpFAA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Se5WoFf3ZZRiLcel0nel:22 a=tr4woWNwjDflhTIOjkZU:22 a=VwQbUJbxAAAA:8
+ a=20KFwNOVAAAA:8 a=GzGT0hU59dN0ITKBXqQA:9 a=QEXdDO2ut3YA:10
+ a=6Ab_bkdmUrQuMsNx7PHu:22
+X-Proofpoint-GUID: 7jnbp8r5M_SY126cX1E3gTvH83HKccGs
+X-Proofpoint-ORIG-GUID: 7jnbp8r5M_SY126cX1E3gTvH83HKccGs
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAxMiBTYWx0ZWRfX4be9wDPwqFlR
+ icWcmnnWu9gDjeSlCa2aYoDPeL8Fz9iGth2o0AmR9Utif8b9NTj+yqyJl4pjQEFi19TXJzVNFtm
+ LC8U4WMGEzAGvX14RgC0VsF4SI3drpPqXMIbZPbgkgexEfT1JIpyGgqW2EErNX8KRv5jjmJ6ZBo
+ p048Ue0MkrcFx0E5x5n0qCb6Kg9qp56fzGGwHrTlGR0PZX/F4TTM/kQOpZ/LL9EQVrMswiLqaE7
+ oQXWocRmuTq2GLUgxNSX78txfXgVZO5l4AUonxbj4w4ekSoFEHhU4YeTjyMhDtUWMsOcq/GL3ku
+ y0xCGIqxt2lD+rAEe0dZ8zqnTTZepbP/qU4vOPEH910kx2DkB3jXCPbfg4G0RVAhW1R4tOebdXf
+ K6p2ZUha34uprxPj99dhbheAqXWg+G+H5YpA2HArF587VhQjKELvW4gHXU3qW+QHLKvZ6kMTooE
+ EOjiRIOXGcIZ+N9TB8Q==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAxMiBTYWx0ZWRfX+RKA0r7EhBBw
+ Kem+UOnzIfR8GHuJxHZqT5lnZU43+uCZzzIK8pXBu/EFA1Q5pWbgXHPGt8GXB7IVh6fE6ki0peP
+ PWWifLUbW3yMktiHJFtej+C1UUmzdU4=
+X-Orig-IP: 74.125.82.200
+X-Proofpoint-Spam-Details: rule=outbound_bp_notspam policy=outbound_bp score=0
+ bulkscore=0 spamscore=0 phishscore=0 adultscore=0 clxscore=1015
+ priorityscore=1501 impostorscore=0 malwarescore=0 lowpriorityscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611260012
 
-On Wed Nov 25, 2026 at 5:35 AM UTC, Andrii Nakryiko wrote:
-> On Tue, Nov 24, 2026 at 6:00=E2=80=AFPM Alexei Starovoitov
-> <alexei.starovoitov@gmail.com> wrote:
->>
->> On Tue, Nov 24, 2026 at 01:47 PM Andrii Nakryiko <andrii.nakryiko@gmail.=
-com> wrote:
->> >> +       for (ctx =3D old_ctx; ctx; ctx =3D ctx->saved_run_ctx) {
->> >
->> > do you mind checking if unlikely() around ctx improves performance?
->>
->> Mike,
->> pls try it on respin.
->>
->> > So basically to opt out from this behavior BPF program would need to
->> > stop using any per-CPU maps and just implement its own poor man's
->> > per-CPU storage?
->>
->> poor mans's per-cpu with bpf_get_smp_processor_id() shouldn't work
->> as an opt-out. See section 6.
+Hi Alex,
+
+I've looked through your request and created a new patch for it.
+Please tell me if any issues arise or any other changes I need to
+make.
+
+v4 has been proposed:
+https://lore.kernel.org/all/20261126032756.265377-2-kj2864@nyu.edu/
+
+On Tue, Nov 24, 2026 at 6:34=E2=80=AFAM Alex Markuze <amarkuze@redhat.com> =
+wrote:
 >
-> it's hard to weed through that verbiage in section 6, are you
-> proposing to mark "needs per-cpu protection" if BPF program is calling
-> bpf_get_smp_processor_id()?
-
-yes, because it fixes real prog (falco).
-
->>
->> > And even using SEC(".percpu") would still be detected
->> > as per-CPU usage, right?
->>
->> This one is pretty much brand new, so there is no data to make
->> a decision. I can see arguments both ways.
+> Hi Kaho,
 >
-> .percpu is backed by PERCPU_ARRAY, so we don't need any data to say
-> that it will trigger the protection, do we?
-
-I think it's slightly different vs normal percpu-array.
-.percpu is pseudo_map_value
-map is pseudo_map_fd.
-So we can distinguish if we want to.
-What I was trying to say is that .percpu is likely only in Leon's tool.
-So this one is easy to fix is we do _not_ want 'needs_percpu_prot' on it.
-I'm fine whichever way.
-
-> Still, choosing between handling all events and having bugs (fixable)
-> of handling per-CPU data in my BPF program, I'll choose the former.
-
-but with the diff I proposed you get both:
-per-cpu maps work and there are no missed events.
-
-> Even if we don't want to make that a default, that's fine, but please
-> at least give me a way to opt out from the kernel's
-> over-protectiveness :) and not using per-cpu maps is not a way to opt
-
-I don't follow what opt-out you're asking about.
-Out of implicit preempt disable when you're using per-cpu array?
-Why? How does it hurt your prog?
-
-> out, it has its valid uses even with preemption. Think about simple
-> per-CPU stats/counters updated with atomic operations and aggregated
-
-wait what? per-cpu _with_ atomic? who does that?
-bpf gained _local_ atomic just weeks ago.
-per-cpu with full strong atomic is odd. Why would anyone use that?
-The only case I can think of is nmi-safe-counters.
-When we introduced per-cpu maps 10+ years ago the use case was
-packet bytes and count, so that bpf prog can do
-map_val->pkt_cnt++; map_val->pkt_bytes++;
-and that's what everyone was doing since then.
-combination of migrate_disable and preempt=3Dlazy broke that accounting
-pattern, so implicit preempt_disable unbreaks them.
-
+> On a malformed SPLIT, the failure path calls ceph_monc_blocklist_add()
+> with snap_rwsem held. If the blocklist command succeeds but the subsequen=
+t
+> OSD map version or map does not arrive, cached snapshot lookups can remai=
+n
+> blocked on that lock.
+>
+> After the blocklist call returns, ceph_mdsc_close_sessions() can queue a
+> close request and wait for it from the MDS connection worker that is
+> running this handler. The worker cannot send the request or process its
+> reply until the handler returns, so with mount_timeout=3D0 the wait can b=
+e
+> indefinite.
+>
+> Please move the blocklist/map and session-close waits out of the MDS
+> connection worker, and avoid holding snap_rwsem while waiting. Keep the
+> client fenced, prevent further stale-context submissions and account for
+> writes already on the wire before releasing session authority; retain the
+> required references until the deferred cleanup finishes.
+>
+> Thanks,
+> Alex
+>
