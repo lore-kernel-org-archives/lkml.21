@@ -1,62 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795704438;
-	b=JehB1U67RWryZIckWQ5edJSWT2tPEU45G2PafSF7Noiy/BElTfngzMQtmaPAAyC+uwas
-	 UvjnaQnaMNh4/FnmNMAYeVV8HOimJZGNTK3A1M8bV1UlM4dn/vSSa4ubTfnhm0jeYMFDU
-	 XQ35mITBQWfhKNes/GJqL/DdGvD/9rLzOU13pTNRf5bEHCRFFGkNcdU/znS8HUqNsCBOJ
-	 SlZrk4jip0EeGegK5nGIiXaUyNCiHo2+bbr3ikoFdRQ/aDbsoji39FB9ub74yVgXy6vj/
-	 ZMlSpAVBenbxrk2I3Q1Z21674+9N3a6hCvwn3zNNFFGlxIq+957/2TYCabjeh4FGttw==
+	t=1795704475;
+	b=AskqIKcy6jikTb9+TkA0LKR1qVCW8brfCNWGOfE24kDEeseIraRVjA40KOe0R4jmFFu7
+	 oG+BEQfkPozb2mIN7F7puHKo4jinyITGuBSj/dqq4ejHkN6S+FeuHYZIDBt5jYRp/NOb4
+	 9zoTKFgMzncI/UBsfbv20bfqqzUH4P/fAnzTCwdlshTY9aXo0fl5fnaz6IgGn7Jr+jZLj
+	 h1rBi49JewgsWBTb4/s/nGC8fCQRubx+SQ5KAeFvIeRoxSNxAgVnMycM2fvHuSp5Bv+QX
+	 CCeEzMa81P/eIYkHvd0KoGQlDtVsLx0u0T0oEhQ+7lMDk61D14PtGMhWcoKcOnyrOwA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795704438;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=/q/pFzvKWu2mEF9/DwcsF9YD9/DZAPV7fZSCS+XMqKU=;
-	b=I9HbsfXmLCHEC6qHvnlq6ioN5E4ZyqhvCqBRY0UsBVm6b20FUa9+hmmUpO4btsTxdhLQ
-	 heaXDGQslhxntp32g28w10Qhr326zviSRyBPqyz/YY0P5MDg7ILuUwNdA/TyexJtMPSjZ
-	 D34h7T+Y89rQcrrZfwol1jLHVcOwxR5dylglt0lEc3Ci07kO4TfbuztWjJwsUXTMKQsJN
-	 z/sEvUi/+ECMTvu7lQ+BYRH7nVybFyNAdzJHb7qtFCtpQ7QvyFd9/2S3wrcYqUQ4koF/N
-	 jMhqkbnsY72MmkT2Ih+q3b0GLgmooJMipNjazEHuCltCe2kHjGnOF5O7e6mgQbKe68Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795704475;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=8+yhG4UOZ9G9+Wb+KCpqRp/WNdBbXiIFvkS5c66yNN4=;
+	b=bb89HWQllkPwDJzJfSc+/EP7z5BtVv9lmBFKjIoqEQhqsPnUCArQlBbBuh6PKf7vE2s0
+	 19WBqPFLIv57PCxzSPpaMhTNvgppx8D7vuSmJ4xScgJbziizywWd6shnUZ4bMUp3HVkMv
+	 lE77iDcQM+O5l2XTn05WDt0XBVpKqTQ8/xQ8OBwzPt7HYHT1m0JRH6vJzzOfsUZS5hmsD
+	 cerefS7+0CxfwFB4Du/3rpkrgvufxGSNKsj41vfgR3tByipcMbww9MftleYsSuw4TOk0W
+	 HMZNgzTXcGcbUFki0kg2HJlI7rtieM7pNxfWvKu+ZBn6NmFMd7LpDlqC6al9hd2QL4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TnusCb4W;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fel4mEEB;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=f+tGsvsU;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4035606A31C;
-	Thu, 26 Nov 2026 14:47:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95187606A32D
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:47:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95187606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TnusCb4W
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA2621F000C0;
-	Thu, 26 Nov 2026 14:47:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795704438;
-	bh=/q/pFzvKWu2mEF9/DwcsF9YD9/DZAPV7fZSCS+XMqKU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=TnusCb4W4Q6qbGBNI/+jR7w8yDxVE4LJQfEBrhJ6cZFXGapUzlFTf3WMBxxMNbUeZ
-	 7XJ/CuvWT5y24oUsLfgecaKlBERKAz1OzmvH50dDghi/kAdDc0zfT9mh8zFHgxnxJu
-	 d4213BuLgwWQeuNAyBZprdzTrjEavQFzp1Diram+4u+iv6nTh1l8/GrXGMoVUHOMI9
-	 1sPHXVNf29OWNBJH6tDfAM7PWd+sx8uzQvzorHEsGxE3CVabagg/fy2XvHRTynXB+N
-	 Fc+8hJenVdWTNp/VftnqWgECRoEPV00Er7wPt4ljJzK42a8ezXl+OsKC368ooFspUy
-	 4Mb6SuTqCNYoA==
-Subject: Re: [PATCH net v9 2/2] selftests: net: test joining genetlink groups
- no family owns
-From: netdev-bot+sashiko@kernel.org
-To: anilkaushikwireless@gmail.com
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, idosch@nvidia.com,
- nicolas.dichtel@6wind.com, jacob.e.keller@intel.com, jiri@resnulli.us,
- fw@strlen.de, martineau@kernel.org, v3rdant.xiang@gmail.com,
- aliceryhl@google.com, linux-kernel@vger.kernel.org, nhorman@tuxdriver.com,
- shuah@kernel.org, linux-kselftest@vger.kernel.org
-Date: Thu, 26 Nov 2026 14:47:17 +0000
-Message-ID: <179570443724.3135.6495722482046462156@kernel.org>
-In-Reply-To: <20261125144514.2717012-3-anilkaushikwireless@gmail.com>
-References: <20261125144514.2717012-3-anilkaushikwireless@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fel4mEEB;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=f+tGsvsU
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQEV35w1882553
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:47:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	8+yhG4UOZ9G9+Wb+KCpqRp/WNdBbXiIFvkS5c66yNN4=; b=fel4mEEBzuPxWI/Q
+	FGaSuwN1amKxr7mb6Uqomci/2589jz2JZTO9djkwS0SgTG0ZifkeXngRrAEPBRP5
+	g7V1MDzMFfBsa9rNfDx/RS+VEZoTNhEpO16hkCqRcFVLXQ7m7Jy3YwT9HPRqWjZu
+	7rNrKoGnG62YilLD5dsv04FxAUlDjlgbBQvGhJbTx8ReqIxHqf18GLTkCv2wuk52
+	TEkrwaOAMEnwBv39Jn759OLHCpqTmDeaN+gIRYxcZXucprGeiQE4sEPleTFJzkx3
+	MVn3DsuZfD+A+90gmjYtNf+oaHrXON6vrcr6Wy8SjuifYsDbBRtH5FqcFTmegNhT
+	tUTQOA==
+Received: from mail-vk1-f200.google.com (mail-vk1-f200.google.com [209.85.221.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j662y3gea-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:47:53 +0000 (GMT)
+Received: by mail-vk1-f200.google.com with SMTP id 71dfb90a1353d-5edfa7703ffso320435e0c.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:47:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795704472; x=1796309272; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8+yhG4UOZ9G9+Wb+KCpqRp/WNdBbXiIFvkS5c66yNN4=;
+        b=f+tGsvsUrrrqGMJf6NdrLJjK6GvQNnh2hUoi/AIzlpk1JkMJvOYPvRaq5wCcjQp5nq
+         eq5JEhzrb/OHqzHcBHuOZn3QHWdmS/4+P3YSltL9AxiuTMMvVAse5avVLkWcRwpo8FcL
+         ikr2CeKmsqJdxlHTyr9thpHCPrUimxSFCOmHkdxvNGD4acfaqrdrEZKEQlEr3U2kaNjt
+         BJm0fPXHR4UYi0OiRDcNmAl1OPxHNP+llnka8IiFd1ieCsSTKAtzYc2SDMlVT99lE/XI
+         AWv/+/pn0rFWhP3UaXTqYcrscXjxcwfR4wSX5JlOjs1nZ6e/qP+e8+O/WBeA5yY7EaH6
+         rNqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795704472; x=1796309272;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8+yhG4UOZ9G9+Wb+KCpqRp/WNdBbXiIFvkS5c66yNN4=;
+        b=z0CTLz3EI38MSYhpOCxdqyJl0BCrZpSAhgg4vmZTDpjIndlaRSbQFTjjtcW8s/N7dh
+         4F0CSCiNIiav86vT0cs7CN4srFVqC6rKXDK/WRDbtNl9ZzYX/IFPRRvsxkCUHW/i4Tm5
+         ZKnrdspJRSgrxZPZztVsvCHWGxtExpTaDBXo5JmtUPSUzZyGWdMabdQv+vQzAhTryatw
+         daVjnwRkTNI4/L2Di4Z5cABFVHXGLidvvqKRnIWwW/qyZvNle/nrtNL3ow0Z0x7/fV2N
+         DBFnYho6kn+WVqK0FXRVnN5ybLs7hlXBK3pAJKuq+Uq2zr+kE3ez6rV35Ss5W22xTXPK
+         7tSA==
+X-Forwarded-Encrypted: i=1; AL+hErG/ybjCL0g3B6MSkaTIwXEZxqrukANihlrt/i4b4ArMqAjOK2azej5pFNQ9Ze515FPU/q5mnUHN1XKdtdk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ZNb3kTDihHu2UtyB83xJJlDDICAKxIMyU2KP9LGIEFSWnneiT
+	xX7wB0TnU4E8QghG4KKNl7nlKut1mQ3YJxc9B3ZrvphcfoDoV5k/rFhnApoTKGUPwW+oMRypPbt
+	BA7oBeCl/o+GyeaprkCeRLzatwmFwCN5Q9RiZV7H8QcwsujmzuiM0rG77XSgWt4o50qA=
+X-Gm-Gg: AZFdTZf7ZdszjJuEF2SfMzNpmxg58CcVd0G1nt1+pz7+3dS5+vp8iVI+MdpTxdWORJ6
+	OefidxUZOucyIQVvTRtqMTLinrDjs0PpJprCXmCYSQXKBFrH0/USqVZpOUREo/igG5GOgSq2eB5
+	SdyzrvlrZDIHJ7KTT2rxv5bSJGb36xp1iQp1yAxadlNR0t51sShoPURVe91pMccl6IDN4fqP+yv
+	JADqcOHOp4qTp3Bsnieevj2jBZCB2iYCBKK4FFzndEmVW0Ay5U8w1zMiYi9zPAmPJpSWUFyXN8z
+	/ur47Hx8Tsv///0jZupK5Xeh6PT7jH0O1J2LllPiAkt0iB0K/KPNUJ2lxI9CVBE/rcNlaJF5Z3p
+	lyuaMZIgrRTiuo5S9lC71/GH1xxAO144B6BIvpXRfyL6u9/E4hRubgaeKOdXAJT8b+upbaxo=
+X-Received: by 2002:a05:6122:2b1:b0:5d2:d60c:6c48 with SMTP id 71dfb90a1353d-5ee8ad0ec78mr13495164e0c.0.1795704471679;
+        Thu, 26 Nov 2026 06:47:51 -0800 (PST)
+X-Received: by 2002:a05:6122:2b1:b0:5d2:d60c:6c48 with SMTP id 71dfb90a1353d-5ee8ad0ec78mr13495130e0c.0.1795704471268;
+        Thu, 26 Nov 2026 06:47:51 -0800 (PST)
+Received: from [192.168.226.72] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba6f8fa5b9sm8301224a12.37.2026.11.26.06.47.48
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 06:47:50 -0800 (PST)
+Message-ID: <a005f8a1-76a2-46ce-b328-2063bc307758@oss.qualcomm.com>
+Date: Thu, 26 Nov 2026 15:47:47 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,163 +115,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/5] drm/msm/a6xx: Add Adreno 753 support
+To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        freedreno@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        devicetree@vger.kernel.org, Shivam Rawat <shivrawa@qti.qualcomm.com>,
+        Shawn Guo <shengchao.guo@oss.qualcomm.com>
+References: <20261118-nord-gpu1-v2-0-8d6d9908b7c5@oss.qualcomm.com>
+ <20261118-nord-gpu1-v2-1-8d6d9908b7c5@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20261118-nord-gpu1-v2-1-8d6d9908b7c5@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA1NyBTYWx0ZWRfX2EPEOR31j/no
+ RI+OlQ/3dL39Mgh04Mbp0kfLsIVM2G/TIJ8upq6z45bjdt80C1u42uBEKrk28ryd5Rcd7r1uJaF
+ MfPmauvEmtub73n11aE/OKoY0dqII9POrNVopZdXXg6GUiRSrIsQIeHhPBcKeJm/k1igYAmbYcx
+ 3BBoBcRJy6ANEQXotcttMQ1/l6sQCOHGTYthmmK0b9sP87L39WrZ6Ff7YVXL1+WtCz1KFHHmR3p
+ OLuWvh/ao2CpL+Pi1C+kHZQRfaIrrl4IZ5PnsQS2RrDyvOVeTWNhpTtpGpfLI1/kTCxkNlNzEpM
+ 0ZaFeEI5MNYFJKGve3oW82uhry6kTIT/A272e96apXbMBSBDn4UzyGTA+EB7qn6pe2xuCYgKnZB
+ Q64M0C1stG84RgNAPNuVuvrNmis4kjs/P2yGvdCn9mZpcTSQvrt7MquQash4QsNw4xQ5QKWRwek
+ Q5hhD2C+llaB9MvGpRA==
+X-Proofpoint-GUID: eoLFaDipqd4kZoq1NRTmSsq3ySCqim0x
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA1NyBTYWx0ZWRfX1b9DGN6EylO3
+ YejNaWodZTxtRDyL6szJATfdVaqwBQMzlWWRnJQD20rbzCGzgZWZCqOQKjwO/1dnu925gPFl5jz
+ BRr8LrtQ2Je7jnXPrnGFyucxl+oenkU=
+X-Proofpoint-ORIG-GUID: eoLFaDipqd4kZoq1NRTmSsq3ySCqim0x
+X-Authority-Analysis: v=2.4 cv=W/KtxhWk c=1 sm=1 tr=0 ts=6b084699 cx=c_pps
+ a=wuOIiItHwq1biOnFUQQHKA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=EUspDBNiAAAA:8 a=GS9hGxBgXBVpQNT4ZgUA:9 a=QEXdDO2ut3YA:10
+ a=XD7yVLdPMpWraOa8Un9W:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_03,2026-11-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 impostorscore=0 phishscore=0 malwarescore=0 adultscore=0
+ suspectscore=0 spamscore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260057
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+On 11/18/26 12:00 AM, Akhil P Oommen wrote:
+> From: Shivam Rawat <shivrawa@qti.qualcomm.com>
+> 
+> Adreno 753 is the primary GPU in the Qualcomm Nord SoC and belongs to
+> the A7xx Gen3 family. It is derived from A750 and shares the same
+> IP-level configuration: protected registers, pwrup/IFPC register lists,
+> GBIF CX registers, gmu_cgc_mode, 3MB GMEM, bus BCMs and preemption
+> record size. The differences visible to the KMD are the chip id
+> (0x43051701), the GMU chip id (0x70d0000) and the gen71300 SQE and GMU
+> firmware.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+[...]
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+> --- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
+> +++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
+> @@ -651,6 +651,9 @@ static void a6xx_set_hwcg(struct msm_gpu *gpu, bool state)
+>  	if (!(adreno_gpu->info->a6xx->hwcg || adreno_is_a7xx(adreno_gpu)))
+>  		return;
+>  
+> +	if (adreno_is_a753(adreno_gpu))
+> +		state = false;
 
-- [Medium] In bind_before_family()
-  (tools/testing/selftests/net/nl_genl_mcast.py), the `finally:` block…
-- [Low] _free_ids() in tools/testing/selftests/net/nl_genl_mcast.py
-  decides it is in init_net by comparing…
-- [Low] _members() in tools/testing/selftests/net/nl_genl_mcast.py calls
-  sk.getsockopt(SOL_NETLINK, NETLINK_LIST_MEMBERSHIPS, 64) and decodes…
+Is that intended?
 
---
-
-selftests: net: test joining genetlink groups no family owns
-
-This adds a Python selftest. It checks that Generic Netlink multicast
-group IDs no family owns cannot be joined with setsockopt() or bind(). It
-also checks that a socket bound to free IDs does not become a member of
-the NET_DM groups once drop_monitor is loaded.
-
-> diff --git a/tools/testing/selftests/net/nl_genl_mcast.py b/tools/testing/selftests/net/nl_genl_mcast.py
-> new file mode 100755
-> index 0000000000000..8bbe3d22225cf
-> --- /dev/null
-> +++ b/tools/testing/selftests/net/nl_genl_mcast.py
-
-[ ... ]
-
-> +# include/uapi/linux/nsfs.h
-> +NET_NS_INIT_INO = 0xEFFFFFF9
-
-[ ... ]
-
-> +def _free_ids(ctrl):
-> +    """Return the IDs in 1..32 that no family owns."""
-> +    # Outside init_net, the dump skips the families that are not netnsok,
-> +    # but their groups are still owned.
-> +    if os.stat('/proc/self/ns/net').st_ino != NET_NS_INIT_INO:
-> +        raise KsftSkipEx("not in the initial network namespace")
-
-[Severity: Low]
-Can this check ever match on kernels older than commit 9b0240b3ccc325
-("netns: use stable inode number for initial mount ns")?
-
-That commit added NET_NS_INIT_INO to include/uapi/linux/nsfs.h. Before
-it, the ns.inum of init_net was a dynamically allocated proc inode number
-(PROC_DYNAMIC_FIRST and up), so this comparison never matches.
-
-join_free(), bind_mask() and bind_before_family() all call _free_ids()
-first. On those kernels all three subtests would skip, even when run in
-the initial network namespace. The printed reason, "not in the initial
-network namespace", would also be wrong.
-
-The companion fix "genetlink: Reject joining multicast groups no family
-owns" has a Fixes: tag, so it is a likely backport candidate for stable
-trees such as 6.12, 6.6, 6.1 and 5.15. If this test is backported with
-it, the fix would never be exercised there.
-
-The commit message explains why the fixed inode number is used, but it
-does not mention this limitation. Would a fallback help here? For
-example, the test could compare against the inode of /proc/1/ns/net when
-the fixed value is not in use. Another option is a skip message that
-states the actual condition.
-
-[ ... ]
-
-> +def _members(sk):
-> +    buf = sk.getsockopt(SOL_NETLINK, NETLINK_LIST_MEMBERSHIPS, 64)
-> +    # An array of u32 in host byte order
-> +    words = struct.unpack(f'={len(buf) // 4}I', buf)
-> +    return sum(w << (32 * i) for i, w in enumerate(words))
-
-[Severity: Low]
-Could _members() decode uninitialised bytes when the socket has more
-than 512 groups?
-
-In netlink_getsockopt(), the NETLINK_LIST_MEMBERSHIPS case stops copying
-once the user buffer is full. It then reports the full required size
-anyway:
-
-net/netlink/af_netlink.c:netlink_getsockopt() {
-    ...
-		opt->optlen = ALIGN(BITS_TO_BYTES(nlk->ngroups), sizeof(u32));
-    ...
-}
-
-do_sock_getsockopt() in net/socket.c writes this value back to user
-space without clamping it. CPython's socket.getsockopt() then resizes
-the returned bytes object to that length. Everything past the 64 bytes
-the kernel actually wrote is left uninitialised.
-
-For a genetlink socket, nlk->ngroups follows mc_groups_longs *
-BITS_PER_LONG, and that grows on demand in genl_allocate_reserve_groups()
-and genl_validate_assign_mc_groups(). If it goes above 512, the
-full-value ksft_eq() checks in join_free() and bind_mask() could fail
-because of garbage high bits.
-
-Would it be safer to decode only the first min(len(buf), 64) bytes, or
-to size the buffer from the returned optlen?
-
-[ ... ]
-
-> +def bind_before_family(ctrl) -> None:
-> +    """A free ID joined with bind() stays unjoined when a family takes it."""
-> +    names = [fam['family-name'] for fam in ctrl.getfamily({}, dump=True)]
-> +    if 'NET_DM' in names:
-> +        raise KsftSkipEx("NET_DM is already registered")
-> +
-> +    free = _free_ids(ctrl)
-> +    try:
-> +        with _sock() as sk:
-> +            sk.bind((0, sum(_bit(gid) for gid in free)))
-> +
-> +            # Looking up the family loads drop_monitor.
-> +            try:
-> +                ids = _groups(ctrl.getfamily({'family-name': 'NET_DM'}))
-> +            except NlError as e:
-> +                raise KsftSkipEx("drop_monitor is not available") from e
-
-[ ... ]
-
-> +    finally:
-> +        # So that the next run can load it again
-> +        cmd("modprobe -q -r drop_monitor", fail=False)
-
-[Severity: Medium]
-Can this finally block turn the "drop_monitor is not available" skip into
-a failure?
-
-With shell=None, cmd() in lib/py/utils.py splits the string into a list
-and runs it through subprocess.Popen() without a shell. If modprobe is
-not on PATH, Popen() raises FileNotFoundError. fail=False only ignores a
-non-zero exit code, not a failure to start the command.
-
-An exception raised in a finally block replaces the pending one. The
-KsftSkipEx raised when getfamily() fails with NlError is then lost.
-ksft_run() catches the FileNotFoundError under except BaseException and
-counts the test as a failure, with a traceback.
-
-Without modprobe, request_module() in the kernel would also fail. That
-makes the NlError path the one taken in exactly this environment. The
-cleanup also runs when the test never loaded drop_monitor.
-
-modprobe may only be in /sbin or /usr/sbin, and the test may run with a
-PATH that excludes them. In that case even the success path would end in
-FileNotFoundError and be reported as a failure.
-
-Would it help to run modprobe -r only after getfamily() succeeds, or to
-catch OSError around the cleanup?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261125144514.2717012-1-anilkaushikwireless%40gmail.com
+Konrad
