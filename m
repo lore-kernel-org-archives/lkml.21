@@ -1,55 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795693877;
-	b=tc9co0NK0jexgr6V+Ivh00zMqKoa2tKCJcW+6hNAbgfcG09nhf2A65dbdOTgQToMiB0p
-	 k8jFYhGvl+yew6YT4UjFakCUxjqo5jJMVW3xki8wztdG758g3DkQipwcwwpxYflK1/X5H
-	 5Im5nPwbWii3S8QQbatDVmcefwAKCIfNBTzLfcrb0o0BSEGShSCwcXdz2UqYrCCSK6FBz
-	 u4cUesQ0qlxPZTsaa+SZofK/+VqA0Zt1VPlfBNt2KmdD6Psz0yzmdZQqF8w92k/eCszpB
-	 kNJUiYkC4Co0Cjm1Td+XHIPX15Zyq853stqlj1cCrcZdRx5tvVv9p8MymlJWNm9eijQ==
+	t=1795693897;
+	b=zP9tivwr+6OlNQAFysXR0SEzOo9+r/k3cdIRSytDfIGLqpoc9W2Ci98F+1WKdSrA3wI6
+	 Wm3kWZykF5oxE7pejCX7FrqJ0TRUbOAcXCJ2q4h7cvpBaseV+3OGTPai+slYz4MBOQoqN
+	 m0TAijZTXdx0ZziydvD46tYECxzZyi16KmsYOb3roowHDWuEQ/1itUk2irsOwdiyWBdVx
+	 +WePfNJ707aTrYVMh8UwzqdvqdmZYsNX9KZhV7XHiufcoKA0YPSQmc+d+YsZ/cpkZzIpA
+	 bnNnL6Lsd3FCb2pHiyEwtUdjSVLomxe5l1sDEdCuEqTcIJYgY+bbWxlSEvWzYeFW9lA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795693877;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=liE+IJazZ5oAskLl1TgZ0dicfhbRnZKFpT1xxjcaIV4=;
-	b=eqOC577QLMcxzZHX6WaMGFqJLLe8p9xsvy8f2DdGw1Vamq4YcdGSKH/IAjZGyuFM21xG
-	 AMgLE6i/VDWnKU3JwzsF5f8PSffeYMpphOd+OOSbya3mFOry0HYdkgOJOSWUMRsoswVU+
-	 AT/i0WQZSPWNe+nbWB/07YPtRA+DFqZsBT+vhipPRa4yxFTaodXwGVgHrq2CeU/cc+4+l
-	 vAZjOHGdCKJRlnsj17GdFH1FMZ6U0ARIQMRyi13Chs8nc380ZMSDAOVscrfcS9zTBnsgz
-	 g5oYHH2VVBjUHFZHpfN/bYvwuQTk1i7vbTm4d8VIYlDlX2utkrfSVpaTZRYk0fGnAIQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795693897;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=UyA1q9HRdIYEzEBRlibk7URQlhQr6cKxZVJ59dL9cSc=;
+	b=awESILKqF7mgc0CuopS10R/kbhyahcclLQQ1+UlKoNA2jMftdB250xECYRqO3JQVO+D8
+	 jEaH2QbGfe9VGwboCQtu/7byYZT4/mCP5bSftnROHenmgQmXYzV7fHym2BEo3snNHaSWz
+	 06LKsOKTWljgK1lZkFhRN70dFrg22DAQNxzEsnFDikS7J0l7PCT4i2z93PwU/D749ovoL
+	 Xu59qTGNgKlRYHFty+wA/2LRgP5gG9Ao0IfUR59XVniRR8vqSy6uKaX+sI7zysWgbMQ6I
+	 stFbpGY5ZA3J31UGzvFyt1neleFqm3B9WT4RYlsKW8agqcSCrXaofEMpsZSRxmT4FEw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HOoX5cdp;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b="rPKc/Prn";
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 000B5606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:51:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1D97606A31C;
+	Thu, 26 Nov 2026 11:51:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1D97606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HOoX5cdp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F6F31F000E1
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:51:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795693876;
-	bh=liE+IJazZ5oAskLl1TgZ0dicfhbRnZKFpT1xxjcaIV4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=HOoX5cdpqas6YaDLda8NQPo9m3BoYqastRShJFtlPinlbdYA/wwwznMIoUGv1Ifof
-	 KXU4+LtHUMdigAw3VE9xJKiMDYUdiJZdZ7ddH4z+OQu/2PEUDHBHPZpHPRKpBex+6B
-	 zdMYSrrr59RauaqIffrbCUjFZlCbeJxmAYJ1SsHoQBZOFW8zEnDLf0Mn6tyf39vo0p
-	 TcyLdkNJrFKIBb0Jd5B6dPS0gOgKvKrwuJglVkkq8+FCWD0HgAgHryW+lPGLnebdgF
-	 gpULuv4dSTAkxH8tkaKlWmY1Kv4avapmm4PzR/9/PkW1HmgnhBNaBDhzd8BKUCVfqF
-	 9a1z0XRdggkEw==
-Received: by mail-qt1-f176.google.com with SMTP id d75a77b69052e-53644ab1f7bso61465111cf.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:51:16 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFi7NHRBSqHU0mGFo9JKsD4cOFZ3x5k6MZyWqpeAFnNWd7nyQPog3PRbkZdq63ksbHB6da/SpoDhjuJCEk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+n7D14ROKcDBgCXAWdnuEHIbmhWEdaxqvrUckG54X7vo2Sejcf
-	zSjulnYrueX5o+B/3aCouQWSewFyeocU2dDs3Ef1qFQZ1t8IX7H4czIv9sD1tPa1zvzBjrP00Dz
-	6pu0I3CFi3kdpUNPZGc/u3s46c5XLcQg=
-X-Received: by 2002:a05:620a:29c8:b0:949:7270:b95 with SMTP id
- af79cd13be357-949baa0b256mr3618065185a.32.1795693875794; Thu, 26 Nov 2026
- 03:51:15 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=rPKc/Prn
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQBYq51165311;
+	Thu, 26 Nov 2026 11:51:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=UyA1q9HRdIYEzEBRlibk7URQlhQr6c
+	KxZVJ59dL9cSc=; b=rPKc/PrnltCkqnr+M+NlMWYatQgAO2NpITE0vHJLmqVCxO
+	V9o6KChnGkWIpT7aIVfOJJvt2wzS4sAE7TOpZThjUOAaIxUq4a64xtEDZbyV3hZI
+	ByCUGQJMTdBZVH5MhYUDoqd2tK2E39dc+EquUpxE+876XCsWN+lkqRmvPtTN3Iol
+	ddGk86gFQ4ipmd18XSNCp6512nNMYiIy/DiHeueKfgQVQTOL5jzpV2wP+zoY7FAd
+	AW4plJoaniM0wrZFRMD/1UWd0j4ZMN8eLIU1CgnTWxQLdWzdJTAE18kFMngIpSqR
+	UdIhIYTw8Acn2rYTUWiMHrvNdAipbmpezO+xCiiw==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34fah60a-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 26 Nov 2026 11:51:24 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQBYOSY3663893;
+	Thu, 26 Nov 2026 11:51:23 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j5a417ytq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 26 Nov 2026 11:51:23 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AQBpJoq43254064
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 26 Nov 2026 11:51:19 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3EBDD2005A;
+	Thu, 26 Nov 2026 11:51:19 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id E6DC02004B;
+	Thu, 26 Nov 2026 11:51:18 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.111.14.158])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Thu, 26 Nov 2026 11:51:18 +0000 (GMT)
+Date: Thu, 26 Nov 2026 12:51:17 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Cc: Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org
+Subject: Re: [PATCH] s390/kdump: write protect the crash kernel memory by its
+ virtual address
+Message-ID: <a666d0dd-905c-4099-8a00-3c656370f986-agordeev@linux.ibm.com>
+References: <20261117-fixes-s390-v1-1-2d9d04ca0072@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,182 +93,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261125-fix-mglru-kswapd-age-v2-1-4cc37437af9b@tencent.com>
- <CAGsJ_4z-UdXQg0LYqymEZdoHALPmAZC7eGcXbGad6f0sdjmkcw@mail.gmail.com>
- <awarDrT/DT7tQu+U@lima-default> <CAGsJ_4zf5NabZJanr2_Czr3oVQe6tTTdXmddx+PxowbKBN9M8Q@mail.gmail.com>
- <awgCInIqygIBMRGt@lima-default>
-In-Reply-To: <awgCInIqygIBMRGt@lima-default>
-From: Barry Song <baohua@kernel.org>
-Date: Thu, 26 Nov 2026 19:51:03 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4wBuFz=Nxn=aiwUONerkJVgwKVyp0sbfg0tSa=J=VCo+g@mail.gmail.com>
-X-Gm-Features: Aa3M54rmeYOf-N8Nk_jy_G3CeuifqjF8MjvxO4s3hxNTXy0zU7zsvhgvahj5T2Q
-Message-ID: <CAGsJ_4wBuFz=Nxn=aiwUONerkJVgwKVyp0sbfg0tSa=J=VCo+g@mail.gmail.com>
-Subject: Re: [PATCH v2] mm/mglru: skip oom killing for order != 0 allocs in kswapd
-To: Bingfang Guo <bfguo@icloud.com>
-Cc: bingfangguo@tencent.com, Andrew Morton <akpm@linux-foundation.org>, 
-	Johannes Weiner <hannes@cmpxchg.org>, David Hildenbrand <david@kernel.org>, Michal Hocko <mhocko@kernel.org>, 
-	Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, 
-	Lorenzo Stoakes <ljs@kernel.org>, Kairui Song <kasong@tencent.com>, 
-	Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
-	Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Yu Zhao <yuzhao@google.com>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117-fixes-s390-v1-1-2d9d04ca0072@kernel.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA0NSBTYWx0ZWRfX6lVYd8twLpYU
+ IuCMzwxcOm91ylFqney16xzkEQnr/C4fmCcolcOHoROM+xiuJpD5kIvAVoCwXEL0jjLXs5BNbr1
+ kXON/IGB3AyOeyw1R1Z3pHu7ScKpwE8Ok9f836i3UOLEkaU/H2FOUmX5WZmPZcvh330i8dOBVSJ
+ Rtn/eBSuxuIqlmBxLxsQrad5JUW6j63rfch5RN0MGpsO+Yl6/MaeHcbGZghWOHqel9FY3NH4ZU0
+ pWYCRrizJhp8aB1Gics7uZEHotDVzBvxuPkI74VNNaU9hUgHZdP6I7yMB3YRA12zkmmzEw48E4V
+ /Y6np9z92A9lgWqR30/gZJkTozrJ+TWCw7DrMa/vIy4RyrqkqV6JbbvHHB9ltw8vCbw54Q8nVAI
+ ZmD1xxTGR9L3AIk07Q/LApPyFuZDzIrg0RC6V9vOXOEM5s2IBEcFHOrFIFIWuZgUb1LpG1XZmXA
+ U2x8RYwAjRMwq7aJe0g==
+X-Proofpoint-ORIG-GUID: 5-68tLI2aTpf8KqRawJiD83emc3a_Ov-
+X-Authority-Analysis: v=2.4 cv=U6QHnuru c=1 sm=1 tr=0 ts=6b081d3c cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VwQbUJbxAAAA:8
+ a=bMDRMTjxwqQvzsmnqE4A:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-GUID: 5-68tLI2aTpf8KqRawJiD83emc3a_Ov-
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA0NSBTYWx0ZWRfXwxT5N6IgY7Ka
+ FYqNFOLfsvO1/ITA2NXi01C/fFJRIgr5LkaArsBZZCBONNA0XYLoAnUJ/eJNTjIa1eszRmsnze8
+ NhhIzI3pGZzIBDgdrmmZBsUxj88SUIk=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_03,2026-11-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 lowpriorityscore=0 spamscore=0 impostorscore=0
+ clxscore=1015 bulkscore=0 suspectscore=0 adultscore=0 phishscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611260045
 
-On Thu, Nov 26, 2026 at 5:56=E2=80=AFPM Bingfang Guo <bfguo@icloud.com> wro=
-te:
->
-> Hi, Barry!
->
-> On Thu, Nov 26, 2026 at 08:40:44AM +0800, Barry Song wrote:
-> > On Wed, Nov 25, 2026 at 5:32=E2=80=AFPM Bingfang Guo <bfguo@icloud.com>=
- wrote:
-> > [...]
-> > > You are right. Maybe we can start from skipping aging in reclaim path=
- if the
-> > > youngest gen is still too young? And maybe for this path, min_ttl can=
- have a
-> > > default value? Is that a good idea?
-> > >
-> > > diff --git a/mm/vmscan.c b/mm/vmscan.c
-> > > index d891ae46baf49..7f9b14b772d14 100644
-> > > --- a/mm/vmscan.c
-> > > +++ b/mm/vmscan.c
-> > > @@ -5136,8 +5136,11 @@ static bool should_run_aging(struct lruvec *lr=
-uvec, unsigned long max_seq,
-> > >                 return false;
-> > >
-> > > +       /* avoid excessive aging for huge allocations */
-> > > +        if (unlikely(sc->order)) {
-> > > +               int gen =3D lru_gen_from_seq(max_seq);
-> > > +               unsigned long birth =3D READ_ONCE(lruvec->lrugen.time=
-stamps[gen]);
-> > > +               return !time_is_before_jiffies(birth + min_ttl);
-> > > +        }
-> >
-> > I'm not convinced that we need to couple the aging decision with
-> > min_ttl protection.
-> >
-> > This has been a long-standing problem: high-order allocations can
-> > trigger excessive reclaim and still fail to obtain contiguous
-> > memory.
-> >
-> > I've tried to address this twice, but haven't found a satisfactory
-> > solution yet:
-> >
-> > https://lore.kernel.org/linux-mm/20260422021842.78495-1-baohua@kernel.o=
-rg/
-> >
-> > Johannes shared some thoughts on this here:
-> >
-> > https://lore.kernel.org/linux-mm/aejtfpBUu7gNV6Tk@cmpxchg.org/
-> >
-> > Do you have any traces showing how many pages kswapd scans and
-> > reclaims while kcompactd makes little progress toward satisfying
-> > order-9 allocations?
->
-> We encountered this problem when running a stability test on a 6G
-> VM with 2 nodes. It populates the system with hwpoisoned pages
-> per 511 pages so order-9 migrations should mostly fail. Then it
-> tries to allocate order-9 pages. So the results might not quite
-> reflect real scenarios, but I think that applies to unmigratable
-> pages such as slab as well.
->
-> When the system OOMs and kills all the processes, we have about
-> 4.8 GiB memory free and:
->
-> PGSCAN_KSWAPD                 : 162,406,932
-> PGSTEAL_KSWAPD                : 91,233,588
-> COMPACTMIGRATE_SCANNED        : 6,542,604,811  (kcompactd: 4,041,105,566,=
- 61.8%)
-> COMPACTFREE_SCANNED           : 541,265,798    (kcompactd: 348,448,520, 6=
-4.4%)
-> COMPACTISOLATED               : 174,688,832    (2.67% of migrated)
-> PGMIGRATE_SUCCESS             : 100,824,439
-> PGMIGRATE_FAIL                : 2,022,069
->
-> So seems in this case, compaction fail rate is quite high and we
-> have really many scanned pages compared to the actually used size
-> (about 1G).
->
-> >
-> > Basically, I think we need some form of throttling to prevent
-> > kswapd from freeing more and more memory when there is already
-> > plenty of free memory, yet compaction is making little progress
-> > toward satisfying order-9 allocations.
-> >
->
-> Yes! And I've read your and Johannes's previous discussions. It
-> also seems weird to me to keep reclaiming even if there are
-> plenty of pages available there. And it's quite tricky to balance
-> between that and concurrency...
->
-> Looking into shrink path in kswapd,
->
->         sc->nr_to_reclaim +=3D max(high_wmark_pages(z: zone), SWAP_CLUSTE=
-R_MAX);
->
-> I think this is too much, for this case. So I think maybe we can
-> still reclaim for scalability, but reduce its target. At least we
-> should take reclaimable memory size and free memory size into
-> consideration, and rescale nr_to_reclaim.
+On Tue, Nov 17, 2026 at 04:01:04PM +0200, Mike Rapoport (Microsoft) wrote:
+> crash_protect_pages() passes crashk_res.start to set_memory_ro() and
+> set_memory_rw(). That is a physical address. Since the identity mapping
+> may start above zero, it is not the address of the crash kernel memory
+> in the kernel page tables.
+> 
+> With CONFIG_RANDOMIZE_IDENTITY_BASE the page table walk finds no mapping
+> at that address and fails. The error is ignored, and the crash kernel
+> memory stays writable after "kexec -p" loads it.
+> 
+> Use the identity mapping address of the crash kernel memory.
+> 
+> Fixes: c98d2ecae08f ("s390/mm: Uncouple physical vs virtual address spaces")
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> ---
+> I found this while working on a generic implementation of the set_memory
+> APIs. Only build tested.
+> ---
+>  arch/s390/kernel/machine_kexec.c | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/s390/kernel/machine_kexec.c b/arch/s390/kernel/machine_kexec.c
+> index baeb3dcfc1c8..20ea3018462f 100644
+> --- a/arch/s390/kernel/machine_kexec.c
+> +++ b/arch/s390/kernel/machine_kexec.c
+> @@ -151,15 +151,16 @@ void crash_free_reserved_phys_range(unsigned long begin, unsigned long end)
+>  
+>  static void crash_protect_pages(int protect)
+>  {
+> -	unsigned long size;
+> +	unsigned long addr, size;
+>  
+>  	if (!crashk_res.end)
+>  		return;
+> +	addr = (unsigned long)__va(crashk_res.start);
+>  	size = resource_size(&crashk_res);
+>  	if (protect)
+> -		set_memory_ro(crashk_res.start, size >> PAGE_SHIFT);
+> +		set_memory_ro(addr, size >> PAGE_SHIFT);
+>  	else
+> -		set_memory_rw(crashk_res.start, size >> PAGE_SHIFT);
+> +		set_memory_rw(addr, size >> PAGE_SHIFT);
+>  }
+>  
+>  void arch_kexec_protect_crashkres(void)
+> 
+...
+> Sincerely yours,
+> Mike.
 
-So, conceptually, is this along the lines of what we have in mind?
-I'd also be interested in hearing Johannes's thoughts on this.
-
-diff --git a/mm/vmscan.c b/mm/vmscan.c
-index 81797b71228f..0144fe4be738 100644
---- a/mm/vmscan.c
-+++ b/mm/vmscan.c
-@@ -7450,17 +7450,31 @@ static bool prepare_kswapd_sleep(pg_data_t
-*pgdat, int order,
-  * This is used to determine if the scanning priority needs to be raised.
-  */
- static bool kswapd_shrink_node(pg_data_t *pgdat,
--                              struct scan_control *sc)
-+                              struct scan_control *sc,
-+                              int highest_zoneidx)
- {
-        struct zone *zone;
-        int z;
-        unsigned long nr_reclaimed =3D sc->nr_reclaimed;
-+       bool can_compact =3D sc->order > 0;
-
-        /* Reclaim a number of pages proportional to the number of zones */
-        sc->nr_to_reclaim =3D 0;
-+
-        for_each_managed_zone_pgdat(zone, pgdat, z, sc->reclaim_idx) {
-+               unsigned long mark =3D high_wmark_pages(zone);
-+
-+               if (can_compact && !compaction_suitable(zone,
-sc->order, mark, highest_zoneidx))
-+                       can_compact =3D false;
-                sc->nr_to_reclaim +=3D max(high_wmark_pages(zone),
-SWAP_CLUSTER_MAX);
-        }
-+       /*
-+        * If all eligible zones are already suitable for compaction,
-+        * limit further reclaim to avoid over-reclaiming due to
-+        * fragmentation.
-+        */
-+       if (can_compact)
-+               sc->nr_to_reclaim =3D min(sc->nr_to_reclaim,
-compact_gap(sc->order));
-
-        /*
-         * Historically care was taken to put equal pressure on all zones b=
-ut
-@@ -7637,7 +7651,7 @@ static int balance_pgdat(pg_data_t *pgdat, int
-order, int highest_zoneidx)
-                 * enough pages are already being scanned that the high
-                 * watermark would be met at 100% efficiency.
-                 */
--               if (kswapd_shrink_node(pgdat, &sc))
-+               if (kswapd_shrink_node(pgdat, &sc, highest_zoneidx))
-                        raise_priority =3D false;
-
-                /*
-
-Thanks,
-Barry
+Applied, thanks!
