@@ -1,80 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795702155;
-	b=0V5xxWCeYdTfr9OE18YzvU44uQ/KreznnAwRIRM0GIAs+FWtQcrBHFEZ17mqcpNA6kS1
-	 9zWI+5f/hu6ByvWkESybhVxRnNE4v17/r6op+KM4hl6zgO4fzcHzFduMHfPlKxlA0unk6
-	 nlS+NHtx5WTW3+/ptwhsH9t7Xew0PAxGSdFMC43829PUqE84mPI92ec9ieWJEcO4bkkIn
-	 BPWCJkGiuhQMb+ZUjVs6o12z/ZG+G4uNczlB63n/jMEiv7F2EfPfpIzZVsC4SBzLA4chn
-	 XAOtTmeTw7tNyeDdYvmQNVY6jMW6DJCOpwZNmWmUPn33fAUxqI2hZ7wNM2nqHW95nEQ==
+	t=1795702170;
+	b=HacgRx3nAhOu+XW8TN00oPZRljnzzNP5yKip3OzeIcGL1lxZwg74LHsinZ00GyHPeHoM
+	 izYRUWCpjCbfrZx3nL9FlkeoW0gptzIJF/p7Ud1aqVuuewbLhn16/zZKYrRlSrP5fcnBE
+	 PtLR4cCCEBbJo/XtcJDUAAjXfOItBKIdYI9eUZUtaJhP05lFGGu+2fni23y6GSDYKVi/J
+	 0SCbCaeR0JqGmx/P5EAQ94ypQlolV41F8EMcN+W/w6hrqn1jz0t6MxCGHaHVHMSBPQN6Z
+	 FjBPlFh6znt7E5U9XEQcSrSPT9Tlk515wF1RjiGKxcRlEnm80Kg+1VBnFJsmmsU/nUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795702155;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 Organization;
-	bh=DvNlOLrQl1zHrzP9kMdWeXuOLflsfgIOeWg11YWjZXQ=;
-	b=h7lR0hLcH7oYCf/RVhcjOwg6xgmjdTN30tBi2ycP9Mwk6pJThljqgmcVqI7cYfL3ZE1e
-	 FLMFOHfe8khY0AjdBlAId1+HrONxj+YCI7cSZLkcz/1k5wHEkQwl+d1UWk1KpQubLyz9l
-	 xdNb0AQLQoksgkGIwbbOHVSdGC98hNKix/p4k/NoHGrbi/bq/ZXSW+sdkdpnn/FRrKGgk
-	 EDZTzhFmwAiE84muwiF8pYpDVxzCD4TEEAQkhlrTKMqwoM7OR6bbNRMKOGW//ZkCLRGc+
-	 r5uG0aAqf4JlsbV5V6TL4oNPq+Vs0Lt7t/EnCxAzsI9O6nFmZqUYJ3ip00L5VYJo9Sg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795702170;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=7838JVCVIFZHpChcKzHUN7ifBcuei9XazkkD9p8QNFU=;
+	b=2xlVm6kwDJkVclHHakWXzuGylMC02TXkV5kNhYEocy/NKHreycpH3kKcBCaF22Kyfdaq
+	 0dMj3yzkdcq7NWWusWU2GPD9YRdmF25I9RkEUHLR03sQhq1RHJOShVNVnS2VG0QWkh4Qx
+	 zeaIr3MZZ1WDql57e8nw9Lsegq7GsHvr5a7lMMqqlA0XO4mHS5f/ulpRLXN33F2V6JPBd
+	 a16b7Pk9RSiLqMVPsJogLBvXnNEP3YFXWCO4Dl1n7K8zXxlUxI+KCiX2RYfh6SjTBuTXy
+	 gchie+gGcTC2dXyePDFMc/bYTt7s/OSq5HkVBB5AdIJD06pEtQgw3CApoPutiXJTYeg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="Hy0O/aai";
-	arc=none smtp.remote-ip=198.175.65.13
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=d17URzsq;
+	arc=none smtp.remote-ip=209.85.210.170
+Received: from mail-pf1-f170.google.com (mail-pf1-f170.google.com [209.85.210.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 372C4606A31E;
-	Thu, 26 Nov 2026 14:09:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 372C4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9911A606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:09:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9911A606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Hy0O/aai
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795702155; x=1827238155;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=PI3GrZI82El5lUJzgozmBlkYPr4rbm0RBQwTQ9QQDgw=;
-  b=Hy0O/aais8HXosRGemDnTFsNa3IM5IFVFii8tRyBgq//EnGdmmRKzvB0
-   wbUqYi+UJcWV/9OtnWHJGpRaiHdX5oVl0RdAMNCcMB6E/zeMQSkmsOGQi
-   TCrwu7VvyQ+ewwaDpXkaCk1TPGxD3WIedUwOOxMsXiVhS2VZmijRm9/s1
-   eeFN/p1A9D5RtUZLrFNo730lmeog9u1yVHDjqyNvM3SS3FYVQDQlGNO2E
-   TPMp5s3JT8BoyXVms9Tte1Td4NS3HzpOXCFdcADdaYpAP6w82XA+RoLkI
-   Ut3cR2a4fiUxUzk6LmmX3ewVTr8mFvFbCDYsVpe+4CiBOtqJXgCavzcUO
-   g==;
-X-CSE-ConnectionGUID: ol+OMnd3S4O/1ErlUzK6+w==
-X-CSE-MsgGUID: fp8sqwUmQreRtI20tWlWug==
-X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4521876"
-X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
-   d="scan'208";a="4521876"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 06:09:14 -0800
-X-CSE-ConnectionGUID: i6VYdyTHT5GnpdEIrjIaBw==
-X-CSE-MsgGUID: /a0WLyTTSEK/u/ofaWNDRQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
-   d="scan'208";a="12601443"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.208])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 06:09:11 -0800
-Date: Thu, 26 Nov 2026 16:09:09 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Mika Westerberg <mika.westerberg@linux.intel.com>
-Cc: Linus Walleij <linusw@kernel.org>,
-	Maciej Strozek <mstrozek@opensource.cirrus.com>,
-	Andy Shevchenko <andy@kernel.org>, brgl@kernel.org,
-	patches@opensource.cirrus.com, linux-gpio@vger.kernel.org,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] pinctrl: cs42l43: Add GPIO controlled mic/spk mute LEDs
-Message-ID: <awg9hXmlaX4zjmQH@ashevche-desk.local>
-References: <20261110142058.354518-1-mstrozek@opensource.cirrus.com>
- <CAD++jLmUNxbVBLXg1aGysRGCjcQFjo=JSwx4-=8TWa7bj-iXuA@mail.gmail.com>
- <20261126073545.GM191152@black.igk.intel.com>
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=d17URzsq
+Received: by mail-pf1-f170.google.com with SMTP id d2e1a72fcca58-8b612fd74e1so2463557b3a.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:09:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1795702169; x=1796306969; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=7838JVCVIFZHpChcKzHUN7ifBcuei9XazkkD9p8QNFU=;
+        b=d17URzsqjWioo2PfC+RopqBDvb9xyjHmxFcKjHWIro7dm6NbcxMmmXlubr2cgTEkXB
+         OfihcCG9CbfADY6zZIChr14Lsls1UnnntuCfozzSDdqm2xfpx3LeOonsleuI36T1kVX9
+         XiI8ddfYfBl+0jEtfH4kdWeW4EFwY1b61jXbw=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795702169; x=1796306969;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7838JVCVIFZHpChcKzHUN7ifBcuei9XazkkD9p8QNFU=;
+        b=zT7VSxlfw8Zy5RNQlsJK1LwKAPuyjnb66/K7MuiJxWtbAPVWfWzXQlBvug83/N7n9w
+         1uVOVTHvoD+UyLOP9b7Se3MNidjq2I80KVQSOOax5p4QQOUzvvNdXuwSY4IHoWpl73V3
+         NSi0E814Ko9KcXxK6detMChVD9irRtKQWX7UxAQl73kC2pmtfOs98hdzU4VgHe8YqzM/
+         OzG8DzRZG/gZlA+BxbtNxjIBlLAxa2Na2oMeSl1KnO53r/OpSeL0NdIPV3IHKEKH6dSV
+         2NULSUEEIiH49gKRY2fuWFonqk7LemSpzdOfA/TW9VYs3P1+s1VuRbwJYMqsazf1yI4l
+         tW9A==
+X-Forwarded-Encrypted: i=1; AL+hErF3QyKiDj0P86XYg6jZoh1hSnJTr22iW2Ekfq9tcLBZ2pK+bPqroNuw2yJVb0ADPA6pgkmk3C8flVUasUk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9EF2dvViv6nrWVoYwBYCI4j7NZGfa39QdKDJdj9tvDlnZgzu9L
+	fGqeHjrFy98Z/dtsrNRCpRxGjZNqUVPNFKD9V0gw+YpD1Y4PEbaFyVgi4oyiIx/0R5+4Gajq4px
+	mKXF7Z2RO
+X-Gm-Gg: AZFdTZdtLUJMO+0b9GbPhhtthr/U1YGV3srsh0je1xg14AgfEWr2CDcj9U2jztaTtAo
+	qY3LT+xa3E3sk7H/L7fKvHDeMRDUCMKVuWyTK7oqxoz2g9JQMF+xAeu3FbaXRGvig1FtZXJkupy
+	XsGnDehRNXBbY4O0Uyf0ily4goR3jHrbznAFysADbkzhw98zn7lj53C8x3CCbXRBwG41xtETny3
+	+5KTTzZSNdPsfDon6u057rxPH6YjW+0E4D4qrSdPdexmT0MdkXn/9cVZr09Rhw/qWdPAvJSc0Rc
+	tdszwmgAM++EBVtJz0pxD71QlsNVmjZc25u87fg/FP2mWSJ9NCLPhKIJV15iFetiOGINwVew7oA
+	kaWdVB2smL1tQJX0U68a70Blqi77I+QHUMr5YmpWCFFzOsun0L1+VSkKr58vEk8eoo9Ld9pfNBD
+	Ev1F1vgzyqM6peV7Fy5Onw9XzWDf8iE4QHAduwY7C51eo9bq43koEI+yPvLTFSM/mQ1foMSN4bS
+	W+/2Agw2SYL/Y00Y0H71lTBX8gYGrZWggDw+GdlWVewjn4H7bAdfKkGSdcXsmCPmfC56jXRTrLv
+	nWnO8uoheiBh1kcI+QAWltmdVvcRiKmPeY9bwTSAOV6OWIW+ZKQMAlPxoQzcwSc9wQ==
+X-Received: by 2002:a05:6a00:4217:b0:89e:ad95:e01 with SMTP id d2e1a72fcca58-8c87d1254f0mr18934916b3a.46.1795702168957;
+        Thu, 26 Nov 2026 06:09:28 -0800 (PST)
+Received: from mail-dl1-f48.google.com (mail-dl1-f48.google.com. [74.125.82.48])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285b60csm10976984b3a.9.2026.11.26.06.09.28
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 06:09:28 -0800 (PST)
+Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-15dd124bbe7so9879729c88.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:09:28 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErE6QuNxo4LsiRWTDr4xqPbZpPTTGLd6rry0B537dEa0ICV3OQd3rLWrUGEyjQt093V1dPjQPqayjA3Coko=@vger.kernel.org
+X-Received: by 2002:a05:701b:450d:20b0:1b2:4378:3545 with SMTP id
+ a92af1059eb24-1b5568e825emr23220173c88.21.1795702166818; Thu, 26 Nov 2026
+ 06:09:26 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,41 +94,223 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261126073545.GM191152@black.igk.intel.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+References: <20260831-lenovo-go-v1-1-e9526e88ee09@chromium.org>
+ <CANiDSCs1qyOpv=W-F-94skQm4o-Aj9d0PbL7xr5qtdtLjWQ7vg@mail.gmail.com> <0fd097a2-029b-4023-bc22-d2eb587a646d@app.fastmail.com>
+In-Reply-To: <0fd097a2-029b-4023-bc22-d2eb587a646d@app.fastmail.com>
+From: Ricardo Ribalda <ribalda@chromium.org>
+Date: Thu, 26 Nov 2026 15:09:10 +0100
+X-Gmail-Original-Message-ID: <CANiDSCtcOa1UuCOb8wwpMdGRk_3Kb0aZtoiNfMXX2Y-0fCjorg@mail.gmail.com>
+X-Gm-Features: Aa3M54rtRoX6wSK5Y9qAl8rp--BKPEAndffZ9pTASgsLVd44EKFxzDfIZ7n7-aM
+Message-ID: <CANiDSCtcOa1UuCOb8wwpMdGRk_3Kb0aZtoiNfMXX2Y-0fCjorg@mail.gmail.com>
+Subject: Re: [PATCH] HID: Merge duplicated documentation for Lenovo Legion
+To: Mark Pearson <mpearson-lenovo@squebb.ca>
+Cc: "Derek J . Clark" <derekjohn.clark@gmail.com>, Jiri Kosina <jikos@kernel.org>, 
+	linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Thu, Nov 26, 2026 at 08:35:45AM +0100, Mika Westerberg wrote:
-> On Wed, Nov 25, 2026 at 07:06:24PM +0100, Linus Walleij wrote:
-> > On Tue, Nov 10, 2026 at 3:21 PM Maciej Strozek
-> > <mstrozek@opensource.cirrus.com> wrote:
+Hi Mark
 
-...
+Thanks for your review. Do you know if this is going to land in the tree?
 
-> > > Add ability to use cs42l43's GPIOs to drive speaker and microphone mute
-> > > LEDs. The LEDs must be described using
-> > > 01fa-global-mute-led-(spk|mic)-mute-gpio ACPI property, which tells
-> > > which of the 3 available cs42l43's GPIOs to use for the respective
-> > > function.
-> > >
-> > > Signed-off-by: Maciej Strozek <mstrozek@opensource.cirrus.com>
-> > 
-> > ACPI property, so Andy and Mika need to decide if this is a reasonable
-> > way to go about this issue.
-> 
-> I think the properties themselves are already "known" so that should be
-> okay (but let's see if Andy has any comments), there is though a tiny
-> observation below.
+Thanks!
 
-Yeah, I think it's some kind of vendor/device specific MIPI properties.
-Would be nice to know if they are specified somewhere or is it just a vendor
-push.
+On Mon, 2 Nov 2026 at 18:48, Mark Pearson <mpearson-lenovo@squebb.ca> wrote=
+:
+>
+> On Mon, Nov 2, 2026, at 7:40 AM, Ricardo Ribalda wrote:
+> > Friendly ping...
+> >
+> > On Mon, 31 Aug 2026 at 13:12, Ricardo Ribalda <ribalda@chromium.org> wr=
+ote:
+> >>
+> >> Lenovo Legion Go and Lenovo Legion Go S share some definitions. Merge =
+them in
+> >> sysfs-driver-hid-lenovo-go to avoid this warning:
+> >>
+> >> WARNING] /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interfac=
+e num>/<hid-bus>:<vendor-id>:<product-id>.<num>/os_mode is defined 2 times:=
+ ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go:364; ./Documentatio=
+n/ABI/testing/sysfs-driver-hid-lenovo-go-s:234
+> >> [WARNING] /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interfa=
+ce num>/<hid-bus>:<vendor-id>:<product-id>.<num>/os_mode_index is defined 2=
+ times: ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go:373; ./Docum=
+entation/ABI/testing/sysfs-driver-hid-lenovo-go-s:243
+> >> [WARNING] /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interfa=
+ce num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/enabled is define=
+d 2 times: ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go:636; ./Do=
+cumentation/ABI/testing/sysfs-driver-hid-lenovo-go-s:252
+> >> [WARNING] /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interfa=
+ce num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/enabled_index is =
+defined 2 times: ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go:645=
+; ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s:261
+> >>
+> >> Cc: stable@vger.kernel.org
+> >> Fixes: 168c91839139 ("HID: Add documentation for Lenovo Legion Go driv=
+ers")
+> >> Signed-off-by: Ricardo Ribalda <ribalda@chromium.org>
+> >> ---
+> >>  .../ABI/testing/sysfs-driver-hid-lenovo-go         | 11 +++----
+> >>  .../ABI/testing/sysfs-driver-hid-lenovo-go-s       | 35 -------------=
+---------
+> >>  2 files changed, 6 insertions(+), 40 deletions(-)
+> >>
+> >> diff --git a/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go b/Do=
+cumentation/ABI/testing/sysfs-driver-hid-lenovo-go
+> >> index c8221373ef76..f3ba3504939d 100644
+> >> --- a/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go
+> >> +++ b/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go
+> >> @@ -364,11 +364,12 @@ Description:      This displays the available op=
+tions for the mode attribute.
+> >>  What:          /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<i=
+nterface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/os_mode
+> >>  Date:          April 2026
+> >>  Contact:       linux-input@vger.kernel.org
+> >> -Description:   This controls the behavior of built in chord combinati=
+ons.
+> >> +Description:   This controls the behavior of built-in chord combinati=
+ons.
+>
+> Nit - this minor change is not part of the patch description.
+>
+> >> +               For the Legion Go S, this controls the touchpad's oper=
+ating mode.
+> >>
+> >>                 Values are windows or linux.
+> >>
+> >> -               Applies to Lenovo Legion Go and Go 2 line of handheld =
+devices.
+> >> +               Applies to Lenovo Legion Go, Go 2, and Go S line of ha=
+ndheld devices.
+> >>
+> >>  What:          /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<i=
+nterface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/os_mode_index
+> >>  Date:          April 2026
+> >> @@ -377,7 +378,7 @@ Description:        This displays the available op=
+tions for the os_mode attribute.
+> >>
+> >>                 Values are windows or linux.
+> >>
+> >> -               Applies to Lenovo Legion Go and Go 2 line of handheld =
+devices.
+> >> +               Applies to Lenovo Legion Go, Go 2, and Go S line of ha=
+ndheld devices.
+> >>
+> >>  What:          /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<i=
+nterface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/product_version
+> >>  Date:          April 2026
+> >> @@ -640,7 +641,7 @@ Description:        This controls enabling or disa=
+bling the touchpad.
+> >>
+> >>                 Values are true, false.
+> >>
+> >> -               Applies to Lenovo Legion Go and Go 2 line of handheld =
+devices.
+> >> +               Applies to Lenovo Legion Go, Go 2, and Go S line of ha=
+ndheld devices.
+> >>
+> >>  What:          /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<i=
+nterface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/enabled_ind=
+ex
+> >>  Date:          April 2026
+> >> @@ -649,7 +650,7 @@ Description:        This displays the available op=
+tions for the touchpad/enabled attrib
+> >>
+> >>                 Values are true, false.
+> >>
+> >> -               Applies to Lenovo Legion Go and Go 2 line of handheld =
+devices.
+> >> +               Applies to Lenovo Legion Go, Go 2, and Go S line of ha=
+ndheld devices.
+> >>
+> >>  What:          /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<i=
+nterface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/vibration_e=
+nabled
+> >>  Date:          April 2026
+> >> diff --git a/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s b/=
+Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s
+> >> index 4d317074bb7e..218164cfe544 100644
+> >> --- a/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s
+> >> +++ b/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s
+> >> @@ -231,41 +231,6 @@ Description:       This displays the available op=
+tions for the mouse/step attribute.
+> >>
+> >>                 Applies to Lenovo Legion Go S line of handheld devices=
+.
+> >>
+> >> -What:          /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<i=
+nterface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/os_mode
+> >> -Date:          April 2026
+> >> -Contact:       linux-input@vger.kernel.org
+> >> -Description:   This controls which value is used for the touchpads op=
+erating mode.
+> >> -
+> >> -               Values are windows or linux.
+> >> -
+> >> -               Applies to Lenovo Legion Go S line of handheld devices=
+.
+> >> -
+> >> -What:          /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<i=
+nterface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/os_mode_index
+> >> -Date:          April 2026
+> >> -Contact:       linux-input@vger.kernel.org
+> >> -Description:   This displays the available options for the os_mode at=
+tribute.
+> >> -
+> >> -               Values are windows or linux.
+> >> -
+> >> -               Applies to Lenovo Legion Go S line of handheld devices=
+.
+> >> -
+> >> -What:          /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<i=
+nterface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/enabled
+> >> -Date:          April 2026
+> >> -Contact:       linux-input@vger.kernel.org
+> >> -Description:   This controls enabling or disabling the built-in touch=
+pad.
+> >> -
+> >> -               Values are true or false.
+> >> -
+> >> -               Applies to Lenovo Legion Go S line of handheld devices=
+.
+> >> -
+> >> -What:          /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<i=
+nterface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/enabled_ind=
+ex
+> >> -Date:          April 2026
+> >> -Contact:       linux-input@vger.kernel.org
+> >> -Description:   This displays the available options for the touchpad/e=
+nabled attribute.
+> >> -
+> >> -               Values are true or false.
+> >> -
+> >> -               Applies to Lenovo Legion Go S line of handheld devices=
+.
+> >>
+> >>  What:          /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<i=
+nterface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/linux_mode
+> >>  Date:          April 2026
+> >>
+> >> ---
+> >> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+> >> change-id: 20260831-lenovo-go-7b4ec4bf0cd5
+> >>
+> >> Best regards,
+> >> --
+> >> Ricardo Ribalda <ribalda@chromium.org>
+> >>
+> >
+> >
+> > --
+> > Ricardo Ribalda
+>
+> All looks good to me.
+> Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
+>
+> Mark
 
--- 
-With Best Regards,
-Andy Shevchenko
 
 
+--=20
+Ricardo Ribalda
