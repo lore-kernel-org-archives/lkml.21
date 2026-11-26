@@ -1,86 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795662637;
-	b=UDRirS9cYkQjQMh4mMxftHyqhLD3L+DW3y2xH9TSTzXq86S58RdQ5UYQdoc7opQACkcK
-	 w4QX7BDaXlfc+veBfXvBeUmXBAIq7VnKBQIDPyYKo5qzWB+0jZr0/RhWp0AgXh3v7LMRf
-	 W2/oRTDx3uPCXadwpr1MQoZOWmExZKieBr00b0urVLNFSKE/+4KnSFG65tc9uMeni4obe
-	 sFOfIzrC5oPCBO5jWEcb+wDDGtN/NdwPR0UVWGQ3/8XzDaYEereXQIylCyhHkIwNPxVGQ
-	 /NKuyi4J+m+UOO1gYsUXhVwjkrxLEHUC2hl7CzE9Juq4goncR9fYxK11MdZbqbJDF2Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795662637;
-	h=Received:DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
-	 In-Reply-To:References:MIME-Version:Content-Type:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Z5+WW7qUd9uSQGp6BA5//nwMY+Ej/kIvfg3ReMKVqIY=;
-	b=iKu2ZIou40ZQroyS/n37Apmjx25AvUVbMfbieyJuDvc9q+cj2I5lgy7hL2ZKRvXa5IVv
-	 r2/pOZwg4dtzi4cP82+guZW/YihbvetuBuSPGZGmtqaxPeT22ckJXwozTTHCOMICLZx32
-	 mpa+HSIn5aiXq1B+FwMDyYjBxlm/HoZ6v5ww4S3Ypas6/AjnCuK4Chvtcnu7k6L1u9wGm
-	 pBy02wzGmX+PqZEiLCUIGezIIFnfybsZRJP1pN2TOtwkixViklOGznnwv+B169ZSvPOLa
-	 +PXBxt5Hq3GMRU1SAQd73s++hW08vK6cni6S781U+ajQ+0VLbEQ0uXVWRjETP+QcBPQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=INkCk2oG;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 897E1606A323;
-	Thu, 26 Nov 2026 03:10:37 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=INkCk2oG
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795662636;
-	b=CkVyi2u8RW/GSX5EnypGIhPrvQVL0d9uIopFdEQ+RTcx14A7hQomIMIWfktxOU2Zyvbr
-	 Pq+V7N+bgSeg9I30pNb7q5TKQC6rpmXYKb9MyGNUx3CqzYLjKDVn+qg4FHdli7YuR+RQq
-	 IfqSRrCc8jLGGwrATwJUgg1sJoqE3MUmEXgdap3gw44NfRlKACfDZ0Uo/z9RXgmX5WjBJ
-	 Ke+SM7X110BSY3k4FcuEoE34N+oa7Eg2kWJFulqiSs7lqzY6D4rcm4vJnpB4AtJEl1v49
-	 jD9vp/fMudvBPVzh2h8Iy3mAIURN5rhYFI3EAWKh68QvZrbwSfbDoHeyeqnqSSSG1Og==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795662636;
-	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
-	 In-Reply-To:References:MIME-Version:Content-Type:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Z5+WW7qUd9uSQGp6BA5//nwMY+Ej/kIvfg3ReMKVqIY=;
-	b=czJFvgfs+UPXZe5BwJxorcG44R4xINUN7mgDDfTY6uZp0ZYrZvnQYhvL7kG6sA0vVeUt
-	 3/NtfG8eblqrRTu/7d4FpMfEqzOGd6fEY9vVmFwMAqakFrl7KwWghHDDNkP05KwHPqVf+
-	 eozAJwaUz/fkyzK8QFqq+VfmEFd9A3ic9A1ZZbHhfgZZwQPr8sobdOgWUY8gcs2ffY3ni
-	 2du6vqIxUa+j0avfH6C4O09grtdSyfKxh4aEAJU3s2m02qnzqolPPLPipSoCa52X3kJe8
-	 0k+InhB6BR063gRoiQ4dTNDetUayRurYrTaEIKgZAplHdm0b7GZjCsfmh8N3c/VSb4w==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.210
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795662688;
+	b=IYIEOnh+oACXnKVyvjzNJqKvsjj5XPyDG7CfBcMiAkSiGb+Eiv9y1rY/Rn4vJq3QTaD8
+	 Oamg7fhpmFwUdl3tgOwCN85LJAaGiGXgpOM/P186FRXi7Wb9OH0Ub2dEQqYUBycdNJHhs
+	 LC5O3L/DRCuZcrzVG9bcOUx3GZzzMIK1izOMt1doFAB1uAmYyoftXZ8PWZomGWQPkU9zf
+	 8qKuDnQdjzL2acF6RwN/YbWoFeVUB7wKfjdFk15+0qHDSvwez/+q8FYnvQsWQ67PHmahQ
+	 Xql9EyFyul/kvPdNE6Zw93RIhEzpSeV0TmHLmhmF0x0R5xOWzO89Dkv8c+pFi8xPLlA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795662688;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=WYSs5d5Lp36V/22Iomfy0//nynBZd0fYykzrM/pot3A=;
+	b=WRPq/6wwaiFBN3y4Vdtv6OkoyfgYywhY75easJpOyuPPJ3EOorXBT4m7G7gcCtJh6A+T
+	 LZdqclyUGqBOcG4RuB0mk9eE+v16Tsrxky90Q6NS2dOsEgvFc0NDLY91RJ4w1oJGhI8/+
+	 t+W0VGFfObXP26VcUnR4nqKqj0OOdoFJ+mMgkRnoNTjCaeuHmb5W9haoX3m1fEUlHLrxy
+	 uR3suUFno7svvl4/+BjAfMUuPIDsyshUjhfwBYtk1yI51O7Hbi5lLesJmTE3YTcclQRHq
+	 +nGsnWnTn68e70u8/ms9tZB3URkMWMHCQjmPKfKYdmsMgnoE8NPkCPAX3Un1u6llTgg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XvQ+r2RM;
+	arc=none smtp.remote-ip=91.218.175.210
+Received: from mta0.migadu.com (out-210.mta0.migadu.com [91.218.175.210])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id AB2751F00AD4;
-	Thu, 26 Nov 2026 03:10:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795662636;
-	bh=Z5+WW7qUd9uSQGp6BA5//nwMY+Ej/kIvfg3ReMKVqIY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:Reply-To;
-	b=INkCk2oGEim83xGiHoYYjYSpAwK653Mt8tLRNB0+yolCakcfPcXCn4GHyKfMuU4mH
-	 AxMa+z5V9WjLOOZkcd7H3zWSg6WmSQ4QYe3M3ujUh9JNQ2TQTxhbnUXzxSiBNYKJRN
-	 Pgz9WWwTTAwKyY4Hrv0O4nvOG3qmkXqO91pYZ9IjdiciI1gkb/jZssBnayXB8BpiiT
-	 JsSARsT7eookjia44d2S3rovaqz23uekCVK7XPGlFtP3fyFE7xscjezMA1P7U97ZBx
-	 5tRdXHF36Q5GTP1Udxu7wB9QTgMhkmCurUGJGKDO/YG9yRB/pgc0SQAIuMdrAXZgje
-	 hbapcoH+92a8w==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 379094D1FB;
-	Thu, 26 Nov 2026 03:10:15 +0000 (UTC)
-From: Ilia Snezhkov via B4 Relay <devnull+iasnezhkov.gmail.com@kernel.org>
-To: jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com, 
- andy@kernel.org
-Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
- linux-iio@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/3] iio: adc: mt6359: divide scale by ADC resolution
-Date: Thu, 26 Nov 2026 03:10:14 +0000
-Message-Id: <20261126031013.27701-2-iasnezhkov@gmail.com>
-In-Reply-To: <20261126031013.27701-1-iasnezhkov@gmail.com>
-References: <20261126031013.27701-1-iasnezhkov@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03E35606A327
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:11:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03E35606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XvQ+r2RM
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=vvqUdZiid5uV0/NNKfcYRq6aGGte+Ajub0kcJ88W1xw=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795662685; v=1; x=1796267485;
+ b=XvQ+r2RMwGUGG5NBKscjbd1IEWuCTdDQIo98L1SjnbjCjJMgWoAL8FtytLaBy0CWLY2+jxXS
+ hdTmfApQPa0Z895vccKpW6ltMPzR86wOfdNzdome4YHjY1oUi+qMCfdssS3I22jaFLPBS91D5ts
+ dpF6fN1TnG+4+T5QhV2e4WU4=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id c118c9884fa7c50c;
+	Thu, 26 Nov 2026 03:11:24 +0000
+X-Mizu-Trace-ID: c118c9884fa7c50c
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <82a7b4da-a67a-4e53-bdad-8c0551585cec@linux.dev>
+Date: Thu, 26 Nov 2026 11:11:10 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,72 +58,183 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795662614; l=2018;
- i=iasnezhkov@gmail.com; s=mindone2026; h=from:subject:message-id;
- bh=RTq1aVD1zHl4LRRZyx7FmcWLrY9bYuovI3sBY101iG8=;
- b=eNji+Xp7bTqcjraAhKZxOoZg3iNx91cOnLGanRiAoa4odxvP9t6+4JNZzsH1FRofnEamRt6Qw
- 7ZC9iX79/DeDJdlW8bw+ZUoEk1GUNFqWu0PessygF6LU2u0G+DOv3QH
-X-Developer-Key: i=iasnezhkov@gmail.com; a=ed25519;
- pk=hQgXfiWi4ukk2jh4BHu1vRVhg9BUivo//AFp50AKMag=
-X-Endpoint-Received: by B4 Relay for iasnezhkov@gmail.com/mindone2026 with
- auth_id=1643
-X-Original-From: Ilia Snezhkov <iasnezhkov@gmail.com>
-Reply-To: iasnezhkov@gmail.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 04/18] mm/mglru: make generation page counters atomic
+To: kasong@tencent.com, linux-mm@kvack.org
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>,
+ Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>,
+ Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>,
+ Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>,
+ Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>,
+ Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
+ Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>,
+ Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
+ Vlastimil Babka <vbabka@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Nhat Pham <nphamcs@gmail.com>, Youngjun Park <youngjun.park@lge.com>,
+ Zi Yan <ziy@nvidia.com>, Gregory Price <gourry@gourry.net>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+ Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>,
+ SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>,
+ Yu Zhao <yuzhao@google.com>, Vernon Yang <vernon2gm@gmail.com>,
+ Zicheng Wang <wangzicheng@honor.com>, Tal Zussman <tz2294@columbia.edu>,
+ Kairui Song <ryncsn@gmail.com>, Xiang Liu <liuxiang.277@bytedance.com>,
+ Ehab Ababneh <ehab.ababneh@intel.com>,
+ Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, Lian Wang
+ <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>,
+ Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>,
+ Maxim Muzafarov <maxmuzaf@gmail.com>, linux-kernel@vger.kernel.org,
+ cgroups@vger.kernel.org, damon@lists.linux.dev, linux-doc@vger.kernel.org,
+ Tianyi Chen <hi@tychen.cc>
+References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
+ <20261124-mglru-fg-v6-4-8ffea39934a6@tencent.com>
+From: Ridong Chen <ridong.chen@linux.dev>
+In-Reply-To: <20261124-mglru-fg-v6-4-8ffea39934a6@tencent.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-From: Ilia Snezhkov <iasnezhkov@gmail.com>
 
-mt6359_auxadc_read_raw() returns raw ADC counts for IIO_CHAN_INFO_RAW
-(12-bit or 15-bit depending on the channel), and returns only
-(r_ratio.numerator * vref_mV) / r_ratio.denominator for
-IIO_CHAN_INFO_SCALE without dividing by the ADC full-scale range
-(1 << chan->scan_type.realbits).
 
-As a result, iio_read_channel_processed() and userspace consumers
-multiplying raw * scale obtain millivolt values that are 4096x (12-bit)
-or 32768x (15-bit) too large.
+On 11/24/2026 2:52 AM, Kairui Song via B4 Relay wrote:
+> From: Kairui Song <kasong@tencent.com>
+> 
+> No feature change, convert them to atomic so we can update them without
+> holding the LRU lock. A temporary underflow is fine: readers clamp a
+> negative value to zero, and the counters only need to be eventually
+> consistent.
+> 
+> Tested-by: Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>
+> Reviewed-by: Barry Song <baohua@kernel.org>
+> Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
+> Tested-by: Andrew Morton <akpm@linux-foundation.org>
+> Reviewed-by: Lian Wang <lianux.mm@gmail.com>
+> Signed-off-by: Kairui Song <kasong@tencent.com>
+> ---
+>   include/linux/mm_inline.h |  6 ++----
+>   include/linux/mmzone.h    |  2 +-
+>   mm/vmscan.c               | 26 +++++++++++++-------------
+>   mm/vmscan.h               |  2 +-
+>   4 files changed, 17 insertions(+), 19 deletions(-)
+> 
+> diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
+> index 2edb9beef6d3..46beded51c7d 100644
+> --- a/include/linux/mm_inline.h
+> +++ b/include/linux/mm_inline.h
+> @@ -265,11 +265,9 @@ static inline void lru_gen_update_size(struct lruvec *lruvec, struct folio *foli
+>   	VM_WARN_ON_ONCE(old_gen == -1 && new_gen == -1);
+>   
+>   	if (old_gen >= 0)
+> -		WRITE_ONCE(lrugen->nr_pages[old_gen][type][zone],
+> -			   lrugen->nr_pages[old_gen][type][zone] - delta);
+> +		atomic_long_sub(delta, &lrugen->nr_pages[old_gen][type][zone]);
+>   	if (new_gen >= 0)
+> -		WRITE_ONCE(lrugen->nr_pages[new_gen][type][zone],
+> -			   lrugen->nr_pages[new_gen][type][zone] + delta);
+> +		atomic_long_add(delta, &lrugen->nr_pages[new_gen][type][zone]);
+>   
+>   	/* addition */
+>   	if (old_gen < 0) {
+> diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
+> index 6a2ad0cff795..4e85bb520f76 100644
+> --- a/include/linux/mmzone.h
+> +++ b/include/linux/mmzone.h
+> @@ -554,7 +554,7 @@ struct lru_gen_folio {
+>   	/* the multi-gen LRU lists, lazily sorted on eviction */
+>   	struct list_head folios[MAX_NR_GENS][ANON_AND_FILE][MAX_NR_ZONES];
+>   	/* the multi-gen LRU sizes, eventually consistent */
+> -	long nr_pages[MAX_NR_GENS][ANON_AND_FILE][MAX_NR_ZONES];
+> +	atomic_long_t nr_pages[MAX_NR_GENS][ANON_AND_FILE][MAX_NR_ZONES];
+>   	/* the exponential moving average of refaulted */
+>   	unsigned long avg_refaulted[ANON_AND_FILE][MAX_NR_TIERS];
+>   	/* the exponential moving average of evicted+protected */
+> diff --git a/mm/vmscan.c b/mm/vmscan.c
+> index bc7579d47f9b..202e0f874b23 100644
+> --- a/mm/vmscan.c
+> +++ b/mm/vmscan.c
+> @@ -3350,8 +3350,7 @@ static void reset_batch_size(struct lru_gen_mm_walk *walk)
+>   			continue;
+>   
+>   		walk->nr_pages[gen][type][zone] = 0;
+> -		WRITE_ONCE(lrugen->nr_pages[gen][type][zone],
+> -			   lrugen->nr_pages[gen][type][zone] + delta);
+> +		atomic_long_add(delta, &lrugen->nr_pages[gen][type][zone]);
+>   
+>   		if (lru_gen_is_active(lruvec, gen))
+>   			lru += LRU_ACTIVE;
+> @@ -3971,11 +3970,8 @@ static bool inc_min_seq(struct lruvec *lruvec, int type, int swappiness)
+>   				break;
+>   		}
+>   		flush_lru_batch(head, &batch_end, target_list);
+> -
+> -		WRITE_ONCE(lrugen->nr_pages[old_gen][type][zone],
+> -			   lrugen->nr_pages[old_gen][type][zone] - delta);
+> -		WRITE_ONCE(lrugen->nr_pages[target_gen][type][zone],
+> -			   lrugen->nr_pages[target_gen][type][zone] + delta);
+> +		atomic_long_sub(delta, &lrugen->nr_pages[old_gen][type][zone]);
+> +		atomic_long_add(delta, &lrugen->nr_pages[target_gen][type][zone]);
+>   		if (!remaining)
+>   			return false;
+>   	}
+> @@ -4093,8 +4089,8 @@ static bool inc_max_seq(struct lruvec *lruvec, unsigned long seq, int swappiness
+>   	for (type = 0; type < ANON_AND_FILE; type++) {
+>   		for (zone = 0; zone < MAX_NR_ZONES; zone++) {
+>   			enum lru_list lru = type * LRU_INACTIVE_FILE;
+> -			long delta = lrugen->nr_pages[prev][type][zone] -
+> -				     lrugen->nr_pages[next][type][zone];
+> +			long delta = atomic_long_read(&lrugen->nr_pages[prev][type][zone]) -
+> +				     atomic_long_read(&lrugen->nr_pages[next][type][zone]);
+>   
+>   			if (!delta)
+>   				continue;
+> @@ -4625,8 +4621,13 @@ static void __lru_gen_reparent_memcg(struct lruvec *child_lruvec, struct lruvec
+>   	child_lrugen = &child_lruvec->lrugen;
+>   	parent_lrugen = &parent_lruvec->lrugen;
+>   
+> +	/*
+> +	 * The child is offline and the lockless updaters, which hold
+> +	 * rcu_read_lock() over the update, avoid racing with reparenting,
+> +	 * so the read/set/add operations below are safe.
+> +	 */
+>   	for (gen = 0; gen < MAX_NR_GENS; gen++) {
+> -		long nr_pages = child_lrugen->nr_pages[gen][type][zone];
+> +		long nr_pages = atomic_long_read(&child_lrugen->nr_pages[gen][type][zone]);
+>   		int child_lru_active = lru_gen_is_active(child_lruvec, gen) ? LRU_ACTIVE : 0;
+>   		int parent_lru_active = lru_gen_is_active(parent_lruvec, gen) ? LRU_ACTIVE : 0;
+>   
+> @@ -4634,9 +4635,8 @@ static void __lru_gen_reparent_memcg(struct lruvec *child_lruvec, struct lruvec
+>   		list_splice_tail_init(&child_lrugen->folios[gen][type][zone],
+>   				      &parent_lrugen->folios[gen][type][zone]);
+>   
+> -		WRITE_ONCE(child_lrugen->nr_pages[gen][type][zone], 0);
+> -		WRITE_ONCE(parent_lrugen->nr_pages[gen][type][zone],
+> -			   parent_lrugen->nr_pages[gen][type][zone] + nr_pages);
+> +		atomic_long_set(&child_lrugen->nr_pages[gen][type][zone], 0);
+> +		atomic_long_add(nr_pages, &parent_lrugen->nr_pages[gen][type][zone]);
+>   
+>   		if (lru_gen_is_active(child_lruvec, gen) != lru_gen_is_active(parent_lruvec, gen)) {
+>   			__update_lru_size(child_lruvec, lru + child_lru_active, zone, -nr_pages);
+> diff --git a/mm/vmscan.h b/mm/vmscan.h
+> index c2cea36289f3..6551f0a6691a 100644
+> --- a/mm/vmscan.h
+> +++ b/mm/vmscan.h
+> @@ -126,7 +126,7 @@ static inline unsigned long lruvec_gen_size(struct lru_gen_folio *lrugen,
+>   	unsigned long size = 0;
+>   
+>   	for (int zone = 0; zone < max_zone; zone++)
+> -		size += max(READ_ONCE(lrugen->nr_pages[gen][type][zone]), 0L);
+> +		size += max(atomic_long_read(&lrugen->nr_pages[gen][type][zone]), 0L);
+>   
+>   	return size;
+>   }
+> 
 
-Include the 1 << chan->scan_type.realbits divisor in
-IIO_CHAN_INFO_SCALE: shift r_ratio.denominator left by realbits for
-IIO_VAL_FRACTIONAL when denominator > 1 (r_ratio.denominator is u8 and
-realbits is at most 15, so the result fits comfortably in int), and
-return IIO_VAL_FRACTIONAL_LOG2 with realbits otherwise so channels with
-denominator == 1 use an exact shift and unpopulated descriptors (such
-as MT6357 VDCXO where denominator == 0) cannot trigger division by zero.
+Reviewed-by: Ridong Chen <ridong.chen@linux.dev>
+Thanks.
 
-Fixes: 3587914bf61d ("iio: adc: Add support for MediaTek MT6357/8/9 Auxiliary ADC")
-Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
----
-Changes in v2:
-- Move AI coding assistant note below ---. No code changes.
-
-Found and drafted with an AI coding assistant.
-
- drivers/iio/adc/mt6359-auxadc.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/iio/adc/mt6359-auxadc.c b/drivers/iio/adc/mt6359-auxadc.c
-index 88b0e26..54c9048 100644
---- a/drivers/iio/adc/mt6359-auxadc.c
-+++ b/drivers/iio/adc/mt6359-auxadc.c
-@@ -772,11 +772,12 @@ static int mt6359_auxadc_read_raw(struct iio_dev *indio_dev,
- 		*val = desc->r_ratio.numerator * cinfo->vref_mV;
- 
- 		if (desc->r_ratio.denominator > 1) {
--			*val2 = desc->r_ratio.denominator;
-+			*val2 = (int)desc->r_ratio.denominator << chan->scan_type.realbits;
- 			return IIO_VAL_FRACTIONAL;
- 		}
- 
--		return IIO_VAL_INT;
-+		*val2 = chan->scan_type.realbits;
-+		return IIO_VAL_FRACTIONAL_LOG2;
- 	}
- 
- 	scoped_guard(mutex, &adc_dev->lock) {
 -- 
-2.54.0 (Apple Git-157)
-
+Best regards
+Ridong
 
