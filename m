@@ -1,58 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795696280;
-	b=sELRVfVXV9Zo6B2ASxHUrj8MKjLzGNdsGGS8ficfxfgTk6rqzXFkDkD39oStsJfZShtY
-	 CdimVXaNr+q2oLJEAeQSEOBfdwf72a9rurHDnXvJ4QAUdZnZuLVWrBua7O6dQ7hKgbwKU
-	 DGIN6HtgF6R0ljEAjDpA8ZZWwD7LX3STcE1wjkj+IiBcglCTnagJIaxF/oGRKF3mVyYXq
-	 7X5MVwhLekTO4DeJU7igriu9Q6YhTtCSAeXeQ5jl/hEWuqWp/lRGEv4VXHliXf0aKor1w
-	 8/O7yxpXVS09Bt3qbvw6AqE1/wVhk95/JOpmWSOWS9AU8vkaORO+daR1DS9MNhIkTsA==
+	t=1795696300;
+	b=u0l+cCDYbKGGhndJjOoEX6zh5HbefY22F2T/J8XkblkSvJmnYCSNNVD46fEi8DkKXvBN
+	 Tg3iTLmpCOkXiTzdh7zauANpNWgZHKKhqNLxaNG5U1c8cq6J9wZTd/E7Ns88zEznLAdeH
+	 6tYABjNbj0oY+i08FdpYeCbOkU2t+2UoNYzYxoIn7dSMoXz6L6cu3D/ylo0YVsWybk4+o
+	 gfVCvwniW9jrDF4wLUaOkbLJZC2LrhQEGcoBwIec+/zW08lmm4oGWw9iC7xKvIFkwpQZp
+	 Jt0gcryWbwfhWp+tpJbKR8StKITMGHTgYvdzB4S5SNq+bo3ngyTQpzmxIr5GkmmhnMw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795696280;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=yJb+KOZ/zmj8Fns3CIInNWprV2HZ5qGNxwyn1s60ypk=;
-	b=kXHypryhBApI7Z9Yxe0ZVKE5vWiJiTNoKswSyXG4Bv6idoG4Yr6RjAaYJyipJTQ/zT4Q
-	 JAqvorOw2FOdUwcQ8+qiIk2nHuq/YiypmJ8atavd7FhifcG6ZzvuDELbJy0CKIPVuVBpL
-	 M3Czk+DwKwEuy9aWr9UgXsWcnZ7CwONsRE5/rpSST5PrnUCK3oVS+p6d9mTtWBDa/+7rT
-	 Od2w46vX90jv7HDd61QTQNYKYYmAkZgQATctKNwoG+Xs54jMW0R0jIZA4PuUgwGWyWum4
-	 XgyEtK0Ji18/D+U6a01Ux5xZ3yfBzPbdFoBriDvtOfyVcoCjCKi+ktkpDnfGYKJNh0g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795696300;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=g76ZCxcIcpyNOspZC9j/ne3dtmiKHKAQji21AEWRzhs=;
+	b=JyTwWsPNeoltCMSLPm6HChL8OuWoumJbHy3Hf+dSj/7xoF+wDKqQHQtzzsQL0rLJNJ/1
+	 H53TPETy9Ho30w3rxFFfHxy6hbsLpnt9Oz9pBpXCwkP6luZ6DIk7YJZuid7wGFuCGzrGf
+	 Akk02H8qowIJu2neqXQIb2i4KHWLKL28dyLap5pIfe9Oa1beHJ+JOG3XgTidXt70XFHHZ
+	 EoDAj8Rt3pNAP/DpW6n6CD5as3+ua/GUsNqyD7TNxXQVxk7xZ0SPVrGdd/sU+UwM8TA9Y
+	 fDLfBfuBgrDTxB2EXN//NcBJte211Q/W2orCj/ifxEWwRn4Ac0T/mKA3lrbFw9FLWhg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iD84DYiZ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FhIgcTNy;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6762C606A31E;
-	Thu, 26 Nov 2026 12:31:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 667EB606A31E;
+	Thu, 26 Nov 2026 12:31:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iD84DYiZ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A1841F000D1;
-	Thu, 26 Nov 2026 12:31:17 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FhIgcTNy
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D8E31F000EC;
+	Thu, 26 Nov 2026 12:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795696279;
-	bh=yJb+KOZ/zmj8Fns3CIInNWprV2HZ5qGNxwyn1s60ypk=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=iD84DYiZPJ0ePeZorujH99dMO8XU5aGcfZj+7CQ/CgjHi1eEJw6XPSU+Xwa532voB
-	 ryhhmAajnU0grcT43/DCyzVCCPo0kpGlFtJm6RngdUK7rhecTWGx6nuz1XKY618uSN
-	 KxTeVY6OgyZL2zQDQnkAo0ZoEvvqu/OHIijrjaOpIaYB+lN4p4UL+lrSMaC2WUIJVh
-	 BKj1nG5qsSSwIybyL9lkb3Ra1NTo2ANyCCvV55kNI8VEDrao98CxL8c+47IvaSIVQd
-	 c45pQ1H14G2ZnCJzwtywVgYwqfcIs4gLmNIWjyXE+4HQqcaRd7aVE1xNpVDVK/ZjRx
-	 4F3kQQNvLP/og==
-From: Lee Jones <lee@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
- Pavel Machek <pavel@kernel.org>, Griffin Kroah-Hartman <griffin@kroah.com>, 
- Svyatoslav Ryhel <clamor95@gmail.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-leds@vger.kernel.org, mfd@lists.linux.dev
-In-Reply-To: <20261115090520.102216-4-clamor95@gmail.com>
-References: <20261115090520.102216-4-clamor95@gmail.com>
-Subject: Re: (subset) [PATCH v6 3/3] mfd: max8907: Add LED cell
-Message-Id: <179569627733.65215.7739958510211892846.b4-ty@b4>
-Date: Thu, 26 Nov 2026 12:31:17 +0000
+	s=k20260515; t=1795696300;
+	bh=g76ZCxcIcpyNOspZC9j/ne3dtmiKHKAQji21AEWRzhs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FhIgcTNyf14ldQHtiXv4zYG7ZY7VCqUA0BM8xEiAd9PiTm163jt+tIucHvtp12C8Z
+	 hTWcxCBuQSmBdPjWBXBZNhoWsIRaeZwk4tBrpXsXp0LFE7rslODJBmDyl3YQpg6Ny/
+	 ZQqOVxVhkX4GcW5TAfSjWCdZhxgEs/tJx7zxfh/n5fb8xCMqBvorTueaamFp/RlS4/
+	 dMV1Xmmt3A6+Gg03qpav/T8uWqHtizB8mmoUOgZZwBmCLaSrlFT2sBQ8IPhG1sybXm
+	 JThOqAaaV55drREdq3cv4z5h+Vfq577y0fulQy6Oo6YnLP7UaB0gh1hEnnj5kEf7X0
+	 5lql7h2/dp6dw==
+Date: Thu, 26 Nov 2026 14:31:18 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+	chenhuacai@kernel.org, kernel@xen0n.name, maddy@linux.ibm.com,
+	mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org,
+	ritesh.list@gmail.com, sshegde@linux.ibm.com, pjw@kernel.org,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, hpa@zytor.com,
+	akpm@linux-foundation.org, baoquan.he@linux.dev,
+	pasha.tatashin@soleen.com, pratyush@kernel.org, leitao@debian.org,
+	yeoreum.yun@arm.com, mpilaniy@redhat.com, robh@kernel.org,
+	coiby.xu@gmail.com, Yeking@red54.com, prudo@redhat.com,
+	brads@mainlining.org, sourabhjain@linux.ibm.com,
+	mkchauras@gmail.com, blum@kernel.org, adityag@linux.ibm.com,
+	qirui.001@bytedance.com, hui.wang@canonical.com,
+	sohammetha01@gmail.com, guoren@kernel.org, gaohan@iscas.ac.cn,
+	ionut.nechita@windriver.com, vishal.l.verma@intel.com,
+	seanjc@google.com, ardb@kernel.org, richard.lyu@suse.com,
+	arnd@arndb.de, tzimmermann@suse.de, rick.p.edgecombe@intel.com,
+	kai.huang@intel.com, kas@kernel.org, piliu@redhat.com,
+	thuth@redhat.com, shradhagupta@linux.microsoft.com,
+	ebiggers@kernel.org, jbouron@amazon.com, me@linux.beauty,
+	mclapinski@google.com, graf@amazon.com, tangyouling@kylinos.cn,
+	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	kexec@lists.infradead.org
+Subject: Re: [PATCH v8 00/11] kexec: Rework segment loading and fix CMA
+ retries
+Message-ID: <awgmlnibFRpjgG2a@kernel.org>
+References: <20261112133418.4044428-1-ruanjinjie@huawei.com>
+ <584a0e7a-230e-4a95-9e09-a1d6499a6ea9@huawei.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,18 +83,120 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.16-dev-ad80c
+In-Reply-To: <584a0e7a-230e-4a95-9e09-a1d6499a6ea9@huawei.com>
 
-On Sun, 15 Nov 2026 11:05:20 +0200, Svyatoslav Ryhel wrote:
-> Add the LED cell name to the list of MAX8907 cells.
+Hi Jinjie,
 
-Applied, thanks!
+On Mon, Nov 23, 2026 at 03:10:53PM +0800, Jinjie Ruan wrote:
+> 
+> 在 2026/11/12 21:34, Jinjie Ruan 写道:
+> > ARM64, LoongArch, RISC-V, x86 and powerpc build the elf core header
+> > and place it together with the initrd and the DTB with almost identical
+> > code.
+> > 
+> > This series reworks that path into common helpers that the architectures
+> > reuse, and fixes the CMA page and elf core header leaks in the arm64
+> > and LoongArch placement retry loops.
+> > 
+> > The patch organization is as follows:
+> > 
+> > - Patch 1 moves the release of the elf core header into the generic
+> >   post-load cleanup, so that the architectures no longer free it
+> >   themselves.
+> > 
+> > - Patch 2 adds the common helpers
+> > 
+> > - Patches 3-7 convert arm64, LoongArch, RISC-V, X86 and Powerpc to
+> >   reuse the common helpers
+> > 
+> > - Patches 8-11 fix the CMA pages leaked by the retry loops and
+> >   the loop that makes no progress
+> > 
+> > Tested with kexec_file_load() on arm64, LoongArch, RISC-V, X86 and
+> > Powerpc under QEMU, including the CMA retry paths, loading a crash
+> > kernel and booting the second kernel, with the agent help.
+> > 
+> > This series is also available at:
+> > 	https://github.com/ruanjinjie-eng/linux/tree/kexec_rework_cma_bugfx_v9
+> > 
+> > Changes in v8:
+> > - Rework the common code as Mike suggested: the core provides building
+> >   blocks and the architectures uses them (Mike)
+> > - Build the elf core header once and only place it on the retries (Mike)
+> > - Keep the segment order and the arch placement policy unchanged (Mike)
+> > - Convert x86 and powerpc as well
+> > - Move the CMA fixes to the end of the series (Mike)
+> 
+> Hi Mike,
+> 
+> Does this refactoring now meet your expectations?
 
-[3/3] mfd: max8907: Add LED cell
-      commit: dc71f64fc283661d77d6a9a4bf38af94b4daeb5a
+I only had time for a quick skim, and overall it looks good to me.
 
---
-Lee Jones [李琼斯]
+The only thing that stood out was kexec_add_fdt() in kexec/kexec_file.c.
+I believe drivers/of/kexec.c is a better place for it.
+ 
+> In my view, there is still an issue worth discussing: should we reserve
+> for the crash hotplug elf core header in the framework code
+> kexec_add_elf_core_header(), or only implement it in the x86
+> architecture code, and consider generalizing it after the ARM64
+> implementation is available?
 
+I think it's better to keep it in x86 for now and generalize later.
+ 
+> Best regards,
+> Jinjie
+> 
+> 
+> > - Link to v7: https://lore.kernel.org/all/20261026075201.699550-1-ruanjinjie@huawei.com/
+> > 
+> > Previous Versions are as below:
+> > - v6: https://lore.kernel.org/all/20260921090450.807575-1-ruanjinjie@huawei.com/
+> > - v5: https://lore.kernel.org/all/20260918100442.3841135-1-ruanjinjie@huawei.com/
+> > - v4: https://lore.kernel.org/all/20260907125404.922123-1-ruanjinjie@huawei.com/
+> > - v3: https://lore.kernel.org/all/20260826092541.3905933-1-ruanjinjie@huawei.com/
+> > - v2: https://lore.kernel.org/all/20260729031235.2840255-1-ruanjinjie@huawei.com/
+> > - v1: https://lore.kernel.org/all/20260723131242.1537633-1-ruanjinjie@huawei.com/#t
+> > 
+> > Jinjie Ruan (11):
+> >   kexec: Free the elf core header in kimage_file_post_load_cleanup()
+> >   kexec: Add helpers to load the elf core header, initrd and FDT
+> >   arm64: kexec_file: Load the other segments with common helpers
+> >   LoongArch: kexec_file: Load the other segments with common helpers
+> >   riscv: kexec_file: Load the extra segments with common helpers
+> >   x86: kexec_file: Use the common segment helpers
+> >   powerpc: kexec_file: Use the common segment helpers
+> >   kexec: Extract kexec_free_segment_cma() from kimage_free_cma()
+> >   kexec: Add kexec_rollback_segments() helper
+> >   arm64: kexec_file: Fix CMA segment placement retries
+> >   LoongArch: kexec_file: Fix CMA segment placement retries
+> > 
+> >  arch/arm64/include/asm/kexec.h             |   4 +-
+> >  arch/arm64/kernel/kexec_image.c            |  15 ++-
+> >  arch/arm64/kernel/machine_kexec_file.c     |  87 ++++----------
+> >  arch/loongarch/include/asm/kexec.h         |   3 +-
+> >  arch/loongarch/kernel/kexec_efi.c          |  15 ++-
+> >  arch/loongarch/kernel/kexec_elf.c          |   3 +-
+> >  arch/loongarch/kernel/machine_kexec_file.c |  80 +++++--------
+> >  arch/powerpc/kexec/elf_64.c                |   9 +-
+> >  arch/powerpc/kexec/file_load_64.c          |  18 +--
+> >  arch/riscv/include/asm/kexec.h             |   4 +-
+> >  arch/riscv/kernel/kexec_elf.c              |   3 +-
+> >  arch/riscv/kernel/kexec_image.c            |   3 +-
+> >  arch/riscv/kernel/machine_kexec_file.c     |  83 ++++----------
+> >  arch/x86/kernel/crash.c                    |  25 +----
+> >  arch/x86/kernel/kexec-bzimage64.c          |   8 +-
+> >  arch/x86/kernel/machine_kexec_64.c         |   4 -
+> >  include/linux/kexec.h                      |  14 +++
+> >  kernel/kexec_core.c                        |  25 +++--
+> >  kernel/kexec_file.c                        | 125 +++++++++++++++++++++
+> >  19 files changed, 254 insertions(+), 274 deletions(-)
+> > 
+> 
+
+-- 
+Sincerely yours,
+Mike.
