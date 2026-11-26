@@ -1,98 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795725223;
-	b=LaCtinZDoJQSqOFpaQhsk4FX05UBWnKmSfgA02i3IZ2Gd/+RUkzebRKrVcL8x39gUeqQ
-	 scvpsmzQZAq6ZOW8dTGlDzOshU7wuEHAUwwRI+lxgdOmBSRevi7kssz5IZJv+zdKuCmRf
-	 NeQ+cVgrzInXFFBosHGxcVWqhrmTkLQ66QiiJoUUD3t0RXXa65tR0KpeDzBQqHm7sqaoM
-	 l2HZhjqu9/EBWNH/TpYaZyTowufVEq/a9umZQBqlgQzVvnpkKaGb5VyUAv5VU0jCAU4Lz
-	 FIMKZa1qaTwM9sQxzN5EBgq4iZ8lsxmohTu0lJYLBL3IDSdl4CxuCK1YOVtW2F2b9fA==
+	t=1795725216;
+	b=Dqv768T8W5QqNZ7yWcnJH2OmUcNnf4qbZZUxa7mb6MCQhetv6DtzTo9+9UEUQ9aHnOoH
+	 galuvQxfYEDIit4IeeLc41UZ+5/qDpTKqWnBMaXYEwiMpk7LLdurtvZsW5ViNysNbKvx1
+	 7GqH/1s0mW7u83IiRwOPJUgp+6k33Vq1/qwsfw5SNFY7z703WDhGAqOq/b9hb1LTRCWAP
+	 ZiZA0vJV4ZP6Se6kdS37G9mj4oxwKmeCf60YPj9ZC2CIL3UDjyngxJrkGST+ewY/ps20q
+	 stwQAO/Uut2I2vQ1crXEFLBG6uOeJvq7MJXcdPS68MK2QJwIrzgDIPB9ftTogZbKovQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795725223;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=6+IvshoIOnpz5rdUCHpe36q5hslcK32E1hpH+6SscWk=;
-	b=jZ08sxaf4AL5KDnlGM663Y+BwJ7GkKORuUSvs+9Lxr8dyHTdytH4kB4FYZCe03mc7/NB
-	 7ASI+tLzLFpMWXl0nEVD/ZRkHN9o6k5GuVIwenZcZfRWlrbX6n+8S4jdNkbxZyzltHlV0
-	 6vL3QPI/oxh11ciX6tdbaN70FhO+TsffDUaqUhva4cGO2h/yvDKlXbmXaO3qUOSZGK5W7
-	 ovOr2ypPPX2RIdAFznAX3Blr5WtXEcAeEctFLJ+YuaLrnlqo2kFDqGSquYlJVrBqM91K7
-	 Wt/+YWxnNh5dpvbqiIByfmWwD32pgz8M78daFP3uipFa8RzlS2TfaQvunrzyNFCu64w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795725216;
+	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
+	 In-Reply-To:References:Subject:From:To:Cc:Date;
+	bh=j0lOazSlpqZPrAY6B6EZh8T8S4V13+7bnpdjejE/rFU=;
+	b=CyNJGgKsfLPUI2AQiH0k/tPZTMfmckcncc1Xo0Mz0O7sZN2e5zo5hWOz9+6YuU1iQjZx
+	 L/ZHXbC6kdhcOChwZfM3XD52dx+wzzrxMj+B0lKSfl2/qLcBB71QTDZVipDnfwgIL2yf1
+	 cDBT0UxmvBD5sgo30imXBNBCKuaJ7gDKoFf2tYLXh+SfvnqbYzVrzDatwpaN1MoVOlCiD
+	 wzIeDbQ7IY8oHdb+gYNOrIAbSXnljZh3/gdFlJ4g4pKr2elL1P7Mk5Y+UKhzswzRN76r4
+	 m6dfXTQdiQtGfYDMQTPiMlCX7fbI8kp69E4BYeT0q57lwmVAPfXCWdlWfpEvsEiqdqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=YlW5zaiv;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Z/AG4Jqv";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EFF3606A69B
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:33:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5EFF3606A69B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8655B606A31E;
+	Thu, 26 Nov 2026 20:33:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=YlW5zaiv
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795725222;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=6+IvshoIOnpz5rdUCHpe36q5hslcK32E1hpH+6SscWk=;
-	b=YlW5zaivzjdC8Bj6Az4106uo3B15fbB6BG2dlIRDtUpkjpLzQTCy3OiYTyC6xTYqE0gW/F
-	zqxcRrhtqHhKLn4qS3Q/bU3Fsk+0UtYB/fR1JOjwZICAfV+HK90PUMRiSo2h6qzvDxARSk
-	dTOox6yv96+Xggd+jUpVM+F7tkykLI8=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-518-HfJwxuRLNPWteVoBnAXBug-1; Thu,
- 26 Nov 2026 20:33:38 +0000
-X-MC-Unique: HfJwxuRLNPWteVoBnAXBug-1
-X-Mimecast-MFC-AGG-ID: HfJwxuRLNPWteVoBnAXBug_1795725215
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 30D2219541A6;
-	Thu, 26 Nov 2026 20:33:35 +0000 (UTC)
-Received: from ivecera-thinkpadp16vgen1.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 0195D1801977;
-	Thu, 26 Nov 2026 20:33:28 +0000 (UTC)
-From: Ivan Vecera <ivecera@redhat.com>
-To: netdev@vger.kernel.org
-Cc: Vadim Fedorenko <vadim.fedorenko@linux.dev>,
-	Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Donald Hunter <donald.hunter@gmail.com>,
-	Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	intel-wired-lan@lists.osuosl.org,
-	Min Li <min.li@microchip.com>,
-	Grzegorz Nitka <grzegorz.nitka@intel.com>,
-	Karol Kolacinski <karol.kolacinski@intel.com>,
-	Saeed Mahameed <saeedm@nvidia.com>,
-	Tariq Toukan <tariqt@nvidia.com>,
-	Petr Oros <poros@redhat.com>
-Subject: [PATCH RFC net-next 08/19] dpll: drop the state change exception for pins with a firmware node
-Date: Thu, 26 Nov 2026 21:32:20 +0100
-Message-ID: <20261126203231.934632-9-ivecera@redhat.com>
-In-Reply-To: <20261126203231.934632-1-ivecera@redhat.com>
-References: <20261126203231.934632-1-ivecera@redhat.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z/AG4Jqv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 300F21F00923;
+	Thu, 26 Nov 2026 20:33:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795725216;
+	bh=j0lOazSlpqZPrAY6B6EZh8T8S4V13+7bnpdjejE/rFU=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=Z/AG4JqvEW2GjgD3GVwYfKM4atObtDtAPdofFEwV1awXHaqrpIiZbWlrmfU9lHKCl
+	 AI3/BnmQkTBvmj2qbSeATlJ1dyRsDqA0msGnDO6SzzsaeEkeYGygZ1T79I7gBIG8EK
+	 VY1Ypz7R9yq9pqDCzNJtcAJtpWitK6sxmqTZSiVthcdeEiqXCrh6xe0zSKv4POQt+e
+	 7A9y20cWBvSYwH7fmx/b82zlo//jmubnJ/RXNimCaIjHa9YJ3c3idEfru53fEOxuVi
+	 lOhfVc+ZvsY5GGkzUCo2uDylbsuFsaAk5TkQMDSfGOB89TRgm88G26UcWu/MG2cKaC
+	 7MReOUDYgbckw==
+Content-Type: multipart/mixed; boundary="===============0196374796151550525=="
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,54 +49,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+Message-Id: <b2b87080b87c640725acc68ec507cf39cc2ed37d2524036c52326923c8d1eb0b@mail.kernel.org>
+In-Reply-To: <20261126194347.42466-3-tphilipp@gmail.com>
+References: <20261126194347.42466-3-tphilipp@gmail.com>
+Subject: Re: [PATCH bpf-next v3 2/4] bpf: Align lpm_trie map values to 8 bytes
+From: bot+bpf-ci@kernel.org
+To: tphilipp@gmail.com,bpf@vger.kernel.org
+Cc: tphilipp@gmail.com,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,memxor@gmail.com,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,john.fastabend@gmail.com,sdf@fomichev.me,emil@etsalapatis.com,ihor.solodrai@linux.dev,hawk@kernel.org,davem@davemloft.net,kuba@kernel.org,shuah@kernel.org,nbd@nbd.name,hacks@slashdirt.org,stijn@linux-ipv6.be,daniel@zonque.org,netdev@vger.kernel.org,linux-kselftest@vger.kernel.org,linux-kernel@vger.kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Thu, 26 Nov 2026 20:33:33 +0000 (UTC)
 
-Commit 521b6d5de08d ("dpll: allow fwnode pins to attempt state change
-without capability bit") let user space try to set the state of a pin
-with a firmware node also without DPLL_PIN_CAPABILITIES_STATE_CAN_CHANGE.
-It was needed for the zl3073x output pins that ice registered with its
-TXC and TSPLL DPLLs. ice now uses its own pins, which have the
-capability, and zl3073x, the only driver that sets a firmware node, gives
-it to every pin whose state can be set.
+--===============0196374796151550525==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-Check the capability for all pins again.
+> bpf: Align lpm_trie map values to 8 bytes
 
-Signed-off-by: Ivan Vecera <ivecera@redhat.com>
+TL;DR: Commit message only: the claim that lpm_trie nodes don't grow looks
+wrong for data sizes with remainder 5-7 mod 8, where nodes get 1-3 bytes
+bigger, possibly moving to a larger kmalloc bucket. Code looks correct.
+
+> Place the value at the next 8-byte boundary after the key bytes. So
+> that nodes don't grow, shrink prefixlen and flags to u16: prefixlen is
+> at most 2048 and flags has one bit. data[] moves to offset 20 (64-bit)
+> or 12 (32-bit). Bytes that bpf_mem_alloc asks from kmalloc on 64-bit:
+>   data_size  value_size  before  after
+>   ---------  ----------  ------  -----
+>   4          28          64      60
+>   4          60          96      92
+>   16         16          64      64
+>   20         12          64      60
+
+Is the statement "So that nodes don't grow" accurate for all key sizes?
+
+The bytes in front of the value change from sizeof(struct lpm_trie_node) +
+data_size (24 + ds on 64-bit, 16 + ds on 32-bit) to
+round_up(offsetof(struct lpm_trie_node, data) + data_size, 8), which is
+round_up(20 + ds, 8) or round_up(12 + ds, 8).
+
+The difference is (padding - 4), with padding between 0 and 7.  When
+data_size % 8 is 5, 6 or 7, the node becomes 3, 2 or 1 bytes bigger on both
+64-bit and 32-bit.  For example, with data_size 6 (an IPv4 address plus a
+port), 24 + 6 = 30 becomes round_up(26, 8) = 32.
+
+The growth can also move a node into a larger kmalloc bucket.  On 64-bit
+with data_size 5 and value_size 27, the request is 24 + 5 + 27 + 8 = 64
+before and 32 + 27 + 8 = 67 after, so the node moves from kmalloc-64 to
+kmalloc-96.  The table only lists data_size 4, 16 and 20, where nodes
+shrink or stay the same.
+
+The code looks correct, so this is about the rationale.  Could the wording
+say that the u16 shrink keeps the alignment padding to at most 3 bytes and
+makes IPv4 nodes 4 bytes smaller?
+
+
 ---
- drivers/dpll/dpll_netlink.c | 10 ++--------
- 1 file changed, 2 insertions(+), 8 deletions(-)
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
 
-diff --git a/drivers/dpll/dpll_netlink.c b/drivers/dpll/dpll_netlink.c
-index 931ea2027cf68f..fab234553b422a 100644
---- a/drivers/dpll/dpll_netlink.c
-+++ b/drivers/dpll/dpll_netlink.c
-@@ -1328,11 +1328,8 @@ dpll_pin_on_pin_state_set(struct dpll_pin *pin, u32 parent_idx,
- 	unsigned long i;
- 	int ret;
- 
--	/* fwnode pins may not set the capability bit upfront; let the ops
--	 * layer return -EOPNOTSUPP if the operation is unsupported.
--	 */
- 	if (!(DPLL_PIN_CAPABILITIES_STATE_CAN_CHANGE &
--	      pin->prop.capabilities) && !pin->fwnode) {
-+	      pin->prop.capabilities)) {
- 		NL_SET_ERR_MSG(extack, "state changing is not allowed");
- 		return -EOPNOTSUPP;
- 	}
-@@ -1367,11 +1364,8 @@ dpll_pin_state_set(struct dpll_device *dpll, struct dpll_pin *pin,
- 	struct dpll_pin_ref *ref;
- 	int ret;
- 
--	/* fwnode pins may not set the capability bit upfront; let the ops
--	 * layer return -EOPNOTSUPP if the operation is unsupported.
--	 */
- 	if (!(DPLL_PIN_CAPABILITIES_STATE_CAN_CHANGE &
--	      pin->prop.capabilities) && !pin->fwnode) {
-+	      pin->prop.capabilities)) {
- 		NL_SET_ERR_MSG(extack, "state changing is not allowed");
- 		return -EOPNOTSUPP;
- 	}
--- 
-2.56.1
-
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/45888065586
+--===============0196374796151550525==--
