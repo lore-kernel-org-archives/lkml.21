@@ -1,77 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795717550;
-	b=fXvV6sw0rFCp0u3QaBByZBIWfdmVjAvni66z9GvZvVyybniV5YEXsC3LQ6qpyTTMY0oJ
-	 n954bTonAm/P8Epkl1vH7SSUzkAeUQaY/EXzVcLAce5SFdbsNSYxGzfCZxUKGkIaa1RrI
-	 eNfnFzMPsYilpcTJzmdhsJEGS3No+nutxbXsyPLDdEPhTlG0leVQ/9gLM3ijTgJrHMtk6
-	 kfwIS2uklHkSd5HsfAt1nf7Pd+2EtyBrNF5U8cCSrO/W7YroEMXRRduh+lCBunwAmwO/O
-	 BicrP7V4XrhoM5MaHRMSP0VYkUnZiSmzEh+U+cjRYvS7aRZl+trtYd/j1YzWNHp+xvQ==
+	t=1795717659;
+	b=ufPW/+AAuLpQCrNREniCa8931MJjU+fDvzAEF+fGq/TbEtfX7FcOxEi3cMDuaa5LqZBP
+	 WPiBM4pWdAfbVCYi17O1bwKUnbTAd/mmfesc9leApsHKoLnfZu5ISJh9NOCiHcG9NgiIC
+	 9gRFeO099TQygdou6q8Z0eMcI1c0xFWEBqknOrkwCQ2+92CCnpY4kRfApM2mAz0f/26Qc
+	 ENXeT2UM4VJnXsv/MOIAvjT5vNs9VepauSLOgT+wYie71qOyeP1QvmZcSGwzf11pgsD4e
+	 L1yKChYXsUPuumWgr3DflIshrrUU29Yd7t1F4bi4VVQj3W+Hwg3WLjjD0U/13QG/Xdg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795717550;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding;
-	bh=bj4+x/3jTGrE6j1eYnQVndDt9++uqEPd6Eo9k84G1+E=;
-	b=jWBUmCuOM/mPA7sqA6MblweLgXDQhnrrS/G6p2OEfyk35igW5maqPtL+IlLZ6R77bZ/v
-	 Wy0dBnKLdaIH7cfeiMRg8Bw8Jv9+9HaDTZznqcYuOVsnTAKiAn3MKWLBDqqy0FLr8EkJl
-	 ObmhTpzblBLLKakKrT8bXH59xaBW48nDk/s8yFootJKaBT/sltH7+Cf4ITm2hSah3d9u9
-	 WtxLE63SZ26PZ4/htFH2iQVnvj7Ue1p5Q9xuUyyNfiIvOZ7guiypZ2VGmOVCLoNrNCBmO
-	 KzizgH4AyYCsXCEd6hyEU55iRw+SErjHnjx+jlyjO2ABIF605rwnt5/bYZAGsqFKNqA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795717659;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=ZNitZBy5gD/hg02wP8dPEWrTALhV3jFaZJaK1EslWmA=;
+	b=N1L1Ie0wi4CqRSPT7d+5G2Nc3mTtlc1Xfndwd8xudqpXMHqcwc2P6jhThrtlSlkiIZbD
+	 DlmSQFmoHVNkmOw4ml1/+BAiPDicLNZ0i9q+GiHVIcMPR2gEJh91K77eBrzBqj9xwE5PL
+	 rhQsb+fYLbPnh5z16YaxE+jPMbmy2ztbDe3/kBtQ7Uhee2G9is8Dm7X8BsujTfSktHx9g
+	 ZN7R2ZZDi0tQXM6tvcw1aOM6JGjKfu3M7lBGvQJWBcBUNkirERYprwjOwy5j/Zgf0hhFE
+	 PBs+W8H6kZQ+sZxYLt6WPA8ElO5i3lblPhe5q+1sQYBOoEWflPUR9deuJrNSAadE1vQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Je0Mdsbd;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id D3DF6606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:25:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3DF6606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DsXQ6WU+;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DD60606A31C;
+	Thu, 26 Nov 2026 18:27:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Je0Mdsbd
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 02AE01BA8;
-	Thu, 26 Nov 2026 10:25:46 -0800 (PST)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8DBAA3F86F;
-	Thu, 26 Nov 2026 10:25:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795717548; bh=GiKtgn7DHjTTfDcaqNTXOJ1psaIV4TjTMvo1j3H+/kE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Je0MdsbddLRqNK+v70Psh6QmVf7hLVpdfR/7S7YuKRuEjUgTTjRvNxAiO9QTkmxBl
-	 QtaLIBapNJSbrbom6CZqQWJjiRVGo4VWvta1+OpfwdgyY4FZp1NPo5iVlQxMFg4oik
-	 oXv6qU1/2Ry9AJ7RZvDySQNFTpYRlPlOlPfGDfLY=
-From: Leonardo Bras <leo.bras@arm.com>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Usama Arif <usama.arif@linux.dev>,
-	maz@kernel.org,
-	oupton@kernel.org,
-	fuad.tabba@linux.dev,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	riel@surriel.com,
-	shakeel.butt@linux.dev,
-	kernel-team@meta.com,
-	rkeilty@meta.com,
-	atish.patra@linux.dev,
-	dgreid@meta.com
-Subject: Re: [PATCH] KVM: arm64: Reduce the stage-2 page cache on 64 KiB hosts
-Date: Thu, 26 Nov 2026 18:25:43 +0000
-Message-ID: <awh5pmXCbNoFP5Ez@LeoBrasDK>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <awhH1Dpu0uIwP6ea@gremlin>
-References: <20261124152842.2634495-1-usama.arif@linux.dev> <awcXhk885lqDRAHy@LeoBrasDK> <06a69a4f-59bb-49b8-9ed0-f4cfe0ecad37@linux.dev> <awcoCklLOKeuXPhh@LeoBrasDK> <e7bdcfa9-bbd8-4649-8318-2f6dc236db15@linux.dev> <4jxdf2pkuu2f7dftvf6ltpv27jctfuvvrfcrbfxudsgnp3hdfk@taur55wftexq> <awhH1Dpu0uIwP6ea@gremlin>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DsXQ6WU+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5B101F000C4;
+	Thu, 26 Nov 2026 18:27:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795717658;
+	bh=ZNitZBy5gD/hg02wP8dPEWrTALhV3jFaZJaK1EslWmA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=DsXQ6WU+9NO9YuZX2nBf1KxugOLLz7dYAlE/3h73Dy/df9uXr1+zWFguMP7lSSh1M
+	 Bd/rnaRsmenHV/ImbAQ9FscLUBwRHum3lgzjymDOl+Z9uNZO3M25T5Mt3Ks9IW9OLJ
+	 TOqacSGg+7sNGTmI06nOW8HWMOsnT8s3cS93ZmR5KSLrLo+dEdIaMCncYjSquqKVJ3
+	 tSTBAI5O3EXU8CUr6Muau7bsNEDVUE5edR7H+BiwHEdl7AU1iRWoYlzHDOvq/gGNu1
+	 vqYinNHGLnkFYm7LLnF2z0F4H7ZrYrKyq+XzCBgX4d78x6AZ4yfnD0b41KcWMZBMBs
+	 5kLi5WhvY2CQA==
+Message-ID: <b4be5ad9-a2fc-49f1-a2ce-9281b0fd4763@kernel.org>
+Date: Thu, 26 Nov 2026 20:27:34 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,321 +51,358 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-
-On Thu, Nov 26, 2026 at 04:30:24PM +0000, Lorenzo Stoakes (ARM) wrote:
-> On Thu, Nov 26, 2026 at 08:06:41AM +0000, Wei-Lin Chang wrote:
-> > On Wed, Nov 25, 2026 at 09:42:33PM +0000, Usama Arif wrote:
-> > > On 25/11/2026 10:25, Leonardo Bras wrote:
-> > > > On Wed, Nov 25, 2026 at 05:55:29PM +0000, Usama Arif wrote:
-> > > >> Right, and that is the problem. Skipping the top-up avoids refilling
-> > > >> the cache, but nothing ever drains it. A vCPU's first fault fills its
-> > > >> cache to 40. Each last-level table covers 512 MiB, so a guest needs very
-> > > >> few table pages, and most vCPUs never drop below min. The remaining
-> > > >> pages stay allocated until the vCPU is destroyed, which is why the
-> > > >> production caches were still 86% full.
-> > > >>
-> > > >> The patch keeps the early return and only lowers how far a refill goes.
-> > > >
-> > > > Right,
-> > > >
-> > > > I took a look in the cache workings, and it does not seem to receive freed
-> > > > pages back in. It gets filled by topup and used by map, so IIUC it is used
-> > > > only to avoid failing an allocation during the mapping walk.
-> > > >
-> > > > Maybe it could be the case to simplify this cache to have the capacity
-> > > > about the same as the minimum (since it always topup before mapping) and
-> > > > avoid the waste altogether.
-> 
-> Yeah, I really feel this 40 number (derived from x86 as double some other magic
-> number :) is bogus here and a historic artifact.
-> 
-> I think this is all a great chance to simplify here :) we can address Usama's
-> concerns at the same time as making all this actually make sense.
-
-Yeah, agree!
-
-> 
-> >
-> > Well the more you reserve the less frequent you'd need to actually allocate at
-> > topup, which saves time, so there's this trade-off to consider.
-> 
-> Hmm, but the topup is allocating anyway either way no matter the reserve right?
-> 
-> kvm_mmu_memory_cache_alloc() grabs from mc->objects and decrements mc->nobjs for
-> every allocation (N objects in total), and __kvm_mmu_topup_memory_cache() tops
-> up N objects back up to the reserve, wherever that should be.
-> 
-> So the only question really is what can the maximum N be? And right now this is
-> guesstimated at by a magic number.
-> 
-> Also, if it turns out it does:
-> 
-> [ topup X pages ] [ use X pages ] [ topup X pages ]
-> 
-> And you have X + Y pages in the cache, that actually means you have uselessly
-> allocated Y pages sat around doing nothing that are leaked until the vCPU is
-> destroyed AFAICT.
-> 
-> I think though as per Leo, we should avoid using a magic number.
-> 
-> And as per Marc, we should calculate what this number should be sensibly.
-> 
-> So something like what Leo suggested is the right way to go!
-> 
-
-:)
-
-> > > >
-> > > > Maymbe having something like this should be enough?
-> > > >
-> > > > #define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE (KVM_PGTABLE_LAST_LEVEL - KVM_PGTABLE_FIRST_LEVEL)
-> > > >
-> 
-> I think this is definitely the right approach!
-> 
-> > >
-> > > That sounds good to me. I tested and it works (and releases even more memory :))
-> > >
-> > > I had to move #defines around to make it work, the current patch sits
-> > > like below. If this seems acceptable, I can send it as v2 for review.
-> > >
-> > >
-> > > >From 9b044379f470625adb031a0ee7529e054d9ec219 Mon Sep 17 00:00:00 2001
-> > > From: Usama Arif <usama.arif@linux.dev>
-> > > Date: Wed, 25 Nov 2026 12:55:15 -0800
-> > > Subject: [PATCH] KVM: arm64: Shrink the stage-2 memcache to the page-table
-> > >  depth
-> > >
-> > > When a stage-2 fault may need new page tables, KVM first tops up the
-> > > vCPU's memcache: if it holds fewer pages than the fault might need, it
-> > > is refilled to KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE, which arm64 sets to
-> > > 40. Pages never return to the cache, and unused ones stay there until
-> > > the vCPU is destroyed.
-> > >
-> > > The cache only has to cover a single map: every fault that can allocate
-> > > tables tops it up first, and a map allocates at most one table per
-> > > level below the preallocated root (kvm_mmu_cache_min_pages()). That is
-> > > at most three pages with 4 KiB and 16 KiB pages, and two with 64 KiB
-> > > pages.
-> 
-> Yes this seems correct.
-> 
-> > >
-> > > With 64 KiB pages, the 40-page cache is 2.5 MiB per vCPU. As every
-> > > last-level table covers 512 MiB, an 8 GiB guest needs just 17 table
-> > > pages to map all of its memory, while its four vCPU caches get filled
-> > > with 160. On a production host with 64 KiB pages running 101 VMs with
-> > > four vCPUs each, the caches were still 86% full. The memory used:
-> > >
-> > >                         before      after
-> > >   per-vCPU capacity     2.5 MiB     256 KiB
-> > >   all 404 vCPUs         869 MiB     <= 101 MiB
-> > >
-> > > Let's size the cache to KVM_PGTABLE_LAST_LEVEL - KVM_PGTABLE_FIRST_LEVEL,
-> > > which is 4 pages and covers the deepest walk with one page to spare. On
-> 
-> Hmm why would you need 1 page to spare?
-
-I think this means for the case that the PGD is already allocated, or that 
-64k pages need an extra level in any case.
-
-Can you please confirm which, Usama?
-
-> 
-> > > the host above, it frees at least 768 MiB. Refills get more frequent,
-> > > but no more than four pages per vCPU ever sit unused. With 4 KiB pages,
-> > > the cache shrinks from 160 KiB to 16 KiB per vCPU.
-> > >
-> > > Move the two level definitions to asm/kvm_types.h, so that the generic
-> > > top-up code in kvm_main.c can see them. kvm_pgtable.h still gets them
-> > > through linux/kvm_types.h.
-> > >
-> > > The temporary cache in kvm_phys_addr_ioremap() uses the same capacity,
-> > > but it is topped up before every page it maps. The pKVM hypervisor
-> > > memcache and the eager split cache don't use this capacity.
-> > >
-> > > Suggested-by: Leonardo Bras <leo.bras@arm.com>
-> > > Signed-off-by: Usama Arif <usama.arif@linux.dev>
-> > > ---
-> > >  arch/arm64/include/asm/kvm_pgtable.h | 3 ---
-> > >  arch/arm64/include/asm/kvm_types.h   | 7 ++++++-
-> > >  2 files changed, 6 insertions(+), 4 deletions(-)
-> > >
-> > > diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-> > > index eda440354a55ec..691e2eb63939f5 100644
-> > > --- a/arch/arm64/include/asm/kvm_pgtable.h
-> > > +++ b/arch/arm64/include/asm/kvm_pgtable.h
-> > > @@ -19,9 +19,6 @@
-> > >
-> > >  struct kvm_s2_mmu;
-> > >
-> > > -#define KVM_PGTABLE_FIRST_LEVEL		-1
-> > > -#define KVM_PGTABLE_LAST_LEVEL		3
-> > > -
-> > >  /*
-> > >   * The largest supported block sizes for KVM (no 52-bit PA support):
-> > >   *  - 4K (level 1):	1GB
-> > > diff --git a/arch/arm64/include/asm/kvm_types.h b/arch/arm64/include/asm/kvm_types.h
-> > > index 9a126b9e2d7c99..5b61285d317e28 100644
-> > > --- a/arch/arm64/include/asm/kvm_types.h
-> > > +++ b/arch/arm64/include/asm/kvm_types.h
-> > > @@ -2,7 +2,12 @@
-> > >  #ifndef _ASM_ARM64_KVM_TYPES_H
-> > >  #define _ASM_ARM64_KVM_TYPES_H
-> > >
-> > > -#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 40
-> > > +#define KVM_PGTABLE_FIRST_LEVEL		-1
-> > > +#define KVM_PGTABLE_LAST_LEVEL		3
-> > > +
-> 
-> The -1 isn't needed here at all right? So why not just import
-> KVM_PGTABLE_LAST_LEVEL and do:
-> 
-> #define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE       KVM_PGTABLE_LAST_LEVEL
-> 
-> ?
-
-Well, it kind of is :)
-The lowest level we have in a PGTABLE is level -1. (See RKSBQV)
-
-It could now be mathematically correct, but it could break in the future if 
-we got a level-2, for instance. We could have (LAST - FIRST - 1), if that 
-one page makes any diference.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 14/14] PCI: rzg3s-host: Add bridge::reset_root_port()
+To: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+ robh@kernel.org, bhelgaas@google.com, p.zabel@pengutronix.de,
+ geert+renesas@glider.be, magnus.damm@gmail.com, claudiu.beznea@tuxon.dev,
+ linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org,
+ Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+References: <20261019065025.2146539-1-claudiu.beznea@kernel.org>
+ <20261019065025.2146539-15-claudiu.beznea@kernel.org>
+ <179562857756.5580.4122801140919209882.b4-reply@b4>
+Content-Language: en-US
+From: Claudiu Beznea <claudiu.beznea@kernel.org>
+In-Reply-To: <179562857756.5580.4122801140919209882.b4-reply@b4>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
 
-> 
-> > > +/* One page per level below the root covers kvm_mmu_cache_min_pages(). */
-> > > +#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE	\
-> > > +	(KVM_PGTABLE_LAST_LEVEL - KVM_PGTABLE_FIRST_LEVEL)
-> > >
-> > >  #endif /* _ASM_ARM64_KVM_TYPES_H */
-> > >
-> > > --
-> > > 2.53.1-Meta
-> > >
-> > >
-> > >
-> > > > Thanks!
-> > > > Leo
-> > >
-> >
-> 
-> I also think actually there's an existing problem with the top-up right now in
-> user_mem_abort() that needs addressing too, actually, that this change exposes
-> and will cause bugs if done as above.
-> 
-> So right now top-up is conditional there:
-> 
-> 	if (!perm_fault || memslot_is_logging(s2fd->memslot) ||
-> 	    is_protected_kvm_enabled()) {
-> 		ret = topup_mmu_memcache(s2fd->mmu, memcache);
-> 		if (ret)
-> 			return ret;
-> 	}
-> 
-> Inverted is 'permission fault && !dirty-logging && !pKVM'. So the question is
-> whether a permission fault not needing a new page table is correct.
-> 
 
-IIUC you have the page, but it has a different permission that caused the 
-fault. Since you won't need a new page, it does not need to topup at this 
-point.
+On 11/25/26 19:42, Manivannan Sadhasivam wrote:
+> On 2026-10-19 09:50 +0300, Claudiu Beznea wrote:
+>> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+>>
+>> Add bridge::reset_root_port(). This allows, on some devices, performing
+>> reads and writes to an NVMe endpoint after a link down/link up cycle
+>> without failures.
+>>
+>> The implementation of struct pci_host_bridge::reset_root_port() masks all
+>> enabled interrupts and synchronizes them before resetting the controller
+>> to prevent asynchronous events from interfering with the reset operation.
+>>
+>> The struct rzg3s_pcie_host::resetting member is used to prevent the IRQ
+>> setting calls done through the IRQ subsystem (mask, unmask) from
+>> accessing the controller registers while .reset_root_port() has powered
+>> down the IP. It also rejects a concurrent .reset_root_port() with -EBUSY.
+>>
+>> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> 
+> Same comment as previous patch. More inline.
+> 
+>> ---
+>>
+>> Changes in v7:
+>> - added struct rzg3s_pcie_host::resetting to avoid concurrency b/w IRQ
+>>    subsystem and the .reset_root_port() and b/w .reset_root_port() and
+>>    the link IRQ thread
+>> - in rzg3s_pcie_link_event()
+>> -- dropped the usage of __free(pci_dev_put)
+>> -- don't continue if the .reset_root_port() filed to start the IP or
+>>     if there is a reset in progress
+>> - in rzg3s_pcie_event_irq_thread() don't continue if the reset is in
+>>    progress
+>> - access host->started with READ_ONCE()/WRITE_ONCE()
+>> - use disable_irq() in .reset_root_port()
+>> - in rzg3s_pcie_pm_notifier() checked host->resetting and host->started
+>>    before accessing IP registers
+>>
+>> Changes in v6:
+>> - call pci_host_handle_link_down() if at least a link event occured
+>>    and there are devices on the bus.
+>> - dropped struct rzg3s_pcie_host::stared from here since it is now
+>>    part of patch 8/9
+>> - read the link IRQs in .reset_root_port() and restore them at the
+>>    end
+>> - flush the IRQ mask before synchronize()
+>> - in .reset_root_port() clear the link IRQ before enabling it to cope
+>>    with the new link handling procedure
+>> - due to these dropped the tags
+>>
+>> Changes in v5:
+>> - lock around reads/writes on RZG3S_PCI_PINTRCVIE
+>> - in rzg3s_pcie_host_reset_root_port() kept non-relaxed reads/writes
+>>    on interrupt disable registers (even though the spin lock/unlock are around
+>>    them) to emphasize the need for updates before the IRQs are synchronized and
+>>    relaxed variants on interrupt enable path
+>> - collected tags
+>>
+>> Changes in v4:
+>> - this patch is new and is a split from patch 7 of v3
+>> - use a boolean to keep track of the controller start state; with this
+>>    the state management code from patch 7 of v3 was dropped
+>>
+>>
+>>   drivers/pci/controller/Kconfig           |   1 +
+>>   drivers/pci/controller/pcie-rzg3s-host.c | 184 ++++++++++++++++++++---
+>>   2 files changed, 167 insertions(+), 18 deletions(-)
+>>
+>> diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
+>> index 7e550c474b7a..c747bd5a9ec1 100644
+>> --- a/drivers/pci/controller/Kconfig
+>> +++ b/drivers/pci/controller/Kconfig
+>> @@ -296,6 +296,7 @@ config PCIE_RENESAS_RZG3S_HOST
+>>   	depends on ARCH_RENESAS || COMPILE_TEST
+>>   	select MFD_SYSCON
+>>   	select IRQ_MSI_LIB
+>> +	select PCI_HOST_COMMON
+>>   	help
+>>   	  Say Y here if you want PCIe host controller support on Renesas RZ/G3S
+>>   	  SoC.
+>> diff --git a/drivers/pci/controller/pcie-rzg3s-host.c b/drivers/pci/controller/pcie-rzg3s-host.c
+>> index a1c9e29f43e5..f6823c9bc414 100644
+>> --- a/drivers/pci/controller/pcie-rzg3s-host.c
+>> +++ b/drivers/pci/controller/pcie-rzg3s-host.c
+>> @@ -336,6 +336,7 @@ struct rzg3s_pcie_port {
+>>    * @controller_id: PCIe controller identifier, used for System Controller access
+>>    * @link_rescan: The PCIe link rescan state
+>>    * @started: The PCIe controller state (started or not)
+>> + * @resetting: Mentions if the root port reset is in progress
+>>    * @num_lanes: The number of lanes
+>>    */
+>>   struct rzg3s_pcie_host {
+>> @@ -358,6 +359,7 @@ struct rzg3s_pcie_host {
+>>   	enum rzg3s_pcie_controller_id controller_id;
+>>   	bool link_rescan;
+>>   	bool started;
+>> +	bool resetting;
+> 
+> I don't think you need this new variable. Other reset_root_port implementation,
+> esp pcie-qcom doesn't need it and it uses a mutex to protect the whole reset
+> helper. Why can't you do the same?
 
-Thanks!
-Leo
+This was added as a result of this Sashiko review [1] which I think is valid:
 
+[Severity: High]
+This restores the potentially stale irqs local variable, overwriting
+any mask changes made concurrently by the IRQ subsystem while the lock
+was dropped.
 
-> So working through, the actual decision about a page table allocation is done
-> in:
+If that is valid, and the IRQ chip helpers can race with .reset_root_port(), a 
+call to the IRQ chip helpers while the controller is in reset/resetting lead to 
+sync abort on RZ/G3S. We can't take mutex from the IRQ chip helpers. On the 
+other hand disable_irq() (these were previously synchronize_irqs()) calls from 
+.reset_root_port() may sleep, along with clock APIs and other fsleep() calls 
+called though rzg3s_pcie_host_start(), thus we can't keep a spinlock held in 
+.reset_root_port().
+
+Please let me know if you consider invalid the Sashiko comment.
+
+[1] https://lore.kernel.org/all/sashiko-outbox-162654@kernel.org/
+
 > 
-> user_mem_abort()
->   -> kvm_s2_fault_map()
->     -> kvm_pgtable_stage2_map()
->       -> ... -> stage2_map_walk_leaf()
->         -> stage2_map_walker_try_leaf()
-> 	  -> stage2_leaf_mapping_allowed()
-> 	    -> kvm_block_mapping_supported() [ if false, allocate a page table ]
+>>   	u8 num_lanes;
+>>   };
+>>   
+>> @@ -653,6 +655,9 @@ static void rzg3s_pcie_msi_irq_mask(struct irq_data *d)
+>>   
+>>   	guard(raw_spinlock_irqsave)(&host->hw_lock);
+>>   
+>> +	if (host->resetting)
+>> +		return;
+>> +
+>>   	rzg3s_pcie_update_bits(host->axi, RZG3S_PCI_MSIRM(reg_id), BIT(reg_bit),
+>>   			       BIT(reg_bit));
+>>   }
+>> @@ -666,6 +671,9 @@ static void rzg3s_pcie_msi_irq_unmask(struct irq_data *d)
+>>   
+>>   	guard(raw_spinlock_irqsave)(&host->hw_lock);
+>>   
+>> +	if (host->resetting)
+>> +		return;
+>> +
+>>   	rzg3s_pcie_update_bits(host->axi, RZG3S_PCI_MSIRM(reg_id), BIT(reg_bit),
+>>   			       0);
+>>   }
+>> @@ -972,6 +980,9 @@ static void rzg3s_pcie_intx_irq_mask(struct irq_data *d)
+>>   
+>>   	guard(raw_spinlock_irqsave)(&host->hw_lock);
+>>   
+>> +	if (host->resetting)
+>> +		return;
+>> +
+>>   	rzg3s_pcie_update_bits(host->axi, RZG3S_PCI_PINTRCVIE,
+>>   			       RZG3S_PCI_PINTRCVIE_INTX(d->hwirq), 0);
+>>   }
+>> @@ -982,6 +993,9 @@ static void rzg3s_pcie_intx_irq_unmask(struct irq_data *d)
+>>   
+>>   	guard(raw_spinlock_irqsave)(&host->hw_lock);
+>>   
+>> +	if (host->resetting)
+>> +		return;
+>> +
+>>   	rzg3s_pcie_update_bits(host->axi, RZG3S_PCI_PINTRCVIE,
+>>   			       RZG3S_PCI_PINTRCVIE_INTX(d->hwirq),
+>>   			       RZG3S_PCI_PINTRCVIE_INTX(d->hwirq));
+>> @@ -1185,12 +1199,46 @@ static void rzg3s_pcie_link_event(struct rzg3s_pcie_host *host, bool bounced)
+>>   {
+>>   	struct pci_host_bridge *bridge = pci_host_bridge_from_priv(host);
+>>   	struct pci_bus *bus = bridge->bus, *child;
+>> +	unsigned long flags;
+>>   	u32 val;
+>>   	int ret;
+>>   
+>> -	pci_lock_rescan_remove();
+>> +	/*
+>> +	 * A latched DL_UpDown means at least one real link transition took
+>> +	 * place since the last enumeration. If devices are enumerated
+>> +	 * recover the Root Port first.
+>> +	 */
+>> +	if (bounced && !list_empty(&bus->devices)) {
+>> +		struct pci_dev *port = pci_get_slot(bus, PCI_DEVFN(0, 0));
+>> +
+>> +		if (port && pci_pcie_type(port) == PCI_EXP_TYPE_ROOT_PORT)
+>> +			pci_host_handle_link_down(port);
+>>   
+>> +		pci_dev_put(port);
+>> +	}
+>> +
+>> +	raw_spin_lock_irqsave(&host->hw_lock, flags);
+>> +
+>> +	/*
+>> +	 * Don't continue if reset in progress or .reset_root_port() failed to
+>> +	 * start HW.
+>> +	 */
+>> +	if (host->resetting || !READ_ONCE(host->started)) {
+>> +		raw_spin_unlock_irqrestore(&host->hw_lock, flags);
+>> +		return;
+>> +	}
+>> +
+>> +	/*
+>> +	 * Check the link state after the recovery: the .reset_root_port()
+>> +	 * retrains the link, so a device that is still present comes back
+>> +	 * up here and is re-enumerated right away instead of waiting for
+>> +	 * the next DL_UpDown event.
+>> +	 */
+>>   	val = readl_relaxed(host->axi + RZG3S_PCI_PCSTAT1);
+>> +	raw_spin_unlock_irqrestore(&host->hw_lock, flags);
+>> +
+>> +	pci_lock_rescan_remove();
+>> +
+>>   	if (val & RZG3S_PCI_PCSTAT1_DL_DOWN_STS) {
+>>   		if (!list_empty(&bus->devices)) {
+>>   			dev_info(host->dev,
+>> @@ -1246,20 +1294,26 @@ static irqreturn_t rzg3s_pcie_event_irq_thread(int irq, void *data)
+>>   {
+>>   	struct rzg3s_pcie_host *host = data;
+>>   	bool bounced;
+>> -	u32 status;
+>>   
+>> -	status = readl_relaxed(host->axi + RZG3S_PCI_PEIS0);
+>> -	bounced = status & RZG3S_PCI_PEIS0_DL_UPDOWN;
+>> +	scoped_guard(raw_spinlock_irqsave, &host->hw_lock) {
+>> +		u32 status;
+>>   
+>> -	if (!bounced && !READ_ONCE(host->link_rescan))
+>> -		return IRQ_NONE;
+>> +		if (host->resetting)
+>> +			return IRQ_NONE;
+>> +
+>> +		status = readl_relaxed(host->axi + RZG3S_PCI_PEIS0);
+>> +		bounced = status & RZG3S_PCI_PEIS0_DL_UPDOWN;
+>> +
+>> +		if (!bounced && !READ_ONCE(host->link_rescan))
+>> +			return IRQ_NONE;
+>>   
+>> -	/* Clear the DL_UpDown status (W1C) */
+>> -	if (bounced) {
+>> -		writel_relaxed(RZG3S_PCI_PEIS0_DL_UPDOWN,
+>> -			       host->axi + RZG3S_PCI_PEIS0);
+>> +		/* Clear the DL_UpDown status (W1C) */
+>> +		if (bounced) {
+>> +			writel_relaxed(RZG3S_PCI_PEIS0_DL_UPDOWN,
+>> +				       host->axi + RZG3S_PCI_PEIS0);
+>> +		}
+>> +		WRITE_ONCE(host->link_rescan, false);
+>>   	}
+>> -	WRITE_ONCE(host->link_rescan, false);
+>>   
+>>   	rzg3s_pcie_link_event(host, bounced);
+>>   
+>> @@ -1982,13 +2036,13 @@ static int rzg3s_pcie_host_stop(struct rzg3s_pcie_host *host)
+>>   	return ret;
+>>   }
+>>   
+>> -static int rzg3s_pcie_host_start(struct rzg3s_pcie_host *host)
+>> +static int rzg3s_pcie_host_start(struct rzg3s_pcie_host *host, bool set_started)
+>>   {
+>>   	const struct rzg3s_pcie_soc_data *data = host->data;
+>>   	struct rzg3s_sysc *sysc = host->sysc;
+>>   	int ret;
+>>   
+>> -	if (host->started)
+>> +	if (READ_ONCE(host->started))
+>>   		return 0;
+>>   
+>>   	ret = rzg3s_sysc_config_func(sysc, RZG3S_SYSC_FUNC_ID_MODE, 1);
+>> @@ -2023,7 +2077,10 @@ static int rzg3s_pcie_host_start(struct rzg3s_pcie_host *host)
+>>   	if (ret)
+>>   		goto assert_power_resets;
+>>   
+>> -	host->started = true;
+>> +	if (set_started) {
+>> +		WRITE_ONCE(host->started, true);
+>> +		host->resetting = false;
+>> +	}
+>>   
+>>   	return 0;
+>>   
+>> @@ -2038,6 +2095,91 @@ static int rzg3s_pcie_host_start(struct rzg3s_pcie_host *host)
+>>   	return ret;
+>>   }
+>>   
+>> +static int rzg3s_pcie_host_reset_root_port(struct pci_host_bridge *bridge,
+>> +					   struct pci_dev *pdev)
+>> +{
+>> +	struct rzg3s_pcie_host *host = pci_host_bridge_priv(bridge);
+>> +	unsigned long flags;
+>> +	u32 irqs, link_irqs;
+>> +	int ret;
+>> +
+>> +	raw_spin_lock_irqsave(&host->hw_lock, flags);
+>> +	if (host->resetting) {
+>> +		raw_spin_unlock_irqrestore(&host->hw_lock, flags);
+>> +		return -EBUSY;
+>> +	}
+>> +	host->resetting = true;
 > 
-> static bool kvm_block_mapping_supported(const struct kvm_pgtable_visit_ctx *ctx, u64 phys)
-> {
-> 	u64 granule = kvm_granule_size(ctx->level);
+> This really looks like a bad pattern.
 > 
-> 	...
+>> +	raw_spin_unlock_irqrestore(&host->hw_lock, flags);
+>> +
+>> +	/* Mask link up/down interrupts. */
+>> +	link_irqs = readl_relaxed(host->axi + RZG3S_PCI_PEIE0);
+>> +	writel_relaxed(0, host->axi + RZG3S_PCI_PEIE0);
+>> +
+>> +	/* Mask INTx and MSI interrupts. */
+>> +	irqs = readl_relaxed(host->axi + RZG3S_PCI_PINTRCVIE);
+>> +	writel_relaxed(0, host->axi + RZG3S_PCI_PINTRCVIE);
+>> +
+>> +	/* Flush IRQ masks. */
+>> +	readl_relaxed(host->axi + RZG3S_PCI_PEIE0);
+>> +	readl_relaxed(host->axi + RZG3S_PCI_PINTRCVIE);
+>> +
+>> +	/*
+>> +	 * Make sure the next operations are not disturbed by any pending
+>> +	 * IRQs.
+>> +	 */
+>> +	if (IS_ENABLED(CONFIG_PCI_MSI))
+>> +		disable_irq(host->msi.irq);
+>> +	for (unsigned int i = 0; i < PCI_NUM_INTX; i++)
+>> +		disable_irq(host->intx_irqs[i]);
+>> +
 > 
-> 	if (granule > (ctx->end - ctx->addr))
-> 		return false;
-> 
-> 	...
-> }
-> 
-> But page table size can vary in NV between host and guest (guest must be >=
-> host) and it gets clamped to the smaller of the two in kvm_s2_resolve_vma_size():
-> 
-> static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
-> 				     struct kvm_s2_fault_vma_info *s2vi,
-> 				     struct vm_area_struct *vma)
-> {
-> 	...
-> 	if (s2fd->nested) {
-> 		...
-> 		/*
-> 		 * If we're about to create a shadow stage 2 entry, then we
-> 		 * can only create a block mapping if the guest stage 2 page
-> 		 * table uses at least as big a mapping.
-> 		 */
-> 		max_map_size = min(kvm_s2_trans_size(s2fd->nested), max_map_size);
-> 		...
-> 	}
-> }
-> 
-> This sets s2vi->vma_pagesize based on this value:
-> 
-> static int kvm_s2_fault_get_vma_info(const struct kvm_s2_fault_desc *s2fd,
-> 				     struct kvm_s2_fault_vma_info *s2vi)
-> {
-> 	...
-> 	s2vi->vma_pagesize = BIT(kvm_s2_resolve_vma_size(s2fd, s2vi, vma));
-> 	...
-> }
-> 
-> And the fault map uses this in the mapping size, which defines ctx->addr, end
-> above in kvm_block_mapping_supported():
-> 
-> static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
-> 			    const struct kvm_s2_fault_vma_info *s2vi,
-> 			    enum kvm_pgtable_prot prot,
-> 			    void *memcache,
-> 			    struct kvm_s2_fault_result *result)
-> {
-> 	...
-> 	mapping_size = s2vi->vma_pagesize;
-> 	...
-> 			ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, gfn_to_gpa(gfn), mapping_size,
-> 							 __pfn_to_phys(pfn), prot,
-> 							 memcache, flags);
-> 	...
-> }
-> 
-> So basically, if the host has smaller page table size than the guest, you need
-> an extra page table level.
-> 
-> So simple solution is to add nested to the check:
-> 
->         if (!perm_fault || memslot_is_logging(s2fd->memslot) ||
->             is_protected_kvm_enabled() || s2fd->nested) {
->                 ret = topup_mmu_memcache(s2fd->mmu, memcache);
->                 if (ret)
->                         return ret;
->         }
-> 
-> But honestly I wonder at this point if it's truly worth doing all these checks?
-> Maybe safer to just topup unconditionally.
-> 
-> It'll only top up once before the cache is full anyway, so it's low cost. And
-> would make more consistent with other fault paths too.
-> 
-> --
-> Cheers, Lorenzo
+> I'm not sure about these. You already masked the IRQs above and flushed them.
+> Why do you need to explicitly disable interrupts here? If your concern is to
+> avoid triggering the irq handlers while this one is run, I don't think these
+> disable_irq() calls can guarantee you that.
+
+The point was to wait (though the synchronize_irq() calls inside the 
+disable_irq()) for the unserverd triggered IRQs, to finish before resetting the 
+root port, avoiding this way handler trigger while the reset is in progress, and 
+thus, any potential register accesseses, which may be fatal on RZ/G3S.
+
+Thank you for your review,
+Claudiu
