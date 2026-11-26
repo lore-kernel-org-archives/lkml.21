@@ -1,111 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795703449;
-	b=hrpX1VbValr6uJET4KtKOxdcu8r6UPWxUb4iLQwcYEBWn+DPsWkzK2aIHJVxF7klaWCc
-	 oXd5jS0Nw1skSvc2/w9CZWwKEE7QK6Z4ZA9+aMbUnJQgFqsnrpm0pNWW4VlNm9WfTRUBP
-	 lGx7voQvjscQfCveqJPcPx5lYdCChTcgqAwBWvsT5Tym2+PYmyciz6286WdWCI0X+oACj
-	 x/AkKk16YGXt4qWotE32lZMWABuFEcFzXB6Cn/QuxYzOiXbW+j0dILz6PUOA47hPMp4dQ
-	 YVy9OwPo4L+utxrvNT99ZlWzv4Z44SNDEv1sX6i7Ct/Oj5U+w1U77tgCa/e7l03aH1A==
+	t=1795703444;
+	b=0jgjEtH3eEU2W1eKLIK1fuLqaWRKqZPN2fZDnf5nhmKEu+DWNiGRq82T0HFmHqHW/PXt
+	 LJA7wyowPl/ze9F1TiDXFdzT29OF4QAlwDgaCh/xdCRydw9zAPrE8xCofxWbuUyE5bgSo
+	 7eukCzcuYJ7nHt1nzEtyrbaGw2mwHZ4x6WogbRnhdgIDVA6be6E+3f+5tRlrRoyZ3Y733
+	 TDqnTf9z44tiICixqqEhIckMvWUeTpbbkvWgsVyldM5fB9p2Ywwy9Watp7xuys9IFzrIm
+	 /qC/2EgtQpUeua1jGGuyDFfcs0Wwvf3dvzERF/WlGvmrJrriszR1lDpjiPoz52O0n1Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795703449;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:X-Google-Original-From:Date:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=ABzoEq0m6vsFJk565MhCiGTGEviQ8pU/lDbym6z/Ado=;
-	b=Qbty6oJF/e/p3u/pylUE9fces9YxLcY9nkEYAUz1nbKvkLxSjNOvIKjx2docnFHl9pkF
-	 30scAAyIz5vRBQVqnVOwD9923WULzQMwUnd1yGu7vnUBiK6JeklMK544vq8wvSPE6sLxa
-	 QY+kTWSBmq50ygog82l0UOek9EH01UIga+0Y0sFopAlHu3yVqD7bt99fc3HmcR7rjpcKr
-	 vSRH5vOVWe56Y9li49QJ9yXQozvDlGHuglSA4rSHKdXHbHJ+YPtrkyu5oJ41EdKbHqmx7
-	 hLVtvqTmwpbtM0kIEzXFm/AMOPnQTehmtjFOXE+Aaselgs5GFQ9Br6YsmeVegmEAbOw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795703444;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=eRUX/5S9UOo+rDRG4Qm3COyRot6eWYZZm9uVcRV35C4=;
+	b=qxuwwtSqGSlLY8kK5G0h2P9m1UMO/2jTSBc97JCBVsKIsw97+rYGp0SsGeSJoZIgVFa4
+	 5sZojw+Py6JygyVgJmIptymhRNn/Mz9ZOnM3v68ffWU7ln0aMHciExSUs0qSzerLKjcZB
+	 6IXLJAnFIJDgn/TmcOuaIxG2+NeaJJdaaAQAPFgvOr2Ks5bxGt8uGsv78DUCKUxnMWpLG
+	 n/BmbmS+uWxuZtZ6uri5nYnYIjVlkoBs85E4pM342XbYR2FbfoRJN8/PdPRTNN4r/f19c
+	 heflAzGrfnLDVAhVaGkpXRefjh57CqHbyg3GUQ8XmMDadyWGOXNNT48wOZtnGci0W4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=FTLZu6P+;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PNrV4sZV;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FF98606A69D
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:30:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FF98606A69D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 201F3606A6A1;
+	Thu, 26 Nov 2026 14:30:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=FTLZu6P+
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4bba60271d7so17040355e9.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:30:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795703437; x=1796308237; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ABzoEq0m6vsFJk565MhCiGTGEviQ8pU/lDbym6z/Ado=;
-        b=FTLZu6P+3j1KJHT73x9+c1vsPjYURn8Nckh7vU0GQHWO1jaJhr6TFSl0c50PMuyBpg
-         DDoM3P0wJtT2QwoXHut4wdwKVyYR7ihk5CGcFhlVrI4iSzxtkk4UzyLTMMly6Vo1mfGg
-         0C8751Wmes4UioGJd7HlcYxtRdf/QizDwoM1ogvczZDOtrGu0D0iZNxYzNtkNsu/z/M6
-         zmWMCuZc9QtluNZdkUUWybelri/Ch0FTtXNiVeYzPt0nkUWrIEIz5ZrzyVhivmV7OY50
-         LgqYpjQkVwp66gQQcqpVB9s67aG+8rfvozx91WlNLCPhji09Ufx9Q3jd+/RSsrKJrHIL
-         VCUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795703437; x=1796308237;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ABzoEq0m6vsFJk565MhCiGTGEviQ8pU/lDbym6z/Ado=;
-        b=YKx7FXO7Kv7BE4h21qrhq1SMA6GaJK/nEHkfe6nqR40Q5H7jgVY8qLTyZu0yCPkvAU
-         4rxew6naBE+7KxJGC/b1JOB6/HXGy7uAEH4xofSWbIMtHCFSWTlKT1psTu9v1Cq4Amq/
-         Yb8k/ECd1VnCDp9VgWiikStyGKP4RZc99nv8ahbeNAG45iWcuhTJABO+u6U6LSBUE/ai
-         tfdzHG4TpzWy9SXpjpmkQ6+Upul/EhVDwm23mLDGn7qHM4gzUWZGwQLbugxsNDsexO1Y
-         W066j7FYAHsUGwmPq3kobL/sbkG59QxewMC30Bahu6OC60BC+4mcUrrQalczmrfdN+7S
-         Wx9g==
-X-Forwarded-Encrypted: i=1; AL+hErGxk8cEMCmvzAXYJdMGH2gKgxTMpGTuPOwt/O1ljd75Yc/fKs+BNV+EfjfSh1bWBFf8wko4a1XQO9ajj9o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Uo4VklA8i3z1PtVufU0MbH7vtZP8nklxcpUKvuc70Fh1dgbTn
-	Flp5iRIOFpvymQuRZLdgu/NnFpSuyifAQYtDTIqhOjQfpPmxtAdpIpGRZARWkfIinFM=
-X-Gm-Gg: AZFdTZcknnnlW2EDc48cjuAltEWKZFvvn2iCNk/iIY1OTZcWXbp7QAW48MCzBmjw61d
-	7UzX8RQP9sWKzjctdC7p17QtOeCP5zJnrhQLLYNvojAZ3EiC2I6xuTTPke7/mvsW6AJmAmLMfXp
-	HoEVpoGFIgxsmbOFk9cITH8R+20B5Lc1HX3Sd9VI40z45x9rkYk8hnSEl2xnZza6BYEIQ4DC2ab
-	ZBDFUd5NYlax8vb2tRLTo0IJLnHs6m4fTWm/xQ7pBTT0wwv68spts0nEZGs2jjby371zOqWeO8u
-	s24jzCB3w5cKkia9rD6gVfDsQUhGzQEn3tu5JiTcGRiZO/J77H9oYVewJyoSL9JYn1fmq0kam8J
-	5jrexFrS5nLeIPgRea0So7u6mwZqr1QV0gDojj+8VGwr6tHjGNV27zQbq5HjRhTx8Qj9XcioE86
-	rSUpHOYU+9FfCy2bT5ZmOBxw1l4ZFpFSkjKJ2mSAm5i2PpQ0vjddh63Q2RQtUOM20JT73wza3p2
-	YtbPblCmlL5EIhG+QiFwwIocmPcGbZGaL/JnnFq4bVQ+EphVbBP+uCQO1MfKPt3EA+dk5GrIBXz
-	lu0J2BtfTKBqKITBAmOyAfAjimNR
-X-Received: by 2002:a05:600c:64c7:b0:4bb:68c4:2044 with SMTP id 5b1f17b1804b1-4bb887fe725mr403770795e9.11.1795703436933;
-        Thu, 26 Nov 2026 06:30:36 -0800 (PST)
-Received: from localhost ([195.94.148.180])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906640a2sm340532965e9.0.2026.11.26.06.30.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 06:30:36 -0800 (PST)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Thu, 26 Nov 2026 15:34:36 +0100
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	dmaengine@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Saenz Julienne <nsaenz@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Dom Cobley <popcornmix@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 04/28] dmaengine: bcm2835: Support dma flags for
- multi-beat burst
-Message-ID: <awhDfF1HNkPPgRbR@apocalypse>
-References: <20261123145728.29082-1-andrea.porta@suse.com>
- <20261123145728.29082-5-andrea.porta@suse.com>
- <awXluqyLWzdl_Ade@lizhi-Precision-Tower-5810>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PNrV4sZV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 285311F000D4;
+	Thu, 26 Nov 2026 14:30:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795703443;
+	bh=eRUX/5S9UOo+rDRG4Qm3COyRot6eWYZZm9uVcRV35C4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=PNrV4sZVaMwPiTWaAPN/jV1TEtbkNWx8sp9FnI97H0TV3XVekfpapC7GpMVueyiXq
+	 Dy0kpa+BBXVKWxbesxMsNvJfNyry3kOTqd/AB7W6BL7hygjs+qfnQ2U6ZccWEbEUsD
+	 v1Hnt54QynemBHHscnUCj+9iV8egANrb+vTGyUjLCWK9/b9qkW3EahL3rdV4L9NX/Y
+	 +J+byAfpQbrN1XX7vy7+6B8W6ofeOAjy61q8QzrZldwrtmfAR1tz0IKUH28THKbHi3
+	 3myyitBB906eFIiUjDez8HSr1SaeoDjs7xOmid5xhmrSmnIxdJCsv6JzU56s4yQFXl
+	 PKoBIyyOM6Hsg==
+Date: Thu, 26 Nov 2026 14:30:38 +0000
+From: Simon Horman <horms@kernel.org>
+To: Haoli Zhang <26031212468@stu.xidian.edu.cn>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, linux-ppp@vger.kernel.org,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	syzbot+6b18da3ef22e33061add@syzkaller.appspotmail.com,
+	25031212117@stu.xidian.edu.cn, byu@xidian.edu.cn
+Subject: Re: [PATCH net v2] ppp: serialize channel operations with unregister
+Message-ID: <20261126143038.GB31322@horms.kernel.org>
+References: <20261119084333.371234-1-26031212468@stu.xidian.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,40 +61,52 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <awXluqyLWzdl_Ade@lizhi-Precision-Tower-5810>
+In-Reply-To: <20261119084333.371234-1-26031212468@stu.xidian.edu.cn>
 
-Hi Frank,
-
-On 14:30 Tue 24 Nov     , Frank Li wrote:
-> On Mon, Nov 23, 2026 at 03:56:42PM +0100, Andrea della Porta wrote:
-> > From: Dom Cobley <popcornmix@gmail.com>
-> >
-> > Add a control bit to enable a multi-beat burst on a DMA.
-> > This improves DMA performance and is required for HDMI audio.
-> >
-> > Signed-off-by: Dom Cobley <popcornmix@gmail.com>
-> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> > ---
-> >  drivers/dma/bcm2835-dma.c | 16 ++++++++++++----
-> >  1 file changed, 12 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/drivers/dma/bcm2835-dma.c b/drivers/dma/bcm2835-dma.c
-> > index 118ba2f71dc8..063e1b2aabe3 100644
-> > --- a/drivers/dma/bcm2835-dma.c
-> > +++ b/drivers/dma/bcm2835-dma.c
-> > @@ -137,6 +137,7 @@ struct bcm2835_desc {
-> >  #define BCM2835_DMA_S_DREQ	BIT(10) /* enable SREQ for source */
-> >  #define BCM2835_DMA_S_IGNORE	BIT(11) /* ignore source reads - read 0 */
-> >  #define BCM2835_DMA_BURST_LENGTH(x) (((x) & 15) << 12)
-> > +#define BCM2835_DMA_GET_BURST_LENGTH(x) (((x) >> 12) & 15)
+On Thu, Nov 19, 2026 at 04:43:33PM +0800, Haoli Zhang wrote:
+> The channel unregister path disconnects a channel before clearing
+> pch->chan. A concurrent PPPIOCCONNECT can observe pch->ppp as NULL while
+> pch->chan is still valid and attach the channel again. Unregister can
+> then clear pch->chan and release the channel while its clist remains
+> linked to a PPP unit.
 > 
-> Use FIELD_GET()
-
-Ack.
-
-Thanks,
-Andrea
-
+> Serialize PPPIOCCONNECT with unregister using chan_sem. Hold the mutex
+> from before disconnecting the channel until it has been removed from the
+> channel list and marked dead. An in-flight connect completes before
+> unregister disconnects the channel; later connects see the cleared
+> channel and fail.
 > 
-> Frank
+> PPPIOCDISCONN must use the same mutex. An in-progress PPPIOCDISCONN can
+> clear pch->ppp before it has removed pch->clist and completed
+> synchronize_net(). Without the mutex, unregister can see pch->ppp as NULL
+> and proceed before that disconnect has finished unlinking the channel and
+> waiting for network readers. Taking chan_sem in both paths makes
+> unregister wait for the disconnect to finish before clearing pch->chan.
 > 
+> Bridge establishment must also be serialized with unregistering either
+> endpoint. Hold both channels' chan_sem mutexes in a stable order while
+> establishing the bridge, and reject channels that have been marked dead.
+> Unregister holds its channel mutex through unbridging and marking the
+> channel dead, so bridge establishment cannot pass the teardown step and
+> leave a new bridge reference behind.
+> 
+> The transmit fast path is unchanged. chan_sem drains channel ioctl
+> callbacks. ppp_disconnect_channel() removes the channel from the PPP unit
+> and waits for network readers before unregister clears pch->chan.
+> 
+> Fixes: 6a196e83a1a7 ("ppp: disconnect channel before nullifying pch->chan")
+> Reported-by: syzbot+6b18da3ef22e33061add@syzkaller.appspotmail.com
+> Closes: https://syzbot.org/bug?extid=6b18da3ef22e33061add
+> Co-developed-by: Jinning Zhang <25031212117@stu.xidian.edu.cn>
+> Signed-off-by: Jinning Zhang <25031212117@stu.xidian.edu.cn>
+> Co-developed-by: Bin Yu <byu@xidian.edu.cn>
+> Signed-off-by: Bin Yu <byu@xidian.edu.cn>
+> Signed-off-by: Haoli Zhang <26031212468@stu.xidian.edu.cn>
+> ---
+> Changes in v2:
+> - Serialize PPPIOCDISCONN with channel unregister.
+> - Serialize bridge establishment with unregistering either endpoint.
+> - Clarify the chan_sem comment and bridge lock ordering.
+
+Reviewed-by: Simon Horman <horms@kernel.org>
+
