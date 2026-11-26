@@ -1,101 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.174
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.47
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795699836;
-	b=QN/5mvHJkkuF5KvtZel8AX+8zOSju3xphZLuKB1n2Jpw1v15Y+z1o6njbGZCRY/u+GTH
-	 M7qAnwfIPt7VdIhQDQJ3z7XluuQft04t2M/PnzUNmebGMUet29Qgz+XhmYyVMWHeJNdns
-	 wz35coZMSiBuqaDm7DwcY+efYlOHcdJzkVV9WKZebQX5crzUDmdvG8MjlzfsOv13L4Knc
-	 uyDx4ZNlyyBgkisCtW+ovyBnv6G8jFU+XJ5eYpg99wp/QEs6+Nanx6gx2JYy4kRKKwMIh
-	 yHtd6lfxGPf5BRNp2pi3IhRVienrn/OVinlICYhmdo528evRqz1xgLI/qLrXYq+wWNQ==
+	t=1795699872;
+	b=lp+sPJ3hCrIIlmR/2za0TPkSycAs0Y6cgEuX91QgjjphDfYWyVIu1XUSgHIYrCsBMXHA
+	 F2FkBCUZgy89RbHCvx8kB3920IfmjWL6gGY4oYf1LJjeaNuBWuZpuVFhrVBuaOrwQ5Kjm
+	 k0WT3X1NlwUrUka6Vz7vmbsWFqpJn/6uKv+BbDsVh0Pb9rRZeCfekCYJiuAnbwTlL0A8e
+	 V4R3MsN9yGOxoB8crpNR7ncdPblF5n+2zzKcxq2eHi0x50RtH1Fztmk/neYPouer3E3AM
+	 eFbo/PqiNCnYosfT5N6XGE9tXgPC3/elH5ejGIZZCXNe7tgeFcLE47P2E5qO9svxXAg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795699836;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795699872;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
 	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=cpHsV5w2JYbXJ1AFl+wqh6QNZT0CRx63Sll+q8RneTQ=;
-	b=MNbL8IKA3A0iSaYAX6VrY30FtBlwTGAPTMILGuy9KM6GEN/iTpjWqsqJqTO5YvOOnzv9
-	 LqsSGgfN0F6qccwuGnO8/yIxl8eWJhFyqZn9lNU/XNlygXFYXY/e9zkFpm8eQzwSAuZIN
-	 iQa8m73n1zgUl6Rmvs4ykSovh1H5cxao4XlvXwmhHpyir3wuPuv/L61lzrIT6iiIOK68G
-	 0hZMrNihpH4obitpcv8KFhYU9OsVveOjydRx8MYYIgJj24C5cPpPpH/yUBx8KSDR/Ti6p
-	 aEkRFQfhpPI6yXQ4XyQpB+buP03aPMVhh1kB7daJ41GHlH84zbMMPC8AYHj7SPHj3Ww==
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=uS1w4Rd5nuvuC9FkPk+TP9nuwffSvQOGwCuNRy+qt9M=;
+	b=HCBwdshxR/x/RRR+BncFlG1ujTS2av+aaKPTtFQRMj73TSkknMlDhBSH7djkrfoD5WpP
+	 LyQAXDKvOAtuLhTbxdFtvkuZA+oUqx/OGi5QCCN2wJTvyaYPekQHydgMCGU9Uxb0G8ljO
+	 FSJIVRFsl3HRxndMWemh5XPXkf2SQm0hYjulDRz77WYjmpHFPI/8vKbET+0uwAZDCKh7s
+	 SABzAQNH0oxJQHyhGm8hU1jLHG+J9pV6ER8Qj1Uxx8hnyQdCl2gWIa9fkiBUXsM5flaTw
+	 rlWRPWrSBZCMt8JC5gfxladi3vGw+rcehIByacElb6/35Vur410wAYG9zPzbYrFPwrQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iz8oGwyO;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.174
-Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=dcoh8iYS;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.47
+Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com [209.85.218.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56835606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:30:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56835606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 863F9606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:31:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 863F9606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iz8oGwyO
-Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso14873137eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:30:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795699835; cv=none;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=dcoh8iYS
+Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-c4395d31228so1197598566b.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:31:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795699870; cv=none;
         d=google.com; s=arc-20260327;
-        b=INigs2awEYvin19gqDnSpXo9tfNIzrORwKTO+OJcGV5pa9T1CUnBGI1OseyWdqwVa/
-         aw8FKETFyCI7Dr9NOkI8zTgnB8p3dKqMLzwx0MEEAfvekDj9w+AKWi+KxQ0L3S0+33Oe
-         0d3LIL22QuSY4O5gpJuMmTaH9BWDfEiOYiNhURhRsAvRDd/I41mLC6vFvaYyhsdz+Cl/
-         RwA2pYh8WVAbhqQLdiVX38OV543yTkvMe8GAvsP4OvN9wgjKijbwn4AC1agZETR8JLcb
-         hYKT5SUom/tCnOl4BUl+xeW4mdJcya1nZ72UryayXDhuI0qSHLrP04omNTUOTZBPjURh
-         WbdA==
+        b=EVlEPtPIfvVvpLPq9y3Im46od/OfEuvTCBIIUT4+bDpkkaxCk+XBIA6FpBplSi4F1O
+         qYHTNeW600IXASybvxz4YQb4J8GFa2tWytSg74Qz6I2UlocDRNUAU0CVeIw2gBHFy1uw
+         ccAPwigejmiji5d5q1sk31/rZ9i6ir0f9qgeUZ2YfOJKlgHiCBrJuFvUq7bIOu1PClqM
+         PY4xUGF16AbGuIdeTFaZxACsrp2KKtcIfyK6blTdwHjOefnolNA0B0Dc9UalLh8OsWIR
+         qb7G8XqGtglf9pIkwjbldjXzojSK8KaRo3v9OH+fIS8SvP6qXjWcK2/e+lyUyenfqkU/
+         mowg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=cpHsV5w2JYbXJ1AFl+wqh6QNZT0CRx63Sll+q8RneTQ=;
-        fh=sJhw8QvSRu5l9HhjTDT//puXFmEvBv9Do7RmTVpVtPM=;
-        b=QPKSh8qt8rPO7aA7UxoQd+AwCdBLF9VXsWINPIw26eYQomaMHN9IKMOGo2OnpZ+nWa
-         UTS7i7RjVV1NflEMF7wEA/DfWtiwNKdAEXebinkZiOBXgJIQaUPiKt+9DjlT84QLAgHz
-         ix98F1KCItICe4Jflo5+6tA6MNSErEYYmBx7mxBXIZJZv7luGykkaT+V464qw8bybIM9
-         wRuey2pbFnrs59dl66g0kGofm+o19ElWRRxHeMcIrcqIM0pJ0tCNRbTc0SAXD01UUfzN
-         ICZEqXOmfDBScV5d72DIIY011Qq1PcNRL26nAwpN6dNbBqlXk7yxtl2h/wOXvdUA0Jb/
-         aN0A==;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=uS1w4Rd5nuvuC9FkPk+TP9nuwffSvQOGwCuNRy+qt9M=;
+        fh=3t5hENwuS9O8R+UqdJJ52VEooRutvyNAY9wSCTVED/E=;
+        b=AgSrugNi5bSKaUhre0C9vFrJvxsfz0OLPblbZKCd/D1/w7N6mlrrgG+07DZhIVWtbu
+         aqxjAzyPwP+XaJ0r4SPhrXqC19xQhbMAPdbNULVBQIuTe3kGwnq8uIMGCX0D6VWyZDVm
+         amQZS0YOkW0Ef4K2Og3MOZX9uz3k7/pAJyJt0sjpM6gR/oCI+uRg8vYGJB/KZ7fdZLQB
+         mthNaozqnjDg9MR8DRf2nnNoS6OOpurlJCTZdlGBoHf7pVF7I3qOLTob4MY7gxJdBlBw
+         fAwCmstl3W27DBhHiyu8oGqw7NJB/Jt6cjhKYwbqtjwecSjf7pypMpIAhyZgioS4Jk5q
+         g/WQ==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795699835; x=1796304635; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=cpHsV5w2JYbXJ1AFl+wqh6QNZT0CRx63Sll+q8RneTQ=;
-        b=iz8oGwyOO09o4i5dWB91D4ghISsBxmFjH2tehPipI789M9ucTYLpa7LONDMVVl6ICL
-         v6QuocHdAeNYP9nvTFW9XIXOBgQGaueGU2YlbdDOPj5vcjRZgbC8tm3zZxQ9omvYcXDi
-         xB1pI6bJGoMuTKu37WkNP4tGErBsJVIZnBjisgqpvYrk/cF7dCP66d56rMov1NMAvlKM
-         h85ENOl4S8WOzUZMZUA0MCIy5oGQ0AyLFlKk+AK1WfOvUS1/jSUjI/8rI33VxjXZ+mc3
-         EAY74D0kL7j3CP0Z/HH5p80XtoxuTKyA6lmTbLid4SC68C1wk5YyGkNvgeHQVoZm6sd8
-         b7jA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795699835; x=1796304635;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=linaro.org; s=google; t=1795699870; x=1796304670; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=cpHsV5w2JYbXJ1AFl+wqh6QNZT0CRx63Sll+q8RneTQ=;
-        b=b2HQBlcwzOC+6s5tLA+vWO0MPGvD2jVVPLxFjnNZBA89yZnIYuP/vONvwTDwyuAFE9
-         LcRnAZZ4Sdayyox7Y1DbA5vpdXiyn6jxMWhfILkKFDV+/sgKsy8PE8UYw+HoWfetm0/X
-         eWglN6X6VbFexXc4uoQqoyEN8c/Se/OWy4y9EFal70n8edmwK9Bcz6YYalptTWC7eDIc
-         XFVEAiwjQGYCx6CiGtcCtofswGNPoR+5e43xNyReC/HDVkYkwXZ4apyca2BiDJbLSMZu
-         LqSn6ltfXB3eJ/yD6blcKnQtCquas8+3txzz+TbIDe1i0LlphVAQKFRd6feN2dluflot
-         3Wxw==
-X-Forwarded-Encrypted: i=1; AL+hErGGGMDyUhgC+bI60Nm+askEGUdXLrF41Y7Dj34SC0G3e5zenDtk2r/W1Pwl8//fVipEVVsRJUjNXvoA9e0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8rDl9Gfyz6ROTscfYE73+xJqrdTXXqv1/PNm3hd7tUOafOrFkw
-	8M9jLigfpyhTg6Yp4QY1PPD4avMNGBuYT2nmu1M5txL/z+Mp8AgOh4dDDAiYBub1Nu3pZ3HPI1w
-	HcmMa1l5oVOd4pCikUQ0Y/iS4pAQ0TXWmqYzQ
-X-Gm-Gg: AZFdTZdsBzrvUpk2+gLYQ8VtbhWf4XBJXk6BMMcKZlAIrj9sH3iyvnG5w5yNK9noAYi
-	qbH2S2o+U2Qu+3+dFyfwyAr/Y6DcrobzflpD+wRJGg7lM8fXLeBpDsk3JIh2Ie9PX123hcQbr7V
-	7raxvILnzYLGrE0l6l9IfFxrsgxOyV4xrPR9nQbRSxKG+iEda2qnA7Ls/8shU8lGO+pFLf21u0l
-	RzW4U8gOWN7QGlriM+vZWsXwUpNads7lEHDF4+Cgw7o6pLB+pZhzvvpK08Ckh/ysrLwAv4qF4YP
-	IHkXpKjXiZ+rnC7+My9/JnGBiRqWLYG2BSohhX0LHOA65KgMEbtcpk8wYxzeK/QOLYv+ac2woOH
-	iRkrCjRowjbaBDzFh7N32YJxHmzgX8SpdqQZNqsOz4CQJ64B1yz48S+1M89XkV0Lw6Uof9+uiIr
-	MOTyOq+VXTX/g0THd3kds5Fgq4SAq+uzhAKOXG5W7S8c0X2tJivPI=
-X-Received: by 2002:a05:7300:4721:b0:386:da66:671f with SMTP id
- 5a478bee46e88-386da66762cmr2781680eec.28.1795699835188; Thu, 26 Nov 2026
- 05:30:35 -0800 (PST)
+        bh=uS1w4Rd5nuvuC9FkPk+TP9nuwffSvQOGwCuNRy+qt9M=;
+        b=dcoh8iYS0P1CCyVwUqXRAjYqG7PuhZzquwJdA7CSZmv7ltgvjUfC19nubtptcPRHFQ
+         E0R/oB2NJelmkA+pyFBua4ZbyhRWsLO3YBxY+J3e1QXnChxee4ZMEIzsoNFaw2dKCE6F
+         JdfBJvQ3RAkJnUcj+lUIPbncJUInYvI0LEdSaE39BucMTpuMC3daaGKTg7kXwCTCO0qF
+         x2miZNTvquMGZmNp7fboyZla+jR1VUlRWxxovxtdwsaggo6ynUIDOMi6mql99ZnQmNXV
+         Fzntyz+do/SpQDY3tv6KThKwzW8PssolBoJca/OmWStzKbyvScDv3rer4iMOBRaveIeX
+         Xdeg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795699870; x=1796304670;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=uS1w4Rd5nuvuC9FkPk+TP9nuwffSvQOGwCuNRy+qt9M=;
+        b=ygFW5HOB/fyjyrG0coT3JdZnV+NtVtM355iKXONlqx+3cEEfH7wtL/kpk8M7CJ/Bkx
+         t4vWxLcwdMV3WczGAYoo5bHPc0vwxa38RXuGoo4yXC7qk1iOUzUOkbNSszLjWgg02Nxn
+         A7aQv4GulfAo4NlpL9U2G7njNTamWgB5UgFjbepqypXu2LJd2j2BaDgew4joLXk3jmKt
+         2htxpkWBFkOFKr6U/X3kN/H0hSftMDTwWw7UFFFZvA+GrrcoWaG5dRDFCQ7bYXJKPW7t
+         147/ceqTUTBYGRvkNHhEdq71lxxRPh5B2oLpTRDwGcRUBVhOArcvEXGaTPCIDA3maZ4X
+         k0Iw==
+X-Forwarded-Encrypted: i=1; AL+hErE/JWvTaW7e1qQ6Hi3+6qmj2wQSAEZ+O7ML4mDICkZ8Ss9h4kBTbgWasR97hOitN695VihDbCRWpa5X7og=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+AjTRfluhEXT/G+bgoaLWbxckFwOH3iYPc17HsBx5FpqqS/AS+
+	ci0XP8XsSfsiploJyK1MIrNFOq3n6EaM3MJWTWBO5RaBNTPocYfFn2myTvWuyh/rPLGZI9BvDjs
+	Y1TCom4aIJS/ZX17ErF92SKHgN4tjyAwAUda9qECfXA==
+X-Gm-Gg: AZFdTZeWwo/3HLDo0SlCYgM+Gs1Pt0+9rdiTe32maFvn6tQ+Ai75x9huQblS8uQtAUd
+	fbaM1hN/BZNG5j6RtVQuniLYUgptjIbhaWJJ2v21/TkKljlUPVb5S3mM+InqdAckPfj9Le61Rpj
+	CpRnERCXTS9rnqF2FBgtKJR7oCmj4BdEY+Mgl9md+WooTceoFVW+OG3HRhFJXcfOsuzf6YHlbMu
+	WnVgCXxo8h9j3cLlS07VvS5imDSr4izM46s83rg+mX+aNQaod48QULBUz2WTpmhhsYpcI/nHrO7
+	NUY0THb0FHYKmr+WJ45k0vaSKIOwFZiKgqCz99VxPgxvkZ8EZZNtqQkUsfUiWs6mSxvb4mb/HPK
+	65ZVCpGwh8Abq5IefdKranrf2pn0SFb3atD0sN1LV3Kl5I/umQgNl6TV3cuFkYX3ERgHNzCIKZa
+	oRSR1hmzG0/GhOqpQ=
+X-Received: by 2002:a17:907:4d0:b0:c51:f6:216a with SMTP id
+ a640c23a62f3a-c513aaa8eebmr1436117366b.37.1795699869221; Thu, 26 Nov 2026
+ 05:31:09 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,38 +104,128 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261115090520.102216-1-clamor95@gmail.com> <20261115090520.102216-2-clamor95@gmail.com>
- <0670d537-0f9a-43dd-9d48-90272f04f1e2@sirena.org.uk> <20261126122936.GH38590@joneslee-macbookpro.roam.internal>
- <c0bc9e91-fe8d-4c0c-a6c0-f7c8d4d086a9@sirena.org.uk>
-In-Reply-To: <c0bc9e91-fe8d-4c0c-a6c0-f7c8d4d086a9@sirena.org.uk>
-From: Svyatoslav Ryhel <clamor95@gmail.com>
-Date: Thu, 26 Nov 2026 15:30:22 +0200
-X-Gm-Features: Aa3M54phpO9TY-BjFhMXHRwC2_FlICHLesKqjIioZHRgOyOaeZaLBv9530oQbas
-Message-ID: <CAPVz0n3tpcEteSfU+51_FeJaYYMwz522h968nWHSw2gz6+336g@mail.gmail.com>
-Subject: Re: [PATCH v6 1/3] regulator: dt-bindings: maxim,max8907: Document
- LED support
-To: Mark Brown <broonie@kernel.org>, Lee Jones <lee@kernel.org>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Pavel Machek <pavel@kernel.org>, Griffin Kroah-Hartman <griffin@kroah.com>, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-leds@vger.kernel.org, mfd@lists.linux.dev
+References: <20261125003653.1264087-1-keisuke.nishimura@inria.fr>
+ <CAKfTPtBY=U5voby+_6=JErmsHoaXFqxYLFib6ESKFmO_pmGZyg@mail.gmail.com>
+ <CAKfTPtCaWVApT+6WAreKapk2wRCrXCngZPLt8oayuZT9cB1k+Q@mail.gmail.com> <8e3f3ce6-2194-489a-9f30-91eb71f5e33f@inria.fr>
+In-Reply-To: <8e3f3ce6-2194-489a-9f30-91eb71f5e33f@inria.fr>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Thu, 26 Nov 2026 14:30:56 +0100
+X-Gm-Features: Aa3M54oNyondioRZOzHIz0CRG_A7q0SoqSUIn4pNsKe3Im_92mpdWlXDoKg73pY
+Message-ID: <CAKfTPtDyFQ=dnSDiJZvoN46QioSfx2esHAjqScOOMrRevU+vGw@mail.gmail.com>
+Subject: Re: [PATCH v2] sched/fair: Don't pick recent_used_cpu if target has
+ no sched domain
+To: Keisuke Nishimura <keisuke.nishimura@inria.fr>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Juri Lelli <juri.lelli@redhat.com>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	linux-kernel@vger.kernel.org, julia.lawall@inria.fr, 
+	jean-pierre.lozi@inria.fr
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-=D1=87=D1=82, 26 =D0=BB=D0=B8=D1=81=D1=82. 2026=E2=80=AF=D1=80. =D0=BE 15:2=
-4 Mark Brown <broonie@kernel.org> =D0=BF=D0=B8=D1=88=D0=B5:
+On Thu, 26 Nov 2026 at 13:14, Keisuke Nishimura
+<keisuke.nishimura@inria.fr> wrote:
 >
-> On Thu, Nov 26, 2026 at 12:29:36PM +0000, Lee Jones wrote:
-> > On Sun, 15 Nov 2026, Mark Brown wrote:
-> >
-> > > On Sun, Nov 15, 2026 at 11:05:18AM +0200, Svyatoslav Ryhel wrote:
-> > > > The Maxim MAX8907 PMIC supports a single LED; document it.
-> > >
-> > > Acked-by: Mark Brown <broonie@kernel.org>
-> >
-> > You should just apply this, I think.
 >
-> Well, it doesn't apply so...  :/
+>
+> On 11/26/26 12:26, Vincent Guittot wrote:
+> > On Thu, 26 Nov 2026 at 12:21, Vincent Guittot
+> > <vincent.guittot@linaro.org> wrote:
+> >>
+> >> On Wed, 25 Nov 2026 at 01:54, Keisuke Nishimura
+> >> <keisuke.nishimura@inria.fr> wrote:
+> >>>
+> >>> select_idle_sibling() can return recent_used_cpu if it is idle and
+> >>> shares the LLC with target. However, it does not check if target is an
+> >>> isolated CPU where the scheduler should not move tasks.
+> >>>
+> >>> Consider the following situation:
+> >>> * isolcpus=1,2
+> >>> * recent_used_cpu=1
+> >>> * target=prev=2
+> >>> * affinity=1,2
+> >>>
+> >>> When CPU 1 is idle but CPU 2 is busy, select_idle_sibling() returns
+> >>> recent_used_cpu (CPU 1).
+> >>>
+> >>> To prevent the scheduler from moving the task among isolated CPUs, check
+> >>> whether target has a sched domain before searching for an idle CPU.
+> >>>
+> >>> This bug was found with the help of verification using Frama-C.
+> >>>
+> >>> Fixes: 32e839dda3ba ("sched/fair: Use a recently used CPU as an idle candidate and the basis for SIS")
+> >>> Signed-off-by: Keisuke Nishimura <keisuke.nishimura@inria.fr>
+> >>> ---
+> >>> Changes in v2:
+> >>> - Return early at the beginning of select_idle_sibling() if target has
+> >>>    no sched domain.
+> >>> - Instead of `per_cpu(sd_llc, target)`, use `cpu_rq(target)->sd` to
+> >>>    check if target is isolated or not. A CPU might be in an asymmetric
+> >>>    capacity domain, but not in an LLC domain. In this case, returning
+> >>>    early based only on the LLC domain would miss the chance to run
+> >>>    select_idle_capacity().
+> >>> - Rewrite the explanation, because sd_llc is not the main issue anymore.
+> >>> ---
+> >>>   kernel/sched/fair.c | 4 ++++
+> >>>   1 file changed, 4 insertions(+)
+> >>>
+> >>> diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+> >>> index da0d9e19c457..9746fc55241b 100644
+> >>> --- a/kernel/sched/fair.c
+> >>> +++ b/kernel/sched/fair.c
+> >>> @@ -9155,6 +9155,10 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
+> >>>          unsigned long task_util, util_min, util_max;
+> >>>          int i, recent_used_cpu, prev_aff = -1;
+> >>>
+> >>> +       /* Do not search for idle CPUs if target has no sched domain. */
+> >>> +       if (!rcu_dereference_all(cpu_rq(target)->sd))
+> >>> +               return target;
+> >>
+> >> After more thought,  You have to move this check one level up at the
+> >> beg of select_task_rq_fair().
+> >> Something like:
+> >>
+> >> --- a/kernel/sched/fair.c
+> >> +++ b/kernel/sched/fair.c
+> >> @@ -9979,6 +9979,11 @@ select_task_rq_fair(struct task_struct *p, int
+> >> prev_cpu, int wake_flags)
+> >>           * required for stable ->cpus_allowed
+> >>           */
+> >>          lockdep_assert_held(&p->pi_lock);
+> >> +
+> >> +       /* Do not search for a CPU if prev has no sched domain. */
+> >> +       if (!rcu_dereference_sched_domain(cpu_rq(target)->sd))
+> >> +               return;
+> >> +
+> >>          if (wake_flags & WF_TTWU) {
+> >>                  record_wakee(p);
+> >>
+> >
+> > And this still doesn't fix the case when cpus are isolated at runtime
+>
+> Thanks. Moving the check to select_task_rq_fair() makes sense.
+>
+> Could you elaborate on the case where CPUs are isolated at runtime? I would
+> expect rq->sd to be NULL in that case as well?
 
-Obviously, Lee did not pick up
-https://lore.kernel.org/lkml/20261123150224.199601-1-clamor95@gmail.com/
+llc_id has been set in case of runtime isolation. So any reference to
+this newly isolated cpu that is saved in a task (p->recent_used_cpu as
+an example) waking on a non isolated cpu, sharing same llc_id, can
+match the cpus_share_cache() test and select_idle_sibling() can return
+the newly isolated cpu.
+
+
+>
+> Best,
+> Keisuke
+>
+> >
+> >>
+> >>> +
+> >>>          /*
+> >>>           * On asymmetric system, update task utilization because we will check
+> >>>           * that the task fits with CPU's capacity.
+> >>> --
+> >>> 2.34.1
+> >>>
+>
