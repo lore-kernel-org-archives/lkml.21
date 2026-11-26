@@ -1,64 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795731076;
-	b=40pJfzvv+V2+5IPMIxgWpAZZUjdzoTS2oBqVq84sfwjNuNhOn4P1xMuSFTZd05VKcuFP
-	 U2vhiJIWJwZ52WLAe9HpEACuRba6kMGprLfsmt0jqJiXLioEV1Dl280R2S4L0Xq8B6lld
-	 JbhgDhAP1E40l8ceMUqEyJ2oPdUTJQrLMjqP9Jcbvq07M9sDVNTbI1U14p/YJzM+QIj3C
-	 k/z4Gzf0xOz5R5+LUDH4Vt1AfHNMKq7hlcGxCNTPhaVk5OEUFmcfpCISBgFhGPNGe5YCr
-	 WctRRyXz4bRai/JruR8NlhWijTuf2HRLUuarnOYflrVZlfAMhc2TjINL/3n1PjA4aUQ==
+	t=1795731077;
+	b=VVVr/HXBctABaiQPZvzjODRMjheY3IJ7E6nS9RIl+x7SAR1Q9eRNPYqzhzWZAWo+9TcF
+	 BWKwiyEstJMMBwjHzoKtmKdbZAMEbQDvgMQNZd82sC07LEWE1eDdrVxgkcHUhqgXT5yEP
+	 l6XhIlXP7OjMz4asjK/4Cor6t3Zk7TIYpSIqGDMBDmMiCP0pH3OdSj2WEwVjKnF3k9mmY
+	 lITYEBCvEplU46FBN234SazeXmRI/sjzxCZGbU4jrAALH8LkqwdsSBQ9MKprZy1sBgwXD
+	 Gnjqcwt7OqzJovQh1uW5VgG5MmWPBiFrlb9ZJdxVTUXmojYNXiXoD/l7vLasFDokV2w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795731076;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=c+/9lYLQw8DsofbwWqUP492ZKN/7icTXPBxD5RQmlUo=;
-	b=Tc4gg5dS8tTOR+Famwqi7BPUAUvC+zzoFfyw6lK5+DIUkDddlFk5n9EpLzhs0CYuJcSm
-	 HKlZ3/LEFlsfG0IInXjCkTIuU/SuXPj32Xul5D88bihh/GfuYN0Q1QxkbWIgEJspP2g+b
-	 3gZ9zmO6sKSaEV4mVjqnFpxQ+KDQWY4MuMEhJfTJpzagQbXtJp5h5NIg4u1fcKhHtPn3c
-	 vecGPkJaLPCEmQEoOCCZiOGLecMXmg53NU5WQgHfOKio0PF6JjvhyFm3XwI/6m86JHh27
-	 2Ugn38ODk7zisUOEfENqS8wloM5DcJjw/1uRJ5oitIlnsPQAQP5pns5T82NyGPOe/Ow==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795731077;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
+	 Content-Type:User-Agent:MIME-Version;
+	bh=EBJHUco/hzG0Sju8J8Gd4qY5V0VOeKsMcHwF08fQyis=;
+	b=h10S5IY8Rr7Uh1fnHrQ+WJZAjzdkBZoMSN0fEueWkl4GQBvOdaf7oqS03CXCfkB3bdxs
+	 rSbgm2nbOJrpVrUGGzTefG8CTrjN7EzASS4e3jybX6miP43bzIesdYglwoBux0YWFCUlu
+	 XCk7B14dvA/ea3Jr2bg8xSULOqIGutgMtPFV7vnYdeZyEQPJWrK22k25YK6LKtBTyZAlW
+	 gznspOpgzEydeWxzVX/VY2oTzVhjq2qDTDraLljD8S5bFsrTiI0FXsVucVFo/On1nKDWX
+	 DZqIbGYLLSlxLfMU1zHBaSYw1/o81zh4e4ryxgqiYzP83wmklWfXk+1pI0XqMzMlYcA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bsSEjfUn;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=ndufresne.ca;
+	spf=pass smtp.mailfrom=ndufresne.ca;
+	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=K4P0sV8o;
+	arc=none smtp.remote-ip=209.85.222.177
+Received: from mail-qk1-f177.google.com (mail-qk1-f177.google.com [209.85.222.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67A77606A31E;
-	Thu, 26 Nov 2026 22:11:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20EAC606A329
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:11:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20EAC606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bsSEjfUn
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC06B1F00893;
-	Thu, 26 Nov 2026 22:11:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795731076;
-	bh=c+/9lYLQw8DsofbwWqUP492ZKN/7icTXPBxD5RQmlUo=;
-	h=From:To:Cc:Subject:Date;
-	b=bsSEjfUnduNUnKUQsX4mMEN6z/dd1kG4WkTnFh/o2TXoRGrXbVkw+69QsOrFEznFK
-	 c4Xc2asOH0RJq4uMkRTMF7AWnXkuZ+1hxAMTYEgPK9AaG7/egeNg4HaqlxV2YBWusn
-	 pqBtJqH0KIWgzbx7/lOPpdLYf80CUKTsh9eCMNBbZLgIy79WKZGeAcQFN4PJXyYzOl
-	 tn6b0Gfyi9+ibTJYSjeh7HtHvllPBNb7URflGkofIVHkTrgEXrUuILNuUL+TRegWug
-	 2VB+Z3EMJVn94M3I/+LJ8M7WLemJmVE5ufsxe3Cz0xmbQn2/VUdzaVpRpMulZNaWb+
-	 vdYCoqP2rZXiQ==
-From: Danilo Krummrich <dakr@kernel.org>
-To: dakr@kernel.org,
-	acourbot@nvidia.com,
-	aliceryhl@google.com,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	lossin@kernel.org,
-	gary@garyguo.net,
-	ecourtney@nvidia.com,
-	jhubbard@nvidia.com,
-	matthew.auld@intel.com,
-	arunpravin.paneerselvam@amd.com,
-	joelagnelf@nvidia.com
-Cc: nova-gpu@lists.linux.dev,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] rust: gpu: buddy: tie allocations to the allocator lifetime
-Date: Thu, 26 Nov 2026 23:11:02 +0100
-Message-ID: <20261126221108.3768637-1-dakr@kernel.org>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=K4P0sV8o
+Received: by mail-qk1-f177.google.com with SMTP id af79cd13be357-94961b68685so608705085a.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:11:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795731076; x=1796335876; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=EBJHUco/hzG0Sju8J8Gd4qY5V0VOeKsMcHwF08fQyis=;
+        b=K4P0sV8oBUN1OFFzIPzXx/xgERW0VP6DhJf5sKWY44lG7EQAHJ9qJbf2ooJlb3eIjd
+         rdgM7ThXyX6p4Eyz+vf6nCL4fXqXhEjzyVXUP2GCuyraTnu9TV7PZncrs2fbMRvBNZE2
+         0opeX4MjYwds8ARwXT4Z73tO8cKEfglFh/+evyj6552eO2xS0Ub3fAiHyC7ICpP5KwZm
+         OTvyAYtKilWlZ5Kwy4ilsR4BHXfnP1FehQiNfLwIAf9aD3nAxu5NQSo6hRk21HKlToGu
+         ZgyG3MVcI4SueOB5jXtePjBcs5CMmlMDcu84Tjhl25y5zS5ncfemajvMOociU9yLADU+
+         9Mzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795731076; x=1796335876;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=EBJHUco/hzG0Sju8J8Gd4qY5V0VOeKsMcHwF08fQyis=;
+        b=vNWmk2vsIXQ70fzeU2Y4J3CJNUR7rZcVIQjcHulr8xfMP1sm+XGsFC7gUYYMqcS5VP
+         51Pk/3zmzoIx9RdTLKEbEaBqvHjiHDv+CvjVm2x1hL1VoYDtdH8ZJ2Tx6yEgCC5JX2ck
+         LcjzS8WxeWwqhlI7kwhACqImSlctvA/XIrq+NID0ZS+yPfysZON1qsGDN7a1tzvuVLMo
+         qpi3+5sFCuHRm/u808M1RSEN3TjEKii/TduW3QvxGVsqdocJE+swfbmznBVXnmHHKTUz
+         ffNlqR+0ZrQGve79G+Ghyf/HvVslZlYuXm9nzi8bsNGyKdGiq02gsOkEIXWZ2UHULFAD
+         /7eg==
+X-Forwarded-Encrypted: i=1; AL+hErHQhyLBGsLW7PbUGK3Vy20r2BH7vls3f8I1aRJDwGu7xIUjGqsA/70toZOyDnMQVsFLjx0vZV94y/nzstI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+NLsT0eaCV5w9Qn2H3yTleA+hEdiNkFEu/8FJ45V+bdL9UKj+y
+	mMsE0zWzMX9oMx7yZ7MJlQYjFx4ydKD64dux5s8F+bLDlfcpUtyAD4ZjdidaLWtAD1JLEjFQl+D
+	QuvRk
+X-Gm-Gg: AZFdTZe9FpRuvKIBjF2sufuJaZj7XUh+2TJhi9b0ygO2yTzKlHk9pEJcCQgooLSb2qJ
+	L8qRl+nUeTKsxjq3aNXN1s715UqOHrI7hFMSZ/Y49W52DOxOq2vFccGJ2M/KFoVtaEEGfYEqrrb
+	WMwUWe8Z1cMGxNbcjEVgCFH9BEYYN2htnGLqSx1V4aVnju42TxJsrHaZDBIlH9xmxOxcUxS/p04
+	0VZNKN9KVrLacii5lPYn9XYQawCB98C8vqi431DbOb6SeJRXC0JAqURoihV1HmOCxGUzxYs5lY5
+	U2vcgYIBIZRK1/E1mRpTdRTSH1521H6FvW+yvfn6Ufrn/iQu+/NaDwsU1qHeJqmk+Y9d1uQ15H1
+	fqWLcGn5jWt5hYPJHL+vNK0ntqvu82a173xMC2El71+8egwkTKKjCyMxM314Tl1O02do/+G7OqD
+	/P07OReAAj8wp/34IzMOZ1QGTv2Tp8i4bmaXiLmQPjG1XWp6i8ltk/AFdGSNrruR4u9LuSSIuCJ
+	9PLwrHYpBsheQaTv4NcGdBX1xBAnIPWIKWxJQ3sMtQdCh4xfI1VGYjsccqGsO0Sn48nq/oDa7/o
+	BRYJAGKdQIYo+Y8j09uCoW3H7d7p6+01wZ40WdHsHgCDyqmLZLSZJn8=
+X-Received: by 2002:a05:620a:270d:b0:949:3ea1:3021 with SMTP id af79cd13be357-949bab6d711mr3910620985a.68.1795731075981;
+        Thu, 26 Nov 2026 14:11:15 -0800 (PST)
+Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb3a646fsm1686563185a.22.2026.11.26.14.11.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 14:11:15 -0800 (PST)
+Message-ID: <d44dd85413d264b3536dcc2938ce7066a9fa0004.camel@ndufresne.ca>
+Subject: Re: [PATCH] media: sti: hva: Remove bogus mutex_unlock() in
+ hva_hw_get_ip_version()
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>, Jean-Christophe Trotin	
+ <jean-christophe.trotin@foss.st.com>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Thu, 26 Nov 2026 17:11:14 -0500
+In-Reply-To: <20261117011400.1667-1-laixiangwu@cmss.chinamobile.com>
+References: <20261103013440.1138-1-laixiangwu@cmss.chinamobile.com>
+	 <20261117011400.1667-1-laixiangwu@cmss.chinamobile.com>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-8ZFNuaxoCdWsEFtb942r"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,664 +117,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Let the allocator's lifetime constrain the lifetime of its allocations,
-rather than having allocations keep the allocator alive through
-reference counting.
+--=-8ZFNuaxoCdWsEFtb942r
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-This also removes an unnecessary allocation and allows GpuBuddy to be
-embedded directly in driver private data.
+Le mardi 17 novembre 2026 =C3=A0 09:13 +0800, Xiangwu Lai a =C3=A9crit=C2=
+=A0:
+> Hi,
+>=20
+> gentle ping for:
+>=20
+>   media: sti: hva: Remove bogus mutex_unlock() in hva_hw_get_ip_version()
+>   https://lore.kernel.org/all/20261103013440.1138-1-laixiangwu@cmss.china=
+mobile.com/
+>=20
+> When runtime resume fails, hva_hw_get_ip_version() unlocks
+> protect_mutex, but the only caller (hva_hw_probe()) never took that
+> lock; the line was copied from the encode path which does run under
+> the lock.  The patch removes the bogus unlock.
+>=20
+> Is there anything blocking this patch, or does it just need more
+> time?
 
-Signed-off-by: Danilo Krummrich <dakr@kernel.org>
----
-Depends on [1].
+I'm trying to figure-out if its even worth the time to keep applying patche=
+s, if
+there is no ST reply next week, I'll send a patch to remove it, and that sh=
+ould
+also fix the issue.
 
-[1] https://lore.kernel.org/nova-gpu/20261126213652.3716162-1-dakr@kernel.org/
----
- drivers/gpu/nova-core/driver.rs           |   2 +-
- drivers/gpu/nova-core/gpu.rs              |  51 +++++----
- drivers/gpu/nova-core/mm.rs               |   9 +-
- drivers/gpu/nova-core/mm/bar_user.rs      |  20 ++--
- drivers/gpu/nova-core/mm/pagetable/map.rs |  43 ++++----
- drivers/gpu/nova-core/mm/vmm.rs           |  12 +-
- rust/kernel/gpu/buddy.rs                  | 128 ++++++++++++----------
- 7 files changed, 147 insertions(+), 118 deletions(-)
+Nicolas
 
-diff --git a/drivers/gpu/nova-core/driver.rs b/drivers/gpu/nova-core/driver.rs
-index d6bc972d47c7..f8f5d74d2742 100644
---- a/drivers/gpu/nova-core/driver.rs
-+++ b/drivers/gpu/nova-core/driver.rs
-@@ -133,7 +133,7 @@ fn probe<'bound>(
- 
-             gpu <- Gpu::new(pdev, bar, bar1).pin_chain(|_gpu| {
-                 #[cfg(CONFIG_NOVA_CORE_SELFTESTS)]
--                _gpu.run_selftests(pdev);
-+                _gpu.as_ref().run_selftests(pdev);
-                 Ok(())
-             }),
- 
-diff --git a/drivers/gpu/nova-core/gpu.rs b/drivers/gpu/nova-core/gpu.rs
-index 2f0399100885..65290cedde11 100644
---- a/drivers/gpu/nova-core/gpu.rs
-+++ b/drivers/gpu/nova-core/gpu.rs
-@@ -1,5 +1,10 @@
- // SPDX-License-Identifier: GPL-2.0
- 
-+#![expect(
-+    clippy::multiple_bound_locations,
-+    reason = "pin_data generates additional outlives bounds for the borrowed MM field"
-+)]
-+
- use core::ops::Range;
- 
- use kernel::{
-@@ -383,7 +388,11 @@ unsafe fn new(
- 
- /// Structure holding the resources required to operate the GPU.
- #[pin_data]
--pub(crate) struct Gpu<'gpu> {
-+pub(crate) struct Gpu<'gpu>
-+where
-+    // Hide the borrowed memory manager's resource lifetime so `Gpu` remains covariant.
-+    exists<'gpu_mm>: 'gpu,
-+{
-     pub(crate) spec: Spec,
-     /// GSP event interrupt registration, and the enable of its subtree.
-     ///
-@@ -395,15 +404,17 @@ pub(crate) struct Gpu<'gpu> {
-     _gsp_subtree: GspSubtree<'gsp_resources>,
-     /// Static GPU information as provided by the GSP.
-     pub(crate) gsp_static_info: GetGspStaticInfoReply,
-+    /// BAR1 user interface for CPU access to GPU virtual memory.
-+    #[pin]
-+    #[uses('mm: invariant)]
-+    bar_user: BarUser<'mm>,
-     /// GPU memory manager owning memory management resources.
-     ///
-     /// Must be kept declared *before* `gsp_resources`, so that its components are dropped while
-     /// the GSP is still operational.
-     #[pin]
--    mm: GpuMm<'gpu>,
--    /// BAR1 user interface for CPU access to GPU virtual memory.
--    #[pin]
--    bar_user: BarUser<'gpu>,
-+    #[uses('gpu_mm: invariant)]
-+    mm: GpuMm<'gpu_mm>,
-     /// GSP and its resources.
-     #[pin]
-     gsp_resources: GspResources<'gpu>,
-@@ -614,20 +625,22 @@ pub(crate) fn wait_gfw_boot_completion(
- 
-     /// Runs self-tests on the constructed [`Gpu`], logging failures without failing probe.
-     #[cfg(CONFIG_NOVA_CORE_SELFTESTS)]
--    pub(crate) fn run_selftests(&self, pdev: &pci::Device<device::Bound>) {
--        let dev = pdev.as_ref();
--        let regions = &self.gsp_static_info.usable_fb_regions;
--
--        if let Err(err) = crate::mm::selftest::run(
--            dev,
--            &self.mm,
--            regions,
--            &self.bar_user,
--            self.gsp_static_info.bar1_pde_base,
--            self.spec.chipset,
--        ) {
--            dev_err!(dev, "self-tests failed: {:?}\n", err);
--        }
-+    pub(crate) fn run_selftests(self: Pin<&Self>, pdev: &pci::Device<device::Bound>) {
-+        self.with_project_ref(|this| {
-+            let dev = pdev.as_ref();
-+            let regions = &this.gsp_static_info.usable_fb_regions;
-+
-+            if let Err(err) = crate::mm::selftest::run(
-+                dev,
-+                this.mm.get_ref(),
-+                regions,
-+                &this.bar_user,
-+                this.gsp_static_info.bar1_pde_base,
-+                this.spec.chipset,
-+            ) {
-+                dev_err!(dev, "self-tests failed: {:?}\n", err);
-+            }
-+        });
-     }
- }
- 
-diff --git a/drivers/gpu/nova-core/mm.rs b/drivers/gpu/nova-core/mm.rs
-index 7aa8906d2cb2..e3ccd248ab48 100644
---- a/drivers/gpu/nova-core/mm.rs
-+++ b/drivers/gpu/nova-core/mm.rs
-@@ -82,6 +82,7 @@ pub(crate) struct GpuMm<'gpu>
-     // Hide the mutex's invariant resource lifetime so `GpuMm` remains covariant.
-     exists<'res>: 'gpu,
- {
-+    #[pin]
-     buddy: GpuBuddy,
-     #[pin]
-     #[uses('res: invariant)]
-@@ -103,7 +104,7 @@ pub(crate) fn new(
-         let vram_region = VramAddress::ZERO..total_fb_end;
- 
-         try_pin_init!(Self {
--            buddy: GpuBuddy::new(buddy_params)?,
-+            buddy <- GpuBuddy::new(buddy_params),
-             pramin <- new_mutex!(pramin::Pramin::new(bar, chipset, vram_region)?, "pramin"),
-             tlb <- Tlb::new(bar),
-         })
-@@ -316,11 +317,11 @@ pub(crate) mod selftest {
-     use super::*;
- 
-     /// Run MM subsystem self-tests during probe.
--    pub(crate) fn run(
-+    pub(crate) fn run<'gpu>(
-         dev: &device::Device<device::Bound>,
--        mm: &GpuMm<'_>,
-+        mm: &'gpu GpuMm<'_>,
-         usable_fb_regions: &[Range<u64>],
--        bar_user: &bar_user::BarUser<'_>,
-+        bar_user: &bar_user::BarUser<'gpu>,
-         bar1_pdb: u64,
-         chipset: Chipset,
-     ) -> Result {
-diff --git a/drivers/gpu/nova-core/mm/bar_user.rs b/drivers/gpu/nova-core/mm/bar_user.rs
-index 483129d3d0f7..31a19219d032 100644
---- a/drivers/gpu/nova-core/mm/bar_user.rs
-+++ b/drivers/gpu/nova-core/mm/bar_user.rs
-@@ -37,7 +37,7 @@
- #[pin_data]
- pub(crate) struct BarUser<'a> {
-     #[pin]
--    vmm: Mutex<Vmm>,
-+    vmm: Mutex<Vmm<'a>>,
-     bar1: Bar1<'a>,
- }
- 
-@@ -61,10 +61,10 @@ pub(crate) fn new(
-     /// Map physical pages to a contiguous BAR1 virtual range.
-     pub(crate) fn map(
-         &self,
--        mm: &GpuMm<'_>,
-+        mm: &'a GpuMm<'_>,
-         pfns: &[Pfn],
-         writable: bool,
--    ) -> Result<BarUserAccess<'_>> {
-+    ) -> Result<BarUserAccess<'_, 'a>> {
-         if pfns.is_empty() {
-             return Err(EINVAL);
-         }
-@@ -81,15 +81,15 @@ pub(crate) fn map(
- /// Access object for a mapped BAR1 region.
- ///
- /// Borrows the [`BarUser`] managing the mapping for the lifetime of the access object.
--pub(crate) struct BarUserAccess<'a> {
--    bar_user: &'a BarUser<'a>,
-+pub(crate) struct BarUserAccess<'a, 'gpu> {
-+    bar_user: &'a BarUser<'gpu>,
-     /// [`BarUserAccess::release`] [`Option::take`]s this; `Some` at
-     /// drop time means `release()` was never called.
-     mapped: Option<MappedRange>,
- }
- 
- #[expect(dead_code)]
--impl BarUserAccess<'_> {
-+impl BarUserAccess<'_, '_> {
-     /// Tear down the BAR1 mapping.
-     pub(crate) fn release(mut self, mm: &GpuMm<'_>) -> Result {
-         let mapped = self.mapped.take().ok_or(EINVAL)?;
-@@ -163,7 +163,7 @@ pub(crate) fn try_write64(&self, value: u64, offset: usize) -> Result {
-     }
- }
- 
--impl Drop for BarUserAccess<'_> {
-+impl Drop for BarUserAccess<'_, '_> {
-     fn drop(&mut self) {
-         if self.mapped.is_some() {
-             kernel::pr_warn!(
-@@ -181,10 +181,10 @@ fn drop(&mut self) {
- /// address space. Uses the `GpuMm`'s buddy allocator to allocate page tables
- /// and test pages as needed.
- #[cfg(CONFIG_NOVA_CORE_SELFTESTS)]
--pub(crate) fn run_self_test(
-+pub(crate) fn run_self_test<'gpu>(
-     dev: &device::Device<device::Bound>,
--    mm: &GpuMm<'_>,
--    bar_user: &BarUser<'_>,
-+    mm: &'gpu GpuMm<'_>,
-+    bar_user: &BarUser<'gpu>,
-     bar1_pdb: u64,
-     chipset: Chipset,
- ) -> Result {
-diff --git a/drivers/gpu/nova-core/mm/pagetable/map.rs b/drivers/gpu/nova-core/mm/pagetable/map.rs
-index 22e44386423f..968a900a1bba 100644
---- a/drivers/gpu/nova-core/mm/pagetable/map.rs
-+++ b/drivers/gpu/nova-core/mm/pagetable/map.rs
-@@ -57,9 +57,9 @@
- ///
- /// Created during the mapping prepare phase and consumed during the execute phase.
- /// Stored in an [`RBTree`] keyed by the PDE slot address (`install_addr`).
--pub(in crate::mm) struct PreparedPtPage {
-+pub(in crate::mm) struct PreparedPtPage<'gpu> {
-     /// The allocated and zeroed page table page.
--    pub(in crate::mm) alloc: Pin<KBox<AllocatedBlocks>>,
-+    pub(in crate::mm) alloc: Pin<KBox<AllocatedBlocks<'gpu>>>,
-     /// Page table level -- needed to determine if this PT page is for a dual PDE.
-     pub(in crate::mm) level: PageTableLevel,
- }
-@@ -82,7 +82,10 @@ pub(super) fn new(pdb_addr: VramAddress) -> Self {
-     }
- 
-     /// Allocate and zero a physical page table page.
--    fn alloc_and_zero_page(mm: &GpuMm<'_>, level: PageTableLevel) -> Result<PreparedPtPage> {
-+    fn alloc_and_zero_page<'gpu>(
-+        mm: &'gpu GpuMm<'_>,
-+        level: PageTableLevel,
-+    ) -> Result<PreparedPtPage<'gpu>> {
-         let blocks = KBox::pin_init(
-             mm.buddy().alloc_blocks(
-                 GpuBuddyAllocMode::Simple,
-@@ -113,11 +116,11 @@ fn alloc_and_zero_page(mm: &GpuMm<'_>, level: PageTableLevel) -> Result<Prepared
-     /// Ensure all intermediate page table pages exist for a single VFN.
-     ///
-     /// The mutable PRAMIN borrow ends before each allocation.
--    fn ensure_single_pte_path(
-+    fn ensure_single_pte_path<'gpu>(
-         &self,
--        mm: &GpuMm<'_>,
-+        mm: &'gpu GpuMm<'_>,
-         vfn: Vfn,
--        pt_pages: &mut RBTree<VramAddress, PreparedPtPage>,
-+        pt_pages: &mut RBTree<VramAddress, PreparedPtPage<'gpu>>,
-     ) -> Result {
-         let max_iter = 2 * M::PDE_LEVELS.len();
- 
-@@ -166,13 +169,13 @@ fn ensure_single_pte_path(
-     ///
-     /// Reserves capacity in `page_table_allocs`, then walks the hierarchy
-     /// per-VFN to prepare pages for all missing PDEs.
--    pub(super) fn prepare_map(
-+    pub(super) fn prepare_map<'gpu>(
-         &self,
--        mm: &GpuMm<'_>,
-+        mm: &'gpu GpuMm<'_>,
-         vfn_start: Vfn,
-         num_pages: usize,
--        page_table_allocs: &mut KVec<Pin<KBox<AllocatedBlocks>>>,
--        pt_pages: &mut RBTree<VramAddress, PreparedPtPage>,
-+        page_table_allocs: &mut KVec<Pin<KBox<AllocatedBlocks<'gpu>>>>,
-+        pt_pages: &mut RBTree<VramAddress, PreparedPtPage<'gpu>>,
-     ) -> Result {
-         // Pre-reserve so install_mappings() can use push_within_capacity (no alloc
-         // in fence signalling critical path).
-@@ -191,11 +194,11 @@ pub(super) fn prepare_map(
-     /// Install prepared PDEs and write PTEs, then flush TLB.
-     ///
-     /// Drains `pt_pages` and moves allocations into `page_table_allocs`.
--    pub(super) fn install_mappings(
-+    pub(super) fn install_mappings<'gpu>(
-         &self,
-         mm: &GpuMm<'_>,
--        pt_pages: &mut RBTree<VramAddress, PreparedPtPage>,
--        page_table_allocs: &mut KVec<Pin<KBox<AllocatedBlocks>>>,
-+        pt_pages: &mut RBTree<VramAddress, PreparedPtPage<'gpu>>,
-+        page_table_allocs: &mut KVec<Pin<KBox<AllocatedBlocks<'gpu>>>>,
-         vfn_start: Vfn,
-         pfns: &[Pfn],
-         writable: bool,
-@@ -306,13 +309,13 @@ pub(in crate::mm) fn new(pdb_addr: VramAddress, version: MmuVersion) -> Self {
-     }
- 
-     /// Prepare page table resources for a mapping.
--    pub(in crate::mm) fn prepare_map(
-+    pub(in crate::mm) fn prepare_map<'gpu>(
-         &self,
--        mm: &GpuMm<'_>,
-+        mm: &'gpu GpuMm<'_>,
-         vfn_start: Vfn,
-         num_pages: usize,
--        page_table_allocs: &mut KVec<Pin<KBox<AllocatedBlocks>>>,
--        pt_pages: &mut RBTree<VramAddress, PreparedPtPage>,
-+        page_table_allocs: &mut KVec<Pin<KBox<AllocatedBlocks<'gpu>>>>,
-+        pt_pages: &mut RBTree<VramAddress, PreparedPtPage<'gpu>>,
-     ) -> Result {
-         pt_map_dispatch!(
-             self,
-@@ -321,11 +324,11 @@ pub(in crate::mm) fn prepare_map(
-     }
- 
-     /// Install prepared PDEs and write PTEs, then flush TLB.
--    pub(in crate::mm) fn install_mappings(
-+    pub(in crate::mm) fn install_mappings<'gpu>(
-         &self,
-         mm: &GpuMm<'_>,
--        pt_pages: &mut RBTree<VramAddress, PreparedPtPage>,
--        page_table_allocs: &mut KVec<Pin<KBox<AllocatedBlocks>>>,
-+        pt_pages: &mut RBTree<VramAddress, PreparedPtPage<'gpu>>,
-+        page_table_allocs: &mut KVec<Pin<KBox<AllocatedBlocks<'gpu>>>>,
-         vfn_start: Vfn,
-         pfns: &[Pfn],
-         writable: bool,
-diff --git a/drivers/gpu/nova-core/mm/vmm.rs b/drivers/gpu/nova-core/mm/vmm.rs
-index c8258e579f8b..2ce6dca777ec 100644
---- a/drivers/gpu/nova-core/mm/vmm.rs
-+++ b/drivers/gpu/nova-core/mm/vmm.rs
-@@ -124,7 +124,7 @@ fn drop(&mut self) {
- ///
- /// Each [`Vmm`] instance manages a single address space identified by its Page
- /// Directory Base (`PDB`) address. Used for Channel, BAR1 and BAR2 mappings.
--pub(crate) struct Vmm {
-+pub(crate) struct Vmm<'gpu> {
-     /// Page Directory Base address for this address space.
-     #[expect(dead_code)]
-     pdb_addr: VramAddress,
-@@ -133,7 +133,7 @@ pub(crate) struct Vmm {
-     /// Page table mapper for prepare/execute operations.
-     pt_map: PtMap,
-     /// Page table allocations required for mappings.
--    page_table_allocs: KVec<Pin<KBox<AllocatedBlocks>>>,
-+    page_table_allocs: KVec<Pin<KBox<AllocatedBlocks<'gpu>>>>,
-     /// Maple tree allocator for virtual address range tracking.
-     virt_alloc: Pin<KBox<MapleTreeAlloc<()>>>,
-     /// Total number of pages in the virtual address space.
-@@ -142,10 +142,10 @@ pub(crate) struct Vmm {
-     ///
-     /// Populated during prepare phase and drained in execute phase. Shared by all
-     /// pending maps, preventing races on the same PDE slot.
--    pt_pages: RBTree<VramAddress, super::pagetable::map::PreparedPtPage>,
-+    pt_pages: RBTree<VramAddress, super::pagetable::map::PreparedPtPage<'gpu>>,
- }
- 
--impl Vmm {
-+impl<'gpu> Vmm<'gpu> {
-     /// Create a new [`Vmm`] for the given Page Directory Base address.
-     ///
-     /// The [`Vmm`] will manage a virtual address space of `va_size` bytes.
-@@ -220,7 +220,7 @@ pub(super) fn read_mapping(&self, mm: &GpuMm<'_>, vfn: Vfn) -> Result<Option<Pfn
-     /// to call outside the fence signalling critical path.
-     pub(crate) fn prepare_map(
-         &mut self,
--        mm: &GpuMm<'_>,
-+        mm: &'gpu GpuMm<'_>,
-         num_pages: usize,
-         va_range: Option<Range<u64>>,
-     ) -> Result<PreparedMapping> {
-@@ -297,7 +297,7 @@ pub(crate) fn execute_map(
-     /// [`Vmm::execute_map()`] will be called separately.
-     pub(crate) fn map_pages(
-         &mut self,
--        mm: &GpuMm<'_>,
-+        mm: &'gpu GpuMm<'_>,
-         pfns: &[Pfn],
-         va_range: Option<Range<u64>>,
-         writable: bool,
-diff --git a/rust/kernel/gpu/buddy.rs b/rust/kernel/gpu/buddy.rs
-index 39f7f9eca255..159a3695d475 100644
---- a/rust/kernel/gpu/buddy.rs
-+++ b/rust/kernel/gpu/buddy.rs
-@@ -28,11 +28,14 @@
- //! };
- //!
- //! // Create a 1GB buddy allocator with 4KB minimum chunk size.
--//! let buddy = GpuBuddy::new(GpuBuddyParams {
--//!     base_offset: 0,
--//!     size: SZ_1G as u64,
--//!     chunk_size: Alignment::SZ_4K,
--//! })?;
-+//! let buddy = KBox::pin_init(
-+//!     GpuBuddy::new(GpuBuddyParams {
-+//!         base_offset: 0,
-+//!         size: SZ_1G as u64,
-+//!         chunk_size: Alignment::SZ_4K,
-+//!     }),
-+//!     GFP_KERNEL,
-+//! )?;
- //!
- //! assert_eq!(buddy.size(), SZ_1G as u64);
- //! assert_eq!(buddy.chunk_size(), Alignment::SZ_4K);
-@@ -71,11 +74,14 @@
- //! #     ptr::Alignment,
- //! #     sizes::*, //
- //! # };
--//! # let buddy = GpuBuddy::new(GpuBuddyParams {
--//! #     base_offset: 0,
--//! #     size: SZ_1G as u64,
--//! #     chunk_size: Alignment::SZ_4K,
--//! # })?;
-+//! # let buddy = KBox::pin_init(
-+//! #     GpuBuddy::new(GpuBuddyParams {
-+//! #         base_offset: 0,
-+//! #         size: SZ_1G as u64,
-+//! #         chunk_size: Alignment::SZ_4K,
-+//! #     }),
-+//! #     GFP_KERNEL,
-+//! # )?;
- //! # let initial_free = buddy.avail();
- //! let topdown = KBox::pin_init(
- //!     buddy.alloc_blocks(
-@@ -111,11 +117,14 @@
- //! #     ptr::Alignment,
- //! #     sizes::*, //
- //! # };
--//! # let buddy = GpuBuddy::new(GpuBuddyParams {
--//! #     base_offset: 0,
--//! #     size: SZ_1G as u64,
--//! #     chunk_size: Alignment::SZ_4K,
--//! # })?;
-+//! # let buddy = KBox::pin_init(
-+//! #     GpuBuddy::new(GpuBuddyParams {
-+//! #         base_offset: 0,
-+//! #         size: SZ_1G as u64,
-+//! #         chunk_size: Alignment::SZ_4K,
-+//! #     }),
-+//! #     GFP_KERNEL,
-+//! # )?;
- //! # let initial_free = buddy.avail();
- //! // Create fragmentation by allocating 4MB blocks at [0,4M) and [8M,12M).
- //! let frag1 = KBox::pin_init(
-@@ -175,11 +184,14 @@
- //! #     sizes::*, //
- //! # };
- //! // Create a small 16MB buddy allocator with fragmented memory.
--//! let small = GpuBuddy::new(GpuBuddyParams {
--//!     base_offset: 0,
--//!     size: SZ_16M as u64,
--//!     chunk_size: Alignment::SZ_4K,
--//! })?;
-+//! let small = KBox::pin_init(
-+//!     GpuBuddy::new(GpuBuddyParams {
-+//!         base_offset: 0,
-+//!         size: SZ_16M as u64,
-+//!         chunk_size: Alignment::SZ_4K,
-+//!     }),
-+//!     GFP_KERNEL,
-+//! )?;
- //!
- //! let _hole1 = KBox::pin_init(
- //!     small.alloc_blocks(
-@@ -227,7 +239,6 @@
-     ptr::Alignment,
-     sync::{
-         lock::mutex::MutexGuard,
--        Arc,
-         Mutex, //
-     },
-     types::Opaque, //
-@@ -302,7 +313,11 @@ pub struct GpuBuddyParams {
-     pub chunk_size: Alignment,
- }
- 
--/// Inner structure holding the actual buddy allocator.
-+/// GPU buddy allocator instance.
-+///
-+/// Allocated blocks borrow this allocator.
-+///
-+/// Refer to the module-level documentation for usage examples.
- ///
- /// # Synchronization
- ///
-@@ -315,16 +330,19 @@ pub struct GpuBuddyParams {
- ///
- /// The `inner` field contains an initialized buddy allocator wrapped in [`Opaque`].
- #[pin_data(PinnedDrop)]
--struct GpuBuddyInner {
-+pub struct GpuBuddy {
-     #[pin]
-     inner: Mutex<Opaque<bindings::gpu_buddy>>,
-     /// Cached creation parameters (do not change after init).
-     params: GpuBuddyParams,
- }
- 
--impl GpuBuddyInner {
-+impl GpuBuddy {
-     /// Create a pin-initializer for the buddy allocator.
--    fn new(params: GpuBuddyParams) -> impl PinInit<Self, Error> {
-+    ///
-+    /// The allocator manages a contiguous address space of the given size, with the
-+    /// specified minimum allocation unit (chunk_size must be at least 4KB).
-+    pub fn new(params: GpuBuddyParams) -> impl PinInit<Self, Error> {
-         let size = params.size;
-         let chunk_size = params.chunk_size;
- 
-@@ -353,9 +371,20 @@ fn lock(&self) -> GpuBuddyGuard<'_> {
- }
- 
- #[pinned_drop]
--impl PinnedDrop for GpuBuddyInner {
-+impl PinnedDrop for GpuBuddy {
-     fn drop(self: Pin<&mut Self>) {
-         let guard = self.lock();
-+        let raw = guard.as_raw();
-+
-+        // In case allocations have been leaked, e.g. with `mem::forget()`,
-+        // leak the C allocator's resources as well: `gpu_buddy_fini()` requires
-+        // all blocks to have been returned.
-+        // SAFETY: Per the type invariant, `raw` points to an initialized
-+        // allocator. `guard` provides exclusive access.
-+        if unsafe { (*raw).avail != (*raw).size } {
-+            crate::pr_warn!("GPU buddy allocator dropped with outstanding allocations\n");
-+            return;
-+        }
- 
-         // SAFETY: Per the type invariant, `inner` contains an initialized
-         // allocator. `guard` provides exclusive access.
-@@ -363,12 +392,12 @@ fn drop(self: Pin<&mut Self>) {
-     }
- }
- 
--// SAFETY: `GpuBuddyInner` can be sent between threads.
--unsafe impl Send for GpuBuddyInner {}
-+// SAFETY: `GpuBuddy` can be sent between threads.
-+unsafe impl Send for GpuBuddy {}
- 
--// SAFETY: `GpuBuddyInner` is `Sync` because `GpuBuddyInner::lock`
-+// SAFETY: `GpuBuddy` is `Sync` because `GpuBuddy::lock`
- // serializes all access to the C allocator, preventing data races.
--unsafe impl Sync for GpuBuddyInner {}
-+unsafe impl Sync for GpuBuddy {}
- 
- /// Guard that proves the lock is held, enabling access to the allocator.
- ///
-@@ -384,41 +413,25 @@ fn as_raw(&self) -> *mut bindings::gpu_buddy {
-     }
- }
- 
--/// GPU buddy allocator instance.
--///
--/// This structure wraps the C `gpu_buddy` allocator using reference counting.
--/// The allocator is automatically cleaned up when all references are dropped.
--///
--/// Refer to the module-level documentation for usage examples.
--pub struct GpuBuddy(Arc<GpuBuddyInner>);
--
- impl GpuBuddy {
--    /// Create a new buddy allocator.
--    ///
--    /// The allocator manages a contiguous address space of the given size, with the
--    /// specified minimum allocation unit (chunk_size must be at least 4KB).
--    pub fn new(params: GpuBuddyParams) -> Result<Self> {
--        Arc::pin_init(GpuBuddyInner::new(params), GFP_KERNEL).map(Self)
--    }
--
-     /// Get the base offset for allocations.
-     pub fn base_offset(&self) -> u64 {
--        self.0.params.base_offset
-+        self.params.base_offset
-     }
- 
-     /// Get the chunk size (minimum allocation unit).
-     pub fn chunk_size(&self) -> Alignment {
--        self.0.params.chunk_size
-+        self.params.chunk_size
-     }
- 
-     /// Get the total managed size.
-     pub fn size(&self) -> u64 {
--        self.0.params.size
-+        self.params.size
-     }
- 
-     /// Get the available (free) memory in bytes.
-     pub fn avail(&self) -> u64 {
--        let guard = self.0.lock();
-+        let guard = self.lock();
- 
-         // SAFETY: Per the type invariant, `inner` contains an initialized allocator.
-         // `guard` provides exclusive access.
-@@ -434,15 +447,14 @@ pub fn alloc_blocks(
-         size: u64,
-         min_block_size: Alignment,
-         flags: impl Into<GpuBuddyAllocFlags>,
--    ) -> impl PinInit<AllocatedBlocks, Error> {
--        let buddy_arc = Arc::clone(&self.0);
-+    ) -> impl PinInit<AllocatedBlocks<'_>, Error> {
-         let (start, end) = mode.range();
-         let mode_flags = mode.as_flags();
-         let modifier_flags = flags.into();
- 
-         // Create pin-initializer that initializes list and allocates blocks.
-         try_pin_init!(AllocatedBlocks {
--            buddy: buddy_arc,
-+            buddy: self,
-             list <- CListHead::new(),
-             _: {
-                 // Reject zero-sized or inverted ranges.
-@@ -483,13 +495,13 @@ pub fn alloc_blocks(
- ///
- /// - `list` is an initialized, valid list head containing allocated blocks.
- #[pin_data(PinnedDrop)]
--pub struct AllocatedBlocks {
-+pub struct AllocatedBlocks<'a> {
-     #[pin]
-     list: CListHead,
--    buddy: Arc<GpuBuddyInner>,
-+    buddy: &'a GpuBuddy,
- }
- 
--impl AllocatedBlocks {
-+impl AllocatedBlocks<'_> {
-     /// Check if the block list is empty.
-     pub fn is_empty(&self) -> bool {
-         // An empty list head points to itself.
-@@ -522,7 +534,7 @@ pub fn iter(&self) -> impl Iterator<Item = AllocatedBlock<'_>> + '_ {
- }
- 
- #[pinned_drop]
--impl PinnedDrop for AllocatedBlocks {
-+impl PinnedDrop for AllocatedBlocks<'_> {
-     fn drop(self: Pin<&mut Self>) {
-         let guard = self.buddy.lock();
- 
-@@ -582,7 +594,7 @@ unsafe impl Sync for Block {}
- /// Returned by [`AllocatedBlocks::iter()`].
- pub struct AllocatedBlock<'a> {
-     this: &'a Block,
--    blocks: &'a AllocatedBlocks,
-+    blocks: &'a AllocatedBlocks<'a>,
- }
- 
- impl AllocatedBlock<'_> {
+>=20
+> Best regards,
+> Xiangwu Lai
+>=20
+>=20
 
-base-commit: 2a874fc59fdeb07159b627ca7681cfe6b4cff1de
--- 
-2.56.1
+--=-8ZFNuaxoCdWsEFtb942r
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawiuggAKCRDZQZRRKWBy
+9GJKAP40X/F3Jok+Mf+mGyPEt9dc4YPrSePyENDVB5NhmdUlBgD9G+Xkv+NsCBfL
+wi/Et2PiHfDw4fFbZgFDQaYC+XR4Vwg=
+=Cnt+
+-----END PGP SIGNATURE-----
+
+--=-8ZFNuaxoCdWsEFtb942r--
