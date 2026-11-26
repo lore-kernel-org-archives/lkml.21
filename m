@@ -1,58 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.71.93.112
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795702157;
-	b=E/u4NiVPm00deCBf4kiYPnGvtmqnghLYuE/NOodm4mTSTSPuUP3H9RYsHI0dERaBDpwD
-	 3gN0aqPIwPyH1l/No7h/U+fvS2SVC8nRSiNU+tycztJnKdZjt5ofIgLTGV88eWn/23ebf
-	 ZKXGW064+EpEVTtop+nZ1kNOuswWXHYPNSjwfP4qxRxdIZvWMzBMHrfTukP5q34ugkEwd
-	 p8Z6vC1jTVZh80/3/oYyIyvHBzxYnfX+uwn/+w+CCl943P4q6LnSHATPmg60BJlGIOGyv
-	 dtv+jg+zQcNo3AiVNnCsadx+MsB4a1I5P/T0ZQqL8SquX6N7z/Xn8cvScgCUD92aFdg==
+	t=1795702155;
+	b=0V5xxWCeYdTfr9OE18YzvU44uQ/KreznnAwRIRM0GIAs+FWtQcrBHFEZ17mqcpNA6kS1
+	 9zWI+5f/hu6ByvWkESybhVxRnNE4v17/r6op+KM4hl6zgO4fzcHzFduMHfPlKxlA0unk6
+	 nlS+NHtx5WTW3+/ptwhsH9t7Xew0PAxGSdFMC43829PUqE84mPI92ec9ieWJEcO4bkkIn
+	 BPWCJkGiuhQMb+ZUjVs6o12z/ZG+G4uNczlB63n/jMEiv7F2EfPfpIzZVsC4SBzLA4chn
+	 XAOtTmeTw7tNyeDdYvmQNVY6jMW6DJCOpwZNmWmUPn33fAUxqI2hZ7wNM2nqHW95nEQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795702157;
-	h=DMARC-Filter:Received:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=Rf3v+CLOqjZdZyhzB4/SDElBJTZGH4TAHVYUJzau4dM=;
-	b=zw/70zz70MjMt2/9GWd10JN+8Kem5h3+IfFhrijTelFWI0H6aX8yJfaC4PVbOjRVrby1
-	 hDIZAZ1tU/9q9BwTwrp8ip9evZ55PvrYpk2c7cAFg9DlMg3N/h8QDrQzmJhSLHT5nZO4o
-	 0M2DU2eyP9EJ3WRB2zvqBfy3RT8H+PBzsb6aheh2tiLL0eww7U1Ovnx6sgZzY/BX76pFg
-	 zAReS43g7IUdr48ytX44sDmoUO2seD9sUk435o2D8y3334503DnOKPVKXJk40O5ilsnUB
-	 I3d8r0R0hymU4zkhAQy/ZOBx6CxmFvU1qqrx/2KWny5gU1T3Wbj+vUd1BGPOqkCJH0A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795702155;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 Organization;
+	bh=DvNlOLrQl1zHrzP9kMdWeXuOLflsfgIOeWg11YWjZXQ=;
+	b=h7lR0hLcH7oYCf/RVhcjOwg6xgmjdTN30tBi2ycP9Mwk6pJThljqgmcVqI7cYfL3ZE1e
+	 FLMFOHfe8khY0AjdBlAId1+HrONxj+YCI7cSZLkcz/1k5wHEkQwl+d1UWk1KpQubLyz9l
+	 xdNb0AQLQoksgkGIwbbOHVSdGC98hNKix/p4k/NoHGrbi/bq/ZXSW+sdkdpnn/FRrKGgk
+	 EDZTzhFmwAiE84muwiF8pYpDVxzCD4TEEAQkhlrTKMqwoM7OR6bbNRMKOGW//ZkCLRGc+
+	 r5uG0aAqf4JlsbV5V6TL4oNPq+Vs0Lt7t/EnCxAzsI9O6nFmZqUYJ3ip00L5VYJo9Sg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=huaweicloud.com;
-	spf=none smtp.mailfrom=huaweicloud.com;
-	arc=none smtp.remote-ip=124.71.93.112
-Received: from dggmsgout12.his.huawei.com (dggmsgout12.his.huawei.com [124.71.93.112])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="Hy0O/aai";
+	arc=none smtp.remote-ip=198.175.65.13
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B409E606A329;
-	Thu, 26 Nov 2026 14:09:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B409E606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=huaweicloud.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=huaweicloud.com
-Received: from mail.maildlp.com (unknown [172.19.163.170])
-	by dggmsgout12.his.huawei.com (SkyGuard) with ESMTP id 4jZz1b2yL1z1yQR;
-	Thu, 26 Nov 2026 22:09:07 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id E101F4056B;
-	Thu, 26 Nov 2026 22:09:12 +0800 (CST)
-Received: from huaweicloud.com (unknown [10.50.85.155])
-	by APP4 (Coremail) with UTF8SMTPSA id gCh0CgCXzeyHPQhrhJmPFw--.54669S4;
-	Thu, 26 Nov 2026 22:09:12 +0800 (CST)
-From: Zizhi Wo <wozizhi@huaweicloud.com>
-To: cem@kernel.org,
-	dgc@kernel.org,
-	djwong@kernel.org,
-	hch@lst.de,
-	linux-xfs@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	yangerkun@huawei.com,
-	chengzhihao1@huawei.com,
-	wozizhi@huawei.com
-Subject: [PATCH V2] xfs: remove duplicated lines
-Date: Thu, 26 Nov 2026 21:59:47 +0800
-Message-ID: <20261126135947.2820748-1-wozizhi@huaweicloud.com>
-X-Mailer: git-send-email 2.52.0
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 372C4606A31E;
+	Thu, 26 Nov 2026 14:09:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 372C4606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Hy0O/aai
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795702155; x=1827238155;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=PI3GrZI82El5lUJzgozmBlkYPr4rbm0RBQwTQ9QQDgw=;
+  b=Hy0O/aais8HXosRGemDnTFsNa3IM5IFVFii8tRyBgq//EnGdmmRKzvB0
+   wbUqYi+UJcWV/9OtnWHJGpRaiHdX5oVl0RdAMNCcMB6E/zeMQSkmsOGQi
+   TCrwu7VvyQ+ewwaDpXkaCk1TPGxD3WIedUwOOxMsXiVhS2VZmijRm9/s1
+   eeFN/p1A9D5RtUZLrFNo730lmeog9u1yVHDjqyNvM3SS3FYVQDQlGNO2E
+   TPMp5s3JT8BoyXVms9Tte1Td4NS3HzpOXCFdcADdaYpAP6w82XA+RoLkI
+   Ut3cR2a4fiUxUzk6LmmX3ewVTr8mFvFbCDYsVpe+4CiBOtqJXgCavzcUO
+   g==;
+X-CSE-ConnectionGUID: ol+OMnd3S4O/1ErlUzK6+w==
+X-CSE-MsgGUID: fp8sqwUmQreRtI20tWlWug==
+X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4521876"
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="4521876"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 06:09:14 -0800
+X-CSE-ConnectionGUID: i6VYdyTHT5GnpdEIrjIaBw==
+X-CSE-MsgGUID: /a0WLyTTSEK/u/ofaWNDRQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="12601443"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.208])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 06:09:11 -0800
+Date: Thu, 26 Nov 2026 16:09:09 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Mika Westerberg <mika.westerberg@linux.intel.com>
+Cc: Linus Walleij <linusw@kernel.org>,
+	Maciej Strozek <mstrozek@opensource.cirrus.com>,
+	Andy Shevchenko <andy@kernel.org>, brgl@kernel.org,
+	patches@opensource.cirrus.com, linux-gpio@vger.kernel.org,
+	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] pinctrl: cs42l43: Add GPIO controlled mic/spk mute LEDs
+Message-ID: <awg9hXmlaX4zjmQH@ashevche-desk.local>
+References: <20261110142058.354518-1-mstrozek@opensource.cirrus.com>
+ <CAD++jLmUNxbVBLXg1aGysRGCjcQFjo=JSwx4-=8TWa7bj-iXuA@mail.gmail.com>
+ <20261126073545.GM191152@black.igk.intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,74 +84,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:gCh0CgCXzeyHPQhrhJmPFw--.54669S4
-X-Coremail-Antispam: 1UD129KBjvJXoW7trW5tFWkWF13tF18Ar1DJrb_yoW8uF4xpF
-	95G3yUKFs8Jw1UuF4fXw409w1Ik34xu3ykJFy8ArySqwn8tr4jkF1DKr1Fvr1rXan5Wrnr
-	Xr15tr4IvanrW3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUyKb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
-	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij
-	64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x
-	8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE
-	2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42
-	xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF
-	7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUF1v3UUUUU
-X-CM-SenderInfo: pzr2x6tkl6x35dzhxuhorxvhhfrp/
+In-Reply-To: <20261126073545.GM191152@black.igk.intel.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-From: Zizhi Wo <wozizhi@huawei.com>
+On Thu, Nov 26, 2026 at 08:35:45AM +0100, Mika Westerberg wrote:
+> On Wed, Nov 25, 2026 at 07:06:24PM +0100, Linus Walleij wrote:
+> > On Tue, Nov 10, 2026 at 3:21 PM Maciej Strozek
+> > <mstrozek@opensource.cirrus.com> wrote:
 
-Remove duplicated lines:
-- xfs_ondisk.h checks the size of struct xfs_attrlist twice.
-- xfs_rtgroup.h declares xfs_rtginode_irele() twice.
+...
 
-No functional changes.
+> > > Add ability to use cs42l43's GPIOs to drive speaker and microphone mute
+> > > LEDs. The LEDs must be described using
+> > > 01fa-global-mute-led-(spk|mic)-mute-gpio ACPI property, which tells
+> > > which of the 3 available cs42l43's GPIOs to use for the respective
+> > > function.
+> > >
+> > > Signed-off-by: Maciej Strozek <mstrozek@opensource.cirrus.com>
+> > 
+> > ACPI property, so Andy and Mika need to decide if this is a reasonable
+> > way to go about this issue.
+> 
+> I think the properties themselves are already "known" so that should be
+> okay (but let's see if Andy has any comments), there is though a tiny
+> observation below.
 
-Fixes: 650b774cf944 ("xfs: add static size checks for ioctl UABI")
-Fixes: 6b08901a6e8f ("xfs: add realtime reverse map inode to metadata directory")
-Signed-off-by: Zizhi Wo <wozizhi@huawei.com>
----
- fs/xfs/libxfs/xfs_ondisk.h  | 1 -
- fs/xfs/libxfs/xfs_rtgroup.h | 2 --
- 2 files changed, 3 deletions(-)
+Yeah, I think it's some kind of vendor/device specific MIPI properties.
+Would be nice to know if they are specified somewhere or is it just a vendor
+push.
 
-diff --git a/fs/xfs/libxfs/xfs_ondisk.h b/fs/xfs/libxfs/xfs_ondisk.h
-index 23cde1248f01..ae16b1bc2bbe 100644
---- a/fs/xfs/libxfs/xfs_ondisk.h
-+++ b/fs/xfs/libxfs/xfs_ondisk.h
-@@ -303,11 +303,10 @@ xfs_check_ondisk_structs(void)
- 	XFS_CHECK_STRUCT_SIZE(struct dioattr,			12);
- 	XFS_CHECK_STRUCT_SIZE(struct getbmap,			32);
- 	XFS_CHECK_STRUCT_SIZE(struct getbmapx,			48);
- 	XFS_CHECK_STRUCT_SIZE(struct xfs_attrlist_cursor,	16);
- 	XFS_CHECK_STRUCT_SIZE(struct xfs_attrlist,		8);
--	XFS_CHECK_STRUCT_SIZE(struct xfs_attrlist,		8);
- 	XFS_CHECK_STRUCT_SIZE(struct xfs_attrlist_ent,		4);
- 	XFS_CHECK_STRUCT_SIZE(struct xfs_ag_geometry,		128);
- 	XFS_CHECK_STRUCT_SIZE(struct xfs_rtgroup_geometry,	128);
- 	XFS_CHECK_STRUCT_SIZE(struct xfs_error_injection,	8);
- 	XFS_CHECK_STRUCT_SIZE(struct xfs_fsop_geom,		256);
-diff --git a/fs/xfs/libxfs/xfs_rtgroup.h b/fs/xfs/libxfs/xfs_rtgroup.h
-index fca2eb74908c..e505be68462b 100644
---- a/fs/xfs/libxfs/xfs_rtgroup.h
-+++ b/fs/xfs/libxfs/xfs_rtgroup.h
-@@ -326,12 +326,10 @@ int xfs_rtginode_load(struct xfs_rtgroup *rtg, enum xfs_rtg_inodes type,
- 		struct xfs_trans *tp);
- int xfs_rtginode_create(struct xfs_rtgroup *rtg, enum xfs_rtg_inodes type,
- 		bool init);
- void xfs_rtginode_irele(struct xfs_inode **ipp);
- 
--void xfs_rtginode_irele(struct xfs_inode **ipp);
--
- static inline const char *xfs_rtginode_path(xfs_rgnumber_t rgno,
- 		enum xfs_rtg_inodes type)
- {
- 	return kasprintf(GFP_KERNEL, "%u.%s", rgno, xfs_rtginode_name(type));
- }
 -- 
-2.52.0
+With Best Regards,
+Andy Shevchenko
+
 
