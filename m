@@ -1,69 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795681995;
-	b=d0u/FblzDc810btIKNmrSK18Ie2dcKYP0eixqaaliyGBBYs0xOkkPZxQ+ecMeh3KKKnN
-	 RoodQkmc4vG24B8j8cvjQzRWjILO6FA2FlBFcvysSx4s/Kz8B3YIibF+xW4ktE99pO9L0
-	 RE3Q0s+COGZC6kHRihNFi7q/YrZ369SwHT93NZhDuiD8nmrDI/LFxrso0s5+pdVcdn5lJ
-	 1SWxrGe0Tkrc1WVZ7ZM9qzmJ226G0RHh2cUZWT/oRzzuhZzB8pG09Xl5khgySEzhhXdkr
-	 OdLcYAz0P+CI2+8zyEP5PaMKbsugjA6L6alqfHznmXGODDW3P/+6EQGoi9/Zb+b4oJQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795681995;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.54
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795682000;
+	b=baiUufLGcWCQ1zlMwiq0xkkjLqGV54HNuxMZHh3aYzEMji4FGTlh5gCySqynT2xYqcN8
+	 cfSxB82aXM8XsYJA4t+h4KZFS2x/smipHIls3ckCYhHNNl5agWTWqI/dASDQwrXBwpv9d
+	 vWfN1ZyGZvkhFrZ2sXf/v2bV+0aXB30+zUKBhpifplHPZ97JXl/qOhcQwgDNAzJtlJgp2
+	 sLsAdjHWxNmvWo+gxFMTVJmeHt4s7aIGHjWv1+x3R59zu+cWR0YDeQk5RovnqqDaV+gjs
+	 w+h41Gd81o6OcLbuMp289GPvwHj4ihhS5YI0HeQDCKZixp4cua4PKk9ea7xDlLF9JDA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795682000;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=nCH8/fK/79/4HwBEsWjNQeba8WdELHcw+AkXG60vLr8=;
-	b=r44FnHSdsTHf0XUpw1X+8RvkZiK7qxlb5tksCB0M4dFkcp6dHrcnBHFQzrtwKoDtw2Pr
-	 PqwYpBG6jtJ20MsshXF/tBDQ6jx5Vpgdo7DUcLPde+xiWrXQ0PMB8BJIR1rUulmpzSIl3
-	 K5iaBNQid7L1xj333/Ahd+PZLoOxUBXF/9uiGaxKl4RFlmzecmGu5C6xSUjS/cctuYEyh
-	 aiZia3ciQgod0gzZDwQqUYhIUM9ZwSrhFo6t9P+9LthnXTQqAE0v9evNp1dxD0uGGnE77
-	 sqsyWe98u+teeeCPGKEJ42EUAvWjCf88/XHjqSk9cowmGb+siy64WqxngytUWzDNM3A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=GV9aOOCJ;
-	arc=none smtp.remote-ip=117.135.210.3
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-ZohoMailClient;
+	bh=YrHi3lnVLAyHuMC7PGUtpzbWe+RBGUYunHVWGMqGXa4=;
+	b=LTmnoNyYGGXvawm14sqK8BWtJwUkHfxdWYQbCWM/64DBo4aAHXfBNuTnToZREeWquFD+
+	 jsv2uJO3PoKC0rDHk1If9D5svb5fzznoIMH97Xcv9mpX2pacSXQdvKup2J9UA0L1kKP0o
+	 x5R/zEwCsMYjiDKDaUMPuSq6jS1zgrUHAyL/QWe8lsWIPkCdwo0omgmAhsOr4gwjVVBGz
+	 FB1I9lFSvJHjXwmfazvb/PyhUWwQiCqpLCVE1QUMUA7M1BaO3NXJUc8DYt3OBulZcr98t
+	 zO+niU9Ss4UVT/bhxX/6JJ8CgJPf0I90vrvBegdLQBzHA0xju4M2UfdIH6ciRyyVUPw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ph4ntom-rev.uz;
+	spf=pass smtp.mailfrom=ph4ntom-rev.uz;
+	dkim=pass header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=MH3WNyqS;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.54
+Received: from sender6-of-o54.zoho.com (sender6-of-o54.zoho.com [165.173.180.54])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2AF74606A333;
-	Thu, 26 Nov 2026 08:33:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2AF74606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A95F606A31E;
+	Thu, 26 Nov 2026 08:33:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A95F606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ph4ntom-rev.uz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ph4ntom-rev.uz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=GV9aOOCJ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=nC
-	H8/fK/79/4HwBEsWjNQeba8WdELHcw+AkXG60vLr8=; b=GV9aOOCJu+0MLUEYsd
-	vEkImprJc8dRRDQS/VOO02DqfwlA5p3RiVfrvVeGNoj5Tfwc2zpjqf3whrzznwQb
-	kftuDqtYxs1JMTOKwv2dCCz3f5tu0yWknuXs1yGCgroWPsqBRUi8XTUzY4L/2S6T
-	kuPXrxed/L6gg/VdWrsjYxDbw=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wD3_72N7gdr0m+nLA--.38709S4;
-	Thu, 26 Nov 2026 16:32:16 +0800 (CST)
-From: "Li Youhong" <dayou5941@163.com>
-To: song@kernel.org,
-	yukuai@fygo.io,
-	agk@redhat.com,
-	snitzer@kernel.org,
-	mpatocka@redhat.com,
-	bmarzins@redhat.com
-Cc: magiclinan@didiglobal.com,
-	xiao@kernel.org,
-	linux-raid@vger.kernel.org,
-	dm-devel@lists.linux.dev,
+	dkim=pass (2048-bit key) header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=MH3WNyqS
+ARC-Seal: i=1; a=rsa-sha256; t=1795681938; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=B+ZKOUTaAJQ134Sq0oXks9qGCiTjUmhJSCDcwyClKl1VslFY5rgWDoiC4H/17KYxIj9uSAWurPq7u8LQ3PALYec2qPhRv2cz/plKKfnJ+wBRtEx5cvfXRS45DNPR+7qQC3BN1cefYbgbk7qjU9xKGDRhjYJo5FaAOfyyMRpztyU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795681938; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=YrHi3lnVLAyHuMC7PGUtpzbWe+RBGUYunHVWGMqGXa4=; 
+	b=bCJRTzfL147CAvgih0n1bzL/vqpsnTm3J7YN1T9A7NTyBFeQj9sD8dtZF4DI/WfvS5yOvt6P1dWQ5kpUYN0wt1VU8hVtjvx1ousGDMkdk30c3ou8c19XkBL6ey4xjyauFf6AK4E7K8B2l1p7C4soR6Wau6ljy6eYVZ/JsSyn9+E=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ph4ntom-rev.uz;
+	spf=pass  smtp.mailfrom=owner@ph4ntom-rev.uz;
+	dmarc=pass header.from=<owner@ph4ntom-rev.uz>
+DKIM-Signature: a=rsa-sha256; b=MH3WNyqS4twpHrUknplKUzXai5dKfgFP+8lrwRO3f94LNIYVlHWyHhCrNxMK7Xx9scncTYqZTLUg4Aej8LaY/LJ5hnCT2Hln98MqMk/kNE+5TjLVeaWDgv9qsW7in5eGom2zpj4YGVUH1F9qg3PRdm/lEpnv3peH/jdlkUAcDEgnOZIOiYBu/J2PhGfwsbiZEaEDlRdOrNjxFYY3E+PbUiVoYszuJPRHyHDCL24jrsGcuQTimOX9igR3hePAeM4eqItlRRDU5Q/nPpfpipE88P4SFizvaeo+8cHEQ2EYtKnKRrdLKfSZenW6h3OIDsgo4bDpIIpw3qINxE46Lmq6Lg==; c=relaxed/relaxed; s=zoho; d=ph4ntom-rev.uz; v=1; bh=YrHi3lnVLAyHuMC7PGUtpzbWe+RBGUYunHVWGMqGXa4=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795681935888938.2172003281665;
+	Thu, 26 Nov 2026 00:32:15 -0800 (PST)
+From: Enver Ikromov <owner@ph4ntom-rev.uz>
+To: Ping-Ke Shih <pkshih@realtek.com>
+Cc: linux-wireless@vger.kernel.org,
+	Ahmet Zeren <niko3x@proton.me>,
+	Luka Gejak <luka.gejak@linux.dev>,
+	Bitterblue Smith <rtl8821cerfe2@gmail.com>,
 	linux-kernel@vger.kernel.org,
-	syzbot+a53c2918175b36cfd601@syzkaller.appspotmail.com,
-	liyouhong@kylinos.cn,
-	stable@vger.kernel.org
-Subject: [PATCH v7 2/2] md: fix sync_work vs array teardown races
-Date: Thu, 26 Nov 2026 16:32:10 +0800
-Message-Id: <20261126083210.210866-3-dayou5941@163.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261126083210.210866-1-dayou5941@163.com>
-References: <20261126083210.210866-1-dayou5941@163.com>
+	Enver Ikromov <owner@ph4ntom-rev.uz>
+Subject: [PATCH rtw-next 1/2] wifi: rtw89: fix retry limit and NO_ACK status for injected frames
+Date: Thu, 26 Nov 2026 13:31:40 +0500
+Message-ID: <20261126083141.1470-2-owner@ph4ntom-rev.uz>
+X-Mailer: git-send-email 2.56.0.windows.4
+In-Reply-To: <20261126083141.1470-1-owner@ph4ntom-rev.uz>
+References: <20261126083141.1470-1-owner@ph4ntom-rev.uz>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,132 +71,108 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3_72N7gdr0m+nLA--.38709S4
-X-Coremail-Antispam: 1Uf129KBjvJXoWxZF15AF4xZry3Kw45tr1DKFg_yoWrury5p3
-	yrJFn8Jr4Ut3yrZFyDKFyDua4Yvw1ag3yDtryxua4rAw1ftr4a9Fy093WjvFWDJas3tayU
-	Z3yrJFZxZFyvgF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jzNtcUUUUU=
-X-CM-SenderInfo: 5gd103ivzuiqqrwthudrp/xtbC+RF8K2sH7pG+5wAA31
+X-ZohoMailClient: External
 
-From: Li Youhong <liyouhong@kylinos.cn>
+Commit 92608bb5f14f ("wifi: rtw89: honor ASSIGN_SEQ, retries, and
+NO_ACK for injected frames") has three issues:
 
-dm-raid tears down arrays via md_stop(), which cleared mddev->pers
-without waiting for previously queued sync_work. That work could
-then call remove_spares() with pers == NULL, or keep using mddev
-after raid_dtr() frees it.
+1. rtw89_core_tx_update_injection() uses info->control.rates[0].count
+   without checking IEEE80211_TX_CTRL_RATE_INJECT. When a radiotap rate
+   is unsupported on the current band or stream capability,
+   ieee80211_parse_tx_radiotap() clears IEEE80211_TX_CTRL_RATE_INJECT
+   while still populating rates[0].count. Gate the per-packet retry
+   override on IEEE80211_TX_CTRL_RATE_INJECT.
 
-do_md_stop()/md_stop_writes() already call stop_sync_thread() before
-teardown. Do the same in md_stop().
+2. hw->max_rate_tries is set to RTW89_TX_DATA_CNT_LMT_MAX (63), which
+   exceeds the 5-bit struct ieee80211_tx_rate::count field and causes
+   radiotap retry counts above 30 to wrap around. Set
+   hw->max_rate_tries to IEEE80211_MAX_TX_RETRY (31) and drop the
+   unused macro.
 
-Calling stop_sync_thread() from md_stop() can drop reconfig_mutex,
-which introduces two follow-on issues:
+3. rtw89_tx_rpt_tx_status() sets IEEE80211_TX_STAT_NOACK_TRANSMITTED
+   unconditionally for NO_ACK frames (including RTW89_TX_MACID_DROP and
+   RTW89_TX_LIFE_TIME) and also sets IEEE80211_TX_STAT_ACK when
+   tx_status == RTW89_TX_DONE. Because Wi-Fi 6 AX chips lack a TX
+   descriptor NO_ACK bit and implement NO_ACK via tx_cnt_lmt = 1,
+   unacknowledged unicast NO_ACK frames complete with
+   RTW89_TX_RETRY_LIMIT, whereas broadcast, QoS No-Ack, and Wi-Fi 7 BE
+   NO_ACK frames complete with RTW89_TX_DONE. Clear stale status bits
+   and report IEEE80211_TX_STAT_NOACK_TRANSMITTED exclusively on
+   RTW89_TX_DONE or RTW89_TX_RETRY_LIMIT, reserving
+   IEEE80211_TX_STAT_ACK for frames without IEEE80211_TX_CTL_NO_ACK.
 
-- When nothing is in flight, keep reconfig_mutex if the caller held
-  it (gate the idle early-return with work_busy()). Otherwise clear
-  of an inactive array can race with do_md_run().
+Fixes: 92608bb5f14f ("wifi: rtw89: honor ASSIGN_SEQ, retries, and NO_ACK for injected frames")
+Reported-by: Luka Gejak <luka.gejak@linux.dev>
+Closes: https://lore.kernel.org/linux-wireless/7904907C-A864-4DE9-AE9B-65082A38B29B@linux.dev/
+Reported-by: Ahmet Zeren <niko3x@proton.me>
+Closes: https://lore.kernel.org/linux-wireless/Qmyu_zaapR7fisQhYB1W9CDM3OG849otNXR4xWRbIaRocvy40VyY4N2Jte4IHqD33nCI_txHle2bL5F7S0b6Bv_uXvCyk9MJ35CFHWzopyE=@proton.me/
+Signed-off-by: Enver Ikromov <owner@ph4ntom-rev.uz>
+---
+ drivers/net/wireless/realtek/rtw89/core.c |  5 +++--
+ drivers/net/wireless/realtek/rtw89/core.h |  1 -
+ drivers/net/wireless/realtek/rtw89/mac.h  | 13 ++++++++-----
+ 3 files changed, 11 insertions(+), 8 deletions(-)
 
-- While the mutex is dropped, mddev->thread may run
-  md_reap_sync_thread() and queue event_work. Flush event_work on
-  the raid_ctr() error path before raid_set_free().
-
-Separately, the read-only path in md_check_recovery() queued
-sync_work without honouring MD_RECOVERY_FROZEN, unlike the
-read-write path. Check FROZEN there so freeze/stop cannot race
-with a new queue.
-
-Fixes: db5e653d7c9f ("md: delay choosing sync action to md_start_sync()")
-Fixes: 81e2ce1b3d5a ("md: delay remove_and_add_spares() for read only array to md_start_sync()")
-Reported-by: syzbot+a53c2918175b36cfd601@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=a53c2918175b36cfd601
-Cc: stable@vger.kernel.org
-Signed-off-by: Li Youhong <liyouhong@kylinos.cn>
-
-diff --git a/drivers/md/dm-raid.c b/drivers/md/dm-raid.c
-index ac019a0f5a92..f82c09d858de 100644
---- a/drivers/md/dm-raid.c
-+++ b/drivers/md/dm-raid.c
-@@ -3319,6 +3319,13 @@ static int raid_ctr(struct dm_target *ti, unsigned int argc, char **argv)
- 	md_stop(&rs->md);
- 	mddev_unlock(&rs->md);
- bad:
-+	/*
-+	 * md_stop() may drop reconfig_mutex so mddev->thread can run
-+	 * md_reap_sync_thread() and queue event_work; wait for it before
-+	 * freeing raid_set. Skip if INIT_WORK has not run yet.
-+	 */
-+	if (rs->md.event_work.func)
-+		flush_work(&rs->md.event_work);
- 	raid_set_free(rs);
+diff --git a/drivers/net/wireless/realtek/rtw89/core.c b/drivers/net/wireless/realtek/rtw89/core.c
+index 31d52fb99..8421c78c2 100644
+--- a/drivers/net/wireless/realtek/rtw89/core.c
++++ b/drivers/net/wireless/realtek/rtw89/core.c
+@@ -1274,7 +1274,8 @@ static void rtw89_core_tx_update_injection(struct rtw89_dev *rtwdev,
+ 		desc_info->no_ack = true;
+ 		desc_info->tx_cnt_lmt_en = true;
+ 		desc_info->tx_cnt_lmt = 1;
+-	} else if (info->control.rates[0].count) {
++	} else if ((info->control.flags & IEEE80211_TX_CTRL_RATE_INJECT) &&
++		   info->control.rates[0].count) {
+ 		desc_info->tx_cnt_lmt_en = true;
+ 		desc_info->tx_cnt_lmt = info->control.rates[0].count;
+ 	}
+@@ -7561,7 +7562,7 @@ static int rtw89_core_register_hw(struct rtw89_dev *rtwdev)
+ 	hw->queues = IEEE80211_NUM_ACS;
+ 	hw->max_rx_aggregation_subframes = chip->max_rx_agg_num;
+ 	hw->max_tx_aggregation_subframes = chip->max_tx_agg_num;
+-	hw->max_rate_tries = RTW89_TX_DATA_CNT_LMT_MAX;
++	hw->max_rate_tries = IEEE80211_MAX_TX_RETRY;
+ 	hw->uapsd_max_sp_len = IEEE80211_WMM_IE_STA_QOSINFO_SP_ALL;
  
- 	return r;
-diff --git a/drivers/md/md.c b/drivers/md/md.c
-index 1974943bf746..2d87b3297da4 100644
---- a/drivers/md/md.c
-+++ b/drivers/md/md.c
-@@ -5199,7 +5199,14 @@ static void stop_sync_thread(struct mddev *mddev, bool locked)
- {
- 	int sync_seq = atomic_read(&mddev->sync_seq);
+ 	hw->radiotap_mcs_details |= IEEE80211_RADIOTAP_MCS_HAVE_FEC |
+diff --git a/drivers/net/wireless/realtek/rtw89/core.h b/drivers/net/wireless/realtek/rtw89/core.h
+index 87a832b5c..612389f32 100644
+--- a/drivers/net/wireless/realtek/rtw89/core.h
++++ b/drivers/net/wireless/realtek/rtw89/core.h
+@@ -1278,7 +1278,6 @@ struct rtw89_tx_desc_info {
+ 	bool tx_cnt_lmt_en;
+ 	u8 sn: 4;
+ 	u8 tx_cnt_lmt: 6;
+-#define RTW89_TX_DATA_CNT_LMT_MAX	0x3f
+ 	u8 addr_info_nr;
+ 	u8 sec_keyid;
+ 	u8 sec_type;
+diff --git a/drivers/net/wireless/realtek/rtw89/mac.h b/drivers/net/wireless/realtek/rtw89/mac.h
+index c94b34b92..5c3af59d1 100644
+--- a/drivers/net/wireless/realtek/rtw89/mac.h
++++ b/drivers/net/wireless/realtek/rtw89/mac.h
+@@ -1896,12 +1896,15 @@ void rtw89_tx_rpt_tx_status(struct rtw89_dev *rtwdev, struct sk_buff *skb,
+ 	info = IEEE80211_SKB_CB(skb);
+ 	ieee80211_tx_info_clear_status(info);
  
--	if (!test_bit(MD_RECOVERY_RUNNING, &mddev->recovery)) {
-+	/*
-+	 * If nothing is in flight, keep reconfig_mutex when locked so
-+	 * callers such as do_md_stop() cannot race with do_md_run().
-+	 * work_busy() is required: md_start_sync() may clear RUNNING and
-+	 * still use mddev after unlocking.
-+	 */
-+	if (!test_bit(MD_RECOVERY_RUNNING, &mddev->recovery) &&
-+	    !work_busy(&mddev->sync_work)) {
- 		if (!locked)
- 			mddev_unlock(mddev);
- 		return;
-@@ -5207,12 +5214,14 @@ static void stop_sync_thread(struct mddev *mddev, bool locked)
- 
- 	mddev_unlock(mddev);
- 
--	set_bit(MD_RECOVERY_INTR, &mddev->recovery);
--	/*
--	 * Thread might be blocked waiting for metadata update which will now
--	 * never happen
--	 */
--	md_wakeup_thread_directly(&mddev->sync_thread);
-+	if (test_bit(MD_RECOVERY_RUNNING, &mddev->recovery)) {
-+		set_bit(MD_RECOVERY_INTR, &mddev->recovery);
-+		/*
-+		 * Thread might be blocked waiting for metadata update which
-+		 * will now never happen
-+		 */
-+		md_wakeup_thread_directly(&mddev->sync_thread);
+-	if (info->flags & IEEE80211_TX_CTL_NO_ACK)
+-		info->flags |= IEEE80211_TX_STAT_NOACK_TRANSMITTED;
+-	if (tx_status == RTW89_TX_DONE)
++	info->flags &= ~(IEEE80211_TX_STAT_NOACK_TRANSMITTED |
++			 IEEE80211_TX_STAT_ACK);
++	if (info->flags & IEEE80211_TX_CTL_NO_ACK) {
++		if (tx_status == RTW89_TX_DONE ||
++		    tx_status == RTW89_TX_RETRY_LIMIT)
++			info->flags |= IEEE80211_TX_STAT_NOACK_TRANSMITTED;
++	} else if (tx_status == RTW89_TX_DONE) {
+ 		info->flags |= IEEE80211_TX_STAT_ACK;
+-	else
+-		info->flags &= ~IEEE80211_TX_STAT_ACK;
 +	}
- 	if (work_busy(&mddev->sync_work))
- 		flush_work(&mddev->sync_work);
  
-@@ -7130,6 +7139,14 @@ void md_stop(struct mddev *mddev)
- {
- 	lockdep_assert_held(&mddev->reconfig_mutex);
- 
-+	/*
-+	 * md_check_recovery() may have queued sync_work; that work accesses
-+	 * pers. Wait for it here before __md_stop() clears pers, as
-+	 * do_md_stop()/md_stop_writes() do.
-+	 */
-+	set_bit(MD_RECOVERY_FROZEN, &mddev->recovery);
-+	stop_sync_thread(mddev, true);
-+
- 	/* stop the array and free an attached data structures.
- 	 * This is called from dm-raid
- 	 */
-@@ -10520,9 +10537,11 @@ void md_check_recovery(struct mddev *mddev)
- 
- 			/*
- 			 * Let md_start_sync() to remove and add rdevs to the
--			 * array.
-+			 * array. Honour MD_RECOVERY_FROZEN like the read-write
-+			 * path so freeze/stop does not race with a new queue.
- 			 */
--			if (md_spares_need_change(mddev)) {
-+			if (md_spares_need_change(mddev) &&
-+			    !test_bit(MD_RECOVERY_FROZEN, &mddev->recovery)) {
- 				set_bit(MD_RECOVERY_RUNNING, &mddev->recovery);
- 				queue_work(md_misc_wq, &mddev->sync_work);
- 			}
+ 	ieee80211_tx_status_irqsafe(rtwdev->hw, skb);
+ }
+-- 
+2.53.0
 
