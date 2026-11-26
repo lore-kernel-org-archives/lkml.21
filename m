@@ -1,100 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.53
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795692505;
-	b=Pm1KMdx3jWotqRSd5f1jmjQ05X+r+s+yj9Aj0hu69q+Hm5Lv6vDsqMPR0LdYPc2Lqi4c
-	 7FxOyD3Shc4qukvExViBzLkcZP3qH9dS43mk3iK6HC9b0+FpgckuhwKDiBDj3u2j9AvoG
-	 Y4XU0wpPnLxjNG0RWxPncEyUI1sicXQnwgY3h1Vp6vnle+Px8CyHVCDZ07FMV6VP8HB0/
-	 IaSWajDfkghaBi6gh0DylLobGPuQJRu0YSUNHSSQxYikzH3uChhM1SVos3UbANNgZ+BnY
-	 7TudhuEBfjF5m6kbSDUA7taEQmboYFrOe2//aaAiEGg3me6pK8BJjDnPpLAVoZc6r2w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795692505;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
-	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=UCc4VFep4IEKwOk9M4oKJyowwijB1wqwaF7WgKf1WAs=;
-	b=MtrTObppUirr6piD/969ql6L+xWl6eBMpZkSxOuYJuylGiPdXWpv/VIhotzEvSkQY45T
-	 qMq5HPI4Vf+ahK4QSY2BU6f3wzghJimLGirFxnGzskR3CmVRejHg9apoDdL4CgTS8P3jy
-	 GytkEBENny+H2CStYsyHbSDc+gX6FKzLsFmCZKQ9VZPD/fvS4fJKuyW0dH9nJbszHZUZp
-	 NtAJtXY26hfsKm5Uo6hCdYq7RFrxWUHF1Bv4p9VrTsB8V3VHAblx4lZPYUvVsru4R3bId
-	 XO2Q2SnUcI329iK4SNhq5ON4ISp3c38hF6k8U4y/d0bT+Yvc7Iq/h18dm8OxtcAPdDw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=gCA6Z8AL;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.53
-Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011053.outbound.protection.outlook.com [40.93.194.53])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795692544;
+	b=QzKNJ92Lx4p4hxgoJzhBwNpphe1P2lMrZSOk8kYVtM8DO+q0Nc0cHxpDNsVhsFKi4L44
+	 VvmUHMOp81+mC/h7P812s3w80lGn6GHTkDLW3URByTQgh5pJDFJ97VlZxIvkY8Dnjr826
+	 6Q59xf8PfR2fSaaS8ZtHFRJX0sWtBVcWgmn9+QvWYmcr2JTBwn03LhDr+4gTA0dFWQkXC
+	 iB6Bkf8uF13WMtBSYQw9gugu/Wu89zg8C9seQGIHxMeA86z6ck69tyGs0jz2slIW/LkVf
+	 O3FqyAnlff5GdntbESeiCzewebufWvklEDVy4FU7BRNuwMEriObUVIZdGmhLltQE90g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795692544;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Subject:
+	 Date:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
+	bh=0SJIs+rpjiUaAsGTjABstVmfPkduoG+bc7NOjJbid+o=;
+	b=rHM/b9R9jYfZkYeqyjUf8LX+ulnTBhsoT3JbTTd95IJRVdUDqAzjuOsyifrFPvjkhGm+
+	 Lci9z4Q/iQ5LX0eMaDTpUAOaOkaP0k0D5OkXYSq4qaa7DyRaD+QmZXX3CBWXL5VGAmvGo
+	 pLom+X2q7Uv18YhmhgLn2SqIwpoU87h2CVfxWqwBMKVEfmRmfilpDCdKX1+mrnotvj81X
+	 QAI8dSqcef59x4nJSdGgeRTV1bIry9YpfUE2mBZvCETecxffzYj5/cJSZfYcyr2dd6Kfr
+	 M77n/IqjP0rxIEoQ2h1p9BEAem208gK/sF2iCwa/S88Se6MY88Z+BwkVWhM1mWNdC/w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=jq1Rfj6j;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6710B606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:28:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6710B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 067A8606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:29:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 067A8606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=gCA6Z8AL
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lLd8z7sTDPsnL3Yl+RrsXJBsNadMKHtKV+eoyiMACw1Mxlx/PX9+rBxBxEeFsHylKcvxkrlbDnPOyOoOjrKSyc7nIDKHSArT2/aXp2CjTd8M8o7tq7KSWmB6VFGaCU6U7uaKldIJk7yzcUxGkJ425rrZtZQQa+wISRh7w8q+gYhBf471u5gE4hNVaLlke5oH3rzc6jVyV1ggeKjc2Rqn5cbOpFdtuWGuMdMZkG6TYC7HmYJicQ1gPbjpkdDqSc839S2lt+fdRQOQ4zUt4LvQ3XhBvAC3vi9du0oYvH0Lu02CXVMuk82aqMXECiDrdELW9fz9HwxnXPnnDqBU5723Uw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UCc4VFep4IEKwOk9M4oKJyowwijB1wqwaF7WgKf1WAs=;
- b=j4OnCmc0WYHkUdmd+ij8d+wOhM1KY/s8L4zindnvirALRDUGMyqRWiPFihfe3vQ4bKFv8vO/P7O/jhAcJrtiu7yGtFr7RC8+AWK8aBj0+ZEB7b4V05NsGvzX1bGbysQ4Eu0GNIqZ/8XSUPJz82Sn6Mxoyn0Kuu5KESLHGHVf/+LaSq8CVNzPdvXGKvMMhGqheeq10DfUDKBlCcxALAljIseZ72CtlZW9TvpS39OsTXVwDXgY0DzkjeF0w1uxlqOgapTpho2u30p84ZhHgQj3QCJdS8PPumfIj7z/Rbgq/JFwoxbanGYM1GjVnuSsexb3r9riA0q5Q+bydxnwoU0qMg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UCc4VFep4IEKwOk9M4oKJyowwijB1wqwaF7WgKf1WAs=;
- b=gCA6Z8ALDAiAikIdOdxB1P+GyPtnNrx/x4MvW17KD5DmqSZ70VYn3KdUdkYMoWsPzRe62T2NfqElMWEz5k7Xj5Q88uoLyuieLN//H0sNHE+epBsxpn152Snhs43Wb/yYcpN1fY34tO2V5dZB0J4/Vo5VydVy/9oNBO3tAMkcq0c=
-Received: from CH2PR20CA0028.namprd20.prod.outlook.com (2603:10b6:610:58::38)
- by PH7PR12MB6396.namprd12.prod.outlook.com (2603:10b6:510:1fc::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
- 2026 11:28:22 +0000
-Received: from DS8PEPF000000E0.namprd05.prod.outlook.com
- (2603:10b6:610:58:cafe::4f) by CH2PR20CA0028.outlook.office365.com
- (2603:10b6:610:58::38) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.7 via Frontend Transport; Thu, 26
- Nov 2026 11:28:22 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- DS8PEPF000000E0.mail.protection.outlook.com (10.167.23.203) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.688.5 via Frontend Transport; Thu, 26 Nov 2026 11:28:21 +0000
-Received: from xhdlc220225.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 26 Nov
- 2026 05:28:18 -0600
-From: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
-To: <michal.simek@amd.com>, <ajay.neeli@amd.com>,
-	<sai.krishna.potthuri@amd.com>, <git@amd.com>, <linux-kernel@vger.kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, Jay Buddhabhatti
-	<jay.buddhabhatti@amd.com>
-Subject: [PATCH] MAINTAINERS: Add AMD Versal2 UFS firmware files
-Date: Thu, 26 Nov 2026 16:57:54 +0530
-Message-ID: <20261126112754.907756-1-jay.buddhabhatti@amd.com>
-X-Mailer: git-send-email 2.16.0
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=jq1Rfj6j
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 31E554E41693;
+	Thu, 26 Nov 2026 11:29:02 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D2E1F60237;
+	Thu, 26 Nov 2026 11:29:01 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AA5B211E6B363;
+	Thu, 26 Nov 2026 12:28:48 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795692539; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=0SJIs+rpjiUaAsGTjABstVmfPkduoG+bc7NOjJbid+o=;
+	b=jq1Rfj6jYMU9yxaVg9UV4H8Zen8EkiT4Kg4x9rGWtovkX/SR29OIvOAEPzQMxYwu2UWSOn
+	+5Uyp5jk5Ejc5PKpTL7/tAcJB4BS3w0zotb1M30bClovFKOunqc2O/M1v0sx6C8K4TqokU
+	KHD7AK/LeBwJan1aZrE1S9nFZc3z+k7YeO2HCMWaMWsTqYewWK50lwEAimQIAeeE1R1GSy
+	/X0VqPnkfDE4nSEYQFOq19i72sLYzSegWD6JWn03eoE8JK4SqQLefK4x5GRDuV/CV1CXkE
+	GRwc7RixwSzrzZgIlQS3iAVf8b6gTkLnHRRR7/JCGAfXQ29ZWip3zIerGuCrAg==
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+Subject: [PATCH v7 00/43] VKMS: Introduce multiple configFS attributes
+Date: Thu, 26 Nov 2026 12:28:43 +0100
+Message-Id: <20261126-vkms-all-config-v7-0-21194cda2468@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,58 +62,257 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
-X-ClientProxiedBy: satlexmb07.amd.com (10.181.42.216) To satlexmb07.amd.com
- (10.181.42.216)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS8PEPF000000E0:EE_|PH7PR12MB6396:EE_
-X-MS-Office365-Filtering-Correlation-Id: d67960ce-b61a-416f-3911-08df4bb060ad
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|23010399003|376014|1800799024|82310400026|261022105027099003|10067099003|56012099006|11063799006|261026121527099003|261026140227099003|261028144727099003|261021121427099003|261102123227099003|261009223027099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	Do3DsH97l7yNRTjsYK5U+7XgHhxQsOYLaJyKxCbRVkXZwFJdzoCJn8DqL0hslhxDJwS4Q5XLZ4eVK8iL9BhxU5CRP4W8zRRzsZwD8LPMdbLwV3dUj67/fAAq8mG8kKKLadpwsed0hHYi8Xz7dW5evH/nPRYb4lMacgDSZ+nYjkX5SqAO95CGIm/VeWAVdZsvunfWDvNu/8u9DNgs+jGANc+Z5TA32C1RDhSCoK28zHIMtsyDQcfvgIRiCdXGazIEnzY3DHRBxhzuCpV9JZ453N8oJH/u+3fAkFMdWQWQaS+8IHFv8EnzIw3xCmvHWbRdAwv9sv0LLylef/DhWVshnjn255RnnB2UDsY9hW5QVhsN1RS9i+ZabA9uitoxRejog+LsSEDiSHus6+Kl9UMBcRxDPFObI2Upknk8BKJfETH+e72xRXGe01y4K+BP7scI2rxFZpGhgS4JYoBq6ipwJzP9im38KhUXQW69sO05K8gnlpfqI9GZWfl7+B+6rW8QDXc14YfkQzlQbGSeKX9CAht9fYHYvIAt2M9BP3NFLHF8Id21v65sH4T30becoJxWRCLpLDkXmA1uOCA00GQrvZXPeley12nIGDMZ3DYgBZUUVLiX3nrHo2Bq7/AKEtlOqFuix/1jkFhM9kFFgrLsanNtpfg0WXviuWLPOzf/oCiqjxAMWPtait+t9QFYa1E4RM98Z665gFVhALefXeOhLA==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(1800799024)(82310400026)(261022105027099003)(10067099003)(56012099006)(11063799006)(261026121527099003)(261026140227099003)(261028144727099003)(261021121427099003)(261102123227099003)(261009223027099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	MOtqP25PE7wXjMCgSwgbrs7dMB2m5kBEiMZcyRjmwiUt8N6mM5Y5015ZihRE6+3G0UbJ9z9tsMvhuBdlKyh/Jq2RK15p0e63Zhm9knyFYCLM7woU+xB4XulzaRlYeLfllka5GHUJpCLBEmDMm9PX0eQFqG76JXjruegKgGKmlJKpiwa8wwb0whrELrOkSao09ht7rYZ9Zq6nQEdAW2sPLTAz6kIFqtiLabBvOyY0QIPFz+sZaqnRLhdii+QrSkaKuM51TBTWS9eO98czJ0b62wCnyZNOXXvHilJbtVudzVuM3TB0KOga5iavesO1peoaaiMgYhS+HzBSmBPWpKOxMBh/PtNE3/mGe9X5aY66TyAv2qczTvn8zaq8g9iZ/gNyS0IFkpPh/vjUuYeNzPwpipz6D/1h83gCT3zrxOgD5GKR4LxJtA8WahLtIKXxe0BP
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 11:28:21.7391
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d67960ce-b61a-416f-3911-08df4bb060ad
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	DS8PEPF000000E0.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6396
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAOwXCGsC/23R0U7DIBgF4FdpuBaFv0DLrnwP4wWUn424tgqVz
+ Cx9d1nnMg3ecUjOx0k4k4QxYCK75kwi5pDCPJXQPTRkOJhpjzS4kgkwkJzxjua3MVFzPNJhnnz
+ YU+vYAIbxXihPSus9og+nTXx5veaIH58FXq6XxJqEpT2OYdk1Lo50DGl4uh3ohKeFXJqHkJY5f
+ m3TMt+qPyv6akXmlFHTdYp1UjoN7tnO83IM02N5aNMy/BJA1wIUwSIwq63nQmEttHcBAGqhvQh
+ GgBtab7X3tSBugmLiP0EUwVkrAbUxhakFeRcU1L+RZRF6KYxhvWAa1F9hXddvDtJoBfIBAAA=
+X-Change-ID: 20251017-vkms-all-config-bd0c2a01846f
+To: Haneen Mohammed <hamohammed.sa@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Melissa Wen <melissa.srw@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, jose.exposito89@gmail.com, 
+ Jonathan Corbet <corbet@lwn.net>, Oarora Etimis <oaroraetimis@gmail.com>, 
+ Harry Wentland <harry.wentland@amd.com>, 
+ Lucas De Marchi <demarchi@kernel.org>, 
+ =?utf-8?q?Ville_Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Nick Desaulniers <ndesaulniers@google.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Shuah Khan <skhan@linuxfoundation.org>, Miguel Ojeda <ojeda@kernel.org>, 
+ Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Kory Maincent <kory.maincent@bootlin.com>, sebastian.wick@redhat.com, 
+ victoria@system76.com, thomas.petazzoni@bootlin.com, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-doc@vger.kernel.org, llvm@lists.linux.dev, 
+ =?utf-8?q?Jos=C3=A9_Exp=C3=B3sito?= <jose.exposito@redhat.com>
+X-Mailer: b4 0.17-dev
+X-Last-TLS-Session-Version: TLSv1.3
 
-Add the AMD Versal2 UFS firmware files to the existing AMD Versal2 UFS
-host controller entry.
+VKMS have a wide range of options. The aim of this series is to introduce
+many configfs attribute so VKMS can be used to test a wide range of
+configurations.
 
-Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
+PATCH 1-3 fix display and locking of the configfs attributes
+PATCH 4-9 expose human readable strings from drm core
+PATCH 10 is a fix for the default rotation value
+PATCH 11 is ABI documentation
+PATCH 12 introduce reference counting for vkms_config
+PATCH 13 add a KUnit test for the device lifecycle
+PATCH 14 added some error checks in plane configuration
+PATCH 15 cleanup in plane_release
+PATCH 16-17 change the display in configfs to be more readable
+PATCH 18,19 plane name
+PATCH 20,21 plane rotation
+PATCH 22,23 plane color encoding
+PATCH 24,25 plane color range
+PATCH 26,27 plane format
+PATCH 28 properly use zpos
+PATCH 29,30 plane zpos
+PATCH 31 back pointer to connector
+PATCH 32,33 connector type
+PATCH 34 preparation in connector initialization
+PATCH 35,36 connector supported colorspace
+PATCH 37,38 connector EDID
+PATCH 39-41 dynamic connectors
+PATCH 42,43 PATH property
+
+PS: Each pair of config/configfs patch are independant. I could
+technically create ≈10 different series, but there will be a lot of
+(trivial) conflicts between them. I will be happy to reordoer, split and
+partially apply this series to help the review process.
+
+PS2: I am currently cleaning the IGT test series to validate all that,
+it will be submitted separately.
+
+Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
 ---
- MAINTAINERS | 2 ++
- 1 file changed, 2 insertions(+)
+Changes in v7:
+- add refcount on vkms_config/vkms_config_connector 
+- fix issues reported by Oarora
+- rebased on drm-misc-next
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 742c4e6b291f..3c0dcd9feb94 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -28818,7 +28818,9 @@ M:	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
- M:	Ajay Neeli <ajay.neeli@amd.com>
- S:	Maintained
- F:	Documentation/devicetree/bindings/ufs/amd,versal2-ufs.yaml
-+F:	drivers/firmware/xilinx/zynqmp-ufs.c
- F:	drivers/ufs/host/ufs-amd-versal2.c
-+F:	include/linux/firmware/xlnx-zynqmp-ufs.h
- 
- UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER DWC HOOKS
- M:	Pedro Sousa <pedrom.sousa@synopsys.com>
--- 
-2.43.0
+Changes in v6:
+- disable cfi check for show_bitfield
+- Rebased on drm-misc-next
+- The ABI documentation is now distributed: each patch introducing an
+  attribute adds its own documentation section
+- vkms_config and vkms_config_connector are now reference counted,
+  fixing use-after-free and races when destroying connectors
+- Lock the config dump against concurrent configfs changes
+- Add a KUnit test for the device lifecycle
+- Link to v5: https://lore.kernel.org/r/20260627-vkms-all-config-v5-0-854aa0840926@bootlin.com
+
+Changes in v5:
+- Fixed missing property creation for PATH
+- Use the folder name instead of a new attribute for plane
+- Rebased on drm-misc-next
+- Link to v4: https://patch.msgid.link/20260422-vkms-all-config-v4-0-dbb52e9aadc3@bootlin.com
+
+Changes in v4:
+- Introduced a way to change the PATH property
+- Reordered drm-only patches to the front of the series.
+- Fixed a bug when dynamic connector are allocated/freed (drmm instead of
+  kzalloc)
+- Properly handle errors in vkms_connector_init
+- Only parse formats one by one (no more complex algorithm, you will have
+  to write multiple times for multiple formats)
+- Use sysfs_emit instead of sprintf
+- Fix rotate property default value
+- Link to v3: https://lore.kernel.org/r/20251222-vkms-all-config-v3-0-ba42dc3fb9ff@bootlin.com
+
+Changes in v3:
+- Added Documentation/ABI (Thomas Petazzoni)
+- PATCH 2: Clarify return value
+- PATCH 6,7: Avoid passing null to printf
+- PATCH 7: Restrict plane name to A-Za-z0-9
+- PATCH 12: Fix missing s
+- PATCH 13: Add macro to avoid repetition, fix missing s, make code
+  consistent, remove wrong comment, properly check bit values
+- PATCH 15: Fix missing s
+- PATCH 16: Fix missing s, make code consistent, remove wrong comments,
+  properly check value and fix default_color_range value
+- PATCH 17: Create function to reduce code complexity, fix missing s
+- PATCH 18: Fix parsing, rename data, reject strings > 4 chars
+- PATCH 20: Remove duplicated lines, fix test comments simplify conditions,
+  remove useless documentation,
+- PATCH 21: {Min,Max}imal -> {Min,Max}imum, simplify commit log
+- PATCH 25: Fix wrong comment
+- PATCH 26: Rename type to colorspaces
+- PATCH 27: Improve comment, avoid useless iterations
+- PATCH 28: Fix typo in commit log
+- PATCH 29: Fix typo in commit log
+- PATCH 30: Remove useless include and move it to proper commit
+- PATCH 32: Clarify documentation
+- PATCH 33: Simplify code and use better variable names
+- PATCH *: Fix EINVAL/EBUSY
+- Link to v2: https://lore.kernel.org/r/20251029-vkms-all-config-v2-0-be20b9bf146e@bootlin.com
+
+Changes in v2:
+- PATCH 1: reorder includes (José)
+- PATCH 2: use name property instead of folder name (José)
+- PATCH 3: Fix default rotations (José)
+- PATCH 3,5,7,12: Add tests and extract validation for planes (José)
+- PATCH 3,5: Do not create color range/encoding properties if not set
+- PATCH 5,6,7,8: Set plural form for vkms_config_plane fields (José)
+- PATCH 4,6,8,13: Remove checking for default in supported (José)
+- PATCH 9: Add break in vkms_config_plane_add_format (José)
+- PATCH 12: fix zpos_enabled typo (José)
+- PATCH 13: fix documentation (José)
+- Add debug display (José)
+- PATCH 20: use drmm_kzalloc instead of kzalloc (José)
+- PATCH 22: simplify the code (José)
+- Link to v1: https://lore.kernel.org/r/20251018-vkms-all-config-v1-0-a7760755d92d@bootlin.com
+
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+To: Maxime Ripard <mripard@kernel.org>
+To: Thomas Zimmermann <tzimmermann@suse.de>
+To: David Airlie <airlied@gmail.com>
+To: Simona Vetter <simona@ffwll.ch>
+To: Louis Chauvet <louis.chauvet@bootlin.com>
+To: Haneen Mohammed <hamohammed.sa@gmail.com>
+To: Melissa Wen <melissa.srw@gmail.com>
+To: Jonathan Corbet <corbet@lwn.net>
+To: Shuah Khan <skhan@linuxfoundation.org>
+To: Miguel Ojeda <ojeda@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+To: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
+To: Bill Wendling <morbo@google.com>
+To: Justin Stitt <justinstitt@google.com>
+Cc: thomas.petazzoni@bootlin.com
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-doc@vger.kernel.org
+Cc: llvm@lists.linux.dev
+
+---
+Louis Chauvet (43):
+      drm/vkms: Lock the config dump against concurrent configfs changes
+      drm/drm_mode_config: Add helper to get plane type name
+      drm/blend: Get a rotation name from its bitfield
+      drm/tests: Add test cases for DRM rotation name
+      drm/drm_color_mgmt: Expose drm_get_color_encoding_name
+      drm/drm_color_mgmt: Expose drm_get_color_range_name
+      drm/connector: Export drm_get_colorspace_name
+      drm/drm_atomic_state_helper: Properly load default value for rotation
+      Documentation: ABI: vkms: Add current VKMS ABI documentation
+      drm/vkms: Reset config->dev when the device creation fails
+      drm/vkms: Reference-count vkms_config and vkms_config_connector
+      drm/vkms: Add KUnit test for device lifecycle
+      drm/vkms: Add error handling in plane config creation
+      drm/vkms: Simplify plane_release code
+      drm/vkms: Explicitly display plane type
+      drm/vkms: Use enabled/disabled instead of 1/0 for debug
+      drm/vkms: Introduce config for plane name
+      drm/vkms: Use plane folder name as plane name
+      drm/vkms: Introduce config for plane rotation
+      drm/vkms: Introduce configfs for plane rotation
+      drm/vkms: Introduce config for plane color encoding
+      drm/vkms: Introduce configfs for plane color encoding
+      drm/vkms: Introduce config for plane color range
+      drm/vkms: Introduce configfs for plane color range
+      drm/vkms: Introduce config for plane format
+      drm/vkms: Introduce configfs for plane format
+      drm/vkms: Properly render plane using their zpos
+      drm/vkms: Introduce config for plane zpos property
+      drm/vkms: Introduce configfs for plane zpos property
+      drm/vkms: Introduce back pointer to connector
+      drm/vkms: Introduce connector type
+      drm/vkms: Introduce configfs for connector type
+      drm/vkms: Rename vkms_connector_init to vkms_connector_init_static
+      drm/vkms: Introduce config for connector supported colorspace
+      drm/vkms: Introduce configfs for connector supported colorspace
+      drm/vkms: Introduce config for connector EDID
+      drm/vkms: Introduce configfs for connector EDID
+      drm/vkms: Store the enabled/disabled status for connector
+      drm/connector: Add a way to detach encoders
+      drm/vkms: Allow to hot-add connectors
+      drm/vkms: Introduce configfs for dynamic connector creation
+      drm/vkms: Add connector parent configuration in vkms_config
+      drm/vkms: Add ConfigFS interface for connector parent and port_id
+
+ .clang-format                                    |    2 +
+ Documentation/ABI/testing/configfs-vkms          |  326 +++++++
+ Documentation/gpu/vkms.rst                       |   44 +-
+ drivers/gpu/drm/drm_atomic_state_helper.c        |    6 +
+ drivers/gpu/drm/drm_blend.c                      |   19 +-
+ drivers/gpu/drm/drm_color_mgmt.c                 |    4 +-
+ drivers/gpu/drm/drm_connector.c                  |   18 +
+ drivers/gpu/drm/drm_crtc_internal.h              |    6 -
+ drivers/gpu/drm/drm_mode_config.c                |   16 +
+ drivers/gpu/drm/tests/Makefile                   |    1 +
+ drivers/gpu/drm/tests/drm_rotation_test.c        |   76 ++
+ drivers/gpu/drm/vkms/tests/.kunitconfig          |   10 +
+ drivers/gpu/drm/vkms/tests/Makefile              |    3 +-
+ drivers/gpu/drm/vkms/tests/vkms_config_test.c    |  520 ++++++++++-
+ drivers/gpu/drm/vkms/tests/vkms_lifecycle_test.c |  280 ++++++
+ drivers/gpu/drm/vkms/vkms_composer.c             |   15 +-
+ drivers/gpu/drm/vkms/vkms_config.c               |  724 ++++++++++++++-
+ drivers/gpu/drm/vkms/vkms_config.h               |  724 ++++++++++++++-
+ drivers/gpu/drm/vkms/vkms_configfs.c             | 1081 +++++++++++++++++++++-
+ drivers/gpu/drm/vkms/vkms_connector.c            |  347 ++++++-
+ drivers/gpu/drm/vkms/vkms_connector.h            |   60 +-
+ drivers/gpu/drm/vkms/vkms_crtc.c                 |   16 +-
+ drivers/gpu/drm/vkms/vkms_drv.c                  |   12 +-
+ drivers/gpu/drm/vkms/vkms_output.c               |   21 +-
+ drivers/gpu/drm/vkms/vkms_plane.c                |   85 +-
+ include/drm/drm_blend.h                          |   34 +
+ include/drm/drm_color_mgmt.h                     |    3 +
+ include/drm/drm_connector.h                      |    2 +
+ include/drm/drm_mode_config.h                    |    3 +
+ 29 files changed, 4263 insertions(+), 195 deletions(-)
+---
+base-commit: 3c7c3c12dfc7704ca614abbfa266ca00a2b5a994
+base-tree: https://gitlab.freedesktop.org/drm/misc/kernel.git drm-misc-next
+change-id: 20251017-vkms-all-config-bd0c2a01846f
+
+Best regards,
+--  
+Louis Chauvet <louis.chauvet@bootlin.com>
 
