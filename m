@@ -1,79 +1,78 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795691229;
-	b=tZJwfSkRzBxirENx2dfxZs3HTcqxDGz0NbuKusN2XTsYaHulPHhDbeiUq8xcVZNfwn6H
-	 tqITPuYRkM/MSXvYW+ibHUKJwftqGD4UrbFuo3A9tbA8OmgvkXMamiJ1mdUX6g4aoq4qJ
-	 lIpUAJ1EiMLZdq8bRYL0m6MSn5tpRTltthw9igyWsIf6o5q4rOaKlOLqM8qVX5j8WL+/A
-	 T6IWzkIXBVBfEFdaz+EW8kIhEP5u9RNhLSpok98RDJdf+nTANCLFZUyAYIhuouyjvT7EY
-	 8xubplksKS6iO79HzigPK0q5kncSaHw3iWqbHY8i1Hmizw/1IQmJC1orls5/D/qfATw==
+	t=1795691225;
+	b=hjJj29MyLn3GD0lPhUQk50elg0JEdsqIJaUzOI4FwlNlV8UTA2aIZ5gVdjWa54z15o8w
+	 dwoY+lwgtVPgQWCWfuH9LI2i7i3sze5bRll/wKI0AhXIBDAJS0KeS/pNZJ9Tu/09YTxv7
+	 0gDe1spticeBLxhSF6JEBVM45svNdSJ3w9lgRgOIqg0i8QH/5pMPpGhP8IUc1byzcE2Ma
+	 qwFSaRkTW8p8zRz7uuQ0wsS5bC70L63NcPv+RIKMV9saw7LpRAidN7yV94tr1H/YqkUoR
+	 EbnKd6dDschJGKdWaDpM7os0VzBTNx4jxu6FTuPFcwJy7wUuUwaS/m9rhBD0rtHl12Q==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795691229;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795691225;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=CDCgnjKYuJcLFNxaq18WnfsOWSqlif3g0ng4iiH/swA=;
-	b=mU/1d6anLOnlVOenN9W+yZAVL9ZDwwsG64Z5PwaaaQySO28e+ZWbJcSQuNhU1c/ii6E7
-	 VWI+m83wPpqZzt7nmgdpSak6bYy4ISKgU5V7G+1msGTPO9n4AetRJDrjIRWyRDihCPU6/
-	 i/tXwEJbCdKxHX7bb10g16c+/0btRI/hxwJEz8dAOnU2DvpQMH6jpLmK8hSS62aCmecFJ
-	 XjisH7Al9Ztu1yogTRCFm5H2+li2Bq5AlFSnSFiLeRjPenww8DeZyqDy+lCJQt4nF78U4
-	 1b8pKMD8s5qLszR20m+1k1CEJdNElsv9X7OHet/ddS/wZg5iB9pT+3SG8PhtBnUxZBQ==
+	bh=utCwhodg5xFMHYKAzMuBmbGu+jVq2YBIw6k6+4dlJHU=;
+	b=z8geYvoJgIf+nz7inh8fRHddykuvdGR3JNwestUOWlTVUVztkrSkvb/qekfHFPvepG/l
+	 JmlbUO73nxZqstjFR3asmxyUbBJ+DpT0ULq5KIQLr+iQ+M7ARd5QvYjC0v8XNaw180dmy
+	 h57cx1GeZzhdVZWazq3B1AhhJJZzu8F/ewGjytAlZZeA1yAHEq5qB2MW+C4GzNQ/mrmNu
+	 6hLE+VqH8kU7mu3/rETVnj1/czeVcSYfO0n+tUEZc8ueKkG1vU8bbyZ8PRKZwQudMtZle
+	 b6xlWO01KJcDlncVyAloMie+bUxRSV8cA5620ruaJOpoCmHXflAWp36Vtja7Xp/EKBA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Q62/WSdW";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d58Lgp6F;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4D51606A327;
-	Thu, 26 Nov 2026 11:07:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EFB2606A31E;
+	Thu, 26 Nov 2026 11:07:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q62/WSdW
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d58Lgp6F
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795691228;
-	b=W8EWI+H6N79UAIrHeJTMTsUUz7923yL3I5YFnnUQzfXKHBo6cbWSUnliLrSqYlML4tyG
-	 ij0Rs9h0laqc+BmZv0nVikOpEzf3kDMf/01mNHcNf8TIa4sRyiu+YV2RBidBYpTf1kqZ3
-	 p6dyt3PXnrzxMLknafbFw6XyRgSUKogmTnz2NH+N/k1lhr6/Oy4mQ3vYfV/n1Ok7AaxAh
-	 JrBfMj39dL15ztdxwa2LvNdH4f9xZq7+nPXy43TTjlL0r9teOydVoT1MgHh1d3+5WMcvg
-	 2slPUdczilQ4qPaWZxiJ5ZF75SVgArQ13PnPnVEnpDrVV7BGRnwNS6k8K6kSJMYjIfA==
+	t=1795691225;
+	b=X4XmdFC1SXVYPmidF96AndKRRRg6ksJM6uFA/fx4uKoVr/LI/k0QrXE1N+55Szg9jenN
+	 Edt3zy3ckucfAy2vkd1+R0ZhcVk0hJGXp8wFk+WdN5SDSl7uGWSr0uCp5TcE1XrVysP6j
+	 pbh+kD4nPDpc1pY7XXMHuv0v5t9rc6XQrTeRbjr/1Jc9+uBX/qnCJ0kg/3AGr3qdte/p9
+	 LLHBUau2+UzvmNAOdmSAeiiPU+liOv5GAd5xJd7nBjLFO1rjS67P540aFwLhLf2uOyPQS
+	 M82HNYGiSQXq95Nr0AA58n9RFt25RDi4uUTLXMKdy2xWN1C9LNPjeGX0zKHJgmwgRCg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795691228;
+	c=relaxed/relaxed; t=1795691225;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=CDCgnjKYuJcLFNxaq18WnfsOWSqlif3g0ng4iiH/swA=;
-	b=pARooQ0+vl0QvWYX3SgwymbHRhjhcsoY3Cpy13xi1dAqNcf8YIZw/KzBGLL8Lb64PUQN
-	 ofiU+qfcEUndEbJYJj0suyrHgBcP6EV+ZgHn/YrzGgnMcv9NCcP75ha0NlaAuq4ZQbfVH
-	 /uOogsr4cP8Y4O22We58mE84D+dnLTk/N9QOgYsUAgSmg07NwRQunyxSCLLLKn6sAU1rV
-	 bKlsU+6rCQk0tfO10qiC8zGWKJ2VIPcyhQQxwiE9SwnhWJKQ92GSpAaP+sNkMdTZmffZj
-	 ikm+laIdbj0/zrjle2Q9FI8mGntFkcpbdfKvVr103hVTih9uJ7+CVBF0cL18/O2r3oQ==
+	bh=utCwhodg5xFMHYKAzMuBmbGu+jVq2YBIw6k6+4dlJHU=;
+	b=g8L+XAy5t7E4IRpBs27TW2sDQMYTCwTG/AvaTdIz0yo4rDdD4+3JxBhPcBewVu2I5H1+
+	 5QvugxgF+9LaKHvDFSbxuV7wPT3euKLLQa0OECeuVJcMH6btutZFl5eXA44IyKW4Wzulh
+	 Fjqn4qD576Vsmp59OIehhhhNCQ6MxrjzjeUBQkiANpMQBpw+8C5HeRdAN20zawTsjvO0K
+	 HgCpxvFVruZI+MY//Yb/ncZAbN30KbCCAaNqcKL/UjB4E6yj1Qh1e1GAJ7HBFdekqtH9a
+	 u5nvB2zmaImw498yTJBYc4pksZFZkQ+T/h+mtSzGfQ0mn1pfs1CidiR0HXCTCuB5RIw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 080B21F000CF;
+	by smtp.kernel.org (Postfix) with ESMTPS id 4DFF31F000D2;
 	Thu, 26 Nov 2026 11:06:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795691228;
-	bh=CDCgnjKYuJcLFNxaq18WnfsOWSqlif3g0ng4iiH/swA=;
+	s=k20260515; t=1795691225;
+	bh=utCwhodg5xFMHYKAzMuBmbGu+jVq2YBIw6k6+4dlJHU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Q62/WSdWinnPOsYr6ZqKQ5RfwbQjLmjxduQnpqsXsNlST+6x0PvJ1fFLXvKfZoP7P
-	 qBD1D1Cd8KMHsNaT45I55xmWmRphFDbeh081IvkZKGoRDbUgVN6ixIQ+nxsKRPTSyA
-	 wjQyNivX7gHbbESMvBlEFsOhhyD+ZvL6V8U16skDuoH6GTW997oUZnj/2VYm/Jg1ZU
-	 zZAy+0wj16WLmLv9MtSYiyrisSGs8ljTXdMmCRbza/D40jfZs3iOztg9tKdWE4b1TI
-	 slRf0mYZH8K8ht45vzqyJ6lUt5iWeAlWtmIrpcyhSo8zOaQqBZld/NCmyP+HFN9/qM
-	 OOOIByNSw2FPQ==
+	b=d58Lgp6Feb4ehztVXOAhXR8XHQIihZJp5RZNJ8VAR57gLb4i2eBWEYRbH+aOqrg0i
+	 nxR8F5bgU6drzFVThIIDB1M01MiYgOPwebTlioVpL4LdvwJdvxje9dBwpV8QJa4fna
+	 mQdpXkoqwBlLHcDyTJDWlMHJjqzFBlZxLsS/IXGt+/RDIMC8ydI0qW6gcpWg6zUvdb
+	 7Wb23uwqYymrgRQRrEzS85dAI6D4hioy4o0Dbd7GKpnDtlW6VIDX0VyS+2xKftSZqN
+	 dwpFf3o3F59Hk4fgqeLDZvlbA2Xw4jzDwZy+Ox7Yevfgdc2sZRbzAo4i/5iPr9FcF2
+	 H5o8mEzrXQZwQ==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 8615F4D46A;
+	by lkml.kernel.org (Postfix) with ESMTP id CC81A4D471;
 	Thu, 26 Nov 2026 11:06:56 +0000 (UTC)
 From: Xiubo Li via B4 Relay <devnull+xiubo.li.clyso.com@kernel.org>
-Date: Thu, 26 Nov 2026 12:06:12 +0100
-Subject: [PATCH v8 2/5] ceph: replace the request_tree rbtree with an
- xarray keyed by r_tid
+Date: Thu, 26 Nov 2026 12:06:14 +0100
+Subject: [PATCH v8 4/5] ceph: move mdsc->mutex into __do_request()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +83,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-ceph-mdsc-mutex-optimization-v8-2-5bb2299ef4ee@clyso.com>
+Message-Id: <20261126-ceph-mdsc-mutex-optimization-v8-4-5bb2299ef4ee@clyso.com>
 References: <20261126-ceph-mdsc-mutex-optimization-v8-0-5bb2299ef4ee@clyso.com>
 In-Reply-To: <20261126-ceph-mdsc-mutex-optimization-v8-0-5bb2299ef4ee@clyso.com>
 To: Ilya Dryomov <idryomov@gmail.com>, Alex Markuze <amarkuze@redhat.com>, 
@@ -92,364 +91,426 @@ To: Ilya Dryomov <idryomov@gmail.com>, Alex Markuze <amarkuze@redhat.com>,
 Cc: ceph-devel@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Xiubo Li <xiubo.li@clyso.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795691181; l=11800;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795691181; l=14370;
  i=xiubo.li@clyso.com; s=20260625; h=from:subject:message-id;
- bh=c/9avo6RkJVgyP7p607F3UhMViKNwJJKHp6b9vPjvqw=;
- b=XxnqEgFRbsYbXu4Bg7WLTA4GC0VDiCwT4OOPADuPI4LaubyTt+GcsrIUMsZkGEfYeZjJ4y3fz
- yOeo5CIxS9TAfLiuaVkiG7cHzmI3/z2juqch51FeiG3EOu7421F8IYV
+ bh=jOiiqm1GWSWzeMvLC9FlXH0n3DdiaHPP+E/KEWtGE28=;
+ b=qb5mtXye1/qqC9Q/CFtJjAJqaxV/MRkBTeinUKvNG9OKZbdWWDGIJfOsbnQl3p65r/Bt4242a
+ 9ozWAUGEA2oBV/08nTfcXftOeAQgeg1TWIEKSL+MZDtITC5CqflxVmv
 X-Developer-Key: i=xiubo.li@clyso.com; a=ed25519;
  pk=V3NGr0AgAopiUhaLY51ipBkLN5LlcLhjOEfLEq1RoZ8=
 X-Endpoint-Received: by B4 Relay for xiubo.li@clyso.com/20260625 with
  auth_id=840
 X-Original-From: Xiubo Li <xiubo.li@clyso.com>
 Reply-To: xiubo.li@clyso.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
 From: Xiubo Li <xiubo.li@clyso.com>
 
-Replace the red-black tree that indexes pending MDS requests by
-transaction ID with an xarray.  The xarray provides O(1) keyed
-lookups versus the rbtree's O(log N), and its internal RCU
-locking eliminates the need for an external mutex during lookups.
-Iteration is also simpler, with the xarray's native iterators
-replacing open-coded rb_first() / rb_next() walks.
+Currently every caller must hold mdsc->mutex when invoking the
+request-send machinery.  Move the mutex acquisition inside
+__do_request() so that callers can fire off a request without
+first serializing on the global lock.  The mutex is released
+before the network send phase and re-acquired only for cleanup,
+so dentry traversal and message construction run concurrently
+across CPUs.
 
-Because xarray indices are unsigned long, a u64 transaction ID
-would be truncated on 32-bit platforms.  Restrict CEPH_FS to
-64BIT since there are no 32-bit users.
-
-Validate the xarray insertion and clean up the structure at
-shutdown.
+This is the primary source of the observed 2x stat throughput
+improvement: the per-request send path shrinks from hundreds of
+microseconds to tens of microseconds once it no longer waits on
+the mutex.  Wait-list draining, session-state wake-ups, and
+request kicking are reworked to either use the new wait-list
+spinlock or collect candidates under the mutex and process them
+outside it.
 
 Signed-off-by: Xiubo Li <xiubo.li@clyso.com>
 ---
- fs/ceph/Kconfig      |   1 +
- fs/ceph/debugfs.c    |   6 +--
- fs/ceph/mds_client.c | 113 +++++++++++++++++++++++----------------------------
- fs/ceph/mds_client.h |   3 +-
- 4 files changed, 56 insertions(+), 67 deletions(-)
+ fs/ceph/mds_client.c | 121 +++++++++++++++++++++++++++++++++++----------------
+ fs/ceph/mds_client.h |   1 +
+ 2 files changed, 85 insertions(+), 37 deletions(-)
 
-diff --git a/fs/ceph/Kconfig b/fs/ceph/Kconfig
-index be1c8ada5665..a703071a1089 100644
---- a/fs/ceph/Kconfig
-+++ b/fs/ceph/Kconfig
-@@ -2,6 +2,7 @@
- config CEPH_FS
- 	tristate "Ceph distributed file system"
- 	depends on INET
-+	depends on 64BIT
- 	select CEPH_LIB
- 	select NETFS_SUPPORT
- 	select FS_ENCRYPTION_ALGS if FS_ENCRYPTION
-diff --git a/fs/ceph/debugfs.c b/fs/ceph/debugfs.c
-index 18eb5da03411..491ead3fe1c6 100644
---- a/fs/ceph/debugfs.c
-+++ b/fs/ceph/debugfs.c
-@@ -87,12 +87,12 @@ static int mdsc_show(struct seq_file *s, void *p)
- 	struct ceph_fs_client *fsc = s->private;
- 	struct ceph_mds_client *mdsc = fsc->mdsc;
- 	struct ceph_mds_request *req;
--	struct rb_node *rp;
-+	unsigned long idx;
- 	char *path;
- 
- 	mutex_lock(&mdsc->mutex);
--	for (rp = rb_first(&mdsc->request_tree); rp; rp = rb_next(rp)) {
--		req = rb_entry(rp, struct ceph_mds_request, r_node);
-+	idx = 0;
-+	xa_for_each(&mdsc->request_tree, idx, req) {
- 
- 		if (req->r_request && req->r_session)
- 			seq_printf(s, "%lld\tmds%d\t", req->r_tid,
 diff --git a/fs/ceph/mds_client.c b/fs/ceph/mds_client.c
-index b84d04835329..fdaf6f56ecd3 100644
+index 5983ae6e3085..6d4182cfa70a 100644
 --- a/fs/ceph/mds_client.c
 +++ b/fs/ceph/mds_client.c
-@@ -1257,7 +1257,6 @@ void ceph_mdsc_release_request(struct kref *kref)
- 	kmem_cache_free(ceph_mds_request_cachep, req);
- }
- 
--DEFINE_RB_FUNCS(request, struct ceph_mds_request, r_tid, r_node)
- 
- /*
-  * lookup session, bump ref if found.
-@@ -1269,7 +1268,7 @@ lookup_get_request(struct ceph_mds_client *mdsc, u64 tid)
- {
- 	struct ceph_mds_request *req;
- 
--	req = lookup_request(&mdsc->request_tree, tid);
-+	req = xa_load(&mdsc->request_tree, tid);
- 	if (req)
- 		ceph_mdsc_get_request(req);
- 
-@@ -1303,7 +1302,14 @@ static void __register_request(struct ceph_mds_client *mdsc,
- 	}
- 	doutc(cl, "%p tid %lld\n", req, req->r_tid);
- 	ceph_mdsc_get_request(req);
--	insert_request(&mdsc->request_tree, req);
-+	if (xa_is_err(xa_store(&mdsc->request_tree, req->r_tid, req,
-+			       GFP_NOFS))) {
-+		pr_err_client(cl, "%p tid %lld: xa_store failed\n",
-+			      req, req->r_tid);
-+		ceph_mdsc_put_request(req);
-+		req->r_err = -ENOMEM;
-+		return;
-+	}
- 
- 	req->r_cred = get_current_cred();
- 	if (!req->r_mnt_idmap)
-@@ -1332,20 +1338,19 @@ static void __unregister_request(struct ceph_mds_client *mdsc,
- 	list_del_init(&req->r_unsafe_item);
- 
- 	if (req->r_tid == READ_ONCE(mdsc->oldest_tid)) {
--		struct rb_node *p = rb_next(&req->r_node);
-+		unsigned long tidx = req->r_tid + 1;
-+		struct ceph_mds_request *next_req;
-+
- 		WRITE_ONCE(mdsc->oldest_tid, 0);
--		while (p) {
--			struct ceph_mds_request *next_req =
--				rb_entry(p, struct ceph_mds_request, r_node);
-+		xa_for_each_start(&mdsc->request_tree, tidx, next_req, tidx) {
- 			if (next_req->r_op != CEPH_MDS_OP_SETFILELOCK) {
- 				WRITE_ONCE(mdsc->oldest_tid, next_req->r_tid);
- 				break;
- 			}
--			p = rb_next(p);
- 		}
- 	}
- 
--	erase_request(&mdsc->request_tree, req);
-+	xa_erase(&mdsc->request_tree, req->r_tid);
- 
- 	if (req->r_unsafe_dir) {
- 		struct ceph_inode_info *ci = ceph_inode(req->r_unsafe_dir);
-@@ -1905,7 +1910,7 @@ static void cleanup_session_requests(struct ceph_mds_client *mdsc,
- {
- 	struct ceph_client *cl = mdsc->fsc->client;
- 	struct ceph_mds_request *req;
--	struct rb_node *p;
-+	unsigned long idx;
- 
- 	doutc(cl, "mds%d\n", session->s_mds);
- 	mutex_lock(&mdsc->mutex);
-@@ -1921,10 +1926,8 @@ static void cleanup_session_requests(struct ceph_mds_client *mdsc,
- 		__unregister_request(mdsc, req);
- 	}
- 	/* zero r_attempts, so kick_requests() will re-send requests */
--	p = rb_first(&mdsc->request_tree);
--	while (p) {
--		req = rb_entry(p, struct ceph_mds_request, r_node);
--		p = rb_next(p);
-+	idx = 0;
-+	xa_for_each(&mdsc->request_tree, idx, req) {
- 		if (req->r_session &&
- 		    req->r_session->s_mds == session->s_mds)
- 			req->r_attempts = 0;
-@@ -2806,7 +2809,6 @@ ceph_mdsc_create_request(struct ceph_mds_client *mdsc, int op, int mode)
- 	req->r_fmode = -1;
- 	req->r_feature_needed = -1;
- 	kref_init(&req->r_kref);
--	RB_CLEAR_NODE(&req->r_node);
- 	INIT_LIST_HEAD(&req->r_wait);
+@@ -2813,6 +2813,7 @@ ceph_mdsc_create_request(struct ceph_mds_client *mdsc, int op, int mode)
  	init_completion(&req->r_completion);
  	init_completion(&req->r_safe_completion);
-@@ -2826,10 +2828,9 @@ ceph_mdsc_create_request(struct ceph_mds_client *mdsc, int op, int mode)
-  */
- static struct ceph_mds_request *__get_oldest_req(struct ceph_mds_client *mdsc)
- {
--	if (RB_EMPTY_ROOT(&mdsc->request_tree))
--		return NULL;
--	return rb_entry(rb_first(&mdsc->request_tree),
--			struct ceph_mds_request, r_node);
-+	unsigned long idx = 0;
+ 	INIT_LIST_HEAD(&req->r_unsafe_item);
++	INIT_LIST_HEAD(&req->r_aux_item);
+ 
+ 	ktime_get_coarse_real_ts64(&req->r_stamp);
+ 
+@@ -3532,20 +3533,23 @@ static int __prepare_send_request(struct ceph_mds_session *session,
+ 	 * Avoid infinite retrying after overflow. The client will
+ 	 * increase the retry count and if the MDS is old version,
+ 	 * so we limit to retry at most 256 times.
++	 *
++	 * r_attempts was already incremented under mdsc->mutex by the
++	 * caller (__do_request or replay_unsafe_requests), so the
++	 * actual retry count is r_attempts - 1 and we skip the check
++	 * on the first dispatch (r_attempts == 1).
+ 	 */
+-	if (req->r_attempts) {
+-	       old_max_retry = sizeof_field(struct ceph_mds_request_head,
+-					    num_retry);
+-	       old_max_retry = 1 << (old_max_retry * BITS_PER_BYTE);
+-	       if ((old_version && req->r_attempts >= old_max_retry) ||
+-		   ((uint32_t)req->r_attempts >= U32_MAX)) {
++	if (req->r_attempts > 1) {
++		old_max_retry = sizeof_field(struct ceph_mds_request_head,
++					     num_retry);
++		old_max_retry = 1 << (old_max_retry * BITS_PER_BYTE);
++		if ((old_version && (req->r_attempts - 1) >= old_max_retry) ||
++		    ((uint32_t)(req->r_attempts - 1) >= U32_MAX)) {
+ 			pr_warn_ratelimited_client(cl, "request tid %llu seq overflow\n",
+ 						   req->r_tid);
+ 			return -EMULTIHOP;
+-	       }
++		}
+ 	}
+-
+-	req->r_attempts++;
+ 	if (req->r_inode) {
+ 		struct ceph_cap *cap =
+ 			ceph_get_cap_for_mds(ceph_inode(req->r_inode), mds);
+@@ -3657,9 +3661,36 @@ static void __do_request(struct ceph_mds_client *mdsc,
+ 	int err = 0;
+ 	bool random;
+ 
++	mutex_lock(&mdsc->mutex);
 +
-+	return xa_find(&mdsc->request_tree, &idx, ULONG_MAX, XA_PRESENT);
++	/*
++	 * r_attempts is bumped under mdsc->mutex just before the mutex
++	 * is dropped to send the request, and it is only ever written
++	 * back to 0 by the forward handler or cleanup_session_requests()
++	 * (both under the mutex) before re-dispatching through a new
++	 * __do_request() call.  Consequently, r_attempts > 0 at this
++	 * point always means another __do_request() instance has already
++	 * passed the point of no return for this request, i.e. a racing
++	 * kick_requests() or __wake_requests() picked up the same
++	 * request from the xarray or a wait list and is about to send
++	 * it.  Bail out to prevent a double dispatch.
++	 *
++	 * Note: kick_requests() also filters on r_attempts > 0 during
++	 * its collection pass, but that is a one-time snapshot taken
++	 * under the mutex.  Between that snapshot and the actual
++	 * __do_request() call the mutex is dropped and re-acquired, so
++	 * the protection is not atomic — this per-request gate closes
++	 * the remaining window.
++	 */
++	if (req->r_attempts > 0) {
++		mutex_unlock(&mdsc->mutex);
++		return;
++	}
++
+ 	if (req->r_err || test_bit(CEPH_MDS_R_GOT_RESULT, &req->r_req_flags)) {
+ 		if (test_bit(CEPH_MDS_R_ABORTED, &req->r_req_flags))
+ 			__unregister_request(mdsc, req);
++		mutex_unlock(&mdsc->mutex);
+ 		return;
+ 	}
+ 
+@@ -3692,6 +3723,7 @@ static void __do_request(struct ceph_mds_client *mdsc,
+ 			spin_lock(&mdsc->wait_list_lock);
+ 			list_add(&req->r_wait, &mdsc->waiting_for_map);
+ 			spin_unlock(&mdsc->wait_list_lock);
++			mutex_unlock(&mdsc->mutex);
+ 			return;
+ 		}
+ 		if (!(mdsc->fsc->mount_options->flags &
+@@ -3717,6 +3749,7 @@ static void __do_request(struct ceph_mds_client *mdsc,
+ 		spin_lock(&mdsc->wait_list_lock);
+ 		list_add(&req->r_wait, &mdsc->waiting_for_map);
+ 		spin_unlock(&mdsc->wait_list_lock);
++		mutex_unlock(&mdsc->mutex);
+ 		return;
+ 	}
+ 
+@@ -3790,6 +3823,9 @@ static void __do_request(struct ceph_mds_client *mdsc,
+ 		goto out_session;
+ 	}
+ 
++	req->r_attempts++;
++	mutex_unlock(&mdsc->mutex);
++
+ 	/* send request */
+ 	req->r_resend_mds = -1;   /* forget any previous mds hint */
+ 
+@@ -3820,6 +3856,7 @@ static void __do_request(struct ceph_mds_client *mdsc,
+ 			err = wait_on_bit(&di->flags, CEPH_DENTRY_ASYNC_CREATE_BIT,
+ 					  TASK_KILLABLE);
+ 			if (err) {
++				mutex_lock(&mdsc->mutex);
+ 				mutex_lock(&req->r_fill_mutex);
+ 				set_bit(CEPH_MDS_R_ABORTED, &req->r_req_flags);
+ 				mutex_unlock(&req->r_fill_mutex);
+@@ -3857,6 +3894,8 @@ static void __do_request(struct ceph_mds_client *mdsc,
+ 
+ 	err = __send_request(session, req, false);
+ 
++	mutex_lock(&mdsc->mutex);
++
+ out_session:
+ 	ceph_put_mds_session(session);
+ finish:
+@@ -3866,12 +3905,10 @@ static void __do_request(struct ceph_mds_client *mdsc,
+ 		complete_request(mdsc, req);
+ 		__unregister_request(mdsc, req);
+ 	}
++	mutex_unlock(&mdsc->mutex);
+ 	return;
  }
  
- static inline  u64 __get_oldest_tid(struct ceph_mds_client *mdsc)
-@@ -3890,12 +3891,11 @@ static void kick_requests(struct ceph_mds_client *mdsc, int mds)
+-/*
+- * called under mdsc->mutex
+- */
+ static void __wake_requests(struct ceph_mds_client *mdsc,
+ 			    struct list_head *head)
+ {
+@@ -3901,10 +3938,14 @@ static void __wake_requests(struct ceph_mds_client *mdsc,
+ static void kick_requests(struct ceph_mds_client *mdsc, int mds)
  {
  	struct ceph_client *cl = mdsc->fsc->client;
- 	struct ceph_mds_request *req;
--	struct rb_node *p = rb_first(&mdsc->request_tree);
-+	unsigned long idx;
+-	struct ceph_mds_request *req;
++	struct ceph_mds_request *req, *nreq;
+ 	unsigned long idx;
++	LIST_HEAD(kick_list);
  
  	doutc(cl, "kick_requests mds%d\n", mds);
--	while (p) {
--		req = rb_entry(p, struct ceph_mds_request, r_node);
--		p = rb_next(p);
-+	idx = 0;
-+	xa_for_each(&mdsc->request_tree, idx, req) {
++
++	/* collect matching requests under the mutex */
++	mutex_lock(&mdsc->mutex);
+ 	idx = 0;
+ 	xa_for_each(&mdsc->request_tree, idx, req) {
  		if (test_bit(CEPH_MDS_R_GOT_UNSAFE, &req->r_req_flags))
- 			continue;
- 		if (req->r_attempts > 0)
-@@ -4748,7 +4748,7 @@ static void replay_unsafe_requests(struct ceph_mds_client *mdsc,
- 				   struct ceph_mds_session *session)
- {
- 	struct ceph_mds_request *req, *nreq;
--	struct rb_node *p;
-+	unsigned long idx;
- 
- 	doutc(mdsc->fsc->client, "mds%d\n", session->s_mds);
- 
-@@ -4760,10 +4760,8 @@ static void replay_unsafe_requests(struct ceph_mds_client *mdsc,
- 	 * also re-send old requests when MDS enters reconnect stage. So that MDS
- 	 * can process completed request in clientreplay stage.
- 	 */
--	p = rb_first(&mdsc->request_tree);
--	while (p) {
--		req = rb_entry(p, struct ceph_mds_request, r_node);
--		p = rb_next(p);
-+	idx = 0;
-+	xa_for_each(&mdsc->request_tree, idx, req) {
- 		if (test_bit(CEPH_MDS_R_GOT_UNSAFE, &req->r_req_flags))
- 			continue;
- 		if (req->r_attempts == 0)
-@@ -5609,7 +5607,7 @@ static void ceph_mdsc_reset_workfn(struct work_struct *work)
- 	 */
- 	{
- 		struct ceph_mds_request *req;
--		struct rb_node *rn;
-+		unsigned long idx;
- 		u64 last_tid;
- 
- 		mutex_lock(&mdsc->mutex);
-@@ -5617,14 +5615,12 @@ static void ceph_mdsc_reset_workfn(struct work_struct *work)
- 		mutex_unlock(&mdsc->mutex);
- 
- 		mutex_lock(&mdsc->mutex);
--		rn = rb_first(&mdsc->request_tree);
--		while (rn) {
--			req = rb_entry(rn, struct ceph_mds_request, r_node);
--			if (req->r_tid > last_tid)
--				break;
-+		idx = 0;
-+		while ((req = xa_find(&mdsc->request_tree, &idx, last_tid,
-+				      XA_PRESENT))) {
- 			if (req->r_op == CEPH_MDS_OP_SETFILELOCK ||
- 			    !(req->r_op & CEPH_MDS_OP_WRITE)) {
--				rn = rb_next(rn);
-+				idx++;
- 				continue;
- 			}
- 			ceph_mdsc_get_request(req);
-@@ -5637,7 +5633,7 @@ static void ceph_mdsc_reset_workfn(struct work_struct *work)
- 			ceph_mdsc_put_request(req);
- 			if (time_after(jiffies, drain_deadline))
- 				break;
--			rn = rb_first(&mdsc->request_tree);
-+			idx = 0;  /* restart: tree may have changed */
+@@ -3913,14 +3954,23 @@ static void kick_requests(struct ceph_mds_client *mdsc, int mds)
+ 			continue; /* only new requests */
+ 		if (req->r_session &&
+ 		    req->r_session->s_mds == mds) {
+-			doutc(cl, " kicking tid %llu\n", req->r_tid);
++			ceph_mdsc_get_request(req);
+ 			spin_lock(&mdsc->wait_list_lock);
+ 			list_del_init(&req->r_wait);
+ 			spin_unlock(&mdsc->wait_list_lock);
+-			trace_ceph_mdsc_resume_request(mdsc, req);
+-			__do_request(mdsc, req);
++			list_add_tail(&req->r_aux_item, &kick_list);
  		}
- 		mutex_unlock(&mdsc->mutex);
+ 	}
++	mutex_unlock(&mdsc->mutex);
++
++	/* replay without the mutex */
++	list_for_each_entry_safe(req, nreq, &kick_list, r_aux_item) {
++		doutc(cl, " kicking tid %llu\n", req->r_tid);
++		trace_ceph_mdsc_resume_request(mdsc, req);
++		list_del_init(&req->r_aux_item);
++		__do_request(mdsc, req);
++		ceph_mdsc_put_request(req);
++	}
+ }
  
-@@ -6369,7 +6365,7 @@ int ceph_mdsc_init(struct ceph_fs_client *fsc)
- 	mdsc->snap_realms = RB_ROOT;
- 	INIT_LIST_HEAD(&mdsc->snap_empty);
- 	spin_lock_init(&mdsc->snap_empty_lock);
--	mdsc->request_tree = RB_ROOT;
-+	xa_init(&mdsc->request_tree);
- 	INIT_DELAYED_WORK(&mdsc->delayed_work, delayed_work);
- 	mdsc->last_renew_caps = jiffies;
- 	INIT_LIST_HEAD(&mdsc->cap_delay_list);
-@@ -6695,34 +6691,33 @@ static void flush_mdlog_and_wait_mdsc_unsafe_requests(struct ceph_mds_client *md
- 						 u64 want_tid)
- {
- 	struct ceph_client *cl = mdsc->fsc->client;
--	struct ceph_mds_request *req = NULL, *nextreq;
-+	struct ceph_mds_request *req;
- 	struct ceph_mds_session *last_session = NULL;
--	struct rb_node *n;
-+	unsigned long idx;
- 
+ int ceph_mdsc_submit_request(struct ceph_mds_client *mdsc, struct inode *dir,
+@@ -3980,10 +4030,11 @@ int ceph_mdsc_submit_request(struct ceph_mds_client *mdsc, struct inode *dir,
+ 	doutc(cl, "submit_request on %p for inode %p\n", req, dir);
  	mutex_lock(&mdsc->mutex);
- 	doutc(cl, "want %lld\n", want_tid);
--restart:
--	req = __get_oldest_req(mdsc);
--	while (req && req->r_tid <= want_tid) {
--		/* find next request */
--		n = rb_next(&req->r_node);
--		if (n)
--			nextreq = rb_entry(n, struct ceph_mds_request, r_node);
--		else
--			nextreq = NULL;
--		if (req->r_op != CEPH_MDS_OP_SETFILELOCK &&
--		    (req->r_op & CEPH_MDS_OP_WRITE)) {
-+	idx = 0;
-+	while ((req = xa_find(&mdsc->request_tree, &idx, want_tid,
-+			      XA_PRESENT))) {
-+		u64 next_tid = req->r_tid + 1;
+ 	__register_request(mdsc, req, dir);
++	mutex_unlock(&mdsc->mutex);
 +
-+		if (req->r_op == CEPH_MDS_OP_SETFILELOCK ||
-+		    !(req->r_op & CEPH_MDS_OP_WRITE)) {
-+			idx = next_tid;
-+			continue;
-+		}
-+
-+		{
- 			struct ceph_mds_session *s = req->r_session;
+ 	trace_ceph_mdsc_submit_request(mdsc, req);
+ 	__do_request(mdsc, req);
+ 	err = req->r_err;
+-	mutex_unlock(&mdsc->mutex);
+ 	return err;
+ }
  
- 			if (!s) {
--				req = nextreq;
-+				idx = next_tid;
- 				continue;
- 			}
- 
- 			/* write op */
- 			ceph_mdsc_get_request(req);
--			if (nextreq)
--				ceph_mdsc_get_request(nextreq);
- 			s = ceph_get_mds_session(s);
- 			mutex_unlock(&mdsc->mutex);
- 
-@@ -6740,16 +6735,9 @@ static void flush_mdlog_and_wait_mdsc_unsafe_requests(struct ceph_mds_client *md
- 
- 			mutex_lock(&mdsc->mutex);
- 			ceph_mdsc_put_request(req);
--			if (!nextreq)
--				break;  /* next dne before, so we're done! */
--			if (RB_EMPTY_NODE(&nextreq->r_node)) {
--				/* next request was removed from tree */
--				ceph_mdsc_put_request(nextreq);
--				goto restart;
--			}
--			ceph_mdsc_put_request(nextreq);  /* won't go away */
-+			/* restart from the next tid; tree may have changed */
-+			idx = next_tid;
- 		}
--		req = nextreq;
+@@ -4372,13 +4423,14 @@ static void handle_forward(struct ceph_mds_client *mdsc,
+ 		req->r_num_fwd = fwd_seq;
+ 		req->r_resend_mds = next_mds;
+ 		put_request_session(req);
+-		__do_request(mdsc, req);
  	}
  	mutex_unlock(&mdsc->mutex);
- 	ceph_put_mds_session(last_session);
-@@ -6908,6 +6896,7 @@ static void ceph_mdsc_stop(struct ceph_mds_client *mdsc)
- 	if (mdsc->mdsmap)
- 		ceph_mdsmap_destroy(mdsc->mdsmap);
- 	kfree(mdsc->sessions);
-+	xa_destroy(&mdsc->request_tree);
- 	ceph_caps_finalize(mdsc);
  
- 	if (mdsc->s_cap_auths) {
+ 	/* kick calling process */
+ 	if (aborted)
+ 		complete_request(mdsc, req);
++	else if (!test_bit(CEPH_MDS_R_ABORTED, &req->r_req_flags))
++		__do_request(mdsc, req);
+ 	ceph_mdsc_put_request(req);
+ 	return;
+ 
+@@ -4706,11 +4758,9 @@ static void handle_session(struct ceph_mds_session *session,
+ 
+ 	mutex_unlock(&session->s_mutex);
+ 	if (wake) {
+-		mutex_lock(&mdsc->mutex);
+ 		__wake_requests(mdsc, &session->s_waiting);
+ 		if (wake == 2)
+ 			kick_requests(mdsc, mds);
+-		mutex_unlock(&mdsc->mutex);
+ 	}
+ 	if (op == CEPH_SESSION_CLOSE)
+ 		ceph_put_mds_session(session);
+@@ -4766,8 +4816,10 @@ static void replay_unsafe_requests(struct ceph_mds_client *mdsc,
+ 	doutc(mdsc->fsc->client, "mds%d\n", session->s_mds);
+ 
+ 	mutex_lock(&mdsc->mutex);
+-	list_for_each_entry_safe(req, nreq, &session->s_unsafe, r_unsafe_item)
++	list_for_each_entry_safe(req, nreq, &session->s_unsafe, r_unsafe_item) {
++		req->r_attempts++;
+ 		__send_request(session, req, true);
++	}
+ 
+ 	/*
+ 	 * also re-send old requests when MDS enters reconnect stage. So that MDS
+@@ -4786,6 +4838,7 @@ static void replay_unsafe_requests(struct ceph_mds_client *mdsc,
+ 
+ 		ceph_mdsc_release_dir_caps_async(req);
+ 
++		req->r_attempts++;
+ 		__send_request(session, req, true);
+ 	}
+ 	mutex_unlock(&mdsc->mutex);
+@@ -5346,9 +5399,7 @@ static int send_mds_reconnect(struct ceph_mds_client *mdsc,
+ 
+ 	mutex_unlock(&session->s_mutex);
+ 
+-	mutex_lock(&mdsc->mutex);
+ 	__wake_requests(mdsc, &session->s_waiting);
+-	mutex_unlock(&mdsc->mutex);
+ 
+ 	up_read(&mdsc->snap_rwsem);
+ 	ceph_pagelist_release(recon_state.pagelist);
+@@ -5773,8 +5824,8 @@ static void ceph_mdsc_reset_workfn(struct work_struct *work)
+ 		}
+ 		sessions[i]->s_state = CEPH_MDS_SESSION_CLOSED;
+ 		__unregister_session(mdsc, sessions[i]);
+-		__wake_requests(mdsc, &sessions[i]->s_waiting);
+ 		mutex_unlock(&mdsc->mutex);
++		__wake_requests(mdsc, &sessions[i]->s_waiting);
+ 
+ 		mutex_lock(&sessions[i]->s_mutex);
+ 		cleanup_session_requests(mdsc, sessions[i]);
+@@ -5785,9 +5836,7 @@ static void ceph_mdsc_reset_workfn(struct work_struct *work)
+ 
+ 		ceph_put_mds_session(sessions[i]);
+ 
+-		mutex_lock(&mdsc->mutex);
+ 		kick_requests(mdsc, mds);
+-		mutex_unlock(&mdsc->mutex);
+ 
+ 		torn_down++;
+ 		pr_info_client(cl, "mds%d session reset complete\n", mds);
+@@ -5903,8 +5952,8 @@ static void check_new_map(struct ceph_mds_client *mdsc,
+ 			/* force close session for stopped mds */
+ 			ceph_get_mds_session(s);
+ 			__unregister_session(mdsc, s);
+-			__wake_requests(mdsc, &s->s_waiting);
+ 			mutex_unlock(&mdsc->mutex);
++			__wake_requests(mdsc, &s->s_waiting);
+ 
+ 			mutex_lock(&s->s_mutex);
+ 			cleanup_session_requests(mdsc, s);
+@@ -5913,8 +5962,8 @@ static void check_new_map(struct ceph_mds_client *mdsc,
+ 
+ 			ceph_put_mds_session(s);
+ 
+-			mutex_lock(&mdsc->mutex);
+ 			kick_requests(mdsc, i);
++			mutex_lock(&mdsc->mutex);
+ 			continue;
+ 		}
+ 
+@@ -5962,9 +6011,9 @@ static void check_new_map(struct ceph_mds_client *mdsc,
+ 			    oldstate != CEPH_MDS_STATE_STARTING)
+ 				pr_info_client(cl, "mds%d recovery completed\n",
+ 					       s->s_mds);
+-			kick_requests(mdsc, i);
+ 			ceph_get_mds_session(s);
+ 			mutex_unlock(&mdsc->mutex);
++			kick_requests(mdsc, i);
+ 			mutex_lock(&s->s_mutex);
+ 			mutex_lock(&mdsc->mutex);
+ 			ceph_put_mds_session(s);
+@@ -6877,8 +6926,8 @@ void ceph_mdsc_force_umount(struct ceph_mds_client *mdsc)
+ 
+ 		if (session->s_state == CEPH_MDS_SESSION_REJECTED)
+ 			__unregister_session(mdsc, session);
+-		__wake_requests(mdsc, &session->s_waiting);
+ 		mutex_unlock(&mdsc->mutex);
++		__wake_requests(mdsc, &session->s_waiting);
+ 
+ 		mutex_lock(&session->s_mutex);
+ 		__close_session(mdsc, session);
+@@ -6889,11 +6938,11 @@ void ceph_mdsc_force_umount(struct ceph_mds_client *mdsc)
+ 		mutex_unlock(&session->s_mutex);
+ 		ceph_put_mds_session(session);
+ 
+-		mutex_lock(&mdsc->mutex);
+ 		kick_requests(mdsc, mds);
++		mutex_lock(&mdsc->mutex);
+ 	}
+-	__wake_requests(mdsc, &mdsc->waiting_for_map);
+ 	mutex_unlock(&mdsc->mutex);
++	__wake_requests(mdsc, &mdsc->waiting_for_map);
+ }
+ 
+ static void ceph_mdsc_stop(struct ceph_mds_client *mdsc)
+@@ -7035,8 +7084,8 @@ void ceph_mdsc_handle_fsmap(struct ceph_mds_client *mdsc, struct ceph_msg *msg)
+ err_out:
+ 	mutex_lock(&mdsc->mutex);
+ 	mdsc->mdsmap_err = err;
+-	__wake_requests(mdsc, &mdsc->waiting_for_map);
+ 	mutex_unlock(&mdsc->mutex);
++	__wake_requests(mdsc, &mdsc->waiting_for_map);
+ }
+ 
+ /*
+@@ -7087,11 +7136,11 @@ void ceph_mdsc_handle_mdsmap(struct ceph_mds_client *mdsc, struct ceph_msg *msg)
+ 	mdsc->fsc->max_file_size = min((loff_t)mdsc->mdsmap->m_max_file_size,
+ 					MAX_LFS_FILESIZE);
+ 
++	mutex_unlock(&mdsc->mutex);
+ 	__wake_requests(mdsc, &mdsc->waiting_for_map);
+ 	ceph_monc_got_map(&mdsc->fsc->client->monc, CEPH_SUB_MDSMAP,
+ 			  mdsc->mdsmap->m_epoch);
+ 
+-	mutex_unlock(&mdsc->mutex);
+ 	schedule_delayed(mdsc, 0);
+ 	return;
+ 
+@@ -7189,8 +7238,8 @@ static void mds_peer_reset(struct ceph_connection *con)
+ 		ceph_get_mds_session(s);
+ 		s->s_state = CEPH_MDS_SESSION_CLOSED;
+ 		__unregister_session(mdsc, s);
+-		__wake_requests(mdsc, &s->s_waiting);
+ 		mutex_unlock(&mdsc->mutex);
++		__wake_requests(mdsc, &s->s_waiting);
+ 
+ 		mutex_lock(&s->s_mutex);
+ 		cleanup_session_requests(mdsc, s);
+@@ -7199,9 +7248,7 @@ static void mds_peer_reset(struct ceph_connection *con)
+ 
+ 		wake_up_all(&mdsc->session_close_wq);
+ 
+-		mutex_lock(&mdsc->mutex);
+ 		kick_requests(mdsc, s->s_mds);
+-		mutex_unlock(&mdsc->mutex);
+ 
+ 		ceph_put_mds_session(s);
+ 		break;
 diff --git a/fs/ceph/mds_client.h b/fs/ceph/mds_client.h
-index e7a262c9c2ab..baba5dcf0def 100644
+index 0ea144ba4c7d..11059678284d 100644
 --- a/fs/ceph/mds_client.h
 +++ b/fs/ceph/mds_client.h
-@@ -331,7 +331,6 @@ typedef int (*ceph_mds_request_wait_callback_t) (struct ceph_mds_client *mdsc,
-  */
- struct ceph_mds_request {
- 	u64 r_tid;                   /* transaction id */
--	struct rb_node r_node;
- 	struct ceph_mds_client *r_mdsc;
+@@ -428,6 +428,7 @@ struct ceph_mds_request {
+ 	struct completion r_safe_completion;
+ 	ceph_mds_request_callback_t r_callback;
+ 	struct list_head  r_unsafe_item;  /* per-session unsafe list item */
++	struct list_head  r_aux_item;     /* auxiliary local list item */
  
- 	struct kref       r_kref;
-@@ -536,7 +535,7 @@ struct ceph_mds_client {
- 	u64                    last_tid;      /* most recent mds request */
- 	u64                    oldest_tid;    /* oldest incomplete mds request,
- 						 excluding setfilelock requests */
--	struct rb_root         request_tree;  /* pending mds requests */
-+	struct xarray           request_tree;  /* pending mds requests */
- 	struct delayed_work    delayed_work;  /* delayed work */
- 	unsigned long    last_renew_caps;  /* last time we renewed our caps */
- 	struct list_head cap_delay_list;   /* caps with delayed release */
+ 	long long	  r_dir_release_cnt;
+ 	long long	  r_dir_ordered_cnt;
 
 -- 
 2.53.0
