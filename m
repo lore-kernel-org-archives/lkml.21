@@ -1,85 +1,85 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795654425;
-	b=qHMfgChc1ZXPMRaIpOGfgmRvSjVwEg8mFZoBWr/nWLi7y5Zd3jVQ4tH+0FBxEs3Ikm/2
-	 ruZloUE82HEZX09IPKKaq7bYayp+5/oJuIJlBeC7F1nSIegPvo5FUoyNTUOGaY0lvj8WU
-	 9dZMsE0QYZfFeduzIMNbPxVSplj1QPbUffXlODE4m+VyycAgGWe3Mu/N4x/lLLZITuWb9
-	 THus3+4tqu3Mh8CUbC7ImMeh/pCHofqgw+jcr2WMhjbqaOJCLcT2gXMyxWiDmSRvEIKzQ
-	 cbEkRwM3mNvlpEU6oUjqPZo50YEjoJ+lYyiAq6EkdNF5oULR8StNFzUQz0l3ehteUVQ==
+	b=KGi0EnVjPmH68KWnIfzSgjmxF1Cem6eUcWy84dvG4n85wCf1wjRS4ZMlMOo5wOxb16i/
+	 2AkObKiuZYQU5mXC5seKZ8fqOij2MoaDIvG8hoWEMIDMbVA918X/AZMjlHbQ6XKx2+iNh
+	 B3Uw0c5rSXiMLwt8xAZP0Ah8T2RRrgBF640SgW/Ui7i2JKEtbzUJg3OZgj/ef4IaKE2c7
+	 Ye7upspWYdQHHp0Ks7povqzzaCiw1K7f5ByBWLAvf7B82wa2sQKGsvvKH+qIhzCEUNy+Q
+	 8syPF9Cr8KeEz0q6LJis2M2TWE+0DBM2gWZhDVMT645WElWjXrD86PKG/53SQ+AT8Jg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795654425;
 	h=Received:DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To;
-	bh=p+xXsZjiaXoOEz9qBEyk4TJitPlTvM0wfvW8yye6/+I=;
-	b=irPMvil2NuJscKEKJhq0gIsivBj9U9DR8VowZNFQeUiR3iFFyjOSBh7L/dBvpj33X+9l
-	 a1NVH9xw7WDv2ZroylP0qLMhXVyXdzz1kx5Ml6hpAdEaEuHdFqgVEhGzKRNu6hkBEptMW
-	 pzbl/BX6yryDt3wtzFqM1ow4z3kKEH+5FxUuZs+wRAScrE0spoqYDmCyq2C2F3EyWph9n
-	 uUuCgmIGYmw+KxvmBf+lfF7o0rXCqRjNqBnUXgj+UtWqai6ieQM/YKkz4LL+RhFa+R/Fp
-	 mzS2OGd8nMZoFwZfmteUdi4I5Ch679q5qGSN80mRtdR67pyeDBNnJ01rSz+BZ6N/Y6A==
+	bh=BfUbrfcWKMoy+pKBRu70MfKcmBdGx7NyqTgjx5w0TRk=;
+	b=q/LWt/kL0E5mM3ooX4IoRiJEyBiQDU1cpn8WGZgbApa2d4lhKZT34akr7An0ktBAlShu
+	 ECXylvbulCQnltgFceeyh+EXYJe14KHn0GQUO/eV0nzASP40nP9r6Yf0/g7L46ZR7rXYM
+	 6OW1BElh/yNvBHhT5xJ4nmQ/L/cmTQDBTm1U4vX8f/SDV3WrVHnKV5sgTJAxzASUivm1x
+	 2g494eR0kRA20E0jmblSX1Lr9F4F6I3imfJ/K+w5/pcuBX+ew4cMHuWWO1dKfov16IQp8
+	 LCYRVWRAWOCB0le2gK3wzmdl3cP7l94hoyeqdwmM6n2YJoYGe9/5gUYCPHkTbkmPaeg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FD1oC7Of;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JWFOSdKN;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3745606A689;
-	Thu, 26 Nov 2026 00:53:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FEB6606A686;
+	Thu, 26 Nov 2026 00:53:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FD1oC7Of
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JWFOSdKN
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
 	t=1795654424;
-	b=y9EsrpbSud89XRA6b7RcJ1kyCCm+/rTEHCNBP2sUAyIxsim/1bh/REL5xbi0qbpUTVAV
-	 x6NzXtBaWQK+dMPjFb5iNCgLVrWt/RrL3oIYw/pyfDM2jrMxcWdJ4arTZJZ1PE8PgQS87
-	 ZKJWU8U+yxx1k5vqlULMqP5TeqVbF+vuaOs748fIQl2XnzxGPPkRpw15Zn9SJXPQ1F74S
-	 cPmlK6leCCBt/h27qxi8vuT/k64seLAgFhrgaIz8yPjG19AdgLlMCHASR7v1HUyKBh9fa
-	 sqJ6KlAef2vooOsCtus/6DKuJp1HcTg5F4CpfmCPstrTsG3tDdGpCvvzDao7+QyYFsw==
+	b=tA55ixD9GyFXtrcv12Er/eDQTQkmVzEUFZY0JX/Tdd6JQFNbiPEY0HiJuFw8dDh3yj8v
+	 8rmlPiuTbmwwafayFh4V47E3zqJDN/rODU7252FqWx40R2hdn+f21HHcYlaqgJhIAsRcU
+	 fQqRXdieQxo8lTUVKkeBoL8d1AEiiodIQT1F7w7NgLJkVdXzUtmEkfn3gfrCyWa+fzMvz
+	 ZMePXoBkgqgHO4ifHBjJLbAMQK9zdxrf1zS2ynJtytIWNbM8lNINEkSMY2n1Mk6uM+Ya0
+	 H1H7E7WLroFZRrNea8eYXTMY0WBNED+Ags2vKapLYRDM88h4n4AluSZ4R5QUOspdS2g==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
 	c=relaxed/relaxed; t=1795654424;
 	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To;
-	bh=p+xXsZjiaXoOEz9qBEyk4TJitPlTvM0wfvW8yye6/+I=;
-	b=xKTD+ZhOOoYyMWr/cfFf3Hy4OQ/DaV1MRqld44w9x3PjgECL57VVACfbnEDhahr4TpVg
-	 id5ovcvyZ/zKpJQnFQJNVNEvtEet2jzis8Bn/rjE+SW+vKHtr/SrrGHI0SPGiNeaELY22
-	 A36/hNDJyF1PE/qDlgigQuyocgFGJUsXzVPSmBtvMf4A9M/KbxkFkre6vv6lTcdE7h+Cg
-	 Ha3iFftJbmBDbrFLhiZEkopDojbxxGVOhG5qVWtmuh19HkzHzukgtPPFA9OtB1uYpiEVD
-	 R0rLEy6NXg0VG+gXXcQF4dV9Iic364Yyurrle9GY9NiTpPSpangESF2JQUVtmGaJHPw==
+	bh=BfUbrfcWKMoy+pKBRu70MfKcmBdGx7NyqTgjx5w0TRk=;
+	b=TuWPpSlzOzIyMnDcxHcLiCIEA9NCvAoKfnNtM1GMaMpvuOHfuv40N6lhjWvWhXRZt7++
+	 jKrq/RZxVLl0GEpeHpF3j/WgGnONT9Icm67znzBV+dyayT8zMHagSZX3R0GlzGGqz+LQ4
+	 Osj+7bYUg4DsZiXGFMGd4doUux36abbMpP3+yj7I7SAazWj2zSC0kqUNWgsaSNOwwOVFt
+	 zSbcsobsREK2O0pnTRH9ehTZzGR+cOs0IGBzWDtt81FpvjA8wl0K/lYk4tgDJ8pOwuEGc
+	 gj23mLjp2Z6DmhCXZUNMvVnwsoLUUw4ZUBLPl9eGYlBHAR+sEvAoHNFrWpdfgU5aH/w==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 224601F01805;
-	Thu, 26 Nov 2026 00:53:33 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 581A91F000D0;
+	Thu, 26 Nov 2026 00:53:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1795654424;
-	bh=p+xXsZjiaXoOEz9qBEyk4TJitPlTvM0wfvW8yye6/+I=;
+	bh=BfUbrfcWKMoy+pKBRu70MfKcmBdGx7NyqTgjx5w0TRk=;
 	h=From:To:Cc:Subject:Date:Reply-To;
-	b=FD1oC7OfpCfDcw0EAeDV+2RBkt1epTjJODIk5zoicbEezGTQLraO5DyoQRoV6z8Fm
-	 B25xaAY1G3GU8UID2vxiPxEYEWVb0J1GiIAX2ERcTuORFi7nBRzQ8TnkJCVLrJfChs
-	 1wVAg/LsYmWbNEU8DTeFJ4e2fWa3osb06vwKyhaMEucJc6QFMvYWmX00uLF3Jj9K7m
-	 4Zi++hvdkb76obHvPMV3Me5q66pS3VHzqqwmfY8DpWtHlIhIMV+RKg3wiQrn1HLrvE
-	 tkLTIENqXiKK2yYVBi3WO++dYM8V3QAaNs8IC3vuJzhYdg7l+uZAG8OY2xnfzthPRd
-	 kDIRUW04lL6ww==
+	b=JWFOSdKNFaxmStRglzyGP/K7Dg7Vxh540UZwwldmNZCURUG5bfWKwDaOKuCK9SPJL
+	 cEZV7DMfrQ9DTr74Uz5qL1xOMa4aaWQC8jAjdMENq247zTQ+IRFnt2t6VWxk0+sjbI
+	 bOQKry3POcbBif6l+ev7kldmrsaVtreVTHFUcvpjxGiVCXytLpmVWG9uKWDQ/KtpBz
+	 2aBP9DyilFjroeViqL+vU4m9HYVqn/Yliym2mgin+pUevvXbS16GqI4t0O3djlt4uD
+	 pIlC8BSqboT2JSO9+11OaemGYwBmKWjxL/Rmm6EuucuJkKIai7Hc3FH63bBzt5Yick
+	 7vUlt3aumKMUw==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 6429F4D153;
-	Thu, 26 Nov 2026 00:53:30 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id D989D4D130;
+	Thu, 26 Nov 2026 00:53:22 +0000 (UTC)
 From: Ilia Snezhkov via B4 Relay <devnull+iasnezhkov.gmail.com@kernel.org>
-To: peter.wang@mediatek.com, stanley.chu@mediatek.com, 
- martin.petersen@oracle.com, James.Bottomley@HansenPartnership.com
+To: daniel.lezcano@linaro.org, rafael@kernel.org, rui.zhang@intel.com, 
+ lukasz.luba@arm.com
 Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
- louisalexis.eyraud@collabora.com, linux-scsi@vger.kernel.org, 
- linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH 0/3] scsi: ufs: mediatek: pre-UniPro-1.8 adapt and clock
- scaling fixes
-Date: Thu, 26 Nov 2026 00:53:29 +0000
-Message-Id: <20261126005329.72010-1-iasnezhkov@gmail.com>
+ linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH 0/4] thermal/drivers/mediatek/lvts_thermal: CALSCALE,
+ overflow, locking, and IRQ NULL fixes
+Date: Thu, 26 Nov 2026 00:53:21 +0000
+Message-Id: <20261126005321.71799-1-iasnezhkov@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,11 +92,11 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795654409; l=1254;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795654401; l=1422;
  i=iasnezhkov@gmail.com; s=mindone2026; h=from:subject:message-id;
- bh=iEJQHKPytlPgQrAMYjID34D1fho6DWUFdxsNjm1zibI=;
- b=SnyT9H1v+r+1O+qvMYQeOuPjOSqeOFEVKHzccLAm8A6DFpfvEFDNxZfCPcyiOEJMTSot9SSVh
- Nd0WFobSctWD8RzzdBXfKhq36bBM5MVBqDIPTsVEO+bOa9odDuszUog
+ bh=1leBQV0oOy+uaHay4Mtb/7QLKwo9KRyb8z4zbg9Ip+0=;
+ b=DeRs6vSDkiq3HlMNkbRcNnW3B5O7KAkhffqnwDzmX6U2qhxHqi0eXsj9mhdRLyfXYaWKli22y
+ GRhmRV3HisQCtTnGthdRZ2KmLygbd82pbzpxD0EvLttrM4wcePGGj9V
 X-Developer-Key: i=iasnezhkov@gmail.com; a=ed25519;
  pk=hQgXfiWi4ukk2jh4BHu1vRVhg9BUivo//AFp50AKMag=
 X-Endpoint-Received: by B4 Relay for iasnezhkov@gmail.com/mindone2026 with
@@ -104,29 +104,36 @@ X-Endpoint-Received: by B4 Relay for iasnezhkov@gmail.com/mindone2026 with
 X-Original-From: Ilia Snezhkov <iasnezhkov@gmail.com>
 Reply-To: iasnezhkov@gmail.com
 
-This series fixes three bugs in the MediaTek UFS host driver observed on
-MT6789 (UFS 2.2, pre-UniPro-1.8, HS-G3 rate B, no ufs_fde clock):
+This four-patch series fixes four bugs in
+drivers/thermal/mediatek/lvts_thermal.c:
 
-1. Skip ufshcd_dme_configure_adapt() when host->hw_ver.major < 3 so
-   pre-UniPro-1.8 hosts do not fail DME-SET on PA_TXHSADAPTTYPE (0x15d4)
-   and discard negotiated power-mode parameters on every gear change.
-2. Allow _ufs_mtk_clk_scale() to switch ufs_sel when the optional
-   ufs_fde clock is absent, matching ufs_mtk_is_clk_scale_ready().
-3. Round clki->max_freq and clki->min_freq with clk_round_rate() during
-   ufs_mtk_init_clocks() (keeping clki->curr_freq synchronized and
-   preserving min < max <= U32_MAX) so PLL-derived clocks whose rounded
-   rate differs from the nominal DT frequency can scale back up in
-   ufshcd_devfreq_target().
+1. Write LVTS_CALSCALE_CONF (0x300) to the LVTS_CALSCALE register instead
+   of overwriting a local variable and discarding it.
+2. Avoid 32-bit overflow and unsigned truncation in
+   lvts_temp_to_raw_mt7988(), and skip converting high == INT_MAX in
+   lvts_set_trips() while masking high-offset IRQ.
+3. Serialize lvts_set_trips() with a per-controller spinlock_t in
+   struct lvts_ctrl so concurrent updates across thermal zones on the
+   same controller cannot corrupt shared thresholds or LVTS_MONINT via
+   unsynchronized RMW.
+4. Check lvts_ctrl->sensors[i].tz before calling
+   thermal_zone_device_update() in lvts_ctrl_irq_handler() for disabled
+   or DT-absent sensor slots.
 
-Found on hardware and drafted with an AI coding assistant.
+Found and drafted with an AI coding assistant while bringing up MT6789.
 
-Ilia Snezhkov (3):
-  scsi: ufs: mediatek: skip PA_TXHSADAPTTYPE on pre-UniPro-1.8 hosts
-  scsi: ufs: mediatek: allow clock scaling when ufs_fde is absent
-  scsi: ufs: mediatek: round scalable clock bounds to clk_round_rate()
+Ilia Snezhkov (4):
+  thermal/drivers/mediatek/lvts_thermal: write LVTS_CALSCALE in
+    lvts_ctrl_configure()
+  thermal/drivers/mediatek/lvts_thermal: avoid 32-bit overflow in
+    lvts_temp_to_raw_mt7988() and INT_MAX trips
+  thermal/drivers/mediatek/lvts_thermal: serialize lvts_set_trips() per
+    controller
+  thermal/drivers/mediatek/lvts_thermal: skip sensors without a thermal
+    zone in IRQ
 
- drivers/ufs/host/ufs-mediatek.c | 58 +++++++++++++++++++++++++--------
- 1 file changed, 45 insertions(+), 13 deletions(-)
+ drivers/thermal/mediatek/lvts_thermal.c | 30 ++++++++++++++++---------
+ 1 file changed, 20 insertions(+), 10 deletions(-)
 
 -- 
 2.54.0 (Apple Git-157)
