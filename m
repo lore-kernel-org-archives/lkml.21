@@ -1,86 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795674293;
-	b=vUcDrnEisVHzg+OF1RqPCRYSJCJhi1Ud6WXMxPfK3fW8kiFWYUL4QHf3Kx+ovJ/gEod/
-	 nrFRmoNe28FzTQ9Z4Nzx4sipo8lAtQPx2Gdk6/5nSllatbfirbTuAVyP+YIaSGSDAkQDO
-	 zX9iwRN2JcJV1vUZ0rFy/FRaBXbA7zmFz1urc28yJWKcuc4m12OAr/U6t237DKyGfdvX+
-	 qBQIuZWP63xFZ2dSyLmbpymKSQAYMqMe3y2P356Ewshy6BnLBbqwOu3vAv1viwJAvahfD
-	 GX3GqKb9iavPlRbMHWoCX4uV4eI1DGCa8gIPHrM24lhK/SFWUvAW0XsConbbATStYOA==
+	t=1795674302;
+	b=u9T65g8HCG1yxVyal3QHCtYT/QgpzOZ3PmqSpYjOc70twucwMFccEK45WA7ShmFZIqwo
+	 3NtUVzdqkCikHJXzaq3umZBDSl03KCLKJR0hSAeCpBxlaUgTWqCVmVRl4WWaWopSSYcdz
+	 dXFSXuAhJJeHSlU4PHC/IRzDSSqy4VJjUXky6KUrvPdMWbzAoJ+1Rtl9NugUme9Sp7/Hh
+	 +/EaXRKljIfdS2lZ45ZL9ddL2QoN9BMXud09l/4eMr3kDAeiJEpxSD8ZYwECA932RUS3V
+	 82avVGm6kZ7uy3aApVSt06iACJCvhyc9qckj6FPP/wRXSw7TwpTvuXZtuBXk69oYcKQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795674293;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795674302;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=jXfP+BBaRmFRvRsRkzl26nbPuaGAtebafKyAvaeF1Hk=;
-	b=09WFM36LZ74fQ2zDOiaGAwy0GcPitkbFH9KAntxlL2kAPhAdv5YTP43nZYnJbbw5IMVV
-	 KHEgzQS5k5q0sWiLKxEGdBmPauWRgSOCd6IFt1OMOX7x0osLT6wEFfUNiRJ21QJmxh9mx
-	 ZblLOsMUImCkTeIwpWt3L6nbL5IpeBs3/K2nYJhPNuIm2Oluvx+sxSyatLRPmt5gGl4Pm
-	 szqawAUmb6tJtnue1b9xkikxwm9+RJlJtlBoYKz8DBpCGxbIdeJ0jDs8mrd/Nr27MnXfx
-	 MoxLS2GHlNgRoLnzvWApKmPJUfuOLnOF7iv7q4YNHXavWWDHxcsdJLV8sjmjTjHQrWQ==
+	bh=1gKLDwGyxRU9dYe2xyWHPCu5Y64d2Lo1PuFNknEYqTk=;
+	b=Zvnfllvk++6zLx7SYajXhtTxyjGfdRL6OCzeVFYQh38gZRA3IDYc2tUsu+MjeBroRqpS
+	 AFRJTDKcLA54OITjtrHVNeVN2doAIxZmU17ulC979B59cqj2aDrZfkdU/XttS0DmVBnR4
+	 vSAmZXFuZVIDWNT6hpPIxZckfOhXKX8nwaRneURJuCkKBGVZsrnKP5gMHKmnI4qT2bYzj
+	 4JDI5zlbXjgkRsJZ3Y1Pmot4r1U0xtjHwabfbXJn9UXu/NUwXdp/+lBCBceFFOAf+eAAP
+	 cb9JqpSiPz2XFc05hejG+G+B+8wFCg5D3+vNv7x67m7blVMm0rna6lGaW5ET6awjQfQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=chromium.org;
 	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=XtULAtt8;
-	arc=none smtp.remote-ip=74.125.82.53
-Received: from mail-dl1-f53.google.com (mail-dl1-f53.google.com [74.125.82.53])
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=MkeGGUmr;
+	arc=none smtp.remote-ip=74.125.82.42
+Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4861E606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:24:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4861E606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DE4F606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:25:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9DE4F606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=XtULAtt8
-Received: by mail-dl1-f53.google.com with SMTP id a92af1059eb24-1ae58d17cd9so7385327c88.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:24:53 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=MkeGGUmr
+Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-1aefd1bf74aso3477924c88.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:25:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795674292; x=1796279092; darn=vger.kernel.org;
+        d=chromium.org; s=google; t=1795674301; x=1796279101; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=jXfP+BBaRmFRvRsRkzl26nbPuaGAtebafKyAvaeF1Hk=;
-        b=XtULAtt8TBolwO52rSCfEzc2VkRPEHCOT/iznBtjLcvMR/qVj2R8v/ETU8qHmSDso2
-         BvZmQ4JCW83Fpe3nDuGrJ1yhogm1K+b/CZtdvHIYa10OHtwF6y8fbDuGQMVcdK+vxCPK
-         MD4xbRVd0jQPgWHcz7I9b9mr31qk6AyvAO/0E=
+        bh=1gKLDwGyxRU9dYe2xyWHPCu5Y64d2Lo1PuFNknEYqTk=;
+        b=MkeGGUmrDtWCtIDeZrHuYM0LGN+o2+wCauGzhPYqwLyTs1hWJ0vY0IU3Sb4/mJViTx
+         dgrqV0l154cwSUqC2KbqA/fjRIFh5aeQf/SyXeWtGg9uBRaNvjzobcx+bKA7SbrzVoHt
+         +5o2B5Xx30JIHc1sFojJY6negcqhwL80Lm/J0=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795674292; x=1796279092;
+        d=1e100.net; s=20260707; t=1795674301; x=1796279101;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=jXfP+BBaRmFRvRsRkzl26nbPuaGAtebafKyAvaeF1Hk=;
-        b=ifxoNwLI6dXWM6Jglp+LVYTXffFRgZf/8JZ5SX52YH/7OKMtO1tPoIY3I1MyLI0DLd
-         tSt6R1AU6ukmEAZEd375KkthRI2SijmfCoka4ZGeSHoZTlibqZBZ0o3zxuTyWiTASIqx
-         b9G6ws9OzGRmjvpVpqbh0+7Bn6xC4PPrJqXUcowqJ/xxgjUf2VssAI3YD9KLRxo2CBNm
-         hfiSAcdmXY/sjmzm5aS+BOL/XmGj1GMpsg/vyCc0IR6YiQPhShntK39/1XdIJddIJ998
-         2hgDhcbTCCHpxRtsqASdEB7uxVyo+2Aa2a9q/dH1Aj37jbGqZ/H1W5Sh7G9HbXbnUfc7
-         GKwg==
-X-Forwarded-Encrypted: i=1; AL+hErE7luCAm+I8T7+gr1qvCfsnuZpM/TTcdSyvv3EcllybMEosZN+TSFuWWEeRruEjJHYqb84jkr9Wr3PGkc8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z95cAr5JRQzxa8X8tp1w/Ti4HA5bL+GA5aXsWUdFkSfK7aFzBLJ
-	h61poiteAgmlZ6qxgs6DfEAIIolwtxdBAyrOo2brYlj5B/DoJwh9+EJSkKfU8SRCLoUSXe4y6in
-	RL4cUvA==
-X-Gm-Gg: AZFdTZfbeRG7Et8HPnIe172rwM5dvUHBndg+2fR7ZUYWazNzaV5NRyb4m4ImKQIi0Mp
-	bEiSzZ2v31DvkJurfhGkunqLyrRImsd53Ao4KuJmzcrdV0b+s0suBoeeIf4JSzxAJ/9lyxw60HD
-	s99311VKeWOmW1/Y/dbxM6pSOXklKxe5sSUwmIzkrEPFBKdTUCbHZB145T1YzLG/UQDEN29ygMe
-	JXlhxsyIHRdgLs/WfBvZG8tK0THg6MZkjA/n0czpRlI9Kl+u2EZ8LlwKW96/IHj0V5O2yRYsXgt
-	N+H6LLvW0obs/tIvWcvnU1l3Y2jmkhS31Xc4Lg9ZEG6Pvlr4suapN3U9vWxVZ0Ys+ZvBlxGfpmC
-	TFUYdyhHMrTcwJ2jLUSLYrCBkHvXwlw9ZQ3PDjwCGX2a34nnK4eZj6g6Wa0jWo3UOsHV0A/REKy
-	U/oU2k56T881irNK2yETkmtk6xaA8WOfuFAKVuUlOkz0saX6ITJdqLJU+5hQxy7rrQvWHv1DxGN
-	xKzMFejiWJPCW2Fkn/ixjcBeCZN5eWKCoLUfFSaSGlhc3EFmOri/6b0BDwD80kJ1BdRA9l/pyrB
-	iralvd+R4fL7bQIIeS0UwwnkUOOZFB7Sb7PjbNZLidYqXKIzcSIWzYauEpLWfa+F3FJ2dAJ8tK6
-	hIaNB5xJAXH5oeS5Q61/ZkA==
-X-Received: by 2002:a05:7022:28b:20b0:1ac:f84d:4036 with SMTP id a92af1059eb24-1b55686f9bamr17794762c88.9.1795674292446;
-        Wed, 25 Nov 2026 22:24:52 -0800 (PST)
+        bh=1gKLDwGyxRU9dYe2xyWHPCu5Y64d2Lo1PuFNknEYqTk=;
+        b=QocgWPxpW5s5yfv5JoG4NIm9hpVpr7PnmRqoLLn1lElpzfM4B1gn2slxYQ8A7qMFYy
+         0idwQkjnZSZtwtrqYBj1jVArYBMtJA4/Z+s2/g0FALPyH9wA7paq0lp/mMOjOh4eiAE8
+         mNlaRYYe7LBoO4TFJmDjO9NPS535OKjAiRWTXaRJmapbHbS19Mf7LAKJXtcysOKizdKu
+         QJ7PqMWCVfqvfejoszqMqMaTcwDl9GnJSyhM755HG35EyUnXJEFP9gQtfySqllEjrpea
+         D5AjVgwT009ZYZxcKrlVDvrqv5Y217c/mOnCDBk53JgJ7KdVf5pu+s+ib4e9GYOz5a4a
+         hSvg==
+X-Forwarded-Encrypted: i=1; AL+hErFYfv5W/AdQQ7DnJQQFlFZGy8m5+WqUAQ+lYdoxz9lbCByo69mL69nCmHl4P14MR/RvGr8ZkB19akAwpAM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+aN+XSNaNT7OKZ3bp5tDb9AJK1mgC47bsrVOtk8CjHF+retKCZ
+	n81d5BmyOl830FFwW4ZC5mkmJHVRYVT40W5mxU5B1nJ9Cb5RV0lf+65RSw7IECjruA==
+X-Gm-Gg: AZFdTZcYJMx8J8qSyN3ruMWY+5WQSuy1zpLcRektNAOfzCFvquMOpuR69Dt+IJNgT4x
+	NGGlI/YqesJRu/UgFjXBqpFcKRr08uXl3oBV25uMn+sfDsVRzfu3TnYg9aQf3HG0TzgWoyUKmDn
+	VfkKFYoliJIvuu7N2FFFw9Lp2t8V5ktIsOwJuf9KcIDIoLfJaOygHNoDhpgtAku5U4RJ6gNmv+U
+	O/fHst6yMrrRqu4uWsUOBzyZzgadNStyjIZ7PvphUebOIXcXj+jqoskwclASyIJRxWpb0IHiv7Z
+	bi2V4OlwdL1/1dkDTWu3xnL12DXDw0NJwKiqO1jOc0PApu8jfqgojDhSe0rr8Ar7hjLy8i0tNtS
+	BHnkcHwfPs98WFg1kq68XCOyiWw5xTZs16J5QOR0DGwBFF223uSXBTLcYTnKFg//RWQSHAZMzyn
+	XUdzZdevdLVHmtpsk9wDWzjFWUrS/IdqDA8P7Eqi6e/M39KdcXHooL4XIs1AlavM/4CJYHUczWy
+	q1vSy3+ffSwSGUOx+mgFDNlg7WszEr0Xe1hJ1bsZk9uXfU6HvgpY1slW81jyRUpZq8dWxegdiuK
+	S9v8S9ydH2CoSmzF1J6P+hvB0vYUCLxwx7auSqEdwBBAaiRMoGaWHWzb6FQnl9VQP9cHANn3wLJ
+	bGNETUsJCFtsjdTmwHRiGCQ==
+X-Received: by 2002:a05:701b:2603:b0:1b2:5ecf:9bd1 with SMTP id a92af1059eb24-1b55249484cmr20664343c88.7.1795674300778;
+        Wed, 25 Nov 2026 22:25:00 -0800 (PST)
 Received: from fshao-cloudtop.c.googlers.com (123.142.199.104.bc.googleusercontent.com. [104.199.142.123])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b56ef9fd16sm36793186c88.4.2026.11.25.22.24.44
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b56ef9fd16sm36793186c88.4.2026.11.25.22.24.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 22:24:52 -0800 (PST)
+        Wed, 25 Nov 2026 22:25:00 -0800 (PST)
 From: Fei Shao <fshao@chromium.org>
-Date: Thu, 26 Nov 2026 14:23:46 +0800
-Subject: [PATCH 4/8] drm/msm: Use DEFINE_DRM_GEM_FOPS()
+Date: Thu, 26 Nov 2026 14:23:47 +0800
+Subject: [PATCH 5/8] drm/panfrost: Use DEFINE_DRM_GEM_FOPS()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,7 +91,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-drm-fops-show-fdinfo-v1-4-7cb1d1a5d6ef@chromium.org>
+Message-Id: <20261126-drm-fops-show-fdinfo-v1-5-7cb1d1a5d6ef@chromium.org>
 References: <20261126-drm-fops-show-fdinfo-v1-0-7cb1d1a5d6ef@chromium.org>
 In-Reply-To: <20261126-drm-fops-show-fdinfo-v1-0-7cb1d1a5d6ef@chromium.org>
 To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
@@ -129,26 +128,26 @@ default. Migrate the driver to use DEFINE_DRM_GEM_FOPS().
 
 Signed-off-by: Fei Shao <fshao@chromium.org>
 ---
- drivers/gpu/drm/msm/msm_drv.c | 6 +-----
+ drivers/gpu/drm/panfrost/panfrost_drv.c | 6 +-----
  1 file changed, 1 insertion(+), 5 deletions(-)
 
-diff --git a/drivers/gpu/drm/msm/msm_drv.c b/drivers/gpu/drm/msm/msm_drv.c
-index 3675df277f6a..06d997a7a237 100644
---- a/drivers/gpu/drm/msm/msm_drv.c
-+++ b/drivers/gpu/drm/msm/msm_drv.c
-@@ -898,11 +898,7 @@ static void msm_show_fdinfo(struct drm_printer *p, struct drm_file *file)
+diff --git a/drivers/gpu/drm/panfrost/panfrost_drv.c b/drivers/gpu/drm/panfrost/panfrost_drv.c
+index eeda113037fe..205838513379 100644
+--- a/drivers/gpu/drm/panfrost/panfrost_drv.c
++++ b/drivers/gpu/drm/panfrost/panfrost_drv.c
+@@ -789,11 +789,7 @@ static void panfrost_show_fdinfo(struct drm_printer *p, struct drm_file *file)
  	drm_show_memory_stats(p, file);
  }
  
--static const struct file_operations fops = {
+-static const struct file_operations panfrost_drm_driver_fops = {
 -	.owner = THIS_MODULE,
 -	DRM_GEM_FOPS,
 -	.show_fdinfo = drm_show_fdinfo,
 -};
-+DEFINE_DRM_GEM_FOPS(fops);
++DEFINE_DRM_GEM_FOPS(panfrost_drm_driver_fops);
  
- #define DRIVER_FEATURES_GPU ( \
- 		DRIVER_GEM | \
+ /*
+  * Panfrost driver version:
 
 -- 
 2.56.1.839.g22a8290db9-goog
