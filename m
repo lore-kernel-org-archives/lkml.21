@@ -1,104 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.7
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795655797;
-	b=4YsCxn7O0cKtBf161oUUP32sF3B24g+mnsHkt3ZOutC2eAcQz21OmeqNtjIUJYd9+CqF
-	 LmahnSxE459uY0/+brTvC7ua7NutscUTMUbZLnD2NnGbknP/YouoWNXZy9iWOTMg3jRbo
-	 EUQCwn+WYvgFuSMS/RWU0eZ/lZfI+UsMYDHMSzerYt+4qP5ruShwjjRLqPY1ZrVvbE35h
-	 e8tBHini6X++UPodicKPdoLy/bjVjI/AAWvCwlYMSg3hx0cegPmjkNCZvInW0hmbe6/wK
-	 Fqi9toBum6horH5aJIbQkqdkVFMv5GL18EcPaNTOagBnKkgM+1yWrVlTvjOgxt2BB6Q==
+	t=1795655792;
+	b=QKpLdsdQhLWSz15bldPEb+T4AUN5YxsB2IntrkQMU+OMQTkZI3x/XFJDIPH5sj1itubG
+	 LgiT39Fp3QautRGCtT1ofqNqMeNCzbsLyiF0PjE4rjfnqhZFAubY5RwxMH27sgydKgcup
+	 wgeFn1vi8Vls23ES/dPHkeC2HLYCyXbmpm/yJeuRQv9N10pd9+zTe9qV39o8OtfwqXJKL
+	 xPCIjLOjAZRqnGnTH5JyVXVZyf6kg35iE9Z5jKRm9EHIqj5bRUjCc4TImfHqplolit5A/
+	 IjGBkHuTS6YQSk8QSQuyd6NZ2W+kZ9ACbHf+fbfYYtCDcN21eZdkqRBlNvSMhBBNhFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795655797;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=kGkpHSPUPV5CUyV1od9kzaCcYXVPJFOcarbWhABwVRI=;
-	b=a/aR3oPxTj/s8R/0Ynay2VpRXQ+oDoIouYxiycKInYal+WSZ+Z/pocB3ytUxqg33lVBA
-	 A6ZvFzZRJy/pCNTaPGsK2cyqpDmU9OcdVoQ/HnhMq6SlpHe41HpJO0qIAsO7FbZinY8ni
-	 bvYagTxBlg827nJzgge9Kz74iqah6dZKwUqAhswQ6tsugvGUfcMrR/nam6efCVZBIQRS+
-	 BzTE1JqEaqyXUVw7iRBvemx3u4In11ObTqakCPFThRZoNVv4cVptLAV/K6mKn0gZjFJvH
-	 +4YZT3S+gHUpW0xwzZ6ci4XLM20AefQPRkyGe4Um0gNJtAjMoQxQA8sx95hQnCod/8w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795655792;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=QlSPO9+8YS67Tn4rbTFkn+Zhwur7gCmRYFgUkoNRUs4=;
+	b=m//ZP3CF6seNMYtkaK2dEZ7bghWSfhQZ/eeKNESnZPeKkOjZb2ioOnWpCzi2FabGsB4H
+	 IIKZ6lK5+Vm/yzb4FbCznR7oawTASve9QRAscztADDbwM2cNTc6UoP51eQNrTuhsx5Kbs
+	 M6vsgVMhJG+SAhq/1dr0jdJ7NaitKi1LhW7qNE1w6qVScD6UITbPf6WcX9SWRvkhIIh5Z
+	 iCdfdFGMDFQ4hiEQmFyaINSO3/bnVFtVfnOElFXWSMNxubu9rqavrCX0tq4A1wU98UAqM
+	 4tITGuobSwRzTiL1z1y/nZIucCvMIemkqfjVU/MzYgnRZ5gzLtv5xFMj2aJjqZAYrZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FnsDG8pu;
-	arc=none smtp.remote-ip=192.198.163.7
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.7])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=E3hiWB4Z;
+	arc=none smtp.remote-ip=209.85.128.178
+Received: from mail-yw1-f178.google.com (mail-yw1-f178.google.com [209.85.128.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E3E8606A332
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:16:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E3E8606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B172606A327
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:16:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B172606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FnsDG8pu
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795655796; x=1827191796;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=XVFTqBo+CJwzxoZI7Biy1XZPco1nvpzQl5ITb3ynK6I=;
-  b=FnsDG8pu20D0AimuDbb1qnB4Uxo5+5m2sbfaYiw9O0oZgBQMg0mj5s7Y
-   zFoiNFN6wmJddOJtcbMPz6dcIOhqV0jRkLJgPXy0mrGWka3pZwli9GuRK
-   g/nZ35kizVLgHwaDJEckbFF7z7D3x096Ps10cWS3fUMgs0FF06Kbfb5fo
-   6pqtzabsz5WosPcA3NncfRFO5tU73RlqqsUZd9Z6cRKC5qKpYBOx+gGfs
-   neP4j/nLzk1oWm1e7QU9JwRbZ9kb2+Fox6OTLsDHRAh9osHWef/wBUjFm
-   l8X36rniRY1nNIfCtcepQJ3YWIf7n+2k1tMtsZviwBfoXQqOWU3wNIqwL
-   w==;
-X-CSE-ConnectionGUID: LKJe6BjTRASS3/PCnmHTDA==
-X-CSE-MsgGUID: x4tPCb55SX6yFHjx+ntY1A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4397878"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4397878"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 17:16:35 -0800
-X-CSE-ConnectionGUID: LqTCoUBlQUOS/SHgfyex9g==
-X-CSE-MsgGUID: gZ8/MW6fTzuWPfQ5eMAQFQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="12159304"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa005.fm.intel.com with ESMTP; 25 Nov 2026 17:16:27 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xWO63-00000001T2U-3AGp;
-	Thu, 26 Nov 2026 01:16:23 +0000
-Date: Thu, 26 Nov 2026 09:15:52 +0800
-From: kernel test robot <lkp@intel.com>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Inki Dae <inki.dae@samsung.com>,
-	Jagan Teki <jagan@amarulasolutions.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Jessica Zhang <jesszhan0024@gmail.com>,
-	Douglas Anderson <dianders@chromium.org>,
-	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: oe-kbuild-all@lists.linux.dev,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Hui Pu <Hui.Pu@gehealthcare.com>,
-	Ian Ray <ian.ray@gehealthcare.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 09/32] drm/display: bridge-connector: use a dynamic
- connector
-Message-ID: <20261126090631.mLSCvuCb-lkp@intel.com>
-References: <20261125-drm-bridge-hotplug-v4-9-822722850492@bootlin.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=E3hiWB4Z
+Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-8b2d14968c9so62089597b3.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:16:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795655791; x=1796260591; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:subject:cc:to:from:message-id:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=QlSPO9+8YS67Tn4rbTFkn+Zhwur7gCmRYFgUkoNRUs4=;
+        b=E3hiWB4Zj+L3kKg33G/3K6k/Vf2pySHmj8NCZYgRSDYT2gq9x2DlDktdLL3cq4jVyL
+         4IoAI4BW66V/dudYr+Z7ncM3MMMdZmRahqSriEwy7JyprppwYPFa0ZMqPnmh/aAwsawT
+         5ZPg1tzHAn4RKfxhygskCZMsE/5Ke5WcMM8fH5svn/nR4in9izf6cXxJQn9fP2bibktZ
+         GLmjEKHBoW5Cw/qvmRNVhpnOh1nTfUVgeHI/LBlz2K0ch7e9mOhOcLhoT4VWu98W1vVA
+         CL4wu/KF8CpapNCEMXuXHkmp1FIzQ9pFD8iMQgLEmGSxk4sNn9jv9cZv+GyDRmpxUqME
+         A0rQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795655791; x=1796260591;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:subject:cc:to:from:message-id:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=QlSPO9+8YS67Tn4rbTFkn+Zhwur7gCmRYFgUkoNRUs4=;
+        b=XzKIYb8QzoROH8ddOkKpkXpwuXNJJXKy9Sf6F4KhGRuFSTrABZVyF5brYfTSbzE4aR
+         22AK7V+wCr8OB01QgH66Y6HgeUZ6qtoxgzRrR+oYy56xlEp5hWg/V6T1Tuh3Sxh/DKTb
+         cp+ZO75Kh9GRBb5xLDvYoN4o8qD1hgSEjZdHPDcX3UStp/B19WmvnlaiosT5k++7GR8u
+         UiXqtI8vf/rOGWmd0E6lvUvELkbnTHXjUSUQDd9nd9nFENw+JCEDYP9kOJRfjLol6Mxa
+         7aIwnxKjBdqCZS847UgG4bDJ42HRusm3FHwl8A8CfBS7ol3q4IEFjOtLwtpzNhFQBRyX
+         QfKw==
+X-Forwarded-Encrypted: i=1; AL+hErEJYctUDbdo79LSqZ4RzvYASFFuzlpm9uvTR2CRRZ8ur3XLqpx785DPgqX2RTFW68j1KkrZ32VEalYQ7tY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8jGMJquQWlAIS4tKS0WCFbtG63vec9aicqkCnsGglaodEP+Mzv
+	1O63IdZDqc6UXeHId9OopRLCxCgfN9G/4abNcnGtcgLbQ241hgyWT1uF
+X-Gm-Gg: AZFdTZddV623pUgNYTd5tInKXpTYSHjx88jv+sv5t3stYftzDt2iBVpZBix74JzMuTG
+	GEOzG6p6LPIb+SyPDfQu0WCspUCnnsYQf9weu/0D4watNRcxw3b8l+ieGF5MfIWobzEpvtKKLI+
+	/9gAO8uQXsOKfOSAMjP4f8SwkZlVGT8OnmJ6p2aSmxcxjN+5myza+KrmGPLtqaScZWyG8m0ygy2
+	5T/JenctN1KGNQVOl1tCtdVB36n7KS1WkrG85AfreHpKOazaj2CtKKsPf5feikpXXquGcXm1Kag
+	0ZBmHLOklsSO6zSVj/DHEUjcAX0DtcRmU5M9uZZeU/aQOezYIjdMxHZ1ne5O93bQF8ClGIm3bxx
+	QTncDYUQejrdKm6eZOAd/Mbh9YngC29eOhvSl6WOWq54sQClmY9fThEfz5d+iRoRn47/r8oC90W
+	ydzT8wYZ33aSGgW5F5QoGRSfu1FNZ1omM12yzPgeqZLVWLrejnxjlBO39zeOprdX5RCKXgAGDhK
+	7V5Z7Z/4VjUrHPYH8MLJ/R5UgntuoQbfvPJxu176b3wrOFHyqr5I3wJUfLwL8VGfCPZ1349N8H3
+	PRG1ccYQJyPjAH+XNN3DiXvn
+X-Received: by 2002:a05:690c:6a06:b0:8b4:d0ea:ca9d with SMTP id 00721157ae682-8b52045f6c5mr70876907b3.25.1795655791098;
+        Wed, 25 Nov 2026 17:16:31 -0800 (PST)
+Received: from localhost ([120.244.9.31])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b575ff89c0sm12140497b3.0.2026.11.25.17.16.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 17:16:30 -0800 (PST)
+Date: Wed, 25 Nov 2026 20:16:25 -0500
+Message-ID: <9ec2f818084f2e723e8b82218a302258.docular.xu@gmail.com>
+From: Guodong Xu <docular.xu@gmail.com>
+To: Cody Kang <codykang.hk@gmail.com>
+Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+ Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Haylen Chu <heylenay@4d2.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+ Brian Masney <bmasney+clk@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Yao Zi <me@ziyao.cc>,
+ Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Icenowy Zheng <uwu@icenowy.me>, Jerome Brunet <jbrunet+clk@baylibre.com>,
+ Sarah Emery <sarah.emery@canonical.com>, Ze Huang <ze.huang@oss.qualcomm.com>,
+ Dmitry Baryshkov <lumag@kernel.org>, Cody Kang <codykang@vsit.ai>,
+ dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-clk@vger.kernel.org, Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v3 12/17] drm/spacemit: add Innosilicon DP/eDP controller
+ bridge driver
+In-Reply-To: <20261121-k3-display-v3-12-ec419e8e96b8@gmail.com>
+References: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
+ <20261121-k3-display-v3-12-ec419e8e96b8@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,34 +120,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125-drm-bridge-hotplug-v4-9-822722850492@bootlin.com>
 
-Hi Luca,
+Hi Cody,
 
-kernel test robot noticed the following build warnings:
+On Sat, 21 Nov 2026 15:40:51 +0800, Cody Kang via B4 Relay wrote:
+[...]
+> diff --git a/drivers/gpu/drm/spacemit/Kconfig b/drivers/gpu/drm/spacemit/Kconfig
+> index 8326a7b98151a..4667cb624401a 100644
+> --- a/drivers/gpu/drm/spacemit/Kconfig
+> +++ b/drivers/gpu/drm/spacemit/Kconfig
+> @@ -16,3 +16,22 @@ config DRM_SPACEMIT
+[...]
+> +config SPACEMIT_INNO_DP
+> +	tristate "SpacemiT Innosilicon DP/eDP controller support"
+[...]
+> diff --git a/drivers/gpu/drm/spacemit/Makefile b/drivers/gpu/drm/spacemit/Makefile
+> index b3b148000cf7b..260d316a271b5 100644
+> --- a/drivers/gpu/drm/spacemit/Makefile
+> +++ b/drivers/gpu/drm/spacemit/Makefile
+> @@ -9,4 +9,7 @@ spacemit-drm-y := spacemit_drm.o \
+>  		  dpu/dpu_saturn_hee.o \
+>  		  dpu/saturn_fbcmem.o
+>
+> +spacemit-inno-dp-y := spacemit_inno_dp.o
+> +
+>  obj-$(CONFIG_DRM_SPACEMIT) += spacemit-drm.o
+> +obj-$(CONFIG_SPACEMIT_INNO_DP) += spacemit-inno-dp.o
 
-[auto build test WARNING on 479e381e77dcde0dfcc9d51e89ff3273da199804]
+I noticed a corner case when testing module unload on v3.
+spacemit_inno_dp can be removed while a process still has cardN open
+(say Xorg or kmscube is running and somebody does rmmod
+spacemit_inno_dp), and the DRM device then still holds references on
+the bridge. When that process closes cardN later, the kernel oopses. On
+a CoM260-IFX:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Luca-Ceresoli/drm-display-hdmi-cec-helper-use-drmm_-prefix-for-drmm-action/20261125-185014
-base:   479e381e77dcde0dfcc9d51e89ff3273da199804
-patch link:    https://lore.kernel.org/r/20261125-drm-bridge-hotplug-v4-9-822722850492%40bootlin.com
-patch subject: [PATCH v4 09/32] drm/display: bridge-connector: use a dynamic connector
-config: sh-randconfig-1001-20261126 (https://download.01.org/0day-ci/archive/20261126/20261126090631.mLSCvuCb-lkp@intel.com/config)
-compiler: sh4-linux-gcc (GCC) 10.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261126/20261126090631.mLSCvuCb-lkp@intel.com/reproduce)
+	sleep 20 < /dev/dri/card0 &
+	rmmod spacemit_inno_dp
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261126090631.mLSCvuCb-lkp@intel.com/
+  Unable to handle kernel paging request at virtual address ffffffff01ac5188
+  Modules linked in: spacemit_drm [...] [last unloaded: spacemit_inno_dp]
+  epc : drm_bridge_put.part.0+0x72/0xb6 [drm]
+  [...]
+  [<ffffffff01b0b142>] drm_bridge_put.part.0+0x72/0xb6 [drm]
+  [<ffffffff01b0b19e>] drm_bridge_put+0x18/0x22 [drm]
+  [<ffffffff01c41318>] drm_bridge_connector_put_bridges+0x34/0x7a [drm_display_helper]
+  [<ffffffff01b23400>] drm_managed_release+0x86/0x116 [drm]
+  [<ffffffff01b13cce>] drm_minor_release+0x68/0x80 [drm]
+  [<ffffffff01b1ce2a>] drm_release+0xd2/0x102 [drm]
+  [<ffffffff802b325c>] __fput+0xa8/0x248
 
-All warnings (new ones prefixed by >>):
+An open cardN pins spacemit-drm only. The last drm_bridge_put() comes
+at the final close and reads bridge->funcs, which was in the module
+of spacemit_inno_dp that is already gone.
 
->> Warning: drivers/gpu/drm/display/drm_bridge_connector.c:138 struct member 'has_cec_notifier' not described in 'drm_bridge_connector'
->> Warning: drivers/gpu/drm/display/drm_bridge_connector.c:138 struct member 'has_cec_notifier' not described in 'drm_bridge_connector'
+Other DRM drivers with the same structure, rockchipdrm for example,
+put the bridge driver and the DRM driver into one module. I think doing
+the same here (add spacemit_inno_dp.o to spacemit-drm) is the better
+solution.
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Luca (added to Cc), is module unload something your bridge hotplug
+series [1] is meant to cover?
+
+[1] https://lore.kernel.org/r/20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com
+
+Guodong
