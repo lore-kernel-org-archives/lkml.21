@@ -1,90 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.11
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795686415;
-	b=TQmdlMkv56M52CJ+RLHEpzUNPTLlQTmJXj91c3h86DNWpznqIP2OhWZ0274MlH7+zLXp
-	 mMfi6bGE9m4+QE5pXZRIo7aRZwxLajc+3sAubp0QieN0zjjWEzkoT8TDl5Ru56X4z1OK4
-	 VURjFqbe4qNMHLf3fokeu7z8rljyKr1zCGAyn3jeOOhRhgbNXRmKAiw8f4nPpLOiCD6Rx
-	 yXv2rNXvzmj2HysQfpM9TEl3Z/VHTzX0jJ3HxSjtiMziverTJAByuBpxsFhV50HW5g6a0
-	 ZMIyOp1K1aTRMhrQfYvjI2L0S+2gXZ+Fu20s+jXjauv3Ve+wYJUlSEbHb5E7+j1B/fQ==
+	t=1795686445;
+	b=OJXQLqUaXoIyLIrtn/O0IvyAXqDwjax+ZwTN9UoBmw7BNSZPaNWkek5N8KBXuzY1Ulrp
+	 QCMEMIjb+oLwb3/zNeMm4lna4ntJ3JtujBB92jzUQ9QSg/KjO0YbV6fxqsdsrLg4b4Viq
+	 IOR/wudITMF2Irij47NDLArYxwXRp4ygURHqh3jaJMvykhfnbtiykjg0i8pS+R63TQ6Vz
+	 qnS7weEgONetGqF9TuAgmfUspJBWyKpAcXMKO2abdyxPI3wU64FNVyEknyDQpcsA8f6p2
+	 IvkZG2zf/mo0szSbo4l/uVFe89Kfmv+knQJBWfo3WlMrBBxjwfm5mlgF8rT9rmhgvFA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795686415;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version;
-	bh=MC4h41uEDaIRngWv7swOFD5Ize0oaW8izgbEnRz8qLI=;
-	b=EJS3AxNKHodN2OQwXGYzCJCKhMnAspf9x60EKy3tWQdVixjgXanoPdL0zaEtL/mW8/0c
-	 GeZC7nIuF0afIqKkDcbYmU/Fb5gH+dFvGWjXHd4QhXGgcoXY3F8apMBwCgZOmpFdjGkZo
-	 8VQ6AdUAh2nCotnJ+OenQIxu4Dp0AvDUU/+6KExBWQWUwdOwqKMiSj7udcT1epl+jcKHP
-	 XXfUEIgmh9wkZVLoolKbjMYq+3YPiNV4Ilma+P2powRstXpQ+eurzcUuga8NKNvGg2QGo
-	 Ip5cMvlTExndvUKhj01yRXCZ4/hgOjyVnWJUoFDKPuIjDU7+BKF8gZY0tWWElqPRSyA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795686445;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=ky9ofkePh4IJiZE3ot6txDaGySH57NxhR4MNlsnvGmM=;
+	b=cwzaUwpQQEsJ75ZQ2qUBNXzDazFLmSGDQjgYHEvkBSL8gZ1aHvQeg2PJ4Zt4Kr1a+t7Q
+	 BApEc9AIlEH7dJn4kv3r/KqeIeYjckbiJDFonN9HCdkEqQ/42S/LkMjD49oFxXDBQeD55
+	 Wo1miuAxBlM8hKahOiyJMDHAjujF/UB6MVufnq/oY21roFqEp/i15S51AR3qf6PYWYGVB
+	 IrXrOhKdCU3wlDlpjH6m+J54EBV0JytCDE1DCVTT8sY+KfEGFAHiKXx+sXfHfu5743djD
+	 /SRpi3POcNVM2PL5C0VN0Dap8Ar9YnFKNHE8+Mnx/j0vWoQtPJC6YbfBFw0Nizm5EGw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=cFqsoP72;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=p5ISgc2s;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.11
+Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011011.outbound.protection.outlook.com [52.101.57.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AE99606A329;
-	Thu, 26 Nov 2026 09:46:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AE99606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD751606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:47:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD751606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=cFqsoP72
-Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
-	(Authenticated sender: pza@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 806BA2007F9;
-	Thu, 26 Nov 2026 10:46:52 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795686412;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MC4h41uEDaIRngWv7swOFD5Ize0oaW8izgbEnRz8qLI=;
-	b=cFqsoP72y639fqeuayd6tCXH5ELLMc6vJ9jmyXioQt+WK4/ZIQ3itbc3CxGZYW0j9erMJa
-	1P+jjBhG1losB54bIuYqBj01/iGkyH6xwQptFsBHB0+1h3vYmPszDM77CR66ZuOF/WnbV9
-	t6a7OpUgBp60MWx3GC/eR48/yTZW++5X/67TMb2uZW1ClAKzp03XCk+MvLmvsE2cHUStqk
-	+hiqHsnoUOKB2cbUa918NDv1d4wQ3gJqFetHjKB2o9eHOK9PiV6byqtpL95tUJMJ2/0r+M
-	IVBihPR+QBJgbftUKMclvsGdX0xdGw8oXiP7aUZVOdtVm5KeOxauBh6gTFMBpA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795686412;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MC4h41uEDaIRngWv7swOFD5Ize0oaW8izgbEnRz8qLI=;
-	b=f8FqESZTwfikt108tJpMPFoYGVChEq+yv+BU9tYjf4lFGW34Cqyj8Qb5nchlfzAwucm69a
-	i7mxXyFVT6d5DyGMkPt8x368eMBtD1k6FNTYlVeyUJv0Bv18TEyuluxMGJnX2vWx6WvHH+
-	7Q9KtY9JVHMOqhpt6+BXSpTTL/AL8LM/fsCXmkOHOEaV78/we/XUkFmmgxF8XSjYYmj5/M
-	kzb8ZPJ+9oW18YOAFBY41smeuc8qCSngcQyegu4k/7KGeKsptCJhco5hHrhFKOsYse3N1N
-	XxDIpUtIHt3tLdfZgsMs0wuYBSZqPqb0reFsWOehVMyzPtvwnaPaXpoML4vbpw==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795686412; a=rsa-sha256;
-	cv=none;
-	b=arGxwUgv5R4kYSmyGvImS3qy0zI7qAS/Z5G7RTl0nmE5zO8W5s4yHeCA/l5OW6WARsS4ej
-	LGCp7TD0xMqPfDSNKPgO0iAkQKOE0xeHZLWRsqZXMM2GmDQ0RIZF6MhnRzzwC2QWAyr8vU
-	5QImmXm3pK8p4195Zsc3B21L0tZmpsH0yFLXaHeNr67Y+QiKUNn9wNviUm70dayJRRGI+v
-	dizZpdknVZwzF4z2//lHHE/P1w7nqJOr6CDM4irSY34L4YGECFBFW42eBwOyrXt0K9OFUL
-	I4CFI2P06SIbfpNf7EC3rb2ipFLbHyAdZfhKCJDVGgXzcxko4N365dPrYJAqWA==
-Message-ID: <41ab851c110a3391f1e202a80ac3e0fed913f4b1.camel@pengutronix.de>
-Subject: Re: [PATCH] media: coda: Release firmware if code buffer allocation
- fails
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Yige Jiang <yigejiang86@gmail.com>, Mauro Carvalho Chehab
-	 <mchehab@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Date: Thu, 26 Nov 2026 10:46:52 +0100
-In-Reply-To: <rc-b1-20261126-vc-161-779570fc1703@gmail.com>
-References: <rc-b1-20261126-vc-161-779570fc1703@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=p5ISgc2s
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Bw/kC00w4LCFJQpMktIe5+Rd6tO5Az7a++xjPluQ0xFXIr71rdsd23TTkmlptEur0rx8IFElVHO08/+1VFU1G/FsRws8bGETybUg/T0SG03N3i2/W+cEMP+RQyzoxtmYX0EtEiLwst/UiCWiY9wQO2KkY4fgSx5eA0S1CCXf3w2GxJqR64sW+sxAgbfgEMOAd5l/XKaaWq4y6JZ1DkvGbBXna9/1IAT7hnHRTBeyIScD6rU8j0xwvbo3oNdExKuJrDZZQ2BEtA4FN31aM8wY3+gSKTcnu4PbjNEYYN/IYVRmjANFnllKX4T4wQK7WD9CApy/q1320sMGcbc5Lz0SoA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ky9ofkePh4IJiZE3ot6txDaGySH57NxhR4MNlsnvGmM=;
+ b=NT0keMS/iIeo6lr+7RyXi582/ErAAq8Lewa6aeT8QpYG5EZ/23xS5fRQcnUy7krkfekOZ32MHsWDZwiGRICrs5b/yVpdn1SYF5SIgj7WE2CDJjn9f7svxjB2/2IVEE5YgNEfUKps9NI1D81B4iyT+ztcmfIhzU+bLdzMiLiDbWBxRTbelM+RBilEmR/rmIP2hKWKqRy3//x02SmwZ3rQbcB2QALla56O4FBl+I6PJZQRE5Ys/jIv4gNpiblLo0Yq8iYCz49GxV1Evem453tOPG+Q00BszXjSCVJNO8bJ1xafn0NU/KbQs8N1zoSMpeeCLSaVnIRTz+JS7zPCaa98bw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ky9ofkePh4IJiZE3ot6txDaGySH57NxhR4MNlsnvGmM=;
+ b=p5ISgc2s/qUOrR8jeo5gHC+15oBOhUt0ZWk4p3Vb4+IPhRq/2nK6OhKbZ6Cy/FjOaOiii+DqSE0YNdhq8GNVAofLiJd8CuSpIsjNYQCmmVHz+tbKrl7D6vivW9GOSyQMEE3thXakIRspejemR2veZTEBH+YEtf+o/iU0ZO5vLsgpiA8J2ez7rpMXUzGS8QCWgHkaFZbQlFZJiHkGtUS4BNTX+vXnH4wMIKqz8MX17e5vPItBVEYnafn5w++eRNF9psH92Jo1HkcyZK6RDs5sFJk+xt5FAexTOLf3pZoyJnfP04DBUOGdltyOkt3Op0y/hXomN1okiL6upAxyfHKlnw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB9730.namprd12.prod.outlook.com (2603:10b6:610:253::9)
+ by DM4PR12MB5889.namprd12.prod.outlook.com (2603:10b6:8:65::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
+ 2026 09:47:19 +0000
+Received: from CH3PR12MB9730.namprd12.prod.outlook.com
+ ([fe80::843d:c1f0:b2ed:4128]) by CH3PR12MB9730.namprd12.prod.outlook.com
+ ([fe80::843d:c1f0:b2ed:4128%4]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
+ 09:47:19 +0000
+Date: Thu, 26 Nov 2026 20:47:14 +1100
+From: Balbir Singh <balbirs@nvidia.com>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, Jason Gunthorpe <jgg@ziepe.ca>, 
+	Leon Romanovsky <leon@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+	Shuah Khan <shuah@kernel.org>
+Subject: Re: [PATCH] selftests/mm: move the HMM migration benchmark out of
+ selftests
+Message-ID: <awf_TiUylMTGCb_e@parvat>
+References: <20261126025653.1344932-1-balbirs@nvidia.com>
+ <fba23668-add0-4787-b027-bfba1f66e090@kernel.org>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <fba23668-add0-4787-b027-bfba1f66e090@kernel.org>
+X-ClientProxiedBy: ME3P282CA0077.AUSP282.PROD.OUTLOOK.COM
+ (2603:10c6:220:f6::10) To CH3PR12MB9730.namprd12.prod.outlook.com
+ (2603:10b6:610:253::9)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,59 +100,109 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB9730:EE_|DM4PR12MB5889:EE_
+X-MS-Office365-Filtering-Correlation-Id: ab00f458-4a3c-4201-7d99-08df4ba24340
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|7416014|376014|366016|23010399003|1800799024|10067099003|56012099006|11063799006|4143699003|261022105027099003|261022075727099003|261102123227099003|261021121427099003|261009223027099003|261026140227099003|261026121527099003|261028144727099003|22082099003|18002099003|6133799003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	WpmX9EjEHokper8qW3CirBdgL5vKeme2jUXDTOwBq1ZeB7Xh0neoSdNsHLCxikp5kPUuJmPFhFT4Dsaj/vHaFS6i8T98fEQPJJp5qx/9rd6Mvp9iYu8XscDjJ90sO+sXIyu9m+NMzCNrTRiOnXREtBN+NgXnitHVHfIwoQEYFYwjMrx90S3ZX8eT89jT/8vEhZmAwHUt2zfeFkSFZ3ix4yrSwSiysy6dbAJSBNQUtgFtIyYoMPc9/3ZAfoJyw2KbAEMdhu8cYEq4bjq+S+g2hw5Cn2ttICqX3UgYmW88MT73vtmtUL6gWZtneabynhw/bqzH0VFNopR6EFHsJWwmJ0c1KEuZ7hfj/Jg/D5+3aNz6pWOwMSHxO3mmZ/TA9N/SWkAkLttH6E8eMm08pJUlR96IBelvqs6+mz80xu/0WCv8HJdye9dMlYDBtm1PaXc75IkuT2jPIupm6hFyDgQiQklbOqEK1vFbVpaOgjFSiVPaAa/sk0HrR2xIOwPlW/F+JXJ4arGGP1PHvVr4LJTkgaDYizcGAordNWC71TeacF0OHT0YdzJJxzrAjZ5lFQgme2TQswcNm5cXjylQSF76Z5cpNP/b8YWqFKHOCDdAjokc4tnB9op6T7ScjYKz8So9nryt4s+T/PbNgdvWpavekEozYLH6qSDxW7tyFtYJmU8=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB9730.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(23010399003)(1800799024)(10067099003)(56012099006)(11063799006)(4143699003)(261022105027099003)(261022075727099003)(261102123227099003)(261021121427099003)(261009223027099003)(261026140227099003)(261026121527099003)(261028144727099003)(22082099003)(18002099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?UVY4K0h2ckJDMGR1Mmd5MDAzSlBIZ00xWlhocnp5eXBuMytOUVg3Q2M3MVcx?=
+ =?utf-8?B?bjRWWVVqTE1wVCtEWlVmU2dHeUROSWR4cEROK29IdjdyRDZpOFFDWlF4d0Qz?=
+ =?utf-8?B?bmNDY3dmSU45UCtJdy9EZytsVk1LeGYvR1JGM0FGTFZxekFDSFErSmRxTVdt?=
+ =?utf-8?B?VzRVVmlxSU83eTQvWWhodE1keTZMRDZ0Yi9hVzVLa3ZiTlNJMmpHaXFlOFpE?=
+ =?utf-8?B?K1dGMjlRUWxMM1dUOWRqZlBBNDdVamtrMnFVTjNUaXJNY1Y4YzdSMlprV040?=
+ =?utf-8?B?cWFiU0xCdDd5MERQQWpDSXUxVDRwcmFYdTI1aU5VQ2xsZGlBWnJoMEt4TjRR?=
+ =?utf-8?B?TXBVTXpXV05Ma09wOEJkY0I0aGJ3cFJReWNDMEo5cXI4SXAzVUd6RVBzUzJO?=
+ =?utf-8?B?N0RTdVJGcnJ6UkYyRDRLR3l4bWtTcUJjTGxHVUtzK1NOb0Qzc3orWmJaL295?=
+ =?utf-8?B?WmpYWmYrZ3VEL0JYNlFJM2ZKdWkvbjlQaTNuSm5vMnFiQ2U1ZnVDZ2tBekpF?=
+ =?utf-8?B?UEc0Uy9YMFJQOWRJbm9jZkhlVWVxanNrV2hkZVBIM2prcDNHeXRnWEVleGRv?=
+ =?utf-8?B?SkJkYkdqQkduTWJVd3YrVW1ZZEJQaWE1SVhpWXRqMTZQYUVVb0h0dDZmV2xC?=
+ =?utf-8?B?WXZQUnF6MFdtVG5yaWlMdGwvRSttR2E4TWlXbGJYRGdnT2pQZjI0TUVNRWN4?=
+ =?utf-8?B?SkJMY01YREQ5eU56U09UMDVTWWZ5djdBdCsvMXhJUHVxQWQyekJVT3hGazNT?=
+ =?utf-8?B?dVEraDl1Si9Ga05vWjVUWHhOOXdNVVRIT016OW1EZHp2SWUzK3pFbmZpMnBX?=
+ =?utf-8?B?Y2V6MEFGcnVrYVZITW1icnRRbTlqS3JrYTNwcGNTTmEvUkpMUFFMKzNTQVVw?=
+ =?utf-8?B?ZmIyTk9yd2E2SXUwSkgvZnhJYzF2Zms0VEJ2ZlY1bDRIMzZBNmx4M3lMZHNs?=
+ =?utf-8?B?MmNqNFQ4azVhTWRWdHU5c0lhSXhWTjRTQ0RhbUc0dk1UWEtsZW5ZaFZ1QjBj?=
+ =?utf-8?B?ZFBmS29kcGRvMkRHdHhQQnZQSXo4anU1RFZzWFhkU3JRSU1MQmQ3TEFwRytO?=
+ =?utf-8?B?MG5GcmxxSDBpcEppQ1ljZmVWOW5qcTJFdzdCTlZkNisrd0xjMXlpcWJMK2x1?=
+ =?utf-8?B?RmV4UzZlM21wUmxpUWFmRFRhTmxoOFdMZE4wMUIrQVJLUHY5Z1FqaFMrTWVO?=
+ =?utf-8?B?dW1FRGxuTzhweEo1MVhWZVM3dFdDTGRPN05FSHk3Q28vYXVCeE9sc2xyMnFV?=
+ =?utf-8?B?Ui9PSlZLck9iM2daTXBoVlZHQUlsbUR4RUtzTHU4M2lKcGtkcC9KalllTlZD?=
+ =?utf-8?B?U2k5SmVTS0pCM1RzcldGZ0dvOWJvQ0VDMEJ6bWg4VmFiQ0dVZ3ppZEw3YUgx?=
+ =?utf-8?B?T2NrR3QvRFJhdEpjZnM4WmZhdHJ2Ukp0VWJnMnlRanJyT2pLN1k0SE4vTWJi?=
+ =?utf-8?B?V09ZbU1pelFCNURqMCtHV1V2QW41ZDBwU0NHWTU3amtSc3FuaWNvWjU4UTky?=
+ =?utf-8?B?ZlNWZW1UT3VBbmxVUGFuOFdvNmZZOUxTaVYyRVB3WGxvWHoydDRZOEl0dEd6?=
+ =?utf-8?B?VW5vaEhnV3RIZUVmbTN0RFFmREVYY1R1RDJBMTZsMFl4ek5GeVBNdUhCczZK?=
+ =?utf-8?B?WXBIRnR4NC9XSWFCRHprdGpoRFBlQlJSc1FRMnZSaG4wK25oR1hWZnFwNEkx?=
+ =?utf-8?B?cXgxU2dCTFdjczVtam9WUnNNWk1NOGNXQmtsZlM3SjVOUk1ZcFBNTmtPa3pM?=
+ =?utf-8?B?QU9WTjNmZVgrc3JRU3AxazZuem8xRFprTVlRSjlUUzNPYXJoejQyTkZVQk5n?=
+ =?utf-8?B?L3BEMUNnWXBRQmNxT0sxWG12K1FDczFpMURzdUIwL2x3bUFHbHdndnU4RVZw?=
+ =?utf-8?B?U3V3TXlmTHZCK0QyeHE1TlJ3TDdzbEw2Y1VzcTBXSXdCdFZyVko5REtwd3I4?=
+ =?utf-8?B?L3RiQkVuQUNMdUY2ZzNpd1NZajhGbGQyNVI0OGloSlFsL1hXTlI0NTQ2RUVq?=
+ =?utf-8?B?WHROL3dwdytjQ1dZQjdRczhJTEs0VytrWDlVeVNaVjc3K1M1RnVTNUx6a042?=
+ =?utf-8?B?RmQvT2piOUtYdFdiMzdFQXhXSWtFbTZEc0tsdVM2QVBJRHJyek8xN1BBa1oy?=
+ =?utf-8?B?Z0FFSWRiM3FrY1ZEREtPMUQzRHFtVmRoL0pNQUpUSEdXMVpKY1oxbWZWcjRH?=
+ =?utf-8?B?cnA3SFExNGRiSHN5T2s2cUt4eVhuaWMxaEVDVFBPZEE3VTEvaDU2TzFIK01F?=
+ =?utf-8?B?ekM5WnVsSitxVXIrZk9aK2ZxZTVucFh3RmUyQnJRUHBrUUdRYnZWazdVVFUv?=
+ =?utf-8?B?djgzNE53YWduaGp3emF4ZzU2SUZhMVVCYWtRN29JTGJVL0RZRmtoUT09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ab00f458-4a3c-4201-7d99-08df4ba24340
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB9730.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 09:47:19.5837
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: RW+6uEomy9zfTVRVuHHzoPjEHuvnZsppWdNnufiNYRsZgKIPL2YUZKdiWOKZePA+dzPbgB0o7xWflYzmzc6kkA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5889
 
-On Do, 2026-11-26 at 13:21 +0800, Yige Jiang wrote:
-> coda_fw_callback() owns the firmware passed to it by
-> request_firmware_nowait(). It normally releases the firmware after copyin=
-g
-> it into the BIT processor's code buffer. If allocating that buffer fails,
-> the callback jumps to put_pm and skips release_firmware(), leaking the
-> firmware and its associated resources.
->=20
-> Release the firmware before jumping to put_pm, which drops the runtime PM
-> reference taken in coda_probe().
->=20
-> An AI coding assistant helped identify the leak during review of static
-> analysis results and helped draft the fix and commit message.
->=20
-> Fixes: 186b250a0725 ("[media] media: coda: Add driver for Coda video code=
-c")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
-> ---
-> Based on linux-next next-20261109 (630059a5a632).
-> Compile-tested: arm64 coda-common.o with GCC 14.2 and W=3D1,
-> CONFIG_COMPILE_TEST=3Dy, CONFIG_ARCH_MXC=3Dy and CONFIG_VIDEO_CODA=3Dm.
-> The baseline and patched object builds both produced 0 warnings.
-> No hardware or runtime test was performed.
-> The path needs the coherent DMA allocation of the code buffer to fail in =
-the async firmware callback (OOM or fault injection).
->=20
->  drivers/media/platform/chips-media/coda/coda-common.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/media/platform/chips-media/coda/coda-common.c b/driv=
-ers/media/platform/chips-media/coda/coda-common.c
-> index 3fe33c4..ca8f953 100644
-> --- a/drivers/media/platform/chips-media/coda/coda-common.c
-> +++ b/drivers/media/platform/chips-media/coda/coda-common.c
-> @@ -3004,8 +3004,10 @@ static void coda_fw_callback(const struct firmware=
- *fw, void *context)
->  	/* allocate auxiliary per-device code buffer for the BIT processor */
->  	ret =3D coda_alloc_aux_buf(dev, &dev->codebuf, fw->size, "codebuf",
->  				 dev->debugfs_root);
-> -	if (ret < 0)
-> +	if (ret < 0) {
-> +		release_firmware(fw);
->  		goto put_pm;
-> +	}
-> =20
->  	coda_copy_firmware(dev, fw->data, fw->size);
->  	release_firmware(fw);
->=20
-> base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
+On Thu, Nov 26, 2026 at 07:41:48AM +0100, David Hildenbrand (Arm) wrote:
+> On 11/26/26 03:56, Balbir Singh wrote:
+> > The HMM selftest runs benchmark_thp_migration on every invocation.
+> > The benchmark repeatedly migrates buffers in both directions to measure
+> > latency and throughput with and without THP. Run it on demand so the
+> > regular suite spends its time checking correctness.
+> > 
+> > Move the benchmark into its own hmm-bench binary and share the device
+> > fixture, buffer helpers and migration ioctls with hmm-tests. To run it:
+> > 
+> >   make -C tools/testing/performance-tests/mm
+> >   sudo modprobe test_hmm
+> >   sudo tools/testing/performance-tests/mm/hmm-bench
+> > 
+> > Drop the 128-PMD buffer to bound the amount of memory migrated in one
+> > measurement. With 2 MiB PMDs, the largest buffer falls from 256 MiB to
+> > 16 MiB. The remaining sizes still cover buffers smaller than a PMD, a
+> > single PMD and multiple PMDs, with and without MADV_HUGEPAGE.
+> > 
+> > Call fflush(stdout) after printing the results for each buffer size.
+> > The kselftest harness ends the test child with _exit(0), so timing
+> > results still buffered in stdout can be lost when output is redirected
+> > to a file or pipe.
+> There was recently a discussion on where to put performance tests. Usually it's
+> much rather tools to test performance.
+> 
+> So what about tools/mm/ instead, where we also placed gup_bench.c ?
+> 
+> -- 
+> Cheers,
+> 
+> David
 
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+I don't feel strongly about the location, happy to put it where it can
+be found and run. My motivation to put it where I did was to easily
+reuse lib.mk and hmm-common.h and other mm helpers from the test case
+(due to the dependence between the tests and benchmark). Let me
+refactor and see if I can find a good way of reusing bits and see how it
+looks like when I move it out to tools/mm
 
-regards
-Philipp
+Thanks,
+Balbir
