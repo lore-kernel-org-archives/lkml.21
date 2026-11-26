@@ -1,77 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795651785;
-	b=mW8xjSbksD+LJafORroVih0Vq+6nq33FOrBazIFO3VkSoeMAayBwKv/TsnadiojhFSSi
-	 nTCvm5BEFbDEEE27C2WavNkOEALLYve/0e75Vlv4sT6F4IEGLaCTGGvBCakr7Y8QxudYt
-	 UaWR/aZ4+qXzxRw0S20fKZ2t6tcq/a63kXvNhcj8DfD9BeXec5goMjpityP/7Bw0Dy41c
-	 4rwmYJp335JeRl7LdHAuMpL+MWlX5ptUQ7QknqXdUi/erxeNeZeE9Le3BZtGePMHvYSaN
-	 nYFuCFDoB0nt3b0WxE/4FnbdSR0aAhmFu8VfNzk5VijEdUm3XJrLLQC4f8FMJkfUJDw==
+	t=1795651807;
+	b=PdrPkEWqxROy8eg9unY09/9nxXEUtyflPklhRmP446xjFT3qPEr2d+bq6xPhaWFgNj/g
+	 RU5bwemUC7wlKb93UCaxyRmC6nf7PiOByR7BXIaT4GMgxUJjDrx02ysT2kj9+xyo6hreL
+	 oYr17noYSN4DKv/LIuVHZtV0AxVpgY9Ff1CY3txHmfNtl2z1nQqFVZWXWTZ3byzemOWkF
+	 2w7ykNSDCM2HSnVKV29DK6MabXCL0zDIsaQbI3j53vQzVGWjlyfr/1BNgui+Xf4Ti4QHV
+	 gHiO9fTfEZpTEL0iOwmHXDZQSw6DxhhCOKvxPUJMKu1pDjpUPB6G8iwsg7DFDWNAEhg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795651785;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
-	bh=b78t6Os4sAH3qjsyxE6k8yXo3EadbTdi4onIYpZO5Ck=;
-	b=b2atIuUqA838lppnVq5DLxsTMxzmhe/58kGEbZg/SYQU/eaYKyTR65DNFtWWYNWjNEky
-	 rHr87pZmeNSegZ1mMwK4kgZuXBGkHle1/9J5EYBdKi0ySXquk5XuLsCkQmF3wYwlDMLTn
-	 BMitUApZ4WEDQ6mlzdqIGZoxsqUrqC15AJ2nPT+TDq/M8NdY1v5DbcQJPxCEFQSOZTYfo
-	 Xw2QWJ4GQzqIKXDxMa8ufFSev1Kapkkq442keO4hM5O4Weal0N/2uAVmgsHPVDIuVvjDP
-	 6AHSGZ2PES8PzJ6eXc9uZDg9foW/GiBI96J7fSMnneCCzFfVDAJd4IG7kRWQDmPkihA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795651807;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=m7Qp3o5cxtTvhapUci3aHk3uRXH3r7Me18ppH65z4bE=;
+	b=ExZxd/v6S66uXhI65GTh/d1MdOHq7etNpimesl+JUFbUkLjIQgrGh2pNuPpKRu0zvdGf
+	 NewV1l4WHj8F+Uc7tr5kgVwyjwPyeQfZaxxyBQu35gUYWpvAIEQL/r9G/wcCrXjLJxVoN
+	 ODeM0jb5G1QwixeMINC+r4OETyPOW1NaPJQriez62f5R1X9GUb78hj57hSl1srUclf2UD
+	 h4nHbQ/cv39Abm/hXPiF+OpGJF9uS+LLAvrkkM24Sm0n98E+4WStHY3HF+iiJkYGQYfAZ
+	 l1t7Pm2D+XKq4MiEEefFXvwD8vQS2FrjeqWdcc4clA7lJ+W3OtbkHtbaBcShs2okGiw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cJ9bXgMd;
-	arc=none smtp.remote-ip=198.175.65.15
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OYFCwNXe;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4E09606A31E;
-	Thu, 26 Nov 2026 00:09:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4E09606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21C71606A326;
+	Thu, 26 Nov 2026 00:10:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cJ9bXgMd
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795651785; x=1827187785;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=LvP5mZre8VsoM5eNNyoILwGnMME08JBoLfspF73wXmo=;
-  b=cJ9bXgMdzJAd0VWBxwA1goyiqWwE5oGzZilr1mPUTKLa3yXAr3feXbgN
-   I89Tdsf4oEcPRp2N2Rqv4vrGuPUmVKJ5b0eggJQ79/uJ6meCoeFP1z4eO
-   LuqQNgTf0jUkGs5hqSupfPyQncwYRAuNNUaLvQeqv+jPfsmL2zM4z5xYe
-   JuyJohEObKQIg9Jrzi1k+LH+2yFrdNmk+fB6nsYt1Hhi94xE5iZVzdsml
-   hBrc52a1Iar9PZAzS4xB1LvMEvRpwKpzrjtdTnhHSz+pmlE0dlcHMBhq2
-   gJ/4jmJxrKCxuLHh+ULVyBdAVk3KyGvYcDRKT9hN061I1mr7Ba9GVYcc5
-   g==;
-X-CSE-ConnectionGUID: +zilg5pNR+2Yo/nXMV8nVg==
-X-CSE-MsgGUID: Aa3n6PnMTlWdeS2ZxW7Y/Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4536708"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4536708"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 16:09:44 -0800
-X-CSE-ConnectionGUID: wQHXDJjLTWmx0Wj+lNeOwA==
-X-CSE-MsgGUID: VU4jRMqaR1eXc0q513NL5A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="11899238"
-Received: from vcostago-desk.jf.intel.com (HELO vcostago-desk) ([10.241.240.61])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 16:09:44 -0800
-From: Vinicius Costa Gomes <vinicius.gomes@intel.com>
-To: Yao Kai <yaokai34@huawei.com>, Vinod Koul <vkoul@kernel.org>
-Cc: Dave Jiang <dave.jiang@intel.com>, Frank Li <Frank.Li@kernel.org>,
- linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
- liuyongqiang13@huawei.com, Yao Kai <yaokai34@huawei.com>,
- stable@vger.kernel.org
-Subject: Re: [PATCH] dmaengine: idxd: Avoid destroying the device workqueue
- twice
-In-Reply-To: <20261111021026.3354620-1-yaokai34@huawei.com>
-References: <20261111021026.3354620-1-yaokai34@huawei.com>
-Date: Wed, 25 Nov 2026 16:09:44 -0800
-Message-ID: <87v75ksbav.fsf@intel.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OYFCwNXe
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE66A1F000C0;
+	Thu, 26 Nov 2026 00:10:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795651806;
+	bh=m7Qp3o5cxtTvhapUci3aHk3uRXH3r7Me18ppH65z4bE=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=OYFCwNXevkU6Wb/w4ZbKiYZoOFrYWCW4F8738/lLdFM09ZGbyEBEl6LLDN2dSP8+d
+	 05mhSlZVtRp/TEHqpB33KXUJx2QKrd6sGDljnlZcRZT0Jnw8FdlJV/hzTFUiSFWd0A
+	 GVmd7KaGlM0KFz5O5AoYjxzUJr95rWIPnUyHfAGY0E8zQydsJTE6/DlcOqdjcQT4Tr
+	 3ByBMeMayE28ZbEO2rhjEdCMUWLzEdTr3o752O8n/w+Vt1FzKvuvwhh77deMituU3Y
+	 OF/Af/Q6y2+vA83yfsOLMtL6IsBDcLkZoy4tTZCHWqpBhSSIQF7My8LclNpS9pp2Zo
+	 3lIjqpMEgadRA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B45E73809A24;
+	Thu, 26 Nov 2026 00:10:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,41 +53,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] tipc: restore write readiness when a socket's group
+ goes away
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179565180527.1406798.1348417398640533183.git-patchwork-notify@kernel.org>
+Date: Thu, 26 Nov 2026 00:10:05 +0000
+References: <20261119-tipc-group-open-v1-1-cb725145da51@gmail.com>
+In-Reply-To: <20261119-tipc-group-open-v1-1-cb725145da51@gmail.com>
+To: Wong Steve <shyckless@gmail.com>
+Cc: davem@davemloft.net, kuba@kernel.org, edumazet@kernel.org,
+ jmaloy@redhat.com, pabeni@redhat.com, horms@kernel.org,
+ tipc-discussion@lists.sourceforge.net, tung.quang.nguyen@est.tech,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org
 
-Hi,
+Hello:
 
-Yao Kai <yaokai34@huawei.com> writes:
+This patch was applied to netdev/net.git (main)
+by Willem de Bruijn <willemb@google.com>:
 
-> If idxd_probe() fails after idxd_setup_internals() succeeds,
-> idxd_cleanup_internals() destroys idxd->wq. The PCI probe error path
-> then calls idxd_free(), whose put_device() invokes
-> idxd_conf_device_release() and destroys the same workqueue again.
-> The err_evl path in idxd_setup_internals() has the same problem.
-> This can corrupt the workqueue list or access freed memory.
->
-> Clear idxd->wq after both error-path destroy_workqueue() calls and
-> only destroy a non-NULL workqueue in the release callback. The NULL
-> check also handles failures before the workqueue is created, while
-> preserving its destruction on normal device removal.
->
-> Fixes: 3d33de353b1f ("dmaengine: idxd: Fix not releasing workqueue on .release()")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Yao Kai <yaokai34@huawei.com>
-> ---
+On Thu, 19 Nov 2026 21:39:02 +0000 you wrote:
+> From: Suyuan Wang <stevewong@hust.edu.cn>
+> 
+> tipc_group_create() sets tsk->group_is_open to false, and tipc_poll()
+> only reports EPOLLOUT for a socket in TIPC_OPEN state when that flag is
+> true. Commit 1b22bcad7e39 ("tipc: correct initial value for group
+> congestion flag") made sure the flag is true for sockets that never
+> join a group, since otherwise "SOCK_RDM/DGRAM sockets sending datagrams
+> never receive POLLOUT".
+> 
+> [...]
 
-I just sent v2 of the idxd-fixes series [1]. Setting ->wq to NULL
-doesn't fix the double frees of ->wqs, ->engines, ->groups (and
-friends) on the same error paths. My approach was a bit more general:
-remove the early frees and the early destroy_workqueue(), and rely on
-the kobject .release callback to free everything.
+Here is the summary with links:
+  - [net] tipc: restore write readiness when a socket's group goes away
+    https://git.kernel.org/netdev/net/c/39738c813c71
 
-But if folks prefer this approach, I would gladly rebase my series on
-top of this one.
-
-https://lore.kernel.org/all/20261125-wt-idxd-fixes-v2-0-25a4691dfb9e@intel.com/
-
-
-Cheers,
+You are awesome, thank you!
 -- 
-Vinicius
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
