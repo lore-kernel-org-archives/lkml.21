@@ -1,55 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.63
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795707146;
-	b=4w808cH5f3p7mEVPibkw3h2XWNgxEE5UQ+MlXeJ/XGUS6WAsHl9//rho1oskqvsxJk9C
-	 Hbi+Bckg7KnVCn2rK3zpDv15o3dVWxrPZJsBTSbN8pR9UIaRsAq64IJ++yiw5wUvMagZU
-	 iIFvW+lTfR5pBTy/llkUuNMYRKZTBtTBZUqT9OHP5l2+ft+Ayqy87MayCJi2IfOIseR5C
-	 ErhunaDkiMlfeZ6cl9PmcHkUb1HwDWOsAlV1SOaf8nboSRU9ITNGCkZNF2p6Lu4b6x3cS
-	 B5DzcN/5SBOS4ZUIDgMGiu+mpMkk8tva0l5S3RZhsNVQVX8dgo7C6XwXAsKxKKKgebQ==
+	t=1795707200;
+	b=vV2TNO6x1S2qXRQvPEB4tDPwi6hnXObtMrWU10HSo7NOGz9c6sWYlBl+hLinIc9GoAtL
+	 RAmVp1R+k0JznT69XLYXJjXkso4B6LawAiQiTD1NzjnOv0qAgrFj2luvBLpe7X0Q8ZwhT
+	 qTzLmeEwt3XI8O63NdDmuOJ9lbszq5PZ51hrvCEOMqvIfU8mtJRHyVuNezNgXLNxL8W6d
+	 nuzur95TxGHq0e8binQMfD3yvg6rBnLjy8sDscdMqD3OkN445bKmmR9ayfvP+MNFHG1k9
+	 k5vOBcAhJZxsEBLc6F1VlcuNhaAdEq4Y3gMYX1P6AKoXiAtRO576joUDHAMBPFDBPEw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795707146;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=nPMFdqo4O58hWDqbu5Wcd7f7q48E1zoRcgRviqnNnk4=;
-	b=TsTuUKGVt/JfkNMXznXBP+nip/pzqtTCsvc0+GlRmVPELKYezosekUwVZauxqXtuAErU
-	 r+HoLN4rsof/r5Gor1GR8LkkOdcSoHvEw3SiOLfb/sEeJQGIvcqOC/OlwJf6ew6oCWCDu
-	 FD1/HB84I/T7s+RoUVGhNkYqnltgLn31AfP9KXsblP6oigqwZNtxXm3lJj5vjnQnOjteY
-	 ho9rP7YepBwUlc0ZeIumQZ5QMFLr9eiTLY8m5OTPM+YPtOqaJjRPV0/GDLIhOwYP6c2PN
-	 8jgIakD0J1Cv0QcDhpqbzxrgu0FTgH2Cv1fqHl8yrYQl4i+fmKEgZkkXbQZk9sF5NIA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795707200;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=kRp4wRTGUX5Nc07ITKcIm26w+g1oTAepPRAIzZzp2p0=;
+	b=XnX5kVsP6Jo/p0iz+9veHEtmYvLx5JthQxXDgHIqpE8lnIm5ag6ZvXz2D7g47wLUT34N
+	 sfGsMZhJVWGz4Vrq34OZDjfWyjs1+AI0Z70zwHx4bor7kONtibHOZt7inqiGAKHWofcug
+	 PctlH4g1ezTGyFzX+pWW+dflybB+2sRletYLx2PSVkjM6M2ythNmAOj+QdutfD8eTrO/X
+	 kKkw09KnxNhvURqZMUzmveXRcfCoMOhbXaFNX3nEwhjH3yqTy9S2IiVRnqvw7HDpi5rgY
+	 mBErxfbtTYhj7y/HBXvqOQtavZmA59cYxbAnx+P5lQ9mBYyRKWiGkJQHtvTtOy0qMTQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ext8jkBd;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=E5m87UiI;
+	arc=none smtp.remote-ip=95.215.58.63
+Received: from mta1.migadu.com (out-63.mta1.migadu.com [95.215.58.63])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B1B4606A331;
-	Thu, 26 Nov 2026 15:32:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17540606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:33:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17540606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ext8jkBd
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1D601F000EC;
-	Thu, 26 Nov 2026 15:32:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795707146;
-	bh=nPMFdqo4O58hWDqbu5Wcd7f7q48E1zoRcgRviqnNnk4=;
-	h=Date:From:To:Cc:Subject;
-	b=Ext8jkBd4ux4m9a+o9fjEIyd7udsACvNEvyTKEM6AQ8V3M+QaHRu3yHTslVUwQe6r
-	 zJcoMBzz0bEz9uMGtZfh5Gi3tboDTdPenGuaolNyA9P1aKKUoduKEEeRLy1SzGVu2D
-	 nIplHZYpmGCxMlfOiN312S5Irhe3r4P8+wtXPw6Sv5KQ+yYJ5Q6Xjx6H1K27r+WjiC
-	 k5V7FhK6BvDhsq/pDoVKOHMWF/d8l66AGARsiPHTGh51tzBIu4F9dijnXLhxtjfvfa
-	 IGwQM1gpu7/vSGxkhf+49Djph9qUGctV70ZOdWvmzl+zScVUNmAO6u2fKsh1522v1H
-	 xPeg5eCgTXvbA==
-Date: Thu, 26 Nov 2026 15:32:22 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	soc@lists.linux.dev
-Subject: linux-next: manual merge of the gpio-brgl tree with the arm-soc tree
-Message-ID: <awhRBtAEYE3g8sIh@sirena.org.uk>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=E5m87UiI
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=mwJLewJ9zSnI5WWBwaIqRXXu8I3527mjgT72PP6DPTc=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795707198; v=1; x=1796311998;
+ b=E5m87UiIVTh5aopPtUryf6t8fVBmYN+bUlyQ4rnpUAZHpP9mjtBCzfgg1/lhENZlPf25of+g
+ 88MVClLSBrsuTUFIQhV5sF0ncqYPl7qw4rJd2umGGbPK74hH4rPDkUjp0aWQivEJV4YYMDehdI6
+ UZ1g0FLlfvuO+4sOCo50a8tw=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id fa146ce35f58f9d5;
+	Thu, 26 Nov 2026 15:33:17 +0000
+X-Mizu-Trace-ID: fa146ce35f58f9d5
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <a3f3f62b-7642-423f-ab86-9faf6bbc0ffd@linux.dev>
+Date: Thu, 26 Nov 2026 23:33:13 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,54 +58,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="DdXgPadP7NCBeaEF"
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH linux-6.12.y 0/4] bpf: Fix interpreter-unsupported insns
+To: Guillaume Laporte <glapt.pro@outlook.com>,
+ Vincent Thiberville <vincent@harfanglab.fr>, stable@vger.kernel.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261126153002.162337-1-leon.hwang@linux.dev>
+Content-Language: en-US
+From: Leon Hwang <leon.hwang@linux.dev>
+In-Reply-To: <20261126153002.162337-1-leon.hwang@linux.dev>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
+cc Guillaume and Vincent.
 
---DdXgPadP7NCBeaEF
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Guillaume, please test them.
 
-Hi all,
+Thanks,
+Leon
 
-Today's linux-next merge of the gpio-brgl tree got a conflict in:
+On 2026/11/26 23:29, Leon Hwang wrote:
+> Request from Guillaume and Vincent [1][2], backport the following commits to
+> linux-6.12.y with editing the commits manually.
+> 
+> 9a6df65d5c6a ("bpf: Introduce jit_required flag and remove bpf_prog_has_kfunc_call()")
+> f1c27922576e ("bpf: Reject programs with inlined helpers if JIT is not available")
+> 34746b5a84ec ("bpf: Disallow interpreter fallback for arena-related insns")
+> 7a0855e73757 ("bpf: Disallow interpreter fallback for BPF_ADDR_PERCPU insn")
+> 
+> As there was a big code refactoring in linux 7.1, the changes in the new
+> file kernel/bpf/fixups.c will be backported to the positions in
+> kernel/bpf/verifier.c.
+> 
+> Patch 1 introduces a new bit 'jit_required' in struct bpf_prog. The
+> other patches set 'jit_required' to fix the issues.
+> 
+> Links:
+> [1] https://lore.kernel.org/bpf/BESPR02MB12296D62B1B3F33BA21C4F24AF1432@BESPR02MB12296.eurprd02.prod.outlook.com/
+> [2] https://lore.kernel.org/bpf/MR1P264MB331494502C9D13D8A9EAFB99B7E82@MR1P264MB3314.FRAP264.PROD.OUTLOOK.COM/
+> 
+> Leon Hwang (2):
+>   bpf: Disallow interpreter fallback for arena-related insns
+>   bpf: Disallow interpreter fallback for BPF_ADDR_PERCPU insn
+> 
+> Tiezhu Yang (2):
+>   bpf: Introduce jit_required flag and remove bpf_prog_has_kfunc_call()
+>   bpf: Reject programs with inlined helpers if JIT is not available
+> 
+>  include/linux/bpf.h   | 22 +++++++++++++++-------
+>  kernel/bpf/core.c     |  7 ++-----
+>  kernel/bpf/verifier.c | 21 ++++++++++++---------
+>  3 files changed, 29 insertions(+), 21 deletions(-)
+> 
+> --
+> 2.55.0
+> 
 
-  arch/arm/mach-pxa/spitz_pm.c
-
-between commit:
-
-  71a0ba7b39ad4 ("ARM: remove legacy pxa board files")
-
-=66rom the arm-soc tree and commit:
-
-  cdd365a6eeb7f ("ARM: pxa: spitz: Open code gpio_request_one()")
-
-=66rom the gpio-brgl tree.
-
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
-
-[Deleted the file]
-
---DdXgPadP7NCBeaEF
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsIUQUACgkQJNaLcl1U
-h9CFKAf9FF4AIHt6Y7+WGLfj94wwmzwpm6fqhp9DmGxTN76lJx3tfAMCbFgNcZAG
-yGeSm72U7Evzh1kRJp0wLbIont13A3gHtmr6soWaTfjn0kRONMHlFMxGnusvs0cq
-TCEchOhEIAEAeTfoL0mpu2mYtNP/Cb6C305zAgTevKPHRFBgF4rlQI2pwbYL7p+2
-qZQkAmS7YfLMPJrUt5FLoQE7WJFZmSpObAOVE3Ra0uh8MJ7tF9LJgjZgbckaieFZ
-aOFwY4aKDwbMEyd1+8sMWIKAgu3Q5f9N0SHNC21DzFO3kbrpUuTYIT6Frb7iwhGK
-pshU4tKgE+6UYOk7ck/XEHrgWY4hDg==
-=u6pP
------END PGP SIGNATURE-----
-
---DdXgPadP7NCBeaEF--
