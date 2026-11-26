@@ -1,71 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795685552;
-	b=uc284lS0sMzglCmjnPX4My+hB/P4cnnRkD99WSnNmJAGe70vi3gGblg1fesd7vo1RL2L
-	 fNbmbxxBB+ZTBhwMTXGSEpT8fMc3HVgkcWDFsyIm13oibeRw/v2rKVWoUAPdEWHcglYNc
-	 U2UkWvwBAwmnonYDkPV5vkxI3f8rYwMZ7hl7NhTtva1dkY9OzKwqLICVhruQ/EXM0y4OB
-	 6/mKiLhVh6g7z5RDqS6pUIrx/PpCiXNceZJtxPW9/ZidSHcK7fhHgy+dvtHzmPfwsV9fE
-	 EVWHmboWGB3V59nKY2gkNiaEIhp8b3OXuP4anHfK8i3L2xJyKsW2GBIcklMzH2jG+dA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795685552;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=k97771Z8FzE3DqumF944ddIXlJqYU9QrTeylE9F0vK8=;
-	b=p7ls+HowH3x9Ioio9ZW0i7zY1Hf4j7S0ZEpeIUHf8TtonJmwqeg8bWg81nG7v/jXrgOv
-	 SrK3d3z0v6J753eEj7KFtZPnrlaREi/yAb9YPAgju1EvMO2N04z5+tez/cUO2Ecd933A3
-	 q9o0jTxpc2npPwyRiLZZ3LjyR738wnLdOKf317ip4qnyChlwF2gDR9UvXTotONNbhkWzf
-	 PbXy/KHdCFOt5tBbgLAc8KQibmjEgNflf+Ak3uEUCZctJe8fjv/DeXnSJYbM67vjRbd6r
-	 OjRIgZQXMMiAhuatfay/GUf5WHhov7D09bDWGBahiffyt3S0YXD204SnlHw1SdR+GUA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="JfycLV/X";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.49
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795685610;
+	b=ThfZ9NPA+zI9YibUzaDOQZ9sizxbeVkKEtwR7dfcvvALgz83ccYE5Nwf4XLppKQ87BFo
+	 lnvihaoESWJRPAdDCp5E77bfU6gR7EGTOmRkYE92gvuoL2WhbdoBSc5z7ZniizzfWWtNr
+	 yTie9kjdNWDHFTUEmQQ9z+L8ackK0Q/dygHpNlvMjE4RLQDf7XaZfEa3u0YeGIRBBWK0A
+	 DbYiM3hUld/vhAWsvOYtNDtdU7rO3b1JxMbzwdI337zZLD/lIbkLrEt4WvEgC3EoGHlPo
+	 dG/bNxAU55s0xCE7Cd0a2dWQtzpxfpqdIq7S7j1Teb89mDtcBI7uY22aKOsP6Wln9Dg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795685610;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=JGbTvmGYxAXv1/EcBwgvim0eodoihEUYoQ15lt3DIkM=;
+	b=FGce/ESloFmiegaco+Zf7fqM/zLB5zjFQmf70oVAfReHu62czmsnuoz6FGT83J+kNcP2
+	 kLSuwGRd8i5lyI38oPISNa0RAd1D2BGyHxzywgyOsxkIBEWvsy60MoUXOplCWZEmkjJN+
+	 XXcYcE6saBaMXaBfsOrCHVujr8CcOn3jzqlnlKXJ3uWZPzDwlmABx9WVfkTCAlJXEKMPF
+	 +ANxV0Ne+uxzGPrYjKoUiubQRKbIszFn5SWqd/t6Q6xFWILtT607gBE89CnxpSM9edb55
+	 reJJcq9raU3rkgjuEoJ2PtxnK6XuuGVByNxUiwAXuvBE40CejMvxZE7hwTIHOon5wVQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=v+gRajnT;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.49
+Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com [209.85.208.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 3C204606A31E;
-	Thu, 26 Nov 2026 09:32:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 613F7606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:33:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 613F7606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JfycLV/X
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id A3E6D1F000C4;
-	Thu, 26 Nov 2026 09:32:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795685551;
-	bh=k97771Z8FzE3DqumF944ddIXlJqYU9QrTeylE9F0vK8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JfycLV/XA23DU9QWWbk335hn9BiFSTG2F83xPm9eihA8hYYXY61JEuiVxIQmpXR7D
-	 QkDAjPTPIAa81FEZQM8o4OezkrmfkzBvLkKdkf6WZ8YAcA4xCt3CAYSE+jzEQO3vjx
-	 QKrPM8JHhU5eq1Rv/Z3lKfKa/oAmWAfpTdBdqPMb4XgJ2QnDKKfcSGVPr1yLP2AP8M
-	 AsxgIg3N3GkbOQTX1KtCCvtEo9Bi99M+pyhdtuIOf3MWSUroCNlSqtCy2sOeTdr25+
-	 qDh97siTL+bJYJgcGXX8em4rMkNEnwMp7NMnoYJMhnnLirRPM65Xn8eMFVnaydu06O
-	 zIrvK1L6hY3yg==
-Date: Thu, 26 Nov 2026 10:32:28 +0100
-From: Bartosz Golaszewski <brgl@kernel.org>
-To: Alejandro Colomar <alx+linux-hardening@kernel.org>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, 
-	Alejandro Colomar <alx@kernel.org>, linux-hardening@vger.kernel.org, 
-	Krzysztof Kozlowski <krzk@kernel.org>, "Maciej W. Rozycki" <macro@orcam.me.uk>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Andreas Schwab <schwab@linux-m68k.org>, 
-	Andy Shevchenko <andy@kernel.org>, Daniel Scally <djrscally@gmail.com>, 
-	Danilo Krummrich <dakr@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Hans Verkuil <hverkuil-cisco@xs4all.nl>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Joe Perches <joe@perches.com>, Johan Hovold <johan@kernel.org>, Kees Cook <kees@kernel.org>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Len Brown <lenb@kernel.org>, 
-	Linus Torvalds <torvalds@linux-foundation.org>, Linus Walleij <linusw@kernel.org>, 
-	Namhyung Kim <namhyung@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	Saravana Kannan <saravanak@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	Tom Zanussi <zanussi@kernel.org>, linux-acpi@vger.kernel.org, driver-core@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: Re: [PATCH v7 4/4] device property: Fix fwnode_name_eq() for empty
- node names
-Message-ID: <ytxtn2ew62vxuxoinkf33gjntl33ijycjouzutlfcydkh7usm6@ad47ocprfu23>
-References: <cover.1795639368.git.alx@kernel.org>
- <396395e1d02ca080da67cfd91a1c49058b2676b6.1795639368.git.alx@kernel.org>
- <awdaYz9NNVv5fHv9@ashevche-desk.local>
- <awddHt_xvc-lIygA@devuan>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=v+gRajnT
+Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6b596afb4c5so7975343a12.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:33:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795685609; cv=none;
+        d=google.com; s=arc-20260327;
+        b=FMfdTzGrB1tUGjlR6GUL4cTEKCL4n2dDmkEUqGsgsGC9bTULYP4YHhQ0ccI46UctMx
+         Ls9HqAhy9sR1jCiMETRxDb+McRoLMsFbDDkSSo5wO+nyhX7fCBbJvrA9hHxVdkpttbLK
+         COgroMh4XfAVtpxn3F8dK6uIIvboJP0iwdmw1e/TkFj4oU2yyMrmcCj7ivM+VyGbiOIU
+         mWrCCevH7e8j1mUTFgSRZMWPIri8BNv+Lvle0EPu0h6Q+t2lt5GJQ9PO0xZWbRMvs6gd
+         S88swJb0204sEelTg2m7eHV7h97nFzYRKMUz/R0enDPUkT842lO1SHq0v7KuVuHFpMjT
+         heBQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=JGbTvmGYxAXv1/EcBwgvim0eodoihEUYoQ15lt3DIkM=;
+        fh=ejw1wghsYEVOj4LH5p3oVriLHkDCVwBPQSc7EyrNIxc=;
+        b=cRzjlxcm5JCwrM0nYysgGqjR8X6cE7KXLNcuZdnntE46SOiN4Swjjffh7lj4e+5DT6
+         LczO//q3fvZ64loTa3DR+cemFNWX/uzNC3PG7Meue2qtO06CPadf8rAoSpx1awylX4wD
+         KPvZtQmdZRD2WwgWR8g+yP7ljhzfXmnj3AcYZkSxEKtvygSPIFUAvyftH7ezsqmGsJGP
+         k16V1DYECGYRr1/Z/Zk5NjIseZ8MGh7Lquq75Xt3vxGvfTMFy6wndJReH7bE0DELfLoI
+         jWABqHVkUtfAeI9Ld3YE9Q1sqrqIbnqsGZwQeHBlynZcrJn/FpAKVpN/U/yxApBeNMua
+         PKTg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795685608; x=1796290408; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JGbTvmGYxAXv1/EcBwgvim0eodoihEUYoQ15lt3DIkM=;
+        b=v+gRajnTMqxEUnBmLVuVBSZpf4CfM1xGLLbAvu+XkEd/MHTb9wNvkQjRV230FUCTX/
+         1iEE9kE1TbhvhclT7QiTjTa2HjBwka7wFbfgtCrhOh/u6kz++vvmi2MqbUW9bbk4DK8U
+         BOEqzPw5qtVUkwHa8KVsm7LQqTJlwI2xYfzVDjOxf5lFiaAaQYMQAB8TaVKNMEs3FB/D
+         mx9A8Mit66jhDZ6Y7GOLjt0Uu0zW9BMGJ+Q8Qs3KAfmyWX+aAv2yYPJIBwSRcDRLC/Fs
+         ADG8FCImuz7khE8RXLVVL61XdhcPHSTLWU5sTorVhUQNVtuWmL4C7QlYQGsMz0f192Ku
+         xG9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795685608; x=1796290408;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=JGbTvmGYxAXv1/EcBwgvim0eodoihEUYoQ15lt3DIkM=;
+        b=PE0P/m4zvZvYPd+hOjEUKqwJxSJbG2rDFXbtuhB2daDCQYutGSUpbNfUtD/8y4WuiX
+         6NyZif2/c8g86I4rAfhIkHnqJY5wUz6wltPVLhNzgH1zMrUIi7p948bDDOd5a0I+8sgS
+         jNIFl36bgSYPUyHH27+8bNHI/FIYLyBZx8dxektV9zRPjIGHJzZ8QoO8JYDG7GfBVMSc
+         c5nUo2Vwx7h38wQAb7X8vgSvDQG8/ZwaAdvdENxsdwCvo9Efb+DSXvmxKEeQ0J471vqs
+         fTyxzOUrKvhLuF0rbFlMw7Ert4Z8DyF5Eh78LDY8ISX33xWT4vttCydODP1EtuNRRQcb
+         /UIw==
+X-Forwarded-Encrypted: i=1; AL+hErFXUWb4igvQUOjn49AoFYvL4WJkMtixk8HlUiyAU9ywGPkCr7x94Xejc2fA/j+ZD46XJkjVxQ/B/qd1Fw4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z93w0cQg4Akv0bigm+fu0yq7Rv6SZPpErPMG4wdyMNxwzvvt0TB
+	x/xClL6lW7ZVhMHxKfBTNkYqovdnac5vag/RhEYtAeLCgR85OeLGzsYegmJjMIE0jyNTHhQwuba
+	NL1luUeMSPxjFUF6RFRXpVxQWojsCUdk=
+X-Gm-Gg: AZFdTZfv7TqdzF8fGjVgMyfCficvRqZ3B2C20+VFYyJbM7igW1urT5d4zKAmm6iLZ89
+	Q3Vs354dKHH2I/Tf9V9KQ2F07EQCeMNxECqPlNyKoT/vYyhUIn8dqzbvnjwBM8l8Jvd54HEb4cM
+	kW4+wrMNtZl1amdKtzzHbvdD4N0r22PZG7LfNLFHVqjC3w40MEhTMRnKNaoDzPKrG9q1SUUXsP0
+	EHl/HFuhRuCjZe0UO3gQ+1qdx34csG4ztMARHkr56cz7WDhQrT0pCQ6yej8Y8fZ7wjwPHPAXkjT
+	mQUwAoK08AnHwISnJg9PRNL5erCmkWIOFFycFTNvfUAZGyNzBFghCBTQgKQpLXBY7f5k6VCvOwn
+	+c0UoFUP7bBKtDzxdMeApsu+WUu1fk0pagyc=
+X-Received: by 2002:a05:6402:400d:b0:6b3:f891:c2d4 with SMTP id
+ 4fb4d7f45d1cf-6ba37ea5360mr13616725a12.29.1795685607957; Thu, 26 Nov 2026
+ 01:33:27 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,69 +103,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <awddHt_xvc-lIygA@devuan>
+References: <20261125-timer-mediatek-gpt-irq-order-v2-1-e9e793bd87d4@gmail.com>
+In-Reply-To: <20261125-timer-mediatek-gpt-irq-order-v2-1-e9e793bd87d4@gmail.com>
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Date: Thu, 26 Nov 2026 10:33:16 +0100
+X-Gm-Features: Aa3M54pI24nQZXDlYenmTwMKyRI5daIxAw0Ak8m40BV3tPU-M9NeeIVYIMbKRNc
+Message-ID: <CAORyz2LXi4vpwb2dEiq8R8t7x6nUk-DBUNs9t-cCrP7rUodbHw@mail.gmail.com>
+Subject: Re: [PATCH v2] clocksource/drivers/timer-mediatek: Enable the GPT irq
+ before registering
+To: Ryan Brue <ryanbrue.dev@gmail.com>
+Cc: Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>, Chen-Yu Tsai <wenst@chromium.org>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Wed, Nov 25, 2026 at 11:18:16PM +0100, Alejandro Colomar wrote:
-> Hi Andy,
-> 
-> > Date: 2026-11-26 00:00:03+0200
-> > From: Andy Shevchenko <andriy.shevchenko@intel.com>
-> >
-> > On Wed, Nov 25, 2026 at 10:03:55PM +0100, Alejandro Colomar wrote:
-> > > str_has_prefix() returns the prefix length on match and 0 on mismatch,
-> > > so the mistmatch case can't be told from "empty prefix matched an empty
-> > > string".
-> > > 
-> > > For instance: the OF root node's name as returned by
-> > > fwnode_get_name() is "" and will return 0 for any name matched against
-> > > it and since len is 0 too, fwnode_name_eq() will return true.
-> > > 
-> > > Let's use strprefix() instead, which also makes this function simpler.
-> > 
-> > ...
-> > 
-> > > Message-ID: <avrSUUM3HMgxTNpl@kekkonen.localdomain>
-> > > Message-ID: <nat4ilqmzzpuyrjbuahl367ip22tfnmjorydlppuwqiscxaujo@kf63j4lb3flk>
-> > > Message-ID: <nat4ilqmzzpuyrjbuahl367ip22tfnmjorydlppuwqiscxaujo@kf63j4lb3flk>
-> > 
-> > What is this?
-> 
-> git-am(1) has --message-id and the corresponding am.messageId, which
-> stores the Message-ID from the email header field from which the patch
-> is taken, to document where the patch was taken from.  It is stored by
-> git-am(1) right below the last trailer tag from the patch (which should
-> be the 'Signed-off-by' of the author), and before the 'Signed-off-by'
-> appended by git-am(1) itself.
-> 
-> 	$ MANWIDTH=64 man git-am | grep -A5 messageId
-> 	     am.messageId
-> 		 Add a Message-ID trailer based on the email header to
-> 		 the commit when using git‐am(1) (see git‐interpret‐
-> 		 trailers(1)). See also the --message-id and
-> 		 --no-message-id options.
-> 
-> It's useful to document where those tags come from, in case it's
-> historically useful.
-> 
-> I've extended its use to other tags I take from emails.
-> 
-> > Is it documented tag nowadays?
-> 
-> It is not documented in the kernel, AFAIK.  It is documented in
-> git-am(1).  I included it, because I find it useful.  Feel free to drop
-> it if it's not wanted (I can remove in in v8 if it's not wanted).
-> 
+> Enable the interrupt before registering the clock event. The IRQ line
+> stays disabled until enable_irq(), so the handler still can't run before
+> the clock event is set up. With the bit set, the timer that
+> mtk_gpt_setup() leaves running could latch an interrupt that
+> registration doesn't acknowledge, the kind of pending interrupt that
+> commit fc686d0037d7 ("clockevents/drivers/mtk: Fix spurious interrupt
+> leading to crash") acknowledges in mtk_gpt_enable_irq(). So stop the
+> timer before enabling the interrupt, until the core programs an event.
 
-Yeah, don't use it. In general try to stick with the tags listed in
-Documentation/process/5.Posting.rst.
-
-I've too never seen Message-ID in a commit footer before.
-
-With those removed:
-
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-
-Bart
+Tested-by: Luca Leonardo Scorcia <l.scorcia@gmail.com> # MT8167 Sony PSC Mini
+--
+Luca Leonardo Scorcia
+l.scorcia@gmail.com
