@@ -1,88 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795732717;
-	b=NcvnJMJ15Dsyx8wgu4yzDYHfwDv+yWBvR3mHQeX83WouX0Gdx4rKwaYUeY8dEXVvJRkJ
-	 vaI5Q9U541wcxX0xfFOAWLGcByOc8vagdITZzLZ7nf4Zz1rQn5xqbpFfdQuAq4Rk+1kzq
-	 ekOm6Kmv/x4BrKsL5enOp1b5NPjyKx00xP9rhyWj20/VxMG8GmAGF8hQG75p4qoaZ9AUn
-	 1ijr9hxSt83+k4LfJ72cwDnUIT53er5YHoeRklJgL/pGuwSisxNw4t/Dy+VGXJcmbbyyo
-	 We4s6RofohFwZpDdFtRUaVv6wGfQeW641K20HDzmbR0j0MMAEeXV0WgAxkm+op4UOyQ==
+	t=1795732762;
+	b=GtmyRpGDlWpAJYi6CUjFiSt6KShUg1ssdZs5EjBH3YRJMRZnJEY6fvKasMqtN7+O+tLZ
+	 cZoTodq0HbKXrjBtnIF3c7Q6OU8ZxgrshLk8PRxzPXlyxqq93MCbtYWtCiofvEfrRPw6E
+	 bYWZlTn/huzWjdNPgrslzXyqnCgfcRJcyIqIAG49p71nk2L0LW03054fOfFlwZeyo2Dmd
+	 oDhWSOPW10OAgimf1qOYWT3SFvTxqKaAcCI0zN2BLYKBWPK3eSrLhwZb702A1dXn61vP6
+	 Zuy3oiMwpIzUPIYZnBsFn1DdBkvRYaAc+NShitrUWQOpdkNwy2p0JxaO8DXOP/Lqp+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795732717;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=XZN7nAio4vCQPzlVSa+Z+Tj1zggSHcLGwUgRToFRIDU=;
-	b=Md5VNDo3T2QAn6W0nh4+xXV3JAm+7MOpxLZ9PIsqn/fl1it0j8bI9A+JqU6gqKVNEIrK
-	 xhtQyQLkR9vV/JPYO/s6EaLhI5FvFfTYXFNhphi0hVPDEWxE3+UFW6YMQoOEBrT3u0bIC
-	 0Dj0RETJANkOSZcnyCqtyF4TuhdrzQMxYyBKWniT0or3KDWyYKmtdHRIdiTw6XGJbo9a5
-	 0pTmyWVdX3RkfQB7jYR86Wd4xEOlcCOGJ7LjiqIrxGMiuK49W39kHftfdc/h+0s6Y+J10
-	 cHUTQ0YcltmaZm6AWmvoKuQwFOcEgvzGgsQber2UXD6gSLWH+LGXSsEA700OYkPk4wg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795732762;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=j3sCvAM58RnPTWlkjVMsDMrLs+zOy3TWIqQOYkt19cM=;
+	b=lQT7phb5YGEOWLb+ijp8OENLf2Pb7SdggIDXsgqKBk4q+UP+GwWM4OFMdJW1JQnUoG+3
+	 IWxba0whZ0vI68LdFHvb1Xjbgi2iv7NudZ4pniGY/9d3KtEOWTw8u3BctiVaGXGtYZazj
+	 PQ+kIwX4oC3rOoOYh05b8PHht2kFZWDpSMn8HECuOOHXlTf5uRVd8AcG9K8qxKMdO5WfL
+	 BWl3C+YTbKNLNMUe8ZS87xa/DE2Z+at2ajUaLXpdEBDGOhqoNdPMHy6jDSdTO75QwMmdW
+	 3khA+aroPuZFymGU9e5qhO56PsYaGGl6NlNbgIiZmUBE7dQ5DkBSbVMxtrsnbo8/9Fw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=YigCRwEN;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dmT8pSht;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACB72606A31C;
-	Thu, 26 Nov 2026 22:38:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ACB72606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7706606A31C;
+	Thu, 26 Nov 2026 22:39:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=YigCRwEN
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795732715;
-	bh=6cZHffHdnDA5/Zy8f3wwef1VJ/aCiVfcapAWXtcbXqk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=YigCRwEN4Yyg8VPXoB1dVDMQZsIHGQKIvezuvrv8zy84+JWcol9HOZTnMFI2IjLGA
-	 vhluqkLIojBwVBnQQQZBvbQwu8ZdhMowHlA0Z4JWluLHHS8OjeBXuEr7xYRU5wXEP1
-	 tEDOWWEtI5T5ocDmaN3Z2MN1IyEB3NOrfMY2nO9JlKtFJgsGPgAYRo1DZayUG+Yx+m
-	 GFR8/7jhOvMa53V4u+M6jMWXVka8mG+3t5Hf68fpLffSB9Va13XGWWKcFeTKQH9Hxt
-	 7b4P3Ej0BaxhSB8qFmvAl6QWUhC5kQdD9AU0a+PYRgewSBKOBul+vafO/eyZeRrCMd
-	 N62uWi5VWLHkA==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 344B617E09ED;
-	Thu, 26 Nov 2026 23:38:33 +0100 (CET)
-Message-ID: <baeaf9002d73b6b4d12e964eb452b27dee84ea2f.camel@collabora.com>
-Subject: Re: [PATCH v2 04/11] staging: media: cedrus: mpeg2: use the field
- height for field pictures
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Jernej Skrabec <jernej.skrabec@gmail.com>, Mauro Carvalho Chehab
-	 <mchehab@kernel.org>, Hans Verkuil <hverkuil@kernel.org>
-Cc: Maxime Ripard <mripard@kernel.org>, Paul Kocialkowski
- <paulk@sys-base.io>,  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
-	linux-media@vger.kernel.org, linux-staging@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Date: Thu, 26 Nov 2026 17:38:32 -0500
-In-Reply-To: <20261109175016.42061-5-jernej.skrabec@gmail.com>
-References: <20261109175016.42061-1-jernej.skrabec@gmail.com>
-	 <20261109175016.42061-5-jernej.skrabec@gmail.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-xY6Sm5TM6NpVc0XpyBEj"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dmT8pSht
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D2DA1F0089B;
+	Thu, 26 Nov 2026 22:39:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795732762;
+	bh=j3sCvAM58RnPTWlkjVMsDMrLs+zOy3TWIqQOYkt19cM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=dmT8pShtqi3cBh79fvb/YLc3l2C/xLNdrxeCoZf0x3r+v2E4FR0LUNKYF/lc6k4py
+	 Mdv1JFDz3bwH3Jb2YEamn4bXiMK/AJ2a7rVovYlNnRiqfZK+9QqTevo9sleYYhPngB
+	 wy5EI8HkNxHcX3psxCzCmr1EAiKLoNlEFZQy4PqKHPXZu561tGqbqSnAYA3Uc+JlhT
+	 rISGT2aW2/xLhHN96HRWFWPgN/eFso6BJIDlS1Gr08GlrWjStN8+iM9qkIR/yvfPXl
+	 jIxzbjq1gg4t+GUJP8yTZn9lXnRp94D06yQKIRrzxDx2has01dOwlT4iduut6jThLj
+	 +t5QMzI7DWodg==
+From: Sasha Levin <sashal@kernel.org>
+To: Brett A C Sheffield <bacs@librecast.net>
+Cc: Sasha Levin <sashal@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	stable@vger.kernel.org,
+	patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	torvalds@linux-foundation.org,
+	akpm@linux-foundation.org,
+	linux@roeck-us.net,
+	shuah@kernel.org,
+	patches@kernelci.org,
+	lkft-triage@lists.linaro.org,
+	pavel@nabladev.com,
+	jonathanh@nvidia.com,
+	f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com,
+	rwarsow@gmx.de,
+	conor@kernel.org,
+	hargar@microsoft.com,
+	broonie@kernel.org,
+	achill@achill.org,
+	sr@sladewatkins.com
+Subject: Re: [PATCH 5.15 000/319] 5.15.227-rc1 review
+Date: Thu, 26 Nov 2026 17:39:15 -0500
+Message-ID: <20261126223918.1165617-1-sashal@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <awhOX69A7DAA_-UX@karahi.librecast.net>
+References: <20261126144006.732901931@linuxfoundation.org> <awhK_0exBWstjZw7@karahi.librecast.net> <awhOX69A7DAA_-UX@karahi.librecast.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,84 +77,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
---=-xY6Sm5TM6NpVc0XpyBEj
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On Thu, Nov 26, 2026 at 04:21:03PM +0100, Brett A C Sheffield wrote:
+> # first 'bad' commit: [f1311182306c2b85f4724cb776467034a36baaa6] initrd: flush deferred fput() before mounting root
+>
+> Confirmed that reverting f1311182306c2b85f4724cb776467034a36baaa6 fixes the
+> build.
 
-Le lundi 09 novembre 2026 =C3=A0 18:50 +0100, Jernej Skrabec a =C3=A9crit=
-=C2=A0:
-> A field picture covers only half of the macroblock rows of a frame, but
-> the driver programs the coded and the boundary size of the whole frame
-> for it, as for a frame picture.
->=20
-> Program the height of a field for field pictures, like the vendor
-> library does. Like the vendor library, halve the boundary height after
-> aligning it to whole macroblocks, so that the boundary of a 1080 line
-> picture covers all 544 decoded lines of a field.
->=20
-> Fixes: 50e761516f2b ("media: platform: Add Cedrus VPU decoder driver")
-> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+I've dropped 807c1d7125a2 ("initrd: flush deferred fput() before
+mounting root") from the 5.15, 5.10 and 6.1 queues. It calls
+init_flush_fput(), which only exists since 386dc41cf54d ("init: flush
+async file closing") in v6.9, and that commit doesn't apply to these
+trees. do_mounts_rd.c is only built with CONFIG_BLK_DEV_RAM, which is
+why it wasn't caught earlier.
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+6.6 has the same problem; there I'll queue 386dc41cf54d ahead of it.
+7.3, 6.18 and 6.12 already have the helper.
 
-> ---
->  drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c | 15 +++++++++++++--
->  1 file changed, 13 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c b/drivers/=
-staging/media/sunxi/cedrus/cedrus_mpeg2.c
-> index 10e98f08aafc..8252a47994aa 100644
-> --- a/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
-> +++ b/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
-> @@ -58,6 +58,7 @@ static int cedrus_mpeg2_setup(struct cedrus_ctx *ctx, s=
-truct cedrus_run *run)
->  =09struct vb2_queue *vq;
->  =09const u8 *matrix;
->  =09unsigned int i;
-> +=09bool field;
->  =09u32 reg;
-> =20
->  =09seq =3D run->mpeg2.sequence;
-> @@ -108,13 +109,23 @@ static int cedrus_mpeg2_setup(struct cedrus_ctx *ct=
-x, struct cedrus_run *run)
-> =20
->  =09/* Set frame dimensions. */
-> =20
-> +=09/*
-> +=09 * Field pictures cover half of the frame's macroblock rows; the
-> +=09 * vendor library halves both the coded and the boundary height, the
-> +=09 * latter aligned to whole macroblocks.
-> +=09 */
-> +=09field =3D pic->picture_structure !=3D V4L2_MPEG2_PIC_FRAME;
-> +
->  =09reg =3D VE_DEC_MPEG_PICCODEDSIZE_WIDTH(seq->horizontal_size);
-> -=09reg |=3D VE_DEC_MPEG_PICCODEDSIZE_HEIGHT(seq->vertical_size);
-> +=09reg |=3D VE_DEC_MPEG_PICCODEDSIZE_HEIGHT(field ?
-> +=09=09=09ALIGN(seq->vertical_size, 32) / 2 : seq->vertical_size);
-> =20
->  =09cedrus_write(dev, VE_DEC_MPEG_PICCODEDSIZE, reg);
-> =20
->  =09reg =3D VE_DEC_MPEG_PICBOUNDSIZE_WIDTH(ctx->src_fmt.width);
-> -=09reg |=3D VE_DEC_MPEG_PICBOUNDSIZE_HEIGHT(ctx->src_fmt.height);
-> +=09reg |=3D VE_DEC_MPEG_PICBOUNDSIZE_HEIGHT(field ?
-> +=09=09=09ALIGN(ctx->src_fmt.height, 16) / 2 :
-> +=09=09=09ctx->src_fmt.height);
-> =20
->  =09cedrus_write(dev, VE_DEC_MPEG_PICBOUNDSIZE, reg);
-> =20
+Thanks for the bisection!
 
---=-xY6Sm5TM6NpVc0XpyBEj
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawi06AAKCRDZQZRRKWBy
-9IfgAQCbnSz+AgSdIYiejBDLMT37BerQoNp5AUGOwdBHieP41gEAo9nFUZA/TfDs
-oZvYPD/VR4QN0qdBzeIAahg6rCQ9YQ0=
-=X0n1
------END PGP SIGNATURE-----
-
---=-xY6Sm5TM6NpVc0XpyBEj--
+-- 
+Thanks,
+Sasha
