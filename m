@@ -1,102 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.183
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795682549;
-	b=TBIpZ+z73x2MgRt3xX5CoUu2/pBuTbyjs+hyr7zfSkKu+6ZfF18dhDwx8CFCDmGRmn+r
-	 2grq5qlIVJrRV7/hidDmENp+2G3gus1Y8ub1ectIj88VX9ZYo12aNekDn2l1r6Sxwrufs
-	 XcFdMjgPyEFD04RKxWwEtvtFmpCnXvskQVDgoKBDGPfLq/Whp9Mc9Zqi72KUYPt93mdBw
-	 Z7qRprDwSfgYonYF7GvX20WLQ+pkMx8Xoy+T+QIHjBXTRbaP658WJK+Wv4hD1kKPSxcrC
-	 k7+/rL+6czhMx33iYWJDAxG3pbKLp6D9dP1OreC40AvHn0Y9OEhfM7EKRh/unYDs15A==
+	t=1795682562;
+	b=Hb0Nz+ZxupcEKJ7Ya8fDmAyO9K3IwK6zCUAmVyuYtCsGFeYSq7PmiMrGT9qghjzAgYov
+	 1//INaPWukTVU4R15AcgSFUgjxPVqncSTpyx4bHzANZZG3RLxlWckXCR/NkqBz/2dXQrn
+	 2vx2k+evuqduUmOw3mZo8wUyGY88twl2O8bgTErsgFM1CoZdQMChtq7SJIQXGPo632UWy
+	 /V3yjGNs/GLGtldsLSJYkQUba/A7GZ+ts8lpYbG25ZrAmn8skaOQQAsqhVMUD/OZ+/7X8
+	 g6dRNj3IMZ3DTJ2a5AqjOqqG+9UZx9eqSKq+RR3+whv6Xk7YvMwSCuAQqg1TbVXIFFQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795682549;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=mHwHRe9XTxN3mpF3N0k+Ilh/t2cSlSvEtsZYTB5OR8Q=;
-	b=Bnph5mkIluAmRWCekK2aBlBdXe52blF3vD6N0pmzMUmTkc2iPVMBvVQHtJs1csSdgWn6
-	 mbUjzWnTNHRPXGd2a0E5hKSOX1C0CLeaaf+/q8qiCEnjes0ba8pY2TRI+0/1QpVyCt1m2
-	 6oI2cFkmH6RKqM1lhQwc/MU8wvu4TXBKR+sYA2zxAD4U7lqgH7vv3SI+k/06Enatx6B6d
-	 yYeVTi/oZnv+sCaKWuHy1mMT+bxyx8HNagaW/0b+HJDCbvawPBL1YbnkgmCpQp/9QsBNU
-	 t8ibC/ySZATs294GC9P+30J+hkMB/oxTJjz0efIReFUfbXfQrYBJvj8mCls1EydT4xQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795682562;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-Id:
+	 X-Mailer:In-Reply-To:References;
+	bh=eSC/IavhEKD/jocr6HtDgEw6LyL8PtYnkl9GbB/wsAs=;
+	b=TpaqsuHfuQWMB8yiRsgXcYcYznkY6j8xsCvKdI1iXR4erpDFAAi/NP18HVlEbsvX2ysc
+	 wG0R+sGJK/vEsgpy9gSn2ea7CnzfnaIjOesnQNENMcUunKvLWwte5oMxp4UmPmYMph6yx
+	 ejy4f6AOipqB259pEVoq2m2chRtxzFGyMHdFXemaTpa4k90PKUnj1ITxZq7ATpDGbHxos
+	 uz2jjWuTr4eVtqELh8y45eOsaz6Z7ZZh7pB7I0VmSKppWoC8ot2jXxMpic6hMxOFZCi7C
+	 bmz3T+gVsV6bqbNXDUupLwWdZGGVHFIME7EMpRmbbgFfUaIkJKHIaB85+8K14z3w8VQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PhxsFBKP;
-	arc=none smtp.remote-ip=209.85.215.182
-Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=iUfTPtnW;
+	arc=none smtp.remote-ip=91.218.175.183
+Received: from mta0.migadu.com (out-183.mta0.migadu.com [91.218.175.183])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3650606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:42:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3650606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39638606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:42:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39638606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PhxsFBKP
-Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-cd8b2b817fdso284352a12.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:42:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795682548; x=1796287348; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=mHwHRe9XTxN3mpF3N0k+Ilh/t2cSlSvEtsZYTB5OR8Q=;
-        b=PhxsFBKPZgAqS99nTaerLNzznhbqRkxwN21v0GcOejFQJTzwsS+9qwBKqeYb//JsTq
-         pt4pPPrJvPR4MJOUv+NG1gxkru2fi9Fe/Z7gbNFjLmUczhlh7QdUOFHNZa+XPxHHZaVs
-         lEKf0ipfAG96jCfdEVuCaE5EpK1RWoqoRKVSDkrADq5VndGXfRyjM8XW6s7BB85DpsAi
-         b+wxt0+tXngto0PAbwmm+Kb3hATs3zM5AJBsfiujXRA+lJ75ipRvF4oMZch+sXtXRniA
-         TvAY1OccPHrEJxfJK//h+GVrfUafzULFvB1Dx8+86Urb3soC7WP93vcLQpitLWJn8K21
-         Yj0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795682548; x=1796287348;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=mHwHRe9XTxN3mpF3N0k+Ilh/t2cSlSvEtsZYTB5OR8Q=;
-        b=DsBNj600cyhWFyUSgVv5hYr9aQXjaBJE8BatOBk61y47CS8hKeLW3tRgWX0u0DVEGi
-         DCLrUHgLRQBk2n4BIHVHF9wn8YKxGZ/9Esd63cP7w8UUgWbPb9ayry2iD/ALZHcdj7Gt
-         v1ZxVEW5SveVYP5ZHhyTBgQVBchANLWMhRZo9oQDQsPgYp3IMYs+X/xJwL8AEMdkr4na
-         yOiObkc/e3t11kFIj3erRhvrbkh8QVZOH0m6VGM+Jk9YJhHoeSew9CQlwItXP+aRRtpp
-         nydftClmrGFDz3AT84U7AOf9wo+iaxWz85o6Y+KSnH9Qoy9GmQfk8ywNO9smRGkwckmH
-         sBGA==
-X-Forwarded-Encrypted: i=1; AL+hErHGFlIew5KkPLL64XHuTpm3Ux9bqX/iBH+EEGnL9N62BHfm2FmSbLo835mWYh8iJv2jioRDAM0RN9o66qc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9lO5ezA/dtKP+8CiJDn+frip2Ga1vFHFI2k5+v8Dc6MhhYilTj
-	8lbUH4kvAyAdisRJrmAAEpTaxBnNRkUXHIAc8mv5RAb293Uq0YSstduV
-X-Gm-Gg: AZFdTZfsH8wF1rKb0BhjJVDvU7d3Bb/TdcoMQ1hEyfQ72gBUJgx9laceZdrnP+M0kXv
-	+n4haaU6L1PA2bLNxQGvGHvD6M/QjWGwGhIDeV/GFvktUb4QKyiBvDzFzXYZ+0JRmO/I/OIv8PC
-	UFHMElXPv/JC9tV509Wo3/28khW9JPYg1bQ/ug3WoKYxc8svWGta5gZIRAwAV4LQLt8UHxWf5EM
-	I9PZiDqjlUgoQmG7B5+d6X0CO2mqwtNzDL6AbaQ/XlsSlLwA0Cd8q6VbwigpfYZsRapF6I1gD0r
-	1fEuwkXAG5grQ/GOSH8+f2ihJoZvkf27/iU4mb+9k3fH5TcGLio+4BjnMMXVX6uT/2QA7dPsIdS
-	Hc7xWi/raTYn+kkzfgbADXewqIAj39FjM2tVFUspEie7qXvlOS3JH2oomjRO22TST5Jq4eM5c90
-	AnY1kZW9fl2OvR3Fg1nIGoUJt0o2V2qFxagy+rM34ZYkCpi5pGG2wY+m1YAEZhDdHz+R6L4zQfM
-	a3hdwXk8G2fNZtDqUfMlL2VvWSHUBAwisEYMY/M6NB5cWInFfRjUY2EY5iX8nn36p4vMUi+hVG9
-	XoOgWDcAdw+BiARO15CQR31Mgl+FxJQ9b1lGxHO8eL0/sZc=
-X-Received: by 2002:a05:6a00:198d:b0:8a0:8822:e6b1 with SMTP id d2e1a72fcca58-8c87b9cf815mr30956275b3a.3.1795682548043;
-        Thu, 26 Nov 2026 00:42:28 -0800 (PST)
-Received: from gmail.com ([36.112.204.120])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e4aca2sm10327653b3a.32.2026.11.26.00.42.22
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 26 Nov 2026 00:42:27 -0800 (PST)
-From: Ziyu Zhang <ziyuzhang201@gmail.com>
-To: saeedm@nvidia.com,
-	tariqt@nvidia.com,
-	mbloch@nvidia.com,
-	leon@kernel.org
-Cc: netdev@vger.kernel.org,
-	linux-rdma@vger.kernel.org,
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=iUfTPtnW
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=jL4HqBe3D5kj1fDFSZf+Q/Cum3V75XKW6K6TrEyTK9U=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795682559; v=1; x=1796287359;
+ b=iUfTPtnW+okBmmqntm243suPPzQq/WoUtNL7jipiBsFi1PBU3vQHEGkXE9bi89m6hpMLYmNC
+ WCZirrQ2TNGRsPzdEr+pNwH8DF4gMYB1YU5GYtSmrdn5zs8Ohm6LtOfc3yvg2yt/vb4SOuhUbao
+ lfq5RKZi3KZAH71fHGEzpftI=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 48aaf3807e1c1ad9;
+	Thu, 26 Nov 2026 08:42:39 +0000
+X-Mizu-Trace-ID: 48aaf3807e1c1ad9
+X-Migadu-Flow: FLOW_OUT
+From: Zqiang <qiang.zhang@linux.dev>
+To: linusw@kernel.org,
+	brgl@kernel.org,
+	paulmck@kernel.org
+Cc: linux-gpio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	roid@nvidia.com,
-	baijiaju1990@gmail.com,
-	ziyuzhang201@gmail.com
-Subject: [PATCH net v2] net/mlx5e: Fix deadlock when parsing flow actions fails
-Date: Thu, 26 Nov 2026 16:42:16 +0800
-Message-Id: <20261126084216.26436-1-ziyuzhang201@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	qiang.zhang@linux.dev
+Subject: [PATCH] gpiolib: Use srcu_dereference() in gpiod_get_label()
+Date: Thu, 26 Nov 2026 16:42:33 +0800
+Message-Id: <20261126084233.17381-2-qiang.zhang@linux.dev>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20261126084233.17381-1-qiang.zhang@linux.dev>
+References: <20261126084233.17381-1-qiang.zhang@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,145 +67,34 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Neighbour and route updates wait for flow->init_done while holding
-encap_tbl_lock. Action parsing can expose a flow to these updates by
-attaching post-action encap entries in alloc_flow_post_acts(). If a
-later allocation or validation fails, cleanup needs encap_tbl_lock to
-detach the entries, but the update is still waiting for init_done.
+The srcu_dereference_check() already evaluates 'srcu_read_lock_held(ssp)'
+internally, so passing srcu_read_lock_held() as the extra condition is
+redundant. all callers of gpiod_get_label() hold the desc_srcu read lock,
+so replace it with srcu_dereference(), which provides identical lockdep
+coverage.
 
-Remove any installed post-action rules first, since a woken update can
-free the encap headers they reference. Mark the flow as having failed
-action parsing and signal init_done before detaching the entries.
+No functional changes.
 
-Skip flows that failed action parsing in mlx5e_take_tmp_flow() after
-waiting for init_done. A route update can encounter the same flow through
-more than one encap entry while holding encap_tbl_lock, before cleanup
-can detach the entries. Skipping the flow prevents adding its tmp_list
-node twice. The lock prevents detach while the collector waits and
-checks the result, so it can take the reference after this check.
-
-Free the post-action attributes on the parse error path before dropping
-the caller's reference, so any temporary reference held elsewhere
-cannot defer encap detach. Use a separate parse failure flag so the
-existing FAILED flag retains its meaning for offload failures.
-
-This possible bug was found by our experimental static analysis tool, which
-analyzes lock usage and completion-based synchronization to detect
-potential deadlock patterns.
-
-Fixes: 8300f225268b ("net/mlx5e: Create new flow attr for multi table actions")
-Signed-off-by: Ziyu Zhang <ziyuzhang201@gmail.com>
+Signed-off-by: Zqiang <qiang.zhang@linux.dev>
 ---
-Changes in v2:
-- Skip flows that failed action parsing before adding them to tmp_list.
-- Detach their post-action encaps before dropping the caller's reference.
+ drivers/gpio/gpiolib.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-Sashiko's other two findings concern cleanup before reoffload retries.
-That cleanup is being discussed separately:
-https://lkml.iu.edu/2611.1/02787.html
-
-v1: https://lore.kernel.org/r/20261125042323.88050-1-ziyuzhang201@gmail.com
-
- .../net/ethernet/mellanox/mlx5/core/en/tc_priv.h   |  1 +
- .../ethernet/mellanox/mlx5/core/en/tc_tun_encap.c  |  6 ++++-
- drivers/net/ethernet/mellanox/mlx5/core/en_tc.c    | 31 ++++++++++++++++++++--
- 3 files changed, 35 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_priv.h b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_priv.h
-index 1ceebab4ce08..a031b85a466f 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_priv.h
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_priv.h
-@@ -31,6 +31,7 @@ enum {
- 	MLX5E_TC_FLOW_FLAG_SAMPLE                = MLX5E_TC_FLOW_BASE + 10,
- 	MLX5E_TC_FLOW_FLAG_USE_ACT_STATS         = MLX5E_TC_FLOW_BASE + 11,
- 	MLX5E_TC_FLOW_FLAG_PEER                  = MLX5E_TC_FLOW_BASE + 12,
-+	MLX5E_TC_FLOW_FLAG_PARSE_FAILED          = MLX5E_TC_FLOW_BASE + 13,
- };
+diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
+index 5dd4d142cf52..47ce89bfb578 100644
+--- a/drivers/gpio/gpiolib.c
++++ b/drivers/gpio/gpiolib.c
+@@ -124,8 +124,7 @@ const char *gpiod_get_label(struct gpio_desc *desc)
  
- struct mlx5e_tc_flow_parse_attr {
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_encap.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_encap.c
-index 5e40107efa26..21a03d15c4be 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_encap.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_encap.c
-@@ -275,6 +275,11 @@ static void mlx5e_take_tmp_flow(struct mlx5e_tc_flow *flow,
- 				struct list_head *flow_list,
- 				int index)
- {
-+	/* Detaching the flow also takes encap_tbl_lock. */
-+	wait_for_completion(&flow->init_done);
-+	if (flow_flag_test(flow, PARSE_FAILED))
-+		return;
-+
- 	if (IS_ERR(mlx5e_flow_get(flow))) {
- 		/* Flow is being deleted concurrently. Wait for it to be
- 		 * unoffloaded from hardware, otherwise deleting encap will
-@@ -283,7 +288,6 @@ static void mlx5e_take_tmp_flow(struct mlx5e_tc_flow *flow,
- 		wait_for_completion(&flow->del_hw_done);
- 		return;
- 	}
--	wait_for_completion(&flow->init_done);
+ 	flags = READ_ONCE(desc->flags);
  
- 	flow->tmp_entry_index = index;
- 	list_add(&flow->tmp_list, flow_list);
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-index 1d35c97aea0b..9e7850b5e13d 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-@@ -3748,6 +3748,31 @@ free_flow_post_acts(struct mlx5e_tc_flow *flow)
- 	}
- }
+-	label = srcu_dereference_check(desc->label, &desc->gdev->desc_srcu,
+-				srcu_read_lock_held(&desc->gdev->desc_srcu));
++	label = srcu_dereference(desc->label, &desc->gdev->desc_srcu);
  
-+static void abort_flow_post_acts(struct mlx5e_tc_flow *flow)
-+{
-+	struct mlx5e_post_act *post_act = get_post_action(flow->priv);
-+	struct mlx5_flow_attr *attr;
-+
-+	if (flow_flag_test(flow, PARSE_FAILED))
-+		return;
-+
-+	/* Remove hardware rules before an update can free their encap headers. */
-+	list_for_each_entry(attr, &flow->attrs, list) {
-+		if (list_is_last(&attr->list, &flow->attrs))
-+			break;
-+		if (!attr->post_act_handle)
-+			continue;
-+
-+		mlx5e_tc_post_act_del(post_act, attr->post_act_handle);
-+		attr->post_act_handle = NULL;
-+	}
-+
-+	/* Wake updates before detaching encaps under encap_tbl_lock. */
-+	flow_flag_set(flow, PARSE_FAILED);
-+	complete_all(&flow->init_done);
-+	free_flow_post_acts(flow);
-+}
-+
- int
- mlx5e_tc_offload_flow_post_acts(struct mlx5e_tc_flow *flow)
- {
-@@ -3852,7 +3877,7 @@ out:
- 	return 0;
- 
- out_free:
--	free_flow_post_acts(flow);
-+	abort_flow_post_acts(flow);
- 	return err;
- }
- 
-@@ -4580,8 +4605,10 @@ __mlx5e_add_fdb_flow(struct mlx5e_priv *priv,
- 		goto err_free;
- 
- 	err = parse_tc_fdb_actions(priv, &rule->action, flow, extack);
--	if (err)
-+	if (err) {
-+		abort_flow_post_acts(flow);
- 		goto err_free;
-+	}
- 
- 	err = mlx5e_tc_add_fdb_flow(priv, flow, extack);
- 	complete_all(&flow->init_done);
+ 	if (test_bit(GPIOD_FLAG_USED_AS_IRQ, &flags))
+ 		return label ? label->str : "interrupt";
 -- 
-2.34.1
+2.17.1
+
