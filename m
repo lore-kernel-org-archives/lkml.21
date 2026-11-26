@@ -1,13 +1,13 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.107
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.191.91
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795708889;
-	b=fclvY6uzZGyMIyQt8pLEdoQDbQMfXKXZr8Y6vyqdGkxTVI6UKvmExwYHYdQZD0R0p3+/
-	 n+Vx34KjR0r9j13JE9Vugt1V1d9UYyAdzrYbFp+XlIfnOvqKkncJIpyq/NPUm4IKqlugJ
-	 DUB3XFpjUmUU1eSEvb2rvjnZy/3xYpbm8VP7ccdKteH4YvmsWqRVnfeqGZmwZpH+kb1f0
-	 TfN+wLW51mu5a0huK3sMpEe/dq2imksRZ5syaw2hUygk86Td1xvAMQX4AnoSW9lrhH6Da
-	 gW1OHyqkK7MrD4o2hvfHZy/0bhAtyQ9A3ErXI1AVtTNV5IiFOMiuhlYcye+oD4pVNCw==
+	t=1795708891;
+	b=S2doTwd+NuEyFtv9QIaosXLHeTrtvf1drgctpSUclu0jySvAhyGEYUMroOc8YOGzRotQ
+	 VfTujUptyXE/eVB1yXTsRlAMbGiJxJYo7Bn6eiFXr5IMY4MYc3B6MA7O5NGilialYYTrJ
+	 sLRQM7wEgmw81FM/DNMpkcNqrFhMx+534I417pK1yf19Ynzw4x21OD+MWlAu8OyiN7XAF
+	 psILiXEUl8pXj2+z1AzFf5nfuMbrjgIO7YNmvWq0nMBmVTlFTvHB4Ow2r/c2NWpwcpyV7
+	 5y7WLSFI5NlCTB2EFXUJ4LyKGonsobSKeoP7VplNmyZoN5W5AYia2d9F+gOr3lPbJiw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795708889;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795708891;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
 	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
@@ -25,35 +25,35 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=g3C0/ymgwIxvM0d+P3CAu49I72VvCxfnalCInUO3d1c=;
-	b=AN2ggFc0kG/ezpr6XFbHRWTTqVMwIjMp0I9M+cy/0S5UZ/gQ+4fy5dWJbQdZaAxRqrBm
-	 Gxllpgk4L+520TXp9pDq1aHD569kHWGlDHXMJxiOsToMIE4vW1oKkCVyE6rOwp3yoj1SC
-	 rFecsoFkz6IXKBkXfEMgcOOSezSGOvex0g8PzxGFKmkA38rS/laJK4/2bPs7P7ImilGLd
-	 VJaWlGXbkXkRXhLnecpEm9tKTGQFtOdMAqAUOc0LiewhuUoh150NKd3ZDvoQTORIen1ud
-	 HMX4++fRpZ8VHe9yo7I3DY4NZAFCt8yepyOAHmW1dvhBZ1E5gxEP7WfVKOd/WtN8xUQ==
+	bh=eqmgHj+KyvxEVxd2aIN7Y36hxhbA/1YsmnaLw6WzTPo=;
+	b=HT2MYR91Cm7yySnDwlY7xoHw+JlIt92Gj1wgX5kgI57MvQQJTpBRXKRKQ2siyQA+tG0w
+	 amfa+gRjrQBgp1g0gOzFSoEzMUSusKDAfJy4psN2JVCKhjwty/7CPQS0ydvBNuatvT4mm
+	 A2DNU10rHdBLWUM6nEZlvTdt9ev7fq0K/G0FWmFbv64gqHXg20fvsayP/J5K5oGkNYeWR
+	 bapNcBXOiWT+t45BhHcimFpmEtbKp/kJttjZFKndqw5R/kQ52Zc2dhZiqynckSlAEHyFK
+	 7KHt6DlfME+LyI//2PUrwCF3YV9SEEYxkHXFnf35lkksN37PlzIhQD3ysqur45vsrkQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=telcobridges.com;
 	spf=pass smtp.mailfrom=telcobridges.com;
-	dkim=pass header.d=telcobridges.com header.i=@telcobridges.com header.a=rsa-sha256 header.s=selector2 header.b=F8Diyp8W;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.107
-Received: from YT6PR01CU002.outbound.protection.outlook.com (mail-canadacentralazon11022107.outbound.protection.outlook.com [40.107.193.107])
+	dkim=pass header.d=telcobridges.com header.i=@telcobridges.com header.a=rsa-sha256 header.s=selector2 header.b=toyRrejy;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.191.91
+Received: from YQZPR01CU011.outbound.protection.outlook.com (mail-canadaeastazon11020091.outbound.protection.outlook.com [52.101.191.91])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 654D1606A327;
-	Thu, 26 Nov 2026 16:01:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 654D1606A327
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 866A0606A335;
+	Thu, 26 Nov 2026 16:01:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 866A0606A335
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=telcobridges.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=telcobridges.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=telcobridges.com header.i=@telcobridges.com header.a=rsa-sha256 header.s=selector2 header.b=F8Diyp8W
+	dkim=pass (1024-bit key, unprotected) header.d=telcobridges.com header.i=@telcobridges.com header.a=rsa-sha256 header.s=selector2 header.b=toyRrejy
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=j07OUMrsdhF5xEVfQccmEHIAL+1+FYkZvrlxUwEXs4/m1Nf4kfck0Y7Kjx+xe55V1MJchb9cj20G4NNvIgEbk+wDlQSZKtxybWoz+cpoZxVk9pNvO9Q6WVj22PeYbYT/YP4Inkp4tEzzsClthdCT8qBE+mPsnGSslQQduOK8kzLkMyRPE+rffbuDa5MYwijWLZ0A7ekiZHri9ZIOhL5gvxdeUFts5NyWxuzhccuuxOnH5GhzY7k/4dyYD4CYMkUMCH3sr7ENnBNlrEvjZfxHDTi66COja5R2wZqpcl1jmK+nTZaqMq0SVbdLSlinsWf8N6gIusyakA5NBaWhriR+FA==
+ b=Gw7UatGcUbaKholSS4pOIFemN6edTcycqfG5GSkRz0xh5vNGbAOo+UeruNHHKZN1D33+LlEoLdIr3uCE3smILjNIueUPOH9H+jsYn0W9z2FZCCCSDabhzxblB/uGZUGzhqdZxR+EXNWIFz0Zl3nBjv33hrEEo8j3adqrG8P4RgpPqK+bcYoqUKY+8fOfGUOMI70bYxY5Fby8ysmjYIDfoluuAZJZRYAFQcFkhTVHYu8qoNAQHNNxcZYAKnzve3I412as/JOixYViAIMQjQGXrVK7rXy0u12bCwBd3PFDNJIZo+DzVinQReVtKsUeznHmQBibHgVfer6A9rYVu6Js6A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=g3C0/ymgwIxvM0d+P3CAu49I72VvCxfnalCInUO3d1c=;
- b=LEwIbXdaOiM7YQHtNmjjjcSB8vir6/Num5rCFv1RqX/c+C6RdYktTbHnG6Qu8M9HSibSpquXSVSPfjLz4uOPtPYaCMfda3ynBmANhQKHdhHftS3V1Fum74cznFDQOqzWCDJkVqjGDX94pjzlNfA9tFXZIHMKIDexm1G2+LoTcQSnVx2UeriFs6TPHCaNWgVBPkpqC9ihXJnooKVyqbmhr3i/6GvNCVFXr6yUeqwRdkvaL37jPCdWQMAYYaFMLghvlwcJ1tkCVO+W1G0WRhTxGRwBcy6Dd44G7ZsiRfTfC8RinSUwlfs54yUxXhWSpgm9ZgmxGCxBLKxTpdTXX4XNeg==
+ bh=eqmgHj+KyvxEVxd2aIN7Y36hxhbA/1YsmnaLw6WzTPo=;
+ b=EF/TF4iKkNb8Abtf1p1Nb5fXPswgArjxB8JNs6nG9hfqq7k8j1Cka27z+ZmOLn+LDwKNKKNrFuuiI0tNCUdcGTurJ3Rjxq9OXJpHSyDzzp7WY4gwzRz7y+ivmzhWXRLKdcDmlCuYiXSfhUw2e2LVTYYGLFpCE5nbL/NDGVlfu8170bdHeG8LQH2dICXNnj6ZPdxC2s0ak++2ONZgs+QiKz9DPKGuG/qkVNcbk8w+ZRUeTIZez7KdckO70Hz9q/IxJE9coli4W1JDQaL7Dr4eiWOJFBQJfGil0odwyR2KaE3DKntc+EAG7B5qKbSGtQM/zzJyGnkg8/dKEpJGPIFItQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  142.180.224.216) smtp.rcpttodomain=davemloft.net
  smtp.mailfrom=telcobridges.com; dmarc=pass (p=quarantine sp=quarantine
@@ -62,18 +62,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=telcobridges.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=g3C0/ymgwIxvM0d+P3CAu49I72VvCxfnalCInUO3d1c=;
- b=F8Diyp8WcCrvu5FIqx8CVlAjyjq0sc624nZb5eg8WThaEEphHZYn3VmCY897tHu40Pn8j2IVVLxp//OBF0h24kpPXv6ZOY9+n49chjPx9xkfecWSEP2bIyATvzZWztw7uNl+C/7Fqn8Jj60Ba0BMwk6ZNcNOAOEOSC3GgTVtiqw=
-Received: from YT3PR01CA0038.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:82::9)
- by YQBPR0101MB5602.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:c01:47::20) with
+ bh=eqmgHj+KyvxEVxd2aIN7Y36hxhbA/1YsmnaLw6WzTPo=;
+ b=toyRrejyuAFexQmVcfYy/+DBGRn89QsEl+wQLWI+f5+yoy84KnF3oEV9tRGgWWMfFecYB6mONOsE6vFcO+xsf1TH+b0nV6GE6qq8OQWlhPcojzpGyDEjdeoVyadYz8ITNdViFFxyupEf1z74ZJLEHszVdAvqY+DQbKSEYPzEGZ0=
+Received: from YT4PR01CA0317.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:10a::10)
+ by YT3PR01MB5350.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:62::16) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
- 2026 16:01:24 +0000
-Received: from YT2PEPF000001CF.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:82:cafe::74) by YT3PR01CA0038.outlook.office365.com
- (2603:10b6:b01:82::9) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 16:01:23 +0000
+Received: from QB1PEPF00004E0F.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:10a:cafe::34) by YT4PR01CA0317.outlook.office365.com
+ (2603:10b6:b01:10a::10) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.7 via Frontend Transport; Thu, 26
- Nov 2026 16:01:24 +0000
+ Nov 2026 16:01:23 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 142.180.224.216) smtp.mailfrom=telcobridges.com; dkim=none (message not
  signed) header.d=none;dmarc=pass action=none header.from=telcobridges.com;
@@ -82,12 +82,12 @@ Received-SPF: Pass (protection.outlook.com: domain of telcobridges.com
  receiver=protection.outlook.com; client-ip=142.180.224.216;
  helo=srv-code1.telcobridges.lan; pr=C
 Received: from srv-code1.telcobridges.lan (142.180.224.216) by
- YT2PEPF000001CF.mail.protection.outlook.com (10.167.241.39) with Microsoft
- SMTP Server id 15.21.688.5 via Frontend Transport; Thu, 26 Nov 2026 16:01:23
+ QB1PEPF00004E0F.mail.protection.outlook.com (10.167.240.7) with Microsoft
+ SMTP Server id 15.21.688.5 via Frontend Transport; Thu, 26 Nov 2026 16:01:22
  +0000
 Received: from srv-vmware-cmcburney-tbos10.telcobridges.lan (unknown [10.0.0.68])
-	by srv-code1.telcobridges.lan (Postfix) with ESMTP id 75DE69656;
-	Thu, 26 Nov 2026 11:01:23 -0500 (EST)
+	by srv-code1.telcobridges.lan (Postfix) with ESMTP id 431BB9655;
+	Thu, 26 Nov 2026 11:01:22 -0500 (EST)
 From: Curtis McBurney <cmcburney@telcobridges.com>
 To: netdev@vger.kernel.org
 Cc: Curtis McBurney <cmcburney@telcobridges.com>,
@@ -101,10 +101,11 @@ Cc: Curtis McBurney <cmcburney@telcobridges.com>,
 	toke@redhat.com,
 	daniel@iogearbox.net,
 	almasrymina@google.com,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v3 2/2] net: net_test: add tests for netif_tx_stop_queue() trans_start
-Date: Thu, 26 Nov 2026 11:01:14 -0500
-Message-ID: <20261126160117.652865-3-cmcburney@telcobridges.com>
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH net v3 1/2] net: keep txq->trans_start on repeated netif_tx_stop_queue()
+Date: Thu, 26 Nov 2026 11:01:13 -0500
+Message-ID: <20261126160117.652865-2-cmcburney@telcobridges.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20261126160117.652865-1-cmcburney@telcobridges.com>
 References: <20261126160117.652865-1-cmcburney@telcobridges.com>
@@ -120,188 +121,125 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT2PEPF000001CF:EE_|YQBPR0101MB5602:EE_
+X-MS-TrafficTypeDiagnostic: QB1PEPF00004E0F:EE_|YT3PR01MB5350:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: ebec64f8-f330-402d-2db7-08df4bd68519
+X-MS-Office365-Filtering-Correlation-Id: 152d9e02-9426-43ab-490e-08df4bd6845e
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|23010399003|7416014|376014|82310400026|1800799024|10067099003|261028144727099003|261026140227099003|261021123027099003|261026121527099003|261021121427099003|261022105027099003|56012099006|261102123227099003|261009223027099003|6133799003|18002099003|22082099003;
+	BCL:0;ARA:13230040|82310400026|1800799024|36860700016|376014|7416014|23010399003|18002099003|261009223027099003|22082099003|10067099003|56012099006|261022075727099003|261026121527099003|261102123227099003|261022105027099003|261028144727099003|261026140227099003|261021121427099003|261021135927099003;
 X-Microsoft-Antispam-Message-Info:
-	RNI2jeZsOwtx04AvVlIL0gjxPrPQwAFK3JXghxrBFMQFwdcLZsce+LO8Jz+fUW2Co2XE4E22bBysHteUbRNce33SMVPnIaf+W/9XvK+l3yn5vIGUa/ky+x9Js9BRnlFqwYvd9DIWmFL92p0koIEBHfvl97mPmtKkNmPSLLkGjaMiadC2yiEH6OGZgjTydluYM6DTEqquvo9wBaz6aSCsklmvMsV4uCkFdBBtP5gkr2ieqYf+Yg48Wi7c2eiY3rsIQnJpITS/nV3F0D9J9Q1nHxfVHabiNEXvPcrDbhDXvoH+UDfxCkZV/aQMfc+6CO0Xur+xqXhuDaO5tazoGGB8UV3PVa1ZtlpeflIF7gwCdToKeGpoT6k7Ru83ciU2k38bqdId2PfMyjeIruPBK//mMN+r7Sg1f2VPUePsHhoj4F4DFCbPkEKwPGnPpKiEFzZreytttlOtQB0DA2qyVfEqvXNl7mrEVMowdOkLdmeIS1J42Uso4yCRtPSRtST3WmWlupRZw5JncxUISHPrLlHjmbhkoYo03EAVfOf1swAbEbg6XI9ZMEfvTV7EzY5gpe4rdKhiBCWFd7tAZ0i2TuHuKV6xrx8X3WtJBm8aanMwIVBhaJofUZ+T33KRPwM3ZTCXCVZjchq4tieSncdaxQrgLBbrRsVWak+I6gmSZtrA2hetic/RfRLxiI13G85uY0zd1Rxr3Fr5WNPqsYJYYmLHqg==
+	DNZatKmCZJWrKaDfaq+t4//BQIcPfFL9hJ2EZKRf0YlTy02i+yPnA0ujNzJ3WsYOGjb9a0VDGTPMQzaXQ7GDZY7NfOyFJ5zUckvd52i1tp8yPoulgxcXyhW+0/TebqNJRC0b+4wOzxwuh00DyakcRFGCKoNukGuxOMNt4k4eOciUHazdv5JhXeTG35tKVLJlze0RYQVcBkzpd7h85wAHiak3DxkEXhXCo20JKHT9thX5eG/x9ngy1z0vRBxaGO+b6QZKeghv81pxnAg4/k3TdWtGLWW/mvwfmWpm6bU+v31sOfl/rrHofkZd7E+oKmpHdcR3JxLHdCcvOAB63X/HJv1NGwfpzJE35m9NKruP4EkZX9dIuNniu1oPGCNL0PfoT7LAruTEorTCNuy0Q5qJO3jdWVbSkTkqGMstkmPiNWQ8LVdFvAIP8B2EHbGA8/LICHNQd5lkdlF/CT4bgbe2xlw9imeZG0tqy8QXNoSVfqUyJk19pblHfibomIahHENykMa8EF8VyycO5SMlwp1WrNeDU/qz1sZCCtOvaM5/BnjWn0eRTA+O3pa7B/W8vavMopKpCQaFZjRDTDISseNXDqn69iTSCZH/p9semfOhW8YV4LM8OjKw2UppDN7c6YUsgS2CoNmohWoHsNNaxyseFkVHrcKDdtBKHxM8ZU7OWXubHB0bWSKRZ7sjJ1QhH3wxSAv7QJGwQHgAEhEJrE3szw==
 X-Forefront-Antispam-Report:
-	CIP:142.180.224.216;CTRY:CA;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:srv-code1.telcobridges.lan;PTR:ipagstaticip-a30715f8-af06-ab92-2e59-6516aeac2c90.sdsl.bell.ca;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(7416014)(376014)(82310400026)(1800799024)(10067099003)(261028144727099003)(261026140227099003)(261021123027099003)(261026121527099003)(261021121427099003)(261022105027099003)(56012099006)(261102123227099003)(261009223027099003)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+	CIP:142.180.224.216;CTRY:CA;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:srv-code1.telcobridges.lan;PTR:ipagstaticip-a30715f8-af06-ab92-2e59-6516aeac2c90.sdsl.bell.ca;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(376014)(7416014)(23010399003)(18002099003)(261009223027099003)(22082099003)(10067099003)(56012099006)(261022075727099003)(261026121527099003)(261102123227099003)(261022105027099003)(261028144727099003)(261026140227099003)(261021121427099003)(261021135927099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	qoHNGxnfCjQXejd9oyfH5sC6hcHnM8heJnP8t5zT9VemyfvwIrFIrwzXITTzgh2v/vuj5S5XspCLaygf3J3ol7DyNJYnDhjz6b7Ta7gsq3OAXZPI9BEO4ofGtuHbive6dr6zxJxMm13NANZhpBzoY3lQ/lByF9tvCcjuz7HpUs6fGwTODg6M1Wm6QRe+Tm4d2uqNhJb4HuDMPeHGIA5YIOufTDhTEDxmK5LN+D4tMWrS36Vd83zYuJbNtPerm6UxBKGQekSI+nPSQSD8qG95rbKk69rM/lrj7+0Y7iekS7sT1gLdCopfNaj3899H/vSyVYSnECQEHsi9bVYasx8Y2PSeIhUiVRZWwkKIv30TVXMPsD4qmU36gDph1KyH3veCAAV0EvTgI5Uru43tT0/Gsx/vi87pHIwDMFbl5OTAa7Xn53d+whsLqPweIJOJj5fE
+	lnnNr2sAcZVetkzpQerqQe/OynKriPHM+VFr3MPbugWxPDuz796sFV9U8npgCCeJ5kAjwteM+5J5YRSajFieziuDXq581MGrtpVWa/NsjqQ16DYnEFAZgi9sUu5qdyYbwGLofzAIKvlEg2UJetd3WRhan/9/WsNkc+Gtp2tGBO4Bf1YWlXiEMVJtao2Z1wL5HMo4MyvqOyyuwxZOsOHLLfNGh+hlG96Ej9lbPvoZexGCgNciVfeIKdEMyOfO83zNm+g+jhxvavUG1MelkdW9RS6+sTKeF5LMY6OIsfxhUQKvVClSF3D3UtwdMCfvEvDfimF0k8Zfr3FIstsrthsWbQRPAJfVf1i4K1aBJR9BydRhd5gvSIwpTq+/Tk7BLBnBwLK7vx9ulIhhOyeaNl910/4OETP/iZuVVQxmkDwYkv43LNOrss30FyntbAG5ql3O
 X-OriginatorOrg: telcobridges.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 16:01:23.6986
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 16:01:22.5252
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ebec64f8-f330-402d-2db7-08df4bd68519
+X-MS-Exchange-CrossTenant-Network-Message-Id: 152d9e02-9426-43ab-490e-08df4bd6845e
 X-MS-Exchange-CrossTenant-Id: 5dc833ed-bd96-4d5b-aaa0-0d8be83ae4e5
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=5dc833ed-bd96-4d5b-aaa0-0d8be83ae4e5;Ip=[142.180.224.216];Helo=[srv-code1.telcobridges.lan]
 X-MS-Exchange-CrossTenant-AuthSource:
-	YT2PEPF000001CF.CANPRD01.PROD.OUTLOOK.COM
+	QB1PEPF00004E0F.CANPRD01.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQBPR0101MB5602
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT3PR01MB5350
 
-Add KUnit tests for the txq->trans_start handling of
-netif_tx_stop_queue(), which dev_watchdog() uses to detect a stuck
-queue:
+Since commit 95ecba62e2fd ("net: fix races in
+netdev_tx_sent_queue()/dev_watchdog()"), netif_tx_stop_queue() writes
+txq->trans_start on every call, also when the queue is already stopped.
 
-  - a stop on a running queue writes trans_start
-  - a stop on a queue already stopped by the driver keeps trans_start
-  - a stop after netif_tx_start_queue() writes trans_start again
-  - a stop on a queue stopped only by BQL (__QUEUE_STATE_STACK_XOFF)
-    writes trans_start
+Several drivers stop the queue from their periodic Tx hang check and
+leave the recovery to dev_watchdog(). e1000, e1000e, igb and igc call
+netif_stop_queue() or netif_stop_subqueue() each time the hang check,
+requested every 2 seconds by the driver watchdog, finds the hang again,
+and do not wake the queue. Each call now moves trans_start forward, so
+dev_watchdog() never sees the queue stopped for longer than
+watchdog_timeo (5 seconds for these drivers). ndo_tx_timeout() is never
+called and the adapter is never reset: the driver logs "Detected Tx Unit
+Hang" every 2 seconds while the NIC stays hung.
 
-txq_stop_keeps_stamp_stopped_queue fails without the previous patch.
+Return early from netif_tx_stop_queue() when __QUEUE_STATE_DRV_XOFF is
+already set, so a stop on a queue that the driver already stopped
+writes neither trans_start nor the bit. A queue stopped only by BQL
+(__QUEUE_STATE_STACK_XOFF) still gets a new trans_start when the driver
+stops it. On the path that sets the bit, trans_start is still written
+before set_bit(), which keeps the ordering against dev_watchdog() added
+by 95ecba62e2fd. The early return issues smp_mb(), so callers that
+follow the stop with smp_mb__after_atomic(), such as
+netif_txq_try_stop(), still get a full barrier.
 
-The tests run on a single thread and do not cover a wake that races
-with a stop. The previous patch removes that race by construction: a
-stop that finds the bit set writes neither trans_start nor the bit.
+netif_tx_wake_queue() can clear the bit between test_bit() and the
+return. The queue is then running, as if the wake had come after the
+stop, and the next stop writes a new trans_start. Setting the bit
+without writing trans_start would instead leave a newly stopped queue
+with the trans_start of an earlier stop, from any time before if the
+caller is preempted, and dev_watchdog() could report a spurious
+timeout. netif_tx_stop_queue() is the only function that sets
+DRV_XOFF, so every transition of the bit from 0 to 1 follows a
+trans_start write by the same caller. The time between that write and
+set_bit() is unchanged from 95ecba62e2fd.
 
-Tested on UML with CONFIG_KUNIT, CONFIG_NET and CONFIG_NET_TEST:
+The issue was observed on a system in real use: a hung NIC kept
+reporting a Tx unit hang and was never reset. Code inspection then
+pointed to 95ecba62e2fd.
 
-  tools/testing/kunit/kunit.py run --kunitconfig=<cfg> 'net_core.txq_*'
+I reproduced the issue and tested the fix on an AlmaLinux 10 kernel
+(6.12.0-211.74.2.el10_2, which contains 95ecba62e2fd) with the e1000
+driver on a VMware-emulated Intel 82545EM. Reproducing required
+modifying the driver: a test-only module parameter makes
+e1000_clean_tx_irq() report a Tx unit hang on every hang check of one
+interface. netif_tx_stop_queue() is inlined into the driver, so the
+patched variant was e1000 built out of tree against the 6.12 headers
+with this change applied. With the fake hang held for 30 seconds:
 
-Claude Code (Anthropic) wrote these tests and this changelog.
+  unpatched: 15 "Detected Tx Unit Hang", no NETDEV WATCHDOG,
+             tx_timeout 0 -> 0
+  patched:   first "NETDEV WATCHDOG ... timed out 5052 ms" 5 seconds
+             after the first stop, followed by an adapter reset; the
+             cycle repeated 5 times (5052 to 5584 ms), each time
+             followed by a reset; tx_timeout 0 -> 5
 
+This patch was not booted on the net tree. The KUnit tests added in the
+next patch pass with this change and fail without it.
+
+I wrote the first version of the fix. Claude Code (Anthropic) reviewed
+it, wrote the current change, built the e1000
+reproducer and wrote this changelog.
+
+Fixes: 95ecba62e2fd ("net: fix races in netdev_tx_sent_queue()/dev_watchdog()")
+Cc: stable@vger.kernel.org
 Signed-off-by: Curtis McBurney <cmcburney@telcobridges.com>
 ---
- net/core/net_test.c | 112 ++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 112 insertions(+)
+ include/linux/netdevice.h | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-diff --git a/net/core/net_test.c b/net/core/net_test.c
-index 47f5dc0fa5cf..dfc91eb2638b 100644
---- a/net/core/net_test.c
-+++ b/net/core/net_test.c
-@@ -513,6 +513,114 @@ static void ip_tunnel_flags_test_run(struct kunit *test)
- 	KUNIT_ASSERT_TRUE(test, __ipt_flag_op(bitmap_equal, exp, out));
- }
+diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
+index 435be7880d7e..6c0c38d8884a 100644
+--- a/include/linux/netdevice.h
++++ b/include/linux/netdevice.h
+@@ -3805,6 +3805,20 @@ static inline void netif_tx_wake_all_queues(struct net_device *dev)
  
-+/* netif_tx_stop_queue() and txq->trans_start */
+ static __always_inline void netif_tx_stop_queue(struct netdev_queue *dev_queue)
+ {
++	/* A queue already stopped by the driver keeps the trans_start of
++	 * the stop that set DRV_XOFF, so repeated stops from a driver hang
++	 * check do not postpone dev_watchdog(). Neither the stamp nor the
++	 * bit is written: a wake racing with this call leaves the queue
++	 * running, as if it came after the stop.
++	 */
++	if (test_bit(__QUEUE_STATE_DRV_XOFF, &dev_queue->state)) {
++		/* Full barrier, as given by set_bit() followed by
++		 * smp_mb__after_atomic(), see netif_txq_try_stop()
++		 */
++		smp_mb();
++		return;
++	}
 +
-+#include <linux/etherdevice.h>
-+#include <linux/jiffies.h>
-+#include <linux/netdevice.h>
-+
-+/* dev_watchdog() reports a timeout when a queue stays stopped for longer
-+ * than watchdog_timeo after txq->trans_start. A trans_start value this far
-+ * in the past is distinguishable from a fresh one.
-+ */
-+#define TXQ_TEST_OLD_DELTA	(10 * HZ)
-+
-+KUNIT_DEFINE_ACTION_WRAPPER(txq_test_free_netdev, free_netdev,
-+			    struct net_device *);
-+
-+static struct netdev_queue *txq_test_alloc(struct kunit *test)
-+{
-+	struct net_device *dev;
-+
-+	dev = alloc_etherdev(0);
-+	KUNIT_ASSERT_NOT_NULL(test, dev);
-+	KUNIT_ASSERT_EQ(test, 0,
-+			kunit_add_action_or_reset(test, txq_test_free_netdev,
-+						  dev));
-+
-+	return netdev_get_tx_queue(dev, 0);
-+}
-+
-+static void txq_test_expect_fresh(struct kunit *test,
-+				  struct netdev_queue *txq,
-+				  unsigned long before)
-+{
-+	unsigned long stamp = READ_ONCE(txq->trans_start);
-+
-+	KUNIT_EXPECT_TRUE_MSG(test, time_in_range(stamp, before, jiffies),
-+			      "trans_start=%lu not in [%lu, %lu]",
-+			      stamp, before, jiffies);
-+}
-+
-+/* A stop on a running queue records the stop time in trans_start */
-+static void txq_stop_stamps_running_queue(struct kunit *test)
-+{
-+	struct netdev_queue *txq = txq_test_alloc(test);
-+	unsigned long before;
-+
-+	WRITE_ONCE(txq->trans_start, jiffies - TXQ_TEST_OLD_DELTA);
-+	before = jiffies;
-+	netif_tx_stop_queue(txq);
-+
-+	KUNIT_EXPECT_TRUE(test, netif_tx_queue_stopped(txq));
-+	txq_test_expect_fresh(test, txq, before);
-+}
-+
-+/* A stop on a queue that is already stopped keeps the first stop time, so
-+ * repeated stops from a driver hang check do not postpone dev_watchdog()
-+ */
-+static void txq_stop_keeps_stamp_stopped_queue(struct kunit *test)
-+{
-+	struct netdev_queue *txq = txq_test_alloc(test);
-+	unsigned long old, stamp;
-+
-+	netif_tx_stop_queue(txq);
-+	old = jiffies - TXQ_TEST_OLD_DELTA;
-+	WRITE_ONCE(txq->trans_start, old);
-+	netif_tx_stop_queue(txq);
-+	stamp = READ_ONCE(txq->trans_start);
-+
-+	KUNIT_EXPECT_TRUE(test, netif_tx_queue_stopped(txq));
-+	KUNIT_EXPECT_EQ_MSG(test, stamp, old,
-+			    "second stop moved trans_start forward by %lu jiffies",
-+			    stamp - old);
-+}
-+
-+/* A stop after a restart records a new stop time */
-+static void txq_stop_stamps_restarted_queue(struct kunit *test)
-+{
-+	struct netdev_queue *txq = txq_test_alloc(test);
-+	unsigned long before;
-+
-+	netif_tx_stop_queue(txq);
-+	netif_tx_start_queue(txq);
-+	KUNIT_EXPECT_FALSE(test, netif_tx_queue_stopped(txq));
-+
-+	WRITE_ONCE(txq->trans_start, jiffies - TXQ_TEST_OLD_DELTA);
-+	before = jiffies;
-+	netif_tx_stop_queue(txq);
-+
-+	KUNIT_EXPECT_TRUE(test, netif_tx_queue_stopped(txq));
-+	txq_test_expect_fresh(test, txq, before);
-+}
-+
-+/* Only the driver XOFF bit decides whether the stop is a transition. A queue
-+ * stopped by BQL (stack XOFF) gets a new stop time when the driver stops it.
-+ */
-+static void txq_stop_stamps_stack_stopped_queue(struct kunit *test)
-+{
-+	struct netdev_queue *txq = txq_test_alloc(test);
-+	unsigned long before;
-+
-+	set_bit(__QUEUE_STATE_STACK_XOFF, &txq->state);
-+	WRITE_ONCE(txq->trans_start, jiffies - TXQ_TEST_OLD_DELTA);
-+	before = jiffies;
-+	netif_tx_stop_queue(txq);
-+
-+	KUNIT_EXPECT_TRUE(test, netif_tx_queue_stopped(txq));
-+	txq_test_expect_fresh(test, txq, before);
-+}
-+
- /* Netmem & SKB fragment refcounting */
- 
- #include <linux/skbuff_ref.h>
-@@ -1791,6 +1899,10 @@ static struct kunit_case net_test_cases[] = {
- 	KUNIT_CASE(netmem_ref_test_tcp_devmem_recv),
- #endif
- #endif
-+	KUNIT_CASE(txq_stop_stamps_running_queue),
-+	KUNIT_CASE(txq_stop_keeps_stamp_stopped_queue),
-+	KUNIT_CASE(txq_stop_stamps_restarted_queue),
-+	KUNIT_CASE(txq_stop_stamps_stack_stopped_queue),
- 	{ },
- };
+ 	/* Paired with READ_ONCE() from dev_watchdog() */
+ 	WRITE_ONCE(dev_queue->trans_start, jiffies);
  
 -- 
 2.52.0
