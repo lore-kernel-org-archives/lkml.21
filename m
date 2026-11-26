@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795714459;
-	b=LjXN0h2RttG9VU01C+ArkDbLe2WjZSrIqZcyonWLczAbXCmKp0hLmM1HsKiFulVURLm5
-	 m1XfJJ3b80zDb+jusEf6gaLUhlvEnyKyv9lCjwt1p+9slqmU2iNNK+I8XUKcrczO2aQKd
-	 WrPAaXmdg5uwN2e3O8ywLchJQaKwk5mugh8HoEf+/tdT+aVTy5Lh9hwkvDfsTJ3F0Wj6C
-	 7LOWPVJdH363Wuad43n9dJr9hVZWG1sz9WYBbrp3NJayOoUZqnX/RtfkdoUtqSUpEBSYR
-	 Z5obZgc4RWo173iuLzVlBf0e5hTMIeLZLWQi8WQN1s+/bkNyhSYOiycttX316r4GCgg==
+	t=1795714468;
+	b=XIR1LOJrqPB+TbBXHCutGhUl/GXUe+wifTnRl5ESi8f6x74UdY/ib5vyvaQfeZre6m5S
+	 fO1PpBAb+VnzoFJsqD1Y4RRafhSb03nwDgy8cP27qZxNKxzC5jU+n5iFVvseTO0O0WsJk
+	 gET0pNHVcjY8gBtfS4otUM9VfluBRVSqOngd24vKlP7ibbXYncOKYOq49+03Gm1Yk7TBC
+	 ovmzcU1Xv7L4dFNVCVkJhqyYkCC4QU/YDW1mnmri9J4rfHfnExk6khCoUmwZQe1W3AGGe
+	 di7Xk0nn6SxQY/KKJEBFgfiyTYvh5cF4EJ2ufOAGnT6MD3Z3orr0Z9Vl5vp8Wl3qsxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795714459;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=ZrHQ5khre1DkrWkgBl9aumcO/ImQop/ZVlpMoHp+2ZY=;
-	b=3pVK9dmsc9wOc9DcxGMd3VZkjeL95p8HwWKLcNkoThhrhi6m3DuGrl0jM00rJVHsdtoN
-	 4APKkHz8ZG+pTwcQWhfnHMkWDIaiPksZfR7k8bijARj/PUDB2HeVGlbg9EIiHg4uxBspH
-	 s4SmPxCwzKKfNt/OWVX9qoUgsiDWmKZBs8Zzbo/XamstwIP+8SPHGyEFB5Ai54eZa2d0a
-	 6jlrXR7wXN2Q9re+DmxvUVya7ESQAYUcty3x3MHsFttsuAhCA0p54B8Q9nBY3Ny3ATKK5
-	 EkJwAYdONh8UsYl3rqbpxcytNvxIU0ZmKk+cxnHjKk2mZ9gMPl6qgY1p7lEZHfaqS2g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795714468;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=8LFfqjWNVZcWitQQ/EYLHPjhet/iq74BUyWBBYp09Fs=;
+	b=5r7HJ27+y3KeCMhIij+DDnTQCZ+9HC8GWvHRSEhcVWWq/bl/pVeou7TkCZAWPnxNsaZJ
+	 KOrKPIdReWKadUwsbNP6I4TGHvAZ/IHRGptIzjcdnYRIcxJ6ovbBib2HJbZ0vIXKj3CIz
+	 /ZOjBHSQqLRa69FnAF4saYsbFpshU9tBixDdwcrIR/XIU949+54+f1BYTAh+/3vWKLeta
+	 m7D6KpaukFnFJ4Csf58ABDYzRAn95SjusI0BfeaIUP0Fck6QFWmJv6wcqaR1SrR55XDyT
+	 gXgnCbDfqqfYpB5etURo4ZdqRLiq5s9oT5S7jiUh632Bd6hYZqqA5L6UxCInytMgRhA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=LiNpPB8r;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--willemb.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WYeB3235;
+	arc=none smtp.remote-ip=209.85.160.198
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD468606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:34:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD468606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD380606A32D
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:34:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD380606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--willemb.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=LiNpPB8r
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 4FC534E417AF;
-	Thu, 26 Nov 2026 17:34:15 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 1CF9560558;
-	Thu, 26 Nov 2026 17:34:15 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4C44511E69167;
-	Thu, 26 Nov 2026 18:34:06 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795714450; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=ZrHQ5khre1DkrWkgBl9aumcO/ImQop/ZVlpMoHp+2ZY=;
-	b=LiNpPB8rzaiL3I26xFGiYwy68pXAoVR02F9+RM0KIpyaJMIHeeYsiSUPpB0DMzF+4sUMzU
-	B8+kUMtUjA+SXx3blvFrN+gpGOnJYPcIoT0iWu3+NYuBzcq4uy705tvd9t5NpVdYXJndos
-	JOVY/fibGjnUbBA0FxVERZHdtVDTERlq4EznI1eMYMXyssEZ6nq4UtC+r7zP0EgMtdJlNX
-	aUUhsZxzfz4F/21h1AIJtFndntA1dykSM9eTFTO62z9o4O53X5ghju7qHSa2sTfGXPw1ql
-	lb3b/zYuxjDgedKCdJkUQVEvkL7QrE4he5tww7EGraxMYuMXHlw7OIAd9ECgVA==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  Arseniy Krasnov <AVKrasnov@sberdevices.ru>,  Boris
- Brezillon <bbrezillon@kernel.org>,  Kyle Roeschley
- <kyle.roeschley@ni.com>,  linux-mtd@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  stable@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] mtd: rawnand: macronix: serialize OTP access
- with NAND operations
-In-Reply-To: <CADvTj4q79XR9ymtzBHr7TUc+TnuoB2R-sUa+BWOCS1u7UTEUkA@mail.gmail.com>
-	(James Hilliard's message of "Tue, 24 Nov 2026 09:10:06 -0700")
-References: <20261122-submit-rawnand-operation-locking-v1-v2-0-030bc867f0c7@gmail.com>
-	<20261122-submit-rawnand-operation-locking-v1-v2-1-030bc867f0c7@gmail.com>
-	<87a4mys2ia.fsf@bootlin.com>
-	<CADvTj4q79XR9ymtzBHr7TUc+TnuoB2R-sUa+BWOCS1u7UTEUkA@mail.gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Thu, 26 Nov 2026 18:34:05 +0100
-Message-ID: <87y0afv6nm.fsf@bootlin.com>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WYeB3235
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-55c16eb248eso117197431cf.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:34:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795714467; x=1796319267; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8LFfqjWNVZcWitQQ/EYLHPjhet/iq74BUyWBBYp09Fs=;
+        b=WYeB3235xF03W2/XVX+vDxPLrJo3q/644KssTXKkfDO2bZ0AeaqFUCGo8vHGgGYMql
+         q1UKqT44oknXp6PLU5BElau04zpen/q2PXR0kYHvuv8VGwl4BsGAikQt/BTyjvvN50mC
+         u6ACtDo/+bbGV+paZOVRPlmeUfijb5NCRXm9t5vGDG7BZZmaobpB4PY167MYqK0PPjnt
+         +NkM9sOEdx5Dplx4M4Zl+jTSNJRNsa99FNCnJ5HnWrhd300aHUrJAV2QobE1C2JYdoRo
+         x5P8jB/UJ/0eWBXpoCcBQ8kDT7Z/JzMm7dBnQTduExhDWRwBBIwhLt8Tw/76KcRDApQT
+         hfwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795714467; x=1796319267;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8LFfqjWNVZcWitQQ/EYLHPjhet/iq74BUyWBBYp09Fs=;
+        b=0BYneD4poBLLbfzy/6NuAjqHWKBi4NYBdvWxJV2vMsIckNlmfcW7J5EGNDUwBDC0Ip
+         J0Vn2NnlsnqTpHaixg6oAZkWhFcB9JGvxV7eIj6yqMf2hEx1NLwIeBtvv/9Ww2aWut8g
+         3+f4tlQHdcDbsZUvBnTgejciznVQF3qriqeyJvTPM0cD9XSfkwODUuxcb1w9l5+4fHJB
+         YUYMpHu1Zv8DVuor9nXwkM2olFkPneXL8ERxdKmob4HGU+A8ka9iihbY2N77/uLYDeOX
+         bMvIACDfgmEeOvVA2fSDgIqR27ey5LqNSJNMJW9HD1kNinjeldAHpIX7xeSpzfHPJQ2w
+         JyKg==
+X-Forwarded-Encrypted: i=1; AL+hErHn6z2CIqsPlaO+5669mGWBJWLzTg+Fe60tvwgCh9JLrZX1RPrSeLYLqX/Qx1uTct+Kq186GdsQARLjuyc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9bycoHTj6unGph9yvH1+7vfbirsv9STvWDrBCtpgQdGyQL76j9
+	twMu5QeyZeEP8oQYb4fLEIN0iugXd0w1nRmtm1FyOuQpKFxNaeNbvXcwM6OOT5Xa3QQaMzfss4E
+	mfAgp2Z+7ZQ==
+X-Received: from qtf20-n1.prod.google.com ([2002:a05:622a:6814:10b0:55d:6f1c:bf64])
+ (user=willemb job=prod-delivery.src-stubby-dispatcher) by 2002:ac8:5d49:0:b0:533:3d48:37ff
+ with SMTP id d75a77b69052e-55d76a8a916mr397826001cf.49.1795714466249; Thu, 26
+ Nov 2026 09:34:26 -0800 (PST)
+Date: Thu, 26 Nov 2026 12:34:25 -0500
+In-Reply-To: <tencent_934E899D4D24BB3B4827B2A0C9D73461E00A@qq.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,124 +77,49 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Mime-Version: 1.0
+References: <tencent_934E899D4D24BB3B4827B2A0C9D73461E00A@qq.com>
+Message-ID: <willemb.9c5fa5d89f88@google.com>
+Subject: Re: [PATCH] net: tap: fix inconsistent lock state in tap_sock_destruct
+From: willemb@google.com
+To: Shuai Liu <847807867@qq.com>, willemdebruijn.kernel@gmail.com, jasowangio@gmail.com, 
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, 
+	kuba@kernel.org, pabeni@redhat.com
+Cc: syzbot+a2220efe757ca2a7358d@syzkaller.appspotmail.com, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Shuai Liu <847807867@qq.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
 
-On 24/11/2026 at 09:10:06 -07, James Hilliard <james.hilliard1@gmail.com> w=
-rote:
+Shuai Liu wrote:
+> tap_sock_destruct() calls ptr_ring_cleanup(), which in turn uses
+> ptr_ring_consume() with a plain spin_lock() for consumer_lock.
+> This destructor runs in two distinct contexts:
 
-> On Tue, Nov 24, 2026 at 7:55=E2=80=AFAM Miquel Raynal <miquel.raynal@boot=
-lin.com> wrote:
->>
->>
->> > OTP I/O can also run while the chip is suspended.
->>
->> Really? Where does that come from?
->
-> I was referring to chip->suspended in nand_base.c. nand_suspend() sets
-> that flag even when the chip has no suspend hook. Normal NAND I/O waits
-> for resume in nand_get_device(), but MTD calls the Macronix user-OTP
-> read and write callbacks directly, bypassing that check.
->
-> I haven't observed OTP I/O during system suspend. Userspace is normally
-> frozen before device suspend, and the Macronix driver doesn't install
-> its deep-power-down hook on the MX30LFxG18AC parts.
->
->>
->> [...]
->>
->> > --- a/drivers/mtd/nand/raw/nand_base.c
->> > +++ b/drivers/mtd/nand/raw/nand_base.c
->> > @@ -207,7 +207,7 @@ EXPORT_SYMBOL_GPL(nand_deselect_target);
->> >   *
->> >   * Release chip lock and wake up anyone waiting on the device.
->> >   */
->> > -static void nand_release_device(struct nand_chip *chip)
->> > +void nand_release_device(struct nand_chip *chip)
->>
->> You export a core helper...
->>
->> >  {
->> >       /* Release the controller and the chip */
->> >       mutex_unlock(&chip->controller->lock);
->> > @@ -336,7 +336,7 @@ static int nand_isbad_bbm(struct nand_chip *chip, =
-loff_t ofs)
->> >   *
->> >   * Lock the device and its controller for exclusive access
->> >   */
->> > -static void nand_get_device(struct nand_chip *chip)
->> > +void nand_get_device(struct nand_chip *chip)
->> >  {
->> >       /* Wait until the device is resumed. */
->> >       while (1) {
->> > diff --git a/drivers/mtd/nand/raw/nand_macronix.c b/drivers/mtd/nand/r=
-aw/nand_macronix.c
->> > index 16847f28b19d..d7f5a9e7c240 100644
->> > --- a/drivers/mtd/nand/raw/nand_macronix.c
->> > +++ b/drivers/mtd/nand/raw/nand_macronix.c
->> > @@ -380,6 +380,7 @@ static int __macronix_30lfxg18ac_rw_otp(struct mtd=
-_info *mtd,
->> >       int ret, cleanup_ret;
->> >
->> >       nand =3D mtd_to_nand(mtd);
->> > +     nand_get_device(nand);
->>
->> ...and you use it across the entire OTP operation...
->
-> The race doesn't require suspend: an ordinary page read on the same
-> chip can issue its command after the OTP callback has enabled OTP mode
-> and before it restores normal mode. Locking each command separately
-> would still leave that window open.
+> 1. softirq context: from softirq rx drop paths via
+>     skb_release_head_state() -> sock_wfree() -> __sk_free() ->
+>     sk_destruct() -> tap_sock_destruct().  In softirq the BH
+>     state is already disabled, so consumer_lock is taken with
+>     SOFTIRQ-ON-W semantics.
 
-?
+> 2. process context: from tap_release() -> __fput() -> sk_free()
+>     -> sk_destruct() -> tap_sock_destruct() (triggered by
+>     close_range syscall).  Here softirq is enabled when the
+>     same consumer_lock is taken.
 
-You are using nand_get_device()/nand_release_device(), I am not
-disputing that choice. You are using them in each and every otp op
-implementation, which does not make any sense. It does not matter if
-there is a single user for now.
+> lockdep flags this as inconsistent {IN-SOFTIRQ-W} ->
+> {SOFTIRQ-ON-W} usage of (&r->consumer_lock) and warns about
+> a possible deadlock scenario.
 
->> >       nand_select_target(nand, 0);
->> >
->> >       ret =3D macronix_30lfxg18ac_otp_enable(nand);
->> > @@ -426,6 +427,7 @@ static int __macronix_30lfxg18ac_rw_otp(struct mtd=
-_info *mtd,
->> >                       write ? "write" : "read");
->> >
->> >       nand_deselect_target(nand);
->> > +     nand_release_device(nand);
->> >
->> >       return ret ? ret : cleanup_ret;
->> >  }
->>
->> ...and in the commit log you mention:
->>
->> > Make the existing NAND serialization helpers available within the raw
->> > NAND core and hold them across the entire OTP transaction
->>
->> Why are you doing the serialization in one vendor driver then? Aren't
->> all the vendors affected by the exact same issue? Why isn't taking the
->> lock once for all in the core a better idea?
->
-> Macronix is the only in-tree raw NAND manufacturer that installs MTD
-> user-OTP read and write callbacks.
+> Fix by hand-rolling the cleanup loop with spin_lock_irqsave() /
+> spin_unlock_irqrestore() so consumer_lock is always taken from a
+> uniform softirq state.  irqsave is a no-op on the softirq path
+> (interrupts are already off), so there is no extra cost there.
 
-That's not a reason, we don't want the race to re-open every time
-someone adds new OTP ops, right?
+> Reported-by: syzbot  
+> <syzbot+a2220efe757ca2a7358d@syzkaller.appspotmail.com>
+> Link: https://syzkaller.appspot.com/bug?extid=a2220efe757ca2a7358d
+> Signed-off-by: Shuai Liu <847807867@qq.com>
 
-> Both use the same helper, so taking
-> the locks there covers both paths without changing the interface.
+Dropped in line with your below comment, thanks
 
-You wouldn't be "changing the interface" whatever that actually means.
-
-> A core wrapper could take the chip and controller locks around a
-> manufacturer's OTP callback, much as nand_lock() does for
-> chip->ops.lock_area. That would give future implementations the same
-> locking, but it would mean adding raw NAND OTP hooks where MTD currently
-> calls the one implementation directly. Is that the approach you had in
-> mind?
-
-That penultimate sentence does not mean anything, you should really
-write your own answers. Anyway, I think the answer I should give here is
-"yes".
+https://lore.kernel.org/netdev/tencent_21D314AEB4D8C2C489FB8D74348B93FC7706@qq.com/
