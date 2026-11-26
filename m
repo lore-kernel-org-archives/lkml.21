@@ -1,111 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.159
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795703246;
-	b=Zydx0Hdj6spfASd3p/VBi0Wlqxgbn5t0jVQ1gpbw5AgZl28wfQ4x2dlAbAA7Klx9vGt+
-	 B/1Mhg5yJMUfpSvwWizVqVt26dyP9HP8Q/GgxgXcYmFcP+9QYw305U+tZ9+28jz3bYsTc
-	 WnHECioHvFJBHd5O5RLon84hNOWq+UYxmNT0FYxlVcS2Wvp3EFGU1hKEy+ts9lGtbjb9d
-	 345X8bYTQm4zdgv1OcfoB9NCGoY8C7BdBTjqv3ltSUx7dEGyHp4iFs7HsHY3hJV57CNNg
-	 EUumCSOIU2zYgEleKvbfD2Fb70zk7AF2t9t9Tcr7ab/PNuNL+8u4oNpkx8tHimNv/tQ==
+	t=1795703284;
+	b=XFpLIsajSY3E7W+QUbWZeqCDaG3Mhul2DZMG6RFR0arHzPEKasVTy3SWiQZ3wQbvEYUv
+	 1/H7VdowHpMlTVRAThdtZT1P4NRpDcgLjgF8OPGPcKMPiyWzsxWvBPb0FW7dSV9K9Zk25
+	 2ZPYST8DQVOoU4WvA6iyrQV3H2u+06lwQoojc4onQTt4O6Q7/5MIs5bc3xyEl4HWcOvdB
+	 gdLDAVnwbkG/h9newq25F7CmSzKr5r6tM+HJNkd+UfGOWDG0xEB+YVs7/8tsGGgoNY8Ag
+	 gZnGETcZHpwDJEpxuMM3hvoiRAMMmbDOHXwDY7Q1YMDPvg6ay3xjXZSbRY+55sFkirQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795703246;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=r5fpEpzNM6uji7Nri+epW5yidLQBDkGGYauevO2LpP0=;
-	b=qmEyRsvVFATp/QFH28rWUvhFNWeFZ+mGZF0S2sfLw+Urlj7zBCJaPHokPcPloywM1D+9
-	 3IcAE4bXx82emPg7wlHn4RbYiUURK9CyrgXPiqJSputVZF8/TClu05m9TwlZl7w6GxpOo
-	 qqBMNKdkNZHKEDEMDvkoer+vXKH+KT75UTdROZtdO/JdZTKLdvxs/Bc8e6GwWIWALpmz1
-	 EPwJizdTTeDYaeWoL2FX28oTKASNlW+dytePNDJK4BePrEReZ8w2Si9ID86LOhMtU7+nK
-	 GereiHuDVGHV8X5w5Y5NUW3nrQ1RyXf69k06LHCrbRkK5eZeoEbLN9XwVTo5m64W3PA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795703284;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=7Hz+V0KZEUKwYNABkLWPKOt8inKUR57WAc+UGW03IoM=;
+	b=F3aBqXnXDX1ZEQonvyt/2G3fNJrFcerxCt6Ra5GUveOJll2IACYJk0V34UBZjQnD4MnT
+	 JnuNQupOTdt3tnikt5GnqlEtDqs/BN9/rBpcsIMBI026j1nQVyYqtl0H0KRx9nZIcnfjr
+	 /T1GXVBYGPTTxOUIVUOJ/AULQJ8YkvyqRbJ1d240NNZq1QyrJou6b1AdSIPwXBy+detP6
+	 HyjRccW523ROW2bkVtYt2G/ezq8cdpLExTHR34SNEb9w9szqg4QVYsImuPDfweMYos9t+
+	 l1C+gSXPedukFrY987RWdZ6YEY/o8e7SHNZn1iQdWepNUtgHhvc6CqP0iNR3ZzpWmjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=squebb.ca;
-	spf=pass smtp.mailfrom=squebb.ca;
-	dkim=pass header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=MyaTijHy;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=Ry+qOhoa;
-	arc=none smtp.remote-ip=103.168.172.159
-Received: from fhigh-a8-smtp.messagingengine.com (fhigh-a8-smtp.messagingengine.com [103.168.172.159])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fm2kgiL2;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=LPGL+WW0;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EDB0C606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:27:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EDB0C606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=squebb.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squebb.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B62A606A329
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:28:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B62A606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=MyaTijHy;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=Ry+qOhoa
-Received: from stl-compute-04.internal (stl-compute-04.internal [10.204.2.64])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 186B614002BA
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:27:24 -0500 (EST)
-Received: from stl-imap-02 ([10.204.2.93])
-  by stl-compute-04.internal (MEProxy); Thu, 26 Nov 2026 09:27:24 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squebb.ca; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1795703243;
-	 x=1795789643; bh=r5fpEpzNM6uji7Nri+epW5yidLQBDkGGYauevO2LpP0=; b=
-	MyaTijHyLifJcnkuidkvnhCsjqtwZanxXuiPN4FQyHkR4bDd/Vn0K1m9PROarqOU
-	Kaqje3I5MRMner+o0SLReDRhM3brQU8e0ltIj/hKO8Boo7hKquYy8JZ4xmzHcbi6
-	bOif4wa6dnceqIoD3BYgdvC2SnYoZyNJWKSGEg1jx5MUVquWJEZEY1/yLo5RWPe1
-	zcOwc3xyzLcgX6QNYxzexcc281zv8BLe+EMfr0dfekfB+RpAgixDWSNsteTWgq0u
-	cLITnDaj3IogVIPUqMy2MzCgbZIgAnXS3rql65v1/jvKrnTwrhNdqKnyklblyXVw
-	/njmOtiKBluwL8+zOTb46A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795703243; x=
-	1795789643; bh=r5fpEpzNM6uji7Nri+epW5yidLQBDkGGYauevO2LpP0=; b=R
-	y+qOhoa+2wHVBFEiHfUPW1nz3wWPKBlnGKFIs8VH2tnxU31QGRQBskul+NOAmBsr
-	ct+z9ZOBNIwWwrji8zvFm70FYFjsd6nHmOqhc8lOMnG24sJ5d0Lj9JSdxHQMA7ZX
-	shQ46k17LpTKl5LRjXWxHNIo8uSVG1TmQpeYWJR6ytNOX0pWHeaTASA1NyxOYlf9
-	hnQcqktQIH00E2ZJRcbL+4+FfU+Sxrpvg3mXpZzuuvfXwRXIF6/qhsSDJb40mXrA
-	u6ZfkGuJpDLWioDV5pqR5c8h7g9B5SCjw32foqFqUuugmlt0P7FApHEMKNAH/+m/
-	N1RuPll4S/SzkyqGX8U5A==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=squebb.ca a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795703243; d=squebb.ca;
-	mf=PG1wZWFyc29uLWxlbm92b0BzcXVlYmIuY2E+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm1:rsa-sha256:Nmi2gst+FH5kbS5nhtWI0XuWNk7PENVHy1ZYlGZu11ewn1I
-	glTav1tOFbg+CJMpVyMmNVgGD6VXTDNceqwM3CaP3dgaRJTLbKdhj/Rx3WHW9brd
-	W368be1RNj91rHbwpWRTZfYk89pFR39N85YB+G2q3AxbN89sAWKyINMNkbD2x5DY
-	iopCdHbbunFzCRD2+4AUVnIU2fGURP9ArlFEfiIslOmcW2clQwOe7p+lz22PwZXO
-	Bl3WtTtBz+tmID1h0MlLwxlUCvpv8sw6JRKOO8lDibsh4oFV6LjCRd8AMp/H5CVz
-	C3/zefrbqVoACuQ/8A4Lekj9TLXHsxh+BbRPtVw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:XydqzwGiPmTgDo0cR9+N0tQdhovMDns3jwsPFHcg2+0=:73OSTreSCsTAc6ALEz/M06Z8YB3FZxdl4F3xmQt+03Q=;
-X-ME-Sender: <xms:ykEIa-Toqtq_UfxPLBXv0_DT8fX1F-KG22GAQBVXHBCNOySXdJ31ug>
-    <xme:ykEIa-nUwO3fpjK6jjguCCzLZsf32nW9_EH5l6BEiOJD6-bYVLmPJZHKe27WVyjKo
-    IdnsRuY_gnK_9DFE77tfbCDCNFR2nlpTyn31ZgcaHZjv2RYN-JiNQlt>
-X-ME-Proxy-Cause: dmFkZTFGSLIddqahp+MsUwyGR63OJKsG3qiP6EBAcMuzWDrxrnBMC7/HOeDwfZhl7WXUIY
-    Cau2S5irihZYqbPZm/tDe6Dl7WEJpWuwhI1ZKhD9QlmeivJnZlUo3n7CuLKhuUwxUmfhZ3
-    LRGagQCj/W4r4fvPunfCC31gbDxc6lZeUMlygf732bfhanle/xhUrDPFGIdULMlSPWMYRz
-    tVBfZGHmGnuJre43JH1duql5btr1ansK3cssqhBsO+AQ3JvH2zwBVilurRfXmpmfAqwGqa
-    gxpiCS6aWaij6XmvV/daHxPDf2vmF8HNznurBztq6XiH+++c4QkALwkcZ3nZnKaqMaWJmZ
-    FESSQRdGmfM/9gf3Y/QGScezpRfnF3jb2dWru4jImyg1PiYVV4fQgUcrcMTkkzAtoSbz7W
-    n9ztROoCp3Im7H4lX6mtM4rFsZgwPiprel+uqoTdpc7wCXq6HfF3FT6CYL7wG7CbTocRzU
-    3td6TDAlhnH1kI2dhJy0wb/EnSUGn1Kkj6VuDOKbvrdi7Pc1JIp/h1gS90zhkvPibEBAMG
-    PysxkwA4PeT9wzLZfaaKkhWBTW7N/3b09HRAysmJ5NdGA/Q1qv4BTgoheXt+0BUn5fCcr2
-    w+acTSkU7AAnjbjTZEXn3ZekEouLFrpbRRkOKXZyE5QpoEMLMX0wD13L6waA
-X-ME-Proxy: <xmx:ykEIay1GWZKA-5CcXkm8oTz6eSgfi9UG0HuM2BKAO7GoHcY8fvMW-w>
-    <xmx:ykEIa3VTWTsmGhytd4bp7PzIh71H0lGEJBaHTISsmWvlvFMVX3xSbQ>
-    <xmx:ykEIa9KCI9faVxclSjhChnsRBCfwONELYmBY1GDfOgQ3ExR1mSKtyQ>
-    <xmx:ykEIa53N7sUO63cjRLN9826dCNO2tPiCEOrTeA7uSTYtB1jtXGqj2g>
-    <xmx:y0EIa1gARvfwzuEKsMSs9bc3b05vvITjIDhayrQQtpmsk846Njnv9UVO>
-Feedback-ID: ibe194615:Fastmail
-Received: by mailuser.stl.internal (Postfix, from userid 501)
-	id A1D9C2C00085; Thu, 26 Nov 2026 09:27:22 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fm2kgiL2;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=LPGL+WW0
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQBVYPJ1497136
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:28:03 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	7Hz+V0KZEUKwYNABkLWPKOt8inKUR57WAc+UGW03IoM=; b=fm2kgiL2cWg5RwJ8
+	HFdDWNUoA/yk0YZOV+8RUXoFikuYrhEynGi325nG2OdMCTsaD6075+EiYmzqgWzS
+	NUMdf1qaw8OCS7RiLSRlXCYOim/qKu7wHtkPI028cqfcV5j45FiJLtIDoI5kM2lc
+	3aZ3HgH8aiYp8EQ8q5SC5Oxat6cXZk2s6osE6GDLIDfw09v7D1VA+puPzUNv984p
+	1HnqGwy7GfE7806+8ASg8vmx5EAu9UETLMRu5tprgpIc7ZaHRBK+sL+5mBF6uGf4
+	LqcBLfWteZI2vXIwm8/y5iiq6UkNYEGoMnhmbgIe+Qkt1Dwlj+yyAGZrnwyBtAkQ
+	n4G+gA==
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j662y3eaa-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:28:03 +0000 (GMT)
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-92108bbec59so8752046d6.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:28:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795703281; x=1796308081; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7Hz+V0KZEUKwYNABkLWPKOt8inKUR57WAc+UGW03IoM=;
+        b=LPGL+WW0CNQSZgyUJVv3qTaXwKwIek/gD5cD4sTkGMlARFggt3x3OjVje4d3xmGM8T
+         davkXLjrufxKtAe0ihK5INOJaqCBCf5Egpae2XqVuTPSn9ZqsKwdx3pVw0Nfj3Ac6nss
+         gHmMQo3H37ufCblREUylVzN2L7wSz7rqkKEeyApfddre9PPl5l4Hqq0uj737OfD+MIMw
+         9l2QAR7S1PqnM8ZJsamDB3Y6ypEs4ngmlOgEp1GOkMZjfzlLBzmvtq6/5/1Am8xkR32v
+         DVTixpR1YtcEI3kn4Nr70+oIt8wCSXop7ILFcDpe5bp1DLj/3dAa4AXsrtTVrOznsS88
+         JoJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795703281; x=1796308081;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=7Hz+V0KZEUKwYNABkLWPKOt8inKUR57WAc+UGW03IoM=;
+        b=NwsQ2UhBDR8etsM329qWsdylYZhB9yopgJ8UJWyIReW2HCJq9uZnV6Yxj1iQaF71yh
+         zK8BBfwcpGaieOIyC5A7lCEqlh1xg9xemHTgVzAekyKelwGLf0P0xp5L2xJuDks2Frqq
+         99FYs+mF1J3Gy+fHH3+wJltHhYeJKgN/kVz9Z6IcWxf8vZYYoqjP9RQNuNMB4DCWzxUO
+         Ut/adcYZTsNHDQ2pELAqDeCoXukRy1n0q+ntLjnQVpCYsIjUjL9WAzcAojB23jzlv2aA
+         Knz1b2BIjRoeWM/gO9yCd2e0E7zbs4yCiN/C5A75OZ6S7bkiMYGibUcIEjSS/35mzTEG
+         /b9w==
+X-Forwarded-Encrypted: i=1; AL+hErHiA6bQKJ+R/r+gkcQIFEX9xW2BwHnOVwFWjgcq1B+OvmYUpCRmPaAeFNhxhZFFWKrs0xwBsZg+mNGv5Pg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8eMmctkJcmXY4y4/fEh4tkJWjxs+o0UiGQMoX/wtEOGfiBhujS
+	kwKbRdiKteotS6WD67nflKqPUBSwSpumRC4gvJIFpJibuYgE29z07nFpGifUxrByvyXJ6E++bHy
+	utehtO63tweb+9+qNoVMcfTkMO+uvg5G5l/hj5Tk7AfrQ62JFrqgKYz0TFl2BsUgfIHU=
+X-Gm-Gg: AZFdTZem8eDDSSCyRTlOqXkJHZIGre8S5+oX883fP+PuglRdRAgWaz5KEjInFL0z5W3
+	mNUzKPXm0SGW9UHUBrJsUqAPobUQ1qAYvYUnKT1MMSrQERlaGSgt02/gkZOXaym7m+D0d3BErUt
+	HlOEAyDmyhpTbsHxcJFiFi1NDkm2l3wk1Q6qbyLxewdBYEDhVShu5yjJwFd9AdRuXvtHaj2CSGA
+	k+64MG6sr9KOI3A0lzKtW0BwbRSfucVRMqXyABJOTT0zYulNK6iLFkiDzChiae3EJkIimdnoNK/
+	mWihSzLMXVmDjrZHtp+ldfV6X1dEO9t7FmRjSZUj7VUWYCJyOXqLT3eEYAtRqkA0fChzsSRO06i
+	9BET+Ctw22r61epYuN77u+RBQ5/al+1gC9HTDxzguFEherjhDfS3l703Bqy4wl3xV7Zpj/7E=
+X-Received: by 2002:a05:620a:a914:b0:949:afe9:5539 with SMTP id af79cd13be357-949ba8e9975mr3995705385a.2.1795703281516;
+        Thu, 26 Nov 2026 06:28:01 -0800 (PST)
+X-Received: by 2002:a05:620a:a914:b0:949:afe9:5539 with SMTP id af79cd13be357-949ba8e9975mr3995701185a.2.1795703280974;
+        Thu, 26 Nov 2026 06:28:00 -0800 (PST)
+Received: from [192.168.226.72] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afc73d3sm756279266b.64.2026.11.26.06.27.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 06:28:00 -0800 (PST)
+Message-ID: <d7901f88-af08-4a62-bf0e-cd7d858ec405@oss.qualcomm.com>
+Date: Thu, 26 Nov 2026 15:27:56 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,176 +115,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: AYDYWHX8bjAc
-Date: Thu, 26 Nov 2026 09:27:02 -0500
-From: "Mark Pearson" <mpearson-lenovo@squebb.ca>
-To: "Ricardo Ribalda" <ribalda@chromium.org>
-Cc: "Derek J . Clark" <derekjohn.clark@gmail.com>,
- "Jiri Kosina" <jikos@kernel.org>, linux-input@vger.kernel.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Message-Id: <dfc69d6a-1fdd-4174-8522-ba02887ce524@app.fastmail.com>
-In-Reply-To: 
- <CANiDSCtcOa1UuCOb8wwpMdGRk_3Kb0aZtoiNfMXX2Y-0fCjorg@mail.gmail.com>
-References: <20260831-lenovo-go-v1-1-e9526e88ee09@chromium.org>
- <CANiDSCs1qyOpv=W-F-94skQm4o-Aj9d0PbL7xr5qtdtLjWQ7vg@mail.gmail.com>
- <0fd097a2-029b-4023-bc22-d2eb587a646d@app.fastmail.com>
- <CANiDSCtcOa1UuCOb8wwpMdGRk_3Kb0aZtoiNfMXX2Y-0fCjorg@mail.gmail.com>
-Subject: Re: [PATCH] HID: Merge duplicated documentation for Lenovo Legion
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] arm64: dts: qcom: sm8350: Vote the GPU memory
+ bandwidth
+To: me@fromdisposition.org, Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Srinivas Kandagatla <srini@kernel.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
+        Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar
+ <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        freedreno@lists.freedesktop.org
+References: <20261105-b4-sm8350-gpu-v1-0-a7175cdd6512@fromdisposition.org>
+ <20261105-b4-sm8350-gpu-v1-1-a7175cdd6512@fromdisposition.org>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20261105-b4-sm8350-gpu-v1-1-a7175cdd6512@fromdisposition.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA1NiBTYWx0ZWRfXw9gOmwIWB3PJ
+ avpvllpuF968iyhdoEvL8c4WmadP3XFxD0GOF7qYFEjIjvR1JAP2zPVdDz1Zb8GbwnP0ChFEYPX
+ nmhsUX/NPOx6A0fv1/K7owPY9XZqv/7UGG7s7koXNF9CwRxe/FwEQ34qN/ZeQBjz3Y9xgJ4sXwY
+ y+9EGFhJRSz2yUx+8l67VseZ/vSNXmDzxYZ1bsdMUU1bcNvEcwI2WNBbF/DsXNrfaQmFBkVqVzS
+ Id1xGVvqBXcqidTYNzgzHSrVYfcaZsmzj4UvFwC8ZIlLnhWwhOY7x91LzU6iwoByAHOpxBZp3JP
+ sIP216ZmQXEGjt9FA8i/IRcbLYXsce9lAHG1xeATCLLBOH1/8WVbkMTWjM080E/vTvaxqXqLG3A
+ c66wEKfd/M1T5KgpSWHLWpAbOa5Itsok5G1eI39jQBbjPMjcS8ArETi4ic5fudIbj/AI8WEwRr3
+ cjkFXWUGLlSiW9gcqAA==
+X-Proofpoint-GUID: c0Ei7RSG2o8k-mBkwyTg9CqIWnRqe2NC
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA1NiBTYWx0ZWRfX1UGQ/tsPZKjA
+ coTsLJz0iD2cgPoHXONIh5O0uvQEGsV/LOC9Fp/f3vWWjzfmBjxJaHm98LmVm3KEsUR3wQAhFTA
+ eubvbqVjkqbK0w6lWNhAytz2c1GNIMs=
+X-Proofpoint-ORIG-GUID: c0Ei7RSG2o8k-mBkwyTg9CqIWnRqe2NC
+X-Authority-Analysis: v=2.4 cv=W/KtxhWk c=1 sm=1 tr=0 ts=6b0841f3 cx=c_pps
+ a=UgVkIMxJMSkC9lv97toC5g==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=Tt5JBQAfAAAA:8 a=EUspDBNiAAAA:8 a=L780p2Jx1yd6vCQwJl0A:9 a=QEXdDO2ut3YA:10
+ a=1HOtulTD9v-eNWfpl4qZ:22 a=kpHMOrJS8sLNr5ru0mYA:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_03,2026-11-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 impostorscore=0 phishscore=0 malwarescore=0 adultscore=0
+ suspectscore=0 spamscore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260056
 
-On Thu, Nov 26, 2026, at 9:09 AM, Ricardo Ribalda wrote:
-> Hi Mark
->
-> Thanks for your review. Do you know if this is going to land in the tree?
->
-> Thanks!
->
+On 11/5/26 2:30 PM, Demeter Barna via B4 Relay wrote:
+> From: Demeter Barna <me@fromdisposition.org>
+> 
+> The SM8350 GPU never asks for DDR bandwidth. On A660 the GMU gets a DDR
+> table with only an "off" entry, so the driver leaves the vote to the OPP
+> core, and the OPP core votes only when the GPU has an interconnect path
+> and its OPPs carry a bandwidth. sm8350.dtsi has neither.
+> 
+> Add the GPU's path to DDR and give each OPP the peak bandwidth that
+> Qualcomm's GPU tables for this SoC vote at that frequency on LPDDR5, as
+> kodiak.dtsi does for its A635.
+> 
+> Signed-off-by: Demeter Barna <me@fromdisposition.org>
+> ---
 
-That's up to the maintainer I'm afraid - not me :)
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-I think you should probably have cc'd Jonathan Corbet <corbet@lwn.net> and linux-doc@vger.kernel.org on the patch (I missed that). Maybe resend and add them so it's in their inbox? (Jiri - please correct me if I'm wrong)
-
-Mark
-
-> On Mon, 2 Nov 2026 at 18:48, Mark Pearson <mpearson-lenovo@squebb.ca> wrote:
->>
->> On Mon, Nov 2, 2026, at 7:40 AM, Ricardo Ribalda wrote:
->> > Friendly ping...
->> >
->> > On Mon, 31 Aug 2026 at 13:12, Ricardo Ribalda <ribalda@chromium.org> wrote:
->> >>
->> >> Lenovo Legion Go and Lenovo Legion Go S share some definitions. Merge them in
->> >> sysfs-driver-hid-lenovo-go to avoid this warning:
->> >>
->> >> WARNING] /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/os_mode is defined 2 times: ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go:364; ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s:234
->> >> [WARNING] /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/os_mode_index is defined 2 times: ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go:373; ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s:243
->> >> [WARNING] /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/enabled is defined 2 times: ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go:636; ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s:252
->> >> [WARNING] /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/enabled_index is defined 2 times: ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go:645; ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s:261
->> >>
->> >> Cc: stable@vger.kernel.org
->> >> Fixes: 168c91839139 ("HID: Add documentation for Lenovo Legion Go drivers")
->> >> Signed-off-by: Ricardo Ribalda <ribalda@chromium.org>
->> >> ---
->> >>  .../ABI/testing/sysfs-driver-hid-lenovo-go         | 11 +++----
->> >>  .../ABI/testing/sysfs-driver-hid-lenovo-go-s       | 35 ----------------------
->> >>  2 files changed, 6 insertions(+), 40 deletions(-)
->> >>
->> >> diff --git a/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go b/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go
->> >> index c8221373ef76..f3ba3504939d 100644
->> >> --- a/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go
->> >> +++ b/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go
->> >> @@ -364,11 +364,12 @@ Description:      This displays the available options for the mode attribute.
->> >>  What:          /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/os_mode
->> >>  Date:          April 2026
->> >>  Contact:       linux-input@vger.kernel.org
->> >> -Description:   This controls the behavior of built in chord combinations.
->> >> +Description:   This controls the behavior of built-in chord combinations.
->>
->> Nit - this minor change is not part of the patch description.
->>
->> >> +               For the Legion Go S, this controls the touchpad's operating mode.
->> >>
->> >>                 Values are windows or linux.
->> >>
->> >> -               Applies to Lenovo Legion Go and Go 2 line of handheld devices.
->> >> +               Applies to Lenovo Legion Go, Go 2, and Go S line of handheld devices.
->> >>
->> >>  What:          /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/os_mode_index
->> >>  Date:          April 2026
->> >> @@ -377,7 +378,7 @@ Description:        This displays the available options for the os_mode attribute.
->> >>
->> >>                 Values are windows or linux.
->> >>
->> >> -               Applies to Lenovo Legion Go and Go 2 line of handheld devices.
->> >> +               Applies to Lenovo Legion Go, Go 2, and Go S line of handheld devices.
->> >>
->> >>  What:          /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/product_version
->> >>  Date:          April 2026
->> >> @@ -640,7 +641,7 @@ Description:        This controls enabling or disabling the touchpad.
->> >>
->> >>                 Values are true, false.
->> >>
->> >> -               Applies to Lenovo Legion Go and Go 2 line of handheld devices.
->> >> +               Applies to Lenovo Legion Go, Go 2, and Go S line of handheld devices.
->> >>
->> >>  What:          /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/enabled_index
->> >>  Date:          April 2026
->> >> @@ -649,7 +650,7 @@ Description:        This displays the available options for the touchpad/enabled attrib
->> >>
->> >>                 Values are true, false.
->> >>
->> >> -               Applies to Lenovo Legion Go and Go 2 line of handheld devices.
->> >> +               Applies to Lenovo Legion Go, Go 2, and Go S line of handheld devices.
->> >>
->> >>  What:          /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/vibration_enabled
->> >>  Date:          April 2026
->> >> diff --git a/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s b/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s
->> >> index 4d317074bb7e..218164cfe544 100644
->> >> --- a/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s
->> >> +++ b/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s
->> >> @@ -231,41 +231,6 @@ Description:       This displays the available options for the mouse/step attribute.
->> >>
->> >>                 Applies to Lenovo Legion Go S line of handheld devices.
->> >>
->> >> -What:          /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/os_mode
->> >> -Date:          April 2026
->> >> -Contact:       linux-input@vger.kernel.org
->> >> -Description:   This controls which value is used for the touchpads operating mode.
->> >> -
->> >> -               Values are windows or linux.
->> >> -
->> >> -               Applies to Lenovo Legion Go S line of handheld devices.
->> >> -
->> >> -What:          /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/os_mode_index
->> >> -Date:          April 2026
->> >> -Contact:       linux-input@vger.kernel.org
->> >> -Description:   This displays the available options for the os_mode attribute.
->> >> -
->> >> -               Values are windows or linux.
->> >> -
->> >> -               Applies to Lenovo Legion Go S line of handheld devices.
->> >> -
->> >> -What:          /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/enabled
->> >> -Date:          April 2026
->> >> -Contact:       linux-input@vger.kernel.org
->> >> -Description:   This controls enabling or disabling the built-in touchpad.
->> >> -
->> >> -               Values are true or false.
->> >> -
->> >> -               Applies to Lenovo Legion Go S line of handheld devices.
->> >> -
->> >> -What:          /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/enabled_index
->> >> -Date:          April 2026
->> >> -Contact:       linux-input@vger.kernel.org
->> >> -Description:   This displays the available options for the touchpad/enabled attribute.
->> >> -
->> >> -               Values are true or false.
->> >> -
->> >> -               Applies to Lenovo Legion Go S line of handheld devices.
->> >>
->> >>  What:          /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/linux_mode
->> >>  Date:          April 2026
->> >>
->> >> ---
->> >> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
->> >> change-id: 20260831-lenovo-go-7b4ec4bf0cd5
->> >>
->> >> Best regards,
->> >> --
->> >> Ricardo Ribalda <ribalda@chromium.org>
->> >>
->> >
->> >
->> > --
->> > Ricardo Ribalda
->>
->> All looks good to me.
->> Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
->>
->> Mark
->
->
->
-> -- 
-> Ricardo Ribalda
+Konrad
