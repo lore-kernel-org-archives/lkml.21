@@ -1,60 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.38.64.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795652536;
-	b=XdgNBU1z5h6qoTq0uomjucG5Trj4ePuW2nHIDSl87zLdX05xsdpWtrpitZ8fIxSRNa6a
-	 UR2KuRPQQQnI6cbIVt1qGawJieaI8EJ7CTaNlEquTGECB58uvEJTgNtZHSK4jYG+ZY1KV
-	 pbslaZSLsbadItfz/7gCcOOKDUvBd2w3hu9eyKHZ57KsXnFOnZjprU6lt1zlDUYcjj8Tl
-	 uFGNMoJGD7lsHDRmlaqsKj9yk7OT1SZQ7rKp9SuHZ0XmA9ONCkIW0+AE4TUJvkKjvf79Y
-	 N2K/3lx7DJbtTWhQzGiSmAohDBcRswgl09+/gs+G8Qyqn37FrBSov1q7vhYQGbm+5cA==
+	t=1795652562;
+	b=IhNslz/1W36G8rUDEJdFtpt/bbb1cE8tJqQz1dOzrrpRA8xAzRRdl21lKDrHN6VZBZTf
+	 pQnOJYy/3+BV3ZKTm9vL0CDkX7Ipz3KpHOm5/w/TLRtzBbpZhxEfChIOSNeZkD3qbm8j9
+	 LFZJhjrV91OMLvp6oNwVG1tuOVaxVITU3O2yH2RJeJZmdj7MXWsDcJ/rwAyJiK8XExEVB
+	 D5zozvb1nTSltHR08KCkk6sB7NYm7MIghJRBUd/Bl+J+7Zvt63JZFUR1pkiwgrMg6neBu
+	 3D83gyZbT2TOPT6OlmwGZ8yb9tqd343alsxfodPU0OfMg+u3MR8G9tJTvoOh83A/oiw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795652536;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=i5PbccdGZMDe1Z6+BcEaC6Vrjcw7rwsr6ATyclxsFg4=;
-	b=VvsEh/cs4oPgKBxCyxL6fgQtFAYWPVBu59WNON8PcVq7kd+6kEif5Z3pyMvdJ0+Vr7L5
-	 1kXNT0GlIMpVzpc3CzfVIaIxWLUr+H4zjjfJWuvLEkDPOZbLfkdoiFn5QohKGjFMoCYN7
-	 2zppN6rrZ45yHvOTE77gKmI9CY2oY+AJICxnAHkU5g88bXY9k6viFiwnIG8xJjj5alhQf
-	 /9Ie3RgBau10zZs8HgLR00fjQvdd+CEFVqYIo8FOfejwp7ZVyhYALMWNeYKOVRnvVrht+
-	 D0LRXaRVKKpmgk1MBxRiJvs8lIeqQNoPEYe51mO5n4eC8YhPBmWDRGAWjJDVksTBvZA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795652562;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=RvV89/qcgojhFu+RPZnXe+UxBxtm+exO0xuVGHxO5L4=;
+	b=Iv3h8j//eA3U05AIF346jchMG0Bp3e4D2foESioxMYbKscXD2+izXL0b2Ptas9LvHeKL
+	 wRrROF9aNOdL7RZr522kKHdfm00ymTnUCdM5CYlW8/Jc8305Lg9MSisZfG0KCxXG12Uag
+	 K1J3tpk7UdoVLm0+Nm/I5eWiPGIF5PQcbQcQdTqhIbDuZqrSBy6ag5gg2WYktgyoLE6HA
+	 9lG54FyUyYvfGC8FSD0noqNtuWQjUNj/i6AFNfbuhTpDGAExGOHsUq5/tZNUJ+PwAxyQi
+	 mIP4FA0gs59LUUg5IwXiZNxQDCwq/4Fr5m0Gwr6RIsZUz+H+9C9OzXGH7gl5FGoUmuw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.ustc.edu.cn;
-	spf=pass smtp.mailfrom=mail.ustc.edu.cn;
-	dkim=pass header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=p2jbjyZ5;
-	arc=none smtp.remote-ip=202.38.64.46
-Received: from ustc.edu.cn (smtp.ustc.edu.cn [202.38.64.46])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id A1444606A31E;
-	Thu, 26 Nov 2026 00:22:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1444606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.ustc.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.ustc.edu.cn
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=swOLv2Po;
+	arc=none smtp.remote-ip=74.125.82.44
+Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26FC0606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:22:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26FC0606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=p2jbjyZ5
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=swOLv2Po
+Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-15dd124bbe7so8637298c88.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:22:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=mail.ustc.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-ID:MIME-Version:Content-Transfer-Encoding; bh=i5PbccdGZM
-	De1Z6+BcEaC6Vrjcw7rwsr6ATyclxsFg4=; b=p2jbjyZ5JnmjKCgBmnYLiFfIYB
-	suUb0urQq4YTH/g6GnkIYb4wklnKXBmu76ZnHxK7dNH3cW+HrUXTcv+APphqUJGS
-	EiKLGG93nARDptc8kraPa1jcWxR2XnxKfIJvz6ZWv7ZkUYeEATpQKI4FvXsV5I7a
-	0OajjbAg6YyiwKWAY=
-Received: from xuqianhui.ustc.edu.cn (unknown [114.214.181.84])
-	by mailimap2024 (Coremail) with SMTP id 3pYKCgAnnzOmewdrvLr5AA--.1516S2;
-	Thu, 26 Nov 2026 08:22:00 +0800 (CST)
-From: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
-To: andersson@kernel.org,
-	konradybcio@kernel.org
-Cc: abelvesa@kernel.org,
-	mitltlatltl@gmail.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v9 0/2] arm64: dts: qcom: sm8750-lenovo-elden: add the Lenovo Legion Y700 Gen4
-Date: Thu, 26 Nov 2026 08:21:55 +0800
-Message-ID: <20261126002157.1954799-1-xiaqinghuan@mail.ustc.edu.cn>
-X-Mailer: git-send-email 2.53.0
+        d=gmail.com; s=20260707; t=1795652561; x=1796257361; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=RvV89/qcgojhFu+RPZnXe+UxBxtm+exO0xuVGHxO5L4=;
+        b=swOLv2PoVQfp7z0bWusZ1lYJb1ED6n6l6s0V0iFQrQ+SfblhZBYgl2eVq1PibYWMPq
+         wmG5JQg6LaoHuWNcHgw9I2VpccmTMYHzbjAq7So23lsSk5gAHy5XDfmP5AoHW+o1Im12
+         PFpv2+aPJytV2sA5DJREEuDBp4RwJ0cjqoj9N0j5LBWI2HEu0eSzXFwK5MsjpBwPDLyo
+         U/wugmgwjip8CNjVuGbjfx6oGZaTG3KQnr0Rm5+3SZbVrxgXq5Pd9fqUiiDtYDO/s/rm
+         5pAmaaSqcHMUTSGI9HCqBtOTFbfsFoDTqkOL+IlW92G/V3g8vreFdNqN9REiCRSkC2is
+         BURw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795652561; x=1796257361;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=RvV89/qcgojhFu+RPZnXe+UxBxtm+exO0xuVGHxO5L4=;
+        b=qMR04PlxH/0GoGry5IFjDVVeozMQ7Kb6cevigGTvKqcNpcZoodjTN1/HxE7FzloRAX
+         0XY35guf1z9kIGl8NT7wLgxP5IvbzYGKGqiFlcQ9g1ic+o2LZOWB8IRDeuMihFeVKXN2
+         2GxAshE8jsd9K5hFWfU3WFaDt0jB4YbAfaj/aJ/dlUChwpVmJXF3tjoG/vBdi1U18/Li
+         urr9q8a7mefhPWRlucRXWnfu1rjx4YqIIFsDLVvD1gQ5hExlGO3ZVqswWI8r9147XqsO
+         DVdMku/l+SABIeab5dk3I/QOkpsiobVU3w103U2HH3gcoqUd+msffBDr65oqMBcAmrti
+         RpgQ==
+X-Forwarded-Encrypted: i=1; AL+hErHagJF8rwkqg6FnaEV2LCYIN8YsQ0lGoXoy1tAOnFoQF07CwY5tsPzAtuLqln0VgvRd0rLhybDBZV++rUY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+KbN2ULMPVGCC/+9FxiDZWwGwEc0HLhwC5FuAlzbnnhF3dG9ne
+	95bh715+qA/PQrqq/7IBVt52jEHJiWZ879dKucJaPx6lfB2XtuufKzsW
+X-Gm-Gg: AZFdTZcPTXQgKv6cmS1xkoQ57MVTS2UuWDeO1X54dO3/ArkvNOO4kltSl0oYMGUJejl
+	WEvknspyxQiQhZR8I8hWgwFWFZQlaQyMbRBAXhVNz+nQ/PxyIMf6BmjKyqe+eR+0uOwiZCUOM9s
+	QcgpZB+9KS5OKM4HGlApjlP0uMzZZkiJpl6TkHqRL4QLxNZo3PRSvttqmtvl6xdR0jaY7rAwcfP
+	o8m2jYaKFi8bQE3BHNinNLH6H0HMLbrmWpza0YAaD1U/OXAwmcqRFB6UfMerlzvLELb+xUEZcQW
+	ikjPl75oe6WmlBmtWzcfuVPpLom/PDykpKX/wahO1Va7p6dGiQrRAGoriOpWLBR3FO3TKb4PCel
+	omrkFjHQXxwGJ9Lxh8vXFcPNRPe9Yl1EYTxo3YnpDeOVngXZ/QFiDwH2xDwBNaDrwWGpgDksyrP
+	0BeG1+51B+ffOUsECDb5KJ3lthtXlpCDlTivPPelRRnCnQrf0CRxExRz3Kkrm4OXsu2AfwnQ90I
+	75cBCskXyAscK/K6eyYtUT36TP0PTqRAEWqeDu++6iCS043Fufphe2e+tuvnFhSJfOPLA7fskiP
+	uxIWBhJ+Rcxd7/StyF0GAfqdWpBHcuweY4u/S61OeSA6lshtYmgya1JZFPsvtof9EhxZ
+X-Received: by 2002:a05:7300:f0c2:b0:386:688:7f25 with SMTP id 5a478bee46e88-386068880f5mr19561356eec.18.1795652561111;
+        Wed, 25 Nov 2026 16:22:41 -0800 (PST)
+Received: from localhost.localdomain (wood.seclab.cs.ucsb.edu. [128.111.49.37])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm101632315eec.3.2026.11.25.16.22.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 16:22:40 -0800 (PST)
+From: Praneeth Balasubramanian <praneethb2002@gmail.com>
+To: Bart Van Assche <bvanassche@acm.org>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Leon Romanovsky <leon@kernel.org>
+Cc: linux-rdma@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Praneeth Balasubramanian <praneeth@ucsb.edu>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] RDMA/srp: Reserve send queue and CQ space for ib_drain_qp()
+Date: Wed, 25 Nov 2026 16:22:27 -0800
+Message-Id: <20261126002227.3598226-1-praneethb2002@gmail.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <70bd9162-e9f9-4580-bfb5-cc29107a4126@acm.org>
+References: <70bd9162-e9f9-4580-bfb5-cc29107a4126@acm.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,133 +102,82 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:3pYKCgAnnzOmewdrvLr5AA--.1516S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxtr4UKryfCr18uFyrZw1DKFg_yoW7XFW7pF
-	WDtrZ7ArykKryxGw4xJr1Iq345Zrn5Jr45Jr1kJ34UAF45XFyxtrsIva15uFyUuryku3W5
-	tFnxuwn0kF1kX3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9mb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
-	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
-	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
-	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka
-	0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6w1l42xK82IYc2Ij64vIr41l4I
-	8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AK
-	xVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcV
-	AFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8I
-	cIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r
-	1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07brMa5UUUUU=
-X-CM-SenderInfo: 50ld1x5qjk3t3q6ptxnoox23vfohv3gofq/1tbiARECB2sGHiAuFQA0sJ
 
-Adds the device tree for the Lenovo Legion Y700 Gen4 (TB322FC), an SM8750
-tablet, and the board compatible it needs.  The device tree is byte for
-byte the one posted as v7 and v8; v9 changes this letter and the changelog
-of 2/2, nothing else.
+From: Praneeth Balasubramanian <praneeth@ucsb.edu>
 
-Waiting on bindings
-===================
-Stated up front, as requested:
+srp_destroy_qp() calls ib_drain_qp(), which also drains the send queue.
+ib_drain_sq() requires the caller to "ensure there is room in the CQ and
+SQ for the drain work request and completion".
 
-  2/2 waits on willsemi,wl2868c
-    Documentation/devicetree/bindings/regulator/willsemi,wl2868c.yaml
-    Landed as 84e67d2ee13f (binding) and 602f57223457 (driver) in
-    regulator.git for-7.5; not in v7.4-rc3, the base of this series.  It
-    appears in mainline with the 7.5 merge window.
+SRP reserves that room on the receive side, where the queue and CQ have
+queue_size + 1 entries. Commit 9294000d6d89 ("IB/srp: Drain the send
+queue before destroying a QP") switched from ib_drain_rq() to
+ib_drain_qp() but did not grow the send side. The send queue and send
+CQ hold exactly m * queue_size entries, which is the most work requests
+SRP can have outstanding. If the channel is torn down while the send
+queue is full, for example during error handling after a target stops
+responding, posting the drain work request can fail with "failed to
+drain send queue", or its completion can find the CQ full. The QP is
+then destroyed without the guarantee that ib_drain_qp() is meant to
+provide.
 
-  Merge order
-    1/2 (arm/qcom.yaml) has no dependency and can be applied right away.
-    2/2 only after the binding above is in the tree.  Taking 1/2 now and
-    2/2 after 7.5-rc1 is fine with me and needs no repost.
+Add one entry to the send queue and the send CQ, as nvme-rdma and iser
+already do.
 
-  Cost of taking 2/2 early
-    Measured on v7.4-rc3, not assumed: with the binding applied on top,
-    dtbs_check reports 0 diagnostics for this board; without it, exactly
-    one, from that compatible:
+The missing reservation was found with an LLM-based tool that checks
+callers against the rules stated in kernel comments.
 
-      sm8750-lenovo-elden.dtb: /soc@0/geniqup@8c0000/i2c@888000/pmic@2f:
-      failed to match any schema with compatible: ['willsemi,wl2868c']
-
-The USB Type-C receptacles are not part of this series for the same
-reason: they wait on another binding, which is in review and not merged:
-
-  [PATCH v16 0/3] usb: dwc3: support two connectors sharing one HS data bus
-  https://lore.kernel.org/linux-usb/20261125142309.3265777-1-xiaqinghuan@mail.ustc.edu.cn/
-
-The two patches
-===============
-1/2 documents "lenovo,elden" in the Qualcomm board binding.  Without that
-line dtbs_check rejects the board's root node, so a tree that builds still
-fails validation; it is the line v7 forgot.
-2/2 is the board itself, in one commit as asked in the v6 review:
-compatible, chassis type, the GPIO ranges the boot firmware reserves, the
-board clocks the SM8750 dtsi consumes, and the WL2868C camera PMIC on
-i2c10 with the voltages the stock firmware programs.
-
-Relation to Pengyu Luo's posting
-================================
-The board file was posted by Pengyu Luo in July ("[PATCH v2 0/2] Introduce
-Lenovo Legion Y700 Gen4"), which is at changes-requested with no v3.  We
-agreed on 2026-10-25 that I send it, with him in the loop, so this
-supersedes his v2.  The line in 1/2 is his: say which trailer form is
-wanted and I will add it (Co-developed-by needs his Signed-off-by too).
-
-Not described, not claimed
-==========================
-Wi-Fi/Bluetooth, camera sensors, ADSP sensors, audio, USB Type-C.  Neither
-the SPMI PMICs, the RPMh regulators nor the console are described, so this
-board description boots nothing by itself; that is the v6 comment, still
-true and not addressed here.
-
-Checks: v7.4-rc3 (aebb727447) worktree, 2026-11-26
-==================================================
-- git apply 1/2, 2/2: clean, no offset, no fuzz; resulting blobs equal the
-  patch "index" lines (qcom.yaml a32cfb30a1, Makefile e0b65a36c5, board
-  file 73f4452f46).
-- checkpatch.pl --strict --no-signoff: 1/2 0 errors 0 warnings 0 checks;
-  2/2 0 errors 1 warning 0 checks, the warning being the new-file
-  "does MAINTAINERS need updating?" prompt.
-- dt_binding_check, full tree: rc=0, no lint/style errors (5420 schemas)
-  and no output for arm/qcom.yaml.
-- dtbs_check with CHECK_DTBS=1 on sm8750-lenovo-elden, sm8750-mtp and
-  sm8750-qrd: three builds; diagnostics 1 / 0 / 0, and 0 for the board
-  once the willsemi,wl2868c binding above is applied.
-- No boot claim: the tablet runs a vendor 7.3 kernel and this tree was not
-  booted on it.
-
-Disclosure: prepared with an LLM coding assistant; the trees, the checks
-and every number in this letter were run and read by the author, who is
-responsible for the content.
-
-Qianhui Xu
+Fixes: 9294000d6d89 ("IB/srp: Drain the send queue before destroying a QP")
+Cc: stable@vger.kernel.org
+Reviewed-by: Bart Van Assche <bvanassche@acm.org>
+Signed-off-by: Praneeth Balasubramanian <praneeth@ucsb.edu>
 ---
-Changes since v8
- (v8: https://lore.kernel.org/all/20261125091309.124354-1-xiaqinghuan@mail.ustc.edu.cn/)
-- The letter now says "this series waits on bindings" explicitly, on its
-  own section, and names them: willsemi,wl2868c, its file, the commits it
-  landed as, which tree, and the merge order for 1/2 and 2/2.  The rest of
-  the letter is cut accordingly (Krzysztof: "should be explicit about
-  waiting on bindings, instead of wall of text").
-- 2/2's changelog says the same thing on the patch itself.
-- 2/2 also answers the two [Medium] notes sashiko posted against v8 2/2:
-  the willsemi,wl2868c schema is the binding above (it arrives with 7.5 and
-  needs nothing from this series), and the absent SPMI PMIC / RPMh
-  regulators / console / storage nodes are the "not described" section of
-  this letter, as in v6 - out of scope here.
-- No diff change: 1/2 is unchanged since v8 and 2/2's diff is
-  byte-identical to v7 and v8 (cmp on the "diff --git" section).
 
-Qianhui Xu (2):
-  dt-bindings: arm: qcom: document the Lenovo Legion Y700 Gen4
-  arm64: dts: qcom: sm8750-lenovo-elden: add Lenovo Legion Y700 Gen4, a
-    Qualcomm SM8750-based tablet
+Notes:
+    v2:
+    - No code change.
+    - The author now matches the Signed-off-by. v1 went out with the gmail
+      address as the From: header.
+    - Added Bart's Reviewed-by and Cc: stable.
+    
+    This was found by an LLM-based static analysis (GPT-5.6) that checks
+    kernel code against the rules stated in its comments, as part of research
+    at UCSB SecLab. The patch and changelog were drafted with Claude Opus 5.5.
+    I reviewed the patch and take responsibility for it.
+    
+    Testing: builds without new warnings with W=1 (x86_64). Not
+    runtime-tested. I do not have an SRP target setup, and I have not
+    observed the drain failure myself. The change only follows the
+    ib_drain_sq() contract and matches the receive side and nvme-rdma.
+    
+    The patch applies to mainline 9ba46df34488 and to next-20261116.
 
- .../devicetree/bindings/arm/qcom.yaml         |   1 +
- arch/arm64/boot/dts/qcom/Makefile             |   1 +
- .../boot/dts/qcom/sm8750-lenovo-elden.dts     | 129 +++++++++++++
- 3 files changed, 131 insertions(+)
- create mode 100644 arch/arm64/boot/dts/qcom/sm8750-lenovo-elden.dts
+ drivers/infiniband/ulp/srp/ib_srp.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/infiniband/ulp/srp/ib_srp.c b/drivers/infiniband/ulp/srp/ib_srp.c
+index 955f36efeebd3..2cd0b728424e2 100644
+--- a/drivers/infiniband/ulp/srp/ib_srp.c
++++ b/drivers/infiniband/ulp/srp/ib_srp.c
+@@ -546,7 +546,8 @@ static int srp_create_ch_ib(struct srp_rdma_ch *ch)
+ 		goto err;
+ 	}
+ 
+-	send_cq = ib_alloc_cq(dev->dev, ch, m * target->queue_size,
++	/* m * queue_size + 1 for ib_drain_sq() */
++	send_cq = ib_alloc_cq(dev->dev, ch, m * target->queue_size + 1,
+ 				ch->comp_vector, IB_POLL_DIRECT);
+ 	if (IS_ERR(send_cq)) {
+ 		ret = PTR_ERR(send_cq);
+@@ -554,7 +555,7 @@ static int srp_create_ch_ib(struct srp_rdma_ch *ch)
+ 	}
+ 
+ 	init_attr->event_handler       = srp_qp_event;
+-	init_attr->cap.max_send_wr     = m * target->queue_size;
++	init_attr->cap.max_send_wr     = m * target->queue_size + 1;
+ 	init_attr->cap.max_recv_wr     = target->queue_size + 1;
+ 	init_attr->cap.max_recv_sge    = 1;
+ 	init_attr->cap.max_send_sge    = min(attr->max_send_sge, SRP_MAX_SGE);
 -- 
-2.53.0
+2.25.1
 
