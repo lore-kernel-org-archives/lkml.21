@@ -1,88 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.136
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795710971;
-	b=i2y7QVIrzctZw1ksX2qS3zeYU09mkQm6zyvTolwTw6q9ZZbTUYxMMv62p4yTj8m/xCuG
-	 3txLN44gJ+pO3wPMgA02Q09Vou1BwLZTNYk4CcniQ5o/kUWF9Rt34zAvlGO5Sj8s1aV53
-	 IzFwj1LC3Hx49uMZM03fhuGLcELeSEs8vtieHJkK7DDPpjYE6o9RhqYTz5iG+Zkj8cZCU
-	 CaLOJJalp/yWCLqOQC2RUdmyQ8AwPKRbX72j9L5iUtaAUwihytQ12ArccgoKGW/XW5XY1
-	 ThwPr+kdx+gfKFk+I7RF09l3AjEe5ugbroESD8hDxl7AniV9qkOps7qe+hITo3Shr0g==
+	t=1795711067;
+	b=Upn0b9ogKser5WfKV8F1AQt2P6YWqF8MaYSbDL1NRhm4z3IL70ap3uUhJhPVwGmJife8
+	 KDClOqZLlecTidr7jssQtd9GvjljY6uISNn1yxLzgU3g55jCZ8zeISUK4KMrvQhDHrllK
+	 qISkY4hWwyRkDPA2v/caK+UBapakdxw+gtbUSNwnxi0FPwnEKF2koWd4dHesi15qzZveq
+	 SW70RCSk0eEpLcvlO5qQK1cgF3mvYJHFAA9eIjSYfRdw3FMDVcPUe4Cq4hSMnJeqLAdQo
+	 NXHbVQKpq2VKUxYUwNBqmKxNMxiyASqiyZyYtV+VXJo8WkKsQPtb44HBjEBEXvzf0Zw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795710971;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
-	 Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=/V/q6vN01qyM55wT6FtlhrNcKv+AqGvLCJ3sSHicCRM=;
-	b=qUhQtv4C8mycC5tyJ+qMTCuIVhl4WtZdgMldhw2hHqKFZrypdi5otJZ2ckUM4tRdv/7A
-	 lHD2M6ktrAwE7Y6xPtxbsyCFolz4nm5hRAecYymXZ/KGJtcTxz/V0gS+M34CEPLmT1FHH
-	 O661arf5rXrs08ry0HkeTKhgPzMnWnwgDayv75XkW6AxGE8DAy6A5nPp3hp48LgudNU7R
-	 Xw5wW2CAlMAsm+IorJH7kHQwn5eyIsy6ke1w+eAQyQm8GdIW1BsX8FM4SVrq3wQDB2OvB
-	 btziZ5/x9qrkZBxp4I4IWhRD+HSpRPRQaS+31IgavelBLdujOMLOMwPSI+KBGEMOKAA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795711067;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=7N9CqDyP/26dU8hQlMN8Gw5eUjqqoWujGZFQZYS0sgs=;
+	b=x5CeRUR7H6C8KQWiEKL4iySqqyFspfWoeX2jLPG5oQnZ5cbZ2vhpXBcxieDu3kvjXjCt
+	 6WHYdEIhqAlYNym2T75VRBZ64z6pvu+dJzQWFvSf2mQSkJS4UKhiy3IO5cCPS4lQ708IK
+	 M0njj7XxG5GWiG4if8l10RwUUxdJlw4mmAI9RvSJRJ7fJnA8l7dRS/qmf+hpEuqvAkFgU
+	 idUGSalz+r//YuZmP90JC82fve44VTM7XW6WqO0gS9Vk9TB/mo770N47SQyeUEUfTbIYI
+	 DQWXMxpqlXcN2Btj3xautHOLzlxXOdzk9PepPJW28VbLPX+Yzg2dG3MRDE+eK9PUWNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=googlemail.com;
-	spf=pass smtp.mailfrom=googlemail.com;
-	dkim=pass header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=jTqSgiI5;
-	arc=none smtp.remote-ip=209.85.128.41
-Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=glider.be;
+	spf=pass smtp.mailfrom=glider.be;
+	dkim=pass header.d=glider.be header.i=@glider.be header.a=rsa-sha256 header.s=fm1 header.b=K+1sgLTx;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=Xg9JPNBB;
+	arc=none smtp.remote-ip=103.168.172.136
+Received: from flow-a1-smtp.messagingengine.com (flow-a1-smtp.messagingengine.com [103.168.172.136])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99123606A68B
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:36:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99123606A68B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=googlemail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=googlemail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB4A2606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:37:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB4A2606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=glider.be
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=glider.be
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=jTqSgiI5
-Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4bb69f5b161so46930245e9.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:36:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20260707; t=1795710969; x=1796315769; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/V/q6vN01qyM55wT6FtlhrNcKv+AqGvLCJ3sSHicCRM=;
-        b=jTqSgiI5rL1PLDfYRGEUYiTiZCRCnpYLJfz5etGQl5yGV1yeukXttQocy/Y8iDopJD
-         fnmG6PtwwHfkUC/yYi7r36XV4E2835Ezpm1K28MBGCjY0ckav4wfPHOagynYcaMizArD
-         jk4EOvN+ni6me6j8ENHTPC1NiPgg9LDYCEBEmlDtQXUq0QPm/FpmoXiJ23TPirhnMxPA
-         woiDK59qSLg3cmCYziQgrEgMzbvYhakiA1w7SRWTFVqrdsvExfPfKOFkSopd/NBsuTm9
-         1FhNgVOhPm56JD/yjhUPuBz6cAMLjRo/R8eL17Ga7OQ9tuKgyEwVas0vYv5PKaBCUbra
-         vM3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795710969; x=1796315769;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/V/q6vN01qyM55wT6FtlhrNcKv+AqGvLCJ3sSHicCRM=;
-        b=Dd8+iDCT55kyv+P9Mv8WWquEVcgaGD7uCS2ERa2yU+a5sbzEOj36d6q5UVvRkW3/bU
-         li8IWsBV7YFi1VV77B3urI4VYvb9GLQces3Q++mTRkWcwaWbCVVTA+RcoHQF9CbIR8ns
-         ASEqXZBCYI47qTY927vyXJOevJd80qxpyKreZ5sN2VpYFWopV0ACnFG2wXyKPVXYvv4k
-         4DjJw+jjiSjzMStSyFSnDnJtfmhMpQhNPY/NT3ztbs+J8IkjNYURJYS4t4L6hetWVW+f
-         0TnfXbVDtc01PHkH6Vv2RowyM1q6o/zLnLLq0UkuTA0fiC3jBefIc750Op+wsMQlFtcf
-         EGiw==
-X-Forwarded-Encrypted: i=1; AL+hErGPujS4m5qA/DBqi+rjj6LXDZdJjldJantNgYvncKB1Vd+C+j11qbbpwtKEAlAkWYWhMDjNd/0emOMzsv0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z95j7n2rL73+z7nWTeCfnP6HLHDwr3p0nq8Ob75NtCjIB9eaWmR
-	AhFxabgrXhiJGirBCPiEH7IKdd+uuFaVMogy9sl5wJfeRNQd5chgFQiBZ36m
-X-Gm-Gg: AZFdTZcGZww1lBF27S9qAOJK0rc0v/Lr+WvArJdzHrPfagn0mMmoN0c96zJDvqlzArM
-	u2/VFuGG9abHYkwbayTbxqvalsMoUJoXa+3UDocScE9h45yMYHXZVhhar53lyYWKAvMM5Udn61w
-	pOCCeMqNq0uWxzehS3BK9h6BRPajntx5DxJzKZa9KHdzGWZniLzyy+FTM/tuZ9NsMcxQQMBdG5G
-	rp22C+V442FC/siynaSPXwq+GFKy0t+hGa7NOQ+yuYGOF61gTLd1DfOkPK6QseN9psDQwkA4yj2
-	TG+S5g93Xk54Gzll9bwXNay8s6bv2ImjkRjxqJoPkSTOsCTd37l+a7gvsX5uxRadVThbXXkRLcO
-	LT3fiYg2Dd9Igevwlw9R1VsreKdBNVVRrtNnHNDVDVhDS58ecItDyNr2taKAOh4jWD4/pgR6yUI
-	iVrxZfiJ7e2tyQLGzJslcw7x6qGTcZ/ExGnds+pWDHpKbqMEqIh5zeV28ipbMznOqu0qTv+RHZD
-	M7hcAljUUotkY0vI8UEjfVRbVletkXoxfBx3HBkULFXUaGqM9jCQZfIUAQMuVJbzy7j/ltW6/qF
-	rbbpf8uVs1fZBoTcBdv2JKsZxOxRIKuMvomd4oOOCKu/3BtYZl0rLUVmtYxUh9bIcrL1Jj6VCjt
-	d5vSQ
-X-Received: by 2002:a05:600c:64c7:b0:4bb:68b9:f610 with SMTP id 5b1f17b1804b1-4bb887ffee2mr416755365e9.9.1795710968740;
-        Thu, 26 Nov 2026 08:36:08 -0800 (PST)
-Received: from [192.168.1.3] (p5b2ac210.dip0.t-ipconnect.de. [91.42.194.16])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884c3063sm606032885e9.15.2026.11.26.08.36.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 08:36:08 -0800 (PST)
-Message-ID: <2b097c77-6ffb-4463-b154-661f3731c412@googlemail.com>
-Date: Thu, 26 Nov 2026 17:36:07 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=glider.be header.i=@glider.be header.a=rsa-sha256 header.s=fm1 header.b=K+1sgLTx;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=Xg9JPNBB
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailflow.phl.internal (Postfix) with ESMTP id D7F431380A1E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:37:45 -0500 (EST)
+Received: from ams-imap-13 ([10.64.2.33])
+  by ams-compute-02.internal (MEProxy); Thu, 26 Nov 2026 11:37:45 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=glider.be; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1795711056;
+	 x=1795714656; bh=7N9CqDyP/26dU8hQlMN8Gw5eUjqqoWujGZFQZYS0sgs=; b=
+	K+1sgLTxn+oZBTF/0K4FnHg3YBph1wgD84vxNK6UhpqPlR/qd66zaA1hqkFw5krg
+	OnszmlvpvAwYwj4hQWNwAtyZTxKCY8EhEGmBQXMAcy5PWCMssXGyVb7Hs2qzYlRO
+	ZWvTtJ2Lzl5rnxvZNzrNygKD6oyDvWs/vG40fU0f9g/55g0GE1+3Q2GFpfZ4vWOY
+	8aKDqIJgBvD7Wm4YhraYAQQn8MANQK3/SpDrnFNhk+tlEHUQczzY85E0IvgW4P+L
+	rveJ9hngOTAD+n46LRn7JvAikvDVMBqZhBxfFM1M104Pww03jaFfyNsqXrsFwVE5
+	eE8Axp9VLZ6vUweG249/bQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795711056; x=
+	1795714656; bh=7N9CqDyP/26dU8hQlMN8Gw5eUjqqoWujGZFQZYS0sgs=; b=X
+	g9JPNBBBcLijRjk0pfY16YUtm1CBX414eOuCB1tIQRyaGvdZ1WDokwp5i8ZJ6GS0
+	uICl+qh93lzuFNNHb70i3l4/MsKuT00jcqasjqytuRspXD3pHNjjyyZnuPR/x0rq
+	OOKS9N2F54FoBpiyvU7sU0ih+KMDt3IX6b8qzX04R2nQgg+MWgQovtqzmdpIWNTx
+	KlD34XCHWW2SzUeU6xC+xZL0L9uTBaZN8YixkWFWG0b3Jt4IwJhz7V79cpjia9Mz
+	0F21yweNyBzJeY5D1IlqxTxa1FP1UHpmqHNEPZhM/UgfbCaOcKUwaXUyjx1nCCIa
+	2ulCN/KRLgfn6w0leottg==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=glider.be a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795711056; d=glider.be;
+	mf=PGdlZXJ0K3JlbmVzYXNAZ2xpZGVyLmJlPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm1:rsa-sha256:caJTBAiHaLrsV3DJqTBA5MTmd3F5KcjAfWPnhwovPhJYImd
+	VsgMUZLaxnPBNGisUv59IMS2i0kp/Q9+xTXq3faENGhMRqjGvxDKWgJCHPaKiDev
+	+c13AlTSUuwNZ4iAR78lZ4cYqSOvl2GBxsPEM52NQciqVXXV0RSozt3eOkV00hbb
+	PKCiqS8cwJSNMb2EUlUu/W79dUypzfD6aC22wG4V1nEobxUmwk0TzM0lAO/KHDJ/
+	lZcFF4yab4IgXFiBiC0l2TqTIMQ8fJQGvXB29dR+qo0J+NQ+f0H/vbKGdsi++j3B
+	TlAUX/ocy95gT5nyP8IMK/UJhMKPRHAvgAVrmeQ==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:nMgMgSrmiGsCzKZ1mh2+YPrLrgLtUqzrZKX5JkCu/Sc=:wajF0TYs/efJ2/mzQNPa/JmU/kugYKouUAKN30PKxIQ=;
+X-ME-Sender: <xms:SWAIa-vo0o6uA6PbFLXnTvmQzGbSU2DyOyCIj2cgNpDSp0804okIEA>
+    <xme:SWAIa-QhQ6uYrJZnoijlZUgLP7GO8p6gUGyCISolMa-3vMMiUkQP1ZWYZ0DukaMRc
+    xvZo4K7S61xyo3fdNO-Hq7Zg6CDLOmRDDhu8jgjLtHVKFYGU5pvunYP>
+X-ME-Proxy-Cause: dmFkZTGZmBWwU3V/QNYiKM+c/hRjR19JHOGb0aomStv+4VVeJ9evFBPg7DQ1RchCV40GBP
+    GftWfMqpbi5jZblGSjmujJw8BZSDlznDhVZdjnrHzRRX5Dhk2k1CqMHF/hCw98rlww5TXA
+    fZS7iCk9NQk4g+LETv1JEZTe9/4Rx74QDiyh1ReQZy2x5lFlMc+PmTHhjUXJn31qoFntWR
+    ER1XIwZj451kFFZxQnzpoxkk4c9wG0TjhTZT7Ko/Ug2/dYg3y+6kV/57CF+1KTT0zuIxHE
+    PY1t012qkgAHPCzf/gY3qbVz3YruN8nUJZfFIKhEqWQ2v73teGB7YH+UYcXCknwQkN8GnI
+    LzYBwffXBVxkMRT9FQvBtkF+g/LyuqiO8qhR+tQZFUl3/I3y3GxpV/FjUwaBbUGERyltIF
+    xad+tSnyP9m+NRlXdf280RwYsSkF1VCMkkgjBpQdGhCKymBMFQVlLxGJbCh2DZSrG2oVEU
+    57Sv2u64G2rihlnmVwaBxkJBzo9sEM5lIbGa9gSycPU0XXCRDYRFdhj2NGmN9uQMtDVIbP
+    5v5uHHYeO8lVVC2jJ872axQwvdR/qOZeNASNbNiq6HmLdaMsGcoV0tg1fK6/EstwdX2fdf
+    XIOMgTGYiO/aTJmXYni9AAJeLQvSzkc2I6PLj1qN+0WEp3S/zyUCSu8npIuQ
+X-ME-Proxy: <xmx:TGAIa3iD8udm1nBOqQTyK5fznYWiC7Bv-FUyIvKEnMGR5gg-MW0c3g>
+    <xmx:TGAIa1rRyPzWDwegm5fOQtq_dASWPCDYcNv0aszADYx-X8nU9VGcWQ>
+    <xmx:TGAIa7LkUX9F0jyterAiu0EfmIKZ0DI9kMj8zNwSEmBe8dY7PQ_lJA>
+    <xmx:TGAIa6vyf79Wq4Jm2lyKozfySWmd-Y5FGvH3IuBWwUoU2AFMk52GuQ>
+    <xmx:UGAIa5J8hd4Nit4hQqmMnSHG-bDwbXFwU7hSdlk_gK9OcrGQ-O72pZ-x>
+Feedback-ID: ia0f84a9e:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 15134F800A1; Thu, 26 Nov 2026 11:37:29 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,44 +115,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH 6.12 000/815] 6.12.120-rc2 review
-Content-Language: de-DE
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
- conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
- achill@achill.org, sr@sladewatkins.com
-References: <20261126105709.009001842@linuxfoundation.org>
-From: Peter Schneider <pschneider1968@googlemail.com>
-In-Reply-To: <20261126105709.009001842@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-ThreadId: AEry5dm4iUXw
+Date: Thu, 26 Nov 2026 17:37:08 +0100
+From: "Geert Uytterhoeven" <geert+renesas@glider.be>
+To: "Koichiro Den" <den@valinux.co.jp>
+Cc: "Marek Vasut" <marek.vasut+renesas@mailbox.org>,
+ "Yoshihiro Shimoda" <yoshihiro.shimoda.uh@renesas.com>,
+ "Shawn Lin" <Shawn.lin@rock-chips.com>,
+ "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ "Rob Herring" <robh@kernel.org>, "Bjorn Helgaas" <bhelgaas@google.com>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Magnus Damm" <magnus.damm@gmail.com>,
+ "Jingoo Han" <jingoohan1@gmail.com>,
+ "Philipp Zabel" <p.zabel@pengutronix.de>, "Frank Li" <Frank.Li@nxp.com>,
+ "Niklas Cassel" <cassel@kernel.org>,
+ "Wilfred Mallawa" <wilfred.mallawa@wdc.com>,
+ "Serge Semin" <fancer.lancer@gmail.com>, linux-pci@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, "Manivannan Sadhasivam" <mani@kernel.org>
+Message-Id: <0c3d98cb-6641-47a5-9f15-0cf315979069@app.fastmail.com>
+In-Reply-To: <awhXFPlyc3vnmjtC@z790sl>
+References: <20261020031049.969895-1-den@valinux.co.jp>
+ <20261020031049.969895-18-den@valinux.co.jp>
+ <CAMuHMdWk9pZdJ+eh0dNHrZSMVDe84_rsvmrD=pC1Fjy9wEyp1Q@mail.gmail.com>
+ <awhXFPlyc3vnmjtC@z790sl>
+Subject: Re: [PATCH v5 17/17] arm64: dts: renesas: r8a779h0: Describe the PCIe AER
+ interrupt
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-Am 26.11.2026 um 11:58 schrieb Greg Kroah-Hartman:
-> This is the start of the stable review cycle for the 6.12.120 release.
-> There are 815 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
+Hi Den-san,
 
-Just like rc1, rc2 builds, boots and works fine on my 2-socket Ivy Bridge Xeon E5-2697v2 server. No dmesg oddities or 
-regressions found.
+On Thu, Nov 26, 2026, at 17:24, Koichiro Den wrote:
+> On Thu, Nov 26, 2026 at 02:10:32PM +0100, Geert Uytterhoeven wrote:
+>> On Tue, 20 Oct 2026 at 05:11, Koichiro Den <den@valinux.co.jp> wrote:
+>> > The PCIe controller reports Root Port AER notifications through SPI 454,
+>> > separately from the integrated MSI receiver interrupt. Describe this
+>> > interrupt with the "aer" name so the controller driver can use it for
+>> > Root Port error reporting.
+>> >
+>> > Append the new interrupt to preserve the existing interrupt indices.
+>> >
+>> > Suggested-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+>> > Reviewed-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+>> > Signed-off-by: Koichiro Den <den@valinux.co.jp>
+>> 
+>> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+>> i.e. will queue in renesas-devel for v7.5.
+>
+> Thanks, Geert. TBH I'm worried that the rest of the series might possibly not
+> get picked up, in which case dtbs_check will keep warning indefinitely.
+>
+> Mani, mind if I ask whether the series still in your review queue (it looks so
+> on patchwork [1]), or whether there's no hope of it landing for some reason?
+>
+> [1] https://patchwork.kernel.org/project/linux-pci/list/?series=1189393
 
-Tested-by: Peter Schneider <pschneider1968@googlemail.com>
+Oops, I incorrectly assumed your DT bindings patch had been applied,
+as my grep for "aer" matched Marek's addition of "aer" for R-Car Gen5
+in commit 2fcb7513361b4493 ("dt-bindings: PCI: rcar-gen4-pci-host:
+Replace sft_ce IRQ with AER IRQ on R-Car Gen5")...
 
+Gr{oetje,eeting}s,
 
-Beste Grüße,
-Peter Schneider
+                                                Geert
 
--- 
-Climb the mountain not to plant your flag, but to embrace the challenge,
-enjoy the air and behold the view. Climb it so you can see the world,
-not so the world can see you.                    -- David McCullough Jr.
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-OpenPGP:  0xA3828BD796CCE11A8CADE8866E3A92C92C3FF244
-Download: https://www.peters-netzplatz.de/download/pschneider1968_pub.asc
-https://keys.mailvelope.com/pks/lookup?op=get&search=pschneider1968@googlemail.com
-https://keys.mailvelope.com/pks/lookup?op=get&search=pschneider1968@gmail.com
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                                            -- Linus Torvalds
