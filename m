@@ -1,75 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795690122;
-	b=ymkG0sxx1+0Lx9EjL7fskhZLfJDFjzjfztZu7bcwMepepCYLLS/RKvyhpnmD3WzAbyAg
-	 ioAUkazZeka9qWvSx6QwjLG/hkoPElebdOz2MM8Hm25Fi8XugyeEsKegERmL9YCyDXnrd
-	 TgwQ2Q+bgGSl1YogrvAm9psrCaGBUflkVwVJJnxBnhr7Hw26FTah6rT1wCnt9THkU65cF
-	 fDTlWLEJxG/fjZCyXWu0fH/QrBD+fDZFscGSUZ6/g7iyVouo/yZwXYkAP44kDl3G273qG
-	 lWC35ue6RYd/j902i+YfpA1AUV5ftRNMAjhUHVIdExxs+ggUSJDWfdSAxeNYpVuLXEw==
+	t=1795690194;
+	b=nZN8ZhlOQ2Dp4ScSmBofJknYcDegzlk+M92k57yp5XEvd3EMVJgCClbnRyzzLgZ2FR1R
+	 2v85j/1VaTJQsewO1Zn97AwTnPexoSZREtcx/Y9vUZ5yAqPlfTg3SffOvMXErTrR3noDN
+	 aMEZIwG7Qz12446yLQ4HiM3x+q+O4NtXXIZAtCVYF5P9vzBM5C+F+zrzC2PSwJsfv0R8H
+	 q+xd4OA46/g6QmqNrb4mOG4ZLiVUFw5xVRWNZlhjVCq7LWQNduezVyL8dCINL8BP9b6j4
+	 qrvjPKpwfMjvxkwFz1PDlc6ZWcBSWoF6chZ3Jzbthtt6n5zTiKyhtJwbWaIEtegKxkQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795690122;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=ODOROgglBubCeueofUdqrgO8xPhnTBc5wYg4QXauX+c=;
-	b=vHkc2NtOPWneCfezBRIN6w43dRpWNOFWdkQocdh8xNEnB7/wDgfYJJqLiqOizBYkBnwu
-	 TGqjAD+ONlk6GbRg4bUVguIr4wWdMQLbVeOEVP7luBBZEwRrs14v/g43VB/fqgse3Lw5Y
-	 OGkROsuupOSwFCzBr9BKfEm1CKRxB7/PdQnjuQI18E7s4ccogwY8JXBUz4Wi0kES7AAtF
-	 J7YKfmpd6ttF55obTeWQVANgq1pRTpb/NWEDPfxBhqtYVP92fAZWQn/pTEVixdGBtCbke
-	 f42GtT7I73sVGfjEzqEAHbY1CQQPd0GUxdqARR535S84VAq8FQ24zjOYi83aJ1TRllw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795690194;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=n2gJ4sD41uTH00NZ3mpn1mrUv9pUW3hdigzbmKMQ4mo=;
+	b=Rz3eLbG4If+Qlzy+NUyRtL5/THEh7BXWYIaaH62yOIzQQVc6gC0fbUymlIceiSOh8e00
+	 XDmyhN0FaJD5Bhf7LZ5vx8YP94Dhv5i1rjTW0U9shHubSNM74dvXFboOvq04PbL57+Rkl
+	 bc4FkzMfXNwcLxKg1IODhgR/31kfHcx+dyYTtigkmLd5usKMfamUEFQj09iEUQMaTiYT9
+	 cIQkhjP2hm7ci5mKCf37gj95fA1jefZ4xkMBV+36pyRIm12upE65bMRwG8eKqkJyFNSGJ
+	 3ozl1lCDoJYJG7ScHmMPJLtay0yF/PHQfyfLUFfKzXgfa/O6wqV8LmAgaiy9HMLNfWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--dbalint.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=j+JSa+Ut;
-	arc=none smtp.remote-ip=209.85.167.72
-Received: from mail-lf1-f72.google.com (mail-lf1-f72.google.com [209.85.167.72])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=mrHh6gNr;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5A11606A68E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:48:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5A11606A68E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--dbalint.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80914606A31C;
+	Thu, 26 Nov 2026 10:49:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80914606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=j+JSa+Ut
-Received: by mail-lf1-f72.google.com with SMTP id 2adb3069b0e04-5be5c404468so2959171e87.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:48:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795690120; x=1796294920; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ODOROgglBubCeueofUdqrgO8xPhnTBc5wYg4QXauX+c=;
-        b=j+JSa+UtPjpLo+sLj+TvPPvS+VD63xvtyFAdACGiYvbxcHRidvhEQo3BC4MewFvMDN
-         zJrwV4oKir+FT6cOucBHDIo+Gyp9y4Ceyuy0bhyhV7Pb0py8HD/4PMQKUXiYUnFoWZVC
-         WGMUhIa1Ecb3o6+khs0L6CBZqbAFYcl2FqmPLG/keSGCdndjVpO10jxNt5rcPf6ScdK7
-         gvLGrSobF06UnvXpighfRp9YBMvT8cFK+fxHSPQ22rNxIqMaTcnrA7xQ2mwms3vQxT9T
-         iRJvwc0QaAn24GiIA1PrvGWvXgsZFxZtNXquu8m96D075i50zKMlnRkR3m57dg5H2Bxq
-         6zRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795690120; x=1796294920;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ODOROgglBubCeueofUdqrgO8xPhnTBc5wYg4QXauX+c=;
-        b=06TRIv+WUtb8wppwn5roRfocBbv10nTvXtPqMS7Y5SxoHvOw/2kCm3cUeV9sU4+BhD
-         wAG3Xjn7IjOnLXv31yAZ0PlSCDS6PvgZX8oZ0IsuFKypaD6TIInICc5TrlPn2QPI5Yj0
-         V6wpMOXyjZIgGu5oinNsTEjK2K+5vTJ0tY9O/mUrx0Jrv+2xs3ZBb2uHLDBAZlO6ffUV
-         BVr/iahcwP4/nT+WyxJUI/Pl0iV3PTQL4a4Cc1fxU5f45IoV2XsMQYXKZ3S39VtYiSP4
-         ewldmDmdbHEQUxZ3Z5BgkmMXEsdcDu+Silp2vXtUcYmbVeUgFH5OxIxKZtB9uu/knS7K
-         0lZA==
-X-Forwarded-Encrypted: i=1; AL+hErGywQw4SBQTsNaGl1W2Tyfpi3WXfVrdS3q4ARsSHfzowIirEqq21dKG0efxS8z4AebUe8z0hji8+jA/mJc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8lRKroOYKqFObQLZVzCkXq3/ZQ/wWA1X9Vgy1jPtw+jTgOegZm
-	vnw6jBpwB2dBo9yoKYw+llr5pU3jY/tCf4YcCyhIMpIV27Z5S3BOBl6u9rcBVRX26XmmnQnOeQo
-	Iwg8HlXPKMA==
-X-Received: from lfbfe13.prod.google.com ([2002:a05:6512:620d:b0:5be:4c8a:2f0f])
- (user=dbalint job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6512:a819:10b0:5bc:f29b:1a5c
- with SMTP id 2adb3069b0e04-5c1bc7d0b80mr4028854e87.23.1795690119891; Thu, 26
- Nov 2026 02:48:39 -0800 (PST)
-Date: Thu, 26 Nov 2026 10:47:57 +0000
-In-Reply-To: <20261126104757.2860272-1-dbalint@google.com>
+	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=mrHh6gNr
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 09325C2B9C7;
+	Thu, 26 Nov 2026 10:50:00 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B248B60237;
+	Thu, 26 Nov 2026 10:49:51 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B2B0411E6B2E5;
+	Thu, 26 Nov 2026 11:49:42 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795690186; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=n2gJ4sD41uTH00NZ3mpn1mrUv9pUW3hdigzbmKMQ4mo=;
+	b=mrHh6gNruUe/EEnCdTwpBn9QYJSujVkcRgIAM+O6i3EJ+3Xp2JOKEme4BtCN4SgCu6f9dV
+	Ii56otDJ1+Eu5X0uxUtAQuwRhL8+/MOCs9sBaij6DJfVa7bgN+DsVFN1lUwHR2fbs/7dIK
+	Vp5zW/yuW8wi31CvuQ9X2F4j8ZEhB2j6t6FRTYEYmNSgXwTGb1RJzEht35VFaldjI0WjTR
+	quY9aKRPLk4E09mwKvUxWTGHKJqk+MvALdUFHZd+FGKd+Ednb6O0olvG7CEkFXC8IMqB/S
+	lQg4IN9tOu+RSFWkaypo7GiQh9BpRPCT8hoo6qfkCWxj7DIArFIQCQHB5kZX8A==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
+ <vigneshr@ti.com>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,
+  filipp.dunsky@gmail.com,  linux-mtd@lists.infradead.org,
+  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: mtd: Add Cortina CS7542 NAND
+ controller
+In-Reply-To: <20261123-b4-cs7542-nand-v2-1-9d9f08608534@gmail.com> (Fil Dunsky
+	via's message of "Mon, 23 Nov 2026 23:27:06 +0300")
+References: <20261123-b4-cs7542-nand-v2-0-9d9f08608534@gmail.com>
+	<20261123-b4-cs7542-nand-v2-1-9d9f08608534@gmail.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Thu, 26 Nov 2026 11:49:41 +0100
+Message-ID: <87pkvryiii.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,53 +75,92 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261126104757.2860272-1-dbalint@google.com>
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261126104757.2860272-3-dbalint@google.com>
-Subject: [PATCH v2 2/2] mfd: cros_ec: Load cros_ec_pwrmon on supported ECs
-From: Daniel Balint <dbalint@google.com>
-To: Jonathan Cameron <jic23@kernel.org>, Lee Jones <lee@kernel.org>
-Cc: linux-iio@vger.kernel.org, mfd@lists.linux.dev, 
-	linux-hwmon@vger.kernel.org, linux-kernel@vger.kernel.org, mwojtas@google.com, 
-	Daniel Balint <dbalint@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-Load cros_ec_pwrmon driver when the ChromeOS EC advertises
-EC_FEATURE_PWRMON.
+On 23/11/2026 at 23:27:06 +03, Fil Dunsky via B4 Relay <devnull+filipp.duns=
+ky.gmail.com@kernel.org> wrote:
 
-Signed-off-by: Daniel Balint <dbalint@google.com>
----
- drivers/mfd/cros_ec_dev.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+> From: Fil Dunsky <filipp.dunsky@gmail.com>
+>
+> Describe the flash register bank and the single 8-bit NAND target used
+> on CS7542. Specify the ROM-compatible Hamming ECC configuration and
+> allow standard NAND partition descriptions. Firmware supplies the bus
+> timing.
+>
+> Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+> ---
+>  .../bindings/mtd/cortina,cs7542-nand.yaml          | 66 ++++++++++++++++=
+++++++
+>  1 file changed, 66 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/mtd/cortina,cs7542-nand.ya=
+ml b/Documentation/devicetree/bindings/mtd/cortina,cs7542-nand.yaml
+> new file mode 100644
+> index 000000000..c9ab9d4d9
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/mtd/cortina,cs7542-nand.yaml
+> @@ -0,0 +1,66 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/mtd/cortina,cs7542-nand.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Cortina Systems CS7542 NAND controller
+> +
+> +maintainers:
+> +  - Fil Dunsky <filipp.dunsky@gmail.com>
+> +
+> +description:
+> +  The flash controller supports programmed I/O transfers and a hardware
+> +  Hamming ECC engine. Firmware initializes the NAND bus timing.
+> +
+> +allOf:
+> +  - $ref: nand-controller.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: cortina,cs7542-nand
+> +
+> +  reg:
+> +    maxItems: 1
 
-diff --git a/drivers/mfd/cros_ec_dev.c b/drivers/mfd/cros_ec_dev.c
-index 529a23b804f7..9cf85636b7f9 100644
---- a/drivers/mfd/cros_ec_dev.c
-+++ b/drivers/mfd/cros_ec_dev.c
-@@ -115,6 +115,10 @@ static const struct mfd_cell cros_ec_charge_control_cells[] = {
- 	{ .name = "cros-charge-control", },
- };
- 
-+static const struct mfd_cell cros_ec_pwrmon_cells[] = {
-+	{ .name = "cros-ec-pwrmon", },
-+};
-+
- static const struct cros_feature_to_cells cros_subdevices[] = {
- 	{
- 		.id		= EC_FEATURE_CEC,
-@@ -151,6 +155,11 @@ static const struct cros_feature_to_cells cros_subdevices[] = {
- 		.mfd_cells	= cros_ec_charge_control_cells,
- 		.num_cells	= ARRAY_SIZE(cros_ec_charge_control_cells),
- 	},
-+	{
-+		.id		= EC_FEATURE_PWRMON,
-+		.mfd_cells	= cros_ec_pwrmon_cells,
-+		.num_cells	= ARRAY_SIZE(cros_ec_pwrmon_cells),
-+	},
- };
- 
- static const struct mfd_cell cros_ec_platform_cells[] = {
--- 
-2.56.1.839.g22a8290db9-goog
+No clock, interrupt, dma, reset... nothing?
 
+> +
+> +patternProperties:
+> +  "^nand@[0-9a-f]$":
+> +    type: object
+> +    $ref: raw-nand-chip.yaml#
+> +    properties:
+> +      reg:
+> +        const: 0
+
+Does the controller really supports a single CS?
+
+I am not talking about the driver.
+
+> +      nand-bus-width:
+> +        const: 8
+
+Already defaults to 8, most of the time we just don't define it
+further. I don't know what is best here.
+
+> +      nand-ecc-mode:
+> +        const: hw
+> +      nand-ecc-algo:
+> +        const: hamming
+> +      nand-ecc-step-size:
+> +        const: 256
+> +      nand-ecc-strength:
+> +        const: 1
+
+This is not a limitation of your controller and these properties are
+only relevant if you want to overwrite what the NAND requested. You may
+have software ECC engine support. Also, a step size of 256 today is
+quite uncommon, are you sure?
+
+Miqu=C3=A8l
