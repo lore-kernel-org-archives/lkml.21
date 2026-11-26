@@ -1,88 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795694762;
-	b=tCx2tOofI4lmsaDRijU7PZah3wIiB612cRBGwDfpVjGkqZy4kNNpcm61Bn6KWZQKV1Yq
-	 E3i8qO9onkEw9ectajvbbjOjWRUl66nmEsSvQFAYO8H6Se2lQM+W52/pv2tmDb/uZ5mnP
-	 G5o27g9a0082GHL0ZmeiF30TUZfJiqqPnSZqOSPn1F/AX2/55IDQvk5pucxo2lA4RsNO1
-	 q+sM1HxiKyaKIeVEK3S+8BUUZy5keecpC6iAOsY83u0zXjH3Xv57CgHPvUuYzbm/EJPor
-	 BSkbGuupGW1NBYQBOAZ2cAQiCFUn+GJ4wg+Qw5rRTbb38fMpN5G+fNykuFdkOq1wbqA==
+	t=1795694790;
+	b=oy3bTdB8CSYF/P9+FQP/4YLT13dvk/CPh/MjBmS+LUu4oCBgjU3kAVOJSRYrfgLjPZeA
+	 QkxlEtaoK9nmdd35SpCQUP6vEcROFOQGijiFINM736tAvfK2oYQRip3jLfbboPARKzulA
+	 r1LE7F+ZnJAIYzB2g17xDfz3PxYBHSlPsKu5lJo9RnP/ZJIre4aLt+DMNz6A9xjjuBRPQ
+	 bfAnBYgzVPUwfmNVINNphOjQ45WVeiHMZG9ul2RsXOXYgD7XwySqdItesk+weGQLE1uT0
+	 Mfnw8gxg/mFPlmNthdi6DgFqGT6KErA4We76OXqR6kaBiKzoFAWTTam8j+YNqAVLOwg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795694762;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
-	 Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=ET482+FU96REcfSjULY+hqVWl0UsLv2hw5FhEXMRTX0=;
-	b=2xLNJVCBxvPxS9SPH2QYdbOTV9uZ1ZyidjxDKAlcgGfXLf81kyiJZGce2zguAjegGpH+
-	 2AcrYW9jN1sGIU1xjxw5Ig6uk2U7dveu/TZrzMLq8a171WXa/1Vef5nh7u40DBqTCUGXa
-	 5BhYJzMO2KuNo/ftfXqy2QXHcIhivr3sVtdIu5/r8gnbqPcrbcme722UXQmNZrYeIE6D/
-	 3dsJgNzhLvLd/zO9i+f0ZXcvDXY/PujQLp6d9O/DcRw4AZYGTVUkR9NQVsKreEJVeU/KR
-	 EJjQbZXz1CkOGPP/pw21mTZBkurAjrzQNFHXwS9aDtABeOzsLLcV8WlFnDmtkLRpvyA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795694790;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:X-ME-Received:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=EDJEdQ1TjvzunefynkN28sXQqGJbavrI+88Tql9ZN6s=;
+	b=pIH7NRqecazSyVtJONSx0YAHOJ4PWyBWeRxm3FLUBNSaUQgHDOfYHShU/rR3oQIm+hrU
+	 vNrRsrH9E2jfbP7Xm5fHKhgEMhcSDRJNvLgGJmvAbos4cOp2licaQ6qAS2N7aaYPIonyI
+	 MJkcJcFdYcEoMPpAFSpv7RgwSGqZyVEJvfxA4sAhuuzjlQM4t4yegxS67uLXBijzbhbJ1
+	 IVzEZvdeQsAa3K9bZ0BmFi+8hFLeYDC2K+fc4UKuW/Lue6TH2B+FIT3wuL/KXuxWFP8nJ
+	 l00zOs63V0V4Qex45L8hCQ3jgZi3Hiy+juZxxL5G2+dOEuOu+pE/OoB9qaGFv0FMfVg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=googlemail.com;
-	spf=pass smtp.mailfrom=googlemail.com;
-	dkim=pass header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=J16wqmFX;
-	arc=none smtp.remote-ip=209.85.221.42
-Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=omNT03bw;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B50A606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:06:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B50A606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=googlemail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=googlemail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70010606A326;
+	Thu, 26 Nov 2026 12:06:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=J16wqmFX
-Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-492fcbfaa88so4617029f8f.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:06:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20260707; t=1795694760; x=1796299560; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ET482+FU96REcfSjULY+hqVWl0UsLv2hw5FhEXMRTX0=;
-        b=J16wqmFX9NzWVbaZDzOFxGfZ8hyWYRi9/AhSrvf07fG/684otvWM2WjvG6kFfpuCRl
-         l+hW/bU2X5hcMn5tn+W+BQB5t2xfWE+EASQHBGWVHJ1vTvXNii7UUa4kvTRHk91HXlO/
-         /xIvAkz4ewVaaPUC9Scj2R+vdJHCyNDW2jJeHME6SPFvPxnZAsLCyq+AmXpuHUn205bK
-         BGCvhVbvB3MMSCxfRTYPucn6P72cjzJJjTzIgFXG/upeG2hbPk9mJMNppdSlDNe1eQcj
-         Q9PGQTnatF6pTly2FL6PSUl8Pi1attOT642oM9winHmxOwr45JaoWmnqdp+bcsQrOe6y
-         4yMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795694760; x=1796299560;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ET482+FU96REcfSjULY+hqVWl0UsLv2hw5FhEXMRTX0=;
-        b=JLV9NEHRSVuAIjBI4isoe/+orNgK4rP0JdeFKI9GZF/JZhvKpoccjtvJtUAj3KhuW8
-         FsJq/CvS+evkqUtzXsaQunYcEoFosCx3ZjcpnekhlGiRifXfz9Y1iUuug/5V+K/920N9
-         qyrFhscl6r3CcowJqXgwxL6a6XcT14YtJ4d4MU+4DxmxYQpIx13dm7nA71sKLgCm0ElW
-         liynhatP2D4EijHzXvHnc3ldeVpojjeqYAqigQSVr0fd0QI74ZhrckpaYrlft78GlS51
-         7XsTaLx+A+Z9+e1zEfWXZDnBNdPNlP9+VqP+twMwfmxxq695DIGGiBu4oTQqZ3meJ/3T
-         mutA==
-X-Forwarded-Encrypted: i=1; AL+hErFLPMYXVxIqi9PWdLaVbYA0MR4KmG64gLhD9V8IGI83la+nafWYGtl9d2qG/r9QrsuAK9K6pmdUlo22UYE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8RCdchIqdFJmbvHgbX+inW3BZtfXiCBY6UC18dH9RLjkMXQmM/
-	VAhEM1KjrrWCgQ+BoQgrOOOqqoXweAnkt8q2NUueJnrAiQuN0OSbuPk=
-X-Gm-Gg: AZFdTZdRWFtYVgjAc+7zERCw8svvfz4Q03Lv+8wJsmxkZbntPgQJDUC08UD9hFYVdY+
-	5eTQTWWwA0RV35IXGVD2oVK6U3ZnwWZQ6ixnoo3pERJP0tOvujjPOM4hoSvwifZgLnHaZg9HL2Y
-	9zJY6e9FQV71kpAjuPreH39v78BPtgN00YFc/1fX/RV03zvuJn2Qg4fzM+B0PUNtrNtGr5AdQsv
-	8kQG6jEzStK30gzfW3YI8VKIYeE5WnH0681yEYfrthtgx00yhmXJ4Mr7yaVv8KSrIJP6ToeXBbH
-	SMjYU+BaCXnGB6RRdFbqKpUOD1IaZkPcvmcOwKmK/Le/HVcLLB8R6FJk/990kudd0vXbcrtuyff
-	K/BBCtH+YoKx7sCqSwBDzxoAtNOhVK1UskCcceHizuLTPZbBwpGnaUndoE1z9O4y9S26b/xp5Z6
-	e+pkkjwPiRM+nWlF47lW/wN9+uorZNUfEChmT1TQVwfS5/VHYVlGbkiGrogMFQhVJKD3sFxVfMu
-	6AHB7aUEmhESehdwCXW4ZSqNgqhU2OXj50mMysuLXLg+gjitmVwyA/G6Lyj3qR3AhiOwcmmJiL/
-	zJx1TrRgiS9I2zh96SwMHI9mJnZSnuUtZD7zsr3W1TmP5F+Yma6X2OwFjSokOVrgPuv11thUOMF
-	XxVCt
-X-Received: by 2002:a05:6000:2685:b0:4bc:9b4e:62c7 with SMTP id ffacd0b85a97d-4bc9b4e64ccmr2749009f8f.45.1795694760016;
-        Thu, 26 Nov 2026 04:06:00 -0800 (PST)
-Received: from [192.168.1.3] (p5b2ac210.dip0.t-ipconnect.de. [91.42.194.16])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb98b4dsm40845334f8f.53.2026.11.26.04.05.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 04:05:59 -0800 (PST)
-Message-ID: <5eecac7a-613f-490c-abf7-7e218807ec2f@googlemail.com>
-Date: Thu, 26 Nov 2026 13:05:58 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=omNT03bw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 899691F000CF;
+	Thu, 26 Nov 2026 12:06:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795694790;
+	bh=EDJEdQ1TjvzunefynkN28sXQqGJbavrI+88Tql9ZN6s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=omNT03bwlyXAEzdJPc15TqhhNsvTZ23Ef2viVK5ZuuLgDQ3+eSPY/AKA+0N8WWaI0
+	 dTDaozngAYkQbZDdD+ntF/PvCQBmTa0E1LrhQy90EaKWbkfWg2NqpE12/4Q3c85jgu
+	 XudscGlS5//4OIM7GZzcT1FfwxbxngQS044emXjROnKFFzGxIfEkXD2FbJDoZ7rIvl
+	 fctjgduZ2UDmg5/bhGMuieCbNLH8JF94xC6CEo0VmuI4MG5D+J9gIwyLSJfIwp1o7Y
+	 jofavUA9NSxqeJBOgjV/dJqiHcKPPmAqZ05HAVBMy5yI83Bk0iGS7BVihBlAvPrzLM
+	 AOgne88Jk5LUA==
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfauth.ams.internal (Postfix) with ESMTP id 29F261980074;
+	Thu, 26 Nov 2026 07:06:24 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-05.internal (MEProxy); Thu, 26 Nov 2026 07:06:26 -0500
+X-ME-Sender: <xms:vyAIa-3m5v1yRqO0vWj2J7VTPhKB5uemSZ4UUbAu43HMhdt3TUueCg>
+    <xme:vyAIa36mZZsZkWSk-oh8K-NZknNIazY2ee5I-q8j-ydH-zASTYxGw3FkFCJ4EYwL6
+    sLQCbHgjafoRfrQ6l409z97PTkyon4_KlEySxAqRw6nMZCowECImJY5>
+X-ME-Received: <xmr:vyAIa_2tkhug_3k7eRKBaKtBcgVEXr9UjyWTJtajmat4AmPjU_LSZW0aiYY>
+X-ME-Proxy-Cause: dmFkZTEG867qwPubLmy7FicciVJmTUol3Qz1f7B791QDJNbzIPzz4f9uomLjIqOPfvH7yO
+    NxswOWJs4mi6y+Sp1R6QB1dEk6JMugZGnH7Bk4gHz9v+wM/uHUtphmdKRHj2GLnxfQNldv
+    yADJr+1oORV73XEU0XfbBxYVi2EGODCQWC8QKV9J+LCHJimcLfSkJVMxo6xJPRLGwUECfh
+    1K4q+WTecykqIdZ09/7sDBJwltqu6nEbu+dBNc3vuT0xlv9d3jjahc5qRXUolaQSTMOMJB
+    p+bRouw6vkuelppkWr6Tn7KnHwPtYDBIIcpk3G+QiV+y0Q3eNRfb8apDO5QVoR2HDzemRp
+    bJxtURZak5+r9R5JFqzDvIx/0Kk9PwEMqCOv+PZXbXzM9AtubbFpNosLUF0PHIFlq39hy8
+    JhESN84RHMhFqs1xxmm/ubbX/eGmKp/fQcEw65PZbJN5kgw2felAiO/Et8I5JqQOt5S4ZN
+    xtoxsIaM1FIuPeLYep2sQ4v6dAMiEmbuHBhN34wNpYEs9pgUUJBtGOFiNT+zkc2xA87myT
+    /lwkrXcEBvn+hrzf4oYt9sI7HRdHz8Un4AELAQJaBaSfa12qo+YHJSSX5lCq/bPM/HN7Je
+    0uNJW21s1xGdrA1XZ1Ep/zCgxlRe02m5KcduzGA/9c4z7LlN3diKQeAUI4Aw
+X-ME-Proxy: <xmx:vyAIayouA2kdHOPuMjktIbnK199eprThX_wqlPcdAEWBzEytF5TSkg>
+    <xmx:vyAIa1XnPKyk3pM6CFL4mOdKN3iJAGie9_hjOCvNMti4OSELm-gPwQ>
+    <xmx:vyAIa3dFD2mZB-2rrDI-NSWhDBkcwHEusbPgmJGICdFORiaOefk9Ng>
+    <xmx:vyAIa2C6XbpgO9CF8EFGX-dc8JTDy9Fcki1cro5kQIQNqnihlODZGA>
+    <xmx:vyAIa23jQzM9hhVggKN5dZEABvfJO1_a9j0DUNBFIq-0bFtlIa_PYFoX>
+Feedback-ID: i10464835:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 26 Nov 2026 07:06:22 -0500 (EST)
+Date: Thu, 26 Nov 2026 12:06:21 +0000
+From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Ilias Apalodimas <ilias.apalodimas@linaro.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>, 
+	Mike Rapoport <rppt@kernel.org>, Tom Lendacky <thomas.lendacky@amd.com>, 
+	Rick Edgecombe <rick.p.edgecombe@intel.com>, Pankaj Gupta <pankaj.gupta@amd.com>, linux-efi@vger.kernel.org, 
+	linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-team@meta.com, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH] x86/efi: Handle EFI_UNACCEPTED_MEMORY in
+ do_add_efi_memmap()
+Message-ID: <awggd5bP1Yg7qgRQ@shutemov.name>
+References: <20261125173338.1250080-1-kas@kernel.org>
+ <2c075daa-978b-4efc-bb36-736909ec5ff6@app.fastmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,117 +92,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH 6.18 000/990] 6.18.66-rc1 review
-Content-Language: de-DE
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org,
- Christian Brauner <brauner@kernel.org>
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
- conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
- achill@achill.org, sr@sladewatkins.com
-References: <20261125143822.072087159@linuxfoundation.org>
-From: Peter Schneider <pschneider1968@googlemail.com>
-In-Reply-To: <20261125143822.072087159@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2c075daa-978b-4efc-bb36-736909ec5ff6@app.fastmail.com>
 
-Hi Greg,
+On Thu, Nov 26, 2026 at 12:29:30PM +0100, Ard Biesheuvel wrote:
+> 
+> 
+> On Wed, 25 Nov 2026, at 18:33, Kiryl Shutsemau (Meta) wrote:
+> > The EFI stub reports unaccepted memory to the kernel as E820 RAM.
+> > do_add_efi_memmap() has no case for EFI_UNACCEPTED_MEMORY and adds the
+> > same range again as E820_TYPE_RESERVED. e820__update_table() resolves
+> > the overlap in favour of the reserved type, so the kernel never uses
+> > the range.
+> >
+> > do_add_efi_memmap() runs when soft reservation is enabled and the
+> > firmware marks any conventional memory EFI_MEMORY_SP; that takes no
+> > command-line option. It also runs with the add_efi_memmap boot
+> > parameter. A TDX or SEV-SNP guest booted either way loses the memory the
+> > firmware left unaccepted, and it does not show up in MemTotal.
+> >
+> > Add unaccepted memory as RAM, as the stub does. Without
+> > CONFIG_UNACCEPTED_MEMORY the kernel cannot accept it, so keep it
+> > reserved there.
+> >
+> > Fixes: 745e3ed85f71 ("efi/libstub: Implement support for unaccepted memory")
+> > Reported-by: Mike Rapoport <rppt@kernel.org>
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+> > ---
+> > Build-tested only, with and without CONFIG_UNACCEPTED_MEMORY.
+> >
+> >  arch/x86/platform/efi/efi.c | 6 ++++++
+> >  1 file changed, 6 insertions(+)
+> >
+> 
+> Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+> 
+> I can take this via efi/urgent if desired.
 
-Am 25.11.2026 um 15:22 schrieb Greg Kroah-Hartman:
-> This is the start of the stable review cycle for the 6.18.66 release.
-> There are 990 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
-
-6.18.66-rc1 builds and boots on my machine (2-socket Ivy Bridge Xeon E5-2697v2 server), but I get a warning message in 
-the dmesg output:
-
-[    7.686067] ------------[ cut here ]------------
-[    7.686073] WARNING: CPU: 19 PID: 454 at fs/libfs.c:495 offset_readdir+0x1ae/0x1d0
-[    7.686081] Modules linked in: i2c_algo_bit ehci_hcd libahci scsi_transport_sas i2c_smbus lpc_ich dca wmi
-[    7.686093] CPU: 19 UID: 0 PID: 454 Comm: (udev-worker) Not tainted 6.18.66-rc1+ #1 PREEMPT(voluntary)
-[    7.686096] Hardware name: ASUSTeK COMPUTER INC. Z9PE-D16 Series/Z9PE-D16 Series, BIOS 5601 06/11/2015
-[    7.686100] RIP: 0010:offset_readdir+0x1ae/0x1d0
-[    7.686103] Code: c1 2e e8 b5 75 ce 00 84 c0 0f 84 ae fe ff ff be 03 00 00 00 4c 89 ef e8 60 9d ca 00 48 89 c3 48 85 
-c0 74 0a f6 40 03 08 75 9b <0f> 0b eb 97 49 c7 44 24 08 ff ff ff 7f e9 81 fe ff ff e8 cb 44 cd
-[    7.686106] RSP: 0018:ffffd0914e18fa98 EFLAGS: 00010246
-[    7.686108] RAX: ffff8e884bcbe540 RBX: ffff8e884bcbe540 RCX: 0000000000000000
-[    7.686110] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
-[    7.686112] RBP: ffffd0914e18fb18 R08: 0000000000000000 R09: 0000000000000000
-[    7.686113] R10: 0000000000000000 R11: 0000000000000000 R12: ffffd0914e18fb60
-[    7.686115] R13: ffffd0914e18fa98 R14: ffff8e884ba57930 R15: ffff8e884ba57898
-[    7.686116] FS:  0000707f469e7980(0000) GS:ffff8ea8042e1000(0000) knlGS:0000000000000000
-[    7.686118] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-[    7.686120] CR2: 000064a69e409f28 CR3: 00000020888cc004 CR4: 00000000001706f0
-[    7.686123] Call Trace:
-[    7.686126]  <TASK>
-[    7.686130]  iterate_dir+0xbe/0x240
-[    7.686148]  __x64_sys_getdents64+0x76/0x110
-[    7.686151]  ? __pfx_filldir64+0x10/0x10
-[    7.686153]  x64_sys_call+0x1cf7/0x2350
-[    7.686157]  do_syscall_64+0x82/0xec0
-[    7.686163]  ? policy_nodemask+0x127/0x1c0
-[    7.686168]  ? count_memcg_events+0xd7/0x1a0
-[    7.686172]  ? __mod_memcg_lruvec_state+0xd2/0x1f0
-[    7.686174]  ? __lruvec_stat_mod_folio+0x8c/0xf0
-[    7.686177]  ? set_ptes.isra.0+0x3b/0x90
-[    7.686181]  ? do_anonymous_page+0x106/0x990
-[    7.686185]  ? ___pte_offset_map+0x1c/0x180
-[    7.686188]  ? __handle_mm_fault+0xb55/0x1020
-[    7.686192]  ? count_memcg_events+0xd7/0x1a0
-[    7.686194]  ? handle_mm_fault+0x26c/0x380
-[    7.686197]  ? do_user_addr_fault+0x2f8/0x860
-[    7.686201]  ? irqentry_exit_to_user_mode+0x2e/0x320
-[    7.686204]  ? irqentry_exit+0x43/0x50
-[    7.686215]  ? exc_page_fault+0x90/0x1b0
-[    7.686217]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
-[    7.686230] RIP: 0033:0x707f4751b623
-[    7.686232] Code: 8b 05 f1 87 10 00 64 c7 00 16 00 00 00 31 c0 eb 9e e8 51 05 04 00 90 b8 ff ff ff 7f 48 39 c2 48 0f 
-47 d0 b8 d9 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 05 c3 0f 1f 40 00 48 8b 15 b9 87 10 00 f7 d8
-[    7.686234] RSP: 002b:00007ffd481402f8 EFLAGS: 00000293 ORIG_RAX: 00000000000000d9
-[    7.686237] RAX: ffffffffffffffda RBX: 000064a69e401ef0 RCX: 0000707f4751b623
-[    7.686238] RDX: 0000000000008000 RSI: 000064a69e401f20 RDI: 000000000000001a
-[    7.686239] RBP: 000064a69e401f20 R08: 0000707f47624ac0 R09: 0000000000000001
-[    7.686241] R10: 0000000000000000 R11: 0000000000000293 R12: 000064a69e401ef4
-[    7.686242] R13: fffffffffffffe90 R14: 0000000000000000 R15: 0000000000000000
-[    7.686245]  </TASK>
-[    7.686246] ---[ end trace 0000000000000000 ]---
-
-
-I didn't do a bisect this time, but looked at the changes to fs/libfs.c
-
-You pulled in all three from this patch series:
-
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=66a52b662e5c09c7e784d2656e0b7ab14b396a8f
-
-which are
-
-65fabd95dd9c89667a09ca3d11e99a40649c8435 libfs: make i_rwsem the lock of the offset tree
-0db6cbb65261dd574ba1db1a607b50f488629556 libfs: end offset readdir at positions past DIR_OFFSET_EOD
-c10108a3b99ad2c0728d77c348d0ce05561de636 libfs: walk offset directories in offset order
-
-but from these, only "libfs: make i_rwsem the lock of the offset tree" was "Cc: stable@vger.kernel.org # v6.14+". I 
-wonder why you pulled in the other two?
-
-
-So I reverted the other two, built and booted it, and that made the warning message disappear.
-
-I see you have all three in the current 7.3.7-rc1 too, and in the current 6.12.120-rc1, you have only "libfs: end offset 
-readdir at positions past DIR_OFFSET_EOD" which was not CC:stable, so you might want to look into that, too.
-
-Beste Grüße,
-Peter Schneider
+It is not urgent on my part. It can wait the next merge window, unless
+someone else needs it now.
 
 -- 
-Climb the mountain not to plant your flag, but to embrace the challenge,
-enjoy the air and behold the view. Climb it so you can see the world,
-not so the world can see you.                    -- David McCullough Jr.
-
-OpenPGP:  0xA3828BD796CCE11A8CADE8866E3A92C92C3FF244
-Download: https://www.peters-netzplatz.de/download/pschneider1968_pub.asc
-https://keys.mailvelope.com/pks/lookup?op=get&search=pschneider1968@googlemail.com
-https://keys.mailvelope.com/pks/lookup?op=get&search=pschneider1968@gmail.com
+  Kiryl Shutsemau / Kirill A. Shutemov
