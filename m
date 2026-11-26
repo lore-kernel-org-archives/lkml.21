@@ -1,61 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705523;
-	b=kSjHYJTfmET6KRtoqUZ5s0/zHgPDiPwgUsk7SRxlPngYuf6PfdQy8JXmDk2N/L3ed3TB
-	 xB6vGr7maVsae2hCPav/cHvELkfoXPxOioMLtWeE2KPQjd/MMQE9yggKuXOpshLrguTE8
-	 WWCzI80lyoY43rYwBv+Egyfl5zrVdufZHprMdgBAaiNYEPMNDkGnccnnXu6oPUWuN7Khs
-	 m4HUKoUSymXlu/fRhJq05HriIq01SQGMpeSgb914WDKDaR555E7gHTu4BLiOqsjsS5sDY
-	 WCPtqGyShZoOrPzEdnta4kMNQjun0zhn+nLgEsYP8KyCP+R4uQdF4ARfsC6Ap6UyNBQ==
+	t=1795705573;
+	b=cBCYpyDq0fxAO/Q48y8yW+hAKcPo7JgdVYg227NIvU5trX6OMCckoap42TASCrzddYO2
+	 s8tHyUqC+Z73eAVE76WgClZY6JT1AkhEnByw+3qPiO/q7UoY4svWedlTPH25mgPCZRGuJ
+	 HS7n7cOzxPQLgrW9aVVRegokf9lJa85fPK9XisVFsUA6oZURi7AOYlfAzUjqtdpaZjaVU
+	 bjmkE4v2JblCdTks9nzgWdT3zQcyyKIOQ6d0yq9mUBcx5LxkMXF1MV7YOQDTnMdmRfgyv
+	 EqTS1zRvu/aP0iy1tEwKE9cydE28DkdUedoeymNp30rAIoULckFjxRnQzx5dGDIYBGA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705523;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=YvokoAOy0a19UX4sPsknIKqr7EAtQvmA6miF4Jks09k=;
-	b=CKIGnSH8/QgAY3Mwq1LXlG+oEouB3XvpiD9L6dxLFWC9KTOinhNuRom2TouHaHk0E4eE
-	 7bvb/nVEYlqqFch8eZcmDyJ6ad8cdGCuaz5Vzb/OhxcwAUUXHOsHNxBtVzYbKVBtp4oX4
-	 NfoHlFypLAEWaW0G/rZUQQxHRGU+EIxJmd+gRBAixsbNbqGX+Cnkq0+Bh6j/g5UzTlDuT
-	 w5Tx5+1/3s9vQn4g6d0tsC5YCNmEXm6AQrC602WJBfCRwtuK1hqS4dxG//HmLn46YPtDW
-	 0YYiEhvTYcUISGMb4Rv27R/fQeRpfOBAfibiSCTGNvPL+YzC65q6i0t0JgYbRn4LT8Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705573;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:X-Google-Original-From:Date:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ArVfh1wsf+Kth2ceemwq0MhxiQP2TwBL9XnUiqzbYq0=;
+	b=KYHwYR/IcPkiFjvVK4zgr6jSwuBsPoH1nDdw6zmhmvMOnITrvBKV71IMba6xkj5FJtfj
+	 /eeJbRqru3gToIPAWofS8OiiS7ot1rFrNi9fF9ZIyF85N0e27K7mxAs94SteRmkYjJRVS
+	 UlWRBTchucWbyjwFxkTDfqODDgl8/WIShv+XZAwpb6aj6HmPR2JQ9KAWxXDaXX2XRxqcM
+	 Q7y2eKZEuum7iSTEG5BRHk8cL7JUwTyH3RDy/pXDtSZEs5du8kXAnHZvf0bYRSxj1rSZp
+	 09Ry5CP2q7fOzwhzS/ygZGXnGhczr45TeUsb6VK1Bxdb6nxebxNzBHPa4pZD3I1mZGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gc4DXHdS;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=dZrmxiRN;
+	arc=none smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98663606A31E;
-	Thu, 26 Nov 2026 15:05:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13882606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:06:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13882606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gc4DXHdS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38AB81F000EE;
-	Thu, 26 Nov 2026 15:05:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795705523;
-	bh=YvokoAOy0a19UX4sPsknIKqr7EAtQvmA6miF4Jks09k=;
-	h=Date:From:To:Cc:Subject;
-	b=Gc4DXHdSsRwBXnY6NwergtTyQQBnGKfvOth1sIUoreLWYs0OnQg532RdHZZQE3Pd8
-	 PiU1ALzV520yASfkRKhct541c6kMUNJHx/7UG+4smgE0pg0ezm1eUNsYh5wVxLOXWW
-	 FR1sYckpkcOMpaWK2Cxo5rNSq6pL0jq0LGoCX3g0gAiytgWN+A7w36j7UjU34mOi17
-	 bAuZrO59ADsM3TEfROoRIg3L2RXfn+Nc7Zx1XFagQmaweH3qS7WOty59t7HtYlKEsL
-	 0C5qxEjUR35zLdQTvg4rnkY297Tfq/486MLPYnt0RGowR2k1nkFU4Sc7M+oKzhrzE4
-	 qjARVPE54oBfA==
-Date: Thu, 26 Nov 2026 15:05:16 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Thomas =?iso-8859-1?Q?Hellstr=F6m?= <thomas.hellstrom@linux.intel.com>,
-	DRM XE List <intel-xe@lists.freedesktop.org>
-Cc: Daniele Ceraolo Spurio <daniele.ceraolospurio@intel.com>,
-	Dave Airlie <airlied@redhat.com>,
-	Dnyaneshwar Bhadane <dnyaneshwar.bhadane@intel.com>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Matthew Auld <matthew.auld@intel.com>,
-	Matthew Brost <matthew.brost@intel.com>,
-	Matt Roper <matthew.d.roper@intel.com>,
-	"Michael J. Ruhl" <michael.j.ruhl@intel.com>,
-	Raag Jadav <raag.jadav@intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>
-Subject: linux-next: manual merge of the drm-xe tree with the origin tree
-Message-ID: <awhKrF41vLIOFkKf@sirena.org.uk>
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=dZrmxiRN
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4a1fbd52ab6so48694225e9.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:06:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795705571; x=1796310371; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ArVfh1wsf+Kth2ceemwq0MhxiQP2TwBL9XnUiqzbYq0=;
+        b=dZrmxiRNELCK7pidOeGv4MJJl/V6zvRCFFnhZ4gc4PHktWahW6j1A81Kjd27oOWOz3
+         WrMIKFApx+hWYq9zbI0oMt1hOPP5UCS1WSE9icu5bhfBrFPpToHOEjj08zNmqm121UqT
+         6M2HkxkmudOobxgqZ+Lf75RFxYp6bn/BDcrbEJMaBeHvGvlpBL4geJawp16opRIkETCJ
+         K+A6SbvI686YrcVn0CkcFEFjQzXPlwQuoJ8DNhHYMQQfekhomo9p1dhMTjyobcpCB4Z0
+         bz+l1RJAJZl+MrIkrU6fwaLsqmtob0rTr77zjvJk73fQ6sG1Di+iRkESMybWgMVPdl/h
+         BieQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795705571; x=1796310371;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ArVfh1wsf+Kth2ceemwq0MhxiQP2TwBL9XnUiqzbYq0=;
+        b=uvwoVX3r/q3Rfo7Rw6XafqXPwT4Cggi3nExBuP6DcZL8UvrfNXJOXtgYaAZAQ9G3qX
+         7DDQ57w1Aa3EmTv7QcWHy+Dlj71+w+//272fgvvoXMXxeiucyNKxZdYxmiS0coOUMiht
+         /EaMxaUQt+0b7pyZ25vdKTdQ542Ke1qaKOXQjiGllN/e8Fqdd7f2D18I44ZJmP6dh19B
+         1FrTxfHSDR49ZhRg3QJCAEPdQo8CeS/uQ9zolxa4GUdhhg7hqzvwGlP1XFQrA9j6iB5l
+         rGxxCr1dS+rZNJ1GJusRZWplmaxYT6RZ+z0dRSkxA6CIwYoCrP8gYrZCt5MfpLy/Nrts
+         p3JA==
+X-Forwarded-Encrypted: i=1; AL+hErF7g3SMKPoR0k/xIXFy44q3Rl3iiirMP6g7G4+XfH2Z6egesAXhoHs6o1E72FCoRoOBpPsprmKuR8glbQA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9eYS1IljgjJCa6keTq7ByrOxFSdH7n7V2cCa0CBEoVdt7xOSUT
+	Wmv4qsyL69y6f1rSyyBO6n41sLsbhHM0S6LOxF1hjktf6j3SGgTutVRogUI06ADZ7vk=
+X-Gm-Gg: AZFdTZcvhE+sfmCM1mHyoTsgzpEj5QsZ4oJ2/Fd7oRkBfwAQDYkJXHWwUXj0az+D4CZ
+	jpWRXuUF22xtjrgCY5BLXDxs1Kys14K/OBoyS93ar8u45n7jbGD7aLWugoeJqLgCJoopRBjHNtm
+	9prnCH/t8pSzQ9GA4m3Z2KqwKaV+uOK5J3vjoRKDCE+6VSypJx8ulweYt2U4pebY7b18sEMCCKc
+	cEd4RC5DBPbL0dabHCXOvt8jCQGwO1Gn96lrDOtwCRVED1+gWnU8lz3Z9MDHyE/wceXRk+sAGQ5
+	twVt2wNHP08kyCgitx/b5Gt32kfhEnXye4ja81MgdwcGDF52fU9k8Hhr3XlkNHm9v0bFQB4VtNp
+	TnftyCzas8VCLwt8rVrUgq+MRTPx21X3Wbnkdpst8IyrDZpOKYlCx4vuAwAOFhqIu0etl7ZMEyD
+	eNBdA3h5UlOu/CARpIKNbiMhSYCZZ4Z8o0MeXumg0lHdkxjleALSQ0xx14M4tkjC79TjF85Ppx3
+	7b2rUAIbxtwUVZSSZ2uRPz7iH4PPBwX0mvY5pWyKLotYokyeS8vVZpcazNFsFZWKjTHiY3+njwP
+	dUWW+OSkPEoRsKKoQS1fMyVzaqoB
+X-Received: by 2002:a05:600c:8287:b0:4a1:6992:f861 with SMTP id 5b1f17b1804b1-4bb887e064dmr436496855e9.1.1795705571098;
+        Thu, 26 Nov 2026 07:06:11 -0800 (PST)
+Received: from localhost ([195.94.148.180])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb9067846esm415663915e9.4.2026.11.26.07.06.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 07:06:10 -0800 (PST)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Thu, 26 Nov 2026 16:10:10 +0100
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	dmaengine@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Saenz Julienne <nsaenz@kernel.org>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Dom Cobley <popcornmix@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 06/28] dt-bindings: dma: brcm,bcm2835-dma: Document
+ dma-channel-mask and DREQ flags
+Message-ID: <awhL0itLEAIsK4HR@apocalypse>
+References: <20261123145728.29082-1-andrea.porta@suse.com>
+ <20261123145728.29082-7-andrea.porta@suse.com>
+ <e2d27b2e-db69-4fac-b7f3-28961a9e094c@gmx.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,178 +114,107 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="euPJhX6bzYrQgnGb"
-Content-Disposition: inline
-
-
---euPJhX6bzYrQgnGb
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <e2d27b2e-db69-4fac-b7f3-28961a9e094c@gmx.net>
 
-Hi all,
+Hi Stefan,
 
-Today's linux-next merge of the drm-xe tree got a conflict in:
+On 18:49 Mon 23 Nov     , Stefan Wahren wrote:
+> Hi Andrea,
+> 
+> Am 23.11.26 um 15:56 schrieb Andrea della Porta:
+> > The available channels are currently described by the vendor specific
+> > brcm,dma-channel-mask property, while the generic dma-channel-mask
+> > property from dma-common.yaml carries exactly the same information.
+> > Allow the generic property and mark the vendor one as deprecated,
+> > requiring at least one of them, so that device trees can provide both
+> > for compatibility with older kernels.
+> > 
+> > The single specifier cell is also not limited to the DREQ number: the
+> > driver interprets some of the upper bits as per-channel flags (AXI
+> > priorities, wide accesses, burst and write-response handling). Document
+> > the meaning of those bits.
+> > 
+> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> this patch should before the bcm2835-dma patches which modify the dma-cell
+> behavior.
 
-  drivers/gpu/drm/xe/xe_device.c
+Ack.
 
-between commits:
+> > ---
+> >   .../bindings/dma/brcm,bcm2835-dma.yaml        | 26 ++++++++++++++++---
+> >   1 file changed, 23 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml b/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
+> > index c9b9a5490826..f619e395cf0d 100644
+> > --- a/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
+> > +++ b/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
+> > @@ -37,15 +37,30 @@ properties:
+> >       maxItems: 16
+> >     '#dma-cells':
+> > -    description: The single cell represents the DREQ number.
+> > +    description: |
+> > +      The single cell contains the DREQ number in bits 0-4, optionally
+> > +      combined with the following per-channel flags:
+> > +        bits 16-19: AXI priority
+> > +        bits 20-23: AXI panic priority
+> > +        bit 24: use wide (128-bit) source reads
+> > +        bit 25: use wide (128-bit) destination writes
+> > +        bit 27: do not wait for AXI write responses
+> > +        bit 28: wait for outstanding writes before signalling completion
+> > +        bit 29: do not pause the channel when the debug signal is asserted
+> > +        bit 30: use multi-beat bursts
+> No strong opinion, but mixing DREQ number with per-channel flags is ugly
 
-  7539edbca32d6 ("drm/xe/pat: Return error from xe_pat_init_early() on unkn=
-own platform")
-  8801081e5991e ("drm/xe/gt: Use GT ordered workqueue for wedging")
-  402567ac0875b ("drm/xe: Drop xe_device_set_wedged_method()")
-  031cc955b33b0 ("drm/xe: Move xe_device_wedged_fini() registration to xe_d=
-evice_probe_early()")
-  b828d2b7326b5 ("drm/xe: Make xe_device_declare_wedged() IRQ safe")
-  72296e02b46a3 ("drm/xe/hwmon: Unregister hwmon before the device is unplu=
-gged")
+I agree it isn't pretty, but it is the encoding the downstream DTBs have been
+using for years. Switching to #dma-cells = <2> (or introducing new exotic properties)
+would mean supporting both formats in the driver: I'm trying to play nice here in
+order to not break compatibility with downstream DTBs, which I think should be wise.
+The header I'll add in v4 with the definitions for these flags at least makes the
+device trees readable.
 
-=66rom the origin tree and commits:
+> >       const: 1
+> > +  dma-channel-mask:
+> > +    maxItems: 1
+> > +
+> I think, the dma-channel-mask stuff should be a separate change.
 
-  2c0f72dd1483f ("drm/xe: run compute rebind worker on device NUMA node")
-  f8bb5c0459f4d ("drm/xe: Add a userptr repin timeout sysfs attribute")
-  3b4cc31db4407 ("drm/xe/vsec: Support late bind fw information")
-  344b7ec704ee0 ("drm/xe/vsec: Update VSEC probe order")
-  6bae3d8f56944 ("drm/xe/hwmon: Unregister hwmon before the device is unplu=
-gged")
-  17615c99ccc8e ("drm/xe/wopcm: Use the size from HW when excluding the wop=
-cm range from GGTT")
-  61df0d1929e7e ("drm/xe: Add a per-client debugfs file reporting bo NUMA n=
-ode distribution")
+Ack.
 
-=66rom the drm-xe tree.
+Regards,
+Andrea
 
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
-
-diff --combined drivers/gpu/drm/xe/xe_device.c
-index 8148c66eb7da9,36693df655941..0000000000000
---- a/drivers/gpu/drm/xe/xe_device.c
-+++ b/drivers/gpu/drm/xe/xe_device.c
-@@@ -8,7 -8,9 +8,9 @@@
-  #include <linux/aperture.h>
-  #include <linux/delay.h>
-  #include <linux/error-injection.h>
-+ #include <linux/nodemask.h>
-  #include <linux/units.h>
-+ #include <linux/workqueue.h>
- =20
-  #include <drm/drm_client.h>
-  #include <drm/drm_gem_ttm_helper.h>
-@@@ -127,6 -129,8 +129,8 @@@ static int xe_file_open(struct drm_devi
-  		put_task_struct(task);
-  	}
- =20
-+ 	xe_debugfs_client_add(file);
-+=20
-  	return 0;
-  }
- =20
-@@@ -387,6 -391,9 +391,9 @@@ static void xe_device_destroy(struct dr
-  	if (xe->preempt_fence_wq)
-  		destroy_workqueue(xe->preempt_fence_wq);
- =20
-+ 	if (xe->rebind_wq)
-+ 		destroy_workqueue(xe->rebind_wq);
-+=20
-  	if (xe->ordered_wq)
-  		destroy_workqueue(xe->ordered_wq);
- =20
-@@@ -437,6 -444,10 +444,10 @@@ struct xe_device *xe_device_create(stru
-  	if (err)
-  		return ERR_PTR(err);
- =20
-+ 	xe->userptr_repin_timeout_ms =3D num_online_nodes() > 1 ?
-+ 		XE_USERPTR_REPIN_TIMEOUT_MS_NUMA_DEFAULT :
-+ 		XE_USERPTR_REPIN_TIMEOUT_MS_DEFAULT;
-+=20
-  	return xe;
-  }
-  ALLOW_ERROR_INJECTION(xe_device_create, ERRNO); /* See xe_pci_probe() */
-@@@ -516,10 -527,11 +527,11 @@@ int xe_device_init_early(struct xe_devi
- =20
-  	xe->preempt_fence_wq =3D alloc_ordered_workqueue("xe-preempt-fence-wq",
-  						       WQ_MEM_RECLAIM);
-+ 	xe->rebind_wq =3D alloc_workqueue("xe-rebind-wq", WQ_UNBOUND, 0);
-  	xe->ordered_wq =3D alloc_ordered_workqueue("xe-ordered-wq", 0);
-  	xe->unordered_wq =3D alloc_workqueue("xe-unordered-wq", WQ_PERCPU, 0);
-  	xe->destroy_wq =3D alloc_workqueue("xe-destroy-wq", WQ_PERCPU | WQ_MEM_R=
-ECLAIM, 0);
-- 	if (!xe->ordered_wq || !xe->unordered_wq ||
-+ 	if (!xe->ordered_wq || !xe->unordered_wq || !xe->rebind_wq ||
-  	    !xe->preempt_fence_wq || !xe->destroy_wq) {
-  		/*
-  		 * Cleanup done in xe_device_destroy via
-@@@ -934,6 -946,10 +946,10 @@@ int xe_device_probe(struct xe_device *x
-  	override_has_cached_pt(xe);
- =20
-  	for_each_tile(tile, xe, id) {
-+ 		err =3D xe_tile_wopcm_init(tile);
-+ 		if (err)
-+ 			return err;
-+=20
-  		err =3D xe_ggtt_init_early(tile->mem.ggtt);
-  		if (err)
-  			return err;
-@@@ -1086,18 -1102,18 +1102,18 @@@
-  	if (err)
-  		goto err_unregister_display;
- =20
-+ 	xe_vsec_init(xe);
-+=20
-  	xe_debugfs_register(xe);
- =20
-  	err =3D xe_hwmon_register(xe);
-  	if (err)
-- 		goto err_unregister_display;
-+ 		goto err_unregister_vsec;
- =20
-  	err =3D xe_i2c_probe(xe);
-  	if (err)
-  		goto err_unregister_hwmon;
- =20
-- 	xe_vsec_init(xe);
--=20
-  	err =3D xe_sriov_init_late(xe);
-  	if (err)
-  		goto err_unregister_hwmon;
-@@@ -1112,6 -1128,8 +1128,8 @@@
- =20
-  err_unregister_hwmon:
-  	xe_hwmon_unregister(xe);
-+ err_unregister_vsec:
-+ 	xe_vsec_remove(xe);
-  err_unregister_display:
-  	xe_display_unregister(xe);
-  	drm_dev_unregister(&xe->drm);
-@@@ -1122,6 -1140,7 +1140,7 @@@
-  void xe_device_remove(struct xe_device *xe)
-  {
-  	xe_hwmon_unregister(xe);
-+ 	xe_vsec_remove(xe);
-  	xe_display_unregister(xe);
- =20
-  	drm_dev_unplug(&xe->drm);
-
---euPJhX6bzYrQgnGb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsISqsACgkQJNaLcl1U
-h9DPKgf8Dc97/sBDlroQt5qpU1AjJCB57ogqv6GJwWZdDY54WAD55YyCQlcZxj3P
-pj/o3PEmxjs7D8VbSRqw2+9BAKyTt7RbTI1F1MveWzDO3BnkbkNK6DFdU4ii/8bW
-RumJvyv08S7xBs8cTvv6vF6A66//v5jh4meyY8tOftBBlW3ibrKbkgicRGiy7BD8
-YV630hh9OAnRwcGY3kZjCs8Ok4HgzsDPw9CfUgviEaCa88vJH0otEsSAqf/o8ZWo
-Ih6IxvNiA6qq14g8KtNhSOt+lje9c+zabkEuCZ7pulWgqjkUjU0mr7GMt7sVH1kQ
-eP/1tt8Sla6O2rPSYr4Eevs8u2V69g==
-=nddl
------END PGP SIGNATURE-----
-
---euPJhX6bzYrQgnGb--
+> 
+> Best regards
+> >     brcm,dma-channel-mask:
+> >       $ref: /schemas/types.yaml#/definitions/uint32
+> > +    deprecated: true
+> >       description:
+> >         Bitmask of available DMA channels in ascending order that are
+> >         not reserved by firmware and are available to the
+> >         kernel. i.e. first channel corresponds to LSB.
+> > +      Use the generic dma-channel-mask property instead.
+> >   unevaluatedProperties: false
+> > @@ -54,7 +69,12 @@ required:
+> >     - reg
+> >     - interrupts
+> >     - "#dma-cells"
+> > -  - brcm,dma-channel-mask
+> > +
+> > +anyOf:
+> > +  - required:
+> > +      - dma-channel-mask
+> > +  - required:
+> > +      - brcm,dma-channel-mask
+> >   examples:
+> >     - |
+> > @@ -96,7 +116,7 @@ examples:
+> >                           "dma14",
+> >                           "dma-shared-all";
+> >           #dma-cells = <1>;
+> > -        brcm,dma-channel-mask = <0x7f35>;
+> > +        dma-channel-mask = <0x7f35>;
+> >       };
+> >   ...
+> 
