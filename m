@@ -1,54 +1,63 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795672288;
-	b=mpHrjniLHGIHjyPG+VHLcdJHZ555YizZKVX5fxXtQHQ/Po4Ku6x+H2eCL/mbYu1WOhcx
-	 /E066Ijrn15LzfklvINDbxHn3c70yb3NfogYH5hNrzwVuVITxQcIOWDc4V05hRspI7s/y
-	 kqUt+VYStXNUHnM5kPd4J1EVfijX8T26uJVOSOkS90BojaHNEbcrcqHE5At3mBjyWo67A
-	 ZjNF9asUsfiBWzaAgx96dJkMBQoPqak02J1t685aG1Je8Yvk2/klR8wrW3DOq3r+XtLpl
-	 iUnlHrLClAJB+NqJU7Y8L2E+oLUWboKxdPyK85+jFrScBhOQTA5LE1Bc7Jzehm+X5Zw==
+	t=1795672319;
+	b=j1J/GzoWq8PsGDnpGorph8tan6LGPmFLD2EJti7Yf50nHjG+/wYWRnm9BrdIumtsHiZG
+	 pZEOBiUciO7N6s1Zjxjk+LADOS1G1xw+nflzA3/6Jx6H/+UQXu1tDKYMc39sh5/w8qq6m
+	 FeZv9HXMAglbfdwe7P3YfZEyPO3A/yutDaE8GS1oq9YG5lVLZotiV6ZV3+n4MmzGOqo7j
+	 BIYGOT/TUOaV8ExUpj+L0dz2E6eSMGjMgYUIcOQQCHbgRaHQy0ZdsDawvrUjZ7S86tRyE
+	 yIg0igObk+bfge1oUeuAl7rRg6EbMqcVLa3DcIxpQ3rxlti2OXLuq4cahaG9eU7T6ng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795672288;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=HoLbLq9QRldxYKWRHOssa33uAoW/e56PGP4SD+reeog=;
-	b=NOXA7kxR4z8X3qOcVbfWbC/uMaSI5k5bvpqrfxfznbuX5Mg2p9cRw/anLv77ViWAtF8x
-	 8m0Hn7/gHcf170EEm2tCk9WXE/6ihRZh6Nn+QntG01xhSYKOgYRfI0O6/xbJTx5f1C4ld
-	 iCi/qNgumL3hck3sqGeQBlIVWSblIkcAof77tGvOsk0r6InzGzvH2bJfHVGfvIPsRZybo
-	 3YhVEY+UpU5GjcymKo6QEKZ7bZzRhYYulMYt+NUmrLiSVWs5dpLB+AP2WaBxpbh4V4bXc
-	 GZTtFPWQlOk7aHjh1WM9vMR1AIJRYYKs+dwEH+fHZdvI6ipk+3w6zusu52B1NQCdsNQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795672319;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=JbegetZtdMJY0UH56qsA+4py+WjtuP90DgylLUgZa9w=;
+	b=4fwhUpMn4HYjskHRRsDn0F62S+Zy5w0N2mbEs1b2CXmg0dYuQRr/a9bpVsCnJ4rMJ1Uk
+	 2lJTmbIBAF4kbIWy6oNtvvBYTLl/v2LVkgSQUWa5ymOtaAibu1T60qP5/1Fft9ImbpsDx
+	 0AcKwwtVIt89AnIiYPslrh4SRt26JBtHrBYOZfglvOcFlOpXvJdheo6KXRFSggMOT6V4q
+	 TwOqSFA5wTXO9dpcRy3gwwcFhBvnV0dqtaL6Q7Io7UnXwuhvhDokCkopddWGujUN5Zp/s
+	 DXJCAxJsS9QJ8kgH/LuMfMr8tvW8vWrOq//G4EuM+V6czM5jMpLhShX199ydBoljerw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f73SdHy9;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mB1zVfI+;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEB66606A31C;
-	Thu, 26 Nov 2026 05:51:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F189606A31C;
+	Thu, 26 Nov 2026 05:51:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f73SdHy9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 003491F000C0;
-	Thu, 26 Nov 2026 05:51:26 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mB1zVfI+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 178B71F000CA;
+	Thu, 26 Nov 2026 05:51:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795672287;
-	bh=HoLbLq9QRldxYKWRHOssa33uAoW/e56PGP4SD+reeog=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=f73SdHy9CCJq8yaqchYXKUPuqXhIwtGpTwM5Flzz32zbBGS+kKUMDZNXF/Gqut5bj
-	 QmGz401hBQ23fJt4MWBqoAkxEIXKhcgau7G452Hxs7V7ozg6Wr9YrvluKSC2/+L9VZ
-	 b5QvS+NcTBtDq3lCjVHV3MLRL7bTZYMCY4LEFNKiKofBfl5+OW0OVXHnclTVFsIUK1
-	 SVXRMXG6N3cg4t1Gb3ttj3Wqtt+FmQq/0v+e6aLeUxYMGWhHcYW2mPeG2gtvnmp3ep
-	 5yxBJcAN/jREAe+mDKz6AiauRNixfUFxTOcA7pb1S4/41SA2fON+5+K7OZUdgWCx8n
-	 PD9Ub5ycnMLUQ==
-Date: Wed, 25 Nov 2026 21:51:25 -0800
-From: "Peter Chen (Qualcomm)" <peter.chen@kernel.org>
-To: Xu Yang <xu.yang_2@oss.nxp.com>
-Cc: gregkh@linuxfoundation.org, alexander.shishkin@linux.intel.com,
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
-	jun.li@nxp.com, imx@lists.linux.dev
-Subject: Re: [PATCH] usb: chipidea: stop asynchronous work before destroying
- roles
-Message-ID: <awfI3W8NDmuasHEE@hu-petche-lv.qualcomm.com>
-References: <20261112092556.2747348-1-xu.yang_2@oss.nxp.com>
+	s=k20260515; t=1795672319;
+	bh=JbegetZtdMJY0UH56qsA+4py+WjtuP90DgylLUgZa9w=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=mB1zVfI+R01hF2zbBQpgEqOuzZm7P7/2DdcJwuDqxeovKJXk64nnnOjiX5OlQ45fk
+	 GMNmS5fYcbULpgzOTMJ7LRDo+LFpPa+5feR3jByJIyXwmYLGh+oJtaNuBd2g2wsJL1
+	 ++lsT/uvODPYCFgtfqlyGP2tWNR5X0m30k2lpSOpntrfDBogP+0MS3elU/RBKjnKpF
+	 T16Q2NBpf4H1veqrcW2dEGGOTg8xHgbaWVMP2SXCW1AkjqpsSaU4gP7qXbnXNK5y/3
+	 ydkzmxIo/lG4y94MrDk2vJJdHlQqj4HX13EO9/LyIV/ggPbQ0SLodSA+Ivq+x7pzxC
+	 y960LSgW17mRg==
+From: Yixun Lan <dlan@kernel.org>
+To: Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Yixun Lan <dlan@kernel.org>
+Cc: Alex Elder <elder@riscstar.com>,
+	Icenowy Zheng <uwu@icenowy.me>,
+	Iker Pedrosa <ikerpedrosam@gmail.com>,
+	linux-clk@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/2] clk: spacemit: extend to support pm domain driver
+Date: Thu, 26 Nov 2026 05:51:51 +0000
+Message-ID: <179567190353.1020552.6488313745742549977.b4-ty@b4>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261008-04-k3-clk-pm-aux-v1-0-8372d7307694@kernel.org>
+References: <20261008-04-k3-clk-pm-aux-v1-0-8372d7307694@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,93 +67,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261112092556.2747348-1-xu.yang_2@oss.nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 
-On 26-11-12 17:25:56, Xu Yang wrote:
-> From: Xu Yang <xu.yang_2@nxp.com>
-> 
-> Role teardown currently removes the gadget and host roles while OTG
-> interrupts, FSM processing and work items may still be active. Such
-> asynchronous processing can queue or execute role-switch operations
-> against partially destroyed roles. In particular, a gadget instance
-> may remain registered after the controller has been removed.
-> 
-> Disable power_lost_work before starting role teardown. During OTG
-> destruction, disable the IRQ and ci->work, clear canceled ID and
-> B-session-valid events, and remove the OTG FSM before destroying the
-> workqueue.
-> 
-> Finally, destroy the gadget and host roles only after the OTG machinery
-> has been stopped. This establishes a teardown order in which event
-> sources are quiesced before their target resources are released.
-> 
-> Fixes: cbec6bd55a45 ("usb: chipidea: move otg related things to otg file")
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
 
-Do you need to Cc stable tree?
-
-Peter
-
-> ---
->  drivers/usb/chipidea/core.c |  5 +++--
->  drivers/usb/chipidea/otg.c  | 17 +++++++++++++----
->  2 files changed, 16 insertions(+), 6 deletions(-)
+On Thu, 08 Oct 2026 02:57:54 +0000, Yixun Lan wrote:
+> The APMU (Application Subsystem Power Management Unit) register region block
+> not only provides clock and reset support, but also the pm domain management
+> capabilities, so registering pm domain driver via auxilary bus is feasible
+> way to go.
 > 
-> diff --git a/drivers/usb/chipidea/core.c b/drivers/usb/chipidea/core.c
-> index 3461dd763a6e..eb7b9c0746d8 100644
-> --- a/drivers/usb/chipidea/core.c
-> +++ b/drivers/usb/chipidea/core.c
-> @@ -942,10 +942,11 @@ EXPORT_SYMBOL_GPL(ci_hdrc_query_available_role);
->  
->  static inline void ci_role_destroy(struct ci_hdrc *ci)
->  {
-> -	ci_hdrc_gadget_destroy(ci);
-> -	ci_hdrc_host_destroy(ci);
-> +	disable_work_sync(&ci->power_lost_work);
->  	if (ci->is_otg && ci->roles[CI_ROLE_GADGET])
->  		ci_hdrc_otg_destroy(ci);
-> +	ci_hdrc_gadget_destroy(ci);
-> +	ci_hdrc_host_destroy(ci);
->  }
->  
->  static void ci_get_otg_capable(struct ci_hdrc *ci)
-> diff --git a/drivers/usb/chipidea/otg.c b/drivers/usb/chipidea/otg.c
-> index 89a6a37815f0..8ac8969a45f0 100644
-> --- a/drivers/usb/chipidea/otg.c
-> +++ b/drivers/usb/chipidea/otg.c
-> @@ -272,12 +272,21 @@ int ci_hdrc_otg_init(struct ci_hdrc *ci)
->   */
->  void ci_hdrc_otg_destroy(struct ci_hdrc *ci)
->  {
-> -	if (ci->wq)
-> -		destroy_workqueue(ci->wq);
-> +	disable_irq(ci->irq);
-> +	if (disable_work_sync(&ci->work)) {
-> +		ci->id_event = false;
-> +		ci->b_sess_valid_event = false;
-> +		/* Balance disable_irq_nosync() performed in ci_otg_queue_work() */
-> +		enable_irq(ci->irq);
-> +	}
-> +
-> +	if (ci_otg_is_fsm_mode(ci))
-> +		ci_hdrc_otg_fsm_remove(ci);
->  
->  	/* Disable all OTG irq and clear status */
->  	hw_write_otgsc(ci, OTGSC_INT_EN_BITS | OTGSC_INT_STATUS_BITS,
->  						OTGSC_INT_STATUS_BITS);
-> -	if (ci_otg_is_fsm_mode(ci))
-> -		ci_hdrc_otg_fsm_remove(ci);
-> +	if (ci->wq)
-> +		destroy_workqueue(ci->wq);
-> +	enable_irq(ci->irq);
->  }
-> -- 
-> 2.34.1
+> The series try to extend the CCU driver to do some preparation for addition
+> of pm domain driver via the auxilary bus.
 > 
+> [...]
 
+Applied to SpacemiT SoC tree (branch: clk-for-next), thanks!
+
+[1/2] clk: spacemit: rename to generic ccu aux register function
+      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=92abd348af1882c1f91af67e6c66cc1e0a437814
+[2/2] clk: spacemit: register pm domain auxiliary driver
+      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=a2aa2b526090cad0199bda2fcf713f25cb15dd18
+
+Best regards,
 -- 
-
-Thanks,
-Peter Chen
+Yixun Lan <dlan@kernel.org>
