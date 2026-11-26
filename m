@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795719100;
-	b=kkh/moJh2alRFyI2IWOHyZrGP+nTqefXXwToDcYRx7qN3NzaoGGJkVuR/Db4BbSxyghI
-	 Ks2LsFY2TFBAvjEeva2HOLr9fKcD5OL2F7o9JF4nblS9rGF1KKRh53VLvOD0CL1HcLceH
-	 yldeN8s3H4at8+BLfraHkYk59roIr13rFu9VjQ4mfgJP2nAbUhpkvu50FTprx+cR1WIyL
-	 6+9HfSLGUd5Cie9EewEukmnm65pS4jMFC3uEnzdbOmWoIZWuyORcV2DL1qoOR2rRqE7bY
-	 UMl8F1APS0H/7Bg3iHZhRquARkQep92bVZmFIjG3JhhohxyEL4lJq85HlAbbNI+KQ9g==
+	t=1795719104;
+	b=IhvH/b/w1U5rQczsL2DsCDggL51z20v83C4gNTh0nqtkLdJ/Gsnhk62Y777s3qPGPymU
+	 c7uuRNGZieU/T8/B9qqUeLmp2B8uwPLwfur80pdPZmSAIDpNnaMVMRhn8PrdUAwhEPO0m
+	 Gphn5RY9IVYpDhx7YhI8obfuuzPtiWSE6RjOY4zatI9oV1M4l4409kEtlbbpzd9e+cI47
+	 HuSAFOwWWg4k10aGEKcNRheUpmq5HU0fr2LJEYuGO9aHdjExJl1dmwpw7Oczscg/eQhCT
+	 1SxNcpOEFaQT1LrFZARyYS1rAHyIWcm4hMGY57nCJ/KsVT3m89LtL0z45qGW1pElTYg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795719100;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795719104;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=mrLEC/tUIlpyHMdC0wLVawPYUHVLQLEsP0xd9iCsuyc=;
-	b=OgCR730zWv9eX/fLc3DlUow5Ll+1On9JkWoPWup/p4hf30sDo8aHqHIbhWCNFEFTVT7Y
-	 FFD8FQJrfIEufb53ss8cYgG9c0XK7oPsReXZo1zfHQbAbqFWdSMnUkVD5MtdhPQJLy41U
-	 hq9jetyYo5pCr2CE9oTS32JBDMdJvNi6SnIDIAkjda5allQE+c26nhtljijFPMKsGFszi
-	 CXR8yZlUNW0f1W5XwQVHhpKuutXsouCSJMs2zNUj7XU4cQIAhlPnOdUYBz7Jr9QIG4Djy
-	 +G78kf5gQc4ZvWp784i3kaCJ88NBX7zdlInnBJSw5plLJ3ekGqfXeFWB21t4Uq9Egxw==
+	bh=9op6aZg6wt9mYcZ/x9nGwKZlYrpFcKQlkp4PjEN5GXQ=;
+	b=ekCvPcYLijcQmwEgvdHJUMgexwjeSsE/XSqNIJBqEnBKPDRNdho9yTurSjQHOZU1n5zI
+	 dZbiy9DEHHcYFPoX7iczC8pKbzoMWCTe13vTSEhsNULOQp7N0DNg5+WU7gX8H9HXw+NbY
+	 HGJRz9Xs/x8D6Mxd0Wdo9kYJbvsf0THDNvbi6CPlKvdj/s5fuh0+X2LHDnLPXmkX6brG5
+	 03o1AjipFGUgONZwzAoxa4gURcE1S6xqPsybFxIMMwJBilzihB3AiNUteEeQ6MtEVLRXu
+	 +DIopW+Qpom3MmP2gOTeiLiUFLB1L3qQllFtrblJWwiv06LTP8YZCQoNXXweW9ik1cA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ObkL2qbT;
-	arc=none smtp.remote-ip=209.85.214.177
-Received: from mail-pl1-f177.google.com (mail-pl1-f177.google.com [209.85.214.177])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OLV2Sr7E;
+	arc=none smtp.remote-ip=209.85.214.172
+Received: from mail-pl1-f172.google.com (mail-pl1-f172.google.com [209.85.214.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 996C1606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:51:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 996C1606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3AB6606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:51:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E3AB6606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ObkL2qbT
-Received: by mail-pl1-f177.google.com with SMTP id d9443c01a7336-2f0213202fdso38559515ad.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:51:40 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OLV2Sr7E
+Received: by mail-pl1-f172.google.com with SMTP id d9443c01a7336-2f045b921caso42312945ad.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:51:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795719100; x=1796323900; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795719103; x=1796323903; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=mrLEC/tUIlpyHMdC0wLVawPYUHVLQLEsP0xd9iCsuyc=;
-        b=ObkL2qbTe/5xyBmIa8coAb4dYmGpyfsJhnyDvYJxxH4C+CfBiYEc0AuUz6sA/FFL2m
-         guqTp5UTz5BSfEO4tvp5twtepg61EokoZYWKQgBNenH7QbVR42WFt9FtA3ObJV54An+7
-         V+d6WCgH3oCM0fAFu6Gt63R/hgD45n17jUZeNTvQG66mrG9eRl/iOVz8iSbWIH+3daoh
-         VC5eqSDs5hUjqnVmZtj5uXXtC7PAgiu+S/bBEhUzsvvYrH3C4/zbCybbO5gLw8Q6MFIR
-         4LKkbzwlYmVRlH9wLrzI01jZaHnLyK49YrCHd1wn1m+BkiPdyIriQ14PwLwuCEG3flLW
-         Tv8g==
+        bh=9op6aZg6wt9mYcZ/x9nGwKZlYrpFcKQlkp4PjEN5GXQ=;
+        b=OLV2Sr7E1NBKBd0zw7jSeCpZA/0QwRoxhpdd0aEWfEea04mHV1RqE7CL78AfoKDGBY
+         7ClRZJXt0eptxxp70rjvVqTqQuDrUvCOKBSIjhmzGmwexS0c8JmkcQhZdsK2INc/0TP6
+         0i/VxCo4YVc9gspzxcWz/Ux9EdpJSlJlRt+FCtSQWnCH1QgVrX3b5fcode4B5+oyhvhZ
+         FhqmR+FUiahXN+RcNhaTDcNntMgnTX3KzaLMKKX6BcHR+mmRTDXY90/PDhwb8ytWHK5Z
+         WDjDC2LPL5CWeCzU/1ZBNq1vMsC4RCFjm+dJvfwnMgP6iYh2bq3gu6qT2PpPl2KGA9w1
+         aLKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795719100; x=1796323900;
+        d=1e100.net; s=20260707; t=1795719103; x=1796323903;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=mrLEC/tUIlpyHMdC0wLVawPYUHVLQLEsP0xd9iCsuyc=;
-        b=SZYN9FQzgn6Q0QA7hnryXFvb1/p3l5eVTcYa0QDN757f2G48kd8bdR7JLhLHr5B+Vh
-         DoLHAysJEWf5h7lc4ATie0samzmnTa+QtFaBnJbHnluNCMHUg+ExjkE7YzzgxnlJRoQf
-         ksoE3lX1+ZuKupIjyIELpmRirchRQGzirtEhw+fRuNrZGom+YImbidWyDLYLM8VtAOhf
-         F5+pDEC9WeBlOwilqT4k4KvOj8QlywF0mlE1aSCJQ7C5YTl6yOeRNQtBaqynhpSUUJdx
-         3pb8D7k/18jcy3e+gMp0Nw8jxHK9b26ST+XwTcpDJvB6LEJq/3atGEL3DRq2yLdvbKGI
-         6XMQ==
-X-Forwarded-Encrypted: i=1; AL+hErE6Bf8FkjxzVycd1kCEnScN3lugyRo8hWITnTUmavqOvQWQdTbUmSGcgiZyS8dJEVhhQC1ypGsQr0K8Apw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Bgx+dquxK/gJCUOK/X1/L0f3yFqpHsbMv1zOTiDbyqpGzA++5
-	RIallJQheblod4SFnZAPLoIBBSHLpNLR0cCguUzAvX1RQp2ReFh04Kys+AA+rw==
-X-Gm-Gg: AZFdTZf7iYGd8oz5Tv9rse9Y5J6j7m44v3gXtK2vVOYEcBr8tBAir/ot417AeHqCSiS
-	H99dPq3aNbDmQnSQA47yIVOANLhOdVR78ZficsQBSuTsE0/4svLETpcBekj/RRtYNHZ4CwlPMsj
-	e6jPpxtILCyyAvAlUJztlBJxHOZ9boLxKAQabQZi6POePa1ICymhghXvkFCzujrVs3Snqo+NpDJ
-	Xz2TO72hnuvRUoXE6tdMDPuYfu/2PwsbVzxu1WdMr5/pwI2VxztRpkC1nXoBsyoPxTO7TA7ZZjJ
-	q02F3qR0WDB7YRk7s6InrKxCzmP4qkABcA297X2KoatTjLDgORTuLAQTShXus2grvDpqNWhL4Bj
-	FJIJRBPXhSkmBwwQ+62GSSKgJsg934nM4ZksgSQo82uFBL4vMZk+uE6R2Bkek8KLPThDNDU+rac
-	OMf4Ed+uOMrUxYdlEpXQWT7QWHwbqGUszjbdO5EgVd3lTmT85i02verSHIHa975wlBHEwXg/sYK
-	o9uIcriY5GfMFYkIhmbK8I3LEtKCTCXbDazYJWrDelIKSTwa3cL1/f/bBLSnMV93Qeo/xzyrP+2
-	aKc/kqDBdrxklwqPVu0GFqxN3pDJR4RuDKUYSpRpxVPu1SX9YD40lvV5fqkKC33rNOwCOrqxQfy
-	0rZqNK1ZgqXd7N+VsCICtJI0=
-X-Received: by 2002:a17:903:32ce:b0:2e9:7ff5:5459 with SMTP id d9443c01a7336-2f03f17d17amr238824525ad.15.1795719099914;
-        Thu, 26 Nov 2026 10:51:39 -0800 (PST)
+        bh=9op6aZg6wt9mYcZ/x9nGwKZlYrpFcKQlkp4PjEN5GXQ=;
+        b=MEMaOZsJ+55GQvSL/HFb0EyQ28EM5SdnurnYnZDutEpu7XHPk7gbNnHe66B+9Jtoam
+         AlBCJq1K54/aorrOTryO5YlPcRAk828fgh3rAEt0VIQu4BvwINhX7i2wTbHslqClQXUZ
+         1xRC9Aj96CnSvdEpBCi+ITa4PihQK9oKcvlE0yUod1B3etlu0Hn9rPTX1bVlxjbSIb+G
+         dlonUi2oGV4l1Kk50nsHa1eQsbd0+lrzYwej8jqat1pjzMUOgq3XxvC0HTyp7bZnko/S
+         8HLRAA9BoUrfekQ7kfv37rlbijs2KuWQT3KXWQiW4idHcRvoTkq/mGPD1OAPhXXrQNPa
+         MhNw==
+X-Forwarded-Encrypted: i=1; AL+hErGze6SnvgfEV6Tz1UTxN2nwabmYq7U2S93tteRMEahf8TzAOTpFsn3hVtQV9hKp039QOAzoVaqOoi3X9Yc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/irELl0WIoNP9EdOZ56j0iWK7afuLMYQ8kso8PRbBrmJs0l9ar
+	a7fpQj7ODFA5PVa7XBu9Lfv813bsy2lz0EcIxEF+FhEpwuxHp4V8+kp4
+X-Gm-Gg: AZFdTZf/VuA0vrsm52nCHAC1hl/RPbMRAUbiab9L7RwHekThkWoO7T+IY+4tO47tHsQ
+	8s7nopICnXIZXJ/GFYEPM/7U6qI6dP9CXLyIcgrom978yXtBfWdy8Uebca/NV2uT61KTmW2H+sH
+	vUOOHjmqlix6KXMP5cAUtX52KKDBs8KxXN0hyfbSZShv3+AWsOAeos4a3HKkEMljL9cQrc5Uj+c
+	W+YQScaZKm/KAJCqXOysU2NDLMRP7URt4z3pT+NOZdCfmSCiAwFbhy98Gzda5PgD8bVXiCPcSpj
+	reDWmGXVcm7XHsxNdNRYp33OygHsZaNwyjhAfUfd6f752nJ7X7mQ25XSmZ6AJXI68jcdp7aty7U
+	BR2R5pbxfmrFrko/Di5eOj5VPN5YnHQFg2KC1VDv+QdeXo/OEiCNqWdgHeZ6YGScBCQDu+fcvI5
+	hsrUxsrE+f2yCGv7TUC9TYsd43dfrxX8Ob0F4Zws8J87p+bNAmy5gg4xmhw8aAlO4MM7tjupN51
+	5j4TkENeJyMCApYBwoyaOFNvrAmik5riwFsl7yz/sBOX2dw24oEjn0gicRyyJATGfojvRa9KGw3
+	W2q2UBdLgZJ2xwNvfoNMjI7qEPPSAiio1/43oud+5Kc5gn2iF5GekQnlftFKw2UTX8+hzuZa2qx
+	YdY4Ym6keF1ZWvQHybf+XgpAJ
+X-Received: by 2002:a17:902:db11:b0:2ef:e13e:779c with SMTP id d9443c01a7336-2f03ef873cfmr229125015ad.6.1795719103356;
+        Thu, 26 Nov 2026 10:51:43 -0800 (PST)
 Received: from visitorckw-work01.c.googlers.com.com (55.11.81.34.bc.googleusercontent.com. [34.81.11.55])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f1276c5sm112041665ad.67.2026.11.26.10.51.36
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f1276c5sm112041665ad.67.2026.11.26.10.51.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 10:51:39 -0800 (PST)
+        Thu, 26 Nov 2026 10:51:43 -0800 (PST)
 From: Kuan-Wei Chiu <visitorckw@gmail.com>
 To: geert@linux-m68k.org,
 	tglx@kernel.org
@@ -89,9 +89,9 @@ Cc: radu@rendec.net,
 	linux-kernel@vger.kernel.org,
 	linux-m68k@lists.linux-m68k.org,
 	Kuan-Wei Chiu <visitorckw@gmail.com>
-Subject: [PATCH v2 2/7] irqchip/goldfish-pic: Use for_each_set_bit() to iterate pending IRQ
-Date: Thu, 26 Nov 2026 18:51:15 +0000
-Message-ID: <20261126185120.3815699-3-visitorckw@gmail.com>
+Subject: [PATCH v2 3/7] irqchip/goldfish-pic: Allow selecting CONFIG_GOLDFISH_PIC on other architectures
+Date: Thu, 26 Nov 2026 18:51:16 +0000
+Message-ID: <20261126185120.3815699-4-visitorckw@gmail.com>
 X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
 In-Reply-To: <20261126185120.3815699-1-visitorckw@gmail.com>
 References: <20261126185120.3815699-1-visitorckw@gmail.com>
@@ -106,46 +106,43 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Use for_each_set_bit() instead of open-coding the loop with __fls()
-in goldfish_pic_cascade() to simplify the code.
+Drop the MIPS dependency from CONFIG_GOLDFISH_PIC so that other
+architectures can use this driver, and add a dependency on HAS_IOMEM
+since the driver uses MMIO helpers. Also update the file header comment
+to remove the MIPS reference.
 
 Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
 ---
- drivers/irqchip/irq-goldfish-pic.c | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+ drivers/irqchip/Kconfig            | 3 ++-
+ drivers/irqchip/irq-goldfish-pic.c | 2 +-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+index 20b77fbc51ee..a1c1e067022a 100644
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -513,7 +513,8 @@ config MESON_IRQ_GPIO
+ 
+ config GOLDFISH_PIC
+        bool "Goldfish programmable interrupt controller"
+-       depends on MIPS && (GOLDFISH || COMPILE_TEST)
++       depends on HAS_IOMEM
++       depends on GOLDFISH || COMPILE_TEST
+        select GENERIC_IRQ_CHIP
+        select IRQ_DOMAIN
+        help
 diff --git a/drivers/irqchip/irq-goldfish-pic.c b/drivers/irqchip/irq-goldfish-pic.c
-index c3c33f066140..12113ca90872 100644
+index 12113ca90872..8d40df0e3a88 100644
 --- a/drivers/irqchip/irq-goldfish-pic.c
 +++ b/drivers/irqchip/irq-goldfish-pic.c
-@@ -7,6 +7,7 @@
- 
- #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
- 
-+#include <linux/bitops.h>
- #include <linux/goldfish.h>
- #include <linux/interrupt.h>
- #include <linux/irq.h>
-@@ -35,16 +36,14 @@ static void goldfish_pic_cascade(struct irq_desc *desc)
- {
- 	struct goldfish_pic_data *gfpic = irq_desc_get_handler_data(desc);
- 	struct irq_chip *host_chip = irq_desc_get_chip(desc);
--	u32 pending, hwirq;
-+	unsigned long pending;
-+	u32 hwirq;
- 
- 	chained_irq_enter(host_chip, desc);
- 
- 	pending = gf_ioread32(gfpic->base + GFPIC_REG_IRQ_PENDING);
--	while (pending) {
--		hwirq = __fls(pending);
-+	for_each_set_bit(hwirq, &pending, GFPIC_NR_IRQS)
- 		generic_handle_domain_irq(gfpic->irq_domain, hwirq);
--		pending &= ~(1 << hwirq);
--	}
- 
- 	chained_irq_exit(host_chip, desc);
- }
+@@ -1,6 +1,6 @@
+ // SPDX-License-Identifier: GPL-2.0-or-later
+ /*
+- * Driver for MIPS Goldfish Programmable Interrupt Controller.
++ * Driver for Goldfish Programmable Interrupt Controller.
+  *
+  * Author: Miodrag Dinic <miodrag.dinic@mips.com>
+  */
 -- 
 2.56.1.839.g22a8290db9-goog
 
