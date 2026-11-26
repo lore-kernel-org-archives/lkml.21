@@ -1,68 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.144
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.72.192.78
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795701409;
-	b=IH67vhb3fV9sr2kT4+XD1oJHfmiz4VLlW6lUmUfTpiu36Rsp+Twb9Tg557NUZ5rCeVku
-	 ElbHxg++Xt8b0Ug9WNk+lHhYneoeE79tTzfAbcynHLZGpmEwLMnD7dxqH8MG4dDlPO84E
-	 7bYUy4gWvnxXI5xQhmw1Jswcd0UupAziXlz0PdSQ4a8cGrKlTiD7qda2C5Ua8SQxXsWWZ
-	 w5b/KF8sD77UhGdaFLjdq5HAHKcptQGgyRjKzr+CBTqDh/bFfMuGEp1Dtjtwm7yvhwgNP
-	 JtFRvEweGdk1bF1Ra0/zqMMsFvVagiRkNY/YBLJ3W9pUot0svcTN0aXsbQRYrke3rJg==
+	t=1795701451;
+	b=0ckmcAaP0VRcUTJjL6bxx/UlybCICKQjhbyw4UpoZMfG/NGJthNykVMAATotSfxONdUo
+	 12+y/q4EhKyB9qSywkCuAinFvunIvBVYzPn21PoXuk0up2EFnCSVzMBqTZqp8ItWOOxfE
+	 ung9QIf+klytpRNCT2oDhzITIVCEMg+bTDpzn1QsVEgoM8mpiYLMNrWq5ItoIEsjwUR41
+	 tAGU5p0B3FRn8uHUcdLaIdyp6GdHve2/BA/45y011L1So9BRCFDYY8CBHNkn3TbS4CIZG
+	 6oQo5CicXZ/TQvzWeP6jMMhmOf8lMUMtjl2h9AS0gf6E4KlMeiDJSriSnoBopORHgkQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795701409;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=mSDD91TLN/72z/uC3zOy9x3ksTTieaPKZ1YAAqKxj3A=;
-	b=tXtZKqwr8w9cDtIRCZrJn+YJe/pJlz/sZwVpLO8D/oqIYGqG0DOCm7G007RhCncDbIKR
-	 wtYhtME78SeZQmsdAiGezv92J3S8lM5//ZEL5/+/c8ouLi2+rr66JRlHIY1fX8bfVL8+b
-	 Y+jrTjZVPblYpqczVgcPeTcsYb114e8nH/8I1jKHKadw5o2mP4qq4x3yMkJuN6y1JQkk/
-	 ks19HadwtI9s2nIdSnYOgW7u9SoUOOJ10CrYv6K8u2AYR5FeeclpmF8/msNtG5h87Ux+O
-	 sXmgLKz516QT1rprtqHGpRN1Uu4oV+QVCqVLRm5CAi6Sh91jMObyGkW2Qwra3+KaDcg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795701451;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
+	 UI-OutboundReport;
+	bh=QTEx19xF4fyqiz2y5UcBux96ZvXXWNuoLsIHYsaMNPA=;
+	b=cjyu5pdAypYlrthnd2F0gLH9ZowxPXeWmgRcFlAxXNEXCHoJbOu3yOiYJh4LONQRUCuJ
+	 k9akAOW+eHfha+R9tuor8Co9cNJ0IsYowBvvr5ptOwGeVm5ny5avuJ0GQfteZD0KPgKW1
+	 ZvT0d1ozMdd2UNoEGlHfglzU3TZaiCv4q2oD/SyRFXusYtpuBIHkQ39hU/qUg7gUT178x
+	 SKJSntg5DAJOkWrhNIUNjlDyuEhDLu2D1Fnolqe3X6B1wLnMEMTyxNK1kOnQ47YQiQj7b
+	 +GKXQ2QnOQnjUeoykRbeQPP44oAgozbcpRUK1u/X9yS1Uwz3TCppo+KbfXAPrPJS5ng==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=hzwJG95u;
-	arc=none smtp.remote-ip=91.218.175.144
-Received: from mta0.migadu.com (out-144.mta0.migadu.com [91.218.175.144])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=web.de;
+	spf=pass smtp.mailfrom=web.de;
+	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b="PA8iGU/R";
+	arc=none smtp.remote-ip=217.72.192.78
+Received: from mout.web.de (mout.web.de [217.72.192.78])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 698E7606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:56:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 698E7606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D823606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:57:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D823606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=hzwJG95u
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=8b1bEgOOtpzWQWKfCAwVXwtE4knX7o/iGvJiTWAJh08=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795701406; v=1; x=1796306206;
- b=hzwJG95u+TvW2mnvQTkCA5pPxeF24Wk2imZp4uSPwHvyNvN/2oWRvNsCTAUuOw2Xnlwb7MGW
- XRX9oX5P2G9EnlQ8c/nbBXCs9rWnDHyQuPog0rKjL0Rb/mIcekpbynPd5sDn55volq2Xcg+Mwqo
- 766su7pNySwIJGPeL2lqSuOc=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id de7d47af3f371c98;
-	Thu, 26 Nov 2026 13:56:46 +0000
-X-Mizu-Trace-ID: de7d47af3f371c98
-X-Migadu-Flow: FLOW_OUT
-From: Tao Cui <cui.tao@linux.dev>
-To: Bart Van Assche <bvanassche@acm.org>,
-	axboe@kernel.dk,
-	hch@lst.de,
-	Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>
-Cc: cuitao@kylinos.cn,
-	linux-block@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	cui.tao@linux.dev,
-	Shin'ichiro Kawasaki <shinichiro.kawasaki@wdc.com>
-Subject: [PATCH v9] loop: defer the queue limits clear to a workqueue
-Date: Thu, 26 Nov 2026 21:56:28 +0800
-Message-ID: <20261126135628.495497-1-cui.tao@linux.dev>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261126054223.176824-1-cui.tao@linux.dev>
-References: <20261126054223.176824-1-cui.tao@linux.dev>
+	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=PA8iGU/R
+DKIM2-Signature:  i=1; m=1; t=1795701447;
+ mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=web.de;
+ s=s29768273:rsa-sha256:VJUTI+HhEoXBwk4L8qvTxSTJ/8pU
+   dRKDo7H0piblHemPvi6macHP2YExkJUrk/tUmweiFI0RmEWR0JsVndYZ6gE5AB2BA664cLw+rWv
+   dx4LJp3M5q7bGBoAjfZyMN4qRJ93cBoYQ3InG3evPkdHqBrz9DIhqgCblouxgz0v4D1VKaxr+Wp
+   +KcPg2qVmXm641eeEsDS9ASWW5dxbD9ZzJ/AIRyuJ010h9R0rOS14YVNFU0eODGApJP0GoTfTpy
+   fwVG6mDZKOhObjRsAh+gWNbR00kPKbGMVNWBMrojKHBUsV9DGrTQwSdFX1Ro80T6zM5lK8BBjU5
+   uHPxg0JVuCNWZA==;
+Message-Instance:  m=1;
+ h=sha256:
+   4Bw6/Jn4FgK/zGmEZLFD89iOyh9k1J4NPqhWybWLhSM=:
+   uoB5S9VuYOu+ML+icKBXWXwGiEgyglEXuTglChXFR08=,
+  sha512:
+   S45vZZQJ5sOFe3ZnaTSDHSfnNjt9OyTSSSzgDJvOUwZVQI3e/OE3GuDtTPuDvvOqS7+mG0b/0wwWoWJr/EytIg==:
+   n1nuHtPywYW814ouCTGxyW5eUjKQtmfn1LMBoWxdqx/rHPv3/y60YUS7pKyJLsh2TAmfvnyvAk5Fk6UVB0ztRw==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1795701447; x=1796306247; i=markus.elfring@web.de;
+	bh=QTEx19xF4fyqiz2y5UcBux96ZvXXWNuoLsIHYsaMNPA=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=PA8iGU/RCgyb1f0xe2VcQTsUtFFzK7Yk3S8vcJ3MhpTIxE6hzQu9ESPwUJvDeMCI
+	 abTVtdpdPl3427hYymRRzIf/5cY7IIzbPfFYx2SMMfYwjW7vG2hup3XiXK/XMz53M
+	 TfHjcE+SmZYu/4gUAMJ25zV5JoQnj09FxEUn+m4k4wIw3tOWHPFdpBeoUf4CBev/k
+	 ZN5BclyO3tqV81TgOugCMZEJp68uSYO0upSiIxPTRwBIVwKhRwZtM97A69xKUsrQJ
+	 3K2nKDqEOAmq7gC5heStk3rVZKiaKV7oATUtInmygm05IK3LbH2orLPRZlji14/b+
+	 15+EZC+i6gcWYxHNpg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MP3CA-1xrWbz0OKa-00L6gr; Thu, 26
+ Nov 2026 14:57:27 +0100
+Message-ID: <50fd2d21-dfce-4bad-ba75-369806db021c@web.de>
+Date: Thu, 26 Nov 2026 14:57:25 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,295 +81,158 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: leds: rt4505: Put the child node reference
+To: =?UTF-8?B?Tmd1eeG7hW4gQ8O0bmc=?= <congnt264@gmail.com>,
+ linux-leds@vger.kernel.org
+Cc: ChiYuan Huang <cy_huang@richtek.com>, Lee Jones <lee@kernel.org>,
+ Pavel Machek <pavel@kernel.org>, LKML <linux-kernel@vger.kernel.org>
+References: <20261125130318.2590336-1-congnt264@gmail.com>
+ <9b75515f-f6e9-4d00-81d7-1e83cddd14e8@web.de>
+ <CAJpJ=GsvQVBONdbKCyTuBjBuCDSXG9gRoVxg3j+XPq4+HYr-MA@mail.gmail.com>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <CAJpJ=GsvQVBONdbKCyTuBjBuCDSXG9gRoVxg3j+XPq4+HYr-MA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:j54Hl/JKNFRSP6Bc5E7fAo1LHyE8Y6+egXtz90txS+6Weicy+L9
+ RWulskdsd5F3/8jmlAAV/n9H2yQDbAh9lNVnfOdebzsO48c3my6OdS/mBZMwTOyedlJsPw2
+ WdR/Ig37hwgV29kkAav1om0y3fptKm58UvuU9y+jWxaDchd9zSDpRSer99IoWo217V9BAAg
+ vMt7KK6xOqHc6f1eOMiBQ==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:UioDtJlw7+k=;jcbuPgQYDX+BL8bfFOzyxJX4O5X
+ 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
 
-From: Tao Cui <cuitao@kylinos.cn>
+>> =E2=80=A6
+>>> Drop the reference with a device managed action registered right after=
+ the
+>>> node is taken, so it is released after the LED class device that was
+>>> registered later has been unregistered. leds-rt8515 puts the node of t=
+he
+>>
+>> Would the identifier =E2=80=9Crt4505=E2=80=9D matter more here?
+> Hi Markus,
+>=20
+> Do you mean that sentence should name rt4505?
 
-loop_clear_limits() calls queue_limits_commit_update() directly from
-the loop workqueue that processes the request.  That does a
-non-atomic struct assignment to q->limits without freezing the queue,
-which races with lockless readers of q->limits on other CPUs, such
-as bio splitting reading max_hw_sectors and the discard path reading
-max_hw_discard_sectors, letting them observe torn values.  The
-trigger is a discard or write-zeroes request on a loop device whose
-backing file does not support the corresponding fallocate operation.
+It depends =E2=80=A6
 
-The code already has an XXX comment saying this should move to a
-workqueue.  Do that: schedule a work item on the system workqueue,
-where it is safe to freeze the queue around the limits update.  The
-work item takes the queue limits lock before freezing, matching the
-order used by loop_set_dio() and loop_set_block_size().  The
-unsupported modes live under a new mutex, lo->clear_limits_lock,
-guarded by a backing-file check that drops records from a racing
-unbind or rebind.  The work item is scheduled while holding that
-lock, so an unbind resets the verdicts under the lock before calling
-cancel_work_sync() and cannot miss a schedule from a request that is
-still in flight.  Requests that arrive while the clear is in flight
-fail quietly, so the console report stays at the first failure.
-loop_remove() also cancels the work item before the queue becomes
-unreachable.
 
-Fixes: 5f75e081ab5c ("loop: Disable fallocate() zero and discard if not supported")
-Suggested-by: Bart Van Assche <bvanassche@acm.org>
-Signed-off-by: Tao Cui <cuitao@kylinos.cn>
----
-Changes since v8:
-- take limits_lock via queue_limits_start_update() before freezing in
-  the work item, following the convention that all block driver code
-  takes limits_lock before freezing (06a2ff603f1f, loop_set_dio(),
-  loop_set_block_size(), queue_limits_commit_update_frozen()); the
-  v8 order was a regression introduced by the v8 early-return rework
-  (sashiko review)
-- gate lo_fallocate() on the per-mode hardware limits
-  (max_hw_discard_sectors / max_write_zeroes_sectors) instead of the
-  shared bdev_max_discard_sectors(), which is also driven by the sysfs
-  discard cap: with only the punch-hole verdict committed, a
-  write-zeroes request could latch a false ZERO_RANGE verdict and
-  clear the write-zeroes limits on a backing file that supports them
-  (sashiko review)
-- reset clear_limits_seen in loop_set_block_size(): its limits
-  recompute re-enables cleared modes, and with verdicts previously
-  kept for the life of the backing file, repeat failures would never
-  reschedule the clear (sashiko review)
-- drop verdicts recorded against a NULL backing file silently and
-  annotate the lockless lo_backing_file accesses with READ_ONCE and
-  WRITE_ONCE (sashiko review)
-- verified with a PROVE_LOCKING-enabled kernel running loop/011, the
-  concurrency sweep, interleaved LOOP_SET_BLOCK_SIZE and write-zeroes
-  traffic, and sixty mkfs/unbind stress rounds: no lockdep reports and
-  no hangs, both with this reorder and, as a negative control, with
-  the v8 order
+>                                               It refers to leds-rt8515
+> as a sibling driver that already puts the node. =E2=80=A6
 
- drivers/block/loop.c | 142 ++++++++++++++++++++++++++++++++++++++-----
- 1 file changed, 128 insertions(+), 14 deletions(-)
+I would prefer a clearer wording for a link to a related source code examp=
+le
+like rt8515_probe().
+https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/leds/flash/leds-r=
+t8515.c#L275-L367
 
-diff --git a/drivers/block/loop.c b/drivers/block/loop.c
-index 194f51d9dab6..460c3a319988 100644
---- a/drivers/block/loop.c
-+++ b/drivers/block/loop.c
-@@ -67,6 +67,9 @@ struct loop_device {
- 	struct list_head        rootcg_cmd_list;
- 	struct list_head        idle_worker_list;
- 	struct rb_root          worker_tree;
-+	struct work_struct      clear_limits_work;
-+	struct mutex		clear_limits_lock;
-+	unsigned int		clear_limits_seen;
- 	struct timer_list       timer;
- 	bool			sysfs_inited;
- 
-@@ -222,9 +225,35 @@ static void loop_set_size(struct loop_device *lo, loff_t size)
- 		kobject_uevent(&disk_to_dev(lo->lo_disk)->kobj, KOBJ_CHANGE);
- }
- 
--static void loop_clear_limits(struct loop_device *lo, int mode)
-+static void loop_clear_limits_workfn(struct work_struct *work)
- {
--	struct queue_limits lim = queue_limits_start_update(lo->lo_queue);
-+	struct loop_device *lo =
-+		container_of(work, struct loop_device, clear_limits_work);
-+	struct queue_limits lim;
-+	unsigned int memflags;
-+	int mode;
-+
-+	/*
-+	 * Take limits_lock before freezing, like loop_set_dio() and
-+	 * loop_set_block_size().
-+	 */
-+	lim = queue_limits_start_update(lo->lo_queue);
-+
-+	/*
-+	 * The freeze drains in-flight requests, so everything scheduled
-+	 * before it is visible in the snapshot below.
-+	 */
-+	memflags = blk_mq_freeze_queue(lo->lo_queue);
-+	mutex_lock(&lo->clear_limits_lock);
-+	mode = lo->clear_limits_seen;
-+	mutex_unlock(&lo->clear_limits_lock);
-+
-+	/* A racing unbind may have reset the verdicts; nothing to commit. */
-+	if (!mode) {
-+		queue_limits_commit_update(lo->lo_queue, &lim);
-+		blk_mq_unfreeze_queue(lo->lo_queue, memflags);
-+		return;
-+	}
- 
- 	if (mode & FALLOC_FL_ZERO_RANGE)
- 		lim.max_write_zeroes_sectors = 0;
-@@ -234,14 +263,69 @@ static void loop_clear_limits(struct loop_device *lo, int mode)
- 		lim.discard_granularity = 0;
- 	}
- 
--	/*
--	 * XXX: this updates the queue limits without freezing the queue, which
--	 * is against the locking protocol and dangerous.  But we can't just
--	 * freeze the queue as we're inside the ->queue_rq method here.  So this
--	 * should move out into a workqueue unless we get the file operations to
--	 * advertise if they support specific fallocate operations.
--	 */
- 	queue_limits_commit_update(lo->lo_queue, &lim);
-+	blk_mq_unfreeze_queue(lo->lo_queue, memflags);
-+}
-+
-+/*
-+ * Record that the backing file does not support @mode.  Returns true
-+ * for a first verdict or a dropped stale record, false for a repeat.
-+ */
-+static bool loop_clear_limits(struct loop_device *lo, struct file *file,
-+			      int mode)
-+{
-+	bool first;
-+
-+	mutex_lock(&lo->clear_limits_lock);
-+	if (READ_ONCE(lo->lo_backing_file) != file) {
-+		/* Stale record from a racing unbind or rebind; drop it. */
-+		mutex_unlock(&lo->clear_limits_lock);
-+		return true;
-+	}
-+	first = (mode & ~lo->clear_limits_seen) != 0;
-+	lo->clear_limits_seen |= mode;
-+	/* Scheduled under the lock so cancel_work_sync() cannot miss it. */
-+	if (first)
-+		schedule_work(&lo->clear_limits_work);
-+	mutex_unlock(&lo->clear_limits_lock);
-+
-+	return first;
-+}
-+
-+/*
-+ * Record the verdict and return -EOPNOTSUPP; repeats stay quiet so only
-+ * the first failure per mode reports.
-+ */
-+static int lo_unsupported(struct loop_device *lo, struct request *rq,
-+			  struct file *file, int mode)
-+{
-+	/* A NULL file means the backing file is already gone. */
-+	if (!file)
-+		return -EOPNOTSUPP;
-+
-+	if (!loop_clear_limits(lo, file, mode))
-+		rq->rq_flags |= RQF_QUIET;
-+
-+	return -EOPNOTSUPP;
-+}
-+
-+/*
-+ * Return true when @mode is already recorded as unsupported, so the
-+ * fallocate probe can be skipped.
-+ */
-+static bool loop_mode_unsupported(struct loop_device *lo, struct file *file,
-+				  int mode)
-+{
-+	bool known;
-+
-+	mode &= FALLOC_FL_ZERO_RANGE | FALLOC_FL_PUNCH_HOLE;
-+
-+	mutex_lock(&lo->clear_limits_lock);
-+	known = file && READ_ONCE(lo->lo_backing_file) == file &&
-+		(mode & lo->clear_limits_seen);
-+	mutex_unlock(&lo->clear_limits_lock);
-+
-+	return known;
- }
- 
- static int lo_fallocate(struct loop_device *lo, struct request *rq, loff_t pos,
-@@ -256,8 +340,19 @@ static int lo_fallocate(struct loop_device *lo, struct request *rq, loff_t pos,
- 
- 	mode |= FALLOC_FL_KEEP_SIZE;
- 
--	if (!bdev_max_discard_sectors(lo->lo_device))
--		return -EOPNOTSUPP;
-+	/*
-+	 * Zeroed hardware limits mean the matching verdict is already
-+	 * committed; record the op's bit for the per-mode quiet accounting.
-+	 */
-+	if ((mode & FALLOC_FL_PUNCH_HOLE) &&
-+	    !bdev_limits(lo->lo_device)->max_hw_discard_sectors)
-+		return lo_unsupported(lo, rq, file, mode);
-+	if ((mode & FALLOC_FL_ZERO_RANGE) &&
-+	    !bdev_write_zeroes_sectors(lo->lo_device))
-+		return lo_unsupported(lo, rq, file, mode);
-+
-+	if (loop_mode_unsupported(lo, file, mode))
-+		return lo_unsupported(lo, rq, file, mode);
- 
- 	scoped_guard(file_write, file)
- 		ret = file->f_op->fallocate(file, mode, pos, blk_rq_bytes(rq));
-@@ -269,7 +364,7 @@ static int lo_fallocate(struct loop_device *lo, struct request *rq, loff_t pos,
- 	 * supported and clear them here if that turns out not to be true.
- 	 */
- 	if (unlikely(ret == -EOPNOTSUPP))
--		loop_clear_limits(lo, mode);
-+		return lo_unsupported(lo, rq, file, mode);
- 
- 	return ret;
- }
-@@ -513,7 +608,7 @@ static int loop_validate_file(struct file *file, struct block_device *bdev)
- 
- static void loop_assign_backing_file(struct loop_device *lo, struct file *file)
- {
--	lo->lo_backing_file = file;
-+	WRITE_ONCE(lo->lo_backing_file, file);
- 	lo->old_gfp_mask = mapping_gfp_mask(file->f_mapping);
- 	mapping_set_gfp_mask(file->f_mapping,
- 			lo->old_gfp_mask & ~(__GFP_IO | __GFP_FS));
-@@ -1032,9 +1127,18 @@ static void __loop_clr_fd(struct loop_device *lo)
- 
- 	spin_lock_irq(&lo->lo_lock);
- 	filp = lo->lo_backing_file;
--	lo->lo_backing_file = NULL;
-+	WRITE_ONCE(lo->lo_backing_file, NULL);
- 	spin_unlock_irq(&lo->lo_lock);
- 
-+	/*
-+	 * Requests may still be in flight across this unbind; reset the
-+	 * verdicts before the cancel so it cannot miss the work item.
-+	 */
-+	mutex_lock(&lo->clear_limits_lock);
-+	lo->clear_limits_seen = 0;
-+	mutex_unlock(&lo->clear_limits_lock);
-+	cancel_work_sync(&lo->clear_limits_work);
-+
- 	lo->lo_device = NULL;
- 	lo->lo_offset = 0;
- 	lo->lo_sizelimit = 0;
-@@ -1415,6 +1519,10 @@ static int loop_set_block_size(struct loop_device *lo, blk_mode_t mode,
- 	loop_update_limits(lo, &lim, arg);
- 
- 	memflags = blk_mq_freeze_queue(lo->lo_queue);
-+	/* The recompute above may re-enable modes with recorded verdicts. */
-+	mutex_lock(&lo->clear_limits_lock);
-+	lo->clear_limits_seen = 0;
-+	mutex_unlock(&lo->clear_limits_lock);
- 	err = queue_limits_commit_update(lo->lo_queue, &lim);
- 	loop_update_dio(lo);
- 	blk_mq_unfreeze_queue(lo->lo_queue, memflags);
-@@ -1700,6 +1808,7 @@ static void lo_free_disk(struct gendisk *disk)
- 	loop_free_idle_workers(lo, true);
- 	timer_shutdown_sync(&lo->timer);
- 	mutex_destroy(&lo->lo_mutex);
-+	mutex_destroy(&lo->clear_limits_lock);
- 	kfree(lo);
- }
- 
-@@ -2018,6 +2127,8 @@ static int loop_add(int i)
- 	spin_lock_init(&lo->lo_lock);
- 	spin_lock_init(&lo->lo_work_lock);
- 	INIT_WORK(&lo->rootcg_work, loop_rootcg_workfn);
-+	INIT_WORK(&lo->clear_limits_work, loop_clear_limits_workfn);
-+	mutex_init(&lo->clear_limits_lock);
- 	INIT_LIST_HEAD(&lo->rootcg_cmd_list);
- 	disk->major		= LOOP_MAJOR;
- 	disk->first_minor	= i << part_shift;
-@@ -2056,6 +2167,9 @@ static int loop_add(int i)
- 
- static void loop_remove(struct loop_device *lo)
- {
-+	/* Cancel before the queue becomes unreachable. */
-+	cancel_work_sync(&lo->clear_limits_work);
-+
- 	/* Make this loop device unreachable from pathname. */
- 	del_gendisk(lo->lo_disk);
- 	blk_mq_free_tag_set(&lo->tag_set);
--- 
-2.53.0
 
+>>> same kind after registering its LED and flash sub-device.
+
+Regards,
+Markus
