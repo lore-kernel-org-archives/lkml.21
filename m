@@ -1,88 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795730062;
-	b=n6p8MhSMq3rkZXOWLV2Sj68ep6KdWWOm5mm/Zy563fbWjCrMM8kyRutGm4fTNEpUf9A8
-	 KXp1k/e20Nw0EfxtSOmck+FKVlk0pLw6kdZLdsrpyQj4kBeAfaNIyH+4kBxDCI3ApUycN
-	 CtzOkLFWgBxZLHtZFH83S9wRD+NvbS1p4tlh3lQK9NfHx8wt5WosaF/kXauGBrHFz90jY
-	 M4Kv7G+mH2EBLMd+to5FHNnNql8/02lpiEXh64GjfTmxHZf8FTjV8iSs5+mpB6GQnghJt
-	 NlUFHcYBnWuVBaYo9awgtTSATcccNdPIds+XnwyY2kgE1YLZhteunybVR7R8LUNSyTg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795730062;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=C9eoWPo0266fGZF/sCeB0L6HWQh4fMh4NsSwHePxn+Q=;
-	b=IBkBzoBCwPuOE6k4yRyCSBl1zcQVuhJn9Hfa2hYGIwk8FBQiFTDC0GPsN/uaCmJFPpfZ
-	 l5bzoiZtFoDBUy6Vbe4RmbyqvOzlpB7Z864fzhNCtbKC1AU9KysD3UkqMCpxBHnQeYEG/
-	 dXayQv3wMiDSPgYVV38I65Yio7FYaPfUOw/QJ3C6zBoZ0mq021Bpg7MfhqRrBOs/a7oZ3
-	 VErqjmGasYWG3q0EUNuShdL3gbhn9ifOMfBF8cnjZ9kf1iMVlCw5cBHB45GwsZDXeqpr0
-	 AUbFgTauUcVCHuROLeMsPfPKy78ClIlRl6lnrnjgqb7z7L2Vg8kGw5feK0Nj+UhlpwA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Fj6TBBA7;
-	arc=none smtp.remote-ip=74.125.82.178
-Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795730295;
+	b=owVN9DafT6Ng479/rs6hajRUOFgnsmkGMDn20xPhfL64iUzbVZtBss4IIh/4VatMVY2p
+	 yrJxkcsDHx+vIsAx2+tR+j2bjQWoP09W1ZxnlQJhK5UKvzX9iTE3JbTqExed+W1UnJRmr
+	 nJVVSL69VROPq6nnjtRbZPv59yhOvhOjjw/tKTXyaQ0f0GWAubQ7Wh0qwFvbQ7E+Lsl25
+	 CedDV+lIUrmNFJJyzESka/KbCL5fDz52aWVQfDqvV7olPlGEjxuOdTOgJrwbB1Gk7TIf8
+	 bI75USiJTBlqmKAFmPDZaDMDHWwfABRmh8nHdBp2Ma0PjYQKcR/FybzONqAeeZtXlHg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795730295;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Zoho-Virus-Status:X-Zoho-AV-Stamp;
+	bh=cv1jcP2NCWHHaTZoGDPS2zYOxgzsyVEhti5NT28c/KQ=;
+	b=UjvLEyNEc2WsBpjPhoHjylvkpQlk+rIK6C5FdFgPjQknEFD/m89sS89YuZF9kuDrPrMs
+	 X8bCAnAQZWgRH6hvp3zrwHwlwJT7PyihOMnCQFCDvsFEhx5zxlthmnBGKTj3f7hliTKQE
+	 BiGacRetqgo6B+JB5KVL9aScMsJj2za6znD3WG3y9NZZc3oj3nmxI8NoXs+o1m00FC5QZ
+	 a/LgDFzCp86uFy0YmfH9yCuhJ24O0YsaqbnTCwuCZA3IVuJe7PiJH9cOEkTtH6nWKdcZk
+	 yRiSTbDz1/1dXf1smMiRhcnnOYoGE9qsDXqcOrhbnpveNlleXFCsfl2rr61CbSbd2XQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b="NoP/VQTS";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
+Received: from sender6-op-o11.zoho.com (sender6-op-o11.zoho.com [165.173.180.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6E5D606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:54:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6E5D606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2E80606A331;
+	Thu, 26 Nov 2026 21:58:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2E80606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Fj6TBBA7
-Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-386ab9ab619so9960858eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:54:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795730061; x=1796334861; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=C9eoWPo0266fGZF/sCeB0L6HWQh4fMh4NsSwHePxn+Q=;
-        b=Fj6TBBA7ILCX2x4gIIIEa8y179XZLUb4veMZLsESp2/Gk2/PfAnG2ytKFhECpm/S6b
-         M1wBDPnHA+zm7/w35BbzRY6+RahedeiClhPUhCT0+txgLmXu+j9D1pTg4cNyICjJsU90
-         KRoivPcTASO/H24guAjw6LEKNPXVkiOsDaRG5TYqNpKggVgS0sraL8ETnApSmYYmGTHT
-         XPPl0+5Y9SSb70JleqbOQsto8QPTB9GgSRNDYZH52sYlNGJrq3O0sfDnU0LavEH2w81r
-         81VbGyYtKEYwwu18V8ZYg3bWwsuxK4W28wETASXtl9oSwzpq04RgBNKH4FZwsBQAn2Ze
-         ar5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795730061; x=1796334861;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=C9eoWPo0266fGZF/sCeB0L6HWQh4fMh4NsSwHePxn+Q=;
-        b=Hdc8HeneQFYD/jR5mpLot7UDrQTeKysC7qWg/oE1fMAX+mLx8tcRxAHQH+UM48Y1I8
-         ztBhnHse544AAP3BHTqs2H7lTNv88Zo68FERE11sxbV097rVj/oKIV+EVJo57VEXETvb
-         zot/kzU7wFYLdOkom8gOPBGNtwbchOnsfNZujgUTTLf630cja0F6J3gk7dVlq2Gl7GSp
-         1T8LIzW+mji5MmaDWpE4hgqO/476Uu5Xkd1Cwi8ZfKaTGAm1MNnG45nj0fXb+MYEY/Cj
-         da5vj+bNxI35Skr6LnK5CUUt45LUwiijdSTFXXaXW2e87mX/Xa//eQrI/78x/alk6Pia
-         jJAQ==
-X-Forwarded-Encrypted: i=1; AL+hErH/aiskNYmmDfX+tayvd2d7i2XIgbIdd4NGSfPP3qPzN4ak1W7M6vNz5EvesUoyAwYGNs9/0afy+Kw8zJs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/zsGDKBbWDpF2zR9o+xxOo9Vc3EO4KYo6Bn/ZGDE2gIe1ZHLVl
-	aKex+C6dNCWU9us1gUpM3jk+XoVC3X6t6QfrwwrXm3v+wvdFqQtUzUa8
-X-Gm-Gg: AZFdTZeTjpH1QY5c6w4jmKqIPBv1nYBceg4vm996gcyEiRDszzf/FpKKCVNCXvIlrC5
-	MDHSjh79sdofI0YHN5XvN1BvUyCYmBJDnAwNpAF4ROPehnNaeOMM/0ndnFhb0V4UkXsb5FuKSal
-	BxVGJM0OQ+B5BK1qONW10Fnn/IWJapz1f3pMY1DAifsgdXJfWpzEw68gctBRKR7ZSOUgmcg/eG0
-	zKXs5CcxuPNQDjgYYO1SRQDgi/VMqx3glOYFFl8si6aoVJ5NGp87FncUb8gnKWs1ozTQjQHC6kG
-	GU2Q5VAj2k4nn6SfqHzXi/Qts1TVs26NVMeJm8EjHPN5qmdG0vbfAzgq3s8hhMHwMB0r0ELIrRj
-	HLn68yu2POijRwSpCsaj+n0lKsOMQqedK0jG1AsDL9DUESv7IFt79y5I9jOsgRktFcO0v23jjWu
-	YicbeGvi/aVbWr1yOpFch7oTcFdq769EO1yvo1h/yzIkJufs6Bm3JVKqcsA2a40egBpMQhUxCms
-	VRd4fOfI+qZVx//4yVdY+Blb89mRLfruqCmar5d5d6WEJ+sWk9hvlRIXnq81q64i5oN5Y0m9t+H
-	bIGKTmY/Xmh3w5NT0KrXKSq3+rRoZbCyvhlkqCDdN9LK2fqIlhycC/0rpPDuHwqLonI=
-X-Received: by 2002:a05:693c:60d4:b0:369:fe81:a575 with SMTP id 5a478bee46e88-3857111f203mr27254329eec.35.1795730060741;
-        Thu, 26 Nov 2026 13:54:20 -0800 (PST)
-Received: from ?IPV6:2620:10d:c085:21d6::110c? ([2620:10d:c090:400::5:a169])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3866f299d0bsm57369732eec.19.2026.11.26.13.54.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 13:54:20 -0800 (PST)
-Message-ID: <cf0cf72a-493b-4945-a887-7305ae086028@gmail.com>
-Date: Thu, 26 Nov 2026 13:54:19 -0800
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=NoP/VQTS
+ARC-Seal: i=1; a=rsa-sha256; t=1795730230; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=iTcwd8Xp/547Iv+8Q9NX/RmRc95tagyBsdqLCDhbKDajX4OUly5OSStcrTf/w4H5mugysRCVanw0OBvcJzCnM/bp8BwT5YFsl2FiWPnCf1/D2ccADCvc7GXoRgItHtWNwi/93EDH/OY8OCDJhgqp3vsmnEZFpeN8+SRsuGdlbos=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795730230; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=cv1jcP2NCWHHaTZoGDPS2zYOxgzsyVEhti5NT28c/KQ=; 
+	b=T+WPMLmhxBBu/rh4Ip6+c1YYGaWnrLMvz3aI0LyQsIPlV2oXNZIox1oHKlxN2F2cYwj669M4bQ37UKdMieAvhb7GmtBU3mV9vVGI8bLwkYSMBTfakbzepIgD1eJt6tUFggE0WaWGD4lTUGtxgoWcB10eh37ZKfHocnn8PWLZN9I=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=deborah.brouwer@collabora.com;
+	dmarc=pass header.from=<deborah.brouwer@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=NoP/VQTSLJwgXVjcQCQu5SFK6wqD/i8LWv+j3KcLB5vO59ezzBk0xo03BXzFiGhtwnAVOQ9JMCt/g3mGrI/WTJ/r2ua7W08TsRTL0jqq3bsBRtNNjF6WiWGKq+NUKiQ84pWB1x+3/ttZKHj3F7KULpSNmk0pjKO05Lw5N08vfJQ=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=cv1jcP2NCWHHaTZoGDPS2zYOxgzsyVEhti5NT28c/KQ=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795730228027378.1289641848697;
+	Thu, 26 Nov 2026 13:57:08 -0800 (PST)
+Date: Thu, 26 Nov 2026 14:57:06 -0700
+From: Deborah Brouwer <deborah.brouwer@collabora.com>
+To: Janne Grunau <j@jannau.net>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Lyude Paul <lyude@redhat.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, nova-gpu@lists.linux.dev,
+	stable@vger.kernel.org, stable+noautosel@kernel.org
+Subject: Re: [PATCH v2 0/5] Fix import of dma-buf buffers as DRM GEM shmem
+ objects
+Message-ID: <awirMlJMlyqKwPQq@um790>
+References: <20261124-rust-drm-gem-shmem-imported-sgt-v2-0-000f7a9ccb8d@jannau.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,228 +83,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3] net: mlx5: Allow police as the last action of
- a TC rule
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, saeedm@nvidia.com, leon@kernel.org,
- tariqt@nvidia.com, mbloch@nvidia.com, cjubran@nvidia.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, linux-rdma@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261124220251.776944-1-mohsin.bashr@gmail.com>
- <179570909592.3135.1382351175870070773@kernel.org>
-Content-Language: en-US
-From: Mohsin Bashir <mohsin.bashr@gmail.com>
-In-Reply-To: <179570909592.3135.1382351175870070773@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124-rust-drm-gem-shmem-imported-sgt-v2-0-000f7a9ccb8d@jannau.net>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/295.709.99
 
+On Tue, Nov 24, 2026 at 12:37:42PM +0100, Janne Grunau wrote:
+> Hej,
+> 
+> this series is triggered by the discussion of gem/shmem.rs SGTableMap
+> issues in [1] which has an additional issue with imported objects.
+> Imported objects are supported since GEM shmem's AllocOps use
+> drm_gem_shmem_prime_import_sg_table() as gem_prime_import_sg_table which
+> sets the same function pointer field in struct drm_driver.
+> 
+> The code is broken in two ways. SGTableMap::drop() calls
+> __drm_gem_shmem_free_sgt_locked() uncondiftionally which it must not do
+> for imported objects as the object does not own `sgt`.
+> The second issue is that the imported object is allocated by
+> __drm_gem_shmem_create() with sizeof(struct drm_gem_shmem_object) as
+> size instead of the size of Rust's Object<T>.
+> 
+> The first issue is fixed in the Asahi downstream driver together with a
+> drm_gem_is_imported() wrapper change taken from the Tyr downstream
+> driver.
+> The second issue is fixed by avoiding to allocate Rust GEM objects
+> from C. In addition to size issue v1 addressed Rust gem objects may
+> contain fields with non-trivial `Drop` implementations. Those fields
+> won't be destroyed in error paths in C code which "destroys" the objects
+> with `kfree(obj)`. Solve this by re-implementing
+> gem_prime_import_sg_table() in Rust.
+> The same issues apply to drm_gem_shmem_dumb_create(). As Asahi and Tyr
+> as render only devices do not use the `dumb_create` callback just drop
+> it. When a future driver uses the callback drm_gem_shmem_dumb_create()
+> needs to be re-implemented in Rust as well.
+> 
+> The series is tested in the Asahi downstream driver. As the prime import
+> code path is unused in-tree I marked the fixes as not suitable for stable
+> backports. The known downstream users of the code are aware of the
+> issues and carry fixes downstream. I don't expect new Rust DRM drivers
+> to be based on (old) stable trees.
+> 
+> Link: https://lore.kernel.org/rust-for-linux/20261019-rust-shmem-fixes-v1-1-3f7f6de5b5e7@google.com/ [1]
+> Signed-off-by: Janne Grunau <j@jannau.net>
 
+Thank you Janne for this series, I tested it on my rock 5B
+by running the igt tests [1]
+with the proposed ioctl changes to tyr [2]
+and it is working great.
 
-On 11/26/26 8:04 AM, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 1
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] In police_act_can_offload_jump()
->    (drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c), every…
-> - [Low] Besides adding police-as-last-action support, the patch fixes two
->    hardware/software mismatches in existing offloaded rules, both present…
-> 
-> --
-> 
-> net: mlx5: Allow police as the last action of a TC rule
-> 
-> This patch lets mlx5 offload TC rules in switchdev mode where police is
-> the last action. It also changes how police results are offloaded: ok is
-> now accept, pipe as the last action is accept, and a jump is only
-> offloaded when police is the first action and the skipped actions are all
-> drop or all ok. The forward to the post meter table is now set for rate
-> police as well as mtu police.
-> 
->> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
->> index 1bd1c94fb9776..f03a992cbc270 100644
->> --- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
->> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
->> @@ -37,6 +37,52 @@ static int police_act_validate(const struct flow_action_entry *act,
->>   	return 0;
->>   }
->>   
->> +static bool
->> +police_act_can_offload_jump(struct mlx5e_tc_act_parse_state *parse_state,
->> +			    const struct flow_action_entry *act,
->> +			    int act_index, u32 target)
->> +{
-> 
-> [ ... ]
-> 
->> +	prev = act;
->> +	for (i = 1; i <= target; i++) {
->> +		entry = &flow_action->entries[i];
->> +
->> +		if (i < target &&
->> +		    ((entry->id != FLOW_ACTION_DROP &&
->> +		      entry->id != FLOW_ACTION_ACCEPT) ||
->> +		     entry->id != flow_action->entries[1].id)) {
->> +			NL_SET_ERR_MSG_MOD(extack,
->> +					   "Jump can only skip actions that are all drop or all ok");
->> +			return false;
->> +		}
-> 
-> [Severity: Medium]
-> 
-> Does this check stop offloading police-first jump rules that were offloaded
-> correctly before this patch?
-> 
-> tc_act_can_offload_police() calls police_act_can_offload_jump() for each
-> jump result of both rate and mtu police. With police at index 0, any
-> skipped action other than drop or ok is now rejected. For example:
-> 
->    action police mtu 1500 conform-exceed pipe/jump 2 \
->    action mirred egress redirect dev A \
->    action mirred egress redirect dev B
-> 
-> Before this patch, dec_jump_count() already handled this case when police
-> is at index 0. jump_count is set to extval and decremented once per
-> distinct TC action, so the jump lands on the same entry where
-> tcf_action_exec() restarts.
-> 
-> The last skipped action is either marked terminating or forwarded to the
-> post action table (as for mirror):
-> 
-> dec_jump_count() {
->      ...
-> 		if (tc_act->is_terminating_action) { /* the branch ends here */
-> 			attr->flags |= MLX5_ATTR_FLAG_TERMINATING;
-> 			...
-> 		} else { /* the branch continues executing the rest of the actions */
-> 			attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
-> 			...
-> }
-> 
-> With this patch these rules fail can_offload with "Jump can only skip
-> actions that are all drop or all ok". With skip_sw the filter add fails.
-> Without skip_sw (for example with OVS) the traffic goes to the software
-> datapath.
-> 
-> The only flaw the commit message names in the old jump handling is that
-> the jump is counted from police instead of from the start of the action
-> list. That cannot happen when police is at index 0, and the act_index
-> check above already rejects the other case.
-> 
-> Is the extra all drop or all ok restriction needed? If it is intentional,
-> could the commit message say that rules which offload today will stop
-> offloading, instead of only "Reject the rest"?
-> 
+So, for the whole series:
 
-Thanks for the review. Yes, this is intentional. Please see the 
-discussion on v1 and v2
-https://lore.kernel.org/netdev/20261117031337.4126403-1-mohsin.bashr@gmail.com
-https://lore.kernel.org/netdev/20261119040010.1405900-1-mohsin.bashr@gmail.com
+Tested-by: Deborah Brouwer <deborah.brouwer@collabora.com>
 
-In summary, we discussed that a jump either executes the correct target 
-or the offload is rejected.
+[1] https://gitlab.freedesktop.org/drm/igt-gpu-tools/-/tree/master/tests/panthor
+[2] https://lore.kernel.org/rust-for-linux/20261122-tyr-ioctls-v7-0-3a2af624b992@linux.dev/
 
-Police first alone does not meet this expectation. My understanding is 
-that the driver counts a jump in flow action entries, while TC counts it 
-in TC actions, and the two do not always match. This can be an issue 
-when one TC action gives entries of different types, for example a pedit 
-with a set and an add key. I have not tested this on HW though. Maybe 
-Mark or someone else from NVIDIA can correct me here.
-
->> +
->> +		if (entry->id == prev->id && entry->hw_index == prev->hw_index) {
+> ---
+> Changes in v2:
+> - Switch to Rust gem_prime_import_sg_table() implementation
+> - Drop unsound drm_gem_shmem_dumb_create() as well
+> - Add `#[inline] annotation to BaseObject::is_imported()
+> - Drop typoed mail address from To:
+> - Added Alice's Reviewed-by tags
+> - Link to v1: https://lore.kernel.org/r/20261026-rust-drm-gem-shmem-imported-sgt-v1-0-36f15ace04b1@jannau.net
 > 
-> [ ... ]
+> ---
+> Janne Grunau (4):
+>       rust: drm: gem: shmem: Do not use drm_gem_shmem_dumb_create()
+>       drm/gem/shmem: Initialize private objects via drm_gem_shmem_init() too
+>       rust: drm: gem: shmem: Implement prime_import_sg_table callback
+>       rust: drm: gem: shmem: Do not free SG table of imported objects
 > 
->> @@ -49,6 +95,16 @@ tc_act_can_offload_police(struct mlx5e_tc_act_parse_state *parse_state,
->>   	if (err)
->>   		return false;
->>   
->> +	if (act->police.exceed.act_id == FLOW_ACTION_JUMP &&
->> +	    !police_act_can_offload_jump(parse_state, act, act_index,
->> +					 act->police.exceed.extval))
->> +		return false;
->> +
->> +	if (act->police.notexceed.act_id == FLOW_ACTION_JUMP &&
->> +	    !police_act_can_offload_jump(parse_state, act, act_index,
->> +					 act->police.notexceed.extval))
->> +		return false;
->> +
->>   	return !!mlx5e_get_flow_meters(parse_state->flow->priv->mdev);
->>   }
+> Sami Tolvanen (1):
+>       rust: drm: gem: add an is_imported() accessor
 > 
-> [ ... ]
+>  drivers/gpu/drm/drm_gem_shmem_helper.c | 34 +++++++-------
+>  drivers/gpu/drm/nova/gem.rs            |  4 ++
+>  drivers/gpu/drm/tyr/gem.rs             |  4 ++
+>  include/drm/drm_gem_shmem_helper.h     |  3 +-
+>  rust/helpers/drm.c                     |  6 +++
+>  rust/kernel/drm/gem/mod.rs             | 17 +++++++
+>  rust/kernel/drm/gem/shmem.rs           | 81 ++++++++++++++++++++++++++++++++--
+>  7 files changed, 126 insertions(+), 23 deletions(-)
+> ---
+> base-commit: 3497a403264b094ebd61b8b755165d56e7d9dc37
+> change-id: 20261026-rust-drm-gem-shmem-imported-sgt-85c4a45be283
 > 
->> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
->> index 1d35c97aea0bc..7e7111e6d058b 100644
->> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
->> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+> Best regards,
+> -- 
+> Janne Grunau <j@jannau.net>
 > 
-> [ ... ]
-> 
->> @@ -3891,11 +3891,17 @@ alloc_branch_attr(struct mlx5e_tc_flow *flow,
->>   	case FLOW_ACTION_DROP:
->>   		attr->action |= MLX5_FLOW_CONTEXT_ACTION_DROP;
->>   		break;
->> -	case FLOW_ACTION_ACCEPT:
->>   	case FLOW_ACTION_PIPE:
->> -		err = set_branch_dest_ft(flow->priv, attr);
->> -		if (err)
->> -			goto out_err;
->> +		if (!last) {
->> +			err = set_branch_dest_ft(flow->priv, attr);
->> +			if (err)
->> +				goto out_err;
->> +			break;
->> +		}
->> +		fallthrough;
->> +	case FLOW_ACTION_ACCEPT:
->> +		attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
->> +		attr->flags |= MLX5_ATTR_FLAG_ACCEPT;
->>   		break;
-> 
-> [Severity: Low]
-> 
-> This isn't a runtime bug in the patch. However, this hunk and the
-> act_index check in police_act_can_offload_jump() also fix two
-> hardware/software mismatches in rules that are already offloaded.
-> 
-> First, alloc_branch_attr() handled an ok police result like pipe. For
-> "police ... conform-exceed drop/ok action mirred ...", the hardware ran
-> the following actions for conforming packets, while tcf_action_exec()
-> stops at TC_ACT_OK.
-> 
-> Second, dec_jump_count() counts a police jump from the police action,
-> while TC counts from the start of the list. With police at a non-zero
-> index, the hardware ran different actions than software did.
-> 
-> Both seem to date back to the branching support in commit f86488cb4685
-> ("net/mlx5e: TC, initialize branch flow attributes") and its follow-up
-> c84fa1ab94a77c ("net/mlx5e: TC, initialize branching action with target
-> attr").
-> 
-> The commit message describes the behavior change, but there is no Fixes:
-> tag, and the fixes are mixed with the new police-as-last-action support.
-> Could these fixes be split out and sent to net with Fixes: tags, so that
-> stable trees pick them up?
-> 
-
-I kept them in net-next on purpose, since both change the behavior of 
-rules that are offloaded today. That said, if the maintainers prefer, I 
-can split them out to net with appropriate fixes tags.
-
->>   	case FLOW_ACTION_JUMP:
->>   		if (*jump_count) {
-> 
-> [ ... ]
-> 
-
