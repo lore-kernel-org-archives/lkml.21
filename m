@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795716715;
-	b=o686F+iqjoOdPL8gbL82IhuNySEpzqYbuE7RFvtvXPOPqrje9pGwsCDagSGCh+YEHBoR
-	 U33dJbEkvzuSK2ROfh+C90ETA+1PorAjU5ktAh4C+Y51gvBubr1CYRutMW1JG0eCmrPvT
-	 7qRYirk3Ut5Me8xoP4VYDbH99Ln9zq5hv9QmUplgdirQewMiSk5BDB3oZligS5eKaxeHF
-	 B7+s7KPl/aPC0CzezLnqg593UaZy3nx0o/lf7/T+9lWf8rdB8mErhdPsqYGPULN2KKVOs
-	 v5k4Sl/cevf/QapTYMcZDrEjC6eJiarGFNfB3LvT2+M50ghX7n4LEF/5/CsxRogLJ1Q==
+	t=1795716719;
+	b=j0chSiXLIj+KNf6SCdwfMMQ15JzHjjsafJ4vrB+XZU1LvD6H6nGDta0t8Y3UzB/hG2WF
+	 lQ7rmRUtA7CcqGVPgY0EkalXcU+xha9x0Y75G3bdg6DB0TBlWVcbZfMZdRmetnop5CJOd
+	 A1Gf9eHujc8Yxpq9fI03MUk+wMgLRaqbUkN88pGNzAUVpzbUZweDl+uuqDRYdDTBvmfur
+	 GbygjOyPFdC/EHoVB+BelAzY8jpDU5E8A/jrXH2q/QRzAppNtyql1KdVgcQIf7ynaGAqp
+	 HQsadvivpv5a6HmOcoeuR/AmUQTn4cilL0qAt6U06fm2MvKtbCHsHdgqMRKffKwfSiA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795716715;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795716719;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=ohcenfLUMndMbNU9mTZepLoct+4NVwlucM8NCOZrsDE=;
-	b=XBEkYSLIEzhKhtddel8gUD89sgW+SlQlzVecXU22lMx+azf9CPxrRiNSXWJp1PeG/iPN
-	 JQqAwIu/T568Va/fTD2TZIWJ31X2b7Cr4ZfCtgDtLNRDPrmcL72OcRu3m27dSxhkChfaj
-	 Wr4+xZBAtAtTHsvE2/mI5WskkvxK+vu4Tc/S3Vml5XETgwyRhA+11Y3UwCsjb477/PDXQ
-	 BYoKCx4Nhcn+TeYCnKFrFV5UNABykjRY9hNBSCC+BOHtELc+pEIIyq3T0gwDwWhnz6evI
-	 drs2BOBrYUtiHS76SBtiCKcRVEzVCPGDKzVReIEaGZQedqJ9agVMM2xjTmGGbk41CVw==
+	bh=VmI1RLwiar2heLlFaWJ26IPV3Xx+MW05Ao+rpfa4gPo=;
+	b=TGaNnVathuUd6ELlrPc69gGp+mXwG+u8op3NL0Uu/pCvDelXfbU08DVqIv3AZUrFkUm6
+	 alnw+mdvJGuCcFrHDORV9QGlmMMvs5Es9nDyXEECz4mewChfUozMtLlme+NowAdfETgMM
+	 hj8odlNCvfGH2DmRYCyM5zp3wYhRbIrHHsv/ZmqwyIpm03MqZziZRyExHT4aL3tsCf19O
+	 kKaXXFMGHrzgZJS0SicEmYf14sgYtzCT8BS6NxXZMjHkuxA+1Px/W2TgrqLKHh22J9qJs
+	 E4dQUlhqu2Suna0PVa1CrCPw8Jg4G2mRjWXKE6X3josbASDUaZ7lr6BjjbhgtBQXApA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BFUy8yci;
-	arc=none smtp.remote-ip=74.125.82.42
-Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hhWbqfHa;
+	arc=none smtp.remote-ip=74.125.82.51
+Received: from mail-dl1-f51.google.com (mail-dl1-f51.google.com [74.125.82.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3A8B606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:11:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E3A8B606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B456606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:11:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B456606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BFUy8yci
-Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-1b244fb7fffso7847649c88.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:11:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hhWbqfHa
+Received: by mail-dl1-f51.google.com with SMTP id a92af1059eb24-1b3acec6677so11066313c88.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:11:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795716714; x=1796321514; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795716718; x=1796321518; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ohcenfLUMndMbNU9mTZepLoct+4NVwlucM8NCOZrsDE=;
-        b=BFUy8yciA2wZCBYPBCFc7r6kP8CekNVrj73LFtzZZupLuq239O/THBkWIUSr9sn/3S
-         WaqSuYBWD9WV9mZg2FXldC1oC1D6ABC/FoSVwJR41kzNIBVmR8ZiJtGWOwXi2kDWMM+1
-         HyZ8b0JXjK4qUmuov+aKKZUtKz55WcabWMbLq0GeQ3cgR3U0BIFc/H2N91nsPFB38Sf6
-         fVA6TzIyL8lgmzR1qQSOw64wDyZ6EvGwX+jVnXxXEq90MlcGKcbVGBs7MIam9gNrQUF4
-         HTwJif5S+/VBl+HPetA//I5La415kjewoAKt2+mgV2Gbj/Xs0qc8RTedTKixPrasWU9a
-         ejbw==
+        bh=VmI1RLwiar2heLlFaWJ26IPV3Xx+MW05Ao+rpfa4gPo=;
+        b=hhWbqfHauOjYhVPjniYAo8GgzUHzotXJ+4xcVGNkJvIPCvGnz5yRQTJch82LZpv3Of
+         JsF0jWEb6jmf41DSTeUW3bhzmqWJ+SKxGG9Lxuv3vu1TWCTqa5DsNFLmgfgPtY7B83gn
+         y3mu3Bp4JndHEYVsV1UDBtzw7/7qLu5QabGh2/ycLQyTcUhnF5cPF175V6ZWlZMGZ/ys
+         nvvvay9KkKCiRoTJyfL78dpV6vwiCMkgyNFZJv2IbcqBXqTjdWvdAqhuOfU4bVAS+jZC
+         xFwIEMo++oXGvFAHaWP30zQhpDWrFK1FtdKBjeq3GZkV3vbxg/Ke0didZ1uFTm2kKsvG
+         z4ow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795716714; x=1796321514;
+        d=1e100.net; s=20260707; t=1795716718; x=1796321518;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ohcenfLUMndMbNU9mTZepLoct+4NVwlucM8NCOZrsDE=;
-        b=i7DlnBJ6mSzAaLRXaRnQ+dv4DxE5IbQdFo7UNL66oiejvMttDlqId0/swkscr2mTjt
-         HbgHh578+bO2N9G2RHKAq5rDxoXjZGvg6CkJ0BYpwQ9hbUKZybQXRg3YG2avsC+Tbq2z
-         4kCsjrMtiTLtxXswP61aMrgaKaDi3JLHDLEwmCRVPlQOj9ABasbIS1UOq5PtY+sJE8wl
-         7xqhBu5le+IxEWAiCf3cBv9yT9uThl6QJYL2hECNeEYwNnKPu5jxSKmnF57iXiu/HLuT
-         vcxN8/UqCdx58LGCgUYKN+GImhoWShypglpUXqp0vs+kkBDMHvRONx05j8K9/PFUH/8D
-         L7bQ==
-X-Forwarded-Encrypted: i=1; AL+hErEna6VsrICKG4mGwtF5u4VMZbpdouNA+D8BlGgclCi+24FFyliCS7d59cG7Z9fS2zWa/fBGTQbXOLbHBvM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+k4A9qSNTTX6NSgzRUhKYFmxyHSHqN2v4J4OzKkejvwZXcgfvq
-	n4bcS2/is8p2rHcAJOJLEWg7+sj2lyjf3OwSCDXwiPGY9d/Dtn3Q0PDo
-X-Gm-Gg: AZFdTZdao0pvwFEfLavydtM+1yA8uXg/qfzkaGpTkgqzYBYssLfWVRoeJRJuot1/U02
-	wKDzalTSTuxaYhJnfUU/qewiNuN1n386g9YJINjfSctC0i6wR9y3dH9o8iR9HfnvHRgWKDgjrPs
-	ufR77j87OKH6EVRwilxKvymyOez+Iowwu2zTIoU7qdfzjK/HiR6eqxWobqJIFKrtfbtHDz3u5r/
-	INdsHJi5kMzdOsUf3lTNHv23aIJEKc3EEmMJyr1rLsFA8QT/Q9lJWllJhM4eRTgQkDI9uK4bNsh
-	/D6tf5j0aDyc6OQJDJVz3PoKhh2faoqOWSkXBooT3A3JO8YB2bw0ZGAqRSBAN5DaNFFYCkK1mPi
-	Va5875msWHEdQcedQ2r+78QQjiBEN1sy9lifq94HkJCnuFz5TOn67phenLPKUKd9Z9ageR8xba6
-	aDdAHvURoJQdZo69XciSzqo5bWim6d4qxOZyA1cxGIfVkkcqwHonsMWXxFYqAba3FYljtH1LRfB
-	ySu/ISUQftApeXYx3UIE4EveEduQryZH740swfpg1c5tdk8NhTtXvCJtUtqRiDGUCzFL+mHF4YF
-	nxKC6Kgn8qd4ibAjR1WO84mX+ctk6VSm4LGdweC3sdPoCxNabu9sBQzyMe4JOBU2W1y6t2XnjIH
-	+sVXCjov2+CIsLh1WrSrVLVA=
-X-Received: by 2002:a05:7022:f111:b0:1a8:ff0b:a4e1 with SMTP id a92af1059eb24-1b55688ee19mr25310636c88.18.1795716714042;
-        Thu, 26 Nov 2026 10:11:54 -0800 (PST)
+        bh=VmI1RLwiar2heLlFaWJ26IPV3Xx+MW05Ao+rpfa4gPo=;
+        b=sIdlUld/08ddGU2iYEdgrJxRXDUusG0JbyqTyBVN4J2Q5M04jqv2SCNehJrYv7zwsJ
+         FcIjh3QV71JYE4VJj4k5zYj14dMZNNJwXMNS3ORTt5Ilkn+I4bgYGW6Cv2xXPkTQEolt
+         +mXMeZ6rhKFnR18hDr15sCXUsIxln77sag8exLjkEb5mJ5MtfoWIJqLM/VKChMAsNN6k
+         0aAye6Zomo/o7UjxfS3dxvWH6+qMCQ8fE5b+F686vBS9K2Gdalsr8OBJNN8e6gxg9r7R
+         Ld+stOB5TJ3Ut78aWfXYOxAxLOVdn601roaLrsrLW+0nhTTTklR7C1wVejrmih4oIc2R
+         rTLw==
+X-Forwarded-Encrypted: i=1; AL+hErF1+9uq4+naHHU4T0k3p8gR0yx6TMcrknJW8oOP5QQCtSIh9RyZU/mcpByxq9mwo7YWP7Cq/Kw1a6BaxMw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8I/jVWu5UHiXn1uOl5B98SW6NkIW/ra2DmtHOZAEYk25zlq1to
+	K3jGlLOp/Y67opFHYFt8lQv4ND5xSWzlcMTwciSWnySfMBEQkgeljzSu
+X-Gm-Gg: AZFdTZcRLumugf+fG67NmT+EC64GtTkgBkZbMf2xq5wbl9Udi4LAFAhnHtJYzu0LRQa
+	1D8NXqaJ65hLM+5uQyQoCxbxRZuiRLzdlZ4U/1TLZ+41jMC734CBlHyTjmvX+2s4B2V6YrWqrJp
+	hTQZoGmSW+S/M51fnvDS2CrOOwi1jUl1OnpY1ZgBuSvFUP15meLQumeaMwFynT+b1WQpG8b94OF
+	sx45FU0EC3VAmx5As5ER6ndzWFeZQP+s6tTvyue3FAmtTc2Mqb1rlT4M5SwfpUaFoOrgVI1pauC
+	8dh0BHHGfl7qQTYHWC0D2DO1WcE7s3vmyqReiE5TESlUNWAd0xYszegjd4YCJ7k01g+6uPUA1M6
+	SdcZlV9RcG8zml2MeLqwYdiVc/hfdpIs32mkX6qScWpXwib3O+/MSTnvwbBDsFGd9W+t/5mhq68
+	jHQbWJ+DV/36q1R7R8VCYJ7vukLWc8drkj/cMdvQM9o+xqd0CMc2ySgfHP0Y/j378udSqaECdiW
+	lll2dlSvG3bII2VDQFf6RJV8m7TuGzf4ViufzNB7eHvjtn9WWZi4sS/QXBVDdtmVCLZc3INEF86
+	pEWJI0fSi2FIRI471vQC0oyDQVgPuuQ3VdUQaN/PrgdWUxW4odE5XNKTZ/gkDFQPEq5gb6a9IaA
+	q3iXbu4QklKGgxMFlQocEOsY=
+X-Received: by 2002:a05:701b:2815:b0:1b5:22d1:1eb5 with SMTP id a92af1059eb24-1b55693615emr22539079c88.37.1795716718270;
+        Thu, 26 Nov 2026 10:11:58 -0800 (PST)
 Received: from visitorckw-work01.c.googlers.com.com (55.11.81.34.bc.googleusercontent.com. [34.81.11.55])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55681301asm51183875c88.8.2026.11.26.10.11.50
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55681301asm51183875c88.8.2026.11.26.10.11.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 10:11:53 -0800 (PST)
+        Thu, 26 Nov 2026 10:11:57 -0800 (PST)
 From: Kuan-Wei Chiu <visitorckw@gmail.com>
 To: daniel.lezcano@kernel.org,
 	tglx@kernel.org
@@ -94,9 +94,9 @@ Cc: pjw@kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-m68k@lists.linux-m68k.org,
 	Kuan-Wei Chiu <visitorckw@gmail.com>
-Subject: [PATCH v2 8/9] clocksource/drivers/timer-goldfish: Add device tree probing support
-Date: Thu, 26 Nov 2026 18:11:00 +0000
-Message-ID: <20261126181101.3715754-9-visitorckw@gmail.com>
+Subject: [PATCH v2 9/9] MAINTAINERS: Add entry for goldfish timer driver
+Date: Thu, 26 Nov 2026 18:11:01 +0000
+Message-ID: <20261126181101.3715754-10-visitorckw@gmail.com>
 X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
 In-Reply-To: <20261126181101.3715754-1-visitorckw@gmail.com>
 References: <20261126181101.3715754-1-visitorckw@gmail.com>
@@ -111,181 +111,33 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The driver currently only supports board-level initialization via
-goldfish_timer_init() on m68k virt.
+There is currently no MAINTAINERS entry for the goldfish timer driver.
+Add one and list myself as maintainer, as I already maintain the same
+driver in U-Boot [1].
 
-Register a platform driver matching "google,goldfish-rtc" so device
-tree platforms can also probe the timer. Since DT platforms typically
-expose a single goldfish-rtc device that cannot be bound by both
-drivers at once, depend on M68K || RTC_DRV_GOLDFISH=n in Kconfig to
-avoid conflicting with rtc-goldfish whether built-in or as a module.
-
+Link: https://source.denx.de/u-boot/u-boot/-/commit/909f717eaf29 [1]
 Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
 ---
- drivers/clocksource/Kconfig          |  5 +-
- drivers/clocksource/timer-goldfish.c | 93 +++++++++++++++++++++-------
- 2 files changed, 74 insertions(+), 24 deletions(-)
+ MAINTAINERS | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
-index da83483296d5..852fb1f2d8d2 100644
---- a/drivers/clocksource/Kconfig
-+++ b/drivers/clocksource/Kconfig
-@@ -760,8 +760,9 @@ config MICROCHIP_PIT64B
+diff --git a/MAINTAINERS b/MAINTAINERS
+index d738990161bd..4e3c24b6888e 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2078,6 +2078,12 @@ M:	Jiaxun Yang <jiaxun.yang@flygoat.com>
+ S:	Supported
+ F:	drivers/rtc/rtc-goldfish.c
  
- config GOLDFISH_TIMER
- 	bool "Clocksource using goldfish-rtc"
--	depends on M68K || COMPILE_TEST
--	depends on RTC_DRV_GOLDFISH
-+	depends on M68K || OF || COMPILE_TEST
-+	depends on M68K || RTC_DRV_GOLDFISH=n
-+	depends on HAS_IOMEM
- 	help
- 	  Support for the timer/counter of goldfish-rtc
- 
-diff --git a/drivers/clocksource/timer-goldfish.c b/drivers/clocksource/timer-goldfish.c
-index f5019a6bb340..b4b0388c01f9 100644
---- a/drivers/clocksource/timer-goldfish.c
-+++ b/drivers/clocksource/timer-goldfish.c
-@@ -5,6 +5,8 @@
- #include <linux/clocksource.h>
- #include <linux/clockchips.h>
- #include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
- #include <linux/slab.h>
- #include <linux/spinlock.h>
- #include <linux/goldfish.h>
-@@ -102,15 +104,11 @@ static irqreturn_t goldfish_timer_irq(int irq, void *dev_id)
- 	return IRQ_HANDLED;
- }
- 
--int __init goldfish_timer_init(int irq, void __iomem *base)
-+static int goldfish_timer_common_init(struct goldfish_timer *timerdrv,
-+				      int irq, void __iomem *base)
- {
--	struct goldfish_timer *timerdrv;
- 	int ret;
- 
--	timerdrv = kzalloc_obj(*timerdrv);
--	if (!timerdrv)
--		return -ENOMEM;
--
- 	timerdrv->base = base;
- 	raw_spin_lock_init(&timerdrv->lock);
- 
-@@ -125,18 +123,6 @@ int __init goldfish_timer_init(int irq, void __iomem *base)
- 		.set_next_event		= goldfish_timer_next_event,
- 	};
- 
--	timerdrv->res = (struct resource){
--		.name  = "goldfish_timer",
--		.start = (unsigned long)base,
--		.end   = (unsigned long)base + 0xfff,
--	};
--
--	ret = request_resource(&iomem_resource, &timerdrv->res);
--	if (ret) {
--		pr_err("Cannot allocate '%s' resource\n", timerdrv->res.name);
--		goto err_free;
--	}
--
- 	timerdrv->cs = (struct clocksource){
- 		.name		= "goldfish_timer",
- 		.rating		= 400,
-@@ -148,26 +134,89 @@ int __init goldfish_timer_init(int irq, void __iomem *base)
- 	ret = clocksource_register_hz(&timerdrv->cs, NSEC_PER_SEC);
- 	if (ret) {
- 		pr_err("Couldn't register goldfish-timer clocksource\n");
--		goto err_release_res;
-+		return ret;
- 	}
- 
- 	ret = request_irq(irq, goldfish_timer_irq, IRQF_TIMER,
- 			  "goldfish_timer", timerdrv);
- 	if (ret) {
- 		pr_err("Couldn't register goldfish-timer interrupt\n");
--		goto err_unregister_cs;
-+		clocksource_unregister(&timerdrv->cs);
-+		return ret;
- 	}
- 
- 	clockevents_config_and_register(&timerdrv->ced, NSEC_PER_SEC,
- 					1, 0xffffffff);
- 
- 	return 0;
-+}
++ANDROID GOLDFISH TIMER DRIVER
++M:	Kuan-Wei Chiu <visitorckw@gmail.com>
++S:	Maintained
++F:	drivers/clocksource/timer-goldfish.c
++F:	include/clocksource/timer-goldfish.h
 +
-+int __init goldfish_timer_init(int irq, void __iomem *base)
-+{
-+	struct goldfish_timer *timerdrv;
-+	int ret;
-+
-+	timerdrv = kzalloc_obj(*timerdrv);
-+	if (!timerdrv)
-+		return -ENOMEM;
-+
-+	timerdrv->res = (struct resource){
-+		.name  = "goldfish_timer",
-+		.start = (unsigned long)base,
-+		.end   = (unsigned long)base + 0xfff,
-+	};
-+
-+	ret = request_resource(&iomem_resource, &timerdrv->res);
-+	if (ret) {
-+		pr_err("Cannot allocate '%s' resource\n", timerdrv->res.name);
-+		goto err_free;
-+	}
-+
-+	ret = goldfish_timer_common_init(timerdrv, irq, base);
-+	if (ret)
-+		goto err_release_res;
-+
-+	return 0;
- 
--err_unregister_cs:
--	clocksource_unregister(&timerdrv->cs);
- err_release_res:
- 	release_resource(&timerdrv->res);
- err_free:
- 	kfree(timerdrv);
- 	return ret;
- }
-+
-+static int goldfish_timer_probe(struct platform_device *pdev)
-+{
-+	struct goldfish_timer *timerdrv;
-+	void __iomem *base;
-+	int irq;
-+
-+	base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return irq;
-+
-+	timerdrv = devm_kzalloc(&pdev->dev, sizeof(*timerdrv), GFP_KERNEL);
-+	if (!timerdrv)
-+		return -ENOMEM;
-+
-+	return goldfish_timer_common_init(timerdrv, irq, base);
-+}
-+
-+static const struct of_device_id goldfish_timer_of_match[] = {
-+	{ .compatible = "google,goldfish-rtc", },
-+	{},
-+};
-+
-+static struct platform_driver goldfish_timer_driver = {
-+	.probe = goldfish_timer_probe,
-+	.driver = {
-+		.name = "goldfish_timer",
-+		.of_match_table = goldfish_timer_of_match,
-+		.suppress_bind_attrs = true,
-+	},
-+};
-+builtin_platform_driver(goldfish_timer_driver);
+ ANLOGIC DR1V90 CRU DRIVER
+ M:	Junhui Liu <junhui.liu@pigmoral.tech>
+ S:	Maintained
 -- 
 2.56.1.839.g22a8290db9-goog
 
