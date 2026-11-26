@@ -1,99 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.49
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.23
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795675570;
-	b=NQLSmNP7PuD/s5qOwyYJgl+u3jb1I+ovpQUbOkcNrJbUNArDhYBge/XaXVJyEk2ml0h3
-	 uuNNeaiYXpWLMJ2i1JHaq22pfLKJY9an2DmPNBQJiz16DgyjfN6XMq32iNeO0Owl5Y2Hb
-	 bNcMhnGR4ijKDxIdWFLx4F4erhBwR1y7O+FcuOdwChNjIiSyzTqOeevQ7i+MD5iQqIJAV
-	 1j0Bf4S+XKTg/uTQiCtAyrWCmyTkrIMUtckdsmqWp2CWQlSLD7KM6NOwvd+6CPuHZC8oH
-	 H7vfL9TCt88I1ZwbQWEkObJApkJ74IdkBhGZmyxw5faQ6z2X+xJHNkb34E7ZhatgTxg==
+	t=1795675676;
+	b=uyaz3k4oMl+bfR8CL1ck5zMYmJfrtYKD5PqvJXO8/MV1/M36EnKFP5s09ZAPE9qkrLzb
+	 8+xcebv/RfMw3ptaqXPon990m1BhVZfAXyCT8a/TkwrKBnTDMIbsqOQuBRp7sn5S70Ul0
+	 Xzm96cHV60EP9WlfefaUyWl2aEJnQGtslwmm6igtwRNuObHTa+MMIWYhmYGp19g/GCQgk
+	 IK0yTPQZD+/tu4AdbovyavQPBudAM294ndIk8uc3jXemDByl9mC9zVAtmb5IofhJZm+Qp
+	 aQ+Og8RTq4vRT0pYOpFgbr5fqH/vGRFEF0EXtNyvj+0ULwZ7qtL++Rd1OUvz47tTLoA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795675570;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=iEdrgxs/YidBZzZOj+WIohy33aH+C5/pNi1p+tZ06Dk=;
-	b=BLykf9k5dEgVg4FlBemv/p+5xnHiokwbqSW8/sWwgOUNJylngIjl/8zQtoyX9B1Ho5Qz
-	 iS2CATokin1YOrLYZvNk1LIoYxU16r4gnO+6SfBpfIudSAaoDC/CbXJ7e14R3goesodzu
-	 jIRDgv0BbNfgPq+FpR/ME16WIyEmQHP111GYMjmC3o06SAKh5T/TV4wLnhNvGI1kTdp55
-	 OL9PSWAfcwZZKTY+F6fnZoAR3ijc6bF4mOuAzFYTfN6EKOnHIzKM9892uQOfwKjdN3KgV
-	 K61fpQUrmlnz/KpxrFNg6AzMWLGZxe4N2jwo6smZWg82iU+ponGkf/q1mFVXeL9eghQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795675676;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:In-Reply-To:References:Content-Transfer-Encoding:
+	 Content-Type:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:
+	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=c+BMZ/Bhsn2DpY2EQn+VzntybXZ2UACBm5iLxRxaZ5I=;
+	b=npCgL2uU2i2j3h3+qVmePzqRjI68bHhkyh9BbhZxvKH7UGA7RsielEUWUo0iTGC7wn4W
+	 1Sa2q7R/Ioxe7JoJ/xc/PAfbKBzjbaoHcqFdUhojRJ4qSbaRHv1s4vbJyZH7HQYm3M3Ps
+	 FyJ6L7j97wRwBj4aq78Lus3ZWcmVBVWNBd08RcgWaEfLBOVlRIyBwcdcLhioK55GjKA9H
+	 Q8Fx1lCA5K25J4GSYyP6IxskQ215jWS5wgnUOalY57N70bpQbLnrcgNJ5ehMrgbb062uM
+	 yTH1GWcc2CgJhWwfCU3cxHJpy4VYlMMSq5dXibWRxSp25qWk15sr0tKVUzr8RMo7e4Q==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=clyso.com;
-	spf=pass smtp.mailfrom=clyso.com;
-	dkim=pass header.d=clyso.com header.i=@clyso.com header.a=rsa-sha256 header.s=google header.b="MBOwL/Pe";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.49
-Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=X+uIVAvD;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.23
+Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010023.outbound.protection.outlook.com [52.101.201.23])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 869CB606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:46:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 869CB606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=clyso.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=clyso.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D11B6606A31C;
+	Thu, 26 Nov 2026 06:47:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D11B6606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=clyso.com header.i=@clyso.com header.a=rsa-sha256 header.s=google header.b=MBOwL/Pe
-Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c5188e17487so137432666b.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:46:09 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795675568; cv=none;
-        d=google.com; s=arc-20260327;
-        b=BZmNO5Z6rRvOnF0uXc9QTqDIJ4d/Ll4g+bt54EyyaCQCR2TaiHaDTVvZcaaSXe0qE9
-         k4FurmyPSGOIpaNJ6wqtlrM7qRN18gE/9iDglWc2Zk7u3RWyc8+CY6ksjTNkcW0woiUF
-         u3zpcXk+57+/Okx0EU36rr+awWSXBjYb+KzipwtEEZ4TAGcNEiuG0jssDgNPkyyehEV7
-         R+JtnDDo/WIeKQN8T0Qd3FG5z4TSDqKtazTiMYAEprMjOHRHCnPUuTzRocD+5Zl0Qg9m
-         jPcFGL7UjJ+abG+vaT91h1O5fkCV1hDnZYk7mBsjFL/nrWSLKQC4AFB0Y84AWoU4B5CG
-         o5cA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=iEdrgxs/YidBZzZOj+WIohy33aH+C5/pNi1p+tZ06Dk=;
-        fh=6s9wRQ/VktFnb0sEyraOzcUXOW/+N0C9b/fk34tl5Kc=;
-        b=p9VvfccDaZZopvr5HejOwl/nXC4fVB6S5v+aVD/h+qx9M8w+sTLmds677MrDZdrJM3
-         CXVYGJEFIKittf1jrw6B4Ioj1SimlbeqbctDmdbuE7EMX9bVGQJy2SZAMZtbQTafx8xT
-         TlYIVwCPQNh2I/r9lmO/X83iWQEzRnlAcOcrXhFFvjA79WSsvI9t1oT4BBJ4N348R7rv
-         KYxLtyITa59qdCynxbtQlW5Ztf6DqMtYOw08njt0m51yGuDXFRiLlBCbXaHX8AUqmjIu
-         QTC/wnyGZ3g18AiPMI+W1QDpsfrt5dbcOdT5rrzdORWqhx654aCamH/333o1RkP+LwGM
-         Vd5g==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=clyso.com; s=google; t=1795675568; x=1796280368; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=iEdrgxs/YidBZzZOj+WIohy33aH+C5/pNi1p+tZ06Dk=;
-        b=MBOwL/PeCNHQ7FOu/L9RROUabJft0BnoDu395QAGcFsOvj4kjrYXJxGfwd8q20f2Gy
-         B4GMY0d74+o9zd0SqXig8YVHtqG2hEqPwQeVKolPrzB1UF9omYWhowNS/Z3S98J05sGS
-         weQw7NxLczGTe1kxPLNGBsPAmmohuXAmsPv6G4Cy8sZa6q6hICOeVGQL6writsH3EFOe
-         4zERMOBZilDaQnmL0c0dD9QJBBbsr6EXOd0U1wc3MyxIMh1NYDxUADF0c0NmN/tdeMo+
-         0mIZYfiYiGlT9VKxaukoeYHFJ0zUzoMeh4VTd2W/vNVa7ftsXMmz4AhSj6l+AxLpbXWh
-         ZnOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795675568; x=1796280368;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=iEdrgxs/YidBZzZOj+WIohy33aH+C5/pNi1p+tZ06Dk=;
-        b=Ie715aCapqcOvbjPBFcUr8YadyQUjItQtNqKPgOGKbYuDIJoExPb3tHkRt4utWCAGH
-         YLPwb1qw0NGVNOe4BAwatifyVHro6gLTUoP0wSICsGUwovNZQHXoDg0WMbJTuaCgV/x6
-         fCC37ELwIjBqpYUjJNg82X1xZTiPe0+PwrfNrtnz9tmutp487AaCW0V4p2MJINECzheD
-         1QuUAjOjhdLnDxy18WIotXevkjUSRjIP+ra7OezZZ4wOzj+AhpQHlmVh0MZZ0YNeX5wj
-         58kJa270T/vtO42x9FICzy43h7itUdv3ZeJ/ufKgIhstR2KRf0gn7gDabZ5FI5lgehQz
-         O96A==
-X-Forwarded-Encrypted: i=1; AL+hErEanTF7QnjKkgZc2pQDss93P49M94IC4v5EXN/yzx3VVM/7EY6MvkJnBaemvip7CmmrBuz8yQ+StDj5TDQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9t/gIhkTlshKOpL/GEQphFGtICccz4UV/bsNab7RpRINQtDvz+
-	OmOWYn9I+ayW+ulG/XAiXZcDKgsPBicqIzOfb0f9L4JhZs/NAxWvStTkMC9NizERExlZUYCtMwk
-	xItlaQKwSbEGdK9Jmg5zyiNq4GGToD9Z1on/hkKc/ww==
-X-Gm-Gg: AZFdTZeAsQRmmd1lMOioJNyRRZcjr8Ha/6tIAvzaYaMDyybB/LFryWy5J+CXRR3KgNi
-	pctGoY2dmNa0UkFDhS4j/W8GuKCLL/ps+W9zuq/R10nwVMJL82v0j9KzDVnWWAC4Rkv2wVxzZZn
-	pgdkS4nbVtNwixhl5/htmCCuDmWXNSI/oY4Zy7yxTPa+nsSPSMkOC+d5HySKoyjoIf0TIlWHTlX
-	fwor9OoeU9ulTB8Eu3CwEBGTnDuhtuc79lJQGTF0IaiZIs8omVPIC42UCd9CcMKH7jdjQJbS5Ur
-	kJkpy96Hs8uLnLfr2SOX5JUKKy4VFFi7MHz89MUVJK2cA89/VvC/Mrfbz5C01V+dq8Fy4XXSlfR
-	fxe9qm82wD6I3SspRwz8dy8BR6cz6rvXWZ2eEnTB6ymt9jg==
-X-Received: by 2002:a17:906:c1d3:b0:c2a:34fe:ea4d with SMTP id
- a640c23a62f3a-c513aafb433mr1233685566b.25.1795675567751; Wed, 25 Nov 2026
- 22:46:07 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=X+uIVAvD
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cLg4ZwjFe+s+tJWETGIiVGQSotzYlXhJhWRmce/bZ8AG3V6yyIYhxH9gyCeatvNdkAip/sc9s1Ei54ZBUwJ+FlA1bGiuGq06Do9uFMYUXI4mpOHXlJKJXJKjfxNz/9v/0noSWjsayA+2YQ/k4zPrIb/63R6rCAjfX7BzIPM6MkBUy4V8FHyHYzKXhkfc79p6Rw8XAWu2kpe++oiFdOtbrf++Yf47RFHPeRn/JUu2BQ8AFN7vzSQihr18A1L96Jc0/H9PcDEUS/jNsBzfvnjn4Q4l36s+fnJBvq4sB9Edhywk02BU7dhqmyT/Gl+Ojlq28rbocuxWhtv2e4V7enf43w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=c+BMZ/Bhsn2DpY2EQn+VzntybXZ2UACBm5iLxRxaZ5I=;
+ b=B+CKertZobAtRGv/eLaGwAOXz96bfZFJo7+H57Gh0m0RaWEQE3Oeyp3His2hKEadm95yL5b4YTMA7JhuFJhoQLdDRxwhhDEKHEfIAF5fQLMIPickNRKu02ITtaEVtZdxJw4Jwabbs+FHfLP7ItJoe6gFZ7QppHT8QrDGB134BHvFVGG9+ngNdyZjJYRh9e2hJIdPjEemyKfDeQKDn2Iu25lOJBUVlNUhD6Je3bmFiRDeVXoS4rrJCfU/yOtT1mWsiH9lxy7vrZePmQqSgRzQRgDm2+VojqZmFowFPaqzA+BIs4QQxCrNxfq7MljReDAlERi6eQT6PM9LlUskAYsF/g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=c+BMZ/Bhsn2DpY2EQn+VzntybXZ2UACBm5iLxRxaZ5I=;
+ b=X+uIVAvDeiryCKicQkzEfVeQi/CiIQtb2CGWEcuNRSn+WTA3ofDdXJynyij69VIGdxP8zJW0Xs+oj1ll/GHjjCbi20ERzjh+o6In6dFKAr375rkg6xOYYi/115hjvUaS1VGxzXGsCfKajy98ttVPwEAomNh+vy4/MrQJO0r3KBZiob9kSGVJs2QplkOBHPLhnW7gPJWcbQ2XacSq1Cn+XIgsGNrbUqhfLdSs+YSzErOXlz8v0mF3W+pJ9VwLrhC6TbIM3mvLwPlUxDfe+JjNrxmE2NBSNY7l3HaR8n3PjTezPJI2GD4WrWTtWlpz6lhAdJ+B92Ca1Mf5Kqw1s3AObQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
+ by SN7PR12MB7348.namprd12.prod.outlook.com (2603:10b6:806:29b::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
+ 2026 06:47:51 +0000
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0639.012; Thu, 26 Nov 2026
+ 06:47:50 +0000
+From: Mikko Perttunen <mperttunen@nvidia.com>
+To: Thierry Reding <thierry.reding@kernel.org>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Jonathan Hunter <jonathanh@nvidia.com>, stable@vger.kernel.org
+Cc: Svyatoslav Ryhel <clamor95@gmail.com>, dri-devel@lists.freedesktop.org,
+ linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, Patrick Fischer <admin@tsv-stahl-riesa.de>,
+ admin@tsv-stahl-riesa.de
+Subject:
+ Re: [PATCH v2] gpu: host1x: Cancel the fence when a syncpoint wait is
+ interrupted
+Date: Thu, 26 Nov 2026 15:47:35 +0900
+Message-ID: <bE28ymIUSh2y3qW_UGpq2g@nvidia.com>
+In-Reply-To:
+ <20261122-upstream-host1x-fence-cancel-v2-1-204760056348@tsv-stahl-riesa.de>
+References:
+ <20261122-upstream-host1x-fence-cancel-v2-1-204760056348@tsv-stahl-riesa.de>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-ClientProxiedBy: OS3P286CA0027.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:604:1f4::18) To SJ2PR12MB9161.namprd12.prod.outlook.com
+ (2603:10b6:a03:566::20)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,50 +104,215 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261121-ceph-append-excl-v1-0-5870375edeb8@clyso.com> <20261122182549.1297448-1-amarkuze@redhat.com>
-In-Reply-To: <20261122182549.1297448-1-amarkuze@redhat.com>
-From: Xiubo Li <xiubo.li@clyso.com>
-Date: Thu, 26 Nov 2026 08:45:56 +0200
-X-Gm-Features: Aa3M54qS842e194_v0RfNFp9kMvv1asDtn4xiKKG2lxOtvBrpkvTvksVsDe3Yko
-Message-ID: <CAOJNxRKotmAGPhYjM8APGZq7Qzp=iSpoO_gM1qBnS1u9GEawDw@mail.gmail.com>
-Subject: Re: [PATCH 0/2] ceph: serialize O_APPEND writes across clients
-To: Alex Markuze <amarkuze@redhat.com>
-Cc: Ilya Dryomov <idryomov@gmail.com>, Viacheslav Dubeyko <slava@dubeyko.com>, ceph-devel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, "Anthony D'Atri" <anthony.datri@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|SN7PR12MB7348:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2a1e1add-2f66-424c-5bcb-08df4b893057
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|10070799003|1800799024|23010399003|366016|376014|10067099003|56012099006|261028144727099003|261102123227099003|261021123027099003|261021121427099003|261022105027099003|261022075727099003|261026140227099003|261026121527099003|261009223027099003|18002099003|22082099003|11063799006|6133799003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	Tax/EDdEkaKpPRS4h3L8pzlfN1A6dMRrpQOn0m7ZDgG5k9k0J52LdHjHtgG6xhQplceDWqE27HxJhR0fd/GBYTVsGuTFxvCNQlHBCWDk55M0xQlIqStz3nAuTmGPrNWzN60Jv/0T6eYFDU5NAELb8Fmm+MpFqtYjd4nPW8F9QpGaM3rDON33DsKaZI7d0ukWIiIT077cBXCUcZPCTVgBQ7xCWHAno3yAuoeSogJ6sAysHK81d3vyRPke1LBBsRDgVWKDljx4rHEqfXR7JP7BkR8Op87Vf6d7XcXCyLpu/IHws5jQ8Q12g2Xpo/sRCtquSr2IoklgiWdWtlD4IBbVCNzvQ3zfrgNlePu7OP5qtNav9vGfyLi7UDQJVuIGwD15osYBeq6jMJm90lGVVW78YV5dix6oCX9Z/ih3aOyOsTMxWQ9Av8HCZA+NQdpIOZtbZU61d2b/lwi2n92n8yJC183glrJvn6J6atTv27D82Fm/GtymJa31WxHlQukRhHjPgHJYff/sP5FjdLGFxP6tPLuyTJuQKOgKHO0efF9lH4gI7OF4m8pOl4L/tfTTK57ZFq3vBi6uY6GKKKLR7jCv4bYTc601lQ3Pf4mD0ZKAAhgcLK0dMWL0xhk3Hqkr1cTEhrYepv1ry+rf1oS7fPat0vjGQny3s8WVbWQYYydlnyQ=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(1800799024)(23010399003)(366016)(376014)(10067099003)(56012099006)(261028144727099003)(261102123227099003)(261021123027099003)(261021121427099003)(261022105027099003)(261022075727099003)(261026140227099003)(261026121527099003)(261009223027099003)(18002099003)(22082099003)(11063799006)(6133799003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?d1d1NlhRb0RYaTl3VXpYTVZMWUR2YXo2SCtyWTROSldRdDVYZ040ZG11VnYr?=
+ =?utf-8?B?N3hRRXJvVGJ3L051K2ZmWXhnL2FrZGtKTE9NN3pmZkJmei9oMERzdFVyVTVa?=
+ =?utf-8?B?SGFVZDhCaFd6YTI2ckdISVRWNzJxQkMrZ0ppajJtYW9sT0s4dHJSU2g3ejh1?=
+ =?utf-8?B?VHFWRXAvMENrL1FSTlE0elc3MEFnU2hWRE5tdWpVWE5OYzUrV0FuWTE5Q1dr?=
+ =?utf-8?B?dkN6eGE4WXFKbldUWXMreU5NVkllQzY1RkxLZFpKT1ZXbkZZRkpYZm9xOEVN?=
+ =?utf-8?B?bUNwRmFmd2RlMzFBZ2VoTWljRUpaamVWcVI2bk82UjhsSTV4cUxMNmErMkgx?=
+ =?utf-8?B?eFhqTWhxZTNObmtvL0tlUy83aS9PaTFQSTBjc21RYXVxclc4N1lGT1loc1dK?=
+ =?utf-8?B?WTRsVFVVVmFGUUZKUzVNcWt6eENBcTBSNXlZcFhzUE9uMkxkZGg2RkZJcE1T?=
+ =?utf-8?B?VFVSMks4cEl3eENaWkd5YjFpR0VKaDBrNldaSDlRMWpUSTJEdWI5dVcxM0Ew?=
+ =?utf-8?B?ampRbzJrbDRRQmllMnRWZ0IrTlcyMFZQMXNKVEgzQWN2M3kwc1ZNbGFRSHVZ?=
+ =?utf-8?B?VC92NitBUjNCazFObGwrckxZQU52OVZBMCthVWNMSUJNZUh3VTNVQ1lldDk3?=
+ =?utf-8?B?NUk0T09NNjkzU2NYdzU1UXdVNDlaZiszZXFrUUltK0lmMFRqRm1vWGY5YmRU?=
+ =?utf-8?B?UnBPQ0NndG9kYmJUWjdocm5PRVgxR1pSWEF0QUkvOUY3UHp4dVh2MDZnekJW?=
+ =?utf-8?B?QjA3QS96S2FFbHY5bjVIbzVHbzZyQUU2Y1k3akVac2YwY053VFNjeEY2Qi9l?=
+ =?utf-8?B?SmhRYmMwZ1QvVkhqYXBZdW1EOWxZazVtTm1nSHFpVHhFczFlcS9LTVZ2emJP?=
+ =?utf-8?B?MzhUTGJSWVlKYjNzclFjWTRueWRDanVxd0puaDlmZDMrKzQyN2RYMndhaUsx?=
+ =?utf-8?B?OGE3MHgzdEI4eCtkTmo1T29ockNWY3NQMm5ITVpvaW10K0x4cURBUW1TZ080?=
+ =?utf-8?B?TGFMOTY0UkN4OXZ3dGRHNWh5cnpHVkVyQnAwQksvVVFrYXdGSW5ZK1l2V094?=
+ =?utf-8?B?dU10MEJIMzlsNlpVa3hnU2xMTWFldWFUWkdMMllFNDRFaGpRZVV3a3dKbDFo?=
+ =?utf-8?B?eVJJUzJVTi9OS1QyVDAxaGo1bWpQU3RtYjhkc1NBM2lhdWFsMjRpSk1GdmRz?=
+ =?utf-8?B?T21IU1EzUDRNVTFpdnI1VG9DaTdKUCtBZ2IzYTNVQ1JHTzFKeHJMTENhTGdO?=
+ =?utf-8?B?RmxJNHZiWm95SkJVWk9rQmRxTHNGTE82elY0dkpab3ZSeFloVStoWk82OVNK?=
+ =?utf-8?B?Um96NHhPSFMzSG5wWTdXekQ2dHpHMHllTXl0ai9KYVF1SGMrNnNOeHp1dDlB?=
+ =?utf-8?B?T08xSExCTjh6V0p3YStNbU9WVUpXVFZVOGdHTmEzNWxDVW5CcXBhcE05SUxm?=
+ =?utf-8?B?Y01UeC9zZ2p2Qkoxa29jbWQvN3FKREdwT0VSM0xOa1dLUXFGUkxDTGk1UG9Z?=
+ =?utf-8?B?TzFxdW13NWRvSWo0b0g5Ni9nMmVKbWM2dDFKMkVBN3RPSWJ0bmMrMGFuRVZr?=
+ =?utf-8?B?d2tIQUo4aGxiTktXZnVyakhJeVhDdDdTNHBBL0FNVTkrS0x4MkFFREl0SWND?=
+ =?utf-8?B?SW9BSjJVL0VsTXo0dnc4RXY3SkNUNTZvMjZPSTNmd2pianlxNk03NUpjbWpC?=
+ =?utf-8?B?VVR5Nkw2Qm5RNnVEY0k0dEVSRHVVUm80N1NzMUV4WHZHcTB0MlprY0wwVzJh?=
+ =?utf-8?B?eEJsU25EcGJKb0JxYTk1ODlLbmxVRFBMSEV0cnYyckpIT3RTVmt4dTdrWlBX?=
+ =?utf-8?B?SkkySEpBNEdGdUxkUWFReURGdnZ3akxhSlcwKzZBbHljZkNjM0RRRWZhT2Zl?=
+ =?utf-8?B?ZEhFOTR0Vk5vVHVOQTd0Mnd4bzh6elEzbjFvN1hQdE5mT09XcE9ob3FaNytU?=
+ =?utf-8?B?RHZVRnYzZm5GdXRWQ1lUNCs0YkIwdzc0MEpYZTBoRXBnSkY1L0xIbVl4ZDE0?=
+ =?utf-8?B?M05UYnNRRkJyS2podTNSeXdkNFRNUDJTMnpoTHdOYk52WGUwdGRkVHVzWFN4?=
+ =?utf-8?B?azM4dTFuNkltMVZYNXo3N2ltSDVtY2lNa09Ld056NktoRGRuOWgxbXlNdVU1?=
+ =?utf-8?B?Vzh3eFB5dUZjTG9ROHZXQ3BMbVpLM0lEM0M1U3N5M3lXZXM2QjI5WGtSdHdN?=
+ =?utf-8?B?WFJGYzZyVzNCdVFDbVpiKzIrMFIrTExZcDVmMFROTm9yaFBBaTNQNU1aM0Z1?=
+ =?utf-8?B?SG12TCs2cWw0b2tUVTFBUVNFQkdnRFZWcWhabE9MczBqV2FTRVVjT3VRK2Jx?=
+ =?utf-8?B?TzVkTmVtdjJEVmhzanA5RmF0ejhnLzJtanZKVDRvNmZ6Q1kwK1dRWkwvdzlR?=
+ =?utf-8?Q?j+e4jsVmHF2DLmZ9P9jTUIzquI231WOWAGYGT2RX9KXpL?=
+X-MS-Exchange-AntiSpam-MessageData-1: mrsRAu/JI5mZWw==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2a1e1add-2f66-424c-5bcb-08df4b893057
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 06:47:50.7412
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: JPdBWjxtPq4qGWgO00f/AGP2BCnxTbb+C+RH6dza1p5uhTG4nRLYmRfIeb0mfbf5cCvl1irwBqrY4K7LEPgeAA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7348
 
-Hi Alex,
+On Sunday, November 22, 2026 6:12=E2=80=AFPM Patrick Fischer via B4 Relay w=
+rote:
+> From: Patrick Fischer <admin@tsv-stahl-riesa.de>
+>=20
+> host1x_syncpt_wait() creates its fence without the internal 30 second
+> timeout and cancels it only when dma_fence_wait_timeout() returns 0.
+> If the wait is interrupted, dma_fence_wait_timeout() returns
+> -ERESTARTSYS and the fence is left on the syncpoint's fence list,
+> holding the reference that host1x_syncpt_fence_enable_signaling() took
+> for the interrupt path. It is freed only once the syncpoint reaches the
+> threshold, which may never happen.
+>=20
+> Callers that retry on -ERESTARTSYS allocate a new fence each time.
+> tegra20_channel_capture_frame() retries in a loop without delay, and
+> while the syncpoint does not move, for example with a camera that
+> delivers no frames, every round leaks one fence until the system runs
+> out of memory. Svyatoslav Ryhel reported this as an out-of-memory crash
+> in the VI capture thread; the allocations in his report come from
+> host1x_fence_create(), called by host1x_syncpt_wait() from
+> tegra20_chan_capture_kthread_start(). The DRM syncpoint wait IOCTLs end
+> up in host1x_syncpt_wait() as well, so a process that is signalled while
+> waiting leaks a fence the same way.
+>=20
+> Cancel the fence whenever the wait did not succeed. host1x_fence_cancel()
+> is safe if the interrupt path has signalled the fence in the meantime,
+> as do_fence_timeout() then returns early.
+>=20
+> host1x_fence_cancel() can also run before signalling was enabled on the
+> fence.
 
-Good catch, thanks.  I reproduced it with two active MDSs, one of them
-hiding CEPHFS_FEATURE_APPEND_EXCL: once the directory was exported to
-it, the waiting append never got Fx and the writers hung.
+Well, not before this patch is applied, which is good to clarify, but=20
+not a big deal.
 
-In v2 the waiter rechecks the auth session on every wakeup: if the
-auth cap is on an open session that does not have APPEND_EXCL,
-try_get_cap_refs() fails with -EOPNOTSUPP and ceph_write_iter()
-retries with the existing Fw-only path, and ceph_append_kick() stops
-asking that MDS for a turn.  With that the writes go on after the
-export, with the same behaviour as with an older MDS.
+> fence->list is only initialized in host1x_intr_add_fence_locked(),
+> so host1x_intr_remove_fence() would then see a zeroed list head, call
+> list_del_init() on it and report the fence as removed, after which
+> do_fence_timeout() drops an interrupt path reference that was never
+> taken. Initialize the list head in host1x_fence_create() instead.
+> host1x_syncpt_wait() does not hit this today, as
+> dma_fence_wait_timeout() enables signalling before it checks for a
+> pending signal, but the cancel path should not depend on that.
+>=20
+> The leak was found with the help of an LLM assistant reading the host1x
+> and dma-fence code against the call chain in the report.
+>=20
+> Fixes: d5179020f5ce ("gpu: host1x: External timeout/cancellation for fenc=
+es")
+> Cc: stable@vger.kernel.org
+> Reported-by: Svyatoslav Ryhel <clamor95@gmail.com>
+> Signed-off-by: Patrick Fischer <admin@tsv-stahl-riesa.de>
+> ---
+> Svyatoslav reported the out-of-memory crash, and he confirmed off-list
+> that v1 stops the leak on his LG P895 (Tegra30). v2 changes the code,
+> so that confirmation does not carry over to it.
+>=20
+> I have not run v2 on hardware. The Tegra Note 7 I work on only
+> captures with Svyatoslav's out-of-tree VI/CSI patches, and I have not
+> tried to trigger an interrupted wait there. Build-tested for arm and
+> arm64. The DRM IOCTL case in the changelog comes from reading the code;
+> I have not tried it. The same goes for cancelling a fence before
+> signalling was enabled, which no caller does today.
+>=20
+> The retry loop in tegra20_channel_capture_frame() still spins without
+> delay as long as the wait keeps returning -ERESTARTSYS. With this patch
+> that costs CPU time instead of memory; how the VI driver should handle
+> an interrupted wait is a separate question.
+>=20
+> Tool use (see Documentation/process/generated-content.rst): an LLM
+> assistant (Claude, in a chat) found the leak by reading
+> host1x_syncpt_wait() and the fence code against the call chain in the
+> OOM report. Claude Code then checked the finding against the code and
+> wrote the change, the changelog and this note from my notes and
+> instructions. For v2, the chat checked Mikko's point against the code,
+> and Claude Code applied the change and extended the changelog. I
+> reviewed the change.
+> ---
+> Changes in v2:
+> - Initialize fence->list in host1x_fence_create() instead of
+>   host1x_intr_add_fence_locked(), so that cancelling a fence before
+>   signalling was enabled is safe (Mikko Perttunen)
+> - Link to v1: https://patch.msgid.link/20261113-upstream-host1x-fence-can=
+cel-v1-1-89f453504222@tsv-stahl-riesa.de
+> ---
+>  drivers/gpu/host1x/fence.c  | 1 +
+>  drivers/gpu/host1x/intr.c   | 2 --
+>  drivers/gpu/host1x/syncpt.c | 2 +-
+>  3 files changed, 2 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/gpu/host1x/fence.c b/drivers/gpu/host1x/fence.c
+> index 1acf579c562b..f77a391b9195 100644
+> --- a/drivers/gpu/host1x/fence.c
+> +++ b/drivers/gpu/host1x/fence.c
+> @@ -134,6 +134,7 @@ struct dma_fence *host1x_fence_create(struct host1x_s=
+yncpt *sp, u32 threshold,
+>  	fence->sp =3D sp;
+>  	fence->threshold =3D threshold;
+>  	fence->timeout =3D timeout;
+> +	INIT_LIST_HEAD(&fence->list);
+> =20
+>  	dma_fence_init(&fence->base, &host1x_syncpt_fence_ops, &sp->fences.lock=
+,
+>  		       dma_fence_context_alloc(1), 0);
+> diff --git a/drivers/gpu/host1x/intr.c b/drivers/gpu/host1x/intr.c
+> index 30f3dff4487b..380f679b4d7f 100644
+> --- a/drivers/gpu/host1x/intr.c
+> +++ b/drivers/gpu/host1x/intr.c
+> @@ -47,8 +47,6 @@ void host1x_intr_add_fence_locked(struct host1x *host, =
+struct host1x_syncpt_fenc
+>  {
+>  	struct host1x_fence_list *fence_list =3D &fence->sp->fences;
+> =20
+> -	INIT_LIST_HEAD(&fence->list);
+> -
+>  	host1x_intr_add_fence_to_list(fence_list, fence);
+>  	host1x_intr_update_hw_state(host, fence->sp);
+>  }
+> diff --git a/drivers/gpu/host1x/syncpt.c b/drivers/gpu/host1x/syncpt.c
+> index fe74ff6fc6f2..f9c871f218f3 100644
+> --- a/drivers/gpu/host1x/syncpt.c
+> +++ b/drivers/gpu/host1x/syncpt.c
+> @@ -247,7 +247,7 @@ int host1x_syncpt_wait(struct host1x_syncpt *sp, u32 =
+thresh, long timeout,
+>  		return PTR_ERR(fence);
+> =20
+>  	wait_err =3D dma_fence_wait_timeout(fence, true, timeout);
+> -	if (wait_err =3D=3D 0)
+> +	if (wait_err <=3D 0)
+>  		host1x_fence_cancel(fence);
+>  	dma_fence_put(fence);
+> =20
+>=20
+> ---
+> base-commit: 9d66f26fefacebfeed15de31c1123451a17ff119
+> change-id: 20261113-upstream-host1x-fence-cancel-0b32753150d6
+>=20
+> Best regards,
+> -- =20
+> Patrick Fischer <admin@tsv-stahl-riesa.de>
+>=20
+>=20
+>=20
 
-Thanks,
-Xiubo
+Reviewed-by: Mikko Perttunen <mperttunen@nvidia.com>
 
-On Sun, 22 Nov 2026 at 19:25, Alex Markuze <amarkuze@redhat.com> wrote:
->
-> Hi Xiubo,
->
-> The feature check happens once before ceph_get_append_caps(). If an
-> append starts waiting on an MDS that supports APPEND_EXCL and the auth
-> cap migrates to an MDS without that feature, ceph_append_kick() keeps
-> asking for Fx. With another writer active, the older MDS can stay in MIX
-> and grant Fw without Fx, so the append keeps waiting while holding
-> i_rwsem.
->
-> Could the waiter recheck the current auth session's features and fall
-> back to the existing Fw-only path once an open session is known not to
-> support APPEND_EXCL? That would preserve the existing older-MDS behavior
-> instead of leaving the write waiting after migration.
->
-> Thanks,
-> Alex
->
+
+
