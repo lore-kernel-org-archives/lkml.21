@@ -1,60 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795707144;
-	b=QSnK1xSbIle/p0muSXOynL9nGGaJXcXabLwYRCRg1mV7I2ZtxcpW0RKskr9udbiTQCgQ
-	 m1+vH91lLm16OeRxLkrRmmFXHORPFIKrESZlaVZmema0Lth7KSDWsBZ+oxAT1J+99oFuw
-	 /rxYcbYI17U3EGClqMPg8wEek6yGhCv7/LtVOqLFY/N/qDET3By0FbDy0T6gHE+tjONiD
-	 EKKyDkjlf8byyJThhiAg2G1cxFF8Zn3j4FS5ZGgQRX7qOP5dY+olUZENCR+M2BM/w1IE3
-	 rICLnm3JcvAOP/Oqb1dsT9OfKCKXw4eKMXEtvsm8g/y77xtck4pMJgFX01n/8TRNskw==
+	t=1795707146;
+	b=4w808cH5f3p7mEVPibkw3h2XWNgxEE5UQ+MlXeJ/XGUS6WAsHl9//rho1oskqvsxJk9C
+	 Hbi+Bckg7KnVCn2rK3zpDv15o3dVWxrPZJsBTSbN8pR9UIaRsAq64IJ++yiw5wUvMagZU
+	 iIFvW+lTfR5pBTy/llkUuNMYRKZTBtTBZUqT9OHP5l2+ft+Ayqy87MayCJi2IfOIseR5C
+	 ErhunaDkiMlfeZ6cl9PmcHkUb1HwDWOsAlV1SOaf8nboSRU9ITNGCkZNF2p6Lu4b6x3cS
+	 B5DzcN/5SBOS4ZUIDgMGiu+mpMkk8tva0l5S3RZhsNVQVX8dgo7C6XwXAsKxKKKgebQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795707144;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=XYSDHZYOz2HcGfIl+aUARLgMG4MFI97vgguT4JgL9tM=;
-	b=k7EWA4oe2vruT5fwA/EBG/ic42xcCly4EyADOAjkVNGEk8JRbBuaOViZccxqUYoaoA5F
-	 9h0PMf4Qq/nnebR63ksw/iFODAUwhEKTDnnzn6duUFptJvuuvFakQogLjEKXlXl9ntEso
-	 9jJCEHT58co3hZNPnONN+NkPYg33oj25pSQfvClCWnEgfsmd8Pq03iUBtz3An93PC8LSo
-	 MEE6ilKDjTE0L2lSpiqndg9m2VKsUp6IsAv1+n1jAWV2gERWHiqDoczSl7O/kg2nmWEIG
-	 jPPWZimBg0IG+pl9nUiEEJ+UprqHM0ibYug24TIoubKx5B4f/9qyFmNHgQHOyM4Nizw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795707146;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=nPMFdqo4O58hWDqbu5Wcd7f7q48E1zoRcgRviqnNnk4=;
+	b=TsTuUKGVt/JfkNMXznXBP+nip/pzqtTCsvc0+GlRmVPELKYezosekUwVZauxqXtuAErU
+	 r+HoLN4rsof/r5Gor1GR8LkkOdcSoHvEw3SiOLfb/sEeJQGIvcqOC/OlwJf6ew6oCWCDu
+	 FD1/HB84I/T7s+RoUVGhNkYqnltgLn31AfP9KXsblP6oigqwZNtxXm3lJj5vjnQnOjteY
+	 ho9rP7YepBwUlc0ZeIumQZ5QMFLr9eiTLY8m5OTPM+YPtOqaJjRPV0/GDLIhOwYP6c2PN
+	 8jgIakD0J1Cv0QcDhpqbzxrgu0FTgH2Cv1fqHl8yrYQl4i+fmKEgZkkXbQZk9sF5NIA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=proton.me;
-	spf=pass smtp.mailfrom=proton.me;
-	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=Jb4yJYx3;
-	arc=none smtp.remote-ip=185.70.43.16
-Received: from mail-4316.protonmail.ch (mail-4316.protonmail.ch [185.70.43.16])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ext8jkBd;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76AF8606A32E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:32:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76AF8606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B1B4606A331;
+	Thu, 26 Nov 2026 15:32:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=Jb4yJYx3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail2; t=1795707141; x=1795966341;
-	bh=XYSDHZYOz2HcGfIl+aUARLgMG4MFI97vgguT4JgL9tM=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=Jb4yJYx39VMrBlih8bC71VbKLC01jlwmddrAjmQtCjvgbFgUkTyxEMteQIgBOMtEC
-	 EVbThkMokOZs7YmDldetiV0+eluG8jHJ4STSY3eUQ00FiZ7+EX+tFXPOY1W9DApaHL
-	 sPnribWdfS4aiqmrfilU9yf+8WbmRfskr5C91McrAJ6J7zOxSrPoR205BMC1UDk/1m
-	 anBl+uTjZa19HH+AgglE9/NhCwLvnWLJaan2alA48EDSRc+qohBK/DHQCPwW/Xr8wF
-	 zxyJ9GsfLn40GYqrVM3MElzBeHE/6uaY9OE1nJn2AyfOmT42CJftY7eXKwKdWSbqob
-	 z77+trV6yXzcQ==
-Date: Thu, 26 Nov 2026 15:32:16 +0000
-To: Enzo Adriano <enzo.adriano.code@gmail.com>
-From: Norman Herms <dockseed@proton.me>
-Cc: linusw@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, Andre Przywara <andre.przywara@arm.com>, Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>, linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] pinctrl: sunxi: use automatic voltage detection on A733
-Message-ID: <hLr27fLEbAhwAQMkO50HHXP_6CB0avqrmqECAA0v51G-wllHh5gH-430fmoZQ9-H_QG0yeuyKXGHK2rnzXiZPDFELQU-nWdwwpxJqYWT3tY=@proton.me>
-In-Reply-To: <20261109-a733-pinctrl-v3@gmail.com>
-References: <20261109-a733-pinctrl-v3@gmail.com>
-Feedback-ID: 144388465:user:proton
-X-Pm-Message-ID: f179a31c19f8418be2ca57072deb600c19315a8d
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ext8jkBd
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1D601F000EC;
+	Thu, 26 Nov 2026 15:32:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795707146;
+	bh=nPMFdqo4O58hWDqbu5Wcd7f7q48E1zoRcgRviqnNnk4=;
+	h=Date:From:To:Cc:Subject;
+	b=Ext8jkBd4ux4m9a+o9fjEIyd7udsACvNEvyTKEM6AQ8V3M+QaHRu3yHTslVUwQe6r
+	 zJcoMBzz0bEz9uMGtZfh5Gi3tboDTdPenGuaolNyA9P1aKKUoduKEEeRLy1SzGVu2D
+	 nIplHZYpmGCxMlfOiN312S5Irhe3r4P8+wtXPw6Sv5KQ+yYJ5Q6Xjx6H1K27r+WjiC
+	 k5V7FhK6BvDhsq/pDoVKOHMWF/d8l66AGARsiPHTGh51tzBIu4F9dijnXLhxtjfvfa
+	 IGwQM1gpu7/vSGxkhf+49Djph9qUGctV70ZOdWvmzl+zScVUNmAO6u2fKsh1522v1H
+	 xPeg5eCgTXvbA==
+Date: Thu, 26 Nov 2026 15:32:22 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>,
+	soc@lists.linux.dev
+Subject: linux-next: manual merge of the gpio-brgl tree with the arm-soc tree
+Message-ID: <awhRBtAEYE3g8sIh@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,26 +59,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="DdXgPadP7NCBeaEF"
+Content-Disposition: inline
+
+
+--DdXgPadP7NCBeaEF
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hi Enzo,
+Hi all,
 
-Tested on a Radxa Cubie A7S (1.8 V banks: PC, PE, PK) with v7.3.6 plus
-our A733 patches, with this patch and Pablo's IRQ-bank series
-backported and our own voltage-mode patches removed.
+Today's linux-next merge of the gpio-brgl tree got a conflict in:
 
-The firmware leaves GPIO_POW_MOD_SEL at 0x01155550 and
-SGPIO_POW_MOD_SEL at 0x000AAAAA. After the probe they read 0x05555555
-and 0x00055555. GPIO_POW_VAL shows 1.8 V on PC, PE and PK and 3.3 V on
-the other banks, matching the schematic. The SD card works at 3.3 V
-High Speed, and GPIO interrupts on PK0, PB0 and PJ24 follow pull edges.
-Without both patches GPIO_POW_MOD_SEL reads 0x01155514.
+  arch/arm/mach-pxa/spitz_pm.c
 
-Tested-by: Norman Herms <dockseed@proton.me> # Radxa Cubie A7S (A733)
+between commit:
 
-Not tested: 1.8 V switching of the SD card, the A523, pad voltages.
-Built and measured by AI agents (Claude) on my board.
+  71a0ba7b39ad4 ("ARM: remove legacy pxa board files")
 
-Thanks,
-Norman
+=66rom the arm-soc tree and commit:
+
+  cdd365a6eeb7f ("ARM: pxa: spitz: Open code gpio_request_one()")
+
+=66rom the gpio-brgl tree.
+
+I fixed it up (see below) and can carry the fix as necessary. This
+is now fixed as far as linux-next is concerned, but any non trivial
+conflicts should be mentioned to your upstream maintainer when your tree
+is submitted for merging.  You may also want to consider cooperating
+with the maintainer of the conflicting tree to minimise any particularly
+complex conflicts.
+
+[Deleted the file]
+
+--DdXgPadP7NCBeaEF
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsIUQUACgkQJNaLcl1U
+h9CFKAf9FF4AIHt6Y7+WGLfj94wwmzwpm6fqhp9DmGxTN76lJx3tfAMCbFgNcZAG
+yGeSm72U7Evzh1kRJp0wLbIont13A3gHtmr6soWaTfjn0kRONMHlFMxGnusvs0cq
+TCEchOhEIAEAeTfoL0mpu2mYtNP/Cb6C305zAgTevKPHRFBgF4rlQI2pwbYL7p+2
+qZQkAmS7YfLMPJrUt5FLoQE7WJFZmSpObAOVE3Ra0uh8MJ7tF9LJgjZgbckaieFZ
+aOFwY4aKDwbMEyd1+8sMWIKAgu3Q5f9N0SHNC21DzFO3kbrpUuTYIT6Frb7iwhGK
+pshU4tKgE+6UYOk7ck/XEHrgWY4hDg==
+=u6pP
+-----END PGP SIGNATURE-----
+
+--DdXgPadP7NCBeaEF--
