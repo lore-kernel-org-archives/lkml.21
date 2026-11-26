@@ -1,97 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.253
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795729686;
-	b=WWZtouMm9ZJWfY6QaSrmHGUSqRNL4wVUlBCfTB+2U9TZG1iB8idhtSuVpKMVHnj4yFDb
-	 p9cCFZDc3Z2woiB9ZQejYfWqLE8aMlyd4l+Z8p3bT19LJRa+XsGvHEX/7yN42wWrfAT0d
-	 qg5fvmXmtzKIGvKrlBZqrtjmALrm/jxtP//214BMpgVzICM4n2/x+Vnb2s0CDAFtZZAzy
-	 v2xJ5rKNeiGhrVYkMRkXVssSSVTnVECXa2kFLpraaTWBktqKjvEzKiMxEqUw7CXQGdcOx
-	 4lEO5Coe0nH7kMN4bwZOpcetY7qU6FcLd6hn8NZP9oDcfvuGTE0CQwPJsMnYFmxsN5A==
+	t=1795729688;
+	b=dRGpMsVqRzjlhh7v5QzBpvlfRu5FKEYdNBkvwpqpjp87ZSERHJwaX9X+A1notEBOWqpu
+	 kDQzfXmCOskT1ioKCajPAFUj6Rs+ZmO73S6FebrRvyIeQNPTe0sUw1sORtD5ddLtLi/Nv
+	 lw5jtzTPhEpPTqtGS9P69oIPWMuFKLgjA4g/C6Yr74VdDldATNzZo/UB3vxvVmk+6DfF3
+	 qoBHPTEuU/MXBETvsNC8MF77wj/c4lp+PleIMS8T5rRO1LpUknkv73uvJ5swWYWDU8TXC
+	 b55QqGQndM7uh6ZO0BXWMsFNP1ODWDyOlyxm9LycHcrMMOTHowcNcE0yTVY3DW2cFjQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795729686;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=mz+Itla6D9aJ4LEfK+0eYjrF7t88lxIqTXb6+qpzWZI=;
-	b=RL5QNGb3N08Wbls7OWjaIwiRu7OaJzKocQSccsVmypzH1pi8tVdbOqK9zynTPCbnZHR8
-	 uRmnGWgkMOplN8MgejaYV0wylKh+V2UHf/KmDclJnuFuX4KW/bvb7YB6ad9sREIKMd7o+
-	 jN/ac3EHayjxzBw9p8WKv5l/TEQcNFZwkbp5hKm4M+oBsZmgvwnnMLbb1kUvrOAWHVwQJ
-	 EEhSPa24KX8tlwClhfa5OzclzOgVj01Qd0PZwnwcgKxRxvz957eub99coIBB7YhKflXu7
-	 ZRzJZnV8o6nQRqCBOQIYUhbjq3/ldiIs8S8KP+BqIqkrIlvjNk8dQjYJ95ZBpSDRTyA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795729688;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=KPl/IspBFUoszKD2U7Ik6G1jfEZeRIzH5GpGBacALBA=;
+	b=apacjmIP2QazXx7eq98TbNF9mNw6X3o3v7rLDoep/AyJEhbTRtQijwy3OG0lmtC/VtEq
+	 0lv99VlgYqTTSRGN0C8q0gcDHI2Yn7caJOzGD82B8q3Q2/FSC68ZzuYX9jFns4FPEa6xP
+	 +EP6DTAiYzHHzzYTd1nfwjmFlb1YAXsPPWjSO/WaK2HKtR3ZI9c8KT+/Ralia6mpS6uGT
+	 WpL+rCENMi92yMNWcUcn3qsipSjl1gm79yw1WiqklDAWaqpfHyp0wr5yMtEbIzwZ8XG9I
+	 mKakU/YIPDO4Z02AQ4OV03wcLNb67xRpHA/tOEiKlUSM+l+WJjyJohdtnpbJd8lkp9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nUbvXPpQ;
-	arc=none smtp.remote-ip=209.85.215.175
-Received: from mail-pg1-f175.google.com (mail-pg1-f175.google.com [209.85.215.175])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bFnsuLTC;
+	arc=none smtp.remote-ip=95.215.58.253
+Received: from mta1.migadu.com (out-253.mta1.migadu.com [95.215.58.253])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 646B8606A337
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53677606A333
 	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:48:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 646B8606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53677606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nUbvXPpQ
-Received: by mail-pg1-f175.google.com with SMTP id 41be03b00d2f7-cdd9d0c9bbdso4265782a12.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:48:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795729686; x=1796334486; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=mz+Itla6D9aJ4LEfK+0eYjrF7t88lxIqTXb6+qpzWZI=;
-        b=nUbvXPpQgySjxVjRz48Vov14b1bptslVjT+ROckJphZd6z2JWiCb6+dq402cm8/Y+p
-         ldQKEa09j6sRxikDWcAgrUwZnpKFeTPtQ74zobflWaaU36PG+ver9lwpHjHmeKkf1h9B
-         YMg/v7WJBXyDvf8eEdwoO+ZE2/ussRT3AkgxeW6/326QU+V5dMPZm5o4th4ahTX+ljIZ
-         jaF91TpmwE65oRTeHneoyw25xZ5EuRTLoVeZRyEmqbAVidUAXlXy3tPQY7J78PfIcpWI
-         rbWW/x4Z/91LAEoLLCDQFwPayJcahd4yMYL75ImZFXPywc+nuxpKjrbsPpxwIN4/chBK
-         YMAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795729686; x=1796334486;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=mz+Itla6D9aJ4LEfK+0eYjrF7t88lxIqTXb6+qpzWZI=;
-        b=SpJ7BO+rSHIj3T7ufpnOjlg60hzf00ij8OG3g1kWvAhGfLgNqtSX5qRw1pV1Go2ftv
-         D/kBqzipZudv+HETpbIO2AkEts/6scV3jeuqbL8EaoMkyIQcDiw3nYd0THvkvTtoCNn8
-         xOWVrJaSfAyuHbuLZefwhgptdg4vBd2O0K3Q1g66/wwmhDbiJopkQjk/mUxW5uGViUGu
-         CryP0fsJm1G0oaZzTEfzVCOZk7oTMHkzZ8YjC9P8Z7MSHMHDIC6pzl8ubK2a7gFGy1bx
-         YVBUmkWqvVzXRj4Hsc5cO9ZDTWJGp/1biB/w0Qe4aBoPWqwesWZPfLbjh7/mgRYuoxPj
-         b4Gw==
-X-Forwarded-Encrypted: i=1; AL+hErG0PO7/F/uEGkGw+5ILeQEf8CYETFZGNxlbjVWivoM1JqV8W8YYlOQ2IEDJkdjj+OcnFsMpMScZ3H7Uct4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Af9ZH7CUD/GEN1KkiYd3uJbmjQ5HBZHw8vfCzVcprcsEOmBWi
-	N87hobQRXSRLJtnB9w5zvyDx53w5sbAVWuPVGtg1DGjWXcrg791RFKj8
-X-Gm-Gg: AZFdTZfiyB4p3MbjPhvcv/8hSDQkGBLHte4Z7nOnafXFJGwhB+s7mT0Zq9XqJbm+DMU
-	dtEdyb0puqgrsRpchphK0xf2ED/aKyBVTzdMjBOwygKVIQo3x0qhNSQTgsE1BgIiBQ0x2l5OnFj
-	v6BrJVGtoRBft4RZnW8dWpmRDKGe3spC9QTK2vsgryGG77Zf5Tg3lk1kC11ZyK7NMzwNtIYc6Zc
-	n8wPbkw8QYS2d4lw2JbX9baPNLXWjEhKZhWYioYuO1WE4NYRJ9VPdqtXJ19nkIMJJ9jVyEDYqZ1
-	+uKrELPQuH1ommrjG1Mfp3AR06OFcQHe7om/Wrm1KD9VpnjGiMna2buHW/qcI8VKQrARq0is24E
-	o1nuMiwwRYuytSO1JkW3Aq145BzEMITrwGxKTgwRfAdjxfOoqdVd9z1ZjwsDHF4IfQ3+vnokjQP
-	+FYNVxFgu5cPlp3bfCcnL93lZTgFvSd9F0iUxC559YpP5S+qPOGKgtDqLSEgAoARTTg7Bv9GuEg
-	ix2/7COSzI2uppbqLBbtEU1FkXWpu5ySIrXsLKwuDfRH+LNTTdq0ixZMdggoqbE5x5Y8uIGDb8h
-	5vchDcDzgaDxYvvANXyjhhGsU50LuOJGh6x21S1Ue6tNzU9Vrg==
-X-Received: by 2002:a17:90b:2f8f:b0:3ac:9f24:44be with SMTP id 98e67ed59e1d1-3b41c92a3dbmr22744671a91.29.1795729685759;
-        Thu, 26 Nov 2026 13:48:05 -0800 (PST)
-Received: from fedora.tailc1fb0a.ts.net ([172.219.65.15])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad46ef5sm34636414a91.8.2026.11.26.13.48.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 13:48:05 -0800 (PST)
-From: Artem Novak <artem122novak@gmail.com>
-To: dlemoal@kernel.org
-Cc: cassel@kernel.org,
-	linus.walleij@linaro.org,
-	viresh.kumar@linaro.org,
-	linux-ide@vger.kernel.org,
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bFnsuLTC
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=8CU31oLH3Irsszkvv3l8tO/0NdeKi1eyValZKt6R18s=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795729685; v=1; x=1796334485;
+ b=bFnsuLTCUrjuuQ9HojKftExq7uLXUgGnJQ7fCWskys95LcjkUfiP5CVmMngkDO2d8D3CYwJ0
+ FFWK6DSv23EFTjjgBWhXtKmDBVRYDagZDBMiVG8/VRanF2UM7I1Fvkg/4a1ZLyGQh/MK5cG8i10
+ vdwqKp9V6YXaa4wLAbOaBF9s=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id 35b97109d6c465ff;
+	Thu, 26 Nov 2026 21:48:05 +0000
+X-Mizu-Trace-ID: 35b97109d6c465ff
+X-Migadu-Flow: FLOW_OUT
+From: Bradley Morgan <bradley.morgan@linux.dev>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>
+Cc: Dmitry Osipenko <dmitry.osipenko@collabora.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Chris Zankel <chris@zankel.net>,
+	Andrew Davis <afd@ti.com>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Petr Mladek <pmladek@suse.com>,
 	linux-kernel@vger.kernel.org,
-	Artem Novak <artem122novak@gmail.com>
-Subject: [PATCH v3 4/4] ata: sata_gemini: add missing newlines to error messages
-Date: Thu, 26 Nov 2026 15:47:56 -0600
-Message-ID: <20261126214756.39027-5-artem122novak@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261126214756.39027-1-artem122novak@gmail.com>
-References: <20261126214756.39027-1-artem122novak@gmail.com>
+	Bradley Morgan <bradley.morgan@linux.dev>
+Subject: [PATCH 2/2] reboot: register legacy pm_power_off once at boot
+Date: Thu, 26 Nov 2026 21:47:54 +0000
+Message-ID: <20261126214754.3630965-3-bradley.morgan@linux.dev>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261126214754.3630965-1-bradley.morgan@linux.dev>
+References: <20261126214754.3630965-1-bradley.morgan@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,34 +75,124 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Terminate the SATA clock lookup error messages with newlines
-to keep kernel log messages properly separated.
+In do_kernel_power_off(), the legacy pm_power_off wrapper gets registered
+on the fly and unregistered right after walking the poweroff chain. If
+pm_power_off is set, calling do_kernel_power_off() from xmon while
+system_state is still SYSTEM_RUNNING ends up calling kzalloc_obj() with
+GFP_KERNEL in atomic context, and on arches like arm64 or x86 that
+disable IRQs and stop the other CPUs before calling it, returning from
+pm_power_off() hits synchronize_rcu() in unregister_sys_off_handler()
+with interrupts disabled and secondary CPUs halted.
 
-Signed-off-by: Artem Novak <artem122novak@gmail.com>
-Reviewed-by: Damien Le Moal <dlemoal@kernel.org>
+To fix this, register legacy_pm_power_off once at core_initcall using a
+static notifier_block at priority SYS_OFF_PRIO_DEFAULT - 1 so default
+priority handlers still run ahead of it, and count registered
+SYS_OFF_MODE_POWER_OFF handlers in power_off_handlers so
+kernel_can_power_off() does not treat the static wrapper as a real one.
+
+Fixes: 2b8c612c6102 ("kernel/reboot: Fix powering off using a non-syscall code paths")
+Signed-off-by: Bradley Morgan <bradley.morgan@linux.dev>
 ---
- drivers/ata/sata_gemini.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ kernel/reboot.c | 43 ++++++++++++++++++++++++-------------------
+ 1 file changed, 24 insertions(+), 19 deletions(-)
 
-diff --git a/drivers/ata/sata_gemini.c b/drivers/ata/sata_gemini.c
-index 9d87603ef531..b69db749b49d 100644
---- a/drivers/ata/sata_gemini.c
-+++ b/drivers/ata/sata_gemini.c
-@@ -227,12 +227,12 @@ static int gemini_sata_bridge_init(struct sata_gemini *sg)
+diff --git a/kernel/reboot.c b/kernel/reboot.c
+index 87f307ab46faa..12449adfcc61a 100644
+--- a/kernel/reboot.c
++++ b/kernel/reboot.c
+@@ -347,6 +347,7 @@ static BLOCKING_NOTIFIER_HEAD(power_off_prep_handler_list);
+  *	to power off system.
+  */
+ static ATOMIC_NOTIFIER_HEAD(power_off_handler_list);
++static atomic_t power_off_handlers;
  
- 	sg->sata0_pclk = devm_clk_get(dev, "SATA0_PCLK");
- 	if (IS_ERR(sg->sata0_pclk)) {
--		dev_err(dev, "no SATA0 PCLK");
-+		dev_err(dev, "no SATA0 PCLK\n");
- 		return -ENODEV;
+ static int sys_off_notify(struct notifier_block *nb,
+ 			  unsigned long mode, void *cmd)
+@@ -493,6 +494,9 @@ register_sys_off_handler(enum sys_off_mode mode,
+ 		return ERR_PTR(err);
  	}
- 	sg->sata1_pclk = devm_clk_get(dev, "SATA1_PCLK");
- 	if (IS_ERR(sg->sata1_pclk)) {
--		dev_err(dev, "no SATA1 PCLK");
-+		dev_err(dev, "no SATA1 PCLK\n");
- 		return -ENODEV;
- 	}
+ 
++	if (mode == SYS_OFF_MODE_POWER_OFF)
++		atomic_inc(&power_off_handlers);
++
+ 	return handler;
+ }
+ EXPORT_SYMBOL_GPL(register_sys_off_handler);
+@@ -520,6 +524,9 @@ void unregister_sys_off_handler(struct sys_off_handler *handler)
+ 	/* sanity check, shall never happen */
+ 	WARN_ON(err);
+ 
++	if (!err && handler->mode == SYS_OFF_MODE_POWER_OFF)
++		atomic_dec(&power_off_handlers);
++
+ 	free_sys_off_handler(handler);
+ }
+ EXPORT_SYMBOL_GPL(unregister_sys_off_handler);
+@@ -660,7 +667,8 @@ void unregister_platform_power_off(void (*power_off)(void))
+ }
+ EXPORT_SYMBOL_GPL(unregister_platform_power_off);
+ 
+-static int legacy_pm_power_off(struct sys_off_data *data)
++static int legacy_pm_power_off(struct notifier_block *nb,
++			       unsigned long mode, void *cmd)
+ {
+ 	if (pm_power_off)
+ 		pm_power_off();
+@@ -668,6 +676,20 @@ static int legacy_pm_power_off(struct sys_off_data *data)
+ 	return NOTIFY_DONE;
+ }
+ 
++static struct notifier_block legacy_pm_power_off_nb = {
++	.notifier_call = legacy_pm_power_off,
++	.priority = SYS_OFF_PRIO_DEFAULT - 1,
++};
++
++/* Keep pm_power_off static so do_kernel_power_off() cannot sleep */
++static int __init legacy_pm_init(void)
++{
++	atomic_notifier_chain_register(&power_off_handler_list,
++				       &legacy_pm_power_off_nb);
++	return 0;
++}
++core_initcall(legacy_pm_init);
++
+ static void do_kernel_power_off_prepare(void)
+ {
+ 	blocking_notifier_call_chain(&power_off_prep_handler_list, 0, NULL);
+@@ -683,23 +705,7 @@ static void do_kernel_power_off_prepare(void)
+  */
+ void do_kernel_power_off(void)
+ {
+-	struct sys_off_handler *sys_off = NULL;
+-
+-	/*
+-	 * Register sys-off handlers for legacy PM callback. This allows
+-	 * legacy PM callbacks temporary co-exist with the new sys-off API.
+-	 *
+-	 * TODO: Remove legacy handlers once all legacy PM users will be
+-	 *       switched to the sys-off based APIs.
+-	 */
+-	if (pm_power_off)
+-		sys_off = register_sys_off_handler(SYS_OFF_MODE_POWER_OFF,
+-						   SYS_OFF_PRIO_DEFAULT,
+-						   legacy_pm_power_off, NULL);
+-
+ 	atomic_notifier_call_chain(&power_off_handler_list, 0, NULL);
+-
+-	unregister_sys_off_handler(sys_off);
+ }
+ 
+ /**
+@@ -710,8 +716,7 @@ void do_kernel_power_off(void)
+  */
+ bool kernel_can_power_off(void)
+ {
+-	return !atomic_notifier_call_chain_is_empty(&power_off_handler_list) ||
+-		pm_power_off;
++	return atomic_read(&power_off_handlers) > 0 || pm_power_off;
+ }
+ EXPORT_SYMBOL_GPL(kernel_can_power_off);
  
 -- 
-2.56.1
+2.53.0
 
