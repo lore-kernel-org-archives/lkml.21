@@ -1,99 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.180
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795678283;
-	b=HkKJWecndWkmgmz43M62gloIxb8jrFOqpzzt7CVkAnRISVX75Rj5SJn9mHT4yicJlJtU
-	 Z8NGXXozD7OZi9/MAbXiOlGsgOHv2nQNQUmsPW4l/dnZZn5lz0mfRo+lTyIjyZObxSw33
-	 0LpLmYQWaYnii40vvO+wRP66E8LZ6MpQnp7xfZLrS31DJ46ERvvDJBkdILQF7x+VYca0z
-	 +2oyPAvo0qEAko/MFx3CVL57pnfuqNiOi/t1frZT2WybKdJOt+AoTATDhVfYXZ22u0HSb
-	 Z2f0PUc89oe7ov0Utoqvos1XJ3d/1WvzxleoLMK7nzypnRYUmn/fHMN03/T1Ik6s1cg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795678283;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.42
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795678285;
+	b=m91ys+j9KiyNynIIeDiiDcqjRG4lYwCtQ9l1giSH3+fwBFJuxedWPvEcRPCjWT0BjoRk
+	 ry1df/8v2fDAYN0rJYKaUzbZndfEhsveH1dv3FijFWzumJ5GKNN/fhlaG20kim4M+rcBa
+	 nDlvj263xURlBKcktmaGop95Hfb7enA0L+C+5MetNh5G8R52Kz1XcLrskv2pX/k9lf/Pr
+	 bm40ruRFkNr4J6zD5W+eCoJsEj3Gek2UAxCIq8HseeYfM6xUebbIh9XBaSA9IhoSEpGXg
+	 gEnc3FpjtzZqOezJ5INpXHHs2tINKifbMvYgdGUgiuVGyTMep9fOmGS7Hv5h4BIn6Ug==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795678285;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=rBNTBr+H6EwcDVHNor08ba397xyvQ+ksvy1NJd+AEPI=;
-	b=WLmWOIMi55ncgr6+GqLinqGdFKml6WNcGeYY/pwR91wg9KxBiVm7E7w1ThKxgqx8nkXf
-	 52kC6iri7KRIv7huDMLtL0FDtPYw1q6ubvKlXMS9kNpftpiSqjIgfPkXqV3o6Wjhox3Yy
-	 5cquFCC0ZNd0Nrjjm5WunPlrgEaUXcBsIHQ5kCEboEt5jr0cEj9zwc5vsU61wca0ERbbL
-	 HYIdbE55lwwBMP/6C6uRLaIcLjbmAHvWQ6maqx0oLZ3tDfBFwEFcMkFX0BjMZuv58kOJD
-	 Zve91qTZsxGRdhZS5ETGskIhcgNWxZNfhKDFjEdAVkwZO3jVJ5sOCgjNWgY59badKHA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type;
+	bh=0MO5Sggy9dIKYUZzgsC6cSV3LFpYteqN8TEvQ5hWShQ=;
+	b=uI3yFEeD/Q4beA6ITzB4HsADpj78WYWvm46ZEIm4iWXZx90IZSna5u2cX35xRyC9ZIdO
+	 dBSPwIxTuwb9BSqkNHAlZQ0qhIVmfC2RV0WFAmuRwWelY+4p0LktBoJxEWsfWxc6bwyNi
+	 qD5mtR0KjPgdHVmEtk2qnLQeR/+6xs95JCvgDaZWiAgMbViBOaf35SijFD3hDKx6KGKf5
+	 WwQIuFUxWC7S3vsipomDRazt4FXVRR22y29MNSG5K7hyza2Ef3wEzW+y2ZdEZBJ2jzSZm
+	 P9X3wWMaAItYc8TP1AsPzDiaMg2lcp3Kno+xhePc2+FekECvfrCvmz8CPvtXD2UBBfg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QLjrXMFw;
-	arc=none smtp.remote-ip=209.85.210.180
-Received: from mail-pf1-f180.google.com (mail-pf1-f180.google.com [209.85.210.180])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zSCItGFg;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.42
+Received: from mail-oo1-f42.google.com (mail-oo1-f42.google.com [209.85.161.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3744606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:31:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3744606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 636B9606A338
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:31:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 636B9606A338
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QLjrXMFw
-Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-8a594d313a3so4462063b3a.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:31:22 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zSCItGFg
+Received: by mail-oo1-f42.google.com with SMTP id 006d021491bc7-716c0217635so8035641eaf.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:31:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795678284; cv=none;
+        d=google.com; s=arc-20260327;
+        b=qsEelVK4hgnOf3WeLgnjMosXu33Alzaa1qnwQUeg7LnsRTUWQ4mTXZBs9oj6Gm38jz
+         DywUToKH7e7yKtfLsku8bS2ZwTMJ3QxtE3gMqtyyT2dlb5J8Tpe1VK0rtMPFiFrXq45i
+         J86Y2z4g4F6IXCw4feeOfm/D/tT699Ch3EL8Eu02pmf+OlkUqBsOCXui+GIUJNAwjm4E
+         VzJFsB9/eY/Q6riKPUplIVxcr7FC9/K/agSO8TGGEe8Qa68N/eIopBsSM9n1dEGb8Gm1
+         tir1gCV3RvLBj9GrzqEzSt/6KS5BG/dRlt8IDkmGjQGo1M9j9v4vI+9osGy3Hp5KqrYh
+         /wjQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=0MO5Sggy9dIKYUZzgsC6cSV3LFpYteqN8TEvQ5hWShQ=;
+        fh=OD7k6oYWhs0cSq0KevA5qykdnh59rfWVUmGzNn3L74s=;
+        b=j9Za177tqbv0/EeoMBzMkLfeSSHMpqNO5i2tDHIwoRQuc5QgTNVrvqKGaPiog/K7wz
+         Ue52n0b/Mm751ebUliys/zPFw/cuUGKQpYGYcHjFKzeEk4ggJ35jafwEYgzPxGlr9JTR
+         Tuy3UZajIyAW2j7EsWwtjgiXrCdRKYPnhgTvufc2Rl265Ph/QOhPoLu5+wibkpmABfQ6
+         8bNcppId7IaQrisO0+W/c9Hx6gr22yK7L0K4J//Ya8XJO3zc9v0n5qDY4w2TS+NoFVb1
+         GfYbdRYuFYsKbEkLf1PU8DOr+tl1hB+qqnd4inZKiifiSnR6nzHWDF76q0J+wC3QHH49
+         d3Hw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795678282; x=1796283082; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rBNTBr+H6EwcDVHNor08ba397xyvQ+ksvy1NJd+AEPI=;
-        b=QLjrXMFwkQ+vB9OgMQLlVDY1Xs3OisRoWkndU/haWDzvn5r8MQ87rSPbClZ89MTZm4
-         hHc3TlXdGVEJVcAi4i85fpJ6ifSQd6lnazNU3LZdHXsWWRXbsGhPRg9CwTLzDykoF5MQ
-         RNosFZMfo3HnZ5xbvxY2hHsaK/dBz5DoNHSQO2qroFj02iRyiTWa9gTt28rYbY1lDClg
-         /MC5zj+5WagWD3TDqdKqJsSUPQZ8KS3i1DLSzRCIziqn7bB1AnURP3d9zYOeRM4HBJHE
-         +4YFaTSnkQwJ+BUlTMHXQdA3HcJNOBkCVEw7WZSWeU2qlIklgozOrNtdVbQuEWHU8gua
-         Mmww==
+        d=gmail.com; s=20260707; t=1795678284; x=1796283084; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0MO5Sggy9dIKYUZzgsC6cSV3LFpYteqN8TEvQ5hWShQ=;
+        b=zSCItGFgjikK+EzDGuJrjO2zxnjTktx5pyLB+lZc4K45wJzk74hs1TD68+RWi8ktnV
+         1pXRLVWowwQGEhYv7cnesFN5kE4NYJidyl1+5KkKJBT/IL1utO+/hNKsz4SZ5HpVE52t
+         jJS+u8sXAFId1Hz2nwV7LvgEUqd2qu6+Gue2uVjZGVOqQrVSKBT6ROlAkCiHAgJblCPd
+         ZDaD7F6tYfWwb4T5ekJniFKHU9PMNjqltSJBsFpex5iQ9pwZsIAjRgJ7HnP9TYYvMiU9
+         275cNahrjvqrWj0YNDe2BmNTZGxdMI0CnYLkv76jQcOS7/lBfQJoWjmfiB+ZuM9XvE0X
+         LoDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795678282; x=1796283082;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rBNTBr+H6EwcDVHNor08ba397xyvQ+ksvy1NJd+AEPI=;
-        b=tp8VLEFAWFtm7gvfb41ogrL03Fzs9DAKJq74xFG205vnD5uUmUDpEXsh5CKGUjgbCf
-         +yHx6sC1BY6NHj0twuiEmq/Nc5HROuUm2rQ9BiTu3XEG3gFHezG+dGo60aOVZ/fN3vjd
-         x18Ftwt9rDiV/5FnDjYAKJAjcvrLdVkxifeykrWShu0zHWAamvAD71h2Gh3Z5/W5+ib4
-         9wZTBeRXd2SbRiupktb+LyXQ15RvwKbHMEio268W8eurupwbKOFn31NgJFv5hejJ2BD8
-         xYMXSZBBNZjjSGo08xTxS3joHqi+cot4SavZELE0ulsMNJiol2u/JlY5Dn10wg5aWITB
-         HneQ==
-X-Forwarded-Encrypted: i=1; AL+hErG50DBWezsiWGsPfXY7rIrYq/VC9Ck7TaU/lLZJbN8h270qiFCEmlP7+UPpXDVsAo5/HW7Ll3kllRjYiHg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8NIONtL8lF/+Juu1rh6kokVU8cVRWQkxHhuAJHfrvrilxliFHg
-	mRwcoCtbdUbai8GFznXL2dd67dDo6VMxJ4W76YsY1ylTTKXyv4vZsDoJ
-X-Gm-Gg: AZFdTZc773MC3oB5CBxaIqdWDgEnr0VD+7mAKhx7VrTIMje9qia2fE40HeR5wNeHogn
-	8PzHbYGEoTNyIAjakQpslTz++z9XyxMTJbj5uAglR4TlAuLfM/sHR4liVZV3DThkKyimWbVjKYI
-	7Jst/0XEUjlUJBepufcVGdjJATtek8BH+3MDUYG8OsWu2/Xf7dU1wr2xDvA24KgqEHSkxHc0hC7
-	i/CNvSnL0pbodmDgwFHIRG07WWlSfgHtw3vIj2i/g53VfTmPj3ZWm5Wr6EzrMSgQH3J0PGUO02O
-	7ylNHy1TS4DfN/RlJ6v2JeCV59rQ5BZCRoj2lrocgPmuZ+Dc73UhhexgXTQ+ge+1Kiox0YS9Iz1
-	RJM/ewv4GlGPR0Z01o4ZrKr4TD+tV0pDU1YjwHDaX7nRKl+oI1qvKD50nH9Vkh6TyKfbeDgCxFs
-	6JCW81magagrJFtM0iiMk2xlOflFN/FqBRIMj6IApb4mdpZHtBW5jNU31gKjWIQ1F+SeQt+cEa9
-	MnMW/dFO2i5dRIABPoal03D9E6R51Ey+zd7RdI+RszALox03bZchH3DayLqgdvGvnhMwQnzKps8
-	p787Pcw7Q9n5h8YQsQRsmCsBSVxil5BXcVqf3v0fA83cWVMMWAMvPizzBkcdgcQuBhbOTRwjvQz
-	dik/ou9zdCtutwa/f9XGs37T0ZwCH19q4cs+1k+CHisWm/rmIDyTR/SNco3RIYJdAijFS9gxHZQ
-	pJ4fR+ze0ODDzst0Rvq3ebrCo=
-X-Received: by 2002:a05:6a00:420e:b0:899:9267:3abc with SMTP id d2e1a72fcca58-8c87ce3299dmr18009522b3a.41.1795678281937;
-        Wed, 25 Nov 2026 23:31:21 -0800 (PST)
-Received: from kapoor ([149.40.62.11])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077bff6sm10269088b3a.3.2026.11.25.23.31.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 23:31:21 -0800 (PST)
-From: Arnav Kapoor <kapoorarnav43@gmail.com>
-To: Hans de Goede <hansg@kernel.org>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: Ike Panhc <ikepanhc@gmail.com>,
-	Mark Pearson <mpearson-lenovo@squebb.ca>,
-	"Derek J . Clark" <derekjohn.clark@gmail.com>,
-	Rong Zhang <i@rong.moe>,
-	Stuart Hayhurst <stuart.a.hayhurst@gmail.com>,
-	platform-driver-x86@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Arnav Kapoor <kapoorarnav43@gmail.com>
-Subject: [PATCH] platform/x86: ideapad-laptop: don't warn about keyboard backlight type 0
-Date: Thu, 26 Nov 2026 13:01:06 +0530
-Message-ID: <20261126073107.765676-1-kapoorarnav43@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        d=1e100.net; s=20260707; t=1795678284; x=1796283084;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=0MO5Sggy9dIKYUZzgsC6cSV3LFpYteqN8TEvQ5hWShQ=;
+        b=ZLa0n5Rt+Ma0rCtyOMZMkiQkgk57IH/IYMU2/2q0lcJkwJNUv76SzuxqvcIpvv4HU0
+         4y9mnIodqhpoBTcznhnoQtMCKxiYWTSIF5HViZ9I67npxTzkDo1psPvjPcHA6kob2bne
+         9zv8YajlHO3wFdNfMbKShqaHcbQ1+pFSVttunV0jBqEVBGfGBKdNzhSfdJEAvRK8eiXr
+         ZyIh9N9CRvLAwvAPouxvXl2zYJNFA1rIvHnBZduNlCh6ZpYskQTVLSsrm+7Uasfofldf
+         /m6mGHrx+Yizb6srAgPmpXDeUKJAXagVf0E3q8aMgB9yRcsyWbj/A2oV7EhWWIbrKzrw
+         bnxw==
+X-Forwarded-Encrypted: i=1; AL+hErGN7UJILBUJKp6pBzZ9kn8bRNljQsFMEeEEtYETQFCzUR+avTEFdJFhRtX7fXejeRN0aJYldDEnpLysCss=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+tXKwZV+O/vMNiAIQsum813Y0jo+ntdCz6s4rvB8RNY9XiFBij
+	aMYqUjIfn+4bE8gykUqRr75nfJCtg1hx3r4vQcenYTZbpXMedyi/B7PuSrh3Jru39OoZw0+Rbni
+	vYys2kX2L2Zwew5D2+GtczeUahnzp+l8IX58i
+X-Gm-Gg: AZFdTZcC1uDlvh7wZ5l/LpboxbqFxFcOpOVux9swjZxgiNzYAgXlbEpDqXTl3esx/At
+	cQZKhr26tHVBFk4A7jTlmhgO/NP4ZPLoiXBCqWm4O72rI7YFKJnz4inrjuX/Nvi9CzBfxzHHdKZ
+	91Ey6XbtLvuZBe34CDtk9z7taz7MwAyKmOubgEZH6otNkin45zfnOf9wjdwqrlMATE5fwxH3DEd
+	vPJYNcJ/nIQuAxNOT2jbtpqB4U6PH6ls+0S8XrPdl1hTJ1VWpTpsEa4PcU21tLGxEPNLBwAXoZf
+	sAMR0yUMBwOpLDSD4w6j6RctgkwiaNJovnZHmZZa8qg/u1zha7JofGSRmsvw7tngimj/10HyK5A
+	fijwKCAIMPz74d/I9kr8Ia2hlgd6HaVsJpls5dsnSjhEjKNLnQuYManFFdxlYc/C0Yg==
+X-Received: by 2002:a05:6820:f02f:b0:71b:7deb:6545 with SMTP id
+ 006d021491bc7-71b7deb6b6fmr2348857eaf.15.1795678284270; Wed, 25 Nov 2026
+ 23:31:24 -0800 (PST)
+Received: from 77377267392 named unknown by gmailapi.google.com with HTTPREST;
+ Thu, 26 Nov 2026 01:31:23 -0600
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,54 +103,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+From: Lee Youngjoon <getfeus@gmail.com>
+Date: Thu, 26 Nov 2026 01:31:23 -0600
+X-Gm-Features: Aa3M54pLCS9IJOK2jzXO-IchEHoyTH6C6_20WaxUIm41poi1YX-z4yURil-io3I
+Message-ID: <CA+m4KrA14J-3ovbau1EGjvwc1R4Maya3wzqD+n-_khotDhcRFQ@mail.gmail.com>
+Subject: [PATCH v1 0/2] usb: typec: ucsi: gaokun: Validate and defer port updates
+To: Pengyu Luo <mitltlatltl@gmail.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On the Lenovo V14 G2 ITL (82KA), which has no keyboard backlight, every
-boot logs:
+Hi,
 
-  ideapad_acpi VPC2004:00: Unknown keyboard type: 0
+On the Huawei MateBook E Go the EC reports UCSI connector changes (0x21)
+and USB port updates (0x22) on the same threaded IRQ. The connector
+callback currently waits up to two seconds for an event that this IRQ
+thread would dispatch. Also, a failed port-register read is handled like
+a valid empty mask and can generate a PAN acknowledgment.
 
-followed by "Keyboard backlight control not available". The KBLC type
-query (Arg0 == 1) in this machine's DSDT reads KBGC from the EC but
-always returns Zero, and KBLC also returns Zero whenever the EC is not
-available or LFCM cannot be acquired. So 0 is not an unknown backlight
-type but the value for "no KBLC keyboard backlight", which the driver
-already handles by leaving features.kbd_bl unset.
+Patch 1 validates the EC reply before selecting a port or sending an
+acknowledgment. Patch 2 moves the missing-event recheck to per-connector
+delayed work. A real USB update retires only the matching recheck. The
+existing two-second interval and the first-set-bit policy for a real USB
+event are preserved.
 
-Only warn for non-zero values, and add the missing newline to the
-message.
+The IRQ wait and the mutable port-count bound were also raised in this
+earlier review:
+https://lore.kernel.org/r/20260607214621.9586A1F00893@smtp.kernel.org
 
-Fixes: ecaa1867b524 ("platform/x86: ideapad-laptop: Add support for keyboard backlights using KBLC ACPI symbol")
-Signed-off-by: Arnav Kapoor <kapoorarnav43@gmail.com>
----
-Tested on a V14 G2 ITL (BIOS GGCN55WW) with the 7.0.14-based
-kernel: reloading the stock ideapad-laptop logs the warning, the same
-module with this patch applied doesn't, and the rest of the probe output
-and the sysfs state (platform profiles, fn_lock, camera_power,
-usb_charging, charge_types) are unchanged. Build-tested (W=1) on pdx86
-for-next.
+Testing was done against usb-next, building an arm64 Image and modules
+at each commit. To exercise the firmware-facing behavior without moving
+cables, substitute the D3 register reply at gaokun_ec_ucsi_get_reg()
+and capture the connector argument to gaokun_ec_ucsi_pan_ack(). For a
+two-port reply, use update mask 01 and port data 04 00 02 00. Queue a
+right-port connector change and let the timeout expire: there should be
+one D3 read and no D2 write. Next deliver a real 0x22 with update mask
+02 and port data 04 00 09 19: the driver should process the right port
+and request an ACK for port index 1. A valid zero mask on a real 0x22
+retains the no-port ACK. These cases replay EC outputs on the host and
+observe the resulting firmware inputs. They do not emulate the EC's
+decision to generate a new interrupt.
 
- drivers/platform/x86/lenovo/ideapad-laptop.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+The two patches use the existing EC API. The separate EC transport fix
+is needed for the parent to report all short I2C transfers reliably.
+This series does not add speculative firmware ACKs or change DP training.
+The isolated series has been tested in host-side replay. System suspend
+and resume on hardware remain unverified.
 
-diff --git a/drivers/platform/x86/lenovo/ideapad-laptop.c b/drivers/platform/x86/lenovo/ideapad-laptop.c
-index d2344dcd6945..d5679ff2e8ab 100644
---- a/drivers/platform/x86/lenovo/ideapad-laptop.c
-+++ b/drivers/platform/x86/lenovo/ideapad-laptop.c
-@@ -2627,9 +2627,9 @@ static int ideapad_check_features(struct ideapad_private *priv)
- 			} else if (val == KBD_BL_TRISTATE_AUTO_TYPE) {
- 				priv->features.kbd_bl = true;
- 				priv->kbd_bl.type = KBD_BL_TRISTATE_AUTO;
--			} else {
-+			} else if (val) {
- 				dev_warn(&priv->platform_device->dev,
--					 "Unknown keyboard type: %lu",
-+					 "Unknown keyboard type: %lu\n",
- 					 val);
- 			}
- 		}
+OpenAI Codex assisted with source inspection, the fixes, regression tests
+and drafting this series.
 
-base-commit: 61c0dac952b9308884936d05cce97565a5c89af4
--- 
-2.53.0
+Thanks,
+Lee Youngjoon
 
+Lee Youngjoon (2):
+  usb: typec: ucsi: gaokun: Distinguish empty updates from EC errors
+  usb: typec: ucsi: gaokun: Defer missing USB events per connector
+
+ drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c | 138 ++++++++++++--------
+ 1 file changed, 85 insertions(+), 53 deletions(-)
+
+
+base-commit: 90d6263e867be7089b3d3323bef8d2accd327c77
