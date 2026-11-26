@@ -1,84 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.61.82.184
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795698099;
-	b=PoODTk0w/P3TJoYhMWPpE1BpmbNxAgpVxQnsWXV6ouNXWnL8jbNSZ9l8Lxc6WgcWRnHn
-	 t73ID2DnmUA71mcetQUlC04Eb1hCb2ymTYbl+KLHOZkjrqmOsc/X6+ELKnZx6ERUI05P3
-	 rlgQ3lq98MSWkYTg2vJxEezqqMjwbzOfhlaUM4O2CmbO0azQ2sEcgTps83JOLbm+2+hZV
-	 05+ZuupIITaBLyiwlG911GegvS/FEwh9Il6lybq3+kit3C/kn9mTvl6Otfp0SCD0tWQtu
-	 0HckssKcjXkwM+sb47OHEtwZ+ljSQypbC5inytOqTxX08x4RVCqHpkCtjkGrVLofRig==
+	t=1795698102;
+	b=YxAl3fuJBVkfju4i+1Gy1KxkgczY1aJ1ehJDzWXUareLYl5SRluggFlD4P6+5eE6kkK3
+	 iJ3+y8JbfJNHu0nGil6z9Kq4J5B9PAYGFAqLRPJABhKMevTty5loq9RhY0VyRZNa5Kftf
+	 Z8mOIDMgnGw08fDBDsPIEVdqC86LGVVpEi/h16RxpgcLGFQ+cUShOP0GhslFlIRec1fYH
+	 pShTOJsiQ6Pd0buhjftSetIvdKCSTQZpKjIofW7XDz6DafAmJltZSIJUXCCv9vRILAZ0K
+	 ohqYtlFuJWoxIsBmHp5AQJPunQj5Zydrw7MSKMpwUPci0wrvEO42oV+G2eg2GQqr4/w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795698099;
-	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
-	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
-	 Received:Received:Message-ID:Subject:From:To:CC:Date:In-Reply-To:
-	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
-	 MIME-Version:X-MTK;
-	bh=WUvvXrsa8EZV4ZQ48zTHQQIBWcM+QD2e7+pOO8N3CPI=;
-	b=PQm/JidNmNCXBu07qN7fo6JjgwCieilBO6VrdkgfFUNrVQNg+sSXgvbFXq5kkchQJzDD
-	 wiPRvYxOOn1YfX5vdOFpTTsVisRFUwFBOfH39sf79it4KqnYlYTz8HCWDLUwsezP9mmhf
-	 J/gAGbrDSCYMaKSVaiKQtliJcp97mMIRFpiKIFiLOXk1XHFiNqwS1ks4ANFM4hj0QQisF
-	 ph8CMKqgJ9v94saauUWsoofJvpA4W7IvuL4ytemTOc3pnHxMYdewQ9QYyTxgRp20q1R2f
-	 T7gAS+y46oVujNU0+bfG8AOs0vygMbnFctValBVBhqXTW9fG4m3Pq6UypbRmGYczOcQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795698102;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Scanned-By;
+	bh=k8Cv/59D5sljUP7KuQcbi4TP82IHvLoL6JhsgTdaF2M=;
+	b=qiBgtyBYBzZhpr61WkCh+IHV6uSkZ6dEiDJotCmblGREKsls6kjxn0yD79om1LzaMryd
+	 PqAi32yK/t9Af6CztJ/tBASbEWGyyEQM6k6GFbUUxCnbZAhQg9jd0GODTuQZkNzmOZwAi
+	 iO12budGoS0gZTEynOAnVk3eI5AycczNDuE0xqT31C9KDvag54ZhmVH0OGkZ9Z9UNifP6
+	 ubBQWkr0cI5/BtWazSJoUWSShO9nVd7GC396eEmlzPLi8pxVfWjN18iqlKCC1+pcV9Sb8
+	 cMz1D/sJmF/73sdbjGOnDcpox3+UIrJFiwQsJr7fIKBB3wDElgTwoRBhZlLIDqglVRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mediatek.com;
-	spf=pass smtp.mailfrom=mediatek.com;
-	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=Xc1E496O;
-	arc=none smtp.remote-ip=210.61.82.184
-Received: from mailgw02.mediatek.com (unknown [210.61.82.184])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Q6E4r4Yl;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4C77606A31E;
-	Thu, 26 Nov 2026 13:01:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4C77606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6133C606A684
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:01:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6133C606A684
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=Xc1E496O
-X-UUID: 803a083ae99911f1a7aecdb2598be72c-20261126
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID; bh=WUvvXrsa8EZV4ZQ48zTHQQIBWcM+QD2e7+pOO8N3CPI=;
-	b=Xc1E496O+z8bQRUhw/meNCbP5KI8N13tczDWPAJA2R+U2b13CwCHG9jnZCrFarBIlmBcgamf+6Rl8Y5CUrVWgcYXjYCEdl+I10RztC1dGdVJoi6Yn57bUHSnidjTAW2RpIPdfmFjnuCWCa0YYi5jTY6GDChRsGYckmXGKQub2O4=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.21,REQID:7f10b2a4-c08e-4ce1-ac68-5501bc1313d8,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0318ac,CLOUDID:0624191a-ae4c-4a2b-b1c4-72e411efd0c9,B
-	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|836|865|888|898,TC:-5,Content:
-	0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0
-	,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 803a083ae99911f1a7aecdb2598be72c-20261126
-Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw02.mediatek.com
-	(envelope-from <peter.wang@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1292803900; Thu, 26 Nov 2026 21:01:31 +0800
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 26 Nov 2026 21:01:30 +0800
-Received: from [10.233.130.16] (10.233.130.16) by mtkmbs11n2.mediatek.inc
- (172.21.101.73) with Microsoft SMTP Server id 15.2.2562.56 via Frontend
- Transport; Thu, 26 Nov 2026 21:01:30 +0800
-Message-ID: <4cd159bd4204d92dc0d9a79e6f7aa53c1fa9f2de.camel@mediatek.com>
-Subject: Re: [PATCH v2 1/3] scsi: ufs: mediatek: skip PA_TXHSADAPTTYPE on
- pre-UniPro-1.8 hosts
-From: Peter Wang <peter.wang@mediatek.com>
-To: <iasnezhkov@gmail.com>, <stanley.chu@mediatek.com>,
-	<martin.petersen@oracle.com>, <James.Bottomley@HansenPartnership.com>
-CC: <matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>,
-	<louisalexis.eyraud@collabora.com>, <linux-scsi@vger.kernel.org>,
-	<linux-mediatek@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Date: Thu, 26 Nov 2026 21:01:30 +0800
-In-Reply-To: <20261126031008.27506-2-iasnezhkov@gmail.com>
-References: <20261126031008.27506-1-iasnezhkov@gmail.com>
-	 <20261126031008.27506-2-iasnezhkov@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Q6E4r4Yl
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795698100;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=k8Cv/59D5sljUP7KuQcbi4TP82IHvLoL6JhsgTdaF2M=;
+	b=Q6E4r4Yl690dVhY8EMcMq6CHND9JYOgrecx0v9WPwLlQWS8T4Yr7S/w0ktCLDs1BHongrV
+	R7s+WL8YOr9NVRKsw14cxGLMsatYVLJz2vxK91woLi/VpcW57DCfMvGHkElA2GxssZjN40
+	4PJSlQJg/1lYSNjagsk4FjPTJWsh9xY=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-692-PyOkHxZiMGaCrOan8oV33A-1; Thu,
+ 26 Nov 2026 13:01:35 +0000
+X-MC-Unique: PyOkHxZiMGaCrOan8oV33A-1
+X-Mimecast-MFC-AGG-ID: PyOkHxZiMGaCrOan8oV33A_1795698093
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BEC4B1955EA9;
+	Thu, 26 Nov 2026 13:01:33 +0000 (UTC)
+Received: from gmonaco-thinkpadt14gen3.redhat.corp (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id B3E32180054C;
+	Thu, 26 Nov 2026 13:01:29 +0000 (UTC)
+From: Gabriele Monaco <gmonaco@redhat.com>
+To: linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	bpf@vger.kernel.org,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Gabriele Monaco <gmonaco@redhat.com>
+Cc: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
+	Nam Cao <namcao@linutronix.de>,
+	Wen Yang <wen.yang@linux.dev>,
+	Tobias Schaffner <tobias.schaffner@siemens.com>,
+	Viktor Malik <vmalik@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	John Ogness <john.ogness@linutronix.de>
+Subject: [PATCH v3 14/18] tools/rv: Define CONFIG_X86_64 statically for BPF monitors
+Date: Thu, 26 Nov 2026 14:00:00 +0100
+Message-ID: <20261126130004.127155-15-gmonaco@redhat.com>
+In-Reply-To: <20261126130004.127155-1-gmonaco@redhat.com>
+References: <20261126130004.127155-1-gmonaco@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,44 +87,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MTK: N
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 
-On Thu, 2026-11-26 at 03:10 +0000, Ilia Snezhkov via B4 Relay wrote:
-> From: Ilia Snezhkov <iasnezhkov@gmail.com>
->=20
-> ufs_mtk_pre_pwr_change() calls ufshcd_dme_configure_adapt() on every
-> power mode change, which writes PA_TXHSADAPTTYPE (0x15d4) even when
-> passing PA_NO_ADAPT. PA_TXHSADAPTTYPE was introduced in UniPro 1.8,
-> and
-> ufs_mtk_get_controller_version() sets host->hw_ver.major =3D 3 only
-> when
-> PA_LOCALVERINFO >=3D UFS_UNIPRO_VER_1_8 (leaving older hosts at major =3D
-> 2).
->=20
-> On pre-UniPro-1.8 MediaTek hosts such as MT6789 (UFS 2.2, HS-G3 rate
-> B),
-> the DME write fails on every gear change with
-> "dme-set: attr-id 0x15d4 val 0x3 failed 0 retries". While mainline
-> ufshcd_change_power_mode() ignores the PRE_CHANGE return value after
-> commit d3eba21c7170 ("scsi: ufs: core: Introduce a new ufshcd vops
-> negotiate_pwr_mode()"), older stable kernels still discard the
-> negotiated parameters on PRE_CHANGE failure, and mainline still emits
-> spurious DME-SET errors on every power-mode transition.
->=20
-> Return early from ufs_mtk_pre_pwr_change() when host->hw_ver.major <
-> 3
-> so pre-UniPro-1.8 hosts do not write PA_TXHSADAPTTYPE, and simplify
-> the
-> remaining major >=3D 3 branch.
->=20
-> Fixes: 7212d624f863 ("scsi: ufs: host: mediatek: Fix PWM mode switch
-> issue")
-> Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
-> ---
+BPF atomic macros require CONFIG_X86_64 to determine barrier
+instructions. Reading this from the system Kconfig can fail if the
+configuration is missing or in an unexpected location, causing the
+loading phase to fail.
 
-Hi Ilia,
+Since the rv tool is compiled for the target architecture, the
+architecture is known at compile-time. Define the CONFIG_X86_64 value
+statically via the libbpf open options to bypass Kconfig dependency and
+ensure reliable loading.
 
-Thank you for fixing this bug.
+Signed-off-by: Gabriele Monaco <gmonaco@redhat.com>
+---
+ tools/verification/rv/src/bpf_monitor.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+diff --git a/tools/verification/rv/src/bpf_monitor.c b/tools/verification/rv/src/bpf_monitor.c
+index 5c9c4d9b4835..1ff76a4ffb68 100644
+--- a/tools/verification/rv/src/bpf_monitor.c
++++ b/tools/verification/rv/src/bpf_monitor.c
+@@ -460,6 +460,12 @@ static int get_nr_cpu_ids(void)
+ 	return strtol(sep ? sep + 1 : buf, NULL, 10) + 1;
+ }
+ 
++#ifdef __x86_64__
++#define X86_64 'y'
++#else
++#define X86_64 'n'
++#endif
++
+ /*
+  * open_bpf_monitor - open and load a BPF monitor object from a file path
+  *
+@@ -476,8 +482,8 @@ static struct bpf_object *open_bpf_monitor(const char *path, struct bpf_monitor_
+ 		return NULL;
+ 	}
+ 	/* Define statically what is known, Kconfig may not be available. */
+-	snprintf(kconfig, sizeof(kconfig), "CONFIG_NR_CPUS=%d\n",
+-		 nproc);
++	snprintf(kconfig, sizeof(kconfig), "CONFIG_NR_CPUS=%d\nCONFIG_X86_64=%c\n",
++		 nproc, X86_64);
+ 
+ 	LIBBPF_OPTS(bpf_object_open_opts, opts,
+ 		.object_name = ctx->monitor_name,
+-- 
+2.56.1
 
