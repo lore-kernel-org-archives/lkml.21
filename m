@@ -1,84 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795683600;
-	b=epLpfHVjZiIZjSEgXDoEJO3q9F3Okxr7udH5XWiQewDKzuOz4erckhmGsFZWX8jR+aYj
-	 a9w+r8yWr5aSV0bod8hdzlJJNkW3pdwJSyImDPP6pz6XpyOQVsarb+Eo6Q1m7ytJ+KHAy
-	 Vn2Ri6wjCShDJrasFWPEJpnpd6vwdpClSkolu57spj+ej2uIXrGSA0HRa1+jKbVjrnFMj
-	 AxwIyprZ0rBZRXPmekAe54PdxeIqdjTS5T4w3XGCPs3pyBC8MnrbNwyrZyZMHfsjeGv9I
-	 ZSamIziboOhy58AY7LoNhJPYDgedvv53SYtEY4JeAP9cmDmqEzlkMMrM3lGGbeHg7LQ==
+	t=1795683605;
+	b=bgnpBW8/3VXOKbTouSj6JIrnHh8bo7ul8N3iv+u9I5MtivuC8Q5EafXKMTBJ5vlMXFxH
+	 +KGrtTotzb3HamKlYsqIbKImlHsZQzoabHVhIevgnSgq/xZS7XiZS1u/Lr4Jr1k3//nhf
+	 HIlVU7kDfWNXikDE4CU5RS1bzh7W7KyN06sfGcXkKAoRvZcnATLTVmvMp0XFq3N2UyDVA
+	 kQXc+UEjIYAMrkbQJF2ly/FTy3NSDYNtXcO8YxEuv5YuFf2vNzAmgzf3IfQ/7crccZLmj
+	 eMkBv58MkFGWVsB04U2FprMHjYJNGMqQGXDvyf5vjo8xdwRD0e1Qw4ZTep8YLzc9VFA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795683600;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795683605;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Type:Date:Message-Id:Subject:From:To:Cc:X-Mailer:
-	 References:In-Reply-To;
-	bh=pdGJ7QlIha01VNcg3cIU0qWH1SN2Mep0wOZrqFLArYQ=;
-	b=v6NHOfq5nP8NQ3c5lDlitr7ZaPIMuKeyHCrmFYoFyixvOJqgaxAstEbu3hhrvoGV/j0E
-	 394c56Ct2iBy7xf7wy67GgY0DRAgNVNIs0tQ5ytKtjEFx+4pDlDE83F5iV3A7yQpFg3C2
-	 kGS1Rw/1sbTap/iBbGNDBDSPHu/+nt8GuK/QHLx5843HrQWyvBv7bDMK63/RdzXMIcWPg
-	 ktdt56lTtuM0xCzlLJcarOzgbR1RsSNz/FK05xbzk8m8Z02FwzCGddDVKmOBxMAFy9EeW
-	 h4/9dTEmEW1o3eMr6IqNeK+CKB8ycuSR0Lpe+pBeM0yWDFg5EWRfdXHMg19vca2QEhw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Yh6+sXWyFXYfKUalssHUgOWkgYxwHId/9h6FjzDeYnw=;
+	b=PCkvN4TRdthjNcvFdTuk6qoLrx79h+FNQ6f53vMeuSRI6BJreLrxHGCaGW4Ocx4TQyz6
+	 R9XsPYuqVsjJQRrC/v+GuRoByxVCsoZTSXRHwtqSxwunKyFZYgvZPacop/BsXsHgMjlI4
+	 byxO0dzmMWzugy42UrlEf/f5oiyM3IWMY0YH4iY+NNZ9Z+3P/K6Yvv29JVpfkXIpO3FBV
+	 Y6wh9bVWn1KEQWEzMvbAyfmMl1cfjx4EvOh09uBVfES4wwdQ3JgZS3SplTsKfEa7+zp00
+	 CuKf2/xTPMIF7hyfnOFiiw50Iy0BJe8GhLK3pSqgj57yGTjfujq5fav3oAk/8U3mGig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dZ0KjGB7;
-	arc=none smtp.remote-ip=209.85.128.43
-Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SYyUkC9p;
+	arc=none smtp.remote-ip=209.85.214.181
+Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9B36606A329
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:59:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9B36606A329
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14C1C606A32A
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:00:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14C1C606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dZ0KjGB7
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4a35a60499eso52684475e9.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:59:59 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SYyUkC9p
+Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2f07a960666so46663955ad.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:00:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795683598; x=1796288398; darn=vger.kernel.org;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-type:mime-version:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=pdGJ7QlIha01VNcg3cIU0qWH1SN2Mep0wOZrqFLArYQ=;
-        b=dZ0KjGB7m+OC1UmDFSULTRyhEh/lwe5llDQbTSjiXuQIrRbnZA5GQZIFeNoMyxZZTH
-         z9wSBADwSEaOaOPEe9dp+GusOM8SLT2Ekgm+kOXWdL9czn7bw6aAmC7+P5oOBGesL+Kv
-         Qv9RdiHh330ww6BQsURewUOPINjtLJprH6CZhG0zxJoPNiedKjS2G5XLjUuDuVZcQWHZ
-         Fw2IG+HrZjpp/SvOEkLONf9jSPdiM8tQZNZK8bDcs4ua8f62ihOMZfXoeGzSk1bpY54I
-         2w/okcZYxOXErza9bdcinAFE91q2/OeUPOAoJEbanR47RmrJ/YZpE4u+gnX9Xibflhck
-         PBAA==
+        d=gmail.com; s=20260707; t=1795683604; x=1796288404; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Yh6+sXWyFXYfKUalssHUgOWkgYxwHId/9h6FjzDeYnw=;
+        b=SYyUkC9pyDvvYV8Jf92kRJ6WhPuREuUiQIUkxGQFo4JSwJ3/7amNxqy4amIcd9Ffro
+         TxlCQ58zYSWFxwpX9ixk274Vnf7t76tuf/9jtHs3IEu71zdmOppL4O7WcUWi5cFNjMzH
+         SqjvnmomCq2gBqkY7e+3fri6BuHLpaAgiZh+3MvCWGEqo5L/tDNOJ+OlEOhnEoZ5i1Sq
+         qMIn6qp164UW1QbKh/xoRZ0JKQOcVNGtoNQFKJda8yUysJg02rl3yr5f8Qlrr6U1gteE
+         ZqkQ5oaM+eEcOme6qok3l8vwUn4yWZVwrwrr54edEIM8TS7A67aidHnmPnGuoKkCu033
+         v+LQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795683598; x=1796288398;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=pdGJ7QlIha01VNcg3cIU0qWH1SN2Mep0wOZrqFLArYQ=;
-        b=ZbA/R9ZGhJDwkux/evIMPlKKocJ8BLfx3ssqCT6KQPd+zUSrKp/gFNXkfQop1bqx3f
-         AaiwyadNyAaaLi4dqn0Lymhnfe490ReuZYHe6r5sY3Tx0HQMMsHPi+X5jkstcKuSu2MY
-         CqNBgeO/aAIm0DL7mUJNcXF0whNRwQ9M4lUYeqfjTNcR/VPENFcEngQWIsCYOioZweBZ
-         bpAyf+sd9iotYxXNK03pHZzdmnm5rJv14inzrZFLgvNv7WCO8nMSN9uoF4URoyfWro3m
-         B9wl/i0hjgePABNHHnyn4EqY8LHW3P1+r4+tZIVrTFzbrfFBrPvu8VFqteoaDDvfJb9Z
-         3CAA==
-X-Forwarded-Encrypted: i=1; AL+hErEaDSm3wri5T6eI4qGNCI5SAXPoYqj+uHocXY6dmlkNHgmMxMekP9yadMpkq1dOde3D6h47XEeTCE5ekqM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/4ikxNvMlgwc582s8/WhsMLji0SSgVOsHaHIXlQKneo7fkIIdX
-	dxAGXJH9uSCCUY2ojsQexOCQP6iV6fNmvKC4vl6lE+EDmQutG+a5exQC
-X-Gm-Gg: AZFdTZf0lQ9RDXf1nUZoadHzK/xiTtsqTCFSssY/Lu0CsX58T+XKN6Gp+YeR76da1w7
-	B4+s03lLA+H14O6pAa8uZL9zqflW8cGMMM1hBByeIRuB14R55isn8ZYcXI2GmBhuLoeu+28AISS
-	bM1IW//07GF7n/OaNXkqDLN2udwaEfvYGiD1aIS98y4O5HxEYsV+y9jHBtLEb3d2pgjXqdhYv+Z
-	vclkM0Le3+QsKxkxYBUl5x+5BjITCun6aVG/fDCA/HR4gxrNsjf6rYc98naQHP+wi+nV49KgI1M
-	tG0h68F4okspqbOuaQ4QaBRffUyXcY0A5g1RRUILElihiitQWt6hlfsejiaj8h/lNO2lHWV4jX+
-	/z7w0NgD/sceugRXFsds4sIVITtmmaze4WD6ZdsujNfnbzTlZHpur4LUoMl5jE0hSYobl0uE1tI
-	8m1E3wG1D/16QHyQsjhLkyon93vFjsTwEhaP4WpSEPd21ww0r98g6aemOiZ5eoW/oRTtAKGt7HZ
-	qVET3Yp8Az0CKvx7zjLfDxTYRHPEMQUJ+dZQvUP/BNr4kLlZPWqlSIzKKWc/HFdAw5ZIJHlWFft
-	m82Wdz6szMxa58d1+Aw0JqUWgPmE4hQ8h+0w997Yf/Zz6ou3X3JeE3VbYA/4UI5mpQSSoDLFzwv
-	Xc45OvmAPvZA=
-X-Received: by 2002:a05:600c:4f4c:b0:4bb:8503:69f4 with SMTP id 5b1f17b1804b1-4bb888097a2mr507049805e9.5.1795683597630;
-        Thu, 26 Nov 2026 00:59:57 -0800 (PST)
-Received: from localhost (mob-176-246-236-25.net.vodafone.it. [176.246.236.25])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8d4f9aa8sm554122785e9.4.2026.11.26.00.59.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 00:59:56 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795683604; x=1796288404;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Yh6+sXWyFXYfKUalssHUgOWkgYxwHId/9h6FjzDeYnw=;
+        b=qUcfQaOxCKfk4/d4hR+zQCtabERaQ4OTcOn9UbJg8fvGeRW9AQTrXvlRbrOoivKmsQ
+         T4lGzde5i1lKTujW5R8YqDbOUdnkBMYM+YZs0bvSqCnLwAhM8MODIF3cUCTl1UpCSQ+7
+         OxRamau2R3avFHgnODRHrSeX9uYSJF6CHdM++4BhhQ4IOD7LttbjnuZxkiEfKzFGyj5w
+         p9VppzL+paN60xT5bqYX+pFdOTCq8qnHGyWE9PjpA0wCd2ojEUBWthvTga3euu6oKXM1
+         wO/IQ8csaVrBks05jRwCqNJtnQQdaLIvBwBaa2F8m6srCVbkz7B0+SCZ8F3sHjRPDd4k
+         jW4A==
+X-Forwarded-Encrypted: i=1; AL+hErHAQfWHjR45pHUM2i6bUNOL9uDdjlQS54nLwqOrcLBHfxHqDpdIjVEBM8gooSkJXQmdOtaJp+LPFpwUan4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+FuLR7UksB4kflsMlyRPBtt3dtHuFqZLvexjEzfIVpgVOwbOBp
+	ZccVXZ8wMuCn+fccJrvSo3rd7aAWNMWPGfqBUMKN8Z8IPzUu9KvgCsdoAvfNFW8Z9YM=
+X-Gm-Gg: AZFdTZfKBZ4OULcw8uO2OdHayLV8p29WF46f2+Jnn8d2CwPkG7bZu0zC93qNKQVDPgT
+	LF+z4znbu7P+JOWYvt0hB3P+UtWep791iy2H5sX0KrfbUQ5iFgP9CephYp7NSn+0hS93AZzG7z2
+	54a7bkxyLZS305ttL4LmUh7kw16uZOmCJLjyKVNczVgyFEVvTzYRK9n16UGLJEw2eVarRDz1jJC
+	Km+xGwHA1jKtjkwpVfpfnONPtvbRxOgZyPOI2wEQSiRH80vZtMe4ZZpIrmadjvjLtFhtkswTKXQ
+	XWo8aLN5RiabAe+O0PWiCuK1lf8RFlO1fmklmvkeF4xoAWIXJ9tXUEtdd4WEpUhW01BG8Q/rCqB
+	40tpb/Ftd0tGbo3m0vHtt84362yF6i23+CpTVK43ALBKyLN1jzD+fvB521pH8S7CbMzzJ+FddwK
+	sxFGhnENpcFUAaacY/8AhEd2qieyKoiSuqdsgS3EnHMfdmclqW9WTSOBfHvwBJwGTx+PJLjWf6c
+	1PCFaHGigY8cVZIILhpjwNeQlx/y5WtDgHQGGzawVnZXODlAh2/ELAHMWXBeYWCKjdiHZBzXjfQ
+	ONgiHv0eZS+vEuGMMEpFPAHVBIkXkLQns7w/2+TXw6QEHQ0i+dmn0bVESdYgqClS4byOW7vYs/R
+	oAVBTWYU++s5WMe62xgS3BYoU20WM2BxW+Tt8Mk+Qlw==
+X-Received: by 2002:a17:902:da83:b0:2ef:e5b9:5841 with SMTP id d9443c01a7336-2f050c1d8cemr196509805ad.35.1795683604307;
+        Thu, 26 Nov 2026 01:00:04 -0800 (PST)
+Received: from aster-ThinkPad-X9-14-Gen-1 ([2400:2410:5f2b:700:da16:d35e:74e2:c7c])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f0ff28fda8sm424145ad.56.2026.11.26.01.00.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 01:00:03 -0800 (PST)
+From: Vishnu Sankar <vishnuocv@gmail.com>
+To: Hans de Goede <hansg@kernel.org>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: Mark Pearson <mpearson-lenovo@squebb.ca>,
+	"Derek J . Clark" <derekjohn.clark@gmail.com>,
+	Rong Zhang <i@rong.moe>,
+	Henrique de Moraes Holschuh <hmh@hmh.eng.br>,
+	Huang Wei <huangwei@kylinos.cn>,
+	platform-driver-x86@vger.kernel.org,
+	ibm-acpi-devel@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org,
+	klorico2@lenovo.com,
+	vsankar@lenovo.com,
+	Vishnu Sankar <vishnuocv@gmail.com>
+Subject: [PATCH] platform/x86: thinkpad_acpi: Fix fan speed reporting on X9 Gen 1
+Date: Thu, 26 Nov 2026 17:59:37 +0900
+Message-ID: <20261126085937.53711-1-vishnuocv@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,245 +104,207 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=1bb107e9a21cc29b328dfa80e731d1d8e11a68359f8065fcb2e36792f75f;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Thu, 26 Nov 2026 09:59:50 +0100
-Message-Id: <DN50PH7HHSWZ.3H4T25JFPQECY@gmail.com>
-Subject: Re: [PATCH 2/3] vfs: add xflags mask to fileattr API
-From: "koraynilay" <koray.fra@gmail.com>
-To: "Amir Goldstein" <amir73il@gmail.com>, "koraynilay"
- <koray.fra@gmail.com>
-Cc: "Namjae Jeon" <linkinjeon@kernel.org>, "Hyunchul Lee"
- <hyc.lee@gmail.com>, "Alexander Viro" <viro@zeniv.linux.org.uk>, "Christian
- Brauner" <brauner@kernel.org>, "Chuck Lever" <cel@kernel.org>, "Jeff
- Layton" <jlayton@kernel.org>, "Jan Kara" <jack@suse.cz>, "Darrick J . Wong"
- <djwong@kernel.org>, "Andrey Albershteyn" <aalbersh@kernel.org>,
- =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, "Lauri Gates"
- <lauri.gates@gmail.com>, "Christoph Hellwig" <hch@infradead.org>, "Dave
- Chinner" <dgc@kernel.org>, <linux-btrfs@vger.kernel.org>,
- <linux-xfs@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-fsdevel@vger.kernel.org>, <ntfs@lists.linux.dev>,
- <linux-nfs@vger.kernel.org>, <linux-api@vger.kernel.org>
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261122000856.536902-1-koray.fra@gmail.com>
- <20261122000856.536902-3-koray.fra@gmail.com>
- <CAOQ4uxhegn1z=41_MHL1Zu2hXuPtzNhC=x4gd371oaeJE4-weQ@mail.gmail.com>
- <DN2N6A68PBO1.2QT8ZOARF4I6L@gmail.com>
- <CAOQ4uxhDQqEQ3T9NveBFpUmSU032BxrNV5D+_zHj8u9LOQY+qg@mail.gmail.com>
- <DN4DRUYPHYMP.20U4DYV5VBN7P@gmail.com>
- <CAOQ4uxg0g+XkPb3-kQS5ez1-rp7Q=BkYDHW0CGOFhpbcf70yMg@mail.gmail.com>
- <DN4KLSM2OO0K.2C8Q5CPFBVNL6@gmail.com>
- <CAOQ4uxhpJygZH-arLFSUYEEfqFG96Sr3_6CWakfSkdWxEsOxMg@mail.gmail.com>
-In-Reply-To: <CAOQ4uxhpJygZH-arLFSUYEEfqFG96Sr3_6CWakfSkdWxEsOxMg@mail.gmail.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
---1bb107e9a21cc29b328dfa80e731d1d8e11a68359f8065fcb2e36792f75f
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On the ThinkPad X9-14 Gen 1 and X9-15 Gen 1, the EC reports fan1 RPM
+in registers 0x84/0x85 and fan2 RPM in 0x82/0x83, and does not use
+bit 0 of 0x31 as a fan select. As a result fan2 reports fan1's speed,
+and every fan read overwrites an EC-owned bit.
 
-On Thu Nov 26, 2026 at 8:07 AM CET, Amir Goldstein wrote:
-> On Wed, Nov 25, 2026 at 9:22=E2=80=AFPM koraynilay <koray.fra@gmail.com> =
-wrote:
->>
->> On Wed Nov 25, 2026 at 5:51 PM CET, Amir Goldstein wrote:
-> ...
->> >>
->> >> My robot proposed 2 fixes: either don't introduce FS_XFLAG_PROJID
->> >> (which, eh, not the best imo)
->> >
->> > Me neither. It's inconsistent IMO.
->> >
->> > But it is inconsistent in that we want to have a way for chattr -p to =
-say with
->> > the new API "set only projid", so we must have the flag, but we
->> > mostly need it for the mask, we don't really care about its value in
->> > fsx_flags.
->> >
->> >> or add a new flag to be used in at_flags,
->> >> like AT_FILEATTR_MASKS, which would resolve all our legacy vs non-leg=
-acy
->> >> problems, but it would be in *at*_flags, so doesn't really make sense
->> >> semantically (but it would work well since file_getattr already rejec=
-ts
->> >> unknown at_flags, so it wouldn't cause problems for old programs).
->> >
->> > I think this is an overkill as well.
->>
->> Semantics issue aside, I think this shuold be the way to go, because
->> it's explicit and doesn't rely on guessing based on struct size or mask
->> values.
->>
->
-> Yes this is a good argument.
->
->> > We discussed this before.
->> >
->> > Attributes that have X_value like fsx_projid have few types:
->> > 1. 0 means disabled (all existing values incl. projid)
->> > 2. 0 is a valid value but cannot be unset (btime)
->> > 3. 0 is a valid value and NULL/unset is also a valid value
->> >
->> > Only for type 3 does can the interpretation of
->> > (!XFLAG_X && !fsx_X) be considered as an "unset"
->> > and anyway, this will require support in individual fs.
->>
->> IMO !(xflags & XFLAG) && (rw_mask & XFLAG) should clear/unset the value
->> in all cases, ignoring what's in fsx_X.
->>
->> And all existing values would be of type 1 for VER0, but of type 1 + 3
->> for VER1.
->>
->
-> I agree that this will be more consistent.
->
-> With explicit opt-in to FILEATTR_MASKS API
-> vfs can determine that
-> (!XFLAG_X && !!fsx_X) is alway -EINVAL
->
-> When fsx_X =3D=3D 0, the value of XFLAG_X does not really matter
-> so filesystems can decide themselves if they want to act on
-> an "unset" flag or not.
+The EC also does not latch either register pair, so a read can combine
+the LSB of a new value with the MSB of an old one.
 
-Hmm, I think fsx_xflags should have priority over the value in this
-_masks API.
+Add two quirks: TPACPI_FAN_2REG reads fan2 from 0x82/0x83 and never
+touches 0x31, and TPACPI_FAN_UNLATCH re-reads an RPM register pair
+until the MSB is stable. Enable both for the X9 Gen 1 models.
 
-In my mind, to clear PROJID a userspace program would only need to do:
+A single fan level write controls both fans on these models, so second
+fan control is disabled when TPACPI_FAN_2REG is set.
 
-  struct file_attr fa =3D {
-  	.fsx_xflags =3D 0,
-  	.fsx_xflags_rw_mask =3D FS_XFLAG_PROJID
-  };
-  file_setattr(&fa, AT_FILE_ATTR_MASKS);
+Tested on X9-14 Gen 1 (BIOS N4DET42W, EC N4DHT39W).
 
-and have projid cleared (same for EXTSIZE/EXTSZINHERIT/COWEXTESIZE),
-while to set/change it:
+Signed-off-by: Vishnu Sankar <vishnuocv@gmail.com>
+---
+ drivers/platform/x86/lenovo/thinkpad_acpi.c | 79 ++++++++++++++++++---
+ 1 file changed, 68 insertions(+), 11 deletions(-)
 
-  struct file_attr fa =3D {
-  	.fsx_xflags =3D FS_XFLAG_PROJID,
-  	.fsx_xflags_rw_mask =3D FS_XFLAG_PROJID,
-  	.fsx_projid =3D 67,
-  };
-  file_setattr(&fa, AT_FILE_ATTR_MASKS);
+diff --git a/drivers/platform/x86/lenovo/thinkpad_acpi.c b/drivers/platform/x86/lenovo/thinkpad_acpi.c
+index 4f81855ad721..266f774b8ac3 100644
+--- a/drivers/platform/x86/lenovo/thinkpad_acpi.c
++++ b/drivers/platform/x86/lenovo/thinkpad_acpi.c
+@@ -7964,6 +7964,8 @@ enum {					/* Fan control constants */
+ 	fan_select_offset = 0x31,	/* EC register 0x31 (Firmware 7M)
+ 					   bit 0 selects which fan is active */
+ 
++	fan2_rpm_offset = 0x82,		/* EC register 0x82: LSB, 0x83 MSB (fan2 RPM) */
++
+ 	fan_status_offset_ns = 0x93,	/* Special status/control offset for non-standard EC Fan1 */
+ 	fan2_status_offset_ns = 0x96,	/* Special status/control offset for non-standard EC Fan2 */
+ 	fan_rpm_status_ns = 0x95,	/* Special offset for Fan1 RPM status for non-standard EC */
+@@ -8012,6 +8014,8 @@ static int fan_watchdog_maxinterval;
+ static bool fan_with_ns_addr;
+ static bool ecfw_with_fan_dec_rpm;
+ static bool fan_speed_in_tpr;
++static bool fan2_with_own_rpm_reg;
++static bool fan_rpm_unlatched;
+ 
+ static struct mutex fan_mutex;
+ 
+@@ -8073,6 +8077,9 @@ static void fan_quirk1_handle(u8 *fan_status)
+ /* Select main fan on X60/X61, NOOP on others */
+ static bool fan_select_fan1(void)
+ {
++	if (fan2_with_own_rpm_reg)
++		return true;
++
+ 	if (tp_features.second_fan) {
+ 		u8 val;
+ 
+@@ -8093,6 +8100,9 @@ static bool fan_select_fan2(void)
+ 	if (!tp_features.second_fan)
+ 		return false;
+ 
++	if (fan2_with_own_rpm_reg)
++		return true;
++
+ 	if (ec_read(fan_select_offset, &val) < 0)
+ 		return false;
+ 	val |= 0x01U;
+@@ -8202,21 +8212,48 @@ static int fan_get_status_safe(u8 *status)
+ 	return 0;
+ }
+ 
++/* Read a 16-bit RPM register pair (LSB at offset, MSB at offset + 1) */
++static bool fan_read_rpm(u8 offset, unsigned int *rpm)
++{
++	u8 hi, lo, hi2;
++	int retries = 3;
++
++	if (fan_rpm_unlatched) {
++		/* No latch: re-read until the MSB is stable */
++		do {
++			if (!acpi_ec_read(offset + 1, &hi) ||
++			    !acpi_ec_read(offset, &lo) ||
++			    !acpi_ec_read(offset + 1, &hi2))
++				return false;
++		} while (hi != hi2 && --retries);
++
++		if (hi != hi2)
++			return false;
++	} else {
++		if (!acpi_ec_read(offset, &lo) || !acpi_ec_read(offset + 1, &hi))
++			return false;
++	}
++
++	*rpm = (hi << 8) | lo;
++	return true;
++}
++
+ static int fan_get_speed(unsigned int *speed)
+ {
+-	u8 hi, lo;
++	unsigned int rpm;
++	u8 lo;
+ 
+ 	switch (fan_status_access_mode) {
+ 	case TPACPI_FAN_RD_TPEC:
+ 		/* all except 570, 600e/x, 770e, 770x */
+ 		if (unlikely(!fan_select_fan1()))
+ 			return -EIO;
+-		if (unlikely(!acpi_ec_read(fan_rpm_offset, &lo) ||
+-			     !acpi_ec_read(fan_rpm_offset + 1, &hi)))
++
++		if (unlikely(!fan_read_rpm(fan_rpm_offset, &rpm)))
+ 			return -EIO;
+ 
+ 		if (likely(speed)) {
+-			*speed = (hi << 8) | lo;
++			*speed = rpm;
+ 			if (fan_speed_in_tpr && *speed != 0)
+ 				*speed = FAN_CLOCK_TPM / *speed;
+ 		}
+@@ -8238,7 +8275,8 @@ static int fan_get_speed(unsigned int *speed)
+ 
+ static int fan2_get_speed(unsigned int *speed)
+ {
+-	u8 hi, lo, status;
++	unsigned int rpm;
++	u8 lo, status;
+ 	bool rc;
+ 
+ 	switch (fan_status_access_mode) {
+@@ -8246,14 +8284,16 @@ static int fan2_get_speed(unsigned int *speed)
+ 		/* all except 570, 600e/x, 770e, 770x */
+ 		if (unlikely(!fan_select_fan2()))
+ 			return -EIO;
+-		rc = !acpi_ec_read(fan_rpm_offset, &lo) ||
+-			     !acpi_ec_read(fan_rpm_offset + 1, &hi);
++
++		rc = !fan_read_rpm(fan2_with_own_rpm_reg ? fan2_rpm_offset : fan_rpm_offset,
++				   &rpm);
++
+ 		fan_select_fan1(); /* play it safe */
+ 		if (rc)
+ 			return -EIO;
+ 
+ 		if (likely(speed)) {
+-			*speed = (hi << 8) | lo;
++			*speed = rpm;
+ 			if (fan_speed_in_tpr && *speed != 0)
+ 				*speed = FAN_CLOCK_TPM / *speed;
+ 		}
+@@ -8873,6 +8913,8 @@ static const struct attribute_group fan_driver_attr_group = {
+ #define TPACPI_FAN_DECRPM	0x0020		/* For ECFW's with RPM in register as decimal */
+ #define TPACPI_FAN_TPR		0x0040		/* Fan speed is in Ticks Per Revolution */
+ #define TPACPI_FAN_NOACPI	0x0080		/* Don't use ACPI methods even if detected */
++#define TPACPI_FAN_2REG		0x0100		/* Fan2 RPM in EC regs 0x82/0x83, no fan select */
++#define TPACPI_FAN_UNLATCH	0x0200		/* RPM registers are not latched */
+ 
+ static const struct tpacpi_quirk fan_quirk_table[] __initconst = {
+ 	TPACPI_QEC_IBM('1', 'Y', TPACPI_FAN_Q1),
+@@ -8908,6 +8950,8 @@ static const struct tpacpi_quirk fan_quirk_table[] __initconst = {
+ 	TPACPI_Q_LNV3('R', '0', '0', TPACPI_FAN_NOACPI),/* E560 */
+ 	TPACPI_Q_LNV3('R', '1', '2', TPACPI_FAN_NOACPI),/* T495 */
+ 	TPACPI_Q_LNV3('R', '1', '3', TPACPI_FAN_NOACPI),/* T495s */
++	TPACPI_Q_LNV3('N', '4', 'D', TPACPI_FAN_2REG | TPACPI_FAN_UNLATCH),	/* X9-14 Gen 1 */
++	TPACPI_Q_LNV3('N', '4', 'C', TPACPI_FAN_2REG | TPACPI_FAN_UNLATCH),	/* X9-15 Gen 1 */
+ };
+ 
+ static int __init fan_init(struct ibm_init_struct *iibm)
+@@ -8959,6 +9003,12 @@ static int __init fan_init(struct ibm_init_struct *iibm)
+ 		tp_features.fan_ctrl_status_undef = 1;
+ 	}
+ 
++	if (quirks & TPACPI_FAN_2REG)
++		fan2_with_own_rpm_reg = true;
++
++	if (quirks & TPACPI_FAN_UNLATCH)
++		fan_rpm_unlatched = true;
++
+ 	if (quirks & TPACPI_FAN_NOACPI) {
+ 		/* E560, T495, T495s */
+ 		pr_info("Ignoring buggy ACPI fan access method\n");
+@@ -8993,9 +9043,16 @@ static int __init fan_init(struct ibm_init_struct *iibm)
+ 			if (res >= 0 && speed != FAN_NOT_PRESENT) {
+ 				/* It responded - so let's assume it's there */
+ 				tp_features.second_fan = 1;
+-				/* fan control not currently available for ns ECFW */
+-				tp_features.second_fan_ctl = !fan_with_ns_addr;
+-				pr_info("secondary fan control detected & enabled\n");
++				/*
++				 * fan control not currently available for ns ECFW,
++				 * and not needed with 2REG: one write drives both fans
++				 */
++				tp_features.second_fan_ctl = !fan_with_ns_addr &&
++							     !fan2_with_own_rpm_reg;
++				if (tp_features.second_fan_ctl)
++					pr_info("secondary fan control detected & enabled\n");
++				else
++					pr_info("secondary fan detected\n");
+ 			} else {
+ 				/* Fan not auto-detected */
+ 				tp_features.second_fan = 0;
+-- 
+2.53.0
 
-and this:
-
-  struct file_attr fa =3D {
-  	.fsx_xflags =3D FS_XFLAG_PROJID,
-  	.fsx_xflags_rw_mask =3D FS_XFLAG_PROJID,
-  	.fsx_projid =3D 0,
-  };
-  file_setattr(&fa, AT_FILE_ATTR_MASKS);
-
-would have the same result as the first snippet, but not the same
-meaning, since this would mean "set projid to 0" while the first snippet
-means "clear/unset projid" (but in this case, for projid and all the
-other already existing fsx_* it would have the same result).
-
->> > fileattr_set_prepare() already treats the existing values as:
->> > fsx_X =3D=3D 0 =3D> clear XFLAG_X
->> >
->> > And xfs returns EINVAL for !!(fsx_X) !=3D !!(XFLAGX)
->> >
->> > A simple solution is to fix the flag according to val in fileattr_set_=
-prepare()
->> (This should be in file_attr_to_fileattr() I think, but yeah)
->> > if rw_mask contains this flag:
->> >
->> > if (fa->fsx_xflags_rw_mask & FS_XFLAG_PROJID) {
->> >     /* Possibly legacy chattr -p compiled with new headers unaware of =
-PROJID */
->> >     if (fa->fsx_projid =3D=3D 0)
->> >           fa->fsx_xflags &=3D ~FS_XFLAG_PROJID;
->> >     else
->> >           fa->fsx_xflags |=3D FS_XFLAG_PROJID;
->> > }
->>
->> I think this would be a bit too overcomplicated to understand, and
->
-> True
->
->> robot says (with the current v2 code at least) it would make e.g. ntfs
->> return 0 instead of -EOPNOTSUPP for e.g. chattr +S.
->>
->
-> I suspected that existing filesystems may have different legacy behaviors=
-..
-
-(By the way I meant ntfs as in "mask aware filesystems" (I said ntfs
-because that was the robot's example since it's the only one currently
-implementing masks), but yeah)
-
->> It also told me that statx already has AT_STATX_* flags that don't match
->> the at_flags semantics (and indeed, AT_STATX_FORCE_SYNC/DONT_SYNC don't
->> really make sense for "at"_flags semantics), so my only blocker for that
->> solution is gone and I would really prefer that approach since it's way
->> simpler and way cleaner.
->
-> Git history claims that I suggested making this an official UAPI policy:
->
-> b4fef22c2fb97 uapi: explain how per-syscall AT_* flags should be allocate=
-d
->
-> So definitely no objection to AT_FILEATTR_ semantics.
-
-Oh, yes that's the comments I used as docs to add AT_FILE_ATTR_MASKS to
-fcntl.h ahah.
-
->>
->> One more thing gemini told me is that if we don't want to use AT_*, we
->> have to choose between (copy-pasted, "ntfs" meaning any mask-aware fs):
->> 1. Keep clamping fattr->fa_xflags & rw_user_mask (VER1 masked semantics
->>    are clean, but recompiled VER0 RMW tools setting unsupported
->>    flags/projid on ntfs silently return 0)
->> 2. Reject unexpected non-zero bits/fields outside rw_user_mask | ro_mask
->>    (protects recompiled VER0 RMW error reporting on ntfs, at the cost th=
-at
->>    VER1 callers must zero or mask fa_xflags / fa_projid / fa_extsize
->>    themselves rather than expecting bits outside rw_mask to be ignored).
->>
->> So I would *really* prefer adding AT_FILEATTR_MASKS and setting
->> has_masks based only on that.
->> This way we can keep the whole legacy path frozen and not have to worry
->> about weird edge cases (well, converters code aside of course).
->>
->> And personally in this way I can reason about the changes a lot more
->> clearly and I can finally take a better look at the whole code and maybe
->> simplify it in some cases (probably not, but I'll have to see).
->>
->
-> All very good reasons IMO.
->
->> (Unless there is something equivalent to AT_FILEATTR_MASKS to filter on,
->> like maybe a FS_XFLAG_MASKS (?), but that would be even worse
->> semantically I think)
->
-> It's an option, but I think AT_FILEATTR_MASKS is cleaner.
-
-Yes I agree, I also thought a bit about other options, e.g. even having
-FS_XFLAGS_HASMASKS (like HASATTR), and stripping it right away in the
-syscall (or even using it instead of fa->has_masks) but they would all
-be worse options than AT_FILE_ATTR_MASKS.
-
-Today or tomorrow I'll send out v2.
-
-Thanks,
-koraynilay
-
-> Thanks,
-> Amir.
-
-
-
---1bb107e9a21cc29b328dfa80e731d1d8e11a68359f8065fcb2e36792f75f
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRJ2XvJtXGwULYEerQ0bnTtJTDoOAUCawf1BgAKCRA0bnTtJTDo
-OLpjAQDKR/dd73mxIOj/+UMsWX5hqzYCO7wVrdU87VsXoryD2gD7BIDEGqEGAI9o
-nVWwXnlKfovOetcDViuUktTHmdBWygw=
-=GJse
------END PGP SIGNATURE-----
-
---1bb107e9a21cc29b328dfa80e731d1d8e11a68359f8065fcb2e36792f75f--
