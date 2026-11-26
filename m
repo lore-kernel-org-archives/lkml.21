@@ -1,117 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.8
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795729482;
-	b=OqIvvZj9GvmST7kgeSSmjln2AVlMJj/R/LdS/Reswniy1euABn2DigFXXAgpx9o/uY6b
-	 9tbdI4vgs1oxeZlqgLApdYWe7nknmZQfcn2sA02kvpXfTYsisff7gJ4D3bpmqcvYkwdPM
-	 84PcPVIhsFdbI1P5ahddYEKl6vOr+g7QT84jBeryFGaac3srb2CKVU6hyKvcwytsY0Ntj
-	 2e/qOP1+wApepob6gx67jBQHct3skTL+7U4RsYxf99XFv2g/NPEtwM5GEJPKPOACaHhPV
-	 +jyaGR7rXbT/LL8QiQmS8zJimhdm6ialeNacbjAQA+f1QBjdHYkXzdUo0Kgcz9UkfiQ==
+	t=1795729483;
+	b=ZRbIo9MaX9LpStChff9obRE8H3MJ6e+BoCSGFCIc5I/wQInk477jbhm/l0Slbn+UWq06
+	 AzF58WS0HhbcWB2TRpBGLXDXHus1IUUEiwmy6SdQp8zy03pNWhrvtGUi4PLVCshEruTgK
+	 yGkYYNPJe6VKCP+wAl97MEZFHnyfX416EluHw2E9qlDOBtfBqUo6Bv2TsGNER3VzcowSp
+	 1Yzus1OI1TCMVorBz2FqQ2v4hRlGtRlPr8BZe1sVj9ZQMITpQU1xjtlCCN6S6gwNFD8kX
+	 CpZLfrvxw/hmDDBKNHQ7rKmP6f5qTstXSyMtGS28L8qDVZpMccV+DSMHACsN7o1l8mw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795729482;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795729483;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=UYJTRpYCZNTbQQiix5R88SQ1NUZI9ZYUAhpcRTfR3qA=;
-	b=JLjXlFVVIQ2ge3/ddr/WNDEwkqKHfEWnab6zIOGqzMTqol9LzCB0iBotj7mKJaL/Mwgo
-	 7RLx1aG5YZKL83/GymaIwUwLQyin5Fss3D4AZBKclFUvRlsipLmJAO4I8OxOllgUZTWVg
-	 A01fP02mzfsf/J7abBvRw8HHT1kptc2eYcK35RFLfThr8JrYR/f7IYKS1yH16LD6pXuPP
-	 ZffOzKBv5fAQvoaxaAu1akwe2R5ujVzqOwp1RSI2cvfTQArWxZ4slEfB6DsRGk6UKFa72
-	 CAD+pSUJOofEIGhtZF4CWL7g0QN4rMAaCDXZtEGBeWnBZ+Uu7dVp//+XQCzNoQWBs6g==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=vAPLB5wINg8+k5DF0d3PoxcepaPENAHu+hHbKIVA9v8=;
+	b=BKqZQGzAMPTWBHeEz1jmgwYTse7p+PLzaZ1ugW2IIqJIhvvol1Un2fhK0TMszB++9Wus
+	 IdJG8axC8N3KwFSoHo1B1tv41ip+C4OUymQc0yfwBHhViNFjFN1Y+TQ0mr5iX8c4AcVAc
+	 iy7boHBj8mT0VMDuXXQrsj+/UcQAAvmB9CDv/mFjoZn7AAYOFDfo3ttEgRvBPrGkTjAHV
+	 /yM1udkeGIOxVCZ94g0sNRtlrat4nAs4Eor1+6CLx/x7i/i9evvyzSiB05dPYc7N+Om5v
+	 jRzRaEqAQATQPtELr6aOi2kxLAsECFrhZwDCe578dP0iEASj8Uh2odVoD6T6N00QiLQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="P1QbyE+/";
-	arc=none smtp.remote-ip=74.125.229.8
-Received: from mail-dy2-f8.google.com (mail-dy2-f8.google.com [74.125.229.8])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gxW2kdhu;
+	arc=none smtp.remote-ip=209.85.128.50
+Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59FC7606A6BF
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA763606A6BE
 	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:44:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59FC7606A6BF
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA763606A6BE
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=P1QbyE+/
-Received: by mail-dy2-f8.google.com with SMTP id 5a478bee46e88-382afece6d8so1527372eec.1
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gxW2kdhu
+Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so96304965e9.1
         for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:44:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20260707; t=1795729481; x=1796334281; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:subject:cc:to:from:message-id:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=UYJTRpYCZNTbQQiix5R88SQ1NUZI9ZYUAhpcRTfR3qA=;
-        b=P1QbyE+/ZmZHXBAetcgcFJcSma35+komyh3M/D3cAlQBYTKdH2dBqUKPv7ssH5/Dit
-         hqAr5iGuk/2kXi7qcPizrV+eztl6Lv9vK+BEn8XX9am+s1wCz31+8CvEica98HDq6F3E
-         wT7g9EyOHWWgaLowjY8x8ERdBgr36dRTEBScqxJEdZLm9wthRgCVREvjGghKXdKU7Fp/
-         0wdmI6kd6L9tgwxG9v6g9XeRWQu302gZv4TWPzZ8WChgPFaD6KsTmq3HjcNdf6l5Y9dd
-         4Fqvo2jBhSp2YalxqxJcIEStoPHLN/BI35026hDGBmriCJQY7PnpcUNd1qsRiJZ9kzwa
-         O5oQ==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=vAPLB5wINg8+k5DF0d3PoxcepaPENAHu+hHbKIVA9v8=;
+        b=gxW2kdhub2Cnyvt4FXpfCLFU1HHIUSlvqmNGIwIvaGHhotHoR3si45IwzOWFcc/1Sl
+         pi3t6jYCskQfK6mnyGB+ahhenTKwr5bWROVvn3QNWbguwz4J/N6Qc0TNmRcJENlYfTtm
+         c4BMv2MQSCd5Dj76JkNH77vvWeLAQHG4g2RPBREGQLonRBIAPfAt/Yw3rUepS9QYEFKU
+         vJ6o64J08GI5iFh8dnH5QVXPfbaAuekQ4hz0rABaujmM0vJzDwNxR5irrlmMksyz6V/T
+         UwXJXIVfHrsam2xQDu80b/DZ8/XRnFHX8w9JcYTn4f+UXSAuWavrTtxIqGH2lTzJpGSO
+         Hqnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795729481; x=1796334281;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:subject:cc:to:from:message-id:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=UYJTRpYCZNTbQQiix5R88SQ1NUZI9ZYUAhpcRTfR3qA=;
-        b=XEBLhkfgfo59/YNRNAhG1eANxJo/NL1eGorRgGNENpnCc39qZz6La7gAwFov5hkWUA
-         F6ADmzp9hblufVKihbJ3RpIXannIG5xC1KTxwMC3fmI97+CpIDYxOnPNCMhSvn81e8K8
-         9cjixZEsj76bWxaS+ebWddfEsM3fFlHou8SLhV3dWTZ2gWxehHe5hoc2IkJOcs65kGld
-         ku6KEaId2GqYTw6x0E1DRx1hKOLLVWeZvW9+nj97vcCtV/WKAb+iOkwZTTcPALXc7g/b
-         /ErbWosyGXjjaCyLZ0YuNqBEYiyua5HJwqIuUUl6X6IdvT5WoSZN8qGuXFHe6rKjegQ1
-         Sq4Q==
-X-Forwarded-Encrypted: i=1; AL+hErF/Ja+wY0cfK+CelrgR8f0FRrMJuWbPEI4BAfIh6hL1WzqQFzbOzHN+C2kuqZwhDiyDrLY6COHREqRHZNM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8cOhqzWcLDHwXrtvVUTk4pwniLfT+b18+vg4ov9TWiywrJlkGp
-	FGNt9hUxmm7efB9dMoP4AaAACyNfh1qWGhWaDpuvk07LpgL2bMH3mtpG
-X-Gm-Gg: AZFdTZcxOVfnx0Y8+uToN/4iQ9pV2YONKV8GQDI6H0s+MAxrsAoo+M8WeU1CsIZx7Nl
-	pUUeL3UVZRy3kVc8sp9qdQypim5QketPVGFOrcivfI2hrscNlz88Wltt2gnFHGvdz4w3/GnUBvv
-	xiRTUcZgLIenCXOg7nMT3gM3JxOpjKjg658HAu6FO94w7gU6IkB9qVyl7xLSH5oe7+ykMw+vgVh
-	kBjSN4v2hQWzIEBX2oB1Ns2MpVqnt+gMlNZMW6j2WnpgGLmSdl0rM7Dd061VLY4nAv2unnCtPj0
-	L+cCJ+KgtE0vsHvJOibWr4N2jZbzEE9cn/h7hlfeUFuYSmkORDx+hei7TFq4KJ9XHG+nM6itvaP
-	SH3+N+4XNmJVJ6otmUBneO6/nJGNCkW6yY5VeLXCQogw9OZgrb3eVVg7mM01y+JOue+ELXS8RVC
-	EEjwNzBRNmDmsw5VoYnePF96bu+i0qPcNqC0X9Q3nBBYPFLvb7NJ3ioSQS5JUnemSXoISMOsq1Q
-	P9Zf1ilr8RM9fkfUNH+ImNw5gecaMsYwsE5ySWI6yMlQzWSqetYeDcxXHSAzn9qV/BpqASBgSWE
-	z1qm0vJC6yNXcy6/YT1dMjEzA3ILZneOFTnYfEI37G56vqzNMbQeWgXy4Ebcij8=
-X-Received: by 2002:a05:7301:c089:b0:372:14fb:2573 with SMTP id 5a478bee46e88-3856fd5bf76mr21960944eec.20.1795729481384;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=vAPLB5wINg8+k5DF0d3PoxcepaPENAHu+hHbKIVA9v8=;
+        b=nUMCTx0PbQcGdPEKt1uS6fnjfe9MNgmGP06CzPE7SSYRfNzDg2Ay0k0VJJl0QvJVlv
+         rXzDJJG4M74qcn9b+zY59MvNb8YEOpFxfG6JyIRKbQH/UPCLzatF08rOZ3oqJeXzysGP
+         loMtwDyrenyK2RMity/eaKwC00tW4aXWjqL/j0au0Ui+SVxG4l+YeRBLrcNfiSp6wuBu
+         CGhmSPjscQBvL2K+zZkadwSW0X2oXoVRG2B7EAHGI86yKR6SdTyhEWQV3SEWFpCEREEd
+         ByjhrJzKhJ8gjtMy742gtNZVHTF13YefGQrkX6biRCT455Biog6jnkzIQBJWrUH2QK36
+         othg==
+X-Forwarded-Encrypted: i=1; AL+hErFypQlwHQDAJEt+hAMl7LHqJo86kp4JIsKvwMOZQN5YifFZgM2pnkNbxAea64N6RHCDRjyMyDTG8m/EkkE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9l4pOjFioKeSPRSg9Zr2sxkcPTEn1Py8yJmTmRmls4Llq9OvKl
+	aENYbLSGsBIRkhYU+fUzJAcUq8K6EeIlnwa/YgdkdwlVWJe+7wBFHZSC
+X-Gm-Gg: AZFdTZeZsS13nLFO224sL56LnjzqRtFXEIgR9ELSrK9Jjt9H5EWbmfYL0HdsiIYkBac
+	VZceCquFlOrVDTgEJ8i0cPLsrhaTfsDxQY+/h2QmgxAO6ykjmAbBQ0JTfl6PwGQtJnmzbbE46Fv
+	adxvm28ArZmcOCpMRrsLj13vOzwfb6NmzPsqTNKH3mJnjHVPBqzGZOlha9RkoXzPeNF18FRevVC
+	bJ6feh2rRAiZ/z0/euyeZ9XvSId11mlO2oWhdNRH+FEseYKGIMlIJdrDgbkUcbgFfk5H8uJdaDq
+	gxSoB70GOWYUWId+nq9WeLoi8DWLhDs2SG6Jtl4eQj15iH15rARow8eCzXTkd8eu3UkstiDUgfk
+	ltsOsBLQiosbOQlwGo3rVmO3HjB3VLKrqX2mfug59c5WIgkDRsJXrXpCNyAk0YGBPJyLNU7heYU
+	DavpIxKMhG1XaWvOV6FnBc2f5FLiDCLir6KBOzWmqCxmSpBTSCYeNU0jC1Fo0KxCfpMGnS+9IWy
+	VhGOwI9VBnlQOIOj8E0NSrOsf1VomInfeNSn7pIl4TrF0CBmDW6mZDgny1axAhFvzH9fHc1GQ5/
+	64d49Y4uq7jUyR7mbIEvLUSQxoG/A4hGJIXoNQdn5rBH0lXfEkiujxtQe2ERD0eGHtVow6R1vH3
+	qbj2c3NTVySVjib1fLSWknCPax3XiybXstdod+wq4GYth+GHkuBEgVZkUjI75wYa6xaU4Hy34z8
+	FlffkcstN62owrHSmTAk43E7oHE3hl/i0bAXs8Hj8VBaNMHACEu/IJYUNbDiviHdZNNlI8fe1GH
+	HT170xL54WMG7SgFYA1c3FTdh2sYCRQJqeOFG8CXg==
+X-Received: by 2002:a05:600c:4f53:b0:4bb:68cc:7b94 with SMTP id 5b1f17b1804b1-4bb8616516cmr559444565e9.18.1795729481269;
         Thu, 26 Nov 2026 13:44:41 -0800 (PST)
-Received: from localhost ([2604:a840:3:1e0::1080])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385665f21aesm79578155eec.4.2026.11.26.13.44.40
+Received: from jernej-laptop (77-38-7-250.dynamic.telemach.net. [77.38.7.250])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4abbd84e661sm40403963f8f.18.2026.11.26.13.44.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Thu, 26 Nov 2026 13:44:40 -0800 (PST)
-Date: Fri, 27 Nov 2026 05:44:37 +0800
-Message-ID: <73f6ebde526f60ff64064ef602e0cae9.codykang.hk@gmail.com>
-From: Cody Kang <codykang.hk@gmail.com>
-To: Guodong Xu <docular.xu@gmail.com>
-Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
- Troy Mitchell <troy.mitchell@linux.spacemit.com>,
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Haylen Chu <heylenay@4d2.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Yao Zi <me@ziyao.cc>,
- Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Icenowy Zheng <uwu@icenowy.me>, Jerome Brunet <jbrunet+clk@baylibre.com>,
- Sarah Emery <sarah.emery@canonical.com>, Ze Huang <ze.huang@oss.qualcomm.com>,
- Dmitry Baryshkov <lumag@kernel.org>, Cody Kang <codykang@vsit.ai>,
- dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-clk@vger.kernel.org, Luca Ceresoli <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v3 12/17] drm/spacemit: add Innosilicon DP/eDP controller
- bridge driver
-In-Reply-To: <9ec2f818084f2e723e8b82218a302258.docular.xu@gmail.com>
-References: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
- <20261121-k3-display-v3-12-ec419e8e96b8@gmail.com>
- <9ec2f818084f2e723e8b82218a302258.docular.xu@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+From: Jernej Skrabec <jernej.skrabec@gmail.com>
+To: Chen-Yu Tsai <wens@kernel.org>,
+	Samuel Holland <samuel@sholland.org>
+Cc: mripard@kernel.org,
+	maarten.lankhorst@linux.intel.com,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	jernej.skrabec@gmail.com,
+	p.zabel@pengutronix.de,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Andre Przywara <andre.przywara@arm.com>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 02/11] dt-bindings: display: Add H616 display engine compatibles
+Date: Thu, 26 Nov 2026 22:44:24 +0100
+Message-ID: <20261126214433.3562326-3-jernej.skrabec@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261126214433.3562326-1-jernej.skrabec@gmail.com>
+References: <20261126214433.3562326-1-jernej.skrabec@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -121,27 +115,203 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Wed, 25 Nov 2026 20:16:25 -0500, Guodong Xu wrote:
-[...]
-> I noticed a corner case when testing module unload on v3.
-> spacemit_inno_dp can be removed while a process still has cardN open
-> (say Xorg or kmscube is running and somebody does rmmod
-> spacemit_inno_dp), and the DRM device then still holds references on
-> the bridge. When that process closes cardN later, the kernel oopses. On
-> a CoM260-IFX:
->
-> 	sleep 20 < /dev/dri/card0 &
-> 	rmmod spacemit_inno_dp
+Allwinner H616 contains a display engine 3.3. It features two mixers and
+four TCONs (2x LCD, 2x TV). Supported outputs are LCD, LVDS, HDMI and
+CVBS.
 
-Thanks for reporting this. I can reproduce it.
+Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+---
+ .../bus/allwinner,sun50i-a64-de2.yaml         | 20 ++++++++++-
+ .../allwinner,sun4i-a10-display-engine.yaml   |  4 ++-
+ .../display/allwinner,sun4i-a10-tcon.yaml     |  7 ++++
+ .../display/allwinner,sun8i-a83t-dw-hdmi.yaml |  4 +++
+ .../allwinner,sun8i-a83t-hdmi-phy.yaml        |  1 +
+ .../display/allwinner,sun8i-r40-tcon-top.yaml | 33 +++++++++++++++++++
+ 6 files changed, 67 insertions(+), 2 deletions(-)
 
-[...]
-> Other DRM drivers with the same structure, rockchipdrm for example,
-> put the bridge driver and the DRM driver into one module. I think doing
-> the same here (add spacemit_inno_dp.o to spacemit-drm) is the better
-> solution.
+diff --git a/Documentation/devicetree/bindings/bus/allwinner,sun50i-a64-de2.yaml b/Documentation/devicetree/bindings/bus/allwinner,sun50i-a64-de2.yaml
+index 232252e8825e..18ec57448edd 100644
+--- a/Documentation/devicetree/bindings/bus/allwinner,sun50i-a64-de2.yaml
++++ b/Documentation/devicetree/bindings/bus/allwinner,sun50i-a64-de2.yaml
+@@ -26,6 +26,9 @@ properties:
+       - items:
+           - const: allwinner,sun50i-h6-de3
+           - const: allwinner,sun50i-a64-de2
++      - items:
++          - const: allwinner,sun50i-h616-de33
++          - const: allwinner,sun50i-a64-de2
+ 
+   reg:
+     maxItems: 1
+@@ -49,11 +52,26 @@ patternProperties:
+     additionalProperties: true
+     properties:
+       reg:
+-        maxItems: 1
++        minItems: 1
++        maxItems: 2
+ 
+     required:
+       - reg
+ 
++allOf:
++  - if:
++      not:
++        properties:
++          compatible:
++            contains:
++              const: allwinner,sun50i-h616-de33
++    then:
++      patternProperties:
++        "@[0-9a-f]+$":
++          properties:
++            reg:
++              maxItems: 1
++
+ required:
+   - compatible
+   - reg
+diff --git a/Documentation/devicetree/bindings/display/allwinner,sun4i-a10-display-engine.yaml b/Documentation/devicetree/bindings/display/allwinner,sun4i-a10-display-engine.yaml
+index e6088f379f70..6e26f184ab24 100644
+--- a/Documentation/devicetree/bindings/display/allwinner,sun4i-a10-display-engine.yaml
++++ b/Documentation/devicetree/bindings/display/allwinner,sun4i-a10-display-engine.yaml
+@@ -65,6 +65,7 @@ properties:
+       - allwinner,sun20i-d1-display-engine
+       - allwinner,sun50i-a64-display-engine
+       - allwinner,sun50i-h6-display-engine
++      - allwinner,sun50i-h616-display-engine
+ 
+   allwinner,pipelines:
+     $ref: /schemas/types.yaml#/definitions/phandle-array
+@@ -74,7 +75,7 @@ properties:
+       maxItems: 1
+     description: |
+       Available display engine frontends (DE 1.0) or mixers (DE
+-      2.0/3.0) available.
++      2.0/3.0/3.3) available.
+ 
+ required:
+   - compatible
+@@ -96,6 +97,7 @@ if:
+           - allwinner,sun9i-a80-display-engine
+           - allwinner,sun20i-d1-display-engine
+           - allwinner,sun50i-a64-display-engine
++          - allwinner,sun50i-h616-display-engine
+ 
+ then:
+   properties:
+diff --git a/Documentation/devicetree/bindings/display/allwinner,sun4i-a10-tcon.yaml b/Documentation/devicetree/bindings/display/allwinner,sun4i-a10-tcon.yaml
+index 05ed4ddcff3a..eb8d1fd9d8a3 100644
+--- a/Documentation/devicetree/bindings/display/allwinner,sun4i-a10-tcon.yaml
++++ b/Documentation/devicetree/bindings/display/allwinner,sun4i-a10-tcon.yaml
+@@ -36,6 +36,7 @@ properties:
+       - const: allwinner,sun9i-a80-tcon-tv
+       - const: allwinner,sun20i-d1-tcon-lcd
+       - const: allwinner,sun20i-d1-tcon-tv
++      - const: allwinner,sun50i-h616-tcon-tv
+ 
+       - items:
+           - enum:
+@@ -59,6 +60,11 @@ properties:
+               - allwinner,sun50i-h6-tcon-tv
+           - const: allwinner,sun8i-r40-tcon-tv
+ 
++      - items:
++          - enum:
++              - allwinner,sun50i-h616-tcon-lcd
++          - const: allwinner,sun8i-r40-tcon-lcd
++
+   reg:
+     maxItems: 1
+ 
+@@ -256,6 +262,7 @@ allOf:
+               - allwinner,sun8i-r40-tcon-tv
+               - allwinner,sun9i-a80-tcon-tv
+               - allwinner,sun20i-d1-tcon-tv
++              - allwinner,sun50i-h616-tcon-tv
+ 
+     then:
+       properties:
+diff --git a/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-dw-hdmi.yaml b/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-dw-hdmi.yaml
+index c43b02ec884f..44cc5c2beb04 100644
+--- a/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-dw-hdmi.yaml
++++ b/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-dw-hdmi.yaml
+@@ -28,6 +28,10 @@ properties:
+       - const: allwinner,sun8i-a83t-dw-hdmi
+       - const: allwinner,sun50i-h6-dw-hdmi
+ 
++      - items:
++          - const: allwinner,sun50i-h616-dw-hdmi
++          - const: allwinner,sun50i-h6-dw-hdmi
++
+       - items:
+           - enum:
+               - allwinner,sun8i-h3-dw-hdmi
+diff --git a/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-hdmi-phy.yaml b/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-hdmi-phy.yaml
+index 1b47f3d99a78..fc88c5e2a3f6 100644
+--- a/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-hdmi-phy.yaml
++++ b/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-hdmi-phy.yaml
+@@ -21,6 +21,7 @@ properties:
+       - allwinner,sun8i-r40-hdmi-phy
+       - allwinner,sun50i-a64-hdmi-phy
+       - allwinner,sun50i-h6-hdmi-phy
++      - allwinner,sun50i-h616-hdmi-phy
+ 
+   reg:
+     maxItems: 1
+diff --git a/Documentation/devicetree/bindings/display/allwinner,sun8i-r40-tcon-top.yaml b/Documentation/devicetree/bindings/display/allwinner,sun8i-r40-tcon-top.yaml
+index 7d849c4095a3..41324e1376ee 100644
+--- a/Documentation/devicetree/bindings/display/allwinner,sun8i-r40-tcon-top.yaml
++++ b/Documentation/devicetree/bindings/display/allwinner,sun8i-r40-tcon-top.yaml
+@@ -43,6 +43,7 @@ properties:
+       - allwinner,sun8i-r40-tcon-top
+       - allwinner,sun20i-d1-tcon-top
+       - allwinner,sun50i-h6-tcon-top
++      - allwinner,sun50i-h616-tcon-top
+ 
+   reg:
+     maxItems: 1
+@@ -201,6 +202,38 @@ allOf:
+           items:
+             - description: TCON TV0 output clock name
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: allwinner,sun50i-h616-tcon-top
++
++    then:
++      properties:
++        clocks:
++          items:
++            - description: The TCON TOP interface clock
++            - description: The TCON TOP TV0 clock
++            - description: The TCON TOP TVE0 clock
++            - description: The TCON TOP TV1 clock
++
++        clock-names:
++          items:
++            - const: bus
++            - const: tcon-tv0
++            - const: tve0
++            - const: tcon-tv1
++
++        clock-output-names:
++          items:
++            - description: TCON TV0 output clock name
++            - description: TCON TV1 output clock name
++
++        ports:
++          required:
++            - port@2
++            - port@3
++
+ examples:
+   - |
+     #include <dt-bindings/interrupt-controller/arm-gic.h>
+-- 
+2.43.0
 
-Agreed. Will fix in v4.
-
-Cody
