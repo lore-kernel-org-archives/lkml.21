@@ -1,101 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795729071;
-	b=d1USYYe+uwNUdrYgmlAY18JL0wRAdwV80rSpg1tEQ0h3iUiO++OukWgjXiGyHH7OXhGn
-	 /G6XvRfrc4MVYGoffuqgBeb0nIckT3sAxiOKGtQQrEJEmC09qYd0EdXXvoBbEdMxcnesr
-	 OcWtJLldhzX6z03Dh9qteuMhAZopBZITGvoG6eyg35qLH7fK+xCRrovmqnAitNOoHvD5k
-	 x5T4j77IIZBRa8Q2kbaNAwpAoEPM9xNNbx2Pfk+gsCUSa4mBFqHJBN+yZna0wiTgj+uBG
-	 RFpGGdNLllYc4RgaVtm0bAeqm90oTKpV5kMvyTh5TtKGjtQerbCFCl0K+dnoTMcayiw==
+	t=1795729072;
+	b=M+WgL7sOrVFjoFul/oGwavD6u509acFJo4Holn5KTLqhkYL5JCJGedBBhCtF7i/cFEsv
+	 Pe5f13TiQ/12PHnDD22jD78UcOTAwSCKVamDDG0vJeRvow0/XT2FlzZU8XXyQGfLuCFNR
+	 hTA9pBF4B+uTQTe36rB267P50G6hfChWLv5i7mYkAd0T9tLC/M5FGK2DvYthF1ycPmzr6
+	 MpeNPSsjHO7tyQeSJECVcPg8qbVtaGYCJAPQhEwPRkvE4sZKIFE+voiXqwYJ0SWWwpsS4
+	 4fs8Gk9ZiwPqXMTgYcrvE8HSN6mRFVOFy1Ub9sPyCvCNkrG8a+dr4q9EkVrjLmOiU4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795729071;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795729072;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=rTynq6lcaX88KnM2KiakTF5u9vz9SlmUwghXiVPF/vk=;
-	b=XdIbjHYEzXf7+T9i7hpfJKH0YWnNiyl9zFmgqer9FY3FGFuvhUAau3iky99g6H2EXsej
-	 bfDKlKhxm3XawoVyTXxRGGQxLbyCO6RPweouZd9J92Kz08tNuW+9rEoVzZyQEOeBReL6t
-	 I5KCnuWamY0q259SMMHcT4HpB2psNOOQy6ti9sP95cIHD4SGO2KtVsQAJGbaMdlN4jAYT
-	 ST1kmTh1CNKBoIp84drQYFMYLVgn5co7//OQWSV6npDVrGcW1IHYZI32XyhtmUbvdJ6h+
-	 UGck8WcwBVLkzx5bAOES3Z20sjpvm80Xgtk0X0izuFCuIXwsn3YDo7ofKynh1XnJQ8w==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=5Az0gPDunt2+zui3Z/fGv6Nk762mYWwFD5nBfm1scHI=;
+	b=OEIsrATu+Wvk4HeCqYIMoyFzc+RgIwtkcdKQOXzdt8rh7oyVntXL47LrSsd1xM9+5HH3
+	 6MWeImXjJqqXzauLhprTzciS88kUibP+dd/zmiswz/i4T9dOWLhz3D7xeL1as+qIX9NQu
+	 NqAyWnWnT2Drkt7XV1EtmnsvZr3hMudRIWH4BWY6jSc0dixB2Unxj5AdSgqrwUm1e8Bq8
+	 16NTbTFAnvafgLZIR2YHl+8hjKeR9ZeWf4E28UvOmGiKheuFhL/6z/q6VEPs29KOAIFM4
+	 ahVb28ytiv414pLpfsv8Ni882zWjSqC+wHvOq9AqpSEXNoyCcQ1YNU/ND7yliFjO7BQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FYJdK2le;
-	arc=none smtp.remote-ip=209.85.216.53
-Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--vdonnefort.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=g3k9Vb9x;
+	arc=none smtp.remote-ip=209.85.128.70
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com [209.85.128.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B40A606A332
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:37:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5B40A606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F95E606A330
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:37:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F95E606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--vdonnefort.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FYJdK2le
-Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3b439e37813so3858829a91.3
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=g3k9Vb9x
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4bb68d624baso42158055e9.2
         for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:37:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795729071; x=1796333871; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rTynq6lcaX88KnM2KiakTF5u9vz9SlmUwghXiVPF/vk=;
-        b=FYJdK2leuJc0wKyHr8Utf/JCiuUiElvSD4mRQPE7LDHvoRXwg+fkuhy6hNbupkWj7F
-         JPNnSRoGeuPpflmyH9PGKlb2tLm/gHBAVFkJ3nZdTaBXoDd+WUSeMXiFg0uEN4jX9b3k
-         q5mW/zQvDw6LjKhf80DpuOpPrey8iYe3BLtk7OYCZPpoHiAI2rQCdbBQWEyfhBAOzpi5
-         k5cwWstJCtFwIc0ZZjESkDjM1i+OvsqZih3Ejr8RsNkgEkSeKustz06ylaPI4EUf8ODy
-         nKR5LrhOfGT4qOcl+TUGA3+zNYrHIePN+RwFNY0dAu/kiakgqYO/K+sf5oX4zXySNH1U
-         OtCw==
+        d=google.com; s=20260707; t=1795729070; x=1796333870; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5Az0gPDunt2+zui3Z/fGv6Nk762mYWwFD5nBfm1scHI=;
+        b=g3k9Vb9xzVu7RJw5Jpu0xttzaTelZm0Qx/f+vuya2rwFeWhPBXEuijww1P6gVkFtl9
+         VNV3BmizCaXJqE+JN2mIVtMKVj2gDXNHSsxJBVlxQR9Y3R7M1IpnL9X+QKPsLP/r7qcG
+         P0lEl/8Xl9k+umCMXlqFnty7y/jctdP8/eOrIr69X/6jB033eLt11agxJfkcpUEh736n
+         l+dKQPntSqfhlcDrJv4+ylMnKcGMA/qYNnZwkLqtX2RGhP+ZJL+X787CJRDSXbmrgSr1
+         Y8RH8DgEX1laSYiwhfvTvzkJEOs/qJY8YRZs1r9lojeNFhA4c9yHj/07L/aWF3IgkX2j
+         U/+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795729071; x=1796333871;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rTynq6lcaX88KnM2KiakTF5u9vz9SlmUwghXiVPF/vk=;
-        b=jno17XVZnM/x0+Oc7MtE0A9CNFmlSUyJ0B9UDSW2nQ7jf4IeNXSHzcVLjGIL6rhSMk
-         Yin5z12Wb35NxmxQOpDeN648oJlyFgs5IktZotgNSVqhrL5Qc4mEgQJLcSzGHAbBbYlI
-         /8oE4Hv/ehjYQctuWE9ltG8TpQAByIO++QsADIyikn1II+IgS2o5zNOV6SmTS8LAnvmF
-         oHZ1JCzIR3umB9xGNGKsbRjroOGi5zBL6785ZXdZxUROWoeLfwafIkLhwTtawGdroI5O
-         nyebcBFpo4frD1Phk7hUbGSK9CJZbLdiQWu2/KVyAeaRj0HqLZVPcuzZIzWCmkLE4Mfo
-         RlrA==
-X-Forwarded-Encrypted: i=1; AL+hErGDF48/OEjoOX6vMIplAfjl2JCQtOf6Dj350rxO6Ek2d3glqGBb7iKk9Zk08fMbyOjSgDWAafF0XBpXTOE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+mOimmSpLm38BopeJ39lIoKAhVmf+9zV4AXzHHxBQEPp1DdWQm
-	PeDt9xrhBPg2skMvvvEbutCpXKhx+qrqL2ZXMamSk/sP9rvrCVf0jkF8
-X-Gm-Gg: AZFdTZdq7fYdXoU7rFTuac/i814EhNrtE5RtfYl3mS2DSwlEfSQuN44zm7zFk9Ijbno
-	lWFoNMa80cpDab2GG9HeQYO0NmtAbPWorNHKrGikcusp0XNie1LMaBtiZtQ/4vGtG4BurB57gT1
-	tgP8yx2SXGZIX1OMm3GX7STuyr2RvSvyS1SCo4wT2lgRn9yxYXtcSaGBQLIxfFGEcQdFSyR5+yP
-	9SyFNbDvR1KcAqnddJRFKsnW40C8lAeoTfAP6aFYa+09E6KCqb9EOo5c5EVkiuRE8+9IO+Qmt1O
-	hJU+Pn+6L/qUI+LsbUuwRSYI5r0c6lA/K63FIcRLvRjr44t+dtXKZ5iHpskzLDEhymLhik8zdaW
-	n/5/RkcEJC2XmXVMv5hXQENkP4WhG6gT8BsmA2E3d2tLOOv5cL2nRpJOx2LNgMWnO7brEBMrCfv
-	6X8j8CTiFljVq0icmRAJv7kVjXp2yJ4W9fQWQq92CU0icfcHFK6odcJ2KzBz2fscnqohodcUIfN
-	ig1i/IUktybUNc/QSV4/fbytuvvQiG8wRxtUebPcFs3McASCGIsEZMjYOl23umYLOkXnGApDdGZ
-	/aAn0f8hummKX+JmeqHQSR32FR4Ss1+0DIjk0t1buiiPo3GL2lJL+Yyyltfvx7HqfKvI71PMDNI
-	H83zfU+FWOpLDorUsqyqN+js9qAoSIBxRF6oDGbEjjcNdKPoa9fNsOaqyZ+Lox7hDnp4MSQN5Cf
-	Q5cJDZ21ZnLM6nZa5egK+dQw==
-X-Received: by 2002:a17:90b:57c4:b0:3b0:9cc6:62ba with SMTP id 98e67ed59e1d1-3b41caead33mr20255446a91.38.1795729070725;
-        Thu, 26 Nov 2026 13:37:50 -0800 (PST)
-Received: from kapoor ([149.40.62.9])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cea7c38sm11703905a12.2.2026.11.26.13.37.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 13:37:50 -0800 (PST)
-From: Arnav Kapoor <kapoorarnav43@gmail.com>
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Yasin Lee <yasin.lee.x@gmail.com>,
-	linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Arnav Kapoor <kapoorarnav43@gmail.com>
-Subject: [PATCH v2 3/6] iio: proximity: hx9023s: re-enable interrupts on resume for events
-Date: Fri, 27 Nov 2026 03:06:48 +0530
-Message-ID: <20261126213710.1047676-4-kapoorarnav43@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261126213710.1047676-1-kapoorarnav43@gmail.com>
-References: <20261126213710.1047676-1-kapoorarnav43@gmail.com>
+        d=1e100.net; s=20260707; t=1795729070; x=1796333870;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5Az0gPDunt2+zui3Z/fGv6Nk762mYWwFD5nBfm1scHI=;
+        b=2sx18QipEaiErE2hRbwMFvpC7lPByqYqsyIwJ8jIN/WvcApan9VP80S/tOFDGJuwpZ
+         kMWlu1URXU9zJmn72RmLL2V7bh1I6q+vGLXDtAosVo/1x1XxbOLOlAs2NnxaxMahtlAH
+         5tibbMFU17Gfq+xsl74mMPTQ/0O+vBzZCj/mN2O+f4BCdbZBVvNYqFdY79D3wpWgw/DP
+         nsupJDD8u7l+mQcUzci2BYaQm43UcW+RnnrI2X62hdDP4UijA1Dygchesnb6fApU1nm0
+         6G94y+dZbkvkSLqV1KhETX3Lfi/uik5465HyvmZUyaT4TdhnJdq66SOgEuuUYObQn9kP
+         nO0w==
+X-Forwarded-Encrypted: i=1; AL+hErG+UjwgLu+3g9x3mx09HK29Ks/LyPMPc6Gew1AkgRUG4+1xxAEVnQihXBtypzgJdriAQtMxero1PO8TARA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+P8racybduDvTPCFwXgVj9jjcDo/Ry+SNWKgZ8pt8Ip8cTfe/K
+	ewI/KOrJvGCybLzxpJqsQavkUlg9y8aOIsiUCXVw50kGEZ8ayS1MnumQQrdMu0IQlsB+CJe9qt7
+	NZYrpJfyjT2kJpW4bzT8uEw==
+X-Received: from wmil12.prod.google.com ([2002:a7b:c44c:0:b0:4a1:70b0:32e3])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:1d8c:b0:4a1:c5eb:b445 with SMTP id 5b1f17b1804b1-4bb88820436mr458108115e9.35.1795729070371;
+ Thu, 26 Nov 2026 13:37:50 -0800 (PST)
+Date: Thu, 26 Nov 2026 21:37:42 +0000
+In-Reply-To: <20261126213743.3044079-1-vdonnefort@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,38 +78,330 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+References: <20261126213743.3044079-1-vdonnefort@google.com>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+Message-ID: <20261126213743.3044079-2-vdonnefort@google.com>
+Subject: [PATCH v2 1/2] ring-buffer: Remove unused absolute timestamp mode
+From: Vincent Donnefort <vdonnefort@google.com>
+To: rostedt@goodmis.org, mhiramat@kernel.org, 
+	linux-trace-kernel@vger.kernel.org
+Cc: mathieu.desnoyers@efficios.com, kernel-team@android.com, 
+	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-The chip interrupts are enabled at probe (INTERRUPT_CFG = 0xff in the
-register defaults) and stay enabled while only threshold events are in
-use. hx9023s_suspend() disables them, but hx9023s_resume() re-enables
-them only if the data-ready trigger is enabled. With events enabled and
-no buffer running, the interrupts therefore stay off after the first
-suspend/resume cycle and no proximity event is reported any more, until
-a buffer is started.
+Since commit b94bc80df648 ("tracing: Use a no_filter_buffering_ref to
+stop using the filter buffer") dropped the last user of
+ring_buffer_set_time_stamp_abs(), there's been no one enabling absolute
+timestamps on the ring buffer.
 
-Re-enable the interrupts on resume if any event is enabled as well.
+Drop the support to simplify the ring buffer code, along with the
+tracefs timestamp_mode file and its documentation.
 
-Fixes: 60df548277b7 ("iio: proximity: Add driver support for TYHX's HX9023S capacitive proximity sensor")
-Signed-off-by: Arnav Kapoor <kapoorarnav43@gmail.com>
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 ---
- drivers/iio/proximity/hx9023s.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ Documentation/trace/ftrace.rst | 24 -----------
+ include/linux/ring_buffer.h    |  2 -
+ kernel/trace/ring_buffer.c     | 77 ++++++++++------------------------
+ kernel/trace/trace.c           | 43 -------------------
+ 4 files changed, 21 insertions(+), 125 deletions(-)
 
-diff --git a/drivers/iio/proximity/hx9023s.c b/drivers/iio/proximity/hx9023s.c
-index 030a6265f896..d509de6e265b 100644
---- a/drivers/iio/proximity/hx9023s.c
-+++ b/drivers/iio/proximity/hx9023s.c
-@@ -1192,7 +1192,7 @@ static int hx9023s_resume(struct device *dev)
- 	struct hx9023s_data *data = iio_priv(dev_get_drvdata(dev));
+diff --git a/Documentation/trace/ftrace.rst b/Documentation/trace/ftrace.rst
+index 9423722848c6..f42f4e483709 100644
+--- a/Documentation/trace/ftrace.rst
++++ b/Documentation/trace/ftrace.rst
+@@ -710,30 +710,6 @@ of ftrace. Here is a list of some of the key files:
  
- 	guard(mutex)(&data->mutex);
--	if (data->trigger_enabled)
-+	if (data->trigger_enabled || data->chan_event)
- 		hx9023s_interrupt_enable(data);
+ 	See events.rst for more information.
  
- 	return 0;
+-  timestamp_mode:
+-
+-	Certain tracers may change the timestamp mode used when
+-	logging trace events into the event buffer.  Events with
+-	different modes can coexist within a buffer but the mode in
+-	effect when an event is logged determines which timestamp mode
+-	is used for that event.  The default timestamp mode is
+-	'delta'.
+-
+-	Usual timestamp modes for tracing:
+-
+-	  # cat timestamp_mode
+-	  [delta] absolute
+-
+-	  The timestamp mode with the square brackets around it is the
+-	  one in effect.
+-
+-	  delta: Default timestamp mode - timestamp is a delta against
+-	         a per-buffer timestamp.
+-
+-	  absolute: The timestamp is a full timestamp, not a delta
+-                 against some other value.  As such it takes up more
+-                 space and is less efficient.
+-
+   hwlat_detector:
+ 
+ 	Directory for the Hardware Latency Detector.
+diff --git a/include/linux/ring_buffer.h b/include/linux/ring_buffer.h
+index 649b2276b557..378d336effca 100644
+--- a/include/linux/ring_buffer.h
++++ b/include/linux/ring_buffer.h
+@@ -220,8 +220,6 @@ void ring_buffer_normalize_time_stamp(struct trace_buffer *buffer,
+ 				      int cpu, u64 *ts);
+ void ring_buffer_set_clock(struct trace_buffer *buffer,
+ 			   u64 (*clock)(void));
+-void ring_buffer_set_time_stamp_abs(struct trace_buffer *buffer, bool abs);
+-bool ring_buffer_time_stamp_abs(struct trace_buffer *buffer);
+ 
+ size_t ring_buffer_nr_dirty_pages(struct trace_buffer *buffer, int cpu);
+ 
+diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
+index a5a0adc934fa..2d8395c03496 100644
+--- a/kernel/trace/ring_buffer.c
++++ b/kernel/trace/ring_buffer.c
+@@ -480,14 +480,12 @@ struct rb_event_info {
+  * Used for the add_timestamp
+  *  NONE
+  *  EXTEND - wants a time extend
+- *  ABSOLUTE - the buffer requests all events to have absolute time stamps
+  *  FORCE - force a full time stamp.
+  */
+ enum {
+ 	RB_ADD_STAMP_NONE		= 0,
+ 	RB_ADD_STAMP_EXTEND		= BIT(1),
+-	RB_ADD_STAMP_ABSOLUTE		= BIT(2),
+-	RB_ADD_STAMP_FORCE		= BIT(3)
++	RB_ADD_STAMP_FORCE		= BIT(2)
+ };
+ /*
+  * Used for which event context the event is in.
+@@ -595,7 +593,6 @@ struct trace_buffer {
+ 	u64				(*clock)(void);
+ 
+ 	struct rb_irq_work		irq_work;
+-	bool				time_stamp_abs;
+ 
+ 	unsigned long			range_addr_start;
+ 	unsigned long			range_addr_end;
+@@ -3061,16 +3058,6 @@ void ring_buffer_set_clock(struct trace_buffer *buffer,
+ 	buffer->clock = clock;
+ }
+ 
+-void ring_buffer_set_time_stamp_abs(struct trace_buffer *buffer, bool abs)
+-{
+-	buffer->time_stamp_abs = abs;
+-}
+-
+-bool ring_buffer_time_stamp_abs(struct trace_buffer *buffer)
+-{
+-	return buffer->time_stamp_abs;
+-}
+-
+ static inline unsigned long rb_page_entries(struct buffer_page *bpage)
+ {
+ 	return local_read(&bpage->entries) & RB_WRITE_MASK;
+@@ -4079,8 +4066,7 @@ static void rb_add_timestamp(struct ring_buffer_per_cpu *cpu_buffer,
+ 				      u64 *delta,
+ 				      unsigned int *length)
+ {
+-	bool abs = info->add_timestamp &
+-		(RB_ADD_STAMP_FORCE | RB_ADD_STAMP_ABSOLUTE);
++	bool abs = info->add_timestamp & RB_ADD_STAMP_FORCE;
+ 
+ 	if (unlikely(info->delta > (1ULL << 59))) {
+ 		/*
+@@ -4761,8 +4747,7 @@ static void check_buffer(struct ring_buffer_per_cpu *cpu_buffer,
+ 	if (tail == CHECK_FULL_PAGE) {
+ 		full = true;
+ 		tail = rb_data_page_commit(dpage);
+-	} else if (info->add_timestamp &
+-		   (RB_ADD_STAMP_FORCE | RB_ADD_STAMP_ABSOLUTE)) {
++	} else if (info->add_timestamp & RB_ADD_STAMP_FORCE) {
+ 		/* Ignore events with absolute time stamps */
+ 		return;
+ 	}
+@@ -4827,26 +4812,22 @@ __rb_reserve_next(struct ring_buffer_per_cpu *cpu_buffer,
+ 	barrier();
+ 	info->ts = rb_time_stamp(cpu_buffer->buffer);
+ 
+-	if ((info->add_timestamp & RB_ADD_STAMP_ABSOLUTE)) {
+-		info->delta = info->ts;
++	/*
++	 * If interrupting an event time update, we may need an
++	 * absolute timestamp.
++	 * Don't bother if this is the start of a new page (w == 0).
++	 */
++	if (!w) {
++		/* Use the sub-buffer timestamp */
++		info->delta = 0;
++	} else if (unlikely(info->before != info->after)) {
++		info->add_timestamp |= RB_ADD_STAMP_FORCE | RB_ADD_STAMP_EXTEND;
++		info->length += RB_LEN_TIME_EXTEND;
+ 	} else {
+-		/*
+-		 * If interrupting an event time update, we may need an
+-		 * absolute timestamp.
+-		 * Don't bother if this is the start of a new page (w == 0).
+-		 */
+-		if (!w) {
+-			/* Use the sub-buffer timestamp */
+-			info->delta = 0;
+-		} else if (unlikely(info->before != info->after)) {
+-			info->add_timestamp |= RB_ADD_STAMP_FORCE | RB_ADD_STAMP_EXTEND;
++		info->delta = info->ts - info->after;
++		if (unlikely(test_time_stamp(info->delta))) {
++			info->add_timestamp |= RB_ADD_STAMP_EXTEND;
+ 			info->length += RB_LEN_TIME_EXTEND;
+-		} else {
+-			info->delta = info->ts - info->after;
+-			if (unlikely(test_time_stamp(info->delta))) {
+-				info->add_timestamp |= RB_ADD_STAMP_EXTEND;
+-				info->length += RB_LEN_TIME_EXTEND;
+-			}
+ 		}
+ 	}
+ 
+@@ -4874,8 +4855,7 @@ __rb_reserve_next(struct ring_buffer_per_cpu *cpu_buffer,
+ 		 * will be different and then next event will just be forced
+ 		 * to use an absolute timestamp.
+ 		 */
+-		if (likely(!(info->add_timestamp &
+-			     (RB_ADD_STAMP_FORCE | RB_ADD_STAMP_ABSOLUTE))))
++		if (likely(!(info->add_timestamp & RB_ADD_STAMP_FORCE)))
+ 			/* This did not interrupt any time update */
+ 			info->delta = info->ts - info->after;
+ 		else
+@@ -4928,8 +4908,7 @@ __rb_reserve_next(struct ring_buffer_per_cpu *cpu_buffer,
+ 	 * If this is the first commit on the page, then it has the same
+ 	 * timestamp as the page itself.
+ 	 */
+-	if (unlikely(!tail && !(info->add_timestamp &
+-				(RB_ADD_STAMP_FORCE | RB_ADD_STAMP_ABSOLUTE))))
++	if (unlikely(!tail && !(info->add_timestamp & RB_ADD_STAMP_FORCE)))
+ 		info->delta = 0;
+ 
+ 	/* We reserved something on the buffer */
+@@ -4960,7 +4939,6 @@ rb_reserve_next_event(struct trace_buffer *buffer,
+ 	struct ring_buffer_event *event;
+ 	struct rb_event_info info;
+ 	int nr_loops = 0;
+-	int add_ts_default;
+ 
+ 	/*
+ 	 * ring buffer does cmpxchg as well as atomic64 operations
+@@ -4993,17 +4971,8 @@ rb_reserve_next_event(struct trace_buffer *buffer,
+ 
+ 	info.length = rb_calculate_event_length(length);
+ 
+-	if (ring_buffer_time_stamp_abs(cpu_buffer->buffer)) {
+-		add_ts_default = RB_ADD_STAMP_ABSOLUTE;
+-		info.length += RB_LEN_TIME_EXTEND;
+-		if (info.length > rb_subbuf_max_data_size(cpu_buffer->buffer))
+-			goto out_fail;
+-	} else {
+-		add_ts_default = RB_ADD_STAMP_NONE;
+-	}
+-
+  again:
+-	info.add_timestamp = add_ts_default;
++	info.add_timestamp = RB_ADD_STAMP_NONE;
+ 	info.delta = 0;
+ 
+ 	/*
+@@ -5021,7 +4990,7 @@ rb_reserve_next_event(struct trace_buffer *buffer,
+ 	event = __rb_reserve_next(cpu_buffer, &info);
+ 
+ 	if (unlikely(PTR_ERR(event) == -EAGAIN)) {
+-		if (info.add_timestamp & (RB_ADD_STAMP_FORCE | RB_ADD_STAMP_EXTEND))
++		if (info.add_timestamp)
+ 			info.length -= RB_LEN_TIME_EXTEND;
+ 		goto again;
+ 	}
+@@ -6600,10 +6569,6 @@ EXPORT_SYMBOL_GPL(ring_buffer_capacity);
+  */
+ unsigned long ring_buffer_max_event_size(struct trace_buffer *buffer)
+ {
+-	/* If abs timestamp is requested, events have a timestamp too */
+-	if (ring_buffer_time_stamp_abs(buffer))
+-		return rb_subbuf_max_data_size(buffer) - RB_LEN_TIME_EXTEND;
+-
+ 	return rb_subbuf_max_data_size(buffer);
+ }
+ EXPORT_SYMBOL_GPL(ring_buffer_max_event_size);
+diff --git a/kernel/trace/trace.c b/kernel/trace/trace.c
+index 65b9d67647e5..cf3932351626 100644
+--- a/kernel/trace/trace.c
++++ b/kernel/trace/trace.c
+@@ -4227,9 +4227,6 @@ static const char readme_msg[] =
+ #ifdef CONFIG_X86_64
+ 	"     x86-tsc:   TSC cycle counter\n"
+ #endif
+-	"\n  timestamp_mode\t- view the mode used to timestamp events\n"
+-	"       delta:   Delta difference against a buffer-wide timestamp\n"
+-	"    absolute:   Absolute (standalone) timestamp\n"
+ 	"\n  trace_marker\t\t- Writes into this file writes into the kernel buffer\n"
+ 	"\n  trace_marker_raw\t\t- Writes into this file writes binary data into the kernel buffer\n"
+ 	"  tracing_cpumask\t- Limit which CPUs to trace\n"
+@@ -6576,36 +6573,6 @@ static int tracing_clock_open(struct inode *inode, struct file *file)
+ 	return ret;
+ }
+ 
+-static int tracing_time_stamp_mode_show(struct seq_file *m, void *v)
+-{
+-	struct trace_array *tr = m->private;
+-
+-	guard(mutex)(&trace_types_lock);
+-
+-	if (ring_buffer_time_stamp_abs(tr->array_buffer.buffer))
+-		seq_puts(m, "delta [absolute]\n");
+-	else
+-		seq_puts(m, "[delta] absolute\n");
+-
+-	return 0;
+-}
+-
+-static int tracing_time_stamp_mode_open(struct inode *inode, struct file *file)
+-{
+-	struct trace_array *tr = inode->i_private;
+-	int ret;
+-
+-	ret = tracing_check_open_get_tr(tr);
+-	if (ret)
+-		return ret;
+-
+-	ret = single_open(file, tracing_time_stamp_mode_show, inode->i_private);
+-	if (ret < 0)
+-		trace_array_put(tr);
+-
+-	return ret;
+-}
+-
+ u64 tracing_event_time_stamp(struct trace_buffer *buffer, struct ring_buffer_event *rbe)
+ {
+ 	if (rbe == this_cpu_read(trace_buffered_event))
+@@ -6693,13 +6660,6 @@ static const struct file_operations trace_clock_fops = {
+ 	.write		= tracing_clock_write,
+ };
+ 
+-static const struct file_operations trace_time_stamp_mode_fops = {
+-	.open		= tracing_time_stamp_mode_open,
+-	.read		= seq_read,
+-	.llseek		= seq_lseek,
+-	.release	= tracing_single_release_tr,
+-};
+-
+ static const struct file_operations last_boot_fops = {
+ 	.open		= tracing_last_boot_open,
+ 	.read		= seq_read,
+@@ -9047,9 +9007,6 @@ init_tracer_tracefs(struct trace_array *tr, struct dentry *d_tracer)
+ 	trace_create_file("trace_clock", writable_mode, d_tracer, tr,
+ 			  &trace_clock_fops);
+ 
+-	trace_create_file("timestamp_mode", TRACE_MODE_READ, d_tracer, tr,
+-			  &trace_time_stamp_mode_fops);
+-
+ 	tr->buffer_percent = 50;
+ 
+ 	trace_create_file("buffer_subbuf_size_kb", writable_mode, d_tracer,
 -- 
-2.53.0
+2.56.1.839.g22a8290db9-goog
 
