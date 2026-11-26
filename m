@@ -1,77 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.202.169.35
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795657660;
-	b=haicV3IU/aKXCdgS8kYeHmVhSJtS4Md6iaNGVktH7JFIH2pr4yileV+tnwgoucEcLqiP
-	 kgEVBKFxdWEz3Gzd/4R0mu8FPCiTA7M/ZG3VjyWNBlRrfzIJwoRlTDoEkQypLG7Lvzjwi
-	 9JjKZ1bcgdD6A8lI5caCo1pAeA16fwNXFZbTAR2noVpgeoTSOLgZPzXbywYP9UsD+BrQY
-	 alngi6CoW3wtM4OAnBcvqCAFDRwj1ygZkIy4EQ9IRwJVlJ62E++nBvw1L2Rg4bDje5yZ3
-	 6ynQgxND6ai7jaks5E9dEcTmSqjT0zWMcnnTGOVBnq8cPGQjfCob/ZIKNZJwRu/umOQ==
+	t=1795657693;
+	b=SUWlQNkcSMTFFQFpcff1GvWtbWD7JOhNTTpTURazHmo8ffjbXa2LxSrAdMyhA7sH1xjb
+	 SJDBelo0MzxDCUq3ENi4j8HCPOEe1J/6vnD9VSIG56joqPiFuv23S9DbNRzKMBu9VKBVV
+	 qwDCToPIqFTykDTgCxY4cQ+nbRsCK/O+hqTng6cke7t7AXL2AWHhnJlDjc5+pRzLQgkxx
+	 om6gNvnQ6qur5A3xSpSR0THvgPyaChe2LJarJ2TCyD75u2ZraN9SppQHZFFXXJlVGGjtU
+	 1IGDW9vb/atwkch39bUCcYNFaVBDO+s4gnuN/CEmEETyZVU1Mluud5oItNiQvXEejSg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795657660;
-	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:
-	 X-Source-L:X-Exim-ID:X-Source:X-Source-Args:X-Source-Dir:
-	 X-Source-Sender:X-Source-Auth:X-Email-Count:X-Org:X-Source-Cap:
-	 X-Local-Domain:X-CMAE-Envelope;
-	bh=FMs61J1VzIsH89hHJ/Ixi+nxqnxJ6HYCzSaQ5lTSfMo=;
-	b=S687O3fnltjNO9cjB55SJZqNtLFrNuD3ZMIwnJDR2N13TH6slSmwlZgWJHK8QPCCOYJf
-	 Oz+eVdWHSqZyVbNMD2pKZE//tiYpxyUfLihM1zfPZbBG4vk+iCImAjLuRp28lj99z6Hf9
-	 aZYhAsRpXCP0FOeUsIpaLwCzNzE1B7tH2UWp/gzseZrycKuEKizJ8il3fTvoxGifAdcZA
-	 kaGX6GskX6TLO5pZPn6EF+yZSVQVyIPK/hrkPfeX0n1gDjW0iJNqc/1ADC56hsO7Ug7io
-	 Dlktnzd4ckyjtSKQdijc3+pzLPrvBsikntNKAbbxC7XjUCy9IqxJjVcDWBP11AD1yEw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795657693;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=KcpTYD1leDjwoktNnUUdOWZ4MTRePHm2I59iRAC0Avk=;
+	b=0C/GWwHDVlRRSBEbVcAjfu3p4ZcQ1FaOTLiqxr74UEh+QD8Xf3hC8/vIzPdrmLLTdOEW
+	 uULo2A9L6Q9NcMkZ9aXQE+26Y//6B8l6pZeEY72bew7WOVS1JlDETMgzy80VyCEfkk+Ip
+	 QhCIbYeFa142s4vR5gJkaJ13/nx5kUpFLXGXvhu6kX8XHpUxXysao6hBZpFqCU2yeDI87
+	 nvQy9kcjz8qW0He8XyKMKQ2LzM7cnA448i5h5J5yM7zrs8B4hi44bqnddQsD2TPKk0GUd
+	 XzV+k/rSQZG07bEoh1DVbMD1dPWhxNVMfKr3HABBmc5KHZNJZzNmMtt4SVsWF3oTZjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=roeck-us.net;
-	spf=fail smtp.mailfrom=roeck-us.net;
-	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=UGAgwoHW;
-	arc=none smtp.remote-ip=44.202.169.35
-Received: from omta036.useast.a.cloudfilter.net (omta036.useast.a.cloudfilter.net [44.202.169.35])
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=AIAvPgZ1;
+	arc=none smtp.remote-ip=198.175.65.20
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8124B606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:47:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8124B606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D115606A321;
+	Thu, 26 Nov 2026 01:48:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D115606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=UGAgwoHW
-Received: from eig-obgw-5003b.ext.cloudfilter.net ([10.0.29.155])
-	by cmsmtp with ESMTPS
-	id WLy7x82eq4vCDWOaIxaKsY; Thu, 26 Nov 2026 01:47:38 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id WOaHxs8vLSgq1WOaIxcGNx; Thu, 26 Nov 2026 01:47:38 +0000
-X-Authority-Analysis: v=2.4 cv=c8KrQQ9l c=1 sm=1 tr=0 ts=6b078fba
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=1XWaLZrsAAAA:8
- a=qb-T7JNNOAWFUjPqn7MA:9 a=CjuIK1q_8ugA:10 a=KPbNTLLc3YvdawN95zVk:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
-	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
-	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=FMs61J1VzIsH89hHJ/Ixi+nxqnxJ6HYCzSaQ5lTSfMo=; b=UGAgwoHWliEYxDH/xSqgfzGik9
-	eHRUY2coW1qeu8nRUXcq5dnZspnYxqTFoPSs7THmxA8ATHHTCBD7wT4w0j2Iwc0i/g7WXO2HOB8Yj
-	VRltLeVNy12yItVRumLimoUYuJ+VnXN/0TUEq2doAfVXdHe47Z4Jx5khJHJz55u1SPvfY/LPTXuF/
-	f+vDAfZPQoj7VPcFAtYO2LsTYAfGGVHAwH9rznAwFmuSbAa3YaaOisQd8qLCyyFKfTOXUE+nk9kTB
-	gB3Og4JAboClCj0EVXVHDobdihHjOr0Z5RhDV5jMgQLJ9s6xeG7Ms3c1W0HWAyLpSQ8gC2vSairxU
-	H5gYP4PQ==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:44110 helo=server.roeck-us.net)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xWOaH-00000003a5m-2HKc;
-	Thu, 26 Nov 2026 07:17:37 +0530
-Date: Wed, 25 Nov 2026 17:47:36 -0800
-From: Guenter Roeck <linux@roeck-us.net>
-To: Arthur Korn <akorn@google.com>
-Cc: linux-hwmon@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] hwmon: (pmbus) Fall back to CLEAR_FAULTS when
- STATUS_CML is read-only
-Message-ID: <19295c12-1f09-4686-96c9-d1c076e538c7@roeck-us.net>
-References: <20261125181336.3298961-1-akorn@google.com>
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=AIAvPgZ1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795657692; x=1827193692;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=3ywvCnuLRGFhFh6oKAnX1DqPEk3TMlhdv41yKV9WcKw=;
+  b=AIAvPgZ1URiebE2vvsqWjvckGsp8AyxCtTpgG4D+50xYzpj+wwHHm5na
+   hkwoDNQ8IKsB7x8qwO7KESuPFrQG0VNMD2jayYXUW5b2yFATnj6gVw3Sr
+   A6mS9LO+F2pI+EHXPKht6KeMSqZgA2UVLZYZfL8ngtuyUFUEUbTk0GcAe
+   TlJZdhdrvt4H7GOvvCl3vObyDZJTD01/Rm+eJXHK2cOG4YHfzkUad49ET
+   1gQVtw6NVe8i/I7TrRN9HbCap2H22rWMZZ5LjuREs7U2BONCDVL0+HHG6
+   UaAxhN314VEsn/oD2Py7RsVU1L/PpTcnWnxFBg8uk/grc5cC8ZrFA82vg
+   g==;
+X-CSE-ConnectionGUID: x3VwOtccRVOJNWAHrgoBZA==
+X-CSE-MsgGUID: oHEXv3YURVO5U/YrD45+tA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4603416"
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="4603416"
+Received: from fmviesa013.fm.intel.com ([10.60.135.153])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 17:48:11 -0800
+X-CSE-ConnectionGUID: j5Yf3zR/QhqDf8zzaPXojw==
+X-CSE-MsgGUID: UVgIDXJFQrWXQhDvaoORWw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="14065369"
+Received: from unknown (HELO [10.238.2.182]) ([10.238.2.182])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 17:48:09 -0800
+Message-ID: <33d3b7b8-df97-4db5-875f-3f39cd07672b@linux.intel.com>
+Date: Thu, 26 Nov 2026 09:48:06 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,64 +72,224 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125181336.3298961-1-akorn@google.com>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xWOaH-00000003a5m-2HKc
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:44110
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 1
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfMCV1l5xHxl1TknQ1QGIdrB3utUb5w58jmM4xvukSMvq14zPx+ypPT3jx6zPw02rrHmIAmvulzRrJb4iwCwDl5tDg6NvhzE80011cvGHnjP5cz+TrJH/
- Bx94gLdUbtQkg5jMbVohKmXRsWB7mNxTRVIRi0lno9vnlBK9G2OVoUO6CeChUtw6PVe1uP5dJZ2s7xeA8UIB9KzFKIi5nAS3wsoFEoGX6zGIcNcx4Z4nuDGc
+User-Agent: Mozilla Thunderbird
+Subject: Re: [linus:master] [perf/x86/intel] 2721e8da2d:
+ WARNING:at_arch/x86/events/intel/ds.c:#intel_pmu_drain_arch_pebs
+To: kernel test robot <yi1.lai@intel.com>
+Cc: oe-lkp@lists.linux.dev, lkp@intel.com, linux-kernel@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>, Kan Liang
+ <kan.liang@linux.intel.com>, linux-perf-users@vger.kernel.org
+References: <202611260816.5432877c-lkp@intel.com>
+Content-Language: en-US
+From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
+In-Reply-To: <202611260816.5432877c-lkp@intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 25, 2026 at 06:13:35PM +0000, Arthur Korn wrote:
-> Some PMBus 1.2 devices (such as ADI ADM1273 and ADM1281) report
-> PMBUS_REVISION = 0x22 and implement STATUS_CML (0x7e) as read-only:
-> they ACK SMBus byte writes to PMBUS_STATUS_CML without clearing latched
-> fault bits, and only clear STATUS_CML via CLEAR_FAULTS (0x03).
-> 
-> During pmbus_init_common(), probing an unsupported register such as
-> PMBUS_WRITE_PROTECT (0x10) latches PB_CML_FAULT_INVALID_COMMAND in
-> STATUS_CML. When pmbus_clear_cml_fault() writes to PMBUS_STATUS_CML and
-> sees ret == 0, PB_CML_FAULT_INVALID_COMMAND remains latched, causing
-> subsequent pmbus_check_status_cml() calls during attribute discovery to
-> fail with -EIO.
-> 
-> Verify on non-write-protected devices that PB_CML_FAULT_INVALID_COMMAND
-> and PB_CML_FAULT_INVALID_DATA actually cleared when a CML fault is
-> expected or cleared unconditionally. If the write succeeds and either
-> bit remains set on readback, disable STATUS_CML write-1-to-clear for the
-> device and fall back to pmbus_clear_fault_page(). Do not clear
-> has_status_cml when _pmbus_write_byte_data() returns an error, so
-> per-page write failures (such as -EOPNOTSUPP on read-only virtual pages
-> like max16601 page 1) fall back for that page without disabling
-> STATUS_CML write-1-to-clear on other pages. Skipping the readback on
-> supported register probes (rv >= 0) avoids extra SMBus traffic in the
-> common path.
-> 
-> Tested on BMC hardware across ADI ADM1273-1A (adm1275), Maxim
-> MAX16600B.04 (max16601, 3 virtual pages across VCORE, sensor IIN/PIN,
-> and VSA), Renesas RAA228234 (isl68137), Infineon XDPE1A2G5B (tda38740),
-> ADI ADM1266, and factory write-protected converters.
-> 
-> Fixes: d9d30e1cb9ca ("hwmon: (pmbus) Clear only CML command and data faults during probe")
-> Signed-off-by: Arthur Korn <akorn@google.com>
+The warning looks triggered by below code.
 
-Applied.
+        if (WARN_ON_ONCE(!header->size)) {
+            corrupted = true;
+            goto done;
+        }
 
-Thanks,
-Guenter
+Generally it indicates perf gets a PEBS record with 0 size which should be
+impossible in theory. 
+
+Yi, how frequently did you see the issue? If it can be reproduced, I can
+find a DMR to debug the issue. Thanks.
+
+
+On 11/26/2026 9:03 AM, kernel test robot wrote:
+>
+> Hello,
+>
+> kernel test robot noticed "WARNING:at_arch/x86/events/intel/ds.c:#intel_pmu_drain_arch_pebs" on:
+>
+> commit: 2721e8da2de7271533ac36285332219f700d16ca ("perf/x86/intel: Allocate arch-PEBS buffer and initialize PEBS_BASE MSR") https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git master
+>
+> [test failed on linux-next/master 3dd8c790a7b7027abdd568e36db5e82ffaea7c77]
+>
+> in testcase: fxmark
+> version: fxmark-x86_64-63bcb4e-1_20260519 with following parameters:
+>
+> 	nr_threads: 2c
+> 	disk: 1SSD
+> 	media: ssd
+> 	test: DWSL
+> 	fstype: ext4
+> 	directio: bufferedio
+> 	cpufreq_governor: performance
+>
+>
+> config: x86_64-rhel-9.4
+> compiler: gcc-14
+> test machine: 32 threads 1 sockets Genuine Intel(R) 0000 CPU @ 1.1GHz (Diamond Rapids) with 128G memory
+>
+> (please refer to attached dmesg/kmsg for entire log/backtrace)
+>
+>
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <yi1.lai@intel.com>
+> | Closes: https://lore.kernel.org/oe-lkp/202611260816.5432877c-lkp@intel.com
+>
+>
+> kern  :warn  : [   89.997775] [      C0] ------------[ cut here ]------------
+> kern  :warn  : [   89.997777] [      C0] WARNING: CPU: 0 PID: 593 at arch/x86/events/intel/ds.c:2965 intel_pmu_drain_arch_pebs (x86/events/intel/ds.c:2984)
+> kern  :warn  : [   89.997792] [      C0] Modules linked in: intel_tpmi_power_domains isst_if_common x86_pkg_temp_thermal intel_powerclamp coretemp binfmt_misc kvm_intel snd_pcm ipmi_ssif ast cxl_pmem iaa_crypto snd_timer nvme drm_client_lib libnvdimm dax_hmem kvm snd drm_shmem_helper soundcore nvme_core idxd intel_th_gth drm_kms_helper irqbypass intel_th_pci ghash_clmulni_intel idxd_bus pcspkr cxl_acpi intel_th intel_vsec acpi_ipmi cxl_port cxl_core ipmi_si ipmi_devintf einj ipmi_msghandler joydev pfr_telemetry pfr_update fuse drm nfnetlink
+> kern  :warn  : [   89.997815] [      C0] CPU: 0 UID: 0 PID: 593 Comm: sed Not tainted 6.18.0-rc1+ #1 PREEMPTLAZY
+> kern  :warn  : [   89.997819] [      C0] RIP: 0010:intel_pmu_drain_arch_pebs (x86/events/intel/ds.c:2984)
+> kern  :warn  : [   89.997822] [      C0] Code: 85 d2 48 c7 c2 c0 09 3d 83 48 0f 44 c2 e9 f8 fc ff ff 48 8d 34 0b 66 85 c0 0f 84 49 fe ff ff 0f b7 06 48 89 f3 e9 24 fe ff ff <0f> 0b e9 43 fe ff ff e8 61 b6 fe ff 48 89 ef 85 c0 74 18 48 8b 54
+> All code
+> ========
+>    0:	85 d2                	test   %edx,%edx
+>    2:	48 c7 c2 c0 09 3d 83 	mov    $0xffffffff833d09c0,%rdx
+>    9:	48 0f 44 c2          	cmove  %rdx,%rax
+>    d:	e9 f8 fc ff ff       	jmp    0xfffffffffffffd0a
+>   12:	48 8d 34 0b          	lea    (%rbx,%rcx,1),%rsi
+>   16:	66 85 c0             	test   %ax,%ax
+>   19:	0f 84 49 fe ff ff    	je     0xfffffffffffffe68
+>   1f:	0f b7 06             	movzwl (%rsi),%eax
+>   22:	48 89 f3             	mov    %rsi,%rbx
+>   25:	e9 24 fe ff ff       	jmp    0xfffffffffffffe4e
+>   2a:*	0f 0b                	ud2		<-- trapping instruction
+>   2c:	e9 43 fe ff ff       	jmp    0xfffffffffffffe74
+>   31:	e8 61 b6 fe ff       	call   0xfffffffffffeb697
+>   36:	48 89 ef             	mov    %rbp,%rdi
+>   39:	85 c0                	test   %eax,%eax
+>   3b:	74 18                	je     0x55
+>   3d:	48                   	rex.W
+>   3e:	8b                   	.byte 0x8b
+>   3f:	54                   	push   %rsp
+>
+> Code starting with the faulting instruction ===========================================
+>    0:	0f 0b                	ud2
+>    2:	e9 43 fe ff ff       	jmp    0xfffffffffffffe4a
+>    7:	e8 61 b6 fe ff       	call   0xfffffffffffeb66d
+>    c:	48 89 ef             	mov    %rbp,%rdi
+>    f:	85 c0                	test   %eax,%eax
+>   11:	74 18                	je     0x2b
+>   13:	48                   	rex.W
+>   14:	8b                   	.byte 0x8b
+>   15:	54                   	push   %rsp
+> kern  :warn  : [   89.997823] [      C0] RSP: 0000:fffffe000000d950 EFLAGS: 00010046
+> kern  :warn  : [   89.997825] [      C0] RAX: 0000000000000000 RBX: ff110001017d0000 RCX: 00000000000003f5
+> kern  :warn  : [   89.997827] [      C0] RDX: ff1100203b618cc0 RSI: fffffe000000dc80 RDI: fffffe000000da80
+> kern  :warn  : [   89.997827] [      C0] RBP: 0000f0010000f000 R08: ff1100203b618cc0 R09: 0000000000000000
+> kern  :warn  : [   89.997828] [      C0] R10: ff1100203b618cc0 R11: 0000000000000000 R12: ff110001017df000
+> kern  :warn  : [   89.997829] [      C0] R13: fffffe000000dc80 R14: ff1100203b618cc0 R15: fffffe000000def8
+> kern  :warn  : [   89.997830] [      C0] FS:  00007f1067652840(0000) GS:ff110020b7817000(0000) knlGS:0000000000000000
+> kern  :warn  : [   89.997831] [      C0] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+> kern  :warn  : [   89.997832] [      C0] CR2: 0000558b539e4000 CR3: 0000000106eac004 CR4: 0000000000f73ef0
+> kern  :warn  : [   89.997832] [      C0] PKRU: 55555554
+> kern  :warn  : [   89.997833] [      C0] Call Trace:
+> kern  :warn  : [   89.997837] [      C0]  <NMI>
+> kern  :warn  : [   89.997842] [      C0]  handle_pmi_common (x86/events/intel/core.c:3224)
+> kern  :warn  : [   89.997847] [      C0]  ? prb_read (printk/printk_ringbuffer.c:1940)
+> kern  :warn  : [   89.997854] [      C0]  ? _prb_read_valid (printk/printk_ringbuffer.c:2164)
+> kern  :warn  : [   89.997856] [      C0]  ? desc_update_last_finalized (printk/printk_ringbuffer.c:1531)
+> kern  :warn  : [   89.997858] [      C0]  ? flush_tlb_one_kernel (x86/include/asm/paravirt.h:85 x86/mm/tlb.c:1630 x86/mm/tlb.c:1585)
+> kern  :warn  : [   89.997862] [      C0]  ? native_set_fixmap (x86/mm/pgtable.c:581 x86/mm/pgtable.c:591)
+> kern  :warn  : [   89.997863] [      C0]  ? ghes_copy_tofrom_phys (x86/include/asm/fixmap.h:167 acpi/apei/ghes.c:193 acpi/apei/ghes.c:357)
+> kern  :warn  : [   89.997872] [      C0]  intel_pmu_handle_irq (x86/events/intel/core.c:3357)
+> kern  :warn  : [   89.997875] [      C0]  perf_event_nmi_handler (x86/events/core.c:1777 x86/events/core.c:1763)
+> kern  :warn  : [   89.997878] [      C0]  nmi_handle (x86/kernel/nmi.c:182)
+> kern  :warn  : [   89.997881] [      C0]  default_do_nmi (x86/kernel/nmi.c:437 x86/kernel/nmi.c:392)
+> kern  :warn  : [   89.997886] [      C0]  exc_nmi (x86/kernel/nmi.c:587)
+> kern  :warn  : [   89.997887] [      C0]  end_repeat_nmi (x86/entry/entry_64.S:1406)
+> kern  :warn  : [   89.997890] [      C0] RIP: 0010:io_serial_in (x86/kernel/early_printk.c:102)
+> kern  :warn  : [   89.997895] [      C0] Code: 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 f3 0f 1e fa 0f 1f 44 00 00 0f b6 8f c1 00 00 00 0f b7 57 08 d3 e6 01 f2 ec <0f> b6 c0 c3 cc cc cc cc 66 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40
+> All code
+> ========
+>    0:	00 90 90 90 90 90    	add    %dl,-0x6f6f6f70(%rax)
+>    6:	90                   	nop
+>    7:	90                   	nop
+>    8:	90                   	nop
+>    9:	90                   	nop
+>    a:	90                   	nop
+>    b:	90                   	nop
+>    c:	90                   	nop
+>    d:	90                   	nop
+>    e:	90                   	nop
+>    f:	90                   	nop
+>   10:	90                   	nop
+>   11:	f3 0f 1e fa          	endbr64
+>   15:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+>   1a:	0f b6 8f c1 00 00 00 	movzbl 0xc1(%rdi),%ecx
+>   21:	0f b7 57 08          	movzwl 0x8(%rdi),%edx
+>   25:	d3 e6                	shl    %cl,%esi
+>   27:	01 f2                	add    %esi,%edx
+>   29:	ec                   	in     (%dx),%al
+>   2a:*	0f b6 c0             	movzbl %al,%eax		<-- trapping instruction
+>   2d:	c3                   	ret
+>   2e:	cc                   	int3
+>   2f:	cc                   	int3
+>   30:	cc                   	int3
+>   31:	cc                   	int3
+>   32:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+>   39:	00 00 00 00 
+>   3d:	0f                   	.byte 0xf
+>   3e:	1f                   	(bad)
+>   3f:	40                   	rex
+>
+> Code starting with the faulting instruction ===========================================
+>    0:	0f b6 c0             	movzbl %al,%eax
+>    3:	c3                   	ret
+>    4:	cc                   	int3
+>    5:	cc                   	int3
+>    6:	cc                   	int3
+>    7:	cc                   	int3
+>    8:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+>    f:	00 00 00 00 
+>   13:	0f                   	.byte 0xf
+>   14:	1f                   	(bad)
+>   15:	40                   	rex
+> kern  :warn  : [   89.997896] [      C0] RSP: 0000:ffa0000002363c78 EFLAGS: 00000002
+> kern  :warn  : [   89.997897] [      C0] RAX: ffffffff81c75500 RBX: 0000000000000000 RCX: 0000000000000000
+> kern  :warn  : [   89.997897] [      C0] RDX: 00000000000003fd RSI: 0000000000000005 RDI: ffffffff840b3ea0
+> kern  :warn  : [   89.997898] [      C0] RBP: 000000000000006c R08: 6465766965636572 R09: 20494d4e202e6875
+> kern  :warn  : [   89.997898] [      C0] R10: 696563657220494d R11: 4e202e6875686855 R12: 0000000000000020
+> kern  :warn  : [   89.997899] [      C0] R13: ffffffff840b3ea0 R14: 000000000000000b R15: 0000000000000001
+> kern  :warn  : [   89.997900] [      C0]  ? mem16_serial_in (tty/serial/8250/8250_port.c:370)
+> kern  :warn  : [   89.997902] [      C0]  ? io_serial_in (x86/kernel/early_printk.c:102)
+> kern  :warn  : [   89.997904] [      C0]  ? io_serial_in (x86/kernel/early_printk.c:102)
+> kern  :warn  : [   89.997905] [      C0]  </NMI>
+> kern  :warn  : [   89.997905] [      C0]  <TASK>
+> kern  :warn  : [   89.997905] [      C0]  wait_for_lsr (tty/serial/8250/8250.h:137 tty/serial/8250/8250.h:159 tty/serial/8250/8250_port.c:1961)
+> kern  :warn  : [   89.997908] [      C0]  serial8250_console_write (tty/serial/8250/8250_port.c:3234 tty/serial/8250/8250_port.c:3275 tty/serial/8250/8250_port.c:3342)
+> kern  :warn  : [   89.997912] [      C0]  console_flush_all (printk/printk.c:3111 printk/printk.c:3199)
+> kern  :warn  : [   89.997914] [      C0]  console_unlock (printk/printk.c:3258 printk/printk.c:3298)
+> kern  :warn  : [   89.997915] [      C0]  wake_up_klogd_work_func (printk/printk.c:4498)
+> kern  :warn  : [   89.997917] [      C0]  irq_work_run_list (irq_work.c:221 irq_work.c:252)
+> kern  :warn  : [   89.997924] [      C0]  update_process_times (time/timer.c:2476)
+> kern  :warn  : [   89.997930] [      C0]  tick_nohz_handler (time/tick-sched.c:276 (discriminator 1) time/tick-sched.c:297 (discriminator 1))
+> kern  :warn  : [   89.997934] [      C0]  ? __pfx_tick_nohz_handler (time/tick-sched.c:110)
+> kern  :warn  : [   89.997936] [      C0]  __hrtimer_run_queues (time/hrtimer.c:1777 time/hrtimer.c:1841)
+> kern  :warn  : [   89.997938] [      C0]  hrtimer_interrupt (time/hrtimer.c:1903)
+> kern  :warn  : [   89.997940] [      C0]  __sysvec_apic_timer_interrupt (x86/kernel/apic/apic.c:1041 x86/kernel/apic/apic.c:1058)
+> kern  :warn  : [   89.997945] [      C0]  sysvec_apic_timer_interrupt (x86/kernel/apic/apic.c:1052 (discriminator 1) x86/kernel/apic/apic.c:1052 (discriminator 1))
+> kern  :warn  : [   89.997948] [      C0]  asm_sysvec_apic_timer_interrupt (x86/include/asm/idtentry.h:697)
+> kern  :warn  : [   89.997950] [      C0] RIP: 0033:0x558b0c0ef99c
+> kern  :warn  : [   89.997951] [      C0] Code: f8 48 c1 e0 04 48 03 45 00 45 89 e8 44 23 40 08 74 24 48 8b 73 08 48 8b 00 48 89 f2 48 83 c6 01 48 c1 e2 04 48 03 13 48 89 02 <48> 89 73 08 44 89 42 08 48 8b 55 08 48 83 c7 01 49 39 4c 24 08 7e
+> All code
+> ========
+>    0:	f8                   	clc
+>    1:	48 c1 e0 04          	shl    $0x4,%rax
+>    5:	48 03 45 00          	add    0x0(%rbp),%rax
+>    9:	45 89 e8             	mov    %r13d,%r8d
+>    c:	44 23 40 08          	and    0x8(%rax),%r8d
+>   10:	74 24                	je     0x36
+>   12:	48 8b 73 08          	mov    0x8(%rbx),%rsi
+>   16:	48 8b 00             	mov    (%rax),%rax
+>   19:	48 89 f2             	mov    %rsi,%rdx
+>   1c:	48 83 c6 01          	add    $0x1,%rsi
+>   20:	48 c1 e2 04          	shl    $0x4,%rdx
+>
+>
+> The kernel config and materials to reproduce are available at:
+> https://download.01.org/0day-ci/archive/20261126/202611260816.5432877c-lkp@intel.com
+>
+>
+> --
+> 0-DAY CI Kernel Test Service
+> https://github.com/intel/lkp-tests/wiki
