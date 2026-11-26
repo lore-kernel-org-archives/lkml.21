@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795683713;
-	b=kzbFgFSALg6f5NsNw7ayDdCaq8LqbvIerSXAOYnVtCTGmnZtf/pMo/+mN2MfyWEQy32A
-	 PgQenLx6sxqFoInjvE/2zmp5kNdlzOwdU5n3bqFo43rqEkJdz59LzMNDjP2RCvSqiRlIa
-	 +AtJH4za4STYU+klj6FdR4YQ223wqxAYExcmkKjKiDhwWiRWTssRvN7RNoxhWbjk57qzB
-	 brtS8aHBml1zpapx1IDAo/xWkeVABbN1PADcf56a4TypEZBvbXgCuQZHAC94pv1Sb910B
-	 rLoiAZQVus6F5Q8nTDEC5FiTa1IW8OeQMOrWxXuk5jWQi16Ht0Nj65Uifd0TmGYjSZw==
+	t=1795683714;
+	b=u52AOc1CKCYhMUK/lfnVmCsqto+JTDC/LcpogBcbdyzFnA9c/mS6W98l4MrVbsVnfiIZ
+	 eIOmhXeXpaZd/cMOUh4n/9JhkCBlzII9SFgnA2mow+NjV5A0y+gxYObZax+AF5hzbxymB
+	 Gyhsq24m9waraPtctqkCh6j5TqzFQx34ME1Dik3sGoOSX9z6d43yKgmJYhtUWoDBnwvtN
+	 xJl+tis1m+u1gMsPP73U1zer8iCZQeM4XVpQe69RylXxeKQ8Cm1ulDnxVSGHDnpxildgv
+	 9kNtTckEYQ5E2cRDGwSBSA8wluJJsUqHadmJNmYeANJAP248EyT6h/ETRxbYsGV4jeA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795683713;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795683714;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=DA9fxl3A0gpl+EBLGABxU1yrSe2gbGjtynXvZthwbfE=;
-	b=r3zwfJvB0ErF+z6DJk2gShizbLpojNYOhFPoPw44keahPlzWGHoJBD/YX+NltNCiyR7L
-	 3xC2olZ9RU/CnZPG8R48/gb6AO0tPGCvVvUt2ug02iiGNWX1XgFqulIwL4RfXaa78flVG
-	 NP/KvGuGgNAa4pgUPb1aKx1420BWOSCCdDYqr5PrR18GfnWdtXWkrk++xDQ/f3dA4Q7NG
-	 jbE4Oopdma3FcQQI5FWSRLW3++qXIhw9PSmoN3czWq1KR87A/lOeLL+2n2dyHng0nG5Kv
-	 h6eL9g+UxcmHvJwOmZtTrAqWtoxB5NPsgokfHuv1TN9vPLh++iEDmt/gJiMpro4+CSw==
+	bh=iSyv5QQCZMuxDCBvBCU2Dcf16LijdNeO408HdwTICyw=;
+	b=db24o+YOJEpNoPGNaZdGwn1B6i3hhJKz3Wh+t6h2iS7+vcO/RuH8vCVOM2PCfSBig7uq
+	 rpVWGAEKUlYknZcF8+72gH8CQeRJzhL+Fk+b9hnXSQ7k5xnUx6DZAXswmjSOxVYOiMBNF
+	 lTAGQE3e6mUIDtIQs8r9VNHyXaM4glt92DZsLc0U6Hlq2+q786Kdo5Jc6dw8N3zUOH2iW
+	 WReBe3+eKQZOKh2hzp4AlQSsXOe5llZ6UVZwedeY1fJsIXQT3CSSsCzE2uOhhZhJP//RA
+	 NcI7ijw1g6nkN7M9Bdc49+gQ9FW95dZSF9l3NuoAwomK6xPXnodX5jark0ytS6SZ4Wg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PipWVLxU;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ufd9jiEQ;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 879CA606A337;
-	Thu, 26 Nov 2026 09:01:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D418606A32D;
+	Thu, 26 Nov 2026 09:01:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PipWVLxU
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ufd9jiEQ
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795683712;
-	b=BF+bmUFYPknHnHMp2H6ORkyRE8rlZYrOzbpOoeyj9o2uVMkbjgC1YLpJ/ZI5NuOTiw6P
-	 OuVCZLQX9Mm/HFpJA/M9fNkARiX5vtksLnw/dGTv3TaxrRihjV8BIboX7gLf5sQdCo9Bm
-	 nyTnhlO9lfm0JpjwTFQ8OQ1zaaFRANSdazahEdJeXp8xzUgGgdWsrb8m9XDq51tY4TtR+
-	 3+Ym4cKW3PQSnXudMVh1UD5YaYaARPBWYsvhOBx1OHO7ufqQ0peKKC41bNJfyG1d3fABe
-	 K0sOyg1gbNQMqgrLYHCa/hAZ80s9vMu2AWpG2Xi5zMReDXls/q9W5+dpSLDK8FkG5Ag==
+	t=1795683713;
+	b=GupMmheK0fNStjparELKuQpIyiDtxNmJpzVPrn7DZLRD2Yz5smIGxW0nsce/yMEjCCay
+	 3m1+q91WbRC6v54NHkXhtfzmZylfFXmD4EF+opF8DFIHYaUxDZI9DTbBfVRbdaMi8xqMg
+	 eMPrF+jPs0xtId+bQVe1hkbk7IJjk3NzqwGLb+qakgLzlLPqc0hCU6BPBIymcrwmfR4L8
+	 V5zmCcTmOB1qtUffvzdHpPnfZ6t5NRxFRUrYvAZCaETanp2bUl430y8J/af0fU8siZ/0L
+	 yOl0c9JQEj1vcLDY/MSv65UrqRGJk+wtSk66qLd/FAoQAUq2qFIPpmguI133nw4y9ag==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795683712;
+	c=relaxed/relaxed; t=1795683713;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=DA9fxl3A0gpl+EBLGABxU1yrSe2gbGjtynXvZthwbfE=;
-	b=j0Id1BJfheyVfPkHMnIWNF/IekH/km0ei1pctekjJa1AApiV6zx/agUQuSKfQBRPXfUd
-	 DfNUdIJMhv7bnBEXFd2tdnYFxAeQWIsowKrj84JIXNCU9uHVsUq6Tj7lyGqKHlB0DeX5Q
-	 SL3y00KdL3MKYHktTNtFphLoDHE3FEVxxj3aBX4E+xLN49RD0s64fRBSj9FCHu2aR29Uk
-	 O4I0Nrv2Nq34mcbP7BIvvI7CP3yWCLhnKBeR//uNk7q8nfFQwG0OilKH0eFlt1P+3amEC
-	 T6mUcCQGx7Uarr3jG9O41UrqIRldJot95vtfdioUfc53bO+9YQ+sKj2Tpx1dFIn8oQg==
+	bh=iSyv5QQCZMuxDCBvBCU2Dcf16LijdNeO408HdwTICyw=;
+	b=c1CsTw3xvoieKNM5yolj3o7WlpApNotBGJS2vhFClJ6WBzhOiudDuuvUbJFmTzj7ctQt
+	 ytZ5rJFLgI+68VvTRkUCwgiwLZfXNEG4rYCcJIv0+pw2s1T5LCtezMv11gMkswDFkBbsX
+	 mVMB5R+ggk/YalHvj/oFZPJnrQ2EmEeZuvt7au2ofxaeW+qPuQm7uGnGJWaMNiefi/1mf
+	 MnM76/ClFWDb1POSQTqf+RL/+FPgkIww+vlIBsG54wDOMqvNvtH2uTuVFwtdUrHkXMXkm
+	 6iYArn8Y7ue42hGbwtKX01HggiD2GvA6/ZeYn5QGLO0TB4O/4bnsaA9tTH/geLBdpsQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 461141F000EE;
-	Thu, 26 Nov 2026 09:01:34 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 441611F000D3;
+	Thu, 26 Nov 2026 09:01:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795683712;
-	bh=DA9fxl3A0gpl+EBLGABxU1yrSe2gbGjtynXvZthwbfE=;
+	s=k20260515; t=1795683713;
+	bh=iSyv5QQCZMuxDCBvBCU2Dcf16LijdNeO408HdwTICyw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=PipWVLxUuL/9N+9FLW+PoQOKJUqUx6puscfOLqCDqSeGahOcqNDTe4mIamhOBr1Pd
-	 tVLvExlOHcrnsYq7LhFOpgKrcQ1v4e70jV2C9DyEIfk1uC4EokQVaNx0o5+mT/oLos
-	 Wiwu0P9NfVnfkSpNxoEEs4aD/vobxqfgH4NfSOzyJeym9BuVrXXQCuh1QYJeYPEtc0
-	 gP32V4COwm2L50uMKAYHAYORwaSC1B+ktT52D56Y1dllFIEOvbY6d2abDByCQ8pOOG
-	 iU4GpLAM3odi7v0dXw4C73yHB1WF1eD8nMgVXjnMpUNt2annExj6UUcVwSe5VHLA3w
-	 dTLVAVSb9yo0A==
+	b=Ufd9jiEQukbE/gDE0AJlxr9XZetgEeecZRumippSyreoS5I+Tr698VJL9cX8MggyA
+	 mlB87HwWUlORduGI0Ijj/YVTwrH8kOpi5HUkPJWKz0CKuC8PS41ZLT/BBb/lhaIENg
+	 z0/+OkDFnNxJdStsiR5U1+43PkOy0h0gdGuGS+wUeUy/3eplEzBNfAwJ9n6wZvTUwL
+	 qqSB3Ev+KLPDd2LbbOajk5DVUvxTJir3H1Ocy0LDqW9kmEIsiZWPgCAHJbpQM855bG
+	 RtdRJ9c5aL1DVJBWJIK5F/nTY/bvSpjEPwqmX+CHb7Fc4wylHquK7jXMkfbR1DEf0B
+	 X/TnWlmY5uLGg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 81CBB4D346;
+	by lkml.kernel.org (Postfix) with ESMTP id 43B864D33E;
 	Thu, 26 Nov 2026 09:01:21 +0000 (UTC)
 From: =?utf-8?q?St=C3=A9phane_Grosjean_via_B4_Relay?= <devnull+s.grosjean.peak-system.fr@kernel.org>
-Date: Thu, 26 Nov 2026 10:01:15 +0100
-Subject: [PATCH v9 14/14] can: peak_usb: don't send uninitialized heap
- bytes in restart commands
+Date: Thu, 26 Nov 2026 10:01:13 +0100
+Subject: [PATCH v9 12/14] can: peak_usb: pass the dev_num argument of
+ PCAN-USB Pro GETDEVID
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-canfd_check_channel_idx-v9-14-abe0099b4585@peak-system.fr>
+Message-Id: <20261126-canfd_check_channel_idx-v9-12-abe0099b4585@peak-system.fr>
 References: <20261126-canfd_check_channel_idx-v9-0-abe0099b4585@peak-system.fr>
 In-Reply-To: <20261126-canfd_check_channel_idx-v9-0-abe0099b4585@peak-system.fr>
 To: Marc Kleine-Budde <mkl@pengutronix.de>, 
@@ -96,11 +96,11 @@ Cc: linux-can@vger.kernel.org, linux-kernel@vger.kernel.org,
  Tristan Madani <tristmd@gmail.com>, 
  Joas Antonio dos Santos <joasantonio108@gmail.com>, stable@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795683678; l=1833;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795683678; l=2050;
  i=s.grosjean@peak-system.fr; s=20261020; h=from:subject:message-id;
- bh=QXT/myCDgJ3otLPXVyU9P9OwS7Dydow3hlp0UZ9UAWc=;
- b=ZrLWYIdrwODw7nIJisgT/tWxly52e8XlAajpO7d/mC1R4en39Z6cVT1KgX3EOJSpySbwBI47y
- Bg9LYp3tt0SDD1xgIsukeOGLzC1ey7NQcGdaA5B8pHYapXusMwxhEmW
+ bh=Ik7L4M6nF06Q+SDmhDTB8AMYB40CZOhjzaUTkkjkX3c=;
+ b=E/vSaQOP5/cFTY8FPOlBkAAFUm+CkMiaGUddGCwJW0j6p9DgHpNHCO84Hl4wywoGp1VQOOanO
+ 7YmqTlhZ9h/C6yuQ3+PLl7tIgVFrOhJTNeXBQvs7Fq3M/luSyXhCDkS
 X-Developer-Key: i=s.grosjean@peak-system.fr; a=ed25519;
  pk=bP7QV2zvvAKAfConZlUOGKGEcXL64SNUpVUm++Ai+/c=
 X-Endpoint-Received: by B4 Relay for s.grosjean@peak-system.fr/20261020
@@ -111,48 +111,49 @@ Content-Transfer-Encoding: 8bit
 
 From: Stéphane Grosjean <s.grosjean@peak-system.fr>
 
-peak_usb_restart() allocates the buffer of the asynchronous restart
-command with kmalloc(), and lets the dev_restart_async() callback of
-the adapter build the command in it. None of these callbacks fills the
-whole part of the buffer that it sends to the device:
+pcan_usb_pro_get_can_channel_id() builds its GETDEVID record with
+pcan_msg_add_rec(), passing only the channel index. However,
+pcan_msg_add_rec() handles GETDEVID together with SETBTR and SETDEVID,
+and also reads a second argument with va_arg(), to fill the dev_num
+field of the record. Reading this missing argument is undefined
+behavior: in practice, whatever value is left in the corresponding
+register or stack slot is written to the request in dev->cmd_buf.
 
-- pcan_usb_restart_async() sets 3 of the PCAN_USB_CMD_LEN (16) bytes
-  that it sends;
-- pcan_usb_pro_restart_async() builds an 8-byte message, but sends the
-  whole PCAN_USB_MAX_CMD_LEN (32) bytes buffer;
-- pcan_usb_fd_build_restart_cmd() leaves the unused field of
-  struct pucan_wr_err_cnt and the args of the final struct
-  pucan_command unset.
+This value is sent to the device with each GETDEVID request. Moreover,
+peak_usb_disconnect() clears PCAN_USB_STATE_CONNECTED before it
+unregisters the netdevs, and once it is cleared,
+pcan_usb_pro_send_cmd() and pcan_usb_pro_wait_rsp() return success
+without any USB transfer. pcan_usb_pro_get_can_channel_id() then
+returns the dev_num field of the request as the CAN channel ID, so an
+ETHTOOL_GEEPROM request handled in this window makes
+peak_usb_get_eeprom() copy that value to userspace, and cache it in
+dev->can_channel_id.
 
-Uninitialized heap bytes are thus sent to the device each time a
-channel is restarted after bus off.
+Pass 0 as dev_num, so that the request is fully defined, and a null ID
+is returned in that case.
 
-Allocate the buffer with kzalloc(), so that the unset bytes are zero,
-as for the other command buffers of the driver.
+Found by Sashiko AI review.
 
-Found while checking the other adapters for the uninitialized command
-bytes reported by Sashiko AI review.
-
-Fixes: bb4785551f64 ("can: usb: PEAK-System Technik USB adapters driver core")
+Fixes: d8a199355f8f ("can: usb: PEAK-System Technik PCAN-USB Pro specific part")
 Cc: stable@vger.kernel.org
 Signed-off-by: Stéphane Grosjean <s.grosjean@peak-system.fr>
 ---
- drivers/net/can/usb/peak_usb/pcan_usb_core.c | 2 +-
+ drivers/net/can/usb/peak_usb/pcan_usb_pro.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/can/usb/peak_usb/pcan_usb_core.c b/drivers/net/can/usb/peak_usb/pcan_usb_core.c
-index 1d306160fa35..95c1454b4116 100644
---- a/drivers/net/can/usb/peak_usb/pcan_usb_core.c
-+++ b/drivers/net/can/usb/peak_usb/pcan_usb_core.c
-@@ -702,7 +702,7 @@ static int peak_usb_restart(struct peak_usb_device *dev)
- 		return -ENOMEM;
+diff --git a/drivers/net/can/usb/peak_usb/pcan_usb_pro.c b/drivers/net/can/usb/peak_usb/pcan_usb_pro.c
+index 840658723648..0d014f4c08a7 100644
+--- a/drivers/net/can/usb/peak_usb/pcan_usb_pro.c
++++ b/drivers/net/can/usb/peak_usb/pcan_usb_pro.c
+@@ -435,7 +435,7 @@ static int pcan_usb_pro_get_can_channel_id(struct peak_usb_device *dev,
+ 	u8 *pc;
  
- 	/* also allocate enough space for the commands to send */
--	buf = kmalloc(PCAN_USB_MAX_CMD_LEN, GFP_ATOMIC);
-+	buf = kzalloc(PCAN_USB_MAX_CMD_LEN, GFP_ATOMIC);
- 	if (!buf) {
- 		usb_free_urb(urb);
- 		return -ENOMEM;
+ 	pc = pcan_msg_init_empty(&um, dev->cmd_buf, PCAN_USB_MAX_CMD_LEN);
+-	pcan_msg_add_rec(&um, PCAN_USBPRO_GETDEVID, dev->ctrl_idx);
++	pcan_msg_add_rec(&um, PCAN_USBPRO_GETDEVID, dev->ctrl_idx, 0);
+ 
+ 	err =  pcan_usb_pro_send_cmd(dev, &um);
+ 	if (err)
 
 -- 
 2.53.0
