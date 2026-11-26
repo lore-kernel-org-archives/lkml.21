@@ -1,66 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.219
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795686610;
-	b=0E3IgyjRfKIvPXZ+z+P1Vn+O3LBzYlOu1dFiuNfRl8QvanaVkiv9v5Kw/LH708E4hAjG
-	 YdztznngMJbfk8A4avSm83jSPO4fIPJG4LybdIm/k7oZBIuYseQsTa4BVemZx/fb0vlW3
-	 FJhjMGuuULMFKM1Qa78f5W6VPIi4CHmFGRjQuKYmTxKs1OaLTxLGz/ZtrGjkhLJZ37nMA
-	 VN9dkJfGcIjZ43GLQcaEyf8xioFjRsVW3br7R5CyewK8X4t4o+b/mVS30Dw96Vkr72iMN
-	 lmnkIowUqrBBolvg/sH5C7odz72yxjLtCi7i7MfxIEs+UlyGJ4WOpn4VzTFnmi63osQ==
+	t=1795686653;
+	b=wRigE+ZsuOSoM6ajbzHdOPWVC1YkWBhhX+gATDkpRRCT7DCjNRL/Xk4LUY6jpyhj0qN8
+	 1Kr6KI2/bTxu1WZ06Q8CL1HJwiaZLNSw4zNjyjwzkcBvhdlhi/1iKf+FRmCg7gFFSIRYz
+	 irq0/k3X7cGTAVkBQ9ViGuPutq5vJ3lsjZ1wQbw7NbSQfp6S9LUUTBIK0t7qfCbJFsykz
+	 k+qxqkToZRqEz05nieZ1JuYGT3RB9T/TmFTMZErGZItK1R9Vu/U/UEA+mTa6LUMEXLvdx
+	 4f5TCs7iQhWfGYzWurkRseipKZJTUpPKOMOTxAsjuZi68WPrwF/kdWwuh+geXPLKcfw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795686610;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=6+hxN4tu2eYB95Jsuzz0VEPWul4QOCQPBHxNySL90II=;
-	b=JVd7HUQkY4wikmQSj27FX9nZ3hjxTrjQZDU+sBYpaIRcQ5vieDNYYwQlxvf16g1/jEej
-	 x0lYSzawd2fGe6Zw4jTgadibXlM5ztY7AwuqSzyAVezlf3WGzeabJJSKc9MhefWmIvreN
-	 AhXqaI5kj3oOhewyFEMrheVMzYfvZFnfLdPGIN195fH+Uuh4qCNFjPQxCKooeyhTr3Eek
-	 S9nJjVrFCS/4iVO2RdIosfAkjPtmk0uOgBIeLT1CoO5HGKG1x+k83i2g+P2u9Ycz4Ilvg
-	 IQmi4VxJLd3CsnYLAcUYxH+PKNI6uLPAkr8/YlpOi2b/Kb8zfAxw9ko1RqayVfzYujw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795686653;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=PcHNOjGg6mWjWyfm+bp/FehoMwcHoyo4XmWU8rkFwfE=;
+	b=NsN2G1zkbZoGiwnN0XRR4wZz0I+gdibSABcfToJsDkKX8SrDwMRMBLBjLrbACMAefeAH
+	 m7h3Rm0KykdPGiaC8W+ZNKeW1qnal5uIT9W59gQqW/1YVum9cBxHQq9XkHm2Hsj/TyX1C
+	 ogdxwWu+slWr9CulZoS4EdBBMARAzjoboNBdehZST5fmL5inLK4EkVk0CYLQ8ssW+1ESB
+	 QXY9yJA1yM8CvvbM8w89N18sG63R/xY9RQVc6FjPxI+NOt2mdjUwzPUzQTyVByZHY+ZHs
+	 8VpLKeMlpNht3q3AZDOQviv7tETmiyTEwyCWxjzbSOFHz8nBYpiy3NfCKK/Ke0q5jOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=NEKUn8O+;
-	arc=none smtp.remote-ip=90.155.50.34
-Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=O2mHvwLY;
+	arc=none smtp.remote-ip=113.46.200.219
+Received: from canpmsgout04.his.huawei.com (canpmsgout04.his.huawei.com [113.46.200.219])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51630606A32C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:50:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51630606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 821D8606A31C;
+	Thu, 26 Nov 2026 09:50:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 821D8606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=NEKUn8O+
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=6+hxN4tu2eYB95Jsuzz0VEPWul4QOCQPBHxNySL90II=; b=NEKUn8O+VAYmzvR6T8MRCMO+S1
-	1L8Bfo6at5en2xfTH1tRsulDWLgqEZdN5TadviuOwtVjltLG7NwdXwqC+kCdaMfGYrgz3/rlQSb1d
-	0jOSms//XG8qMXTWbophjoJhNmKb+F6EPzbSdXpiDL7TaBW/MloJumyT44vboM4n3/ryP2/5nwhaG
-	W9K5Jd5/ud95lK+tX8VRDe1MOd0otZ61TBcuVE6feFUfb6EnSOuMlFMnLKN9m9aiWMeD1GUtLD6av
-	x4eL7bD6SgNKsshbD10QSN83c/5c+SVI43GyWLMRdMH1OddJtTovvRdXJGEMRcFySours7c9QZKJq
-	aHfTcZLg==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWW7D-00000000JdI-3oyp;
-	Thu, 26 Nov 2026 09:50:08 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 73D27303082; Thu, 26 Nov 2026 10:50:07 +0100 (CET)
-Date: Thu, 26 Nov 2026 10:50:07 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Przemek Kitszel <przemyslaw.kitszel@intel.com>
-Cc: linux-kernel@vger.kernel.org, Kevin Tian <kevin.tian@intel.com>,
-	Dmitry Ilvokhin <d@ilvokhin.com>,
-	Christian Brauner <brauner@kernel.org>
-Subject: Re: [PATCH] cleanup: clarify scope-based resource management and
- goto guidance
-Message-ID: <20261126095007.GB49833@noisy.programming.kicks-ass.net>
-References: <20261125161205.65809-1-przemyslaw.kitszel@intel.com>
- <20261125164443.GH2668804@noisy.programming.kicks-ass.net>
- <d4f08ffc-fc04-424d-b13b-41df7fa94e74@intel.com>
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=O2mHvwLY
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=PcHNOjGg6mWjWyfm+bp/FehoMwcHoyo4XmWU8rkFwfE=;
+	b=O2mHvwLYicVRufjtghpuBHGi68IyFjCJpBpGODJaogNMYUz0nNKlAhE2+4D1EmEfX58pZ8U2b
+	C6ag6IR93V/egmATBUkMmqDtZhn+4+KX5ej+hJakQqwSSwmbgDF3YgXhDMrNAQyLFflSUCIBQPi
+	Loeilm8lIAsDPJ9dC7pbOfY=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4jZsHB5hk1z1prMh;
+	Thu, 26 Nov 2026 17:50:30 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 6BF4040537;
+	Thu, 26 Nov 2026 17:50:48 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 26 Nov
+ 2026 17:50:47 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <tony.luck@intel.com>, <reinette.chatre@intel.com>, <Dave.Martin@arm.com>,
+	<james.morse@arm.com>, <babu.moger@amd.com>, <corbet@lwn.net>,
+	<skhan@linuxfoundation.org>, <rdunlap@infradead.org>, <bp@alien8.de>,
+	<tan.shaopeng@fujitsu.com>, <fenghuay@nvidia.com>, <will@kernel.org>,
+	<gshan@redhat.com>, <jic23@kernel.org>, <ben.horgan@arm.com>,
+	<zengheng4@huawei.com>, <x86@kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH v7 0/6] fs/resctrl: Fix some resctl bugs related to mpam
+Date: Thu, 26 Nov 2026 17:50:32 +0800
+Message-ID: <20261126095038.2276975-1-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,21 +73,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d4f08ffc-fc04-424d-b13b-41df7fa94e74@intel.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 
-On Thu, Nov 26, 2026 at 05:29:33AM +0100, Przemek Kitszel wrote:
+Fix resctrl RMID allocation to report a retryable -EBUSY only when
+the target CLOSID actually has RMIDs in limbo.
 
-> > Then undo_pre_bar() is inside guard(); and that is very much not the
-> > intention. The same will be true with ACQUIRE();
-> 
-> ah, I see :(
-> 
-> would it be fine to relax the doc and stop discouraging against
-> scoped_guard() and goto in the same function (but keep the "don't jump
-> into/out of its scope")?
+Split the domain-offline path out so it releases busy RMIDs without
+allocating a monitor context it never uses.
 
-So I don't really understand the problem we're trying to solve here. Is
-this really about AI being stupid? Just wait a few months, I'll catch up
-or something.
+Also unmount resctrl with the CDP state it was mounted with to fix
+another bug with mpam cdp.
+
+And do not allow monitor group move when the RMID index changes.
+
+These fixes are split out of the v10 Narrow-PARTID series below.
+	https://lore.kernel.org/all/20261020134239.3921377-1-ruanjinjie@huawei.com/
+
+v6 -> v7:
+- State that the stale assignments have no visible effect for clear
+  the CDP state after the cleanup (Ben).
+- Remove unnecessary line break (Ben).
+- Recreate the dirty RMIDs when the CDP state changes (Ben, Reinette).
+- Add reviewed-bys.
+- v6: https://lore.kernel.org/all/20261119094858.813874-1-ruanjinjie@huawei.com/
+
+v5 RESEND -> v6:
+- Drop the moveable_mon_group interface to be discussed widely.
+- Updated variable and function name, commit message, comments (Reinette).
+- Remove cdp hook and instead check whether all resource CDPs are
+  enabled and add a comment (Reinette, Ben).
+- Add reviewed-by.
+- v5 RESEND: https://lore.kernel.org/all/20261110133938.3768632-1-ruanjinjie@huawei.com/
+
+v5 -> v5 RESEND:
+- resend because of email problem.
+
+Changes in v5:
+- Update and split the patch as Reinette and Ben suggested.
+- Adjust the commit message.
+- Add Reviewed-by.
+- Link to v4:
+  - https://lore.kernel.org/all/20261105070934.2258613-1-ruanjinjie@huawei.com/
+  - https://lore.kernel.org/all/20261105123524.2282090-1-ruanjinjie@huawei.com/
+
+Changes in v4:
+- Fix the unmount resctrl bug as Reinette suggested.
+- Adjust the commit message.
+- Add Reviewed-bys.
+- Link to v3:
+  - https://lore.kernel.org/all/20261031063634.1678345-1-ruanjinjie@huawei.com/
+  - https://lore.kernel.org/all/20261031094616.1691026-1-ruanjinjie@huawei.com/
+
+Jinjie Ruan (5):
+  fs/resctrl: Report a temporary RMID shortage per CLOSID
+  fs/resctrl: Do not allocate a monitor context when releasing limbo
+    RMIDs
+  fs/resctrl: Clear the CDP state after the cleanup
+  fs/resctrl: Stop the limbo handler while resctrl is unmounted
+  fs/resctrl: Recreate the dirty RMIDs when the CDP state changes
+
+Peter Newman (1):
+  fs/resctrl: Disallow monitor group move when the RMID index changes
+
+ Documentation/filesystems/resctrl.rst |   8 +-
+ fs/resctrl/internal.h                 |   4 +-
+ fs/resctrl/monitor.c                  | 183 +++++++++++++++++++++-----
+ fs/resctrl/rdtgroup.c                 |  27 +++-
+ 4 files changed, 183 insertions(+), 39 deletions(-)
+
+-- 
+2.34.1
+
