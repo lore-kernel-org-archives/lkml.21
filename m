@@ -1,109 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795690288;
-	b=PuvnPdHPm/HqyzyRs5+ICpi/tWawTPrt+PloBlvaY39o2a7zele+ONdDnVmfLj/LEBe7
-	 6VcjLT8BcgUcEeT1ZtzmgYU6lEA1Z3DPlXAJZxE/h7JTuY5S0hBijFqji8lbS9vc+EDu+
-	 4cOfI8y+KDCcokElkPQl5tmgWbTHkNAXNR456DuwyyK83812S2LLblcxz9Y31c6d/VLnb
-	 5pL0b1R+oCIXimRhrsZOLDSiB9TZb2vRhCIigG91H5VbC4l2qto7XQ+zC/HTpYL4Ue7Lr
-	 6vEI1JJ4tFvkdUoMaPw6B85wBIC4zUcV4i1621PUIPG+zhOqdzShAW5ZYp0VPSU3A3g==
+	t=1795690303;
+	b=bx86AgCgr+0Dge0j1GPwOOnfm0fZcf4rMuBe5cp2CD6AUw6OBuROCbVL3fd9pVC0nKgf
+	 epQUn0GQvAOivhA/fT1NBQsTqSBZksu4uyDAeTFhUWQcbWw2NdyEt4LAiRmtvdoNH+Djs
+	 fTtSOH5XaxeTsV7WzOtpX7G5svv9A1djOBquKYLr0A06AAgThE5xZ/yt5UJDOEft5sL8v
+	 gDoO3uu/d6xBBhy07oaDa48sTIxCtlMHOccJTThEStwCx0EZBgmgEgFKl63AIIF29OZHj
+	 QlFg8rWLFNoGxUPdggEdHQQnhh2ry6UNxrUDHQJcUW4UCpWzrXIoxXoKVY0EiatcZYg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795690288;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=9JEgpWnCz+rbZhXDu8naybzde7e8JEfi0pth9wFeLfg=;
-	b=b/3UU8xZ2oGyVLMZ+jX/R8cJC3TiEeRNXUGHkWsPCmcTRez1x+DBHK5NNBrwFwBsglAi
-	 HPrI97n4RrRW7fZstxS70+1hW+HKCCZYQtdAHiQ+M4Y2xnCej87l3a6xU4V8xDHiQaMHA
-	 tG90dTmqNFnCQ7vgTYm866IOQo/pJArqNLNQPoqHl3WP/jJVSvkzQZ+Z+0nQk0lDOtHtC
-	 SHs2dp/BOxHjnjorbfuAigyu5OjtGjwlTnZHayMw1OsC/KM8dDvORxyEtvKlv3Txgs4kh
-	 bAooMmuAjcFvIoGsBpwvKARnpHTvEN08jbxmwY7GgDW4Ia64QZMn9RrfjqSupOwgLcA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795690303;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=5ntCcjIuevH5QG1iJizV2FIttqGUB67AJd7kEb0bdV4=;
+	b=JseXVCDz6tYVqJnOEFe2NhXo4VOUpIv9txYUCLk+trZeRnIs2DYOMrXBKzJMActkG+6n
+	 iZYHbH1opKwXXSLed719blNZ8lxR4tC9+Oyuy0mb+ScGaacOPtBlrIc7FE7akpvpZ6Ysg
+	 A8OYte8GSetK0rRrW3YOOJo5zT2otO4Hv18irHFZ00xylvqJ44bV06hzKn2GEGX2tY/qS
+	 XhhxVuaGjSN+f2n81TTl89MZX9ssATFlKMCtKhY+Au8fEyfzq2MZocZYy3MpmQpMS8YIo
+	 IpP5OKczklG2d0UGvVcUUtXP5SadAevAO7U5Z9BgKCCFsxFwEA4eSDQELd1WuqD2vsA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=IVhCp4gY;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=LIJodMzh;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RA5CmdhA;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56424606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:51:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56424606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6739606A31E;
+	Thu, 26 Nov 2026 10:51:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=IVhCp4gY;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=LIJodMzh
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795690287;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9JEgpWnCz+rbZhXDu8naybzde7e8JEfi0pth9wFeLfg=;
-	b=IVhCp4gYsLWQlCf0GRKOYBJF5IY8FcyTE2sZBU4GP7pKfLrlpEf+6gyN6Dt47VWdFRrEYt
-	nHz7eLkIRoWjycvbalTuk5g66+Cfg8M2doKmmT+dWxQgLANP6mNgWXsfjJsHLeoC5eoa3r
-	z3KuFqozIENfXxqInC+ZJVoxcF2ZSWA=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-615-AC2Lwaa4Oxq-sPjXLClXaA-1; Thu, 26 Nov 2026 10:51:25 +0000
-X-MC-Unique: AC2Lwaa4Oxq-sPjXLClXaA-1
-X-Mimecast-MFC-AGG-ID: AC2Lwaa4Oxq-sPjXLClXaA_1795690284
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-48e4d1e29f3so5673766f8f.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:51:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795690284; x=1796295084; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9JEgpWnCz+rbZhXDu8naybzde7e8JEfi0pth9wFeLfg=;
-        b=LIJodMzhs4AhX+/lBnW+CSbMtYdS0Lk6JiuaDFm2NFKLmd+DHq8fF2VPlljWOoyVpP
-         XfyerrXlcUrlY3NywfQ4Su+Uc6cyrDrAcucQkw7BK6qmYiyKPOR5P4mUq4jESbl09bhu
-         4IGqSEO11btOE/Kmq+bM+ukgs4s4Kd365rSlKJLcFnuHz142vCOA1U85OTg7wn7R/cVw
-         JIfkEHq07Y+0KBHAtxox4wEgxs8g37RhoN4yKMJGoqRfhLZ6KaqHQlXp6kojv5RG/GuT
-         LaNrdG7hrMChJG1YetYo4996CLbFmVW3/a7F0xVmnfXoZeGwrqQGRV2IehCz8vrIff6S
-         CCMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795690284; x=1796295084;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9JEgpWnCz+rbZhXDu8naybzde7e8JEfi0pth9wFeLfg=;
-        b=N6ZLqFkOJeSHnLPMr8q6zs0od4SEHLzasEEHO8OeTmNjqnTZn92VYXL2HXqAloyn92
-         rRT0Dg1oECKlM/DFk3sGGttHvbGXDVh2WzSVKhUsAj5i2212ZNC+E2H2b6ifhmrPtmrG
-         lypqy2RRzsQD0zQOLrh33005sB5fmCojLAREN0Jn9Ho1NNR6Ce4YIKj08/YLUgKAvcTO
-         LW7KJCjulj99NoSs83NH1x/F+VLQnA1xBmAFPc2ei7ZvuPlPfeckKbk0Bxbj3Sq5hatS
-         9qu/l+iFlV+q4JeEmlmAovAichFutiwPRAjtcznqZt8gRm1wjAph5nBgJnZBvhqdclvH
-         0J6w==
-X-Forwarded-Encrypted: i=1; AL+hErH14FnwHWNuREjb3JQhOev1KB7MQof+yMBVqHLA28ybNCGh9KKWd6J6yAUITOQtvlljeST9hGYmOBCi/oU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z89PNUIJRUW9KWiNwMcrDtKP0ZkVW0OCfp3BrLWR3c2HeOdueR0
-	wdIrpvVjGvmSs6npgc/60P/c5wok+n0S9Zt6JXS27bs0ND5sVygytcj7q7xv6z5e42NQYhIlPbK
-	a8fBZ92sdOVBmt6vbepTiuOftdHF/3LqkehsuTTQ+r9AUZqx4m8BXgdPBb8KHn+4HKRGYs34o/w
-	==
-X-Gm-Gg: AZFdTZfHKCf4M/4mb8okbHBVfB9We0+ycXiMOz8eyGnpspT9UVwGkK4ui1oa9lSUk7B
-	z8e5Bp0FEWi73IxYHxdAXBaD3bFGxCMlZs3VaxLayVITpnPeEnd0XX+PBezIxKCuZ5y4oWlmuTq
-	jx7TF7AghsHlJiszn5qJbx3V/wujrgOVuJupTWTtjgzOBqWhhA6ig6HPExFhcpCwjoXrF6mEBBd
-	wyNPkXuI5FHwQlKIiFapv7uspUeCr7yZBAfdf38Gy51HRawKfEHakOtOiyDrT8YRa3JVWEOewoj
-	V6cyq+3oE+V+Q/+saCFRP6jQp6iNXnMqCaEt6sUUsQjxCCijrbGS1iqgTfI/8ZD+f9bcv09G5Aj
-	sT+JXxdbEkUOxzzwzlLPJLJTOm4jLydd+6phsfAGoiCyJu4lFqH1nRbHiJDmbUeFNFDQciMa5pt
-	9U/KKonVPBmZ3hhDkGrJzSs2q/BjGNc6WIOj1FYXNZupVe
-X-Received: by 2002:a05:6000:4013:b0:4a7:d4c9:ea03 with SMTP id ffacd0b85a97d-4abaac57bb5mr38352843f8f.6.1795690284044;
-        Thu, 26 Nov 2026 02:51:24 -0800 (PST)
-X-Received: by 2002:a05:6000:4013:b0:4a7:d4c9:ea03 with SMTP id ffacd0b85a97d-4abaac57bb5mr38352799f8f.6.1795690283567;
-        Thu, 26 Nov 2026 02:51:23 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c61e53asm42611310f8f.59.2026.11.26.02.51.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 02:51:23 -0800 (PST)
-Message-ID: <7a0566c6-7a5a-460c-a113-d9463be3607f@redhat.com>
-Date: Thu, 26 Nov 2026 11:51:21 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RA5CmdhA
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84AA61F000D1;
+	Thu, 26 Nov 2026 10:51:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795690302;
+	bh=5ntCcjIuevH5QG1iJizV2FIttqGUB67AJd7kEb0bdV4=;
+	h=From:Date:Subject:To:Cc;
+	b=RA5CmdhAMT+egc98YLI0ZsR0M0/tFDHVOxP7ny5vkbAGijjYbnGs9/2+g9jKrVSMC
+	 aypeHRgox5NlkHzBhUwftQbTjECcoyyoZlPAXwDcERJ77aRfFdSJucPIS3TqgsShwd
+	 2NpryuZu9nu1U/66cqsR/JCeDzUuyWxnvBwdoh1nFBr8O45m5GuyOBiLqrEx2QWjql
+	 M+2egwZreLzSQu/3vcwTMAhpXHIVD+VAQ0dv9+Hp3RxCGgpQzS4SSQE2H1zDS6kCiM
+	 OVSZ4nKXhnjH9MtBxEcqJuA/5gvl4UtRAazl/oXuxxQOZGx0szlzjLcyY4Vnq+vl7Y
+	 mD5YxO/xMAzgw==
+From: Andreas Hindborg <a.hindborg@kernel.org>
+Date: Thu, 26 Nov 2026 11:51:14 +0100
+Subject: [PATCH v3] rust: time: implement `Debug` for `Delta`
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,39 +52,271 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: usb: cdc_ncm: don't flush the TX timer into a
- stopped queue
-To: "William A. Kennington III" <william@wkennington.com>,
- Oliver Neukum <oliver@neukum.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>
-Cc: =?UTF-8?Q?Jan_Kl=C3=B6tzke?= <Jan.Kloetzke@preh.de>,
- linux-usb@vger.kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261118034122.315979-1-william@wkennington.com>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20261118034122.315979-1-william@wkennington.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-time-delta-display-v3-1-aeeecc72f3a8@kernel.org>
+X-B4-Tracking: v=1; b=H4sIACEPCGsC/33NzwqCQBDH8VeRPTexM5J/OvUe0UHbWR0ylV1ZE
+ vHdWz0EQXT8/mA+syjPTtirc7Iox0G8DH2M9JCoe1v1DYOY2Io0ZZrwBJM8GQx3UwVG/NhVM5h
+ cE+d5URgyKh6Ojq28dvR6i92KnwY37z8CbutfLiAg1CZiGZcF1/byYNdzdxxcozYv0MdA1OlPg
+ zZDY42WS2vLb2Nd1zeb+eSF+QAAAA==
+X-Change-ID: 20260215-time-delta-display-d702e7788d2d
+To: FUJITA Tomonori <fujita.tomonori@gmail.com>, 
+ Frederic Weisbecker <frederic@kernel.org>, Lyude Paul <lyude@redhat.com>, 
+ Thomas Gleixner <tglx@kernel.org>, 
+ Anna-Maria Behnsen <anna-maria@linutronix.de>, 
+ John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Miguel Ojeda <ojeda@kernel.org>, Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+ Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
+ Boqun Feng <boqun@kernel.org>, 
+ Daniel Almeida <daniel.almeida@collabora.com>, 
+ Tamir Duberstein <tamird@kernel.org>, 
+ Alexandre Courbot <acourbot@nvidia.com>, 
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+ Boqun Feng <boqun@kernel.org>
+Cc: rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Andreas Hindborg <a.hindborg@kernel.org>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8209; i=a.hindborg@kernel.org;
+ h=from:subject:message-id; bh=XjIcO1LLn/3GXFoTuFkQ2wSXF1pgayDIVIQRVPfANq8=;
+ b=owEBbQKS/ZANAwAKAfpQKQiqxb3QAcsmYgBrCA8lN8SuWPdF0REUrLLst3mj1PP9TgAunfsHV
+ ISMP/pQoumJAjMEAAEKAB0WIQRXitnI2WZ2JirAaob6UCkIqsW90AUCawgPJQAKCRD6UCkIqsW9
+ 0AdTD/wKcI+5u8LlPsoSvIV9ttNeRBZoc2+6Jb25mhsIL7CVvymbNREQOoJWLspNvYwQ6Qtv2XY
+ 6hzohH1GQZXYLr3LDoPSqzGPyLJlkg9VbGH9q9EU0ESt2hzWafkb1f/zTLN3JRA6zuTOHRVo/ER
+ COby8LuhuZJqYL1ivgd1g7Kr9A1H5eGoxjn79JWyBZn75oVxNRlnj4bYwyhdipy9BV5r2Mraj0v
+ SN+FASgKowMpQm+lnBtfqqqTWbxDKC8GjaFiencISU6bULgP6exKYfwoPY7XYLM5N05qxsc7K3u
+ t01OK77S/y9mbysBPGOvvjILU+buRDCgOS4ssoAxI4LfnCDrJ4FD8Kt0xGGqMYQS2m9ebcl49WC
+ lWJCgDzsntaUIKTv1OCfHtEt+7Cqe4Yt1y8LJLqtIISxJpqRl3IJrd94akk5fXK5CbvdcDhe8WN
+ t2wGo5eBBWYoDI9QtjyeS5oDifGw6nMBDzocKCHZuoJDL1yA3dxXSC8S/XxqCbC2iaY2kGoRQZ6
+ AJAOUP2ZumPxELyEBM5kKjbTpfcX5+BPdGu2E6FmSPvXJkeNoNninwUsWsJROa0jdWmBXw/+iqp
+ sFhYfRbUwooW9nN6HiyGssxxJIzsAssXkbTTRcCm1CAhmIM5+oEs2knWMkLCh26jOsNGq+/SW03
+ qb5innV95SZorUw==
+X-Developer-Key: i=a.hindborg@kernel.org; a=openpgp;
+ fpr=3108C10F46872E248D1FB221376EB100563EF7A7
 
-On 11/18/26 04:41, William A. Kennington III wrote:
-> cdc_ncm_txpath_bh() calls usbnet_start_xmit() directly without checking
-> whether usbnet has stopped the netdev TX queue. Since commit
-> ad70411a978d ("usbnet: fix kernel crash after disconnect"),
-> usbnet_start_xmit() frees any NTB submitted while the queue is stopped
-> and increments tx_dropped.
-> 
-> This triggers routinely under bulk load. With the default 16 KiB NTBs,
-> usbnet only allows MAX_QUEUE_MEMORY / tx_max = 5 TX URBs in flight, so a
-> bulk TCP stream stops the queue constantly.
+Implement the `Debug` trait for `Delta` so that a span of time can be
+printed by a formatter.
 
-The sashiko comments look relevant. Also it feels like this is papering
-over the real issue: bulk transfers should not cause TX queue stop.
+The span is printed as a count of the time unit it is stored in, suffixed
+with that unit, and with each group of three digits separated by an
+underscore the way Rust integer literals are written. A span of 12345
+nanoseconds is printed as `12_345 ns`.
 
-It's not clear to me if there are H/W constrains behind the
-MAX_QUEUE_MEMORY value. Perhaps is time to revisit it?
+`Debug` is implemented rather than `Display`, because `Delta` has no single
+obvious format and the other kernel types that carry a unit, `Hertz`,
+`MicroVolt` and `MicroWatt`, implement `Debug` only. Callers that need a
+specific format should use `Delta::as_nanos` and print the result
+themselves.
 
-/P
+Signed-off-by: Andreas Hindborg <a.hindborg@kernel.org>
+---
+Changes in v3:
+- Implement `Debug` rather than `Display`, as `Delta` has no single
+  obvious format and the other kernel types that carry a unit
+  implement `Debug` only (Tomonori).
+- Implement the formatting for every time unit rather than for
+  nanoseconds only, via a new `TimeUnit::SUFFIX`.
+- Separate each group of three digits with an underscore (Miguel).
+- Separate the value and the unit with a space.
+- Add KUnit tests for the formatting.
+- Link to v2: https://msgid.link/20261103-time-delta-display-v2-1-b01b1fe9ff9f@kernel.org
+
+Changes in v2:
+- Rebased on v7.4-rc1.
+- Suffix the formatted value with `ns` (Alice, Gary, Miguel).
+- Write the value directly rather than via `write_fmt` and `fmt!` (Alice).
+- Document the format with a rustdoc example.
+- Drop the `rnull` user, which will call `Delta::as_nanos` instead (Gary).
+- Link to v1: https://msgid.link/20260215-time-delta-display-v1-1-bdd2d6e98ebf@kernel.org
+---
+ rust/kernel/time.rs | 134 +++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 133 insertions(+), 1 deletion(-)
+
+diff --git a/rust/kernel/time.rs b/rust/kernel/time.rs
+index b6a2aab12a50..8b38d4c70c87 100644
+--- a/rust/kernel/time.rs
++++ b/rust/kernel/time.rs
+@@ -309,6 +309,12 @@ pub trait TimeUnit: private::Sealed {
+ 
+     /// The zero value of [`Self::Repr`].
+     const ZERO: Self::Repr;
++
++    /// The suffix that denotes this unit when a [`Delta`] is formatted.
++    const SUFFIX: &'static str;
++
++    /// Widens `repr` to an [`i64`].
++    fn repr_to_i64(repr: Self::Repr) -> i64;
+ }
+ 
+ /// A time unit of nanoseconds.
+@@ -321,6 +327,12 @@ pub enum Nsec {}
+ impl TimeUnit for Nsec {
+     type Repr = i64;
+     const ZERO: Self::Repr = 0;
++    const SUFFIX: &'static str = "ns";
++
++    #[inline]
++    fn repr_to_i64(repr: Self::Repr) -> i64 {
++        repr
++    }
+ }
+ 
+ /// A time unit of jiffies.
+@@ -333,6 +345,14 @@ pub enum Jiffy {}
+ impl TimeUnit for Jiffy {
+     type Repr = isize;
+     const ZERO: Self::Repr = 0;
++    const SUFFIX: &'static str = "jiffies";
++
++    #[inline]
++    fn repr_to_i64(repr: Self::Repr) -> i64 {
++        // CAST: `isize` is 32 or 64 bits wide on the architectures the kernel
++        // supports, so widening to `i64` preserves the value.
++        repr as i64
++    }
+ }
+ 
+ /// A span of time.
+@@ -341,7 +361,7 @@ impl TimeUnit for Jiffy {
+ /// [`TimeUnit`]); its value has type `U::Repr`. `U` defaults to [`Nsec`], so a
+ /// plain [`Delta`] is a span in nanoseconds. The value can be negative, zero, or
+ /// positive.
+-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
++#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+ pub struct Delta<U: TimeUnit = Nsec> {
+     value: U::Repr,
+ }
+@@ -669,10 +689,122 @@ pub fn rem_nanos(self, dividend: i32) -> Self {
+     }
+ }
+ 
++impl<U: TimeUnit> kernel::fmt::Debug for Delta<U> {
++    /// Formats the span as a number of time units, followed by the unit.
++    ///
++    /// The value and the unit are separated by a space, and each group of three
++    /// digits is separated by an underscore, the way Rust integer literals are
++    /// written.
++    ///
++    /// ```
++    /// # use kernel::{prelude::fmt, str::CString, time::Delta};
++    /// let delta = Delta::from_micros(5);
++    /// let formatted = CString::try_from_fmt(fmt!("{delta:?}"))?;
++    /// assert_eq!(formatted.to_bytes(), b"5_000 ns");
++    ///
++    /// let negative = Delta::from_millis(-2);
++    /// let formatted = CString::try_from_fmt(fmt!("{negative:?}"))?;
++    /// assert_eq!(formatted.to_bytes(), b"-2_000_000 ns");
++    ///
++    /// let jiffies = Delta::from_jiffies(1234);
++    /// let formatted = CString::try_from_fmt(fmt!("{jiffies:?}"))?;
++    /// assert_eq!(formatted.to_bytes(), b"1_234 jiffies");
++    /// # Ok::<(), kernel::error::Error>(())
++    /// ```
++    fn fmt(&self, f: &mut kernel::fmt::Formatter<'_>) -> kernel::fmt::Result {
++        let value = U::repr_to_i64(self.value);
++
++        if value < 0 {
++            f.write_str("-")?;
++        }
++
++        // `unsigned_abs` is used because the magnitude of `i64::MIN` is not
++        // representable as an `i64`.
++        let mut magnitude = value.unsigned_abs();
++
++        // Split the magnitude into groups of three digits, least significant
++        // group first. A `u64` holds at most 20 digits, so 7 groups suffice.
++        //
++        // Dividing by the constant keeps the compiler from emitting a check for
++        // a division by zero with a potential panic.
++        let mut groups = [0u64; 7];
++        let mut used = 0;
++
++        for group in groups.iter_mut() {
++            *group = magnitude % 1000;
++            magnitude /= 1000;
++            used += 1;
++
++            if magnitude == 0 {
++                break;
++            }
++        }
++
++        let mut groups = groups.into_iter().take(used).rev();
++
++        // The leading group holds the most significant digits of the value, so
++        // it is the only one that is not zero padded.
++        if let Some(leading) = groups.next() {
++            write!(f, "{}", leading)?;
++        }
++
++        for group in groups {
++            write!(f, "_{:03}", group)?;
++        }
++
++        write!(f, " {}", U::SUFFIX)
++    }
++}
++
+ #[cfg(CONFIG_RUST_TIME_KUNIT_TEST)]
+ #[macros::kunit_tests(rust_kernel_time)]
+ mod tests {
+     use super::*;
++    use crate::{prelude::fmt, str::CString};
++
++    /// Formats `delta` with its [`kernel::fmt::Debug`] implementation.
++    fn debug_fmt<U: TimeUnit>(delta: Delta<U>) -> Result<CString, crate::error::Error> {
++        CString::try_from_fmt(fmt!("{delta:?}"))
++    }
++
++    #[test]
++    fn delta_debug_separates_digit_groups() -> Result<(), crate::error::Error> {
++        // A value below one thousand is printed without a separator.
++        assert_eq!(debug_fmt(Delta::from_nanos(999))?.to_bytes(), b"999 ns");
++
++        // Groups that do not lead the value are zero padded.
++        assert_eq!(debug_fmt(Delta::from_nanos(1000))?.to_bytes(), b"1_000 ns");
++        assert_eq!(
++            debug_fmt(Delta::from_nanos(1_000_007))?.to_bytes(),
++            b"1_000_007 ns"
++        );
++
++        // Zero has a single group.
++        assert_eq!(debug_fmt(Delta::<Nsec>::ZERO)?.to_bytes(), b"0 ns");
++
++        // The extremes of the representation are printed in full. The magnitude
++        // of `i64::MIN` does not fit an `i64`, which makes it the interesting
++        // one.
++        assert_eq!(
++            debug_fmt(Delta::from_nanos(i64::MAX))?.to_bytes(),
++            b"9_223_372_036_854_775_807 ns"
++        );
++        assert_eq!(
++            debug_fmt(Delta::from_nanos(i64::MIN))?.to_bytes(),
++            b"-9_223_372_036_854_775_808 ns"
++        );
++
++        Ok(())
++    }
++
++    #[test]
++    fn delta_debug_uses_the_unit_suffix() -> Result<(), crate::error::Error> {
++        assert_eq!(debug_fmt(Delta::from_nanos(1))?.to_bytes(), b"1 ns");
++        assert_eq!(debug_fmt(Delta::from_jiffies(1))?.to_bytes(), b"1 jiffies");
++        assert_eq!(debug_fmt(Delta::<Jiffy>::ZERO)?.to_bytes(), b"0 jiffies");
++
++        Ok(())
++    }
+ 
+     #[test]
+     fn to_jiffies_timeout_converts() {
+
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20260215-time-delta-display-d702e7788d2d
+
+Best regards,
+--  
+Andreas Hindborg <a.hindborg@kernel.org>
+
 
