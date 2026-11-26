@@ -1,88 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795725262;
-	b=UQxoJ28qHYexZW9fXLwP9az3cPDkUrBxWo3a9haHNXynwbGJbpjHp8c/Nr+JAy65cIKw
-	 /vPYQyuhVSbfVVmJOKvqLFzqCN2wXhSjS/Ppg/1dZCbyl79TakvmAENPd9hssIDALL+Cy
-	 O1JNjvppeaX3cjGGbDS6ztr4ER9wwmGXroSJGDeajEwxi5JlX1eKyYTuvDSTbn6k0XPqD
-	 7IG9qRExqZVKzRguQkBNONEi+8iiifEx9angQJLKk3iZXxmtiYDY3c7KpucamKP5HQNv5
-	 YXCe91kUvPyz+3/kkhLGoxQfugg7d+a9E/kGoZM4Od13vG7O6dE63xWfPNhHoFDKOwg==
+	t=1795725270;
+	b=ZNNb+vWytAfNPF9ovgX2h89aSqJH6IurVFq8U2KLaTAR27c0D0pf/X4NG2gvJN8P6Ck6
+	 M3jkkJ2QQjaeKn4P4lxrGXWlGMKEDqIaRXyVLQ+MiFeXlD+2UlwDFmH5VMNX/cjue88Cq
+	 ubr2ogARIwpfL8wBHQsIM+baEXt9OPNmypUDLHrSC03kK7hTPIG0XPxD3yz263E+hySx3
+	 LMKyzyyVcxRXGEW+Ll6Thm/EBV4j9ZQ98Rg59VravgD8hz0lO5cpN8TLDQ0SFyzHaqv69
+	 L7x0FwInj7PeA+En7yLvnh6jTW2ciKVSEiALbOousg++dLuVlrVLzeLvweVGwTE4i1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795725262;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=ZtyRiqIaJqFwMQaq2Qb+Lq38EH6o6V0HwgTuxki6ieU=;
-	b=ywzVqJCdjLNdlHDyY+mBTzAJlcAQD8+3ZzC5Fz2NkRHCqmYZjigRkaTHwE18ttcMeB1A
-	 7KxeLa+zgANyX9TuIYbUIpmuvHsqqce/N7AcAiQT5eyEaE2UFf1xha55SCJb+bMlovj5Z
-	 EcQv1enyAKyrtSfPd+0+MbQSVDQtAMi6ALE+pfeOPT/mvPlI+QgffL5UM0dLAGvRHeoTC
-	 798a3nveBi/3hE/QWndMy8/3/wNV7aldj3PzELC43i+rcWK+Qk+kl++OHg9KZigEZplgE
-	 x62g1yNLVpmQYqJfzk5Ktdlsh2sJzLKEvkwjRIgE8lBwP91CTGl4Hu9vfSkI8skDghg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795725270;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Scanned-By;
+	bh=TpW/aO2pRUW8vCTqx+Lq5/2TghrPoKWcvdPUdPz/mZw=;
+	b=xqQCl3Z+lSC96mXx9XWLfTKvGmHtqJZrpaSpRStJJQEkt4A2mwUttzv6hPfuhS9xwtZz
+	 mIdEjJHQmYo1Y9tIry2VMVZnFqPnbK2mmiMfJQel9nW/E7AkXZTyGzpLfui4v5c/Jry9r
+	 PkncxaTIVcN/zLj3nCCyz9M8jWsYukOoo7nrsdnp0OM++nPs8A7UvWFxp6QeNwFzJno1+
+	 j+etLoEG7Pp+WcqTcnG8MAiB0ZVGF8dUSmledwOURkkcb0rxIJSdQQbtTXbnKynEWLSCq
+	 Xfw7P/orsL5Lbh/W8MzZkynAbZE1MSF/pWtUCkC6qHhsYgxJhMv7zIRiXH+1P3MnDTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=frUaz41j;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=A1M3Tnpq;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B867E606A32E;
-	Thu, 26 Nov 2026 20:34:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B867E606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A779606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:34:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A779606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=frUaz41j
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795725259;
-	bh=abqDquCjMGqMJ3NkU3LM2AslGjSstfozpN5N2jtE3gM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=frUaz41jyxqWysbTEj7WnpwOkf/UkdVpsl4V+c3czHyi+dNs3eM8KpUC1JuQmitop
-	 1uuld94b69SM+aY/Mg19vPINTbi21n3CVEi6rwCSRUzuYXY78rnLoVcM2YkJy3MI1E
-	 h0fm6FX51SWmK/G65FoJY2xaJcYi1TiyjQrIO1vrVWDMam2DRPswx80TnYA75A5+3i
-	 YPJ/r+iGOJxMOmTpteOELJIk9303GQsUw239RzduK2ZWbn03O66osJfjMXzWkTD68i
-	 /qt8fg9tZP+hCsYWfdRsNqOvbJKGetDArEpLvcqI5Vuc5tkR6B2Yc5Lm2l9xzy0Xv9
-	 aRASBYTmrSD7Q==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=A1M3Tnpq
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795725269;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TpW/aO2pRUW8vCTqx+Lq5/2TghrPoKWcvdPUdPz/mZw=;
+	b=A1M3TnpqDoou2F7MxMPN7QNw4IM8e63IvpvwcCmPDQ/6esb5KTGF92qCiMvEY8mTW+Cewy
+	Q9CaMFZKsncPDxxyM588jpVQ36YkN93Y4zPel4+yp/r/tzjrzvs5MtaQvorVLqzdiRrQjY
+	cG7YJdwp3diwiIOUVSPuEClxgcbWl7U=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-357-xc2boAwVMticbVqR9qHsJQ-1; Thu,
+ 26 Nov 2026 20:34:25 +0000
+X-MC-Unique: xc2boAwVMticbVqR9qHsJQ-1
+X-Mimecast-MFC-AGG-ID: xc2boAwVMticbVqR9qHsJQ_1795725262
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6169517E01D1;
-	Thu, 26 Nov 2026 21:34:17 +0100 (CET)
-Message-ID: <3d866004c558c169d3bdbee8cd737b0fb818f3d9.camel@collabora.com>
-Subject: Re: [PATCH v5 2/4] iommu/rockchip: Add rockchip_iommu_restore()
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: aiyengar1990@gmail.com, Mauro Carvalho Chehab <mchehab@kernel.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley	 <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, "Joerg
- Roedel (AMD)"	 <joro@8bytes.org>, Will Deacon <will@kernel.org>, Robin
- Murphy	 <robin.murphy@arm.com>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev, Hans Verkuil
-	 <hverkuil@kernel.org>, Alex Bee <knaerzche@gmail.com>
-Date: Thu, 26 Nov 2026 15:34:15 -0500
-In-Reply-To: <20261126-iep2-v5-2-3deac0976f10@gmail.com>
-References: <20261126-iep2-v5-0-3deac0976f10@gmail.com>
-	 <20261126-iep2-v5-2-3deac0976f10@gmail.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-3MjT44OPCjy6caLCkHly"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A769D1955F74;
+	Thu, 26 Nov 2026 20:34:22 +0000 (UTC)
+Received: from ivecera-thinkpadp16vgen1.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 6A41A1801977;
+	Thu, 26 Nov 2026 20:34:16 +0000 (UTC)
+From: Ivan Vecera <ivecera@redhat.com>
+To: netdev@vger.kernel.org
+Cc: Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+	Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Donald Hunter <donald.hunter@gmail.com>,
+	Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	intel-wired-lan@lists.osuosl.org,
+	Min Li <min.li@microchip.com>,
+	Grzegorz Nitka <grzegorz.nitka@intel.com>,
+	Karol Kolacinski <karol.kolacinski@intel.com>,
+	Saeed Mahameed <saeedm@nvidia.com>,
+	Tariq Toukan <tariqt@nvidia.com>,
+	Petr Oros <poros@redhat.com>
+Subject: [PATCH RFC net-next 15/19] dpll: register pins only with a parent pin of their owner
+Date: Thu, 26 Nov 2026 21:32:27 +0100
+Message-ID: <20261126203231.934632-16-ivecera@redhat.com>
+In-Reply-To: <20261126203231.934632-1-ivecera@redhat.com>
+References: <20261126203231.934632-1-ivecera@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,138 +102,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 
---=-3MjT44OPCjy6caLCkHly
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+dpll_pin_on_pin_register() accepts a parent pin of another owner and
+then registers the pin with the DPLLs of that owner. Its only user was
+ice on E825, which now describes its recovered clock muxes with its own
+DPLL devices linked with the zl3073x pins.
 
-Le jeudi 26 novembre 2026 =C3=A0 19:51 +0000, Arun Iyengar via B4 Relay a =
-=C3=A9crit=C2=A0:
-> From: Arun Iyengar <aiyengar1990@gmail.com>
->=20
-> Some masters reset their IOMMU along with themselves. The RK3588 IEP2
-> does: after its soft reset, paging is off and its DMA is untranslated.
->=20
-> Add a helper to reprogram the IOMMU of such a master, so that its
-> driver need not attach and detach an empty domain to do it. rkvdec
-> does the same with rkvdec_iommu_restore().
->=20
-> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
-> ---
->  drivers/iommu/rockchip-iommu.c        | 36 +++++++++++++++++++++++++++++=
-++++++
->  include/soc/rockchip/rockchip_iommu.h | 17 +++++++++++++++++
->  2 files changed, 53 insertions(+)
->=20
-> diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iomm=
-u.c
-> index 21af2f621c76..81cad102929e 100644
-> --- a/drivers/iommu/rockchip-iommu.c
-> +++ b/drivers/iommu/rockchip-iommu.c
-> @@ -27,6 +27,8 @@
->  #include <linux/spinlock.h>
->  #include <linux/string_choices.h>
-> =20
-> +#include <soc/rockchip/rockchip_iommu.h>
-> +
->  #include "iommu-pages.h"
-> =20
->  /** MMU register offsets */
-> @@ -1349,6 +1351,40 @@ static int __maybe_unused rk_iommu_resume(struct d=
-evice *dev)
->  =09return rk_iommu_enable(iommu);
->  }
-> =20
-> +/**
-> + * rockchip_iommu_restore() - Reprogram the IOMMU of a master after its =
-reset
-> + * @dev: master device, runtime active, with no DMA in flight
-> + *
-> + * Some masters reset their IOMMU with themselves, which turns paging of=
-f.
-> + *
-> + * Context: may sleep.
-> + *
-> + * Return: 0 on success or a negative error code.
-> + */
-> +int rockchip_iommu_restore(struct device *dev)
-> +{
-> +=09struct rk_iommu *iommu;
-> +=09int ret;
-> +
-> +=09if (!device_iommu_mapped(dev) ||
-> +=09    dev->iommu->iommu_dev->ops !=3D &rk_iommu_ops)
-> +=09=09return 0;
-> +
-> +=09iommu =3D rk_iommu_from_dev(dev);
-> +=09if (!iommu || iommu->domain =3D=3D &rk_identity_domain)
-> +=09=09return 0;
+Require the same owner for the parent pin, as dpll_pin_register() does
+for the DPLL, and document how to describe a mux in front of an input of
+another device.
 
-I was checking the core, even though I'm not very knowledgeable, and all th=
-e
-attach/detach is protected by the group mutex. This helper bypass this. In =
-many
-ways, its fine for the media m2m use cases, since we call this "just after"=
- we
-have performed a reset of the core that exclusively use the IOMMU.
+Signed-off-by: Ivan Vecera <ivecera@redhat.com>
+---
+ Documentation/driver-api/dpll.rst | 7 +++++--
+ drivers/dpll/dpll_core.c          | 9 +++++++++
+ 2 files changed, 14 insertions(+), 2 deletions(-)
 
-If it was shared, here the condition above isn't guaranteed without holding=
- that
-mutex. Maybe its the documentation that should make that super clear?
+diff --git a/Documentation/driver-api/dpll.rst b/Documentation/driver-api/dpll.rst
+index 90c88fcf21b385..bc34fc83882fac 100644
+--- a/Documentation/driver-api/dpll.rst
++++ b/Documentation/driver-api/dpll.rst
+@@ -355,7 +355,8 @@ Pin ownership and links
+ 
+ The owner of a dpll device or a pin is identified by the module and the
+ clock_id passed to dpll_device_get() or dpll_pin_get(). dpll_pin_register()
+-accepts only a dpll device of the same owner as the pin.
++accepts only a dpll device and dpll_pin_on_pin_register() only a parent pin
++of the same owner as the pin.
+ 
+ A pin represents a pad of the device whose driver registers it. When the
+ board connects a pad of one device to a pad of another one, for example an
+@@ -364,7 +365,9 @@ the driver of one of them describes the connection with
+ dpll_pin_link_add() on its own pin. The link names the pin at the other
+ end by its firmware node, which the driver of that pin sets with
+ dpll_pin_fwnode_set(). Each driver registers only its own pins and the
+-drivers may probe in any order.
++drivers may probe in any order. A mux of one device that feeds an input of
++another device is a dpll device of its own driver, with the selectable
++signals as input pins and an output pin linked with that input.
+ 
+ While both pins are registered, ``DPLL_CMD_PIN_GET`` reports the link for
+ each of them with the id of the pin at the other end:
+diff --git a/drivers/dpll/dpll_core.c b/drivers/dpll/dpll_core.c
+index 7440b174c3de2b..9b48d289ec7330 100644
+--- a/drivers/dpll/dpll_core.c
++++ b/drivers/dpll/dpll_core.c
+@@ -1081,6 +1081,8 @@ EXPORT_SYMBOL_GPL(dpll_pin_unregister);
+  *
+  * Register a pin with a parent pin, create references between them and
+  * between newly registered pin and dplls connected with a parent pin.
++ * The @parent and the @pin must have the same owner, they must be created
++ * with the same module and clock_id.
+  *
+  * Context: Acquires a lock (dpll_lock)
+  * Return:
+@@ -1097,6 +1099,13 @@ int dpll_pin_on_pin_register(struct dpll_pin *parent, struct dpll_pin *pin,
+ 	if (WARN_ON(parent->prop.type != DPLL_PIN_TYPE_MUX))
+ 		return -EINVAL;
+ 
++	/* A pin of another owner is connected by a link, see
++	 * dpll_pin_link_add().
++	 */
++	if (WARN_ON_ONCE(parent->module != pin->module ||
++			 parent->clock_id != pin->clock_id))
++		return -EINVAL;
++
+ 	if (WARN_ON(!ops) ||
+ 	    WARN_ON(!ops->state_on_pin_get) ||
+ 	    WARN_ON(!ops->direction_get))
+-- 
+2.56.1
 
-Nicolas
-
-> +
-> +=09ret =3D pm_runtime_get_if_in_use(iommu->dev);
-> +=09if (ret <=3D 0)
-> +=09=09return ret;
-> +
-> +=09ret =3D rk_iommu_enable(iommu);
-> +=09pm_runtime_put(iommu->dev);
-> +
-> +=09return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(rockchip_iommu_restore);
-> +
->  static const struct dev_pm_ops rk_iommu_pm_ops =3D {
->  =09SET_RUNTIME_PM_OPS(rk_iommu_suspend, rk_iommu_resume, NULL)
->  =09SET_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
-> diff --git a/include/soc/rockchip/rockchip_iommu.h b/include/soc/rockchip=
-/rockchip_iommu.h
-> new file mode 100644
-> index 000000000000..79fdd898a0fc
-> --- /dev/null
-> +++ b/include/soc/rockchip/rockchip_iommu.h
-> @@ -0,0 +1,17 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +
-> +#ifndef __SOC_ROCKCHIP_IOMMU_H__
-> +#define __SOC_ROCKCHIP_IOMMU_H__
-> +
-> +struct device;
-> +
-> +#ifdef CONFIG_ROCKCHIP_IOMMU
-> +int rockchip_iommu_restore(struct device *dev);
-> +#else
-> +static inline int rockchip_iommu_restore(struct device *dev)
-> +{
-> +=09return 0;
-> +}
-> +#endif
-> +
-> +#endif /* __SOC_ROCKCHIP_IOMMU_H__ */
-
---=-3MjT44OPCjy6caLCkHly
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawiXxwAKCRDZQZRRKWBy
-9Cr2AQCsTl6XPrjbaY0SjcDbbzXlND83mZ41UCypu76rA3F1DQEAy7HVkCPVts6P
-z7OrYiyBAVAHXip+a45hCdo/piTAIwU=
-=KzIp
------END PGP SIGNATURE-----
-
---=-3MjT44OPCjy6caLCkHly--
