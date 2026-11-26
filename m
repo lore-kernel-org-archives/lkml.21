@@ -1,65 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=159.226.251.25
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795657110;
-	b=mjyeBIVP9k8KGXV3Dck97Nh8xdDyPLQHjNgvp/hLVIRSrBl4kl51bim5U0JdOq00eORx
-	 VWE+UhLhZGFc3jYJMg02CaMflXupTzy8mt+IvlgLq0hWIhd0916w5lF7YBFRRCWbY3Jdq
-	 sq5wNFHAFvNiQL1LJyEnQTd8CqA1Kic2LtyeMpGh/611lZZm8nxr8w0WoEwkFaPxYn+T6
-	 bXEmb0+7hO2MejrZ9CbVDOnf23GnU8TevTQCBI+uvMH5TvClGVp6rZs2IP2lMMZTcgcyP
-	 rikSsg6cQ4qXtI2vddzobIAKFdo9Jwlxc55pr/s0aztitSiqXFCfXQnXA7swGKBlkYQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795657110;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
-	bh=GxW/rflHfiQTyXh6SuOErrXibGTX0Pbxp+1B3z4FF3k=;
-	b=AeWzs/InQfZAHBE3Og/n24h15p7iQuWauLm69dG38KYf4asnQLzngmWViaPw5CDx8NYK
-	 gz0d66EqKq9DC/bG0w2AZWjNBztiI7ehF9e/r4I625aBlF9z4KZwhgND3kRbY0/p9GXOi
-	 o5dC/Nq0wL1x4tLil3Ic7Vo0npMQA9mB21oCzc1PFGCl4XxYM9912MTq9zvCH3qcaw3XX
-	 Qq6OQsjzvCCnpYG5TXaP5b5V0ZLCXxgIXJ9lv4ZmVV4XV4YTswYv8ASeCVPksh7VbLuDT
-	 NmcA3LHZizFOOdK7Vr439KeVboAGTwzcMAJc16leiNwTQ1Rq+PCEodKTY5CqSEvDW6Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mails.ucas.ac.cn;
-	spf=pass smtp.mailfrom=mails.ucas.ac.cn;
-	arc=none smtp.remote-ip=159.226.251.25
-Received: from cstnet.cn (smtp25.cstnet.cn [159.226.251.25])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.50
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795657138;
+	b=rWbKqd+nBeRfNfX2OJbjILSbq2ps2UdJSp/jopSNi2mh6FvK5tAhNJvFallG6ZFFwC7g
+	 Zh4aeEiVSNqo9uPkvewx9BP8RDQor8NBvOhA+2QOGVvga8wPcZwYihQTr3orhINNpYtPT
+	 NPO1QwEqF9TANO6oAmPv7FFzCo2WIKtPqLVlN/h7WmAxY5txvG47cpicNyV0ENQ2k0wh6
+	 HZXvPFjl+jhEEMObtd5IyEvhoTbREWaGY3f8+KoNLqygPS4FoEZPbRB9nES2Pn6CiWdgW
+	 gckNm6OYgzlQRjJKxGlQkaNven46irlGdercP3WFpylPxfT80Jj3GjslH6mAnuabmZA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795657138;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=g3l0Ykb+ZcmjwlRBoiMTATM5wTW1kUFhUyfqUCn8uU8=;
+	b=2Q7s+tyLARN0NpvpgoSC71AXfPz9mGWk5Z+zajUXjckWuIKQMFy/mszBMCbdzBd572OX
+	 wKqQAX8Oxlw6pW+ZE00gnD2EwVwS9Bcf2DZ8zHJH25jigO69tYbW0AC74dfE3mvracQC8
+	 EFsCAEe+ojTpQyh/Mu6dBDFmDgWwnYvqLu6BEnnrHr1yC0zSmsMh/jio5lNy3/DZ/BAxQ
+	 Wj+CLKY/a0ZT+6QBL9AzHH8SGYAN/YsGuxHkMKvrrH176rLQN+R7PPNPGseNEnTboHqMa
+	 e0bdt+o6t7Yhvwb+dgQcSmik1NEH+HFJpeiJxBYNCCnrOh852PwHvb+64rCK2cvG7fw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nTCniAE8;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.50
+Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E98D7606A31E;
-	Thu, 26 Nov 2026 01:38:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E98D7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mails.ucas.ac.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mails.ucas.ac.cn
-Received: from k3-03 (unknown [159.226.43.8])
-	by APP-05 (Coremail) with SMTP id zQCowACXLrRqjQdrOdr2AQ--.256S2;
-	Thu, 26 Nov 2026 09:37:50 +0800 (CST)
-From: Tan Chi <tanchi25@mails.ucas.ac.cn>
-To: anup@brainfault.org
-Cc: atish.patra@linux.dev,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	tj@kernel.org,
-	hannes@cmpxchg.org,
-	mkoutny@suse.com,
-	corbet@lwn.net,
-	skhan@linuxfoundation.org,
-	rdunlap@infradead.org,
-	yosry@kernel.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	cgroups@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	tanchi25@mails.ucas.ac.cn,
-	lkp@intel.com
-Subject: [PATCH v2] RISC-V: KVM: Account G-stage page table memory
-Date: Thu, 26 Nov 2026 09:37:23 +0800
-Message-ID: <20261126013724.2533363-1-tanchi25@mails.ucas.ac.cn>
-X-Mailer: git-send-email 2.53.0
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0173606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:38:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0173606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nTCniAE8
+Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-4ad6219f7d8so5722045f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:38:57 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795657136; cv=none;
+        d=google.com; s=arc-20260327;
+        b=q0amtUgGsAJx0WmelF+v4QRPvCHHNe6L7+JEQqTsBhRPB4h/wcQHoS6VsO1SlNbWmu
+         t+6xSHP7vBPJ72gIO3xU0AOpfEMsP6UwV8Be2LoTrYtxDoyUSqQ/mJgZK+BxvhBuBkOz
+         ce5HMU4k73VCN+wGQEI1sZNn1YBGPLZCv/aoNe1hRAqtByBHR5y2n18RFn/XKWm2Yab/
+         nyJqQBYQpmn0q1RvbU6bhxlcKuhOXugDBrzNunXnJrXJSJBYVZD0F+R/PZQiJmUC5qvN
+         SEmzmqiXXPXLftUWTXh37Nc9fkS4dpfwRmT2Wyg29SOGqyZZecOhgJ8GJ+1N9a9PQp8t
+         d+ZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=g3l0Ykb+ZcmjwlRBoiMTATM5wTW1kUFhUyfqUCn8uU8=;
+        fh=OiMM7NvnorVhbcEqcEDf/D5dIkT5xu4y0/YcQGKY/Mo=;
+        b=nAF7jNUdpiFI+Xl7Cz70YTMtH/mgQueDkip7C+JDB2sPARmZq6QxY9l8AtGku0VWZe
+         ZgbQhnvD59K1eR/W+TpztC+DgF1Zxh8/LH92zSTW6xSVbTBFtRa40jbhz/hrlU2W/8iy
+         4yBa2kNqFL/jtjXAY+8jjJQW2u1VOqmfWpIcyZjBLG3bu+bhAsyA1HhUnTN0Y3eN9ql0
+         iG4k7TZVZpAzF8kFdt/9DIO0BNy2HL4UrksmHEQueP+2PsUrz3V9Z3KbaJpbL9sZuQqM
+         tSUZuAm8r8M7NIZhM/J9S3LTZeADAVDwpStj+Ok4AV/GORkIL+TNypwVpIr6Z8VyLA2K
+         VpYg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795657136; x=1796261936; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=g3l0Ykb+ZcmjwlRBoiMTATM5wTW1kUFhUyfqUCn8uU8=;
+        b=nTCniAE8txr9nhvN+ZvRRhljsLiSYswLXSE0YFSdUiAfCFiSxex+lUe58CAfx+Il0V
+         O7mxNd2m9pdLe2F4LuwXfbqCfwdDOGmNTGS+Qo3Cxlv6uZhl0MclKy17BZhPhMw7dKlv
+         Rg7CI4E3ycZ+kYxkGL/PumeNbb/EQsM/VlO287RVnC9VrTKZ0PIGH08aK39hPd71k3zG
+         1qAtHtAIUJXxUezQg3DECzWFAeiOmiHNhCIReI9sp3a9p7lKmV+3rAaz29MkpWMdAEDL
+         1f9T4bqe9R5RwKLvkfVfKMqS6KjdEP+tExowNL4uvbSHoab5le1mtCGhRVC+iADckq+E
+         /erA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795657136; x=1796261936;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=g3l0Ykb+ZcmjwlRBoiMTATM5wTW1kUFhUyfqUCn8uU8=;
+        b=RCOCAHz9UchpWujxz0dqz4a/6NlDZc423HUupNQ7eaxEzOLvoef//W8LPJMTNj6jHi
+         dL3897EZk4TVPRl5X+rJ7b2Iq8RBkekrCeU/H4Gmtrmkj43fedaZq6ECw747mU6k/jPa
+         LBhrtRyJFxUzo5BR4hRL3/zCQwAFS0VZkRzZgxEVM4rzWE2y6PzmecZkGpCSEv2rdSXW
+         vtqknxX1sanAFWdmAipP1KtxfUANfQ48fGWHexCbJWjGmJhY9ASCsrPfhJjwPbBVd6/n
+         zGd73IGLethpTjSlRGO/DWWI4GSg9srkrY75vSt6BQRGGFSPUzVOSbX1Lo0901mjOmvE
+         TR3g==
+X-Forwarded-Encrypted: i=1; AL+hErHpH7Ej4Xm6TsTXYOHcFFkjzFNetmoduaUa5dCmbD/aRHrbfW/4tLfy3XkqwaoJ/VI7A69tvf0JQj9XiB0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9hylDGxo1sIoDB4k1TPvOi78O5J18eX5H0wx1M3bf/RsHPg5Q8
+	O0LlzdplSZ/LbYfgmqAMfVadtMxOZ+AUm9+qCo8I1CJTJ6IFkXONhxZHBSMx9urFuvbry+x4++J
+	zfyzYncfvdcxTI2PL0ntXlmWU9iGmn/IbyWAM9FU=
+X-Gm-Gg: AZFdTZe+ohyU63JOMzJYo+TFWPCWpsVfrXwCLxemww9CZA/toW45zfG8PF65LmVUsIo
+	IRAJHD/NAsJwEA5gYH8ZGmbmcwB7Gmj+9OSjQuJjkENAOZKsZg6L3TdTO0mXWRind7Z1v4Q/2VQ
+	FIL8r6Y5meBW8IgYo5da62MACpSI8sRoS2QUXeSU6I9Xdr8I6fDpaR1IC6IJXEPE02FYoostY4x
+	to1OcDZ+xfve4JkiOFxoUoECCaHnHVVOSNp0QLig9m5sp8hsCbSPfnBONRhV5SSDkcGnjEsfT11
+	yxjLifsL0FSN6bLUEyO4G6nj92Vc0TTFIGWzMDNQQ6sTMECC/Pb7oQMelcRzxNwGfP4uyBl5TE+
+	wF4Nxov0qD1OFKAivqCx7ggvvaVcWhh30bBFxvBWy6hj3h0vBBhHmf1M4sj55VxRDIZItJSVFrV
+	Dt0L7I++qGG23gd5FiOvUepuRfG2kMV6pW5acr8A75AUM5zCrQHj478dizNNRj0VHI03ZVyH+QG
+	9ZSTUfAxS9fKUWgem63pqndv2EbDHwZxvbEkpl6+Tls0ZpbKNcrKA==
+X-Received: by 2002:a05:6000:4381:b0:4a7:e4c7:2795 with SMTP id
+ ffacd0b85a97d-4bb965c79f4mr3035906f8f.36.1795657135853; Wed, 25 Nov 2026
+ 17:38:55 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,179 +106,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:zQCowACXLrRqjQdrOdr2AQ--.256S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxuFW5Xry7Kw13Cw4fJF4Utwb_yoW7uw13pF
-	WkC34S9w1rtr93Cr13JwnF9r13Ga95Gr45Ary29a45ZFsxtr9aywnYq342vF15Xr95Zayf
-	XrZIgFyYvr4vywUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPF14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AKxV
-	WxJr0_GcWlnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG
-	64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r
-	1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAq
-	YI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wrylc2xSY4
-	AK67AK6w4l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG
-	67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MI
-	IYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E
-	14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJV
-	W8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRK38n
-	DUUUU
-X-CM-SenderInfo: pwdquxrlsvqzpdlo2hpxfd2hldfou0/
+References: <20261023220431.1106611-2-jstultz@google.com> <20261026051605.1997313-1-zhanxusheng1024@gmail.com>
+In-Reply-To: <20261026051605.1997313-1-zhanxusheng1024@gmail.com>
+From: John Stultz <jstultz@google.com>
+Date: Wed, 25 Nov 2026 17:38:43 -0800
+X-Gm-Features: Aa3M54pqJSLQBwCC41CTT5ZGMoGgsO7fbMkcL54oDpqbOMCbzUwNPN1kE9Zg9q0
+Message-ID: <CANDhNCraG6YsrtJiGhosGKfaSXGYYNddAp90jdSnRKVwZwhdgA@mail.gmail.com>
+Subject: Re: [PATCH v33 1/7] sched/psi: Preserve sleep-persistent PSI flags on
+ off-CPU sleeping dequeues
+To: Zhan Xusheng <zhanxusheng1024@gmail.com>
+Cc: peterz@infradead.org, hannes@cmpxchg.org, surenb@google.com, 
+	mingo@redhat.com, kprateek.nayak@amd.com, arighi@nvidia.com, 
+	stevensd@google.com, tglx@linutronix.de, juri.lelli@redhat.com, 
+	vincent.guittot@linaro.org, vschneid@redhat.com, suleiman@google.com, 
+	Metin.Kaya@arm.com, dietmar.eggemann@arm.com, rostedt@goodmis.org, 
+	zezeozue@google.com, longman@redhat.com, boqun.feng@gmail.com, 
+	paulmck@kernel.org, joelagnelf@nvidia.com, qyousef@layalina.io, 
+	xuewen.yan94@gmail.com, kuyo.chang@mediatek.com, hupu.gm@gmail.com, 
+	soolaugust@gmail.com, sh_def@163.com, sh@gentwo.org, kernel-team@android.com, 
+	linux-kernel@vger.kernel.org, zhanxusheng@xiaomi.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-RISC-V KVM currently does not account G-stage page table memory
-in NR_SECONDARY_PAGETABLE.
+On Sun, Oct 25, 2026 at 10:16=E2=80=AFPM Zhan Xusheng <zhanxusheng1024@gmai=
+l.com> wrote:
+> On Fri, Oct 23, 2026 at 10:04:12PM +0000, John Stultz wrote:
+> > +             if (p->in_memstall)
+> > +                     clear |=3D TSK_MEMSTALL_RUNNING;
+> > +             if (p->in_iowait)
+> > +                     set |=3D TSK_IOWAIT;
+> > +
+> > +             psi_task_change(p, clear, set);
+>
+> In this case psi_task_switch() also clears wake_clock when the task going
+> to sleep is the psi_avgs_work() worker, so the worker doesn't re-arm its
+> own work.  psi_task_change() always passes wake_clock=3Dtrue, so that che=
+ck
+> is lost here.
+>
+> The worker can get here: psi_avgs_work() takes group->avgs_lock, which
+> psi_show(), psi_trigger_create() and psi_trigger_destroy() can hold while
+> sleeping, so it can block on a sleeping owner and be dequeued through
+> this branch.  TSK_ONCPU is already clear by then, since find_proxy_task()
+> doesn't park a chain that contains curr.
+>
+> The cost is an extra aggregation period, not the ping-pong described in
+> psi_task_switch(), but it keeps the averaging clock from shutting off
+> while idle.  Should this branch do the same PF_WQ_WORKER check?
 
-Use kvm_account_pgtable_pages() to account for the allocation and
-freeing of the root and lower-level page tables, including those
-allocated when splitting huge page mappings.
+Hey! Thanks so much for the review and feedback here!
 
-This makes G-stage page table memory usage visible through
-SecPageTables in /proc/meminfo and sec_pagetables in the cgroup
-memory.stat interface.
+Though, I'm not sure I fully see the issue you're concerned about.
+Nor can I see how adding a similari PF_WQ_WORKER check would work
+here.
 
-Update the documentation accordingly.
+Apologies for being a bit dense here, could you expand a bit on the
+specific detail you're thinking about?
 
-Tested on a RISC-V KVM host running under QEMU TCG with Sv57x4.
-The observed G-stage page table memory usage was:
-
-  100 empty VMs:                         1600 KiB
-  8 GiB sparsely mapped with 4 KiB pages: 16448 KiB
-  256 MiB mapped with 2 MiB pages:          36 KiB
-  After enabling dirty logging:           548 KiB
-
-The accounting in /proc/meminfo, /proc/vmstat and cgroup
-memory.stat matched the expected values and returned to zero
-after destroying the VMs.
-
-This reimplements the work originally proposed by Yosry Ahmed
-in 2022, adapted to the current G-stage MMU code.
-
-Link: https://lore.kernel.org/r/20220426053904.3684293-6-yosryahmed@google.com
-
-Signed-off-by: Tan Chi <tanchi25@mails.ucas.ac.cn>
----
-Changes in v2:
-- Use the allocation order to calculate the number of root page
-  table pages, fixing a Clang warning reported by the kernel test
-  robot.
-  https://lore.kernel.org/oe-kbuild-all/20261126015340.s7bzBtEB-lkp@intel.com/
-
- Documentation/admin-guide/cgroup-v2.rst |  4 ++--
- Documentation/filesystems/proc.rst      |  2 +-
- arch/riscv/kvm/gstage.c                 |  6 +++++-
- arch/riscv/kvm/mmu.c                    | 12 ++++++++----
- 4 files changed, 16 insertions(+), 8 deletions(-)
-
-diff --git a/Documentation/admin-guide/cgroup-v2.rst b/Documentation/admin-guide/cgroup-v2.rst
-index 9e3c67b02ae2..c79d6432ecc3 100644
---- a/Documentation/admin-guide/cgroup-v2.rst
-+++ b/Documentation/admin-guide/cgroup-v2.rst
-@@ -1591,8 +1591,8 @@ The following nested keys are defined.
- 
- 	  sec_pagetables
- 		Amount of memory allocated for secondary page tables,
--		this currently includes KVM mmu allocations on x86
--		and arm64 and IOMMU page tables.
-+		this currently includes KVM mmu allocations on x86,
-+		arm64 and riscv and IOMMU page tables.
- 
- 	  percpu (npn)
- 		Amount of memory used for storing per-cpu kernel
-diff --git a/Documentation/filesystems/proc.rst b/Documentation/filesystems/proc.rst
-index fa7a468e8edf..cd1a74da287c 100644
---- a/Documentation/filesystems/proc.rst
-+++ b/Documentation/filesystems/proc.rst
-@@ -1208,7 +1208,7 @@ PageTables
-               Memory consumed by userspace page tables
- SecPageTables
-               Memory consumed by secondary page tables, this currently includes
--              KVM mmu and IOMMU allocations on x86 and arm64.
-+              KVM mmu and IOMMU allocations on x86, arm64 and riscv.
- NFS_Unstable
-               Always zero. Previously counted pages which had been written to
-               the server, but has not been committed to stable storage.
-diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
-index 0aace3215d3e..f8841136d852 100644
---- a/arch/riscv/kvm/gstage.c
-+++ b/arch/riscv/kvm/gstage.c
-@@ -162,6 +162,7 @@ int kvm_riscv_gstage_set_pte(struct kvm_gstage *gstage,
- 				return -ENOMEM;
- 			set_pte(ptep, pfn_pte(PFN_DOWN(__pa(next_ptep)),
- 					      __pgprot(_PAGE_TABLE)));
-+			kvm_account_pgtable_pages(next_ptep, 1);
- 		} else {
- 			if (gstage_pte_leaf(ptep))
- 				return -EEXIST;
-@@ -357,6 +358,7 @@ bool kvm_riscv_gstage_split_huge(struct kvm_gstage *gstage,
- 
- 		set_pte(ptep, pfn_pte(PFN_DOWN(__pa(next_ptep)),
- 				__pgprot(_PAGE_TABLE)));
-+		kvm_account_pgtable_pages(next_ptep, 1);
- 
- 		if (flush)
- 			gstage_tlb_flush(gstage, current_level, addr);
-@@ -399,8 +401,10 @@ bool kvm_riscv_gstage_op_pte(struct kvm_gstage *gstage, gpa_t addr,
- 		for (i = 0; i < PTRS_PER_PTE; i++)
- 			flush |= kvm_riscv_gstage_op_pte(gstage, addr + i * next_page_size,
- 							 &next_ptep[i], next_ptep_level, op);
--		if (op == GSTAGE_OP_CLEAR)
-+		if (op == GSTAGE_OP_CLEAR) {
-+			kvm_account_pgtable_pages(next_ptep, -1);
- 			put_page(virt_to_page(next_ptep));
-+		}
- 	} else {
- 		old_pte = *ptep;
- 		if (op == GSTAGE_OP_CLEAR)
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 6861c0e2728d..ab8d8c94a866 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -805,17 +805,18 @@ long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
- int kvm_riscv_mmu_alloc_pgd(struct kvm *kvm)
- {
- 	struct page *pgd_page;
-+	int order = get_order(kvm_riscv_gstage_pgd_size);
- 
- 	if (kvm->arch.pgd != NULL) {
- 		kvm_err("kvm_arch already initialized?\n");
- 		return -EINVAL;
- 	}
- 
--	pgd_page = alloc_pages(GFP_KERNEL_ACCOUNT | __GFP_ZERO,
--			       get_order(kvm_riscv_gstage_pgd_size));
-+	pgd_page = alloc_pages(GFP_KERNEL_ACCOUNT | __GFP_ZERO, order);
- 	if (!pgd_page)
- 		return -ENOMEM;
- 	kvm->arch.pgd = page_to_virt(pgd_page);
-+	kvm_account_pgtable_pages(kvm->arch.pgd, 1 << order);
- 	kvm->arch.pgd_phys = page_to_phys(pgd_page);
- 	kvm->arch.pgd_levels = kvm_riscv_gstage_max_pgd_levels;
- 	kvm->arch.pgd_split_page_cache.gfp_zero = __GFP_ZERO;
-@@ -828,6 +829,7 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
- 	struct kvm_gstage gstage;
- 	void *pgd = NULL;
- 	bool flush = false;
-+	int order = get_order(kvm_riscv_gstage_pgd_size);
- 
- 	write_lock(&kvm->mmu_lock);
- 	if (kvm->arch.pgd) {
-@@ -843,8 +845,10 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
- 	if (flush)
- 		kvm_flush_remote_tlbs(kvm);
- 
--	if (pgd)
--		free_pages((unsigned long)pgd, get_order(kvm_riscv_gstage_pgd_size));
-+	if (pgd) {
-+		kvm_account_pgtable_pages(pgd, -(1 << order));
-+		free_pages((unsigned long)pgd, order);
-+	}
- }
- 
- void kvm_riscv_mmu_update_hgatp(struct kvm_vcpu *vcpu)
-
-base-commit: 4dce97c6c265544342e716e62fd24bbb232590c5
--- 
-2.53.0
-
+thanks
+-john
