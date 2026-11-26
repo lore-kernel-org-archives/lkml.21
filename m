@@ -1,100 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.175
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795696115;
-	b=YSkxOQAx+1BWn6qefYe282yl0RVcn+g1Mzmo+W0ASqR7NgrkKZMHQZnr+IDv5tH8kGPM
-	 vQ4shyh2neyW7GJ3npbC4915/dCudd91eDGeWKRToxpM92YcKZ2ohAVhcUvMkJ4fi4xjB
-	 ds0Q3Zge5/gt0Vj4QZTHAwUf8zdgWy+tLtXIZBGINab34Lz6xdzwvyvzPm/jKkXnM8Te0
-	 eyma1+rRVuQHnsUaLS7Da9xryHiFn1zEBKOTO41uhXPRvCcC0qV0pfbdiCWwHDL8gQ1gQ
-	 jy4rLQp1mESGxYPmofMOshnQsVKBCGPj6SWyd/1RqyObsvizZT9Bm5OkcGaK6Aps2Lg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795696115;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=HRNrmfwaZcbb9652X0mDxC/CFD1bcMYKtscKgrkdekA=;
-	b=SWsBI3DMMnMRTpmtwymYD0ECPXjKZY/+8pUAPeDtQ54IQqpCLl5/Sbp9iPldS6ztpp8l
-	 fZEn8u+OcAnToO/sEuhHOnj2afcSW1ACyyU8kuaN2ZBPq5i9mK2Kvze82spwlPoQAdCHG
-	 GDoexD+Wc3hWuuzjY+RxyXD0zPsab2McAHycjPhOH+EQMAlZl0761eNfuiQXTa3H6L4/Y
-	 aTKRGiZ1ZIZOUDPfI40+SJ15L3I0wjVkIWoakqlp24i1S4QuywzA9H6rqzviEJCU+CFjk
-	 vaX2vxkTqaexzXYgoDPAuPuaoCr356uqPUsr9OC8YMqIYAqdrj12Xkv23BueTfCAGhg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tAhFjL30;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.175
-Received: from mail-yw1-f175.google.com (mail-yw1-f175.google.com [209.85.128.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0ABEE606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:28:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0ABEE606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795696122;
+	b=u/800kqp2X6mkXnqP9jNILFA57Xrk2PyN/0EoxahUtQSJoLQ+YQ2CYMteASNWSttk1HN
+	 uuiubFBX/xDlukl8ieM2/cWuxUnzY9PO2uBECLx4DwKeBhvGEaB/+sSZ26RTUKJhwV5WV
+	 qkkBTG6arkpX9Rkp+w0ghF0Q1aZQYaEaST3Fi5GMDtAPsXwi4OVfPbcodQId98r757vue
+	 +rf7fcvndj7sVVUuXuAmctH/VZjv7AHe3rqggYT4d0ENlAqG7Zu8JcpmKGIqMBFvL8vD+
+	 SQaNQ9tBgvuAeRlYeaIIyoiIHxQod39p+cdiVR7+2XTyiRPvxi8CIBOZtu6qBbIaqKQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795696122;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=By9wjTOOe34Y8ZPHcZz8S+BrpYassCrx27UhnbbGrAo=;
+	b=U3WqFQW3aGdz+heaXVTwtZX3OM7+aU6HLLQL5sr8Tgv+/alEMcBT+r0z2Q9DumCWuZUc
+	 5omJk8w3LPeT1h7DSYVrYoMyWxT9FpAEUyv68fVj5D68R/jA7Q9po2c7HALFhWLKY6roC
+	 i9Ok+Bv9hz3yzWZzVdCxBqFaWoRDswnVXRJNUtAJRZftE1AHoauy89V9irxFEWB3KefSG
+	 ZSCcdnAZ+ooZyh0zB51/gLqNxv/OD9kMfp982TUEn8FB0/4TdSY+01CyKcbPoe0xUPrYJ
+	 /l16UseGWb22l297aKsRsSATSbA9LpegtNWE58ExuWlWyX8J3A55JXB5LBhcfAZy4Yw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=mH6OniO7;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id E00DA606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:28:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E00DA606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tAhFjL30
-Received: by mail-yw1-f175.google.com with SMTP id 00721157ae682-8b315dd057bso43940307b3.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:28:34 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795696114; cv=none;
-        d=google.com; s=arc-20260327;
-        b=YhEg4vBWFOhR3dkkjEx3Hyeh52RvVvpy6HRONQoJfLbTkQRnBcWG8W5exC64/Ien0J
-         3AW5TO74VbBPnAMIQ1hwni8PvFgVkqAovInLCAyXMRcZRrSG2MQRPmdZcrrXnv+z8LNs
-         E8U7z6kSPR57ROfYHO93JekCbWZxNbN/fdWSBMhqsIiitSDHhICnQBvRbeepwFvWy0O3
-         xNL7CN1F4hNZK8HbBhXreFsINxFibzHpbWRmc8jgNMJjjjrRniWPV+CPa/NzNleTEohS
-         D+p4lmM5hLA4qCKvWyTYTCuFzZIH7ud0RYbDNGtl3q6FFeznEtpwfNHw7ee01JCiWTDO
-         khrg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=HRNrmfwaZcbb9652X0mDxC/CFD1bcMYKtscKgrkdekA=;
-        fh=NAKDsKtgSFDcem7elWbdeKnikmliSdL9Nf1g/8W7b3Y=;
-        b=NvjtQk8Lqj8a3+ONIYvZ0l+Odz2xmwDur9MUsWisEs3W1RY0vVqdJluWDiXhuiwFjw
-         tc+kKd755Xk3PTZiIMzu7sb2GBsSQhJsQUi80SnEtBr+2AG4gVcadYmxu4MPRiDMo9IT
-         Mpvhi8jQ71RnXzDrR7StKpz8lR0+4HIg799bSCnH3tD/9W//vzfXI3CrqvPiNEelO89S
-         ZYO5Y7XXWSxr8uc+8ibJtr3WhUUgf9D9048di1twXjhiPzKSUJJuoINuj8LWzsoo54X3
-         sMwcS+43kLPPDECiH4+8PhSKmEU6tyVk+W7xc3x/AD2xAfBwpr8WL8dkSOFsOniB2RHF
-         SOIQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795696114; x=1796300914; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=HRNrmfwaZcbb9652X0mDxC/CFD1bcMYKtscKgrkdekA=;
-        b=tAhFjL30GDJIDzIHHmNiU645YBrP8AqWztEhqhPKnl2VjAxq3nEo9lVWhKlitchCXe
-         xznSytZsXszLNCygekSEiTAoCyORxijYAK6lKhl29oeaqrdXlkYfECa8/O9u4opjKx9O
-         A94cSfSH6I/Fy1esmuGrC7LDW73+5wQcq6p0cNogEIpnIIlD7S4RF9yzhPzxdw1LcD5+
-         aepG/StcDsxGZilFUwm3a+v7WT9VMO8NyE8fFeyMAS6iPeSq9pUGdZzgF9IY4JRLA1kM
-         KwmE9ZS6QalqoNxFS9LPkKFqw/kgwn/ErauwPXR8Dn4M+xkaMvAGvVylF8m74l+Zh5sc
-         D5YQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795696114; x=1796300914;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HRNrmfwaZcbb9652X0mDxC/CFD1bcMYKtscKgrkdekA=;
-        b=nNVvgpbCYmg4m1L2Sh7zmlWx84ZFvZe+G5AtY7oyTEOcSAx8HHBxKIhNk6Ph2BH9hj
-         89IMXwa5x5rjCX9JdxosbwuXlK1ZrIjSGrE+7mCgcqHZgtmDMMzsshrVRMlTk2DxNMOs
-         vJKxgzKDfFyO1V1c0jIv2N4qHtoE03XCU3fxMYsPq+C0zCs6Q/gM0QRvlVMnXC0rr2tB
-         DqcJQ+ARNgMLlueAkyicIO9lKFjWOkForp2EcSPzWYYVYo0MT5HYArOotaMcCw+g9yIV
-         hRjKYEuT0pH6UBVpDsZdkCTD5gCfw0OocpCMnCMeyiDhBSrjjcoLKIOyHWDRPHzAWyH7
-         EpmQ==
-X-Forwarded-Encrypted: i=1; AL+hErHf+bB5q89iISnBLYksJyJFMG8timQJmH4bZP7P2HLvIqQ6hcIfZOvuS5ZmuZpueX6mNDZMqF086w1AGxk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9cOcqJRU9bYc5Rt3uBqemIgaCnSlVAhpgy/2ooETTyhDjIrU0t
-	5UJSzdA0qS4qhe7YsUoRrLeLC9x3SdJFxAKcDFeODqZpbAjjTZPIfX5u5vWh0eCNrRg79mp3qTU
-	wI2iPvC5UI26QaATp5RN3LwVzlH6+Nb4=
-X-Gm-Gg: AZFdTZfHnemoW1/qOXHaRlaOQbyI1IJfhhWMfvaXdiG7xOdJ5i4pi7hdBUjYpPnSSOv
-	3imVZ7pUXiB+JVp02kIA9wYacaG4evls19SZkv7Np7oA7VXbrUpKJRZoKV/0Srlsz1IkeeQ2VWJ
-	pKYDnPYL/eqvHPFsuc264Viljj5vJIYZf0RWrTmV7aj1O3SkGUVt16J0LSqE3kwdu+7QJFJaELy
-	Y78gTAiwbNef6XV0DU3RQ94+g7mJp8GkzdWBTa7v4wDQwvftcoB1jcuU3Gxf8Ys9hnL2ofnwOB8
-	1ZaSOEKB2VohA1F78L6oYCTFEFwTcnRJ/uIProvDGI0OBfCzlaTy0N9qeqI9D79bXOFmdNfgZKA
-	BLwqolSNH0boN/9LL5t8DjJ6zN+1gskLdpxnSlrF5De2MgXzZCmSw7/JQGvJMUR9c3+f9hw==
-X-Received: by 2002:a05:690c:63c6:b0:8b4:cc9d:967d with SMTP id
- 00721157ae682-8b520513e7fmr87097987b3.59.1795696113717; Thu, 26 Nov 2026
- 04:28:33 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=mH6OniO7
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6334C1CE2;
+	Thu, 26 Nov 2026 04:28:38 -0800 (PST)
+Received: from [10.0.135.195] (M0PRX50XMG.cambridge.arm.com [10.0.135.195])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 899483F86C;
+	Thu, 26 Nov 2026 04:28:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795696121; bh=CtDIZY5JfDH8M7wFqXLRqQmiO0o0aXHpOhBaAPWYw8w=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mH6OniO7ipWHu4LjDcvnH1nWgIka1lJfMVDZffJGFhJK0o0t4XeRJVYF/UjOOHR1U
+	 1pllDDVm19c61KwnqFpy4p1Xb93d6HpiIBN7DvxdrFwfjva93Dqc09F1EFnF+oDD26
+	 jy5I7p7sE4HF47XGhPTOW2JE9lP0fQro4Wb7aDCQ=
+Message-ID: <06effdad-0a76-4d73-9542-cb628a40d887@arm.com>
+Date: Thu, 26 Nov 2026 12:28:38 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,52 +53,130 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261125134013.2692510-1-congnt264@gmail.com> <366470ae-41ae-4e3f-9170-8b2f67cfe7fe@web.de>
-In-Reply-To: <366470ae-41ae-4e3f-9170-8b2f67cfe7fe@web.de>
-From: =?UTF-8?B?Tmd1eeG7hW4gQ8O0bmc=?= <congnt264@gmail.com>
-Date: Thu, 26 Nov 2026 19:28:22 +0700
-X-Gm-Features: Aa3M54pSZyA2SwxCMS98XKa8ac1EnDdRti9OZ4BvwqNoh_Gw5p_qcstm_-_CdkE
-Message-ID: <CAJpJ=GsNZnyqg0FBVB9jhNDY=2H=DMt5g+4pYJ1WYvFjp30spA@mail.gmail.com>
-Subject: Re: [PATCH] leds: sgm3140: Put the child node reference on success
-To: Markus Elfring <Markus.Elfring@web.de>
-Cc: linux-leds@vger.kernel.org, Lee Jones <lee@kernel.org>, 
-	Pavel Machek <pavel@kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	Luca Weiss <luca@lucaweiss.eu>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: gic-v5: Reject an ID_BITS too large for a
+ linear IST
+To: Fuad Tabba <fuad.tabba@linux.dev>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oupton@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Steffen Eiden <seiden@linux.ibm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Fuad Tabba <tabba@google.com>
+References: <20261126100023.1286902-1-fuad.tabba@linux.dev>
+Content-Language: en-GB
+From: Sascha Bischoff <sascha.bischoff@arm.com>
+In-Reply-To: <20261126100023.1286902-1-fuad.tabba@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 25, 2026 at 10:15=E2=80=AFPM Markus Elfring <Markus.Elfring@web=
-.de> wrote:
->
-> =E2=80=A6
-> > Put the reference before returning success.
->
-> Please avoid a bit of duplicate source.
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/D=
-ocumentation/process/coding-style.rst?h=3Dv7.4-rc4#n526
->
-Hi Markus,
+Hi Fuad,
 
-Agreed on the duplicate, v2 drops it and uses the common exit:
-https://lore.kernel.org/r/20261126122516.1198461-1-congnt264@gmail.com
+On 26/11/2026 10:00, Fuad Tabba wrote:
+> Without two-level IST support in the host IRS, KVM allocates a guest's
+> LPI IST with a single kzalloc(). The guest picks the IST's size, up to
+> the virtual IRS_IDR2.ID_BITS, which userspace can set as high as the
+> host's. With 24 ID bits the IST is at least 64MB, more than
+> KMALLOC_MAX_SIZE with 4K or 16K pages, and kzalloc() warns when the
+> guest enables the IST.
+> 
+> Reject an ID_BITS for which a linear IST would be larger than
+> KMALLOC_MAX_SIZE. This applies even for a Linux guest, which
+> configures a much smaller IST. Userspace writes to IRS_IDR2 are new
+> in this cycle, so no release has them.
 
->
-> How do you think about to apply the attribute =E2=80=9C__free(fwnode_hand=
-le_put)=E2=80=9D
-> also in the implementation of the function =E2=80=9Csgm3140_probe=E2=80=
-=9D?
-> https://elixir.bootlin.com/linux/v7.4-rc1/source/include/linux/property.h=
-#L229
-> https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/leds/flash/leds-=
-sgm3140.c#L185-L281
+Thanks for catching and fixing this issue. I agree that we shouldn't 
+allow this to happen, and what you have here is a defensive check. 
+However, I was surprised that this was reachable in the first place, and 
+now see the mistake I'd made.
 
-I kept fwnode_handle_put() rather than __free(fwnode_handle) because
-this has a Fixes tag and may be backported, and the __free() helper
-only exists since v6.10.
+In general, we limit GICv5-based VMs to 16-bits of ID space in both the 
+CPUIF (see vgic_v5_reset()) and in the emulated IRS (see 
+kvm_vgic_v5_irs_init()). The userspace write path fails to enforce that 
+limit, however, and only checks the hardware capabilities. I see no 
+reason to allow a vIRS that supports more ID bits than the CPUIF.
+
+Maybe something along the lines of the following in 
+vgic_v5_mmio_uaccess_write_irs()?
+
+/* We limit the CPU interface to 16 ID bits, so match that here. */
+if (FIELD_GET(GICV5_IRS_IDR2_ID_BITS, val) > 16)
+         return -EINVAL;
+
+Are you happy to add this (or similar) to your patch, or would you 
+prefer me to fix that up separately?
+
+Long-term I'd like to remove the hard coded 16 in the vIRS code, but 
+that's a clean up that's not appropriate for this patch.
 
 Thanks,
-Cong
+Sascha
 
->
-> Regards,
-> Markus
+> 
+> Fixes: 71091136d1452 ("KVM: arm64: gic-v5: Handle userspace accesses to IRS MMIO region")
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
+> 
+> Notes:
+>      Tested on FVP, on VHE and nVHE hosts, with and without two-level IST
+>      support in the IRS. The vgic_v5 selftest passes. A reproducer that
+>      sets ID_BITS to 24 and restores an IST that wide hits the kzalloc()
+>      warning without this patch. With it, the IRS_IDR2 write is rejected.
+>      
+>      Based on Linux 7.4-rc3 (aebb727447640).
+> 
+>   arch/arm64/kvm/vgic/vgic-irs-v5.c    | 4 ++++
+>   arch/arm64/kvm/vgic/vgic-v5-tables.c | 8 ++++++++
+>   arch/arm64/kvm/vgic/vgic-v5-tables.h | 1 +
+>   3 files changed, 13 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-irs-v5.c b/arch/arm64/kvm/vgic/vgic-irs-v5.c
+> index f73349c02656c..97362caef4433 100644
+> --- a/arch/arm64/kvm/vgic/vgic-irs-v5.c
+> +++ b/arch/arm64/kvm/vgic/vgic-irs-v5.c
+> @@ -648,6 +648,10 @@ static int vgic_v5_mmio_uaccess_write_irs(struct kvm_vcpu *vcpu, gpa_t addr,
+>   		    vgic_v5_irs_ist_id_bits(&irs_caps))
+>   			return -EINVAL;
+>   
+> +		/* A linear host IST is a single allocation, limited to KMALLOC_MAX_SIZE */
+> +		if (!vgic_v5_lpi_ist_id_bits_valid(FIELD_GET(GICV5_IRS_IDR2_ID_BITS, val)))
+> +			return -EINVAL;
+> +
+>   		/* Min LPI ID bits must be greater than or equal to the HW */
+>   		if (FIELD_GET(GICV5_IRS_IDR2_MIN_LPI_ID_BITS, val) <
+>   		    vgic_v5_irs_min_lpi_id_bits(&irs_caps))
+> diff --git a/arch/arm64/kvm/vgic/vgic-v5-tables.c b/arch/arm64/kvm/vgic/vgic-v5-tables.c
+> index 8f72704209b0e..ae5f380fa783c 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v5-tables.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v5-tables.c
+> @@ -1207,6 +1207,14 @@ static unsigned int vgic_v5_ist_istsz(unsigned int id_bits)
+>   	return GICV5_IRS_IST_CFGR_ISTSZ_8;
+>   }
+>   
+> +bool vgic_v5_lpi_ist_id_bits_valid(unsigned int id_bits)
+> +{
+> +	if (vgic_v5_irs_ist_levels(&irs_caps))
+> +		return true;
+> +
+> +	return GICV5_LINEAR_IST_SIZE(id_bits, vgic_v5_ist_istsz(id_bits)) <= KMALLOC_MAX_SIZE;
+> +}
+> +
+>   /*
+>    * Allocate an IST for SPIs.
+>    *
+> diff --git a/arch/arm64/kvm/vgic/vgic-v5-tables.h b/arch/arm64/kvm/vgic/vgic-v5-tables.h
+> index 89096926563f7..ba049978157b1 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v5-tables.h
+> +++ b/arch/arm64/kvm/vgic/vgic-v5-tables.h
+> @@ -123,6 +123,7 @@ int vgic_v5_vmte_free_vpe(struct kvm_vcpu *vcpu);
+>   
+>   int vgic_v5_spi_ist_alloc(struct kvm *kvm, unsigned int id_bits);
+>   int vgic_v5_lpi_ist_exists(struct kvm *kvm);
+> +bool vgic_v5_lpi_ist_id_bits_valid(unsigned int id_bits);
+>   int vgic_v5_lpi_ist_alloc(struct kvm *kvm, unsigned int id_bits);
+>   int vgic_v5_lpi_ist_free(struct kvm *kvm);
+>   
+> 
+> base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+
