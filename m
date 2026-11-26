@@ -1,76 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.153.30
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795652397;
-	b=2sSosmUOPBb34VThRSisM5wc8+hCc1B6rL5p9xUpnHSUzCpErPAQBD5iTwrqr62RE+zp
-	 Z/H5lg8iJBIBT53NODl5YAgQBxtQkR9Ogpq49m8tGBy9Q6ufSjuFkNkpben685L8yudU6
-	 xaQRDMSm1474GLn6R9CTz9amSZ5IcubK3Uva/gd0FwfEuNh8Pm9fYatRY+0t8ucOziD3x
-	 uwey/+3Dq9X7Z/YUPAs2Qy7L3JeX8OYANRQeSczCfC1pNcrkHoBhrl4jeSMEywvYBY8WK
-	 9M/MxZIx3fFWCuEc7IOqhE2vXc/cLLFfFMbazhzIWN/E4vz2TgrhnOKz6naP5U/B9sQ==
+	t=1795652495;
+	b=tni9ql+cMe/djjJ07V+dtZiqc0h1MBtxTWqKomycmLWpd4NBFw4zcEmgu5tMyjoGsxfz
+	 Xyc6tRDXtNNFced26oAkfiWXsZHzbr121LtnTA8qSvxiq5MaDsCtW6kyIt0IWuzPbFKza
+	 sjIcPo/dmvtk2bI6P1XGMgAOg5NDavYgiDJYzLdozBbgc+CFP1L/zMEGq0hFArWnK/aNT
+	 +XP/uXyk945jMSOpy5r6fNcWUrFO8wPE3HmxjHYlGv09lP+yTurxGdNuTFAPoU6m0oyZf
+	 gWEx5bVH97XkQ7LaWhJhVGBxJBHuPJVZPKKw6GWZg/zMfrsY+1wiD89SkaqNpTdTGMQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795652397;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:To:CC:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-Virus-Version;
-	bh=47SGSR6ZUVrtGx0g8gnswzV2LPBUE2QF9Cyhi0n7410=;
-	b=llK2vSJshMLfCu2n6VC2gjF2usheG/rs1bCZMaWaWIe8bvWcXc4McaL+jN5mbsYFc8eY
-	 rYSZ3/zxrx6e6+lcraj7g0bFu2Sc9qcwq3ehOVeHcaoYPYOM3gacxmfFpzMf7kse7Ii5d
-	 Ga5im7OIfxgqjXLybBh84euht4KsEmZ/2KtJ/RfxsAwKDKqQp+lXDQMAbn5xciKNd7IIi
-	 dlp6K1/qTlPN0eEgA9vrEMPBEd7UN9uBBFkevtSH4WFSAZZ/+IB4YpE7bbFo6DaMQvAcs
-	 a7yO8LV22N++aopXcT4IRMhOQCvga47ZnSvo+dWq631jxJOLkAUuXlHY5s2cTjctsSQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795652495;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=dc/F7/hT52S+GWZn1h1x6UM/KO7qiTpd9NPpDZQkRLU=;
+	b=HdQ10Wx/bKu3pmT8ju4DKBLZ4mPenF9RQWvtjONHE95odhbAzau4MxtX5wuAT+1toTlo
+	 iZwslsC+kW+sLTmzZA9NLnb9vW7Aqk3j2REP/MROmQnhv9HbtZH0i9brry6cGyxe5q7tb
+	 DHcFSNiNYcBeCpe/vd7Rn+8jDMVGD4FeXptp1YGm+PV+doxbLL6uHTyr4mdDFoeZs23z3
+	 TUzr2SX1+pHhiXYWw/IiT9xPvEYPf2ISOwgZeGN2kYxnimIxWgmaZswmr9x1/PEw4EOB0
+	 sP1tb+ficPc+vDmNvSIQ7D5fQSkVorTft32iL030VRfpn7vnYLOXYQr8Zm2KA+AeV/A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=meta.com;
-	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=Ks5FU4sb;
-	arc=none smtp.remote-ip=67.231.153.30
-Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--willemb.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Pk+H8jdy;
+	arc=none smtp.remote-ip=74.125.224.72
+Received: from mail-yx1-f72.google.com (mail-yx1-f72.google.com [74.125.224.72])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDFC8606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:19:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDFC8606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92963606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:21:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92963606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--willemb.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=Ks5FU4sb
-Received: from pps.filterd (m0528005.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APM1kCF3576277;
-	Wed, 25 Nov 2026 16:19:33 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	pps82601-s2048-2026-q3; bh=47SGSR6ZUVrtGx0g8gnswzV2LPBUE2QF9Cyhi
-	0n7410=; b=Ks5FU4sbySDCKunlTvbAdvA/t9TuQLQx7xnp7YpZZkvjiYahjznbz
-	4Rlgy1WUjWHkUo13eBjUVbJBu0Jakan9yS7hS1rqVk6M6zUNwuThICsRwbWcyBMq
-	akticnfM/L10XIb8YSNgG2U6VG+afeEV6ctQ0TOdE8Ub2XcWTazhvwzJMSQC2yfh
-	zgniKQTut1Urz3y09A9QDcMapMhgnB5JmOCBJv7Q8pQbrlt/kVbJcIDKjUD1xTCI
-	GoZdA4gR3+2tv+v/NQ+UNrmSrmy7OJWGxrfpi/Egzsh2CEfI7DbIOmyaNCwDDKhZ
-	Gu9uDc7vjpWLWdmjPKS3z+P8fDeFe6H+Q==
-Received: from mail.thefacebook.com ([163.114.134.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j5fap21f5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Wed, 25 Nov 2026 16:19:33 -0800 (PST)
-Received: from localhost (2620:10d:c085:208::f) by mail.thefacebook.com
- (2620:10d:c08b:78::c78f) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Thu, 26 Nov
- 2026 00:19:32 +0000
-From: Yann Collet <cyan@meta.com>
-To: Ping Li <leeonion.muyu@gmail.com>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <palmer@dabbelt.com>,
-        <pjw@kernel.org>, <mark.rutland@arm.com>, <alex@ghiti.fr>,
-        <emil.renner.berthing@canonical.com>, <masahiroy@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <u-boot@lists.denx.de>
-Subject: Re: [PATCH 0/2] arm64,riscv: boot: emit standard LZ4 frame for Image.lz4
-Date: Wed, 25 Nov 2026 16:19:20 -0800
-Message-ID: <20261126001920.3185323-1-cyan@meta.com>
-X-Mailer: git-send-email 2.53.1
-In-Reply-To: <20261124065650.1968930-1-leeonion.muyu@gmail.com>
-References: <20261124065650.1968930-1-leeonion.muyu@gmail.com>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Pk+H8jdy
+Received: by mail-yx1-f72.google.com with SMTP id 956f58d0204a3-677c4ca2265so10425073d50.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:21:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795652493; x=1796257293; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:references:mime-version:in-reply-to:date:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=dc/F7/hT52S+GWZn1h1x6UM/KO7qiTpd9NPpDZQkRLU=;
+        b=Pk+H8jdypoo6U8Y3RDJ71kVo3WGv7/dRSnuZx9jNY4DAsGeVLMluLeqN44pvczLHuk
+         aljUCpTXgdXY8+kkBejRIR3VXYgqB8sWj+oi5ocz5BRYy4tzb8Nk2BmHG0zdSKqzgwpN
+         oRu936tUMrKoNp6UhH2Hz5FpQI5d09JCJLgbbFhNw919eQOjCZVf4c8RYL+AXlRNlR7U
+         ioLsgOodMWk+mupdCEr8Q/z0J58GbAwXWisMw1171aREKeYwThSbxf1Ol/dRpmHlqSxS
+         FwPk/4rvuHcA4W/GRu5u785ZdcLnkdRYohfN5SHIwwqIaZ3iVJicsNF4tXwEQiVuBO2z
+         cQXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795652493; x=1796257293;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:references:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=dc/F7/hT52S+GWZn1h1x6UM/KO7qiTpd9NPpDZQkRLU=;
+        b=z5gkVDGDuQ5YY3xBPZIRi/cIkjgvmJ5Wm6MMZszR5oiPNtFkQ+IkYgOYi2SSmbwlBB
+         E+iFAiawYE2Czupu910269+tNWvsoF4qHpDgWcEkNBjs5qRET/JV4ocZUcVSDNa+8cFY
+         aV4nsWlFDROS4Q9hTX5J5rgPOy1JNPvxm37INvoEKWfKFEAla/WxAe20UTMi6GOUwH/f
+         W/klsBZtM8CSLGT7nf2VGeLAlwwarSMN06Jw8LHuugyN6e4l9lNo4SDUP4sOtXOnFe9h
+         xXFsiLnTsO/J4K7vWw/aUbKQmiMvzYdg/y6LOOvZgaj71uuofJ01IWvpWaRpzgblZk9o
+         LzZg==
+X-Forwarded-Encrypted: i=1; AL+hErFEeMeEBUtwS5U+L5CfG/zvHBtWOBRk+QOy5UqKdjS7p0VoYoB5bobJGbZJbfTu0rpXaqsXamnN54IY4P4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9XnL8sdV1LKQOnH3AzF2mTjm6im5nJD6gAX/YcHJ2Op7vlw2uO
+	VHtZyT1HFqSlRxZILpDVASzvP48P3sotN4ZQGJj0+32xnfWHQmnQhvKvYzkferjpuxo3E6j1IMS
+	YF8bv49a42g==
+X-Received: from yxqs11.prod.google.com ([2002:a53:c78b:0:b0:67b:ef48:3a14])
+ (user=willemb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:690e:4514:20b0:67d:babd:b7f5
+ with SMTP id 956f58d0204a3-67df449b687mr4618019d50.68.1795652492982; Wed, 25
+ Nov 2026 16:21:32 -0800 (PST)
+Date: Wed, 25 Nov 2026 19:21:31 -0500
+In-Reply-To: <awTJWtBSMubj4qQ9@devvm20253.cco0.facebook.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,53 +79,94 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAwMCBTYWx0ZWRfXxbv/lVsq1VIk
- U0jO68Ek/ZgfsEsUosNAmLzdC0VirBIXx78XSk+Fq5RBm4+k+1rivqMjUwr/JkjKwBGgwoKINcO
- a4kq3jm6yvQ2sBdXF+SU4cakzZ6pnOepGKRJDu1NeVNYuwKJmgbtH7Mrx8EAxxJnO1cGA0sXjX/
- nj4MHBy+g4FoIEjN+4fGSAeqd/V/Kel7rj/LdJecWNWCSNww9ik9cUFbad76xX0ls2vQbJd1BLx
- 5dW+FdHymNwf9Sl0rs8NbC4V/61pQazg0IU4+0DXbwpegELioNusqRinOqQKUOWxp7SLDI7Nlft
- 3fy/YX2LE9cUOMAmzPoE07vqhXYJfsMRthxXPffT6gQgf8M5Svch6btsT+/8xdfit9hjyJng4l7
- wI6g6IVUFIwzhT66lqD8HdZjLZ4nIDw1EL2obwB/PLSLIOI4R3tQ+VVT9Mf7jNGU73f9dBsO27e
- MSMKyS9OcP5ruNhA4ug==
-X-Proofpoint-ORIG-GUID: HS-aMb4GaL-DcgH4Ivl2FAW5exzSSANa
-X-Proofpoint-GUID: HS-aMb4GaL-DcgH4Ivl2FAW5exzSSANa
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAwMCBTYWx0ZWRfX18KQ9ZGKAbE+
- EVc4wzDNAFesY8zM3PWxWiU6yVP0JKrGdiVtGhN38mn44y0pozgkQN+/oLGAxKto4lOyJKFdCaC
- vfgZhIH/NKuJvP6fN1xWWLSDEmEJZVo=
-X-Authority-Analysis: v=2.4 cv=Eexd0/mC c=1 sm=1 tr=0 ts=6b077b15 cx=c_pps
- a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
- a=jCddH8ec0KUNCymVuxII:22 a=I0HTz2J1b6gKnfYguBMA:9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_05,2026-11-25_01,2025-10-01_01
+Mime-Version: 1.0
+References: <20261120152830.699712-6-joe@dama.to> <179545866419.3135.14423996277439097165@kernel.org>
+ <awTJWtBSMubj4qQ9@devvm20253.cco0.facebook.com>
+Message-ID: <willemb.1401f0f6ad765@google.com>
+Subject: Re: [PATCH net v6 5/5] bnxt_en: stop the ULP around the reset task
+From: willemb@google.com
+To: Joe Damato <joe@dama.to>, netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, michael.chan@broadcom.com, 
+	pavan.chebbi@broadcom.com, andrew+netdev@lunn.ch, davem@davemloft.net, 
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
+	prashant@broadcom.com, edumazet@google.com, horms@kernel.org, 
+	selvin.xavier@broadcom.com, kalesh-anakkur.purayil@broadcom.com, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
 
-On Tue, Nov 24, 2026 at 02:56:48PM +0800, Ping Li wrote:
-> arm64 and riscv also build Image.lz4 with the plain cmd_lz4, but a
-> compressed boot image on these two architectures is not decompressed
-> by the kernel itself - it is handed to the bootloader.  U-Boot, which
-> implements this via the 'booti' compressed-kernel path (boot/image.c
-> image_decomp -> lib/lz4_wrapper.c ulz4fn), only accepts the standard
-> LZ4 frame (magic 0x184D2204) and returns -EPROTONOSUPPORT for
-> anything else.
-
-U-Boot's decoder has a second requirement: independent blocks. It
-rejects frames with linked blocks, and the new rules rely on
-independent blocks being the default of the lz4 CLI. lz4 is considering
-linked blocks by default in a future version. U-Boot can learn to
-accept them, but bootloaders already deployed won't.
-
-Passing -BI makes the output independent of that default:
-
-	cmd_lz4_std = cat $(real-prereqs) | $(LZ4) -9 -BI - - > $@
-
-With current lz4 versions, the output is unchanged. One caveat: -BI
-exists since lz4 v1.9.0 (2019). Older versions, still found on some
-build hosts (lz4 1.8.3 on RHEL 8), reject it, but they produce
-independent blocks by default anyway. So the rule can pass -BI only
-when lz4 accepts it: 'lz4 -BI -V' fails on these older versions.
-
-Yann
+Sm9lIERhbWF0byB3cm90ZToNCj4gT24gTW9uLCBOb3YgMjMsIDIwMjYgYXQgMDY6MzE6MDRQTSAr
+MDAwMCwgbmV0ZGV2LWJvdCtzYXNoaWtvQGtlcm5lbC5vcmcgIA0KPiB3cm90ZToNCj4gPiBUaGFu
+ayB5b3UgZm9yIHlvdXIgY29udHJpYnV0aW9uISBTYXNoaWtvIEFJIHJldmlldyBmb3VuZCA2IHBv
+dGVudGlhbA0KPiA+IGlzc3VlKHMpIHRvIGNvbnNpZGVyLg0KPiA+DQo+ID4gQ3JpdGljYWw6IDAg
+wrcgSGlnaDogMyDCtyBNZWRpdW06IDMgwrcgTG93OiAwDQo+ID4NCj4gPiBJZiB5b3UgYmVsaWV2
+ZSBub25lIG9mIHRoZSBpc3N1ZXMgYXJlIGxlZ2l0aW1hdGUsIHBsZWFzZSByZXBseSB0byBlYWNo
+DQo+ID4gaXNzdWUgb2YgTWVkaXVtIHNldmVyaXR5IG9yIGhpZ2hlciBhbmQgZXhwbGFpbiB3aHkg
+dGhlIEFJIGlzIHdyb25nLg0KPiA+IElmIGFueSBvZiB0aGVtIGFyZSBsZWdpdGltYXRlIGFuZCB5
+b3UgcGxhbiB0byByZXNwaW4sIHBsZWFzZSBsZXQgIA0KPiBwYXRjaHdvcmsNCj4gPiBrbm93IGJ5
+IGluY2x1ZGluZyAicHctYm90OiBjciIgYXMgYSBzZXBhcmF0ZSBsaW5lIGF0IHRoZSBlbmQgb2Yg
+eW91ciAgDQo+IHJlcGx5DQo+ID4gKG9uZSBzdWNoIHJlcGx5IHBlciBzZXJpZXMgaXMgZW5vdWdo
+KS4NCj4gPg0KPiA+IC0gW0hpZ2hdIFBvc3NpYmxlIGRlYWRsb2NrLg0KPiA+IC0gW0hpZ2hdIGJu
+eHRfcmVzZXQoKSBkZWNpZGVzIHRvIGNhbGwgYm54dF91bHBfc3RhcnQoKSBvbmx5IGZyb20gIXNp
+bGVudA0KPiA+ICAgJiYgIUJOWFRfU1RBVEVfRE1BX1NUT1BQRUQsIGFmdGVyIGRyb3BwaW5nIGl0
+cyBsb2Nrcy4NCj4gPiAtIFtIaWdoXSBJbmNvbXBsZXRlIGZpeC4NCj4gPiAtIFtNZWRpdW1dIGJu
+eHRfcmVzZXRfdGFzaygpIGRpc2NhcmRzIHRoZSByZXR1cm4gdmFsdWUgb2YNCj4gPiAgIGJueHRf
+b3Blbl9uaWMoKSwgYW5kIGJueHRfcmVzZXQoKSBjYWxscyBibnh0X3VscF9zdGFydCgpIHdoZW5l
+dmVy4oCmDQo+ID4gLSBbTWVkaXVtXSBUaGUgbmV3IERNQV9TVE9QUEVEIGNoZWNrIGV4aXN0cyBv
+bmx5IGF0IHRoZSBibnh0X3Jlc2V0KCkgIA0KPiBjYWxsDQo+ID4gICBzaXRlLg0KPiA+IC0gW01l
+ZGl1bV0gRXZlcnkgbm9uLXNpbGVudCByZXNldCBub3cgdW5yZWdpc3RlcnMgYW5kIHJlLXJlZ2lz
+dGVycyB0aGUNCj4gPiAgIFJvQ0UgSUIgZGV2aWNlLCBpbmNsdWRpbmcgdGhlIGNvbW1vbiBjYXNl
+IHdoZXJlIERNQSBpcyBuZXZlciBzdG9wcGVkLOKApg0KPiA+DQo+ID4gLS0NCj4gPg0KPiA+IGJu
+eHRfZW46IHN0b3AgdGhlIFVMUCBhcm91bmQgdGhlIHJlc2V0IHRhc2sNCj4gPg0KPiA+IEZvciBu
+b24tc2lsZW50IHJlc2V0cywgYm54dF9yZXNldCgpIG5vdyBjYWxscyBibnh0X3VscF9zdG9wKCkg
+YmVmb3JlIGl0DQo+ID4gdGFrZXMgcnRubCBhbmQgdGhlIG5ldGRldiBsb2NrLiBBZnRlcndhcmRz
+IGl0IGNhbGxzIGJueHRfdWxwX3N0YXJ0KCkgIA0KPiB1bmxlc3MNCj4gPiBCTlhUX1NUQVRFX0RN
+QV9TVE9QUEVEIHdhcyBzZXQuIFRoZSBnb2FsIGlzIHRvIGtlZXAgdGhlIFJETUEgZHJpdmVyIG9m
+ZiAgDQo+IHRoZQ0KPiA+IGRldmljZSBvbmNlIHRoZSByZXNldCB0YXNrIGhhcyBzdG9wcGVkIERN
+QS4NCj4gPg0KPiA+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbmV0L2V0aGVybmV0L2Jyb2FkY29t
+L2JueHQvYm54dC5jICANCj4gYi9kcml2ZXJzL25ldC9ldGhlcm5ldC9icm9hZGNvbS9ibnh0L2Ju
+eHQuYw0KPiA+ID4gaW5kZXggOWRhZjA1MzI5M2E0Mi4uMmFiYjcyMWQ4N2RlOCAxMDA2NDQNCj4g
+PiA+IC0tLSBhL2RyaXZlcnMvbmV0L2V0aGVybmV0L2Jyb2FkY29tL2JueHQvYm54dC5jDQo+ID4g
+PiArKysgYi9kcml2ZXJzL25ldC9ldGhlcm5ldC9icm9hZGNvbS9ibnh0L2JueHQuYw0KPiA+ID4g
+QEAgLTE0NzEwLDEwICsxNDcxMCwxNCBAQCBzdGF0aWMgdm9pZCBibnh0X3RwaF91cGRhdGUoc3Ry
+dWN0IGJueHQgKmJwKQ0KPiA+ID4gIC8qIE9ubHkgY2FsbGVkIGZyb20gYm54dF9zcF90YXNrKCkg
+Ki8NCj4gPiA+ICBzdGF0aWMgdm9pZCBibnh0X3Jlc2V0KHN0cnVjdCBibnh0ICpicCwgYm9vbCBz
+aWxlbnQpDQo+ID4gPiAgew0KPiA+ID4gKwlpZiAoIXNpbGVudCkNCj4gPiA+ICsJCWJueHRfdWxw
+X3N0b3AoYnApOw0KPiA+ID4gIAlibnh0X3J0bmxfbG9ja19zcChicCk7DQo+ID4NCj4gPiBbU2V2
+ZXJpdHk6IEhpZ2hdDQo+ID4gQ2FuIHRoaXMgZGVhZGxvY2sgYWdhaW5zdCBibnh0X2Nsb3NlKCk/
+DQo+ID4NCj4gPiBibnh0X3NwX3Rhc2soKSBzZXRzIEJOWFRfU1RBVEVfSU5fU1BfVEFTSyBiZWZv
+cmUgaXQgY2FsbHMgYm54dF9yZXNldCgpLg0KPiA+IGJueHRfcnRubF9sb2NrX3NwKCkgY2xlYXJz
+IHRoYXQgYml0IG9ubHkgYWZ0ZXIgYm54dF91bHBfc3RvcCgpIGhhcw0KPiA+IHJldHVybmVkLCBh
+bmQgYm54dF9ydG5sX3VubG9ja19zcCgpIHNldHMgaXQgYWdhaW4gYmVmb3JlICANCj4gYm54dF91
+bHBfc3RhcnQoKQ0KPiA+IHJ1bnMuIFNvIGJvdGggbmV3IFVMUCBjYWxscyBydW4gd2l0aCBJTl9T
+UF9UQVNLIHNldC4NCj4gPg0KPiA+IEJvdGggVUxQIGNhbGxiYWNrcyB0YWtlIHJ0bmxfbG9jaygp
+Og0KPiA+DQo+ID4gYm54dF91bHBfc3RvcCgpDQo+ID4gICBibnh0X3JlX3N1c3BlbmQoKQ0KPiA+
+ICAgICBibnh0X3JlX3VwZGF0ZV9lbl9pbmZvX3JkZXYoKQ0KPiA+ICAgICAgIHJ0bmxfbG9jaygp
+DQo+ID4NCj4gPiBibnh0X3VscF9zdGFydCgpDQo+ID4gICBibnh0X3JlX3Jlc3VtZSgpDQo+ID4g
+ICAgIGJueHRfcmVfYWRkX2RldmljZSgpDQo+ID4gICAgICAgYm54dF9yZV91cGRhdGVfZW5faW5m
+b19yZGV2KCkNCj4gPiAgICAgICAgIHJ0bmxfbG9jaygpDQo+ID4gICAgICAgIA0KPiBibnh0X3Jl
+X2liX2luaXQoKS0+aWJfcmVnaXN0ZXJfZGV2aWNlKCktPi4uLi0+ZW51bV9hbGxfZ2lkc19vZl9k
+ZXZfY2IoKQ0KPiA+ICAgICAgICAgcnRubF9sb2NrKCkNCj4gPg0KPiA+IG5kb19zdG9wLCBtZWFu
+d2hpbGUsIGhvbGRzIHJ0bmwgYW5kIHRoZSBuZXRkZXYgaW5zdGFuY2UgbG9jayBhbmQgd2FpdHMg
+IA0KPiBmb3INCj4gPiBJTl9TUF9UQVNLIHRvIGNsZWFyLCB3aXRoIG5vIHRpbWVvdXQ6DQo+ID4N
+Cj4gPiBfX2JueHRfY2xvc2VfbmljKCkgew0KPiA+IAljbGVhcl9iaXQoQk5YVF9TVEFURV9PUEVO
+LCAmYnAtPnN0YXRlKTsNCj4gPiAJc21wX21iX19hZnRlcl9hdG9taWMoKTsNCj4gPiAJd2hpbGUg
+KGJueHRfZHJ2X2J1c3koYnApKQ0KPiA+IAkJbXNsZWVwKDIwKTsNCj4gPiAJLi4uDQo+ID4gfQ0K
+PiA+DQo+ID4gU3VwcG9zZSAiaXAgbGluayBzZXQgZGV2IFggZG93biIgcnVucyBqdXN0IGFmdGVy
+IGEgVFggdGltZW91dCBoYXMgIA0KPiBzY2hlZHVsZWQNCj4gPiBCTlhUX1JFU0VUX1RBU0tfU1Bf
+RVZFTlQuIHNwX3Rhc2sgY2FuIGJsb2NrIG9uIHJ0bmwgaW5zaWRlICANCj4gYm54dF91bHBfc3Rv
+cCgpDQo+ID4gKG9yIGJueHRfdWxwX3N0YXJ0KCkpLCB3aGlsZSBibnh0X2Nsb3NlKCkgc3BpbnMg
+b24gYm54dF9kcnZfYnVzeSgpICANCj4gaG9sZGluZw0KPiA+IHJ0bmwuIFRoZSBjb21tZW50IGFi
+b3ZlIGJueHRfbG9ja19zcCgpIHdhcm5zIGFib3V0IHRoaXMgZXhhY3QgY2FzZS4NCj4gPg0KPiA+
+IEJlZm9yZSB0aGlzIHBhdGNoLCBvbmx5IHRoZSByYXJlIFJFU1RBUlRfVUxQIGFuZCBmaXJtd2Fy
+ZSByZXNldCBldmVudHMNCj4gPiBjYWxsZWQgaW50byB0aGUgVUxQIHdpdGggSU5fU1BfVEFTSyBz
+ZXQuIFRoZSBmcmVxdWVudCByZXNldCBwYXRoIGRpZCAgDQo+IG5vdC4NCj4gPg0KPiA+IFNob3Vs
+ZCB0aGUgVUxQIGNhbGxzIGhhcHBlbiBvbmx5IHdoaWxlIElOX1NQX1RBU0sgaXMgY2xlYXI/DQoN
+Cj4gWWVhLCBJIHRoaW5rIHRoaXMgaXMgcmVhbC4NCg0KPiBOb3Qgc3VyZSBpZiBNaWNoYWVsIG9y
+IHRoZSBvdGhlciBCcm9hZGNvbSBmb2xrcyBoYXZlIGEgc3VnZ2VzdGlvbiBoZXJlPyAgDQo+IE1h
+eWJlDQo+IHRoZSBtaW5pbWFsIGZpeCBpcyB0byBjbGVhciBJTl9TUF9UQVNLIGJlZm9yZSBibnh0
+X3VscF9zdG9wKCkgYW5kIGNhbGwNCj4gYm54dF91bHBfc3RhcnQoKSBvbmx5IGFmdGVyIHVubG9j
+ay4NCg0KPiBUaGUgUkRNQSB0ZWFyZG93biBvbiBldmVyeSBUWCB0aW1lb3V0IGFuZCByZXN0YXJ0
+IHJhY2VzIGJlbG93IHdvdWxkIHN0aWxsICANCj4gbmVlZA0KPiBhbnN3ZXJzLCB0aG91Z2guDQoN
+CkFyZSB0aGlzIGFuZCB5b3VyIHF1ZXN0aW9ucyBpbiB0aGUgbWFpbiB0aHJlYWQgYSByZWFzb24g
+Zm9yIGEgdjc/DQo=
