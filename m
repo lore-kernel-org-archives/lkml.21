@@ -1,71 +1,120 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795687786;
-	b=QT5ROA219cp1VghfrAdQucCzEOLH0O3D+1tTpZfAmZHiZ73rwHsTY4M1bm4PWLUVh9b3
-	 ZvMCRqEMwu1LT5RTxXidTYZcq8lzSbH8rdJGS+6IpvV9D7hIB2KuFx4Dgwld6qGxH5pOk
-	 2cFLRS3f4fINRUitZ2XsSO24N1j/imjHJVtI+/SKmpZBtngmYN+FKfA7gQHaamgVNYVPy
-	 Gu7x7La5VZWANZAUnI2/xmnmZwZETdbzuVATlgB8b9mpEoRJqzQfBQUFerWU0btL0HHam
-	 BCcLO2OWYzpHhgAW52SlVPPCAH1x1WVKh5BKxFVeTsCdlmr+GbGnHSlbUkIT3F1hdlA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795687786;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Zoho-Virus-Status:X-Zoho-AV-Stamp:
-	 X-ZohoMailClient;
-	bh=l7d5IaQ6JOFWPkAFn1T5RV5TtU7SOPA7qfljz9g0TC4=;
-	b=qzpBfxHNkeUljkR6DttPTb9wuRmOJZO/esWtDV4ln0uAhtwPNLmz0IZQ+5lbnkYCIKWO
-	 HfmroogGxFkDn96TuF1KGKiGVQcRHQCQdNoI2OhVRTCGl6W4MMg+n5/VT6bm8KWwtkHIZ
-	 DrXQ+wX+HCBoEx6vU8RznPlXbhUb2uvzwsXWW5EFSl+3nuT+K9O/zWHTei0zXU2V+AFRY
-	 8fYT3tJNPu5cqfN8QrHbLpTwtowHnGmcWU1niOIsLJpr0pDwz0tNXFdemjJWDkpOoyEjQ
-	 E8P0DZPmwyymp5qZ9Mh7aGBoQODEZxvF/tAsp9Dxlgtm/M+kLl0EynJZen3FEP/DKuw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=esdLImf0;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
-Received: from sender6-op-o11.zoho.com (sender6-op-o11.zoho.com [165.173.180.11])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795687945;
+	b=QcrMq9TRqA43bTiQkHFqGNDu0DKCoM2i3G7Hvcp69y9XHbsIqLZRJCqE6h9Fb0Xk75XU
+	 TheZHKwZO8fUWDi9z89jp/5iuwBLPVhUA72drU0s55sy8UcQR7dyrg7rhru/CaoiqsUL7
+	 kFfRNYEsv9aIaoVvnkLsxduF3DBBMMjRTH/iwxmB1/BlfPF5tErCP38dZeCjnnwKaaQaF
+	 kQoHuzYe1MClo91xgFdbDH+9r198Z4na2TJcg3+rAgu0NTd8UBsT7QaQrWLr8jqrSYCrx
+	 y+DoXjPn3g2yGL84q9XxxBFOm8RbQXPOQZMiAWEFoTAk9/Vb2l4tnH4sz7U4ou0imgA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795687945;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Authority-Analysis:
+	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=88afsBd4DBJZJXNBN2MdesvR9kKs2U7zYJzInFyRPBI=;
+	b=Ur3gtY/+g4mkmh4ZQKNMNx72AcggEXkfKkWxuGfF0Otq79ZWvsGv7NN0Ey4JzYAlU6YC
+	 VoLgT+AHs2nH0KaDKW6I8fb1D23dGHdr4kdFaxT4A3G4HEFQl2nrjZNOoun00rqaDD5BI
+	 14tBB2AXWzIrMnOIoK/XJWPR2x99eE9pqjHiKYtnX6pkfaCq9JPzXk19YEG0ZnoxC5O87
+	 uufiHcTZsxZ47YwnrP6KfI3v6hFTFo+Rx9wJUM/Jc7yd0Ii9PF2tp+uZ0NZCyuE2dCmyx
+	 pdWeytqHk6VFNJK8FI7b0vGLee1XapJXE0k/MTTsrrF5aHcziN6kuyo3ZxJ7FxPKF6Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=GYoqK8CN;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=f8q2npDW;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACFCF606A31C;
-	Thu, 26 Nov 2026 10:09:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ACFCF606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F3B5606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:12:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6F3B5606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=esdLImf0
-ARC-Seal: i=1; a=rsa-sha256; t=1795687758; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=efaMgozkJueJiSs2swC40lOWWCxi/7Qg8e+K/GtQOUqIsY0pXuMWbjw/DJFPF8vEWKyguNsJV/0fGff39z/+EgwELScgIamYYe6WPzlp3dvQtmvS7McROLHGl+1mjM/5IJdAuVuau7z3Yc3LEvsnD3NWjepdrA+tC7sAuzev0+w=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795687758; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=l7d5IaQ6JOFWPkAFn1T5RV5TtU7SOPA7qfljz9g0TC4=; 
-	b=NO6Yzv6d/2Rpv1/e5VQHt2h97mzw9tSi/y02PRA+wY0EIOslpJbfqD6yeJonnK9H3Wu1nd3DgAQMmPmbAjZCUR5C2OTxFp4N0DLsb213ZXbf7tTDCE+1RUq6TErRyKW9UwJeqlKaR0Qp3rkJzvRhwmuSFLz7NokiWT4qGdiq8Kg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=esdLImf0LzvU9760wveffdTdVGwTvsAtjHzK6BpB/YKvVtrLYztUTDFrmsPnazV165g9oBJHyuvHVCj9B+r7p7oiCPAm2zbjLIb2ktBGFgzqdtIEqa5eCpo1b9sEO0aQx3x3Vp85JPQ5IBdpEYN0UC7/fu7Zx08Lg0P3sh5TVWE=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=l7d5IaQ6JOFWPkAFn1T5RV5TtU7SOPA7qfljz9g0TC4=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795687756197766.9363163176183;
-	Thu, 26 Nov 2026 02:09:16 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id E71F718040B; Thu, 26 Nov 2026 11:09:10 +0100 (CET)
-Date: Thu, 26 Nov 2026 11:09:10 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: aiyengar1990@gmail.com
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	"Joerg Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Niklas Cassel <cassel@kernel.org>, 
-	Pranjal Shrivastava <praan@google.com>, linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	Shawn Lin <shawn.lin@rock-chips.com>, Simon Xue <xxm@rock-chips.com>, 
-	Finley Xiao <finley.xiao@rock-chips.com>
-Subject: Re: [PATCH v4 1/3] dt-bindings: iommu: arm,smmu-v3: Allow a clock
- and a reset
-Message-ID: <awgFFhKsT87wTwJK@venus>
-References: <20261126-smmu-v3-pcie-pd-v4-0-c340c2dbd1d2@gmail.com>
- <20261126-smmu-v3-pcie-pd-v4-1-c340c2dbd1d2@gmail.com>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=GYoqK8CN;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=f8q2npDW
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ7AvFV2594844
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:12:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=88afsBd4DBJZJXNBN2MdesvR
+	9kKs2U7zYJzInFyRPBI=; b=GYoqK8CNmbpXI/XAZIXWy1BCQTbfYjkSAYGNe0uk
+	oyB2cpyJ8jC+F8LetXo2cqGdEUUl/gu0SVDDgcf0dbwCW56zqRRByFBD0MMeN6yd
+	DDEsA7dq0oqe43XJt/j7D1iw7gg9xEKqBrXTGqFweEcrCc9stnxkyove9DnNG4hN
+	3sRcFNdJv9yzoI3NalvvlNLrqOZQSa3M5EuSmd9f//KgVLBjiyF87+CdHg7sMrnU
+	043OBZbhOBG9evZzdsZlsFIC7rAtWgydU/nzVB/zTH0fe9IrA6Of0UkjxIvKmql2
+	mGCdQJpAsBnB8+4Nzd93v/RuUQ5CXdmXfRrOMgiE0oV62w==
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j662san8q-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:12:24 +0000 (GMT)
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-383ec96a7deso7384182eec.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:12:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795687944; x=1796292744; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=88afsBd4DBJZJXNBN2MdesvR9kKs2U7zYJzInFyRPBI=;
+        b=f8q2npDWeyMusPOpBiBYQ2BjTAlMpAEMs0MoHLCd9uJK7UkqQGMsilOi1IHA/DXKmm
+         fW1rBnDfiatVDz5lJwZaFgrtDviXx2FFMZ3aRsB5VhFzOOEOyGBLLGDwJ3PF5Q1Bl54z
+         ISYAPAYxDo2gR7/FqQ3BnvIM9o01Pd7pPKhw3WSqGuwf5xvY6P/Tqff56p2yAiyQfOPq
+         sZMBmF7tSI/JbgmsM+ahE4taVkS7tNyepkYgaODnT+pupD3xNXl9xBvvkeYg9lXPZVUL
+         raH0AjLU6Qt11P192i93wtd0bY4eawZfAEhF2sbbFxGrKCfmAV0jvvvKqDF0+zyotB3F
+         7ABg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795687944; x=1796292744;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=88afsBd4DBJZJXNBN2MdesvR9kKs2U7zYJzInFyRPBI=;
+        b=n+gnWWGhLb6VhAm45Rw3vRSgUwi/kJVOU6NOcyW6U0vPRiFOxCnpZOhvQpYcnogbry
+         3IBjJ9GqMoZzqO5IVhXKzI/Azv0F2/hbbx0PbDPyXUbpNbJmcigtM+IcPOPc5Ekec0ep
+         doI37KfEovA6f3C+gJoMOr84wp06OApGo0P1hw8HVG3DPc0YsIDEJhD4ANq5gCr4Ao9B
+         KknpbViFCpUVb59DRLZdrQQ3OgrWl7+mC40VdUqgfEktFC3+Zzp73VYaisgS0G0KiJmD
+         Al8ky81vka8oId/9taNoTU6xDaK8KqtFL/+wrPwpvxNnHfkwQrFYKIzBnSHgcOUy+IK2
+         WRLg==
+X-Forwarded-Encrypted: i=1; AL+hErE37zawFEIJLiolKtW2lH8UACCUoNmcdw6KiUfpHcbYG6xbXDTk/aiuVQLEMhB2ePqap7eoPGhNszXqT6A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+DEgj50VSj+65ozkm6gOGwjG+smUpFz+RHWMKhajym2TetILsl
+	8aH+SCDYQW50aJZiYhd33WdyP8/51qriNt+Sn2Ym4Ae6zqi/QxXmwFQ0wyx5zvBXxNbkRr3ZPT4
+	YG3qGd7pMzzY/a7PDN4toDwQQIQhpr8ZcWvbVPBAYRGn2ft4D9kRJCHWMRaTHY4WFkis=
+X-Gm-Gg: AZFdTZegfAddGhj+zoC6A8Slmyw5MBwtJzREedLewZvkFg0pYhvUmvgqcVWZqZOMxuP
+	0QoGbiUckng4c/f2KY1qlttTqZT1nmeyfQvtD8hREsQmdkVRjUQy3gzuqF9jV6KlRAJU2s0MRoh
+	HAaC52RuGBaICIv0uhS3FtAxvgJx/drytecu4LXmrQ9LQ+ccr++sXQshTWtOeba0z6ZCbJFgDiY
+	1WoDgJZzRnfK5WZvk6zXLO9dRQGErSZNXOhCFgDMLovxogYhud2ZO0ld886y6sNZKrGz8m9Fg7X
+	mAhdCwsOmyGB8dIcUH1uvKb6WO+hOLRsJu1hgVjTor3aaEXoiFe2Tg+7oKmNL/uEAn+vZnBui5k
+	iC4enXnx/YEwLrJ62hNWNo0R5oTAIC+1DMpByu6zSq+4g66Q2RrW4na1EATb34DWzKDHLikXDF0
+	eRP457pBY/vgPhC1yu10rJtPY=
+X-Received: by 2002:a05:7301:db86:b0:384:d59d:199c with SMTP id 5a478bee46e88-3856c2c3fd0mr19331247eec.1.1795687943958;
+        Thu, 26 Nov 2026 02:12:23 -0800 (PST)
+X-Received: by 2002:a05:7301:db86:b0:384:d59d:199c with SMTP id 5a478bee46e88-3856c2c3fd0mr19331226eec.1.1795687943439;
+        Thu, 26 Nov 2026 02:12:23 -0800 (PST)
+Received: from hu-petche-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567abb870sm51643252eec.25.2026.11.26.02.12.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 02:12:23 -0800 (PST)
+Date: Thu, 26 Nov 2026 02:12:21 -0800
+From: Peter Chen <peter.chen@oss.qualcomm.com>
+To: Faisal Hassan <faisal.hassan@oss.qualcomm.com>
+Cc: Thinh.Nguyen@synopsys.com, gregkh@linuxfoundation.org,
+        linux-usb@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        krishna.kurapati@oss.qualcomm.com,
+        krzysztof.kozlowski@oss.qualcomm.com
+Subject: Re: [PATCH v5 11/11] usb: dwc3: qcom: Enable VBUS override at probe
+ for default peripheral role
+Message-ID: <awgGBW9-cxJRlA_b@hu-petche-lv.qualcomm.com>
+References: <20261123104727.1539149-1-faisal.hassan@oss.qualcomm.com>
+ <20261123104727.1539149-12-faisal.hassan@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,91 +124,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="356dxsaiqd4y3y2b"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261126-smmu-v3-pcie-pd-v4-1-c340c2dbd1d2@gmail.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/295.675.79
-X-ZohoMailClient: External
+In-Reply-To: <20261123104727.1539149-12-faisal.hassan@oss.qualcomm.com>
+X-Authority-Analysis: v=2.4 cv=B54sQ+tM c=1 sm=1 tr=0 ts=6b080608 cx=c_pps
+ a=cFYjgdjTJScbgFmBucgdfQ==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=EUspDBNiAAAA:8 a=y33D9nhtfLLIXgUvc_UA:9 a=CjuIK1q_8ugA:10
+ a=scEy_gLbYbu1JhEsrz4S:22
+X-Proofpoint-GUID: AecEFHAFY2mvA8f5N2Z442IIPZwxlUSY
+X-Proofpoint-ORIG-GUID: AecEFHAFY2mvA8f5N2Z442IIPZwxlUSY
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAzOSBTYWx0ZWRfX3jvRyaQ1gQt8
+ SB5dJw80Jj64Bl/v1by1pR8Cd0gxD23ZQwcFZ4shYdd6r35tI/vuzAibKmQgLnVm3jvyFcN9nTQ
+ vqpWZtOm5m2fJ3yfNWjaQYbjax1uEE4q0Jgj+uJZKRzs13OUphXzjvMMxMqY1h5/FN15pvyKt5Y
+ J7dCN/YnAsgbywyyyCATLi52syPNF+u1B9VjaudPP1rKtVj9jAO6AoPbTdnxYTKtsJwyiX2dfA+
+ Jemp4OKHDhBNJJK+1g4ytc81mQsNCLIL5RDpip0cl2re09VTz31JRmjWmDXL1cwf6ZeKWGBgS91
+ /WPohTy3dh0kpWeSPSJYICJg6TIkJeZ4yFOgBed0FIUXfr6GJk2eSXgxV8Dk7jy6bExOjdv9wAC
+ xf3aAe4qrIouPC4yHfpzkTWRxdrlrn14NGOagXfS/9LGwcNa09J76a8doDmKjm+dtmwLgGG1ZdI
+ kzR2Ds0poJOMdFNCozw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAzOSBTYWx0ZWRfXzM9K1euD2Bfa
+ R7YisofXqvxTBfqfVeI4lDYkgRvWpHBPxqs3XU/OfnF93exAmrf8dwTjJE/10grS9kQK+DCgSyF
+ 8SQA8fjoj40E/7E8Z5ukM2JkQBMWu+A=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_02,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 spamscore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0
+ phishscore=0 clxscore=1015 malwarescore=0 adultscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260039
 
+On 26-11-23 16:17:26, Faisal Hassan wrote:
+> When the controller is in OTG mode with usb-role-switch and
+> role-switch-default-mode set to peripheral, the role notifier never sees
+> a transition at probe, so the QSCRATCH VBUS override is not programmed
+> and the device never gets a session-valid indication.
+> 
+> Enable the VBUS override once at probe, after the initial role has been
+> determined, whenever that role is USB_ROLE_DEVICE. This also covers the
+> dr_mode = "peripheral" case, which previously programmed the override on
+> its own.
+> 
+> Validated on SA8255P with an HS host attached: 20 unbind/bind and 20
+> suspend/resume iterations completed with no failures.
+> 
+> Signed-off-by: Faisal Hassan <faisal.hassan@oss.qualcomm.com>
 
---356dxsaiqd4y3y2b
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 1/3] dt-bindings: iommu: arm,smmu-v3: Allow a clock
- and a reset
-MIME-Version: 1.0
+Reviewed-by: Peter Chen <peter.chen@oss.qualcomm.com>
 
-Hi,
+Peter
 
-On Thu, Nov 26, 2026 at 09:54:13AM +0000, Arun Iyengar via B4 Relay wrote:
-> From: Arun Iyengar <aiyengar1990@gmail.com>
->=20
-> The RK3588 PCIe MMU-600 has a clock (ACLK_MMU_PCIE) and a reset
-> (SRST_A_MMU_PCIE) in the CRU. When no PCIe controller holds the clock,
-> it is gated as unused and the SMMU stops responding. Allow one clock and
-> one reset.
->=20
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 > ---
-
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-
-Greetings,
-
--- Sebastian
-
->  Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml | 8 ++++++++
->  1 file changed, 8 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml b/D=
-ocumentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
-> index 3c044e4f03d4..9ab80142a485 100644
-> --- a/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
-> +++ b/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
-> @@ -63,6 +63,14 @@ properties:
-> =20
->    msi-parent: true
-> =20
-> +  clocks:
-> +    maxItems: 1
-> +    description:
-> +      Clock of the SMMU's register and memory interfaces.
+>  drivers/usb/dwc3/dwc3-qcom.c | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/usb/dwc3/dwc3-qcom.c b/drivers/usb/dwc3/dwc3-qcom.c
+> index 559de5172e61..22b6c7ca0297 100644
+> --- a/drivers/usb/dwc3/dwc3-qcom.c
+> +++ b/drivers/usb/dwc3/dwc3-qcom.c
+> @@ -964,7 +964,6 @@ static int dwc3_qcom_probe(struct platform_device *pdev)
+>  		qcom->current_role = USB_ROLE_HOST;
+>  	} else if (qcom->mode == USB_DR_MODE_PERIPHERAL) {
+>  		qcom->current_role = USB_ROLE_DEVICE;
+> -		dwc3_qcom_vbus_override_enable(qcom, true);
+>  	} else {
+>  		if ((device_property_read_bool(dev, "usb-role-switch")) &&
+>  		    (usb_get_role_switch_default_mode(dev) == USB_DR_MODE_HOST))
+> @@ -973,6 +972,10 @@ static int dwc3_qcom_probe(struct platform_device *pdev)
+>  			qcom->current_role = USB_ROLE_DEVICE;
+>  	}
+>  
+> +	/* Force the VBUS valid indication to the PHYs in device mode */
+> +	if (qcom->current_role == USB_ROLE_DEVICE)
+> +		dwc3_qcom_vbus_override_enable(qcom, true);
 > +
-> +  resets:
-> +    maxItems: 1
-> +
->    nvidia,cmdqv:
->      description: |
->        A phandle to its pairing CMDQV extension for an implementation on =
-NVIDIA
->=20
-> --=20
-> 2.55.0
->=20
->=20
+>  	qcom->dwc.glue_ops = &dwc3_qcom_glue_ops;
+>  
+>  	qcom->dwc.dev = dev;
+> -- 
+> 2.34.1
+> 
 
---356dxsaiqd4y3y2b
-Content-Type: application/pgp-signature; name="signature.asc"
+-- 
 
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmsIBUIACgkQ2O7X88g7
-+pojpxAAl60EjN/Ws/Tt4rGo9MZ+TYyUyltt45l8mZYJuUkNuRTlwc+WJHOIJnKl
-gofGkYklDG1He/k/dP11sYRSyB24Z1EMr3x1nzlXeuFF9PZaxOGOn2J1e2vLnNfo
-tXNDP1TC4fBm/uun2sdoOBQmm+ZtUEoNGcnmeMW8DEc4MQz7+czum8+wzlMjquhF
-7OFQO6tX2HvByW1ARUujDlkwSPVfQSQYXXwrDoh1Si4kojAk4z9jIBN0dzPp8Z1y
-/T3vY56GBVN4K8P+uRtKs7Q3cQvoySwb/tbMtjUukseYQOu4y07Ahjih2fRrtRf4
-/5Pu8P0BNITQfmc0nsTP9IBI+JEIpwModufX8QZGS15HyoupoA21w7OpzAVamVlx
-OImMB22d32mFMv/OM3oJn4f7Praa3h6j8qKREbwo0FZsCl4rOKqQWVGILY0cBxIB
-9kaaUWW/Ju78xwH72nlyJl1zXuqDYjsAh7BXY6457zJp/8eutSNikalsgdkEVNGF
-4CMbAicoPTatPFkIM8LZ2sNFNMGAdwh1XrZardea9NJV3DK5jXkY8zy4Y0KjM8FA
-maVJONdZQv2d6N50Owf61bS7gHeKTmyG9P4WO9XvRHEnVdZPJuEQo28LpT/+7gdK
-PRtNSKzr5Bxv9PdT7m9YCDpH9qNq09civvhOB8ittmjC3h5yVCo=
-=r4Q7
------END PGP SIGNATURE-----
-
---356dxsaiqd4y3y2b--
+Thanks,
+Peter Chen
