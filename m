@@ -1,80 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795670127;
-	b=okJ2dTDmGYUXWtPwNkFy0I1svJhmgSSpf8E+asbdSL+sNLGHyadBWl6Jg/hla4kWhE6V
-	 xur9bM0Z6sBk59cGs0Jc1NH9nu8d217lSa3fOLP9VH2Mb/LPm0LSWUR8/gL0w1/Bwa+zG
-	 QsR8HPcHjItHJJiTgvkQR/BaxhXCiARQDNKXuXZP2PNuJBJZJLshAdo0Nf+KTrFecqyyY
-	 OEgVOStU7/ShkKY+WaiueeX5tLbQk94OsHCCb7hkOiVy4EF6NvNFGvu4vQw64k8jy9pJL
-	 nzp6UHmCem/1wb6mBpCCJ3jgYsOlf7fg0ah79esNLGcxEO6i6mxNnKJoD83RY9VY9tg==
+	t=1795670128;
+	b=R89Aj/83ATswZvkBt6winTl0EXAl6h3gICJs5jo99D1Vh6Mjv4DmcaM4vFPjiZ2X0+la
+	 QSCRyK34CQQ3ypnRhgGdo24Ck0zdlUeJrYryPL54CxNAZ3Nap8VPqLvcb6NfWrVzmH4nn
+	 gVTmFtMWmluK8jf3D8nODMOKDk7E6y5qA+mA5xAPsYC4+rU1eamO0EZrAbk6jMI9vFlEb
+	 YU5qLJtk8jcKvB5dABY5BJ1YPmSvXxPxidP2WTDkTjFOipRCEtiL5ZP7I1QNFBumysI5c
+	 8wsfmU5eWcrwR8uncynPQnXOi1M/e7wjCZnMawjbmcS5cRZXjcZ7DuJi0EBF84zkBXQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795670127;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795670128;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=x7dWTwMm4SzHnnHqQMC/uPsi8F2/ZPntO42FlxEQFuk=;
-	b=OAyNxFfwI8GD/tRCC7E4GNimNwp4Sxg2NtspZJw2ZF7SAq24ImuMHPtB14lIuvjNqceE
-	 yI0n0/+AEmSccDRmKKITbT65RdbS3fQLg9bMVSlm1ODDZIZOMGwjLgrEKKx0TGnyq+EP0
-	 dR3SJ/EulmB582ehobEJH32QDZiY8xT2rMvmi94+Q/+kIh/J1tCow5KA7sLewuRaWdRSF
-	 rSsaPg8oKrPz46mpKbHU2StGMrczGmwGBDXsDG1juJQtff3wOx1hKucy0nPZBtajHnkvm
-	 50jNIuBw97Ya+MscHQq/vs0tTh+dxbOaYIMhXFHu7lVm+etaBsD6v3Xa4wRc2F2b4iw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=qsM5RJY4ssSc6XEZK9/kRUVmdgCpjgjWKidI/l+cEZA=;
+	b=wbrnvAAXZ/BkxMZsXPrpb2Eb1IWUuWrdyrxvBiNtGNtq9tiiWmFUcSIv0Jh7nODLEk2b
+	 Nt4GERn3Bezf07/dABVXoz+c2FxtQhAP6RmqSAyTh3Rgy0fokwNgv2i6mrbBhI3+J03eJ
+	 rgWLyA1vODPvtB54brHE0C2v/T69UG0hNjvQ8+ZkuBQsH/snmLELJrJdx4Jz3vPtzz3Tn
+	 fQap1PL7p20ooc+9zQmni6pNe5LMUgWP9XY2eBW+PxfACYtt2J/ffEElT8CKVbdU8lusE
+	 ziGYp2thSQJLq0K/gd1Atko4C9xMk/iS/h/nrN8jrC/qyHPzQz8jEiUY7jd68Q4OoZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iKbOWIiG;
-	arc=none smtp.remote-ip=209.85.210.173
-Received: from mail-pf1-f173.google.com (mail-pf1-f173.google.com [209.85.210.173])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=anPSe+SS;
+	arc=none smtp.remote-ip=209.85.210.170
+Received: from mail-pf1-f170.google.com (mail-pf1-f170.google.com [209.85.210.170])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C9C9606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD1E8606A329
 	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:15:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C9C9606A31E
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD1E8606A329
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iKbOWIiG
-Received: by mail-pf1-f173.google.com with SMTP id d2e1a72fcca58-8b904d10882so2796777b3a.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=anPSe+SS
+Received: by mail-pf1-f170.google.com with SMTP id d2e1a72fcca58-8b6a88e4341so2888054b3a.1
         for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:15:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795670126; x=1796274926; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=x7dWTwMm4SzHnnHqQMC/uPsi8F2/ZPntO42FlxEQFuk=;
-        b=iKbOWIiGHkqtA/5jKZhAMxeTxrmFx4BpZ1moKvCoQDRApIYarchwp5lVytCoTupgc2
-         zENqTOk2aoJK0Suy2Rsr5Uc4eHztx+KtI7kYR2j91GEAstX1Erk3yC3iNWP6ahTBBQci
-         ooVLRuEs7ra+r0IvrEB7btVukXZAjKKT3Fytzi/cM6OAMaBnPoXk+YcF4QZGkigqbknO
-         W4/k4neFAwEeRorFy+Pz9VsJtUVPV6ygrjE3wYFHj1iYYmFUe1NlCm5TqF0ouoMcL+Wv
-         OKBk7mltR+quXS4RYAdWKfH6RXVkMLnE9JAWjcGi6daraw14/7dng+nK8/B/ggQ95OMa
-         GYnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795670126; x=1796274926;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795670127; x=1796274927; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=x7dWTwMm4SzHnnHqQMC/uPsi8F2/ZPntO42FlxEQFuk=;
-        b=jJFxH+Hx3DhMxC+fC6Fa0uluVoutxYoIAOSYg2ZXtTcXL2bqk64H/a4BhhpqVmGF3B
-         /VRPQyNNZ21dFrd36MqxpQ9+ZZGZpmJ2XTd3yZeyCP4Ooy8d0thYdZVmk2RdiDmNe8zl
-         yE0YmKmXmMR5RMeypN22iSirJA5uWExZfP0zkSRpkqPVbZrpn2TduYZqqAA1vtGsCoXl
-         Ut6ZYw91GG5xcVIW6VJhtqnrh2wueSqu7RmlzkqKDYcNjZQZsMQjVKKkumUJNxAjIpkH
-         4nSXd4JHjYDiPaLnjFKDxBkgbavnVWb5FzNU0gYEHWEvaMaq9NKnxuEwQ/tJJRXtZjqe
-         bInQ==
-X-Forwarded-Encrypted: i=1; AL+hErFj3Um2dywQ9rloRqf7kjZD9vKLnDYzuPNyMq+rQX0mJCubpiaMy4eYBovZQzXE/OmKxdFuI7/WiQ4lr/A=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9aZfLJAor4pvVvh9V3QnWo9DGGE8bxFF+GgLvz8/RwSDHj1Sbq
-	TRsAvmfdY0GX3dWZ3Jdf9XfdZ24OEKr6r4HPe8zP/jPMWSYL5c+r4uYb
-X-Gm-Gg: AZFdTZdkpenJt2r3rRYogvxgxqtwTWLynTgp7iTvzKwSSrsj2zttaq3J0VyvD3TD1So
-	6luIY0yH66U3JRuyBQQ722/LEkl+lFQ9508ii/JMGPhadTLk9GG+DJOMmvV2DR9LxxmAD6LSZpg
-	gYkmZ8axFjR7CJeB2eueeIEZEG6PxpNzTnSJSphcD+QMtguXLmwnr+aFFefDczIgJHXqiFydel3
-	As/5mDQDLZdhiRx1q18e6AGaxsfvVwgmjG6sRWdPYEltUpw/M3vTO6w7m1YgXAdV1krCEpmE2+O
-	U3sg2Sy82R0NtBkdCRETloX+DU6yQCz/buRCvVc5kkEe8Of1DD7iQVe2BM6NMJU54OMQI+taKdt
-	PfZYBzcBf7dd4wiw5+M2eM30Od0PMvUPIPjM5XrHAsV+TkYix4Udj1JVIy/QDZ1ZlZrCQ4F/sfw
-	ln4Gk1fy2C0fLyw2T5XzLQNjg5aXTI6HLxrNRjXS5qY3U5a28p7OXci1nO6NbRCy3xsRFn82L5b
-	vqkk9Z8YeL0fzhOCeJNnQ1KcPiBcsdwUB89ysUmHWaF0gytU6LQDSGgvLQbKgEkGCsmtaEDqD37
-	Isof4XKvOLrAbJyn9hlLW5p0MJ8phS4Gao7Rd9qJQe/OQ+NYcg==
-X-Received: by 2002:a05:6a21:7704:b0:3eb:4b16:1afb with SMTP id adf61e73a8af0-4014e6566f5mr18994749637.56.1795670126494;
-        Wed, 25 Nov 2026 21:15:26 -0800 (PST)
+        bh=qsM5RJY4ssSc6XEZK9/kRUVmdgCpjgjWKidI/l+cEZA=;
+        b=anPSe+SSJbPa+iVGCzFWsJegDk9HcIXXjcbEXj3+ReLi4sWHyF7gmMhyyfJvyTL1nO
+         q4W35BEAX7OXUCoP3eMRthxOGqHfuX+Wt/GTFG7WtTtrk98EMEDfXporL7Ow/a+xMq6O
+         ptcJOsVfb7FTIfyuCo8tWbjXoSrEg3t8FdXqxY4N8MuZia96ESLYJJ4pStjOTvMvtr0Q
+         zxqYgKNbZt2PaeXehBjM04kMZH1TA6cyThvTE5zXj5k0xW/uiu3m2QKFOJHApWl83H52
+         bbCHVGiDW3P9RCaS7fm4/usI5PM5FprWUyEGcZi97CTml3AuG2pmV6V7xrZ9zyFmgsG2
+         X/bg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795670127; x=1796274927;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qsM5RJY4ssSc6XEZK9/kRUVmdgCpjgjWKidI/l+cEZA=;
+        b=iMD87iRynQpv2wqZfqEzCdrEDSnJtxpQM4U1KMPAxUvYKSgfxQwYpvKB+yyqYSytso
+         VdsUL1+ctjPM1JiLg/+0hoUTkOFx3uSROoDReVftbOhQUYzzh6ViZC180uvcRzANAUV3
+         miV3cEpgS1YhNN47K+vVdCTDOeLiWqzH9DBCexmam2IlNNm6Bp5KJ54tVLR4TbgMoVft
+         ytyXW3KUqFNIInBgZ4G9PC5cTtoZPrEBg27dyFpvcbN6Tgstzy/9eLns8/GiTuu7kZkc
+         rHdH+3qfaZ7gYU/CGN22lLwMoSeQcgkA6hlVWPQKmrLO/vl81BP7f1T/RRkEVOnSVs95
+         nVsg==
+X-Forwarded-Encrypted: i=1; AL+hErHgKV6JqngJ6dFsFOZ3RO3ZZabBXFewTpPDF5Y+bGqdxu1g7KZhr75uXN/GLLpnUF4zU9LUbQW1EzQ1QFE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+bXmhC3DKXpXAkwNki4te3dSMhhv1STai44bMUWK/+cvjlPpLt
+	lrOG2HOsrFpewucWeHEcRmfoMM05MWxDMnyn19T3M7UfgEZWlmrar3BU
+X-Gm-Gg: AZFdTZeE1WM/7hvQM7JoP/tMDCQVCiQ7jaLgooCR/UMGYmOk3akzKKoG7BYd1lyYSL/
+	mdvaIfLgq/FJpsIVO9uMV/mHZMhTBgN/rt8kvvRfzZ+iFHV566Z0VeFeAglDDQziSU5w6D9DwVy
+	FoxWUnZd7EVUYQC+m5aywKkyVt3rm3KLjSp3IzEQ1+wJqqOqu9qIz8KxL04OtNL/t+3RADYwZpT
+	GqJ28K2H4uTeSQ2hzGzve8WziSMHbdc/pugaOa1uv3DWfwy5OhT40aLcyCDIJLmpcTYgIbL13cS
+	X/h2FcllGDhqV+JtmBWZfZoRlau28sU+ViiUc+ViI4KyAFj2tpCFtsyFphRmS25FrygapOPYF0k
+	OscAySbnG1Mx8XThcHtl1OE5CPzFi/ZncPTNHFJ0dw7DFY6rSHpbt1LVZpxR2+DMMSqIimuaz0O
+	egM2W7G3GS+QZAk0gYrFr2NCVBGTU9nA5Ysm/M1NRHPlWs69Olcv9Gh+HYr5PH5ACCifVF+ERLK
+	HgPElpUzkeFQjyB4p2UztkiZAQLaIW4BB23CtdA6ChqvaK81yi5Mii7qMKShN2ktuP3GF8QJpWO
+	D2Fu68QyJkF4P9zrsJzEtTHo8HML6bSyOv88PF5D1zJq9w8f7w==
+X-Received: by 2002:a05:6a21:4eb2:b0:3e8:b7fd:6280 with SMTP id adf61e73a8af0-4014d85fbbbmr22187564637.27.1795670127244;
+        Wed, 25 Nov 2026 21:15:27 -0800 (PST)
 Received: from fedora.tailc1fb0a.ts.net ([172.219.65.15])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077a058sm10179820b3a.8.2026.11.25.21.15.25
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077a058sm10179820b3a.8.2026.11.25.21.15.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Wed, 25 Nov 2026 21:15:26 -0800 (PST)
 From: Artem Novak <artem122novak@gmail.com>
@@ -85,10 +86,12 @@ To: vireshk@kernel.org,
 Cc: linux-ide@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Artem Novak <artem122novak@gmail.com>
-Subject: [PATCH 0/4] ata: add missing newlines to error messages
-Date: Wed, 25 Nov 2026 23:15:19 -0600
-Message-ID: <20261126051523.14431-1-artem122novak@gmail.com>
+Subject: [PATCH 1/4] ata: pata_arasan_cf: add missing newline to warning
+Date: Wed, 25 Nov 2026 23:15:20 -0600
+Message-ID: <20261126051523.14431-2-artem122novak@gmail.com>
 X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261126051523.14431-1-artem122novak@gmail.com>
+References: <20261126051523.14431-1-artem122novak@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,34 +103,27 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-This series adds missing trailing newlines to error and warning messages in four ATA drivers.
+Terminate the clock-rate failure warning with a newline so that
+subsequent kernel messages are properly separated.
 
-The changes are only formatting changes and do not alter driver behaviour.
-
-The affected drivers are:
-
-- pata_arasan_cf
-
-- pata_pxa
-
-- sata_dwc_460ex
-
-- sata_gemini
-
-All four driver objects were successfully compiled with an ARM cross-compile configuration.
-
-Artem Novak (4):
-  ata: pata_arasan_cf: add missing newline to warning
-  ata: pata_pxa: add missing newline to DMA warning
-  ata: sata_dwc_460ex: add missing newlines to error messages
-  ata: sata_gemini: add missing newlines to error messages
-
+Signed-off-by: Artem Novak <artem122novak@gmail.com>
+---
  drivers/ata/pata_arasan_cf.c | 2 +-
- drivers/ata/pata_pxa.c       | 2 +-
- drivers/ata/sata_dwc_460ex.c | 8 ++++----
- drivers/ata/sata_gemini.c    | 4 ++--
- 4 files changed, 8 insertions(+), 8 deletions(-)
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/drivers/ata/pata_arasan_cf.c b/drivers/ata/pata_arasan_cf.c
+index 12f1324461d1..0b3e4e63b66d 100644
+--- a/drivers/ata/pata_arasan_cf.c
++++ b/drivers/ata/pata_arasan_cf.c
+@@ -318,7 +318,7 @@ static int cf_init(struct arasan_cf_dev *acdev)
+ 
+ 	ret = clk_set_rate(acdev->clk, 166000000);
+ 	if (ret) {
+-		dev_warn(acdev->host->dev, "clock set rate failed");
++		dev_warn(acdev->host->dev, "clock set rate failed\n");
+ 		clk_disable_unprepare(acdev->clk);
+ 		return ret;
+ 	}
 -- 
 2.56.1
 
