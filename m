@@ -1,113 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795691848;
-	b=1RL4AixhzSFrcPW2zxZiitj3TiAtKtlNt8br+JduQXiqFPudiAjZGJRiFb9ic+MdVRSq
-	 ZzlDdbhZmkL2HFHkdffN3emhLjtUqCOWGeMgJx7xk2UuYEfO9uRuVFh1t/tmS95+J1OeS
-	 /JKU5BFGgBq/kPKBGZ/99PN0yCJhy8eETf1rN43HecwmW06ZaLM4rMTrCj7XqKdk5O55E
-	 1s077bxAEszd8C2WXzRueGUb1ppKeYegE0EhVvTQWTv7jeJvyCHoRJNj0KZyszUARxjrA
-	 Ba9U1s1U970zKvrfoQFeaRdf27/BMmnjzyUzABMWjEGtiFfLKw+hxP969BTN8UVG1mg==
+	t=1795691849;
+	b=bB7Y2Dsd+xaeBpeADTJc/Q8nV5D7TL1dnZMH+H4ZFrWaVMXwRkvEAdBo2IcPSPgtcsyS
+	 G+Q9kpHiI3FxP36b0dF3OI1uc/4jO2xZbEdJxCkGFsoOtrtBC19rJ1K5V1Kh+GqTVTWJ/
+	 oOFkoUbuEr9hB4PG+h8EDvpk/Fs+YvErtdFqkqiv2DilC5p+zxYcfWEYcNe56iV6WHoe1
+	 aReDqQ8Zc15Z+J10/XrEwTh41yN8XXn+36XPxgwJTjoMWxH+y3EOGLcA93+KaRG1Gx0+H
+	 uiYwtQcDCwsTa9A6FeM16aiMkKztYvWIfsrA3Q0W0ShqCGzdMMa23FIoWpltytgncBw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795691848;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=LczL5BiLVZ8edJ8mzcgVaZOm0K+ce2l6+1MIkOsoudg=;
-	b=t0ffA0OMSn1SRm2XGnmRNoXLHYlwgqZXNInZbkhR5qrA4ui3VJcLKXquvv7KZlwE9nps
-	 ZZr6Bzi9nttwQhZFK5gzZqUePjz6bdtD4N9XAAXaqveRc9nwggpyE8o+V8Wky1Q+pQgFK
-	 g3XeLptsITl8tI0JIm7bupfhqKT2PzeB9cmTYiyP22PUC428v5FC/oRDLcoRBk7KVnQeX
-	 SUUEbf2RK9pe3jO4oeJVgfZNQaPG1bCNT8ocwGyaULUGOObbKiBmueY1rwdBbd57ide+o
-	 8lQ+4Lsyvsz7x8k2LhcRrJYECg/2MAH0tkIAeczkg4eOjbcPxvB8JqPWG9zEfPxkdjg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795691849;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=8anWI4wnghqDwMT8IkGpbFVOQpbY6mA/D0RVRsfG7w8=;
+	b=W8ERTH4ExFEZxsxs8kEwtQfymhe18DbmeiBMxE1NwLAg8zAOG1KNai8t+YhJWTg7kkEu
+	 YBuPHrL0YG+e6IzUOWplU/q1JO+lUdpJ74LI+rRkJAINtBrAzXa0qnPOp3vXIvJcm6mff
+	 /Gm8yr8dhdt7iO+mF5MGBj+vrSiQkWsGYY/s8uUb0owpC6SKnOcHjeGeClsl7BCxIYhDF
+	 98IfC2nt8XYq5Zpvh29WIPRrjQitYSenyzhICqAkXRMJAxhBtluiQNfWG+mqbli4FW00E
+	 BIwA09w8GUCAwz9JPmuTvAW0d+cixSPzYEUCYWwog+4InzA7sr2nqvMJK0oUsmlU93Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=G3hmVTVb;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=iTAjEPJf;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=et37q7q4;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D23A2606A33E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:17:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D23A2606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E678B606A32D
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:17:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=G3hmVTVb;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=iTAjEPJf
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQBHBgl3860155
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:17:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	LczL5BiLVZ8edJ8mzcgVaZOm0K+ce2l6+1MIkOsoudg=; b=G3hmVTVburM98xk7
-	B7qB5mcpHxodDCYqnHJCtcmoNaorZvEjLvLFM+IxukVmknInBtwBrdxsxE2y4KcY
-	XU6NBj+QAgT4wAxJYYXULrqZjWQCeLmo8iUe+tJ8JrGS2G+2BUj1IDpNyC8jVl34
-	YxncGYEC6Fn3VECvm/7CwH0Gq6TJySiAB2PtS3w7iM6ybTlROnE33HFtJ7028LfB
-	cITc3hfSenCn685LThBuARjH31qAS8DUTehWtOFaLMpZYzNbrC0zTwasXQi/nVNn
-	2/egM0HymlEuZrvBO4pg/SrjArxrt4siLxi5J/1vlY2Uz9JfrDwpR4BCc1zN9i89
-	9NT3Xg==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6hm80j3g-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:17:26 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-55ca6405c20so132830301cf.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:17:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795691846; x=1796296646; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LczL5BiLVZ8edJ8mzcgVaZOm0K+ce2l6+1MIkOsoudg=;
-        b=iTAjEPJfYlPJyXjh+xl1BBZXA8r7A9XLu4Azq5jEhUEFUtPglBVdpxkKbudz4ZcstE
-         lrTp60U5JoDMA3uGXCIfKKdeY/2QUj3vXog2jXxtOkGesF8p4SXUUAbX2CWrXBe08HK4
-         4/iyIOijVXQUssEY/9Zc4HJj2XU5XIFKIoom0aAUJqR465j9bhYQEd75K9hp8I1O9XCd
-         /qZCwE87pdoMlLMlARfgo/7SL7lT/YvUN5xeskD9nRKdIUvW7asj9iNX53NdmkNAe4n+
-         D1+wvz2W+s58BNxsX57PKg8d/EZQUklU/VFszRGuHeYh+1gQE1dvQAlDolfHSD8kVenK
-         DSow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795691846; x=1796296646;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=LczL5BiLVZ8edJ8mzcgVaZOm0K+ce2l6+1MIkOsoudg=;
-        b=VQ/yOMxQH7vu7x2mL6ZQCbcylf0DQv0HMivnZ6MLt9luUN4SkTodZVWDMaw1TPnSPi
-         0fFb5ilJatwjtJE8kU/A4zKRWyN3cXtXEwmr45pPFbv0sMt4sDv0f5oiKCO6igZgStW0
-         HlGmuAnDfM/VHh/45tHhi94e0vhQlrvTbUx7R5lFQ7yF1XA9k9V4/9U7J/PQrA9au/9Z
-         85R6PGMtsKqCFxyZw9bD8CGofvWR7OB5Jx7oaaINobLJ16DThxkk6t1aGGlxWvr07RdX
-         FwDZ15x2ZNAg/DfgIqzOEOpt6NKcZSjwGtcmDntItIih8m2dPoJU2da5gAzj3wsoQYzo
-         Fiug==
-X-Forwarded-Encrypted: i=1; AL+hErEL+4NlwQ4wtarmHnSg1adjMriyBQ62jVfIvmTMR8VIRMH1q41NJ/UyihRhPClW3JMUZN6zITxObzN2YL8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+7mWOEPpv5f/DxTHN3irsPiOSX6sZgI1Mxp8xwkzZHjftYkXFG
-	hIRJQZh5+uJgouwPcJvZSz6IteeMgPIgMDsQjLzyBm/s/+TfWn9Q5G4M8FsvwWg5v+00oGY7acC
-	XGBClHmCCVpz3TQ2PmP5HA3QOFO/VbDutjw2wkIwKMC899wQuxKrPFu5lUTzu+2SNCl4=
-X-Gm-Gg: AZFdTZfBnxEJVS5qKlkvkY8iZGpUTpj0Ku5NnBsb/eXvJEeKP60jn9eh3HxyDd92AD/
-	W70HAA7lVR0sKKRdZEUaZoemckng5hQxqyKHMPmKROEMrQFFUFeNsc5K3cjp2qtreHQLhkDNd5D
-	ZbJQW2WVIPMJEuU6EjV9elRYxMht9POZKVetrLMoOEGQEkofB36VRJjO3+mXg+8Icss0y3uG7xs
-	lBok+mkuOKynA7yGBxwqbaY6sVY6Wox42qnSHEdB+kZOfpyImzl/xVzPMkw6F85B5gYKPhwadPj
-	5nNZUWY7d4uN53m27hLxhA93NS5Vpp3bDjGjx2CesUc/tboQ6Vl/2dF7SyW1jzMK+TAZYQxV/Kx
-	bwPKz6l12hTEyZbw+Q4BfQC50JGyOn4Y52hmz/pkAOLY1B51peGvXO0KTj6Ee0cvyV3etO0H7wJ
-	RsbNLgJlKNObaNpXnOLQK3KWlrLeVz6CLD0qVN3mRyFA==
-X-Received: by 2002:ac8:59cc:0:b0:533:81cf:5c9b with SMTP id d75a77b69052e-55d6fcf949fmr396091451cf.24.1795691846069;
-        Thu, 26 Nov 2026 03:17:26 -0800 (PST)
-X-Received: by 2002:ac8:59cc:0:b0:533:81cf:5c9b with SMTP id d75a77b69052e-55d6fcf949fmr396091071cf.24.1795691845606;
-        Thu, 26 Nov 2026 03:17:25 -0800 (PST)
-Received: from WENMLIU-LAB01.ap.qualcomm.com (Global_NAT1_IAD_FW.qualcomm.com. [129.46.232.65])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d788506b0sm177653661cf.17.2026.11.26.03.17.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 03:17:24 -0800 (PST)
-From: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
-Date: Thu, 26 Nov 2026 19:15:57 +0800
-Subject: [PATCH v6 1/3] media: qcom: camss: x1e80100: Use the lite clocks
- for the lite CSIDs
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=et37q7q4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC5901F01568;
+	Thu, 26 Nov 2026 11:17:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795691848;
+	bh=8anWI4wnghqDwMT8IkGpbFVOQpbY6mA/D0RVRsfG7w8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=et37q7q4eqHRyyOeiojSHRmMB0v7Cm5o63xhU9cRdI0CehXFULk9kBGbiudTHTVr/
+	 o9Kg/vmbbCShoj3ZrKfkdz7XeqUP91dWb2DaKuJvJyXkuHx6PpzX8sEIjPcJTAg5JC
+	 2ppBzlDgGdkvE0rcMUUQ8tccZ+SypPeCnDj38kL9NTMXVKAWj7/2/FijXE0xhMmkn/
+	 TZ46HKa0gexKebuz8NPxghK1wtRqUTIGrY6dfburH7t4T77fVCr66J7mZVmxU68oqw
+	 /uYkDtNR99xnqcqQN7qc3ObNwhrmn+CV3DQuLdLfEZIAlobrGpBOqC0oWKIYsJiJ0J
+	 7NPmzMzUGzdbg==
+Message-ID: <3ee0f274-0089-4450-9888-7be659af9d63@kernel.org>
+Date: Thu, 26 Nov 2026 12:17:23 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,114 +51,129 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mm/hugetlb: stop hashing address_space pointers for fault
+ mutexes
+To: Zhengchuan Liang <zcliangcn@gmail.com>
+Cc: Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>,
+ Andrew Morton <akpm@linux-foundation.org>, Davidlohr Bueso
+ <davidlohr@hp.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org
+References: <9a97a64f7e7aabc668499c426a2417a77d13a2f4.1795587203.git.zcliangcn@gmail.com>
+ <4ffa6613-119b-4eae-abbf-26134bd60177@kernel.org>
+ <CAOny8psx408zqVv1xt7DHN8yYkQksjKZFDQCJ+AGFB-CDN9SmA@mail.gmail.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <CAOny8psx408zqVv1xt7DHN8yYkQksjKZFDQCJ+AGFB-CDN9SmA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-purwa_camss-v6-1-5ab97aea3832@oss.qualcomm.com>
-References: <20261126-purwa_camss-v6-0-5ab97aea3832@oss.qualcomm.com>
-In-Reply-To: <20261126-purwa_camss-v6-0-5ab97aea3832@oss.qualcomm.com>
-To: Bryan O'Donoghue <bod@kernel.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Loic Poulain <loic.poulain@oss.qualcomm.com>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>,
-        Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, Jesse Casco <jesse.casco@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795691835; l=2518;
- i=wenmeng.liu@oss.qualcomm.com; s=20250925; h=from:subject:message-id;
- bh=6Ey5y3ww8capTsBQgpxjXNOXFZAA+h5B/q8ghiZjkAk=;
- b=Q+PXM5oHGjjms4+wSi1VNOH8AS3KRM5GO5ftqcc8Dy0NN8kXh7GS7F/VCIqvskEOJ4Pz0Cwj5
- JmYdCdNht9XB4CVYujybPE8jvsdkOn9/CuuPz+AuvIw6oOm6FxSsdrA
-X-Developer-Key: i=wenmeng.liu@oss.qualcomm.com; a=ed25519;
- pk=fQJjf9C3jGDjE1zj2kO3NQLTbQEaZObVcXAzx5WLPX0=
-X-Proofpoint-ORIG-GUID: djrJKgEH1UI-zTPNiLBue16qdWmEMqus
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA0MyBTYWx0ZWRfX4FQtZdRHbwFg
- lv1O6oQXnfDGw2KzH1FgZ7Eieo7smpTpfdTyJnNut9sZ3chtVXJCU9hfI3ERl/IdjjCzAGj/zul
- z+5kpYgcBVnHPWK2pkf4mB/6WxviOnM=
-X-Proofpoint-GUID: djrJKgEH1UI-zTPNiLBue16qdWmEMqus
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA0MyBTYWx0ZWRfXyrgkwPXfk6yS
- DV1+AzkT82UkqCy2xAVjtsCoMUBfuFH4hdLiefbRtwh3UcJnLbmLy9amMeiYbj3D5/V8P7qrapD
- Z5Wf49+7dzFwICCpIoTw2h5KUBPfbDPYtb8RlmLZkz/FrjzS7HxLXEeTZULu0NT1LiLvFLnBYzU
- /oI5dfhphgL7yyJOhtTZvLWrFZzVCV7reNlb2D8QCjJTqLmubn6gFYMlC6mKiOxLpJJphsQoEhZ
- WR0zKk4g1pwgeqYmdY2utBanKgZKw5SeRYkymNPDgWts8rMsHEUH5G1bfwSqo3L3f2FDEiBzH5F
- LM2dl2y9/A2HKHUfU/hA9SXiOL8CYzfDwXVw/ejh6RTDrOy7GAoyMQmgQeKqdtT7B1OHlFELOTz
- 5tyHtE8qHyf5S7OzGxVRGJHUJMzwg3wcQCinu4qoNMqXSy0owmTuktRauRyAo4pF5ZhkLJtAwVU
- ue4C31mCbZIqULa121w==
-X-Authority-Analysis: v=2.4 cv=O/usLx9W c=1 sm=1 tr=0 ts=6b081546 cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=C3Dk8TwHQYyIj7nOf9RCJw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=pGLkceISAAAA:8 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=lvRKaed-JQPLFg1lVikA:9
- a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-26_02,2026-11-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 priorityscore=1501 bulkscore=0 adultscore=0 clxscore=1015
- impostorscore=0 lowpriorityscore=0 phishscore=0 suspectscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260043
 
-From: Jesse Casco <jesse.casco@gmail.com>
+On 11/25/26 19:59, Zhengchuan Liang wrote:
+>> I'm not sure we care about this problem. I'll let other speak up.
+>>
+>> Attacking hugetlb users is stupid. This doesn't matter in practice.
+> 
+> Thanks. To clarify the threat model, this is an exact kernel heap
+> address leak. 
 
-The X1E80100 CSID_LITE0 and CSID_LITE1 resources list the full CSID
-clocks, "csid" and "csid_csiphy_rx", instead of "vfe_lite_csid" and
-"vfe_lite_cphy_rx", which the binding provides for them. The lite CSIDs
-then run with their own CSI-2 receiver unclocked: their registers can be
-read and they raise the reset interrupt, but they never report RX, RDI
-or buffer-done interrupts, so no frame arrives.
+Ah, sorry. I was jumping to conclusions that this is about harming other hugetlb
+users.
 
-Use the lite clocks, with the vfe_lite_csid rates the IFE_LITE entries
-already use.
+> The attack does not target another HugeTLB user or their
+> mapping. An unprivileged process creates and operates only on its own
+> no-reserve HugeTLB memfd, even with an empty huge-page pool, and recovers
+> the exact address of its embedded address_space. 
 
-Fixes: 1830cf0f56c3 ("media: qcom: camss: Add x1e80100 specific support")
-Signed-off-by: Jesse Casco <jesse.casco@gmail.com>
-Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-Reviewed-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Signed-off-by: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
----
- drivers/media/platform/qcom/camss/camss.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+Interesting.
 
-diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
-index 5469664dbc4ac2d6722d0555dbcbb1a10dd439c0..d3d27205af0dd49599fe0717dc8dde68a9afa638 100644
---- a/drivers/media/platform/qcom/camss/camss.c
-+++ b/drivers/media/platform/qcom/camss/camss.c
-@@ -4567,13 +4567,13 @@ static const struct camss_subdev_resources csid_res_x1e80100[] = {
- 	{
- 		.regulators = {},
- 		.clock = { "gcc_axi_hf", "gcc_axi_sf", "cpas_ahb",
--			   "cpas_fast_ahb", "csid", "csid_csiphy_rx" },
-+			   "cpas_fast_ahb", "vfe_lite_csid", "vfe_lite_cphy_rx" },
- 		.clock_rate = { { 0 },
- 				{ 0 },
- 				{ 64000000, 80000000 },
- 				{ 80000000,  100000000, 200000000,
- 				  300000000, 400000000 },
--				{ 300000000, 400000000, 480000000 },
-+				{ 266666667, 400000000, 480000000 },
- 				{ 300000000, 400000000, 480000000 }, },
- 		.reg = { "csid_lite0" },
- 		.interrupt = { "csid_lite0" },
-@@ -4589,13 +4589,13 @@ static const struct camss_subdev_resources csid_res_x1e80100[] = {
- 	{
- 		.regulators = {},
- 		.clock = { "gcc_axi_hf", "gcc_axi_sf", "cpas_ahb",
--			   "cpas_fast_ahb", "csid", "csid_csiphy_rx" },
-+			   "cpas_fast_ahb", "vfe_lite_csid", "vfe_lite_cphy_rx" },
- 		.clock_rate = { { 0 },
- 				{ 0 },
- 				{ 64000000, 80000000 },
- 				{ 80000000,  100000000, 200000000,
- 				  300000000, 400000000 },
--				{ 300000000, 400000000, 480000000 },
-+				{ 266666667, 400000000, 480000000 },
- 				{ 300000000, 400000000, 480000000 }, },
- 
- 		.reg = { "csid_lite1" },
+> Since that object has a
+> fixed offset within struct hugetlbfs_inode_info, this also gives the
+> exact address of the hugetlbfs_inode_cache allocation.
+> 
+> KernelSnitch (NDSS 2025) demonstrated why the address of an
+> attacker-created object can be useful. It recovered an mm_struct address,
+> freed all objects in the corresponding slab, reclaimed the slab pages
+> with msg_msg objects, and thereby learned the addresses of those
+> replacement objects. Here an attacker can similarly allocate and release
+> hugetlbfs_inode_cache objects by creating and closing HugeTLB memfds. I
+> have not demonstrated full-slab reclamation or cross-cache reuse for this
+> case.
+
+Right. Do we have any gut feeling how exploitable this is?
+
+> 
+> https://www.ndss-symposium.org/ndss-paper/kernelsnitch-side-channel-attacks-on-kernel-data-structures/
+> 
+>> Can't we still end up with the same problem, just slightly different,
+>> afterwards?
+> 
+> Yes, the timing channel may allow the per-inode seed to be recovered as
+> well. That does not recreate the address disclosure: the seed is neither
+> derived from a kernel address nor used anywhere else, so recovering it
+> reveals only this inode's bucket distribution.
+> 
+> A simpler fix would be to replace the mapping pointer in the existing key
+> with mapping->host->i_ino. The inode number is stable for the inode's
+> lifetime and is already exposed through fstat(). This would preserve
+> separate per-inode distributions without adding a new field.
+> 
+> I understand if this particular address disclosure is not considered
+> worth fixing.
+
+Oh I just have 0 experience with these types of (let's call it) address leaks. I
+know that we, in general, try to not expose PFNs/pointers to user space because
+of rowhammer.
+
+So this probably should be fixed.
+
+Using a random number looks good to me.
+
+Just not sure about the severity.
 
 -- 
-2.34.1
+Cheers,
 
+David
