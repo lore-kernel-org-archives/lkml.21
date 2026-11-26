@@ -1,110 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795683417;
-	b=I6APu0py3IO5eXcoXcRhDjcgxRchb0aJS73Y16ilNz5M9nq5rUmylkv7lxQaAyk/VtJk
-	 nHbe6felcjqIjwJalwdhq4HuZ6Rih4NK7T3hFsAoduFYe19mlp6PRnipGr/AVr+qwVeQs
-	 V3CN0JMLNbSoh5REJND5esRE/ZgCDHg/g9rzxOXgNi8QPFMXNgxAgLFM7+QgT5fI3oLpJ
-	 XoCm5DAQ5Dyc+TQbU706nXtUW5nRJTf5Ogo5bIhDXt5jLtID7nosjMt4xhBgGBEGxVkjO
-	 seH6CTuilbPbiNSr2zUnj9B6hhlXi9foH+pfIDNUANCvuTBdNplT9V3KShnHAmrhYkg==
+	t=1795683429;
+	b=i6cGROEmrxfFg/TXEIH2BhuZddwJxoCJ5khFYN55mD5z1GW6/YesekWARQHg7ADoiAsU
+	 glLJKiNhyfJaw38R2nBr6dpTvyfAdG/qmsEVJWjL5y5U2C2Jh5plJyjTQmjfGIXLT147g
+	 t6IZYbKdGqwxv2K7py5UnfkTauBHTBGPbjwax6KXgThAWvtnOmD4HGkFvsEPPT8EybGAw
+	 ezcWgMjLdgIXkx3O/a1gADoIxVY78p0QZHIrMVHp8MY1v7VetikN9oEQ5OcShqhoJQVRJ
+	 9C9NqhFCr5ASjnekOLm4qW1FULFkPYQLpOYDELndqTijTmtkUFLFdJ08xk4PltXTNGQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795683417;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=UT7V93BmJFEXCnpajmA/sL54AJXKncbq80dRI3AFe6w=;
-	b=TFMKCZlfQUob5vsNFteXQYfqYikoNxKN/xwmqBpGnCkwlC6z8rctT5tzMYoIz0bReuwc
-	 YHI6zaW0X8mdQN4EkS5r31jeDBiFFcs9CRnNGV52N5QKigB8ANO/YNeU5hrFIbD72Pf0E
-	 xdD9gi2+6ToxfHh9tngEmRvSgGpMFDxqsinyBhpKovLm6jvk8Di+ZGwyEeTOV4ZZqOAoK
-	 tbNwIJAr64CW8203rK9r/w2heepITLjqEZG9dfr0p3YHVZlUE5kUHDCJhfkpyLex5SMOd
-	 b1Lm87hcHB0+MZ1FZqhTRGtMiuvv47jHcNUAdV++mh3cio4OJuhnFUykSZntQkS7NSQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795683429;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:MIME-Version:Content-Transfer-Encoding:X-Scanned-By;
+	bh=+xm6Nkf6BzesHyi2GpHfWG2ZszRki3RAcUZM3tdcUwM=;
+	b=4820XfoFHJuM00ez5HH7H6Wbe/9alqS1qNrIWSQOWlC8blsF6ukYcnj0oAqWIXywHiHM
+	 DOzXxDnS6UzWupqyvVXYIAzayRIFCeN+f2yUNuJsCMPLBVXcLKgYMptt9ZpFbEV5gcEfL
+	 ZUN+++1WUr2QI5ZqhXm5T9Iovu+MY95LohKhzeB1H19CjTOLdg6FvN/GMPMxKlL9iXV3X
+	 tRh6R0e0QVE9dnAhYGKYPcpf8GKZwWJblzG2gLNY8jGSaNjvMevuP7GXXIw+ZJMn6MoMk
+	 itjjM8MWbKr6Vf2d0jCtwgeAqBwLc4y6ngIf6D0vBOQ2+bttJe1eedDxHYLI9fXlBuQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=SPb648b1;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=JLMvmlX6;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Lh3nowhw;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0006606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:56:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0006606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35375606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:57:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35375606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=SPb648b1;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=JLMvmlX6
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ7B5x13548355
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:56:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=UT7V93BmJFEXCnpajmA/sL
-	54AJXKncbq80dRI3AFe6w=; b=SPb648b1SPV/mhrmWjqGSGxPY0mJxEpTEJnesk
-	qxr4roL7zxCCXsVq+DaR4DNzjl7/Nuz9Pq95YuPnIYptJ4ZLkzVidkAP1MrW7x+m
-	Nb0mOGTFvSGS6mx5hVxhlqRKwO7cfkqyqwfLtWQKZT00SOrPYk1lQ8ZNJ+boyTH2
-	77mKuymTYkCHykvN7KuncSU6Gh9hw83QV82kEfkaMorGbHQd2dNo0+A0xhTcU80d
-	fpJzTW/NWTVNnWPvzSdgDgXt/tVgeU374kQe5Br6auqmRep5WqNQ9cV4+CXxLHmz
-	T7HRKppavfk/Cqqg8V82wHq5Jt/Qbo94Qs7Q282nN35zzAyA==
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j62vau4rg-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:56:56 +0000 (GMT)
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-92114c39cadso124126016d6.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:56:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795683415; x=1796288215; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=UT7V93BmJFEXCnpajmA/sL54AJXKncbq80dRI3AFe6w=;
-        b=JLMvmlX6QpQdd0nL51w333ElbPFBdsLeUE3+Pof4iogAVdWIV6q0lQswAvvzaTP1fY
-         WJcI7dWgqI5zbx/TIpQ35UTncVKlavjACujBS2wG9EuB2t5QzquuZlLS2S5W1YviOoCa
-         lkQrVgk4PFa7MpfZPxu6NqFznTcFyQouCiDAaaWqRVZQEPQQMJ2QEBhvbvVfGMw95SYN
-         KhoHf96WmvTaTMSBJ0MWTaPjcYOky6aKf2Ow4e4aFhWiocLThkSaDTeh+f/MeLlb5wgi
-         KreGKAO/pV6eH6Z35HTtR9nqKcsIHYY4NU5U7pYDolSzjVo+ScLuqh+UCU7hMY1e8sjS
-         IkTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795683415; x=1796288215;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=UT7V93BmJFEXCnpajmA/sL54AJXKncbq80dRI3AFe6w=;
-        b=UJTjUXGPbCAAC2AuRu3oqa3i48gkT/OEPTQ1+BgDstmiQHS3QFm4HA3DZSxh25Yk+8
-         c8Aa+BkPUPQU+/6OGHmt3VQYpO+IzZqDsTuLNU/WvfdnoDLMU21YwlnenpHAd+XN/xxE
-         F9UsjND8oS3t2n5yMGP9xU1Cn0JIk307uOHNjk6zlM2xmJe+DGR648F89gZ62H+w5OgQ
-         1gArpaQ3bAWO8S22xVZmxFKsY8fR6uZzUTj9msTtDTSovj1KeN8gzdCBRChnVLTV21Cm
-         8AGlRLss1aUtJXI+pdPWHK3iHSvXQWvXFlvpu7Naatw1prnfwK9GCV7OfEm3mtH4Mfd9
-         xFEg==
-X-Forwarded-Encrypted: i=1; AL+hErFEP7BclhIQP1sixShWOX4bfH3CkKnaqJHWSmYLVj+5WLpcsXc8Kx8ViRSZp8Em/AfGFaYzjtPFCU6bUcU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+XNfaAKoSpbs8CCI48DLW61fBofE7eV7lDl8UnJoTqSrHktSvh
-	kqyBEPJZVSVezJnLYPvRmR5ot12WmdTxX95qyQNB7zmF/mPFouv9shOay6y5El8Zt5Y3HWXK0PK
-	XKHdINCcU0AAUsQyIFmfYGjZGPYVDYSttAKLgU0yXgmgNJCmOMtdu5R//aCxzHxYUvF0=
-X-Gm-Gg: AZFdTZc8jH+KWy3hQQlfDifuAUvenbNLL8vJRXKqnUgL4X2uSEv4mp2aCvaoo58MsZu
-	tX7coaM7cnXNB9OJEHdhhCN3dzUQmmmVoyfqx5gjFcBWdNfXEXKXpDbtpbynhkxzMbInmMbtgS3
-	voyN70wWMO6tT2hKvy7DbZ9ewUvmEB41HhMBP74Vk/JJ64HWfged1d3FGmCLzQrdyI/dCvR6Bim
-	nd7rY8QChUAOp4iZ17YRQKS8XsSmMMWE5J7jE+OSKqgIrJpl+rLLa5kHntKOWeoxUsbZV05On9Q
-	RdGQz+xv1c9JrscGSTV28IoRbZkDIMyJTuuklJfwFjel7QCWRMHX3hVMOt1+jMl7Ijqx51AFqxP
-	arKN4gj0ejsj60G15+Mn6dhZ9Ac8RzDdQUv+LUTJG1Gtf8piobFuQYJePUTpyOQ==
-X-Received: by 2002:a05:620a:29c2:b0:946:c55c:dcfd with SMTP id af79cd13be357-949ba965a4amr3395057685a.14.1795683414816;
-        Thu, 26 Nov 2026 00:56:54 -0800 (PST)
-X-Received: by 2002:a05:620a:29c2:b0:946:c55c:dcfd with SMTP id af79cd13be357-949ba965a4amr3395056285a.14.1795683414378;
-        Thu, 26 Nov 2026 00:56:54 -0800 (PST)
-Received: from localhost ([2a00:23c4:e5c9:901:c496:8838:86d0:bc8c])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a12acsm615440835e9.8.2026.11.26.00.56.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 00:56:53 -0800 (PST)
-From: Christopher Obbard <chris.obbard@oss.qualcomm.com>
-Date: Thu, 26 Nov 2026 08:56:45 +0000
-Subject: [PATCH v2] soundwire: qcom: Fix off-by-one error in port
- exhaustion check
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Lh3nowhw
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795683428;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=+xm6Nkf6BzesHyi2GpHfWG2ZszRki3RAcUZM3tdcUwM=;
+	b=Lh3nowhwZ+YoRj3H8yz4tXtRkOG4pnWxIII4Jo/tBK5fs4rVvYK+FPTg0B7juHfmBolra2
+	Cwp9vAqu/udwG1NwoMrVMwfNI09w4lL5RaUs7MpYeDsj/TdesbQdmubh4lRZmFB+mRKSH1
+	IkAbsjzmzFbLUqtxrTiQtjTxu0BsOCs=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-29-8PSsJiaINlmfJzoEnyN7Bg-1; Thu,
+ 26 Nov 2026 08:57:05 +0000
+X-MC-Unique: 8PSsJiaINlmfJzoEnyN7Bg-1
+X-Mimecast-MFC-AGG-ID: 8PSsJiaINlmfJzoEnyN7Bg_1795683424
+Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 817251800BC0;
+	Thu, 26 Nov 2026 08:57:04 +0000 (UTC)
+Received: from snishika-thinkpadp16vgen1.tokyo.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 42F7641F;
+	Thu, 26 Nov 2026 08:56:59 +0000 (UTC)
+From: Seiji Nishikawa <snishika@redhat.com>
+To: Keith Busch <kbusch@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>,
+	Christoph Hellwig <hch@lst.de>,
+	Sagi Grimberg <sagi@grimberg.me>
+Cc: Hannes Reinecke <hare@suse.de>,
+	Chris Leech <cleech@redhat.com>,
+	Seiji Nishikawa <snishika@redhat.com>,
+	linux-nvme@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] nvme-tcp: fix use of a released socket in nvme_tcp_poll()
+Date: Thu, 26 Nov 2026 17:56:53 +0900
+Message-ID: <20261126085653.3339227-1-snishika@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,155 +80,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-wip-obbardc-soundwire-qcom-fix-port-off-by-one-v2-1-c424edf85968@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/52OSw6CMBBAr2K6dgitKOjKexgWbZlKjXSg5SMh3
- N2CN3AzyUvezJuFBfQWA7sdFuZxtMGSiyCOB6Zr6Z4ItorMRCouPOUCJtsCKSV9pSHQ4KrJeoR
- OUwPGfqAl3wMZA2oGcghZrlNZSMP1GVk82nqM2h58lD8Og3qh7rfKZtQ29OTn/aORb97f8ZEDh
- 4IbLjN91flJ3imEpBvkO240SRysXNf1C+bVkTgFAQAA
-X-Change-ID: 20261012-wip-obbardc-soundwire-qcom-fix-port-off-by-one-47c0a8af1c5e
-To: Srinivas Kandagatla <srini@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Bard Liao <yung-chuan.liao@linux.intel.com>,
-        Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>
-Cc: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
-        linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, stable@vger.kernel.org,
-        Christopher Obbard <chris.obbard@oss.qualcomm.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4143;
- i=chris.obbard@oss.qualcomm.com; h=from:subject:message-id;
- bh=QSJ5w2mIIkPrzyPdlMwV2Dpxp0igj2Xpcy45KBhQiGU=;
- b=owEBbQKS/ZANAwAKAWNNxPBocEb4AcsmYgBrB/RPR4AcjQPcBdipmSDZ/SGJhMpqJ0xB4C6wy
- zaY6EET6FOJAjMEAAEKAB0WIQTxi9yLbCX5CqI9UXRjTcTwaHBG+AUCawf0TwAKCRBjTcTwaHBG
- +DBkD/0cG38qB7wvKSJkMqRLTtonxrq7X+E7yUkbLOwE2GWcxr16iparwoe9f0PUbhrHHEHAqey
- LRBgvDnNY14Z7mybu/h2TE6zK3kemGtG3RDA+TxXiBQ/+LqWWs1puRytu0FEaD1soH9nzbUzSVK
- xE+Ii208Zbg9FggPAs5jnF+DT+jNBD1G02yN2WYyA04zIGmMfuMf91qbcrcFu0WtC4sOJte1LTW
- 4y3OxVwO/8mHXjJXMu99VzWlxhKpU66inSZcW4Nc1HJEOGYeQzDIw4u2J5RmsdFtDGNZx9qV5xs
- op/X2ZM9cOxom460YamwaIy5YuZC9rUfMyagxWgN05ynbDz6f0TDRkSJBjUqEKmCYq7kJvzarYj
- H2Nf88WXx5FqgRhydFwc+v8pmpMRV8a9eBknxzCtadVHHEznCavV7CTa1K5iOPbAQFGvukSEOyb
- onU9KubPz4Tzn9pviv9Mxw2lMqORKpeQqSCReh3s7GnfSykihOan3Zu9gPzcUeapcUD5vrQOEgT
- 75ZIjMEpmBLPZ6swYEfl3kWaP+vZjz+eLqh/RwKSM87zhO/EuL8tCTFwZQhtX+qTiZ7++s6m8vW
- 4DTzB3jlpkH1DiJh1YWz/7swNhujPtsp6xmAIFxN3/0UiOlGyQuhAhJyWIz/kWWnJFrLayRvbSc
- 6zxyH+fmCHTZp5g==
-X-Developer-Key: i=chris.obbard@oss.qualcomm.com; a=openpgp;
- fpr=F18BDC8B6C25F90AA23D5174634DC4F0687046F8
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAzNCBTYWx0ZWRfX7gXLVyevpdMT
- cMfbv68wNviEuWO5oEKFlVSyg+4vmftTJR4gucc27BX1gUgqc39abHa7E/19jEYUDXjghVnj8NS
- uH6AX4OjR8rTKxt/8n4gplfPor9SnOo=
-X-Proofpoint-ORIG-GUID: IJGWH79DXXRHd6Fgd6t3B7IM2h5eM6D-
-X-Proofpoint-GUID: IJGWH79DXXRHd6Fgd6t3B7IM2h5eM6D-
-X-Authority-Analysis: v=2.4 cv=QZPzLcbv c=1 sm=1 tr=0 ts=6b07f458 cx=c_pps
- a=oc9J++0uMp73DTRD5QyR2A==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=bC-a23v3AAAA:8
- a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=A2cS_Xtm9gsuIjapY5kA:9 a=QEXdDO2ut3YA:10
- a=iYH6xdkBrDN1Jqds4HTS:22 a=FO4_E8m0qiDe52t0p3_H:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAzNCBTYWx0ZWRfXyMrUOAPjAHYD
- NbmM5dWQgvN03aYZTzquYpf75QAysigns0KGj/rM52Vznhl1BsLMbHjw+pczuVh7W0ehCoh++sg
- mvmfi8BV75ulXvYIiXkBZhvxbWPn0DABDxnbt6jrcULCR/Vr/vR2uZ4kWn2OnXPGt5io4sTRYE3
- SoUBoR0fWwY8vr4vIJmSvZ0E0n5OMrLHfkeNl1IVDv7SAaIzC3vGl4wTSjNYoBMUthR7yk5MZc8
- Pavt0fiLlUkWtZ+qiuIRxwf0JtC75sRy2BAXTXZVGe2KvGcAvtv7gxzKyVwBO1BZoHaFaAuKoFP
- OH20HdRb3EkeF39pGYyKj1hsx+UTTuv44wZoBL8ddmb8+Mu3+JK8pDPtmYy/k0BqSWEI1cu0R81
- KIwWoxcChv9LW1jKAkBTdax2Np6BuafmyhPWdnU9SNUct/541k1bE39mc3b5TP+b4/v7GKvH7SC
- 4ePeAXePCxBC4xJsJCg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-26_02,2026-11-25_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 lowpriorityscore=0 bulkscore=0 phishscore=0
- adultscore=0 malwarescore=0 impostorscore=0 spamscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260034
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
 
-Qualcomm SoundWire master ports are indexed from 1, with bit 0 of
-port_mask reserved. Valid port numbers therefore range from 1 to
-maxport.
+A controller reset while polled I/O is running crashes the kernel:
 
-Commit 6ccec91c3535 ("soundwire: qcom: Fix port exhaustion check in
-stream_alloc_ports") changed the port exhaustion check from
-pn > maxport to pn >= maxport which rejects the last valid port.
+  BUG: kernel NULL pointer dereference, address: 0000000000000018
+  #PF: supervisor read access in kernel mode
+  #PF: error_code(0x0000) - not-present page
+  Oops: Oops: 0000 [#1] SMP PTI
+  CPU: 2 UID: 0 PID: 2585 Comm: fio
+  RIP: 0010:nvme_tcp_poll+0x14/0xd0 [nvme_tcp]
+  Call Trace:
+   <TASK>
+   blk_mq_poll+0x6e/0xc0
+   bio_poll+0x8e/0x140
+   iocb_bio_iopoll+0x2e/0x50
+   io_do_iopoll+0xda/0x470
+   __se_sys_io_uring_enter+0x43f/0x7a0
+   do_syscall_64+0xe9/0x340
+   entry_SYSCALL_64_after_hwframe+0x76/0x7e
 
-On RB3gen2 (QCS6490), two WSA883x speaker amplifiers are connected
-to swr2, which has qcom,dout-ports = <6> and qcom,din-ports = <2>
-(8 ports). Each amplifier uses one port for playback and another for
-voltage and current sensing (VISENSE). The right amplifier's
-qcom,port-mapping is <4 5 6 8>, so its VISENSE port is master port 8,
-which is rejected by the new check.
+nvme_tcp_poll() reads queue->sock->sk before it checks NVME_TCP_Q_LIVE.
+The reset stops the queue and then nvme_tcp_free_queue() releases the
+socket and sets queue->sock to NULL. Nothing keeps nvme_tcp_poll() out
+of the queue while this happens, so it reads a NULL queue->sock.
+Checking NVME_TCP_Q_LIVE before the read of queue->sock does not suffice
+because the socket can be released after the check.
 
-Since all ports in a SoundWire stream are allocated together during
-hw_params, this causes the stream to fail with:
+In the vmcore of the crash above, the controller is in
+NVME_CTRL_CONNECTING, and the queue that was polled has sock == NULL and
+flags == 0. The reset work has freed all I/O queues and waits for the
+admin queue connect command.
 
-    qcom-soundwire 3250000.soundwire: All ports busy
+The crash is always reproducible by resetting the controller while
+polled I/O is running on a poll queue. For example, connect with
+--nr-poll-queues=4, run fio with --ioengine=io_uring --hipri on the
+device, and run "nvme reset" every 10 seconds.
 
-The -EBUSY propagates through hw_params, preventing speaker playback.
-Disabling VISENSE works around the issue. Speaker protection is not
-enabled on this device in upstream, but with AudioReach userspace the
-userspace PAL mixer paths enable VISENSE on every speaker stream, so a
-mixer change alone does not avoid the failure.
+Take queue_lock in nvme_tcp_poll() and check NVME_TCP_Q_LIVE under it
+before using the socket. nvme_tcp_stop_queue_nowait() clears
+NVME_TCP_Q_LIVE under queue_lock, and nvme_tcp_free_queue() releases the
+socket under queue_lock. So nvme_tcp_poll() sees either NVME_TCP_Q_LIVE
+cleared or a valid socket, and the reset waits until nvme_tcp_poll()
+drops the lock. nvme_tcp_get_address() already uses queue_lock in the
+same way.
 
-The original fix addressed an exhaustion check that could never
-trigger because find_first_zero_bit() returns maxport when all
-searched bits are set. Include the reserved bit 0 in the search so
-exhaustion returns maxport + 1 and restore the pn > maxport check.
+Use mutex_trylock() so that nvme_tcp_poll() does not sleep on the lock.
+If the trylock fails, nvme_tcp_poll() returns 0 and the caller polls
+again.
 
-Tested on RB3gen2 with a v7.4-rc3 based kernel and AudioReach
-userspace: with the stock PAL mixer paths, which enable VISENSE on
-both amplifiers, speaker playback through the PAL speaker sink is
-audible and no longer fails with "All ports busy".
-
-Fixes: 6ccec91c3535 ("soundwire: qcom: Fix port exhaustion check in stream_alloc_ports")
-Cc: stable@vger.kernel.org
-Signed-off-by: Christopher Obbard <chris.obbard@oss.qualcomm.com>
+Fixes: 1a9460cef571 ("nvme-tcp: support simple polling")
+Signed-off-by: Seiji Nishikawa <snishika@redhat.com>
 ---
-Changes in v2:
-- Rebase onto soundwire/next.
-- soundwire/next now has commit d9ea256ee889 ("soundwire: qcom: Prevent
-  pconfig buffer overflow in qcom_swrm_stream_alloc_ports()"), which
-  adds an nports >= maxport bound on the pconfig array. That bound is
-  separate from the off-by-one fixed here: it keeps pn >= maxport, so
-  the last valid master port (maxport) is still rejected and RB3gen2
-  speaker playback with VISENSE still fails with "All ports busy". This
-  patch is still needed; keep both checks as
-  pn > maxport || nports >= maxport.
-- Add Cc: stable@vger.kernel.org, as 6ccec91c3535 landed in v7.3 and
-  was backported to stable (Srini).
-- Drop the claim that disabling VISENSE disables speaker protection;
-  speaker protection is not enabled on any upstream device (Srini).
-- Give the concrete swr2 port counts and the right WSA883x
-  qcom,port-mapping from the RB3gen2 DT.
-- Note that the PAL mixer paths enable VISENSE on every speaker
-  stream, so a mixer change alone does not work around the issue.
-- Add a note about testing on RB3gen2.
-- Say the -EBUSY propagates through hw_params rather than naming the
-  codec DMA backend.
-- Link to v1: https://patch.msgid.link/20261012-wip-obbardc-soundwire-qcom-fix-port-off-by-one-v1-1-81f1a4c9c73a@oss.qualcomm.com
----
- drivers/soundwire/qcom.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/nvme/host/tcp.c | 22 ++++++++++++++++++----
+ 1 file changed, 18 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/soundwire/qcom.c b/drivers/soundwire/qcom.c
-index 65add9a74ffd9..05311cf639e4c 100644
---- a/drivers/soundwire/qcom.c
-+++ b/drivers/soundwire/qcom.c
-@@ -1461,9 +1461,9 @@ static int qcom_swrm_stream_alloc_ports(struct qcom_swrm_ctrl *ctrl,
- 				if (m_port)
- 					pn = m_port;
- 				else
--					pn = find_first_zero_bit(port_mask, maxport);
-+					pn = find_first_zero_bit(port_mask, maxport + 1);
+diff --git a/drivers/nvme/host/tcp.c b/drivers/nvme/host/tcp.c
+index 62a594b..dbd9bdc 100644
+--- a/drivers/nvme/host/tcp.c
++++ b/drivers/nvme/host/tcp.c
+@@ -3196,18 +3196,32 @@ static void nvme_tcp_map_queues(struct blk_mq_tag_set *set)
+ static int nvme_tcp_poll(struct blk_mq_hw_ctx *hctx, struct io_comp_batch *iob)
+ {
+ 	struct nvme_tcp_queue *queue = hctx->driver_data;
+-	struct sock *sk = queue->sock->sk;
+-	int ret;
++	struct sock *sk;
++	int ret = 0;
  
--				if (pn >= maxport || nports >= maxport) {
-+				if (pn > maxport || nports >= maxport) {
- 					dev_err(ctrl->dev, "All ports busy\n");
- 					*port_mask &= ~allocated;
- 					return -EBUSY;
-
----
-base-commit: d9ea256ee889f3db9f0bd07ce5d114ce92e31b4f
-change-id: 20261012-wip-obbardc-soundwire-qcom-fix-port-off-by-one-47c0a8af1c5e
-
-Best regards,
---  
-Christopher Obbard
+-	if (!test_bit(NVME_TCP_Q_LIVE, &queue->flags))
++	/*
++	 * A controller reset stops the queue and releases the socket under
++	 * queue_lock. Hold queue_lock so that the socket stays valid while it
++	 * is used here. Do not sleep on the lock. If the trylock fails, return
++	 * 0 and the caller polls again.
++	 */
++	if (!mutex_trylock(&queue->queue_lock))
+ 		return 0;
+ 
++	if (!test_bit(NVME_TCP_Q_LIVE, &queue->flags))
++		goto out_unlock;
++
++	sk = queue->sock->sk;
+ 	set_bit(NVME_TCP_Q_POLLING, &queue->flags);
+ 	if (sk_can_busy_loop(sk) && skb_queue_empty_lockless(&sk->sk_receive_queue))
+ 		sk_busy_loop(sk, true);
+ 	ret = nvme_tcp_try_recv(queue);
+ 	clear_bit(NVME_TCP_Q_POLLING, &queue->flags);
+-	return ret < 0 ? ret : queue->nr_cqe;
++	if (ret >= 0)
++		ret = queue->nr_cqe;
++out_unlock:
++	mutex_unlock(&queue->queue_lock);
++	return ret;
+ }
+ 
+ static int nvme_tcp_get_address(struct nvme_ctrl *ctrl, char *buf, int size)
+-- 
+2.43.0
 
