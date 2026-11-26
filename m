@@ -1,93 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=119.15.109.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795690199;
-	b=WCxwEe5urSfIWbmIOeGoO16EDptiDrTrxhGk914PV+8uxkxmyJGbSp4Zc4I0LQUFrkFY
-	 BB30Nw2pSZv/c8sV3Rc3Y+KS0z0paJPh+KGn2vNct5sjJKBbr13lwk6ONjy4n0/RGRYY0
-	 /p/ApmOUlnRgHUvPy8gQHRSHlR14dS2gxyg4WpInhHwGOpHD+P2h0DImDfCT3CgwwDEuy
-	 L3Aes4+qgAXM9gufGg6qVpgWeUJ+8D6gKyfYvx/TUTug3qdr0zEE0OWsbQr6S2EcFwSpt
-	 RvJ5NpbFaeqCQtWKtxzCLvU0EPDo0gVl1wzz1wlp3iW0z76ATQZy6H6WRXbmzDOiJwA==
+	t=1795690203;
+	b=LmqiTUxz/JpYqFukPAe7fJ0p54/ImInSef/hMfZdx2IoCkegzLMekcRKTkIDxDlmDfxG
+	 LQnfUN0QLf2hIUNdCzKIFjh0LDYMy/2W7/f5/vEU1QnOzQxA3LyIKXxcBe0VzU3QbgrBW
+	 ZGnbqARmay7y4RK8Pjo0RYI3PTzLRJQcJhrm678e1+qaL9CT/mgdqBnub3RCYSjH8ElgK
+	 QSIRZddxtjdoK0Eq5m9wtpxXn+O0msqRSHpbr3Jp4BYD4mUnnYdwXnkoAvA1KZUZmKapt
+	 dj4wLXYaTtfvWZYZYf+tvkBMNemy6oTiIqEl4gB16e+ABY/2JdYutnJsBpR8r5cjVYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795690199;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=HKsMEH8dY6nrgiSxIOyCac2CumphTo4mC8nhOJyOu4Y=;
-	b=Yltuywcss9Qde95hEKpkX6kU6/FzORMLd8uJ6e05LNyUqc9VEFfL7LCLcoOH7Dtdxc1V
-	 zIS8R6cEPxmZ7TLzYkTJhnUGBO7hWMuPowJ/iAJBa1cej9wUyk77LBCsMrIT0j+fnA/wS
-	 DcqdpJkJNKNJlaYJqvAfq3gYCB6QRMJpDwKcQ2f8Hg22c4t53twTOiUD6NoTvlnG5kDqu
-	 q/1FfQLXTm8Z69aPaqpyPnoefz61AMcj4ob6rAWMZaam4UtjlB8se+FH9TeFe/kh3nyjW
-	 CtYwc/dMgjH8BSJE8InV0SZYLo5+6ZpuJxuJU3J699XBoWKwn2ML0rkO4obvgBN7nyg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795690203;
+	h=DMARC-Filter:Received:DKIM-Signature:X-GPT-Reason:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=jMsdtwCbV5v0zb6ZC86ZF2reRzr1NvmCVm7BDIN6O6s=;
+	b=ivn7vf25koVah1IJag9GfRo/BEsubguL7wfY1c7ctN2YYTqXsU2g6eF6+CPuCQdO7Ciq
+	 9L+X+j+09FW6/JiXBhNSaC2WoHEWDDPBDrTYTnv5CFdmMq+fDvn5wSaj8gzgFgjfuW6HB
+	 xLr1t95NwEkQSuzi8XyRC9awS+FA27HFSqzyRL2Fp9QH30E7HZt7EICafo0Tl8BpoFtNx
+	 2rAeQrrBYBLU39uJATtFzqRx2FZVpSmbPHrCn0A0t7z5iDwaWuNTDM0WOkcuO+oN6Oki5
+	 ONxKHpTNLzJx1JGQr/a/K+agOhQ638QVy7SfShvARZwgQd+5e1NrCSklUpTpXSZJz5A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=icFuVbhW;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=d-silva.org;
+	spf=pass smtp.mailfrom=d-silva.org;
+	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=F2R2bmyu;
+	arc=none smtp.remote-ip=119.15.109.137
+Received: from www.nmnhosting.com (watt.d-silva.org [119.15.109.137])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2E40606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:49:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2E40606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77B9A606A323;
+	Thu, 26 Nov 2026 10:50:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77B9A606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=d-silva.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=d-silva.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=icFuVbhW
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4a73fdd2966so4970455e9.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:49:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795690197; x=1796294997; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HKsMEH8dY6nrgiSxIOyCac2CumphTo4mC8nhOJyOu4Y=;
-        b=icFuVbhW7SCowMEaY8foQXc6Ug6hI8KSnNsaFcg/6KdBJFOmddE8aDaHxZpRDhlF5d
-         pdCyiKoeaYhqNvnn2OYZU6PxTECwhS1dWoN95OnR7qEEAlCD/6u2rnhWs0q7JQQVwlON
-         2pjp8pjPlJA69x9bpB/TWwLwYZ0evpeNKwcu7+i57E0CfzR1pFXE4VYZssUGYxT2OMWj
-         fJM7hVJjfd7Rm2ROSXN6MJOXhsrqvhg0q7Z8iCLK8x2wbWqBG8XECbwj5WGTU8//ewey
-         8j10Ny3qqoVtCHbuqTZPh69p+7y5VilrNy1BqYZFdax2eFo3hYidsPapThvHQnH6KI9b
-         /Kcw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795690197; x=1796294997;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=HKsMEH8dY6nrgiSxIOyCac2CumphTo4mC8nhOJyOu4Y=;
-        b=z3toKbY4W5IPZUM3wPrqOCcP1nzkuoUJSHM47/k3pILjHO4Y0pBuTbFXsU2xZGD47e
-         A7+5vh2/TKLel+m9nWswYIaUKPSXGWdSETHpkobJIjXvhgSbAFiNq3oSEoj1hxpusGyh
-         dNL1SwSeDBHWuV9HfiWUqBBlgTmQCjjdcrn7lE9rR2MybXbf77AioQm5DAFuvM4N1nuI
-         y3XGUR5eELWHoSQVy3QTuyZsTjJc4pzNOC5Or0vNB//GtRHYe4RWYQgaZMn0j6RM8NqX
-         RP0+hi64RESTjbaIXc81mYyoVZNjrAzW/1E/MLWNnJcaDkvr/n0/ZUTLlSEUx2jVtrEF
-         8KzA==
-X-Forwarded-Encrypted: i=1; AL+hErEYnVGn9V/Hvv7IfRdX4nZM5dZmsMe631BOZsGPrVF7ms4na4WltxMDPdoye6J54Ji7vT3JGC5aR+EOMsM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/1aKYi3zIbRzDcOQhGbcnoRcqeUjQSozfJf8npkHTcCy/5dOFv
-	+pkwBtR8LIfhqMOSTHtvY4UhCJIGVMroxuIGWnamaVyodI9Gp4zNa0bN
-X-Gm-Gg: AZFdTZeR3foAXi/iSoKTwK5BurClccF5DwUxGtZTHcTLsQWo9uUorrLa25+eIj0hQyI
-	oQASCbo+JhMT+sxeSQMdiKxN8Wht78C1FQoHmmMpG32BW9O9ZCbSjs6E8GJFNTXOva4dQ4Sr4kX
-	JmpSKt62nUnw+wzzP056XwGx2x2KM5m7Hn6Hqy01cNCXmsVK8RTyqliy4bP05AFHXChnZYzF3cL
-	v3JT2o+ik+b7xOnpnSy52ep5LVHzT+cdwUWCcwSGit8gg+QKbRmEI06/ooHQ7PafTZUNFwaAUk3
-	EnUxq4wqzPw8raYmKWHnRtPLeGmiubBOek05KFJtAO73ZvaqSotpKY5g54acnjPuO2ueNtxDlAK
-	gAHL3X8L8OgG1TH3A8mu8C30EQxiiuQLaBU+OyR53m5I/utN6H0lRAs9pjDfOT+WBhN8DlftCUo
-	BqPawd7Pnij0LP+PveiosCXVWtN7BV7MBcGf0cThZEvMjt4jQrmi3Wg/eFukyFwObgQ69lpa3tq
-	dLsdHp1fHmu2CFjgKWliw1faUbVE/fCkHF0cJiL6Jl8htOau9IlaGJyUP/mflr4ISsOxQpUlbc0
-	4dX3Eos6TJgNRo4Xm10jovob6dc7/9kPj9vD5Eqmkf3l3XbH8sRfQyUlhbqIIWrmmOVvE9MZ7He
-	7vBMh2CaMZUatrM2hxM7SfBTeZle9NSN9sx3y772k9Q==
-X-Received: by 2002:a05:600c:1113:b0:4bb:a9f6:8bbe with SMTP id 5b1f17b1804b1-4bba9f68bc2mr37087675e9.0.1795690196814;
-        Thu, 26 Nov 2026 02:49:56 -0800 (PST)
-Received: from thomas-precision3591.paris.inria.fr (wifi-pro-83-006.paris.inria.fr. [128.93.83.6])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4bb884c3063sm585028225e9.15.2026.11.26.02.49.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 02:49:56 -0800 (PST)
-From: Thomas Fourier <fourier.thomas@gmail.com>
-To: 
-Cc: Thomas Fourier <fourier.thomas@gmail.com>,
-	Brian Cain <bcain@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	linux-hexagon@vger.kernel.org (open list:QUALCOMM HEXAGON ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] hexagon: time: prevent release of not requested region
-Date: Thu, 26 Nov 2026 11:49:07 +0100
-Message-ID: <20261126104914.32285-2-fourier.thomas@gmail.com>
+	dkim=pass (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=F2R2bmyu
+Received: from Hawking.lan (hawking.lan [10.0.1.4])
+	by www.nmnhosting.com (Postfix) with ESMTP id 43655403EF;
+	Thu, 26 Nov 2026 21:49:54 +1100 (AEDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
+	t=1795690194;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=jMsdtwCbV5v0zb6ZC86ZF2reRzr1NvmCVm7BDIN6O6s=;
+	b=F2R2bmyugO9Wik6VrsqtltgrnjxLDfBrWB/7KeEYHci7kKRs960fMakOamSRLjTb+YRp7F
+	o8UKPVpts3PBiISm9oiH8ehslTKZIHOxEqJmCZtoRMkD9fTonvyW3gPp8pm2GN9hUNeyoW
+	j3YTDZVaUPqPZf4n+2yJjZ1xW+bNfXJwkwlE+L6Dh6Ya5MpknNmF0ICebUeU921rt5lvxw
+	QlX6i8l0aLluiTF3sirVhu1UlADxVtQit9bXYTwl8H5DKp7Vr24W/WCWPi/ZfAb4X5NkoJ
+	vfHy+E48UgO5W9o/ylVVHtl86g3D5sGBd7847oLJ7zjvbcCFun3RFDwa08ViPA==
+X-GPT-Reason: legitimate_personal_technical_content: The email
+	is a standard Linux kernel patch submission containing a functional
+	code diff regarding pinctrl driver refactoring. The sender
+	(alastair@d-silva.org) matches the intended recipient domain
+	(alastair@d-silva.org), the subject line follows standard developer
+	conventions ([PATCH]), and there are no indicators of marketing,
+	phishing, or urgency.
+From: Alastair D'Silva <alastair@d-silva.org>
+To: Linus Walleij <linusw@kernel.org>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: linux-gpio@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Alastair D'Silva <alastair@d-silva.org>
+Subject: [PATCH] pinctrl: sunxi: Drop unused parameter from sunxi_grp_config_reg()
+Date: Thu, 26 Nov 2026 21:49:54 +1100
+Message-ID: <20261126104954.441427-1-alastair@d-silva.org>
 X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -100,31 +79,48 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-time_init_deferred() calls release_mem_region() on region
-rtos_timer_device.resource which is rtos_timer_resources which is
-statically defined.
+sunxi_grp_config_reg() takes a pctl parameter that is never used.
+Drop it to match the original signature.
 
-Drop the release_mem_region().
-
-Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
+Fixes: 8b367fc08be4 ("pinctrl: sunxi: refactor IRQ register accessors")
+Assisted-by: LLM
+Signed-off-by: Alastair D'Silva <alastair@d-silva.org>
 ---
- arch/hexagon/kernel/time.c | 3 ---
- 1 file changed, 3 deletions(-)
+ drivers/pinctrl/sunxi/pinctrl-sunxi.c | 5 ++---
+ drivers/pinctrl/sunxi/pinctrl-sunxi.h | 3 +--
+ 2 files changed, 3 insertions(+), 5 deletions(-)
 
-diff --git a/arch/hexagon/kernel/time.c b/arch/hexagon/kernel/time.c
-index 05c5d6c96d96..b6d844b2c1ef 100644
---- a/arch/hexagon/kernel/time.c
-+++ b/arch/hexagon/kernel/time.c
-@@ -175,9 +175,6 @@ static void __init time_init_deferred(void)
- 	/*  ioremap here means this has to run later, after paging init  */
- 	rtos_timer = ioremap(resource->start, resource_size(resource));
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+index bf4ec4665e2b..d30a562315aa 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+@@ -763,10 +763,9 @@ static int sunxi_pinctrl_set_io_bias_cfg(struct sunxi_pinctrl *pctl,
+ 		else
+ 			val = 0xD; /* 3.3V */
  
--	if (!rtos_timer) {
--		release_mem_region(resource->start, resource_size(resource));
--	}
- 	clocksource_register_khz(&hexagon_clocksource, pcycle_freq_mhz * 1000);
+-		reg = readl(pctl->membase + sunxi_grp_config_reg(pctl, pin));
++		reg = readl(pctl->membase + sunxi_grp_config_reg(pin));
+ 		reg &= ~IO_BIAS_MASK;
+-		writel(reg | val, pctl->membase +
+-		       sunxi_grp_config_reg(pctl, pin));
++		writel(reg | val, pctl->membase + sunxi_grp_config_reg(pin));
+ 		return 0;
+ 	case BIAS_VOLTAGE_PIO_POW_MODE_CTL_INV:
+ 		inverted = true;
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+index 7c2f29e75519..3060cef3705d 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+@@ -328,8 +328,7 @@ static inline u32 sunxi_irq_status_offset(u16 irq)
+ 	return irq_num * IRQ_STATUS_IRQ_BITS;
+ }
  
- 	/*  Note: the sim generic RTOS clock is apparently really 18750Hz  */
+-static inline u32 sunxi_grp_config_reg(const struct sunxi_pinctrl *pctl,
+-				       u16 pin)
++static inline u32 sunxi_grp_config_reg(u16 pin)
+ {
+ 	u8 bank = pin / PINS_PER_BANK;
+ 
 -- 
 2.53.0
 
