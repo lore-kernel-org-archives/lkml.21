@@ -1,123 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.180.131
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795694670;
-	b=HTt7zF/IzByCjAlHpMc+Dux8GINrqRXFRErcnFs8i2ZizhbT5CFdi3vc5nrPRhq5o10M
-	 JKjoifJQ1OrKG8NMaiRwtLEWMG4mO6UoWsHClSsaAirwqT2y6ziFlhKrmtmJqIFnZqrJj
-	 T+nBB6PSfffDMAn1WkhAbDiSjq/e7AeZoYqMzlvgDSSbgoMC7sctnuJNlUUKdQajTAo/i
-	 h1Xw47LpUUyq1CEZicYGOtkz+hYFhT5sSzfAe0XNs4WwpdQTthMIHpV1ZWGKF7Gl9wty9
-	 SAjZY2vdsaA8zH8n1OZJXMK8fE/zjqgZ7KQ4tWyIYFKWxD+hbmhkkLtOww+WnFOYeMA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795694670;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
-	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
-	 Cc:Content-Type:Content-Transfer-Encoding:X-Authority-Analysis:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=jC5fbmrjeahgJSQY/yuWAzz2qq3dYpFpTS3cMwzVOs8=;
-	b=sKQSio8GRWXaumO8faDppr5Z7k1+c96xK9zyhXftPQIGewoe5Td7HsKWx4j054GDyzrd
-	 yax7Z9gJnfUCkc19YiJlm+w+NEhmY2sqHfY1jYCgihQuQZYpGSlDuhlFbPHVU2YRjVlge
-	 IQmWYld18OwB8AWaGQ+PPF/APofSoFiByBvkIgmR4T8yDG029TSYkW0D4x0+SnhZmkRMz
-	 EVEOJBoBr3NrTKAlQjNFT8gCP32wp3O5dK2/94cPm6pMkoV5CJ8k8Nry6CFg7EDzRT9E3
-	 OA9XpbzDHISrgfDIBGn43vmirhLOLSKirIiTdP86fYUbdpRAuSluaA7OwnyCxBmg+WQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Nb75Bhnk;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=GaNd2MvI;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795694762;
+	b=tCx2tOofI4lmsaDRijU7PZah3wIiB612cRBGwDfpVjGkqZy4kNNpcm61Bn6KWZQKV1Yq
+	 E3i8qO9onkEw9ectajvbbjOjWRUl66nmEsSvQFAYO8H6Se2lQM+W52/pv2tmDb/uZ5mnP
+	 G5o27g9a0082GHL0ZmeiF30TUZfJiqqPnSZqOSPn1F/AX2/55IDQvk5pucxo2lA4RsNO1
+	 q+sM1HxiKyaKIeVEK3S+8BUUZy5keecpC6iAOsY83u0zXjH3Xv57CgHPvUuYzbm/EJPor
+	 BSkbGuupGW1NBYQBOAZ2cAQiCFUn+GJ4wg+Qw5rRTbb38fMpN5G+fNykuFdkOq1wbqA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795694762;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
+	 Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=ET482+FU96REcfSjULY+hqVWl0UsLv2hw5FhEXMRTX0=;
+	b=2xLNJVCBxvPxS9SPH2QYdbOTV9uZ1ZyidjxDKAlcgGfXLf81kyiJZGce2zguAjegGpH+
+	 2AcrYW9jN1sGIU1xjxw5Ig6uk2U7dveu/TZrzMLq8a171WXa/1Vef5nh7u40DBqTCUGXa
+	 5BhYJzMO2KuNo/ftfXqy2QXHcIhivr3sVtdIu5/r8gnbqPcrbcme722UXQmNZrYeIE6D/
+	 3dsJgNzhLvLd/zO9i+f0ZXcvDXY/PujQLp6d9O/DcRw4AZYGTVUkR9NQVsKreEJVeU/KR
+	 EJjQbZXz1CkOGPP/pw21mTZBkurAjrzQNFHXwS9aDtABeOzsLLcV8WlFnDmtkLRpvyA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=googlemail.com;
+	spf=pass smtp.mailfrom=googlemail.com;
+	dkim=pass header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=J16wqmFX;
+	arc=none smtp.remote-ip=209.85.221.42
+Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27517606A327
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:04:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27517606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B50A606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:06:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B50A606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=googlemail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=googlemail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Nb75Bhnk;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=GaNd2MvI
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQBVUEP2911777
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:04:29 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	jC5fbmrjeahgJSQY/yuWAzz2qq3dYpFpTS3cMwzVOs8=; b=Nb75BhnkD+24lshd
-	TN3D1/aSnF7vHIpkHWwHrM1kKC6YkQu6oDHCxehUDM21hbKbjJyKXraJpSLvlXam
-	gnP48d6B48IUH8DyGbf9NtPmsHJPfx1s+Xvo5g4i/6YSn7IKpv0RiuFj1u1B9HCJ
-	nrsS14m61D4eNFRt/O9DQMyuIHBNkyiU42V3jRVb+6Xe3JU1uiB2RiZqWOkGZ5t3
-	rUyoTCQJYk9dWVXIeVjI5rchYL8/hXkY9Ti0nM78XMS0H/uKHppIWpJQhPXEUnny
-	GUDcDdJMJSAEmIBUWh+5vuzpXWLnzh/Y4mOkufX6bT7G9X80VxDZf+8DGg53esvd
-	P3Nrtg==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6ak0260w-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:04:29 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3b4092b645aso5910110a91.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:04:28 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795694668; cv=none;
-        d=google.com; s=arc-20260327;
-        b=jMKXxJ5M44qUNobZiPVQse7SfN1BwVVaEAdtCtz0Iw1lkPEVJ3LTWQwbNgWUXCKzA6
-         xpT1gBumciR5/1RqCF4RKPyRMR7+Fu1N8+NnaKybDSI4tOS5KV6oqdhHT71UnJmjzxLi
-         5OhQPDSY7H+NHz3LLQHDLKtynJmZHP6GVcWNheR3XCuwqOMrzU9yf10xTVaGp7Lg2QWa
-         Od6EorV160PU+yn2W7ZqPoAJmqn7DJsy7/SocdxA9buxlUfgUsPK1W+gIxwZFr9fKMWD
-         OrJaSSAEVsKXTeF+UbWfQLf5YNvCYT6GSIrxGC6e/8gL3tUsBfLJol3/KX/Iv8z9r1JD
-         uWdg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=jC5fbmrjeahgJSQY/yuWAzz2qq3dYpFpTS3cMwzVOs8=;
-        fh=d/3GHEeynaT2/9LMyGGxH9PxVMpe6BrHcNAy/8HSG8g=;
-        b=JQ35IBXhgm5BM0noJXlR5RSHAKnx2dBEnIXfjHWEgxhZflg68YMwOxmM1b7Uc42YVM
-         aEdQ3UjCFuTCtRVQlhS00NOrK6BFK21chq87bgYUSlLl+Q13/2rc6t7d6B93Ef7Cph+c
-         UPhK70p1w4MOkBwY9ago2Z7xci0uixMtyqWMyaDuJ/UjvsZxUu1D1bYq2qKM9ZEqdlU2
-         kOW8dPkNlfzwI+AoafXCLmUcL75bqIyohRis43XCnzyajnZ69wCcCzytd5CDOl7v4pyg
-         kXJCEWMyI9TcBw25O2nD48pywz8xbedV4lL5RgCZAi4pZgA20S7tM8xtFa8NZzXUDg2l
-         jD+A==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=J16wqmFX
+Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-492fcbfaa88so4617029f8f.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:06:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795694668; x=1796299468; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=jC5fbmrjeahgJSQY/yuWAzz2qq3dYpFpTS3cMwzVOs8=;
-        b=GaNd2MvIaPG7AmQun4uTXBxkBy7LI3XHtmyJf35B+ZeG4OAxV+v9ESvUk9sTSkOWt2
-         Ira1/WbIXEdvbOBd5LCw25+9DONxfO9Uq6aY64SuG73hVCvQa98fOqSUMoBV7nST9HP3
-         TDwSsvgPcjvrlySj/YBKZvvIqwuINcR2RVgFt+ItJI3VJvSYh0qftrP4WkH3dgbyklOf
-         srUl/1GpVJMbRJxxBf8lsDeYmC7l1JmuXbyUP43uHvZqazM4BDpifA3Hdt9UD3+j81Dd
-         8pbAa6QFX8yXukXmFBvAQTbBZ9Bj4bY7+UsG1Go9GXJKFy1Pf5wB+HlQISIau3fIj/FZ
-         MFPA==
+        d=googlemail.com; s=20260707; t=1795694760; x=1796299560; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ET482+FU96REcfSjULY+hqVWl0UsLv2hw5FhEXMRTX0=;
+        b=J16wqmFX9NzWVbaZDzOFxGfZ8hyWYRi9/AhSrvf07fG/684otvWM2WjvG6kFfpuCRl
+         l+hW/bU2X5hcMn5tn+W+BQB5t2xfWE+EASQHBGWVHJ1vTvXNii7UUa4kvTRHk91HXlO/
+         /xIvAkz4ewVaaPUC9Scj2R+vdJHCyNDW2jJeHME6SPFvPxnZAsLCyq+AmXpuHUn205bK
+         BGCvhVbvB3MMSCxfRTYPucn6P72cjzJJjTzIgFXG/upeG2hbPk9mJMNppdSlDNe1eQcj
+         Q9PGQTnatF6pTly2FL6PSUl8Pi1attOT642oM9winHmxOwr45JaoWmnqdp+bcsQrOe6y
+         4yMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795694668; x=1796299468;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jC5fbmrjeahgJSQY/yuWAzz2qq3dYpFpTS3cMwzVOs8=;
-        b=tVzUetO9Z3VNXsMu0KKEJqEK/5YEfyjGKYuAB9icubNVkFjQ5ooxQu8gsIIekP2C9l
-         5dOugPHQvycUhskVuhaLWPkLLNTCLhgyblT+Ax9ABNTcLOzFqb/b0xiAGnbVHtJtn6fE
-         KuWvkRgpZaWa0dTKjAOoQSUmIQPrXCJNAxzC6UwkKtMDTaajBvKz5QJztyZw/zvL8kmt
-         wXmmXp9I7pkRKkq70u2Xdo3evmeh6FCMjJ5JByWPzWp/nsoH8eG79EpOjLY+aSduBNRw
-         Op9HIUdJN+lBOXITFhPytbHO6SGPpCW3204kG2CsaoisTZIydAxgWvuvQNgKEAF0PmYx
-         V6Rg==
-X-Forwarded-Encrypted: i=1; AL+hErESGF2eszChFOQXflFlDSVQQbvKzQKQbRK9TZ/V+V7spFTjLKNnYeBnXpQEPi7Ydu2VbenrU5gto2/u0pk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/IoVvLz+4oa5j/JEtmcGHY1tlke9C9BhNiFSYayyRjxBIxbFSg
-	z8neWHWJJ7yg5RDsz5I1czGpuS1qr87A6XC5wky/AxTGlOzR4vShavBT2J6QMsU89oLAvZaoRd/
-	TfwyixVfdP6MTiJQ+RWiW3VHezcjZefKaTkrzIjmVpwq7PReoSGPzBPoUpbXNhx4fveNPig0apu
-	fDKJWB96ro6/DEUqKB6nycyn4dFpKTa3cvorGLRNF5pg==
-X-Gm-Gg: AZFdTZc7hjjOVfgOjUyklTWuvp1EXzpwje2AXhiChSppVwl9sQZOiqz8+pvr+0HXHIl
-	j2wfJK0071hnR4MNtE78jHczcLfq2h/oEdl2QC9+VeqTIgQt/jyom+YZwKhkDjxsIXHm3r2iKgj
-	BalpVP++bw1iJJw1W/ouBfe+bFRbnq5hq6c/aG7O+izbxRCDz5aL1RCQ+xWQ==
-X-Received: by 2002:a17:90b:2f8f:b0:3b0:9bfa:72b1 with SMTP id 98e67ed59e1d1-3b41c942d13mr20572893a91.49.1795694667861;
-        Thu, 26 Nov 2026 04:04:27 -0800 (PST)
-X-Received: by 2002:a17:90b:2f8f:b0:3b0:9bfa:72b1 with SMTP id
- 98e67ed59e1d1-3b41c942d13mr20572850a91.49.1795694667362; Thu, 26 Nov 2026
- 04:04:27 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795694760; x=1796299560;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ET482+FU96REcfSjULY+hqVWl0UsLv2hw5FhEXMRTX0=;
+        b=JLV9NEHRSVuAIjBI4isoe/+orNgK4rP0JdeFKI9GZF/JZhvKpoccjtvJtUAj3KhuW8
+         FsJq/CvS+evkqUtzXsaQunYcEoFosCx3ZjcpnekhlGiRifXfz9Y1iUuug/5V+K/920N9
+         qyrFhscl6r3CcowJqXgwxL6a6XcT14YtJ4d4MU+4DxmxYQpIx13dm7nA71sKLgCm0ElW
+         liynhatP2D4EijHzXvHnc3ldeVpojjeqYAqigQSVr0fd0QI74ZhrckpaYrlft78GlS51
+         7XsTaLx+A+Z9+e1zEfWXZDnBNdPNlP9+VqP+twMwfmxxq695DIGGiBu4oTQqZ3meJ/3T
+         mutA==
+X-Forwarded-Encrypted: i=1; AL+hErFLPMYXVxIqi9PWdLaVbYA0MR4KmG64gLhD9V8IGI83la+nafWYGtl9d2qG/r9QrsuAK9K6pmdUlo22UYE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8RCdchIqdFJmbvHgbX+inW3BZtfXiCBY6UC18dH9RLjkMXQmM/
+	VAhEM1KjrrWCgQ+BoQgrOOOqqoXweAnkt8q2NUueJnrAiQuN0OSbuPk=
+X-Gm-Gg: AZFdTZdRWFtYVgjAc+7zERCw8svvfz4Q03Lv+8wJsmxkZbntPgQJDUC08UD9hFYVdY+
+	5eTQTWWwA0RV35IXGVD2oVK6U3ZnwWZQ6ixnoo3pERJP0tOvujjPOM4hoSvwifZgLnHaZg9HL2Y
+	9zJY6e9FQV71kpAjuPreH39v78BPtgN00YFc/1fX/RV03zvuJn2Qg4fzM+B0PUNtrNtGr5AdQsv
+	8kQG6jEzStK30gzfW3YI8VKIYeE5WnH0681yEYfrthtgx00yhmXJ4Mr7yaVv8KSrIJP6ToeXBbH
+	SMjYU+BaCXnGB6RRdFbqKpUOD1IaZkPcvmcOwKmK/Le/HVcLLB8R6FJk/990kudd0vXbcrtuyff
+	K/BBCtH+YoKx7sCqSwBDzxoAtNOhVK1UskCcceHizuLTPZbBwpGnaUndoE1z9O4y9S26b/xp5Z6
+	e+pkkjwPiRM+nWlF47lW/wN9+uorZNUfEChmT1TQVwfS5/VHYVlGbkiGrogMFQhVJKD3sFxVfMu
+	6AHB7aUEmhESehdwCXW4ZSqNgqhU2OXj50mMysuLXLg+gjitmVwyA/G6Lyj3qR3AhiOwcmmJiL/
+	zJx1TrRgiS9I2zh96SwMHI9mJnZSnuUtZD7zsr3W1TmP5F+Yma6X2OwFjSokOVrgPuv11thUOMF
+	XxVCt
+X-Received: by 2002:a05:6000:2685:b0:4bc:9b4e:62c7 with SMTP id ffacd0b85a97d-4bc9b4e64ccmr2749009f8f.45.1795694760016;
+        Thu, 26 Nov 2026 04:06:00 -0800 (PST)
+Received: from [192.168.1.3] (p5b2ac210.dip0.t-ipconnect.de. [91.42.194.16])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb98b4dsm40845334f8f.53.2026.11.26.04.05.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 04:05:59 -0800 (PST)
+Message-ID: <5eecac7a-613f-490c-abf7-7e218807ec2f@googlemail.com>
+Date: Thu, 26 Nov 2026 13:05:58 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,154 +92,117 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123-meson-drm-create-hdmitx-phy-v4-0-3fb94f5534ca@aliel.fr> <20261123-meson-drm-create-hdmitx-phy-v4-6-3fb94f5534ca@aliel.fr>
-In-Reply-To: <20261123-meson-drm-create-hdmitx-phy-v4-6-3fb94f5534ca@aliel.fr>
-From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Thu, 26 Nov 2026 13:04:16 +0100
-X-Gm-Features: Aa3M54pnB9NhEO6Ylxt6lEzs1c2Wp_th_l5IvL7KXYy5McWsZMXy_VANhdE7X6Q
-Message-ID: <CAPx+jO_K+sEwm4CCBUdYz0FzJuYNhKizy4VDpQ=Ystm1aPxbZg@mail.gmail.com>
-Subject: Re: [PATCH v4 06/11] pmdomain: amlogic: meson-ee-pwrc: power up
- memories for boot-enabled domains
-To: linux-kernel-dev@aliel.fr
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Ulf Hansson <ulfh@kernel.org>, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-phy@lists.infradead.org, dri-devel@lists.freedesktop.org,
-        linux-pm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Authority-Analysis: v=2.4 cv=T4oZ3PKQ c=1 sm=1 tr=0 ts=6b08204d cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=ZpdpYltYx_vBUK5n70dp:22 a=VwQbUJbxAAAA:8 a=zH7TnIvAWWhA1n-d4cAA:9
- a=QEXdDO2ut3YA:10 a=rl5im9kqc5Lf4LNbBjHf:22
-X-Proofpoint-ORIG-GUID: GsSWLZwMO_IP88J1w0YCEtbC1QlpwmCX
-X-Proofpoint-GUID: GsSWLZwMO_IP88J1w0YCEtbC1QlpwmCX
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA0NiBTYWx0ZWRfX39vF+KEoEsot
- d5q+ZGZdPjpnwvuv7YMSy5UsU8Nr6M/PRZU5a8Z1ueuAJZpl1RdYH5gegucVnF4Esupxg7i5GTK
- BSRRpOEQhRc/McsYPiLHy+epYw7I8DVem2RI3wveqtBVIYiUeD/wi4nBuVKp3NyOFbGWxdNvdG1
- NXZD3KgRgq4gZ7SBmTX1mxoeDO9wcEyvb7Ffgn2UydnQUWSjuoomfj3bg+jjde/yhEjCYuk23bY
- 6c0G+jVfdssoAF8eWtUVL11D+WyRo6X1uJAMhDGbHN2denjpDrPM27OjY4UDUkEw+gq1gZ4AtK7
- sExwJQAlIV8G1g5HY08POYe1OZjS2D4usY/WJgibAXNeO7LhRo37ICkXgAhZ0+vxKcb6B3YTTbh
- xb9jFhfJ6N+fnYozdOu4FXT+3ErM/Xmc6AevNzSKwGGNwz9OyWT5ONBRZ9fxqA1dgYV8yOQ6gF9
- aWi9GiMxC4ffhGS1yIA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA0NiBTYWx0ZWRfX9Cck2RC54nWd
- iYt8ePwKtsnW3/6LTvDbRe7kCdwnMkjdsZ4UCVCs7bSpvlU1GYp7xk1ql6p4j5tSafIimOf5oSO
- ttvkEK1FMSqv6Nfr4/BDxZTOdjrOYms=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-26_03,2026-11-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 spamscore=0 suspectscore=0 phishscore=0
- lowpriorityscore=0 bulkscore=0 malwarescore=0 impostorscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260046
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH 6.18 000/990] 6.18.66-rc1 review
+Content-Language: de-DE
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org,
+ Christian Brauner <brauner@kernel.org>
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+ torvalds@linux-foundation.org, akpm@linux-foundation.org,
+ linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
+ lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
+ f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
+ conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
+ achill@achill.org, sr@sladewatkins.com
+References: <20261125143822.072087159@linuxfoundation.org>
+From: Peter Schneider <pschneider1968@googlemail.com>
+In-Reply-To: <20261125143822.072087159@linuxfoundation.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 8:38=E2=80=AFPM Ronald Claveau via B4 Relay
-<devnull+linux-kernel-dev.aliel.fr@kernel.org> wrote:
->
-> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
->
-> When a power domain is found already powered on at probe time (typically
-> the VPU domain left enabled by the bootloader), the driver registers the
-> genpd in the ON state with GENPD_FLAG_ALWAYS_ON and never calls
-> meson_ee_pwrc_on(). As a result, the memory power-down bits of the domain
-> are not touched.
->
-> pwrc_ee_is_powered_off() only checks the top-level sleep bit, so a
-> bootloader that enabled the VPU without waking every memory block
-> leaves those memories powered down, and nothing in the genpd framework
-> will wake them since pm_runtime_resume_and_get() is a no-op for an
-> always-on domain.
->
-> This is a preparatory change: a following patch drops the explicit
-> HHI_MEM_PD_REG0 write from the meson_dw_hdmi driver, which relies on the
-> power domain to power the HDMITX memory.
+Hi Greg,
 
-A question, is the target to drop the GENPD_FLAG_ALWAYS_ON bit for
-these PM domains, once the consumer drivers have received proper
-support for runtime PM?
+Am 25.11.2026 um 15:22 schrieb Greg Kroah-Hartman:
+> This is the start of the stable review cycle for the 6.18.66 release.
+> There are 990 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
 
-In any case, this looks good to me! Do you want me to apply this via
-my pmdomain tree?
+6.18.66-rc1 builds and boots on my machine (2-socket Ivy Bridge Xeon E5-2697v2 server), but I get a warning message in 
+the dmesg output:
 
-Kind regards
-Uffe
+[    7.686067] ------------[ cut here ]------------
+[    7.686073] WARNING: CPU: 19 PID: 454 at fs/libfs.c:495 offset_readdir+0x1ae/0x1d0
+[    7.686081] Modules linked in: i2c_algo_bit ehci_hcd libahci scsi_transport_sas i2c_smbus lpc_ich dca wmi
+[    7.686093] CPU: 19 UID: 0 PID: 454 Comm: (udev-worker) Not tainted 6.18.66-rc1+ #1 PREEMPT(voluntary)
+[    7.686096] Hardware name: ASUSTeK COMPUTER INC. Z9PE-D16 Series/Z9PE-D16 Series, BIOS 5601 06/11/2015
+[    7.686100] RIP: 0010:offset_readdir+0x1ae/0x1d0
+[    7.686103] Code: c1 2e e8 b5 75 ce 00 84 c0 0f 84 ae fe ff ff be 03 00 00 00 4c 89 ef e8 60 9d ca 00 48 89 c3 48 85 
+c0 74 0a f6 40 03 08 75 9b <0f> 0b eb 97 49 c7 44 24 08 ff ff ff 7f e9 81 fe ff ff e8 cb 44 cd
+[    7.686106] RSP: 0018:ffffd0914e18fa98 EFLAGS: 00010246
+[    7.686108] RAX: ffff8e884bcbe540 RBX: ffff8e884bcbe540 RCX: 0000000000000000
+[    7.686110] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+[    7.686112] RBP: ffffd0914e18fb18 R08: 0000000000000000 R09: 0000000000000000
+[    7.686113] R10: 0000000000000000 R11: 0000000000000000 R12: ffffd0914e18fb60
+[    7.686115] R13: ffffd0914e18fa98 R14: ffff8e884ba57930 R15: ffff8e884ba57898
+[    7.686116] FS:  0000707f469e7980(0000) GS:ffff8ea8042e1000(0000) knlGS:0000000000000000
+[    7.686118] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[    7.686120] CR2: 000064a69e409f28 CR3: 00000020888cc004 CR4: 00000000001706f0
+[    7.686123] Call Trace:
+[    7.686126]  <TASK>
+[    7.686130]  iterate_dir+0xbe/0x240
+[    7.686148]  __x64_sys_getdents64+0x76/0x110
+[    7.686151]  ? __pfx_filldir64+0x10/0x10
+[    7.686153]  x64_sys_call+0x1cf7/0x2350
+[    7.686157]  do_syscall_64+0x82/0xec0
+[    7.686163]  ? policy_nodemask+0x127/0x1c0
+[    7.686168]  ? count_memcg_events+0xd7/0x1a0
+[    7.686172]  ? __mod_memcg_lruvec_state+0xd2/0x1f0
+[    7.686174]  ? __lruvec_stat_mod_folio+0x8c/0xf0
+[    7.686177]  ? set_ptes.isra.0+0x3b/0x90
+[    7.686181]  ? do_anonymous_page+0x106/0x990
+[    7.686185]  ? ___pte_offset_map+0x1c/0x180
+[    7.686188]  ? __handle_mm_fault+0xb55/0x1020
+[    7.686192]  ? count_memcg_events+0xd7/0x1a0
+[    7.686194]  ? handle_mm_fault+0x26c/0x380
+[    7.686197]  ? do_user_addr_fault+0x2f8/0x860
+[    7.686201]  ? irqentry_exit_to_user_mode+0x2e/0x320
+[    7.686204]  ? irqentry_exit+0x43/0x50
+[    7.686215]  ? exc_page_fault+0x90/0x1b0
+[    7.686217]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
+[    7.686230] RIP: 0033:0x707f4751b623
+[    7.686232] Code: 8b 05 f1 87 10 00 64 c7 00 16 00 00 00 31 c0 eb 9e e8 51 05 04 00 90 b8 ff ff ff 7f 48 39 c2 48 0f 
+47 d0 b8 d9 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 05 c3 0f 1f 40 00 48 8b 15 b9 87 10 00 f7 d8
+[    7.686234] RSP: 002b:00007ffd481402f8 EFLAGS: 00000293 ORIG_RAX: 00000000000000d9
+[    7.686237] RAX: ffffffffffffffda RBX: 000064a69e401ef0 RCX: 0000707f4751b623
+[    7.686238] RDX: 0000000000008000 RSI: 000064a69e401f20 RDI: 000000000000001a
+[    7.686239] RBP: 000064a69e401f20 R08: 0000707f47624ac0 R09: 0000000000000001
+[    7.686241] R10: 0000000000000000 R11: 0000000000000293 R12: 000064a69e401ef4
+[    7.686242] R13: fffffffffffffe90 R14: 0000000000000000 R15: 0000000000000000
+[    7.686245]  </TASK>
+[    7.686246] ---[ end trace 0000000000000000 ]---
 
->
-> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
-> ---
->  drivers/pmdomain/amlogic/meson-ee-pwrc.c | 19 ++++++++++++++-----
->  1 file changed, 14 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/pmdomain/amlogic/meson-ee-pwrc.c b/drivers/pmdomain/=
-amlogic/meson-ee-pwrc.c
-> index 338f70d77bf0..b3ae5cd7bea8 100644
-> --- a/drivers/pmdomain/amlogic/meson-ee-pwrc.c
-> +++ b/drivers/pmdomain/amlogic/meson-ee-pwrc.c
-> @@ -392,11 +392,21 @@ static int meson_ee_pwrc_off(struct generic_pm_doma=
-in *domain)
->         return 0;
->  }
->
-> +static void meson_ee_pwrc_mem_power_up(struct meson_ee_pwrc_domain *dom)
-> +{
-> +       int i;
-> +
-> +       for (i =3D 0; i < dom->desc.mem_pd_count; i++)
-> +               regmap_update_bits(dom->pwrc->regmap_hhi,
-> +                                  dom->desc.mem_pd[i].reg,
-> +                                  dom->desc.mem_pd[i].mask, 0);
-> +}
-> +
->  static int meson_ee_pwrc_on(struct generic_pm_domain *domain)
->  {
->         struct meson_ee_pwrc_domain *pwrc_domain =3D
->                 container_of(domain, struct meson_ee_pwrc_domain, base);
-> -       int i, ret;
-> +       int ret;
->
->         if (pwrc_domain->desc.top_pd)
->                 regmap_update_bits(pwrc_domain->pwrc->regmap_ao,
-> @@ -404,10 +414,7 @@ static int meson_ee_pwrc_on(struct generic_pm_domain=
- *domain)
->                                    pwrc_domain->desc.top_pd->sleep_mask, =
-0);
->         udelay(20);
->
-> -       for (i =3D 0 ; i < pwrc_domain->desc.mem_pd_count ; ++i)
-> -               regmap_update_bits(pwrc_domain->pwrc->regmap_hhi,
-> -                                  pwrc_domain->desc.mem_pd[i].reg,
-> -                                  pwrc_domain->desc.mem_pd[i].mask, 0);
-> +       meson_ee_pwrc_mem_power_up(pwrc_domain);
->
->         udelay(20);
->
-> @@ -478,6 +485,8 @@ static int meson_ee_pwrc_init_domain(struct platform_=
-device *pdev,
->           * prepare/enable counters won't be in sync.
->           */
->         if (dom->num_clks && dom->desc.is_powered_off && !dom->desc.is_po=
-wered_off(dom)) {
-> +               meson_ee_pwrc_mem_power_up(dom);
-> +
->                 ret =3D clk_bulk_prepare_enable(dom->num_clks, dom->clks)=
-;
->                 if (ret)
->                         return ret;
->
-> --
-> 2.56.1
->
->
+
+I didn't do a bisect this time, but looked at the changes to fs/libfs.c
+
+You pulled in all three from this patch series:
+
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=66a52b662e5c09c7e784d2656e0b7ab14b396a8f
+
+which are
+
+65fabd95dd9c89667a09ca3d11e99a40649c8435 libfs: make i_rwsem the lock of the offset tree
+0db6cbb65261dd574ba1db1a607b50f488629556 libfs: end offset readdir at positions past DIR_OFFSET_EOD
+c10108a3b99ad2c0728d77c348d0ce05561de636 libfs: walk offset directories in offset order
+
+but from these, only "libfs: make i_rwsem the lock of the offset tree" was "Cc: stable@vger.kernel.org # v6.14+". I 
+wonder why you pulled in the other two?
+
+
+So I reverted the other two, built and booted it, and that made the warning message disappear.
+
+I see you have all three in the current 7.3.7-rc1 too, and in the current 6.12.120-rc1, you have only "libfs: end offset 
+readdir at positions past DIR_OFFSET_EOD" which was not CC:stable, so you might want to look into that, too.
+
+Beste Grüße,
+Peter Schneider
+
+-- 
+Climb the mountain not to plant your flag, but to embrace the challenge,
+enjoy the air and behold the view. Climb it so you can see the world,
+not so the world can see you.                    -- David McCullough Jr.
+
+OpenPGP:  0xA3828BD796CCE11A8CADE8866E3A92C92C3FF244
+Download: https://www.peters-netzplatz.de/download/pschneider1968_pub.asc
+https://keys.mailvelope.com/pks/lookup?op=get&search=pschneider1968@googlemail.com
+https://keys.mailvelope.com/pks/lookup?op=get&search=pschneider1968@gmail.com
