@@ -1,58 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795720257;
-	b=dFq7S3zi3/GLDF32x69ZmhYbTpf3sP6GijMzW8MAXvSpf0LaCKl81jBlA9lGF2ibbHbw
-	 jwNfXEo4Uu+AoUOz3HA0NtEDo/nVKikjwfkm1CNGEI4ysuqaQ02AlHdOcLcjheKP2wGda
-	 oppQx7q/FXhjFZXFRTViuMajdXuZDAwX7MRZQ9u0lWs3exNIYwAo8t1qqAZ+sA4v9haxE
-	 J0dQQwYkX6ZRrrW2g2STgqBkvy97TsVRYkZzm6TfSWvfPAvYW+mhyHZUcTvMWdNe9Dmcl
-	 laO6Y7we6N8ez0sExVtORTF0/fiC8jNNCtuS/CnF9mIMkdMN5LzZLFHg6TLwSEGHpbA==
+	t=1795720264;
+	b=fbofynwdc1nxgagPjG6eAUqBdW0Z+xzyTKAmhq1BjftjOZmTH1NIJ59YMjjtDAr5ggV3
+	 oOrme1vYKXJsaMHAR7G9XzdLdQDD5raqf/Z3M0oOktZ+gFytCRqYqcJI3WBDq9L3qFN6S
+	 nldMVWqHz0/diFSyGCpOhXb5nsPxfy8tuR4qcKO6M5C3WUxqVkDgF4d7F9osvA8tX6OcW
+	 c4F54TdKMrQW3ToyXaIaBoqX6aHet2LJA9xA4eCAaw3Wh2wZBxy5LHLXSYSqX3ZVrMZCs
+	 wuV8lfUyTzgoEROVD2Cbqj25JFFle8MWNeFjLLB26K74RkHeYE0IJ81OUKx8MYeh2bA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795720257;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Subject:
-	 Date:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
-	bh=fejE54wjl8pNmBwZZ3oMj7oENLwjgt5QRFDy7wYzURY=;
-	b=VLxtJdFkwVDJYd4oKmU4jkYZvgtavOvQTovM0UHr9NI2Mki90Ty7T87o4/VgZapDXLtS
-	 gysry22R1eAMDx1zdd2ZQRE6eQOjUOa3e97addyeTJ+jEJoTov3vjDqRuo6LR5w4x7nbK
-	 yWfih8m2ueqpGrvJcod+aKSzcV1h7t801/Byp/JuahwnB7F0JTnw5Fc+7PP2SW1QZXU+b
-	 OY0OR4uQ3/PYe/5sXeBq9dlytUdHqd4yqdDXroL3jTNSdqDBoA8O37wU4mgClZvja6Tpd
-	 n+YuvWpzj9l3m6XS1/l2yWhBh4G0cfdM7mZaq5UuPRWY8hOxJHakvu8Aj57zf9jHGlw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795720264;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=u/go77fGa6BBlrSXB/4W1ywT2MY9Zfsd5kv0omZx16A=;
+	b=r8l84ZXiU5328XcUDSZMHe8Jeq8xO5UrgWR2GrbtPgl9TKT5anP9nImWGgsoOy8rU5Jw
+	 zCMmBRZJYxPN8D3y+H6J25ppdspi5ArLLNHWAU/8xHgs1mfl2hHPgNvUgbq6tUgTvnUNM
+	 ulZsoKvOK/+wIRUKMWSW/dXDut3WY+Yru+MaKYJLHs/fgwx18hSQfgNu5iEepNelixcbs
+	 BzkBvpvEp9Miw5B7XTAovjJcc3YKizTgq+JERo5ZoThVMooOAFlofNfhuxIVh166hsTpr
+	 g39aCYtK4IZEOLIfQDUGufQfwhOWIO7Fr5vbOvJV42dtCw1boEGLzWWAsI6ME8/NOqg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=oj4WkvGj;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Rcje2CF+;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 186B1606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:10:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 186B1606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C53FD606A329
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:11:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C53FD606A329
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=oj4WkvGj
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Rcje2CF+
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 517E64E417B1;
-	Thu, 26 Nov 2026 19:10:54 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id C4144C2B9EF;
+	Thu, 26 Nov 2026 19:11:09 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 24F0360558;
-	Thu, 26 Nov 2026 19:10:54 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AC92C11E691C1;
-	Thu, 26 Nov 2026 20:10:36 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 5B33D60558;
+	Thu, 26 Nov 2026 19:11:01 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AD73111E691BE;
+	Thu, 26 Nov 2026 20:10:52 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795720248; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=fejE54wjl8pNmBwZZ3oMj7oENLwjgt5QRFDy7wYzURY=;
-	b=oj4WkvGjpbEtCXPXvNYdoiZmxVhE6DjkCqZq0eOfEiUFId5EcyjXmi4+P6Koqyi5JkVTKe
-	M7A+g43HhTLnx2u5ekqs+lz94vuYcuMxDNgxPmy5+iJcNdkM/uBGv1ugIK4TgXOR8r6Nf3
-	kXb0wpd2BGkBxjUnK0aMg0qZ8dQIrlsWhKIFkcOT5HpHHp3wRXW1u3fMqO5cQc5Bj6+CpA
-	rR1z5AOoNbbiNUiJTHsqRfSfqir6IXN9J9KvjrXzbAJ2bDqlIC1SlbnQ6BfNU7GKqAE8Uq
-	QehLkdjxDtvfc486eBghnDQ5cah8AN3WtAhVwur1im9H/KCTC9hloLnpMF1xDQ==
+	t=1795720255; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=u/go77fGa6BBlrSXB/4W1ywT2MY9Zfsd5kv0omZx16A=;
+	b=Rcje2CF+Rc768pJDqRn1xd37LOi2ZIWrxvd33CG/i9GDTQ0Z/EJe+AolhDRapjXHvUkKU4
+	PSHE1y7kkqv/OUQU/TIc4jMD2rQuT2wjnvS2u/sgriHXlls4JIwSW3Ni3kXsnhZ5bWctyb
+	nVdjMtMlYHzTl6mJsuxFo+Y2XheJr/bn3+JDUH4frs4MhtQ0PVyyWNH3QUyOEkumCYUHLT
+	J0yKXlJrC/JniAPkCb1q4N3041OYRixmtCFzrNTdlRI6B4dgEFz9twZ3CTLF0vycvS49RY
+	IJ6ZdCUiipuYtudozCl6ZJP9t+Top9GY6XCEdTgXKkVPyGe5Gd08u85xMdREUg==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Subject: [PATCH 00/12] spi: Misc fixes around the dummy buswidth handling
-Date: Thu, 26 Nov 2026 20:10:19 +0100
-Message-Id: <20261126-macronix-upstreaming-spi-driver-fixes-v1-0-ca8e924cca1b@bootlin.com>
+Date: Thu, 26 Nov 2026 20:10:20 +0100
+Subject: [PATCH 01/12] spi: amd: Validate the dummy buswidth
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,10 +65,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWNQQ6DMAwEvxL5XFclVED5SsUhBEN9SEJtQEiIv
- zcqx5mVZg9QEiaF1hwgtLFyihmKmwH/cXEi5CEz2IetisJWGJyXFHnHddZFyAWOE+rMOAhvJDj
- yTor9qxybsa8bV5eQW7PQf8ipd3ex0HfNd8sloXdK6FMIvLRmq+9PFF9Cd54/hr90GKMAAAA=
-X-Change-ID: 20261126-macronix-upstreaming-spi-driver-fixes-b93f8fb78a73
+Message-Id: <20261126-macronix-upstreaming-spi-driver-fixes-v1-1-ca8e924cca1b@bootlin.com>
+References: <20261126-macronix-upstreaming-spi-driver-fixes-v1-0-ca8e924cca1b@bootlin.com>
+In-Reply-To: <20261126-macronix-upstreaming-spi-driver-fixes-v1-0-ca8e924cca1b@bootlin.com>
 To: Raju Rangoju <Raju.Rangoju@amd.com>, 
  Krishnamoorthi M <krishnamoorthi.m@amd.com>, 
  Mark Brown <broonie@kernel.org>, CL Wang <cl634@andestech.com>, 
@@ -88,50 +88,29 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 
-While working on the dummy.nbytes -> dummy.ncycles conversion and
-especially the conversion of the spi controller drivers, I realized
-there were many misuses of the buswidth (plus some misc enhancements).
-
-This series is sometimes limiting the dummy buswidth to be the same as
-the data buswidth, which means I am now flagging controllers (or at
-least drivers) which I believe do not support 1-1-2, 1-1-4 or 1-1-8
-transfers. This is required to avoid issues on the number of dummy
-cycles on controllers handling the dummy phase as an amount of data
-("bytes"). For the controllers managing cycles we now have a much
-cleaner alternative, which will be implemented in a following series.
+The driver clocks the dummy phase with the data buswidth. Reject
+operations asking for a different dummy buswidth.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
-Miquel Raynal (12):
-      spi: amd: Validate the dummy buswidth
-      spi: amlogic-spifc-a1: Fix a typo in a macro
-      spi: atcspi200: Validate the dummy buswidth
-      spi: ath79: Validate the dummy buswidth
-      spi: atmel-quadspi: Drop redundant address buswidth check
-      spi: atmel-quadspi: Reject SDR address with DDR data
-      spi: atmel-quadspi: Advertise DTR for the octal controller
-      spi: hisi-sfc-v3xx: Validate the dummy buswidth
-      spi: mtk-nor: Validate the dummy buswidth
-      spi: sg2044-nor: Validate the dummy buswidth
-      spi: ti-qspi: Validate the dummy buswidth
-      spi: zynq-qspi: Validate the dummy buswidth
+ drivers/spi/spi-amd.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
- drivers/spi/atmel-quadspi.c        |  6 +++++-
- drivers/spi/spi-amd.c              |  3 +++
- drivers/spi/spi-amlogic-spifc-a1.c |  6 +++---
- drivers/spi/spi-atcspi200.c        | 13 +++++++++++++
- drivers/spi/spi-ath79.c            |  3 ++-
- drivers/spi/spi-hisi-sfc-v3xx.c    |  3 +++
- drivers/spi/spi-mtk-nor.c          |  3 +++
- drivers/spi/spi-sg2044-nor.c       | 13 +++++++++++++
- drivers/spi/spi-ti-qspi.c          | 13 +++++++++++++
- drivers/spi/spi-zynq-qspi.c        |  4 ++++
- 10 files changed, 62 insertions(+), 5 deletions(-)
----
-base-commit: 19d1b4de6d37bccecc3ad9144d279f1baa405eb1
-change-id: 20261126-macronix-upstreaming-spi-driver-fixes-b93f8fb78a73
+diff --git a/drivers/spi/spi-amd.c b/drivers/spi/spi-amd.c
+index d3953de255be..0c56d5b2a6db 100644
+--- a/drivers/spi/spi-amd.c
++++ b/drivers/spi/spi-amd.c
+@@ -459,6 +459,9 @@ static bool amd_spi_supports_op(struct spi_mem *mem,
+ 	if (op->cmd.buswidth > 1 || op->addr.buswidth > 4)
+ 		return false;
+ 
++	if (op->dummy.nbytes && op->dummy.buswidth != op->data.buswidth)
++		return false;
++
+ 	/* AMD SPI controllers support quad mode only for read operations */
+ 	if (amd_is_spi_read_cmd(op->cmd.opcode) || amd_is_spi_write_cmd(op->cmd.opcode)) {
+ 		if (op->data.buswidth > 4)
 
-Best regards,
 -- 
-Miquel Raynal <miquel.raynal@bootlin.com>
+2.56.0
 
