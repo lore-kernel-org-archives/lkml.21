@@ -1,77 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795727945;
-	b=oHfY64E09uVukHRHHAbFhXj8uc0UgtR3GPn6fA4BC99zoIl6MMViCY1Y5+tf6KxbGNyH
-	 4o/IidkpxmOQwFQjLiCGdutj2iLejTMwDcjTzm1DlsUl5TCKprmTkLP9LWpLPz8L6pWBf
-	 8mfLGh2ZGnjXa9TdFe9vkJqTZZx4NZ4Rmc6wD53R9thmSj0rjzLug+UNv6bFIaF/FKsLb
-	 CI2WWbvtBcjfj+PBc5lVKTcI9anjyjO6Duz4PtKUl73CpGuQwtE89vLWrZhGQO/eya4Sj
-	 9q4loTSK3pdFjNqSrYT3cBsIttjoMUmgNCcIL38j/I+0HKufwtP7fXf4eLM6YnjHwfg==
+	b=s70LtoYnaVM87m2/N1Vi3nNkPUHbytmSPxJUpYx4q/mZIcztybxOSNm7rzsrWHPSsRPl
+	 twtT3MvvaE0IKs9PYkDfnz5VNundCLzrkRiFYDuGqRMQywF1+Pck6nscFT9Od/Ea4ITw6
+	 mlE3/IYiUQ7AHzDJy+2M0jWSdnXHZ82BJPApS+WDxWfI6vRV9MCBxIvQJMOQPVKS/xxDQ
+	 TE99UAbQVmoW62PT2euj0nQvYSovv/diSKi/ei/AyG89f3JM14D8ZVO1sNoge6xRVIB0p
+	 JD0ufZmqrrIrbjm8f8Nwc0rfuCwrmpc76tsLZ4bJOC3Nc3doCQcnPt76hLLGckjZvUQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795727945;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:User-Agent:MIME-Version:Content-Type;
-	bh=hbf3r1YKsZ/rjefB5uXr2cqpRkWSrPfPVGnHGGV85+c=;
-	b=qdSixSf8qLE02BMdGuJgxtZSgspcnFXhy5qEbyun7QZZ9pHThLoshfCoz2tw5Y4V7XtE
-	 XOdvpvSUtk2DSwIJ73hnzcbJjM143Gw/smOT9JTvx7fIE1M/aph/uHC3T8DOxf2Dhi+4x
-	 ZmXUD0KOwb4z71g4NLYVoEqOxuTyBu8eXMFjaKg84gf1iWD1DiSz6OqI0CA1UyzTodQQ9
-	 Vps3kywmdHgalebJnRb9e3vIipK56S55h7DGZf56fnGHJOnxay5IMcJ4KImDDTd8rWnRi
-	 ue+dgwp59cZ20Yqq0botmIrssEiWqmJ35dp9C4cgexW4rVEA2dOdbMEA46zXA9PMITw==
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=BECvhQRh4+2QJTSzh2eae5Yl1mGEIFIrnDajqcoZhJU=;
+	b=T5LS8kvdnQXIFjvKD18XZSs2R8f7W20ZAj99fcMH+a28UsnQPABoEqNuIHfYgWA3AE/X
+	 CnunVwyl48g4BznK5l2Nz4l66zmRdiIIeVB2/lUJxWuSXOkN4wGH2G5Fkz99uj1XNJWZS
+	 y29INueZn64c6b5ufcH4QyGfKr5rC44ajiH1/LDPjZyISVzgnrdxcnXWiyyXNNVI4TMrR
+	 2qAmskchlZQlKWmVI/yfm2RoR7iNMv2OOy8LBD5KqatPJS/eR3laoSXdPSa/l2sYpoQnJ
+	 vYo3+Vt9m8+iP0e9QnRofv3yGQ3APONoK3j3sVfwfaMeMS9RjCWEBDq4jc6AsvlSKWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ooo2OGXb;
-	arc=none smtp.remote-ip=198.175.65.14
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Oc03qaVB;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62A9A606A334
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:19:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62A9A606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FBA8606A32C;
+	Thu, 26 Nov 2026 21:19:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ooo2OGXb
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795727946; x=1827263946;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=e2RZbJfHsu6ZR0HQLJSFs5ivZXLia6F66ZMZjV64PAc=;
-  b=Ooo2OGXbfb6XLSrtXl7VN8EjO5MJ+6ZA5KbP9NLwUaUYNo7Ri5jEj+o0
-   dxt7x4DIoQ7jBBcMQb0qrxcd3MMB4yVWpnTsms7leAESn2crZQghpu3IV
-   K/DxtrL/U5yToGr930eGCYLX1WoDQCq3VtlYD5Q8KJoxxHZeT8iyA/TOS
-   0ZzMl0ZoWBkHSWCSTrBe54w0uwRRHpfGH3kGM9hbrFfGbN3oaGMuAr8yH
-   cr2y4BlPfkOf3Jom6hIMiXBTbXhAh0PlaqhIgtgczgWUPI+NcfXyEL6rM
-   8ZTRylTc1aPOsjAw9FDUjZc2vTfZwJ84GGWgwcoaE9gQ87tQouHio9jBv
-   w==;
-X-CSE-ConnectionGUID: 6l6a6uJ4QxWmP82Y4MZfZQ==
-X-CSE-MsgGUID: wDQ5v1BmRG+WvOrZaoKtlA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4551775"
-X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
-   d="scan'208";a="4551775"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 13:19:06 -0800
-X-CSE-ConnectionGUID: lKZYX4NsStKT9y+TMiVP4A==
-X-CSE-MsgGUID: s2YYOgtgS8arGVlCNaMjDA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
-   d="scan'208";a="12282141"
-Received: from igk-lkp-server01.igk.intel.com (HELO 800201f3098f) ([10.211.93.152])
-  by orviesa002.jf.intel.com with ESMTP; 26 Nov 2026 13:19:03 -0800
-Received: from kbuild by 800201f3098f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xWgrs-000000000CA-2sBW;
-	Thu, 26 Nov 2026 21:19:00 +0000
-Date: Thu, 26 Nov 2026 22:18:28 +0100
-From: kernel test robot <lkp@intel.com>
-To: "Maxime =?utf-8?Q?B=C3=A9lair"?= <maxime.belair@canonical.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
- John Johansen <john.johansen@canonical.com>
-Subject: security/apparmor/policy_unpack.c:1814:2-8: WARNING: NULL
- check before some freeing functions is not needed.
-Message-ID: <20261126221434.SFIqjXah-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Oc03qaVB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE1F51F0089B;
+	Thu, 26 Nov 2026 21:18:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795727944;
+	bh=BECvhQRh4+2QJTSzh2eae5Yl1mGEIFIrnDajqcoZhJU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=Oc03qaVB7N0zm8Q/tLoPqxT6wZstxIs8tp3UpFlIph5ls45TzCK+u5tV8qBhasSSJ
+	 NSfGzhJG5z+mY/tV6zUunyW1NwVu/amoolNAkZJi4cPqqX4bhVdfAgvu6D/4qRB08M
+	 BRG3ycg8q0IAm4H0pn3+bmCBQI9sjsZoJu7Ur9BlzZkdwphNEJBuyOqBtXkK2BtJoC
+	 c50SqZswM0ROynDR6jab5vd961bjbLuGjLbDhI6dfZjhEwWKdYZ68l+hRHM+MG4UrG
+	 m7xve5i1IDuU7zPUAz8dITMuPsApFbAY/urRzY5WDj1LXb8GFmG6QMsK9RhqrLEbeB
+	 ZP7zu8XgLbwzg==
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Date: Thu, 26 Nov 2026 22:18:38 +0100
+Subject: [PATCH net v2 2/4] net: skbuff: limit folio refcount when
+ rearranging skb frags
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,127 +53,168 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-skb_refcount_overflow-v2-2-a6f600a5634a@kernel.org>
+References: <20261126-skb_refcount_overflow-v2-0-a6f600a5634a@kernel.org>
+In-Reply-To: <20261126-skb_refcount_overflow-v2-0-a6f600a5634a@kernel.org>
+To: "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Stanislav Fomichev <sdf.kernel@gmail.com>, 
+ Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, Kiryl Shutsemau <kas@kernel.org>, 
+ Song Liu <songliubraving@fb.com>, Johannes Weiner <hannes@cmpxchg.org>, 
+ Rik van Riel <riel@surriel.com>, 
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+ Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
+ Pedro Falcato <pfalcato@suse.de>, Chuck Lever <cel@kernel.org>, 
+ Jeff Layton <jlayton@kernel.org>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-mm@kvack.org, "David Hildenbrand (Arm)" <david@kernel.org>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5075; i=david@kernel.org;
+ h=from:subject:message-id; bh=WAffQyLBI6rfibJehelEzcOeB9e8IRQYJFfmSALfK30=;
+ b=owGbwMvMwCF2/OVpCdfQ3ZWMp9WSGLI5Fpmlb32dL5eW4GActVHu8VWLlzkHKgRnap8y6fvn5
+ rzm2b37HaUsDGIcDLJiiixBwfcNXr5cV1vtxscMM4eVCWQIAxenAExk1w+G//5f1bn85VcpbtZ0
+ 3Vsd7Dl/W2nyiqIWo2VKmlNvbHORzWb4K/b6XvD+j14fI5fkHpVkEvnx/fGjC0uC/mxd+/2Fd9u
+ TfFYA
+X-Developer-Key: i=david@kernel.org; a=openpgp;
+ fpr=1BD9CAAD735C4C3A460DFCCA4DDE10F700FF835A
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-head:   9437ee8b6cf607e883b36e44bd755968daaebd48
-commit: 17b5758bf35c7a113363cd7a350b7e6a251b80f4 apparmor: Initial support for compressed policies
-date:   5 months ago
-config: arm-randconfig-r2108-20261126 (https://download.01.org/0day-ci/archive/20261126/20261126221434.SFIqjXah-lkp@intel.com/config)
-compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project a2bea097c8bf336f31f45e88e96f20d88e37ff5a)
+Various networking features take additional references to frag pages
+that are still referenced elsewhere when rearranging skb frags, for
+example software GSO segmentation, TCP receive coalescing of clones, SACK
+shifting and MTU probing. This is an effective way for multiplying folio
+references held by an skb, allowing for exceeding folio refcount limits.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Fixes: 17b5758bf35c ("apparmor: Initial support for compressed policies")
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261126221434.SFIqjXah-lkp@intel.com/
+This is not specific to large pagecache folios, but with them it is a
+lot easier to reach the refcount limit, as page table mappings can cheaply
+create many references.
 
-cocci warnings: (new ones prefixed by >>)
->> security/apparmor/policy_unpack.c:1814:2-8: WARNING: NULL check before some freeing functions is not needed.
+Let's use skb_frag_try_ref() and skb_frags_try_ref() in skb_segment(),
+skb_try_coalesce(), skb_shift() and tcp_clone_payload(). All of these can
+already fail, and their callers handle that.
 
-vim +1814 security/apparmor/policy_unpack.c
+skb_split() can still add one reference when splitting a frag. But each
+split also allocates a new skb that is charged to the socket, reaching
+the refcount limit that way would require a lot of socket memory, and the
+references go away once the data was acked, so it's not that relevant in
+practice. Making skb_split() fail is more involved, so let's leave it alone
+for now.
 
-  1715	
-  1716	/**
-  1717	 * aa_unpack - unpack packed binary profile(s) data loaded from user space
-  1718	 * @udata: user data copied to kmem  (NOT NULL)
-  1719	 * @lh: list to place unpacked profiles in a aa_repl_ws
-  1720	 * @ns: Returns namespace profile is in if specified else NULL (NOT NULL)
-  1721	 * @compressed_data: The userspace-provided compressed data. May be NULL
-  1722	 * @compressed_size: If compressed_data is not NULL, the compressed data size
-  1723	 *
-  1724	 * Unpack user data and return refcounted allocated profile(s) stored in
-  1725	 * @lh in order of discovery, with the list chain stored in base.list
-  1726	 * or error
-  1727	 *
-  1728	 * Returns: profile(s) on @lh else error pointer if fails to unpack
-  1729	 */
-  1730	int aa_unpack(struct aa_loaddata *udata, struct list_head *lh,
-  1731		      const char **ns, char *compressed_data, size_t compressed_size)
-  1732	{
-  1733		struct aa_load_ent *tmp, *ent;
-  1734		struct aa_profile *profile = NULL;
-  1735		char *ns_name = NULL;
-  1736		int error = 0;
-  1737		struct aa_ext e = {
-  1738			.start = udata->data,
-  1739			.end = udata->data + udata->size,
-  1740			.pos = udata->data,
-  1741		};
-  1742	
-  1743		*ns = NULL;
-  1744		while (e.pos < e.end) {
-  1745			void *start;
-  1746			error = verify_header(&e, e.pos == e.start, ns);
-  1747			if (error)
-  1748				goto fail;
-  1749	
-  1750			start = e.pos;
-  1751			profile = unpack_profile(&e, &ns_name);
-  1752			if (IS_ERR(profile)) {
-  1753				error = PTR_ERR(profile);
-  1754				goto fail;
-  1755			}
-  1756	
-  1757			error = verify_profile(profile);
-  1758			if (error)
-  1759				goto fail_profile;
-  1760	
-  1761			if (aa_g_hash_policy)
-  1762				error = aa_calc_profile_hash(profile, e.version, start,
-  1763							     e.pos - start);
-  1764			if (error)
-  1765				goto fail_profile;
-  1766	
-  1767			ent = aa_load_ent_alloc();
-  1768			if (!ent) {
-  1769				error = -ENOMEM;
-  1770				goto fail_profile;
-  1771			}
-  1772	
-  1773			ent->new = profile;
-  1774			ent->ns_name = ns_name;
-  1775			ns_name = NULL;
-  1776			list_add_tail(&ent->list, lh);
-  1777		}
-  1778		udata->abi = e.version & K_ABI_MASK;
-  1779		if (aa_g_hash_policy) {
-  1780			udata->hash = aa_calc_hash(udata->data, udata->size);
-  1781			if (IS_ERR(udata->hash)) {
-  1782				error = PTR_ERR(udata->hash);
-  1783				udata->hash = NULL;
-  1784				goto fail;
-  1785			}
-  1786		}
-  1787	
-  1788		if (aa_g_export_binary) {
-  1789			/* Do we have userspace-compressed data? */
-  1790			if (compressed_data) {
-  1791				kvfree(udata->data);
-  1792				udata->data = compressed_data;
-  1793				udata->compressed_size = compressed_size;
-  1794				compressed_data = NULL; /* consumed */
-  1795	
-  1796			} else
-  1797				error = compress_loaddata(udata);
-  1798	
-  1799			if (error)
-  1800				goto fail;
-  1801		} else if (compressed_data) {
-  1802			kvfree(compressed_data);
-  1803			compressed_data = NULL;
-  1804		}
-  1805	
-  1806		return 0;
-  1807	
-  1808	fail_profile:
-  1809		kfree(ns_name);
-  1810		aa_put_profile(profile);
-  1811	
-  1812	fail:
-  1813		if (compressed_data)
-> 1814			kvfree(compressed_data);
+Fixes: 800d8c63b2e9 ("shmem: add huge pages support")
+Fixes: 99cb0dbd47a1 ("mm,thp: add read-only THP support for (non-shmem) FS")
+Fixes: 793917d997df ("mm/readahead: Add large folio readahead")
+Cc: stable@vger.kernel.org
+Acked-by: Pedro Falcato <pfalcato@suse.de>
+Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+---
+ net/core/skbuff.c     | 32 +++++++++++++++++++++-----------
+ net/ipv4/tcp_output.c |  8 +++++---
+ 2 files changed, 26 insertions(+), 14 deletions(-)
+
+diff --git a/net/core/skbuff.c b/net/core/skbuff.c
+index 05626d9622b3d..6da51ad8fd440 100644
+--- a/net/core/skbuff.c
++++ b/net/core/skbuff.c
+@@ -4338,7 +4338,8 @@ static int skb_prepare_for_shift(struct sk_buff *skb)
+  * the length of the skb, from skb to tgt. Returns number bytes shifted.
+  * It's up to caller to free skb if everything was shifted.
+  *
+- * If @tgt runs out of frags, the whole operation is aborted.
++ * If @tgt runs out of frags, or we cannot take an additional frag reference,
++ * the whole operation is aborted.
+  *
+  * Skb cannot include anything else but paged data while tgt is allowed
+  * to have non-paged data as well.
+@@ -4421,7 +4422,9 @@ int skb_shift(struct sk_buff *tgt, struct sk_buff *skb, int shiftlen)
+ 
+ 		} else {
+ 			skb_frag_page_copy(fragto, fragfrom);
+-			skb_frag_ref(tgt, to);
++			/* Nothing has been committed yet. */
++			if (!skb_frag_try_ref(tgt, to))
++				return 0;
+ 			skb_frag_off_copy(fragto, fragfrom);
+ 			skb_frag_size_set(fragto, todo);
+ 
+@@ -5160,7 +5163,10 @@ struct sk_buff *skb_segment(struct sk_buff *head_skb,
+ 			if (!skb_shinfo(nskb)->nr_frags)
+ 				nskb->pp_recycle = frag_skb->pp_recycle;
+ 			*nskb_frag = (i < 0) ? skb_head_frag_to_page_desc(frag_skb) : *frag;
+-			skb_frag_ref(nskb, skb_shinfo(nskb)->nr_frags);
++			if (!skb_frag_try_ref(nskb, skb_shinfo(nskb)->nr_frags)) {
++				err = -ENOMEM;
++				goto err;
++			}
+ 			size = skb_frag_size(nskb_frag);
+ 
+ 			if (pos < offset) {
+@@ -6301,7 +6307,8 @@ bool skb_try_coalesce(struct sk_buff *to, struct sk_buff *from,
+ 		      bool *fragstolen, int *delta_truesize)
+ {
+ 	struct skb_shared_info *to_shinfo, *from_shinfo;
+-	int i, delta, len = from->len;
++	int delta, len = from->len;
++	bool cloned;
+ 
+ 	*fragstolen = false;
+ 
+@@ -6374,6 +6381,15 @@ bool skb_try_coalesce(struct sk_buff *to, struct sk_buff *from,
+ 
+ 	WARN_ON_ONCE(delta < len);
+ 
++	/*
++	 * A clone keeps referencing its frags, so we need our own references.
++	 * Nothing was added to @to yet: we only steal the head of @from above
++	 * if it is not locked, and the head of a clone is always locked.
++	 */
++	cloned = skb_cloned(from);
++	if (cloned && !skb_frags_try_ref(from))
++		return false;
++
+ 	memcpy(to_shinfo->frags + to_shinfo->nr_frags,
+ 	       from_shinfo->frags,
+ 	       from_shinfo->nr_frags * sizeof(skb_frag_t));
+@@ -6381,15 +6397,9 @@ bool skb_try_coalesce(struct sk_buff *to, struct sk_buff *from,
+ 	if (from_shinfo->nr_frags)
+ 		to_shinfo->flags |= from_shinfo->flags & SKBFL_SHARED_FRAG;
+ 
+-	if (!skb_cloned(from))
++	if (!cloned)
+ 		from_shinfo->nr_frags = 0;
+ 
+-	/* if the skb is not cloned this does nothing
+-	 * since we set nr_frags to 0.
+-	 */
+-	for (i = 0; i < from_shinfo->nr_frags; i++)
+-		skb_frag_ref(from, i);
+-
+ 	to->truesize += delta;
+ 	to->len += len;
+ 	to->data_len += len;
+diff --git a/net/ipv4/tcp_output.c b/net/ipv4/tcp_output.c
+index cf3ddc055d48d..043838d996404 100644
+--- a/net/ipv4/tcp_output.c
++++ b/net/ipv4/tcp_output.c
+@@ -2710,10 +2710,12 @@ static int tcp_clone_payload(struct sock *sk, struct sk_buff *to,
+ 	}
+ commit:
+ 	WARN_ON_ONCE(len != probe_size);
+-	for (i = 0; i < nr_frags; i++)
+-		skb_frag_ref(to, i);
+-
+ 	skb_shinfo(to)->nr_frags = nr_frags;
++	if (!skb_frags_try_ref(to)) {
++		skb_shinfo(to)->nr_frags = 0;
++		return -ENOMEM;
++	}
++
+ 	to->truesize += probe_size;
+ 	to->len += probe_size;
+ 	to->data_len += probe_size;
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.56.1
+
