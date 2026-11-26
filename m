@@ -1,102 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795686869;
-	b=5gUkyAVe/Oof4mL4l0dd1CsKGc63xTWWB6Mqbeg+eS+2qXO/5FUtPJJDOSdt0uaaE8Ji
-	 NVvKqam8tOCDx6ja5+gIonDXmvpsJnPZAYayM+WkA01jME1bVrsvFSyFDIdcSxsRGhO5X
-	 5TTAeMZCWVnPLkJ+PK4UZqzn8b+/9rn50ITsaNyGPNs+3UuiY0mGNk3VD2uvdsRvDiRGr
-	 sU/HHqKU0dwNd26OOlsiDO8eJDaQfL5xrraKxMcnid0sAoNbL3Mpy2xo/nwI7AU+KhPah
-	 2al8rY6eiQUvVl0VvoV94+DuD3XyNG0Hq8gF10G4pBNjtvOx+3WPX0rRaKCG14uSjsg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795686869;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:References:Content-Language:From:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spam-Flag:
-	 X-Spam-Level:X-Spamd-Result:X-Spam-Score;
-	bh=QenZ8YvSWTF9Tgw3lW7F/FgP3vciOBQFZTK4/U065X8=;
-	b=dnW4J+TTBhU7fZDTArO7uD5qobCkjheDQv0b5NPxHKFD0Dop5VxFxFcsP2K1yNnrrQT9
-	 md8xIqEiEOH1c+Ai/LtuXoAsdFmHk0hTLxGyefIfdDCmnwg7w07XMqhKhpAZP49MpwXFN
-	 YmkRTe7RbH/+Tq+L6+DTpuGDE5gzZC/lwB/WmJaemecxi8gbkmaKe0QSBNBbLE7gLi+yy
-	 mbeEoKlJ+DJ1OZ2uwB9fmCDVMXf3JpGs+P04GSxuovLjbSmXCV6KRt8By2xxqjT+g8wU8
-	 Zx8knWZY6mhMZ8SsbGul5zVQIR9LkMypJYwUiHEHpkZH8VFEYRJTcNpw3GA98gMZsUg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=O9BXcHzM;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=HLGMGUA8;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=O9BXcHzM;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=HLGMGUA8;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795686879;
+	b=Lt3blWCSXmpwIgEblh30q+53epiHjPgaAlJsmUEgYURsUhmzr8OC/vgAIUCJHwJXZHAG
+	 KsWFQp6Lg30MFpzvBCe4d6l6Y3cwdQREIfe+P06tDUCMSS8urs0FbuWsW5fcX6sxTO7a1
+	 jL5yrBHOxoApMWYqHL6Tr3n38ctM27s7tINX7iX5IkdozOdn4lykUo3oalHPvBYnLF0Yv
+	 DAlGBwsRCcHiLJekthDLR162SRosrnjf/SEvZHQsxRDx2m1nfpQzFqlxLkfTGXs9EYJGP
+	 YBNIaiNmzNQKBRgtZrNd/zM2DzAZXSNVZjkjN0EwU89Prq/cSvblEO1IThwpT6gRGIQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795686879;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=LrXkkhn+csZHwC0v+/65n16FhGVifrxEgQhE/Pa5wFw=;
+	b=WpbYt3WvdobSnobtjpkw4MEQLBABvx+z808xegH+PkXG+n9N8zQezDGA4sXm9/6tNbe0
+	 hifTodihc3fPNdYbSEkFuR/NUuIkHsqmr1piik96AYiMQZMS3gTRHXF40Lak8btrgtQFw
+	 8/EQfsrC0JViYJiVfQ/3+DTKNMJu8PVATz3nGuByDd0LiDo1fWtcnS+R3hKcDhV1PH5+5
+	 otcU9k/Cjpb1R7SDXNRTaAQifN2o71G06ixDbxcjxKzTCmmjdeob/N7xmVYd6y9/dMHhe
+	 +njF3X+vL0KiUnRdncjnO2BNGcdEGgqCEX4AMObw518RLfPa+kjrYX32SxbcgPREd/Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F+3nfrFb;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2389A606A31C;
+	Thu, 26 Nov 2026 09:54:38 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F+3nfrFb
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795686878;
+	b=TDi1yMZh+0pTTnRJaOEDo9LEQJ7EfmonNLsLcLZ9XHiaPD2Xsr2coH3DTIoBfczFEOKd
+	 SBz+zIA5UUo3fAaeLZDA7vB5S08YYlht5mDfsiUQ97Hk6JSK8dnykprjfgJBrJLCzFjwO
+	 v61ynUBVGUJMNlkaRpHL27cSywkYKILvLHW35NLrSz5iqkOHMDKBY3GgCYtnD+/ACRfj2
+	 AR9MyjZaS1bM5+zCjx8oLasv1WoGl3eKod3ksOVrrHCXhs8Oxc1rsSd7mBKRA71EW7OAS
+	 S7efwz1GcVBOoGXpBtlhdInujsSNcAmukvmWJLZ/Z8LmCRStjmwk25rfS3/hbDGOvXA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795686878;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=LrXkkhn+csZHwC0v+/65n16FhGVifrxEgQhE/Pa5wFw=;
+	b=fh9wQmP/9fVf4DStKALhOi1haMRb3WJNKSq21SMdDFeWCsc1eMXjNTL/51QejcxIB2ww
+	 Qvo363Pv/St0z13kCFlCgaQ+AOKCu1fvXL6LpasE6VH7O5BHRyAw6z1oFu49FfxeKojY+
+	 Tom3GdowWO1EctIhx+yPahGJfQrwhCK2VqgtUDNXbG/ANi9aIT4dy3z3sKM0cne2iMgIC
+	 Fkd+RDwp11TIIiJdfzzLP83eSvBJmsMMSf29AvVPnxE6oFrzYtN+8hPHDZD4+dk8AVBA9
+	 qzsmOIff8xqcaStxfOyAbZHXH9x1BL4pObIK/9ujvECADq2c38cCseM6rjLRt6IImsA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D0C2606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:54:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D0C2606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=O9BXcHzM;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=HLGMGUA8;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=O9BXcHzM;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=HLGMGUA8
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 339AE22780;
-	Thu, 26 Nov 2026 09:54:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795686867; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=QenZ8YvSWTF9Tgw3lW7F/FgP3vciOBQFZTK4/U065X8=;
-	b=O9BXcHzMphuVpZ2Wv19qyEju7P3lbOGNlvG+bmB4p7YF3uBPZwJPVAo5srTpmFUdPDfOma
-	xg4kykYWNyXKUaBKGPv9GYTkhp2Iwe7BFFrGbgKEbxwuHfsh4NETWaWUtRDFWeAZ82ZQrY
-	zPytpBtpStWrRSJpN2sgpnIu4PmARNA=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795686867;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=QenZ8YvSWTF9Tgw3lW7F/FgP3vciOBQFZTK4/U065X8=;
-	b=HLGMGUA8ZGSR/1AAhfsSollqWtO6QX/x9Vd3H09lvjNxjgJ1drm5r61/yu4Dm14TrrFw+I
-	O76g2pedCz+9RMBA==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795686867; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=QenZ8YvSWTF9Tgw3lW7F/FgP3vciOBQFZTK4/U065X8=;
-	b=O9BXcHzMphuVpZ2Wv19qyEju7P3lbOGNlvG+bmB4p7YF3uBPZwJPVAo5srTpmFUdPDfOma
-	xg4kykYWNyXKUaBKGPv9GYTkhp2Iwe7BFFrGbgKEbxwuHfsh4NETWaWUtRDFWeAZ82ZQrY
-	zPytpBtpStWrRSJpN2sgpnIu4PmARNA=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795686867;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=QenZ8YvSWTF9Tgw3lW7F/FgP3vciOBQFZTK4/U065X8=;
-	b=HLGMGUA8ZGSR/1AAhfsSollqWtO6QX/x9Vd3H09lvjNxjgJ1drm5r61/yu4Dm14TrrFw+I
-	O76g2pedCz+9RMBA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id CB738134C3;
-	Thu, 26 Nov 2026 09:54:26 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 6sNTItIBCGvDfgAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Thu, 26 Nov 2026 09:54:26 +0000
-Message-ID: <e9d6ae3e-585b-4240-8f07-8c06911d83cd@suse.de>
-Date: Thu, 26 Nov 2026 10:54:26 +0100
+	by smtp.kernel.org (Postfix) with ESMTPS id 67F8E1F000C4;
+	Thu, 26 Nov 2026 09:54:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795686878;
+	bh=LrXkkhn+csZHwC0v+/65n16FhGVifrxEgQhE/Pa5wFw=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=F+3nfrFbvd2n9Exq6P/RJBPmUwQm88ebWYY57R9qicJHbttkmhGDjz0llWSf6yilI
+	 dJMdxVuMiWAJkRzKM7FdTe+h2KZdiYXhSUDGpsVodq6rv4MKOEGg19VYUMNS1ynoe0
+	 pbRlxDmTEinR+U6OFjwbP83B15JepldMR6UTANTtWxpiVzEJ60E2PNks+3uE0Tjkhz
+	 oczQkpU/qIPlyy656Kl+ejSPndotet3F3yocGkaEHFR7rLVM7FQau3Ol7dwE+yqQwV
+	 twdKXvLsuMsToxbOPMvXsG5N6zoYoqA1e5tVF0xFC110kK+a2UzoqbbwnhsOVg0Anb
+	 3PhNn9IhINYOQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id E02944D3BE;
+	Thu, 26 Nov 2026 09:54:12 +0000 (UTC)
+From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
+Subject: [PATCH v4 0/3] iommu/arm-smmu-v3: Keep the clock of the RK3588
+ PCIe SMMU running
+Date: Thu, 26 Nov 2026 09:54:12 +0000
+Message-Id: <20261126-smmu-v3-pcie-pd-v4-0-c340c2dbd1d2@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,217 +84,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/log: Add an automatic integer scaling
-To: Jocelyn Falempe <jfalempe@redhat.com>,
- Javier Martinez Canillas <javierm@redhat.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org
-References: <20261124224408.728354-1-jfalempe@redhat.com>
- <b5f237cf-582a-42f5-8ebc-c006ccecf62f@suse.de>
- <fe5485e4-c3fc-4f18-86b2-d37106876c47@redhat.com>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <fe5485e4-c3fc-4f18-86b2-d37106876c47@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Spam-Flag: NO
-X-Spam-Level: 
-X-Spamd-Result: default: False [-13.29 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	XM_UA_NO_VERSION(0.01)[];
-	RCPT_COUNT_SEVEN(0.00)[8];
-	FREEMAIL_TO(0.00)[redhat.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch,lists.freedesktop.org,vger.kernel.org];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,imap1.dmz-prg2.suse.org:helo]
-X-Spam-Score: -13.29
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XNTQ6CMBQE4KuQrq3hvVagrryHcdGWAjXyEwqNh
+ nB3KW5Q4nKS+WYm4kxvjSPnaCK98dbZtlkCP0REV7IpDbX5kgnGmABATF1dj9Qz2mlraJdTiQV
+ gqjLIs4IsqutNYZ/r4vX2yW5Ud6OHMBMalXVD27/WSw+h93/dA41pglkGQkvOlbiUtbSPo25rE
+ tY9bj3uPS6eyTRVSiUKNf/1bOvZ3rPghVG8ECBO+PU/z/MbLIR2xEABAAA=
+X-Change-ID: 20261110-smmu-v3-pcie-pd-a2f127b81d8f
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Niklas Cassel <cassel@kernel.org>
+Cc: Pranjal Shrivastava <praan@google.com>, 
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-rockchip@lists.infradead.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Shawn Lin <shawn.lin@rock-chips.com>, Simon Xue <xxm@rock-chips.com>, 
+ Finley Xiao <finley.xiao@rock-chips.com>, 
+ Arun Iyengar <aiyengar1990@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795686852; l=2915;
+ i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
+ bh=OykbgClr+ZRK4+0ppCdomu1EHFQbW+fawWJaWWyDfFk=;
+ b=4w4KGwCAjg+suLsY7Wb+HjUF+MXqiHM+K6VvQS1vu8dKFbs1s3X6LFFI9MENRlif9M9NxN7S1
+ uwd52RE1j4wBnUqWqyH26/yNQulQKg1cKZ6csv8oSQrHEfUy1zQE0eT
+X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
+ pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
+X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
+ auth_id=1480
+X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
+Reply-To: aiyengar1990@gmail.com
 
-Hi
+On RK3588 boards without an enabled PCIe controller, ACLK_MMU_PCIE is
+gated as unused while arm-smmu-v3 is bound to the PCIe SMMU, and reboot
+hangs in arm_smmu_device_shutdown() until the watchdog fires.
 
-Am 26.11.26 um 10:02 schrieb Jocelyn Falempe:
-> On 11/26/26 08:47, Thomas Zimmermann wrote:
->> Hi Jocelyn
->>
->> Am 24.11.26 um 23:42 schrieb Jocelyn Falempe:
->>> On HiDPI screen, the default font might be too small, so if no
->>> scaling is specified, try to upscale reasonably.
->>> The auto scaling is computed for each display.
->>>
->>> Signed-off-by: Jocelyn Falempe <jfalempe@redhat.com>
->>> ---
->>>   drivers/gpu/drm/clients/drm_log.c | 36 
->>> ++++++++++++++++++++-----------
->>>   1 file changed, 24 insertions(+), 12 deletions(-)
->>>
->>> diff --git a/drivers/gpu/drm/clients/drm_log.c b/drivers/gpu/drm/ 
->>> clients/drm_log.c
->>> index 4654091fe11a..7a0db2690b55 100644
->>> --- a/drivers/gpu/drm/clients/drm_log.c
->>> +++ b/drivers/gpu/drm/clients/drm_log.c
->>> @@ -25,9 +25,9 @@ MODULE_AUTHOR("Jocelyn Falempe");
->>>   MODULE_DESCRIPTION("DRM boot logger");
->>>   MODULE_LICENSE("GPL");
->>> -static unsigned int scale = 1;
->>> +static unsigned int scale = 0;
->>>   module_param(scale, uint, 0444);
->>> -MODULE_PARM_DESC(scale, "Integer scaling factor for drm_log, 
->>> default is 1");
->>> +MODULE_PARM_DESC(scale, "Integer scaling factor for drm_log, 
->>> default is 0 (auto)");
->>>   /**
->>>    * DOC: overview
->>> @@ -42,6 +42,7 @@ struct drm_log_scanout {
->>>       const struct font_desc *font;
->>>       u32 rows;
->>>       u32 columns;
->>> +    u32 scale;
->>>       u32 scaled_font_h;
->>>       u32 scaled_font_w;
->>>       u32 line;
->>> @@ -72,17 +73,17 @@ static struct drm_log *console_to_drm_log(struct 
->>> console *con)
->>>   static void drm_log_blit(struct iosys_map *dst, unsigned int 
->>> dst_pitch,
->>>                const u8 *src, unsigned int src_pitch,
->>> -             u32 height, u32 width, u32 px_width, u32 color)
->>> +             u32 height, u32 width, u32 blit_scale, u32 px_width, 
->>> u32 color)
->>>   {
->>>       switch (px_width) {
->>>       case 2:
->>> -        drm_draw_blit16(dst, dst_pitch, src, src_pitch, height, 
->>> width, scale, color);
->>> +        drm_draw_blit16(dst, dst_pitch, src, src_pitch, height, 
->>> width, blit_scale, color);
->>>           break;
->>>       case 3:
->>> -        drm_draw_blit24(dst, dst_pitch, src, src_pitch, height, 
->>> width, scale, color);
->>> +        drm_draw_blit24(dst, dst_pitch, src, src_pitch, height, 
->>> width, blit_scale, color);
->>>           break;
->>>       case 4:
->>> -        drm_draw_blit32(dst, dst_pitch, src, src_pitch, height, 
->>> width, scale, color);
->>> +        drm_draw_blit32(dst, dst_pitch, src, src_pitch, height, 
->>> width, blit_scale, color);
->>>           break;
->>>       default:
->>>           WARN_ONCE(1, "Can't blit with pixel width %d\n", px_width);
->>> @@ -122,7 +123,7 @@ static void drm_log_draw_line(struct 
->>> drm_log_scanout *scanout, const char *s,
->>>           if (src)
->>>               drm_log_blit(&map, fb->pitches[0], src, font_pitch,
->>>                        scanout->scaled_font_h, scanout->scaled_font_w,
->>> -                     px_width, color);
->>> +                     scanout->scale, px_width, color);
->>>           iosys_map_incr(&map, scanout->scaled_font_w * px_width);
->>>       }
->>> @@ -206,6 +207,15 @@ static u32 drm_log_find_usable_format(struct 
->>> drm_plane *plane)
->>>       return DRM_FORMAT_INVALID;
->>>   }
->>> +/* Find the biggest integer scaling to get about 120x50 chars on 
->>> the screen */
->>
->> Something like 80x30 (VGA mode 0x17) or 80x50 (VGA mode 0x102) seems 
->> natural. But what is the reason for 120x50?
->
-> I think this was a good default with old 15" CRT at 640x480. But for 
-> example for code line length, it's now configured in the 100-120 range 
-> in most codebase.
-> When looking at dmesg, a lot of lines are longer than 100, so 120 
-> allows to avoid too much line splitting.
-> For the number of rows, it's important to have some log history, so 50 
-> looks to be the sweet spot.
-> User can set a scaling manually, or build the kernel with bigger fonts 
-> if they don't like the default.
+Patches 1-2 are for the iommu tree, patch 3 for the Rockchip tree. The
+clock can move into the runtime PM callbacks of Pranjal Shrivastava's
+pending SMMUv3 sleep ops series once it lands.
 
-Some general thoughts on this:
+Tested as v2 (same code apart from comments) on an Orange Pi 5 with the
+M.2 slot in SATA mode: reboot reaches the boot loader in 0.59 s (was
+~89 s, via the watchdog). The resets property is unused by the driver
+and untested.
 
-Each font is designed for it's specific glyph resolution. Therefore, I 
-think it is a problem to scale x and y independent from each other. That 
-can mess up the font. I'd suggest to make the output aim for a certain 
-display height. Text runs from top to bottom and number of lines is 
-usually what people care for most. OTOH the display's right side is 
-usually empty.
+Developed with Claude (Anthropic), which wrote the code and the commit
+messages. I reviewed every change.
 
-I agree that the original VGA mode 0x17 is a bit short one lines. The 50 
-lines you choose seem right to me. For the number of lines, I'd start 
-with the current font and scale if the number of lines becomes too 
-large. So that the resulting console has between 30 and 70 lines.
+Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+---
+Changes in v4:
+- 1/3: Acked-by Rob Herring
+- 2/3: kept dev_err_probe(): the clk getters do not print, and the
+  message records the deferral reason (Sebastian Reichel)
+- 2/3, 3/3: shorter commit messages; 2/3: shorter comment
+- Rebased
+- Link to v3: https://patch.msgid.link/20261113-smmu-v3-pcie-pd-v3-0-39eb4f919529@gmail.com
 
-For the number of columns, why not pick the preferred number of columns 
-in relation to the scaled font height and the display-mode resolution? 
-That keeps the font geometry at a correct ratio.
+Changes in v3:
+- Shortened the commit messages and the cover letter, and dropped the
+  "on SoCs where ..." part of the binding's clock description
+  (Sebastian Reichel).
+- Squashed the DTS reset patch into the clock patch (Sebastian Reichel).
+  His Reviewed-by of the clock patch is kept.
+- Dropped the description of the binding's resets property.
+- No code changes.
+- Link to v2: https://patch.msgid.link/20261112-smmu-v3-pcie-pd-v2-0-3a77bbb6b2c4@gmail.com
 
+Changes in v2:
+- Moved the fix for the Tegra CMDQV reference leak on a bad
+  #iommu-cells (Sashiko AI review) to a separate patch.
+- Dropped the power-domain patches: the TRM puts MMU600_PCIE in PD_PHP,
+  which Linux does not control (Sebastian Reichel, Shawn Lin).
+- Binding: one clock instead of up to four (Sashiko, Sebastian Reichel).
+- Driver: one optional clock, got before the firmware probe so a failure
+  cannot leak the CMDQV reference (Sashiko); shorter comment (Sebastian
+  Reichel).
+- Added the reset to the binding and the DTS (Sebastian Reichel).
+- Link to v1: https://patch.msgid.link/20261110-smmu-v3-pcie-pd-v1-0-628819ca44b9@gmail.com
 
-I know all this is close to nitpicking and maybe the code does some of 
-this already. I just think it's important to make it look good on a 
-variety of displays.
+---
+Arun Iyengar (3):
+      dt-bindings: iommu: arm,smmu-v3: Allow a clock and a reset
+      iommu/arm-smmu-v3: Enable an optional clock
+      arm64: dts: rockchip: Add the clock and reset of the RK3588 PCIe SMMU
 
+ Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml | 8 ++++++++
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi            | 2 ++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c              | 8 ++++++++
+ 3 files changed, 18 insertions(+)
+---
+base-commit: c9b82d9808c4af1734e6d08f06fd411c30438ae8
+change-id: 20261110-smmu-v3-pcie-pd-a2f127b81d8f
 
->
-> Currently, with 8x16 font (which is the most common), the default in 
-> full HD is 240x67. In 4K it's 480x135. So doing some integer scaling 
-> make the default experience much better.
-
-Right, the current fonts are too small on modern displays.
-
-Best regards
-Thomas
-
->
-> Best regards,
->
-
--- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Stefan Gaiser, Jochen Jaser, Abhinav Puri, (HRB 36809, AG Nürnberg)
+Best regards,
+--  
+Arun Iyengar <aiyengar1990@gmail.com>
 
 
