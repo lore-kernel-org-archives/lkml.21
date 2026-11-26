@@ -1,55 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.97.179.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795731190;
-	b=XRV35qkWkhDUcIR/Nryn7udXZXjcEOKjTVpZjxwOSIz0TJT+CNr6tM5FqPfo1Oz+0mqG
-	 eXdZehZr4a/mmSsxJdDMYPeeP5hWIzNKX6u6cof8ewMms0c88PXWLN9uYwImCigxZb7SF
-	 ZrxB4I5f8zEDa4CNOOJx1jt2oKR7eUsWrtb6sv9k4SFqALZxdSA8sPFeN56XbOi3+rXC+
-	 +XfamSRdGLdib1MMb3uhIBnMxfWXZhEOW7J+iZZGWlW2ohwYy1Sb9m2RMgo3Cul4Teqt+
-	 fZ522if/0zjnWMgo3ny93j87xCrETupD4t2Yvwaku/4AFK+747H2UHnX6yfNO2y/14g==
+	t=1795731291;
+	b=PJmSY1ZdFQNrX7IEsgzmQ5rVN9EjXiUUE80fGZ3SeXwBqfKhYlDV4b/Ij94Kpy9v0A1R
+	 mTIYVn5lvSe+GATgv7bmuRXfQ4NID7HcIoY4RveUXVHKRhDP5W07sd/qSdtB6qBgAqycw
+	 n85SYPRXw2kIVCvzs9MorxAfVhyyeqooe8RUCRNYOVnSnmRbf4HiyOL4EEZw8Y4T8xNnV
+	 UIvwPlUpQHblTX/0AZcCGH5FHM8zjcSDPQDCYvQbeJ1zOhPGF47/BCZPezV4r0yJvurSo
+	 vAZXXPQ98TPvWtxtdx68oBbrCDgTd6Whhlgw8n+q+ZpjO9pS5q0vzlOvbXP39W8CFMw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795731190;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer;
-	bh=Zf8ltuoqadfIK65fHIjFnRPvWtUZp23p6nOPHgOjNjM=;
-	b=qhQD5pRnrjx2A8h+/lS+w4Xc3Zd4Po9Et6rJxJuJhch4zZqHulg5ETl0eMuwEO2mb7RV
-	 lOYmKRLHJn5eA0uDPnwa/1M37vMg/pI6dbL0YLFT79ckeP9vR1mBQpm61fkIu+VGGTcgl
-	 HWNTkipNZBuR/tdT23EGeKd96h5NVkDfy8cNY76flDmeprj8MT/C8fkB6NNCt3Jzz/hGR
-	 a17QSh17NiLYZj5Bjc2rky0wfGHPwwPpQn51Q/XcxZqvpPzJVxpdCu1yw231LfU5VI2Ut
-	 jKb96ztYboU8xyk48jauQCBUycN8Vy4/adpjKSTbRUBOkQuPI5AQ/ejH4QIhGD530ew==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795731291;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=PIbjNaa3If8KcL8wWiYRghgT7w+vn59i80YcfgEdDJU=;
+	b=Pgmg1WS32H/2w9x6qbkuXWgskvkuUZM/rf3Junm5rzw5bpJkTyN2dvmEvb9ZZz1a7Tfa
+	 7KYFPIWViUK8ccaCdiyglqlFpkKeWLwNzeV3NI6SckyLmt6Tz0ZJLSgt9mjSbGhjan0cp
+	 5ae9FrUmoL6IcjYdNEIAcQ+Fwt+/VaJdlN7gd6v+Dv93lyGMOR4iCkFK6iQG5WEoueXRc
+	 NIhCESMSm9w4KKCWT7BJ63RRgbYn1Jd6UrYOWFHkHhWkb6gG1CQka7yVM3uan76kWiyUK
+	 vE2ht929yOm3J5gAZ0lVTlOLEueR8cGMrgwgQuuKhL3hBKpRnqc27Ji5Rch8s+bOwTg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=igalia.com;
-	spf=pass smtp.mailfrom=igalia.com;
-	dkim=pass header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=XaszjSX1;
-	arc=none smtp.remote-ip=213.97.179.56
-Received: from fanzine2.igalia.com (fanzine2.igalia.com [213.97.179.56])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AU+oYUVz;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3458C606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:13:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3458C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=igalia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=igalia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E991606A31E;
+	Thu, 26 Nov 2026 22:14:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=XaszjSX1
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=Zf8ltuoqadfIK65fHIjFnRPvWtUZp23p6nOPHgOjNjM=; t=1795731188; x=2111091188; 
-	b=XaszjSX1oRex6SVii4yIO7SjXRHfLfPZfIiGY1C69c60Sopg7jGlP9/TWFVEOCUHQxq+x5Zwo+8
-	0Dzj2i+3ZB16zBdfvNaB2s1tPVNk9mYrrc98QPnG9rg+uerc1TDWU0EYu4rXNoQlO4y2Rdk2bvAfk
-	7abQXumQlFfgbQQxdBEbrEXpR8o09bokBOvXr1pAcmTvRofoLlimV4/x9awQkolKlekkGmOFK6Kz7
-	4U6K/Np5LvVINGoDYPF9G6w4RsgEfSdvLnUW6rP3FkLjuksTxgha8dUGSffhrp8DadKYLxQ06gf15
-	1ZWKQ5ms+6EM64tiFbkYfdkNFjOTWEFAAZkw==;
-Received: from 186-249-145-105.shared.desktop.com.br ([186.249.145.105] helo=[127.0.1.1])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1xWhiD-00000004ZXB-0m2E;
-	Thu, 26 Nov 2026 23:13:05 +0100
-From: Mauricio Faria de Oliveira <mfo@igalia.com>
-Date: Thu, 26 Nov 2026 19:13:00 -0300
-Subject: [PATCH] scripts/bloat-o-meter: describe output fields in help text
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AU+oYUVz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A58111F00893;
+	Thu, 26 Nov 2026 22:14:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795731290;
+	bh=PIbjNaa3If8KcL8wWiYRghgT7w+vn59i80YcfgEdDJU=;
+	h=From:Date:Subject:To:Cc;
+	b=AU+oYUVzb6DXyU6N3k/kpc7NNljJ9QNz9aH7y01uoAUForsHTX3Vw3uK2jegO7QKf
+	 0kBXsl6d0PR7S1a5LJwL5kco/+1M7gYzCBoRlo4RGixpXi7XUFEtO8iECNGWXamLWS
+	 wRwu2kKbiIXkCd2SH5kKUsxrnKLMvMemmvxjTTNLjmNDAucC9HsZnpSkRyA22e+qtA
+	 UegeNRkY6bc+BGadx2suRK6mgQqzP0wBFem+2RT72C2tn44RR8nk2e9OMK9mxUDnfD
+	 xUhghcfWK6cvvq0oWEKp8mUzZbi+5KR/y/dZuS1+0xeOxsaUiKxRpsfwnevn4OPbA0
+	 tJaQtzFtrTXWg==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Date: Thu, 26 Nov 2026 22:14:43 +0000
+Subject: [PATCH v2] locking/rwsem: don't let readers retain the lock past a
+ queued writer
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,117 +55,216 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-bloat-o-meter-help-v1-1-fb0785c94bbf@igalia.com>
-X-B4-Tracking: v=1; b=H4sIAOuuCGsC/x3MTQqAIBBA4avErBtI+4G6SrQwnWqgVFQikO6et
- PwW72WIFJgiTFWGQDdHdrZA1BXoQ9mdkE0xyEYOQsgB19OphA4vShTwoNPj1hplxt50ndRQQh9
- o4+efzsv7fvqW5gpkAAAA
-X-Change-ID: 20261126-bloat-o-meter-help-f3dad95d442c
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Yury Norov <ynorov@nvidia.com>, Valtteri Koskivuori <vkoskiv@gmail.com>, 
- kernel-dev@igalia.com, linux-kernel@vger.kernel.org, 
- Eric Dumazet <edumazet@kernel.org>, 
- Mauricio Faria de Oliveira <mfo@igalia.com>
-X-Mailer: b4 0.14.2
+Message-Id: <20261126-rwsem-dont-steal-from-queued-writer-v2-1-9772914de49e@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/5XNTQ6CMBBA4as0s2ZM2/ATWXkPwwLsFBqhxWkBD
+ eHuRm7g9i3et0MkdhShFjswrS664KEWOhPwGFrfEzoDtQAtdamULJC3SBOa4BPGRO2IlsOEr4U
+ WMrixS8Qo804pczW5LDvIBMxM1r1P5d5kAgYXU+DPia7qV//7rwoV6qogWUmb69LensSexkvgH
+ prjOL7r0Zxg1wAAAA==
+X-Change-ID: 20261105-rwsem-dont-steal-from-queued-writer-04b11d9d406b
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Will Deacon <will@kernel.org>, Boqun Feng <boqun@kernel.org>, 
+ Waiman Long <longman@redhat.com>, Nick Terrell <terrelln@fb.com>, 
+ David Sterba <dsterba@suse.com>, Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <ndesaulniers@google.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
+Cc: linux-kernel@vger.kernel.org, 
+ "David Hildenbrand (Arm)" <david@kernel.org>, llvm@lists.linux.dev, 
+ ljs@kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6619; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=OhTVphH9yPA2c+Lixk9fipSm8uBP8oqGlGaKZBQ0MAs=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLI51off3uyfkNJyQH2qb/acsDM11xjbUx9t0ZSMPe2cc
+ ufqqRNrO0pZGMS4GGTFFFmefxHfHyQSNq/zgr8bzBxWJpAhDFycAjCRKxsYGb7cKrV05WO3S3qY
+ Y2n9M53H/CzPUcW/u27OO6bowJln8pvhfyqrjNkTQW+XN2dSvjTz2BpZbBB59cjlpc+1Q+mSRhb
+ 3OQA=
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 
-First time users of the bloat-o-meter script might not understand what
-its output fields mean (add/remove, grow/shrink, up/down, Before/After),
-and even occasional users might eventually forget.
+Since commit 1a728dff855a ("locking/rwsem: Enable reader optimistic lock
+stealing"), a racing read lock can steal an rwsem from under a queued
+writer whose handoff timeout hasn't expired yet.
 
-Describe the output fields in the help text, so it is quick to find out.
+This is most problematic when an rwsem read lock is released then
+reacquired in order to relieve lock contention, as instead it will simply
+have the lock handed right back to it ahead of the intended beneficiary.
 
-RawTextHelpFormatter is used in order to keep line breaks in place.
+Naturally, this behaviour rather defeats the object of doing this kind of
+thing, so this is less than ideal.
 
-Signed-off-by: Mauricio Faria de Oliveira <mfo@igalia.com>
+Fix this by updating the optimistic read lock stealing code in
+rwsem_down_read_slowpath() to explicitly check whether the first queued
+lock is a waiting writer and the rwsem was last held by a reader, and to
+not allow the theft if so.
+
+This still permits reader stealing if a writer last held the lock, as
+failing to do so can starve readers in favour of writers. This maintains
+fairness.
+
+When a steal is disallowed, keep the existing sem->wait_lock held when
+jumping to the queue code to avoid useless lock acquisition/release.
+
+Also update the comment describing optimistic read lock acquisition
+conditions to include this newly introduced behaviour.
+
+Care is taken to ensure correct ordering of lock acquisition, lock waking
+and marking the lock reader-owned.
+
+Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
-Before:
+Testing:
 
-  $ ./scripts/bloat-o-meter -h
-  usage: bloat-o-meter [-h] [-c | -d | -t] [-p PREFIX] file_old file_new
-  
-  Simple script used to compare the symbol sizes of 2 object files
-  
-  positional arguments:
-    ...
+All on an AMD threadripper 9980X with 64 cores, one thread per core (SMT off),
+bare metal testing.
 
-  options:
-    ...
+Correctness
+-----------
+locktorture: RWSEM01-08 all pass, 30 minutes each, 0 read/write failures,
+no splats.
+Bare metal: no dmesg splats on any boot.
 
-After:
+Writer latency (microbenchmark, bare metal, p99)
+------------------------------------------------
+readers          base      patched
+2             3813 us        17 us
+4             3868 us        29 us
+16            5369 us      4008 us  (within expected stddev)
+62            4612 us      3835 us  (ditto)
+2, one CCD    3865 us        17 us
+7, one CCD    3951 us        35 us
 
-  $ ./scripts/bloat-o-meter -h
-  usage: bloat-o-meter [-h] [-c | -d | -t] [-p PREFIX] file_old file_new
-  
-  Simple script used to compare the symbol sizes of 2 object files
-  
-  fields:
-    add/remove:   number of symbols added in the new file / removed from the old file.
-    grow/shrink:  number of symbols in both files that had a size increase / decrease.
-    up/down:      size of symbols added plus size increase / removed plus size decrease.
-    (change):     difference between up and down sizes.
-  
-    Symbol lines: symbol name, old size, new size, and size delta;
-                  '-' means symbol added/removed;
-                  '0' delta symbols not included.
-  
-    Before:       size of all symbols in old file.
-    After:        size of all symbols in new file.
-    chg:          percent change.
-  
-    Symbols in both files with the same size are only counted in Before/After/chg.
-  
-  positional arguments:
-    ...
+Writer throughput +35-54% at 2 and 4 readers and in both one-CCD cases.
+Reader steals in this test: 4.8M -> 8.
 
-  options:
-    ...
+stress-ng (bare metal, 64 instances, 2 boots each, alternating)
+---------------------------------------------------------------
+vma        59.9k -> 67.1k bogo-ops/s   +12.0%
+msg                                     +9.5%
+madvise                                 +5.0%
+
+vma in guests: 64.2k-66.7k vs 58.8k-61.0k base.
+
+will-it-scale (t=8 and t=64)
+----------------------------
+mmap1, mmap2, brk1, open1, page_fault1/2/3, unlink1: within noise.
+
+Real workloads
+--------------
+                              base     patched
+kernel build, LLVM (guest)    28.33 s  28.51 s   +0.6%
+kernel build (bare metal)     26.86 s  27.03 s   +0.6%
+relink with lld               6.136 s  6.154 s   +0.3%
+zstd                          0.617 s  0.610 s   -1.1%
+ripgrep                       0.154 s  0.153 s   flat
+Go std build                  3.718 s  3.707 s   flat
+
+I.e. all within noise levels.
+
+v2:
+* Update to allow reader stealing if a writer last held the lock to avoid a
+  spinning writer from starving readers.
+* Simplified the code.
+* Ran a full suite of tests and benchmarks on bare metal to ensure
+  correctness and avoid performance regressions.
+
+v1:
+https://lore.kernel.org/r/20261105-rwsem-dont-steal-from-queued-writer-v1-1-275e070f426f@kernel.org
 ---
- scripts/bloat-o-meter | 24 +++++++++++++++++++++++-
- 1 file changed, 23 insertions(+), 1 deletion(-)
+ kernel/locking/rwsem.c | 44 +++++++++++++++++++++++++++-----------------
+ 1 file changed, 27 insertions(+), 17 deletions(-)
 
-diff --git a/scripts/bloat-o-meter b/scripts/bloat-o-meter
-index 5868a8b11b0f93930ef7b666bcdd229f89dd58be..d988b623e86ee97e296521bdd76aa621ecb8823d 100755
---- a/scripts/bloat-o-meter
-+++ b/scripts/bloat-o-meter
-@@ -9,10 +9,32 @@
+diff --git a/kernel/locking/rwsem.c b/kernel/locking/rwsem.c
+index b9c180ac1eee..c49e518f1b2c 100644
+--- a/kernel/locking/rwsem.c
++++ b/kernel/locking/rwsem.c
+@@ -59,7 +59,9 @@
+  * A fast path reader optimistic lock stealing is supported when the rwsem
+  * is previously owned by a writer and the following conditions are met:
+  *  - rwsem is not currently writer owned
+- *  - the handoff isn't set.
++ *  - the handoff isn't set
++ *  - a writer isn't at the head of the wait queue while the rwsem was last
++ *    held by a reader.
+  */
+ #define RWSEM_READER_OWNED	(1UL << 0)
+ #define RWSEM_NONSPINNABLE	(1UL << 1)
+@@ -1018,47 +1020,55 @@ rwsem_down_read_slowpath(struct rw_semaphore *sem, long count, unsigned int stat
+ {
+ 	long adjustment = -RWSEM_READER_BIAS;
+ 	long rcnt = (count >> RWSEM_READER_SHIFT);
++	bool reader_owned = atomic_long_read(&sem->owner) & RWSEM_READER_OWNED;
+ 	struct rwsem_waiter waiter, *first;
+ 	DEFINE_WAKE_Q(wake_q);
  
- import sys, os, re, argparse
- from signal import signal, SIGPIPE, SIG_DFL
-+from argparse import RawTextHelpFormatter
+-	/*
+-	 * To prevent a constant stream of readers from starving a sleeping
+-	 * writer, don't attempt optimistic lock stealing if the lock is
+-	 * very likely owned by readers.
+-	 */
+-	if ((atomic_long_read(&sem->owner) & RWSEM_READER_OWNED) &&
+-	    (rcnt > 1) && !(count & RWSEM_WRITER_LOCKED))
+-		goto queue;
+-
+ 	/*
+ 	 * Reader optimistic lock stealing.
+ 	 */
+ 	if (!(count & (RWSEM_WRITER_LOCKED | RWSEM_FLAG_HANDOFF))) {
+-		rwsem_set_reader_owned(sem);
+-		lockevent_inc(rwsem_rlock_steal);
+-
+ 		/*
+-		 * Wake up other readers in the wait queue if it is
+-		 * the first reader.
++		 * To prevent a constant stream of readers from starving a
++		 * sleeping writer, don't attempt optimistic lock stealing if
++		 * the lock is very likely owned by readers.
+ 		 */
++		if (reader_owned && rcnt > 1)
++			goto queue;
++
+ 		if ((rcnt == 1) && (count & RWSEM_FLAG_WAITERS)) {
+ 			raw_spin_lock_irq(&sem->wait_lock);
+-			if (sem->first_waiter)
++			first = sem->first_waiter;
++			/*
++			 * If a reader last held this lock, let a queued writer
++			 * take precedence to avoid writer starvation.
++			 */
++			if (reader_owned && first &&
++			    first->type == RWSEM_WAITING_FOR_WRITE)
++				goto queue_locked;
++			rwsem_set_reader_owned(sem);
++			/* If first reader, wake other readers in queue. */
++			if (first)
+ 				rwsem_mark_wake(sem, RWSEM_WAKE_READ_OWNED,
+ 						&wake_q);
+ 			raw_spin_unlock_irq(&sem->wait_lock);
+ 			wake_up_q(&wake_q);
++		} else {
++			rwsem_set_reader_owned(sem);
+ 		}
++
++		lockevent_inc(rwsem_rlock_steal);
+ 		return sem;
+ 	}
  
- signal(SIGPIPE, SIG_DFL)
+ queue:
++	raw_spin_lock_irq(&sem->wait_lock);
++queue_locked:
+ 	waiter.task = current;
+ 	waiter.type = RWSEM_WAITING_FOR_READ;
+ 	waiter.timeout = jiffies + RWSEM_WAIT_TIMEOUT;
+ 	waiter.handoff_set = false;
  
--parser = argparse.ArgumentParser(description="Simple script used to compare the symbol sizes of 2 object files")
-+description = \
-+"""
-+Simple script used to compare the symbol sizes of 2 object files
-+
-+fields:
-+  add/remove:   number of symbols added in the new file / removed from the old file.
-+  grow/shrink:  number of symbols in both files that had a size increase / decrease.
-+  up/down:      size of symbols added plus size increase / removed plus size decrease.
-+  (change):     difference between up and down sizes.
-+
-+  Symbol lines: symbol name, old size, new size, and size delta;
-+                '-' means symbol added/removed;
-+                '0' delta symbols not included.
-+
-+  Before:       size of all symbols in old file.
-+  After:        size of all symbols in new file.
-+  chg:          percent change.
-+
-+  Symbols in both files with the same size are only counted in Before/After/chg.
-+"""
-+
-+parser = argparse.ArgumentParser(description=description, formatter_class=RawTextHelpFormatter)
- group = parser.add_mutually_exclusive_group()
- group.add_argument('-c', help='categorize output based on symbol type', action='store_true')
- group.add_argument('-d', help='Show delta of Data Section', action='store_true')
+-	raw_spin_lock_irq(&sem->wait_lock);
+ 	first = sem->first_waiter;
+ 	if (!first) {
+ 		/*
 
 ---
-base-commit: 9437046953b2fb3bf55b36582450ea0267df82a7
-change-id: 20261126-bloat-o-meter-help-f3dad95d442c
+base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
+change-id: 20261105-rwsem-dont-steal-from-queued-writer-04b11d9d406b
 
-Best regards,
+Cheers,
 -- 
-Mauricio Faria de Oliveira <mfo@igalia.com>
+Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
