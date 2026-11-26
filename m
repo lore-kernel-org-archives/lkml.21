@@ -1,49 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795727938;
-	b=AV14Q6lCae5lkjVqLhmknjyrPThyfzTgXUP9uLQepcP77vAPqBmKaHaDzBjhzALgWHmY
-	 jgp9rWnWeB4wu3dyPxJk+yyycyKErL+6Efv//BFqFG/+zFQBFc2vQNZh3xn7vAAMATLBb
-	 ol6BymgGBtAOhEzajMuXxWercQoyoWqJjAhe1q0XM2BhYQZqSmtbQZmN6hsRbgqPj6R32
-	 DfsNq5s+uvhSi54MhqCOdggo0n0PyvLrykr35dmufS68Rjf9W8h1ZDDnKkF3Skcbb+Ozq
-	 W93/j3hfju2ZMgqjSJmTeCaQGGVYiYBch7lGeyluN4+HylqxEG21m1h2nAP0tyEmZwA==
+	t=1795727945;
+	b=oHfY64E09uVukHRHHAbFhXj8uc0UgtR3GPn6fA4BC99zoIl6MMViCY1Y5+tf6KxbGNyH
+	 4o/IidkpxmOQwFQjLiCGdutj2iLejTMwDcjTzm1DlsUl5TCKprmTkLP9LWpLPz8L6pWBf
+	 8mfLGh2ZGnjXa9TdFe9vkJqTZZx4NZ4Rmc6wD53R9thmSj0rjzLug+UNv6bFIaF/FKsLb
+	 CI2WWbvtBcjfj+PBc5lVKTcI9anjyjO6Duz4PtKUl73CpGuQwtE89vLWrZhGQO/eya4Sj
+	 9q4loTSK3pdFjNqSrYT3cBsIttjoMUmgNCcIL38j/I+0HKufwtP7fXf4eLM6YnjHwfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795727938;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=Mg7Qi4LHUwhrCBip/YNh+ysHUS3QtiytfnZ8aKHca6Y=;
-	b=AjwX0whEN9wpTmkF1JffuKIiOL15RDA6oon9g8lHtIjJvpScNtama9lLRWspnttuPnih
-	 jyw0nUCaZ0Gcbpb6ZERoIH2BwYYhxX+luzPice3Jznnd19gQZpA1aiJUQ3Ulafo11T4U+
-	 d3ojt5paMaT0tSIMCE2ksTbJyeQ/N1N+maYYoYs5+XpAlqVqvbaf1sZpiDvaydHWFJ7me
-	 VdLvT4qaQGl3SPM3T20XUtJV8WEJmV2LUrt0zbEc5W/VvVC0wT5Qa5SG0InsbMpD1KSdB
-	 X7urgjSqeUdLSvzJ8yh10EuI2ov/ZVqItIXD0SYz57FmA7ExK9EMpjyc/PYze97otPA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795727945;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:User-Agent:MIME-Version:Content-Type;
+	bh=hbf3r1YKsZ/rjefB5uXr2cqpRkWSrPfPVGnHGGV85+c=;
+	b=qdSixSf8qLE02BMdGuJgxtZSgspcnFXhy5qEbyun7QZZ9pHThLoshfCoz2tw5Y4V7XtE
+	 XOdvpvSUtk2DSwIJ73hnzcbJjM143Gw/smOT9JTvx7fIE1M/aph/uHC3T8DOxf2Dhi+4x
+	 ZmXUD0KOwb4z71g4NLYVoEqOxuTyBu8eXMFjaKg84gf1iWD1DiSz6OqI0CA1UyzTodQQ9
+	 Vps3kywmdHgalebJnRb9e3vIipK56S55h7DGZf56fnGHJOnxay5IMcJ4KImDDTd8rWnRi
+	 ue+dgwp59cZ20Yqq0botmIrssEiWqmJ35dp9C4cgexW4rVEA2dOdbMEA46zXA9PMITw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O8gv2Nxw;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ooo2OGXb;
+	arc=none smtp.remote-ip=198.175.65.14
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A716606A326;
-	Thu, 26 Nov 2026 21:18:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62A9A606A334
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:19:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62A9A606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O8gv2Nxw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAE4D1F000C1;
-	Thu, 26 Nov 2026 21:18:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795727938;
-	bh=Mg7Qi4LHUwhrCBip/YNh+ysHUS3QtiytfnZ8aKHca6Y=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=O8gv2NxwkgNbzwKhX2fUIYRxC5AGfVq3E/xZVXTMFfMFTb2mP8I76C46eWOA+VnmG
-	 q0yRMEpz/XdsubohZiFimte7JM0+A60hrKq6FWTm/6b5EAz5rFgA75xQdrBn/jm1UG
-	 ouAMUXR/m3Kg0GCwpi84r79EuxdnlTw2mNbHcVZCTQlZuBb5545Lzl9yAdNREnV+9P
-	 jl7xEEAVC6xsQIHtc9wtC0zNpgWKnpf1rAA5jAHz+6/3+bp4+GnqZ0Ro0q71/ysWwo
-	 lVmZPxXD1qp1u8vCNmEtTHGdafRJSpY6ODAE5BJ+hKQBdxe+QTcqcLKPstEJpunyMH
-	 QrlES0nRCGudw==
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Date: Thu, 26 Nov 2026 22:18:37 +0100
-Subject: [PATCH net v2 1/4] net: skbuff: limit folio refcount when copying
- skb frag references
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ooo2OGXb
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795727946; x=1827263946;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=e2RZbJfHsu6ZR0HQLJSFs5ivZXLia6F66ZMZjV64PAc=;
+  b=Ooo2OGXbfb6XLSrtXl7VN8EjO5MJ+6ZA5KbP9NLwUaUYNo7Ri5jEj+o0
+   dxt7x4DIoQ7jBBcMQb0qrxcd3MMB4yVWpnTsms7leAESn2crZQghpu3IV
+   K/DxtrL/U5yToGr930eGCYLX1WoDQCq3VtlYD5Q8KJoxxHZeT8iyA/TOS
+   0ZzMl0ZoWBkHSWCSTrBe54w0uwRRHpfGH3kGM9hbrFfGbN3oaGMuAr8yH
+   cr2y4BlPfkOf3Jom6hIMiXBTbXhAh0PlaqhIgtgczgWUPI+NcfXyEL6rM
+   8ZTRylTc1aPOsjAw9FDUjZc2vTfZwJ84GGWgwcoaE9gQ87tQouHio9jBv
+   w==;
+X-CSE-ConnectionGUID: 6l6a6uJ4QxWmP82Y4MZfZQ==
+X-CSE-MsgGUID: wDQ5v1BmRG+WvOrZaoKtlA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4551775"
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="4551775"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 13:19:06 -0800
+X-CSE-ConnectionGUID: lKZYX4NsStKT9y+TMiVP4A==
+X-CSE-MsgGUID: s2YYOgtgS8arGVlCNaMjDA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="12282141"
+Received: from igk-lkp-server01.igk.intel.com (HELO 800201f3098f) ([10.211.93.152])
+  by orviesa002.jf.intel.com with ESMTP; 26 Nov 2026 13:19:03 -0800
+Received: from kbuild by 800201f3098f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xWgrs-000000000CA-2sBW;
+	Thu, 26 Nov 2026 21:19:00 +0000
+Date: Thu, 26 Nov 2026 22:18:28 +0100
+From: kernel test robot <lkp@intel.com>
+To: "Maxime =?utf-8?Q?B=C3=A9lair"?= <maxime.belair@canonical.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
+ John Johansen <john.johansen@canonical.com>
+Subject: security/apparmor/policy_unpack.c:1814:2-8: WARNING: NULL
+ check before some freeing functions is not needed.
+Message-ID: <20261126221434.SFIqjXah-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,234 +81,127 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-skb_refcount_overflow-v2-1-a6f600a5634a@kernel.org>
-References: <20261126-skb_refcount_overflow-v2-0-a6f600a5634a@kernel.org>
-In-Reply-To: <20261126-skb_refcount_overflow-v2-0-a6f600a5634a@kernel.org>
-To: "David S. Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Stanislav Fomichev <sdf.kernel@gmail.com>, 
- Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, 
- Andrew Morton <akpm@linux-foundation.org>, Kiryl Shutsemau <kas@kernel.org>, 
- Song Liu <songliubraving@fb.com>, Johannes Weiner <hannes@cmpxchg.org>, 
- Rik van Riel <riel@surriel.com>, 
- "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
- Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
- Pedro Falcato <pfalcato@suse.de>, Chuck Lever <cel@kernel.org>, 
- Jeff Layton <jlayton@kernel.org>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-mm@kvack.org, "David Hildenbrand (Arm)" <david@kernel.org>, 
- stable@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7086; i=david@kernel.org;
- h=from:subject:message-id; bh=wewoRC7UtcfuSJ9poShcy6AwrFQ9/guO5z282gKfSI0=;
- b=owGbwMvMwCF2/OVpCdfQ3ZWMp9WSGLI5Fpnu/Fl3TKl85qY4Od6VcW//ei39GrZIsmBtvM9iR
- Z+D9htfdpSyMIhxMMiKKbIEBd83ePlyXW21Gx8zzBxWJpAhDFycAjCRjzcY/kfdf1DtWfPt2F51
- PiF3vU1JnMe+vPf6019rcH6aSAZnWirD/yKOGMlt7cZVSZIfve813vmT5e90cNmMTB3/l8rTg28
- XMwAA
-X-Developer-Key: i=david@kernel.org; a=openpgp;
- fpr=1BD9CAAD735C4C3A460DFCCA4DDE10F700FF835A
+Content-Type: text/plain; charset=us-ascii
 
-Various networking features copy frag references of an skb, for example
-when unsharing a cloned skb (AF_PACKET trimming a clone), when copying an
-skb (nft dup) or when building NFQUEUE messages. This is an effective
-way for multiplying folio references held by an skb, allowing for
-exceeding folio refcount limits.
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+head:   9437ee8b6cf607e883b36e44bd755968daaebd48
+commit: 17b5758bf35c7a113363cd7a350b7e6a251b80f4 apparmor: Initial support for compressed policies
+date:   5 months ago
+config: arm-randconfig-r2108-20261126 (https://download.01.org/0day-ci/archive/20261126/20261126221434.SFIqjXah-lkp@intel.com/config)
+compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project a2bea097c8bf336f31f45e88e96f20d88e37ff5a)
 
-This is not specific to large pagecache folios, but with them it is a
-lot easier to reach the refcount limit, as page table mappings can cheaply
-create many references.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Fixes: 17b5758bf35c ("apparmor: Initial support for compressed policies")
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/20261126221434.SFIqjXah-lkp@intel.com/
 
-Let's introduce skb_frag_try_ref() and skb_frags_try_ref(), which use
-try_get_page(), and use them in pskb_expand_head(), __pskb_copy_fclone(),
-skb_zerocopy() and pskb_carve_inside_*(). All of these can already fail,
-and their callers handle that.
+cocci warnings: (new ones prefixed by >>)
+>> security/apparmor/policy_unpack.c:1814:2-8: WARNING: NULL check before some freeing functions is not needed.
 
-Fixes: 800d8c63b2e9 ("shmem: add huge pages support")
-Fixes: 99cb0dbd47a1 ("mm,thp: add read-only THP support for (non-shmem) FS")
-Fixes: 793917d997df ("mm/readahead: Add large folio readahead")
-Cc: stable@vger.kernel.org
-Acked-by: Pedro Falcato <pfalcato@suse.de>
-Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
----
- include/linux/skbuff_ref.h | 53 ++++++++++++++++++++++++++++++++++++++++++++++
- net/core/skbuff.c          | 35 +++++++++++++++++++-----------
- 2 files changed, 76 insertions(+), 12 deletions(-)
+vim +1814 security/apparmor/policy_unpack.c
 
-diff --git a/include/linux/skbuff_ref.h b/include/linux/skbuff_ref.h
-index b6f6da556ee90..560ddc863bbec 100644
---- a/include/linux/skbuff_ref.h
-+++ b/include/linux/skbuff_ref.h
-@@ -44,6 +44,33 @@ static __always_inline void skb_frag_ref(struct sk_buff *skb, int f)
- 		       skb->pp_recycle);
- }
- 
-+/**
-+ * skb_frag_try_ref - try to acquire a reference on a paged fragment of an skb
-+ * @skb: the buffer
-+ * @f: the fragment offset
-+ *
-+ * Like skb_frag_ref(), but acquires non-page_pool page references using
-+ * try_get_page(), refusing additional references to a page whose refcount is
-+ * at its limit.
-+ *
-+ * Return: True if a reference was acquired, otherwise false.
-+ */
-+static __always_inline __must_check bool skb_frag_try_ref(struct sk_buff *skb,
-+							  int f)
-+{
-+	netmem_ref netmem = skb_frag_netmem(&skb_shinfo(skb)->frags[f]);
-+
-+#ifdef CONFIG_PAGE_POOL
-+	if (skb->pp_recycle && napi_pp_get_page(netmem))
-+		return true;
-+#endif
-+	if (netmem_is_net_iov(netmem)) {
-+		net_iov_inc_ref(netmem_to_net_iov(netmem));
-+		return true;
-+	}
-+	return try_get_page(netmem_to_page(netmem));
-+}
-+
- bool napi_pp_put_page(netmem_ref netmem);
- 
- /**
-@@ -83,4 +110,30 @@ static __always_inline void skb_frag_unref(struct sk_buff *skb, int f)
- 				 skb->pp_recycle);
- }
- 
-+/**
-+ * skb_frags_try_ref - try to acquire references on all paged fragments
-+ * @skb: the buffer
-+ *
-+ * Try to acquire a reference on each paged fragment of @skb using
-+ * skb_frag_try_ref(). On failure, acquired references are dropped.
-+ *
-+ * Must not be used on skbs with managed frag references.
-+ *
-+ * Return: True if all references were acquired, otherwise false.
-+ */
-+static inline __must_check bool skb_frags_try_ref(struct sk_buff *skb)
-+{
-+	int i;
-+
-+	DEBUG_NET_WARN_ON_ONCE(skb_zcopy_managed(skb));
-+	for (i = 0; i < skb_shinfo(skb)->nr_frags; i++) {
-+		if (unlikely(!skb_frag_try_ref(skb, i))) {
-+			while (i--)
-+				skb_frag_unref(skb, i);
-+			return false;
-+		}
-+	}
-+	return true;
-+}
-+
- #endif	/* _LINUX_SKBUFF_REF_H */
-diff --git a/net/core/skbuff.c b/net/core/skbuff.c
-index 1ac1e327ac4c6..05626d9622b3d 100644
---- a/net/core/skbuff.c
-+++ b/net/core/skbuff.c
-@@ -2266,7 +2266,13 @@ struct sk_buff *__pskb_copy_fclone(struct sk_buff *skb, int headroom,
- 		n->pp_recycle = skb->pp_recycle;
- 		for (i = 0; i < skb_shinfo(skb)->nr_frags; i++) {
- 			skb_shinfo(n)->frags[i] = skb_shinfo(skb)->frags[i];
--			skb_frag_ref(n, i);
-+			if (!skb_frag_try_ref(n, i)) {
-+				/* Drop the references acquired so far. */
-+				skb_shinfo(n)->nr_frags = i;
-+				kfree_skb(n);
-+				n = NULL;
-+				goto out;
-+			}
- 		}
- 		skb_shinfo(n)->nr_frags = i;
- 		skb_shinfo(n)->flags |= skb_shinfo(skb)->flags & SKBFL_SHARED_FRAG;
-@@ -2310,7 +2316,6 @@ int pskb_expand_head(struct sk_buff *skb, int nhead, int ntail,
- 	unsigned int size = osize + nhead + ntail;
- 	long off;
- 	u8 *data;
--	int i;
- 
- 	if (unlikely(nhead < 0)) {
- 		DEBUG_NET_WARN_ON_ONCE(1);
-@@ -2347,12 +2352,10 @@ int pskb_expand_head(struct sk_buff *skb, int nhead, int ntail,
- 	 * be since all we did is relocate the values
- 	 */
- 	if (skb_cloned(skb)) {
--		if (skb_orphan_frags(skb, gfp_mask))
-+		if (skb_orphan_frags(skb, gfp_mask) || !skb_frags_try_ref(skb))
- 			goto nofrags;
- 		if (skb_zcopy(skb))
- 			net_zcopy_get(skb_uarg(skb));
--		for (i = 0; i < skb_shinfo(skb)->nr_frags; i++)
--			skb_frag_ref(skb, i);
- 
- 		if (skb_has_frag_list(skb))
- 			skb_clone_fraglist(skb);
-@@ -3908,7 +3911,8 @@ EXPORT_SYMBOL_GPL(skb_zerocopy_headlen);
-  *
-  *	Return value:
-  *	0: everything is OK
-- *	-ENOMEM: couldn't orphan frags of @from due to lack of memory
-+ *	-ENOMEM: couldn't orphan frags of @from due to lack of memory, or
-+ *	couldn't take additional references to the frags of @from
-  *	-EFAULT: skb_copy_bits() found some problem with skb geometry, or readable head
-  *      payload would be mixed with unreadable frags.
-  */
-@@ -3973,7 +3977,11 @@ skb_zerocopy(struct sk_buff *to, struct sk_buff *from, int len, int hlen)
- 					len);
- 		skb_frag_size_set(&skb_shinfo(to)->frags[j], size);
- 		len -= size;
--		skb_frag_ref(to, j);
-+		if (!skb_frag_try_ref(to, j)) {
-+			/* The caller frees @to, dropping the acquired refs. */
-+			skb_shinfo(to)->nr_frags = j;
-+			return -ENOMEM;
-+		}
- 		j++;
- 	}
- 	skb_shinfo(to)->nr_frags = j;
-@@ -7004,7 +7012,6 @@ static void skb_carve_reset_headers(struct sk_buff *skb)
- static int pskb_carve_inside_header(struct sk_buff *skb, const u32 off,
- 				    const int headlen, gfp_t gfp_mask)
- {
--	int i;
- 	unsigned int size = skb_end_offset(skb);
- 	int new_hlen = headlen - off;
- 	u8 *data;
-@@ -7032,14 +7039,12 @@ static int pskb_carve_inside_header(struct sk_buff *skb, const u32 off,
- 			frags[skb_shinfo(skb)->nr_frags]));
- 	if (skb_cloned(skb)) {
- 		/* drop the old head gracefully */
--		if (skb_orphan_frags(skb, gfp_mask)) {
-+		if (skb_orphan_frags(skb, gfp_mask) || !skb_frags_try_ref(skb)) {
- 			skb_kfree_head(data);
- 			return -ENOMEM;
- 		}
- 		if (skb_zcopy(skb))
- 			net_zcopy_get(skb_uarg(skb));
--		for (i = 0; i < skb_shinfo(skb)->nr_frags; i++)
--			skb_frag_ref(skb, i);
- 		if (skb_has_frag_list(skb))
- 			skb_clone_fraglist(skb);
- 		skb_release_data(skb, SKB_CONSUMED);
-@@ -7169,7 +7174,13 @@ static int pskb_carve_inside_nonlinear(struct sk_buff *skb, const u32 off,
- 				skb_frag_off_add(&shinfo->frags[0], off - pos);
- 				skb_frag_size_sub(&shinfo->frags[0], off - pos);
- 			}
--			skb_frag_ref(skb, i);
-+			if (!skb_frag_try_ref(skb, i)) {
-+				/* We referenced frags i - k ... i - 1 so far. */
-+				while (k--)
-+					skb_frag_unref(skb, --i);
-+				skb_kfree_head(data);
-+				return -ENOMEM;
-+			}
- 			k++;
- 		}
- 		pos += fsize;
+  1715	
+  1716	/**
+  1717	 * aa_unpack - unpack packed binary profile(s) data loaded from user space
+  1718	 * @udata: user data copied to kmem  (NOT NULL)
+  1719	 * @lh: list to place unpacked profiles in a aa_repl_ws
+  1720	 * @ns: Returns namespace profile is in if specified else NULL (NOT NULL)
+  1721	 * @compressed_data: The userspace-provided compressed data. May be NULL
+  1722	 * @compressed_size: If compressed_data is not NULL, the compressed data size
+  1723	 *
+  1724	 * Unpack user data and return refcounted allocated profile(s) stored in
+  1725	 * @lh in order of discovery, with the list chain stored in base.list
+  1726	 * or error
+  1727	 *
+  1728	 * Returns: profile(s) on @lh else error pointer if fails to unpack
+  1729	 */
+  1730	int aa_unpack(struct aa_loaddata *udata, struct list_head *lh,
+  1731		      const char **ns, char *compressed_data, size_t compressed_size)
+  1732	{
+  1733		struct aa_load_ent *tmp, *ent;
+  1734		struct aa_profile *profile = NULL;
+  1735		char *ns_name = NULL;
+  1736		int error = 0;
+  1737		struct aa_ext e = {
+  1738			.start = udata->data,
+  1739			.end = udata->data + udata->size,
+  1740			.pos = udata->data,
+  1741		};
+  1742	
+  1743		*ns = NULL;
+  1744		while (e.pos < e.end) {
+  1745			void *start;
+  1746			error = verify_header(&e, e.pos == e.start, ns);
+  1747			if (error)
+  1748				goto fail;
+  1749	
+  1750			start = e.pos;
+  1751			profile = unpack_profile(&e, &ns_name);
+  1752			if (IS_ERR(profile)) {
+  1753				error = PTR_ERR(profile);
+  1754				goto fail;
+  1755			}
+  1756	
+  1757			error = verify_profile(profile);
+  1758			if (error)
+  1759				goto fail_profile;
+  1760	
+  1761			if (aa_g_hash_policy)
+  1762				error = aa_calc_profile_hash(profile, e.version, start,
+  1763							     e.pos - start);
+  1764			if (error)
+  1765				goto fail_profile;
+  1766	
+  1767			ent = aa_load_ent_alloc();
+  1768			if (!ent) {
+  1769				error = -ENOMEM;
+  1770				goto fail_profile;
+  1771			}
+  1772	
+  1773			ent->new = profile;
+  1774			ent->ns_name = ns_name;
+  1775			ns_name = NULL;
+  1776			list_add_tail(&ent->list, lh);
+  1777		}
+  1778		udata->abi = e.version & K_ABI_MASK;
+  1779		if (aa_g_hash_policy) {
+  1780			udata->hash = aa_calc_hash(udata->data, udata->size);
+  1781			if (IS_ERR(udata->hash)) {
+  1782				error = PTR_ERR(udata->hash);
+  1783				udata->hash = NULL;
+  1784				goto fail;
+  1785			}
+  1786		}
+  1787	
+  1788		if (aa_g_export_binary) {
+  1789			/* Do we have userspace-compressed data? */
+  1790			if (compressed_data) {
+  1791				kvfree(udata->data);
+  1792				udata->data = compressed_data;
+  1793				udata->compressed_size = compressed_size;
+  1794				compressed_data = NULL; /* consumed */
+  1795	
+  1796			} else
+  1797				error = compress_loaddata(udata);
+  1798	
+  1799			if (error)
+  1800				goto fail;
+  1801		} else if (compressed_data) {
+  1802			kvfree(compressed_data);
+  1803			compressed_data = NULL;
+  1804		}
+  1805	
+  1806		return 0;
+  1807	
+  1808	fail_profile:
+  1809		kfree(ns_name);
+  1810		aa_put_profile(profile);
+  1811	
+  1812	fail:
+  1813		if (compressed_data)
+> 1814			kvfree(compressed_data);
 
 -- 
-2.56.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
