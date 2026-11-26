@@ -1,58 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795730361;
-	b=hq/LFBoucl+bIOi3fjPbg+WV9xdtjIXRhIVE7Vj9wXmBqsnytk8WaIovUv5foJVXkKMd
-	 PHi0PGRbntm/XRG0QHYS1oJSp36S5AZxycOe1BbAJZpKWXvl9Un+8xzp6P8015DdmN8Nq
-	 KD86jxaOSERT+noLDZqP87AOUN/bAIUm5OGjijnC24XO5Pv2Vw7C9sBHOHXejvoWPYdMb
-	 OtfepNeFaJ7PcOza09vxgW2/4xgfnyu73wBGQfCRDYr3BCAoaaaYaILg4DZ2Nj2SXywZz
-	 6S8mFK9VV+KqVMgmfFHBuDAYbPp/K7BBBMxLB/za8RFG7y+iC4MsePO4S2dbeGi55/A==
+	t=1795730494;
+	b=TRU4ub8oCYNk63erxtBSCavK9tz2Ns7npNp+nR/9ebPuawBu6V0e0h1BY+u9cmPjUtxQ
+	 DFHtI8J7ezqyFTrGv17XnNwOnRCv4W19FfcjUw/RZgut1lfDJTAlmClykNJY4O0sEmWXr
+	 kUljmY/j/av6OOd9orlUAN+8sbgQmoffcCUQ4OzDUgAeRmKfed2gMPIzle22fKPUcuM+l
+	 Y5Q+VJPEDVwaezAKa6ro3vTeT8iWz6YwaBsISavpRx/eg4GjHxc4rnbGVTXAoD7lQ7iMP
+	 WjAnTfYmLL15ID8gqS9NM8JOTbI/nZZIbG+oy7li4kjesN3mAe+HmtHblKu7ZrugYFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795730361;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=nicg9fOaQYqkvebvo23Azvs2njPERMZDMTaNYJH5mJk=;
-	b=RXb0cN4otYn2HpTB3Wj6dahtaZhngJDqF1f8Yf+c/yJ3t8jzwq7eiWqUtKUn/0DfUB7J
-	 oUXiDk3gvwHHJbFeLdJlh95kRuobRe2qJuKj8QxpPOqjheHDYR5t6nLNzXgcv9aStluR4
-	 4SpJW/SMZlzroRBFjrNFnKDP2TQ5/UvrWpmiVfZHo9CVGXGYt7g/8avlGiPOaywXzlclE
-	 bm9Ot91MZLtiX8pN6gBhkj5HYCPakW02x1NWz71rr7vD0dgki2Ztt7IAhh1ztHINMBUjm
-	 SRQxy85D5t9hokWJv8avW46/Qk70bs5jsCQAcLlTjQe1SrgPFrFUAOUev8hWHUmkT7w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795730494;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
+	 Content-Type:User-Agent:MIME-Version;
+	bh=M6Yio2grdDoSc1eb/CDZh/DWvIwV4gCZrf/AWye7rNM=;
+	b=kJN4vur4huUkJkW3Djyih/PqiEicvpfMvJ4RwQfdy23MieoAyk8LSFXbYVD2FdFk2WhB
+	 1R7l8I0CGSNwVwRu0HyY3kMdPU5yjXNnkw2ZswAOJNF0uZnhAqcl0KvOMPzrAxssEToHJ
+	 7KmTPqlpV8F14D5WZyolTgV0zVbAiefEZnNLuNtXVIY1azySkRHVGDK00EmJwqxfVxXT7
+	 gWuViNNewlxz96uZvGPbHSgi+uQs/6DL6HPvCFCNTBVH/RUCZDcfeZFpTV3ZU6e5oYFNp
+	 K+o5FPwBjY84LJh1xNPaBpaSGPLQD9WrJsK1LQELoJZFzgqspkKGwuaZqNGeX25IYZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J2JPCKnd;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=ndufresne.ca;
+	spf=pass smtp.mailfrom=ndufresne.ca;
+	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="pukkgSE/";
+	arc=none smtp.remote-ip=209.85.210.171
+Received: from mail-pf1-f171.google.com (mail-pf1-f171.google.com [209.85.210.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8A8E606A326;
-	Thu, 26 Nov 2026 21:59:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E16F0606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:01:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E16F0606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J2JPCKnd
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CAB21F00897;
-	Thu, 26 Nov 2026 21:59:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795730361;
-	bh=nicg9fOaQYqkvebvo23Azvs2njPERMZDMTaNYJH5mJk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=J2JPCKnd88FYuN7qFSSogD2kMw7b7qtSiCF+wnVJUeXtcbfgBwy5xv204ys/R5YR9
-	 /sV4mkfoZd5zGxJlICv9yZHbMH543BYdzlycpe/Wn6CPl4QH1qSdDXsKd2jO1VpFEm
-	 8IJq89vIdH7VEAqLomE3mMnmewqA7vhD4zqBMqP9AxQ7u1zISy3V5EbKj4SNu3R/2M
-	 PxXjhpd38Ghbd6UUg3KTBFxtbGs199cmQNpW+OnSp/+OFu9tpKE4PCCl7IMh9DuIOb
-	 L4s7kJVx6RlaUJVYmMf5AaGo0FjLQqcErQYlj5ePrKWKi8Zy75lbnKm9kH5E/WW2Ga
-	 T2+Vzg+Pt/2pg==
-Date: Thu, 26 Nov 2026 22:59:17 +0100
-From: Christian Brauner <brauner@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: linux-perf-users@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
-	Jann Horn <jannh@google.com>, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH 1/2] perf: look up address filter files without
- ctx->mutex held
-Message-ID: <20261126-texten-bewusst-ruinieren-9aa88e75cec5@brauner>
-References: <20261126-work-exec-update_lock-leftovers-v1-0-1024b26792bc@kernel.org>
- <20261126-work-exec-update_lock-leftovers-v1-1-1024b26792bc@kernel.org>
- <20261126152414.GH49833@noisy.programming.kicks-ass.net>
- <20261126-gedruckt-gastarbeiter-vorsorgen-5fea7cea1877@brauner>
- <20261126-erlogen-bedrucken-dementieren-5de5e5460481@brauner>
+	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=pukkgSE/
+Received: by mail-pf1-f171.google.com with SMTP id d2e1a72fcca58-8a070781f63so3586309b3a.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:01:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795730492; x=1796335292; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=M6Yio2grdDoSc1eb/CDZh/DWvIwV4gCZrf/AWye7rNM=;
+        b=pukkgSE/+2bmIoooITbUsz6jmext5uDnFulpzOvVDzo6OYL/toV1px2/2gmBtk+hqn
+         Xyb7jmQ+oi0XiOHtITBOXWqi8hUspxMWP8y1eZj8wmcV0gEoFZQXxkf9CBj92eNiaZ+L
+         HhPqXRN4eRr/kiTSArcFr5x/dYPif7LtlcGkX24J3sxZ4CZF+teUz/ONkfh3VcH36ykH
+         NPLlPMJaiOv5/0AB40vMmDhi4Hgz4Fbjt0hyGo4q9cqhAE6u3WeKDLIBEfSTgfKEOOBE
+         G+wG92vJ87N2ezN5faqVFldwgF5avYoT5IolUQu5aWqfhEoSmtwxuX2b2yiPvTNEs/7x
+         2R2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795730492; x=1796335292;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=M6Yio2grdDoSc1eb/CDZh/DWvIwV4gCZrf/AWye7rNM=;
+        b=1f0MKvxTzurnk7DramwfEE8KX/sRWELUSTsMIUH34DSZU/KY6ifXpmf9rD0NSIW7Bm
+         c8CyemHHt6i4OnHtcGPOtyH0+IkHrPqMu1ucJ1YGdEXGlL5lAPz0v4Y1F67GuC0Mw/v6
+         x73+Hj2MvBi1Ujs2zIMtBrBhbMzxWgljs65sNCqYBNfDgZK3MFeh4OYG7q4h/iogFs15
+         pwv2iKeRRiOJasUWhvPUAuSEwwQ7VyQs12ZzanDBiMQ7iNeXxMwCuceyy0h4004zI/P8
+         AqSfGtUnIn9MrKgYBUO+TboFen7eFZyQCjrbSKOgNgoqFIEXL4NanndTO1b/2nvhtCTc
+         CJow==
+X-Forwarded-Encrypted: i=1; AL+hErHiE5DLlBapMjdDgByP3zOXJ16rqwiuTwZCCLnwfQlDrMRq5jzLu4H+hRwxDp1XTJVMifGrKvRG5senMa8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+PnA9iiEhqBjYbeMJpvSqyj0u+nL40qhyBnEFPH8nVo/IRRez2
+	B7K02JRcQTW6Xium0JY7Bws+MWNuVFaZ7gmcpaZ0xkiSLG9ZitpnGTQmnOOPKldCfdo=
+X-Gm-Gg: AZFdTZcPEjocgdwIQXIiyPwuSRmBEtAXogrM8kvybf2A/STaapRuV+z4F2Ken1GlFiw
+	tAo6eeX0iPL9b6+qr/Dnl9iF7k2x3AYZjZxUZ+q6jOuIjr1+CGDoLGj+LlILxrkC5QopQU30KnE
+	BHUHoY5mBsIrw5VGAnb9AKMp149S60pbF6MaHITeTBZkBqFKAaelEzc6DHHxWcgL8So64aeBZeD
+	GWHdL1tnOk1Tf/qMNl8BReRTMIhYJr60n0socwl/pYmRjB3suzCr/ZkO0W/NZLGOUyGSVYo+5xI
+	69CNTnS0/Yv/gsOVaRk+s5EYMDtfiZOjWhvMa2ML412VH7nVO9RMFg5crKX1sIcIqq0EW2IbPBw
+	W2lpys+cofrmWj0v1Y7aoNVCxFL5s2PrRIRw/pzTgCR31Ip+xgMIq00iVtn3W9wXXWBVJ3bFSuH
+	VRER3/SrcX434tz3JNM98K3JcgwI4zh+Mvm0f63z6wWkhJ9ZEPCcoZl0evkSt0bTcUBEGuF0p/9
+	XY/sZ96bso2Y4/ucfqY19p5GVcuheso9MXrj8F3ASd+8hrpUH2QaZhl/NyBQmKMAlJ8WRi+MQ2N
+	dUN12yL/gBGcjnqKJrxue38nZNx0ccvrLwU9pGOfdhLszAgTHylwFolr
+X-Received: by 2002:a05:6a00:14cc:b0:886:a52a:316f with SMTP id d2e1a72fcca58-8c8792b6925mr20638537b3a.4.1795730491886;
+        Thu, 26 Nov 2026 14:01:31 -0800 (PST)
+Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c873c1d71dsm11509363b3a.53.2026.11.26.14.01.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 14:01:31 -0800 (PST)
+Message-ID: <c6636294b5ba0961469c0762e78778ed0256c46e.camel@ndufresne.ca>
+Subject: Re: [PATCH v3] media: rkvdec: vdpu383: configure the reference read
+ cache
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: vlry.bkv@gmail.com, Detlev Casanova <detlev.casanova@collabora.com>, 
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>, Heiko Stuebner	 <heiko@sntech.de>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Thu, 26 Nov 2026 17:01:28 -0500
+In-Reply-To: <20261030-rkvdec-vdpu383-cache-v3-1-ae188ccda977@gmail.com>
+References: <20261030-rkvdec-vdpu383-cache-v3-1-ae188ccda977@gmail.com>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-2bEUTAQ/xCDECf1C479E"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,66 +116,351 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261126-erlogen-bedrucken-dementieren-5de5e5460481@brauner>
 
-On Thu, Nov 26, 2026 at 10:26:02PM +0100, Christian Brauner wrote:
-> On Thu, Nov 26, 2026 at 09:56:37PM +0100, Christian Brauner wrote:
-> > On Thu, Nov 26, 2026 at 04:24:14PM +0100, Peter Zijlstra wrote:
-> > > (Why can we add proc files to the filter?)
-> >
-> > I think we can. But it feels a bit annoying because this such lock
-> > inversions involving exec_update_lock and perf isn't the first time.
-> > So I tried to get this inversion out of the way.
-> 
-> So I looked at this. It doesn't work. The filter never contains a procfs
-> file. It's just that kern_path() follows /proc/<pid>/exe to the binary
-> and the parser wants a regular file. IOW, procfs is only walked through
-> and exec_update_lock is then taken in the middle of that walk:
-> 
-> kern_path()
-> -> ...
->    -> pick_link()
->       -> proc_pid_get_link()
->          -> call_proc_get_link()
->             -> down_read_killable(&exec_update_lock)
->          -> nd_jump_link()        // checks LOOKUP_NO_MAGICLINKS
-> 
-> Same for cwd, root, fd/<n> and map_files/, and proc_ns_get_link() does
-> it for ns/. So by the time kern_path() returns the lock has been taken
-> and dropped again. WE can't catch that.
-> 
-> procfs itself would have to look at the lookup flags before it takes
-> exec_update_lock. IOW, path lookup would have to work around perf's
-> lock ordering. And that only takes care of procfs. On FUSE the lookup
-> still blocks for as long as the server wants with ctx->mutex held and
-> exec waits for that.
-> 
-> So ok, if we can't drop ctx->mutex in the middle of the ioctl then how
-> about we don't hold ctx->mutex during parsing to begin with?
-> We let perf_ioctl() hand PERF_EVENT_IOC_SET_FILTER off before it takes
-> the mutex:
-> 
-> ioctl(PERF_EVENT_IOC_SET_FILTER)
-> -> perf_ioctl()
->    -> perf_event_set_filter()                // no ctx->mutex
->       -> perf_event_set_addr_filter()
->          -> perf_event_parse_addr_filter()   // kern_path(), own list
->          -> perf_event_ctx_lock()
->             // revoked? has_addr_filter()? ->addr_filters_validate()
->             -> perf_addr_filters_splice()
->             -> perf_event_addr_filters_apply() on each child
->          -> perf_event_ctx_unlock()
-> 
-> The parser fills its own list and counts the file filters in locals.
-> Everything that needs ctx->mutex then happens in one go under
-> perf_event_ctx_lock().
-> 
-> So ctx->mutex is never dropped in the middle of an ioctl, a migrated
-> event is handled by perf_event_ctx_lock() like everywhere else and no
-> ctx is carried across the lookup?
+--=-2bEUTAQ/xCDECf1C479E
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Just as a general final comment: holding any global lock over a whole
-path lookup is a not a good idea. We've seen that over and over again.
-So if we can get rid of that, we should.
+Le vendredi 30 octobre 2026 =C3=A0 10:40 +0100, Valerii Bokov via B4 Relay =
+a =C3=A9crit=C2=A0:
+> From: Valerii Bokov <vlry.bkv@gmail.com>
+>=20
+> The VDPU383 has a reference read cache with its own register region,
+> "cache" in the device tree, which the driver does not map. Its
+> configuration and read limit are therefore left at their power-on
+> values, and those differ between power-ups. On RK3576 this makes H.264
+> decoding of a 2688x1520 stream take either 22.5 ms or 65.4 ms per
+> frame, depending on the power-up, while the values the vendor driver
+> programs bring it to 3.6 ms per frame.
+>=20
+> Map the "cache" region and configure it statically: enable cacheable
+> read-allocate accesses with 64-byte lines and set the read limit
+> (MAX_READS in the vendor driver) to 0x1c. The registers lose their
+> configuration whenever the decoder is powered down, so they are
+> programmed from runtime resume, which also covers the first use after
+> probe. As the vendor driver does (rkvdec_vdpu38x_run() in
+> mpp_rkvdec2.c), the cache is still cleared before every frame, because
+> reference buffers are rewritten between frames.
+>=20
+> The region is optional: on a device tree that does not describe it, the
+> driver probes as before and leaves the cache unconfigured. It is mapped
+> for any variant whose device tree describes it and configured through a
+> new per-variant config_cache() callback, which only VDPU383 implements
+> for now, so other variants can add their own cache setup later.
+>=20
+> Decode time per frame for a 2688x1520 H.264 stream on RK3576, within
+> one decoder power-up, with the registers set between runs:
+>=20
+>   MAX_READS  CACHE0_CFG  ms/frame
+>   0x0        power-on        65.4  (slow power-up)
+>   0x2        power-on        22.5  (fast power-up)
+>   0x1c       power-on         7.2
+>   0x2        0x13             8.6
+>   0x1c       0x13             3.6
+>=20
+> The decoded output was bit-identical in all five cases. These numbers
+> were taken by setting the registers from user space through /dev/mem.
+>=20
+> The read limit is a 5-bit field whose meaning is not documented; 0x1c is
+> the vendor driver's default. With the cache configured, decode time per
+> frame of the same stream against the read limit:
+>=20
+>   MAX_READS  1     2    4    8    12   16..28
+>   ms/frame   12.8  9.2  6.3  4.6  4.1  4.0
+>=20
+> so the default sits where decoding stops getting faster.
+>=20
+> The registers were identified with the help of an AI coding assistant
+> (Claude, model claude-opus-5-5), which diffed register dumps of fast
+> and slow power-ups and matched the result against the vendor driver.
+> It also drafted this patch and its changelog, which I reviewed. The
+> measurements and tests were run on an RK3576 board.
+>=20
+> Link: https://lore.kernel.org/r/20260619111810.564384-1-laszlo.fiat@tuta.=
+io
+> Signed-off-by: Valerii Bokov <vlry.bkv@gmail.com>
+
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+
+> ---
+> Testing on RK3576 (Smatek T10PE) with v2 of this patch applied, on top
+> of 6.18.34 with Simon's priming patch (v3 only restructures how the
+> region is mapped and configured, and renames a define):
+> - The cache registers are programmed on every runtime resume: zeroed
+>   by hand while powered, then suspended and resumed without decoding,
+>   they read back 0x1c/0x13 (4/4).
+> - 2688x1520 H.264: 4.0-4.2 ms/frame on a 257-frame clip across 8
+>   separate power-ups, no fast/slow lottery left.
+> - Output is bit-exact against FFmpeg's software decoder (per-frame md5,
+>   all 257 frames) for that H.264 clip and for an HEVC Main clip with
+>   B-frames encoded from it.
+> - 10 minutes of a live 2688x1520 H.264 RTSP stream at the camera's
+>   25 fps: 24.4 fps average (23-25 fps in every 30 s window), 14% of
+>   one CPU core, no kernel or decoder errors.
+>=20
+> Open questions:
+> - I have not checked whether the decoder's soft reset (after a timeout
+>   or error) also resets the cache registers. If it does, they need to
+>   be reprogrammed after a reset as well.
+> - Simon's out-of-tree priming patch also modifies
+>   rkvdec_runtime_resume(), so the two will conflict textually there.
+>=20
+> Possibly related, not part of this patch:
+> - VDPU381 (RK3588) may have the same problem. The vendor driver
+>   programs three caches there before every frame (CACHE0/1/2 in
+>   rkvdec2_run(): cacheable, read-allocate and 64-byte lines, plus a
+>   clear of each), and mainline programs none. I have no RK3588 board to
+>   check whether its decode speed also varies between power-ups.
+> ---
+> Changes in v3:
+> - Rename the read-limit value to VDPU383_CACHE_MAX_READS_DEFAULT, set it
+>   apart from the register definitions and document it, with measured
+>   decode times for values 1-28 (the field is 5 bits wide).
+> - Map the "cache" region for any variant whose device tree describes it
+>   and configure it through a per-variant config_cache() callback,
+>   instead of checking for VDPU383 in probe.
+> - Link to v2: https://lore.kernel.org/r/20261029-rkvdec-vdpu383-cache-v2-=
+1-859bb44e03a0@gmail.com
+>=20
+> Changes in v2:
+> - Configure the cache statically from runtime resume instead of before
+>   every frame, as suggested in review. The values are constants, so
+>   "restore" is a plain rewrite; there is nothing to save.
+> - Keep clearing the cache before every frame, as the vendor driver
+>   does. Happy to drop it if that is preferred, but I have only shown
+>   bit-exactness with a single clear on one clip, which is not enough to
+>   rely on.
+> - Make the "cache" region optional. v1 returned an error from probe
+>   when it was missing, which would make the decoder disappear on any
+>   device tree that does not describe it.
+> - Map the region only for the VDPU383 variant, since the configured
+>   values are specific to it and are now applied from shared code.
+> - Link to v1: https://lore.kernel.org/r/20261028-rkvdec-vdpu383-cache-v1-=
+1-d3548d3b3586@gmail.com
+> ---
+>  .../platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c |  2 +
+>  .../platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c |  2 +
+>  .../platform/rockchip/rkvdec/rkvdec-vdpu383-regs.h | 16 ++++++++
+>  drivers/media/platform/rockchip/rkvdec/rkvdec.c    | 47 ++++++++++++++++=
++++++-
+>  drivers/media/platform/rockchip/rkvdec/rkvdec.h    |  4 ++
+>  5 files changed, 70 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c=
+ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c
+> index 5ec755733..efb1f6975 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c
+> @@ -441,6 +441,8 @@ static int rkvdec_h264_run(struct rkvdec_ctx *ctx)
+>  =09timeout_threshold =3D h264_ctx->regs.common.reg013_core_timeout_thres=
+hold;
+>  =09rkvdec_schedule_watchdog(rkvdec, timeout_threshold);
+> =20
+> +=09rkvdec_vdpu383_clear_cache(rkvdec);
+> +
+>  =09/* Start decoding! */
+>  =09writel(timeout_threshold, rkvdec->link + VDPU383_LINK_TIMEOUT_THRESHO=
+LD);
+>  =09writel(0, rkvdec->link + VDPU383_LINK_IP_ENABLE);
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c=
+ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c
+> index 3462d995d..6223b89e2 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c
+> @@ -568,6 +568,8 @@ static int rkvdec_hevc_run(struct rkvdec_ctx *ctx)
+>  =09timeout_threshold =3D hevc_ctx->regs.common.reg013_core_timeout_thres=
+hold;
+>  =09rkvdec_schedule_watchdog(rkvdec, timeout_threshold);
+> =20
+> +=09rkvdec_vdpu383_clear_cache(rkvdec);
+> +
+>  =09/* Start decoding! */
+>  =09writel(timeout_threshold, rkvdec->link + VDPU383_LINK_TIMEOUT_THRESHO=
+LD);
+>  =09writel(VDPU383_IP_CRU_MODE, rkvdec->link + VDPU383_LINK_IP_ENABLE);
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-regs.h=
+ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-regs.h
+> index 04eb23297..da46f8601 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-regs.h
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-regs.h
+> @@ -42,6 +42,22 @@
+>  #define VDPU383_STA_INT_SOFTRESET_RDY=09(BIT(10) | BIT(11))
+>  #define VDPU383_STA_INT_ALL=09=090x3ff
+> =20
+> +/* Reference read cache, in the "cache" register region */
+> +#define VDPU383_CACHE_CLR_CACHE0=090x10
+> +#define VDPU383_CACHE_MAX_READS=09=090x18
+> +#define VDPU383_CACHE_CACHE0_CFG=090x1c
+> +#define VDPU383_CACHE_CFG_CACHEABLE=09BIT(0)
+> +#define VDPU383_CACHE_CFG_READ_ALLOCATE=09BIT(1)
+> +#define VDPU383_CACHE_CFG_LINE_64B=09BIT(4)
+> +
+> +/*
+> + * Maximum outstanding reads, a 5-bit field. Its meaning is not document=
+ed;
+> + * 0x1c is the vendor driver's default. On RK3576, H.264 decoding stops
+> + * getting faster from 16 upwards, and is several times slower at 0, whi=
+ch
+> + * is what the register holds after some power-ups.
+> + */
+> +#define VDPU383_CACHE_MAX_READS_DEFAULT=090x1c
+> +
+>  struct vdpu383_regs_common {
+>  =09u32 reg008_dec_mode;
+> =20
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/me=
+dia/platform/rockchip/rkvdec/rkvdec.c
+> index fbcd0f175..65b84e34a 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> @@ -1158,6 +1158,29 @@ void rkvdec_schedule_watchdog(struct rkvdec_dev *r=
+kvdec, u32 timeout_threshold)
+>  =09schedule_delayed_work(&rkvdec->watchdog_work, msecs_to_jiffies(watchd=
+og_time));
+>  }
+> =20
+> +/*
+> + * The reference read cache and the read limit lose their configuration =
+at
+> + * every power-down and come up with values that vary between power-ups,
+> + * several times slower than the vendor driver's. Program them whenever =
+the
+> + * decoder is powered up.
+> + */
+> +static void rkvdec_vdpu383_config_cache(struct rkvdec_dev *rkvdec)
+> +{
+> +=09writel(VDPU383_CACHE_CFG_CACHEABLE | VDPU383_CACHE_CFG_READ_ALLOCATE =
+|
+> +=09       VDPU383_CACHE_CFG_LINE_64B, rkvdec->cache + VDPU383_CACHE_CACH=
+E0_CFG);
+> +=09writel(VDPU383_CACHE_MAX_READS_DEFAULT, rkvdec->cache + VDPU383_CACHE=
+_MAX_READS);
+> +}
+> +
+> +/*
+> + * Reference buffers are rewritten between frames, so the cache is clear=
+ed
+> + * before every frame, as the vendor driver does.
+> + */
+> +void rkvdec_vdpu383_clear_cache(struct rkvdec_dev *rkvdec)
+> +{
+> +=09if (rkvdec->cache)
+> +=09=09writel(1, rkvdec->cache + VDPU383_CACHE_CLR_CACHE0);
+> +}
+> +
+>  static void rkvdec_device_run(void *priv)
+>  {
+>  =09struct rkvdec_ctx *ctx =3D priv;
+> @@ -1729,6 +1752,7 @@ static const struct rkvdec_variant_ops vdpu383_vari=
+ant_ops =3D {
+>  =09.irq_handler =3D vdpu383_irq_handler,
+>  =09.colmv_size =3D vdpu383_colmv_size,
+>  =09.flatten_matrices =3D vdpu383_flatten_matrices,
+> +=09.config_cache =3D rkvdec_vdpu383_config_cache,
+>  };
+> =20
+>  static const struct rkvdec_variant vdpu383_variant =3D {
+> @@ -1807,6 +1831,19 @@ static int rkvdec_probe(struct platform_device *pd=
+ev)
+>  =09=09rkvdec->link =3D devm_platform_ioremap_resource_byname(pdev, "link=
+");
+>  =09=09if (IS_ERR(rkvdec->link))
+>  =09=09=09return PTR_ERR(rkvdec->link);
+> +
+> +=09=09/*
+> +=09=09 * Optional: not every device tree describes the cache region. It
+> +=09=09 * is configured by the variant's config_cache(), if it has one.
+> +=09=09 */
+> +=09=09if (platform_get_resource_byname(pdev, IORESOURCE_MEM, "cache")) {
+> +=09=09=09rkvdec->cache =3D devm_platform_ioremap_resource_byname(pdev, "=
+cache");
+> +=09=09=09if (IS_ERR(rkvdec->cache))
+> +=09=09=09=09return PTR_ERR(rkvdec->cache);
+> +=09=09} else if (rkvdec->variant->ops->config_cache) {
+> +=09=09=09dev_info(&pdev->dev,
+> +=09=09=09=09 "no \"cache\" region, reference read cache not configured\n=
+");
+> +=09=09}
+>  =09}
+> =20
+>  =09ret =3D dma_set_coherent_mask(&pdev->dev, DMA_BIT_MASK(32));
+> @@ -1875,8 +1912,16 @@ static void rkvdec_remove(struct platform_device *=
+pdev)
+>  static int rkvdec_runtime_resume(struct device *dev)
+>  {
+>  =09struct rkvdec_dev *rkvdec =3D dev_get_drvdata(dev);
+> +=09int ret;
+> =20
+> -=09return clk_bulk_prepare_enable(rkvdec->num_clocks, rkvdec->clocks);
+> +=09ret =3D clk_bulk_prepare_enable(rkvdec->num_clocks, rkvdec->clocks);
+> +=09if (ret)
+> +=09=09return ret;
+> +
+> +=09if (rkvdec->cache && rkvdec->variant->ops->config_cache)
+> +=09=09rkvdec->variant->ops->config_cache(rkvdec);
+> +
+> +=09return 0;
+>  }
+> =20
+>  static int rkvdec_runtime_suspend(struct device *dev)
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/me=
+dia/platform/rockchip/rkvdec/rkvdec.h
+> index a24be6638..c4b9a2211 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> @@ -30,6 +30,7 @@
+>  #define RKVDEC_8K_PIXELS=09=09(7680 * 4320)
+> =20
+>  struct rkvdec_ctx;
+> +struct rkvdec_dev;
+>  struct rkvdec_rcb_config;
+> =20
+>  struct rkvdec_ctrl_desc {
+> @@ -75,6 +76,7 @@ struct rkvdec_variant_ops {
+>  =09irqreturn_t (*irq_handler)(struct rkvdec_ctx *ctx);
+>  =09u32 (*colmv_size)(u16 width, u16 height);
+>  =09void (*flatten_matrices)(u8 *output, const u8 *input, int matrices, i=
+nt row_length);
+> +=09void (*config_cache)(struct rkvdec_dev *rkvdec);
+>  };
+> =20
+>  struct rkvdec_variant {
+> @@ -136,6 +138,7 @@ struct rkvdec_dev {
+>  =09struct clk *axi_clk;
+>  =09void __iomem *regs;
+>  =09void __iomem *link;
+> +=09void __iomem *cache;
+>  =09struct mutex vdev_lock; /* serializes ioctls */
+>  =09struct delayed_work watchdog_work;
+>  =09struct gen_pool *sram_pool;
+> @@ -180,6 +183,7 @@ void rkvdec_run_preamble(struct rkvdec_ctx *ctx, stru=
+ct rkvdec_run *run);
+>  void rkvdec_run_postamble(struct rkvdec_ctx *ctx, struct rkvdec_run *run=
+);
+>  void rkvdec_memcpy_toio(void __iomem *dst, void *src, size_t len);
+>  void rkvdec_schedule_watchdog(struct rkvdec_dev *rkvdec, u32 timeout_thr=
+eshold);
+> +void rkvdec_vdpu383_clear_cache(struct rkvdec_dev *rkvdec);
+> =20
+>  void rkvdec_quirks_disable_qos(struct rkvdec_ctx *ctx);
+> =20
+>=20
+> ---
+> base-commit: 65ba8f34ec886ec72b2c07ddc8cf3d815c32869d
+> change-id: 20261028-rkvdec-vdpu383-cache-8fbbf8313da3
+>=20
+> Best regards,
+
+--=-2bEUTAQ/xCDECf1C479E
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawisOQAKCRDZQZRRKWBy
+9MU2AQCcLosx59v9uR8zf9j3PjZ1SNyTTTQh2WJjS1r1bLuGXAD/Z3k4E2B7Pd+E
+QPG5H7DfNpK0jruSUlhuDxNPwIRRvAc=
+=0CkT
+-----END PGP SIGNATURE-----
+
+--=-2bEUTAQ/xCDECf1C479E--
