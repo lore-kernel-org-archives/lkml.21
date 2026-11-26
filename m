@@ -1,98 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795725214;
-	b=QNhoS8YL/D6vVj6V176iO4JEWMAQl5k8Qqh92g4nDEn89JWdrjlUUtVsT8JmP3OdHezC
-	 SzDKYUI2fMgO8UMAFuBPszrmM/rCdqg6eDkJzIfhD6ITX4/8Iustmn+0Jrpap6eJlBOQx
-	 qyzI3MVK+5R1bT7jmfCtDMnzUPbELPZZnhcoPK4ZaLaDt/JX93QTRF7SJHZrezGt61SSp
-	 O3GjErInvDod8c+t6MUYBCZHTyZv+bcc035EncF3kNvqophoaEFfaX9c8POzLm7rkuI1a
-	 8ZhTGzQt2yvRPN9yqRfZaBm/TE+Tcxt3KlaFrIL2Jzv+Eh/oHGiL1v1jxdkidUAHVvw==
+	t=1795725220;
+	b=zKgexTS47GVuXRZXj9y13gqbGv4fwrz3X7uDUVkAmQY8Hd4djnPCEf17k8UNoVxGtmfM
+	 codavkYn71zrVDRDRMIg2jGbznvdOG6XH84MUE3Bu4wcUZRwjXqpr7xUAOGbS52ESm8/q
+	 cHPt8haHDM/X2rULSsvblNupjmFVPmDn6uOafkE4kpHABgleYMCTa8YyUsZNjIEU0OAyr
+	 WLcVLqTB/Apu+h70o1+wvTIJk+BpJ3a+k9bQVB69rTeIbVkbXjiZZL0kZKogVa0f4GbaA
+	 GVgX65VDoX6IbVNooSJjiyYeesx+edJDuaeqD8fHueI6miHTQ8Ppik8BpxxZ+KdLR1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795725214;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795725220;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=j5O7/PEs6pwDhi+NzYfdrAMfnos1pXGUy7fz0A25FII=;
-	b=cO3dp7MUR5p1UXQm0/QWyySSHLwazWAr9gCB1ZaaCnQGqb51KEca3+gF3I6r0WEo3N2Y
-	 W2JroYDQqofcKxlxBV4ixWXcQl9zTRU3le+hgcUPNhlaT3Ur+63sfNu0zWB8i9Ems8Wag
-	 oVZc/PMQM110iZkkUZE2irf2v0K90JB/5gdmk3EJcAlUvX402+7hvAhkauB5h38ac1JnD
-	 6MdqxwAEr2pzc0CCTDdRtl8YZFUTFUkxKVnTuj7m6kYQjrOmAftmsOPWMBWioQ5QCzHc8
-	 Cif1btnoSRc7en9NW50sIKH4xTzDBGMzUtL+An+KjJK8aR0H70uZ8oo6BmfI1N4H8lA==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=UnNwggCwKCjSqWmbRtTc0QeuSXjE6eofUZP3n/Jxdsw=;
+	b=g6tuTHjirOk6US15xg+7kyQ6drHqS+/5U92gODJJ4AGSpTWo8h/vkceUR6L9OGKLLsT5
+	 cHLyVbubIDCXFFDiSRdXMGql74aoDV+4HF2XIN7JIl3qvomT6C0tzAZQ4RJtxuvtkz1g1
+	 GNiudbDNYqNvW2SKYL5t/TfVFqGLefnI5Kdu3q87IYMnNqLu7jtCTT95XtFdLtLWIFGIB
+	 uYGP+z5jh4rEGz28WB9/fUAR++N3ebLqtQhAZ1287Ine52GcxhfHB4D67JfnD2oPhV9g8
+	 q/kkmkJt6HdckiN4W+95rZ+EPyyt8C0gQttB+/0UWZsC4XXP+pppu8KVjQbH2oowC1Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i3Qv+LbI;
-	arc=none smtp.remote-ip=209.85.210.175
-Received: from mail-pf1-f175.google.com (mail-pf1-f175.google.com [209.85.210.175])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S2cbD9NM;
+	arc=none smtp.remote-ip=209.85.167.172
+Received: from mail-oi1-f172.google.com (mail-oi1-f172.google.com [209.85.167.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B608606A331
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:33:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B608606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FE7E606A686
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:33:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FE7E606A686
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i3Qv+LbI
-Received: by mail-pf1-f175.google.com with SMTP id d2e1a72fcca58-8b5e147f101so725487b3a.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:33:34 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S2cbD9NM
+Received: by mail-oi1-f172.google.com with SMTP id 5614622812f47-571eb508edaso3206796b6e.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:33:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795725214; x=1796330014; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=j5O7/PEs6pwDhi+NzYfdrAMfnos1pXGUy7fz0A25FII=;
-        b=i3Qv+LbIaxFkVwQ2sGh2BN9MbVIIwI5k8Lf9gAawDXQA0ibCqAzAbLlbk1wUbwH6GK
-         hIEYTRTcJY5BXTF86xYfP8L9LCSukBQc+psjvIKRVyyLDGW91fWTFzwP11tHS5+dGTW3
-         kBrzUSuzjHJuPBjKYcm4+B6wmcBv2LJ2NMPeuxSsFaPsV0lsUzqExm+i51qKybFWi7FW
-         gCvKOd8/m2n4dC8L+Nqp8tlpz7XDUkfcbnhkApltekz1cp59D0/6Av3NAHWi2LjZ+A/R
-         jliVfEyE8RhyJgoRFYOBztEo1sRInZB2WTwaBD3q9HiRAY4TMEExRXkcyeYseAPc4bsg
-         Oxeg==
+        d=gmail.com; s=20260707; t=1795725219; x=1796330019; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=UnNwggCwKCjSqWmbRtTc0QeuSXjE6eofUZP3n/Jxdsw=;
+        b=S2cbD9NMw67d3LGsyrox9aVNslnGkpp/08pVTsziv10nmFqTDlLuTNUjpkzOVapVae
+         T4qzsB+6FVb3dOjKgu1ZFRfYTaKVgJBlaZpBB0QgnHyrPBQKnKcZx8c+tdBZ2lY8CgpL
+         r7qVQLFUCbrz+uj91fbaJHNDoZ41BNdmoeCna9AAcfIrxwcsPhT39LJvJYKcx77eXnr6
+         cn6AEQzohoDhCwJfFyi5oltL6MYsHlfC6O77BK5xmplJdqON0YxnroYdLIl50TIRTCsz
+         lQOz/6x09oxWYcMfAybnQ2b8sw/WkuvfXGYq9G3QGEmL0mUwUaTWPEQNF0jSs6Uu6r5Y
+         sxTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795725214; x=1796330014;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=j5O7/PEs6pwDhi+NzYfdrAMfnos1pXGUy7fz0A25FII=;
-        b=2ro4fVHCcNR4lbY1+OYo3awIyo/JTYoUBJRFIFFaVqaR8vl6WeVUUgdvmm/PpO/Zta
-         s6bFA7G+VhDHpG3hP4NRJJ0uJ0Q7SmW3JPDWf1gWybYRxH7anuwPvPPN0Ku87G0wtYU8
-         hdsiW+A4oO78r4MQoQ1onr0u7j92zJpkQQuo1QnWNzDP4nvQr+CtVEFewA6CKUGLGne1
-         p58+ixNSPgeg8u8zjenqscvRoiYYMCIelmgtnhqulaI5JHdzhIt04LqzA52V5h+SP8tI
-         A31n7FhUwdHC6S0e9xrZ5C9iZgkVKEIAiF1x8eIuORftR7cUc7b76KH3NhxlNUQTgaxn
-         EeWA==
-X-Forwarded-Encrypted: i=1; AL+hErH6ldh5N6pcJIK9BiT57pl+4Fhehn1EbUI4QcTkXY9FNclHIL3vLWsVE7QFQVDkrNsbKJj+QS8YbhBfO2U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/xEspsUngG0n4SqXdf6OL45132G1+kLhrZSYXRljqoC85XBLLB
-	9Dno4xfrO+AELgWhUwXSDjq6sZ9HiD2LRUhk9b68SrC42q4PNB6hIcZT
-X-Gm-Gg: AZFdTZexv49bZX8yMxddsZ4pbHU/aPDXJGEuNGUE872pBC2rTdI8vRUV85wIZOaFchg
-	gtxO4z3+l1nQ6FU+cR2AHt8FOAHFDBWyqMno6jBOYmH7HToOxHnZmm1QqD+3Er/e6um4ezFzv3j
-	vY62bGJAGi0E3iIqkhl63DIydM7ygzMyJSnGSqhdyTSyxQEnCuNbskSnJrMHY1lh73d9znUOo0z
-	0563tzFR8V07Tg906uO80KbHMAfoo+0DG5yG5aon7vO/QynAJ6gphPlL0bINg4IyyBHnVv9IHVx
-	N5Jn6xFXMTPuYSv0zurF3myiHqstiYc0MY9RK5h0Y4Erp7Q22eAyherVGu0jBe841mpLTC2P8YZ
-	D1fqS7w0LmA7k2P5E/L6UBIctVButwHvSE6gpOCSqY2cLzbfO8/FL/mJHojWZSKk7h7tpGuax6n
-	kYYEFPIQN25W4bToP5adz1F8QWZ83D/HE/UM8nd+dnrFg1iuNjSKbpeZoLHjDwCkguknlPKMQlP
-	XmInXcyoAWdhd3uSzgV3dbPA0F1dwyN+2KNef590WPzvAzwmteuidzqZkNc0lrCG1OJho4dyBrj
-	gS2dZ/Mt8++/LQECixLdgPY49NPLgJJbMIvehgCFg9S4h88vGn35yiKptzI=
-X-Received: by 2002:a05:6a00:6f6a:b0:8c2:da80:978c with SMTP id d2e1a72fcca58-8c8796aab2dmr30978453b3a.1.1795725213712;
-        Thu, 26 Nov 2026 12:33:33 -0800 (PST)
-Received: from FAIZEL-KB ([2001:569:52f5:4b00:85d0:b069:3959:1d31])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87392d408sm11154247b3a.44.2026.11.26.12.33.32
+        d=1e100.net; s=20260707; t=1795725219; x=1796330019;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=UnNwggCwKCjSqWmbRtTc0QeuSXjE6eofUZP3n/Jxdsw=;
+        b=1rvk0MqHt+113iepQPXCCsoJaGVsFEAyDunm1Cc5QBQpC5EBZngTVhq9+9Lhy3c3el
+         QRBkiDHhyRru4wabe0ADyACEuabvulAlxwDVy9crPjgjCDZ0+2m8kky5EdRE9gnrB/Zy
+         KHnxnW/1MyApdZKHFg6PrwpsbA8ml5yXpS7Ox1SqtWUCcVXqebSgGXsZRTCZOnC89zc/
+         JOHtRtcJ6a3MqSdzfxKB7QxZ/cBgRIgj1kezjK3VXQ4maW+z1dIi80XwZb+H0RRlWsQQ
+         fUUNO7ZLFCoBKYnyUucT7Knr2B0r+OW9wSsEOBrcwxHN/q8DkbS8bYJ8VlUEBCRQ7xAN
+         Q6Iw==
+X-Forwarded-Encrypted: i=1; AL+hErE2Hdt87PRiX+deMujpLKLHAFl+P1xKAy+2HdhUQ/e6atYqCPyxEXErOfq5SHUW9JjugeTpnaZmQ6EJqYc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9+2VMp4dWa55dnxfIGKdj12iBJ4xhAy7f7aPm9T4ETnyq3gemb
+	pPC9hlSE0zhcXYiX3MkwSzqKf3kjprcIKvYRamc2A0jx6CpK5d4ouYDr
+X-Gm-Gg: AZFdTZdioVEcyVe4OUsntt60NeoZLIN5fiN2i/AJ5u9yMeUyYYj49aTdpO+ubJp8yEh
+	3FaJlVPWJPt/VqWV7bOaQya9+JJHkxS3ciRIQbWMcswc7VKqSYBf+TOOQ08fMm9wiV1W5H9RjWP
+	70/lAYNW0KBCSpfr13YcGtlD0YL/i5T0qQJtfOdqmdmkaQtcUhsuoRs4BadAHv61m7ondbLkkuZ
+	Hy/c1pDcLan4LXPpg7WPqxIo4vy0/CEmmzFIZcxYfkcwpPnDNuR7RvYZfUPVkqv7K2Wk27qz9xM
+	gQtSGqfhIGvdX/8p12IQWehxabC+RolSHifN9DJbEzLGLKyknwRZPIxY5sNx5dwE2YnyfmN5wkL
+	/ohp2xeeX5c/YLpglt8Siyn4pR4oaKc3hTfK9Tq9iCxd2HcMJwH3+ZR3I4mI4XGVaS2VIXkevlr
+	TTVhN/yF/6XCH4dZzxXgwtz0gtD5+NU1B9oD1RhZhCHdy5tN2s/M+XDfmQ+4hCk8p518ts9if1+
+	phOSxNgixOtRmQxaASefinRjWaqI33q20M5OPiL637JksIsv92UFLD/1nwIlG1XJ5xZLJ1P0Ety
+	PE2Hah7/KTfIoi5TF9jh/gXjMAgKnKZiXOABYW8hVa43h7RWBX7yQf4NIatwJ34hic2760Tjqiw
+	U+/m6FA==
+X-Received: by 2002:a05:6808:67c7:b0:575:7930:e650 with SMTP id 5614622812f47-57a0c9c4596mr21951267b6e.54.1795725219040;
+        Thu, 26 Nov 2026 12:33:39 -0800 (PST)
+Received: from AMD.home.internal (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bc61659cb8sm21247024fac.17.2026.11.26.12.33.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 12:33:32 -0800 (PST)
-Date: Thu, 26 Nov 2026 13:33:31 -0700
-From: Faizel K B <faizel.kb@gmail.com>
-To: Michael Riesch <michael.riesch@collabora.com>
-Cc: Mehdi Djait <mehdi.djait@linux.intel.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, libcamera-devel@lists.libcamera.org, 
-	Robert Mader <robert.mader@collabora.com>
-Subject: Re: [PATCH v2 2/2] media: rockchip: rkcif: Honour the requested
- bytesperline
-Message-ID: <xf3wywxva4ogx7zn4urfkdgoldaamo673v2l5qm74trf6tjofx@g3gksm7mv2yr>
-References: <20261118203134.315591-1-faizel.kb@gmail.com>
- <20261118203134.315591-3-faizel.kb@gmail.com>
- <5f21a764-41f3-4515-871d-64e83bb44f89@collabora.com>
+        Thu, 26 Nov 2026 12:33:38 -0800 (PST)
+From: Enzo Adriano <enzo.adriano.code@gmail.com>
+To: linusw@kernel.org,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org
+Cc: Andre Przywara <andre.przywara@arm.com>,
+	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Alastair D'Silva <alastair@d-silva.org>,
+	Norman Herms <dockseed@proton.me>
+Subject: [PATCH v4] pinctrl: sunxi: use automatic voltage detection on A733
+Date: Thu, 26 Nov 2026 15:33:36 -0500
+Message-ID: <20261125-a733-pinctrl-v4@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,118 +104,145 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
-In-Reply-To: <5f21a764-41f3-4515-871d-64e83bb44f89@collabora.com>
+Content-Transfer-Encoding: 8bit
 
-Hi Michael,
+A733 uses two-bit voltage-mode fields, but the handlers selected when
+v7.4-rc1 added A733 support program them as one-bit fields. The R-PIO
+handler also writes an A523 control register absent on A733.
 
-Thanks for the inputs.
+Add BIAS_VOLTAGE_PIO_POW_AUTO to select auto (01) in every field of
+POW_MOD_SEL at controller init and skip per-pin voltage setup. Use it
+for both A733 controllers: the A733 User Manual v1.00 documents 01 as
+auto in sections 18.14.6.1 and 18.14.7.20. Give A733-R a separate
+descriptor so A523-R keeps its existing voltage handling.
 
-On Tue, Nov 24, 2026 at 12:13:20PM +0100, Michael Riesch wrote:
->> +static u32 rkcif_stream_plane_lines(const struct v4l2_format_info *info,
->> +				    unsigned int plane, u32 height)
->> +{
->> +	return plane ? DIV_ROUND_UP(height, info->vdiv) : height;
->> +}
->
->Is this the same as v4l2_format_plane_height? And if yes, would it make
->sense to reuse this one (of course it must be made public for that)?
->
+On Orange Pi 4 Pro, the one-bit handler leaves bank H in 1.8 V mode
+while supplied at 3.3 V, breaking RGMII Gigabit TX. Alastair D'Silva
+reported that selecting auto mode restores TX.
 
-Yes, apart from the block height alignment, which is 1 for all rkcif
-formats. I will export and reuse it.
+Fixes: 0535bfbfa97b ("pinctrl: sunxi: add support for the Allwinner A733")
+Fixes: 31d68e10381c ("pinctrl: sunxi: a523-r: add a733-r compatible string")
+Link: https://lore.kernel.org/r/20261107000135.6b684277@ryzen.lan
+Reported-by: Alastair D'Silva <alastair@d-silva.org>
+Closes: https://lore.kernel.org/r/20261125115703.3724690-1-alastair@d-silva.org
+Suggested-by: Andre Przywara <andre.przywara@arm.com>
+Suggested-by: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
+Tested-by: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com> # Radxa Cubie A7Z
+Tested-by: Norman Herms <dockseed@proton.me> # Radxa Cubie A7S (A733)
+Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
+---
+Changes in v4:
+- Rebase onto pinctrl fixes after the EINT-mux fix (context only).
+- Carry Vinicius' and Norman's Tested-by tags from v3 (code unchanged),
+  and credit Alastair's report.
 
->> +
->> +static void rkcif_stream_set_bytesperline(struct rkcif_stream *stream,
->> +					  struct v4l2_pix_format_mplane *pix,
->> +					  u32 req_bpl)
->> +{
->> +	const struct v4l2_format_info *info = v4l2_format_info(pix->pixelformat);
->> +	u32 bpl = pix->plane_fmt[0].bytesperline;
->> +	u32 total_lines = 0, max_bpl;
->> +	unsigned int i;
->> +
->> +	for (i = 0; i < info->comp_planes; i++)
->> +		total_lines += rkcif_stream_plane_lines(info, i, pix->height);
->
->Just to be on the same page: What exactly are you doing here?
->
+v3: https://lore.kernel.org/r/20261109-a733-pinctrl-v3@gmail.com
+v2: https://lore.kernel.org/r/20261104-a733-pinctrl-v2@gmail.com
+Replaces Andre's RFT: https://lore.kernel.org/r/20261013142351.771229-1-andre.przywara@arm.com
 
-When bytesperline is increased, sizeimage must grow with it, or the
-buffer is too small for the DMA. For formats with a single memory plane
-(e.g. NV16) the Y and UV planes are in the same buffer, so sizeimage is
-bytesperline * (Y lines + UV lines). total_lines is that sum, and it's
-also used to limit bytesperline so that sizeimage doesn't overflow.
+Tests: arm64 defconfig and W=1 sunxi build. Vinicius tested v3 on A7Z.
+Norman tested on Cubie A7S with v7.3.6 plus A733 patches, this patch
+and Pablo's IRQ-bank series backported, with his voltage-mode patches
+removed. POW_VAL matched the schematic; 3.3 V SD High Speed and GPIO
+IRQs on PK0, PB0 and PJ24 worked.
+Not tested: v4 on hardware, 1.8 V SD switching, A523, pad voltages.
 
->> +
->> +	max_bpl = min(stream->max_bytesperline,
->> +		      ALIGN_DOWN(U32_MAX / total_lines, CIF_BYTESPERLINE_ALIGN));
->> +	if (req_bpl > bpl && req_bpl <= max_bpl)
->> +		bpl = ALIGN(req_bpl, CIF_BYTESPERLINE_ALIGN);
->> +
->> +	/* The Y and UV planes share the same line width. */
->> +	if (info->mem_planes == 1) {
->> +		pix->plane_fmt[0].bytesperline = bpl;
->> +		pix->plane_fmt[0].sizeimage = bpl * total_lines;
->> +	} else {
->> +		for (i = 0; i < info->mem_planes; i++) {
->> +			pix->plane_fmt[i].bytesperline = bpl;
->> +			pix->plane_fmt[i].sizeimage =
->> +				bpl * rkcif_stream_plane_lines(info, i,
->> +							       pix->height);
->
->v4l2_format_plane_size?
+ drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c | 19 +++++++++++++++----
+ drivers/pinctrl/sunxi/pinctrl-sun60i-a733.c   |  2 +-
+ drivers/pinctrl/sunxi/pinctrl-sunxi.c         |  7 ++++++-
+ drivers/pinctrl/sunxi/pinctrl-sunxi.h         |  2 ++
+ 4 files changed, 24 insertions(+), 6 deletions(-)
 
-It computes the stride from the width and an alignment, so it can't
-take the requested bytesperline.
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
+index cffc1e53eef1..006754c0645f 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
+@@ -30,17 +30,28 @@ static struct sunxi_pinctrl_desc a523_r_pinctrl_data = {
+ 	.pin_base = PL_BASE,
+ };
+ 
++static struct sunxi_pinctrl_desc a733_r_pinctrl_data = {
++	.irq_banks = ARRAY_SIZE(a523_r_irq_bank_map),
++	.irq_bank_map = a523_r_irq_bank_map,
++	.io_bias_cfg_variant = BIAS_VOLTAGE_PIO_POW_AUTO,
++	.pin_base = PL_BASE,
++};
++
+ static int a523_r_pinctrl_probe(struct platform_device *pdev)
+ {
++	struct sunxi_pinctrl_desc *desc;
++
++	desc = (struct sunxi_pinctrl_desc *)of_device_get_match_data(&pdev->dev);
+ 	return sunxi_pinctrl_dt_table_init(pdev, a523_r_nr_bank_pins,
+-					   a523_r_irq_bank_muxes,
+-					   &a523_r_pinctrl_data,
++					   a523_r_irq_bank_muxes, desc,
+ 					   SUNXI_PINCTRL_NCAT2_REG_LAYOUT);
+ }
+ 
+ static const struct of_device_id a523_r_pinctrl_match[] = {
+-	{ .compatible = "allwinner,sun55i-a523-r-pinctrl", },
+-	{ .compatible = "allwinner,sun60i-a733-r-pinctrl", },
++	{ .compatible = "allwinner,sun55i-a523-r-pinctrl",
++	  .data = &a523_r_pinctrl_data },
++	{ .compatible = "allwinner,sun60i-a733-r-pinctrl",
++	  .data = &a733_r_pinctrl_data },
+ 	{}
+ };
+ 
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sun60i-a733.c b/drivers/pinctrl/sunxi/pinctrl-sun60i-a733.c
+index 456d9170c2a2..c66f57385075 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sun60i-a733.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sun60i-a733.c
+@@ -23,7 +23,7 @@ static const u8 a733_irq_bank_muxes[SUNXI_PINCTRL_MAX_BANKS] =
+ 
+ static struct sunxi_pinctrl_desc a733_pinctrl_data = {
+ 	.irq_banks = 10,
+-	.io_bias_cfg_variant = BIAS_VOLTAGE_PIO_POW_MODE_SEL,
++	.io_bias_cfg_variant = BIAS_VOLTAGE_PIO_POW_AUTO,
+ };
+ 
+ static int a733_pinctrl_probe(struct platform_device *pdev)
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+index bf4ec4665e2b..e54ed9e0b403 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+@@ -732,7 +732,8 @@ static int sunxi_pinctrl_set_io_bias_cfg(struct sunxi_pinctrl *pctl,
+ 	u32 val, reg;
+ 	int uV;
+ 
+-	if (!pctl->desc->io_bias_cfg_variant)
++	if (pctl->desc->io_bias_cfg_variant == BIAS_VOLTAGE_NONE ||
++	    pctl->desc->io_bias_cfg_variant == BIAS_VOLTAGE_PIO_POW_AUTO)
+ 		return 0;
+ 
+ 	uV = regulator_get_voltage(supply);
+@@ -1655,6 +1656,10 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+ 	if (IS_ERR(clk))
+ 		return PTR_ERR(clk);
+ 
++	/* Select auto (01) for every bank, including shared VCC-IO. */
++	if (desc->io_bias_cfg_variant == BIAS_VOLTAGE_PIO_POW_AUTO)
++		writel(0x55555555, pctl->membase + pctl->pow_mod_sel_offset);
++
+ 	/*
+ 	 * Seed the output latch shadow from the hardware so pins the
+ 	 * bootloader left in output mode keep their state; see
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+index 7c2f29e75519..7b36c5c2263e 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+@@ -130,6 +130,8 @@ enum sunxi_desc_bias_voltage {
+ 	 */
+ 	BIAS_VOLTAGE_PIO_POW_MODE_CTL,
+ 	BIAS_VOLTAGE_PIO_POW_MODE_CTL_INV,
++	/* Two-bit PIO_POW_MOD_SEL fields set to automatic voltage detection. */
++	BIAS_VOLTAGE_PIO_POW_AUTO,
+ };
+ 
+ struct sunxi_desc_function {
 
->
->> +		}
->> +	}
->> +}
->> +
->>  static int rkcif_stream_fill_format(struct rkcif_stream *stream,
->>  				    struct v4l2_pix_format_mplane *pix)
->>  {
->>  	const struct rkcif_output_fmt *fmt;
->> -	u32 height, width;
->> +	u32 height, width, req_bpl = 0;
->> +	unsigned int i;
->>  	int ret;
->>
->>  	fmt = rkcif_stream_find_output_fmt(stream, true, pix->pixelformat);
->>  	height = clamp_t(u32, pix->height, CIF_MIN_HEIGHT, CIF_MAX_HEIGHT);
->>  	width = clamp_t(u32, pix->width, CIF_MIN_WIDTH, CIF_MAX_WIDTH);
->> -	ret = v4l2_fill_pixfmt_mp(pix, fmt->fourcc, width, height);
->> +	for (i = 0; i < pix->num_planes; i++)
->> +		req_bpl = max(req_bpl, pix->plane_fmt[i].bytesperline);
->> +	ret = v4l2_fill_pixfmt_mp_aligned(pix, fmt->fourcc, width, height,
->> +					  CIF_BYTESPERLINE_ALIGN);
->>  	if (ret)
->>  		return ret;
->>
->> +	rkcif_stream_set_bytesperline(stream, pix, req_bpl);
->
->Wouldn't calling v4l2_fill_pixfmt_mp_aligned(pix, fmt->fourcc, width,
->height, req_bpl) do the trick?
+base-commit: 721850a3086d109c7ea5841673766a393747e4f1
+-- 
+2.53.0
 
-I looked at that, but stride_alignment is a u8 and has to be a power of
-2, which the requested bytesperline usually isn't. For example, with the
-IMX415 in SGBRG10 the minimum is 7728 bytes, and libcamera requests 7936
-for the 256-byte alignment of Panfrost.
-
->
->In summary: I think this is a common problem, so there should be a
->common solution. Reuse helpers, or extend them if required.
->
-
-Agreed. I noticed that some other drivers, e.g. rkisp1, also handle the
-requested bytesperline in the driver itself. For v3 I'll add a helper to
-v4l2-common that fills the format like v4l2_fill_pixfmt_mp_aligned(),
-but keeps a larger bytesperline requested by userspace, up to a maximum.
-It computes sizeimage with v4l2_format_plane_height(), so rkcif doesn't
-need total_lines and only calls this helper. Does that sound good?
-
-Regards,
-Faizel
