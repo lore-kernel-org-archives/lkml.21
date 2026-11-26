@@ -1,80 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.138
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795700648;
-	b=FzFM+6w6F8nzOx3uOfqxZ5HJV64uRnvY/qMDgyGBXenW0rnNCWpFyc9kcF/UJfFa66a9
-	 DJMD1SdXHurWNCR38rUy5tkLBnR8RgPcfD0btGsOZdS7+ljJlldUspZed31q9XAq1vgdA
-	 vkejZioCJhtSXz3w4jSZKuu7Qr4tYDX1sLtST464iSYQ+KkhDjFnv+1laWH9FNbD1vFRG
-	 OmZgEXijgqm6wwSeWH+w0fdWRshpzQTztqJRDpiCrasRughlXgfc89vRK/9b6OEdYoQQ7
-	 tv9F1QRMVn7a3rsqWZDco05g67Vhk3HwkJPvZGUuKHq/atn7DdE+EuetOcFx4IWOeRg==
+	t=1795700674;
+	b=SNdTI+M8rmWm6SYc22GvoXtAStyTIg1k/G+cdlNl7SeB/g7GXk0jXXQEB+V+djsokMry
+	 7CBC5UJrRLD1xMN1WyMqYlWqzagQ9F6LKBmZKMTEtl2W6rliFf77amP1BnxduvGyr399K
+	 nNXCG/RWUyzNA7YY7BF5PaztXAzzUOZS1dX8sTeskhgjyRVNKZTHVliy8uk0AnLHJ+7Wk
+	 uAEO7zJ1nluOxTSon79GNkADNsKFrkNWCuMwZjCzO/DpT+5Uq1CPc4TEk19Sf9BlmfK0Z
+	 /WmuCUAHPkqkNLETfT4OoF9oHTv09KhkuqhhChQ3ypJALImDhLmgQexJhuMvyBJpy8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795700648;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=f2Q10uyThL33lTmRU4VfofIoTvnEflRRbcrQcK/9sFw=;
-	b=ukZpaSUqwdXaucw28tCwj3m8zgu7Ll1AJHn65f7uIWgAl9D8hJRDNLswlzgRf4SWWytD
-	 3wWJd1OJAbcERw72thVaoQMJIGMpK0ijFCfZDpdyrVTShdLggLlkFuVubMFIdX6OMHKcN
-	 o2pW1JmbnuXitSLCwTY+YlFYlssiwPG2rvniyIcM5I2irktBXEFTWGlTu2zeZOdpfnSjk
-	 LO2/i04up2FjpR5rrHFPmBaevp+SNyorKauHh0hNqMJs0Z+oR0z/XnVYsJNAVbC59ZlGI
-	 9zfFEXst9gbhcPiispiT2Qfx+BGLkSnlK69YBRKGUUBXpDmKlAfnF5cvdrXKt31VzIw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795700674;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=jY7SRS8EY4WvgV5Hy1de+tHZT9Z4JJSU2OV+0aUvWLY=;
+	b=WdpJhXM+e5YKksJsZ9Xzs1LTegx2Hv3/kwL8tSS/x9ozCRlFmjw3WroJ5c+7qpS/Yyyo
+	 CYkWrfHx63EYkj+yjcXfsIXTuOR5f6A5RicNBKkI353uvKOUb63jpIY7U3KCp6JKxA5Oj
+	 qQotkrDGRqYuwWhT4g2OTAjw1MqamNHXxl2tqMNrHD8biXVt+Ed2RROLiZ0JljF2yaYTv
+	 hNZQergTSZ0wa7+VlFo4qjLJgwFcK50AdJIrLhOUzc3mRHYPLZko8Xhp53wvSDGzvlenf
+	 Jk2gTxKMCI+a1Y7V+pqCChhc9Uo5hppzeahgOpHbv2og6jRbjo5EjA8W7JYi2ZNju2Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=EswyD5ht;
-	arc=none smtp.remote-ip=192.198.163.14
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.14])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=glider.be;
+	spf=pass smtp.mailfrom=glider.be;
+	dkim=pass header.d=glider.be header.i=@glider.be header.a=rsa-sha256 header.s=fm1 header.b=ks9M+NXe;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=aJHgQI0K;
+	arc=none smtp.remote-ip=103.168.172.138
+Received: from flow-a3-smtp.messagingengine.com (flow-a3-smtp.messagingengine.com [103.168.172.138])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29239606A31C;
-	Thu, 26 Nov 2026 13:44:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 29239606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE154606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:44:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE154606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=glider.be
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=glider.be
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=EswyD5ht
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795700649; x=1827236649;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=aUYEe3XEohVRDEzCSSJ8bh55/EvWMs2MyrgjwrKmSi0=;
-  b=EswyD5htbgo7X1lwz7N95gD0FxYCZUOLy1FwaSOEX5vcJDpa8wJ7h8Ny
-   acUIUeXEBArkvMoDsugyAb5l1i46YWirNlpJuL4SkBsGnbsggo5iojlv/
-   ikXdwFkMd3XhZS8JMKrvke+kxYsMAZBTVtxvb3/kDbxR1XYspQiqtZy6g
-   YH0eVZHm2ujvUjwPtq2CqoxVc+TJxmPET3tuiuSV5SmzlQlSkQB3CbZJ0
-   W3R+quq41clUSPpTEJxWPaUNK9QJLvlC2F7aPC/ugD8/iv1odPP2L4CDo
-   TeWUvh9WWHWHckn8HIxzailOGLvFb7dKpUtUckBQxk5NRnltT9MRZJ41w
-   g==;
-X-CSE-ConnectionGUID: LiQVz426Re+ZmpyncKm+Og==
-X-CSE-MsgGUID: 00pazCtOSzWXk0ah7yRsNw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4566335"
-X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
-   d="scan'208";a="4566335"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 05:44:08 -0800
-X-CSE-ConnectionGUID: EH2Gw2pnSn6xxW/wvVAtJQ==
-X-CSE-MsgGUID: zyfgfmPcSLai/TnyYU2lPQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
-   d="scan'208";a="12402382"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.208])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 05:44:05 -0800
-Date: Thu, 26 Nov 2026 15:44:03 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Rupesh Majhi <zoone.rupert@gmail.com>
-Cc: Andy Shevchenko <andy@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Eddie James <eajames@linux.ibm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/7] iio: pressure: dps310: use min() instead of
- min_t()
-Message-ID: <awg3owGf3-7pZTkz@ashevche-desk.local>
-References: <20261126121331.10438-1-zoone.rupert@gmail.com>
- <20261126121331.10438-4-zoone.rupert@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=glider.be header.i=@glider.be header.a=rsa-sha256 header.s=fm1 header.b=ks9M+NXe;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=aJHgQI0K
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailflow.phl.internal (Postfix) with ESMTP id ECAAA13805DC
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:44:32 -0500 (EST)
+Received: from ams-imap-13 ([10.64.2.33])
+  by ams-compute-02.internal (MEProxy); Thu, 26 Nov 2026 08:44:33 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=glider.be; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1795700670;
+	 x=1795704270; bh=jY7SRS8EY4WvgV5Hy1de+tHZT9Z4JJSU2OV+0aUvWLY=; b=
+	ks9M+NXeZToCkNeyCEcOiO57Vrff20M6XgsDpWwrzz7/99elcZw89qmkkNU7a8XF
+	W9knFLhuXGK5+nHGGqTzHbcNNrAjH5T7S6wKwx0NhagvoKM+3vuEmzAD2UBbK7BL
+	lAY6zCiBnAeiawp6a5hPfjsoYWe/eMmx4cgKjN+dsJtPteiJRAsCP+AF9Luy6/9p
+	97Ycl3hRWouLImTT2i83xFXLuFoPBdf4Ha3hI+0VAVw1RZ0l1mFrQnAkJOOWy+Lb
+	vGqI0JoWdgEzBCkT0dtrf8uThSHpndUoSSFcQPAExQYwPVKx3Z8nSfUQ1+q4ta3m
+	TNMfi2OP8RVYW7NCfaySlg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795700670; x=
+	1795704270; bh=jY7SRS8EY4WvgV5Hy1de+tHZT9Z4JJSU2OV+0aUvWLY=; b=a
+	JHgQI0KIdaNNSs30w5t4TZxOw7mXGverwiNhoRJwNZ5K0QO5ncWRRUf/SzZ5aduc
+	PoNa6uKtipFes1JQ8AB2zSzkSr5AlgpJxyDHyRF28uqBlkUs+BDr5lsQiCy9VQIR
+	0S5DFK5+ALe2/wuyVfSAGq8ti9UMeBpzNe6JMAPbKM3bMBbi921J56d6Bixpat47
+	48bjiokL645lklxXX6UCs9LTMl6XxKdexXwnwyxueK4NHxbWsWNjmp1+6dAvT60h
+	+KejqD3f9gBejuveG/E7d3v0VkLzI6APPJW6IlyflLpttsByx1FV/21sgUdpxwdF
+	HInHpoWLG5ZzZhDpDQxBQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=glider.be a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795700670; d=glider.be;
+	mf=PGdlZXJ0K3JlbmVzYXNAZ2xpZGVyLmJlPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm1:rsa-sha256:irexvQiWvFawYul5izBqIPKxvu0IgwkRdJzrsMa5bnZAZYQ
+	c56GrSDA3QxQMDrFNUHpLfIM1Lauhtu/7B96czfKLKF1SSJ2hmwhA47ieS9soBpt
+	tyhLv75BPVKW6UU0pCu3rfM7JrlTucavHGlaJgkGgv/e0QajK2ffmv9N8VSBh8Gy
+	P2o5Nq6eK82O+eLPvJbaAbADdmqlHxvyMmHJrQzVbhuna9dBIuaKGAKsZ+9/yJBa
+	/V7Kys+gyMk/VraCt6Pe6FgCQBcaZ2i/xS/m62lV+bFmccNiAXBk2kyAcGsSENNn
+	+juvH+QrvWmiKq06uTaUM26kWHoT4+WAVcTOoog==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:CH5LxRj4t7fUnkD/K9gm9IqfmmHJlbgLCoYZhkvySOA=:STMR6hsVSFCsgck2T08ksDap6/kwxk6X43QzRdvj+Ck=;
+X-ME-Sender: <xms:uzcIa441yI-H9ilfRWxqDlaJNCtYtgrLA-OrB2ZGeFyC0r2AIdW2sg>
+    <xme:uzcIa0s103boGVZssNZZSPCpa7HdvpqSqt7uFKFxjHLN71lhp7BfWDsrkAHODfvwV
+    RwjqE4LlAKS_jJWTnqCIHlHDeEEBx2g_xymND0oaVEWUw7HsXamNhU>
+X-ME-Proxy-Cause: dmFkZTGiE3u+QPdbaOCW+PkpYwEs1CFrKcWeYM604yYgXfDsFBYxjQMMgVHFUqRERJSYUt
+    /ekq/G541e9LXNUlfiNzNnL6bc6s2cb0zMshW18VpRzvQ7HeH/Ln6Tt/ynSpgqqra0JECT
+    rmKMLIqvOUhCilWj57mKJrc5kCRWZNYAlx2nukAIuKI1u4P0xSQMv9WgfAth0Q+Xq79OKf
+    TkIHs07z8Z+owMB3TsrNFLpWsCJ+NmMR3MgmsfERXWGjQW08bTNiXtdRV7kTGoJz7E8t0f
+    ngz8k++2bURX45zZ4HIhEFCJFbozNAJp9cA9UOBTUHdGxmFw51u8dux9bu3RL3FcVbRsc+
+    7eukkmksuIMCal2gD2+cEbcxEmUp1HCvGB31duJJFfmu+PPQwCG9YsbVeq3k9IS/7CWBf4
+    eRfxo/0C7F3xL/nHQ5eFHLVLJPFUdh3cy41hVTN32NlVi0ypseK/tIr/zcPvs+qnNGHS5b
+    SQGoALwIMnb6XpVlbhkmuKwlad0nEHNDVXn7ESM57qqrv3VewNzHwCKfDpq8vqaO49An1u
+    uivcraA0Yo8Ej5eW2hOz3XAsT/5LfQmDSkT4qcE8HvQUrUjvO4xyumB4Gl+roeHnLwneGi
+    k9fRwqa1zy+T3KPtgnzteySuaOXRRv59Ad3d+M07BkFpruUfKG3Hs0NSB8Iw
+X-ME-Proxy: <xmx:vDcIa32ztnOw2c8OL8LDX6_BPg4e_qYIpXhE0qZdrgJc_nHqwgpE9Q>
+    <xmx:vDcIa7Bv1VQzRSGPzFoDIlllQp1VWmz-P0ytFDP_231LFfdUNDY-XQ>
+    <xmx:vDcIa8Ld-PiqDL785CuVC334lstFkfK5mDRQ9ptlppHqm4hrksMRag>
+    <xmx:vDcIa8ltrFVYQAeNHmRHkdsenv9ZwOT6yz1mHbqd7BYbJLbFJDCQvA>
+    <xmx:vTcIa_ScZLEsLt_j2TAlpzjoYZ_qNrbGQXJ84YkdY55tZ4HjUiRRmiwg>
+Feedback-ID: ia0f84a9e:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 8FE88F800A1; Thu, 26 Nov 2026 08:44:27 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,20 +115,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261126121331.10438-4-zoone.rupert@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-ThreadId: AsmFC5iU653B
+Date: Thu, 26 Nov 2026 14:44:07 +0100
+From: "Geert Uytterhoeven" <geert+renesas@glider.be>
+To: "Yige Jiang" <yigejiang86@gmail.com>,
+ "Wolfram Sang" <wsa+renesas@sang-engineering.com>,
+ "Andi Shyti" <andi.shyti@kernel.org>, "Magnus Damm" <magnus.damm@gmail.com>
+Cc: linux-renesas-soc@vger.kernel.org, linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Message-Id: <ec57d879-3b89-43d0-855d-723086e0a9fd@app.fastmail.com>
+In-Reply-To: <rc-b1-20261110-vc-182-eee62ef398fd@gmail.com>
+References: <rc-b1-20261110-vc-182-eee62ef398fd@gmail.com>
+Subject: Re: [PATCH] i2c: rcar: release DMA channels when host notify setup fails
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 26, 2026 at 02:13:26PM +0200, Rupesh Majhi wrote:
-> min() accepts s64 and int, both signed, so min_t() and the cast are
-> not needed.
+Hi Yige,
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+On Thu, Nov 26, 2026, at 14:31, Yige Jiang wrote:
+> rcar_i2c_master_xfer() requests the DMA channels lazily, on the first
+> transfer that finds priv->dma_tx or priv->dma_rx still set to
+> ERR_PTR(-EPROBE_DEFER). Clients probed while i2c_add_numbered_adapter()
+> registers the adapter can already issue such transfers, so the channels
+> may be held by the time rcar_i2c_probe() creates the host notify client.
+>
+> If i2c_new_slave_host_notify_device() then fails, the out_del_device
+> path deletes the adapter but does not call rcar_i2c_release_dma(); only
+> rcar_i2c_remove() does. The channels then stay allocated, together with
+> their DMA engine references, after probe has failed and priv is freed.
+>
+> Release the DMA channels right after deleting the adapter, in the same
+> order as rcar_i2c_remove(). rcar_i2c_release_dma() skips channels that
+> were never requested.
+>
+> Fixes: c4651f11d09a ("i2c: rcar: add HostNotify support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
 
--- 
-With Best Regards,
-Andy Shevchenko
+Thanks for your patch!
 
+> ---
+> Based on linux-next next-20261109 (630059a5a632).
+> Compile-tested: arm64, GCC 14.2.0, W=1, CONFIG_I2C_RCAR=m, 
+> CONFIG_COMPILE_TEST=y (object only; no new warnings).
+> No hardware or runtime test was performed.
+> Needs a pre-Gen3 R-Car I2C node with the "smbus" property and dmas, a 
 
+Why does it need a pre-Gen3 R-Car I2C node to trigger?
+Pre-Gen3 I2C controller do not support DMA, so this cannot happen?
+
+> client transfer during adapter registration, and a failing 
+> i2c_new_slave_host_notify_device() (e.g. a client already at 0x08); no 
+> in-tree DT sets "smbus" on an R-Car I2C node.
+
+Gr{oetje,eeting}s,
+
+                                                Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                                            -- Linus Torvalds
