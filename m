@@ -1,50 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.44
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705113;
-	b=z97T4XaDNXJ92wAY0368wZnqNPN8CjWbqsgHbLCRFSDYzCyauh4hpsvv/YP7RRTBCHNI
-	 lEI3vz3i0snyNG79r0CaDeDNYT+BaGLofYfDJe/ivZ88SmGzqWe5RJeyyqHndKNd/vxZ0
-	 hQKQKVtCf9tDj49fBpZ30FP4pkkddvcki+7WjrAfkWVRsE8OYmUFeyz5eJz/rNbDr6lHw
-	 tc3ERdgF/vxeVmaasHPoG/vZlqO2BawhKnBuCuYvwVpvv4p6oIDhkIAjQByDTEe5UTCkx
-	 Av2Pmc0B4iuPdZSefwKvdMrD9uaDpn43mZ4qi6tJtUoJ9c0RQh2LF1/o1Hhn9GSoN0w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705113;
-	h=DMARC-Filter:DKIM-Signature:From:Date:Mime-Version:In-Reply-To:
-	 Message-Id:References:Received:Content-Transfer-Encoding:To:Cc:
-	 Subject:X-Original-From:X-Lms-Return-Path:User-Agent:Content-Type;
-	bh=C8sOYIvaojnOxWbS1cwkZXUmkHLOzB4BNnadqUooFqc=;
-	b=2CPmlRwE5UISbG2Et2PHXMKyzotQKoKtCpHI627qc2Pu3kr8aOz8+Sx7+ReW7JIgsx8c
-	 cZWDO/LFME+FoRrY8UaCPW5G9LSCPNwuWyYhXU+SvoZUKOh3KBCQCgol6ItM/xlIvOhbx
-	 KqGJthFsJQ6Vt0lAuGnWAtWtGzIQBmr13tEUlCkAU6aHrWALJbl2dujWTZJn3B2vdpq8F
-	 sEHFfquDMN/5Za+BFjfNroOuyqIBaJYcyCNSg5uCkiSUv/4tnyiMUapBf/3GnD181IOGO
-	 Kj7WhvESCjpdDVzcK1pEioUgpzIuReNZAzq4ydqV2OvFc4HFwnAYiG5V+xdKslPn++g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=yunsilicon.com;
-	spf=pass smtp.mailfrom=yunsilicon.com;
-	dkim=pass header.d=yunsilicon.com header.i=@yunsilicon.com header.a=rsa-sha256 header.s=feishu2403070942 header.b=f5Lvj189;
-	arc=none smtp.remote-ip=209.127.231.44
-Received: from va-2-44.ptr.blmpb.com (va-2-44.ptr.blmpb.com [209.127.231.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.3
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795705151;
+	b=MHcLB4VXNBJ0TK19tx9C5jOtkTJ32S0QoVSMQ/uixbe/PUP8itNKT7xmqzJOaVMlSpSd
+	 e85CyUi8yJFCjeAxuEcrBZqJYgJhxNsamG2dqFKQDhM6qYcw3RvRflp6T/X6QZWbAavbY
+	 lQMBzdqbZeZsnMJRVv+1L5EcVDy3L7GDHaDONhhfRKcjsEIAOrg62Fxf6cxroXoaxOIo4
+	 8iH4HNALbV4rcUXmsYptcbJNHatwZb1eUjrXHUxlfHN/z0/C73bdo2G6iWEz8F9SjQkXN
+	 +fyySC0xn4c7pKASEw3jzYFwYA8gr9JIDL+ff1uW0C2RJ+/DhzO/Zi7mZ5sq14Ozq4g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705151;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=zJwqm1E80+fPDKXL55TmgDt9UCpJfQGOsnfuaHdzqJY=;
+	b=OHWNJQyVSSF80pkyAV9ag0xedtmJFiIfkxOPH11y5rTvZOPl9Ahkt/rKwcB6nr1jrrpZ
+	 +qeffF/0FiW4fIu1iDw45Zh4uGjiqgRlMCcUUrBrKeCqEutZkpWlLN2RiueqGAY/TOcRt
+	 +Vls1Om+HXoKYAPE3QlssGuSqhiepuYqbuISqIm6D96utR0BZZzgoA14b/AL+fYgxDMLv
+	 F4UD7VD/dHdSuaOgLq39jqxwJvMGNzRpgdtXyr89I4yCqm7U0n1F6lLP59LH7S2FQac37
+	 13CQpcTpULWUTv1CzKfJ1Ib85cap4RBmA2hjvBxOToNKIQ/LlwC/cSuk/QyoNxB5BHw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="TnCfLt/F";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.3
+Received: from BYAPR05CU005.outbound.protection.outlook.com (mail-westusazon11010003.outbound.protection.outlook.com [52.101.85.3])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 338DA606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:58:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 338DA606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=yunsilicon.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yunsilicon.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F95B606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:59:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F95B606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yunsilicon.com header.i=@yunsilicon.com header.a=rsa-sha256 header.s=feishu2403070942 header.b=f5Lvj189
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2403070942; d=yunsilicon.com; t=1795705109; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=C8sOYIvaojnOxWbS1cwkZXUmkHLOzB4BNnadqUooFqc=;
- b=f5Lvj189As19NYI5a+r1a4EBINQR6s2ODTtlVogzJ6T6G2jdxCVH1E0FlwH1x/N/xLD4B5
- ZPFMhxjB6bBuJHrKFybBu4j1jxjyis1BP1h9KX70ib5SzQPYFAcxnF06SPIA38l7tNTKaz
- +T/B+X107yCZBjiYbK5wOgY6sw5L2C2oQmOjw/Xa8ehgBoY0c/Zxoio1z4nNlBu5Qb4yfn
- cC13MvvVzoOcbn1spWQbtK3TwC2KIr+JF8hGE68AkzSgFJJCIW16Hg/NKwKXL+1K/+FUL8
- w6AsTXLtfH3OCbsYMJdyK/+zDKRSouyKnjrauJMHw3NYfK9Sy5MuvA3j75SxxA==
-From: "Xin Tian" <tianx@yunsilicon.com>
-Date: Thu, 26 Nov 2026 22:58:20 +0800
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=TnCfLt/F
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kt6irQ/XuIIXPnzUBLPU0Gwu7N6+QzttwfhCcC2BjhzKTpokuMG2uRAAFJlgwhhTYI9jLtttT1/11ZPKZJuJKjhXZxQYUHttFUbuCSTFq7J+6lXLJ0Z3osyMkjL+J+mDiKoqqr1xSjNetSQ+dkdlkG2RDvKDRtLfrOa3HCxsqTPbh7UeSmm2xTc9YRbhkajsODslhx6/B331bFBXvXiioxH7Lt0edoehZe+W3TOvFUVRHX5G8iMatB+xYvfMlU4CjyAk8ek08D10l+1mwCVrUjrIK5BYX3v92p8A2JYhRWgJMjNa11BDVDUd4bdk6CBYugNyC/RvcQPWyj9d7NeBWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zJwqm1E80+fPDKXL55TmgDt9UCpJfQGOsnfuaHdzqJY=;
+ b=hlCqpT5vmHGBnA9PAlIdmCdGqrh8N5C0LztrcfZCkBW7Kn3og5MYmsFrzFOMZSWy5DLaWkVQImhLc2/QjfRNG9Nv107kB1eOQQDVfMfLVUlNc+VcOZLBQvvfzdZd3KzbWracWZ1HBRT+DEoDAJJGbn17nhbSOBD9QTJD0W7xmDj7SlCSfokrjgFQD00Um7VoRck3a9KuuXPwzSyk06ZwOblHmqG+uiSkKCkyy31Ss9ED4Z9avgqPzf2WX0M3Hs/Z2m8vVlmFQiFssenA0ABhDsl8+rScAonQX3bJxAsKARn9Ev0Dm2I5ZDSVwqCSmPKp6BdrUwrcKF3Te+q7acRUKg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zJwqm1E80+fPDKXL55TmgDt9UCpJfQGOsnfuaHdzqJY=;
+ b=TnCfLt/FawHdJNNTqG6ioFofokJJmrJnzTytwXQtVLKyiqRAJCv5RVsZV4TrMLqw3Gxikfuu/4BIEkbRwdGOZsN9vr+MCeo6h6JYuZDbKCUEoPjuYOLWZhdJ4UNFhwvZSZwuFXVf10CaYkcreO7mhAiOfpLNny38p9n6jy4t3ad0xpRzymiEu2CYf5jFjQhh5w7sLoy5K6iA577nxyWvBQjteYDwWVJT1W0MWo9CcG8nE25YfWBxbQIOYY6XAtMHBBnQPAba8EYdsBEauuIyIs79EwaMDRPY5vGDkHzJxafDFYnaCftXJPvID8CyWrRB0bAoH9jJ9ja3Th5swMPMzQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by IA1PR12MB7662.namprd12.prod.outlook.com
+ (2603:10b6:208:425::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
+ 2026 14:59:05 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
+ 14:59:05 +0000
+Date: Thu, 26 Nov 2026 10:59:04 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: joro@8bytes.org, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>, rafael@kernel.org,
+	Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Pranjal Shrivastava <praan@google.com>,
+	Mostafa Saleh <smostafa@google.com>, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev, driver-core@lists.linux.dev,
+	Sonang Patel <sonangp@nvidia.com>,
+	Ankit Agrawal <ankita@nvidia.com>,
+	shameerali.kolothum.thodi@huawei.com
+Subject: Re: [PATCH v3 5/7] iommu: Introduce TDISP T=0 state for confidential
+ IOMMUs
+Message-ID: <20261126145904.GH114472@nvidia.com>
+References: <cover.1794343501.git.nicolinc@nvidia.com>
+ <07ea92910895a2b0db33afefaa3a0ef182b2968c.1794343501.git.nicolinc@nvidia.com>
+ <179563006502.253973.9155049351516451537.b4-review@b4>
+ <awfRnebqhJZxkzzh@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awfRnebqhJZxkzzh@nvidia.com>
+X-ClientProxiedBy: YT4P288CA0063.CANP288.PROD.OUTLOOK.COM
+ (2603:10b6:b01:d2::28) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,236 +109,101 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-In-Reply-To: <7bf0875f-f5c5-4894-8e26-433aa40c2e04@lunn.ch>
-Message-Id: <25597ed8-a64d-4e6a-bce1-df4abd8cb302@yunsilicon.com>
-References: <20261104155650.37053-1-tianx@yunsilicon.com> <20261104155705.37053-8-tianx@yunsilicon.com> <7bf0875f-f5c5-4894-8e26-433aa40c2e04@lunn.ch>
-Received: from [127.0.0.1] ([183.193.56.110]) by smtp.feishu.cn with ESMTPS; Thu, 26 Nov 2026 22:58:26 +0800
-Content-Transfer-Encoding: quoted-printable
-To: "Andrew Lunn" <andrew@lunn.ch>
-Cc: "Andrew Lunn" <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, 
-	"Eric Dumazet" <edumazet@google.com>, "Jakub Kicinski" <kuba@kernel.org>, 
-	"Paolo Abeni" <pabeni@redhat.com>, "Jason Gunthorpe" <jgg@ziepe.ca>, 
-	"Leon Romanovsky" <leon@kernel.org>, 
-	"Junxian Huang" <huangjunxian6@hisilicon.com>, <weihg@yunsilicon.com>, 
-	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>, 
-	<linux-rdma@vger.kernel.org>
-Subject: Re: [PATCH v1 07/15] net/xsc: add ethernet netdev registration
-X-Original-From: Xin Tian <tianx@yunsilicon.com>
-X-Lms-Return-Path: <lba+26b084913+e148d3+vger.kernel.org+tianx@yunsilicon.com>
-User-Agent: Mozilla Thunderbird
-Content-Type: text/plain; charset=UTF-8
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|IA1PR12MB7662:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0fe602b2-2f32-4d94-32d7-08df4bcdd0d7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|376014|7416014|1800799024|23010399003|10067099003|56012099006|11063799006|261026140227099003|261028144727099003|261026121527099003|261022105027099003|261021121427099003|261021135927099003|261102123227099003|261009223027099003|18002099003|22082099003|4143699003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	82ShJeXxIs9xCRJgUOdCIxCvCMAhSH6YvBg5bQfgBdRuuuiBVQqZUEoZd/xL1SROHLUKkAZQ75XHMp/tKIuM3Ybchv/6cCT+A8tEn3yWR/IhanuyNMrWPF4yjllTkGfQmXJteA11ZcnRbj3eBvjdgT8BwLwimj+qAmB6wigNd0T2gLxeR40OW1cgKTfP3rqwydG8MJ6sKJzh2pJSmQsphmJCdTYj0chXXVr14w1USSBky8zT1cVCdff9/x3VQLYmWeutExFm98xWcJZakg5AEno/PvsKzOlUn5X9rlaBBEwTqkwQ9eZB8w4Jid2MlEW1r0FhBSxOrdWvQokoxeAwwfXI3BuSutwKD6G18uqyqcK1o6x1e9Jn2vq6/kJAO/kxdm9/+rc6xbJO727xmo7AV2X9myM8pfbgmaku0eZYuos/jKvtZJzd+kmF8L46c+XQ7JbzMbmxylLDrYmBfBlUujFfFMwnEUs68CcuBiF3KQWdxKkelodpysUxzhaF1LDSGkO323ruyKF74WKD7fca1mDJ5Zn6T7HLldrDvRfwvVimFJZL+zqGB3QPjnfPjkIRm4hEvwFTXpVPTISDIccfQyvhsZmNwYTd7ALCoJPcK/U3VYbJ1kAvBUQnGbuNGGvQR2GMnPtLdEc2nPnMLLInXCneKR2H8mLvlM5Afd5oQJ0=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(23010399003)(10067099003)(56012099006)(11063799006)(261026140227099003)(261028144727099003)(261026121527099003)(261022105027099003)(261021121427099003)(261021135927099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(4143699003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?X09wMOWn032JEFy+YNCX7yK17tX4VNbXMc6dEJINn6ATQBr2pAvmtcwe/2Ja?=
+ =?us-ascii?Q?4Q1BHdB3nrdMJBlNNlHReyhnWNxhqv+IpzA9DTzkErk1jBtil08xa2U3UYui?=
+ =?us-ascii?Q?rrD2t0fmWBuCvB1xImONGq4zDIvdXk6ZafpWifBxwQGWeI0IIOlIeBTyrpN7?=
+ =?us-ascii?Q?/BUyCIe3FJCkUyHnyLYb2pdCk8GP43uFjFJI1r1rcoiF8Xc9DhLGH6q0fvtX?=
+ =?us-ascii?Q?c/FA7yb3uKOz2xjBt6BZq6YUVE5+q5qJM2tlSfRssHr7O2AKhVTtq/mQ67aE?=
+ =?us-ascii?Q?oeErBXlHezSRrmk/aUTNeyijQfilJVotn85Ct0hf3/BbqwIZYK+q7eOulwzU?=
+ =?us-ascii?Q?GxMObYSHW6kBHiDcHBd4tg94MGM1oumtozov1T1p16gH7ZoulzxXFaF9WqJ7?=
+ =?us-ascii?Q?WQEK5keiF2esEXFJcrVzg+AsHD4RnlN4ols9Ykw/Olk0ROeohkvokDB6YLOY?=
+ =?us-ascii?Q?zjVT05qf48h7osOEAr+37mOqI84/7eBpcMCZW9YtnDQob5d+bV+oEuygo5hn?=
+ =?us-ascii?Q?ADOYYm2iuBZJLga7lBlkDcCxMTN5FSe5JCyPsVwouE3RSEnI+xJWOg1jPJSq?=
+ =?us-ascii?Q?+MkNvKx7SKXyE5pCVbGXAzY5QjppbvFwNd3uSWpPXchNxjKssVwGKO1qSSvB?=
+ =?us-ascii?Q?m0pNIeJFamEZ8rVBhV5rfBjOptTafNdLRUCQMxjdr8x4bipRIJe7QmNv+T7c?=
+ =?us-ascii?Q?RYA3dbtH3CVIJzvVTcPXpqeHWXgv/YZItyNl9ZsgRn6+/CHHqtLGBbqc5vYH?=
+ =?us-ascii?Q?/9ZAs8eyWPUPRAXimJYakAiPoluZeqUuORTT8h3ZJ3yMMXbxc3EIJuosApYm?=
+ =?us-ascii?Q?jiGRBbPT8GBjCMsTZWlsdfOWpo6cz1UnUUCK0qakcoISowujEtf8SWyoNSIB?=
+ =?us-ascii?Q?yYuvqtc7zWljTa/cgSRtPG/fF+Iye/jg42nNf9JeZtuZgMwkr1NbFgxdhvwo?=
+ =?us-ascii?Q?4RGG55Dbj+w/QOpryLJqDKE7I6Nm84AnxfZm/Lz0dS39iTUI7IfgwMu3CRKt?=
+ =?us-ascii?Q?x8LK2w22GnbDRYorYPqwU5EOAWQZcpvG6T/etI+ys9O1qLqC+hAT4Sskjcu8?=
+ =?us-ascii?Q?ui6PV5UrBTPbVHf8wF0JBdApLjFJCD+o53owneFQwfqToDzJRZzLFHwpyQlw?=
+ =?us-ascii?Q?C4w0TDLzCfl70lgtXgyLRmmfkDmHWl5hnXpqUGSb1AoVhSlSlLRdmFqVZeS5?=
+ =?us-ascii?Q?uNvfu1mri37VkvcaZgReD2AXQ828VD7JfnWkjSKfE9y5z0vA1fo7Q1mn1KTi?=
+ =?us-ascii?Q?h+0Z+yKH5GtOUWTFZ28oeV6BjfU2xIB+/4owGhqAps2EkazjZjOIo9AsUD09?=
+ =?us-ascii?Q?G7TPX5XpPSv4UgVWi3WdXwKrfY4iouSEOnTMm+oj+W7apQh6dvu4FMKO+uj9?=
+ =?us-ascii?Q?VX7yEIF0ws9YJcsmEXVzXgZ99fx8KhxaxO33gchBk1QdRKgVZr1KrDuFrLG2?=
+ =?us-ascii?Q?LogY2ZH98nZ18cdnKc1VAcDyiPXOnXd8Cu1MZl9R+Vogi3fncj7MNIPZzppH?=
+ =?us-ascii?Q?7eiIwkIOqBkEmT1K3hetuIIlOAIlxlLzZqKPn7o2yEqbfEW565CE48ECqbXV?=
+ =?us-ascii?Q?+TeQaSek8bg4/H42ukvTxylFhKGykTE2+81AASn+Xujpm1dO/1yg+VzlJ/qm?=
+ =?us-ascii?Q?2J2PoBR0hYdZz+T6IAVFPyZx70Fw0o2uluXEqza3gPRobEz3RtLBDZ5TCU4f?=
+ =?us-ascii?Q?QNA7BNcoMURGCWZ+7lwE0Fxd6Olkde/L63MWyGIyFqohxam2?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0fe602b2-2f32-4d94-32d7-08df4bcdd0d7
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 14:59:05.4948
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7KfKkh8ivDn9HsCKtYeO/1DYpq4+/fxuCUQFXomHCLWyktZDX6Zyys09GeUowmAM
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7662
 
-Hi Andrew,
+On Wed, Nov 25, 2026 at 10:28:45PM -0800, Nicolin Chen wrote:
+> On Wed, Nov 25, 2026 at 02:07:45PM -0400, Jason Gunthorpe wrote:
+> > > [ ... 139 lines skipped ... ]
+> > > +static inline bool iommu_using_t0_stream(struct device *dev)
+> > > +{
+> > > +	return dev->iommu->iommu_dev->confidential &&
+> > > +	       !dev->iommu->tdisp_t1;
+> > > +}
+> > 
+> > The logic looks OK, but this naming is weird.
+> > 
+> > All PCIe devices use the T=0 stream by default, so this function
+> > by its name should return true for normal PCI functions
+> > 
+> > I think this function is trying to say 'iommu is bypassed', that might
+> > be a much clearer set of naming to lean into rather than focusing on
+> > CC.
+> > 
+> > 'iommu is bypassed' means you can enable ATS without having to involve
+> > the IOMMU driver because the hypervisor will activate it in the real
+> > HW.
+> > 
+> > So the names would be more like:
+> >   iommu_viommu_bypassed()
+> >   iommu_bypassed_enable_identity()
+> >   iommu_bypassed_disable_identity()
+> > 
+> > With kdocs focusing on the main property 'a viommu that is bypassed
+> > means the hypervisor sets identity translation while bypassed and PCIE
+> > ATS controls ATS behavior'
+> 
+> Oh, whether we drop this patch or not, I realize that we would
+> still need a helper.
+> 
+> "viommu" reads a bit too wide than CC. Since "confidential" is
+> renamed to "cc_private", maybe "iommu_cc_viommu_bypassed"?
 
-Thanks for the review.=C2=A0 I've sent a v2 that is a much smaller
-ethernet-only series, and gone through your comments.
+Yeah, maybe thats OK.
 
-On 11/8/2026 5:03 AM, Andrew Lunn wrote:
->> @@ -1,7 +1,6 @@
->>   # SPDX-License-Identifier: GPL-2.0
->>   # Copyright (C) 2021-2026, Shanghai Yunsilicon Technology Co., Ltd.
->>   # All rights reserved.
->> -#
->>   # Yunsilicon driver configuration
->>   #
-> Please don't include hunks like this. Was this added be a previous
-> patch in this patchset? Then fix it back then. If this is already in
-> mainline, add a patch making these 'whitespace' changed.
-That Kconfig hunk is gone from v2.
->> +static int xsc_eth_open(struct net_device *netdev)
->> +{
->> +	struct xsc_adapter *adapter =3D netdev_priv(netdev);
->> +	int ret;
->> +
->> +	if (adapter->opened) {
->> +		netdev_err(adapter->netdev, "ndo_open on an already opened device\n")=
-;
->> +		return 0;
->> +	}
->> +
-> How does this happen?
->
-> And returning 0 seems odd. Something bad has happened, so at least
-> EBUSY.
-The "already opened" check is unreachable - the netdev core serialises
-ndo_open against the interface state under the rtnl lock.=C2=A0 I dropped t=
-he
-branch rather than return EBUSY.
->> +
->> +	xsc_set_default_xps_cpumasks(adapter);
->> +
->> +	ret =3D xsc_set_port_admin_status(adapter, XSC_PORT_UP);
->> +	if (ret)
->> +		netdev_err(netdev, "failed to set port admin status up, err=3D%d\n",
->> +			   ret);
->> +
->> +	return 0;
-> return err?
->
-I changed xsc_set_port_admin_status() to return void.=C2=A0 The open flow m=
-ust
-not depend on this call: it's issued after open has otherwise completed,
-the firmware can legitimately reject it (VF, port_link_en, arbitration
-between functions, old firmware), and the real carrier is driven by the
-link events and QUERY_VPORT_STATE, not by its return value.=C2=A0 Failing o=
-pen
-on it would turn normal cases into errors, so we log and carry on.
->> +}
->> +
->> +static int xsc_eth_close(struct net_device *netdev)
->> +{
->> +	struct xsc_adapter *adapter =3D netdev_priv(netdev);
->> +	int ret;
->> +
->> +	if (!adapter->opened)
->> +		return 0;
-> How does this happen?
->
-> Is there an error code ENOTBUSY?
-Same as above - unreachable, dropped the "not opened" branch.
->> +static void xsc_eth_build_nic_netdev(struct xsc_adapter *adapter)
->> +{
->> +	struct net_device *netdev =3D adapter->netdev;
->> +
->> +	/* Set up network device as normal. */
->> +	netdev->netdev_ops =3D &xsc_netdev_ops;
->> +
->> +	netdev->min_mtu =3D SW_DEFAULT_MTU;
->> +	netdev->max_mtu =3D SW_DEFAULT_MTU;
->> +	/*mtu - macheaderlen - ipheaderlen should be aligned in 8B*/
->> +	netdev->mtu =3D SW_DEFAULT_MTU;
-> What has MTU got to do with alignment?
-You're right, the comment made no sense.=C2=A0 Removed.
->> +static int xsc_eth_get_mac(struct xsc_core_device *xdev, char *mac)
->> +{
->> +	struct xsc_query_eth_mac_mbox_out *out;
->> +	struct xsc_query_eth_mac_mbox_in in;
->> +	int err;
->> +
->> +	out =3D kzalloc_obj(*out, GFP_KERNEL);
->> +	if (!out)
->> +		return -ENOMEM;
->> +
->> +	memset(&in, 0, sizeof(in));
->> +	in.hdr.opcode =3D cpu_to_be16(XSC_CMD_OP_QUERY_ETH_MAC);
->> +
->> +	err =3D xsc_cmd_exec(xdev, &in, sizeof(in), out, sizeof(*out));
->> +	if (err || out->hdr.status) {
->> +		netdev_warn(xsc_dev_to_netdev(xdev),
->> +			    "get mac failed! err=3D%d, out.status=3D%u\n",
->> +			    err, out->hdr.status);
->> +		err =3D -ENOEXEC;
->> +		goto exit;
->> +	}
->> +
->> +	memcpy(mac, out->mac, ETH_ALEN);
-> There are helpers for copying MAC addresses around.
-Now uses ether_addr_copy().
->> +static int xsc_eth_probe(struct auxiliary_device *adev,
->> +			 const struct auxiliary_device_id *adev_id)
->> +{
-> ...
->
->> +	err =3D register_netdev(netdev);
->> +	if (err) {
->> +		netdev_err(netdev, "register_netdev failed, err=3D%d\n", err);
->> +		goto err_free_stats;
->> +	}
-> The stack can up the interface and start sending packets before this
-> function call returns. NFS root often does that.
->
->> +
->> +	xdev->netdev =3D netdev;
->
-> Does anything bad happens in open and packet Rx and Tx if xdev->netdev
-> =3D=3D NULL because this assignment has not happened yet.
->
->> +
->> +	xsc_irq_event_register(xdev, xsc_eth_link_event_handler);
-> And does anything bad happen if the event handler is not registered?
-The interface no longer keeps a xdev->netdev; it's looked up via
-xdev->eth_priv, which is set before register_netdev(), so open/Rx/Tx
-never see NULL.=C2=A0 The link event handler is now registered before
-register_netdev(), so a port event that arrives right after
-registration is not lost.
->> +static void xsc_eth_remove(struct auxiliary_device *adev)
->> +{
->> +	struct xsc_adev *xsc_adev =3D container_of(adev, struct xsc_adev, adev=
-);
->> +	struct xsc_core_device *xdev =3D xsc_adev->xdev;
->> +	struct xsc_adapter *adapter;
->> +
->> +	if (!xdev)
->> +		return;
-> How does that happen?
->> +
->> +	adapter =3D xdev->eth_priv;
->> +	if (!adapter)
->> +		return;
-> How does that happen?
-Both gone - the auxiliary bus only calls remove() for devices that
-probed successfully, so the checks were dead.
->> +
->> +	/* Stop link events reaching this adapter and wait out one already in
->> +	 * flight, which would otherwise touch the memory freed below.
->> +	 */
->> +	xsc_irq_event_unregister(xdev);
->> +
->> +	/* Runs ndo_stop(), so the queues and the HCA are shut down first. */
->> +	unregister_netdev(adapter->netdev);
->> +
->> +	/* Must precede free_netdev(): the adapter lives in the netdev priv. *=
-/
->> +	xsc_eth_nic_cleanup(adapter);
->> +	kvfree(adapter->stats);
->> +	free_netdev(adapter->netdev);
->> +
->> +	xdev->netdev =3D NULL;
->> +	xdev->eth_priv =3D NULL;
->> +static inline void xsc_tx_dma_unmap(struct device *dev, struct xsc_sq_d=
-ma *dma)
->> +{
->> +	switch (dma->type) {
->> +	case XSC_DMA_MAP_SINGLE:
->> +		dma_unmap_single(dev, dma->addr, dma->size, DMA_TO_DEVICE);
->> +		break;
->> +	case XSC_DMA_MAP_PAGE:
->> +		dma_unmap_page(dev, dma->addr, dma->size, DMA_TO_DEVICE);
->> +		break;
->> +	default:
->> +		break;
->> +	}
-> This should probably not be hiding away somewhere in a header file.
-That whole tx_dma_unmap abstraction is gone in v2; TX unmaps directly
-now.
->> +static inline struct xsc_cqe *xsc_cqwq_get_cqe(struct xsc_cqwq *wq)
->> +{
->> +	u32 ci =3D xsc_cqwq_get_ci(wq);
->> +	u8 cqe_ownership_bit;
->> +	struct xsc_cqe *cqe;
->> +	u8 sw_ownership_val;
->> +
->> +	cqe =3D xsc_cqwq_get_cqe_buff(wq, ci);
->> +
->> +	cqe_ownership_bit =3D !!(le32_to_cpu(cqe->data1) & XSC_CQE_DATA1_OWNER=
-);
->> +	sw_ownership_val =3D xsc_cqwq_get_wrap_cnt(wq) & 1;
->> +
->> +	if (cqe_ownership_bit !=3D sw_ownership_val)
->> +		return NULL;
->> +
->> +	/* ensure cqe content is read after cqe ownership bit */
->> +	dma_rmb();
->> +
->> +	return cqe;
-> This is also a bit big for an include file inline. Plus that dma_rmb()
-> should not be hiding, it should be in plain sight.
-xsc_cqwq_get_cqe() moved into xsc_eth_txrx.c (the header only declares
-it), and dma_rmb() is now at the call sites in the poll loop, in plain=20
-sight.
+From the flow it doesn't actually matter if it is CC or viommu, but
+those are the cases that trigger this..
 
-Thanks,
-
-Xin
+Jason
