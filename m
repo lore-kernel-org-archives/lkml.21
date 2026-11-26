@@ -1,85 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795670079;
-	b=BP9jIuYsyvJWs3ViEPS7WHYT1bqMH7JynjhKdGvbMtmKgmNfV0EIAVuGgfH6/za0uc7g
-	 YKQM67mymfQuSEB5SrfngX+4QqDCQi2IWjuRdQ9oNrlZVqu7yfeqaHEItI7YbHs8z10jC
-	 mp0ZyNLnIZ2CqGHi5P8UV7E09MJCvz74w9wH0DfZiYIH+q6HXLLZyqyvBhif+GWyC0cCX
-	 XwwYk+NnOBaNS9aZY8hCEkbg8ibQe+4EKEDXy4k+Zcz/JBBv/HVrMAOVc6tTkTGujKJOr
-	 QIyw3yNcRaY/euZG08cnG6imSMcOQh8B0gROJD24WvZXnxn3psqSRJYSjwpyDQjTD3g==
+	t=1795670081;
+	b=2ALIaiZNavSXl6fDdjapWy1N2/AHe7O46W2gSU50rTvrMicW3UxggU32BKByfDQ38qZj
+	 Af70jKbvtKpeu6Cj5+fluojLjOM2tJT9+qLinzyRDxD6gsfZ73fzuCKIqeA/7/y7l0LfM
+	 nlL5ilSx7wN9aiwVZwhRW7vM35uY893oV71QpZC7Bn2cELSLrvwZF2kYaR/8k/v1wOkF0
+	 D2ujtekbDtEblgR5ow3DHpuQ5abEexmtLJa3xEwmep3yyvscoKYcNi8K+keMbKDoTO0yW
+	 Fepe3uV3i7r/t/Qsi89rdtvSnpvRBWCIXoCkAIGojKNJTaRUcb+H6XCOypSdGxiuhEA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795670079;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795670081;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=4Ad2tE+Mv1vxfx2Y30i+azuH5kIRW9Z23B1JR08v3MI=;
-	b=OEo9baE3YkPJRHk08LH1NK1qHYKb5RTD9lm3zW/6KepuT1ENuR1aGiqbPluWevAzqg/k
-	 8/BRxWI/NWwk7RHhmVLDOUYz6IMJP3OB9t7F/dX14MVnldYi+vjAAkvAZTV6yqTNmBIdU
-	 Hpu4CCLBEoRQUYJ8Bftls1RmIL3ediTbJYHwyC4BHlGwiZKWIzygr12y83Z3p0QhKu8zy
-	 dBCxaunboX2qGaE844DFDvChDJclFcYd3e2E2Gw7WKqXunSd4hv6SyTDdiWtytoW+TbVk
-	 0BI+IOFPKtFmXwpkcEFkOXXXnw+ftpO1gqQBk2Kt+baf5wIk/slIu7HVdehz/VIAz7w==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=cxJ0rrgaxSvWbj/RA4L6z2HcLpsHHCy3xYxFkYDw+4Q=;
+	b=f9PDawrOsDYzd5fzMGnc8W8dTvBhpIsDXjaEIZe7EMlLQNWULsHeM9S5TXlX3nQzzEA1
+	 UuXh1DtpYShW3bgwEnndZr7hCdW4c1bifDQ/GYUufaSd0MoztqghcSe4EZXkBOV2vr7CK
+	 XehzQANX/2YimCI1q2PxWSkRoB7bi6PeFkSbxXTy2eeNEFzJPhvn8bXu42lXgRJFn9Wr2
+	 7gHVfqqEalk82rgTKn3Cz/O3402reYIHpNlsu5JjRsgECarFxut1/fIujIvqC4NTK/8ig
+	 iPiQaihmlfA/SfF4cTvfdq7alIai1ecPRsJHOSncn9u5SsL4RylHlQVBxwpLkTa7vRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=layalina.io;
 	spf=pass smtp.mailfrom=layalina.io;
-	dkim=pass header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="QS/LfIFo";
-	arc=none smtp.remote-ip=209.85.221.43
-Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
+	dkim=pass header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Qe5mKma9;
+	arc=none smtp.remote-ip=209.85.221.47
+Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1553A606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:14:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1553A606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF61B606A32D
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:14:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF61B606A32D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=layalina.io
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=layalina.io
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=QS/LfIFo
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-48e3b22e971so3431627f8f.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:14:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Qe5mKma9
+Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-4aa5833c263so6282910f8f.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:14:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=layalina-io.20260707.gappssmtp.com; s=20260707; t=1795670077; x=1796274877; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4Ad2tE+Mv1vxfx2Y30i+azuH5kIRW9Z23B1JR08v3MI=;
-        b=QS/LfIFojvrwB2LT3C5hQmGcW5ZbvooyGhGJ1D2xQFxu5cpZHzwYaPw1A38aRpx1Pl
-         aHUdMKOS/Crg5WUR9SMtZQgosjOzb1hNEisAod3KwEkSMwN87+cdsv4gJuV0PEAOlSfQ
-         pCfAPS8GzCBfBb7AEaHDtIBBmHgcLBqo6Rtfq/rdM4L36ouFhtgYeGv1vhCJ5iuyj2fk
-         wKwwXNM2loVTYwCyqwxocnSQsjTfxQQS+FCeVykEXABDWaMayyOy5cZwL/v5jQ6sxeCk
-         oaRZ+DPJQ9TMiZ6xQDlCo9pnRZXx89Z222ssnz0y+9dBLGi0alWxqWpFgHcEyOUcdwnQ
-         NGKA==
+        d=layalina-io.20260707.gappssmtp.com; s=20260707; t=1795670079; x=1796274879; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=cxJ0rrgaxSvWbj/RA4L6z2HcLpsHHCy3xYxFkYDw+4Q=;
+        b=Qe5mKma9c2u1YBTCuYwk4JT44yYEP4bWSxrkMBlYGhZEl4aQy8FcFx7Tlcl44KDO0H
+         AISfq6Wpb2YwEuwp4frDuP6ofmoQRtJfs8hmJQ77CmlEzH5jI+IXKzAtGOSfHH0IveiX
+         t4ZRSkv2Q5+cRSJAxhnn+6xPbr0L1p0e4qXo5h5tiLMDz8crEFfe+OibZFmurZeknNKN
+         zyTasozcqZ8hzHJ7id5RqViYLdNHtp3LxvhZxqEeIgHYdC1J6fvYUNNvdF8VuPbc5hYw
+         /KsC4lahxaj8L+B2x1UEwWnwDVOEY3K1QG5LZD1EBa0DZL5YFHHgFhPa0agbG1aKRi8T
+         Yg/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795670077; x=1796274877;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=4Ad2tE+Mv1vxfx2Y30i+azuH5kIRW9Z23B1JR08v3MI=;
-        b=ABG+05wUYeHvEskLQ6lyALyTxNofHgIkGTBraI0zXwEi3Lj4bi5R0S10VayNgO3QQn
-         dh2fFti/HM1n+99MlUPgzbMzu4pe4Cf9JbQ3TbUEQs304a/i1sFBm6RP4nPinF2hf/7Y
-         l6TE3JtZ6a4bCbJ2KRr8xS3YkQo5brrwbB9V/l7t5FEygTXsA8OW/nh3i0QvnHC/Vexn
-         tmKXNHvsyCbT6ktJrcDljLluKZtZJa1M+fLyqKUI6hwTd1op9eimLInb9aVU8SoDTdST
-         Izeec1gJ/rLE5Kot82B8q6kD93C+xJF3S2T3M3QVKq3J9lO4hFvJXuqbbB1XTjn+2uqe
-         /bTw==
-X-Forwarded-Encrypted: i=1; AL+hErGWEGpnYBpJg1syXqhiadztuL7MEb52gwRoGvwIPE83w8EkEjfUHHpxYOC/wzcAuNhPOjV8rnTLVzSCha4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+FxasrvC14tu7K9LohqL3ziiG9vfwlk9azo7O1MNbCX3ey3mRO
-	qg47lYCw5pCUgKEA6JFKEwDeU3IpboBGvuzNTIN2pmkIGbM+DSY2nwkn4BYVNZzclZtAOjVHhTQ
-	4Xrir
-X-Gm-Gg: AZFdTZdTWWZJQtNNYkTJ4SQPGRj46qx7zZn+IFoX/c98G1W/7B9+3XWeQfyQOviDSsj
-	rOG/APlTgtUZ/U0x/y3THgh4O+ewxeLhzM70389RM8KouPu5Ye23kGfvOBZPqGmLV6t1WsGTrbB
-	AxKC/wOnwHQsOLFGkT8nNX0JlAftY5Q+uFaHTCwb8U8XtRMdnHWpP8xvrM6bdoureO9jynDXmd7
-	kc7QB0VAGQDFEV6JT1rVW0L9b1uxrO3iTOiXS/qyg38PEnEujcRMb+taxpKHZJcMhm4ZfSrDrgx
-	wLXS3aPytLiR4ROnAMxKRiqf77fIt0bbuPnjJWLT5Hci6/a3KXmPB5tOYkl7edFlCNwhfPHq59Y
-	g84HSLRnYbwNH35rQZd4amnWTB/dqtYC+XWSVxUToQ9bbqKuLuT8FmRQEEx1rocRhOpJksVASEZ
-	S5uTDR1M/qm9ggZeXs3r3IdmU27kHwm32YGJUzPcBr5ET3qKUiwaJMOoegHdFvi+na1mLSkR3Eu
-	Gd35S98tQfBrLVINvSBAMJ/GaK4J/wkq6UUgijLvYydDPnXpEg8R99dTUbGoFmK656i9UXTRCPl
-	a4XBuDQaOpVNtJCRqIyV8+QjLoii5kl31cjGiO9jr37UhMMCVe1S2VeDbXjz/l5MPTZo3GdnffS
-	2gfQdtGWGFtEtQLHG/MVvo/qpL8iTgA==
-X-Received: by 2002:a05:6000:1a8f:b0:4ae:43e9:da61 with SMTP id ffacd0b85a97d-4ae43e9daa2mr33501492f8f.4.1795670077165;
-        Wed, 25 Nov 2026 21:14:37 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795670079; x=1796274879;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=cxJ0rrgaxSvWbj/RA4L6z2HcLpsHHCy3xYxFkYDw+4Q=;
+        b=Fk3Kf60nxElORrOZDRyvKTcx5r3bfYI7lJf+XQEVem3dI6OYIdf2piuz7cw2EWv3uC
+         X8eHNfE39X4qyCOaWIEHQ+DlIepFzXixrQP2IwGx353ylKBO/VxH7cKCef98NIDiber8
+         i1HXdIinD1+jD8Sz3zODgK9XNVpLT5WoXnfcT1gV1kc5Knl61SVhaPh6maBRmFgwOGht
+         Q/vU6PRZJaandrtD9l4iGT21dcZJTZO8eRta7AGD/jLWyM4IzX4ahEB6NAqDABnA/OEB
+         l4gzXk7F7Xq2adPuRLJvsuUzySlk+5rbRW05G2x8ZiH5Cn+arDwMLQGwnivZeD8UPw4f
+         WIAw==
+X-Forwarded-Encrypted: i=1; AL+hErH/RbnTYjA3f4jEoaW717AALtJmHPyQVVYKYDFRFR+Rp7XKt93dXlap7GTHXFKU1gCb50erGQTrE0IL9FI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/yg8jSnXAIuxiWH7YZwlDoPWZuhb1tst383BapirmJIvr+WKtP
+	rTnahId3FcwIQDMd3oZbLG+CwfmLh2r9fCwa1QnGxRtztG1DC8vJ1BAEvxt6MSHBiHk=
+X-Gm-Gg: AZFdTZe+uxJQmFWunzPdqEGuCL2yyd0JNE+7yvZO51gySkEwRb0sDKb9O59Ba3+9c36
+	K78YKcBW9me1ajIyzGpiY+I2zzk6D9Mq+RWclIYVznst49Djxlwx72s/np2VO4ZWEA5eqoC0sNZ
+	oeruaMRStLWGVEcqSGUph12w3cFIf4T4lod3PcDSFnF4MnTzt3BuvSruaP110/jiet7pdx9rZMG
+	85mSH7+0n9i8Qixa/emUPnm4gnnXYDJKHtCtaGE6cZzOn8+tiZvt+k9pewey8HN1FoXu42mNluw
+	vdff/bCpjDdFfC2yuozDZlz/+Hi1WBE5V5GdIyWcxgqPj1GtSstO8MG3d/pAwRuTPGR0Cru4thX
+	mC7KfG13N6vnID5zgZ4WHFT9S9N5fa1wJnwUJiEgmJ//mTVIaMUlrV0NP9AwlZIAhZhe9mwYG66
+	YeyvoisyzGUWxlE+q+yV+LAo+EoQg72XUZhjdoiJAFnPAz70AMllkpjbamra8tVntRfY0AKcNFd
+	To4eQ5SB+jSldZNWbjV3C+7OZzOuvi7f2yT9gEzq61pGcl+WdkDfTh3AoJt/4N+eGc7gNR8WnFw
+	eBBDXUvDwdP92flrAbT9SyNLQRLf5BocH+tVibGu0T0gu7QciXs6OaatLIhehOUFAHMXfentgXZ
+	xJ05Nfpi4
+X-Received: by 2002:a05:6000:491a:b0:4ac:37ff:140b with SMTP id ffacd0b85a97d-4ac37ff143amr35373867f8f.25.1795670078915;
+        Wed, 25 Nov 2026 21:14:38 -0800 (PST)
 Received: from aerith (host109-153-232-219.range109-153.btcentralplus.com. [109.153.232.219])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b1ebsm39548128f8f.33.2026.11.25.21.14.34
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b1ebsm39548128f8f.33.2026.11.25.21.14.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 21:14:35 -0800 (PST)
+        Wed, 25 Nov 2026 21:14:38 -0800 (PST)
 From: Qais Yousef <qyousef@layalina.io>
 To: Ingo Molnar <mingo@kernel.org>,
 	Peter Zijlstra <peterz@infradead.org>,
@@ -94,11 +93,14 @@ Cc: Juri Lelli <juri.lelli@redhat.com>,
 	"Chen, Yu C" <yu.c.chen@intel.com>,
 	Thomas Gleixner <tglx@kernel.org>,
 	linux-kernel@vger.kernel.org,
-	Qais Yousef <qyousef@layalina.io>
-Subject: [PATCH v3 00/10] Better manage system response time
-Date: Thu, 26 Nov 2026 05:14:19 +0000
-Message-ID: <20261126051429.14091-1-qyousef@layalina.io>
+	Qais Yousef <qyousef@layalina.io>,
+	Christian Loehle <christian.loehle@arm.com>
+Subject: [PATCH v3 01/10] sched: cpufreq: Rename map_util_perf to sugov_apply_dvfs_headroom
+Date: Thu, 26 Nov 2026 05:14:20 +0000
+Message-ID: <20261126051429.14091-2-qyousef@layalina.io>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261126051429.14091-1-qyousef@layalina.io>
+References: <20261126051429.14091-1-qyousef@layalina.io>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,171 +110,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-v1 discussion: https://lore.kernel.org/lkml/20240820163512.1096301-1-qyousef@layalina.io/
-v2 discussion: https://lore.kernel.org/all/20260504020003.71306-1-qyousef@layalina.io/
+We are providing headroom for the utilization to grow until the next
+decision point to pick the next frequency. Give the function a better
+name and give it some documentation. It is not really mapping anything.
 
-I hope this is now in good shape for considering for inclusion.
+Also move it to cpufreq_schedutil.c. This function relies on updating
+util signal appropriately to give a headroom to grow. This is tied to
+schedutil and scheduler and not something that can be shared with other
+governors.
 
-v1 cover letter has the full details for those interested with the full
-background, link available above. LPC discussion from 2024 is available
-in [1].
+Acked-by: Viresh Kumar <viresh.kumar@linaro.org>
+Acked-by: Rafael J. Wysocki <rafael@kernel.org>
+Reviewed-by: Vincent Guittot <vincent.guittot@linaro.org>
+Reviewed-by: Christian Loehle <christian.loehle@arm.com>
+Signed-off-by: Qais Yousef <qyousef@layalina.io>
+---
+ include/linux/sched/cpufreq.h    |  5 -----
+ kernel/sched/cpufreq_schedutil.c | 20 +++++++++++++++++++-
+ 2 files changed, 19 insertions(+), 6 deletions(-)
 
-Major changes in this series is dropping the sched_qos interface as this
-will be taken on its own discussion now. I also moved away from sysctl
-to debugfs interface for setting default rampup_multiplier. Along with
-new debugfs entries for fits_capacity_threshold for each CPU to help
-understand how these values end up being on different systems if we need
-to debug them.
-
-Code changes required reworking how we do the util_est_update_running()
-and introduce new running arg to util_est_update(). But other than that
-it is exactly the same.
-
-I should have addressed all review comments from last round too,
-particularly from Vincent to use us for approximate_runtime() and ensure
-that fits_capacity_threshold is updated once; which I attached to
-build_sched_domains().
-
-Users can retain the old behavior with these commands (except for
-fits_capacity_threshold which I think the new behavior is correct)
-
-	echo 0 | sudo tee /sys/kernel/debug/sched/rampup_multiplier
-	echo CONST_DVFS_HEADROOM | sudo tee /sys/kernel/debug/sched/features
-	echo NO_UTIL_EST_RAMPUP_ZERO | sudo tee /sys/kernel/debug/sched/features
-	echo UTIL_EST_FORCE_POST_INIT | sudo tee /sys/kernel/debug/sched/features
-
-A branch of the changes along side with the sched_qos interface is
-available here:
-
-	git clone https://github.com/qais-yousef/linux -b schedqos
-
-schedqos utility [2] has support for this interface on ToT and will
-allow per-task control of rampup multiplier to get different response
-time for different tasks which is key to get best results in terms of
-perf and power. Look at configs/qos_mappings.json - sudo make install
-and sudo schedqos restart --daemon.
-
-Testing on 8 CPU SMT2 Ryzen 7 Speedometer 3.1 on Chrome I get the
-following results (5 iterations)
-
-tip amd pstate:
-
-	23.3 23.7 23.5 23.9 24.0
-	avg: 23.68
-
-tip schedutil:
-
-	20.7 20.5 20.8 20.9 20.3
-	avg: 20.64
-
-tip + patch amd pstate:
-
-	23.1 23.9 24.0 23.9 23.8
-	avg: 23.74
-
-tip + patch schedutil:
-
-rampup 0:
-	13.2 13.2 13.4 13.4 13.2
-	avg: 13.28
-
-rampup 1:
-	17.5 17.6 17.6 17.7 17.7
-	avg: 17.62
-
-rampup 2:
-	20.7 20.7 20.6 20.9 20.8
-	avg: 20.74
-
-rampup 3:
-	21.7 22.0 21.7 21.8 21.5
-	avg: 21.74
-
-rampup 4:
-	22.5 22.3 22.7 22.4 22.3
-	avg: 22.44
-
-rampup 5:
-	22.8 22.9 22.8 22.6 22.9
-	avg: 22.8
-
-rampup 6:
-	23.1 23.1 23.2 23.1 23.2
-	avg: 23.14
-
-rampup 7:
-	23.4 23.5 23.6 23.4 23.3
-	avg: 23.44
-
-rampup 8:
-	23.5 23.6 23.5 24.3 24.3
-	avg: 23.84
-
-disable cmds (retain old behavior):
-
-	20.7 20.5 20.3 20.5
-	avg: 20.5
-
-Notes:
-	- rampup 0 and 1 are slower since we no longer have the
-	  aggressive const 1.25% dvfs headroom although util signal
-	  rises faster for 1. For 0 util_est is completely disabled.
-	- rampup 2 we get parity with schedutil.
-	- Rampup 8 gives parity with amd pstate behavior, too aggressive
-	  for perf. We cross 23 barrier on rampup 6.
-	- For rampup 8, battery got low and last 2 iterations ran with
-	  power plugged into laptop and this lead to higher score.. Some
-	  fimware magic I wasn't aware of and since it was a tedious
-	  task I didn't re-run with power plugged.
-	- Only 4 iterations for disable cmds
-
-I picked the default rampup_multiplier to be 4 based on this results.
-There's power trade-off to be had with different values which I can't
-evaluate. Having a per task sched_qos interface to set these values
-- which is the intention and final goal - makes this trade-off a lot
-easier to be made since as you can see rampup 1 and 0 will get slower
-behavior.
-
-This result is based on few weeks old tip/sched/core. Current
-tip/sched/core has runnable_avg bug that causes schedutil to run at max
-all the time. I managed to workaround it and numbers look different
-(higher) but I think the result above are more or less correct in terms
-of rampup multiplier value to get parity. Once this bug is fixed I'll
-recollect the data.
-
-[1] https://lpc.events/event/18/contributions/1880/
-[2] https://github.com/qais-yousef/schedqos
-
-Qais Yousef (10):
-  sched: cpufreq: Rename map_util_perf to sugov_apply_dvfs_headroom
-  sched/pelt: Add a new function to approximate the future util_avg
-    value
-  sched/pelt: Add a new function to approximate runtime to reach given
-    util
-  sched/fair: Remove magic hardcoded margin in fits_capacity()
-  sched: cpufreq: Remove magic 1.25 headroom from
-    sugov_apply_dvfs_headroom()
-  sched/fair: Extend util_est to improve rampup time
-  sched/fair: util_est: Take into account periodic tasks
-  sched/debugfs: Add rampup_multiplier to debugfs
-  sched/fair: Disable util_est when rampup_multiplier is 0
-  sched/fair: Don't mess with util_avg post init
-
- include/linux/sched.h            |   3 +
- include/linux/sched/cpufreq.h    |   5 --
- kernel/sched/core.c              |   5 ++
- kernel/sched/cpufreq_schedutil.c |  41 +++++++++++-
- kernel/sched/debug.c             |  12 +++-
- kernel/sched/fair.c              | 107 ++++++++++++++++++++++++++++---
- kernel/sched/features.h          |  21 ++++++
- kernel/sched/pelt.c              |  44 +++++++++++++
- kernel/sched/sched.h             |  38 +++++++++++
- kernel/sched/topology.c          |   1 +
- 10 files changed, 259 insertions(+), 18 deletions(-)
-
+diff --git a/include/linux/sched/cpufreq.h b/include/linux/sched/cpufreq.h
+index bdd31ab93bc51..d01755d3142f1 100644
+--- a/include/linux/sched/cpufreq.h
++++ b/include/linux/sched/cpufreq.h
+@@ -28,11 +28,6 @@ static inline unsigned long map_util_freq(unsigned long util,
+ {
+ 	return freq * util / cap;
+ }
+-
+-static inline unsigned long map_util_perf(unsigned long util)
+-{
+-	return util + (util >> 2);
+-}
+ #endif /* CONFIG_CPU_FREQ */
+ 
+ #endif /* _LINUX_SCHED_CPUFREQ_H */
+diff --git a/kernel/sched/cpufreq_schedutil.c b/kernel/sched/cpufreq_schedutil.c
+index 14405a6149911..4d781b394baa8 100644
+--- a/kernel/sched/cpufreq_schedutil.c
++++ b/kernel/sched/cpufreq_schedutil.c
+@@ -230,12 +230,30 @@ static unsigned int get_next_freq(struct sugov_policy *sg_policy,
+ 	return cpufreq_driver_resolve_freq(policy, freq);
+ }
+ 
++/*
++ * DVFS decision are made at discrete points. If CPU stays busy, the util will
++ * continue to grow, which means it could need to run at a higher frequency
++ * before the next decision point was reached. IOW, we can't follow the util as
++ * it grows immediately, but there's a delay before we issue a request to go to
++ * higher frequency. The headroom caters for this delay so the system continues
++ * to run at adequate performance point.
++ *
++ * This function provides enough headroom to provide adequate performance
++ * assuming the CPU continues to be busy.
++ *
++ * At the moment it is a constant multiplication with 1.25.
++ */
++static inline unsigned long sugov_apply_dvfs_headroom(unsigned long util)
++{
++	return util + (util >> 2);
++}
++
+ unsigned long sugov_effective_cpu_perf(int cpu, unsigned long actual,
+ 				 unsigned long min,
+ 				 unsigned long max)
+ {
+ 	/* Add dvfs headroom to actual utilization */
+-	actual = map_util_perf(actual);
++	actual = sugov_apply_dvfs_headroom(actual);
+ 	/* Actually we don't need to target the max performance */
+ 	if (actual < max)
+ 		max = actual;
 -- 
 2.53.0
 
