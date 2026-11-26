@@ -1,96 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795693263;
-	b=UCm+mlrw1dipM18BtH0zcORUfLIk1nuJU/dOybSOG30QzDeIpmZyYTpFr12gNY993TYD
-	 nRMoOvw7gmJb7IdNV8xxk3J6YOyRi/RKBFYS7UwUPrh9XZkIqZiNRD5kmVjZL+ngzOdWk
-	 sasxA5iYw2t7maG+M/h3p7NxUBm02aZDaOfv1kI0N/H/18SfG00bsk12BPOBUswluB8mY
-	 HOJzWZkhHxvKHe0q3IZxAbAhSudeQWkIlHPGKRb6opq6kl27Co0i1lufSyANK/EUzK3yT
-	 hXKV6zrjM/rpWIAM9IpPWI3dwQ54acKZytnoP27Sa0h532/XgrBmF5Jj1AZkunmnjUw==
+	t=1795693268;
+	b=yd3YohhZ75cPUYXHRUsFUMeC8n0VWtyDfcsBvoRI39PFTTT/sfCaNNmQMRlViQTxjpO6
+	 vpySpPyyjuOoP+5mQmT5PIltkiKLdluDf2E5fq92M1Z6ROdb9y6SbBWfyEk32lBlGFmBD
+	 QstZkGdgROUvWwJk+9BfKYoweYUJOEPXMIC99rAK5Iemy5p/YqCIdlPIuUavxf77rFY0I
+	 tK0v/fkP0nGP8DpifyW2bntQVuz0Pl5tJaeN9oU+1fenrAsDsa7ma6tBCs4ik607hRCvm
+	 HIoTWSoEeC2IZESDt0lKbt2bE1tyBosVZQNssiV9OmGCSfyyK5FgUA+zOmwVpXiubvA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795693263;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Subject:In-Reply-To:References:Date:Message-ID:
-	 Content-Transfer-Encoding:MIME-Version:Content-Type:Cc;
-	bh=uxM1VmLjZ2nxPUWhti3qYeNXknEDXlY7brHt5kBUuxQ=;
-	b=Qvf/2D60pgwhuFA1Xk2I3lBtILsRpzIFl14I5G/xaHIos9vZcD10kROkdOVNxiB5WNdR
-	 5H6UnkHIcMl0C6BtvYEMwJG0IrLkeI55x19RKmZmDAIuOip/jVRFW03nuHuHXnQxfRLft
-	 sI3qJON5LaQNk7kqVX7ynsAwYH4MFF2Cc/pKh8K3nkXUwnlFuxqLN+HMunLbYkFvxys/4
-	 A3zQYsxkudL9sVgKOfuw2jHKhU829dasZ5vOo7jtiFLegHwufFqXJz0z1W9GoeEwOseIK
-	 qwh1Rt6B3HN5P9z4M6h0fOkabGy/hoaygEscaPdarWdgpViToXqS7DKIGgX1CZ7A55g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795693268;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-AI-Review-Draft;
+	bh=4nofvEM/msSS7UH4Yyhr+3kuoc0g7IaNr2SvcswGg8U=;
+	b=BI1HXLOBi10NBnqsgbqjEZKh9l9fCq6M2e/bsHDDOeKtX3aY/Z4OocIfJnyYpejP0dqI
+	 EBKyNRTcfUXGwWm86q8qVNEy24ZFf4EgQ0n7Tyw0a+epg0/0YEDpvGBu3muyhItVuYBDc
+	 VKTQo2UlzZRd27iCA6QVw+ZOwu5/OB62Pb825s0hGlNPX7RZEkO4PPhKa1pJFVqdui6Yu
+	 AMXhOSXPGeYxZZkDMhz14A5H/FrmF9REe0XFceGDlmsfaGlAeGN9THXNCTywpvGcqqOff
+	 C5Tb2+9MAxmqM7zVa0oEBVKVG7PHxx5+tEXQO1t4oUetnALtVGZiiep1zoPIiw0jHYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=s7MVX8Dc;
-	arc=none smtp.remote-ip=209.85.208.172
-Received: from mail-lj1-f172.google.com (mail-lj1-f172.google.com [209.85.208.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y5KhAbfI;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29F59606A339
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:41:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 29F59606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9EC6D606A32E;
+	Thu, 26 Nov 2026 11:41:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=s7MVX8Dc
-Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-3ae0a5c1715so69759281fa.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:41:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795693261; x=1796298061; darn=vger.kernel.org;
-        h=cc:content-type:mime-version:content-transfer-encoding:message-id
-         :date:references:in-reply-to:subject:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=uxM1VmLjZ2nxPUWhti3qYeNXknEDXlY7brHt5kBUuxQ=;
-        b=s7MVX8DckHQUo/rJSqIhTusO9NO6ZbOfaabeSgRRNIo0GzyIdVGfS+T8dndnj3Vpz8
-         mk4Y72ou3B4lbLRpKtUMqvkfaNeIzScnQ79Q5nY//ZIbM32F9EUWOV00lewsm7NFhdbb
-         gpX+z/mnzp0FznPcbuYReEshmW/RajNIKjXoTU8V1jaDhN9W9TQ5lb3IU2S8WY5EUvJr
-         mznWf33Ak6i0SaOCyxt/FxhBtoRO/i/8bgXtNPz4j9RqxFbkTgZK/Aa6JTnxknCAfkaG
-         GAOxjefzCKxpq1Xk/O5SxYCzMi1Bzb99D8a5+bqPCL2A+V4eCJBgYRDAYdQ5TaOAnT5Q
-         OyZg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795693261; x=1796298061;
-        h=cc:content-type:mime-version:content-transfer-encoding:message-id
-         :date:references:in-reply-to:subject:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=uxM1VmLjZ2nxPUWhti3qYeNXknEDXlY7brHt5kBUuxQ=;
-        b=D2JIVUCNmcWqg2RZp4ur1lTF2DFS69i6698Nbd7kOdvwwOhj5xmF/p8xzPUxL/OTfM
-         wOSdcSagElpcSuFuVsqUmKowLvARqKcEZWzMZgxXslnZ5CWFiZ4UX7Dvc6ijOvW6RqbF
-         bKArHJziMIs6im9rymZZMvHEYXeohxRtAF15Zqf59Tu6BNemQdzJut115ijplWhDwphu
-         5kxjvhY85z3UYuzl/WDCr7n/WJiJSjLWAqsmRT68R8k70q67kpUjQwFaAEZyAgPhnc9m
-         W4MLmOLRotzZeyKmbzCqOZRIDbRxjpx1vvXnuktKMXm7CxZEcAY8zDlr1Lm3ZEffQP/t
-         9dzw==
-X-Forwarded-Encrypted: i=1; AL+hErETN2xVhFa2JU18XIFjjbGA+G5hNkVIl2+Xs5wIT8x/lO8IAV8GcRzTdNNjDEck8iOWwzIvLXExrHAOoME=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Qh9Zp4hneuBmIhUdOzBxunQFWqit7kHlEoBJVFAJm472JFDAx
-	n5Yj2isLjUQgj7Yy6qzeHhaUxkdO1ArCBGALOpZAn8YGxjeaPwBWiuckbiqfbrMXEP0=
-X-Gm-Gg: AZFdTZfFiAK6QhpOq6tkYq3GrhiEZEh4t2LFq6vgWT2ak2MWeAZu91I0NVsET5KeHor
-	w2KCcIYAkiysuINmAITpNTMIDpZwOvPJ6zc8SuFYzxAFfO0VhGm4X39ICUvCRp3xHSjTKnbDYF3
-	+XQZjeTjHqRhxH3hJn4HY1514L6vRWOJGpwRxfTySI6gjAAOBDl7b3HSFprW4UTP5Tc7znaNl/f
-	1y3A45ptIQ2FxTpWmIIal3Q7i+p4FgyGFhZ12QUdszOiFNTOepZxEDHqp+b/JZ23JGLZJvzs68W
-	BCmmrg1SXu0zn4J2a+zGr/pf0jLbmJDXbRwS8Tiu7eMMrli801cYa+LV86Ny0OGWJhEzDjSgiTe
-	25sXTai1vHQpryfQfF+fm6tuF5HkWqJ6dquxxCubZXtXxHYSyj9VZPVQ7g+j/L288z2jKuHTXrT
-	WMwS7vMUbVQ2cQ5VK6+7UVEdpeVui7HTcBynsxbpVm7W+z3izWaxTSnpykDRak+ny1M6C0Jghwc
-	rxzq2rDUYvG46WxOIGEJSiQSEsvMNNOFpo1SYhg6pUssJ8ZRZTis/qbdtB4KHKNjF8UCvvhlGP3
-	ucg/20aI8PZt8pvF5Q5dM3HZG447GeYtmlDPFug6eefK6RPVqixkBlR/jWKeMoLcBd252nB9Iz6
-	W
-X-Received: by 2002:a05:6512:2509:b0:5bf:ce43:979b with SMTP id 2adb3069b0e04-5c1b7c0725bmr5707863e87.21.1795693261054;
-        Thu, 26 Nov 2026 03:41:01 -0800 (PST)
-Received: from [127.0.1.1] (ip-024-180.users.dtel.ru. [91.210.24.180])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd0419b7sm5153112e87.55.2026.11.26.03.40.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 03:41:00 -0800 (PST)
-From: Fil Dunsky <filipp.dunsky@gmail.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Subject:
- Re: [PATCH v2 2/3] mtd: rawnand: Add Cortina CS7542 controller support
-In-Reply-To: <87jylzyi5g.fsf@bootlin.com>
-References: <20261123-b4-cs7542-nand-v2-0-9d9f08608534@gmail.com>
- <20261123-b4-cs7542-nand-v2-2-9d9f08608534@gmail.com>
- <87jylzyi5g.fsf@bootlin.com>
-Date: Thu, 26 Nov 2026 14:37:51 +0300
-Message-ID: <179569307151.4.4443063730583761343@gmail.com>
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y5KhAbfI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D91C1F000C6;
+	Thu, 26 Nov 2026 11:41:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795693268;
+	bh=4nofvEM/msSS7UH4Yyhr+3kuoc0g7IaNr2SvcswGg8U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Y5KhAbfIc6Lt0gOb3usxYSsSSwvZstu6CLdxjkkhKtIXi+ea2twZBhq2G8p22N6JG
+	 53V4tzzEM4N1NrO49J+F1shLbncCKNXNMA6xsy8mSok2DWYshKADAUJ+ND+qL+KJ7L
+	 k4KFe4cOLLyBCrazP0BU1mHmERUEM6ZPxWQip2qHuzHDTRfWjIJJVM1Jar91H++P06
+	 sg0zqTzlu9/t7aRkNV4FT2WIn4ZVnuMkbWlEVSpO1hy9BQBLuGpih3AQhUcXbPxl1L
+	 8nPW7VvKi3LoRG2IpXrtqT803SF6+vV2kZCN+KM7Xr93DDOKouJtl3+9/sfUJ1Hut8
+	 Maoc+yV4dqorg==
+Date: Thu, 26 Nov 2026 11:41:04 +0000
+From: Lee Jones <lee@kernel.org>
+To: Svyatoslav Ryhel <clamor95@gmail.com>
+Cc: Pavel Machek <pavel@kernel.org>,
+	Griffin Kroah-Hartman <griffin@kroah.com>,
+	linux-leds@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 1/2] leds: lm3533: Clean up probe and use managed
+ helpers
+Message-ID: <179510287166.63755.11402400428284590628@kernel.org>
+References: <20261115084347.70592-1-clamor95@gmail.com>
+ <20261115084347.70592-2-clamor95@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,45 +60,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"; format="fixed"
-Cc: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-mtd@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261115084347.70592-2-clamor95@gmail.com>
+X-AI-Review-Draft: <20261115084347.70592-2-clamor95@gmail.com>
 
-Hi Miquel,
+On Sun, 15 Nov 2026, Svyatoslav Ryhel wrote:
 
-Thanks for reviewing both patches. You are right: I put restrictions of
-the initial driver into the hardware binding. The SDK definitions have
-two chip selects, 8/16-bit bus support, Hamming with 256/512-byte steps,
-and BCH. I have removed the ECC restrictions and described both chip
-selects in the local v4 candidate.
+> Clean up the lm3533 LED driver probe and remove routines by adopting
+> managed device helpers and modernizing error handling:
+>
+> - Introduce a local `struct device *dev` variable to clean up repeated
+>   `&pdev->dev` references.
+> - Use `dev_err_probe()` for cleaner error handling on invalid IDs and
+>   LED class registration failures.
+> - Switch to `devm_led_classdev_register()` to automatically handle LED
+>   class device unregistration, removing the need for manual cleanup in
+>   error paths and the `remove` hook.
+> - Remove redundant `dev_dbg()` statements and cleanup unused cleanup
+>   labels.
+>
+> Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
+> ---
+>  drivers/leds/leds-lm3533.c | 48 +++++++++++---------------------------
+>  1 file changed, 14 insertions(+), 34 deletions(-)
+>
+> diff --git a/drivers/leds/leds-lm3533.c b/drivers/leds/leds-lm3533.c
+> index d5997cbd88dfc..7db1105bee5c2 100644
+> --- a/drivers/leds/leds-lm3533.c
+> +++ b/drivers/leds/leds-lm3533.c
+> @@ -633,22 +633,19 @@ static int lm3533_led_setup(struct lm3533_led *led)
+>
+>  static int lm3533_led_probe(struct platform_device *pdev)
+>  {
+> +	struct device *dev = &pdev->dev;
+>  	struct lm3533 *lm3533;
+>  	struct lm3533_led *led;
+>  	int ret;
+>
+> -	dev_dbg(&pdev->dev, "%s\n", __func__);
+> -
+> -	lm3533 = dev_get_drvdata(pdev->dev.parent);
+> +	lm3533 = dev_get_drvdata(dev->parent);
+>  	if (!lm3533)
+>  		return -EINVAL;
+>
+> -	if (pdev->id < 0 || pdev->id >= LM3533_LVCTRLBANK_COUNT) {
+> -		dev_err(&pdev->dev, "illegal LED id %d\n", pdev->id);
+> -		return -EINVAL;
+> -	}
+> +	if (pdev->id < 0 || pdev->id >= LM3533_LVCTRLBANK_COUNT)
+> +		return dev_err_probe(dev, -EINVAL, "Illegal LED id %d\n", pdev->id);
+>
+> -	led = devm_kzalloc_obj(&pdev->dev, *led);
+> +	led = devm_kzalloc_obj(dev, *led);
+>  	if (!led)
+>  		return -ENOMEM;
+>
+> @@ -662,14 +659,12 @@ static int lm3533_led_probe(struct platform_device *pdev)
+>  	led->cdev.groups = lm3533_led_attribute_groups;
+>  	led->id = pdev->id;
+>
+> -	led->cdev.name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "%s-%d",
+> -					pdev->name, led->id);
+> +	led->cdev.name = devm_kasprintf(dev, GFP_KERNEL, "%s-%d", pdev->name, led->id);
+>  	if (!led->cdev.name)
+>  		return -ENOMEM;
+>
+>  	led->cdev.default_trigger = "none";
+> -	device_property_read_string(&pdev->dev, "linux,default-trigger",
+> -				    &led->cdev.default_trigger);
+> +	device_property_read_string(dev, "linux,default-trigger", &led->cdev.default_trigger);
+>
+>  	mutex_init(&led->mutex);
+>
+> @@ -683,45 +678,30 @@ static int lm3533_led_probe(struct platform_device *pdev)
+>
+>  	platform_set_drvdata(pdev, led);
+>
+> -	ret = led_classdev_register(&pdev->dev, &led->cdev);
+> -	if (ret) {
+> -		dev_err(&pdev->dev, "failed to register LED %d\n", pdev->id);
+> -		return ret;
+> -	}
+> +	ret = devm_led_classdev_register(dev, &led->cdev);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to register LED %d\n", pdev->id);
 
-The 256-byte Hamming step is intentional for Almond+: it uses three ECC
-bytes per step, or 24 bytes for a 2048-byte page, matching the stock
-layout. The v3 hardware test read the existing flash and wrote/erased a
-temporary UBI volume with that layout. This does not imply that the
-controller is limited to that ECC configuration.
+Using devm_led_classdev_register() here while keeping lm3533_ctrlbank_disable()
+in remove() reverses the teardown order: on unbind, the control bank will now be
+disabled before the LED class device and its active triggers/sysfs attributes
+are unregistered.
 
-I also found the AXI bus attachment, flash IRQ at GIC SPI 18, and flash
-reset at global reset bit 14 in the vendor sources. The updated binding
-describes these and the banked data aperture. PIO does not claim the SSP
-DMA engine shared with the network engine. The driver retains the
-firmware bus timing and does not pulse the flash reset at probe.
+Also, shouldn't the hardware setup and lm3533_ctrlbank_enable() happen
+before registering the LED class device (or be wrapped with
+devm_add_action_or_reset() prior to registration) so that the teardown
+order remains symmetric and the LED is ready as soon as it is exposed to
+userspace?
 
-For the driver, the local candidate now separates supports_op() from
-execution and checks the sequencer format/capacity rather than an opcode
-whitelist. The Hamming callbacks use nand_read_page_op() and
-nand_prog_page_op(), with their commands and addresses passed through
-exec_op(). Software ECC uses the core monolithic raw-page helpers.
-I have also corrected the parameter alignment and run checkpatch.
-
-v3 had already been posted before these replies arrived. I am collecting
-both reviews into v4 rather than sending another partial revision. The
-ARM build and tests against the real core operation builders pass; the
-new Hamming register/data sequence also agrees with v3 in the host
-model. I will check the changed path on Almond+ before posting v4.
-
-Thanks,
-Fil
-
+-- 
+Lee Jones
