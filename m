@@ -1,117 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.173
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705312;
-	b=XqV5Vr3nu2r42Ycy5m0NJYgwpjdLzx8Ej8s/e98QSvsLUMp9qBfDjlENziuJvQ2aArkn
-	 dvIdwORqQUstJmj6gjTD47bXeeWdNLwfP4qqODJl1ldnb7omFtSSIb4C3OKchJJCAecb7
-	 b2dsaqEIUp5xM0wrINm9gzppihQYSYkxyt2QEjUiNXN7ZZ95xpNxjVCkGZ4j/8ct5F24r
-	 sjMCz6FgR6wdB8bCaG6MIz70BVzK52r51XzSkiTeka3UuGAolFbDrTk/+cNVcTUskee9b
-	 hLVzyxiicFZb5KjkbKqxrd4euXeY9+umqlC+Vj3/QEnKR+wKPqbaHnBgs902EpQ5eFQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705312;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=CnA3zlb6+Q4MfV6Y5oL8cXYKHj+wdTkqxg32r451qEk=;
-	b=VvOjTB4CHLTJLuEuQ6Na6zlRXlKE7H6QHIf97o7lxApS5r5N5kmIXsTx+007DfBQmP5i
-	 wXcWUTlLXZIgvZRanB1qeDA3g887huoqo/gycvFVPp4/ggUpjVuwUiC8etlwlPe0A9RSs
-	 AS0dQ8zbG+tzL4xnfxWvTntSPb4eqgAs/gOksvtvc97iCLp2fFO+IiN2yzd1xObl28909
-	 EAW7INv3PsBevVdf4jh55IIz/SxVWU7A6T0gThNjVVE2VHKOVaNmFei8Qofd4CJjPuhbN
-	 FIfqDoD585jfZHHInX66IRFZfcCyDW9T4VO75V0a/4wmeFtWZ/O7iFfvxt8JH8wda+A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="b3sZ+/K3";
-	arc=none smtp.remote-ip=209.85.214.173
-Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com [209.85.214.173])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=67.231.153.30
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795705318;
+	b=OLDH0RrvgVjmk2tw2O33ZWoIr2A99h+6aoGlFYJ/sZI/kotEOjo+5cilO8I2lL3E0uQP
+	 BpZ7qpGXKUA7sol8SmiuhOvnRcSBF15MRsEqklN6GN5+xhpX9S+lN4ooqOcSCiyxLfnsL
+	 H2MBKox1tamv5BBSddxz7TBEBNhMhFzY/6LIjgV+kLmPbVkiRoY0P1d0gMIhx4+PcP5Xr
+	 lpxTyM6rIEmqOCyEqD/wXT9mvHjkwWxBK6kv/FlDv3q94loVHOOCvu9VuKTH123Sw4g3c
+	 6AgcB9c4UnZqY2YOIhOOCR8FhQGxtmB+BWGjONwm8FwYXuFjyG53jj79DuODQdf6lnw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705318;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 X-Google-DKIM-Signature:X-Forwarded-Encrypted:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Virus-Version;
+	bh=ksHsU0kbsqVUkEZNVmcgFe4AO3w0i+7EkE+yHh4jTrM=;
+	b=o6bgnLbCgCkaVbixxUFT6T0R2ApnFQH6zIc4DBSjnZud7wdk1AUIIkWkaQ4EUW4tUwYd
+	 +oNDGwT5K9z1Z5g96TMsyqYPkrVfHWIgf+D/U1qVgufnZWMSl3x5M5N5VYoYV2JBKZwri
+	 Q6xJi7BlQ7KL2GGfU6gbNj7HF9/+3uDG3UyI159uA455wb9IVvRaM/ecw3Yi5kv0jh1+H
+	 ayka3a7J40GI6DOUIG8smq7+ye+GX9rAJDdYIY4bvP6Eb0oQBRYS3AM/YMDXxLMYNxoT5
+	 oRrNrDR3nlWADDlfQCD12A+AEA/lc8GIsHU/Jg1aOwVwFvQnFpV3mnezngucgICiatg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=meta.com;
+	spf=pass smtp.mailfrom=meta.com;
+	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=P20P0qzw;
+	arc=fail smtp.remote-ip=67.231.153.30
+Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0A51606A33C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:01:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0A51606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA4E4606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:01:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA4E4606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=b3sZ+/K3
-Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-2f01f296937so54067885ad.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:01:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795705311; x=1796310111; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=CnA3zlb6+Q4MfV6Y5oL8cXYKHj+wdTkqxg32r451qEk=;
-        b=b3sZ+/K3mFnawrjvx85flgmuT1zHOx3Wa6bQmig/FPG7IvWZnnPujUtt04UcCQm+tp
-         YcbNqvBn72KW+GtFsj9T/6MBlkXuLF0S7bpw0gc6Bb8hhVQq2yHUIgIC2as1r1XxCewg
-         55bEJ76AQOJHJlwW6zc2MZpJjZk4qgrzvXJmecel7U+zkoAjp/Fkh706tNW5xMLtzs5U
-         Nz7YrwTQY15c4kchCoSiAdI7/oOsOEQHeRqHVF6CqoQntJEAghHEakYfz5f0vcztnUAD
-         izPsxD9LCqUra0KUfUdOD/ui2YcGE6idNSNRt+CnZCHSV7AODbvljIuCrRBWKTVf0xNc
-         X40Q==
+	dkim=pass (2048-bit key, unprotected) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=P20P0qzw
+Received: from pps.filterd (m0109332.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQEUw912097275
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:01:56 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	pps82601-s2048-2026-q3; bh=ksHsU0kbsqVUkEZNVmcgFe4AO3w0i+7EkE+yH
+	h4jTrM=; b=P20P0qzwdql3dJs55tVw/zSzER0pnEDse7ct7RVGedvqKP1wlaPFt
+	2s73M5Y2IlukoczLKpiPu0XiW/qLarOOrkPmrP2TCHeRa0jx8As94si2fvP+lKkd
+	2eNagtp00Z/AB6j7OnOoAuwuiMms5RE8iA5/uTUwzM8rGADXF60qRBA6Eb54t27L
+	tyFd5dsxxp4AOKwfcv0BIv95oxDoozVeBFGbjIkFis2h1Bdnp1E1AxqoV2iEMzRg
+	aH1G1eL+IPsXzC1At1XQHo/CnQZtoYWBvB6+Mi49vKJQP1n32Kxrv/W4W6xXBSJd
+	NZtyf4UXDuiDA28Cd08oevAIA1bTncLQA==
+Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com [209.85.208.69])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j5dcnekbc-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:01:56 -0800 (PST)
+Received: by mail-ed1-f69.google.com with SMTP id 4fb4d7f45d1cf-6ba7b00b52bso821869a12.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:01:56 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795705315; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Pe4XPQCdhLRFv8bycMhKxudvr1ousM0rYstNQebBmjPQjRkXP8rJHxCnw7JI3JbvA2
+         rxZoSCjy2oNlmyPNPfpjVYU4tQq43GnVM5Ai/QMzdSAyBJ/jqcN12RUYWJgpIUvL2y7K
+         AThQ4dJ/NoM/WbHMCwK8M7RZVrc00LdgzCJz7NKJQUIovqfWeYLTZD9+Ni8sq7JsdgPW
+         PYl0Se43On75RloKDk3i5PEntEYnjxzUEEe3GfGX7QeP/cLpImBAtC1ihGbAXMJjcWII
+         PgNj+g6x2GyN7GAq01uoazr+KJJbrTIk8bF26lmHfhxg3pr7Tyk4+0ck99WxV7IrBfFU
+         iY2Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version;
+        bh=BqPHn9TvziiIAHrsauOPgw6b2tlMG6ggA0GmAWeOUhA=;
+        fh=kIT6sVchjby8NWmA4R/KwFHTt6NPUQajtRznAZYJKH4=;
+        b=Gbk9qBgjRB7IG6laf0Ju8fgRYT0e3i7lVEltIJODBCLSX3KonyCkpYinCNsCD9ULLu
+         R/DALUsBRJAza2r3nqmGZxATlW4XG9bXxDrbTpqb3qxt2VxWJXAWkO0khSLjko4dlFEN
+         0e5I75xOVLWydfoD3No6Kxxz1AChHyZM88flqvK22JN/3s5DnlCsM6KAkI6C4IiPq0x4
+         9Zl2ciS6e/nO1UvY9TtC9clcADbgExrhgJNKjlK/yYnIzDdKXqMfOfk6BcR6/7vWAXh1
+         VbjdBCmNIH9tMSz9k3gYcIW6FgHIzZGuRwaxRZI+fS/xsEvh5Wu2gnJRtU+4VPZd1ULJ
+         9Seg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795705311; x=1796310111;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795705315; x=1796310115;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=CnA3zlb6+Q4MfV6Y5oL8cXYKHj+wdTkqxg32r451qEk=;
-        b=YFSoI9dilv+fR8YfGQmqP7EHoNRypN4Cs6F1CRXfByWjwgYANMklLvO7PBMmT+Ws+0
-         /vlh2S4y5KXtsc6CsZm85vY1sqs5HJx7jw7+VCYvYIuRTuPnRzQQ/LFgYXpREwzDf/5P
-         2/4mazQIrl0pQX+Yv0ry+CZps7uLVCATEl2pZYhfE/hQfuuPoBYYbawsn7XcfYhjMplt
-         NzGktUp3y5qxyPzvW1r1XRXMGDCgdA76OT0A8hxRVhkLSE0BVssFDJ8fhFcduAWwtleC
-         Ct5sHdS/nD83eO+zcgOqCzkVuZ7MtmWRcUekyz/setHSIUHil0V9H41K9t43zYH6fab/
-         r9Bg==
-X-Forwarded-Encrypted: i=1; AL+hErEkt3wF+Wtxss4Q9G6d2rdn5tujmNnvPWIGkOJSr9RqCSZ/uo6IZUw7FepTd2zcSugDvjmNk/Y4O+sEnwE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8WNrRyFjrwmX9MYTLs4CaDkkM/9DchQBSjnZXsdbNGilPd8HA1
-	d3i4AJf00B6gC4LTsbH8ezInkkzeBHY1TTXy9TPy15IlAze49crwpJ+m
-X-Gm-Gg: AZFdTZceLNh4fmSfSn5NU2ai+G2sKTNVABL/gorYBD584KuPgIRffqZSzcmNF9hiCri
-	0/0bfa5qQr6Vbj5jyPNcAVBtcihiOl94BQDaZ0iEIdRbynvN0Jv4fxicVZP+dHYEgDH5NSXOcGM
-	kwCIPhhhvKQOE+ktnI+94NY9B2lFmJEUd4B6rX797WpclvQQDREYss1+tz7AszUiskQMlOxK0a+
-	CKrox0Ip9+hJOjOjhZ+Pw3mQ5PlxRXWi8e+MnvCpfjp8cbnM4naFEF/TnqULI0rnKChOL62HEJl
-	fAF5wbdbRdpdSX5437Kck7LDeYvMaDP4AW7PzZo1QjNX2RBtiMWRD7hv1zFdoRolO/o6IWnMguz
-	iAF4WQTChUhw2LpylUrsZUFrUCCh4QCrbdIiAURKrCuts8kKFOdKdjBAccUAeN3KaJCY+22uYf7
-	W8BOrFwBMr2uLplw64ZtKv7IiXZ5jJaqNA1AlTBkSLNDItNN9hXykW5bocfMFnI0mm8jq2Vw6bn
-	rt7PmFcy1bWOLHNBx4YwHjdhy80pspJkwJmtqc/84vdsNijFt8s34ua8JFRDsiBgf+Ra2ubuqGY
-	q+X2Y9isxk3mIJxK+KPySxEuUC7Ug+MlG3bPIGiRuhXc
-X-Received: by 2002:a17:902:ec8a:b0:2ef:e25e:e13c with SMTP id d9443c01a7336-2f03efb015amr233195175ad.5.1795705310670;
-        Thu, 26 Nov 2026 07:01:50 -0800 (PST)
-Received: from localhost.localdomain ([240e:b8f:1df9:a600:c693:b19f:ada0:748])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f15663fsm103299005ad.76.2026.11.26.07.01.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 07:01:50 -0800 (PST)
-Date: Thu, 26 Nov 2026 23:01:33 +0800
-From: Vernon Yang <vernon2gm@gmail.com>
-To: Kairui Song <ryncsn@gmail.com>
-Cc: kasong@tencent.com, linux-mm@kvack.org, 
-	Andrew Morton <akpm@linux-foundation.org>, Johannes Weiner <hannes@cmpxchg.org>, 
-	Muchun Song <muchun.song@linux.dev>, Qi Zheng <qi.zheng@linux.dev>, 
-	Ying Huang <ying.huang@linux.alibaba.com>, Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>, 
-	Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
-	Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
-	Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>, 
-	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Nhat Pham <nphamcs@gmail.com>, 
-	Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>, Gregory Price <gourry@gourry.net>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, 
-	Hugh Dickins <hughd@google.com>, SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>, 
-	Yu Zhao <yuzhao@google.com>, Zicheng Wang <wangzicheng@honor.com>, 
-	Tal Zussman <tz2294@columbia.edu>, Xiang Liu <liuxiang.277@bytedance.com>, 
-	Ehab Ababneh <ehab.ababneh@intel.com>, Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, 
-	Lian Wang <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>, 
-	Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>, 
-	Maxim Muzafarov <maxmuzaf@gmail.com>, linux-kernel@vger.kernel.org, cgroups@vger.kernel.org, 
-	damon@lists.linux.dev, linux-doc@vger.kernel.org, Tianyi Chen <hi@tychen.cc>, 
-	Ridong Chen <ridong.chen@linux.dev>
-Subject: Re: [PATCH v6 10/18] mm/mglru, gup: mark folios referenced via a
- fast helper
-Message-ID: <c37b9336-95ac-4787-8a7c-73f6ee9d17c2@gmail.com>
-References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
- <20261124-mglru-fg-v6-10-8ffea39934a6@tencent.com>
- <6c3d32a9-3004-4a17-b854-7088e69f164a@gmail.com>
- <awfb-vGF62XvcX_F@KASONG-MC4>
+        bh=BqPHn9TvziiIAHrsauOPgw6b2tlMG6ggA0GmAWeOUhA=;
+        b=K8ky5uJfxircpy2xM1JJX8rz3qCvoYX+9KcYt8IAcUKdCt2qIOAkaz190+eFslV3wI
+         SWLL7hO/io18rcwDLUm3KP8SeT/M714fbz9V0Xh8ePg23FtVSq7WRlnIAUnlUSkQRsU1
+         /qWZc/X7WIEOPYw9qTCa33lmqOYhYNAOpET8TsJxu4vdsY2j3J8vxJs7RJBHlkeGHzyK
+         PeRg3d4B1o8/mc8g/PZQxSKldwZtwRPl/rS37unJPAkxRNpN9VPA67ApOfT10adIwSlT
+         6ZoF/JWZhXq7Gn9WD7PUJ98CUZw79YiVfMcGwpB35v7eyGIpc54dnBZr8NQMrll7mFBd
+         OA0Q==
+X-Forwarded-Encrypted: i=1; AL+hErGlW6io4woFUswy4o3inVxGA7va66HFIgKOKWhp5IzigZT0A+ygIr+Q9tCcQ5lY9s2I7ruWS7AAOEOIpaQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/SR9Vq2TH5ZBMCpvpldNbXQXAYJ1jBKW1DVE2K9cwxdddk+wxn
+	tl6Qpy2/LgLaMpyudh+okE0IMTY6d+4yK6GEDo4WGkX+kPWCS/7EyuRoe2OLilsHg5HNWoX0bwK
+	+IugQBTgAoLMKbDFnZqI2K4Gxzi42TyYmVUC0Pgk6rk3ymVVH5XnXPqRJQ1EbICAFqv839Dq7D7
+	2InC+86q61b7suO+YricWs/H+3SMEgn06Z7/KqYFc=
+X-Gm-Gg: AZFdTZe5ki6fPSeblri6whbmNL4nqzsBC6z55I/arddTU6EXbraRcPm4jOtlHuObWeP
+	Q1XW4ohindL5mQfCC+7ydVQciZ+ZhLqSHToIa3l3QEXI3SHSfOvr4FERRen1/Z4TNamn3KA9GbB
+	UdiiegHuetJSvh0/7D2WHDVVG8mQpUx2OILip/tl7VbBzH0ycv0+iF2c7SmtGMC7TG3KovLXpCh
+	npdeWW5vmcaIYptBA==
+X-Received: by 2002:a05:6402:210e:b0:6b8:6e5d:31c8 with SMTP id 4fb4d7f45d1cf-6ba37d34b4emr16199823a12.16.1795705314928;
+        Thu, 26 Nov 2026 07:01:54 -0800 (PST)
+X-Received: by 2002:a05:6402:210e:b0:6b8:6e5d:31c8 with SMTP id
+ 4fb4d7f45d1cf-6ba37d34b4emr16199723a12.16.1795705313703; Thu, 26 Nov 2026
+ 07:01:53 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -121,73 +113,166 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awfb-vGF62XvcX_F@KASONG-MC4>
+References: <20261126094318.244973-1-alex@ghiti.fr> <98fecdf0-6409-4499-90e4-63996f33db90@kernel.org>
+In-Reply-To: <98fecdf0-6409-4499-90e4-63996f33db90@kernel.org>
+From: Alexandre Ghiti <alexghiti@meta.com>
+Date: Thu, 26 Nov 2026 16:01:42 +0100
+X-Gm-Features: Aa3M54rDcsYyFryAPjZjAPtJPfhPSO-4qzJEQsClg3xH9Aj6JUbbS_UM0fHTqdo
+Message-ID: <CAEmasaXWwWeuQnMbA+g8OyvNwe721Dro+1h+5pfTpzLuV6dx3g@mail.gmail.com>
+Subject: Re: [PATCH] mm: free the swap slot of a dirty swapin folio
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton <akpm@linux-foundation.org>,
+        linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+        Barry Song <baohua@kernel.org>, Kairui Song <kasong@tencent.com>,
+        Chris Li <chrisl@kernel.org>, Nhat Pham <nphamcs@gmail.com>,
+        Johannes Weiner <hannes@cmpxchg.org>, Yosry Ahmed <yosry@kernel.org>,
+        Chengming Zhou <chengming.zhou@linux.dev>,
+        Baoquan He <baoquan.he@linux.dev>,
+        Kemeng Shi <shikemeng@huaweicloud.com>,
+        Youngjun Park <youngjun.park@lge.com>,
+        "Liam R . Howlett" <liam@infradead.org>,
+        Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+        Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA1OCBTYWx0ZWRfX+WG+iFoeO1/4
+ UzSf62uZkOXJDAH2xBYhAj76PiIj96c5IALHSdMmeB7SnT1nzyBE3ewfLtOE53FgSz5rStl8uWJ
+ O5Ku/GHfdmj++u6UiMB4psqD+Zp4nQA=
+X-Proofpoint-ORIG-GUID: ZnysyEeSUhZ6T3UUQZCpGQtSmVaa355L
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA1OCBTYWx0ZWRfX4QfPVmCit7GD
+ p6bNECC05WqfylsYW0qUWBk7mjK2GcpRCao2QTMdB041FVpo0zldOnxjzeUWqRwRoEIPs8lk8ku
+ R8+/+6OZL26hsq6Fc7FA9EPOninx26V5igVwp6sf+w0Owj9PZnKDRgfQWwJmNCKFraqjP90M990
+ mXKF50FomCaDgHcsPozJDvNwvqvgQfgXCzy3Gk5MMo6ouZSzwesgW8TQPBBw3tHiW77wbNBIY7q
+ 7iJ+hCi0vxlXjIvdoHpMIG2nYX/gEWsRFJsT7CMrkAiRA9pTLbZdA8rP0/AP1mLdiBrJaSkztmP
+ GMd6cMwOPPMnaWkBy4h1tKgMKcao9ZtbOqTIKPKsM+8DmCmA4PoofUNJXyGXcFlyqpAykhntHk5
+ FMq/eD1lKb3sx29vPIdbSAL6CevALeaJaIL/HDfk37zzIOjZLVXFJML1wd9eUnewvwzp/Yn3sKO
+ YItYw2RL65O/A3f8GXQ==
+X-Authority-Analysis: v=2.4 cv=Ku3YSmWN c=1 sm=1 tr=0 ts=6b0849e4 cx=c_pps
+ a=Tczdrg5if7+wQeIJmxD/XA==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22 a=xtH7KyWI9dI7BmFOsl-x:22
+ a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=oIRQa5m1TaVr89WThhUA:9 a=QEXdDO2ut3YA:10
+ a=1oAhN8tkTtOBK6_UvoHx:22
+X-Proofpoint-GUID: ZnysyEeSUhZ6T3UUQZCpGQtSmVaa355L
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_03,2026-11-26_02,2025-10-01_01
 
-On Thu, Nov 26, 2026 at 03:16:32PM +0800, Kairui Song wrote:
-> On Wed, Nov 25, 2026 at 09:47:18PM +0800, Vernon Yang wrote:
-> > On Tue, Nov 24, 2026 at 02:53:02AM +0800, Kairui Song via B4 Relay wrote:
-> > > +/**
-> > > + * folio_inc_lru_refs_fast - Bump folio refs count without promotion.
-> > > + * @folio: the folio
-> > > + *
-> > > + * Raise refs from 0 to LRU_REFS_REFERENCED and leave hotter folios
-> > > + * untouched. For a folio off the gen lists with MGLRU off, a plain
-> > > + * PG_referenced set.
-> > > + */
-> > > +static __always_inline void folio_inc_lru_refs_fast(struct folio *folio)
-> > > +{
-> > > +	unsigned long new_flags, old_flags = READ_ONCE(*folio_flags(folio, 0));
-> > > +	unsigned int refs;
-> > > +
-> > > +	do {
-> > > +		refs = lru_get_refs_flags(old_flags);
-> > > +		if (lru_get_gen_flags(old_flags) < 0 && !lru_gen_enabled()) {
-> > > +			/* For CLRU, just do folio_set_referenced() */
-> > > +			if (refs & LRU_REFS_REFERENCED)
-> > > +				break;
-> > > +			refs |= LRU_REFS_REFERENCED;
-> > > +		} else {
-> > > +			if (refs)
-> > > +				break;
-> > > +			refs = LRU_REFS_REFERENCED;
-> > > +		}
-> > > +		new_flags = old_flags;
-> > > +		lru_set_refs_flags(&new_flags, refs);
-> > > +	} while (!try_cmpxchg(folio_flags(folio, 0), &old_flags, new_flags));
-> > > +}
+Hi David,
+
+On Thu, Nov 26, 2026 at 1:54=E2=80=AFPM David Hildenbrand (Arm)
+<david@kernel.org> wrote:
+>
 > >
-> > The implementation code of this function looks a bit convoluted.
-> > Would it be better to simplify it into the following code?
+> On 11/26/26 10:42, Alexandre Ghiti wrote:
+> > do_swap_page() frees the swap cache of an exclusive folio on a write
+> > fault only. A folio loaded from zswap is dirty: zswap drops its copy on
+> > load, so the slot no longer holds the data and only reserves swap space
+> > until the folio is reclaimed again or its owner exits.
 > >
-> > 	do {
-> > 		bool clru = !lru_gen_enabled() && lru_get_gen_flags(old_flags) < 0;
+> > Such folios add up, and they are expensive to free at exit: on a large
+> > production workload, the exit time doubled when zswap was enabled. A
+> > third of the increase comes from the folios left in the swap cache,
+> > each costing about 3x a resident page to tear down; the rest comes from
+> > freeing the zswap entries.
 > >
-> > 		refs = lru_get_refs_flags(old_flags);
-> > 		if (clru ? (refs & LRU_REFS_REFERENCED) : refs)
-> > 			break;
-> > 		new_flags = old_flags;
-> > 		lru_set_refs_flags(&new_flags, refs | LRU_REFS_REFERENCED);
-> > 	} while (!try_cmpxchg(folio_flags(folio, 0), &old_flags, new_flags));
+> > So free the swap cache of an exclusive dirty folio as well, so that the
+> > slot is released at swapin, as is already done on an exclusive write
+> > fault. The folio is dirty, so it would get written out again anyway:
+> > the only cost is a new slot allocation on its next reclaim, which write
+> > faults already pay.
+> >
+> > On the production workload, this patch removed that third: the exit time
+> > decreased by about 15%. On a simple microbenchmark, 4 GiB of anonymous
+> > memory in a memcg pushed to swap, read back, then SIGKILLed in a QEMU
+> > guest (mean +- stddev of 9 runs):
+> >
+> >                      base            patched
+> >   exit time    989 +- 24 ms       502 +- 28 ms   (-49%)
+> >
+> > The cost is paid by folios that keep cycling between zswap and memory:
+> > each reclaim allocates a new slot and adds the folio to the swap cache
+> > again. On a kernel build in a 600 MiB memcg (-j4, defconfig), this is
+> > not measurable (mean +- stddev of 5 runs on bare metal):
+> >
+> >                        base            patched
+> >   time (s)        592.4 +- 1.1      592.4 +- 0.9    (+0.0%)
+> >   sys (s)         256.6 +- 1.5      257.5 +- 1.4    (+0.3%)
+> >
+> > In the worst case, random reads over 4 GiB of anonymous memory in a
+> > 3 GiB memcg, so that half the reads are zswap read faults and the task
+> > spends all its time in the kernel, throughput drops by 1.1-1.4%
+> > (mean +- stddev of 5 runs on bare metal):
+> >
+> >                        base            patched
+> >   reads/s, 1 thread   37310 +- 182     36889 +- 77     (-1.1%)
+> >   reads/s, 8 threads 291937 +- 802    287954 +- 373    (-1.4%)
+> >
+> > Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+> > ---
+> >
+> > Notes:
+> >     Previous discussion:
+> >     https://lore.kernel.org/all/CAGsJ_4xBtKGqXFP4zvp+Qn+tb4X7aCvXn+wqDq=
+ot_cXR92DjhQ@mail.gmail.com/
+> >
+> >  mm/memory.c | 9 ++++++---
+> >  1 file changed, 6 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/mm/memory.c b/mm/memory.c
+> > index d477a4f986bc..dac0f0a24bc7 100644
+> > --- a/mm/memory.c
+> > +++ b/mm/memory.c
+> > @@ -4711,10 +4711,13 @@ static inline bool should_try_to_free_swap(stru=
+ct swap_info_struct *si,
+> >               return true;
+> >
+> >       /*
+> > -      * Free the swapcache only if we are the exclusive user and
+> > -      * this is a write fault.
+> > +      * Free the swapcache only if we are the exclusive user and this =
+is a
+> > +      * write fault, or the folio is dirty: its copy in the swap slot =
+is
+> > +      * stale then (zswap loads are exclusive and dirty the folio), so=
+ the
+> > +      * slot only holds swap space.
+> >        */
+> > -     return (fault_flags & FAULT_FLAG_WRITE) && exclusive;
+> > +     return exclusive && ((fault_flags & FAULT_FLAG_WRITE) ||
+> > +                          folio_test_dirty(folio));
 >
-> Hello Vernon,
+> Why not more readable as
 >
-> That's very good suggestion!
+> if (!exclusive)
+>         return false;
+> return (fault_flags & FAULT_FLAG_WRITE) || folio_test_dirty(folio);
+
+Agree, I'll change that for v2.
+
 >
-> Only one thing here is that
-> `!lru_gen_enabled() && lru_get_gen_flags(old_flags) < 0` doesn't mean
-> it's classical LRU, maybe it's just isolated. How about bool on_gen?
-> Or bool has_gen?
+> But ... isn't this zswap specific? Why do we have zswap specific stuff in=
+ this
+> common code?
 >
+> The comment already gives away that something is not quite right here.
 
-Thank you for your explanation!
+I am mostly interested in the zswap benefits, but nothing is zswap
+specific here: do_swap_page() can also find a dirty folio in the swap
+cache when reclaim bailed out before writeout, or when the swap write
+failed. In all those cases, the copy in the slot is stale, so the slot
+only reserves swap space. zswap is simply the common case, since
+zswap_load() dirties the folio.
 
-For has_gen, looks to me good.
+What do you think?
 
-For on_gen, it could be misunderstood as "whether MGLRU is enabled".
-So I prefer has_gen personally.
+Thanks,
 
---
-Cheers,
-Vernon
+Alex
+
+
+>
+> --
+> Cheers,
+>
+> David
+>
