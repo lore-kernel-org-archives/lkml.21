@@ -1,48 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=84.42.129.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795692045;
-	b=WSxsqYpMckeYnr9gShlzB5O3lhMIimxN/igmc1rwy5f1NKqnre0h09rroul1B/dfgXoU
-	 JPXCSYwub+GAzUCdOGkV1zj7IyBhCnTquJATC6vonvzv4EQXgpQbnvxyGG+hUqPU1zd8d
-	 Lx1LYv9Ok61CY9ZdfOQXaMqExb4rhHEG2mnxUjwRUP8SXTQ/OBiaMB3S9hTk0Yr2oUFFW
-	 0ZEliMdLYXg0oSprubP746f9B1TPJQ6ig4Thdo2KlblrH6bYAKpQWw+Wpy/AlZxjw19u+
-	 BJ2nbBZbRC8gshbf/6ZZX0YGEqQg1TymBLwqStDbaVYLgy06jruCU4+PNuVEdYDAahw==
+	t=1795692049;
+	b=LUO/EE+AZZawFnFm5d9hXi/fSkoTGbVOdoufxDmUc6AWwpcueKtC79AeivDv3GczH6LH
+	 abbg1pp/Knyd8/l9vzOJqLLM84AvGPvlQu978Glk6qX3rFj/edspiG8S02egVDkDA6r8R
+	 MbwmjlfKW4iLFvp3SkR/aCHYo7HbAWLNAWxQ0p+syp88PIz6Ai8j3tQtymVjS+8ombvls
+	 y8TlY5ntJf6iO/AZbzmYam4pPDlPaP1mL9bAPsQHWhFe2VGfBqAp6NkzDlicWQLcXilYp
+	 74Bs2tEdVI4NYERToLQOk25aER9DMBBqh5SafLdL/niA0D8VtbdPdsMZLR1Z1qoJ2hA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795692045;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer;
-	bh=2eqedx79FOGytQwfFsw3rLLlGoNSMXbaKddEvY8fQE0=;
-	b=5J32n/fPZGtuFsYHyljKx82CE3ONI99ZKLuvkrzyYIoewq2juZlxkj3rDOwZKp6/Nc6d
-	 SKnnBSXQ+4stufx5Tuqq3Xy9k13D8PvA4zo0DE8U2UPLsgWAfGyx27yNie59Qtfid+v4k
-	 UfiUynUpxPfAMX61Z6CryGN+hMChl7GMywCwYoh4nIl23heBWRSoOx9Y2xic4DKPN3SeA
-	 n0AnCk4/Jpl2BG7OjmJ9HLG6jjRCF9maUmFiIVZgkAyecook3PBiPFWSNdyZnSHmNf3Us
-	 4+ZB/jFn5vsrRTvQezTbo7mdHaj443EFXtj7QpDOit5X3zPc9PecLf2pzz29ZdDw0Hg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795692049;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=Y66QBO6DbAP5uXeJh0gRndKoLqNI4TvaNfyMDZHOY+I=;
+	b=DRrvRDr253pOsBrPqxTAmBvgr6CBa8z3xxk9iGqxv72hnI6wHaleh559KX29HH2ra5AA
+	 SSB4TUG6MuZy4YLd3bb/RPC36PauGbT6zANyeBu3N0YCkyIUCSLxzVPk/MR43iT6GcZLF
+	 dXgoG7nlLwcnYp9eSiwGGirsw9MT9q+yO1tLg9BlS6JvKwpr2+JlNAJjCn+rjdf0Sq4+z
+	 /iXnBRdfxAaHCthFpsTMw1+hnsKVEKzdfubTHz6XxU5wPKtWeKRqb++u5lcOLh5Taiyx1
+	 /wNwFl7YAGmdnzLkVmL8sp+gFyJnlyFPfwiImrArQQijsG0KXDdOic0VLxWZwY1cT2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q0Xkhg1T;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=ixit.cz;
+	spf=pass smtp.mailfrom=ixit.cz;
+	dkim=pass header.d=ixit.cz header.i=@ixit.cz header.a=rsa-sha256 header.s=dkim header.b=VzluMsJ7;
+	arc=none smtp.remote-ip=84.42.129.46
+Received: from ixit.cz (ixit.cz [84.42.129.46])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BDD35606A31E;
-	Thu, 26 Nov 2026 11:20:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BB14606A33C;
+	Thu, 26 Nov 2026 11:20:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9BB14606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ixit.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ixit.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q0Xkhg1T
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91FC21F01562;
-	Thu, 26 Nov 2026 11:20:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795692045;
-	bh=2eqedx79FOGytQwfFsw3rLLlGoNSMXbaKddEvY8fQE0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Q0Xkhg1TUF8rTMMI4BbrKu/g9CRAgi+on2guJ3KisSOOEAiojVW0mcSOnNl5BB8SQ
-	 JVJNq/pCFyCujNJgHRK2pMnqLOc/lz1KCam2t+yw1HZ2pFhF9LAitckRcDQR8yh5UX
-	 c+hdX/CidQJPUepbr2BONoM03B5FXPMydL0gdU4Y9e9aq5jHa/08DntWjDfKG1pMiZ
-	 YGTNiNG+/lWMq/ut9hRrfKKLkQYbq6JqVG8BWKQWS8hdwzG/79G9KDWRtKYYZDlAol
-	 mBBpDcrNQMQXJFefCr3YUfJY0XRu5+oViv1/0wGsLdbmH3GCrKqjwyb1DZqrfY5uQx
-	 a0BT0tND+Wlgg==
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Thu, 26 Nov 2026 13:14:52 +0200
-Subject: [PATCH RFC v2 39/54] powerpc: use the generic CPA core
+	dkim=pass (1024-bit key, unprotected) header.d=ixit.cz header.i=@ixit.cz header.a=rsa-sha256 header.s=dkim header.b=VzluMsJ7
+Received: from [IPV6:2a02:830a:f787:8f00:d622:eaa3:3dd6:8f5e] (unknown [IPv6:2a02:830a:f787:8f00:d622:eaa3:3dd6:8f5e])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by ixit.cz (Postfix) with ESMTPSA id E35B653401ED;
+	Thu, 26 Nov 2026 12:20:45 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
+	t=1795692046;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=Y66QBO6DbAP5uXeJh0gRndKoLqNI4TvaNfyMDZHOY+I=;
+	b=VzluMsJ7QXuJIey/L4mBnFkAIQ7Xs9LyGKdFZhmq7wa4HzvV6iHqcXpmOimgciyTY02+Up
+	vAYjiVaZ4KUQ64e2nFQor9FeR4aaoSd1GSwJTbQuyqgDuME5ElypNOVbIf+wSh3fapAMzd
+	nETHfzweZ/kxei6AKHDuaF7XGEfZoEw=
+Message-ID: <e7bd7f8d-e59b-41c2-a560-bbb06f93acd9@ixit.cz>
+Date: Thu, 26 Nov 2026 12:20:45 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,372 +60,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 5/9] drm/panel: s6e3ha8: Correct the polarity logic
+ within
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ Dzmitry Sankouski <dsankouski@gmail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>
+Cc: Marco Mattiolo <marco.mattiolo@hotmail.it>,
+ Petr Vorel <petr.vorel@gmail.com>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, phone-devel@vger.kernel.org
+References: <20261125-crosshatch-panel-v4-0-120adc58e737@ixit.cz>
+ <20261125-crosshatch-panel-v4-5-120adc58e737@ixit.cz>
+ <c1ec2f35-955f-4131-85f4-bae78d016c98@oss.qualcomm.com>
+Content-Language: en-US, cs-CZ
+From: David Heidelberg <david@ixit.cz>
+Autocrypt: addr=david@ixit.cz; keydata=
+ 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
+In-Reply-To: <c1ec2f35-955f-4131-85f4-bae78d016c98@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-generic-set-memory-v0-1-v2-39-723f1e33c3d8@kernel.org>
-References: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
-In-Reply-To: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
-To: linux-mm@kvack.org
-Cc: =?utf-8?q?Adrian_Barna=C5=9B?= <abarnas@google.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
- Borislav Petkov <bp@alien8.de>, Brendan Jackman <brendan.jackman@linux.dev>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- David Hildenbrand <david@kernel.org>, 
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
- Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, 
- Ingo Molnar <mingo@kernel.org>, Kevin Brodsky <kevin.brodsky@arm.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, Michal Hocko <mhocko@suse.com>, 
- Mike Rapoport <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <pjw@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Russell King <linux@armlinux.org.uk>, 
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@kernel.org>, 
- Vasily Gorbik <gor@linux.ibm.com>, Vlastimil Babka <vbabka@kernel.org>, 
- Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, x86@kernel.org
-X-Mailer: b4 0.16.1-dev
 
-powerpc changes kernel page protections with apply_to_existing_page_range()
-and a callback that updates one PTE and flushes it.
+On 26/11/2026 09:31, Konrad Dybcio wrote:
+> On 11/25/26 7:12 PM, David Heidelberg via B4 Relay wrote:
+>> From: David Heidelberg <david@ixit.cz>
+>>
+>> The reset was introduced with wrong polarity. Correct for the future
+>> compatibles and keep current with reverted logic.
+>>
+>> Old DTs keep GPIO_ACTIVE_HIGH and are fixed up via
+>> gpiod_toggle_active_low() on the deprecated compatible.
+> 
+> 738455858a2d ("ASoC: codecs: wsa881x: Use proper shutdown GPIO polarity")
+> 
+> made it work with one compatible
 
-A request flushes the TLB once for every page, and large mappings cannot be
-changed at all, so huge vmalloc ranges are refused up front.
+In my opinion, that looks relatively complex and here we have a bit different 
+situation than with speaker amplifier likely used in huge number of 
+device-trees, where here we have panel, currently used within one device (market 
+limited, personally I'm not aware of more than one user).
 
-On hash, only the start of a request is checked to be in the vmalloc or the
-I/O region.
+This will also allow us easily, in few years,  drop the legacy compatible in 
+contrary to introducing variable into reset sequence.
 
-The availability of the generic CPA core makes powerpc's implementation of
-set_memory_*() APIs unnecessary and it can be replaced with several hooks
-required by the CPA core.
+David
 
-This way the core can manage the policy decisions and the architecture only
-has to take care of the page table manipulation.
-
-Switch to the generic CPA core and its set_memory() entry points.
-For powerpc this means that:
-
-* the TLB is flushed once per request, after a ptesync on radix
-* a large mapping is changed in place when a request covers it entirely; a
-  request for a part of it fails with a warning and -EINVAL, because
-  powerpc cannot split
-* huge vmalloc ranges are no longer refused up front; on 8xx a 16K, 512K or
-  8M page changes as one
-* on hash, the whole request has to be in the vmalloc or the I/O region
-* an empty PTE in a vmalloc range is reported with a warning and -EFAULT
-  where the old walk skipped it
-* requests are serialized by the core; the old walk ran without a lock
-* lazily unmapped vmap areas and unused kmaps are purged before a request,
-  so that they do not keep stale mappings or TLB entries with the old
-  protection; set_memory_*() may now sleep there
-
-The hooks decode an entry with pte_pfn() and pte_pgprot(), which work for
-the leaves of every level on book3s64, and write it with pte_update(),
-which keeps the bits the hardware updates and removes the hash page table
-entry where there is one.
-
-On 8xx the decode hook extends a leaf to its block with __pte_leaf_size(),
-and pte_update() writes the whole block. An 8M page spans two page tables,
-and pte_update() takes it by its first PMD entry.
-
-__kernel_map_pages() runs in the page allocator with interrupts disabled.
-It keeps changing the PTEs with apply_to_existing_page_range(), now with
-one flush per call. It was the only user of set_memory_np() and
-set_memory_p(), so they are removed.
-
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
----
- arch/powerpc/Kconfig                  |   1 +
- arch/powerpc/include/asm/set_memory.h |  46 +---------
- arch/powerpc/mm/pageattr.c            | 160 +++++++++++++++++++---------------
- 3 files changed, 94 insertions(+), 113 deletions(-)
-
-diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-index c3b6cd655606..fbe3a3abeea8 100644
---- a/arch/powerpc/Kconfig
-+++ b/arch/powerpc/Kconfig
-@@ -211,6 +211,7 @@ config PPC
- 	select GENERIC_IOREMAP
- 	select GENERIC_IRQ_SHOW
- 	select GENERIC_IRQ_SHOW_LEVEL
-+	select GENERIC_PAGEATTR
- 	select GENERIC_PCI_IOMAP		if PCI
- 	select GENERIC_SMP_IDLE_THREAD
- 	select HAS_IOPORT			if PCI
-diff --git a/arch/powerpc/include/asm/set_memory.h b/arch/powerpc/include/asm/set_memory.h
-index 9c8d5747755d..d049d48157a0 100644
---- a/arch/powerpc/include/asm/set_memory.h
-+++ b/arch/powerpc/include/asm/set_memory.h
-@@ -2,50 +2,6 @@
- #ifndef _ASM_POWERPC_SET_MEMORY_H
- #define _ASM_POWERPC_SET_MEMORY_H
- 
--#define SET_MEMORY_RO	0
--#define SET_MEMORY_RW	1
--#define SET_MEMORY_NX	2
--#define SET_MEMORY_X	3
--#define SET_MEMORY_NP	4	/* Set memory non present */
--#define SET_MEMORY_P	5	/* Set memory present */
--#define SET_MEMORY_ROX	6
--
--int change_memory_attr(unsigned long addr, int numpages, long action);
--
--static inline int __must_check set_memory_ro(unsigned long addr, int numpages)
--{
--	return change_memory_attr(addr, numpages, SET_MEMORY_RO);
--}
--
--static inline int __must_check set_memory_rw(unsigned long addr, int numpages)
--{
--	return change_memory_attr(addr, numpages, SET_MEMORY_RW);
--}
--
--static inline int __must_check set_memory_nx(unsigned long addr, int numpages)
--{
--	return change_memory_attr(addr, numpages, SET_MEMORY_NX);
--}
--
--static inline int __must_check set_memory_x(unsigned long addr, int numpages)
--{
--	return change_memory_attr(addr, numpages, SET_MEMORY_X);
--}
--
--static inline int __must_check set_memory_np(unsigned long addr, int numpages)
--{
--	return change_memory_attr(addr, numpages, SET_MEMORY_NP);
--}
--
--static inline int __must_check set_memory_p(unsigned long addr, int numpages)
--{
--	return change_memory_attr(addr, numpages, SET_MEMORY_P);
--}
--
--static inline int __must_check set_memory_rox(unsigned long addr, int numpages)
--{
--	return change_memory_attr(addr, numpages, SET_MEMORY_ROX);
--}
--#define set_memory_rox set_memory_rox
-+#include <asm-generic/set_memory.h>
- 
- #endif
-diff --git a/arch/powerpc/mm/pageattr.c b/arch/powerpc/mm/pageattr.c
-index ac22bf28086f..a2da183aa575 100644
---- a/arch/powerpc/mm/pageattr.c
-+++ b/arch/powerpc/mm/pageattr.c
-@@ -7,6 +7,7 @@
-  */
- 
- #include <linux/mm.h>
-+#include <linux/pageattr.h>
- #include <linux/vmalloc.h>
- #include <linux/set_memory.h>
- 
-@@ -16,109 +17,132 @@
- 
- #include <mm/mmu_decl.h>
- 
--static pte_basic_t pte_update_delta(pte_t *ptep, unsigned long addr,
--				    unsigned long old, unsigned long new)
-+void arch_cpa_decode_leaf(struct cpa_leaf *leaf)
- {
--	return pte_update(&init_mm, addr, ptep, old & ~new, new & ~old, 0);
-+	pte_t pte = ptep_get(leaf->kpte);
-+	unsigned long size, nr;
-+	pmd_t *pmdp;
-+
-+	/*
-+	 * A 16K or 512K page of 8xx is a contiguous block of entries in one
-+	 * page table, each mapping its part of the page. An 8M page spans two
-+	 * tables, and pte_update() takes it by its first PMD entry.
-+	 */
-+	if (IS_ENABLED(CONFIG_PPC_8xx) && leaf->level == PGTABLE_LEVEL_PTE) {
-+		size = __pte_leaf_size(pmdp_get(pmd_off_k(leaf->addr)), pte);
-+		if (size > PAGE_SIZE && size < PMD_SIZE) {
-+			nr = size / PAGE_SIZE;
-+			leaf->kpte = PTR_ALIGN_DOWN(leaf->kpte,
-+						    nr * sizeof(pte_t));
-+			leaf->size = size;
-+			leaf->addr &= ~(size - 1);
-+			pte = ptep_get(leaf->kpte);
-+		} else if (size > PMD_SIZE) {
-+			leaf->size = size;
-+			leaf->addr &= ~(size - 1);
-+			pmdp = pmd_off_k(leaf->addr);
-+			pte = ptep_get(pte_offset_kernel(pmdp, leaf->addr));
-+			leaf->kpte = (pte_t *)pmdp;
-+		}
-+	}
-+
-+	leaf->pfn = pte_pfn(pte);
-+	leaf->prot = pte_pgprot(pte);
- }
- 
--/*
-- * Updates the attributes of a page atomically.
-- *
-- * This sequence is safe against concurrent updates, and also allows updating the
-- * attributes of a page currently being executed or accessed.
-- */
--static int change_page_attr(pte_t *ptep, unsigned long addr, void *data)
-+void arch_cpa_modify_leaf(struct cpa_leaf *leaf, pgprot_t prot)
- {
--	long action = (long)data;
--
--	addr &= PAGE_MASK;
--	/* modify the PTE bits as desired */
--	switch (action) {
--	case SET_MEMORY_RO:
--		/* Don't clear DIRTY bit */
--		pte_update_delta(ptep, addr, _PAGE_KERNEL_RW & ~_PAGE_DIRTY, _PAGE_KERNEL_RO);
--		break;
--	case SET_MEMORY_ROX:
--		/* Don't clear DIRTY bit */
--		pte_update_delta(ptep, addr, _PAGE_KERNEL_RW & ~_PAGE_DIRTY, _PAGE_KERNEL_ROX);
--		break;
--	case SET_MEMORY_RW:
--		pte_update_delta(ptep, addr, _PAGE_KERNEL_RO, _PAGE_KERNEL_RW);
--		break;
--	case SET_MEMORY_NX:
--		pte_update_delta(ptep, addr, _PAGE_KERNEL_ROX, _PAGE_KERNEL_RO);
--		break;
--	case SET_MEMORY_X:
--		pte_update_delta(ptep, addr, _PAGE_KERNEL_RO, _PAGE_KERNEL_ROX);
--		break;
--	case SET_MEMORY_NP:
--		pte_update(&init_mm, addr, ptep, _PAGE_PRESENT, 0, 0);
--		break;
--	case SET_MEMORY_P:
--		pte_update(&init_mm, addr, ptep, 0, _PAGE_PRESENT, 0);
--		break;
--	default:
--		WARN_ON_ONCE(1);
--		break;
--	}
-+	unsigned long old = pgprot_val(leaf->prot), new = pgprot_val(prot);
- 
-+	pte_update(&init_mm, leaf->addr, leaf->kpte, old & ~new, new & ~old,
-+		   leaf->size > PAGE_SIZE);
-+}
-+
-+void arch_cpa_flush(struct cpa_data *cpa)
-+{
- 	/* See ptesync comment in radix__set_pte_at() */
- 	if (radix_enabled())
- 		asm volatile("ptesync": : :"memory");
- 
--	flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
--
--	return 0;
-+	cpa_flush_tlb_kernel_range(cpa);
- }
- 
--int change_memory_attr(unsigned long addr, int numpages, long action)
-+#define CPA_OP_TRANS(old, new)	{ .set = __pgprot((new) & ~(old)),	\
-+				  .clr = __pgprot((old) & ~(new)) }
-+
-+static const struct cpa_op_prot cpa_ops[CPA_OP_NR] = {
-+	/* Don't clear DIRTY bit */
-+	[CPA_OP_RO]	= CPA_OP_TRANS(_PAGE_KERNEL_RW & ~_PAGE_DIRTY,
-+				       _PAGE_KERNEL_RO),
-+	[CPA_OP_RW]	= CPA_OP_TRANS(_PAGE_KERNEL_RO, _PAGE_KERNEL_RW),
-+	[CPA_OP_X]	= CPA_OP_TRANS(_PAGE_KERNEL_RO, _PAGE_KERNEL_ROX),
-+	[CPA_OP_NX]	= CPA_OP_TRANS(_PAGE_KERNEL_ROX, _PAGE_KERNEL_RO),
-+	/* Don't clear DIRTY bit */
-+	[CPA_OP_ROX]	= CPA_OP_TRANS(_PAGE_KERNEL_RW & ~_PAGE_DIRTY,
-+				       _PAGE_KERNEL_ROX),
-+};
-+
-+int arch_cpa_prepare(struct cpa_data *cpa, enum cpa_op op)
- {
--	unsigned long start = ALIGN_DOWN(addr, PAGE_SIZE);
--	unsigned long size = numpages * PAGE_SIZE;
--
--	if (!numpages)
--		return 0;
--
--	if (WARN_ON_ONCE(is_vmalloc_or_module_addr((void *)addr) &&
--			 is_vm_area_hugepages((void *)addr)))
--		return -EINVAL;
--
- #ifdef CONFIG_PPC_BOOK3S_64
-+	unsigned long end = cpa->addr + cpa->numpages * PAGE_SIZE;
-+
- 	/*
- 	 * On hash, the linear mapping is not in the Linux page table so
--	 * apply_to_existing_page_range() will have no effect. If in the future
--	 * the set_memory_* functions are used on the linear map this will need
-+	 * changing its protections has no effect. If in the future the
-+	 * set_memory_* functions are used on the linear map this will need
- 	 * to be updated.
- 	 */
--	if (!radix_enabled()) {
--		int region = get_region_id(addr);
-+	if (!radix_enabled() && cpa->numpages) {
-+		int region = get_region_id(cpa->addr);
-+		int end_region = get_region_id(end - 1);
- 
--		if (WARN_ON_ONCE(region != VMALLOC_REGION_ID && region != IO_REGION_ID))
-+		if (WARN_ON_ONCE((region != VMALLOC_REGION_ID &&
-+				  region != IO_REGION_ID) ||
-+				 end_region != region))
- 			return -EINVAL;
- 	}
- #endif
- 
--	return apply_to_existing_page_range(&init_mm, start, size,
--					    change_page_attr, (void *)action);
-+	cpa_init_op(cpa, &cpa_ops[op]);
-+
-+	return 0;
- }
- 
- #if defined(CONFIG_DEBUG_PAGEALLOC) || defined(CONFIG_KFENCE)
- #ifdef CONFIG_ARCH_SUPPORTS_DEBUG_PAGEALLOC
-+static int change_present(pte_t *ptep, unsigned long addr, void *data)
-+{
-+	if (data)
-+		pte_update(&init_mm, addr, ptep, 0, _PAGE_PRESENT, 0);
-+	else
-+		pte_update(&init_mm, addr, ptep, _PAGE_PRESENT, 0, 0);
-+
-+	return 0;
-+}
-+
- void __kernel_map_pages(struct page *page, int numpages, int enable)
- {
- 	int err;
- 	unsigned long addr = (unsigned long)page_address(page);
-+	unsigned long size = numpages * PAGE_SIZE;
- 
- 	if (PageHighMem(page))
- 		return;
- 
--	if (IS_ENABLED(CONFIG_PPC_BOOK3S_64) && !radix_enabled())
-+	if (IS_ENABLED(CONFIG_PPC_BOOK3S_64) && !radix_enabled()) {
- 		err = hash__kernel_map_pages(page, numpages, enable);
--	else if (enable)
--		err = set_memory_p(addr, numpages);
--	else
--		err = set_memory_np(addr, numpages);
-+	} else {
-+		err = apply_to_existing_page_range(&init_mm, addr, size,
-+						   change_present,
-+						   (void *)(long)enable);
-+
-+		/* See ptesync comment in radix__set_pte_at() */
-+		if (radix_enabled())
-+			asm volatile("ptesync": : :"memory");
-+
-+		flush_tlb_kernel_range(addr, addr + size);
-+	}
- 
- 	if (err)
- 		panic("%s: changing memory protections failed\n", __func__);
-
--- 
-2.53.0
+> 
+> Konrad
 
