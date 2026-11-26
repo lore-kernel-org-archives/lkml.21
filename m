@@ -1,103 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.180
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.43
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795678313;
-	b=C+kwI5IHoPhwwfWHd/vLad10D2ovMGWfL0z+OhnXZUTWyoPOzjzdT96h2plgErq9eAGU
-	 KbUcDdVN6mC04U+EzxzqCblPynQC7CQrn8O5t0rEiROmQZYI9IHNmeV1rXo4V9Tg9I46Y
-	 ystEK5YNB6utRuFxpVCqCL3tVy8Kss+yBoSvnmmBm8FN79mWmyabmzCkGLKPEYVRQ82rN
-	 plDWrRVajB7LkzvvgqWyEwolwouo05QZOKkUmvsk19Iqmffot1KHkSR2js+yPFf6KQwes
-	 Zu8YLx5cQK1ArMf8uYXfufGreIducqSK5vnO2igwcQrIvxfPR9P+SCJZqFwiDZlg76w==
+	t=1795678326;
+	b=UKNI8AhA4Wej36mprzJkljYX7cJwoSMUwjxFYfsb/1mHkjOEbQ2S+hMzuxhxgGN5SefS
+	 kpi+gIxlOSp77kpos8slsa/Egpn9TT5hjSr6tMkDzmrxqtH0ghl04esG4O7rYFyG8k4Pj
+	 iYUItIvzb3Q0iRQLW56GOApfeLEAQSEfkZvO1xZUYnqcHU8e7KpdGLZc+2Kp3eZPGKALe
+	 YlUIAb5d+9QbFvG5+OWXjmvi4rdq0+TjYbNOuFjKO/gxRLaqZLaMdaT4PCKV8IuAZPcC4
+	 Q+U5MfRWOKeKFgRXLClQ1Tus9YfGVTr9YKFPN3eArLyLqr6L/2Aue+Cj+7+KW7OaAXA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795678313;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795678326;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Received:MIME-Version:Received:From:In-Reply-To:References:Date:
 	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
-	bh=h5E2UbuP+41IrRgcrwHZJc/VzF7oIUWcIzlONNE+YEs=;
-	b=eVEsZUUuo2vTO7iuH5pmRg4Js8Zq5C0/H1AkHbztJGFxZtUoVQzy2higDSNoiZkALIQ7
-	 PlL5ctNuUt1e1BIeGFaDZ02XWhYKraeutcbpaLma1olMaGmaYvI7c//03REo64a7EfuT1
-	 4/gFrEd/WHoLY23jfQOBTkAsMsSsXV9/IO/wtK7tKpexrLnEXW0fBwSYh+A8z6/kZH5KI
-	 D+gUBtOn1N8JOArAKuicKQAGnAKx0sKI5CWveqIkghJN17ld/pulIUO6VS3bkvOzgC+jK
-	 n5qGmAq92wT/P4rDML/nqJbIbCGCknqSoueZZQT15VOUEHdwontwTyvzsl/+xiSZ0+A==
+	bh=UxfJLJ/kw6NsKgiSQx27YujKpKmMB0ZKnG+0GWKtM58=;
+	b=iniWEGnxJyfys7L+SbTjlsTrT66rcpd/XD2IBfR72MzlhjXQb04IScIbYFdFwYtgzX9g
+	 JVziPWS6WsGPSvuLkM+U2QdRnvt6plqBYtGTkmBGpp9+tbfUMlHxFsHkNL3ufGzWEBaHF
+	 AXMewhnhz/rsFlgKtKEW8S0ofeNunxzD1II4p/i5Jlr1wgBXk4NCOPOc8rOB3tfH2jgK7
+	 Ljx68HM73zVqUcYlnZ6AYkHv1lK8ptoi1GgL9lf3QqMnXlfwjVsk0QtfNvSI2nWmfNNpP
+	 YIx9pCRQuO3u4lX7Qx/Vxxc6ZgnYTr9OhOdjlFE9fyM+rP7Ub7ZpNA14TIj0HClTLjQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RU+vNY8j;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.180
-Received: from mail-oi1-f180.google.com (mail-oi1-f180.google.com [209.85.167.180])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gToZehnz;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.43
+Received: from mail-oo1-f43.google.com (mail-oo1-f43.google.com [209.85.161.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42D07606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:31:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42D07606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4E1D606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:32:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4E1D606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RU+vNY8j
-Received: by mail-oi1-f180.google.com with SMTP id 5614622812f47-57e468d51b1so1268695b6e.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:31:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795678312; cv=none;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gToZehnz
+Received: by mail-oo1-f43.google.com with SMTP id 006d021491bc7-6ddef424972so5438840eaf.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:32:05 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795678325; cv=none;
         d=google.com; s=arc-20260327;
-        b=ofblEmaQrzT0pJU/M+087OocfE0SnjRXemgSWx7NsmXImfBywqzZSgnl7Apx2iXhBP
-         rZQ4BQlL9PBJWqihvQf5rzJ1jmSef9LOmDC6mVJqCx19zEWV0C2x6ESRuQSRDl8Qaqvf
-         gZ/0gSchizcRm7iLVqVCqxVvjgHunAISbaQCF+rC7X3ohdB7Z9hu9MAdUWuW0U6r6Jya
-         LFBUgNc45lngpxvdJ5oqgHcA+9vTABa+NvoAd8QkuR8kZnM+h2Er6C1mSAsT5X/MtbRo
-         0AW5GTe6qp1LMIm1wfELKiQa4CeK9s2g7HJD6BmKZ5qswgpcIi0Ax8/XoO1Q+UNlVREf
-         uitw==
+        b=F98qzQ0IiSt9x050wHPGtlgBtLVU9nLDd5GPz2AalEcGquJU2KoctFaNxnygrZySth
+         iC/3VBCRqpfca0Qv7Ar+SzbrwJLZocGpZWwz/DNoagLEvLG4XB9QGcwGPmPRem6vVtEn
+         10kiTsOt8lpkSihBe6ocpGN3Sl6eB/MbkXRyWGQy5ZNMaqi5YBPEaMdKiEGid9soYGsh
+         rdy0yPtgmJIDvEGcyhLXW9EKfdioLMVkAU9G4Km5f+t8P77Sqkd60AL/OnvhH76HqYVo
+         iEDg70ql4VZyj3KRJNosdixkE1SB0res2rrl8yLrDxATElRHjsG99tSlysDRz7wERGZ5
+         lHAA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=cc:to:subject:message-id:date:references:in-reply-to:from
          :mime-version:dkim-signature;
-        bh=h5E2UbuP+41IrRgcrwHZJc/VzF7oIUWcIzlONNE+YEs=;
-        fh=X/Yb8htDbDLdb3P6D2xgeImHPa4bUyUA4ox5pMII4Lg=;
-        b=PVjcqB3Im1TtlP26PBjrop6ipVg8CBWjijRS+tCixqp6nSuXFw88NJ2XscZ6NNu0ag
-         aKQd1HJmSGY/sqUt6oUiEetobl6QF/6XufaBLO4Y9twXI1u5BlFWROX2x6hDVi9PO6jA
-         M+ETePN2Rztcp6ardX1zlF9ODjGbh4qTT1D/7V7YzrSy++Zvnn2+hzhe2MvgK2xTFp8p
-         UetCHk7yCOxG6/Bugpz1h/gEmdktqmexsUa3JPOp/D1o5Lx3+eDYR3xRXHceulCI+rp1
-         FDajNDqxo7Q1YlmVMhhvLSNn9edkbb5GBj4u7aCo0HHTYFP0/SuG8/+pJqHLM5m1n3PM
-         X/KA==;
+        bh=UxfJLJ/kw6NsKgiSQx27YujKpKmMB0ZKnG+0GWKtM58=;
+        fh=YasJMRdmcA/VJf/mzdmeV0bsKYLEl4MMzoM2S0dju2w=;
+        b=P1arGH/foTjUTdTdace3Ex56DMbNpRc8LsoHHRoQQOHvGq/1B42tbvXsZRQbUmCNo6
+         eaqGzlqPFqLWsEKujVwtGkL6UFPLKv7nW9rG3TL2JH6dO6J/xunrHu/cd9ngO73ASGxg
+         ZQ8yqMm9PPwuwRwCofepKAVjE3Vr1l5Avi1ToHfeO3LrJxHgmDN5KBmi1+shEZ+Kw9EK
+         boz78OGGRyw0A9OlgfpjUIuiI9lO9BoN2zmRhrmCKToQXwr1y7jKv5V/pRoU7pvc3BYx
+         rC4wAVUL4n4Nd26D3sJDHIe8AMClllz4JaBSYTiM1me5snZIZHM0gjf5D3rNmFnJaIHS
+         7prg==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795678312; x=1796283112; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795678325; x=1796283125; darn=vger.kernel.org;
         h=content-type:cc:to:subject:message-id:date:references:in-reply-to
          :from:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=h5E2UbuP+41IrRgcrwHZJc/VzF7oIUWcIzlONNE+YEs=;
-        b=RU+vNY8jsljRjP1UMdA4zmwXfWpljGfdXQaDlUq07fSvAbSYCc2SwyULiou/PriCd8
-         UxjPltJicVRmPJfqNmU1jZzzN5rCBgA73d+7aHMgbq6o6tWghkHG4zZN7shMHza6dUdd
-         NlW88YaIIfslZf+HsBxdl1krBAjatqhqwpknVOzbJpjy5F5nfBdtgGzA7E6Z+HaDzHph
-         tfTj7biGpLhYLpdMz5qPTqcWqiSoWyqqe1HlgWGgJe9I//VmRHRTqoC065AsIgL7vxWr
-         ftGpfBTsU3YWa0PPHkJogyaPCwQ/TiHydqlG71OYJubODPxE1H+wyjXBvMnmudI8/d8s
-         CFag==
+        bh=UxfJLJ/kw6NsKgiSQx27YujKpKmMB0ZKnG+0GWKtM58=;
+        b=gToZehnzNxHiXwihqawNvfwWlDoL2hLNJO3A6kWEDfnll1pXFTfJqQCZ6zLV7G7HF5
+         cwkzNEXvCKDqK3KL2fBsqTy8mVjUKMZJTAP/JZdAjTirGqd306IPlmfgOqG5LBDcC+ru
+         C+RsGbWmyli4UxzZcJZv+1gYol5nBELGzpho/CRWlM4rKBhckGRwPEbBIbnxvsr2U6a2
+         QGxwRLLY5IEHi34twbLkzNKeTy+m0YC2GWjeump6s8/EYkhkdQF8pdx5ICLliwwyJJSm
+         OFor6LrVuQh1cl7SOIyuQPjMzByQy+2TjWNfhvkX6Mj+tQ0MEBrHT4IrGEMnYP7zz4gi
+         Va6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795678312; x=1796283112;
+        d=1e100.net; s=20260707; t=1795678325; x=1796283125;
         h=content-type:cc:to:subject:message-id:date:references:in-reply-to
          :from:mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=h5E2UbuP+41IrRgcrwHZJc/VzF7oIUWcIzlONNE+YEs=;
-        b=L8ClpuNwVTO2WD4LPqSkAn/jQGuM+ONGmq2pgP2zeMixAWY9SQKyzAkqkTvof1MJNy
-         LwK1gUDidcQw58ORe68rWqjaMPSZTCD88ga+0mm2rEY9IaehdqPupVm1fde9Gwt38UQs
-         1gkAJdXBRIhh3ta0igaRQJ/TG3TBhsgh7hKPEgoAyXuvbbSkczAAnf/GNVEHKoWiYbi+
-         F8CMqL4g9IlNnQvgYhRGmf484QTDYwzzm4kwQRPFo5W5McFyFbccFOoZRUBOsmOGfk1h
-         c3aFYomvTD5uaYYrkN1ilxJjEOl5M9SbInm2hZE81yDpwT1OEGsKcUvaUVsHn79eqyzZ
-         kBZw==
-X-Forwarded-Encrypted: i=1; AL+hErEiwevOFqdP9T3gOjyx0SngCZGANyNaqj14wTsHsMZN407MiBuQevfqBT2BsOwhcyZU1xT7K+quGK8X5ZE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9XyFTvNXhpbLmQ1XvlpLqbK3jWkAm32XlCwte+KExeN5Wc1Nyb
-	lLyzp6H1WZI4RTrnsuDW07wPHNmcIHW5BlQz8o3D/H+NbKV8kfKnnVeRWKYYcbURo62/Zc0ae9S
-	3Mw464MmlbOpQy30Thiwpuojk/gwA0IM=
-X-Gm-Gg: AZFdTZemZ/glyg+PZk8MDtk/enLqkK60l+VdTgNBenBlrDtL1V0THsQ9zkhVZjojR15
-	sax9YWA+TPcPmcBT8gMujWpdMzb5Hy3pIeVf0GQMeZa3WA+mQ3nWfiVzMwdX4QNX4ibcNJ89ljc
-	PAazfpgrrevTh7hOjaFkzpsF0Iq1uhi3nPL51FmO4zZ7wluCJfoC75zvIDcmAk1ByA7RHDseUHv
-	DWssjnjU9E/AstdGyKBG4dfRUNnySpNjIP+eZQqbwPVJ8O9/+kUYe6hfeXqmw/xBT+nDM3memrf
-	xD30YXInigXDT9r8IK1dZ6jJ/E3789mG9VKu5WbjJrA4fr2TQlfUY2NnbdZkYbNnqKyPXa6qyE1
-	RGFmkxDFbT0NWbmtn8rTNw/tcw+v6rEiU7yhLWkImPqjyrCS8pHvHF4/Ae0jxvu2O0g==
-X-Received: by 2002:a05:6808:17a1:b0:571:7f0f:924f with SMTP id
- 5614622812f47-57a0c6b7286mr21919451b6e.63.1795678312136; Wed, 25 Nov 2026
- 23:31:52 -0800 (PST)
+        bh=UxfJLJ/kw6NsKgiSQx27YujKpKmMB0ZKnG+0GWKtM58=;
+        b=krrtmewm3IqezL3YKSGEIRCoK42ywttOy4+tsm03CO9jpBYsUFvOmY2b6O06aAmsG5
+         wri5rUhMp5UcvV5UHHczgoGkaZS1yx3qRr1O8UtOR32ESg+k86SQfqUVhpZCSRG8nQzi
+         cfB5ZP5qdFYOQpT3TQacFxWkkmRiMA7VidUokr0mMUjexshEIEAWhclRMxvJacMjpPQ8
+         v5nzsBRW5/lbCu8J2AhraSzNugDkSTOvnfbo/icz4GfdR/XhD2yRhM6IdyEwJGDKbSHp
+         eMl7e3ICYBMHnbL65SroNM0N9VRfXY3ElTrW4RjEYIESSd+b7qXP178Jws/FWQ/bR4XY
+         8AUw==
+X-Forwarded-Encrypted: i=1; AL+hErH9rOPxD+U5hCMaDjsRPf5UscaLe3MTi4uyG8sDSU2UGZ1xw3aROEKMstmbiAPqoqh8+glywSUwdCCrBXM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Ser8Td8sbC9pQngL3mzxkEcilJZh7jFRgXcZtQvvOVNS8lHVO
+	uuFvgvrOBHuHDe7QYMoHuF9F7ezuuX/FyUCGE5U+xgZPjh6ncE6reKBLMUZS0FePT5cfOf+wkhU
+	2AFCEROkoYqFFK300LLZJU6SnFGW+bxM=
+X-Gm-Gg: AZFdTZf8E+k/MudsTcukegp/AtiTC1NZENUv+txoHVpAHACmBQN/dzmXbXiJhzcGR1L
+	zpl/SeMo/a469jdeXy7MneKvNhw3GVSLknoJ1xpl9aT+kVUhWLVKacsy5APTqd3jKfNGTKdqAmk
+	zV8jTvulTBGlyqZrh2jNror51oB9Vc8TtM7YGLXBZUesDZtb+/L9vLej7OVB1jZCIt9c022TyDJ
+	KPapxR5mwAR4b3cgxLxl5cB5nx7vCv87pNJSP4PFf/enBTh08IEtuJlUjj/8JCTvnUixb1DJc/H
+	6w3IOiGOnG5KlylYqXl4o7f1+F55AbrYEcxo5OFe9bmtPHiXR/fjZ7n3zeMRu8LuvCnpe7G9XV2
+	0xRTWr9CXRW9crLZOyac+9tavynHr/nxyZ3GuZZr0/+YFcwTD9PXZBBiiDVWd3xr8w3Y=
+X-Received: by 2002:a05:6820:c30f:b0:71a:f754:a22d with SMTP id
+ 006d021491bc7-71b3957ed4fmr13966801eaf.76.1795678324642; Wed, 25 Nov 2026
+ 23:32:04 -0800 (PST)
 Received: from 77377267392 named unknown by gmailapi.google.com with HTTPREST;
- Thu, 26 Nov 2026 02:31:51 -0500
+ Thu, 26 Nov 2026 01:32:03 -0600
 Received: from 77377267392 named unknown by gmailapi.google.com with HTTPREST;
- Thu, 26 Nov 2026 01:31:50 -0600
+ Thu, 26 Nov 2026 01:32:02 -0600
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,153 +108,241 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Received: from 77377267392	named unknown	by gmailapi.google.com	with HTTPREST;
- Thu, 26 Nov 2026 01:31:49 -0600
+ Thu, 26 Nov 2026 01:32:01 -0600
 From: Lee Youngjoon <getfeus@gmail.com>
 In-Reply-To: <CA+m4KrA14J-3ovbau1EGjvwc1R4Maya3wzqD+n-_khotDhcRFQ@mail.gmail.com>
 References: <CA+m4KrA14J-3ovbau1EGjvwc1R4Maya3wzqD+n-_khotDhcRFQ@mail.gmail.com>
-Date: Thu, 26 Nov 2026 02:31:51 -0500
-X-Gm-Features: Aa3M54oA9oN8u4sV-Du88QoM3YccpjHOJyvBkBEekJZag8MEC9gciwwnBEJGyKA
-Message-ID: <CA+m4KrCZLr77+p4afs28pKy11GOVTbLmKyqHmPOpD38Lvodsmw@mail.gmail.com>
-Subject: [PATCH v1 1/2] usb: typec: ucsi: gaokun: Distinguish empty updates
- from EC errors
+Date: Thu, 26 Nov 2026 01:32:03 -0600
+X-Gm-Features: Aa3M54q5AR0MiMyVtIAOsUeAG0ROYsnFZU4yeWmbzz3XS1iJWiHd725NhN01sDg
+Message-ID: <CA+m4KrBqx-_TmWWcoGrYVpGwspxkxWXZ8eOmrT4kfHZECN117A@mail.gmail.com>
+Subject: [PATCH v1 2/2] usb: typec: ucsi: gaokun: Defer missing USB events per connector
 To: Pengyu Luo <mitltlatltl@gmail.com>, 
 	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-A failed port-register read returns the same sentinel as an empty update
-mask. The USB notification handler then acknowledges an update even
-though it has no valid register contents. Refresh also overwrites the
-port count that bounds the array allocated at probe.
+The EC IRQ thread dispatches both connector and USB events through a
+blocking notifier. Waiting in the connector callback holds up the IRQ
+thread that would deliver the USB event. The first USB event also
+completes every port's wait, and those completions are never rearmed.
 
-Check the initial port count against the register layout and retain that
-count for the lifetime of the device. Reject inconsistent counts and
-out-of-range mask bits before updating a port. Return a connector number
-for a valid update, zero for an empty mask, or a negative error.
+Schedule the existing two-second fallback on a freezable workqueue and
+return from the notifier. Track each connector independently. A USB
+update cancels only the matching fallback. A newer connector change
+moves its deadline even if the older worker is already running.
 
-Keep the empty acknowledgment for a genuine USB event. When handling a
-connector timeout, consume an update only if it belongs to that connector.
+Serialize mode updates and acknowledgments from the two paths. Stop
+notifications and drain per-port work before unregistering UCSI.
 
 Fixes: 00327d7f2c8c ("usb: typec: ucsi: add Huawei Matebook E Go ucsi driver")
 Signed-off-by: Lee Youngjoon <getfeus@gmail.com>
 ---
- drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c | 55 +++++++++++++--------
- 1 file changed, 35 insertions(+), 20 deletions(-)
+ drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c | 99 ++++++++++++---------
+ 1 file changed, 58 insertions(+), 41 deletions(-)
 
 diff --git a/drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c
 b/drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c
-index 56f8bbab9..d4c66de48 100644
+index d4c66de48..9b51b60b2 100644
 --- a/drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c
 +++ b/drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c
-@@ -273,23 +273,29 @@ static void gaokun_ucsi_port_update(struct
-gaokun_ucsi_port *port,
- 	spin_unlock_irqrestore(&port->lock, flags);
- }
+@@ -8,9 +8,10 @@
+ #include <drm/bridge/aux-bridge.h>
+ #include <linux/auxiliary_bus.h>
+ #include <linux/bitops.h>
+-#include <linux/completion.h>
+ #include <linux/container_of.h>
++#include <linux/jiffies.h>
+ #include <linux/module.h>
++#include <linux/mutex.h>
+ #include <linux/notifier.h>
+ #include <linux/of.h>
+ #include <linux/platform_data/huawei-gaokun-ec.h>
+@@ -19,13 +20,15 @@
+ #include <linux/usb/typec_altmode.h>
+ #include <linux/usb/typec_dp.h>
+ #include <linux/usb/typec_mux.h>
+-#include <linux/workqueue_types.h>
++#include <linux/workqueue.h>
 
--static int gaokun_ucsi_refresh(struct gaokun_ucsi *uec)
-+/* Return a one-based connector number, zero for an empty mask, or an errno. */
-+static int gaokun_ucsi_refresh(struct gaokun_ucsi *uec, int expected)
- {
--	struct gaokun_ucsi_reg ureg;
-+	struct gaokun_ucsi_reg reg;
- 	int ret, idx;
+ #include "ucsi.h"
 
--	ret = gaokun_ec_ucsi_get_reg(uec->ec, &ureg);
-+	ret = gaokun_ec_ucsi_get_reg(uec->ec, &reg);
- 	if (ret)
--		return GAOKUN_UCSI_NO_PORT_UPDATE;
-+		return ret < 0 ? ret : -EIO;
-+	if (reg.num_ports != uec->num_ports)
-+		return -EIO;
+ #define EC_EVENT_UCSI	0x21
+ #define EC_EVENT_USB	0x22
 
--	uec->num_ports = ureg.num_ports;
--	idx = GET_IDX(ureg.port_updt);
-+	if (!reg.port_updt)
-+		return 0;
-+	if (reg.port_updt & ~(BIT(reg.num_ports) - 1))
-+		return -EPROTO;
++#define USB_EVENT_TIMEOUT	(2 * HZ)
++
+ #define GAOKUN_CCX_MASK		GENMASK(1, 0)
+ #define GAOKUN_MUX_MASK		GENMASK(3, 2)
 
--	if (idx < 0 || idx >= ureg.num_ports)
--		return GAOKUN_UCSI_NO_PORT_UPDATE;
-+	idx = expected >= 0 ? expected : GET_IDX(reg.port_updt);
-+	if (idx < 0 || idx >= uec->num_ports || !(reg.port_updt & BIT(idx)))
-+		return -ENODATA;
+@@ -77,7 +80,9 @@ struct gaokun_ucsi_reg {
+ } __packed;
 
--	gaokun_ucsi_port_update(&uec->ports[idx], ureg.port_data);
--	return idx;
-+	gaokun_ucsi_port_update(&uec->ports[idx], reg.port_data);
-+	return idx + 1;
- }
+ struct gaokun_ucsi_port {
+-	struct completion usb_ack;
++	struct delayed_work usb_fallback;
++	unsigned long usb_fallback_deadline;
++	bool usb_fallback_pending;
+ 	spinlock_t lock; /* serializing port resource access */
 
- static void gaokun_ucsi_handle_usb_mode(struct gaokun_ucsi_port *port)
-@@ -324,20 +330,20 @@ static void gaokun_ucsi_handle_usb_mode(struct
+ 	struct gaokun_ucsi *ucsi;
+@@ -102,6 +107,7 @@ struct gaokun_ucsi {
+ 	struct gaokun_ucsi_port *ports;
+ 	struct device *dev;
+ 	struct delayed_work work;
++	struct mutex usb_lock; /* serialize EC mode and PAN operations */
+ 	struct notifier_block nb;
+ 	u16 version;
+ 	u8 num_ports;
+@@ -330,56 +336,63 @@ static void gaokun_ucsi_handle_usb_mode(struct
 gaokun_ucsi_port *port)
  	gaokun_ec_ucsi_pan_ack(uec->ec, port->idx);
  }
 
--static void gaokun_ucsi_usb_notify_ind(struct gaokun_ucsi *uec)
-+static void gaokun_ucsi_usb_notify_ind(struct gaokun_ucsi *uec, int expected)
+-static void gaokun_ucsi_usb_notify_ind(struct gaokun_ucsi *uec, int expected)
++static void gaokun_ucsi_usb_event(struct gaokun_ucsi *uec)
  {
--	int idx;
-+	int num;
++	struct gaokun_ucsi_port *port;
+ 	int num;
 
- 	if (!uec->ucsi->connector) { /* slow to register */
- 		dev_err_ratelimited(uec->dev, "ucsi connector is not initialized yet\n");
+-	if (!uec->ucsi->connector) { /* slow to register */
+-		dev_err_ratelimited(uec->dev, "ucsi connector is not initialized yet\n");
++	guard(mutex)(&uec->usb_lock);
++	if (!READ_ONCE(uec->ucsi->connector))
  		return;
- 	}
+-	}
 
--	idx = gaokun_ucsi_refresh(uec);
--	if (idx == GAOKUN_UCSI_NO_PORT_UPDATE)
--		gaokun_ec_ucsi_pan_ack(uec->ec, idx); /* ack directly if no update */
--	else
--		gaokun_ucsi_handle_usb_mode(&uec->ports[idx]);
-+	num = gaokun_ucsi_refresh(uec, expected);
-+	if (!num && expected == GAOKUN_UCSI_NO_PORT_UPDATE)
-+		gaokun_ec_ucsi_pan_ack(uec->ec, GAOKUN_UCSI_NO_PORT_UPDATE);
-+	else if (num > 0)
-+		gaokun_ucsi_handle_usb_mode(&uec->ports[num - 1]);
+-	num = gaokun_ucsi_refresh(uec, expected);
+-	if (!num && expected == GAOKUN_UCSI_NO_PORT_UPDATE)
++	num = gaokun_ucsi_refresh(uec, GAOKUN_UCSI_NO_PORT_UPDATE);
++	if (!num)
+ 		gaokun_ec_ucsi_pan_ack(uec->ec, GAOKUN_UCSI_NO_PORT_UPDATE);
+-	else if (num > 0)
+-		gaokun_ucsi_handle_usb_mode(&uec->ports[num - 1]);
++	if (num <= 0)
++		return;
++
++	port = &uec->ports[num - 1];
++	gaokun_ucsi_handle_usb_mode(port);
++	port->usb_fallback_pending = false;
++	cancel_delayed_work(&port->usb_fallback);
  }
 
- /*
-@@ -366,10 +372,13 @@ static void
-gaokun_ucsi_handle_no_usb_event(struct gaokun_ucsi *uec, int idx)
+-/*
+- * When inserting, 2 UCSI events(connector change) are followed by USB events.
+- * If we received one USB event, that means USB events are not blocked, so we
+- * can complelte for all ports, and we should signal all events.
+- */
+-static void gaokun_ucsi_complete_usb_ack(struct gaokun_ucsi *uec)
++static void gaokun_ucsi_usb_fallback(struct work_struct *work)
+ {
+-	struct gaokun_ucsi_port *port;
+-	int idx = 0;
++	struct gaokun_ucsi_port *port =
++		container_of(to_delayed_work(work), struct gaokun_ucsi_port, usb_fallback);
++	struct gaokun_ucsi *uec = port->ucsi;
++	unsigned long now;
+
+-	while (idx < uec->num_ports) {
+-		port = &uec->ports[idx++];
+-		if (!completion_done(&port->usb_ack))
+-			complete_all(&port->usb_ack);
++	guard(mutex)(&uec->usb_lock);
++	if (!port->usb_fallback_pending || !READ_ONCE(uec->ucsi->connector))
++		return;
++
++	/* A newer connector notification may have moved the deadline. */
++	now = jiffies;
++	if (time_before(now, port->usb_fallback_deadline)) {
++		mod_delayed_work(system_freezable_wq, &port->usb_fallback,
++				 port->usb_fallback_deadline - now);
++		return;
+ 	}
++
++	port->usb_fallback_pending = false;
++	if (gaokun_ucsi_refresh(uec, port->idx) > 0)
++		gaokun_ucsi_handle_usb_mode(port);
+ }
+
+-/*
+- * USB event is necessary for enabling altmode, the event should follow
+- * UCSI event, if not after timeout(this notify may be disabled somehow),
+- * then force to enable altmode.
+- */
+-static void gaokun_ucsi_handle_no_usb_event(struct gaokun_ucsi *uec, int idx)
++static void gaokun_ucsi_queue_usb_fallback(struct gaokun_ucsi *uec,
+unsigned int num)
  {
  	struct gaokun_ucsi_port *port;
 
-+	if (idx < 0 || idx >= uec->num_ports)
-+		return;
-+
- 	port = &uec->ports[idx];
- 	if (!wait_for_completion_timeout(&port->usb_ack, 2 * HZ)) {
- 		dev_warn(uec->dev, "No USB EVENT, triggered by UCSI EVENT");
--		gaokun_ucsi_usb_notify_ind(uec);
-+		gaokun_ucsi_usb_notify_ind(uec, idx);
- 	}
+-	if (idx < 0 || idx >= uec->num_ports)
++	if (!num || num > uec->num_ports || !READ_ONCE(uec->ucsi->connector))
+ 		return;
+
+-	port = &uec->ports[idx];
+-	if (!wait_for_completion_timeout(&port->usb_ack, 2 * HZ)) {
+-		dev_warn(uec->dev, "No USB EVENT, triggered by UCSI EVENT");
+-		gaokun_ucsi_usb_notify_ind(uec, idx);
+-	}
++	guard(mutex)(&uec->usb_lock);
++	port = &uec->ports[num - 1];
++	port->usb_fallback_deadline = jiffies + USB_EVENT_TIMEOUT;
++	port->usb_fallback_pending = true;
++	mod_delayed_work(system_freezable_wq, &port->usb_fallback, USB_EVENT_TIMEOUT);
  }
 
-@@ -383,7 +392,7 @@ static int gaokun_ucsi_notify(struct notifier_block *nb,
+ static int gaokun_ucsi_notify(struct notifier_block *nb,
+@@ -391,8 +404,7 @@ static int gaokun_ucsi_notify(struct notifier_block *nb,
+
  	switch (action) {
  	case EC_EVENT_USB:
- 		gaokun_ucsi_complete_usb_ack(uec);
--		gaokun_ucsi_usb_notify_ind(uec);
-+		gaokun_ucsi_usb_notify_ind(uec, GAOKUN_UCSI_NO_PORT_UPDATE);
+-		gaokun_ucsi_complete_usb_ack(uec);
+-		gaokun_ucsi_usb_notify_ind(uec, GAOKUN_UCSI_NO_PORT_UPDATE);
++		gaokun_ucsi_usb_event(uec);
  		return NOTIFY_OK;
 
  	case EC_EVENT_UCSI:
-@@ -411,8 +420,14 @@ static int gaokun_ucsi_ports_init(struct gaokun_ucsi *uec)
- 	int i, ret, num_ports;
- 	u32 port;
+@@ -402,7 +414,7 @@ static int gaokun_ucsi_notify(struct notifier_block *nb,
 
--	gaokun_ec_ucsi_get_reg(uec->ec, &ureg);
-+	ret = gaokun_ec_ucsi_get_reg(uec->ec, &ureg);
-+	if (ret)
-+		return ret < 0 ? ret : -EIO;
- 	num_ports = ureg.num_ports;
-+	if (!num_ports || num_ports > ARRAY_SIZE(ureg.port_data) / 2)
-+		return -EINVAL;
-+	uec->num_ports = num_ports;
+ 		ucsi_notify_common(uec->ucsi, cci);
+ 		if (UCSI_CCI_CONNECTOR(cci))
+-			gaokun_ucsi_handle_no_usb_event(uec, UCSI_CCI_CONNECTOR(cci) - 1);
++			gaokun_ucsi_queue_usb_fallback(uec, UCSI_CCI_CONNECTOR(cci));
+
+ 		return NOTIFY_OK;
+
+@@ -437,7 +449,7 @@ static int gaokun_ucsi_ports_init(struct gaokun_ucsi *uec)
+ 		ucsi_port->ccx = USBC_CCX_NONE;
+ 		ucsi_port->idx = i;
+ 		ucsi_port->ucsi = uec;
+-		init_completion(&ucsi_port->usb_ack);
++		INIT_DELAYED_WORK(&ucsi_port->usb_fallback, gaokun_ucsi_usb_fallback);
+ 		spin_lock_init(&ucsi_port->lock);
+ 	}
+
+@@ -523,6 +535,7 @@ static int gaokun_ucsi_probe(struct auxiliary_device *adev,
+ 	uec->version = UCSI_VERSION_1_0;
+ 	uec->nb.notifier_call = gaokun_ucsi_notify;
+
++	mutex_init(&uec->usb_lock);
+ 	INIT_DELAYED_WORK(&uec->work, gaokun_ucsi_register_worker);
+
+ 	ret = gaokun_ucsi_ports_init(uec);
+@@ -548,10 +561,14 @@ static void gaokun_ucsi_remove(struct
+auxiliary_device *adev)
+ 	int i;
+
+ 	disable_delayed_work_sync(&uec->work);
+-	if (uec->registered) {
++	if (uec->registered)
+ 		gaokun_ec_unregister_notify(uec->ec, &uec->nb);
 +
- 	uec->ports = devm_kzalloc_objs(dev, *uec->ports, num_ports);
- 	if (!uec->ports)
- 		return -ENOMEM;
++	for (i = 0; i < uec->num_ports; i++)
++		disable_delayed_work_sync(&uec->ports[i].usb_fallback);
++
++	if (uec->registered)
+ 		ucsi_unregister(uec->ucsi);
+-	}
+
+ 	for (i = 0; i < uec->num_ports; ++i)
+ 		typec_mux_put(uec->ports[i].typec_mux);
