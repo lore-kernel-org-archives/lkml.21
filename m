@@ -1,53 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795719546;
-	b=wdyrgFnw5FY6IdMCmHci7myd/DJoAu6NpMGycAUnxjWc/95gnKgHcBe+q9ETCDXtKjtb
-	 Vl5BuCS51wZuvUZDH4+/mCVTFpGFx73dbTozRcfLwKxiY4kPB2+cS8xZ28Ep37z4A5DIm
-	 M/XQ1t2pLqR6sKjfOM9Afk6MeDuYPkWY7W2/uLO2GG2bZs27IVrW0k4BNrWTTl4fgDIk1
-	 07puO+3pTwFB+6N7xT6ITEPCHEq8qR+yh7msU3OVzLxBEMbr2nvAXLCNOyO3Vu8TFLB2w
-	 4vDS2hebUE2PsZV5BWN6wrobMCCpQ7ouCWOxBXSEmL24nMrLjUPnsEDBpoKzv12nFBg==
+	t=1795719602;
+	b=AsukJouMMK9gdXLTJRPMSKU6EprLqFi3P46ev1TkxfhwiiYn+zrpg7Fue4pyVwNJwTG5
+	 5C7GNRHr9Sz7cscPFB8hJ/bbv5Np6WzGfffRDJiAquuVQQIrGqyeQmS926Qn/CCzag1vZ
+	 RLSO5wdpDNKbaBZVoJHcju56d5sg8tK79Czfv26Vf8VxorsPpgWwtbEV92rkDzuHa/phT
+	 J+xADmiJPr0z9G4E/nMoWQEEbGzz+DmohDoxFFiCSj4cFE92P1PaHRElCYq6SxCEvXMnK
+	 82GyXHQ6q31YeDzSe9AeuP7hYg8qc4Z8lhBUchF/YS5sVZMul9xlOXtR0JBin7FxTUw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795719546;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=7TLKfvlvT+MRkWP8crbenCPFrE3NXdE6ME678FECuzQ=;
-	b=DeRNlBAfwkBKOejlDjQgvMQBHZGaN4+N8Y9j6IoZwEBW9EtFeCVHdwDihp+KDfP2ebJa
-	 qbukvFK6BPfBYNJmkv0P2+6EBN9IUAmLIU6hMWeODJVOH/5J4Qh6b1Hh3lajmyrXJbey0
-	 AhPpIw/EPVCPo/RNug0MT3szUdiR4lSRReHumE0U39KEWCB4NQhhG0ulUYLWa945rh18J
-	 BC0StqR1jIjDe6BKyXcJf8FkwXLbiCcIc4OPTlYyfLbPKyOFu8CihkewWNCNxtnLpLgVU
-	 5n4PugizXFlZhpB8UtVrXDYKjVHlYld+tzZdmxvZ7DmOfRXHJB7gPz1yN9Our6s+Fuw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795719602;
+	h=DMARC-Filter:DKIM-Signature:X-Pm-Submission-Id:From:To:Cc:Date:
+	 Subject:Message-ID:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=whyYBFaRg7vM5AgWVPAf0VahbrPtCCLkEesp43DsjqQ=;
+	b=SDeMDv9O2Ek30op1clpq2yGDCGCc36KhdwIMc22Sj6JGahgndVBssZdAs+MtGpTJP5BN
+	 NlarS+wB3P6ZG+HV3XrxcckQmcLd0J5a7hULxbXgHVZj9NPu8aBWggaWG0TJ9PPOJjmCp
+	 +5hkSTRwvXSz1LQgCzGksnVqyMguJs0IE9nVimIQ3xDg/fb0abWXCcNMBz8QO+Mr1bkdf
+	 PIyoJnx7hk6SZBOeIAN1TR0mSKRD0MUAJ9gImRPJz7elwkMP8ZPj6J5ZT0akUF6lGp9Jy
+	 adNqCuKZWPmEroIy/QTocrlFdXDVHWi1QEELeGz8fQJDd7QKePMFmqOZn8kj66O1g9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U3uTbs5R;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=michaelmcallister.org;
+	spf=pass smtp.mailfrom=michaelmcallister.org;
+	dkim=pass header.d=michaelmcallister.org header.i=@michaelmcallister.org header.a=rsa-sha256 header.s=protonmail2 header.b="QmgCDZj/";
+	arc=none smtp.remote-ip=185.70.43.171
+Received: from mail-43171.protonmail.ch (mail-43171.protonmail.ch [185.70.43.171])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D65E3606A31C;
-	Thu, 26 Nov 2026 18:59:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD544606A32A
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:00:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD544606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=michaelmcallister.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=michaelmcallister.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U3uTbs5R
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A8391F000C4;
-	Thu, 26 Nov 2026 18:59:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795719546;
-	bh=7TLKfvlvT+MRkWP8crbenCPFrE3NXdE6ME678FECuzQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=U3uTbs5RLsa5K1jF1D5NTXQyCYB6MtmX19bRIW6SocYMvoB5oK2FtpzI3kxaP2Uii
-	 AJUEBZRkmPv4L+vZmgRSgCT5qNxA0AI1oWn5hpxN+TfuANreLPHy4bdShUQ0ATk3oE
-	 np2+8QH5chPeXe/QXlE3VZ56iQ0dymsVstpM5WsYewfPXWimlX+yd6R5bGwveBcps4
-	 FNAtVR31GPI7z6S2QE1yEXwvzo0cpob4Kgm15dJnbMwZYX0XqZFahNvqeFbKe3SCIS
-	 74D00Uc2BTf1lL4SjR4eKDphSyB1iOh6YgpJiENBGBOzWXV0NADhoqB8QrEvHBBByH
-	 ZmvFU40zXPLxw==
-Date: Thu, 26 Nov 2026 20:59:02 +0200
-From: Leon Romanovsky <leon@kernel.org>
-To: Mahanta Jambigi <mjambigi@linux.ibm.com>
-Cc: linux-rdma@vger.kernel.org, Jason Gunthorpe <jgg@ziepe.ca>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH rdma-next] RDMA/mlx5: Read the CQ consumer index under
- cq->lock when arming
-Message-ID: <20261126185902.GW774860@unreal>
-References: <20261125084054.1349677-1-mjambigi@linux.ibm.com>
+	dkim=pass (2048-bit key, unprotected) header.d=michaelmcallister.org header.i=@michaelmcallister.org header.a=rsa-sha256 header.s=protonmail2 header.b=QmgCDZj/
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=michaelmcallister.org; s=protonmail2; t=1795719599; x=1795978799;
+	bh=whyYBFaRg7vM5AgWVPAf0VahbrPtCCLkEesp43DsjqQ=;
+	h=From:To:Cc:Date:Subject:Message-ID:In-Reply-To:References:From:To:
+	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=QmgCDZj/m7tbtM278xysX2kjWvUTUrdv/K+i+aRJmkQE6ofnp61zKnLi08lnZ7117
+	 +XWKetSWyCrANrkm4XImz/lYhCUvt+6zyGEtgIuYdHQ0ZI2rVT3Iq21JCsUDMq++iW
+	 ky+GL0UgPCd8w831XMQLgA7JRT6Bg9KkysXr/QIcb7Wuudv6V/Xgqw2/axK0Qve32I
+	 jR5F8h3B7pcMhBpArVThTcoYYgtnK+KkeS2gCjuRTbu67uulNvy7rbcMzw1s0H5scb
+	 8CZAaLYIiHJ5TEt73ReFdMCYDfboBghy2JM5yuHqt7Uq4qCANz9ytrTzHmdqsjDR7W
+	 YrF8ZNGXRJnzA==
+X-Pm-Submission-Id: 4jb5T91Gqfz2ScXX
+From: Michael McAllister <me@michaelmcallister.org>
+To: marcel@holtmann.org, luiz.dentz@gmail.com
+Cc: brgl@kernel.org, enderaoelyther@gmail.com, linux-arm-msm@vger.kernel.org,
+ linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
+ lumag@kernel.org, markus.probst@posteo.de, mka@chromium.org,
+ phone-devel@vger.kernel.org, quic_bgodavar@quicinc.com,
+ shuai.zhang@oss.qualcomm.com, zhaojinming@uniontech.com,
+ me@michaelmcallister.org
+Date: Thu, 26 Nov 2026 18:59:41 +0000
+Subject: [PATCH v4 0/4] Bluetooth: qca: Power off WCN3950 safely
+Message-ID: <179571958163.81221.3368253997777320112.wcn3950-poweroff-v4-0@michaelmcallister.org>
+In-Reply-To: <hvwqozj3r7n7igxw5qogu7xxya4fkhqanb334sroj37ufzdizu@qarvtlkkulmj>
+References: <179484638195.54009.1916641645532262287.wcn3950-poweroff-v3-0@michaelmcallister.org>
+ <hvwqozj3r7n7igxw5qogu7xxya4fkhqanb334sroj37ufzdizu@qarvtlkkulmj>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,70 +70,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125084054.1349677-1-mjambigi@linux.ibm.com>
 
-On Wed, Nov 25, 2026 at 09:40:54AM +0100, Mahanta Jambigi wrote:
-> mlx5_ib_arm_cq() reads cq->mcq.cons_index after dropping cq->lock, while
-> the poll path advances the index under that lock. A ULP that arms the CQ
-> from process context while the completion tasklet polls races on the
-> index, as SMC-R does from smc_wr_tx_send():
-> 
->     BUG: KCSAN: data-race in mlx5_ib_arm_cq [mlx5_ib] / mlx5_poll_one
->     [mlx5_ib]
+Hi,
 
-Please add full non-trimmed dmesg stack trace to the commit message and
-resend.
+On my Moto G10, turning Bluetooth off leaves its four regulator votes
+enabled. This series adds the missing WCN3950 power-off handling and fixes
+the UART teardown ordering needed to send the pulse safely.
 
-Thanks
+I've split the unregister/TX fix out as requested and rebased these four
+patches onto the current Bluetooth tree, including Zhao's flush and close
+changes. This series depends on that standalone fix.
 
-> 
-> Read the index under cq->lock, which every writer of it already holds,
-> so the doorbell is programmed with a consistent value. A stale index can
-> only cause a spurious completion event, never a lost one.
-> 
-> Fixes: ce0f75093282 ("net/mlx5_core: Modify arm CQ in preparation for upcoming Ethernet driver")
-> Signed-off-by: Mahanta Jambigi <mjambigi@linux.ibm.com>
-> ---
-> Note: mlx5_cq_arm() also reads cq->arm_sn, which eq.c increments without
-> cq->lock. That pair is pre-existing and separate from the race fixed here;
-> this patch does not change it, and I have not analyzed what a stale sn
-> does to the arm protocol.
-> 
->  drivers/infiniband/hw/mlx5/cq.c | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/infiniband/hw/mlx5/cq.c b/drivers/infiniband/hw/mlx5/cq.c
-> index 55ffd7d4de51..8f4389b4eb6f 100644
-> --- a/drivers/infiniband/hw/mlx5/cq.c
-> +++ b/drivers/infiniband/hw/mlx5/cq.c
-> @@ -651,6 +651,7 @@ int mlx5_ib_arm_cq(struct ib_cq *ibcq, enum ib_cq_notify_flags flags)
->  	struct mlx5_ib_cq *cq = to_mcq(ibcq);
->  	void __iomem *uar_page = mdev->priv.bfreg.up->map;
->  	unsigned long irq_flags;
-> +	u32 cons_index;
->  	int ret = 0;
-> 
->  	spin_lock_irqsave(&cq->lock, irq_flags);
-> @@ -659,12 +660,16 @@ int mlx5_ib_arm_cq(struct ib_cq *ibcq, enum ib_cq_notify_flags flags)
-> 
->  	if ((flags & IB_CQ_REPORT_MISSED_EVENTS) && !list_empty(&cq->wc_list))
->  		ret = 1;
-> +	/* The poll path advances cons_index under cq->lock; take the
-> +	 * snapshot here so the doorbell sees a consistent index.
-> +	 */
-> +	cons_index = cq->mcq.cons_index;
->  	spin_unlock_irqrestore(&cq->lock, irq_flags);
-> 
->  	mlx5_cq_arm(&cq->mcq,
->  		    (flags & IB_CQ_SOLICITED_MASK) == IB_CQ_SOLICITED ?
->  		    MLX5_CQ_DB_REQ_NOT_SOL : MLX5_CQ_DB_REQ_NOT,
-> -		    uar_page, to_mcq(ibcq)->mcq.cons_index);
-> +		    uar_page, cons_index);
-> 
->  	return ret;
->  }
-> --
-> 2.39.2
-> 
+Tested as a module backport on my Moto G10 running 7.2.9: six Bluetooth
+off/on cycles and driver unbind/rebind with Bluetooth both off and on.
+The four regulator votes dropped to zero on every power-off, and Bluetooth
+came back on each time. One firmware download needed a retry and recovered;
+the original driver also needed retries in the same six-cycle test.
+
+Thanks,
+Michael
+
+Changes in v4:
+- Submit the unregister/TX fix separately from this series.
+- Rebase onto f57f78086ab5, retaining the merged flush and close fixes.
+- Move controller TX flushing into the standalone unregister fix.
+- The separate Marvell prerequisite from v3 is now upstream.
+
+v3: https://lore.kernel.org/179484638195.54009.1916641645532262287.wcn3950-poweroff-v3-0@michaelmcallister.org/
+
+Michael McAllister (4):
+  Bluetooth: hci_serdev: Track whether the serial port is open
+  Bluetooth: qca: Power off after unregistering the HCI device
+  Bluetooth: qca: Handle failed power-pulse writes
+  Bluetooth: qca: Power off WCN3950
+
+ drivers/bluetooth/hci_qca.c    | 34 +++++++++-----------------------
+ drivers/bluetooth/hci_serdev.c | 36 +++++++++++++++++++++++++++-------
+ drivers/bluetooth/hci_uart.h   |  3 +++
+ 3 files changed, 41 insertions(+), 32 deletions(-)
+
+
+base-commit: f57f78086ab54f3b3122fbaeba2c842ba7bb6d00
+prerequisite-patch-id: 4f7b2f10b0911886f60ec40656c453138c3570f0
+-- 
+2.39.5
+
