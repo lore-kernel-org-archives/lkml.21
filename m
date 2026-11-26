@@ -1,50 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795707015;
-	b=3rQtBStCh3D0ZLvRr7/WCJc/aDUZQDfsMDiPX+VVg/QEPp0dVB6dOrETQF2/qSZRVPuf
-	 f11D0cyN2hbZSVZclQWlsyQ5pEXBYlMxPdDc8mOzemNQANo13kWbw0ME6LIEMi9hdyAed
-	 u6Fhjy+QQ+6stFDrUcq7JEc2l6FhYK6tx4nCB7wHUfm/KkArt+ruT5Jke0mbHLqGGuNK0
-	 KhkwKYLNLm2HEEyiwho80Sstuqh0sawDR7B/2v0PQ++kL7GZMh1GJMXI510G+Zv8yZ5sP
-	 0zOZ3oWDLvKcZ1oaVyvmqF5o15IqkHmkcLWi+93tbwDcHB9IHQln4j+CxHVBTPXZLvw==
+	t=1795707019;
+	b=0KMhA7zciJpNkNVIqWDgow9cRjljs+nlROX+g6nOJtgXYJTVg0+bd1+Xl9NG6SaBdu1o
+	 6cVRu3/OkMo60txJSyQJuBC0uPfeJMRDJlirYDxSytVx7BAtUmPi+7+iVIrwxK1bZkdsN
+	 IRTVZJ8eEmJwoJQQPU/6BW3/Wl625mA03FDOkF/jMXTk+YUgr0ctvdih/cW6ghjcevX7n
+	 LwqpvmuNhpRtqxTbv2i5W0FN3pttc4JU5lXziJ2aC5qQTI02+qS+WXKNtk1M5rwOwUGMr
+	 EIH/xUrLzJ5RxTH+JbfIQgzqmdE+37iwpVdEvTSWBXmjqS4BZh5sV9mHacgxkaJfm7Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795707015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795707019;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=RUIuNtsNjFQRnriJiAaRNZkrS0anB54nAcvR+tqu5rQ=;
-	b=ImyRbPeTa1cpsluJmnCOIahluBRNtKFH2H/dsrEmKc3WcagdTK0oDUEwBv5ypdP3BJ+f
-	 Js0pfBwRY2sZqMcJL0Hgwnf2b2i+wVWQBvOuI2Mifom47Uz+lzSatIkDvZ/r8A0hgDzBl
-	 bCaTJk6JEuZO76JSFxwGegMREH0w8Ly4cupV6XoNWGtPjfc0g79kMRS0U9wSF8l7oXH+G
-	 XfLFTOnxQaNlhDjJYN02Vq0XRXPQ+3yF/gGhRQwX8J3SUPd5bvr9DJKIA3di17BjtkwZj
-	 YeqE/hJ5T3LVMutjxDg3dv7NMLoFSFt3Q4xItt4Cz//+g3oYPcBe7hXxCms2xp/ALZw==
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=j1wEUgRHOMt1lzx3ATdVUSt4N7lhwZheqjkl8TJ4K/M=;
+	b=wapabwUnJ7kRBCJRoKDPlAuNdRyDamtaGmvYTth6+Oup5YgDUAInvxgAXgI9qpsYuhPC
+	 3AkcfD3RDmXK5c1oBa6pt8vpFrAse6ugd7TnM4ccx8L0BZoRAREBq688/9jNmK5mz8OQr
+	 FLcNKwaL/wUUKMyD991Rq0IDUhQu4tHrf9Fh4testpVsSk1dDRlv9SzQzNkfbJeeq4Sdf
+	 XCyRvad5S8QDtCgtR93oOyMU/VP3Xy/uPctSS/ydG3qxwxc4QSbI8wmHBtYs61/fbQtDB
+	 toZ3gZrfR/WZQwGa5LULFsqeixT2TEmZReBaQC0bmcB6JJ2ntxRj0SIfSsWwopAPbcg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=hg4fjU83;
-	arc=none smtp.remote-ip=95.215.58.174
-Received: from mta1.migadu.com (out-174.mta1.migadu.com [95.215.58.174])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Xft87DKA;
+	arc=none smtp.remote-ip=95.215.58.182
+Received: from mta1.migadu.com (out-182.mta1.migadu.com [95.215.58.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDC43606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:30:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CDC43606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 400DF606A327
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:30:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 400DF606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=hg4fjU83
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Xft87DKA
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=mSefQdG9q8oprzWmA/cvxJZNWxrmJfpm9iiyYsB1lOk=;
+DKIM-Signature: a=rsa-sha256; bh=6ySozJ5Q5Zruo2czzzDALNozKUXg+IBeO4fucNOJgQg=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795707012; v=1; x=1796311812;
- b=hg4fjU83svUjZWYFR2PoA1S0U9h93QzMnlNyUDSxQZE1/bAazfq9KrzgKxlE/hDL2rvpVfNJ
- 7CRXsCjCZYEzIPlyPBOqdy7Y0UDnvSYqZbFQqXVUvcGSI08W9uuljNlk6DuADNBb3akwTV1z3aW
- ef7/sr/+cJUtF9M2yKs9e6nU=
+ t=1795707016; v=1; x=1796311816;
+ b=Xft87DKA14btX8V0W0k4VXEntslz8umdDXtjNRVmxsKGE+bWrmLuhpreQZ2U0B1S07ITErJ6
+ HOlVCB2fMdMoJsyuXJJFMXa+DnRZVMcxMJblKCNxisk0GgQxRO1Hb5ETwcVHJPrlhxGJOjWDSXm
+ YhmyCbdv/C96EaFRYkA7COBI=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 1524a602b15b02a6;
-	Thu, 26 Nov 2026 15:30:10 +0000
-X-Mizu-Trace-ID: 1524a602b15b02a6
+Received: by smtp.migadu.com with ESMTPS id 4ae66caffb760c9d;
+	Thu, 26 Nov 2026 15:30:15 +0000
+X-Mizu-Trace-ID: 4ae66caffb760c9d
 X-Migadu-Flow: FLOW_OUT
 From: Leon Hwang <leon.hwang@linux.dev>
 To: stable@vger.kernel.org,
@@ -54,11 +55,16 @@ Cc: Alexei Starovoitov <ast@kernel.org>,
 	Andrii Nakryiko <andrii@kernel.org>,
 	bpf@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Leon Hwang <leon.hwang@linux.dev>
-Subject: [PATCH linux-6.12.y 0/4] bpf: Fix interpreter-unsupported insns
-Date: Thu, 26 Nov 2026 15:29:58 +0000
-Message-ID: <20261126153002.162337-1-leon.hwang@linux.dev>
+	Tiezhu Yang <yangtiezhu@loongson.cn>,
+	KaFai Wan <kafai.wan@linux.dev>,
+	Leon Hwang <leon.hwang@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>
+Subject: [PATCH linux-6.12.y 1/4] bpf: Introduce jit_required flag and remove bpf_prog_has_kfunc_call()
+Date: Thu, 26 Nov 2026 15:29:59 +0000
+Message-ID: <20261126153002.162337-2-leon.hwang@linux.dev>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261126153002.162337-1-leon.hwang@linux.dev>
+References: <20261126153002.162337-1-leon.hwang@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,38 +76,145 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Request from Guillaume and Vincent [1][2], backport the following commits to
-linux-6.12.y with editing the commits manually.
+From: Tiezhu Yang <yangtiezhu@loongson.cn>
 
-9a6df65d5c6a ("bpf: Introduce jit_required flag and remove bpf_prog_has_kfunc_call()")
-f1c27922576e ("bpf: Reject programs with inlined helpers if JIT is not available")
-34746b5a84ec ("bpf: Disallow interpreter fallback for arena-related insns")
-7a0855e73757 ("bpf: Disallow interpreter fallback for BPF_ADDR_PERCPU insn")
+[ Upstream commit 9a6df65d5c6a9947ddab4e563e329720f44b8747 ]
 
-As there was a big code refactoring in linux 7.1, the changes in the new
-file kernel/bpf/fixups.c will be backported to the positions in
-kernel/bpf/verifier.c.
+Introduce a 'jit_required' bitfield flag in struct bpf_prog to track
+whether a BPF program strictly requires the JIT compiler to run. This
+prevents a dangerous runtime fallback to the interpreter for features
+that are only implemented in the JIT compiler.
 
-Patch 1 introduces a new bit 'jit_required' in struct bpf_prog. The
-other patches set 'jit_required' to fix the issues.
+Currently, bpf_prog_has_kfunc_call() is used only for kernel function
+calls, replace the kfunc-specific helper with the new 'jit_required'
+flag. This makes it easy to support other JIT-only BPF features, such
+as inlined helpers.
 
-Links:
-[1] https://lore.kernel.org/bpf/BESPR02MB12296D62B1B3F33BA21C4F24AF1432@BESPR02MB12296.eurprd02.prod.outlook.com/
-[2] https://lore.kernel.org/bpf/MR1P264MB331494502C9D13D8A9EAFB99B7E82@MR1P264MB3314.FRAP264.PROD.OUTLOOK.COM/
-
-Leon Hwang (2):
-  bpf: Disallow interpreter fallback for arena-related insns
-  bpf: Disallow interpreter fallback for BPF_ADDR_PERCPU insn
-
-Tiezhu Yang (2):
-  bpf: Introduce jit_required flag and remove bpf_prog_has_kfunc_call()
-  bpf: Reject programs with inlined helpers if JIT is not available
-
- include/linux/bpf.h   | 22 +++++++++++++++-------
+Suggested-by: Alexei Starovoitov <ast@kernel.org>
+Suggested-by: KaFai Wan <kafai.wan@linux.dev>
+Suggested-by: Leon Hwang <leon.hwang@linux.dev>
+Acked-by: Leon Hwang <leon.hwang@linux.dev>
+Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+Signed-off-by: Eduard Zingerman <eddyz87@gmail.com>
+[edit]
+  Adapt the bpf_fixup_call_args() change to fixup_call_args() in
+  kernel/bpf/verifier.c, and the __bpf_prog_select_runtime() change to
+  bpf_prog_select_runtime() in kernel/bpf/core.c.
+Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
+---
+ include/linux/bpf.h   |  9 ++-------
  kernel/bpf/core.c     |  7 ++-----
- kernel/bpf/verifier.c | 21 ++++++++++++---------
- 3 files changed, 29 insertions(+), 21 deletions(-)
+ kernel/bpf/verifier.c | 12 ++++--------
+ 3 files changed, 8 insertions(+), 20 deletions(-)
 
---
+diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+index f43aa1cd1b0b..d4a9108594bf 100644
+--- a/include/linux/bpf.h
++++ b/include/linux/bpf.h
+@@ -1585,8 +1585,9 @@ struct bpf_prog_aux {
+ 
+ struct bpf_prog {
+ 	u16			pages;		/* Number of allocated pages */
+-	u16			jited:1,	/* Is our filter JIT'ed? */
++	u32			jited:1,	/* Is our filter JIT'ed? */
+ 				jit_requested:1,/* archs need to JIT the prog */
++				jit_required:1, /* program strictly requires JIT compiler */
+ 				gpl_compatible:1, /* Is filter GPL compatible? */
+ 				cb_access:1,	/* Is control block accessed? */
+ 				dst_needed:1,	/* Do we need dst entry? */
+@@ -2682,7 +2683,6 @@ const struct bpf_func_proto *bpf_base_func_proto(enum bpf_func_id func_id,
+ 						 const struct bpf_prog *prog);
+ void bpf_task_storage_free(struct task_struct *task);
+ void bpf_cgrp_storage_free(struct cgroup *cgroup);
+-bool bpf_prog_has_kfunc_call(const struct bpf_prog *prog);
+ const struct btf_func_model *
+ bpf_jit_find_kfunc_model(const struct bpf_prog *prog,
+ 			 const struct bpf_insn *insn);
+@@ -2951,11 +2951,6 @@ static inline void bpf_task_storage_free(struct task_struct *task)
+ {
+ }
+ 
+-static inline bool bpf_prog_has_kfunc_call(const struct bpf_prog *prog)
+-{
+-	return false;
+-}
+-
+ static inline const struct btf_func_model *
+ bpf_jit_find_kfunc_model(const struct bpf_prog *prog,
+ 			 const struct bpf_insn *insn)
+diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
+index 6bc3dc998ae1..6dce9b4cf0df 100644
+--- a/kernel/bpf/core.c
++++ b/kernel/bpf/core.c
+@@ -122,6 +122,7 @@ struct bpf_prog *bpf_prog_alloc_no_stats(unsigned int size, gfp_t gfp_extra_flag
+ 	fp->aux = aux;
+ 	fp->aux->prog = fp;
+ 	fp->jit_requested = ebpf_jit_enabled();
++	fp->jit_required = IS_ENABLED(CONFIG_BPF_JIT_ALWAYS_ON);
+ 	fp->blinding_requested = bpf_jit_blinding_enabled(fp);
+ #ifdef CONFIG_CGROUP_BPF
+ 	aux->cgroup_atype = CGROUP_BPF_ATTACH_TYPE_INVALID;
+@@ -2529,15 +2530,11 @@ struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err)
+ 	/* In case of BPF to BPF calls, verifier did all the prep
+ 	 * work with regards to JITing, etc.
+ 	 */
+-	bool jit_needed = false;
++	bool jit_needed = fp->jit_required;
+ 
+ 	if (fp->bpf_func)
+ 		goto finalize;
+ 
+-	if (IS_ENABLED(CONFIG_BPF_JIT_ALWAYS_ON) ||
+-	    bpf_prog_has_kfunc_call(fp))
+-		jit_needed = true;
+-
+ 	if (!bpf_prog_select_interpreter(fp))
+ 		jit_needed = true;
+ 
+diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+index ecd8595bd545..a9fe21072c0a 100644
+--- a/kernel/bpf/verifier.c
++++ b/kernel/bpf/verifier.c
+@@ -2961,6 +2961,8 @@ static int add_kfunc_call(struct bpf_verifier_env *env, u32 func_id, s16 offset)
+ 		prog_aux->kfunc_tab = tab;
+ 	}
+ 
++	env->prog->jit_required = 1;
++
+ 	/* func_id == 0 is always invalid, but instead of returning an error, be
+ 	 * conservative and wait until the code elimination pass before returning
+ 	 * error, so that invalid calls that get pruned out can be in BPF programs
+@@ -3069,11 +3071,6 @@ static void sort_kfunc_descs_by_imm_off(struct bpf_prog *prog)
+ 	     kfunc_desc_cmp_by_imm_off, NULL);
+ }
+ 
+-bool bpf_prog_has_kfunc_call(const struct bpf_prog *prog)
+-{
+-	return !!prog->aux->kfunc_tab;
+-}
+-
+ const struct btf_func_model *
+ bpf_jit_find_kfunc_model(const struct bpf_prog *prog,
+ 			 const struct bpf_insn *insn)
+@@ -20860,7 +20857,6 @@ static int fixup_call_args(struct bpf_verifier_env *env)
+ #ifndef CONFIG_BPF_JIT_ALWAYS_ON
+ 	struct bpf_prog *prog = env->prog;
+ 	struct bpf_insn *insn = prog->insnsi;
+-	bool has_kfunc_call = bpf_prog_has_kfunc_call(prog);
+ 	int i, depth;
+ #endif
+ 	int err = 0;
+@@ -20874,8 +20870,8 @@ static int fixup_call_args(struct bpf_verifier_env *env)
+ 			return err;
+ 	}
+ #ifndef CONFIG_BPF_JIT_ALWAYS_ON
+-	if (has_kfunc_call) {
+-		verbose(env, "calling kernel functions are not allowed in non-JITed programs\n");
++	if (prog->jit_required) {
++		verbose(env, "program requires BPF JIT compiler but it is not available\n");
+ 		return -EINVAL;
+ 	}
+ 	if (env->subprog_cnt > 1 && env->prog->aux->tail_call_reachable) {
+-- 
 2.55.0
 
