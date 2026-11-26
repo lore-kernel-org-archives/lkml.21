@@ -1,79 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795685869;
-	b=zRrUDwiZIjO3I2kO/MuTmknZuEe7VSBuXT/wRCX+xYqQUuM9MsnPH+WVhNU94ivReegT
-	 9FOAyncTLYjkNd0DrKcAB1iZFULIhlXVMLxrLVp36lnM54EwNauDYYLMPartmTbNPw8oi
-	 E0nTZQJgGHZbsuDVIgyeADNPGg7fcaM+4CMi4fJ7zUGVGVqAk/B8kkCoiigMC8Bv5HiG7
-	 EpDi1p+VmSbpxogeHlygsvGtmo552/f7lWUZhB430BdV/nAhu+tNHwukE3CvJPMOCYPRo
-	 r4s9hmjameIDDFoLy20m9iy0mplo8iAFYW/GzPAwI1SXMI8wzdGnV5qBT/rZ10vFNrw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795685869;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=GG/w7h2FW12TWaQgOdgTi4664j2z5J2KKWC6RdlXPaI=;
-	b=DaW576IR1XDjAyG1GstxSrWwcB+96Sfp1GtlI5OzRABtKO9Z823pmxEznV/sib1idKRg
-	 7UAXOC1mmuVAzVvD9oWdS/hMaB7fJkryIdcNpu+cMk7yWfP22r8FdbZw1A1XLvJyzr4U+
-	 81XTbBfempxl1uxJh/ySfOT/NtbsfASlX/QDdNO6p0bry2cvpJvamJQTmaalp++25nfjD
-	 /mc2xVy0RTxzIPxy7R6wvXdAcGOXB8u0Y2h5sUpyDRyPtFMTwPdAyY0i3M4ymzswm+t+X
-	 2KASXwwFrl3IEXjnF+9YfBvwE4Z26bj1TQGiyMQ5+UK82Qs06YLyo4iZl4N+O8ueJHg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HdCfrgBE;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B33A460A380B
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:37:49 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HdCfrgBE
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795685869;
-	b=s9fFUi6nBwAtBNYxZvmZVU7bZu18iR5tvd8vWXlocXVy7+PZMsAuiLh+NMw+Vqhp0VSz
-	 DqtXKF+NkbJhM1sKhkmwROTs0Wyi8k/b1VohN3mPPWnufqNaKGKYu77zOYWzW9lbV9xq/
-	 3V7OuvAqk5tXFR6AbqzqR2ODZuUQDaPdWt8QlEYEnV/k3DuHH+IsZjiTCAUaNE3Q/Mxla
-	 jvnt4r0bzbwO2XeeQnM29dr7rUy4vblwvLTsaVM5EiduH15Mi5zf1Qc4FJ3Zq809xWekS
-	 eqHMgrgoZSIEH4mFspaMeYBFEPQrqrIbquLw7mK/SBcltMt6sz6exoVX8k0nILlr15Q==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795685869;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=GG/w7h2FW12TWaQgOdgTi4664j2z5J2KKWC6RdlXPaI=;
-	b=SBqnKvTnunn83x5juPbPlDX6KJNGawnVtNnW04ORNWWV6IQoQJhhUtKjZc7ZcS+f7dKi
-	 GXF3DmPSPN9v6L3Zfq1pOAMO7SyOrYPcOcJ7S2Zv+Lf9NnumdS1Lf6NImeo6TobINQ/KJ
-	 UU5av+9o4VWhFoZYjlNsGM/nfNMyhw7Wp6SBZ1T5oeCuaa9p3WgYvjEpmckCP1FI6heBc
-	 2H4xOHLCKzGt1LyxLD69qC4xTwBJbZqOOKhN5LnQOV2pjb75tufU80c5YwMjinC5VXq3E
-	 KIPy/dkaTYNQNi+F33OASOfxKKDEmu7A0iUM+OO3joYk6B+8cuJKjVc7ZIcZNNDw8XA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795685886;
+	b=VHD/8xNOD+gejv/Atr98aVkCqlS09ls9pOegiViCKVVOf9ApLGiY6iLKntg3CYlyA1tm
+	 7HuhA//4U2geHZGIUda5w6ONHSJRcCEOhvgBXm78moFkii0f5iYDdRN10bqxamb2lt98H
+	 gVQAMjbbcWJMqOPMjIyj+64wPnCKpOBzGbFJbIO6J6f4ZLJr3mAitn/YKWJEZDsCZqfei
+	 uQcHQCSPruEbxFNhu6zL1Zd3mdPOXNHlLKHyJL/rMYnPRL9ZlTkgpSf/4Tg+7UTwBjb5z
+	 0mafvexuqfzzsz6rmf1DQVPOAAX+mKAUZ607XoCUWln5WfHo6uNpK2sR/39hsKdORNg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795685886;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=P96TXcMA23WG6JolthiehBkQWMHEz8OJSyqIerT2P4Q=;
+	b=heIIowg18Uch9WFo2Yp5zwP1KppGtoFB7saEsX1kyen9JRNgjr91RMjmcSOW9zIxW8ne
+	 FqC3ihi8sJFkDn0981COYltT17LmPKPjQabOCjeIrVKv6HRHbKIKqmAxkqt6n3CQR5FPo
+	 LHveu9KwfTS/icdCt5USVWlWKRojbW4uBM7yGH5ts7txzMULnRB/yAHbwrOgrmRl2MOnE
+	 Md7hfzZztq4MkKY1cFKUqjPrJ+4UW9QXOmSlpwFB7tKRPXsLaVKstEIYWfzF9PO2kGLZ6
+	 s2/Am0Xj+BQQiSmv+Imn4E1KFyh3ZNJ7MfrEgJ6DdQcvEqvh/CMcZ78dVy1qzTbViSQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=A308yLFB;
+	arc=none smtp.remote-ip=209.85.210.172
+Received: from mail-pf1-f172.google.com (mail-pf1-f172.google.com [209.85.210.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id D476F1F000EC;
-	Thu, 26 Nov 2026 09:37:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795685869;
-	bh=GG/w7h2FW12TWaQgOdgTi4664j2z5J2KKWC6RdlXPaI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=HdCfrgBEKkBx5Cnx/svo60Qp1ifr8DUn7b4Jvn5qm0ywYtJujcJwHYj7H3+qyRI/2
-	 5kedihiHRlXPUc9bu5OlkXI9JKQCYDdJrJacHeSAOsPC85zHBBOg9fl7p8+fehijrg
-	 t2Uwv/g5ToklC02vr0RnwzzI7aONAIEIp/XHm/G0kJYg1JjY1n+bc+Ds28pm+xjxn7
-	 A5H0X8JopD/OxWu2EuD8UREDTJDM/Gt3etXTUiJNLHGRECPXabgpLgKpJ32SnEDlRX
-	 QH/kAeXnOVTU2TnEDkyiYksmj6Oiy2yqg02wPHBlXLcPpEmwLbS2wK+u9Ejft69C2C
-	 HQlKSR1PDIVwg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 551444D390;
-	Thu, 26 Nov 2026 09:36:48 +0000 (UTC)
-From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-Date: Thu, 26 Nov 2026 09:36:52 +0000
-Subject: [PATCH v4 09/17] drm/panfrost: Don't signal a job cancelled from
- _NEXT at a reset as done
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 200EB606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:38:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 200EB606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=A308yLFB
+Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-8b58d6f67a5so3439378b3a.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:38:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795685884; x=1796290684; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=P96TXcMA23WG6JolthiehBkQWMHEz8OJSyqIerT2P4Q=;
+        b=A308yLFBhfx0UWudxJTFF+TuS20TYf9zVWIZFL4i05qjBqsX0/xjKgIJqFnj9+Sw1r
+         uFIsuJ8JPosWuFpywVUdJrOJzMkUSwZwOxhzDuR/zafSv+aJOpEpKc092ZEJlc1PWn+I
+         UAWVu17XmPEEyJ43AU35EAeUsxhqr3/A1DjuFkjc83wCJwJDmOBCadCFxrcQmxuXKhIX
+         naaEMwPg2M08IMrAFUvD5Qo8aDBNqQ6XbbkaAqCa9ORR++jalF/96CzU/SFwhUspmij+
+         v6900A8Lv36NpYleS2ovLgpzwtfFXCDCLtHE3+2hfBXc2R1CojxUB/6+UZABLS7TgUm8
+         o0dw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795685884; x=1796290684;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=P96TXcMA23WG6JolthiehBkQWMHEz8OJSyqIerT2P4Q=;
+        b=0e5p4pb7UgoI6qh8U2jdcyNzap/DKIHeI5/AWTdxX/FedfAxYV5MODD5E8hxOcgPdv
+         A6Bwr0kkOVSxkg27WHmjn/dEpLPaNOUAAVYPTqywzD82wN/BnMFI0qp8PfcyQiQovLVz
+         +eEtAZbg/BZvYmCMqboWikZjDRieAtxTM+J+PUZKMtBI5DmSOeAUMKLxtXvVkRGdmGoY
+         EZivf9M8/ptDt+9paH4LrY7KmLF9b0ac94wK1wanOuVXT+tlcnMTlOCAM1WBtCaX0Li3
+         EMjhfciiZm8p3jsvpJWvFSZ6jZDSZb2u5xTNlEPVasiBgepn3zYikx896BVw+hzJmSYG
+         r2oQ==
+X-Forwarded-Encrypted: i=1; AL+hErHxZYCMDLLFDPrWEpzE+vEC5SspkZ4aPWfb5IAOSkmcE8c1ZblwpJWFcfLLFpxfYsfu2tnpq43QR8GotnA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+mQ8mWbVCMJLid/nt4kGmkmmqILhxuDUu7JnM7MIMcph6lQHgL
+	/61L2FraPmn9KP8CjW0UG4pMEm/pyxl+oyyaAgTtwItAn+qOc61GtW+lEGeb6DmKqA==
+X-Gm-Gg: AZFdTZeSHu5DxLza01GEf4Kyhkd0ScKHSqCG9oWhdlU0gikVZq9oe+n1YTyqYmB/SVu
+	E4gKyE9vyh+FnsAHQOpqMNu/omUyqQUGoBPBe9G9cFOH4FTioorKG6Qa+Lj5XR4eouifnB5R2CG
+	HLl5ljnsLQOHWiaS+AJY/omBlrjdp6Mw7cHwlbyl8DdUtvX25KEyWWu3EeIrg62NIqxOb3efGmE
+	Gd5A+fUsqoTnNmGu84swRehTHbe2J8qKunPxF1nTwcAO7jRc5XxIgW1WA7je6VsInT/PlvS7rfj
+	5s9yAA6bpDask0zuWWdjqucDE6ubtyScBLL2rAk5V9aostD+SKSDFQv9TlbLS6IaQCXK9laSUZS
+	rqqDVm4BrDIZOlY+ULFLZfMT7YEiQZhLU47yVQnv+RMNM159JjgbH0UtNvCz2DOz1A2kqVz5F2Q
+	IgkTyomg9YMn2RqBWc/NY17Bcof2TGTBA0sOH3jpEbeXzI9VorhbWD3xeegM5vQfIVssfq7ktmj
+	9xa1mZ+ETCU2ladYueGCBdNS4asXanr2guqFXFOG4o8UsndBC4BHcNTA8ixMpTEQuHe3RPgChfc
+	+SDLAduj2Q9VmsJd53UX1Vs3YaBC137lBTZh8t9arNw4+vMdsIMwcBo0tNSyMhKU0a3+Umlxe7e
+	qcbd8JhIC1fyuPw==
+X-Received: by 2002:a05:6a00:4189:b0:8a3:23c1:c0e3 with SMTP id d2e1a72fcca58-8c87ded5130mr18749858b3a.59.1795685884373;
+        Thu, 26 Nov 2026 01:38:04 -0800 (PST)
+Received: from localhost.localdomain ([2406:3003:2002:639c:a06e:23f:85ed:4cfe])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872951febsm10357231b3a.14.2026.11.26.01.38.01
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 26 Nov 2026 01:38:04 -0800 (PST)
+From: Yige Jiang <yigejiang86@gmail.com>
+To: Madalin Bucur <madalin.bucur@nxp.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Yige Jiang <yigejiang86@gmail.com>,
+	Sean Anderson <sean.anderson@linux.dev>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] fsl/fman: Drop device references when dpaa_eth_add_device() fails
+Date: Thu, 26 Nov 2026 17:37:56 +0800
+Message-ID: <rc-b1-20261110-vc-177-85d2478ac4b9@gmail.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,99 +102,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-panfrost-long-jobs-v4-9-23579629ceca@gmail.com>
-References: <20261126-panfrost-long-jobs-v4-0-23579629ceca@gmail.com>
-In-Reply-To: <20261126-panfrost-long-jobs-v4-0-23579629ceca@gmail.com>
-To: Boris Brezillon <boris.brezillon@collabora.com>, 
- Rob Herring <robh@kernel.org>, Steven Price <steven.price@arm.com>, 
- =?utf-8?q?Adri=C3=A1n_Larumbe?= <adrian.larumbe@collabora.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- Arun Iyengar <aiyengar1990@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795685806; l=2563;
- i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
- bh=+0lclni43/Dq9naPCbsA255rI8BnM42gaj99yqkxcKM=;
- b=mp8iYk+cJtwnQxaMxBqxP4D+0JO1vRtXy0kDV2IjZ64YBBmHnBWIKTvkIcTIgY8YzWY1XjWyZ
- Nw2kDrRgvISD74foRvPqBNV0qqBrYqmiOgHh6ogxgcduW362QVu9549
-X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
- pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
-X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
- auth_id=1480
-X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
-Reply-To: aiyengar1990@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Arun Iyengar <aiyengar1990@gmail.com>
+When dpaa_eth_add_device() fails at the end of mac_probe(), the error
+is returned directly. This skips the _return_dev_arr_put and
+_return_dev_put labels, so the references held on the FMan device and
+on both FMan port devices are never dropped. mac_remove() would drop
+them, but it does not run after a failed probe.
 
-panfrost_reset() cancels the job in _NEXT with JS_COMMAND_NOP and
-soft-stops the running one. If the running job completes instead,
-panfrost_jm_handle_irq() takes the cancelled job for done too: its
-fence is signalled and it never runs.
+Jump to _return_dev_arr_put instead, as the init() failure above does.
+The devices are created from the device tree and are not normally
+removed, so the leaked references have no visible effect in practice.
+The MAC state allocated by init() is still not freed on this path, as
+in mac_remove(); that needs a separate change.
 
-As the Arm driver does, read JS_HEAD_NEXT after the NOP; if it still
-holds the job, take it off the slot and restart it with the others.
-Found by Sashiko. Not reproduced.
-
-Fixes: 030761e097b4 ("drm/panfrost: Queue jobs on the hardware")
-Cc: stable@vger.kernel.org
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/sashiko-outbox-206581@kernel.org/
-Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+Fixes: 1dec67e0d9fb ("fsl/fman: Fix refcount handling of fman-related devices")
+Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
 ---
- drivers/gpu/drm/panfrost/panfrost_job.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+Based on linux-next next-20261109 (630059a5a632).
+Compile-tested: arm64, GCC 14.2.0, W=1, CONFIG_FSL_FMAN=y, CONFIG_FSL_DPAA=y, CONFIG_COMPILE_TEST=y; baseline and patched mac.o, no new warnings.
+No hardware or runtime test was performed.
 
-diff --git a/drivers/gpu/drm/panfrost/panfrost_job.c b/drivers/gpu/drm/panfrost/panfrost_job.c
-index b5b523cb2..c9bd3555f 100644
---- a/drivers/gpu/drm/panfrost/panfrost_job.c
-+++ b/drivers/gpu/drm/panfrost/panfrost_job.c
-@@ -659,6 +659,7 @@ static void
- panfrost_reset(struct panfrost_device *pfdev,
- 	       struct drm_sched_job *bad)
- {
-+	struct panfrost_job *evicted[NUM_JOB_SLOTS] = {};
- 	u32 js_state, js_state_mask = 0xffffffff;
- 	unsigned int i, j;
- 	bool cookie;
-@@ -694,11 +695,22 @@ panfrost_reset(struct panfrost_device *pfdev,
- 	job_write(pfdev, JOB_INT_MASK, 0);
- 	synchronize_irq(pfdev->js->irq);
- 
-+	spin_lock(&pfdev->js->job_lock);
- 	for (i = 0; i < NUM_JOB_SLOTS; i++) {
- 		/* Cancel the next job and soft-stop the running job. */
- 		job_write(pfdev, JS_COMMAND_NEXT(i), JS_COMMAND_NOP);
-+
-+		/* Never started: take it off, or the IRQ handler completes it. */
-+		if (pfdev->jobs[i][1] &&
-+		    (job_read(pfdev, JS_HEAD_NEXT_LO(i)) ||
-+		     job_read(pfdev, JS_HEAD_NEXT_HI(i)))) {
-+			evicted[i] = pfdev->jobs[i][1];
-+			pfdev->jobs[i][1] = NULL;
-+		}
-+
- 		job_write(pfdev, JS_COMMAND(i), JS_COMMAND_SOFT_STOP);
+The path needs dpaa_eth_add_device() to fail (allocation failure or a
+platform_device_add() error) after the MAC was initialized.
+
+ drivers/net/ethernet/freescale/fman/mac.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/net/ethernet/freescale/fman/mac.c b/drivers/net/ethernet/freescale/fman/mac.c
+index 29c2fa2be837..4180cec15c0f 100644
+--- a/drivers/net/ethernet/freescale/fman/mac.c
++++ b/drivers/net/ethernet/freescale/fman/mac.c
+@@ -307,6 +307,7 @@ static int mac_probe(struct platform_device *_of_dev)
+ 		dev_err(dev, "failed to add Ethernet platform device for MAC %d\n",
+ 			priv->cell_index);
+ 		priv->eth_dev = NULL;
++		goto _return_dev_arr_put;
  	}
-+	spin_unlock(&pfdev->js->job_lock);
  
- 	/* Wait at most 10ms for soft-stops to complete */
- 	ret = readl_poll_timeout(pfdev->iomem + JOB_INT_JS_STATE, js_state,
-@@ -720,6 +732,9 @@ panfrost_reset(struct panfrost_device *pfdev,
- 	 */
- 	spin_lock(&pfdev->js->job_lock);
- 	for (i = 0; i < NUM_JOB_SLOTS; i++) {
-+		if (evicted[i])
-+			pfdev->jobs[i][pfdev->jobs[i][0] ? 1 : 0] = evicted[i];
-+
- 		for (j = 0; j < ARRAY_SIZE(pfdev->jobs[0]) && pfdev->jobs[i][j]; j++) {
- 			if (pfdev->jobs[i][j]->requirements & PANFROST_JD_REQ_CYCLE_COUNT ||
- 			    pfdev->jobs[i][j]->is_profiled)
+ 	return err;
 
+base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
 -- 
-2.55.0
-
+2.50.1 (Apple Git-155)
 
