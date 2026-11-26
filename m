@@ -1,96 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.43
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795702124;
-	b=WywygQq1VjZT6zHvdAVq6aUzB3S5E4S+PgjRZT4PHBIvciqHnkRNgBp565vhDiVT4Uko
-	 MA22y8W6hqJUverc6u+anUxcXNuj9B3qkcSyFasm/TBBu5f7Ls7MJJaGkUlUaXu6l1OhR
-	 n37Y6Pvt/rFXrMayvnuzWqjwCcfu06XF+haryp7DcXLrCgincM+G/dzolNJFiM9Rndeei
-	 9yvjjhZvhuQ69MMHLwNvegPQfbDgu0RAyf5bPYtzF38A7bBcfjvam6p68ZcyzKD2ob8af
-	 WAtxvqHL5nU88UILMo68+CxLJ54ncmnccIbBafDYFQ0FVM+sCOafN3NRy1SCwb1GZ+Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795702124;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.173
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795702129;
+	b=G107wUOwuVb4VB9v9Nn4AeqbL/aiQAjzO+1UvpFCi1m0d3hwsa+gX8b2olEZ1TMWbt0G
+	 sPwNhvHxmxYWkX/XApQtGEDeFqPHG96WU/fZ/OU3ScepiMqeVBsJ8+4ocs+ZrJyiX+ZB2
+	 dIQmGe1b3SjtBkOegxySAqqCgXZcIl7vD0cgMF8zoh3jlZ/ty0HvL7aDFow20xrqIJPVi
+	 Yxb/FCc6COuZz9J4a3csxfxgXDW9T05LJEJxe5zOJNZGrqeJrCnKdpNqTKDl7sj4zkimI
+	 +Z0HmwWsRrGIAW5FzS5u7LZWDnxwsAWbl7vPq8ZhNA/2X7K+6T7dCTopLk4lQjtDgbw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795702129;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=fWXq+2jy46Gh3ZV0MvhLA/7rLTtY2IZQAf+aCrKyZOo=;
-	b=t8NNg3PugEoqgZ5iGfZRegsjOtShScYgR9btyUxTMK/VTGK6g6aJd723W71e06T19NCE
-	 orls1IAlKeMccefnAeP8W0aC7S6EbQH4pHmLWOKDOfD2jfSEMZbwYhMPyFooBjKjJfgYI
-	 6CAPWjP5bEg5Wi+PD73IZWaEHuqG8aa3eFLjrREWocFAJWlkkCpw0f1lPSyOpXzHjUMW1
-	 NutMXeI+59FQ5RBVzG5UW7tug5nWlv3Z4O8j0fPzQZYMRiEyhlPPOtLPbhVxqKaH/NgDL
-	 K4t2n4FiHvanGasYeWAewyig4Ld/YVMXcJY/MOSBxrb7aUE6Vh+cV/735lYlWJ6d/1A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cloudlinux.com;
-	spf=pass smtp.mailfrom=cloudlinux.com;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.43
-Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=6Oi3YeuFZkqFjMzEFnKlQEaAaYTEmMRxkDStd3tGqhw=;
+	b=O8lVsECLAJWSHzgcZjdgZinugL9XiT0ey/Xtctl+V0Y1vG5avaAMYsyqXZRya9Xwv9Sr
+	 SdU3RVeOUM/Ot7J9KTeJfJfOxvElmifjlALpumDq9KNT4kBRFmZ0VZYDeID6Ga3bougeC
+	 a4tbIbals66Fqy4FC/A0VoOTBqivQ+Au+jOGYdbPbbtiqAL2SbSjZKa6DApoggMN9Q8Bp
+	 8TOVoNqBLXFWVPhVusZMJ50Q1D4plrf0R8kForvsNlbWk5usnDCHMw80Ca1PbUFVnwLpe
+	 BVtaxn9v0yUsK+OuAzpRn6Z4PfnfwdwRs/kjOMi/dL8HB3SmR9e2JnM06PidujjZwpA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z0FFE4b0;
+	arc=none smtp.remote-ip=209.85.215.173
+Received: from mail-pg1-f173.google.com (mail-pg1-f173.google.com [209.85.215.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBAFC606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:08:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CBAFC606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cloudlinux.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudlinux.com
-Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c5126505cb3so917364866b.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:08:38 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795702117; cv=none;
-        d=google.com; s=arc-20260327;
-        b=YESj/xkwS7IbmstcbysIj7RSdhhDzugR32h3GxWRz7M5ii5UyEihr4hfLkN3nQxmI1
-         oCz3jg7jbQ0jTKmj1dINQGA6aBH1HiVHvJgeoPPs5NcI6FUwESpKL2hqupe4k7hnIvPH
-         iysNcZj/rkPh96idD6VrbvckO3xYMaEx3P6slM6J6YmfMHLnGEh6cfOG124Eek7g1iCo
-         FEdyn/ZYNHvho6+zJx4KDgNLp+Yq3W1qWjnDy+onyX+/7BUwPq2PJNcFyfJATcvqqY/v
-         S66/TFygvYRF2K7akl0XqS34NitKfUjbsw+X2RQZiWTfBK5LEywq8CHNC8ko70zgFV8h
-         Za1g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=fWXq+2jy46Gh3ZV0MvhLA/7rLTtY2IZQAf+aCrKyZOo=;
-        fh=m3YPBo86Fin8KQ5xk+2v/5yTVfbaONabfcRY5w5kv8Y=;
-        b=f11yblaKJEa+bzo/qlAWeORkck/2JPpVnfpnCf3NQdu1DXnsRY6n9CUQ1XRs5ivXxL
-         Hnae4uwq9sqBXMTyqFz+9oOrg96tBPhm0ovYSZcl0ryz+Sz93MuaPDuBd99Gjxm8emha
-         cJYS+LZGlR8KBedvmemWC4pD9/q0dT6n1Mw2fvgkpQzmc3ur+IMLQC+oxhHU/Gi3lOeP
-         Qn9c5wBnfoPtwu0BLKzHUZe/z7lU4YXAL3BPV5fQiYKMvygNU36Uhs5uvLqZq0c2Z01O
-         eEYB5bGEsYDbH5tG9E+HC+sYl6a1EDDHc96B5CQiMfrqliN5WLBoymoVTruPKEldu+zL
-         4nuw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 075A8606A32A
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:08:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 075A8606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z0FFE4b0
+Received: by mail-pg1-f173.google.com with SMTP id 41be03b00d2f7-cdb9f760337so3959277a12.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:08:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cloudlinux.com; s=google; t=1795702117; x=1796306917; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=fWXq+2jy46Gh3ZV0MvhLA/7rLTtY2IZQAf+aCrKyZOo=;
-        b=HR8ahns3qwuAhoW0hw9HTmgsr0BAAW0rNNJQsSEr+jLXiCNzUBG4/kyaapy4P2cbxJ
-         VrDfk1DVPaJuxlzqMTLYlB26btFGHFZR4GRcVPQu++pKTCZyG0lTG6ICUyz6G9POsRDR
-         toQJ1aszLe6o70KQaksYZ9qnsxKbUOu15LVA6bkfsSY4U28i8HPS+aAcYnmPk4uDl8Gj
-         8oDhGuV7HAY9mhG+TXno2m54MtIjOnGZtrjFdA1+VAN/i6rr8ANK72Tuo9UcYg7F6jd3
-         NBIAlWRey6LPB9Pfk82xyJawMysA2JSGMO4bAgSd91FS/2clRduTDEY9Q68+g8paeIJ8
-         2c0A==
+        d=gmail.com; s=20260707; t=1795702128; x=1796306928; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=6Oi3YeuFZkqFjMzEFnKlQEaAaYTEmMRxkDStd3tGqhw=;
+        b=Z0FFE4b0hfGrQctMahgCbATSZa/2yZWK3m4w+FeIUhbT/xarEviWdM5zWhDYnhHmNS
+         DQ5CRYBBp2tnp1YivOT0kJFkPVvp55CKLdyAdyw+YxmMetCkW4ffwQ5nhXbxKmI4Y1Xp
+         yX0HSOg06hHB7zcYd1+wlzPKaI/U9i85yEOtnNmPM0qHVEkGR8xZI+SBYIZwJrZNCjTJ
+         fWqJzauhzJMaPxT+uUniARz6HQJrxJWULYO6PqHjTukCWwANxyfs4ke0S1U29f6AQUvo
+         d/91023cPt8kHGyRI+VrPCIkEdHq/EnaSBrWOKCpyaIl018RwcKsWuPDdknA0mIWKcWn
+         imPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795702117; x=1796306917;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20260707; t=1795702128; x=1796306928;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=fWXq+2jy46Gh3ZV0MvhLA/7rLTtY2IZQAf+aCrKyZOo=;
-        b=ZEIRHUfWFNyVBqiHWOV7D0epnM7FrPo8KiV32L9lxjo2nREoAesijeTTM0G/+zjKt3
-         BFnU8XAl7oZdlVN+oZ+BTY7eBt/8Y3FaNleN2kmpjot/NV9N0/BllnmaPeeftiAdbXbZ
-         7qtZ2M+Yug0Uw7k4ikWMG0x5/xPJrnUEiI1XxD/8Vr1jggG8Izyuf8HbTwA20PWbMcXO
-         uESn/nXHr8mLrRgNXtRp50YTwtU7jTEMznWogkqT1KpLykLvnFBMtAlsT0oxEJstGLqZ
-         OvDvLU/qf5VrUICQRQAjDgILEQDO5touOONeQDlsIlwx/bxIsOJLmMKIzxx3Y405yfOZ
-         jNAA==
-X-Forwarded-Encrypted: i=1; AL+hErEqiac/H0M6OmSv35UvqMzba8CTiI/50qw3dc0hZtgKbvqrftrihaW6iYzv/MN4DZx1nGdfNyzZOY6REVE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8LtB50NyQhPJNQKNUlMog9iHH+zcx70nosl5CSZk0QStFFrvPi
-	1f6ty9lJtcUyqICPID06CBTAOsN/f0kBer7yIXRwtwiO/2SP4L9h+fq1wWvJpfmhf+0oyApyXbj
-	Bj03YqlLj9ffXOQ5s1egLt90K4ilb++DBEGYQAr7SoA==
-X-Gm-Gg: AZFdTZemMNz0dWiR6Alh66704VsnAMZvJdMeTK97i6b9G5ydzC3a3RNdc4d4wKXooTd
-	ERHQhu2vuzrrzttgUFs9HosvEn0pdEgZK+Lng4XNWxhfeSq1bkIovToDgJMkCflYjEHqHM7Xzrx
-	V2JPR98ozkaOYqrdIFDW7fsj4WqSece0CuFi84YEMzohH8yME4iWQfB5ZjFpQl0zFkrXZjiby6M
-	LT0Q5hfCNzdij/H0xwTREMBYzImxiJLJS7/+7HaILrHcT+Gk/mdwJijAlHD3mXPHxA1GnUK0eNc
-	nzdaimjqaIOZpjwQPxaMS/q2d6wSDmz2/QwBco33u1KerqjlP/d8xtnV1zKtNFcw9snQzSDX/1k
-	ayEBcwGgW+53gwA/DXbWUlX9igBRGHjs9PQ==
-X-Received: by 2002:a17:907:1b1a:b0:c42:102f:15e8 with SMTP id
- a640c23a62f3a-c513a999e27mr1682615766b.14.1795702117183; Thu, 26 Nov 2026
- 06:08:37 -0800 (PST)
+        bh=6Oi3YeuFZkqFjMzEFnKlQEaAaYTEmMRxkDStd3tGqhw=;
+        b=vyg9dlXRyHzW+uYtV4io3T7Jh+NZuBQ9rN6UyXePuhmw6PYyu1WrI8MmvNeooHVS8q
+         M5iXeEfnwH2bhO+iW8/A1MkJAh/yCj9Lil9RLy/3Vu91pMkF7tuKRdFYNiOzPzOWerE1
+         5/SXh/igy/gEpQEMzoKAOt6a/auNzTEMqJMEQZnZSVRxL5Apq4aau3vM/gTpmUD4bJa0
+         hjNiCkWgR4KeZWaaKnGNfF2RxfI7tvA+a+hijyVFYiUpoTkzx0temQzUlK14sBmrQVnT
+         A6+ah847qL8vO3BHaZ7v859HBHRwRqVr2bkEyZfKLP9Mh4bP+tqSaB/so6rGFcpKg/t4
+         slOg==
+X-Forwarded-Encrypted: i=1; AL+hErGhWPt+SfZ00gsNbv8eClxWFnatWREx4fLwllPp9HjG7Ryh++DeATN/rlkknWRJ7Uh1Z/MxcKWlbCMbp50=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9xfBzcIJA4fyMKcKarsPSvdKeV7DVtJONA7oVnV0pfEWCQER/i
+	hzfiSqo++HSpyoEeSxu9B7g9rVxPxPYc4rswmEzvkbk6YMYLtvl1ZMwq
+X-Gm-Gg: AZFdTZf70WOZtggYjViLnox2j8W9IH+uun1w6/QUiKgdTMXHuiVdawNkf4tSp0lQl9K
+	8tWPmkjYdEu8M1swFwj2wrwpITgbi2WavgDpnRX5uOv4qjuKHpwyFylKOavIfLjL0BP+CiXghJn
+	91hWVk0sZzWlUydPWIErDMYdo7OGERFcnaCQTVWP5eTzrDMbqvKeezeG1jNroenA8Kkx1u5yC2h
+	HTZxOAnBK+PgXC+2T1kNkdInOt86g4MNvK2LoL42pEnDERbQt1Nf4vYfUYb1nKG7WOk5HYaMktK
+	p4GxyLdjG0nF1oKBPxZJSzQ3Nb96fFiunTjK/evUAkOxc0ikXIF3FhJDIy0zqjKfYXBoIo/mI+D
+	d4Be1BECr4NlDrRQuUxYxNgV4fUw1wrpdYC9IXIKYuJwj0HCyVioHLPd8pnBFvYks59xsSMfpWj
+	YAEnZKuj2DOusL5fsw+B+vyngmsRrCEY44ZTqfjbD/j0caJbMIn2pF/6SpRBoFgElHB+8EBv4dh
+	93q+NzzEQS9F2u/i/P0so/luHxJtbUO6vpm/mEot1dlaZxPNB2OR8BkpKI2uTw/1CI4R+thHiuz
+	gBGLo9xdwC2eKuNzyYrDPD33HPYJZSftWSJjBVG8Z/FgJnucuvWQjvMD8l9IUTJXfnvgpCyTSdH
+	5b9WgDslvATuKlVS3yIT1CZccnWy3ipjJdGHRzJUSr0OsUO5f/piEPx6a
+X-Received: by 2002:a17:90b:4d0a:b0:3b3:b562:899c with SMTP id 98e67ed59e1d1-3b41c8dc9f1mr12583300a91.9.1795702128125;
+        Thu, 26 Nov 2026 06:08:48 -0800 (PST)
+Received: from [169.254.3.1] ([143.248.188.96])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b8733e6sm12583573a91.3.2026.11.26.06.08.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 06:08:47 -0800 (PST)
+From: SeungJong Ha <engineer.jjhama@gmail.com>
+Subject: [PATCH net-next v4 0/2] rust: net: phy: pass &Device to callbacks
+ without exclusive access
+Date: Thu, 26 Nov 2026 23:08:31 +0900
+Message-Id: <20261126-exp-phy-rs-maybelocked-v4-0-16f9a10bb579@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,29 +93,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <awXHzblUfp05jZSQ@kernel.org> <20261125065429.1483868-1-rmustafin@cloudlinux.com>
- <awcT0WnnJ-fyovnn@kernel.org> <awcW90qZvOim7dbh@kernel.org> <awcYZNG9f2YSIz49@kernel.org>
-In-Reply-To: <awcYZNG9f2YSIz49@kernel.org>
-From: Rustam Mustafin <rmustafin@cloudlinux.com>
-Date: Thu, 26 Nov 2026 21:08:27 +0700
-X-Gm-Features: Aa3M54pYCLcfNb7xtzLqr27MYGtUyFN9A6DJLgyYcVB1PLXNJ0HDOIerUcb9Tb8
-Message-ID: <CAG6=z5sThdfZLY3mQ+NdzpFYj7bSN-CsV1bEdKCASw7b_b2g-A@mail.gmail.com>
-Subject: Re: [PATCH v3 1/2] tpm: Do not allow io_uring for /dev/tpm0 and /dev/tpmrm0
-To: Jarkko Sakkinen <jarkko@kernel.org>
-Cc: Peter Huewe <peterhuewe@gmx.de>, Jason Gunthorpe <jgg@ziepe.ca>, Shuah Khan <shuah@kernel.org>, 
-	Jaewon Yang <yong010301@gmail.com>, linux-integrity@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAF89CGsC/4XOyw6CMBAF0F8xXTumDyjWlf9hXPQxSlUeaZFAC
+ P9uxQ0xMS5vZu6ZmUjE4DGSw2YiAXsffVOnkG03xJa6viJ4lzLhlEvGGAUcWmjLEUKESo8GH42
+ 9owPnbK6UEngxmqRyG/DihwU+kRo7qHHoyPkziU9zQ9u93fdu6WPXhHH5oWdL49+5ngEFQbmwV
+ tE8R3W8Vto/drapliM9XzPZT4YnhimdOSfzvZHmmxFrpvjJiMRkyPZCF0JKXayZeZ5fTXkOpmY
+ BAAA=
+X-Change-ID: 20261110-exp-phy-rs-maybelocked-ddc59993efba
+To: FUJITA Tomonori <fujita.tomonori@gmail.com>, 
+ Trevor Gross <tmgross@umich.edu>, "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+ Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
+ Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Danilo Krummrich <dakr@kernel.org>, 
+ Daniel Almeida <daniel.almeida@collabora.com>, 
+ Tamir Duberstein <tamird@kernel.org>, 
+ Alexandre Courbot <acourbot@nvidia.com>, 
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, SeungJong Ha <engineer.jjhama@gmail.com>
+X-Mailer: b4 0.15.2
 
-On Thu, Nov 26, 2026 at 12:18 AM Jarkko Sakkinen <jarkko@kernel.org> wrote:
->
-> I got them applied with git am. It's better to use separate threads per
-> patch set version.
->
-> They are in  my master branch now.
+The Rust PHY abstraction gives every driver callback a `&mut Device` and
+says that PHYLIB holds `phy_device->lock`, but phy_suspend() calls
+`suspend` without it, also right after the state machine drops the
+lock, and read_mmd and write_mmd run with the MDIO bus lock held
+instead. This was found while auditing the SAFETY comments of Rust
+abstractions against their C callers, and confirmed with Clang's
+context analysis [1].
 
-Great, thank you! Will do separate threads. Thanks for your guidance
-along the way.
+As FUJITA suggested on v3, the series uses `&Device` and `&mut Device`
+for this instead of new context types. Patch 1 makes `&mut Device` mean
+exclusive access to the state that `phy_device->lock` protects, fits the
+method receivers to that, and documents when the `&mut Device` callbacks
+run without the lock. Patch 2 passes a `&Device` to suspend, read_mmd
+and write_mmd. The generated code of ax88796b_rust and qt2025 does not
+change.
 
-Br,
-Rustam
+The audit, the patches and their changelogs were done with an AI coding
+assistant (Claude Code, Claude Opus 5.5) and reviewed line by line by
+me. Compile-tested only.
+
+[1] https://docs.kernel.org/dev-tools/context-analysis.html
+
+---
+Changes in v4:
+- Use `&Device` and `&mut Device` instead of the `Locked` and
+  `MaybeLocked` context types (FUJITA)
+- Keep `read_mmd`, `write_mmd` and `match_phy_device`. Pass `&Device` to
+  `read_mmd` and `write_mmd`, and document that read() and write()
+  deadlock there (FUJITA)
+- Make read(), write() and genphy_suspend() take `&self`.
+  `match_phy_device` can access registers as C implementations do,
+  while read_paged() stays `&mut self`
+- Make the getters of the state that `phy_device->lock` protects take
+  `&mut self`
+- Name the fields that `phy_device->lock` protects in the `Device`
+  documentation
+- Say that the phy_mii_ioctl() path is outside the guarantee (Andrew,
+  FUJITA)
+- Link to v3: https://lore.kernel.org/r/20261117-exp-phy-rs-maybelocked-v3-0-4e183a7366a7@gmail.com
+
+Changes in v3:
+- Give `suspend` the `MaybeLocked` context, and make `genphy_suspend()`
+  available in both contexts (netdev AI review)
+- Move `soft_reset` and `genphy_soft_reset()` back to `Locked`, since
+  `genphy_soft_reset()` in `MaybeLocked` could race with lock holders
+  in `suspend`, and document phy_mii_ioctl() as an existing PHYLIB race
+  instead (netdev AI review)
+- Drop `match_phy_device` as well (netdev AI review)
+- Fix the `get_features`, `soft_reset`, `read_status` and `resume`
+  SAFETY comments, and name the context at each `from_raw()` call
+- List the exceptions in the `Locked` documentation, including MAC
+  drivers that call phy_init_hw() or phy_read_status() directly
+- Link to v2: https://lore.kernel.org/r/20261115-exp-phy-rs-maybelocked-v2-0-8fa7897a0352@gmail.com
+
+Changes in v2:
+- Keep `&mut self` on the moved methods, so that `match_phy_device` does
+  not gain register access (netdev AI review)
+- Give only `soft_reset` the `MaybeLocked` context
+- Drop `read_mmd` and `write_mmd` instead of leaving them `Locked`
+- Document how PHYLIB calls the `Locked` callbacks, and fix the
+  `from_raw()`, `phy_id()` and `genphy_soft_reset()` SAFETY comments
+- Link to v1: https://lore.kernel.org/r/20261110-exp-phy-rs-maybelocked-v1-0-3023cc9055e9@gmail.com
+
+---
+SeungJong Ha (2):
+      rust: net: phy: take &self in methods that do not need phy_device->lock
+      rust: net: phy: pass &Device to suspend, read_mmd and write_mmd
+
+ drivers/net/phy/ax88796b_rust.rs |   4 +-
+ rust/kernel/net/phy.rs           | 165 +++++++++++++++++++++------------------
+ rust/kernel/net/phy/reg.rs       |  12 +--
+ 3 files changed, 99 insertions(+), 82 deletions(-)
+---
+base-commit: 5f049e811762d6784392d9984ce910257224824b
+change-id: 20261110-exp-phy-rs-maybelocked-ddc59993efba
+
+Best regards,
+--  
+SeungJong Ha <engineer.jjhama@gmail.com>
+
