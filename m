@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795716690;
-	b=SyxCyUkX+oGSyJaKRFdWDpUSnpNczG1H5fb7bCcgMUb2wKlek+m54dEsvveTpdZ9aXVr
-	 c0uog4ebxE8HakZULK96IlYMEl5mouLrKSbI1LTrppJl5+iFvHM1fF9///Aoh8+6Xk1UG
-	 2TSTN2jbBUHtSFIEfWiA8cTxJ0eoqdP6IgubN02TTh5cAJeqQFp+nOP8K5cf/hxKOScyy
-	 rN/Pq7wbE6A/m4706HgUgn5/KoJdmTIGgZkJPPjpPkPKEFqzJA4/tNVjGj7UPU1hflu/a
-	 vddG1OMURqCVtJliIrlyANmj5D8sd79a2Xf4D35k2IF7Wwd9RnObho8FW703ulRwFBg==
+	t=1795716694;
+	b=ilHr0p0sQq6iZxYD2gE8B/lRKKWIqki1VOmiqrKvc0eCT0QRd05HYd/blkdyrb26kLUk
+	 1Lbm8QP4i1qxt/5PDxkRbZjD+8/oKgdKNGgA+rLRdE9y3TwmFrSxeynjRFAnTygHuIxmP
+	 vj5w/pzkyBKCUmRjv52UvbjSf953Z08OHXm4pysw+PvcKWVAeZ/siHFjcGtC2riaYHj24
+	 TVpA4LrL9VM6cB8xNew8HujHCkFJgAOY5qGbWlmzwPVGL5rGn208z679Cw9LCAcLkS+I1
+	 kd/Y0cnU0pMkzCVW7u/WKTy9V+Z6IvTlYS/UmDRUs2DzIPDMokmA3u8Fk7Hjv2Y2iCg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795716690;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795716694;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=6F8UENk1fuxOmw1JD+w3Chipk8eAZUCmgorWcN045W0=;
-	b=GDqaKk0gstb8fDaeVFYgOjTnuvXmvheAs2tiiDgJDTaBAV10wcZ3TZ6pkd1cPTJghkWV
-	 neeCYqs0lKBllF0FPVZ66KpnJqFqPmkFXtaDTCiVXE0HI0I9U6Qxxw4iA2BmgzE/AYSl4
-	 EZ6sZ4UeBl7i1Jn3x2gAHxHqSo82eyD4/63AdiwijvkfeEWY0m0i/293NqkQGqn1DFLKq
-	 TOB3IFnxhf7GTY8y6eNROSyVIYNhlXohM5BMwCfC6qFCt1rSkeJexELqMvgKEeoc32uGi
-	 wzBZ2+mHz46BDJdBiXJfLUk6cxJkDejC4T8k6tbacnmnNKuen3SgZNv5g0ZmjDYdfdA==
+	bh=zDitXAnv7fxGLpnaofjPJIWFBZy9yTpXRjN80rolNbg=;
+	b=EcCn6njVnVOkOeOgGC5NeK4ZekSw+pVn7gjP74IpdPDvhv7cFOqmgs/OqORM4r2kWBjm
+	 /Q3RE1h7S9yFTz5x1tfU3wlPmEV5uqe2UQmI3AsL/bRPNTouHZo+JRGkx80eOCyyiF8yZ
+	 BtcJg3PdOktu/5uu1L0g7Y6xLHfg6AEv8mwd8z40EDrlVqpxEZwp/ecwkMTpojguUu/rD
+	 VMvRT3SPZSddFIfTm7u2IE+9FXmdbS8VfbBOqgb5J3K7GiV6P04BgNkj8LN6ghqV6UHI9
+	 Lq1Zz6FMjXpion7hJoa5AXDzfURxNlG1wzM5gYOnJ11YrqEXEpnpiAxTfwyCLSx7zuw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WDcqJAU5;
-	arc=none smtp.remote-ip=74.125.82.51
-Received: from mail-dl1-f51.google.com (mail-dl1-f51.google.com [74.125.82.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QbWOeWMJ;
+	arc=none smtp.remote-ip=74.125.82.54
+Received: from mail-dl1-f54.google.com (mail-dl1-f54.google.com [74.125.82.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8C58606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:11:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8C58606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC94F606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:11:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC94F606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WDcqJAU5
-Received: by mail-dl1-f51.google.com with SMTP id a92af1059eb24-1b546061d58so16748186c88.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:11:29 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QbWOeWMJ
+Received: by mail-dl1-f54.google.com with SMTP id a92af1059eb24-1ae58d17cd9so8174503c88.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:11:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795716689; x=1796321489; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795716693; x=1796321493; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=6F8UENk1fuxOmw1JD+w3Chipk8eAZUCmgorWcN045W0=;
-        b=WDcqJAU5CsSUrBGvkqEhtQ6MvKsjaDHdkBIa1sPT+/lis0SJwywcIFaQB5SAsut+dm
-         gGSoNNHXfsaRvFSp8PwDtRHp4DSGUN5NyeYx33lK7iqqg4CTUmeGPhlV/CBB46FnE9s2
-         H2fXysbNoQksyMEAzR0cjW7/XOFSjvotxQxMGHMExTVoaF2Hsvz/v5VNXbNVw+r4zODH
-         /hwQNs2uCvo/yCtIQiZDNVzLedJPgT8hRwp8jWOGLnsBQdB7e9CZrLTRbcDF4Mb4QlWH
-         rX1HbNTzNQWfji6Jta0EJNpWuIGLYAklxiZ05JP3qiyoawG83Eu/N1SKMR/1IyyzduSs
-         4WkQ==
+        bh=zDitXAnv7fxGLpnaofjPJIWFBZy9yTpXRjN80rolNbg=;
+        b=QbWOeWMJXn/8dtL6zbH6XLiYxHwxBmk6DwepsghcM+aFGZRfWQKLxmMUIRueQ1AV10
+         0Ash9UY7TGo+KVV2lGZ2gLyeA8Pwhnb2JNhulsf+1jyrh40EajkhylvFiTb0PScl+ckv
+         K+xCGUP+Sqy3JuLYY6/Vi72VSEW+HBzpgMcwqyhL/J5PLR9GjwBcSFqJimhWCM7dPPmz
+         oBYF5ZxGSpecgU3zmgCegDTJpAD3KUwkTxYzLrpgoLHkPI7G+OnAeFZde8MBO2++hIhe
+         gzTWv379qw3R06UtoT1pBDb/jgz0yfaHFqM+S0ubNOE/RLSdPYW4MgwaFT1Rqw+ILUb7
+         lPYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795716689; x=1796321489;
+        d=1e100.net; s=20260707; t=1795716693; x=1796321493;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6F8UENk1fuxOmw1JD+w3Chipk8eAZUCmgorWcN045W0=;
-        b=1ywgwBUMd+/aVRVhBAnoWmY7JPruwceMkrQT49eDL1RdWfYjX3KqEdvDT+9ErTs5Gw
-         2cMtqN8v68X2+bl46uKqZ3PAnZqxeCea0o3werxZsFOrAXCMmln2NYXdKS8odaSNibYY
-         U4/PQqGqhz9xSBWSN4u5MFvMYwWd7HnzNJiU/SVB9+tDiqtXkNWkv/Wafs1hSHzeGmd2
-         r5mNYpdrcMSNudJiIMlGLGJ3RpDAL9TXhF/VqmyEuhFuOW94+5YS7KMptwbfq0SDrDWV
-         xLk7sxASXYDi30uGBvpqJUcBGaO9pWbY4IT07yGCIyW9Ay6bq73JC81ubg7067wFDXYX
-         UzbQ==
-X-Forwarded-Encrypted: i=1; AL+hErGOlUdGTpz0WrMVZSHn37VZQG6Pkfq3ih4peQ0OvQz4NnIjeoiPfjl1+3VeYY8P5dIf2zPu2XGE9lr2z/0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+X2/7n3mbx07OqQWEubJVl3IL59Q3nyCXAXOtlEh+oOBMpCiR5
-	UxXrUbwqf9yWv9y01wwJzdOF7PkoFc5ZYOLGYGaop/Q9nVEEVD9XyWC4
-X-Gm-Gg: AZFdTZe8EgxplSPsjTjhmOYSffvGXSVZQvrn/xMt89fPSgSx0DUKg7y1GdD9siDuePq
-	v5VMk5ccnDR2unx4VhJDwtvUVOP0CoV9fFqu321KLtE4hMAQWY3w5/inP5mQKMZuK7rap6pNqk7
-	GHVMBwELKcGVGNRmC0ot9OhPv3rq9Sm2aA6jCUZuELBlqXtN0kXHUl6OkwbDFRCOBBuOoZoMDVf
-	cB/AbKWPnC4pTwR9T1j9sb+yt4w9iggVLJfcOSXe9kEt6Oj+RJV3Tbfz8Ef9JHnRSz4SNJ9/XCK
-	TYmxCw3xcHs3lfpdXIzehLXur5lONUkiI8SBjBNPkhsxdFKbRNsTTRsTbpQW8HhMJiwosQrNgdi
-	rSccSf2UGGBvfldGFiZqdlCEgVdGItqF0kBt18xyg8y46eTRUeS5HoIhTVZnPl+7S96bYsG3QZJ
-	wBmGQewu5sb097jaquCTQ3RbKHHVnLTQRc8nYS1YhwLN6iSjnFT01VMpH5g6BQbq/SEvfcW2gGy
-	Dn/IDvzU9HmbN1L1yq+FxAw25aH1UClSUgO9U+f6T+5OxppBQlmpmIh7+g3ou3t4uCuwPDajFaH
-	4uhKvVzFE+Uoe0PcChjEtcWXoENCbnWHzyGf/xjXqe0KNNr5HspHIjgnnfOYym+vwh14BMjWEl/
-	7l/XllzozKjpsAEPxOmCIRIE=
-X-Received: by 2002:a05:701a:cc84:10b0:1b5:709f:d510 with SMTP id a92af1059eb24-1b5709fd63fmr14492602c88.22.1795716688687;
-        Thu, 26 Nov 2026 10:11:28 -0800 (PST)
+        bh=zDitXAnv7fxGLpnaofjPJIWFBZy9yTpXRjN80rolNbg=;
+        b=jJS6oyf+gcSAme5Wxo99BEbCLSF1IO2SfmvYB9BH6Y+L4aYZzF+Ym740D/m4fGH3q4
+         kAp7qDXvSljdC/6boS2stZraSMKefg8/xKSMDKlv9PVsS3pTvaXVnvc9zdqw2kq/FLdM
+         kQZJ15Lc4y7MEnHa6bvc+WCGoeoSuHZJn0RwweyP2MN6+0sfQeFwCHDHac7KMiX3gzP8
+         WkCbtZcZb24VYAgu91zTrrHrnRd93qJpv8GB4EaG/ccNGL0VVLxpZ8fFfhd/LZNBWZfE
+         h7tefLeaM5xCe3aQ1AhEc+GEQvnxc31el9T0mjvItY0YAbxBxuyzRU8SZMsbJ6TTI2fQ
+         oilA==
+X-Forwarded-Encrypted: i=1; AL+hErFqjwhx9Vn/VBJEbrOm9iJC2D0IGqmugechloDc0RISIcOSRznaFD2kWJrFCZRbr+MnHxJHd+H92hAJwUM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8mH6AK7n4sLdj6nQOj2rYycOr1CPLMRx2HNuOgrrANHqvdWsDS
+	LRSs3vRkv958WsmdJsm+rcEnWevicKbq7jm+lWSUkXtgUP5jQLHGWVni
+X-Gm-Gg: AZFdTZd0lFFVPJYmso4Whcep1OdutxUPHoBICT8oM4RKnjioYMGMqDwHZAC2VjF2THK
+	CnUIU8CtgDKagSH4ncuNdfmB5sPEFOM8aAEkHJZrxm6eyHO2nTPTEn4wXQhizsN5artj8tVi7/0
+	D290FR2HJYWd2xYLti/25t/PQyxvFD3HLVoCVUN8ezeoQr0srqs/JDAzJ2u1UqepmcBYaWeFs4n
+	/H1Hj6JGOvp18QMsoFncJEebzuRJDMlcvBx5AbqyiO4vI6cBQ0N0wHPGzOqmjyIqKYNIBTLuAlb
+	VwkWc9DjcqThnyDwpkGRDfkvENiVWgqevghqYtvjvNzGn1Hv0B7vYbOEtJo9grZuucGdL3mB66G
+	Paq7Kh8FlF5XqRh981W90JwTnhZkwoGonkihpfuZLIXuDp/jHNkKXIAuo7KD655wDtPieBz6SVp
+	vPHIFpJffl3Xmx9I67NhkcQaS0YKMsGrE3T/pTdHbAbLbwKWvHFtjgyXFqPYxainxXY6QvyWjKd
+	Pfyur+dfeZwLQVCHA+QElx+b63VVmcuweOh3hzMAQPerlI4UZ0eDkYFhHMVRQoao114BGPnjIWX
+	giQHz9WPkYmSZfHzrUmD+vPS1cv1RpL1PgJF0I0gGClNYk9TJz7uIU0q5OIX/tOTEDlv176Tpri
+	+onrhS0p+A8DkDdLxV2mfuyywFB4Dz5X2SfHY/RTAIgBh
+X-Received: by 2002:a05:701b:4588:10b0:195:76af:b810 with SMTP id a92af1059eb24-1b5972b4691mr510797c88.25.1795716692917;
+        Thu, 26 Nov 2026 10:11:32 -0800 (PST)
 Received: from visitorckw-work01.c.googlers.com.com (55.11.81.34.bc.googleusercontent.com. [34.81.11.55])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55681301asm51183875c88.8.2026.11.26.10.11.24
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55681301asm51183875c88.8.2026.11.26.10.11.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 10:11:28 -0800 (PST)
+        Thu, 26 Nov 2026 10:11:32 -0800 (PST)
 From: Kuan-Wei Chiu <visitorckw@gmail.com>
 To: daniel.lezcano@kernel.org,
 	tglx@kernel.org
@@ -94,9 +94,9 @@ Cc: pjw@kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-m68k@lists.linux-m68k.org,
 	Kuan-Wei Chiu <visitorckw@gmail.com>
-Subject: [PATCH v2 2/9] clocksource/drivers/timer-goldfish: Fix oneshot mode spurious interrupt
-Date: Thu, 26 Nov 2026 18:10:54 +0000
-Message-ID: <20261126181101.3715754-3-visitorckw@gmail.com>
+Subject: [PATCH v2 3/9] clocksource/drivers/timer-goldfish: Fix resource leaks in init
+Date: Thu, 26 Nov 2026 18:10:55 +0000
+Message-ID: <20261126181101.3715754-4-visitorckw@gmail.com>
 X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
 In-Reply-To: <20261126181101.3715754-1-visitorckw@gmail.com>
 References: <20261126181101.3715754-1-visitorckw@gmail.com>
@@ -111,41 +111,63 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-goldfish_timer_set_oneshot() writes 0 to TIMER_ALARM_HIGH and
-TIMER_ALARM_LOW. Writing TIMER_ALARM_LOW arms the alarm for timestamp 0,
-which immediately triggers a spurious interrupt when TIMER_IRQ_ENABLED
-is set. Meanwhile, goldfish_timer_shutdown() disables interrupts without
-disarming the alarm.
+goldfish_timer_init() ignores the return value of
+clocksource_register_hz() and fails to release allocated resources when
+initialization fails.
 
-Use TIMER_CLEAR_ALARM to disarm the alarm in both functions.
+Check the return value of clocksource_register_hz() and clean up
+allocated resources on error.
 
 Fixes: c92e7ef16400 ("clocksource/drivers: Add a goldfish-timer clocksource")
 Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
 ---
- drivers/clocksource/timer-goldfish.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/clocksource/timer-goldfish.c | 18 +++++++++++++++---
+ 1 file changed, 15 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/clocksource/timer-goldfish.c b/drivers/clocksource/timer-goldfish.c
-index cc02b012ff76..b1dc8b388470 100644
+index b1dc8b388470..8c312c3a64a6 100644
 --- a/drivers/clocksource/timer-goldfish.c
 +++ b/drivers/clocksource/timer-goldfish.c
-@@ -55,8 +55,7 @@ static int goldfish_timer_set_oneshot(struct clock_event_device *evt)
- 	struct goldfish_timer *timerdrv = ced_to_gf(evt);
- 	void __iomem *base = timerdrv->base;
+@@ -131,7 +131,7 @@ int __init goldfish_timer_init(int irq, void __iomem *base)
+ 	ret = request_resource(&iomem_resource, &timerdrv->res);
+ 	if (ret) {
+ 		pr_err("Cannot allocate '%s' resource\n", timerdrv->res.name);
+-		return ret;
++		goto err_free;
+ 	}
  
--	gf_iowrite32(0, base + TIMER_ALARM_HIGH);
--	gf_iowrite32(0, base + TIMER_ALARM_LOW);
-+	gf_iowrite32(1, base + TIMER_CLEAR_ALARM);
- 	gf_iowrite32(1, base + TIMER_IRQ_ENABLED);
+ 	timerdrv->cs = (struct clocksource){
+@@ -143,17 +143,29 @@ int __init goldfish_timer_init(int irq, void __iomem *base)
+ 		.max_idle_ns	= LONG_MAX,
+ 	};
+ 
+-	clocksource_register_hz(&timerdrv->cs, NSEC_PER_SEC);
++	ret = clocksource_register_hz(&timerdrv->cs, NSEC_PER_SEC);
++	if (ret) {
++		pr_err("Couldn't register goldfish-timer clocksource\n");
++		goto err_release_res;
++	}
+ 
+ 	ret = request_irq(irq, goldfish_timer_irq, IRQF_TIMER,
+ 			  "goldfish_timer", timerdrv);
+ 	if (ret) {
+ 		pr_err("Couldn't register goldfish-timer interrupt\n");
+-		return ret;
++		goto err_unregister_cs;
+ 	}
+ 
+ 	clockevents_config_and_register(&timerdrv->ced, NSEC_PER_SEC,
+ 					1, 0xffffffff);
  
  	return 0;
-@@ -68,6 +67,7 @@ static int goldfish_timer_shutdown(struct clock_event_device *evt)
- 	void __iomem *base = timerdrv->base;
- 
- 	gf_iowrite32(0, base + TIMER_IRQ_ENABLED);
-+	gf_iowrite32(1, base + TIMER_CLEAR_ALARM);
- 
- 	return 0;
++
++err_unregister_cs:
++	clocksource_unregister(&timerdrv->cs);
++err_release_res:
++	release_resource(&timerdrv->res);
++err_free:
++	kfree(timerdrv);
++	return ret;
  }
 -- 
 2.56.1.839.g22a8290db9-goog
