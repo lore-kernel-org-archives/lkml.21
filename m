@@ -1,71 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795710703;
-	b=BWZVdOif1qYKZtdL/RLQpc2QsxxYx7US6xc2MrRpzkzBUB2fMXKLYipcl02lZ9x07kGQ
-	 AXNzINxvSd9EFB/PUpwXgkXBxiDSrxpFOFJrZpI5ii2GA24Div+RXMBBFy2Mf0zz271Ax
-	 Q6XBDgVVJRZaziFwai1RapGk+342Z+95Qk/OWvtkj3FEuO0RqeexumGcNwplSxOGTaAcp
-	 v7nxBE7k1+4iFGPS3qpySc+PYEx1gMCwSfZkK020iyqnX3CaSLHEn2+/zGliHPq9osa7D
-	 MHBDp+qLvT+EZ3dDdAQQYbV++rBwLdX1QLzvhZuXYtjBKScFd+Vw3xF2rgvtyGHHTDg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795710703;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date:
-	 MIME-Version:User-Agent:X-ZohoMailClient;
-	bh=frGnSKi8fHrUyzyLKk0ZNCUrhTr6NgD2D93OZ5RJh8U=;
-	b=qHzwPKI4NxZzj/GJnvRDkx60AFRECeP8vnmXQkKTtujb/aBOaXK60grSeSJZuNVBmx2n
-	 nTALSQ7IlyTbv49Hz+MKxmvjLlQxIdQFYExGGOpT+UbG48K+miJ4fAlfV4vWDrqba84B4
-	 Zt2QMcnlcMpVpLLyIEkuugHHdrYdXlBRyqPdksnM1y/qD/mOjwcQ3IU1qvCfYruMLS95G
-	 nO/CN53IGiXA96Z7LiGRco13nHz+d6yIUCtEL3WALifQ8C41FhUAyq+7fzVabYK7THhK5
-	 OPI9bFvg+NTeWAAHZuk/83zIs3qn4HbeXtqG0uHwA2lcHIkzsgUukGBLKUdq49Sbj9Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rong.moe;
-	spf=pass smtp.mailfrom=rong.moe;
-	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=n0btPxGP;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795710713;
+	b=JTV/b2zM6gvEgIIwwD3dBiLSowbZ/EKAkWqqReFarC3aENIxqE/C/Fy6f5xolWqrCPNi
+	 vZLsc7tOlfc37A6MwPutIVDtYCapDR8BOtGSja6hevXiCYSAmkQ5OXp18x6rfC9VUmKtd
+	 a8gXe06mgbu040zDABoURR0xvMmk8wYURmK1kSgpYWMhRjv7fElkdmuyIWdxNhHKkbz2f
+	 /ytL5E0Bzwhz1JNyLtNR12IRFa0z7qGPnqKOxFRIZYxr0FCFymkPdximA1p5F5SqMmgv4
+	 tacD2AJnrMnYhLKhX3i1hJCIE4YtSNMTsNBWPmFMnDBr93gaoyNy9U57Pjancd+8lXg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795710713;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=JaTAxRtKeYbk84RLM3i2yEqwJv/D2pe6Nve7rFnRBXM=;
+	b=JbQqonm1G8pH7DsZmiZDbcURgua9H2d9v+pukVsI6ItoIjbDb+Aqqd29qwV/pGU8oEoP
+	 T8zuZAh/uFEFe7bms3wVSnAs9FYENsBf+aevF9a3ay1CwaE/w6rONb/4yNmRlQvLD88oY
+	 OUwLgGWYU1qfjUaR5giPpC6YRDAcOFhKAKax+/Yg2BSqoY3Ec1w3QLYSsnqyoRluaRXNQ
+	 S3zxnAWY9H2SaBgjfhaEYB6Rx4hmmVr4Xswbr6MZUGPVpQgz9lpTLoCc0NTPxZ/NYPkzd
+	 l0yTBCXXjFC6lUpfR0p90fB1aofHRz2HM7/T3eDdwgn5RS2jUI4yTgL/Mw/+KitjfrQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oWgqtZPJ;
+	arc=none smtp.remote-ip=209.85.221.51
+Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62750606A31E;
-	Thu, 26 Nov 2026 16:31:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62750606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8612D60A2623
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:31:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8612D60A2623
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=n0btPxGP
-ARC-Seal: i=1; a=rsa-sha256; t=1795710686; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Y0K06x+kZ8vJJo/p7IdwhwAL5FtR94QibgvGftTf1tl9hSbnN+3CoLWGSiwfyKzxuSZoKmL0gjQbJxMJcJvW+DVpZ6Uz4gPAYSEtQ7GKLNrRseSBJcRfjNM9FVR9eA58StkRxh+e5wqyVmSNJCv0tdebDrUJ06uX+iQ6NWKhlgk=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795710686; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=frGnSKi8fHrUyzyLKk0ZNCUrhTr6NgD2D93OZ5RJh8U=; 
-	b=C4IFDH3hTYoKawMMwYecwOoyHPj4mpWMWoL1hAFjA+DtngwOzLM8HOUw4AESmmjkp4+fN8MjBjahtQsqJC07ZTch2Seip3PSLNiBlQGpCJU0jJ4cM4Cy6fNSSvYC06cgpSF98L5xbbuBhoU0gXWI2QqE9Ak+7lFcIL8exeBooCg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: a=rsa-sha256; b=n0btPxGPH0ljZ+DextXTk2RReaOZLGFAluOO/bYfvy5EY8JNrO7jcvv3G/26PPSCsVMohDv20A2XOZb0n9S/WG/IiF+bY9j5K+EYqw03HcetqRrHh19eYoUSKWWxcbzJ7lrtOjrW9M5NbeeQAcACpmxRvi77ZArvvnUgwjAoS10HQ8MCbF5aIbseRO+3fieskmxo/xiXYarFOtobCGt0/4F8oFUsy/BsUb9gfhPlcbV4jsBOKbNORQZzj5N/ZQgUXQtiSugck/IUtsVWpQzrhrtarkiMzPQPMCh2R105mqACkAoI2REFMqidO7++HNFnpNpUo1NTnnk+QTaBG+GlfA==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=frGnSKi8fHrUyzyLKk0ZNCUrhTr6NgD2D93OZ5RJh8U=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 179571068280348.0413320410413;
-	Thu, 26 Nov 2026 08:31:22 -0800 (PST)
-Message-ID: <11bf638c620500f8c042de6d1f2bf3f1d7225820.camel@rong.moe>
-Subject: Re: [PATCH] platform/x86: ideapad-laptop: don't warn about
- keyboard backlight type 0
-From: Rong Zhang <i@rong.moe>
-To: Arnav Kapoor <kapoorarnav43@gmail.com>
-Cc: Hans de Goede <hansg@kernel.org>, Ilpo =?ISO-8859-1?Q?J=E4rvinen?=	
- <ilpo.jarvinen@linux.intel.com>, Ike Panhc <ikepanhc@gmail.com>, Mark
- Pearson	 <mpearson-lenovo@squebb.ca>, "Derek J . Clark"
- <derekjohn.clark@gmail.com>,  Stuart Hayhurst
- <stuart.a.hayhurst@gmail.com>, Punnay Sharma <punnaysharma805@gmail.com>, 
-	platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261126161131.962234-1-kapoorarnav43@gmail.com>
-References: <20261126073107.765676-1-kapoorarnav43@gmail.com>
-	 <3e932924940536878264c1ab46d24bd6db362183.camel@rong.moe>
-	 <20261126152448.847538-1-kapoorarnav43@gmail.com>
-	 <20261126161131.962234-1-kapoorarnav43@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 27 Nov 2026 00:26:16 +0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oWgqtZPJ
+Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-492f0a1b685so5094625f8f.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:31:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795710712; x=1796315512; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JaTAxRtKeYbk84RLM3i2yEqwJv/D2pe6Nve7rFnRBXM=;
+        b=oWgqtZPJ+QTfEFZ5N9eQvoTBWfIeBxFyGemMJWQgY+87l+MIRZRTkXIxAtrUT6b9OX
+         lT2HhMQ6C4JwF1MVSaAdVK71Ty/ZBm5ROUsJ+uXnsteA6mBaBY2BimSwk8fGh1c+cdpC
+         ZNaJxtEMzp0Ca1dT4WWYXeNRtaSMn+HAyyvTTo16OFk+LTiV3CzkZulp2AUJR0Vx2MN5
+         NOSdZ3PNLKDcOBGL3j2FfEk2hPWjgRK6SwtQ5bvYSz3OAddq6jZ+wZk3tDft2ZPjyQQm
+         fpWnjnFFEclwrR+7KfqwNBjGOOsYdzfpFiXJGWvJ8Lb3XSuMI4Cw1dd2/ry2v+TMORkb
+         Ql1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795710712; x=1796315512;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=JaTAxRtKeYbk84RLM3i2yEqwJv/D2pe6Nve7rFnRBXM=;
+        b=2uZOr3j9DXh/yhKg1rPkvAQhxcMHXNKq89JDznxas/vqYRFy3mIMEFjc7Ieo2Uql0K
+         9hWUaiCAz7F/uiHPkRJZylw7Y0kVBTN89IsgzO4ziL13Aot7e1BR9wkx98YhQvJuA+6F
+         Pybrk2nshZK0VLiJG+/Rq5tucshFAqInaId8RcCFpQw4/A1Eqn9FzGj9qmCgtA39GVXd
+         23Dh0zxrZjMVy9Q3w8DCbTmhU12dxqRhaQsfDppZX0yMf/OjaeFtHx9a95Nc/aAJkONP
+         rc1Sz8WOsYogdELcmlGVZ8WXwSUZ+qa7ChgVNA+Rey0qNI6K649ngHe/vJ+Th5S5jsN/
+         E3dQ==
+X-Forwarded-Encrypted: i=1; AL+hErFKauV6o7+HR6AclkGOmkX3+JnNFLgvzBl8Q0PZwjUsORyJN4H4SSNaGibzDqP+NPekv9zOk0IJbtN7oL0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+n2Vwo24NmjATzpXYmqt2nCaCeT3BjUAgyEwadT/QWfcvkEJrF
+	AOiYyVfyR+EJ4WObRgNRFat2xOK7Uv5mCjpqM8lesiBsQYN+fOS0b9n2
+X-Gm-Gg: AZFdTZd4BeqTTtJrPghNq7r/che+Oolm0g9Fv45x2JWjAur8MiPQJsuFdvPJZBA76CD
+	iW8rFOQsJ4gX6lbvKJhGb9I0OIrdqdJed4/Pr48lPFWCdQmMELNImYQVNEdMcYiq9Vk12IilsHR
+	hGh16JN4bLglaJ4181jblKObshZm8FSnwKjqAt3Q0cAC+Nr7DOB14+Naf7M9JLC8Xh1lyJyjiR9
+	VAp8V65KiQWnCQGe13UmxH71v+F1zwHTnaI+lTfVbRsW79EZ+ZRbGgATy6K094hvFiLxWYFOAvB
+	JocjHrcjy9lsHR+BfPFAmgiWenDdGPtW2PjmvnC/ojEKWewQKTAVCbJgMiiscDZ72PP1aJfoCQS
+	BSSb0OiekgND0mTtX+WvD6APw7XEbccVrzWVNItuSIZohPfbXLeJg5d3Zq+JZOXP5+UxTOd+wsc
+	eYW260VgmHIRpxaFg/tbUG9DNEr4gzwgmsj38LBrr4XNWNikBF7uEQBAlW+vlV/5Fx0qUKlhKwJ
+	liFYLhzJKRll5nX/Kxp2c3jAAlbGWBCweuOklignQvOe71oqo6zZzweKP51sbVwI7ccCrZdpKV8
+	CtoAYpWw13PgwB6MzzTCYklB
+X-Received: by 2002:a05:600c:4f84:b0:4bb:8701:a2df with SMTP id 5b1f17b1804b1-4bb88809950mr444061975e9.17.1795710711689;
+        Thu, 26 Nov 2026 08:31:51 -0800 (PST)
+Received: from infinity ([2001:b07:5d26:7a6a:365a:60ff:fe0d:cfc6])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a9846sm721964995e9.11.2026.11.26.08.31.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 08:31:51 -0800 (PST)
+From: koraynilay <koray.fra@gmail.com>
+To: Namjae Jeon <linkinjeon@kernel.org>,
+	Hyunchul Lee <hyc.lee@gmail.com>,
+	Eric Biggers <ebiggers@kernel.org>,
+	"Theodore Y . Ts'o" <tytso@mit.edu>,
+	Jaegeuk Kim <jaegeuk@kernel.org>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>
+Cc: Chuck Lever <cel@kernel.org>,
+	Jeff Layton <jlayton@kernel.org>,
+	Jan Kara <jack@suse.cz>,
+	Alexander Aring <alex.aring@gmail.com>,
+	"Darrick J . Wong" <djwong@kernel.org>,
+	Andrey Albershteyn <aalbersh@kernel.org>,
+	Amir Goldstein <amir73il@gmail.com>,
+	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
+	Lauri Gates <lauri.gates@gmail.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	Dave Chinner <dgc@kernel.org>,
+	linux-btrfs@vger.kernel.org,
+	linux-xfs@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org,
+	ntfs@lists.linux.dev,
+	linux-nfs@vger.kernel.org,
+	linux-api@vger.kernel.org,
+	koraynilay <koray.fra@gmail.com>
+Subject: [PATCH v2 4/4] ntfs: switch to the new xflags fileattr API
+Date: Thu, 26 Nov 2026 17:31:14 +0100
+Message-ID: <20261126163114.403846-5-koray.fra@gmail.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261126163114.403846-1-koray.fra@gmail.com>
+References: <20261126163114.403846-1-koray.fra@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,31 +120,259 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Evolution 3.62.1-4 
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
 
-Hi Arnav,
+Switch ntfs_fileattr_[gs]et() from the legacy FS_*_FL flags to the
+modern xflags (FS_XFLAG_*) fileattr API with masks.
 
-On Thu, 2026-11-26 at 21:41 +0530, Arnav Kapoor wrote:
-> Correction, sorry: I replied before reading Punnay's patch closely. It
-> only skips the warning for type 1 (KBD_BL_NONE_TYPE); this V14 G2 ITL
-> returns 0, so the warning stays with it applied.
->=20
-> Type 0 is a separate case: no bits set, and KBLC also returns 0 when
-> the EC or LFCM is unavailable, so it can't mean any backlight type.
->=20
-> Hans, Ilpo, please ignore my earlier request to drop this patch. I'm
-> happy to rebase it on top of Punnay's patch, or to fold both cases into
-> a single check, whichever you prefer.
+Introduce FS_XFLAG_COMPR and FS_XFLAG_ENCRYPT to be used in this API
+upgrade.
 
-IIRC the KBLC methods of devices I've seen always return (whatever | 1).
+Following the FS_XFLAG_VERITY example, put FS_XFLAG_ENCRYPT in
+FS_XFLAG_RDONLY_MASK and in FS_XFLAG_COMMON, since it's read-only for
+all filesystems.
 
-So I guess it should be safe to assume 0 as stubbed. I'd still like to
-defer to Mark's opinion, though.
+Following the FS_XFLAG_CASEFOLD example, put FS_XFLAG_COMPR in
+FS_XFLAG_RDONLY_MASK but not in FS_XFLAG_COMMON, since it's read-write
+for some filesystems and read-only for others, to avoid breaking
+existing filesystems.
 
-Thanks,
-Rong=20
+Also update vfs fileattr_fill_* helpers to include these two flags as
+well.
 
->=20
-> Thanks,
-> Arnav
+Assisted-by: Gemini:3.8-flash-high antigravity-cli-1.5.11
+Signed-off-by: koraynilay <koray.fra@gmail.com>
+---
+ fs/file_attr.c           |   8 +++
+ fs/ntfs/file.c           | 109 +++++++++++++++++++++------------------
+ include/linux/fileattr.h |   7 +--
+ include/uapi/linux/fs.h  |   2 +
+ 4 files changed, 72 insertions(+), 54 deletions(-)
+
+diff --git a/fs/file_attr.c b/fs/file_attr.c
+index 35bc2ded2ff8..3631353ec9c7 100644
+--- a/fs/file_attr.c
++++ b/fs/file_attr.c
+@@ -39,6 +39,10 @@ void fileattr_fill_xflags(struct file_kattr *fa, u32 xflags)
+ 		fa->flags |= FS_VERITY_FL;
+ 	if (fa->fsx_xflags & FS_XFLAG_CASEFOLD)
+ 		fa->flags |= FS_CASEFOLD_FL;
++	if (fa->fsx_xflags & FS_XFLAG_COMPR)
++		fa->flags |= FS_COMPR_FL;
++	if (fa->fsx_xflags & FS_XFLAG_ENCRYPT)
++		fa->flags |= FS_ENCRYPT_FL;
+ }
+ EXPORT_SYMBOL(fileattr_fill_xflags);
+ 
+@@ -71,6 +75,10 @@ void fileattr_fill_flags(struct file_kattr *fa, u32 flags)
+ 		fa->fsx_xflags |= FS_XFLAG_VERITY;
+ 	if (fa->flags & FS_CASEFOLD_FL)
+ 		fa->fsx_xflags |= FS_XFLAG_CASEFOLD;
++	if (fa->flags & FS_COMPR_FL)
++		fa->fsx_xflags |= FS_XFLAG_COMPR;
++	if (fa->flags & FS_ENCRYPT_FL)
++		fa->fsx_xflags |= FS_XFLAG_ENCRYPT;
+ }
+ EXPORT_SYMBOL(fileattr_fill_flags);
+ 
+diff --git a/fs/ntfs/file.c b/fs/ntfs/file.c
+index 50be49f4c913..34acf9333c41 100644
+--- a/fs/ntfs/file.c
++++ b/fs/ntfs/file.c
+@@ -155,31 +155,38 @@ int ntfs_file_release(struct inode *vi, struct file *filp)
+  * @dentry: dentry to report the flags of
+  * @fa: filled in with the flags of @dentry
+  */
++#define NTFS_RO_XFLAGS (FS_XFLAG_COMPR | FS_XFLAG_ENCRYPT | \
++			FS_XFLAG_CASEFOLD)
++#define NTFS_RW_XFLAGS (FS_XFLAG_IMMUTABLE | FS_XFLAG_APPEND | \
++			FS_XFLAG_NOATIME | FS_XFLAG_NODUMP)
+ int ntfs_fileattr_get(struct dentry *dentry, struct file_kattr *fa)
+ {
+ 	struct inode *vi = d_inode(dentry);
+ 	struct ntfs_inode *ni = NTFS_I(vi);
+-	u32 flags = 0;
++	u32 xflags = 0;
+ 
+ 	if (NVolShutdown(ni->vol))
+ 		return -EIO;
+ 
+ 	if (NInoCompressed(ni) || NInoWofCompressed(ni))
+-		flags |= FS_COMPR_FL;
++		xflags |= FS_XFLAG_COMPR;
+ 	if (NInoEncrypted(ni))
+-		flags |= FS_ENCRYPT_FL;
++		xflags |= FS_XFLAG_ENCRYPT;
+ 	if (vi->i_flags & S_IMMUTABLE)
+-		flags |= FS_IMMUTABLE_FL;
++		xflags |= FS_XFLAG_IMMUTABLE;
+ 	if (vi->i_flags & S_APPEND)
+-		flags |= FS_APPEND_FL;
++		xflags |= FS_XFLAG_APPEND;
+ 	if (vi->i_flags & S_NOATIME)
+-		flags |= FS_NOATIME_FL;
++		xflags |= FS_XFLAG_NOATIME;
+ 	if (ni->linuxflags & NTFS_LINUXFLAGS_NODUMP)
+-		flags |= FS_NODUMP_FL;
++		xflags |= FS_XFLAG_NODUMP;
+ 	if (!NVolCaseSensitive(ni->vol))
+-		flags |= FS_CASEFOLD_FL;
++		xflags |= FS_XFLAG_CASEFOLD;
+ 
+-	fileattr_fill_flags(fa, flags);
++	fileattr_fill_xflags(fa, xflags);
++	fa->fsx_xflags_ro_mask = NTFS_RO_XFLAGS;
++	fa->fsx_xflags_rw_mask = NTFS_RW_XFLAGS;
++	fa->has_masks = true;
+ 	return 0;
+ }
+ 
+@@ -207,11 +214,9 @@ int ntfs_fileattr_set(const struct mnt_idmap *idmap, struct dentry *dentry,
+ {
+ 	struct inode *vi = d_inode(dentry);
+ 	struct ntfs_inode *ni = NTFS_I(vi);
+-	u32 allowed = FS_IMMUTABLE_FL | FS_APPEND_FL | FS_NODUMP_FL |
+-		      FS_NOATIME_FL;
+-	u32 readonly = 0;
+-	u32 linuxflags = ni->linuxflags & ~NTFS_LINUXFLAGS_MASK;
+-	unsigned int new_fl = 0;
++	u32 linuxflags = ni->linuxflags;
++	u32 rw_user_mask = fa->fsx_xflags_rw_mask;
++	unsigned int new_fl = 0, mask_fl = 0;
+ 	bool forced_immutable;
+ 	int err;
+ 
+@@ -219,44 +224,46 @@ int ntfs_fileattr_set(const struct mnt_idmap *idmap, struct dentry *dentry,
+ 	if (err)
+ 		return err;
+ 
+-	if (fileattr_has_fsx(fa))
+-		return -EOPNOTSUPP;
+-
+-	/* chattr passes the unchanged read-only flags back to us too. */
+-	if (NInoCompressed(ni) || NInoWofCompressed(ni))
+-		readonly |= FS_COMPR_FL;
+-	if (NInoEncrypted(ni))
+-		readonly |= FS_ENCRYPT_FL;
+-	if ((fa->flags ^ readonly) & (FS_COMPR_FL | FS_ENCRYPT_FL))
+-		return -EOPNOTSUPP;
+-	allowed |= readonly;
+-
+-	/* Case folding is a read-only, mount-wide property. */
+-	if (!NVolCaseSensitive(ni->vol))
+-		allowed |= FS_CASEFOLD_FL;
+-	if (fa->flags & ~allowed)
+-		return -EOPNOTSUPP;
+-
+-	forced_immutable = ntfs_is_forced_immutable(vi);
+-	if (!(fa->flags & FS_IMMUTABLE_FL) && forced_immutable)
+-		return -EPERM;
+-
+-	if (fa->flags & FS_IMMUTABLE_FL) {
+-		new_fl |= S_IMMUTABLE;
+-		/* Do not persist an immutable bit derived from the mount. */
+-		if (!forced_immutable ||
+-		    (ni->linuxflags & NTFS_LINUXFLAGS_IMMUTABLE))
+-			linuxflags |= NTFS_LINUXFLAGS_IMMUTABLE;
++	if (rw_user_mask & FS_XFLAG_IMMUTABLE) {
++		forced_immutable = ntfs_is_forced_immutable(vi);
++		if (!(fa->fsx_xflags & FS_XFLAG_IMMUTABLE) && forced_immutable)
++			return -EPERM;
++
++		mask_fl |= S_IMMUTABLE;
++		if (fa->fsx_xflags & FS_XFLAG_IMMUTABLE) {
++			new_fl |= S_IMMUTABLE;
++			/* Do not persist an immutable bit derived from the mount. */
++			if (!forced_immutable ||
++			    (ni->linuxflags & NTFS_LINUXFLAGS_IMMUTABLE))
++				linuxflags |= NTFS_LINUXFLAGS_IMMUTABLE;
++		} else {
++			if (ni->linuxflags & NTFS_LINUXFLAGS_IMMUTABLE)
++				linuxflags &= ~NTFS_LINUXFLAGS_IMMUTABLE;
++		}
+ 	}
+-	if (fa->flags & FS_APPEND_FL) {
+-		new_fl |= S_APPEND;
+-		linuxflags |= NTFS_LINUXFLAGS_APPEND;
++	if (rw_user_mask & FS_XFLAG_APPEND) {
++		mask_fl |= S_APPEND;
++		if (fa->fsx_xflags & FS_XFLAG_APPEND) {
++			new_fl |= S_APPEND;
++			linuxflags |= NTFS_LINUXFLAGS_APPEND;
++		} else {
++			linuxflags &= ~NTFS_LINUXFLAGS_APPEND;
++		}
++	}
++	if (rw_user_mask & FS_XFLAG_NODUMP) {
++		if (fa->fsx_xflags & FS_XFLAG_NODUMP)
++			linuxflags |= NTFS_LINUXFLAGS_NODUMP;
++		else
++			linuxflags &= ~NTFS_LINUXFLAGS_NODUMP;
+ 	}
+-	if (fa->flags & FS_NODUMP_FL)
+-		linuxflags |= NTFS_LINUXFLAGS_NODUMP;
+-	if (fa->flags & FS_NOATIME_FL) {
+-		new_fl |= S_NOATIME;
+-		linuxflags |= NTFS_LINUXFLAGS_NOATIME;
++	if (rw_user_mask & FS_XFLAG_NOATIME) {
++		mask_fl |= S_NOATIME;
++		if (fa->fsx_xflags & FS_XFLAG_NOATIME) {
++			new_fl |= S_NOATIME;
++			linuxflags |= NTFS_LINUXFLAGS_NOATIME;
++		} else {
++			linuxflags &= ~NTFS_LINUXFLAGS_NOATIME;
++		}
+ 	}
+ 
+ 	mutex_lock(&ni->mrec_lock);
+@@ -265,7 +272,7 @@ int ntfs_fileattr_set(const struct mnt_idmap *idmap, struct dentry *dentry,
+ 	if (err)
+ 		return err;
+ 
+-	inode_set_flags(vi, new_fl, S_IMMUTABLE | S_APPEND | S_NOATIME);
++	inode_set_flags(vi, new_fl, mask_fl);
+ 	inode_set_ctime_current(vi);
+ 	mark_inode_dirty(vi);
+ 	return 0;
+diff --git a/include/linux/fileattr.h b/include/linux/fileattr.h
+index 725efac15e76..b201333443ca 100644
+--- a/include/linux/fileattr.h
++++ b/include/linux/fileattr.h
+@@ -7,17 +7,18 @@
+ #define FS_COMMON_FL \
+ 	(FS_SYNC_FL | FS_IMMUTABLE_FL | FS_APPEND_FL | \
+ 	 FS_NODUMP_FL |	FS_NOATIME_FL | FS_DAX_FL | \
+-	 FS_PROJINHERIT_FL | FS_VERITY_FL)
++	 FS_PROJINHERIT_FL | FS_VERITY_FL | FS_ENCRYPT_FL)
+ 
+ #define FS_XFLAG_COMMON \
+ 	(FS_XFLAG_SYNC | FS_XFLAG_IMMUTABLE | FS_XFLAG_APPEND | \
+ 	 FS_XFLAG_NODUMP | FS_XFLAG_NOATIME | FS_XFLAG_DAX | \
+-	 FS_XFLAG_PROJINHERIT | FS_XFLAG_VERITY)
++	 FS_XFLAG_PROJINHERIT | FS_XFLAG_VERITY | FS_XFLAG_ENCRYPT)
+ 
+ /* Read-only inode flags */
+ #define FS_XFLAG_RDONLY_MASK \
+ 	(FS_XFLAG_PREALLOC | FS_XFLAG_HASATTR | FS_XFLAG_VERITY | \
+-	 FS_XFLAG_CASEFOLD | FS_XFLAG_CASENONPRESERVING)
++	 FS_XFLAG_CASEFOLD | FS_XFLAG_CASENONPRESERVING | FS_XFLAG_ENCRYPT | \
++	 FS_XFLAG_COMPR)
+ 
+ /* Flags to indicate valid value of fsx_ fields */
+ #define FS_XFLAG_VALUES_MASK \
+diff --git a/include/uapi/linux/fs.h b/include/uapi/linux/fs.h
+index 63d88ebe3420..8d78990eb95c 100644
+--- a/include/uapi/linux/fs.h
++++ b/include/uapi/linux/fs.h
+@@ -274,6 +274,8 @@ struct file_attr {
+ #define FS_XFLAG_CASEFOLD	0x00040000	/* case-insensitive lookups */
+ #define FS_XFLAG_CASENONPRESERVING 0x00080000	/* case not preserved */
+ #define FS_XFLAG_PROJID		0x00100000	/* project ID */
++#define FS_XFLAG_COMPR		0x00200000	/* Compress file */
++#define FS_XFLAG_ENCRYPT	0x00400000	/* Encrypted file */
+ 
+ #define FS_XFLAG_HASATTR	0x80000000	/* no DIFLAG for this	*/
+ 
+-- 
+2.56.0
+
