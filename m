@@ -1,72 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795690194;
-	b=nZN8ZhlOQ2Dp4ScSmBofJknYcDegzlk+M92k57yp5XEvd3EMVJgCClbnRyzzLgZ2FR1R
-	 2v85j/1VaTJQsewO1Zn97AwTnPexoSZREtcx/Y9vUZ5yAqPlfTg3SffOvMXErTrR3noDN
-	 aMEZIwG7Qz12446yLQ4HiM3x+q+O4NtXXIZAtCVYF5P9vzBM5C+F+zrzC2PSwJsfv0R8H
-	 q+xd4OA46/g6QmqNrb4mOG4ZLiVUFw5xVRWNZlhjVCq7LWQNduezVyL8dCINL8BP9b6j4
-	 qrvjPKpwfMjvxkwFz1PDlc6ZWcBSWoF6chZ3Jzbthtt6n5zTiKyhtJwbWaIEtegKxkQ==
+	t=1795690199;
+	b=WCxwEe5urSfIWbmIOeGoO16EDptiDrTrxhGk914PV+8uxkxmyJGbSp4Zc4I0LQUFrkFY
+	 BB30Nw2pSZv/c8sV3Rc3Y+KS0z0paJPh+KGn2vNct5sjJKBbr13lwk6ONjy4n0/RGRYY0
+	 /p/ApmOUlnRgHUvPy8gQHRSHlR14dS2gxyg4WpInhHwGOpHD+P2h0DImDfCT3CgwwDEuy
+	 L3Aes4+qgAXM9gufGg6qVpgWeUJ+8D6gKyfYvx/TUTug3qdr0zEE0OWsbQr6S2EcFwSpt
+	 RvJ5NpbFaeqCQtWKtxzCLvU0EPDo0gVl1wzz1wlp3iW0z76ATQZy6H6WRXbmzDOiJwA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795690194;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=n2gJ4sD41uTH00NZ3mpn1mrUv9pUW3hdigzbmKMQ4mo=;
-	b=Rz3eLbG4If+Qlzy+NUyRtL5/THEh7BXWYIaaH62yOIzQQVc6gC0fbUymlIceiSOh8e00
-	 XDmyhN0FaJD5Bhf7LZ5vx8YP94Dhv5i1rjTW0U9shHubSNM74dvXFboOvq04PbL57+Rkl
-	 bc4FkzMfXNwcLxKg1IODhgR/31kfHcx+dyYTtigkmLd5usKMfamUEFQj09iEUQMaTiYT9
-	 cIQkhjP2hm7ci5mKCf37gj95fA1jefZ4xkMBV+36pyRIm12upE65bMRwG8eKqkJyFNSGJ
-	 3ozl1lCDoJYJG7ScHmMPJLtay0yF/PHQfyfLUFfKzXgfa/O6wqV8LmAgaiy9HMLNfWg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795690199;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=HKsMEH8dY6nrgiSxIOyCac2CumphTo4mC8nhOJyOu4Y=;
+	b=Yltuywcss9Qde95hEKpkX6kU6/FzORMLd8uJ6e05LNyUqc9VEFfL7LCLcoOH7Dtdxc1V
+	 zIS8R6cEPxmZ7TLzYkTJhnUGBO7hWMuPowJ/iAJBa1cej9wUyk77LBCsMrIT0j+fnA/wS
+	 DcqdpJkJNKNJlaYJqvAfq3gYCB6QRMJpDwKcQ2f8Hg22c4t53twTOiUD6NoTvlnG5kDqu
+	 q/1FfQLXTm8Z69aPaqpyPnoefz61AMcj4ob6rAWMZaam4UtjlB8se+FH9TeFe/kh3nyjW
+	 CtYwc/dMgjH8BSJE8InV0SZYLo5+6ZpuJxuJU3J699XBoWKwn2ML0rkO4obvgBN7nyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=mrHh6gNr;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=icFuVbhW;
+	arc=none smtp.remote-ip=209.85.128.52
+Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80914606A31C;
-	Thu, 26 Nov 2026 10:49:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80914606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2E40606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:49:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2E40606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=mrHh6gNr
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 09325C2B9C7;
-	Thu, 26 Nov 2026 10:50:00 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B248B60237;
-	Thu, 26 Nov 2026 10:49:51 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B2B0411E6B2E5;
-	Thu, 26 Nov 2026 11:49:42 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795690186; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=n2gJ4sD41uTH00NZ3mpn1mrUv9pUW3hdigzbmKMQ4mo=;
-	b=mrHh6gNruUe/EEnCdTwpBn9QYJSujVkcRgIAM+O6i3EJ+3Xp2JOKEme4BtCN4SgCu6f9dV
-	Ii56otDJ1+Eu5X0uxUtAQuwRhL8+/MOCs9sBaij6DJfVa7bgN+DsVFN1lUwHR2fbs/7dIK
-	Vp5zW/yuW8wi31CvuQ9X2F4j8ZEhB2j6t6FRTYEYmNSgXwTGb1RJzEht35VFaldjI0WjTR
-	quY9aKRPLk4E09mwKvUxWTGHKJqk+MvALdUFHZd+FGKd+Ednb6O0olvG7CEkFXC8IMqB/S
-	lQg4IN9tOu+RSFWkaypo7GiQh9BpRPCT8hoo6qfkCWxj7DIArFIQCQHB5kZX8A==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
- <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,
-  filipp.dunsky@gmail.com,  linux-mtd@lists.infradead.org,
-  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] dt-bindings: mtd: Add Cortina CS7542 NAND
- controller
-In-Reply-To: <20261123-b4-cs7542-nand-v2-1-9d9f08608534@gmail.com> (Fil Dunsky
-	via's message of "Mon, 23 Nov 2026 23:27:06 +0300")
-References: <20261123-b4-cs7542-nand-v2-0-9d9f08608534@gmail.com>
-	<20261123-b4-cs7542-nand-v2-1-9d9f08608534@gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Thu, 26 Nov 2026 11:49:41 +0100
-Message-ID: <87pkvryiii.fsf@bootlin.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=icFuVbhW
+Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4a73fdd2966so4970455e9.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:49:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795690197; x=1796294997; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=HKsMEH8dY6nrgiSxIOyCac2CumphTo4mC8nhOJyOu4Y=;
+        b=icFuVbhW7SCowMEaY8foQXc6Ug6hI8KSnNsaFcg/6KdBJFOmddE8aDaHxZpRDhlF5d
+         pdCyiKoeaYhqNvnn2OYZU6PxTECwhS1dWoN95OnR7qEEAlCD/6u2rnhWs0q7JQQVwlON
+         2pjp8pjPlJA69x9bpB/TWwLwYZ0evpeNKwcu7+i57E0CfzR1pFXE4VYZssUGYxT2OMWj
+         fJM7hVJjfd7Rm2ROSXN6MJOXhsrqvhg0q7Z8iCLK8x2wbWqBG8XECbwj5WGTU8//ewey
+         8j10Ny3qqoVtCHbuqTZPh69p+7y5VilrNy1BqYZFdax2eFo3hYidsPapThvHQnH6KI9b
+         /Kcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795690197; x=1796294997;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=HKsMEH8dY6nrgiSxIOyCac2CumphTo4mC8nhOJyOu4Y=;
+        b=z3toKbY4W5IPZUM3wPrqOCcP1nzkuoUJSHM47/k3pILjHO4Y0pBuTbFXsU2xZGD47e
+         A7+5vh2/TKLel+m9nWswYIaUKPSXGWdSETHpkobJIjXvhgSbAFiNq3oSEoj1hxpusGyh
+         dNL1SwSeDBHWuV9HfiWUqBBlgTmQCjjdcrn7lE9rR2MybXbf77AioQm5DAFuvM4N1nuI
+         y3XGUR5eELWHoSQVy3QTuyZsTjJc4pzNOC5Or0vNB//GtRHYe4RWYQgaZMn0j6RM8NqX
+         RP0+hi64RESTjbaIXc81mYyoVZNjrAzW/1E/MLWNnJcaDkvr/n0/ZUTLlSEUx2jVtrEF
+         8KzA==
+X-Forwarded-Encrypted: i=1; AL+hErEYnVGn9V/Hvv7IfRdX4nZM5dZmsMe631BOZsGPrVF7ms4na4WltxMDPdoye6J54Ji7vT3JGC5aR+EOMsM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/1aKYi3zIbRzDcOQhGbcnoRcqeUjQSozfJf8npkHTcCy/5dOFv
+	+pkwBtR8LIfhqMOSTHtvY4UhCJIGVMroxuIGWnamaVyodI9Gp4zNa0bN
+X-Gm-Gg: AZFdTZeR3foAXi/iSoKTwK5BurClccF5DwUxGtZTHcTLsQWo9uUorrLa25+eIj0hQyI
+	oQASCbo+JhMT+sxeSQMdiKxN8Wht78C1FQoHmmMpG32BW9O9ZCbSjs6E8GJFNTXOva4dQ4Sr4kX
+	JmpSKt62nUnw+wzzP056XwGx2x2KM5m7Hn6Hqy01cNCXmsVK8RTyqliy4bP05AFHXChnZYzF3cL
+	v3JT2o+ik+b7xOnpnSy52ep5LVHzT+cdwUWCcwSGit8gg+QKbRmEI06/ooHQ7PafTZUNFwaAUk3
+	EnUxq4wqzPw8raYmKWHnRtPLeGmiubBOek05KFJtAO73ZvaqSotpKY5g54acnjPuO2ueNtxDlAK
+	gAHL3X8L8OgG1TH3A8mu8C30EQxiiuQLaBU+OyR53m5I/utN6H0lRAs9pjDfOT+WBhN8DlftCUo
+	BqPawd7Pnij0LP+PveiosCXVWtN7BV7MBcGf0cThZEvMjt4jQrmi3Wg/eFukyFwObgQ69lpa3tq
+	dLsdHp1fHmu2CFjgKWliw1faUbVE/fCkHF0cJiL6Jl8htOau9IlaGJyUP/mflr4ISsOxQpUlbc0
+	4dX3Eos6TJgNRo4Xm10jovob6dc7/9kPj9vD5Eqmkf3l3XbH8sRfQyUlhbqIIWrmmOVvE9MZ7He
+	7vBMh2CaMZUatrM2hxM7SfBTeZle9NSN9sx3y772k9Q==
+X-Received: by 2002:a05:600c:1113:b0:4bb:a9f6:8bbe with SMTP id 5b1f17b1804b1-4bba9f68bc2mr37087675e9.0.1795690196814;
+        Thu, 26 Nov 2026 02:49:56 -0800 (PST)
+Received: from thomas-precision3591.paris.inria.fr (wifi-pro-83-006.paris.inria.fr. [128.93.83.6])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4bb884c3063sm585028225e9.15.2026.11.26.02.49.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 02:49:56 -0800 (PST)
+From: Thomas Fourier <fourier.thomas@gmail.com>
+To: 
+Cc: Thomas Fourier <fourier.thomas@gmail.com>,
+	Brian Cain <bcain@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	linux-hexagon@vger.kernel.org (open list:QUALCOMM HEXAGON ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] hexagon: time: prevent release of not requested region
+Date: Thu, 26 Nov 2026 11:49:07 +0100
+Message-ID: <20261126104914.32285-2-fourier.thomas@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,91 +98,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 
-On 23/11/2026 at 23:27:06 +03, Fil Dunsky via B4 Relay <devnull+filipp.duns=
-ky.gmail.com@kernel.org> wrote:
+time_init_deferred() calls release_mem_region() on region
+rtos_timer_device.resource which is rtos_timer_resources which is
+statically defined.
 
-> From: Fil Dunsky <filipp.dunsky@gmail.com>
->
-> Describe the flash register bank and the single 8-bit NAND target used
-> on CS7542. Specify the ROM-compatible Hamming ECC configuration and
-> allow standard NAND partition descriptions. Firmware supplies the bus
-> timing.
->
-> Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
-> ---
->  .../bindings/mtd/cortina,cs7542-nand.yaml          | 66 ++++++++++++++++=
-++++++
->  1 file changed, 66 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/mtd/cortina,cs7542-nand.ya=
-ml b/Documentation/devicetree/bindings/mtd/cortina,cs7542-nand.yaml
-> new file mode 100644
-> index 000000000..c9ab9d4d9
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mtd/cortina,cs7542-nand.yaml
-> @@ -0,0 +1,66 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mtd/cortina,cs7542-nand.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Cortina Systems CS7542 NAND controller
-> +
-> +maintainers:
-> +  - Fil Dunsky <filipp.dunsky@gmail.com>
-> +
-> +description:
-> +  The flash controller supports programmed I/O transfers and a hardware
-> +  Hamming ECC engine. Firmware initializes the NAND bus timing.
-> +
-> +allOf:
-> +  - $ref: nand-controller.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: cortina,cs7542-nand
-> +
-> +  reg:
-> +    maxItems: 1
+Drop the release_mem_region().
 
-No clock, interrupt, dma, reset... nothing?
+Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
+---
+ arch/hexagon/kernel/time.c | 3 ---
+ 1 file changed, 3 deletions(-)
 
-> +
-> +patternProperties:
-> +  "^nand@[0-9a-f]$":
-> +    type: object
-> +    $ref: raw-nand-chip.yaml#
-> +    properties:
-> +      reg:
-> +        const: 0
+diff --git a/arch/hexagon/kernel/time.c b/arch/hexagon/kernel/time.c
+index 05c5d6c96d96..b6d844b2c1ef 100644
+--- a/arch/hexagon/kernel/time.c
++++ b/arch/hexagon/kernel/time.c
+@@ -175,9 +175,6 @@ static void __init time_init_deferred(void)
+ 	/*  ioremap here means this has to run later, after paging init  */
+ 	rtos_timer = ioremap(resource->start, resource_size(resource));
+ 
+-	if (!rtos_timer) {
+-		release_mem_region(resource->start, resource_size(resource));
+-	}
+ 	clocksource_register_khz(&hexagon_clocksource, pcycle_freq_mhz * 1000);
+ 
+ 	/*  Note: the sim generic RTOS clock is apparently really 18750Hz  */
+-- 
+2.53.0
 
-Does the controller really supports a single CS?
-
-I am not talking about the driver.
-
-> +      nand-bus-width:
-> +        const: 8
-
-Already defaults to 8, most of the time we just don't define it
-further. I don't know what is best here.
-
-> +      nand-ecc-mode:
-> +        const: hw
-> +      nand-ecc-algo:
-> +        const: hamming
-> +      nand-ecc-step-size:
-> +        const: 256
-> +      nand-ecc-strength:
-> +        const: 1
-
-This is not a limitation of your controller and these properties are
-only relevant if you want to overwrite what the NAND requested. You may
-have software ECC engine support. Also, a step size of 256 today is
-quite uncommon, are you sure?
-
-Miqu=C3=A8l
