@@ -1,57 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795692949;
-	b=DC6a4FusBrhChIwI2gDfC/5rl7YvfaccIgSkQ+z+eFDfAY/08f7wTGyswsbHgt87D4OO
-	 aqrhoyIMzzZUu4nbx49X5M36h4JtdR0z1f046rXg+0xndA6fsjrCgoLU7NnvoV5TXckTC
-	 iGeY3JfUWPQAOhzeV6jwckD0QcQS9j6+dTp3xF6PJUl8S48e9NSgEoYtuhocRWbLKmFhA
-	 cg7E4NkWxKDmNBjZIf0WaNG5crTBnMTAmMRkkZZ+Ab2sp/umfyOeLmPzsiOmPsCbEhXEN
-	 IiqjbQ58NJhlQqdBDG3KXi+V1emdwQNvFxK0nBqHT2HtlsE2CNi/50wfNgUSSe8Fjbw==
+	t=1795693004;
+	b=ulIMP/EQ9421Hy66wRxd2By4my/TYpHlAk7sNqD4SeNFlopOPBZikM61oBiGtUUxp8hT
+	 HcfF5av2pI8ptrugjf9rhYPOpH9IgniOOnNiR+358f0czOyQG63KVvXnua5Ix2dACgHh7
+	 ifOVljEx/Bq+57vJipw+tTwSTpFw0etNKoPmI6zgZeFPmaJvse0tCfaZuyAZrtV171x14
+	 yuQVScQ+3BBWCUpWh9blM5rBUGrfPYmsWU2stulUsNdMbHS7Z/jzHdQ0rMGK7l3JHX1hx
+	 /LGxn7fCti2coLFEJ+t6XPJp7FgGhZq7EYE0rt+72RZ7d+Nnf8eh/2VKRogSTKFyCvg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795692949;
-	h=DMARC-Filter:DKIM-Signature:From:Message-Id:Received:Cc:Content-Type:
-	 X-Original-From:Subject:Date:Mime-Version:In-Reply-To:References:To:
-	 X-Lms-Return-Path:X-Mailer:Content-Transfer-Encoding;
-	bh=unA431ECd152U6n8f6THnMEinZ3zGjLNoHnn81At+OI=;
-	b=f1SLs/YbjPqed0mwfKae7SnSu20jY6kczxVPbnOHdLxYqtjUTvzuvRAAmk/+BWfqN4wR
-	 C89MSWdamJPsA8jobZGMvn0xYr8GBkNlEo0IHu88MdNNmXjSRrDJuH7jkz7Y91m9DYrz5
-	 Wp29mYD9mdPI2gK82Op9pKt4y1nx/hDoU6JjQ9xf23ItdbjxfCAIlaOQ0DT9ToHATFR7D
-	 tK1tvAlis9n6ak3JBbJt7QoAVmvCRsv+Qn/WPrKkp+jnFrton7YDjhWPn8ZhFazj+DvpY
-	 3JBrpptinDbUGw5Bk9WO1D42ucpH4xsuKE3UN2txuIF4+qn6ECkVGucg7Y0ba3b764A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795693004;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-Spamd-Result:X-Spam-Score:
+	 X-Spam-Level:X-Spam-Flag;
+	bh=WXXZdtfXKLM3zYE0qG9EJihyMbjCoUyvjBI3IiYPtjE=;
+	b=YMr6hCRpDqHEZ8BhGp/o8r094VfH0ekrQP2pav3ca/VmmmD/sE/rSs3ILcjmVw54r9UI
+	 xcNE+8YyTpDygEpDWY8C3S/H9EHuqM7I6Ve1POrzFH3iCsuELOZ5uUtybY60bQIHWUtjC
+	 NWTPfCu9hm9eR9AlW+wU/0ruTrgUZiS3gRzJRdOZ1VGTYe6z14YZrQNM5k7fDflL8DiXG
+	 bjViw+NIF47/BExhvPN2MDz9Z9w05MN+aPCJ3ik8lEWf7S+4X5h95jiVPSj4o/lfYaD2Y
+	 3ciUMFNf6yHgsgFpEJHj0ulnjUuA0zVaLUXaLW8ZQlNDXzQOLj3tLraDazxlWJWT13Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fygo.io;
-	spf=pass smtp.mailfrom=fygo.io;
-	dkim=pass header.d=fygo-io.20200929.dkim.larksuite.com header.i=@fygo-io.20200929.dkim.larksuite.com header.a=rsa-sha256 header.s=s1 header.b=c8W40cB1;
-	arc=none smtp.remote-ip=209.127.231.16
-Received: from va-2-16.ptr.blmpb.com (va-2-16.ptr.blmpb.com [209.127.231.16])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=KrNh25BV;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=lDeIZ5aP;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=KrNh25BV;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=lDeIZ5aP;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18E85606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:35:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18E85606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=fygo.io
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fygo.io
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9688B606A323;
+	Thu, 26 Nov 2026 11:36:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9688B606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=fygo-io.20200929.dkim.larksuite.com header.i=@fygo-io.20200929.dkim.larksuite.com header.a=rsa-sha256 header.s=s1 header.b=c8W40cB1
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=fygo-io.20200929.dkim.larksuite.com; t=1795692940;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=unA431ECd152U6n8f6THnMEinZ3zGjLNoHnn81At+OI=;
- b=c8W40cB1vYw9Avy/XFsyIrUx2SN8OuhPd4mL/ylDkGIMl2MEccqrqI6vJxJpOYowUxIsGY
- /URnBkrjzI4XGPevZ5w6gRShCRjw3iCptSXnL2cC0wz1y5a+eAap/2AdwrBKyWikjxUHZP
- r33Ml5H7cd6rt1udaZYgsFCIldDxE6fU/FDubd/vq7AF038HJY28ifZ6OHxgRtj/tmqu/B
- GjbRqQZj2abK42WQ3YIaqkDrDTxoQQ44Zlvq63w0I8LgeHFIy1zjchgJN82/LEof9kjxXL
- 6lYwzxvSRkfjdEvbpaljYvRdJso+wKwgOe9+nuoJDFrgC7NZLnbZfuFYUDyXkg==
-From: "Coly Li" <colyli@fygo.io>
-Message-Id: <A7BF631D-A5E8-47D0-B265-73C220200424@fygo.io>
-Received: from smtpclient.apple ([120.245.64.140]) by smtp.larksuite.com with ESMTPS; Thu, 26 Nov 2026 11:35:39 +0000
-Cc: <kent.overstreet@linux.dev>, <linux-bcache@vger.kernel.org>, 
-	<linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset=UTF-8
-X-Original-From: Coly Li <colyli@fygo.io>
-Subject: Re: [PATCH 1/1] bcache: fix use-after-free when waiting for dirty-init threads
-Date: Thu, 26 Nov 2026 19:35:26 +0800
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=KrNh25BV;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=lDeIZ5aP;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=KrNh25BV;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=lDeIZ5aP
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id D04DF223E5;
+	Thu, 26 Nov 2026 11:36:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795693001; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WXXZdtfXKLM3zYE0qG9EJihyMbjCoUyvjBI3IiYPtjE=;
+	b=KrNh25BVC2/OYPvpReolTZb5rac9a7ixkcRpJgsakyctIYmY8FB9/Vs095h+ahZbB0GdxN
+	rFq1npRLL4t3h3d5fEtDA3Xfpo2jD7sgVJqHjQX43ndqnx1mbIRElhHjY1JxiwbcvsKWi9
+	NRweTstgQcYPiLdEF9q1+R7OSKvtqRk=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795693001;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WXXZdtfXKLM3zYE0qG9EJihyMbjCoUyvjBI3IiYPtjE=;
+	b=lDeIZ5aPYmEBynilgJWe+CqP5UKEI2XdNd68R402BpY8aHkY1qsA//qpz1mAJV92XKru4O
+	4Zf+JqhJbYPj/uDg==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795693001; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WXXZdtfXKLM3zYE0qG9EJihyMbjCoUyvjBI3IiYPtjE=;
+	b=KrNh25BVC2/OYPvpReolTZb5rac9a7ixkcRpJgsakyctIYmY8FB9/Vs095h+ahZbB0GdxN
+	rFq1npRLL4t3h3d5fEtDA3Xfpo2jD7sgVJqHjQX43ndqnx1mbIRElhHjY1JxiwbcvsKWi9
+	NRweTstgQcYPiLdEF9q1+R7OSKvtqRk=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795693001;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WXXZdtfXKLM3zYE0qG9EJihyMbjCoUyvjBI3IiYPtjE=;
+	b=lDeIZ5aPYmEBynilgJWe+CqP5UKEI2XdNd68R402BpY8aHkY1qsA//qpz1mAJV92XKru4O
+	4Zf+JqhJbYPj/uDg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id A77BB134C3;
+	Thu, 26 Nov 2026 11:36:41 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id xH+xIMkZCGspbAAAD6G6ig
+	(envelope-from <jack@suse.cz>); Thu, 26 Nov 2026 11:36:41 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id 3989A27DED; Thu, 26 Nov 2026 12:36:37 +0100 (CET)
+Date: Thu, 26 Nov 2026 12:36:37 +0100
+From: Jan Kara <jack@suse.cz>
+To: =?utf-8?B?5p2o6L2255SE?= <yangyizhen3198@phytium.com.cn>
+Cc: Christian Brauner <brauner@kernel.org>, Jens Axboe <axboe@kernel.dk>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, linux-block@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH 0/1] block: long udev open waits during cache teardown
+Message-ID: <hvxissqup3n5tti6as2csdducwz6ywju4awgfozdwjimoplmst@shps625lugoq>
+References: <20261117105107.14236-1-yangyizhen3198@phytium.com.cn>
+ <20261120-hassliebe-arena-kaufvertrag-3ac58fd0483a@brauner>
+ <4effe3b8.6085.1a217879319.Coremail.yangyizhen3198@phytium.com.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,100 +116,95 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-In-Reply-To: <20261105131954.1195428-1-fan.chen@easystack.cn>
-References: <20261105131954.1195428-1-fan.chen@easystack.cn>
-To: "Chen Fan" <fan.chen@easystack.cn>
-X-Lms-Return-Path: <lba+26b08198c+d7a250+vger.kernel.org+colyli@fygo.io>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
-Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <4effe3b8.6085.1a217879319.Coremail.yangyizhen3198@phytium.com.cn>
+X-Spamd-Result: default: False [-12.80 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	RCVD_COUNT_THREE(0.00)[3];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_TLS_LAST(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCPT_COUNT_SEVEN(0.00)[9];
+	MISSING_XM_UA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.com:email]
+X-Spam-Score: -12.80
+X-Spam-Level: 
+X-Spam-Flag: NO
 
-Hi Chen Fan,
+On Thu 26-11-26 19:04:50, 杨轶甄 wrote:
+> Hi Christian,
+> 
+> > If that still reproduces on mainline it's a question
+> > about the bdev release locking.
+> 
+> I reproduced the long udev open wait on upstream Linux v6.6 and on
+> Linux v7.0.14. On both kernels, udev blocked while trying to open the
+> device as mkfs.ntfs was closing it after a full format.
+> 
+> Thanks for pointing out the impact on other openers. I agree that a
+> udev probe closing its own file could trigger writeback and evict
+> cache that another opener is still using. I'll drop the __fput()
+> proposal.
+> 
+> I'd like to understand the locking requirements in the block device
+> last-close path. In particular, why does kill_bdev() need to complete
+> while open_mutex is held? What state and ordering requirements does
+> the lock protect during this cleanup?
 
-Nice catch!
+The page cache cleanup in kill_bdev() needs to complete before we allow new
+openers to open the device and open_mutex serializes that. If the cleanup
+would race, we could destroy data the new opener has written to the page
+cache of the device. 
 
-> 2026=E5=B9=B411=E6=9C=885=E6=97=A5 21:19=EF=BC=8CChen Fan <fan.chen@easys=
-tack.cn> =E5=86=99=E9=81=93=EF=BC=9A
->=20
-> We use multiple threads to count dirty sectors in parallel (read-only).
-> bch_sectors_dirty_init() waits for the last dirty-init thread to set
-> state.started to 0.
->=20
-> However, after the last thread sets state.started to 0 but before it call=
-s
-> wake_up(&state->wait), bch_sectors_dirty_init() may observe started =3D=
-=3D 0,
-> return from wait_event() directly, and free local variable state.
-> The subsequent wake_up(&state->wait) then accesses freed memory, because
-> bch_sectors_dirty_init() has already exited.
->=20
-> Fix this by using a completion to wait for all dirty-init threads, so tha=
-t
-> no dirty-init thread can still access state after the wait completes.
->=20
-> This issue was triggered in our environment with the following stack:
-> ------------[ cut here ]------------
-> [30433.391386] Internal error: Oops: 0000000096000047 [#1] SMP
-> [30433.585804] CPU: 54 PID: 48242 Comm: bch_dirtcnt[1] Kdump: loaded Tain=
-ted: G  6.6.0-98.0.0.90.aarch64 #1
-> [30433.718972] Call trace:
-> [30433.722722]  native_queued_spin_lock_slowpath+0x33c/0x420
-> [30433.729401]  __wake_up_common_lock+0xbc/0x118
-> [30433.735050]  __wake_up+0x20/0x38
-> [30433.739575]  bch_dirty_init_thread+0x1c0/0x1f8 [bcache]
-> [30433.746169]  kthread+0xf0/0x108
-> [30433.750583]  ret_from_fork+0x10/0x20
-> [30433.755425] Code: 91002020 8b040284 f862d8a5 aa0403e2 (f8256841)
->      ---[ end trace ]---
->=20
-> Signed-off-by: Chen Fan <fan.chen@easystack.cn>
-> ---
-> drivers/md/bcache/writeback.c | 31 ++++++++++++-------------------
-> drivers/md/bcache/writeback.h |  4 +---
-> 2 files changed, 13 insertions(+), 22 deletions(-)
->=20
-> diff --git a/drivers/md/bcache/writeback.c b/drivers/md/bcache/writeback.=
-c
-> index 4b237074f453..e74457a8c952 100644
-> --- a/drivers/md/bcache/writeback.c
-> +++ b/drivers/md/bcache/writeback.c
+> I'm asking because the device mapping can still contain a large
+> amount of clean page cache after the early sync. In my tests on the
+> vendor 6.6 kernel, about 805 GiB remained at final teardown, and
+> the truncate took roughly seven minutes while udev was waiting.
+> Could the release path be changed to reduce the time open_mutex is
+> held while preserving those requirements?
 
-[snipped]
+Perhaps. We currently do:
 
->=20
-> diff --git a/drivers/md/bcache/writeback.h b/drivers/md/bcache/writeback.=
-h
-> index 31df716951f6..e6c74be20fc6 100644
-> --- a/drivers/md/bcache/writeback.h
-> +++ b/drivers/md/bcache/writeback.h
-> @@ -31,7 +31,6 @@
-> struct bch_dirty_init_state;
-> struct dirty_init_thrd_info {
-> struct bch_dirty_init_state *state;
-> - struct task_struct *thread;
-> };
->=20
+        if (atomic_read(&bdev->bd_openers) == 1)
+                sync_blockdev(bdev);
 
-After this change, struct dirty_init_thrd_info has only one member state,
-I feel you can totally remove struct dirty_init_thrd_info, and move state
-directly into struct bch_dirty_init_stat.
+in bdev_release(). We could enhance it to:
 
+        if (atomic_read(&bdev->bd_openers) == 1) {
+                sync_blockdev(bdev);
+		/* Still the only opener after the writeback? */
+        	if (atomic_read(&bdev->bd_openers) == 1)
+			invalidate_mapping_pages(bdev->bd_mapping, 0, -1);
+	}
 
-> struct bch_dirty_init_state {
-> @@ -40,9 +39,8 @@ struct bch_dirty_init_state {
-> int total_threads;
-> int key_idx;
-> spinlock_t idx_lock;
-> - atomic_t started;
-> atomic_t enough;
-> - wait_queue_head_t wait;
-> + struct completion done;
-> struct dirty_init_thrd_info infos[BCH_DIRTY_INIT_THRD_MAX];
+This is safe to run without open_mutex and should get rid of 99.9% of pages
+before we take open_mutex and do a reliable cleanup. Feel free to submit a
+patch with this change describing your motivation.
 
-You may think of changing the above line into
-struct bch_dirty_init_state state[BCH_DIRTY_INIT_THRD_MAX];
+> > And mkfs can just fsync() and POSIX_FADV_DONTNEED the device itself
+> > before it closes it.
+> 
+> I've submitted a patch to the ntfs-3g project that calls fsync()
+> and then posix_fadvise(..., POSIX_FADV_DONTNEED) in userspace
+> before closing the device.
 
+Good.
 
-Thanks.
-
-Coly Li
+								Honza
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
