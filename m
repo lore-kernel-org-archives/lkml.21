@@ -1,68 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.216
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795697783;
-	b=WTecXcEWmji3dkxeIeGZGihA9E3/RyqB0B/m1jLHIwbBYDV0G0rNHEuY3X9/bwW7a3+I
-	 HKER88+EaEE/XqpG0FeuYIZ/bXt68cqRInULxIXvrfeeoce4iUzayaCTsdVtaJ2RswKK0
-	 Tq1GL9MJy+noG/Ku2gDsDeG1XRBPqUkwFzKvLJXrAtji7KTppqSx8vL5+y6Eag0Ayi/kh
-	 mnfnkSSgafADQIBQLyQuRTOZNJDZR6ZZ4RYqBhzUd0tUrjKKNq3eRLPWtNl2V0fVwJ0Eb
-	 GnxdQYj9CROxJEjvk0mB3TiJXlfVA58mwWtcr48j8OFK2dkufqvYKR55kxHEfxgcUVg==
+	t=1795697864;
+	b=I+cEFvtvYnEWAeiiRsBPDZGs0r2+jgQF16FksFW5lbU8nuxt7CGXdWrkkksTrd+uKJfx
+	 MTlG+mFGsgSBukXJHw5DM9H2meDKpkEg4QYJmh47EFczHrtuprCy0MXw5DTYjPHz16OOM
+	 6oZHvH1y1yiShT9h08w3XS8TXTZIsulumPCmsuvxMc+u/YwruOeBs8kxSUg0LSU0zNPA7
+	 8jwA6EG3/cqOgNXmYTzjhvRub/2RPNL3QLMacpoazUAZOvL7xe7/wS9xmsNQWwaUsuAVt
+	 kRiDg1+kKl4HNx03ejsDCgQlYg92K6v24F9ytxJouUD5XC+4UYChggW+d4FpFVuFkmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795697783;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=7pvAmy/BcxPcQse9SuPhTO4DpUmDvykB1SW+ZJiDCqk=;
-	b=jYvt0yyjrGkZQXoBcM9E1ilmz78zRuPBFqMVgDeKVmJ4DNBFzywbcUSWUkAiK84vQloV
-	 Xyec1PV39SkjYOvSfqph9A+rAoL1BolAC5kAtfdgOiM3eNP47NvekL+M7JK4c3gu/ilii
-	 pl3Ke3p0bDKrLoeMYYbqhF6whw7pBBbHEDeS6JUKDCZbeoLd+2azt8KwzwBuZ+1xsrcwL
-	 yNbOkMLDwkwFKCoeJk4YgQKWxB5CquubQVWkqz/SSkUldzWN/vEY2SipJr7IwDJS+xKH7
-	 jJFRFuSZF5XsNzhMjaWRHPsoJ6TcedjcaR3SVj91ZUr8mygUnZh3ml3NHwBwMzvrWIA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795697864;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=Zdu6UqAiF7rTC1aAPngu4Lcf9W0UfVjpRUp67SpDNvY=;
+	b=A3tG783JM8gpNaGDx9rvGwMoiUuuEoY0QGjnaarTlL0sB+E9/r+7BK4S3WIXqUQhygQp
+	 9LFThq27aA2x8mMHC+tda38AJk/oDhQqzOXKu+BebpGur7wnYwWyyoSvBaL2xonzA3NCL
+	 saBmBaHrUht99OFUUNubwbGOIU7Oh+hWM1f40rKcV3EUu6Bg93/A4hRa8Qw7lwzc72V0d
+	 hyYgiX0Fxg6Ge0hVBP83ih11OJbwNRQxROSBRtEoQhBRTvo7IZn7RPtV2RKLK/+6W4nn4
+	 gvohOqCEyRgjO4NoVcg/Hy9eg8MsnXc62HZsmEG08wwv/RTlcdKGWb9/3aOqqxls15Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=XJAiO7Zh;
-	arc=none smtp.remote-ip=113.46.200.216
-Received: from canpmsgout01.his.huawei.com (canpmsgout01.his.huawei.com [113.46.200.216])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JCiBxPMU;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F1DF606A33B
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:56:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F1DF606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 312B4606A31E;
+	Thu, 26 Nov 2026 12:57:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=XJAiO7Zh
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=7pvAmy/BcxPcQse9SuPhTO4DpUmDvykB1SW+ZJiDCqk=;
-	b=XJAiO7ZhqDL5u0nVrnOC0EjSIBWcHm6I9HoSiki9g3lk7dtnZxAPG2+jNHX/aXDxv5QwiJCaL
-	RRUQYFFjXrJkKV6Mz1ARPZ1lOPR3WGxPSku1EGi0fWFPT3Vfvfag5FOBPz0VqFWbdEaKsSQk5w+
-	GUyf28AzZimDRsVwOoeuPEs=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4jZxNW61mBz1T4Fv;
-	Thu, 26 Nov 2026 20:55:23 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 35D9940575;
-	Thu, 26 Nov 2026 20:56:15 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 26 Nov
- 2026 20:56:14 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <james.morse@arm.com>, <ben.horgan@arm.com>, <reinette.chatre@intel.com>,
-	<fenghuay@nvidia.com>, <gshan@redhat.com>, <jic23@kernel.org>,
-	<catalin.marinas@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [RFC PATCH v2 1/2] arm_mpam: Factor out the MSC power on and off helpers
-Date: Thu, 26 Nov 2026 20:56:06 +0800
-Message-ID: <20261126125607.2304487-2-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261126125607.2304487-1-ruanjinjie@huawei.com>
-References: <20261126125607.2304487-1-ruanjinjie@huawei.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JCiBxPMU
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CE0C1F000C4;
+	Thu, 26 Nov 2026 12:57:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795697864;
+	bh=Zdu6UqAiF7rTC1aAPngu4Lcf9W0UfVjpRUp67SpDNvY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=JCiBxPMUkYBkMcC1aJRRzuQbERogqw97v/46zohcdy3xJMpwXTP9YRd+dqVQ2Vtfr
+	 daziLHReeGFbbV7nGXDU5ujiwIA05VUT5XOEYPWYzmpSuKnUqSYtLNf74ixYQiSd5p
+	 01DaBFFMPoiSsrp/UgagSdU47WtPdSujVD4dPcAmU4c3fp6SWFiSgBBHgQczqZdOYQ
+	 in9l7KvCng9So6pbEsNRAr+LunBYJWU3A1jAe99pen8plegP+BjS9kMQp72W4ipfNj
+	 b1wnWi1hTIREnr3iYwwIwBOmp/2BpD5e//C5z2bX1YmQ5Sfh0bS+Ub3nv8y/Xgic6K
+	 XWCrkOTIEHCNw==
+Date: Thu, 26 Nov 2026 12:57:39 +0000
+From: Lee Jones <lee@kernel.org>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+	Ulf Hansson <ulfh@kernel.org>, mfd@lists.linux.dev,
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] mfd/regulator: db8500-prcmu: Remove EPOD regulators
+Message-ID: <20261126125739.GK38590@joneslee-macbookpro.roam.internal>
+References: <20261115-ux500-epod-regulator-removal-v1-1-f550c95dfa9c@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,111 +58,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261115-ux500-epod-regulator-removal-v1-1-f550c95dfa9c@kernel.org>
 
-The CPU hotplug callbacks save an MSC's state when its last CPU goes
-offline, and restore it when the first CPU comes online. System sleep
-needs the same two actions.
+On Sun, 15 Nov 2026, Linus Walleij wrote:
 
-Move them into mpam_msc_power_off() and mpam_msc_power_on().
+> Remove the obsolete DB8500 PRCMU regulator drivers.
+> 
+> Drop the regulator build hooks and the db8500-prcmu-regulators MFD
+> cell now that EPODs are power domains.
+> 
+> Acked-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: Linus Walleij <linusw@kernel.org>
+> ---
+> Let's just merge this, it is ACKed and prerequisites are in place
+> in the powerdomain subsystem.
+> ---
+> Hi Lee, go ahead and just apply this patch please.
 
-No functional change intended.
+Doesn't apply sorry.
 
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- drivers/resctrl/mpam_devices.c | 62 +++++++++++++++++++---------------
- 1 file changed, 35 insertions(+), 27 deletions(-)
-
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index c067b6d57d71..562f21a8869c 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -2223,6 +2223,37 @@ static void _enable_percpu_irq(void *_irq)
- 	enable_percpu_irq(*irq, IRQ_TYPE_NONE);
- }
- 
-+static void mpam_msc_power_on(struct mpam_msc *msc)
-+{
-+	mutex_lock(&msc->error_irq_lock);
-+	if (msc->error_irq_hw_enabled)
-+		mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
-+	mutex_unlock(&msc->error_irq_lock);
-+
-+	mpam_reprogram_msc(msc);
-+}
-+
-+static void mpam_msc_power_off(struct mpam_msc *msc)
-+{
-+	struct mpam_msc_ris *ris;
-+
-+	mutex_lock(&msc->cfg_lock);
-+	list_for_each_entry_srcu(ris, &msc->ris, msc_list,
-+				 srcu_read_lock_held(&mpam_srcu)) {
-+		mpam_touch_msc(msc, &mpam_reset_ris, ris);
-+
-+		/*
-+		 * The reset state for non-zero partid may be
-+		 * lost while the CPUs are offline.
-+		 */
-+		ris->in_reset_state = false;
-+
-+		if (mpam_is_enabled())
-+			mpam_touch_msc(msc, &mpam_save_mbwu_state, ris);
-+	}
-+	mutex_unlock(&msc->cfg_lock);
-+}
-+
- static int mpam_cpu_online(unsigned int cpu)
- {
- 	struct mpam_msc *msc;
-@@ -2236,14 +2267,8 @@ static int mpam_cpu_online(unsigned int cpu)
- 		if (msc->reenable_error_ppi)
- 			_enable_percpu_irq(&msc->reenable_error_ppi);
- 
--		if (atomic_fetch_inc(&msc->online_refs) == 0) {
--			mutex_lock(&msc->error_irq_lock);
--			if (msc->error_irq_hw_enabled)
--				mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
--			mutex_unlock(&msc->error_irq_lock);
--
--			mpam_reprogram_msc(msc);
--		}
-+		if (atomic_fetch_inc(&msc->online_refs) == 0)
-+			mpam_msc_power_on(msc);
- 	}
- 
- 	if (mpam_resctrl_enabled)
-@@ -2304,25 +2329,8 @@ static int mpam_cpu_offline(unsigned int cpu)
- 		if (msc->reenable_error_ppi)
- 			disable_percpu_irq(msc->reenable_error_ppi);
- 
--		if (atomic_dec_and_test(&msc->online_refs)) {
--			struct mpam_msc_ris *ris;
--
--			mutex_lock(&msc->cfg_lock);
--			list_for_each_entry_srcu(ris, &msc->ris, msc_list,
--						 srcu_read_lock_held(&mpam_srcu)) {
--				mpam_touch_msc(msc, &mpam_reset_ris, ris);
--
--				/*
--				 * The reset state for non-zero partid may be
--				 * lost while the CPUs are offline.
--				 */
--				ris->in_reset_state = false;
--
--				if (mpam_is_enabled())
--					mpam_touch_msc(msc, &mpam_save_mbwu_state, ris);
--			}
--			mutex_unlock(&msc->cfg_lock);
--		}
-+		if (atomic_dec_and_test(&msc->online_refs))
-+			mpam_msc_power_off(msc);
- 	}
- 
- 	return 0;
 -- 
-2.34.1
-
+Lee Jones
