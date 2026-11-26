@@ -1,49 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795691826;
-	b=3qImchRbS529s0b3S+C5vtNQtNvtfQGjIsSy6i2V8djKOuI75pMlI+ez15BKOvj3GKdd
-	 39VXonGP74G63x92bX5sVEzzhgISUzb9y2Aos2LXZv755Dz+C/2L41h4VFlom6bfUloJB
-	 66O0hG5+QyShpDt9LNvEyn4XiWlFTZp8B+XIgCcwc+RfnX+RvK31EDWQxgW2Wmr7cMAAs
-	 GACOR2ZrDF/ZC9/N+nLLDSgaLwE2IV2QTE9nSZRxHLFoGyg/asUr0EtSdzIz8ZMf8T63H
-	 rWaDKDIG24MZZqUjLmFq/NdmXRaGZZrOFVgHSdUrUT+tMEOsUFn5fmpWKKSsU8kfnXw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795691826;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer;
-	bh=1qwpULvuAWXJZ83/2tVfvAzpASrXdkB8r3lEsMJ0zjs=;
-	b=DuuQN6o3xrTx6Mb4R+7IhlEJi7XWCNwi5A53e34yjOlnka0/i8VBEpTxW6h0j5RQY0dC
-	 dTyJLUP+XdyNZwauCiBnTf48E4chnPhhV3iuSjlAix+Xn1M1D0j3mQb8Yyx5rSUwZ0Zcj
-	 b6gwYmTs8TbdMQBragW5Hfp+rAIqmwIOPt2AAu6t+XFcQXHh3KaYYNY78I//MQ5gIzZys
-	 1IXaTA1xh12qw3dvOSB/+VsDBqiPjc4GCTyFvNfiwT32HtlpUGnjxJSlnAajcDW51TFYC
-	 ELDGgeZIi9TXqWMJt9n6Cahs1gLAkoIEeZsw5joiI6h9gdZq9F4INF783LUcfj8oSRQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oLg2Fff7;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.2
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795691827;
+	b=JE9GSH8Br0/SoT0JCKSswuSDa+HLfr91stiapPhnaXTKH8+JbK1SDfeCIWByY6+UrLT/
+	 4OYh71ulRMG5K5hUOLmRRgQiquet2MDi9RFo5S35w7ihSrQ9jkNMPnSAqO6ZsjV75QEZC
+	 oNNDVqucymlRmQ9y+Qi+l82BOm8qBMnGkC4pb6Ng1atah//DSAQbDOhBeTxAoJPd2vaMz
+	 q4NxWY7fW/cDqEO6swgQdOZD/APVDwFBeYFV/fKKWXxpXxcBxV1RJ2eRlwC8MJviIDmys
+	 KAIsKQYOX2ImoY1n5i2V1iI+FPkkXejsklSZ3e/VqMTumegEm5hOPaw+fUxHJm4MI6w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795691827;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:Content-Transfer-Encoding:Content-Type:
+	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=9lzNDRFKL5xvSybXYCpbk835W6d4IneOo87Mio94fSE=;
+	b=tUS6FTFyMdBI4NqobBOwCUUKW0FGR322OW/GqBxLxv3T20KLITU9vD6PbbdFxBH9/f/1
+	 YzYcGA8tbJcQHEv78pTBIo+IcXFs0kG5P+11nhKk/xbNlzn87/NnF1l1nYWJByYEGFDZY
+	 JcPa8pK7+M2W3DNbBO1tfJsQusFghB6AF34IY27PFLbnJaXD7ErRc0VTjpXPtfXX3C040
+	 T4eFuLEGKsgst17m4cyDxfPkbKA5DQwFazl28gIPTEvOYN7ogphY5IZgnkBPWsM1gsR/n
+	 vqig0rw7yMu9Ew5QDNe2Y2WpWpOzj89kdEYTkDB7V4U/afARR/wQnW8BjhGq/GD4anA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Up0Kt7aF;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.2
+Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012002.outbound.protection.outlook.com [52.101.53.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B572606A31E;
-	Thu, 26 Nov 2026 11:17:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EDAB0606A32D
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:17:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EDAB0606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oLg2Fff7
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6CDD1F000D2;
-	Thu, 26 Nov 2026 11:16:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795691826;
-	bh=1qwpULvuAWXJZ83/2tVfvAzpASrXdkB8r3lEsMJ0zjs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=oLg2Fff7b+2GZ35KNT50QSRRomdqr8XgASiLEKyHKcac4W/Z1CMbzv01oYlWouSwC
-	 GxPtD3s5R8ZiYTXm7tUz7i//000wVVRYmBxIYQ5mRZB6e1yGLe+AMAw6uJOrbnfiQC
-	 Q55lylf44P0449CTFHdGj2JrUw8UjP5jyEbE3phSOC1zaT2sYm+q7CCmJtSHfdyVxN
-	 AHtzkEI4zwJ57R7nz9tV9R6oWmucQGl/oMN22NQJFfgfwOyAnRykXq5wW/tk6kslhj
-	 a1va0BC8LTJjIG7RQ2u718+g+LISZw+RMvuGfzbOzBTBwzwm/MKm72KcheaaCEpTER
-	 R/87hS5fS97Zg==
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Thu, 26 Nov 2026 13:14:29 +0200
-Subject: [PATCH RFC v2 16/54] x86/mm/pat: look up a large page again only
- after dropping cpa_lock
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Up0Kt7aF
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eIjqFqm/kBQgm9knNFruuMdVDvoMeXL7Uzpt0HQqQ21w77ezxziJQ7huOx45gU+RR+Kt9sdqCCZBx5tc0hJx4uGtBh+FAFHaWvZptHUJTrlzIziu49jgEkGG3atPJCcAjYVTqoJ3DW1mmJE/954V1e9Ur0jD0ra7L18g/h0rJfnZPCWO9Rm/VKPnQbbA/lhWZ6ztKubDokY3IxHBK58fWLFu7XudrufKBnjQn+/Pn+1JiXM//u9rTFLfiTorAGaW2En1NsNsHZtESIn69azcxcyfxmmsMszSo8cbMB3WJrNlzmeRTzXq9AhWV3bLHVtL78b/5t5iREmn1taqBSzkpw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9lzNDRFKL5xvSybXYCpbk835W6d4IneOo87Mio94fSE=;
+ b=fimUJ9VrlNnd1aU987SELRKGQ+ZFuwO1H5kvhTsEIwaiATxLcNI8U7CweQq75H1j3osPIbLDSi662/Eo0pKlAkqZEivXiMYSVyD2IZLSsWozDdt3eohXsCpwNsgbPvItvf4EsYMtWZQs7hmWYMforUDIJwfjL3bcLJaEXNCEkHNmYc5waCFtfWXcKksBzSzb3QWMbzPBrh+O/wTGdQ5puFHmJnlXe1bto+LFtqG+godm8Xi07XfSLm4G9BICbbgHsFSrPvxjBo/kbFh2ejxlIXH+3PbyNdVM1dmR1/37otQspvigVQeysg1OMBvo3RWhSafnXq6F+5B9ATMIFSB5Ow==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9lzNDRFKL5xvSybXYCpbk835W6d4IneOo87Mio94fSE=;
+ b=Up0Kt7aFrq0TW0y6teUYj8DEAFWzTp6XKcIopNaJG4p2zYeL3c3SwQi1jYFJVJY7bpj1sw8XVbFpgoVo5h2eOe8RCCtI41Vt/YW8vAslY1Iat6JGy58kne1l3WTNMJ+mq71gA7h+OdowbzPtl/0/mZtcrmxeMcFkQTrGKjXZ+fKOzWpRJ6dR2clZ1dVXdSh84+l7I09NZQMNGCqFzQjUmPLSfT4ree6NFf+xlEfZurSP7QpImL9yaSY3Xtk0mF4Hllh6J+qfAz0Bkfub+oR8i8soQEpPBCBOZXB2cIz1qNAfSN04Vz/ijWBfZWG/f0W11X1OfEvQHOrS/Lm3xZlDgA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from BL1PR12MB5174.namprd12.prod.outlook.com (2603:10b6:208:31c::19)
+ by PH0PR12MB5630.namprd12.prod.outlook.com (2603:10b6:510:146::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Thu, 26 Nov
+ 2026 11:17:01 +0000
+Received: from BL1PR12MB5174.namprd12.prod.outlook.com
+ ([fe80::58de:822b:868:96e9]) by BL1PR12MB5174.namprd12.prod.outlook.com
+ ([fe80::58de:822b:868:96e9%6]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
+ 11:17:00 +0000
+From: Andrea Righi <arighi@nvidia.com>
+To: Peter Zijlstra <peterz@infradead.org>,
+	Tejun Heo <tj@kernel.org>
+Cc: Ingo Molnar <mingo@redhat.com>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	John Stultz <jstultz@google.com>,
+	David Vernet <void@manifault.com>,
+	Changwoo Min <changwoo@igalia.com>,
+	Tao Cui <cuitao@kylinos.cn>,
+	sched-ext@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCHSET sched_ext/for-7.5] sched/proxy: Handle retained donors on scheduling class transitions
+Date: Thu, 26 Nov 2026 12:13:56 +0100
+Message-ID: <20261126111649.208476-1-arighi@nvidia.com>
+X-Mailer: git-send-email 2.56.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MI3PEPF0000753A.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:298:1::4cc) To BL1PR12MB5174.namprd12.prod.outlook.com
+ (2603:10b6:208:31c::19)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,160 +108,135 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-generic-set-memory-v0-1-v2-16-723f1e33c3d8@kernel.org>
-References: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
-In-Reply-To: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
-To: linux-mm@kvack.org
-Cc: =?utf-8?q?Adrian_Barna=C5=9B?= <abarnas@google.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
- Borislav Petkov <bp@alien8.de>, Brendan Jackman <brendan.jackman@linux.dev>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- David Hildenbrand <david@kernel.org>, 
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
- Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, 
- Ingo Molnar <mingo@kernel.org>, Kevin Brodsky <kevin.brodsky@arm.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, Michal Hocko <mhocko@suse.com>, 
- Mike Rapoport <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <pjw@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Russell King <linux@armlinux.org.uk>, 
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@kernel.org>, 
- Vasily Gorbik <gor@linux.ibm.com>, Vlastimil Babka <vbabka@kernel.org>, 
- Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, x86@kernel.org
-X-Mailer: b4 0.16.1-dev
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL1PR12MB5174:EE_|PH0PR12MB5630:EE_
+X-MS-Office365-Filtering-Correlation-Id: 58190766-c41a-4a0a-6a34-08df4baeca97
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|1800799024|7416014|376014|23010399003|6133799003|18002099003|261022105027099003|11063799006|261026140227099003|56012099006|261102123227099003|261021121427099003|261021123027099003|261022075727099003|261009223027099003|261026121527099003|261028144727099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	wJMKL3WYJiFJDRwpAv7zbV/sBbGyIUbEju6PtojYUfVD6X/nDJSto9mL34+ENxBqc+npQKZwKZuQiY3GQJL6F6dRKyhaG+q+cV83GMKxg2NKu3XFcrZBebJqQXtEBehBRpdWZ8XZ0yOkDhUIPpY/5FrIwAWiQUHS6k821IL4sVIHXyybf3s1ODFnYpPwYQAqVPbVOHp0QYEMwBJQmoSi6+wvih/g/mmWiwJyi5eh1CxnhOWjCWIwXo8O8BE7Zp67Ojsj8QryqpZbQfNbwkOMqhDlW/qdG+aY+7SsN2XwPh+/eXGU9mxQeCc48TKVOJckehzTWarMAvYpmwgM5pwG/gkgKtz7UMWQBb0/P4i65RwTYgkxxCS0IpTulYrlp9qDNcyVOu2/DwMuwRfv/W4CxZqoYFdIo8maymY7XFoESCvOqq2dXlKDUTExWELFE2SUZ9+mJVt1cRId6MPi+rF2ZF7KU1ZUaQTBzf3MEHZiXB736LPhDQB0tvgCnHOAQQau2hjdg8ZLFMifol4CXHAgyTbJtPfllPTWPdmpP5MJmHRiBuWNboQdDq5IsI3TcVPaGq/18Ax916geB1TwX9f3I2KZ0QduI6B1XxZlpvvtsxSbdV7otz6uSELeVnzD2HbDQg6s65u2LvFMBK+m20WyE8Po1+VnOYQsZ3YjUTybEd8=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR12MB5174.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(23010399003)(6133799003)(18002099003)(261022105027099003)(11063799006)(261026140227099003)(56012099006)(261102123227099003)(261021121427099003)(261021123027099003)(261022075727099003)(261009223027099003)(261026121527099003)(261028144727099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?shJciOGK2mSb79FhhbQyOx1ZvOyKQeaTZyHErPa9ghbOyeWrwMAsYGpGt5PM?=
+ =?us-ascii?Q?nRQdoLEoZHwsjzSiTStMusZuBMUlGNGejGSj2UJ4F3jgXsTCoxOqCowZOM4z?=
+ =?us-ascii?Q?6Qg5z49Dh0s6Kiy3Zbx4YwhQrHGJdaV7DUULW9sJCR6VbgEl6mCVFtV0CW6K?=
+ =?us-ascii?Q?QF/ZlQmE76TG0g/ePrKLruZXzmVGN84WDPGXcMG+0ad53+fYVHjOKGiR2yF3?=
+ =?us-ascii?Q?rnV9DjdQ3T16x4eqK+I5DuOfRpC8XZ/05wEcb0CZvdyn78+aLkIuNhKJY39i?=
+ =?us-ascii?Q?nvz63HYnr06zwRuxbjaPjUiWDvUnlLtClxz3HgeHkO21SWJ7Mj5T9khSwif2?=
+ =?us-ascii?Q?dPjEj/KhbSIIKJb+XfIV3Pstv5X37+L/Bq3wcFITmwGkhgNMyM/lJogkufeK?=
+ =?us-ascii?Q?m6JUGDehN8hkoWB5hKXBxKPzuNaJV+9qj82FViMGXIyHxeee1noShqQRKwGt?=
+ =?us-ascii?Q?KnnhvDzxH+Zvc7OqqhEQrvioWrANo+jmx13GJGd7+vhe/sn4S3WJbx473tL7?=
+ =?us-ascii?Q?kWF+zPXx/iO1yhhjU2JZb+UKCzahNiWNC1K/LYaFZ6wut78a9Myw0A6zMOg9?=
+ =?us-ascii?Q?tIzhFHBU3ap42xHuPhLAb78mffMEaDV5zuh6yk6dwYWSIatxpRrJSL+UWKTj?=
+ =?us-ascii?Q?twxRzAHZTd/MuWd5Ow+1FjkgrixjRgZnHFIZneSzuLCta8dU3PaaCwd/DgAY?=
+ =?us-ascii?Q?4Dky6743WRG2fOXgj/6ORV294bu1TbbuzzxQ7HtljnO7UfMnCllDEYWqufXX?=
+ =?us-ascii?Q?9+LgA1/a4UtMXF1sH+KcEzR5Uy8Vom+NJT5Nr2OjP4CLUFji7QYcmliAqmgB?=
+ =?us-ascii?Q?qN2eImylCYD0jt+Bt0pENZsG+DKYPwoBgmJ0p5EzRPdQfX2ntG5mq05wqsWh?=
+ =?us-ascii?Q?z9kXsZpqodGD1ITslvZ02uyHV8Z8wnenDRAb0syKgml0Fn6aSXxQXegAmhE1?=
+ =?us-ascii?Q?vLM6S5F2tvPqYBZo0d+b/LKYDzLKY0PlvERc+BeuA6q593esyWX8PNexmGl3?=
+ =?us-ascii?Q?Wj0AWlUU4/IpcmqaeIzov7Qrs72sU6kmo1ea0goS84bzFOCNwpdsJ4a9xxWX?=
+ =?us-ascii?Q?O5POJLfzf2EiTfOx9qxl/n7h2Nt7jnTMwMcNyZjX7BA7NpScLe1JJNTDioMo?=
+ =?us-ascii?Q?lSgaPKi6yTGbE3bjZmYO9pt8AWSIZCM1ZDvkgt44tnSq+u72xF4AVpRM4pFs?=
+ =?us-ascii?Q?lilAE0cAfyTAjom2TGSxt/yHFZuf+g8/bblqCg0YPFVpbz7dxgbfDvmC2K1b?=
+ =?us-ascii?Q?8wuJI8U1zt2k1tStmHJnrF1Ej+EKa/h0i5mU+jvcH7+7fvUO0tq1SXt1QFoG?=
+ =?us-ascii?Q?CeoV/xCnQiloUGR1i15o79HcOyhV5M+pzrVmNtMpGPcQ0j7iCSwYMLjAQb56?=
+ =?us-ascii?Q?etQfVGTkX4MTFwGQZBUjHAKLr8o4b+CBpWf0FJIMoh0Ao3mopNRN5TUM+dWx?=
+ =?us-ascii?Q?0u36ETDy/2VEJeUwpoH3hhvGnh97nrSdsvM6nev20hnM8VIRl+e3zOOo7keV?=
+ =?us-ascii?Q?nAuxeaqHg8C9hEwRf3SmpudDLNMFsCuzuoS+9Jk0JZpClpHLrbLeJRRaft6H?=
+ =?us-ascii?Q?tyfiOqr7wQ7Vl6ELX7h8QbNiuJJ6VPPV1XAq0amGSTJOOPP6NyIbQJDV6FCn?=
+ =?us-ascii?Q?OosQKgBcR5QOG8KWI8fLmybS1mrNMFrz0diEKjJ4ZI7tapt/6+BKTFYjC9e4?=
+ =?us-ascii?Q?wbSgkruhKphpGcMb7pbX+ek0LzekiLe+Rf8QbP8q2FF4/WO4?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 58190766-c41a-4a0a-6a34-08df4baeca97
+X-MS-Exchange-CrossTenant-AuthSource: BL1PR12MB5174.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 11:17:00.7181
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: TgwM3jnmXygUHSALx+a9mpZqEpbYTnVEWJscdFUwlFYrSbSU1aXZWnJvjrUGcqXLXCsijDS/25wptiRFGN7A5A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB5630
 
-should_split_large_page() and __split_large_page() both look up the address
-again to check whether another CPU split the large page after the previous
-lookup.
+Proxy execution keeps mutex-blocked donors on the runqueue. A BPF
+scheduler with SCX_OPS_ENQ_BLOCKED admits donors that block while it
+owns them, but sched_ext is not currently designed to pass it donors
+retained elsewhere, regardless of SCX_OPS_ENQ_BLOCKED. To enforce this,
+explicit hooks at the entry points into sched_ext block a retained donor
+before sched_change_begin() records its queued state.
 
-In should_split_large_page() this cannot happen, because cpa_lock is held
-from the lookup in __change_page_attr() to the check.
+Tao Cui reported [1] that rt_mutex_setprio() has no such hook: an EXT
+task that is PI-boosted into RT/DL and blocks on a second mutex while
+boosted is retained by RT/DL, and when the boost goes away it is handed
+back to sched_ext as a queued blocked donor that the BPF scheduler never
+admitted.
 
-split_large_page() drops cpa_lock to allocate a page table, so the check is
-needed there.
+The same can happen in __sched_setscheduler(). It calls
+scx_prepare_setscheduler() to block a retained donor, but only when the
+requested policy is SCHED_EXT. When the BPF scheduler takes over all
+tasks (no SCX_OPS_SWITCH_PARTIAL), switching an RT/DL task to
+SCHED_NORMAL, e.g., via sched_setscheduler(2) or sysrq-n, also moves it
+into EXT without blocking the donor. In both cases, a BPF scheduler
+without SCX_OPS_ENQ_BLOCKED receives a queued blocked donor it never
+admitted: the donor is enqueued without SCX_ENQ_BLOCKED and, once
+picked, proxy execution runs the mutex owner on its behalf, even though
+the BPF scheduler opted out of it.
 
-Drop the lookup from should_split_large_page() and pass it the level that
-__change_page_attr() found.
+As suggested by Peter [2], instead of adding more hooks, let the
+incoming class decide: switching_to() now returns whether the class
+accepts a retained proxy donor, and sched_change_end() blocks the task
+when it doesn't. This handles every class transition into sched_ext,
+including PI deboost, and replaces the existing explicit hooks.
 
-Move the lookup from __split_large_page() to split_large_page(), right
-after it retakes cpa_lock, and pass the level down.
+Moreover, moving a task between BPF schedulers (sub-sched enable,
+rehome, punt) doesn't change its sched_class, so switching_to() doesn't
+run there. Rather than keeping a separate hook for these paths, make
+SCX_OPS_ENQ_BLOCKED a property of the whole hierarchy: a sub-scheduler
+must match the root scheduler's setting or it fails to load, as also
+suggested by Peter [3]. This makes the remaining scx-specific donor
+blocking, and sched_proxy_block_task(), unnecessary.
 
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
----
- arch/x86/mm/pat/set_memory.c | 48 ++++++++++++++++++--------------------------
- 1 file changed, 20 insertions(+), 28 deletions(-)
+Behavior change: a BPF scheduler with SCX_OPS_ENQ_BLOCKED now inherits
+retained donors on class entry instead of having them blocked. A queued
+donor is passed to ops.enqueue() with SCX_ENQ_BLOCKED as soon as the
+scheduler isn't bypassing. The current donor, like any running task
+entering sched_ext, keeps running without going through ops.enqueue(),
+and gets SCX_ENQ_BLOCKED the next time it does.
 
-diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index 8d481e9edf75..967d691ef1c0 100644
---- a/arch/x86/mm/pat/set_memory.c
-+++ b/arch/x86/mm/pat/set_memory.c
-@@ -973,24 +973,15 @@ static pgprot_t pgprot_clear_protnone_bits(pgprot_t prot)
- }
- 
- static int should_split_large_page(pte_t *kpte, unsigned long address,
--				   struct cpa_data *cpa)
-+				   enum pg_level level, struct cpa_data *cpa)
- {
- 	unsigned long numpages, pmask, psize, lpaddr, pfn, old_pfn;
- 	pgprot_t old_prot, new_prot, req_prot, chk_prot;
--	pte_t new_pte, *tmp;
--	enum pg_level level;
-+	pte_t new_pte;
- 
- 	if (cpa->flags & CPA_REQ_SPLIT)
- 		return 1;
- 
--	/*
--	 * Check for races, another CPU might have split this page
--	 * up already:
--	 */
--	tmp = _lookup_address_cpa(cpa, address, &level);
--	if (tmp != kpte)
--		return 1;
--
- 	switch (level) {
- 	case PG_LEVEL_2M:
- 		old_prot = pmd_pgprot(*(pmd_t *)kpte);
-@@ -1159,21 +1150,12 @@ static void split_set_pte(struct cpa_data *cpa, pte_t *pte, unsigned long pfn,
- 
- static int
- __split_large_page(struct cpa_data *cpa, pte_t *kpte, unsigned long address,
--		   pte_t *pbase)
-+		   unsigned int level, pte_t *pbase)
- {
- 	unsigned long lpaddr, lpinc, ref_pfn, pfn, pfninc = 1;
- 	struct page *base = virt_to_page(pbase);
--	unsigned int i, level;
- 	pgprot_t ref_prot;
--	pte_t *tmp;
--
--	/*
--	 * Check for races, another CPU might have split this page
--	 * up for us already:
--	 */
--	tmp = _lookup_address_cpa(cpa, address, &level);
--	if (tmp != kpte)
--		return 1;
-+	unsigned int i;
- 
- 	paravirt_alloc_pte(&init_mm, page_to_pfn(base));
- 
-@@ -1257,8 +1239,9 @@ __split_large_page(struct cpa_data *cpa, pte_t *kpte, unsigned long address,
- static int split_large_page(struct cpa_data *cpa, pte_t *kpte,
- 			    unsigned long address)
- {
-+	unsigned int level;
- 	pte_t *pte;
--	int ret;
-+	int ret = 0;
- 
- 	spin_unlock(&cpa_lock);
- 	pte = pte_alloc_one_kernel(&init_mm);
-@@ -1266,13 +1249,22 @@ static int split_large_page(struct cpa_data *cpa, pte_t *kpte,
- 	if (!pte)
- 		return -ENOMEM;
- 
--	ret = __split_large_page(cpa, kpte, address, pte);
-+	/*
-+	 * Check for races, another CPU might have split this page
-+	 * up for us already:
-+	 */
-+	if (_lookup_address_cpa(cpa, address, &level) != kpte)
-+		goto out;
-+
-+	ret = __split_large_page(cpa, kpte, address, level, pte);
- 	if (ret)
--		pte_free_kernel(&init_mm, pte);
--	if (ret < 0)
--		return ret;
-+		goto out;
- 
- 	return 0;
-+
-+out:
-+	pte_free_kernel(&init_mm, pte);
-+	return ret;
- }
- 
- static int collapse_pmd_page(pmd_t *pmd, unsigned long addr,
-@@ -1928,7 +1920,7 @@ static int __change_page_attr(struct cpa_data *cpa)
- 	 * Check, whether we can keep the large page intact
- 	 * and just change the pte:
- 	 */
--	do_split = should_split_large_page(kpte, address, cpa);
-+	do_split = should_split_large_page(kpte, address, level, cpa);
- 	/*
- 	 * When the range fits into the existing large page,
- 	 * return. cp->numpages and cpa->tlbflush have been updated in
+Git tree: git://git.kernel.org/pub/scm/linux/kernel/git/arighi/linux.git scx-proxy-donors
 
--- 
-2.53.0
+Peter, should we route this through the sched_ext tree or would you
+prefer that I rebase it onto tip/sched/core?
 
+Thanks,
+-Andrea
+
+[1] https://lore.kernel.org/r/20261112144935.583937-3-cui.tao@linux.dev
+[2] https://lore.kernel.org/r/20261112160136.GF1922751@noisy.programming.kicks-ass.net
+[3] https://lore.kernel.org/r/20261112164149.GE1813469@noisy.programming.kicks-ass.net
+
+Andrea Righi (4):
+  sched: Let switching_to() decide whether to keep a retained proxy donor
+  sched_ext: Make SCX_OPS_ENQ_BLOCKED a hierarchy-wide setting
+  sched: Remove sched_proxy_block_task()
+  selftests/sched_ext: Check that blocked donors are never enqueued unadmitted
+
+ kernel/sched/core.c                                | 118 ++++++++++++++-------
+ kernel/sched/ext/ext.c                             |  78 +++++---------
+ kernel/sched/ext/ext.h                             |   2 -
+ kernel/sched/ext/internal.h                        |   4 +-
+ kernel/sched/ext/sub.c                             |  12 +--
+ kernel/sched/idle.c                                |   2 +-
+ kernel/sched/sched.h                               |  16 +--
+ kernel/sched/stop_task.c                           |   2 +-
+ kernel/sched/syscalls.c                            |   2 -
+ tools/sched_ext/include/scx/enum_defs.autogen.h    |   1 -
+ tools/sched_ext/include/scx/enums_abi.autogen.h    |   1 -
+ tools/sched_ext/scx_qmap.c                         |   2 +-
+ .../testing/selftests/sched_ext/enq_blocked.bpf.c  |   9 ++
+ tools/testing/selftests/sched_ext/enq_blocked.c    |  18 +++-
+ 14 files changed, 149 insertions(+), 118 deletions(-)
