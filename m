@@ -1,67 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=18.9.28.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.152
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795703649;
-	b=FqJ78ebtbdFTd8x34mBmr4hbwkhqyRkR3ljTjjWTVShO/emgJyNpCrVbH65H4xQ9eLJ3
-	 bQMG1Ja5Yt6lKm6nkMKbOiGZ450iYkbHT0tHpH++/5/fzpsF4dDKIJJKvdMJmDaMKJPzR
-	 4mR1xLXbir+Oa6V1FpM1hJlb1BzLFHZK/xjJ6+yfczlrcE0YhlEUH3le752XUrtki1YWk
-	 2oRNKG30rxC0pkNfZt4cVgpY79Q2Q86CAome8f6A+g9KiNpJhIH4yoAc83+5+wAdc5puI
-	 nBtiFMcqdhJVymD6UF0N9nUtyJQ/zg4YIBWihg5F6fmMK7lRqqE3ytYuob2xXf/VYbQ==
+	t=1795703774;
+	b=TxZKyJXlv++nn5Iv6u07dY8RGljnKQJGZiJxWiFtXtsk8ANNG9WtlCZTV+Woh6dtOH2+
+	 /DQ0mjDEWt02lFNOpYvXDZRyG9rIwMOfvhSBEXuZ7a1Vyljvo7p6nowg8b2z4ileEihYF
+	 v3RNATNKWMhYRncBZckIef38ih4dC9cmM23tWUxpSgYNFfWmhFl485DjOKHRhWeVPGrOj
+	 /6kcWWfj5utEX9rVvJVV8z86tAL+tZZ1Y5A0M7pbN6vgacEfiP50VPMMGxXUMv4PPbFgk
+	 WuRjKZH94nM4UXKAh8jFTQ2paAsEaTqELSfcMWQCa03Yz7GhEsobR4wA3I3OPvvSzBw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795703649;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=qlQbyI+WGiNH2Z2c6wTyai/MFBNJGnmn1usDomDBBLc=;
-	b=lE8wcS4v6dOct7cLTWFZQj3l7J2UhMO5yfWd/zxMSA0gmIA3gpyXMPsn5JRBAgOA+e/U
-	 7HHlVcXjM3ZAaVc4sRtZsVs8s63ouGzu2a2MA4V6FNqLHxSa64l61OjeYhTiE/OW+yVsi
-	 B2D7BJNL+LlQaKRDlMALmOp0wX0EJ4kn8xwdtBNoZnkx+eLpgHx2AAojpqJlY/U9choMw
-	 zcd9FgGl1RhjtFlBMEMfd0AZBigF8Wp3UCiNtoeirppXMaqqXb9AkYMxm2IhQsdrXLEKn
-	 LtDmbUJS6bzhsPq/YrNEUDR4GdE8GJ71nZUIU5nyASHcGqYbFpOGYSEdzNfB1H2AasA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795703774;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=v3G2V1qeOHz5K0C9JmBLTUz5Lvd66fOpWaAh9k+6NhY=;
+	b=3PfZyPnu8Niqg0ewAV5F3/DATqAPYtzt1WJUTjYmQ2dCqk3/1fXD8gCXkVrJcnk2bSYY
+	 QcfKY4AVxvjs03+FWOfVnWW/vf4hk06keDzXMXduo7BptCVx0Qgf0bgZk8DeNId0lLyuZ
+	 t54p1hh/zmb4EGDCMmLxC4wPa9IEfylzdct6koi4zrLvcX946ulzWIvZs25pG1KAF4Cc+
+	 WL9gSqSeWvpvqQwv8kVqteTL9OyMSg/FIPELHSXZSLJ1VUvcTygAyyCxuC7AQR+bt51d9
+	 CqhCf8C/Yf8JlJviI3riDipuU6Df5aX2sy/2o0h3VG1vZ8FL8gM6OU/2CNvd2D8hYTQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mit.edu;
-	spf=pass smtp.mailfrom=mit.edu;
-	dkim=pass header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=T+euhReE;
-	arc=none smtp.remote-ip=18.9.28.11
-Received: from outgoing.mit.edu (outgoing-auth-1.mit.edu [18.9.28.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=arndb.de;
+	spf=pass smtp.mailfrom=arndb.de;
+	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm3 header.b=Ditwaay5;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=J5pYUIgJ;
+	arc=none smtp.remote-ip=202.12.124.152
+Received: from fhigh-b1-smtp.messagingengine.com (fhigh-b1-smtp.messagingengine.com [202.12.124.152])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C0C1606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:34:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C0C1606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mit.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mit.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7AB42606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:36:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7AB42606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=T+euhReE
-Received: from macsyma.thunk.org (pool-173-48-102-184.bstnma.fios.verizon.net [173.48.102.184])
-	(authenticated bits=0)
-        (User authenticated as tytso@ATHENA.MIT.EDU)
-	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 6AQEXcI6027280
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 26 Nov 2026 09:33:39 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mit.edu; s=outgoing;
-	t=1795703620; bh=qlQbyI+WGiNH2Z2c6wTyai/MFBNJGnmn1usDomDBBLc=;
-	h=Date:From:Subject:Message-ID:MIME-Version:Content-Type;
-	b=T+euhReEAAKZr/tIh8oyGoD03rt+uVVvdivyCL5j9j2t3+lLOnK7tfkZbyAUH22dq
-	 RDojxpTUvyPUy8Lxg2HtuOTPOIw0s6WX0ubo+negqJ0s1f1QlrCaMRjdSn7MzEFSsN
-	 abqkbWD46zCSeFX2xxy6Wx3arDy6CdX2oWjirojG8JV0vAhObTaOiRBGYzap6yYP/4
-	 bxpBRUVA+G/iDXsOl+pApz5rqSFVwUJ7O4CL+8/Q7jym3eBNr8zVr8Ig1wIPU8c4JL
-	 8XgppxCU3X0XJKqSzpsv8g+n6MwJ0xHpazw6qLHhDzLewdMpFvdpsxGWWm87xbkd6M
-	 5aD6k9MNXtCGg==
-Received: by macsyma.thunk.org (Postfix, from userid 15806)
-	id E0ECB29A80FB; Thu, 26 Nov 2026 09:33:37 -0500 (EST)
-Date: Thu, 26 Nov 2026 09:33:37 -0500
-From: "Theodore Tso" <tytso@mit.edu>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Mark Brown <broonie@kernel.org>,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-        Linux Next Mailing List <linux-next@vger.kernel.org>
-Subject: Re: linux-next: test failure in the origin tree
-Message-ID: <awhBpkL30ZSbDhv5@mit.edu>
-References: <awbpOaMZRkKXbq1H@sirena.org.uk>
- <CAHk-=wgG7RgD-rMiXa9wgirV9ztTLtdg3nj7_X4smR0TEx83aA@mail.gmail.com>
- <674edd30-0087-4341-8a13-3c306583705b@sirena.org.uk>
- <15549465-a429-4243-af9c-8a26ba497891@sirena.org.uk>
- <CAHk-=wj9sFHw4pKpMzUaNDAUdtX+xdQU=dmO+AqgSgrRMZf5PQ@mail.gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm3 header.b=Ditwaay5;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=J5pYUIgJ
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id C2F9D7A0416
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:36:12 -0500 (EST)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Thu, 26 Nov 2026 09:36:12 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1795703768;
+	 x=1795790168; bh=v3G2V1qeOHz5K0C9JmBLTUz5Lvd66fOpWaAh9k+6NhY=; b=
+	Ditwaay5qkuQhagqIDq6tPQAQ6uI2IwK+xKpPf9K85twosnIaosuc2ldBdA6k7sT
+	NUpU5jw3pDujSmT8QdwQ+m74kxJYQWdwz5Ol7zl+FnJqCPNWEbSc3a/BlZsq5JnA
+	eoH5Z+O6osZxYl/++u097bYKbvC8DzzYZCD9kUs16rE8p2a8Buagfa7dK+0TD8q2
+	kH3wQqUwZiDWMGZkbLnx5Gyxk2WMj+S2MG9db9V7GPXIweBqm2XmCFhRbBwGSBuk
+	QwjW4++kIbBaUpDmwD/WMEp7OEULlPZXDyxMbWcAE+7ZV6t6/Hra96c7QzeCatdl
+	Tyrgn4MpgYoz5BA0+XPfxg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795703768; x=
+	1795790168; bh=v3G2V1qeOHz5K0C9JmBLTUz5Lvd66fOpWaAh9k+6NhY=; b=J
+	5pYUIgJTuiD5FZgF9z81JEm9afYlAEWA+EEh2gXWNaVToPKkULyQs3XCE9zdzdqu
+	XOmR6LVMd8aMEh5PYzPs1zx6fHxnb+yKBzlLaoKcr8R7IaBHuD7t4id721fdF+P0
+	syDDu+9AH5C+aZeY/de4svQq0tijYCaATkkU8KzzqUKR2gjs/hYPeQ7NTPzJJMX5
+	SRvObbV1A4jwvRltbexMqV6znnVQicVEh2JEc4ObpGEbFS4t+Wum8TKT0er/FKQ9
+	4InhHAiRO/iZLOxNSIpWUs8kTdnJGlA6eWLzybuntZV+cbgysOCZuuvTrGj+gaWI
+	P9cFKUO3UZ0VJNdZY1P1w==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=arndb.de a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795703768; d=arndb.de;
+	mf=PGFybmRAYXJuZGIuZGU+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:I037OvIgx8RmRQsWLqlKnciw/vD+QRsa0g512UjCpXfqOr2
+	6Jw31QZrJdXDcv2jj0HLzMC4On2+tIoSi+xaYps3zTYJFXiEJd7NMu+C+ZxYX+O6
+	P06ZWhCSStCWUQq4kayfd3S5xFmHJl9HlwTyQL5KgM/nwtoU3r3kVU0rmMPGb6sZ
+	YrzFUs4V6qJ/V0WNj93B+jLKbE6wBzwB5RipzaXeKW+Z8/j8mBnHY1joln9QIUKz
+	BgfnSGsm/s596j6eIyYk5KuIR6szTQ87vnALpKJh9Pe/iikUjkbqp5an/pD+la7R
+	gjzpOhpI3e5bn3L4XIG/SMGHDwjRvUDghrah3WA==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:yWFueESYeOMGYdSadhQ3A2EsfvhHKuSOdy69FlC384Q=:WxEATa8muRmovG/KC+UQpVLqlKHU82D8GbphVHvwG5E=;
+X-ME-Sender: <xms:1kMIa6azwAkqvB2EwY8oyGgPfUy3SkAvQNNjHTi5XGKP5yt25TYL3A>
+    <xme:1kMIa4N1CrVfpD_r35HFYzAnLpPBFts9IuYa7HVBBnAqVRp0EMVQzUhM6iwWILC1q
+    xvAkMfdc2bSakiBcf-yqmN_5-4CD-SsF7AwqU_00S134rZsVOIm6inQ>
+X-ME-Proxy-Cause: dmFkZTGPrzn7o2Hn0cuKZ4u1o1/gToJC7Pw01/5TZMzWjHwzXlHBIrtCGxW9RwyAJBNR0Z
+    dFsHVRy4lda6gNt6BiYTzfRDQGd0LxwtQF/ZROMncKFU4Uv6QN4OgappruH93kgQZpXTPY
+    KO7Bg6oR9Ha8TKXGbcWQ5gKMerTcU9+R2yEEhZZMxelK7Za6Tmcq/gya2EhOQ8Lx3xpDJY
+    YdLAzCv5vaoku+HiEuJT7uLsmMLEwXCXMx8rrKh/hBUbB+FbZgoMpAryTGGtPmkrEy2ZFI
+    PY7TVcW+419cPAd/fabW27BjJ7/O/wt3nfH+EjSk6saUvIp4AX+Ief30HZ+6l911u/qNQu
+    tF5iEbQR6uYqF1NW5e/le7rDs8atdUWaDOfF+zTWFo2v5OWPwboJ/tgPXF/JP3BLjrhFHJ
+    ebjyhkqAcP78+aIjVID7G4TP+yPswQD5bWO7tvnSZbZDQwdwM2ZbOmjI2Mq8WQrrF0aRIw
+    gc7wgIRgFTSpf3jk1woD/4/gmGR3JpKgAmJ2cudNSYkpJ9F3+Ale6gIFBd/ggwD+iG5xzw
+    IDqOFWiTkfvu/L+1LW38Qsahxrr12L+iQdQgNDfyh68WpCwoXd6aynsWCLcputaGBL0mc3
+    jubM39xAtuVk0eYtDf/T1XDS6CUmasOOn3xnAClE3ZRirC1j0zSTt7lC4XPg
+X-ME-Proxy: <xmx:10MIa7cUWOB2_tSH5_LHwvpycVa7FsyZ2tjSIggFtSWNPGcTqqfjVg>
+    <xmx:10MIawQ3OgGTpJlzrUQwoOB2Is2NKOPl3ZNDd-sSl0ic1ITqVYs63w>
+    <xmx:10MIa6vCc5ab142wCJp756BiqrDcxLIkuc06US9Ht0EXqElryTYsNA>
+    <xmx:10MIa5eivESgNjRRUXPNNYciHQZPlnZQuTZb_AWui6e27C7zT1g3LA>
+    <xmx:2EMIa0SYnfSI2HVydBPjWKQTbB9eOjQzq3NoPKIR04t74eyrM_TE0A1R>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id EFD4932A0099; Thu, 26 Nov 2026 09:36:05 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,22 +115,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAHk-=wj9sFHw4pKpMzUaNDAUdtX+xdQU=dmO+AqgSgrRMZf5PQ@mail.gmail.com>
+X-ThreadId: ArSfj7oNcZXw
+Date: Thu, 26 Nov 2026 15:35:45 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Mark Brown" <broonie@kernel.org>, "Sudeep Holla" <sudeep.holla@arm.com>
+Cc: "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>,
+ linux-next <linux-next@vger.kernel.org>, "Rob Herring" <robh@kernel.org>,
+ soc@lists.linux.dev, "Sudeep Holla" <sudeep.holla@kernel.org>
+Message-Id: <2fdf159d-276d-4941-997c-a35668736a59@app.fastmail.com>
+In-Reply-To: <awg_qpipeO0u8RKS@sirena.org.uk>
+References: <awg_qpipeO0u8RKS@sirena.org.uk>
+Subject: Re: linux-next: manual merge of the scmi tree with the arm-soc tree
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 25, 2026 at 09:59:16AM -0500, Linus Torvalds wrote:
-> 
-> But I'll leave this for Ted, since I'm not actually *running* the
-> tests, so I'll stop making fixes based on what I think the pattern
-> matching should be.
+On Thu, Nov 26, 2026, at 15:18, Mark Brown wrote:
+> I fixed it up (see below) and can carry the fix as necessary. This
+> is now fixed as far as linux-next is concerned, but any non trivial
+> conflicts should be mentioned to your upstream maintainer when your tree
+> is submitted for merging.  You may also want to consider cooperating
+> with the maintainer of the conflicting tree to minimise any particularly
+> complex conflicts.
+>
+> [Deleted the files]
 
-Yeah, I've been running regression tests before sending you a Pull
-request.  (The changes are already on the dev branch for linux-next;
-the pull request is incoming.)
+Ok, thanks! I assume there will be a few more of these until the merge window.
 
-There was one issue which was a missing stub registration from the
-merge, and there were two other issues that were unmasked by some VFS
-changes.
-
-						- Ted
+    Arnd
