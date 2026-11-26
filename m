@@ -1,55 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795672503;
-	b=CZsznfxYw2gV0PXXO2q4cUTTmfI0s/vh/9bQY9vhbprTC9vs5Gv5YochRHhv+s7rhAdH
-	 UFDxgGfV6W0WucjdjvmC/W3t5XED1tqN561lXObuZOV9enj0dts4GJzLRCFbRHWmrOtl1
-	 rBLGl+y55G4r4GELf4jTxm+yzfOlcrPZRiSR5Ly6irxQNg+0zQxaXfAk5WypJIzxqZ4za
-	 qIUYv5xrW8eJDg6brHSSzFegYP5J7vYxDpGAjjc4EMsrB+3J+l8VuL87vQgqvs9Q4IDj1
-	 Mox37SqN1Q7FkXLAIUbxnZ4BI8yJbiF0tj6dSfrNXQkp6bJ7jdfixKTltLBsR3odtTw==
+	t=1795672564;
+	b=yevOLkoYjg+XKfRLPFJr1Ld0oO2iU6RHfwAO+nVTB62Bq/3fm2nRZdWVc4PN65iaOH3g
+	 qs5+LSXCfUEN9SZFCDBqRD3trAyYwZbSmur4ySQ96PWMZ4c0/AP+iO600t69KkIYqlZ1o
+	 vcoj+YpO2fovdFseqIuhtqNroOoEIl2YoLu49B17NWuNZ7POsq6Rb5WKKRXkhpm9mS6d6
+	 g0BNDMm7mREfA2+zRrnq4IarLlOvBKi0A8v5qA7vXgVwU6/JVii2Kpy8KkfJ8j52VENII
+	 XkY9EgRmC8SDUqv5dsjNgAriOsV9nwN+S2LarTbU748B+4Z17WJSKKFYTxI/HPgDtbA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795672503;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=SsXnkh9rZiup8TkTxbsw+huciahwayKl9nCe3uqM0fY=;
-	b=N4jJDpfAiCyoDchcYvRr7mnYqU5qBgEDRMcDneCP8vxEYDVfNeZjFTBhND7tBvPoL/QQ
-	 vqFwUcYmK1zVyHbxBf569HYxc8fqsm241FYseCKKv59Pr10rtC2amz0mSSmS8vGYTylfY
-	 HkFH74mTXnSP7mSzp1dVxqJY0YlJod6l1ZmKxE6/ZLJpndkVW8vF9eV6R1Y1AYzOBY7Fl
-	 AaK+sa5wVgaw4FXOG6t86VcJERa6ZjuRD70exXOQwqjOtKs+qsMkRLqQxQ4bQ1RRvekgJ
-	 vChf7w/DT0IclCUxAUKWXNaGVUtK2WqUluYpqI/LUKecjkJViOFfhpmDsfORc0k1UNA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795672564;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=f9W/X3ZSGPrXignHGoNXmPj3EgNkTGQgkxY9HizUk10=;
+	b=noHWDxCy4E+HEDbdDzfPytP3v3B/Kd9W2IC/uFbxG9LzU6O9X8AIXk584YxKbgQEDD8l
+	 IRa5pC2HhI63Sb8fgVjA1E4ukeXS0P8fna36ZNsEZHIBliI+Z9P7IUbaRIIonAsE/IiFS
+	 mMPvjEVTrZcsyL2N59+FUAWaLe4bBcYXMztVaLfRhfGzNs6Aa7nanLaNLTCWfJpJtBZTu
+	 ya36mXgd/l6z6q3hIMsF7QrAQZVyvzQWkjsioq1WmE/vCsF2yuiF3xYrK2KbOtQJiDLUN
+	 jZWju+zf7GuGuIrLEshQoHc1fjSz+INde3p7HXEgOcT0mDFilDLI+WUCu4bNlt9xCFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CspZqle+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FG7buiis;
+	arc=none smtp.remote-ip=209.85.216.42
+Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com [209.85.216.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C28D606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:55:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57476606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:56:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57476606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CspZqle+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCF4A1F000D4
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:55:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795672502;
-	bh=SsXnkh9rZiup8TkTxbsw+huciahwayKl9nCe3uqM0fY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=CspZqle+6/NpEdNZ0XRYOcy3DQM56ynq8GgPFnEww1nIVojCNilLh7XDN96ZKY2FN
-	 luhytLuBN3/zPrOFGgNbPB4YHK+qi+Y6yVKhcsD9eok/bv7Fn9/0JEz4OyJ5H9lDTT
-	 LUWGpKp6wjqyIO2KB0cnxNivSzvl5nz/Ck8uWitSkBJnQ4tYaQK1r1w8tYtOnMVdam
-	 Q2/3vAsiaTJhAOmyWZE5z/U+P6BiZRoGxvAr69hhbxdEqUVDGWTAKLhwd1O1qVNANS
-	 6/iAnM7Apr2h+z9OiKxeuDR2FgSJsZgM/LWbwHBIr55h63YS5SjE/RoKB3JyGC7yC9
-	 OL06PzZyyexLw==
-Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-c4d581da0aaso917763966b.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:55:02 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHfARuZiCl4oIVRWPqEvrUcOxK6yqMEafeTAKOopwGaxDaVcuZuJHcC7tqoX28o11RQ7zuBp/jJ6ldqSHY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9d73UPoeKP/V4vVcZywJWZXZRpZ1O/FCJKDJp5sYgtOVp68Pj7
-	u+eZhA3XNC5cbr8PuNcs2SW2rt7um9qQdLT9lHuguPJhTdZBShApx1B1THYRO8HZbKS4VjOITkj
-	Zc92tBD84ko4hjBhZ1JG5DY2vffnibtJ7iAXiFPaSLQ==
-X-Received: by 2002:a17:906:4fc8:b0:c51:ab6:1c73 with SMTP id
- a640c23a62f3a-c513aaff9c8mr1746636066b.23.1795672501752; Wed, 25 Nov 2026
- 21:55:01 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FG7buiis
+Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3b08cf16decso3980442a91.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:56:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795672564; x=1796277364; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=f9W/X3ZSGPrXignHGoNXmPj3EgNkTGQgkxY9HizUk10=;
+        b=FG7buiisxYEulSoe5M2X3xjYextDw1OYO1+X5KmGszrbI37LvW5D07w8n+bLsGW7gt
+         4rlNqEcBrnPBma4oBOENKENfKWv7oxElu9Aau0onjsMPsqVcRqldA6FeeyfZRw754GCR
+         OcolyDEpVjr57AAjMJdUqPT4SVbiSRIX8xuURu3O0Ju0/YWnO/SX31fVtpFCCzyaxWLf
+         DfKEQ8BFCK0AdpsccnD7cfiCkEtl961oRBW4voZ21WPK+PAc57f3mZufvcRjJoI1Pp0Z
+         f0Tl3iQhOIc4JwYJA7gQEKa97J08fTdlnvpvHVZLPbn32wJcoP7h4nrqaofWdfmrq/ks
+         e1eQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795672564; x=1796277364;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=f9W/X3ZSGPrXignHGoNXmPj3EgNkTGQgkxY9HizUk10=;
+        b=N4YbVyGdvXa+YEV1WSzt5a/4iqRBaId5PifXtRIXKm5bo+dZpHjrdgD3e5YAS/dYFJ
+         p/ne8Q1xK69odorRL1flsgWSVq6IbTED0BxajNEvTtLYGzRzfVMCHkDuZEbVK1oL79FJ
+         jd1gFSrerWY8c4SkawKU00tlQpTU4M+WFoU8h0DmumpUJCbdvJcrQL1cfIpdhWsdhhaq
+         nPPpeDsQzftHjb0EtUwUF+pBFHTsL9piZdY5FizXWHjlUTWdK4H2WV+FgixTO9CIkIkA
+         ix2JxRuefpizFOXRKgG88OlT118ukvgCDk7KO6O/94857fHr+d8pQAdeyTgTfrcaLDRG
+         ux/Q==
+X-Forwarded-Encrypted: i=1; AL+hErFn/3CojPHaroh/seEmiDzYFWAADgdKN9Xr+AyZoiFKKP/jS3ftI7ziHJu0solZ6KhUj4E8VNXYKNxVmfc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8nHn6RRU0kCItWRrANXbBe02a5EBYWw9yKdhnY61pSDqnF2O+1
+	CbZjuPz6rw8e6lMIPl2LwKtDNvKE6OGjgZQN5GCjK1iI8gEgCLa8cyf+0ZB6NAxS
+X-Gm-Gg: AZFdTZfDXNW4UMDRJaOWVZFKu3ijjsBAbh5Tgq5tS8XBcck7K0X4Qp9DTSqfZg8gien
+	HlLxjmEH6oZKdaxNK2Ga6xLhkTbEaYbgkizs9C/p4jje1Jcs+DY/eW5eoKeF9FMixHPsz5KAKV3
+	8bH+49dA2DZpnbcycdBvuoVjTJgDsBrUdI2PJLCBcgCSydw8OTTxRpVrOb1SJAxeI5PwpYnhkJJ
+	TuPA+xOf2kk7aZJGZOHZ1SBBlA9MEq/9dDA8ltgU23fXgXL0hwyqRKK431zNgwtsYR6/Y/qtdXr
+	8r0mlHe20Haxf7Ib5IEQ5/4Mq510avcfhTwxgfvjRvMhyH9onvcgWLj99+oyoy1M2mnmgwdfInN
+	M2BE/YpyefXG77Cr5AN7+gEmI7ImtXbjVcZe/NAw+gr0oSA7n1rUXxLBT/D/Zu1KoBVGtqIA2GT
+	conn+JHAVraCPDj/rIrVWHH9HJXA9GmqmukI5s2Q/OvtHRFSrmi3GOFNDYGqfxtW5rFBcCorbPd
+	7XnCLgZz3jJovzP1OJC0Qa1JCO6E55AJM4FPkyR+oiVV/wvuekqftVWBePu71+gPe3jHDnWQWTy
+	t4PQzEWsfHnQvTFArAnRc/0A9B3v6fkSY4Wq2i0iZqgV0EJ24w==
+X-Received: by 2002:a17:90b:3843:b0:3b5:29e:11b3 with SMTP id 98e67ed59e1d1-3b5029e144emr2879706a91.61.1795672563597;
+        Wed, 25 Nov 2026 21:56:03 -0800 (PST)
+Received: from fedora.tailc1fb0a.ts.net ([172.219.65.15])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad8e93asm30760213a91.11.2026.11.25.21.56.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 21:56:03 -0800 (PST)
+From: Artem Novak <artem122novak@gmail.com>
+To: herbert@gondor.apana.org.au,
+	davem@davemloft.net
+Cc: anirudh.venkataramanan@intel.com,
+	mark.d.rustad@intel.com,
+	linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Artem Novak <artem122novak@gmail.com>
+Subject: [PATCH] crypto: tcrypt: avoid 32-bit overflow in throughput calculation
+Date: Wed, 25 Nov 2026 23:56:00 -0600
+Message-ID: <20261126055600.23172-1-artem122novak@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,71 +98,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <cover.1795439990.git.lianux.mm@gmail.com> <9f3715ab29bc9ee4aaa1bb92bff47c7584b73ee7.1795439990.git.lianux.mm@gmail.com>
-In-Reply-To: <9f3715ab29bc9ee4aaa1bb92bff47c7584b73ee7.1795439990.git.lianux.mm@gmail.com>
-From: Chris Li <chrisl@kernel.org>
-Date: Wed, 25 Nov 2026 21:54:50 -0800
-X-Gmail-Original-Message-ID: <CACePvbXWL-CHKiG6hw6vFKbERDXLU_v3mfi7V=6hbaW1y8hs8g@mail.gmail.com>
-X-Gm-Features: Aa3M54oBQMzNvzYM2e4PD29_5XhYK-wobZpG4mQp3FDlOc_DSnwaHTsE7U41QGs
-Message-ID: <CACePvbXWL-CHKiG6hw6vFKbERDXLU_v3mfi7V=6hbaW1y8hs8g@mail.gmail.com>
-Subject: Re: [PATCH v5 01/19] mm/swap: remove unused parameter for reading
- swap header
-To: Lian Wang <lianux.mm@gmail.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	Andrew Morton <akpm@linux-foundation.org>, Nhat Pham <nphamcs@gmail.com>, 
-	Baoquan He <baoquan.he@linux.dev>, Barry Song <baohua@kernel.org>, 
-	Youngjun Park <youngjun.park@lge.com>, Kemeng Shi <shikemeng@huaweicloud.com>, 
-	Kairui Song <kasong@tencent.com>, Jihan LIN <linjh22s@gmail.com>, 
-	Kunwu Chan <kunwu.chan@linux.dev>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Thomas Gleixner <tglx@kernel.org>, linux-hardening@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 6:16=E2=80=AFAM Lian Wang <lianux.mm@gmail.com> wro=
-te:
->
-> From: Kairui Song <kasong@tencent.com>
->
-> The swap_info_struct argument to read_swap_header() is unused. Remove it
-> and update the swapon() call site.
->
-> No functional change.
->
-> Signed-off-by: Kairui Song <kasong@tencent.com>
-> Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
-> Signed-off-by: Lian Wang <lianux.mm@gmail.com>
+Cast bcount to u64 before multiplying by blen to prevent 32-bit
+overflow when calculating throughput on 32-bit architectures.
 
-Acked-by: Chris Li <chrisl@kernel.org>
+Fixes: fdaeb224e2bf ("crypto: tcrypt - Use pr_cont to print test results")
+Fixes: 3e3dc25fe7d5 ("crypto: Resolve shadow warnings")
 
-Chris
+Signed-off-by: Artem Novak <artem122novak@gmail.com>
+---
+ crypto/tcrypt.c | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
 
-> ---
->  mm/swapfile.c | 7 +++----
->  1 file changed, 3 insertions(+), 4 deletions(-)
->
-> diff --git a/mm/swapfile.c b/mm/swapfile.c
-> index d59fa8220862..c06f9f532e74 100644
-> --- a/mm/swapfile.c
-> +++ b/mm/swapfile.c
-> @@ -3630,9 +3630,8 @@ __weak unsigned long arch_max_swapfile_size(void)
->         return generic_max_swapfile_size();
->  }
->
-> -static unsigned long read_swap_header(struct swap_info_struct *si,
-> -                                       union swap_header *swap_header,
-> -                                       struct inode *inode)
-> +static unsigned long read_swap_header(union swap_header *swap_header,
-> +                                     struct inode *inode)
->  {
->         int i;
->         unsigned long maxpages;
-> @@ -3863,7 +3862,7 @@ SYSCALL_DEFINE2(swapon, const char __user *, specia=
-lfile, int, swap_flags)
->         }
->         swap_header =3D kmap_local_folio(folio, 0);
->
-> -       maxpages =3D read_swap_header(si, swap_header, inode);
-> +       maxpages =3D read_swap_header(swap_header, inode);
->         if (unlikely(!maxpages)) {
->                 error =3D -EINVAL;
->                 goto bad_swap_unlock_inode;
+diff --git a/crypto/tcrypt.c b/crypto/tcrypt.c
+index e6834bdde9b9..1e6132045c24 100644
+--- a/crypto/tcrypt.c
++++ b/crypto/tcrypt.c
+@@ -28,6 +28,7 @@
+ #include <linux/interrupt.h>
+ #include <linux/jiffies.h>
+ #include <linux/kernel.h>
++#include <linux/math64.h>
+ #include <linux/module.h>
+ #include <linux/moduleparam.h>
+ #include <linux/scatterlist.h>
+@@ -734,6 +735,7 @@ static int test_ahash_jiffies_digest(struct tcrypt_ahash_request *treq,
+ {
+ 	struct ahash_request *req = treq->req;
+ 	unsigned long start, end;
++	u64 bytes;
+ 	int bcount;
+ 	int ret;
+ 
+@@ -744,8 +746,9 @@ static int test_ahash_jiffies_digest(struct tcrypt_ahash_request *treq,
+ 			return ret;
+ 	}
+ 
+-	pr_cont("%6u opers/sec, %9lu bytes/sec\n",
+-		bcount / secs, ((long)bcount * blen) / secs);
++	bytes = div_u64((u64)bcount * blen, secs);
++	pr_cont("%6u opers/sec, %9llu bytes/sec\n",
++		bcount / secs, (unsigned long long)bytes);
+ 
+ 	return 0;
+ }
+@@ -755,6 +758,7 @@ static int test_ahash_jiffies(struct tcrypt_ahash_request *treq, int blen,
+ {
+ 	struct ahash_request *req = treq->req;
+ 	unsigned long start, end;
++	u64 bytes;
+ 	int bcount, pcount;
+ 	int ret;
+ 
+@@ -777,8 +781,9 @@ static int test_ahash_jiffies(struct tcrypt_ahash_request *treq, int blen,
+ 			return ret;
+ 	}
+ 
+-	pr_cont("%6u opers/sec, %9lu bytes/sec\n",
+-		bcount / secs, ((long)bcount * blen) / secs);
++	bytes = div_u64((u64)bcount * blen, secs);
++	pr_cont("%6u opers/sec, %9llu bytes/sec\n",
++		bcount / secs, (unsigned long long)bytes);
+ 
+ 	return 0;
+ }
+-- 
+2.56.1
+
