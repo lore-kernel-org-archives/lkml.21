@@ -1,96 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795723884;
-	b=lYzh3xtKGCdZp83VmgB9KoV8F5n1+MrN/i1+4Z9XREJDXg/O6ngqoi1AS7vPDmRe5ean
-	 FyG+7cZ88bm0zrme3ExyXy/INqR0L6fx3HjRThaZjMYfab++Zht9JZkZ1u290yMDtm119
-	 5oS74u+FZ8dwkLw98LbJtzWd+1BGhjx4bEMCDfTPMEIEFz2T6Y1IXeepfeC45MF5w/8EH
-	 9vx+pWXSwpZrMP5zoVVtxbUvFkRNcMjIwhO3FvzKExkHwJfbad3LZEuxBHEphP/avt6er
-	 eAUZzTR2pAyuEKOjXUumbuRnUcXWu2J4zxmLrLW1tiNjl5aspCxjLOIc91vmtWGJXrg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795723884;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=Nj/WNmNbH2CCgoWWWQhTKahPha5+ME+4yoPGAZbSie0=;
-	b=cwT6U66Ze14tvsIm43bvHcfSbn9ZL4ePeykL81OTbkJgsZeyuzMFMtGz+Z/yuhLftT7/
-	 Y3UPYsHFojzf8KaJ11lENoCI5ZiKnL4NqWuj5R1LTWZaOydJzlhk7iow+yT6+Wwn85XcH
-	 avOF9EY/GEqpiPbIkdLPaCsH0/zIaTf5eOGPlzrxU/KEVmrLYAiMHwCbF5Mtnb8J2/HeE
-	 AByyq04sWDcE134XDjUQ6vgCY891zA8071JwLF9ZOwQJUVzjlyf02lLSSgdwblhs0EZs9
-	 NVwwGrslYRSFWmUocJ4tCqkASkXd5FgmEERNo1Rj/DULjt6kv8glmPSwVwtQsF9LaOA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=n5wLgfHB;
-	arc=none smtp.remote-ip=209.85.128.47
-Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795723880;
+	b=v5jzFA1FtwxLRxHBPI59KSIN3kpQ0wWE4ZwXfYwyQRc05E0O1/6NLuasCASPkwM7aVzJ
+	 WHiHtgDqV/ZGPBoItVoOs/f0b8/E0ClF1g1dNA8jFWNMGSqYyjULQYkyy/zpG1CuaISHP
+	 eeYv1Ds5n3wcadJ5XHH2d9kWhpC2ejo8sm5nRGl1Uv5EN6msVsjnq+d8Izw7WPPQbS1Bi
+	 jFWlb3Es5162MP46bMBNA7EVQlp8dli1YGLhg9veFj1XhjubReiqzePM8QqlF3luylVt4
+	 s+Q6PYOVjtUeIjNG2Vhqhq/z6ai2kGDI4e3QwbZn+GlgX8QW149JmAVxO3cwuDqTcwA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795723880;
+	h=DMARC-Filter:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-ZohoMailClient;
+	bh=jjH2UYzmhPzgLkuBv62Qf/P7bzdvFKQUVBGEtPzWtUM=;
+	b=st1bJNI6wDWqF023a+vC36Hz5VGXTcDH+7eqdT0yNGBtQReU4JTU62ewDSIpWxq0yedI
+	 DIiN1jdRLi10yblTWOwM2glwCikOMGh4ZjQjW46fOxHVEuauAdkyCVr5tciwi72CH8q/l
+	 SDm4e4QeAdLJD8VpxwcToCqGkZfgwxExPXsOX5CM/tXy4TDeF4xHvcsiBar2EY68sg5/5
+	 tDriBCbRWHCfA6FUIxu3VIT99Fjvbdn6H/x8LUYGfBn6h8eUTJX4IlaZMIaIRZsAlv45A
+	 ev9cupaDebw7yYeT53k+e+a+dL/NqrZ9DxwwJpCeIWZySxbFwtvyjJjETuAxWzQHWOQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=j8Yf1LiZ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06D45606A32D
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:11:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06D45606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76501606A321;
+	Thu, 26 Nov 2026 20:11:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76501606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=n5wLgfHB
-Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4bba60271d7so20121835e9.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:11:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795723881; x=1796328681; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Nj/WNmNbH2CCgoWWWQhTKahPha5+ME+4yoPGAZbSie0=;
-        b=n5wLgfHB651Ue69O8vuJNdc3m9TPZ3NV736Bukjoncr14J6JE6ZlPSDZf7cla6cn2V
-         ORIDrgd2fLu04O14u8BfyVeJIx/nMFXCAfZYs1bDJyr1l/pY5LDq4+l08uv5RxnwOYUn
-         jpnsmkJdjsLEsI/NL/VH2wmaRpWXyzCs/GitGAGbHX/URfwmgNr0eDFACsg9gnwuiMZ3
-         nTti0NiKz/zCW0Mz8EpKZEjCzFXKxGtV4wl0hX0zNn2Ym0v55YcaJhyqzVh4oUAYQzK3
-         6XRiJH+piIcKnoulAcULwF6A3YlxwLFe0eG7SwiIq0o/LifXE064nF2hWbx6hdCBsUcx
-         Y6xg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795723881; x=1796328681;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Nj/WNmNbH2CCgoWWWQhTKahPha5+ME+4yoPGAZbSie0=;
-        b=h271epQJzgld1EXuRwfUrZJzKxv48C1zaeXrFoju6XxejWDAfXh2/fZAqBXRqom0qi
-         MxU5fnUlzOeD+xmy17n0IANuoh6FaB1TaVxqPSRsWJG466NFGLZw3IHvWkbRy2Kiu3f4
-         btPf3UYPilZzDyRjiglUxdzaW4AvH0avZ5ykpgz2Leq+bhY0a5+m7zqZY8aZS9Za1eyX
-         H/cJDXMX0TLGA4bQfub/7z5Jc5Lly2T5jiZFqAE6dk+gPoClHpHOkkEhfV9uJunbyVw1
-         UFXCE4cjPPA+t7cnEDwL5rjxRvxx+BUQkivf8sQwaHGFWkv9pK07KH/KxLmWx6n1o76L
-         magQ==
-X-Forwarded-Encrypted: i=1; AL+hErHNgwgqYpM3QcZLPp6QVNheWvrg0oMsFtUB3yi0TJM/vC31ZZz8yy62Hbds/oEzT9nA4Ah9/kMtNYsKe3w=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+fhWWQbALuB2r+dT+0KKVB1Km0ZMFB4de7VjHvXvzliv88KV7U
-	7Yb94gHcOmDp4nQ9+HKZPOEJo38c6zhATsv1rneYWKgIvNC9lTBY1Ew5KRNLD1IOTQ==
-X-Gm-Gg: AZFdTZc38tQhzZdiiu3l5uwB5RGd8HY8WUdjEx4ZTTTXQLnDOhKCMho1EeIgL7Firde
-	OQHmZriCqsjxgUk+iQEeUWABGW8XBJhzlSLNyCLLpuAU6EoadvlSSI8kmd4Qm1nta8elRyezetP
-	JtmbNntOYAazNicIl69C5SEyvrphSt6GX/BOd93P0N7vOR5CWWkRM3VjpGL3oVdUNsJvlJnuxz+
-	3ULcqo3gXuQkodKrIEQyL1JRaNwiIGmsrKPrHZe7x3Wf1wZmfY7c5/2FCnIuN5Reo6ySlztkQdT
-	ggmtsm6yhvBUI5QrDrjFiGajAP6Nt/LqhBYgmsYDEDeP07eo94mOEBBAGaZ0BAFSW1m5Z2cjKq5
-	m8cDgD2VfOr/2uRwHgBF5gpu24SjNFfpFJ4VCHWNBR7m74Y7xMbysbs9UtAiSx3NTAh5sPwSRzz
-	Ce8VcFfmLk4RsEdv3PiqyzQjp6pT72X5iHcv9qXVfEQCubnU4h10TylkYvU+dJMiNS7Z3E6PLhC
-	cwyO2u1l/VX+VHwOV4jYSssVzjUmezeg7Vk+KJgmd0T30NOXiVpi0rdUq8/yPoBxDNsEFpWe2Cr
-	vsTDNKQz93zVGOnFCgq6IMhsNM6nGoxp3WLXZQwkNmhLVJuFY6ZlCDiO3VpX9ZvrchKH9/TBmmi
-	AmS/y1lI1Z4RpOKBAUnY+4UY=
-X-Received: by 2002:a05:600d:8402:b0:4a3:5a91:5f61 with SMTP id 5b1f17b1804b1-4bb88806287mr356853825e9.14.1795723881055;
-        Thu, 26 Nov 2026 12:11:21 -0800 (PST)
-Received: from google.com (0.182.34.34.bc.googleusercontent.com. [34.34.182.0])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b2c5sm618620195e9.5.2026.11.26.12.11.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 12:11:20 -0800 (PST)
-Date: Thu, 26 Nov 2026 20:11:17 +0000
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: mhiramat@kernel.org, linux-trace-kernel@vger.kernel.org,
-	mathieu.desnoyers@efficios.com, kernel-team@android.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] ring-buffer: Remove unused absolute timestamp mode
-Message-ID: <awiSZeJM642t3ScT@google.com>
-References: <20261105202814.1350312-1-vdonnefort@google.com>
- <20261105202814.1350312-2-vdonnefort@google.com>
- <20261124210350.718adb37@robin>
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=j8Yf1LiZ
+ARC-Seal: i=1; a=rsa-sha256; t=1795723854; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=neMfuKQL3DjukqrxNCXz1oEjTjE2Fkj5y/US10Vm+MiNQ9/A1YVkSw62AtxrGFPOHIvCcoH13tXxB25pjGgpfDZC3/3XYeD89uajnP0XmiMQ+lYvVA8QVGgAWAz/i/WKu/+04B9H9TCbE90T5W4IiOf2eUy8HCnoKBmQr6dDnRw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795723854; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=jjH2UYzmhPzgLkuBv62Qf/P7bzdvFKQUVBGEtPzWtUM=; 
+	b=gamMzD5auQUdlK7sn32/BjzATeiMNfj9PvEAprZjGG5Kj9/i1DZdVEh+Jat0F80hMrWfgQv2STojHc26NHi3a66ZIgsJFCaqZFKzLg7ghLyOITB2IikfT3BuPG3GrEG8IFtj62h4wpHbGcbKHZt+yAkHfz9asSo94fqz770QCY8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
+	dmarc=pass header.from=<daniel.almeida@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=j8Yf1LiZGpKo1qDXhUa1kWVzGs9KbjfcGRLm1wszxkDzSYh0l8f6azRO4vD2EUXvOqOFMnx6jSifO2G0TzSAJcow3A9+ehaO/aNo+BgD1hjnkK0ytKxOziyoTix3wDxcBov2jkllBZ9+3o3VS1iuAI7DcpEZKstVIkcvlUaPeMs=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=jjH2UYzmhPzgLkuBv62Qf/P7bzdvFKQUVBGEtPzWtUM=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795723851199853.6085617662809;
+	Thu, 26 Nov 2026 12:10:51 -0800 (PST)
+From: Daniel Almeida <daniel.almeida@collabora.com>
+Subject: [PATCH 0/4] drm/tyr: use the conversion derives for the enums
+Date: Thu, 26 Nov 2026 17:10:42 -0300
+Message-Id: <20261126-tyr-enum-derives-v1-0-a487b0e1bee3@collabora.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,43 +60,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124210350.718adb37@robin>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/12RS25bMQxFt2K8cV8hkRQlBUXRfRQZUPy0LuK49
+ XOCFkH2XtnJxBlekOdefl6WzU9735a73cty8uf9tj8+TpE/7Rb9KY8/fN3b1Ask4JyB1/O/0+q
+ PT4fVJvjs26ojKnRL2YsuE/t98tj/vVp+v3/T29P45Xq++Lx3nPzP08w6v7UtB982uWbd7b68R
+ 5V10DVNZoZs5219zmtaYUAUzEzW+JseHx5kHE/yWY+Hr1dvOevPq4+Sj6ZSagqPWspgtpHtQlf
+ QURhmObt+oHqvDM3Jc5GeJdtoVC9AB2m1WQoGUr+lrICjWdgA81qwYHMtWpPM63SPElAZU76lK
+ KVkHUApQ20+R8sWSahV7AQG2VGpa7qluKTErtHEUVCEDAh7sKURgN2IKwSkdksVLtx5IGLpThy
+ hQ5BxoM/dsjeLUhoNuaWQw5K31J2zk1IkQ0pQLVSGEU2BqTW8pbzNpTu3otiSsCogQOGROXHvs
+ 5bnVVqGD3upSjKPrD0Xn+shKeSe0d0ZeT4ygkX4Qg3ZfJ0vP+zPd7s6JzIDTEHUay80iEumIvO
+ yEVXKvGhj6Mv96+t/y2a7t/ACAAA=
+X-Change-ID: 20261126-tyr-enum-derives-cbf729d01e5c
+To: Daniel Almeida <daniel.almeida@collabora.com>, 
+ Alice Ryhl <aliceryhl@google.com>, Danilo Krummrich <dakr@kernel.org>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: Kaiqi Guo <chaoji_xinren@163.com>, 
+ Alexandre Courbot <acourbot@nvidia.com>, dri-devel@lists.freedesktop.org, 
+ rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-ZohoMailClient: External
 
-On Tue, Nov 24, 2026 at 09:03:50PM -0500, Steven Rostedt wrote:
-> On Thu,  5 Nov 2026 20:28:13 +0000
-> Vincent Donnefort <vdonnefort@google.com> wrote:
-> 
-> > Since commit b94bc80df648 ("tracing: Use a no_filter_buffering_ref to
-> > stop using the filter buffer") dropped the last user of
-> > ring_buffer_set_time_stamp_abs(), there's been no one enabling absolute
-> > timestamps on the ring buffer.
-> > 
-> > Drop the support to simplify the ring buffer code. Keep the read-only
-> > tracefs timestamp_mode file to preserve the ABI.
-> > 
-> > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-> > ---
-> >  Documentation/trace/ftrace.rst | 19 ++-------
-> >  include/linux/ring_buffer.h    |  2 -
-> >  kernel/trace/ring_buffer.c     | 77 ++++++++++------------------------
-> >  kernel/trace/trace.c           | 10 +----
-> >  4 files changed, 26 insertions(+), 82 deletions(-)
-> > 
-> > diff --git a/Documentation/trace/ftrace.rst b/Documentation/trace/ftrace.rst
-> > index 9423722848c6..88c0de3619be 100644
-> > --- a/Documentation/trace/ftrace.rst
-> > +++ b/Documentation/trace/ftrace.rst
-> > @@ -712,27 +712,16 @@ of ftrace. Here is a list of some of the key files:
-> >  
-> >    timestamp_mode:
-> 
-> I think we should just delete this file too. And every mention of it.
-> 
-> -- Steve
+The `as` cast series [1] leaves 19 casts that convert an enum to its
+integer value, each inside a hand-written conversion between the enum
+and `Bounded`. This series derives these conversions with the `TryFrom`,
+`From` and `Into` derives of Kaiqi's series "rust: add conversion
+derives and exhaustive From support" [2], which removes the 19 casts.
+Patch 4 also converts `EntryType`, the last enum with a hand-written
+conversion, which had no cast.
 
-ack, I'll clean that up too.
+This is based on drm-rust-next and depends on [1] and on patches 1 to 9
+of [2]. I will follow up with a review of [2] soon.
 
--- 
-Vincent
+[1] https://lore.kernel.org/all/20261125-b4-tyr-as-casts-v1-0-2b2f53164d86@collabora.com/
+[2] https://lore.kernel.org/all/20260930002436.21395-1-chaoji_xinren@163.com/
+
+---
+Daniel Almeida (4):
+      drm/tyr: use the conversion derives for the GPU_CONTROL enums
+      drm/tyr: use the conversion derives for the MMU_AS_CONTROL enums
+      drm/tyr: use the conversion derives for `CacheMode`
+      drm/tyr: use the `TryFrom` derive for `EntryType`
+
+ drivers/gpu/drm/tyr/fw.rs        |  30 +--
+ drivers/gpu/drm/tyr/fw/parser.rs |  25 +-
+ drivers/gpu/drm/tyr/regs.rs      | 486 ++++-----------------------------------
+ 3 files changed, 56 insertions(+), 485 deletions(-)
+---
+base-commit: 7402dd230f4497954b465145a22cff7a5a488629
+change-id: 20261126-tyr-enum-derives-cbf729d01e5c
+prerequisite-message-id: <20261125-b4-tyr-as-casts-v1-0-2b2f53164d86@collabora.com>
+prerequisite-patch-id: 1d54819d2dac9c113331baef19e763cedb0ca517
+prerequisite-patch-id: 016e94c56c10e511f6ac4c045f620207211b9f02
+prerequisite-patch-id: 1899e0445dbd58f2a72b6f9bdcffba70b7e65ac4
+prerequisite-patch-id: 4da30d4ec1abd60c6cbc5f5f108437abb4d5e3f3
+prerequisite-patch-id: 04ac471e820674330ff6ed854c7691be3f4c7cef
+prerequisite-patch-id: b62e387da808817a10df1a2977da60ecc630aeef
+prerequisite-patch-id: 17733676a0b8814fabdec83ab20b749729149c4f
+prerequisite-patch-id: 7a6862e6c23c43bdf11dff1f84032cd4209afc33
+prerequisite-patch-id: f10354893c358db15456a84dc6113d24f03af0c0
+prerequisite-patch-id: faee0bac4883bd31a407fb7fc66a40d5c2400c49
+prerequisite-patch-id: 8c67c4dd9fc45169d882a349d0b27cf056197c6f
+prerequisite-patch-id: b6ddee237c4a24b5c0242097aace0102820ac1db
+prerequisite-patch-id: d1a6ccba37c85b7f62a7a06d73ce09813a5c6530
+prerequisite-patch-id: c4eb8ca570fef755b66db1d2f5372cb562b8c1ec
+prerequisite-patch-id: c997628e4e15a91a1db84772cb92a878d0f624ce
+prerequisite-patch-id: d52e3ddfdb2de753538ec5c70acbf9ef5f276301
+prerequisite-patch-id: 4000d922c41278ed2f1df0a4873942d21e3c49c0
+prerequisite-patch-id: 65006ecf8ae3a3aa4d2439f6d0bf239d4672f208
+prerequisite-patch-id: 565696b33359e46ffcba363b3e72c1e8df5584ba
+prerequisite-patch-id: 36fd0e809e61e4c4f0d34027dfcabd4434030883
+prerequisite-patch-id: e8bf99685c380a6cc232256b160699bf91cbf812
+prerequisite-patch-id: 6cca0def1c915ef8a34c21913eee636a57ff6aa6
+
+Best regards,
+--  
+Daniel Almeida <daniel.almeida@collabora.com>
+
