@@ -1,62 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795710632;
-	b=w3ztftdgH+67SlTBJrKTjByjOubNTvi+4W21NvGD40hUHAQy8qB9dx88lEQeK1pGViTw
-	 mHnoOflu1pVN4iYcInJTA5aKRcgBYvevwZ0XUVYtFXJkORiFflBbksFDsOIli+nOGdpLp
-	 L4BEJ5NcT1DtDbOg7jsH4RvBEeBeGEJ2/Pjr8KrkYbqJKnYMBcGL4MtxHZuWQskB2IjFl
-	 aF/nOlqaXhvY/q1Gy5vt63saeDjaUe3EFRzk/YEHW4465dpzhuTbwTocNMq+G2i2REsEa
-	 uOlaOcVS8Si54mHOujuxTna70GWmAQE4FuoKx5PJ8rNa/2ljeApM/mcfqJjblH+gw5Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795710632;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=T0wFVo5HP+kKmIiyxIKEaBNiT66/ZZt4C71Y6HjPI5k=;
-	b=LvoxgPRIksqIHx0axYbYXMzDTBW8kezS8tTbtq1OtCbDxv4fou1JhuB7WDRNsxKHYzD6
-	 9WWwKZywDI1iAl1ATDKIUhcLWkI7qPOaWg/B7w/5bLqDsNNaBwWupILsNyV51P/YFuL3S
-	 OKqutgRKuaLI6OdP6fKtfXdyvClLgd32ca0wHd8QQG3WYHBR0D0CemIutwNFRz36L0OXV
-	 fiuJUSHNozoYmz8DznEO0++BYPMK8dVx2dXX5hibo1kzv9Fh9xAZrTP0BBPKb6dt150xA
-	 Ls/G+Jlx10T1mIYaO1bVhz5lMo9RSa8lwLSmys8aLTkOxVwASsiiXuilFYG1cSEZi3Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aIqA08ND;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.180.131
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795710680;
+	b=v0LZNzG3D6KIhK1kZzUzjZyTRfHXL/fzNo0u78v3wNXpqwgAh1miFcTMRHVqqW2LVub5
+	 kGE0j2F7209bSQeFItcXH6+QDWFxbUu76Nx8mTa+AQMBpI3MBZPLyDpJgroFCxKbc98pu
+	 zwmxDfS1kaQ1aEiCEZVvKGBlYNUfpCXgPsC31PJJaldwITVoU3FAFkAdGO9CKPhMuFNgP
+	 2ntJxG7HmdlTSIfFtwSkSphbM6CvfOjt//anBbGhH6t12nxTL9Adf/3a+Z4e9CI495Qc1
+	 y/t5ZEPWQe+pJfToVQKh/SjW63AJtZIS/ZvQfcAMD7Em7U3TcTV43aFj/F9LhD8+nYw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795710680;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
+	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
+	 Cc:Content-Type:Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=pmn0FtXxLKA2R9aU92JYzz/Y8uvInEGF5Y8VG+PgdjI=;
+	b=qVMGRB32YWNEsAc6GCxYxjIDSdDfeKEjI2Vkjk3jnO+m+B5XGk5dhpXaepXPumT9tEQj
+	 q8cVdZ6veYztz4vPSVCLfSnfL9EU9IuzC6SAyExuCTWE2jveTabyFFhd6U0MINHmiq+zR
+	 jE/14+/he0nTAidZP9/fJIX+74fwWx3Nac6ciKPXRFq64SE8RcLpLf0mLGRPak2i78xiL
+	 G6CSbHPYYJ7ZRqln2fWOOFxB0huG52X0PT6CpTgXvrlFAEs0OBK/vwHuOCoYULB3SQjMi
+	 yi3JAIRVcV9kMusVfElLZX+wsVAAzc9jNIIKszZGgsUUe/Sz1sL33uISs7zHBwiasMg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=WrIRQ8hL;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=iuV7dgKp;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C05F1606A31E;
-	Thu, 26 Nov 2026 16:30:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF351606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:31:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF351606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aIqA08ND
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E0AD1F000C4;
-	Thu, 26 Nov 2026 16:30:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795710632;
-	bh=T0wFVo5HP+kKmIiyxIKEaBNiT66/ZZt4C71Y6HjPI5k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=aIqA08ND/GEPfKc42Hr2J/1lGFxdtFn/XQ9pA0PcLrkOeaAhJQw9H1oTPWc6SdeLs
-	 Ypn/2r1bepO4+iJ6+zlEa+0AvywxSq+4bg/mUm7wpmfkUBHpxZXdDyWYJslu3Q8B/U
-	 vbtaDAdOLS55I0IxxGS958Jw5Av62mLYsLxnXOrRek1xz04b+tdAzFjzZxHWqnwp8N
-	 NM5E2/l5yJbiE9tJPoGv4/ftCjUaaPhL7vRq/gjOVT/Mzf0A5FEoG+8xxHunV2hzw+
-	 +9d8SaZOQVeFQcdjwMFKjFGC2gI0Nt2lrxPSSJv5+Yg8plTIs1UOOl1w5pVj9kT1L5
-	 gflejva/fjeog==
-Date: Thu, 26 Nov 2026 16:30:24 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: Usama Arif <usama.arif@linux.dev>, Leonardo Bras <leo.bras@arm.com>, 
-	maz@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, 
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, riel@surriel.com, 
-	shakeel.butt@linux.dev, kernel-team@meta.com, rkeilty@meta.com, atish.patra@linux.dev, 
-	dgreid@meta.com
-Subject: Re: [PATCH] KVM: arm64: Reduce the stage-2 page cache on 64 KiB hosts
-Message-ID: <awhH1Dpu0uIwP6ea@gremlin>
-References: <20261124152842.2634495-1-usama.arif@linux.dev>
- <awcXhk885lqDRAHy@LeoBrasDK>
- <06a69a4f-59bb-49b8-9ed0-f4cfe0ecad37@linux.dev>
- <awcoCklLOKeuXPhh@LeoBrasDK>
- <e7bdcfa9-bbd8-4649-8318-2f6dc236db15@linux.dev>
- <4jxdf2pkuu2f7dftvf6ltpv27jctfuvvrfcrbfxudsgnp3hdfk@taur55wftexq>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=WrIRQ8hL;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=iuV7dgKp
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQFu7aK3850526
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:31:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	pmn0FtXxLKA2R9aU92JYzz/Y8uvInEGF5Y8VG+PgdjI=; b=WrIRQ8hLwmS0resS
+	ZYtDjIHPzb49P3KaZI9vVriH1FsCrR1nrfxdxDE5r7RM5gAveMkLoNsLyYPwlBTJ
+	VaP9iYcw9YxkAl4EIbwvJyRkZ7na8pDLbLYJ9FHy0uGW+zda7zKX8HrGpPWh0yR2
+	7Any2OJyaEse+cgAGPnwYxwP80q8z7jrsj2gjz34U3dyKLz9Kuly4iCf4j35COuY
+	RuNZ901un8/HbtlI7aOEAE748xo1XN4MmfK5wdJjAEIaNlAIfabFDcaC8esiMT1n
+	PkZNTV9VWv5VCla5x14iqMBCvWkt3yJ1vLhz06IdcewWAwgh9EoTzVgl361/z9xv
+	5gBvkg==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6h7g9pwt-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:31:18 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2f053f95aadso60869405ad.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:31:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795710677; cv=none;
+        d=google.com; s=arc-20260327;
+        b=VFlsL6n44IHvUIFIau7Tc0ki7EJc8bGWvaNiax8fgMpRseKJZB40YeuadVRwghdxuw
+         Lg93MS8BfcXGvVuVC4N3gYokyB/e/LDyhEU2lkF6SIOhv85X+jFsxThkLG+fTE68cxvv
+         D2K4ZQ6uAmdorKuquLP4c4tNIUYZg2AJzsS4AmMhlippEvPddwIERTHitpKYLVN18n++
+         6EKBBXxOww3HigUNcwsdPeK6+lM3AZUwNsNeX8JYRw/s3QXzlJNmA8+FZuFFO+kFO4vT
+         yCjH8c/UwXJC/XqaHfJGm/50A9w0BnfL4LxF0AbJ8u8jFFAzWww1H3/mBxrkRIla8+jC
+         bvRQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=pmn0FtXxLKA2R9aU92JYzz/Y8uvInEGF5Y8VG+PgdjI=;
+        fh=ktfQRAG9VBgvinM7Nm/YMFGCnR2i5q0MhztUdZ0/wd4=;
+        b=Yhj9cGQOp8W3jmR4UwNDCLa3+tyY8fkMuNQ7+RkR331G2C/08RtH1J7uj0v1GZQwQ8
+         uHph3GMpwKEIIWjQ7k2o0kR3iLxdXF2yF4Jou0VUWz1ksFmnpr4zN7TDKs2WvhTX/yw/
+         oSsWuKpV0zP2TGoZh52VUNtqN5LDsSfEGivWdMHZrwVGOGneIQMmbl6iesktczsOzKka
+         22WQqif3QNRbaH4go9FugiJNkDOyu8+BjroDioJMpkYhRUmp7qwVT6ndnZ9bsiQYRauQ
+         1a6rb4C8yWIctAGKg+iMbWgYqvgfSZXpSoSMnwxOsVfdk894/EmS2V0luuO+ZpBcNzMS
+         bsPQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795710677; x=1796315477; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=pmn0FtXxLKA2R9aU92JYzz/Y8uvInEGF5Y8VG+PgdjI=;
+        b=iuV7dgKpYtr+jL2i0K7pFn+VUeI44GwSaK705v68JyfFrWlLU8qVdxnBUlLPESY7CK
+         sV7vjP5TKSEjEvQ7yfCUVzAk7cj9TNi7ijuuKYO1Lu+i7wc4kaUB4OcUyE0q2pzS6o95
+         evev13l4Kv/F/j1v34nnMQCDjuulB9e7VPUiPjn6t4fpUZMMIW30Jiay3UnTwYp3vjBG
+         mzfevAx45BWnCLhu5KApfKWx+5hmL4Ta6NkgjVP8FdyHco+pZQK+UqBJ7YU35+HJjIP5
+         7oBju4SBcD5cJGpJdRrZ4LN5dib6qsI34PatCfR/rW1347/ITU+FkBdRirv26HMPizYC
+         NoeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795710677; x=1796315477;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pmn0FtXxLKA2R9aU92JYzz/Y8uvInEGF5Y8VG+PgdjI=;
+        b=0hZTvsmEQAbRadtEErdOfTPFQalYmMGN40WELhWXTAUrMWqSfhd21d5DOPN4JBpM2y
+         k6pl6ZjRlLv9seAFF+wS76rMCQOtg8ioggRNA5BzXVaoIv5a1jfJRlA83OvKfyVaf5pH
+         mUA0xhG1uelNcBLr5UHLs5sn3+SVsLgdacGY+fhuGMDHDP4uALl0o0uskwwpU4zsrz1W
+         ISTKFRO48zwdp/KcDQpik3merChV/Q4HhlpFfeez4Y73+u46IzpYN8Mss7cDf6dWScfz
+         s9up5Vn5lAtqKVknB1sbOomQd1B9orL8ly6t2mwSLCQQm0WE2gjdpvhVKDl7taTzbCf8
+         OLvA==
+X-Forwarded-Encrypted: i=1; AL+hErFRR0juQK7mjxF55sJ5VjMA3wi68n4j0PVVbffBz8t4jfrknxGy7uHDacCEhbCP9HNntEq4dIM9cSSwyxg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z94IFMvwLCOSLBvF0j1L/PD+/aUxDjgxfk4h0bTsiT10vPFtS4y
+	qveKc7GNxoN3REWiKBwyaZk3jrUu36UrZpHwvsba6meUleTGOaA9x+t9WPfnXj0WV9+hBmtfDg6
+	xDbdL4JNwhADF7DD/t2AnHxTE6yXDFDSwnzquztFAqe5sCRixvVW5wj+NlC2EkIH3ucNW76Dsv2
+	LMWIPgH52iL3r+bze87DDfxQJwjqbdYS5j0N/LnrHwnw==
+X-Gm-Gg: AZFdTZdnEbHMS0DP0jkmZ0MIZQPSM6x5t6ogrz55xfvfdZd3lQqQJFprSUE/ZnzKEGN
+	fQI8vLPptsge8IjcNBF3VKio12RksIPS16rBV+Cq00drqc/3aAnVLCE+JHmoGjEv3tOSrQ7K1zX
+	A+qe1wqpjCBPvvuaLSvtWHRmc8bGC7XCcN7TEWfrn5JeO5N2lpIWuKhXYb9A==
+X-Received: by 2002:a17:902:c443:b0:2e7:ff72:203f with SMTP id d9443c01a7336-2f03f1a52b5mr138232245ad.61.1795710677291;
+        Thu, 26 Nov 2026 08:31:17 -0800 (PST)
+X-Received: by 2002:a17:902:c443:b0:2e7:ff72:203f with SMTP id
+ d9443c01a7336-2f03f1a52b5mr138231995ad.61.1795710676661; Thu, 26 Nov 2026
+ 08:31:16 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,290 +127,118 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4jxdf2pkuu2f7dftvf6ltpv27jctfuvvrfcrbfxudsgnp3hdfk@taur55wftexq>
+References: <20261103185344752TLpWp9rb9fhJW6zaJT5TX@zte.com.cn>
+In-Reply-To: <20261103185344752TLpWp9rb9fhJW6zaJT5TX@zte.com.cn>
+From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Date: Thu, 26 Nov 2026 17:31:04 +0100
+X-Gm-Features: Aa3M54oMAs16SdpNYGtEr9578Sq-hyWptfNulukrcUuGONM4R1Hmxei-ZXSrmF4
+Message-ID: <CAPx+jO8n=0mY7ASqA1Be-sVgsCw8ZaTf2F-Jne9hMHwmJCrvsA@mail.gmail.com>
+Subject: Re: [PATCH] mmc: block: check mmc_blk_get() in the sysfs callbacks
+To: shao.mingyin@zte.com.cn
+Cc: ulfh@kernel.org, linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-ORIG-GUID: IKvcGYAWcn_EikX8RvE0Syc74Q7WxfIZ
+X-Proofpoint-GUID: IKvcGYAWcn_EikX8RvE0Syc74Q7WxfIZ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA2NCBTYWx0ZWRfX9X6H4AyQySNd
+ 1G7Bf9XsFhKw72P9dBwiiIGI7asfrc+7Y/s9M47E/DROzzAjSSMcW5aX78mONt8roNf2pRSKPsb
+ /AHW56AAp4+3tOApw/0A24h5iahJbICsGIU7MFDupKMZ86i8KhU6MYUga6dNjXyDBVORbgK18+e
+ hZHRPzLGvhdh7v30l4uXhE7GB3CjQrEGqvoNLe4Fa3NsRBqkkYptKUU33ntILZK3RaftS+FdSuP
+ b8MSYI+wsqcN+elv1EjJO+rgXXM4IiPLp7lHCj3GvavFOluJEzA6c185yUmwaEdLUoGoHdBw52r
+ ALdNl/y5/WGbjT3+qdgyeRmL4zsv05HVYMF1olMWVaWSDkmYA0IxOI1RM/8Ml+PQTlXxYIyLqWK
+ lkXmQoDp6PAfvv2tL1HNL92Kwyo3btAip8NPQE07mGrwGQiLjleGW8DQKNQlrAbE/vg2ts6YlRQ
+ ukSsqIjGz0L89ObiWRA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA2NCBTYWx0ZWRfXxiqt3M4xfY0D
+ a56GmqVuoNXNGN05T/Hg9wf42A/HJ64ALjdc9Vm/htdEjBumBQGz5Hw8gf4W8GViNE7mxJLAIzJ
+ dg55T912QWfEWpTJ2b6WrWeI8y5jdrE=
+X-Authority-Analysis: v=2.4 cv=L4GI0OT8 c=1 sm=1 tr=0 ts=6b085ed6 cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=gowsoOTTUOVcmtlkKump:22 a=1RTuLK3dAAAA:8 a=yHZN7Se_Px891H_nw7kA:9
+ a=QEXdDO2ut3YA:10 a=uG9DUKGECoFWVXl0Dc02:22 a=kRpfLKi8w9umh8uBmg1i:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_04,2026-11-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 bulkscore=0 suspectscore=0 malwarescore=0 lowpriorityscore=0
+ clxscore=1015 spamscore=0 impostorscore=0 phishscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260064
 
-On Thu, Nov 26, 2026 at 08:06:41AM +0000, Wei-Lin Chang wrote:
-> On Wed, Nov 25, 2026 at 09:42:33PM +0000, Usama Arif wrote:
-> > On 25/11/2026 10:25, Leonardo Bras wrote:
-> > > On Wed, Nov 25, 2026 at 05:55:29PM +0000, Usama Arif wrote:
-> > >> Right, and that is the problem. Skipping the top-up avoids refilling
-> > >> the cache, but nothing ever drains it. A vCPU's first fault fills its
-> > >> cache to 40. Each last-level table covers 512 MiB, so a guest needs very
-> > >> few table pages, and most vCPUs never drop below min. The remaining
-> > >> pages stay allocated until the vCPU is destroyed, which is why the
-> > >> production caches were still 86% full.
-> > >>
-> > >> The patch keeps the early return and only lowers how far a refill goes.
-> > >
-> > > Right,
-> > >
-> > > I took a look in the cache workings, and it does not seem to receive freed
-> > > pages back in. It gets filled by topup and used by map, so IIUC it is used
-> > > only to avoid failing an allocation during the mapping walk.
-> > >
-> > > Maybe it could be the case to simplify this cache to have the capacity
-> > > about the same as the minimum (since it always topup before mapping) and
-> > > avoid the waste altogether.
+On Tue, Nov 3, 2026 at 11:54=E2=80=AFAM <shao.mingyin@zte.com.cn> wrote:
+>
+> power_ro_lock_show(), power_ro_lock_store(), force_ro_show() and
+> force_ro_store() dereference the result of mmc_blk_get() without checking
+> it.  mmc_blk_get() uses kref_get_unless_zero() and returns NULL once
+> mmc_blk_kref_release() has run; an already open sysfs attribute can still
+> invoke these callbacks after del_gendisk(), for example.
+>
+> Other entry points in this file (mmc_blk_ioctl(),
+> mmc_blk_alternative_gpt_sector()) already handle a NULL return.  Do the
+> same here.
 
-Yeah, I really feel this 40 number (derived from x86 as double some other magic
-number :) is bogus here and a historic artifact.
-
-I think this is all a great chance to simplify here :) we can address Usama's
-concerns at the same time as making all this actually make sense.
+How did you reproduce this? Did you verify this on HW?
 
 >
-> Well the more you reserve the less frequent you'd need to actually allocate at
-> topup, which saves time, so there's this trade-off to consider.
+> Fixes: add710eaa886 ("mmc: boot partition ro lock support")
+> Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
 
-Hmm, but the topup is allocating anyway either way no matter the reserve right?
+Kind regards
+Uffe
 
-kvm_mmu_memory_cache_alloc() grabs from mc->objects and decrements mc->nobjs for
-every allocation (N objects in total), and __kvm_mmu_topup_memory_cache() tops
-up N objects back up to the reserve, wherever that should be.
-
-So the only question really is what can the maximum N be? And right now this is
-guesstimated at by a magic number.
-
-Also, if it turns out it does:
-
-[ topup X pages ] [ use X pages ] [ topup X pages ]
-
-And you have X + Y pages in the cache, that actually means you have uselessly
-allocated Y pages sat around doing nothing that are leaked until the vCPU is
-destroyed AFAICT.
-
-I think though as per Leo, we should avoid using a magic number.
-
-And as per Marc, we should calculate what this number should be sensibly.
-
-So something like what Leo suggested is the right way to go!
-
-> > >
-> > > Maymbe having something like this should be enough?
-> > >
-> > > #define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE (KVM_PGTABLE_LAST_LEVEL - KVM_PGTABLE_FIRST_LEVEL)
-> > >
-
-I think this is definitely the right approach!
-
-> >
-> > That sounds good to me. I tested and it works (and releases even more memory :))
-> >
-> > I had to move #defines around to make it work, the current patch sits
-> > like below. If this seems acceptable, I can send it as v2 for review.
-> >
-> >
-> > >From 9b044379f470625adb031a0ee7529e054d9ec219 Mon Sep 17 00:00:00 2001
-> > From: Usama Arif <usama.arif@linux.dev>
-> > Date: Wed, 25 Nov 2026 12:55:15 -0800
-> > Subject: [PATCH] KVM: arm64: Shrink the stage-2 memcache to the page-table
-> >  depth
-> >
-> > When a stage-2 fault may need new page tables, KVM first tops up the
-> > vCPU's memcache: if it holds fewer pages than the fault might need, it
-> > is refilled to KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE, which arm64 sets to
-> > 40. Pages never return to the cache, and unused ones stay there until
-> > the vCPU is destroyed.
-> >
-> > The cache only has to cover a single map: every fault that can allocate
-> > tables tops it up first, and a map allocates at most one table per
-> > level below the preallocated root (kvm_mmu_cache_min_pages()). That is
-> > at most three pages with 4 KiB and 16 KiB pages, and two with 64 KiB
-> > pages.
-
-Yes this seems correct.
-
-> >
-> > With 64 KiB pages, the 40-page cache is 2.5 MiB per vCPU. As every
-> > last-level table covers 512 MiB, an 8 GiB guest needs just 17 table
-> > pages to map all of its memory, while its four vCPU caches get filled
-> > with 160. On a production host with 64 KiB pages running 101 VMs with
-> > four vCPUs each, the caches were still 86% full. The memory used:
-> >
-> >                         before      after
-> >   per-vCPU capacity     2.5 MiB     256 KiB
-> >   all 404 vCPUs         869 MiB     <= 101 MiB
-> >
-> > Let's size the cache to KVM_PGTABLE_LAST_LEVEL - KVM_PGTABLE_FIRST_LEVEL,
-> > which is 4 pages and covers the deepest walk with one page to spare. On
-
-Hmm why would you need 1 page to spare?
-
-> > the host above, it frees at least 768 MiB. Refills get more frequent,
-> > but no more than four pages per vCPU ever sit unused. With 4 KiB pages,
-> > the cache shrinks from 160 KiB to 16 KiB per vCPU.
-> >
-> > Move the two level definitions to asm/kvm_types.h, so that the generic
-> > top-up code in kvm_main.c can see them. kvm_pgtable.h still gets them
-> > through linux/kvm_types.h.
-> >
-> > The temporary cache in kvm_phys_addr_ioremap() uses the same capacity,
-> > but it is topped up before every page it maps. The pKVM hypervisor
-> > memcache and the eager split cache don't use this capacity.
-> >
-> > Suggested-by: Leonardo Bras <leo.bras@arm.com>
-> > Signed-off-by: Usama Arif <usama.arif@linux.dev>
-> > ---
-> >  arch/arm64/include/asm/kvm_pgtable.h | 3 ---
-> >  arch/arm64/include/asm/kvm_types.h   | 7 ++++++-
-> >  2 files changed, 6 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-> > index eda440354a55ec..691e2eb63939f5 100644
-> > --- a/arch/arm64/include/asm/kvm_pgtable.h
-> > +++ b/arch/arm64/include/asm/kvm_pgtable.h
-> > @@ -19,9 +19,6 @@
-> >
-> >  struct kvm_s2_mmu;
-> >
-> > -#define KVM_PGTABLE_FIRST_LEVEL		-1
-> > -#define KVM_PGTABLE_LAST_LEVEL		3
-> > -
-> >  /*
-> >   * The largest supported block sizes for KVM (no 52-bit PA support):
-> >   *  - 4K (level 1):	1GB
-> > diff --git a/arch/arm64/include/asm/kvm_types.h b/arch/arm64/include/asm/kvm_types.h
-> > index 9a126b9e2d7c99..5b61285d317e28 100644
-> > --- a/arch/arm64/include/asm/kvm_types.h
-> > +++ b/arch/arm64/include/asm/kvm_types.h
-> > @@ -2,7 +2,12 @@
-> >  #ifndef _ASM_ARM64_KVM_TYPES_H
-> >  #define _ASM_ARM64_KVM_TYPES_H
-> >
-> > -#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 40
-> > +#define KVM_PGTABLE_FIRST_LEVEL		-1
-> > +#define KVM_PGTABLE_LAST_LEVEL		3
-> > +
-
-The -1 isn't needed here at all right? So why not just import
-KVM_PGTABLE_LAST_LEVEL and do:
-
-#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE       KVM_PGTABLE_LAST_LEVEL
-
-?
-
-> > +/* One page per level below the root covers kvm_mmu_cache_min_pages(). */
-> > +#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE	\
-> > +	(KVM_PGTABLE_LAST_LEVEL - KVM_PGTABLE_FIRST_LEVEL)
-> >
-> >  #endif /* _ASM_ARM64_KVM_TYPES_H */
-> >
-> > --
-> > 2.53.1-Meta
-> >
-> >
-> >
-> > > Thanks!
-> > > Leo
-> >
+> ---
+> diff --git a/drivers/mmc/core/block.c b/drivers/mmc/core/block.c
+> index a02bb2fee874..a1e942435575 100644
+> --- a/drivers/mmc/core/block.c
+> +++ b/drivers/mmc/core/block.c
+> @@ -235,9 +235,14 @@ static ssize_t power_ro_lock_show(struct device *dev=
+,
+>  {
+>         int ret;
+>         struct mmc_blk_data *md =3D mmc_blk_get(dev_to_disk(dev));
+> -       struct mmc_card *card =3D md->queue.card;
+> +       struct mmc_card *card;
+>         int locked =3D 0;
 >
-
-I also think actually there's an existing problem with the top-up right now in
-user_mem_abort() that needs addressing too, actually, that this change exposes
-and will cause bugs if done as above.
-
-So right now top-up is conditional there:
-
-	if (!perm_fault || memslot_is_logging(s2fd->memslot) ||
-	    is_protected_kvm_enabled()) {
-		ret = topup_mmu_memcache(s2fd->mmu, memcache);
-		if (ret)
-			return ret;
-	}
-
-Inverted is 'permission fault && !dirty-logging && !pKVM'. So the question is
-whether a permission fault not needing a new page table is correct.
-
-So working through, the actual decision about a page table allocation is done
-in:
-
-user_mem_abort()
-  -> kvm_s2_fault_map()
-    -> kvm_pgtable_stage2_map()
-      -> ... -> stage2_map_walk_leaf()
-        -> stage2_map_walker_try_leaf()
-	  -> stage2_leaf_mapping_allowed()
-	    -> kvm_block_mapping_supported() [ if false, allocate a page table ]
-
-static bool kvm_block_mapping_supported(const struct kvm_pgtable_visit_ctx *ctx, u64 phys)
-{
-	u64 granule = kvm_granule_size(ctx->level);
-
-	...
-
-	if (granule > (ctx->end - ctx->addr))
-		return false;
-
-	...
-}
-
-But page table size can vary in NV between host and guest (guest must be >=
-host) and it gets clamped to the smaller of the two in kvm_s2_resolve_vma_size():
-
-static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
-				     struct kvm_s2_fault_vma_info *s2vi,
-				     struct vm_area_struct *vma)
-{
-	...
-	if (s2fd->nested) {
-		...
-		/*
-		 * If we're about to create a shadow stage 2 entry, then we
-		 * can only create a block mapping if the guest stage 2 page
-		 * table uses at least as big a mapping.
-		 */
-		max_map_size = min(kvm_s2_trans_size(s2fd->nested), max_map_size);
-		...
-	}
-}
-
-This sets s2vi->vma_pagesize based on this value:
-
-static int kvm_s2_fault_get_vma_info(const struct kvm_s2_fault_desc *s2fd,
-				     struct kvm_s2_fault_vma_info *s2vi)
-{
-	...
-	s2vi->vma_pagesize = BIT(kvm_s2_resolve_vma_size(s2fd, s2vi, vma));
-	...
-}
-
-And the fault map uses this in the mapping size, which defines ctx->addr, end
-above in kvm_block_mapping_supported():
-
-static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
-			    const struct kvm_s2_fault_vma_info *s2vi,
-			    enum kvm_pgtable_prot prot,
-			    void *memcache,
-			    struct kvm_s2_fault_result *result)
-{
-	...
-	mapping_size = s2vi->vma_pagesize;
-	...
-			ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, gfn_to_gpa(gfn), mapping_size,
-							 __pfn_to_phys(pfn), prot,
-							 memcache, flags);
-	...
-}
-
-So basically, if the host has smaller page table size than the guest, you need
-an extra page table level.
-
-So simple solution is to add nested to the check:
-
-        if (!perm_fault || memslot_is_logging(s2fd->memslot) ||
-            is_protected_kvm_enabled() || s2fd->nested) {
-                ret = topup_mmu_memcache(s2fd->mmu, memcache);
-                if (ret)
-                        return ret;
-        }
-
-But honestly I wonder at this point if it's truly worth doing all these checks?
-Maybe safer to just topup unconditionally.
-
-It'll only top up once before the cache is full anyway, so it's low cost. And
-would make more consistent with other fault paths too.
-
---
-Cheers, Lorenzo
+> +       if (!md)
+> +               return -EINVAL;
+> +
+> +       card =3D md->queue.card;
+> +
+>         if (card->ext_csd.boot_ro_lock & EXT_CSD_BOOT_WP_B_PERM_WP_EN)
+>                 locked =3D 2;
+>         else if (card->ext_csd.boot_ro_lock & EXT_CSD_BOOT_WP_B_PWR_WP_EN=
+)
+> @@ -266,6 +271,9 @@ static ssize_t power_ro_lock_store(struct device *dev=
+,
+>                 return count;
+>
+>         md =3D mmc_blk_get(dev_to_disk(dev));
+> +       if (!md)
+> +               return -EINVAL;
+> +
+>         mq =3D &md->queue;
+>
+>         /* Dispatch locking to the block layer */
+> @@ -305,6 +313,9 @@ static ssize_t force_ro_show(struct device *dev, stru=
+ct device_attribute *attr,
+>         int ret;
+>         struct mmc_blk_data *md =3D mmc_blk_get(dev_to_disk(dev));
+>
+> +       if (!md)
+> +               return -EINVAL;
+> +
+>         ret =3D sysfs_emit(buf, "%d\n",
+>                          get_disk_ro(dev_to_disk(dev)) ^
+>                          md->read_only);
+> @@ -319,6 +330,9 @@ static ssize_t force_ro_store(struct device *dev, str=
+uct device_attribute *attr,
+>         struct mmc_blk_data *md =3D mmc_blk_get(dev_to_disk(dev));
+>         unsigned long set;
+>
+> +       if (!md)
+> +               return -EINVAL;
+> +
+>         if (kstrtoul(buf, 0, &set)) {
+>                 ret =3D -EINVAL;
+>                 goto out;
