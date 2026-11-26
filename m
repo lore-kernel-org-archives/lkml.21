@@ -1,54 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795698893;
-	b=1oyFpPs/eQOddynv2GieXnLK67IdeDv4L8n22GXh8necBnvkt/gBUwx7wxFDTDRIqWs+
-	 ze+SCFp3gM4SvqjMoSAQ9NoUc37XMdU7mN39al2foSTZ9xH3kYjAUf0WhjK6IwF/WNZPH
-	 Yu+20/PolZvTvHYWdqvWrrM8LlD4fV0MygFMDhxvAsSX232ADPeKTMwKxVZq9yr4ILPIl
-	 tNln/kQYOLKVVX4jfc7U09ShxdBNKeO/Ps8tO5+BbxslCZ+nZKAAoQ6FcCK/jPgDtCNcr
-	 YTLj1HOCgYDMm3Zl6YcShdzG0eRj5obQBLvm6W8nGJOT6czchWU6JxSV1zwgagrKsOw==
+	t=1795698976;
+	b=SMOZEae+glJEO8jqkaJAAlY9nV0zqSjc59x5i3gaj1UEjv6kwHTAdGnN/1BLgT+1EFr4
+	 DTCry6VEXVLbuqKdVwMU0QTlWALZp1fOZZ9P0tSmGoc2g8WmQ9I9RoSMtuSXXNjiR2I2v
+	 fGvVimJ4tcOEDKDS7MJve4uF1Lur3AkDTYPfVB8ReCFwufC4+R4HJdmGoxwbZ9J7I1EUA
+	 KVOsBHcjnjHmi+MD6A92keStkPl3D/bO1NEf9k5mIH6b7UzVD52b0M/xDbZa/n1mSus0K
+	 wPZEe0ko6w9g63Uo+6g7Dw/RSUfo3VJSXaa++uV9D/7ZN/YWxok8znu8s+PkVujvCjg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795698893;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=2KA9MqjKO6Y0itKOF5tb4TxqbmmYNjVJ8YP1PqMh9IM=;
-	b=1NUmAZyzAYeqYJ+t60MY7P6I5s7Gu5rtE4YVq/ahO67wNs2gMboVMkHnrsdsIxlGweAe
-	 87PXXrm3fQ5GpRmOwEdkj6cxd40x5lQ6fSTxx2/eyaM9jJQ3jQiTUa47N2VyHsCwRluCm
-	 MnpoJDJtvh2J1vvkTKlNQv64cfh+cmNIaDb4s3sdCU/to0zTA03hmLSc+btrF6kyac68V
-	 lbjLICF8MUcBRc7qYSTBGi5DaVHOf6Sel7JUpmwtJVpeKttiLpT80vo+iXgWajyu94wpS
-	 qigXcNsrZ6MPovo4paxkwlsMA+dgIUxWBh3T43fTX6BqNNk5OT+XerSfuLgs1LkaDCw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795698976;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
+	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type;
+	bh=/8RldKvPQUEazbYpydH6ulNIbu8h2Gc8WOSWGgj6gjU=;
+	b=iWc29brdDEZqrjHlfaLgqFnvR/VJ2su7PkhWgNxOP5v/G0Q/zNxYfJSsg8yZ2iiqgzuW
+	 ZOObXN4hR1B2WgXgqricX//4dM91un/sHxRl5qFRBu1wqxEgMA+0kDF06CoHdGVTxlItX
+	 qllaivmj+j+fppgPhj2IR7CIjv1LjEWDkkGZAnCnl4uCneGAafzo3srTk3M9enuKdlJkG
+	 FWO8KmRTAFvHPg0cStmZ6zRXHeKDfxJo6ShZYUlPIWMxbY03GwQKF46LZGfKMKAAyJd2d
+	 DUU7cFrnE18f9w4mA69hNoJKj8/RL02AjCLTMn40KxlYYAKg58Rm9k9rPbEe9GqUR0w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hChVRP+s;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=fail header.from=linux-m68k.org;
+	spf=pass smtp.mailfrom=gmail.com;
+	arc=none smtp.remote-ip=209.85.216.42
+Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com [209.85.216.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E82F606A329;
-	Thu, 26 Nov 2026 13:14:53 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hChVRP+s
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9199D1F000D1;
-	Thu, 26 Nov 2026 13:14:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795698892;
-	bh=2KA9MqjKO6Y0itKOF5tb4TxqbmmYNjVJ8YP1PqMh9IM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hChVRP+sp4WkuxaxWWgjsCwNsMtIPgNRvVQM42gAlafrAWE/Ia+WnSTQr0t8pU4i7
-	 SKBvNzbluU8Ywh8inYRFXh07aJK6OnMOaYI/IKeoiMmWlbs/hGLQ+v53knpkbYzozM
-	 o4c1kz8VUU2afBVFkqSVfh5KjbiBK77siR4o9OWR8mukBaMOPGRsqXeSHwI0Db87Rk
-	 68+qCdrvbpCFccGQkRY6vxHGGtL5qeGZ3tUw/HfEbKH26vjIwHkyIcfnLMwYFEKfYV
-	 +kLkCGh/Bi2Z8mZIeDns6fu8tnRpVf17aMYhr7L2ETgQu0+Rouw37I0HaaOmartfxO
-	 /m8sA7U35xfkw==
-Date: Thu, 26 Nov 2026 14:14:48 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: "Thomas Richard (congatec GmbH)" <thomas.richard@bootlin.com>
-Cc: Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, 
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
-	Markus Haberlander <markus.haberlander@rosenberger.com>
-Subject: Re: [PATCH] i2c: cgbc: Fetch the status of a write transfer
-Message-ID: <awgwO98qx3zX4MaY@zenone.zhora.eu>
-References: <20261123-cgbc-i2c-write-status-v1-1-5b0fa0322b57@rosenberger.com>
- <179568834099.302193.16315749597111506309.b4-review@b4>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B196606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:16:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B196606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3b40d23e1adso4708700a91.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:16:16 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795698976; x=1796303776;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=/8RldKvPQUEazbYpydH6ulNIbu8h2Gc8WOSWGgj6gjU=;
+        b=PI4iGPQ+hHUwru6mjXX13tcer3cnz1T2hy8m/QdEwgepW2BYui51ycpnUAdaqD3kIg
+         M6bUYTKic887AU6N4H3MMiURIIg76JeWCFFItVCU69RFIQrNx0JPONC9BsQspQgd9qKA
+         cNQ0FHVY9SBOC5THqrWksbTbguGQwA+vRJqO9pk5+o0oX0RnxFvU0MRX6dT+y5pPNBso
+         ZaXbX1LfOp4mUWtGN33cxi8LouDmAkvri8VHTxzbVagRwIjZSpMowUbdDNMwGIweOQcq
+         ych7f5cfkB9jHODPjXIEIKEBSg/YTC9v055Aopx1iqgUW5Ve4puVF6xQAxvvkdxeePu5
+         jAMQ==
+X-Forwarded-Encrypted: i=1; AL+hErHtAMmiXM4ahFGBoiR8Mrwd87AVLzJxchSxZHtbRGXE1yQVp31yUZDxHKoB8d6vPAkp4XhpqUPr9xjkJGw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/CIFa1yZrFPR3Qehnaq6W4Hp5rojSHih572KBNXG/Ze/oRrZh9
+	mEtaEnOU5wdYHFygztoXWj6nh8f9lrDNMIrG1Mwkjps53uYodv2FJ48FR/sGeTCQ
+X-Gm-Gg: AZFdTZdpEu5Gu9+l5TTRafOzvaW2Co6btwp34BMDxJQTEKFkftlElP7sP4fQRJ+25mG
+	+h416IsRtcdU3r7EF4tlWrvrAgp2L58kuB88dQfEOA3sEBrsaqEdL+ZV2jDXxRvpfu+2J3WllX5
+	4CRiyZySbISFhYeZFqsP0M8TYJsHRvoaMxNrld5aj1hbpeSRUC1O+VjypqnEYOx7SKahRyLnjJz
+	HS6wxCb4GvMGoE0sSX1yCn6hrCZv1axvURbuG9NxWOKDO5Y7QRD1wsc75uyXJ13HtH0R+BAV7i8
+	3pTnEj2GCTN2T5yb2TuZO/Xok6ERtOz1Kn6Ngf2e/UrVd2SarAXP2vHjSVT8vK5qNBZX4Fu0B3V
+	LwbazrJa56zCFs5oPPGR1v/T8pnhVaaDWxrcwwxrrR4Ss99pe8+uPLqcpefruMog+Lha0rINn0f
+	5a///u9C2nJCsgaw2ReoCWxu2Y+NqaaX2MXO4Q8mzyJeLvoj8C4OtAD4oh+VN1ycpOSUEIcicIs
+	MQ+zEpc6hOlRWyVMIy3w5XFrvbbl5qRB20MAw2ujHfDsnLw5LWHVtFFlDFo6JRs255tcmbmExAa
+	pa24pan8sDDspt6aSAJgPDdTNWOt2aatncahp3O0/+sjaREzNsfqkqvMAQHcQGGUm20o+q8=
+X-Received: by 2002:a17:90b:248f:b0:3b4:2394:7cb8 with SMTP id 98e67ed59e1d1-3b423947e12mr14560189a91.48.1795698975856;
+        Thu, 26 Nov 2026 05:16:15 -0800 (PST)
+Received: from mail-pg1-f176.google.com (mail-pg1-f176.google.com. [209.85.215.176])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d002a77sm10594904a12.16.2026.11.26.05.16.15
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 05:16:15 -0800 (PST)
+Received: by mail-pg1-f176.google.com with SMTP id 41be03b00d2f7-cddc597d062so4222865a12.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:16:15 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFyfCwPewcGTPgV59EPolpV6frkjKG8Mu06gQpEuYxn/H8n+MMgAFBjDBym+jT0tj9zvvD3mu6WnJCqG7c=@vger.kernel.org
+X-Received: by 2002:a05:6122:8b87:b0:5ee:27c9:ebec with SMTP id
+ 71dfb90a1353d-5ee8ae89d30mr10164180e0c.6.1795698590878; Thu, 26 Nov 2026
+ 05:09:50 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,75 +80,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <179568834099.302193.16315749597111506309.b4-review@b4>
+References: <20261020031049.969895-1-den@valinux.co.jp> <20261020031049.969895-16-den@valinux.co.jp>
+In-Reply-To: <20261020031049.969895-16-den@valinux.co.jp>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 26 Nov 2026 14:09:39 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUodx0aRPvj9YZVS5SV_42vq0bvnk8VgPFmeOoZDXh4NQ@mail.gmail.com>
+X-Gm-Features: Aa3M54oGF1y6BfpWLxe4xGuZFgd7nGmTk63s0g99O3cHf_svXMj9Q2unpIc8mY8
+Message-ID: <CAMuHMdUodx0aRPvj9YZVS5SV_42vq0bvnk8VgPFmeOoZDXh4NQ@mail.gmail.com>
+Subject: Re: [PATCH v5 15/17] arm64: dts: renesas: r8a779f0: Describe the PCIe
+ AER interrupts
+To: Koichiro Den <den@valinux.co.jp>
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>, 
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, Shawn Lin <Shawn.lin@rock-chips.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, Jingoo Han <jingoohan1@gmail.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>, 
+	Niklas Cassel <cassel@kernel.org>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, 
+	Serge Semin <fancer.lancer@gmail.com>, linux-pci@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Hi Thomas and Markus,
+On Tue, 20 Oct 2026 at 05:11, Koichiro Den <den@valinux.co.jp> wrote:
+> The PCIe controllers report Root Port AER notifications through
+> intreq_pci0_lperr (SPI 421) and intreq_pci1_lperr (SPI 428),
+> respectively, separately from the integrated MSI receiver interrupts.
+> Describe these interrupts with the "aer" name so the controller driver
+> can use them for Root Port error reporting.
+>
+> Append the new interrupts to preserve the existing interrupt indices.
+>
+> Reviewed-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> Signed-off-by: Koichiro Den <den@valinux.co.jp>
 
-> > diff --git a/drivers/i2c/busses/i2c-cgbc.c b/drivers/i2c/busses/i2c-cgbc.c
-> > index dfdb9ffc6447..2361591a1e31 100644
-> > --- a/drivers/i2c/busses/i2c-cgbc.c
-> > +++ b/drivers/i2c/busses/i2c-cgbc.c
-> > @@ -254,6 +254,22 @@ static int cgbc_i2c_xfer_msg(struct i2c_adapter *adap)
-> >  		ret = cgbc_command(cgbc, &cmd, cmd_len, NULL, 0, NULL);
-> >  		if (ret)
-> >  			goto err;
-> > +
-> > +		ret = read_poll_timeout(cgbc_i2c_get_status, status,
-> > +					status != CGBC_I2C_STAT_BUSY, 0,
-> > +					2 * algo_data->read_maxtime_us, false, adap);
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v7.5.
 
-would it make sense use USEC_PER_SEC here to preserve the
-existing one-second timeout between write chunks?
+Gr{oetje,eeting}s,
 
-> > +		if (ret)
-> > +			goto err;
-> > +
-> > +		if (status < 0) {
-> > +			ret = status;
-> > +			goto err;
-> > +		}
-> > +
-> > +		if (status != CGBC_I2C_STAT_IDL) {
-> > +			ret = -EIO;
-> > +			goto err;
-> > +		}
-> >  	} else if (i2c->state == CGBC_I2C_STATE_READ) {
-> >  		xfer.write = 0;
-> >  		xfer.read = len;
-> 
-> I was able to reproduce the issue on conga-SA7 (and also the reboot crash).
-> 
-> $ i2ctransfer -y 11 w1@0x40 0x00	 <- non-existing device
-> $ i2ctransfer -y 11 w1@0x50 0x00 r1@0x50 <- read EEPROM
-> Error: Sending messages failed: Input/output error
-> $ i2ctransfer -y 11 w1@0x50 0x00 r1@0x50 <- read EEPROM
-> 0x01
-> 
-> And with your patch:
-> 
-> $ i2ctransfer -y 11 w1@0x40 0x00	 <- non-existing device
-> Error: Sending messages failed: Input/output error
-> $ i2ctransfer -y 11 w1@0x50 0x00 r1@0x50 <- read EEPROM
-> 0x01
-> 
-> Reviewed-by: Thomas Richard (congatec GmbH) <thomas.richard@bootlin.com>
-> Tested-by: Thomas Richard (congatec GmbH) <thomas.richard@bootlin.com>
-> 
-> Yes it conflicts (compile issue) with the series [1]. The possibilies are:
-> - I pick this patch in my series and send a v7.
-> - [1] is applied, an immutable branch is created, you rebase your patch on
->   top of it, and patch is applied in I2C tree.
-> - [1] is applied, you rebase on top of mfd-next, and your patch is applied
->   in MFD tree.
-> 
-> Andi, Lee, what do you prefer?
+                        Geert
 
-Let's wait your patches to get in first and then Markus can
-rebase on top of them.
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-I will now prioritize your series.
-
-Thanks,
-Andi
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
