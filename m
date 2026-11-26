@@ -1,201 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.12
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795673968;
-	b=yvVdq3Vi4b7Fk0/XD9n2pCqP0S000CmvMZxjlEDGe3UTMWHVWmV5rtP0qb4AHEWs2SLo
-	 zeOLUQ3InatanpKcsmfDOKcwrVgqQ7S6K0Ce5qbnsCPlXg6teZIelqlnlenJQb3GYiF+C
-	 /SPCiLt+5TQsyj2EE6WfYKPAlewkpogEJ4f15S/Fjfyd14oxugYYhNDQtwHJDOEr/4t/+
-	 M6mlLvO0Drmp4YHbCaLUAtDf0eTr6RZzVtAHxMYnjUuGLiTTXpcm9J7b8iTJX8ymKJj4W
-	 +chg7lqFRSivH1k2R2NLLE4RxkS/yAVrGVZvciw9Qftok7PxGCdyH7l7/AovqSaKccQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795673968;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:
-	 X-Exchange-RoutingPolicyChecked:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=GfNzKPg4BxvnuCThHfNWRNVTu0RJnnTa4V6T4aEuwvk=;
-	b=BQWvOqw/JgbdUrNYRdoi0GPhG5Dvb4ZvHqLpbjcSJIrA53y1Ype0qWt5MIOB7fU0bc2U
-	 QHEUUdJ1l1VAjRfViasR6qw25k00RoEtjOOV64D0akS4rOlVme2gpG1jLHlOxL+lXgPa7
-	 wRk2jjdj4uDi9XPY1zVqMaa3IZoxfmxcpUo6olyr0jriRMW8mYTXjpOmRj+fFbVQnhDGu
-	 3sU2b0AI1EujmrWInARERerWSI00nuMxCbsopVAuIFHGgyEsiAPn5YerPQTShPWIGgKYT
-	 I/yu7Jz4bXyaMNnfdq0s7ef7sOSRrpwdv5C3mkqpL62u0+sxvNUOa4nZdZbFD4Q8ueg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=RZ6xQ4XA;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b="gsORzs/j";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.12
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795673989;
+	b=cP5Quj6ytgCe4wjWAzkQBHbtSF5q0YsCCNvqaCI7VXxWwlHp9JbhvQW4xsjiCBB2Vb11
+	 BOWRgb6CmL6xv4Ea/rlPhLWML7cCnJvHgF2qdrUN7LNxdXCclcia/QOa8zZ8CeJ8C97dX
+	 58MeVVp5EfpNvyPB1lqOzwVrp86FhAzefyihzBiBJ5a+zkR5Jl2xdGTmrI37VAQMDz+Q/
+	 xtRn08GdAyGHrwt01C1GvjedmMD2O3MSMPPfg2x0+X0sl5XRa/BuxvR1zBFiUKU66ijPY
+	 /nbLpcpdSic7WUm4267S23w5/PJVug12Gfq3NlyA3Ilj5s6UwVxBSDpCn4LPGFIiVkA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795673989;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=0YXlOsEx8PTByp1QwbgHZi5PLgmr6v7Uc+yNKtoqErg=;
+	b=AK782GTs4p9FpygGqmj6APf4KmCULba/6McU5UT6YwtXjmxvrODQGSWtxTij4KYuhrjh
+	 a3Tg0PNi2HY1bwZZvaa0m0DXfb0NV+9h3882+MceCHGTAGZL+d9LmkJYxSKV9UsECNLiI
+	 KPIhbzMj4spJ5osIzjxbVpVLBjSKjGgPifN9WFzO2pMCdaGj1eUOUbsLdtlqAl4Ii47r4
+	 OnxXEj+0xoxDTqnTQu5SlH3QmjwurzZRsywzNoKbfUr9nNFr7j2/5XIgx4S8+7QIzS3z8
+	 f1CF85+IV1Q5h8BEIfzaoxW3mbuD2RleQU9SN67GVxLv2KZM+Qer08pdoYtYoxPsswA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="sn/ZG9zk";
+	arc=none smtp.remote-ip=74.125.82.44
+Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D57B7606A31C;
-	Thu, 26 Nov 2026 06:19:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D57B7606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA947606A327
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:19:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA947606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=RZ6xQ4XA;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=gsORzs/j
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795673967; x=1827209967;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=OxGsC7fYO0DON3jzlMxpLhem3ua+iZVlAAqqnubct6Y=;
-  b=RZ6xQ4XAMbcZItOX/P6LwKEl4Qt9BbPv0eygFtet7XMJ2M+Hj7DuAGHS
-   ySBmfcsmzq1bqdPfyae3tGk/ijrlSW64ukpD6fVblZIAv0QUJMYFyLRS5
-   BwqvkQUzzQefP6S8sP6Z7Lct/5PWF6j3RFBdPUlJ66baX6WBmMtIxVkL+
-   9smKvvQyVQ0cp5nD2jieMoX3c5h7QWuarhoSF1v6RfFWaKQ0la+f8wdZf
-   F+diboEH/SFkWOVlxqJCu5Otmh16/xQRDp4gW+n+Ec8KKRvHYtrA2v+hs
-   QxIkl6f1mKprRLESZTt1QK5Gsl2MMHj0BELc8apeiFTyUZ/CPkcD0qZWZ
-   A==;
-X-CSE-ConnectionGUID: ebnEdZ6fSQ2YbWf8ZZ30Pg==
-X-CSE-MsgGUID: dJ4zxI0oT6Szt2Dl2+c/sg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4475813"
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="4475813"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 22:19:26 -0800
-X-CSE-ConnectionGUID: +wGoQiTSSRq20oHI3FT4kg==
-X-CSE-MsgGUID: NEhYEm/xRjyYPyVM2cKodQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="11871375"
-Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
-  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 22:19:26 -0800
-Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
- fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Wed, 25 Nov 2026 22:19:25 -0800
-Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
- FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Wed, 25 Nov 2026 22:19:25 -0800
-Received: from SJ2PR03CU001.outbound.protection.outlook.com (52.101.43.42) by
- edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Wed, 25 Nov 2026 22:19:25 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CAQk6dgMfWn6bsIZvzlbPDCpzUgprROSBNA+j1tEb2GE661oRP/PPwEcG/NTvVw3tnbexr9TAyEYdPvU0w1gUavypcMyQAY50l9mInSTamxx1dGv8sgt2xFOrMBqrF8yoWF8ka4AhsO24vfN9oebJvlxC4sYsemWnoPKrYrv9aawnLp0TNPKlq+ophKPZkmMEj/3VtQfJE0UxxlxHI81tIjhIh80HLY+i2K6hRi4O2HlD+LgpZn+zTBbfCYdgT31ggecR2BZ8u0oBiSVy40/2Y6I4m+cZAkyicmnkCu3SRaFLKIJq9xfMHAbYbLvl9Rp8EvyuJSqXFybd+uQpDsGcg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GfNzKPg4BxvnuCThHfNWRNVTu0RJnnTa4V6T4aEuwvk=;
- b=UqRhtX9FU/BWIG9PtewZUPUroYEoJQHIStrK3wdUUHX5hj7+7xA7Ta8fuqoJMM94txzoLupK1+cbkzXiSIMRoIeEe5uxIQSoalLiWkY6qOm9659RluzOEkxTN/Uri3Kk7XQPHYgOYQbFvsrqzEvUU+rhXGJMhGBFdI10UCnNUhO806SCj8JCH0cIATtReK906ixSs1ICRtF9Q3B4FkEqYfXm+ihoFWFaVyRarCpPsi5vU8Tr+tCjyrt/AoNPYIBc7Um1uyrAIkCGiAnJRlxFjplAHwbP8hX24ISN2mU7UvwFz3SWVY1eijYMH70GxFsl0MMDcLMu66nwKhkM+RIeKQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GfNzKPg4BxvnuCThHfNWRNVTu0RJnnTa4V6T4aEuwvk=;
- b=gsORzs/jPiGT7U1hzQscJPZRw5qgUGo/KuUKf51+kiCIILz6bNCpnWZZktg7o0aZj4OvtDQUWHzU8LTono/5nr5z7GH0LtdMxv132/72FcdO3uTHp2ceXOULrGfl1sNdjSflY/VO9piYdMPE+Wr6NkaDBsXGTAqULuhwb1jg87Q=
-Received: from DS4PPFE901A304F.namprd11.prod.outlook.com
- (2603:10b6:f:fc02::5b) by CH3PR11MB7913.namprd11.prod.outlook.com
- (2603:10b6:610:12e::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Thu, 26 Nov
- 2026 06:19:17 +0000
-Received: from DS4PPFE901A304F.namprd11.prod.outlook.com
- ([fe80::19f5:13eb:df52:68ff]) by DS4PPFE901A304F.namprd11.prod.outlook.com
- ([fe80::19f5:13eb:df52:68ff%8]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
- 06:19:16 +0000
-From: "Kandpal, Suraj" <suraj.kandpal@intel.com>
-To: "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"amd-gfx@lists.freedesktop.org" <amd-gfx@lists.freedesktop.org>,
-	"freedreno@lists.freedesktop.org" <freedreno@lists.freedesktop.org>,
-	"linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>,
-	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
-	"intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>,
-	"intel-xe@lists.freedesktop.org" <intel-xe@lists.freedesktop.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-CC: "dmitry.baryshkov@oss.qualcomm.com" <dmitry.baryshkov@oss.qualcomm.com>,
-	"John.Harrison@Igalia.com" <John.Harrison@Igalia.com>,
-	"kernel-dev@igalia.com" <kernel-dev@igalia.com>, "alex.hung@amd.com"
-	<alex.hung@amd.com>, "liviu.dudau@arm.com" <liviu.dudau@arm.com>,
-	"louis.chauvet@bootlin.com" <louis.chauvet@bootlin.com>,
-	"maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
-	"mripard@kernel.org" <mripard@kernel.org>, "tzimmermann@suse.de"
-	<tzimmermann@suse.de>, "airlied@gmail.com" <airlied@gmail.com>,
-	"simona@ffwll.ch" <simona@ffwll.ch>,
-	"laurent.pinchart+renesas@ideasonboard.com"
-	<laurent.pinchart+renesas@ideasonboard.com>,
-	"tomi.valkeinen+renesas@ideasonboard.com"
-	<tomi.valkeinen+renesas@ideasonboard.com>,
-	"kieran.bingham+renesas@ideasonboard.com"
-	<kieran.bingham+renesas@ideasonboard.com>, "dave.stevenson@raspberrypi.com"
-	<dave.stevenson@raspberrypi.com>, "mcanal@igalia.com" <mcanal@igalia.com>,
-	"kernel-list@raspberrypi.com" <kernel-list@raspberrypi.com>, "Shankar, Uma"
-	<uma.shankar@intel.com>, "Murthy, Arun R" <arun.r.murthy@intel.com>
-Subject: RE: [PATCH v8 0/7] Refactor drm_writeback_connector structure
-Thread-Topic: [PATCH v8 0/7] Refactor drm_writeback_connector structure
-Thread-Index: AQHdfV6qojB2p2NT4U+CKNAPLcmEt7c/4TPw
-Date: Thu, 26 Nov 2026 06:19:16 +0000
-Message-ID: <DS4PPFE901A304FF744429AF1A2453FDAB5E3422@DS4PPFE901A304F.namprd11.prod.outlook.com>
-References: <20261126042835.436307-1-suraj.kandpal@intel.com>
-In-Reply-To: <20261126042835.436307-1-suraj.kandpal@intel.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DS4PPFE901A304F:EE_|CH3PR11MB7913:EE_
-x-ms-office365-filtering-correlation-id: 077c3829-6e94-4e09-2f43-08df4b8532ed
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|23010399003|366016|7416014|1800799024|38070700021|10067099003|11063799006|56012099006|261021121427099003|261021123027099003|261009223027099003|261009221727099003|261009221227099003|261009223327099003|261009220027099003|261022105027099003|261026140227099003|261026121527099003|261022075727099003|261102123227099003|261028144727099003|22082099003|18002099003;
-x-microsoft-antispam-message-info: XBa/PKvjbgVdSgPIRiY2yC2twS1xco7XPLhO9Kj34Kh7gW2cnP+opEfRfc/P425Rm6NlPDIwazN3Yb2+cIFelMdd9SG5UL+kCkpGFKVSQrjY+unYawySM3p/UaG+Q/FefBiVPjVkE055Lc5kLBD3kgtY0zWpr6pQ1C4oNodDJYEiKfKT29pvDWusPh2fRXiJ0EowKh3i5lKntRqou0552uvuA8Blc3NuxqnZSx9mcqaZrxsppBhbikYe2A4Md1tvECFEByCWY5BwdnpA5KIUaHDxZdaeQF21wuG3OEPAWX8pTytZd/Bm1D7N3Z5vwEJqH5I5P2t44B1ghrwWJYfrnSxCzB55UWMHNTKjRzDvox1VcHW/iD1uiZtS0OPAjfy8URF0xPfiQkTwZoqgIrkVWAglfxFpaV83r5K3orK+NzC89ZTS0Yd+JKvAeY5EtH9vxkVVJzJMIMdCa6fvi1teDk4ZouJTmw+N+7HJnEzUU9OIm2UbLEGuyrSMY7oL3IT1phMJ1L+ln3GNPAkkQbU+ztcFPwWVXNKc77lhXXQCVawWQyuhQ6Xmy93vHtxPKfNlA5aAMFY2xxPftUg3FK3wGnIdx0VxkNPgQnSIxncDAxe6u/JCgQk3bdTfiAquEWtLOXidCwp9s9IUNdWGGiGuZX6GOzUXgETauNZbSNeDuvM=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS4PPFE901A304F.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(366016)(7416014)(1800799024)(38070700021)(10067099003)(11063799006)(56012099006)(261021121427099003)(261021123027099003)(261009223027099003)(261009221727099003)(261009221227099003)(261009223327099003)(261009220027099003)(261022105027099003)(261026140227099003)(261026121527099003)(261022075727099003)(261102123227099003)(261028144727099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?0ADrDY1C+oYmOi+7AHFVzqJ6di9vzEjmLoJaqT3LrS2RlyfmFK9MQL25BGy1?=
- =?us-ascii?Q?waByO5JxuD5Ui7bu0oCUjuXHFU05vnTJdbLl2bM/U1kiS0SPfkjZ2SGP+E7O?=
- =?us-ascii?Q?jM1VHGi3yPGbZS2kLpjDMQg/zdQwuGru6nbnWmbssgAxo/5q6FuFbIwPTdYX?=
- =?us-ascii?Q?n4ZGFvM/kH33wAXwjIiaI5//hJox5BRXlFWjNDv9yrkug4t2piPbvU8qxcjT?=
- =?us-ascii?Q?fmAPF5s/0We4hicBVTtBsd9h8ZNoCU4tdRVpi+nuhQ9xdEolKU2bpg7jqWlQ?=
- =?us-ascii?Q?I82nWPk+pXZHuA+ObFROh50NkAKPx3NFpj5Wknuo30LllCzdkasECNbJovdK?=
- =?us-ascii?Q?Qw6mFt3rtCEmY3dWfvCm6o00xR30wzsG/AflkSR7lMDneye15Qy0OavC/aBQ?=
- =?us-ascii?Q?3SyCEa8+etOIsT9F1XHQtpkIEIaUUz1/U/CCycElNanyp6HfWTYvkWxZ0W+0?=
- =?us-ascii?Q?irJJ5/WYUsQNVNv7yqWsaPcy8v6wcvTXNZTdp8Ms26qRuSkMUqWzjRgNs+UT?=
- =?us-ascii?Q?LQPaYgEOln4pMq55shdQ+6qIXFpIgR5bhiyCgRJptjXoaowEA+eFn40vs9ES?=
- =?us-ascii?Q?baNeR6bnJHUZgoI5VTe1VBfQcCLi8bBSZMYNjbqXkmL9VNi1R5s4f45CPioV?=
- =?us-ascii?Q?lmRu5t/fI3keS0PR4TwV/UzNTsRueAG5BA5f6X6hZ1larlokKflx413cmiKH?=
- =?us-ascii?Q?ZVCGKOgJbr0mADEeXU5G+l7RyTckza9VvmR9LX3l/+JSCWzwkO6CX2P/o6Jb?=
- =?us-ascii?Q?6rTUpUWLFfCz9uzRXLQjQm+An9DsNZdqJlf/4WN4eAS6uBDLGPB3cLAmFDi6?=
- =?us-ascii?Q?1cVwsom4Msyf6rLL7Y68hZjVcZ7B9hvx/PeDG09kPD1e5jck7vhfChej7JyX?=
- =?us-ascii?Q?MhwJ16guE0O21tKHodiNJgG3mQgm0kWSadrSHT6A+ortvoq24YI/tvLwW8+K?=
- =?us-ascii?Q?KqRsbGgcovya74vInQnjGKtOFtm9t3Qi8yS0opADiz6KbAhRyAeXvSdWZr+K?=
- =?us-ascii?Q?seDO35l5rRJYSbVv8ycXsK79M5WV72LL0+oQ1jrNx9vgjJiRN7JuMozdX9pO?=
- =?us-ascii?Q?sNO/Y+fKjqmifejiWcGodZJmuugs4g1bqke0lG4IuZc0taT+bMC1PWMbQIpO?=
- =?us-ascii?Q?gKOyzECdPMFd5Z6VU9Ahdwgtvcg2nbMyFjQvw7WOKg5u1JaDmc3b0mjuHfIE?=
- =?us-ascii?Q?lX0oA9eHROUDKFujJHCjJkfneuQ/zRAkm2nbD1Ez2WbchE7s3r2WvF/o1QJF?=
- =?us-ascii?Q?HQ0kPzZhusqxubTKMqWAKwgJxHmsaDRELeOa4kr4/VHpl/pXjo+qPhy0LkmP?=
- =?us-ascii?Q?w3v1UynJgrN7DZkRA4bUk8s8t7qxVZ7bIIb4XbORiLhu9FPsJyN5oWjKMmFQ?=
- =?us-ascii?Q?uH2zn3eP5I2Vw//oa4CSE6HCTmzNd5dZoqLbdYcBwmZQPyjEvUPl2cF1Xhfq?=
- =?us-ascii?Q?eQsdWVq4c2I1I/7l56XDQtG/KkH3UGOESgHJhqe4nx7Td5zJFGX4Je8Fmkd6?=
- =?us-ascii?Q?LqMGT3nc51oCOgySr1Tv3thnl85qe7Y9AEWgFEjV3Z74ij7mVW+weUWVmwuK?=
- =?us-ascii?Q?xrYvrFOKJDgFB0YM+P3dOWINc045xYWCXVIokC5BS9lm5AuBVgsCGHeOrD66?=
- =?us-ascii?Q?TLmbQeXQekrHbuGTTUeJU6Et1+WD8gn+hg5xeYYNTNjOitpwgQHu5vLLEoBI?=
- =?us-ascii?Q?BJ4PjLs7PRBT+U2lz5ww/MvmILNx4T9QRsJ+VKW3Sgwv4/6sNIU50Klv+rXa?=
- =?us-ascii?Q?f464cMeftQ=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sn/ZG9zk
+Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-15ea896ddc8so11036896c88.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:19:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795673988; x=1796278788; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0YXlOsEx8PTByp1QwbgHZi5PLgmr6v7Uc+yNKtoqErg=;
+        b=sn/ZG9zkxthCbYgOLaIl17WW5a/3pM3Pw7B7r8UsNWWxpyFmntAU5uyNb0+3HjC4O5
+         1o0gt19+klMXcyJsQQ5D0/XYsNuZ3HPY+NoTC7yHYMG9jbwC8eIFpsQhZDFBYVdOYNep
+         fOju8zulDHP0Gi8niB+3u6FC8eiRH2bN7dvOHpWyLnXAbEGpUb0L9QW1A9Cbj5XYBXhR
+         i4oplFZSSqo11CRUz9IR8lhZrFE67J12rASo2ay3+cBenoKTJtSkVEGArJwKd79u+iVn
+         4XvKsjDnSPyRDdp5StlfbZ5pE9UPG5/3LCkj3lpPa2ImM2cx0ySr1J+YZf9Yb3o0fajz
+         n2Zw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795673988; x=1796278788;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0YXlOsEx8PTByp1QwbgHZi5PLgmr6v7Uc+yNKtoqErg=;
+        b=YLxBnh+zAbzS0wHrcX/W6wMjRhcaQQ1JO79cWJZELBqRZ7SP0FoM9aHipgls7bVrT3
+         MrJVxYLMPgqFlx7YMV7RTyo2YwmA+/vG00IESwIW2DcPzUtVfAVm0J2YKkWu7IFtG1XX
+         SIF4/82fdhxre1hUmJ7Q43kst3Uwqpb2taidTEnkWN7scsdlV01IjHOqEE4kyXDbqFla
+         0HVYmjshb94vBSxZvf8Sgxtj2zqOK25gNTsniRUwB2de20EmjH/9K8isqxp0H2WM2En2
+         FD2jZULYqs60noNidUete2PTxQyTzrGxiV/uE4unbbGZbjVEon7BsmOMD69TZ1/XoVPc
+         BH4Q==
+X-Gm-Message-State: APuU4Z+nPsiAtGuJsR+hGTlJuWCn+Z4KsH0by57IWHf19/Eo107zfhYV
+	9QJ6ERLYeHbKI0KguXXTcZ0ydJhE36wtOoOGTHkKord5qjdQv75PEuO/
+X-Gm-Gg: AZFdTZeq3+GuotJ86u0n2/9Fi6z4PRnX+20sI8gmLIFILWx9d+p91nKwHD9/viLtzXi
+	wSFQKDu5nz2erzWjbXlNihvdie8fW1AD/xuL5T54W2coYd5U7mlSHIygQijcV8m+sSieVOByno/
+	V/POoo4O32skqg0t3T6wi/uOc4jRKlxTMokJFlxiRN5XIJKAY0EG1U9z8udz4YmqalmpAUw0AoZ
+	NPPthGJJXND5pwXOpXFdeZ689it3cTVkByKzxC8QJxH89lkO9pgUiaZBV0X33ZqvOggY0IM73cv
+	HSggQfwARQzCJiw0+0EfxSZ1Z2s2jgQTUBVEba9lXSScW03bTXfzGfy+SDEBO1GGjvrXKS3hdJh
+	o748Ox/7WxIKnqCQandqjCi/ZvOncXZP++Zysbc6LXJm7V1T3ZxL45Ax7xNkO7rUu4s7YFFl4Gk
+	tsSlvD0dDcOcMsx8RGFvP4EHsxlybyUgur+j1GWPqtLa9hp8uzQ0eTh2HlzroXZmlkGsLQJg2Yq
+	YjNuKOKvYTIu/J5sRKKMIuNLc9ef62jNaBiRKZnvpmXeLZSwSqeMeuEjwIt1gvj37HQWoqc8osC
+	YlZQ5uRYsTVb202/h35NHhgQIrysYOah8MuDofC7ir2oj9zNxsE=
+X-Received: by 2002:a05:7301:4d18:b0:37d:bd4e:c378 with SMTP id 5a478bee46e88-3857181d8ddmr19795063eec.41.1795673987845;
+        Wed, 25 Nov 2026 22:19:47 -0800 (PST)
+Received: from localhost.localdomain ([103.179.230.77])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm105527747eec.3.2026.11.25.22.19.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 22:19:47 -0800 (PST)
+From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+To: tiwai@suse.de,
+	perex@perex.cz
+Cc: linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+Subject: [PATCH] ALSA: vmaster: Restore follower values on put failure
+Date: Thu, 26 Nov 2026 06:19:10 +0000
+Message-ID: <20261126061910.2840-1-sreekuttan2156239@gmail.com>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -205,93 +94,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: UBvbLvYgZWzBKxQVCrBp6nhMlU6azEk7wndHPHHH1DCZ0ODdNdr+bTWzUAFGXKc0HO8kPKrHQpTh6Ph0XnznpaInCsms8OHJkod8ZK+gYDPUt7+0b+PLXagUc9t9nwWckbpAs0r0aIKJ03ETvQNLpds0Px1TnflojlerXZxqJkAbmVUs2nkkM/rcPuEeXBLbGQtIJmDazSQll/9w1nMVwXPt0mlxzqwh4nCn5piLQgxOvJrXzUTJ4czBlBbJaQlisQIBngiCdsdBaTcjKeP0oZCCQgoTqcdxqBFUXv6aAAB98SbKU8ARFNON2+NFx8l4VtiL2Vcl2ho+wHDrJs8H1Q==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DS4PPFE901A304F.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 077c3829-6e94-4e09-2f43-08df4b8532ed
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Nov 2026 06:19:16.6736
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: ipS1EvMQmIxJtbvICXI131RLEmSClTuGpjvQP4nzBOk09aLLlBHRQEyR1JT1RL707DMm2UyuVgwitYPOqsQVQQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR11MB7913
-X-OriginatorOrg: intel.com
+Content-Transfer-Encoding: 8bit
 
->=20
-> Some drivers cannot work with the current design where the connector is
-> embedded within the drm_writeback_connector such as intel and some
-> drivers that can get it working end up adding a lot of checks all around =
-the
-> code to check if it's a writeback conenctor or not.
-> This is due to the inheritance limitation in C.
-> This series intends to solve it by moving the drm_writeback_connector wit=
-hin
-> the drm_connector and remove the drm_connector base which was in
-> drm_writeback_connector. This is done in union with hdmi connector within
-> drm_connector to save memory and since drm_connector cannot be both
-> hdmi and writeback it serves is well.
-> A RFC version was floated and discussion had taken place at [1] which kic=
-ked
-> of this more cleaner series.
-> We do all other required modifications that come with these changes along
-> with addition of new function which returns the drm_connector when
-> drm_writeback_connector is present.
-> This series also contains some writeback API cleanups as a consequence of
-> writeback connector moving into drm_connector All drivers will be expecte=
-d
-> to allocate the drm_connector.
-> This discussion was tiggered from [2]
->=20
-> [1] https://patchwork.freedesktop.org/series/152758/
-> [2] https://patchwork.freedesktop.org/series/152106/
->=20
-> Signed-off-by: Suraj Kandpal <suraj.kandpal@intel.com>
+Restore the cached follower values when the underlying put
+callback fails.
 
-Thanks everyone for the changes merged to drm-misc-next
+Otherwise, a retry with the same value may be skipped
+because the cache already contains the requested value.
 
-Regards,
-Suraj Kandpal=20
+Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+---
+ sound/core/vmaster.c | 13 +++++++++++--
+ 1 file changed, 11 insertions(+), 2 deletions(-)
 
->=20
-> Suraj Kandpal (7):
->   drm: writeback: Refactor drm_writeback_connector structure
->   drm: writeback: Modify writeback init helpers
->   drm: writeback: Modify drm_writeback_queue_job helper
->   drm: writeback: Modify drm_writeback_signal_completion helper
->   drm: writeback: Modify drm_writeback_get_out_fence helper
->   drm: writeback: Modify prepare_writeback_job helper
->   drm: writeback: Modify cleanup_writeback_job helper
->=20
->  .../gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c |  8 +-
-> .../gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.h |  2 +-
->  .../display/amdgpu_dm/amdgpu_dm_connector.c   |  4 +-
->  .../drm/amd/display/amdgpu_dm/amdgpu_dm_wb.c  | 10 +--
-> .../drm/amd/display/amdgpu_dm/amdgpu_dm_wb.h  |  4 +-
->  .../tests/amdgpu_dm_connector_test.c          |  6 +-
->  .../display/amdgpu_dm/tests/amdgpu_dm_test.c  |  2 +-
->  .../amdgpu_dm/tests/amdgpu_dm_wb_test.c       |  6 +-
->  .../gpu/drm/arm/display/komeda/komeda_crtc.c  |  2 +-
->  .../gpu/drm/arm/display/komeda/komeda_kms.h   |  6 +-
->  .../arm/display/komeda/komeda_wb_connector.c  | 13 ++--
->  drivers/gpu/drm/arm/malidp_crtc.c             |  2 +-
->  drivers/gpu/drm/arm/malidp_drv.h              |  2 +-
->  drivers/gpu/drm/arm/malidp_mw.c               |  7 +-
->  drivers/gpu/drm/drm_atomic_uapi.c             |  4 +-
->  drivers/gpu/drm/drm_writeback.c               | 50 +++++++-----
->  .../drm/msm/disp/dpu1/dpu_encoder_phys_wb.c   |  9 ++-
->  drivers/gpu/drm/msm/disp/dpu1/dpu_writeback.c | 10 +--
-> drivers/gpu/drm/msm/disp/dpu1/dpu_writeback.h |  4 +-
->  .../gpu/drm/renesas/rcar-du/rcar_du_crtc.h    |  6 +-
->  .../drm/renesas/rcar-du/rcar_du_writeback.c   | 17 ++---
->  drivers/gpu/drm/vc4/vc4_txp.c                 |  8 +-
->  drivers/gpu/drm/vkms/vkms_drv.h               |  2 +-
->  drivers/gpu/drm/vkms/vkms_writeback.c         | 15 ++--
->  include/drm/drm_connector.h                   | 72 ++++++++++++++++--
->  include/drm/drm_modeset_helper_vtables.h      |  4 +-
->  include/drm/drm_writeback.h                   | 76 ++-----------------
->  27 files changed, 174 insertions(+), 177 deletions(-)
->=20
-> --
-> 2.34.1
+diff --git a/sound/core/vmaster.c b/sound/core/vmaster.c
+index f43144ba2797..f5cc11eba25d 100644
+--- a/sound/core/vmaster.c
++++ b/sound/core/vmaster.c
+@@ -193,7 +193,7 @@ static int follower_put(struct snd_kcontrol *kcontrol,
+ 			struct snd_ctl_elem_value *ucontrol)
+ {
+ 	struct link_follower *follower = snd_kcontrol_chip(kcontrol);
+-	int err, ch, changed = 0;
++	int err, ch, changed = 0, old_vals[2];
+ 
+ 	err = follower_init(follower);
+ 	if (err < 0)
+@@ -204,6 +204,10 @@ static int follower_put(struct snd_kcontrol *kcontrol,
+ 			return -EINVAL;
+ 	}
+ 
++	/* save the original cached values */
++	for (ch = 0; ch < follower->info.count; ch++)
++		old_vals[ch] = follower->vals[ch];
++
+ 	for (ch = 0; ch < follower->info.count; ch++) {
+ 		if (follower->vals[ch] != ucontrol->value.integer.value[ch]) {
+ 			changed = 1;
+@@ -213,8 +217,13 @@ static int follower_put(struct snd_kcontrol *kcontrol,
+ 	if (!changed)
+ 		return 0;
+ 	err = follower_put_val(follower, ucontrol);
+-	if (err < 0)
++	if (err < 0) {
++		/* restore cached values on failure */
++		for (ch = 0; ch < follower->info.count; ch++)
++			follower->vals[ch] = old_vals[ch];
+ 		return err;
++	}
++
+ 	return 1;
+ }
+ 
+-- 
+2.55.0
 
