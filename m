@@ -1,56 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795703863;
-	b=ui14ws0GjnTZ3c+Ax0WGoXYUxf1RTPfcWXp3r1V2XEBY2wAdpvO5DHISGSA4r4AYItYp
-	 obAtkNMi8GooA6YBspB/rjajvUVUYPC/+Sa7Ct9pV9P1TdYXG9wTuvOIbB31WqNTSxwc1
-	 vI/5ei+G5eSqHI6DwgSfXkz0lsu9gNrEA2P02pNhdk2ae8pZddF47wb6fZo291r7ztz3D
-	 +tqy7pzOnU5oF+/bX5xkajcwRSGKKEw9Or+3VqbrGDPwOq5Y5KTESNR34VGSgFgCpYOIT
-	 VhvZ2ncpS7sbRxUWulp4+xzzJoli+bPDhUSvP4F4oJjI+l1tviq9B5YDKavaTKPjwmA==
+	t=1795703888;
+	b=gySnge3ZZe6I6LY5zpTZ0LxlAnUEg8Fi7ShtA/uTlpUDxnUaMKik8u8j3cUj3q3nlCEG
+	 v7W70Tw4xv0tef8xtciWsa2Pf+k7MG+7bwU5glXytYz5hrHTlLgdqXJrdKsLOrOYu8v8s
+	 zcK7XOFmY37pv7+P/jnJ6ahQ0x+RDzpoK4cYVP74bt9xQZl2/cSkPD3frTgKXESQUEIOE
+	 5ZVYofrtBiKnshy3HuivFH/JpHQYGhFGNF/qLHSVQb5WX3tkBJSXG91l8jX2Oyr2zCaPn
+	 WM0eTaIFDsbgCMjZ6gjq+hqKGMLeVjTJ0V3PihRVL9Fr3nozeRAD0jvac/NFMu7GJPg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795703863;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=raxDnfRsb1wb27xhRaX2DQ4tnujeCdMJ/Eut1gP5YJs=;
-	b=DnwB1N5yzWvwchSkOSKVFgNJwX8EdnL6ljost7k159oDOugRcS5BpBZ8DdnU+QzXe7XN
-	 ZXnA93WLU8p8xYjtutHldJhV1nRNyEwG2vkUBFvPoeC9qpVsCArFybyxXqfUhJlmVbQp+
-	 2FqQMG0ykSMe7gkqjk7Hg+ZDWiQijoNpZKb8eN6XzBUUrmDNnY4ogh1DRaxM1zsHHLNuC
-	 HOcpvxHSPAUjR6cJNC4zujVHEGQz5/c7ESCcgcodHNxiSRO+VJrEqQO12KsyG7v+GYqnT
-	 yBQksbyWPMANLlzvKRSEGAxIKkVyiOu4hn9HNd3V0WQTlQ4iyyRUHEaCmhmbi96lMMQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795703888;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=LyseDi8/AZfME35ces0G0tVcwvsftX81FYCQ6wEj1KU=;
+	b=VhKP4JGZKkCSgZf3cFeAxbIyHZ2DTEPcyV10ZOlL/RYT7WlchDsU+kkdLShjF711a3NZ
+	 j8owettR//nJWHJue5ATSywJHYhWfPkO9leXBFiNVpHhuPulEdGZfkjVJ0ns5tfST7BL5
+	 L4NgzKj0vOQfV8KJ9YefdCFlHJ3jcR0ZUcd3bvutvO778YbahbnGu0WrER+UR7P316Mer
+	 YzOGoRImqyZxm3vVlwgMituEByEnXIYfON4GPeIaFMNnDmw4zYhaAi0P5RQtXw1n35pkT
+	 Jf1ayRtLWFvVXBNHJviZHicuVfgSrbhJQCBnO+rj7vqHX22tl1f2/8cF+jtWdNtCr1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fm4Lbi0J;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DhKfqcat;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 7225C606A31E;
-	Thu, 26 Nov 2026 14:37:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 800F0606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:38:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fm4Lbi0J
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id DB0F21F000D8;
-	Thu, 26 Nov 2026 14:37:41 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DhKfqcat
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E0C61F000C6;
+	Thu, 26 Nov 2026 14:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795703862;
-	bh=raxDnfRsb1wb27xhRaX2DQ4tnujeCdMJ/Eut1gP5YJs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fm4Lbi0JF86dDB3d7wYxeAB1FUd/gyyA+ZhVYyuRTTHTvoKjT7n+OAYwHrS64gEBP
-	 fWsCzVOB1EFirkCWnBeixvPq+8Lyrfs8jOaaeQ9UkhJS+rUenCR/HR6n1uC3sv9cJT
-	 SR4wulja1wH9tJS04kFC7P4H7XwZfZeCH3A9A3b6eh58lTGVT8/9Ojm6cEZ5MaBG5a
-	 IlvSAucych/GdDR3R/Ppg8w8itSWC8m48L4Swayy3vhoIE/426+ABxupfRM0yT0VDl
-	 v88ZX7JUn9YbbFwPz+OWRF2x6rOKDZiIKgu2lmC92kc9wyp6bYwtDKNuPqSRo1GPZp
-	 YJvskvKa/UYiA==
-Date: Thu, 26 Nov 2026 15:37:39 +0100
-From: Bartosz Golaszewski <brgl@kernel.org>
-To: SignKirigami <prcups@krgm.moe>
-Cc: Bjorn Andersson <andersson@kernel.org>, 
-	Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-arm-msm@vger.kernel.org, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] pinctrl: qcom: Add Netrani TLMM support
-Message-ID: <trnv55pophj76vyltw4bqg4scax2mjxg74guvnz35y4ik5yrdo@6co34tei5ihp>
-References: <20261126-netrani-tlmm-v1-v2-0-3426fca870c1@krgm.moe>
- <20261126-netrani-tlmm-v1-v2-2-3426fca870c1@krgm.moe>
+	s=k20260515; t=1795703888;
+	bh=LyseDi8/AZfME35ces0G0tVcwvsftX81FYCQ6wEj1KU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=DhKfqcatjnh6hGj52TGPLjswM2ftV5N+Gd1sE7W1px8yI9CV6AcGdlSVEEf4oN337
+	 qL2eWp9fewm7UZYtby1AfYB9bUht28XaJakv/u95Zg5SlUDlEXQ4nONFRWEwtxd3F3
+	 uNctr9IqLAO6ocsU8OCkn9j1Cu4lTiA/tBPJgW5JifoPTtfMuVEfgzoubHxlpqrbEA
+	 Aa+qZAXOcWZCqfc1r3EU0/IeMbtFwU72iUTjgyCD3Ypr0QsOSK6CJrEryT4CARuJdx
+	 OWhXdyRSm0jcrL0XgJ6cOczomWb1WdU04xtIk/2lOgu7ZxMAAJhzMOpQHFFK0L0cDv
+	 o9jLyQhqw7uyw==
+Message-ID: <dd97fe24-aa23-47d7-9940-3dab1c52e597@kernel.org>
+Date: Thu, 26 Nov 2026 15:38:03 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,54 +51,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261126-netrani-tlmm-v1-v2-2-3426fca870c1@krgm.moe>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] extcon: max14577: Fix potential use-after-free on removal
+To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>, cw00.choi@samsung.com,
+ myungjoo.ham@samsung.com, kyungmin.park@samsung.com
+Cc: linux-kernel@vger.kernel.org
+References: <20261126-a35bb25eb5-u60-0@mail.sdu.edu.cn>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261126-a35bb25eb5-u60-0@mail.sdu.edu.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 26, 2026 at 04:53:38PM +0800, SignKirigami wrote:
-> Add the Netrani TLMM pin groups, mux functions and PDC wake interrupt
-> mapping. Register eGPIO for GPIO114 through GPIO140; selecting it hands
-> ownership away from the TLMM instead of programming a TLMM mux value.
-> Also expose the dedicated UFS reset and SDC1/SDC2 groups through their
-> separate control registers. The GPIO register bank starts one megabyte
-> into the TLMM window.
+On 26/11/2026 09:25, Guangshuo Li wrote:
+> Probe queues delayed cable detection, but removal does not cancel it.
+> The worker can therefore run after the device resources and private
+> data have been released.
 > 
-> Signed-off-by: SignKirigami <prcups@krgm.moe>
-> ---
+> Use managed delayed work so cable detection is cancelled before its
+> extcon device and private data are released.
+> 
+> This issue was found by our static analysis tool under development.
 
-...
+LLM is not a static analysis tool.
 
-> +
-> +static const struct msm_pingroup netrani_groups[] = {
-> +	[0] = PINGROUP(0, qup0_se1, ibi_i3c_qup0, cmu_rng, qdss_cti_trig0, _, _, _, _,
-> +		       _, _, _),
-> +	[1] = PINGROUP(1, qup0_se1, ibi_i3c_qup0, cmu_rng, _, _, _, _, _, _, _, _),
-> +	[2] = PINGROUP(2, qup0_se1, _, _, _, _, _, _, _, _, _, _),
-> +	[3] = PINGROUP(3, qup0_se1, gcc_gp3_clk, cmu_rng, qdss_cti_trig1,
-> +		       wlan1_adc_dtest0, atest_usb0, _, _, _, _, _),
-> +	[4] = PINGROUP(4, qup1_se0, ibi_i3c_qup1, _, phase_flag, qdss_gpio,
-> +		       _, _, _, _, _, _),
-> +	[5] = PINGROUP(5, qup1_se0, ibi_i3c_qup1, _, phase_flag, qdss_gpio,
-> +		       _, _, _, _, _, _),
-> +	[6] = PINGROUP(6, qup1_se0, qup1_se1, _, _, _, _, _, _, _, _, _),
-> +	[7] = PINGROUP(7, qup1_se0, qup1_se1, _, phase_flag, qdss_gpio,
-> +		       _, _, _, _, _, _),
-> +	[8] = PINGROUP(8, qup1_se1, ibi_i3c_qup1, qdss_gpio, _, _, _, _, _, _, _, _),
-> +	[9] = PINGROUP(9, qup1_se1, ibi_i3c_qup1, _, phase_flag, qdss_gpio,
-> +		       _, _, _, _, _, _),
-> +	[10] = PINGROUP(10, qup1_se3, _, phase_flag, _, _, _, _, _, _, _, _),
-> +	[11] = PINGROUP(11, qup1_se3, _, phase_flag, _, _, _, _, _, _, _, _),
-> +	[12] = PINGROUP(12, qup1_se3, _, _, _, _, _, _, _, _, _, _),
-> +	[13] = PINGROUP(13, qup1_se3, _, phase_flag, _, _, _, _, _, _, _, _),
-> +	[14] = PINGROUP(14, qup1_se5, _, phase_flag, _, _, _, _, _, _, _, _),
-> +	[15] = PINGROUP(15, qup1_se5, _, _, _, ddr_pxi0_test, _, _, _, _, _, _),
-> +	[16] = PINGROUP(16, qup1_se5, _, _, _, _, _, _, _, _, _, _),
-> +	[17] = PINGROUP(17, qup1_se5, _, _, _, ddr_pxi0_test, _, _, _, _, _, _),
-> +	[18] = PINGROUP(18, qup1_se2, _, phase_flag, _, _, _, _, _, _, _, _),
-
-Same issue as Molokai, please look at the series[1] from Taniya.
-
-Thanks,
-Bartosz
-
-[1] https://lore.kernel.org/all/20261118-gp_mn_tlmm_support-v1-0-703f7badd194@oss.qualcomm.com/
+Best regards,
+Krzysztof
