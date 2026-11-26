@@ -1,126 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.158
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795692339;
-	b=lq4j3fezSR9vELcbdSIXaquHDCZJfZ3/HxcGRIYMzjoktn6owSt7cWrkRGfRdA0Ioxfv
-	 fENPbxYsestTbKYeoJWSIgQgmn2VjyKkYDNBDHUsEu54dWm4+rpHhXr4y12syjcCpjODv
-	 qj87BS6RImUzoqPK9zqW5uIkdU06yTWmikRepCS8ZZ3uuPToZd6eOJz+uEx27HkLTy73f
-	 4er/ni5EhS4WpwZlSgoxncrZJuds9x1cQs3S8kXEhsP6CTUYm45xYegbl8mq6jjEHjQH+
-	 AHrTHdou9iXyn36kdgDPOajYAvkdQtGSrFButMKzPdjKDoh/3swudffk27VfedAMk6Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795692339;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:Message-Id:To:Cc:Subject:From:In-Reply-To:References:
-	 Mime-Version:Content-Type:Content-Transfer-Encoding;
-	bh=XSe4nQaPVvSh1m8GNLDefCvo1h12oVijF6wU0EAGZno=;
-	b=41BvmB+Ntz/wLU6IUhi2yL9DwxUR9+oXDIzl+GQAC2xR1u0Zq1aKoUN9NZk8GyXIskOH
-	 cjzYQXmXQXSw6DEYat7tLkRAXCMWvJMOu1GOlnJ1afgxJtlg5xMqyKu+9yqgiDYVASe3N
-	 2GadcrdwUWgqE6AxZFo4c4d7AoR8fVxzTPCwjCBNRYIT9fGBVuP79s77VY7BJwY0fqiou
-	 slHFhHs0BRcQ7jBrSA3osB2G3aaikTBnKxChcOY/M0yOwiroCjtLgZDnxzNKninDlWqQf
-	 aWtB1ffngcdNzzhHmkn0z+uHz48bc2wz6lkNB2upO5qvSw0DElKs2CZwFxInm4Bnz6Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=flapping.org;
-	spf=pass smtp.mailfrom=flapping.org;
-	dkim=pass header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=N2s1DyPW;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=QOFBd9EP;
-	arc=none smtp.remote-ip=103.168.172.158
-Received: from fhigh-a7-smtp.messagingengine.com (fhigh-a7-smtp.messagingengine.com [103.168.172.158])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.46
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795692385;
+	b=v97No8/gawWYOAanESSVFF8LC2xvnkSrvynmoBVQN4WlVmUq3BmkP1HhARsY916SREmS
+	 INnu2ILgK/f68uVCXAvf+ncaBWXCoTAk4EaYzqlKHYLnYUGNNiOeFD42ukruIcE3AxW5d
+	 YotrnEHVbV1/+3E0k96yORnzZ7HhHIQfUa9jB6KQxYAOy3/XPefUH0u7o9DjGAH6aN17H
+	 Os4s3xtZ6tNNf84EPdyKuzSrN0TsQIZdnLMq5NtSIMYWn1wkMXHzmczxmdFlX/8pugYO6
+	 q4TEyqXttxH/z6pggM8WW1ZmjVRkYr8OWkU16gIHfzVdvdbRsNMFkDt9VJ0lfBed+2A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795692385;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=Zl3AVts+WLTukpMUzpB0lw/KP0VgqYCXGhFKIV6oqPc=;
+	b=MuTNWVgu0YPCxsBO6+Pe1g9PDLUJdydGadnY1SttNgXeY9KkJjnp7DPXy+vv+LN6EUbN
+	 uV5ihKfP2ubmtzxuLNFJ1ceQ+07X09KEU3YgBMWiWun7G8Gk13K/y0lVGBtRa7njPB7yd
+	 nfIKCGO4dGNtWa3aDLrYK9Khwdg7VGUSwJQwPEw5gCtLVHj9HYxzltH7LdM9WkTZIEjQl
+	 7GNBSKa6PAb8mquvGzLChTLUuI88nTxIc/swYRAKiblI0df50HvXif3FfzPGT83EM5yvK
+	 R1Hf76SBoiIgiqDpUss2upm3iAuDsoemNiaplzyYNkVSVszaZv6pjFLh3S+inNBUIVQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=m9kbRNAz;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.46
+Received: from mail-ed1-f46.google.com (mail-ed1-f46.google.com [209.85.208.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 014C8606A338
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:25:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 014C8606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=flapping.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flapping.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A483606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:26:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7A483606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=N2s1DyPW;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=QOFBd9EP
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 23E3014002EA
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:25:38 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-05.internal (MEProxy); Thu, 26 Nov 2026 06:25:38 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flapping.org; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795692338;
-	 x=1795778738; bh=XSe4nQaPVvSh1m8GNLDefCvo1h12oVijF6wU0EAGZno=; b=
-	N2s1DyPWBMY18/yvfq48isK0oiWyzkLbqZy5A95dKFxPN1Fnc4sYHYd4hdWHP9ha
-	krR8gAOJBhCRTZmeIKsyK0ooO9CnGqw+jDY3Csew8eB2NBCKaN6QNeUgFAtK0Vuu
-	xx96k8T2NziybLKVjukQtfYg/9H/WkZtT5zkMa4ityNQkui2iJ7LJ2/SMmWSwrPO
-	IKiDZO89zorIZL0lkjrHmLIyPDzl3V32GN4LcATlgr8hXcPCYSBbEarw3YxgWRR5
-	ckx77aPGHq1R8w0n9qhl1RoQJIz19xfccL5Hqfn6shaWU0Sn8uqUQvZaIO9qKZuM
-	JEeSYNvU23yZCyuXMN82cQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795692338; x=
-	1795778738; bh=XSe4nQaPVvSh1m8GNLDefCvo1h12oVijF6wU0EAGZno=; b=Q
-	OFBd9EPLc500XrJCry21QoXPfukHHnrcAbE/ndb3QvzfuOZk+NmwSplTChAQ3Dhy
-	obTeXf0U++EY/Fv/TCfYLwaNlR6mjQQd5PwHquDmg2Ii3Xk/g7C01buyhtbq480T
-	/YQxz5Yc7wJ48b7SP9zOrQa+k1ssY2WrnYah+8STt1LChdreCKL6u5Zy8V6gAroP
-	GpHA3kc4SffhmjVsJlVF2aNCkonISMnyRlZm5Hfqc6Dpe1PVsWcppHhImn6qyWyw
-	UHD/2/zxjf2h+syzhVuVCy61dFk2cGb1Rl1fEc24bzQapC8rL6Xf9UJ2p1d0JJEW
-	gt3766wklNlru6JZNAe+w==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=flapping.org a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795692338; d=flapping.org;
-	mf=PHRvbW9AZmxhcHBpbmcub3JnPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:ITZM5yx+J2OTGR0Z+fKO0464g14L7AXd3FWI2Zf6TxzRlHG
-	tEbJ3zR2dRLPUb25y+hxiCHLxJoz/BkyRx4rSyzdbWH3fOZcYU6C+WDydc+RsDva
-	bhVjGrWnwVJYYH63QWZzzCENLdDlwTLZMkHTn8TKBV5wcQujAwIsESCm/VHaMp2O
-	UdrnnycNvzZxfvlFeQ22mndzVHMzC89nTA9rISlAX5Ot3CqwYXFw7lxgYNtbA5ct
-	Xjk3L44SppCDlAPwnV+fiTJOL1n9dAZ8LRzkEqkPat4mJY3oUCMZcmXfGem3Y19/
-	TXWadXM9JGK961EBG5fa20LbFvyt+qWGAnWTCQw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:qTOl7lUwf+GmKoN4POrAbArC+HO0ppiARC4hTlU01yA=:hJmUFYcGWIAetiTKwGm19NINzKro7Mj7gZ8iw44+Plo=;
-X-ME-Sender: <xms:MRcIa_PGkshct23ehyWMKsYrWlqI6rlAa1ngEURj4Gx9M7GNGpsAng>
-    <xme:MRcIa7S4EgXN-hoowI_jirsz29TUhIck0F6tBtmkbRuYGBa7Ptd7u96WKAs6ZUIYh
-    5Nc89atcMPdt5CXQiBMYoxuuy9G2TOda_wmaJzPFLLRzYy1KMtd5Obc>
-X-ME-Received: <xmr:MRcIay5hCfRWSdFgp6uOGvp09-q7BKDxJYov_26xSEGJ6NEWmJ7037FLApqMKXhwpQgudRWeM0_LrQRMtJba7W_O>
-X-ME-Proxy-Cause: dmFkZTETYMbP3iRRj/UkGAVUrE3lUNmjjfwo1zwuLtykPFAvEb2wZ/KoIVFTBBXNx++Oet
-    +vPO64tPuxDsaT0qHqauCd0ag2pvvaR4BQR5+QC4babDlJ1/3AtGwyob8Wq8DK7q5hW2SA
-    HHCarjPpXt/Jms8KA87KrsVdEFcZIVj9wd3MdbcJFxJ2oCLzqZwivLeaFIOrbDWV0NOwBf
-    7Xmfl0DUN2/mSJtuiBQUEmj71bDk8v6uPZiDoDee9y69SxgE/UulmTWssu/QLlGdT12XFa
-    heJElzdgoWOF4R+B8D8su7ZnFTsPdvN31Zs/OrVz8ysmUvJPEFLPTIP7FdWwVIsFEz/7mi
-    I1gDRgea0CqG9d5FGoq2st1XlOxa+NurOx/Qh24mINJZG5mEW/YXJPiNym74mtZt8zR5fi
-    QRp3FeWzmcP3GejFBQ5OemMWX1wE+OkaAZyvr7P7nXORkyuqUt7C48oVOj+Eoteb5Iqa7x
-    CgkYlzXBat9X1yOfnH2uvuA+TTwlXyy6KD/Tuej4Hx4hotDqEldWyh0bgyoIrgw7e46dhj
-    vA6mq+SF6BjwtR3agNBaHhIDGUOOvwfIbbv8FeyLO2osn2GQAtN8I37+skYOQOCdqZoOM2
-    Hj7ynU6KkdmhFr/y0BKiVg8jKXzLy+WvfrXJQqI1/AfvTyk5hMuwiRE8qWzg
-X-ME-Proxy: <xmx:MRcIa2ZccXrRAKik8-peIVrFbgaDCv3erme_-NZopkqUj5rzGgvMLg>
-    <xmx:MRcIa-aYdeOgdd7vvfz38feyDL12FSY51gh3Qqo_li9igBbUw08EmA>
-    <xmx:MRcIax2F5QOnGzgYHFRo6wvU4YUmM0bHqGAWOZD6OuBHM2MhWqO7HQ>
-    <xmx:MRcIa-b-y497F3MLTcVvNjoL5ai3bPec9h-LMh088JBpHXQDkG4T3w>
-    <xmx:MhcIa9YUczOUjKidaLNO3RYvizxcJCeyNiNFgcDq6MCddaYQl68QpRMo>
-Feedback-ID: i51fe4b43:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 26 Nov 2026 06:25:33 -0500 (EST)
-Date: Thu, 26 Nov 2026 20:25:30 +0900 (JST)
-Message-Id: <20261126.202530.1337423276496737821.tomo@flapping.org>
-To: a.hindborg@kernel.org
-Cc: fujita.tomonori@gmail.com, frederic@kernel.org, lyude@redhat.com,
- tglx@kernel.org, anna-maria@linutronix.de, jstultz@google.com,
- sboyd@kernel.org, ojeda@kernel.org, gary@garyguo.net,
- bjorn3_gh@protonmail.com, lossin@kernel.org, aliceryhl@google.com,
- tmgross@umich.edu, dakr@kernel.org, boqun@kernel.org,
- daniel.almeida@collabora.com, tamird@kernel.org, acourbot@nvidia.com,
- work@onurozkan.dev, rust-for-linux@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] rust: time: implement `Debug` for `Delta`
-From: FUJITA Tomonori <tomo@flapping.org>
-In-Reply-To: <20261126-time-delta-display-v3-1-aeeecc72f3a8@kernel.org>
-References: <20261126-time-delta-display-v3-1-aeeecc72f3a8@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=m9kbRNAz
+Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-6b894d9a075so7648349a12.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:26:24 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795692383; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ns9YyNBXn3odCGEY4k9ISALLtAGZExUKqX2smB+0UjGP7F3w68FUceOQFIYTs+9OD+
+         HXhqtCpz7fkCdHh53AyoqlHDJK3myva6EmhqPwN1BVmEwgeorXdOzAGmNbwmDucqlglX
+         ZwEmHTEW5JXLnnUxr2PcPPZ6LmePYSjukUIRaPYfYyt4Zt0hDJHZr8/FCc7+YQa2epSe
+         NE1jEmfifkgZX9GLutzlY/6lob+Sl5Hq8u325UACZBN0U/IPbR2GelhxCnB6FpiAgGAH
+         Fis3J6RQzhIKhfiJbJIHj84wFmLYdY0C46MeMind5jLThR5Z/i2KKtvJ1XBMzconuIlx
+         r3fw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=Zl3AVts+WLTukpMUzpB0lw/KP0VgqYCXGhFKIV6oqPc=;
+        fh=sAvVK2CVJSjFwiwhMiPjGPrGjPPweEzF9Xah4leS+Dg=;
+        b=hMrsqbeLBecDBIhTFwpW8mhd4bpVwC1PAgyWlXRqVvyERG4PXZWLH2cZRWwibO3Qdn
+         qX/7Qmw2bfAP2uw3aNqyX/aTPM9FCoGXw+3jq5MoVs9TQdy4vcj0+N5DxpCcRAYZSsVn
+         1QCFiw04asNusC5hk4B2OCA9dWxziKXs8ACLlIT5+/Jb0auEWYXgLmMSIzt8IQdBiYCI
+         x6VY0RVgxBQsKRxWeELKnr4MWrJ8ZovGLZfM0/XPhVI6Kx3rANTikOv4qPmQOGOBpDha
+         AjkA0oTyERsvQHeUAU/sYKitkLQt4l0Cuw+l0Uy2JoEvkiLG/3c4YoPsvCC7OAv/+I57
+         r3Tw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795692383; x=1796297183; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Zl3AVts+WLTukpMUzpB0lw/KP0VgqYCXGhFKIV6oqPc=;
+        b=m9kbRNAzZEejeD4VzN/7Vd2mdv5kAVoNWEs8e0Am+s+DnSlgLFtbts8WP/20luJYDY
+         mwuqgVmSGe1OyFtyZfnpaktjKst6FFTsi5mzfv1bsDFOkfZf3biG6XasphQ7PVot6TRH
+         mGE/U1FgJQAlDK3alPT8l10ffuvgTEo0u40BOWnv8bV939O04aGUTBITYzaMMFIkWiD9
+         VI8CTvzgiG34cS1T+cSo3FM0cTUzbr1bzTohf5Q1YfSjGtmajoMvlLUOOCXDm6eJJOa8
+         SKcJr3Hq4yQ7Did1pJOEsuVwtzrgVasqfTs9Kt10G8GqRGu3gqrHwbWo4nnp68dQZjhy
+         7A8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795692383; x=1796297183;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Zl3AVts+WLTukpMUzpB0lw/KP0VgqYCXGhFKIV6oqPc=;
+        b=Yxjgkt+g7xu7Y19/f7ohT9GX5Z32hQ8UhHaZUbY43drIyeKWY46h9e0FJm2cNJfyBa
+         dDzcRb6siOYu+qZQUkv+bo6bI2rSOJaKai233j3UFxhJB55EupgTPulQcajo+HgnrkNw
+         2MOaSeKm1uHgbb4kovNMk4adrQfAzNSEiwRq3saUygjACW9eZp30JpRHNW+cNy8hPZs0
+         ZXFrbP7+Bl5prBGhZ0lukwVTxskfq9vY3g9CoOE0NFMSBbiiHHX4vvTGlDXGcvhRJS7U
+         7ZLprIhTU7cnxIVIcQgMM8rBuiIbrcStMRDjQLFo+gCO02UQ0iUS3PTKt4mrrwj8mehN
+         Xwig==
+X-Forwarded-Encrypted: i=1; AL+hErHvBQcnrEhQZ3kqGDAfFjgmOO1vHWzIl4nsY/qy+YBvkAlcD+OACRt0g+AxS5D2J1RuF7EVCCvmn9AD7JY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+K0VbEZDsUVV5NfYLEB4OfOc10XznZvclMgeKIr7EBpdYfb7wS
+	YR2KSeLouNuCr/oCdBOkvogSzIaChvU0jCjzFxlqaJCMhVILb/Ci0woI/trU5tOCMunXIMSoMh2
+	hoSwzQEXes1ttbFWUs9bOvEjXQFDmjRJ2LMTBLcFFtQ==
+X-Gm-Gg: AZFdTZfR74DY0oJwjKOiaiQ3qf2KcslHcrDT+nUqTUjJsDCloGTXGbSwlhHsPs+fFcr
+	KAHQzTeTo4zRF/cs8UjpFB01VZQQUYcxlAJks6qIOeuwnDp7UI20GfLhCmz9xAR+1bZPjf8RMlX
+	HFkpB2fgX4kkrgnO0o4KuOMWqXUkqp08Kiv/aJQjRuLpIlR0TABO4tTLOz2Zu/5+FKkJCmvnRbR
+	/2pYYLr0c8sGJEKJf0VTIim8JiWZE4AzlWh6PTWWjS5tSQQq02bWMO5wHvzOzWfWPx4FJ8XkOSL
+	CegkZDRIbD/L68cXTyMcjpa9VEm0iqFrwSgEbibjRR22LbRW+UJCDeS0ZwjUEwOHjReGwCMJu0k
+	TL9GWWrBfpp9PEOmgJ0RHC5giDBYn4d/V/Y4E2jLrVJhGJTRdlhKEgYX59rYtwwLTQGX/Gw==
+X-Received: by 2002:a05:6402:4004:b0:6ba:6ec7:abed with SMTP id
+ 4fb4d7f45d1cf-6ba6ec7ad55mr11351355a12.27.1795692382773; Thu, 26 Nov 2026
+ 03:26:22 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -129,49 +102,103 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: Text/Plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+References: <20261125003653.1264087-1-keisuke.nishimura@inria.fr> <CAKfTPtBY=U5voby+_6=JErmsHoaXFqxYLFib6ESKFmO_pmGZyg@mail.gmail.com>
+In-Reply-To: <CAKfTPtBY=U5voby+_6=JErmsHoaXFqxYLFib6ESKFmO_pmGZyg@mail.gmail.com>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Thu, 26 Nov 2026 12:26:11 +0100
+X-Gm-Features: Aa3M54oxip5CacqLHiV4Gd4cAnDizH_f15gSetaHyyylh0T5qW6I3uaNeBCU1TU
+Message-ID: <CAKfTPtCaWVApT+6WAreKapk2wRCrXCngZPLt8oayuZT9cB1k+Q@mail.gmail.com>
+Subject: Re: [PATCH v2] sched/fair: Don't pick recent_used_cpu if target has
+ no sched domain
+To: Keisuke Nishimura <keisuke.nishimura@inria.fr>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Juri Lelli <juri.lelli@redhat.com>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	linux-kernel@vger.kernel.org, julia.lawall@inria.fr, 
+	jean-pierre.lozi@inria.fr
+Content-Type: text/plain; charset="UTF-8"
 
-On Thu, 26 Nov 2026 11:51:14 +0100
-Andreas Hindborg <a.hindborg@kernel.org> wrote:
-
-> +    fn fmt(&self, f: &mut kernel::fmt::Formatter<'_>) -> kernel::fmt::Result {
-> +        let value = U::repr_to_i64(self.value);
+On Thu, 26 Nov 2026 at 12:21, Vincent Guittot
+<vincent.guittot@linaro.org> wrote:
+>
+> On Wed, 25 Nov 2026 at 01:54, Keisuke Nishimura
+> <keisuke.nishimura@inria.fr> wrote:
+> >
+> > select_idle_sibling() can return recent_used_cpu if it is idle and
+> > shares the LLC with target. However, it does not check if target is an
+> > isolated CPU where the scheduler should not move tasks.
+> >
+> > Consider the following situation:
+> > * isolcpus=1,2
+> > * recent_used_cpu=1
+> > * target=prev=2
+> > * affinity=1,2
+> >
+> > When CPU 1 is idle but CPU 2 is busy, select_idle_sibling() returns
+> > recent_used_cpu (CPU 1).
+> >
+> > To prevent the scheduler from moving the task among isolated CPUs, check
+> > whether target has a sched domain before searching for an idle CPU.
+> >
+> > This bug was found with the help of verification using Frama-C.
+> >
+> > Fixes: 32e839dda3ba ("sched/fair: Use a recently used CPU as an idle candidate and the basis for SIS")
+> > Signed-off-by: Keisuke Nishimura <keisuke.nishimura@inria.fr>
+> > ---
+> > Changes in v2:
+> > - Return early at the beginning of select_idle_sibling() if target has
+> >   no sched domain.
+> > - Instead of `per_cpu(sd_llc, target)`, use `cpu_rq(target)->sd` to
+> >   check if target is isolated or not. A CPU might be in an asymmetric
+> >   capacity domain, but not in an LLC domain. In this case, returning
+> >   early based only on the LLC domain would miss the chance to run
+> >   select_idle_capacity().
+> > - Rewrite the explanation, because sd_llc is not the main issue anymore.
+> > ---
+> >  kernel/sched/fair.c | 4 ++++
+> >  1 file changed, 4 insertions(+)
+> >
+> > diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+> > index da0d9e19c457..9746fc55241b 100644
+> > --- a/kernel/sched/fair.c
+> > +++ b/kernel/sched/fair.c
+> > @@ -9155,6 +9155,10 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
+> >         unsigned long task_util, util_min, util_max;
+> >         int i, recent_used_cpu, prev_aff = -1;
+> >
+> > +       /* Do not search for idle CPUs if target has no sched domain. */
+> > +       if (!rcu_dereference_all(cpu_rq(target)->sd))
+> > +               return target;
+>
+> After more thought,  You have to move this check one level up at the
+> beg of select_task_rq_fair().
+> Something like:
+>
+> --- a/kernel/sched/fair.c
+> +++ b/kernel/sched/fair.c
+> @@ -9979,6 +9979,11 @@ select_task_rq_fair(struct task_struct *p, int
+> prev_cpu, int wake_flags)
+>          * required for stable ->cpus_allowed
+>          */
+>         lockdep_assert_held(&p->pi_lock);
 > +
-> +        if value < 0 {
-> +            f.write_str("-")?;
-> +        }
+> +       /* Do not search for a CPU if prev has no sched domain. */
+> +       if (!rcu_dereference_sched_domain(cpu_rq(target)->sd))
+> +               return;
 > +
-> +        // `unsigned_abs` is used because the magnitude of `i64::MIN` is not
-> +        // representable as an `i64`.
-> +        let mut magnitude = value.unsigned_abs();
-> +
-> +        // Split the magnitude into groups of three digits, least significant
-> +        // group first. A `u64` holds at most 20 digits, so 7 groups suffice.
-> +        //
-> +        // Dividing by the constant keeps the compiler from emitting a check for
-> +        // a division by zero with a potential panic.
-> +        let mut groups = [0u64; 7];
-> +        let mut used = 0;
-> +
-> +        for group in groups.iter_mut() {
-> +            *group = magnitude % 1000;
-> +            magnitude /= 1000;
+>         if (wake_flags & WF_TTWU) {
+>                 record_wakee(p);
+>
 
-Code that uses this Debug impl fails to build on 32-bit ARM, for
-example the doctests:
+And this still doesn't fix the case when cpus are isolated at runtime
 
-ld.lld-20: error: undefined symbol: __aeabi_uldivmod
->>> referenced by doctests_kernel_generated.ea22ff07120af58c-cgu.0
->>>               rust/doctests_kernel_generated.o:(<kernel::fmt::Adapter<&kernel::time::Delta<kernel::time::Jiffy>> as core::fmt::Debug>::fmt) in archive vmlinux.a
-
-div64_u64() in my series [1] should work here:
-
-    let quotient = div64_u64(magnitude, 1000);
-    *group = magnitude - quotient * 1000;
-    magnitude = quotient;
-
-If you prefer, we could also add div_u64_rem() to the math module.
-
-[1] https://lore.kernel.org/rust-for-linux/20261118224826.2491684-1-tomo@flapping.org/
+>
+> > +
+> >         /*
+> >          * On asymmetric system, update task utilization because we will check
+> >          * that the task fits with CPU's capacity.
+> > --
+> > 2.34.1
+> >
