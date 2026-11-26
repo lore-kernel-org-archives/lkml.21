@@ -1,65 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.4
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795682002;
-	b=wByOslFCF4lcQQvk0Ejm8xzi0KDxBDU4tyxuJ7kfP7nUK9EDM8PljDP+eQFtk2GiUylq
-	 Zc/8YEQcwh9ZhRjOQ/3XJeHq3CamHtt56K58PCDjKOi1G0Sk+qKsOHzm8jiQ3BzRcz9cW
-	 gUa4o9v7mN5wrX2Wv9bpUlpUELXIZgjLfE2ZVrw+W+xfcEvtFDIrI+OgoEMZWwUoG+89r
-	 U0H+Y6Xm4F+W2mSwBj3hVEW+h0lHe+EnCw8V6aZsrn6E2FfwgtBW1NbeHqBtM6buYLxVM
-	 um34Mwa/vieLQI5EUZB9j/x+9ZlOypy2qF21sXeNYPoeLJpy0VnFwgsVy3cDHJw6uxg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795682002;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.54
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795682041;
+	b=x1F4iAYdPtwfziDjn9uvfDsXISEKPcDBFk/ARF3/PdISImI+fSnzNrpmujkb739aFxL5
+	 nzPrYRCk/ZPUw3flZShrBG1q1VntST6JSGm7TVyPEMFzKi8+laGNMbFg8/LeKeRZNLcvg
+	 KUF8qA/gujJF17g3j4GGq6cBkIo+fv38vLOGIsDoWzC+0L2EDOnJ3Iqk4xB5RBxuD41gT
+	 3vZwHPFur3AjpOUd/o9UzYOwtFTajzY3KnAZTs1xi4O0+ZSuzXVfPW4WYz4nlvu33KlP/
+	 jBHHcUoSJzg/NrJW4vc6WjO2rPN+Oh98MaowWqYFQzG9kVgCtCypz0BC1ywqpL4zbpg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795682041;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=yFQEW7MnH3mO6LqMiEtMUpMW9Wm06bwcuYfptwoXb2M=;
-	b=HoSmBkEgzklSGgaQXevBvSRCL6ChDCy8lMr2oY4iqDCIUAHRqELEpBLzeEHuFAhLWL+Q
-	 JtZ6tZtslD6rLWESUJqU8ZBjZsPlbP+T2R1/mpsrbseFIsvuJjP2nZ0WwGkrmO7CxIxQA
-	 mGkWwjycCiO8R4Igo2mZC+rxYx6YOSUqZ2qwNToUvoYPJzpTJsltR6MXEJJ1NQZz4600J
-	 Fk0H5Dxy5Lc3WS60eWsEv+gpEkC/AAdB5mR13ucL1ytSEFjZgGSdJr4wUjXB8Ofq0E7g/
-	 6K2Dn8MePQ7AU3M7qLWL3in5XjlsTVYlbRB/y6Del5U2qudgYB2LM6eedDsZ8Pr8VWA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=SfQWGKon;
-	arc=none smtp.remote-ip=220.197.31.4
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.4])
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-ZohoMailClient;
+	bh=pNBL3P/+inYfgJZvhOShryqL1GH9tWM7hk/gc88KJvU=;
+	b=0L6oG+9d7lORpVsGVJTRqYQADpAzVmpYEKyPqG+er7w6/SycwWrpGqxIa0B5P7IYbimV
+	 Bc77NkxgA5pvuzaDRLjxHzdJyxz71UfAmoYogzjSQ1gA3MoRmSSsU7CKVbRymJif85Y9H
+	 jpbpSACSK5Hrgo7Th5KIcaNzEhLq8+IEohmQdZvR2PJJAKeBM6zzGiR3P/IANV9LmQHXW
+	 ZNomZ+2WkygFieYbhYJRtJEu6mUNLIWgkVKf9xgmeTUYgkzu+3Q3z7gEG0kfqdrf3PWZc
+	 CWsrJTaNoT06LPHc69tC9fZZ0u1pu21f/EP5wD+yFvQbx/YhqaU10pTw4Jzu+meaSBw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ph4ntom-rev.uz;
+	spf=pass smtp.mailfrom=ph4ntom-rev.uz;
+	dkim=pass header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=LKdtJTqJ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.54
+Received: from sender5-of-o54.zoho.com (sender5-of-o54.zoho.com [165.173.182.54])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA227606A33A;
-	Thu, 26 Nov 2026 08:33:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA227606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E875606A326;
+	Thu, 26 Nov 2026 08:34:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E875606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ph4ntom-rev.uz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ph4ntom-rev.uz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=SfQWGKon
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=yF
-	QEW7MnH3mO6LqMiEtMUpMW9Wm06bwcuYfptwoXb2M=; b=SfQWGKonm+eKHCaR4w
-	rACPgbPBDtTGv22lMMzqv+Qp+UwpJOoHaVngt+fWxjhKa13LbsmbEB9vXB/y5Vlq
-	GVni4p277k5+NnIGSO3ddOEcbK3xrjceltjRsgmlTZXtWI+9Iu/7Ix7AjcV+ti+A
-	tzpzke9O6tlkOs4Lm3L3oOH3Y=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wD3_72N7gdr0m+nLA--.38709S2;
-	Thu, 26 Nov 2026 16:32:13 +0800 (CST)
-From: "Li Youhong" <dayou5941@163.com>
-To: song@kernel.org,
-	yukuai@fygo.io,
-	agk@redhat.com,
-	snitzer@kernel.org,
-	mpatocka@redhat.com,
-	bmarzins@redhat.com
-Cc: magiclinan@didiglobal.com,
-	xiao@kernel.org,
-	linux-raid@vger.kernel.org,
-	dm-devel@lists.linux.dev,
+	dkim=pass (2048-bit key) header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=LKdtJTqJ
+ARC-Seal: i=1; a=rsa-sha256; t=1795681940; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=epiFBxFEaGlDz5SbwPZR7exWMtQgTPR6iU7SpILrXW78z91kT2R4amns3/AfdoUSffZGPLnC1Q0YFq/srsO8oYX3eihUlGcxEKzBPOFUpyXL37G3YXiXf3ikhGc5u0Fej5vt1kGf9+V6K2vKKzJ0lkHZlgOweponU9xVpRZ5veo=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795681940; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=pNBL3P/+inYfgJZvhOShryqL1GH9tWM7hk/gc88KJvU=; 
+	b=iP9ZAoxYmnOnscJbY0CSvUZ0lCiN4LXfT9R9NB09YF4nO8BNeKpjQjE5OKZgLvFLi4E1973krunyBEac6NZZj0DQWFY0qI4rjdc9k1n2iRx99ykt2jdogijLAIHdCN7Sm909Mo+4I3qjZqjQmnR2LG0NbjSHLgjrvBvkoCsDTUY=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ph4ntom-rev.uz;
+	spf=pass  smtp.mailfrom=owner@ph4ntom-rev.uz;
+	dmarc=pass header.from=<owner@ph4ntom-rev.uz>
+DKIM-Signature: a=rsa-sha256; b=LKdtJTqJTYk4Zit5VPcdQ0enGQwlGHeMB3m8VnMwpO68JvhsTKD5+EdsDEPdwb2yF1LAZAJ+AzVgELLikZKA2aumQZBXITrQKDgRWoTBMEVHK4X3KlWKy9JyoxDuRKxTdFXmmZjPxV5C0ok+NMVc87S5T8ma6qq56nlQ0m+94kL0iw7XN4XdfAqBPEDqKlj1TkRCbKfU/e90jmV++S4f6yYTI2hlqRADN+amH3/jlyMNUETVJJ9DlptHK5uFhQ7yEMjn8++AWOvkMpA21PVYEBty+zj2fuW6KQiNhNGblIGEqBYCseC4CiaON/XrSkKiYubENN9xoqTzqxfRk1FRsw==; c=relaxed/relaxed; s=zoho; d=ph4ntom-rev.uz; v=1; bh=pNBL3P/+inYfgJZvhOShryqL1GH9tWM7hk/gc88KJvU=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795681938821740.2867409957028;
+	Thu, 26 Nov 2026 00:32:18 -0800 (PST)
+From: Enver Ikromov <owner@ph4ntom-rev.uz>
+To: Ping-Ke Shih <pkshih@realtek.com>
+Cc: linux-wireless@vger.kernel.org,
+	Ahmet Zeren <niko3x@proton.me>,
+	Luka Gejak <luka.gejak@linux.dev>,
+	Bitterblue Smith <rtl8821cerfe2@gmail.com>,
 	linux-kernel@vger.kernel.org,
-	syzbot+a53c2918175b36cfd601@syzkaller.appspotmail.com,
-	liyouhong@kylinos.cn
-Subject: [PATCH v7 0/2] md: fix sync_work vs array teardown races
-Date: Thu, 26 Nov 2026 16:32:08 +0800
-Message-Id: <20261126083210.210866-1-dayou5941@163.com>
-X-Mailer: git-send-email 2.25.1
+	Enver Ikromov <owner@ph4ntom-rev.uz>
+Subject: [PATCH rtw-next 2/2] wifi: rtw89: pci: fix TX status and counters for NO_ACK frames
+Date: Thu, 26 Nov 2026 13:31:41 +0500
+Message-ID: <20261126083141.1470-3-owner@ph4ntom-rev.uz>
+X-Mailer: git-send-email 2.56.0.windows.4
+In-Reply-To: <20261126083141.1470-1-owner@ph4ntom-rev.uz>
+References: <20261126083141.1470-1-owner@ph4ntom-rev.uz>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,77 +71,50 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3_72N7gdr0m+nLA--.38709S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxZF15AF4xZryfJr43CFyUZFb_yoW5AFW5pr
-	WYqry5Gr4Dt34xZFsrK3W0va4rAw1rX398Xr1fGw1fC3yrAr1UXFW8K3Wj9FyDuFyrA34k
-	Za1UJFZaka4qvFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jjNtsUUUUU=
-X-CM-SenderInfo: 5gd103ivzuiqqrwthudrp/xtbC+Q57KmsH7o6+kAAA3E
+X-ZohoMailClient: External
 
-From: Li Youhong <liyouhong@kylinos.cn>
+In rtw89_pci_tx_status(), IEEE80211_TX_STAT_NOACK_TRANSMITTED is set
+unconditionally whenever IEEE80211_TX_CTL_NO_ACK is present, even when
+the frame was dropped (RTW89_TX_MACID_DROP or RTW89_TX_LIFE_TIME)
+without being transmitted. In addition, when a NO_ACK frame completes
+with RTW89_TX_DONE (broadcast, QoS No-Ack, or Wi-Fi 7 BE NO_ACK), the
+subsequent RTW89_TX_DONE branch also sets IEEE80211_TX_STAT_ACK and
+increments tx_ring->tx_acked, whereas unacknowledged Wi-Fi 6 AX unicast
+NO_ACK frames (tx_cnt_lmt = 1) complete with RTW89_TX_RETRY_LIMIT and
+fall into the failure path.
 
-dm-raid tears down arrays via md_stop(), which cleared mddev->pers
-without waiting for previously queued sync_work. That work could
-then call remove_spares() with pers == NULL, or keep using mddev
-after raid_dtr() frees it.
+Clear stale TX status bits and set IEEE80211_TX_STAT_NOACK_TRANSMITTED
+exclusively when a NO_ACK frame completes with RTW89_TX_DONE or
+RTW89_TX_RETRY_LIMIT, reserving IEEE80211_TX_STAT_ACK and
+tx_ring->tx_acked for non-NO_ACK completions while still accounting
+RTW89_TX_LIFE_TIME and RTW89_TX_MACID_DROP as failures.
 
-do_md_stop()/md_stop_writes() already call stop_sync_thread() before
-teardown. md_stop() needs the same wait, plus a few related holes
-around work_busy(), MD_RECOVERY_FROZEN on the read-only path, and
-event_work on the raid_ctr() error path.
-
-This series splits the previous combined fix so the work_pending ->
-work_busy change can land on its own.
-
-Li Youhong (2):
-  md: use work_busy() to flush sync_work in stop_sync_thread()
-  md: fix sync_work vs array teardown races
-
- drivers/md/dm-raid.c |  7 +++++++
- drivers/md/md.c      | 39 +++++++++++++++++++++++++++++----------
- 2 files changed, 36 insertions(+), 10 deletions(-)
-
+Fixes: e3ec7017f6a2 ("rtw89: add Realtek 802.11ax driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Enver Ikromov <owner@ph4ntom-rev.uz>
 ---
-v7:
-- Resend v6; the previous v6 mails were not posted as one continuous
-  dependent series. Please ignore that v6 and use this one instead.
-- No code change since v6.
-- v6: https://lore.kernel.org/linux-raid/20261126080821.144057-1-dayou5941@163.com/
+ drivers/net/wireless/realtek/rtw89/pci.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-v6:
-- Split into two patches per review:
-  1/2: only replace work_pending() with work_busy() when flushing
-       sync_work in stop_sync_thread(); Fixes: f52f5c71f3d4.
-  2/2: remaining changes (md_stop wait, idle early-return gated by
-       work_busy(), INTR only when RUNNING, RO FROZEN check,
-       flush event_work on raid_ctr() error path).
-- Keep if (work_busy()) flush_work() in 2/2; do not turn it into an
-  unconditional flush (that would make 1/2 pointless).
-- v5: https://lore.kernel.org/linux-raid/20261112013523.120428-1-dayou5941@163.com/
-
-v5:
-- Restore idle early-return in stop_sync_thread() gated by work_busy(),
-  so locked callers keep reconfig_mutex and do not race with do_md_run().
-- Flush event_work before raid_set_free() on the raid_ctr error path
-  (md_stop() may drop the mutex and let md_reap queue it).
-- v4: https://lore.kernel.org/linux-raid/20261111015027.4029184-1-dayou5941@163.com
-
-v4:
-- Always flush_work(&sync_work) in stop_sync_thread(); do not delay
-  clearing MD_RECOVERY_RUNNING (that can drop MD_RECOVERY_NEEDED via
-  md_check_recovery, and does not cover the successful sync_thread
-  registration path).
-- v3: https://lore.kernel.org/linux-raid/20261110063045.912703-1-dayou5941@163.com
-
-v3:
-- Honour MD_RECOVERY_FROZEN before queueing sync_work on the
-  read-only md_check_recovery() path.
-- (superseded) delayed MD_RECOVERY_RUNNING clear on not_running.
-- v2: https://lore.kernel.org/linux-raid/20261109023055.2164333-1-dayou5941@163.com
-
-v2:
-- Drop the pers NULL check in md_start_sync().
-- Call stop_sync_thread() from md_stop() before clearing pers,
-  matching do_md_stop()/md_stop_writes().
-- v1: https://lore.kernel.org/linux-raid/20261106083543.249267-1-dayou5941@163.com
+diff --git a/drivers/net/wireless/realtek/rtw89/pci.c b/drivers/net/wireless/realtek/rtw89/pci.c
+index 76523d057..2204ed8c5 100644
+--- a/drivers/net/wireless/realtek/rtw89/pci.c
++++ b/drivers/net/wireless/realtek/rtw89/pci.c
+@@ -470,9 +470,12 @@ static void rtw89_pci_tx_status(struct rtw89_dev *rtwdev,
+ 	info = IEEE80211_SKB_CB(skb);
+ 	ieee80211_tx_info_clear_status(info);
+ 
+-	if (info->flags & IEEE80211_TX_CTL_NO_ACK)
++	info->flags &= ~(IEEE80211_TX_STAT_NOACK_TRANSMITTED |
++			 IEEE80211_TX_STAT_ACK);
++	if ((info->flags & IEEE80211_TX_CTL_NO_ACK) &&
++	    (tx_status == RTW89_TX_DONE || tx_status == RTW89_TX_RETRY_LIMIT)) {
+ 		info->flags |= IEEE80211_TX_STAT_NOACK_TRANSMITTED;
+-	if (tx_status == RTW89_TX_DONE) {
++	} else if (tx_status == RTW89_TX_DONE) {
+ 		info->flags |= IEEE80211_TX_STAT_ACK;
+ 		tx_ring->tx_acked++;
+ 	} else {
+-- 
+2.53.0
 
