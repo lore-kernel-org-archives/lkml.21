@@ -1,83 +1,120 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795691519;
-	b=t1CTZllwShqoFWtggcfOHEZLqEMqqhcKAYIYXkiTjgrOek2ujBI6S1bv00qb+M/RUDHJ
-	 3lWdqPa+qNMmZZFNND6UwHbK9jBMr1zHJY9ASD48A3b+BkWze0DUoBjNXjG3ML/RhJ/Cp
-	 XXwfbDCoPW5QLezBFoywdHHWMilfoUqyyvQoqZgVH7yh5VE4vrCtrpfEDU4vQeaL3sEu2
-	 LoLoVSODaLDsb7L0j15eLJzqEap8TyUvyEt+aESzR1TqL2IXO6+Aa1REDEMEG1jKBj88p
-	 kQHwn5utUL0FB1BYZ0wCo06VEOTbtXwMWn8TYhFQQb2NS6IZxNXy+VoaQywyibudsyQ==
+	t=1795691534;
+	b=dbpFkH8bY62G8/mevPZ4co94f0lJRGJRD+kLd9hiBOUEKhIeWPy2yh3v9MSZrg/eWfx1
+	 lYY5D8SjZtSBNvmKDBQsewip84jUObdPBx0XtkOoBnQArOI+ipLAAd12e8cOMnUKbPDb1
+	 77cvy9z4X8i8hnSWRLEiSSzHuFxCFKEXxoX075cBRVA66htQ9TF7XSZHWva70bIjssPHh
+	 QOCAnDZMnIvjrp3IOXFU3ZSPuyxf+eHV6AE2N+FCuaaPEzr34388xOOEIBO77gRbG0wV4
+	 RS0rRNJ8ic08brM6GfPFa9RRs2eyQ61/JlL3LfqNRASJk8S7gE7pnFAVXiSbwQoOlGg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795691519;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=eFEvD2f69EGvl7kFF0s0fPq9jUBZzVmpblExY89cSXs=;
-	b=LXGcnMa8PfLSDO/E84EKsib5sTWpMBxbwgJX7k/5uxiqhATuxKPIS/F40l/kD8WdwrCl
-	 qL40KtiD3MsN5AJfqiUmPmL5I8uxr/iSCEdDBpFsLYulGlg8bNpfa4oZSBR9+NaVCth/V
-	 YwrIL+uD+Pz9nAvbn3qNIP6DCSLijpvBd6l3ZVHTs/VvwJEUBHdG1JqcebvPp/kiXrPMX
-	 CYYeqOAkPcqaYvdbSPBfsp6+rDfHBnzPJDzac6iQBhqptQCY/CQcFp/N2juTFpwfH9/Ap
-	 T4h83XTrn5XCvq6akMvYyaVTnxU6GdGdCqXevnpCILJnDcw7QqVCXbQgD/yqdWOuhWQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795691534;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=/bantJDujBdPXRkbIoqLhEHljHB1m6SQlPYF9yA+ZR8=;
+	b=O7EAA62FQd9mWLRp1yFK84Vc/pw+O7VCJ5LN/wWvyAVLoy4R4Kx4N00CfI9ZnCQjBApP
+	 EFMQNjejpLeZ9Pf6MVvI4yNyEazk3IZXkMNJvgZEXxDYWvc7uYvFX+SzrK0TEyLk2Ftoi
+	 JviDWObZ/+kygwV0tvfmxl12eHU2gChrzuCOxq+tvcKMIOab3O3qTpqijTw+S8HEE+8fr
+	 +HppXeJhKfWKnAjXADFS0NqvzH8UWnqdpaoVuhgGQfEyjqVDgaTdRafeiM2s3awJehY47
+	 UIzsvqwuvoTmGrRJK2yIGCPAQTGN8lJJE9Mzl0U7Km8hJ1KJc7JNsXYpXbO50clg+jA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=ISo13rvf;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=YHZKUJpu;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=kfN1mrDt;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E698606A31E;
-	Thu, 26 Nov 2026 11:11:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E698606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3839B606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:12:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3839B606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=ISo13rvf
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795691517;
-	bh=nv6fHJRxI/wMvY18exOKTyH79016H33/Tf6oSya2kA4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ISo13rvfIfERB1id+DoZpfb1QQAKfd+4wKtG66f+St7S4cekIXij8QrH39fPPsb2U
-	 ObUM5KjBhdc2obQnNxQIFUIL8C+xK1ZtsxMJhLMRm5H2rKcJ/WLkKSNyPQp4ewmiNQ
-	 MlkB/7yNDb3/VREO7BHfM9smXStBqImjixalwbBgG3ciFOVJGUrzk/XXzO2v/Ze681
-	 3Lnson8feL1XewI2cKxFChI8KPSzciAdwRT5nW+J/BtZ1UczSfKgK9fsmul3+aU4sb
-	 di5w4doCwKhNljq/HjEpKIsBkBX3QyJVpUKzch4ZkzqcLYnvI7dTq2L5yw/sf8w/m8
-	 vrmSDRMMIx2qg==
-Received: from laura.lan (unknown [100.64.0.215])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7AF4C17E0183;
-	Thu, 26 Nov 2026 12:11:56 +0100 (CET)
-From: Laura Nao <laura.nao@collabora.com>
-To: daniel.almeida@collabora.com
-Cc: a.hindborg@kernel.org,
-	acourbot@nvidia.com,
-	airlied@gmail.com,
-	aliceryhl@google.com,
-	bjorn3_gh@protonmail.com,
-	boqun@kernel.org,
-	dakr@kernel.org,
-	deborah.brouwer@collabora.com,
-	dri-devel@lists.freedesktop.org,
-	gary@garyguo.net,
-	kernel@collabora.com,
-	laura.nao@collabora.com,
-	linux-kernel@vger.kernel.org,
-	lossin@kernel.org,
-	ojeda@kernel.org,
-	rust-for-linux@vger.kernel.org,
-	simona@ffwll.ch,
-	tamird@kernel.org,
-	tmgross@umich.edu,
-	work@onurozkan.dev
-Subject: Re: [PATCH v7 3/3] drm/tyr: add Job IRQ handling
-Date: Thu, 26 Nov 2026 12:11:45 +0100
-Message-Id: <20261126111145.117769-1-laura.nao@collabora.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <03D5FC68-0E3B-47B4-A3E4-6F2EABD54096@collabora.com>
-References: <03D5FC68-0E3B-47B4-A3E4-6F2EABD54096@collabora.com>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=YHZKUJpu;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=kfN1mrDt
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795691533;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/bantJDujBdPXRkbIoqLhEHljHB1m6SQlPYF9yA+ZR8=;
+	b=YHZKUJpumBI66a51J4TjHFGehtZb/PYkK7+MWQO8DwSq6sxB7q6SP8b0KcJ0kaH6+0b29S
+	VTXkiJTqlnXqC52Kx0hForoEHxuwfRAyXtZ/IilVXdxqIOiOeh9KD3EKUllhmnLQNs2LVD
+	57qk1KrltNTOE9g89pmlp5ojuiPUVC0=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-126-JVy6R5QFMgCMBlrzjmHIZA-1; Thu, 26 Nov 2026 11:12:09 +0000
+X-MC-Unique: JVy6R5QFMgCMBlrzjmHIZA-1
+X-Mimecast-MFC-AGG-ID: JVy6R5QFMgCMBlrzjmHIZA_1795691528
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-4bcda4c853aso313640f8f.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:12:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795691528; x=1796296328; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/bantJDujBdPXRkbIoqLhEHljHB1m6SQlPYF9yA+ZR8=;
+        b=kfN1mrDt0MhWb4rjfmm152dJZ9X1yPBt85q5ThY+EZ/oTKmOu+XE8fqlh4Yo5gkF1p
+         5c3OAjR+JqN4ZQIkbJ0OoXcLFONt50vhNaHcwGSMqd4+oEo4M+Q/p96SfY/DyiGEmlP2
+         GbVM0LYIcbS5L99JsGIzO2+n3xh3/ZMTGReyrsPxxtvCocGkkddXPpqHW485uPuO0OXA
+         uNQGE2PdejFU4dhn6BPktODzA2gVouuYKOBWRlTESJItq6QtCduAOnz2p7wpas997hUR
+         knukqjWZxgwcHKo3DttfFrXoawcEVo89erTlVcBb2xaHSHzn+5+1UfK+e0PWKMFHZtEF
+         8yzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795691528; x=1796296328;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/bantJDujBdPXRkbIoqLhEHljHB1m6SQlPYF9yA+ZR8=;
+        b=mWiTiTFSL1aJlOPo5uoqCm/Dv4po7HTcfq6iKgaBCk4ZpBlW1ImpGUmDh49H6hiyUO
+         YB3jqMIrNmCxL++RIOES1EDTYN69JkHY96p/FghKVze17EV1D3GAIo44EY+pvb1br961
+         N/7rWASgrB/0Oa4rIwf1oBIht/rv1gOXfwvYOKffGtdER0yynNC+Ph5pMte6Bm6KzVNk
+         5wC9GjmSCGpxnpxO8eiXoSmTjz+tKk/opdOCDPobp9CDu2q5b2hRRGWxfPGiA0zp2o/V
+         kipAstSG3LnNF4TrVeAbR9LeCV1/jZzIcasiYfFTxjzeZZLhPLdRGUkuOX7tOBks9BB0
+         G9QA==
+X-Forwarded-Encrypted: i=1; AL+hErEGGwD5yW9KAmH7bvaHeV1KUKVqpy5zzwb9IoUxrt53PHYcclRY1bsaeA2G9D6SX0g965KDTwIqEJdqpKk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/Tso6jvBa/0UbWWXlFGSfr9JQDuBuUUJw7IKr4eJUuMo7SU23g
+	pLQ1B8aG3N25/LHjoTy95iD8T73uDcot3F1wckHGJOwuV99+zVR6qEjw8BOOJlNC2IzdqpWxspF
+	vxtd+J1Glf2HVUk+8puS/wxpT9Q2Pdup5fS6TSM9BJK2XBHIqs1rH6k7BQLHQvSUqnA==
+X-Gm-Gg: AZFdTZec0zxqemmt9CMinicX6JjdbNzjGLX83Tp+4F5Cv6CXtof5Jh0DIVigaY+iClI
+	iLhHYZzhDiRe8e1qcIHuiJV0wRjSPab0YJOvQq23l48DHzp7xlCwRrGb21vtIkKOrBFEL0mm/0p
+	iJo0fODaNshSAnpjSD2wyePbxVPMcU6aa9TMRSSpMKbVwG03Q9nA9N4og2w+EBFE5USth0Q/lfS
+	KbkHfWl+yAHV0VPJPDRou26N8HzEXid5NqpHxRRbdLvO84COLHKf9QKBF4IUGlUJOGJA/Ch8/68
+	6jvDIBltqpnbMCTQ+Z3KEjO/0GWtGTDEsC1e35zJms/QHSxQOIdunn29tiwleBo1VdYeq9SiwN1
+	gcjOhigyO+MRxK//rdsIjwwV5Yw4wRfgcXnbqKPFSiKEqwLXOemoz0RJskhhmV/UFpxhVU71NzF
+	Wr6Qiz
+X-Received: by 2002:a05:6000:299c:10b0:4a7:9630:7b5a with SMTP id ffacd0b85a97d-4abb47b2043mr29541065f8f.47.1795691528408;
+        Thu, 26 Nov 2026 03:12:08 -0800 (PST)
+X-Received: by 2002:a05:6000:299c:10b0:4a7:9630:7b5a with SMTP id ffacd0b85a97d-4abb47b2043mr29541030f8f.47.1795691528027;
+        Thu, 26 Nov 2026 03:12:08 -0800 (PST)
+Received: from jlelli-thinkpadt14gen4.remote.csb ([151.29.146.153])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4b70c05b9desm15925798f8f.54.2026.11.26.03.12.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 03:12:07 -0800 (PST)
+Date: Thu, 26 Nov 2026 12:12:05 +0100
+From: Juri Lelli <juri.lelli@redhat.com>
+To: Elkin Cruz <elkin@google.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
+	irogers@google.com, stable@vger.kernel.org,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Subject: Re: [PATCH] sched/core: Avoid atomic cpuset_lock() in
+ __sched_setscheduler()
+Message-ID: <awgUBa_9VrhDahUt@jlelli-thinkpadt14gen4.remote.csb>
+References: <20261125222729.1450842-1-elkin@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,274 +124,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261125222729.1450842-1-elkin@google.com>
 
-Hi Daniel,
+Hello,
 
-On 11/24/26 21:49, Daniel Almeida wrote:
->
-> Hi Laura,
->
->> On 23 Nov 2026, at 11:58, Laura Nao <laura.nao@collabora.com> wrote:
->>
->> The Job IRQ reports requests from the CSF firmware, including global
->> interface requests and CSG attention bits. Only the GLB bit is currently
->> handled, as it will be used to check firmware readiness. CSG bits
->> handling will be added at a later stage. The Job IRQ handler masks the
->> interrupt in the primary IRQ handler, processes pending raw status in
->> the threaded handler, clears the handled bits, and reenables the mask
->> before returning.
->> Add JobIrqEvents to hold the wait queue and the ready flag used to
->> signal firmware readiness when the GLB bit is set.
->>
->> Co-developed-by: Daniel Almeida <daniel.almeida@collabora.com>
->> Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
->> Co-developed-by: Deborah Brouwer <deborah.brouwer@collabora.com>
->> Signed-off-by: Deborah Brouwer <deborah.brouwer@collabora.com>
->> Signed-off-by: Laura Nao <laura.nao@collabora.com>
->> ---
->> drivers/gpu/drm/tyr/fw.rs     |   1 +
->> drivers/gpu/drm/tyr/fw/irq.rs | 148 ++++++++++++++++++++++++++++++++++++++++++
->> drivers/gpu/drm/tyr/irq.rs    |   1 -
->> 3 files changed, 149 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/gpu/drm/tyr/fw.rs b/drivers/gpu/drm/tyr/fw.rs
->> index f2e0404addf2..ecf2ea171bc9 100644
->> --- a/drivers/gpu/drm/tyr/fw.rs
->> +++ b/drivers/gpu/drm/tyr/fw.rs
->> @@ -69,6 +69,7 @@
->>     vm::Vm, //
->> };
->>
->> +pub(crate) mod irq;
->> mod parser;
->>
->> pub(super) const CSF_MCU_SHARED_REGION_START: u32 = 0x04000000;
->> diff --git a/drivers/gpu/drm/tyr/fw/irq.rs b/drivers/gpu/drm/tyr/fw/irq.rs
->> new file mode 100644
->> index 000000000000..a736d8cd4374
->> --- /dev/null
->> +++ b/drivers/gpu/drm/tyr/fw/irq.rs
->> @@ -0,0 +1,148 @@
->> +// SPDX-License-Identifier: GPL-2.0 or MIT
->> +
->> +//! IRQ handling for the Job IRQ.
->> +//!
->> +//! The Job IRQ signals events from the MCU, including global interface acknowledgements.
->> +#![allow(dead_code)]
->
-> In general, please prefer expect(dead_code) instead.
->
+On 25/11/26 22:27, Elkin Cruz wrote:
+> When Magic SysRq-N invokes normalize_rt_tasks(), it holds
+> read_lock(&tasklist_lock) in atomic context and calls
+> __sched_setscheduler(p, &attr, false, false) with pi == false to reset
+> real-time and deadline tasks to SCHED_NORMAL.
+> 
+> For a SCHED_DEADLINE task, dl_policy(p->policy) is true, so
+> __sched_setscheduler() calls cpuset_lock() (mutex_lock(&cpuset_mutex))
+> while in atomic context under tasklist_lock and then skips
+> cpuset_unlock() on exit because unlocking is gated on if (pi), leaving
+> cpuset_mutex permanently locked.
+> 
+> Guard cpuset_lock() with pi (matching the non-atomic caller contract,
+> where switched_from_dl() releases deadline utilization under rq/dl_bw
+> spinlocks) and call cpuset_unlock() on exit whenever cpuset_locked is
+> set.
+> 
+> Fixes: 111cd11bbc54 ("sched/cpuset: Bring back cpuset_mutex")
+> Signed-off-by: Elkin Cruz <elkin@google.com>
+> Cc: stable@vger.kernel.org
+> ---
+> 
+> I am trying out new Clang static analysis checks for kernel bug
+> classes, and they flagged this code as possibly buggy. The findings
+> were triaged/fixed and commit descriptions were drafted with help of AI,
+> then checked against linux-next (not runtime-tested on hardware).
 
-Ack.
+Thanks for this, but I believe Mathieu's patch takes care of it already?
 
->> +
->> +use kernel::{
->> +    device::Bound, //
->> +    io::Io,
->> +    new_waitqueue,
->> +    platform,
->> +    prelude::*,
->> +    sync::{
->> +        atomic::{
->> +            ordering,
->> +            Atomic, //
->> +        },
->> +        Arc,
->> +        WaitQueue, //
->> +    },
->> +    time::{
->> +        Delta,
->> +        Msecs, //
->> +    },
->> +};
->> +
->> +use crate::{
->> +    irq::{
->> +        TyrIrqRegistration,
->> +        TyrIrqTrait, //
->> +    },
->> +    regs::job_control::{
->> +        JOB_IRQ_CLEAR,
->> +        JOB_IRQ_MASK,
->> +        JOB_IRQ_RAWSTAT,
->> +        JOB_IRQ_STATUS, //
->> +    },
->> +    driver::IoMem,
->
-> rustfmt produces a (small) diff here.
->
+https://lore.kernel.org/lkml/9194486f15bb0cb36b51e4525f471d1150c0d58b.1795115075.git.mathieu.desnoyers@efficios.com/
 
-Ack - I forgot to do a final rustfmt run before submitting, I'll fix
-this in the next revision.
+Best,
+Juri
 
->> +    reset::HwGate, //
->> +};
->> +
->> +/// The firmware events published by the Job IRQ handler, and the queue used to announce them.
->> +#[pin_data]
->> +pub(crate) struct JobIrqEvents {
->> +    #[pin]
->> +    wait: WaitQueue,
->> +    /// Set once the firmware has signalled that the global interface is ready.
->> +    ready: Atomic<bool>,
->> +}
->> +
->> +impl JobIrqEvents {
->> +    /// Creates a new, empty set of Job IRQ events.
->> +    pub(crate) fn new() -> Result<Arc<Self>> {
->
-> There is an ongoing effort[0] to get rid of Arcs in places they are not needed
-> using self-ref pin init.
->
-> Since I expect other users to be able to take a reference to this field as
-> applicable, lets drop this Arc for the time being.
->
->
-
-Makes sense, thanks for the pointer. I this this also means 
-job_irq_init needs to return Result<impl PinInit<Self, Error> + 'a>
-instead of a fully constructed Result<Pin<KBox<TyrIrqRegistration<'a, JobIrq>>>>,
-right?
-
-With [0], Firmware is no longer wrapped in Arc. Iiuic, combined with the
-above, this will let us embed both the firmware and the job IRQ 
-registration as plain #[pin] fields in the same TyrDrmRegistrationData 
-struct. The job IRQ can then borrow a reference to the firmware's 
-JobIrqEvents directly within that same struct, instead of cloning it
-through Arc.
-
-If that's correct, I'll change both job_irq_init() and 
-TyrIrqRegistration::request() to return a 
-Result<impl PinInit<Self, Error> + 'a>.
-
->> +        Arc::pin_init(
->> +            pin_init!(JobIrqEvents {
->> +                wait <- new_waitqueue!(),
->> +                ready: Atomic::new(false),
->> +            }),
->> +            GFP_KERNEL,
->> +        )
->> +    }
->> +
->> +    /// Clears the firmware-ready state.
->> +    #[expect(dead_code)]
->> +    pub(crate) fn clear_ready(&self) {
->> +        self.ready.store(false, ordering::Relaxed);
->> +    }
->> +
->> +    /// Waits until the firmware signals readiness via the GLB IRQ bit, or the timeout expires.
->> +    pub(crate) fn wait_ready(&self, timeout_ms: Msecs) -> Result {
->> +        self.wait.wait_event_timeout(
->> +            || self.ready.load(ordering::Acquire),
->> +            Delta::from_millis(timeout_ms.into()).to_jiffies_timeout(),
->> +        )?;
->> +
->> +        Ok(())
->> +    }
->> +
->> +    /// Updates state and wakes up waiters
->> +    fn signal(&self, status: u32) {
->> +        // TODO: handle other Job IRQ events (e.g. CSG attention bits) here once
->> +        // support for them is added.
->> +
->> +        // The GLB bit only signals firmware readiness once, at power up
->> +        if JOB_IRQ_RAWSTAT::from_raw(status).glb() && !self.ready.load(ordering::Relaxed) {
->> +            self.ready.store(true, ordering::Release);
->> +        }
->> +
->> +        self.wait.wake_up_all();
->> +    }
->> +}
->> +
->> +// The Job IRQ, signalling requests or notification from the MCU.
->> +pub(crate) struct JobIrq {
->> +    /// Firmware events signalled by this IRQ.
->> +    events: Arc<JobIrqEvents>,
->
-> If we get rid of the Arc, this would become 
->
-> events: &‘a JobIrqEvents.
->
->
->
->> +}
->> +
->> +
->> +/// Requests a threaded IRQ registration for the Job IRQ.
->> +///
->> +/// # Safety
->> +///
->> +/// Callers must not `mem::forget()` the resulting registration or otherwise prevent its
->> +/// [`Drop`] implementation from running.
->> +pub(crate) unsafe fn job_irq_init<'a>(
->> +    pdev: &'a platform::Device<Bound>,
->> +    hw: Arc<HwGate<'a>>,
->> +    events: Arc<JobIrqEvents>,
->> +) -> Result<Pin<KBox<TyrIrqRegistration<'a, JobIrq>>>> {
->> +    let job_irq = JobIrq { events };
->> +    // Ensure interrupt sources are disabled until the handler is registered.
->> +    job_irq.clear_mask(hw.access().iomem());
->> +
->> +    // SAFETY: The caller guarantees the resulting registration will not be leaked.
->> +    unsafe { TyrIrqRegistration::request(pdev, c"job", job_irq, hw) }
->> +}
->> +
->> +impl TyrIrqTrait for JobIrq {
->> +    fn read_status(&self, io: &IoMem<'_>) -> u32 {
->> +        io.read(JOB_IRQ_STATUS).into_raw()
->> +    }
->> +
->> +    fn clear_mask(&self, io: &IoMem<'_>) {
->> +        io.write_reg(JOB_IRQ_MASK::zeroed());
->> +    }
->> +
->> +    fn reenable_mask(&self, io: &IoMem<'_>) {
->> +        io.write_reg(JOB_IRQ_MASK::from_raw(self.mask()));
->> +    }
->> +
->> +    fn read_raw_status(&self, io: &IoMem<'_>) -> u32 {
->> +        io.read(JOB_IRQ_RAWSTAT).into_raw()
->> +    }
->> +
->> +    fn clear_status(&self, io: &IoMem<'_>, status: u32) {
->> +        io.write_reg(JOB_IRQ_CLEAR::from_raw(status));
->> +    }
->> +
->> +    fn mask(&self) -> u32 {
->> +        JOB_IRQ_MASK::zeroed().with_glb(true).into_raw()
->> +    }
->> +
->> +    fn handle(&self, status: u32) {
->> +        self.events.signal(status);
->> +    }
->> +}
->> diff --git a/drivers/gpu/drm/tyr/irq.rs b/drivers/gpu/drm/tyr/irq.rs
->> index 4a065c6272c5..5632f50b0a13 100644
->> --- a/drivers/gpu/drm/tyr/irq.rs
->> +++ b/drivers/gpu/drm/tyr/irq.rs
->> @@ -1,7 +1,6 @@
->> // SPDX-License-Identifier: GPL-2.0 or MIT
->>
->> //! Threaded IRQ wrapper shared by all Tyr interrupt sources.
->> -#![allow(dead_code)]
->> use core::marker::PhantomPinned;
->>
->> use kernel::{
->>
->> -- 
->> 2.39.5
->>
->>
->
-> With the changes,
->
-> Reviewed-by: Daniel Almeida <daniel.almeida@collabora.com>
->
-> [0]: https://lore.kernel.org/rust-for-linux/DN2ZFO94BZMF.2XTCCKEUDLZSB@kernel.org/T/#t
->
-
-Thanks,
-
-Laura
