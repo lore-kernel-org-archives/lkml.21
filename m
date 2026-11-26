@@ -1,94 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795676414;
-	b=QxlSxJ0aqRlkoFSEk1KTgg0w+i8oHVVmDNyI8GPuQBQAJVCKI89OQK/KsAxD7aNFgEjt
-	 mfnJ+OIlXWjlxDCtubhJuwxfAKcLHiymvWuf89H50yKvIpe9hiyTVH0s9f0mqqrZYiHez
-	 CJjgZ5CBaiRYFP5TIg6y3AZsrk482AdIXxNAOsyfjGLcAX1KpuU2QTRVmbMQiqBPmI4WQ
-	 JReY3yA5r4dJIJ6uSUX5lkV/dgt+sZxz+dyUGMJ+0DjtkPRr3mXeWZK6kIA7SHLIuYR7q
-	 KRYGA8zbBqOffoK4tNW5Lcb4YjOdMJQ1HdqqEqi3D0zvLtNVwzVoeEaoB3LZrWXBuRg==
+	t=1795676422;
+	b=1ZKqB/oNepeh7t/XLvvszRwcGknNpoi7vdM/N/aDmFmHigZ3deX17ZmIx4FWGgQwiAYz
+	 lw+mKDSsP6NFsNVI1nQxKicLTuSt5Iby4tXZZt1L37yfcpYLypBYbX2PFeeQ0KE+RNh/6
+	 TJ2JYR4LtsrtcRLSFXqBCu2H6b7az22tmpk2Fsrk0AtKXRxoMXQrJ3n6EoE0b94bfcnb1
+	 766tAyZmdLWvWUwCubGrV4xxa9PpNp5nXVrlxns19Yswu2SRkCrb4blTS6Mz87AEKv5wh
+	 w4/3LEjucsctZwbtRos7OCVvdd+5gogzTY9UadAi+Qzdet/xSPraHsWBcn+gJsmeOmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795676414;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=wy2ZfDuxZ+L0rGiTO2Hr2gxsNqdlmXKGnqLfSzRtbhg=;
-	b=nNzybVe8/FZygesX5aklI+lIdHmOZIgLxQmFOYWRjH1H5DaxSiu9eUtHT7yVf2eID/+R
-	 Ue+KlkrMhvRNkbH13ZznjowsR74bm874Pwy5UKbBwkcsNh+wslOh9xMyVwYmk6xuxiIbp
-	 gcy7+kUEDtW/iULotC76h69k8WfJB2RiBRgo3vmP5OLUjU6LzW/NjBjSA4ce4ObvXbDqB
-	 0KVcaLT1sRyEbhlbLdAPmwr2ZZarsvo6Cc7sOqkHbXOPVU8jRj31uSc6LmOBD8RTW8NQZ
-	 G2kridvEdYO4/YeFhcCk3u2bSlPuZw7KKHoaD0X21HbfetKzo4b66SZN65NscRECTAA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795676422;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=NAGZI9h77fAEVJOMFwdusvDKaYM8J+TbnUlWkWl59RI=;
+	b=HxlH3/5W3C/WPTJBjnZykd89nH7XI7+FNzCPcw07eF2pNYmPrlilJ+gIYPmOOCpam5iP
+	 XbGnWKPWDZvBmYKD/oSx708C/lt/iQ3j3u+0mxds5EwiWjoJbZT51MALq2nqRkN8Wa+GL
+	 7ms8D1z346wtyKRkMOubKqLF9y2nJtiN4GjNY7Ht7fgelzIvgY5mIIXUoCCyX2iL3mXmb
+	 QNjU49VYQkD9DH+t1FbYs0D39iaDZnzHy06khXIYH+uvwObZPne/RYwxJfQTOGU9LmO2Q
+	 bCXHsgqtdBM8FlKr2qusynujYbWXtqMrpHeLl7Y4vFffH94O5Vw2iidId0xbVoY2PUA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eIqBQMhu;
-	arc=none smtp.remote-ip=209.85.216.54
-Received: from mail-pj1-f54.google.com (mail-pj1-f54.google.com [209.85.216.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=jOQHE9ns;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Wf5eHh4x;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2602606A327
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:00:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2602606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C687606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:00:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C687606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eIqBQMhu
-Received: by mail-pj1-f54.google.com with SMTP id 98e67ed59e1d1-3b155f50c24so5399896a91.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:00:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=jOQHE9ns;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Wf5eHh4x
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ36IqM393974
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:00:15 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	NAGZI9h77fAEVJOMFwdusvDKaYM8J+TbnUlWkWl59RI=; b=jOQHE9nsO934AjXL
+	6eI4s2hT3Ut9arcgad+qRKj3BXHkJVD6xsI1JUtqOs128cq/N4bQ8O4Jy/H+2O2t
+	t+ZAsxHf6+tYOcPHJA6jDyPHYb9lo5Lv/EJlc46OHzRk/Zf9A/hqVc0iou+X+Bls
+	YuNJ2Wuax9S7ba576miO0lwqI3nDRu/wCsknRXenidp3WnEXS6yfEpcw34PORZpX
+	ccMONITFfJbFTkcXB+75vdirU/9umBwaA7oWgc9HopQiupKzkfXOvGPAa2v9hBF5
+	K6BuTr834ZHhWs35WCOJgwxqTK9YsrF38H0SzE06VuROOCsgBBngS33wodVmZWuT
+	qkLX/g==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j662y1tx0-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:00:15 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-93f20addba1so1005249985a.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:00:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795676404; x=1796281204; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=wy2ZfDuxZ+L0rGiTO2Hr2gxsNqdlmXKGnqLfSzRtbhg=;
-        b=eIqBQMhupYMGiKV/6qlv4Cq7NXKn1OMb9eHtz72hxZv8xTGGeTQAZLp1YqYfVcvhlb
-         GL1wxi88tFxuG/VdUhYm87woHu8EwSvU5wLvQTSezbb/Qzp9Hxb/YXGxdYQh4D159BzV
-         AaCGZEwGJfzhz7Wx602e8f1lpTSRboxCYR+rwyogwv0JbuZVaHEqwhL73EkEUlqEVdU5
-         iyXeDmfYWcDcdsIzUifNY0G46DEA2cYbmsa2Bvxd7MEN7q0G8KTWcHH0/c2mJtr0lCNV
-         XHcNx2vRV9mL+f7UjHLAovSDZZx/UHcoVoBPvTEk93YdNSawrymTVWCKXQmvGoAzxqtt
-         OwTw==
+        d=oss.qualcomm.com; s=google; t=1795676415; x=1796281215; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NAGZI9h77fAEVJOMFwdusvDKaYM8J+TbnUlWkWl59RI=;
+        b=Wf5eHh4xkmMmBf7S2ekVF8nKLgHYoRSR89EvlKxilxqr2durEr6xZnD8lKVfdt2mX1
+         +NkmcV/srVJ5uQsKEIElSKpdv96Pgcil31YRKsiS6SWqhQM26GTVrA0YxnUIH6jQhC1v
+         3zqBdPgADHgdKytuphrn67n4lb/FDyX1RCg/yq3Qi6wkR+66MqwUpUcJkoMwb594e9CY
+         l9iXfm9Tkgk+EaT5u0ffLkjFPRvcEmCNVLWJ+WtvTwbSlzfEkRe25rl6QHlneVsNv1ip
+         kOHNWTI2IcdYKaYhA7y2SHPPXZH0XsCKbJ96EBt+cZuo+wqHEMCzQ5nkpyDMwebw7bLG
+         kjkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795676404; x=1796281204;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795676415; x=1796281215;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=wy2ZfDuxZ+L0rGiTO2Hr2gxsNqdlmXKGnqLfSzRtbhg=;
-        b=RJOWcTyiL2z29aMo7EDttWMsoNBPd/rizxpc0m55/PFBU9YQX4FVc6Y+SD+vu79yn2
-         hliNVriXcrL3wnX+bteLVHC45LxO5GOjR0xOxcvr8X8csD7W8wV6SAboelIjatXVxCtx
-         VKE84cayeTKzKo+jfphPFfqJzFyeOJbEiM6g9EQJnvSOvp4sJTXjGUCx3pUcL1zEoalI
-         SDKWdnHYNpVaWl6rBohgDn0hTLUFM2FOISbN1fZ7s+c2WvS3kwzxkVFWlw+mJB+bWiR1
-         OsWYeUSkPsirZ296r2uX3mgYr6wr/px30r1NEHy+ecwuyH3H7rzl2G6vvUzx/wrx/r7k
-         Oh0Q==
-X-Forwarded-Encrypted: i=1; AL+hErEnVAaznXwUc3pSsnf8ZWsU8bOGL5Mm8YgmKjV+5PnpDsvoWkgKvUMLn7MnfcRNIwP5qH7X/AIJ7Kp8UwA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8isRTQC4zKY2GDK3+d8UwB8pM75LkX/u3b0BkP0jG7V0Sf3ibW
-	5SIYlKAtudUNQeIrCJibLmbf+XKUjHrdLS6anpAlerGXPcZAkK5OAhhG
-X-Gm-Gg: AZFdTZfJWzUsOVd41jDPqsyCYhH8gVCp0VFC3pYA6TUjYMfHKNrtejlEGrwUQByVZZe
-	5aYAgS3hxvGeNfdj7BoUAkOKykh6Vgs+e50jt/O3or7Ub7jDNyAnsTjS0cI1WY7VrnpNU6HTXvx
-	JZ7gx0XxnvNKB66FSlsx5F3flW06ku83Mkvp7Sdx8kigbvbMqdUJhQuYMylFbYGZNJB+DWCiPHy
-	mFNbF6wOhG/YTDzqdcGzgbcLG7WjpRMP09FJqZWmPHP1qQWjgYqP2DsbE6ovH3E48zcGLzWjPT/
-	chWUc+m98sSOzjgX6mH6PJec/voH+QqIjJRVnHGRlFxhPxOZJGfk8X6MvrRfcG7gyXY97wA325M
-	qDvej1CBvRunWz4e7iBMQRVDBqRDnnD8FWbGTCEs3a/UpXvR8e18JtdijdikCDdFHfYUFPrArrN
-	kmIpQc3VEB8l9FpbKO8EWDSv5+OO016opF4b4X6CeivXou4mkFLPn8+ZNJnCCmVmRySwIY2O7N6
-	sqd6F8Ay9jquuX8y7yXvfpM8xFciaS7GviDzQv+giGP6aoimrfqWAwNUASNAvLoT+7h9Mi5YcHr
-	UxRciKXGvklGz0DqYx2kH+ATr/aWY3XHtjaKrPiKu7qlAXWGy69ptR+DV/9hEX4nAnVS6XV9ceu
-	gLGR+0t31OM4N6Bl3drxF
-X-Received: by 2002:a17:90b:4ec5:b0:3b3:adea:4b04 with SMTP id 98e67ed59e1d1-3b41c948521mr18210202a91.36.1795676403878;
-        Wed, 25 Nov 2026 23:00:03 -0800 (PST)
-Received: from LDYT9Q2G2M.pvgl.sap.corp ([2a09:bac5:cad0:1caa::2db:4c])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecbd0bsm34150819a91.15.2026.11.25.23.00.01
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 23:00:03 -0800 (PST)
-From: Zhiqi Zhang <zhiqizhangg@gmail.com>
-To: Tejun Heo <tj@kernel.org>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Michal Koutny <mkoutny@suse.com>
-Cc: cgroups@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Zhiqi Zhang <zhiqizhangg@gmail.com>
-Subject: [PATCH] cgroup: Preserve sign for fractional input
-Date: Thu, 26 Nov 2026 14:59:58 +0800
-Message-ID: <20261126065958.89207-1-zhiqizhangg@gmail.com>
-X-Mailer: git-send-email 2.54.0
+        bh=NAGZI9h77fAEVJOMFwdusvDKaYM8J+TbnUlWkWl59RI=;
+        b=It6E/U6XHSHQwANIdDMIa2dC2cxUpqytsB4nQL8y9EI9RC+cjWutVkcMajnRMzlrYm
+         UmUTcEr5rNkMIvVe2631P4R4bgVWCvdujKpmvBN6AzQxp9KBkKAbHYS4Vcb+LoqGJwZO
+         KzjG8jQiTTTdeKq0A1awmBLkb2lyCZTJOWAF0F/DykmRYCVAHRSjAtFvzkIP0uG0IASB
+         6MSmWIZP19v1Unt3GWau1koy5QMAOgUFKC9i2+l0+ag47GX+kD6QbztwVcqx/vmXAoO5
+         RLIZL0S0fTXA4YjvjJAt76RPnV1Oke3Zgp/wXQS1t92LBwawdHFaxhPmD2wv7wA3Vt8Z
+         kMjQ==
+X-Forwarded-Encrypted: i=1; AL+hErEl7QPi9UUKtMbTAZRUNoqwz1Q2W0D9sw4WGuo4mex2Jszb0qPS0cZ+0FSt6JnTe836sSrmwLm//MK4Nog=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/3rOWo7GO5rGtmmkNdHqKyBQ4rZd+G5wmmPKyhuaGyNi94vhjH
+	LH/rCBcJrf2uIfi8ipL2EeVcIQH11TC/pj72zdwo3ENSjnoho+kb6aTMVGd04foRJUSNSuNIZfK
+	Od7rSproz19k6UicVcrjJkExGTrA5YmYS9AX2bMe3A2iGIH6x29IFlr7g8+SlHh0769M=
+X-Gm-Gg: AZFdTZfc+6hhz7VISxZ7BFdbZMG4J8XSoYYZJZrHsCKqHjlNC6Z/BrebnxiEF5phENu
+	CkkhGl2U0+aeZjg7z2K+HpRhJFk+wc+shuXxeA/YM1mMFpc1VBfZFUipbGQz3+TSrjN1GHqB8DV
+	nOjJsyS+eJWmBM43uzpOoOoJbhR1VrINLGeHOA1d4FFQX8yyFUmbARtBNp3g7z+xOuMS3x00/o9
+	iMN0gvYE9esBPp5e2HZt85qxwBkoPpuBwznFytQrBdoYRp+G0DYmM+I81TKwpA0vSxQy0BiKb2n
+	Yr+i+tNG1pZ37d2PRtHK1MElCRK3gg/J52cVQzXS0XcTmOhNwArG2wIEmsUgoXY7zxvMtTpV3J0
+	EWvNeWsiF5T4CjfW6BQjIHDtM09aEkb4fZTj0uPpLZcKOwV4jVeeA/TBOI+HGYywSKx4TTU5zt0
+	28BNcMeZLbSf7pgQ==
+X-Received: by 2002:a05:620a:8802:b0:945:b967:475f with SMTP id af79cd13be357-949ba956648mr3487516885a.16.1795676414297;
+        Wed, 25 Nov 2026 23:00:14 -0800 (PST)
+X-Received: by 2002:a05:620a:8802:b0:945:b967:475f with SMTP id af79cd13be357-949ba956648mr3487505985a.16.1795676413443;
+        Wed, 25 Nov 2026 23:00:13 -0800 (PST)
+Received: from [192.168.25.64] ([94.155.124.210])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b7515sm794422335e9.13.2026.11.25.23.00.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 23:00:12 -0800 (PST)
+Message-ID: <9b858d24-f783-44e5-a7e6-85b59e054f37@oss.qualcomm.com>
+Date: Thu, 26 Nov 2026 09:00:11 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,67 +116,163 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/7] media: v4l2-event: Allow drivers to provide the
+ event timestamp
+To: Loic Poulain <loic.poulain@oss.qualcomm.com>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org
+References: <20261125-camss-hw-ts-v2-0-24c955e43d75@oss.qualcomm.com>
+ <20261125-camss-hw-ts-v2-1-24c955e43d75@oss.qualcomm.com>
+Content-Language: en-US
+From: "Gjorgji Rosikopulos (Consultant)"
+ <gjorgji.rosikopulos@oss.qualcomm.com>
+In-Reply-To: <20261125-camss-hw-ts-v2-1-24c955e43d75@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAyNiBTYWx0ZWRfX4onRfDi2qy8e
+ wKWoVKvBRe2mKAXZL7wO0N7ubc2bmY7pAvuti1+fQ0bnKclA/wyBY62R5k6WLZX4tnHKYOi7u+u
+ K+O+/7YYWJl++N0iyeyIvbfDQyKSR19UztyXclVrD111iKOOhNb12pcaILnU98HjZv/aduQ7Cpu
+ MyZWHlqjNMWX6iSsQNiVGy8U2hv6X0QBZdUBZGXfWI7HPKW2Hzx3IkxMghUxCh4RAdlvqqqEBJ/
+ CwCY8/168vNqWMIbCQJvtxb8uETBZOa/CW78c65fu0/aiSOy7HVWPKuN45aL8IjmM0vbkuZu/Md
+ Z9G+nyHuRFgzT92Ae6cTiu+bIIIFSzzH6ooLUwZKNoNpMTulzDfpaZvENHrjs+abeh67zq2iEAp
+ hy+akpvwUNOsX1RmgsNHr+HaqqUaf32tneYB0U5cBjlj6e2Qd4pNEFLFi7g1vM2MDHC2mUOzqaV
+ jDnpQv2YA0Ug6n0zEqA==
+X-Proofpoint-GUID: Pn4W64j8b9quCwTTVppkk_ArI-wRWjJK
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAyNiBTYWx0ZWRfX3G/XTfY9/foA
+ rgXtgT2dxlXHYbPj+DNITdTLo+ex8wq06XyXRyS7o5qyxVW5yQX2b7ccIuD0Pe38ukOh4W7E/Uh
+ SNqvl53ot8Cu/CA02jdMM9rmfdkc3PU=
+X-Proofpoint-ORIG-GUID: Pn4W64j8b9quCwTTVppkk_ArI-wRWjJK
+X-Authority-Analysis: v=2.4 cv=W/KtxhWk c=1 sm=1 tr=0 ts=6b07d8ff cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=eGCDHFSXubCXFTSSGhjuOA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=EUspDBNiAAAA:8 a=H5SKo5UfUjvo3ROSXWYA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=PEH46H7Ffwr30OY-TuGO:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_01,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 impostorscore=0 phishscore=0 malwarescore=0 adultscore=0
+ suspectscore=0 spamscore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260026
 
-cgroup_parse_float() parses the whole and fractional parts separately with
-sscanf(). The sign is only carried by the whole part, so inputs whose
-whole part is zero, such as "-0.5", are composed as positive values.
-Inputs such as "-1.5" are also composed as -0.5.
+Hi Loic,
 
-Callers such as cpu.uclamp.* and blk-iocost reject negative values
-after parsing. With this behavior, negative fractional input can bypass
-those checks and be accepted as a positive value.
+Apart from hw timestamp propagation some other comments.
 
-Remember whether the input has a leading minus sign and subtract the
-fractional part when composing a negative value.
+On 11/25/2026 12:19 PM, Loic Poulain wrote:
+> The timestamp reported to userspace for a V4L2 event is taken when the
+> event is queued, which for an event signalling a hardware occurrence is
+> only as good as the latency between the two. A CSI decoder able to latch
+> the start-of-frame against the system counter knows that time to within a
+> few microseconds, whereas the interrupt handler that gets to queue the
+> event can be hundreds of microseconds late and is not consistent about
+> it.
+> 
+> Take the timestamp from the event when the driver filled it in, falling
+> back to the current time when the field is cleared. Drivers have had no
+> reason to set it so far, and every in-tree caller either uses a
+> designated initialiser or memsets the event, so the field reads as zero
+> everywhere today.
+> 
+> Signed-off-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
+> ---
+>  drivers/media/v4l2-core/v4l2-event.c | 20 ++++++++++++++++++--
+>  include/media/v4l2-event.h           |  9 ++++++++-
+>  2 files changed, 26 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/media/v4l2-core/v4l2-event.c b/drivers/media/v4l2-core/v4l2-event.c
+> index 9dd2aaa95a67406bda3a257325442888895ed088..a35646c3a5c89febeb072d691ffd7853d9af714a 100644
+> --- a/drivers/media/v4l2-core/v4l2-event.c
+> +++ b/drivers/media/v4l2-core/v4l2-event.c
+> @@ -150,6 +150,22 @@ static void __v4l2_event_queue_fh(struct v4l2_fh *fh,
+>  	wake_up_all(&fh->wait);
+>  }
+>  
+> +/*
+> + * Hardware able to timestamp the event itself reports that time in the event,
+> + * which is more accurate than the moment the driver gets to queue it. Fall
+> + * back to the current time for the drivers that leave the field cleared.
+> + */
+> +static u64 v4l2_event_ts(const struct v4l2_event *ev)
+> +{
+> +	struct timespec64 ts = {
+> +		.tv_sec = ev->timestamp.tv_sec,
+> +		.tv_nsec = ev->timestamp.tv_nsec,
+> +	};
+> +	u64 ns = timespec64_to_ns(&ts);
+> +
+> +	return ns ? ns : ktime_get_ns();
+> +}
+> +
+>  void v4l2_event_queue(struct video_device *vdev, const struct v4l2_event *ev)
+>  {
+>  	struct v4l2_fh *fh;
+> @@ -159,7 +175,7 @@ void v4l2_event_queue(struct video_device *vdev, const struct v4l2_event *ev)
+>  	if (vdev == NULL)
+>  		return;
+>  
+> -	ts = ktime_get_ns();
+> +	ts = v4l2_event_ts(ev);
 
-Fixes: a5e112e6424a ("cgroup: add cgroup_parse_float()")
-Signed-off-by: Zhiqi Zhang <zhiqizhangg@gmail.com>
----
-AI contribution disclosure:
-I found this bug. Codex modified the code, and I reviewed the change.
-
-Validation:
-- Built in a Linux container after applying the patch to a fresh shallow
-  clone from https://github.com/torvalds/linux.git:
-  make O=/tmp/kbuild ARCH=arm64 defconfig
-  make O=/tmp/kbuild ARCH=arm64 W=1 kernel/cgroup/cgroup.o
-- scripts/checkpatch.pl --strict: clean
-
-Duplicate checks:
-- Checked torvalds/linux commit, PR, and code search for cgroup_parse_float
-  negative, -0.5, and sign-preservation fixes.
-- Checked linux-next master and tj/cgroup master; both still compose the
-  fractional part as positive.
-
- kernel/cgroup/cgroup.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
-
-diff --git a/kernel/cgroup/cgroup.c b/kernel/cgroup/cgroup.c
-index b3657e72db..bf7c3267db 100644
---- a/kernel/cgroup/cgroup.c
-+++ b/kernel/cgroup/cgroup.c
-@@ -7540,6 +7540,7 @@ static u64 power_of_ten(int power)
-  */
- int cgroup_parse_float(const char *input, unsigned dec_shift, s64 *v)
- {
-+	bool negative = *skip_spaces(input) == '-';
- 	s64 whole, frac = 0;
- 	int fstart = 0, fend = 0, flen;
+The documentation states that:
  
-@@ -7554,7 +7555,11 @@ int cgroup_parse_float(const char *input, unsigned dec_shift, s64 *v)
- 	else
- 		frac = DIV_ROUND_CLOSEST_ULL(frac, power_of_ten(flen - dec_shift));
- 
--	*v = whole * power_of_ten(dec_shift) + frac;
-+	if (whole < 0 || negative)
-+		*v = whole * power_of_ten(dec_shift) - frac;
-+	else
-+		*v = whole * power_of_ten(dec_shift) + frac;
-+
- 	return 0;
- }
- 
--- 
-2.54.0 (Apple Git-157)
+"In order to queue events to video device, drivers should call:
+
+v4l2_event_queue (vdev, ev)
+
+The driver’s only responsibility is to fill in the type and the data fields. 
+The other fields will be filled in by V4L2. All other fields are filled from the v4l2. "
+
+So here we are changing the driver-api. I am sure that there are drivers
+which does not set initialize the whole event struct. This will introduce new bugs with
+some uninitiated data send to userspace as timestamp.
+
+~Gjorgji
+
+>  
+>  	spin_lock_irqsave(&vdev->fh_lock, flags);
+>  
+> @@ -173,7 +189,7 @@ EXPORT_SYMBOL_GPL(v4l2_event_queue);
+>  void v4l2_event_queue_fh(struct v4l2_fh *fh, const struct v4l2_event *ev)
+>  {
+>  	unsigned long flags;
+> -	u64 ts = ktime_get_ns();
+> +	u64 ts = v4l2_event_ts(ev);
+>  
+>  	spin_lock_irqsave(&fh->vdev->fh_lock, flags);
+>  	__v4l2_event_queue_fh(fh, ev, ts);
+> diff --git a/include/media/v4l2-event.h b/include/media/v4l2-event.h
+> index 3a0e2588361cf451b3dbfc63dfab99550d13cf6a..076f788e0469ae4666c60344e5ea73a698352134 100644
+> --- a/include/media/v4l2-event.h
+> +++ b/include/media/v4l2-event.h
+> @@ -102,6 +102,11 @@ int v4l2_event_dequeue(struct v4l2_fh *fh, struct v4l2_event *event,
+>   * .. note::
+>   *    The driver's only responsibility is to fill in the type and the data
+>   *    fields. The other fields will be filled in by V4L2.
+> + *
+> + *    Drivers whose hardware timestamps the event more accurately than the
+> + *    moment the driver gets to handle it may also fill in the timestamp
+> + *    field, as a CLOCK_MONOTONIC time. It is left alone if non-zero, so such
+> + *    drivers must zero-initialize the whole &struct v4l2_event.
+>   */
+>  void v4l2_event_queue(struct video_device *vdev, const struct v4l2_event *ev);
+>  
+> @@ -116,7 +121,9 @@ void v4l2_event_queue(struct video_device *vdev, const struct v4l2_event *ev);
+>   *
+>   * .. note::
+>   *    The driver's only responsibility is to fill in the type and the data
+> - *    fields. The other fields will be filled in by V4L2.
+> + *    fields. The other fields will be filled in by V4L2. As for
+> + *    v4l2_event_queue(), a non-zero timestamp field is taken as the
+> + *    CLOCK_MONOTONIC time of the event.
+>   */
+>  void v4l2_event_queue_fh(struct v4l2_fh *fh, const struct v4l2_event *ev);
+>  
+> 
 
