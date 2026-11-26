@@ -1,56 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795683468;
-	b=oeeDSrjIa2QyHuZT2W9yrTKDQWFylTC1uJoepIux8ye/mamcEs9ATg0FAFXmoFf3CLMg
-	 QgUtfIG2kk7goM5lljin7Hxo1YXHBuBHCvEqkRUaBqdYvr4kLI5gZ1DvRItXyT56jTI4I
-	 DTqYsjKHyqiNXqm/xOD2c5wa6bnHhsfgXxgWY7jkVaaE4/BqCZAbO/sLZaP1oXPv5pyiB
-	 /+0xnkluWChyhrPmqjaR+GLvqyZVpmR4RnZO23oKILCpmNMiAsv6vIlyMFNjOr2SZneoh
-	 kCmLz8LO+LJv9Y7k3qisrVEfQbBfZJfZGap7N0H5O+vIKhBESWsS221KH3ENk35gASA==
+	t=1795683469;
+	b=hhum1VfhI3A8TiGujKg4pys+qln+Yv0+Tkm/80EAir4ymV8gCQQnvypb1JDd2w5FzOG1
+	 uWm67H+NELwuUCIfJ/wqFqY7PYKnFW62BlCp0NcUeL8BhsZgHfAt7QEumCuzV7AeFioD4
+	 QD1UlFK3DBGZL811FOOr2mkdlY5hmPzObdovPvYyUu+rQcu6vE0oBSpV/kJBHNuoRuiE7
+	 vJdUAubYjXjFr5rJyGHXEgMLtxwDJt+J24fQ3y7oNgKvweAWxEmBu+37lZX4euyB3pwVs
+	 bKwLLx2xK5UyKrMxNx2SLcXE9wmlTmMJP+01tPePHi18diGukdSWl4yg38Ky3VVK1Lg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795683468;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=Fp76IfrtGXp9iGSL34GKoWvUFdDeaiiKfiG9zopH8+4=;
-	b=mOhMOGQ43qZZxztVqlTsvQTs5eC4GmQIuJSCvWeBbR4N0e9J5R/s33ywa4Payu5suXfR
-	 b+NFG2B2siYHxyyVAaFYvTwzjYC2Cxqf0miDs48WhGfAH7odrAaIcH2QNnt+M1F2PX6Ym
-	 QW1Lic0PIpgNTlLdT8aQWGO18ucsFo+XGum5b3H4UnveS0J5ilzK8ezPz4c1h9FJFcjiI
-	 lrRhMssy2L6hMEM0eQgSMbZ9/x6pofFhLpxhZuObIomoKosj+HuTmv2VVg3hp32OXEf9u
-	 FHcKW700gvHfnmiWTYhZJiFQireib/3F1LFUakxvnXwQSU9zojLODWQ2Cp6k2oNSrPQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795683469;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
+	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy;
+	bh=AdLL3Q53BHJLoBt9CSRYGYry3kTUEfgH4omIXprvDe8=;
+	b=wvdQgwLGmZ4AGH9C2rBep0pqH7a5SPdWwiGk6GqOfwfE3l6eT4WxbctiG1Ljnga1BqhO
+	 ZoxEVKliRdKq6v+QO0TNLhqKyhdFcohQaU8hheXjhad/NFCnnssIybMtDljdL7gIqeHx3
+	 D6KWrr6uu6hKTVSWxpbq9yt9aq5/FoSxIz3DO+2STHChzfcmc619a1XODvYBaTLekFa5q
+	 AQuR3KzvMaBLVDYPYm4SUr25hZSj9z8vdzQSj8PBnHOit9vtB33JOt3TuRn/64uyTsPVc
+	 8JSmpbso9+zPYEaZ3nmcJO6spc05UZsRq2hbXOPw0zRlPIgPth57lfT4MZIPrLug8PA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EQ6Sm4ZD;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=secunet.com;
+	spf=pass smtp.mailfrom=secunet.com;
+	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=uG0UZuWs;
+	arc=none smtp.remote-ip=62.96.220.36
+Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03FC0606A31E;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7A62606A32A;
 	Thu, 26 Nov 2026 08:57:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7A62606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EQ6Sm4ZD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CED81F000C0;
-	Thu, 26 Nov 2026 08:57:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795683467;
-	bh=Fp76IfrtGXp9iGSL34GKoWvUFdDeaiiKfiG9zopH8+4=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=EQ6Sm4ZDhz1hnAVpCqc1rw5tlY/ffU+k+Ec0sCxGoj7RgVZ8jMz+E0Qyul7aHvUeY
-	 UpoEIjTh8rK9st5e4XCgKZqO7VR9p3wiXs4iXMg3EDnnnsSZ2HiQkfGmcd2Yza9oO7
-	 zSNuWxGLVMwLfjugzIqHE94nObTnvkviD6KXp08JQ//ZZMnMnREEc2M8bRRGkLR2l3
-	 4lH3ACSkNL5LHZUAUScleolym+7n9kJcwN3CYkUimataKc/7Yb13UROu+Zci1DKGZE
-	 YPmnRGQMukNKcuzVxonFebUOsIQu0NAKtr81ZqXF/yUTKE/qXZUu+REa1CodY/egol
-	 qhho7zIW33LmA==
-From: Leon Romanovsky <leon@kernel.org>
-To: Zhu Yanjun <zyjzyj2000@gmail.com>, 
- Andrew Stellman <astellman@stellman-greene.com>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>, linux-rdma@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261122170551.19582-1-astellman@stellman-greene.com>
-References: <20261122170551.19582-1-astellman@stellman-greene.com>
-Subject: Re: [PATCH rdma-next v2] RDMA/rxe: Require a responder resource
- for FLUSH
-Message-Id: <179568346521.1251294.15806808601670027765.b4-ty@kernel.org>
-Date: Thu, 26 Nov 2026 03:57:45 -0500
+	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=uG0UZuWs
+Received: from localhost (localhost [127.0.0.1])
+	by mx1.secunet.com (Postfix) with ESMTP id B5A8620758;
+	Thu, 26 Nov 2026 09:57:46 +0100 (CET)
+X-Virus-Scanned: by secunet
+Received: from mx1.secunet.com ([127.0.0.1])
+ by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id 8zdpgIyEFP4v; Thu, 26 Nov 2026 09:57:46 +0100 (CET)
+Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.secunet.com (Postfix) with ESMTPS id 21FB7206B1;
+	Thu, 26 Nov 2026 09:57:46 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com 21FB7206B1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
+	s=202301; t=1795683466;
+	bh=AdLL3Q53BHJLoBt9CSRYGYry3kTUEfgH4omIXprvDe8=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
+	b=uG0UZuWs5XmZi7MZQ9zamgII2bTngTWGFGOex3D+bxcFooMsSC2G7ZIWNUzyzJ11I
+	 ld5z8ORp7SGRslMa8exrbAfRu6oUk8FRwWLaBAwkNr8WyJF+sue/wOhUiMpYFPdPRX
+	 C+0Wx2BBJ8Wb4/IHgchCz0RJPJHYBAnpvkHE9grcVUGmpj8n6W5YWOVzvK7r9R6dQ/
+	 mbXWyYf0lhLQ/IrpJWg7sq3PWBK+M6zzRPvanbcgMbM76UCflduxpdtQ3yXco/DhaG
+	 20RNmFoUiEUZINEuwLVHB5+97N19q+LQXRtw5bKtzHrxzcIFxiFTiNbRQ1oW2IL5eM
+	 LaOVOkNS5nFUA==
+Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Thu, 26 Nov
+ 2026 09:57:45 +0100
+Received: (nullmailer pid 2021184 invoked by uid 1000);
+	Thu, 26 Nov 2026 08:57:45 -0000
+Date: Thu, 26 Nov 2026 09:57:45 +0100
+From: Steffen Klassert <steffen.klassert@secunet.com>
+To: Kyuwon Cho <kyuwoncho18@gmail.com>
+CC: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn
+	<willemb@google.com>, Simon Horman <horms@kernel.org>, Kuniyuki Iwashima
+	<kuniyu@google.com>, <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH ipsec v2 1/1] xfrm: free the policies already cloned when
+ a socket clone fails
+Message-ID: <awf0ibmT7f-IzSup@gauss4>
+References: <179540803323.3139700.5340002553684152759@gmail.com>
+ <179540803323.3139700.15088508372382876389@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,27 +85,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-18f8f
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <179540803323.3139700.15088508372382876389@gmail.com>
+X-ClientProxiedBy: EXCH-01.secunet.de (10.32.0.171) To EXCH-01.secunet.de
+ (10.32.0.171)
 
-
-On Sun, 22 Nov 2026 12:05:51 -0500, Andrew Stellman wrote:
-> process_flush() keeps its state in a responder resource from
-> rxe_prepare_res(), as READ and ATOMIC requests do. check_resource()
-> refuses those requests when max_dest_rd_atomic is 0, but it does not
-> check FLUSH. With max_dest_rd_atomic 0, qp->resp.resources is
-> ZERO_SIZE_PTR, and rxe_prepare_res() writes through it in
-> free_rd_atomic_resource().
+On Mon, Nov 23, 2026 at 01:29:42PM +0900, Kyuwon Cho wrote:
+> __xfrm_sk_clone_policy() clones the parent's socket policies one
+> direction at a time and returns -ENOMEM at the first failure. If the
+> policy for the second direction cannot be cloned, the clone of the
+> first one is already set in the new socket and linked on
+> net->xfrm.policy_all. sk_clone() then frees the new socket without
+> xfrm_sk_free_policy(), and the policy is leaked until the network
+> namespace goes away:
 > 
-> [...]
+>   WARNING: net/xfrm/xfrm_policy.c:4303 at xfrm_policy_fini+0x24c/0x300
+>   Call Trace:
+>    xfrm_net_exit (net/xfrm/xfrm_policy.c:4372)
+>    ops_undo_list (net/core/net_namespace.c:253)
+>    cleanup_net (net/core/net_namespace.c:713)
+> 
+> Delete the policies cloned so far before returning the error.
+> xfrm_sk_clone_policy() clears the new socket's slots before cloning,
+> so a slot that is set holds one of these clones.
+> 
+> Fixes: d188ba86dd07 ("xfrm: add rcu protection to sk->sk_policy[]")
+> Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+> ---
+>  net/xfrm/xfrm_policy.c | 7 +++++++
+>  1 file changed, 7 insertions(+)
+> 
+> diff --git a/net/xfrm/xfrm_policy.c b/net/xfrm/xfrm_policy.c
+> index cea6842e6454..dba1851f0b3d 100644
+> --- a/net/xfrm/xfrm_policy.c
+> +++ b/net/xfrm/xfrm_policy.c
+> @@ -2460,6 +2460,13 @@ int __xfrm_sk_clone_policy(struct sock *sk, const struct sock *osk)
+>  			rcu_assign_pointer(sk->sk_policy[i], np);
+>  		}
+>  	}
+> +	while (unlikely(ret) && i--) {
+> +		np = rcu_dereference(sk->sk_policy[i]);
+> +		if (np) {
+> +			RCU_INIT_POINTER(sk->sk_policy[i], NULL);
+> +			xfrm_policy_delete(np, XFRM_POLICY_MAX + i);
+> +		}
+> +	}
 
-Applied, thanks!
-
-[1/1] RDMA/rxe: Require a responder resource for FLUSH
-      https://git.kernel.org/rdma/rdma/c/3a4881d7bedff9
-
-Best regards,
--- 
-Leon Romanovsky <leon@kernel.org>
-
+Do you really need an unroll loop here? This function clones
+at most two policies. If the second fails, just delete the
+first one.
