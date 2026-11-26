@@ -1,59 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795719734;
-	b=fiZaLQ0uKnsgn+Vm4Z2lQD1v8vyJBfrk/zUM6IONvTyZCF29sXGlIsJ4brivcPhK/j48
-	 KOFIORJ06oXzBpKNydMickkvBxJxrmxORT5/mpUKVsvrF6tAzTpUSz3xrun516qXDduRJ
-	 3G9Bmulx+1tXNdCqJTb+t6YJGTtnBWIlIKiL7yYaE6sMCzTV921QrdioEPQZeywy1wAFF
-	 bFYDGcDh3pXmVBHU8UH8LE0+8cWybRLkYTCvfHZlX5g3+iEHI7scOcQmmPvQ4x5jifo3e
-	 jQALCTwWd5bzCTlS8mEKRWIqZiRMQ6ej6w7FJB+U1sPXmgiWSTg7s3l+IcFxXLMr1Fw==
+	t=1795719749;
+	b=S5rDiuAbfkK2zxCKoWQ0p2BnjOIsoKKBEZvvybnkhvVLWJfF0KWepHholJrMAMKcjaH3
+	 o8KDwy/nhoPujbBfju1chqHnAq8vnE3GDhkZ0bDF9Ito7e2pAWH/yeYflgH7UQ2aZQ4VJ
+	 SdTcbvEB0h68yV3e8gWGCf9BQ1lbvt0TpCWVCK/t7c6j+Koc2468kJ53W9ENE/VibfXy4
+	 4DVMBDAizBNRm6at322NDwLTCBjMjvod3Dk9WaxpeERUmHjKQBfNc5wM9y06Oe4OyqFkR
+	 r0c4L/r3RMI9ZFtjv7twtAm+EbaCkO0xg197skE+f+NXghOjij+0lg7C58BjL2h/fuQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795719734;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=MaDKxSnnoTZ6c9zF/kIcDO7qewxy+q8wpP7dgbKHb1c=;
-	b=vSsIUXDrKHLiiuQck4w7Xhg+3fi4uepPGBlhGpY8odG8V6D2vsv2G2fxfWb0DX2p8Ni4
-	 aYuTFnqWhGfuzV9zRhsmrvE+Wemw1hYQq5vJb+2WJFJWMkadkP+Ej/bzmfZwI53kNphBp
-	 z2A4LtV/vD3EaOyJ/p5RkwOUPx8cwub/7PZUxy7xXEiKq6Qbsh2Drji0K+rQ9UR/WhRfJ
-	 Olb/TygLNbrXKsiAoD4JVpGxf17O1fi3+ojQU9CKuLajqeYIvXGwct2wjsbo746+vPqKq
-	 nCzQp+gCE7YhgbDpJUAZcdVGFLdkBK/AyznvSUYmzTad66bTEYLOfX2K7dKPpyFJ9Wg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795719749;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=sgsm41cVrYVXRN/ZczPr+NXSABYCL273lk2seEqIQI0=;
+	b=DFwrZZnoHNrcGeB0476RaJ/D0iDpDgS2HAXY9qXGrX33f5+gS4X4n6tniBawWH5WCV3G
+	 UaehvHkr36QgxamMv/+5Rz+aTYoZQC422a1uN2Wj1LWh19KxDUtHnZoRwpFLw64/+MJCq
+	 x0ZH4DcxxIBJruk+N5tIDvvfvk0EYWkImDlJajq+xczYMlLTHIE6l2HlCcmtMYQlhoa+G
+	 vMk9bmk4D7e9jk/tJo9+2mfAFtpuiRNJAgE8upKsp3N17yEptiJk+2K5+/S5Wu0aeXCgw
+	 FMeX26F6L5ZVxwVdnB5JA7iI6h24S8nrSyb0MkWtOU6juoeD8eQRJ8UnkHb5kIMQRzA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mA8i1aJy;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fh+ol2ez;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03A9B606A31E;
-	Thu, 26 Nov 2026 19:02:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 13C7D606A31C;
+	Thu, 26 Nov 2026 19:02:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mA8i1aJy
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CFD81F000C4;
-	Thu, 26 Nov 2026 19:02:11 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fh+ol2ez
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id D27131F000C6;
+	Thu, 26 Nov 2026 19:02:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795719733;
-	bh=MaDKxSnnoTZ6c9zF/kIcDO7qewxy+q8wpP7dgbKHb1c=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=mA8i1aJyvLdmspwkbmbX6Tx9XBgn+AURpzpkF6naW6HgOkbw+/YKIyBLNoixEanTV
-	 QprQ6kB841ppWyAu9e2IJPpS4PLHIk5k4o86nwf6SKqlz6oXgiT8fpbu6QeP8Wfarp
-	 zgJV+1tsVE9zB9KZok72MP574yqTR/sHJlQ8kX1DrZRoubPHcdiRi8sBcm0L9Z5u/5
-	 V2Pj7YfEz2QgaTYvNPok2DvcYK9IuAVczCpY03dLK9vEkc+Pc9EsN7PnNNp4nVoFbB
-	 WwWVotI7Wlp0XH+0oGjGQRfw6QIPonujuS/m1P7HZv/8Srhclzexxj+00DmWBVPrZZ
-	 Dw31b3rixd7WQ==
-From: Lee Jones <lee@kernel.org>
-To: Lee Jones <lee@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Aaro Koskinen <aaro.koskinen@iki.fi>, 
- Andreas Kemnade <andreas@kemnade.info>, Kai Svahn <kai.svahn@nokia.com>, 
- Kevin Hilman <khilman@baylibre.com>, linux-omap@vger.kernel.org, 
- mfd@lists.linux.dev, Peter Ujfalusi <peter.ujfalusi@ti.com>, 
- Roger Quadros <rogerq@kernel.org>, Samuel Ortiz <sameo@linux.intel.com>, 
- syed khasim <x0khasim@ti.com>, Tony Lindgren <tony@atomide.com>
-In-Reply-To: <20261119194939.2436337-1-lee@kernel.org>
-References: <20261119194939.2436337-1-lee@kernel.org>
-Subject: Re: [PATCH v3 0/2] mfd: twl-core: Fix dangling twl_priv on
- teardown and probe failure
-Message-Id: <179571973120.19173.11479797823577819756.b4-ty@b4>
-Date: Thu, 26 Nov 2026 19:02:11 +0000
+	s=k20260515; t=1795719748;
+	bh=sgsm41cVrYVXRN/ZczPr+NXSABYCL273lk2seEqIQI0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Fh+ol2ezWUjyMhmE1tsESBXMONPu3gXFMuSY5sDYEdFAddpNy5P9x0P+dBQFZGML8
+	 b5VQRb6ASyBFBPVSoTjO5jqaWR7ArsBc/+KdYqv0FCmoMKZH5LMGl0ABaGVVM/fyO1
+	 rC1+BTag7S4+/Vu5SCqt00RtywNl+YAlY2cL1bfwvHNfD/3LvCVa+caMCVgrUfNUh8
+	 Yn0LqIMceBO4G7GyJvbsgTqc8Azw/UnHzQKLSVfp51j2kdJjs5HDy63u5pjq9BjLLW
+	 k4TYGBqvyb8w/9LhZJqerxeQzjmBViT6ImiFNR9fRVF7Or0Qogqtl/6VW3yaiAQ9P3
+	 5ltYe/aTG/g9w==
+Date: Thu, 26 Nov 2026 21:02:24 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Surendran Kanagaraj <surenkj@amazon.com>
+Cc: corbet@lwn.net, graf@amazon.de, gunnarku@amazon.com, jgg@ziepe.ca,
+	joshlev@amazon.com, leitao@debian.org, linux-doc@vger.kernel.org,
+	linux-integrity@vger.kernel.org, linux-kernel@vger.kernel.org,
+	nh-open-source@amazon.com, noodles@earth.li, peterhuewe@gmx.de,
+	rdunlap@infradead.org, skhan@linuxfoundation.org
+Subject: Re: [RFC PATCH v4 1/8] tpm: Add a single table for all TPM wait
+ limits
+Message-ID: <awiCQCU-h8MQc6bQ@kernel.org>
+References: <20261118073852.81107-2-surenkj@amazon.com>
+ <20261125230034.24726-1-surenkj@amazon.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,29 +61,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.16-dev-ad80c
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261125230034.24726-1-surenkj@amazon.com>
 
-On Thu, 19 Nov 2026 19:49:28 +0000, Lee Jones wrote:
-> These issues were reported by Sashiko.
+On Wed, Nov 25, 2026 at 11:00:34PM +0000, Surendran Kanagaraj wrote:
+> Hi Jarkko,
 > 
-> Patch 1 is the minimal, Stable-suitable fix from v2 (13/27), which was
-> skipped when the rest of that series was applied due to a collision with
-> "mfd: twl-core: Unregister the auxiliary platform device on unbind".
+> On Wed, Nov 18, 2026 at 07:38:45AM +0000, Surendran Kanagaraj wrote:
+> > +static const u32 tpm2_defaults[TPM_NR_LIMITS] = {
+> > +	[TPM_LIMIT_A]		= TPM2_TIMEOUT_A * USEC_PER_MSEC,
+> > +	[TPM_LIMIT_B]		= TPM2_TIMEOUT_B * USEC_PER_MSEC,
+> > +	[TPM_LIMIT_C]		= TPM2_TIMEOUT_C * USEC_PER_MSEC,
+> > +	[TPM_LIMIT_D]		= TPM2_TIMEOUT_D * USEC_PER_MSEC,
+> > +
+> > +	[TPM_LIMIT_SHORT]	= 750 * USEC_PER_MSEC,
+> > +	[TPM_LIMIT_MEDIUM]	= 2000 * USEC_PER_MSEC,
+> > +	[TPM_LIMIT_LONG]	= 3000 * USEC_PER_MSEC,
+> > +	[TPM_LIMIT_LONG_LONG]	= TPM2_DURATION_LONG_LONG * USEC_PER_MSEC,
+> > +	[TPM_LIMIT_DEFAULT]	= TPM2_DURATION_DEFAULT * USEC_PER_MSEC,
+> > +};
 > 
-> Patch 2 is the follow-up suggested by Andreas, converting the manual
-> twl_priv reset to a devres action.
+> The TPM2_SelfTest duration bump [1] made me realize that mapping the
+> TPM 2.0 durations into these TPM 1.x style classes may not hold up long
+> term. A spec update to a single command turns into a change that
+> affects all commands under the class. I think it is better to keep the
+> existing maps as they are and let the driver modify the map if needed.
+> This is also what you suggested in commit 207696b17f38 ("tpm: use a
+> map for tpm2_calc_ordinal_duration()"): keep a per-chip copy of the
+> map and let the leaf driver patch it.
 > 
-> [...]
+> At a high level, the series would become:
+> 
+> 1) Set default interface timeouts and duration at chip allocation.
+> 2) Keep the chip durations in a union of TPM1.x and TPM2.0 durations.
+> 
+>      union tpm_durations {
+>              unsigned long tpm1[TPM1_NUM_DURATIONS];
+>              struct tpm2_ordinal_duration tpm2[TPM2_NUM_DURATIONS];
+>      };
+> 
+>    struct tpm_chip holds the union tpm_durations in place of
+>    chip->duration[]
 
-Applied, thanks!
+It isn't possible to have single struct tpm duration that is partially
+used by TPM1?
 
-[1/2] mfd: twl-core: Clear twl_priv pointer on teardown and probe failure
-      commit: 1d73299e237f7afa88f5df8edffc135f768e793d
-[2/2] mfd: twl-core: Reset twl_priv using devm_add_action_or_reset()
-      commit: 2d66287fc824a778046241d589c3220c64a1a677
 
---
-Lee Jones [李琼斯]
 
+> 3) update_durations() now gets the union which TPM1.x and TPM2
+>    drivers can adjust.
+> 4) Show the durations sysfs file for TPM 2.0 chips.
+> 
+> With this, I would drop the limits table, poll APIs and tpm.limits=
+> parameter for now and keep the series focused on duration handling.
+> 
+> Does this sound reasonable to you?
+> 
+> [1] https://lore.kernel.org/linux-integrity/20261125182251.19360-1-surenkj@amazon.com/
+> 
+> Thanks,
+> Surendran
+
+Br, Jarkko
