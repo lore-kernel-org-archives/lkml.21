@@ -1,82 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.210.91.34
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795696559;
-	b=0v5yjzepj1WsMixlm5YS45QB4h68vIVieSZ0VPgtoazclP9MTpNOKavnyU8rIvNj0UBK
-	 uXywd2JmTKRVviZrQZHm/fBciZLn1B4FXNPAGOYjlps0M/ffxT1rXSZ14HgEz6VM4/QZm
-	 V4DPMal1/IVo+1LVxlkn+du20GlsHxJ4+9o+WdEvJEQuIrHoKYzvOH/Xjic/3uv54uvUd
-	 6yeJ+q47TDR93cigZlm/oc1W6XLQuXmCJqJnNlS3/VXAInKkIWjOUm8e8bbjVvOxWcL0N
-	 xH+jHQPXjMXO52AddR2ja71OmWStHkgbMiwhJiQ9FfCbNbU8XL0uUE4KBcXYcAxRpoQ==
+	t=1795696648;
+	b=q2sMPcdp7egtp0QYmpWVdb/8rdR42j5DV6IzSMFCpwL/DjnHU3dBiutPcjjf8IccBdps
+	 +EJSMhYksE2UZa67LgGTPdFUE2QHuua8lhkpGCuF4K3GtiwI0QFELlpIhHnZpipUt0kDf
+	 ci/4qEaU/X8W1G+uqvh6dfd+CavUk0X5xQOe8XCg6rsIS9igHHedqunRoRxOUDWkMtg3+
+	 EAbZejiJXMXJoO1Gvkt8T2vQwSgGbCq4jc87ixHgaIDXjOdIC7LeNTsYWXLraZ7gd9hyQ
+	 YMnaZrKXsKH+e3zbSWxV99E7SNW8I944dzD2ULLLMnBYN1hG2AozYPDBhS2hcTovYXg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795696559;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=GKT9oowf0TD/M9Bia3/lD8JP3I0qK2S18DL6sTON+k0=;
-	b=R8BzWEZEW1IGlU0Pvlx1uv4C63UkgRtNogaO9sD52Sy0iAfQm/7CRXjM3hj8MgJBXlAe
-	 uc4XMUjzBQMDPSkjq5TEcZVD4PeU9pnxRV9u0pgKtINWiWbf0MbehxAhz0siVTtEZk0Jh
-	 aiF7zArCnY3gMGrH95G5JjizWzuaYtkXptzc1BEnykaQeeZLemCvHEH0CFcEer3KoXICJ
-	 fM2Mylxm+VxydyKxENDz051qK6NmMlciYTBpssSChBbuA+OpOIkkTH42gIL/cy5zHO0NY
-	 JdmH9F+oQyl+YW/c0nglG5TZ7kQJv6zsGEsKJvQTwaJD/sL/ucsfnugjKczv3QWEtrQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795696648;
+	h=DMARC-Filter:Received:Received:Received:Received:X-OVh-ClientIp:From:
+	 To:Cc:Subject:Date:Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:x-ovh-tracer-id:X-VR-SPAMSTATE:
+	 X-VR-SPAMSCORE:X-VR-SPAMCAUSE:DKIM-Signature;
+	bh=RQkJfhAebHnDToX49dPcuad16KB6cMedVUuroADXyWg=;
+	b=qPTbANlHLaTJKjwNyXrkueT1ZL8ShYSWZMg1xsUauKWgOBimQAF8IlUReX4XqHAn2TuA
+	 ZO7QNst/0lK4HDkgyQqXXYkWwW4+YYpNR+fjO+NqmPDh3itOexy5JQdj7UDORj0Xrskt8
+	 DBxTHSJyi4iyxLYJmnZNf0SmChHIA9rKMK8ohexBMSVGLFOrZTtahv0KDt2J6E8QZRwRP
+	 U4srB51xUR3vZRkBkFrY037lRz9pLZoJ3HW6XLjZehmx/VZzmsdAXnEmaKxsz4U573FWL
+	 HtHG8FckRXALZfscyCIJCnPTk/FMEEM34gwzqRD/lKkmARgYsJmZ8rB5Q8Ue4aTAJrQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=DyuuPeiK;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	dmarc=none header.from=npnm.eu;
+	spf=pass smtp.mailfrom=npnm.eu;
+	dkim=pass header.d=npnm.eu header.i=@npnm.eu header.a=rsa-sha256 header.s=ovhmo-selector-1 header.b=XoUVzbg0;
+	arc=none smtp.remote-ip=51.210.91.34
+Received: from smtpout5.mo538.mail-out.ovh.net (smtpout5.mo538.mail-out.ovh.net [51.210.91.34])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6193A606A323;
-	Thu, 26 Nov 2026 12:35:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6193A606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A513606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:37:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A513606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=npnm.eu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=npnm.eu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=DyuuPeiK
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQBYqPj009898;
-	Thu, 26 Nov 2026 12:35:48 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=GKT9oo
-	wf0TD/M9Bia3/lD8JP3I0qK2S18DL6sTON+k0=; b=DyuuPeiKNB1rFvXi1YQIVe
-	79CvB7Nkue9NtbXfOlWbKp5buY/Rx0ut5Qss8JvM9AQ/3iP95z45jL8M8iZoz+uV
-	eMNZvfFJu9KdEEyi9fuFSYyvqDAHlgF9rdtPXW8jMWGO1DxgCU7d/vN5msrnfqkf
-	y8g/ej9cA7UnJByvdKbtKmFNmDoy6BTuPU6462zSBtR373SSynfKQE1TyFBAiMTv
-	j8xP5Vvfh6XjryT9AVkrM5mN/8FdI+YXaIOPqHhURl8vku8THfQi4br8MszDw6Sr
-	n+RrDGbwpaacPSEM+SM2IF13rULBaovfGGS/V2CLSp17Hu1hacHgIkrLyki09+Sw
-	==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34fks9a4-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 26 Nov 2026 12:35:47 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQBYMRQ2180327;
-	Thu, 26 Nov 2026 12:35:47 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j5axkyybq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 26 Nov 2026 12:35:47 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AQCZhAP42795436
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 26 Nov 2026 12:35:43 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6D93C20040;
-	Thu, 26 Nov 2026 12:35:43 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 20CFE2004D;
-	Thu, 26 Nov 2026 12:35:43 +0000 (GMT)
-Received: from [9.68.23.45] (unknown [9.68.23.45])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 26 Nov 2026 12:35:43 +0000 (GMT)
-Message-ID: <5d2e50f3-ca65-4090-87e5-03819441da48@linux.ibm.com>
-Date: Thu, 26 Nov 2026 13:35:42 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=npnm.eu header.i=@npnm.eu header.a=rsa-sha256 header.s=ovhmo-selector-1 header.b=XoUVzbg0
+Received: from director5.derp.mail-out.ovh.net (director5.derp.mail-out.ovh.net [79.137.60.225])
+	by mo538.mail-out.ovh.net (Postfix) with ESMTPS id 4jZwzf16w0z67Hf;
+	Thu, 26 Nov 2026 12:37:18 +0000 (UTC)
+Received: from director5.derp.mail-out.ovh.net (director5.derp.mail-out.ovh.net. [127.0.0.1])
+        by director5.derp.mail-out.ovh.net (inspect_sender_mail_agent) with SMTP
+        for <simona@ffwll.ch>; Thu, 26 Nov 2026 12:37:17 +0000 (UTC)
+Received: from mta7.priv.ovhmail-u1.ea.mail.ovh.net (unknown [10.109.254.138])
+	by director5.derp.mail-out.ovh.net (Postfix) with ESMTPS id 4jZwzd6G2Wz6MYl;
+	Thu, 26 Nov 2026 12:37:17 +0000 (UTC)
+Received: from npnm.eu (unknown [10.1.6.3])
+	(Authenticated sender: laniel_francis@npnm.eu)
+	by mta7.priv.ovhmail-u1.ea.mail.ovh.net (Postfix) with ESMTPSA id 2F7BAB82161;
+	Thu, 26 Nov 2026 12:37:16 +0000 (UTC)
+Authentication-Results:garm.ovh; auth=pass (GARM-110S004b9630277-25c9-4875-a9f6-99af4d3fd264,
+                    230BAD52BFC520DA66055B44D06E91CCCAB19385) smtp.auth=laniel_francis@npnm.eu
+X-OVh-ClientIp:159.26.112.43
+From: Francis Laniel <laniel_francis@npnm.eu>
+To: Karol Herbst <kherbst@redhat.com>, Lyude Paul <lyude@redhat.com>,
+ Danilo Krummrich <dakr@redhat.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org, nouveau@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org
+Subject:
+ Re: [PATCH v1 0/1] drm/nouveau/devinit/gf100-: fix display engine check in
+ preinit
+Date: Thu, 26 Nov 2026 14:37:14 +0200
+Message-ID: <2858204.mvXUDI8C0e@pmachine>
+In-Reply-To: <20261125111925.8651-1-laniel_francis@npnm.eu>
+References: <20261125111925.8651-1-laniel_francis@npnm.eu>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,114 +72,180 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] KVM: s390: vsie: Rewind the PSW of ESA mode guests
- in the right format
-To: Yvan Janssens <yvanj@cyber.gent>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>
-Cc: David Hildenbrand <david@kernel.org>, Eric Farman <farman@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Paolo Bonzini <pbonzini@redhat.com>,
-        Sean Christopherson <seanjc@google.com>, Shuah Khan <shuah@kernel.org>,
-        kvm@vger.kernel.org, linux-s390@vger.kernel.org,
-        linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261125165604.3074595-1-yvanj@cyber.gent>
- <20261125165604.3074595-2-yvanj@cyber.gent>
-Content-Language: en-US
-From: Janosch Frank <frankja@linux.ibm.com>
-Autocrypt: addr=frankja@linux.ibm.com; keydata=
- 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
-In-Reply-To: <20261125165604.3074595-2-yvanj@cyber.gent>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA0OSBTYWx0ZWRfX5U9LdZFmOGQz
- xna26zpgNnaAxhKMnEVmxN4jF1pZ4ZmStsDo+aEEiayOrNl+TVaH3zsIscVY1wh81SRBvN622S3
- 1+WbUU/i/WXsSrZcifrWlCkHSKbT4PoTIqYRMk+KvLdMO9/7/ZdDmcu50v4/rC7QRpVVk9luZvO
- dWquXOLd3oTH/WIqW9LQHcfdNtiYw8NgKD+PnHC1xKPhr8Vg4+/3GI6fF5+v5Lob64myOnCNwnz
- FdjjTaDqc6alO7smoGDiADy+AoX5oUFPWEvTQNgObZkcZFuykiPOtzHSsRwQZl7D/PvSuz2Cr6z
- SRotzQVI1f/8LX1XJhx8JKmXEfG7Syc4TxZp5f2oRLGU9XOINeriZvFaEb0EBb/X2FpyErOISMt
- /T79TmTe+sP4+pQYigg9nwuUoXisnTzLaFlP1rCTMUM4POKtNeWM4vpKI/8pMM4UNjbXUDLHlxo
- TFRsAg3+Ip1RiJijXsA==
-X-Proofpoint-ORIG-GUID: JU94GMs746ql91RjW2H9gv_ElVJ7tPLd
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA0OSBTYWx0ZWRfXx2GzR2r4IjMg
- fe0EkhVrGUF/KALty2vYH4UF/0fgkxG3ifDCFMckCCAIo2wok8kbCMQbbTJJwSVyxI73j46yUV6
- TkX3d3RExgNJZjanp151+zO0bX0xvA8=
-X-Authority-Analysis: v=2.4 cv=A9z5rKWG c=1 sm=1 tr=0 ts=6b0827a4 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=l9r1cnm4-fEY1RtK:21 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22
- a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8 a=cyxkdFWmLbpH1sDcVnIA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: cGh7yxMDTOI-Y9kVGVp1WIDyfqnURdp8
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-26_03,2026-11-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 adultscore=0 phishscore=0 priorityscore=1501 impostorscore=0
- bulkscore=0 malwarescore=0 spamscore=0 lowpriorityscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260049
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+x-ovh-tracer-id: 2881459338773603644
+X-VR-SPAMSTATE: OK
+X-VR-SPAMSCORE: -100
+X-VR-SPAMCAUSE: dmFkZTE1qDi0Soti/4tnUiSxQb2gQr7FxqvYVam6SEq/87eXXB81y5tpavkUrC7wdjB7Tkj4LqTCiFvsbz+ZaKkSYpljATzQIRbSsbgqUHzEd/XZqIdaByia5otWAqBgf2yH9BXOVmbuPvB8WaW2DSjvUNHxhHSz9DzJUCumBiD3AVJQNrcx/FMleRUSKGfFNZQ/n86IjCTvcEkNjLqwnlLHVMTkH7DxSxLE0QfZ3jQ39ZhrPUdngP0f+5cd3TUef3RiE7fSph0RyHiMGsR90mu+ReEZzXXJctFiyi0hMMNQ2SDbrE1NsmhfDhlfjeopTcAsdHvbAMOp2tMNnfBqkvk8KP23jMbtxusYe6uWuCS4xn6TTMyrh84BUiNxxIUzdywRDu5+N8jA0Su4Yo1geUm4x01eL7r7kxAQm+5oQXcROlToQWLWZP2Z2/louvzRxkSaQy7wMs+d9Vyel3EgoSVRiVPBrD1raTPPtSiQ9Vgb7m31pJDRz8/1EhRfPF/ASVa0re0YoSqDGh/ziskt1mL6t3hopNAINw7x0y9GtNKFCCiuReZIkLWRQTs1V8G6SnYseJ351Tpka8pgC0JB5DBbV7fG3P4OoB+8FkIEWc3lrOVyHqtgYegUQf1XPwcZvCVZgK+QVvg2TG2B+pVif/7rZ/Y2SyKAa/9rXimeEZU0gZPosg
+DKIM-Signature: a=rsa-sha256; bh=RQkJfhAebHnDToX49dPcuad16KB6cMedVUuroADXyWg=;
+ c=relaxed/relaxed; d=npnm.eu; h=From; s=ovhmo-selector-1; t=1795696638;
+ v=1;
+ b=XoUVzbg0mjfIRCIBeqGf5+qGvpx5E4ZmWX/+DLDqQr0k8RH0q2oj35btQG15D5NKf0hiKMeJ
+ 3s9F2Ru2O20+oU/7efKOl8N8VY6prQ9EuT1Ih1JFIX3qagbYpkO10FkuibgavKnKQ/T4xMpx9tY
+ DYWj0l36FWF6LFeIy/30Xm9jseWTEVfzv+fBNeO8arsbWEfvL7+bJD4sXW918b207MPGmPNOnfm
+ 8l1j6WZetI080VCTP7woiJ8tXSA1PNt0LWFQDr6cTxzUcP+EMwi9jhjhJLbnZF6ptjKvXdD3Azp
+ Z6OuPqhQYB3JdepPUuN1s2aNy3InFPTCcXzCTfkzAzq/g==
 
-On 11/25/26 5:56 PM, Yvan Janssens wrote:
-> ESA-mode guests in vsie have existed since commit b0ad874d9852 ("KVM:
-> s390: vsie: Allow non-zarch guests"); they use the 8-byte short PSW -
-> the mask and instruction address share one doubleword.
-> 
-> vsie's PSW rewind originally still changed the second doubleword, which
-> is unused in ESA mode, so the instruction is skipped instead of
-> repeated. The visible effect is that the first STFLE after entering SIE
-> does nothing in a nested guest.
-> 
-> This patch adds a vsie-specific rewind function that handles both
-> formats; no short-PSW type is introduced - for ESA guests mask and
-> address are written into the mask field.
-> 
-> Fixes: b0ad874d9852 ("KVM: s390: vsie: Allow non-zarch guests")
-> Cc: stable@vger.kernel.org # 7.1+
-> Signed-off-by: Yvan Janssens <yvanj@cyber.gent>
-Reviewed-by: Janosch Frank <frankja@linux.ibm.com>
+Le mercredi 25 novembre 2026, 13:19:24 heure normale d=E2=80=99Europe de l=
+=E2=80=99Est Francis Laniel a =C3=A9crit :
+> Hi,
+>=20
+> I had a problem booting 6.12.118 kernel with NVIDIA GP108GLM [Quadro P520=
+]:
+> ...
+> [    1.657796] nouveau 0000:2d:00.0: fb: 0 MiB GDDR5
+> ...
+> [    2.590323] BUG: unable to handle page fault for address: ffffcdd5c140=
+0000
+> [    2.590326] #PF: supervisor read access in kernel mode
+> [    2.590328] #PF: error_code(0x0000) - not-present page
+> [    2.590330] PGD 100000067 P4D 100000067 PUD 100203067 PMD 101f29067 PT=
+E 0
+> [    2.590334] Oops: Oops: 0000 [#1] PREEMPT SMP NOPTI
+> [    2.590337] CPU: 7 UID: 0 PID: 223 Comm: (udev-worker) Not tainted 6.1=
+2.118+deb13-amd64 #1  Debian 6.12.118-1
+> [    2.590340] Hardware name: LENOVO 20S4001JFR/20S4001JFR, BIOS N2XET27W=
+ (1.17 ) 12/10/2020
+> [    2.590342] RIP: 0010:ioread32+0x32/0x60
+> [    2.590347] Code: ff 03 00 77 25 48 81 ff 00 00 01 00 76 08 89 fa ed c=
+3 cc cc cc cc 8b 05 6c e5 6f 01 85 c0 75 11 b8 ff ff ff ff c3 cc cc cc cc <=
+8b> 07 e9 d7 d4 66 00 83 e8 01 48 89 fe 48 c7 c2 72 53 51 b2 48 c7
+> [    2.590350] RSP: 0018:ffffcdd5c1137338 EFLAGS: 00010292
+> [    2.590353] RAX: ffffffffc0a55890 RBX: ffff8aa642386c00 RCX: 000000000=
+0000000
+> [    2.590355] RDX: 00000000bad0ac3c RSI: ffffcdd5c1400000 RDI: ffffcdd5c=
+1400000
+> [    2.590357] RBP: ffffcdd5c1137374 R08: 000000000000a500 R09: 000000000=
+0000000
+> [    2.590359] R10: ffffcdd5c1380000 R11: ffffcdd5c13fffff R12: ffffcdd5c=
+1137470
+> [    2.590360] R13: ffff8aa642386cb0 R14: ffffcdd5c1137380 R15: 000000000=
+0000000
+> [    2.590362] FS:  00007fa0fa647980(0000) GS:ffff8aad4d780000(0000) knlG=
+S:0000000000000000
+> [    2.590365] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+> [    2.590367] CR2: ffffcdd5c1400000 CR3: 000000010b472002 CR4: 000000000=
+03706f0
+> [    2.590369] Call Trace:
+> [    2.590371]  <TASK>
+> [    2.590373]  gp102_acr_wpr_patch+0xaf/0x1a0 [nouveau]
+> [    2.590477]  nvkm_acr_oneinit+0x3bc/0x600 [nouveau]
+> [    2.590550]  nvkm_subdev_oneinit_+0x42/0x90 [nouveau]
+> [    2.590620]  ? ktime_get+0x3a/0xd0
+> [    2.590624]  nvkm_subdev_init_+0x30/0xa0 [nouveau]
+> [    2.590692]  ? nvkm_intr_rearm+0xc7/0x1c0 [nouveau]
+> [    2.590759]  nvkm_subdev_init+0x48/0x60 [nouveau]
+> [    2.590827]  nvkm_device_init+0x16b/0x1f0 [nouveau]
+> [    2.590936]  nvkm_udevice_init+0x47/0x70 [nouveau]
+> [    2.591044]  nvkm_object_init+0x41/0x120 [nouveau]
+> [    2.591115]  nvkm_ioctl_new+0x160/0x220 [nouveau]
+> [    2.591182]  ? __pfx_nvkm_client_child_new+0x10/0x10 [nouveau]
+> [    2.591249]  ? __pfx_nvkm_udevice_new+0x10/0x10 [nouveau]
+> [    2.593234]  nvkm_ioctl+0xa6/0x140 [nouveau]
+> [    2.593305]  nvif_object_ctor+0x11a/0x1a0 [nouveau]
+> [    2.593371]  nvif_device_ctor+0x2e/0x70 [nouveau]
+> [    2.593438]  nouveau_drm_device_new+0x170/0x300 [nouveau]
+> [    2.594065]  ? __pci_set_master+0x36/0xd0
+> [    2.594068]  nouveau_drm_probe+0xc2/0x1e0 [nouveau]
+> [    2.594167]  local_pci_probe+0x42/0x90
+> [    2.594171]  pci_device_probe+0x25b/0x290
+> [    2.594173]  really_probe+0xde/0x340
+> [    2.594177]  ? pm_runtime_barrier+0x54/0x90
+> [    2.594180]  ? __pfx___driver_attach+0x10/0x10
+> [    2.594182]  __driver_probe_device+0x84/0x140
+> [    2.594184]  driver_probe_device+0x1f/0xa0
+> [    2.594186]  __driver_attach+0xbc/0x1d0
+> [    2.594187]  bus_for_each_dev+0x8c/0xe0
+> [    2.594190]  bus_add_driver+0x112/0x1f0
+> [    2.594193]  driver_register+0x72/0xd0
+> [    2.594195]  ? __pfx_nouveau_drm_init+0x10/0x10 [nouveau]
+> [    2.594261]  do_one_initcall+0x5b/0x310
+> [    2.594265]  do_init_module+0x60/0x230
+> [    2.594269]  init_module_from_file+0x89/0xe0
+> [    2.594272]  idempotent_init_module+0x11e/0x310
+> [    2.594276]  __x64_sys_finit_module+0x5e/0xb0
+> [    2.594278]  do_syscall_64+0x87/0x1b0
+> [    2.594281]  ? filemap_read+0x340/0x370
+> [    2.594285]  ? vfs_read+0x24d/0x370
+> [    2.594288]  ? __x64_sys_pread64+0x98/0xd0
+> [    2.594291]  ? arch_exit_to_user_mode_prepare.isra.0+0x16/0xa0
+> [    2.594293]  ? syscall_exit_to_user_mode+0x37/0x1b0
+> [    2.594295]  ? do_syscall_64+0x93/0x1b0
+> [    2.594297]  ? do_sys_openat2+0x9c/0xe0
+> [    2.594300]  ? arch_exit_to_user_mode_prepare.isra.0+0x16/0xa0
+> [    2.594302]  ? arch_exit_to_user_mode_prepare.isra.0+0x16/0xa0
+> [    2.594304]  ? syscall_exit_to_user_mode+0x37/0x1b0
+> [    2.594306]  ? do_syscall_64+0x93/0x1b0
+> [    2.594307]  ? do_syscall_64+0x93/0x1b0
+> [    2.594309]  ? __flush_tlb_all+0x13/0x30
+> [    2.594311]  ? __flush_smp_call_function_queue+0xab/0x410
+> [    2.594314]  ? syscall_exit_to_user_mode+0x37/0x1b0
+> [    2.594316]  ? clear_bhb_loop+0x70/0xc0
+> [    2.594319]  ? clear_bhb_loop+0x70/0xc0
+> [    2.594321]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
+> [    2.594323] RIP: 0033:0x7fa0fb1ad6b9
+> [    2.594325] Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 4=
+8 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <=
+48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 27 67 0d 00 f7 d8 64 89 01 48
+> [    2.594329] RSP: 002b:00007ffc9ccb2f38 EFLAGS: 00000246 ORIG_RAX: 0000=
+000000000139
+> [    2.594332] RAX: ffffffffffffffda RBX: 000055dd07c93360 RCX: 00007fa0f=
+b1ad6b9
+> [    2.594334] RDX: 0000000000000004 RSI: 00007fa0f98d544d RDI: 000000000=
+000001d
+> [    2.594336] RBP: 0000000000000004 R08: 0000000000000000 R09: 000055dd0=
+7c6f130
+> [    2.594338] R10: 0000000000000000 R11: 0000000000000246 R12: 00007fa0f=
+98d544d
+> [    2.594339] R13: 0000000000020000 R14: 000055dd07c912d0 R15: 000000000=
+0000000
+> [    2.594342]  </TASK>
+> [    2.594343] Modules linked in: hid_generic usbhid hid i915(+) nouveau(=
++) mxm_wmi drm_gpuvm drm_exec gpu_sched drm_buddy i2c_algo_bit drm_display_=
+helper crct10dif_pclmul crc32_pclmul cec crc32c_intel ghash_clmulni_intel r=
+c_core drm_ttm_helper sha512_ssse3 iTCO_wdt ttm sha256_ssse3 intel_pmc_bxt =
+xhci_pci sha1_ssse3 ucsi_acpi iTCO_vendor_support xhci_hcd rtsx_pci_sdmmc w=
+atchdog aesni_intel drm_kms_helper typec_ucsi nvme mmc_core gf128mul usbcor=
+e typec nvme_core i2c_i801 psmouse drm crypto_simd roles thunderbolt e1000e=
+ video serio_raw rtsx_pci i2c_smbus nvme_auth cryptd usb_common battery wmi=
+ button
+> [    2.594376] CR2: ffffcdd5c1400000
+> [    2.594378] ---[ end trace 0000000000000000 ]---
+>=20
+> With the following patch, the kernel was succesfull booting:
+> [    1.404564] nouveau: loading out-of-tree module taints kernel.
+> [    1.404624] nouveau: module verification failed: signature and/or requ=
+ired key missing - tainting kernel
+> [    1.739550] nouveau: detected PR support, will not use DSM
+> [    1.739571] nouveau 0000:2d:00.0: enabling device (0006 -> 0007)
+> [    1.739648] nouveau 0000:2d:00.0: NVIDIA GP108 (138000a1)
+> [    1.776320] nouveau 0000:2d:00.0: bios: version 86.08.3e.00.26
+> [    1.776582] nouveau 0000:2d:00.0: pmu: firmware unavailable
+> [    1.860292] nouveau 0000:2d:00.0: fb: 2048 MiB GDDR5
+> [    1.897865] nouveau 0000:2d:00.0: drm: VRAM: 2048 MiB
+> [    1.897868] nouveau 0000:2d:00.0: drm: GART: 536870912 MiB
+> [    1.897869] nouveau 0000:2d:00.0: drm: BIT table 'A' not found
+> [    1.897871] nouveau 0000:2d:00.0: drm: BIT table 'L' not found
+> [    1.897871] nouveau 0000:2d:00.0: drm: Pointer to TMDS table not found
+> [    1.902700] nouveau 0000:2d:00.0: drm: MM: using COPY for buffer copies
+> [    1.902820] [drm] Initialized nouveau 1.4.0 for 0000:2d:00.0 on minor 0
+> [    1.902908] nouveau 0000:2d:00.0: [drm] No compatible format found
+> [    1.902910] nouveau 0000:2d:00.0: [drm] Cannot find any crtc or sizes
+>=20
+> Basically, the patch mimics behavior existing in nv50_devinit_preinit().
+>=20
+> Francis Laniel (1):
+>   drm/nouveau/devinit/gf100-: fix display engine check in preinit
+>=20
+>  drivers/gpu/drm/nouveau/nvkm/subdev/devinit/gf100.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>=20
+> Best regards,
+>=20
+
+Sorry for the noise, a patch was already posted some days ago:
+https://lore.kernel.org/all/20261123-nouveau-fix-disp-v1-1-ebdc525287ce@red=
+hat.com/
+
+
