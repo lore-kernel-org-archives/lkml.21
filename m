@@ -1,71 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795716119;
-	b=A0PBMvVYwD6FNRYxfbfDPMyx2biHxIXuPshZ342MsVv49osByOjbUhDX5Q/yzb59TvRF
-	 MdpLSZDavz0nG7JYr+zVQuVHpaz1merasTiknz28fuf7ekSNC+8qhrQCORwwB9wX7XsXP
-	 b+KTPqvzEAk1sYV+g/LAL+DMhye0Gqdrc9exIG5UWogfOisjJtEj5JGJ9o8xxA6iaAuXZ
-	 81EEBpwbqUEIXYv5jtxq19LWGvfGaggsFbGIe0Oadd3EV4EdV58ANQEyMFnaIEtfYXNxL
-	 63k9ve3OCWY/+RyqJ0zwt8D8fllKmiVGP4gKfNdxktEOA8tD/XnmKivBBQh5e7gNyug==
+	t=1795716137;
+	b=LhplA5lXvBappZIUy0i9D3bgf4bDmRh9dhrdZvfSjaM3X/I5OaDJJ/j/K0vgGYwlNxdL
+	 jtr6qy9UTgNyvaPAN4omWy+X0EpXtB6EsQP95DPYP/dBasoLdGOmG3hKqpr0tIAy4wTov
+	 UrUpB6wUz0WmJoExUzzgf+hiW1GvRRDN4tkVF8H8le3uhvZy2v7bETns13pYOXVQ9v3CA
+	 TnMXk4anFfqY96i/WZG2NrkLqdSnjAlVZ7N/z6186vJ+yxRkXRyuWEO9lFaKoOOJ0ODGU
+	 JUCuMUelwsW9H0YjEEKGEAg0+PJ7a617zD/HCyMU53LNWFGoSCYNLHbgmF7k9nvj4aQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795716119;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:X-Last-TLS-Session-Version;
-	bh=kl7bg688dXQ0GAc0QXvKBX0thFl5TKdWcSAQVME7qL0=;
-	b=BFz63vJXeMffM/qQvlU/naQGsSX+0+GCmjBW5xtOymPhHXBBVxhhMhZoilMhGNB/NWlm
-	 8LOhwGMygXoorORO9aiRtJp3fNLuLdsfDRDj7C8iax55PjWFDoQREJnbjyLgZ/QftHwAB
-	 i6khb7962UuZKtba+1q+df6Se2yGBnVNeZpOlWz7WVWp+cV45lEbb2iaZDuD0rIaQTA9a
-	 zExr9ngyADOcC0Saa60FJjNhkJSg1n9GONxS05SLs4mUOQN4pPZHDE/XhCoZLSo80RYpA
-	 nJuyaQ3EWMeG37DGW4Iag6Hmyl8MfTNFBuSd1VZ5qOzbYsmVbb97Q0dOE+YKnDnpD+w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795716137;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=EIBFveu7yYmEbvuiFTdZCk87YQ1EZPQ1DqdLI+hGjog=;
+	b=UItHoj153Bvi5/OGHCiMUDzBVrGjzVm10W4cNQhXksp7wcU3ybUvflUXxD/QoeZhl5Ge
+	 Djm5Z1w03jdza24yV0RxpgkxqAYoArNZQa3l29dkHKnH/1CIQM1U9FlgyCUCkAt+Je3/A
+	 zB9THnPp0DvgCVDjh9oP8smMDu+ROjqsphhDAnzxG/uxzdn3vUNA/3/z9bI939SnOtl+4
+	 M6La37/2W8qW26h9a1R/AD2VfHj8II0JqjnZM5ZKD6QeKyxgc4dyAIHM0PcEGiEVF6p6V
+	 aJedrc18X5GAMDvsEUylEW/W73I39V4WrxSu6h07/f+pIQZoKgm2ze6OIo78R+t/FGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=B3bSM3ji;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B267606A31E;
-	Thu, 26 Nov 2026 18:01:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B267606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=kEnZJDat;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 2B0F3606A31E;
+	Thu, 26 Nov 2026 18:02:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B0F3606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=B3bSM3ji
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id ECF84C2B9D5;
-	Thu, 26 Nov 2026 18:02:04 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7EB9660558;
-	Thu, 26 Nov 2026 18:01:56 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0528A11E69167;
-	Thu, 26 Nov 2026 19:01:46 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795716111; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=kl7bg688dXQ0GAc0QXvKBX0thFl5TKdWcSAQVME7qL0=;
-	b=B3bSM3jiUK4noIe6e1knXOQNbSpWZfGs3R1GXa6wZ3FImgsCFptNW6q0DzKt+gmqZvJQwr
-	dSDr5dkmCUujMxkPkyiCmAu5OIPMV2KCIB5nIqOnhcWe8/cpFFuLy0q5S2eyDqRrlFYASw
-	BLVGru3+EVfYM60JVxcPnUdxeTeLHvaURR2I7Jo2V2nROSta4wyy2wmxD06IUhaWbe+A/C
-	n4ZaOb7a3xXMHJ/zTBslsJw4duEKvRGRIzNtI+1kIUoRR0GvZCZ9NKhKTzCvAgPMUOh6gf
-	36MLWOi+y2LzIHyIWhRKguPoWy8G4K0y5cLjKMrqBLFbP7dAdE+j/2+nFrRqRw==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  Stefan Agner <stefan@agner.ch>,  Lucas Stach
- <dev@lynxeye.de>,  Thierry Reding <thierry.reding@kernel.org>,  Jonathan
- Hunter <jonathanh@nvidia.com>,  Dmitry Osipenko <digetx@gmail.com>,  Boris
- Brezillon <bbrezillon@kernel.org>,  linux-mtd@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  linux-tegra@vger.kernel.org,
-  stable@vger.kernel.org
-Subject: Re: [PATCH] mtd: rawnand: tegra: drain the IRQ before disabling the
- clock
-In-Reply-To: <20261108-submit-tegra-nand-irq-teardown-v1-v1-1-2c570ad4a22c@gmail.com>
-	(James Hilliard's message of "Sun, 08 Nov 2026 14:05:55 -0700")
-References: <20261108-submit-tegra-nand-irq-teardown-v1-v1-1-2c570ad4a22c@gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Thu, 26 Nov 2026 19:01:45 +0100
-Message-ID: <87se0nv5di.fsf@bootlin.com>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=kEnZJDat
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6BE7E1BA8;
+	Thu, 26 Nov 2026 10:02:13 -0800 (PST)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E78513F632;
+	Thu, 26 Nov 2026 10:02:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795716136; bh=ek6pWiEzSoxsFDDVTU1wdcAfubRIURJGSjuHrb5FqjU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kEnZJDatTGHmsf3CzvHuDgAQ56PvD0PVRCks3UzHlNqJLRKPG9QI4ikwsTOvjY//O
+	 yr0hUZn90UwjrAXiehDySwVhfIJ/hZ1omwRPqZ1vbSgtVWzuHv2lbBvnf6QOG9LcM8
+	 kP0UZVtEqNMWMRBL5mMS+/Xf075VH9+Y4x0QyI3Y=
+Date: Thu, 26 Nov 2026 18:02:14 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: vladimir.murzin@arm.com, Puranjay Mohan <puranjay12@gmail.com>,
+	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Rob Herring <robh@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Shuah Khan <shuah@kernel.org>, Breno Leitao <leitao@debian.org>,
+	Ravi Bangoria <ravi.bangoria@amd.com>,
+	Stephane Eranian <eranian@google.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Usama Arif <usama.arif@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org, kernel-team@meta.com,
+	Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Subject: Re: [PATCH v6 0/3] arm64: Add BRBE support for
+ bpf_get_branch_snapshot()
+Message-ID: <20261126180214.GB809232@e132581.arm.com>
+References: <20260810164622.1829843-1-puranjay@kernel.org>
+ <CANk7y0ixo5a3Vfzj_HVhVHRNce2Rsit4pP27GCtXd4jHHzmiKg@mail.gmail.com>
+ <CAEf4BzapC=7YM2QLMyKKfyOWGgBTfEJmPPN8e9Jf5xT9SutBTQ@mail.gmail.com>
+ <dfa8362e-0dad-4f23-9d2e-dde03cb5facc@linaro.org>
+ <CAEf4BzZ=ahQNtA-1KdZFRONXMOEkV9Nb1OUY==JRQCarkbMM0Q@mail.gmail.com>
+ <5c7f4a5f-fe5e-4367-9c60-86f1818346e8@linaro.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,21 +88,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5c7f4a5f-fe5e-4367-9c60-86f1818346e8@linaro.org>
 
-On 08/11/2026 at 14:05:55 -07, James Hilliard <james.hilliard1@gmail.com> wrote:
+On Thu, Nov 26, 2026 at 12:39:52PM +0000, James Clark wrote:
 
-> The managed IRQ handler remains installed until devres cleanup, after
-> removal or a late probe failure has suspended the controller and disabled
-> its clock. The handler can still be accessing registers at that point:
-> it signals the command and DMA completions before its final register
-> accesses, so waiting for a NAND operation does not drain the IRQ handler.
->
-> Mask controller interrupts and release the managed IRQ before dropping
-> the runtime PM reference. Apply the same ordering when chip initialization
-> fails after the IRQ has been requested.
+[...]
 
-Can we instead include power mangement in the devres logic? In general
-when one need to manually devm_remove/freee/unregister(), it means there
-is problem and the solution is incorrect.
+> > > > Mark, Will, you guys seems to be designated as maintainers for
+> > > > drivers/perf/arm_brbe.c, can you please take a look and give your
+> > > > feedback as well? This is important and useful feature for newer arm64
+> > > > CPUs, it would be great to get access to this functionality that we
+> > > > had on x86-64 side for a long while now. Please help get this upstream
+> > > > or, if it's not in the right shape, guide Puranjay towards a better
+> > > > implementation. Thank you!
+
+...
+
+> + Vladimir
+> 
+> Hi Mark, Will, Vladimir,
+> 
+> Any thoughts on this approach where NMIs need to be disabled? Alternatively
+> we could do something like track where the PMU interrupts and BPF snapshots
+> overlap and then discard the BRBE buffer and make sure they don't trample on
+> each other etc, but it looks like it would be significantly more
+> complicated.
+
+Could we restrict bpf_get_branch_snapshot() on arm64 to a free-running
+BRBE mode? On a given CPU, at least one active event would have to
+request a branch stack, and every such event would have to be a
+counting event.
+
+This seems to fit in this series. The selftest opens a CPU-cycles event
+with PERF_SAMPLE_BRANCH_STACK and sample_period = 0, then takes the
+snapshot from an fexit program.
+
+Counting events can still generate overflow interrupts for bookkeeping.
+It requires to refactor the PMU driver to leave BRBCR_ELx.FZP clear so
+an overflow doesn't freeze BRBE. The interrupt handler could service the
+counters without touching BRBE and losing the branch records.
+
+Thanks,
+Leo
