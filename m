@@ -1,98 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.6.134.125
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795664015;
-	b=4SFpEH/4eZ7M7puftkk4IwuKQvCVX1m9bCd3M/lRJzHe0VbkwSz6A1vxa0KcqPTl8B9r
-	 fliEPsT7H0YIuc3PN7FfF5VR7YO67h5/6fPOXdulZfoWoSq3bBSzNeDty8AF5mbEHzzcv
-	 q7D7iXBBHdTceB6cJr+blznMuzAkMPUQJdMhvkii7lZM1edg+BW9ddgKDRBENvsFxP1tX
-	 hzfjc7eGTZM0kJX0m3KOkzxat/j+pz0RvhR4hvt0JfaxovS5MYp0TusmxRmugBl5RuKic
-	 56BrF/n+XBJE5TL8yNT4yqQtmooV19B7vCG3HH/XOjYYtW08mlygPIrZydmZlRt28cg==
+	t=1795664047;
+	b=YhQxyH70Kw6EXqhCaKk5ei9ZaGj5BHfl40ep9TVq9tW5HKmdIAtxBZtI1soN/ce96mFY
+	 bjDmRrCq5ITtSn21o2tcRctwHraVTFYHX6dHkzge5redn81QuPNrZgQaf/7gVyETq3tCe
+	 QdF5SJfX1Vx5gRSlPPplpIgsvwffnjXUe0ofIPpPvVvP79jRrYMTy5dQR0+NE1ZLNB1lM
+	 29poJRZSUhKxOm1poVSDSsd9wqR0uHy9PWKQrZE5ciLpWQ683OnoTsyH9iX3VvGqdBlyM
+	 i23hDHO+ocEsJ1grYAxxqbT6LZfP14TkHw7EtJYopZkTv9XbhwGpHCZm+2M/xrkB9yA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795664015;
-	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
-	 X-Sonic-ID:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795664047;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=YcM9NeytmDEp3ZHnhl05h0wZi5zVcYRHE8yN3GpV/uk=;
-	b=Hd5J19X9/7v42SeXqkz2AS6HVjPuRpiIG0F6KHAdeuIfY6kus5VDNVRZloEjfsxVatAr
-	 SunjQisZpQgfXiTDJ1GPuSwgObfno+e+rga1XtWA/h8b5loteBwjykJnM/v34/Hbng6AD
-	 whx3X4kWGPkgfQAS4uP+l18cYElxYGIgtYXAxaSKkl3/TLZdoiU8bQI6IMSbPgDL0gOmd
-	 Ou1GjHUuonlY0zWSxHb41EdrjyJOLI6OY5aINTxd+Ayb8pthtNVW1pJ6YCqZV+6nX7K80
-	 Z4Zr933LXU70DesuVDQonMH4IZYjyUFZWL0TipIQvkjG+uRGH2Uu+OZVwnv7RSXjtgg==
+	bh=a4ZWFEpxOzRrb4f83qhPqbcObb4Vu9618O1GUeM3IqE=;
+	b=yLKgkfBUAgFNArYv+VMFqW7kSZ58eDmjTiLfy0aSLpuhTMrP5MzU42C4xIK9NtbHPj+Y
+	 45mxv/F0zDU4C3UueER5LuUAtxdjKY8viHaOUQ7K4GbvD/IYhUtALoOuLgduUGMfxHPk0
+	 okUxpbeeGa6kW2rMlzdqGE9pYGZvl+Pqn2h63r+7AZDx90aon/Y7yQlx/fraE4AZ60bN7
+	 bHyjZy4vS+aK9tVIkv5JH0O9h2VcFVB3yn/laH01I5SsLvL2vvmRIY6BNFmVYqXftgvCK
+	 bIplAcHv6jD1T0ffL0vT31cQ8yuG3omL7fwr6N+cEc5TSL1VPl32OFEtGvFRsK0dcXw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yahoo.com;
-	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=o8rJxBu4;
-	arc=none smtp.remote-ip=74.6.134.125
-Received: from sonic315-15.consmr.mail.bf2.yahoo.com (sonic315-15.consmr.mail.bf2.yahoo.com [74.6.134.125])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LDe+k4vW;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B12E606A337
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:33:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B12E606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99F67606A321;
+	Thu, 26 Nov 2026 03:34:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=o8rJxBu4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795664014; bh=YcM9NeytmDEp3ZHnhl05h0wZi5zVcYRHE8yN3GpV/uk=; h=From:To:Cc:Subject:Date:In-Reply-To:References:From:Subject:Reply-To:Content-Type; b=o8rJxBu4ne1hHkdEfFFiMFwmWQ6R1ylvamcmZW9MQBZlRRdt+SmIgJ3Rp/0pzH3sPruKsyQKVg4LeyhjfxR0dc14XYX1hL/IzojXfg1iUCibMa0RTRPn8y2UGw1YOrME/KOV/ET2+O9EZcj7hyWboCsofxWmSmKk/uWpl2+yj6Q55mLndl985lTe2iUTgK0a2hMJFZS8SDqHohR3iiAuqJKUUMDHzKBWW/djteHwD42Bl5yaMjMMlFumX4Uymb+aEt5RmK5QKU87l62MIWVvgN7PgKH8HP4ltXiMwlUomK8CzAjvj+8KZ4ZEdFXckp6T9uD6itIo3tGB/AVmJDP9SQ==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795664014; bh=/2Tlz5ND402ydS4wmF0R/ar/qtdz/i2oGCpEaZnYDZ5=; h=X-Sonic-MF:From:To:Subject:Date:From:Subject; b=Dg6+ljCRiE/2w9KXXZ8Lsivx32O2Xto0K217sQEXMCB929R8gw9YdXhYOf4Pb6HkcZ5AVPdaBKzCivm1gEvqi9IKocJqWVu1diI5CscKaiJmGqklkq1wUz1o4qPdv4vClxfxIyDYin0gU1E0AgPrh5mCSf8O81GGeqwdRl5wORJ8Bhh4Kk9RFVpHzpN6H3vjgYXEH54dODQY1RONiGxDqzbrwI8eYPJd/dukc8SijUfavp31vv/idt0pqeihxaiFSTxqzPK613DVKe+OtdbzSkux7QTQ4MBDc/WwJEw+2IoDUl1Bjhn1rFwhYeKLpG0pziAhXzUimgN9UiE9EKoxpg==
-X-YMail-OSG: CP1AjuIVM1ltWqCiIJXJ_jVj5a0za5zPAFcSWULMECVOwF3fXdsBlPO24_0jDlR
- NiGJdU2.T.sVjVaVnkzx6p.AtKDPsKUO_G2P_kgn2Z994nAr.7bW9i2cF9Sp9T8XmuFG8Fch3DPx
- 2zO8JmAEqpgeQAvmMjMMKjcSq8WBLIw9nVMWucCr_8O8H8k2lxmj6FO6UFY92JNpXecgdh7z5wBS
- R7clQ7FSlKzSwP1EbvoHHvwt1mg1lbDc.nGT480c2enbzsMsXbSQBB56sYOJiVKHPTkuEioflBNG
- KW_7qw1MI8BdLPIkO9jqApxsntjQTNpc8bF.4GCJeDxtX8K__atPk.YNxuxI52H4Q31C5K2VEcww
- 72fQAMi88C18lsb1e6gRj4TsdvJkFqG5rJ1VQVockeLIBe5HZgPKCCUTBTIiDMAzixWbpAbxDYcB
- XxA_Jk6PKR4.6toggNOdATGBacXP0U6zrOfGCbPHONhKmSI3Yug1CPsWgKQi8EtZwaxAZZuCodT6
- ILQzkRkuS42T32iIXmV6QAg1GmarezR_4.bc78luGRuLf67ejEmE0xBbGn4bNJ6TcaAfXpxvrzrx
- rL8vj6dBEhfnRVp92qwyzJ9CsTICt2JV2zWyXp2OHHv9P8o3DbeDihXnv9nuoJrreI94bL8WuZ7d
- 9DxUxrnrv_TpD1AAw4K22mENQJBK7gL6H9gBiS8fPeblpnJxYOt0foGAOm4G4sW_t9sv._Qb7rQU
- nsVH8gGi4jJbSnRDv2J2k_LsHrE4iWgIRRODaZTv7X.F_Qfb5kmKPyeu2fC6k7sWuTOSfcCLDN97
- JfUGY.Zi5w84HqIi_OCmLMKLB8TLuODrD3POMWV07zX44dbW0deE7gdv0MzQLMlDABzu8kSKvcX5
- Ma9G88FX3XUvcG1V0OHKUBp9wOiXUTfpOsxaEcRdr0_svU8kLISG8Lc3thJf6fjdL6LQPIFjritd
- gAoX4ycfhq53ZsYBaLXSgev2WuKh7iQ_YpqArgj_z1aFRI7fG77u8ToVNCyqRqYISB3u0dBFQ4Ja
- uD2tdPPQgGKwf0.PKDUJWMeHXH1M2doKgTQVuCjgNAO4Bzyi0iD_ZO6OZLmP_7i6yT4ZhsdK_t73
- komPcy0TnTR64fg6wLugpGoY3POnElLhB5IFCaA.DaNid5t26noiWm8eWl9sHsL1lsVChyzJtwbq
- bMzP9M6kDg8s3QT6LeTvro_AjsuSAerIGExppMrldUJHwhGa5K1Tuc_9iUcqQ4yFz0DQhtB5jiwR
- EQfsDHExSlLAOwOYc4e1b2f8Pq38afZlhaKUNIKOtoYh1xz3KbQ1.iv2xHLFPpfgx44mezkBhD4a
- pg87NC7_cTt7g1NuEi7jsQ5r1PuEM4Ej6wn_SG213f3gEB5RM0RSEXrxFyZorMArUjrNOi4OyVBY
- _BsEXK5tubGtjhW_zRCvVc.Mj7QcLanSVYWfmj_UKMXQKqY5phQ0pQU5upOxQCh3s1ur_7k3fasq
- sjz62Ky4_2A4kZuQGIUTmdWjJRoFiRMbTiHPYVS3OeIzwK.I7ijRf8lYgSo5_tSG3tk9GcynmRO_
- P76HcX7IiEMWQ_yhf6cgiJtU.uvoS1Og.G8YTFW3.BEkziRvtZg88MM2ICqAx2jVlOhGeewwsTQV
- nMv4aoljAf1216rN819muqIe109Ynl8z3u7QC5tmIvxyBewS0ATp_.OJzwX0MhwFUk8T6XZ1GoBE
- tJHOUZwjTacQnGT.lAQVRo5fnkQ581CHZ6fPdvDvjdYpVDzls8iv8BBS0HFkuTLjO2BFkkbEwcgq
- Gr4IYl8lOJ4mdaohYSIWaV.y60OCccq3RWikLymRGTCV5IBaDhWsmOsR2lzycj5XkTBnncexgcCu
- rIwEG3SmzoYUpsCBgz7VsNhDl3RNkTXXmNDd4nrKCpyhN5vdIARjHElXA4ygLZfIIloIqb4tP8eT
- xU2jRpi_PLNJkncvjzTzCi2z9KQC3xCw4lWgf2zoaSIpgigCjPrZSakerfcH9sow.uX2s07y.ZBY
- QCC2TjVO_HGfD4OCfXZI6AmSsSzUKspWDIlZNdYBsLrXzBC8pv8Qs5O5pCIEB1OLwkT0EWC8ZwNu
- PBuFHiAwPRKCFniup0IRx9zPy_43TagBhDNdFPnZC.dBrVHkWGhkXJggsdmIjLV4Hee_bkqO1srM
- lt_IPPWcmtkMfzxqNnfiEseUa4FZi7cU9fE2NX0xqSwMO8LJQmDeuNGFxkYwFPvVQF9oeB4_FRyg
- M4MiSgvDs5ZheEEydnUG0y5H_YytPyl7jqQonB.bfzH.mMB7KAA--
-X-Sonic-MF: <deaner92@yahoo.com>
-X-Sonic-ID: 0b7a824f-7bf0-4139-a5b5-2ff63710ff0d
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic315.consmr.mail.bf2.yahoo.com with HTTP; Thu, 26 Nov 2026 03:33:34 +0000
-Received: by hermes--production-bf1-8768df57c-64qn4 (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 28e7f0a650024974c67d26ee33943d03;
-          Thu, 26 Nov 2026 03:33:29 +0000 (UTC)
-From: Jeremy Dean Clifton <deaner92@yahoo.com>
-To: syzbot+4507914ec56d21bb39ed@syzkaller.appspotmail.com
-Cc: brauner@kernel.org,
-	clm@fb.com,
-	dsterba@suse.com,
-	jack@suse.cz,
-	josef@toxicpanda.com,
-	viro@zeniv.linux.org.uk,
-	hdanton@sina.com,
-	linux-block@vger.kernel.org,
-	linux-btrfs@vger.kernel.org,
-	linux-ext4@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	syzkaller-bugs@googlegroups.com
-Subject: Re: [syzbot] [block?] [ext4?] [btrfs?] INFO: rcu detected stall in sys_mount (8)
-Date: Thu, 26 Nov 2026 03:33:27 +0000
-Message-ID: <20261126033327.416414-1-deaner92@yahoo.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <68af0313.a70a0220.3cafd4.0020.GAE@google.com>
-References: <68af0313.a70a0220.3cafd4.0020.GAE@google.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LDe+k4vW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 321B01F000C0;
+	Thu, 26 Nov 2026 03:34:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795664047;
+	bh=a4ZWFEpxOzRrb4f83qhPqbcObb4Vu9618O1GUeM3IqE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=LDe+k4vWHFuGVjEhwNV6A9ag19z2clMSUZ2W92KAodG1PSO1oxy9Ic4fr2r8EZknJ
+	 5Ncw4T94zrBzGA0bzp9+6DVT7CK5eXsPLtkjNB/wGWFfcJOkDFEA3l2KuwspDGL4i5
+	 EOlw3IXDqBeNxl2ukW/vcWk0xEF2FS9dkhD7xWndGdwWAlrtdPNtqgXCwfUVyxo2nj
+	 IEIkqRfyZe7XFwvI/gEXyv9fygzKUaY0auRdL5vRRi4gvoNeiabQVIAfoxulDvoN1u
+	 xwueetMd2/lcccADa+EsaWYlxChL8wMkuoVoruZxgSKm8U5hr0FfOX81pO9wpvzYWB
+	 3SuRDUOrPAlNQ==
+From: "Martin K. Petersen (Oracle)" <mkp@kernel.org>
+To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+Cc: "Martin K . Petersen" <mkp@kernel.org>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	linux-scsi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] scsi: ufs: ufs-sprd: Fix vdd-mphy regulator leak on probe failure and remove
+Date: Wed, 25 Nov 2026 22:34:03 -0500
+Message-ID: <179566379528.549112.18355302489100184825.b4-ty@b4>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261110065457.1280-1-laixiangwu@cmss.chinamobile.com>
+References: <20261110065457.1280-1-laixiangwu@cmss.chinamobile.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,19 +64,27 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
-#syz fix: fix the softlockups in attach_recursive_mnt()
+On Tue, 10 Nov 2026 14:54:57 +0800, Xiangwu Lai wrote:
 
-The original arm64 report (soft lockup in skip_mnt_tree() via
-commit_tree()/attach_recursive_mnt()) is fixed by commit 0ddfb62f5d01
-("fix the softlockups in attach_recursive_mnt()"). Hillf's test of the
-vfs fixes branch on 2025-08-27 already showed the reproducer no longer
-triggers.
+> ufs_sprd_n6_init() enables the vdd-mphy regulator, but nothing ever
+> disables it again: the driver has no .exit callback and no other path
+> calls regulator_disable(), so the power rail stays enabled after a
+> failed probe as well as after driver removal.
+> 
+> The UFS core calls the vops .exit callback from ufshcd_hba_exit(),
+> which runs on probe failure and on remove, so an .exit hook is the
+> natural place to release the supply.  All other vendor drivers in
+> drivers/ufs/host/ already provide one.
+> 
+> [...]
 
-I also ran that reproducer on current mainline (7.4-rc4, arm64 QEMU,
-2 vCPUs, KASAN + lockdep), with a debug print timing the mount_lock
-section of attach_recursive_mnt(). The largest attach (32768 copies)
-held mount_lock for 16-19 ms, and no soft lockup or RCU stall
-appeared in 300 s, including after killing the reproducer to tear the
-namespace down.
+Applied to 7.4/scsi-fixes, thanks!
+
+[1/1] scsi: ufs: ufs-sprd: Fix vdd-mphy regulator leak on probe failure and remove
+      https://git.kernel.org/mkp/scsi/c/4be084ac36f9
+
+-- 
+Martin K. Petersen
