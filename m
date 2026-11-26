@@ -1,77 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.181
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795700010;
-	b=QrnvMl9Bid3ND7R04dNaKxI9RuvIM0AVy1twJJsPfaa0r4FcopJa4EKOTTNhwLJkknUV
-	 muSNf0UqFNgNFbB8uAJDRK2b3l07SuGng2AQtQ280T2/CPmL3CVA1qBu4AsPFLHJUxykm
-	 HY1D7dxbXfbHirmMzq6wVvAIkHC93E3C8KfgzQkN6XMEnhM11F80HztX6u7vNAPRhdDwc
-	 me3gkESK1Hhcy4AqbWSc3C9mWW9wTbzuloPpbbyAhr5PiMHpdF6FdFtumGRsUuHF2kX/v
-	 44Ic0C3+orEUh9d1pLUhYZHjDGXDW/0BEkGsTLcfrHhW8GqzDInoECplB7S+46wm2uA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795700010;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
-	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=HcwFZv9BM0w57FN62L5UyDAXYgvPAV25zeOmEc/ACiU=;
-	b=MzNwnqwLuVCSqWlQIREy6dvml+eyF0eI0VSpEfW98C4yADt3E3OM30CYUyBjECI4Dlj9
-	 GLq9y5iV3alisf+uvBJ8v3uG8Z1Cg/IwXs9iYhRQAFpqOfdnEh2rnDX6xnJmc6ztBMdJf
-	 uVYV6Q+k6if/NH/FP4stWmKl02/Br6NEOFXx4HX4dNB5nS09ulxk7N+HlotIgA7Nd1Gbb
-	 8PeKR5mIVVz2M0P4VhB50Uq9Ti2Z7kTB+lGj/RNxVd36+YG7vUT8i6PNbw3r1OKqBdmd8
-	 oFiAVTf/RbXTy1iuZP7MWoMQ+2+vw4X9oC/jncRrqrx3BZGOGaI9C3ZO/KXMOqZ0r0Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=linux-m68k.org;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.172
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795700027;
+	b=oBsVw0TUQ77PCcA8wQJcsuksS+rmRNlX0O4wTcU3fm4fxq9yk97rZy0tOHkWwhA9Wfmy
+	 ING/SilvCeSUXYriw1JTlyvxvfN4RopFSnw8w2rvNOHtMQxntmcplquZ3VRKj2qg7BSuy
+	 O7Vx4cPLw4J+hwn6j4qNmz7fTixjA3VQOFpT/t09XWYV6KLjQtZgb2rDRGMry3pp5vzxb
+	 ant6Lk5GPhcGI2UaxefxLx7ls6EejdoWRpspSH1Ws2EaPh1W+X3qfWGjEqnuBwVP3jFFF
+	 GhIDfzPHK3kUkxIThXQqbS5+vIMQNPglGNd1b5uy8gQjq4p6lzTttHUCzMiYdWXg7MQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795700027;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=o+w9na3Dm0iXLiV6eN1IleBLsYb9pJlb3dPAHei8oVU=;
+	b=gT4oVfhJdr2UjmpT682M5opp0KW3ZWUIdopGysShj4399wL2Dsb9IN5BIHoSwAdIZR52
+	 8sCsMvn8X5yg8qClBGQDISWA0+7S9sOYHtF2hIBR8bQcsqs81+PqTyY3/kcloVIZYUOYQ
+	 gNrncdgPYpUH6oj5xQQx4w662XM3EiIrPn6dxL3VNpzA8Q/0D0hwTzYecN1KXsUV6dah5
+	 xX4sxvn++Lwu1bdYNR77zckfUQpNY7AjEFX2LMY3AyL4P0ab7qtu1qtqoanmKf8v3tm5f
+	 CCoW1ip+Pp6weaKnBlGc/zsHlr9czh23rdy3nAAysH+m/LcEimKn964nWQpzP59BCAw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=209.85.221.181
-Received: from mail-vk1-f181.google.com (mail-vk1-f181.google.com [209.85.221.181])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Jwn8pR6v;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.172
+Received: from mail-yw1-f172.google.com (mail-yw1-f172.google.com [209.85.128.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D86F606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:33:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D86F606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D025606A33A
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:33:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D025606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-vk1-f181.google.com with SMTP id 71dfb90a1353d-5eadadf23e5so4924014e0c.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:33:29 -0800 (PST)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Jwn8pR6v
+Received: by mail-yw1-f172.google.com with SMTP id 00721157ae682-8b51389f58cso76021617b3.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:33:46 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795700025; cv=none;
+        d=google.com; s=arc-20260327;
+        b=nlJOKRM1pFHA3gGEE0YCXqErFd/0OiLPnTB8wqG6tVnVSBH6mNL1FXzFJzbQWQJAAQ
+         54Bp7Nnv65W733jFUdGIkYQaRSYfhQerxgBWs0Nz3HWLSd+KoVEIGZIfb+qlpTFPlvxy
+         swVXju/c2jUG+ur4iXoxtsHl3OTDy3WoFVoiZ7HF0eN1BebElEQUUHXkhwijUilJe6Jq
+         jAIbWKAf5L6FGh3+nzg20IIDemVMvLfZ4Goi3y1j7OY9/gdwV2sXPf0GHRjLLIFOG4vK
+         bctWnizbKMAepna+JAjf8qYT91/mbhW+Ey4ODxLsBjG7CWi9Dvcf4GaIioUe7IdKXSPC
+         +1xg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=o+w9na3Dm0iXLiV6eN1IleBLsYb9pJlb3dPAHei8oVU=;
+        fh=8ZwqFEZTlXeTL04NKc/ZMfxEJICZ5weN61J5KXcNGaA=;
+        b=J8xrpIw79QQeJArC/BVzzsbD436TND+4p1yeFhC57byo1NjsEMW6AHjWLjWI6JJS3G
+         SLDnqRC32xMVlUSi0JZe+s/LpBzy/CwAxM6tyCXMoFX6HixqvQxCd7XxSb7K+wCvpEEK
+         1QmWhIfgvpWXtkbb+gu3WOY09UZAaEEJORb0goPZmLS3UHYUXBHyMZHsQaQVg56egT/J
+         H3YJgQTRVo2Q3PPTGfGNJaaPGQ9lS/+EoZ2PDwePY1RA3IJQaVPzQMRf9VCsDgFlUhBX
+         lCet7/zBaIvACt5J/L/V7hNPbghTzwota8jBcPtV4qxdAQ1cRWLU394YO5KJx18aNtGM
+         R0tA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795700025; x=1796304825; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=o+w9na3Dm0iXLiV6eN1IleBLsYb9pJlb3dPAHei8oVU=;
+        b=Jwn8pR6vmsf+0mDrZth5acvw0IT6hXM1umTNJm9mxjOe4DAbFXZQtGiV7+XLKzIk2K
+         V0yefDMeo7SzZWh7yVGW4JRg1vMHU6WykVNDQmI+VkOTgZ4girLRHZ/6Plzc5Wodx7XP
+         mn9d8OvoqMlEgf0JKNU3NCXg4Z4fMUcHS3wpJirdCpz31PayP4jwh26KU41L6FdH2a7M
+         RHWCx/XDbLCtoOZrcsZJS+DCbDdhhqe9E/16fXvybrHThRAP0JyWiyq2gdpJ6iMlpn9c
+         kFruCn0EQ/PAPVE0gPqdnG7eYU6n2jOOPYSnyg5Bou+K3mXyVq1x2+GxdDp+GfPidFRf
+         E4fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795700008; x=1796304808;
+        d=1e100.net; s=20260707; t=1795700025; x=1796304825;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=HcwFZv9BM0w57FN62L5UyDAXYgvPAV25zeOmEc/ACiU=;
-        b=mD61/n5oD/qO3RRh5rgEfrpH9P7+rSIxYcIEYHcHdh2BPGOOVykEzgqC03ESn6VJr7
-         NUcgAReS1j6cZeCj8y+cncpiLRyf5Y9HHGqI2hsmDD8z9K97AvkMmMLvlp9AmK4cTL/1
-         iR78qTUkM+t9fVLCpwhMTGX1zwqQdQxsZPdtjWt3OnV6ls8i1q1qIwc7MdriKCawJReL
-         ZFAVm4nWQSirV7Kn6d9RCa4nRuCY773Nqp8sZYU6RiwghZrHOD1A66XS1pdf9L9/ZGkb
-         7cGW+fJYNRVOvodqX24YMHufwgcLfhnCbqNXDy3CJ78buEXXvzIQws1nkCYPF4ud+op9
-         J2ww==
-X-Forwarded-Encrypted: i=1; AL+hErFzd9lzLtLsZsptwy6oNDXXnuCU3gwuGPOlaNsW8+5kn+bunzKIzBqeUqZBX4x5+/WsbASCpuSsT6IhNsQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Zh4sRlUQdKurz9VzjTB2R2O7nMwbmybkwwSsUqOO4CiPrZO6u
-	Xw4tsSgcnJspi6Aoqc6Hp79oeghgfYhqivnrnZPUxhylfP9lgbimhNQoPixQpPb3
-X-Gm-Gg: AZFdTZeMjFDeXA+cYaQArT6KoNiUfZv99JIigoMGZVs27b+xctGrDSUKrgHmqYOQG8x
-	y0eBcZ3yZu3PLYvlI8VMgQAiz1iGUBdCnDw0vKEjUnvbRB1fHb73wxu58ctWXf1JHgAcH3UR0Xb
-	S7Mcz4cecavyVkmBDpL9PekVJI8ZYUE99L/H6aYtVGZGEWZbsjkfwrmv2opLBcpiOc8K1jS/4cr
-	OHyT5mc62VRXNdnUniwpYSOIk1iMrsRbkJXEJsTmo5Pqs9EAg/u7Tl6C8OaBfPP2GbZVZPPhfGv
-	zgovWcka60KxO7WWKiFOShiXdmMKVgmir0h6AARzG1PVeswBjAds3x/FlQa2D+Gw/9KeLAG1wma
-	pTpQWSXYhAvlE9BbAZt5QF5HJF/WQ6oskobVIjiv+29PVo3GKiiPEjFTcf1W6iPZOESdyUe9yfL
-	+85/tylqUPOePRrKk7SbNqdl+c3A0irm4baY+DYJDIKPywS/+2KOAGfKjHuZlMhucU0+XfvqXGF
-	Ig53zrCgsQrfGJEsdFfstsw4BUTesgjFy0jzkbjpICZ67GSG0xOdVc4M0NYk748k8ZV9X8W+LSo
-	AFb70Ok8io3w4WU0KrNVtvHsqVduFEc1T0d43YUV9wbHdyhZPjo2toyp4GmIrykW28Y=
-X-Received: by 2002:a05:6122:1d55:b0:5ea:c90d:d1b2 with SMTP id 71dfb90a1353d-5ee8af14e5dmr13075967e0c.13.1795700008414;
-        Thu, 26 Nov 2026 05:33:28 -0800 (PST)
-Received: from mail-vs1-f46.google.com (mail-vs1-f46.google.com. [209.85.217.46])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ee91b6b057sm18878122e0c.0.2026.11.26.05.33.28
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 05:33:28 -0800 (PST)
-Received: by mail-vs1-f46.google.com with SMTP id ada2fe7eead31-74ab99038afso4574156137.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:33:28 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFUzMUgxb8WMsHJ5hX1bSY+vayeLVcfUriGs/oLcXTJ8+tk2fZDRkKqCepMF/VUP5kee6TRNuQt3908lm0=@vger.kernel.org
-X-Received: by 2002:a05:6102:3f94:b0:7cc:2674:b78c with SMTP id
- ada2fe7eead31-7d739391bf3mr11259967137.7.1795700008033; Thu, 26 Nov 2026
- 05:33:28 -0800 (PST)
+        bh=o+w9na3Dm0iXLiV6eN1IleBLsYb9pJlb3dPAHei8oVU=;
+        b=AOg/aLK7SjIlr7scs3d3maQcsM/fiXryiIXXA0jDiUPGqHg4Y4M9RbKZvo90So1kI5
+         HXRhCWBO2HdHBRujQUjrSMBEqYesC64hIAP0jMl2vuApzVPINrJC5hhdYiuKEwLgjP6t
+         s1BKebfxBvR+uSFLF1kHPlH1Y/1npsvcA0lkAqSc86Pw/avsGgvPyygy8l48zrunsC3h
+         WZx1dJnL2gxVXsHw5yvFug2mN2aW/ppOID1MgH3ZYT4FiVCEvaqBrrjU2eYw17xq5WLy
+         M2rkWY0kMQf60+PD4Y2bQjc7Ixvh+eD73QHegv1+e+2/DVmajdbuVrRTgitEP4m8Cuox
+         kzKg==
+X-Forwarded-Encrypted: i=1; AL+hErG3XLqVZgPqptaa1AwfASNSTGA/lJ40YKh63D4iDx1fp6OMwnrzQZlpHUkcjL1SoFOZeLW6IpN67v4j+2w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/RFJsQ60ynsiXiRNbjIWCw8aHblW9QCJ6Vs2XTvXv1NTvyKeVW
+	IOSpvl7+O2Pm0Nt3adN4iZ/tFnsg5uQDGzSQgUnfohCDO1HldIQRIkot4y4ILhNVH2ZVq9oftQe
+	UGAVCn4BpoT6uYc5LchZMoHZMxaWgQC0=
+X-Gm-Gg: AZFdTZchcMGxKlldvQV4Q9r3u5kkC56kudGw3nS2d2m6UejswzVfMH4u+KZb/7khWBC
+	Ke6qX1tsK/1ukpZQsCUu6Gqyg/Z+movFX9jR77DrKuLHv9+ip9Bwbb8o253A028rMtWezZYziTP
+	Amu9tqgIJUEoMk0yebOIp6q8f96lTfH43A5eNB06h6aJorV1PpSxDWd80pBwq31QqIvyN4P7jcq
+	9UTMBENOwJ9LSmM2z9i7kUEQSt28B+8CkDqCM0gGYGd0a7i2xChau9uVniVHRYW+fU7HKDbDOhV
+	CaBEvsfmxxv47mF13ZK3hj8YsghhZuAChsKaCqeFhyw1Vga0I2uRc6DIhRChxI7Qxd4RYStaggT
+	01b27zIoRFwJpHP7YTFyLxdIn3HVrVbVPRzncv6kem0xrDJjAWcBmIE2syod2FaRh/xkWBA==
+X-Received: by 2002:a05:690c:6509:b0:8b4:d91e:cb44 with SMTP id
+ 00721157ae682-8b5205182e6mr76681007b3.99.1795700025331; Thu, 26 Nov 2026
+ 05:33:45 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,78 +104,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261110080727.2377040-1-niklas.soderlund+renesas@ragnatech.se> <20261110080727.2377040-4-niklas.soderlund+renesas@ragnatech.se>
-In-Reply-To: <20261110080727.2377040-4-niklas.soderlund+renesas@ragnatech.se>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 26 Nov 2026 14:33:17 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWpZfsaJOcTEBCugyDgKDXNRje68n59OrGFx-0hJXG+4Q@mail.gmail.com>
-X-Gm-Features: Aa3M54q5_iVD09yTxiCPbutEOoqFTTuL8Qbh52NAGvGv6cSg6_A-6RxSK9Zhqcw
-Message-ID: <CAMuHMdWpZfsaJOcTEBCugyDgKDXNRje68n59OrGFx-0hJXG+4Q@mail.gmail.com>
-Subject: Re: [PATCH net-next v8 3/3] arm64: dts: renesas: r8a779g0: Add gPTP node
-To: =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, Richard Cochran <richardcochran@gmail.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "DavidS. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Vadim Fedorenko <vadim.fedorenko@linux.dev>, Sergey Shtylyov <sergei.shtylyov@gmail.com>, 
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+References: <20261125134013.2692510-1-congnt264@gmail.com> <179568529013.32537.1835646355373713109@kernel.org>
+In-Reply-To: <179568529013.32537.1835646355373713109@kernel.org>
+From: =?UTF-8?B?Tmd1eeG7hW4gQ8O0bmc=?= <congnt264@gmail.com>
+Date: Thu, 26 Nov 2026 20:33:33 +0700
+X-Gm-Features: Aa3M54risPbKGlw4_Lxp4z3wK17UbZAPBMa16CedsPvxgFPM1PhE07GpB9RQT-U
+Message-ID: <CAJpJ=Gvs08=k-VAnAB1-DsB6a_kc9T5Mn4ooxfgyELQZH=Cs3Q@mail.gmail.com>
+Subject: Re: [PATCH] leds: sgm3140: Put the child node reference on success
+To: Lee Jones <lee@kernel.org>
+Cc: Pavel Machek <pavel@kernel.org>, Luca Weiss <luca@lucaweiss.eu>, linux-leds@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Hi Niklas,
-
-On Tue, 10 Nov 2026 at 09:10, Niklas S=C3=B6derlund
-<niklas.soderlund+renesas@ragnatech.se> wrote:
-> The gPTP module is shared between the RAVB and RTSN Ethernet devices on
-> the SoC.
+On Thu, Nov 26, 2026 at 7:41=E2=80=AFPM Lee Jones <lee@kernel.org> wrote:
 >
-> Signed-off-by: Niklas S=C3=B6derlund <niklas.soderlund+renesas@ragnatech.=
-se>
-
-Thanks for your patch!
-
-> --- a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-> +++ b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-> @@ -606,6 +606,15 @@ mfis: system-controller@e6260000 {
->                         status =3D "disabled";
->                 };
+> On Wed, 25 Nov 2026, Cong Nguyen wrote:
 >
-> +               gptp: ptp@e6449000 {
-> +                       compatible =3D "renesas,r8a779g0-gptp", "renesas,=
-rcar-gen4-gptp";
-> +                       reg =3D <0 0xe6449000 0 0x500>;
+> > sgm3140_probe() gets the LED child node with device_get_next_child_node=
+(),
+> > which returns it with its reference count raised. The error path puts t=
+he
+> > reference, but a successful probe returns before reaching that code, so=
+ the
+> > reference is never dropped. The v4l2 flash sub-device takes its own
+> > reference on the node, and the LED class device only stores the pointer=
+,
+>
+> As the commit message notes, devm_led_classdev_flash_register_ext()
+> stores 'init_data->fwnode' in 'led_cdev->dev->fwnode' without taking a
+> reference on it and led_classdev_unregister() subsequently calls
+> fwnode_handle_put(led_cdev->dev->fwnode) when the device is removed.
 
-Can you please remind me again where I can find this base address in
-the documentation?
-The size looks too small to me, though, as there are registers at offsets
-0x500 - 0x788.
+Hi Lee,
+I could not find that call. led_classdev_unregister() only stops
+triggers and blinking, turns the LED off and calls device_unregister(),
+and device_create_release() just does kfree(). The only
+fwnode_handle_put() in led-class.c is in fwnode_led_get(), for the node
+it looked up itself.
 
-> +                       clocks =3D <&cpg CPG_MOD 2723>;
-> +                       power-domains =3D <&sysc R8A779G0_PD_ALWAYS_ON>;
-> +                       resets =3D <&cpg 2723>;
-> +                       status =3D "disabled";
-> +               };
-> +
->                 tsn0: ethernet@e6460000 {
->                         compatible =3D "renesas,r8a779g0-ethertsn", "rene=
-sas,rcar-gen4-ethertsn";
->                         reg =3D <0 0xe6460000 0 0x7000>,
+>
+> So 'led_cdev->dev->fwnode' takes ownership of the caller's 'child_node'
+> reference on successful registration.  Dropping 'child_node' here on the
+> success path causes a reference underflow / use-after-free while the LED
+> device is registered and a double-put on unbind.
+>
+> In fact, there is already a bug on the error path if v4l2_flash_init()
+> fails after devm_led_classdev_flash_register_ext() has succeeded: 'goto
+> err' drops 'child_node' once, and then devres teardown calls
+> devm_led_classdev_release() -> led_classdev_unregister() which calls
+> fwnode_handle_put() a second time!
 
-The rest LGTM, the bindings don't descripe the two gPTP interrupts,
-so they cannot be added to the DTS yet.
+v4l2_flash_init() takes its own reference on the node and puts it on
+its error path, so the one 'goto err' drops is the probe's. Other
+drivers drop their reference right after registering, for example
+leds-lt3593:
 
-Gr{oetje,eeting}s,
+    init_data.fwnode =3D child;
+    ret =3D devm_led_classdev_register_ext(dev, &led_data->cdev, &init_data=
+);
+    fwnode_handle_put(child);
 
-                        Geert
+Is there a path I am missing?
 
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
+Thanks,
+Cong
 
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+>
+> > so nothing else needs the probe's reference after probe returns.
+> >
+> > Put the reference before returning success.
+> >
+> > Fixes: cef8ec8cbd21 ("leds: add sgm3140 driver")
+> > Signed-off-by: Cong Nguyen <congnt264@gmail.com>
+> > ---
+> >  drivers/leds/flash/leds-sgm3140.c | 3 ++-
+> >  1 file changed, 2 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/leds/flash/leds-sgm3140.c b/drivers/leds/flash/led=
+s-sgm3140.c
+> > index 107d02c3137f..5bc21b192d74 100644
+> > --- a/drivers/leds/flash/leds-sgm3140.c
+> > +++ b/drivers/leds/flash/leds-sgm3140.c
+> > @@ -273,7 +273,8 @@ static int sgm3140_probe(struct platform_device *pd=
+ev)
+> >               goto err;
+> >       }
+> >
+> > -     return ret;
+> > +     fwnode_handle_put(child_node);
+> > +     return 0;
+> >
+> >  err:
+> >       fwnode_handle_put(child_node);
+> > --
+> > 2.25.1
+> >
+> >
+>
+> --
+> Lee Jones
