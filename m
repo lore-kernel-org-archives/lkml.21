@@ -1,65 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.19
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795680611;
-	b=l/bxF3ZWT3+PqUg8GPGrCPE3QwEBDHamhMXpDAMcYG0ocMaSb69MkFfLhTdw6UFy99tr
-	 0IOMTQE1v4Dxu43kBefiKZi2zMtBqIW1nYTJSrBRq8medPmiMbAGqjUpm+/gU+ZmscFOE
-	 Hg43eCk7mfk2BExFxqzuzm3kjL0yjx8F4pSJyOehxZ0kzE1M7iyR3GUMjS5yruhX+fBdJ
-	 FV2wClY7ZCuYarMeh12nj0DHwBUQ4CdH77S2x52r3NV4G7VeV1afxipZa3EHhVA8+PRHa
-	 MOPqQK6ZaoziSIX2unGjUhH3qjprQRbuR/mvhNSA9Lk9PsYI9pbX4eUVfh/nxIZk9LQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795680611;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=NSZ/5tknTniK+hABgavJZWei7Qcx5bOH7BLj51t6rCo=;
-	b=gPRM88jav0+X9Es/bMYj6+19+W9pm3BTQHOy8cKlZHFvK8QRoKJF3ZjeeU+8wcGrvlcA
-	 dxxznnE6NUERpntCxdZ/6rdSE6Cx7yWNF5o/oCiLF25GQF1Rp5PBLv79FgdSrF94EAxec
-	 zr+sOAvnCeIEZ3aD/WQKaePpIGbQeUjBvtjZWqDIEXbYxseRT42GRSN05s37d58K+5Kqa
-	 BuMGonpUbysW6SgdpHG46ysVhAUOJ4ZZ8OBHbB9WzFhjeClAJklbvi5ZpeuYpthiaOxPn
-	 rk9Md+w1utt7BXJUGSzFvxTbLwjheg3L/P84GOJBH+3qDB65N3yqbUMTeo3ZQXVHJ9g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	arc=none smtp.remote-ip=192.198.163.19
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.19])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.219.52
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795680622;
+	b=DJ7AayKD7vP+i27ZVwEAOTtoq4mdiASS3/T7Zbv/cwBZo4bX3OXgIv+K1BmVaXXufAXO
+	 3+rM1bYkfp4KEWTO289KEzo4bAxJNPxFml+6CNbDfUHPJpZoA9tK9Q7G9gPMoegQFbG1I
+	 bRd6PnjDXxxafEVlptXFeKgVVCZ/IzhXangyvrVX5nryuGEQweybplAIdKHrboNtwWoyQ
+	 HkUThmMbCZp5NkH+EU63FsN717rv4cYMlt+N0VOGTaYs/d9BG+W+nh9ImupebYDE6SJLC
+	 oHs5R+UOTED0z58q/eXysFvmoe+tu0Bjqh2Qm1/bYDTZ9Sqdsktp4E19MjCVsnCQcCw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795680622;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=Wy8dia1SpW3v1KBZQHRSI//A9PqnMJx202VcrBv4o7Q=;
+	b=ZOIVTtPL9jBKVIGrBjtqze2jLTQxe2YZM+x3uAYAabacPuKnyXfzGcsx/apUkZ2E1c9W
+	 ZnNvJhAnGfNbIrjIElcSRDWxSsgjilnGstKj0CCuf0KudbFFPK+HGyCrG0Zz650MIzM/M
+	 6UqYXZdkONu3ai6CZ2PDzUANukYuCkbW9Wrd3l/oBerhT+7HqLJK3xf0iAI3ocuRLiVx8
+	 MSZVVaVrVc5HSuMIgD9GNkyTQmGn9Cebf3zI7aSzpFz1SpcxDkOihbeDjnH+9jIFcw+9t
+	 fJZ+3YRgp9hATS5+buWZWJBCWluKbuJQRiJiD0ysoQQDhd4HdByIW8eatuGUzNmNa3A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=jclark.com;
+	spf=pass smtp.mailfrom=jclark.com;
+	dkim=pass header.d=jclark-com.20260707.gappssmtp.com header.i=@jclark-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=LEHU+lgO;
+	arc=fail smtp.remote-ip=209.85.219.52
+Received: from mail-qv1-f52.google.com (mail-qv1-f52.google.com [209.85.219.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37AB1606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:10:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37AB1606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795680607; x=1827216607;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=qTXS6YzU5JKBNXUMDXqtypPM3AhkfLKmFSkYIsprXLs=;
-  b=QBlArL1MnyBkAokI9gYb3vHoNmWKV58ymv1GkUE1DGMaP0lYalmNmNxo
-   pYuBiiP3yduLleZn2KsxviHtzHT8TD/krwJikwEfWytI2cGdVD0vnTDv1
-   JLHZ5gIq/+ADjVYBW2wvNeQ/ZTzR7poWM8E1ocfwes7VwWJ/9wXMpQuNG
-   KnMz2k6getsg9DoYgr1s3LX3+BmCneFAGHCR/8pjVK3obj6S1zYAfY/f8
-   dUaYVcQ1VmrzLS6hfGF3FJ9kJ9n8ZNl7hTkndLA7LYor0++VeA/MQTHSl
-   Nd5tilciNPpDa3AIX8TG+UntezHWfmn8qlpPdam5j+w1IyY6eUAolf02s
-   g==;
-X-CSE-ConnectionGUID: T7J36SpsRU+mDtTuPi0BZQ==
-X-CSE-MsgGUID: awOMzNQZQ5ij3w5s/VZbhQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4594624"
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="4594624"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 00:10:06 -0800
-X-CSE-ConnectionGUID: 710jmm1ATDWyHhU5dZ5mQg==
-X-CSE-MsgGUID: vBDbsdyZS7acLKD7JVVXxw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="13879634"
-Received: from unknown (HELO [10.238.0.68]) ([10.238.0.68])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 00:09:57 -0800
-Message-ID: <b87c690b-9be1-475a-a63a-eb0d7825d794@intel.com>
-Date: Thu, 26 Nov 2026 16:09:53 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E2DD606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:10:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0E2DD606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=jclark.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jclark.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=jclark-com.20260707.gappssmtp.com header.i=@jclark-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=LEHU+lgO
+Received: by mail-qv1-f52.google.com with SMTP id 6a1803df08f44-92107df3f13so63662966d6.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:10:21 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795680621; cv=none;
+        d=google.com; s=arc-20260327;
+        b=NXN0QCzeyybh9x6r4I9BJMC+rgpkzKVWK2q2IBUZV7/HuXppTcZYU4kpHflBoYNV+R
+         yanVXy6nFFTiOrJZu/0meC0SnGX60HogrxWInbtWFdAg1/GFWCgpjLNtIj22AJkyAEgT
+         /skaFxgRnbVtb68s8PnyN/dqEmJ9QITo+g+zGohydZIVUZ67QGaE2zupzMlKFUwLwT3U
+         XpHaUUX/DPY15gzAeMs+4e07JsmRellcD8QfV/81YUaKhWDGbyjvlX0qXNgYr/ZYbRQA
+         1/s5wcho1pp6sJyxohk3I/PNXBAZDuUPCoatNxQd8NI006afKcXynF3sFW+HptKo0RxT
+         eTMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Wy8dia1SpW3v1KBZQHRSI//A9PqnMJx202VcrBv4o7Q=;
+        fh=r4Kwr6BPdOb5gOEY3GFzUW6qV9NH4mTxF4xjj0msFiA=;
+        b=hXSj+1SIkS0VRBJVssP5gvpSWIdQAsV7achaMfqH7SgC99/USzyNSshs4ibiwQfP1L
+         PeZgdicpCquvR0OsIFxn2Q1uNJ47FklluCUmWYvs7bJCYO6hI8Nf+ynAvoMHFeJpDTCK
+         aczqGdLEMiQwq0Lccy9iVIU3cfFp8YCHRM4FnwBeivyS+CgHjLfNSm5wo8Pbi2amHl8R
+         2vfF5UXxjYIvU4sEc8GxlMl+qRMdur1pCvy7arlQMWMskKvK/g99TqgDK18IwGeVMMOV
+         LL+rvyYRxQUJB1P/qweg31zIfPzOn+sC7Bz2Wo75CcVxgbSLcJ17vnfED2wEs9JxlOF1
+         8nsw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=jclark-com.20260707.gappssmtp.com; s=20260707; t=1795680621; x=1796285421; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Wy8dia1SpW3v1KBZQHRSI//A9PqnMJx202VcrBv4o7Q=;
+        b=LEHU+lgO4bXG08o3gs2s7YFtXC4JmBEcQ3R6HnAGjp86uwk9Z1EPWcqKtDV3894H33
+         cm/164ghVg0HbKsCnzRG36MoOXuMHPbiF/XHblFzBoNGoTSAVq9NKNh/5fTZ368zUViq
+         wZl1i/TFFX/sC4tMVQeyGGNLelJ6F9M1jmHO24/Nr6jmKdHN49xs7i9SEzqbw/aZ6lD7
+         yikiLTr4K1EZTqohzKLYWgbD5REA7fPDIwrJfNfMT5jBqAseqnogM+0NvOUdYqjOrG6R
+         SD8YjsleaWPk1V9AkIcSAbhXIQskNqKpHQwGUAZtJ5ZcqGfOuFFlUI5QjI8MrxwFg8i0
+         JdXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795680621; x=1796285421;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Wy8dia1SpW3v1KBZQHRSI//A9PqnMJx202VcrBv4o7Q=;
+        b=aEDdwTFbXnJiM81hxyfTTfjjiAJab5sYqbGXhVqbwOUok4NVY8nRcgP+0QkxUkRpbh
+         qtwgrF26R9waVqe5EGjvv7ccss21rqo2QC8jWb08oVid7dS08REDiAHoQQfzezSuVj/3
+         01jwyqJGxrD9siYmpZAuN7shsOkAAcDA2MvNZEKUtXCrnzvdrKSc4a+ArtZj9JYIP7TJ
+         HcQ45OQs9O0PbCPVCt9AxRjyEe6gpf6S0kjPszKUumDlxhCV1+5VN+zGlAa6ZrKj79tH
+         Vp75XN2HZeybxb1bSUCw8tZxrcZfJbXaU2Iqrb8ExhkBAZn2cq09/4JxRymZiqEjBDi9
+         2ttA==
+X-Forwarded-Encrypted: i=1; AL+hErFZQiaRTQ4OqREqYfw5t+CyzPb5RKsG1KrkUhBOYXZh6EBoSOul1+KZGCbr8cQg0lv9UcHulVNcJobdG0I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9EveeihEzpG9yBRQyPAFv9qrWUn4+hUnrp5z9kiy0i26ijFPxS
+	zhd6bMrTbVCrV9LabewKJayiVkf8fZgv1mtpnwip/Z+6nqetgdoEXqV/lhRrdyzsPfJOfcFtzt7
+	wPkNGydDMkOlcT0RxPTAljEq+uxVk+YV43jArsyQx
+X-Gm-Gg: AZFdTZemkCILtZ4mQU9Tnrq/1LdDb1or3gWGDBsE4ulPoflTdoyzQmC0FI6AlTu1BN4
+	J8VNEmm0y6Qd0Pxy+IhhR08L3j1cbJ/Sp8QTkbnYgbMgXlBG4t0CbAa96El1GCWi+n8ggIHpfyf
+	fXQSGCQ7d+vIiWJl9V/1SyX7gCuLXdYBDDep+vzFwT5zV4sZPYLP+i6oshkLkizhICIjW7rK0X7
+	e18vjeiY/1vEi1xAF/xezbaG6JbBHw7f0BmYbjVEykOF4+PcmwLSjS4t8Ec2V150DLSnDxcAU3z
+	K1XpSVxCE9f5eaAkflv+7Y/7omxs7SmtZruPZr7nbWFyFA1hNWRyfXAOyRyXBaumUh86dH1NQmr
+	/sYrVYVTQUeoTZ0X1DudbCG5TBiVdQDslp50swV2Jwt87BPBcD3llO+64V8b2M9pH1Con9LJDG7
+	GIUxNTsogv51Y9Of6GpRZb7MpGeAxuOlmIj+s=
+X-Received: by 2002:a05:6214:8441:b0:921:1e0e:4f97 with SMTP id
+ 6a1803df08f44-92134b03b01mr303378966d6.30.1795680620848; Thu, 26 Nov 2026
+ 00:10:20 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,226 +105,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 00/15] PCI/TSM: coco/tdx-guest: Implement TDX-Connect
- PCIe TDISP (phase2)
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
- "linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "Duan, Zhenzhong" <zhenzhong.duan@intel.com>, "x86@kernel.org"
- <x86@kernel.org>
-Cc: "Hansen, Dave" <dave.hansen@intel.com>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "kas@kernel.org" <kas@kernel.org>, "seanjc@google.com" <seanjc@google.com>,
- "mingo@redhat.com" <mingo@redhat.com>, "Peng, Chao P"
- <chao.p.peng@intel.com>, "pbonzini@redhat.com" <pbonzini@redhat.com>,
- "Tian, Kevin" <kevin.tian@intel.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
- "aneesh.kumar@kernel.org" <aneesh.kumar@kernel.org>,
- "Verma, Vishal L" <vishal.l.verma@intel.com>, "hpa@zytor.com"
- <hpa@zytor.com>, "tglx@kernel.org" <tglx@kernel.org>,
- "nicolinc@nvidia.com" <nicolinc@nvidia.com>, "Gao, Chao"
- <chao.gao@intel.com>, "bp@alien8.de" <bp@alien8.de>,
- "aik@amd.com" <aik@amd.com>,
- "yilun.xu@linux.intel.com" <yilun.xu@linux.intel.com>
-References: <20260924041032.1096569-1-zhenzhong.duan@intel.com>
- <de1262f3-4097-4aa0-bcee-0dad05ec5538@intel.com>
- <8acf514600526e3a2b0af151b0fa8a7b7a779c81.camel@intel.com>
- <5b6837a8-f8bc-4e7f-8419-01853eecd531@intel.com>
- <244d504ddfefd2c2bfc17da62f71685dc8b4205c.camel@intel.com>
-Content-Language: en-US
-From: Xiaoyao Li <xiaoyao.li@intel.com>
-In-Reply-To: <244d504ddfefd2c2bfc17da62f71685dc8b4205c.camel@intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20261118-de25-nano-v1-0-473d16131f7a@gmail.com>
+ <20261118-de25-nano-v1-3-473d16131f7a@gmail.com> <20261126005120.176307-1-jjc@jclark.com>
+In-Reply-To: <20261126005120.176307-1-jjc@jclark.com>
+From: James Clark <jjc@jclark.com>
+Date: Thu, 26 Nov 2026 15:10:11 +0700
+X-Gm-Features: Aa3M54qYE5oVeJKlBQz_MKlaOtdOgsDzCf85Y1jzqfbjt2TEAwsajAiaS_0IAJA
+Message-ID: <CANz3_EaWr=qjxrVL6ZoqbxfzUxBJ2cH1s-x2UQanpj9AUwtkkw@mail.gmail.com>
+Subject: Re: [PATCH 3/3] arm64: dts: socfpga: agilex5: add support for Terasic DE25-Nano
+To: alex.cramt@gmail.com
+Cc: Dinh Nguyen <dinguyen@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Mahesh Rao <mahesh.rao@altera.com>, 
+	Mohamad Asyraaf Azhar <mohamad.asyraaf.azhar@altera.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/26/2026 1:47 AM, Edgecombe, Rick P wrote:
-> On Wed, 2026-11-25 at 16:32 +0800, Xiaoyao Li wrote:
->> On 11/25/2026 3:41 AM, Edgecombe, Rick P wrote:
->>> On Tue, 2026-11-24 at 14:01 +0800, Xiaoyao Li wrote:
->>>> 1. The requirement of R8-R15 are reserved to 0 on TDG.DMAR.ACCEPT.
->>>>
->>>>    This is the first leaf in TDCALL/SEAMCALL that explicitly requires some
->>>>    unused  registers to be 0. Without justification of why it must to be
->>>> such,
->>>>    we are going to propose to remove this requirement and it helps drop
->>>> the
->>>>    PATCH 13.
->>>
->>> Ah, ok so the problem is we need to make sure those registers are saved in
->>> the
->>> wrapper, if we will set them to 0 before SEAMCALL. So the seamcall code
->>> doesn't
->>> clobber the callers registers.
->>>
->>> But I tend to think an ABI rejecting reserved input is a general good thing.
->>> Since SEAMCALLs are not fast, I wonder why care about optimizing the
->>> wrappers to
->>> save and restore the minimum. If we just always saved and restored the
->>> general
->>> purpose registers, we wouldn't need so many wrappers. And then when TDX
->>> module
->>> wanted to add new SEAMCALL ABI we wouldn't need to do the whole version
->>> selection thing. Just pass a new bit or whatever. 
->>
->> So we reserve the unused registers as 0. When new SEMACALL ABI is going to be
->> added, just directly extend the reserved registers and allow them to be
->> non-zero.
->>
->> This implies that value 0 becomes the ABI indicator, or value 0 represents the
->> old behavior in the new ABI. However, this simply doesn't work for
->> TDH.VP.INIT,
->> as the version 1 of TDH.VP.INIT extends bit[31:0] of R8 to be the 'X2APIC_ID',
->> where value 0 is a valid value and cannot represent the old behavior.
-> 
-> True it can't always work, without some reserved bit becoming a selector. In the
-> case of seamcalls that is basically the seamcall version thing.
-> 
->>
->>> That would have simplified the
->>> TDH.SYS.CONFIG changes for DPAMT and add-ons.
->>
->> It works for TDH.SYS.CONFIG, because
->>
->>   R8[16] = 0           means Static PAMT
->>   R9 = 0 and R10 = 0   means enable no add-on feature
-> 
-> I'm making some guess work here because I dont actually know the history...
-> 
-> I assume that since r8 already had some bits in use, TDX could just define new
-> bits in the register. 
+On Thu, Nov 26, 2026 at 7:51=E2=80=AFAM James Clark <jjc@jclark.com> wrote:
+>
+> Hi Alexandra,
+>
+> Thanks for posting this. I have a DE25-Nano here and have been running
+> a mainline kernel on it with a board file based on Altera's.
+>
+> On Wed, Nov 18, 2026 at 08:07:15PM +0100, Alexandra =C3=98stermark wrote:
+> > +     leds {
+> > +             compatible =3D "gpio-leds";
+> > +
+> > +             led-0 {
+> > +                     label =3D "hps_led0";
+> > +                     gpios =3D <&portb 17 GPIO_ACTIVE_LOW>;
+>
+> My testing found GPIO_ACTIVE_LOW is wrong here. Altera's and Terasic's
+> device trees have the same mistake. You can test with
+> /sys/class/leds/hps_led0/brightness . With GPIO_ACTIVE_LOW, 0 turns the
+> LED on and 1 turns it off. With GPIO_ACTIVE_HIGH, 1 turns it on and 0
+> turns it off, as expected.
+>
+> > +&gpio1 {
+> > +     status =3D "okay";
+> > +};
+>
+> I suggest also enabling i2c1, as Altera's file does:
+>
+>   &i2c1 {
+>         status =3D "okay";
+>   };
 
-Per my understanding, the key is old spec explicitly defined bit 63:16 of R8 as
-reserved to 0. So DPAMT can extend bit 16 for DPAMT with value 0 meaning the old
-behavior, static PAMT. And it can work without increasing the leaf version.
+ I also suggest adding a &qspi node with the flash, which allows Linux
+  to access the flash as /dev/mtd0. This should be disabled initially,
+  so that it works with the Terasic flash image, and then U-Boot can
+  enable it when the flash has been handed over to the HPS. I used what
+  was in Altera's board file, but with the rsu-handle removed.
 
-> But then TDX extensions wanted to match the extension bits
-> semantics in the register, and so needed a new register. Which then required a
-> version selector in case some VMM was passing garbage in the register. Instead
-> we could have had one register that had all the extra TDX module features.
-
-yeah. The key is old spec doesn't reserve the R9/R10 to 0.
-
->>
->> where value 0 means the old behavior.
->>
->>> So I'm thinking that old seamcalls were maybe incorrect and this new way is
->>> correct. Yes we would need a new patch, but what if it was a simplication
->>> patch
->>> that got rid of all the seamcall variants and just always saved/restored?
->>> Consider those premature optimization. Any problems?
->>
->> I agree an always unified saved/restored helper is a good thing if the
->> additional overhead is not a concern.
-> 
-> I think saving and restoring general purpose registers across a seamcall would
-> not be a big overhead given the amount of other work happening during a
-> seamcall. Probably small enough that we could not even have to measure it to
-> make the case for the patch. Any counter points?
-
-No. It looks doable to me.
-
-IIUC, you want us to set aside the decision of whether to remove the requirement
-of "R8-R15 are reserved to 0 on TDG.DMAR.ACCEPT". But to explore the direction
-of unifying the SEAMCALL/TDCALL helper to always save and restore the registers.
-If the unification is accepted, then whether "R8-R15 are reserved to 0 on
-TDG.DMAR.ACCEPT" won't matter much. Is my understand correct?
-
-<snip>
-
->>>> 4. TDX_PAGE_ALREADY_ACCEPTED is listed as the possible return code for
->>>>    TDG.TDI.MMIO.ACCEPT while the description of TDG.TDI.MMIO.ACCEPT reads:
->>>>
->>>>      If the page is already MMIO_MAPPED, skip the page.
->>>>
->>>>    They conflict with each other and lead to confusion.
->>>
->>> I'd think if the page size is incorrect it should return
->>> TDX_MMIO_ACCEPT_SIZE_MISMATCH. If it is already accepted it should return
->>> TDX_PAGE_ALREADY_ACCEPTED. In the case of mismatched size but already
->>> accepted
->>> page, ideally it would return TDX_PAGE_ALREADY_ACCEPTED, but it would be ok
->>> if
->>> it returns TDX_MMIO_ACCEPT_SIZE_MISMATCH.
->>
->> For private memory accept, if the mapping is not accepted by the guest yet:
->>
->>  - when accept level > mapped level, SIZE_MISMATCH is returned so that guest
->> can
->>    try accepting at a lower level.
->>
->>    TDX_MMIO_ACCEPT_SIZE_MISMATCH is also returned for MMIO in such case. They
->>    are consistent.
->>
->>  - when accept level < mapped level, EPT violation happens so that host can
->>    demote the mapping.
->>
->>    There is no behavior defined for such case. But I think the reasonable
->> option
->>    is also to EPT violation to the host to request the host maps at lower
->> level.
->>    Forcing the guest to a higher level doesn't sound reasonable because the
->>    guest might not want the whole range of 2M MMIO is accessible by the
->> driver.
->>
->> Regarding ALREADY_ACCEPT, we need it for private memory because a successful
->> acceptance of private memory will clear the content to 0. TDX module don't
->> know
->> the intent of the guest, so it makes sense to return an error code to tell
->> guest
->> the page is already accepted without clearing it. If guest wants to clear the
->> page, it can do it itself.
->>
->> But for MMIO, there is no such clearing semantic. Skip on the already-accepted
->> MMIO page and return success seems to have no problem. Besides, private memory
->> accept is operating on a single (huge) page but the MMIO accept is operating
->> on
->> a range. Return ALREADY_ACCEPT would increase the complexity on the output to
->> tell the current status but without any real benefit.
-> 
-> In the past discussion on private memory accept, someone made the point that re-
-> accepting memory should be fixed in the caller because it could be a weakness
-> used to attack the guest. If the kernel is confused, the host could zero memory
-> for the guest as part of some attack, or the new caller of accept could be
-> surprised by un-zeroed memory. This came up when the memory hot replug bug that
-> was eventually fixed in qemu partly to avoid allowing survival of re-accepting
-> memory in the guest. (and caught by the already accepted error code). We
-> discussed if the guest could handle the error by simply re-zeroing the memory
-> after a double accept. But then the debate was whether this would cover up bugs.
-> 
-> I think a similar case could be made for MMIO, which is probably the purpose of
-> this error? 
-
-Re-accept of memory has the effect to reset the memory content 0. But re-accept
-of MMIO doesn't do any harm, as I see it.
-
-> The guest could get confused about which MMIO address is mapped at a
-> particular GPA?
-
-I'm not sure. Guest doesn't care the mapping between MMIO and GPA. The TSM and
-secure firmware will help validate that the host VMM has mapped the GPA to the
-correct MMIO resource of the corresponding haredware device.  And MMIO cannot be
-converted between shared/private back and forth runtime. During the lifetime,
-guest kernel only needs to accept the private MMIO once after the device is
-locked and accepted.
-
-> There must be some trusting intended as part of the operation or
-> why even have the MMIO accept in the guest in the first place.
-
-We have two reasons:
-1. the same for the page accept. Accepting the page/MMIO by the guest prevents
-host from mapping a new page/MMIO to the GPA without guest's awareness.
-
-2. TDX module will validate that the host maps the correct MMIO resource to the
-GPA.
-
-> So I think if we don't need the error, why even need the MMIO accept call at
-> all? But we probably want both.
-
-The ALREADY_ACCEPT error code and MMIO accept are two things. We care if the
-MMIO is accepted or not, but we don't care how many times the MMIO is accepted.
-
-> And I also don't see a major simplicity benefit to dropping error. What is the
-> savings?
-
-It makes the guest code simpler that the guest doesn't need to implement the
-skipping itself.
+James
