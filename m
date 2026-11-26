@@ -1,99 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795653870;
-	b=rgsPRT0zU3wsxooGNB7tD9smFYlPKY9V9WXDl0tc68oO36kn2bclX3kk4BfQFLJ8k3+d
-	 EfmShjVa9BSY8E/lsEx+5ItX1YAXJk/S/scp90hrRsH1MLmtoMNflmfLvBVmEZY+z3j9E
-	 l2Rc5Jg5hMP7pndGwW4Yp63BZkeKIPpNXDAy9XpvY+FLNbk80cFlPNQuPq67yqOUIqbNF
-	 Ohv9lyB9nR2QBetZXvMPTfMDLu5qH5KGhKeB/m/yAX4l/Q/IPEqZVXNxTG0cYIB9Cne//
-	 wXS7T7uV9lYKcN+5dID7RlZgSepCnxEsTuYOgSpb9WU5N8D6wSQ8WPwC3CzjsI0gNoQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795653870;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=iVFnQD3imnTlv+9jxnHkNU96izoDIFXplUev078ijIQ=;
-	b=xlBKWZooFXTkQG556oNjrh6ESOMoZguBWl8RRtk9RXQJQId+9dzY9kUlaBFZhEhQIiZ/
-	 kzyhXYCgfluhQN6d/fjZNywj8dPCPOuSbtDLTLB+Q1TwhN2YPeMwi+cgk+1zlI2zV711i
-	 fw0j9Itn6jQEs/Xec96Fq+ai90J5MUlgpK8lQSxVAOXfDp5Q14MAKIOPznOfNxMLaj/Wy
-	 BK8XGWrTVsCRdCB2TQkKshGcsYNvetK7/OCepggbcyEi1IdLg1s/xofJ/JIX2sON+wHlR
-	 ecb61yX2WxHDBeNMWzI9J2plA6U12htnCzsuJxIfrNdrjQWmfxaA86iwZ/c6d1zZOVQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=TFVWM1nN;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.54
-Received: from mail-ej1-f54.google.com (mail-ej1-f54.google.com [209.85.218.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795653887;
+	b=NFxh4pnzV/2kFU3GGx6AmQbirFGQkg0q1kvlV3X/XxMMVfObsaT1FmP6ZFQdFyPJTAVE
+	 yxHi0GYTju1Y6l9eK5QJS0933YvzWmuW/vsHg1sPDfpUSjNTZU+GHjPK7cUa06HoK+i8w
+	 4hyTBQ7Gn+ACGyXaiNT3XOjjAf6+evzGxm4cXKjnPpryXnpfcWcOuN27pgP6evatabKGJ
+	 OhCT4PANveW97lkuw2V/+/o2KXR4dA8FDGfiJhiJoQcvxSL55uJmas15sXq+8059Zfi4t
+	 NZfN5ScaaJf3VUqBm31UGUxqwz2O+esG6lqzAoAWVf1LdoVb7iXwTYRlg9bo56Fo0YQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795653887;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=Qa2fXQ8QHv/UVSD1PLtqudyUB69vbVtCIiXIZczjwis=;
+	b=tZQ+gQZSl3ha9JbugatWxOqq1nLNzHay5cr9iDSN+OmGg3jnpH89156Xqvs4WjpvM2kN
+	 C46RmnABVoTX+R5kDD1qBFNY/Bcd928ne9tA5Sd9Oi1Tri+i76elgKSOd/gqo9lpXWQL5
+	 0MuwdtDzY3yDNGW8PZuPL0F56vITjCDrpGZdjKuWIoBqpv1x1eEbSj8kI9mletk7uujNI
+	 bPR6JZdbpEEEkOIUDyv9pcpVrbF7XiqLvmcf6zRaTpthtnY+dxQxFHAfImXs7o+FpV4d4
+	 plojMeoqiErQODMmv6iGRmVERrMwHGyIGHf5m0IPUic7+IP77xGT6V0WaPQRMWR2Lfg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=alien8.de;
+	spf=pass smtp.mailfrom=alien8.de;
+	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=dPntnIXx;
+	arc=none smtp.remote-ip=65.109.113.108
+Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B6A3606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:44:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B6A3606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5496606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:44:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5496606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=TFVWM1nN
-Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-c506a231b88so870050766b.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:44:30 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795653869; cv=none;
-        d=google.com; s=arc-20260327;
-        b=SAQf3miQU87hN7LFm2c/ZhZPdrhkY+cRxzDzug/37igXiuGSGnRTFVkfvikdnf+MfK
-         ng8g7fB+hE3rv7xsou1AwjX/3RMXIL33iJo2omDkgSNv4snEPIH5avTNcnZBZIg2RWk5
-         PgQwxWRTBJ1vLDeYpHzHu5J+r0kmgsF95802BQf//lhb3egLhrwbImQw+0qORzOA61R/
-         nF0sH6fxQQ7Tk5251fKbBkID+iTuE0Zk2XolBmNWVgNI3j/N+uwcM/C2VfajDzAYgUBx
-         30M31h/mTuRkTRiRpjoyspZM6hI3kWFnAkRmv0IUBDIxYd+QGy3RgkhCHwe1GVH1qIg8
-         gZXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=iVFnQD3imnTlv+9jxnHkNU96izoDIFXplUev078ijIQ=;
-        fh=0LL+v94T5KedC3eJXuUQLa9pdFLsbQXjOnAqF2Zof5M=;
-        b=XooDzenrW7plrTOoW7dqZCvB4rOgY8vymUAybgsfykReuEnVUgrWPHOsa661n6ufc5
-         esFuZbEJFxP8NYvxA8IEAHTZej4i7Nz/s4qOZsl0n0P9K/V8lQDkF3ROM8niKOwTCaIZ
-         PPSkGhxyqxIlP3uE4TB3mOZqvemBXShPs9MR6GVLJrv84WmmrhSm71ibH+RdXXYZNLTD
-         oTrODUMnuDX3EVBvCxxr/dW0LHaXcPiuMKVDaLxJLXN+YFkqqnSjwdGP+c7L2nsbcDyP
-         PUV262lgqMHK3zqt1VQPGPY2OgGe70jV7HOAmydmUpg8MitI/kdpjC9D/cuyzV6J3iUr
-         Sepw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795653869; x=1796258669; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=iVFnQD3imnTlv+9jxnHkNU96izoDIFXplUev078ijIQ=;
-        b=TFVWM1nNu5gApS+aRUNGAO2b47beOviKXKAUtZcibEAeTqBUzqYaxbl/Ez5VQvaHiJ
-         TXrTwu8x0jRe4t5Qky6cuxp9+qXTOVpIHPYaRTuFvweUNvzRuyVro3GhlyImE69z5l6h
-         8+10BUgXaVnSQdQJL56ogVd0eoghwHYtJzCo3zCbsQwT+vD3SGCXtB3FiXNUreuGXelJ
-         f7VR1BO5S+hnTUr9vyAHKXMc2Z8rg1qIpqzDfb7vnBqg8zVirP17bCZUWs0HZkfhTJwL
-         aGZZfKvpUl1Z4/v5oLfuk517qMaRDnLShKckyF1bvlHNxOJLhAHLt0pu9I70jGnqlzcF
-         ZJeA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795653869; x=1796258669;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=iVFnQD3imnTlv+9jxnHkNU96izoDIFXplUev078ijIQ=;
-        b=IDFdx4g/qrVwMxFk37fKmgJN+NMoyhZVrruLBUIJwOQMP2ZPHPj+OKWMIRvTioF+Iw
-         JYuSSkjiaP5/2+AAt/oj8IWAWCd3WPH4jkcEN8I1krHAIzBtwq7AHjRx8KivBe5W6n+Y
-         R2SOqb6YSAznFkpNJ8xDnmAtauUDyJc6VDmMxNMOrPAO7nyPRknQ0GGel5LYaQa0Z51u
-         jszfLQan6kg7aMwTg2t182qly4uGB5xFUizKzCjkrGYixCt9pzK81rztpoUFt7dbdF1p
-         N9IDmMKQx2MpLFG1WMjyQ++sLZWbvalHblJtFUGhkBDIeTJiJBU7zwE/QFZsn++4jyb/
-         +FLw==
-X-Forwarded-Encrypted: i=1; AL+hErFjIGhuf11CIOoi14BDRIKZpaZHaiJsgRrbS2zQBlSu+CrkKSJx7qMAuX4GRRSxZrNm12vj2gdN1XNWeKE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/fdZOkk5zmp36N5jzZjl8dkGx/AYmWUIW708njkJ88bcLrruv4
-	fBYZvxVE9EObBV5S+oJUhEDvlH531MrQMaSy92ANcoJ1Q1pINSIoFxTL3Svm5q9kc4LR9dNGxB4
-	+iznprjLqHmC7kKb5gcEQz1A4kOweQjHTLC2y2Lw4
-X-Gm-Gg: AZFdTZdNkGdu63U9oYLBk5eOOkGB6LhH4H/oJmQN2p5RXMJ3c18BvSOPfwJICMSzj8F
-	Dk/CHW+cpni2rlFqFg9sdJo52pjCAoMOKd0bggEUAj8xHVTgm6S5D5/lpxS01gtpW5Q7WGcB/Lx
-	9bzUZ8KSKPoz3zI/p2cvOenJLkPH96p5AWW6XziNTN4YT8aZWXHTweVeHAMPPJl2v2qvPvZNOcG
-	kEYCH9wPuOth5cO/UPwIhxxQwXWNqwHKAUXRGivBtUAWtrRbOCn6wiy9lHrefwmH2urErlayiiV
-	B6uyhl+z4yIAC3wsbgazM7PQaqXvpztGSBT98fCyXjACZkVTEa2DE80mZoFEJ3Q39NaLNatlCfB
-	PyCzDysVqKQBgwklLruApjq04m3mHIcAm8/FNa8EZM9zejHyW5bJ6WGhLmPFNYIJgvWc=
-X-Received: by 2002:a17:906:6412:b0:c51:24eb:e5ed with SMTP id
- a640c23a62f3a-c513aabb094mr1147878466b.42.1795653868573; Wed, 25 Nov 2026
- 16:44:28 -0800 (PST)
+	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=dPntnIXx
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id B243440E0232;
+	Thu, 26 Nov 2026 00:44:44 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id 0E8_dedj0J4t; Thu, 26 Nov 2026 00:44:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1795653881; bh=Qa2fXQ8QHv/UVSD1PLtqudyUB69vbVtCIiXIZczjwis=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dPntnIXx0S+0ss9kG5o6d4dR1UiUV/wn1GH1GbSiucBWx0yPZgX7VFPHnubGzMZ0x
+	 pHA1gRt1D6P6mQQJSvm4I9dhmSwrRxhJpAsJRTBGLbgRvURU6tfiYxIxgFNlQ3KOLF
+	 OKGzMa2Fl1QuT/H/nPl62LXIZUprw6gNRraE602BVzxwoecQooqZzsIgnzifbWHGvy
+	 U0x1PHejpYMYxHRReG+OkkaWojHQUVibJLhq3S4AIvbjG3cqC/zrobKQN10BtSxmo1
+	 eFl0emGvgg2bIfGhk2498VEkyzYab+kijcNHmWCfU8KncpH9R+xOQrMSrHa7pxv6eE
+	 2hJnulnF5UIhkaqIaUUjFtQUm1zT3TjAfG9ojiiuykGwTyn6h97slUXGTq+NwYeEqp
+	 xmvfQtYjhHrpoMdBrkSkJOP+SgM8UYVhM91azSdYrCye4uCkgj+vDWaIO8XZBDtc4h
+	 1QSnv9DIuWN3yBbkeuk//dIAzIc75/XMjWZAXhrPILtQPji9kd/tvliNb6LmQKCWXU
+	 F6k7ZqeG+uHWMnsB/NJy+vBsAfGvdSc+njekLZJwdYWimecqx9PqY2gXbKZAS4Nsh/
+	 ItZTKaMr4/qa742yo2w0C4JPzIZU3pyHGxMKkvRg3pZfZuGwsmtPqRWH2bksNDThDG
+	 ddIe47QIZY/VzfW/x+68fahA=
+Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 8725D40E0140;
+	Thu, 26 Nov 2026 00:44:32 +0000 (UTC)
+Date: Wed, 25 Nov 2026 16:44:29 -0800
+From: Borislav Petkov <bp@alien8.de>
+To: Erwan Velu <erwanaliasr1@gmail.com>
+Cc: x86@kernel.org, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H . Peter Anvin" <hpa@zytor.com>, linux-kernel@vger.kernel.org,
+	Erwan Velu <e.velu@criteo.com>
+Subject: Re: [PATCH] x86/microcode/AMD: Warn when a patch is skipped because
+ of the Entrysign cutoff
+Message-ID: <20261126004429.GCaweA7XoIaa5k_ZBh@fat_crate.local>
+References: <20261125175203.1003294-1-e.velu@criteo.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,52 +83,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261113221248.3535369-11-wusamuel@google.com>
- <20261113221248.3535369-13-wusamuel@google.com> <CAEf4Bzb6LQmHHkvB8WBezU6YRtggycRvvA3L03mQHDr3WQM6mA@mail.gmail.com>
-In-Reply-To: <CAEf4Bzb6LQmHHkvB8WBezU6YRtggycRvvA3L03mQHDr3WQM6mA@mail.gmail.com>
-From: Samuel Wu <wusamuel@google.com>
-Date: Wed, 25 Nov 2026 16:44:16 -0800
-X-Gm-Features: Aa3M54p3EatRpTsPAm_mcmxJ6hPDpQs1114Xl7F84nCmfTvZhGsQScuZoJFkxmI
-Message-ID: <CAG2Kctr+6-EESkYn+Dspg0FxTOMFRoj8269UZaNNDFNf3d+bHw@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v3 2/9] module: Add module_kallsyms_find_name()
-To: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Luis Chamberlain <mcgrof@kernel.org>, 
-	Petr Pavlu <petr.pavlu@suse.com>, Daniel Gomez <da.gomez@kernel.org>, 
-	Sami Tolvanen <samitolvanen@google.com>, Aaron Tomlin <atomlin@atomlin.com>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
-	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Petr Mladek <pmladek@suse.com>, 
-	David Laight <david.laight.linux@gmail.com>, kernel-team@android.com, 
-	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-modules@vger.kernel.org, bpf@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, llvm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261125175203.1003294-1-e.velu@criteo.com>
 
-[...]
+On Wed, Nov 25, 2026 at 06:52:03PM +0100, Erwan Velu wrote:
+> Co-authored-by: Claude Opus 5.5 <noreply@anthropic.com>
 
-> > --- a/include/linux/kallsyms.h
-> > +++ b/include/linux/kallsyms.h
-> > @@ -24,6 +24,13 @@
-> >  struct cred;
-> >  struct module;
-> >
-> > +/* Exact or prefix name query, optionally in one module. */
-> > +struct kallsyms_name_query {
-> > +       const char *name;
-> > +       size_t cmp_len;         /* bytes to compare; includes NUL if exact */
-> > +       const char *modname;    /* NULL matches any module */
->
-> will "vmlinux" match just vmlinux? or how can one express "I only need
-> symbols from vmlinux image" with this?
+We don't use the AI tag anymore:
 
-At the ioctl layer (patch 3/9), passing "vmlinux" in query_module
-restricts the search to vmlinux without calling
-module_kallsyms_query_name(). I will clarify the comments in both
-patches in v4.
+1e035297ffda ("docs: remove Assisted-by references")
+
+> +	if (cur_rev <= cutoff &&
+> +	    ucode_rev_to_cpuid(patch_rev).full == bsp_cpuid_1_eax)
+> +		pr_warn_once("Patch 0x%08x skipped: current revision 0x%08x is at or below the Entrysign cutoff 0x%08x, a BIOS update is required\n",
+> +			     patch_rev, cur_rev, cutoff);
+> +
+
+Except that a one-liner in dmesg doesn't tell you the whole story.
+
+Also, not everyone can get BIOS updates and then more questions arise.
+
+Perhaps I can document it in Documentation/arch/x86/microcode.rst.
+
+-- 
+Regards/Gruss,
+    Boris.
+
+https://people.kernel.org/tglx/notes-about-netiquette
