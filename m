@@ -1,105 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.51
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795663293;
-	b=10SwyZCEfNhPVeZSn9+zIHyoBTIuDJJlyAFMJ/WiDjgMeB4UTnbE+v14xIZ5lRUdJ5Jl
-	 BDjCMZQyNKoazx9ON2IHyFV3Em4Y4Oj1TlCQX4JZnEGElJDGEKAHwiTqXpZ6IkNMGoaUm
-	 13XBZwtThIYFzT49qlFhAOIeDfrqv8YDRzwSTkgx77h77SwCscGYQhh3Nd8XubMTyQz9C
-	 SxvjXCx+qDyQ8IhB6ybxQwAiIiTWyfGSJ8guESg21tU2sVGYbieoY6J94iwsctPA9Ypgv
-	 61wMNr3MbGVJj60++RwvVsBrOfsavjID8rCyw1iU2bAMZ7qgpBkOGTAtAEY+YBWxFlw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795663293;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.175
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795663405;
+	b=axg4C5yrZImy4Xrh1ewW4ab8u/NfFcn4DJ/f6uXMsxI68PVDCfyq2S2lqhk8HnUdLhWN
+	 rMKpinaoQFARzce0Qc2TctmIx29r9v1s9oqCftHpefMn0kovHWe7BB0O+BwllA55jJ8oq
+	 b2ntPQTv/9iBE9e7NGGNDv+K/R+sMJmXewcWIejrxgBkUcuOdRaMq0uh90yjVxoDLfj+z
+	 FVxoEs1W91rJMIblf3biBJtXQvynbcSGV+i5hEQFd+5aEGMj8ZNumq5xWQYY43jRepuRI
+	 NQ+/1IJxPyP3sv3fUTai0cHLZNIidwQ0Ub8vIF3g+ZLnrrPpa80N6XmIQD1JTWKD6qg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795663405;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:In-Reply-To:References:MIME-Version:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=c8Z6DV8gdGWeEQmibR6f0uelgWz6UwbDwMuOqZtOlGc=;
-	b=e1us/XWvSeX4+stlbeLE/P327JoyFWCqPjsbdNQkFIorEr2uyWUxL0dk3kFKEmXIGKrp
-	 Rc/HR0zspQgiomC9OtfTB2voQDUTZ8xDQu8gv5tSNrxgrVv14W17Vrufm7Gk+M34NACdW
-	 jJvWneeG87sSFAyh6UfxJTcC9u9GHD7zAQBMQxZctl5tZRN5t024U3yI4wHJlgnpUTzgA
-	 fchc8+7voQpgC0Wu14n6gOcJvt9qtviamNjYlBywaSHvXI+GwADI4KbDM5CUpvVVGe140
-	 8S9kmKLgqPTDXaCRcMxIywAJxWK0MfM197dJTJwfzE4U9GYRw3J3EoteuhSIfgbWOIg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=HtWcfzq6QYRKud0neDB6yUmZQgDuRRFbJcQVKQlnPhY=;
+	b=DLwhVub0kzJKYLcjhfpna+dsRnCAThJp0JK6AMtulgw5VZkkDf1ZmUeloWn64hsWHfwZ
+	 JsDK35c4sHr11HAOkCGQmyS5FZx+QmLB3HwNTbSbzx/M1pAmGHR0NEAxkQjmfBPp8hJWb
+	 ORgsJUfffv2HPrdq2BYCA14sHH6OgrjJaT5kLxt7+V4Yrn2cJ6GaQ7Wukd12xI5yNQ43e
+	 DsDsMdrHUed5BLvkFKAMgjsGTv3twZkbalszxwfLTwq9j1sWXmmSGCb7dbuaso8zfYQTs
+	 jtid1FwA75dtdMiSpgMiaDF7JEEcp/PykfTHk3DWNbdoMtm8o1l0lLvi7xa2oRSCkUw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Gsc03Yx1;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.51
-Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com [209.85.208.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MZ8omOQH;
+	arc=none smtp.remote-ip=209.85.210.175
+Received: from mail-pf1-f175.google.com (mail-pf1-f175.google.com [209.85.210.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB878606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:21:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB878606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDDA7606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:23:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CDDA7606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Gsc03Yx1
-Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6b87a1a2babso13388053a12.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:21:32 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795663291; cv=none;
-        d=google.com; s=arc-20260327;
-        b=TU4P2be95XgxC7Ue4mXtueTzct74niRjxC/Vl7xIWpmYI8ZMtIRX+jHOzUsydrdu1b
-         D6gngRvHtBn+5dDi1ex78RzKuWXpChQD46jUMRFfkKgg021lfLL1cDRe8W7oGJ2IN9iS
-         HPCjeRufydUjarLnchgh4UtxvdzatIiYV5fq+6v6jQbBlp3CIPZ77enyrb8mLOdGAjmB
-         2i8N5kEA3La6rTkhTTvIrKPwu2qZfLZ3Sdb/05IKNgDVVcrZi7icnOZW/RRZbS2pXP1p
-         EjamVYtoP9r7B/aUKt0d/ELeHyIKrB2hWInGcPgmd6JbvqDMKhvFneNnE39ZffLsBz4Q
-         GSoQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:dkim-signature;
-        bh=c8Z6DV8gdGWeEQmibR6f0uelgWz6UwbDwMuOqZtOlGc=;
-        fh=jN9SR4C0ZGZ1HQ+BnzKIzgMm1Cr6U/Jyj8Oeczr+qk0=;
-        b=DYQop8x3PR01FflqagP3lgK/6hekKdAd6mUGFMoYVXLbjpON3FnFILlBPCv0uOfz6i
-         WqvqxlQope10uetKktcAFtLKNqVmbPito+Vv1NblpHzhuBvywDONtwIkBl5hdQmWC8r/
-         RdeCZlRiCZsNASrpy7ltDo1hW8TRkub28dspW8PKx9ghZB3W6ZJ2Fxg4zKX4jP4UmmTr
-         TBqXvjcu6GdqNVugOx3vq/xHYMyDEEA6/b9xICY2Zph0zU8rYi99DxRjr5M1rJgIykVy
-         XFaNNQPzinHTQqZdPEU3oOmBfm0CKmZpNqSGwiBBMDnACYIOUD2Jf8XL0YPdGBFPPb5q
-         3nNg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MZ8omOQH
+Received: by mail-pf1-f175.google.com with SMTP id d2e1a72fcca58-8b77e464208so592206b3a.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:23:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795663291; x=1796268091; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:mime-version:references
-         :in-reply-to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=c8Z6DV8gdGWeEQmibR6f0uelgWz6UwbDwMuOqZtOlGc=;
-        b=Gsc03Yx15dzhHpjYTTT2Inubjt3C5ks/2wkmp0ycXJ371FUNAVlo82xZYb3++gLGZz
-         Y0O4M40FHj36/yWp+t3Zpa+iAAHk4zOoZW6lkuMimS98XQXWjTR9fN8AM6Qc9mXr7IIa
-         1tV72ZRHzaZZoh5tRi1cPFmmP4zmvkCg9AzZRykk/+tIkcJhN3ET2DyjUZWz+Xifzl4W
-         h/c62sHVsBG+FRC5XBnrwhewQejhe0WpBEwYjg/DlPxcLtP2fTm37b+2Xg6ibgDCf3C9
-         eCHQLeVWIitXYod/uGRwXdK6OkZEZ8gNb1OvK4KHOXWhuOGGZ76W8nH1J/YSJBehhgJu
-         TZdA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795663291; x=1796268091;
-        h=content-type:cc:to:subject:message-id:date:mime-version:references
-         :in-reply-to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795663404; x=1796268204; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=c8Z6DV8gdGWeEQmibR6f0uelgWz6UwbDwMuOqZtOlGc=;
-        b=mRMjdMzJM3mwTcKTcmUZ9YUbNeKdI7yzAQ1j8ZsLTszI5li+O3LFmmmIvSyTOMXGr/
-         0NYnFSWWD6fZpE23Vx0JKNfB8bp9lYDZTKXk9b0jbPff+pttlGrSBM80Yu1wcWZrg6yd
-         +FBCH/gCTYUf1ovfIv1yUZrQOS8zsGu1DC6Atr8Ttx65nvkU431WKvHolglJw90TeWv1
-         PxN42yytKjEfNtmTc0X15rbpjh5JH1O15CiAHd7wW5BlJIvyVTGyTwtSkIO7yvvXgBDY
-         5HvviREXiQ5kCmr29tGwWpvfZLeE14kpEZVSEdk+eqooUdw8ddTbgItC4dve2lZWu1dn
-         slDg==
-X-Forwarded-Encrypted: i=1; AL+hErE9uaaO0TnoJ86NuFUNwgG7MNNlwbWithVVmtTsC43tAsCRs5agwxC3hmIql3ZT2ZAMyBFnsdLTIs2mjY4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+zvXK1lDgW4lq5KYwuz2nNClRMkb7vHF+Ye2AZbtM5zgwv1Udl
-	PGD9v4wci0Mzhk8pHdHrtM2UWcoGfX24fdzN+b8WO3eyhF3EwSCQp9vhIotpeOIUsxSa0Y5Z2xY
-	N8bPe3TKA+UyuzCAEQZRXG/g5UxrPxeo=
-X-Gm-Gg: AZFdTZdQdb8E0/SfxPRmbuJyf93u5tOgTiFqsMvOGxyuyx/ns6+IGOA2koSIP2jVWap
-	vh0omc/sxMxknYjI1KjIu2uRuwE4c5VTsFPgpbRRUCiqokuO+GokgEYBQjd7KYqrgRumqXlWKz7
-	9vgaMTZ0Ejt/wnkpgVfqYQco59J5t4bRJbILEQutITM1tx2OtaDUidQVs9hjSkOz8yQgcjMXJzx
-	YR7KuI7yOKWucfZCy8Bl9r+F29ZfkoEanvnLEeyH7dC0fa5UYCPpsZ2eiwwNlUt1+gNA8cs3wXK
-	mnHLmWIBpDeNrWOa+hlGKUlb17cVesboaFBaHyicFwuJtayb5L5WgH1V+GrtB8wZlFpr4vbf0I+
-	FmxkwUnm02nS+Wwt3+oI9T5MoFrcLcZL5AKQRO/hHpyLAUzQx
-X-Received: by 2002:a17:907:3f18:b0:c46:9711:e30e with SMTP id
- a640c23a62f3a-c5131a1601amr1679769266b.29.1795663290899; Wed, 25 Nov 2026
- 19:21:30 -0800 (PST)
-Received: from 138594053405 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 25 Nov 2026 22:21:30 -0500
-From: kayano050408@gmail.com
-In-Reply-To: <b71d58f5-ca09-4f11-bac1-ab9720cac5dc@rowland.harvard.edu>
-References: <20261110-gadgetfs-ep0-v8-v8-0-8f90434574fe@gmail.com>
- <20261110-gadgetfs-ep0-v8-v8-1-8f90434574fe@gmail.com> <b71d58f5-ca09-4f11-bac1-ab9720cac5dc@rowland.harvard.edu>
+        bh=HtWcfzq6QYRKud0neDB6yUmZQgDuRRFbJcQVKQlnPhY=;
+        b=MZ8omOQHP+4FtzemVgluZ07wogDoVxnEWU7QChkmcm/I6PKG3R2Sx40QVCkasgkmvR
+         k13Gpx4dEKzkvwZA64ZgN0DfaVuP8PAk1Fkeg1wtrtUewQ66j4Ju1z49G+gfiboOKgjK
+         OplyMiqF3oaKbYCHT+RaW21OFvkfl5925+QnTJYXcBcwaAbbRDdWIJhtfEDZ8285sWb4
+         8Ad/EDVAYOuMk5T8PiRP4twyX6+JM2uEe6TntYruNC5tJTnNH1fUlTUADZa+yxTb+Ehj
+         +h4255cvw2515MIno6yVFy1RXGzuf2ZmaCkv7vWkeb5jRbGjEZ7eYCsOBll1A1eD5yNg
+         pSIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795663404; x=1796268204;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=HtWcfzq6QYRKud0neDB6yUmZQgDuRRFbJcQVKQlnPhY=;
+        b=mDRCEPB/txsx+/HrJNxF0rp3bHTYkKt5EgnWN9EmGh5v77NdzNymf0eSIo0HVuIXNX
+         9VJp/AkHOUTh7roxPgoHH/jMqMgKBa63SnKjfRmNMbZWVhVwhZHWUUaUVrtpA1Lpk8jv
+         Rk1FnVTCpMA5VzPYjITCNLaDFbjrfldUsKRXNSOWgCRziG7ltk7WxM6ExeAm2HhYpCeE
+         PcUIRrpkDqBUISARkTUpx8Agy30XOy5gwyZcgYNvU2ftkFtZd/fD9Q32HV9GJ3Sxn9pU
+         gtJrK6czLjzpvS8zOqa4ay3zQQdjSEsXyLyZV97Otz1I1Ic3tVADPuk8x+LyN+ZAYo1w
+         KQTA==
+X-Forwarded-Encrypted: i=1; AL+hErFSlU1GFSY1yvFUqDIrujt8WXvh2O7hrOSNE0WL9rrIAHX0c264a5FuWvItapvKVpvRxRA9HD9jXo7IG2c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9XVszYarovNEs/Z5TkTSV4HN3QPax2En4AaZjw1/n0xqTKKowU
+	KM43hsnN09sA74CPl7rB3+ftRI1xQNlCOedp+EUIZ23x3dyTw1yuB/o5
+X-Gm-Gg: AZFdTZfWjtGl4BkM9Pd+NERJsM6t7GUO1eartUcvXU0vBLlWydr3IAgSl0VDHLSdpna
+	PnLN/rlGQaiHav3aUM714SuSRfplPclM651GqTVqtxf96yutu0JOeDw3AGA6nnI5gu+fCj1eVzY
+	ol56VdW/KPAyAniXiifp4EZOaEj3mDk3s8xURlCi8vZkydLe7IA2jXb4FFFsaYDEk5gvOfk4Jns
+	CocGi8sMB2SbEmR8LSoTcam3beFP3QRFwHeK1AEf5MIyXb5oNUSUiQ88s862pkVxqO3QdDcPSSz
+	uRLavfGBOIks98oPSpfOGpCJA9d1SmqBBE4hj4q5uSaK28Gps87QtZWk+wmm1ubNPxbeyMUNK4l
+	c/Fe4uHYFuiRDWexe8AyoRjELChJ8oU68fcYJ+PaCiwRns64LafKjMjGXAaHpHYkgxzCglbEQhI
+	yKCBbjmlWUu6NLDSZN3sZm0/HcESLfP1vZ9KE/Kv4ur374sOc6O3TAVf2uKN6IElAFvI1f6hz0y
+	qd6VBpKSJPzIxwIRawXTihEu++H46nNzql5SgYN00eXsdQY7z/xNXYLK0tNb9zx19kjogk9Lxw6
+	IfWot8k5wE0U+z32x+3e43Ely7fa6xUQ
+X-Received: by 2002:a17:90a:e705:b0:3b0:9e2c:9b55 with SMTP id 98e67ed59e1d1-3b41c803ae0mr28913249a91.2.1795663404159;
+        Wed, 25 Nov 2026 19:23:24 -0800 (PST)
+Received: from localhost.localdomain ([240e:36d:b08:5b40::a60])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cdea2aed207sm3916423a12.11.2026.11.25.19.23.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 19:23:23 -0800 (PST)
+From: Jianfeng Liu <liujianfeng1994@gmail.com>
+To: xiaqinghuan@mail.ustc.edu.cn
+Cc: abhinav.kumar@linux.dev,
+	dmitry.baryshkov@oss.qualcomm.com,
+	dri-devel@lists.freedesktop.org,
+	freedreno@lists.freedesktop.org,
+	jesszhan0024@gmail.com,
+	linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	lumag@kernel.org,
+	marijn.suijten@somainline.org,
+	robin.clark@oss.qualcomm.com,
+	sean@poorly.run,
+	Jianfeng Liu <liujianfeng1994@gmail.com>
+Subject: Re: [PATCH v2] drm/msm/dsi/phy: program PLL_SYSTEM_MUXES on the first PHY enable
+Date: Thu, 26 Nov 2026 11:23:15 +0800
+Message-ID: <20261126032315.2226704-1-liujianfeng1994@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261117052047.32129-1-xiaqinghuan@mail.ustc.edu.cn>
+References: <20261117052047.32129-1-xiaqinghuan@mail.ustc.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,115 +107,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Wed, 25 Nov 2026 22:21:30 -0500
-X-Gm-Features: Aa3M54rPL2FamNAEIXP9ZhIRzp-Iokuf5xZugLV3IRMpHTKq6sQUPeDjJX4LFko
-Message-ID: <CAE2LCh57-f27Xk6NX+q-agg=h+G7vzg7ydGdP7s7tdRTYpyStw@mail.gmail.com>
-Subject: Re: [PATCH v8 1/4] usb: gadget: gadgetfs: fix ep0 request lifetime
- and buffer races
-To: Alan Stern <stern@rowland.harvard.edu>
-Cc: Neill Kapron <nkapron@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	syzbot+c73e1942197af9f54ca3@syzkaller.appspotmail.com, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-Hi Alan,
+Hi Qianhui,
 
-Thank you for the detailed review. I have received your comments on 1/4.
+On Tue, 17 Nov 2026 13:20:47 +0800, Qianhui Xu wrote:
+>Fixes: cb55f39bf7b1 ("drm/msm/dsi/phy: Fix reading zero as PLL rates when unprepared")
+>Signed-off-by: Xu Qianhui <xiaqinghuan@mail.ustc.edu.cn>
 
-I will wait until you have gone through 2/4 to 4/4 and shared the
-remaining comments, and then start reworking the series based on all
-of your feedback.
+Tested-by: Jianfeng Liu <liujianfeng1994@gmail.com>
 
-Thanks,
-Jing Lin
+I can confirm this patch fixes DSI panel on my Xiaomi Pad 5 Pro. Thanks
+for your work and I'm looking forward to it getting merged.
 
-On Wed, 25 Nov 2026 22:15:43 -0500, Alan Stern
-<stern@rowland.harvard.edu> wrote:
-> At last, I finally got some time to go over this material.
->
-> On Tue, Nov 10, 2026 at 12:13:22PM +0800, Jing Lin via B4 Relay wrote:
-> > From: Jing Lin <kayano050408@gmail.com>
-> >
-> > gadgetfs_unbind() frees the preallocated ep0 request after disconnecting
-> > the gadget, assuming that no I/O remains active.
-> >
-> > With controllers such as dummy_hcd, disconnecting does not necessarily
-> > drain ep0, so a delayed userspace response can leave dev->req queued
-> > when it is freed.  This triggers the warning in dummy_free_request() and
-> > a use-after-free when dummy_udc_stop() subsequently drains the endpoint
-> > queue.
->
-> This is a genuine problem.
->
-> > gadgetfs_setup() and the userspace copy helpers also race on dev->req
-> > and req->buf:
-> >
-> > 1. ep0_read() versus gadgetfs_setup().  A delegated control OUT request
-> >    is queued by gadgetfs_setup() and completed by ep0_complete(), which
-> >    leaves the payload in dev->req->buf and sets setup_out_ready.
-> >    ep0_read() copies that payload with copy_to_user() after dropping
-> >    dev->lock, so the copy can fault and sleep.  If a new control
-> >    transfer arrives during that window, gadgetfs_setup() reuses dev->req
-> >    for it; for example, GET_DESCRIPTOR(config) points req->buf at
-> >    dev->config.  When ep0_read() resumes, clean_req() frees whatever
-> >    req->buf points to, which is now dev->config.
->
-> But this isn't.  Or at least, your analysis is incomplete.
->
-> The real problem here is that gadgetfs does not handle "aborted"
-> control-OUT transfers correctly.  The request for the OUT data stage is
-> submitted when the setup packet arrives, and the host is told that the
-> transfer was successful when the request completes correctly, but the
-> user program doesn't receive the data until some time later.  And if
-> another control transfer arrives in the meantime, "aborting" the earlier
-> transfer, the user program doesn't ever receive the data.  It's not good
-> for the host and the peripheral to disagree over whether a transfer was
-> successful!
->
-> The start of a new transfer should not be allowed to erase all knowledge
-> of a properly completed control-OUT transfer until the data has been
-> read.  Instead, the gadget should NAK the new transfer until then (i.e.,
-> not submit any request in response to the new setup).
->
-> Fixing that will be a fairly substantial change.  Furthermore, this
-> whole issue is so entirely different from the race involving
-> gadgetfs_unbind() above that it belongs in its own patch.
->
-> > 2. ep0_write() versus gadgetfs_setup().  For a delegated control IN
-> >    request, ep0_write() prepares dev->req and copies the response from
-> >    userspace with copy_from_user() after dropping dev->lock.  A control
-> >    request that arrives during that copy can point req->buf at dev->dev
-> >    or dev->config, so the userspace copy overwrites a descriptor buffer,
-> >    or reset req->buf to dev->rbuf so completion calls clean_req() on the
-> >    wrong object.
->
-> It should be possible to handle this problem without copying the buffer.
-> For instance, the user data could be put in its own kmalloc-ed buffer
-> instead of in dev->rbuf.
->
-> > Copy completed control OUT payloads into a private setup_buf in
-> > ep0_complete(), copy control IN payloads into a stack buffer before
-> > preparing dev->req and leaving STATE_DEV_SETUP in ep0_write(), and track
-> > buffers allocated by setup_req() separately in dev->ep0_req_buf so
-> > clean_req() never frees descriptor storage.  Ignore zero-length reads
-> > while a non-zero control OUT data stage is pending so they cannot queue
-> > a status request early and clobber setup_out_len.
-> >
-> > Submit ep0 requests through a shared queue_ep0_req() helper that tracks
-> > dev->ep0_req_queued and wakes dev->wait whenever the flag clears.  In
-> > gadgetfs_unbind(), tear down non-ep0 endpoints first, then dequeue any
-> > active ep0 request and wait under dev->lock with wait_event_lock_irq()
-> > for completion to finish.  If the controller rejects ep0 dequeue, keep a
-> > reference on dev and let the completion handler free the request when
-> > udc_stop() drains ep0.
->
-> These descriptions are a little confusing to read, because they mix
-> together your solutions to three separate problems.  Each solution
-> really should be in its own patch.
->
-> Also, don't worry about a rejected dequeue call.  In practice, the only
-> reason such a call can fail is because the request to be dequeued has
-> already completed (or was never successfully submitted in the first
-> place).
->
-> Alan Stern
+BTW I wonder if this mail is ignored by the mailing list because from this
+link[1], I can see:
+
+-- strict thread matches above, loose matches on Subject: below --
+2026-11-17  5:20 [PATCH v2] " Qianhui Xu
+
+And the mail from 11-17 doesn't have a subject.
+
+[1] https://lore.kernel.org/linux-arm-msm/20261116150334.78710-1-xiaqinghuan@mail.ustc.edu.cn/
+
+Best regards,
+Jianfeng
