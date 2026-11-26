@@ -1,80 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.238.236.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795690887;
-	b=sag7Ykw24TdGFWoLMJVEPa72scXAgcliAf02uzGsYSWnhohpbj1Fx9YA3kZJOOGkxSmI
-	 5wFYz2N7ClbdzbT791BdAJcxVGywrF2uBc9LpABbDJEFoWqikDaGjLy1tku8lSAB1DJcQ
-	 uwJGPlEbL1W0Ypvc5nhPtnW0axOdhP3ay8PnCiXehZWBmVebwGiAffi206QmDqLi0QTB9
-	 QoGVDTTDp4Onmy2BZniNbiPA2ffa9ebxXB1LLE2H9JXzREz6u8jGAPNPmm3RMLdOI8/B1
-	 wdHD/sk1vskaLPAiwgmXpRUacRYmts3Myz7wbEO4JJk5MJ5RUoX+Et9oYH0zNf37jJQ==
+	t=1795690969;
+	b=j1omugamXGcrgJyO/eS1yp+GJXBC6nTBkRnMb6E+dYK5s7dUzigrhQpAqA2RpgD9mL+X
+	 zINfS09krFy9ycVDULOVPLRWqGvCf29lRVWnqv6tAKe0IRxs73PWDGoaQAnKnkLeR1rI5
+	 TAe6FFW6u/g00+KkAXCcxXptg96+IZhorWzX0/gNdizsxKBd9YRhJ6Eq9BRnADV3F+Obh
+	 kyoG3rkvjBcgqX5NAokXPHJYWnd+6fgHUaIQulpgUZcLmq1KFNejs2rPvY8exXwYRv/Pt
+	 JIxz7W99PJOes1YddQhm7ZcbDOg4Jyzkh0JVDywcUfIW4MTXoDzI5ls/hdq6IQoQ9jw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795690887;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=AjkCmVg9boAhx5Bo6HTIMk6d7GO9e3ihiIAWw/O7vls=;
-	b=4tbMMbnKdPt1MNtCBg9kA0xLqhQkrvK3NjDdu8+mo9neGuPL8GVcEUO115cAwnSrs3Zr
-	 CdQh9G/lL0GwfwKQhPHaIFJpPVXkMFH/Nr5OYpiMA2EvTlmTz72w42A86ZeZKLh5kUfoK
-	 KRzfja5uUCQn3tmywWmaeta5UH5tQFzFHAB1uWTPANIORKoxOlrtSxLPEndgBISHXTR+8
-	 cCtdWUWgTgekEDhWkYjIxxUWHepaug8lcD0Y2QxseKB6aOnKo+avh7929HwnKzDzM81jF
-	 7reYoKNOBVkG5I/PWwIuAeMR8qztT2rHunMDHRvYCihfVR86XDQY86rsJtzQOGGaW2w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795690969;
+	h=DMARC-Filter:DKIM-Signature:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=9IdHMMbuye28MG1N1+EIFoZNhCivuWQFrrAdjyqCNjo=;
+	b=Ck6/4PxojiMMvKAGMk5B4gEy483PIO7upizuyBAfVXesOdQoZQMCE6IL9HchW82WM4ed
+	 0g91c60+1gWueIZniRjGx2PeNIQQLCkQi3ttkcpbxXrDezLvVRWiQ4LKzG71nd3r9FLxP
+	 YqSC2BecJaiq3QWgVBKQ2ZQsRv0PKJZmdTuT2hV2XyneaRWbPTw0US8eENWdYrnHEOd33
+	 diSN7JojK4DFFpYd3HAJ1s1czRl/q+IQpyoqv+WIFjsCBNpqxnT3VRjtPkBxm5RmfV/wa
+	 n7t4+XfIJfTYTkvwUSoOV5e+VTdz3YYPYBmA7rKqS2TIDLEAc5cLjFoPruABnE1NzCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=mWXL1qew;
-	arc=none smtp.remote-ip=90.155.92.199
-Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
+	dmarc=pass header.from=kemnade.info;
+	spf=pass smtp.mailfrom=kemnade.info;
+	dkim=pass header.d=kemnade.info header.i=@kemnade.info header.a=rsa-sha256 header.s=20220719 header.b=83pCpQTR;
+	arc=none smtp.remote-ip=178.238.236.174
+Received: from mail.andi.de1.cc (mail.andi.de1.cc [178.238.236.174])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0ED4606A31E;
-	Thu, 26 Nov 2026 11:01:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0ED4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F5B7606A326;
+	Thu, 26 Nov 2026 11:02:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F5B7606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=kemnade.info
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kemnade.info
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=mWXL1qew
+	dkim=pass (2048-bit key) header.d=kemnade.info header.i=@kemnade.info header.a=rsa-sha256 header.s=20220719 header.b=83pCpQTR
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=AjkCmVg9boAhx5Bo6HTIMk6d7GO9e3ihiIAWw/O7vls=; b=mWXL1qeweA2P2EHpiEfPtKLXGu
-	szMsRxl5JknvxEMVn7aR0PdYdUclI/KygNP9c7aEMHVzLcOPtSTBwv41ieAAPP1N+2k0I0AH7tuBJ
-	/wGcyCfT2pmDrM/CmRQDRNjuF3vxlkG4VGq+M5K2KN1F18VDJk2mdOK7ewc3tjOQ75NYE1XbXQIJH
-	w9F6EXaXkCIpyGaNajRl72hUVTBKJr5XJunXM42WWT+/z+eeCI7KUGWzSj+Q8N0tWkuYTpuPf/Yej
-	hcJVOQsI3/lLlwl6dMP6tpgI4OicCyS4ypjVp8S4+l5PmdGA94XXKhfQFlu0lMp3AAejg2xApUJ8x
-	XwaI8HAQ==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWXDx-00000006Lvh-3AvI;
-	Thu, 26 Nov 2026 11:01:09 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id A8B37303082; Thu, 26 Nov 2026 12:01:08 +0100 (CET)
-Date: Thu, 26 Nov 2026 12:01:08 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Tengda Wu <wutengda@huaweicloud.com>
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/2] perf/core: Disable context fast-swap for sigtrap
- events
-Message-ID: <20261126110108.GD49833@noisy.programming.kicks-ass.net>
-References: <5507e48c-4e98-4e76-8d3f-4630a2655085@huaweicloud.com>
- <c9ff579b-a7eb-481f-bb8d-489a4469c397@huaweicloud.com>
- <20261125090809.GW2668804@noisy.programming.kicks-ass.net>
- <4d17dd3b-df73-45c0-8113-f4ca259d549b@huaweicloud.com>
- <20261125093836.GX2668804@noisy.programming.kicks-ass.net>
- <c9c2c4df-a748-4787-b686-1fe6bc6564db@huaweicloud.com>
- <6493eae2-9b36-4574-83ca-a139f4fbfb25@huaweicloud.com>
- <20261125133601.GC2668804@noisy.programming.kicks-ass.net>
- <20261125161342.GP2669272@noisy.programming.kicks-ass.net>
- <ea0a0fcf-0d96-416c-ba85-e98a8841cfb1@huaweicloud.com>
+	d=kemnade.info; s=20220719; h=Cc:To:In-Reply-To:References:Subject:From:
+	Reply-To:Content-ID:Content-Description;
+	bh=9IdHMMbuye28MG1N1+EIFoZNhCivuWQFrrAdjyqCNjo=; t=1795690969; x=1796900569; 
+	b=83pCpQTR9vGmUoSgDg4GXqH4orZoLS6ChQ9KeHyIeJdf+oY2Sspx2k7RY43yMJXhxzTB0DWejTY
+	Ox0x8VAR6lW6tnTt0iHcgQOG6fjGppG1Nfbcu4awhTjIRO/TOqK8fO5snP424J38YaouIepCVchSG
+	AyaRXoDvqEtMYC6VfQds+uffcRVp9xJsI5UhLWC5tnc6ckXr1eze1Qv5++XYtUkiiWKGkeu9dZq98
+	WL17DOJsRnUqkUmo1SGG5QBIkA4ZPtvCF8p0kiG1MLfxYc8TMd5Bl1bIrM0MUm1G6AkDSBx7LQvu/
+	2uKCfjzBMa0fzPanAvHuIzfP4+i7uo5smOww==;
+From: Andreas Kemnade <andreas@kemnade.info>
+Date: Thu, 26 Nov 2026 12:00:55 +0100
+Subject: [PATCH v2 2/3] timer-imx-gpt: Allow 32K clock to be used as a
+ clock source
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,83 +55,105 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ea0a0fcf-0d96-416c-ba85-e98a8841cfb1@huaweicloud.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-imx6-idlestop-v2-2-c6987e7a392f@kemnade.info>
+References: <20261126-imx6-idlestop-v2-0-c6987e7a392f@kemnade.info>
+In-Reply-To: <20261126-imx6-idlestop-v2-0-c6987e7a392f@kemnade.info>
+To: Russell King <linux@armlinux.org.uk>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux@yoavmoshe.com, Andreas Kemnade <andreas@kemnade.info>
+X-Mailer: b4 0.17-dev-1b309
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2586; i=andreas@kemnade.info;
+ h=from:subject:message-id; bh=0tK0It/89Mk1v8dt4LN/eij+sq22nwXBnCv/qcnypmA=;
+ b=owEBbQKS/ZANAwAKAYRhRfpAKNzxAcsmYgBrCBG8ghAnJK74UD2DhFiwPDN8rbNLchU+k8vxF
+ 8E8guv9xTKJAjMEAAEKAB0WIQTY6xCZL0TEE1XHfFiEYUX6QCjc8QUCawgRvAAKCRCEYUX6QCjc
+ 8Y1lD/4kc436aFhE40SpSwZ0oxIDQ0Au2qpEokCgreptv67OD//tKduETpSG5Sa+/BDEKZEHJrU
+ 0Iniv5C4fhe0D0B/Kzwv2pqSuBNIPVKL4kPxcgUq6C85FhcVQ0r0ZTNF3YG0uPY821DjqOHRp0P
+ Jr+xIpC86nIeK5GZiuEorldh3rhtrmXZkjZBHZdrz8Mt2HVyqDQxLhk+fE2QAwGy93F/WhoKgRm
+ /1Bo9YIWjCND6t5UiE/GN5Ewr39TwxL1v4AVc9s7QV0NSTQGQV/Wbp8FvaO+Szq53TrYlXm+DZa
+ gHXDgrcFLOHDMVjG9ZI+mgfkyzEqRVPE5X7Ofuc4yapfhvp264ertoOeyyaXhZa9gAWze85BVpx
+ E2SkKHDmtoYNz8h6zzCyHhhiiYdJ9V5/vpgUwQMrobMG8bIfsW2rdm7zVtq/90cCyAt02OE4JwR
+ bzh9SyTR/rP61eacPnqXrgCPz8Me8vmeTCCQsQl09QAxZ4uNUp1ARuexIJk+bDrpc7sMCMUeQEk
+ lFIJdDkw5zM4mUAeCSVK496y8Py+TaVGVnNMrm/HTJ40y7o2BT4CNCplyfQ3Ho21ANF5KfYIRBL
+ tKv+gSz5VwRk4waAahFKsjZsNovdMijRK2eObPxQhfltC3vtH9HRLTcgXmSMvgnI4KlhqCXnGcg
+ vJFfRFhBa0qvVvg==
+X-Developer-Key: i=andreas@kemnade.info; a=openpgp;
+ fpr=EEC0DB858E66C0DA70620AC07DBD6AC74DE29324
 
-On Thu, Nov 26, 2026 at 09:59:59AM +0800, Tengda Wu wrote:
+To avoid depending on PLL infrastructure for timekeeping, prepare for
+using the 32K clock by configuring the clock source accordingly.
 
-> >>>   preempt=none
-> >>
-> >> That option is no longer available.
-> >>
-> 
-> Uh, I tested on linux-next, base commit: 84abb955b101 (tag: next-20261113).
-> That option is still present at that commit.
+Signed-off-by: Andreas Kemnade <andreas@kemnade.info>
+---
+ drivers/clocksource/timer-imx-gpt.c | 17 ++++++++++++-----
+ 1 file changed, 12 insertions(+), 5 deletions(-)
 
-d3d16750693b ("sched: dynamic: Make PREEMPT_DYNAMIC depend on ARCH_HAS_PREEMPT_LAZY")
+diff --git a/drivers/clocksource/timer-imx-gpt.c b/drivers/clocksource/timer-imx-gpt.c
+index 8335bd7f8c6ce..85fd36fe1c760 100644
+--- a/drivers/clocksource/timer-imx-gpt.c
++++ b/drivers/clocksource/timer-imx-gpt.c
+@@ -50,8 +50,10 @@ enum imx_gpt_type {
+ 
+ /* MX31, MX35, MX25, MX5, MX6 */
+ #define V2_TCTL_WAITEN		(1 << 3) /* Wait enable mode */
++#define V2_TCTL_STOPEN		(1 << 5) /* Stop enable mode */
+ #define V2_TCTL_CLK_IPG		(1 << 6)
+ #define V2_TCTL_CLK_PER		(2 << 6)
++#define V2_TCTL_CLK_32K		(4 << 6)
+ #define V2_TCTL_CLK_OSC_DIV8	(5 << 6)
+ #define V2_TCTL_FRR		(1 << 9)
+ #define V2_TCTL_24MEN		(1 << 10)
+@@ -271,6 +273,7 @@ static irqreturn_t mxc_timer_interrupt(int irq, void *dev_id)
+ static int __init mxc_clockevent_init(struct imx_timer *imxtm)
+ {
+ 	struct clock_event_device *ced = &imxtm->ced;
++	unsigned long rate = clk_get_rate(imxtm->clk_per);
+ 
+ 	ced->name = "mxc_timer1";
+ 	ced->features = CLOCK_EVT_FEAT_ONESHOT | CLOCK_EVT_FEAT_DYNIRQ;
+@@ -281,8 +284,7 @@ static int __init mxc_clockevent_init(struct imx_timer *imxtm)
+ 	ced->rating = 200;
+ 	ced->cpumask = cpumask_of(0);
+ 	ced->irq = imxtm->irq;
+-	clockevents_config_and_register(ced, clk_get_rate(imxtm->clk_per),
+-					0xff, 0xfffffffe);
++	clockevents_config_and_register(ced, rate, rate == 32768 ? 3 : 0xff, 0xfffffffe);
+ 
+ 	return request_irq(imxtm->irq, mxc_timer_interrupt,
+ 			   IRQF_TIMER | IRQF_IRQPOLL, "i.MX Timer Tick", ced);
+@@ -314,14 +316,19 @@ static void imx6dl_gpt_setup_tctl(struct imx_timer *imxtm)
+ 	u32 tctl_val;
+ 
+ 	tctl_val = V2_TCTL_FRR | V2_TCTL_WAITEN | MXC_TCTL_TEN;
+-	if (clk_get_rate(imxtm->clk_per) == V2_TIMER_RATE_OSC_DIV8) {
++	if (clk_get_rate(imxtm->clk_per) == V2_TIMER_RATE_OSC_DIV8)  {
+ 		tctl_val |= V2_TCTL_CLK_OSC_DIV8;
+ 		/* 24 / 8 = 3 MHz */
+ 		writel_relaxed(7 << V2_TPRER_PRE24M, imxtm->base + MXC_TPRER);
+ 		tctl_val |= V2_TCTL_24MEN;
+-	} else {
++	} else if (clk_get_rate(imxtm->clk_per) == 32768)
++		/*
++		 * if powered by that always on clock, it is feasible to let
++		 * it run in stop mode, too, allowing lower idle states
++		 */
++		tctl_val |= V2_TCTL_CLK_32K | V2_TCTL_STOPEN;
++	else
+ 		tctl_val |= V2_TCTL_CLK_PER;
+-	}
+ 
+ 	writel_relaxed(tctl_val, imxtm->base + MXC_TCTL);
+ }
 
+-- 
+2.47.3
 
-> > --- a/include/linux/perf_event.h
-> > +++ b/include/linux/perf_event.h
-> > @@ -1236,6 +1236,7 @@ extern const struct perf_event_attr *per
-> >  extern void perf_event_print_debug(void);
-> >  extern void perf_pmu_disable(struct pmu *pmu);
-> >  extern void perf_pmu_enable(struct pmu *pmu);
-> > +extern bool perf_pmu_enabled(struct pmu *pmu);
-> >  extern void perf_sched_cb_dec(struct pmu *pmu);
-> >  extern void perf_sched_cb_inc(struct pmu *pmu);
-> >  extern int perf_event_task_disable(void);
-> > --- a/kernel/events/core.c
-> > +++ b/kernel/events/core.c
-> > @@ -1366,6 +1366,12 @@ void perf_pmu_enable(struct pmu *pmu)
-> >  		pmu->pmu_enable(pmu);
-> >  }
-> >  
-> > +bool perf_pmu_enabled(struct pmu *pmu)
-> > +{
-> > +	int *count = &this_cpc(pmu)->pmu_disable_count;
-> > +	return *count == 0;
-> > +}
-> > +
-> >  static void perf_assert_pmu_disabled(struct pmu *pmu)
-> >  {
-> >  	int *count = &this_cpc(pmu)->pmu_disable_count;
-> > @@ -10955,7 +10961,7 @@ static int __perf_event_overflow(struct
-> >  		 * claim the pending_work before task_work_add() recurses.
-> >  		 */
-> >  		if (cmpxchg_local(&event->pending_work, 0, 1) == 0) {
-> > -			if (!task_work_add(current, &event->pending_task, notify_mode)) {
-> > +			if (!task_work_add(event->ctx->task, &event->pending_task, notify_mode)) {
-> >  				event->pending_work = pending_id;
-> >  				local_inc(&event->ctx->nr_no_switch_fast);
-> >  				WARN_ON_ONCE(!atomic_long_inc_not_zero(&event->refcount));
-> > @@ -11151,6 +11157,9 @@ static int perf_swevent_match(struct per
-> >  				struct perf_sample_data *data,
-> >  				struct pt_regs *regs)
-> >  {
-> > +	if (!perf_pmu_enabled(event->pmu))
-> > +		return 0;
-> > +
-> >  	if (event->attr.type != type)
-> >  		return 0;
-> >  
-> > @@ -11531,6 +11540,9 @@ static int perf_tp_event_match(struct pe
-> >  				struct perf_raw_record *raw,
-> >  				struct pt_regs *regs)
-> >  {
-> > +	if (!perf_pmu_enabled(event->pmu))
-> > +		return 0;
-> > +
-> >  	if (event->hw.state & PERF_HES_STOPPED)
-> >  		return 0;
-> >  	/*
-> 
-> 
-> Hmm, I applied that patch to my local environment and tested it, and
-> I no longer see the warning. The issue should be resolved.
-> 
-> Tested-by: Tengda Wu <wutengda@huaweicloud.com>
-
-Excellent, thank you. Let me write up this one and land them in
-perf/urgent.
