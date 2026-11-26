@@ -1,79 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795712256;
-	b=00ozZ4AkNaU0z2+sKy0yZuJmZGL59ZGiRkynT6/Q2iEjsHjODukO4g05ooV9LF+yii8F
-	 3zt/GSnZpKOi3b+8plenYzwXRoluYIIzkLhxxZ2LGzoOKgqdHogUicqT+ACNefrG6y682
-	 uuqEo544fa1N2SmeqNfT+k0jg2OFmi2C78KS2Mm904EI8DdBL0dJMLsSqu1Qf9OvDmzH3
-	 apdZZxPU0HiFk9rtehr1DkPrkE7kyB+9aKMeEhmpMZlwnbEuE48A49sqdZKyIqt6A/fFW
-	 PI1P9xBq7Z6EnWeXVKKBGQaerfn6QObM3jSDPy7pRsp6/ZudLosyZEoVSf9/zll2l/Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795712256;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=C7chu5hIGEjOayoM1ECc81R22rVaUmdhQydRU1keYUk=;
-	b=cnO91RSvjqQqC85ZRXugmfKW03DSfQtOnLwEYIzubRZGYH2ZZ22VuzJryFps7jJEvxNa
-	 V51JxOBmLheG9+SgyquSWvsDJjwYN5KuWn4gTd+ZBfxbbJBbti0ZcECNzY1s6qe55gi0N
-	 HYzREgQlqXxCEbfJ1NlGYCoXw09QvVutG0vVqjyV/rnLNaM1i7u5HfePKP1oGh9njqu82
-	 JJmZQrMXwQ12PCsKwFLz7s/TCXsclmGWumTqfvI5pREsFw/rfBwCXi6pdUgSjBZZDy8DI
-	 lgMNsc00JteYcpxWFDe2NWHo4f99tImYWtz+rltACKApAuwcp/q/yD71T+wvIABbL6A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ll9V4kOv;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68D80606A31C;
-	Thu, 26 Nov 2026 16:57:36 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ll9V4kOv
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795712256;
-	b=IF4x7TlqHzw+//X+VjtjFqmApVb1Bu76AzXpWxrQDMLd9nVhGNJcHEFFkRPFS5ZM8zQP
-	 aK5PqLsBYwaKFPN64Hg+9SKs2Emg3XWKlDi3Xbzq4BuH85gqG/3BuxVlb9qaKUxDiHrdh
-	 rRBLCwB8vUOXelAcFDVuvtFXNe/u/pU8+imuJmX0PHmTSz9Rkbv65QoMe2mltQdCC2z1A
-	 WBAPR5qhN+WC1fei8zh32c0sUIuU5WUDm54Qr6M+Rcet/3NloMoD3uq95cDA+8QI/Bx2c
-	 qq88E+7G89RIN50DU5p1lcF02jh03FWADOlcrkVyRgWzHFafO8grFxwa2PaDf4W+zyw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795712256;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=C7chu5hIGEjOayoM1ECc81R22rVaUmdhQydRU1keYUk=;
-	b=v1jdgbVoEFoAWXYYdhO7hpbKJlGlm66A8TKW+SdNg7Bi1PGBsduXFDrvSzY0uvTYN74Q
-	 h18hXCbhYY51wgPdbJxyyt6+5DiIBfPh/DRUobN5jW/wHCtf97bggN+W3gXr6BDgEUUd9
-	 qwjNq8NB9gvI6zNP6Q/7VKPfsz2oOj/XKRB9nkDRfes0v/HgLutpmylLGAqq7BH7vBUBg
-	 x/LAyc8l9PEgK0KUH/tatemTDTtoGE45l3N73eUaCCOoviJxdHqbTqAS8yfus1vyco+vn
-	 yJlFV5pWdnQWL3opzseRFsPDw2kup6Y1E/cEJvC3s56kZ+8Y3nmvvHed/sROSI4A+ww==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795712360;
+	b=YXQ657IBkqsCt43Y0MpqHfJ8UBIRwXqPmyAIBcbcWhALao++u67Cag4pHl+5ZecveoTP
+	 K2rzBGCCXcDaRi1WDIOmiWX6tN+2rbtzX37vZ5JuOEbogQIDQvEYPLBETyAGFtnzeY6ii
+	 24NY5UNAfk6Bknr8S1ykoCV8GvEEEcxihiTadoiFHkQMHG8Bgcw/ovEXAL4XALrFsgHpo
+	 V/d8XJWZAc80wjtmWbQ2JsbdzzqJRcRBuWc+swjUZUGLlvbW/NeyOGDrAGZ9jfdIfZDra
+	 BpgG2VBZNYkklWI+sQRlpEMY9REjD+RW0YpT/dsFyK8DPUM9Ak6GCgZqbTY+RIoRCaQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795712360;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=bvHu9PdIza3tZOErw9g2L0SR3Amj/3cA4iNu6SeWynk=;
+	b=VLBh8C6zeY8TqsmSYtPQKNzvPAEN0iBouzYD+Ca9vOv1ZctIyak1rgpYjQWOIiYdFvjN
+	 7v2yGVMon/+uNt3C6PbKrE3lx5Gcl/wtpbWkuCHp1lm5KOt8BxA8k6sVWz5t7W4+6Dj6Y
+	 2Qywu381N6/1uKzP/RucEOi0XtM5PPlDNYW3G3QMUp89TRwwWObR8D3kQ1koCnOwVXery
+	 rlGqDArTLPS2RGgJSvMuQg4IA75/qFq044G36Tyk49IUsbvXtU1iWBdbgyZbKNdlR7rvt
+	 ai47jdIZnuj2QZpgFcCWJI+7eLtTkNWdK24oWh50VMxy0Qd40qYwdw/Jlx3qzUXMH4A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jFYCtSFV;
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 5587F1F000C0;
-	Thu, 26 Nov 2026 16:57:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795712256;
-	bh=C7chu5hIGEjOayoM1ECc81R22rVaUmdhQydRU1keYUk=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=ll9V4kOvjzx215EKA7CZ2rqgT576smdiERgr9DxRF0EYLLEBLGjqflmBCJVDvAOdT
-	 hVTZAxquacYcPLVDIH0qqLdGCBeDruYIhU+/I+Ks38qFDkSy8FJj10xwH2/4zlzQhR
-	 mbvIEoIBuVqe9cDoadAsb/D3SNlRlkJQpvHmwmJOzPrj5BGiWiBNYJoBDM1wbGw247
-	 96hpXHs9Oo3Hg/iUV5uxW+3gSpZ3V/Y5VK0ko2FV6RnEMPH5M239pTaOSFpNMORjHK
-	 yjocce0KkpG5pENvVxRNrnbb3tJajVN59ysaMVkxICIglcx0poBErF6eD+sfmoPRnz
-	 /fW59xz6qWzoQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id AD38B4D71A;
-	Thu, 26 Nov 2026 16:57:32 +0000 (UTC)
-From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-Date: Thu, 26 Nov 2026 16:57:33 +0000
-Subject: [PATCH RFC] media: doc: dev-encoder: Define CAPTURE sizeimage
- across OUTPUT changes
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DD70606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:59:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4DD70606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jFYCtSFV
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb77a462c6so59872525e9.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:59:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795712359; x=1796317159; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=bvHu9PdIza3tZOErw9g2L0SR3Amj/3cA4iNu6SeWynk=;
+        b=jFYCtSFVmK+9jRCpSFdZWywd5ayGp8l8yTypVQKuDZdabfR8ISMG/We5D+fmmAjZSI
+         F7aFFmBsLwdm7Onk4pguQpBFbxpRlZuoa+4tbtLMT8hXEWgKJ0h14ZsYkCS0Lmi9m9U4
+         4CHfBiXv4EkB0jinFJUX4XsuS7PiFqtO2p9e69+SkUV4/tNBvsGR0nht29QoP1eRDA2g
+         YrergSm0O+S0L+PlWzwnJDj3N6IYHj6fJlWwqyVufTOZOkyKFduFjos9loeBIM//t294
+         sLhnPSq/a293E2IifXE5xaAD9L58JV9c5e2r/yPLLAULRDhq2kWYEd66UPnOQQMLa0mt
+         9KPA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795712359; x=1796317159;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=bvHu9PdIza3tZOErw9g2L0SR3Amj/3cA4iNu6SeWynk=;
+        b=TGa4jidjwe6IDpAH1WeMJqSkV2zDtlZ/KslPmi2bn60/mYVjlx9mg0U7483NPmAEQl
+         kVSJ4UuoXyQWngZdRtTLvcSxs1bt8OGYcVQAyDej71vMMVb9O4ydxGzRhLopIxEz2RsX
+         5XvK+paNj1azUWvrGuZ7VuPJ3fo7qVZZN9aSVA6DYZvQMn00jLQbfo7vgT/A3e0UEPLF
+         XOZt8iA5MPF3DzPhl29v0ijrCYkOJJNLi87dqsZ0NuWPoqNH7GUJWLPEQ8HopeTaiVK8
+         yN2hr81QYVKWUCdpux/0GYUWCb7QafhmOSUF5bBEXuF4gtu4irf1FN3D6ZvhVurMnt4S
+         PeYQ==
+X-Forwarded-Encrypted: i=1; AL+hErENfAiHzHS2BsQNEyN6ytyQ6ARfNG/guy22an2damLOhNjdUW4to01uAF0CfyMjnjCKrF0Jh6j62I8Pr/s=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+U15WYSos/KeKOADyLTdHT9y9xkFPCk/5AGj91uZ4DwOKPWD6F
+	OxsYZx+1Iad18Ii43OE0S3hHi/bE/jIFHF8qeYTeQToEnho85WH3xTun
+X-Gm-Gg: AZFdTZepCpeIpbWxxD4ZZDIHZq/AqLLGK6QyFPJtpqoLMw7oe4APAYRA9uFNBC5WDI6
+	yJXRScxIzoxsK8UybD+FRn8kyLDZW8f4C1LczLSR8oU6K9egPxrRYASK3lBrriolpVQGzYnzNQC
+	nbaYRVRAaMLJ7AK20kW+keqUuR3FJacU/rWqVIEZxYJIgyeq4ZFGaooSp7p4HoFTVawSLP1n/tA
+	Jvya04pYqgcqKFYrGd2aPcUUaVxoIUkzmStf7Nu8qRgIusytxbAQQvVS5qiPrRm+veHFK7VotnQ
+	KK5ar14PqF4bu7c8kcQ/SQQzL04suxQETcHppZklqZqqGhnk6pHF4EUr0xPcsDj/PAtdAvlHm0j
+	0XvfJruAtkCADOupquYjatfVhQmGLqlX7IxCPkdPhcVLfTxcxiRPWFa39772oHlTkkCPHMeI+8N
+	sgWJGRlknmBsgD/7/kez7J6FtqQHo2EYVPvtKcUCAq10FCtciax9cWi+Cti5pA6kKB5oIJUvCF/
+	Ym1zbFwCnb4GffHFqoQDTgMS4fdCbi0EU+nupPwC1ePbcs0GSPiROTmJ15GmcEJq7grBYnTY88Q
+	JXT9gtnLuc5n6hEXLQXdkXQpWqPpoYHng8uqLmo=
+X-Received: by 2002:a05:600c:b8a:b0:4a0:20b4:ba93 with SMTP id 5b1f17b1804b1-4bb88818156mr434532475e9.16.1795712358587;
+        Thu, 26 Nov 2026 08:59:18 -0800 (PST)
+Received: from [10.56.169.198] ([95.179.249.152])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4b70c05b9desm17700731f8f.54.2026.11.26.08.59.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 08:59:18 -0800 (PST)
+From: Oarora Etimis <oaroraetimis@gmail.com>
+Subject: [PATCH v2 0/2] drm/vkms: skip composer work that changes nothing
+Date: Thu, 26 Nov 2026 17:59:02 +0100
+Message-Id: <20261126-composer-fastpath-v2-0-292ed6d4c4d6@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,96 +92,47 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-b4-v4l2-enc-sizeimage-v1-1-dd2cb99bd717@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMQQrCMBBFr1L+2gGThmrdCh7ArbjoxFFHNEqmF
- rH07kZdvs9/b4RJVjGsqhFZBjW9pwJuViGeu3QS0kNh+LlvnPMNcaAhXD1JimT6Fr115bRsI4e
- aF4FbRnEfWY76+nV32G7W2P9He/JFYv8tYpo+V+2VLH4AAAA=
-X-Change-ID: 20261126-b4-v4l2-enc-sizeimage-89cb43b74b9b
-To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Hans Verkuil <hverkuil@kernel.org>
-Cc: Tomasz Figa <tfiga@chromium.org>, linux-media@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Arun Iyengar <aiyengar1990@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795712252; l=2845;
- i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
- bh=XKGgebnQg4fTpw0GKxAwBfwheI/TATP21n+3dmlxlw4=;
- b=BtgJpIITvXnpZo8HC5f0uWbkNs9IXNi/JXpL+4BP/Xuz5sIw/9XZeJ+7GoW/u9iembj1tQvuK
- IYOYmnjMQ0lC0ODVE1wBA2aIi7mKceVuBQiaSUqmersHlSDTeQXSOdg
-X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
- pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
-X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
- auth_id=1480
-X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
-Reply-To: aiyengar1990@gmail.com
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22NwQ6CMBAFf4Xs2Zq2Adp48j8Mh6UsUCO0aSvRE
+ P7dgvHmcZJ581aIFCxFuBQrBFpstG7OIE8FmBHngZjtMoPkshZCcmbc5F0esR5j8phGpqnmRvW
+ KKk2Qdz5Qb19H89Z8OT7bO5m0h3ZjtDG58D5OF7F7v379p78IxhmiKivd6RJVex0mtI9zNqHZt
+ u0DgeFoJsQAAAA=
+X-Change-ID: 20261120-composer-fastpath-8e60c7f7e58e
+To: Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Haneen Mohammed <hamohammed.sa@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Melissa Wen <melissa.srw@gmail.com>, Oarora Etimis <oaroraetimis@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.2
 
-From: Arun Iyengar <aiyengar1990@gmail.com>
-
-The encoder sets the CAPTURE width and height from the OUTPUT format,
-but the specification doesn't say what happens to sizeimage then. A
-client leaving sizeimage to the encoder (0) gets a size for the coded
-size at the time of the CAPTURE S_FMT, usually the default resolution,
-as the OUTPUT format is set later.
-
-Document that setting the OUTPUT format updates the coded size, and a
-sizeimage chosen by the encoder with it. A size requested by the client
-is not reduced, so clients setting one keep their buffers.
-
-Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
----
-Spec proposal asked for in the review of the Hantro JPEG encoder
-fixes [1].
-
-[1] https://lore.kernel.org/r/7a5a79bf8e1bfe698b7a49aa9580eb3858c25993.camel@collabora.com
-
-Today vicodec, allegro and iris ignore the client's sizeimage; venus and
-wave5 recompute or raise it on OUTPUT S_FMT; hantro, coda, mtk-vcodec and
-s5p-mfc never update it. No driver change here.
-
-Open point: a G_FMT/S_FMT round trip (v4l2-ctl) passes the old default
-back as a non-zero sizeimage, so it then counts as the client's choice.
-
-Developed with Claude (Anthropic), which wrote the text and the commit
-message. I reviewed it.
----
- Documentation/userspace-api/media/v4l/dev-encoder.rst | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
-
-diff --git a/Documentation/userspace-api/media/v4l/dev-encoder.rst b/Documentation/userspace-api/media/v4l/dev-encoder.rst
-index cdad276d00bc..64f1297dab3f 100644
---- a/Documentation/userspace-api/media/v4l/dev-encoder.rst
-+++ b/Documentation/userspace-api/media/v4l/dev-encoder.rst
-@@ -156,7 +156,8 @@ Initialization
- 
-      ``sizeimage``
-          desired size of ``CAPTURE`` buffers; the encoder may adjust it to
--         match hardware requirements.
-+         match hardware requirements. If 0, the encoder chooses it for the
-+         coded size and again when the coded size changes, see step 3.
- 
-      ``width``, ``height``
-          ignored (read-only).
-@@ -230,6 +231,12 @@ Initialization
-      default values, based on the new resolution, as described in the next
-      step.
- 
-+   * Setting the ``OUTPUT`` format sets the ``CAPTURE`` ``width`` and
-+     ``height`` to the new coded size. A ``CAPTURE`` ``sizeimage`` chosen by
-+     the encoder (the client passed 0, or the encoder ignores the client's
-+     value) is chosen again for the new coded size. A ``sizeimage`` requested
-+     by the client is not reduced.
-+
- 4. Set the raw frame interval on the ``OUTPUT`` queue via
-    :c:func:`VIDIOC_S_PARM`. This also sets the coded frame interval on the
-    ``CAPTURE`` queue to the same value.
+Patch 1 reads a full-screen plane straight into the output line instead of
+blending it there. Patch 2 writes the frame straight into the writeback
+buffer instead of going through the 16-bit line buffer.
 
 ---
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261126-b4-v4l2-enc-sizeimage-89cb43b74b9b
+Changes in v2:
+- do not queue a CRC for a frame that was copied without computing one
+- restrict the direct copy to XRGB8888, the only 4-byte format vkms reads
+  and writes back
+- describe the new parameters in the kernel-doc
+- Link to v1: https://patch.msgid.link/20261126-composer-fastpath-v1-0-aa7458d84a7b@gmail.com
+
+---
+Oarora Etimis (2):
+      drm/vkms: skip a blend that cannot change the frame
+      drm/vkms: copy a full-screen frame straight to writeback
+
+ drivers/gpu/drm/vkms/vkms_composer.c | 124 ++++++++++++++++++++++++++++++++---
+ drivers/gpu/drm/vkms/vkms_drv.h      |   5 ++
+ drivers/gpu/drm/vkms/vkms_formats.c  |  26 ++++++++
+ 3 files changed, 145 insertions(+), 10 deletions(-)
+---
+base-commit: 5ce32a0c94a827ff44ee60898c28060714dcff75
+change-id: 20261120-composer-fastpath-8e60c7f7e58e
 
 Best regards,
 --  
-Arun Iyengar <aiyengar1990@gmail.com>
-
+Oarora Etimis <oaroraetimis@gmail.com>
 
