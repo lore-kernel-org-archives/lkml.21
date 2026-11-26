@@ -1,111 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.139
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795685238;
-	b=XZ49GhI3vKC4t5MMoYVbGGiKRR2gBx2guIt1Ocri+Rm/XmU9sSUkl4Otji104M/xQyAL
-	 GTNzC1qU+j3LyY50Ur+WJVrgAVpYk+4YWx4sWVkaDOCwkX8DT8jtE7jpDI5Vkf8Z11Y3N
-	 76vZ9Dllka6QV9PW9B7nUMBl4zFaERgVAcn69kKnqvR9hHLC448U2EyqTObwjjjnF6cVs
-	 IflZDSbTAW2leMKWf2FO9KokGrqD2tbk1wM1PQjlh1OK9UJVrrgyO1L82qsIY2h/Y81Ta
-	 8zlKbuSRxX7hz39U3H6KD3uPIkFi+myG3JlxCRhEqGmDbGomb6t4KV4jF4ipZ4QLHzw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795685238;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=bxYElGn/aLvZfT+U5MZHcaE7MPkeEJF658OGwFehSzg=;
-	b=Ib/2jwJO2xTql8GZOMgmDYStt24Ft62qNARytFdSUFj7ZSUs4jO/FFZLYGaao5DB3tDN
-	 yqkTgWJNcD0sdm5vcVgL4etm09dHYDZJS/9YvZSklcKg/NRrDw/4vPctQHV3/PoAG8WGU
-	 ZVyuNJU4QBm+9gIlyAPtg0lPlrDG/Bn94tQiS+svsLI7p8mRn61tZ4R2meGPdRgurZ2T8
-	 lz/Z6bSyl29ypNL8FeLcevK26XIbiab0lqDsy411O0HRoUwT8AYqW+YDkLYcSmL0vO3JW
-	 sPFxJzrHYfJGIxY48kIVKzrEkRF2/bULFYuZYJRiqpNc0+lBqLszAd1T4ok/fMfPWzA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=glider.be;
-	spf=pass smtp.mailfrom=glider.be;
-	dkim=pass header.d=glider.be header.i=@glider.be header.a=rsa-sha256 header.s=fm1 header.b=coAfiJdA;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=CctYnAhs;
-	arc=none smtp.remote-ip=103.168.172.139
-Received: from flow-a4-smtp.messagingengine.com (flow-a4-smtp.messagingengine.com [103.168.172.139])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795685261;
+	b=RVJTX7Me2m0jzAAvxgvVbg9YtmqL/BWSVUMjqdFx7zJtvgwpUj36d5dFEEPh3zrRV6gY
+	 CVEr1CV+CvVEL03TS4Uth7f0p4lS6K0ML2gFrhK6s8pfH7U/VNhlz2b2BTTIGBo2xbN/Q
+	 I3z1T7qEW2vIw7naa8o7eHhCgl/oLCYi2OnisK8UeyHYm/dmJkxo80OgP6lKUjPzdUGcJ
+	 hVfSwoX3PVqQGLh5NH2LPAZ5/HsmkXDUK/iJFozKTc3/i5PVYmoCIdxcQvO5Fz7mHvOZv
+	 FLsi/zi2lq+v67aFNjdaJkG4XouDXOY/okOyVrvxl7E1/cHg/pUX4iB//Gfvuz3U+mA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795685261;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=U1PlTflxl6Hs8FvZm8HyBGbLsKpRHwgjqHn1uqmdpRI=;
+	b=jEjvRSJgcnTbc+1+BGqwJ1vsZiuTtVqqibShl6kC00eQveScbfYI6PBgW6TagLdo8Ov9
+	 0E2QvMP3pxocZB4gd8BKwXEE6IR4A+5Z44oH2+nBezB9TOFjVlIDjyagRyCJWiu91xmeO
+	 3bgsClomSgLo+EA1s7SvORZ4hmxxJXNtuVgM5t4WNEt4c5S7jQK8BbF33fu9kqdP2W9Eo
+	 hsQ7ITu2Sh52lVCOzKJVGcShd3B0VGTHCjWU8nx6r3j9Pmmvfbwq/tXzLV6pM2e9KdrDz
+	 7PAOHcBm5TW55UZR4uaVog1fC/PlJkpnrL/A3g+OfxlPa6rcZO2uFBKzHJ8NPdXymRg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WXNCVjPI;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 286F5606A31C;
+	Thu, 26 Nov 2026 09:27:40 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WXNCVjPI
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795685260;
+	b=hkADdNlJJQVStMGGjx7+uQ2IIrg/RLRkMhB7ZzBnxj/jcS0iYawivs+Ug+7wIuFuiGYI
+	 aNB88h4rDjexnZgQxweuVUy7NW4BahLnncwwr5TT4EqN8v9JEDdnmO7mI1HVLg8wMUJ2h
+	 /7lwXhZxdUBtE9oEdiQs1ww88tbS3VLT3RbMVskD18qKFZJsa69rF+h4gKynmdbkL5g0W
+	 VhulSQ0nZTkyP5TCh1cd3QJBUUcTNRspC2bAIJvkBJWHjQkv5OMkr6gvYkPbTLqA6o4hr
+	 Y2eMSzcqNBFW/8530AUV9jffLskKdhVg6U/RltAGMQihRjUtkLXUK4OVLUvn3I++0pA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795685260;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=U1PlTflxl6Hs8FvZm8HyBGbLsKpRHwgjqHn1uqmdpRI=;
+	b=Wv0IHCTn0j1QpWb40PGeDXDvMABgzsUOZ4dT4NWWrScZaeC73RLfKhsTvasq5v6zFnhZ
+	 rf5sj5mCKtQFp+h3mPy8hOHtGFdNuleeDffTYjWuS46iBm1FwGuAVC55R48EsfNgWO48b
+	 FzaUOhlZ9r/oW8Pitu/vDeKnHAHZcAjCcfy+2lAobvAZnInPzC8qpy5cDUUN3y1xGLT2D
+	 sTJVrOQCktLSL/CefBwYwyPtCm1hGZso5415nUyj56CqBs2MMVZ+Oxrb41+bWVQHOrGj/
+	 63b2JJ2dih8ZgEvsdujbV1U1npMJLvnl9no5c4QmnWr5xs8t4/X7gSvwqFKmSWimeCA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41E83606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:27:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41E83606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=glider.be
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=glider.be
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=glider.be header.i=@glider.be header.a=rsa-sha256 header.s=fm1 header.b=coAfiJdA;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=CctYnAhs
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailflow.phl.internal (Postfix) with ESMTP id 17CCE13805C0
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:27:16 -0500 (EST)
-Received: from ams-imap-13 ([10.64.2.33])
-  by ams-compute-02.internal (MEProxy); Thu, 26 Nov 2026 04:27:16 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=glider.be; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1795685233;
-	 x=1795688833; bh=bxYElGn/aLvZfT+U5MZHcaE7MPkeEJF658OGwFehSzg=; b=
-	coAfiJdAUufyTbqPfQpwi7OEP7xbcxPLLAgbBjRY9YbnUEfvsY3ueUaigVjbH6p/
-	5vX5AxeAvEMRMqa67YwjTCghA4S3Bg34xDc/k+WrVMrqEdYEG8Heo9Jo+ZNmaEvk
-	j+0vm6NhGP5yBv0I6i3kwPrJuOfALwGcyvynNejG9LVeYSpgIm2T3VQbwQp/ZRQg
-	r8aRvHtmXfCAa3K/aaABj0LLjXuIdUhmTAwcQ16WxpV8dzJB3lCUfN498MywRgvA
-	hT/THeq+y0XMB+Rhnwes9MsZreM1vGUTNJsDjdPXUyqMFZS8w8I/O9Z7CVml6tTe
-	nm39BbIpyyAG/DhV4vQRxA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795685233; x=
-	1795688833; bh=bxYElGn/aLvZfT+U5MZHcaE7MPkeEJF658OGwFehSzg=; b=C
-	ctYnAhsKNFvhXxlAiqkqQ+SXWdOKEKxq08KVIoJ3BdfCMCPix7P4/qf0alggV57q
-	4GUxBl3fgIlvTTSwDiqE3Nc27N2uvzCsAzqUp5HOOvskzykzB+ERqaUyDZ0HbpXV
-	Ks2P7dD/iAjdJ/1qALr9F896s/DlupooPjxptn7YtbXxPAbAsWZfc6z3w4sKuJYM
-	e386+3puGcPS+Ixc20a6M9zUPNfRu170mU0ctfnHGnGnxG4W7/1vLj21n99+Bd6D
-	GQqNuWb90WMN69wK5U4PXq1bndxG+QoEPw9YZMhmgiS2O/H2yXOHy2uivSXQuMuF
-	pquFJocnyphjvxAyNanog==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=glider.be a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795685233; d=glider.be;
-	mf=PGdlZXJ0K3JlbmVzYXNAZ2xpZGVyLmJlPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm1:rsa-sha256:bAyX2nVacEpf1vwXyfnweZZgXTz94a9SiuEX2rMOwm31SJM
-	z6DeYNLP8K1/gmGeFSHfcE8ydm0HEhR6Xq03HDJuZF0faKaYI8or58eIzb3PR80X
-	g6EBSx5/TbhFDwWaSIl6aoE+q35/b+3+Y+Eum6KDafalKAEPG3hWHGWRVOWvQFb3
-	QWZre6znN6AJgeT+yvx7BXtEdalwyD4MCNpYkqjM6ay9XG8Oo2kfAaPSGi0f9W7j
-	ORB1eQaDys0V2KttbjGqEkqE6MlycV2KoBvAEfRi8AQ9g89VkHqapEEqtaKJzZAv
-	4Ih852rJn1RIOE9EYVSw9l1GAPVtrGvMIWhG1PA==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:OJzQSZi05U2jsSYUm9Mtry4szIsb+dVDA1k2gGV6Rkk=:zRFaQYpnjorMqgGXbvt2aJ2vsItFvc/qKaJokKrwKEw=;
-X-ME-Sender: <xms:bvsHa_ej7NSPLgAezOlAqK1gkP8Sfs7u4AVc2eSeL28JXeHpUSdZrA>
-    <xme:bvsHawCOVHnSSiKb5Fj-H7bBySMCDCuFj43ivQ9-e6A7u4oNX6-anSU9lwAL-7F-X
-    z0EeJ6OZ8hMgIDkMo1BOvh3ceOA7ROfSrIQT2JjGUUgM9yTfqYXfg_V>
-X-ME-Proxy-Cause: dmFkZTFrMeaPHKMi5eIe8O+0XWrSeBawJiniLv0Fq5SQOl4oBuAWk/pmKy84PqeVHp/MBE
-    i5UVZH2xboKr+rKVrpGkW22B5dZeVi1M4VDNg/Wu5AyCV+4E3icjYJHrswtHN1BoiPJNvX
-    SZ7dgKjLCSXrRHX/BiSmei7FS6QWOyAUYjyyyiYHfauzX0PP3zzjWocIJKMh8SMDkFoGyk
-    AebLX7P/32fxVPT12NqYsoZOGBY/EDjVkFu7WiDKPToAWuQfkv7mQ97ui2sgtFXO0likYL
-    Sn/YGgYO20sLMqzLQxMm09Xfz+FyPaIhjKggVZg8Xt5TfEo0Go9OmUXFUIlmboOYl/9xkI
-    wWY/H6Y1+Sr4Pj1xLTs2oREKtsQuSXW6eGEdHUojvoaIPadpRw4/zL1gHYxP5vZQqpf/rA
-    HOIdXGNDmxIcqqvKA8lJ6FV0UtIoE105UCXbNmgBkZevc6tGMmxYYKOgsyNp+gaQI2QFwz
-    DiG377e62oETjm/pNyhKujXA22Fofa/+jmnZgR4k9JP3n9cVVh2Fmc+I0GDIBfnK+/FYLA
-    J0jymXWyAPwHe7hAj7NKtdNqNivhvPajdB9grO+PqW9b393awY72J1xbUjBIFAI3RSUCCm
-    bnr0CEbi6hvl8oCW8AP0hydcHSBuxXC0YuzKdlzkOAPR7SkkyXJQqjFs9N9w
-X-ME-Proxy: <xmx:b_sHay0b21012Zfk_CaTFXpAk_ZVSDCKGeXWh09TE-rk8a-j5dUqug>
-    <xmx:cPsHa1xu4HJyHYtPZCxcZPsgH2ieDno_F7ei-n03jyDw1f2oS7GFVg>
-    <xmx:cPsHa5F5Olk8Qu5Cm5Qr2w9BH-66JMR5BirjNAIBJyHcjnJwSzfNAQ>
-    <xmx:cPsHa4ZoF6nOYzqYUN4pye8x-SHqJdFBJbDF8nl4zmRTNWXyAWV66g>
-    <xmx:cfsHa0W1HkhKI1Qs5dkg7rj8A5NJ8KxBQeaCBWJU0aZGQ1eA_aUF_23e>
-Feedback-ID: ia0f84a9e:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 39D30F800A1; Thu, 26 Nov 2026 04:27:10 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	by smtp.kernel.org (Postfix) with ESMTPS id 6F6321F000CF;
+	Thu, 26 Nov 2026 09:27:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795685260;
+	bh=U1PlTflxl6Hs8FvZm8HyBGbLsKpRHwgjqHn1uqmdpRI=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=WXNCVjPIwvejnMUFyjB0wfFwbxB9NzzQes5izg3w18qMRNz/GuFvXCTMlowdgl19G
+	 qGaUhHPhNvIx9KCYKvRXPtZShu8e4yr0JyDGpnkb3vmKFzQdDkP7EbnGyGH9E0LX44
+	 tbcz0JcTVB4Ooo4x62O6cmjx1KmdAlTqGptAEHQ1hrKzJD8al96R1HG+wQzN8GWqr4
+	 /J+NiId2suBv1tZ5/rEjwkbdVhjwJMDQc3hUlPb9gNPV4tzq+c4foWU5EwLetJ05o6
+	 3+Gi1iNmzEgZFII8PdbT6C9TdqpZYx3hzjshzdQPeCVQks63rWywGr6BIkS8UeHXrm
+	 d+63PnNAu4Etg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id D65F04D359;
+	Thu, 26 Nov 2026 09:27:34 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Subject: [PATCH net-next v3 0/3] Add Cortina Systems CS7542 MDIO controller
+ support
+Date: Thu, 26 Nov 2026 12:27:32 +0300
+Message-Id: <20261126-b4-cs7542-mdio-v3-0-35739a0f3225@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,33 +84,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: AZ0y0-oFllyJ
-Date: Thu, 26 Nov 2026 10:26:49 +0100
-From: "Geert Uytterhoeven" <geert+renesas@glider.be>
-To: "Artem Novak" <artem122novak@gmail.com>, ysato@users.sourceforge.jp,
- dalias@libc.org, glaubitz@physik.fu-berlin.de
-Cc: linux-sh@vger.kernel.org, linux-kernel@vger.kernel.org
-Message-Id: <f1f5d30e-cef6-44b6-bf60-cc296a9f95ad@app.fastmail.com>
-In-Reply-To: <20261126053626.18680-1-artem122novak@gmail.com>
-References: <20261126053626.18680-1-artem122novak@gmail.com>
-Subject: Re: [PATCH] sh: mach-se: clean up IRQ table whitespace
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NTQ7CIBhEr2JYi+G/jSvvYVy08NliLBhAUtP07
+ lLcuNHlZOa9WVCEYCGi425BAbKN1rsS+H6H9Ni5AbA1JSNGmKKUcdwLrGMjBcOTsR6DFgIa2UD
+ LBCrQI8DVzlV4Rg4SdjAndPk08dnfQKfNt21HG5MPr/qdaSV+3WSKCVZMGdIR4L0wp2Hq7P2g/
+ VTlmf3HWcE5EUpCy2kr+Te+rusbNBsRNwcBAAA=
+X-Change-ID: 20261123-b4-cs7542-mdio-ec44e757e824
+To: "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
+ Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, Andrew Lunn <andrew+netdev@lunn.ch>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795685252; l=4352;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=v4DtyEWM6eYR9iYKjGXdhR8kKtgwE4w8iV+oL7nK5eA=;
+ b=k5okNZM1O0l1t82MvEdJICkqbAx5ePb28Uq98hkov9m7VT8S0FMbo6Tc16EpVTL8Tjp5FycTl
+ 3tGpku/3S5MBUMyJOh2qVTMTjLpRhPMUd6ac/ddjymX0NlAdUQfpHB7
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Reply-To: filipp.dunsky@gmail.com
 
-On Thu, Nov 26, 2026, at 06:36, Artem Novak wrote:
-> Remove trailing whitespace and fix comma spacing in the SH770x IRQ table.
->
-> Signed-off-by: Artem Novak <artem122novak@gmail.com>
+Add the Clause 22 MDIO controller used by the CS7542 network engine.
+The driver retains the MDC prescaler initialized by platform firmware and
+uses bounded polling for each transaction. It is independent of the
+pending Cortina platform series and COMPILE_TEST.
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+V2 followed Andrew Lunn's review: remove the pending-frame state and keep
+one straightforward transaction/poll per read or write. No timeout was
+observed at the normal firmware-selected MDC rate. The timeout mentioned
+in v1 validation was deliberately induced only in a RAM test by slowing
+the prescaler; it was not evidence of a normal bus failure. No clock-loss
+recovery guarantee is provided by this driver.
 
-Gr{oetje,eeting}s,
+Validation of v2:
+- Full independent ARM vmlinux/modules builds with driver=y and=m,
+  COMPILE_TEST=n, without the platform series.
+- Actual driver read/write/wait functions: 5125 address, data and timeout
+  cases under UBSan, including no data read after timeout.
+- Binding and strict driver checks; b4 dependency/preflight checks.
 
-                                                Geert
+V2 booted Linux 7.4 in RAM on Almond+: PHY IDs 004d:d036, the firmware
+prescaler 00200001, and same-value advertisement write/readback passed.
+A deliberately slowed MDC produced ETIMEDOUT at about 14ms; restoring the
+prescaler returned the correct IDs. Final RAM result: failures=0 and
+automatic return to installed OpenWrt. No NAND driver was loaded and no
+flash writes were performed.
 
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+The MDIO input clock is APB. On Almond+, temporarily selecting the vendor
+600 MHz CPU mode changed APB from 150 to 100 MHz while AXI stayed at
+150 MHz. With the same MDIO prescaler, the transaction took the same
+number of APB timer ticks (median 66512 versus 66537), while CPU cycles
+increased from 332326 to 399013, matching the CPU/APB ratio change from
+5 to 6. Restoring the original mode restored the original measurements.
+All 24 PHY-ID1 reads returned 004d. The original clock override and MDIO
+configuration were restored, and the installed OpenWrt remained running.
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                                            -- Linus Torvalds
+Describe this input in the binding and allow the optional clock-frequency
+property inherited from mdio.yaml. The accompanying peripheral DTS update
+connects MDIO to the APB clock. The initial driver continues to retain the
+firmware prescaler; this experiment does not establish the exact divisor
+encoding and no programmable MDC calculation is introduced here.
+
+---
+Changes in v3:
+- Use sleepable polling in the MDIO bus callbacks.
+- Describe the hardware MDC prescaler and experimentally verified APB
+  input clock; allow the inherited optional clock-frequency property.
+- Remove the unused private mii_bus pointer.
+- Link to v2: https://patch.msgid.link/20261123-b4-cs7542-mdio-v2-0-30465e831853@gmail.com
+
+Changes in v2:
+- Drop the pending-frame state as requested by Andrew Lunn.
+- Sort Kconfig by prompt after MDIO_CAVIUM and sort the Makefile entry.
+- Add Andrew's Reviewed-by to the MAINTAINERS patch only.
+- Link to v1: https://patch.msgid.link/20261123-b4-cs7542-mdio-v1-0-626d0a0e3b4d@gmail.com
+
+To: Fil Dunsky <filipp.dunsky@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>
+To: "David S. Miller" <davem@davemloft.net>
+To: Eric Dumazet <edumazet@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+To: Paolo Abeni <pabeni@redhat.com>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Andrew Lunn <andrew@lunn.ch>
+To: Heiner Kallweit <hkallweit1@gmail.com>
+To: Russell King <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+
+---
+Fil Dunsky (3):
+      dt-bindings: net: Add Cortina CS7542 MDIO controller
+      net: mdio: Add Cortina CS7542 bus controller
+      MAINTAINERS: Add Cortina CS7542 MDIO controller entry
+
+ .../bindings/net/cortina,cs7542-mdio.yaml          |  52 +++++++++
+ MAINTAINERS                                        |   7 ++
+ drivers/net/mdio/Kconfig                           |  12 +++
+ drivers/net/mdio/Makefile                          |   1 +
+ drivers/net/mdio/mdio-cs75xx.c                     | 116 +++++++++++++++++++++
+ 5 files changed, 188 insertions(+)
+---
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+change-id: 20261123-b4-cs7542-mdio-ec44e757e824
+
+Best regards,
+--  
+Fil Dunsky <filipp.dunsky@gmail.com>
+
+
