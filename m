@@ -1,112 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795670255;
-	b=xaLSFzcACiuGFZkymEEZxU4qXUM4DsC+UdikYPZBz9D4OF5YkXmFt+/adkzoUFb9Ofp5
-	 TJCVEqV7XVmwD8ZFMsJDYhK+zKBteiZ/Gg88NolNdlGvILCKN93fLYjwt0Jxv1V4zZJ51
-	 YrrRp/Fp7R79ApLkoW0eGqyR6+5TAyr0c3dolu5mgsnetJ3ZMC5nyHeXwK8iNoTY9a1k8
-	 F865B2FJASE+PoKdwWnhoJs2ESUKEdtdb2S7YxOFW7tKiqQcVWCFGkCxxLWVudDBRlE2B
-	 k0i0PpJJHOJzLPpHWIc6a/evP6WLMec7/6Df/FJs5Dk+dXwwvS1xuaWUZ8jsTShLjiw==
+	t=1795670293;
+	b=j9rAKXgxkhv/dgp1QHKl4pDa72KUdTL85qYJm7qyPKykjpiDhIUtqBqLGT9hoz0EPtJ9
+	 MeyLoQlSixgVtc9b7uY27x6k2QdqJ93nT9ifOni6CvZ8V4w2G/0ZcT5WC4Lj0dfUiaqpV
+	 5RhCTcrKaI0das+Qqj+Qq8EMtfL1+GqRFo6U++O9LOT64fXQ5QBnprHDrO7SpYd7bitHZ
+	 m1+6slvXIvn16RjdM7TeTb4Y+9NdYoXDGMeaWXJpbFJvEFRdRoHU6vQk6t8IkUw0GTrcM
+	 xNCZz9acPmdTYVo77s/uw0xifQzfnyRgHkYKDfD+PIKfzd3ineXDTamdfw0Zw3DJyTA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795670255;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=IvuVNeVnAijWURIP2f6FyFqznxRc4/b2a0oI9wlKPJA=;
-	b=1JN4CkM95Du1mSUf1P+Bpod84+oJALYXCIEj/ipX0vXzcyLx3iKqWkBupAEyTWaO9RDH
-	 tXyt8x782dggeyd6ra0FiDavGZk/t4QO8xyO4C+ASr8V75c9UHhq/CErdsrLxvaW1xP3F
-	 z7hpp78bZ4POGZqLtguE0I1PoqkRSlVhA5jhOCoUe++QogVRTLBFmE+OJLz50hyaL0BMm
-	 6LXo/K0uDirMo8LKYy8D6pBMsLgA208LKNiDr5bXbESM8Hwyl0gpK9f0miVJdRVQAq9+L
-	 +J63BVszWfqSMiDBGN9CQUcB1VG51AQ7Qsm2UqIt9SOpcGJpfwsSkOVjnuj911C76+Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795670293;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=YSdNyUgtJmI7PwDkbgXgw82KdpgvmE0VKK9YY9Y1cvI=;
+	b=j2ndfQe6W2BkOiphqyLT2rJs+7DaMna4vyGkdyb4osSjhpwBKVMQUrLi6eQuSXeCFt4o
+	 gl9p6JiVq6t9IWz6L3x6sRrRWUFbtqLxNxSeq6nWwJqKdI95PTr/q+f1hYnDAJpaMFbls
+	 4/eKjDxv8EFNt4STKNKMeP72UUjBzwEsC6sOGLwVzc1fcrQvQT8raTsABrQTC0Mk/px5q
+	 Re9ajSrqTh5gJknPN+OWOBPwkeqoVFfxBEU54et6tMJRXewENJBC/8edXL98p3qjYCDdw
+	 +buj+3dQxDHXyLhyH/6/oqdBAwgGSWj/D8r33es/8BMB4ZU0MWaQUoSQv1kWtHUUfEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ojnssEii;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BBf4bDxr;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OyUqbDLW;
+	arc=none smtp.remote-ip=74.125.82.169
+Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB3C5606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:17:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB3C5606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C783606A327
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:18:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C783606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ojnssEii;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BBf4bDxr
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ36UBb1686607
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:17:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	IvuVNeVnAijWURIP2f6FyFqznxRc4/b2a0oI9wlKPJA=; b=ojnssEiiqWWT5Vxy
-	jK67y9be/JOUY5ksWIGSduhq+kE9Vwfn8oqHEJX34pNhA9Tvmz3IiJ0c2sZfTdf5
-	bLcqD9NgpICfwgmIcbR6pdoHvzivpvpEP6EiaQDe54MCUEb6Cb848PZgc+KDSKgu
-	eQoj35HoW7RfryqbisDD0rWPJ21aSXO2hTXi0I1dwUJNY06c2YInMx9VrGWroXxC
-	6OeNN+kpeg3OOMmV2JKb1nvX4I86JY9m9D6celMw2am6DN/QhLQWCSFGxm5pb/f5
-	OuTps9wSSjknbOKRyLEoKj81/B4RbDjaaBkZohNUSbt35sgrLQgjIKzOJ4g45DMT
-	J0irYg==
-Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j66qf9c9e-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:17:33 +0000 (GMT)
-Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-16bc6f3fdb1so4104691c88.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:17:33 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OyUqbDLW
+Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-386ab9ab619so8558767eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:18:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795670253; x=1796275053; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=IvuVNeVnAijWURIP2f6FyFqznxRc4/b2a0oI9wlKPJA=;
-        b=BBf4bDxrauhxTVoCW3cvPni42Vz8ziPkfudwGgDqRp499DR+fVr88N/tEUuuPFylBC
-         ys8KoVJpeZS9YYKi+ZhuR5hwj1KDyeQPdUUlpEV+C8lwO7K3C13t+rbkbCMuG5bHeW9c
-         T5bCemVMCLlfq6+48wFzm4U3WGRet0jx6tVOxQVsiorIxJGZtpq+pPEpnExatssG1UMW
-         JTKGivcmE/2A3/eL3ghuwRrPwP9DBkwiRjOSq8fOz82eJhKFu3W4f/etevJB1gQFmI7r
-         sbcehD2poS+8h0GXHdj7DBxDtm+4WqB7KusqPTl8Q8mSTjDdT7wu0h/Qgh/sdLtdLDqd
-         ZI/Q==
+        d=gmail.com; s=20260707; t=1795670292; x=1796275092; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=YSdNyUgtJmI7PwDkbgXgw82KdpgvmE0VKK9YY9Y1cvI=;
+        b=OyUqbDLWPEHL8Fqc11/23WQbFDoFF+mCpIRdztARiwDJUZ4cc7BrZnSFF/ozJlMkSC
+         BC3CdXAuar+pasfjNCFMsF7LeT5zIfOLhlnQ0UxqNFxAFUtgP9e1u9xFwOda7G3xuk1S
+         Bsiq3cUCE4lkpZkg7FupQ0kGj/y3PKPe7co2UFcnQkLTdP39uivPDiRRKKdET5RNF7hI
+         m9zMn3TkMFFfn7tOz88N0cujR1xqvj+kDezXoUVNKKgi9xX3wpbasuPPr0Md9I6giFMW
+         fFBsskCUgk4ca3t34fjIeUKqyCivrH6rpquHLDFPWcKbUoFT62oIt2KC5H7AAmwciFLA
+         Idnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795670253; x=1796275053;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=IvuVNeVnAijWURIP2f6FyFqznxRc4/b2a0oI9wlKPJA=;
-        b=B7ief+0RO2geLR4E1M1n77+JNyvvsHOlDIwGdBvKoCg/j5prTvm8I1NkQCieh+nhRb
-         pafjEod6w2gQussJas/lGwqHl+++M4XE6TblU3PQvELjepgUq2wau8TBsUnLvxUEAhVi
-         JZ4ehbiil/xRSXbH1+CFYaYTmAoU8En7ER/I/fUwmZ6smYUxB7cLgtzrmhkUIL7XQr46
-         VTMobCpgKscICsUk1JiWmzuWGRx6bE1HGobazkcPYchphxI1bpok55dM7J24pLN4Do0q
-         2z9mpf73qldJQXliCQgludSaq2la9s7trnKoDAS9Wd58WtuCD9oQxavKoODzK4o9SAGA
-         b/qg==
-X-Forwarded-Encrypted: i=1; AL+hErHvvrSR5U1Jiyf26JHNnP9fSGoL+Oj/y0J5VZHDS6wK4qTGR3LbwbeTUUQzRKAnuJjD4cNPDZQ3q0vc/qQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8XFEOBhQm6axeZHqsVXFXdXMAF1GcHRWXueMMOgyIDnv5BIodd
-	09/7qQzYx/sK3V5G1Zxyn0pt/VbrAOXN9f84HfzU6W0iqOPaGVNFSHNk3RMcXR83pURfbLX3oPt
-	cpxZ7BivjPYDiL8o371LuNPRUgHUUpT5qyRZK9HWCQa6DqoTSoA2xWhXj49Rfi8hQcW8=
-X-Gm-Gg: AZFdTZffDc5BCGCK2gsoHtv7C0RXt9ll9Hr3m4cMBea1iuAGvg4GC/u7IEYY4b4aB6c
-	W6n/lqlswumM0mPQuA21bUa4O9lr65NwolOel6EUN/3NQeC2YdSitkHqEBtwdiuPB6cIf0nWZqe
-	scjsUI0LqN+hlrJsrn3+dH0K/I7baHiznmkUyaIsNMKEo/V9IdskmqG1cyaDhL0zu7RU2hh+yqw
-	dCAOhmLHRf0mzz5xbuWPtV9oSOVregUY1+3wB+H4+VZhg5xwfd6pLJBb4+1xVgY9v6LffFHM7uG
-	DpoV+61LVC0nsY3Kpl1y/Z8MqckxuTkBVLRiCDv5i0hl6U4IsVyJcihkKKstVhAfmWlzQDV/cSJ
-	poraBEdpQCXas94/G2HO4YLEJMM4uFqfRQ/z9XKr3PV/zi/nYJbx0bLlTVIltJESZIQh+Sqe27Q
-	TGntu/pf/n
-X-Received: by 2002:a05:7022:2209:b0:1b2:43ac:d3a3 with SMTP id a92af1059eb24-1b5568b9e59mr25408806c88.24.1795670252312;
-        Wed, 25 Nov 2026 21:17:32 -0800 (PST)
-X-Received: by 2002:a05:7022:2209:b0:1b2:43ac:d3a3 with SMTP id a92af1059eb24-1b5568b9e59mr25408791c88.24.1795670251781;
-        Wed, 25 Nov 2026 21:17:31 -0800 (PST)
-Received: from hu-krichai-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556847fdasm52132934c88.13.2026.11.25.21.17.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 21:17:31 -0800 (PST)
-From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Date: Thu, 26 Nov 2026 10:47:02 +0530
-Subject: [PATCH v10 4/4] PCI: qcom: Implement shutdown() callback
+        d=1e100.net; s=20260707; t=1795670292; x=1796275092;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=YSdNyUgtJmI7PwDkbgXgw82KdpgvmE0VKK9YY9Y1cvI=;
+        b=cufnxuMO6WJKb77Pc7CIrFYLMeOBhElsg4tQMtEy/Bfb9J5uRQn34trFve9c5dbiTm
+         QT1eM4d02EWryPDx7WeOZRGICvcgXbmJIsofjWmXSQ9kaQ7fy08tavHtQIhQ8m0KJsxj
+         jkS1xAV0+2JEi6TAUOCWMHQk1AJU7uuzJs0DGfp4KCCM0jLUHy5TEHDAMmhBhJf2yymx
+         HIRGepjisRk8BGCva12EX8ZhbsALPANvK4bpVz1/6sy36GY1KhGhxFYG6aWO4NGew2cy
+         Dg/ZnUq6Z8AlAibwnXDHYBdAFnwZ3WWEd98Sp+GqIbju5iFlpaBMk6X9XSf1GO4kQSmA
+         w4Dg==
+X-Forwarded-Encrypted: i=1; AL+hErE5FKwHRWU4KCYqE+D9dUf0YbL7AQwYoPTYYCbDL6dpA6y8c7bXdJJgBBsNSBYlG2tA3djbd6wVq8W41kY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+mhxORNgpVxwfjXGWwvPz8ZeTH44GPt3ejP1+egzilQQL3EZP7
+	dQqAm8gPuUsvOe9b3m3o/yEB/dth7DUzSdy5NYZCAuQmrU44VyLUsUY=
+X-Gm-Gg: AZFdTZfLdjR0ekLkJcuFFU0G54zrvgLih6qgqMio1uOmECEYzbHvRIvX3Qz62tcTRtg
+	KS2m06B735GaJ0co3aRB3p3D9ChX1TZ2lB2bRt5iJHvPsW0zOMSlJM7TXRGfOeBp4T+YT8c7PaP
+	zy5GEu58DKB/Xg2i2xoT2zlHMTXfmRfwFP15lUbpfeXFU6Dd95YjPZGHqy9xt0RdksaZk0Wc8eG
+	mDmXPcUVBq8sf/z95loczC3Tg5YT8G8YjGF3GP8XkesnZD6B7QEu/ZWlfbZyWKfvAYUbS4vo9fo
+	YMvCDirc0J8aww9+sex8rrKdq26UQVXaUOzRO6ABNbSynNZ0KOuGAl/5kcji8g7WgVdZx6QOMHy
+	WZ6MZJWTbqTfrsuy+Y0Jle5O16MzBT5HUZSkBVPA0QuKnijSAB3hKx8ARbLAndIX8WRygAuDvUY
+	LzSeFkQ7QmRRbVn46cDTyi0VfZepQQRXbGky4J/4pVVeYXSAqFWThomcha7uztkj0KxZBT/TgSc
+	Ov8cCGFvml+EWbeRJqbCcMJOHt7w8o5pPqqhQ3YGDB7F8FsanXs8ujRhUfVTmMa+In48GJXoEnv
+	Z9YaXd2d62xoYRnqf146lIdzBDJtM7Z1h1JiwYhi1HAELHsECQ47g0Qh6tTxYpud3wQ5LTSnkpu
+	fjeRxA032NBw0
+X-Received: by 2002:a05:7301:7004:b0:386:c5b8:960b with SMTP id 5a478bee46e88-386c5b89f9emr6662695eec.17.1795670291931;
+        Wed, 25 Nov 2026 21:18:11 -0800 (PST)
+Received: from localhost.localdomain ([2406:3003:2002:639c:a06e:23f:85ed:4cfe])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e96bdsm54973501eec.7.2026.11.25.21.18.09
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 25 Nov 2026 21:18:11 -0800 (PST)
+From: Yige Jiang <yigejiang86@gmail.com>
+To: Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	bo liu <bo.liu@senarytech.com>,
+	"qianghua.wang" <qianghua.wang@senarytech.com>
+Cc: Yige Jiang <yigejiang86@gmail.com>,
+	Bard Liao <yung-chuan.liao@linux.intel.com>,
+	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 2/2] ASoC: sdw_utils: Drop senary_sdca_jack codec device reference on exit
+Date: Thu, 26 Nov 2026 13:18:06 +0800
+Message-ID: <rc-b1-20261110-vc-07b-67948988e977@gmail.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,157 +103,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-shutdown-v10-4-fed60d9687f2@oss.qualcomm.com>
-References: <20261126-shutdown-v10-0-fed60d9687f2@oss.qualcomm.com>
-In-Reply-To: <20261126-shutdown-v10-0-fed60d9687f2@oss.qualcomm.com>
-To: Jingoo Han <jingoohan1@gmail.com>, Manivannan Sadhasivam <mani@kernel.org>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>
-Cc: konrad.dybcio@oss.qualcomm.com, linux-pci@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
-        Manivannan Sadhasivam <mani@kernel.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795670232; l=3652;
- i=krishna.chundru@oss.qualcomm.com; s=20230907; h=from:subject:message-id;
- bh=THWTFBYwq2lZQWgLvpr0AlF/FWIRcJOgtOn7/GBUACc=;
- b=DBnr0zgrgH9rEzWHP54pMz9eSXu76S56s4LQXs82zfqP2HOMXmT0pI+6XqVnP7xY1kjkSCoBk
- cv/6pBkRIvbB+C8sc8VtJ8EwnbBfBI+Ju/4LDWNCS6i/4bhx/q0xevo
-X-Developer-Key: i=krishna.chundru@oss.qualcomm.com; a=ed25519;
- pk=10CL2pdAKFyzyOHbfSWHCD0X0my7CXxj8gJScmn1FAg=
-X-Proofpoint-ORIG-GUID: XvCdzCTTsLkqf0QVPhw5I7c7iAD4A49X
-X-Proofpoint-GUID: XvCdzCTTsLkqf0QVPhw5I7c7iAD4A49X
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAxOSBTYWx0ZWRfXwIvNGGbDCLrW
- cWppzgRJB0SWx0zmgXnSrfruX51hQZ+k6t9tvXuFklFBiHbs8umBH1s8xmQseRSWfUyaOFf2v45
- FSkmNoyQ8L+/Hy0S7k4UCDxmQX0ZoTA=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAxOSBTYWx0ZWRfX7KnezHAX1zLU
- 2q5E/DAVJ0yHJNH0vT4tYPvvwqJvXTIfOOcYVuhqEimive4XUwVNVs3f13wQQFgZoqMp3jUKove
- S2BCFK4s0G8KDuefN64xOE0tWalXI1ttQPgPLwwWfsLW4lTW2gaT267HzVQMJemQjyJRLGvHJZL
- YmgE3Jcv2gcfLTzZOaNL1HB/itdPMVwV9YpTTpXO1lgOe98faxr7Fk+t4MpMGMXBYyPC2QgooxJ
- JBC+HUSKkU2zyrYvHWujPT8wV+WowJxY5+p4hxKBoOjGz3C/CXV5Z3KV+1rIljeIe3j40fvONu7
- EfdUpHsLUOqRbYdktbVoFSNb2E3w1ii6SDQnNII6aSFSDpIX2Jc1IIpNXGD1aayOPDGQz64JCIf
- biS6Fy2r9aVOPRBFZLFj8dZrVXMOqzOtA8fGN5Sr5EsRwvqsC0kVVuD9w1xshJvVr9S2v4EJPTt
- 0otNhIVKpvR8mkDCRuw==
-X-Authority-Analysis: v=2.4 cv=Q5VHcI2a c=1 sm=1 tr=0 ts=6b07c0ed cx=c_pps
- a=JYo30EpNSr/tUYqK9jHPoA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=VwQbUJbxAAAA:8 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=gM652YqJFP5vwQx0TG8A:9
- a=QEXdDO2ut3YA:10 a=Fk4IpSoW4aLDllm1B1p-:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-26_01,2026-11-25_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 lowpriorityscore=0 spamscore=0 adultscore=0 bulkscore=0
- priorityscore=1501 suspectscore=0 malwarescore=0 clxscore=1015 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260019
+Content-Transfer-Encoding: 8bit
 
-From: Manivannan Sadhasivam <mani@kernel.org>
+asoc_sdw_senary_sdca_jack_init() takes a reference on the SoundWire
+codec device with bus_find_device_by_name() and stores it in
+ctx->headset_codec_dev, whatever the jack source quirk is. But
+asoc_sdw_senary_sdca_jack_exit() returns early when SOC_SDW_JACK_JDSRC()
+is zero, so then the reference is never dropped. One reference on the
+codec device leaks each time the card fails to register (including
+-EPROBE_DEFER) or the machine driver is removed, when the quirk has no
+jack source (DMI quirk entries without one, or the quirk module
+parameter).
 
-PCIe host controllers should bring the link down cleanly before system
-shutdown/reboot proceeds to remove power/clocks from the controller.
-Without this, the link may still be up and endpoints still have
-transactions in flight when power/clocks are cut, which can trip SMMU
-translation faults or NoC protocol errors.
+This helper follows asoc_sdw_rt_sdca_jack_exit() and has the same
+problem. senary_sdca_jack_add_codec_device_props() adds no software node
+when the jack source is not set, so use the check to skip
+device_remove_software_node() only, and always drop the reference and
+clear the pointer.
 
-Reuse dw_pcie_suspend_noirq() in the shutdown path to force the link
-into L2, putting it into D3cold.
-
-device_shutdown() runs with interrupts enabled, unlike suspend_noirq().
-Mask the chained MSI IRQ(s) and the Global IRQ before tearing down the
-link and clocks/PHY, since a late/spurious interrupt could otherwise
-reach a handler that touches now-unclocked PARF/DBI registers. Use
-dw_pcie_mask_msi() rather than dw_pcie_free_msi() so the MSI IRQ domain
-and the MSI mappings held by downstream devices (which device_shutdown()
-does not remove) are left intact.
-
-Stash a struct qcom_pcie in the platform drvdata in both the normal and
-the firmware-managed (ECAM) probe paths, so shutdown() has a single
-path and recovers everything it needs (Global IRQ, config, dw_pcie)
-uniformly via platform_get_drvdata().
-
-Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Fixes: 77272ecd96d7 ("ASoC: sdw_utils: add Senary SN624x helpers and codec_info")
+Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
 ---
- drivers/pci/controller/dwc/pcie-qcom.c | 30 ++++++++++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+Based on linux-next next-20261109 (630059a5a632).
+Compile-tested: arm64, GCC 14.2.0, W=1, COMPILE_TEST=y, SND_SOC_INTEL_SOUNDWIRE_SOF_MACH=y, SND_SOC_SDW_UTILS=y; soc_sdw_senary_sdca_jack_common.o built before and after, no new warnings.
+No hardware or runtime test was performed.
+The path needs a Senary SN624x jack codec and a quirk with no jack source; it runs on card registration failure (including -EPROBE_DEFER) and on machine driver removal.
 
-diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
-index 532779295734..0f548c6ce6a8 100644
---- a/drivers/pci/controller/dwc/pcie-qcom.c
-+++ b/drivers/pci/controller/dwc/pcie-qcom.c
-@@ -2020,9 +2020,14 @@ static int qcom_pcie_ecam_host_init(struct pci_config_window *cfg)
- {
- 	struct device *dev = cfg->parent;
- 	struct dw_pcie_rp *pp;
-+	struct qcom_pcie *pcie;
- 	struct dw_pcie *pci;
- 	int ret;
- 
-+	pcie = devm_kzalloc(dev, sizeof(*pcie), GFP_KERNEL);
-+	if (!pcie)
-+		return -ENOMEM;
-+
- 	pci = devm_kzalloc(dev, sizeof(*pci), GFP_KERNEL);
- 	if (!pci)
- 		return -ENOMEM;
-@@ -2032,6 +2037,9 @@ static int qcom_pcie_ecam_host_init(struct pci_config_window *cfg)
- 	pci->dbi_base = cfg->win;
- 	pp->num_vectors = MSI_DEF_NUM_VECTORS;
- 
-+	pcie->pci = pci;
-+	pcie->cfg = of_device_get_match_data(dev);
-+
- 	/*
- 	 * dw_pcie_msi_host_init() is called directly here, bypassing
- 	 * dw_pcie_host_init() where pp->lock is normally initialized.
-@@ -2047,6 +2055,9 @@ static int qcom_pcie_ecam_host_init(struct pci_config_window *cfg)
- 
- 	dw_pcie_msi_init(pp);
- 
-+	/* Stash pcie so qcom_pcie_shutdown() can mask the MSI IRQ(s) later */
-+	platform_set_drvdata(to_platform_device(dev), pcie);
-+
- 	return devm_add_action_or_reset(dev, qcom_pci_free_msi, pp);
- }
- 
-@@ -2467,6 +2478,24 @@ static int qcom_pcie_probe(struct platform_device *pdev)
- 	return ret;
- }
- 
-+static void qcom_pcie_shutdown(struct platform_device *pdev)
-+{
-+	struct qcom_pcie *pcie = platform_get_drvdata(pdev);
-+	struct dw_pcie *pci = pcie->pci;
-+
-+	if (pcie->global_irq)
-+		disable_irq(pcie->global_irq);
-+
-+	if (pci->pp.use_imsi_rx)
-+		dw_pcie_mask_msi(&pci->pp);
-+
-+	if (!pcie->cfg->firmware_managed && !pci->suspended)
-+		dw_pcie_suspend_noirq(pci, true);
-+
-+	pm_runtime_put_sync(&pdev->dev);
-+	pm_runtime_disable(&pdev->dev);
-+}
-+
- static int qcom_pcie_suspend_noirq(struct device *dev)
- {
- 	struct qcom_pcie *pcie;
-@@ -2658,5 +2687,6 @@ static struct platform_driver qcom_pcie_driver = {
- 		.pm = &qcom_pcie_pm_ops,
- 		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
- 	},
-+	.shutdown = qcom_pcie_shutdown,
- };
- builtin_platform_driver(qcom_pcie_driver);
+ sound/soc/sdw_utils/soc_sdw_senary_sdca_jack_common.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
--- 
-2.34.1
+diff --git a/sound/soc/sdw_utils/soc_sdw_senary_sdca_jack_common.c b/sound/soc/sdw_utils/soc_sdw_senary_sdca_jack_common.c
+index 1dab6f99877d..6954041b7962 100644
+--- a/sound/soc/sdw_utils/soc_sdw_senary_sdca_jack_common.c
++++ b/sound/soc/sdw_utils/soc_sdw_senary_sdca_jack_common.c
+@@ -150,10 +150,9 @@ int asoc_sdw_senary_sdca_jack_exit(struct snd_soc_card *card, struct snd_soc_dai
+ 	if (!ctx->headset_codec_dev)
+ 		return 0;
+ 
+-	if (!SOC_SDW_JACK_JDSRC(ctx->mc_quirk))
+-		return 0;
++	if (SOC_SDW_JACK_JDSRC(ctx->mc_quirk))
++		device_remove_software_node(ctx->headset_codec_dev);
+ 
+-	device_remove_software_node(ctx->headset_codec_dev);
+ 	put_device(ctx->headset_codec_dev);
+ 	ctx->headset_codec_dev = NULL;
+ 
 
+base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
