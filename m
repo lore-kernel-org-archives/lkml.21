@@ -1,75 +1,165 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795661471;
-	b=lWkPEkGtZr+H2FEBS7u/lztz9lOIDUDFWkgCheOtSEowEAdaVYDMEvjMc3BNrHMPR5xP
-	 SLB3TmJWgI2mfX52BFsPIVInt/KCkKGUsS2e+elQu6CDM+fqa+Ms7lpHXsMgaFUfE3gME
-	 VlqhzEbifEPBu16NhaRKrO2hTYLHgoK1nZ37gIKBAZLtz43eXiqfyrI3KVoldbpJDXxxa
-	 yEdoDfu7lOfc/1n7e7JYbKEqgsrcd+8oPCtIbooV+5hIb5/zWANMZWGeeUx8FRlHY0R8j
-	 pJdITgOshoFRcmomdENCaCuHdztJOeI9OUgm97T+N8yg77ekdue++MKXGuT3AkV3FRA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795661471;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=dOs0QGgrUiUPEdrg7wekwgXMxcapi697ENy3Bj6of1Y=;
-	b=bC4R43HljfxeGf7ug+zNwXpjhTDmc0vb3r45qXcGtZQLdsKczvgnvZmpy6cD+w4xcZgU
-	 nn5OJqQx9T33xebGiCzYS3a5mq6mVC4RDVcWklvIQdsUURwpvcuPRTrhezJU/+jOkt4lc
-	 V1PbhZdivTfbskE0P8rrSczMyyzC05wRTAjm+QhSV2mqsiGz+q4PcvRfaazSAoWuXNkab
-	 5oimKZSVO6SprSAIVni2bwAc59twM3fQIdnfSjWFSk2G3T+ZxpiWvHGjT/qjgFHKNaMVi
-	 ns6mXHc5kYAz3z3tWZAJQz0Rrxo9Rqj3jHIJwLXhlxzJ/dviI/TAWa88Xn6/y33r94w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=eLXr+8V8;
-	arc=none smtp.remote-ip=111.22.67.139
-Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 8AA42606A33D;
-	Thu, 26 Nov 2026 02:51:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8AA42606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.126.121
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795661477;
+	b=lpMCq0NK4K8py0QQT1E/81c+5stMmqQ/d557Y7ZCw8qfxpuUsGo4ly5bWtYtHbU5hcoF
+	 7QsTihhMgQ63zPffnpodO7NZTUYOTvaFBk407LyP6LTLSRHPxhPOyf+guHBj0m7pPvaL0
+	 Sg5VpAyVY2z7B8Yswwg3TCutqA8ODouokRGVei3MAfzpWDQwuXToiH7cH/xd0qdlX622c
+	 fPI7ts44EKiY2JWfHaDE3jWWneEVPMZ2mxehGRKh1FUusr2Y8kINKZ3OnX2Zaj5qrvo1f
+	 sDRqT6r6wrrE1TqsajOKM/ZRgZi/o6oZscE66WIBlEBmZGvyGN7c2odUQJFU/IZ14Vg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795661477;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-ms-traffictypediagnostic:x-ms-publictraffictype:client-request-id:
+	 request-id:x-ms-office365-filtering-correlation-id:
+	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
+	 x-microsoft-antispam:x-microsoft-antispam-message-info:
+	 x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=1D0vvv+3Ay/HYCaPwMHK8m0ezIgFwyfSeXdjl0oJUY8=;
+	b=BaOyzx3Bl5FSHeDGwHmMrFsr7PlRYGKSW0hP50c5RstaiosP9MNlKT9Yiv/dPyoCEDbX
+	 A4igjfy+LmHvuYAdZLhzysMjZe3eyTUqMkqymS0yUk9S1MuIQgDuuT+QFgl5xvzeuP4ap
+	 meR9EaQSP33Id7G2cmEp/sVWn+6V4prkM+QqtLlhfJgA7400zwznO/IIjYD9H7SdbkOOw
+	 CkI0+j5vCiInYGqfIbjs4KQ+plvg83jsZAV5rwQ11fo9UaYE2VgYc0ULYqjgCAtdgYS2S
+	 aNfZ+uhacLkA4A14cMSZuT7oyLkkLtiKA/gV6qP76NZ5xQAuPLjA9VfaOdHZt4Syohg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=transsion.com;
+	spf=pass smtp.mailfrom=transsion.com;
+	dkim=pass header.d=transsion.com header.i=@transsion.com header.a=rsa-sha256 header.s=selector1 header.b=Zp8HKLbm;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.126.121
+Received: from TYPPR03CU001.outbound.protection.outlook.com (mail-japaneastazon11022121.outbound.protection.outlook.com [52.101.126.121])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0C29606A32D;
+	Thu, 26 Nov 2026 02:51:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0C29606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=transsion.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=transsion.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=eLXr+8V8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=eLXr+8V8txP/Ab6FfLuJnQlU33W4tD7OIXMq0O1XLoqPqL22HPRHK4EVYc3xuuRK7afj/WNMG8ldb
-	 TvF+idFmi81nwwl3d6YwItpYEpLZPw8CDwtxJlAzDAWty1pf/MthD/imaZCIVXE/6QQvARuFlFo/yV
-	 a5PKECBN2lguKlyg=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app09-12009 (RichMail) with SMTP id 2ee96b079e9c9d8-5c714;
-	Thu, 26 Nov 2026 10:51:08 +0800 (CST)
-X-RM-TRANSID:2ee96b079e9c9d8-5c714
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from  (unknown[104.224.130.48])
-	by rmsmtp-syy-appsvr08-12008 (RichMail) with SMTP id 2ee86b079e693eb-59c62;
-	Thu, 26 Nov 2026 10:51:08 +0800 (CST)
-X-RM-TRANSID:2ee86b079e693eb-59c62
-From: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
-To: netdev@vger.kernel.org
-Cc: David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Alice Mikityanska <alice.kernel@fastmail.im>,
-	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v2 6/6] selftests: net: big_tcp_tunnels: Cover IP tunnels
-Date: Wed, 25 Nov 2026 18:50:15 -0800
-Message-ID: <20261126025015.10416-7-yanhaishuang@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261126025015.10416-1-yanhaishuang@cmss.chinamobile.com>
-References: <20261126025015.10416-1-yanhaishuang@cmss.chinamobile.com>
+	dkim=pass (1024-bit key, unprotected) header.d=transsion.com header.i=@transsion.com header.a=rsa-sha256 header.s=selector1 header.b=Zp8HKLbm
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=isLfj501qOXT350tY1+6041vVY1RduWf60wsJVMBdZXkKuifkzLwDAUIH0+DsG/SO2VQYA0b8Uq3u5bSSIyykyII9BY0jZOQv/y7On+XDoc3vdOQ1BgerhvYlzG1T877YZyjtvIzAgSB2L+pNcSTjo8i8FCM9OK3/STUgR4ZsWtKN3bKAJVavr7nbO3q2/8uwoIABDPvXPqM4tOey61ZKm1GdhLIbS8kiSim1jwTTeTuHZNpGlxlpz48d0Fq6ayJa6NLVFMXbXVP7yDU16mqSTBCLI4Cxx0vZPzuUa9DQ6PrNXtzS1LECVvSsx/alZ3pL1+UmND17Sc0TSacEbMBPQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1D0vvv+3Ay/HYCaPwMHK8m0ezIgFwyfSeXdjl0oJUY8=;
+ b=h/tTK19KLa1BO45t57TjJOb9mZKubc2amZmBpMUgbeZ1pU5d+n8NBFSQ9BrPBzjsLxUW3LVHH6yydR/A1/U6muWbgP/I/3TpIHQ6bLGJfJ2Q4EQ3QVxtq0LunCylHUfduujFk0EBBuIN4K+Cy+3Vq4SQ+KYor1xJKQFYZ7dMu26M11p0m5zIQW2mr5S/ki4aY+IDUIYRKdVdNEL747qCTEKCK4YSzlFOeiZN/qDfaWb+Vj8xY1GTGDnGFe3AJDb64xgwQx0Ab951TcqeOjpVnyQW0LHi2wy7vndG+uS9h7YyKit1s829J9u+BMHsPK7Qr6n5UXU1nbC1y8xRiZOlOg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=transsion.com; dmarc=pass action=none
+ header.from=transsion.com; dkim=pass header.d=transsion.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=transsion.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1D0vvv+3Ay/HYCaPwMHK8m0ezIgFwyfSeXdjl0oJUY8=;
+ b=Zp8HKLbmGmNOn1yeKLKtIeUjZCVkGVBG4igbUJ5XknXRlpTfqhCPboR5Fh0xdftZdWUXW6lyYpkCFYBl+w/y8dzM/2x1pQRItSLhjNIZJ3UU6wtHl4q4tzvcip7cB2kRdjZxs/ohh1JU+BFn4/gYXUfGVfoZY1/dzlD7K6P5p9c=
+Received: from KL1PR0401MB6196.apcprd04.prod.outlook.com
+ (2603:1096:820:c7::13) by SEZPR04MB7356.apcprd04.prod.outlook.com with HTTP
+ via P2P; Thu, 26 Nov 2026 02:51:10 +0000
+Received: from KL1PR0401MB6196.apcprd04.prod.outlook.com
+ ([fe80::f2ee:1e28:9022:99f3]) by KL1PR0401MB6196.apcprd04.prod.outlook.com
+ ([fe80::f2ee:1e28:9022:99f3%5]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
+ 02:51:10 +0000
+From: Hongyan Xia <hongyan.xia@transsion.com>
+To: Karl Mehltretter <kmehltretter@gmail.com>, Peter Zijlstra
+	<peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Steven Rostedt
+	<rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+CC: Mark Rutland <mark.rutland@arm.com>, Mathieu Desnoyers
+	<mathieu.desnoyers@efficios.com>, Song Liu <song@kernel.org>, Juri Lelli
+	<juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, K
+ Prateek Nayak <kprateek.nayak@amd.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-trace-kernel@vger.kernel.org"
+	<linux-trace-kernel@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 2/3] arm64: Always inline preempt count and reschedule
+ checks
+Thread-Topic: [PATCH v2 2/3] arm64: Always inline preempt count and reschedule
+ checks
+Thread-Index: AQHdfU42UFpDHpeUWk++THiW+ETkkbc/p1mA
+Date: Thu, 26 Nov 2026 02:51:10 +0000
+Message-ID: <f3e1dc21-7ed2-44ab-95a1-f00bc34e51e2@transsion.com>
+References: <cover.1795631277.git.kmehltretter@gmail.com>
+ <9546998cffeaf365f8f67901a48ef103945dc342.1795631277.git.kmehltretter@gmail.com>
+In-Reply-To:
+ <9546998cffeaf365f8f67901a48ef103945dc342.1795631277.git.kmehltretter@gmail.com>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=transsion.com;
+x-ms-traffictypediagnostic: KL1PR0401MB6196:EE_|SEZPR04MB7356:EE_
+x-ms-publictraffictype: Email
+client-request-id: c81a5b17-e537-4385-9e7e-317d0bc51310
+request-id: 9a709104-b53c-4bc0-8b0c-08df4b68206b
+x-ms-office365-filtering-correlation-id: 9a709104-b53c-4bc0-8b0c-08df4b68206b
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|7416014|366016|376014|23010399003|1800799024|38070700021|10067099003|56012099006|11063799006|4143699003|261026140227099003|261022105027099003|261028144727099003|261022075727099003|261021121427099003|261102123227099003|261009223027099003|22082099003|18002099003|6133799003;
+x-microsoft-antispam-message-info:
+ rrm9vjZDBXDWnomNr0473HaEXIlSPBpVWKITeVBAStHKJ4sEm1q2GVWGbr8YvEzKBXW6d8BHZmTjC4koWDrIc77LMkvlCMTdXE9asRYcfcro/QRWYkPS57Up02UQZ0HveEi7HOfrUL8x5bjbC/FM2NMhdFLP8oE3Emh0VREm9JuDwJobviCkwOrpsGd7SMh9wXPNZwk9WCSpITAEvr+VeDeysSrULG9dX2oS36TbhDZdYGCaKnYouTcMxozafvom4YnxeKN0opqhjtq9LiDv6A69FGhnB9PvjP9uEM8v+D4mXVEu04QXsuD6jemQu4hP+RsDzUVPJnYcI9gCr/yW8aXBZL/QpaM7hxDNBMwLyV8MbZUSI1wrvIESG3D89+fSt2OgUPj35bdWcySkRGo6Sv8CLcJcu3gkyjDuq0Bd3HUNmVkcz3Pj/wa2VQV6xy/07kxWnC0TvFffmyUQQnutUVnb2+xRbOjPQsPTQ481fyhHNxrlvXwHuXRNDjwhyvaIgVTtahUF1vkHcYIg1V18bNY9squBecshbWLXMjZefmSSct3zjbpmRFDTjO40ARHRowCB+Uivmd13rNyyJqX9fRVsGUkP0DwBb1YP4qifoyTTrGEEFjYAu/qdTDmbJ+hEkP9dFrNksLv0F0/9G4/UGucW/vLuDmQl4nzyX75u5+LOWYO0x5XKeRo4ewXgMBGhImc1E7WnOfOtKi/uH1+74HCU7FREds/hPNUcyFowd10=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(23010399003)(1800799024)(38070700021)(10067099003)(56012099006)(11063799006)(4143699003)(261026140227099003)(261022105027099003)(261028144727099003)(261022075727099003)(261021121427099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?utf-8?B?MU1sZ3g2WVNxOVhrWm1lY2ZXUVpPbDEvWHlhcWdaWXNBZGdXL2xMWjgzTGty?=
+ =?utf-8?B?ZTQvd3ZiTzdwa1c2clI0enV0dlpIMXlOa1RwRWdGK1kxRm0yZG9KREc3UXBl?=
+ =?utf-8?B?S3BkRnBjRUtNY3ZoOTg1V0ZKU3gzWVhyMWFXSCtsV3MyblBBUHhqSVhVcVBW?=
+ =?utf-8?B?WlZFSEpUWnRmR21lM05JR2gwTDFtMGt6bm9ZcFN1UWExeHlqa1FiOFhjMXly?=
+ =?utf-8?B?R1BEdUQ5UHpGODMrZDIzRXluMVRoaDBrcnljcksrWTd2NVhVcG5DL2VoUXdZ?=
+ =?utf-8?B?a1ZabmMvd2dkZ0h2ZGJnNzV0QTNQL1JxM3pva1VHRjdhaHFJRStiWXhxOTN2?=
+ =?utf-8?B?Y0c2RElkT3JjUFNGZW1IMHMzK0VlMlhFeG94S2tqNTFJRlZiWXliVlBVMERZ?=
+ =?utf-8?B?a0NKOHQrd3RnSXRTSVFFSzhua1J5YmN0MUoxQWtqa2ZoVlFvQy9FRDZzcXVz?=
+ =?utf-8?B?eDVobGhYT1piN1VYMlloTmwwaTNuaUcrQkFrTUVySWt4Yk1QeTAyK0R1YU1D?=
+ =?utf-8?B?UmFwTGl3d2xianZaMGh0eklJSmg4Qk1VblNDS3ptYmQ5Sk54YUoyWFcxT0dO?=
+ =?utf-8?B?eDgvOUtCOVQ5Vy9pT3dZeklWclVHVTQ1a09paG1rMEJLZjJhSC9icEZSaFpM?=
+ =?utf-8?B?VEZ6dEcxNHIrOWtONW54Sk55WnJVdE44cGNKelg4VW1qOUo3M2ovTEFtQlhW?=
+ =?utf-8?B?Smpxay9iUTdycWFNRk5LUk1jZzEvMEJESS9ibUtnK1A1QlhRcEx3RjFWdlJC?=
+ =?utf-8?B?MVYxeGV2d2hnNDhYNDZ4WUlrdHZZSTBhbms1K1F1QWZzT0RIS2tDK29rcFpl?=
+ =?utf-8?B?ZmNFVVMwVU56U2JKRjh4Vk1zSDNvdmNGcXBlWWE2WXpuUkV6QVNRcUxHd3FW?=
+ =?utf-8?B?QURXNGhvczRRS0V5R3Fkb3cxTktOUE1XbE43ZXdKODJEZ1poR3V3TEx1aVZW?=
+ =?utf-8?B?M1k5ZklvTUZHVUpRZnRaK1ZVdkp0Rlo2ekcwLzhiVmZkY0c1UHdsZW1UOUov?=
+ =?utf-8?B?NkZNWUJCdzFKTjdHRWJpU0tkMkZHZk5jbTdKZ0xyS3pGYk0rOXQwMnF0eUNX?=
+ =?utf-8?B?V1RUTjZDRW9UdENReVVPVFpCY0RQQUZlZjRlNjMyamM4N0d2RzV2bW80czZL?=
+ =?utf-8?B?c0ZNN1M2SUJaYzhEN084ZmFOd2QrbENLOWFEUDgrd3pnZkNueEtBVnB3Tzc3?=
+ =?utf-8?B?ZXYvWmNJYXlUVTkycTh6OEFNNkZZZGlyRjF6aHlkNmJYaUhyM2JWY1RqcFkz?=
+ =?utf-8?B?cU56cU8vU2JwMjhQd0QyaTFldDhyQWNLVnZPTVlET0pLeXZkczRSYUFRUi9y?=
+ =?utf-8?B?THplLzMzY1cvZWo3c3laa0hKZnZjVC9BVHNzbzdyT3FNREs2V1kyZGJicGhB?=
+ =?utf-8?B?U1U0VTZnNVhzT3hRT0Y5M2o3Z0hsaGNveDlpekxTOUx1ZGl0NGoxN25pampi?=
+ =?utf-8?B?MGtzT1MyVzVkazRPVGpxd0E1NW5pTWtKL1Ara0Noc2h0cSt4SmZyVk9FNTdM?=
+ =?utf-8?B?TGxFaytaTzJaenloKzk4a3l1UTVqTWljQXRPNnpkY0ozM2phbjQrZ1g2Ykhx?=
+ =?utf-8?B?R1VBcTV4bG1TaWV2TkhlVGR5TDV2Z3VNUDU5NFdUb2UzUUI4R0xFTzlBdlBv?=
+ =?utf-8?B?cnpUS0lnUXBOb3JXRTVPQnUyMnJURzF3N2ZlZUdJSjlFSEdqRXNmcmRYT0I3?=
+ =?utf-8?B?Nno3SDRqVHluaUNJVjlMWXZIdzRJVWhLNXlZT2RvempSUE5BMngyaVlINi9W?=
+ =?utf-8?B?Yk1EQUE3V0ozWkdqMS9PUnoxeENQaTNTVGhjUVlGeW1CUStvdXJNb244SHRn?=
+ =?utf-8?B?NmhwYlkvQzZxZmNLWnlwQlNYOXFIaXFMOXJWakprbGVhY0ZhS3dYSDZ0Ukwz?=
+ =?utf-8?B?eEZVNjQzRjY0U0RqMldNNGJVdDFtb0Vid2xPTlBTcHV5bUpRYWlYRDN5TXVH?=
+ =?utf-8?B?VGd5SGN2VVUwNmtadEVDQm9BcEVCNVhpdUVKcnExZm1uZlZsa1FER3kyU0N3?=
+ =?utf-8?B?d1p0WGFuTGVFcDkwZFB4ZitERGhZQnNoYTBmelBKdzNrUEJDeW8zQVVqME9t?=
+ =?utf-8?B?Vzd1Mmd5dnN1OXNxeWtNK1VEcWtZRm5uTnJYM1U1VDVJYzd4UmtwRi9TRmox?=
+ =?utf-8?B?LzVDZStIOVBYQWxWOXFOVFpCai9mM1M4L0ExR2pVNVdjMCtzbkdqK05TMXNp?=
+ =?utf-8?B?Z1pYNVcxOFJJN1JpdktpZ2YvOSszL2IxdHhtQitBL2l5OThqUlEybFc3K043?=
+ =?utf-8?B?VmpuS0ljQ3kzNWd0eUlIYnhJK3ZwVEJzQlFzdHZJWFhuakpkN3JTSmNBbFVs?=
+ =?utf-8?B?U29CRWdEZWpFVHNZOTJIdUhTK3FyK3NXRi9XMkJUbU9DeWljYlF3R1FOVkc3?=
+ =?utf-8?Q?igF5oyslTPAS74lY=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <51F41C0C2506B745B97B4BC53DCC11B9@apcprd04.prod.outlook.com>
+Content-Transfer-Encoding: base64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,235 +169,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: transsion.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR0401MB6196.apcprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9a709104-b53c-4bc0-8b0c-08df4b68206b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Nov 2026 02:51:10.1272
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 2e8503a6-2d01-4333-8e36-6ab7c8cd7ae2
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: FjYmMjTLJ+EPE9GxpSdMQHzjjb7M0zLI6jTqkOzBZ3vbzXqrB8su0HpNGhLaUlYOqzmxXxzGts/2HzxJZkBitselF0gr5fYCDFzNJWtntvE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR04MB7356
 
-Now that ipip, gre, gretap, sit, ip6tnl, ip6gre and ip6gretap allow BIG
-TCP too, run the same checks over them as for vxlan, geneve and
-bareudp, without encapsulation and with FOU and GUE. With FOU and GUE,
-turn on the outer UDP checksum, which is off by default on an IPv4
-underlay, so that it is checked too.
-
-sit only carries IPv6, and is only run with veth tx checksum offload
-enabled: unlike the other tunnels it does not use gro_cells on receive,
-so with software GSO on the sender the receiver does not see any BIG
-TCP packet.
-
-fou is not loaded on demand when it is built as a module, so load fou
-and fou6 first, and skip the FOU and GUE cases if that fails.
-
-Signed-off-by: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
----
- .../testing/selftests/net/big_tcp_tunnels.sh  | 139 +++++++++++++++++-
- 1 file changed, 136 insertions(+), 3 deletions(-)
-
-diff --git a/tools/testing/selftests/net/big_tcp_tunnels.sh b/tools/testing/selftests/net/big_tcp_tunnels.sh
-index 9c1482b842b..1e8387fce99 100755
---- a/tools/testing/selftests/net/big_tcp_tunnels.sh
-+++ b/tools/testing/selftests/net/big_tcp_tunnels.sh
-@@ -1,7 +1,9 @@
- #!/usr/bin/env bash
- # SPDX-License-Identifier: GPL-2.0
- #
--# Testing for IPv4 and IPv6 BIG TCP over VXLAN, GENEVE and bareudp tunnels.
-+# Testing for IPv4 and IPv6 BIG TCP over VXLAN, GENEVE and bareudp tunnels,
-+# and over ipip, gre, gretap, sit, ip6tnl, ip6gre and ip6gretap tunnels,
-+# without encapsulation and with FOU and GUE.
- 
- source "$(dirname "$0")/lib.sh"
- 
-@@ -17,6 +19,8 @@ CLIENT_IP6="2001:db8::1:2"
- CLIENT_IP4_TUN="192.168.2.2"
- CLIENT_IP6_TUN="2001:db8::2:2"
- 
-+FOU_PORT=5555
-+
- # Kselftest framework requirement - SKIP code is 4.
- ksft_skip=4
- 
-@@ -71,15 +75,86 @@ setup_bareudp() {
- 	return 1
- }
- 
-+# $1: tunnel type, $2: traffic family
-+# Prints the IP protocol carried by FOU for this tunnel.
-+fou_ipproto() {
-+	case "$1" in
-+	ipip)
-+		echo 4
-+		;;
-+	sit)
-+		echo 41
-+		;;
-+	ip6tnl)
-+		if [ "$2" = 4 ]; then
-+			echo 4
-+		else
-+			echo 41
-+		fi
-+		;;
-+	*)
-+		echo 47
-+		;;
-+	esac
-+}
-+
-+# Create an IP tunnel device, with FOU or GUE encapsulation if requested.
-+# $1: netns, $2: device, $3: tunnel type, $4: tunnel family,
-+# $5: traffic family, $6: encapsulation (none, fou or gue),
-+# $7: local underlay address, $8: remote one
-+setup_ip_tunnel() {
-+	local encap_args=()
-+	local fou_args=()
-+	local mode=()
-+
-+	if [ "$4" = 6 ]; then
-+		fou_args=(-6)
-+	fi
-+	if [ "$6" = fou ]; then
-+		ip -netns "$1" fou add port "$FOU_PORT" \
-+			ipproto "$(fou_ipproto "$3" "$5")" "${fou_args[@]}" ||
-+			return 1
-+	elif [ "$6" = gue ]; then
-+		ip -netns "$1" fou add port "$FOU_PORT" gue "${fou_args[@]}" ||
-+			return 1
-+	fi
-+	if [ "$6" != none ]; then
-+		encap_args=(encap "$6" encap-sport auto encap-dport "$FOU_PORT")
-+		# Check the outer UDP checksum too
-+		if [ "$4" = 4 ]; then
-+			encap_args+=(encap-csum)
-+		else
-+			encap_args+=(encap-udp6-csum)
-+		fi
-+	fi
-+	if [ "$3" = ip6tnl ]; then
-+		if [ "$5" = 4 ]; then
-+			mode=(mode ipip6)
-+		else
-+			mode=(mode ip6ip6)
-+		fi
-+	fi
-+
-+	ip -netns "$1" link add "$2" type "$3" "${mode[@]}" \
-+		local "$7" remote "$8" "${encap_args[@]}"
-+}
-+
-+# $1: tunnel type, $2: tunnel family, $3: veth tx csum offload,
-+# and for IP tunnels: $4: traffic family, $5: encapsulation
- setup_tunnel() {
-+	local name="${1^^}"
-+
-+	if [ "${5:-none}" != none ]; then
-+		name="$name/${5^^}"
-+	fi
- 	if [ "$2" = 4 ]; then
- 		SERVER_IP="$SERVER_IP4"
- 		CLIENT_IP="$CLIENT_IP4"
--		echo "Setting up ${1^^} over IPv4, veth tx csum offload $3"
-+		echo "Setting up $name over IPv4, veth tx csum offload $3"
- 	else
- 		SERVER_IP="$SERVER_IP6"
- 		CLIENT_IP="$CLIENT_IP6"
--		echo "Setting up ${1^^} over IPv6, veth tx csum offload $3"
-+		echo "Setting up $name over IPv6, veth tx csum offload $3"
- 	fi
- 
- 	case "$1" in
-@@ -95,6 +170,10 @@ setup_tunnel() {
- 		setup_bareudp "$CLIENT_NS" tun0 "$CLIENT_IP" "$SERVER_IP" ||
- 			return 1
- 		;;
-+	*)
-+		setup_ip_tunnel "$CLIENT_NS" tun0 "$1" "$2" "$4" "$5" \
-+			"$CLIENT_IP" "$SERVER_IP" || return 1
-+		;;
- 	esac
- 	ip -netns "$CLIENT_NS" link set tun0 up
- 	ip -netns "$CLIENT_NS" addr replace "$CLIENT_IP4_TUN/24" dev tun0
-@@ -115,6 +194,10 @@ setup_tunnel() {
- 		setup_bareudp "$SERVER_NS" tun1 "$SERVER_IP" "$CLIENT_IP" ||
- 			return 1
- 		;;
-+	*)
-+		setup_ip_tunnel "$SERVER_NS" tun1 "$1" "$2" "$4" "$5" \
-+			"$SERVER_IP" "$CLIENT_IP" || return 1
-+		;;
- 	esac
- 	ip -netns "$SERVER_NS" link set tun1 up
- 	ip -netns "$SERVER_NS" addr replace "$SERVER_IP4_TUN/24" dev tun1
-@@ -127,9 +210,22 @@ setup_tunnel() {
- 	ip netns exec "$SERVER_NS" ethtool -K link1 tx-checksumming "$3" > /dev/null
- }
- 
-+# For IP tunnels: $1: tunnel family, $2: encapsulation
- cleanup_tunnel() {
-+	local fou_args=()
-+	local ns
-+
- 	ip -netns "$CLIENT_NS" link del tun0
- 	ip -netns "$SERVER_NS" link del tun1
-+	if [ "${2:-none}" = none ]; then
-+		return 0
-+	fi
-+	if [ "$1" = 6 ]; then
-+		fou_args=(-6)
-+	fi
-+	for ns in "$CLIENT_NS" "$SERVER_NS"; do
-+		ip -netns "$ns" fou del port "$FOU_PORT" "${fou_args[@]}"
-+	done
- }
- 
- cleanup() {
-@@ -240,6 +336,30 @@ if ! ip link help 2>&1 | grep gso_ipv4_max_size &> /dev/null; then
- 	exit "$ksft_skip"
- fi
- 
-+# $1: tunnel type, $2: tunnel family, $3: traffic family, $4: encapsulation
-+run_ip_tunnel() {
-+	local csum_offload
-+
-+	for csum_offload in on off; do
-+		# sit does not use gro_cells on receive, so with software GSO
-+		# on the sender there is nothing big to receive.
-+		if [ "$1" = sit ] && [ "$csum_offload" = off ]; then
-+			continue
-+		fi
-+		setup_tunnel "$1" "$2" "$csum_offload" "$3" "$4" || exit "$?"
-+		do_test "$2" "$3" "$csum_offload" || exit "$?"
-+		cleanup_tunnel "$2" "$4"
-+	done
-+}
-+
-+# fou is not loaded on demand when built as a module
-+ENCAPS=(none)
-+if modprobe -q fou && modprobe -q fou6; then
-+	ENCAPS+=(fou gue)
-+else
-+	echo "SKIP: FOU and GUE tests, could not load fou and fou6"
-+fi
-+
- WORKDIR=$(mktemp -d)
- trap cleanup EXIT
- setup
-@@ -254,3 +374,16 @@ for tunnel in vxlan geneve bareudp; do
- 		done
- 	done
- done
-+for encap in "${ENCAPS[@]}"; do
-+	run_ip_tunnel ipip 4 4 "$encap"
-+	for traffic_family in 4 6; do
-+		run_ip_tunnel gre 4 "$traffic_family" "$encap"
-+		run_ip_tunnel gretap 4 "$traffic_family" "$encap"
-+	done
-+	run_ip_tunnel sit 4 6 "$encap"
-+	for traffic_family in 4 6; do
-+		run_ip_tunnel ip6tnl 6 "$traffic_family" "$encap"
-+		run_ip_tunnel ip6gre 6 "$traffic_family" "$encap"
-+		run_ip_tunnel ip6gretap 6 "$traffic_family" "$encap"
-+	done
-+done
--- 
-2.43.0
-
-
-
+T24gMTEvMjYvMjAyNiAxMDozMCBBTSwgS2FybCBNZWhsdHJldHRlciB3cm90ZToNCj4gVGhlIHBy
+ZWVtcHQgY291bnQgYW5kIHJlc2NoZWR1bGUgY2hlY2tzIGFyZSBwbGFpbiBpbmxpbmUgZnVuY3Rp
+b25zLA0KPiB3aGljaCBwZXJtaXRzIG91dC1vZi1saW5lIGNvcGllcyBpbiBpbnN0cnVtZW50YWJs
+ZSB0ZXh0LiBUaGUgY2hlY2tlZA0KPiBub3RyYWNlIGhlbHBlcnMgYWRkZWQgYnkgdGhlIGZvbGxv
+d2luZyBwYXRjaCB1c2UgcHJlZW1wdF9jb3VudCgpLCB3aGlsZQ0KPiBwcmVlbXB0X2VuYWJsZV9u
+b3RyYWNlKCkgdXNlcyBzaG91bGRfcmVzY2hlZCgpIHdpdGgNCj4gQ09ORklHX0RFQlVHX1BSRUVN
+UFQgYW5kIF9fcHJlZW1wdF9jb3VudF9kZWNfYW5kX3Rlc3QoKSB3aXRob3V0IGl0Lg0KPiANCj4g
+Rm9yY2UgYWxsIHRocmVlIG9wZXJhdGlvbnMgaW5saW5lIHNvIG5vaW5zdHIgY2FsbGVycyBrZWVw
+IHRoZW0gaW4gdGhlaXINCj4gb3duIHNlY3Rpb24uDQo+IA0KPiBSZXZpZXdlZC1ieTogSG9uZ3lh
+biBYaWEgPGhvbmd5YW4ueGlhQHRyYW5zc2lvbi5jb20+DQo+IFNpZ25lZC1vZmYtYnk6IEthcmwg
+TWVobHRyZXR0ZXIgPGttZWhsdHJldHRlckBnbWFpbC5jb20+DQoNCk5pdDogSSdtIGZsYXR0ZXJl
+ZCwgYnV0IHByb2JhYmx5IG5vIG5lZWQgdG8gcHV0IG15IFItYiBiZWZvcmUgeW91ciBTLW8tYiA6
+KQ0KDQpTYW1lIGZvciAxLzMuIE15IFItYiBzaG91bGQgYmUgYWZ0ZXIgeW91Lg0KDQo+IC0tLQ0K
+PiBbLi4uXQ0K
