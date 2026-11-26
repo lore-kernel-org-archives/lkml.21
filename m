@@ -1,77 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795708521;
-	b=nZiF31VsCGBxiInUn/2Uary/JqtX2hdhOxXyk1X8EyM8Hc29Tc6kXvgCPfN8C1O35SRr
-	 eCrjT4+S4mPVelRSz/zY7hGekZ4osa0JpgKPcQ2sYxD5QUxP+PvJi/agNzi5FBF5aZRRA
-	 Zt18J1+ONijr5FdQo6p5b4cegzCxdKlUU8ZdmKhU6jsWe/YaizjNiJTDlj2Uq8xZJ/vBy
-	 lRCTzMiB070MlnYZ6+/2g9N76oU5V7XzcQWVlpMzFlFyYv4DHH5HLpQ4vHf6g4AvG+PGA
-	 gPy/2PtvnugIMiN6wQUy3V6fEq4lgUUEJhWnsqi0NtGgIxQM6dnoK7k09AO31FqVIUg==
+	t=1795708549;
+	b=0uKwReWDeXCydo1lB7sgxjfrzK9fruDNCR7tZnY689fIzn2r7lV3nGuCQ3smzUWHIL2l
+	 WG/CzZuMrmli2pM4MCiXaVW/V30OtiuETE36/61p+8w2ckgdAJIw4/aIMOAmFFXyfMD1l
+	 CrZaR6hsvzTWzWa2Ot4xXvkh0OKhk9liFa287I7lCKU3wTPYyJzML+Nmcw9yO066L8Wa2
+	 vXct+z02lZkDbCIIBuS3v2EpjX1/hP/WdI71OKSoG6jBlMOWsV2GRQntAeNt/9jquxk5+
+	 xghS82U57ApBBcBSeLr8hwLLYSAp3wwIgPplo8X0gQDu36FaVuwAEfQB9YODV940tOQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795708521;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding;
-	bh=GWUKzQOK5TMyRFajMGCLMgpr+ANo1hrXcxfeGfWdrNo=;
-	b=XujIbPqmKunOyNI+3Onudb4c/Xws71zse7cbfvKpNbc1/y91+sdmUg1ipG4g6yXowDuI
-	 S2oRBk9hm40VDg6f6uwyl8Ng0ZDjArcHYS65b1r7fisbzPXkpwABHymDNe6LniZ2iB4Bi
-	 EiRn3PHX3kH2zBW8U8V3i6YOaAgebqEp8z2S2xokeyKZ+eajcFIzYaT3haNiR+tRy65Ow
-	 gXgIwBF2XIn1tLp1578sMXLZEIMDYI7PnRA6GELZdl50AucsNRvy+jE+peSsVM29+0ypV
-	 hpo/emUI4sm1Os7fSsCNZi2BYzRUND8Tjgodzc1/laGxtLYmO6asQGQ25MJNwR1ATPA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795708549;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=W7/uRx1XsGqE/NwPwsGs18nZC1l3GDgC+9VtG/a4oBI=;
+	b=fsZkONecS31wAjVCCwyEkGTPhhSSL+Y4FtZ8TUD6n/OiMgkHkjDPm6OV3YcvSpbjrzYL
+	 X9Tff8STYkn7xEp0e4v0jGuqa6PJjrEYuC+Y2wcf/XuHhaFyMtlgMCGQTkschS2e9cCNa
+	 bcHZTFK2oF/s/hcXhnu758TJhx0nnjw/A3CBq66OW6PRHaEChN33jkjE/aCxUPayTU54E
+	 eMw2yA6aWeuH0+wpK3ca7tRltw1Mo4ywSCyE0qvbvThP7c8f/o9KwE0eUvYhBQlK33YW/
+	 m/U/eK+Pkk67CHKwUDDAz1xrLyRpK3wo8zE0Htd4K+kVN7qKreoPnmgg5U4/o5lswlw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Z1EsWO6A;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 386C4606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:55:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 386C4606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b="JXoM/IjI";
+	arc=none smtp.remote-ip=209.85.221.44
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCEE9606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:55:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCEE9606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Z1EsWO6A
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AB7961BA8;
-	Thu, 26 Nov 2026 07:55:16 -0800 (PST)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4CC153F632;
-	Thu, 26 Nov 2026 07:55:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795708519; bh=W3j5bTkpiQ5xyMVgEBbFFifoyYnABJf1hwDRohAf4B8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Z1EsWO6A8CnkdOnaCV32+CRdvuEWM9h6nXvinWH9WhTKmixvP+R/wcLiSNCIgQIte
-	 KoQ9diaAmbY30+PONFKwnKzJWw5uu1l+VPp4fnSF3tn2WAJUEaS/PE/YDLO+GeM8ex
-	 aX+rUoWjVgXlHtnI7PETBlVzGgqbpyS054EFVesA=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Usama Arif <usama.arif@linux.dev>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	maz@kernel.org,
-	oupton@kernel.org,
-	fuad.tabba@linux.dev,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	riel@surriel.com,
-	shakeel.butt@linux.dev,
-	kernel-team@meta.com,
-	rkeilty@meta.com,
-	atish.patra@linux.dev,
-	dgreid@meta.com
-Subject: Re: [PATCH] KVM: arm64: Reduce the stage-2 page cache on 64 KiB hosts
-Date: Thu, 26 Nov 2026 15:55:13 +0000
-Message-ID: <awhWYdZVkESY9eJs@LeoBrasDK>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <klnyvfxwhpw73wo55y5aq3qliglnf7xkfkmfj6cgzje7z3n2fq@aqjxshyjnldu>
-References: <20261124152842.2634495-1-usama.arif@linux.dev> <awcXhk885lqDRAHy@LeoBrasDK> <06a69a4f-59bb-49b8-9ed0-f4cfe0ecad37@linux.dev> <awcoCklLOKeuXPhh@LeoBrasDK> <e7bdcfa9-bbd8-4649-8318-2f6dc236db15@linux.dev> <4jxdf2pkuu2f7dftvf6ltpv27jctfuvvrfcrbfxudsgnp3hdfk@taur55wftexq> <awhODYKXnsBi_s_B@LeoBrasDK> <klnyvfxwhpw73wo55y5aq3qliglnf7xkfkmfj6cgzje7z3n2fq@aqjxshyjnldu>
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=JXoM/IjI
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-4a7b8abe209so5606447f8f.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:55:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795708547; x=1796313347; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=W7/uRx1XsGqE/NwPwsGs18nZC1l3GDgC+9VtG/a4oBI=;
+        b=JXoM/IjIkFTR0wTt95IwnzlhPZS5PjgTza4kU0lPa6VpqI9uVAw5IVoVEoOU1XsH6t
+         az82g+pQrpJSHgegOzxa19pKFEluidDtgxAm3BzpnRUIbZnmt8QFztw6DVsJwYgdtstq
+         XLRnnuNXnRRi+Nci3Zd5db/XOmPwrHzCK2tHmZz6HTCj4H8+Zbpuu+LlYjQLR/wye9Sz
+         dgmi/SA8vRmQqqPk/xeOrcIotduAdtvn7yTWjR2Xsz+6J+FzKTMCseH75u/ZmyJ8zzt+
+         UhV1sTO9XV774oldLn88JZyLsQP7M9fb4S8px4O6JT7SlSISQSZU+h51vprFmP2kbEy+
+         WCQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795708547; x=1796313347;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=W7/uRx1XsGqE/NwPwsGs18nZC1l3GDgC+9VtG/a4oBI=;
+        b=rMdq3qXMEf/6c/aDwcxP9cYnOYjFPZi1KQwEZ7Odypef+YMpa83wEmvwwSHeFAKUdq
+         feSV1s2WFyQ0Fvl7f9yNy8aa8fZw6lzyewYVftxJ3FouEPiz1WVKt8qEZthqW1370zvM
+         b3r5k7eN1iMwIq5NDzOqH/B0koE1RKT/BAiT9Fv4rkLgpKinTAd2Qow0xhPWPqjVhqvb
+         NUiU2VizLjsROkAQ7Vjhvp5AJnZuJedYuAeg90osfz0bRRTs0oHXs471y4nMt/C5XkBd
+         gi/RTIgp2zkBVGcnIxGQS6E5pIsXzSu4E5A+k0NJmN9azO+lUoVaU60rnvOaJx4ATGhT
+         nTHA==
+X-Forwarded-Encrypted: i=1; AL+hErHrRhinkOM1FoKeC5wliUgBOrDcBSAjLDQ9b1lzCP/xGr6HY4vNhnWkA150k8xZKQic/rx4YowQ04MM9C4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/6IgLwpHpD8yYJlT/HNuqrgtNLIj1Lc71UnPOV3uZIPqHbLEup
+	+fIwn1zknqJ+0Eu9pILI5ZCQ6ctrfemINykGVMpEJxOJeCKopDYfM59NiqTiMpA5lso=
+X-Gm-Gg: AZFdTZd3Tl4QjynL5WpEJRtRqGniDtJdV1U2nr/sGdGS8fgWruEWAxXawRdJk22H5Bo
+	QAvSPramO0oF4iK5qgzJCblNtF4zoP5t1jYpJsGReZFyz7UN3SAy5JN58lypN7KqGb++MhkPlOX
+	1h1vQ1M4js1AHCIg51yRsNylx36w6a6pw1E1gEiSqr3d+UxdbTE6oKHiv9iuQHkRyOcfwpszBZY
+	uyL9hNfEO+cpcFncdUUbdMFmgMZr4MNZK2BFL+nEFslGxHn4Eo1Tv7Zu+oHprrP2DBbUu1yVwln
+	OaHIR13h3DgFnSw2/Ulft5kCEGTz8H9ZOPbByRLnMTw5/snUx+hUycShp39mwTYr3jNNaaCUCC0
+	0Gjq9oMACB6BZ34y89GfMKU6HSN0wuz+DZwmxP9eW2ktiYfI2dLWy1hxFLqV8ZwU3xrunBigLyD
+	N3yyT6srcfDMKXH9bDTFqt9G3n4LSRsxMjERDxNfEwJm7ReoU2vrH5+ROUzRcfrjVE+VnlHsIDT
+	hdicFYBvKT2oCm77BtoC4qRE4O7E8dosxmJNfuQxbKP7inid5S3cKFv4SgCU6juS5Ljd8YmBF9p
+	M3wO8zJ4K0mB0GT4h/MVAVJOPWIKQzCUBpScX8A=
+X-Received: by 2002:a05:6000:2b92:b0:4a9:cbb5:803f with SMTP id ffacd0b85a97d-4abb400a6c6mr28239649f8f.37.1795708547139;
+        Thu, 26 Nov 2026 07:55:47 -0800 (PST)
+Received: from [10.11.12.111] ([79.115.63.240])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf6804sm40824853f8f.10.2026.11.26.07.55.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 07:55:46 -0800 (PST)
+Message-ID: <e113453d-4ef2-447d-ab83-d5baadf2be4e@linaro.org>
+Date: Thu, 26 Nov 2026 17:55:43 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,162 +92,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCHv3] thermal/drivers/samsung/acpm-tmu: Fix spurious CPU
+ throttling
+To: Alexey Klimov <alexey.klimov@linaro.org>,
+ Christian Loehle <christian.loehle@arm.com>
+Cc: bzolnier@gmail.com, krzk@kernel.org, rafael@kernel.org,
+ daniel.lezcano@kernel.org, lukasz.luba@arm.com,
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-pm@vger.kernel.org, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>, Peter Griffin <peter.griffin@linaro.org>,
+ Juan Yescas <jyescas@google.com>
+References: <20261125173959.2198116-1-christian.loehle@arm.com>
+ <CANgGJDp02H7-wLv6DoaPMeiy4UvDUC2nvSR=+mngEZ+Z4Hqgog@mail.gmail.com>
+ <2162b02c-642a-446c-973e-ca80607da294@arm.com>
+ <CANgGJDrnH7R9aTXhH-nj710OjwNcUTfpxE7eWGSP=9a3eoUnug@mail.gmail.com>
+ <4adc1712-3608-4fd7-9eba-79b129c67b77@linaro.org>
+ <DN586284T46G.271ABU0A683IZ@linaro.org>
+ <e329ce21-5a24-4301-9328-917d0ae4fdb1@linaro.org>
+ <DN58TGCM0EUJ.2DYM0M51C78MI@linaro.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <DN58TGCM0EUJ.2DYM0M51C78MI@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 26, 2026 at 03:34:19PM +0000, Wei-Lin Chang wrote:
-> On Thu, Nov 26, 2026 at 03:19:41PM +0000, Leonardo Bras wrote:
-> > On Thu, Nov 26, 2026 at 08:06:41AM +0000, Wei-Lin Chang wrote:
-> > > On Wed, Nov 25, 2026 at 09:42:33PM +0000, Usama Arif wrote:
-> > > > 
-> > > > 
-> > > > On 25/11/2026 10:25, Leonardo Bras wrote:
-> > > > > On Wed, Nov 25, 2026 at 05:55:29PM +0000, Usama Arif wrote:
-> > > > >>
-> > > > >>
-> > > > >> On 25/11/2026 09:14, Leonardo Bras wrote:
-> > > > >>> On Tue, Nov 24, 2026 at 07:28:42AM -0800, Usama Arif wrote:
-> > > > >>>> When a stage-2 fault may need new page tables, KVM first tops up the
-> > > > >>>> vCPU's page cache: if it holds fewer pages than the fault might need, it
-> > > > >>>> is refilled to KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE, which arm64 sets to
-> > > > >>>> 40. Unused pages stay in the cache until the vCPU is destroyed.
-> > > > >>>>
-> > > > >>>> With 64 KiB pages, that is 2.5 MiB per vCPU, and most of it is never
-> > > > >>>> used. Stage-2 has at most three levels and the root is preallocated, so
-> > > > >>>> a fault needs at most two new table pages (kvm_mmu_cache_min_pages()).
-> > > > >>>> As every last-level table covers 512 MiB, an 8 GiB guest needs just 17
-> > > > >>>> table pages to map all of its memory, while its four vCPU caches get
-> > > > >>>> filled with 160.
-> > > > >>>>
-> > > > >>>> On a production host with 64 KiB pages running 101 VMs with four vCPUs
-> > > > >>>> each, the caches were still 86% full. The memory used:
-> > > > >>>>
-> > > > >>>>                         before      after
-> > > > >>>>   per-vCPU capacity     2.5 MB     512 KB
-> > > > >>>>   all 404 vCPUs         869 MB     <= 202 MB
-> > > > >>>>
-> > > > >>>> Let's lower the capacity to 8 with 64 KiB pages, In the production
-> > > > >>>> usecase above, it frees at least 667 MB. That still covers the two-page
-> > > > >>>> minimum and leaves room for several table allocations per refill. 4 KB
-> > > > >>>> and 16 KB pages keep 40.
-> > > > >>>>
-> > > > >>>> The temporary cache in kvm_phys_addr_ioremap() uses the same capacity,
-> > > > >>>> but it is topped up before every page it maps, so 8 is sufficient there
-> > > > >>>> as well. The pKVM hypervisor memcache and the eager split cache don't
-> > > > >>>> use this capacity.
-> > > > >>>>
-> > > > >>>> Signed-off-by: Usama Arif <usama.arif@linux.dev>
-> > > > >>>> ---
-> > > > >>>>  arch/arm64/include/asm/kvm_types.h | 5 +++++
-> > > > >>>>  1 file changed, 5 insertions(+)
-> > > > >>>>
-> > > > >>>> diff --git a/arch/arm64/include/asm/kvm_types.h b/arch/arm64/include/asm/kvm_types.h
-> > > > >>>> index 9a126b9e2d7c99..28568da9ea4a7b 100644
-> > > > >>>> --- a/arch/arm64/include/asm/kvm_types.h
-> > > > >>>> +++ b/arch/arm64/include/asm/kvm_types.h
-> > > > >>>> @@ -2,7 +2,12 @@
-> > > > >>>>  #ifndef _ASM_ARM64_KVM_TYPES_H
-> > > > >>>>  #define _ASM_ARM64_KVM_TYPES_H
-> > > > >>>>  
-> > > > >>>> +/* Must cover kvm_mmu_cache_min_pages(), at most 2 with 64 KiB pages. */
-> > > > >>>> +#ifdef CONFIG_ARM64_64K_PAGES
-> > > > >>>> +#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 8
-> > > > >>>> +#else
-> > > > >>>>  #define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 40
-> > > > >>>> +#endif
-> > > > >>>>  
-> > > > >>>>  #endif /* _ASM_ARM64_KVM_TYPES_H */
-> > > > >>>>  
-> > > > >>>> -- 
-> > > > >>>> 2.53.1-Meta
-> > > > >>>>
-> > > > >>>
-> > > > >>> Hi Usama,
-> > > > >>>
-> > > > >>
-> > > > >> Hello Leonardo,
-> > > > >>
-> > > > >>> Have you tried to reproduce this issue in v7.4-rc1 or newer?
-> > > > >>
-> > > > >> Yes. The patch is against kvmarm/next (v7.4-rc3), which includes
-> > > > >> Lorenzo's pre-fault series, and I A/B tested it there.
-> > > > >>
-> > > > >> On unpatched v7.4-rc3 with 64 KiB pages, a VM whose 16 vCPUs each fault
-> > > > >> in one page needs a single stage-2 table page, yet the vCPU caches hold
-> > > > >> 640 pages (40 MiB). With the patch they hold 127 pages.
-> > > > >>
-> > > > >>>
-> > > > >>> IIUC Lorenzo Stoakes introduced a change that would cause the memcache to 
-> > > > >>> skip topup if the cache contains a minimum of ~4 pages, so it can possibly 
-> > > > >>> improve that issue.
-> > > > >>
-> > > > >> I don't think that part is new. __kvm_mmu_topup_memory_cache() has
-> > > > >> returned early when mc->nobjs >= min since commit 6926f95accee ("KVM:
-> > > > >> Move x86's MMU memory cache helpers to common KVM code"). Lorenzo's
-> > > > >> commit d27acc152c62 ("KVM: arm64: Size the stage-2 memcache from the
-> > > > >> fault MMU") takes min from s2fd->mmu instead of vcpu->arch.hw_mmu. For a
-> > > > >> guest abort that is the same MMU, so nothing changes here.
-> > > > >>
-> > > > >> With 64 KiB pages, min is kvm_mmu_cache_min_pages(), which is at most 2.
-> > > > >>
-> > > > >>>
-> > > > >>> Although I can see that when it's below that minimum it fills the whole 
-> > > > >>> capacity (40) of the cache.
-> > > > >>>
-> > > > >>
-> > > > >> Right, and that is the problem. Skipping the top-up avoids refilling
-> > > > >> the cache, but nothing ever drains it. A vCPU's first fault fills its
-> > > > >> cache to 40. Each last-level table covers 512 MiB, so a guest needs very
-> > > > >> few table pages, and most vCPUs never drop below min. The remaining
-> > > > >> pages stay allocated until the vCPU is destroyed, which is why the
-> > > > >> production caches were still 86% full.
-> > > > >>
-> > > > >> The patch keeps the early return and only lowers how far a refill goes.
-> > > > > 
-> > > > > Right,
-> > > > > 
-> > > > > I took a look in the cache workings, and it does not seem to receive freed 
-> > > > > pages back in. It gets filled by topup and used by map, so IIUC it is used 
-> > > > > only to avoid failing an allocation during the mapping walk.
-> > > > > 
-> > > > > Maybe it could be the case to simplify this cache to have the capacity 
-> > > > > about the same as the minimum (since it always topup before mapping) and 
-> > > > > avoid the waste altogether.
-> > > 
-> > > Well the more you reserve the less frequent you'd need to actually allocate at
-> > > topup, which saves time, so there's this trade-off to consider.
-> > > 
-> > > Thanks,
-> > > Wei-Lin Chang
-> > > 
-> > 
-> > Hi Wei-Lin,
-> > 
-> > IIUC, every time we topup, we call a mmu_memory_cache_alloc_obj() for every 
-> > one of the objects in the array. So as it is today it runs it 40 times, and 
-> 
-> Not necessarily, I meant with 40,
-> 
-> if (mc->nobjs >= min)
-> 	return 0;
-> 
-> happens way more often.
 
-That's what I meant with 'waits until it runs down'. Basically we have
 
-if (mc->nobjs >= min)
-	return 0;
+On 11/26/26 5:21 PM, Alexey Klimov wrote:
+> Which returns wrongs frequency for the situation described in the commit
+> message and in this discussion => doesn't work?
 
-while (mc->nobjs < mc->capacity) {
-	obj = mmu_memory_cache_alloc_obj(mc, gfp);
-	...
+Yes, it seems linux can't see the hardware throttle. I need to study whether
+there's a notification mechanism. On a first looks GS101 lacks it.
+Let's keep the hot trip as a last-resort backstop, as downstream does.
 
-So, first use it allocates mc->capacity entries, and every further topup
-will return early unless it goes below min, when it populates again. The 
-only reason for a larger cache being more performant would be to use 
-that cache locality, which could indeed have a large impact, if we use this 
-cache a lot.
+Will try to ask around, maybe we find out what the firmware does. I'll add
+the topic to my todo list, but it's not something that I'll get to soon.
 
-Thanks!
-Leo
+Cheers,
+ta
