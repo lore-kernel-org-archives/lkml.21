@@ -1,93 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795736632;
-	b=Bwc9eFUqsaK2VlG8MWTYiGd1CgmdNnK6o0mwjxqN0YTXVWnhDN73DJBd4fD7h6AkMcfs
-	 3pJiwFAAg5RxMsbOCosxvu+rCl72ZDsHQxeCh8EBCMZziDD/x3YXeFWGD0A/nwPr69/Ll
-	 ZCHQa5gdtNUVC3Ct9mZD85mmkq3y5TBr7wWkJ7aEVcpCMYEKsmjXTJpVG8ra9CXuEqtQn
-	 ZcrU/Vae/cSdrFFwt9Gmjwc5+sSD6gWjpiB7uaeQJu6Z5ksvzTDw8vTePIu4fBCP1rHTS
-	 dFMLu2AkvnHK2/hY+X0CpjQ62IBP3IiJZWgDcogxMdkOK9I+e5xDnVKAPhlHFVzb2nw==
+	t=1795736926;
+	b=V0vcxT5WrUMZiEwHHrqVfKYJZokzU2mP6q36k1FjofzP5l2sT1rPgG7AFxyiIlfn292M
+	 032/No4r1pMGHx86LF/NH/yAUh3+6cdo8NNB6nLQxtfhzF9dp8MNocVotXrzP1UojNLbt
+	 ZLUJnto5uvwhKdL7jNCjMy3LbN5H5kKrcDaNGQQRo9a+hFC5jolx9C4KO8StmC0i8npCb
+	 La2y9gxpWDuFE6M8jT1TKB+7PuQDREgMonEtcaZJoK88XUFGjqQKAYXKVKA55ElFYjpa7
+	 sW2EQ9mucA9ek0vUdM6AGjuEli3wxrRZBjpv5AkxnrOjYhuy7IXm2halxgRwPg8Z/wA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795736632;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795736926;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=nabDe3IU+lYPz/hho1p8Df8ddg25m4scBSKD0WbOpWg=;
-	b=YR99klbq4S3DsUqF0JgA0NXwTwS32VoTCI0gJz2kVsvws06MgrxnjGgvQEDvmz0ZgOXv
-	 M/fyww5m8y+OKv9xShqbs6sRg/x6gYRugvZ8a9BJx+MpX/UvkA5td5PjhoXqB8FTNbzKn
-	 UxFUmtdQKL7/esRwzQbM/ABWnomglqVvVRLjzfSXgzUl+0ZkW14hRFHvTa8ZcCDOIgS/W
-	 0Ds09mL5l6yj17TPC9UPpfloTIJ56KOjeE4k5NHlRkrB6DiSjNNosvT8EW699onSRKBqF
-	 BoXEI+QziPQ+dK7UfxnXOGYWXJiMCtbqCz+aspn6UYsDKeaViegKMfVrHYA3xfQU0sA==
+	bh=VxeD4WAIT3mFKrFVmaWm8s04eoB2/2UJsBXQx10SSts=;
+	b=RZ67y5ILz5HyMUoVteUSuHeRXyyM6IF6E1dqMozudOFmgSfAXdRnShu89x1ivs+wqq1s
+	 zE2I1SB7ZJgqoTgkfU+i+EM4ZLXmVJy3Vetr2VPRsa7CwthT8IJRoc1z5VGm/ZdGGk/h6
+	 Um5n/UWmLOhTvBKqRD6V4zvi8AsJ9SMxt+l3IZ2uh0EpPIK3tvchyROljB6tmEegNReQ8
+	 IdN8sYQ79zsEdNwGjBt/jBkbcNjogiP8v3fquUuVIJq4P8Aga6tQMa50PaOXs61bbcV3J
+	 gh9qVW1T3500lm2qoW61vsFGiPxsnzNLgiVIsK9qEKl4+Nu0OzQRYAiDIId92QQQ+zA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="PWsloo/P";
-	arc=none smtp.remote-ip=209.85.210.179
-Received: from mail-pf1-f179.google.com (mail-pf1-f179.google.com [209.85.210.179])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=J0woiC7F;
+	arc=none smtp.remote-ip=209.85.160.180
+Received: from mail-qt1-f180.google.com (mail-qt1-f180.google.com [209.85.160.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCA67606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 23:43:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BCA67606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16DA5606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 23:48:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16DA5606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PWsloo/P
-Received: by mail-pf1-f179.google.com with SMTP id d2e1a72fcca58-8a0880a46e7so4485840b3a.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:43:51 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=J0woiC7F
+Received: by mail-qt1-f180.google.com with SMTP id d75a77b69052e-5364042eecfso91511651cf.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:48:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795736631; x=1796341431; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795736925; x=1796341725; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nabDe3IU+lYPz/hho1p8Df8ddg25m4scBSKD0WbOpWg=;
-        b=PWsloo/PvjA5g6LQHjM5Y5EhQ4f8S3XxTwIe8Tzrv4Z7CqD68w1vmx0a15FO7VQdMZ
-         yH4jcTSVVgbAXOnyM69SIFi4Ml9Pnbp/D/bDCEijY51cBZfVAGyV0Q5rW5Usn4meHVuo
-         zUcYmKtEqcWVHhd0PAZ/lYyzWmDbA8KO2FWZ2SBhPfHeO3Tez1Jb+cQiUdb8oSla2t4d
-         2n1J1UpKvUlvZxPp5c83tMvazzCA1fsnplomSahONSZnXjn7E3L3sMkqDUXP2bOAjjLs
-         E8E3UXm3VxylBaT8EGhxAdNQLJEESGSNCKgA5kbWGTLG1SoDQgJgoFnzdeCkZi5ITBcF
-         7u7g==
+        bh=VxeD4WAIT3mFKrFVmaWm8s04eoB2/2UJsBXQx10SSts=;
+        b=J0woiC7F/RACfXylDb2Pg7RFxj87Lf/WXYuSrub40GGj7yRZLI+lCaJTE7cSfsZNP9
+         NRDLm+Dh3Rngi2KnlH5tdMM22LVP+/FBnLvxr0syYNeCJMh8ev7DwL6Qdyw+uYo2FGX7
+         WzJnj13FLrL+y2E3/6fsU2tgJYajJ0oEcUYf7EHxwcTUmjHYAcNmheNJI869x/ka88d/
+         es38XreCpxgFDIKafUBUIE3qb9Vk679SDfnxw3IvE/d4ZPeUSeyqffXUzPIUXKpPyqeM
+         rHJTiQ2wTKAQkWJ/EP+vAsNwYKbIqeuDyBCS8C7IqlkMQiq1/iT9PE+HUbNXJduAmUkV
+         fH9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795736631; x=1796341431;
+        d=1e100.net; s=20260707; t=1795736925; x=1796341725;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=nabDe3IU+lYPz/hho1p8Df8ddg25m4scBSKD0WbOpWg=;
-        b=ChD7zNLWijoLMewbHnYZ8yJ6tYJ3KS7QfHZv4Wj2nqcPFvBObj4KMwnHk6GXu/LS6g
-         xNAb/YlyMCfPcPay7wTy9IT3U9BG8m/MTlyAEFkQiUlU1RPQY3jahxAylzdCtQUREKFx
-         06FnoDyH4zS4DzSwgrPzQH7BU25KAPgW0Jv2X1q0YmjSNe0KMk6h7V8KrIFyZ6y7anKR
-         sIzm8rm5OdboPA9bQR2ZtBpZs9UYtd7swgIPr1XOMyGbGJ61OFTM5XOhJCBBp9sFlyQ8
-         xSwjo2Vgj0BEKwNf0CbSlFpSCWjMZM3uBnsIlJupe8nVRK6pvc89vtB9jMQOhas/1oOt
-         EoQg==
-X-Forwarded-Encrypted: i=1; AL+hErFXR27xVBusW+AbhxaiUb4lq8CrYJuQKBKINLgSWZVXc5hMezU0pDizNSnU9pXFf0I4xmyJyw9qJ0Pk340=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/7kWa8PUnzfo71b1TURtmYmMBPP6rj4qasX8pNxK1jQR9VIoKb
-	ydFU+vQXesopQJ5rWdq064qB7BZpPgMw4i2MeOrTmo2zK467qgtMwtBG
-X-Gm-Gg: AZFdTZc/yc3RltfjnmZg3EFv3MfK1yLi9esMb711OosEh5LCOEoPwSbT0Vhq5SxbPrR
-	zkDRNmeyqfhFcAzpwpbRvcAxendLnPgHOg8c8TZXzNnyDsSyNKBwShtlcltv471ni7CRSIi3+9I
-	fr4cntBUhvoXcO47McRiy94qHUPlmLidTWxeyV89VK+lgSu7jJX9OE13bYEXjCtH/058Ua7MkZV
-	QNcuwAjsel5txRYYRDZ16h5pkXHTs9V7a2+ywMGRpv669LPA93xU0TOCOfc4cR5u74GAMuA5Bxr
-	JXu/xc4NAkr8mWLi8vzJ3cFyfM1hwSUth0jM4oh4xV7tyIFYwkUmWKQZhQ5f4+JqyxOIVgCvg2i
-	1aWj4icdFMVlJK58Ko1Qdd7MNhwghg2F2Nky1m4wvpY7KHTVOYF7IFt3dXcOxhNrnWXDxR2udcb
-	IT04mkYWOnLvNF58UsX1AwS5y0i4r/HGzn0SfRSvvConKBbMD2cSXjhc4yYPwDV760yidl953BN
-	TPP+VpQpca+2GqzuGgIm/OJKxpGAcTfw55IDwB3uGWgecBWXODc5tPpeOB9BnIYa4wLKM07UrgB
-	upNdQLHqVBEPW/9u5s/Z12Gp4+pWp133aPNX+HCdSOmRWdBzBw==
-X-Received: by 2002:a05:6a00:4c10:b0:8b7:6ffa:f201 with SMTP id d2e1a72fcca58-8c7ddfaf8ebmr15763613b3a.29.1795736631025;
-        Thu, 26 Nov 2026 15:43:51 -0800 (PST)
-Received: from fedora.tailc1fb0a.ts.net ([172.219.65.15])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e4d7basm11120665b3a.21.2026.11.26.15.43.50
+        bh=VxeD4WAIT3mFKrFVmaWm8s04eoB2/2UJsBXQx10SSts=;
+        b=Ax4WlkSPEkDq5NGtwqcE3C6dHoIwIW9XbUGL+d5AuARSnfCil/HYruXhqH9YDPvIa2
+         s6hgwraT7vs/9/v0oG2Rldl4leFwpwpJdPCVJMIBp3vnvu1VGn0Z1cUnLAtjbylPMfaR
+         5HZU33NwVpvdp9ojwpnrLXqKUjfRmLuQMkprs1PwvqGPisMKo+Y+N3c0ZgnV9TfqXFRS
+         T0JLkpamDssJqQVdVtPDxg0CR3MrifAVltLEstjYF7CVGYV5MWXTWDdMV9zVlnaJhQp3
+         XKyN9I55bpaieUyPP7VoHNaw/p3udSCl8QvxZKmvD1uV+0Je2jokuNqfhZJUUxPpDwag
+         yBbQ==
+X-Forwarded-Encrypted: i=1; AL+hErGkH9Ei5rYVA8t2GNP19xNVvq3V+ur5ndSTFzpSKxBxJ/D8TxautmdbaP9UJgF7NQQjTVUcuHm/NcMID+c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+sCTVi0Wt8n8wbOpUyKAKYahV0tO/auO7BnLh2tsTuh2qojSe+
+	P/U2rudbtQewqbQo/uOtWU2+rUQg90xOvh0ld8FreT/eNz1XWF3X627I
+X-Gm-Gg: AZFdTZdLadp7ibwn1PEro3F+OTG6724dPJpfyS19muNz02KYgBqmdg8GM3IadpAVTJ+
+	S5A1eD+OHxoWEuVbvdmif1vvyw8e0FeYsAY0cc95AhUZGN+ktynQRt2To9YALVN5n4kcJ99fYjT
+	3dwjC5txTByLtUG0OgTKLTw1m4Kmk1rx5N2KvunmXquezuPJ3DcaZwzPboq8U2yl3k3LzNeO8KB
+	FotFwuTCW9T+NojgVCNF6/HNP1e2JkbE2NNwCcfTl+ZZsJxcHzv2PZ/SAF6bovHXn4kgh/vbZ0T
+	0ddqsS9Orc4MZf7WzY+RhEFTvgel08gSqk9acM6TGaPTXNCDIxiJg4AloM3lBfKAjlkQvY7hq7c
+	RMawz/p0qvOSTk4IHLKXvjIshwaZ3EyeBsdCRweCFRrFojvRn950ft3i+ovF+fB0i9n9OA0EinE
+	z4XLXqs74aTod+0NBitVK+6NDETMBeIju6slxMkK20DsbocLuKAE6eAgmwdnOD+DcX5PYfcdcBS
+	LQF/RPeh+M1vrP+PbNzKYi9ghLCUJ/vhGAnrYGjxk2cRpJ0tUvMlIPM3PHnDr0gOXa7NRUefDAb
+	QYn60S+pVRO1KyyUpsNJrNzhZVVGo3gySueHkUE2zLFpi1lL1aI4y4CMPs8tSCO7o86P/bypGuq
+	35ESLpZ/THrir5s0ZjpjpqwVBOLgHzefl8UaSvFZ7YbthuBBgOWg2
+X-Received: by 2002:ac8:6906:0:b0:55d:330f:e2d3 with SMTP id d75a77b69052e-55d76a204b7mr376177381cf.34.1795736924942;
+        Thu, 26 Nov 2026 15:48:44 -0800 (PST)
+Received: from Apollo.mynetworksettings.com ([2600:4040:a89a:c500:a9e0:bc34:811c:7ed0])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d7884d01csm193792991cf.21.2026.11.26.15.48.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 15:43:50 -0800 (PST)
-From: Artem Novak <artem122novak@gmail.com>
-To: Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-Cc: linux-sh@vger.kernel.org,
+        Thu, 26 Nov 2026 15:48:44 -0800 (PST)
+From: Enjan Chou <zhouer@gmail.com>
+To: linux-bluetooth@vger.kernel.org
+Cc: Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	Siwei Zhang <oss@fourdim.xyz>,
 	linux-kernel@vger.kernel.org,
-	Artem Novak <artem122novak@gmail.com>
-Subject: [PATCH] dma: dmabrg: remove trailing whitespace
-Date: Thu, 26 Nov 2026 17:43:49 -0600
-Message-ID: <20261126234349.74357-1-artem122novak@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	Enjan Chou <zhouer@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] Bluetooth: hci_conn: Don't leak hci_conn when dequeuing its create command
+Date: Thu, 26 Nov 2026 18:47:01 -0500
+Message-ID: <20261126234701.215190-1-zhouer@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,28 +101,123 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Remove the tab-only line from dmabrg_request_irq().
+hci_abort_conn() returns without queuing abort_conn_sync() when
+hci_cancel_connect_sync() dequeues a create connection command that has
+not started yet. Nothing else fails the connection in that case: the
+destroy callback of the dequeued command only drops a reference, so the
+hci_conn stays in the connection hash with abort_reason set, which makes
+every later hci_abort_conn() on it return early too. For LE, its
+connection parameters also stay on pend_le_conns.
 
-No functional changes.
+For an LE connection made through L2CAP (BT_CONNECT, still scanning)
+this leaves the adapter unable to make LE connections until it is
+powered off. A new connect to the same address reuses the stale
+hci_conn and never completes. Once the peer's advertising is reported
+again, check_pending_le_conn() queues the create command again, the
+controller connects, and le_conn_complete_evt() bails out because
+hci_conn_set_handle() refuses a connection with abort_reason set. The
+hci_conn then stays in BT_CONNECT, so hci_lookup_le_connect() keeps
+returning it and connection attempts to any other LE device never
+start: hci_connect_le() returns -EBUSY, which check_pending_le_conn()
+ignores, and hci_update_passive_scan_sync() does not start the
+background scan they wait for. A dequeued BT_OPEN (ACL) connection is
+likewise left behind.
 
-Signed-off-by: Artem Novak <artem122novak@gmail.com>
+The early return was added by commit 881559af5f5c ("Bluetooth: hci_sync:
+Attempt to dequeue connection attempt"), when hci_cancel_connect_sync()
+only tried to dequeue BT_OPEN connections. Commit 12917f591cea
+("Bluetooth: hci_conn: Fix null ptr deref in hci_abort_conn()") dropped
+that state check, so LE connections in BT_CONNECT started to hit it.
+
+Queue abort_conn_sync() whether or not the create command was dequeued.
+hci_abort_conn_sync() sends no HCI command for a connection that never
+reached the controller (BT_OPEN, or LE still scanning) and just calls
+hci_conn_failed(). If an advertising report queues the create command
+again in the meantime, that entry runs after abort_conn_sync() and fails
+hci_conn_valid().
+
+Reproduced on bluetooth-next (ffb95458a0f7) with an RTL8761BU USB
+controller passed through to a KVM guest, without bluetoothd: an L2CAP
+ATT socket connects to an advertising LE peer while a BR/EDR connect to
+a non-existent address keeps the cmd_sync worker busy paging, and the
+LE socket is closed before the page times out. Without this patch every
+round that dequeued the create command (11 of 11) left the stale
+hci_conn, with or without discovery running; with it none of 60 rounds
+did (50 of them dequeued it) and LE connections kept working. KASAN,
+lockdep, DEBUG_LIST and DEBUG_OBJECTS reported nothing.
+
+An AI coding assistant (Claude) helped find and analyse the problem,
+write the reproducer, and draft this patch and message.
+
+Fixes: 881559af5f5c ("Bluetooth: hci_sync: Attempt to dequeue connection attempt")
+Fixes: 12917f591cea ("Bluetooth: hci_conn: Fix null ptr deref in hci_abort_conn()")
+Cc: stable@vger.kernel.org
+Signed-off-by: Enjan Chou <zhouer@gmail.com>
 ---
- arch/sh/drivers/dma/dmabrg.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Found on a desktop running Ubuntu's 7.0.0-44 kernel, which carries
+12917f591cea: after repeated failed connection attempts to a BLE device
+the adapter could not make any LE connection (noticed when a BLE scale
+stopped connecting) until it was powered off. What kept the cmd_sync
+worker busy at that moment was not captured; the reproducer uses a page
+instead. The same reproducer also leaves the stale hci_conn on that
+kernel, and does not with this patch.
 
-diff --git a/arch/sh/drivers/dma/dmabrg.c b/arch/sh/drivers/dma/dmabrg.c
-index 3778c6a363ec..1fe63b2e4c61 100644
---- a/arch/sh/drivers/dma/dmabrg.c
-+++ b/arch/sh/drivers/dma/dmabrg.c
-@@ -132,7 +132,7 @@ int dmabrg_request_irq(unsigned int dmairq, void(*handler)(void*),
+hci_cancel_connect_sync()'s return value is now unused (hci_abort_conn()
+is its only caller). I left it as is to keep the fix small for stable.
+
+Reproducer:
+
+  # Reproducer for hci_abort_conn() leaking an hci_conn whose create command
+  # was dequeued.  Python >= 3.14 (LE L2CAP addresses), run as a normal user.
+  # Needs an advertising LE peer; bluetoothd and discovery are not required.
+  import socket, subprocess, time
+
+  PEER = "E1:E9:83:B4:21:65"      # advertising LE peer (random address)
+  NOBODY = "02:00:00:00:00:01"    # BR/EDR address that does not exist
+
+  le = socket.socket(socket.AF_BLUETOOTH, socket.SOCK_SEQPACKET,
+                     socket.BTPROTO_L2CAP)
+  le.bind(("00:00:00:00:00:00", 0, 4, socket.BDADDR_LE_PUBLIC))
+  le.setblocking(False)
+  page = socket.socket(socket.AF_BLUETOOTH, socket.SOCK_SEQPACKET,
+                       socket.BTPROTO_L2CAP)
+  page.setblocking(False)
+
+  le.connect_ex((PEER, 0, 4, socket.BDADDR_LE_RANDOM))
+  page.connect_ex((NOBODY, 1))    # pages ~5.12 s, keeping cmd_sync busy
+  time.sleep(3.5)                 # peer's advertising queues the LE create
+  le.close()                      # hci_abort_conn() dequeues it
+  time.sleep(3)
+  page.close()
+  time.sleep(30)
+  # Without the fix the LE connection to PEER is still listed (state 5).
+  print(subprocess.run(["hcitool", "con"], capture_output=True,
+                       text=True).stdout)
+
+ net/bluetooth/hci_conn.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/net/bluetooth/hci_conn.c b/net/bluetooth/hci_conn.c
+index e86b7a310a..3b172e8f13 100644
+--- a/net/bluetooth/hci_conn.c
++++ b/net/bluetooth/hci_conn.c
+@@ -3311,11 +3311,12 @@ int hci_abort_conn(struct hci_conn *conn, u8 reason)
  
- 	dmabrg_handlers[dmairq].handler = handler;
- 	dmabrg_handlers[dmairq].data = data;
--	
-+
- 	dmabrg_enable_irq(dmairq);
- 	return 0;
- }
+ 	conn->abort_reason = reason;
+ 
+-	/* Cancel the connect attempt. A return of 0 means the create command
+-	 * was still queued and got dequeued, so there is nothing to disconnect.
++	/* Cancel the connect attempt. If the create command was still queued
++	 * and got dequeued, nothing reached the controller, but the connection
++	 * still has to be failed: abort_conn_sync() does that without sending
++	 * any HCI command.
+ 	 */
+-	if (!hci_cancel_connect_sync(hdev, conn))
+-		return 0;
++	hci_cancel_connect_sync(hdev, conn);
+ 
+ 	/* Run immediately if on cmd_sync_work since this may be called
+ 	 * as a result to MGMT_OP_DISCONNECT/MGMT_OP_UNPAIR which does
 -- 
-2.56.1
+2.53.0
 
