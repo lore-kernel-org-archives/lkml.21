@@ -1,74 +1,74 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795654420;
-	b=t5LI2067c83EDp8+sBV33OUra8vi46ZosHe481vphVpQkI0oUiU8AYU7MOzkFwqxvcs5
-	 soksen0nJVauuzQe2qnC/wXN23rHCs1N2Fd08g2UA25zdcWnid7ED5egOxBw41b6f1wsb
-	 o+WveValupQakHcpI4PWHPpOKttiWFHG352TRlGdC6tAR012x1Bt55U8gL3KLcx+xuC5v
-	 tuZeDnEDYxk/jpXyxU5ZG0qz9TcPeoi5yDEMrzNe7OKZW2VWF9XDMOYO3npvjNb+aZC5y
-	 /GA91K6+loVtJ2Wl+aBsVbacBmJm5fHsUX6eHZ7iCkoxlA2uFzKK6TPQ7gFcDEXSv7Q==
+	t=1795654417;
+	b=io5RbZQqQGD1J6/ZkGQAcmeHCfYNgCRKY3JyKdu28cefnMGlX0vs5KwNTB8R3P5ihyn8
+	 knY8GbN7uBv2lZY9Jg1O9bUgvacwBcrvhquu6ap32bDnB5WeR6sMqvKEqSizQROqKT+eh
+	 dDnH+LcsHtBxaj9v7sN9l9uoWKI0LgajwHsuyt7KKMZMPqHjZ0snEJLh4pzqczrY5m9jN
+	 KryV/o6jWkXAUY0xL/Ax3Rf4Y14U8gxQ3K7ZHjfeX9+nU7tcVkgWVvHIPk8rf/vfRx66b
+	 nsGCdyl5XJ/miv6Fhx9Cut9K+hzuWqypv3D+5ELrstIIKGUSVNw7lnF735me6fNfDcg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795654420;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795654417;
 	h=Received:DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
 	 In-Reply-To:References:MIME-Version:Content-Type:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=T7Pd4931K5KCtp4eGPlP6wPvgfOQef2+z9ExSwkByuw=;
-	b=AtzHDZkKpmaTns9D1pSueWHYJpqTyrMUQS1Kmc/a0KJMtiGRdk4AZ3tZ08yniZHlTQr1
-	 LSuS2Qguh2QhtJn/3nf/qsrW2fRhin6GTWQnoLFAzKwNuUBOHqZtE5XIBo9KHtF+sGNxK
-	 3e1yWmjrUTB3ypYBukVRUQQ6ppMyqbJ8RjOFvGRnzVIzY1eCaRX6bJ7Csr7qOML3TLga+
-	 0SzadLaBBq4p93IQp0m4rda8q6iTGmUZB2RPtX3uQi5KwJtZR4eB9Jb6+0HAR/APkWmBB
-	 /KjWM+xrnvFazRXqP3wZX9XBzVOqaS5s5ga82b2r+Uk5bSKgy7+45likfUjUZ+S0Msg==
+	bh=uU22h3jpaXKv8VPx4Lx9G4sdjfw/2Tu7j5+Bo/KJuE4=;
+	b=kFwXTvrZ94C7qMO61asldz1hkso+RoeIERijcXjrzjD9N/Mat3EcuOev6gJ2MsVP1l+o
+	 lG9CVs1So9hil4XcSKPgoTRYQlSqQllVBRbc3zue77q5N0sV9pTBwNUAGhfgvogspDR+5
+	 Yqq63UYfGJCj4O10wKEgWrOsuc+eEqqu4+z0aDKlG3aRl/MBnl14rMQ2KnThYnDLLjgyS
+	 bPrWvF0F0E3xtt5EcbCZqCkcHMYEuH+Oxr3mzoQGgU2O8nppnnko+Kbn+XaWYWWEPjE2R
+	 FkbkHRWfXvbe9D0/MyeNsu5Iz5RqRiV+N9zweDRwdEqFHQedYsTfR2NW/L+/6cMrKbQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=muSkL4Kn;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CVoSkYA4;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A30B606A6A1;
-	Thu, 26 Nov 2026 00:53:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 080F1606A690;
+	Thu, 26 Nov 2026 00:53:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=muSkL4Kn
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CVoSkYA4
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795654419;
-	b=u8MqaOk/92z62Y3jN1u3v+zP6e5NxhYISeuJnrkQQtGIwxQRnQTeb1p5njQu+7eYCeUY
-	 Htj+iAOwrff/LRIKjZNjuLHv1xs56fwuKrCkcGl0vmHU7yFjTGxgtysvxiks902Cy/Hh+
-	 ZWTvmJqyu7r9LzjtQbUgKR+FmLhL1awApFhSL499a53D1I189Ipu07jUacmTaNJ7ZfHk/
-	 BOILjzFTr21OxKDYeMZiFBqHkThK88S8kCAm5mRrclpIpkH71swazlDroEs3Wjt1d62nr
-	 um7K/FPzcEiw8hYVsDkvh8fYvzOURnCWUnRj/6i9iDJ8vfLiSw0OBa7SsravGOFcl9Q==
+	t=1795654416;
+	b=U4eNpPdWjFR3iu4pk9HnKg1T7Nxnc+2ibWelBNLQouIg5XMkJNa2Q6gbb8+sKT1L+kdV
+	 oyYKTbY98LqCH/LObfL/2sPfzpajYI6pgc2XECM1lofMGbTqMeC8lEXgJ5uCJ8k9zEeA8
+	 uIJ0pm+Xp8ypzCinobrLlQ6VOTV+KMd957cCyU9rL1o7va3iscqZwyEWxzi7uCZUqtQKK
+	 0nGlFEDOGu9FL56rBXrjP+w1mmY6GuDU/LatOx/XJ40zD1qZ89Yv/brj2oYLdbs4EMLzA
+	 Ds1Gsv8+2Hzhd1GJlKY6Xe7kfM6GsE4MNZTiCF7urP9lVEow2vjM3uGm+aHzs1Iy70A==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795654419;
+	c=relaxed/relaxed; t=1795654416;
 	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
 	 In-Reply-To:References:MIME-Version:Content-Type:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=T7Pd4931K5KCtp4eGPlP6wPvgfOQef2+z9ExSwkByuw=;
-	b=3lEAbmVx3TgbZnA0tbhEJpDHJFWlXK6MHAGQnWO4KSIUSPZgaOLwamSaSYg6mDbHc1i5
-	 2w3s6xkc+WNGXvmvXI9RCPh9UIkoesj+Hm9hQ9qDUkM3gpK54viiffr2oVI4ux13eR+c0
-	 L3zxu375g0+MGcrGZIGeL56tQTsLVTi7qu5MVT8GLNsNVtMoL35yzd6wp1KyiE5RkeYAW
-	 AvRI1fygUMzeduifOoSOhCKojhdmIUjbTxOS/cwtHPiXBlpZsGbced7DTCPGvKNsXVmph
-	 2uuDoNtrZwobrQeI/4bcKWS4P+IEdI2Y460QUyZAqcHviFnA21kgqT641I3iFArzjAw==
+	bh=uU22h3jpaXKv8VPx4Lx9G4sdjfw/2Tu7j5+Bo/KJuE4=;
+	b=iQydiiG/GbQihixLE0A+IaCibQHxTFLJtwsrdVTA3MXf53lhijtZ1vjx6aD61NLsUjAe
+	 j8tPBbAAZmtno3dJWSm5MWPOrT0Iyy3tpIYOGrVr8eaBOxVkDWa9Z/Vm4aUDvqrwvQ/32
+	 hkP86MsFjy8T1RRPLJmVmtxAuxRoLz9B7mRaQtEsjdq1vIqk7mBND+g+eqLZNYJW0o+qX
+	 Yzpef88RspVJpQXIbSbPRRqEnH9eUv3jtNXq8/j4LU/2CY9VkkLka8BdnjXfCnO7ELpd2
+	 Vk2cSYkcT9noNvxj0eYhiL0wz+Wmc79snq/gw8+6FadHncQfab1Hk80arBlZT/eEzfw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 87CD91F000C6;
+	by smtp.kernel.org (Postfix) with ESMTPS id 8D8B31F000CF;
 	Thu, 26 Nov 2026 00:53:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795654419;
-	bh=T7Pd4931K5KCtp4eGPlP6wPvgfOQef2+z9ExSwkByuw=;
+	s=k20260515; t=1795654416;
+	bh=uU22h3jpaXKv8VPx4Lx9G4sdjfw/2Tu7j5+Bo/KJuE4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:Reply-To;
-	b=muSkL4KnIc/YiM8rsmzIfQbB+Ep7mZCdmDPSLm4bHVQNRvjJ2A9LdRb1Te6DEGp7B
-	 grdotYw2GX3ozF4TBczWmjovgY4nwofEm2swRXB0VZCiMj+nim6wp2qMWcS3DC2zpq
-	 nIJ+2IkR4bhBHH2vXWCYo232q5fXzMzEz3oiS3diaw7bGdNRJRIVVUC5vqA03IK9gF
-	 VjKHrmd5sXNbMMG+qq6IHCaSB+ia+Ic+nAYgT+9eLrr4Orb1rq+UoB3m5KIx7XVkXm
-	 Osqn/vYlcntJE0oyuvTG7hcEgro47ID0I3O62pItMZzQ1T5pZ/fsDRm8//zHb+Idx2
-	 UYudiNDT//NRQ==
+	b=CVoSkYA4VTpjKgnbLGSLGd3+mjugv5vPoCrVeBkXpqUksIUBIVaLt1Z1rnjmkAtFA
+	 p8fhrSXzvEc3KD1rNjsiPWzWYlHzB3ieKAf4AJg7KGw2okvB6cQoZDvJIhMxAPFBPZ
+	 y6wQYpEpu/gP/+Eii8MvxE86cyNe5/x9mWOdE4qE++6Szm2qBp8gVHNkBda5k7pqcw
+	 tNdyr9u9G7pspwrWen7diFMJAfRZoro8bwq7fBTP9vlITo10yRmHlKcPP8JGlwJVwF
+	 Si1Wie9UPDV43ZgvFIqRFtsb5m+qnYw/gBLm9G5XUybiljl3s/ogLIDTPvadSeY/Rs
+	 IBvhbUbAhVoJw==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 4A3024D13C;
+	by lkml.kernel.org (Postfix) with ESMTP id 6E2624D140;
 	Thu, 26 Nov 2026 00:53:23 +0000 (UTC)
 From: Ilia Snezhkov via B4 Relay <devnull+iasnezhkov.gmail.com@kernel.org>
 To: daniel.lezcano@linaro.org, rafael@kernel.org, rui.zhang@intel.com, 
@@ -76,10 +76,10 @@ To: daniel.lezcano@linaro.org, rafael@kernel.org, rui.zhang@intel.com,
 Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
  linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH 3/4] thermal/drivers/mediatek/lvts_thermal: serialize
- lvts_set_trips() per controller
-Date: Thu, 26 Nov 2026 00:53:24 +0000
-Message-Id: <20261126005321.71799-4-iasnezhkov@gmail.com>
+Subject: [PATCH 4/4] thermal/drivers/mediatek/lvts_thermal: skip sensors
+ without a thermal zone in IRQ
+Date: Thu, 26 Nov 2026 00:53:25 +0000
+Message-Id: <20261126005321.71799-5-iasnezhkov@gmail.com>
 In-Reply-To: <20261126005321.71799-1-iasnezhkov@gmail.com>
 References: <20261126005321.71799-1-iasnezhkov@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -93,11 +93,11 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795654402; l=2401;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795654402; l=1531;
  i=iasnezhkov@gmail.com; s=mindone2026; h=from:subject:message-id;
- bh=gkAgfTt9QdjOaikRkLcp8sO69zHNfxvhjZ7a53W/8uU=;
- b=gviRhqdPcdcSYCl9gslZUIi4rn5/AomBFOAcPTeJ4yvj3U6BZZYu7oXI5SNCljFJdopSgeIOa
- 2TFeAVSlGCvAJREN01iav2aYknFNmG7w3D3FtqAUmwFXwUm6t7rbhV4
+ bh=GQljtqYQ6lcHw8R3VtJICUMkx+Xq1lALWiNrkmGHLgg=;
+ b=DH/AUAWu5lnGqPy8+N3l9XPuuvdXd1jikIKHLwpyiWTax2zPR9JKcsvnhDQ2Z0kSFmJa1+W52
+ S6YPolMrjUSAe9bNSFd6DBmtwUbgjzO1f7yZdbaIP+h96n3Oxg60u20
 X-Developer-Key: i=iasnezhkov@gmail.com; a=ed25519;
  pk=hQgXfiWi4ukk2jh4BHu1vRVhg9BUivo//AFp50AKMag=
 X-Endpoint-Received: by B4 Relay for iasnezhkov@gmail.com/mindone2026 with
@@ -108,73 +108,43 @@ Content-Transfer-Encoding: 7bit
 
 From: Ilia Snezhkov <iasnezhkov@gmail.com>
 
-Each struct lvts_ctrl manages up to four sensors, each registered as an
-independent thermal_zone_device with its own tz->lock. Concurrent
-lvts_set_trips() calls for sensors sharing a controller therefore run
-without mutual exclusion while updating lvts_ctrl->{low,high}_thresh,
-performing a read-modify-write on LVTS_MONINT in lvts_update_irq_mask(),
-and writing LVTS_OFFSETL/LVTS_OFFSETH.
+lvts_ctrl_start() skips sensors absent from valid_sensor_mask as well as
+sensors whose thermal zone is not present in the device tree (-ENODEV),
+leaving lvts_ctrl->sensors[i].tz as NULL.
 
-Two concurrent callers can lose each other's LVTS_MONINT enable bits or
-leave the programmed threshold registers inconsistent with the stored
-controller thresholds.
+lvts_ctrl_irq_handler(), however, loops over all four sensor slots and
+passes lvts_ctrl->sensors[i].tz unconditionally to
+thermal_zone_device_update(), which dereferences tz immediately if a
+status bit for an unpopulated sensor slot is set in LVTS_MONINTSTS.
 
-Add a per-controller spinlock_t to struct lvts_ctrl and serialize
-lvts_set_trips() with guard(spinlock)(&lvts_ctrl->lock).
+Check lvts_ctrl->sensors[i].tz before calling
+thermal_zone_device_update() while still acknowledging the status bit
+with W1C.
 
 Found and drafted with an AI coding assistant.
 
-Fixes: 2bba1acf7a4c ("thermal/drivers/mediatek/lvts_thermal: Manage threshold between sensors")
+Fixes: f5f633b18234 ("thermal/drivers/mediatek: Add the Low Voltage Thermal Sensor driver")
 Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
 ---
- drivers/thermal/mediatek/lvts_thermal.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/thermal/mediatek/lvts_thermal.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
-index 9b8b653..f0b7caa 100644
+index f0b7caa..5fc87a8 100644
 --- a/drivers/thermal/mediatek/lvts_thermal.c
 +++ b/drivers/thermal/mediatek/lvts_thermal.c
-@@ -4,6 +4,7 @@
-  * Author: Balsam CHIHI <bchihi@baylibre.com>
-  */
+@@ -588,8 +588,9 @@ static irqreturn_t lvts_ctrl_irq_handler(struct lvts_ctrl *lvts_ctrl)
+ 		if (!(value & masks[i]))
+ 			continue;
  
-+#include <linux/cleanup.h>
- #include <linux/clk.h>
- #include <linux/clk-provider.h>
- #include <linux/delay.h>
-@@ -16,6 +17,7 @@
- #include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/reset.h>
-+#include <linux/spinlock.h>
- #include <linux/thermal.h>
- #include <dt-bindings/thermal/mediatek,lvts-thermal.h>
- 
-@@ -181,6 +183,7 @@ struct lvts_ctrl {
- 	void __iomem *base;
- 	int low_thresh;
- 	int high_thresh;
-+	spinlock_t lock; /* protects thresholds and LVTS_MONINT */
- };
- 
- struct lvts_domain {
-@@ -453,6 +456,8 @@ static int lvts_set_trips(struct thermal_zone_device *tz, int low, int high)
- 	u32 raw_high = high != INT_MAX ? lvts_temp_to_raw(high, lvts_data) : 0;
- 	bool should_update_thresh;
- 
-+	guard(spinlock)(&lvts_ctrl->lock);
-+
- 	lvts_sensor->low_thresh = low;
- 	lvts_sensor->high_thresh = high;
- 
-@@ -989,6 +994,7 @@ static int lvts_ctrl_init(struct device *dev, struct lvts_domain *lvts_td,
- 
- 		lvts_ctrl[i].low_thresh = INT_MIN;
- 		lvts_ctrl[i].high_thresh = INT_MIN;
-+		spin_lock_init(&lvts_ctrl[i].lock);
+-		thermal_zone_device_update(lvts_ctrl->sensors[i].tz,
+-					   THERMAL_TRIP_VIOLATED);
++		if (lvts_ctrl->sensors[i].tz)
++			thermal_zone_device_update(lvts_ctrl->sensors[i].tz,
++						   THERMAL_TRIP_VIOLATED);
+ 		iret = IRQ_HANDLED;
  	}
  
- 	/*
 -- 
 2.54.0 (Apple Git-157)
 
