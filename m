@@ -1,80 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795681496;
-	b=pDUcvY9k5vVBbqgN8ivun5ZsVjO+NtxGg4lt3VgRnbz43iYInGQO4Bogdw5eBgl/GiAc
-	 qcSr8DtxoyFGqUrIJqZu0LRVJPwB5RrTKlCkX09smptG6P6G8rNrnGWBLL+TjDFrlQVAj
-	 jI0m5fjal9R4ve3k/JU6PsPL8gkMg6vjkK5XaFA7t36ETIrPXvO3fJNVuN07Lo+E12C3n
-	 OekVn8v9PyZqds/UYf9kBwbcNeauitgtNI5XLDrcwJDnE/RWOMu3QHLOecS+OUT65CYmK
-	 GwU0JcwQNjvkuoD7yniGL3vZ5UcbYP++qwOkzuDWvflmRprlS+zKH96MflP8JPRkrLg==
+	t=1795681492;
+	b=wZrNGYdJ71EKNBlDfQxOpNukVg4bCyBLrib30/Mm01J2GafzZJ8YKI149ZcZeT8yt++q
+	 FB0yeOXyrVVsouWTmfCVO3lpygihHeIROtnFknrg0+cCkCWhbUI6nwrxMfW50XpWisyit
+	 6FC0KURXBZo5qf6TYn/v1tUbP7B7eVtEA3oRKycl4Gr9z5djGdkEsXFViqq+pMvvQGRKo
+	 LHhGk7Lu27VL0VDmH9ZCK4WagvMjoqbbwlmeK1r0qA3ZKTyr0CLY7LxrteN2e2CuiVUmg
+	 9ufB3PwANw6Hr6pQsu5ZmMbI5vumxa0GvI2A0GJ2pMcv9ctCYDjt60CkidtCx7ffzPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795681496;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
-	bh=8dzlnUaSZFdDsrAwfjCi9BeaouOlLJhbGS2/1eIOuAY=;
-	b=MaLF9NeHanW2HIXOkCR9Lwu2CXm+HM4xQidy0djKH0T1f2BbmZ4DsOSE6mkCxmwVfDOu
-	 65GX0gCMLJJ56pr1pbUAu7Np16IPFtHU8r1m3ckczl7BCXrvlMoXRMBKBZqTF//zEthYN
-	 SkMSfXeVPoxEKZcut6WExPZS22wMpUDlfI7R47Hle6Ah/ovaKI3TAdV9fLQ3RvWtuPbtg
-	 BXeMjNbNQnMi0jHU20Ks8fDO+MhbTMTZP7awrwlGF9asGAUOrlux4WLszZfzTYDRR8KxG
-	 5FfvzMEUHobRLieik3rg6csXCyIwzL+WGww/U9a0Zm8dCtpwoou9dc8+OBypI/KB67g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795681492;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=c/xuhSgrDi5Evjz9QC5SNlbLmx4tXIO0jjq3+L8fUUU=;
+	b=X9svkgC8NIpHJ7BaZU1u5A5xugD9wFHQHPsEcxGqPI8IXV7G3bjv3z7QEzrsjjwB0Uqc
+	 U2BHO+u8G8Mt6X/EnvWVC0Ah8mWvW7kwv2JecFnk27WteLc4LJUbgZOFK/+9OSb11LJOi
+	 a7kZOj3buBNIk+FWRY7RKV/TiSahqJQBEZQ3IVnzabO9UiPWKs+Hwvh8DEZ6UK+EBIdQ6
+	 VEqROZirhczj2m6bnXk/GOMQLpHPt2Seh4l22Zzv7JVkuzfS0+AbJTwaHkHNiX8l+5Z5x
+	 93swBa2qkp85NUtcEJcd6Ou7hHkMSthQOX6kT0iWjL5u4i2Y+GPU6gSOk86hQGIrpHA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mandelbit.com;
-	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=VthiaGh5;
-	arc=none smtp.remote-ip=195.10.208.42
-Received: from mout-b-112.mailbox.org (mout-b-112.mailbox.org [195.10.208.42])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="ebY5K/EX";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0C47606A33A;
-	Thu, 26 Nov 2026 08:24:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0C47606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 006BE606A337;
+	Thu, 26 Nov 2026 08:24:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=VthiaGh5
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-b-112.mailbox.org (Postfix) with ESMTPS id 4jZqNM1nXmz5wkk;
-	Thu, 26 Nov 2026 09:24:51 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1795681491;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8dzlnUaSZFdDsrAwfjCi9BeaouOlLJhbGS2/1eIOuAY=;
-	b=VthiaGh5y9TeRSaWXuQ7mx1eUoa+nTDJp2H2JGs8rGmvjhMP10DNsNZWZqQ70lU1FPYd3b
-	qojst/nzms+U2u/YxS98+SmUBFyXd18jnuRWQZg8dVEzIvQDJYGnWuO/JNTLcLslquZiMR
-	mafi4uejAONzyXPvHcg+kcjkCdoTACtrejaDiq3CG3yjuBad5pNITcBXM4USovVwywhzeF
-	jD7CI38QdkIJo/NdQCGbVkaxsnWwWLhX1VMkSutof+NBsoKLPZbtXzRpVdqiGbt7j9Wfhm
-	C9I47tUvCLkB6b+Ff909gosbzAVPOgWegFnzv6M1YDZjdCckT07GlaEZsStTLg==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
-From: Ralf Lici <ralf@mandelbit.com>
-To: netdev-bot+sinfo@kernel.org
-Cc: netdev@vger.kernel.org,
-	David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Sagarika Sharma <sharmasagarika@google.com>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Xia Yan <yanxia@cmss.chinamobile.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] ipv6: advance the serial after rebalancing in fib6_ifup and fib6_ifdown
-Date: Thu, 26 Nov 2026 09:24:40 +0100
-Message-ID: <20261126082441.67940-1-ralf@mandelbit.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <179568111516.3294.6279071790998998021@kernel.org>
-References: <20261126081353.55240-1-ralf@mandelbit.com> <179568111516.3294.6279071790998998021@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ebY5K/EX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8278D1F000C0;
+	Thu, 26 Nov 2026 08:24:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795681491;
+	bh=c/xuhSgrDi5Evjz9QC5SNlbLmx4tXIO0jjq3+L8fUUU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ebY5K/EXh6yUpAOaOGAPYixvLgD2Hm4OrXdy41KYC7GFjEnm1HvucHNEQg/F9u09q
+	 9VVlMugAis7yAYoD8wgebw4oKaTfK748lz9VIr6cihO64oKMc5VKK4T53dZkoEjzpd
+	 TEfHarhqFFo/uEotTRSdIUSPF1XCA/gmyMZCiXwn0IavCPwImzgNhk0ShIQ0hMDZWt
+	 drPqF28vZBjUXcvQfs58wcE8md+suSJBBa9bKI6ReTacUA0MThjU3yNLSMjIjdmtpj
+	 MQXbbWNKJ4DAbgNiI742ymc0G+MVhRXDVOrZsxHtivwFUm0iLTB3u4GOe1MpTADjsy
+	 Hwh7k3XHXv3Wg==
+Date: Thu, 26 Nov 2026 08:24:46 +0000
+From: Lee Jones <lee@kernel.org>
+To: Brian Masney <masneyb@kernel.org>
+Cc: Drew Fustini <fustini@kernel.org>,
+	Joel Stanley <jms@oss.tenstorrent.com>,
+	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH 08/10] clk: tenstorrent: Poll atomically in
+ atlantis_clk_pll_enable()
+Message-ID: <20261126082446.GA38590@joneslee-macbookpro.roam.internal>
+References: <20261123164834.3330320-1-lee@kernel.org>
+ <20261123164834.3330320-9-lee@kernel.org>
+ <awXYHBcmdDQ9OvlD@x1g10>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,34 +65,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jZqNM1nXmz5wkk
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awXYHBcmdDQ9OvlD@x1g10>
 
-On Thu, 26 Nov 2026 08:18:35 +0000, netdev-bot+sinfo@kernel.org wrote:
-> Hi!
->
-> This is an automated message. This series looks like a fix, but its
-> commit messages seem to be missing some information:
->
->  - Whether the issue was actually triggered, or is only theoretical
->    (e.g. found by LLM and not proven at runtime). If it was triggered
->    please include the symptoms, like the stack trace or kernel messages.
->
-> Please do not repost the series just to address the above. Instead,
-> reply to this email with the missing information, so that reviewers
-> can take it into account.
->
-> *IMPORTANT*: If you do repost (for other reasons) - please include
-> the relevant info in the cover letter or commit messages.
-> -- 
-> The evaluation is done by an LLM so it may be wrong, if you think
-> that is the case please reply and explain.
->
+On Tue, 24 Nov 2026, Brian Masney wrote:
 
-I've actually specified this in the commit message:
+> Hi Lee,
+> 
+> On Mon, Nov 23, 2026 at 04:47:41PM +0000, Lee Jones wrote:
+> > The Common Clock Framework invokes .enable callbacks in atomic context
+> > with interrupts disabled and enable_lock held.  In atlantis_clk_pll_ops,
+> > atlantis_clk_pll_enable() is registered as the .enable callback yet
+> > waits for PLL lock using regmap_read_poll_timeout() with a 500 us sleep
+> > interval, triggering a sleep-in-atomic bug via usleep_range().
+> > 
+> > Since the PRCM regmap is backed by MMIO, use
+> > regmap_read_poll_timeout_atomic() instead.
+> > 
+> > Fixes: 23c8ebc95284 ("clk: tenstorrent: Add Atlantis clock controller driver")
+> > Closes: https://sashiko.dev/#/bug/linux-980395a6-f282-478a-bf18-b5695a725735
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Lee Jones <lee@kernel.org>
+> > ---
+> >  drivers/clk/tenstorrent/atlantis-prcm.c | 9 +++++----
+> >  1 file changed, 5 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/drivers/clk/tenstorrent/atlantis-prcm.c b/drivers/clk/tenstorrent/atlantis-prcm.c
+> > index eccc8015da23..d9155f133713 100644
+> > --- a/drivers/clk/tenstorrent/atlantis-prcm.c
+> > +++ b/drivers/clk/tenstorrent/atlantis-prcm.c
+> > @@ -313,10 +313,11 @@ static int atlantis_clk_pll_enable(struct clk_hw *hw)
+> >  			   PLL_CFG_EN_BIT, PLL_CFG_EN_BIT);
+> >  
+> >  	/* Step 3: Wait for PLL lock */
+> > -	ret = regmap_read_poll_timeout(pll->common.regmap,
+> > -				       pll->config.reg_offset, val,
+> > -				       val & PLL_CFG_LOCK_BIT,
+> > -				       PLL_BYPASS_WAIT_US, PLL_LOCK_TIMEOUT_US);
+> > +	ret = regmap_read_poll_timeout_atomic(pll->common.regmap,
+> > +					      pll->config.reg_offset, val,
+> > +					      val & PLL_CFG_LOCK_BIT,
+> > +					      PLL_BYPASS_WAIT_US,
+> > +					      PLL_LOCK_TIMEOUT_US);
+> 
+> This should actually be converted to use the enable lock instead of the
+> prepare lock since this will sleep with interrupts disabled. The _atomic
+> variant won't be needed there.
 
-Reported by Sashiko while reviewing an earlier version of this change.
+Thank you Brian.  Can do.
 
 -- 
-Ralf Lici
-Mandelbit Srl
+Lee Jones
