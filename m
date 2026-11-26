@@ -1,103 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.19
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=114.242.206.163
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795669980;
-	b=FWUdWH98e6L1reeTrPHA15ILh/rdPZmb2ZDgD2LFbUKfd+lhWxD6AbDWmwhUnbn669WL
-	 YXV84uosP/oQTvXTC5Q5EKs5lRfWMJ+kIpeGJs1+9oidu3ipAO9FcuBgBppZC5OSxXCNL
-	 yhulCssjzXSWoMOY7GuCbFQ5uUsjlJlLk4/50ykhTgePKpIh6vO8JXSX9czSO2fgYsoZa
-	 E0MoUYLlDYtOi0iP/GOy1n6YIdvbmdfsEtIIdrgzrHDJcUlLsFQtP41aB1w+e/xBcezt3
-	 u70SoXIyMhVbbp3NqMqiQIIe6LfyoRlCQII3t5g0z5IBtmOhKxqYlkwLCprMR3iD/Qg==
+	t=1795669997;
+	b=ES+GbErxWV+RKVLN/MUPapLwVjoNOYWSwSbKXS+rJeJdFwcKKxDqdeT9jC64y2jdhdjq
+	 ym6f9tGqDwELF9xwx6plHeswNiX66KT8kF5jkHTSxJpQ9VJaeTV0X0WGRdHpPLA54r5tU
+	 7qouyjFzy/LO3DtBefO7zH3D2wCm/K06PbdOiF6kx38Jy14xu9Eeeupi0hG1nzWkFAK+V
+	 oHDDZoaXlen633qZ4IfigChp1ftxZkaLDUMS1/2jBsHwXGWi7mvbNArGmZeR88wggZizj
+	 msHZZbNFzQa5Vb5tx3G6KnoNLKEyYlLjvjJBsqd4hEvE0p92RZ1uxYuOQo37ldxr5tw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795669980;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=lFXxMh7eIhaB8OjUUwotZXqvl7Uz1yGZzQji6f4VZho=;
-	b=IY3SBCzKLPWFZLn/EFtPG6yS0K09AMZUR313+xgIO1X1ivUVCpx3O/2dD4sFN6qZuiqd
-	 J6uFTAODAUq+8obPAernkv+Vy1YRAhhDlcV5HQdJo3nBUvpuiVJ2oFz93OkYxfTT/WxOq
-	 zVVrz5s4skz7SR5wyy3K7fJCQd8+/xuP1170di4Tym3NXhGgSpxT5eW3W6jsIvQehRhaq
-	 nS7JTbm0nRSkGqqjQzxWM/h1QhZUSMorSKCp5bYg2hIe3wG7QkilAiQxH0x9KaSXonYjc
-	 zEKblKjimXyMPDwoxUMWpjdn6M5CM0j7WKzWb3t22wLYOMmmU6tAHP3i2Noyyel9WJg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795669997;
+	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-CM-SenderInfo:
+	 X-Coremail-Antispam;
+	bh=1+rdBCo8pQymdZ09uE1sFtVuaCKUGgMaXoyurLdm0AI=;
+	b=az9JFTxgdaQZnorCUvLOWXnlTaT9yplGq0ofVzNJKjNquNShLAwBsAtLKOw8zX1OzZf9
+	 +BXpVY7Dd/I12svqFMN4Mph1HiglOMEeOs5JMsVXKtMJrpHnbji2BmhqmID1H0OWHWfh0
+	 xs4BaLAVsLKzFlU+CJpmgGAJVuelO0F/RB5GILS5MIGnl4WDO4L9x8dCZWObseFE/lNQ1
+	 pTHZ9LTN5OZLb7GY7Z96CqFk6abwm717ECD2JwsZetYuG11asG7LMVWFACsATSljjvXYh
+	 uLnbiIFM5WiXBYLEH1sHzeR5hWbmPJMa9fSvHQ9NjXK1AkFKcJDVS/ZjRRrVsGllkJQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FpemP8Ku;
-	arc=none smtp.remote-ip=198.175.65.19
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.19])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 641F9606A331
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:13:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 641F9606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FpemP8Ku
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795669980; x=1827205980;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=tFnAXjoyu6xvvKvqfz4pnz+erMB8nXx1rsV4XpMr9mo=;
-  b=FpemP8Ku978zb/cGO+9dUE0JpBy915/u1pB8Pm8hWosGBmU6nj41cL7D
-   Cx6tx65TW7w2n9uBiVt4PTC6rm1X14NYvT9z5f+0VBVbEZ822TDSghK06
-   Ecd0aH0SLPH2myynmeOerEdCfG1haPATOkQVH/TwlbBgnwVAfWU3QKz2S
-   aJKy/N9TBRB3wGsgdp0jP7JqazywDhNBnI0oZqT9N7mjha1Df4IF7Z30n
-   7JPXiUdM+tLmSSv/Qiom4/ACq147xHpT6UNAwfm+Sn6JC+kmeu01HOtZC
-   aUuEdNgf43omBjQxDtlhFIcR1Iv+yVzWKngKz44WMycS5X0Va2SCQkYIe
-   w==;
-X-CSE-ConnectionGUID: lt1mkEEkQaCxRi1gZCwd4Q==
-X-CSE-MsgGUID: +ZnsOtpJQL6lVpXZOP8xbg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4632454"
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="4632454"
-Received: from fmviesa013.fm.intel.com ([10.60.135.153])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 21:13:00 -0800
-X-CSE-ConnectionGUID: LW6fTMmRQ+WAbpO6kbVJxA==
-X-CSE-MsgGUID: ifldHr/pQ3iUjmkaQoTfcg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="14112093"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa013.fm.intel.com with ESMTP; 25 Nov 2026 21:12:53 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xWRmr-00000001TJk-3Mok;
-	Thu, 26 Nov 2026 05:12:49 +0000
-Date: Thu, 26 Nov 2026 13:12:20 +0800
-From: kernel test robot <lkp@intel.com>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Inki Dae <inki.dae@samsung.com>,
-	Jagan Teki <jagan@amarulasolutions.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Jessica Zhang <jesszhan0024@gmail.com>,
-	Douglas Anderson <dianders@chromium.org>,
-	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: oe-kbuild-all@lists.linux.dev,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Hui Pu <Hui.Pu@gehealthcare.com>,
-	Ian Ray <ian.ray@gehealthcare.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 32/32] drm/mxsfb/lcdif: enable bridge hotplug
-Message-ID: <20261126130346.sISldSGf-lkp@intel.com>
-References: <20261125-drm-bridge-hotplug-v4-32-822722850492@bootlin.com>
+	dmarc=none header.from=loongson.cn;
+	spf=pass smtp.mailfrom=loongson.cn;
+	arc=none smtp.remote-ip=114.242.206.163
+Received: from mail.loongson.cn (mail.loongson.cn [114.242.206.163])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id B5F43606A31C;
+	Thu, 26 Nov 2026 05:13:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5F43606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=loongson.cn
+Received: from loongson.cn (unknown [123.138.236.242])
+	by gateway (Coremail) with SMTP id _____8AxS_DpvwdrPCUjAA--.34294S3;
+	Thu, 26 Nov 2026 13:13:13 +0800 (CST)
+Received: from linux.localdomain (unknown [123.138.236.242])
+	by front1 (Coremail) with SMTP id qMiowJAxFs3jvwdr63k3AA--.52601S3;
+	Thu, 26 Nov 2026 13:13:11 +0800 (CST)
+From: Tiezhu Yang <yangtiezhu@loongson.cn>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Cc: bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH bpf-next v1 1/2] selftests/bpf: Include bpf_misc.h in uprobe_autoattach.c
+Date: Thu, 26 Nov 2026 13:13:06 +0800
+Message-ID: <20261126051307.13170-2-yangtiezhu@loongson.cn>
+X-Mailer: git-send-email 2.42.0
+In-Reply-To: <20261126051307.13170-1-yangtiezhu@loongson.cn>
+References: <20261126051307.13170-1-yangtiezhu@loongson.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,80 +57,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125-drm-bridge-hotplug-v4-32-822722850492@bootlin.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:qMiowJAxFs3jvwdr63k3AA--.52601S3
+X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+X-Coremail-Antispam: 1Uk129KBj93XoWxAFyxAr4UGFWkCrWrCFykJFc_yoW5tr13pa
+	ykuFyakF1Sq3W3Xa47GayDWr1rWF1vqr1UAFWqq34fZF1DW3ykJr1Iqr45Jrn8WrZYvw4r
+	Z3ZrKr1fXFW8ZFgCm3ZEXasCq-sJn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUkFb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv6xkF7I0E14v2
+	6r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2xF0cIa020Ex4CE44I27w
+	Aqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE
+	14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCF04k20xvY0x
+	0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E
+	7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcV
+	C0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF
+	04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7
+	CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07jOb18UUUUU=
 
-Hi Luca,
+Commit bc72742bebec ("selftests/bpf: Validate arch-specific argument
+registers limits") originally included the header "progs/bpf_misc.h"
+in prog_tests/uprobe_autoattach.c so that FUNC_REG_ARG_CNT is defined
+when checking argument assertions (arg4 through arg8).
 
-kernel test robot noticed the following build errors:
+Commit 8c2b5e90505e ("selftests/bpf: add bpf_for_each(), bpf_for(),
+and bpf_repeat() macros") accidentally removed this include, causing
+FUNC_REG_ARG_CNT to evaluate to 0 in the preprocessor and silently
+skipping all assertions beyond arg3 on every architecture.
 
-[auto build test ERROR on 479e381e77dcde0dfcc9d51e89ff3273da199804]
+Restore #include "progs/bpf_misc.h" in prog_tests/uprobe_autoattach.c,
+while guarding __naked and SYS_PREFIX in progs/bpf_misc.h with #ifndef
+to avoid redefinition conflicts with user-space headers.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Luca-Ceresoli/drm-display-hdmi-cec-helper-use-drmm_-prefix-for-drmm-action/20261125-185014
-base:   479e381e77dcde0dfcc9d51e89ff3273da199804
-patch link:    https://lore.kernel.org/r/20261125-drm-bridge-hotplug-v4-32-822722850492%40bootlin.com
-patch subject: [PATCH v4 32/32] drm/mxsfb/lcdif: enable bridge hotplug
-config: arc-randconfig-1000-20261126 (https://download.01.org/0day-ci/archive/20261126/20261126130346.sISldSGf-lkp@intel.com/config)
-compiler: arc-linux-gcc (GCC) 8.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261126/20261126130346.sISldSGf-lkp@intel.com/reproduce)
+Here are the test results on LoongArch, where default FUNC_REG_ARG_CNT
+is 5.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261126130346.sISldSGf-lkp@intel.com/
+Before:
+  $ sudo ./test_progs -v -t uprobe_autoattach
+  ...
+  test_uprobe_autoattach:PASS:arg1 0 nsec
+  test_uprobe_autoattach:PASS:arg2 0 nsec
+  test_uprobe_autoattach:PASS:arg3 0 nsec
+  #656     uprobe_autoattach:OK
 
-All errors (new ones prefixed by >>):
+After:
+  $ sudo ./test_progs -v -t uprobe_autoattach
+  ...
+  test_uprobe_autoattach:PASS:arg1 0 nsec
+  test_uprobe_autoattach:PASS:arg2 0 nsec
+  test_uprobe_autoattach:PASS:arg3 0 nsec
+  test_uprobe_autoattach:PASS:arg4 0 nsec
+  test_uprobe_autoattach:PASS:arg5 0 nsec
+  #656     uprobe_autoattach:OK
 
-   drivers/gpu/drm/display/drm_hotplug_helper.c: In function 'drm_hotplug_helper_handle_event':
->> drivers/gpu/drm/display/drm_hotplug_helper.c:234:2: error: label at end of compound statement
-     default:
-     ^~~~~~~
+Fixes: 8c2b5e90505e ("selftests/bpf: add bpf_for_each(), bpf_for(), and bpf_repeat() macros")
+Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+---
+ tools/testing/selftests/bpf/prog_tests/uprobe_autoattach.c | 1 +
+ tools/testing/selftests/bpf/progs/bpf_misc.h               | 4 ++++
+ 2 files changed, 5 insertions(+)
 
-
-vim +234 drivers/gpu/drm/display/drm_hotplug_helper.c
-
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  200  
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  201  static int drm_hotplug_helper_handle_event(struct notifier_block *nb,
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  202  					   unsigned long event, void *data)
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  203  {
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  204  	struct drm_hotplug_helper *hotplug_helper =
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  205  		container_of(nb, struct drm_hotplug_helper, drm_event_nb);
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  206  	struct device *dev = hotplug_helper->encoder->dev->dev;
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  207  
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  208  	guard(mutex)(&hotplug_helper->event_mutex);
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  209  
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  210  	dev_dbg(dev, "received event %lu\n", event);
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  211  
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  212  	switch (event) {
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  213  	case DRM_BRIDGE_ADDED:
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  214  	case DRM_MIPI_DSI_ATTACHED:
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  215  		/*
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  216  		 * A bridges hot-plugged, try adding the
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  217  		 * drm_bridge_connector
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  218  		 */
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  219  		drm_hotplug_helper_try_complete(hotplug_helper);
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  220  		break;
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  221  	case DRM_BRIDGE_DETACHED:
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  222  	{
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  223  		/*
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  224  		 * A bridge was unplugged, remove the drm_bridge_connector
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  225  		 * if it's part of the same pipeline
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  226  		 */
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  227  		struct drm_bridge *bridge = (struct drm_bridge *)data;
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  228  
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  229  		if (hotplug_helper->connector &&
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  230  		    bridge->encoder == hotplug_helper->encoder)
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  231  			drm_hotplug_helper_connector_remove(hotplug_helper);
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  232  		break;
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  233  	}
-6ee877a9b7f826b Luca Ceresoli 2026-11-25 @234  	default:
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  235  	}
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  236  
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  237  	return NOTIFY_DONE;
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  238  }
-6ee877a9b7f826b Luca Ceresoli 2026-11-25  239  
-
+diff --git a/tools/testing/selftests/bpf/prog_tests/uprobe_autoattach.c b/tools/testing/selftests/bpf/prog_tests/uprobe_autoattach.c
+index d5b3377aa33c..6558c857e620 100644
+--- a/tools/testing/selftests/bpf/prog_tests/uprobe_autoattach.c
++++ b/tools/testing/selftests/bpf/prog_tests/uprobe_autoattach.c
+@@ -3,6 +3,7 @@
+ 
+ #include <test_progs.h>
+ #include "test_uprobe_autoattach.skel.h"
++#include "progs/bpf_misc.h"
+ 
+ /* uprobe attach point */
+ static noinline int autoattach_trigger_func(int arg1, int arg2, int arg3,
+diff --git a/tools/testing/selftests/bpf/progs/bpf_misc.h b/tools/testing/selftests/bpf/progs/bpf_misc.h
+index 6b930cb48f8d..589e68e4fa5c 100644
+--- a/tools/testing/selftests/bpf/progs/bpf_misc.h
++++ b/tools/testing/selftests/bpf/progs/bpf_misc.h
+@@ -206,7 +206,9 @@
+ #define CAP_BPF			39
+ 
+ /* Convenience macro for use with 'asm volatile' blocks */
++#ifndef __naked
+ #define __naked __attribute__((naked))
++#endif
+ #define __clobber_all "r0", "r1", "r2", "r3", "r4", "r5", "r6", "r7", "r8", "r9", "memory"
+ #define __clobber_common "r0", "r1", "r2", "r3", "r4", "r5", "memory"
+ #define __imm(name) [name]"i"(name)
+@@ -231,6 +233,7 @@
+ #define __used __attribute__((used))
+ #endif
+ 
++#ifndef SYS_PREFIX
+ #if defined(__TARGET_ARCH_x86)
+ #define SYSCALL_WRAPPER 1
+ #define SYS_PREFIX "__x64_"
+@@ -250,6 +253,7 @@
+ #define SYSCALL_WRAPPER 0
+ #define SYS_PREFIX "__se_"
+ #endif
++#endif /* SYS_PREFIX */
+ 
+ /* How many arguments are passed to function in register */
+ #if defined(__TARGET_ARCH_x86) || defined(__x86_64__)
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.42.0
+
