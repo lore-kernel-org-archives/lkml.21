@@ -1,73 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=119.15.109.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795690203;
-	b=LmqiTUxz/JpYqFukPAe7fJ0p54/ImInSef/hMfZdx2IoCkegzLMekcRKTkIDxDlmDfxG
-	 LQnfUN0QLf2hIUNdCzKIFjh0LDYMy/2W7/f5/vEU1QnOzQxA3LyIKXxcBe0VzU3QbgrBW
-	 ZGnbqARmay7y4RK8Pjo0RYI3PTzLRJQcJhrm678e1+qaL9CT/mgdqBnub3RCYSjH8ElgK
-	 QSIRZddxtjdoK0Eq5m9wtpxXn+O0msqRSHpbr3Jp4BYD4mUnnYdwXnkoAvA1KZUZmKapt
-	 dj4wLXYaTtfvWZYZYf+tvkBMNemy6oTiIqEl4gB16e+ABY/2JdYutnJsBpR8r5cjVYQ==
+	t=1795690207;
+	b=CdLYsr2vgyeznZHHwBVH/+s7H7JtFTxuStEa0QawsVzAcd9YCD1Ds1JD+tApFvWu3GLn
+	 ya3noddYaKTAyoBp+uXLqf6yji9IJ7XUwfNROYtZ6yWA7pfTRouEY47kzP6An2I9d6QkY
+	 rUDu6dZC1mnKwkMs/hVzkCUA824JDVAT/vwhjQsAN50pOVifstgCgp0aof3hedQHVKzEO
+	 Vo1Sb0tZDWILzQhQVclKmphUvHwkVSzgadBrIey0gYwz9xgWZJ5QOT10TMgJiR7lK53uk
+	 cCH6IWpd9jbgKhnQA8k+QzmxQXLENoaSvz8covz3OTHKuxnsFwaUfTroHFVNmWc1qoQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795690203;
-	h=DMARC-Filter:Received:DKIM-Signature:X-GPT-Reason:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=jMsdtwCbV5v0zb6ZC86ZF2reRzr1NvmCVm7BDIN6O6s=;
-	b=ivn7vf25koVah1IJag9GfRo/BEsubguL7wfY1c7ctN2YYTqXsU2g6eF6+CPuCQdO7Ciq
-	 9L+X+j+09FW6/JiXBhNSaC2WoHEWDDPBDrTYTnv5CFdmMq+fDvn5wSaj8gzgFgjfuW6HB
-	 xLr1t95NwEkQSuzi8XyRC9awS+FA27HFSqzyRL2Fp9QH30E7HZt7EICafo0Tl8BpoFtNx
-	 2rAeQrrBYBLU39uJATtFzqRx2FZVpSmbPHrCn0A0t7z5iDwaWuNTDM0WOkcuO+oN6Oki5
-	 ONxKHpTNLzJx1JGQr/a/K+agOhQ638QVy7SfShvARZwgQd+5e1NrCSklUpTpXSZJz5A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795690207;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=RAGDpCNfxKiB8/M15XUf+EmRm7rjiAlqeMsjC2/ZhGU=;
+	b=o3ySth7IyM2xlqbZaqf8lY72OU2gPysoPJ7xJOf6oO3amM2PcbfcDiuMk8sTogSRl491
+	 cd90EErBDEB49A2V2Bwhx1+eFRiajcfFrrdrLQmpMsGmDxd1otTJovjCIr860humbgs8T
+	 rb3egKtko48DCdMe1XPZdQfj2l9MOoU0ekfbpuy1Ho+8JaNKJQFxChqKRYM1b4SCgw7Md
+	 TjIrHFW8CSforsXeB/XHN8wgmAhhyMBOE+cRBdfvSCTwoudgTeF6ooTQBVZnRe3TnpUWH
+	 LWjnAzxsXn4CdLNwDdXCs9Va404baDM/XxFTIQNGv5izwqSFCt8PgweeFFFc/iXNo6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=d-silva.org;
-	spf=pass smtp.mailfrom=d-silva.org;
-	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=F2R2bmyu;
-	arc=none smtp.remote-ip=119.15.109.137
-Received: from www.nmnhosting.com (watt.d-silva.org [119.15.109.137])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mJSMECBZ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77B9A606A323;
-	Thu, 26 Nov 2026 10:50:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77B9A606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=d-silva.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=d-silva.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5459F606A31C;
+	Thu, 26 Nov 2026 10:50:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=F2R2bmyu
-Received: from Hawking.lan (hawking.lan [10.0.1.4])
-	by www.nmnhosting.com (Postfix) with ESMTP id 43655403EF;
-	Thu, 26 Nov 2026 21:49:54 +1100 (AEDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
-	t=1795690194;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=jMsdtwCbV5v0zb6ZC86ZF2reRzr1NvmCVm7BDIN6O6s=;
-	b=F2R2bmyugO9Wik6VrsqtltgrnjxLDfBrWB/7KeEYHci7kKRs960fMakOamSRLjTb+YRp7F
-	o8UKPVpts3PBiISm9oiH8ehslTKZIHOxEqJmCZtoRMkD9fTonvyW3gPp8pm2GN9hUNeyoW
-	j3YTDZVaUPqPZf4n+2yJjZ1xW+bNfXJwkwlE+L6Dh6Ya5MpknNmF0ICebUeU921rt5lvxw
-	QlX6i8l0aLluiTF3sirVhu1UlADxVtQit9bXYTwl8H5DKp7Vr24W/WCWPi/ZfAb4X5NkoJ
-	vfHy+E48UgO5W9o/ylVVHtl86g3D5sGBd7847oLJ7zjvbcCFun3RFDwa08ViPA==
-X-GPT-Reason: legitimate_personal_technical_content: The email
-	is a standard Linux kernel patch submission containing a functional
-	code diff regarding pinctrl driver refactoring. The sender
-	(alastair@d-silva.org) matches the intended recipient domain
-	(alastair@d-silva.org), the subject line follows standard developer
-	conventions ([PATCH]), and there are no indicators of marketing,
-	phishing, or urgency.
-From: Alastair D'Silva <alastair@d-silva.org>
-To: Linus Walleij <linusw@kernel.org>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: linux-gpio@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Alastair D'Silva <alastair@d-silva.org>
-Subject: [PATCH] pinctrl: sunxi: Drop unused parameter from sunxi_grp_config_reg()
-Date: Thu, 26 Nov 2026 21:49:54 +1100
-Message-ID: <20261126104954.441427-1-alastair@d-silva.org>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mJSMECBZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF7431F000EF;
+	Thu, 26 Nov 2026 10:50:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795690206;
+	bh=RAGDpCNfxKiB8/M15XUf+EmRm7rjiAlqeMsjC2/ZhGU=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=mJSMECBZaRI3nTi1NWZDIB5UyRPSdPXhfi073W7qdz/utvwibOP7AmRpT4gD4W9v1
+	 MtMQmP3UtyRdwiWl2nGZGKoOE5gpzrt2Za4iGzHWKUvmLvli80cYDRZICHOshrpU7v
+	 fHFLyIv5UtO3sCckf+876CUH4mbFxPCtkU8SwHY5EVXJd2EVgVhfUyLB+7hyjn2BGV
+	 FgCib0ABXQQUT4l8v+1d44Al3M1OY8bZANa9D19rn0EZFdNm08PsCqElPoZMPm32kS
+	 6aYGynoGbNJ37AIEu/4H0tqCtxg30ZoUCN6Nsp61ZAV/kdmLPDbPhkE/SBN25kGwBO
+	 I0bZKNUqZH4UQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B4643380A95A;
+	Thu, 26 Nov 2026 10:50:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,49 +54,43 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v2] net/mlx5e: Skip hairpin entries not ready in
+ debugfs
+ dump
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179569020553.1743253.12065164933418041046.git-patchwork-notify@kernel.org>
+Date: Thu, 26 Nov 2026 10:50:05 +0000
+References: <20261120021557.1630138-1-lcy8047@gmail.com>
+In-Reply-To: <20261120021557.1630138-1-lcy8047@gmail.com>
+To: Changyul Lee <lcy8047@gmail.com>
+Cc: saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com, mbloch@nvidia.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, gal@nvidia.com, netdev@vger.kernel.org,
+ linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
 
-sunxi_grp_config_reg() takes a pctl parameter that is never used.
-Drop it to match the original signature.
+Hello:
 
-Fixes: 8b367fc08be4 ("pinctrl: sunxi: refactor IRQ register accessors")
-Assisted-by: LLM
-Signed-off-by: Alastair D'Silva <alastair@d-silva.org>
----
- drivers/pinctrl/sunxi/pinctrl-sunxi.c | 5 ++---
- drivers/pinctrl/sunxi/pinctrl-sunxi.h | 3 +--
- 2 files changed, 3 insertions(+), 5 deletions(-)
+This patch was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-index bf4ec4665e2b..d30a562315aa 100644
---- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-+++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-@@ -763,10 +763,9 @@ static int sunxi_pinctrl_set_io_bias_cfg(struct sunxi_pinctrl *pctl,
- 		else
- 			val = 0xD; /* 3.3V */
- 
--		reg = readl(pctl->membase + sunxi_grp_config_reg(pctl, pin));
-+		reg = readl(pctl->membase + sunxi_grp_config_reg(pin));
- 		reg &= ~IO_BIAS_MASK;
--		writel(reg | val, pctl->membase +
--		       sunxi_grp_config_reg(pctl, pin));
-+		writel(reg | val, pctl->membase + sunxi_grp_config_reg(pin));
- 		return 0;
- 	case BIAS_VOLTAGE_PIO_POW_MODE_CTL_INV:
- 		inverted = true;
-diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
-index 7c2f29e75519..3060cef3705d 100644
---- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
-+++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
-@@ -328,8 +328,7 @@ static inline u32 sunxi_irq_status_offset(u16 irq)
- 	return irq_num * IRQ_STATUS_IRQ_BITS;
- }
- 
--static inline u32 sunxi_grp_config_reg(const struct sunxi_pinctrl *pctl,
--				       u16 pin)
-+static inline u32 sunxi_grp_config_reg(u16 pin)
- {
- 	u8 bank = pin / PINS_PER_BANK;
- 
+On Thu, 19 Nov 2026 21:15:57 -0500 you wrote:
+> mlx5e_hairpin_flow_add() adds a new hairpin entry to hairpin_tbl and
+> drops hairpin_tbl_lock before creating the hairpin, and sets hpe->hp
+> only after mlx5e_hairpin_create() returns. Other users of the entry wait
+> for res_ready, but debugfs_hairpin_table_dump_show() does not, so
+> reading hairpin_table_dump in that window dereferences a NULL hpe->hp,
+> or an ERR_PTR when the creation fails.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net,v2] net/mlx5e: Skip hairpin entries not ready in debugfs dump
+    https://git.kernel.org/netdev/net-next/c/65413721880b
+
+You are awesome, thank you!
 -- 
-2.53.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
