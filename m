@@ -1,54 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795729478;
-	b=5J2UoEOw95eBEyDsRefsl3V+kq2cv7+yUnoAV/XMUjIZnphru2gLikzEXH/w9h1RwomH
-	 GqYLm/Vpw5ORMfpgng6FEK6i7L5FnQvgds3EgGU/UQPdBYMgeOoYcZ0bktZ1SaeR3y869
-	 3rjOWFR+607f8pi6GhkEb20KMuuHzrPkJcOqFLBTe+prhLFXaKlrQ7pq7iTL8Td+97WVb
-	 hAgA13eXJTojHnvj+vvWBhZEnRS+NK6WUTI4hLV785s2NvCbGyDfziyz2/UcLdusQKnWe
-	 pydif+xZM6t217ooicGsgUK8RbH4mCANQxU7M6lfx+2RVKlfubBIF5gmiDfU150VDFA==
+	b=CNkoOzLw02x0rIh0avtTXgg3igfPZ92ZKooLh492vpVcJpOQk4FWOZgSVA2rmXO/jSZf
+	 AZGWGaP2Jw4K4jGckf4ylYatGYF3+o0JsnQhxQRCg7/RIeljLBe3UStaHFeweL+oHqIUd
+	 FssOvtBm4vKlnCeDRlknsrpoak+7JFl6HOlk3fKZtGvDKjFV1tybFAWXAeCLEzV5e9y6m
+	 31+mZsA+J02XT0PWSvlx7tW4NtYiP77FXPxNIZvej1pTIRW55K5ppZDgS9Iwx4AB/bPwC
+	 s0D24o6XTsD4gV9o0WMvvnR1WJLAkaEbojQf7leIOstbbCBuzTHF8j/xRSC0/vWEIEw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795729478;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=VuD/knKdWaeBdTXh9LaA+EVb2zYgv6k7/haIr1KiUK4=;
-	b=TQEY8ur83Vxiy3hytyQ9n7lto34SSAsFJrsbKzL+KKz3v6aPcqvAWR6NTuUbmHw9nXyi
-	 kS8Seg3Z6hahcdKNWsvBiCLf0VpK/GtSMd9z0GJtHLN9K1rAvTq9XKTcffGjlohNtqzd6
-	 +jAdVgUEmDKG0WFTSOqob3yu4DBfAXEBLIchFeOhhPjwZ+lKsxZEWmiF7D8CiGgfTksol
-	 wnbV288uLeVEa6Kjqrv1/KZV9jdwouqCqpLVWSyA9RcVIHTHlSI2b7PZzzDYBIHUMAy2e
-	 LLXq2/UiHGnbwKoNUgv2jt6YXSWRRw5LV5c7ABf/DKQd4nZIBNkKLlWL/pmJJTwr6MA==
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=qsM5RJY4ssSc6XEZK9/kRUVmdgCpjgjWKidI/l+cEZA=;
+	b=MyAuHwYHsWsN52Ks+DcGPu1U1ToVWE+/onIrzc2V+8KW3+yBv4YHDLICxCUdbTq5koL2
+	 sRG7LpsG0zqXiMTfWZAGTSigEUZNRrd6/pbOehLM8acLdn54mEhs4ztBCNAOCyBLU24Vi
+	 lMHZ1T/ll6UXA7HekPFUvy/BtTCx8h7BfOQ0MJZ3iW0zbtFPBWxflGj1zfw5OvjreMpxN
+	 rGo0/RpwkgFn7R6/Mv8KUXABLiYF5c9/kpq0Mz/eYXIkBJAlXp/Ji7hz2d8Qt2uogLjzJ
+	 Mi2IHeXQrGFdwy8xFDtPLuuAJjI2VBUO2+TL11cnL8uqUSNoD4+k4gvGsfvyxPz31Dw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.160.72
-Received: from mail-oa1-f72.google.com (mail-oa1-f72.google.com [209.85.160.72])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=L+89tWrj;
+	arc=none smtp.remote-ip=209.85.215.173
+Received: from mail-pg1-f173.google.com (mail-pg1-f173.google.com [209.85.215.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02723606A32E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14DB2606A331
 	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:44:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02723606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oa1-f72.google.com with SMTP id 586e51a60fabf-4ae40674bd0so4124068fac.2
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14DB2606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=L+89tWrj
+Received: by mail-pg1-f173.google.com with SMTP id 41be03b00d2f7-cdac6d19ddaso3043317a12.2
         for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:44:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795729477; x=1796334277; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qsM5RJY4ssSc6XEZK9/kRUVmdgCpjgjWKidI/l+cEZA=;
+        b=L+89tWrjVUOYzEBM2CqDkJbR5+pFAJamBwDNctm7dEk42pNZiH8VAzRW4iyCSIGUuU
+         lQWdTCzMAWO3o4eqQkY4Itu9kHrX9un0aj6zfVpaDNbCsfBvil+62Jsl+CUn4ZrVwn5f
+         Sa9NW8Y5s6ym8AOtAgPCztni1jJ6VhZN8D+SX7+U+QusGeBpiez0C/3aOMgylc6kMOwt
+         Sg1jZ1K4tmWh1DMNJX+cDsTkz01dkDirZNlquuHaPvv6Z3i30Go4ATqjxekm8p2O2LaO
+         +75dRYD+rHcXWLj1jlbwwao8FwAeQP02m2AvsiX0Cwz6upAIiFpfVYAD/a3dsuBdUf6A
+         4VJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795729476; x=1796334276;
-        h=content-type:to:from:subject:message-id:in-reply-to:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=VuD/knKdWaeBdTXh9LaA+EVb2zYgv6k7/haIr1KiUK4=;
-        b=qLliScjQbmg0sZ1oLEvS6eIKj4G4epRlrbu0QeASEpPb6qFOKq2wSCUcCBAOsCtce5
-         jTc2YwYEpo9YICHpJndblOjHRgXCZRv55d88pE4P1uiqNDvNEvSHSLdkS3vI+vnOLTqQ
-         K5mlL60DwPac+n3IIDzkLjsDtC14gO9IsycR32gPbu3a/kGZSPdk31MOYXGQs5pQtGi1
-         RFK7LZXbGA1K0/CBvd6Dc05K8yIj8qSut0PRV7QTzYFuZahPNSbmoqHjjIH9Ut3sO15r
-         pdFjD4hjq5zFK6ueeLJmJ0RHtZOSHVn3F2IdmfgL4Z1IrQtnOm8e7OpzNWBkn1P+Iu+j
-         Yj8g==
-X-Forwarded-Encrypted: i=1; AL+hErFa9/lXTf06jhpl4sTARcg0c6dttSgjDwsbvIViF+XQFKnnvfWWAePSe0Zbc3+rErYN1PiuVWjd3QcYskQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/6XKSqPNM6IxxxEnzBl/fkkP6fhHn3Kd1YDY8PVlfx9z7O7sQ/
-	0hrUKT6NhkqUDIDdbTIOwUhDoXsLKlIhexPerzVLj/Wjej/eW8iFICdqemnqY0Az/JYyzn8voSH
-	wARL2SSlq3yQlv2aVLFL3FnR5HrCvgR2ztxZs60DOvqOk+ATcUNN/36CgtQw=
+        d=1e100.net; s=20260707; t=1795729477; x=1796334277;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qsM5RJY4ssSc6XEZK9/kRUVmdgCpjgjWKidI/l+cEZA=;
+        b=WMMEQyFCWjGKN60d+4kQX04WKimh0eZ1ciJAZgsYm++ADNeag5dtkcH7sRVU+1bfZP
+         PMBOFjmdW/YIIEXnql1qxmcQj8AeTFLBSDULK7Z0ZICTd9wLjBfM+GZmLRJ7VmuBM3Kx
+         oFwF4AUSocEyRXB9CdcLLsF6gPtbI3fNLn8keHWdV0LLBnEGutMX2+6iHuHcxzrkyYT0
+         Pqiy3drWP6kmr21x37ccJLDl1bdR9KN61TC5ZCO0qT8MqzYUnPF3MulrxXz/1Djc85yL
+         HQTUQUVaeSBfEq9Vw2yZwrrwyzPTnVHLkxXxTRyjc5+v4JtkSbr+cXUtGw96yYD+AIYP
+         vetw==
+X-Forwarded-Encrypted: i=1; AL+hErET/+urQLs5KANZ+MVfChfah/z1wQXLHL5Q84yPvkXua9Z+LsHngqclc3ErxGwGL2obo8Fno2ZIERTJsxA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+DS7F/tHX4OtYYU0HgkDwAtZulY51YiK7GZ1odEfvalZhnACtn
+	I2JgLdCcTa34ooWdTeG7WQnxt1K1AvUp53qulIO3tt/oHBSL+GbKP0Ed
+X-Gm-Gg: AZFdTZfR0QUHKH2rpFjwoUFhUwZiuCy6WHt7TugYRr+kiAxns10t0eWjnPfNdmHTz3g
+	I0jDInKz5wTYTBbgHZVC/CHSlDlfV0qHx9z7CSLpxl6IS6J6wzkiPcCib7xL41kJqIJs99DU6h+
+	jEQw8upmzjUqU/rNrd+3GiZTwf2T0KyujzgZJW4SGWzZ4Ka6Yr5OKsrO7uBxyJ9kLzTTAMNS64E
+	qqIOep0mwiWz89TY4w+6aYKlcZAE+Ubi7u5kYj3ewJ0SJw6XluRMWiUyYjCZ3TsxtYkdDuXpdcD
+	hlsglQ354SSS0FHdFU2CIGZRGeYj3Tw6umhcy47GxwtSyuWm/eb+CC0lQY76I0RhAuthl/3D48u
+	Ly/jy+EYClj5hNC09WxR7hCP0YA/HpxyYgmcs7KTwF8RwjmSw7j68VUwqCHksEsLFeycAzuzFr9
+	S2xXBs3uXa9BGL3wTWfDFAYZ/UkqngptvdWoFfCy8biPAEPNEekvtU+KGilkDZLCJCtLDkgaSjN
+	7y7hJ5JlJGhSSXKMvCBcSN5B1pihVnQQLacBIRLYpZWMQNhnozTQnqbXES8RaxltqFwcCAw4i4w
+	I+HSQ6PnxVs7aWWH8+NhOIn4Db87OJES7A3zeAtar7SSdNpM6A==
+X-Received: by 2002:a17:90b:2e47:b0:3b4:eb3:a34e with SMTP id 98e67ed59e1d1-3b41c8fe15emr19804307a91.21.1795729477360;
+        Thu, 26 Nov 2026 13:44:37 -0800 (PST)
+Received: from fedora.tailc1fb0a.ts.net ([172.219.65.15])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40f4312dfsm36176538a91.3.2026.11.26.13.44.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 13:44:37 -0800 (PST)
+From: Artem Novak <artem122novak@gmail.com>
+To: dlemoal@kernel.org
+Cc: cassel@kernel.org,
+	linus.walleij@linaro.org,
+	viresh.kumar@linaro.org,
+	linux-ide@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Artem Novak <artem122novak@gmail.com>
+Subject: [PATCH v2 1/4] ata: pata_arasan_cf: add missing newline to warning
+Date: Thu, 26 Nov 2026 15:44:30 -0600
+Message-ID: <20261126214433.38317-2-artem122novak@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261126214433.38317-1-artem122novak@gmail.com>
+References: <20261126214433.38317-1-artem122novak@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,130 +101,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:4f48:b0:573:6ee8:2399 with SMTP id
- 5614622812f47-57a0a211c71mr24272371b6e.19.1795729476694; Thu, 26 Nov 2026
- 13:44:36 -0800 (PST)
-Date: Thu, 26 Nov 2026 13:44:36 -0800
-In-Reply-To: <6b088253.28411dd9.2968b4.0009.GAE@google.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b08a844.904258e1.78503.0026.GAE@google.com>
-Subject: Re: [syzbot] [media?] general protection fault in __media_device_register
-From: syzbot <syzbot+8769efb8c3d52870334c@syzkaller.appspotmail.com>
-To: laurent.pinchart@ideasonboard.com, linux-kernel@vger.kernel.org, 
-	linux-media@vger.kernel.org, mchehab@kernel.org, mchehab@osg.samsung.com, 
-	sakari.ailus@linux.intel.com, syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-syzbot has found a reproducer for the following issue on:
+Terminate the clock-rate failure warning with a newline so that
+subsequent kernel messages are properly separated.
 
-HEAD commit:    25faec9ce61c net: dpaa2-eth: fix objtool warning and logic..
-git tree:       upstream
-console output: https://syzkaller.appspot.com/x/log.txt?x=16d5e153580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=fbd0fc734eea62ed
-dashboard link: https://syzkaller.appspot.com/bug?extid=8769efb8c3d52870334c
-compiler:       Debian clang version 22.1.8 (1~deb13u5), Debian LLD 22.1.8
-syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=17cdca6d580000
+Signed-off-by: Artem Novak <artem122novak@gmail.com>
+---
+ drivers/ata/pata_arasan_cf.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Downloadable assets:
-disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/98fce4d0b21b/non_bootable_disk-25faec9c.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/4c1927657be7/vmlinux-25faec9c.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/6fda75e8de56/bzImage-25faec9c.xz
+diff --git a/drivers/ata/pata_arasan_cf.c b/drivers/ata/pata_arasan_cf.c
+index 12f1324461d1..0b3e4e63b66d 100644
+--- a/drivers/ata/pata_arasan_cf.c
++++ b/drivers/ata/pata_arasan_cf.c
+@@ -318,7 +318,7 @@ static int cf_init(struct arasan_cf_dev *acdev)
+ 
+ 	ret = clk_set_rate(acdev->clk, 166000000);
+ 	if (ret) {
+-		dev_warn(acdev->host->dev, "clock set rate failed");
++		dev_warn(acdev->host->dev, "clock set rate failed\n");
+ 		clk_disable_unprepare(acdev->clk);
+ 		return ret;
+ 	}
+-- 
+2.56.1
 
-The issue was bisected by AI to:
-
-commit 37ecc7b1278f4184a6869504f7074b4a54f112c5
-Author: Mauro Carvalho Chehab <mchehab@osg.samsung.com>
-Date:   Wed Jan 27 09:07:24 2016 +0000
-
-    [media] em28xx: add media controller support
-
-reasoning:      https://syzkaller.appspot.com/ai_job?id=cc710625-e1fd-46cf-b43b-f649c55c924b
-
-AI-generated root cause summary:
-In drivers/media/usb/em28xx/em28xx-cards.c, em28xx_init_dev() calls
-em28xx_media_device_init() without checking its return value. When the
-kzalloc_obj(*mdev) allocation in em28xx_media_device_init() fails and returns
--ENOMEM, dev->media_dev remains NULL while device initialization continues.
-Later in em28xx_usb_probe(), media_device_register(dev->media_dev) is called
-unconditionally with dev->media_dev == NULL, triggering a NULL-pointer
-dereference in __media_device_register() at mdev->devnode = devnode.
-
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=8769efb8c3d52870334c
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+8769efb8c3d52870334c@syzkaller.appspotmail.com
-
-The bisection result may be wrong.
-If you agree with it, please also add:
-Fixes: 37ecc7b1278f ("[media] em28xx: add media controller support")
-
-em28xx 5-1:0.0: AC97 chip type couldn't be determined
-em28xx 5-1:0.0: No AC97 audio processor
-Oops: general protection fault, probably for non-canonical address 0xdffffc0000000001: 0000 [#1] SMP KASAN NOPTI
-KASAN: null-ptr-deref in range [0x0000000000000008-0x000000000000000f]
-CPU: 0 UID: 0 PID: 5823 Comm: syz.2.20 Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-RIP: 0010:__media_device_register+0x6e/0x3c0 drivers/media/mc/mc-device.c:745
-Code: c0 0b 6f 06 ba 60 05 00 00 be c0 0d 00 00 e8 29 84 0d fa 48 85 c0 0f 84 7a 01 00 00 49 89 c6 4d 8d 6f 08 4d 89 ec 49 c1 ec 03 <41> 80 3c 1c 00 74 08 4c 89 ef e8 43 85 19 fa 4c 89 2c 24 4d 89 75
-RSP: 0018:ffffc90001be77c0 EFLAGS: 00010202
-RAX: ffff888043791000 RBX: dffffc0000000000 RCX: 786b3eff022cc500
-RDX: 00000000000016bf RSI: ffffffff8e6b0089 RDI: 00000000ffffffff
-RBP: 0000000000000000 R08: ffffffff91be6dbf R09: 1ffffffff237cdb7
-R10: dffffc0000000000 R11: fffffbfff237cdb8 R12: 0000000000000001
-R13: 0000000000000008 R14: ffff888043791000 R15: 0000000000000000
-FS:  00007f844c7226c0(0000) GS:ffff88808a9e9000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 00007f013c26444c CR3: 0000000054794000 CR4: 0000000000352ef0
-Call Trace:
- <TASK>
- em28xx_usb_probe+0x1c5e/0x2dd0 drivers/media/usb/em28xx/em28xx-cards.c:4444
- usb_probe_interface+0x751/0xe00 drivers/usb/core/driver.c:399
- call_driver_probe drivers/base/dd.c:-1 [inline]
- really_probe+0x254/0xae0 drivers/base/dd.c:707
- __driver_probe_device+0x1e8/0x360 drivers/base/dd.c:869
- driver_probe_device+0x4f/0x240 drivers/base/dd.c:899
- __device_attach_driver+0x270/0x410 drivers/base/dd.c:1027
- bus_for_each_drv+0x258/0x2f0 drivers/base/bus.c:500
- __device_attach+0x2bd/0x430 drivers/base/dd.c:1131
- proc_ioctl+0x409/0x660 drivers/usb/core/devio.c:2370
- proc_ioctl_default+0xc4/0x110 drivers/usb/core/devio.c:2405
- usbdev_do_ioctl drivers/usb/core/devio.c:2769 [inline]
- usbdev_ioctl+0x139d/0x21a0 drivers/usb/core/devio.c:2829
- vfs_ioctl fs/ioctl.c:52 [inline]
- __do_sys_ioctl fs/ioctl.c:598 [inline]
- __se_sys_ioctl+0xfc/0x170 fs/ioctl.c:584
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x7f844b7a9a99
-Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 e8 ff ff ff f7 d8 64 89 01 48
-RSP: 002b:00007f844c722028 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
-RAX: ffffffffffffffda RBX: 00007f844ba36190 RCX: 00007f844b7a9a99
-RDX: 0000200000000140 RSI: 00000000c0105512 RDI: 0000000000000005
-RBP: 00007f844c722090 R08: 0000000000000000 R09: 0000000000000000
-R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000002
-R13: 00007f844ba36228 R14: 00007f844ba36190 R15: 00007ffcd010b238
- </TASK>
-Modules linked in:
----[ end trace 0000000000000000 ]---
-----------------
-Code disassembly (best guess), 1 bytes skipped:
-   0:	0b 6f 06             	or     0x6(%rdi),%ebp
-   3:	ba 60 05 00 00       	mov    $0x560,%edx
-   8:	be c0 0d 00 00       	mov    $0xdc0,%esi
-   d:	e8 29 84 0d fa       	call   0xfa0d843b
-  12:	48 85 c0             	test   %rax,%rax
-  15:	0f 84 7a 01 00 00    	je     0x195
-  1b:	49 89 c6             	mov    %rax,%r14
-  1e:	4d 8d 6f 08          	lea    0x8(%r15),%r13
-  22:	4d 89 ec             	mov    %r13,%r12
-  25:	49 c1 ec 03          	shr    $0x3,%r12
-* 29:	41 80 3c 1c 00       	cmpb   $0x0,(%r12,%rbx,1) <-- trapping instruction
-  2e:	74 08                	je     0x38
-  30:	4c 89 ef             	mov    %r13,%rdi
-  33:	e8 43 85 19 fa       	call   0xfa19857b
-  38:	4c 89 2c 24          	mov    %r13,(%rsp)
-  3c:	4d                   	rex.WRB
-  3d:	89                   	.byte 0x89
-  3e:	75                   	.byte 0x75
