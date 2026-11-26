@@ -1,107 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795691901;
-	b=D2INMRc1HEVptZrG+OdgGDrjb4F/zjJ/lXnjANr04DSSbcFapYf86A2nLeuifdQz8saM
-	 vFQH88U6vaR4GTTZX6qbg5O6siEonxs/AI6T/lDYZsYLy90CFVuuS+n8XtWr7Wzl5aWZH
-	 lhduD2uVZlVtaqyrDs//FMclvn7K4ZlqiI6BWeSu6b0QEYPbAnE+LbGARE9pBswmettLy
-	 7GbBrfz/o91+T5a0p/OdE1+OKecckudttFhzkkER0/22VXcplPHi4pFWCAEpYg4GQKgWC
-	 sfvXpqjYp88M6DvxxnZlp8iW0InoXNhRMotWgnIooKkVV+EEDOw4JumT/av8DTWSxxA==
+	t=1795691902;
+	b=WeL7GjDOZk4hHbaiY7ioc7ot31XOL3ePmFLar8aiv0ZT15Fq+VkCyGuy3/a2fzPwx1pk
+	 K0Xim92KsnKsf6LubqOIfqoHbVAKdsz2HDaZqPebC9097zCBTIwEcK9Yto5QAC1Q5Bpwc
+	 kbuX4bZALv7juyvFxfkgf79GBnF3TAvDUiQ7t7GtxGxEmh+yZ27MX/aJMj89QwL25zsZl
+	 iQ3XIDjgLq+reSxEc7T9YZOUDb78kqhy7JYSgIvsyjxgaBeQgFIzW5kEoN2wWZWAFmpDW
+	 P0H+2YcRqz6h3QFRH8xfqkgU+PqqRsesTE8nJm6MnSUmlqTAqRO5wzytLqaSjb7Wbbw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795691901;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:References:Content-Language:Cc:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Kk5+tp69Hm4OtlJWx6xUcvS1bABaPkFBgaohYRUNQY8=;
-	b=BM2AzOhHfdSYltWTMbLK3kez9RsHMyKs14O0Yn/ZQlY/zKArElVwyEisoh0bL5j9RyP3
-	 ggOZ/XkxnzTV9P06eYGQNRNTu+ia3r0gSxiTSEvkMp63LdDp8Ge1acpvX+drOf+up5MVz
-	 ODLZso0bwZjsOR0cZiLApBRpH1AGY7JWI0+zNnl0Z34DV2MSxQNciqBGdoauXL2o9c+x6
-	 a6zz7mACKBrNOy31HyICZsCeMlq/kZlYSUlXhors3Y31i3onG6cPmJYSx76WSTSQhQVsw
-	 RkQGG4jmBpcoHnFIj6dW7zSCnXe1JEht9JQ4OI8e6FjwOlgO+sXeQQivPY3O7JpVOeg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795691902;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer;
+	bh=ZILZfKisda6VydMd2eX+gp7jxSdYsZR8fHOcYz6Cqew=;
+	b=CtFjbY6vYJagFovDTPxcBrZCNxwWNDThtYIMRuAGcfyXJOfg/oQ3UAaQi7+org1HvoqB
+	 LiRPjMi7C0IjM8VlBNhlmagdTq0aExghHMopIFTtqonhdzjgNStCwD5Pmw8qkcWFS93e0
+	 Prr62PypP/n4zcOvHvoSoUaY9SviykmLTkZag5b6pE6UC+FW9Kmks5ge+RTVwadEp6ZK/
+	 wpCdzLuwE2Jf7PzJNoQ172SvXGTV0cpbTH4j/l1kG9gSTdCCMBor+8fhmnWuBCrpUSyPg
+	 oVnk8K54z5emPHUIfCoDD3MMuuH89MyBUImHBN7tUuqugC2zjZ6lnBfANQH1L41fIVA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=CK+pxkrs;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=G7h9QPK8;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="dcA/LQZJ";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8ED5606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:18:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8ED5606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E806606A331;
+	Thu, 26 Nov 2026 11:18:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=CK+pxkrs;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=G7h9QPK8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795691899;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Kk5+tp69Hm4OtlJWx6xUcvS1bABaPkFBgaohYRUNQY8=;
-	b=CK+pxkrsAPojIZlyCsDBEYmpuYx5AeWFYsqPlBWxY5WnPazA5ODgBjHGVAs/gdPr8X2omW
-	oOtZdbuaaH5d3Y/pe83KyI0qPanXsHmkmcXxKvTWbXBfHqEkN4VuLZGObLx9XnZm1a10In
-	T7yVZv7O0AMV4l3JVVQkShIxLTAiBCM=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-48-GJi3ZUimMtKVAbbzkG_cFA-1; Thu, 26 Nov 2026 11:18:18 +0000
-X-MC-Unique: GJi3ZUimMtKVAbbzkG_cFA-1
-X-Mimecast-MFC-AGG-ID: GJi3ZUimMtKVAbbzkG_cFA_1795691897
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-492b5408dedso3938508f8f.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:18:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795691897; x=1796296697; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:cc
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Kk5+tp69Hm4OtlJWx6xUcvS1bABaPkFBgaohYRUNQY8=;
-        b=G7h9QPK8gnJo7kqPQbu3gaL+m+Ya43nEf6+bWfqo49HZ1dC0DYQbk5dDkyb26fAkI2
-         GOzZy2f9tJZhkyEJQushAGtt04Q2LKOar2O60HO6g0RvkF6fBHbzEnz57Lly/ESzWdI6
-         WEqiQ1hpvrtvCydSSltsPf3ujtYaOLqp7MUbi2LBFjLKn0UKWacBClbDJpiwZXNWht5X
-         YwFx/II7+94pApAre47be29YqhMsUg5vM7citZDeIHYBjC9IuckxRWDKlT4OvevZMZM7
-         oL87VAGj4PDOATci7S2OLgX5NBbxF1qMvECSNqpkrgY2mMmoY0PZ0/4tzXoICcoK1st/
-         WGMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795691897; x=1796296697;
-        h=content-transfer-encoding:content-type:in-reply-to:from:cc
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Kk5+tp69Hm4OtlJWx6xUcvS1bABaPkFBgaohYRUNQY8=;
-        b=TR+JNMdrt4xwZyaw+/ypFaAGnc4IA513siYcs8TRP+ef4jQtKpzMBCzjfkVTSjvont
-         lXxZaFC876T9moWbnNlhQsvH5wHdA2nA1yUVX0mA5C9kTc9sk7fDynmkaxgawga7mrWU
-         TwR5RgN2wyNHqI7nMkyfHDZpZxb9PMj9x0xeVzaxlLNrIv39lai9YLRafmc4Hgskl4pY
-         VHV57i0y3I+F2hRkWczKiWIDKvyAWYF3gAy7CGCmslzi7GdtmI5cLPV2OTZpIuEVfjrR
-         dFKeGf6WYmbE1eIo9Qyzy+AEkNMq+HHRABvgsaX0eNoAj+bGnAEnRYrIiktBmPXz8KAb
-         KJvw==
-X-Forwarded-Encrypted: i=1; AL+hErH/j4dnSwgIQ+CBz2mXS3HNgqFYcseupo7PalcabO4xDUgHTbDm5QBA1IOrbpVyhFtSajWtoZI8/3yf7tU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/MiLxlgF5+VqNglXMfcFUK/2uq9zeCS4j7+kkmKWxp/OxRtuz/
-	olrXBlf7KRemayE8q3JOITNiT5KEjUjsbfXO9Nxi969THNOKtjWMePitOs7zI0+IRIwYCZ3k1gW
-	O+CxekISgbk3BjmvyhCRorL02NJ0W0ODrHLPqNCI/U6qAkHQeQ1pRxd7SLh9/x5F8kw==
-X-Gm-Gg: AZFdTZeAZD1VsC38wHhr9d3LfuL2ARNcmcpXfW9zrlZ6m+3d4pnMO1kcjp2BDY6butO
-	N/ZHos9B6C3Wvd0A9VPlbaQJVZ1B1Hvp5n36lt8hxbRE0oWAhFzQ8dpjTtv2uQoKiMWqtr27nTT
-	mHnko9rfD4hLDQCS3p2/+ta2MuclCh/PADV/AYQWoHR2Nr9ry6zDRUuUcH73DeIU4ERWWokzZ9n
-	klt/FWaI67A7GLCpkLidQFy3xqRi2nIk5dUXd4oea3++Tu3vodTqocrJyZwYMUOlPel6JV/cbcR
-	+ytwfetbg8KYlCttEQbN7LzWtr0FEnhr3p3EGxoTBVzn8bjYu/t1pneGABcoJbPoRypnk5IvsSh
-	ord+MdPtaWUmw6lp68ru3PLpOvI+Ows7VuK59giEqCUE9MZ852HdwdWmW/fQDQkZ+aUvQTTkWkk
-	AG/vw6pSG9GknO+dTKIxGoWp6+idaX3ebRqupo7hGw8XL9
-X-Received: by 2002:a05:6000:4284:b0:4a8:647c:f964 with SMTP id ffacd0b85a97d-4abb6d04d79mr43589555f8f.57.1795691896615;
-        Thu, 26 Nov 2026 03:18:16 -0800 (PST)
-X-Received: by 2002:a05:6000:4284:b0:4a8:647c:f964 with SMTP id ffacd0b85a97d-4abb6d04d79mr43589476f8f.57.1795691896105;
-        Thu, 26 Nov 2026 03:18:16 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4b3415763f7sm18159816f8f.9.2026.11.26.03.18.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 03:18:15 -0800 (PST)
-Message-ID: <3598861f-f441-46ea-a5c8-574372a34370@redhat.com>
-Date: Thu, 26 Nov 2026 12:18:14 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dcA/LQZJ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 612A11F000EB;
+	Thu, 26 Nov 2026 11:18:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795691901;
+	bh=ZILZfKisda6VydMd2eX+gp7jxSdYsZR8fHOcYz6Cqew=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=dcA/LQZJNTRxAXYiSO3ecetRk8UeUJ6G6eowyblPb3SceghWJPlB47dy81dO3ekpo
+	 8zDVpbCPPwxS+gP2aWUtngwOLnVGrkWp3lbRZc00nMGGvENyrC+LUZsSkDTGn2a/Df
+	 Ykat0AJi7F5ysyrmoP735e9b3JtJOJkyBZb/r31kMWVXdrscOhgdsETzfdXnYLy3Oa
+	 9MLDBL0FuPwbh5GLhPshgP2x2ZO3LV6BIDUNOwy6XdbqpNWoRFGlguk+SsxHNgl76s
+	 ing/lUECgznOONlhV/K97ITTVUhM1RAQes1Mo/It0ScWnHTtRza5jJ7IGIDCXcwDNm
+	 NDSCBoaFdVjlw==
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Date: Thu, 26 Nov 2026 13:14:37 +0200
+Subject: [PATCH RFC v2 24/54] x86/mm/pat: detect unchanged mappings by
+ comparing protections
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,105 +53,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v6 2/5] bnxt_en: check HWRM response if completion
- never arrives
-To: michael.chan@broadcom.com, prashant@broadcom.com, horms@kernel.org,
- selvin.xavier@broadcom.com, kalesh-anakkur.purayil@broadcom.com,
- pavan.chebbi@broadcom.com
-References: <20261120152830.699712-3-joe@dama.to>
- <179545865940.3135.4199576162321798829@kernel.org>
- <awTBkxA0DV4BiQym@devvm20253.cco0.facebook.com>
-Content-Language: en-US
-Cc: Joe Damato <joe@dama.to>, netdev-bot+sashiko@kernel.org,
- edumazet@google.com, netdev@vger.kernel.org, edumazet@kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, kuba@kernel.org,
- linux-kernel@vger.kernel.org
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <awTBkxA0DV4BiQym@devvm20253.cco0.facebook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-generic-set-memory-v0-1-v2-24-723f1e33c3d8@kernel.org>
+References: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
+In-Reply-To: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
+To: linux-mm@kvack.org
+Cc: =?utf-8?q?Adrian_Barna=C5=9B?= <abarnas@google.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Borislav Petkov <bp@alien8.de>, Brendan Jackman <brendan.jackman@linux.dev>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ David Hildenbrand <david@kernel.org>, 
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
+ Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, 
+ Ingo Molnar <mingo@kernel.org>, Kevin Brodsky <kevin.brodsky@arm.com>, 
+ "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, Michal Hocko <mhocko@suse.com>, 
+ Mike Rapoport <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <pjw@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@kernel.org>, 
+ Vasily Gorbik <gor@linux.ibm.com>, Vlastimil Babka <vbabka@kernel.org>, 
+ Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, x86@kernel.org
+X-Mailer: b4 0.16.1-dev
 
-On 11/23/26 23:43, Joe Damato wrote:
-> On Mon, Nov 23, 2026 at 06:30:59PM +0000, netdev-bot+sashiko@kernel.org wrote:
->> Thank you for your contribution! Sashiko AI review found 1 potential
->>> diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt_hwrm.c b/drivers/net/ethernet/broadcom/bnxt/bnxt_hwrm.c
->>> index de02d1baa7514..53667c0c38aaf 100644
->>> --- a/drivers/net/ethernet/broadcom/bnxt/bnxt_hwrm.c
->>> +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt_hwrm.c
->>> @@ -582,11 +582,50 @@ static int __hwrm_send(struct bnxt *bp, struct bnxt_hwrm_ctx *ctx)
->>
->> [ ... ]
->>
->>> +			/* The completion was not delivered, but the firmware
->>> +			 * may still have freed the ring. Check the response
->>> +			 * before giving up and log the state.
->>> +			 */
->>> +			resp_seq_id = READ_ONCE(ctx->resp->seq_id);
->>> +			len = le16_to_cpu(READ_ONCE(ctx->resp->resp_len));
->>> +			if (len && resp_seq_id == ctx->req->seq_id)
->>> +				valid_byte = READ_ONCE(*((u8 *)ctx->resp + len - 1));
->>> +
->>> +			if (!valid_byte) {
->>> +				hwrm_err(bp, ctx,
->>> +					 "Resp cmpl intr err msg: 0x%x len:%d seq:0x%x/0x%x\n",
->>> +					 req_type, len,
->>> +					 le16_to_cpu(resp_seq_id),
->>> +					 le16_to_cpu(ctx->req->seq_id));
->>> +				goto exit;
->>> +			}
->>> +
->>> +			/* Read the rest of the response after the valid byte */
->>> +			dma_rmb();
->>> +			if (!(ctx->flags & BNXT_HWRM_CTX_SILENT))
->>> +				netdev_warn(bp->dev,
->>> +					    "Resp cmpl intr not delivered, msg: 0x%x completed anyway (len:%d valid:0x%x err:0x%x)\n",
->>> +					    req_type, len, valid_byte,
->>> +					    le16_to_cpu(ctx->resp->error_code));
->>> +		} else {
->>> +			len = le16_to_cpu(READ_ONCE(ctx->resp->resp_len));
->>>   		}
->>> -		len = le16_to_cpu(READ_ONCE(ctx->resp->resp_len));
->>>   		valid = ((u8 *)ctx->resp) + len - 1;
->>
->> [Severity: Medium]
->> Is a set valid byte in ctx->resp enough to show that the ring is safe to
->> free?
->>
->> The commit message calls this case one where "only the notification was
->> lost". But the commit in the Fixes: tag, 74608fc98d28, sent the
->> RING_FREE response to the completion ring so that the completion entry
->> itself would act as the fence:
->>
->>    "The response will be the last entry in the ring and we can free the
->>    ring after getting the response.  This will guarantee no spurious DMA
->>    to freed memory."
->>
->> The response buffer and the HWRM_DONE completion entry are two separate
->> device writes. Once token->state is BNXT_HWRM_COMPLETE, the existing
->> success path reads resp_len without waiting for the valid byte. That
->> suggests the response buffer is written before the completion entry.
->>
->> So a set valid byte may not mean that the HWRM_DONE entry has landed. It
->> also may not mean that the TX/RX completions queued ahead of it on the
->> same ring have landed.
-> 
-> Agreed. The valid byte shows that the firmware finished HWRM_RING_FREE for
-> the TX/RX/AGG ring. It does not show that HWRM_DONE was posted to the
-> completion ring.
-> 
-> Michael, can you confirm that the firmware has stopped DMA for the ring
-> (other than completions to the completion ring) by the time it writes
-> the RING_FREE response?
-> 
-> If the response is written before the ring is quiesced, then this patch is
-> wrong.
-@Pavan, @Michael: there are pending question for you here and elsewhere
-in this series, please have a look.
+CPA decides whether a mapping changes by encoding the new page table entry
+and comparing it with the existing one.
 
-If nobody answer in a few days we will have to toss the series.
+It would be suboptimal to encode actual entries in the generic code for
+every comparison of the existing, requested and new protections, as every
+architecture would need one more out-of-line hook for it.
 
-@Joe: could the issues be caused by a broken firmware? in such a case
-nothing would stop it from doing DMA at the bad time, right?
+cpa_leaf by definition has the decoded protection which can be used in
+comparisons.
 
-/P
+Compare the new protection with the decoded one and encode only the page
+table entries that are written, as the last step.
+
+Encoding masks out the bits the CPU does not support and _PAGE_GLOBAL bit
+of a non-present entry, comparing protections does not. set_memory_global()
+on a CPU without PGE or on a non-present page now rewrites the PTEs with
+the same value and flushes the TLB. Its only caller changes the kernel
+text, which is always present, once at boot.
+
+Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+---
+ arch/x86/mm/pat/set_memory.c | 14 +++-----------
+ 1 file changed, 3 insertions(+), 11 deletions(-)
+
+diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
+index 0a2d19064f23..f4d3e2d9c3c9 100644
+--- a/arch/x86/mm/pat/set_memory.c
++++ b/arch/x86/mm/pat/set_memory.c
+@@ -1917,26 +1917,18 @@ static int __change_page_attr(struct cpa_data *cpa)
+ 		return __cpa_process_fault(cpa, address);
+ 
+ 	if (leaf.level == PGTABLE_LEVEL_PTE) {
+-		pte_t old_pte = *leaf.kpte;
+ 		pgprot_t new_prot;
+ 		unsigned long pfn = leaf.pfn;
+-		pte_t new_pte;
+ 
+ 		cpa_inc_pte_install();
+ 		new_prot = cpa_new_prot(cpa, &leaf);
+-
+-		/*
+-		 * We need to keep the pfn from the existing PTE,
+-		 * after all we're only going to change its attributes
+-		 * not the memory it points to
+-		 */
+-		new_pte = cpa_pte(leaf.level, pfn, new_prot);
+ 		cpa->pfn = pfn;
+ 		/*
+ 		 * Do we really change anything ?
+ 		 */
+-		if (pte_val(old_pte) != pte_val(new_pte)) {
+-			set_pte_atomic(leaf.kpte, new_pte);
++		if (pgprot_val(new_prot) != pgprot_val(leaf.prot)) {
++			set_pte_atomic(leaf.kpte,
++				       cpa_pte(leaf.level, pfn, new_prot));
+ 			cpa->state |= CPA_ST_FLUSHTLB;
+ 		}
+ 		cpa->numpages = 1;
+
+-- 
+2.53.0
+
