@@ -1,90 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795687273;
-	b=of9gpMyTWvUlG8Oa5DCcXcKWOG7xSdB8FmAvxkTcNOKfJ6GPQtgoPs8GkVogbBm3/qTD
-	 P2pT+gqmlhFMfvKxGfbteGhPeXAxpgu9MlD+J/tPAQVeCuLE/j6fnOYTHtYHCmO2vNVFt
-	 iGaqlh35W16BRtmaP4JrVCDDF/nDUjLmIF5tcTLEa4rbQF52EyhYxPsGoFKFXrrwKFQcJ
-	 GvLSMa420lHWilDbTvYekqdDwZ64OfdF9azgII1tFvtMwm4VD0JOLdeo324m2ZI6e5cZ2
-	 1IRhcwlqn1ZMMJ87GsjvND2Jus0HpCv0opEZSCaWCWf0Ocp+bau+isCOLtvPr+ruqIg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795687273;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.54
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795687274;
+	b=wdWyjgFAAvoqEoJpNgTUyZrJunmZ6CvvsOy9xq56mKUNZut3jAnhcLS+OBsenN6+kEnS
+	 h5YW/PogNeLEdYEoLG7xjNoEk0G4FBtUWiROTQruN39xj+0fQ8yCueXkFwC2758liugRg
+	 KmjQyzPA9ZLkIQ0Rc+s5ZwNyKicF0HlsefCcosJdmZkHbm5JyuZp+rMYE+lQJuGUrthI1
+	 NKF0Xp6C0aKiCP60fzikWhkCDtLsCLCuxSmbD6AehLKKRNh2LYQG1Abz+bZu5XdY/oKOh
+	 +afPPLsA+wIHYuKcyKkfiiMMv3TLlhzLCJGOAha7zgD8Na0TA4WPpbSKQTb8A6zc0xQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795687274;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=aPAOj8/sEiImf5Q5w0lmK7mWVF1uN6/NWzG/i3miSOs=;
-	b=GsXK638ZxKTsjbKnYlNnZ5/Inxzo93Uomo8yhtbDxVmhgbqZeFUZK8Du0y7cxe6FpQWF
-	 dyLIOwE7r5PRBoRMpadgS2UAZ7d/tOTI6rCk6ydiAv2bM1w2ERJOe0rp6TuIVrInmpLPi
-	 ktQNxBCDSwWqytNRdoPWhVyD5zZPZVhL9P684olJKGYfwvBRPEGAEvQ4cWTEwb8KTGqrL
-	 77p06GTwrwcpMJppGsSrfJD6gO1Lqs1j+HOPJLV1oCQvE7ICAAXP3w6xu+MmNmXl+le7g
-	 4F6jMU9Ip7z5xMUyJNwFhu1hjD2MY+xY2sycPVVKU/sSPBM6nbrleF6CSxPpZqIvFnA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=LGL+MJ0O;
-	arc=none smtp.remote-ip=209.85.216.52
-Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=aYKQnwDhjsX2Rwo5e8r5ugdHrz3FWRHjbaFWjzM+zR0=;
+	b=OT0N3OPU/UV0fzAGZl9BOm0cberAERVySk8MbqdVd1XVIFXm7/afpjqor7TOpVWWiSnI
+	 tPeUejjUISJ5+KtVpCFXXiz0yISF8QBAxY3n2hXCP1A29msX4CP8c7Stgzc8DDFbhv1gb
+	 3DEuZTrXxdpZRtEqEU14ZYNSDvU9HvHoBwPGAeUZy8JFM1NbCLApCpz75H6fnHw9Twcej
+	 rcYfIQuIotGaxhsGYUM8HzFbG6EwdmVnf7k6S/twGzTqMjx9E7YNgiwP8YDcgrK5yCFOd
+	 nXHXSU2nz84B/j04WlVWdAiTd/cDZHcFbQ0yg7eE1iM+EQmWKsKY86wAA9Xs+FpGOZg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0vn91J1k;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.54
+Received: from mail-ej1-f54.google.com (mail-ej1-f54.google.com [209.85.218.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C51B8606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:01:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C51B8606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5EE3606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:01:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5EE3606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=LGL+MJ0O
-Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b41188c8b9so4813015a91.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:01:12 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0vn91J1k
+Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-c5198302d38so427219066b.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:01:13 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795687272; cv=none;
+        d=google.com; s=arc-20260327;
+        b=BG8UFG5008PQNwbHiBb6fjYiUmd5m6uiXD3MgFIghurvYkGM9p2HWvrQtLznQRg5pW
+         h/NoMG38lCTUvLPWIhEnAq0AOdtL6TE4/oO6c00otZE+iGeNwyMDP14evMZWjOfeU0t6
+         fQqCx9Gt9IGMDLQgzTpZ9gS1Bw0CNX5IGlqevfFKOiPdFRR3dFXOV3XeeDFdI97JNFBL
+         Dq5bLGM5daZO0d6tn+f3JwMLJTZ+guP/Gexjkrgj9A6QbAYCcIp+KfFOmbWKKn7DeYCB
+         8OIJhMOnXyoZ+QBCQKrQ7a6tEVmsDCFwjpandpZUXIfyOsqcdtDe8VRqdfsjoBaViw+2
+         gUDg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=aYKQnwDhjsX2Rwo5e8r5ugdHrz3FWRHjbaFWjzM+zR0=;
+        fh=pNNMD4dSakm7aENM6K7P0D0wkZS8QonGVPg4G3bHNT8=;
+        b=CkrQKAm4QEabZ568fXfw2JUt9PBTZXLzwArEOq8L3NGe137u+JmhcQ/R/rqdHNLXWb
+         IoyedpXD6Mscshuwv1v6+rTIk8+PhIUUchwx+gA7N+Q53AG9z8FxnG22PFSGVd9XbiYx
+         15YwUjufxzLVsFJHnULhclFUWT7JwFRR/G6jMlsSs9bcf2j+7ppR3Z4VuNXxKbE0mobQ
+         n4y95A+8PqEJvq28Hjwi/q99BKRODOlcQ7cAHnHlVobijSNTqaM3FpnewkY00ZlRguUm
+         4XYs/XOAkhJpdYnD1qhwHsRG5bt3JIPXy+tKQA8WYV4CnG8QFihxpJ6wts04nbDf62DU
+         lsbA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795687272; x=1796292072; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=aPAOj8/sEiImf5Q5w0lmK7mWVF1uN6/NWzG/i3miSOs=;
-        b=LGL+MJ0OPmAso0EVacerztUnAtvIZ2EUwLYi2xOHBoMu0OVHlDiq/tSehnd7MMbLui
-         e6D1rVtLQaCwky7QohNEBNr4dLcpfmQX75iASGie4sK6bgAk976ILi7busCF270voK7f
-         Jb75xjmAmA44oCiHl2XhPVWYiMBEoEOl9ABB8=
+        d=gmail.com; s=20260707; t=1795687272; x=1796292072; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aYKQnwDhjsX2Rwo5e8r5ugdHrz3FWRHjbaFWjzM+zR0=;
+        b=0vn91J1koeRORHW59Gk9smm6Odeb3juyPnzCX13yTnGbmbtMMAS/mB/sr4r0s/fNCk
+         dq2yREcMxLXmiGbE4wVhffGFOhdHJ3GFjKK8d7fcLmPGTGbElfsv560Zd754WUKtvxvm
+         +tpX0U2zKuu2PrUfqgjIXYsZKXzL2EIz0yenbd/crw2w9N1u2aefHjMM5A9f0Mg/rbBR
+         Eik2MkC+9was3vTS+Swz8gcLKh0x8a/4FeTPpSDZ/ntwHoxMN6vXgh7ZT2qNjHMDf+f9
+         PTZBUj6tHsfgqgKnPLw2kRx7woDPnsf15vkwuc0YwpOmVcnMUA6THjw/3L01ohnsY+N6
+         HwMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795687272; x=1796292072;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aPAOj8/sEiImf5Q5w0lmK7mWVF1uN6/NWzG/i3miSOs=;
-        b=VTmsHDjhsURY95rrUHPy+UoM0Z7O9pwnkwlrLPY/wfwfqteN6HyDnwaB67ngplr4GS
-         Cqvo3qxadVkWWWzeP3XaiMQ6/D672TRPh5U4tVvxQsF5e2kEevhD/dztvbaEZ5tRQ81N
-         v1S/T2WOd8yYDJkE9dW5wFSQV4HMxybAXfQesxr+oaT7ZlM6CW3/vTBvA2gAHerb3Og/
-         yTTlRF8/mqsHFghF9DhGePP0puOqY9EssekQwPf1xhwZ8lJ2WOo4Rzs09Q03lqSAqGsh
-         7ES8M78yHKQyynr6YcaHW8165IC7f08YO6Xlo0fxdFN380DXzVflO5B+hid6MKNtphwI
-         UEGQ==
-X-Forwarded-Encrypted: i=1; AL+hErFQTSaFwlpihRot0awpjW8uNx9sVZw26MfaeE7FtgSczh9mrc7QH6TCh5vy51BDXnne/sm7Qq1oVdvDlts=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9AhXC9HdZbp48MoXxaFcZaw3JYiKPvN2XkyKaBCOA0gkthz4dC
-	Tz+XdJNorrNdmndzSI+P6aVcHO6vxSZg9xB3S02jreu1Fv7fbZEro98SvXSvpKK+ZMzngKUxjH/
-	tFAdCdQ==
-X-Gm-Gg: AZFdTZcEXCxG6tsgO8shiVRWXcJ3atAfDY5Dty/4qBYDzjIBCGP2xdESzCRn708KsTz
-	hzpKnDeuFIwlWTYvjmEG3oI2CfAmyEy+Q/cpZT7OCEc8uUtKxZgjkdY16TrAlMeAHY+oYfvjZL+
-	PE9jQYHFAOFVtNlCc0Qw4+SLL9W/4ZWDfqfzRm1PwNkGlWBjYqlTX/jwiaBZtzvQrHXy+yg6oH0
-	QOAoOnRCLLOgndZeFlUVIN1de9VaZ5FA0nQeHvJBsGwISdKqvADCSl5mlVgoWY7TcMdmcdWJ4uL
-	Tt73rtcB+uzdvY3ouZA9gGFr9Lg/mSxUfZgW7ANBzc4IqdGqwuzfO4e9UzYQCLWZpzezEAzMbfO
-	+PwDhk83nDWl5fvnWUl+gWoTd9Ia55LldU2DnOS6HPqRGDmfVka8P/gFTaCiBnPodJQaIlZf1oA
-	jp5SNvs9aWtRnfaOe3ERIRozMWiJdadJQXBELR5m1uV8DCJ5q0RTwMXEyPlkbKUF7+l+yU1f+97
-	/5et8ADGtV250GQtQxxkD6CxBX8v5dUQtoLnHV0uTuVlFYlYouMZBeph/Vi3kZtUMzbs5mCFm7F
-	AObDrX1Bfy10fvGVHbh70H17XJrIZKX+zlcnxg0o7SFPCOtln1RMK2Wpatc0eEk6LrU=
-X-Received: by 2002:a17:90a:ec88:b0:3b4:127a:2bb9 with SMTP id 98e67ed59e1d1-3b41c8d9275mr19392647a91.13.1795687272023;
-        Thu, 26 Nov 2026 02:01:12 -0800 (PST)
-Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com. [74.125.82.169])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecb486sm34652141a91.16.2026.11.26.02.01.11
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 02:01:11 -0800 (PST)
-Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-386c4d2e2ccso4469650eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:01:11 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHPoffgyUiDpbsgGwWkyJqib5c0gqwcj0myCBg3evYTnNB38CDYGTz9a7ilTP6SnyB3t6OP+7RPuB8G/f0=@vger.kernel.org
-X-Received: by 2002:a05:7300:e9cf:10b0:386:e571:4bb4 with SMTP id
- 5a478bee46e88-386e5715040mr399450eec.13.1795687269562; Thu, 26 Nov 2026
- 02:01:09 -0800 (PST)
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=aYKQnwDhjsX2Rwo5e8r5ugdHrz3FWRHjbaFWjzM+zR0=;
+        b=cfTrR4P3HMjpfQV0mS1E/0RrT3E38zIQg1PqxL67B2xYwDgYJCP0DgucQAdl1nv/db
+         hwPhJov8lYHwGoIG+a6dEbIb3NcCCWGfIMtSkKU2pZwuVVsOC3HYACQrdSUkjRnjHBQF
+         zUxVAl+3aymuI0N5GqHYkcgsNH8blLM6B7O+fIVl6FbcQ7gli8AiH3JUx7tWU20y7g6n
+         v6PQq3L7znOHNGmrQW4qeg+7SzB1wXd1YVoWlDCia59YeeaXBWTdeOLwUxK0bRYDY0Rw
+         Tf86Z4sajXd9JeI/j0W5Vg/x/IgTmQfDY7HEeZy0PqNiSQ6glxvJRmFVJCO3qSD9d03L
+         3e3w==
+X-Forwarded-Encrypted: i=1; AL+hErEEsGTT2yNaiRMCIsihptpFDRxtSocRzCmp6KZafbp2T86xI7RQd/d6PisoA4uwmIZhMhJ+OKIr9yplf+s=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+588ecy0vBoU9hIJSBh3m4xjswPQhvxfBDhrdgl0fYUrdZl9zD
+	iyhEsEy7J9IXIOXuQRCZmZSLNdqyC47NSrBMQIL8RHPafqsVZl7JQhef9GvOR0VErPWQ3EHCvBs
+	Tux4kw+VfbMREe51nq06D0n+8RbFs2YI9HIz2vwQ=
+X-Gm-Gg: AZFdTZcth2RzkrMeCJtbPGd4sEDR1UAVBIOT50QZ95h0yfxvoiWPIZG3l+0PeT2fqSY
+	Y5P2TRk0l4jokBMcMktP/S6P6KU5goJm+jIQPm27GQGjXta8NQxpJo0jBDWHsyC7A/B7ZufHsUN
+	cEDfgbGIsGzztTj10k5wC7B55qupAxetQx+fJzvrRuW4aJ1HrU1rWCgMh6DpWdGo2mLFJSPzU/c
+	TKit5eE/gEuDSuxIA2cR3oKkSoYHMlR7Qra5US4LFsHjmUFwESonIOTkYfVzExOIi8ctUB7GFh4
+	x2mbPsScbOMcI0kXalOJOmYx1Dkno4xAfBPKBc6YGgbpRHgQbqWxZIC/C8qaRDaqRoRgqjqdWix
+	HFMFExWuuJdBgpxCA6t2I8U0nj7vSTFm277sSFQ5HfjBfaW7E9sJf0DpysS/Z3MJtx71mVKzpXA
+	==
+X-Received: by 2002:a17:906:4f89:b0:c50:55bf:ed06 with SMTP id
+ a640c23a62f3a-c513aadb865mr1281974066b.47.1795687271598; Thu, 26 Nov 2026
+ 02:01:11 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,75 +104,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com> <20260714114414.184512-36-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20260714114414.184512-36-angelogioacchino.delregno@collabora.com>
-From: Fei Shao <fshao@chromium.org>
-Date: Thu, 26 Nov 2026 18:00:31 +0800
-X-Gmail-Original-Message-ID: <CAC=S1nj8rJ0WJp7DcO68zyejSvzFhhB5Q_q+_jKY2itMAJ64eA@mail.gmail.com>
-X-Gm-Features: Aa3M54r8mZgCPYkjyk_HhGWN4kbWoWQVSbV0f4Pj7KzdyzjM_U47c8LDiim4nPQ
-Message-ID: <CAC=S1nj8rJ0WJp7DcO68zyejSvzFhhB5Q_q+_jKY2itMAJ64eA@mail.gmail.com>
-Subject: Re: [PATCH v2 35/46] drm/mediatek: Add support for Display Output
- Processor component
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
-	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
-	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	matthias.bgg@gmail.com, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	justin.yeh@mediatek.com, jason-jh.lin@mediatek.com, kernel@collabora.com
+References: <20261125175203.1003294-1-e.velu@criteo.com> <20261126004429.GCaweA7XoIaa5k_ZBh@fat_crate.local>
+In-Reply-To: <20261126004429.GCaweA7XoIaa5k_ZBh@fat_crate.local>
+From: Erwan Velu <erwanaliasr1@gmail.com>
+Date: Thu, 26 Nov 2026 11:00:59 +0100
+X-Gm-Features: Aa3M54oOytfYNQ739rl-1rU3U06CqvqDxSo68mZ7Dxr4SWbt1lKm1CAfVP2UqHY
+Message-ID: <CAL2JzuyqD-2Ka-D4hhURtn892tDvHacz2C6V7a-wFMxQkEe_qg@mail.gmail.com>
+Subject: Re: [PATCH] x86/microcode/AMD: Warn when a patch is skipped because
+ of the Entrysign cutoff
+To: Borislav Petkov <bp@alien8.de>
+Cc: x86@kernel.org, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, "H . Peter Anvin" <hpa@zytor.com>, 
+	linux-kernel@vger.kernel.org, Erwan Velu <e.velu@criteo.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-On Tue, Jul 14, 2026 at 7:46=E2=80=AFPM AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
+> > +     if (cur_rev <= cutoff &&
+> > +         ucode_rev_to_cpuid(patch_rev).full == bsp_cpuid_1_eax)
+> > +             pr_warn_once("Patch 0x%08x skipped: current revision 0x%08x is at or below the Entrysign cutoff 0x%08x, a BIOS update is required\n",
+> > +                          patch_rev, cur_rev, cutoff);
+> > +
 >
-> Add support for the Display Output Processor hardware component,
-> found in the MediaTek Kompanio Ultra MT8196, Genio Pro 5100 MT8894,
-> Dimensity 9400 MT6991 and others.
->
-> This hardware handles the post-stage of pixel processing in the
-> layer overlaying process and is also capable of performing gamma
-> correction, ensuring that the per-pixel values are within the
-> expected gamma range.
->
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
-> ---
->  drivers/gpu/drm/mediatek/Makefile           |   1 +
->  drivers/gpu/drm/mediatek/mtk_ddp_comp.c     |  14 ++
->  drivers/gpu/drm/mediatek/mtk_disp_drv.h     |  14 ++
->  drivers/gpu/drm/mediatek/mtk_disp_outproc.c | 247 ++++++++++++++++++++
->  drivers/gpu/drm/mediatek/mtk_drm_drv.c      |   3 +
->  drivers/gpu/drm/mediatek/mtk_drm_drv.h      |   1 +
->  include/linux/soc/mediatek/mtk-mmsys.h      |   1 +
->  7 files changed, 281 insertions(+)
->  create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_outproc.c
->
-[snip]
-> +       priv->irq =3D platform_get_irq_optional(pdev, 0);
-> +       if (priv->irq > 0) {
-> +               ret =3D devm_request_irq(dev, priv->irq, mtk_outproc_irq_=
-handler,
-> +                                      IRQF_NO_AUTOEN, dev_name(dev), pri=
-v);
-> +               if (ret)
-> +                       return dev_err_probe(dev, ret, "Failed to request=
- irq\n");
-> +       }
+> Except that a one-liner in dmesg doesn't tell you the whole story.
+> Also, not everyone can get BIOS updates and then more questions arise.
+> Perhaps I can document it in Documentation/arch/x86/microcode.rst.
 
-platform_get_irq_optional() can return error codes that need to be
-handled; otherwise, mtk_outproc_bind()/unbind() will pass the negative
-values to enable_irq()/disable_irq():
-
-ret =3D platform_get_irq_optional(pdev, 0);
-if (ret < 0 && ret !=3D -ENXIO)
-    return dev_err_probe(dev, ret, "Failed to get irq\n");
-if (ret > 0) {
-    priv->irq =3D ret;
-    ret =3D devm_request_irq(dev, priv->irq, ...);
-    ...
-}
-
-Regards,
-Fei
+Boris,
+Thanks for the quick feedback.
+We can adjust the wording, but it's important for the user to
+understand that the non microcode loading was done intentionally
+because of this trust issue, and the only way to avoid it is a BIOS
+update.
+In my case, two identical systems (kernel / ramfs / OS) : one loads
+the 21c firmware and gets TSA enabled; the second one remains on 215,
+no TSA, no error message.
+User complained about the performance of the machine, so I initially
+suspected late-loading behavior, then an incorrect microcode that led
+to this code.
+It's truly important, from a security and performance perspective, to
+inform the user that the kernel made this decision not to load the
+ucode and what the possible workarounds are.
+I think it's important to inform the user that a BIOS update is
+necessary to get a ucode greater than the cutoff, and that this has to
+be exposed even if you don't have any available.
+Erwan,
