@@ -1,98 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.21.61.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795711241;
-	b=1V6+zVgYoPhKvn6xtHSzEDa+QoVwoyIM1V/9jLalxliV/Di0i1bmq0oVd8isgSiFdtwG
-	 YM4vBynLmCOOnFDKMOOdlvIgOX4Mcfzy4ruxF6Ubct4PJ4dQMdqYyvm/9YF1g+ZF7XSRr
-	 oq8rtSBMRMT8Sh7T3zcmTnyy0k9fkDvkxmfi3X6aJKxgC46YT586QBGm5AnrWXAHM8YTW
-	 51R8SfQgy3VFi9SX1rySTMGUUrNCxqem2zMEirs+QhMWu4B2y7mcV4JhCp1t2rZw/nw9B
-	 c27mH1rJN7GxofFJtF+LP6tqMd35GvQxOHnRjxrJU8Ps+AX3TwmjCY8r7OTY9u5ykag==
+	t=1795711252;
+	b=3Iv07k09yxuhkCyCbDkVSo1wwWMXDiAjoEM/SnoNVSK92R08osflM/ZygigIFwDSxg5Z
+	 ihvXJ4B7qhKO0aujgXGpt4IB25d2mD0BMP79J6PenhQe7nInmBWA/wQcFAzgx5K5v0x/u
+	 pwrftQUxJ4DT+WR3pDA6k60/XPKZJFUivBsZqsuAM3jiPnm3f0NZrPtrggoe3BbRt4vxm
+	 nt9fAg6FfB+slziHJYIktonayBISsK5VL1oAcTZL1Ue2cUC6hVqh4d9nWlLDetAat+z4N
+	 gZQmL29VfNgYZSGDfdm/raIGkzk6yYmpUdZYCXEqDdkzL8bZK042SlGI9sWyfQnOSgg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795711241;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=M2EdbVsFY+9G2zM8yUV2c1OY9TmmPOalQL86zS3ZJK4=;
-	b=ZROagFzT085y+ofk/x8/xCJdaPWOhNHkq4efQaleOAQfZuUKYgOBsrUafi+a7rEmf7hh
-	 6t2xZkZnOPVlAsikguD79YlfgqSgqpj4JJi6nBp0ooxs0IEDqfWWtXXs6GshukESeO9f4
-	 E2d3CsvP3GipGTk36qqF6ObPhids6a1ZfGZLg/JgbsEhc6oaTpR6+ESmxe7/BP3mq8Dh6
-	 QgikfwIjUr3BfjQRjn16Vcaqb2gl81NvBUk/iZ2MzTMkA5P6gXxmLIzwyJzXkS0lEx1IP
-	 lbqXr2bMcYMfCmwLcolpRkDFm7vwB7/lj7uTxlxLGKnj+gXJN5qG2pUdOd4pqE3lwaA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795711252;
+	h=DMARC-Filter:Message-ID:DKIM-Signature:Date:MIME-Version:User-Agent:
+	 From:Subject:To:Cc:References:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=+YI0+cCWiIWWts2OssvvcQWLQx3/G5bzwzK8FuCJTlk=;
+	b=gREfTG3lQ2H/iAUPOp/nm/gsgAqg+yCyQkYWNJzNaJB7pPHUrBqnbu23krNn/vDZKhs7
+	 BcdvIn3gzU9O88/uJUkq2LaepMKqt8YaQ9g1J86S95uGzncGrViysyimuyXe7PCmYBxn3
+	 9V/Psdb3gHAAusQqz3E2QCA99G62FI1ffG31K7GLFyy0hvOehUKud954CC/dPCHwqFFcO
+	 4aC8zocP/QAfRqTrgUt1qSGMIzMZkCC7hqLRquNv50NV0/9pY2UF8z/NYCg9d32e1Jbi6
+	 UPfw6ImLFSbYMEeGXjL+fIwrxF9v2JCvOP3QGa7QwLpJ/nqwmfkXEqTxHfKh36YDBjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=E6Qeu9vx;
-	arc=none smtp.remote-ip=209.85.128.54
-Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=aliel.fr;
+	spf=pass smtp.mailfrom=aliel.fr;
+	dkim=pass header.d=aliel.fr header.i=@aliel.fr header.a=rsa-sha256 header.s=courrier-s1 header.b=nJj+NIgZ;
+	arc=none smtp.remote-ip=65.21.61.41
+Received: from courrier.aliel.fr (courrier.aliel.fr [65.21.61.41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3026606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:40:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3026606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C85F1606A31C;
+	Thu, 26 Nov 2026 16:40:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C85F1606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=aliel.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=aliel.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=E6Qeu9vx
-Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4bba5e17728so19148685e9.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:40:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795711239; x=1796316039; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=M2EdbVsFY+9G2zM8yUV2c1OY9TmmPOalQL86zS3ZJK4=;
-        b=E6Qeu9vxktnPKCW8eViY7vJXZ/s/CIR4yLUikeahokIpNDShfGo9Q0BA5F7HDS/mRY
-         hM9uRc1ZrrdKROgO1ffOyr1khVHc15Mmg1LKaiYO09vA9URNrTi7W1q1ach7zntkjy88
-         qDBAz27wpuHwUNXOecV9h+Je7Hz84V1/xyROre6CVTV3iMnZoDonubN8xqKGIai5vrsK
-         ZOusmtibGkXG01FYsMHdcjv2KFcf3qy1/ZYtfhIJbTGyC455k4jQO7zzu7/IjuhaPE6G
-         qsp1kKyhk5fiXfqm4WqiE4MZTbBN9U3XVjZu5nLn36AUNSk61DQQKe0/bQGuA0wzgoOF
-         H/8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795711239; x=1796316039;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=M2EdbVsFY+9G2zM8yUV2c1OY9TmmPOalQL86zS3ZJK4=;
-        b=KON1e63nR3nT7PbLmMpjDfvb709nVg2onstzr90U/trEOgZ35NxXftWFoVmbI7eqpC
-         +/6Vc1QOgQUr0yOxZs+6x+rsqF2aMsVUdTJ8K1XiJ50ebo/OJIbCZSS5vlSae3uXxd/4
-         DL8cLUD+HKOEntaxXD2Ls0p/oOQSx4gDV31RqmR2F9oaZ03HMK1ACYKfEqYthrTMbTH8
-         4REM3C2WMov/sXz7gQ2hWuNvRDCULbBX95dOHMychZw6P0p92FO/bp6ZJ3Pw9YWfRaVg
-         Ygto4tKSgjOJ9iK1M4WACDiAFpfSUokGe3GPcFjzbVnguxVoXXRlzKIsgB2EMPLoI2tJ
-         933Q==
-X-Forwarded-Encrypted: i=1; AL+hErGUjr78X2BDL02+4fQtMNVBPjqA/TFwmk5xmLNktl5209EoBBkZfuiK6MXtUkIGvxGy9FP6P0jrxTb86Kg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+iAkIdsFZFYMbAdhCR2KaOaZyIuH2aW1z5REK4FBEbZzYrj6ir
-	ooeUMM6eXsYGXqZfDMJws77Ihugt0xd1g6afa+8wvn2yHfq5oe+PUFAoPOvDXGitY08=
-X-Gm-Gg: AZFdTZdsKwWmpwL1pIkxPw+hwNIh/RdXy3csPVpuAKvnD5i5xmX1GEYqxmQAraI9Caa
-	uz7TcWmBsVp4ucT6sGMvoOXSCuwc4yzqRZKGEgjpDpBDeoARAOOhECWWVRnsoHAshT3SEEl9PxQ
-	87aEdMeD50kMSdkOq5nOK8JJq38tztUW/T1/hjthqz5xTsTxL3fXYeF/e3klLdaVY8a3J/U+yD0
-	2GOR2PJ7NIIVxhNoyYHN6Zyp2BDkr9o4Qs1fpjLXHrHoixmrVx92Bc/mbyN5Pr60uVfgH/r8u1W
-	FBACy+tClBER0OFJFAZf0ZX0eiYKhSQtYoxik4ZsoniJh89iYNDgWtrdCL9uv8x8FQD9VEdO1T0
-	SxMThHcHP+p4vyfGYsO7GN08Rge4JqL9A3TxlbhdFbVsCIdyaGlciZqE536fxNmtVVIJDj0fur0
-	DONvEDfGAShebz12eOPuFs0X/SBAd1wJkOgsDNTCryOQ1b/Gbbm96sEk/9pjV65RMR9rslBc15+
-	ptGzUoLchGtDMlRkUxt0S7ovFon5FvNuD/1ZeyAs2u5BYuDY2MdfJA83uVLP2mXQjZGntwMsxAh
-	dPwN/jnch9DH7cdYbg6XbNTlPd0V4AL9Mj9nriTYtJstTdIZgqpC+7/YFNqB+lR7s8c=
-X-Received: by 2002:a05:600c:6708:b0:4ba:7e6:53d6 with SMTP id 5b1f17b1804b1-4bb88940848mr385091835e9.33.1795711239273;
-        Thu, 26 Nov 2026 08:40:39 -0800 (PST)
-Received: from vingu-cube.home ([2a01:e0a:11f4:3020:734a:cabe:eb62:d0c2])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884865b1sm624354785e9.5.2026.11.26.08.40.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 08:40:38 -0800 (PST)
-From: Vincent Guittot <vincent.guittot@linaro.org>
-To: mingo@redhat.com,
-	peterz@infradead.org,
-	juri.lelli@redhat.com,
-	dietmar.eggemann@arm.com,
-	rostedt@goodmis.org,
-	bsegall@google.com,
-	mgorman@suse.de,
-	vschneid@redhat.com,
-	kprateek.nayak@amd.com,
-	linux-kernel@vger.kernel.org
-Cc: Vincent Guittot <vincent.guittot@linaro.org>
-Subject: [PATCH] sched/fair: Use task_delayed everywhere in __dequeue_task()
-Date: Thu, 26 Nov 2026 17:40:36 +0100
-Message-ID: <20261126164036.1938852-1-vincent.guittot@linaro.org>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (1024-bit key, unprotected) header.d=aliel.fr header.i=@aliel.fr header.a=rsa-sha256 header.s=courrier-s1 header.b=nJj+NIgZ
+Message-ID: <c31cbdf7-87ca-46bf-ad89-cb4c8b5dfe55@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1795711248;
+	bh=wA6+NWNs2Pzeunxgi7qRF97OZsO9dKoJhUUzdBBn10s=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To;
+	b=nJj+NIgZX8FjurIbJnvn704fI1Ag9bw1pNgQEwogjT4rkDWjON5w6WPe4X3747V9Y
+	 xfU3ptTlMU1VSCBsHjmzmaSodmVyQHiMbDD7K923DneifPJ61ATyZX7sw+FSTMip4G
+	 zMz6cilJzCvbtD34XhkhAyP6Vnk1CnQT8P0Co1k4=
+Date: Thu, 26 Nov 2026 17:40:46 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,28 +51,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+From: linux-kernel-dev@aliel.fr
+Subject: Re: [PATCH v4 00/11] phy/drm: amlogic: Extract Meson HDMI TX PHY into
+ a dedicated driver
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>, Vinod Koul <vkoul@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Ulf Hansson <ulfh@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
+References: <20261123-meson-drm-create-hdmitx-phy-v4-0-3fb94f5534ca@aliel.fr>
+ <CAFBinCD822UPQrrd_8ZbVRUVCVJ-3pGN69vbZBxUE+0yeMcysg@mail.gmail.com>
+ <6e408f48-17ca-4927-ae09-c4153e294371@linaro.org>
+Content-Language: en-US
+In-Reply-To: <6e408f48-17ca-4927-ae09-c4153e294371@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Reuse task_delayed instead of checking flags bit
+On 11/25/26 09:14, Neil Armstrong wrote:
+> On 11/24/26 23:05, Martin Blumenstingl wrote:
+>> Hi Ronald, Hi Neil,
+>>
+>> first of all: thanks Ronald for picking this up!
+>> I like the overall approach. Before I dive deep into this series I
+>> will finish the code-review of Valerio's AUDIN series.
+>>
+>> Two quick notes below.
+>>
+>> On Mon, Nov 23, 2026 at 8:38 PM Ronald Claveau via B4 Relay
+>> <devnull+linux-kernel-dev.aliel.fr@kernel.org> wrote:
+>> [...]
+>>> Overview of the series:
+>>> - Patches 1-3: Fix compatible matching in meson-gx-hhi-sysctrl bindings,
+>>>    add the new amlogic,meson-hdmi-tx-phy DT schema, and allow the
+>>>    "hdmi-phy" child node under the HHI syscon.
+>> It's been a long time, but I think we've been asked by the devicetree
+>> maintainers to have reg properties for the nodes within &hhi
+>> But I can't find the message at the moment.
+> 
+> The hhi syscon nodes doesn't have #[address|size]-cells and so far it
+> wasn't required, let's wait for a review from DT maintainers, I'm fine
+> with the current design
+> 
 
-Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
----
- kernel/sched/fair.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I found an old discussion to drop a reg [0].
+My understanding is we don't need a reg here.
 
-diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index 731d78155e65..942140247f76 100644
---- a/kernel/sched/fair.c
-+++ b/kernel/sched/fair.c
-@@ -8354,7 +8354,7 @@ static bool __dequeue_task(struct rq *rq, struct task_struct *p, int flags)
- 	update_curr_eevdf(cfs_rq);
- 	update_entity_lag(cfs_rq, se);
- 
--	if (flags & DEQUEUE_DELAYED) {
-+	if (task_delayed) {
- 		WARN_ON_ONCE(!se->sched_delayed);
- 	} else {
- 		bool delay = task_sleep;
+[0] https://lkml.iu.edu/2311.1/05612.html
+
+>>
+>>> - Patch 4: Add the new Meson HDMI TX PHY driver implementing the HDMI
+>>>    PHY configuration ops, along with the temporary legacy creation
+>>>    helper.
+>> At quick glance your PHY approach would also fit phy-meson8-hdmi-tx.c
+>> There seem to be minor differences:
+>> - two additional enable bits in HHI_HDMI_PHY_CNTL1 on GXBB and newer:
+>> HDMI_FIFO_ENABLE=BIT(2) and  HDMI_FIFO_WR_ENALBE=BIT(3)
+>> - newer SoCs seem to have HHI_HDMI_PHY_CNTL3..5
+>>
+>> Meson8/8b/8m2 HDMI support is not upstream yet. That's why those SoC's
+>> won't need the backwards compatibility code. So if you need to tweak
+>> the driver: feel free, there's not much you can break!
+>>
+
+Yes I did not want to break the Meson8 driver. I will send a proposal to
+integrate the other SOCs into it, and make it generic.
+
+>>
+>> Best regards,
+>> Martin
+> 
+> Thanks,
+> Neil
+
+
 -- 
-2.53.0
-
+Best regards,
+Ronald
