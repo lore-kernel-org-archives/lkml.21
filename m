@@ -1,80 +1,78 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795686471;
-	b=VoSIjpE1SGEX70Dp94Yb49wF/2YjlT3yOEIHcG38vh5Vs4CqGz02SjtHrKx+sAlziXqA
-	 /DcG0h4pPtrlTV10zmHL4YgbVrQbpQKtNdAkj6+nJKsfxQ/VMFgcpPc+pIlsU2c5NAmTi
-	 3YI5pvuOmDOg7n94UW1brFHj8VwHS4hRcp2CQb1FgWLFWGHljoX97KonSYnaBYkpOW8t9
-	 /MVn4B7NpkI8KjSmc4a+85pn7Peub5qTaBl7qPlKPuzdLOBW6vHkA5rQZRwuJV+OpMfj7
-	 r8u5PngyP0VG3nGi2EALVOu7pzf3s59mwqr+MHSL+t59u4WkNuM5vUUV1NVl8XSaaYw==
+	b=41gOctydZZS8fFxdiwCK6S43jZoulz/NNpf6U2HA7DNSNoKUjvMex4muCqU6a8GbznPA
+	 cDJYItjZwd0Hm5TV/n7yjuDLndL3IKmbgCfoqxhelG8S5X4D32xPGxkwvQNdH5RsQ6cEJ
+	 Ai9rVJifBOOjAR3SCfkmdG/HIVvZcs58ThTkMSeQC/lcrao8meLvjfZoB8KMIvHlqSEY4
+	 QXRxlPdnjt0a00Gx/xLeMaMlmd2XhZEkXU8WlJRFPOp8EGawvYeWbzcW+S2LgL+LwHLbR
+	 3645KTJ6wzlzF5lREad0ad71g/ubl4Q7k+gT+06gzOecFweubDLS16CJG52p4vuWMKw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795686471;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=qEPjAwBmVmF4gTUW0dYtxO6t6BHYbR+dTRgY27TYGHI=;
-	b=cFSEZRZWPCGlhMzf9xyCRyKw8c77F58xGcQnayi1oMK0tI6xLaByaiaRa0hLtVsdd1S5
-	 2tHQfjDgtBGgCKZk1VVNMee+bcuY2jIIScLtU1ojAigyAAVBmkF0K7+KIXvrixn8isL2q
-	 Li7WWj7ZgI75jGzobADZukbzbZ33UUGAJoIohsGwOL1t/RFlip6KPv2X5y5DD7iD8rHK1
-	 BEoGXqgRNybC2QhSAAQw1peY9Y8Fo3m3EyW8w/bqil6dOG6t7QJZ+qCCjSzZMJCyh+wb2
-	 y00M8l01ua6ZrGMHz0jEzjoUtglO+lNwzVrtK2D66ZKwAkeq0Z6FElyPnNDSMjI5qpw==
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=q6Wc+PG6yS/L/j98ERh1tXxofLkDU8ftPN7DVEoW1HQ=;
+	b=pF8jyeL8GSd049TYG0Xq8caZKeyK8q2rCf3wCWzOFltVS+4erJNqnswj8L05DAyAnGDM
+	 ZrTB1PfelGjQTlfBPa90sAoyAMMFQk823YodAHUUkuOK3eh4aBlO0xC8HAnvPy4xN+MrE
+	 QtT3dkCIaGUkC2c9ImdW4PhxS4KIzF8GUc+Vw4b7AiltW6+5Shc2wzqt+ZQ5ic7H/mJKP
+	 zja7YEbBg5pbgftaj3ZtmWB/HKqCrxj/VHjzbxoLOxcYNQYUneNWdl4HK7zjv6TuBMoy5
+	 PR6BhRWv8L+IA9Q8wtJVIxVWja17ShGSKAILGC5iMfvERglP0SNkxA2WDm2MIKzvTlg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PjMou0C2;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fx8NPYoy;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46707606A323;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA4B3606A335;
 	Thu, 26 Nov 2026 09:47:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PjMou0C2
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fx8NPYoy
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795686470;
-	b=JvRPfkn01cv1o1VgEIIDYee4ritS86qz1XKgPy85ZwgqIDsbVC7kt8Lb3xMpbDM3rTen
-	 sTxWTqJiuurguyvIgKUyds6dpASWTtB49EneKZJDSif6gdjlpBngV6Alp6GFI3swi1YVf
-	 wBZHVzdwnPOPEe8mQWhp9pWbKWXAz+kqN+mtNQ/PdAvJA3WgVjxvnVRdZ1tNYTkxis84R
-	 czgv0oyfDYJ32F1Ik/+uo04K9DGI47rTG8KsrT7FXAffKKyVgeydI7dfsBJAyUUoDCytV
-	 s6+vIFn/umgQHicIwPn9qKRihZ4Heg/n6B0klXp/P4sDCeEdTm6gTyW/OCJLTSDEGXQ==
+	t=1795686471;
+	b=j84FGpCI9jAyONdhttMALyPojjOwRR5oQxpuaIs65rqIQRxqR+QnVhLkCiGPFaS+U2MZ
+	 zuwKrGvfUZ5UaVLvzs7u3E7M/wIBQIvBJ7Vn7IfKiZXmMujLduN6dmMc/Bk+KdVL7gA5K
+	 GSsVmWH5WPwjHkivhOFMOKjKMvUKDAxG3xTyqqLDjnDw1sg06KUgmItC4I0o7qMxYXc+M
+	 HcK8RgDV6GItojU24SDVfFLatmDUwQQnTsjOnmoM2IPMsjmj0GerddoIBzrG4zD/Lf4yi
+	 DEw2aNqgNwWnqs4SI7If6gmGrpVFijt7kxIY5URZ/0P3VlEgWPHZ1yHYHdiMN/y2RYg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795686470;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=qEPjAwBmVmF4gTUW0dYtxO6t6BHYbR+dTRgY27TYGHI=;
-	b=AespWEyU0qk/wAVsBnZzwaO41OvRsZFoR1GN8Niv7T0gpQKp9Qoy9IYlGmIlkaSw3m11
-	 nuk1TXf+08Wx+w4jtnlmi7xgHuKzchvZr4xdmQ49SIThnXxqzQHZ9p/lvNptdnbsIUKGa
-	 hDnBhkcEUlDubI5lD0aAyfD4026ZP9lpvjZqM5O3UTzT2LJALkhuzBcaidGSKSekbPBU0
-	 YXh7TcWf0f7xwK03jK6ArrRbr7EJYpLoQ99EBQPPjyzba4eE0nIZrfPuXJu7YZPYEYJb7
-	 swURjSEBZsZrpJgvIQpsvY4wyWnpW/Prz3GFW+rdqUbckzYh6UIgZ2GOF8zZd1uMSIQ==
+	c=relaxed/relaxed; t=1795686471;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=q6Wc+PG6yS/L/j98ERh1tXxofLkDU8ftPN7DVEoW1HQ=;
+	b=biqx3bdzzPLut+PUHH39JlPjo1UITB4m+d0itHx+D+RWBEia82+sGdk6s5QsO+3iQ85L
+	 rr+CpxBuIBk/pLrHmCZa8J4J3mdzerZyENomIp4CjDwR4fAQoqlEWHYeOSSSuY1R+jJg6
+	 K86LmUXiOdDtXTntfVOjrD6XyfO7h/HkX2/Vf52YzHtCSOi9cxF6gedUEfX3zIOBYyPUv
+	 8/D5/CMKwdxjD5WdQm2QaRQjb8KEgcCmVY5oK36BeKelsHDwoAcIugMNITvIHUsKvTzd+
+	 Y39ol3+WNJQokSiDHeflxrIDzThVQHRj8q9LE3HCYqWe376MrgYkwglf0EAW+5UQmdQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id BB4811F01565;
+	by smtp.kernel.org (Postfix) with ESMTPS id CD2081F01568;
 	Thu, 26 Nov 2026 09:47:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795686470;
-	bh=qEPjAwBmVmF4gTUW0dYtxO6t6BHYbR+dTRgY27TYGHI=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=PjMou0C2ehM+oU81YtZ3vrA0W4m2W9dZODoJ3UdxEvBuDx6X3OlXE4sKOTWrCIGwq
-	 xmkogQJDWRllVAtwzekzbQWUjp17ZsRTwQdEbxPxOd/qs9ctbX+u2pPY8m5MmVSyAI
-	 ASVGoYH0lKET4mwXhRbdjOpkXxHP4JjCcog4VIjTwntJuQ8HQ9UPjgXV/85dmqGFlr
-	 Av/kNssPKwgHOhQT1pv6Icd6vfUaCSe2GPF9znNZUITkYnUzTx0q/MEst0tRGmQA/W
-	 3kSRktssYU8fRXQXj+drHx3GcT3Ay4726JXPJGtFpLblif2yqSlTN3QQcQeKCAdTX0
-	 x8VhiqsmZmfTw==
+	s=k20260515; t=1795686471;
+	bh=q6Wc+PG6yS/L/j98ERh1tXxofLkDU8ftPN7DVEoW1HQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=Fx8NPYoyA+XyE+E+ydZ23Kg1JZ9PyBLLAS6+De044G1wyQG2rNAimRLw2IOeFX3GU
+	 6ZWZPHEcgg+38NX4jDUo7IGEHSN10aLSqHEdI7K8hwQrjGG3TI1zldmgnWxl3Iq7jU
+	 xKA/nEwJaGtgEYzewKoRzAwnAP6xa/Was6lPz79Z4HN8NKz6HmY2Aq88OJi1R1MrNl
+	 bSQnTfAVjkFHTeFPuGG58HghnWE+qyeX13++KWLs++zYc/2yOttLzVngZNSImGQOjA
+	 xnRISnurloO0aaHQbIWmD4Hcj8JvNIJ/oz4zbW+nV6aVboqtsrJB+t9Cz0e7qfJwAP
+	 C7uL7Wl/J3z9Q==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 1BC6F4D3AC;
+	by lkml.kernel.org (Postfix) with ESMTP id 5ACBE4D3BA;
 	Thu, 26 Nov 2026 09:47:37 +0000 (UTC)
 From: =?utf-8?q?Alexandra_=C3=98stermark_via_B4_Relay?= <devnull+alex.cramt.gmail.com@kernel.org>
-Subject: [PATCH v2 0/3] arm64: dts: socfpga: agilex5: add support for
- Terasic DE25-Nano
-Date: Thu, 26 Nov 2026 10:47:34 +0100
-Message-Id: <20261126-de25-nano-v2-0-02e43ba72681@gmail.com>
+Date: Thu, 26 Nov 2026 10:47:36 +0100
+Subject: [PATCH v2 2/3] dt-bindings: arm: altera: add Terasic DE25-Nano
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,76 +83,57 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22Nyw6CMBAAf4Xs2Zpuy0M9+R+GQ4EF1khrWiQa0
- n+34NXjJJOZFQJ5pgCXbAVPCwd2NoE6ZNCOxg4kuEsMSqoSEU+iI1UIa6wTMu/NWTdFSSgh+U9
- PPb/31q3+cXg1d2rnLbAZI4fZ+c8+W3Dz/nUXFFLkle6wRI19Za7DZPhxbN0EdYzxC/+66i60A
- AAA
-X-Change-ID: 20261118-de25-nano-04fa93b56e10
+Message-Id: <20261126-de25-nano-v2-2-02e43ba72681@gmail.com>
+References: <20261126-de25-nano-v2-0-02e43ba72681@gmail.com>
+In-Reply-To: <20261126-de25-nano-v2-0-02e43ba72681@gmail.com>
 To: Dinh Nguyen <dinguyen@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, Mahesh Rao <mahesh.rao@altera.com>, 
  Mohamad Asyraaf Azhar <mohamad.asyraaf.azhar@altera.com>, 
- James Clark <jjc@jclark.com>, 
- =?utf-8?q?Alexandra_=C3=98stermark?= <alex.cramt@gmail.com>, 
- Conor Dooley <conor.dooley@microchip.com>
+ James Clark <jjc@jclark.com>, Conor Dooley <conor.dooley@microchip.com>, 
+ =?utf-8?q?Alexandra_=C3=98stermark?= <alex.cramt@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795686456; l=1919;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795686456; l=977;
  i=alex.cramt@gmail.com; s=20261118; h=from:subject:message-id;
- bh=hT7xxaLvHFgWA0nTSeZrZRfSJUG//t51lZyFRrNe5Uk=;
- b=JtlkjNR9BUxMu2igXHNkvR55WbhFelaxhJMezHh1DuH2w1atuYcvwhJLsifX9/ATEg+FRTJI6
- cF6o15JEVuYBqDZBzLp/BSK2QnGkff1kwJ5qHPKie9VFfRCpVEYVNgF
+ bh=QglOvD99R7zKu7gZQ5QqRg3vMc8/faE3VeHwT/q8HmY=;
+ b=x9Ws0y8pT0iqSSW+aLAajFO9W0v7u5RRJNPif0IPr7pMbjH982xNw1UCsxQJaBgF2eq5Xd12k
+ MQ5xARyEdSUBDw4Nu2gAgK+lX2Ix6HiE2/GVvUvIig9gunxws14kr9v
 X-Developer-Key: i=alex.cramt@gmail.com; a=ed25519;
  pk=vQBaXUvFG7cCIaWDKclPMjo3b4XfPEVkuPjaWCkYddc=
 X-Endpoint-Received: by B4 Relay for alex.cramt@gmail.com/20261118 with
  auth_id=1561
 X-Original-From: =?utf-8?q?Alexandra_=C3=98stermark?= <alex.cramt@gmail.com>
 Reply-To: alex.cramt@gmail.com
+Content-Transfer-Encoding: 8bit
 
-The Terasic DE25-Nano is an Agilex 5 SoC FPGA board. This adds its
-binding and device tree, plus the service layer interrupt that the
-Agilex 5 dtsi is missing (Stratix 10 and Agilex 7 already have it).
+From: Alexandra Østermark <alex.cramt@gmail.com>
 
-Altera's vendor tree (altera-fpga/linux-socfpga) carries a DE25-Nano
-device tree too; this one is written against upstream's dtsi, so it uses
-the SD6HC sdmmc node, and it only enables what has been tested on the
-board.
+The Terasic DE25-Nano is a development board built around the Agilex 5
+A5EB013BB23B SoC FPGA, with 1 GiB of HPS DDR4, a microSD slot, a gigabit
+Ethernet port and USB.
 
-Tested on the board on v7.4-rc3 carrying the same device tree (its
-decompiled DTB matches this series' build on next-20261117 apart from
-nodes added to the dtsi since): boot from the microSD slot, gigabit
-Ethernet, USB, the HPS LED, I2C1 with the onboard accelerometer, and FPGA
-configuration through the stratix10-soc FPGA manager. dt_binding_check, dtbs_check and
-dt-check-style --mode=strict are clean.
-
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Alexandra Østermark <alex.cramt@gmail.com>
 ---
-Changes in v2:
-- dts: the HPS LED is active high; v1 copied the vendor trees' active low,
-  which inverted it (James Clark)
-- dts: enable I2C1, which reaches the onboard LIS2DW12 accelerometer on
-  the HPS's own pins (James Clark)
-- Collected Conor's Acked-by on the binding
-- Link to v1: https://patch.msgid.link/20261118-de25-nano-v1-0-473d16131f7a@gmail.com
+ Documentation/devicetree/bindings/arm/altera.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
----
-Alexandra Østermark (3):
-      arm64: dts: socfpga: agilex5: add the service layer interrupt
-      dt-bindings: arm: altera: add Terasic DE25-Nano
-      arm64: dts: socfpga: agilex5: add support for Terasic DE25-Nano
+diff --git a/Documentation/devicetree/bindings/arm/altera.yaml b/Documentation/devicetree/bindings/arm/altera.yaml
+index ae38ba0dc..75f874e8b 100644
+--- a/Documentation/devicetree/bindings/arm/altera.yaml
++++ b/Documentation/devicetree/bindings/arm/altera.yaml
+@@ -118,6 +118,7 @@ properties:
+               - intel,socfpga-agilex5-socdk-modular
+               - intel,socfpga-agilex5-socdk-nand
+               - intel,socfpga-agilex5-socdk-tsn-cfg2
++              - terasic,de25-nano
+           - const: intel,socfpga-agilex5
+ 
+       - description: Agilex72 boards
 
- Documentation/devicetree/bindings/arm/altera.yaml  |  1 +
- arch/arm64/boot/dts/altera/Makefile                |  1 +
- arch/arm64/boot/dts/altera/socfpga_agilex5.dtsi    |  2 +
- .../boot/dts/altera/socfpga_agilex5_de25_nano.dts  | 95 ++++++++++++++++++++++
- 4 files changed, 99 insertions(+)
----
-base-commit: 7cfbf79c66c63e807ea452abf0546e6f6d6833a6
-change-id: 20261118-de25-nano-04fa93b56e10
-
-Best regards,
---  
-Alexandra Østermark <alex.cramt@gmail.com>
+-- 
+2.56.0
 
 
