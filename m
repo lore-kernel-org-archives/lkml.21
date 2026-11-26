@@ -1,60 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795678523;
-	b=pAdhvcZJ3+9ofIykBHpkNUIrDW90EcnIHL9tSSRiZq/awacWdUijQpwrieVWWY2pDR4Y
-	 5T5nA17MLcrGsLCUIt+qgEb//dg1GtCupFF0HFLhMAOnwey0q9JtR7wBcJ/27oTuhkVQW
-	 7EHEO55UOsjq3XSw9dIHnfxTyoOVDHGQnltuPknB00WdI1KIBR4Q4WOXmStGXJAEFKyPD
-	 ADjoZ3aLqEf5RzTQSKNH1jbY13tz1nYOu6G5GxA5teT9GSMIRXXNnQ960MCl6GDsOD6gJ
-	 Pu3mcOMBlePTt+OUnFHrduqL1aRXlRRqIDuAOX3YK/6ZAq9fdEam2ib9ICheIluUm4A==
+	t=1795678537;
+	b=EmGnnTzXFoS7BnMfr8jDoD3+5zhXV/etwgucU2/fhKH/bxdFKf6OqCPHB45IQuoC2yjR
+	 TNp1e1Sx9vzEqJEcUQawxKIkCKnyFF4Hr9UJMc78uQJoJ88DjPrlaHGT2voSe3NCroIbU
+	 IsMJhjdyINj+KC7xc+E4l6HTa+1+f0IRlLoavkIT3LHmvkyunUakuogbhMgcI/hrWKei0
+	 Yq15o2FOuPMvVfHpunMRZHd9rPT/Js/PODmbNghXocT8IzvJSrrDPk8QX6gq7FKwwO3aW
+	 +mYDAWeMmX3BOe/L+jhFXCxITcO6G1IZCb5JGPar0tNKWlVuXPvHBSSbX+7atErve3Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795678523;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=XUSJGTide+xDGpIYleL0SwfRegZX5gU/UVkOK9ZOXc0=;
-	b=wRMdR2gzUH6ZKRSwFf4TAnQS2mhkTHTKIsmabaOI1rjdVZKw533IO2JWnFnn3lLwrLdT
-	 61lqnFzVW5kyIoidbr29/tnZWjeFmuUzFyvo4gWE4EsKWkbAKfPc+j1CNwywTjU628uuX
-	 wYkxgaRriWTEfpoZL3kEQw/fzv5nHG4Ov08B+Igs3l0IO38hj65ZapBB3L0giyqX2/4ob
-	 9UNSjlwFOGAehnc+nqo1dlXYVpwTlyGM3/FdaemtdBam+zP0shfzMhltEo8MUVEgT2mEi
-	 e18Evk+M5nbm+Q6ung/LAn6pw6cn7JpSOAzWxgLvUwwKbTLSfuDmrmZuLLKlmtlgVFw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795678537;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=boC20xEcVl1EDIpAddHHhlVunpFVfmU01fWqQtfy4l8=;
+	b=XZQRe2BfjYXDuNo46NvzvOqX4r3W89MKtvB5sOtiVHYUlduLrJlLMfaDIeKgOA73kDi7
+	 WiB6pnUAcmMRnZmL9itGZwFIm4CmQ8y16JxnTvZLFecLC5cgZulin4w+9+Zwy/uQCyObt
+	 XxNRpEPQy6uaN5VDNgk70Sk88rEgw/mkrnzaj4YJqs3nxDUoeQCOxzI51m4To0Pho+Tpu
+	 d6kNJozDjRhuWxNbFsmPGJfh3oZJL/VlSKifEzphdQCLaMOj3g1w0++zaDfhWwFuf0RiH
+	 X72hXCJwuD+PCoDDkMY+YUYS2WdogLynuzYW56c4F5U9PvHNQ5f3yS4zxeiDyPHCNIQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=protonmail.com;
-	spf=pass smtp.mailfrom=protonmail.com;
-	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=mtM9STWX;
-	arc=none smtp.remote-ip=109.224.244.123
-Received: from mail-244123.protonmail.ch (mail-244123.protonmail.ch [109.224.244.123])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xj7gcXU2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D12BB606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:35:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D12BB606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3120606A323;
+	Thu, 26 Nov 2026 07:35:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=mtM9STWX
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1795678520; x=1795937720;
-	bh=XUSJGTide+xDGpIYleL0SwfRegZX5gU/UVkOK9ZOXc0=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=mtM9STWXKAqD9WGspzMlHKmC6U4qA0TSAq53ucmxbzOIASs2A7rXAYkYTqoiAm35v
-	 xTKZPc76zxQPDHAA6sbS0mkDMDwY8XHGl5OimhViNuEwG5c7UkVDDtLaj9oGjW6L6G
-	 r5N/m7aUP/LY2kMjM4VjtMiBVlzWjCYuLvDG2U9spFA3d6796bSicAk/l4b3R2wVuD
-	 tcc9h3bK+rHaZ/YzJWhiEzHzNh2y0t46Mcw5rk4LiRa/fncrRFEdH98kkxY2ia7LB4
-	 RWDr4t9g/9LjPcxHaMOs94wo1+FxqiLl5IbGi4s/wqhRCRNgeO0ooxx/daMPvnm6Gc
-	 d75jHqlB1vdCg==
-Date: Thu, 26 Nov 2026 07:35:14 +0000
-To: iasnezhkov@gmail.com
-From: Roman Vivchar <rva333@protonmail.com>
-Cc: jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, linux-iio@vger.kernel.org, linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/3] iio: adc: mt6359: fix MT6358 VBAT impedance resistance ratio
-Message-ID: <RyeVHYGoYxuKtlQ0QPskoF7emL4yakkPeBUW--rPVYqvaAM4Q5Pm1GACcF4t-1DjyxPPOMNyfAiMnTxVqugYC2MBKxUBhRiDDjtcPNK4Z7Q=@protonmail.com>
-In-Reply-To: <20261126031013.27701-4-iasnezhkov@gmail.com>
-References: <20261126031013.27701-1-iasnezhkov@gmail.com> <20261126031013.27701-4-iasnezhkov@gmail.com>
-Feedback-ID: 173184497:user:proton
-X-Pm-Message-ID: d24a110af2aa28dfc2cca5959e1a53a29ffd220d
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xj7gcXU2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0D341F000C0;
+	Thu, 26 Nov 2026 07:35:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795678536;
+	bh=boC20xEcVl1EDIpAddHHhlVunpFVfmU01fWqQtfy4l8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Xj7gcXU2yAzs+tY5aGh+r2uI6L/qAaMiMVMaU5hO4ylne18jSfx3A/DdofXzyelAp
+	 sCL0o4SbvZsPkve5B+TQC+8FAe72ppS8j/CZsmhfSLxgrr3RRexHOIWJIiOSAM01eN
+	 4oIf70mvrfIBerCpyHViMt4spBNliudvllNKxggo//bREvxfFgCxnC7nRT3ZvkbyTt
+	 0Bnms7iP7Kd3FPvTo2P7RDmQ0NZKxqCoHspzeK2x8Nb18P3XqZZypW5N4dy04ZiJiZ
+	 UwJMP0//Cc1J2ebqt/DevFLb6t/ORSOw01I9bpwGUgqPFTRaVu3c4gLygPTzBfVTwV
+	 xdAe3paCax8qA==
+Date: Thu, 26 Nov 2026 08:35:28 +0100
+From: Carlos Maiolino <cem@kernel.org>
+To: jianyungao89@gmail.com
+Cc: linux-kernel@vger.kernel.org, "Darrick J. Wong" <djwong@kernel.org>, 
+	Eric Sandeen <sandeen@redhat.com>, Alexei Starovoitov <ast@kernel.org>, 
+	Yuzuki Ishiyama <ishiyama@hpc.is.uec.ac.jp>, Jinliang Zheng <alexjlzheng@tencent.com>, 
+	Dave Chinner <dchinner@redhat.com>, "open list:XFS FILESYSTEM" <linux-xfs@vger.kernel.org>
+Subject: Re: [PATCH] xfs: fix wrong lookup direction in
+ xfs_refcount_lookup_eq tracepoint
+Message-ID: <awfhNT6uBBBmlkM6@cronus.toxiclabs.cc>
+References: <20261126023419.5727-1-jianyungao89@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,36 +59,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261126023419.5727-1-jianyungao89@gmail.com>
 
-On Thursday, November 26th, 2026 at 5:11 AM, Ilia Snezhkov via B4 Relay <de=
-vnull+iasnezhkov.gmail.com@kernel.org> wrote:
-
-> From: Ilia Snezhkov <iasnezhkov@gmail.com>
->=20
-> On MT6358 (and MT6366), both BATADC and the battery impedance VBAT
-> channel use a 3/1 voltage divider (5400 mV full scale with 1800 mV
-> VREF). mt6358_auxadc_ch_desc[PMIC_AUXADC_CHAN_VBAT] erroneously uses
-> 7/2 (copied from MT6359), over-reporting VBAT impedance readings by
-> 16.7%.
->=20
-> Change MT6358 VBAT r_ratio from 7/2 to 3/1 to match MT6358 BATADC and
-> hardware.
->=20
-> Fixes: 3587914bf61d ("iio: adc: Add support for MediaTek MT6357/8/9 Auxil=
-iary ADC")
-> Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
+On Thu, Nov 26, 2026 at 10:34:01AM +0800, jianyungao89@gmail.com wrote:
+> From: Jianyun Gao <jianyungao89@gmail.com>
+> 
+> The trace_xfs_refcount_lookup() call in xfs_refcount_lookup_eq() passes
+> XFS_LOOKUP_LE. But the actual btree lookup below uses XFS_LOOKUP_EQ,
+> so the trace record reports a mismatched lookup direction and misleads
+> debugging.
+> 
+> Fixes: 08daa3ccf541b8 ("xfs: add repair helpers for the reference count btree")
+> Signed-off-by: Jianyun Gao <jianyungao89@gmail.com>
 > ---
+>  fs/xfs/libxfs/xfs_refcount.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/fs/xfs/libxfs/xfs_refcount.c b/fs/xfs/libxfs/xfs_refcount.c
+> index 75e469576a8b..6a15a1afed1a 100644
+> --- a/fs/xfs/libxfs/xfs_refcount.c
+> +++ b/fs/xfs/libxfs/xfs_refcount.c
+> @@ -96,7 +96,7 @@ xfs_refcount_lookup_eq(
+>  {
+>  	trace_xfs_refcount_lookup(cur,
+>  			xfs_refcount_encode_startblock(bno, domain),
+> -			XFS_LOOKUP_LE);
+> +			XFS_LOOKUP_EQ);
+>  	cur->bc_rec.rc.rc_startblock = bno;
+>  	cur->bc_rec.rc.rc_blockcount = 0;
+>  	cur->bc_rec.rc.rc_domain = domain;
 
-Although this change looks correct to me, it's a no-op given that it's
-not possible to read the channel.
+Reviewed-by: Carlos Maiolino <cmaiolino@redhat.com>
 
-~ # cat /sys/bus/iio/devices/iio:device0/in_voltage13_raw
-cat: read error: Operation timed out
-~ # [  243.402155] mt6359-auxadc mt6359-auxadc: Resetting stuck ADC!
-
-You might want to fix it in the previous patch.
-
-Best regards,
-Roman
+> -- 
+> 2.34.1
+> 
+> 
