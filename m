@@ -1,63 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795685027;
-	b=P8hs5pqY822e2KktA/gq8IY8PcNyr4RIFzbblis1V+X6ul0qscbaTPeouPRLRTf9w6Ol
-	 Z+857IpbxJ6zJ7kfS+9ULee+Pdr4E3sDK2Gd0f1ueHDTJZDQ9v3fPHxBn6+t6JDLYt9lw
-	 zERcmoW2mgea0nDWx3Rb7VDI7rT2pdOZnMH8/Yhk65vzo3s0dXbbc/ipgbWVaRcBqcJdw
-	 O/EwcIlrHnmQy5c42g/0qASCwOTIJ9eHn1JaU+ogKNlv2WOTU9FB9//2tq48UrJRH/CBM
-	 Rd/VZLuz1GHtipOJ3AueXFQQkqpi2MMFbJKjoo2E8o6d/z5ujH9XekPOUF6zZtcFNNw==
+	t=1795685041;
+	b=B7UPzP3rG96B9SgoZNdFBiancRfxbccpYqPQ7r10HQloEM20e94NdOpzjOXpXa36W3bK
+	 fJ2cXSACsCmoRDMX2P0gn+/ohowkG2UrkEZ9jMuG80CimyC+r7NyCuw33P9bK3rfmRMKH
+	 dyBx9E4nngW9V3e+ut6Djfiv14ujSCN/B2hlagvt1e19pJ/ECrwwHPrmFG+bAGhGHEKot
+	 k8/JMNq3//0Sv1VTNsfObMyG+ULkfJyZJ3W2frHKKCk4T7ibv9w2oHB8MePAxrzrbpTC0
+	 uK2vJhkW9VTHphfZN42EO3QClzSh076MuTvmptr6e9QiAkCqtM5trwyNGHQEabe6gfw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795685027;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795685041;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=5/hmL/5YenNKxna3pbqKAQxsiIs+mcdwyrmtudaVzyg=;
-	b=NVggAGmhwLt0+ridfxGfDVUEpB9sQ5FvuR/pLShiyD1gxedS70ndW54qy/xte4wW125u
-	 6WeOR4UDSfaOxMXFXPyQxMIvkaDuZGB+nLU/+xGWKo2eH0jNwNNlCA68ScB2hZH74YW1f
-	 YQQEIr9jfxDocFhdTo23reXQENuplu3o9VQnK8qfvih8nlWDwTpZd5b4lL0alQaQC96Q0
-	 tm5Xh3+sHFvtK02kIcciGmaxtA+KkVlY2Rd+UnYJ9+xHFZu60mMHLQXP5AQRoiLdx+WqP
-	 U5713jF+cDEZXPn4QYTSeouyRo4d2FX4H/RN7srKIOn7tU47gVB7+U1LeD0YnwHV2NA==
+	bh=GO7tR5tDstSJhSy6pQPYRFiJw09Ox+GG2RpQbvbvyg8=;
+	b=uFB08f+7RnFD5/BIgDGoWZfyGiY5NNLOlwpcbYY2XnZtftB4lnO4SeURbOdy5o4A0PFW
+	 t8i8VwEB50WZkSkS3ikS6rNLri3rLQaQQ3jlk1wCzzeR0GeRNIW5+fY7qimD0RWjHjKNz
+	 wXz3P/OodGuG42SD50t8MXAWcdAL7aJCf2UBFUu2/JN50GJFhdtuFS4Pa0g8Z6oGfVk1h
+	 o5GUKFol0MtPVEzYMykcs4keDc2hCAO/RtJer1kaG8Pn/eG4cTGspABIHx8tcJX6bL+Fi
+	 VR93Od/76XxxHlHLOYbJi7a5XFl9oFtxvU9UmSux8w3s0O6YriF0KTq9egwPdobM98g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QagV6h3T;
-	arc=none smtp.remote-ip=91.218.175.56
-Received: from mta0.migadu.com (out-56.mta0.migadu.com [91.218.175.56])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fDjOh5se;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86DBF606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:23:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86DBF606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38023606A31C;
+	Thu, 26 Nov 2026 09:24:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QagV6h3T
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=IXk0YjApNqhwO4WOhdlld0wJ7HXpUsU43ydhjyvNR9c=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795685024; v=1; x=1796289824;
- b=QagV6h3TrAixwjEY05KD7NC7kK9dNjhuVqE4iqwta1OBQl8vw2LfGeY8mq0DLNFftSUN3bU/
- zClW0I19njLz9XMyVXdRorG963BlPX8feL8wl1XiH/XEl2PSTW/tK+tojHy35IDtIy8mbVM1tIy
- gjca/wvs+v5UziDBlWRSS5+4=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id e96f05ea7a9315ff;
-	Thu, 26 Nov 2026 09:23:44 +0000
-X-Mizu-Trace-ID: e96f05ea7a9315ff
-X-Migadu-Flow: FLOW_OUT
-Date: Thu, 26 Nov 2026 17:23:37 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Zhiqi Zhang <zhiqizhangg@gmail.com>
-Cc: Donald Hunter <donald.hunter@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] tools: ynl: reject missing regen path argument
-Message-ID: <20261126092337.GJ33976@Liu-laptop>
-References: <20261125070354.18200-1-zhiqizhangg@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fDjOh5se
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B97651F000CA;
+	Thu, 26 Nov 2026 09:23:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795685040;
+	bh=GO7tR5tDstSJhSy6pQPYRFiJw09Ox+GG2RpQbvbvyg8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fDjOh5seSIIWpBRULEBC/WNH6I+NL0X/nzSFUMOqXLkVs11Pr6lHTL3MGYKm+SC4M
+	 RNfUvQDiNrUFYgecSgqP+sSGy5AK0D+RIoOmeIvs0WpPFsIfdMKfcNb+evqEd4VCWP
+	 LKQyrsBsxdbZub5XudjGCZftR61JOZqECDNLU253PBP6pwEWjBahjLpQvS/L3E1Bgi
+	 0whwM7fG58lgMYRDhvcqm+P23peQ2t1UBtadW655dOwfZ6RudwK/m0dyYmTbmXBAwX
+	 U4uAi8hfLbn7Q1MVTIQfYMo3dIdl98kymJBMh2ahLMdhE4qpgYXMMWBzgqtzgFMZH+
+	 FN9aEP+TlownQ==
+Date: Thu, 26 Nov 2026 11:23:56 +0200
+From: Leon Romanovsky <leon@kernel.org>
+To: Ziyu Zhang <ziyuzhang201@gmail.com>
+Cc: sagi@grimberg.me, mgurtovoy@nvidia.com, jgg@ziepe.ca,
+	linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org,
+	baijiaju1990@gmail.com
+Subject: Re: [PATCH] IB/iser: Fix deadlock during blocking connect
+Message-ID: <20261126092356.GF774860@unreal>
+References: <20261123144440.65441-1-ziyuzhang201@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,72 +59,45 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261125070354.18200-1-zhiqizhangg@gmail.com>
+In-Reply-To: <20261123144440.65441-1-ziyuzhang201@gmail.com>
 
-On Wed, Nov 25, 2026 at 03:03:54PM +0800, Zhiqi Zhang wrote:
-> ynl-regen.sh expects -p to be followed by a path.  If -p is
-> passed without an argument, $2 is empty and shift 2 fails without
-> consuming $1.  The option parser then keeps looping on -p until
-> the caller kills the script.
+On Mon, Nov 23, 2026 at 10:44:40PM +0800, Ziyu Zhang wrote:
+> iser_connect() holds state_mutex while waiting for up_completion. The
+> CMA handler for the same connection needs state_mutex before it can call
+> iser_connected_handler() and complete up_completion. A blocking connect
+> can therefore prevent its own connection completion and leave the waiter
+> blocked until a signal arrives.
 > 
-> I found the issue by manual code inspection and validated it with:
+> Drop state_mutex around the wait and reacquire it before checking the
+> connection state, preserving serialization of state and cleanup paths.
+
+You can't randomly drop locks without any explanation why it is safe.
+
+Thanks
+
 > 
->   timeout 2s bash tools/net/ynl/ynl-regen.sh -p
-> 
-> which used to time out with exit code 124.
-> 
-> Reject -p without an argument before shifting.  Also stop if the
-> selected path cannot be entered, so the script does not continue
-> from an unintended directory after a bad -p path.
-> 
-> GPT wrote the code change; I reviewed and tested it.
-> 
-> Tested with:
-> 
->   timeout 2s bash tools/net/ynl/ynl-regen.sh -p
->   timeout 2s bash tools/net/ynl/ynl-regen.sh -p \
->     /definitely/not/a/kernel/tree
->   bash -n tools/net/ynl/ynl-regen.sh
->   scripts/checkpatch.pl --strict --file tools/net/ynl/ynl-regen.sh
-> 
-> Fixes: 25b5a2a1905f ("ynl: regenerate all headers")
-> Signed-off-by: Zhiqi Zhang <zhiqizhangg@gmail.com>
+> Fixes: 504130c039f9 ("IB/iser: Protect iser state machine with a mutex")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Ziyu Zhang <ziyuzhang201@gmail.com>
 > ---
->  tools/net/ynl/ynl-regen.sh | 11 +++++++++--
->  1 file changed, 9 insertions(+), 2 deletions(-)
+>  drivers/infiniband/ulp/iser/iser_verbs.c | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> diff --git a/tools/net/ynl/ynl-regen.sh b/tools/net/ynl/ynl-regen.sh
-> index d9809276db..524fadb770 100755
-> --- a/tools/net/ynl/ynl-regen.sh
-> +++ b/tools/net/ynl/ynl-regen.sh
-> @@ -9,13 +9,20 @@ search=
->  while [ ! -z "$1" ]; do
->    case "$1" in
->      -f ) force=yes; shift ;;
-> -    -p ) search=$2; shift 2 ;;
-> +    -p )
-> +      if [ $# -lt 2 ]; then
-> +        echo "Option -p requires a path" >&2
-> +        exit 1
-> +      fi
-> +      search=$2
-> +      shift 2
-> +      ;;
->      * )  echo "Unrecognized option '$1'"; exit 1 ;;
->    esac
->  done
+> diff --git a/drivers/infiniband/ulp/iser/iser_verbs.c b/drivers/infiniband/ulp/iser/iser_verbs.c
+> index 55fe68e..9fe2d3f 100644
+> --- a/drivers/infiniband/ulp/iser/iser_verbs.c
+> +++ b/drivers/infiniband/ulp/iser/iser_verbs.c
+> @@ -778,7 +778,9 @@ int iser_connect(struct iser_conn *iser_conn, struct sockaddr *src_addr,
+>  	}
 >  
->  KDIR=$(dirname $(dirname $(dirname $(dirname $(realpath $0)))))
-> -pushd ${search:-$KDIR} >>/dev/null
-> +pushd "${search:-$KDIR}" >>/dev/null || exit 1
+>  	if (!non_blocking) {
+> +		mutex_unlock(&iser_conn->state_mutex);
+>  		wait_for_completion_interruptible(&iser_conn->up_completion);
+> +		mutex_lock(&iser_conn->state_mutex);
 >  
->  files=$(git grep --files-with-matches '^/\* YNL-GEN \(kernel\|uapi\|user\)')
->  for f in $files; do
-> 
-> base-commit: 7ccb044c27720d48175577080b851f047ddcfd1c
+>  		if (iser_conn->state != ISER_CONN_UP) {
+>  			err =  -EIO;
 > -- 
-> 2.54.0 (Apple Git-157)
+> 2.34.1
 > 
 > 
-
-Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
