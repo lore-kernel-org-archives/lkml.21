@@ -1,87 +1,85 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795662624;
-	b=HgqFt2J4Vd/WKzccGVahcnuhbXQl4N9G5d9i8TTsZArt5m61x2ADZKu89mXk6eutmYga
-	 xhi1WAF+DeN8Xeh0TwQzyg6fCuxAYrO1apW9mgFOS4DPDZWraWzL3aRznfKpiI5zfF0QB
-	 lZEToMlPE03rWpLQYMLFeZKJAPBahJ76ljk+zGs4/i6LWoYNdjBIfXuO9gkDi5j/66bie
-	 rGQcd5NzM5go5mC17iFdGh6Mgsv75VcoWDfggqBzsWCJdHHrRjgtcgVw9cKuTJrBy83or
-	 hw4x9FSUQrr1DDjksplRD/LrlfSqb2y9SB+E3jNnDuqjxFXGd2E6a3zuteYub7pMxnw==
+	t=1795662626;
+	b=gusPeUXYyZAdpwD7nbO2kx8eJN1Yyt4d82WeNSgQlVwoYOCcX8278vC/UoDZQWEJr2YM
+	 iQfTBTo7982TVk4ynOC+jTFHJ3STmJo947ydEz9EVBn+9eYWHvd2kOyaXvweNqJYhuiRq
+	 e31+fI4ezKdo0Q3gsM+IuHmpkBHSEvXhql8cgOu+C6L+X/k/3wByjA94H48PzJijXzW5a
+	 CfUuU84IBoVTUeVZZG7E8Da0LXMx1gvoQbNKQoZRSs+dcBMTHrYLprWlbl0/xlI+vJ+/f
+	 HWmAzeaIRx0TSIAdz67SVuv2acl1dyhJGZtwsr2XDlFb3F7vO2KrjqQWJlAAlmw4U9g==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795662624;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795662626;
 	h=Received:DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
-	 In-Reply-To:References:MIME-Version:Content-Type:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=1U1SzihIC60Wh5zi5DUA6SQRG4RcpzYL9izpFwzLS6Q=;
-	b=yjRQk6o6qdXQSCFQZCfW5JSTlw0EWGSVEFrxvfFSZPlscQi407u1kRkjqnexexSmOmFl
-	 n9fgbMlp1cuftNBZcdpSrpxAz1K6QDFhsWaOEBiSxu4sliZ4pUbIHXnBthVWlUEXzfgbN
-	 DUl5U3pQFKnmNP4p3/OZDvhsWSXGgiOSvQwikfIKkjhe2uOJo0xPQvDtXDKqynoP1E+eP
-	 T3mx04IAkCrI+8yyylSnonAzKz1KVFyoXjGE5hJTUK5Gmax009RBpw7ux8GBdkLqWXTWn
-	 wDzSIu/LTDZafx2negUgh7kgTFyDuO1yMLHVwM2c6fLDdFaeW6H0jd81VvSGVK/SVCg==
+	 X-Original-From:Reply-To;
+	bh=R1azQkrM7pzrYlRnZKU6r2/PNRas9qh9xr/YT+lwxZ0=;
+	b=PkvAejtxDZ4x+LjAkqOuTyW5UlNiNy/WuI2KYj0Fr6SUo1bmoh6CWmEiWkft92GzOczn
+	 djXkkbC1QWnlt4XKkAtHbgqY804o1RK8u4tZmpam7ZlaQT8T1rwDSKShJTnY/a8HnEHFl
+	 A71uTe1zpRY1/csJDlfvISgqVYb/wvSsKmVhxSEDXKbr3Y7l5i2z9UzPHdQh5YrSThiD7
+	 SAk+x12GQ+R9tUGf0ZgV4VCgPQLeq0GQL1oZsKLqGNIsGjF7vXqmqE0joObvZ0C5PEM5V
+	 dkiZxYXH6m9HoEZ85rBAMnPO0UGsxGSyimO2U47gGEj+XGqJtP4mfMuaV+slNM8JL/A==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JuTAmrgA;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KEvfVHqP;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4015606A31E;
-	Thu, 26 Nov 2026 03:10:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52705606A689;
+	Thu, 26 Nov 2026 03:10:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JuTAmrgA
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KEvfVHqP
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795662623;
-	b=axNnO/pJ4Ebq6RMcnwbw6GpQn1TEIv6hO4jrSkOhe9Ci1PBeXGh8XpuLF9loSpQV50CY
-	 Tqg/xdMoDwDTF7Sjwgm8o0ffUQSckHDLUTL+mKFevkjkeZM7Hxl6D2CGnXBDmZIxGczSl
-	 CM8DRhKndKRl/Rs6LTyUlDf/EF1ZH47oZEJfIMEghMV12z9XXi/iEhBxRiFmusaybKj6X
-	 VV2ydP9P0KKrRcZazKyb1x1yDAFvARHNVPpsMjDzvBDY95cvFMNEsxsPV5lfRe357QyaB
-	 A3f4lkc15BLJewOwz6tzUbo8iMjEmxd515oZtzRcK5hL1NcVTt3s9G1d0z600VLJCHg==
+	t=1795662626;
+	b=VGfNXKU8RTzxKMTeAq9nna78K39JGcGGLkVtlfJ1aSJKr0yNRhpHvqDVOuZGyXUphyis
+	 hWEWYLQ6Zu9CGWvXdCIwwd2Vr4ewQiUu6GfDweZhPfCIm14iH916QVE8gTjImA2cTFtlg
+	 FOSec3hnFsn5oxXV+0MKhrajAGtRfW9ZAC6FOUD6yAvdPypPGsAIeztd6yuDvYHRKHnWA
+	 n7OvhkzpNmraqzIIeaUW7bk47GhKtY0LFF+CPConBdRTTpOpOnX1ucAbUtEwaEdJqTWiF
+	 DGrr+lNbW3fHRhIKW3JBDBn7ZE2lRjsXysL5Debs2Kibp8gAAsiVEzxI+3/M8RDpwdA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795662623;
+	c=relaxed/relaxed; t=1795662626;
 	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
-	 In-Reply-To:References:MIME-Version:Content-Type:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=1U1SzihIC60Wh5zi5DUA6SQRG4RcpzYL9izpFwzLS6Q=;
-	b=u5mxauxKOXwLBZu7cXfaFjV57ULZWidoof6FAxa2PkVfWbTDDDZDsX6HR6LpCIWKUGzD
-	 nqn5Nt1ob71KWgMgSua6dWbOJ/um4WUHr2J6ZcpJ5wmCoyK5bDlhSEgcvyoEG5L5j6zGN
-	 Ni+sK1qqBmfSpjo1dNJ1EmrBJzkyxsv+nrsZC4roHrSaJZfyu7sraIbaM1JgPFkMY2myp
-	 6BA1dNW2gq6i+Sbh6x0BWL3BOU0bwwI/CSIFHEK4ocqK0PYgZBZNJ1QzYBfiy78KlhfIU
-	 aUQiMo/e7jsC4BxPSzqZnLmdG2IfKvdb9YOacjULl5tBVoOLlbWSEJsfl6ZbUsi74fw==
+	 X-Original-From:Reply-To;
+	bh=R1azQkrM7pzrYlRnZKU6r2/PNRas9qh9xr/YT+lwxZ0=;
+	b=JDNIJB/QoAMrDVJ+5nLQXds0d7/HUIDoZxFJ49/4vCog/NIX31QVkAqV6Rh+8kVagdbI
+	 1Y8r+hlLB9Hpu/arLmbYO88S09RLNmDDU5u1lG6/TnzvGDohGh1aWfNdvgTEnMIgKrb3m
+	 tq9cHy5bg8tDuy6DxjfiWTDrM1VSmB2Lm82MaFmW34G+ilLMjKDnTV1VCsvEddWEDhimy
+	 UoFFlI9Bi5GFjN5zyIpONApvoITVsTFdi+cJ9gzJu/61Bk3dyWrziHQfkHHL4J86kRCqT
+	 /ECY6aEs0TMzFZ0S8QXt+tUkSpbbiaZZrIGNaft7IqrYbUPwR97dWMkPuaEgcOBzY1Q==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 5EBC41F000E0;
-	Thu, 26 Nov 2026 03:10:10 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 883011F00AE3;
+	Thu, 26 Nov 2026 03:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795662623;
-	bh=1U1SzihIC60Wh5zi5DUA6SQRG4RcpzYL9izpFwzLS6Q=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:Reply-To;
-	b=JuTAmrgAg6g9+7n99r8T3f1LPgQ88u1EAWYutK2111/O8tvKTmHN6YZhSojxIHAv+
-	 us3xE9NeuraD4ctgLatHhtbw0fpXiZms3VaJu0T+s0IMqRPg9GZxCPSi0kyza8iDko
-	 Z48Nwd4tZXraaVVUmzchuLNC6gzGGfTEOyMMuTWpa1Cxqt/cxX1y3cdo+skH7S9u4V
-	 ClTcX81ZzOAoecQGOdFILd1ZIIgi7iNeM31YrvaTURvSvD6x6YSXnHPovGmvb2Sw7W
-	 Nfu5sYZzLPLox32q/xBNmzG+CU2+ma06STiDi1SDBv0Ilt/JNKy2MPc0yE+7EjSVyO
-	 GkO7t5/s3AMjg==
+	s=k20260515; t=1795662626;
+	bh=R1azQkrM7pzrYlRnZKU6r2/PNRas9qh9xr/YT+lwxZ0=;
+	h=From:To:Cc:Subject:Date:Reply-To;
+	b=KEvfVHqPdK0gbSGRVwnv0amP8UYTF/zAk5oratrVV1fQTIrSrAguhUDA+03/OobPi
+	 NAU79WDk2KdkD8/Xk8EkGHsFSrJVvzAw4KtaneMPmJACBHeoyVzPPQ75JISX85yNM1
+	 ZWOSqktGfH++lcEHspTHvQwIdeCY0t7MQmWRF8agiv0hts2EtuDUqhcHPGJ6Cke27u
+	 4XSkI3mKxsxi/NN+0opM3N8dkBCrkceTkEzT/hk9uHZSXjSCLnkLAUvHEmqx5yOYka
+	 U8AUYzQpKecy1DidOcEcWaBqt1ha2zfplXu3y0sqZ7H7I6dfBJf5YVy0yvmzEuW3qx
+	 IZBqmXJ7BBy4g==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id DE26E4D1F4;
-	Thu, 26 Nov 2026 03:10:09 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 1862F4D1E1;
+	Thu, 26 Nov 2026 03:10:15 +0000 (UTC)
 From: Ilia Snezhkov via B4 Relay <devnull+iasnezhkov.gmail.com@kernel.org>
-To: peter.wang@mediatek.com, stanley.chu@mediatek.com, 
- martin.petersen@oracle.com, James.Bottomley@HansenPartnership.com
+To: jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com, 
+ andy@kernel.org
 Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
- louisalexis.eyraud@collabora.com, linux-scsi@vger.kernel.org, 
- linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v2 3/3] scsi: ufs: mediatek: round scalable clock bounds to
- clk_round_rate()
-Date: Thu, 26 Nov 2026 03:10:11 +0000
-Message-Id: <20261126031008.27506-4-iasnezhkov@gmail.com>
-In-Reply-To: <20261126031008.27506-1-iasnezhkov@gmail.com>
-References: <20261126031008.27506-1-iasnezhkov@gmail.com>
+ linux-iio@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/3] iio: adc: mt6359: fix scale divisor, request bits,
+ and MT6358 VBAT ratio
+Date: Thu, 26 Nov 2026 03:10:13 +0000
+Message-Id: <20261126031013.27701-1-iasnezhkov@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,100 +90,48 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795662608; l=3051;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795662614; l=1327;
  i=iasnezhkov@gmail.com; s=mindone2026; h=from:subject:message-id;
- bh=MuIq1TvnjCaHK1YyQad7wOf3RnvQAYoWa7G/0M98I2c=;
- b=oH1rvPdfuZPM6eSf5SJfZh3FEeViLmw03zRzbmT1vwVo0mWByrcy5Fph1kijf2WqWDBGi97Kg
- 7979edxEa4/DkIVBKl6GGF3N9wZ8kKBgwzeoTHJEtsX+Chccj7wmQbA
+ bh=OJBJnrsWEBcdIqX9tTDRPWz8dYrgSAiAenBKdUU78aQ=;
+ b=WjH7t30eM0qc/rABAntiZN6AkXBDKMP1DypfOyz3kKvoHJnBeV7WfvVDnaztz6JLw8Wl9L81M
+ lpDermSM0wVC9VeAKu3VZYFgBy4p3AeKsBXrMKi84/6ToDqn/mByunj
 X-Developer-Key: i=iasnezhkov@gmail.com; a=ed25519;
  pk=hQgXfiWi4ukk2jh4BHu1vRVhg9BUivo//AFp50AKMag=
 X-Endpoint-Received: by B4 Relay for iasnezhkov@gmail.com/mindone2026 with
  auth_id=1643
 X-Original-From: Ilia Snezhkov <iasnezhkov@gmail.com>
 Reply-To: iasnezhkov@gmail.com
-Content-Transfer-Encoding: 7bit
 
-From: Ilia Snezhkov <iasnezhkov@gmail.com>
+This short series fixes three bugs in drivers/iio/adc/mt6359-auxadc.c
+introduced in commit 3587914bf61d ("iio: adc: Add support for MediaTek
+MT6357/8/9 Auxiliary ADC"):
 
-ufshcd_devfreq_target() determines scale_up via an exact equality check
-against clki->max_freq after rounding the target frequency. When a DT
-freq-table-hz lists a nominal value that a PLL-derived clock cannot hit
-exactly (for example, msdcpll_d2 on MT6789 delivers 191999939 Hz for a
-192000000 Hz DT maximum), clk_round_rate() produces a rate that never
-equals clki->max_freq, so devfreq scales down once and can never scale
-back up.
+1. IIO_CHAN_INFO_SCALE omits dividing by (1 << chan->scan_type.realbits),
+   causing processed readings and sysfs scales to be 4096x or 32768x too
+   large. Use IIO_VAL_FRACTIONAL with shifted denominator when
+   denominator > 1, and IIO_VAL_FRACTIONAL_LOG2 otherwise (avoiding
+   division by zero on unpopulated descriptors such as MT6357 VDCXO).
+2. MT6357 ISENSE/VCDT and MT6358 VCDT use PMIC_AUXADC_RQST0 bit 0
+   (BATADC) instead of their hardware request bits (1 and 2).
+3. MT6358 VBAT impedance uses r_ratio 7/2 (MT6359) instead of 3/1
+   (MT6358/MT6366, matching MT6358 BATADC).
 
-Round clki->max_freq and clki->min_freq with clk_round_rate() in
-ufs_mtk_init_clocks() for ufs_sel (and ufs_fde when present) before
-ufshcd_devfreq_init() builds the OPP table from those bounds, keeping
-clki->curr_freq synchronized with the rounded bound and skipping the
-adjustment if rounding fails, overflows u32, or collapses min >= max.
+Changes in v2:
+- Move the AI coding assistant note below the --- separator in all three
+  patches (per Jonathan Cameron's feedback on v1). No code changes.
 
-Fixes: b7dbc686f60b ("scsi: ufs: ufs-mediatek: Support clk-scaling to optimize power consumption")
-Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
----
-Changes since v1:
-- Use IS_ERR_OR_NULL(clki->clk) and cast max_rounded to u64 before
-  comparing against U32_MAX for 32-bit cleanliness.
-- Found on hardware and drafted with an AI coding assistant.
+Found and drafted with an AI coding assistant.
 
- drivers/ufs/host/ufs-mediatek.c | 35 +++++++++++++++++++++++++++++++++++
- 1 file changed, 35 insertions(+)
+Ilia Snezhkov (3):
+  iio: adc: mt6359: divide scale by ADC resolution
+  iio: adc: mt6359: fix MT6357 ISENSE/VCDT and MT6358 VCDT request bits
+  iio: adc: mt6359: fix MT6358 VBAT impedance resistance ratio
 
-diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index 09b7993..4de72ae 100644
---- a/drivers/ufs/host/ufs-mediatek.c
-+++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -967,6 +967,37 @@ static u32 ufs_mtk_get_ufs_hci_version(struct ufs_hba *hba)
- 	return hba->ufs_version;
- }
- 
-+static void ufs_mtk_round_clk_freq(struct ufs_hba *hba,
-+				   struct ufs_clk_info *clki)
-+{
-+	long max_rounded, min_rounded;
-+
-+	if (IS_ERR_OR_NULL(clki->clk) || !clki->max_freq || !clki->min_freq)
-+		return;
-+
-+	max_rounded = clk_round_rate(clki->clk, clki->max_freq);
-+	min_rounded = clk_round_rate(clki->clk, clki->min_freq);
-+	if (max_rounded <= 0 || min_rounded <= 0 ||
-+	    min_rounded >= max_rounded || (u64)max_rounded > U32_MAX)
-+		return;
-+
-+	if (max_rounded != clki->max_freq) {
-+		dev_dbg(hba->dev, "%s: max_freq %u rounds to %ld\n",
-+			clki->name, clki->max_freq, max_rounded);
-+		if (clki->curr_freq == clki->max_freq)
-+			clki->curr_freq = max_rounded;
-+		clki->max_freq = max_rounded;
-+	}
-+
-+	if (min_rounded != clki->min_freq) {
-+		dev_dbg(hba->dev, "%s: min_freq %u rounds to %ld\n",
-+			clki->name, clki->min_freq, min_rounded);
-+		if (clki->curr_freq == clki->min_freq)
-+			clki->curr_freq = min_rounded;
-+		clki->min_freq = min_rounded;
-+	}
-+}
-+
- /**
-  * ufs_mtk_init_clocks - Init mtk driver private clocks
-  *
-@@ -1022,6 +1053,10 @@ static void ufs_mtk_init_clocks(struct ufs_hba *hba)
- 		return;
- 	}
- 
-+	ufs_mtk_round_clk_freq(hba, host->mclk.ufs_sel_clki);
-+	if (host->mclk.ufs_fde_clki)
-+		ufs_mtk_round_clk_freq(hba, host->mclk.ufs_fde_clki);
-+
- 	/*
- 	 * Default get vcore if dts have these settings.
- 	 * No matter clock scaling support or not. (may disable by customer)
+ drivers/iio/adc/mt6359-auxadc.c | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
+
 -- 
 2.54.0 (Apple Git-157)
 
