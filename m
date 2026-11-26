@@ -1,77 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795693687;
-	b=anUNmDE4fVz1Jw+9xfCgu5xMsXvv3CVPw54DuSNXSh98StzndlmEvK+JNK71DAZbT9eH
-	 maRL+m3Hm8wxptHl8BEADJfnbmSlovE6mcL7yok6/damGkrUrveXbutt1Ei5m/0IzCL8s
-	 JL/UirJYaJxxmwor2VSu8Li7Jw/AnqnywQX12b2kUgViyH4gl4MGKrq6xktn3zXuVMbUj
-	 DbBG8kQH/MvjBYwyACeLcje25O4fiMnPFQCyqc/mFJ0Kyr2vSv8ZsyZOdqSVd8FoBRQN+
-	 8WGAWYD3/IoiRuGPcOCbNHaNJtwBvoDnXLvY7ZtIVieAPiFD3ygMHnHkYzIKH6uD8Ew==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795693687;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received;
-	bh=G9t/QEbzkMp/+fj9xN4tayGcCen2BxfvunU7ETry0BE=;
-	b=ca5sThYUaXxKGrYtnTPho2AZpcj9CrdCKLy1vwws2RKEj5Z8PASD1SZDYX1np6UcrMmo
-	 fndjyobvislgJHxrWXUopr0tCEViTSgDVkN1xxLlxwmG2QIMuUpMetUkpKTLwKZC7V5x+
-	 K4/A9zpCFO3P1ZQHQ11TO47+zN/e1WH7J4UO57oIGxkvmnzD4P31I9WQ24MXK+0+HhdWk
-	 +3GRatM84g31VC99l7skS3FHwXCl0y4M0lSYg7U7goxqajN2IcdVGaLBDcoI6CAidFTbz
-	 XDc4qPFjkMgd/6qqfeo7ZgzZtmDaQldrTF1d3FyHfs5kDXBfQ8kE84x2zjsfJxrgkZQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k+clD61z;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D228606A68B;
-	Thu, 26 Nov 2026 11:48:07 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k+clD61z
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795693687;
-	b=xzW93O1UFCHSdJiOM1nCf+ClLt9rwF2CJ4cFzOVEsgwRZC/MBIr5CsmFtUX8fWybGQBO
-	 8mhvy9EW+TGaRET9SopU2W5j9Rti8ZhFyqQWx72F1uuyIX4jobkzFWFLdKCkBZmwVqNbv
-	 F6lbgAe7TnVOZEfmoEL+iM354RlkyuQW/Up38jvu3cA/oGIvWjnccggMnpNmak3bNVEg+
-	 UBl4XCzFbXMfOoNLo2vPeqe5nLiZXNMBULiWid9XIRmSbKgfyYWXqY77DWRRDeV7Mfr/1
-	 2eCZFzp4VyEWkhrTaTFLLHwM77Nwt0CJFdqwj7rD6AXH6c3tq5kFBnhwbh6vOXFgcUg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795693687;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received;
-	bh=G9t/QEbzkMp/+fj9xN4tayGcCen2BxfvunU7ETry0BE=;
-	b=2rcR93fJzar+tnuaxnlzvfeCRTaaW91igfFEmLdTKvYf+ih7TzPrc8DzzX5r6qX2Qpff
-	 r1sX6xSFcSIdMqDvox+dNakZ/OF4zFqtxlG8q7+qiHohTtrb8xaTBOjK/6KVmgT+faTBE
-	 aSZpmGtuXm1vmxx1QjLVNqZNwLsVqg/nmox1UnmcY0ipzDaNZemmuOS2Dopgp8uZw2hKC
-	 /wX8Ec1zXUzzNf3ZiobublJ3xneiIa7ozWGuYXxjQfYmBB8G1jCLXJHoP3A1ntXkpt2sy
-	 bYby3PyY9xvgcxz05n4oDeZzEfal5Kohngylh7Zeb1CY04Ab0GWnaVF0hfVFB4Kuv2A==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795693697;
+	b=YiM4wLlKDsVTWtzd/T3YO4CMXpJFTfmdg/Em678J2ziSHcyfPX/fY15NYgXdXu5pzPqZ
+	 PcKGgyzZULZsUOSB9MekxzYUlmWRDnkUlrAsttTKdVIXmqsr1l6fizBA2WhqW7F+XWRoA
+	 sR7VvbuoHg54Gva4vWN6dWCCRQHiONK97f3YDnZBoSatSoKEB7Y3RFUfTsSRQ384q2sG3
+	 1Ui+8b00I33cW3BDLXMRFeU/K2oS9lzbtBvdLHzJtHT5p92knQHWKlmtM10cQm9FMluSj
+	 KpJZY1Q3g1Z0AIrlS5HwU3cLPNlfzJlWKs84AagqBTOKnua6hWfxDN04afqdZe7F4jg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795693697;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=AMooAxJV0YyjxKCR5eO/WtQElIvhAFHNrxOaericcxk=;
+	b=iBX7Gb/AseGz76Xto+PSgev/Rt2LgQ9Ti7w7LRTwIPkyy1zRB20ayfgqpRkwIose2HdM
+	 cgB2e7fuRUkrISiuaTLPF2g4K8SFIFzvhT/9f/kmCKTnXnDrt2pndLsYX21abujjqcMYO
+	 L6ZxUZCtruZIhewJuT3okIweycoSIUX6KQiH0+ng1Mbx9TJw04Ci0GG6AkHDAPZay3+C+
+	 U1omoMVUgs8jmANRnyguqTdWgkNsUru29vrUaqeboC0a7xBzz25ceHlXRs+LlycYEQsRV
+	 0Ber7RXBb3SVUkKVyddDBJn+GQyiPZF8GKKFJtYRVY2mcaGvEHMBuVDnS0+CzzEwb2A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=layalina.io;
+	spf=pass smtp.mailfrom=layalina.io;
+	dkim=pass header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=kPxRhYvZ;
+	arc=none smtp.remote-ip=209.85.128.41
+Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 705131F000D1;
-	Thu, 26 Nov 2026 11:47:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795693687;
-	bh=G9t/QEbzkMp/+fj9xN4tayGcCen2BxfvunU7ETry0BE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=k+clD61zS1kLMZu20rTdKzxQLtVTMkQjWG3ow1qkRnDSVIILBOxd0Az1KQbL7h++y
-	 tWszIFHIbgbeDp62vBdee6n83fdGj1tnnizhTq0ZJSSXTqnZxGtrtQyCVW3riAA+Zb
-	 uFiWc19kxZa8P7pOuTqxebgRPfvXLrfw2uCQIydiqrA1oFGJmgbjbS/EMmzmxZU3Dz
-	 HmZR8EiTsEgtI4PLAncHpjgsBAkiq07/YRIHInMIHUzlbYp1gJ/ialZdsLkA19LKQD
-	 Y4F49odqycDEz5uXYq5IBTbIDuJcRjkiPn2AiOq2ZYeO84BFikdDOnisnjZKlJWgnQ
-	 9Xbox/Zn6T0uQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 49CD34D495;
-	Thu, 26 Nov 2026 11:47:53 +0000 (UTC)
-From: Joel Granados <joel.granados@kernel.org>
-Date: Thu, 26 Nov 2026 12:47:45 +0100
-Subject: [PATCH RFC 5/9] net: sysctl: Add sysctl registration to networking
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66BE860A5BCF
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:48:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66BE860A5BCF
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=layalina.io
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=layalina.io
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=kPxRhYvZ
+Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso85201865e9.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:48:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=layalina-io.20260707.gappssmtp.com; s=20260707; t=1795693696; x=1796298496; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=AMooAxJV0YyjxKCR5eO/WtQElIvhAFHNrxOaericcxk=;
+        b=kPxRhYvZJreEG0NQbPFCPgZSyjrdL85igvSXzKc1q797CoeJkjZ0loXweyGIUg2Isl
+         /vGjjWC6sXgbHmKotLF2BsJcfmRerTN5O82KfHEbcRvhCn21ZoPr5R8jnMmTsJo6s7qY
+         dn1bjKfhduVyrQMdFrG3DDHemgS0EG3/xRHYUllh2v8KTQ9iZ7wmUaWmPpAlahmV/C3P
+         64JYR4nXs76ECYws1ZYKDtdsccoUHIPfljkSYj/Z1zgiIleip3oud3enROOEhdpY1N1O
+         1KusabDP6FrmIyxESuG7JRjZ8dkvsLUzd30JzhWXi7jPZSZ/whhtt0BhusRjMFjvvxfN
+         +DRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795693696; x=1796298496;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=AMooAxJV0YyjxKCR5eO/WtQElIvhAFHNrxOaericcxk=;
+        b=lmluNIee6kVom3YVQz4H3InRpHKjdK8K+fb4/gw6he5CKRVKNQInlF2rwT3+eqhDlA
+         eO3fNURin+9fgaK2uPJbHE28j/RsMbTEWWiFIcyCS/9jiKXh1umszMXULA6oSp/ppVAk
+         I4gx0oW076JpzRDEsGv755aLZJ9PvTVkwEe1/g/p12oUQ40aFyPE5QEJnwttx7d+LTvY
+         A2VBv1Wb2qx4JiH5ClLxL7/gltAGwzzHEeBn2z9LnuEnVY1h4tno41sQQXVdgkKdNQ6V
+         1FMD+9Ksj8mYi82en5xFz+d74hGM6iILzdg4VB0F8XCqvbZpPS8pzsZB7OpYeH6Hklyu
+         9V8g==
+X-Forwarded-Encrypted: i=1; AL+hErETxwUF0cljjamKl7i6tN19dhD4zefJ/X6+3vBpPNS1xYFE4UkSVJji9XQjtnj6ja7Y4P8hKN7XGHfJnkE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8wRvYMSpQ52QQoUltLt2EPSxaOIapcjiqfSsQULCxelopLe0kk
+	YZ7s+J5lQt23bAGavn2pFJJW1wjxvJEhQkJDKAqwGttbyChnXOyUp5oHsQ0LnINJLOmgPRbsVeS
+	iWzyq
+X-Gm-Gg: AZFdTZekjuksf8liLIpUxvJIqI9WLIQ+Vd1P8WXD5lsPHFNrQGxgjpK2lVKTBWIy/v0
+	LA1KmKfy2U5GhSTs2eFNQjHWhOMGPXHgIL3lAoKdpChEwNdfcRGyTFklmCmRPpLEamUsBQsmEx4
+	TA0/2tKVHyuW2Oc9zvnC7Lpd/27OA+ls6TjbPYyleEXr/HNHbedQs8qnEXRKpxINztRVe/jvcc8
+	0sSxlC50l9GREM4PSsNPgb6fUzVasfxcZDbG3sA+e2U3v7hipRAa4ox7WjOoL9OoJ5APOCINhEq
+	5ICdvnnUtnLm9xblIKN/wd72dNB0lrwAbzSJkZ4VzmyNnrxgIgB0t5I513NfS6cPT0iUWXYePpR
+	nnQab4cD9vG0U2fXk+AhcIK3P/JbmdpxlqQqvgdE0tvvTo1zvV/5nsyPqKfpLYNF88USROdzVmJ
+	1hdPNZ1bXrJ/vSMRp1nGtFuGhO7/GNO8R8pYId7x3HXB/TIoN0ox+8+jnOfEPd6ngUo4/QcgnO/
+	yBdRyqILT8aHDZZhbuPLqFA9E1KLJftWdGGNvLRtbyWsi0nPPKbgL1Z3R6y2FXcOZNNCrUxTKWc
+	xNxl9YxC//B9H41KvP2WCuMTjYc4Q9R9UEg23O2+GHgz1b6n69X/O0orSuBtTg1izApir4d7J+H
+	/cNV6jDV+5dS7OXUBK70NL1GZjTxxn90=
+X-Received: by 2002:a05:600c:1548:b0:4a3:5aea:21e5 with SMTP id 5b1f17b1804b1-4bb887fe7e0mr432974515e9.9.1795693695339;
+        Thu, 26 Nov 2026 03:48:15 -0800 (PST)
+Received: from aerith (host109-153-232-219.range109-153.btcentralplus.com. [109.153.232.219])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a12acsm626603165e9.8.2026.11.26.03.48.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 03:48:14 -0800 (PST)
+Date: Thu, 26 Nov 2026 11:48:09 +0000
+From: Qais Yousef <qyousef@layalina.io>
+To: Christian Loehle <christian.loehle@arm.com>
+Cc: Ingo Molnar <mingo@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, John Stultz <jstultz@google.com>, linux-kernel@vger.kernel.org, 
+	Kayra Cizmeci <kayracizmeci@gmail.com>, Wei Wang <wvw@google.com>
+Subject: Re: [PATCH v7 1/3] sched/uclamp: Fix race condition leading to
+ imbalanced uclamp_rq
+Message-ID: <awgaK3x8w1z_-Awa@aerith>
+References: <20261126012836.15205-1-qyousef@layalina.io>
+ <20261126012836.15205-2-qyousef@layalina.io>
+ <32f8da5e-adbe-4b91-8bd5-d446a59e0c3b@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,124 +103,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-lklm-sysctl-ctx-flatarray-v1-5-d7fc9cc9b03e@kernel.org>
-References: <20261126-lklm-sysctl-ctx-flatarray-v1-0-d7fc9cc9b03e@kernel.org>
-In-Reply-To: <20261126-lklm-sysctl-ctx-flatarray-v1-0-d7fc9cc9b03e@kernel.org>
-To: Kees Cook <kees@kernel.org>, Alexey Gladkov <legion@kernel.org>, 
- David Laight <david.laight.linux@gmail.com>, Wen Yang <wen.yang@linux.dev>
-Cc: Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
- Linus Torvalds <torvalds@linux-foundation.org>, 
- linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
- netdev@vger.kernel.org, Joel Granados <joel.granados@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3478;
- i=joel.granados@kernel.org; h=from:subject:message-id;
- bh=BjxePkqZQh7SmQ/XefseKj5Jh2846+Y/W+u6eGkfSy4=;
- b=owJ4nAHtARL+kA0DAAoBupfNUreWQU8ByyZiAGsIHGTHmbMrlU8rxlvUU0JesTYVV5pzN8ar5
- l2w8K9JUbkfY4kBswQAAQoAHRYhBK5HCVcl5jElzssnkLqXzVK3lkFPBQJrCBxkAAoJELqXzVK3
- lkFPVPsL/iy1EnZYmVK2EHHCFf5ovFyK1uRFgYUBiPejvYnDYPhwGkB/NkT/LqIeSKLSLkOFWO/
- 1exdqhA0TbTrur1c0YOMTxwM0i/hxZFjeH3PU2lDPjxA4Bl6nz6Pv5dVSHXoL/M0EP73oACNO0h
- tzvZtgmWiM4zrNg4xIXFExIj6+vc209hZHnESk/QwQrLH05ZXBhmT/quqVC7XnI3KEOlrrAWOCa
- couIamwZUx/7/WpMVZk68epOleIaydzUy5O/Ur7xfWQvhPqQSw/3s8KrfsSg0jd7Ch73auBC0Nh
- Rc1WYB/xSybY6IEaCrdOVs4aCS4xCwSuaGsbKfiGnj7quVy0kkStENK/oN4Gr4SfuzvUb8K77qy
- 0QYHI15ifgYb79+QnrV/CTfLrcS9q5tj1wZYWCUTH6lsJ4/JOSkw2ZrxmjQuoSqp2JCqJJ+JFNH
- fAFEODHxjZn68D8BxPdX4CtAw3qt+8eA5mFtPC0W46v9Fay+JZ81PUZKUjiaonLduTT1VHNilU5
- +Y=
-X-Developer-Key: i=joel.granados@kernel.org; a=openpgp;
- fpr=F1F8E46D30F0F6C4A45FF4465895FAAC338C6E77
-X-Endpoint-Received: by B4 Relay for joel.granados@kernel.org/default with
- auth_id=239
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <32f8da5e-adbe-4b91-8bd5-d446a59e0c3b@arm.com>
 
-Add the per-netns entry point for template registration. It takes the
-shared template and the caller's overlay and registers in the
-namespace's set through __register_sysctl_table_tmpl(). Run
-ensure_safe_net_sysctl() on the overlay for namespaces other than
-init_net.
+> > -static void __init init_uclamp_rq(struct rq *rq)
+> > +void init_uclamp_rq(struct rq *rq)
+> >  {
+> >  	enum uclamp_id clamp_id;
+> >  	struct uclamp_rq *uc_rq = rq->uclamp;
+> >  
+> >  	for_each_clamp_id(clamp_id) {
+> > -		uc_rq[clamp_id] = (struct uclamp_rq) {
+> > -			.value = uclamp_none(clamp_id)
+> > -		};
+> > +		 memset(uc_rq[clamp_id].bucket, 0, sizeof(uc_rq[clamp_id].bucket));
+> 
+> nit: indent
 
-Signed-off-by: Joel Granados <joel.granados@kernel.org>
----
- include/net/net_namespace.h | 14 ++++++++++++++
- net/sysctl_net.c            | 25 +++++++++++++++++++++++++
- 2 files changed, 39 insertions(+)
+Hmm I thought I fixed that before posting.
 
-diff --git a/include/net/net_namespace.h b/include/net/net_namespace.h
-index c29a22ca178fa678c0468247b9f85f53eec86184..ecec120de3081d7e8f5c13b72ca98dc647704139 100644
---- a/include/net/net_namespace.h
-+++ b/include/net/net_namespace.h
-@@ -527,11 +527,19 @@ struct ctl_table;
- 
- #define register_net_sysctl(net, path, table)	\
- 	register_net_sysctl_sz(net, path, table, ARRAY_SIZE(table))
-+#define register_net_sysctl_tmpl(net, path, tmpl, overlay)		\
-+	register_net_sysctl_tmpl_sz(net, path, CTL_TABLE_TMPL(tmpl),	\
-+				    overlay, ARRAY_SIZE(tmpl))
- #ifdef CONFIG_SYSCTL
- int net_sysctl_init(void);
- struct ctl_table_header *register_net_sysctl_sz(struct net *net, const char *path,
- 						const struct ctl_table *table,
- 						size_t table_size);
-+struct ctl_table_header *register_net_sysctl_tmpl_sz(struct net *net,
-+						     const char *path,
-+						     const struct ctl_table_tmpl *tmpl,
-+						     const struct ctl_table *overlay,
-+						     size_t table_size);
- void unregister_net_sysctl_table(struct ctl_table_header *header);
- #else
- static inline int net_sysctl_init(void) { return 0; }
-@@ -540,6 +548,12 @@ static inline struct ctl_table_header *register_net_sysctl_sz(struct net *net,
- {
- 	return NULL;
- }
-+static inline struct ctl_table_header *register_net_sysctl_tmpl_sz(
-+	struct net *net, const char *path, const struct ctl_table_tmpl *tmpl,
-+	const struct ctl_table *overlay, size_t table_size)
-+{
-+	return NULL;
-+}
- static inline void unregister_net_sysctl_table(struct ctl_table_header *header)
- {
- }
-diff --git a/net/sysctl_net.c b/net/sysctl_net.c
-index e190a639eef2f6929c4aed85ad625aaf8a6ebd6a..c6eae05dedaecc3bdce402741140d8690d3c15ea 100644
---- a/net/sysctl_net.c
-+++ b/net/sysctl_net.c
-@@ -173,6 +173,31 @@ struct ctl_table_header *register_net_sysctl_sz(struct net *net,
- }
- EXPORT_SYMBOL_GPL(register_net_sysctl_sz);
- 
-+/**
-+ * register_net_sysctl_tmpl_sz - register a shared template for one netns
-+ * @net: the network namespace
-+ * @path: path of the directory under /proc/sys
-+ * @tmpl: the template every namespace shares, see register_sysctl_tmpl_sz()
-+ * @overlay: copy of @tmpl holding values for @net; this ptr is not kept!
-+ * @table_size: number of entries in @tmpl and @overlay
-+ *
-+ * The safety check runs on @overlay, since that is what @net will see
-+ */
-+struct ctl_table_header *register_net_sysctl_tmpl_sz(struct net *net,
-+						     const char *path,
-+						     const struct ctl_table_tmpl *tmpl,
-+						     const struct ctl_table *overlay,
-+						     size_t table_size)
-+{
-+	if (!net_eq(net, &init_net))
-+		if (ensure_safe_net_sysctl(net, path, overlay, table_size))
-+			return NULL;
-+
-+	return __register_sysctl_table_tmpl(&net->sysctls, path, tmpl, overlay,
-+					    table_size);
-+}
-+EXPORT_SYMBOL_GPL(register_net_sysctl_tmpl_sz);
-+
- void unregister_net_sysctl_table(struct ctl_table_header *header)
- {
- 	unregister_sysctl_table(header);
+> 
+> > +		uclamp_rq_set(rq, clamp_id, uclamp_none(clamp_id));
+> 
+> So I did reproduce WARN_ON_ONCE(!bucket->tasks) on CONFIG_UCLAMP_TASK_GROUP=y, which
+> relies on .active being in sync with bucket->active.
 
--- 
-2.50.1
+More details will make following your thoughts easier.
 
+> FWIW I don't see a good way of mitigating the missed decrement for .active,
+> but if somebody else sees it please shout.
+> I'll post my proposal in a minute
 
+Please send it on top of patch 2 and 3 at least as they are good clean ups that
+I'd like them in still. I think the two approaches are not mutually exclusive
+and the maintainers can pick both this patch and your other proposal
+potentially.
+
+Given that this imbalance can only (if at all) happen once after boot I don't
+think that WARN_ON_ONCE() is consequential assuming we fail safe - which
+I think we do but since you weren't specific about the path and I didn't go and
+try to untangle it, I could have missed something.
+
+FWIW, I think since there are no correctness issue but inconvenient _expected_
+harmless warning, we are good. It could just make debugging harder if this
+warning is due to the race or a true bug. All the sensible choices have some
+imperfections..
