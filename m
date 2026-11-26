@@ -1,111 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.56
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795717517;
-	b=EHhokqHRk76/crhuyqht2/exva3irDI2wx52+SzodxXJYKtgCKeSTB9Enmnh9PhrUFvt
-	 +++WQUXxzwsZNxqQTg0uMpSCtXbeEzjnGRlY7hUR82BUgOtXgPkz9L6T/7XyEhwf//QEB
-	 ggSXgP5ZBRdyZhYEAPYvr4joSJllKslOk2bALJghDq9HWBiTCH8n4JSn6m/F+VNZH2r/U
-	 7BlrnyziWPha6lisEPZGfUc9jiEnu5VoJ7aCKsR/5R8lVvPstb6LtqhEymqxa5hsf6752
-	 yG1kO08uFbOWLySevsBzLRoQQm8sQtn7AtDB84Qg9GOEPcGTDJv+UNrfLWZlh/zD0NQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795717517;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type:
-	 X-NV-OnPremToCloud:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=k6u2WmeUJyDbQxk4C6EGt2cBS80L70A3CK+5YS3cV1g=;
-	b=WUwoPy3agDd+Dy9GpbDQ65k06344XnD7ZmG399Zle2wG5H8BCVesANlf01Ct48uDhfbP
-	 5aI4GOnG7R/Rf8pB3TS0G1TQmSx/URooKYXzQtTUIX3WEtDlGVnVkIIlp2z6LOIs8lRo2
-	 26uZ4/7Hpez43qdaC/kcabiKbdyEkKK5tuNQhFgRTGETNMjYHugK6p/lpOoOfrtC5Bu/W
-	 OkUSQJouUKWwntKbwtY9UhIos/xcnvTF64QK3G3tqftuCUPN3duX2TZHSgLWyudjdwlbS
-	 4YAeh4TnG0pTJjC3XeqA9fY+xSOy9tljNVcl12JEBF66TjEMp7EXnjYU6X3YoV9S1tg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=tz7f94oS;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.56
-Received: from MW6PR02CU001.outbound.protection.outlook.com (mail-westus2azon11012056.outbound.protection.outlook.com [52.101.48.56])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795717518;
+	b=l9V38+CNeV46ogiakD17U2O/c+llPUAujsBrdlFuIpW+Ob+pBM7EOE5FoyMUiJ2ExbJp
+	 Q4sAThNjvBOui3oB5Qu/EIj8KYRrZ9Y91JIYS3FfekxSUxNevlDrwVh24ENB84fiVbAKn
+	 N1Jkth2JaqSV7hUdwGlqDdS9rSOr/uNs+LqrATMYbTTGj2+0ECFpfokoHB7QCiOebRdRR
+	 Sxhv0yETYQRmU9VOFaasrOJ0KVvLwmnOqtTRgsxAGAacQd9zcXJt5TWu2ePFsJhyl/Sh0
+	 zcn1s1aV/SeAS+GGGBu4sjyMDISqvoYw40Mitc1mNOb8aKwktJjREaPoOBKxrfuomzQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795717518;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=H31adSOeCFpDpgmWUWnmLQhWQC/GR1dbRO0uHdk9MQE=;
+	b=ZnbhcfOAub9KlAbYdYZXehlvhN9jiiIxn6mI2vnSd9E1lPxh+vOUrAOf4CVYAIU4u6mG
+	 4MW3Cqvv/tII4c6YONse8QKQrgQ1a3eHl8cjUhZEPvGiAsOo34Vsb9MW5vp4vMfkDsgOn
+	 4Jq7+YNU3RxKhE5aDbG51Zcvl6eIzm6dT/CIwzPuiKUh/EiTRxh31mJDt7S2BFB04afDR
+	 bkffgOIjJLQX5i851kRYpSZj6V9kMr0WyUrHLmb4OMN5INibwxW/nOnLLpjI0Ru7aKQqC
+	 Dd0hAGwtdPw5c8Ut4Q0jwNiVSh6r+63xfx/jAvvK4yDMGDDoOyszeOdI9UK0bfMcREA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BxosGxu5;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4400F606A31C;
-	Thu, 26 Nov 2026 18:25:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4400F606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03DD5606A323;
+	Thu, 26 Nov 2026 18:25:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=tz7f94oS
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SpJqPMSHucA5bq4xTmeABXLmxPkK26aHRI6Y+UyOkSIARFCUxWBBRPDcMyDeLmn+j3nb084H/ZCEIQN6wi7xdY05S0P+MmOyBaU7eqxHzq7NsQaxVbcnCk84dawCxO+FaC8uSRwivkwoRTOqpuqdg3z/JGwafAm2ufX5u6Ct5TbwXJhtfD7MNryF4oxiAfGiol+0Zv4RZMcdgajVoHRn8A7ajV1Dzyd12x57gaoMHLQECYpB9TuyREkPe6yxUt6c7IRl2yj5Isb3WuPY1OM5is3iHPH6i7/v36z1W1GMX5e4UH9dI1/nXwxRFV9aiTRY4PaKOoWI94HntHSs2tKrqw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=k6u2WmeUJyDbQxk4C6EGt2cBS80L70A3CK+5YS3cV1g=;
- b=eAxqQca4XX44LjhGya/FXgQ0H7fADqIJF2KJThJZeA2xhZBW4KDSk91pshZCbEzLtYKi/VDlDTao0D7wPLrKA3tArLivFgBshnCa+Nh0eKcp3w9TaYREXZLCbCcPI3MmBjsbWBqQhW3TV06I+RnS7A9ezWFrdXZtMdbKre6376MXTE5febgU2XAAbHEpJGKL5qD5+D6kBvFvg+KqwkV4ACCUj6SHYfPNzYwPjYA2oa6qaYzqafnb9hjT9cxjMoHJTGOIXQiG89H2az+F7jK5EGlx1jwAhNSaq1pQj2BjyXGgYuT8FPQVceMQfseeZLY1bAl088GWtdNxE4jTF3gwiQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=lunn.ch smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=k6u2WmeUJyDbQxk4C6EGt2cBS80L70A3CK+5YS3cV1g=;
- b=tz7f94oSjKdIVbcHeKp2gv5q97to6j750Brn3P+M49CpSSFqA3yy4N1HW4/IjtjnktA/BCc9l0BO9Y81FvKOELKbQMGKZFwYPjvh3jJRzeSuw3w9EiGUDmMvRE/zjpglCZ3xh1iToN7LlwSZi+Mi9Ln3RMBuBjU3tcRo6XjICDj5ly1s7W+wOtGwzEgMGcx7fT+oV8+ZJefNf3ek6bN/Z+hmbSuizZ9OxaW9hlX7KeBXlgNAACW9ZrliuFn8olaCfZGmk/g8lOdpBiAVznAG2QnK9gtaHVUxgCdSeVAkKSHlEs7rfjVuck5axIzmjTA5MKFgo5NwTrhnCDZvxBWQKQ==
-Received: from DM6PR07CA0101.namprd07.prod.outlook.com (2603:10b6:5:337::34)
- by MW4PR12MB7192.namprd12.prod.outlook.com (2603:10b6:303:22a::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Thu, 26 Nov
- 2026 18:25:11 +0000
-Received: from DS1PEPF00053450.namprd04.prod.outlook.com
- (2603:10b6:5:337:cafe::4f) by DM6PR07CA0101.outlook.office365.com
- (2603:10b6:5:337::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.7 via Frontend Transport; Thu, 26
- Nov 2026 18:25:11 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- DS1PEPF00053450.mail.protection.outlook.com (10.167.23.232) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.688.5 via Frontend Transport; Thu, 26 Nov 2026 18:25:10 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 26 Nov
- 2026 10:24:58 -0800
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 26 Nov
- 2026 10:24:58 -0800
-Received: from vdi.nvidia.com (10.127.8.10) by mail.nvidia.com (10.129.68.7)
- with Microsoft SMTP Server id 15.2.2562.57 via Frontend Transport; Thu, 26
- Nov 2026 10:24:55 -0800
-From: Tariq Toukan <tariqt@nvidia.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, <netdev@vger.kernel.org>, Paolo Abeni <pabeni@redhat.com>
-CC: Carolina Jubran <cjubran@nvidia.com>, Gal Pressman <gal@nvidia.com>, "open
- list" <linux-kernel@vger.kernel.org>, Shahar Shitrit <shshitrit@nvidia.com>,
-	Tariq Toukan <tariqt@nvidia.com>, Simon Horman <horms@kernel.org>
-Subject: [PATCH net-next V3 0/5] net/mlx5: Introduce mlx5_nodnic, a driver for DRAM-less NVIDIA Mellanox NIC functions
-Date: Thu, 26 Nov 2026 20:24:43 +0200
-Message-ID: <20261126182448.707782-1-tariqt@nvidia.com>
-X-Mailer: git-send-email 2.44.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BxosGxu5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D73B1F000C0;
+	Thu, 26 Nov 2026 18:25:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795717517;
+	bh=H31adSOeCFpDpgmWUWnmLQhWQC/GR1dbRO0uHdk9MQE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BxosGxu5TRmDf5xGDNM3cYsPzm07hDlZ2q8/CD0K1nr7HrQJ+d/Eq4zes5XAA0iuQ
+	 COHt50cX4ihy82et25zBVVVhgTWAXLlSXsEc0qjsXaHvcXngBUD9b0Byca+rfXsBS9
+	 LoIxj3xqasGuDSOXimVpkLY5qXUOiwp6dAwo4B2jDd0ioCSmTj8oRu7FDvQlt3OE1Q
+	 quro2U96mP6Nz2KDlGNQWvZ5FeREYPyS+JGpOj6TggcVAww7eaon41zrJMU9JYXP33
+	 hv1TDSeHwQ2qz9sntL+jwQpDOnPscUbiTJerrIkC032aSXgXJLJBNQUgSHyUk+5LVj
+	 bekzxL3GEfSgA==
+Date: Thu, 26 Nov 2026 18:25:13 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>
+Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux@analog.com,
+	Michael Hennerich <Michael.Hennerich@analog.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH 5/6] dt-bindings: iio: adc: add AD7793 and similar ADCs
+Message-ID: <20261126-hunter-catatonic-12f9c835f94e@spud>
+References: <20261125-iio-adi-legacy-platdata-v1-0-54e4c8830b57@analog.com>
+ <20261125-iio-adi-legacy-platdata-v1-5-54e4c8830b57@analog.com>
+ <20261125-whenever-spinning-36a6dc477a00@spud>
+ <awgLBWt6MWIRK-cM@nsa>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,342 +65,426 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS1PEPF00053450:EE_|MW4PR12MB7192:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4a90579b-6651-48b4-2c77-08df4bea9b5d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|30052699003|376014|1800799024|36860700016|23010399003|6133799003|13003099007|18002099003|3023799007|11063799006|5023799004|56012099006|261028144727099003|261026121527099003|261022105027099003|261102123227099003|261022075727099003|261026140227099003|261021123027099003|261009223027099003|261021135927099003|261021121427099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	1R7N+Q/rTN85NuBXCGLdeliSnLkEa18twN39okF2tZN2dsx0PHwp+VxB2MZglpa7wfoNr5N7JidBVAYycT/zY32gVwcGJgUUbSFfgoPXNlrlwMtjztWmkBo9XpoeUocR7W7H0aJL+jZhWgiSPSMCXib94IwjnHYbWkXIWwiYi+1LiNtkY2l0owr04SWLBb5MhGakIP5fZOHnvGNjV9dWzSAUpBYm9J88+pQyjywF1v3nqWlEBGB5S0wy5HybHJzrvgJjlweQBgCRAOQ4eWml8QyJ0u0RCFFBGKJZ5MLqBMSfG3lr30lPJKC01M995L+GWbZy9Oz/Z2fSdcSEpb95H6GhH0LPF7kzdVa8qgyRkaisABHn35bLDwLaVqAvYRUSl3l1k/WDpoIZZ4CySFCN8w7dmvbZvN5TqY1o/mjVVjFhkrrHix+I9qcIiGFNSLhIuGECBvroyZrnsxPS+WnE2MahUMv4vZ0lKEjk6QiOb3e5ZfrnxOhB7iPUHpREI1drmzVTXiE7EK1hC7L9yCRoc5EBUjKBo/+q4ICkHN9Knv4ATWs9cYjn1oPYkLF63lz8lWGdiZY3VR4cfMd33D7pT6uM3CKQ7LJXTY8Dtq+LHPH8+u03klish40v3z+wKrZjlKzUiN9CL7kSpgDUrJQ37noUBQSW7tCylV7NgGkz8GdjeAvxtYSmtL9ra71Nfz2CL0Qd62EhG9S4v+/rHi5n1g==
-X-Forefront-Antispam-Report:
-	CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(30052699003)(376014)(1800799024)(36860700016)(23010399003)(6133799003)(13003099007)(18002099003)(3023799007)(11063799006)(5023799004)(56012099006)(261028144727099003)(261026121527099003)(261022105027099003)(261102123227099003)(261022075727099003)(261026140227099003)(261021123027099003)(261009223027099003)(261021135927099003)(261021121427099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	tIw47O9r3hAMc/0YTBN51pDAzSUKaBqEvpTvWFEjvy77d9HBNfHoiXEO2gmL/A/N+4Hwi3jn5fwXuY7v1//mxld7US+Pyq6eoxZJXjS5Qyu1LZ+TAC1QvpOKYJBYC+MRMnB7xhIPn3KKIYVjdjCHzn11sePzvXXsKg2ojyZi4V6hjO1/R4P14grpGriYCMB9JD8pI0GiV1jvQXeDFRsbCkZw/xPvrJcW1jJ3fXUPSf0QFnp4MAjwSQO87jko6KB7BvjCfJSh61/iZ5Tr85zYPb1n2s0q0VllODSLusMo6NZ1DviBWaGsowfM2ev8FIbHrDyTyQvTr+arebb961saZ9cB+1/IjE5a8v8n0+Sf/9rqVpVE4JiQJa+ZXfYIdn3xUtyo+XuIK6zbdXOf+wgVHS7927Kk+TDZWI+nR+NrGkt6NUPt4ejArHPqHcRs0GvT
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 18:25:10.9119
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4a90579b-6651-48b4-2c77-08df4bea9b5d
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	DS1PEPF00053450.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7192
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="oFj9t82+62QbHXlO"
+Content-Disposition: inline
+In-Reply-To: <awgLBWt6MWIRK-cM@nsa>
 
-Hi,
+--oFj9t82+62QbHXlO
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-This series by Shahar introduces mlx5_nodnic, a Linux driver for the
-NODNIC (No-DRAM NIC) hardware interface present in Mellanox/NVIDIA
-ConnectX-family ASICs since 2015.
+On Thu, Nov 26, 2026 at 12:24:28PM +0000, Nuno S=E1 wrote:
+> On Wed, Nov 25, 2026 at 05:41:08PM +0000, Conor Dooley wrote:
+> > On Wed, Nov 25, 2026 at 10:19:21AM +0000, Nuno S=E1 wrote:
+> > > Add a binding for the AD7785, AD7792, AD7793, AD7794, AD7795, AD7796,
+> > > AD7797, AD7798 and AD7799 low power sigma-delta ADCs. The driver has
+> > > supported these parts for a long time, but only through platform data.
+> > >=20
+> > > The ADC reference is described by which supplies are present: REFIN
+> > > (REFIN1 on the AD7794/AD7795), then REFIN2, and otherwise the internal
+> > > 1.17 V reference. In the same way, an external clock on the CLK pin is
+> > > used if one is given, and the internal 64 kHz clock otherwise.
+> > >=20
+> > > The remaining properties describe how the analog front end is wired:
+> > > the input buffer (enabled by default, as it is at power-up), unipolar
+> > > or bipolar coding, the burnout current sources, the bias voltage
+> > > generator and the excitation current sources.
+> > >=20
+> > > Signed-off-by: Nuno S=E1 <nuno.sa@analog.com>
+> > > ---
+> > >  .../devicetree/bindings/iio/adc/adi,ad7793.yaml    | 236 +++++++++++=
+++++++++++
+> > >  MAINTAINERS                                        |  10 +
+> > >  2 files changed, 246 insertions(+)
+> > >=20
+> > > diff --git a/Documentation/devicetree/bindings/iio/adc/adi,ad7793.yam=
+l b/Documentation/devicetree/bindings/iio/adc/adi,ad7793.yaml
+> > > new file mode 100644
+> > > index 000000000000..c4a0be06e5c0
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/iio/adc/adi,ad7793.yaml
+> > > @@ -0,0 +1,236 @@
+> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > +%YAML 1.2
+> > > +---
+> > > +$id: http://devicetree.org/schemas/iio/adc/adi,ad7793.yaml#
+> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > +
+> > > +title: Analog Devices AD7793 and similar sigma-delta ADCs
+> > > +
+> > > +maintainers:
+> > > +  - Michael Hennerich <michael.hennerich@analog.com>
+> > > +  - Nuno S=E1 <nuno.sa@analog.com>
+> > > +
+> > > +description:
+> > > +  Low power, low noise sigma-delta ADCs with an SPI interface.
+> > > +
+> > > +  https://www.analog.com/media/en/technical-documentation/data-sheet=
+s/AD7785.pdf
+> > > +  https://www.analog.com/media/en/technical-documentation/data-sheet=
+s/AD7792_7793.pdf
+> > > +  https://www.analog.com/media/en/technical-documentation/data-sheet=
+s/AD7794_7795.pdf
+> > > +  https://www.analog.com/media/en/technical-documentation/data-sheet=
+s/AD7796_7797.pdf
+> > > +  https://www.analog.com/media/en/technical-documentation/data-sheet=
+s/AD7798_7799.pdf
+> > > +
+> > > +properties:
+> > > +  compatible:
+> > > +    enum:
+> > > +      - adi,ad7785
+> > > +      - adi,ad7792
+> > > +      - adi,ad7793
+> > > +      - adi,ad7794
+> > > +      - adi,ad7795
+> > > +      - adi,ad7796
+> > > +      - adi,ad7797
+> > > +      - adi,ad7798
+> > > +      - adi,ad7799
+> > > +
+> > > +  reg:
+> > > +    maxItems: 1
+> > > +
+> > > +  spi-cpol: true
+> > > +
+> > > +  spi-cpha: true
+> > > +
+> > > +  interrupts:
+> > > +    description: Interrupt connected to the DOUT/RDY pin.
+> > > +    maxItems: 1
+> > > +
+> > > +  rdy-gpios:
+> > > +    description:
+> > > +      GPIO reading the DOUT/RDY line. DOUT/RDY also toggles during S=
+PI
+> > > +      transfers, which usually triggers spurious interrupts. Reading=
+ this GPIO
+> > > +      allows to tell those apart from real conversion done events.
+> > > +    maxItems: 1
+> > > +
+> > > +  avdd-supply: true
+> > > +
+> > > +  dvdd-supply: true
+> > > +
+> > > +  refin-supply:
+> > > +    description:
+> > > +      External reference applied between REFIN(+) and REFIN(-), or b=
+etween
+> > > +      REFIN1(+) and REFIN1(-) on the AD7794 and AD7795. If present, =
+it is used
+> > > +      as the ADC reference. If neither refin-supply nor refin2-suppl=
+y are
+> > > +      present, the internal 1.17 V reference is used.
+> > > +
+> > > +  refin2-supply:
+> > > +    description:
+> > > +      External reference applied between REFIN2(+) and REFIN2(-). Us=
+ed as the
+> > > +      ADC reference if refin-supply is not present.
+> > > +
+> > > +  clocks:
+> > > +    description:
+> > > +      External clock connected to the CLK pin. Either 64 kHz, or 128=
+ kHz in
+> > > +      which case it gets divided by 2 internally. If not present, th=
+e internal
+> > > +      64 kHz clock is used.
+> > > +    maxItems: 1
+> > > +
+> > > +  bipolar:
+> > > +    description: see Documentation/devicetree/bindings/iio/adc/adc.y=
+aml
+> > > +    type: boolean
+> >=20
+> > This is odd, why not ref the file normally?
+>=20
+> Yes, was not sure on this one but saw precedence in:
+>=20
+> https://elixir.bootlin.com/linux/v7.4-rc1/source/Documentation/devicetree=
+/bindings/iio/adc/adi,ad7192.yaml#L106
+>=20
+> Which might obviously be wrong! And I just noticed that in that one we
+> do have it again referenced in the channel properties. So it might be
+> just some legacy thing.
 
-NODNIC is a first-class hardware capability.
-It defines a lightweight NIC function intended for contexts where local
-DRAM is unavailable or too costly: embedded controllers, management
-planes, pre-boot environments, or any resource-constrained instantiation
-of a ConnectX NIC. The hardware sends and receives ordinary Ethernet
-frames via SQs, RQs and CQs. There is no encapsulation, no private
-protocol, and no FW interposition: packets are forwarded as standard
-Ethernet between whatever peers are connected to the function. The
-interface is documented in the HW spec and has been in production in
-non-Linux OS drivers for over a decade.
+Ah right of course, adc.yaml is for channels...
 
-Where it is used today:
-- Embedded management controllers on ConnectX-class ASICs that need a
-  network path to the host without consuming a data-path PF.
-- Resource-constrained SoC integrations (no local DRAM) where a
-  minimal-footprint driver is required.
-- Pre-boot / early-OS environments (PXE, iSCSI boot) that need a NIC
-  without a full mlx5e stack.
-- BF4 management PFs (one concrete deployment): on BlueField-4 the
-  firmware exposes a NODNIC PF on the host side and a peer PF on the ARM
-  side, using standard vport forwarding to connect them. This provides
-  in-band Ethernet connectivity between the host and the DPU OS - SSH,
-  PXE, and any standard networking application work over it without any
-  special handling.
+>=20
+> But in here the case is really this is a device wide (not per channel)
+> property. But I realize that can just do:
+>=20
+> $ref: /schemas/iio/adc/adc.yaml#/properties/bipolar
+>=20
+> right?
 
-Design notes:
-- The driver is separate from mlx5e rather than a mode within it.
-  NODNIC uses PCI Vendor Specific Capability (VSC) for command
-  operations - reads and writes over PCI config space - instead of the
-  DMA-based command interface used by mlx5_core. This is what makes
-  NODNIC usable in environments without reliable DMA access, and it
-  makes the two command paths fundamentally incompatible. Folding this
-  into mlx5e would mean carrying a second command transport and a second
-  resource model through code that is already dense.
-- A single SQ, RQ and shared CQ are exposed per function, with two MSI-X
-  vectors: the data vector fires on CQEs and drives both TX and RX
-  completions, and the event vector notifies on port state changes.
-  This is the hardware's model, not a driver simplification.
-- The driver exposes a plain netdev with no private uAPI, no ioctls and
-  no vendor-specific configuration surface. Everything is driven through
-  standard netdev and ethtool interfaces.
-- The code lives under drivers/net/ethernet/mellanox/mlx5/nodnic/ and
-  shares no paths with mlx5e, keeping the footprint small and the blast
-  radius of changes contained.
+Happens a good bit for ports, I don't see why not here either.
 
-for Sashiko:
-- Where possible we keep the design close to mlx5 (checksum, VSC API, RX
-  refill and else).
-- We don't implement suspend/resume flows at the moment.
-- We don't implement SW timestamps at the moment.
-- RX modes aren't needed and the driver doesn't implement
-  ndo_set_rx_mode.
-- For sizes and values reported by the device, we trust it to provide
-  reasonable values.
-- This series only wires the basic netdev stats (packets, bytes, and TX
-  drops).
+>=20
+> >=20
+> > > +
+> > > +  adi,buffer-disable:
+> > > +    description:
+> > > +      Operate the analog inputs in unbuffered mode. Unbuffered mode =
+allows the
+> > > +      inputs to go from 30 mV below GND to 30 mV above AVDD, while b=
+uffered
+> > > +      mode needs 100 mV of headroom to the supply rails but tolerate=
+s source
+> > > +      impedances in front of the inputs. Buffered mode is always use=
+d for gains
+> > > +      higher than 2.
+> > > +    type: boolean
+> >=20
+> > What determines if the gain is higher than 2?
+>=20
+> Userspace does, through the scale attribute. So this property only has an=
+ effect when the gain is 1 or 2.
+> For higher gains the buffer is always on
+>=20
+> >=20
+> > > +
+> > > +  adi,burnout-currents-enable:
+> > > +    description:
+> > > +      Enable the 100 nA burnout current sources in the signal path, =
+which allow
+> > > +      to detect an open circuit on the selected analog input. They c=
+an only be
+> > > +      enabled when either the buffer or the in-amp is active.
+> >=20
+> > The former should be somewhat enforceable with the binding, what
+> > determins this in-amp's setting?
+>=20
+> Same deal. For gains >=3D 4, the in-amp becomes active in the path (and t=
+he buffer is forced on),
+> so there's no way we can enforce this at the binding level:
+>=20
+> For gains 1 or 2, with adi,buffer-disable, adi,burnout-currents-enable is=
+ irrelevant, as the
+> datasheet onl allows the burnout currents with the buffer or in-amp activ=
+e.
+>=20
+> For gains >=3D 4 it's the other way around: adi,buffer-disable is irrelev=
+ant.
+>=20
+> So it should be the driver to make sure all of it remains sane.
+>=20
+> But I did take a look on the datasheet and this actually seems wrong to
+> be honest (the burnout stuff). Datasheet:
+>=20
+> "These currents can be used to verify that an external transducer is stil=
+l operational before
+> attempting to take measurements on that channel."
+> "For normal operation, these burnout currents are turned off by writing a=
+ 0 to the BO bit
+> in the configuration register."
+>=20
+> So I'll just drop the burnout property and maybe have it as a debugfs
+> thing.
 
-Regards,
-Tariq
+For both of these properties, I think meaning assigned to them should
+change (if kept). e.g. buffer-disable should not be a property that
+disables the buffer, but instead tells software that the conditions for
+disabling the buffer have been met by the hardware, and it is up to the
+software to disable it if the gain is suitable. I assume that the buffer
+doesn't auto turn off when the gain drops below 2 and the driver has to
+intentionally deactivate it?
 
-V3:
-Address the Sashiko AI review comments:
-- Convert PCIBIOS error codes returned by the config space accessors to
-  errno.
-- Preserve the FW-reported CQ log_size when programming the CQ address.
-- Compute the UAR offset in 64 bits.
-- Enable NAPI only after the RQ is set up, fixing the open error unwind.
-- Disable the port when open fails. If the port cannot be disabled,
-  clear bus mastering before freeing DMA memory.
-- Use netif_txq_maybe_stop()/netif_txq_completed_wake() for TX flow
-  control.
-- NAPI poll: handle budget == 0, return budget when the TX limit is hit,
-  and update the CQ doorbell record on every poll.
-- Rate-limit the error CQE prints.
-- Use u64_stats_t for the counters, and read the TX byte count before
-  releasing the WQE slot. Also count error TX CQEs in the stats.
-- Restore the trailing newline in the Makefile.
-- Check pci_save_state() return value.
-- Change 1 << log_uar_page_size to 1U <<.
-- Add NET_IP_ALIGN to the RX headroom, so the IP header is 4-byte
-  aligned.
-- Restore bus mastering in mlx5_nodnic_enable_port(), just before
-  setting dma_en.
-- Return send slots to xmit (sq->cc update and queue wake) only after
-  the CQ consumer index has been written to the device at the end of
-  each poll.
-- Count received packets and bytes before the skb allocation, so packets
-  dropped on allocation failure are still included.
-- Restore PCI state even if FLR failed.
-- Remove the redundant CQ consumer index write from the arm function to
-  prevent overwriting a newer value after NAPI ownership is released.
-- Disable NAPI before stopping the TX queue to prevent completions from
-  waking it again, then quiesce the port after TX submissions have
-  stopped. Reorder activation to mirror the deactivation sequence in
-  reverse.
-- Fail queues opening if the device in fatal state.
-- In health polling, check first if the PCI channel is offline.
+Conor.
 
-> +	if (err) {
-> +		mlx5_nodnic_core_err(dev,
-> +				     "pcie_flr failed with error code %d\n",
-> +				     err);
-> +		return err;
-> +	}
-> +	pci_restore_state(dev->pdev);
-Could mlx5_nodnic_dev_init() in
-drivers/net/ethernet/mellanox/mlx5/nodnic/main.c restore saved PCI state
-on a reset error as well?
+>=20
+> - Nuno S=E1
+>=20
+> >=20
+> > > +    type: boolean
+> > > +
+> > > +  adi,vbias-pin:
+> > > +    description:
+> > > +      Negative analog input (AINx(-)) to bias to AVDD / 2 with the b=
+ias voltage
+> > > +      generator.
+> > > +    $ref: /schemas/types.yaml#/definitions/string
+> > > +    enum: [ain1, ain2, ain3]
+> > > +
+> > > +  adi,vbias-boost-enable:
+> > > +    description:
+> > > +      Increase the current of the bias voltage generator, reducing i=
+ts power-up
+> > > +      time.
+> > > +    type: boolean
+> > > +
+> > > +  adi,excitation-current-microamp:
+> > > +    description:
+> > > +      Enables the excitation current sources IEXC1 and IEXC2. Both a=
+re always
+> > > +      enabled together and set to this same value. Where each one is=
+ connected
+> > > +      is given by adi,excitation-pins.
+> > > +    enum: [10, 210, 1000]
+> > > +
+> > > +  adi,excitation-pins:
+> > > +    description:
+> > > +      Output pins the excitation current sources IEXC1 and IEXC2 are=
+ routed
+> > > +      to, in that order. The default routes IEXC1 to IOUT1 and IEXC2=
+ to IOUT2.
+> > > +      Both sources can be routed to the same pin, which then outputs=
+ twice the
+> > > +      configured current. This is not allowed when
+> > > +      adi,excitation-current-microamp is 1000.
+> > > +    $ref: /schemas/types.yaml#/definitions/non-unique-string-array
+> > > +    minItems: 2
+> > > +    maxItems: 2
+> > > +    items:
+> > > +      enum: [iout1, iout2]
+> > > +    default: [iout1, iout2]
+> > > +
+> > > +dependencies:
+> > > +  adi,vbias-boost-enable: [ 'adi,vbias-pin' ]
+> > > +  adi,excitation-pins: [ 'adi,excitation-current-microamp' ]
+> > > +
+> > > +required:
+> > > +  - compatible
+> > > +  - reg
+> > > +  - interrupts
+> > > +  - avdd-supply
+> > > +  - dvdd-supply
+> > > +
+> > > +allOf:
+> > > +  - $ref: /schemas/spi/spi-peripheral-props.yaml#
+> > > +  - if:
+> > > +      properties:
+> > > +        adi,excitation-current-microamp:
+> > > +          const: 1000
+> > > +      required:
+> > > +        - adi,excitation-current-microamp
+> > > +    then:
+> > > +      properties:
+> > > +        adi,excitation-pins:
+> > > +          oneOf:
+> > > +            - items:
+> > > +                - const: iout1
+> > > +                - const: iout2
+> > > +            - items:
+> > > +                - const: iout2
+> > > +                - const: iout1
+> > > +  - if:
+> > > +      properties:
+> > > +        compatible:
+> > > +          contains:
+> > > +            enum:
+> > > +              - adi,ad7785
+> > > +              - adi,ad7792
+> > > +              - adi,ad7793
+> > > +    then:
+> > > +      properties:
+> > > +        refin2-supply: false
+> > > +        adi,vbias-pin:
+> > > +          enum: [ain1, ain2]
+> > > +  - if:
+> > > +      properties:
+> > > +        compatible:
+> > > +          contains:
+> > > +            enum:
+> > > +              - adi,ad7796
+> > > +              - adi,ad7797
+> > > +              - adi,ad7798
+> > > +              - adi,ad7799
+> > > +    then:
+> > > +      properties:
+> > > +        refin2-supply: false
+> > > +        adi,vbias-pin: false
+> > > +        adi,vbias-boost-enable: false
+> > > +        adi,excitation-current-microamp: false
+> > > +        adi,excitation-pins: false
+> > > +      required:
+> > > +        - refin-supply
+> > > +  - if:
+> > > +      properties:
+> > > +        compatible:
+> > > +          contains:
+> > > +            enum:
+> > > +              - adi,ad7796
+> > > +              - adi,ad7797
+> > > +    then:
+> > > +      properties:
+> > > +        adi,buffer-disable: false
+> > > +  - if:
+> > > +      properties:
+> > > +        compatible:
+> > > +          contains:
+> > > +            enum:
+> > > +              - adi,ad7798
+> > > +              - adi,ad7799
+> > > +    then:
+> > > +      properties:
+> > > +        clocks: false
+> > > +
+> > > +unevaluatedProperties: false
+> > > +
+> > > +examples:
+> > > +  - |
+> > > +    #include <dt-bindings/interrupt-controller/irq.h>
+> > > +
+> > > +    spi {
+> > > +        #address-cells =3D <1>;
+> > > +        #size-cells =3D <0>;
+> > > +
+> > > +        adc@0 {
+> > > +            compatible =3D "adi,ad7793";
+> > > +            reg =3D <0>;
+> > > +            spi-max-frequency =3D <5000000>;
+> > > +            spi-cpol;
+> > > +            spi-cpha;
+> > > +            interrupts =3D <25 IRQ_TYPE_EDGE_FALLING>;
+> > > +            interrupt-parent =3D <&gpio>;
+> > > +            avdd-supply =3D <&avdd>;
+> > > +            dvdd-supply =3D <&dvdd>;
+> > > +            refin-supply =3D <&vref>;
+> > > +            adi,vbias-pin =3D "ain2";
+> > > +            adi,excitation-current-microamp =3D <210>;
+> > > +        };
+> > > +    };
+> > > +...
+> > > diff --git a/MAINTAINERS b/MAINTAINERS
+> > > index 658895c3b0fa..e55236f4accb 100644
+> > > --- a/MAINTAINERS
+> > > +++ b/MAINTAINERS
+> > > @@ -1731,6 +1731,16 @@ W:	https://ez.analog.com/linux-software-drivers
+> > >  F:	Documentation/devicetree/bindings/iio/adc/adi,ad7780.yaml
+> > >  F:	drivers/iio/adc/ad7780.c
+> > > =20
+> > > +ANALOG DEVICES INC AD7793 DRIVER
+> > > +M:	Michael Hennerich <Michael.Hennerich@analog.com>
+> > > +M:	Nuno S=E1 <nuno.sa@analog.com>
+> > > +L:	linux-iio@vger.kernel.org
+> > > +S:	Supported
+> > > +W:	https://ez.analog.com/linux-software-drivers
+> > > +F:	Documentation/devicetree/bindings/iio/adc/adi,ad7793.yaml
+> > > +F:	drivers/iio/adc/ad7793.c
+> > > +F:	include/linux/platform_data/ad7793.h
+> > > +
+> > >  ANALOG DEVICES INC AD8366 DRIVER
+> > >  M:	Michael Hennerich <Michael.Hennerich@analog.com>
+> > >  M:	Rodrigo Alencar <rodrigo.alencar@analog.com>
+> > >=20
+> > > --=20
+> > > 2.56.0
+> > >=20
+>=20
+>=20
 
-[SS] A device that fails to come out of FLR is treated as failed and probe aborts,
-so there is nothing to restore it for.
+--oFj9t82+62QbHXlO
+Content-Type: application/pgp-signature; name=signature.asc
 
-Would it be appropriate to hold pci_cfg_access_lock() across the
-save/reset/restore transaction in mlx5_nodnic_dev_init(), in
-drivers/net/ethernet/mellanox/mlx5/nodnic/main.c?
+-----BEGIN PGP SIGNATURE-----
 
-[SS] pci_save_state() does not require the caller to hold pci_cfg_access_lock().
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCawh5iAAKCRB4tDGHoIJi
+0pHkAQDAmJq5sxmrznUrxSZ46t+DebxK/67x3NcvILoWOigYOwEA/8Gk8x0ShH3s
+fwu0VuzVcWvoFpooBh6Jl3sySkHuWg8=
+=6VgK
+-----END PGP SIGNATURE-----
 
-> +	dseg->byte_count = cpu_to_be32(skb->len & 0x7FFFFFFF);
-> +	dseg->lkey = cpu_to_be32(sq->ring.lkey);
-> +	dma_addr = dma_map_single(sq->device, skb->data, skb->len,
-> +				  DMA_TO_DEVICE);
-Could mlx5_nodnic_tx_build_wqe_ds(), in
-drivers/net/ethernet/mellanox/mlx5/nodnic/tx.c, handle or reject nonlinear
-skbs before mapping the total length as one contiguous buffer?
-Pktgen with a positive fragment count and start_xmit mode constructs a
-fragmented payload and calls netdev_start_xmit() directly. This bypasses
-the ordinary feature-validation linearization despite scatter-gather
-offload not being advertised.
-Pktgen allocates full-packet linear capacity, so the demonstrated
-regression is not necessarily an out-of-allocation read. Instead, the
-device reads the unfilled linear payload region rather than the fragments,
-sending incorrect bytes and potentially uninitialized allocation contents.
-Could this path linearize the packet or map its fragments separately?
-
-[SS] The driver doesn't advertise NETIF_F_SG, so the stack linearizes skbs
-before they reach ndo_start_xmit. Only pktgen's start_xmit mode with frags
-set can hand us a fragmented skb, which bypasses that validation. That is
-a root-only test configuration, so we don't handle this case.
-
-> +	fatal_error = mlx5_nodnic_health_check_fatal_sensors(dev);
-> +
-> +	if (fatal_error && !health->fatal_error) {
-> +		mlx5_nodnic_core_err(dev, "fatal error detected: %s (%u)\n",
-> +				     mlx5_nodnic_fatal_error_str(fatal_error),
-> +				     fatal_error);
-> +		priv->health.fatal_error = fatal_error;
-> +		dev->state = NODNIC_DEVICE_STATE_INTERNAL_ERROR;
-> +		mlx5_nodnic_print_health_info(dev);
-> +		return;
-> +	}
-Can this fatal transition in mlx5_nodnic_poll_health(), in
-drivers/net/ethernet/mellanox/mlx5/nodnic/health.c, also exclude subsequent
-interface activation?
-If polling detects a fatal condition while the registered interface is
-down, an administrative interface-up request still reaches
-mlx5_nodnic_open() -> mlx5_nodnic_open_locked() in
-drivers/net/ethernet/mellanox/mlx5/nodnic/en_cfg.c. Neither function checks
-the fatal health state before mapping the UAR and programming the queues.
-mlx5_nodnic_activate_queues() in the same file can then restore bus
-mastering and enable the port if the hardware operations succeed. The
-VSC offline check does not reject firmware reset requests, NIC
-disablement, or NIC software reset based on the recorded health state.
-The open path holds priv->state_lock, but the timer does not participate
-in that serialization. Could the fatal transition be coordinated with
-open through process-context work and an activation guard, so this
-regression cannot permit hardware programming after fatal detection?
-
-[SS] Health monitoring here only detects and prints. Fatal-error handling is planned for a follow-up.
-
-What establishes completion of device DMA before cleanup releases the
-buffers after this fallback? pci_clear_master() neither reports PCI
-configuration-access failure nor explicitly waits for outstanding
-transactions, yet cleanup proceeds unconditionally.
-
-[SS] fallback is best effort.
-
-How will netpoll reclaim TX descriptors when an RX CQE is ahead of the
-send completions? Every zero-budget poll stops at the same RX CQE.
-During panic netconsole output, ordinary NAPI cannot be relied on to
-clear it. Once the SQ fills, diagnostic packets remain unsent; netpoll's
-bounded retries only defer them to a worker. This needs a TX progress
-mechanism that does not perform RX processing with a zero budget.
-
-[SS] RX and TX share a single CQ and the ring is consumed in order,
-so a zero-budget poll cannot reach TX CQEs behind an RX CQE without doing RX work
-
-V2:
-https://lore.kernel.org/all/20261008171821.660739-1-tariqt@nvidia.com/
-- Fix sparse warnings in the VSC accessors: use __be32 for the
-  big-endian accessors and drop the redundant le32 conversions, which
-  were also wrong on big-endian hosts (Simon Horman).
-- Cover letter: drop the devlink mention (Simon Horman).
-- Replace the open-coded bitfield macros in the VSC code with
-  GENMASK/BIT and FIELD_GET/u32_replace_bits, and turn the config space
-  accessor macros into functions.
-- Fix line wrapping reported by checkpatch --strict.
-- Add a MAINTAINERS entry for the driver.
-- Kconfig: select PAGE_POOL, fixing the build when it is not otherwise
-  enabled.
-- Drop inline from a function in a .c file.
-
-V1:
-https://lore.kernel.org/all/20260930125708.144767-1-tariqt@nvidia.com/
-
-Shahar Shitrit (5):
-  net/mlx5: nodnic: Introduce the mlx5_nodnic driver
-  net/mlx5: nodnic: Implement data path
-  net/mlx5: nodnic: Add TX/RX statistics
-  net/mlx5: nodnic: Add ethtool driver info
-  net/mlx5: nodnic: Add health monitoring
-
- MAINTAINERS                                   |    9 +
- drivers/net/ethernet/mellanox/Kconfig         |    1 +
- drivers/net/ethernet/mellanox/Makefile        |    1 +
- .../net/ethernet/mellanox/mlx5/nodnic/Kconfig |   19 +
- .../ethernet/mellanox/mlx5/nodnic/Makefile    |    8 +
- .../net/ethernet/mellanox/mlx5/nodnic/en.c    |  286 ++++
- .../net/ethernet/mellanox/mlx5/nodnic/en.h    |  162 +++
- .../ethernet/mellanox/mlx5/nodnic/en_cfg.c    | 1152 +++++++++++++++++
- .../ethernet/mellanox/mlx5/nodnic/health.c    |  315 +++++
- .../net/ethernet/mellanox/mlx5/nodnic/main.c  |  866 +++++++++++++
- .../ethernet/mellanox/mlx5/nodnic/nodnic.h    |  105 ++
- .../mellanox/mlx5/nodnic/nodnic_ifc.h         |  318 +++++
- .../mellanox/mlx5/nodnic/nodnic_pci_vsc.c     |  347 +++++
- .../mellanox/mlx5/nodnic/nodnic_pci_vsc.h     |   45 +
- .../net/ethernet/mellanox/mlx5/nodnic/rx.c    |  174 +++
- .../net/ethernet/mellanox/mlx5/nodnic/rx.h    |   25 +
- .../net/ethernet/mellanox/mlx5/nodnic/tx.c    |  237 ++++
- .../net/ethernet/mellanox/mlx5/nodnic/tx.h    |   61 +
- 18 files changed, 4131 insertions(+)
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/Kconfig
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/Makefile
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/en.c
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/en.h
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/en_cfg.c
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/health.c
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/main.c
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/nodnic.h
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/nodnic_ifc.h
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/nodnic_pci_vsc.c
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/nodnic_pci_vsc.h
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/rx.c
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/rx.h
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/tx.c
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/tx.h
-
-base-commit: 05b5019b01fb9443b09ae4ed34af1135a80a84c8
---
-2.44.0
-
-Issue: 4971712
-Change-Id: Ic857b4c8532a35fbadbfe6056a97c6d711829e6a
-Signed-off-by: Shahar Shitrit <shshitrit@nvidia.com>
-Signed-off-by: Tariq Toukan <tariqt@nvidia.com>
-
-Shahar Shitrit (5):
-  net/mlx5: nodnic: Introduce the mlx5_nodnic driver
-  net/mlx5: nodnic: Implement data path
-  net/mlx5: nodnic: Add TX/RX statistics
-  net/mlx5: nodnic: Add ethtool driver info
-  net/mlx5: nodnic: Add health monitoring
-
- MAINTAINERS                                   |    9 +
- drivers/net/ethernet/mellanox/Kconfig         |    1 +
- drivers/net/ethernet/mellanox/Makefile        |    1 +
- .../net/ethernet/mellanox/mlx5/nodnic/Kconfig |   19 +
- .../ethernet/mellanox/mlx5/nodnic/Makefile    |    8 +
- .../net/ethernet/mellanox/mlx5/nodnic/en.c    |  295 +++++
- .../net/ethernet/mellanox/mlx5/nodnic/en.h    |  168 +++
- .../ethernet/mellanox/mlx5/nodnic/en_cfg.c    | 1158 +++++++++++++++++
- .../ethernet/mellanox/mlx5/nodnic/health.c    |  303 +++++
- .../net/ethernet/mellanox/mlx5/nodnic/main.c  |  869 +++++++++++++
- .../ethernet/mellanox/mlx5/nodnic/nodnic.h    |  130 ++
- .../mellanox/mlx5/nodnic/nodnic_ifc.h         |  317 +++++
- .../mellanox/mlx5/nodnic/nodnic_pci_vsc.c     |  347 +++++
- .../mellanox/mlx5/nodnic/nodnic_pci_vsc.h     |   45 +
- .../net/ethernet/mellanox/mlx5/nodnic/rx.c    |  174 +++
- .../net/ethernet/mellanox/mlx5/nodnic/rx.h    |   25 +
- .../net/ethernet/mellanox/mlx5/nodnic/tx.c    |  265 ++++
- .../net/ethernet/mellanox/mlx5/nodnic/tx.h    |   65 +
- 18 files changed, 4199 insertions(+)
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/Kconfig
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/Makefile
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/en.c
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/en.h
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/en_cfg.c
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/health.c
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/main.c
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/nodnic.h
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/nodnic_ifc.h
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/nodnic_pci_vsc.c
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/nodnic_pci_vsc.h
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/rx.c
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/rx.h
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/tx.c
- create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/tx.h
-
-
-base-commit: 612848d37e68b858e15815175f1c5e609e09d719
--- 
-2.44.0
-
+--oFj9t82+62QbHXlO--
