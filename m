@@ -1,79 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795681153;
-	b=FNcco5OV2GZf22S53fuI9v080wxEhoHxebIZ0NYI2ZcPKQ3k4QplmidrZUpDkUN6pwwL
-	 biX4L2R1Fa//zgnS4C4ajVl1Ur81R1Mx7wEjAOKLZij7ijWrGRK+m06klNvrzNfx3NlAD
-	 k8Od6L+6hrHVw+oJNI2Sd4QcSyjfJkun6kPu7qEmwZksNwebM7MiupFEwe48Hh3mL5vBR
-	 A9/u8wK4+b6L8H0Wb2LURqCBcvq61TO52PZ429kvxb0pYGrzp5cl2thEnUvxAbWmB0vqn
-	 aSsob0DBrFh8+x0zkJSu/NdFFdIF7DA4PnK524g/E00cnmwGz6XZEXKWccdqu+vxXKw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795681153;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
-	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-ClientProxiedBy;
-	bh=XBk6l5QW+e5tIM40DG+y+F2iKqGamonsktqME9Dbsmc=;
-	b=cVUcT8+wPntnBiSJGbXMP8amKctwy3sM6j9Hdl+1WRR8BVavoT4KyleiNFkmttf0V6DU
-	 ljfqPYeQsjk6b5hMZmCVoCxj8AIqP2B8z2bKPy//ooiu59x6Mru5D+bTmsA/EDGy+/tnv
-	 ozUtNV72xQz5nv7tSiP9edWhAC9fw3EOrjfBO/gpeoWZwmMOF8SGEg5sxUEjslk/16GeA
-	 ArhI2ptmpsjWu0hOqf0nA3axJBKpP6vYyKi0bWY/jfK0jwi5s3wnhuX30El/YUaxjJ8Dc
-	 ALTlNt8zjWY6S2cz9EnT70lfJmZQMUuFgwau927R863cGJr/9HNMrgROPzN2g2Sw5Yw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=secunet.com;
-	spf=pass smtp.mailfrom=secunet.com;
-	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=bnxdlg8U;
-	arc=none smtp.remote-ip=62.96.220.36
-Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.40
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795681240;
+	b=TeXIASsqou4A8YnRKBTpbWJYMsZ+9crI+dFmdqMqd/r8ac9IDx6p/260ehX5IQdZFDMg
+	 7Fh+YfoIwSyCbxunR6ArKFAaZ59w2XI5FfCK+04GJnDiLYyyM9G+J4DuDLMNCLGbVtLts
+	 3LVViF78Cq3c9qcqLcAdAEOl7XN2JDEHSWnN4FAyXqN6A+7JFEkI8xWUL9/scOZJKUX+0
+	 AYVyYUWpzjNc7j7MhhirL4Iuxt4lvCMvoTowMgOuhW5XW7/KXlX4hP4x6wwTsSBpt3lsF
+	 MYcITnwBzgTj+XkKMsojL+bOXiGm6ANSj9YzIrtIntgBe7/KZJrJrE8FKZzTGOTRTYA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795681240;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Subject:Date:
+	 Message-Id:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:
+	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=B41ESFTL+MIASWi3ZlEIjLiUzFtp99w4FTkn+mhh5/o=;
+	b=pLP6FwitiTxUkl8dy4WySrVAg0mr0QNKcUup6mFbGhn826QiIezUnl30/b2CdeS3tUte
+	 kuGT3JZpaWLdP7YKPLAV6Vh/iF8a1YTMF67g4hxJe64cDYR+BnW67wNrWqwKlmgyaR3YL
+	 SffpJcWy/nj01M5VU1ZRJ5j6RHbzF7F455hpbx1tsBlV4C6a8nudOwZ5ZB2T7L9YuSIJB
+	 7lNfnIQRhkMaMUHSH8lq4QnKCmxf9q+mhW15XhMIa+v2E6Qb9mwEnOO2ew6kRMKA88pkq
+	 4AKRDqWCEI4lj31G71AnXd0jkBScaol/c2e3q/YimdgJPg0nw5KDEpi45ZOX6/9lTXg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=M1zzwycn;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.40
+Received: from PH8PR06CU001.outbound.protection.outlook.com (mail-westus3azon11012040.outbound.protection.outlook.com [40.107.209.40])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A94EA606A31C;
-	Thu, 26 Nov 2026 08:19:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A94EA606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47F21606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:20:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47F21606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=bnxdlg8U
-Received: from localhost (localhost [127.0.0.1])
-	by mx1.secunet.com (Postfix) with ESMTP id 72DD820728;
-	Thu, 26 Nov 2026 09:19:09 +0100 (CET)
-X-Virus-Scanned: by secunet
-Received: from mx1.secunet.com ([127.0.0.1])
- by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id gREvfF4GR3PW; Thu, 26 Nov 2026 09:19:08 +0100 (CET)
-Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.secunet.com (Postfix) with ESMTPS id 4D0AD2085F;
-	Thu, 26 Nov 2026 09:19:08 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com 4D0AD2085F
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
-	s=202301; t=1795681148;
-	bh=XBk6l5QW+e5tIM40DG+y+F2iKqGamonsktqME9Dbsmc=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
-	b=bnxdlg8UogTPcqiPfkeQBCgsE+A+vw3ieVQcIh26B9HTceV7blzqqYSRLzyFA8/X5
-	 lisoHMPStJ5Lnwf2Wlv+ZbUp1kplkX1rgYFYhHAChBpm/ZTWudUE7GS55pyrQDDa/b
-	 6AJV5z8zmBcVULk5UJl4+xC848fmn5jH08cK3CdSU4ZizVQhcK2e2OPExkUsClY9wj
-	 wgUvio+nFymZ6ReiO/HqeV7j8gmr+pp0Kty6bd7ejOPH2Ilxyg711ts9C4H/n2RnD+
-	 Dc4lFosyXNnPJEHqN0kCv7AMjutuUZntJtDlmT3z+fL9oYSV+xzsNKSii62+zm4IeS
-	 e+jLuhmWOmbHg==
-Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=M1zzwycn
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iz1QdK81KLPHC5CNjUzq1Tymar12Xb4+HJhuTFsVR7b1XfwhJxpZStlEdUSg7mWJ1mToMdkPMWEFoaadm4iyXA1RYh+FuEsuY3vRN3lEoQ+QcIHA+LRy9B5wXr10ZIavP9JbVB5/mQCYRsxeM/MLA3VfmkF12ys0xkfeokkwcSLtbaJAPW9Sd99zQsRXrPxs02eY5t/cRdb7v0XhTodgmqqmsv35fS0XzCH2ODaNg56FRR27J7PeBbhtg51iIXlM/cFXmWMPkxPb6EdTORjoZJ/Y6h+/PFDkn4oRjO2U8qq4ir6e3ji/xsBsSbrNhxHZMI+XSl1PmquXofgB3ryYnA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=B41ESFTL+MIASWi3ZlEIjLiUzFtp99w4FTkn+mhh5/o=;
+ b=Z7/fraZW10i+o6vpyO/axNSP0UVixal2CMlGppYbSRUw4ut62o0jVnlKYW3m4JyQEwKeb3QpuzMn3LN2Lh5nCgaO4kNqSE1HroRaeyMDpKTum9KB0+d8LJKbmp+1P1ciuEuUufiUbF3bEOtZyZmfX9DFQE3OgDpEHkKXCVpskqd8Uq1lD8zoFjy07q6WugWrppSb/psjdbeqn5RkyLJpsKfYV+BzuGrvGmPgzDCvf0CEIiCGr1a2pUvDEJIETGa/UteuwaoK57/+XlYlJuUoNtRabTzfAbaiR+6GwAyQmh8dG1epyIE7tYy6WoSRJJtCrpriu4zNWByxVqCVIlN7gw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=B41ESFTL+MIASWi3ZlEIjLiUzFtp99w4FTkn+mhh5/o=;
+ b=M1zzwycnUGaVG3tgtBEQklMK0ImllxsmhR7stYVeq6G2TzGl19iccpiNOK00WwGWnVPxJwjYKHGTh9NJ6hF3kHDqHA1BK4FcQ/JQa7VoM7ZRLHCvL4pXGbKBDRUHkAmVsK/fsnbmkhhel5EpGbRmNkBXeIUw2xtXM7RySepQK9WnA7XMZxuU+w6R78G20R8hoyeqe83YYDnVPn8FzVHcVBpAy4Wfp01QtOsxJbu3I66fhHVWezInHBubb7VrsZnwcjPpZZBkJaOpJkc+nrYrA7tkaipDmDJwlb0ac2VSTQIK7pE6QsPT08aaj8OMT2kzaqvDUBmnh1cxqo8UHeN2Lg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB6413.namprd12.prod.outlook.com (2603:10b6:8:ce::10) by
+ LV0PR12MB248855.namprd12.prod.outlook.com (2603:10b6:408:603::17) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Thu, 26 Nov
- 2026 09:19:07 +0100
-Received: (nullmailer pid 1980212 invoked by uid 1000);
-	Thu, 26 Nov 2026 08:19:06 -0000
-Date: Thu, 26 Nov 2026 09:19:06 +0100
-From: Steffen Klassert <steffen.klassert@secunet.com>
-To: Jun Yao <yaojun8558363@gmail.com>
-CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <horms@kernel.org>, <herbert@gondor.apana.org.au>,
-	<dsahern@kernel.org>, <idosch@nvidia.com>, <lkp@intel.com>,
-	<victor@mojatatu.com>
-Subject: Re: [PATCH v2] xfrm: avoid stale tunnel pointers in deferred input
- callbacks
-Message-ID: <awfrerO8s00MtKza@gauss4>
-References: <20261112111946.375692-1-yaojun8558363@gmail.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Thu, 26 Nov
+ 2026 08:20:37 +0000
+Received: from DS0PR12MB6413.namprd12.prod.outlook.com
+ ([fe80::e82a:6673:4142:37fa]) by DS0PR12MB6413.namprd12.prod.outlook.com
+ ([fe80::e82a:6673:4142:37fa%5]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
+ 08:20:37 +0000
+From: Eliot Courtney <ecourtney@nvidia.com>
+Subject: [PATCH 0/7] gpu: nova-core: merge `load` and `boot` for falcons
+Date: Thu, 26 Nov 2026 17:20:09 +0900
+Message-Id: <20261126-boot-rework2-v1-0-99a1dc6c7cc4@nvidia.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2Nyw7CIBQFf6W5a0mA8mj9FdMF0IuiaVGgatL03
+ 0XrcpI5c1bImAJmODYrJHyGHOJcgR0acBczn5GEsTJwyhVjXBIbYyEJXzHdOGmtQtkZr7RBqJN
+ 7Qh/ev9xp2Dkv9oqufBt/I+FjqT9l18CajMTFaQrl2IiWSy+MGXvNtVHYofaMOjlytF70VGjqf
+ N92MGzbB+jR4oe8AAAA
+X-Change-ID: 20261125-boot-rework2-3b6e58af67ae
+To: Danilo Krummrich <dakr@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+ Alexandre Courbot <acourbot@nvidia.com>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>
+Cc: John Hubbard <jhubbard@nvidia.com>, 
+ Alistair Popple <apopple@nvidia.com>, Timur Tabi <ttabi@nvidia.com>, 
+ nova-gpu@lists.linux.dev, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, Eliot Courtney <ecourtney@nvidia.com>
+X-Mailer: b4 0.15.2
+X-ClientProxiedBy: TYCPR01CA0124.jpnprd01.prod.outlook.com
+ (2603:1096:400:26d::10) To DS0PR12MB6413.namprd12.prod.outlook.com
+ (2603:10b6:8:ce::10)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,188 +104,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261112111946.375692-1-yaojun8558363@gmail.com>
-X-ClientProxiedBy: EXCH-04.secunet.de (10.32.0.184) To EXCH-01.secunet.de
- (10.32.0.171)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB6413:EE_|LV0PR12MB248855:EE_
+X-MS-Office365-Filtering-Correlation-Id: e64d08dc-92b5-4fad-538e-08df4b962651
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|1800799024|376014|10070799003|366016|18002099003|56012099006|11063799006|261009223027099003|261021123027099003|10067099003|261026121527099003|261102123227099003|261022115727099003|261022105027099003|261026140227099003|261022075727099003|261021121427099003|261028144727099003;
+X-Microsoft-Antispam-Message-Info:
+	mWBgnDg/RQLM3xw6JIlpGbfHU2d+prQbj24i+S622xh6jG1OMia58uymGAopbQecxekvGQHzTJ/6bGKPDeQMor5zIj9iKHYHDZiGRwBni4WIoTVvabLLOdP8m7ihXK7+Oa3/vslsOkK/tbgcq2UXBpKHFo9JsLYhPR8cmVCz9RqjGJD+2PYskhc2Q/aDuTY1gX61FeuFbkROIRLr+OUCBdYkpUOqXQGQzh0/rKMwekmFhg90CzBl/064kKtQQ8ndgMbpeu+ANYytHRjoDIepLgb4EGvtaQtRaBkxyq+yc/Ut/zwzXKqEIEFuHIIRGW8nmLtlJh7H79mm0Pqq33VRApvJRmoFh4FLil1AbQoiLTrzLFbVHYhPrukwYBPOP6/e3wMgW2hYsRu+UxmW0nVvBC4pGkXC5uN8QE+heqAIaQmqHyZNuI3FjV3qcwg0Ri/n5P4M42K16tSGItYvUBxRoAwwwLdsIp0macuK3SmuMap3pf8zpZZKdxsHO3UFdRkFmDh4a+zo6CJOu82+8ywMGHU2GkGVsm0GEAJT5QelX+thVLSVOlBcHMGBgAs6GfDMo51eDZD3AMcevcVWYhcGtJ/KuweWvKhtoRixbZI7tMvxau1fWKFWid09Tr2u4xXXD42w1bTCkrixLYfQZyuePHWrToMZzuOO5zZG5jfaI7s=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB6413.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(10070799003)(366016)(18002099003)(56012099006)(11063799006)(261009223027099003)(261021123027099003)(10067099003)(261026121527099003)(261102123227099003)(261022115727099003)(261022105027099003)(261026140227099003)(261022075727099003)(261021121427099003)(261028144727099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?WHhIU3VhNDZZSWZ3c0N1elp2QnZHMnhCeU5pS3FoM2NhSkh4ZzdDQ0JzTnlw?=
+ =?utf-8?B?emx2Tlcrb2xpVHowSzM4YTdTMGRiVjVrY2VsY2NvWndsMnJ4MCtTNUZJei91?=
+ =?utf-8?B?aktnckNvN1duemtOeTFoRHdZaUNvOURDZHdMb1h3SlhSd0Mvcmw4Nm1UREsw?=
+ =?utf-8?B?TjVKQnEyS00xYW5IazZpUUgzb2hqM3FoZWFEL0QzTk5RS0dlNFNMK1VRdEJT?=
+ =?utf-8?B?d09EOW42c3k3SWRmNm5WYm0wNmhCdXQ2emRrcVR2dUVzNDZOQmNqbnF3c1or?=
+ =?utf-8?B?dkJUOFEzSVlQQ293Ukx4ckptdG01dHhIZjhOQ2x3WE9lc3ZaNWdoa3BTM0Nv?=
+ =?utf-8?B?SlEwL29yZy94R0wreUdReEJxdll5c256b0VZN1lWcHE5YzcxQk5ubEFPMGw5?=
+ =?utf-8?B?VzlvTjY2NHJvbUxLSnZTWlNPczVlT3BtM1NnN2ZJS1Yvb05xYUovVUNJc3g2?=
+ =?utf-8?B?SllROXQvU1Nodlc2SktlSE03QWNmVVN0NzVtYWpXVmFLOVhlRWNxSUxCNWZk?=
+ =?utf-8?B?Ukp5VDJRTVU2L1pxSGh0Q0ZRL0R6V2xDMlZRNDAzTjNvcWw2b0prdEJXcEZm?=
+ =?utf-8?B?Z252bG4yempLOXA1ZUZMZExoK2NMREdONHVTZ2JMZnRLOWM4Q1hHZWxKQU1R?=
+ =?utf-8?B?bExzcDJJR0hhUGpxQ1pkWTI0eDl2SzIwU25pY3pnRHg3UnVkaE44a1F0cGdE?=
+ =?utf-8?B?eXdSUHd3RUc1ejBtZzFFeXBFaTBKT1o3Q2tBcCsrVjlSeHdHU3ZqOUg1eEFY?=
+ =?utf-8?B?ZmM0S1lTVllHZEIyeUJlVXdZMlc1MUVNdXh3a3N1eU1Wenh5WVJrWURSbXFq?=
+ =?utf-8?B?SjdjRFRTL2h1UUZiRHR0aG5IcGJRMTNBRy9PQzczdDQ4TG1EZkp1cm83T0NR?=
+ =?utf-8?B?Ynl6TlNTSXV2SE5OakErUUtKWGh4akk5bis2dEFCcm1URnB6OW1qSzRsTlBl?=
+ =?utf-8?B?amJuSGNKWngyQzVuYUlHZktYWEZvb1ZkNEdLWUx2TFFOVTRnL1ozYXVFZ0hi?=
+ =?utf-8?B?WG50cEZqRjRrb2xNaGQxc1lvVU1UaWZEYlRRdEVRMzUzSTdrODk1UGkxcmpl?=
+ =?utf-8?B?bnQ4VHdWWitzMEFEeGVNSHRRYkxnRTAvczFCbUxWVFgweG9HbnBkRHRLa2N0?=
+ =?utf-8?B?N0RnamlaRzZLWm1WM0ZVd054cXZWQUVZYlpheUkzbGZHenA3L0NjdW43Tjk2?=
+ =?utf-8?B?cHNoVmFkNGlDZnN3Q1NWbjN0SitXYWtBdThwUWx6S0o4Um9EN2hzRlRXczFQ?=
+ =?utf-8?B?SEZSVFhJZU42K1lMdzM3WXBlWDFMZzlOVWhjOEhSaC9zT1IvVlpyMyt6bjNT?=
+ =?utf-8?B?L0Jmc0swQUVuWC9VZWx2NlB2NVg2QzJGd0I1L0J3ZDcwQmhSWXMyOHl5Vk43?=
+ =?utf-8?B?bWp4eTRmRGpjLzFTZFZIQUZjcEZCRXQvMllmWDJuTHRtK2VFRUw2UE9IUElv?=
+ =?utf-8?B?OW96bHlieXFqcE1nbG9qc2JPQWg1M295aHFmOHQ2SkNERURwemtjcGNNbUo1?=
+ =?utf-8?B?OVdrL3BycWNXZXhOQUZJM2p3TjBRNnlNZTI0Qkt6YkJzSmZaWmptaFlVK0tp?=
+ =?utf-8?B?MDNMV1FqdGpxWS9MZlErdWZVNThHMmx0WXFVUTBCMEVBR1pXTXpqNDlMNzE5?=
+ =?utf-8?B?aGgzc2FJSG4vcGJOM0FHWjdtQlFxV1B3VzdvMWYvVDMvZXRESjBWbFNxTURl?=
+ =?utf-8?B?K2g2NjNtRXVUeUZpbTBsQkxNOFQ0UkEzeTVEWGVGWjh1cHFzU3RQeFByT24x?=
+ =?utf-8?B?SVh2M2xLWEYrK24yZGVXNm9FQ0QzTkxacTVaSm9KUlZ4K3loMU5VK0FCaGI0?=
+ =?utf-8?B?RTZVN1Jzb1YxbDM3OTlmKytCVEFFd01nOVpzNytmV3hEdTF6M3U4am9hMCtV?=
+ =?utf-8?B?WnFGTWkvU0tScUMvaVgxbGcvWDc2Ujh4ang1cS9oQitZTnpsSFE1MXhpZHZn?=
+ =?utf-8?B?bXF1a1dlQmp4dWFiL21SNFUwYmZNOWhvM2JwWW1CT1g0RVRMUUpQdTlKbnBS?=
+ =?utf-8?B?b1h4d0N2aFNFOThJYlRzY1Y4blBFeU5vZ2tvbWFmYzc2RUl6R1YyUmpUcXRX?=
+ =?utf-8?B?ejAra1E0YWttYk1RbkZDNDZXaHRQSUZjRlhhZXJGWlVrOUhHK0dzUW93UzNj?=
+ =?utf-8?B?NTRsb1pYcHZJWmRFTTNUTFVJMHMrZS81STRLV0tkRUlMZytFVlAxVWFqRWxI?=
+ =?utf-8?B?WGNheFpPVzRHQ0xDdHE3RWtwWTZ6aXZEbkU2azBTTyttV2lxSGs4bWwxV1Vm?=
+ =?utf-8?B?UU9hV3dVQ01PTnlIWHNaMGdmV1NoZ0U5MWRJQ3NUa1gvU2tHN1RSdVdvR2dz?=
+ =?utf-8?B?Tks3MzhCY0locjk1OFRHK2lBN3laeTVvS3BmMENHWDN3WWFEMXoyRjJhSkJi?=
+ =?utf-8?Q?jChaa+qhdmIh+WqWXadimqLu+b5n4VW2gK9dz8jtPuace?=
+X-MS-Exchange-AntiSpam-MessageData-1: V815wb3hOw2AaA==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e64d08dc-92b5-4fad-538e-08df4b962651
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB6413.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 08:20:37.1980
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cVCZsXE7byGHiTgeko1sdLmLcLMoljsr9cMT920FttoR7EJ8Squg1IKsV1YeeIH4CXX5TVHMdsLQ9H0w3D6GGQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV0PR12MB248855
 
-Sorry for the delay, but I had to think a bit longer about this.
+Currently, loading the firmware and booting it is split into two
+separate steps. Load is always called in combination with boot. Rewrite
+the process to basically look like:
 
-On Thu, Nov 12, 2026 at 07:19:46PM +0800, Jun Yao wrote:
-> IP-TFS input can be deferred while its reordering queue waits for a missing
-> sequence number. The VTI receive callback stores a pointer to the tunnel in
-> skb->cb, and the device can be removed and freed before the callback runs.
-> 
-> The issue was discovered by Qihoo 360's Tulongfeng multi-agent system.
-> 
-> This IPv4 VTI use-after-free was reproduced on Linux 7.4-rc2 in an x86-64
-> QEMU guest. When the IP-TFS reorder timer resumes input after VTI deletion,
-> KASAN reports an 8-byte read from freed memory in vti_rcv_cb(). Relevant
-> parts of the report are:
-> 
->   BUG: KASAN: slab-use-after-free in vti_rcv_cb+0x696/0x770
->   Read of size 8 at addr ffff88810eae4b58 by task swapper/3/0
->   Call Trace:
->    [...]
->    vti_rcv_cb+0x696/0x770
->    xfrm4_rcv_cb+0xa6/0x110
->    xfrm_rcv_cb+0xca/0x140
->    xfrm_input+0x11eb/0x6660
->    __input_process_payload+0xb87/0x24c0
->    iptfs_input_ordered+0x560/0x8e0
->    iptfs_drop_timer+0x464/0x8e0
->    __hrtimer_run_queues+0x270/0x600
->    hrtimer_run_softirq+0x14b/0x270
->    [...]
-> 
->   Freed by task 394:
->    [...]
->    kfree+0x23c/0x490
->    kvfree+0x31/0x40
->    netdev_release+0x6d/0x90
->    device_release+0xce/0x250
->    kobject_put+0x18d/0x4f0
->    netdev_run_todo+0x724/0x1360
->    rtnl_dellink+0x401/0x1020
->    [...]
-> 
-> Keep only scalar tunnel metadata in an skb extension. The VTI callbacks
-> look up the device by ifindex under RCU and check its link configuration
-> before using its private data. If the VTI no longer exists, drop the
-> deferred packet. Use the same metadata to preserve tunnel mark handling
-> and IPv6 tunnel detection, and clear it when a new XFRM receive path starts
-> and after the callback completes.
-> 
-> Guard the skb extension accesses with CONFIG_XFRM and provide no-op or
-> NULL-returning helpers when it is disabled, since xfrm.h is also included
-> by code built without XFRM support.
-> 
-> Signed-off-by: Jun Yao <yaojun8558363@gmail.com>
+falcon.boot(<the firmware you want>, ...)
 
-Fixes tag is missing.
+Additionally, add a segment source for firmware already in the
+framebuffer (this is for HS binaries).
 
-> 
-> ---
-> v1: https://lore.kernel.org/lkml/20261111094629.230568-1-yaojun8558363@gmail.com/T/#u
-> 
-> Changes in v2:
-> - Group the tunnel info helpers under CONFIG_XFRM and provide NULL-returning
->   or no-op stubs when it is disabled, fixing the !CONFIG_XFRM build errors.
-> - Document the runtime reproduction and include a trimmed KASAN report.
-> 
-> Build failure reported by the kernel test robot:
-> https://lore.kernel.org/oe-kbuild-all/202611120519.EG3LbKfu-lkp@intel.com/
-> 
-> Build-tested bzImage and modules using x86_64_defconfig-based configurations
-> with CONFIG_WERROR=y and GCC 13.3.0:
-> - CONFIG_XFRM=y, including IPv4/IPv6 VTI and ESP offload, XFRM interface,
->   and IP-TFS.
-> - CONFIG_XFRM=n and CONFIG_SKB_EXTENSIONS=n.
-> Both builds completed without errors or warnings.
-> 
-> diff --git a/include/linux/skbuff.h b/include/linux/skbuff.h
-> index 6787fcf6a..f97412b95 100644
-> --- a/include/linux/skbuff.h
-> +++ b/include/linux/skbuff.h
-> @@ -5044,6 +5044,7 @@ enum skb_ext_id {
->  #endif
->  #ifdef CONFIG_XFRM
->  	SKB_EXT_SEC_PATH,
-> +	SKB_EXT_XFRM_TUNNEL,
->  #endif
->  #if IS_ENABLED(CONFIG_NET_TC_SKB_EXT)
->  	TC_SKB_EXT,
-> diff --git a/include/net/xfrm.h b/include/net/xfrm.h
-> index 445223a8d..38815faca 100644
-> --- a/include/net/xfrm.h
-> +++ b/include/net/xfrm.h
-> @@ -382,6 +382,7 @@ struct xfrm_dst_lookup_params {
->  };
->  
->  struct net_device;
-> +struct ip6_tnl;
->  struct xfrm_type;
->  struct xfrm_dst;
->  struct xfrm_policy_afinfo {
-> @@ -740,14 +741,70 @@ struct xfrm_tunnel_skb_cb {
->  		struct inet_skb_parm h4;
->  		struct inet6_skb_parm h6;
->  	} header;
-> +	/* Keep the layout of the other XFRM skb control blocks stable. */
-> +	unsigned long reserved;
+This simplifies running HS binaries in the r000 load+exec boot process
+[1], because they can be treated as falcon firmware binaries directly,
+without having to call into the guts of the boot process code + make fns
+like `dma_wr` public.
 
-The comment above only makes sense if you know why it was
-introduced.
+This is not a pure refactor, with this `dma_load` uses two `Coherent`s
+(one for imem, one for dmem) instead of one. The extra `Coherent` is a
+consequence of splitting the storage vs transfer method more
+orthogonally. I don't think it's consequential but jfyi. It also fixes
+one (harmless) issue with gsp boot.
 
-> diff --git a/net/ipv6/xfrm6_input.c b/net/ipv6/xfrm6_input.c
-> index 07edef258..9aed0b21d 100644
-> --- a/net/ipv6/xfrm6_input.c
-> +++ b/net/ipv6/xfrm6_input.c
-> @@ -15,6 +15,7 @@
->  #include <linux/netfilter.h>
->  #include <linux/netfilter_ipv6.h>
->  #include <net/ipv6.h>
-> +#include <net/ip6_tunnel.h>
->  #include <net/xfrm.h>
->  #include <net/protocol.h>
->  #include <net/gro.h>
-> @@ -22,7 +23,28 @@
->  int xfrm6_rcv_spi(struct sk_buff *skb, int nexthdr, __be32 spi,
->  		  struct ip6_tnl *t)
->  {
-> -	XFRM_TUNNEL_SKB_CB(skb)->tunnel.ip6 = t;
-> +	struct xfrm_tunnel_info *info;
-> +
-> +	xfrm_tunnel_info_clear(skb);
-> +	if (t) {
+Tested boot on TU104, GA104, AD106 and GB205.
 
-I don't think this can happen. All current callers
-of xfrm6_rcv_spi() set t = NULL.
+This is based on drm-rust-next.
 
-> diff --git a/net/xfrm/xfrm_input.c b/net/xfrm/xfrm_input.c
-> index 5ed87d513..a5d67d506 100644
-> --- a/net/xfrm/xfrm_input.c
-> +++ b/net/xfrm/xfrm_input.c
-> @@ -466,6 +466,7 @@ static int xfrm_inner_mode_input(struct xfrm_state *x,
->  int xfrm_input(struct sk_buff *skb, int nexthdr, __be32 spi, int encap_type)
->  {
->  	const struct xfrm_state_afinfo *afinfo;
-> +	const struct xfrm_tunnel_info *tunnel_info;
->  	struct net *net = dev_net(skb->dev);
->  	struct net_device *dev = skb->dev;
->  	int err;
-> @@ -555,16 +556,20 @@ int xfrm_input(struct sk_buff *skb, int nexthdr, __be32 spi, int encap_type)
->  	}
->  
->  	family = XFRM_SPI_SKB_CB(skb)->family;
-> +	tunnel_info = xfrm_tunnel_info(skb);
+[1]: https://lore.kernel.org/20261120044704.165223-1-jhubbard@nvidia.com
 
-Touching the skb extensions are usually an expensive operation.
-Did you do some performance benchmarks?
+Signed-off-by: Eliot Courtney <ecourtney@nvidia.com>
+---
+Eliot Courtney (7):
+      gpu: nova-core: falcon: make pfalcon private
+      gpu: nova-core: gsp: remove unnecessary start of `gsp_falcon`
+      gpu: nova-core: falcon: program BROM and BOOTVEC in `boot`
+      gpu: nova-core: falcon: separate staging data for DMA from its location
+      gpu: nova-core: falcon: add `FalconImage` for `FalconFirmware` trait
+      gpu: nova-core: falcon: rename FalconDmaLoadTarget to FalconLoadTarget
+      gpu: nova-core: falcon: load the firmware image in Falcon::boot
 
-VTI is superseeded by the xfrm interfaces and will go away
-some day. So we should try to not add more VTI speciffic
-code to the generic codepath. This patch is quite big for
-a fix, something shorter would be preferable. But if we
-really need to do this, we should try to move it to VTI.
+ drivers/gpu/nova-core/falcon.rs                    | 442 +++++++++------------
+ drivers/gpu/nova-core/firmware.rs                  |  32 +-
+ drivers/gpu/nova-core/firmware/booter.rs           |  59 +--
+ drivers/gpu/nova-core/firmware/fwsec.rs            |  47 +--
+ drivers/gpu/nova-core/firmware/fwsec/bootloader.rs |   9 +-
+ drivers/gpu/nova-core/firmware/gen_bootloader.rs   |  69 ++--
+ drivers/gpu/nova-core/gsp/hal/tu102.rs             |  14 +-
+ 7 files changed, 303 insertions(+), 369 deletions(-)
+---
+base-commit: 4325f4aad9727a6e8e7f10c5d2ebf490470cf938
+change-id: 20261125-boot-rework2-3b6e58af67ae
 
->  
->  	/* if tunnel is present override skb->mark value with tunnel i_key */
->  	switch (family) {
->  	case AF_INET:
-> -		if (XFRM_TUNNEL_SKB_CB(skb)->tunnel.ip4)
-> -			mark = be32_to_cpu(XFRM_TUNNEL_SKB_CB(skb)->tunnel.ip4->parms.i_key);
-> +		if (tunnel_info &&
-> +		    tunnel_info->type == XFRM_TUNNEL_INFO_VTI4)
-> +			mark = be32_to_cpu(tunnel_info->i_key);
->  		break;
->  	case AF_INET6:
-> -		if (XFRM_TUNNEL_SKB_CB(skb)->tunnel.ip6)
-> -			mark = be32_to_cpu(XFRM_TUNNEL_SKB_CB(skb)->tunnel.ip6->parms.i_key);
-> +		if (tunnel_info &&
-> +		    (tunnel_info->type == XFRM_TUNNEL_INFO_VTI6 ||
-> +		     tunnel_info->type == XFRM_TUNNEL_INFO_IP6))
-> +			mark = be32_to_cpu(tunnel_info->i_key);
->  		break;
->  	}
+Best regards,
+--  
+Eliot Courtney <ecourtney@nvidia.com>
+
