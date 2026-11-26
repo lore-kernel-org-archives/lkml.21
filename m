@@ -1,82 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.204.27.37
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795695346;
-	b=Gr8bfP4IMxNI8jG1zPF1fr5gc2CQoYKAb/65Ln0Tn2o4niEuiTo+Yr7YdI4uzoUBN8Gh
-	 ZIwQWc1m+qgfLagPdnWZXTQ+dSDfx/XEjYRXgz+nMM8keFpIDgLkWdAW+ggSN49wCzyAf
-	 Ckv4Q9oKgRdJjLRT3gRgy7lBIKw3V/mhgnML+71pe2enD7lEw+24OYZR/ikTjIlAWv1V5
-	 ZOuRnD7o/wHES4aESGfls4iwOthobwY9oHpR0Lm7dQJUcO9kS8JbDBtn9walYoEYkIp2q
-	 Pd4klannZr1wnVy/aACSYBk9iChL4l4SRnLt3wG0OPnRzE5IOKvkUxF/+9XqDEip7jw==
+	t=1795695363;
+	b=W0EmjVoW/Lt/NFl17cyxcOi0UJI0nkwJRd5aV2lUOfAb8r80sz+DNxpnXB3OJmQTvm2i
+	 rOmfE4J6KX9EeKSuRwrm+BTuy/6PvI3wvc3nWiOxJ19CDdSEMwU9MPdmCLWuCdadUl64c
+	 sqXRskc9lLdPqSDH19wsG7C5asMs/mbP0jXOfhcGUbA4DssLFwep+g17ONvKfObU98DzH
+	 AXDdMy7r4LqRcGIpM2bEBYjwJVfIblWxQ/75x+JmbmwwvhbHnN2nnLeuvGx5m1zWDHTnG
+	 OWwkbIK0MgjlX8rVSjF+QfU6FlcI4BToDxLGQzDIoejfqQJqxldaKmH63xizD5kWEdw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795695346;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795695363;
+	h=DMARC-Filter:Received:Received:Received:Received:Date:From:To:CC:
 	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=ejTolVWS/3eK+IMYMtAIj+rYv+HyvbjZG2pfQPmahAg=;
-	b=ctAeKsxUo3mJ+yPp//iwZXOkAPKYp24gIO0gR1RPwrwS/uFT0/HSz7qw/gwXE4ilXbTI
-	 PTqtClDrId2EpYjNUzA74m5qiiRvP01Eq9dzUN6hfqtUenngaHPEpRczINEal5/8SuNmc
-	 ASlJAsm8PRRFO8PtmmfaQ9WiC6VJ7xLNHw0Oixrh1Hd7oWgkbZMnAThGK/IWDUSmHIAoi
-	 TdOjgtdxNN/cD8yW3TwDEpeor8toE6z5KpaF3gBUqlgkXbZEQYed2wfgVG/NDtPF+rD3s
-	 OleslkIqUwhclen1P7iuQzw1zDMuwAI05/OeEHYomtUc/2bAfDrhodps0PT/tlDdaag==
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 X-Originating-IP:X-ClientProxiedBy;
+	bh=vVi+hjHGX0RzAqKFCQt8csRr2KRMwhIJaCDqR21Qs38=;
+	b=yUcueqCqF4ACdD3yhshY4otKC5033ufgrNeTDwBx2b0SO0LyC/QOM3z0d2dThHKmO6rc
+	 O3cKUvYwpcZCPsHtp7vdXQ7EPABSDDOm+b91Ld/eV5w55BvNcRWho9CxURj9iylV0V2mI
+	 GhgPH+XJ/1efqg8gNu5Dz35hTY1vMRcgf8Ey6A+ddzo+6ZTw9O47Ln0vHhpXv2FSc86dC
+	 TU1/FINOuiJZvYzcDt3EVNbwLtGFH/J+mF3HHw8IgFE3SuqlYeA3iNVJ8tBl75gwV7iQJ
+	 kM2WhoUSs8YVhSN/E7uc77DzQPQiCNboAO0OxajFF6O/jHOGWnHehZTaF1la8bivy8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=Hb6u32uf;
-	arc=none smtp.remote-ip=68.232.154.123
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5257D606A323;
-	Thu, 26 Nov 2026 12:15:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5257D606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=Hb6u32uf
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795695354; x=1827231354;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=hQyIbm7vXOCwN75H9xbgMrw794v67s7pmm0O8GSxXE0=;
-  b=Hb6u32uff+UwzR/gCQdwUrW0DCg+ct1kpHdaC8C9LtlqfS9/QAjHWPsu
-   J/eCGxx9n/k+hIIyzjoT7bwXC3Tuvv5JTUzADoC3GzI6DcuKt2YBNe1rH
-   3PkRZXvrChi4W1fp7yDlz8m3GIx6kcAvyrlQy9Za36aIa1kx4B7YUgQsI
-   WoftD8C/1lZq9sVRXEWbcaqsXXupwJk3GnEnobnC0hsmTOKWHjSY94w6c
-   tLmoMWAwdk2oIh77CY4wvfbS4IstODiLoy7unHGzGsFEM5bxhMgpu1dvG
-   84tCiBOYRKfN4FYO5MrAXrQitB/iINHX42AS6+7F79akIAzhxc/Gp6ZPm
-   w==;
-X-CSE-ConnectionGUID: A0wiu6lCTdKIYILWdkd/4Q==
-X-CSE-MsgGUID: D1OP0uW+ReqLjguteQSEaA==
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="66109279"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 05:15:53 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.57; Thu, 26 Nov 2026 05:15:45 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Thu, 26 Nov 2026 05:15:42 -0700
-Date: Thu, 26 Nov 2026 13:15:41 +0100
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Nicolai Buchwitz <nb@tipi-net.de>
-CC: Doug Berger <opendmb@gmail.com>, Florian Fainelli
-	<florian.fainelli@broadcom.com>, Broadcom internal kernel review list
-	<bcm-kernel-feedback-list@broadcom.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Florian
- Fainelli <f.fainelli@gmail.com>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Dave Stevenson
-	<dave.stevenson@raspberrypi.com>
-Subject: Re: [PATCH net-next v9 7/8] net: bcmgenet: allow the MTU to be
- changed
-Message-ID: <20261126121541.6gybeqbkxsvjav5i@DEN-DL-M70577>
-References: <20261123-nb-genet-mtu-nn-v2-v9-0-4f93ded19bbb@tipi-net.de>
- <20261123-nb-genet-mtu-nn-v2-v9-7-4f93ded19bbb@tipi-net.de>
+	dmarc=pass header.from=hygon.cn;
+	spf=pass smtp.mailfrom=hygon.cn;
+	arc=none smtp.remote-ip=101.204.27.37
+Received: from spam01.hygon.cn (unknown [101.204.27.37])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 66BB5606A326;
+	Thu, 26 Nov 2026 12:15:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66BB5606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hygon.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hygon.cn
+Received: from maildlp1.hygon.cn (unknown [127.0.0.1])
+	by spam01.hygon.cn (Postfix) with ESMTP id 4jZwVl4CwLzVcB6;
+	Thu, 26 Nov 2026 20:15:43 +0800 (CST)
+Received: from maildlp1.hygon.cn (unknown [172.23.18.60])
+	by spam01.hygon.cn (Postfix) with ESMTP id 4jZwVh6m9YzVcB6;
+	Thu, 26 Nov 2026 20:15:40 +0800 (CST)
+Received: from cncheex04.Hygon.cn (unknown [172.23.18.114])
+	by maildlp1.hygon.cn (Postfix) with ESMTPS id 952E9DC23;
+	Thu, 26 Nov 2026 20:15:33 +0800 (CST)
+Received: from hsj-2U-Workstation (172.19.24.226) by cncheex04.Hygon.cn
+ (172.23.18.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 26 Nov
+ 2026 20:15:39 +0800
+Date: Thu, 26 Nov 2026 20:15:37 +0800
+From: Huang Shijie <huangsj@hygon.cn>
+To: Andreas Gruenbacher <agruenba@redhat.com>
+CC: <viro@zeniv.linux.org.uk>, <brauner@kernel.org>, <jack@suse.cz>,
+	<hch@infradead.org>, <mic@digikod.net>, <axboe@kernel.dk>,
+	<gnoack@google.com>, <paul@paul-moore.com>, <jmorris@namei.org>,
+	<serge@hallyn.com>, <legion@kernel.org>, <aleksa@amutable.com>,
+	<libaokun@linux.alibaba.com>, <ebiggers@kernel.org>, <djwong@kernel.org>,
+	<sandeen@redhat.com>, <zhongyuan@hygon.cn>, <fangbaoshun@hygon.cn>,
+	<yingzhiwei@hygon.cn>, <wujianyong@hygon.cn>, <shijie8@gmail.com>,
+	<linux-fsdevel@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-block@vger.kernel.org>, <gfs2@lists.linux.dev>,
+	<linux-security-module@vger.kernel.org>
+Subject: Re: [PATCH v4 00/11] vfs: add inode iteration methods
+Message-ID: <awgi6a0Hayug7RJH@hsj-2U-Workstation>
+References: <20261125091157.1822521-1-huangsj@hygon.cn>
+ <CAHc6FU4h-FRvLkO_0ouTey9MbX=n61t3abt4hPNFOthsRGG9mQ@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,182 +67,153 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset="utf-8"
 Content-Disposition: inline
-In-Reply-To: <20261123-nb-genet-mtu-nn-v2-v9-7-4f93ded19bbb@tipi-net.de>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAHc6FU4h-FRvLkO_0ouTey9MbX=n61t3abt4hPNFOthsRGG9mQ@mail.gmail.com>
+X-ClientProxiedBy: cncheex05.Hygon.cn (172.23.18.115) To cncheex04.Hygon.cn
+ (172.23.18.114)
 
-Hi Nicolai,
+在 Wed, Nov 25, 2026 at 11:25:12PM +0100，Andreas Gruenbacher 写道：
+> Huang,
+> 
+> I have some thoughts ...
+> 
+> On Wed, 25 Nov 2026 at 10:18, Huang Shijie <huangsj@hygon.cn> wrote:
+> > This series adds a superblock inode iterator and converts the open-coded
+> > sb->s_inodes walks in the VFS to it.  The design follows the cursor-based
+> > construct proposed by Christian Brauner:
+> >
+> >   https://lore.kernel.org/all/20261120-mitverantwortlich-drehbaren-kantholz-241300d20168@brauner/
+> >
+> > and is the same direction as Dave Chinner's patch set:
+> >
+> >   "vfs: improving inode cache iteration scalability"
+> >   https://lore.kernel.org/all/20241002014017.3801899-1-david@fromorbit.com/
+> >
+> > The caller owns the iterator state and drives the walk itself:
+> >
+> >   CLASS(sb_inode_iter, iter)(sb, eligible, priv, flags);
+> >   while ((inode = sb_inode_iter_next(&iter)))
+> >           /* do stuff */;
+> 
+> The pattern should be:
+> 
+>   for (CLASS(...); ...; ...) {
+>       /* ... */
+>       if (/* end iteration early */)
+>           break;
+>       /* ... */
+>   }
+> 
+> so that the iterator goes out of scope immediately when the loop ends.
+> Hide the details of the loop header in a macro and that this becomes:
+> 
+>   for_each_inode(inode, sb) {
 
-> The driver never sets dev->max_mtu, so the MTU is stuck at ETH_DATA_LEN.
-> 
-> One descriptor reaches as far as the packet ready threshold, so derive the
-> maximum from it. The threshold registers are 8 bit in units of 16 bytes and
-> want a multiple of the 256 byte burst size. A descriptor is one page and
-> also holds skb_shared_info behind the frame. On 4K pages the page is the
-> tighter limit and leaves 3564 bytes. That includes room for a VLAN tag so a
-> VLAN interface can run at the parent MTU. The MAC accepts a little more
-> than one descriptor holds, so a double tagged frame at that maximum is
-> dropped as fragmented until a later patch reassembles those.
-> 
-> The PHY keeps running across the change so the link stays up, with its
-> lock held so that a link event cannot enable the MAC while the registers
-> change. Two MTUs at or below ETH_DATA_LEN derive the same values, so a
-> change between them needs no restart at all.
-> 
-> Only v5 is known to size the TBUF for a long frame and to carry the full
-> length in a transmit descriptor, so the older parts keep the default MTU
-> until someone confirms them.
-> 
-> Only a DMA that refuses to halt still takes the interface down, because
-> nothing is left to run on.
-> 
-> Suggested-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> Link: https://github.com/raspberrypi/linux/issues/5561
-> Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
-> ---
->  drivers/net/ethernet/broadcom/genet/bcmgenet.c | 99 ++++++++++++++++++++++++++
->  1 file changed, 99 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.c b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-> index ae20c4b3c570..8dcee6951be3 100644
-> --- a/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-> +++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-> @@ -91,6 +91,12 @@
->  				      ENET_THLD_MAX * ENET_THLD_UNIT, \
->  				      ENET_THLD_PAGE_LEN)
->  
-> +/* Largest MTU that fits one descriptor, with room for a VLAN tag so a VLAN
-> + * interface can use the parent MTU.
-> + */
-> +#define ENET_MAX_MTU		(ENET_THLD_MAX_LEN - GENET_RBUF_ALIGN - \
-> +				 ETH_HLEN - VLAN_HLEN)
-> +
->  /* Tx/Rx DMA register offset, skip 256 descriptors */
->  #define WORDS_PER_BD(p)		(p->hw_params->words_per_bd)
->  #define DMA_DESC_SIZE		(WORDS_PER_BD(priv) * sizeof(u32))
-> @@ -3988,6 +3994,89 @@ static int bcmgenet_change_carrier(struct net_device *dev, bool new_carrier)
->  	return 0;
->  }
->  
-> +static int bcmgenet_change_mtu(struct net_device *dev, int new_mtu)
-> +{
-> +	struct bcmgenet_priv *priv = netdev_priv(dev);
-> +	unsigned int old_mtu = dev->mtu;
-> +	struct bcmgenet_dma_set set;
-> +	int ret;
-> +
-> +	/* A failed resume left the datapath down, nothing to reprogram */
-> +	if (!netif_running(dev) || !priv->tx_cbs) {
-> +		WRITE_ONCE(dev->mtu, new_mtu);
-> +		priv->rx_buf_len = bcmgenet_rx_buf_len(new_mtu);
-> +		return 0;
-> +	}
-> +
-> +	/* Below ETH_DATA_LEN everything is floored, so there is nothing to
-> +	 * reprogram and rx_buf_len stays as the receive path reads it.
-> +	 */
-> +	if (max_t(unsigned int, old_mtu, ETH_DATA_LEN) ==
-> +	    max_t(unsigned int, new_mtu, ETH_DATA_LEN)) {
-> +		WRITE_ONCE(dev->mtu, new_mtu);
-> +		return 0;
-> +	}
+The fs/jffs2/build.c has used this for_each_inode.
+Maybe change to for_each_sb_inode?
 
-What about a similar check for MTUs above ETH_DATA_LEN? AFAICT, there are
-ranges where you don't need to do a full replacement of the buffers, yet
-you still do.
+>       /* inode is referenced and unlocked here */
+>   }
+> 
+> Use that to convert the simple cases.
+> 
+> And then we've got preconditions that are checked while the inode is
+> locked. Those can probably go in an expression:
+> 
+>   for_each_inode(inode, sb, expression) {
+We still need add flags here.
 
-> +
-> +	ret = bcmgenet_alloc_dma(priv, bcmgenet_rx_buf_len(new_mtu), &set);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* The watchdog trips on an idle queue once the rings are gone */
-> +	netif_device_detach(dev);
-> +
-> +	/* The PHY stays up, hold its lock. A link event would otherwise take
-> +	 * the MAC out of reset and enable it mid rewrite.
-> +	 */
-> +	mutex_lock(&dev->phydev->lock);
-> +	bcmgenet_netif_stop(dev, false);
-> +
-> +	WRITE_ONCE(dev->mtu, new_mtu);
-> +	priv->rx_buf_len = bcmgenet_rx_buf_len(new_mtu);
-> +	bcmgenet_set_mtu_regs(priv, new_mtu);
-> +
-> +	ret = bcmgenet_init_dma(priv, true, &set);
-> +	if (ret) {
-> +		/* The datapath is gone, do not leave the interface up */
-> +		netdev_err(dev, "failed to initialize DMA, closing\n");
-> +		WRITE_ONCE(dev->mtu, old_mtu);
-> +		priv->rx_buf_len = bcmgenet_rx_buf_len(old_mtu);
-> +		mutex_unlock(&dev->phydev->lock);
-> +		/* bcmgenet_close() attaches the device again */
-> +		netif_close(dev);
-> +		return ret;
-> +	}
-> +
-> +	bcmgenet_hfb_restore(priv);
-> +	bcmgenet_netif_start(dev, false);
-> +
-> +	/* bcmgenet_netif_start() only restores the link interrupt */
-> +	if (bcmgenet_has_mdio_intr(priv))
-> +		bcmgenet_intrl2_0_writel(priv, UMAC_IRQ_MDIO_EVENT,
-> +					 INTRL2_CPU_MASK_CLEAR);
-> +
-> +	mutex_unlock(&dev->phydev->lock);
-> +
-> +	/* Interrupts were off, so a latched link event is lost. Internal PHYs
-> +	 * on v1-v4 are not polled either.
-> +	 */
-> +	phy_mac_interrupt(dev->phydev);
-> +
-> +	/* An energy detect event cancelled with the work is still latched */
-> +	if (READ_ONCE(priv->irq0_stat))
-> +		schedule_work(&priv->bcmgenet_irq_work);
-> +
-> +	netif_device_attach(dev);
-> +
-> +	/* Filter updates that came in while the device was detached got
-> +	 * dropped. An IPv6 join does not hold RTNL.
-> +	 */
-> +	netif_addr_lock_bh(dev);
-> +	bcmgenet_set_rx_mode(dev);
-> +	netif_addr_unlock_bh(dev);
-> +
-> +	return 0;
-> +}
-> +
->  static const struct net_device_ops bcmgenet_netdev_ops = {
->  	.ndo_open		= bcmgenet_open,
->  	.ndo_stop		= bcmgenet_close,
-> @@ -3999,6 +4088,7 @@ static const struct net_device_ops bcmgenet_netdev_ops = {
->  	.ndo_set_features	= bcmgenet_set_features,
->  	.ndo_get_stats64	= bcmgenet_get_stats64,
->  	.ndo_change_carrier	= bcmgenet_change_carrier,
-> +	.ndo_change_mtu		= bcmgenet_change_mtu,
->  };
->  
->  /* GENET hardware parameters/characteristics */
-> @@ -4352,9 +4442,18 @@ static int bcmgenet_probe(struct platform_device *pdev)
->  	/* Mii wait queue */
->  	init_waitqueue_head(&priv->wq);
->  	bcmgenet_hfb_init(priv);
-> +
->  	priv->rx_buf_len = bcmgenet_rx_buf_len(dev->mtu);
->  	priv->tx_thld_len = bcmgenet_tx_pkt_rdy_thld(dev->mtu) * ENET_THLD_UNIT;
->  	priv->tx_thld_window = priv->dma_max_burst_length * ENET_BURST_UNIT;
-> +
-> +	/* Only v5 is known to size the TBUF for a long frame and to carry the
-> +	 * full length in a transmit descriptor, the older parts stay at the
-> +	 * default MTU
-> +	 */
-> +	if (GENET_IS_V5(priv))
-> +		dev->max_mtu = ENET_MAX_MTU;
-> +
->  	INIT_WORK(&priv->bcmgenet_irq_work, bcmgenet_irq_task);
->  
->  	priv->clk_wol = devm_clk_get_optional(&priv->pdev->dev, "enet-wol");
+In evict_inodes() and hook_sb_delete(), only the expression is not enough.
+
+How about add a raw code like this:
+
+    for_each_inode_raw(inode, sb, expression, flags) {
+    }
+
+And add a macro for_each_inode:
+  #define for_each_inode(inode, sb, expression)	 for_each_inode_raw(inode, sb, expression, 0)
+
+Most of the cases, we can use the for_each_inode.
+
+But in the evict_inodes() and hook_sb_delete() we can use the for_each_inode_raw. 
+
+
+>       /* expression was true */
+>       /* inode is referenced and unlocked here */
+>   }
 > 
-> -- 
-> 2.53.0
+> This unfortunately cannot be implemented on top of the
+> sb_inode_iter_next() pattern, at least not in a reasonable way, so we
+> actually shouldn't use that pattern.
 > 
+> The locked iterator would look like this:
+> 
+>   for_each_inode_locked(inode, sb) {
+	
+I tried this way today.
+
+The macro for_each_inode_locked is complicated.	
+When I tried to add more hooks to super_operations to implement the
+procfs issue, the for_each_inode_locked becomes more complicated.
+
+BTW: the procfs issue see the link:
+  https://lore.kernel.org/all/20260920072811.2064247-1-huangsj@hygon.cn/
+
+>       /* inode is locked here */
+>   }
+> 
+> This doesn't cover all existing cases, but that's okay. Don't force
+> things into this pattern that are not a match.
+> 
+> We can always extend things further if it makes sense.
+> 
+> > The lock does not span iterations.  sb_inode_iter_next() takes
+> > sb->s_inode_list_lock, takes a reference on the next inode, drops the lock
+> > again and hands the inode out; the reference is what keeps the cursor on
+> > sb->s_inodes so that the next call can resume from it.  As the iterator
+> > is a cleanup class, a caller that breaks out early does not have to call
+> > sb_inode_iter_end() explicitly.
+> >
+> > Two optional channels let a caller keep its own state instead of filling in
+> > a shared context:
+> >
+> >   - iter->eligible is called with inode->i_lock held, so that a caller can
+> >     reject an inode before a reference is paid for.
+> >
+> >   - iter->status carries an error out of the walk.  Setting it to a
+> >     negative value makes sb_inode_iter_next() return NULL.
+> 
+> Nobody needs that. Just break out of the loop.
+> 
+> > Most callers just want a referenced inode and use no flags at all.  Three
+> > flags cover the walks that need something else:
+> >
+> >   - %INO_ITER_F_REFERENCED restricts the walk to inodes that still have a
+> >     reference, preserving the "only handle referenced inodes" rule of
+> >     landlock's sb-delete walk.
+> >
+> >   - %INO_ITER_F_NOREF hands out only inodes whose reference count has
+> >     already reached zero, and %INO_ITER_F_NOIGET suppresses the reference.
+> >     Neither keeps the inode alive, so the caller has to make the inode
+> >     unclaimable itself.
+> 
+> No flags.
+If we do not add flags, we cannot convert the evict_inodes() and hook_sb_delete().
+
+We'd better convert evict_inodes/hook_sb_delete this time, and then
+we can add more hooks to super_operations{}, such as sb_add_inode/sb_del_inode/sb_iter_inode.
+With these hooks in super_operations, we can add more optimization code for different FSs.
+For example:
+  
+  "vfs: improving inode cache iteration scalability"
+  https://lore.kernel.org/all/20241002014017.3801899-1-david@fromorbit.com/
+  
+  and 
+  https://lore.kernel.org/all/20260920072811.2064247-1-huangsj@hygon.cn/
+
+
+Thanks
+Huang Shijie
+
