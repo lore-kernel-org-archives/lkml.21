@@ -1,49 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705736;
-	b=Mps7XNnwA9GSskW3jEeUXQu0jy+VLxQrLJpW854z/PgaOko9stGHOWxJ3UzZfFb5XFE7
-	 GVXgxuVLUxB1FubsEY9Kk5Dt9MO+oZDTz9y28mdDJi2nvdzV1rSlpiw2T1GdbU/JEMqpJ
-	 KX1NKrIM7+alNJIL1Z+t9dvEYJCmZ8N00kxIfw89wNbWzFC2i5tUGpNHXpeFXpfpLfZot
-	 eGFyy0olsizLE1/gGXk4tGFCv347tn4MgZ5JDggrCUQpjbmXXmzdSaK6Hhzsy3hOT3u46
-	 ZF756ZctFkWHgJnQSoOzAXVCpDNfQXpD1q3CoblraJpoQ0HJgnzf+pG9SsKR2OlN6cA==
+	t=1795705737;
+	b=g/91l1GlPHhdGEcXc5WeUlyLK3vhR4rLz80s9gV3RuO55WAVXoIaSAavBXlavCIB+eOD
+	 J0AVo+dWz92TQtL7/Q5P7wqSiOBQKbKY2uPc2scxTgNCe7sSNUhuC6WUpzHOHKkP/IRBC
+	 KP7SXng/CEHNPgquwvXbh41eCYNKH0igx13BhqZjjGd0y6d/cmc7YDWlGez8LXhQP3FQ7
+	 m2X52ZEbIRW/xKOAN95CSbLbKp6sZRH/C6EurnEXz+diTR4Qgz1WIL2ILbtRtD2Ubi4bK
+	 VEcoTvgzJ9Z8exR5wDBBQO1hIw0mdEwGwrtoYcWe5r7rwjjmxsPAtYQH/AhQzALw5Iw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705736;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=wvxVJqSGVuApLTKz4mwcbmdNfV/hIsiHSvEl/vvD4v0=;
-	b=rnZa50c21/AVeSht04Fj6cDv77GQYOTBu+Xo+OBEltW6FypJj29GC+mgjHt8FrZ5qoFx
-	 g3pV5evtkPjwz8Qdn6Efczgx2mK0UHtY19SrHAptBCH/d6QOrda0f0V5FivYKsjo9E/O4
-	 SlSnKcEE4egdgGv4FTJ3PrfrQS+Gr38up9HJEXIGhDwOM0YlsW29ylU2BaOGRCk1Vc2K4
-	 rCw1GFbMtRSisxRstZZpDBIuC4jhr/MMNwAuCzNWdpb2M28PYaSOqUBCSvCWo3tQB/Av2
-	 3OF++Fchc//BItuR7dEYPGXWCVqT2rsApWi/JP4eQL5IbZxT2KY90J71xv3xq2a6D9w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705737;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=KVNu5zN0GfjJcLk0ITmBm5iF9ko4DWs0+QXPKhhlsvw=;
+	b=TRY7zyNrD3rqOkAoAvUmDcO4IZz2Dohtvhv0L2aQGgtgT/UHj7qiLo4oxC+LnIoyT0we
+	 7lYlvPANmXSgYjhfrefsbdopjiEk2pATnH9Lu3CLcFIReO0UqkyV+RPGiaXIxtQ+uLun6
+	 gX5q/Uuv/5ygUc/bpfG7Odz4FrGEnWfLAmmGFTvKLLH48wAn/xxJ82YIvXq8W2qer86Qh
+	 7bKIvAVj0sGfadFsgyRcc7Lcq6eoEz9xdE+otFb1X1pboIEM69AlQ6+hPkl/iYRp/06g5
+	 W00vfHMkfMovSEqeyihhz6MJhxFvxqopiC1mUF+N0rI0q0x2brVVX8k/J2ICwxHeC7g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=T7GwDymH;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id DEC4F606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:08:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DEC4F606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=none header.from=iiitd.ac.in;
+	spf=pass smtp.mailfrom=iiitd.ac.in;
+	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=ilUWE0+k;
+	arc=none smtp.remote-ip=209.85.214.171
+Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B818606A33A
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:08:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B818606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=T7GwDymH
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5CBF41BA8;
-	Thu, 26 Nov 2026 07:08:52 -0800 (PST)
-Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF03A3F632;
-	Thu, 26 Nov 2026 07:08:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795705735; bh=Ue8IPCZ7z+Rz2AeoD4nUpDOU0+Z3z7tWnDkxEZZk624=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=T7GwDymH4UHkJY/YJVw/9ZTUduCJO3dW7TCu5flRs77MiNEPaCTVOTd1NN1tjsfs7
-	 lYn6PzvdUMmWVZzhgdlCJB4l1A/RaEFZd5uCV6cO/vX8LoSVjD1QNDo6jlDitupdIe
-	 lRfYw5jAaBlv4pG6RIy1uy6Hbat1VhOgbHsl/JCk=
-Message-ID: <be1b4244-3018-43a6-a4c1-ad49d3cba6be@arm.com>
-Date: Thu, 26 Nov 2026 15:08:52 +0000
+	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=ilUWE0+k
+Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2f02f04a426so57737185ad.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:08:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=iiitd.ac.in; s=google; t=1795705736; x=1796310536; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=KVNu5zN0GfjJcLk0ITmBm5iF9ko4DWs0+QXPKhhlsvw=;
+        b=ilUWE0+ksjiPFsIkknjAwDAFR5Q/2+qFUhTjvQHS1N+xk+62U5ubTQXNBsH4FxPaQk
+         EjYaG4TXyHR+sLCwe6gBVX2/tXj1VHnjCYWxhQdVjjj28ehEcMMdSpSyVsFbC0R81403
+         RTbis2qWf1si+qX/Wl6La6jWdN4p4aL0KnIUI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795705736; x=1796310536;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=KVNu5zN0GfjJcLk0ITmBm5iF9ko4DWs0+QXPKhhlsvw=;
+        b=J8iVWwi17EoVo9525Yj36ATGXax15gvaUrc6g0BB/Id8osXyzMi4dEI3RfBtbXNVrY
+         RsELtSKBIBc+/9++LzpG2oZvymec4v4MjjRJbMFMBQ9A+8WjRcDoQj9OnkqR9R5GIVPp
+         xCaG6IiVvtZ8sMZV/6sjoOldgr3ADpdJ6k1DuniAp/PnzmxeJgZBHlUP+toBJp1p5vO3
+         mylA6pX7Y13KtalDKknCyV1rZuLBlZZYPRiUYdKI26ufwRsiBGFrEu/DJJs+AEPabaIX
+         J8WS/hhjO216gxUHbuLOV5LezHTCGVL0D0pLjcLTiibeONkuydPfLv0eLBj9a0QL0iHk
+         3Y3A==
+X-Forwarded-Encrypted: i=1; AL+hErEyj3TFbYL/RrbM0Ec5oH2jeo8ykfU6kYMuoSfGKD8Ushq31JCAsuYvKvraYNFumVRRvioYFhXrDOLYq+U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Jgo7JfW9E+4P0cGfv5AMcnMJvMd2gspKalQiguzK3FX7JmOil
+	KxA5zkTCe84gS5cJOlh7oZrlnPLSSj5wYePB1PjcALuik7vsK8yoiNbYcWFw+O8cSr0=
+X-Gm-Gg: AZFdTZdgTV71Pye2Qtvg7HAhGRR+omge5/UM1fPzVD75j8nXLNMzYf5lRSs6W6PKwq/
+	W3TVPGD2fCpopMFWc3wbUcnu11T8nlL2pE0B3a3siUY2Jk5fCE2/TI+QxyezlW3wlqlVsfsVUGC
+	jrLXeSJshZwI68ZLaS//H2aUXVeEEFAI3eFlj34cXsLijsk7iDMsPwfcA9ieBYAx8CMG/8ZJkLc
+	FFDx/3HlagLptdFTAAkGFwxQ02tnwkbllbiw9FW5MRGxfSP0vt8fa1ZDgP47pIzThGuEMOnrJzx
+	WeaPQgApl5cnZhI1QIY9A3TQVbTUKrIhJXUua/lRGBQzZqKyosiNWBhjjvaorouDQWZnkdTD0me
+	px2EvoHM0jJvX7WjRkurlgVUxFjMrKTBNt0pxRvyu76k/bMnO1LtyOewE//RmZBsgvPCbN5K2L1
+	Ora2k2yV7IdPffnmMELmzEL+YI6BWS2gyzppLlC1YdKE3rKFw4TwZRyJCaZICOHB7WUoHHYsjhq
+	LsxaA9EkLyN+pZ1QR2jambQL/S/D6WrwfrjmC/0rLMU8ISe2/GAi4xxBNhHDPvZEd2Grg4YQzqm
+	g0x3dzWjj53B+kkUm2+eyNs7+3Efs/6yUKOP5g8uSelqnOVAbIyBseepad++kP7HyeR4V0XSDXz
+	CCnD42dy7zeYWgjZDldbjAQUDdc467PsTzu5JsU3buhjuSGBmht0om/p/kRyXXmG2
+X-Received: by 2002:a17:903:1acc:b0:2f0:a113:4e46 with SMTP id d9443c01a7336-2f0a1134e76mr128224785ad.48.1795705735866;
+        Thu, 26 Nov 2026 07:08:55 -0800 (PST)
+Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0dc0ebsm101836985ad.33.2026.11.26.07.08.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 07:08:55 -0800 (PST)
+From: Piyus Kedia <piyus@iiitd.ac.in>
+To: wenjia@linux.ibm.com,
+	jaka@linux.ibm.com,
+	alibuda@linux.alibaba.com,
+	tonylu@linux.alibaba.com,
+	guwen@linux.alibaba.com
+Cc: netdev@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	kapil@presceralabs.ai,
+	stable@vger.kernel.org
+Subject: [PATCH net v4] net/smc: drop the connection when the peer's failover cursor is impossible
+Date: Thu, 26 Nov 2026 20:38:48 +0530
+Message-Id: <20261126150848.2116315-1-piyus@iiitd.ac.in>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,94 +104,190 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 07/23] coresight: trbe: Publish the session after
- successful enable
-To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>,
- James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Tamas Petz <tamas.petz@arm.com>, Tamas Zsoldos <tamas.zsoldos@arm.com>,
- Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- coresight@lists.linaro.org
-References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
- <20261016-trbe_enable_disable_irq_handle_refactor-v2-7-3f57cf3199b1@arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20261016-trbe_enable_disable_irq_handle_refactor-v2-7-3f57cf3199b1@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 16/10/2026 17:55, Leo Yan wrote:
-> arm_trbe_enable() records the session buffer and perf mode before
-> __arm_trbe_enable() can fail. CoreSight skips the sink disable callback
-> when sink enable fails, leaving that session state published even though
-> tracing did not start.
-> 
-> Install buf->cpudata temporarily for the buffer setup helpers, then call
-> __arm_trbe_enable() before assigning cpudata->buf and cpudata->mode.
-> Clear the temporary buffer association if setup fails; the inner helper
-> still truncates and ends the AUX transaction.
-> 
-> After successful enable, retain the buffer association across AUX
-> transactions and clear it in arm_trbe_disable().
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+smc_switch_cursor() repairs the send cursors when a connection moves to an
+alternate link, and the repair trusts conn->local_rx_ctrl.cons, which the
+peer wrote:
 
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+	diff = smc_curs_diff(conn->peer_rmbe_size, &fin, &cons);
+	smc_curs_add(conn->sndbuf_desc->len, &conn->tx_curs_sent, diff);
+	atomic_add(diff, &conn->sndbuf_space);
+	smc_curs_add(conn->peer_rmbe_size, &conn->local_tx_ctrl.prod, diff);
 
-> ---
->   drivers/hwtracing/coresight/coresight-trbe.c | 15 ++++++++++++---
->   1 file changed, 12 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-> index 979d0fa84c1c7b448c1ce5cd7a37dff8845795ef..9dfc6bb7afb4c42dfdec643ee7e4f2f193e2b70c 100644
-> --- a/drivers/hwtracing/coresight/coresight-trbe.c
-> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
-> @@ -69,6 +69,7 @@ struct trbe_buf {
->   	int nr_pages;
->   	void **pages;
->   	bool snapshot;
-> +	/* CPU used to configure this buffer. */
->   	struct trbe_cpudata *cpudata;
->   };
->   
-> @@ -137,6 +138,7 @@ struct trbe_save_state {
->    * @trbe_align		- Software alignment used for the TRBPTR_EL1.
->    * @cpu			- CPU this TRBE belongs to.
->    * @mode		- Mode of current operation. (perf/disabled)
-> + * @buf			- Buffer configuration retained for the enabled session.
->    * @drvdata		- TRBE specific drvdata
->    * @errata		- Bit map for the errata on this TRBE.
->    */
-> @@ -1033,17 +1035,24 @@ static int arm_trbe_enable(struct coresight_device *csdev, enum cs_mode mode,
->   	struct trbe_cpudata *cpudata = dev_get_drvdata(&csdev->dev);
->   	struct perf_output_handle *handle = path->handle;
->   	struct trbe_buf *buf = etm_perf_sink_config(handle);
-> +	int ret;
->   
->   	WARN_ON(cpudata->cpu != smp_processor_id());
->   	WARN_ON(cpudata->drvdata != drvdata);
->   	if (mode != CS_MODE_PERF)
->   		return -EINVAL;
->   
-> -	cpudata->buf = buf;
-> -	cpudata->mode = mode;
-> +	/* Buffer helpers need the CPU association while setting up tracing. */
->   	buf->cpudata = cpudata;
-> +	ret = __arm_trbe_enable(buf, handle);
-> +	if (ret) {
-> +		buf->cpudata = NULL;
-> +		return ret;
-> +	}
->   
-> -	return __arm_trbe_enable(buf, handle);
-> +	cpudata->buf = buf;
-> +	cpudata->mode = mode;
-> +	return 0;
->   }
->   
->   static int arm_trbe_disable(struct coresight_device *csdev)
-> 
+A cursor reporting more consumed than this side ever sent credits
+sndbuf_space past sndbuf_desc->len, breaking the
+0 <= sndbuf_space <= sndbuf_desc->len the tx path depends on, and pushes
+tx_curs_sent out of the ring, which smc_tx_rdma_writes() uses as a source
+offset.
+
+Capping diff is not enough: the cap would leave local_tx_ctrl.prod behind
+local_rx_ctrl.cons, which is the state this block exists to repair, so
+smc_write_space() could return a negative peer_rmbe_space and the
+connection would stop sending for good.  A peer that reports consuming
+what was never sent has broken the protocol, so drop the connection, as
+smc_cdc_msg_validate() does for a sequence number that cannot be honest.
+
+Three things make the cursor impossible, and smc_cursor_cannot_be_honest()
+checks all three:
+
+ - cons.count at or past peer_rmbe_size.  smc_cdc_cursor_to_host() does
+   not bound it.
+ - a difference of peer_rmbe_size or more.  smc_curs_add() subtracts the
+   size at most once, so a larger difference leaves
+   local_tx_ctrl.prod.count outside the peer's RMBE.  Below peer_rmbe_size
+   the repair is exact: prod starts at fin and diff is their distance, so
+   prod lands on cons rather than behind it.
+ - a difference past the bytes that were SENT and not yet confirmed, taken
+   as the distance between two snapshots of tx_curs_fin and tx_curs_sent.
+
+The check runs before anything is rewound, and the connection is dropped
+with the cursors as they were found.  Doing it after the rewind is what
+would make it unsafe: tx_curs_sent and local_tx_ctrl.prod are set back to
+fin at the top of the function, and returning from there leaves prod behind
+local_rx_ctrl.cons with peer_rmbe_space still holding the credit the forged
+message produced.  The tx path tests conn->killed and
+local_rx_ctrl.conn_state_flags.peer_conn_abort, not out_of_sync or the
+local_tx_ctrl flag set here, so a send under lock_sock() can reach
+smc_tx_rdma_writes() with prod < cons before abort_work gets the socket
+lock - and with the wraps differing it takes the dst_len = len branch
+without clamping to peer_rmbe_size - prod.count, writing past the end of
+the peer RMBE.
+
+Fixes: c6f02ebeea3a ("net/smc: switch connections to alternate link")
+Cc: stable@vger.kernel.org
+Co-developed-by: Kapil Vaswani <kapil@presceralabs.ai>
+Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
+Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
+---
+v4: addresses the review of v3
+    (https://lore.kernel.org/r/sashiko-outbox-233843@kernel.org)
+
+    All three findings are right.
+
+    - the check moved ahead of the rewind.  v3 ran it inside the fix-up
+      block and returned 0 from there, after tx_curs_sent and
+      local_tx_ctrl.prod had been set back to fin, which is the window the
+      review describes: the tx path does not look at out_of_sync or at the
+      local_tx_ctrl abort flag, so a concurrent send could reach
+      smc_tx_rdma_writes() with prod < cons before abort_work took the
+      socket lock.  Nothing is modified now before the connection is
+      dropped.
+    - the bound is the SENT bytes, not sndbuf_desc->len - sndbuf_space.
+      That counter is the PREPARED bytes, so v3 would have advanced
+      tx_curs_sent and tx_curs_fin over data still in sndbuf, and it is
+      also where the false positive came from: smc_cdc_tx_handler()
+      credits sndbuf_space before updating local_tx_ctrl_fin and this
+      holds only send_lock, so an honest completion between the two could
+      make diff exceed it.  Both differences now come from cursor
+      snapshots, so they are consistent with each other.
+    - cons.count and diff are bounded by peer_rmbe_size, which v3 left to
+      smc_curs_add()'s single subtraction.
+
+    How this was found: an AI-driven fuzzing harness built on syzkaller,
+    developed jointly by Kapil Vaswani and myself, driving a forged CDC
+    stream at an SMC-R link under KASAN on x86_64.  The analysis and this
+    changelog were written with the assistance of a large language model
+    and checked by hand against the tree; the reproducers in the earlier
+    postings were produced by us.  The v4 changes come from addressing an
+    AI-generated review of v3 on the list, and the tx-path guards, the
+    dst_len branch and the two cursor helpers it named were each read in
+    the tree first.
+
+Link: https://lore.kernel.org/all/20261122053223.2497832-2-piyus@iiitd.ac.in/
+
+ net/smc/smc_core.c | 68 ++++++++++++++++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 66 insertions(+), 2 deletions(-)
+
+diff --git a/net/smc/smc_core.c b/net/smc/smc_core.c
+index 9974149659c2..31300ecd6b12 100644
+--- a/net/smc/smc_core.c
++++ b/net/smc/smc_core.c
+@@ -1030,6 +1030,48 @@
+ 	return space;
+ }
+ 
++/* Whether the peer's consumer cursor can honestly have reached where it says.
++ *
++ * smc_switch_cursor() repairs the send cursors from conn->local_rx_ctrl.cons,
++ * which the peer wrote.  A cursor reporting more consumed than this side sent
++ * credits sndbuf_space past sndbuf_desc->len and pushes tx_curs_sent out of
++ * the ring, which smc_tx_rdma_writes() uses as a source offset.  Three things
++ * make it impossible:
++ *
++ *  - cons.count at or past peer_rmbe_size, which smc_cdc_cursor_to_host()
++ *    does not bound;
++ *  - a difference of peer_rmbe_size or more, which would survive the single
++ *    subtraction smc_curs_add() does and leave local_tx_ctrl.prod.count
++ *    outside the peer's RMBE.  Below that the repair is exact: prod starts at
++ *    fin and diff is their distance, so prod lands on cons, not behind it;
++ *  - a difference past what was SENT and not yet confirmed.  That is the
++ *    distance between two cursor snapshots, not
++ *    sndbuf_desc->len - sndbuf_space: the counter covers PREPARED bytes, so
++ *    bounding by it would advance the cursors over data still in sndbuf, and
++ *    comparing a cursor difference against it is a race in its own right -
++ *    smc_cdc_tx_handler() credits sndbuf_space before it updates
++ *    local_tx_ctrl_fin, and the caller holds only send_lock, so an honest
++ *    completion in between could make diff exceed it.
++ */
++static bool smc_cursor_cannot_be_honest(struct smc_connection *conn,
++					union smc_host_cursor *fin,
++					union smc_host_cursor *cons)
++{
++	union smc_host_cursor tx_fin, tx_sent;
++	int diff, unconfirmed;
++
++	if (smc_curs_comp(conn->peer_rmbe_size, cons, fin) >= 0)
++		return false;
++
++	smc_curs_copy(&tx_fin, &conn->tx_curs_fin, conn);
++	smc_curs_copy(&tx_sent, &conn->tx_curs_sent, conn);
++	diff = smc_curs_diff(conn->peer_rmbe_size, fin, cons);
++	unconfirmed = smc_curs_diff(conn->sndbuf_desc->len, &tx_fin, &tx_sent);
++
++	return cons->count >= (u32)conn->peer_rmbe_size ||
++	       diff >= conn->peer_rmbe_size || diff > unconfirmed;
++}
++
+ static int smc_switch_cursor(struct smc_sock *smc, struct smc_cdc_tx_pend *pend,
+ 			     struct smc_wr_buf *wr_buf)
+ {
+@@ -1038,11 +1080,33 @@
+ 	int rc = 0;
+ 	int diff;
+ 
+-	smc_curs_copy(&conn->tx_curs_sent, &conn->tx_curs_fin, conn);
++	/* Before anything is rewound.  Returning from inside the repair below
++	 * would leave local_tx_ctrl.prod behind local_rx_ctrl.cons with
++	 * peer_rmbe_space still holding the credit the forged message made,
++	 * and the tx path tests conn->killed and
++	 * local_rx_ctrl.conn_state_flags.peer_conn_abort rather than
++	 * out_of_sync or the flag set here - so a send under lock_sock() could
++	 * reach smc_tx_rdma_writes() with prod < cons before abort_work takes
++	 * the socket lock, and with the wraps differing that takes the
++	 * dst_len = len branch without clamping to peer_rmbe_size -
++	 * prod.count and writes past the end of the peer RMBE.
++	 */
+ 	smc_curs_copy(&fin, &conn->local_tx_ctrl_fin, conn);
++	smc_curs_copy(&cons, &conn->local_rx_ctrl.cons, conn);
++	if (smc_cursor_cannot_be_honest(conn, &fin, &cons)) {
++		conn->out_of_sync = 1;	/* prevent any further receives */
++		conn->local_tx_ctrl.conn_state_flags.peer_conn_abort = 1;
++		smc_wr_tx_put_slot(conn->lnk,
++				   (struct smc_wr_tx_pend_priv *)pend);
++		sock_hold(&smc->sk); /* sock_put in abort_work */
++		if (!queue_work(smc_close_wq, &conn->abort_work))
++			sock_put(&smc->sk);
++		return 0;
++	}
++
++	smc_curs_copy(&conn->tx_curs_sent, &conn->tx_curs_fin, conn);
+ 	/* set prod cursor to old state, enforce tx_rdma_writes() */
+ 	smc_curs_copy(&conn->local_tx_ctrl.prod, &fin, conn);
+-	smc_curs_copy(&cons, &conn->local_rx_ctrl.cons, conn);
+ 
+ 	if (smc_curs_comp(conn->peer_rmbe_size, &cons, &fin) < 0) {
+ 		/* cons cursor advanced more than fin, and prod was set
+-- 
+2.43.0
 
