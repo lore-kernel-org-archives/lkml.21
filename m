@@ -1,59 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795665280;
-	b=BbqhtCHJpT8NW/bMceNT5/sT91Bj1QHCj0bZX4tvWAdNbpwAoP9aEOTtKFhIv2+blPO4
-	 z6z77VB/XpVJy3k1F+sV1OnNoGQnVCE9PhCYKfR2RDto4Pc591srjnkd+c+spQB/m1TF1
-	 d0GytRxAZCsuhxEjXNmfy7gTz8dAXoYe9i5qh7aM6jxznAsaQK11JebWHfRgbxlR1hC6g
-	 E/ZatDo0/89ywZDImcYbDC+ERZnpp2fzXjMEDhPNPYw1h71fThlkr95p4guHLtte7BzaC
-	 5RqId4YVO3GX2BPnU7xNcWy7FeSREDws0HMCM9MFTYk+Sv7A7EaxHtEC6nb6Y/DaGhw==
+	t=1795665336;
+	b=AoM6KopGZ31mhsg+4UpGcAC5RjkmFwy3auIypVTYRsLw6AGchdocEa9ElbYqugJlVaiH
+	 AYcMNLJLA536JfzWX8ZGpIu8aC7ZWTY4woGQa8V18hhXFg3t+b7a2nEdVQQI1+EFuf5Tj
+	 kF54hUD0Umuas0rbCQVPXeWRbicYyzSgw8Tr4pLQFPL9vVU8pwGzA/9agypO8hN2EMaDu
+	 U+0PNfxzzOVpHSgzutKm07ghJjpqRfOYxyCGamMC/FYIPLTAELaKLhkI8cDEcNEextcSO
+	 INAE0OXHbHLuDkX1ZIct/ScEExahy8OXGXK2lWgBq6BzYLyk3y57QyQCfLrCTiE6jTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795665280;
-	h=DMARC-Filter:X-Alimail-AntiSpam:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795665336;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=/YX0PP4Zxh16j/BSheyi86NeF15fh1qBY+KjbTX1UYo=;
-	b=JI3qbMi9eUo8NwgpvjcgPN3mPxjkGgNR0JEjaC0g50uF1rXWToFq05Hz2qnrfaFWI5FI
-	 Y8ETpP967VNSQsijx50DAfFRaKM86/xnz9l5gtyMmUD3JklT1NF32TbtmHYRzY3q7o3PH
-	 FFxUl5Vvq3E2N0LULFCtujsoQNxYbownmbyDwZyuUHy4QzKN71ejm3sDbwsOWeiOUvCPM
-	 XByx6Ey4btNSTWoebzyoUQuxZ6pyHALH+7cayxk5ImRbhR77JZAztQfq9l+b2mN8bTfMR
-	 Ms27lIpenVQcMBA1U8Oh411c7QBJHWyze+aDKF3ora97/qLPpUomQBS5icIgK/l12Bw==
+	bh=Wufck9mMxhIwVpcO+iDjKyRgZZw2XaM/SGzNzGqVqrg=;
+	b=UeR1bjsJt8LAxnwluii6mNF/x+fOkA/soxu7rEFgD4Wmzz8nJtuo1z8YleVUPbnUxySm
+	 Vv2mgXGX1lCYtWaFg92wpLJWKB9iHw2qfwVP7+sv3el1TX2lnackkWuqZFaneoSmLZqik
+	 397MLOmeGWynXiWSxG/DbHZpuRjEqzE4hGZCPhGux/BuPZl2Kf9r4wZkTdOgVR/9sdnIY
+	 DudpJYSu5AOYzxkt3XzAlsP4K/awOniaZ0aUyZ91fLOak/AeFPSMetFI+bbOeDEHz7Qdq
+	 26uwVkoJZw/BL9LJ2qV7h2VUNfTjC4RTjoD7UnRtB7s8/qtgtHza4kkO3U+wraj71BQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kaihong.com;
-	spf=pass smtp.mailfrom=kaihong.com;
-	arc=none smtp.remote-ip=115.124.28.101
-Received: from out28-101.mail.aliyun.com (out28-101.mail.aliyun.com [115.124.28.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Yi97+Y5X;
+	arc=none smtp.remote-ip=209.85.216.43
+Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AE2D606A33C;
-	Thu, 26 Nov 2026 03:54:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6AE2D606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kaihong.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kaihong.com
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.1255369|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_regular_dialog|0.0101656-0.000535806-0.989299;FP=16590024859856888869|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033045099153;MF=wangxiaolei01@kaihong.com;NM=1;PH=DS;RN=13;RT=13;SR=0;TI=SMTPD_---.kASpfNp_1795665264;
-Received: from nj-vm-261.pxvirt.local(mailfrom:wangxiaolei01@kaihong.com fp:SMTPD_---.kASpfNp_1795665264 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Thu, 26 Nov 2026 11:54:29 +0800
-From: Xiaolei Wang <wangxiaolei01@kaihong.com>
-To: linusw@kernel.org,
-	florian.fainelli@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	daniel@dragonzap.com,
-	wangxiaolei01@kaihong.com,
-	iivanov@suse.de,
-	andrea.porta@suse.com,
-	phil@raspberrypi.com
-Cc: linux-gpio@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA201606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:55:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CA201606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Yi97+Y5X
+Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3b4021b572dso4140276a91.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:55:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795665335; x=1796270135; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Wufck9mMxhIwVpcO+iDjKyRgZZw2XaM/SGzNzGqVqrg=;
+        b=Yi97+Y5XxVeLxoZ0GcRiPTJnArsCMa6UtJZnLgRDB8kwD+g6+rvGeTyifi/3EXA9tE
+         gp1R4DPBr1NFm5nxhzzjOj2ogUCxxGJ50U4jgGA32mmEv1msP6P2Pak6NIPl1tJN7E9C
+         P2MDO1tMS+B+hxM/8EH2H9fxx5gp6EX9/RfT2p28tb2EHNfck5uvRHOUzUKhKeB22WrL
+         2zlq4lXLk3z/QryViswDP395WEItttcjwUhPRqaYJAF6Eyswd0eehfkos6hoTjJom4F1
+         mBzlzopGNu7G0d64OrTmAaB8tt45cMQGjxAtsm0vOtCqonc/y4fhpfV1CUZjBbYcSo0A
+         WxvA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795665335; x=1796270135;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Wufck9mMxhIwVpcO+iDjKyRgZZw2XaM/SGzNzGqVqrg=;
+        b=jKxoFbWAKA26YUPkEFcnzbN6peRGXwRwd3uKbpvwWDfMRd3Nw/sT4Yf2Mvu2JWNAdA
+         N7cd1qbhCdJ6MMY7PMxX4O/K80PbDLd9R37pYO/dM40RCYdzP52eckd+XJ59fdfQc04f
+         d9Vke8bQktFOFBdekog7CUkEIRg/VowCIoEWxC52v8/h9boVfAwtkvfFi084bqbD4Omy
+         EkvUNjTqp2GlZddIEsy3qNEhPOadRNAS6y+3OXqYdG3Ezte2Ys8Y8+l59N83R3UsapAe
+         c/6o4KaMs1dRJP5PsA1xBNgnHstMc3scjm95g8OIeJdbDnTXcToLU7f42VKKKQGCtNa9
+         e2Sw==
+X-Forwarded-Encrypted: i=1; AL+hErGkNw+2mj1ktZzKgBddqt8GdAhfQcey8eJZ5kClAEsBV1bKfSmEW4RS/qsMU5KG0Bp6/O6AeptbGZzKOnY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9aZ1p38HYnu98KNAtibnOxCb/9JDKCSO6O6c99wg706R8lpnbg
+	7hElrTyVMcvIZH2Qaufg2SYXH0w14kRaB/wLuUTcQZxAk2CC5CG8KamD
+X-Gm-Gg: AZFdTZfcoJDUu5e744mBsb/OtPg6NcSThSnZ4nkCHsKIi9m1shAX08Rd0vatQI/NdmA
+	A4tfczN8nZgL0UcsDiXkG3UPtMnfwyXEnA8+nLbS+myH45H+j0JA/iXNJmD/mZh6hZ8BAjiIS+F
+	yjF/x5HE349e185nZ1ZYsnDi5poMRcTI+hXFFSylpcC4UCaSyGXeXG5bvyBKze2LaVKxaGzDhNX
+	cRSmmOA7CWXC6IemKR6Tg0keShZ0uUSQpVwjEjQMAhJ6Nbtld0+bSmenRahWFyhLpeA05fWx8Eu
+	LkbKtIF9z4Nhpvc+y/SdqeSEgEqZCEclSsMauKBo+FNYQrNi1ux9tLymGrDETTc4d1h1DhSKlvi
+	K3wdN1+sB7y1JWhtpdto+R8+wEQwMmOA8kUs8dy+tXO32Tc7rUWz5xdNb5cERwQN2OkuGjeGVfw
+	LqaKKMSKxvHRfL5saSXKH3B7Dst9SNhDhuUtsRDJm3NRaiHK3TVfdd0ypYQK7aOSh6tngPe50le
+	YQpyIkjVGQ/XYVUKzeV4xep4jMPY6uyW2jYWJdOFTpXq0qexb3EBhmUUHUZjLLsYHOQjCb9bg+L
+	EC+khlGX/IT4IwUIKKAkwQEjT540Ym8v7eoQAUbEP/Ix3AZzznhxM5HPZ8TA7VfPejXZXBzhkYg
+	gFqTSkmwxnbjDShS6Fo5zwtGi+NLGdyxk58kvhlRW
+X-Received: by 2002:a17:90b:560f:b0:3b4:60aa:9b74 with SMTP id 98e67ed59e1d1-3b460aaa7efmr13255990a91.65.1795665335073;
+        Wed, 25 Nov 2026 19:55:35 -0800 (PST)
+Received: from nugod-NUC15CRHU5.tail9f095a.ts.net ([218.237.104.87])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41adcfe23sm30295729a91.15.2026.11.25.19.55.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 19:55:34 -0800 (PST)
+From: HyeongJun An <sammiee5311@gmail.com>
+To: Mark Brown <broonie@kernel.org>,
+	Takashi Iwai <tiwai@suse.com>
+Cc: Jaroslav Kysela <perex@perex.cz>,
+	Shuah Khan <shuah@kernel.org>,
+	Ivan Orlov <ivan.orlov0322@gmail.com>,
+	Ben Copeland <ben.copeland@linaro.org>,
+	linux-sound@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH 1/2] pinctrl: rp1: use raw spinlock for gpio regmap
-Date: Thu, 26 Nov 2026 03:54:19 +0000
-Message-Id: <20261126035420.1836760-2-wangxiaolei01@kaihong.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261126035420.1836760-1-wangxiaolei01@kaihong.com>
-References: <20261126035420.1836760-1-wangxiaolei01@kaihong.com>
+	HyeongJun An <sammiee5311@gmail.com>
+Subject: [PATCH 0/2] selftests/alsa: Let the pcmtest test run on kselftest kernels
+Date: Thu, 26 Nov 2026 12:55:23 +0900
+Message-ID: <20261126035526.1779288-1-sammiee5311@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,54 +104,38 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The rp1 gpio irq_chip callbacks run in atomic context: irq_set_type()
-is called with the irq descriptor's raw spinlock held, and the driver
-itself also disables preemption/interrupts while accessing the GPIO
-registers.  On PREEMPT_RT, however, the gpio regmap is created with the
-default spinlock_t, which becomes a sleepable rt_spin_lock.  Writing a
-register field from that atomic context therefore attempts to sleep and
-triggers a "sleeping function called from invalid context" BUG.
+On the kernels that CI labs such as KernelCI build for kselftest, every
+test-pcmtest-driver case skips. The KernelCI arm64 kselftest kernel has
+CONFIG_SND_PCMTEST, CONFIG_SND_SEQ_UMP and CONFIG_SND_UTIMER off, and
+nothing would load the pcmtest module even if it were built.
 
-This is reachable from ordinary userspace: requesting a GPIO line with
-an edge trigger through the GPIO cdev ioctl ends up in irq_set_type(),
-so any application using edge-detected GPIO lines hits it on an RT
-kernel.
+Patch 1 adds a config file for make kselftest-merge with only the
+options the tests themselves need. When Ben sent a config file in March
+[1], Mark pointed out that mixer-test and pcm-test check whatever
+drivers a system has, while test-pcmtest-driver does need a config
+option for its module. So no drivers are listed here. Patch 2 lets
+test-pcmtest-driver load the module itself.
 
-  Call trace:
-   __might_resched
-   rt_spin_lock
-   regmap_lock_spinlock
-   regmap_field_update_bits_base
-   rp1_gpio_irq_set_type
-   __irq_set_trigger
-   __setup_irq
-   request_threaded_irq
-   edge_detector_setup
-   linereq_create
-   gpio_ioctl
+Tested in QEMU (x86_64) on sound/for-next 0dfd513a1557, with a kernel
+from defconfig and make kselftest-merge and no sound modules loaded at
+boot. All four options are on with patch 1 and off without it. On the
+kernel with patch 1, test-pcmtest-driver goes from 10 skipped to 10
+passed with patch 2, and seq-ump-test, which skips without
+CONFIG_SND_SEQ_UMP, passes.
 
-Make the gpio regmap use a raw spinlock so its lock matches the atomic
-contexts the registers are accessed from.
+[1] https://lore.kernel.org/all/20260319084347.134744-1-ben.copeland@linaro.org/
 
-Fixes: 4732f079cd19f ("pinctrl: rp1: Implement RaspberryPi RP1 gpio support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Xiaolei Wang <wangxiaolei01@kaihong.com>
----
- drivers/pinctrl/pinctrl-rp1.c | 1 +
- 1 file changed, 1 insertion(+)
+Prepared with Claude Code (Claude Opus 5.5).
 
-diff --git a/drivers/pinctrl/pinctrl-rp1.c b/drivers/pinctrl/pinctrl-rp1.c
-index dd0e85c2ca33..99566a25ecb4 100644
---- a/drivers/pinctrl/pinctrl-rp1.c
-+++ b/drivers/pinctrl/pinctrl-rp1.c
-@@ -1693,6 +1693,7 @@ static const struct regmap_config rp1_pinctrl_gpio_regmap_cfg = {
- 	.rd_table = &rp1_gpio_reg_table,
- 	.name = "rp1-gpio",
- 	.max_register = 0xb11c,
-+	.use_raw_spinlock = true,
- };
- 
- static const struct regmap_config rp1_pinctrl_rio_regmap_cfg = {
+HyeongJun An (2):
+  selftests/alsa: Add a config file for the test-only options
+  selftests: ALSA: pcmtest: Load the module when it is missing
+
+ tools/testing/selftests/alsa/config                | 6 ++++++
+ tools/testing/selftests/alsa/test-pcmtest-driver.c | 4 ++++
+ 2 files changed, 10 insertions(+)
+ create mode 100644 tools/testing/selftests/alsa/config
+
 -- 
-2.34.1
+2.43.0
 
