@@ -1,68 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.217
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795697249;
-	b=VYmJlFGsP552ghZLgXOqZoZyGUUaNl2GSXYekanq4eFXp96oUL7Tt1DrlP10q4m1iw3l
-	 De9tlb+6rGmfoqClvudfskM/W0BMTMrnDs/pfdVH6buxceam40UkhBDWYcpL+EigyZ6qo
-	 efeA8yw6ijMsnaey4pSnlB4DmBucnqOEeuM9EbidhGI4RANZfp6fkhuFkTr3xWnkodR8n
-	 Ozs8h1c5gmU/+ElOa6r8aLQk6U0V+qRjKtbmWMQRUAYbPtOOW+PUrLmOph+0Yqg6O9wlE
-	 9vy1yI+QxFmwldn07Z32uNWvIiri+Pyjkh1Je53Pe5BBDukTWiLTMclqPFqLc8UlbLw==
+	t=1795697258;
+	b=Bv2tjfUPTyF1fdmuSO0vMHe82IZSNYyATNda4RNre9r4CU2+6kj1Wj1lon+xYhDouKbM
+	 RNUBu9W+jpb6tMI4O/YX1lr/4AYYvcgEIhyPOZ/xHv+3w+7q2ASUOZp5XwNlngxopztMc
+	 i5pxCSoud/8GJTGT1EP0gzKWt1rWFHktj6a0vP4XUQLG4XkZQmtkfLQ5yQ1Q4qHpmpRWH
+	 /AjO1S/de9oWBjWhQ6EOC84/PBNSKhq6EkjdE0P6mU37QrpCmm+pfpgFfyv9IzxFZ1AFk
+	 fiVo+rBnRQJ2awOSpBYWZPkW+fEY+OZgmICMz9DPvTTYjq47O/GtSVQdKt8bRCQKJsQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795697249;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:X-Originating-IP:X-ClientProxiedBy;
-	bh=ClGX2875WbyQG7rz6Sx/tv42WHG5IdJpsq88ZZE5Thc=;
-	b=hRKC6SsGiyewB+TFMMH/nGqVtpl1Rguq2B8+HCcMvwD40DOHlGMrtCiHJQUc3x8YE4xo
-	 eYbffOS8QvbLytkLOD/pTR4Wctpz3FkytTwbjdtIZ9VhhnKZt5J4Qzp896T2Xh+w/d9eR
-	 Najniyn/hcg0KOl1jkf8Y9uWL01leFCpp1g4yz6I4fvSxU1ieanpzxkGQuOvFEreUNYRL
-	 vjUrdB36DUfHU86NftITNSI1LUfaFE8bIm/aDv/Uccg/wm7IhgfoIPhJxDANE5fMsC+/w
-	 FSHINg9VxEmRVNmSD7KRFTKHriYKcHE/pVVXTshHz/ODkcFOkHkHziglqaN4vtsJU2g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795697258;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=2ZGj3d9V5w+hajDEv0Cv6Jml5Dg7lC8xu0EU1vzAw6M=;
+	b=aQVYKZNm4MnDriKlIouVbS3SdjQ5nonSOYAn1VoM05tv0jh1EbA8Xv+dN/e5y99x0z/V
+	 MBrsFU//iGMauLXy0urdX2bVE1Lp0BguRxRwEKELQqtqfaL9qgOjucbNQQJ3nwt+tDOu0
+	 nZWP0pySHLhlXQhgtnAmg65LE+2oyR+S1tDQmgu+JPFYcVFga9c0H6gnOneO6Q8EYUGs2
+	 VY6Wq6fa+ceQnMA0fovHcJ1NjACxPNKjpYiKwFS4XOJ9HBpDGj9wKpBGdoKXBGACNh74x
+	 aiTSZYrMe0ye8ZBPrIul5+zuDgGUhQhLw2tWdvO86j5fXRIwsjuJ4cpzjvvyuaPUIkA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=NtzDUemK;
-	arc=none smtp.remote-ip=113.46.200.217
-Received: from canpmsgout02.his.huawei.com (canpmsgout02.his.huawei.com [113.46.200.217])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Lf0gOSOx;
+	arc=none smtp.remote-ip=192.198.163.14
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.14])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87C51606A329;
-	Thu, 26 Nov 2026 12:47:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87C51606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C41A606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:47:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C41A606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=NtzDUemK
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=ClGX2875WbyQG7rz6Sx/tv42WHG5IdJpsq88ZZE5Thc=;
-	b=NtzDUemK7yTU8ttfULBUgkfZMv26YXBOzWaYnQmz50NUV4LU+31HK2GDuA+YOTiHd2Ac4kd94
-	r2Ygjh3iSOy00OxlizOZ8ekSVd2JjQquI816XcpsxYzH3JbrQgtr6LPwsc0WBjbigC/L4o+bv3+
-	5tTcNcqdd7kCadv2xhuwKLs=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4jZx9w4LhpzcZxn;
-	Thu, 26 Nov 2026 20:46:12 +0800 (CST)
-Received: from whupemk100010.china.huawei.com (unknown [7.152.184.41])
-	by mail.maildlp.com (Postfix) with ESMTPS id 24DFB4056D;
-	Thu, 26 Nov 2026 20:47:20 +0800 (CST)
-Received: from octopus.huawei.com (10.67.174.191) by
- whupemk100010.china.huawei.com (7.152.184.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 26 Nov 2026 20:47:18 +0800
-From: Cai Xinchen <caixinchen1@huawei.com>
-To: <nicolas.bouchinet@oss.cyber.gouv.fr>, <xiujianfeng@huawei.com>,
-	<paul@paul-moore.com>, <jmorris@namei.org>, <serge@hallyn.com>,
-	<shuah@kernel.org>, <kalevi@kolttonen.fi>, <caixinchen1@huawei.com>
-CC: <linux-security-module@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <bpf@vger.kernel.org>,
-	<lujialin4@huawei.com>
-Subject: [PATCH v3 7/8] Documentation/ABI: document the lockdown securityfs file
-Date: Thu, 26 Nov 2026 21:13:14 +0800
-Message-ID: <20261126131315.1256553-8-caixinchen1@huawei.com>
-X-Mailer: git-send-email 2.18.0.huawei.25
-In-Reply-To: <20261126131315.1256553-1-caixinchen1@huawei.com>
-References: <20261126131315.1256553-1-caixinchen1@huawei.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Lf0gOSOx
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795697258; x=1827233258;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=/qc0v+9VWibpDBssMT0Yeyn++IiypOZSdHoUAYd2qJw=;
+  b=Lf0gOSOxRpmzrxHIDxhk3ossXpRhkvCnNDYR+Qrcm8zJOioD3LyLBZWm
+   wLu0zn7RFdmPuvWJXEVhHNOCxmiA5QZ9UmlvNYsHfFRFb8Lnx1OrP5uKb
+   LHL8SA2CLleKyXLQwOdYFyO150GjQhAqXPcZ4Vc2+1CPnJcHXWy4MuALl
+   o/gJY8icOrZEqSs46foLdrs6307y7eRcFewg8v99sdpfwcrMvBGhjuSAH
+   1xw6Pro3Q+BgpmMOrpluyuBQq44OabHJW/oHbKgjnPu4ibyEGXsC3nyHH
+   EXnLLncLGwVT0QC7DgmsVqhuEa6Hmuhi39jfaA3+WSK7VBZSHfe66qoSC
+   w==;
+X-CSE-ConnectionGUID: QHbvDSElQ3iaLgleaNMAJA==
+X-CSE-MsgGUID: 0CRZvohhRAyVT6D/OuemOQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4560074"
+X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
+   d="scan'208";a="4560074"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 04:47:37 -0800
+X-CSE-ConnectionGUID: R5s9+8Z3STCOHSM9JioJqw==
+X-CSE-MsgGUID: zO+IOfXAQku7bN1FpMd+mQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
+   d="scan'208";a="12056236"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by orviesa005.jf.intel.com with ESMTP; 26 Nov 2026 04:47:33 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xWYsr-00000001U6u-2Cvp;
+	Thu, 26 Nov 2026 12:47:29 +0000
+Date: Thu, 26 Nov 2026 20:46:42 +0800
+From: kernel test robot <lkp@intel.com>
+To: Abhash Kumar Jha <a-kumar2@ti.com>, andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org, rfoss@kernel.org, mripard@kernel.org,
+	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+	devarsht@ti.com, u-kumar1@ti.com, sjakhade@cadence.com
+Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se, jernej.skrabec@gmail.com, s-jain1@ti.com,
+	y-d@ti.com, tomi.valkeinen@ideasonboard.com,
+	benjamin.robin@bootlin.com
+Subject: Re: [PATCH v4] drm/bridge: cdns-mhdp8546: Add suspend resume support
+ to the bridge driver
+Message-ID: <20261126201120.k0T1Wvok-lkp@intel.com>
+References: <20261126060532.2379444-1-a-kumar2@ti.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,93 +89,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- whupemk100010.china.huawei.com (7.152.184.41)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261126060532.2379444-1-a-kumar2@ti.com>
 
-The /sys/kernel/security/lockdown file has existed since v5.4 but was
-never documented.  The rest of this series fixes the interface and adds
-a selftest for it, so document it now: the levels it reports, how the
-active level is marked, when the file is present, and the write
-semantics (escalation only, EPERM for the current or a lower level,
-EINVAL for an unknown level).
+Hi Abhash,
 
-Also add the new ABI file to the LOCKDOWN SECURITY MODULE entry in
-MAINTAINERS.
+kernel test robot noticed the following build errors:
 
-Reviewed-by: Nicolas Bouchinet <nicolas.bouchinet@oss.cyber.gouv.fr>
-Signed-off-by: Cai Xinchen <caixinchen1@huawei.com>
----
- Documentation/ABI/testing/securityfs-lockdown | 47 +++++++++++++++++++
- MAINTAINERS                                   |  1 +
- 2 files changed, 48 insertions(+)
- create mode 100644 Documentation/ABI/testing/securityfs-lockdown
+[auto build test ERROR on drm-misc/drm-misc-next]
+[also build test ERROR on linus/master v7.4-rc4 next-20261125]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-diff --git a/Documentation/ABI/testing/securityfs-lockdown b/Documentation/ABI/testing/securityfs-lockdown
-new file mode 100644
-index 000000000000..74eb850519e3
---- /dev/null
-+++ b/Documentation/ABI/testing/securityfs-lockdown
-@@ -0,0 +1,47 @@
-+What:		/sys/kernel/security/lockdown
-+Date:		August 2019
-+KernelVersion:	5.4
-+Contact:	linux-security-module@vger.kernel.org
-+Description:
-+		The lockdown securityfs file reports and controls the
-+		lockdown state of the running kernel.  It is provided by
-+		the lockdown LSM and is located at
-+		/sys/kernel/security/lockdown.
-+
-+		The file is present only when CONFIG_SECURITY_LOCKDOWN_LSM is
-+		enabled and the lockdown LSM is active, either because
-+		CONFIG_SECURITY_LOCKDOWN_LSM_EARLY is set, or because it is
-+		ordered in through CONFIG_LSM, the "lsm=" kernel parameter
-+		or the legacy "security=" kernel parameter.  Otherwise the
-+		node is absent, and userspace must handle its absence.
-+
-+		Reading the file returns the supported lockdown levels,
-+		with the currently active level enclosed in square
-+		brackets.  For example, when the kernel is not locked
-+		down::
-+
-+		  [none] integrity confidentiality
-+
-+		and when the kernel is in integrity mode::
-+
-+		  none [integrity] confidentiality
-+
-+		The file is created with mode 0644: anyone may read it,
-+		but writing it requires privileges, and an unprivileged
-+		writer fails at open() time with EACCES.
-+
-+		The file may be written with the name of a level to lock
-+		the kernel down further.  Lockdown can only be escalated,
-+		never relaxed, so writing the currently active level or a
-+		lower level fails with EPERM.  Writing an unrecognized
-+		level fails with EINVAL.  Successful writes return the
-+		number of bytes written.
-+
-+		The kernel can also be locked down at boot time with the
-+		"lockdown=" kernel parameter, or at build time via
-+		CONFIG_LOCK_DOWN_KERNEL_FORCE_INTEGRITY or
-+		CONFIG_LOCK_DOWN_KERNEL_FORCE_CONFIDENTIALITY when the
-+		lockdown LSM is active.
-+
-+Users:		fwupd and other userspace tools that query or manage
-+		kernel lockdown state
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 64f8b6153b87..c30b7d10c7c2 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -15753,6 +15753,7 @@ M:	Xiu Jianfeng <xiujianfeng@huawei.com>
- L:	linux-security-module@vger.kernel.org
- S:	Maintained
- T:	git https://git.kernel.org/pub/scm/linux/kernel/git/pcmoore/lsm.git
-+F:	Documentation/ABI/testing/securityfs-lockdown
- F:	security/lockdown/
- 
- LOCKING PRIMITIVES
+url:    https://github.com/intel-lab-lkp/linux/commits/Abhash-Kumar-Jha/drm-bridge-cdns-mhdp8546-Add-suspend-resume-support-to-the-bridge-driver/20261126-113532
+base:   https://gitlab.freedesktop.org/drm/misc/kernel.git drm-misc-next
+patch link:    https://lore.kernel.org/r/20261126060532.2379444-1-a-kumar2%40ti.com
+patch subject: [PATCH v4] drm/bridge: cdns-mhdp8546: Add suspend resume support to the bridge driver
+config: csky-randconfig-1001-20261126 (https://download.01.org/0day-ci/archive/20261126/20261126201120.k0T1Wvok-lkp@intel.com/config)
+compiler: csky-linux-gcc (GCC) 14.4.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261126/20261126201120.k0T1Wvok-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/20261126201120.k0T1Wvok-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c: In function 'cdns_mhdp_resume':
+>> drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c:2322:26: error: 'struct cdns_mhdp_device' has no member named 'no_hpd'
+    2322 |                 if (!mhdp->no_hpd)
+         |                          ^~
+
+
+vim +2322 drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c
+
+  2259	
+  2260	static int cdns_mhdp_resume(struct device *dev)
+  2261	{
+  2262		struct cdns_mhdp_device *mhdp = dev_get_drvdata(dev);
+  2263		unsigned int keep_alive, keep_alive_inc;
+  2264		unsigned long rate;
+  2265		int ret;
+  2266	
+  2267		ret = clk_prepare_enable(mhdp->clk);
+  2268		if (ret)
+  2269			return ret;
+  2270	
+  2271		rate = clk_get_rate(mhdp->clk);
+  2272		writel(rate % 1000000, mhdp->regs + CDNS_SW_CLK_L);
+  2273		writel(rate / 1000000, mhdp->regs + CDNS_SW_CLK_H);
+  2274		writel(~0, mhdp->regs + CDNS_APB_INT_MASK);
+  2275	
+  2276		ret = phy_init(mhdp->phy);
+  2277		if (ret) {
+  2278			dev_err(mhdp->dev, "Failed to initialize PHY: %d\n", ret);
+  2279			goto disable_clk;
+  2280		}
+  2281		ret = phy_power_on(mhdp->phy);
+  2282		if (ret < 0) {
+  2283			dev_err(mhdp->dev, "Failed to power on PHY: %d\n", ret);
+  2284			goto phy_exit;
+  2285		}
+  2286	
+  2287		/*
+  2288		 * The KEEP_ALIVE register is incremented at every scheduler loop of the
+  2289		 * firmware. If it changes between reads, the firmware is still running
+  2290		 * (e.g. the suspend was aborted) and only needs to be activated. If it
+  2291		 * does not change, the bridge lost power and the firmware must be loaded
+  2292		 * again.
+  2293		 */
+  2294		keep_alive = readl(mhdp->regs + CDNS_KEEP_ALIVE) & CDNS_KEEP_ALIVE_MASK;
+  2295		ret = readl_poll_timeout(mhdp->regs + CDNS_KEEP_ALIVE, keep_alive_inc,
+  2296					 (keep_alive_inc & CDNS_KEEP_ALIVE_MASK) != keep_alive,
+  2297					 2000, 2 * CDNS_KEEP_ALIVE_TIMEOUT);
+  2298		if (ret) {
+  2299			ret = cdns_mhdp_load_firmware(mhdp);
+  2300			if (ret)
+  2301				goto phy_off;
+  2302	
+  2303			ret = wait_event_timeout(mhdp->fw_load_wq,
+  2304						 mhdp->hw_state == MHDP_HW_READY,
+  2305						 msecs_to_jiffies(1000));
+  2306			if (ret == 0) {
+  2307				dev_err(mhdp->dev, "%s: Timeout waiting for fw loading\n",
+  2308					__func__);
+  2309				ret = -ETIMEDOUT;
+  2310				goto phy_off;
+  2311			}
+  2312		} else {
+  2313			ret = cdns_mhdp_set_firmware_active(mhdp, true);
+  2314			if (ret) {
+  2315				dev_err(mhdp->dev, "Failed to activate firmware (%pe)\n",
+  2316					ERR_PTR(ret));
+  2317				goto phy_off;
+  2318			}
+  2319	
+  2320			spin_lock(&mhdp->start_lock);
+  2321			mhdp->hw_state = MHDP_HW_READY;
+> 2322			if (!mhdp->no_hpd)
+  2323				cdns_mhdp_bridge_hpd_enable(&mhdp->bridge);
+  2324			spin_unlock(&mhdp->start_lock);
+  2325		}
+  2326	
+  2327		return 0;
+  2328	
+  2329	phy_off:
+  2330		phy_power_off(mhdp->phy);
+  2331	phy_exit:
+  2332		phy_exit(mhdp->phy);
+  2333	disable_clk:
+  2334		clk_disable_unprepare(mhdp->clk);
+  2335	
+  2336		return ret;
+  2337	}
+  2338	
+
 -- 
-2.18.0.huawei.25
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
