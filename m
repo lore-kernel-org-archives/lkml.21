@@ -1,65 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=92.121.34.21
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795677112;
-	b=SSfkA7dL889U/QCA4T6eILYhQWfIpfVd6m533DWpu3d7m6GhLvE0TvWoUoYf4Kme7FOM
-	 u5C1i1LCbv4YVzLABUQTqbbflAWX6rLA7azqGuQQs484mMqESkTWfOp/nyLmX+JIgilID
-	 5GLZphmV4QlZK8IZHBMJpIiiOSInKRwvlhMke9gEYaFAnOwhsP744c+EjMp19hDHKCEex
-	 zZyDbkosewNiAMQkZx8xTqfZyu8odg3ovFitwWeX9ivnJCtjoOZuymF4lVDgjW3kFO3Qv
-	 HvKbDChk37vDHpiuRbeCPnQSdWtbdb0wUvMr2B8QpheCFLS+y6DicgrRRlED9n/KbTA==
+	t=1795677113;
+	b=uEjq/uCD9RJ6M1LNhcWJimhQKybsKf4XyPn0Mnjq5eaVnfO+Ldv9WrDJ/U1IAb/s7CNy
+	 eI69UTX3KxaIO7EoJ0uldVxhFvzfKpbX6PLGgydvIdDiRpJdhBHGDrZ2tThD9OZDL1ZJg
+	 kMzPypf/mZKaFhpmPiPfYntWe0frCNqgBNHwn+LtIvGyhXy4zdCdC0APKJzyl3+o3cbbM
+	 55es5Hn3Y3ShnzvP1bKCS+gRhWLtCiU4NzIPQXlL6HcOdhUQXIBnkI8j0Jz6sdluTH9vy
+	 ALbQhixprk4sAkPQaEDDpe9Xv/sX2fJyNaVFqOFTeiu7wJgcLWxfZgQ4hpPUF+0yWhA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795677112;
-	h=DMARC-Filter:Received:Received:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Virus-Scanned;
-	bh=veH9m5BZmYfj5IQdhe+I9v8lUnwRituPegvprWuaLog=;
-	b=wPhFCn4ayuVqcIQHbVgjgf4R0z3ED6/QMqwH0b8sNyedJR9S4+75QQCP9LxWWdosQAEG
-	 L11xd5K3zlDMrS+rlP1wgP6Bl1zqlBBCuupuV1Y8szEDMIwHhDV2MjRYGJbLI9oODyamL
-	 N+oSxelrnCUbeGQ90P2gRDleG7EnjVp9l8MVLFBcmUGw/BFxP2yLvQKZSlC1D6Amu76dy
-	 4f+DqlaKJ1vjFc8s8PmtzArZdfVofLFZiqf8T199ls/FMSUMOZOK2rXoXzu9GXdHb7dqr
-	 qG+QyPOhNsKOVjACH/tQs37K+HLsXrZg6QmxXEXF/+BLPrBYF6fNcBb+j5s6+hynm1g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795677113;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer;
+	bh=4YyEWwAkCQU+bFSGO99qgS4Bf2a+9peUpz7t0o/uWGE=;
+	b=G2RbekYcOE32nnAYk05r9unWcNhbYnyDjtzDBbexGrE/4QeA7bw4WVIFkKvU3n4y59n4
+	 3AUtQw7fnwlHLZD3dvI1a5Qx/E4dygKc2pGxuufKlC2bTeWP9eOFd7h7akOj3+Z80oM+p
+	 VbynMSEzg9L4bD5PuSaZKeeRI0Na2gp5bVmjCgQ760c+mQde77xPT4oVCsC418qxSzjEw
+	 8FGJ2j72He38vSXh+YA5QyjO2Lxap5feXRDQzmYeKsJIHFoZop/nXQ2oN/3D2Ud60i5XR
+	 m8M2Ylnb+zP+R23v2MkjovqWTFWj8hcHzUD9JW4hcQDVpVz2AvSl/gKo5qPetRkdjSw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nxp.com;
-	spf=pass smtp.mailfrom=nxp.com;
-	arc=none smtp.remote-ip=92.121.34.21
-Received: from inva021.nxp.com (inva021.nxp.com [92.121.34.21])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EmnxEBiQ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A44D606A68D;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D669606A69D;
+	Thu, 26 Nov 2026 07:11:52 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EmnxEBiQ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 247671F000D2;
 	Thu, 26 Nov 2026 07:11:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A44D606A68D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
-Received: from inva021.nxp.com (localhost [127.0.0.1])
-	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id BBC24200023;
-	Thu, 26 Nov 2026 08:11:49 +0100 (CET)
-Received: from aprdc01srsp001v.ap-rdc01.nxp.com (aprdc01srsp001v.ap-rdc01.nxp.com [165.114.16.16])
-	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 5F7B8200010;
-	Thu, 26 Nov 2026 08:11:49 +0100 (CET)
-Received: from lsv031125.swis.in-blr01.nxp.com (lsv031125.swis.in-blr01.nxp.com [10.12.177.172])
-	by aprdc01srsp001v.ap-rdc01.nxp.com (Postfix) with ESMTP id 3C23E18000B5;
-	Thu, 26 Nov 2026 15:11:46 +0800 (+08)
-From: Shiv Prakash Gupta <shivprakash.gupta@nxp.com>
-To: linux-kernel@vger.kernel.org,
-	linux-rtc@vger.kernel.org,
-	linux-hwmon@vger.kernel.org,
-	linux-watchdog@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	alexandre.belloni@bootlin.com,
-	krzk+dt@kernel.org,
-	robh@kernel.org,
-	conor+dt@kernel.org,
-	linux@roeck-us.net,
-	wim@linux-watchdog.org
-Cc: vikash.bansal@nxp.com,
-	priyanka.jain@nxp.com,
-	lakshay.piplani@nxp.com,
-	Shiv Prakash Gupta <shivprakash.gupta@nxp.com>
-Subject: [PATCH v5 3/4] rtc: pcf8525: Add watchdog support
-Date: Thu, 26 Nov 2026 12:41:23 +0530
-Message-Id: <20261126071124.2383368-4-shivprakash.gupta@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261126071124.2383368-1-shivprakash.gupta@nxp.com>
-References: <20261126071124.2383368-1-shivprakash.gupta@nxp.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795677112;
+	bh=4YyEWwAkCQU+bFSGO99qgS4Bf2a+9peUpz7t0o/uWGE=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=EmnxEBiQ2we8OzqZSSUpuEIO00yeED7qfKBz7UYPbFY1VeUVc6EPIae2wwJbIamBP
+	 hsGAerkUoYPIC2tpHu80+9l9MufpHAlp9RPJ0hcvleJe+v7uDzB6bhnB5Kul5aL4uk
+	 hgKXpV0OSsQKhMunlU/5XLrtjy9IWeto8hzJL9DppEl0UZsOY/79Gg6xL7Rtg30rGD
+	 demWXX4eczRRkAoisvA8lkKM9GX+c7rZOELcjsJ485j5234h5gHVpkL28DQsdqcblc
+	 iO8ceRNxm22qrTd7U+L93JEWMBK2c95sTIlngtQwIqFiXYM88xeSZlBCEQjdvMh6LJ
+	 z5752lLHGObWw==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,472 +49,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: ClamAV using ClamSMTP
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 07/10] clk: samsung: exynos5420: Terminate PLL rate
+ tables with sentinels
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Lee Jones <lee@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, 
+ Thomas Abraham <thomas.ab@samsung.com>, 
+ Chander Kashyap <k.chander@samsung.com>, 
+ Amit Daniel Kachhap <amit.daniel@samsung.com>, 
+ Tomasz Figa <t.figa@samsung.com>, Lukasz Luba <lukasz.luba@arm.com>, 
+ Marian Mihailescu <mihailescu2m@gmail.com>, 
+ linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org
+In-Reply-To: <179567696129.9086.5750343229179878451.b4-reply@b4>
+References: <20261123164834.3330320-1-lee@kernel.org>
+ <20261123164834.3330320-8-lee@kernel.org>
+ <179567696129.9086.5750343229179878451.b4-reply@b4>
+Date: Thu, 26 Nov 2026 08:11:49 +0100
+Message-Id: <179567710988.9086.18307051341647082138.b4-reply@b4>
+X-Mailer: b4 0.17-dev
 
-Extend the PCF8525 driver with an optional alarm-only watchdog.
+On 2026-11-26 08:09:21+01:00, Krzysztof Kozlowski wrote:
+> On 2026-11-23 16:47 +0000, Lee Jones wrote:
+> 
+> > _samsung_clk_register_pll() sizes each PLL rate table by scanning until
+> > it encounters an entry with .rate == 0, then copies the counted entries
+> > into pll->rate_table.  However, exynos5420_pll2550x_24mhz_tbl,
+> > exynos5422_bpll_rate_table, exynos5420_epll_24mhz_tbl, and
+> > exynos5420_vpll_24mhz_tbl all omit a terminating zero sentinel, causing
+> > out-of-bounds reads into adjacent read-only data and populating
+> > pll->rate_table with bogus entries.
+> > 
+> > Append a sentinel entry to each of the four PLL rate tables.
+> > 
+> > Fixes: ca5b40293822 ("clk: samsung: register exynos5420 apll/kpll configuration data")
+> > Fixes: 9842452acd3d ("clk: samsung: exynos542x: Add EPLL rate table")
+> > Fixes: 8b4a7acf7b30 ("clk: samsung: add BPLL rate table for Exynos 5422 SoC")
+> > Fixes: b92981de92cb ("clk: samsung: exynos5420: Add VPLL rate table")
+> > Closes: https://sashiko.dev/#/bug/linux-553831f9-0a7b-4e94-be60-222de60ca8c3
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Lee Jones <lee@kernel.org>
+> > ---
+> >  drivers/clk/samsung/clk-exynos5420.c | 4 ++++
+> >  1 file changed, 4 insertions(+)
+> 
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Signed-off-by: Lakshay Piplani <lakshay.piplani@nxp.com>
-Signed-off-by: Shiv Prakash Gupta <shivprakash.gupta@nxp.com>
----
- drivers/rtc/Kconfig       |   4 +-
- drivers/rtc/rtc-pcf8525.c | 328 +++++++++++++++++++++++++++++++++++++-
- 2 files changed, 330 insertions(+), 2 deletions(-)
+Actually let me just grab it and I still wait for other files as well.
 
-diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
-index 848bcde41f2a..68b17ad29ed4 100644
---- a/drivers/rtc/Kconfig
-+++ b/drivers/rtc/Kconfig
-@@ -526,11 +526,13 @@ config RTC_DRV_PCF8523
- config RTC_DRV_PCF8525
- 	tristate "NXP PCF8525"
- 	select REGMAP_I2C
-+	select WATCHDOG_CORE if WATCHDOG
- 	help
- 	  If you say yes here you get support for the NXP PCF8525 RTC chip.
- 	  The PCF8525 is an I2C real-time clock with alarm, external timestamp
- 	  capture and recording of the last calendar write, crystal aging offset
--	  correction, and backup power switchover.
-+	  correction, backup power switchover, and an integrated watchdog
-+	  timer.
- 
- 	  This driver can also be built as a module. If so, the module
- 	  will be called rtc-pcf8525.
-diff --git a/drivers/rtc/rtc-pcf8525.c b/drivers/rtc/rtc-pcf8525.c
-index 2b23b17d6750..25420e7ad21c 100644
---- a/drivers/rtc/rtc-pcf8525.c
-+++ b/drivers/rtc/rtc-pcf8525.c
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0-only
- /*
-- * NXP PCF8525 RTC driver with alarm and timestamp support.
-+ * NXP PCF8525 RTC driver with alarm, timestamp and watchdog support.
-  *
-  * Datasheet: https://www.nxp.com/docs/en/data-sheet/PCF8525.pdf
-  */
-@@ -17,9 +17,11 @@
- #include <linux/interrupt.h>
- #include <linux/limits.h>
- #include <linux/math.h>
-+#include <linux/minmax.h>
- #include <linux/mod_devicetable.h>
- #include <linux/module.h>
- #include <linux/mutex.h>
-+#include <linux/pm.h>
- #include <linux/pm_wakeirq.h>
- #include <linux/pm_wakeup.h>
- #include <linux/property.h>
-@@ -28,6 +30,7 @@
- #include <linux/sysfs.h>
- #include <linux/types.h>
- #include <linux/uaccess.h>
-+#include <linux/watchdog.h>
- 
- #define PCF8525_REG_CTRL1		0x00
- #define PCF8525_REG_CTRL2		0x01
-@@ -51,7 +54,11 @@
- 
- #define PCF8525_REG_INTA_MASK1		0x28
- #define PCF8525_REG_INTA_MASK2		0x29
-+#define PCF8525_REG_INTB_MASK1		0x2A
-+#define PCF8525_REG_INTB_MASK2		0x2B
- 
-+#define PCF8525_REG_WD_CTL		0x2C
-+#define PCF8525_REG_WD_VAL		0x2D
- #define PCF8525_REG_TEMP		0x2E
- 
- #define PCF8525_CTRL1_STOP		BIT(5)
-@@ -78,6 +85,7 @@
- #define PCF8525_CTRL5_XTL_TYP		BIT(0)
- 
- #define PCF8525_CLKOUT_OTPR		BIT(4)
-+#define PCF8525_CLKOUT_CLKOE		BIT(3)
- 
- #define PCF8525_TS_CTL1_TSM		BIT(7)
- #define PCF8525_TS_CTL1_TSOFF		BIT(6)
-@@ -92,10 +100,21 @@
- #define PCF8525_RESET_CPR_CMD		0xA4
- 
- /* A set bit in the INTx_MASKy registers masks the interrupt source. */
-+#define PCF8525_MASK1_WD_CD		BIT(0)
- #define PCF8525_MASK1_AIE		BIT(2)
- #define PCF8525_MASK1_ALL		GENMASK(5, 0)
- #define PCF8525_MASK2_TSIE		BIT(3)
- 
-+#define PCF8525_WD_CTL_WD_CD		BIT(7)
-+#define PCF8525_WD_CTL_TF_MASK		GENMASK(1, 0)
-+#define PCF8525_WD_TF_QUARTER_HZ	2
-+
-+#define PCF8525_WD_VAL_STOP		0
-+#define PCF8525_WD_VAL_MIN		2
-+#define PCF8525_WD_VAL_MAX		255
-+#define PCF8525_WD_TICK_S		4
-+#define PCF8525_WD_DEFAULT_TIMEOUT_S	60
-+
- #define PCF8525_AGING_STEP_NUM		298L
- #define PCF8525_AGING_STEP_DEN		10L
- 
-@@ -103,11 +122,13 @@
- 
- struct pcf8525 {
- 	struct rtc_device *rtc;
-+	struct watchdog_device wdd;
- 	struct regmap *regmap;
- 	struct mutex ts_mutex;	/* protects the TS1 cache and TSF */
- 	time64_t ts;
- 	bool ts_valid;
- 	bool irq_enabled;
-+	int irq_intb;
- };
- 
- static const struct regmap_config pcf8525_regmap_cfg = {
-@@ -699,6 +720,244 @@ static const struct rtc_class_ops pcf8525_rtc_ops = {
- 	.param_set = pcf8525_param_set,
- };
- 
-+/* WDTF is set when the counter reaches 1, so a value n gives n - 1 ticks. */
-+static unsigned int pcf8525_wdt_timeout_to_val(unsigned int timeout)
-+{
-+	return clamp_val(DIV_ROUND_UP(timeout, PCF8525_WD_TICK_S) + 1,
-+			 PCF8525_WD_VAL_MIN, PCF8525_WD_VAL_MAX);
-+}
-+
-+static unsigned int pcf8525_wdt_val_to_timeout(unsigned int val)
-+{
-+	return (val - 1) * PCF8525_WD_TICK_S;
-+}
-+
-+static int pcf8525_wdt_reload(struct watchdog_device *wdd)
-+{
-+	struct pcf8525 *pcf8525 = watchdog_get_drvdata(wdd);
-+
-+	return regmap_write(pcf8525->regmap, PCF8525_REG_WD_VAL,
-+			    pcf8525_wdt_timeout_to_val(wdd->timeout));
-+}
-+
-+/*
-+ * Load the counter with INTB masked and enable WD_CD and the INTB route last.
-+ * @rollback stops the timer if starting fails; resume must keep it running.
-+ */
-+static int pcf8525_wdt_arm(struct watchdog_device *wdd, bool rollback)
-+{
-+	struct pcf8525 *pcf8525 = watchdog_get_drvdata(wdd);
-+	struct regmap *regmap = pcf8525->regmap;
-+	int ret;
-+
-+	ret = regmap_set_bits(regmap, PCF8525_REG_INTB_MASK1,
-+			      PCF8525_MASK1_WD_CD);
-+	if (ret)
-+		return ret;
-+
-+	ret = regmap_clear_bits(regmap, PCF8525_REG_WD_CTL,
-+				PCF8525_WD_CTL_WD_CD);
-+	if (ret)
-+		return ret;
-+
-+	ret = pcf8525_update_ctrl2(pcf8525, PCF8525_CTRL2_WDTF, 0);
-+	if (ret)
-+		return ret;
-+
-+	ret = pcf8525_wdt_reload(wdd);
-+	if (ret)
-+		return ret;
-+
-+	ret = regmap_set_bits(regmap, PCF8525_REG_WD_CTL,
-+			      PCF8525_WD_CTL_WD_CD);
-+	if (ret)
-+		goto rollback_start;
-+
-+	ret = regmap_clear_bits(regmap, PCF8525_REG_INTB_MASK1,
-+				PCF8525_MASK1_WD_CD);
-+	if (!ret || !rollback)
-+		return ret;
-+
-+	regmap_clear_bits(regmap, PCF8525_REG_WD_CTL,
-+			  PCF8525_WD_CTL_WD_CD);
-+
-+rollback_start:
-+	if (rollback)
-+		regmap_write(regmap, PCF8525_REG_WD_VAL, PCF8525_WD_VAL_STOP);
-+
-+	return ret;
-+}
-+
-+static int pcf8525_wdt_start(struct watchdog_device *wdd)
-+{
-+	return pcf8525_wdt_arm(wdd, true);
-+}
-+
-+static int pcf8525_wdt_ping(struct watchdog_device *wdd)
-+{
-+	return pcf8525_wdt_reload(wdd);
-+}
-+
-+static int pcf8525_wdt_stop(struct watchdog_device *wdd)
-+{
-+	struct pcf8525 *pcf8525 = watchdog_get_drvdata(wdd);
-+
-+	/* Loading 0 clears WDTF/nINTB and stops the hardware counter. */
-+	return regmap_write(pcf8525->regmap, PCF8525_REG_WD_VAL,
-+			    PCF8525_WD_VAL_STOP);
-+}
-+
-+static int pcf8525_wdt_set_timeout(struct watchdog_device *wdd,
-+				   unsigned int timeout)
-+{
-+	wdd->timeout = pcf8525_wdt_val_to_timeout(pcf8525_wdt_timeout_to_val(timeout));
-+
-+	/* watchdog core reloads an active watchdog after .set_timeout(). */
-+	return 0;
-+}
-+
-+static const struct watchdog_info pcf8525_wdt_info = {
-+	.identity = "NXP PCF8525 Watchdog",
-+	.options = WDIOF_KEEPALIVEPING | WDIOF_SETTIMEOUT |
-+		   WDIOF_MAGICCLOSE | WDIOF_ALARMONLY,
-+};
-+
-+static const struct watchdog_ops pcf8525_wdt_ops = {
-+	.owner = THIS_MODULE,
-+	.start = pcf8525_wdt_start,
-+	.stop = pcf8525_wdt_stop,
-+	.ping = pcf8525_wdt_ping,
-+	.set_timeout = pcf8525_wdt_set_timeout,
-+};
-+
-+static irqreturn_t pcf8525_wdt_irq(int irq, void *data)
-+{
-+	struct device *dev = data;
-+	struct pcf8525 *pcf8525 = dev_get_drvdata(dev);
-+	unsigned int ctrl2;
-+	int ret;
-+
-+	ret = regmap_read(pcf8525->regmap, PCF8525_REG_CTRL2, &ctrl2);
-+	if (ret) {
-+		dev_warn_ratelimited(dev, "failed to read watchdog status: %d\n", ret);
-+		return IRQ_NONE;
-+	}
-+
-+	if (!(ctrl2 & PCF8525_CTRL2_WDTF))
-+		return IRQ_NONE;
-+
-+	ret = pcf8525_update_ctrl2(pcf8525, PCF8525_CTRL2_WDTF, 0);
-+	if (ret) {
-+		dev_warn_ratelimited(dev, "failed to clear watchdog alarm: %d\n", ret);
-+		return IRQ_NONE;
-+	}
-+
-+	dev_warn_ratelimited(dev, "watchdog alarm expired\n");
-+
-+	return IRQ_HANDLED;
-+}
-+
-+/*
-+ * Mask the alarm route; stopping the counter is left to the watchdog core,
-+ * which honours nowayout.
-+ */
-+static void pcf8525_wdt_cleanup(void *data)
-+{
-+	struct pcf8525 *pcf8525 = data;
-+
-+	if (watchdog_active(&pcf8525->wdd) ||
-+	    watchdog_hw_running(&pcf8525->wdd))
-+		return;
-+
-+	/* Detach WDTF from INTB before the managed IRQ is released. */
-+	regmap_set_bits(pcf8525->regmap, PCF8525_REG_INTB_MASK1,
-+			PCF8525_MASK1_WD_CD);
-+}
-+
-+static int pcf8525_watchdog_config(struct pcf8525 *pcf8525)
-+{
-+	struct regmap *regmap = pcf8525->regmap;
-+	int ret;
-+
-+	/* Isolate every INTB source before touching watchdog state. */
-+	ret = regmap_set_bits(regmap, PCF8525_REG_INTB_MASK1,
-+			      PCF8525_MASK1_ALL);
-+	if (ret)
-+		return ret;
-+
-+	ret = regmap_set_bits(regmap, PCF8525_REG_INTB_MASK2,
-+			      PCF8525_MASK2_TSIE);
-+	if (ret)
-+		return ret;
-+
-+	ret = regmap_set_bits(regmap, PCF8525_REG_INTA_MASK1,
-+			      PCF8525_MASK1_WD_CD);
-+	if (ret)
-+		return ret;
-+
-+	/* WD_VAL is write-only, so establish a known stopped state. */
-+	ret = regmap_write(regmap, PCF8525_REG_WD_VAL, PCF8525_WD_VAL_STOP);
-+	if (ret)
-+		return ret;
-+
-+	/* Select the 1/4 Hz clock and keep WD_CD disabled until .start(). */
-+	ret = regmap_update_bits(regmap, PCF8525_REG_WD_CTL,
-+				 PCF8525_WD_CTL_WD_CD | PCF8525_WD_CTL_TF_MASK,
-+				 FIELD_PREP(PCF8525_WD_CTL_TF_MASK,
-+					    PCF8525_WD_TF_QUARTER_HZ));
-+	if (ret)
-+		return ret;
-+
-+	ret = pcf8525_update_ctrl2(pcf8525, PCF8525_CTRL2_WDTF, 0);
-+	if (ret)
-+		return ret;
-+
-+	/* All INTB sources are quiescent; switch the physical pin last. */
-+	return regmap_clear_bits(regmap, PCF8525_REG_CLKOUT,
-+				 PCF8525_CLKOUT_CLKOE);
-+}
-+
-+static int pcf8525_watchdog_init(struct device *dev, struct pcf8525 *pcf8525)
-+{
-+	struct watchdog_device *wdd = &pcf8525->wdd;
-+	int ret;
-+
-+	if (!IS_ENABLED(CONFIG_WATCHDOG) || pcf8525->irq_intb <= 0)
-+		return 0;
-+
-+	ret = pcf8525_watchdog_config(pcf8525);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to configure watchdog\n");
-+
-+	ret = devm_request_threaded_irq(dev, pcf8525->irq_intb, NULL,
-+					pcf8525_wdt_irq, IRQF_ONESHOT,
-+					"pcf8525-wdt", dev);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to request INTB IRQ\n");
-+
-+	wdd->parent = dev;
-+	wdd->info = &pcf8525_wdt_info;
-+	wdd->ops = &pcf8525_wdt_ops;
-+	wdd->min_timeout = pcf8525_wdt_val_to_timeout(PCF8525_WD_VAL_MIN);
-+	wdd->max_timeout = pcf8525_wdt_val_to_timeout(PCF8525_WD_VAL_MAX);
-+	wdd->status = WATCHDOG_NOWAYOUT_INIT_STATUS;
-+	wdd->timeout = PCF8525_WD_DEFAULT_TIMEOUT_S;
-+	watchdog_init_timeout(wdd, 0, dev);
-+	pcf8525_wdt_set_timeout(wdd, wdd->timeout);
-+
-+	watchdog_set_drvdata(wdd, pcf8525);
-+	watchdog_stop_on_reboot(wdd);
-+	watchdog_stop_on_unregister(wdd);
-+	watchdog_stop_ping_on_suspend(wdd);
-+
-+	/* Unregister the watchdog, detach INTB, then free the IRQ. */
-+	ret = devm_add_action_or_reset(dev, pcf8525_wdt_cleanup, pcf8525);
-+	if (ret)
-+		return ret;
-+
-+	return devm_watchdog_register_device(dev, wdd);
-+}
-+
- static int pcf8525_get_inta_irq(struct i2c_client *client)
- {
- 	struct fwnode_handle *fwnode = dev_fwnode(&client->dev);
-@@ -719,6 +978,31 @@ static int pcf8525_get_inta_irq(struct i2c_client *client)
- 	return client->irq;
- }
- 
-+static int pcf8525_get_intb_irq(struct i2c_client *client)
-+{
-+	struct fwnode_handle *fwnode = dev_fwnode(&client->dev);
-+	int irq;
-+
-+	irq = fwnode_irq_get_byname(fwnode, "intb");
-+	if (irq >= 0 || irq == -EPROBE_DEFER)
-+		return irq;
-+
-+	if (irq != -ENOENT && irq != -EINVAL && irq != -ENODATA &&
-+	    irq != -ENXIO)
-+		return irq;
-+
-+	if (fwnode_property_present(fwnode, "interrupt-names"))
-+		return 0;
-+
-+	/* With no interrupt-names, INTB is the optional second interrupt. */
-+	irq = fwnode_irq_get(fwnode, 1);
-+	if (irq == -ENOENT || irq == -EINVAL || irq == -ENODATA ||
-+	    irq == -ENXIO)
-+		return 0;
-+
-+	return irq;
-+}
-+
- static int pcf8525_mask_irqs_inta(struct pcf8525 *pcf8525)
- {
- 	int ret;
-@@ -804,6 +1088,38 @@ static int pcf8525_setup_wakeup_only(struct device *dev,
- 	return pcf8525_unmask_irqs_inta(pcf8525, false);
- }
- 
-+static int pcf8525_suspend(struct device *dev)
-+{
-+	struct pcf8525 *pcf8525 = dev_get_drvdata(dev);
-+	int ret;
-+
-+	if (watchdog_active(&pcf8525->wdd)) {
-+		/* Keep the counter and WD_CD state; only detach WDTF from INTB. */
-+		ret = regmap_set_bits(pcf8525->regmap, PCF8525_REG_INTB_MASK1,
-+				      PCF8525_MASK1_WD_CD);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int pcf8525_resume(struct device *dev)
-+{
-+	struct pcf8525 *pcf8525 = dev_get_drvdata(dev);
-+	int ret;
-+
-+	if (watchdog_active(&pcf8525->wdd)) {
-+		ret = pcf8525_wdt_arm(&pcf8525->wdd, false);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static DEFINE_SIMPLE_DEV_PM_OPS(pcf8525_pm_ops, pcf8525_suspend, pcf8525_resume);
-+
- static int pcf8525_probe(struct i2c_client *client)
- {
- 	struct device *dev = &client->dev;
-@@ -832,6 +1148,11 @@ static int pcf8525_probe(struct i2c_client *client)
- 	if (irq < 0)
- 		return dev_err_probe(dev, irq, "failed to get INTA IRQ\n");
- 
-+	pcf8525->irq_intb = pcf8525_get_intb_irq(client);
-+	if (pcf8525->irq_intb < 0)
-+		return dev_err_probe(dev, pcf8525->irq_intb,
-+				     "failed to get INTB IRQ\n");
-+
- 	/* Isolate stale and unused INTA sources before enabling timestamps. */
- 	if (irq > 0 || wakeup) {
- 		ret = pcf8525_mask_irqs_inta(pcf8525);
-@@ -879,6 +1200,10 @@ static int pcf8525_probe(struct i2c_client *client)
- 	if (ret)
- 		return ret;
- 
-+	ret = pcf8525_watchdog_init(dev, pcf8525);
-+	if (ret)
-+		return ret;
-+
- 	/* Wakeup must be set up before registering so wakealarm is exposed. */
- 	if (irq > 0 && !(client->flags & I2C_CLIENT_WAKE)) {
- 		ret = devm_device_init_wakeup(dev);
-@@ -919,6 +1244,7 @@ static struct i2c_driver pcf8525_driver = {
- 	.driver = {
- 		.name = "rtc-pcf8525",
- 		.of_match_table = pcf8525_of_match,
-+		.pm = pm_sleep_ptr(&pcf8525_pm_ops),
- 	},
- 	.probe = pcf8525_probe,
- 	.id_table = pcf8525_i2c_id,
 -- 
-2.34.1
-
+Krzysztof Kozlowski <krzk@kernel.org>
