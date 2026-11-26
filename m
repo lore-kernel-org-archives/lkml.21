@@ -1,94 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=37.187.26.192
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795674199;
-	b=uMcUsWFp9fR+TAvo6LtEc1wPbmgMIdVeHSfaYuFs94XGO/DotuoOoU3Rhw4sJPMblIe1
-	 t9Dj5BR5157IfZWoEFhwCsHj+Ohx9MAGZC1LyGOVQM/8GQXH+yxKih5S/ajeE8VUAi2NO
-	 THe9efkcANaSMyD6R0vJHakozmJgltEqQscSzfWLiIUetf3ugL6V3HN2/H12uh6NTdNiv
-	 e0/+1CwRtP+1ArOeb5V9m18yfn+Pa5PMN1O4HEEtsPGkFVjpeduWyHkXdLatmHYY3fDMK
-	 SLbp29qGToiTr+z0xS/g5TpzJ9ptPKDdRuXBzQwZAFewRgeIfTpDS80r6VIxXxRUD7A==
+	t=1795674228;
+	b=J0fI8iLAD4SQfFG0KQ1ORla5Q45Ba0CgvWFaYvZt05yKVpowF43ieLgVQlYjMY2DhBQ0
+	 OvFBhQG76XBclKE8BVYZ5cqSPNqEN0i7SnktCYFOnR14STw1WRIq/bxNbY7++6URSHlES
+	 DbocOdcUcg4042HvvsA1gMCEA3d2EtcZ6ojy16jbMda6vbmzZ0jXKEhJzcf6yLU8OzvmC
+	 gDZAiAhi23baW5I59NDtSFVdR8feaqqaZboCPO++ca/FwpEwE1le+tjhSiQlR18yUp05w
+	 feONrdu9Vv2i0IUv5IpVTvKLW43sdyu4H4dDkHY4GQMPwUVl6l6vR4jGDqWYbgpM05A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795674199;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=5bb5Je9p97xfNctApi5CrFhZd9ei04elcnBUavAD020=;
-	b=2fda8YNVu/lixN+WVd6mqWtcGDkPkggmQTwsKRhhmDdon2y91aZsBf2nhRriPiZjVzeb
-	 xjuMj+yP2CrZ4MCqOElx3QT48nvTr+cEQgBeY3F8E86e+ufGPOgmApnLXNgU7qqDFdtkk
-	 WYE2WcIh2AYYqBDJaJAdmNqjUOMVff2CLzbYUglGqmZySmumf/VSHfkOk+2hxsQP/wGjL
-	 EsSQbb9Qq/0CEpEv5jQ/AXsMIamYcNAXfVGtyah996pYXDndBd5DdB3mCQf/bLpeR656U
-	 /G+kCuj+eN1uBxyKsjQh8ICRbI41sgfsHHHLo2klstP4rPE/NFNSRbDKnBb+JIWDSog==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795674228;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:Content-Language:To:Cc:References:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=qehpt+5wAFo/jceSmPTcsq2gcp2uvoZ5ZH7hEYBOSHs=;
+	b=d37tLcOkkoblzDRG9Li+fqbY0ZTYMUogfWYtt+PZoq1fj+O+3J1MgzPlIakTKGqajoSH
+	 ge6/xjxTgJEQc0ngV3JGVmnxGkPMz+C4doEChTeIzccGHomCsckCo+/hLHt7bPDT9x8yO
+	 6OG/Y+PbFYYr7nD7X8yHSHPlMYGjNd7J0aeQpswWiBdt7h5iwxmh9cdWbPGFPyKrNNtOy
+	 tjh7GmvHDDmQpZNk+NuAeoEEzh023PreXWWQE8A2QAO1ALvUm13aEuRA0iEBUjlU5wIaj
+	 AtFVz/H9CtM5bmqrPxQ2LGUvonsOfmWYWwoHcbbmuszJYvp7SoD6Y4GoX4xc0vtd9Xw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YACbua7o;
-	arc=none smtp.remote-ip=209.85.214.182
-Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=adishatz.org;
+	spf=pass smtp.mailfrom=adishatz.org;
+	dkim=pass header.d=adishatz.org header.i=@adishatz.org header.a=rsa-sha256 header.s=mail header.b=lirZne51;
+	arc=none smtp.remote-ip=37.187.26.192
+Received: from adishatz.org (ns314768.ip-37-187-26.eu [37.187.26.192])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FB50606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:23:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FB50606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD68C606A31C;
+	Thu, 26 Nov 2026 06:23:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD68C606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=adishatz.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=adishatz.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YACbua7o
-Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2f02f04a426so54493825ad.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:23:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795674198; x=1796278998; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5bb5Je9p97xfNctApi5CrFhZd9ei04elcnBUavAD020=;
-        b=YACbua7oSN7sJw24HYX57m0e9cVdc1sjtYLdAIvO3Cg3hutEKad156pvmOXb2cEj3W
-         pET12Z7zu6/oqTMbLIPxRWZxdAOyxPa3evc9VAD4XfUfNOHSV2e0CiD9OvSwNh8ND8MX
-         3wbd6UmrU35bE/ykoZ+nC8Jr8UKnnRU1l06r8J/MhvMz4Z/Egpmjzj51PnH5KnWxhIly
-         ErJIyJUFHfxnz8ZWR/nv5uFtbZ1VA+uNYnR3wpts0jwh+ViEMYs7BNUq5FiXwAt+DJ/G
-         Fo5ADZQozTr/arFscBB9uNCCUOOSCu8Zn7/ANmdhJUl46PFLQqdXGxp63uz/7pawIzbM
-         TI7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795674198; x=1796278998;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5bb5Je9p97xfNctApi5CrFhZd9ei04elcnBUavAD020=;
-        b=B9dbxoSOonWqHyA/3vK3nOk9xoneXKz37b7ySBuXWz419a83pqozvRsfBEUSy8fJCI
-         HuAhACaFdBd7fnZhYd/icEuNcwUJGfz2kst5SMtBlPAfmt1A6tjKSUytyYNbZNZVqbaT
-         VoVlJ0UIk7p0nzrVuDR0GjKnnlKfGlR0dgBh8py78TVDElAb79s9aTN+V+dgANjnhPeQ
-         N6jeTAFdCuqou7qNkZIfHLk5O8LzfZeTTRLOZpjz4rxdpxKuU7Gkem5QuJGYSYP1wCPC
-         2Fu9Dz9CbLiVdMuPWbrVaihK3KPYEkAzass4TfIb9q1JZAIv5DCW8Y3LcWuA5yRB37KL
-         D7ag==
-X-Forwarded-Encrypted: i=1; AL+hErG3z0jqmDKmli7PGeUU8gR+g787YMVAsvuIRTKRWNZjBEJzw590QpafrI7ti03yMAKNxjNUXoZE0I1TIF8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+dm1okEo/h+Ix4pitlo9tdY63CMGeBpdt8uP5iDoYjrn8GhRIQ
-	PIrtpq4BqsJuRLDieuhqc8GyqajK6LYpOs6W9hGMHwBMHE5H6jJFRydz
-X-Gm-Gg: AZFdTZek7xann04H43Y4C0ew1CGLwkQHRGzeYYCbTg/VHGdIMbQ0hbusdD9tJvmqkLK
-	F9cv/Mp3o4w+Vivih/MxPiWnatqSiTS5Igm9KMOze3zT1S5oOpBZhPGPPH+9N9FdnsTRYfrJMzq
-	7jQRIV+n7y0lPDpqagM+yfgLYKYN9721D+uxA1I0DxoSUkXzFWYiUxDSj3MD/hslz/lTJz56JAh
-	rNea8Pvae2esoXU5eJnogljVPN41P202J6wX61SCR8o7pTXfNNWXAy2sk7dubh981ilXPtNpICU
-	AYA5ohzjl/yWIg9PzkPKk5iQPwefmPvFvvhlHXhtcAYd/CYEjChUJkcZKw2W0o3qkxNbZ2olfXy
-	mnEiKkOYog1FxZPRhUgIWh0BX3Fhbmi2T4AXEg5fGnDPmPiXuS4yPnLmH66zLke2ZWziRomYU0l
-	BCtVVPrr/HRiweplz1mHQcPMR0l7+HIxCfB24nHFdIIRvapu7hhf8EEL5r3ZinRcT/Yr5VzopMy
-	Letcfbo8amkjkAVAyoqawW9o7ElmH1eL821P0NMxKL/peco7nyBLaMSc4UMU3qMhGlPEp9d824l
-	KY8W1VbbZrUR+dzXocfnZ3Paek7ycXV5QHGu8KJ7kp8EMIqMhMdkS5y1k8ZzKe22Nduu
-X-Received: by 2002:a17:90b:2f07:b0:3b5:a68:297c with SMTP id 98e67ed59e1d1-3b50a689b5cmr2618272a91.66.1795674198424;
-        Wed, 25 Nov 2026 22:23:18 -0800 (PST)
-Received: from linux.internal.banvien.com ([119.82.142.58])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b495035339sm18122486a91.0.2026.11.25.22.23.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 22:23:18 -0800 (PST)
-From: Nhat Tran <nhat.tranminhk2@gmail.com>
-To: Lee Jones <lee@kernel.org>
-Cc: Biju Das <biju.das.jz@bp.renesas.com>,
-	Cosmin Tanislav <cosmin-gabriel.tanislav.xa@renesas.com>,
-	mfd@lists.linux.dev,
-	linux-renesas-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Nhat Tran <nhat.tranminhk2@gmail.com>
-Subject: [PATCH] mfd: rz-mtu3: Fix MTU5 timer start register offset
-Date: Thu, 26 Nov 2026 13:23:07 +0700
-Message-Id: <20261126062307.53943-1-nhat.tranminhk2@gmail.com>
-X-Mailer: git-send-email 2.25.1
+	dkim=pass (2048-bit key, unprotected) header.d=adishatz.org header.i=@adishatz.org header.a=rsa-sha256 header.s=mail header.b=lirZne51
+Received: from [10.42.0.216] (123.127.95.79.rev.sfr.net [79.95.127.123])
+	by adishatz.org (Postfix) with ESMTPSA id 0AB0F4C0163;
+	Thu, 26 Nov 2026 07:23:35 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=adishatz.org;
+	s=mail; t=1795674217;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=qehpt+5wAFo/jceSmPTcsq2gcp2uvoZ5ZH7hEYBOSHs=;
+	b=lirZne51Z6mkF1RxbO2r6CCcVAlpNn7K+z+OjT/Xhzl9aBQn6xIJQkaVNk7eg987PZDwmK
+	aN0hPknPt1T/7uiLPzOI5FmoNYtWUgOG5b88zffb05VJMWj60oufFu0cGXYP5k5bu79vW1
+	D1bhzgTo9BWnDGpxvPxNQop0jZRz7S5kuCn+4CL34xYB1ZSDM/9+HAgBsoEwxfsM0gY1bC
+	k3cxe/c2xPPgaT7WXJ3c2Ct68GIWaHe3MJxFPqxKM72diGxgFawM95nHK2zjOeWVmg1pfp
+	C2SEEPoaGYQ8u8t3zoKAZr9luBq4f3wyQQZOwjH2sU+PZr78cPdD4SYYYzHePA==
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=cedric.bellegarde smtp.mailfrom=cedric.bellegarde@adishatz.org
+Message-ID: <7e748fc5-43d1-4200-9ad4-45d43d659e47@adishatz.org>
+Date: Thu, 26 Nov 2026 07:23:32 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,53 +61,111 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] media: v4l2-async: link ancillary device runtime PM to
+ the sensor's
+Content-Language: en-US, fr-FR
+To: Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Kieran Bingham <kieran.bingham@ideasonboard.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, linux-media@vger.kernel.org,
+ linux-kernel@vger.kernel.org, phone-devel@vger.kernel.org,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Hans Verkuil <hans@jjverkuil.nl>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>
+References: <20260922-sensors_pm-v1-1-05adf2098b5e@adishatz.org>
+ <arNzDkG8JmIWedwF@kekkonen.localdomain>
+ <179014670130.2497080.16248724869350735374@ping.linuxembedded.co.uk>
+ <arZX1fhR_hvg0nfM@kekkonen.localdomain>
+From: =?UTF-8?Q?C=C3=A9dric_Bellegarde?= <cedric.bellegarde@adishatz.org>
+In-Reply-To: <arZX1fhR_hvg0nfM@kekkonen.localdomain>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-rz_mtu3_get_tstr_offset() returns RZ_MTU3_TSTR for MTU5, which is the
-index of TSTR in rz_mtu3_8bit_ch_reg_offs[], not a register offset.
-rz_mtu3_start_stop_ch() and rz_mtu3_is_enabled() pass the result to the
-shared register helpers, which add it to the MMIO base directly. For
-MTU5 they therefore access offset 0x002, which is TMDR1 of MTU3, instead
-of TSTR at offset 0xab4.
+Hello,
 
-Reproduced on RZ/G2L SMARC with MTU3 in PWM mode 1 on MTIOC3A and a
-temporary debugfs hook calling rz_mtu3_enable()/rz_mtu3_disable() on
-MTU5:
+Le 25/09/2026 à 13:15, Sakari Ailus a écrit :
+> Hi Kieran,
+> 
+> On Wed, Sep 23, 2026 at 07:58:21AM +0100, Kieran Bingham wrote:
+>> Quoting Sakari Ailus (2026-09-23 07:34:54)
+>>> Hi C�dric,
+>>>
+>>> On Tue, Sep 22, 2026 at 09:39:12PM +0200, C�dric Bellegarde wrote:
+>>>> When a sensor's fwnode references an ancillary lens or flash device
+>>>> (e.g. via the "lens-focus" or "flash-leds" properties),
+>>>> v4l2_async_create_ancillary_links() already creates a media controller
+>>>> link between the two entities, but their runtime PM states remain
+>>>> independent.
+>>>>
+>>>> This is a problem for devices such as VCM lens actuators, which are
+>>>> typically spring-loaded: holding a position away from the spring's
+>>>> rest point requires continuous power, and the position is not retained
+>>>> once power is cut. If such an actuator is allowed to runtime-suspend
+>>>> independently of the sensor, the lens can drift back to its rest
+>>>> position during an otherwise active capture session.
+>>>>
+>>>> Add V4L2_SUBDEV_FL_PM_LINK to allow an ancillary subdevice to request
+>>>> that its runtime PM state be linked to the associated sensor.
+>>>
+>>> Interesting idea.
+>>>
+>>> The IPU bridge has created such a device link between the VCM and the
+>>> sensor as on some ACPI systems the VCM is in fact relying on the power
+>>> resources of the sensor. But to do this everywhere?
+>>
+>> Same on any Raspberry Pi camera module. The VCM is powered by the same
+>> enable lines as the Sensor there I think which has made things
+>> interesting in handling VCMs for those devices.
+> 
+> Yes, this has been an issue in DT for a long time. :-( I'm not sure if this
+> approach could extend into a solution for that though.
+> 
+>>
+>>
+>>> VCMs traditionally have been powered through opening their sub-device node
+>>> and that hasn't been exactly neat API-wise. It has been practical still,
+>>> AFAIK, as in order to control the VCM, you have to have a sub-device node
+>>> open.
+>>
+>> This is an issue though, as libcamera opens the device nodes and holds
+>> the file descriptor when it has a camera. This means that even if the
+>> camera isn't streaming, the VCM is powered on and causes power
+>> consumption on mobile devices which people then attribute to pipewire.
+> 
+> A practical fix for that could be to set the current to 0 when streaming is
+> off.
 
-                          TMDR1 (MTU3)   TSTR (MTU5)
-  initial                     0x02           0x00
-  MTU5 start, before fix      0x06           0x00
-  MTU5 start, after fix       0x02           0x04
+For the zero-current route: lens subdevs have no s_stream, so how would 
+the VCM driver learn that streaming stopped? The device link gets this 
+from sensor runtime PM without a new API.
 
-Before the fix, starting MTU5 switches MTU3 out of PWM mode 1 while
-MTU5 itself never starts, and rz_mtu3_is_enabled() still reports MTU5
-as running.
+>>
+>>   
+>>> This change also does mean that if the sensor is powered, even for
+>>> always-on use cases that generally consume very little power, the VCM is
+>>> powered on as well. VCMs still typically consume very little power if the
+>>
+>> Do you foresee use cases where a linked VCM shouldn't be  powered while
+>> a camera is streaming? That effectively means the lens position seen by
+>> the camera is 'arbitrary' / undefined ?
+> 
+> It's neither, in that case the lens will be just in the resting position
+> which is typically close to infinite.
 
-Look up the real offset in rz_mtu3_8bit_ch_reg_offs[].
+>>
+>>> current is configured to zero. Maybe this won't be an issue? Backtracking
+>>> from such a change wouldn't be simple, and might not be possible at all.
+>>>
+>>> There wouldn't be a need for a sub-device flag and this would be done for
+>>> all VCMs based on the ancillary link.
+>>>
+>>> I wonder what others think.
+>>>
+>>> Cc Laurent and Hans as well.
+>>
+>> Cc Dave too as he's looked at similar things in the past.
+> 
+regards,
 
-No in-tree user starts or stops MTU5 today.
-
-Fixes: 654c293e1687 ("mfd: Add Renesas RZ/G2L MTU3a core driver")
-Signed-off-by: Nhat Tran <nhat.tranminhk2@gmail.com>
----
- drivers/mfd/rz-mtu3.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/mfd/rz-mtu3.c b/drivers/mfd/rz-mtu3.c
-index 7e1313a57abc..b7872ee0ba97 100644
---- a/drivers/mfd/rz-mtu3.c
-+++ b/drivers/mfd/rz-mtu3.c
-@@ -196,7 +196,7 @@ static u16 rz_mtu3_get_tstr_offset(struct rz_mtu3_channel *ch)
- 		offset = RZ_MTU3_TSTRA;
- 		break;
- 	case RZ_MTU3_CHAN_5:
--		offset = RZ_MTU3_TSTR;
-+		offset = rz_mtu3_8bit_ch_reg_offs[RZ_MTU3_CHAN_5][RZ_MTU3_TSTR];
- 		break;
- 	case RZ_MTU3_CHAN_6:
- 	case RZ_MTU3_CHAN_7:
-
-base-commit: ebb7a8dc1e74c705daffe11c2faf38ec2628f838
 -- 
-2.25.1
-
+Cédric Bellegarde
