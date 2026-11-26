@@ -1,113 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795660272;
-	b=GkdA2NMyj0d7HLHI7r6hYUfpel/MxIbg66XJb7FIDwfObSWXYLBPD6PJG2vYmY2sqjMF
-	 wnpaYAzeFakjwz4ojQUiBgDcEUPRJ3vgXJwscNDtTcKLgL8CQxBHa6MdXALWHclrxUfsE
-	 Qzii9pDs1OzFN0Ws6OB9Kvo9xC631uqTs8CeAPn1TXVR5Mm9K59K17T+VWcHNj8SXXJyv
-	 w/7RkQYKEv9X8tVPfnrrC0nqjtXK7AtD6LmrLwIejOzLNrs9J1vzU68gsmgl3bj0/Gfx3
-	 NXj9IaoA+6DwSOEyKDaj4v2CUscS2hTl3hfnmEZfalE2uKAybcAAsIQe3GFoZ5FxQrw==
+	t=1795660274;
+	b=eCGZe8u9b/PYyb2HRSnn0pW7axaqXETPtPl1hjWNO9Nu7N/7McCtg0NQfspvgREt8h/K
+	 zTVcdmURCzDh1FIenD0IU+JNk6Aoc8P1nEC1e6segn3YDX6IDK7qhA93yyHJ07RHcEb1H
+	 37bHcqHLqL/JMBzfL7xugjQtM1RugFQr95xyJTsk9O8szukdYfXz8or+f5BSDe4ZkJuxf
+	 /UCzyA0pXcCu5wx758MRSM2xnLovYvkZLmbn3sqepkrDLtyyvPVu2Eo3/9pRcWIHN3i5L
+	 F46mjfjId1QlPVTzBeC7gUMUnp1a5a8JOhuc4NhikTekgxxGN9v751Dqd58GldrDMiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795660272;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=NA3dxPx5kpLeZIBZWy1VGAvPGIUfeVILehoK5Z42ZCI=;
-	b=oWy3aEynBqazED4V4DLZX0yo0y+JK3ZNcuZWu7Vc1PMfQkGDCOx3N//PgFQa5l3PhFKj
-	 cgL8OzKmtPO7B7IOYMuhNFF0dU+/MFQQ0+ivtvVUqzur1cmu9SLPQ0MtJYnd9VKtGsGFE
-	 IHPiYpx7Y1OwX48/C+f7bcrcwLyd5vX7hePUmprUvmeuRUgyJumBxU0srluB/cES3ElNB
-	 5GkBxgPkvamRkwTUvxg+0R+7k8b8V80NXS4Qp/ViwTg0JyQwwZet86uQupOOPbwEGdpnL
-	 9TmSu7/xwd4VWnblg/ve5pcDFRFddIXLPj8ZZFmNeGR6DFyPZJK0Vtv7dy7AKa4RTMg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795660274;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer;
+	bh=PlLPJEnikDumUId5OPUoeA0R2LExnIMK5NTAdtsyIQs=;
+	b=CLKFXU/rSGAhAMfVTwwBBRdp7Ih62jSP5sEwY4K44q+IRUMeMDYtenkYJ3psEpQs37RQ
+	 KqkTqIp0t0D3IBTly19QpXUTf7NWfvKRMlYHknJa6RUbp8wwe7MbqJfSUAd0kWp2WO9wb
+	 c48CwRB4LrYAFBD8XRooZiojG+mkWpoCNoQA5OIg5DfmZFP8GlSXeWN4Vd/B5L0XOCtKB
+	 nCnN4Ok0uXM2/r48pwXs70X/1zPnUF/c836hVtxnNwdgfewDvWRe94Z8/F890CMtla0Nh
+	 7/nnnBWuGBHan/TQ0Au7c6yi1H9aSija/F01FeAp7IkimWDwEaYi/xOIFX5kO0bt8LA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LUquglpk;
-	arc=none smtp.remote-ip=209.85.221.51
-Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="k/KZ99we";
+	arc=none smtp.remote-ip=91.218.175.43
+Received: from mta0.migadu.com (out-43.mta0.migadu.com [91.218.175.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AC14606A6A6
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:31:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4AC14606A6A6
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27A3560A260A
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:31:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27A3560A260A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LUquglpk
-Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-48dee593f18so6018215f8f.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:31:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795660271; x=1796265071; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=NA3dxPx5kpLeZIBZWy1VGAvPGIUfeVILehoK5Z42ZCI=;
-        b=LUquglpk9Yta9sPSg26o2HWSPXSKMYtImXRdZQ0zz/gF21pMkwWUrO4VG/7fKlRbU1
-         hldloSMca2+7ATdQZJ+ekLZumicx7xeS37zCJYGF7GlEivaJ9biDuX3WOU0UUL55T4pO
-         wq4bGxdY26aURiY6ApiQNzvZFCudo3GdvuIE71gwAyPl+nFKJUcI9+0S/8DXX6pztYQj
-         qNiZ3kfC7b2NOI7tb2TGu57y8R/nhX067IyQRIIao2JxNDOe4coe8LmXZBmXvinat/+j
-         EgDepwUvIKrNvb2nYXXSUjSCrMWx1BxbkrJPJA4x+vI+/YVDrZOtbyPvs7FkR5HCzli3
-         JuUw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795660271; x=1796265071;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NA3dxPx5kpLeZIBZWy1VGAvPGIUfeVILehoK5Z42ZCI=;
-        b=oEo5y4JMNVr6ZnZZBdMIyLMRZNjQaY/Gf1I+KRHKv4dr7tRxbC9mELZcS2p+x7zMYP
-         M6aVoOcgyxfGKq1OEneIWHkg+fv4iosnoxZ6FiVbhvOAAtwuRLHchs3GORauB90mzuw4
-         K906geuH1EfQnFrdlY0mJrVDU5f6p8QA2mGqmfKfdAKrejjPjPY6L1VATFP5D5xuE8xE
-         BD3EgQqI6yhIFmPHS0+5URRuXAdeBo0vMJ/LU3v0cgV/UUjJufmeWEfCsmN3t8E2v1yi
-         EpGy+W0gBQGb0lrgoXE61ff0Wnk1y2Tpg7Kx1aogMCP+TgSlSHu3OJzsLbF9tDpvwphg
-         VVMg==
-X-Forwarded-Encrypted: i=1; AL+hErHo6Gpay4ciDDvMvaBeLMdgtkaQB63Y7nXUgnRCmaF5z7iqkdJ5hlQ+6vPJFXEkvqQZDUSdA/7vZQtAjG8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8fx1MBAI66WmIzyfGlx4fgHxIncwiNkz0YXxhHdwEardHDohxo
-	AT4qnPZJp9XIs52sZ1RXpx/T6ytE4Y1BK6LqMgEfGbGic2YDEHrQhIpx
-X-Gm-Gg: AZFdTZcJJ3rFy83z3/oXqrcxfe1JszJ6UUpu3yWRaok24I7hwDWyXSioWh+/cY7a2XP
-	qXqoTkoS5XA0V32431gV/jT+Qyf1MCe6WkA8ftklFkgs6Q2f1A85vZd5LIJ/zyQ2ThzXzu5J5xg
-	VhNJ26P4fS/WdthvkUoMsFWBL3vps4TEeIUutuQ2WlhBduUiYug5ChUZrk/IH0TyX5opyrp9VC5
-	HgvwH9+3LBNPE+zrqPuedSn5vATKP5MxefXgAr1wgqbruoQPQMLvn9STbBn7yIKJNoZ8Gs4l3kI
-	2o6rtZNEyXhgmYET8TUtg6R/8p0HSpzKSgCj/5SvRPaJTFOM6IDGf64p1L4BvtAOqwzsC5GoV7y
-	kvgRBuh8dm3dv3gkVMNbPueNEahmwewfYScrmU0imuWSIk+uEEaIfmzaAAs1eD+ahOcZKqAjSdf
-	WuyxlW9naZx5YkUXN6SZKT9ICTJd9Ab918B9WCt6uB8SBlM02Zsvt/jbWBHViXgIUOUyxtwotwf
-	RchPdHdk5Sxss9/JxDNIWcd3iWSwXiAKQK7/N+M2/xXSUiRI/jlRRk1h3XRNIOg1rcsSP4PqPzG
-	z/5ow/L731SWSuJ2XB1dbEuWLHq0VnxPX2ylXPaOoRWDXVx8HnN24q0sL5luXBios/Qy7ntV5Sd
-	pKdGJdIp1qobbCI5+IjeJAsUgLf7qpItk7nkfY6cyV+VKx497IFYdFDwoqIcg8GetSw2bvTG5Ar
-	Obbs85KKvY2uZ5hWyot4dkGuHVWflJyufe9ckS2g==
-X-Received: by 2002:a5d:59c3:0:b0:4b5:b60:4814 with SMTP id ffacd0b85a97d-4b50b60487bmr20466444f8f.54.1795660270516;
-        Wed, 25 Nov 2026 18:31:10 -0800 (PST)
-Received: from localhost.localdomain (dynamic-2a02-3100-b10e-d501-d0c4-b021-8d77-e472.310.pool.telefonica.de. [2a02:3100:b10e:d501:d0c4:b021:8d77:e472])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf685asm37722445f8f.20.2026.11.25.18.31.09
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 18:31:10 -0800 (PST)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Hongyan Xia <hongyan.xia@transsion.com>,
-	Song Liu <song@kernel.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Ben Segall <bsegall@google.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 3/3] sched/preempt: Check preempt counts in notrace helpers
-Date: Thu, 26 Nov 2026 03:30:54 +0100
-Message-Id: <87f882f6c8a66a3d293b6ec00612fd5f25cb2edd.1795631277.git.kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <cover.1795631277.git.kmehltretter@gmail.com>
-References: <cover.1795631277.git.kmehltretter@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=k/KZ99we
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=InHibhT9bQrLYoZnMNQjZvZLY7yEnp1XSGdpTAyLP2I=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795660271; v=1; x=1796265071;
+ b=k/KZ99weVIBdY/KZE8pk4QE85uoZxFZ1DojPCT4IKGvXVWGdUx4aOMU98f+itvb3cyjY0t5s
+ k+aoCiSQggTAjFcsQy33DJvFlRsIRrxa/Rf4tTMt6dx1MCwPmDf5+ak/KON9YlNb0OYH4nqjYpf
+ c3NDbyqBYAtSrpguiwleRrt8=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta11.migadu.com with ESMTPS id 2ca089d9032a043c;
+	Thu, 26 Nov 2026 02:31:10 +0000
+X-Mizu-Trace-ID: 2ca089d9032a043c
+X-Migadu-Flow: FLOW_OUT
+From: Hangbin Liu <hangbin.liu@linux.dev>
+Date: Thu, 26 Nov 2026 10:30:55 +0800
+Subject: [PATCH net 1/3] Revert "bonding: do not set usable_slaves for
+ broadcast mode"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,212 +60,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-bond_broadcast_updelay-v1-1-188e5538d6ca@kylinos.cn>
+References: <20261126-bond_broadcast_updelay-v1-0-188e5538d6ca@kylinos.cn>
+In-Reply-To: <20261126-bond_broadcast_updelay-v1-0-188e5538d6ca@kylinos.cn>
+To: Jay Vosburgh <jv@jvosburgh.net>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Tonghao Zhang <tonghao@bamaicloud.com>, 
+ Nikolay Aleksandrov <razor@blackwall.org>, Shuah Khan <shuah@kernel.org>
+Cc: "jiangjiehua (A)" <jiangjiehua1@huawei.com>, 
+ Hangbin Liu <hangbin.liu@linux.dev>, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ Hangbin Liu <hangbin.liu@linux.dev>
+X-Mailer: b4 0.16.0
 
-The notrace preemption macros use raw count updates even with
-CONFIG_DEBUG_PREEMPT, bypassing the underflow and near-overflow checks
-used by ordinary operations.
+From: Hangbin Liu <liuhangbin@kylinos.cn>
 
-Add checked noinstr helpers for notrace preemption-count updates and use
-them in preempt_disable_notrace(), preempt_enable_notrace() and
-preempt_enable_no_resched_notrace(). Export the out-of-line helpers for
-module callers and retain raw updates when CONFIG_DEBUG_PREEMPT is
-disabled. Remove the now-unused __preempt_count_inc() and
-__preempt_count_dec() macros.
+This reverts commit 45fc134bcfadde456639c1b1e206e6918d69a553.
 
-Share validation with preempt_count_add() and preempt_count_sub(),
-leaving their preemption-latency tracing and ordering unchanged.
+Commit 45fc134bcfad ("bonding: do not set usable_slaves for broadcast mode")
+assumes the bond updelay always applies. However, per commit f8a65ab2f3ff
+("bonding: fix link recovery in mode 2 when updelay is nonzero") and
+section 13.1 paragraph 4 of the bonding documentation, when a slave is
+enslaved and there are no active slaves, the slave should become usable
+immediately once its link comes up, updelay should be ignored.
 
-DEBUG_LOCKS_WARN_ON() evaluates its condition before entering its
-instrumentation region. Branch profiling would therefore call
-ftrace_likely_update() from noinstr text. Make the Branch Profiling
-Kconfig choice depend on !DEBUG_PREEMPT, covering both
-PROFILE_ANNOTATED_BRANCHES and PROFILE_ALL_BRANCHES without changing
-non-debug configurations.
+Before this revert: with no active interfaces, the only slave still waited
+out the 1000 ms updelay before being brought into use.
 
-Suggested-by: Peter Zijlstra <peterz@infradead.org>
-Link: https://lore.kernel.org/r/20261029093219.GH1779021@noisy.programming.kicks-ass.net
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+  [  154.846629] bond0: (slave veth0): link status definitely down, disabling slave
+  [  154.849879] bond0: now running without any active interface!
+  [  159.544736] bond0: (slave veth0): link status up, enabling it in 1000 ms
+  [  160.586299] bond0: (slave veth0): link status definitely up, 10000 Mbps full duplex
+  [  160.603278] bond0: active interface up!
+
+After this revert: the first slave can be used immediately on link up.
+Subsequent slave veth2 still honor the 1000 ms updelay.
+
+  [   94.106425] bond0: (slave veth0): link status definitely down, disabling slave
+  [   94.109130] bond0: now running without any active interface!
+  [   98.272494] bond0: (slave veth0): link status up, enabling it in 0 ms
+  [   98.273279] bond0: (slave veth0): link status definitely up, 10000 Mbps full duplex
+  [   98.275056] bond0: active interface up!
+  [  110.855705] bond0: (slave veth2): Enslaving as an active interface with an up link
+  [  111.904688] bond0: (slave veth2): link status definitely up, 10000 Mbps full duplex
+  [  114.608488] bond0: (slave veth2): link status definitely down, disabling slave
+  [  117.624491] bond0: (slave veth2): link status up, enabling it in 1000 ms
+  [  118.664636] bond0: (slave veth2): link status definitely up, 10000 Mbps full duplex
+
+The stale-empty side of the problem that motivated 45fc134bcfad is
+addressed by the follow-up patch in this series, "bonding: update
+slave array on link change for broadcast mode", which rebuilds the
+array on link transitions, together they keep ignore_updelay correct
+in both directions.
+
+Signed-off-by: Hangbin Liu <liuhangbin@kylinos.cn>
 ---
-Changes in v2:
-- Replace the kernel/sched/Makefile CFLAGS_core.o override with a
-  !DEBUG_PREEMPT dependency on the Branch Profiling Kconfig choice
-  (Steven Rostedt), covering both PROFILE_ANNOTATED_BRANCHES and
-  PROFILE_ALL_BRANCHES.
-- Remove unused __preempt_count_inc() and __preempt_count_dec() macros
-  and clarify the changelog wording (Hongyan Xia).
- include/linux/preempt.h | 23 +++++++++++++++++------
- kernel/sched/core.c     | 40 ++++++++++++++++++++++++++++++++++++----
- kernel/trace/Kconfig    |  1 +
- 3 files changed, 54 insertions(+), 10 deletions(-)
+ drivers/net/bonding/bond_main.c | 13 ++++---------
+ 1 file changed, 4 insertions(+), 9 deletions(-)
 
-diff --git a/include/linux/preempt.h b/include/linux/preempt.h
-index 06ff44a4b8b..b60fce55a35 100644
---- a/include/linux/preempt.h
-+++ b/include/linux/preempt.h
-@@ -217,6 +217,17 @@ static __always_inline unsigned char interrupt_context_level(void)
-  */
- #define in_atomic_preempt_off() (preempt_count() != PREEMPT_DISABLE_OFFSET)
- 
-+#ifdef CONFIG_DEBUG_PREEMPT
-+void preempt_count_add_notrace(int val);
-+void preempt_count_sub_notrace(int val);
-+#define preempt_count_dec_and_test_notrace() \
-+	({ preempt_count_sub_notrace(1); should_resched(0); })
-+#else
-+#define preempt_count_add_notrace(val)	__preempt_count_add(val)
-+#define preempt_count_sub_notrace(val)	__preempt_count_sub(val)
-+#define preempt_count_dec_and_test_notrace() __preempt_count_dec_and_test()
-+#endif
-+
- #if defined(CONFIG_DEBUG_PREEMPT) || defined(CONFIG_TRACE_PREEMPT_TOGGLE)
- extern void preempt_count_add(int val);
- extern void preempt_count_sub(int val);
-@@ -228,8 +239,8 @@ extern void preempt_count_sub(int val);
- #define preempt_count_dec_and_test() __preempt_count_dec_and_test()
- #endif
- 
--#define __preempt_count_inc() __preempt_count_add(1)
--#define __preempt_count_dec() __preempt_count_sub(1)
-+#define preempt_count_inc_notrace() preempt_count_add_notrace(1)
-+#define preempt_count_dec_notrace() preempt_count_sub_notrace(1)
- 
- #define preempt_count_inc() preempt_count_add(1)
- #define preempt_count_dec() preempt_count_sub(1)
-@@ -263,7 +274,7 @@ do { \
- #define preempt_enable_notrace() \
- do { \
- 	barrier(); \
--	if (unlikely(__preempt_count_dec_and_test())) \
-+	if (unlikely(preempt_count_dec_and_test_notrace())) \
- 		__preempt_schedule_notrace(); \
- } while (0)
- 
-@@ -283,7 +294,7 @@ do { \
- #define preempt_enable_notrace() \
- do { \
- 	barrier(); \
--	__preempt_count_dec(); \
-+	preempt_count_dec_notrace(); \
- } while (0)
- 
- #define preempt_check_resched() do { } while (0)
-@@ -291,14 +302,14 @@ do { \
- 
- #define preempt_disable_notrace() \
- do { \
--	__preempt_count_inc(); \
-+	preempt_count_inc_notrace(); \
- 	barrier(); \
- } while (0)
- 
- #define preempt_enable_no_resched_notrace() \
- do { \
- 	barrier(); \
--	__preempt_count_dec(); \
-+	preempt_count_dec_notrace(); \
- } while (0)
- 
- #else /* !CONFIG_PREEMPT_COUNT */
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 515b9d0353c..017549d1f72 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -6040,7 +6040,7 @@ static inline void preempt_latency_start(int val)
- 	}
- }
- 
--void preempt_count_add(int val)
-+static __always_inline bool __preempt_count_add_checked(int val)
+diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
+index 042d7c75548f..d6675e87d06b 100644
+--- a/drivers/net/bonding/bond_main.c
++++ b/drivers/net/bonding/bond_main.c
+@@ -5140,18 +5140,13 @@ static void bond_set_slave_arr(struct bonding *bond,
  {
- #ifdef CONFIG_DEBUG_PREEMPT
- 	/*
-@@ -6052,7 +6052,7 @@ void preempt_count_add(int val)
- 	 */
- 	if (!IS_ENABLED(CONFIG_HAS_SEPARATE_PREEMPT_RESCHED_BITS) &&
- 	    DEBUG_LOCKS_WARN_ON((preempt_count() < 0)))
+ 	struct bond_up_slave *usable, *all;
+ 
+-	all = rtnl_dereference(bond->all_slaves);
+-	rcu_assign_pointer(bond->all_slaves, all_slaves);
+-	kfree_rcu(all, rcu);
+-
+-	if (BOND_MODE(bond) == BOND_MODE_BROADCAST) {
+-		kfree_rcu(usable_slaves, rcu);
 -		return;
-+		return false;
- #endif
- 	__preempt_count_add(val);
- #ifdef CONFIG_DEBUG_PREEMPT
-@@ -6062,6 +6062,21 @@ void preempt_count_add(int val)
- 	DEBUG_LOCKS_WARN_ON((preempt_count() & PREEMPT_MASK) >=
- 				PREEMPT_MASK - 10);
- #endif
-+	return true;
-+}
+-	}
+-
+ 	usable = rtnl_dereference(bond->usable_slaves);
+ 	rcu_assign_pointer(bond->usable_slaves, usable_slaves);
+ 	kfree_rcu(usable, rcu);
 +
-+#ifdef CONFIG_DEBUG_PREEMPT
-+void noinstr preempt_count_add_notrace(int val)
-+{
-+	__preempt_count_add_checked(val);
-+}
-+EXPORT_SYMBOL(preempt_count_add_notrace);
-+#endif
-+
-+void preempt_count_add(int val)
-+{
-+	if (!__preempt_count_add_checked(val))
-+		return;
- 	preempt_latency_start(val);
- }
- EXPORT_SYMBOL(preempt_count_add);
-@@ -6077,7 +6092,7 @@ static inline void preempt_latency_stop(int val)
- 		trace_preempt_on(CALLER_ADDR0, get_lock_parent_ip());
++	all = rtnl_dereference(bond->all_slaves);
++	rcu_assign_pointer(bond->all_slaves, all_slaves);
++	kfree_rcu(all, rcu);
  }
  
--void preempt_count_sub(int val)
-+static __always_inline bool preempt_count_sub_debug_checks(int val)
- {
- #ifdef CONFIG_DEBUG_PREEMPT
- 	/*
-@@ -6087,15 +6102,32 @@ void preempt_count_sub(int val)
- 	unsigned int pc = preempt_count();
- 
- 	if (DEBUG_LOCKS_WARN_ON(pc - uval > pc))
--		return;
-+		return false;
- 	/*
- 	 * Is the spinlock portion underflowing?
- 	 */
- 	if (DEBUG_LOCKS_WARN_ON((val < PREEMPT_MASK) &&
- 			!(preempt_count() & PREEMPT_MASK)))
-+		return false;
-+#endif
-+	return true;
-+}
-+
-+#ifdef CONFIG_DEBUG_PREEMPT
-+void noinstr preempt_count_sub_notrace(int val)
-+{
-+	if (!preempt_count_sub_debug_checks(val))
- 		return;
-+	__preempt_count_sub(val);
-+}
-+EXPORT_SYMBOL(preempt_count_sub_notrace);
- #endif
- 
-+void preempt_count_sub(int val)
-+{
-+	if (!preempt_count_sub_debug_checks(val))
-+		return;
-+
- 	preempt_latency_stop(val);
- 	__preempt_count_sub(val);
- }
-diff --git a/kernel/trace/Kconfig b/kernel/trace/Kconfig
-index 35d043b1933..a940dbe551b 100644
---- a/kernel/trace/Kconfig
-+++ b/kernel/trace/Kconfig
-@@ -663,6 +663,7 @@ config TRACE_BRANCH_PROFILING
- 
- choice
- 	prompt "Branch Profiling"
-+	depends on !DEBUG_PREEMPT
- 	default BRANCH_PROFILE_NONE
- 	help
- 	 The branch profiling is a software profiler. It will add hooks
+ static void bond_reset_slave_arr(struct bonding *bond)
+
 -- 
-2.39.5 (Apple Git-154)
+2.56.0
 
