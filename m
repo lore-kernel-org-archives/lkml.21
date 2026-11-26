@@ -1,85 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.132
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795697258;
-	b=Bv2tjfUPTyF1fdmuSO0vMHe82IZSNYyATNda4RNre9r4CU2+6kj1Wj1lon+xYhDouKbM
-	 RNUBu9W+jpb6tMI4O/YX1lr/4AYYvcgEIhyPOZ/xHv+3w+7q2ASUOZp5XwNlngxopztMc
-	 i5pxCSoud/8GJTGT1EP0gzKWt1rWFHktj6a0vP4XUQLG4XkZQmtkfLQ5yQ1Q4qHpmpRWH
-	 /AjO1S/de9oWBjWhQ6EOC84/PBNSKhq6EkjdE0P6mU37QrpCmm+pfpgFfyv9IzxFZ1AFk
-	 fiVo+rBnRQJ2awOSpBYWZPkW+fEY+OZgmICMz9DPvTTYjq47O/GtSVQdKt8bRCQKJsQ==
+	t=1795697293;
+	b=k2SWnAMr+PUpxzJzn3L843ndECpn49HaP0E+NToPwwUcI8CrZFl7X5Nc6kzMX2LKKT8b
+	 L6CMeByuiVnmhtVVTwV4RnPWalkb7CdCFleysV1oV6Q+tAIk/Cu8hEDYfj7CgFrEmd3pw
+	 qWROCL8BW7h2bThG99V+tNDJNNTs2e4FxYsyWX4UuZTftLKIvkDTDW/wfMqJcuXfl7eL3
+	 De61d9sLVrXxspKO95Mo3Fhd0/XodDFg4YZiWBbI1VggvvXzf88wlHnlg9qvMMl/0amyn
+	 mJRSB0zULJFgP7K5k6pk0gnNkwxVovz8XP5LGId1ZVBQ6/JiD+3rSb4diRwka82letw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795697258;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=2ZGj3d9V5w+hajDEv0Cv6Jml5Dg7lC8xu0EU1vzAw6M=;
-	b=aQVYKZNm4MnDriKlIouVbS3SdjQ5nonSOYAn1VoM05tv0jh1EbA8Xv+dN/e5y99x0z/V
-	 MBrsFU//iGMauLXy0urdX2bVE1Lp0BguRxRwEKELQqtqfaL9qgOjucbNQQJ3nwt+tDOu0
-	 nZWP0pySHLhlXQhgtnAmg65LE+2oyR+S1tDQmgu+JPFYcVFga9c0H6gnOneO6Q8EYUGs2
-	 VY6Wq6fa+ceQnMA0fovHcJ1NjACxPNKjpYiKwFS4XOJ9HBpDGj9wKpBGdoKXBGACNh74x
-	 aiTSZYrMe0ye8ZBPrIul5+zuDgGUhQhLw2tWdvO86j5fXRIwsjuJ4cpzjvvyuaPUIkA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795697293;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=8UXmhjzmrSz9c7UGZC3PvW2Va1zzLFwfvXp87xtgrDI=;
+	b=VNj1Jywl/LGaPolN3PHOLSQWZOQphDlUQvLAFolSLooHI23eA5jNH/sDU5KIzkSVmuE1
+	 GVN644OCEPWh9zW5dD70oTEzqKu4AIZw+ncmsPzxNKdosw8saZEl9WPkG5fwb/K07teOS
+	 upbdfxwdEc7TD2zGRs0nQzYOOpu+oDLGree+wSID7nJhZlWSepRcFdcWNTyhjEUritddC
+	 Rq0y0ykFPxayIFMNTzckhTD83Vk3GBq7Pxw9EdN0vrFF4lXhxtVlJuTDonrxatU2pAO/H
+	 dGv/T5q/xWIjK951dT255Atc5rYd+pQa8aKnxSwKqM+SakKtY0j55krg+/8QrfpXe3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Lf0gOSOx;
-	arc=none smtp.remote-ip=192.198.163.14
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.14])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NRd6IM2n;
+	arc=none smtp.remote-ip=74.125.227.132
+Received: from mail-pj2-f4.google.com (mail-pj2-f4.google.com [74.125.227.132])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C41A606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:47:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C41A606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCBF3606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:48:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BCBF3606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Lf0gOSOx
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795697258; x=1827233258;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=/qc0v+9VWibpDBssMT0Yeyn++IiypOZSdHoUAYd2qJw=;
-  b=Lf0gOSOxRpmzrxHIDxhk3ossXpRhkvCnNDYR+Qrcm8zJOioD3LyLBZWm
-   wLu0zn7RFdmPuvWJXEVhHNOCxmiA5QZ9UmlvNYsHfFRFb8Lnx1OrP5uKb
-   LHL8SA2CLleKyXLQwOdYFyO150GjQhAqXPcZ4Vc2+1CPnJcHXWy4MuALl
-   o/gJY8icOrZEqSs46foLdrs6307y7eRcFewg8v99sdpfwcrMvBGhjuSAH
-   1xw6Pro3Q+BgpmMOrpluyuBQq44OabHJW/oHbKgjnPu4ibyEGXsC3nyHH
-   EXnLLncLGwVT0QC7DgmsVqhuEa6Hmuhi39jfaA3+WSK7VBZSHfe66qoSC
-   w==;
-X-CSE-ConnectionGUID: QHbvDSElQ3iaLgleaNMAJA==
-X-CSE-MsgGUID: 0CRZvohhRAyVT6D/OuemOQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4560074"
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="4560074"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 04:47:37 -0800
-X-CSE-ConnectionGUID: R5s9+8Z3STCOHSM9JioJqw==
-X-CSE-MsgGUID: zO+IOfXAQku7bN1FpMd+mQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="12056236"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by orviesa005.jf.intel.com with ESMTP; 26 Nov 2026 04:47:33 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xWYsr-00000001U6u-2Cvp;
-	Thu, 26 Nov 2026 12:47:29 +0000
-Date: Thu, 26 Nov 2026 20:46:42 +0800
-From: kernel test robot <lkp@intel.com>
-To: Abhash Kumar Jha <a-kumar2@ti.com>, andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org, rfoss@kernel.org, mripard@kernel.org,
-	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
-	devarsht@ti.com, u-kumar1@ti.com, sjakhade@cadence.com
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se, jernej.skrabec@gmail.com, s-jain1@ti.com,
-	y-d@ti.com, tomi.valkeinen@ideasonboard.com,
-	benjamin.robin@bootlin.com
-Subject: Re: [PATCH v4] drm/bridge: cdns-mhdp8546: Add suspend resume support
- to the bridge driver
-Message-ID: <20261126201120.k0T1Wvok-lkp@intel.com>
-References: <20261126060532.2379444-1-a-kumar2@ti.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NRd6IM2n
+Received: by mail-pj2-f4.google.com with SMTP id 98e67ed59e1d1-3b497279c25so2038825a91.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:48:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795697292; x=1796302092; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8UXmhjzmrSz9c7UGZC3PvW2Va1zzLFwfvXp87xtgrDI=;
+        b=NRd6IM2nMKDbRQaG0Ara5j45MRa5HNcGGGOv9QmXi88i3V4kx9O1RUtaft1LqiJHKU
+         oRzc7zM5wNS0f1gbek0tsZZu857dTzMgDfwsr9x99nsBtV5aZvZ2yZR3bM6mcy/S490z
+         EgGm87JPBxho7Asm2iGgyZCcpq94GXlUnNbXcGqdXzxTj/VkouXfSbPdcPCTk6YkHvSy
+         NDqDNMcI9GQfNqCl0PwwiD92MgpBkhlPav0oJbv3dVOf4WuW/NSctBO+YSYpD/TXqW72
+         hk9qomN8IK5prBkHJWqNbdK9er0jKAMf4uJLmdJmFktcYM2qmVvPyy0yN92tw1PQFhP+
+         BgUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795697292; x=1796302092;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8UXmhjzmrSz9c7UGZC3PvW2Va1zzLFwfvXp87xtgrDI=;
+        b=tcG/4f57KQV1g4L5fXMooKH5RPbCFv1QHfPir/MGG8SnK5qb+jnuqh5mbttHXvLa3U
+         EZAnrqBlM/HiOLr4DDokI5mvWGeoC893HOezIrUXthMBPnYuBGCTHj3VYMN3TESq6dAF
+         3VKWOe5kgoutt7jHtjRIz1DXMWeQu+vNARyqweAxMAvrYoykoas35ToTYqeQEhVTnjUC
+         QxWAYkpDgtYSsg7WBBoVpcuESg7ctrF8qrbZmqjS/NsZ2O0P6OK1l5RuCh4r3+LWXjzV
+         rbJfvEXIKjDV5OOScoZNDxn5fejXUCIJGtOyuLexUj55vmnNN9YCwZURKN4MyO23xrsP
+         XfXA==
+X-Forwarded-Encrypted: i=1; AL+hErGOhqOkFk05hHeNr0Xo/Z5/CrxnHSe+4cIaF0EPzQh1FeXthsMf148HLLyorihmd2QCfngBG5KTYRcXUCM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z81lxA4Sdj1k+CwJgQGReNPTy6wjU89JqRYWr/UawcPagaNgk7D
+	oDpcMTgKjvjAhSeAzDSR/Ih/RcI3r9SXrW2ONCN4erlHzN3lcDgNmFiwmcztKCXlU2HS5g==
+X-Gm-Gg: AZFdTZfh0lboVNuOEdn87nIXSC9va2TmN4uDw0S094j381dA0J4cbLaBX1A7eBfLlID
+	KXAwVo5E7Wp+CbImFXnowc8f2w7ykmoiO9Kz/KCjTSfIMD3R7umXryevwmUMke1DLfceagYdNOO
+	4oERk/tcEE3F/eDU2OrScaniTCdaOfjGDpitw3D8U7Am8itf6fBkRc7I7wyLJKv+WeikN1yxZkb
+	Z5UYaskV6bzJqqg6SwGjQzGlaGhJN6njmGnd//MaI53gNLpIJfJMCb9ENjX6GFfXprp6qvPMk6Y
+	IfLmrmwU82Mq1QRQbI1hQsFZUbJs1+XzQMK9GaCKYINjzjIkGCH3NUn9vAX6gmOO+F+7UoiSYoa
+	a/zgjWeAqmA5s9eLLbX6Gu6o7grcubxwPX7oU6Co5HIkaVLpk1TbsrbCk+cmCamcVBf8agAFNsx
+	UzOc7250PzbEoqCrAjf2WJbRygdH+lYUWnMyB4ul+AqPamf6+Epcv6xndk8TtkTt08SDcoismLF
+	HcM+nTImDv4Veqo7lVSR2bGP2fG5EPdcsNxSfXnyfkPR6cRXCFuwQD17cZBK4+GAuR2hjnVM7sy
+	F2cW+Zb+ZWBKeEI6MQ4BvsmPKAx3E7hMPBaicHNWylftBY8TN4P+ym4ixhE=
+X-Received: by 2002:a17:90a:e705:b0:3ad:aa1a:312e with SMTP id 98e67ed59e1d1-3b41c7e127cmr20237965a91.3.1795697292077;
+        Thu, 26 Nov 2026 04:48:12 -0800 (PST)
+Received: from amax.cluster.local ([115.233.223.43])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d1361fsm35201528a91.6.2026.11.26.04.48.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 04:48:11 -0800 (PST)
+From: l1za0.sec@gmail.com
+To: Bartosz Golaszewski <brgl@kernel.org>,
+	Kent Gibson <warthog618@gmail.com>,
+	Linus Walleij <linusw@kernel.org>
+Cc: linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Haocheng Yu <l1za0.sec@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] gpio: cdev: fix memory leak in lineinfo_changed_notify
+Date: Thu, 26 Nov 2026 20:47:51 +0800
+Message-Id: <20261126124751.3184158-1-l1za0.sec@gmail.com>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20260922-gpio-cdev-stack-leak-fixes-v3-1-7a0c7a4299d5@oss.qualcomm.com>
+References: <20260922-gpio-cdev-stack-leak-fixes-v3-1-7a0c7a4299d5@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,124 +101,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261126060532.2379444-1-a-kumar2@ti.com>
+Content-Transfer-Encoding: 8bit
 
-Hi Abhash,
+From: Haocheng Yu <l1za0.sec@gmail.com>
 
-kernel test robot noticed the following build errors:
+Commit 1feb5d39b05a ("gpio: cdev: fix kernel stack leak to
+user-space in error path") made gpio_desc_to_lineinfo() return an error
+when the GPIO chip guard cannot be acquired, introducing a new error
+path in lineinfo_changed_notify().
 
-[auto build test ERROR on drm-misc/drm-misc-next]
-[also build test ERROR on linus/master v7.4-rc4 next-20261125]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+This error path can be reached when a watched line changes state while
+its GPIO chip is being removed. The state-change path may decide to
+emit a notification while the chip is still present, but before
+gpio_desc_to_lineinfo() enters its own SRCU read-side critical section,
+gpiochip_remove() may clear gdev->chip. The newly acquired chip guard
+then observes a NULL chip and gpio_desc_to_lineinfo() returns -ENODEV.
+Driver unbind, hot-unplug, or device-tree overlay removal can create
+this race with line request, release, or configuration changes.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Abhash-Kumar-Jha/drm-bridge-cdns-mhdp8546-Add-suspend-resume-support-to-the-bridge-driver/20261126-113532
-base:   https://gitlab.freedesktop.org/drm/misc/kernel.git drm-misc-next
-patch link:    https://lore.kernel.org/r/20261126060532.2379444-1-a-kumar2%40ti.com
-patch subject: [PATCH v4] drm/bridge: cdns-mhdp8546: Add suspend resume support to the bridge driver
-config: csky-randconfig-1001-20261126 (https://download.01.org/0day-ci/archive/20261126/20261126201120.k0T1Wvok-lkp@intel.com/config)
-compiler: csky-linux-gcc (GCC) 14.4.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261126/20261126201120.k0T1Wvok-lkp@intel.com/reproduce)
+At this point lineinfo_changed_notify() drops the file reference and
+returns, but it neither frees the newly allocated notification context
+nor queues the work that normally takes ownership of and frees it.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261126201120.k0T1Wvok-lkp@intel.com/
+Free the context before returning to avoid leaking it whenever the race 
+is hit.
 
-All errors (new ones prefixed by >>):
+Fixes: 1feb5d39b05a ("gpio: cdev: fix kernel stack leak to user-space in error path")
+Cc: stable@vger.kernel.org
+Signed-off-by: Haocheng Yu <l1za0.sec@gmail.com>
+---
+ drivers/gpio/gpiolib-cdev.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-   drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c: In function 'cdns_mhdp_resume':
->> drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c:2322:26: error: 'struct cdns_mhdp_device' has no member named 'no_hpd'
-    2322 |                 if (!mhdp->no_hpd)
-         |                          ^~
-
-
-vim +2322 drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c
-
-  2259	
-  2260	static int cdns_mhdp_resume(struct device *dev)
-  2261	{
-  2262		struct cdns_mhdp_device *mhdp = dev_get_drvdata(dev);
-  2263		unsigned int keep_alive, keep_alive_inc;
-  2264		unsigned long rate;
-  2265		int ret;
-  2266	
-  2267		ret = clk_prepare_enable(mhdp->clk);
-  2268		if (ret)
-  2269			return ret;
-  2270	
-  2271		rate = clk_get_rate(mhdp->clk);
-  2272		writel(rate % 1000000, mhdp->regs + CDNS_SW_CLK_L);
-  2273		writel(rate / 1000000, mhdp->regs + CDNS_SW_CLK_H);
-  2274		writel(~0, mhdp->regs + CDNS_APB_INT_MASK);
-  2275	
-  2276		ret = phy_init(mhdp->phy);
-  2277		if (ret) {
-  2278			dev_err(mhdp->dev, "Failed to initialize PHY: %d\n", ret);
-  2279			goto disable_clk;
-  2280		}
-  2281		ret = phy_power_on(mhdp->phy);
-  2282		if (ret < 0) {
-  2283			dev_err(mhdp->dev, "Failed to power on PHY: %d\n", ret);
-  2284			goto phy_exit;
-  2285		}
-  2286	
-  2287		/*
-  2288		 * The KEEP_ALIVE register is incremented at every scheduler loop of the
-  2289		 * firmware. If it changes between reads, the firmware is still running
-  2290		 * (e.g. the suspend was aborted) and only needs to be activated. If it
-  2291		 * does not change, the bridge lost power and the firmware must be loaded
-  2292		 * again.
-  2293		 */
-  2294		keep_alive = readl(mhdp->regs + CDNS_KEEP_ALIVE) & CDNS_KEEP_ALIVE_MASK;
-  2295		ret = readl_poll_timeout(mhdp->regs + CDNS_KEEP_ALIVE, keep_alive_inc,
-  2296					 (keep_alive_inc & CDNS_KEEP_ALIVE_MASK) != keep_alive,
-  2297					 2000, 2 * CDNS_KEEP_ALIVE_TIMEOUT);
-  2298		if (ret) {
-  2299			ret = cdns_mhdp_load_firmware(mhdp);
-  2300			if (ret)
-  2301				goto phy_off;
-  2302	
-  2303			ret = wait_event_timeout(mhdp->fw_load_wq,
-  2304						 mhdp->hw_state == MHDP_HW_READY,
-  2305						 msecs_to_jiffies(1000));
-  2306			if (ret == 0) {
-  2307				dev_err(mhdp->dev, "%s: Timeout waiting for fw loading\n",
-  2308					__func__);
-  2309				ret = -ETIMEDOUT;
-  2310				goto phy_off;
-  2311			}
-  2312		} else {
-  2313			ret = cdns_mhdp_set_firmware_active(mhdp, true);
-  2314			if (ret) {
-  2315				dev_err(mhdp->dev, "Failed to activate firmware (%pe)\n",
-  2316					ERR_PTR(ret));
-  2317				goto phy_off;
-  2318			}
-  2319	
-  2320			spin_lock(&mhdp->start_lock);
-  2321			mhdp->hw_state = MHDP_HW_READY;
-> 2322			if (!mhdp->no_hpd)
-  2323				cdns_mhdp_bridge_hpd_enable(&mhdp->bridge);
-  2324			spin_unlock(&mhdp->start_lock);
-  2325		}
-  2326	
-  2327		return 0;
-  2328	
-  2329	phy_off:
-  2330		phy_power_off(mhdp->phy);
-  2331	phy_exit:
-  2332		phy_exit(mhdp->phy);
-  2333	disable_clk:
-  2334		clk_disable_unprepare(mhdp->clk);
-  2335	
-  2336		return ret;
-  2337	}
-  2338	
-
+diff --git a/drivers/gpio/gpiolib-cdev.c b/drivers/gpio/gpiolib-cdev.c
+index 5d53bfcdf726..1146198415f8 100644
+--- a/drivers/gpio/gpiolib-cdev.c
++++ b/drivers/gpio/gpiolib-cdev.c
+@@ -2535,6 +2535,7 @@ static int lineinfo_changed_notify(struct notifier_block *nb,
+ 	ret = gpio_desc_to_lineinfo(desc, &ctx->chg.info, true);
+ 	if (ret) {
+ 		fput(fp);
++		kfree(ctx);
+ 		return NOTIFY_DONE;
+ 	}
+ 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.43.0
