@@ -1,81 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795683469;
-	b=hhum1VfhI3A8TiGujKg4pys+qln+Yv0+Tkm/80EAir4ymV8gCQQnvypb1JDd2w5FzOG1
-	 uWm67H+NELwuUCIfJ/wqFqY7PYKnFW62BlCp0NcUeL8BhsZgHfAt7QEumCuzV7AeFioD4
-	 QD1UlFK3DBGZL811FOOr2mkdlY5hmPzObdovPvYyUu+rQcu6vE0oBSpV/kJBHNuoRuiE7
-	 vJdUAubYjXjFr5rJyGHXEgMLtxwDJt+J24fQ3y7oNgKvweAWxEmBu+37lZX4euyB3pwVs
-	 bKwLLx2xK5UyKrMxNx2SLcXE9wmlTmMJP+01tPePHi18diGukdSWl4yg38Ky3VVK1Lg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795683469;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
-	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-ClientProxiedBy;
-	bh=AdLL3Q53BHJLoBt9CSRYGYry3kTUEfgH4omIXprvDe8=;
-	b=wvdQgwLGmZ4AGH9C2rBep0pqH7a5SPdWwiGk6GqOfwfE3l6eT4WxbctiG1Ljnga1BqhO
-	 ZoxEVKliRdKq6v+QO0TNLhqKyhdFcohQaU8hheXjhad/NFCnnssIybMtDljdL7gIqeHx3
-	 D6KWrr6uu6hKTVSWxpbq9yt9aq5/FoSxIz3DO+2STHChzfcmc619a1XODvYBaTLekFa5q
-	 AQuR3KzvMaBLVDYPYm4SUr25hZSj9z8vdzQSj8PBnHOit9vtB33JOt3TuRn/64uyTsPVc
-	 8JSmpbso9+zPYEaZ3nmcJO6spc05UZsRq2hbXOPw0zRlPIgPth57lfT4MZIPrLug8PA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=secunet.com;
-	spf=pass smtp.mailfrom=secunet.com;
-	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=uG0UZuWs;
-	arc=none smtp.remote-ip=62.96.220.36
-Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.172
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795683483;
+	b=R3pEvCXKyeKqELOmlrOpeCUMyJsE+7fhqKQVz0LeHeiNcPV1rei0Al3Z2V3ccVRiDWNF
+	 h2FLHwQXCikrLBdzQB5kqMmTqh9rth2wyLGk1yqCrRIZL3n365FdSOR/qp2Pjf+G3FzWd
+	 juGwraBDxp/GPJmmUC2nIk7hIqkuW2I6wY6395n83mecgpMYY/qAssCK18t4GCTXGUUOr
+	 sFoiJA4DCWrsYmXyaUNutWxZ63atyJ6uOBGkKrai9Q+/tRm3hEj3pbuQu9YNXJKlNIvgz
+	 453zcP75Oq83fBFKk9SCGxY6x539NqoYDZeFd9BOZAkQPVIYuxMNlDvZ137xofu02Og==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795683483;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=YIg1MlMF3u8HPPAvDDKpapxWNkVM7jyo/FfJ8kDzLF0=;
+	b=FnuXBiZEiIWfV88izSGBmX/tatbND8l1QdwkxzczsrGcqzWby5a5jrpP1yi6ZD+L93sF
+	 QvkaTDvmZKUJ2AJYqkGCCIjKT1VmIWCxTSubBQqQ4dOKl5yUDpOSEFUHd9S2EwPhsgu25
+	 dQt6/HZESguJei03r+TLgY/5NBHhZO4o+kmjPJyVmUpigSemhORmKzZ/irX32e2QLMWIi
+	 5nX4Lhx/Jc7LQhXj4ry1pqFXJpv3bW43RmkawFFVls3BsJRhYDIPk45UR+HVOMfQst++h
+	 vUaNPTf3WYIlUwSZ0L1mJgTksUq4nP2Y/S8x3/w0d7agVxCKWnnVkCxYHHxLw0Zc56w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jrAfBUqx;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.172
+Received: from mail-lj1-f172.google.com (mail-lj1-f172.google.com [209.85.208.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7A62606A32A;
-	Thu, 26 Nov 2026 08:57:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7A62606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 760FC606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:58:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 760FC606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=uG0UZuWs
-Received: from localhost (localhost [127.0.0.1])
-	by mx1.secunet.com (Postfix) with ESMTP id B5A8620758;
-	Thu, 26 Nov 2026 09:57:46 +0100 (CET)
-X-Virus-Scanned: by secunet
-Received: from mx1.secunet.com ([127.0.0.1])
- by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id 8zdpgIyEFP4v; Thu, 26 Nov 2026 09:57:46 +0100 (CET)
-Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.secunet.com (Postfix) with ESMTPS id 21FB7206B1;
-	Thu, 26 Nov 2026 09:57:46 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com 21FB7206B1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
-	s=202301; t=1795683466;
-	bh=AdLL3Q53BHJLoBt9CSRYGYry3kTUEfgH4omIXprvDe8=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
-	b=uG0UZuWs5XmZi7MZQ9zamgII2bTngTWGFGOex3D+bxcFooMsSC2G7ZIWNUzyzJ11I
-	 ld5z8ORp7SGRslMa8exrbAfRu6oUk8FRwWLaBAwkNr8WyJF+sue/wOhUiMpYFPdPRX
-	 C+0Wx2BBJ8Wb4/IHgchCz0RJPJHYBAnpvkHE9grcVUGmpj8n6W5YWOVzvK7r9R6dQ/
-	 mbXWyYf0lhLQ/IrpJWg7sq3PWBK+M6zzRPvanbcgMbM76UCflduxpdtQ3yXco/DhaG
-	 20RNmFoUiEUZINEuwLVHB5+97N19q+LQXRtw5bKtzHrxzcIFxiFTiNbRQ1oW2IL5eM
-	 LaOVOkNS5nFUA==
-Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Thu, 26 Nov
- 2026 09:57:45 +0100
-Received: (nullmailer pid 2021184 invoked by uid 1000);
-	Thu, 26 Nov 2026 08:57:45 -0000
-Date: Thu, 26 Nov 2026 09:57:45 +0100
-From: Steffen Klassert <steffen.klassert@secunet.com>
-To: Kyuwon Cho <kyuwoncho18@gmail.com>
-CC: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn
-	<willemb@google.com>, Simon Horman <horms@kernel.org>, Kuniyuki Iwashima
-	<kuniyu@google.com>, <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH ipsec v2 1/1] xfrm: free the policies already cloned when
- a socket clone fails
-Message-ID: <awf0ibmT7f-IzSup@gauss4>
-References: <179540803323.3139700.5340002553684152759@gmail.com>
- <179540803323.3139700.15088508372382876389@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jrAfBUqx
+Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-3ae10409ceaso6543571fa.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:58:03 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795683482; cv=none;
+        d=google.com; s=arc-20260327;
+        b=YsdZmcmcnbEaahcK15ILyvIqhvGBjzoiVURIcWPSwS3BH4IOVHRmKH8H1+Qn4VuMYG
+         cHA33lxNN5z2/eLzpPjJyD26KxDoSe9Hc/EQLDFpCpwMSf5UynKFCsSQCvvpHa0zPGCC
+         Y61hLlbCx6tEM7H534N9a/hfceAAB2AO+inLjlD9/9+QFE2OhScmqzbgCCWrdO+mewQq
+         CWUhaYMvLu4CsjTRqRqWMe/cbYu00qqr025033JnO/QOOraliOMwFoMhkKEW3I/tGtcC
+         5HyEvymCp+4E9m/USZ1UpOuyjIKHD+u1ZV/CIv0NAc+sZZxWrChPhshjhTYasG7p8pPg
+         AN6g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=YIg1MlMF3u8HPPAvDDKpapxWNkVM7jyo/FfJ8kDzLF0=;
+        fh=Utdc/i/Dx1fDYdIlNxy3feAkeD1KemzI0Xcq1FDtffw=;
+        b=dG/v/YIuIalJhjtBKF/BNw327Npvrlxxp+avvfQ/ErTfS/501uGYXDtH3CcL3Vo7Eo
+         CXYaB733cdCAG+3fy6ZvSU7+5KIsy0i84kw6R+xpvhSjmWh83A+J0QHau1j9VLC3Cp+Q
+         N0947ja5Wk0b6dC5G+hGHrid8TDBTnWzznMd+QC9JXRDHOfKeftLS7uF9KOjmQofFZYo
+         mQrrZbyc7z9EXFpHkCmrd9h1chCHXBqjODUMWU6cOg5S3yy2agAbkOpe6mv5JcW6qEkR
+         xwOTdoVsvwWrsnBOhsLT0im6spZO9HBPhwO64jCcfoIXdHS7H4DnJfp0n62rqq0SLT75
+         ZmgA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795683482; x=1796288282; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YIg1MlMF3u8HPPAvDDKpapxWNkVM7jyo/FfJ8kDzLF0=;
+        b=jrAfBUqxTPRrUwm9XyJ0uv3lp4bWKmBCrMAXYhMMT7as272YN8v+jHYsyOtLs4YX4h
+         LCfJQdFaMzGSPOFJJCAd0IQ0Et8Msvk5zgjhdxLiajy6OrdeVCaqU+Y6Br6/u2S1F+2F
+         r0VViiuZ/lMJxscVUet2kefXChLLsN4NxLB6mPy/cRlicAokK4fQIS2h8ZK/t8J0pA0i
+         BxErLKSD4fmUm2zYVOqTzWIHYkRJGJk0VDyKNRT0G1HGyLkbPAQDSSHYs15tKNkQ2e0e
+         m31nEMNNSxfsspWGBZDSiZjoPvgefhfh9/ZNUQLI8lUv3E704CW0jAGaiyeiW2SDRbbv
+         URYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795683482; x=1796288282;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=YIg1MlMF3u8HPPAvDDKpapxWNkVM7jyo/FfJ8kDzLF0=;
+        b=fzAQOr+1VEZleE8Mw/MRN5JeBZ8djG+xXrnUxBrmssDzgv32THPVM3QEzK/aVLAnke
+         Psrup4sspVnHG3mhxAIQcPJxgOvXC0oteHSf+xBj51MU5TBsvwMf98xLAKI19ThvHnuu
+         wM9gl7/JSWu/yR+rCN93GAwhIO9xyMaPTyqNOzWMV/mI1R7ovgkZ2tB3ONSLyPDPM9ax
+         chnjZw1Atu/EfpwjqSs9/34APa3SIT2SyOUiEaikflj8V5UkXWXnil5Bdb8iPUm46Sjl
+         e7lvZYwgtQCSeSyrYE6u8rG6mD0wHnWAkwG5VdXyROtv/kUjkkcXCxiI6nKgN2Hwn5W9
+         uyFg==
+X-Forwarded-Encrypted: i=1; AL+hErHDieUevC54Vd+hGfo1LNVzP0TwlL8jXP+1OYQZkXkz26DbdOMtVrFqjTEWm4WhVwXqclcp1NZ1y3Kmldg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/CnDDeeHlNIBXdNYkpp7ObK+STnYCK/SDzFoQ857ZGI3mqxHkW
+	aOQP3nMYSwQGBxOGoD32OnhrZ+HT21Nq6oYJ+Nxy4sVcDrFNL0OlfvvSoJr4lFxC/QJ8abxRatd
+	VFzka1VNgl7Zxa0GHi76HBZjgrcnuxn0=
+X-Gm-Gg: AZFdTZe4OpnkwLzGaicOytWExTZc7btQbph3IBeYXV0lF3izJYbvf19e+FuxSVXizdT
+	uArjNBc4Vi4ak+RK1erlTaFOnhWO55WmJNdnI8Kmy0eMPmTl1EWIDho0iuZdcHWnZ9ZdJX8NJvB
+	vPmMynrHyQ3iOfa44SK6VauIed8ALyhY6+6wWSL9hBIW/AXIIOQMNiUIb8CPRiO9UN0UDIAyPDa
+	L44cJ4KchGlaZvksE1cP/TRLrpUVHG4K7TZERkS6sB1Ndbr78ecxKK32+QZdk13A44udTPIkb94
+	zfrOhS1B3A76UlXBFQ5V7HXO8RjWdEc0ikBSW4qDG0JmanSglsaKwzPX/28rLKRsdjvmXKNVP87
+	qw8HMujO6ZWOCJiifdcHlA58TTH1rDFo9CzpHAwMfBhfJKlTKqYik1jjDRuxlmVqCIq8ZAnw=
+X-Received: by 2002:a05:6512:318d:b0:5bf:d00a:b6c0 with SMTP id
+ 2adb3069b0e04-5c1bc78eb99mr7714957e87.3.1795683481551; Thu, 26 Nov 2026
+ 00:58:01 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,53 +103,21 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <179540803323.3139700.15088508372382876389@gmail.com>
-X-ClientProxiedBy: EXCH-01.secunet.de (10.32.0.171) To EXCH-01.secunet.de
- (10.32.0.171)
+References: <20261114-ecc-p521-small-scalars-v1-2-7b114f076b33@gmail.com> <20261123033705.91056-1-laveeshb@laveeshbansal.com>
+In-Reply-To: <20261123033705.91056-1-laveeshb@laveeshbansal.com>
+From: Arun Iyengar <aiyengar1990@gmail.com>
+Date: Thu, 26 Nov 2026 00:57:50 -0800
+X-Gm-Features: Aa3M54p44oBlSMt_NseT8QNw9zL5o2sUlh_BC7KfHA_Wix_VB7brgmTVGhl3_PU
+Message-ID: <CAEy9hNXzvwUCUHkERWgq+ziqqj0K4ttS4XqmrpYKrc8K=Ma2FA@mail.gmail.com>
+Subject: Re: [PATCH 2/2] crypto: ecc - Fix P-521 scalar multiplication for
+ small scalars
+To: Laveesh Bansal <laveeshb@laveeshbansal.com>
+Cc: Lukas Wunner <lukas@wunner.de>, Ignat Korchagin <ignat@linux.win>, 
+	Stefan Berger <stefanb@linux.ibm.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	"David S. Miller" <davem@davemloft.net>, Jarkko Sakkinen <jarkko@kernel.org>, 
+	Erwin Pawliczek <pawliczekerwin@gmail.com>, linux-crypto@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Mon, Nov 23, 2026 at 01:29:42PM +0900, Kyuwon Cho wrote:
-> __xfrm_sk_clone_policy() clones the parent's socket policies one
-> direction at a time and returns -ENOMEM at the first failure. If the
-> policy for the second direction cannot be cloned, the clone of the
-> first one is already set in the new socket and linked on
-> net->xfrm.policy_all. sk_clone() then frees the new socket without
-> xfrm_sk_free_policy(), and the policy is leaked until the network
-> namespace goes away:
-> 
->   WARNING: net/xfrm/xfrm_policy.c:4303 at xfrm_policy_fini+0x24c/0x300
->   Call Trace:
->    xfrm_net_exit (net/xfrm/xfrm_policy.c:4372)
->    ops_undo_list (net/core/net_namespace.c:253)
->    cleanup_net (net/core/net_namespace.c:713)
-> 
-> Delete the policies cloned so far before returning the error.
-> xfrm_sk_clone_policy() clears the new socket's slots before cloning,
-> so a slot that is set holds one of these clones.
-> 
-> Fixes: d188ba86dd07 ("xfrm: add rcu protection to sk->sk_policy[]")
-> Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
-> ---
->  net/xfrm/xfrm_policy.c | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/net/xfrm/xfrm_policy.c b/net/xfrm/xfrm_policy.c
-> index cea6842e6454..dba1851f0b3d 100644
-> --- a/net/xfrm/xfrm_policy.c
-> +++ b/net/xfrm/xfrm_policy.c
-> @@ -2460,6 +2460,13 @@ int __xfrm_sk_clone_policy(struct sock *sk, const struct sock *osk)
->  			rcu_assign_pointer(sk->sk_policy[i], np);
->  		}
->  	}
-> +	while (unlikely(ret) && i--) {
-> +		np = rcu_dereference(sk->sk_policy[i]);
-> +		if (np) {
-> +			RCU_INIT_POINTER(sk->sk_policy[i], NULL);
-> +			xfrm_policy_delete(np, XFRM_POLICY_MAX + i);
-> +		}
-> +	}
-
-Do you really need an unroll loop here? This function clones
-at most two policies. If the second fails, just delete the
-first one.
+Thanks for testing. v2 will add the k = n line to the commit message
+and a KUnit test for P-521 key generation, with your Tested-by.
