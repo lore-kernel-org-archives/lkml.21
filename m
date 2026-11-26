@@ -1,89 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795734800;
-	b=SMYlzbrjfvqrc5UkGRhxqkqNiWNrJ4J5vaMgL6Jcaymmbtz3vXZdghF6Fco2lBWnseWM
-	 WX6309mgmqJ2QXwHKYbV3zesCpoQa5wRfRFQB0tEF1ZRnmBEiMk04EENkurLWN5fcBbbh
-	 R6mlp98JLLJVlBjkTcv9gWrlwRebZtpYJFIxt9uo9+Dlgo9s4YWJbMWOwY3C+dqGR6J+Z
-	 nTmfj+YPhJpeHBfl1WF1cIJEwX8KgGGdD3Pc+iMKWikNejnU2FNzf6j4NMcbyfaMlziNC
-	 o0CybJdymylg3sRc3eKvTOZnPz2zwd91CEaOU8W8QjP72+lCD/UHgZtsNxsQQScouMw==
+	t=1795734851;
+	b=cuq/X8nDdGicmh6B1KaLkr26KGH++TKITrCid80RNjMANvDwrSQdlb8gfFs2wbl4vh8D
+	 9iuUKe0RJK0Kd6JfHGrd2wDG1SWk58ZARhQCopULXgyV2OGRLv71AQPwI1LcjZdZeKGU7
+	 DWgIt+ORLeNpDauWFwv3YKcdOUK+0E5u/6qD5ZbWmS7GZQGnoFU95Shb5zaCuACqrtUtB
+	 8BZF7d2mZn7OcwTX+dvIvKSHVFs/9yhPQbd4xQwKtFX/w4ad7HKipGqRc5LyKTG55somX
+	 fb67C70qQgLH7UmI05q3I8zw2BVNLRx8OpTCI3KQTV0+a9LN4czCjCtPlbKt050khZw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795734800;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Z9oKeq83DopfcyY48tMpJBUolAgSCl+fklUHPsTQ/7E=;
-	b=1xzeESU2XBc2Lv4Yy0yr61QVkCUsoPqPMvE8pzfatLqzdJGqpGcjiQJna2cqoiVQQ6ps
-	 Of1GRuAVzdGusvcGj8RRBS2uXIDiJK3OC3kon2Czdlo5r+43k6EIQ9P319HMW8W/iXmyM
-	 ivTKSbEuXfW9N+f9A9TgK9dhExqkLPypTje4utB5XQ741zjfXgYbHm197yYsRpimNbdD8
-	 z9VbioNCYOBzy06bY+oM3ksj80+olW1EyseOwHtMfiFaTOdU+xELFlE77rWe7aTjgITe5
-	 BDyPEcrAzyZvdInDDXne4UBLq8SXWtdcJu0AWVAQiH9ntOn04rWy0lBz97h5dFvFoZQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795734851;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=2V0mx8KvDSloADKsFMwUZp/ao86S1YvoNPEoPKACjso=;
+	b=jqj1GCDP7USkw/iQUXLDvucQNmDCLQ9JZZwz+07eGIaHzUHFKGsvtiyOh3wQ3jQVeGAI
+	 j+iabNMyo9ej7iTJwynXejtvHJSkk1UJVNsBfkhzIiyItuMwHk+gVKh5PllyhhCk/I2og
+	 IJMPfmeYJghewGNibndAIbLgzEgZZJnX+6O5jo5fK98GK7gZHLPKmHkZgIX4G3rX7e+6T
+	 +6bqsKc/KmkWNpzjjdlnZBzaHW6vCJnR5gDfwHQQK7gCKBvbgsutRGaV4mSXGWja2hOdg
+	 aot3eFTvNpOwNXcXED3JM3ba46hXlyLl6z/FvLt6EIAU45asDbdzFvxHMNaRX9F8sjw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=wkennington.com;
-	spf=none smtp.mailfrom=wkennington.com;
-	dkim=pass header.d=wkennington-com.20260707.gappssmtp.com header.i=@wkennington-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=JHBO9wX7;
-	arc=none smtp.remote-ip=74.125.82.44
-Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oCTLrGw1;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F9B0606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 23:13:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F9B0606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=wkennington.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=wkennington.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFEB8606A31C;
+	Thu, 26 Nov 2026 23:14:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=wkennington-com.20260707.gappssmtp.com header.i=@wkennington-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=JHBO9wX7
-Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1a3c08d6928so11143084c88.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:13:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=wkennington-com.20260707.gappssmtp.com; s=20260707; t=1795734798; x=1796339598; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Z9oKeq83DopfcyY48tMpJBUolAgSCl+fklUHPsTQ/7E=;
-        b=JHBO9wX7gqdhkoJohsMxVoW3x1/jmMyJ7SRSIwy8x3gYUyzzacKd1HqKrXV6b1L5H5
-         HT72VlK2dkW9IzOl3rb8ty/4I/f6GEYtwE/yfbr7K4JiXc91gXDGLjBOHNi68i20bn49
-         hAVo90M4h/hCilcDiQZDA3M7AV+cwzKh8npk9vXEZqXbCGwA/blen0OKL6LL0UoM2fDW
-         yxG1j0hZYEncJfVicFWOetM1tC7N/HtwA/RAJN310kmTsfWWqOGWrqrgRD1PO9Xl6Zys
-         sw/R6eJbY489l+QAJ7MEdzBgL6eTxYHjQqmRGSS1/N7qeQW7+dfUpmPjUmtKprdwoOYc
-         pDLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795734798; x=1796339598;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Z9oKeq83DopfcyY48tMpJBUolAgSCl+fklUHPsTQ/7E=;
-        b=INpGwnhplvFPIN/Trc0auBrdE/oLtNx47T/FOmdL3nCXr0uIYhQjYQLsbOxDgKWyaV
-         8ysyaiEwKlgIJt4N+MBwnhqfKrFTrXERvgbbmXCq9mSG2xL995kGVL96FCLDlpABpN2y
-         mfyE1KLMbDcjmUGjAJ2ribDkJJP2nj6/p5V/b0mo30B/sXSsqnCWRCZLu2H6g9rmBeY3
-         YfXZfqWjZav0zir9F6M/zkC5LmcOHJcqt7ufZWecXtcAr+zSf1ZY6zpmOQSC05d1CQni
-         b8zD87IKoBy1cmHLG/QKY5BfVEuqqnGIQd9DYEsheDiPBOcIDE9ev/FuvUflIPHv8lBT
-         yC4g==
-X-Forwarded-Encrypted: i=1; AL+hErEcrqvCu5eIDH+o03c7NM/HzvtXdR+Qbce+b9FWzzk5TumV5Ml5CGeA75x5DwCZSISj+sV3+LmcWHFH7XI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z//MCQDGKnmt9fBQyEv0788GN9awbGKX5j9SlKayIpULCLuXF9b
-	6QyhWeN+jd+sJZ2W4hpe91tTZH8I8kM8r/EtM0praCZLmj0oOSCkFBJDgco5GZO64ho=
-X-Gm-Gg: AZFdTZeSc+jAWd69SqF1VECE8HosXlUmSJ/h9V7OkKRs/1dPYCFGBNpkXsv8+96GL90
-	IekZYxQsPAZo1syCrkDmu+anFfnRBslaBnnWbXh8hSzrZrEQjFu4vTJMnGMw/wmPQCBVN825h6R
-	s/6D1YYyBis4gwuyEXBNNgfpBDrmcIODQyxal43UaFeU8m73NxAoF3+Y/42eRgdhMpHc+IYFKIw
-	CHTz1jJQfyaeLJUl++uVZTzjbbFq1FLG7PHMegK9NeFuury6D6OpLT+eJgqeYF29Brgq2n5tXeC
-	wflTboFZSPwA0iaWvDq5Rf/j+DTlTTzOTJ4/sBSOKacX25qhdD16L8MeyAPHnbsey5pJfku0wUu
-	dgQb2rLbzeK/ZtntGSFZKacxOVuPQNh5FFptjVpohT88v+nmaWF2zF2wH4aO5cF4T7nIC8DNlpX
-	X15RETb0vSJ0wPREpxzUk7c/rxuntisR01cpu7Fr1ATHDZAC4BACJBkn4cWXvEAITXKbL8YjgHm
-	G3m2zmwiNjzYEdKSEdootG42750ECu5lFOiXabuPFsFtG+OD0CxCymQzQg7qBoHb0ErqnSUP6hr
-	j/l3XhhA1PsPK/8jN+D8YniLi0jaH3D6vXWF3EWd7VNek4Adw20AQ5IvJ/mqWvt0cOCEJTVb14f
-	0P31PJn00tkUDexHI7rCn8lQtpA==
-X-Received: by 2002:a05:7023:b88:b0:1ac:d029:70cb with SMTP id a92af1059eb24-1b5568c5127mr27239842c88.30.1795734797799;
-        Thu, 26 Nov 2026 15:13:17 -0800 (PST)
-Received: from [10.1.3.103] (162-231-245-176.lightspeed.sntcca.sbcglobal.net. [162.231.245.176])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55681301asm52330279c88.8.2026.11.26.15.13.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 15:13:17 -0800 (PST)
-Message-ID: <eaefe02d-02ea-4865-b000-7d5b74da9f27@wkennington.com>
-Date: Thu, 26 Nov 2026 15:13:16 -0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oCTLrGw1
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19B3A1F00893;
+	Thu, 26 Nov 2026 23:14:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795734851;
+	bh=2V0mx8KvDSloADKsFMwUZp/ao86S1YvoNPEoPKACjso=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=oCTLrGw1uj64SziI7K6oLwymGAPjp5MEqzlPsRxeedivzAL1Zk9amSoQ/mWGEu15A
+	 7P3sh2ri4/gxGCfPEum/uiOE7G7jT20bzxegU/SUSkwm1XcE7t9sGmyhAjPUkcGuqP
+	 30Lg7qlg1aWhCg2Xm6exSSvEaJ73enTX9KTlYXfnZTD+pkP8pFCofGyZSTUxVZlphU
+	 KZor9Wev08ly6FpYjXCiFZpzsv4jbydhnxFyhqZFS8bpJ9qqJJmuCzkV+Kplq5BbXj
+	 CAWQ7VUv7QhSePPitF0FglqicNTzxnwMPYTVw39yC3HrCIDFRXLx+fl6pBSVKPpdEi
+	 YuY4u5B1rh15g==
+From: Mark Brown <broonie@kernel.org>
+To: Srinivas Kandagatla <srini@kernel.org>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Perry Dale <techluddite@outlook.com>
+Cc: linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <LV5PR84MB40268B01B9F458296BE453ACA7782@LV5PR84MB4026.NAMPRD84.PROD.OUTLOOK.COM>
+References: <LV5PR84MB40268B01B9F458296BE453ACA7782@LV5PR84MB4026.NAMPRD84.PROD.OUTLOOK.COM>
+Subject: Re: [PATCH 0/2] ASoC: qcom: q6apm-dai: stop the playback queue
+ from wedging the DSP
+Message-Id: <179572375936.838304.12750230700944585596.b4-ty@b4>
+Date: Thu, 26 Nov 2026 20:09:19 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,53 +61,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: usb: cdc_ncm: don't flush the TX timer into a
- stopped queue
-To: Paolo Abeni <pabeni@redhat.com>, Oliver Neukum <oliver@neukum.org>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>
-Cc: =?UTF-8?Q?Jan_Kl=C3=B6tzke?= <Jan.Kloetzke@preh.de>,
- linux-usb@vger.kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261118034122.315979-1-william@wkennington.com>
- <7a0566c6-7a5a-460c-a113-d9463be3607f@redhat.com>
-Content-Language: en-US
-From: William A Kennington III <william@wkennington.com>
-In-Reply-To: <7a0566c6-7a5a-460c-a113-d9463be3607f@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1588; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=9xx5kMezR5vVzYWuK+csQ5UgfhjXK4Y0X0r9cyL6JHs=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLI59jroXK6P3357/ux5xy/KXNeo4lHb6PKEuzVSxejss
+ 3VRU4xPdZSyMIhxMciKKbLEZXG/rC95vYbv4MI2mDmsTCBDGLg4BWAimtMYGVplb125u8lzl7qD
+ 5OnX7wP9Kleorz/rHlNy5+2FyQ7c8k8Y/teKKSuURYrzuzPM7l15Vytt6QG9F+7nH95vb736VYj
+ 9HwsA
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-On 11/26/26 2:51 AM, Paolo Abeni wrote:
+On Fri, 20 Nov 2026 11:47:23 -0800, Perry Dale wrote:
+> ASoC: qcom: q6apm-dai: stop the playback queue from wedging the DSP
+> 
+> On the AYN Odin 2 Portal (SM8550) the audio DSP stops answering GPR
+> commands when a game pauses its stream, and every later prepare times
+> out until a reboot. q6apm_dai_ack() queues one write per period of the
+> whole appl_ptr after a trigger stop has reset queue_ptr.
+> 
+> [...]
 
-> On 11/18/26 04:41, William A. Kennington III wrote:
->> cdc_ncm_txpath_bh() calls usbnet_start_xmit() directly without checking
->> whether usbnet has stopped the netdev TX queue. Since commit
->> ad70411a978d ("usbnet: fix kernel crash after disconnect"),
->> usbnet_start_xmit() frees any NTB submitted while the queue is stopped
->> and increments tx_dropped.
->>
->> This triggers routinely under bulk load. With the default 16 KiB NTBs,
->> usbnet only allows MAX_QUEUE_MEMORY / tx_max = 5 TX URBs in flight, so a
->> bulk TCP stream stops the queue constantly.
->
-> The sashiko comments look relevant. Also it feels like this is papering
-> over the real issue: bulk transfers should not cause TX queue stop.
-Yes, this was my original thought too. I have a v2 that just pokes the 
-TX queue after doing other operations but that feels like it just papers 
-over the underlying problem.
->
-> It's not clear to me if there are H/W constrains behind the
-> MAX_QUEUE_MEMORY value. Perhaps is time to revisit it?
-I don't think it's the MAX_QUEUE_MEMORY value. I think it was a decision 
-years ago about how the queue is stopped around link down that is 
-leaking into the congestion flow. I'm going to port my platform onto 
-master and do some testing.
+Applied to
 
-FWIW neon seems to think the BQL changes for usbnet might have fixed 
-this as a side-effect. Let me test it and see. I'm not sure how that 
-will help me on 5.15 in the interim though. I may just carry a 
-downstream patch to force kicking the queues.
->
-> /P
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
+
+Thanks!
+
+[1/2] ASoC: qcom: q6apm-dai: queue playback buffers only while the graph runs
+      https://git.kernel.org/broonie/sound/c/a81d29df131f
+[2/2] ASoC: qcom: q6apm-dai: keep a playback stream running across a PCM reset
+      https://git.kernel.org/broonie/sound/c/164041af6ce0
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
