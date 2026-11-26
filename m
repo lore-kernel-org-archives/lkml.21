@@ -1,93 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795657017;
-	b=DKBLZQXL9deIPa3VqC8iQsNyatdXfWx7Q84ggjumHsTJmcOyXH17TYmlef41aMoOOnXD
-	 lhPVYWVVUzPJYiSxsBMyxBmHzMaYWed3eTHsmmGzMMwOW7ZqBmBq9Z9FYushbQ01Fwe/F
-	 fBfjIhATPMljS3HkgBPb7YdTLofUEyJm6BzWrRPW8o+tcX7Cv6bqzFl1G63lpoICHAwcl
-	 e2diOHhzsvdy2OucCEe6DNgu2QQmoZ8gopjut8rrkRdAA+xR9MmdGoxZbIF+4kijyvQB0
-	 dPKTejIEpHHjVnEtgo/IGKGpx6xgiwjZ46QrhBd5H+x/yJqMsnvWeOSPeiccv2yisGQ==
+	t=1795657085;
+	b=XXG+enXHTEbSvWXAx/m2ZxB3c/ScOV75ti/fTb0TEVdxH5wyrAxyYdqb0OJhg5ihkXga
+	 kj+1XyrbPfmrbpd3FUUBa1xyTgMFkWnpTXJbqo0LYMU3rCgGkXtCxt4YgwiL/QwDmKsiz
+	 lqllVUZPPoyGfr3TAG65uzuED1ijoq52XYj6FToqo+Je0QaEke9MF0LlOe0gcuNtWd/Ac
+	 npJQ2O1JMcpBFbMYFwDaoquuRhnV2CAJVlcXJe1fCV5iebM0IcDG8fpLW4npt/U9J6LQ8
+	 rYVVVNOqhdMAHKQCy6qem2Vu2hdJi2OUmdSy0qw9BoEpDPOL6/soY/1gNiK7mWdXDKw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795657017;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=0ONTDc/ySzGKj+/9hGNst87EjvfnG8jWay9zEngGSmA=;
-	b=hvu6kLz191YPQ8F0GFD+TGXHV8M5juEWsgeQtXvofmSEMEOj9BuH+90mAsZo+Zbn2EEZ
-	 XHRyygmEOlIFqcP8nJnPEYkpaH8zR+Pi6N1wEcYyD2N3s+Mimmy6IvfjKOiohb3tR7OKO
-	 f8KgaOXCRiGeMtaAT9K7liN4PXJ1X9mTjsjoWXEs9cIkm+ORjGlLjayjzBQz/8tZ1I2Oi
-	 1GGKTmmd8p2OVdBwj3TnYKFhA0dgj6mJt4oqHMr4oU3o500nfh3xh7FqQK2CGV31Ye2cs
-	 vGuIkBv8uJOOiRHrWi2SeyqL/lPJGa+eDfotaXkudZIMgevpaoPu+SXGe732ubDZ+OA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795657085;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=zog7jF/2BPtVfJQhwRXt+srPHB7Tq3M8n+JZAtPbs2Y=;
+	b=FE8UZESy4UeCmR4YUQV4LxX+ibMpru6n3xZ7J+OroW9NOJ89mqgKP2N6i9m0fhnbj9yu
+	 hmqiJjA0MUpG3xK/h35c2mqvuu/MzUVlr5ipRnpDHV49ElGZ+QezVlu8+gDLjXtjdyvMY
+	 uFlpgtIl2S7ZWCjDravKy0N1woWL+4V3b6N5X9gStVHooewfl6+PveI47c6XnbTUXYe+6
+	 70qqHDc0TBJNIo++Rn19LYf13cKlKNuUaCCDkMPA8T5GAd4iwEjuM5IkET6XojCNchViH
+	 IJuJpcnt7xh7sOu5gmS2J1kK3ks3M/Ww47ocYxfNRVRdnBdorL4CWwG3hGxHvHYFNog==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jCJMTtV3;
-	arc=none smtp.remote-ip=209.85.215.179
-Received: from mail-pg1-f179.google.com (mail-pg1-f179.google.com [209.85.215.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BtoW5qj0;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B842606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:36:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B842606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2253606A31E;
+	Thu, 26 Nov 2026 01:38:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jCJMTtV3
-Received: by mail-pg1-f179.google.com with SMTP id 41be03b00d2f7-cdd9d0c9bbdso3707553a12.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:36:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795657015; x=1796261815; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0ONTDc/ySzGKj+/9hGNst87EjvfnG8jWay9zEngGSmA=;
-        b=jCJMTtV3Fg1ztxOOwJsoJtoeXuyMNNjxrZGGUgThjQOmuw7sXBhI4zCwRzbCdLu9tm
-         5FpSTBHePOQQnduznAkRlDthCnoVEs+9UDcmQBlXGEFBvtNsQUz55JqvlrugZiwRNY7L
-         2pHtRkuEER41k6K4C1AOwCqxnN0WvfKjob4aQ5iIk8c3b/fXi18+2wNCCutKhoKR3SQf
-         HFCIlnHFVAJqyrB9FxPbtkO6tFsDS+fHovHHCkd5xn5dlHCgZsAzE+oZFB4qHglTuARd
-         0IqUkMUVrbR6bebqCS/ydMkN89fOjEvQBefQ/hCy91UrwaPapvFUEoVFZIFYxhOFoZg1
-         UKFg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795657015; x=1796261815;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0ONTDc/ySzGKj+/9hGNst87EjvfnG8jWay9zEngGSmA=;
-        b=HWmwbX6GlH5Pl6w3CtjFrXM154mkTT8GX1SubCLRv8uN3A5IhOZX1Ojshwj4IS9aHa
-         BeViJRodZo7Gzl06guK/BWG73dWCrif61Yz0pgwNaljtjwIww+nCQ5wx/T1fpTxa8SMC
-         SahMtkaashryveFq+9a9TEZ4d8GbmgoM1AXbPazWw+eLYlxN5sJ0EY6o1qLdfmV4HV7Z
-         oewkQj4jX2SRnQRumS9X4+aoRMqS0SZ2Xr7UNKPwX/qIHA8fvIhJhuJv7eYlpe4dizfO
-         IuKGOdKnqMVYUOLA22OQdCczcUqZ6h9/7xjLcmd0RvJLpllEiKWuYd1kkzDEQeUcMAA+
-         BnGg==
-X-Forwarded-Encrypted: i=1; AL+hErFkXG3sgFN9I/8itaNepxoWTZI/Coot5fM95EiBGokJbUoYH8F7UgLAxKinxgcEA9zaZRWh9oNihhOeYa0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+9asoxfg1ImMBiT6SRvEKmliPiGzvIApL3jcEc1uchZw7EGIKG
-	7olWMa0K2c2M3YhbbM8ZHw68/vwgvZRng0pcBKw2e18/IzUlUkLr37fj
-X-Gm-Gg: AZFdTZcV9yK+1qWLPnGRKD+FAJvGvO+6Niuv0DOt8t65HkbKGY0pKjzA1TpuB51JSCx
-	TK5mQeWJjyRUSjGnMTRYlPG6xrTDFJE/lol8R9np1XZfnj6ZxaIRbKC7ll4k56Sd2jSdsPjK9SR
-	OdIMTkPesIkw9YAhtBQxNLuJmsN1nCnB3dYO9mDBs8JtQzf32CIqzQtLGIJEzIi91gV+ovHyA5q
-	q5epe41MMmslhLob/E8tmeBYzxnHnU77ecBW2fuL5tendXyvnDQzZgzqPfcMxl3eDBTWJ2Jln6F
-	MST35xJ+f1WSLB5lmNVfQ+LDHK1INHiVqtCMyjzgTBu2PLB074EbnvCSqzhmMZn61iUGOREa03G
-	SsywK7wrEqf8KzT1wNJa3yfNU1sZ845bU2G+X+RGJmPceZ0/McKqJyakxF274EZI617erlE2+Wg
-	YdDL5OSTm3gODeuK3yMNcJ0yYDVQRmgS1c716ivPeLvv7VZvdQ5ven/gTYSyroeVqGRmk4lfvSl
-	hChYYFaB8W7jwfwhf47gzYb1VUMp7Rn5gVygjhmiWHjkthYYL2WjI+xH9MThXzag8znNOv6jBoo
-	AGjHm1jtYn/I/UolUytWuLjIkMPnnDEflmqJqESFO8vU15d05beNni8qvjzaaP6Q3/tBJAETk9e
-	jg3q8+zpUBSnEiTuP1ennmaOodVlvOHzyjCmRMkLSpt2tjno=
-X-Received: by 2002:a17:90b:1dcd:b0:3b0:968f:fdef with SMTP id 98e67ed59e1d1-3b41c9758d8mr19690426a91.49.1795657015247;
-        Wed, 25 Nov 2026 17:36:55 -0800 (PST)
-Received: from lwq-server.tail118c18.ts.net ([74.176.208.23])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b21e19fsm11338967a91.0.2026.11.25.17.36.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 17:36:54 -0800 (PST)
-From: Yaohan Li <shunsheng1218@gmail.com>
-To: "Martin K . Petersen" <mkp@kernel.org>
-Cc: Hannes Reinecke <hare@suse.de>,
-	linux-scsi@vger.kernel.org,
-	target-devel@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] scsi: target: core: use list_for_each_entry() in __core_scsi3_alloc_registration()
-Date: Thu, 26 Nov 2026 09:36:50 +0800
-Message-Id: <20261126013650.2169132-1-shunsheng1218@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BtoW5qj0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 154591F000C4;
+	Thu, 26 Nov 2026 01:38:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795657085;
+	bh=zog7jF/2BPtVfJQhwRXt+srPHB7Tq3M8n+JZAtPbs2Y=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=BtoW5qj0Uiwnj9C4fmhsGV66V9y8xpJ7ju3GU1TjtadTsZeU7AkYXVMo7LYG7OjvK
+	 qGzR/JZLSk0RD8w2URCQTAld4urozgOizBYjg5ttotvnRwhGFEfFH3Aelx1LaoBRUV
+	 hlB63ppCZPRT7WObhCmc+agD/L0B5HpfmfrbcgYrEa/rCoABKju1l82g0j4GmKenJC
+	 YvsHvjd3FAq0tb1S5xbJ4rsaVa4KRtVIVvjkwZGoW/p9ITRPpuNDPlPfCmnlHtLUA0
+	 bYN07hMYtnjKAw2+WohSgtYWNaDdf03DOA1zfESy5hzBywOV1LAlCJA+AMAfkhko49
+	 oYWMvH4WDFxDQ==
+Message-ID: <sashiko-outbox-234570@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v11 15/43] sched/deadline: Keep a task in the root
+ domain that counts its bandwidth
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
+In-Reply-To: <1b7d48df779794ceece2155c0080722932f2c3cd.1795646914.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795646914.git.mathieu.desnoyers@efficios.com>
+ <1b7d48df779794ceece2155c0080722932f2c3cd.1795646914.git.mathieu.desnoyers@efficios.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 26 Nov 2026 01:38:04 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,88 +60,110 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-In __core_scsi3_alloc_registration(), the ALL_TG_PT=1 loop iterates over
-dev->dev_sep_list with list_for_each_entry_safe() while dropping
-dev->se_port_lock across each iteration.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issues to consider:
+- [Medium] sched/deadline: select_fallback_rq() bypasses local NUMA node
+  search
+- [Medium] sched/deadline: __set_cpus_allowed_ptr_locked() clobbers
+  valid wake_cpu
+--
 
-list_for_each_entry_safe() caches the next entry pointer before the loop
-body runs. While dev->se_port_lock is dropped, another CPU can remove
-that cached next LUN via core_tpg_remove_lun(), calling
-list_del(&lun->lun_dev_link) and poisoning or freeing it. On the next
-iteration, the loop dereferences the stale cached pointer, causing a
-wild-memory-access / general protection fault (or use-after-free).
+commit 4af84b97f62357ff3460aae481348b8b367fe8d9
+Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 
-Meanwhile, the current entry lun_tmp cannot be unlinked or freed while
-dev->se_port_lock is dropped: the loop holds a live percpu_ref reference
-on lun_tmp->lun_ref, and core_tpg_remove_lun() (the only site that
-unlinks lun_dev_link) waits for transport_clear_lun_ref(lun) before
-acquiring dev->se_port_lock and calling list_del(&lun->lun_dev_link).
-After re-acquiring dev->se_port_lock and calling percpu_ref_put(),
-core_tpg_remove_lun() still cannot unlink lun_tmp until dev->se_port_lock
-is released.
+sched/deadline: Keep a task in the root domain that counts its bandwidth
 
-Switch the loop to list_for_each_entry() so each step reads the current
-lun_tmp->lun_dev_link.next under dev->se_port_lock. This prevents
-dereferencing removed entries without skipping remaining live LUNs.
+This commit introduces dl_task_bw_span() and updates CPU selection paths
+during affinity changes, wakeups, CPU offline, and sched domain rebuilds
+to prefer CPUs within the root domain that accounts for a deadline task's
+bandwidth.
 
-Fixes: c66ac9db8d4a ("[SCSI] target: Add LIO target core v4.0.0-rc6")
-Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
----
-Testing:
-  Reproduced KASAN wild-memory-access [0xdead000000000100-0xdead000000000107]
-  and general protection fault in __core_scsi3_alloc_registration() on
-  unmodified 666539eecdf4 under QEMU/KVM x86_64 (CONFIG_KASAN=y,
-  CONFIG_PROVE_LOCKING=y, CONFIG_PROVE_RCU=y, CONFIG_DEBUG_ATOMIC_SLEEP=y)
-  using tcm_loop + configfs (4 loopback HBAs, SG_IO PROUT REGISTER
-  ALL_TG_PT=1 racing with concurrent configfs port symlink unlink of the
-  middle LUN HBA3 while a timing-only kprobe parks the walker at
-  target_depend_item() on HBA2).
+> diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+> index 7615ba02d52b3..3dd42581cc177 100644
+> --- a/kernel/sched/core.c
+> +++ b/kernel/sched/core.c
+> @@ -3264,6 +3264,27 @@ static int __set_cpus_allowed_ptr_locked(struct ta=
+sk_struct *p,
+>  			dest_cpu =3D ctx->dl_bw_cpu;
+>  		if (!task_on_rq_queued(p))
+>  			p->wake_cpu =3D dest_cpu;
+> +	} else {
+> +		const struct cpumask *span =3D dl_task_bw_span(p);
+> +		unsigned int cpu =3D nr_cpu_ids;
+> +
+> +		/*
+> +		 * No room was made for @p in another root domain. Keep @p
+> +		 * in the root domain that counts its bandwidth, if the new
+> +		 * mask holds one of its CPUs. Also wake a sleeping @p up
+> +		 * there. A wakeup during a rebuild of the sched domains has
+> +		 * no span to prefer.
+> +		 */
+> +		if (span && cpumask_test_cpu(dest_cpu, span))
+> +			cpu =3D dest_cpu;
+> +		else if (span)
+> +			cpu =3D cpumask_first_and_and(cpu_valid_mask,
+> +						    ctx->new_mask, span);
+> +		if (cpu < nr_cpu_ids) {
+> +			dest_cpu =3D cpu;
+> +			if (!task_on_rq_queued(p))
+> +				p->wake_cpu =3D dest_cpu;
+> +		}
+>  	}
 
-  With this patch applied:
-  - inject (middle LUN HBA3 removed mid-walk): PROUT REGISTER returns
-    SAM_STAT_GOOD (status=0); PR IN READ KEYS and PR IN READ FULL STATUS on
-    all 3 surviving target ports (HBA1, HBA2, HBA4) confirm 3 registrations
-    with key 0x1234567890abcdef and ALL_TG_PT=1; direct PROUT RESERVE,
-    PR IN READ RESERVATION, and PROUT REGISTER key update on HBA4 (the
-    surviving LUN after removed middle LUN HBA3) all return status=0.
-  - ctl (same kprobe, no unlink): 4 keys / 4 full-status descriptors.
-  - 0 KASAN, 0 GPF, 0 lockdep, 0 WARNINGs.
-  - Compiled drivers/target/target_core_pr.o with W=1 (0 warnings).
-AI assistance:
-  AI tools assisted with initial defect triage, patch/commit-message
-  drafting, and QEMU test-harness preparation; the author reviewed the
-  locking and percpu_ref invariants, verified the historical Fixes commit
-  and QEMU KASAN/lockdep results, and takes full responsibility for the
-  patch.
+[Severity: Medium]
+Does this overwrite p->wake_cpu for a sleeping deadline task even when
+its existing p->wake_cpu is still valid in ctx->new_mask and span?
 
- drivers/target/target_core_pr.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+dest_cpu is chosen earlier via cpumask_any_and_distribute(cpu_valid_mask,
+ctx->new_mask).  Unlike a queued task (where affine_move_task() leaves p
+on task_cpu(p) if it remains in the new mask), a sleeping deadline task
+has p->wake_cpu unconditionally replaced with the pseudo-random dest_cpu
+whenever span is non-NULL, forcing an unnecessary migration on the next
+wakeup.
 
-diff --git a/drivers/target/target_core_pr.c b/drivers/target/target_core_pr.c
-index ca1a2802aa228..660772d4674aa 100644
---- a/drivers/target/target_core_pr.c
-+++ b/drivers/target/target_core_pr.c
-@@ -703,7 +703,7 @@ static struct t10_pr_registration *__core_scsi3_alloc_registration(
- 	struct se_dev_entry *deve_tmp;
- 	struct se_node_acl *nacl_tmp;
- 	struct se_lun_acl *lacl_tmp;
--	struct se_lun *lun_tmp, *next, *dest_lun;
-+	struct se_lun *lun_tmp, *dest_lun;
- 	const struct target_core_fabric_ops *tfo = nacl->se_tpg->se_tpg_tfo;
- 	struct t10_pr_registration *pr_reg, *pr_reg_atp, *pr_reg_tmp, *pr_reg_tmp_safe;
- 	int ret;
-@@ -726,7 +726,7 @@ static struct t10_pr_registration *__core_scsi3_alloc_registration(
- 	 * for ALL_TG_PT=1
- 	 */
- 	spin_lock(&dev->se_port_lock);
--	list_for_each_entry_safe(lun_tmp, next, &dev->dev_sep_list, lun_dev_link) {
-+	list_for_each_entry(lun_tmp, &dev->dev_sep_list, lun_dev_link) {
- 		if (!percpu_ref_tryget_live(&lun_tmp->lun_ref))
- 			continue;
- 		spin_unlock(&dev->se_port_lock);
--- 
-2.34.1
+Only updating p->wake_cpu when it is not already in cpu_valid_mask,
+ctx->new_mask, and span would preserve wakeup locality.
 
+> @@ -3668,8 +3689,22 @@ static int select_fallback_rq(int cpu, struct task=
+_struct *p)
+>  	int nid =3D cpu_to_node(cpu);
+>  	const struct cpumask *nodemask =3D NULL;
+>  	enum { cpuset, possible, fail } state =3D cpuset;
+> +	const struct cpumask *span;
+> +	bool span_forced =3D false;
+>  	int dest_cpu;
+> =20
+> +	/*
+> +	 * Keep a deadline task in the root domain that counts its
+> +	 * bandwidth, if one of its CPUs is allowed and online.
+> +	 */
+> +	span =3D dl_task_bw_span(p);
+> +	if (span) {
+> +		for_each_cpu_and(dest_cpu, span, p->cpus_ptr) {
+> +			if (is_cpu_allowed(p, dest_cpu))
+> +				return dest_cpu;
+> +		}
+> +	}
+> +
+>  	/*
+>  	 * If the node that the CPU is on has been offlined, cpu_to_node()
+>  	 * will return -1. There is no CPU on the node, and we should
+
+[Severity: Medium]
+Does this early return bypass the local NUMA node search in
+select_fallback_rq() for deadline tasks?
+
+Because dl_task_bw_span(p) returns rd->span for any admitted deadline
+task outside a domain rebuild, scanning span & p->cpus_ptr in ascending
+CPU order and returning before the cpumask_of_node(nid) loop below skips
+same-node CPU selection on multi-node NUMA systems and always sends the
+task to the lowest-numbered allowed CPU in its root domain.
+
+Checking cpumask_of_node(nid) intersected with span first when span is
+non-NULL would keep the task in its root domain while preserving NUMA
+locality.
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795646914.gi=
+t.mathieu.desnoyers@efficios.com?part=3D15
