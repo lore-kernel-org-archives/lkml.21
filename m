@@ -1,92 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795714111;
-	b=z5lKIrMVX0YQoAxkOe1ySls8FqQqmIb2vjpf2oFpOjz4vu0iL6ZOVk8kUQYTnLiYf3p/
-	 zcki0AdtW2wuw+JQoT9dx7DWsEEREtLyUMeEk57dRFzf42m52UIeBLfuoy3reLEvBWE9N
-	 46pvcGQYQZ0fTLbDmHToY/Aft52A6TXgljtton+orNsPEY8TM6nORDVLmR1qfdmQN1EBX
-	 F8QnjN6AWSg9XE5Z21uGocDj7igrinvr19IUYu0viZlxZjGLehccJFlAIUCOi8YnByHYI
-	 RRHCXct9ieavPIo+t9ZkFbr5jsp3YG9R6NCiNS6VqKCb8/vQveGPCCfI3M4L+RGuAVw==
+	t=1795714117;
+	b=wQtYSh/oHHN30znEIefHI3tYb1lcvGsGOtn4c4iMzmuoA+oLI/XhHzcnAB7tsRyH/Gkc
+	 dFnOmzDIVsrQDviXkTMBZKVs7ul2KCXLFv9PKxZWbHNhkmRdrzjtI+SoJHG1Ds92liwSv
+	 IvGbMPkg9oEcUQOauPq7Hq2LXpZrFCVikfz8gXvYSspXr3qVk4TK1/cdJnuQq2W8WujGS
+	 M7h2bkRdFlXd9FDjCjlSkO3rniqM9smAEHATN1C//s2gi+1lxOKG8JMKLA9z6cLuhndr8
+	 Lge9vzeccL6dSX7Hj8B4espPLMmADcTeagv2FWRGRT1PaU+vWih1SfzLNgpZ3G7lycQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795714111;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=Mgn+JYoJ/h5QGFKbr5yJl/E/L+YyGxNW0QvmTxTy/B0=;
-	b=jZBDRkCrnfECErGkmX4y5bWe1sZW3P9yn8orbFl/QXrc6OHH1a9LRG7gLH3CBl88fq9F
-	 aw7s16+FAHlmmOeWbupYytE45bOe651QqzbllBopw21+jCCVG1vhZJK7RWDruajOJuq4r
-	 eEKtgkJAzjm0DVYbA73n5InleIL9ASivbAPhLev0/Y4pNFkxTV0VYD0iKH/j8tl/0UhZk
-	 LtHRDFNrkjYJxVjOjFOTSUpSxkNg/yHxTAuranofz3MDEK/mM8qKBL8PH3OlN9DTPJbcU
-	 ppYjxjEBiOHtqUR7YEOPAVx+RXO3VRkyK33AnQjzlMP02kV9PghcjOSwbOaSyGYBGgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795714117;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=Mo6mJy5Hh3bbllZKhy/yN/eCAsi9fRKSUsnKIZPM6Ao=;
+	b=b9rdXv7ugDMu8IoRuDIRrLX7CuXqeYjt2heLx6oOPe1hd0fZZsbAyEoCS8uU+/FfbF1Z
+	 Aj3RdFHIDTEtX1VIw9/3DH8Dp23Gagd5RVhMIP/kTHO/aGwP9VvJgl8zgG2+zTnaWPHbu
+	 3BSblRrZFgSm6rg0kQrWarzRlOrduG5FhuYcwU2n1a7y+IohTpAi+Wqm0pAn5J1Kk0VEv
+	 PvP5xGricqsqE2/CG8tT7bRFG0frn+QdH5hHJAnnClG2q65vkWiRzRzuAA4gwfvZsi/db
+	 CoW1Nk04T4UvlA71zIZuDG5X7MpSeKPIzDlzgBDMmTUib/MPdMxFjMUy8492gRERFwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=QoB8j2ye;
-	arc=none smtp.remote-ip=209.85.216.46
-Received: from mail-pj1-f46.google.com (mail-pj1-f46.google.com [209.85.216.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bD31k10T;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA818606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:28:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA818606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E614A606A31C;
+	Thu, 26 Nov 2026 17:28:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=QoB8j2ye
-Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-3b49a6e8212so2881186a91.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:28:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795714110; x=1796318910; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Mgn+JYoJ/h5QGFKbr5yJl/E/L+YyGxNW0QvmTxTy/B0=;
-        b=QoB8j2yeoaBu4OKCc15l3LNhRBuIyCAGuOGQmChx68G2ipA1WcbR9U7U64RUAYUfVG
-         mwV1hLSnBiLA8FF36Ztx2a1qRqWzgnTUtteNx24RHEjsfPhmMLQh3gCVFBugZd6WOodu
-         ZyJcIGfU7OxcIsgkMFCSPf2LreDUWVXP3sNZPtKmmugNPB9ASEoeDp9RViDRLTSbZWL1
-         svI65WBrnoRUxJa3IdAXBkn9q7ZhW/791mev+rbj4dwZ1OMjJJZNzc7eD2y2Ple/jl66
-         oohOm/x5/2X8UvrbLc8uiK5Ktg6fle8CgtCMuN5cyhKlOd7ekVxnhn/EYwTpPwXOanHQ
-         GKuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795714110; x=1796318910;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Mgn+JYoJ/h5QGFKbr5yJl/E/L+YyGxNW0QvmTxTy/B0=;
-        b=LOOSFtLKL9gUWjp/Pu/605Txops0nq3v3SmS/JU4xxKFX2uumzkgN3zAIg3F4dzMFe
-         DjBHylRCz3zuEz8J5nvx4fFzTVV+QGaL7+mFhaRb74XmFMIpMG1UcmOGdLoJfh0IPpAi
-         Sz71517RMo3uGad5J1Z8UzKmrkCoZqZMtXKGc0ueYrO1O39GssPjSC6rEf6Gme4oIwjH
-         IBiATOC0o5CI8T0El2jLk931oZxonjNA8SP7HY7s7zGG36vgn0Zk3zcbU//0QrHzAocG
-         EJVvKaFCVQNRA0C1sc2rrCDWHfVSD93uI7f0OrVTM8hneFKEsDek31gplRvRVubm8OGb
-         LCuQ==
-X-Forwarded-Encrypted: i=1; AL+hErFvweNzAM+NhlnvqvQBKVNx+U2ScmQ2AiDrc17yG6IVB6VAen/Jq19dVI/8rXjByNjNPgsaFNR0nQoT8aw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9yBsqpGTbUmfmztjb5K1C+QeMrbueDA1AKRu2ggpGsSTPm8V62
-	H53bFtJTI7b6p45oyx/w+Qm+SXbmKgXdJaZ1/ZaRw927SBwMsOrx+0zZsGceORRuVnc=
-X-Gm-Gg: AZFdTZcKPAZZJ0fL4qt7R4H1LJ8qv4CYlFPxVkwWT80P2QVvPF/+Qi0uAETliGLrMT0
-	tfLpf+Hm/CQ/3Ze4HiEt3ffIULg4N4sUDHCXbyUVaam0ttM0B5Hd9o5lAfxHW6y4EVhEEMtKBDL
-	QcwQvqgC7RVh1kcuqcmgU4iNqcaCmepm5T6TJPW9Wkk1Wk1XPzLm8xRn1f1pAHId1dD0YRNzCpj
-	aFaMICEJQypOLcIzD6r4HoxN1T3vcl6NS/+xSHTgZi6ZujTm2/6Wcx0UTBKyfsgbstE/F8egvxJ
-	ZZJQu501B3gBunzLiRVTnbrPA77iwnZ2IlrTnVXAYmc5IEI+7OP0q3YCWa4qA3nGCcKmNPAnpjP
-	57nMEIHkwiEMxaOrfJu3U0e0qJtMkF7t85K9D1zva9mYrRYOndiO0iPH7p0603XONnAq+VUObD7
-	4NWxT6/LyB9cWTWlv7pZSpSv5mVnfuRrdrOraAAs5SbmhsfHzcGU+EEmXWGk5FqS+7rmX8N3QjT
-	jJVKxa6LZYIF4GG4gBYKfL1pb1xnuDuucbDQ5q6aPMNjlWlPtjRAtDZkvnSVBFujAouT5hx8Q49
-	3AY1S2V19Hc5AK2KlEHW+v1te6Lkg0xM
-X-Received: by 2002:a17:90b:2e8c:b0:3b3:b373:6a6a with SMTP id 98e67ed59e1d1-3b41c9e45c3mr21615927a91.28.1795714109742;
-        Thu, 26 Nov 2026 09:28:29 -0800 (PST)
-Received: from p14s ([2604:3d09:148c:c800:ce00:143c:88b9:bd58])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b8733e6sm12843860a91.3.2026.11.26.09.28.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 09:28:29 -0800 (PST)
-Date: Thu, 26 Nov 2026 11:28:27 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Sailesh Nandanavanam <saileshnandanavanam@gmail.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] remoteproc: debugfs: use sysfs_streq() for write parsing
-Message-ID: <awhsOzu4o_Zn0uVa@p14s>
-References: <20261116184230.1885-1-saileshnandanavanam@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bD31k10T
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22DCB1F000C0;
+	Thu, 26 Nov 2026 17:28:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795714116;
+	bh=Mo6mJy5Hh3bbllZKhy/yN/eCAsi9fRKSUsnKIZPM6Ao=;
+	h=From:Date:Subject:To:Cc;
+	b=bD31k10T/JAWg+cRqAY/9nim3nmVHpAQHaUnDXMd2cimwRhbRDLMHFYSaA/AxJKUg
+	 nfRww66TUDMLHhZhOB50AQrtpcJ7ps3ldSb8K4XG9L/xfr1MA+R+3lCMCp/rjtfnuu
+	 fu+lsiAXjkhrADSMJ2nX9HO9MO4XtGkoj3kJJmvBxsQMK9Co6DjPhhVJw1zbn1I8D5
+	 eG+D4+HmbAi/5pI6DHZmc8EnuKFD224G55BIoZukAvVPPihuVKXDPDljUBHssBKCyM
+	 gJZPku19GSC+ysSb2+OWDc9+OrnNb21XQKCN1TpULViPLpqGIfyhDAsnH5il2cckuF
+	 5A4xk+NPVVYMA==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Date: Thu, 26 Nov 2026 17:28:29 +0000
+Subject: [PATCH] KVM: arm64: Top up the mmu memcache on user fault for NV
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,112 +52,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261116184230.1885-1-saileshnandanavanam@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-fix-nv-cache-topup-v1-1-a22c936872fe@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/x3MQQqDMBAF0KsMf+2AE4rUXEVcpHFSZxNDoiKId
+ y/0HeDdaFpNGzzdqHpasy3Dk3SEuIb8VbYFnuB6N4i4gZNdnE+OIa7K+1aOwmP4SFrebuzlhY5
+ Qqia7/uk0P88PmEXUFGQAAAA=
+X-Change-ID: 20261126-fix-nv-cache-topup-9ab1fd829014
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+ Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+ Steffen Eiden <seiden@linux.ibm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, 
+ Christoffer Dall <christoffer.dall@linaro.org>, 
+ Jintack Lim <jintack.lim@linaro.org>, Leonardo Bras <leo.bras@arm.com>, 
+ Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Usama Arif <usama.arif@linux.dev>, 
+ ljs@kernel.org, stable@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2805; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=FvxCZDQw6W6TzJrba57LnkLP53Dmvj5bR2gjbKB4X0s=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLI5cuxNdi53XfS9YnWUQpXpUo63zQ4P1x27te7k8XNfz
+ BQLfi1k7ihlYRDjYpAVU2R5/kV8f5BI2LzOC/5uMHNYmUCGMHBxCsBEni9mZJj2nGdBZgznvZu9
+ E8NeK2Wd9zQK3evqYdGzpSTf1Ua8s5uR4cDP3wf+Lzgtz9S8fuKil1d9HsipaLiVH65ROFDesbL
+ hPisA
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 
-On Tue, Nov 17, 2026 at 12:12:30AM +0530, Sailesh Nandanavanam wrote:
-> The debugfs coredump and recovery write handlers compare input with
-> strncmp() bounded by the write length, which accepts any prefix of a
-> valid command (e.g. "e" matches "enabled"). The sysfs counterparts in
-> remoteproc_sysfs.c already use sysfs_streq(), which requires an exact
-> match and tolerates a single trailing newline.
-> 
-> Switch the debugfs handlers to sysfs_streq() for consistent parsing
-> between the two interfaces, and explicitly NUL-terminate the copied
-> buffer since sysfs_streq() expects a string. Tighten the length check
-> to leave room for the terminator.
-> 
-> Truncated commands that were previously accepted by prefix match are
-> now rejected with -EINVAL.
-> 
-> Signed-off-by: Sailesh Nandanavanam <saileshnandanavanam@gmail.com>
-> ---
->  drivers/remoteproc/remoteproc_debugfs.c | 33 ++++++++++---------------
->  1 file changed, 13 insertions(+), 20 deletions(-)
->
+The S2 user fault path tops up the MMU memcache (used for page table
+pre-allocation as the point at which page tables are installed may not
+allocate) except when:
 
-Applied.
+* It's a permission fault AND
+* dirty page logging is disabled AND
+* pKVM is disabled
 
-Thanks,
-Mathieu
+At which point it is assumed no page table will be allocated.
+
+However nested virtualisation adds another edge case - the mapping size of
+a shadow S2 is clamped to that of the guest's own S2. If the guest
+hypervisor replaces a block mapping with a table, a permission fault on the
+shadow block has to be mapped at PAGE_SIZE, which requires a page table to
+collapse the block into.
+
+With the memcache empty, kvm_mmu_memory_cache_alloc() hits its
+guest-triggerable WARN_ON(!nobjs) and falls back to a GFP_ATOMIC allocation
+under mmu_lock, with a BUG_ON() if that fails.
+
+Therefore, also top up the memcache for permission faults taken on a
+shadow S2.
+
+Note that dirty logging had a similar issue, addressed in commit
+56fd1fc526e6 ("KVM: arm64: Top up stage-2 memcache for dirty logging
+faults").
+
+Fixes: fd276e71d1e7 ("KVM: arm64: nv: Handle shadow stage 2 page faults")
+Cc: stable@vger.kernel.org
+Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+---
+ arch/arm64/kvm/mmu.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index a0d4981ebb99..e09a8f2c0482 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -2256,16 +2256,18 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd,
  
-> diff --git a/drivers/remoteproc/remoteproc_debugfs.c b/drivers/remoteproc/remoteproc_debugfs.c
-> index e8e7b6a3769b..ef6761a13c6c 100644
-> --- a/drivers/remoteproc/remoteproc_debugfs.c
-> +++ b/drivers/remoteproc/remoteproc_debugfs.c
-> @@ -73,19 +73,16 @@ static ssize_t rproc_coredump_write(struct file *filp,
->  				    loff_t *ppos)
->  {
->  	struct rproc *rproc = filp->private_data;
-> -	int ret, err = 0;
-> +	int err = 0;
->  	char buf[20];
->  
-> -	if (count < 1 || count > sizeof(buf))
-> +	if (count < 1 || count >= sizeof(buf))
->  		return -EINVAL;
->  
-> -	ret = copy_from_user(buf, user_buf, count);
-> -	if (ret)
-> +	if (copy_from_user(buf, user_buf, count))
->  		return -EFAULT;
->  
-> -	/* remove end of line */
-> -	if (buf[count - 1] == '\n')
-> -		buf[count - 1] = '\0';
-> +	buf[count] = '\0';
->  
->  	if (rproc->state == RPROC_CRASHED) {
->  		dev_err(&rproc->dev, "can't change coredump configuration\n");
-> @@ -93,11 +90,11 @@ static ssize_t rproc_coredump_write(struct file *filp,
->  		goto out;
->  	}
->  
-> -	if (!strncmp(buf, "disabled", count)) {
-> +	if (sysfs_streq(buf, "disabled")) {
->  		rproc->dump_conf = RPROC_COREDUMP_DISABLED;
-> -	} else if (!strncmp(buf, "enabled", count)) {
-> +	} else if (sysfs_streq(buf, "enabled")) {
->  		rproc->dump_conf = RPROC_COREDUMP_ENABLED;
-> -	} else if (!strncmp(buf, "inline", count)) {
-> +	} else if (sysfs_streq(buf, "inline")) {
->  		rproc->dump_conf = RPROC_COREDUMP_INLINE;
->  	} else {
->  		dev_err(&rproc->dev, "Invalid coredump configuration\n");
-> @@ -211,26 +208,22 @@ rproc_recovery_write(struct file *filp, const char __user *user_buf,
->  {
->  	struct rproc *rproc = filp->private_data;
->  	char buf[10];
-> -	int ret;
->  
-> -	if (count < 1 || count > sizeof(buf))
-> +	if (count < 1 || count >= sizeof(buf))
->  		return -EINVAL;
->  
-> -	ret = copy_from_user(buf, user_buf, count);
-> -	if (ret)
-> +	if (copy_from_user(buf, user_buf, count))
->  		return -EFAULT;
->  
-> -	/* remove end of line */
-> -	if (buf[count - 1] == '\n')
-> -		buf[count - 1] = '\0';
-> +	buf[count] = '\0';
->  
-> -	if (!strncmp(buf, "enabled", count)) {
-> +	if (sysfs_streq(buf, "enabled")) {
->  		/* change the flag and begin the recovery process if needed */
->  		rproc->recovery_disabled = false;
->  		rproc_trigger_recovery(rproc);
-> -	} else if (!strncmp(buf, "disabled", count)) {
-> +	} else if (sysfs_streq(buf, "disabled")) {
->  		rproc->recovery_disabled = true;
-> -	} else if (!strncmp(buf, "recover", count)) {
-> +	} else if (sysfs_streq(buf, "recover")) {
->  		/* begin the recovery process without changing the flag */
->  		rproc_trigger_recovery(rproc);
->  	} else {
-> -- 
-> 2.34.1
-> 
+ 	/*
+ 	 * Permission faults just need to update the existing leaf entry,
+-	 * and so normally don't require allocations from the memcache. The
+-	 * only exception to this is when dirty logging is enabled at runtime
++	 * and so normally don't require allocations from the memcache. One
++	 * exception to this is when dirty logging is enabled at runtime
+ 	 * and a fault needs to collapse a block entry into a table.
+ 	 * Under pKVM a permission fault can also collapse pages into a block,
+ 	 * which needs a fresh mapping object, and the hypervisor requires the
+ 	 * min-pages memcache even when the install allocates nothing.
++	 * With nested, a shadow stage-2 block may also need to be collapsed
++	 * into a table if the guest's own stage-2 mapping has become smaller.
+ 	 */
+ 	memcache = get_mmu_memcache(s2fd->vcpu);
+ 	if (!perm_fault || memslot_is_logging(s2fd->memslot) ||
+-	    is_protected_kvm_enabled()) {
++	    is_protected_kvm_enabled() || s2fd->nested) {
+ 		ret = topup_mmu_memcache(s2fd->mmu, memcache);
+ 		if (ret)
+ 			return ret;
+
+---
+base-commit: 012e4bc01e339a65dc7c59181b5efb33b171d12c
+change-id: 20261126-fix-nv-cache-topup-9ab1fd829014
+
+Cheers,
+-- 
+Lorenzo Stoakes (ARM) <ljs@kernel.org>
+
