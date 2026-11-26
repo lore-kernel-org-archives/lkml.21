@@ -1,65 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.161
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795671763;
-	b=OmsYBD+EupZfysp1saLOkqo9m2SXwYHxLFT740ZReWzjw4jqRJUmhpeVczLXslQeyEL/
-	 Ym1uTK7pn6/Sg6gcsGSZ7alICidI7AZyvUZU6kLKQ9SLIrVTH/500FrfNp0VG3GG1XBqX
-	 RRqZtiuvcIyI/fWyRK7g7oVP0rOVRnT84+nd+DxLL544z31QWSCD5Y8jBjAeRE8yLalGe
-	 l/gjRuFE5wV1waMJDOlIukl1cjNhARYvnU+srzYII8RG4wwoyS/zRkdXU8L9BsfU+OAfD
-	 y4Cp/V36wYf85Dfl4g2uPF473j+ErmsOZ5tNzlr+ix0c1/px800XQ4dwat5FdxVT1cw==
+	t=1795671833;
+	b=MAyfoZwZLYzuFIyXoTcisVJvNOtRfhSMN5amtHpqCNkuf90m1uVUML54gfHeMKUm74X8
+	 m9S3j4k6dS+nF1yYCyKe8A+xmS7lJwdBiLCk68+q2sLvEBBWO7wWaJ6CHVLqlbBakJ8gA
+	 G+ds80j5RMoo9m2SS4RLEawAc5Y40SNKrwXCopKTsqZVi31jgRjb5ZnKIhwBc0BoxCS8Q
+	 5SJ9L3BtkWj4LmwR3aYFbklqBN3CaD4AfRo/z2+dLDOGC2If9ZAJ8C8mWR78AwoWMF5bO
+	 nmUCsWWxsAl4h3G+m6xW98EHPvw7nHaRKgtIpjtVw81h1UCY0PSVLLx92tpdXLy52+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795671763;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=KDqQNEtQd+6jLTv721CtUFemKZb8effCJHvw+bLNXTQ=;
-	b=0pgEdM/UXCdtk4o1WuoZyeQL90Mw9VupsGNlV5mzBhCCC27nFAcaAW/jPKeMlBxxWBiK
-	 28Bu/pYK0Xp5LHQQGKIgZ+lK+i7bNYUrLVwsiOsyzYrwPTvbHETj/ZNn+DH2Kht7xqy0F
-	 D+u0ApOrbWVWkkfDDVo+mYWh3TsbLkMRYJN477+D/eM7znD1O123vHCIzhLZJbTN82FbQ
-	 8OG3rdmWoF0/UnTOitPxsPsjAQEova7agXVVLWCNQPlYcqHOtWhrCFErUJa7lhwOsb9KH
-	 7CIKcR7bOJuWCyHuDoQrmiwqFkDf6WzDXx63iw88lp7yruJtl7dNKScJxhHXeJiiCjg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795671833;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=IjWEhqKblidu0NNXiwNq191cI1P0Mw4BZxYNdNdYS5Q=;
+	b=YKfVbHpGNiV40Kg/8eRx6UeqwWZ5wXusmRpkaauUQK5Ni6cOnLA6L3r21J2UrTukeaUz
+	 N+8YaS/3pTnSn6yEyrH+xXFrayrOR/ZfAEiU3A/QqMUr8XGuHZ4BA9wi4NJ1fYxoakB20
+	 UQlB5NGRVYQSVh27nIvQ8Lmmc6jbeSMtFy8W3Uxp+gwqmiLM73Fvze3EP93ymdxD8iV2b
+	 /0iCm/CTnwlHpBpejsLXt5Yffnj9w+sNDN5Xcm2rDrpg63tFPnstGRZTVHpAd6F0FG3nz
+	 4buDzKpcaZ6y0ibZviOttPKMlI9pJDkL37WvNN26EhWSh4HAkJGT7pzJ9V0520V2AGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eNU4T4YD;
-	arc=none smtp.remote-ip=95.215.58.161
-Received: from mta1.migadu.com (out-161.mta1.migadu.com [95.215.58.161])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ne3uzrdf;
+	arc=none smtp.remote-ip=209.85.221.46
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA188606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:42:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA188606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8CA03606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:43:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8CA03606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eNU4T4YD
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=T/D/ipZeoT1JY+2pYK8EBjpZvR47x2HelHbDUPah5nQ=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795671760; v=1; x=1796276560;
- b=eNU4T4YDa+uzIViBA/92ub72RdYtnCpJ/UinaRX696eF6S260xWb6PBsaAvDpABjwMtblIp9
- ZN70vbUMB6Tq0jZhexwL0DJ8Dk4UXqulR86uXX8wBnMXJ2UFLOEs5N6FsAd22W9g8Wq5tV8gtmM
- rSdXHJUcHeTT5eoVAPyN2TyU=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id d6142d2087cb271f;
-	Thu, 26 Nov 2026 05:42:40 +0000
-X-Mizu-Trace-ID: d6142d2087cb271f
-X-Migadu-Flow: FLOW_OUT
-From: Tao Cui <cui.tao@linux.dev>
-To: Bart Van Assche <bvanassche@acm.org>,
-	axboe@kernel.dk,
-	hch@lst.de,
-	Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>
-Cc: cuitao@kylinos.cn,
-	linux-block@vger.kernel.org,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ne3uzrdf
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-491971ac844so5869205f8f.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:43:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795671832; x=1796276632; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=IjWEhqKblidu0NNXiwNq191cI1P0Mw4BZxYNdNdYS5Q=;
+        b=Ne3uzrdf87dnpkAp3soaNtolLsKaWcbEirA3AeMcFFU0Ubn++8UUgemfvjN7MNVgb9
+         CgUdOlGvuATvWcm6aPL/7aJ6kaI+A+RkvcZtm6S7kAqMhu4ju/+bX51gryoMs9gCwSec
+         8SYvOV6pRpap2zoe2FeuereNjBGwsM1NSPOQRbUA+Dpc1fdICzIkqfFFloBgZRRNigIv
+         rOI6DmYxqoeFSbBOQVz7Jvu+3J4pC2fKs4Gn42gqQ+V8ZxqpInnyhQwduSn88eFR+lle
+         qcmP41QNReFe0pwRv7vJRow5a5yG7PRuK9A5GyO5KxHuvX4jXCVdGtxOrod6FzZRJ6WY
+         f4Pg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795671832; x=1796276632;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=IjWEhqKblidu0NNXiwNq191cI1P0Mw4BZxYNdNdYS5Q=;
+        b=aGfVfdPTygoKoV0nm4zkOZJQ2M09W3j0reOS3MVwmcaaewNmTOLvNacXtkraiXwBbg
+         aT2DJOzpOzAYET8K1XdHaJzyD4RtVVoIp0wG10BZsf0nC1i4sEWoxFzbRAdg4kloGZVk
+         BlpPvcBUpsN4Ei64+TRe4bTCey46qjmYki8eRRHLz39hKjrbjaJTHpv7KWMrHANYeXQv
+         P/AxVeYgsYj/vmdZmyxTMAhZmJJ/TBJZreHZD/d/QegAetU4ZhGJstRx465g2RzRktIh
+         VKrBoU1EORA2wrCgo57vqkgixzTLns8qgnWdTRpyqT6opq36zfL2DaDD7+v0NS2pX3sF
+         +77w==
+X-Forwarded-Encrypted: i=1; AL+hErGm4D1gaYmLyKLsyCrJ3fiNKPoV2n9PvNV8OwQ8vLYq1PE8eEKx8xrZ7AnlAa3cLhzFDIh2azije0EQ2BY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+C8SU8ug3gtjTdLnPSlxQ4r1vRUnmmDBwux2veJQU8KBJVLyeh
+	g98cCbGqjk2T5Vy1T0oJwjRz8w3egW24zFckmuAJoZWe+9JSua2lR9ar
+X-Gm-Gg: AZFdTZd32BYsbXUUfUxC+n/RWdk6jQi1l1CkSP4q4Fv3VuIDdn6gTJ+SDJpD0fi/PKt
+	YJ4dXwc7u5NaK1oLrd8+1a40NS6niFhEfa8ZTYDGbZ5m+NtZGvQM9+px1pkE7MxmFoV9CfYdiSS
+	YFg9RAy0X4NX4E8TQdFh0BfRP7lxGJmHNTv5yrp92KHtIUyG+Q/DHJIDWP2KHTclGjvbP/0BHzo
+	F+ZvgKIR7wrNpK3DysnYDtAVi5sNR99Mn8cKAw0GobNMzJ6Ax6Pv0oZue5qBzgpZQMSrMnpsQDl
+	8VpEHvKtFP8Lae5J69Fetk3u+PNk8ytI7+4rr4sOpTln+qjlhtUB27Hp7IbxBOTBcFD7OaNLwy+
+	2ZruXFXnelkhu+Fv7PExRgIP/JJEkibWrGC9H5EtuvijThxdgbghWHPRQcTO5Z86dbdLEC/WqU0
+	lU6yr9NiofooL5xA0ImzV0n0d267mlsbk4GvHqfHYpQFtA5xQgJo6skYkh7X1ASStdhJtZlgWVV
+	1+TqhX3Tsm3BuE4OlNuhDigwhBP3a9lAB+OUCieWl31k/7kkjMIb5NVToxU5V0c4FsgftQxgZXq
+	A00QYowadRNLPrkuOi/wYIpxUNe6/JxSYEw=
+X-Received: by 2002:a05:6000:2913:b0:4a7:7bec:e16d with SMTP id ffacd0b85a97d-4abb0c5d670mr39494437f8f.20.1795671831732;
+        Wed, 25 Nov 2026 21:43:51 -0800 (PST)
+Received: from deb05.proceq.com ([213.160.61.66])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c340df4sm43959416f8f.55.2026.11.25.21.43.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 21:43:51 -0800 (PST)
+From: Mehmet Fide <mehmet.fide@gmail.com>
+To: =?UTF-8?q?Georg=20M=C3=BCller?= <georgmueller@gmx.net>
+Cc: Bitterblue Smith <rtl8821cerfe2@gmail.com>,
+	Jes Sorensen <Jes.Sorensen@gmail.com>,
+	Ping-Ke Shih <pkshih@realtek.com>,
+	Shreyansh Khajanchi <hi@shreyan.sh>,
+	linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	cui.tao@linux.dev,
-	Shin'ichiro Kawasaki <shinichiro.kawasaki@wdc.com>
-Subject: [PATCH v8] loop: defer the queue limits clear to a workqueue
-Date: Thu, 26 Nov 2026 13:42:23 +0800
-Message-ID: <20261126054223.176824-1-cui.tao@linux.dev>
-X-Mailer: git-send-email 2.53.0
+	mehmet.fide@screeningeagle.com
+Subject: Re: [RFC PATCH v3 0/4] wifi: rtl8xxxu: implement AP mode for 8188EU
+Date: Thu, 26 Nov 2026 06:43:50 +0100
+Message-ID: <20261126054350.2893087-1-mehmet.fide@gmail.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <03be9df5-43e3-48f6-98bb-27d7d7ba2074@gmx.net>
+References: 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,262 +104,27 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Tao Cui <cuitao@kylinos.cn>
+Hi Georg,
 
-loop_clear_limits() calls queue_limits_commit_update() directly from
-the loop workqueue that processes the request.  That does a
-non-atomic struct assignment to q->limits without freezing the queue,
-which races with lockless readers of q->limits on other CPUs, such
-as bio splitting reading max_hw_sectors and the discard path reading
-max_hw_discard_sectors, letting them observe torn values.  The
-trigger is a discard or write-zeroes request on a loop device whose
-backing file does not support the corresponding fallocate operation.
+Thanks. Please post the 5 patches as they are; untested is fine. I
+will test them on my setup and send the next version with your
+authorship kept and my changes noted in each patch.
 
-The code already has an XXX comment saying this should move to a
-workqueue.  Do that: schedule a work item on the system workqueue,
-where it is safe to freeze the queue around the limits update.  The
-unsupported modes live under a new mutex, lo->clear_limits_lock,
-guarded by a backing-file check that drops records from a racing
-unbind or rebind.  The work item is scheduled while holding that
-lock, so an unbind resets the verdicts under the lock before calling
-cancel_work_sync() and cannot miss a schedule from a request that is
-still in flight.  Requests that arrive while the clear is in flight
-fail quietly, so the console report stays at the first failure.
-loop_remove() also cancels the work item before the queue becomes
-unreachable.
+Shreyansh posted a patch that only enables AP mode for this chip [1],
+the same as your 4/5, and Ping-Ke has reviewed it. My test results
+for it are in [2]: without the beacon fix there are almost no beacons.
 
-Fixes: 5f75e081ab5c ("loop: Disable fallocate() zero and discard if not supported")
-Suggested-by: Bart Van Assche <bvanassche@acm.org>
-Signed-off-by: Tao Cui <cuitao@kylinos.cn>
----
-Changes since v7:
-- quiet repeated failures at the point of failure instead of at
-  queue_rq() time: verdicts are recorded per mode for the lifetime of
-  the backing file and loop_clear_limits() reports whether a verdict
-  is new, so repeats mark only their own request quiet.  Under
-  concurrent dispatch this keeps exactly the first failure per mode on
-  the console (sashiko review; eight-thread write-zeroes on a
-  tmpfs-backed loop device: v7 logged two errors where loop/011
-  expects one, this logs one)
-- schedule the clear work while holding clear_limits_lock and reset
-  the verdicts before cancel_work_sync() in __loop_clr_fd(): a verdict
-  that passed the backing-file check now queues the work before the
-  lock is released, so the cancel cannot miss a schedule from a
-  request still in flight, which previously could touch a loop_device
-  already freed (Bart)
-- skip the fallocate probe when the mode is already known to be
-  unsupported, instead of repeating it while the limits commit is in
-  flight (Bart)
-- return early from the work item when no verdict is left to commit,
-  instead of freezing the queue and committing unchanged limits (Bart)
-- drop the verdict reset in loop_assign_backing_file(): since the
-  LOOP_CHANGE_FD removal (d4fabede1da0) its only caller is
-  loop_configure(), which requires an unbound device, so it was dead;
-  one reset site remains, so no helper was added (Bart)
+So I would build it like this: your 1-3 and 5,
+RTL8188E_MAX_MAC_ID_NUM 64 as Bitterblue said, the beacon queue and
+TBTT hold time fixes, and enabling AP mode last, so that it is never
+enabled without beacons.
 
-Changes since v6:
-- fix the __loop_clr_fd() comment: asynchronous I/O can be in flight
-  across an unbind, and loop_remove()'s cancel is the backstop for
-  work scheduled after __loop_clr_fd()'s
-- drop the cancel_work_sync() from lo_free_disk(): no reachable path
-  needs it
-- reword the loop_remove() comment accordingly
+Ping-Ke, should the last patch be Shreyansh's, carried in the series
+with his authorship and your Reviewed-by, or will you take his patch
+now and I base the series on top of it?
 
- drivers/block/loop.c | 123 ++++++++++++++++++++++++++++++++++++++-----
- 1 file changed, 111 insertions(+), 12 deletions(-)
+[1] https://lore.kernel.org/linux-wireless/1381CC32-E73C-483E-8F64-27EDE6AE8E6E@shreyan.sh/
+[2] https://lore.kernel.org/linux-wireless/20261126052152.2887192-1-mehmet.fide@gmail.com/
 
-diff --git a/drivers/block/loop.c b/drivers/block/loop.c
-index 194f51d9dab6..8c2ef0c327d4 100644
---- a/drivers/block/loop.c
-+++ b/drivers/block/loop.c
-@@ -67,6 +67,9 @@ struct loop_device {
- 	struct list_head        rootcg_cmd_list;
- 	struct list_head        idle_worker_list;
- 	struct rb_root          worker_tree;
-+	struct work_struct      clear_limits_work;
-+	struct mutex		clear_limits_lock;
-+	unsigned int		clear_limits_seen;
- 	struct timer_list       timer;
- 	bool			sysfs_inited;
- 
-@@ -222,9 +225,31 @@ static void loop_set_size(struct loop_device *lo, loff_t size)
- 		kobject_uevent(&disk_to_dev(lo->lo_disk)->kobj, KOBJ_CHANGE);
- }
- 
--static void loop_clear_limits(struct loop_device *lo, int mode)
-+static void loop_clear_limits_workfn(struct work_struct *work)
- {
--	struct queue_limits lim = queue_limits_start_update(lo->lo_queue);
-+	struct loop_device *lo =
-+		container_of(work, struct loop_device, clear_limits_work);
-+	struct queue_limits lim;
-+	unsigned int memflags;
-+	int mode;
-+
-+	/*
-+	 * Snapshot the recorded modes without clearing them; verdicts stay
-+	 * for the life of the backing file.  The freeze drains in-flight
-+	 * requests, so everything scheduled before it is visible here.
-+	 */
-+	memflags = blk_mq_freeze_queue(lo->lo_queue);
-+	mutex_lock(&lo->clear_limits_lock);
-+	mode = lo->clear_limits_seen;
-+	mutex_unlock(&lo->clear_limits_lock);
-+
-+	/* A racing unbind may have reset the verdicts; nothing to commit. */
-+	if (!mode) {
-+		blk_mq_unfreeze_queue(lo->lo_queue, memflags);
-+		return;
-+	}
-+
-+	lim = queue_limits_start_update(lo->lo_queue);
- 
- 	if (mode & FALLOC_FL_ZERO_RANGE)
- 		lim.max_write_zeroes_sectors = 0;
-@@ -234,14 +259,65 @@ static void loop_clear_limits(struct loop_device *lo, int mode)
- 		lim.discard_granularity = 0;
- 	}
- 
--	/*
--	 * XXX: this updates the queue limits without freezing the queue, which
--	 * is against the locking protocol and dangerous.  But we can't just
--	 * freeze the queue as we're inside the ->queue_rq method here.  So this
--	 * should move out into a workqueue unless we get the file operations to
--	 * advertise if they support specific fallocate operations.
--	 */
- 	queue_limits_commit_update(lo->lo_queue, &lim);
-+	blk_mq_unfreeze_queue(lo->lo_queue, memflags);
-+}
-+
-+/*
-+ * Record that the backing file does not support @mode.  Returns true
-+ * for a first verdict or a dropped stale record, false for a repeat.
-+ */
-+static bool loop_clear_limits(struct loop_device *lo, struct file *file,
-+			      int mode)
-+{
-+	bool first;
-+
-+	mutex_lock(&lo->clear_limits_lock);
-+	if (lo->lo_backing_file != file) {
-+		/* Stale record from a racing unbind or rebind; drop it. */
-+		mutex_unlock(&lo->clear_limits_lock);
-+		return true;
-+	}
-+	first = (mode & ~lo->clear_limits_seen) != 0;
-+	lo->clear_limits_seen |= mode;
-+	/* Scheduled under the lock so cancel_work_sync() cannot miss it. */
-+	if (first)
-+		schedule_work(&lo->clear_limits_work);
-+	mutex_unlock(&lo->clear_limits_lock);
-+
-+	return first;
-+}
-+
-+/*
-+ * Record the verdict and return -EOPNOTSUPP; repeats stay quiet so only
-+ * the first failure per mode reports.
-+ */
-+static int lo_unsupported(struct loop_device *lo, struct request *rq,
-+			  struct file *file, int mode)
-+{
-+	if (!loop_clear_limits(lo, file, mode))
-+		rq->rq_flags |= RQF_QUIET;
-+
-+	return -EOPNOTSUPP;
-+}
-+
-+/*
-+ * Return true when @mode is already recorded as unsupported, so the
-+ * fallocate probe can be skipped.
-+ */
-+static bool loop_mode_unsupported(struct loop_device *lo, struct file *file,
-+				  int mode)
-+{
-+	bool known;
-+
-+	mode &= FALLOC_FL_ZERO_RANGE | FALLOC_FL_PUNCH_HOLE;
-+
-+	mutex_lock(&lo->clear_limits_lock);
-+	known = lo->lo_backing_file == file &&
-+		(mode & lo->clear_limits_seen);
-+	mutex_unlock(&lo->clear_limits_lock);
-+
-+	return known;
- }
- 
- static int lo_fallocate(struct loop_device *lo, struct request *rq, loff_t pos,
-@@ -256,8 +332,16 @@ static int lo_fallocate(struct loop_device *lo, struct request *rq, loff_t pos,
- 
- 	mode |= FALLOC_FL_KEEP_SIZE;
- 
--	if (!bdev_max_discard_sectors(lo->lo_device))
--		return -EOPNOTSUPP;
-+	if (!bdev_max_discard_sectors(lo->lo_device)) {
-+		/*
-+		 * Limits already committed; record the op's bit to keep
-+		 * the per-mode quiet accounting.
-+		 */
-+		return lo_unsupported(lo, rq, file, mode);
-+	}
-+
-+	if (loop_mode_unsupported(lo, file, mode))
-+		return lo_unsupported(lo, rq, file, mode);
- 
- 	scoped_guard(file_write, file)
- 		ret = file->f_op->fallocate(file, mode, pos, blk_rq_bytes(rq));
-@@ -269,7 +353,7 @@ static int lo_fallocate(struct loop_device *lo, struct request *rq, loff_t pos,
- 	 * supported and clear them here if that turns out not to be true.
- 	 */
- 	if (unlikely(ret == -EOPNOTSUPP))
--		loop_clear_limits(lo, mode);
-+		return lo_unsupported(lo, rq, file, mode);
- 
- 	return ret;
- }
-@@ -1035,6 +1119,15 @@ static void __loop_clr_fd(struct loop_device *lo)
- 	lo->lo_backing_file = NULL;
- 	spin_unlock_irq(&lo->lo_lock);
- 
-+	/*
-+	 * Requests may still be in flight across this unbind; reset the
-+	 * verdicts before the cancel so it cannot miss the work item.
-+	 */
-+	mutex_lock(&lo->clear_limits_lock);
-+	lo->clear_limits_seen = 0;
-+	mutex_unlock(&lo->clear_limits_lock);
-+	cancel_work_sync(&lo->clear_limits_work);
-+
- 	lo->lo_device = NULL;
- 	lo->lo_offset = 0;
- 	lo->lo_sizelimit = 0;
-@@ -1700,6 +1793,7 @@ static void lo_free_disk(struct gendisk *disk)
- 	loop_free_idle_workers(lo, true);
- 	timer_shutdown_sync(&lo->timer);
- 	mutex_destroy(&lo->lo_mutex);
-+	mutex_destroy(&lo->clear_limits_lock);
- 	kfree(lo);
- }
- 
-@@ -2018,6 +2112,8 @@ static int loop_add(int i)
- 	spin_lock_init(&lo->lo_lock);
- 	spin_lock_init(&lo->lo_work_lock);
- 	INIT_WORK(&lo->rootcg_work, loop_rootcg_workfn);
-+	INIT_WORK(&lo->clear_limits_work, loop_clear_limits_workfn);
-+	mutex_init(&lo->clear_limits_lock);
- 	INIT_LIST_HEAD(&lo->rootcg_cmd_list);
- 	disk->major		= LOOP_MAJOR;
- 	disk->first_minor	= i << part_shift;
-@@ -2056,6 +2152,9 @@ static int loop_add(int i)
- 
- static void loop_remove(struct loop_device *lo)
- {
-+	/* Cancel before the queue becomes unreachable. */
-+	cancel_work_sync(&lo->clear_limits_work);
-+
- 	/* Make this loop device unreachable from pathname. */
- 	del_gendisk(lo->lo_disk);
- 	blk_mq_free_tag_set(&lo->tag_set);
--- 
-2.53.0
-
+Best regards,
+Mehmet
