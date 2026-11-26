@@ -1,58 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795700969;
-	b=BqKxDOT7j8MmGBaVELtf02VETPWeaTUtHXbwStKfDkA0XHvoMLlthqq7eqHfzXxLSYLU
-	 STCQWnnc5oG0Bz3xi2dj6+qihAur97k/PmHk/5enNHuwlC+blh60TCMfm2iASaNMjPFEj
-	 W5EhYSIgma4w+OuCxqy6BdkYhBpbFct94iMazRU0avrkwL/o0c8FNgpAp9XQuXUknyx9g
-	 QrtanEhHpywuHz+RuolXWgN9cngEEk0YspKdG/mwtC+Gpsnqoj6h5mH5XUPSnU7lQtSab
-	 oTRBmWUchf3SfmtGqb+AwlwwZ2Zedl1VfGPx5JX8ftVpPDS6XvtryHMUdyIMo4vrObw==
+	t=1795700982;
+	b=Li3LtM0MfX3fmnV9/KIeN9+d4lKD5B3EaAC2R/JmMoBkKW2laMv2FAbWHcACTxhZ/4lG
+	 LqKTfrbtO2fbXudo2g8FY/jOZmjqSTe8ULYxrB+3uYntV3NuLF3HMEjj/bbO8VRVHLPZt
+	 MIRCq7rCqEzPrZYEda5ZQPhOeH7TMnkjL6oryX3jR5YPiTXmNSIlWIO9PZFpRVDt7t0ri
+	 ryr71EgX36VULkillQULJzEu0Kfe300uj8Uk68bog8WhYwq0PlWzBP/+ytAz2Wp5WLjku
+	 uh/t17hF4a035fN916+bOBxP6qc+xBM6q2dlEaTpqgd+lCapzk2zNcKluP+WC8mrWzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795700969;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795700982;
 	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
 	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 X-Mailer;
-	bh=Dckl5cZ3WBWmSxFRR2nJW/3y+8t4JCFxv0tEEYaft8o=;
-	b=dJElr9W7BVWS3KA8vllNOz1Cn1qE8dRK3MWHI4XxEiPmIuFI0OnW6yqXdNXYN5rit2vM
-	 NEk59Zck+Wb2ZineGZEyCeNds2MOGtIUoXCHfHnFLwFebGKnHwMCsLwZmIMWX3CPmx6+W
-	 NWPsBbi37c7T0SzCQRDAcGwFwBpWbu0sRPLr3QWyBBOyE0yiHuXQsN2A0v3ibmq8hZe9Y
-	 Xc3ngdgfLJzxTKIToEK1uHxOmlOZvudNMW+PjPmLkRpdKJTuvnEPSRHH0eA5/fo7hId1B
-	 rllpx1/3UOFAornj0x9VABAszNHgmcuJ2m2FhbIfm27REbemZq1dfWd9//FULyeD3qg==
+	bh=aXLXQaTVxzvHfzZ5Xw8BhaYQpUv8mWSspk4W8GeUq/Q=;
+	b=m//XYbyckWALi5MJdKruBZdvwQKzqokuiUl2+5o8xVUymzSywAEBboe6Ro9YIYx6b3dp
+	 0//fu6uLqcfLBdoA/QH1RCZ281UpKqX1VmN7BKke9NRg8uHwk7zzHmrckRKVSv+vmvN+h
+	 kh/0g8fDfAEdzB+CN/tD2msj//pS+UMaNOrHF2mPQd59hgyuIKnoyZzS8STM/2GJkI0KI
+	 xgeMFFToZrAkcW8/nITvW4Q7plT/i3ZhK5pdFFe8dk9lARrfkhgkGVR4TkKV7O7SUPkFe
+	 m7lOXclEJyBSxc+w0mmftPR9ldKgoohIUNboK+mg8PSrKrzxU9z2fjPPOHFbCqum00A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CoVYVv0P;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XJ2YKlIv;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6351C606A334;
-	Thu, 26 Nov 2026 13:49:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E3D6606A31C;
+	Thu, 26 Nov 2026 13:49:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CoVYVv0P
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9C0A1F00AD4;
-	Thu, 26 Nov 2026 13:49:26 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XJ2YKlIv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 542181F000E6;
+	Thu, 26 Nov 2026 13:49:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795700969;
-	bh=Dckl5cZ3WBWmSxFRR2nJW/3y+8t4JCFxv0tEEYaft8o=;
+	s=k20260515; t=1795700981;
+	bh=aXLXQaTVxzvHfzZ5Xw8BhaYQpUv8mWSspk4W8GeUq/Q=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=CoVYVv0Pyud3HwyOON6Wg/7fuwApC54MCMaL+0empd8BaTGSXojGQ1FYmDU8ruERx
-	 58y4OAHE0owWukJn8FnrB5nEiRDlUPi2M6CwiwrmMQpEiGmZJO+LbejDybDEVAmE7/
-	 Je0+8b4HFZ2zWXw8514SULtCCC0wQ37W0B3AA9iquGoDGAlpip9LjNh+S6QD8Wv0Be
-	 pH+zfc8RTacZ6YS8xPi72vlyL2C0mPbuox2F6Ajx6lxfOgkbE1SONwBvMw8oIyNBtl
-	 ytGZOTDZQzFRjPp3t40PBBTTNi2AlTUtldfJPPZgQ37tuPjLPTQQP5W38pAsh5zJlm
-	 YConAXaQXzhgA==
-From: Carlos Maiolino <cem@kernel.org>
-To: linux-kernel@vger.kernel.org, jianyungao89@gmail.com
-Cc: "Darrick J. Wong" <djwong@kernel.org>, 
- Eric Sandeen <sandeen@redhat.com>, Alexei Starovoitov <ast@kernel.org>, 
- Yuzuki Ishiyama <ishiyama@hpc.is.uec.ac.jp>, 
- Jinliang Zheng <alexjlzheng@tencent.com>, 
- Dave Chinner <dchinner@redhat.com>, linux-xfs@vger.kernel.org
-In-Reply-To: <20261126023419.5727-1-jianyungao89@gmail.com>
-References: <20261126023419.5727-1-jianyungao89@gmail.com>
-Subject: Re: [PATCH] xfs: fix wrong lookup direction in
- xfs_refcount_lookup_eq tracepoint
-Message-Id: <179570096631.157938.2404878356926986619.b4-ty@kernel.org>
-Date: Thu, 26 Nov 2026 14:49:26 +0100
+	b=XJ2YKlIvFRz4Ehyv0qJvJsMvxnTVXauatKJFQKD9pPsOJd3A3JPqry7THZMpEufoQ
+	 6QdmtRNCTFLOlEDkm4tKKGxQ87H7jMiMjlTwk3IidUJ9u6WAU0t8qWBuIKeVItASr4
+	 C59v+waqbxcuCZoExbO+wF4oOgYQKO9LsPgRNZ5A6zqmN9stC2nrwGnQNsxiL1/trb
+	 OgDC9BKiDRK7IBBcseATmGk4Om6NN11Z3ML3jDovTiv7CWmsSgFy0vWRR/tajbHu08
+	 XPgOofJG8bxqnXcF/xtmS6rninRGv4WqOlkvRnZ3w1WYWqNQnRDZUlwR1rpT+0ia8/
+	 NcP/jgaTHW10w==
+From: Lee Jones <lee@kernel.org>
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Drew Fustini <fustini@kernel.org>, 
+ Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+ Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Cc: mfd@lists.linux.dev, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Icenowy Zheng <uwu@icenowy.me>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20261117052456.3747585-1-zhengxingda@iscas.ac.cn>
+References: <20261117052456.3747585-1-zhengxingda@iscas.ac.cn>
+Subject: Re: (subset) [PATCH v2] dt-bindings: mfd: syscon: add T-Head
+ TH1520 compatibles
+Message-Id: <179570097389.79319.5412421374255035653.b4-ty@b4>
+Date: Thu, 26 Nov 2026 13:49:33 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,23 +66,20 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16-dev-ad80c
 
-On Thu, 26 Nov 2026 10:34:01 +0800, jianyungao89@gmail.com wrote:
-> The trace_xfs_refcount_lookup() call in xfs_refcount_lookup_eq() passes
-> XFS_LOOKUP_LE. But the actual btree lookup below uses XFS_LOOKUP_EQ,
-> so the trace record reports a mismatched lookup direction and misleads
-> debugging.
+On Tue, 17 Nov 2026 13:24:56 +0800, Icenowy Zheng wrote:
+> T-Head TH1520 has multiple system controllers for the "subsystems" on
+> the chip.
 > 
-> 
+> Add them to the syscon binding.
 
-Applied to for-next, thanks!
+Applied, thanks!
 
-[1/1] xfs: fix wrong lookup direction in xfs_refcount_lookup_eq tracepoint
-      commit: a2a0791c4ef58ce943c7925491f31be95ebc7624
+[1/1] dt-bindings: mfd: syscon: add T-Head TH1520 compatibles
+      commit: 3f3be04cc3401a6d0913e7d4504109f4b3635daf
 
-Best regards,
--- 
-Carlos Maiolino <cem@kernel.org>
+--
+Lee Jones [李琼斯]
 
