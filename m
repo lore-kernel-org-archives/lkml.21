@@ -1,67 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795696275;
-	b=vjOcB3klLrkBWhzm+ZqIM+uV+ztWmUcopfTQJiCNTH9rucbdijDWf/jqg0qF9BTx4PnZ
-	 R2uZxWwz2hXp3sBjPL7F0/3mkJZYNrTca0XVznBt8QJSjZt2wYSj7NWzw3tQ9Xm85yUmE
-	 Ty1WBcRP0ZhKhPRCgPk0TnhyU8YxkWzteZRersl6P0gXfqSpKyy7ABbA2u8qJs5ow4vWB
-	 hH2uDXgtDmVrEI/t6m9FbfwuKGuut4EmdjMa5IZNz4iJRk1peMWSqk42nhVHZ7VhiouuG
-	 xpbTQ692FOUKrrusY0gZcLJNl6KiiRFUNRHEmAcnABJvqpwvEWI4eq09Ea9Fx8gHU3g==
+	t=1795696280;
+	b=sELRVfVXV9Zo6B2ASxHUrj8MKjLzGNdsGGS8ficfxfgTk6rqzXFkDkD39oStsJfZShtY
+	 CdimVXaNr+q2oLJEAeQSEOBfdwf72a9rurHDnXvJ4QAUdZnZuLVWrBua7O6dQ7hKgbwKU
+	 DGIN6HtgF6R0ljEAjDpA8ZZWwD7LX3STcE1wjkj+IiBcglCTnagJIaxF/oGRKF3mVyYXq
+	 7X5MVwhLekTO4DeJU7igriu9Q6YhTtCSAeXeQ5jl/hEWuqWp/lRGEv4VXHliXf0aKor1w
+	 8/O7yxpXVS09Bt3qbvw6AqE1/wVhk95/JOpmWSOWS9AU8vkaORO+daR1DS9MNhIkTsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795696275;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
-	bh=52jyvJaZ8hBgfbTK0xHbCFQ/dKRjm1IOosfZ4MG6L2g=;
-	b=lwihMd9jMKzAN8kL13T/Uf7C8WI6DhT7VUzAw08jxHX5mOrVtgM/JRChJ+CxL5I83aq1
-	 qyQqwlea0e/zBpEmH3Ivv9MbEwygHEPi+I99Wa0D5wJGR6P33bB39wmhyDusl9VsixeY2
-	 qB+sPNsHP4cwYtJMy7og/MfT1+Kg9SOXoClkeBMGkCDSFJFtNwTxUZTKIMZtfOym1Drzg
-	 aEJA6rl2TxW6iYXM7yXqnHe+NAroMiOiPNHYkAhcAxZTEW1XTZPsGrr7zM/TOQ6j6Wgq3
-	 yKiCwjBMsXeqxKd4PkFmo/M4gqmoNzMPTRzvmAajBR7GmvjFJD6SP5HnA2KuZqrcCvA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795696280;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=yJb+KOZ/zmj8Fns3CIInNWprV2HZ5qGNxwyn1s60ypk=;
+	b=kXHypryhBApI7Z9Yxe0ZVKE5vWiJiTNoKswSyXG4Bv6idoG4Yr6RjAaYJyipJTQ/zT4Q
+	 JAqvorOw2FOdUwcQ8+qiIk2nHuq/YiypmJ8atavd7FhifcG6ZzvuDELbJy0CKIPVuVBpL
+	 M3Czk+DwKwEuy9aWr9UgXsWcnZ7CwONsRE5/rpSST5PrnUCK3oVS+p6d9mTtWBDa/+7rT
+	 Od2w46vX90jv7HDd61QTQNYKYYmAkZgQATctKNwoG+Xs54jMW0R0jIZA4PuUgwGWyWum4
+	 XgyEtK0Ji18/D+U6a01Ux5xZ3yfBzPbdFoBriDvtOfyVcoCjCKi+ktkpDnfGYKJNh0g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=GrEcHm5A;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iD84DYiZ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42230606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:31:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42230606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6762C606A31E;
+	Thu, 26 Nov 2026 12:31:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=GrEcHm5A
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795696274;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=52jyvJaZ8hBgfbTK0xHbCFQ/dKRjm1IOosfZ4MG6L2g=;
-	b=GrEcHm5AfaTg0+uHOwjL4dBwmFjOlqVrQODkxgdgTVr25H+cbLkrviibEAW8RR8g7q5ixl
-	L8UOiCaAjPITV3QhdB72LIiAB6ZBSJgpVsVUmh3BT1t1lr7p7KUDRkc8zFGZy9kIw96nO0
-	kkI+3lRB6CO0o8q1qc9UpwkLDvG+XDs=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-221-Fw_Z4OWMPFyLuRjexsHCGA-1; Thu,
- 26 Nov 2026 12:31:09 +0000
-X-MC-Unique: Fw_Z4OWMPFyLuRjexsHCGA-1
-X-Mimecast-MFC-AGG-ID: Fw_Z4OWMPFyLuRjexsHCGA_1795696266
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 79D031800343;
-	Thu, 26 Nov 2026 12:31:05 +0000 (UTC)
-Received: from [100.91.101.41] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 921EE195608C;
-	Thu, 26 Nov 2026 12:30:58 +0000 (UTC)
-Message-ID: <851d61dc-7416-4b3f-85e7-8a30bc19fab8@redhat.com>
-Date: Thu, 26 Nov 2026 13:30:57 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iD84DYiZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A1841F000D1;
+	Thu, 26 Nov 2026 12:31:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795696279;
+	bh=yJb+KOZ/zmj8Fns3CIInNWprV2HZ5qGNxwyn1s60ypk=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=iD84DYiZPJ0ePeZorujH99dMO8XU5aGcfZj+7CQ/CgjHi1eEJw6XPSU+Xwa532voB
+	 ryhhmAajnU0grcT43/DCyzVCCPo0kpGlFtJm6RngdUK7rhecTWGx6nuz1XKY618uSN
+	 KxTeVY6OgyZL2zQDQnkAo0ZoEvvqu/OHIijrjaOpIaYB+lN4p4UL+lrSMaC2WUIJVh
+	 BKj1nG5qsSSwIybyL9lkb3Ra1NTo2ANyCCvV55kNI8VEDrao98CxL8c+47IvaSIVQd
+	 c45pQ1H14G2ZnCJzwtywVgYwqfcIs4gLmNIWjyXE+4HQqcaRd7aVE1xNpVDVK/ZjRx
+	 4F3kQQNvLP/og==
+From: Lee Jones <lee@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
+ Pavel Machek <pavel@kernel.org>, Griffin Kroah-Hartman <griffin@kroah.com>, 
+ Svyatoslav Ryhel <clamor95@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-leds@vger.kernel.org, mfd@lists.linux.dev
+In-Reply-To: <20261115090520.102216-4-clamor95@gmail.com>
+References: <20261115090520.102216-4-clamor95@gmail.com>
+Subject: Re: (subset) [PATCH v6 3/3] mfd: max8907: Add LED cell
+Message-Id: <179569627733.65215.7739958510211892846.b4-ty@b4>
+Date: Thu, 26 Nov 2026 12:31:17 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,94 +62,18 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
- under global dpll_lock
-To: David Laight <david.laight.linux@gmail.com>
-Cc: netdev@vger.kernel.org, Vadim Fedorenko <vadim.fedorenko@linux.dev>,
- Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
- Jiri Pirko <jiri@resnulli.us>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Min Li <min.li@microchip.com>,
- Tony Nguyen <anthony.l.nguyen@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Richard Cochran <richardcochran@gmail.com>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, intel-wired-lan@lists.osuosl.org,
- Grzegorz Nitka <grzegorz.nitka@intel.com>,
- Karol Kolacinski <karol.kolacinski@intel.com>,
- Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>,
- Petr Oros <poros@redhat.com>
-References: <20261111164021.273409-1-ivecera@redhat.com>
- <20261126091510.7ac67b35@pumpkin>
-Content-Language: en-US
-From: Ivan Vecera <ivecera@redhat.com>
-In-Reply-To: <20261126091510.7ac67b35@pumpkin>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16-dev-ad80c
 
-On 11/26/26 10:15, David Laight wrote:
-> On Wed, 11 Nov 2026 17:40:11 +0100
-> Ivan Vecera <ivecera@redhat.com> wrote:
-> 
->> dpll_lock protects topology and object lifetime, but it also serializes
->> all driver callbacks in the system, so one slow device stalls every other
->> DPLL device, whichever driver it belongs to. mlx5 callbacks issue firmware
->> commands with a 60 s default timeout, and zl3073x callbacks can wait
->> seconds on a driver lock held across ToD writes and phase steps.
->>
->> Make dpll_lock an rwsem for topology and lifetime and add a mutex per
->> domain for callbacks. A domain is all objects created with one (module,
->> clock_id), in practice one chip or card, so channels of one chip stay
->> serialized as drivers expect, and they still block each other. Device
->> callbacks run under the domain of the device, pin callbacks under the
->> domain of the pin, whichever driver registered them. Only one domain lock
->> is ever held, so domains have no lock order. A lock per device would not
->> work, because pins are N:M with devices and callbacks notify sibling
->> channels.
->>
->> The driver API does not change, but a callback can now notify only
->> objects of its own domain. Patch 1 changes the one in-tree callback that
->> does not follow this.
->>
->> Registrations across domains exist in the tree only on E825, where ice
->> registers fwnode pins of an external DPLL with its TXC and TSPLL DPLLs.
->> These callbacks are no longer serialized with TXC and TSPLL, they rely on
->> pf->dplls.lock, and requests about these pins wait while the external
->> DPLL is busy. Intel folks, please check that this is fine.
-> 
-> Isn't the big problem with callbacks handling deregistration?
-> With a global lock there isn't a problem.
-> But as soon as you do anything else you have to have very explicit
-> rules to safely deregister a callback without either a UAF or an ABBA
-> locking issue.
-> 
-> I don't see this being mentioned.
-> 
-> David
-The cover only says that dpll_lock keeps protecting the object
-lifetime, the details are in patches 4 and 9.
+On Sun, 15 Nov 2026 11:05:20 +0200, Svyatoslav Ryhel wrote:
+> Add the LED cell name to the list of MAX8907 cells.
 
-All unregister functions take dpll_lock for write. Netlink requests,
-dumps and notifications hold it for read for their whole duration,
-including the callbacks. So dpll_device_unregister(),
-dpll_pin_unregister() and dpll_pin_on_pin_unregister() wait until the
-running callbacks finish, and no new one can start, because objects
-are looked up under the read lock. Once they return, the ops and the
-private data of that registration are not used anymore. This is the
-same as posix_clock_unregister() taking the rwsem of the clock for
-write. A KUnit test in patch 5 checks that a function taking dpll_lock
-for write waits for a running callback.
+Applied, thanks!
 
-For ABBA the rules are the same as with the mutex today: a driver must
-not call a function that takes dpll_lock, including the unregister
-functions, while holding a lock that its callbacks take, and a
-callback must not call one at all. Patch 9 documents both, and lockdep
-reports a violation.
+[3/3] mfd: max8907: Add LED cell
+      commit: dc71f64fc283661d77d6a9a4bf38af94b4daeb5a
 
-Thanks,
-Ivan
+--
+Lee Jones [李琼斯]
 
