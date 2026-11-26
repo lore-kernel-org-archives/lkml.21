@@ -1,49 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795711482;
-	b=rD/4vtBCSrFK5ogOkc544OdXPSEnA5EwW3QjwnnBIPdHsqBFZbupNNpH5fjIZdWkXAL6
-	 wgksnZdJZnio2p1A+n0ViKlwaC6u69YL5KnzXmDYAhhL7C8YVdAI1lRbYg4G1+dmiM3wE
-	 xyk0Pn+eyv6W4HdhpHqaLO/vraQv0If3USN/DcTUy7WFsy9f1JsNSHADHqPQnciGKOwIa
-	 /vqeeDphDJ/ZTO7phcB82IoHHG7K6gdps+v5s8VzEEou8lqtAGC+m+/d1V+ExeXB3bszb
-	 HoXpKeROnp+Sre8nhTEvuUFeWzEtjqnGjg8rJLgMrNwpYZL9D5YMFx1vruCT3H+bLwg==
+	t=1795711501;
+	b=xRns8NjLj6BRbXfHw1uuZuSWWSKvCfPtKOfs0jdGoUrWCFoJiufBLbnXl+0lv5S7vvlc
+	 c+U6iydGgN+s3ysNV6VYAhM72eDjbvHlPLuyWkvpF2AEs98JddYR40GJX2SBgde4JTzME
+	 +yKyTQ3PmzcojG8vebV8tWxYOW+qXW1fxnF4y7gVgs0sIKaUV/HLHYH6/Tmy8xEHrhIKb
+	 bOUajFpYZTPSxPZ4lyYRwbbrTG55UR5TibqACLV6wv3Ht00Ya8j20Nmf13yNPs6kR0/Oe
+	 LKkVITPzkH6baax0ueomJUxoihYbthUDUzuWsqcC9ZywevPSPUpQSZzDXnNelKsnZPg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795711482;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=y8Eg/yzSVCNhVFWmPD8/uMOmYnaralDAmMpwUmNw1QU=;
-	b=t5AzXMLGJWcKo1rdqquLVC2wCW7r8XfG+92wirAJDY7aPmwMkmFhUHfobseiBt7QB2C8
-	 fCxTNkys/u87lqEQlsgGveB+0idk3sl+sFdtGetyWCo0evOL0r3eMEQSXD+raVNUOsBvB
-	 6Q1u5h02rzlUyLFxDn+sj6/fvWHuhVV6AUGe5L4Ji1vEldjII9MpK8ejGGb2own9Fa+cN
-	 ekTy4rEZBsu31DFvTdyrdiEWZKKr51vgHMfJwMdh4hoXYznD16PUwcEYBT9EaG9U9FAHZ
-	 9anhWKuoDq4LUOutc0y3AH9KJZFbwnbybvx3wItjT4jk6J0XqEtLEOqAIKua7a4WOhw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795711501;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=2CRRRbF+HzuCgfrzATzh0N0sKz/emwy+epNHXjfziJg=;
+	b=YOzL0SWKbAx3rFBlhOD0gz5dK61KLgtmXzVlAH0s4oulngT0izh2gBFJeb0ERq3BYvsf
+	 1OqOqOtIfoNQ20+0dyE9EO5ph5XKGjJ5I1ahpXVG9bxUSqXNP4O04X3O/UNMpSKFKukpN
+	 YpQl0tj5BxZemWxJyZ+crOPuUh9YyCtB3DP/8nqrl/U0uREYo0e2a3lUCqtatjWzC+mWi
+	 csUVEo8Qh+Ii/d2DcOGaMf2TK6hcS/IA5qzVjIzKRUVumeAQrHbSMkkP6yHjd38UFp1mN
+	 ACR+w7mKopA9kUUQdygT0nRexTEDZIy8dZErO5nohPJHFt/jZ9cHkbj3px6bf68tKIQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Ybm+ZCwO;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 4D822606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:44:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D822606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=TUJsFVee;
+	arc=none smtp.remote-ip=192.198.163.11
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED59C606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:44:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ED59C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Ybm+ZCwO
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5FA531BA8;
-	Thu, 26 Nov 2026 08:44:37 -0800 (PST)
-Received: from [10.57.71.121] (unknown [10.57.71.121])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 54D5B3F86F;
-	Thu, 26 Nov 2026 08:44:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795711480; bh=NEFJ/kElwexbXWDUkbQAkXiAvulsTSqrsqEn0imaXLY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ybm+ZCwOCK+2HHO6FgbAX9my0/BTun88oGN77k4OSKnowsqqPT1G0kNcnjSVGQxrs
-	 hY1K8G6HgrR4cxYM9czf6rU6rCrPBd98bmNsGkL5yJntkuJpHSF3PN3bQ4cHkdkXjK
-	 QmS1PVCCCp0ddzDgt33JDReTrm7rr7d47ijybtHA=
-Message-ID: <11d4ade4-e7a5-461a-aaa8-6ef1ca5019dd@arm.com>
-Date: Thu, 26 Nov 2026 16:44:36 +0000
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=TUJsFVee
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795711500; x=1827247500;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=u6RrqXr5k7GIgp+/6Jmq+EmTixoza/s1U4UKEnhwwJ0=;
+  b=TUJsFVeeysAXOkG3yLwLDyhSgZNZ0/HfiAtG6m8FHqJeIS2KSWytpLru
+   WYqZAPff4QJfrl69E9jwWXLgf7NU6OQmNOpK8LxSYuUnu/yFtGI1D5pIB
+   XKQitiGWqyG1ivO1gjTBVb6yoK/sv9wy0fwxv7LDOblPlx5cC7k38DCEn
+   +exJu0KeP0A3h/VQnXuCl1pbZtYn10AB88NIhQ+BV+W4ejUgSPM3lqSCH
+   Es8XinjVt5yrk/b5ekBvyOnSsdB0p7C5Z/HVq9mWhkC6y+ixEtihwp9TL
+   yLmYzlTgf/zo2Bw7koK6BacI5edEcfQlXHm9cno3xxsyC6ssC7XNKdTzn
+   g==;
+X-CSE-ConnectionGUID: vMPK61tvShW2t4ZApaO3ZA==
+X-CSE-MsgGUID: 4zOW8VEMR7GR487Q0hM4Jw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4536146"
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="4536146"
+Received: from fmviesa012.fm.intel.com ([10.60.135.152])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 08:44:59 -0800
+X-CSE-ConnectionGUID: zjY3Oa3MQ4KN4+1MUlfLAQ==
+X-CSE-MsgGUID: LQZ7A0CRRuyfMPUOXuK6Jg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="13894613"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa012.fm.intel.com with ESMTP; 26 Nov 2026 08:44:54 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xWcaY-00000001UTe-30KN;
+	Thu, 26 Nov 2026 16:44:50 +0000
+Date: Fri, 27 Nov 2026 00:44:33 +0800
+From: kernel test robot <lkp@intel.com>
+To: Abhash Kumar Jha <a-kumar2@ti.com>, andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org, rfoss@kernel.org, mripard@kernel.org,
+	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+	devarsht@ti.com, u-kumar1@ti.com, sjakhade@cadence.com
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+	jernej.skrabec@gmail.com, s-jain1@ti.com, y-d@ti.com,
+	tomi.valkeinen@ideasonboard.com, benjamin.robin@bootlin.com
+Subject: Re: [PATCH v4] drm/bridge: cdns-mhdp8546: Add suspend resume support
+ to the bridge driver
+Message-ID: <20261127003802.xAjhLSPU-lkp@intel.com>
+References: <20261126060532.2379444-1-a-kumar2@ti.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,56 +89,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/23] arm64/sysreg: Define TRBSR_EL1.EC event classes
-Content-Language: en-GB
-To: Will Deacon <will@kernel.org>
-Cc: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>,
- James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Tamas Petz <tamas.petz@arm.com>, Tamas Zsoldos <tamas.zsoldos@arm.com>,
- Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- coresight@lists.linaro.org
-References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
- <20261016-trbe_enable_disable_irq_handle_refactor-v2-1-3f57cf3199b1@arm.com>
- <dfea6dc5-6a2f-4006-8bbd-37844b6b5986@arm.com>
- <awhPHldqbDgiVH8A@willie-the-truck>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <awhPHldqbDgiVH8A@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261126060532.2379444-1-a-kumar2@ti.com>
 
-On 26/11/2026 15:24, Will Deacon wrote:
-> On Thu, Nov 26, 2026 at 10:24:17AM +0000, Suzuki K Poulose wrote:
->> Catalin, Will,
->>
->>
->> On 16/10/2026 17:54, Leo Yan wrote:
->>> TRBSR_EL1.EC identifies the cause of a trace buffer management event,
->>> but the sysreg description does not name its architected values. Define
->>> the five encodings as an unsigned enum so TRBE status handling can
->>> refer to each cause by name.
->>>
->>> The values cover other events, Granule Protection Check faults,
->>> implementation-defined events, and stage 1 and stage 2 Data Aborts on
->>> writes to the trace buffer, as specified by Arm ARM (ARM DDI 0487 M.c).
->>>
->>> Signed-off-by: Leo Yan <leo.yan@arm.com>
->>
->> Are you ok with me taking this via the coresight tree ?
-> 
-> The sysregs file gets updated quite regularly, so let me stick this patch
-> on a shared branch for you.
-> 
+Hi Abhash,
 
-Thank you Will !
+kernel test robot noticed the following build errors:
 
-Cheers
-Suzuki
+[auto build test ERROR on drm-misc/drm-misc-next]
+[also build test ERROR on linus/master v7.4-rc4 next-20261125]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Abhash-Kumar-Jha/drm-bridge-cdns-mhdp8546-Add-suspend-resume-support-to-the-bridge-driver/20261126-113532
+base:   https://gitlab.freedesktop.org/drm/misc/kernel.git drm-misc-next
+patch link:    https://lore.kernel.org/r/20261126060532.2379444-1-a-kumar2%40ti.com
+patch subject: [PATCH v4] drm/bridge: cdns-mhdp8546: Add suspend resume support to the bridge driver
+config: x86_64-buildonly-randconfig-1005-20261126 (https://download.01.org/0day-ci/archive/20261127/20261127003802.xAjhLSPU-lkp@intel.com/config)
+compiler: clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261127/20261127003802.xAjhLSPU-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/20261127003802.xAjhLSPU-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c:2322:14: error: no member named 'no_hpd' in 'struct cdns_mhdp_device'
+    2322 |                 if (!mhdp->no_hpd)
+         |                      ~~~~  ^
+   1 error generated.
 
 
-> Will
+vim +2322 drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c
 
+  2259	
+  2260	static int cdns_mhdp_resume(struct device *dev)
+  2261	{
+  2262		struct cdns_mhdp_device *mhdp = dev_get_drvdata(dev);
+  2263		unsigned int keep_alive, keep_alive_inc;
+  2264		unsigned long rate;
+  2265		int ret;
+  2266	
+  2267		ret = clk_prepare_enable(mhdp->clk);
+  2268		if (ret)
+  2269			return ret;
+  2270	
+  2271		rate = clk_get_rate(mhdp->clk);
+  2272		writel(rate % 1000000, mhdp->regs + CDNS_SW_CLK_L);
+  2273		writel(rate / 1000000, mhdp->regs + CDNS_SW_CLK_H);
+  2274		writel(~0, mhdp->regs + CDNS_APB_INT_MASK);
+  2275	
+  2276		ret = phy_init(mhdp->phy);
+  2277		if (ret) {
+  2278			dev_err(mhdp->dev, "Failed to initialize PHY: %d\n", ret);
+  2279			goto disable_clk;
+  2280		}
+  2281		ret = phy_power_on(mhdp->phy);
+  2282		if (ret < 0) {
+  2283			dev_err(mhdp->dev, "Failed to power on PHY: %d\n", ret);
+  2284			goto phy_exit;
+  2285		}
+  2286	
+  2287		/*
+  2288		 * The KEEP_ALIVE register is incremented at every scheduler loop of the
+  2289		 * firmware. If it changes between reads, the firmware is still running
+  2290		 * (e.g. the suspend was aborted) and only needs to be activated. If it
+  2291		 * does not change, the bridge lost power and the firmware must be loaded
+  2292		 * again.
+  2293		 */
+  2294		keep_alive = readl(mhdp->regs + CDNS_KEEP_ALIVE) & CDNS_KEEP_ALIVE_MASK;
+  2295		ret = readl_poll_timeout(mhdp->regs + CDNS_KEEP_ALIVE, keep_alive_inc,
+  2296					 (keep_alive_inc & CDNS_KEEP_ALIVE_MASK) != keep_alive,
+  2297					 2000, 2 * CDNS_KEEP_ALIVE_TIMEOUT);
+  2298		if (ret) {
+  2299			ret = cdns_mhdp_load_firmware(mhdp);
+  2300			if (ret)
+  2301				goto phy_off;
+  2302	
+  2303			ret = wait_event_timeout(mhdp->fw_load_wq,
+  2304						 mhdp->hw_state == MHDP_HW_READY,
+  2305						 msecs_to_jiffies(1000));
+  2306			if (ret == 0) {
+  2307				dev_err(mhdp->dev, "%s: Timeout waiting for fw loading\n",
+  2308					__func__);
+  2309				ret = -ETIMEDOUT;
+  2310				goto phy_off;
+  2311			}
+  2312		} else {
+  2313			ret = cdns_mhdp_set_firmware_active(mhdp, true);
+  2314			if (ret) {
+  2315				dev_err(mhdp->dev, "Failed to activate firmware (%pe)\n",
+  2316					ERR_PTR(ret));
+  2317				goto phy_off;
+  2318			}
+  2319	
+  2320			spin_lock(&mhdp->start_lock);
+  2321			mhdp->hw_state = MHDP_HW_READY;
+> 2322			if (!mhdp->no_hpd)
+  2323				cdns_mhdp_bridge_hpd_enable(&mhdp->bridge);
+  2324			spin_unlock(&mhdp->start_lock);
+  2325		}
+  2326	
+  2327		return 0;
+  2328	
+  2329	phy_off:
+  2330		phy_power_off(mhdp->phy);
+  2331	phy_exit:
+  2332		phy_exit(mhdp->phy);
+  2333	disable_clk:
+  2334		clk_disable_unprepare(mhdp->clk);
+  2335	
+  2336		return ret;
+  2337	}
+  2338	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
