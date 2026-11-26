@@ -1,106 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.83.65
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795710821;
-	b=K9R4Do8og26m3MCP94NDcEY3Rn798Cae2Y8L+IrH0rBU1Y69BmlJLX9wNZb/3MYJ61xq
-	 t8XydCO/tzRqMhcyvSeNYAqI9aFXj10jzVl+DEpLcEeXlFVG90DtyozmaojUigiezGD2v
-	 0WnCkaSh8q01CIXbJlGSYUjnv9tmi2PUWo0VQw1Rzycnj62fPl3qSk4kfejPHgGMwxymW
-	 Y7bdtgqe9wlLeOSev4kcDeD7xkVMq8LUTmrN5ClVkD+a75bPWP4b25Qbfsuse8fYadwo/
-	 /7MbXgnfLJrTwFKnhvauNCAuk0JzIcPcJKtUP9OvqA5ejmDzGnwTm6LoibsPWzigNqg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795710821;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=7soUBChG2eorH8MaKZzLxtkNhLd/s6s3Ma6CXM0wbKc=;
-	b=Me5XvsyouLTWSQMN5nDDBFUVGfzQbagJoleDDKDnZRpe7yPldOnyEbLWh9/4xHsowmf4
-	 kIjEvTj080yS9gwkmVosImG8neDmv9US37lftHYbVLgG7Wlm7w1ntQI/0jqVM45xqV339
-	 ODq4COm6G6X25ljjgvrH5Ca3jobxAzioh2+S/pkL4R00/GAN7RmUSvDfBxjbuWri7G08b
-	 hW/5JcYcNKwuy7X2FoJQT7aU+bs14dW0h4OyECgYcu8+n8yi80bnnk1XBVCTcWPJovOxX
-	 AnIaIGRDj9VJSQpVU8MQKEneXDG+i9M33Z2VxlQGT8nA5N5GAIBGbtEOFYGmd0GA4OA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b="kvzGya/S";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.83.65
-Received: from GVXPR05CU001.outbound.protection.outlook.com (mail-swedencentralazon11013065.outbound.protection.outlook.com [52.101.83.65])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795710823;
+	b=YZF5F6yIGgj1Nw9u8N/Duf9GfI05Y5tnL0nyAcUFLvtcW/z3n9qBjlDwQzW6LhRd6rQN
+	 yRiqInR8onmLB72L8yTuE1YUODsL1vDFETsFFVQnYKzAFv54zrqSHIGVwU0IpVXKskAXy
+	 Y7UtpozZY2TixscZ0ttku8xD7Vgjjk7Wgdt35glENwRDe+317oHoAtktVPmj2GPPdIRPy
+	 KZbqwlSDaJ35jxopipoY2KS6mS2vHBF7nCDqPnfwbPU+hm4a9IvRdgxu8T54QsSLQquuA
+	 A3mJqjp/BZ94012WkFdELfXA0f2RDyIDNXMgcqCVatZWkcmtltWY+xkkMbNOIBeIvvQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795710823;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=ljMFoUndqljimP66YywQunDkEpcTJOIrLBTd3W9j6y0=;
+	b=PqqX5eefwL2TlBlEUrek1Dr8QC9iJmY8qJqhoAxk2CAgj00bHW0FeuaujGemQB5AA3zT
+	 hJl/YW3jL46xddwL+1uub3Gdd1IRCVXhwNlgxXCAwBeM8HtUeLg7QhK48JFX3GHSFAqND
+	 p6/UAEGIEl6MGSXJyf5JRl7vpGRz+TFChpRw7G/1YZ+wxjjOT1UMTtAhgOYAjn1Z6rjIo
+	 nxHQjyJsqqUU+e+IlY3y/J+vboqo2UjSNwP4I56dIpj8cDTUF/vCsgTMuBm1CJxeVASl9
+	 a+UveWC9eaMXgx+9hj3CGsIrVHGP1okCidt4e9w4Aq+5CExLa3fjrkOXvqDocFSGlJA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b="E/tS3je4";
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10716606A32C;
-	Thu, 26 Nov 2026 16:33:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10716606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56622606A329;
+	Thu, 26 Nov 2026 16:33:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56622606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=kvzGya/S
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=INS02Ie7g55EMxYdAw95e7ObPlNIWZWKZetg7a3bsm+pDKCR1yxE/185aM4F4CEpjW64qv5DQy/bSDGCd3aiQPIi9xaVQaDg5SaleouwyD3M5AC0kFPy8RmN6gmqhIoWQtIBtXWuU/IsQ8JKor4m6XBGtXfs3r7W4faRUL2iq3JwIi9/2mjDvC8bxNjEraHHtpsuVc/Wdepe7t1Y+Wp6sljUlnBl4gDCCInYhjQYJpSI30RYzwDRoqdqWnvgbuwzV6ZYIgiTsWM5q6eQKxNoDlbCjFwe9M5kZvG7gkJZz/1LbCOR4RUQPAOuOVK+SLUDXBM03jAe1ZsajQZ5GfIzMg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7soUBChG2eorH8MaKZzLxtkNhLd/s6s3Ma6CXM0wbKc=;
- b=k1XxXAr4o4WbzY9GMnMEx9T/Zvb6pvRbeV3mjRU2ZYI6dkpVvzE47wuJt97n4KGO5kJOcPF5tZOniSVzMJQc7ogdwir0W3IiB8Sc5A0DS9nx6624qus/YGXmi+axcNNuqCClLjHSeNCPhR311dve43lwwKcDRwMYpy+Y2Ycy1ofx+559yUa0bE94pFKNudqItklZF7DmmfbqrFeOXIEM7scHpXny+ekKbpPGp8hyO/i7y1q5EaHKw2T5HTX2zDTG8Lu0ppTarYjylelXqGtSN1VYBDgwAKSKJydxEGO/hBIBhxAch5Esl9FtSem3y88n0BE5pZZLsuTlt7+dowIYHQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7soUBChG2eorH8MaKZzLxtkNhLd/s6s3Ma6CXM0wbKc=;
- b=kvzGya/SYoRcPeYwTibnHEzV0DPzm98lv1NUqGJ1KC09FBs5BEALaTK1SZDkjDOxHPWXkt/MQtWpSRiM+uLMqxwaeJEoJYQz6/QWHXeq/YJXqqng5hcEXh/dKqlQxbLMnqkDIc90kCVS0UpDJDHWERUAK1v1STsDkZdUy8hO0GlSxQLyShCL/hxtp1ZbrHeY+amRzkxvt3JwRyMaoTtq312Kdozt27EbhI6cytnXFiHGKapszeL7/J5Ff3nBQv/ZDC9UVabV2umc2Xk84rGZDPOKDoAT1zSdANuhD5TFhbNpK+nZVKS+Qwd6vVBHJ3zuiyKlBkON8tYooKcUBEawkw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PA3PR04MB11203.eurprd04.prod.outlook.com
- (2603:10a6:102:4ab::13) by DBBPR04MB8009.eurprd04.prod.outlook.com
- (2603:10a6:10:1ef::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
- 2026 16:33:37 +0000
-Received: from PA3PR04MB11203.eurprd04.prod.outlook.com
- ([fe80::80e9:ab1c:dbc4:6930]) by PA3PR04MB11203.eurprd04.prod.outlook.com
- ([fe80::80e9:ab1c:dbc4:6930%3]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
- 16:33:36 +0000
-From: marouene.boubakri@oss.nxp.com
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Radu Rendec <radu@rendec.net>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Marouene Boubakri <marouene.boubakri@oss.nxp.com>
-Subject: [PATCH v2 8/8] riscv: defconfig: enable OpenHW Group CVA6 APU support
-Date: Thu, 26 Nov 2026 17:46:32 +0100
-Message-Id: <20261126164632.978624-9-marouene.boubakri@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261126164632.978624-1-marouene.boubakri@oss.nxp.com>
-References: <20261126164632.978624-1-marouene.boubakri@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: PH7PR03CA0012.namprd03.prod.outlook.com
- (2603:10b6:510:339::24) To PA3PR04MB11203.eurprd04.prod.outlook.com
- (2603:10a6:102:4ab::13)
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=E/tS3je4
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795710820;
+	bh=tLux+u6vTEYaRFgKBzK8JskAeEiQ147wYTo1MXDvPpU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=E/tS3je4dVu1YnQoDd+8uvwVrfRhXrADOujXndtmAydcAwweGtqQy+/i3B6AyRZMN
+	 ypg4ixz5bm0R7oR/TlQBpXbuSbmmwr5X9qRY/l2jJQHNmmbjCbXghmJE6nfdM1kdU1
+	 cETKd2LDploKf0iloSLIcnY2HFNEqHtMLfNbFV64rCYf6GAwYWmdVhw6HtozJ8zRnz
+	 s7hLvYHvgPv2/z08T9kSd+l5evx1pHpVKm5RN8Sytogu00rbtv6Pwm99r+g8iJXGCm
+	 ZFDKS9PtWB9DqaS7Johur3n4CUupfVbwz/bibV73/L0F+MjTwBHK/MK634JGaqh8X3
+	 c1JQ5vAt17K/A==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 32F1117E07B5;
+	Thu, 26 Nov 2026 17:33:38 +0100 (CET)
+Message-ID: <6300821339d6891983af704e2044fd1ed25285f6.camel@collabora.com>
+Subject: Re: [PATCH 0/7] rust: reset: add reset control abstractions
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Daniel Almeida <daniel.almeida@collabora.com>, Miguel Ojeda	
+ <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo
+ <gary@garyguo.net>,  =?ISO-8859-1?Q?Bj=F6rn?= Roy Baron	
+ <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, Andreas
+ Hindborg	 <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
+ Trevor Gross	 <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,
+ Tamir Duberstein	 <tamird@kernel.org>, Alexandre Courbot
+ <acourbot@nvidia.com>, Onur =?ISO-8859-1?Q?=D6zkan?=	 <work@onurozkan.dev>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, Detlev Casanova
+ <detlev.casanova@collabora.com>
+Date: Thu, 26 Nov 2026 11:33:36 -0500
+In-Reply-To: <20261126-b4-rust-reset-v1-0-9c4c3d029080@collabora.com>
+References: <20261126-b4-rust-reset-v1-0-9c4c3d029080@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-/hUEU0543EdNAHwwISi5"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,101 +94,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA3PR04MB11203:EE_|DBBPR04MB8009:EE_
-X-MS-Office365-Filtering-Correlation-Id: 063e69e3-ae44-4af7-ae6f-08df4bdb04f8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|366016|376014|7416014|1800799024|19092799006|10067099003|56012099006|11063799006|261021121427099003|261102123227099003|261009223027099003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	o6McgzDB7OD/1ykkx7/GDeM34Ui7c1kZcODTJ4nxdrNltqVaiD2adqEhXGdWTdf0CMkGruOlF3V1FI6HkQfaLokRU+Qj8I/bQvE8B0/9dzVaTYJItMd/eKbj0aiPRSIVSYHX7M1GCB7EkmUUbezID2dfWkm2JmMMT5DLVVQ0JEaG30nJDg9CQgZVwR3psO9vA0tF6mrRN6RsWkIlulE9ZA8KTWgUzDhPHhMgYdq5SLSRy6VVgM9px5dziDt0uYKq+BpHW9SuF5f7yPFUAxim8jSqp/fEhk2o0GCE1CkZSoOXiE/zETD8SHBcvgnrmIhfvBsQHfLnuk8gYFe7srCUf7cMHkODY/K7By46e9Fx1bVz56GR8DEErzuAiH0BeyV6g5uPn7VuWpGv/HE9SVRBl/zXUzX5rtsqgVo1NiuKTjIl3ASdHmvSzTJx5I5eacRYXCu6FiqfhBb9DYwcs6o1UsaCIHRibkDfkP2YU/EO6ktisA77e66Na7eC11SwqG16TAc3SMh/a8/B2PoGnFKvd7FQbgE3iZojsoXbYJyujmYQluVLZeHtj9SwZg5rmI8l9iLXo2HY8UiR75W7H38SYyrbu8WtRpvEtAkH1DoHCzhAZdvDpsMeY8cJYv6IvycBO71do38/DZ2TAMGgfzm5553G9L6D0GiEdACsCaMWx9M=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA3PR04MB11203.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(376014)(7416014)(1800799024)(19092799006)(10067099003)(56012099006)(11063799006)(261021121427099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?U62xplFZjnwIGVTibgfNvuYGoxZkOWGhi/eptGnXhFcTiUNXO8OL9lUYr0kj?=
- =?us-ascii?Q?UHE5lErVKTcGXyk+07nBlcgM16OIoSFITnxMByYscrNmkkbQ8K27bh0yjwJQ?=
- =?us-ascii?Q?pJcRbavRl49roDp8yM6NvClEs6h5Jht8w2wyjvV/fVFwJ9KKtfD4huDWWiNJ?=
- =?us-ascii?Q?HVLi6HYadkrLchx4vIyltzehqMMbvltTF8kZPnqZMKjwwKKwJcqJlU4QhAY5?=
- =?us-ascii?Q?HJv9oQ4TITpXnybvNnlHOVh+l0h7QCZXLOR6+XtEUldm7EtVMUrOPmmAROvN?=
- =?us-ascii?Q?8MVkPQLeAlVQAEddqWPt2jeUFJgfCjNCPLOMVbnhe6oMpm1Dsbf55kJWqyyl?=
- =?us-ascii?Q?ix91ildugBnRdbGm1IKgdRaYjrlIJjgCh6FfNFcg3OkYr/QmeSc5Q8gPGuPr?=
- =?us-ascii?Q?Xu0/h4nzMpXPqn5E1oQY+qy+lXphE+nrsCl1AIpioVg32IQqnd1BGrOJyDos?=
- =?us-ascii?Q?FN9tJbWvZKdT7bNOb3CxyQHHLNfq+Np8uS16UMwOjhV3c5S2cbzbcl0MXxl+?=
- =?us-ascii?Q?0XlC4mwx/PviFSt6t3wBOLYrGJOs0CHPOeck+FL7VmQivj/gl1h7B+fS+g7o?=
- =?us-ascii?Q?jVQSXjd3eDq1pBBrmPGqVK1nSoVhaqK7NO3UQtWmHfBxj0lTXvMgxH3Y8LhM?=
- =?us-ascii?Q?38whjzG20g5BHG8F7oJYQbSwfdXVVgFnnD2Bq7asclNL1BzZD7tUY2byrFv5?=
- =?us-ascii?Q?xIYoT7TnC0KGt7/PBpymzGnqiLQSNPOS+CemWz0jg4ggOUwOTDi6unDgNMkY?=
- =?us-ascii?Q?Ry1ycO81Bxta+mvz4MqLx25UkbfDZI7ECN1obWvYe4KNOaQwUZsLn92s/KN4?=
- =?us-ascii?Q?bSs5nNOAxRgZaqMuhE5cyJLOj9wSfAfiLQkOa7z/oKk+LNZL1FqDGMq/14KS?=
- =?us-ascii?Q?dWbaqSUv9EKwWdO7aVjVFjpp/buyxnvvvfaUVtlPebhsQOr1MHVSqem8gFAg?=
- =?us-ascii?Q?jvai1MBQT5rlOVLHYkh9ZEPOZ2RS+YKmTjeJOibCzjr89FWnZRPkMT5ixZ3x?=
- =?us-ascii?Q?Z1pAnrpj1qAKPQcM2snxLdgPBX5hNY0pYjZa8wadzEaB3rtbQiCHmUGz8QQq?=
- =?us-ascii?Q?sK1LkY16kdJAeSBE8UQsIOEYHdKBuvxY5SYM+CkTexh4r469hymIqL0/363c?=
- =?us-ascii?Q?OhSy3cxTImio659SNOzCWr9f7daKZSDIwYOFiV+EanAjGq6rWWaGlLU0OWfA?=
- =?us-ascii?Q?qM/KN5Dk3LzEOYAgtnc2xIhTEyQCNI5TfbixtvIjptgTJ03XG2lMqkrnB+T2?=
- =?us-ascii?Q?k8oWmlaFl4wGpoapcQ+DlLbuIeaDbCcEfn/f7za5Au2NeMTlpRV4dQ4PtWSy?=
- =?us-ascii?Q?m3xpXxwyg81Q3M2Fuy0BinK5lUrCwCjG2pRG4jKzF19Bzzhqe9t/n87sUFOc?=
- =?us-ascii?Q?0IItzOwlOF3//acu49GcpCuq9E/2pRXRqx69r2+G2OL8sjaOnGhFVLNBXLQ8?=
- =?us-ascii?Q?Eeyxs3b0MwYrqVEukXH7t6cG8ARAIw6+VwIQTRxb1SpqPzkvzREwjqRgrFAT?=
- =?us-ascii?Q?Cb5kFaryk2FAV6EGXN1wTFREvy9cZIOJvFSAdOm+QlldAB0P6biUoAbVRcUN?=
- =?us-ascii?Q?F+vnSDzQnSB1p5ywLidQyD7vo7LFmT8L440SQ3jLE8k+5v+Tl8xCQqg1Ow/s?=
- =?us-ascii?Q?WGAOSKSDxC2YD1cjCCyr+lRAOV8q41TW+pAYITK+6lf2yIK1k9nGnXwGXQMd?=
- =?us-ascii?Q?e9F+GHiqp75QCEDt2Y2QpYe46YiBR1iWSMxObx5SNjVlXloBHlKbAiqB+tsE?=
- =?us-ascii?Q?Zin8T4DdOTw2zjV58mZ5jtvycZ8tdq86bgJU06G2WzMLvnxVlOywGl8RXb2j?=
-X-MS-Exchange-AntiSpam-MessageData-1: Rlg8dOJFfKVn6Q==
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 063e69e3-ae44-4af7-ae6f-08df4bdb04f8
-X-MS-Exchange-CrossTenant-AuthSource: PA3PR04MB11203.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 16:33:36.5973
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1eHH1ZrrcpCcZr3ck1pi22BPVx1mDunm1fM9WwMgN1sDnG4DrgKKA0OEn/x43LGyVhRzOzL2l/uRjjZAnVMqFwC3ym8j/gBWIAhX9iGv2Q0XNduDsz0t78FOzLE0RK3L07bTe4UX/HPFhsexAXQ6Dg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB8009
 
-From: Marouene Boubakri <marouene.boubakri@oss.nxp.com>
+--=-/hUEU0543EdNAHwwISi5
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Enable ARCH_OPENHWGROUP so the CVA6 APU device trees are built, and the
-Xilinx SPI and GPIO drivers used by the SD card slot and the LEDs on the
-Digilent Genesys 2.
+Hi Daniel,
 
-Signed-off-by: Marouene Boubakri <marouene.boubakri@oss.nxp.com>
----
- arch/riscv/configs/defconfig | 3 +++
- 1 file changed, 3 insertions(+)
+Le jeudi 26 novembre 2026 =C3=A0 13:04 -0300, Daniel Almeida a =C3=A9crit=
+=C2=A0:
+> This series adds a Rust abstraction for the consumer side of the reset
+> controller API. A driver can get the reset lines of its device, as an
+> exclusive or a shared reset control, and assert and deassert them.
+>=20
+> This will be used by the upcoming rkvenc driver that my colleagues
+> Detlev Casanova, Nicolas Dufresne and I are working on, to recover a
+> hung core of the encoder without stopping the other one. More details on
+> this driver can be found by watching Nicolas Dufresne's talk at LPC 2026
+> [0]. Samsung's Rust UFS RFC [1] also uses reset lines, through an
+> abstraction that it has not posted.
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 04ae305d55..ed495eb8ad 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -26,6 +26,7 @@ CONFIG_ARCH_ANDES=y
- CONFIG_ARCH_ANLOGIC=y
- CONFIG_ARCH_ESWIN=y
- CONFIG_ARCH_MICROCHIP=y
-+CONFIG_ARCH_OPENHWGROUP=y
- CONFIG_ARCH_SIFIVE=y
- CONFIG_ARCH_SOPHGO=y
- CONFIG_ARCH_SPACEMIT=y
-@@ -166,6 +167,7 @@ CONFIG_SPI_FSL_QUADSPI=m
- CONFIG_SPI_PL022=m
- CONFIG_SPI_SIFIVE=y
- CONFIG_SPI_SUN6I=y
-+CONFIG_SPI_XILINX=y
- # CONFIG_PTP_1588_CLOCK is not set
- CONFIG_PINCTRL_TH1520=y
- CONFIG_PINCTRL_SOPHGO_CV1800B=y
-@@ -175,6 +177,7 @@ CONFIG_PINCTRL_SOPHGO_SG2002=y
- CONFIG_GPIO_DWAPB=y
- CONFIG_GPIO_SIFIVE=y
- CONFIG_GPIO_SPACEMIT_K1=y
-+CONFIG_GPIO_XILINX=y
- CONFIG_GPIO_PCA953X=m
- CONFIG_GPIO_PCA953X_IRQ=y
- CONFIG_POWER_RESET_GPIO_RESTART=y
--- 
-2.43.0
+I don't mind being cited, but please give a heads-up, we haven't discussed =
+any
+of this, so I can't really comment if its a good or bad idea. On the C side=
+,
+shared reset don't really work today, so I'm left wondering.
 
+Nicolas
+
+>=20
+> The abstraction follows the regulator abstraction and the clk series
+> [2], with the reset state as a type parameter.
+>=20
+> Patch 1 adds the C helpers that patch 2 needs.
+>=20
+> Patch 2 adds ExclusiveResetControl, with the Unknown, Asserted and
+> Deasserted states.
+>=20
+> Patch 3 adds ExclusiveResetControl::get_array() and
+> get_array_optional(), which get all the reset lines of a device as one
+> control.
+>=20
+> Patch 4 adds AssertedGuard, which asserts the line of an exclusive
+> control in the Unknown state and deasserts it when dropped, as a
+> convenience for drivers.
+>=20
+> Patch 5 adds SharedResetControl, with the Unknown and Deasserted states
+> only, and patch 6 adds its array getters.
+>=20
+> Patch 7 adds ExclusiveResetControl::devm_deassert() and
+> devm_deassert_optional(), for drivers that only need their line
+> deasserted while they are bound.
+>=20
+> reset_control_reset(), the bulk API and the shared devm getters are not
+> covered, and there is no guard for a Deasserted control or for a shared
+> one. Nothing in the tree uses the abstraction yet.
+>=20
+> Patches 1 and 2 add the two new files to the RESET CONTROLLER FRAMEWORK
+> entry of MAINTAINERS. Philipp, please let me know if you would rather
+> have them elsewhere.
+>=20
+> This is based on v7.4-rc2.
+>=20
+> [0]: https://www.youtube.com/watch?v=3D75E15eHY7ac
+> [1]: https://lore.kernel.org/r/20260912-rufs-private-v1-1-716db733e655@sa=
+msung.com
+> [2]: https://lore.kernel.org/r/20261013-clk-type-state-v6-0-a5e9977b3509@=
+collabora.com
+>=20
+> ---
+> Daniel Almeida (7):
+>       rust: reset: add reset control helpers
+>       rust: reset: add ExclusiveResetControl
+>       rust: reset: add ExclusiveResetControl::get_array() and get_array_o=
+ptional()
+>       rust: reset: add AssertedGuard
+>       rust: reset: add SharedResetControl
+>       rust: reset: add SharedResetControl::get_array() and get_array_opti=
+onal()
+>       rust: reset: add devm_deassert() and devm_deassert_optional()
+>=20
+>  MAINTAINERS                     |   2 +
+>  rust/bindings/bindings_helper.h |   1 +
+>  rust/helpers/helpers.c          |   1 +
+>  rust/helpers/reset.c            |  67 ++++
+>  rust/kernel/lib.rs              |   1 +
+>  rust/kernel/reset.rs            | 870 ++++++++++++++++++++++++++++++++++=
+++++++
+>  6 files changed, 942 insertions(+)
+> ---
+> base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
+> change-id: 20261113-b4-rust-reset-ca5deca6e036
+>=20
+> Best regards,
+> -- =20
+> Daniel Almeida <daniel.almeida@collabora.com>
+
+--=-/hUEU0543EdNAHwwISi5
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawhfYAAKCRDZQZRRKWBy
+9PjzAPwOqaQY632vWiu5y53v91i+GrIPS5ltUGUihhnNdUe6gQEA9cpJBFdro6ud
+QtTqWPkZ0+twlFg+7dBfc0PHrfZCogs=
+=sZUj
+-----END PGP SIGNATURE-----
+
+--=-/hUEU0543EdNAHwwISi5--
