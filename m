@@ -1,86 +1,87 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795654411;
-	b=OhW4E1dfyFlvAqkCDkqvLpZ8r7bulTx8mC2qvuCYvDoe2JQDyG/7hVxWwF4Q+WRlPejl
-	 yODxSGSHmpEGq9mKHbvK6h68WDSotFepYq15doJ6V7r6ttOvhT647/FkDJigSm5SbT0o1
-	 B2yIzHxar9kCG5rZVqsm5EIPlKL7Zfc/lDd+G5944lGelDvKr/bSsX29y/1Ai/AJmX63j
-	 DLipApLMhnLuB1rH6S29COqxPSns0V0HfzCw1uA/Tax4c11FgShF65DbmRF18Yvrw3PsW
-	 F3V2XT1gHtGFmBQdQu1Ncax6+hzDOTHkREGqKPZkDSXliZDyXgMCYyQVXVNTbrultTg==
+	t=1795654415;
+	b=NMT1UzdXVzB2y84hVf3O5vTVCJcuIVVoVEXgE+Ei23CAmpYMZ7U0T0y/iCgshjZKXjA/
+	 u0EftkwOrKQbQ2Q4ALa9/7TUvgUFAdy56SRnpuHQ6UShF+BOfx9RZrLKyZ19s/fvhhdkQ
+	 MaSRat+147dFSH8TUnEvgAbJilZT1HUtsbADJcSVM82c3dgp35sCSYEVQ//fM2H0i9/mu
+	 h0J7EeTnzMAsMeFWa8YjtbrhpUuSnA7UDZRFWcGoEHn+HkimhL4kOeq6cFNJaJZYg6Ad0
+	 Nwu3J0NmjY0fs/s2jBZK6A9W9EkCFWecWY5AbiCCClo+g1qWxOgIfMhfh1OCaF++viw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795654411;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795654415;
 	h=Received:DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
 	 In-Reply-To:References:MIME-Version:Content-Type:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=e5szLG09BDbOjbUS8HjffVQeyptCSU4q676Qd4Mu/q4=;
-	b=GUVd8znxmwteiWHFyQmXkYAMih3+1xTLg8YEsnbEwYmOEEKyvAjhKiS758pLRv7a1p0I
-	 R9qCMsmDZuTMOSen58edRO5XYofUoD8ungGY1bdcFZAYknAgu/HApgacbFurAjRuJEEBn
-	 F4DcGlZZ8mnmyJjaG+bxdPBNZCX3nRJMCiuaafMpIxcdBxsZca7IBD5wPljqk21YSjkrT
-	 OU6W+OkhQW9wfz5yOTe9ExvAvvgrqsVF/2UrsKUt4+QRtDPGanenWGtOepIUk7cfFtY7W
-	 t0srhafUQ1bJ4HZ8zKehbJncq4LTqvT+URGgeU/B7KfPq74eAhNeLAGzDiy9Ubk9T9A==
+	bh=e3GFvodZKb6NEBDMDdPL8w7ibtYBo+PSh4w+1SwCVaQ=;
+	b=ey1TrgZxr6KQtvD/d4PSe7suk+clUXoUR8f1PiSxCLtjns7apjEaxgxBPa5q+BjoQdtP
+	 cnKQfbApIqa7Sk2uaBIh7dH/oPvA/u7mAYO2Uy10lOKOzXMC4oH0b9BZGSLVgbC+El73v
+	 iHZorbq2hkYZCBL5o2aiCbE4BHhQwMsw5+x/ELGmikzjO8weriybQOrEVpjD7wEr/UnjT
+	 2pCdfdzRom5JQkuCRTKkBdeWSxZtO4hwf1DofJUBnuuJK2SjxbhrFdKb0VXikPOCqJick
+	 wAzB4gE9o4kzliOkdNUwzGk3D19QuPWW4P9RFZtLhw+pSNyx7/hpYRHREGCBONY6dyQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UzwlcTkJ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kjOZ6qCc;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9753606A33B;
-	Thu, 26 Nov 2026 00:53:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 345F8606A327;
+	Thu, 26 Nov 2026 00:53:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UzwlcTkJ
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kjOZ6qCc
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795654411;
-	b=Bqh1ZW01lyxADVe2Io7zTtWaq+MYPQDb1mkqpF0vComfXR0siOsG3XndkzqkJY21x2iB
-	 8HUI9OLV5ZZH04Pq4zfeSDMiMUZ4OZJlwag3fzDDVO7d1NRk/uIwdH34ZOXwk0V5q8Erp
-	 WyRa25OIfKjbnPwyPK4i/fJII1tFF4/kvXl0zp2M4cp/wocf4lO8t349jEKPx2jZmoPp5
-	 Avz9JtGBjS2K5mvbeMn0Nkwy+KiXMkIeWNQoo/0hsxgOEnqTw5WPR7qIzLMA1a/PVPZPx
-	 VJD++VQdj1kr3kaoMBGpdPWF9DYYcOJZYyFdFb7owDcdrUCknXN7a+FX/uoGC8ZMJKQ==
+	t=1795654414;
+	b=Vre5Ww9NCVttci1Tuc8POI0yXmp2DdKqXIbEsqWjf5cex/tCqCJwEV2vPwW8OL9Ngk9A
+	 hadgcKWGCnm9iK2/seZfpeaVz7oA8puTxQRKit0HQTGP9e++Bjl2hmGRoYigi8wleMn1h
+	 WXWqaV9dfmvJQSMUpylc1jLrmvX1XCWH/WO3E9nVs0cDQsN2Q2ZuK8r7jkYjF+aFeThg9
+	 +WhgE/YBmARX7ZBSwcTRDuuvF/d3ZogdyCR+zUPR/N3Glq+rBXGTIugQ7jv0ngkrDPCLd
+	 yFWbXV+ABCLrUPeBADPIr4c825D6M2iBqPe5LxFzKd0eGVCVAFFFyFzooWLUxMrc3Hw==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795654411;
+	c=relaxed/relaxed; t=1795654414;
 	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
 	 In-Reply-To:References:MIME-Version:Content-Type:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=e5szLG09BDbOjbUS8HjffVQeyptCSU4q676Qd4Mu/q4=;
-	b=tD8m7pXp9Bo9X6alXVFuqrDYax3hA409Lc9AcatVJGjyJLtMSrhZ8aE7Vg29146AUVDi
-	 It5vY/tVmvTZo5EfUjlof4qOvYVe5Q4qWHZqxZ2uSA1tmx4JtFVFUOHnKiTAm3EAGFwNF
-	 CwvUG/xIzy0CBUc6FUP5x05E1LZDQcXUW/3cjOFfC+aPfuJ/xOGI9RYz6AlETTKChJwlC
-	 4iLamxMEtuDfq/sqMEK8XMJLINpRCcNhuUgKk3fTyMMRinPm3v2paAzwxwINHK8bVjx8w
-	 Npei9vDRxE9WZscrMhpKeeXhL+LT3DZtL/xh5fT9mNxjpAo8kvrO0kTiqZEhkVvJOZg==
+	bh=e3GFvodZKb6NEBDMDdPL8w7ibtYBo+PSh4w+1SwCVaQ=;
+	b=TtriifcolMv3VUlWWR5dNVXEygZiEEQYz4hgRTN+wKHX0asY2MTMnBPJkSiSpJ+GMyx7
+	 q2HpCh62t4DG7gCaAt2EjTBDnmOPjisfmzsVlt2FHDH5XmKrzPPgi0r5OU11Flo0mMdqc
+	 L6FECeCO8Rc6xh+7Fr4qkpLV/AWjNKJT0EiLF8FiDg1RWaWZVrYf1uho/HA8wmy41gvkT
+	 MRrz5z0hDKNG/0bmZmeh6uyXGKdwPj8BRxqFH/QL88lW9Jiq4C606B77P199WSvznaT+c
+	 e6qk8Skwp4FqqLJhV7OjKcGPWUYHxMUJJKtDBSWCgeTNUaB7GQEpn/nIxpyULUkKvKA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 85E291F000D2;
-	Thu, 26 Nov 2026 00:53:19 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id A16A21F000CA;
+	Thu, 26 Nov 2026 00:53:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795654411;
-	bh=e5szLG09BDbOjbUS8HjffVQeyptCSU4q676Qd4Mu/q4=;
+	s=k20260515; t=1795654414;
+	bh=e3GFvodZKb6NEBDMDdPL8w7ibtYBo+PSh4w+1SwCVaQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:Reply-To;
-	b=UzwlcTkJ7DoSuAOzI6dl1862qL3TLbNgrnGUPbDc7hCFwzb0MP+INgSVx84PAyje9
-	 bt5VGZOyypdXorxXHCHUZZMu/5MC0Xz4AKvvkkd6RV1IBHQdZfM2RF6RMA/LLud540
-	 fuNxyeQzR7PKyPT2qI+KehZ+LRViU4J0Qx+fG6KxHzt9lpZykjza8R3wmrvq3+xjOh
-	 00mzL9nPdcNEiF3D3RFYinUrkxEv5tq689QpqRtN4dz/rZ46aG4lDr+Zxzj70cXC4z
-	 wjm4z7ZGmQKaRV0XwnDnD8HH23mkUhgpSBJzIyg0xRy42x2EclzzI2eUAQoLLgtQCl
-	 AM8m55EvYFQgQ==
+	b=kjOZ6qCc2fXWK0ACNZ9th5rhHTqmYpMU0Z8OWNixfPi/lrtFGosQDBX0jNNs0kw+H
+	 c0F6mjLS3xa6zfcjLHkj+wNIdv8z70VedokJkel2k+y1uLWO81j0hjgXiejd5bAa3F
+	 M/uNnfdNugmwHKJLkrX762ab6U6Hv1hDPKfR0MBtaMKYfdfpKeMsmBrpL5DGzb+zEE
+	 i683avrpkgGLvYsjT68J3UsMt0CIFgKe9Tl/aAVpyR2/1eCmvBIE9fmOSn9TbyDHq2
+	 syQ3erITGiFQUtEF73Xr0Y4JwXZ/sBW+xWnzJYESxp1eolJht+FhGBw5nLRqrFlU8z
+	 3PE2e5x4ZIjeA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 0F5F04D129;
-	Thu, 26 Nov 2026 00:53:19 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 292D84D138;
+	Thu, 26 Nov 2026 00:53:23 +0000 (UTC)
 From: Ilia Snezhkov via B4 Relay <devnull+iasnezhkov.gmail.com@kernel.org>
-To: heikki.krogerus@linux.intel.com, gregkh@linuxfoundation.org
-Cc: hdegoede@redhat.com, sven@kernel.org, j@jannau.net, 
- Thinh.Nguyen@synopsys.com, asahi@lists.linux.dev, linux-usb@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/2] usb: dwc3: apple: unregister role switch outside
- appledwc->lock
-Date: Thu, 26 Nov 2026 00:53:19 +0000
-Message-Id: <20261126005318.71705-2-iasnezhkov@gmail.com>
-In-Reply-To: <20261126005318.71705-1-iasnezhkov@gmail.com>
-References: <20261126005318.71705-1-iasnezhkov@gmail.com>
+To: daniel.lezcano@linaro.org, rafael@kernel.org, rui.zhang@intel.com, 
+ lukasz.luba@arm.com
+Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
+ linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH 2/4] thermal/drivers/mediatek/lvts_thermal: avoid 32-bit
+ overflow in lvts_temp_to_raw_mt7988() and INT_MAX trips
+Date: Thu, 26 Nov 2026 00:53:23 +0000
+Message-Id: <20261126005321.71799-3-iasnezhkov@gmail.com>
+In-Reply-To: <20261126005321.71799-1-iasnezhkov@gmail.com>
+References: <20261126005321.71799-1-iasnezhkov@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,11 +93,11 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795654398; l=1659;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795654401; l=3303;
  i=iasnezhkov@gmail.com; s=mindone2026; h=from:subject:message-id;
- bh=Xp06A3FHG/XK7qHNfZ3rlNyEPxz/IhGg4iOv80ET3F0=;
- b=AMfuWfdiddw8Ndl0XmAmmSC5iJnrSaq7gxYQF6yEDW46sW5YeVP9hlYrUZMsVNGqKKrB6EQDi
- +XqDVUXnce9A2w2E/84X7eWHemTdvEIA6kPlEHeszqjjxSSqbLAtSVO
+ bh=psSr6KJdwfmb1wfsBNafw8vECeQMBdTkcT5VL1q598A=;
+ b=AYmY1cNYhCNMV/zdOV2u3nU5P6SKNRf55XL2K3+T/JDXQRWC0haRg/IFRwRaNwZVRRyD59tf/
+ F0l9FwfIjHABLyOW8s1+3hnNHD8yHAPRJd+fXU4gXm55p8Spys1p6dT
 X-Developer-Key: i=iasnezhkov@gmail.com; a=ed25519;
  pk=hQgXfiWi4ukk2jh4BHu1vRVhg9BUivo//AFp50AKMag=
 X-Endpoint-Received: by B4 Relay for iasnezhkov@gmail.com/mindone2026 with
@@ -107,45 +108,82 @@ Content-Transfer-Encoding: 7bit
 
 From: Ilia Snezhkov <iasnezhkov@gmail.com>
 
-dwc3_apple_remove() holds appledwc->lock across
-usb_role_switch_unregister(), while both dwc3_usb_role_switch_set() and
-dwc3_usb_role_switch_get() acquire appledwc->lock.
+lvts_temp_to_raw_mt7988() subtracts two 32-bit ints before casting to
+s64, shifts left by 14 bits, and immediately truncates the result to a
+u32 before passing it to div_s64().
 
-Calling usb_role_switch_unregister() under appledwc->lock creates an
-ABBA lock-order inversion against both sysfs attribute teardown
-(device_unregister() -> kernfs_drain() waiting on an active role_show /
-role_store callback) and synchronizing usb_role_switch_unregister()
-against in-flight callbacks under sw->lock.
+When golden_temp_offset - temperature >= 262144 (for example,
+golden_temp = 60, temp_offset = 250460, temperature < 18316 mC, or even
+LVTS_MINIMUM_THRESHOLD = 20000 mC when golden_temp >= 64), the shifted
+value exceeds U32_MAX and silently wraps modulo 2^32, programming a
+bogus low raw value (high temperature) into LVTS_OFFSETL/LVTS_OFFSETH.
 
-appledwc->role_sw is assigned once during probe and never modified
-afterwards. Unregister the role switch before acquiring appledwc->lock
-for hardware teardown.
+In addition, lvts_set_trips() passes high == INT_MAX (used by the
+thermal core when no upper trip exists) directly to lvts_temp_to_raw(),
+which produces a negative quotient cast to u32 while leaving the sensor's
+high-offset interrupt enabled.
+
+Promote golden_temp_offset to s64 before subtracting, keep the shifted
+numerator in s64, clamp negative results to 0, avoid converting
+high == INT_MAX in lvts_set_trips(), and mask high_offset_inten when
+high_thresh == INT_MAX.
 
 Found and drafted with an AI coding assistant.
 
-Fixes: 0ec946d32ef7 ("usb: dwc3: Add Apple Silicon DWC3 glue layer driver")
+Fixes: f5f633b18234 ("thermal/drivers/mediatek: Add the Low Voltage Thermal Sensor driver")
+Fixes: 2bba1acf7a4c ("thermal/drivers/mediatek/lvts_thermal: Manage threshold between sensors")
 Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
 ---
- drivers/usb/dwc3/dwc3-apple.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/thermal/mediatek/lvts_thermal.c | 17 ++++++++++-------
+ 1 file changed, 10 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/usb/dwc3/dwc3-apple.c b/drivers/usb/dwc3/dwc3-apple.c
-index 1f474a8..035aeeb 100644
---- a/drivers/usb/dwc3/dwc3-apple.c
-+++ b/drivers/usb/dwc3/dwc3-apple.c
-@@ -487,10 +487,10 @@ static void dwc3_apple_remove(struct platform_device *pdev)
- 	struct dwc3 *dwc = platform_get_drvdata(pdev);
- 	struct dwc3_apple *appledwc = to_dwc3_apple(dwc);
+diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
+index e034c6c..9b8b653 100644
+--- a/drivers/thermal/mediatek/lvts_thermal.c
++++ b/drivers/thermal/mediatek/lvts_thermal.c
+@@ -322,11 +322,11 @@ static int lvts_raw_to_temp_mt7988(u32 raw_temp, int temp_factor)
  
--	guard(mutex)(&appledwc->lock);
--
- 	usb_role_switch_unregister(appledwc->role_sw);
+ static u32 lvts_temp_to_raw_mt7988(int temperature, int temp_factor)
+ {
+-	u32 raw_temp = ((s64)(golden_temp_offset - temperature)) << 14;
++	s64 raw_temp = ((s64)golden_temp_offset - temperature) << 14;
  
-+	guard(mutex)(&appledwc->lock);
+ 	raw_temp = div_s64(raw_temp, -temp_factor);
+ 
+-	return raw_temp;
++	return raw_temp < 0 ? 0 : (u32)raw_temp;
+ }
+ 
+ static u32 lvts_temp_to_raw_mt8196(int temperature, int temp_factor)
+@@ -409,12 +409,15 @@ static void lvts_update_irq_mask(struct lvts_ctrl *lvts_ctrl)
+ 			 * don't actually want to generate interrupts when
+ 			 * crossing it.
+ 			 */
+-			if (lvts_ctrl->low_thresh == -INT_MAX) {
++			if (lvts_ctrl->low_thresh == -INT_MAX)
+ 				value &= ~low_offset_inten_masks[i];
++			else
++				value |= low_offset_inten_masks[i];
 +
- 	/*
- 	 * If we're still in DWC3_APPLE_PROBE_PENDING we never got any cable connected event and
- 	 * dwc3_core_probe was never called and there's hence no need to call dwc3_core_remove.
++			if (lvts_ctrl->high_thresh == INT_MAX)
++				value &= ~high_offset_inten_masks[i];
++			else
+ 				value |= high_offset_inten_masks[i];
+-			} else {
+-				value |= low_offset_inten_masks[i] | high_offset_inten_masks[i];
+-			}
+ 		} else {
+ 			value &= ~(low_offset_inten_masks[i] | high_offset_inten_masks[i]);
+ 		}
+@@ -447,7 +450,7 @@ static int lvts_set_trips(struct thermal_zone_device *tz, int low, int high)
+ 	void __iomem *base = lvts_sensor->base;
+ 	u32 raw_low = lvts_temp_to_raw(low != -INT_MAX ? low : LVTS_MINIMUM_THRESHOLD,
+ 				       lvts_data);
+-	u32 raw_high = lvts_temp_to_raw(high, lvts_data);
++	u32 raw_high = high != INT_MAX ? lvts_temp_to_raw(high, lvts_data) : 0;
+ 	bool should_update_thresh;
+ 
+ 	lvts_sensor->low_thresh = low;
 -- 
 2.54.0 (Apple Git-157)
 
