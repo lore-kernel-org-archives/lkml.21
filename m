@@ -1,79 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795686478;
-	b=d+pre3tYEyswQm1FV944iDcK+vGg/94iEiND6SnOqZLWP5V7Ty7K2Z2qS3L4KyFZeRbU
-	 PWjfYT8jSiSHI9fzRpNEVXbJP3asLAdVCP8q82iqSVvDRoLj6PbWDKYuzns4q2CQH2+XA
-	 7yFFFCzntxKcLViCABJrUjcQkUuRDdOz3p+nWWcwDbiYI9hPjft/F1ewTnFNggsTnKfSA
-	 HKi4xAII8GZh2M4N6wVe+KGz0Al3uScEy5ZbyWywtKpaW857rMQTPT0YTVdIgtXCk/6iO
-	 P9YUekjSrOtKwAP/Jv/1Hz2XAZuyizaEa43DRoUQUS3vxzQ8q3TWt67mUVNMN/zTouA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795686478;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=GUDae9cdn+7jukw5FaNzRwyibyvz8i01iDH/hVud3Ow=;
-	b=KXdiQ2bomx1F7LkLcQF4/nxPOonQa6X8qEViMqkk1yvlHV2FOdoZFjGt2HAS32ND3IFy
-	 7RgfAsIXbDD78joVsf1GdHlLJuFJ0VI3P7ptKLyTWfDkapwiVR1OjiTph8NDj87bhxnrg
-	 4YiEJ/K0OFefB5ulDq9YKFanaZClofaDhXf+6EqmZ44La9Ke6L51c8zFa2d3gd51Qe0hl
-	 3sfig/FUI9LXTjdjX29VFMTM/EUes7sq363PZab9u+GJhaHnf1oE1cBgSA8neHW3dkkSu
-	 L0Mkf+cstfBt6qHl1uO5LlrSAFg65gAmfnJmWv7zsK0y7MmG+x6ccxkwUAwSiYfxRTg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JG3r7kTa;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEDA2606A323;
-	Thu, 26 Nov 2026 09:47:58 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795686501;
+	b=m1jAEdmMNGLhR1Y91QkQ22zDDVlHYPZMhQC27COL36/shRes9B8CXnCrsbEuc3T1fICx
+	 Ym3fBYWNUOoQo87ulWw40cCq3j+VpkO/CSSEkxy24y6chUsB3PNSAunLjHZx4/amBQ/rA
+	 uJIJCBeFLwDpdF+TtYLqvVqhNua6pjJhf9UjnJqaI8qzu0Y9TsKYckVe5cEwML0V8oTND
+	 98XrGnVKU4iQ0/NS1JyX5hBhpW/5PMICnV0+kokBQ97w0ozFWoC8Ei385ISXzzm7hbdpK
+	 tOMQfj271aotVHZ4GVYJyo/pky3aa8gJahlVK5SNAgLXQnqzg8ld5+0gYVZlvOh/exQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795686501;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=cPOYteE3bRDXKxo0ErQBK87qKbUPRqdG39Q9wScBhTw=;
+	b=g5DSWyiSd3lUXUZTStuF8OMN/dpHzwF5bb09P2DO5uNXcr295gN/xpIZpE3VjFfGiRol
+	 yTRbK2Om0ePo2AiATBPI7rwhvSc2rmFfD+oTDc9Zct+3yLrLL5Bi3IvMq0XdObCCH0I6W
+	 3Uxt9M0ILANJRocCHk3cG1r+O07Z4FQN5hsAyyH6oVcchuIUsYFNFcScxeP+i71fiTViC
+	 tVV/7C8X4ii4ov/WAWzKgaCCWTmwc0CTXi+C8jrHjj6lJOctCFd1/7i2Pf/jRN8MT4cMc
+	 4wge5h8PYNxJ29Wx2SqGoTnGmpK+5yV3F8rHEykqOlL8JDQzUXjR1HqeNlHEQJ0TXlg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=BIrEdQEB;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id AEFF6606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:48:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AEFF6606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JG3r7kTa
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795686478;
-	b=SpskddrOHa7gyyhKzVBfUhXcFi+kDALrfOiFA6L0d3YGQg/1xNta0uL5OCy4MA7yFG4v
-	 0CGKJDVVg16GPQQCB0eExR2xi1rjzLJ3NPCA84TZyLfF+M2waLNd1LzPtTN/wA+UMHhxr
-	 MV1KVYF5NCwV7HBNT2kmYraR5+AjJDBquz6d1z7VBeNesHHgTFdzYJtLOAYFT3YOC535I
-	 w+Ump97DG8FYaLWYMihONEnWShTme/ya2hZi2T8OEr9ufVmND46aPgtRMekGd1xNyv3h8
-	 BDyhrZr5k5KSlrEw2hAiXDU2fxHmapxsTiLpfDyuIKrqjRaE14nDt3bV4+O0oQufv2A==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795686478;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=GUDae9cdn+7jukw5FaNzRwyibyvz8i01iDH/hVud3Ow=;
-	b=lxM9mwk240M94FAHx3tXNwvI7o/mrLhfOuJLXhBqEyv1tJtvdwovbJUi1iMjrhrMoDKX
-	 m0qSU/BEqwYx0FA2fRYzmTrbjkLjeRqDd9tnxBXkvE8AXiIQZyng/ayBM8hE/MH650n7T
-	 9zckg2MiC1UAyHPK6AqXvhM0VLgX7pmHbpAW5RASOhwVGSzDfNIWGZaXc1WsUFchcJAt5
-	 Sq1Kj0Jucf+zaor2MXqOkpJYO3D7cIe3gRUyxXrQMlbZymna5xFPoH1GJquGOk3/1SBl7
-	 SAFJ7t7gOSPJCVGoaM1RnlQoJZMcJPrR/PEj7kZNgMcDraTm6rcC8H0+DUGOFTaIeIw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id BB4691F00AD3;
-	Thu, 26 Nov 2026 09:47:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795686478;
-	bh=GUDae9cdn+7jukw5FaNzRwyibyvz8i01iDH/hVud3Ow=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=JG3r7kTantY+00tQEj5dBxq+RBw9Ydd9jSTs8cVbGP0ZsJ4aj7DX1TfTN58F27in2
-	 fHgTIoI4oS26tBwP4aPfBwoIHRu5Q7RZKwizjRPUOxnfASM6YAfWpumie1qBxj8VsO
-	 3gDVw32xKoXXmVFtmlBOei5J2/BAdJTdPcHVToRRKZ+7QHc9aqxA56I9EwyVcxHV/M
-	 PK0yQQmA/8KJe4f4OZ69hO5N7Cq6T9Ns7RIE+J3QGlDn8f95aCupqK21/Bpw0Vvnsr
-	 HKD98kufCydoy+rS0trG98z/gaJaTzwGwkXRantLig/gCgEWWOYcSK+uRub2cVsj95
-	 vH9wanO0jZg1A==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 3E7C84D3B8;
-	Thu, 26 Nov 2026 09:47:37 +0000 (UTC)
-From: =?utf-8?q?Alexandra_=C3=98stermark_via_B4_Relay?= <devnull+alex.cramt.gmail.com@kernel.org>
-Date: Thu, 26 Nov 2026 10:47:35 +0100
-Subject: [PATCH v2 1/3] arm64: dts: socfpga: agilex5: add the service layer
- interrupt
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=BIrEdQEB
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1831E1BA8;
+	Thu, 26 Nov 2026 01:48:17 -0800 (PST)
+Received: from [10.0.154.42] (e121487-lin.cambridge.arm.com [10.0.154.42])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9B33C3F632;
+	Thu, 26 Nov 2026 01:48:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795686499; bh=rVrsHSibW/UwgoRb5V/hciA4t6LaTTJ6geWEmfAAvPs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BIrEdQEBa9Kc99fKd9c5znglbh8T7oJ4R4KuKX3cR9RvSyxyPAXHiO61FSCuViEob
+	 NSQMIrxFXJLbjmhr/6PjU5ycMixvq+R+MZuAfzGL7exKE+vOAVy0jGILHtIMu0FG8V
+	 kzJkiADjaA+nAFiSBgBwioSHrUXzhXeYi7zwqw6s=
+Message-ID: <b0be3be5-3a7d-469e-9166-a3414a52cbea@arm.com>
+Date: Thu, 26 Nov 2026 09:48:16 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,65 +53,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-de25-nano-v2-1-02e43ba72681@gmail.com>
-References: <20261126-de25-nano-v2-0-02e43ba72681@gmail.com>
-In-Reply-To: <20261126-de25-nano-v2-0-02e43ba72681@gmail.com>
-To: Dinh Nguyen <dinguyen@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Mahesh Rao <mahesh.rao@altera.com>, 
- Mohamad Asyraaf Azhar <mohamad.asyraaf.azhar@altera.com>, 
- James Clark <jjc@jclark.com>, 
- =?utf-8?q?Alexandra_=C3=98stermark?= <alex.cramt@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795686456; l=1261;
- i=alex.cramt@gmail.com; s=20261118; h=from:subject:message-id;
- bh=481VP81WZKi/ygpfq41EOdbsewe8WlT8xUBo1hTQ0dA=;
- b=siF8qeeDcuYhyByZQU49qFw+m5FjuhcwK4321DzEy9c7Idk4Xy7SSN++kWqW45d1n9g80W3ue
- A0CddYjUDZjDRVFqhqGDaBb98NYc+WEZzquCDtgdmYRCWhBAm8BWKJM
-X-Developer-Key: i=alex.cramt@gmail.com; a=ed25519;
- pk=vQBaXUvFG7cCIaWDKclPMjo3b4XfPEVkuPjaWCkYddc=
-X-Endpoint-Received: by B4 Relay for alex.cramt@gmail.com/20261118 with
- auth_id=1561
-X-Original-From: =?utf-8?q?Alexandra_=C3=98stermark?= <alex.cramt@gmail.com>
-Reply-To: alex.cramt@gmail.com
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 00/14] ARM: deprecated platform removal
+To: Brad Hawthorne <brad@sim.vu>, Yoshifumi SHU <envzhu@gmail.com>,
+ Linus Walleij <linusw@kernel.org>, Arnd Bergmann <arnd@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260914140821.1805449-1-arnd@kernel.org>
+ <17a74e90-27d1-4954-86a8-491267f00cb8@gmail.com>
+ <CAD++jL=VJsnk-GzAvR4oR8oKJayQzq9Oes+ZW7K=iHGrQ1jh0w@mail.gmail.com>
+ <20261122003911.1203777-1-brad@sim.vu>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20261122003911.1203777-1-brad@sim.vu>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-From: Alexandra Østermark <alex.cramt@gmail.com>
+On 11/22/26 00:37, Brad Hawthorne wrote:
+>  - irq-nvic: the priority registers are written at the wrong offset.
+>    Yoshifumi already found this, so I'll leave it to his series and
+>    test it on the RP2350, where the board does not take interrupts
+>    without it. For his changelog: the offset was right (0x300 from the
+>    node's base, ISER0 at 0xe000e100) until c5e0cbe2858d ("irqchip:
+>    nvic: Fix offset for Interrupt Priority Offsets") made it 0x400,
+>    taking 0xe000e400 as an offset from 0xe000e000; that commit went to
+>    stable as far back as 4.19, so the fix wants Fixes: c5e0cbe2858d
+>    and Cc stable.
 
-The SDM signals completion of asynchronous service layer requests on
-GIC SPI 0, which the Stratix 10 and Agilex 7 device trees already wire
-up, as does Altera's vendor tree for Agilex 5. Upstream's Agilex 5 svc
-node lacks it, so stratix10-svc logs "Failed to get IRQ, falling back
-to polling mode" and polls for every async reply.
+Can you or Yoshifumi send a revert for c5e0cbe2858d,  please? I admit
+I overlooked that base already at offset 0x100 so I'd be more than happy
+with revert.
 
-Add the interrupt as the other SoCs do. Tested on a Terasic DE25-Nano:
-the driver registers it for sip async operations, it fires
-(/proc/interrupts counts it), and FPGA configuration through the FPGA
-manager still works.
-
-Signed-off-by: Alexandra Østermark <alex.cramt@gmail.com>
----
- arch/arm64/boot/dts/altera/socfpga_agilex5.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/altera/socfpga_agilex5.dtsi b/arch/arm64/boot/dts/altera/socfpga_agilex5.dtsi
-index 161f3d4bb..d272cc4fd 100644
---- a/arch/arm64/boot/dts/altera/socfpga_agilex5.dtsi
-+++ b/arch/arm64/boot/dts/altera/socfpga_agilex5.dtsi
-@@ -84,6 +84,8 @@ svc {
- 			compatible = "intel,agilex5-svc";
- 			method = "smc";
- 			memory-region = <&service_reserved>;
-+			interrupts = <GIC_SPI 0 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-parent = <&intc>;
- 			iommus = <&smmu 10>;
- 
- 			fpga_mgr: fpga-mgr {
-
--- 
-2.56.0
-
-
+Thanks
+Vladimir
