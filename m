@@ -1,97 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795685889;
-	b=byw24Q0BviD1e8JutZ8p3AwRkixI39+cYitLqSVIwlMLm5rNQGyzDF3P2X4QTgyxxdBH
-	 00A/mxR9c2QKi3+YPI00/oioldzypjTTIc066EVUS36l+DWfvS/7nMQ/Pp3TpdO4atZ7E
-	 gYmqOOeqQs83dhTYgVdP3Ql1gvxN1+UojeDI48ppcPWzStcPUBzLtDZttG0SJySy7Ssql
-	 752KOna4rk1eFx7SrXOA3rNBuykD3y/YoXzoDto5e8o0p2gMkKVIzNaPOwcUV1xberV+c
-	 2a2rILqKzWj7MLHEuvY2SmWwkD1lnSMgtFFAL4wYIKiuru5MRp23lpcESIWgvFj11YQ==
+	t=1795685911;
+	b=rxPBonsjVIRpiDYDXEO9Yq3RE7yLfN9hlkCupcCuEaatr6+Pghhicn3AKKqBqZbVmLg4
+	 UDME3jVtB7r/IGmLhrlGJ7I8xK10WhnnRrRCXS0YjAAeDZNUy9ZOIFJ5/IA6gPIj4wANR
+	 AaK6WFiHc4409ep3gFVUJmr/r0n0QBEvHa69cNEGsvfxQbTtu9Vv5dOpESwGdzYqJcWnO
+	 EpsY/OkwosEdIBuKyo8YHDPh7NHsvRNRFNC+GCmEqDS0UKV6upZCs6aLMzi0/lwpAuSlZ
+	 Nh5vB2BJNxm6cGsMLOmnbQFnN3w0PPUt/GsCaNM/Son0UH2l7OE7YJXWeqGYc06PKYw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795685889;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795685911;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=rsNqaj+bXc/v5pLCFTeTs+S9z83Xe3DxebqgKuXb2Ic=;
-	b=wjWTwOysF+lQycpd/gtuHkgwJXYvNDvjleZAOjbq6ucrMgeC5ac+qVOcAvdByTzw+WL5
-	 UFPyhstIQE3YW1O1HjWLEx9RJa4dl9O95dLbzEX7PI4h9A18rksTUcZCRkM9LyqmIZwtB
-	 3JQvn1+DxlszwZhdoOqZMnWp50akuyyd0koew+H1LNkEp369u/WRx/5TtpMA4J2MuiwQX
-	 49tThYRlrAldB+6e3SznpYVr6I11FUJqan1UbKdMUAunP7lsbjZJy8KFQ/SdXw7Jyx5EF
-	 VpbIsb9QXmoY+WKuqmMMsblR5dbh/Yf7i4+K5KC/xHYD8Hom1l1D+9NufP6m9YFINqQ==
+	bh=pt7DX8nlqHiFJ7aXsSiW8EaVWyIU59SnklsNhtNjSiE=;
+	b=Xkwn0ThfJNfTBVdYO4ojqbIAkxjrzDwJcQ8CZS7H5R37oGCs0Y+SbGXHkF6ijO9Y+asj
+	 ydPnao7BUUM6ylX3IXdKPJ8+cL/bj7fB1TOZKEn8N2ZRmSOjrf4fDSrCULO40buSyMBNc
+	 igH7beO5UqufRQybPgbe0KSkUuTztxaQiSEgaCeWiUauL4/kv+g/P/9x4YzegZtqeewRp
+	 pEJ5ca0eKjjlmoFI0qWzUa+w9ssNWPoZGYYnfJhx+wB3L8zQDaGh9pBMrw5PuYXGKV28D
+	 l6/aN7SwJXB3X5WTMseJ/5jEXiZjTW8g90r02/jiywIdSmbsJaUyDILw+QgkFhPCjxA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fSw66Vwg;
-	arc=none smtp.remote-ip=74.125.82.43
-Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aWGzwxQz;
+	arc=none smtp.remote-ip=74.125.82.169
+Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBCE7606A690
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:38:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DBCE7606A690
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4135B606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:38:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4135B606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fSw66Vwg
-Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-14394530ec6so272954c88.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:38:08 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aWGzwxQz
+Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-33fb4680717so2133167eec.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:38:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795685888; x=1796290688; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795685910; x=1796290710; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rsNqaj+bXc/v5pLCFTeTs+S9z83Xe3DxebqgKuXb2Ic=;
-        b=fSw66Vwge0QjmaCrydvktO8QXKG8LEluTa1Zb5fBq+5ZOsYGUtfBQssVIInvAtBD5b
-         88Qry4se30oJNGuIyCaEyPctUhFLaA6dENbTmM1wna5wk/YOUEkNVAq/7pOk24x4VTqO
-         cWsRFFBIFwDlMT1rdpA7CbvF7NJ8jtU1AWJ0UoJDmOq7NWRUpeQUIcihjzJj9n3fimcE
-         l8xVUlwqGYGDIJybc5iyPIr+CFqz4TB6f4RAiJjAYxdgTQQgBzVTHUxYmyWqGwyXGs+3
-         iLxaR52q4O/AtS4im9iHZgzxPkEW2yUWSmAOJfTYhjqfnmU4Lgg7/siTjDT0PS5oHVly
-         Lgyw==
+        bh=pt7DX8nlqHiFJ7aXsSiW8EaVWyIU59SnklsNhtNjSiE=;
+        b=aWGzwxQz9Wi0C+RrshIBxa38+3yLzysGAYB2LZxc19Q4H+rfA+20UKVsTMEMSUeidm
+         5LJ5ndEWuh4XOccbQ0BNHbHh5PQe18HJds/1uubckXyXDn2iRlbQ7vgdAxy3TU+Bjz+c
+         gpvTmloYsu2CNrJTDM7/vL+L64fqBICziPt7XYWhIVcwICsI2IV3ffjPN7KD0PyQAwKK
+         11s3wD4mzkavEvyBmzyrXKdzSuMRNz2ZR42Hn98+zGDHVB4yk7Y9Fu7yueqT8qV/xWVF
+         U279c810mOPFG+UPpjNkIB4e0XEE2i50DFqmlnd/MF0qfYQl7O+8c+vnsFkzLEmo3Zwr
+         LIUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795685888; x=1796290688;
+        d=1e100.net; s=20260707; t=1795685910; x=1796290710;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=rsNqaj+bXc/v5pLCFTeTs+S9z83Xe3DxebqgKuXb2Ic=;
-        b=p6IeNJxT5820TwDbtPVJrE8FZ9n6B7RJhX5NocNjD4ALpLEnrL8t6fOBO80iLIrLqB
-         Xq6FIRjkQjEhLxuRhGjk+X++HEPsgVjlHCuOG/27wxzFTtCgAfj2ncRaKuA9+KikZnVT
-         vr5GzpRIPDD4DlJN0OBGUjadReuOm251dBk33jyaO9C3YQqYAB5bLmeVhISnCgzBO1hu
-         kWycKnJhiPwXvHoW9vU4LpZVa3wUlqtBmwJpT8Xbx+qD6T/lcygOElqQl36uUdbPfJr5
-         rwYZ7Oetenty5VJi+CNLA96KnLHOzYSXY3az7Edrh21n11FoJJ7xzw+4SGRhZCMQOE/f
-         OTtw==
-X-Forwarded-Encrypted: i=1; AL+hErFzx08xF/Lc0JHPKJ8kBg3E6LrFcMXZsemKYU6MLcN7hHkRhHRzmJobCisHvXli3OGaPSpa8dfOCdytOwc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+3JeOTvqls6owwtXD7/kOii8kdkKuJhkynNtQQjXIBJejUOAK/
-	D1vhN5xOhXuB62tbRBRf7J9gyuCMLcTH1Gt/G+uNxYugyst6IaCC55gS
-X-Gm-Gg: AZFdTZdHNSDIF5NalgGCtotDAdItp1kAE6ucGEGBjHLThEVAqb7ycGrV9nzUQcYU14r
-	6iApehGdeBw6xA9mAW/RfxTIfdIiK6+6vpjBeKIfBxJRRTGa4XgMZpYnIvp/s/h9BZwYpglVGh2
-	1s8LBmq3KjSj/kHLPGx6mUQ0fYjC01d91+AApFhcgLG2CcjfqRP52G377O2EfcHACBb9Bz5MIpT
-	uC8E+hPPe0ikg0NEpPvfIesPjacwoAr+fqf0sYqnp9BHAbk8Go86p7wxBkt5R+pfoglCvpo391i
-	TQkLmVR4FqMU0Xwolr+Noc8FgAMmqNDkhaYZbO5yMv/LD5eqSyQ0d+kXdtc1tn2WSWcV5GdM+jh
-	QSV5ZIeibZUpNEx/JXjVaHxkoHgcR51/m5E0b8HpIzskZWPcVY/CbtOBsAbtRvFsYpSqemcQGJP
-	P0XNFV9Df05v05hQDWLOH7Qt86VipEITUvzv0yG/FVv8cDQJZN/4JawAzUYifFKKsVNqIGqInBy
-	0G5oRUj0Izi3m11G5lq4wM+g0lpc3pQ24ZGDPv89Y8TgxI+cYkYVh3IbAgM9LSXHhqWqkn264+L
-	wZLopkunITZpDnSqvT/SWz7jPijcEIqWUQE7zQnanwvomjAkSuZ0j3ESgMQvY/4Ekaq0z3WCAzC
-	5gDJT44u2NKA2lQ==
-X-Received: by 2002:a05:701b:4502:20b0:152:9e88:daaa with SMTP id a92af1059eb24-1b55690040amr20145598c88.36.1795685887798;
-        Thu, 26 Nov 2026 01:38:07 -0800 (PST)
-Received: from hyeonjun-ThinkPad-X13-Gen-1.. ([124.197.199.8])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5568592adsm46845363c88.15.2026.11.26.01.38.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 01:38:07 -0800 (PST)
-From: Hyeonjun Hong <hyeonjunhong330@gmail.com>
-To: Coly Li <colyli@fygo.io>,
-	Kent Overstreet <kent.overstreet@linux.dev>
-Cc: Jens Axboe <axboe@kernel.dk>,
-	linux-bcache@vger.kernel.org,
+        bh=pt7DX8nlqHiFJ7aXsSiW8EaVWyIU59SnklsNhtNjSiE=;
+        b=clzIXabPvla9YFlVYD+vCOx7HMHqETp2jCDZDHn6eF8MOk10uz6sj7pLae2BmLs3zO
+         ynKm3RWAPBqcJZj1+lVybnfXksyYjiJ+hwczz+bcSYwzOjRmdumF2d8uWPzjS2prxVmc
+         CCstPsTAvKhNAG5UWaXSd8ndK7o65AevOwdq/msNzhFP4yU5ZZr8ae7AXYhv8uKoxYKa
+         6GIzsQQ4chADOMwi1V1rey3EkFaJfXk2h9AvB8j7IyGi+Ftz0KBBfRh3xiyRoSlVDGYY
+         6fwOghPx/lfmAhUyATvxfHRBgW7TgvX5JZygcnwINK+c2DvZiXQmk/AwgBGiNvc66zcf
+         SVbQ==
+X-Forwarded-Encrypted: i=1; AL+hErFKQaF/wzS2zX3RkYvtR79Wx8wJAuUtvomY5oj5JW0kpNYVVg+aDWl8cSzMG11yxrCw2E5tCivI6BBtHcA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9y5WpQRpkugMxxDvuYGPk75aSQDzU8+lCFnadmtE20/InmlZ//
+	bs5tTbPCtwIgBm+Ke2/NL9pvRjEurHwcbAgNnigOrdGeEN50sNt8K/ho
+X-Gm-Gg: AZFdTZeAlVPc+eE2TyPB9+v6GYd/fwvIoaHMJ28RkPgDf+C9IAhycP+y0yxK+hH6MO6
+	W4iDKRsUvN9ql1BtSzdksddByOZNOWX9xzPc6be390J+T77cBJm5/KoRywAUvfBIWm31HO2m49e
+	VR2g2KW7Ibnpp5vve43lsiProH23Eb0DC8My8461WwChCi21fz6vl6VqUb9Iu8NzL8Q3oVCxKVO
+	J0wNZUBct7U8temifnQMsVJN2QBwajlsTRmUOXjJuYtvP4I2HKY2VWeiB5RPUcL3KW7l5zEUupc
+	fHoPgGeUZNaq15L38pwsa4ACwe7EgFEs4PQP5LJv/cwS6DC+Kf2QnzNgoQt0rxB6G9EYuM0+aCH
+	btdUH7j9oLaOZVbVpLUKxoDf0UP+YUA7waot6l0PgLFmsHhe6MiOrRNSkNQ/0lS5c/TarGj6j73
+	TKjZroE4gkV+LQL/s1475kLlZUKaOoBGKO5skgAblNaQtG7PDq5XN1WhGFZNac25CVUfxvUeCRF
+	S/QE0OzZwSJ2qgD4CvwlSVFkIlLH+94U1vTU/6YDSPpAaKLIE7RL1yTFtWjjXhmK16xXO4f5NcR
+	RqZwvr2KSsZHNybZmVso4OK0gmjSOkkaTiXJ9nPukOnj8PE0nC9a
+X-Received: by 2002:a05:7301:1a84:b0:386:abfb:4a2 with SMTP id 5a478bee46e88-386abfb1a83mr13514697eec.11.1795685910273;
+        Thu, 26 Nov 2026 01:38:30 -0800 (PST)
+Received: from 192.168.1.36 ([2402:a00:163:2ce9:ad38:eaaf:b00d:c452])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386aa203267sm32600571eec.0.2026.11.26.01.38.25
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 26 Nov 2026 01:38:29 -0800 (PST)
+From: Ajit Singh <blfizzyy@gmail.com>
+To: romain.gantois@bootlin.com
+Cc: gregkh@linuxfoundation.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heikki.krogerus@linux.intel.com,
+	linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Hyeonjun Hong <hyeonjunhong330@gmail.com>,
-	Seojin An <love09010224@uos.ac.kr>,
-	GEONWOO HAN <gunwoo9643@uos.ac.kr>,
-	stable@vger.kernel.org
-Subject: [PATCH] bcache: fix out-of-bounds write in bch_data_verify()
-Date: Thu, 26 Nov 2026 18:36:55 +0900
-Message-Id: <20261126093655.393608-1-hyeonjunhong330@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Ajit Singh <blfizzyy@gmail.com>
+Subject: [PATCH v2 0/2] usb: typec: mux: tusb1046: Support no-hpd
+Date: Thu, 26 Nov 2026 15:08:17 +0530
+Message-ID: <20261126093819.76480-1-blfizzyy@gmail.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,69 +103,22 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-bch_data_verify() sizes its check bio from bio_segments() of the original
-read bio, which is an unsigned int.  bio_kmalloc() takes an unsigned short,
-so the count is truncated before bio_kmalloc() compares it against
-BIO_MAX_INLINE_VECS.  A read bio with 65536 segments is truncated to zero,
-passes the limit check and gets a bio with no bio_vec space.  bch_bio_map()
-then fills in bio_vecs from bi_size without looking at bi_max_vecs and
-writes far beyond the allocation.
+On boards where the TUSB1046 HPD_IN pin has no usable HPD signal,
+configure the device over I2C to treat HPD_IN as asserted while
+DisplayPort Alt Mode is active. Describe this with no-hpd.
 
-A single read bio of this size reaches bcache through an io_uring
-registered buffer, which the block layer attaches to the bio without
-splitting.  Reading 256 MiB from a cached device with verify enabled on a
-KASAN/KFENCE kernel gives:
+Changes in v2:
+- Use the existing no-hpd property instead of ti,hpd-in-override,
+  as suggested by Rob Herring.
 
-  BUG: KFENCE: out-of-bounds write in bch_bio_map+0x132/0x420
-  Out-of-bounds write at 0x00000000cb5c6057 (132B right of kfence-#252):
-   bch_bio_map+0x132/0x420
-   bch_data_verify+0x3d2/0xc40
-   cached_dev_read_done+0x6d4/0x890
-   process_one_work+0xafd/0x1ee0
-  kfence-#252: 0x000000008ee01c90-0x000000001f8e8fd6, size=120, cache=kmalloc-128
-  allocated by task 12 on cpu 0 at 63.371786s (0.000577s ago):
-   bio_kmalloc+0x45/0x80
-   bch_data_verify+0x2be/0xc40
+Ajit Singh (2):
+  dt-bindings: usb: ti,tusb1046: Document no-hpd
+  usb: typec: mux: tusb1046: Support no-hpd
 
-followed by a general protection fault and panic.  A 255 MiB read is not
-affected because its truncated count still exceeds BIO_MAX_INLINE_VECS and
-bio_kmalloc() returns NULL.
+ .../devicetree/bindings/usb/ti,tusb1046.yaml        |  7 +++++++
+ drivers/usb/typec/mux/tusb1046.c                    | 13 +++++++++++++
+ 2 files changed, 20 insertions(+)
 
-The verify path needs CONFIG_BCACHE_DEBUG and the verify attribute to be
-set through sysfs.
+-- 
+2.50.1 (Apple Git-155)
 
-Check the segment count before it is narrowed and skip verification of
-bios that are too large, which is what already happens for every other
-count above BIO_MAX_INLINE_VECS.
-
-AI tools assisted the source audit, reproducer construction and patch
-drafting.
-
-Fixes: 0f2e6ab851ae ("block: turn the nr_iovecs argument to bio_alloc* into an unsigned short")
-Reported-by: Seojin An <love09010224@uos.ac.kr>
-Reported-by: GEONWOO HAN <gunwoo9643@uos.ac.kr>
-Cc: stable@vger.kernel.org
-Signed-off-by: Hyeonjun Hong <hyeonjunhong330@gmail.com>
----
- drivers/md/bcache/debug.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/drivers/md/bcache/debug.c b/drivers/md/bcache/debug.c
-index 2691a5da3368..fa665b4628b1 100644
---- a/drivers/md/bcache/debug.c
-+++ b/drivers/md/bcache/debug.c
-@@ -112,6 +112,14 @@ void bch_data_verify(struct cached_dev *dc, struct bio *bio)
- 	struct bio_vec bv, cbv;
- 	struct bvec_iter iter, citer = { 0 };
- 
-+	/*
-+	 * bio_kmalloc() takes an unsigned short, so a larger segment count
-+	 * would be truncated before its own limit check.  Skip verification
-+	 * of bios which cannot be represented.
-+	 */
-+	if (nr_segs > BIO_MAX_INLINE_VECS)
-+		return;
-+
- 	check = bio_kmalloc(nr_segs, GFP_NOIO);
- 	if (!check)
- 		return;
