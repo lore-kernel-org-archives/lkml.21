@@ -1,54 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795700956;
-	b=SSUkCNE8jLRRCQO46Lwcs0u75mRcA9yr3kAeSjLKUTSeFwE6UsEPM164BdSRfTEDBqQY
-	 o9XFqDqPugSo8jni//xpQgs00KoCJIqkf1ZwEEow8dpO3QWnYLZTfi/2Vw7ABpuEAfMbn
-	 N6Jha8/zbSu5KyavlGqJCphKUqMSqvWzlVF1BWW6zcs/UOpUvez+HF+tXAgMTmXxD+stc
-	 IMVWF4cZWy/fgvnYOL7Lov18nNuUTy5qHiZeb0fDfHsaBOj3t09igPuGGFHAjc33IRgkW
-	 PQsLk1dIW4T0AlDTfr7dtDXNFoW/yQ1xYeOCp88fwwQ0W7che4CjiRoHpkDF160YIrA==
+	t=1795700959;
+	b=wIJ2ZwpAx5lDexBxYUOTBbfOlIMZC3rmdUsWOU85IClavo8qvqmNcdlgQY9pWqkX/AAW
+	 wGht5Y3SVDRHg9Q6k/BKR8A4QT7wgFibKG5Qdh+9v5uMhdkwcSrJfcPAilMcas9RwULDr
+	 sLvHb2bJ1Ei+kBZcUs6ge4HNEqnUVyYAhEf1u2pfoHt6c9euC1t88Ef7SLJpnAxgmXJjN
+	 vF6McaaTteZLNz6oVwqPqjRcEVLgh+M/PR4YU0p2Jw8H8VZ8O6/M3HufPHtUspmd2W0bA
+	 +vDC6npPFwQBaerlliwzqduHvADV+47pgSi483S2my2xhxQEv1/sMOI/d1c0C7wgxdg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795700956;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=eaZlJQH1zN9bCB3H5z9xJS4+XnoNgM90cssYz6mZpWA=;
-	b=b3tosJUT8UABCXU+3t3I4Hcz1N5Ne3V3+iSo0l7IfGXDgW5x82vT67xSnBNX7f1NoO3+
-	 4ZskruPbN61LgfY5ha2zhG7XEWO1QiefIzdE7pvtTp7TjPfQ+eBEeYaH55d0eCUUvmXFJ
-	 lbEjpZuatH3gE78hcWIdPEHMbfbackCIABOiza7xGyY1KSiMkY01QjibPOW3+eFniQqrA
-	 TQ5tx+mLMhpWjsgiw836DFWMuzdo8Z6QDYWGxfhnlxPbX6DLmg7Ysiy6BWPwmjCAji+wL
-	 Czy5EFQYfnPJxtjVbTIgB5cM/O76BglqT2xh3w5E2GHALTqVbjbSBr7ZWb6gR2ivC6Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795700959;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=MT3pffe5eVAN70K/eZlf/x8C16Xani/XXvuOJb+kA1I=;
+	b=EHDolG2+DH0RzS1fAJSOIny45mMqLPYAuXYqDsredFqgzqNKmosMEwDplga1kr3CbUhf
+	 HlDFy3GC7wGeub8YwssF4cpehbfB2KITyATusL4iNguNVc704L8S7NFwuhoPn5k20mDcI
+	 rtYwRN6OjnN1M5/NCSGHLR1XUZad1I2kg6xFc+zN+s3CZgL2FnYT7Uqpe9TRzy3mXtPeQ
+	 bFDCkr3Ogl6lduHhgNSb7p+CMflP4Y1CSGYLVQtbRTmoq9ZanHz4mB7RjTzwo3eq+djv1
+	 8KSMy+i0LCvYeYmpEQPbdglULrtwnSGFdtyDx7V3RRY9XJpjq5Vz65imOTfVx6VyIaw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UNFu5E3v;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=i0bAenkb;
+	arc=none smtp.remote-ip=192.198.163.11
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7312606A327;
-	Thu, 26 Nov 2026 13:49:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9EB21606A32D;
+	Thu, 26 Nov 2026 13:49:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9EB21606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UNFu5E3v
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C3481F000D2;
-	Thu, 26 Nov 2026 13:49:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795700955;
-	bh=eaZlJQH1zN9bCB3H5z9xJS4+XnoNgM90cssYz6mZpWA=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=UNFu5E3vVHE3NlAlUtntG7AYBuWIC9GD42PsM7eLXjmrRiKIE6hWU59C2/pDGZBOh
-	 nqGgn47v2OYMVFmS1zMHDaNb8fac+IOMhnCG0CAx0D1xKw/kKceu+sD3L1GY7PeHqo
-	 ysQiU9+yfjLMUHLTfRdBn3+iDl41OabP0ejeCtlQlEGpn8bTCyYHMVOWE2J19Uc675
-	 ZxJ+McKIpyQNy6Yb/QNBdBU54c0ON4rJqoZMOVR56gbKSRKu8kB7O1GgK4tQF1VS9K
-	 o8rog4lEW2VNYZmhefodEgLYyv6/3zQpDW6hWaCrJxx0lVGo2Jn3gRieG6LOP+Xht0
-	 6aZQVZl0Ogqzg==
-From: Carlos Maiolino <cem@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: linux-xfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
- llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>
-In-Reply-To: <20261119170449.1513687-1-irogers@google.com>
-References: <20261119170449.1513687-1-irogers@google.com>
-Subject: Re: [PATCH] xfs: initialize error in xfs_getfsmap_rtdev_rtbitmap()
-Message-Id: <179570095414.157938.8265917270360236898.b4-ty@kernel.org>
-Date: Thu, 26 Nov 2026 14:49:14 +0100
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=i0bAenkb
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795700959; x=1827236959;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=kRbxpg6fYPj/Yi+CY2NDda10UATIlhg+d8xBrPwMXP0=;
+  b=i0bAenkbO047qVcdUQ8LYC7kLqo9Ot8CDtuWJIGFHpFbbK4gnuzFSPaG
+   ZGJJfGbDSAQvS9jd/u3arhP1Bs+Wwnjj4TYCcyaZwXZKPX4NP1mjePeua
+   JxA/Y7wLFV7M095mtkz7YRVtnjnvuE04SSzYxnGQPQIprO9V3pIg/f1/Y
+   7pfNCEBoPpgaT4GKEQJrhRZcvQiO0hvAUDViS1EkM55Krif8mBtI3Kv7p
+   CN92Tk/rc05cwXIuacUC7nxjAdZouURn22inVYSYJ6GYjDK6F+qBZO7Sv
+   Z7q7j8IXMZseydfcDMqQWoGEhhq9cD0zuqbSXbJv2soDL15eMCWqDiOoJ
+   Q==;
+X-CSE-ConnectionGUID: pOywovpFQ6O7zvyNLlyyNg==
+X-CSE-MsgGUID: Swu6PXigT4KEoFx91nFJYw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4522632"
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="4522632"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 05:49:18 -0800
+X-CSE-ConnectionGUID: hZ2myhofTlmWyNkMXwl5kQ==
+X-CSE-MsgGUID: zJ+sJN1CSJ2FyGLj2uSYDA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="11957066"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.208])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 05:49:15 -0800
+Date: Thu, 26 Nov 2026 15:49:13 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Joshua Crofts <crofts@kernel.org>
+Cc: Rupesh Majhi <zoone.rupert@gmail.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Eddie James <eajames@linux.ibm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 5/7] iio: pressure: dps310: use time unit macros for
+ sleeps and timeouts
+Message-ID: <awg42TwLsgf_Xp3U@ashevche-desk.local>
+References: <20261126121331.10438-1-zoone.rupert@gmail.com>
+ <20261126121331.10438-6-zoone.rupert@gmail.com>
+ <065da662-2670-4f7c-93dd-410e9c11d18a@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,28 +86,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <065da662-2670-4f7c-93dd-410e9c11d18a@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Thu, 19 Nov 2026 09:04:49 -0800, Ian Rogers wrote:
-> When xfs_getfsmap_rtdev_rtbitmap() was converted to iterate over realtime
-> groups with xfs_rtgroup_next_range(), 'error' was left uninitialized. If a
-> continuation or range-bounded FS_IOC_GETFSMAP query has start_rgno >
-> end_rgno (for example when keys[0].fmr_physical + keys[0].fmr_length lies
-> in a higher realtime group than keys[1].fmr_physical while both remain
-> below eofs), the while loop executes zero iterations and returns the
-> uninitialized stack variable 'error' directly to userspace as the ioctl()
-> return value.
-> 
-> [...]
+On Thu, Nov 26, 2026 at 02:17:34PM +0100, Joshua Crofts wrote:
+> On 26-Nov-26 13:13, Rupesh Majhi wrote:
 
-Applied to for-next, thanks!
+...
 
-[1/1] xfs: initialize error in xfs_getfsmap_rtdev_rtbitmap()
-      commit: c43e28d4f2d2000777478a5b87946bba65c3dfdd
+> > -	usleep_range(15000, 55000);
+> > +	msleep(20);
+> I think it's safe to use 15 as specified in the datasheet, as msleep()
+> guarantees sleep for the specified time + a max of 12.5% slack.
 
-Best regards,
+Wouldn't be better to have some margin still? You know that time goes
+differently on different CPUs and in general time can go backwards (in
+computers), so the long sleeps can (I haven't checked though) go both ways,
+and a minimum sleeping time can be less. Also on the other side firmware
+might have issues in some circumstances and require slightly bigger sleep
+than specified. That's why I proposed margin.
+
+> This can be tweaked whilst applying though (or not, at it's pretty minuscule).
+
 -- 
-Carlos Maiolino <cem@kernel.org>
+With Best Regards,
+Andy Shevchenko
+
 
