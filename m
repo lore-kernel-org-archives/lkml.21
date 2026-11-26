@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.231
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.236
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795664472;
-	b=RCN10qPxC44sGYb/jeVX9YZsTqZQIvO4sb/MvH2KZ6nljp4eLHGfcug1yBZCA44908O0
-	 TZvCbBPsyRfKRJXWBXEs8mGcM7RIKgn13J1s8QIfN+cLfA2TS0dS1pKCZMGqb8ctaox6x
-	 wgWwIPHuWTjmVdWXNm4oTQrmQan6DrhMNJMFIfLumgi3SdoFBHRmHXaHU+/hcKDVZm/Oz
-	 3EbYqyZeZQIOBfTQ8DPAmBsYvw0RI60AC6vnwS896DV6bSFA09jt/OM4XPYUgyoL9Fotm
-	 ll6r+Qw/NQW2xGF+jm1JnDR72loUi1/WeXKVMXh4PaifzfeX2R/TyH269h7fdtJ2ulQ==
+	t=1795664475;
+	b=ODXhkY5UgF0+KhwnDSIMxHzHV4fynuycp1Uv5r+3qQYIfu8HBVFHScfbP3hHGccme8xU
+	 IKg92mFYexBxbs0dPjmTPMHEm6UFWV55LRBMwyYobxJaJPLTUhbIXV4V6knpSbv86lza5
+	 C0VtbgBk73bGJ1eyfBuo9afm8iaWLxvF4635zCdVudSlFysjl+oCQKuyq213xkxdWakwC
+	 MM7me/cBaqXBdAmnRvnnjkav16xOcHWpL4YZGS9os+1RcqMnH90NaT53q/mpkCDiz5ntw
+	 IbdoSJCR4FlWEfpMaPThF0PfKoKp5lOxRiBmlhfHAmAfECelWSt1znYlItY8OIe4h+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795664472;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795664475;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=WWcpvyiKx9QdAEGQBV+Rm5SmC+zVbKadnyjvc+R3wRA=;
-	b=jpmlEpcXQfddkgoOruLDneP1mmfTwH0CL00S2WhfLUf/8pxkQq7bKlIonZ10j5ZhiQkm
-	 iAeyOZnsMUj8hRdb2bwZd+3yfUTTnwvpCe9C+y8o+Mg6xhk1lRR840etKFyolQzjy0kXy
-	 s8fDD/W2YXnPZYUlNEA3NwF3OQjWvoJ60QdlaE3M/uRG8WxyAltX3zidPrU6Otmq+izG4
-	 8QSeSgtH5E+SrcRL8ZKD0o8lj69JLrYRTQxHZ384TpxOQsRo8r8zkOmXbLorLFKkBknn9
-	 RPWDTXrGYyqJLN1vGQYkvcJmFx2eizSLouh2KoqwSHgeznzCZOwowep4Zlij+iWnUAw==
+	bh=bZUI4zFvKI5feENhD2kLu0gGg8DBuciBEsqLP3fBRFU=;
+	b=S0LDcEiOWeyV7I37yKak5k0mLSKikwcyo0tpSpyc4ECrnHjBezNO2IFQg+dGW4Vvffrs
+	 4AqkUMiGjXyFVONJCyuoUmGIpeolLJg+sYARfWmckZKQi8djP71IOzblRaLTrHbMDkb7x
+	 c2HzRvCjNr/dLUjwjd7QRuu7v0mxt3Cc3p4OSgtABBlab/ijJFhhYzQu2gUTxNO9pmc7L
+	 hmyQ9VR9V/pQxEjcjgAdcv12u4QwoYkzkA+IR18rJFyMGEwPpwnRFdtbZUHhQqXefXCK+
+	 aGvAUB6+TQwiwHx94F4jJckAoEETAo8rwXFjacAEKXZzeDizKVm9TfOrVnTlVa4thAQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XP85efvG;
-	arc=none smtp.remote-ip=95.215.58.231
-Received: from mta1.migadu.com (out-231.mta1.migadu.com [95.215.58.231])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=hVtIMfrV;
+	arc=none smtp.remote-ip=95.215.58.236
+Received: from mta1.migadu.com (out-236.mta1.migadu.com [95.215.58.236])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52916606A327
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:41:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52916606A327
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 836C8606A689
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:41:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 836C8606A689
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XP85efvG
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=hVtIMfrV
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=F3uhmG/jC5tq5XsmcCz1nyolzy2MtfiIpZ5NsbKeVf0=;
+DKIM-Signature: a=rsa-sha256; bh=jVwd+DHedpkNv/GZhq681Sv6TG6fh3tLpPaV5jWETFw=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795664469; v=1; x=1796269269;
- b=XP85efvG8Iv5LvXElHt56+QgtdQuNcpPX/wcUheblQV7Qa2nyhxSaKATKVv6MXhhu3W7qoi6
- mHPPsQYJ5wBvz5+X8M5rlOcTgrQWDJyZJB3HjrTP+KoDQQkweGPELpq34YzyDi8L34wzLOtjSYV
- jNJg0AYnRYDobZWI4TO2iNNA=
+ t=1795664472; v=1; x=1796269272;
+ b=hVtIMfrVvWAefucgujOzEp+d1PZx+semI3pTqvbfaIOE22FPMSI8ThNOt5YlU2VwtqNZjd7k
+ mVyvt402hnLoF6yNXZECqM3lsDJk34ifXyFEGaRybD3SSwLGcjFxuilRItyeG+gMOVCD61Chgcj
+ rzYKeOmuu/CWdwyISbMgTESg=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 4c2135ef4223dfca;
-	Thu, 26 Nov 2026 03:41:09 +0000
-X-Mizu-Trace-ID: 4c2135ef4223dfca
+Received: by smtp.migadu.com with ESMTPS id e1608bf855ead876;
+	Thu, 26 Nov 2026 03:41:12 +0000
+X-Mizu-Trace-ID: e1608bf855ead876
 X-Migadu-Flow: FLOW_OUT
 From: George Guo <dongtai.guo@linux.dev>
 To: chenhuacai@kernel.org,
@@ -55,9 +55,9 @@ Cc: hengqi.chen@gmail.com,
 	bpf@vger.kernel.org,
 	loongarch@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 4/5] LoongArch: BPF: Add support for signed arena loads
-Date: Thu, 26 Nov 2026 12:40:46 +0900
-Message-ID: <20261126034048.7370-5-dongtai.guo@linux.dev>
+Subject: [PATCH v3 5/5] LoongArch: BPF: Add support for arena atomics
+Date: Thu, 26 Nov 2026 12:40:47 +0900
+Message-ID: <20261126034048.7370-6-dongtai.guo@linux.dev>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261126034048.7370-1-dongtai.guo@linux.dev>
 References: <20261126034048.7370-1-dongtai.guo@linux.dev>
@@ -74,69 +74,304 @@ Content-Transfer-Encoding: 8bit
 
 From: George Guo <guodongtai@kylinos.cn>
 
-Currently, the verifier rejects sign-extending loads from arena on
-LoongArch with "sign extending loads from arena are not supported yet",
-because the JIT does not implement bpf_jit_supports_insn() and the weak
-default returns false.
+In order to support the atomic instructions on arena pointers
+(BPF_PROBE_ATOMIC), add the arena base held in REG_ARENA to the address
+and add an exception table entry for the memory access instruction of
+read-modify-write, fetch, xchg, cmpxchg, load-acquire and store-release.
 
-In order to support them, implement bpf_jit_supports_insn() and handle
-BPF_PROBE_MEM32SX like BPF_PROBE_MEM32: add the arena base held in
-REG_ARENA to the address, use sign-extending load instructions, and add
-an exception table entry for the load.
+If the memory access faults, clear the register that the instruction
+loads into, as the verifier expects: dst_reg for load-acquire, r0 for
+cmpxchg and src_reg for the fetch instructions. The zero-extension of
+the 32-bit fetch instructions is emitted after the memory access, so the
+cleared register remains zero.
 
-This is similar to commit b4757714cc63 ("bpf, riscv: Add support for
-signed arena loads").
+The ll/sc loop of cmpxchg is not suitable for arena: both ll and sc can
+fault if another CPU frees the page between them, but the verifier only
+reserves one exception table entry for each instruction. So emit a
+single amcas_db.{w/d} instruction for cmpxchg on arena, and make
+bpf_jit_supports_insn() return cpu_has_lamcas for it, just like RISC-V
+does with Zacas.
+
+This is similar to commit fb7cefabae81 ("riscv, bpf: Add support arena
+atomics for RV64") and commit 1519f488e8ce ("bpf, riscv: Clear fetch
+destination on faulting arena atomic").
 
 Signed-off-by: George Guo <guodongtai@kylinos.cn>
 ---
- arch/loongarch/net/bpf_jit.c | 18 +++++++++++++++---
- 1 file changed, 15 insertions(+), 3 deletions(-)
+ arch/loongarch/include/asm/inst.h |   4 +
+ arch/loongarch/net/bpf_jit.c      | 137 +++++++++++++++++++++++++++---
+ 2 files changed, 130 insertions(+), 11 deletions(-)
 
+diff --git a/arch/loongarch/include/asm/inst.h b/arch/loongarch/include/asm/inst.h
+index e061f966f7d1..1fc99b7d70be 100644
+--- a/arch/loongarch/include/asm/inst.h
++++ b/arch/loongarch/include/asm/inst.h
+@@ -198,6 +198,8 @@ enum reg3_op {
+ 	fstxs_op	= 0x7070,
+ 	fstxd_op	= 0x7078,
+ 	scq_op		= 0x70ae,
++	amcasdbw_op	= 0x70b6,
++	amcasdbd_op	= 0x70b7,
+ 	amswapb_op	= 0x70b8,
+ 	amswaph_op	= 0x70b9,
+ 	amaddb_op	= 0x70ba,
+@@ -817,6 +819,8 @@ DEF_EMIT_REG3_FORMAT(amorw, amorw_op)
+ DEF_EMIT_REG3_FORMAT(amord, amord_op)
+ DEF_EMIT_REG3_FORMAT(amxorw, amxorw_op)
+ DEF_EMIT_REG3_FORMAT(amxord, amxord_op)
++DEF_EMIT_REG3_FORMAT(amcasdbw, amcasdbw_op)
++DEF_EMIT_REG3_FORMAT(amcasdbd, amcasdbd_op)
+ DEF_EMIT_REG3_FORMAT(amswapb, amswapb_op)
+ DEF_EMIT_REG3_FORMAT(amswaph, amswaph_op)
+ DEF_EMIT_REG3_FORMAT(amswapw, amswapw_op)
 diff --git a/arch/loongarch/net/bpf_jit.c b/arch/loongarch/net/bpf_jit.c
-index 20f29ea01bda..03c88cd9c96a 100644
+index 03c88cd9c96a..ebe603131396 100644
 --- a/arch/loongarch/net/bpf_jit.c
 +++ b/arch/loongarch/net/bpf_jit.c
-@@ -709,7 +709,8 @@ static int add_exception_handler(const struct bpf_insn *insn,
+@@ -418,6 +418,13 @@ static void emit_store_stack_imm64(struct jit_ctx *ctx, int reg, int stack_off,
+ 	emit_insn(ctx, std, reg, LOONGARCH_GPR_FP, stack_off);
+ }
  
++#define BPF_FIXUP_REG_MASK	GENMASK(31, 27)
++#define BPF_FIXUP_OFFSET_MASK	GENMASK(26, 0)
++#define REG_DONT_CLEAR_MARKER	0
++
++static int add_exception_handler(const struct bpf_insn *insn,
++				 struct jit_ctx *ctx, int dst_reg);
++
+ static int emit_atomic_rmw(const struct bpf_insn *insn, struct jit_ctx *ctx)
+ {
+ 	const u8 t1 = LOONGARCH_GPR_T1;
+@@ -429,9 +436,15 @@ static int emit_atomic_rmw(const struct bpf_insn *insn, struct jit_ctx *ctx)
+ 	const s16 off = insn->off;
+ 	const s32 imm = insn->imm;
+ 	const bool isdw = BPF_SIZE(insn->code) == BPF_DW;
++	const bool arena = BPF_MODE(insn->code) == BPF_PROBE_ATOMIC;
++	bool zext = false;
++	u8 zext_reg = src;
++	int ret;
+ 
+ 	move_imm(ctx, t1, off);
+ 	emit_insn(ctx, addd, t1, dst, t1);
++	if (arena)
++		emit_insn(ctx, addd, t1, t1, REG_ARENA);
+ 	move_reg(ctx, t3, src);
+ 
+ 	switch (imm) {
+@@ -502,15 +515,14 @@ static int emit_atomic_rmw(const struct bpf_insn *insn, struct jit_ctx *ctx)
+ 			emit_insn(ctx, amadddbd, src, t1, t3);
+ 			break;
+ 		}
+-		if (!isdw)
+-			emit_insn(ctx, bstrpickd, src, src, 31, 0);
++		zext = !isdw;
+ 		break;
+ 	case BPF_AND | BPF_FETCH:
+ 		if (isdw) {
+ 			emit_insn(ctx, amanddbd, src, t1, t3);
+ 		} else {
+ 			emit_insn(ctx, amanddbw, src, t1, t3);
+-			emit_insn(ctx, bstrpickd, src, src, 31, 0);
++			zext = true;
+ 		}
+ 		break;
+ 	case BPF_OR | BPF_FETCH:
+@@ -518,7 +530,7 @@ static int emit_atomic_rmw(const struct bpf_insn *insn, struct jit_ctx *ctx)
+ 			emit_insn(ctx, amordbd, src, t1, t3);
+ 		} else {
+ 			emit_insn(ctx, amordbw, src, t1, t3);
+-			emit_insn(ctx, bstrpickd, src, src, 31, 0);
++			zext = true;
+ 		}
+ 		break;
+ 	case BPF_XOR | BPF_FETCH:
+@@ -526,7 +538,7 @@ static int emit_atomic_rmw(const struct bpf_insn *insn, struct jit_ctx *ctx)
+ 			emit_insn(ctx, amxordbd, src, t1, t3);
+ 		} else {
+ 			emit_insn(ctx, amxordbw, src, t1, t3);
+-			emit_insn(ctx, bstrpickd, src, src, 31, 0);
++			zext = true;
+ 		}
+ 		break;
+ 	/* src = atomic_xchg(dst + off, src); */
+@@ -553,11 +565,30 @@ static int emit_atomic_rmw(const struct bpf_insn *insn, struct jit_ctx *ctx)
+ 			emit_insn(ctx, amswapdbd, src, t1, t3);
+ 			break;
+ 		}
+-		if (!isdw)
+-			emit_insn(ctx, bstrpickd, src, src, 31, 0);
++		zext = !isdw;
+ 		break;
+ 	/* r0 = atomic_cmpxchg(dst + off, r0, src); */
+ 	case BPF_CMPXCHG:
++		if (arena) {
++			/*
++			 * Another CPU can free the arena page between the ll and
++			 * the sc of an ll/sc loop, so both can fault, but the
++			 * verifier reserves a single exception table entry per
++			 * instruction. Use amcas, which bpf_jit_supports_insn()
++			 * requires for cmpxchg on arena.
++			 */
++			if (!cpu_has_lamcas) {
++				pr_err_once("bpf-jit: amcas instruction is not supported\n");
++				return -EINVAL;
++			}
++			if (isdw)
++				emit_insn(ctx, amcasdbd, r0, t1, t3);
++			else
++				emit_insn(ctx, amcasdbw, r0, t1, t3);
++			zext = !isdw;
++			zext_reg = r0;
++			break;
++		}
+ 		move_reg(ctx, t2, r0);
+ 		if (isdw) {
+ 			emit_insn(ctx, lld, r0, t1, 0);
+@@ -582,6 +613,24 @@ static int emit_atomic_rmw(const struct bpf_insn *insn, struct jit_ctx *ctx)
+ 		return -EINVAL;
+ 	}
+ 
++	/*
++	 * On arena, the memory access is the last instruction emitted so far.
++	 * If it faults, clear the register it loads into, as the verifier
++	 * expects, and resume at the next instruction: zero-extending the
++	 * cleared register keeps it zero.
++	 */
++	if (arena) {
++		int load_reg = bpf_atomic_load_reg(insn);
++
++		ret = add_exception_handler(insn, ctx, load_reg < 0 ?
++					    REG_DONT_CLEAR_MARKER : regmap[load_reg]);
++		if (ret)
++			return ret;
++	}
++
++	if (zext)
++		emit_insn(ctx, bstrpickd, zext_reg, zext_reg, 31, 0);
++
+ 	return 0;
+ }
+ 
+@@ -592,10 +641,37 @@ static int emit_atomic_ld_st(const struct bpf_insn *insn, struct jit_ctx *ctx)
+ 	const u8 dst = regmap[insn->dst_reg];
+ 	const s16 off = insn->off;
+ 	const s32 imm = insn->imm;
++	const bool arena = BPF_MODE(insn->code) == BPF_PROBE_ATOMIC;
++	int ret;
+ 
+ 	switch (imm) {
+ 	/* dst_reg = load_acquire(src_reg + off16) */
+ 	case BPF_LOAD_ACQ:
++		if (arena) {
++			/* t1 = src + off + arena_vm_start; load from [t1]. */
++			move_imm(ctx, t1, off);
++			emit_insn(ctx, addd, t1, src, t1);
++			emit_insn(ctx, addd, t1, t1, REG_ARENA);
++			switch (BPF_SIZE(insn->code)) {
++			case BPF_B:
++				emit_insn(ctx, ldbu, dst, t1, 0);
++				break;
++			case BPF_H:
++				emit_insn(ctx, ldhu, dst, t1, 0);
++				break;
++			case BPF_W:
++				emit_insn(ctx, ldwu, dst, t1, 0);
++				break;
++			case BPF_DW:
++				emit_insn(ctx, ldd, dst, t1, 0);
++				break;
++			}
++			ret = add_exception_handler(insn, ctx, dst);
++			if (ret)
++				return ret;
++			emit_insn(ctx, dbar, 0b10100);
++			break;
++		}
+ 		switch (BPF_SIZE(insn->code)) {
+ 		case BPF_B:
+ 			if (is_signed_imm12(off)) {
+@@ -634,6 +710,31 @@ static int emit_atomic_ld_st(const struct bpf_insn *insn, struct jit_ctx *ctx)
+ 		break;
+ 	/* store_release(dst_reg + off16, src_reg) */
+ 	case BPF_STORE_REL:
++		if (arena) {
++			/* t1 = dst + off + arena_vm_start; store to [t1]. */
++			emit_insn(ctx, dbar, 0b10010);
++			move_imm(ctx, t1, off);
++			emit_insn(ctx, addd, t1, dst, t1);
++			emit_insn(ctx, addd, t1, t1, REG_ARENA);
++			switch (BPF_SIZE(insn->code)) {
++			case BPF_B:
++				emit_insn(ctx, stb, src, t1, 0);
++				break;
++			case BPF_H:
++				emit_insn(ctx, sth, src, t1, 0);
++				break;
++			case BPF_W:
++				emit_insn(ctx, stw, src, t1, 0);
++				break;
++			case BPF_DW:
++				emit_insn(ctx, std, src, t1, 0);
++				break;
++			}
++			ret = add_exception_handler(insn, ctx, REG_DONT_CLEAR_MARKER);
++			if (ret)
++				return ret;
++			break;
++		}
+ 		emit_insn(ctx, dbar, 0b10010);
+ 		switch (BPF_SIZE(insn->code)) {
+ 		case BPF_B:
+@@ -678,9 +779,6 @@ static int emit_atomic_ld_st(const struct bpf_insn *insn, struct jit_ctx *ctx)
+ 	return 0;
+ }
+ 
+-#define BPF_FIXUP_REG_MASK	GENMASK(31, 27)
+-#define BPF_FIXUP_OFFSET_MASK	GENMASK(26, 0)
+-#define REG_DONT_CLEAR_MARKER	0
+ 
+ bool ex_handler_bpf(const struct exception_table_entry *ex,
+ 		    struct pt_regs *regs)
+@@ -710,7 +808,8 @@ static int add_exception_handler(const struct bpf_insn *insn,
  	if (BPF_MODE(insn->code) != BPF_PROBE_MEM &&
  	    BPF_MODE(insn->code) != BPF_PROBE_MEMSX &&
--	    BPF_MODE(insn->code) != BPF_PROBE_MEM32)
-+	    BPF_MODE(insn->code) != BPF_PROBE_MEM32 &&
-+	    BPF_MODE(insn->code) != BPF_PROBE_MEM32SX)
+ 	    BPF_MODE(insn->code) != BPF_PROBE_MEM32 &&
+-	    BPF_MODE(insn->code) != BPF_PROBE_MEM32SX)
++	    BPF_MODE(insn->code) != BPF_PROBE_MEM32SX &&
++	    BPF_MODE(insn->code) != BPF_PROBE_ATOMIC)
  		return 0;
  
  	if (WARN_ON_ONCE(ctx->num_exentries >= ctx->prog->aux->num_exentries))
-@@ -1389,10 +1390,16 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx, bool ext
- 	case BPF_LDX | BPF_PROBE_MEM32 | BPF_H:
- 	case BPF_LDX | BPF_PROBE_MEM32 | BPF_W:
- 	case BPF_LDX | BPF_PROBE_MEM32 | BPF_DW:
-+	/* LDX | PROBE_MEM32SX: dst = *(signed size *)(src + REG_ARENA + off) */
-+	case BPF_LDX | BPF_PROBE_MEM32SX | BPF_B:
-+	case BPF_LDX | BPF_PROBE_MEM32SX | BPF_H:
-+	case BPF_LDX | BPF_PROBE_MEM32SX | BPF_W:
- 		sign_extend = BPF_MODE(code) == BPF_MEMSX ||
--			      BPF_MODE(code) == BPF_PROBE_MEMSX;
-+			      BPF_MODE(code) == BPF_PROBE_MEMSX ||
-+			      BPF_MODE(code) == BPF_PROBE_MEM32SX;
+@@ -1591,6 +1690,10 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx, bool ext
+ 	case BPF_STX | BPF_ATOMIC | BPF_H:
+ 	case BPF_STX | BPF_ATOMIC | BPF_W:
+ 	case BPF_STX | BPF_ATOMIC | BPF_DW:
++	case BPF_STX | BPF_PROBE_ATOMIC | BPF_B:
++	case BPF_STX | BPF_PROBE_ATOMIC | BPF_H:
++	case BPF_STX | BPF_PROBE_ATOMIC | BPF_W:
++	case BPF_STX | BPF_PROBE_ATOMIC | BPF_DW:
+ 		if (!bpf_atomic_is_load_store(insn))
+ 			ret = emit_atomic_rmw(insn, ctx);
+ 		else
+@@ -2685,6 +2788,18 @@ bool bpf_jit_supports_arena(void)
  
--		if (BPF_MODE(code) == BPF_PROBE_MEM32) {
-+		if (BPF_MODE(code) == BPF_PROBE_MEM32 ||
-+		    BPF_MODE(code) == BPF_PROBE_MEM32SX) {
- 			emit_insn(ctx, addd, t2, src, REG_ARENA);
- 			src = t2;
- 		}
-@@ -2676,6 +2683,11 @@ bool bpf_jit_supports_arena(void)
- #endif
+ bool bpf_jit_supports_insn(struct bpf_insn *insn, bool in_arena)
+ {
++	if (!in_arena)
++		return true;
++
++	switch (insn->code) {
++	case BPF_STX | BPF_ATOMIC | BPF_W:
++	case BPF_STX | BPF_ATOMIC | BPF_DW:
++		/* cmpxchg on arena is emitted as amcas, see emit_atomic_rmw() */
++		if (insn->imm == BPF_CMPXCHG)
++			return cpu_has_lamcas;
++		break;
++	}
++
+ 	return true;
  }
  
-+bool bpf_jit_supports_insn(struct bpf_insn *insn, bool in_arena)
-+{
-+	return true;
-+}
-+
- bool bpf_jit_supports_fsession(void)
- {
- 	return true;
 -- 
 2.53.0
 
