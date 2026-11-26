@@ -1,93 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795718812;
-	b=CBIy3GVf0+/vNpMpuOLiOq1S2mBgp+SKASmqylxfMaG7+T9epjUw/gjRM7Ra7pEHHPDa
-	 eTnGY1iBUcqxT98sf9Aqjosk+qpoL/Fcp3j7moW3IW3i82fAuRmtomEIRveI+Gc0uIzXZ
-	 OKh6gjU/vELBXEjnphOSiFiy4p8zRBFeZ17V2n2wppkL4xyOAFkusXeq9qS5aFWs+HANA
-	 /IsUXzG67EAZRu4wzwReRp75SnuOUKkIML1VQKRpczPaD/UwAzQVW/a80UeFcFVsvRhXt
-	 8kDxRUdhn5vKc7l/jUM3t8WTL21LuNLsoE6mV2c9h8U05q5fnaIbxKcR3kQV6qWkzDQ==
+	t=1795718878;
+	b=wpKNl4NTwKSbkMAwH+CELU2o99Asl0EvmwHupiwl4xGotQGQy9jTjGRHr4/ugZuBoCPt
+	 9b+syo5hZNkuLTw6qHxzl+TSmyEupiCotBD1owaa2sc3h1a2nvz6vwNws9SsM0nlGuRhS
+	 5ishPiIw4fGeH91N5HF/WEE6RuRH2+jjYTwKoYmyl6tyOQSreDC5m00UpRvd8hfEcxknc
+	 ey13aaY7ysHW8mPjjr9m1BNiM1CbUBho4lgpN5zlD8heQLOk8fJRjWTO9grLXE/2M3IsK
+	 iBGOf+K/ojMRoYp+OOD3uITtEjwdQLeyyw+w3NtC5fvAKB/TdEB4HBn+2OmPHIeaylw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795718812;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=15MjkrZo96Wtk7+oJJeShfMhLRx962x5eFfNDruHPYs=;
-	b=D7FSXV9PITuJwOiDfkd4MTMTR0VAqdLetrnBGRYOgzhGpq9Fvr7sZMOi3LRmeucJNdWn
-	 mF3rFXt4/F3azz85OQi5lUg2bVbzaDlswcrTshAbaL1xy75dEucdd+fBXwQyd5mIaFKFK
-	 mm2eYAAvVDNdqEEgvrBvqIYBukk+iXCpxSHWe5xpTgdGQKxcrICbqK6PyMCr7vAFPrYnw
-	 zZeBrE2MtWpldJQ1C7IMw7zxAOAULkFCz/F+Xq2fIXW7tD4rt9Lw059Jpl3nTmubtAOGn
-	 0XE5yQ0gt462kSqu0uz6PXV/Ol3yYeH0Eg6i5PpDk+8Xe7qxhoRhyLh981tbMf/+1dw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795718878;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=DkUy01y7xEbf/+LpBM+I9BkjCedA7NkFboIBCgJYdX4=;
+	b=ou0EYExxngaAZPbMYMu46pqvQUADkpDqH6iQyEiWDbyQMujtYh4tOaRIKK/9DReENuoD
+	 zsy3iaPTmmsXbAAOJbpBs9MvbhUuwEv8IPvYSqSI1kbSx8kajMckHrebvsEFMZ9gzOpTu
+	 XBndWHpC4Y+gVvAGEDY2hd+YJw6tGDuVGZKnlliEpqdBEvFoSWQJvnwmKMWN/AbAdVAjK
+	 FcccnHqF5AaWPIdBvXghBQtXFFWZbbZl7YkZOlU0S9eLQt7ZC+MoDeh9yp44oMyUsue9J
+	 FDyH7LbHTn/ycOqb4x5p8F0612IILjr+O1oyB0ZPFbXPJNuJul0q+ehF8w0ATVAMIjw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=qwXQWvlx;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jBF4TsmR;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34FAE606A31E;
-	Thu, 26 Nov 2026 18:46:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34FAE606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2BE5606A31C;
+	Thu, 26 Nov 2026 18:47:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=qwXQWvlx
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795718810;
-	bh=15MjkrZo96Wtk7+oJJeShfMhLRx962x5eFfNDruHPYs=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=qwXQWvlxAorgriUDT67rJAZK2UFFeGfNH7SV/wtVTH9C1W5nS1eY2a8IhC+qx2+7h
-	 tShfulZB2KOamEPgntoO2BslP+gVZ8GRQz1S1/66X+7dLhaHoYWpo6MsV1YULuqqu/
-	 tDVqKfymS0YvCSFDMjYWJLxkyzN1wMwQv2ONzrlOVmDpwVjeCtRpkKIuotEnbrKPiK
-	 T21APHxSdxkqAnLAdTVEcwkxkZ9RR1oCLqQfacIVUsFPe78Z1yxiKYSK8w8SFbIqYO
-	 Lhs9CoAzzR4RbV7g04DTb5k2qHUlS0TUoDWpEikNoPDIlBBuy+awLnxP9cud6B/HCY
-	 8/dcWeU2Ncufw==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EA0A717E0DCD;
-	Thu, 26 Nov 2026 19:46:47 +0100 (CET)
-Message-ID: <6e6bc569248e4d72a83de38b8aa83c66abc831f6.camel@collabora.com>
-Subject: Re: [PATCH 0/7] rust: reset: add reset control abstractions
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Daniel Almeida <daniel.almeida@collabora.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo
-	 <gary@garyguo.net>, =?ISO-8859-1?Q?Bj=F6rn?= Roy Baron	
- <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, Andreas
- Hindborg	 <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross	 <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,
- Tamir Duberstein	 <tamird@kernel.org>, Alexandre Courbot
- <acourbot@nvidia.com>, Onur =?ISO-8859-1?Q?=D6zkan?=	 <work@onurozkan.dev>,
- Philipp Zabel <p.zabel@pengutronix.de>, 	linux-kernel@vger.kernel.org,
- rust-for-linux@vger.kernel.org, 	dri-devel@lists.freedesktop.org, Detlev
- Casanova <detlev.casanova@collabora.com>
-Date: Thu, 26 Nov 2026 13:46:46 -0500
-In-Reply-To: <D28A86A5-8077-49BA-B366-FF29E9E75736@collabora.com>
-References: <20261126-b4-rust-reset-v1-0-9c4c3d029080@collabora.com>
-	 <6300821339d6891983af704e2044fd1ed25285f6.camel@collabora.com>
-	 <299B626E-DC60-4175-9D66-2DE58BA5070A@collabora.com>
-	 <ffb55e45af601f0afaf5071f92e123c81de22a70.camel@collabora.com>
-	 <D28A86A5-8077-49BA-B366-FF29E9E75736@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-SnTR6pbYW0CfO0KFqPeH"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jBF4TsmR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D96E01F000C4;
+	Thu, 26 Nov 2026 18:47:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795718877;
+	bh=DkUy01y7xEbf/+LpBM+I9BkjCedA7NkFboIBCgJYdX4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=jBF4TsmR7GFh0k+NboYQnFAM4Y9gkAG1djVNMrQN9KWPX/AVg8obZFA8aMlb1vSBF
+	 RFXE+SgvQW6oO617L66UefSjI5+Gik4HBNMhBLbx8qSb4SXhxFatRXaZMfhUI2cK2k
+	 YASGpLIcsWeP8Qec2WYUrQc5K1JouNMPZkjtTCCyW3b1GfRV0ptfopc9X9AQFcIuFm
+	 pbqFcvQiCeGUyrhZiu4js0k1W+cESSxlFxtoeahqRnvCCpQ6i0WKbyp6YOJm8CVYbZ
+	 A/sZjS4dVvEiJy7q3qWWJ3svug03JcZNwXzevVScebjbg5dopXjvb0DctlWO6ogOSH
+	 3mTYNeHIVBkqw==
+Message-ID: <cdc5f00b-380c-4c8a-800d-967008c16a4f@kernel.org>
+Date: Thu, 26 Nov 2026 19:47:47 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,84 +51,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 0/6] lx2160a: change the pad muxes through the RCW
+ override
+To: Linus Walleij <linusw@kernel.org>, vjardin@free.fr
+Cc: Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>,
+ Frank Li <Frank.Li@nxp.com>, Jacky Bai <ping.bai@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ NXP S32 Linux Team <s32@nxp.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, Vladimir Oltean <vladimir.oltean@nxp.com>,
+ Ioana Ciornei <ioana.ciornei@nxp.com>
+References: <20261118-for-upstream-lx2160a-rcw-pinmux-v1-v8-0-d01bc837593e@free.fr>
+ <CAD++jLnRWZrLfyBGGOikx_eeYXirahuB7E7yuDhB6KoSAQoA5w@mail.gmail.com>
+Content-Language: fr-FR
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+In-Reply-To: <CAD++jLnRWZrLfyBGGOikx_eeYXirahuB7E7yuDhB6KoSAQoA5w@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
---=-SnTR6pbYW0CfO0KFqPeH
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Hi Linus,
 
-Le jeudi 26 novembre 2026 =C3=A0 15:36 -0300, Daniel Almeida a =C3=A9crit=
-=C2=A0:
->=20
-> > On 26 Nov 2026, at 15:11, Nicolas Dufresne <nicolas.dufresne@collabora.=
-com> wrote:
-> >=20
-> > Le jeudi 26 novembre 2026 =C3=A0 15:02 -0300, Daniel Almeida a =C3=A9cr=
-it :
-> > > What does not work with shared resets on the C side?
-> >=20
-> > Above make sense, for shared, you need a mechanism to coordinate the re=
-set. A
-> > bit like the comment above you made about flushing active jobs, and hol=
-ding on
-> > new jobs until the reset has completed. I think for multiple instance o=
-f the
-> > same driver its quite feasible, but when the triggering driver have no =
-clue what
-> > other driver it shares with, there is nothing as far as I know to help =
-with this
-> > coordination, and its possibly non-trivial, specially if that was not p=
-art of
-> > the initial design.
-> >=20
-> > Nicolas
->=20
->=20
-> My understanding (correct me if I am wrong?) is that this coordination is
-> indeed needed, but baked into the C assert/deassert API:
->=20
-> Someone on a shared line has no power to assert the line
-> unconditionally, all a single consumer can say is "I'd like this line to
-> be asserted". The line is only asserted when all users agree (i.e.: when
-> all other users also ask for a reset).
->=20
-> So if driver A wants a reset, it gets its house in order, and asks for
-> it. Same for all other drivers, and it goes through when the last one
-> does so. This is the de-facto coordination between consumers and it is
-> not something that Rust influences one way or the other.
->=20
-> Sure, B is not told that A wants a reset, and A is not told by the reset
-> APIs when the reset goes through, but at least no user gets its hardware
-> yanked from them all of a sudden.
+Le 26/11/2026 à 13:53, Linus Walleij a écrit :
+> Hi Vincent,
+> 
+> On Wed, Nov 18, 2026 at 12:00 PM Vincent Jardin via B4 Relay
+> <devnull+vjardin.free.fr@kernel.org> wrote:
+> 
+>> The LX2160A muxes its IIC, XSPI, SDHC, UART, IRQ and EVT pads from
+>> fields of the RCW. They are read-only in RCWSR12..14 of DCFG, and are
+>> changed at runtime through the override registers in the DCSR view of
+>> DCFG, which read 0 until written.
+>>
+>> Since commit 8a1365c7bbc1 ("arm64: dts: lx2160a: add pinmux and i2c
+>> gpio to support bus recovery"), fsl-lx216x.dtsi drives the override
+>> registers with pinctrl-single for the I2C bus recovery. Its first pin
+>> state clears every other field of the word: a board whose RCW programs
+>> a non-zero pad mux loses those pads at the first I2C probe.
+>>
+>> This series reads the fields in effect from RCWSR and writes RCWCR, as
+>> fsl_guts_rcw_rmw() already does for the SerDes protocols:
+> 
+> Once the review is complete, can I merge all patches except the DTSI
+> patch through the pin control tree, i.e. does it have the right ACKs?
 
-Which comes back to my point, if the drivers have no back-channel, the lone=
-ly
-driver wanting to reset will wait forever. And the interaction with runtime=
- PM
-seems a bit undefined too no? My question is if this is actually usable in
-practice.
+I acked patch 3/6 as maintainer of drivers/soc/fsl/ and include/linux/fsl/
 
->=20
-> In fact, we do enforce this even harder by making sure that one cannot
-> construct a SharedResetControl<Asserted>, for the reasons above.
-
-Maybe I'm just missing concrete examples.
-
-Nicolas
-
->=20
-> -- Daniel
-
---=-SnTR6pbYW0CfO0KFqPeH
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawh+lgAKCRDZQZRRKWBy
-9I8pAQDBxtsGXueaBkl3fN6Srv2E9qjon97wkLGnrGJfbcFA3wEA4SYuf5FQpGbA
-iUJZwtoIA620HHS9JmbtT3AaTThrIw0=
-=0emc
------END PGP SIGNATURE-----
-
---=-SnTR6pbYW0CfO0KFqPeH--
+Christophe
