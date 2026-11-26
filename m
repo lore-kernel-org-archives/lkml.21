@@ -1,58 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795657989;
-	b=IajSquxG6Yjqp7bHTxPsKEq9gsaCeTs5Xii7AIBnhIl3+mgSwPvvnDEWxa9J2YQVdz46
-	 uXhOGJIin+lrMgWz6is2/Xt8TvhaRhnzR/KUen/vo0e2EZ3sAcSmNUdIyRh2ysL58A4W0
-	 oD+Elfo/7hjQnmUEiX7LpmAGgjR1riulng5ipr8wY5YgCAu+sAYKgVofP3tqSakW3LKws
-	 5y5OG4Uq0mRy/sTl+d9Pi5aJ70pKUjS9fJr/iGoTnxedVcBWPPab6+NUHiBA3EUdtB6HL
-	 lPtTn7lJMDlMyrHmN2pb8wivoRjKtYtRlj7k19f0jsS3VFGvU87Oo83SzMOej0uiVzQ==
+	t=1795658022;
+	b=24YE2yAUsWIl6hHmbwz9mfOSsDoUwZ2nZPq9Mndm+JSlMuRGU1yGCA9pmONvqOF7S0TU
+	 MDdtGBzpAz7o/s4ae/1K/TZYEMjxm9M9gnxsfCzNJ84mRZ0AxtTzhL06XxbhKfdwICDLn
+	 AxVZiojbR/ns0i0hy6mk3Bq2mT3iVfkWiCfPF+erzxUu5Px3fMg8aoKEU2ls5sZ0a1OYm
+	 npvT2vU5V03jPDZ35vdZ7Lry1dfOYo7QOIb4QwGEPil1qTzo49oBqCTA9SfG2pyh6fdQV
+	 JtmMrs+nvcy7IbTT4k05Idgd/Xo6euAjLZ68nTgMx6QbyCSjQOVzjSLqj26C5p0pE3g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795657989;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=XYoKNhiIRj7Rk3BVZyqjQaKK/jkOxhj6H1RuYfK1i8I=;
-	b=fIQhFH7zFMc0Ku958Nc2zlafp1QZqlFqkJvwMB+V7/vu17NZKvtoLP5vm3qBXRrWtuz4
-	 rjIT6NAPqXIni9LeF8Dhjfkrd2I9ColXEqVnyrObXaMK3IeH93G0VJy7FG1gQCn8+9mi6
-	 9hqPBoy49O84v2zJWwxjkI1eVz44W+29Aeevdx0+9lFG/za91teydp/Bxfs7YlghnBooL
-	 xGBvpMZrmO+7t/kMlcYTDVA5H9M+m8JTcwuAOHdskeiAQfU2omfwBqONrOvwPflLWGzW8
-	 veTa1ljs7XGeH8nEVCtGtwZuJgEymliDOqYPNnk6fIq8DPZfCF7OqBgk/9pfBr2Xupg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795658022;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=+cHTEurbqsd7zSGKgmqAVYiNvItVPPZ0dZmH2pKh7Ao=;
+	b=AL6PJHs4bP+uRol94AzwrJO5WctTUTs2r00nynh71BqOIatMLXwNH5EhL8LywsKcRu8w
+	 ck4AP12PMWM1RG2yCcB12OMPhUI6U29AuirPjWDFdcoXlD7AZNty5o71EVM8AwgvqIakx
+	 2IvQnpDwNrdJ8ZAcfFtgtePdVQDpmd62cxTqOpbJ+SJgWb9YrWoJv/PVDOYrRh/rGt2cr
+	 E3xNv9hgEd9a7UpjJcpXpEXSEMwSG2xDKoM0K9LguuzdkQO65/V5IYCthBY38ZRcsM3Od
+	 ptACUcnBHNwx6ZZXPYB+bnuRE1NxZVN1NoaulbaTpGXnFQ0YebQpUMsrJB8oxM+T+6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=stu.xidian.edu.cn;
-	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
-	arc=none smtp.remote-ip=162.243.164.118
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6718B606A31E;
-	Thu, 26 Nov 2026 01:53:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6718B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=XYoKNhiIRj
-	7Rk3BVZyqjQaKK/jkOxhj6H1RuYfK1i8I=; b=rqERrlG7xqtDTSJgHOWbLTNZwB
-	5XZ2Gl6Iu9IaqLGFWX4fg9drRIIjsxPewxFYt06y+894G/zb9zgeZf9DwChv9TZt
-	gw4WyvN70udSuaGu+piU/b9WROQpLe8r4bVGkggWHVm7P2ClhcVGbmtmHPB33Z9x
-	S+F3SyHFR86rAR9c0=
-Received: from user-virtual-machine.localdomain (unknown [113.200.174.10])
-	by hzbj-edu-front-4.icoremail.net (Coremail) with UTF8SMTPA id BrQMCkDG7ALokAdrmyg9Ag--.40827S2;
-	Thu, 26 Nov 2026 09:52:41 +0800 (CST)
-From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Simon Horman <horms@kernel.org>,
-	Bin Yu <byu@xidian.edu.cn>,
-	Cheng Wen <wencheng@xidian.edu.cn>
-Subject: [PATCH v2] net: ethtool: do not call get_regs() for zero-length dumps
-Date: Thu, 26 Nov 2026 09:52:39 +0800
-Message-Id: <20261126015239.6038-1-25031212351@stu.xidian.edu.cn>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QCv+j2jG;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C740D606A31E;
+	Thu, 26 Nov 2026 01:53:42 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QCv+j2jG
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB9C51F000C0;
+	Thu, 26 Nov 2026 01:53:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795658022;
+	bh=+cHTEurbqsd7zSGKgmqAVYiNvItVPPZ0dZmH2pKh7Ao=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=QCv+j2jGdaeO79gxxixoJ7rdHOuEFcHSTgiPzfzBroALPhx3RwfpBvvg/A+59fxPX
+	 0rWiJdR4wgUBNxeDg+VT2wcBV+nDEYhaH6rjzOhc79LKa9aZpY6AwoPqhZakWqhY/+
+	 08YGzrmPy0gpvNRkHcqRC9ZXIj353Fqs/TFBm3o7F9VVDG9bUAUriYPbOrM2LHkO23
+	 X2YZIZzkBXRQTUAgFHCKsyuIF+Egf9afvRYy1W6fMclSl/aSj5eglFLlx6y04yIN/N
+	 NDpVEcb7/bREUBTo//1cn2tiDQ6yD71SWvRmvHmpFB+OkYcd7vpqbY4FGMwaPr3iOB
+	 PbjHWSlAYo4OQ==
+Message-ID: <sashiko-outbox-234590@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v11 30/43] sched/deadline: Start a period for a task
+ that enters the class blocked
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
+In-Reply-To: <f878da91a2dcaec14aaf959a83659c166a98ad05.1795646914.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795646914.git.mathieu.desnoyers@efficios.com>
+ <f878da91a2dcaec14aaf959a83659c166a98ad05.1795646914.git.mathieu.desnoyers@efficios.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 26 Nov 2026 01:53:41 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,83 +60,149 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:BrQMCkDG7ALokAdrmyg9Ag--.40827S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7ArWfZFy8uF15uFyDCr13twb_yoW8Kr1xpF
-	Z8CFyUCrWqvrWkCan7Wa1avryrJasxJrWj9ryUtw15Zw15ZF4rCFy8Ka1jgr15ArW09Fyx
-	tF4FvFZ5Ca98C3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBlb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26r4j6r4UJwAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x0
-	82IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGw
-	Av7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48J
-	M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVWkMx
-	AIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_
-	Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwI
-	xGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWx
-	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
-	C2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8gzstUUUUU==
-X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAQUJD2sG+dmIAwAAsE
 
-ethtool_get_regs() passes the user-supplied regs.len to the driver
-unchanged, including zero.  A driver that uses that length for its I/O
-then issues a zero-length transfer.  Such a transfer has no data stage
-and the USB core treats it as an OUT transfer, so a driver submitting
-it on the receive pipe trips the direction check:
+Thank you for your contribution! Sashiko AI review found 3 potential
+issues to consider:
+- [Medium] sched/deadline: missing zero-deadline check in
+  switched_to_dl()
+- [Medium] sched/deadline: dl_boost_blocked() skips tasks with non-zero
+  dl_deadline
+- [Medium] sched/deadline: switched_to_dl() skips donor period when
+  throttled task is boosted
+--
 
-  usb 1-1: BOGUS control dir, pipe 80000380 doesn't match bRequestType c0
-  WARNING: drivers/usb/core/urb.c:411 at usb_submit_urb
+commit e2fecf170ee9d540debd8f3437e1896d21f58e13
+Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 
-With panic_on_warn enabled this warning becomes a denial of service.
+sched/deadline: Start a period for a task that enters the class blocked
 
-A zero-length dump cannot return any data, so there is nothing for the
-driver to do.  Return success without calling into the driver, the same
-way a zero-length read is a no-op, instead of making every driver check
-regs->len.
+This commit starts a deadline period for a task blocked on an rt_mutex
+when it enters SCHED_DEADLINE via switched_to_dl() or receives a new
+priority-inheritance donor via dl_boost_blocked(), so that the rt_mutex
+chain walk sorts its waiter with a current deadline rather than 0.
 
-Zero-length register dumps used to be issued so that drivers which only
-report a revision ID could fill regs->version.  Those drivers return
-zero from get_regs_len(), and the core has returned early for them
-since commit f9fc54d313fa ("ethtool: check the return value of
-get_regs_len").
+> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+> index 5ec1c5eaf7647..4d46d1c9c6981 100644
+> --- a/kernel/sched/deadline.c
+> +++ b/kernel/sched/deadline.c
+[ ... ]
+> @@ -1301,6 +1312,30 @@ static inline void replenish_dl_new_period(struct =
+sched_dl_entity *dl_se,
+>  	trace_sched_dl_replenish_tp(dl_se, cpu_of(rq), dl_get_type(dl_se, rq));
+>  }
+> =20
+> +#ifdef CONFIG_RT_MUTEXES
+> +/*
+> + * Start a period from the new donor of @p, if @p has no reservation of =
+its
+> + * own and waits on an rt_mutex. The enqueue does this for a queued task=
+, in
+> + * replenish_dl_entity(). A blocked task is not enqueued, but the chain =
+walk
+> + * copies its deadline into its waiter.
+> + *
+> + * Call it only when the donor changes. A new period changes the deadlin=
+e,
+> + * so the chain walk finds the waiter out of date and goes on. In a ww_m=
+utex
+> + * cycle, a new period at each step would never let the walk stop.
+> + *
+> + * The caller holds the rq lock and the pi_lock of @p, and has updated t=
+he
+> + * rq clock.
+> + */
+> +void dl_boost_blocked(struct task_struct *p)
+> +{
+> +	struct sched_dl_entity *dl_se =3D &p->dl;
+> +
+> +	if (!dl_se->dl_deadline && !dl_se->dl_throttled &&
+> +	    dl_task_pi_blocked(p))
+> +		replenish_dl_new_period(dl_se, task_rq(p));
+> +}
+> +#endif
 
-The problem was found while testing the ethtool register dump path of
-an MCS7830 adapter.
+[Severity: Medium]
+Can dl_boost_blocked() leave an expired p->dl.deadline in place when a
+blocked task still has a non-zero dl_se->dl_deadline?
 
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Cc: stable@vger.kernel.org
-Co-developed-by: Bin Yu <byu@xidian.edu.cn>
-Signed-off-by: Bin Yu <byu@xidian.edu.cn>
-Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
-Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
-Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
----
-v2: handle this in the ethtool core instead of the mcs7830 driver: a
-    zero-length dump is a no-op, so do not call into the driver at all
-    (Andrew Lunn).
-v1: https://lore.kernel.org/r/20261125071649.7052-1-25031212351@stu.xidian.edu.cn/
+When a SCHED_DEADLINE task leaves the class before its 0-lag time,
+switched_from_dl() leaves dl_se->dl_deadline and dl_se->deadline non-zero
+until inactive_timer fires.  If that task holds an rt_mutex, blocks on a
+second rt_mutex, and gets boosted back into dl_sched_class before
+dl_se->deadline passes, switched_to_dl() cancels inactive_timer (so
+__dl_clear_params() never clears dl_se->dl_deadline) and does not start a
+new period.  If a second deadline donor with an earlier deadline boosts
+the task after dl_se->deadline has passed, dl_boost_blocked() returns
+early because dl_se->dl_deadline is non-zero, and the chain walk requeues
+the waiter with the expired dl_se->deadline ahead of waiters with current
+deadlines.
 
- net/ethtool/ioctl.c | 4 ++++
- 1 file changed, 4 insertions(+)
+> @@ -4866,6 +4901,26 @@ static void switched_to_dl(struct rq *rq, struct t=
+ask_struct *p)
+>  	if (!task_on_rq_queued(p)) {
+>  		add_rq_bw(&p->dl, &rq->dl);
+> =20
+> +		/*
+> +		 * The chain walk sorts the waiter of a task by its deadline,
+> +		 * before the wakeup sets the task up. A task new to the class
+> +		 * has a deadline of 0, which goes before every real one. So
+> +		 * start a new period now for a task that waits on an
+> +		 * rt_mutex, as setup_new_dl_entity() does at an enqueue.
+> +		 *
+> +		 * A task that comes back to the class before its 0-lag time
+> +		 * keeps its deadline. For a constrained task, that deadline
+> +		 * can have passed before its next period. As
+> +		 * dl_check_constrained_dl() does, leave such a task alone
+> +		 * unless it is boosted. Its wakeup throttles it until its
+> +		 * next period.
+> +		 */
+> +		if (dl_task_pi_blocked(p) && !p->dl.dl_throttled &&
+> +		    dl_time_before(p->dl.deadline, rq_clock(rq)) &&
+> +		    (is_dl_boosted(&p->dl) ||
+> +		     !dl_time_before(rq_clock(rq), dl_next_period(&p->dl))))
+> +			replenish_dl_new_period(&p->dl, rq);
+> +
+>  		return;
+>  	}
 
-diff --git a/net/ethtool/ioctl.c b/net/ethtool/ioctl.c
-index 80b7930b3fe0..e8af861ee5de 100644
---- a/net/ethtool/ioctl.c
-+++ b/net/ethtool/ioctl.c
-@@ -1779,6 +1779,10 @@ static int ethtool_get_regs(struct net_device *dev, char __user *useraddr)
- 	if (copy_from_user(&regs, useraddr, sizeof(regs)))
- 		return -EFAULT;
- 
-+	/* A zero-length dump has nothing to fill in. */
-+	if (!regs.len)
-+		return 0;
-+
- 	reglen = ops->get_regs_len(dev);
- 	if (reglen <= 0)
- 		return reglen;
--- 
-2.34.1
+[Severity: Medium]
+Does switched_to_dl() skip replenish_dl_new_period() when a task with
+p->dl.deadline =3D=3D 0 enters SCHED_DEADLINE with a constrained reservation
+while blocked on an rt_mutex?
 
+__setparam_dl() writes p->dl.dl_deadline and p->dl.dl_period before
+switched_to_dl() runs.  When p->dl.deadline is 0, dl_next_period(&p->dl)
+evaluates to dl_period - dl_deadline.  If rq_clock(rq) < dl_period -
+dl_deadline, dl_time_before(rq_clock(rq), dl_next_period(&p->dl)) is
+true, so switched_to_dl() treats the never-initialized deadline as being
+in a constrained gap and leaves p->dl.deadline at 0 for the rt_mutex
+chain walk.
+
+In addition, if a blocked task returning to SCHED_DEADLINE before its
+0-lag time changes its dl_deadline or dl_period via sched_setattr(),
+dl_next_period(&p->dl) mixes the old p->dl.deadline with the newly
+overwritten p->dl.dl_deadline and p->dl.dl_period.  Even after the later
+commit "sched/deadline: Keep the debt of a task across a change of
+parameters" replaces the dl_next_period() check with
+dl_in_constrained_gap(), dl_in_constrained_gap() still returns true when
+deadline =3D=3D 0 and period_start =3D=3D 0 while now < dl_period unless
+!p->dl.deadline is checked first.
+
+[Severity: Medium]
+Does the !p->dl.dl_throttled check in switched_to_dl() also prevent a
+throttled departed task from receiving a donor period when it is boosted
+back into SCHED_DEADLINE?
+
+If a constrained SCHED_DEADLINE task exhausts its runtime
+(p->dl.dl_throttled =3D 1), switches to SCHED_OTHER before its next period,
+and blocks on an rt_mutex while holding another rt_mutex, a PI boost back
+into dl_sched_class after p->dl.deadline has passed sees
+p->dl.dl_throttled =3D=3D 1 in switched_to_dl() and skips
+replenish_dl_new_period().  The chain walk then queues the waiter with
+the expired p->dl.deadline instead of the donor's deadline, and on unlock
+enqueue_task_dl() clears dl_throttled because is_dl_boosted(&p->dl) is
+true, letting the task run immediately ahead of earlier-deadline waiters.
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795646914.gi=
+t.mathieu.desnoyers@efficios.com?part=3D30
