@@ -1,60 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795660562;
-	b=YQW70ky2XLguqkrPYyKYzueuNaeMOLXie5Z5aUwXpwJFqcNJz/MFQs3YteZlZdqvR1ib
-	 UMm/Nb23v1bPzPYKp1ETZxUT7a0MrooLiXA+QQaQiHelEw+FZgdDUUHfS2wdcnhhQdkEE
-	 elm4Wxr6EzMpzyzNFqqT0woJjunRpAQW9p2YBOKOiYB7mqtPROmiWmqBdUoFH/hsvoalu
-	 vOhZQWm0v0L5/pKdSQZmBsGnFau+HFhnboTuKrlvOPnpGVmpdH10opZrL7+RlYVo6/FW0
-	 7QVproa5V8C6Nt4c5z4l8HgAEgyCxRZUNDOlgyG+lRasF7zLReXKr3Ys5O+o613/uXg==
+	t=1795660574;
+	b=5bUoDAgwQaZt6lwO06gxQ/r7OlGpj3ltsRr0jNtXIyligu85FfKqFwJGceGt5qJiHzIV
+	 cy8O6Z//X3HBtbyYpXZd+ADa/PPanw2UmL7AwhVJhfUgvlZupPefsYy97fKrWn+iEUyAB
+	 6nD/MTpXmQ5aF/s8LWUHPqda23eQ2hDdZsonmCtcjzClXmO7hxeXFPUrr6uiGItC7P6gU
+	 ZfcqdI4jfz4yNsyLOQzaNR9rfZmDteE7h0khMW3IobV8WYiHeIR5Rdstn42L3soL/5ACM
+	 IfDPmSwdfNnbvqwlsZ9RqnLBu1flDSD1zGMVN4g7VPLtp4Nixp6mdPGMkroef7425Hw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795660562;
-	h=Received:DKIM-Signature:Message-ID:Subject:From:To:Cc:Date:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version;
-	bh=1rKrvoY3WQO5oV4QVBaww4XVV7sR5+K7sjPbv/qUi9o=;
-	b=w9XgGV+mdJg0cOeQKd2lYul6BKisgFfRUGfXwHtKbbU0Qx6G3gSZUST3SXPmRp4jGfYM
-	 p2oRNtBsbv4h3zHICxgSM6HqYjEZIg/BKw1GPNthiUhki1E8zstehnsKs9r/usHH9Ci8L
-	 3rJuUiSOV/WmEr9RKqKAQXwU7NfsjMTTqp5AYfN9u38QLuDejltAqFTDJUNZFAjvjegl9
-	 o1X4t15FFOIfVFWhFP965/Oz94trQrYrxmXdIg3pOHYqXEUZOrChjllSZtDPIH9VVqf7C
-	 L0kez+jZ8W+NeBmMWlIZUiYt0EVutvZyao2GwDw3WC2PaQlSsNiA/kNydQ/BOneTG7w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795660574;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=/QPB6KdEon9Hls7KBc1ZetoO1hG+IGhWAru13tWVszM=;
+	b=IXTTTI2q5y9aujw4suj+tm+yiCJgIlT4Kd4MXcSTKeeR4ri/jgnoGnIg1GiexNYs5Jb6
+	 x5GiU2KHw4aBg6Ho/ASbIQzeGawRQFLMeRXo1lZG100lWvbL20JRw0HwFfhRAiCnZL/SB
+	 otIqQHY6+AwcHvm/bfhex/V4jGAac/Oprxb6/ID/2GgORC7aRFqWzsca5LpPQfLkLaVGd
+	 EVfdT6ocJQXbdampusKY5U6yoO6/5Mh0cTfyTKgxiNydXVxeeVh+MhirVEwK8PvxYnM6O
+	 PUULTQ1NqeUGAaefBLQNPxIJuA3dg4FAu+oH7bWJvMlB6Xa5p1xysOFGpXvc5YcOMnQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IGkTdedr;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=fail header.from=linux.com;
+	spf=pass smtp.mailfrom=korea.io;
+	arc=none smtp.remote-ip=74.125.82.182
+Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DA79606A323;
-	Thu, 26 Nov 2026 02:36:02 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IGkTdedr
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6F171F000C4;
-	Thu, 26 Nov 2026 02:36:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795660561;
-	bh=1rKrvoY3WQO5oV4QVBaww4XVV7sR5+K7sjPbv/qUi9o=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=IGkTdedrVudWP4QJLJp31ozslBEaGbukaqPVjdO6AEhCNhgQKEaHFK0qozgtBGpMu
-	 gqO4FafGYbDI312Y4v39l4n59RDmkCq27D8fJyakbehTLKT8EL0Nmeb1Q9IMC6Kl0f
-	 B1ED4G0GVBjVRi+OyFsOfTAcqUKZXe+sVYetuC9llbIu+AU71f0j+YdaC4adfQkPaB
-	 upb2c7OzQkqPjUh+zYzSYeCH44UBkr1yBJ3H4xWWhut0tr9i8SDgc4dU0VDpA/Jbdl
-	 ikDP7/lUqCDw2bqw9iKyQuzB0fmiyFmHxEwkciNw6+O4+cnotFIzhd/Lmi/swofRq6
-	 3dXCfmvCAKwiw==
-Message-ID: <d83709308a038467b3a4849d814978b84328d2bc.camel@kernel.org>
-Subject: Re: [PATCH net v4] net/rds: defer CM id destruction to a workqueue
-From: Allison Henderson <achender@kernel.org>
-To: netdev-bot+sashiko@kernel.org, chenaibing@cmss.chinamobile.com
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com,  horms@kernel.org, netdev@vger.kernel.org,
- linux-rdma@vger.kernel.org,  rds-devel@oss.oracle.com,
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2467606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:36:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2467606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=korea.io
+Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-38692f62b22so7981853eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:36:13 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795660573; x=1796265373;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/QPB6KdEon9Hls7KBc1ZetoO1hG+IGhWAru13tWVszM=;
+        b=FxhThV3CGYAuKREnVx7p9K5R8S6jjQlvQdmpzzh01hImy1gSGxsmQzcxUIUHxc2ydG
+         cH+yblRnubDOc0dtAtXuagTFGmg6fWnoj6QGxIEP/UyH0UWqz0g1BiGHmBPLnfW+I+iJ
+         b9gzimRYKdckTHMzgS2o7K3B1I2gL2HqC9m8nTSA+mUbVeIGbIx7juSHPEbpU6ivpJkY
+         18rl2domCUSWViW5ir/FEDql5vTyUVICDmwKnmdmwi6OLmH+80uOvgRxRY117w56ETXB
+         cBveBI3vBCR6Dzda+ELPkghnfp5tSJr81+IByCebAnff+8iPOgPSThjBeGi2IoNyAQO9
+         3axg==
+X-Forwarded-Encrypted: i=1; AL+hErGguykk/zfYRfe3EddJPW9IDKbgsY42qykL7RGtNp6JbmWNrOUBHJEIZo5pspTnLC+oU1RQLfMg9P+saso=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+HEsfey/lSkXjiVhJtSmx+5kSZGgOiZhxwwS9qWpT6ZmmbIInC
+	tNQwosiNUIvthXaRqyeRRnxUrX4qcKBsktnTNnTj/DhHdeTgn0qhYZwc9/o1r9Hkoiyb
+X-Gm-Gg: AZFdTZcIa4N/9yqgT2jMQa9PbEdaXQG5IoiiHCBjyvbrAnV/OdrCekTemd27MSgtvBy
+	yM/rJLGz6PmQi7FRQcF5UvtpGNwuMiKuEexrIJWnw8RzaDghLpx2x0Ko1urouG5TAUa8Nf3vkMO
+	Un3Lyxxc3nClbHcC3Pg+d9GIJghFxrFsJHtOugi6QNV09kRw2PWMOKUgt7sgqr1IgSHOKF3UdaN
+	EeHZw71bjz1K6Fbgj/G9122Ez3KNxJxID0o52dyRdXyBinmFwup4xKtg3WSGHT3c9+XK07/R56W
+	/AiFm5DHR2LPqKb2QO9WPLYczW6n5dKOrfhLU/ns3qsCzgtektPRkumrENvRuGbcITdEuIb5sD3
+	sP2R8o6E2LapQ6gujzHNexSIqJNMfGHhrUj2Km2ZMNxl8ALifUrGHcnhrfuD2ylh3ExOpTGPVRe
+	wPMD/xKJ6bwBxcqzeKd0pzvIeNVhbwep6Sg+BQrPqRQhKSub4Iv9u4gNF9nKjVb87vUvJCFqh3V
+	0l9lGF6TC7aTam1f1eoYDUPKai57dc/ngxNV2Qj/rKto9deK7hZlxYoxgp7nX3T/Is6aPRdw3x1
+	hZRrE/oVNTpURW+VboahBjAlncXpnRLxWD610uvg2A+mESIgdg==
+X-Received: by 2002:a05:7300:2728:b0:383:c2f0:e753 with SMTP id 5a478bee46e88-3856c0d0a68mr22802373eec.3.1795660572514;
+        Wed, 25 Nov 2026 18:36:12 -0800 (PST)
+Received: from alanui-MacBookPro.local ([118.217.70.161])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b1965c02sm26703230eec.27.2026.11.25.18.35.58
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Wed, 25 Nov 2026 18:36:11 -0800 (PST)
+From: Jongwon Lee <ai@linux.com>
+To: Davidlohr Bueso <dave@stgolabs.net>, Jonathan Cameron <jic23@kernel.org>,
+ Dave Jiang <dave.jiang@intel.com>,
+ Alison Schofield <alison.schofield@intel.com>,
+ Vishal Verma <vishal.l.verma@intel.com>
+Cc: Dan Williams <djbw@kernel.org>, Ira Weiny <iweiny@kernel.org>,
+ Li Ming <ming.li@zohomail.com>, Richard Cheng <icheng@nvidia.com>,
+ Ben Cheatham <benjamin.cheatham@amd.com>,
+ Michal Schmidt <mschmidt@redhat.com>, linux-cxl@vger.kernel.org,
  linux-kernel@vger.kernel.org
-Date: Wed, 25 Nov 2026 19:36:00 -0700
-In-Reply-To: <179544810638.3135.8411229490217638790@kernel.org>
-References: <20261122145148.1250-1-chenaibing@cmss.chinamobile.com>
-	 <179544810638.3135.8411229490217638790@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+Subject: [PATCH v6 3/3] cxl/edac: Mask DPA flags in the event record cache key
+Date: Thu, 26 Nov 2026 11:35:23 +0900
+Message-ID: <20261126023520.39368-4-ai@linux.com>
+In-Reply-To: <20261126023520.39368-1-ai@linux.com>
+References: <20261126023520.39368-1-ai@linux.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,305 +91,71 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-On Mon, 2026-11-23 at 15:35 +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
->=20
-> Critical: 0 =C2=B7 High: 1 =C2=B7 Medium: 2 =C2=B7 Low: 0
->=20
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->=20
-> - [High] RDS_IB_MAX_PENDING_PROBES (net/rds/ib.c:399-401) is one global
->   budget of 64 for the whole system, with no per-user or per-socket=E2=80=
-=A6
-> - [Medium] The new temporary errors in rds_ib_laddr_check_cm()
->   (net/rds/ib.c) never reach userspace; callers read them as "this=E2=80=
-=A6
-> - [Medium] The commit message calls the issue a real deadlock ("falling
->   back to the synchronous destroy, which would bring the deadlock back=E2=
-=80=A6
->=20
-> --
->=20
-> net/rds: defer CM id destruction to a workqueue
->=20
-> This patch moves rdma_destroy_id() for the probe cm_id created in
-> rds_ib_laddr_check_cm() onto rds_wq, so it no longer runs under
-> rds_trans_sem. A global atomic counter caps pending probe ids at
-> RDS_IB_MAX_PENDING_PROBES, and the address check returns -EAGAIN above
-> that cap. rds_ib_exit() flushes rds_wq before the module goes away.
->=20
-> Closes: https://syzkaller.appspot.com/bug?extid=3Dccdb5058c3df2d94811c
->=20
-> > diff --git a/net/rds/ib.c b/net/rds/ib.c
-> > index 4ea9838d090c3..c4c10e3eabced 100644
-> > --- a/net/rds/ib.c
-> > +++ b/net/rds/ib.c
-> > @@ -391,6 +391,30 @@ static void rds6_ib_ic_info(struct socket *sock, u=
-nsigned int len,
-> >  }
-> >  #endif
-> > =20
-> > +/*
-> > + * Maximum number of probe cm_ids whose destruction is still pending o=
-n
-> > + * rds_wq.  Each of them pins a cma_dev reference and an RDMA_PS_TCP p=
-ort,
-> > + * so the number of in-flight probes has to be bounded.
-> > + */
-> > +#define RDS_IB_MAX_PENDING_PROBES	64
-> > +
-> > +static atomic_t rds_ib_pending_probes =3D ATOMIC_INIT(0);
->=20
-> [Severity: High]
-> Is one system-wide budget of 64 safe here? Nothing splits it per user or
-> per socket. The only place that releases a slot is
-> rds_ib_destroy_id_work(), which runs on rds_wq. That is an ordered
-> single-threaded workqueue, and other RDS work shares it:
->=20
-> net/rds/threads.c:rds_threads_init() {
-> 	rds_wq =3D create_singlethread_workqueue("krdsd");
-> 	...
-> }
->=20
-> The commit message only considers a bind() loop. However,
-> rds_ib_laddr_check_cm() is also reached for every new connection:
->=20
-> __rds_conn_create()
->   rds_trans_get_preferred(net, faddr, conn->c_dev_if)
->     rds_ib_laddr_check()
->       rds_ib_laddr_check_cm()
->=20
-> That includes incoming connect requests. There,
-> rds_ib_cm_handle_connect() calls rds_conn_create(&init_net, daddr6,
-> saddr6, ...), and saddr6 comes from the peer's CM private data.
->=20
-> rds_ib_laddr_check() skips the probe only for v4-mapped addresses that
-> rds_ib_get_device() finds. Remote peers, IPv6 addresses and uncached IPv4
-> addresses each hold a slot until the worker runs.
->=20
-> Can one unprivileged user, or a burst of connection setup, keep
-> rds_ib_pending_probes at 64 and make every other user's IB address check
-> fail? Their bind() would then be moved to RDS/TCP or fail, as described
-> below for the -EAGAIN return. Before this patch, one user could not
-> affect another user's IB bind.
->=20
-> There also seems to be a lasting effect on connections. Take a new
-> connection whose faddr is local but misses the fast path. If the probe
-> returns -EAGAIN and rds_tcp is not loaded, loop_trans is NULL and
-> c_loopback stays 0:
->=20
-> net/rds/connection.c:__rds_conn_create() {
-> 	...
-> 	loop_trans =3D rds_trans_get_preferred(net, faddr, conn->c_dev_if);
-> 	if (loop_trans) {
-> 		rds_trans_put(loop_trans);
-> 		conn->c_loopback =3D 1;
-> 	...
-> }
->=20
-> Connections are not re-evaluated later, so the looped-back IB passive
-> connection split is skipped:
->=20
-> 	if (conn &&
-> 	    conn->c_loopback &&
-> 	    conn->c_trans !=3D &rds_loop_transport &&
-> 	    ipv6_addr_equal(laddr, faddr) &&
-> 	    !is_outgoing) {
->=20
-> Wouldn't the incoming self-connect then find the outgoing conn itself,
-> and rds_ib_cm_handle_connect() reject it as a raced connect?
->=20
-> The commit message mentions neither the connection creation path nor the
-> shared budget.
->=20
-> [ ... ]
->=20
-> > @@ -411,14 +435,39 @@ static int rds_ib_laddr_check_cm(struct net *net,=
- const struct in6_addr *addr,
->=20
-> [ ... ]
->=20
-> >  	isv4 =3D ipv6_addr_v4mapped(addr);
-> > +
-> > +	/*
-> > +	 * The id is destroyed from rds_wq: rds_trans_get_preferred() calls t=
-his
-> > +	 * function with rds_trans_sem held for reading, and rdma_destroy_id(=
-)
-> > +	 * takes handler_mutex, which the CM callback path acquires before
-> > +	 * taking rds_trans_sem.  Reserve a pending-probe slot first, so that=
- a
-> > +	 * loop of bind() calls cannot pile up ids that pin a cma_dev referen=
-ce
-> > +	 * and an RDMA_PS_TCP port.
-> > +	 */
->=20
-> [Severity: Medium]
-> The commit message, which is tagged Cc: stable, says:
->=20
->     rather than falling back to the synchronous destroy, which would brin=
-g
->     the deadlock back under memory pressure.
->=20
-> Can that deadlock actually happen? The handler_mutex that
-> rdma_destroy_id() takes here belongs to the private probe cm_id created a
-> few lines below. That id has a NULL context, is only bound, is never
-> listened on, and is never shared.
->=20
-> On the CM callback path in the commit message, the code holds the
-> listener's handler_mutex and the new conn_id's handler_mutex, not the
-> probe's:
->=20
-> cma_ib_req_handler()
->   rds_rdma_cm_event_handler()
->     rds_ib_cm_handle_connect()
->       rds_conn_create()
->         rds_trans_get_preferred()
->           down_read(&rds_trans_sem)
->=20
-> Those are different instances of the same lock class.
->=20
-> For the probe id, the events that could hold its handler_mutex reach
-> rds_rdma_cm_event_handler_cmn() with conn =3D=3D NULL, and nothing is don=
-e:
->=20
-> 	case RDMA_CM_EVENT_DEVICE_REMOVAL:
-> 	case RDMA_CM_EVENT_ADDR_CHANGE:
-> 		if (conn)
-> 			rds_conn_drop(conn);
-> 		break;
->=20
-> That path never waits for rds_trans_sem. Both sides also take
-> rds_trans_sem only for read.
->=20
-> This looks like a class-level lockdep report rather than an
-> instance-level deadlock. It is still worth silencing, but could the
-> commit message and this comment describe it that way?
->=20
-> If no real deadlock exists, is the stable backport justified? This patch
-> also brings in the global probe cap and the transport fallback described
-> here.
+The low bits of the DPA field in General Media and DRAM event records
+are flags. Bit 0 is VOLATILE and bit 1 is NOT_REPAIRABLE. The trace
+events print the DPA with CXL_DPA_MASK applied, while
+cxl_store_rec_gen_media() and cxl_store_rec_dram() use the raw value as
+the xarray key.
 
-Hi Aibing,
+User space takes the DPA from the trace event and writes it to the
+mem_repair dpa attribute. If the record has any flag set, xa_load() does
+not find it and the repair fails with -EINVAL.
 
-Thanks for sticking with this through four versions.  I think the sashiko
-findings are right, so we'll need to address them. And that means we might
-need to change our approach. =20
+Use the masked DPA as the key. Records marked NOT_REPAIRABLE are still
+rejected, because the lookup skips them. This patch depends on
+"cxl/edac: Skip event records marked NOT_REPAIRABLE" for that check; if
+this patch is backported, that one has to go with it.
 
-Let's drop the deferral and fix the ordering in rds_trans_get_preferred()
-instead.  Take the module reference under rds_trans_sem, drop the semaphore=
-, and
-then call ->laddr_check().  The probe goes back to being destroyed synchron=
-ously,
-and rds_trans_sem is no longer held when handler_mutex is taken.  Something=
- like:
+Fixes: 0b5ccb0de1e2 ("cxl/edac: Support for finding memory operation attributes from the current boot")
+Reviewed-by: Li Ming <ming.li@zohomail.com>
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Reviewed-by: Alison Schofield <alison.schofield@intel.com>
+Signed-off-by: Jongwon Lee <ai@linux.com>
+---
+ drivers/cxl/core/edac.c | 16 ++++++++++++----
+ 1 file changed, 12 insertions(+), 4 deletions(-)
 
-        down_read(&rds_trans_sem);
-        for (i =3D 0; i < RDS_TRANS_COUNT; i++) {
-                trans =3D transports[i];
-
-                if (!trans ||
-                    (trans->t_owner && !try_module_get(trans->t_owner)))
-                        continue;
-
-                /* ->laddr_check() may create and destroy an rdma_cm id, wh=
-ich
-                 * takes rdma_cm's handler_mutex.  Don't hold rds_trans_sem
-                 * across it: the module reference keeps trans alive.
-                 */
-                up_read(&rds_trans_sem);
-                if (trans->laddr_check(net, addr, scope_id) =3D=3D 0)
-                        return trans;
-                rds_trans_put(trans);
-                down_read(&rds_trans_sem);
-        }
-        up_read(&rds_trans_sem);
-
-That will also stop calling laddr_check() on a transport whose module
-is already being unloaded.  So with this, all the changes to net/rds/ib.c
-can go.
-
-For v5, lets amend the commit message to describe it as a lockdep report ca=
-used
-by all handler_mutex instances sharing one lock class instead of a deadlock=
-.  If you
-or Eduard can, please test with lockdep on rxe with both an active and a pa=
-ssive
-connection and make sure there are no complaints.  It shouldn't, but it wou=
-ld
-be nice to know if it does.
-
-Thanks again for working on this!
-Allison
-
-pw-bot: cr
-
->=20
-> > +	if (atomic_inc_return(&rds_ib_pending_probes) >
-> > +	    RDS_IB_MAX_PENDING_PROBES) {
-> > +		atomic_dec(&rds_ib_pending_probes);
-> > +		return -EAGAIN;
-> > +	}
-> > +
-> > +	w =3D kzalloc_obj(*w, GFP_KERNEL);
-> > +	if (!w) {
-> > +		atomic_dec(&rds_ib_pending_probes);
-> > +		return -ENOMEM;
-> > +	}
->=20
-> [Severity: Medium]
-> Does the -EAGAIN (or -ENOMEM) ever reach userspace?
-> rds_trans_get_preferred() treats any non-zero laddr_check() result as
-> "not this transport" and moves on to the next slot:
->=20
-> net/rds/transport.c:rds_trans_get_preferred() {
-> 	...
-> 	for (i =3D 0; i < RDS_TRANS_COUNT; i++) {
-> 		trans =3D transports[i];
->=20
-> 		if (trans && (trans->laddr_check(net, addr, scope_id) =3D=3D 0) &&
-> 		    (!trans->t_owner || try_module_get(trans->t_owner))) {
-> 	...
-> }
->=20
-> RDS_TRANS_TCP comes after RDS_TRANS_IB. rds_tcp_laddr_check() returns 0
-> for any RTN_LOCAL IPv4 address and for any IPv6 address that passes
-> ipv6_chk_addr(), and IPoIB addresses pass both checks.
->=20
-> While the cap is hit, would the following happen?
->=20
-> - bind() on an IB address succeeds but selects RDS/TCP. rds_bind() then
->   stores it in rs->rs_transport for the life of the socket, so RDMA cmsgs
->   and MR registration fail later.
->=20
-> - If rds_tcp is not loaded, bind() fails with -EADDRNOTAVAIL and logs
->   "load rds_tcp or rds_rdma?".
->=20
-> - With SO_RDS_TRANSPORT set to IB, bind() fails with -ENOPROTOOPT:
->=20
-> 	if (rs->rs_transport) {
-> 		trans =3D rs->rs_transport;
-> 		if (!trans->laddr_check ||
-> 		    trans->laddr_check(sock_net(sock->sk),
-> 				       binding_addr, scope_id) !=3D 0) {
-> 			ret =3D -ENOPROTOOPT;
->=20
-> So the cap doesn't seem to give the retryable back-pressure that the
-> comment and commit message describe. rdma_create_id() could already fail
-> with -ENOMEM and take the same fallback, but that was rare. Any user can
-> now hit the cap on purpose.
->=20
-> Is it intended that hitting the cap silently moves the socket to RDS/TCP?
-> If so, could the commit message mention the transport switch and the
-> changed errno?
->=20
-> [ ... ]
->=20
+diff --git a/drivers/cxl/core/edac.c b/drivers/cxl/core/edac.c
+index 7aaf1242ba2f..411d586c3484 100644
+--- a/drivers/cxl/core/edac.c
++++ b/drivers/cxl/core/edac.c
+@@ -925,6 +925,16 @@ struct cxl_mem_repair_attrbs {
+ 	enum cxl_mem_repair_type repair_type;
+ };
+ 
++/*
++ * The low bits of the event record DPA are flags (VOLATILE, NOT_REPAIRABLE).
++ * Records are looked up by the DPA user space writes back, which comes from
++ * the trace event and has the flags masked off, so key them the same way.
++ */
++static inline unsigned long cxl_rec_dpa(const struct cxl_event_media_hdr *hdr)
++{
++	return le64_to_cpu(hdr->phys_addr) & CXL_DPA_MASK;
++}
++
+ static inline bool cxl_rec_not_repairable(const struct cxl_event_media_hdr *hdr)
+ {
+ 	return le64_to_cpu(hdr->phys_addr) & CXL_DPA_NOT_REPAIRABLE;
+@@ -1141,8 +1151,7 @@ int cxl_store_rec_gen_media(struct cxl_memdev *cxlmd, union cxl_event *evt)
+ 		return -ENOMEM;
+ 
+ 	old_rec = xa_store(&array_rec->rec_gen_media,
+-			   le64_to_cpu(rec->media_hdr.phys_addr), rec,
+-			   GFP_KERNEL);
++			   cxl_rec_dpa(&rec->media_hdr), rec, GFP_KERNEL);
+ 	if (xa_is_err(old_rec)) {
+ 		kfree(rec);
+ 		return xa_err(old_rec);
+@@ -1171,8 +1180,7 @@ int cxl_store_rec_dram(struct cxl_memdev *cxlmd, union cxl_event *evt)
+ 		return -ENOMEM;
+ 
+ 	old_rec = xa_store(&array_rec->rec_dram,
+-			   le64_to_cpu(rec->media_hdr.phys_addr), rec,
+-			   GFP_KERNEL);
++			   cxl_rec_dpa(&rec->media_hdr), rec, GFP_KERNEL);
+ 	if (xa_is_err(old_rec)) {
+ 		kfree(rec);
+ 		return xa_err(old_rec);
+-- 
+2.55.0
 
