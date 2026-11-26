@@ -1,101 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.180
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.53
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795696381;
-	b=EXyykD3zJugme2OaJPF91SHMAPgvUSLQyJV5WcmhhE4k4D4hn60wtkLkurLy2SXt33/a
-	 G9A9OqB+XrFRNj9ZNhscy65vkRzDf0lba6/RCsPAXs2J+hfWFOoh1FhXPwbj1yMb7dB+B
-	 Tq0fR4w2vQw6eA/mGO0nSML8iR5Xx9r/1AzOsjLFUMoqPO/yj3BROloGP9rJiy+nY/qIC
-	 8QILq6rwJUvraMLp0hiLqtEb8yvDgrfQvuc/FKmjwQl5pEQe8+7TWsr0f3ocjiezBnZur
-	 RPwAsC8PNhWLHMEpe/3rZDS95rRIIILLYihgxqQ29OeSV2EOxIO09Xhp3hK+pjwJUIA==
+	t=1795696384;
+	b=sH0+hCHa0lOepLo3vGnDc4cvCuyVGpLrLrwXTG2XFjbXrZiEzqmFkNVaTw6oJ4Uf1jwm
+	 3/O3PBNF1xGYfdHTNQ76JG0E0JW8EKPvkvaCq3d3UZcr6bTiXUedlNgL2KMovIcO3pIOP
+	 yTq0LwC2NB5QShx1VS8WKFZ2j8I07v8tg2Y1Ocvr2Qu63aNffngMAxOJxbcGJg1W98uHe
+	 6FfRM35N++cOxTr7zNCzHXTdbPudC2gtaxRMmtwK2MBi0SCNGUqoRg9nKpDLFJPX0Rgd1
+	 Do9M0BsuNqIVG8gUFQ8QwWnvoSZqxumfaBcSCk3exDYdERHSjSPmQUFhKaV/jvNOL1w==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795696381;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=a82Xu3Ap01oB5zC1g+9yPaWAXUDVFqvsJpL5pn/9wt4=;
-	b=ktQ2vIcKoyg2//LVvXdb2zrGr2qKqaEuuponI1Pe9q1gwu9uPmfE04r31wEZtUO8sHrR
-	 bvqNQEuMQqzL7milZFXRcHl0rMp+19JfTQkzzyUkArM7pdjYtixW5wWK1CTeiteL0PUZl
-	 Cp5wZfzt7IwxHJECQtsZKd62EEudlDvFYJ+UK3DJ67UccI7MZPMxophJGOq8mGWxDMzq+
-	 lEomAtk2P+FJVpy04MOXpjjpw/ZQfjV5V7BYXX3I5XQ8G+o9P0y+7FTyYAY20lIOHKcVS
-	 UC54AEmbnzNTdd0CkwIT0v4DuHNnz4JX0KIkx3yKLKvm0MqvuphacXSo74R3XNa/XQA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795696384;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=Yhx1sqU6Rv7xuhEi7mMmbcEQjAQY/jDEfdz4mnR2duw=;
+	b=VRSvrcTocE4LwjwdFkt4UnqbOwGPpFehu+6eSMYXH861z3O8oOk/8r5hf/W2/jWdrWDi
+	 /+g/fEydilgG+CW0V1AIdsDsnuz3Xk6ktkEZ9fwg3v/X+VswebU5Z1/Sf8LugNBG1pMon
+	 vIujho0ztQEfdoX0ctj3cIlbjsEcDqGwmM2/ypCTpJiRJwCfDshq7I+U/+k6LXb/sGSCT
+	 8UKhaqOq5QSXJRgW6z795xbtdYxZ3bbzLSxvnpMFABbInlSEk58iugUL+D4TZjzvV3/gS
+	 iyU9lCGqq60eS+A3cvqOvRu7PfhnJWfAY3vsbZV2wzbnVLKzVhAxiTFXEbIplIC2KMw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Kwuo52H8;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.180
-Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b="C/cUC2Ru";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.53
+Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010053.outbound.protection.outlook.com [40.93.198.53])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABB45606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:33:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ABB45606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43F24606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:33:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43F24606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Kwuo52H8
-Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-386c71feeeaso3371394eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:33:00 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795696380; cv=none;
-        d=google.com; s=arc-20260327;
-        b=YMCYw9nk8Aqjx1zzMJLffq1IiObpB3A5mP2C/okpTw9AceEjmIgM4AluGCG3+vk1fB
-         ljtSH442Wr57Wbgj3x0a7G4hcLmXn00YUbhS3m5/AuR//OUeDFXC/tpZXZ15Z5rLzHxu
-         nvD//r1l9uKFMZrUqeWTnP80AiKYw8Bb850sTapQkDTJO4nIROY9uoHpS05RlU3cUCrN
-         w2CT2KCIt1dJlODTlPP0csIvrXbfJzY3XwfEFYDDs37GpFPRoNRyBlMr8fAxDPu06dEJ
-         FYBg7i/NjN927NcT7yfMh0UjKj4lsedyxlCmlZATUyuO0rcRFt2NeepstqOQdP2WEbWe
-         eS2Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=a82Xu3Ap01oB5zC1g+9yPaWAXUDVFqvsJpL5pn/9wt4=;
-        fh=N9GWTJYHOGg/AV2b7dFdd8jYcoT5z0URadZRz0pRNqg=;
-        b=sTiojOkeeHOMR7FbDO04fFYFLD+O+prsJjHbuOxwCFOxYxtxYYEyelNnEm9juiHsgU
-         TW48AlV5bwIIuaJV0NMGcwWK3PjVz+pVaOmBy7HiYjrvgNGJb80hDSl1QXMpEE4dN5jo
-         gfQ5rby5r5ngN/9gioKFGgWFNIT9a6Itc+DBCoFu9/q/ZOR/tIbG6juhpUt4Li2ArLmo
-         UYnZQHmmOn1Iz6a3Y51ih2SgYyBsZ6XLBY0af/iFyftO80Y7BrdQoJ8koS+koDeO9CLF
-         utODr69a1lT8riUk3dgeLmJ6dpuk0yhtowATk1mrjQI2slfZaPU1RqnGmNgKL25Yc2zd
-         Ceug==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795696380; x=1796301180; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=a82Xu3Ap01oB5zC1g+9yPaWAXUDVFqvsJpL5pn/9wt4=;
-        b=Kwuo52H8cNDbabrZS0nn/S/hu+yvXnC3SCGPcZxUa8Xsij5I7NOdnPBXUGHY6YjxxN
-         Wg3xNXgK+1JdpgOD1nL46zZ1EAMri/965h+nZMunr7BGuYBTsy9DURJNSwzwp9ykYoPv
-         EZYNPLau0NmiudjSpE7oyysQo4OdGU8LeJXzUGGq1DIAARDXDrYMR3Qh5+feoMIfs9Kt
-         3ve1XqcwsBs+ONpTs7FTKPO6rwfcYuycLKrASAkVu02WTHT4U4i32RvMYYzFHX2dNn14
-         bAhjdgP/UIGvHInzSHKOP/6TwjYiPvOGTjWFBR42QJJWszYumxEDeWLZAkjvRivGnCMo
-         8rcw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795696380; x=1796301180;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=a82Xu3Ap01oB5zC1g+9yPaWAXUDVFqvsJpL5pn/9wt4=;
-        b=cFtz0dr+/6BNoOr06lODPbxF8vFJg7jiy1GKC0joKyPjpTEyPSjyNETIJahizVYB5Q
-         4pRkzhWudmaDXxrkUvN624WdMvTG1Ka5LrRvJJG0VEnLIk5EdDC5a5Rxw8sfimYQtALt
-         cficx2Z2hC94k3xttKV6va741CKrPNXS1RHcPh8GeMrASlpB8/aviDPSnrCXVVNmkVF8
-         2A4IIAmmKofb+HgLgMsJtcmsf5HxmMTRDBIZZPj4LvTdgx/woB/DuIXWqZ5LL8RBP8dY
-         Sw2nq1zuLuRhoL7LscJ2QRcVWoVyzDG8Rqcei7/PBtR09IgsDUxSMojXQjTB9vps0ISK
-         PZKg==
-X-Forwarded-Encrypted: i=1; AL+hErFGpFdt2H3GutVcK+IGMOabbsua5FdGZkZ3EljhpioKTLjbqE3OfruhcaQSHaUMd+qo0AXGhF1WZCT2y0M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9+h8Vril+U8OSRL473M9TVR4hPGyQyeWqM3y6yHXZFS5KAmuPu
-	3n9JPfJYk79ppie/9OvgBZuB3b5WbEQlS2pL7ue6Y4gZ4lhSjEs5ohyyYk93bA9VUx3mjD+pUyZ
-	OH7jmb5iq3gLeLi/E4X3yB55dzUY61YE=
-X-Gm-Gg: AZFdTZcXTHeqXI8GozwjcpTeWmxLJeCxltu9opcDQTOQdwJ5hW8I+gaA+q86Shf/wb3
-	oF2UheZH9zkL8YzY6UDhBjb0+QzeqHsxyMreo6EyOEtF84VWxgySKj7aQnfy1JqVkU4Jvjm33DV
-	yn8yMI7RvLstQaxJw/WpkGOf4mpVEo8rrItdhUJxqjKwwO5ZoMapdWhw+nfp5dj0mi1GDn6dsWH
-	vRZtzcAXOCqZbnTPBjn6G4s7k4cojr2fuHUrssPC1DjHjwthDrH7ViHSrbp/R4bquZdMTNRhAi4
-	4jIuiwihsbO1I+v0cAkZODnrjfVcjRb9ZcHsC8qAfW5mKOV0fUgWfa76dHOe10e/c8E95Fr/ZnZ
-	zbAYDkOsi7DNDCgQSDeu2dDV6UptwYzF7puUrtNtZl5oeWaBISKVdGnWwSyHEBTjzcTB4CGcbKv
-	YIAGWz6IVFvP0666+1NQGMAU7ShjdqmTk=
-X-Received: by 2002:a05:693c:4143:10b0:36a:1f4f:3e9 with SMTP id
- 5a478bee46e88-386b1067bf5mr14067545eec.20.1795696379819; Thu, 26 Nov 2026
- 04:32:59 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=C/cUC2Ru
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vU6d4Y87nsphb6fp6kkI0uwIbXXNUSaFXsGRm8EhEOI2nV8DmJrirfsw277MxWI2K+fvoNCM7cmE+9qI2DcV2dTiHdsb1tg8q7QThfLcQ9lauq5+br5c7nPMTsxh3sCfKtTBfjvQMIiV61Grku/17D3uFgWyFGXOMQx1i7WpQ/YWoG+LzUZv0AEYbxSMKwYd0sCzQvWZvSN9knTuu5N6ntrFaPcLqyspVzImL8KfjS03WzQ+kSsRxr+oU+wph5ecn4u3UkgTJOv3p2X3dbqIom/rWCQWlA1vOwQ8rQWWuh7M62dv3TqYB+rI8KXy43S9V8oLY7Mrx2UJnH5xFU6j0A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Yhx1sqU6Rv7xuhEi7mMmbcEQjAQY/jDEfdz4mnR2duw=;
+ b=rIc9KmjaIzt0ck84hM35inD15AHGer2JP4DUbxPD6D1D79S77KZz69UhfBJZiX3GYfJyYgn67zphnaMayTLL7VNIPycu1QqmozgGg2XPbqSQB6kxz2/BzipkNE6XfEJXojGfbdZF+Wpdb8nC02w0L3S7syehrcoICJ0PIreYd/EP/7GoBT2P4YI/1XkJuDb2jmIkcT3e3TxWSdRl3+aFQ7UYOwSON/hc+n2gnJX+3US2bmdqMu2rPVEgygKdexEyqGf1Pku8V9VwLVfoZe0PVh+aojZlAadmcX7ZQR2Sa5KFur+4u+nb086AhMu3hRWGGVWUf9N9zD1We39ON/E60A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Yhx1sqU6Rv7xuhEi7mMmbcEQjAQY/jDEfdz4mnR2duw=;
+ b=C/cUC2Ru8XAjgVSZDY1yMG/L9f8oJA4pxD4H6Ev3EVefUP5LQmtJAX8eau2tT60lRkhwjm9eyLKpBaTAtSwdO7SyCYQfDQtoCTU7SpusIq6RYPQ3yD0twbtbLZZ+sktKvA8EDndLBb0Zd2znjfroRA4KRviM+FO4ZIY0ezAukTo=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from PH7PR12MB5685.namprd12.prod.outlook.com (2603:10b6:510:13c::22)
+ by PH7PR12MB7965.namprd12.prod.outlook.com (2603:10b6:510:270::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
+ 2026 12:33:00 +0000
+Received: from PH7PR12MB5685.namprd12.prod.outlook.com
+ ([fe80::ce69:cfae:774d:a65c]) by PH7PR12MB5685.namprd12.prod.outlook.com
+ ([fe80::ce69:cfae:774d:a65c%3]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
+ 12:32:59 +0000
+Message-ID: <fdd06e49-e74e-4991-9c87-216ece29ee7c@amd.com>
+Date: Thu, 26 Nov 2026 13:32:55 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/drm_exec: fix kernel-doc string in drm_exec_retry
+To: jakov novak <jakovnovak30@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ =?UTF-8?Q?Thomas_Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+Cc: linux-kernel-mentees@lists.linux.dev,
+ Shuah Khan <skhan@linuxfoundation.org>
+References: <20261015135029.22698-1-jakovnovak30@gmail.com>
+ <CAPUiDP1_t1YNG5=HfQZ6wp_TRH2qoSseojJjWgpzQ535NE1RqQ@mail.gmail.com>
+Content-Language: en-US
+From: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
+In-Reply-To: <CAPUiDP1_t1YNG5=HfQZ6wp_TRH2qoSseojJjWgpzQ535NE1RqQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR4P281CA0307.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:f6::20) To PH7PR12MB5685.namprd12.prod.outlook.com
+ (2603:10b6:510:13c::22)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,172 +102,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261115084347.70592-1-clamor95@gmail.com> <20261115084347.70592-3-clamor95@gmail.com>
- <179510281165.63755.6096974058338821986@kernel.org>
-In-Reply-To: <179510281165.63755.6096974058338821986@kernel.org>
-From: Svyatoslav Ryhel <clamor95@gmail.com>
-Date: Thu, 26 Nov 2026 14:32:46 +0200
-X-Gm-Features: Aa3M54ooZHwa1yjqqwCLWy7pCcfJ2o9UO-Q8qrvTvCJeca418nn2atFKExuddxs
-Message-ID: <CAPVz0n3abYU7BfjcXPb-tZOpw0UbsKS2WTVYqCZhrm_4biH3UA@mail.gmail.com>
-Subject: Re: [PATCH v1 2/2] leds: lm3533: Support getting LED sources from DT
-To: Lee Jones <lee@kernel.org>
-Cc: Pavel Machek <pavel@kernel.org>, Griffin Kroah-Hartman <griffin@kroah.com>, linux-leds@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR12MB5685:EE_|PH7PR12MB7965:EE_
+X-MS-Office365-Filtering-Correlation-Id: 71ad4b0d-4d1d-4e12-63ac-08df4bb967e7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|7416014|366016|376014|1800799024|23010399003|10067099003|56012099006|11063799006|261026140227099003|261026121527099003|261028144727099003|261021123027099003|261021121427099003|261022105027099003|261102123227099003|18002099003|22082099003|4143699003;
+X-Microsoft-Antispam-Message-Info:
+	Ylju3JBV7G8rjnHtWoQGWolRhbisWMIvprBU/ky8p+P8TNHzTnit+ZFNKvdaqvsq7pB6UgRT4bxMXHcz7QGeostuLQny9rCwzbTLoIgiY6tomYt53I85rCJCuNlgUsYGyVV9gCtnPUojyU0M7oXGMLWeqQNRTOxaEnWSVWZgM0bLo860+c1CwUNmwrNDV4kY3Ate++RpyvgrvnzR82weVevCCfn5/62qT0B8DLLGCB/mGz271pHnWcKkYtiVq1BhC96LtK2c7+ih2r2IkENbJaBrf1aTGN+IjlZuxWi1hJMHzj8PiBkKCHWUSa0e+5F4ycVaaUIub3X2XmPljIXXo/73IJvyXP5Knauz/gpzdqT9mCS5CdMfT8z68RwBbEp+fCd3tZJ7ODIoBkveas6t0XIwJBnrb7fL3X4xi3Kj77/dMrf4pU6RoIreNOXGBkvTyAYKpH0tm71VEyPGfs525km4d+Go3189LKYwPD1OIYF5A87sKKYwRlVUvfTSGcZNxeXTVXzNAUc93U69kNyhu6OsP/JJL42pIAswjoutr5KyAzjgdh+8///WuMeDWu29aGtZYChkTW85IJrvt4sFPRrkDsK4rALZltmU+InuzNPvU6kY/DzyYAIXZBkjCRz0HBCha+mIAlhEOPtWSbCKLjc/KWP1JgwDWI88j+YFtxc=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5685.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024)(23010399003)(10067099003)(56012099006)(11063799006)(261026140227099003)(261026121527099003)(261028144727099003)(261021123027099003)(261021121427099003)(261022105027099003)(261102123227099003)(18002099003)(22082099003)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?NEliU2NqTW5nQ3cyak92T2xNaDZWTDFWNmpDaXNBODlMbThWZFN6NU1JN3M5?=
+ =?utf-8?B?dW82L05zVEdOYzVlb3NQdWRHbUdiakt5RXZ6NGFscTNGblN0dHJMUzZtbDBY?=
+ =?utf-8?B?d1RralBROVMvaGF5d0FuV09ralZCbGUyOWZRZTZhUUhScHZ4a3UybVFkNnM3?=
+ =?utf-8?B?SUFCUTYxNElmcTluYVdxb1FVYVZRVUFPVzFMT01qMVo1SVpoSHg3WVlVUDF1?=
+ =?utf-8?B?dUpFeTB0MjBIWGJ3eC8zUTU4VXJaTXhFd3lXODVIZkhqTjJsNm4vR0xYemxK?=
+ =?utf-8?B?ZXJCL2l1YkNUMGRQdHpHZjN2eXhqWTNoMzhQN01ySE1VT0Q0WTVvU0NRMU1H?=
+ =?utf-8?B?YnIvT2hOd2l5VGNsU1Z6SStMOHEzQnRoQ2hDZWoyNE9CRGF5M1RubmdJM3l6?=
+ =?utf-8?B?RVJnQjhPeHJoek1Ja2krTUhUWW1qQUVNSjV4eW9RdCtaK1lMeFk3WWJxQS9M?=
+ =?utf-8?B?QzY2WWJHSHUzUTVQdGszYjdFdExSa0p6YUxkemo4cTJkSVZsUFArRFNybzBQ?=
+ =?utf-8?B?Z05LV3pCU2NlcU5qVitPLzlTUDZ6a1pYRWxZQnEvdXNDZzR1VlFwbWV6Sm9j?=
+ =?utf-8?B?Y1pyaW9TSjFLYjg2TDJVYlZiSTBCYTJPTTVTN1pXamQ3aHB6aHFZbldlNTJE?=
+ =?utf-8?B?S1JUNDlPeHVoZW9VWFhERFcwZFhSei9RL05KUXE0cG8xeTdDdEJlZWo5VGZw?=
+ =?utf-8?B?L25hOUlISDJKOGRKbm1aVkIrcm5RQWZscEh6Vk5PbEZIWHdEbFYzTnoxUzla?=
+ =?utf-8?B?Smk4VFFZVHNVZTV6TWRKcU9kK3ZyWFMvc1Vob295MUNFQi83Q0dpTE9QdlVC?=
+ =?utf-8?B?OS9ZZUE4NFlCalZPRjcwZGoxWmxweE1QRTN2MzhRZlhGSi9zZWV4QUtMamJJ?=
+ =?utf-8?B?MHkvSFYxaEsycXdhS2VPMGZNUFU3TVVxVnJWYzNzejY4elRmN3hHbFczY0pH?=
+ =?utf-8?B?R3J1STgwNWhlWWFPRW9aOVdIeS82aDRqMHdQOVBkTGdJRFk0RlE0SEkwRW5z?=
+ =?utf-8?B?R09SRWNWclVpQ3BIZWd5Qi9sK3U5OCsxVnR3dnFGN1o5bm1DR3RCQld6SjFq?=
+ =?utf-8?B?cEkwR29ZaVdDVnIwVk5BNkFuRTBPdHpBSHBjSExXZHYvS2NDc1J0YXRyb2JK?=
+ =?utf-8?B?bjhSbUlRcWpiZ2ZKcFM3dUVNSFdUUHhzelpuNGlUNlpiUkFQUDMwLzlZaUQr?=
+ =?utf-8?B?TXRadkk5Wks3c1FvOHJlQ0tXY3NUQmlyNE4yRHNWeHRUbTYyVEtSWG56WUV6?=
+ =?utf-8?B?eE1FcUpyQTRMTUZTTkF4TVFBOUxlekppbFhTZS83Vm1mamJCYUhOYmphdGFa?=
+ =?utf-8?B?VFpiYTJ3YjFZd2tVanZad1dQam5CcnlwdG56VG9GOUtvbm93ZG5BR0l4WFF4?=
+ =?utf-8?B?cWJjd3pxLzZ2RlEyM2t5bjIzZkt0TUs4QTNKVHRZZW9EUmlWdldUMC9JRUlN?=
+ =?utf-8?B?MENRTExpU3o4eVU0TXNmclljZTJWUmgrYUxXamhkaGNiVVpUVjRJM3dwcUkv?=
+ =?utf-8?B?MkZWdjRmbHhhUTMrK3pqTmtDNGlTZmFMYnVCUFRsRkg5cU1wUTZkYUp2TGFF?=
+ =?utf-8?B?QlpJL0xWeWs5YVM5eDAyWkFxUUUrL2EvZWNpNjZHcUNtcEl2MG10bVJWczFl?=
+ =?utf-8?B?b1Y3ZXhDZFJ1dWVzYjdGTDd0RGxIYVN5aG16dEpLM3RRYzN5b2cxdnZGb3ov?=
+ =?utf-8?B?Nk9ldlZvSWlWOGlvYjFIVyt4VWh5WjdCbXlGQnpSNUZ0dE5jN3VpaGVrZHZ1?=
+ =?utf-8?B?MjJyU0lqaW5Fb0l2SGcyZnJTMFdLZU1nWWZSSHpkWHVEQ0ZUR2hwU3RqTUQx?=
+ =?utf-8?B?eis2K1ZsK3NBVi9MR1VnNGhCUEFDTXc5YmhPVjhWSlJRVWN5enpyTkdEc3Qz?=
+ =?utf-8?B?ekZoTTdBZWk3WU1SOVVyeXNpcnF0c2lSUXhScmlENkxIQzhvR1F2SzlEaEhv?=
+ =?utf-8?B?VE1FNkFVOUhzMFZ4T3VXb2ZVTnBtNmF1R295ektkWjZCaUpwMHl3ckhya0VM?=
+ =?utf-8?B?YVQ5SnJDQ21KcTBsUDB0OVFZYjVreW9na3pkTUZXVlRlRTdjRmplMnZrcWpE?=
+ =?utf-8?B?eWRmL1l1QVN3UWpZR0lQZnVCYUpxcHB1OHBtVTBMYUdiL0JuREpXWldpVjA1?=
+ =?utf-8?B?azk5eENNdzY0NHFyU21CZklXV1djbzFLY3VpaUMxczFoekxmSEN5TzBMRWlz?=
+ =?utf-8?B?bGFZemtTajVZSFo1TFhoVVhoVWhmN2o0M0RJL3lVd1kycWxYSXJUWGxGZUM4?=
+ =?utf-8?B?bE9iNjk3N2Q3eW9vNTV6aE5PMFpwSVhOU2F2TDZvOUFwVEJ6SHFraCt6V1B5?=
+ =?utf-8?Q?a7ZvfVU1/zPGgkU1Rt?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 71ad4b0d-4d1d-4e12-63ac-08df4bb967e7
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5685.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 12:32:59.6547
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: eFWagXcTG9kIq3dygSDVFjETJFcZLUoo1c1iR64yxx6Y3f03SUekT/Btnb17jnZw
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7965
 
-=D1=87=D1=82, 26 =D0=BB=D0=B8=D1=81=D1=82. 2026=E2=80=AF=D1=80. =D0=BE 13:4=
-3 Lee Jones <lee@kernel.org> =D0=BF=D0=B8=D1=88=D0=B5:
->
-> On Sun, 15 Nov 2026, Svyatoslav Ryhel wrote:
->
-> > Add support for the standard `led-sources` device tree property to
-> > configure the mapping between control banks and physical low-voltage LE=
-D
-> > (LVLED) outputs.
-> >
-> > Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
-> > ---
-> >  drivers/leds/leds-lm3533.c | 57 ++++++++++++++++++++++++++++++++++++++
-> >  1 file changed, 57 insertions(+)
-> >
-> > diff --git a/drivers/leds/leds-lm3533.c b/drivers/leds/leds-lm3533.c
-> > index 7db1105bee5c2..ad8bc3751e3e5 100644
-> > --- a/drivers/leds/leds-lm3533.c
-> > +++ b/drivers/leds/leds-lm3533.c
-> > @@ -26,6 +26,14 @@
-> >  #define LM3533_ALS_CHANNEL_LV_MIN    1
-> >  #define LM3533_ALS_CHANNEL_LV_MAX    2
-> >
-> > +#define LM3533_REG_OUTPUT_CONF1                      0x10
-> > +#define   OUTPUT_CONF1_SHIFT                 2
-> > +#define   OUTPUT_LVLED_MASK                  0x3
-> > +#define   OUTPUT_CONF1_PREP(x)                       (((x) << OUTPUT_C=
-ONF1_SHIFT) & 0xff)
-> > +#define LM3533_REG_OUTPUT_CONF2                      0x11
-> > +#define   OUTPUT_CONF2_SHIFT                 6
-> > +#define   OUTPUT_CONF2_PREP(x)                       (((x) >> OUTPUT_C=
-ONF2_SHIFT) & 0xff)
-> > +
-> >  #define LM3533_REG_CTRLBANK_BCONF_BASE               0x1b
-> >  #define LM3533_REG_PATTERN_ENABLE            0x28
-> >  #define LM3533_REG_PATTERN_LOW_TIME_BASE     0x71
-> > @@ -54,6 +62,9 @@ struct lm3533_led {
-> >       u32 max_current;
-> >       u32 pwm;
-> >
-> > +     int num_leds;
-> > +     u32 leds[LM3533_LVCTRLBANK_MAX];
->
-> Since LM3533_LVCTRLBANK_MAX is 5 (matching the maximum control bank ID)
-> and there are 4 low-voltage LEDs, shouldn't this array size and the
-> bounds checks below use LM3533_LVCTRLBANK_COUNT (4) instead?
->
+On 11/26/26 13:16, jakov novak wrote:
+> On Thu, Oct 15, 2026 at 3:51 PM Jakov Novak <jakovnovak30@gmail.com <mailto:jakovnovak30@gmail.com>> wrote:
+> 
+>     Building the documentation currently with make htmldocs gives the
+>     following errors:
+> 
+>       WARNING: ./include/drm/drm_exec.h:159 function parameter '_exec' not described in 'drm_exec_retry'
+>       WARNING: ./include/drm/drm_exec.h:159 Excess function parameter 'exec' description in 'drm_exec_retry' (did you mean one of: '_exec')
+>       WARNING: ./include/drm/drm_exec.h:159 function parameter '_exec' not described in 'drm_exec_retry'
+>       WARNING: ./include/drm/drm_exec.h:159 Excess function parameter 'exec' description in 'drm_exec_retry' (did you mean one of: '_exec')
+> 
+>     This is because the parameter is defined without the underscore in the
+>     kernel-doc string. Change the parameter name to add the missing
+>     underscore.
+> 
+>     Fixes: bba175a2d4be ("drm/exec, drm/xe: Avoid abusing the drm_exec retry pointer")
+>     Signed-off-by: Jakov Novak <jakovnovak30@gmail.com <mailto:jakovnovak30@gmail.com>>
+>     ---
+>      include/drm/drm_exec.h | 2 +-
+>      1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+>     diff --git a/include/drm/drm_exec.h b/include/drm/drm_exec.h
+>     index cc2937185a9f..ae1d074ade5a 100644
+>     --- a/include/drm/drm_exec.h
+>     +++ b/include/drm/drm_exec.h
+>     @@ -150,7 +150,7 @@ static inline bool drm_exec_is_contended(struct drm_exec *exec)
+> 
+>      /**
+>       * drm_exec_retry() - Unconditionally restart the loop to grab all locks.
+>     - * @exec: drm_exec object
+>     + * @_exec: drm_exec object
+>       *
+>       * Unconditionally retry the loop to lock all objects. For consistency,
+>       * the exec object needs to be newly initialized.
+>     -- 
+>     2.56.0
+> 
+> gentle ping... 
 
-No, leds are referring to number of LVLED, and there are 5 of those.
+Just pushed to drm-misc-next, sorry for the delay.
 
-> Also, are 'num_leds' and 'leds' used anywhere after probe()?  If they
-> are only consumed by lm3533_led_setup(), could they live on the stack
-> instead of here?
->
-
-and in lm3533_led_setup() which means that I have to pass there leds,
-num_leds and lm3533_led itself
-
-> > +
-> >       bool have_als;
-> >  };
-> >
-> > @@ -622,8 +633,36 @@ static const struct attribute_group *lm3533_led_at=
-tribute_groups[] =3D {
-> >
-> >  static int lm3533_led_setup(struct lm3533_led *led)
-> >  {
-> > +     u32 output_cfg_shift =3D 0;
-> > +     u32 output_cfg_val =3D 0;
-> > +     u32 output_cfg_mask =3D 0;
-> >       int ret;
-> >
-> > +     for (int i =3D 0; i < led->num_leds; i++) {
-> > +             if (led->leds[i] >=3D LM3533_LVCTRLBANK_MAX)
-> > +                     continue;
->
-> If an out-of-range source index is provided in DeviceTree, shouldn't we
-> fail probe() with -EINVAL rather than silently ignoring it?  Note that
-> with LM3533_LVCTRLBANK_MAX (5), an index of 4 would pass this check and
-> corrupt bits 4:5 (HVLED2) of LM3533_REG_OUTPUT_CONF2.
->
-
-How index 4 will corrupt bits 4:5?
-
-> > +
-> > +             output_cfg_shift =3D led->leds[i] * 2;
-> > +             output_cfg_val |=3D led->id << output_cfg_shift;
-> > +             output_cfg_mask |=3D OUTPUT_LVLED_MASK << output_cfg_shif=
-t;
-> > +     }
-> > +
-> > +     if (led->num_leds) {
-> > +             /* LVLED1, LVLED2 and LVLED3 */
-> > +             ret =3D regmap_update_bits(led->regmap, LM3533_REG_OUTPUT=
-_CONF1,
-> > +                                      OUTPUT_CONF1_PREP(output_cfg_mas=
-k),
-> > +                                      OUTPUT_CONF1_PREP(output_cfg_val=
-));
-> > +             if (ret)
-> > +                     return ret;
-> > +
-> > +             /* LVLED4 and LVLED5 */
-> > +             ret =3D regmap_update_bits(led->regmap, LM3533_REG_OUTPUT=
-_CONF2,
-> > +                                      OUTPUT_CONF2_PREP(output_cfg_mas=
-k),
-> > +                                      OUTPUT_CONF2_PREP(output_cfg_val=
-));
-> > +             if (ret)
-> > +                     return ret;
-> > +     }
-> > +
-> >       ret =3D lm3533_ctrlbank_set_max_current(&led->cb, led->max_curren=
-t);
-> >       if (ret)
-> >               return ret;
-> > @@ -690,6 +729,24 @@ static int lm3533_led_probe(struct platform_device=
- *pdev)
-> >
-> >       device_property_read_u32(dev, "ti,pwm-config-mask", &led->pwm);
-> >
-> > +     /*
-> > +      * If led-sources property is not set then either this Control Ba=
-nk uses
-> > +      * its default LVLED or is not linked to any LVLED at all.
-> > +      */
-> > +     led->num_leds =3D device_property_count_u32(dev, "led-sources");
-> > +     if (led->num_leds > LM3533_LVCTRLBANK_MAX)
-> > +             return dev_err_probe(dev, -EINVAL, "Number of LED sources=
- exceeds max %d: %d\n",
-> > +                                  LM3533_LVCTRLBANK_MAX, led->num_leds=
-);
-> > +
-> > +     if (led->num_leds < 0)
-> > +             led->num_leds =3D 0;
-> > +
-> > +     if (led->num_leds > 0) {
-> > +             ret =3D device_property_read_u32_array(dev, "led-sources"=
-, led->leds, led->num_leds);
-> > +             if (ret)
-> > +                     return dev_err_probe(dev, ret, "Failed to get led=
--sources\n");
-> > +     }
-> > +
-> >       ret =3D lm3533_led_setup(led);
-> >       if (ret)
-> >               return ret;
-> > --
-> > 2.53.0
-> >
-> >
->
-> --
-> Lee Jones
+Thanks,
+Christian.
