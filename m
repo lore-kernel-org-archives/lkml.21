@@ -1,110 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705573;
-	b=cBCYpyDq0fxAO/Q48y8yW+hAKcPo7JgdVYg227NIvU5trX6OMCckoap42TASCrzddYO2
-	 s8tHyUqC+Z73eAVE76WgClZY6JT1AkhEnByw+3qPiO/q7UoY4svWedlTPH25mgPCZRGuJ
-	 HS7n7cOzxPQLgrW9aVVRegokf9lJa85fPK9XisVFsUA6oZURi7AOYlfAzUjqtdpaZjaVU
-	 bjmkE4v2JblCdTks9nzgWdT3zQcyyKIOQ6d0yq9mUBcx5LxkMXF1MV7YOQDTnMdmRfgyv
-	 EqTS1zRvu/aP0iy1tEwKE9cydE28DkdUedoeymNp30rAIoULckFjxRnQzx5dGDIYBGA==
+	t=1795705585;
+	b=wIOxqGdgRyoE0faprXXjsNOaWdFBW7QbzQ5n3zH20g8GWaZJ9aFix4oIgFjTnuNXZ7gk
+	 dgLfxx3+EH5A1OBEII7KqYsQkAmOF40F69Yubu0Kcx4/yrPktdTu4LquJdG0TyaY8Y0kJ
+	 VI5UE9zaR76lFybbLxKrlsgovLbX+cSRf5zS5DObwEhKOPR1X+eB2svTcl4VCjHthaBfs
+	 oUV/FCuFDjdnLCM8psupbIVALmK7gWOtFoOZoWibQPqZlEQOFOb+EA0HvrPXH5qnVpMO4
+	 7CFo6mUCGZCVH/I45VyOUtIpVfui2hGNKGr5UskIJZPoOZ4i2Te2Y+PT/nqmdINQyCQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705573;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705585;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:X-Google-Original-From:Date:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=ArVfh1wsf+Kth2ceemwq0MhxiQP2TwBL9XnUiqzbYq0=;
-	b=KYHwYR/IcPkiFjvVK4zgr6jSwuBsPoH1nDdw6zmhmvMOnITrvBKV71IMba6xkj5FJtfj
-	 /eeJbRqru3gToIPAWofS8OiiS7ot1rFrNi9fF9ZIyF85N0e27K7mxAs94SteRmkYjJRVS
-	 UlWRBTchucWbyjwFxkTDfqODDgl8/WIShv+XZAwpb6aj6HmPR2JQ9KAWxXDaXX2XRxqcM
-	 Q7y2eKZEuum7iSTEG5BRHk8cL7JUwTyH3RDy/pXDtSZEs5du8kXAnHZvf0bYRSxj1rSZp
-	 09Ry5CP2q7fOzwhzS/ygZGXnGhczr45TeUsb6VK1Bxdb6nxebxNzBHPa4pZD3I1mZGw==
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=+aRn42NYa4Pq+u5LUKua26cG0QzSBuOuVe0hITLGUNs=;
+	b=LVfPEtkZM5DAn4WzFvWf7To4PtsR8K9Zvzw/uTekfU/Sshhr+4Hp5ndqarwufRkF1CpA
+	 lRAd6u0t1S0XSMNzfkAJgs0+WNxLokuvKHis/k2qs6dUn9XenSgkS0nBdykAxVHCTcEW8
+	 mVXJgl5JKq1NHwzOcGobCBqeyzJmkDe3EBjv6nlYt0vkpVSch51l9s/j3tbmUJeCyAtI/
+	 FYkq35Z9L5LV736Eor0DAfSNDo62ktysoGaMI4QA5cpMc5GT6sdBFNfa706u0qVDbpXth
+	 LaDV9hMKroyz2mOPq769MWPgS4txrl4EutErRX8C8SHJeGRqteMq4jGvNh7gRB2OL8Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=dZrmxiRN;
-	arc=none smtp.remote-ip=209.85.128.45
-Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
+	dmarc=none header.from=iiitd.ac.in;
+	spf=pass smtp.mailfrom=iiitd.ac.in;
+	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=aFdrxz7J;
+	arc=none smtp.remote-ip=209.85.214.179
+Received: from mail-pl1-f179.google.com (mail-pl1-f179.google.com [209.85.214.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13882606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:06:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13882606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14C20606A32E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:06:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14C20606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=dZrmxiRN
-Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4a1fbd52ab6so48694225e9.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:06:12 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=aFdrxz7J
+Received: by mail-pl1-f179.google.com with SMTP id d9443c01a7336-2e9ae391a05so49540645ad.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:06:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795705571; x=1796310371; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ArVfh1wsf+Kth2ceemwq0MhxiQP2TwBL9XnUiqzbYq0=;
-        b=dZrmxiRNELCK7pidOeGv4MJJl/V6zvRCFFnhZ4gc4PHktWahW6j1A81Kjd27oOWOz3
-         WrMIKFApx+hWYq9zbI0oMt1hOPP5UCS1WSE9icu5bhfBrFPpToHOEjj08zNmqm121UqT
-         6M2HkxkmudOobxgqZ+Lf75RFxYp6bn/BDcrbEJMaBeHvGvlpBL4geJawp16opRIkETCJ
-         K+A6SbvI686YrcVn0CkcFEFjQzXPlwQuoJ8DNhHYMQQfekhomo9p1dhMTjyobcpCB4Z0
-         bz+l1RJAJZl+MrIkrU6fwaLsqmtob0rTr77zjvJk73fQ6sG1Di+iRkESMybWgMVPdl/h
-         BieQ==
+        d=iiitd.ac.in; s=google; t=1795705584; x=1796310384; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=+aRn42NYa4Pq+u5LUKua26cG0QzSBuOuVe0hITLGUNs=;
+        b=aFdrxz7JOo7v6U/alV2jtQL5L4JWnjR0wrbrHI3pYeN3J1UxcyJBrS0RjHbPbyJZhJ
+         bY8ASzvbHcpjg/vK3IljclqBCnKmGbkFppJ/BqbqQft31FE9qwfh7BKDPER1WmMHkAff
+         dmZfKOwbwmrbrF1EaZRIqDG8VEOR+DndCNK1g=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795705571; x=1796310371;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ArVfh1wsf+Kth2ceemwq0MhxiQP2TwBL9XnUiqzbYq0=;
-        b=uvwoVX3r/q3Rfo7Rw6XafqXPwT4Cggi3nExBuP6DcZL8UvrfNXJOXtgYaAZAQ9G3qX
-         7DDQ57w1Aa3EmTv7QcWHy+Dlj71+w+//272fgvvoXMXxeiucyNKxZdYxmiS0coOUMiht
-         /EaMxaUQt+0b7pyZ25vdKTdQ542Ke1qaKOXQjiGllN/e8Fqdd7f2D18I44ZJmP6dh19B
-         1FrTxfHSDR49ZhRg3QJCAEPdQo8CeS/uQ9zolxa4GUdhhg7hqzvwGlP1XFQrA9j6iB5l
-         rGxxCr1dS+rZNJ1GJusRZWplmaxYT6RZ+z0dRSkxA6CIwYoCrP8gYrZCt5MfpLy/Nrts
-         p3JA==
-X-Forwarded-Encrypted: i=1; AL+hErF7g3SMKPoR0k/xIXFy44q3Rl3iiirMP6g7G4+XfH2Z6egesAXhoHs6o1E72FCoRoOBpPsprmKuR8glbQA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9eYS1IljgjJCa6keTq7ByrOxFSdH7n7V2cCa0CBEoVdt7xOSUT
-	Wmv4qsyL69y6f1rSyyBO6n41sLsbhHM0S6LOxF1hjktf6j3SGgTutVRogUI06ADZ7vk=
-X-Gm-Gg: AZFdTZcvhE+sfmCM1mHyoTsgzpEj5QsZ4oJ2/Fd7oRkBfwAQDYkJXHWwUXj0az+D4CZ
-	jpWRXuUF22xtjrgCY5BLXDxs1Kys14K/OBoyS93ar8u45n7jbGD7aLWugoeJqLgCJoopRBjHNtm
-	9prnCH/t8pSzQ9GA4m3Z2KqwKaV+uOK5J3vjoRKDCE+6VSypJx8ulweYt2U4pebY7b18sEMCCKc
-	cEd4RC5DBPbL0dabHCXOvt8jCQGwO1Gn96lrDOtwCRVED1+gWnU8lz3Z9MDHyE/wceXRk+sAGQ5
-	twVt2wNHP08kyCgitx/b5Gt32kfhEnXye4ja81MgdwcGDF52fU9k8Hhr3XlkNHm9v0bFQB4VtNp
-	TnftyCzas8VCLwt8rVrUgq+MRTPx21X3Wbnkdpst8IyrDZpOKYlCx4vuAwAOFhqIu0etl7ZMEyD
-	eNBdA3h5UlOu/CARpIKNbiMhSYCZZ4Z8o0MeXumg0lHdkxjleALSQ0xx14M4tkjC79TjF85Ppx3
-	7b2rUAIbxtwUVZSSZ2uRPz7iH4PPBwX0mvY5pWyKLotYokyeS8vVZpcazNFsFZWKjTHiY3+njwP
-	dUWW+OSkPEoRsKKoQS1fMyVzaqoB
-X-Received: by 2002:a05:600c:8287:b0:4a1:6992:f861 with SMTP id 5b1f17b1804b1-4bb887e064dmr436496855e9.1.1795705571098;
-        Thu, 26 Nov 2026 07:06:11 -0800 (PST)
-Received: from localhost ([195.94.148.180])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb9067846esm415663915e9.4.2026.11.26.07.06.10
+        d=1e100.net; s=20260707; t=1795705584; x=1796310384;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=+aRn42NYa4Pq+u5LUKua26cG0QzSBuOuVe0hITLGUNs=;
+        b=hsoNeJ/BB+IIBGdXSPdae8yiwPI/VPnqTmuMBoW4rpCQ8IVbIeqlCPVhOj+LwSQcM5
+         uKBltK6ilKJeo14PIulzCMsf5PPcdcoHv4FdGzULV58PLB2lyvFzoImtTqZ4PuDIzTUv
+         zFJa/8K2PKnW3VimOeVoh/YQZdlJCwRAfB02l4Nt3qWTttI8Whn8n8YLjhjKPLvvA02/
+         ouReo2qS+dNxDmtbpRyKqu6HSFCxZwExoRqK5w6wJSQubAO3/GV/uaCEElRDoaX2a0AO
+         Hk68HMGHIfkC8IWeQvfgDlx5mYUyBbWrtsF0Ol+n62mMyZPX5yedvA1xg9g7RinekMVW
+         D7dg==
+X-Forwarded-Encrypted: i=1; AL+hErF5FOMmzcXDZejgjonpTO2/edbe12SlMsKCLg7+sOO1qLifE4q/UTPWDwj8j1IkMwPkmDfCDQtncGLMXG4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+QtHrpgyoTCorr7DuVgcZdy+3QqcIdzNlI90+Qm7fK3sq1t5CS
+	vLs2J0AOqB1UnkHAzqP1sG5zyDt0jwZBdeWy/YIrO+qQBDG0HqYqCDQ8DEi3r2DFT/w=
+X-Gm-Gg: AZFdTZdJpvpf3Y4IhG12b+obAowMDc9y1tSvvlRMHkqkVRQkYE+cgio0YxTWIzYdmg2
+	fBFoqAhkctuMxUSKlkR3C5gnQCuY9HpD6jVrL46gQa3NFJ4orjcJcuNJ3sqxGBtwjvfgr0MY/+T
+	juE52RokbB5OvS+YWXMtFis5mWEsoQIc3vDdxsZK8W8+o4Rqy7SjIGXiY8CX6OG6ZpGnHZmXPaV
+	UPAyntvoDnpfBVKFyO7kkBDai2XplWjxr9F+nZ7ajHkbR+UFJQLvX8hC2xuCqANfTOJhJX/xQSY
+	+4BpYo06aE3slwD+JXtSQ/oxtEp0EJ1UZdMIPj0J9JKIid6sw9BBGdpfPC6vSuJhkVpr5QVoiW1
+	bDgHsUL/SsikygOvTXnADOLq3+Ylhz5F7cNyWJOBeuoDEpdfvRe7OUeCLtwOrF8JwvvhOcNoX6d
+	U0ltp2to1HzUd+OALUmOWIik985mAHAoUlBnDkKohZGbzUa0THdya0GaHkD3+EUz5AUvxbRkFjD
+	4bgrdpHUXhj0Sd0YKDN6L6qAHvqBq0SxQEUBYgt1BxH0+zDPdw7mBUwRRdbdiJZQVLWWU8TqFX0
+	7P/QMUUoGs4eWCVF6qw3A+k1220qCn7McRDxV2+HuOeSawwPpZqgF03bZdq7B+iKvBH66SptKUG
+	sqL6R3OVvNtMudM3wQm1s2cKGFc+wAYy9RaZ1/5nDfbSk7ZBvK+o/A1bYvxFQHCLL
+X-Received: by 2002:a17:903:298d:b0:2f0:3dc0:9bbb with SMTP id d9443c01a7336-2f03f2115e7mr153388725ad.34.1795705584340;
+        Thu, 26 Nov 2026 07:06:24 -0800 (PST)
+Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f146b84sm104231065ad.71.2026.11.26.07.06.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 07:06:10 -0800 (PST)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Thu, 26 Nov 2026 16:10:10 +0100
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	dmaengine@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Saenz Julienne <nsaenz@kernel.org>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Dom Cobley <popcornmix@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 06/28] dt-bindings: dma: brcm,bcm2835-dma: Document
- dma-channel-mask and DREQ flags
-Message-ID: <awhL0itLEAIsK4HR@apocalypse>
-References: <20261123145728.29082-1-andrea.porta@suse.com>
- <20261123145728.29082-7-andrea.porta@suse.com>
- <e2d27b2e-db69-4fac-b7f3-28961a9e094c@gmx.net>
+        Thu, 26 Nov 2026 07:06:23 -0800 (PST)
+From: Piyus Kedia <piyus@iiitd.ac.in>
+To: wenjia@linux.ibm.com,
+	jaka@linux.ibm.com,
+	alibuda@linux.alibaba.com,
+	tonylu@linux.alibaba.com,
+	guwen@linux.alibaba.com
+Cc: netdev@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	kapil@presceralabs.ai,
+	stable@vger.kernel.org
+Subject: [PATCH net v4] net/smc: bound the DMB-nocopy send-buffer credit by what was sent
+Date: Thu, 26 Nov 2026 20:36:17 +0530
+Message-Id: <20261126150617.2113159-1-piyus@iiitd.ac.in>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,107 +104,154 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e2d27b2e-db69-4fac-b7f3-28961a9e094c@gmx.net>
+Content-Transfer-Encoding: 8bit
 
-Hi Stefan,
+On the SMC-D DMB-nocopy receive path, smc_cdc_msg_recv_action() credits
+sndbuf_space from the consumer cursor the peer reported and then assigns
+that cursor to tx_curs_fin:
 
-On 18:49 Mon 23 Nov     , Stefan Wahren wrote:
-> Hi Andrea,
-> 
-> Am 23.11.26 um 15:56 schrieb Andrea della Porta:
-> > The available channels are currently described by the vendor specific
-> > brcm,dma-channel-mask property, while the generic dma-channel-mask
-> > property from dma-common.yaml carries exactly the same information.
-> > Allow the generic property and mark the vendor one as deprecated,
-> > requiring at least one of them, so that device trees can provide both
-> > for compatibility with older kernels.
-> > 
-> > The single specifier cell is also not limited to the DREQ number: the
-> > driver interprets some of the upper bits as per-channel flags (AXI
-> > priorities, wide accesses, burst and write-response handling). Document
-> > the meaning of those bits.
-> > 
-> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> this patch should before the bcm2835-dma patches which modify the dma-cell
-> behavior.
+	diff_tx = smc_curs_diff(conn->sndbuf_desc->len, &conn->tx_curs_fin,
+				&conn->local_rx_ctrl.cons);
+	atomic_add(diff_tx, &conn->sndbuf_space);
+	/* guarantee 0 <= sndbuf_space <= sndbuf_desc->len */
+	smc_curs_copy(&conn->tx_curs_fin, &conn->local_rx_ctrl.cons, conn);
 
-Ack.
+The peer writes that cursor into the DMB itself, so under DMB-nocopy the
+value is remote input and nothing bounds it.  A cursor reporting more
+consumed than this side ever sent raises sndbuf_space past
+sndbuf_desc->len, and the assignment moves tx_curs_fin past tx_curs_sent,
+breaking the fin <= sent <= prep order the three cursors are documented
+with.
 
-> > ---
-> >   .../bindings/dma/brcm,bcm2835-dma.yaml        | 26 ++++++++++++++++---
-> >   1 file changed, 23 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml b/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
-> > index c9b9a5490826..f619e395cf0d 100644
-> > --- a/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
-> > +++ b/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
-> > @@ -37,15 +37,30 @@ properties:
-> >       maxItems: 16
-> >     '#dma-cells':
-> > -    description: The single cell represents the DREQ number.
-> > +    description: |
-> > +      The single cell contains the DREQ number in bits 0-4, optionally
-> > +      combined with the following per-channel flags:
-> > +        bits 16-19: AXI priority
-> > +        bits 20-23: AXI panic priority
-> > +        bit 24: use wide (128-bit) source reads
-> > +        bit 25: use wide (128-bit) destination writes
-> > +        bit 27: do not wait for AXI write responses
-> > +        bit 28: wait for outstanding writes before signalling completion
-> > +        bit 29: do not pause the channel when the debug signal is asserted
-> > +        bit 30: use multi-beat bursts
-> No strong opinion, but mixing DREQ number with per-channel flags is ugly
+The peer can only have consumed what was sent, so bound the difference by
+the unconfirmed bytes between tx_curs_fin and tx_curs_sent, and advance
+tx_curs_fin by the bounded amount instead of assigning the reported
+cursor.  Bounding by sndbuf_desc->len - sndbuf_space would also admit
+bytes that are only PREPARED, which would move tx_curs_fin past
+tx_curs_sent.
 
-I agree it isn't pretty, but it is the encoding the downstream DTBs have been
-using for years. Switching to #dma-cells = <2> (or introducing new exotic properties)
-would mean supporting both formats in the driver: I'm trying to play nice here in
-order to not break compatibility with downstream DTBs, which I think should be wise.
-The header I'll add in v4 with the definitions for these flags at least makes the
-device trees readable.
+Take the two cursors as snapshots and write tx_curs_fin back as one
+cursor.  smc_curs_diff() reads wrap and count with plain loads, and this
+runs in a tasklet under bh_lock_sock() while smc_tx_rdma_writes() advances
+tx_curs_sent under conn->send_lock, so reading it in place can pair a
+pre-wrap wrap with a post-wrap count: the difference then either collapses
+to zero, losing the credit after local_rx_ctrl.cons has already moved, or
+exceeds the buffer and the bound does nothing.  smc_curs_add() sets count
+and then wrap with plain stores and transiently leaves
+count >= sndbuf_desc->len, so advancing tx_curs_fin in place would replace
+an atomic 64-bit update with a torn one.  smc_tx_prepared_sends() takes
+the same snapshots for the same reason.
 
-> >       const: 1
-> > +  dma-channel-mask:
-> > +    maxItems: 1
-> > +
-> I think, the dma-channel-mask stuff should be a separate change.
+Fixes: cc0ab806fc52 ("net/smc: adapt cursor update when sndbuf and peer DMB are merged")
+Co-developed-by: Kapil Vaswani <kapil@presceralabs.ai>
+Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
+Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
+---
+v4: addresses the review of v3
+    (https://lore.kernel.org/r/sashiko-outbox-233892@kernel.org)
 
-Ack.
+    The finding is right on both halves, and the remedy is the one it
+    names.  v3 passed &conn->tx_curs_sent and &conn->tx_curs_fin straight
+    to smc_curs_diff() and advanced tx_curs_fin in place with
+    smc_curs_add().  v4 snapshots both with smc_curs_copy(), computes both
+    differences from the snapshots, advances the local copy and writes it
+    back with smc_curs_copy(), so the cursor update stays a single atomic
+    64-bit write and neither read can tear.  The torn read in the diff_tx
+    computation predates this series - it read &conn->tx_curs_fin in place
+    - and the snapshot closes that too.
 
-Regards,
-Andrea
+    No change to what is bounded or to the bound itself.
 
-> 
-> Best regards
-> >     brcm,dma-channel-mask:
-> >       $ref: /schemas/types.yaml#/definitions/uint32
-> > +    deprecated: true
-> >       description:
-> >         Bitmask of available DMA channels in ascending order that are
-> >         not reserved by firmware and are available to the
-> >         kernel. i.e. first channel corresponds to LSB.
-> > +      Use the generic dma-channel-mask property instead.
-> >   unevaluatedProperties: false
-> > @@ -54,7 +69,12 @@ required:
-> >     - reg
-> >     - interrupts
-> >     - "#dma-cells"
-> > -  - brcm,dma-channel-mask
-> > +
-> > +anyOf:
-> > +  - required:
-> > +      - dma-channel-mask
-> > +  - required:
-> > +      - brcm,dma-channel-mask
-> >   examples:
-> >     - |
-> > @@ -96,7 +116,7 @@ examples:
-> >                           "dma14",
-> >                           "dma-shared-all";
-> >           #dma-cells = <1>;
-> > -        brcm,dma-channel-mask = <0x7f35>;
-> > +        dma-channel-mask = <0x7f35>;
-> >       };
-> >   ...
-> 
+v3: bounded the credit by the unconfirmed sent bytes and advanced
+    tx_curs_fin by the bounded difference rather than assigning the
+    reported cursor.
+
+    How this was found: an AI-driven fuzzing harness built on syzkaller,
+    developed jointly by Kapil Vaswani and myself, driving a forged CDC
+    stream at an SMC-D link under KASAN on x86_64.  The analysis and this
+    changelog were written with the assistance of a large language model
+    and checked by hand against the tree; the reproducers in the earlier
+    postings were produced by us.  The v4 change comes from addressing an
+    AI-generated review of v3 on the list, and the locking and the two
+    cursor helpers it described were each read in the tree first.
+
+Link: https://lore.kernel.org/all/179552966151.3135.8162716126718648323@kernel.org/
+
+ net/smc/smc_cdc.c | 47 ++++++++++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 44 insertions(+), 3 deletions(-)
+
+diff --git a/net/smc/smc_cdc.c b/net/smc/smc_cdc.c
+index 32d6d03df321..8f4351e1d4ad 100644
+--- a/net/smc/smc_cdc.c
++++ b/net/smc/smc_cdc.c
+@@ -333,6 +333,8 @@
+ 	union smc_host_cursor cons_old, prod_old;
+ 	struct smc_connection *conn = &smc->conn;
+ 	int diff_cons, diff_prod, diff_tx;
++	union smc_host_cursor fin, sent;
++	int unconfirmed;
+ 
+ 	smc_curs_copy(&prod_old, &conn->local_rx_ctrl.prod, conn);
+ 	smc_curs_copy(&cons_old, &conn->local_rx_ctrl.cons, conn);
+@@ -358,16 +360,55 @@
+ 			/* Calculate consumed data and
+ 			 * increment free send buffer space.
+ 			 */
++			/* Snapshots, not the live cursors.  smc_curs_diff()
++			 * reads wrap and count with plain loads, and this runs
++			 * in a tasklet under bh_lock_sock() while
++			 * smc_tx_rdma_writes() advances tx_curs_sent under
++			 * conn->send_lock, so reading it in place can pair a
++			 * pre-wrap wrap with a post-wrap count.  Either the
++			 * difference collapses to zero and the credit is lost,
++			 * or it exceeds the buffer and the bound below does
++			 * nothing.  smc_tx_prepared_sends() takes the same
++			 * snapshots for the same reason.
++			 */
++			smc_curs_copy(&fin, &conn->tx_curs_fin, conn);
++			smc_curs_copy(&sent, &conn->tx_curs_sent, conn);
+ 			diff_tx = smc_curs_diff(conn->sndbuf_desc->len,
+-						&conn->tx_curs_fin,
++						&fin,
+ 						&conn->local_rx_ctrl.cons);
++			/* This difference comes from the cursor the peer
++			 * reported, which is taken as it arrives.  The peer
++			 * can only have consumed what this side actually
++			 * sent - smc_tx_rdma_writes() advances tx_curs_sent
++			 * together with the producer cursor the peer sees -
++			 * so bound it by that and advance tx_curs_fin by the
++			 * bounded amount rather than assigning the reported
++			 * cursor.  The invariant below then holds by
++			 * construction, tx_curs_fin stays inside the send
++			 * buffer, and it stays at or behind tx_curs_sent:
++			 * bounding by sndbuf_desc->len - sndbuf_space would
++			 * also admit bytes that are only PREPARED, which
++			 * would move tx_curs_fin past tx_curs_sent and break
++			 * the fin <= sent <= prep order the three cursors are
++			 * documented with.
++			 */
++			unconfirmed = smc_curs_diff(conn->sndbuf_desc->len,
++						    &fin, &sent);
++			diff_tx = min_t(int, diff_tx, unconfirmed);
++
+ 			/* increase local sndbuf space and fin_curs */
+ 			smp_mb__before_atomic();
+ 			atomic_add(diff_tx, &conn->sndbuf_space);
+ 			/* guarantee 0 <= sndbuf_space <= sndbuf_desc->len */
+ 			smp_mb__after_atomic();
+-			smc_curs_copy(&conn->tx_curs_fin,
+-				      &conn->local_rx_ctrl.cons, conn);
++			/* Advance the snapshot and write it back as one
++			 * cursor.  smc_curs_add() sets count and then wrap
++			 * with plain stores, and transiently leaves
++			 * count >= sndbuf_desc->len, so in place it would
++			 * replace an atomic 64-bit update with a torn one.
++			 */
++			smc_curs_add(conn->sndbuf_desc->len, &fin, diff_tx);
++			smc_curs_copy(&conn->tx_curs_fin, &fin, conn);
+ 
+ 			smc_tx_sndbuf_nonfull(smc);
+ 		}
+-- 
+2.43.0
+
