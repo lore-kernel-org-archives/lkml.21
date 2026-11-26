@@ -1,51 +1,51 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795655353;
-	b=vWBrSYfwbPiBsTIgomDKJ93zZXKD6OcYLRL9ho6ujR/3T09zNNU1lO3/Xuy3KW2Q3ZXS
-	 6chEVzSSjMaybtK0ZN4rONjETmY3TA1LPD82ndQFinpBmmxWUHfaWd410/k8790pDTLbF
-	 LQLlpS59gcSrLCnlYO6Pjx5i2tkdj6MtAcf+h6ajWBu594MKDc3nWxIBaw806RgI2+Wxq
-	 ayv5wXPfUYYFn7+DM1Yl/UtQpl4lnW6B5O1exTTkUQGrR+uo4+0h+w24cYIO3+Dbb7sQU
-	 UZ1po8KNDl6+BAOhUz3F1oV3EXkpJbmvbROyHfCGMFgqH8B+B8ETEYLUnDses3c0r/g==
+	t=1795655361;
+	b=FCaBlrqshvGXbmQOvfoYxY2i4jEMlM8IJf0Ym/NmrkGlAwQTFftWXPKUrvQHNyxX25Cl
+	 zXYMT26SlRGFMD1Vfy7InRr4Tpo1vwJdyVz7VzIhHcVgybiNpL2W79tp48h8FI0fH6fsl
+	 LBeE+tT6ApFxttAIqOnPSk5s6XCA03W1+uHFkUpnKCEKjwFoh57OE+Th2L3FIKgVTqlrL
+	 lKyJCXq+PVHQZ5/wSBPGzAsSEYGaWRaoJHkP1dbsWG8yrlYw5Jn0KjaX16dS3znA/YVvI
+	 67POH2KiVo59gxlxizQBpxAB86UFjhYDV710o8FimkuQQpFKYScF1rC7mLBqCH/B5Tw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795655353;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795655361;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=+w/6dNkUojgm+/pCcYC0tQkbARFv9Xb7tCfV/+CABMU=;
-	b=CdPV9PtExEhY5D19QC6xdcSqTlFR9Iv+qTf4foz+VvwnarmLd4bkeVS40HdOj2c+GAmM
-	 7BbyRt1bw4vOw4jraGYBhY+Fe8Cd6O8lMTXR2GJN4ypAJkTyqbDw9tcjC6/1GwInzXafE
-	 B/k7LcCZqd5r4/ddASvG6trtFesdF76gZGYyxCUDGl9XF4YXSPdK/K0phV0D5MkOWZrnL
-	 dquWPE18MSHMPXEpHpUDi+nHkY/WgmS52HQtwMI22fM6v0e1EBxGOKmTtX9uuh/Ljt0J2
-	 k95FoA8jaqKf21znH6C5PcNISex+QLd/TYn2PHkXWsVllXl0nMVSutv6s1+w86NPGDQ==
+	bh=TOWrA01lqu+SvFVcqCDGeNv67YSP4sRzj5LTccU/MxA=;
+	b=if9OUX79zraCYc6Ppo1mzWJyEOBqGaa/lUP3EK2M5yQUz+sf2xNhvRpRJwyXKhcCMrd1
+	 Oyeom0+YWiTHYOtewij8bekN6giYEGOR1tkokfuwBu89Wg73trAajjNg0n4bijoio2Puf
+	 +tsRHO3VWUKS42uIjDkbRRf+cmc9Q20M1MP9GhsvZ8v3K7tXzvCPbNqkQunxojHtpYE+j
+	 7kJQGTGBIltV604Whi4W7Z3yQ2ictUjfaVa7Qbzp9F3d48ZpP8lRPDT2uDkjJPpJ++prc
+	 hRoa3o2pagc8C57UotiNuJwPSUMpqYQa8cLKvoxRiAXwv7huje5ZJRnl0Ulu1r+EmJQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=efficios.com;
 	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=xcDKWHtC;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=YdeHC0oE;
 	arc=none smtp.remote-ip=158.69.130.18
 Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A061606B777;
-	Thu, 26 Nov 2026 01:09:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7A061606B777
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7A25606AB42;
+	Thu, 26 Nov 2026 01:09:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7A25606AB42
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=xcDKWHtC
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=YdeHC0oE
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795655351;
-	bh=+w/6dNkUojgm+/pCcYC0tQkbARFv9Xb7tCfV/+CABMU=;
+	s=smtpout1; t=1795655359;
+	bh=TOWrA01lqu+SvFVcqCDGeNv67YSP4sRzj5LTccU/MxA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=xcDKWHtCEoKYeVlcDDbgQTfRFzDTuzG/OQAWiYMQtxYPHwbRkLmcAyivO0FbK8dXa
-	 mbK+SGn1DFMekcuRTqfjQAit2vhvF2stCkFSMTWSXZLi+ZQRUYZMozD+kcRfqQicm2
-	 VfNFXmT4BIy4mTbURcwH8LVOd3wCGwozKh/A7HgwXZwP22G1wEo7AWlAE2eiRLwSLP
-	 xE7rCBHI2UB/+kfiB1d036R4NJ1jv+BpRueiscA+agmE9/sn6oyBSuuFNElnZky/jV
-	 Ut0Wb6PMPXVBnXcjXZWWl4afKWRGoRTM15ALedog6FzmTiLrmvFuTofajKzzPbCsNi
-	 Ki0hxu5xq+DGQ==
+	b=YdeHC0oERxbRoBv1NENdOZUCq53WeqaTWe2eRPoJi67ijxe4aPnBMtt4yqiGtKpWd
+	 lRWcVT9icWcU/rA/1FSwdHSko1ltXZ50l7G9EhFFpcW+gA7zHZSJ8BOYfooHzuU2zK
+	 NFr8Q5Jt3DB/Wt2q7sABVJUzzf4BzauIgy4T4BIk+KKOmfU/EXlWO7+vaxpoogE8lB
+	 ShJ27gMKbtHVxNh/wouaFmqlVP9WaiFFgfTqEAAD1HbVRPo113fQhKo36pqrIPl2Rt
+	 U9Im/DmvMq7VvqwOOp8TnVjvjxmUEWZIxkq9blTw0jPwAGXtH82Q0Jxm5knF8ieBkD
+	 xfcEw/0aSN9Zg==
 Received: from thinkos.internal.efficios.com (unknown [IPv6:2606:6d00:100:4000:cacb:9855:de1f:ded2])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jZdjg1PplzWg4;
-	Wed, 25 Nov 2026 20:09:11 -0500 (EST)
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jZdjq2r3XzWx9;
+	Wed, 25 Nov 2026 20:09:19 -0500 (EST)
 From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 To: juri.lelli@redhat.com,
 	peterz@infradead.org,
@@ -79,11 +79,10 @@ Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
 	linux-kernel@vger.kernel.org,
 	cgroups@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	stable@vger.kernel.org
-Subject: [PATCH v11 32/43] sched/deadline: Start a period for a task requeued onto an rt_mutex
-Date: Wed, 25 Nov 2026 20:08:31 -0500
-Message-ID: <ea269b2ab986ea98f5df5ace2a80c4b4d9d7e55f.1795646914.git.mathieu.desnoyers@efficios.com>
+	linux-rt-devel@lists.linux.dev
+Subject: [PATCH v11 43/43] selftests/sched: Share the helpers of the deadline tests
+Date: Wed, 25 Nov 2026 20:08:42 -0500
+Message-ID: <3a02db9cd3509d720da5833985cd5f4b6ceefc02.1795646915.git.mathieu.desnoyers@efficios.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1795646914.git.mathieu.desnoyers@efficios.com>
 References: <cover.1795646914.git.mathieu.desnoyers@efficios.com>
@@ -98,160 +97,478 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The waiter node of an rt_mutex holds the deadline of its task, as a sort
-key. task_blocks_on_rt_mutex() copies it when the task blocks. A task
-that blocks by itself is running, so its deadline is a current one.
+deadline_bw_test, deadline_rebuild_test and deadline_switch_test each
+have a copy of the same helpers. Move these to deadline_util.h:
+- now_ns(), thread_time_ns() and sleep_ns();
+- report();
+- read_file(), write_file() and enter().
 
-FUTEX_CMP_REQUEUE_PI is different. It makes a task that sleeps in
-FUTEX_WAIT_REQUEUE_PI wait on the rt_mutex of a PI futex, with
-rt_mutex_start_proxy_lock(). That task is not running. Its deadline can
-be one that it would never run with:
-- 0, if sched_setattr() made it SCHED_DEADLINE while it slept.
-  switched_to_dl() leaves its deadline to its next wakeup.
-- one that has passed, if it slept past it.
+deadline_rebuild_test uses thread_time_ns() in place of its own
+cpu_time_ns(). The helpers that differ from one test to the other stay
+in each test. The Makefile adds the header to LOCAL_HDRS, so that
+lib.mk rebuilds the tests when the header changes.
 
-The waiter then sorts before the waiters with a real deadline. At the
-unlock, it gets the lock before waiters with earlier deadlines. Its
-deadline also decides the boost of the owner.
+The Sashiko AI review of this series asked for this. No case changes.
 
-Fix this in __rt_mutex_start_proxy_lock(), before its trylock: the
-trylock reads the deadline too. Add dl_proxy_block(), which applies the
-wakeup rule of update_dl_entity() to the requeued task:
-- A deadline of 0, or one that has passed, gets a new period. For a
-  boosted task, it is a period of its donor.
-- A task past its deadline and before its next period keeps its
-  deadline: its wakeup throttles it until that period. A new period
-  would start before its next period, which the constrained gap
-  forbids. So its waiter still sorts first.
-- futex_lock_pi() also calls __rt_mutex_start_proxy_lock(), with the
-  current task. That task is running, so its deadline is up to date.
-  dl_proxy_block() is not called for it.
-
-The Sashiko AI review of this series found this. The case
-requeue_pi_new_period of deadline_bw_test, added later in this series,
-tests the deadline of 0. It fails without this patch.
-
-Fixes: 2d3d891d3344 ("sched/deadline: Add SCHED_DEADLINE inheritance logic")
 Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: stable@vger.kernel.org
 ---
- include/linux/sched/deadline.h |  1 +
- kernel/locking/rtmutex_api.c   | 12 +++++++
- kernel/sched/deadline.c        | 59 ++++++++++++++++++++++++++++++++--
- 3 files changed, 69 insertions(+), 3 deletions(-)
+ .../testing/selftests/sched/deadline/Makefile |   2 +
+ .../sched/deadline/deadline_bw_test.c         |  86 +-------------
+ .../sched/deadline/deadline_rebuild_test.c    |  94 +---------------
+ .../sched/deadline/deadline_switch_test.c     |  36 +-----
+ .../selftests/sched/deadline/deadline_util.h  | 106 ++++++++++++++++++
+ 5 files changed, 116 insertions(+), 208 deletions(-)
+ create mode 100644 tools/testing/selftests/sched/deadline/deadline_util.h
 
-diff --git a/include/linux/sched/deadline.h b/include/linux/sched/deadline.h
-index fa66e75cbdd8..5c53b12948a7 100644
---- a/include/linux/sched/deadline.h
-+++ b/include/linux/sched/deadline.h
-@@ -63,6 +63,7 @@ extern int dl_task_bw_reserve_cpu(struct task_struct *p,
- 				  const struct cpumask *new_mask);
- extern int dl_task_bw_reserved_cpu(struct task_struct *p);
- extern void dl_task_bw_unreserve(struct task_struct *p);
-+extern void dl_proxy_block(struct task_struct *p);
- extern bool dl_task_keeps_root_domain(struct task_struct *p,
- 				      const struct cpumask *new_mask,
- 				      const struct cpumask *pending);
-diff --git a/kernel/locking/rtmutex_api.c b/kernel/locking/rtmutex_api.c
-index 6bdbd36bac94..f1246efc62d3 100644
---- a/kernel/locking/rtmutex_api.c
-+++ b/kernel/locking/rtmutex_api.c
-@@ -342,6 +342,18 @@ int __sched __rt_mutex_start_proxy_lock(struct rt_mutex_base *lock,
+diff --git a/tools/testing/selftests/sched/deadline/Makefile b/tools/testing/selftests/sched/deadline/Makefile
+index 15f1e96a21e6..a81aa97c6cc6 100644
+--- a/tools/testing/selftests/sched/deadline/Makefile
++++ b/tools/testing/selftests/sched/deadline/Makefile
+@@ -5,4 +5,6 @@ LDLIBS += -lpthread
  
- 	lockdep_assert_held(&lock->wait_lock);
+ TEST_GEN_PROGS := deadline_switch_test deadline_rebuild_test deadline_bw_test
  
-+	/*
-+	 * A requeued @task sleeps, so its deadline can be stale. The trylock
-+	 * below and the waiter node both read it: update it first.
-+	 * futex_lock_pi() passes current, which is running. Its deadline is
-+	 * up to date.
-+	 */
-+	if (task != current) {
-+		raw_spin_lock(&task->pi_lock);
-+		dl_proxy_block(task);
-+		raw_spin_unlock(&task->pi_lock);
-+	}
++LOCAL_HDRS += deadline_util.h
 +
- 	if (try_to_take_rt_mutex(lock, task, NULL))
- 		return 1;
+ include ../../lib.mk
+diff --git a/tools/testing/selftests/sched/deadline/deadline_bw_test.c b/tools/testing/selftests/sched/deadline/deadline_bw_test.c
+index 78b58888e9d5..56dc73264e0a 100644
+--- a/tools/testing/selftests/sched/deadline/deadline_bw_test.c
++++ b/tools/testing/selftests/sched/deadline/deadline_bw_test.c
+@@ -97,6 +97,8 @@
+ #define NSEC_PER_MSEC	1000000ULL
+ #define NSEC_PER_SEC	1000000000ULL
  
-diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-index 5d1d4ea28878..c59953e80b1a 100644
---- a/kernel/sched/deadline.c
-+++ b/kernel/sched/deadline.c
-@@ -1682,6 +1682,59 @@ static inline u64 dl_next_period(struct sched_dl_entity *dl_se)
- 	return dl_se->deadline - dl_se->dl_deadline + dl_se->dl_period;
++#include "deadline_util.h"
++
+ /* The threads of probe() and hold() do nothing: a small stack will do. */
+ #define THREAD_STACK	(64 * 1024 > PTHREAD_STACK_MIN ? 64 * 1024 : PTHREAD_STACK_MIN)
+ 
+@@ -127,34 +129,6 @@ static int top_cpu(int n)
+ 	return online[ncpus - n];
  }
  
-+#ifdef CONFIG_RT_MUTEXES
-+/*
-+ * FUTEX_CMP_REQUEUE_PI makes @p wait on an rt_mutex while @p sleeps.
-+ * The waiter node of @p takes its deadline before any wakeup. So apply
-+ * the wakeup rule of update_dl_entity() to @p now:
-+ * - A deadline of 0, which a task that entered the class asleep has,
-+ *   gets a new period.
-+ * - A constrained task past its deadline and before its next period
-+ *   keeps its deadline. Its wakeup throttles it until that period. Its
-+ *   waiter node keeps that passed deadline, and sorts first.
-+ * - Any other task gets the check of update_dl_entity(). A deadline
-+ *   that has passed gets a new period.
-+ *
-+ * The caller holds the pi_lock of @p.
-+ */
-+void dl_proxy_block(struct task_struct *p)
-+{
-+	struct sched_dl_entity *dl_se = &p->dl;
-+	struct rq_flags rf;
-+	struct rq *rq;
+-/*
+- * clock_gettime() cannot fail in now_ns() and thread_time_ns(). Both
+- * clocks are always supported, and the pointer is valid.
+- */
+-static uint64_t now_ns(void)
+-{
+-	struct timespec ts;
+-
+-	clock_gettime(CLOCK_MONOTONIC, &ts);
+-	return ts.tv_sec * NSEC_PER_SEC + ts.tv_nsec;
+-}
+-
+-static uint64_t thread_time_ns(void)
+-{
+-	struct timespec ts;
+-
+-	clock_gettime(CLOCK_THREAD_CPUTIME_ID, &ts);
+-	return ts.tv_sec * NSEC_PER_SEC + ts.tv_nsec;
+-}
+-
+-static void sleep_ns(uint64_t ns)
+-{
+-	struct timespec ts = { .tv_sec = ns / NSEC_PER_SEC, .tv_nsec = ns % NSEC_PER_SEC };
+-
+-	while (nanosleep(&ts, &ts) && errno == EINTR)
+-		;
+-}
+-
+ static void spin_ns(uint64_t ns)
+ {
+ 	uint64_t end = thread_time_ns() + ns;
+@@ -308,52 +282,6 @@ static int set_other(pid_t tid)
+ 	return syscall(SYS_sched_setattr, tid, &attr, 0) ? -errno : 0;
+ }
+ 
+-static int write_file(const char *dir, const char *name, const char *val)
+-{
+-	char path[PATH_MAX];
+-	int fd, err = 0;
+-	ssize_t n;
+-
+-	if (snprintf(path, sizeof(path), "%s/%s", dir, name) >= (int)sizeof(path))
+-		return -ENAMETOOLONG;
+-	fd = open(path, O_WRONLY);
+-	if (fd < 0)
+-		return -errno;
+-	n = write(fd, val, strlen(val));
+-	if (n < 0)
+-		err = -errno;
+-	else if (n != (ssize_t)strlen(val))
+-		err = -EIO;
+-	if (close(fd) && !err)
+-		err = -errno;
+-	return err;
+-}
+-
+-static int read_file(const char *path, char *buf, size_t len)
+-{
+-	int fd = open(path, O_RDONLY);
+-	ssize_t n;
+-
+-	if (fd < 0)
+-		return -1;
+-	do {
+-		n = read(fd, buf, len - 1);
+-	} while (n < 0 && errno == EINTR);
+-	close(fd);
+-	if (n < 0)
+-		return -1;
+-	buf[n] = 0;
+-	return 0;
+-}
+-
+-static int enter(const char *cg, pid_t pid)
+-{
+-	char buf[16];
+-
+-	snprintf(buf, sizeof(buf), "%d", pid);
+-	return write_file(cg, "cgroup.procs", buf);
+-}
+-
+ /* Return whether @list, words separated by blanks, holds the word @w. */
+ static int has_word(const char *list, const char *w)
+ {
+@@ -14797,16 +14725,6 @@ static int find_cgroup2(void)
+ 	return found ? 0 : -1;
+ }
+ 
+-static void report(const char *name, int ret)
+-{
+-	if (ret == KSFT_PASS)
+-		ksft_test_result_pass("%s\n", name);
+-	else if (ret == KSFT_SKIP)
+-		ksft_test_result_skip("%s\n", name);
+-	else
+-		ksft_test_result_fail("%s\n", name);
+-}
+-
+ /* sched_setaffinity() against sched_setattr(), with no P */
+ 
+ /*
+diff --git a/tools/testing/selftests/sched/deadline/deadline_rebuild_test.c b/tools/testing/selftests/sched/deadline/deadline_rebuild_test.c
+index 735c3c65e156..e0ec2a559632 100644
+--- a/tools/testing/selftests/sched/deadline/deadline_rebuild_test.c
++++ b/tools/testing/selftests/sched/deadline/deadline_rebuild_test.c
+@@ -52,6 +52,8 @@
+ #define NSEC_PER_MSEC	1000000ULL
+ #define NSEC_PER_SEC	1000000000ULL
+ 
++#include "deadline_util.h"
 +
-+	if (!dl_task(p))
-+		return;
-+	rq = __task_rq_lock(p, &rf);
-+	update_rq_clock(rq);
-+	if (task_on_rq_queued(p) || dl_se->dl_throttled)
-+		goto unlock;
-+	/*
-+	 * A boosted task runs on the parameters of its donor. Start a period
-+	 * from them if its deadline is 0 or has passed. A task in the class
-+	 * with no runtime of its own is always boosted: the test of
-+	 * dl_runtime is only a guard.
-+	 */
-+	if (is_dl_boosted(dl_se) || !dl_se->dl_runtime) {
-+		if (!dl_se->deadline ||
-+		    dl_time_before(dl_se->deadline, rq_clock(rq)))
-+			replenish_dl_new_period(dl_se, rq);
-+		goto unlock;
-+	}
-+	if (!dl_se->deadline) {
-+		replenish_dl_new_period(dl_se, rq);
-+		goto unlock;
-+	}
-+	if (!dl_is_implicit(dl_se) &&
-+	    dl_time_before(dl_se->deadline, rq_clock(rq)) &&
-+	    dl_time_before(rq_clock(rq), dl_next_period(dl_se)))
-+		goto unlock;
-+	update_dl_entity(dl_se);
-+unlock:
-+	__task_rq_unlock(rq, p, &rf);
-+}
+ struct dl_attr {
+ 	uint32_t size;
+ 	uint32_t sched_policy;
+@@ -87,26 +89,6 @@ static int set_other(pid_t pid)
+ 	return sched_setscheduler(pid, SCHED_OTHER, &sp) ? -errno : 0;
+ }
+ 
+-/*
+- * Return the CLOCK_MONOTONIC time in ns. clock_gettime() cannot fail: the
+- * clock is always supported, and the pointer is valid.
+- */
+-static uint64_t now_ns(void)
+-{
+-	struct timespec ts;
+-
+-	clock_gettime(CLOCK_MONOTONIC, &ts);
+-	return ts.tv_sec * NSEC_PER_SEC + ts.tv_nsec;
+-}
+-
+-static void sleep_ns(uint64_t ns)
+-{
+-	struct timespec ts = { .tv_sec = ns / NSEC_PER_SEC, .tv_nsec = ns % NSEC_PER_SEC };
+-
+-	while (nanosleep(&ts, &ts) && errno == EINTR)
+-		;
+-}
+-
+ static void reap(pid_t pid)
+ {
+ 	int status;
+@@ -125,52 +107,6 @@ static void reap(pid_t pid)
+ 	}
+ }
+ 
+-static int write_file(const char *dir, const char *name, const char *val)
+-{
+-	char path[PATH_MAX];
+-	int fd, err = 0;
+-	ssize_t n;
+-
+-	if (snprintf(path, sizeof(path), "%s/%s", dir, name) >= (int)sizeof(path))
+-		return -ENAMETOOLONG;
+-	fd = open(path, O_WRONLY);
+-	if (fd < 0)
+-		return -errno;
+-	n = write(fd, val, strlen(val));
+-	if (n < 0)
+-		err = -errno;
+-	else if (n != (ssize_t)strlen(val))
+-		err = -EIO;
+-	if (close(fd) && !err)
+-		err = -errno;
+-	return err;
+-}
+-
+-static int read_file(const char *path, char *buf, size_t len)
+-{
+-	int fd = open(path, O_RDONLY);
+-	ssize_t n;
+-
+-	if (fd < 0)
+-		return -1;
+-	do {
+-		n = read(fd, buf, len - 1);
+-	} while (n < 0 && errno == EINTR);
+-	close(fd);
+-	if (n < 0)
+-		return -1;
+-	buf[n] = 0;
+-	return 0;
+-}
+-
+-static int enter(const char *cg, pid_t pid)
+-{
+-	char buf[16];
+-
+-	snprintf(buf, sizeof(buf), "%d", pid);
+-	return write_file(cg, "cgroup.procs", buf);
+-}
+-
+ /* Make @cg a partition root of CPU @cpu alone. Return 0, or -1 on error. */
+ static int make_partition(const char *cg, int cpu)
+ {
+@@ -207,18 +143,6 @@ static void remove_partition(const char *cg)
+ 	}
+ }
+ 
+-/*
+- * Return the CPU time of the calling thread in ns. clock_gettime() cannot
+- * fail: the clock is always supported, and the pointer is valid.
+- */
+-static uint64_t cpu_time_ns(void)
+-{
+-	struct timespec ts;
+-
+-	clock_gettime(CLOCK_THREAD_CPUTIME_ID, &ts);
+-	return ts.tv_sec * NSEC_PER_SEC + ts.tv_nsec;
+-}
+-
+ enum depart { DIES, SWITCHED_OUT };
+ 
+ /* Kill the calling child if the test exits, so that no deadline task stays. */
+@@ -250,8 +174,8 @@ static pid_t departing(const char *cg, enum depart how, int fd[2])
+ 			_exit(2);
+ 		if (set_deadline(0, 400 * NSEC_PER_MSEC))
+ 			_exit(3);
+-		t0 = cpu_time_ns();
+-		while (cpu_time_ns() - t0 < 380 * NSEC_PER_MSEC)
++		t0 = thread_time_ns();
++		while (thread_time_ns() - t0 < 380 * NSEC_PER_MSEC)
+ 			;
+ 		if (how == DIES)
+ 			_exit(0);
+@@ -531,16 +455,6 @@ static int find_cgroup2(void)
+ 	return found ? 0 : -1;
+ }
+ 
+-static void report(const char *name, int ret)
+-{
+-	if (ret == KSFT_PASS)
+-		ksft_test_result_pass("%s\n", name);
+-	else if (ret == KSFT_SKIP)
+-		ksft_test_result_skip("%s\n", name);
+-	else
+-		ksft_test_result_fail("%s\n", name);
+-}
+-
+ int main(void)
+ {
+ 	char buf[256], path[PATH_MAX + 32];
+diff --git a/tools/testing/selftests/sched/deadline/deadline_switch_test.c b/tools/testing/selftests/sched/deadline/deadline_switch_test.c
+index 40c7c6bafc2b..a544bee5af5a 100644
+--- a/tools/testing/selftests/sched/deadline/deadline_switch_test.c
++++ b/tools/testing/selftests/sched/deadline/deadline_switch_test.c
+@@ -51,6 +51,8 @@
+ #define NSEC_PER_MSEC	1000000ULL
+ #define NSEC_PER_SEC	1000000000ULL
+ 
++#include "deadline_util.h"
++
+ struct dl_attr {
+ 	uint32_t size;
+ 	uint32_t sched_policy;
+@@ -70,22 +72,6 @@ struct shared {
+ 	uint64_t sleeps;	/* sleeps begun */
+ };
+ 
+-static uint64_t now_ns(void)
+-{
+-	struct timespec ts;
+-
+-	clock_gettime(CLOCK_MONOTONIC, &ts);
+-	return ts.tv_sec * NSEC_PER_SEC + ts.tv_nsec;
+-}
+-
+-static void sleep_ns(uint64_t ns)
+-{
+-	struct timespec ts = { .tv_sec = ns / NSEC_PER_SEC, .tv_nsec = ns % NSEC_PER_SEC };
+-
+-	while (nanosleep(&ts, &ts) && errno == EINTR)
+-		;
+-}
+-
+ static void sleep_until(uint64_t t)
+ {
+ 	struct timespec ts = { .tv_sec = t / NSEC_PER_SEC, .tv_nsec = t % NSEC_PER_SEC };
+@@ -518,14 +504,6 @@ static sem_t owner_locked, owner_go;
+ static pid_t owner_tid;
+ static int owner_ms;		/* the owner's CPU time in its first period */
+ 
+-static uint64_t thread_time_ns(void)
+-{
+-	struct timespec ts;
+-
+-	clock_gettime(CLOCK_THREAD_CPUTIME_ID, &ts);
+-	return ts.tv_sec * NSEC_PER_SEC + ts.tv_nsec;
+-}
+-
+ /*
+  * Wait on @s for at most @ms, retrying on signals. Return 0, or -1 on a
+  * timeout or an error.
+@@ -1081,16 +1059,6 @@ static int test_sysrq_running_owner(int normalized)
+ 	return ret;
+ }
+ 
+-static void report(const char *name, int ret)
+-{
+-	if (ret == KSFT_PASS)
+-		ksft_test_result_pass("%s\n", name);
+-	else if (ret == KSFT_SKIP)
+-		ksft_test_result_skip("%s\n", name);
+-	else
+-		ksft_test_result_fail("%s\n", name);
+-}
+-
+ int main(void)
+ {
+ 	int ret;
+diff --git a/tools/testing/selftests/sched/deadline/deadline_util.h b/tools/testing/selftests/sched/deadline/deadline_util.h
+new file mode 100644
+index 000000000000..489233a32cbd
+--- /dev/null
++++ b/tools/testing/selftests/sched/deadline/deadline_util.h
+@@ -0,0 +1,106 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/* Helpers that the deadline selftests share. */
++#ifndef DEADLINE_UTIL_H
++#define DEADLINE_UTIL_H
++
++#include <errno.h>
++#include <fcntl.h>
++#include <limits.h>
++#include <stdint.h>
++#include <stdio.h>
++#include <string.h>
++#include <sys/types.h>
++#include <time.h>
++#include <unistd.h>
++
++#include "../../kselftest.h"
++
++#ifndef NSEC_PER_SEC
++#define NSEC_PER_SEC	1000000000ULL
 +#endif
 +
- /*
-  * If the entity depleted all its runtime, and if we want it to sleep
-  * while waiting for some new execution time to become available, we
-@@ -4939,9 +4992,9 @@ static void switched_to_dl(struct rq *rq, struct task_struct *p)
- 		 * A task that comes back to the class before its 0-lag time
- 		 * keeps its deadline. For a constrained task, that deadline
- 		 * can have passed before its next period. As
--		 * dl_check_constrained_dl() does, leave such a task alone
--		 * unless it is boosted. Its wakeup throttles it until its
--		 * next period.
-+		 * dl_check_constrained_dl() and dl_proxy_block() do, leave
-+		 * such a task alone unless it is boosted. Its wakeup
-+		 * throttles it until its next period.
- 		 */
- 		if (dl_task_pi_blocked(p) && !p->dl.dl_throttled &&
- 		    dl_time_before(p->dl.deadline, rq_clock(rq)) &&
++/*
++ * clock_gettime() cannot fail in now_ns() and thread_time_ns(). Both
++ * clocks are always supported, and the pointer is valid.
++ */
++static inline uint64_t now_ns(void)
++{
++	struct timespec ts;
++
++	clock_gettime(CLOCK_MONOTONIC, &ts);
++	return ts.tv_sec * NSEC_PER_SEC + ts.tv_nsec;
++}
++
++static inline uint64_t thread_time_ns(void)
++{
++	struct timespec ts;
++
++	clock_gettime(CLOCK_THREAD_CPUTIME_ID, &ts);
++	return ts.tv_sec * NSEC_PER_SEC + ts.tv_nsec;
++}
++
++static inline void sleep_ns(uint64_t ns)
++{
++	struct timespec ts = { .tv_sec = ns / NSEC_PER_SEC, .tv_nsec = ns % NSEC_PER_SEC };
++
++	while (nanosleep(&ts, &ts) && errno == EINTR)
++		;
++}
++
++static inline void report(const char *name, int ret)
++{
++	if (ret == KSFT_PASS)
++		ksft_test_result_pass("%s\n", name);
++	else if (ret == KSFT_SKIP)
++		ksft_test_result_skip("%s\n", name);
++	else
++		ksft_test_result_fail("%s\n", name);
++}
++
++static inline int read_file(const char *path, char *buf, size_t len)
++{
++	int fd = open(path, O_RDONLY);
++	ssize_t n;
++
++	if (fd < 0)
++		return -1;
++	do {
++		n = read(fd, buf, len - 1);
++	} while (n < 0 && errno == EINTR);
++	close(fd);
++	if (n < 0)
++		return -1;
++	buf[n] = 0;
++	return 0;
++}
++
++static inline int write_file(const char *dir, const char *name, const char *val)
++{
++	char path[PATH_MAX];
++	int fd, err = 0;
++	ssize_t n;
++
++	if (snprintf(path, sizeof(path), "%s/%s", dir, name) >= (int)sizeof(path))
++		return -ENAMETOOLONG;
++	fd = open(path, O_WRONLY);
++	if (fd < 0)
++		return -errno;
++	n = write(fd, val, strlen(val));
++	if (n < 0)
++		err = -errno;
++	else if (n != (ssize_t)strlen(val))
++		err = -EIO;
++	if (close(fd) && !err)
++		err = -errno;
++	return err;
++}
++
++static inline int enter(const char *cg, pid_t pid)
++{
++	char buf[16];
++
++	snprintf(buf, sizeof(buf), "%d", pid);
++	return write_file(cg, "cgroup.procs", buf);
++}
++
++#endif /* DEADLINE_UTIL_H */
 -- 
 2.47.3
 
