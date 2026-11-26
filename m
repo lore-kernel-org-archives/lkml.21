@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795670096;
-	b=BtjNzXOS9nDz3cFOVfzWXawDCiVMQ+41ZMBvZMXOMVVODfWpZluEjLmA+RqG5sVi7H8Q
-	 52Gw1FfsY8wk1ARFWv3e1s86pEpbtrZUBGGWFF42vBzIVKkf+AuPTz2XwYe+OhfuhdNyp
-	 tqWKeKKXr7QcbIRYhuhKCbBdHffjNDyNaLf3Lt/NOoev2Vu3cXbgykjGifngf0EG34AXM
-	 C0/hHqJthRXlShpEsXygkA383IAFSa7JU2+OwF28MA+J3Fe9Ha97lcI5B1q2OE4HnORSd
-	 w7csNs7n1OTPjPudeogtb6v/O3G9ALHd8GntfSgSmXkuQpWoyvp24WVIi0f25Afjy5w==
+	t=1795670097;
+	b=kyIrzCr3UvotsQ9HWkZGUgDq7BS4tunNZAOCr56zf98/gzXwUPmpcJWgT45JYEoM74cV
+	 8c4XuN8vP3saF+8rBAUjelLrkRlJLVlGlELsOGuB2Cmrr8XhX7cc19WonmiWQf6hgrEqn
+	 Ya2zJgbQxDyeUtd5xyFPoCi+0ZZVXiOYapLR2OmaxoPCexiZv8kw7OlAl2CCPtxMp/pqC
+	 CsIfnAirrC8metMt/xPQjNgruV8Jj4nGaEe8L+gC9/L3HaCofCNmuyVQX1T2DxhmJmqV3
+	 kn0cx6PaKrejwMl6yaKfn8qKfbpprSwYMNQelbp+al9bquOR7PlbABck/ia6kiFpAeQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795670096;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795670097;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=5KJCVSkn54z9cg61j9emwWV4pAn4TZto82u6cLhHQJQ=;
-	b=HnjV6Sw0YQC4BpMbxbrSAeKDWjwDaf+Ik9ri40rD0yy0UkwLpebYF8K/fju7Xvzc3DKM
-	 p4jSngXA8WnLjFmVULs3nTJ8Db0QlYU9afsDRc2WrO3S8j/VoWHbxe7YNGqX0FgFGG/tv
-	 CQMTf4rAeik/SJrPoLlq23mgpx6KPUEam9Igoog19niZA/g3O13TRkYpq4uB1DDY5Wftg
-	 /mtYTml4VGVELA0HQheztgA18xqtpD7JdpI4h8HxuY+pAYQZkIJE9AMM3vqiS12l649yr
-	 AZ14OHJ/cAubjQ8V1s8GQt8vUcEwoewneHNM1zgJVvQ6CSY2G2Pa49Ud+kLkutcABiA==
+	bh=806Dwl8gBAMoS8dKxNUgqLNn/eQl7eh/qRw68LiXr1Q=;
+	b=ndVCuf1CKgYHtTYqrm0bR3ZjAObNejtjsZV5BAVh2v9OvN0UN7+S71XDmdLf3N3YTUpQ
+	 aBYlW/iiKabp9aC3uGlyPKAHvFNtloM1cwgRyViZhdtjxNcHZH/PmoUDpwpRLDD1iRdos
+	 8tlXl/nxCzyMnFkebc2fuPQTKdr3GwtP0Zh0q3U+pIc0vV1tjP8QFV1DRlnFray/m9PdI
+	 QEfrTqHU3KFQdf4EZl8cIDmqxW+eu6PALQNufiZtg+0OaymR/2NRjfySLR9SmVCb1fBKL
+	 In3p1kOqBm7ByGYq6vMLY5g9ST0p2lUostj4zCfa7yUizuuYTn3QqDeG/IxcnRs7tRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=layalina.io;
 	spf=pass smtp.mailfrom=layalina.io;
-	dkim=pass header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ZUeFIq2Y;
-	arc=none smtp.remote-ip=209.85.221.50
-Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
+	dkim=pass header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="liMxWW/c";
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0252E606A330
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:14:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0252E606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78929606A327
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:14:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78929606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=layalina.io
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=layalina.io
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ZUeFIq2Y
-Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-4ac08f4a0b2so4626887f8f.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:14:55 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=liMxWW/c
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso80897035e9.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:14:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=layalina-io.20260707.gappssmtp.com; s=20260707; t=1795670094; x=1796274894; darn=vger.kernel.org;
+        d=layalina-io.20260707.gappssmtp.com; s=20260707; t=1795670096; x=1796274896; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=5KJCVSkn54z9cg61j9emwWV4pAn4TZto82u6cLhHQJQ=;
-        b=ZUeFIq2YVM6xFW2blZJUOWgZpIwt+xqZM0JVskhQrba1qhmzdyBM5bPqBJ3/pWTO0U
-         4RtTcQEIP6PhDv+Ryi5/mOKAfGXajdUMSkcOgDV+Onqc8plrfAKQ3dCjEsrlCLjMo4KF
-         A6VVsrGFUH7Qy/8GaB32ZQ1hGSO52SZxvacVEsywIjPjWL9h/mAdhixUkfEmUu6esDgk
-         DCiG2so7gQ8drcDCY5v6c5RAVj7zGi57opFpZW96YQPi/VaLRcdZ801/EslAnkLAcjjp
-         OVnNuAn/+qV68kJR/8IQ0AOVJ/btiEHsD7THAXZqYQgQkUtreUo6dk2DciXYmpTj2q2/
-         TmLA==
+        bh=806Dwl8gBAMoS8dKxNUgqLNn/eQl7eh/qRw68LiXr1Q=;
+        b=liMxWW/cPPGVI8Yl9gxll7U+jT0oD6+yxnM53PSO+Tvg2gXM2MMG//X2aDnloEzskV
+         Cj/tlTehiUenFMp7C/AYWzSYGT6kSed5kl+ORnmF9Qn8/Px4GwKfCbqXcyEMh0jsgGEK
+         I2WzCJ4z8CmF+jbGaxSLEINrcpePDsU8pUnaKfhmu8dTv6xTIvR7L4/wIOrqLIh1EnRl
+         j6NrNHDLcF3ktFajeaXVBh7zCkNx2VuE5AC26HSAzIyUl/3BuOYUzIbYBKr0Tob9X6vB
+         jsbkV6UxROejqd+35zKSW+I1BIM/pH4BwZG8nS9reiFAu8VLhd/KxJxnCWL5xqowDU6H
+         fncg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795670094; x=1796274894;
+        d=1e100.net; s=20260707; t=1795670096; x=1796274896;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5KJCVSkn54z9cg61j9emwWV4pAn4TZto82u6cLhHQJQ=;
-        b=JfZ0sj5bvOEY6+CFlA/c8intgT6QRHCt4iFSopcLNXLzgZjHn3WcKoHl5IsCMPloQ/
-         uGoyutN3Zn3igFED4UmQknKGypCnIleqlCgqUC/LJUY7YyavgNZN9S9IL7JazNLRfVmy
-         T75TSp8m1RIXz2jHCSCZMxqQdzIV1aLZ4AWAh1DHzx6jbuRZZrSX3Wvlmc/BBCSjB1gk
-         9gMxNPes7x2/Mpo6INHxL9JIfyn8gRWvoBG/U/lzlmmFHdnIcGx7UggJvDJiQrgtJw+M
-         aRBTbj09FE7mD08Ruyzizh9/fVss2vQxyQxM2WZJf/QTbiWP9zH/pTKXL52EE777wmO1
-         fykw==
-X-Forwarded-Encrypted: i=1; AL+hErE7p0DJg5sf5JqS3uNAmrpXEJnYnir4Ruo3IYLIRvQ4lwldqPON5OPoBlPvCz9BqnnerdZkTLf8e8pvj+o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ZYTItKOPtHDhwkKG00Wdwn9zqQIYZLLMWE9PthQ3MFVWSyVqK
-	2ob8pwoK4TV+RO75OBobUsMiJE43Vd4o7oTrSgbChE2HAqe+e9+JtUOLy2DzzdWBuR8=
-X-Gm-Gg: AZFdTZckfynn2VYXn76o3nWVpmh5+DgOk3y2T5YJuuqyTJE2XDgjC45kkxkd1WGLRrv
-	Fx8tpzkOfSq9XWRIYBeMMXJLCPprWz8Sz4TTy9J8km2eoDcMCfmbRgz2ZdrH9Wyx+ruNdKFwVKE
-	XVtrz1CU9qSKvRodChqf5qdFpl8xGJcqdrs37RT2otCfb2jswE4L7A3MQhsAQAsTSeZ3LMeoehn
-	zbzrONW0uYCOUQ+XGQ6mAEx40h6QQxat/gzo7EFQ5DqDG27Mwb6N9gJDE9MJz20z6yH/aFEDV8a
-	lV3wtUyDc0PUlRuI4FcBVlA/X/on2ui+L1IvKXiAFQY1orpyGg7EN038xiWFJjo7GDwh1ELgcLX
-	NxPRTHB+uWQPvbNMLRA4HMJs/ukQkUCzKMWHxpS4OX5FqlsISo3DiqkT0UbI/PzW5v+wel1fLhY
-	SDROYn4pI+7J9KzwAAEw0Co6ZGAIYANJmgVVWXqyaMlFqX/Lcz/OsCw276ojob7GdB6i6IpiF2O
-	pvBzO66GEaboWi0gOtalqh+4l5di9eHo4YlfMpPI0C9E4JrwqS11MmaKH01pRMTrJn+sVfT+cHh
-	09ErpGojFTRY7Ui/DZrqBNDpic8A4Z4Uukz4YWX8ILQfd9mCKuhIA4/9NsFTmN6+eySnQSPzk9V
-	EytZsT7khmQ==
-X-Received: by 2002:a05:6000:402c:b0:4a3:41e1:9d16 with SMTP id ffacd0b85a97d-4abb19c05d0mr39004126f8f.25.1795670094345;
-        Wed, 25 Nov 2026 21:14:54 -0800 (PST)
+        bh=806Dwl8gBAMoS8dKxNUgqLNn/eQl7eh/qRw68LiXr1Q=;
+        b=BgRJqwIJHHl0j6Q7h7I0JCGojqV3xJcwTeZD+VkqLsoSeaur4+O35PLF55QHPlgz7E
+         hcMJUefkete3QDbYPGDPAnKWeyre1S/76YPepG/gvLntbPnQUuwjE4jQp0iOyhikASfl
+         x4R6RWLNyEyFXhZ2w8bRSJ3Ym+nkKERSGNgd799T++XfNIJVIePLfgPc04W05jrcFpiB
+         0sFH7v0mUBboTCUkNfdkhUXk7b7CKwrGdJmC4+p4jCnsBg2RlMg+Exgajf8B7Y8PTQAg
+         UHqJiM1xDWRkNbUdQv2ilndxvdu03fBeOV55QpRugrVgQIpflsaoMy/u2VdhR9Y1wwPu
+         Q/VA==
+X-Forwarded-Encrypted: i=1; AL+hErGyhf9LfKsps2XgCUuKjUi2FBL/8H51V5M01DJDPSVBKPps6B/RSX6C3gB8q79+4YJNFNjCMdqktdPz3lY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/r5xvBiffVgADSW7+g8L9x2/dIVk2nKrw3zKdtYNZz654Q4w0G
+	I7FeONf65pVIEd1pkoLlOWvyOgEF9Ezp4OYeG4la9FviktgxkrroD2UlxxqgTdsQYBA=
+X-Gm-Gg: AZFdTZeNJFMM/9QsaN1gqCl7xspEIKI/jRirEJq51rK4C3Mpk7mt1i3mdhukOvDtkLc
+	t5ta+OeIHHtaT1rR4T9t8O2YYMq7UZiAFz2Vpuyc7FZt3t0p0/FzYnUIHqBWtSSWR+5hzg7QO69
+	C53adT35bwAoVV/oMY8mf/lKm9uHGWj4QU7VbM53UVaNqLX4JLHxev95cAiNdzJe6HlJCI7iWtW
+	21Ro8UKtA+nVvjvPdT94UR14JdF0BBublHPRnsZOC2ZCs3u7/vWTbfg9ToJPrfWaSh4gycis5DO
+	61HEnaWJbPzW76PSSA0fUyJbOr6b7aMMvPfxBZdkior4R6X1cfKi+9Of1iTim92PvgAnLafQes7
+	2ioPMaZpVWCmtB4qCO9mOQ/AxOxmfnYN3Jye10R36BDa9iEBuZEwQYflJ0z83XpH/euU7eO+t3P
+	wYoWxDp4BPuPvZTxTXVtP0wMtjK6C8c5XWyqm0bWwC5TscbHY1Kd4ycrxE/kRc1tFFr11iLCLv/
+	vguW00XzxOWYrrlxXsQJ50vnL+UJ5m57IghKpbt0w0MIuYbdOKu9UDQuJf65aHKwrCyV5yOnuGl
+	DPNGkRW+TgDJooHWp7STb8DCxYQYxGGSD6fV2aBxw5s501wek53qeJVbUrWgVCqBx3pkukTiWwv
+	QqtA0/swz
+X-Received: by 2002:a05:600c:4584:b0:4bb:5de1:e90f with SMTP id 5b1f17b1804b1-4bb88819bcdmr395285965e9.31.1795670095606;
+        Wed, 25 Nov 2026 21:14:55 -0800 (PST)
 Received: from aerith (host109-153-232-219.range109-153.btcentralplus.com. [109.153.232.219])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b1ebsm39548128f8f.33.2026.11.25.21.14.52
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b1ebsm39548128f8f.33.2026.11.25.21.14.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 21:14:53 -0800 (PST)
+        Wed, 25 Nov 2026 21:14:55 -0800 (PST)
 From: Qais Yousef <qyousef@layalina.io>
 To: Ingo Molnar <mingo@kernel.org>,
 	Peter Zijlstra <peterz@infradead.org>,
@@ -94,9 +94,9 @@ Cc: Juri Lelli <juri.lelli@redhat.com>,
 	Thomas Gleixner <tglx@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	Qais Yousef <qyousef@layalina.io>
-Subject: [PATCH v3 08/10] sched/debugfs: Add rampup_multiplier to debugfs
-Date: Thu, 26 Nov 2026 05:14:27 +0000
-Message-ID: <20261126051429.14091-9-qyousef@layalina.io>
+Subject: [PATCH v3 09/10] sched/fair: Disable util_est when rampup_multiplier is 0
+Date: Thu, 26 Nov 2026 05:14:28 +0000
+Message-ID: <20261126051429.14091-10-qyousef@layalina.io>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261126051429.14091-1-qyousef@layalina.io>
 References: <20261126051429.14091-1-qyousef@layalina.io>
@@ -111,109 +111,60 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Bursty tasks are hard to predict. To use resources efficiently, the
-system would like to be exact as much as possible. But this poses
-a challenge for these bursty tasks that need to get access to more
-resources quickly.
+util_est is a great feature to enable busy tasks with long sleep time to
+maintain their perf level. But it can also be expensive in terms of
+power for tasks that have no such perf requirements and just happened to
+be busy in the last activation.
 
-The new sysctl_sched_qos_default_rampup_multiplier allows userspace to
-do that.  As the name implies, it only helps them to transition to
-a higher performance state when they get _busier_. That is perfectly
-periodic tasks by definition are not going through a transition and will
-run at a constant performance level. It is the tasks that need to
-transition from one periodic state to another periodic state that is at
-a higher level that this rampup_multiplier will help with. It also slows
-down the ewma decay of util_est which should help those bursty tasks to
-keep their faster rampup.
+If a task sets its rampup_multiplier to 0, then it indicates that it is
+happy to glide along with system default response and doesn't require
+responsiveness. We can use that to further imply that the task is happy
+to decay its util for long sleep too and disable util_est.
 
-This should work complimentary with uclamp. uclamp tells the system
-about min and max perf requirements which can be applied immediately.
-
-rampup_multiplier is about reactiveness to change in behavior;
-specifically when a task gets a sudden burst of work and gets busier.
-
-In practice this is found to be a much better control than uclamp_min as
-it is relative parameter and doesn't require absolute description. It
-allows the task to go through the motion faster without knowing exactly
-how busy it can get at any particular point of time.
-
-The intention is for this rampup multiplier to be applied only during
-a burst. It has no effect on perfectly periodic tasks.
-
-This is purely to set the default behavior. The intention is to provide
-per task interface later on.
+The behavior can be controlled via UTIL_EST_RAMPUP_ZERO sched_feat that
+is enabled by default.
 
 Signed-off-by: Qais Yousef <qyousef@layalina.io>
 ---
- kernel/sched/debug.c | 2 ++
- kernel/sched/fair.c  | 7 ++++++-
- kernel/sched/sched.h | 1 +
- 3 files changed, 9 insertions(+), 1 deletion(-)
+ kernel/sched/fair.c     | 8 ++++++++
+ kernel/sched/features.h | 5 +++++
+ 2 files changed, 13 insertions(+)
 
-diff --git a/kernel/sched/debug.c b/kernel/sched/debug.c
-index 94e65208807dd..56d520f076dd4 100644
---- a/kernel/sched/debug.c
-+++ b/kernel/sched/debug.c
-@@ -756,6 +756,8 @@ static __init int sched_init_debug(void)
- 	debugfs_create_u32("migration_cost_ns", 0644, debugfs_sched, &sysctl_sched_migration_cost);
- 	debugfs_create_u32("nr_migrate", 0644, debugfs_sched, &sysctl_sched_nr_migrate);
- 
-+	debugfs_create_u32("rampup_multiplier", 0644, debugfs_sched, &sysctl_sched_qos_default_rampup_multiplier);
-+
- 	sched_domains_mutex_lock();
- 	update_sched_domain_debugfs();
- 	sched_domains_mutex_unlock();
 diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index 7129347746436..8af44a20fb423 100644
+index 8af44a20fb423..88072e346aecf 100644
 --- a/kernel/sched/fair.c
 +++ b/kernel/sched/fair.c
-@@ -87,6 +87,8 @@ static unsigned int normalized_sysctl_sched_base_slice	= 700000ULL;
+@@ -5994,6 +5994,14 @@ static inline void util_est_update(struct sched_entity *se, bool running)
+ 	if (!sched_feat(UTIL_EST))
+ 		return;
  
- __read_mostly unsigned int sysctl_sched_migration_cost	= 500000UL;
- 
-+__read_mostly unsigned int sysctl_sched_qos_default_rampup_multiplier	= 4;
++	/*
++	 * rampup_multiplier = 0 indicates util_est is disabled.
++	 */
++	if (sched_feat(UTIL_EST_RAMPUP_ZERO) && !rampup_multiplier) {
++		ewma = 0;
++		goto done;
++	}
 +
- static int __init setup_sched_thermal_decay_shift(char *str)
- {
- 	pr_warn("Ignoring the deprecated sched_thermal_decay_shift= option\n");
-@@ -5985,6 +5987,7 @@ static inline unsigned long task_util_dequeued(struct task_struct *p);
+ 	/* Get current estimate of utilization */
+ 	ewma = READ_ONCE(se->avg.util_est);
  
- static inline void util_est_update(struct sched_entity *se, bool running)
- {
-+	unsigned long rampup_multiplier = READ_ONCE(sysctl_sched_qos_default_rampup_multiplier);
- 	unsigned int ewma, dequeued, last_ewma_diff;
- 	struct task_struct *p = task_of(se);
+diff --git a/kernel/sched/features.h b/kernel/sched/features.h
+index 500ece3e341fe..75d9d4595c4de 100644
+--- a/kernel/sched/features.h
++++ b/kernel/sched/features.h
+@@ -135,6 +135,11 @@ SCHED_FEAT(WA_BIAS, true)
+  */
+ SCHED_FEAT(UTIL_EST, true)
  
-@@ -6006,7 +6009,7 @@ static inline void util_est_update(struct sched_entity *se, bool running)
- 			unsigned int prev_ewma = ewma & ~UTIL_AVG_UNCHANGED;
++/*
++ * Disable util_est when rampup_multiplier is 0.
++ */
++SCHED_FEAT(UTIL_EST_RAMPUP_ZERO, true)
++
+ SCHED_FEAT(LATENCY_WARN, false)
  
- 			do_div(delta, 1000);
--			ewma = approximate_util_avg(prev_ewma, delta);
-+			ewma = approximate_util_avg(prev_ewma, delta * rampup_multiplier);
- 			/*
- 			 * Keep accumulating delta_exec if it is too small to cause
- 			 * a change.
-@@ -6074,6 +6077,8 @@ static inline void util_est_update(struct sched_entity *se, bool running)
- 	 * 0.25, thus making w=1/4 ( >>= UTIL_EST_WEIGHT_SHIFT)
- 	 */
- 	ewma <<= UTIL_EST_WEIGHT_SHIFT;
-+	if (rampup_multiplier)
-+		last_ewma_diff /= rampup_multiplier;
- 	ewma  -= last_ewma_diff;
- 	ewma >>= UTIL_EST_WEIGHT_SHIFT;
- done:
-diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-index 27c18701de35c..eea6129c5cba7 100644
---- a/kernel/sched/sched.h
-+++ b/kernel/sched/sched.h
-@@ -3270,6 +3270,7 @@ static inline void __attach_tasks(struct rq *rq, struct list_head *tasks)
- 
- extern __read_mostly unsigned int sysctl_sched_nr_migrate;
- extern __read_mostly unsigned int sysctl_sched_migration_cost;
-+extern __read_mostly unsigned int sysctl_sched_qos_default_rampup_multiplier;
- 
- extern unsigned int sysctl_sched_base_slice;
- 
+ /*
 -- 
 2.53.0
 
