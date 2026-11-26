@@ -1,102 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.39
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795680830;
-	b=hnDb3J2FefXd1xb08bCvsFEjmjM2gmrmWEy+BcUgOJko/ocRDqEuaT1TEQbGlwAen/oc
-	 vLzgpGl3ITyA1Au8mLl6H+1fNmJpspsgoo2jKuk4tKHYocZFEHKjBt3CJtvoixjfdmrKe
-	 /Yzrdj5FfuIVldqHAi5VTyLtzO6iyFAYNU2FNeysrad+FydXhdUe5I7lle5AyFKf1fti+
-	 TNQqOAtTwjSkzQl0DYqqx2MgI1/vIoguZKFo2dzpE+I5C2OXPGO0JMKSQSovFpRjZ2qKn
-	 LWSXXlmxT+4Mjul5MuCtjfV9NH4gJGglharypS1dmSlP169RGRQgZrxgu+gRyvhMG2Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795680830;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:In-Reply-To:References:Content-Transfer-Encoding:
-	 Content-Type:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=SH1v40jZDuAYiYznoFzAks5dcCde4UNXBob2PYPBeTE=;
-	b=RKAKDk3DeiZKerdz7khADBUmngOKtHF6awUg/vL3MRfbWsAcW+qzA1yAy5+AfltrYMQp
-	 S8yFwbXN+mo7qu6040vn2+m7s6AfxbBR2QgLs1lbcqOlIoF/RLruJ6ctmX7nkgmNNxDh/
-	 XypVpb500cYpiUpAKjCcaY3Pbm4R/EaOr9PtisUSeJJJwKgfxtl80l8GyLYFYzMWAuyYx
-	 llK21ZFKvvTXJ4cLG4Z6Jc8Wig0mMsnat+4vRMnhVMNKI0zFxUGUZRnyHUuehLahsWvPF
-	 YkTUGfeY7nVg7hlhuyNS67X1859LyEgYLewOABna9lA084WUtVo4zcy9oYutOuUfClQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=XZRtVQHm;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.39
-Received: from PH8PR06CU001.outbound.protection.outlook.com (mail-westus3azon11012039.outbound.protection.outlook.com [40.107.209.39])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.72
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795680836;
+	b=2FN/a0tvTCv4qeNMIHc8P2brBYo18eZ7jxOvNgbqt8Zz67VHjytcPaBdmMVPSJlMqkJO
+	 cBd4RHlnnNnASwDE3Fh2WZtzJ/QSsbXUIM3QIaab5Q88aWE5pzhrrH0dedrjMmcivjnD4
+	 Ax9OShqcuoXjZ+hc2KB2qVbR509uRMiLGEmfNtnpqWfyehM/2K/YpAxr5sSSfJ1hskqai
+	 qgmxOM+AC7KdT+fMo/XyDSn5bAA6IkGcwowiPiekc8QUMWnoejXVzJtGSCHBSvDwEPutf
+	 FkayCtYPt1SlWh01vMkQBrxKtog1fjp4CyRmPiFYwhg5QIla+y6EX6AMjvjmzi9/BaQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795680836;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=WVH3s10tcaCw9+DG19YQgdVEPUmM+p4Y3mX4LGTO7Kg=;
+	b=P0dZyiN8rfOyiZZIOos7SY3skFd8e07UDMrYG+QgeVekhy+HBosgkJYPa9K0609VmLaf
+	 7OjdOYhtvqh05AV5egENngYfPe3wdm9aCT8Sp2w5m+8IJENyTzLzOlxs/mJh3dE2qBECE
+	 br6okjbyXdD3hYvq8UGfzAbRlRMmIuy5fa/mSMzt6Lqs10BbvrWCI3WuskXacSSv7w7to
+	 bCAgykydymQ80eg2GVHx+SRiil3TWyDGYncNHEzU+u0hUQQDBMXgAXrAuRtKF6d5KrLpZ
+	 YiqbSITcXBDXGZlf6/nJYlYNP6fG2Tsdahi6ag993BAbErRr+BpXAyQ/S6AgzUxiDjg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ih3nUqid;
+	arc=none smtp.remote-ip=209.85.221.72
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com [209.85.221.72])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C468E606A31C;
-	Thu, 26 Nov 2026 08:13:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C468E606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AD14606A33C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:13:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1AD14606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=XZRtVQHm
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=V8Z0J3bBqJbQbawe7YAtrya7Zd+axzddE9TS4ksm0Anf4GzOwAveajNo4EpYSUgHd1JS8H9HmBXVsbtYc03BjymlsMYM/m3SczIMlgGRU2+vDD02OyR+t/iuhBQH6+4ErvvjZs44GTeFVLyAhnyhMaEkyldqDo2BZcYAIk3KED6SjFSM1Lc3rzLxaGLcEP53MDyBAYl3aXg2xNG0FM661R6E/GrZCKqdE0UTbGIRpoi+n7ALtNZvD1+qyfZNhhk3p8RgVqRP30U0k455tuxeicaVEQs3SPOLvA9srSJJlfGOjbfzZI/E5pId7cQZ9X8OlLPWtHEA5x96rpqZ/SS87Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SH1v40jZDuAYiYznoFzAks5dcCde4UNXBob2PYPBeTE=;
- b=kR28H2Icr2ctm+grysmLs8dVw5igUApT9f0er6qz2Q4993kX5pZPZ8Qnp/kaNxey/Nus7iYzErPHK4uG0XlSYq4XHOcGzOIPmQZUisYFCdAxd1r+f7JgFh4SNyFl+KsW2+sPHq6A3iAwxgJn0Qf1iQK78J6HqWu1eFQm26WAuASskTURYqjlzt1bRMXHjdZEjvk7IQ+LzlUIdECfhibEUCorPLZ/HyE/adFXitogvxYc8XUu4lrXqHOSQexdxwrK1k+na9DVS6gilv+iPhzYlt2HXAS1HDH30Qf8ByGLXzZE6SNNERHSIqrHUY+DcAgtP7EDON+vRq8sOM/MRMlL6g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SH1v40jZDuAYiYznoFzAks5dcCde4UNXBob2PYPBeTE=;
- b=XZRtVQHmG+3BzKBwtBJYvRFYJ9TncN+gazXp/MgPw9EU7j5mP15aQxcfLQHx0xDUnbUKsRR3PrywaE1CFVW4c60z1K0/HPWQ28qANXRp50hqNfGFDbB72sGBMwglTjQjMySircNCZYCECUS70hkBrTEj5/1BhBL4Mww5KNkdxRXC7mr2lAU7SM9frgfxaJMp5PxUa49jztNNprVWLLjUiJ16/NYhtpKc+LFlTkve1ZUEWu+yAzkR0bmMW5Fgo2mIZqYXlYAl8KA6HJ2Nt9RyS/2OD6waGsMomwQuLhpfPm6uufBrIK7LfBlrRnXet7iVhJfFyzY+0C+7mYQHJLSDkw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
- by BL1PR12MB5825.namprd12.prod.outlook.com (2603:10b6:208:394::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
- 2026 08:13:45 +0000
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0639.012; Thu, 26 Nov 2026
- 08:13:45 +0000
-From: Mikko Perttunen <mperttunen@nvidia.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>,
- Thierry Reding <thierry.reding@kernel.org>,
- Jonathan Hunter <jonathanh@nvidia.com>, stable@vger.kernel.org
-Cc: Svyatoslav Ryhel <clamor95@gmail.com>, linux-pm@vger.kernel.org,
- linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, Patrick Fischer <admin@tsv-stahl-riesa.de>,
- admin@tsv-stahl-riesa.de
-Subject:
- Re: [PATCH 1/2] thermal: tegra: soctherm-fuse: Fix shifted_cp extension
-Date: Thu, 26 Nov 2026 17:13:41 +0900
-Message-ID: <JfN0BOneRLm5hD336qlZ3Q@nvidia.com>
-In-Reply-To:
- <20261106-upstream-soctherm-t114-v1-1-c875d1921084@tsv-stahl-riesa.de>
-References:
- <20261106-upstream-soctherm-t114-v1-0-c875d1921084@tsv-stahl-riesa.de>
- <20261106-upstream-soctherm-t114-v1-1-c875d1921084@tsv-stahl-riesa.de>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-ClientProxiedBy: TYCP286CA0203.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:385::16) To SJ2PR12MB9161.namprd12.prod.outlook.com
- (2603:10b6:a03:566::20)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ih3nUqid
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-48e0461e040so5265497f8f.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:13:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795680832; x=1796285632; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:references:mime-version:in-reply-to:date:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=WVH3s10tcaCw9+DG19YQgdVEPUmM+p4Y3mX4LGTO7Kg=;
+        b=ih3nUqidlANnxrMlP+nrLNu2mMYkPYWJ9H35iadP7Uf+z0o1dOMWCLSQtv9LfoVmKu
+         xoV1AgneAv8gXunrisfQfryGbvznRoWy8BUnm+tFualPu65NtzdiApKPgDgETv8BLWSd
+         PTP6Ob5nAqKbAkOt7dfuqlAEq/r8MOu5J46VDB11lGRtLcSh6VWqJV7TRLnnzIz/xv+M
+         ZLf+KYv+TUhEEokVWJg0x6+zSPzfedPoaa+cYLhUKLqkEPgo9R0nHVPFsj/98tHkMlmR
+         6eNWR8Cfnw1o0IrxmwEm4LFqr1vV0nOKA7MqEpip2/HVbln/nHcIEEXbgsDjWA7s6yd5
+         Ae0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795680832; x=1796285632;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:references:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WVH3s10tcaCw9+DG19YQgdVEPUmM+p4Y3mX4LGTO7Kg=;
+        b=rOpRUBtzD3GWRsGTMkWe7qzenSxbhdf05yXRo02DV1t1SP87fqSgw/Qs08bYlyRBkC
+         1UyPdUrHOdUNLR016nK4w5ZSf/JbKkRh74/j3Hmd9wqGEMwlv5LCCwZHN0PWMPlmY51y
+         CYGaZJ8WLNiP5F+2qwoffAl/tfw0WsdIubhdkNJsFZbRRhfSzHlQjtZ82G8UYe3OE1A3
+         J0Pld/lC+8QoQ+ZBB4LaDlWvjoboYlvdb2Tu2qgcN/17JVE6n0Rb9gQvLI/PNPrRkuzJ
+         FQHFKdMi7pzD6iXrBgwogTSGW7PzLzuEbrLZxKHsNybxNJdSGSyddbMooFn5XUflkYl7
+         ABtg==
+X-Forwarded-Encrypted: i=1; AL+hErEr92U9QeCdDfrGZDneR5LZxz2rZjrODwqM7hBHvL0I9iBl407J1oOc73rxkoDJQsPJ4G87RImAShq0jzA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+CW8oktbK9kYC6rr3b3AKl169C/wf0EYkUO3l7iu/aTVMYSasB
+	7ATScAFdl3UfjAcYw5U4nx6n1PAsPGCjLhA5OvlHMtIK6qLW3JHQrwmlXY0GPi4413l+gAHuSki
+	NTDawPJa6+D9RpPLwKw==
+X-Received: from wrbdy12.prod.google.com ([2002:a05:6000:e4c:b0:4a4:a9ad:286])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:adf:e00c:0:20b0:4a7:9630:7b5c with SMTP id ffacd0b85a97d-4abb225e976mr27696136f8f.29.1795680832256;
+ Thu, 26 Nov 2026 00:13:52 -0800 (PST)
+Date: Thu, 26 Nov 2026 08:13:44 +0000
+In-Reply-To: <20261124-dev-pin-init-doc-v1-1-dd0a3eda9018@garyguo.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,118 +79,101 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|BL1PR12MB5825:EE_
-X-MS-Office365-Filtering-Correlation-Id: 48c24923-6027-439f-3952-08df4b9530cb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|10070799003|7416014|366016|376014|1800799024|23010399003|4143699003|6133799003|261009223027099003|22082099003|18002099003|10067099003|11063799006|56012099006|261102123227099003|261028144727099003|261026140227099003|261021123027099003|261021121427099003|261022105027099003;
-X-Microsoft-Antispam-Message-Info:
-	DwqHAkaIEJgzxEzdjM4Su9NCz2EAL8LP8L++ksuAWVkQ2lU57eGaKvn8lW3vHFPmvZro0BqN8Xc2V8IWvinQQssxQ+Ev7Hi/dqplUCHhsbvJgnItIVrWpWH3ryI3vpfBwKKBL75SWtHcDFQ47UieylDwtEBvw2gCNzZPd/4Gix2qO7bIiL9JnzIBUJrjT7mSjCzYq51bmqPsM6xAJ4/ab3strMxMwKg+kObsENYWk1x2AHf8+fi9z+wsF8tlvU6luEBxsb143Yo/JQCgv65sqmSBcBDAZColjguI3KMtDCQotwHUaHOo/oj6XLYxVdvL3fe8DWaiMdMuAbOBOPDRvSy27+vvKZvRCJg21z/PM5vuNADVwltkEzodHmr9lPhVya9BpkjILpQw8U1jVAzMzf0Gz6P6MYXVDoJSwb8Hid3kUKVo8CbG6/dKnkqzFcvH2rVuKIHVa3wgC4WCSliQwhDsdszDrSLl15cHPLyVJwpciGw1ZCjVIl9VkKUYbeankw6CIZz7nsGbUN6st449gdM5j41Q4PuKfxepUo3zC36Zsimz7oXAcjeWzKtfbRAzbUrsiCZrhXWCfZgT/BFIwAIWfNo/ieScupTVb1jYwJHZi93lo4FBx4duqd3H5kpTnPspa6muC14DGHnPTPdhim7WQcz9tKZdtLYMYLO4oK0=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(7416014)(366016)(376014)(1800799024)(23010399003)(4143699003)(6133799003)(261009223027099003)(22082099003)(18002099003)(10067099003)(11063799006)(56012099006)(261102123227099003)(261028144727099003)(261026140227099003)(261021123027099003)(261021121427099003)(261022105027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?YXdHZmZvVFRlc29iVk9Sd1VLS1JMQzR0M2k4L0RPWXVDVnpLUnFxVGVxOWRn?=
- =?utf-8?B?UVdheUJYd0Nac1I4S0dVQ2tEUFVld0E1U3JZTGRYdWh2bFNBaUhqNmpCekli?=
- =?utf-8?B?aDBLam5aU3c0azc2YTArR2hCSmJqdzZrTkJBNnE4RFVZSDc1aHFRUDl3RFdz?=
- =?utf-8?B?TWV3WjVIM2Vma2hRMFBJczN0dEdvRFZ3WHJaeGFOcU0yVjluZ3RacjAvNDl4?=
- =?utf-8?B?RXM4SVNVdFNYZHA1OVNhZW80VmgxcmNJcWtXbHgxbnJXV2JXaE0rR3F4YWlP?=
- =?utf-8?B?ZHc2OEY4dmJGNFh3TUlPdytONU5aYWxYL003b21EOGVYRzlna1BEVmlhSlFi?=
- =?utf-8?B?azZBMDh5R3ViZFJSb0tyaFB2VDBtM0xMb0xaUkoyTHdBNlJVMlVZeEx1T09J?=
- =?utf-8?B?VGREam14T0ZZVkpqOHJvT3Z1eEJ5ZXZrR0hjN3dJVWp3L1o0WkJ0Tm9tMlRs?=
- =?utf-8?B?UDA3ODRCOXgwd2hDUzRvQkdVZEpiV3R1MWxsMmlvZzdhRkF1bG0vSWttV0Rk?=
- =?utf-8?B?VTBSS21Kb25VTDExM2dsRzdTYlQ4aFRZNGIvUzBYT3lhSzgwOVBnRGNaajRv?=
- =?utf-8?B?eXdOZjF3VDB6WC8rdmhUcUU3eTNaN0dWay9FTFlMZnNoWXYvSVBiY3I2SERE?=
- =?utf-8?B?WE11b0pVcnh6VStLS0lPaVFlZEVvQUhDVGE5M04wTmVhUVlzWUNIQkxILzdw?=
- =?utf-8?B?NEs5WFNoQ1pzVlQrUGFuRmNzcTJPQklMMWJiTnRsOHVtc0VGNXhjbkRIMUJN?=
- =?utf-8?B?MDNhc3B6L3JldnI0QTdFb1l5RWVENkRNTk1XcGtPZFpEZWhxWFpnTVEranln?=
- =?utf-8?B?R3MrakgwSUtuVXZDOGFxbVp6cHBvcm44QnM5S2F5ZE1pbXd1MzhjbHhGWVF4?=
- =?utf-8?B?L0cwVVIvQXpCdzIxa09TZzRudmtjLzdRMHkvLzZzdEZJalMyb1c1ajIwTjg5?=
- =?utf-8?B?bEZMajhwbGMySFlXdVI4eEVSbW5RcmlzS1VKNWxKVWUyQzJUNGd4S3o5SHEv?=
- =?utf-8?B?MUdvdXlpbld2enErbFdES1l4M0RnemtWMm5OTHpkT2NWRVBRUHVVWG94S3dG?=
- =?utf-8?B?bk1maDJENVlEditBak1MbDZLek8wZ0MyaS9LRHZ6ZlhERm4veitWeUovYkdW?=
- =?utf-8?B?WFYvVUtKZ3FiNUNaWkMydGgwSWF0Y0lta3ZHcytoTHNvOFF1d1dPNVVGSUVI?=
- =?utf-8?B?ZVZSQWVMaFhXVzJtK3lFb3RiU1ptMEFGS2dWRGFMa1c2UlBnb2NwQ3dQV2x5?=
- =?utf-8?B?OVczMFlxWlY3NTZSdDBjaWVPdFlBNVpVdDRpRm9Xa21sTHhkTnVJcTJkOS81?=
- =?utf-8?B?UmNnN3FQUHordlNoMXZiMjFvNmk0YjJuMk03TzRnZkZ1MmpLcE1ORmJpc3h0?=
- =?utf-8?B?WGtNdUhqV1U3OWo4aHBjVEVqWVdQTnZNNDB2aysrSXZJNGNDRWRyK0oySmtS?=
- =?utf-8?B?eU5DdVpveTQxRFY1VUdPS0VHRlNIbTNCM0xWUWNDdWgzeWJjUHdDUVl2Q2VR?=
- =?utf-8?B?ZlhDY1o2Vm9jTHZ2b3Q4VTdoOFJ2bU9NSWs5V3NhNWg0TGw2VFllUllWbVRa?=
- =?utf-8?B?eHB0Si9nUksvdzlBa0c0YVhwTGJVSTl6Wit4RUg2R1d3Rnk2NXRDR2oxTXdU?=
- =?utf-8?B?QWxWQ1l4L1NPc2Q1aVdRZTR3WFU3cHJDY0dweThIYUc4R2VyQmJ3SVdwaXFt?=
- =?utf-8?B?T0VrRzJFNVFNUU01bmE3Q3BSSjBXL2FkMGtuUUNITzZBNGIyTk8zS2ZpRVpY?=
- =?utf-8?B?aXA4ZXZyUnNRdWNONkdDcStNUXpmcWNoeHBneXhycmdDd2M1S1FwcnBLM0E1?=
- =?utf-8?B?Rm9VWUU4RVR6N1FTZ3VDRWwvVHg2MTNldlR6RE0wU3lqSDdRNGZ0SVlUVC96?=
- =?utf-8?B?NEJlQkQ1bVVWQlpnZkJ1dEJOS0J1MnZBajhkcE5VWGptVWMvZUxHTlNDd1dY?=
- =?utf-8?B?NTJDb3AwZjM3WnRpcWJWZFFTS0NEMWl3akNoakZkVUdtRTlwbk96WDY5QktO?=
- =?utf-8?B?R00wUGkyOVkydWZ2bDNjVTlNc0xNZmVQSjVoZ3JyR29VaU96VlFjNWxlSVd3?=
- =?utf-8?B?WThDY3gxZnY0VmY0aHlUOHRFWHNDOGd0UXUzNlZEaHY2blZNZ3pXT0I0dVNZ?=
- =?utf-8?B?OUdvZUNYV09Ma0ZkRXJYWGNhQUtXWWNwSU1pczhRQTc2WTNVbXRhMDJxRmFY?=
- =?utf-8?B?VHg5YWUrdk15SVNSSGRYSVdvS2M4L0NTQWw1UnlvbzlXZkIrRFJXd21GVUcz?=
- =?utf-8?B?TDVTMHlueGNlZmZrNkNEalc2TmJqeXpZSlZFK2J1RlJUVkM1R3dQdGhGTVRU?=
- =?utf-8?B?UTdPVm51Q1RRRG5NdDlNK3hyN0N4NS9KVitVTmo5UzBxVWExYTgzR0RVVWRj?=
- =?utf-8?Q?vG1EvwH1v99n25YovxPyHp6eZnT16L4DCOMkIdA6plcQs?=
-X-MS-Exchange-AntiSpam-MessageData-1: mqIMwwit/yD5sQ==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 48c24923-6027-439f-3952-08df4b9530cb
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 08:13:45.3098
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sgLpXgcQ3q1Efc1AoBXLSSzJ0GZ6DjVbJkC5aGLl+8eeaX6v8hZB1lrJppLdo6rbOCwYppeqrERIQnA+RTIqzA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5825
+Mime-Version: 1.0
+References: <20261124-dev-pin-init-doc-v1-1-dd0a3eda9018@garyguo.net>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+Message-ID: <20261126081346.3466629-1-aliceryhl@google.com>
+Subject: Re: [PATCH] rust: pin-init: document self-referential feature
+From: Alice Ryhl <aliceryhl@google.com>
+To: Gary Guo <gary@kernel.org>
+Cc: Alice Ryhl <aliceryhl@google.com>, Benno Lossin <lossin@kernel.org>, 
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
+	"=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?=" <bjorn3_gh@protonmail.com>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
+	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
+	Alexandre Courbot <acourbot@nvidia.com>, "=?UTF-8?q?Onur=20=C3=96zkan?=" <work@onurozkan.dev>, rust-for-linux@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Gary Guo <gary@garyguo.net>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Saturday, November 7, 2026 5:31=E2=80=AFAM Patrick Fischer via B4 Relay =
-wrote:
-> From: Svyatoslav Ryhel <clamor95@gmail.com>
->=20
-> The shifted_cp value in tegra_calc_shared_calib() should be passed to
-> sign_extend32() similarly to how shifted_ft is handled. This omission
-> caused malfunctions in the GPU and memory thermal zones, which was
-> observed on the Tegratab.
->=20
-> Tegra124, Tegra132 and Tegra210 are not affected: SHIFT_CP is in the
-> low six bits of their fuse word, so sign-extending the whole word gives
-> the same result. Only Tegra114 has SHIFT_CP in bits [15:10].
->=20
-> Fixes: 48fc33b95159 ("thermal/drivers/tegra/soctherm-fuse: Prepare calibr=
-ation for Tegra114 support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
-> Signed-off-by: Patrick Fischer <admin@tsv-stahl-riesa.de>
-> ---
->  drivers/thermal/tegra/soctherm-fuse.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/drivers/thermal/tegra/soctherm-fuse.c b/drivers/thermal/tegr=
-a/soctherm-fuse.c
-> index 8d37cd8c9122..2de1d0cb676e 100644
-> --- a/drivers/thermal/tegra/soctherm-fuse.c
-> +++ b/drivers/thermal/tegra/soctherm-fuse.c
-> @@ -102,7 +102,7 @@ int tegra_calc_shared_calib(const struct tegra_socthe=
-rm_fuse *tfuse,
-> =20
->  	shifted_cp =3D (val & tfuse->fuse_shift_cp_mask) >>
->  		     tfuse->fuse_shift_cp_shift;
-> -	shifted_cp =3D sign_extend32(val, 5);
-> +	shifted_cp =3D sign_extend32(shifted_cp, 5);
-> =20
->  	shared->actual_temp_cp =3D 2 * NOMINAL_CALIB_CP + shifted_cp;
->  	shared->actual_temp_ft =3D 2 * tfuse->nominal_calib_ft + shifted_ft;
->=20
-> --=20
-> 2.56.0
->=20
->=20
->=20
+On Tue, Nov 24, 2026 at 10:16:23PM +0000, Gary Guo wrote:
+> +/// When initializing such a struct with [`pin_init!`], every named init=
+ialized field have a
+> +/// binding generated for it (as `&T`/`Pin<&T>` for fields share-borrowe=
+d, or `&mut`/`Pin<&mut T>`
+> +/// for fields mutably-borrowed), so a field can borrow from the fields =
+initialized before it:
 
-Reviewed-by: Mikko Perttunen <mperttunen@nvidia.com>
+A couple of minor typos here:
+- "have a" -> "has a"
+- "share-borrowed" -> "shared-borrowed" (to match "Mutable Borrows" below)
+- "`&mut`/`Pin<&mut T>`" -> "`&mut T`/`Pin<&mut T>`"
 
+> +/// Note that `&mut`/`Pin<&mut T>` bindings are also generated for non-b=
+orrowed field, but access to
+> +/// them are limited to within the initializer.
 
+Same here:
+- "`&mut`/`Pin<&mut T>`" -> "`&mut T`/`Pin<&mut T>`"
+- "non-borrowed field" -> "non-borrowed fields"
+- "access to them are" -> "access to them is"
 
+> +/// The macro verifies that captures marked covariant really are covaria=
+nt. `#[uses]` accepts a
+> +/// comma-separated list of lifetimes, each with an optional variance (t=
+he default being
+> +/// `covariant`). The special lifetime `'_` stands for all field lifetim=
+es mentioned in the type
+> +/// of the field, e.g. `#[uses('_: invariant)]`.
+
+I think `'_` also applies to existential lifetimes mentioned in the
+field type, not just field lifetimes.
+
+> +/// An existential lifetime is not a parameter of the struct, so just li=
+ke a field lifetime it is
+> +/// hidden from the type of the struct. Unlike a field lifetime, it is n=
+ot tied to a field; the
+> +/// only bounds placed on it are those written in the where clause (here=
+ `'x: 'a`).
+
+I think it'd be useful to explicitly say:
+
+	are those written in the where clause (here `'x: 'a`, i.e. 'x is
+	shorter than 'a).
+
+> +/// - `project(self: Pin<&mut Self>)` =E2=80=94 the pin projection: `#[p=
+in]` fields are projected as
+> +///   `Pin<&mut T>`, all other fields as `&mut T`. Fields that capture a=
+ field lifetime covariantly
+> +///   are only projected as (possibly pinned) shared references; fields =
+with invariant field
+> +///   lifetime capture are omitted entirely.
+> +/// - `with_project(self: Pin<&mut Self>, f)` =E2=80=94 calls `f` with a=
+ projection in which every
+> +///   visible field has its actual field lifetime, so even invariant cap=
+tures are visible.
+> +/// - `with_project_ref(self: Pin<&Self>, f)` =E2=80=94 the shared versi=
+on of `with_project`.
+> +///
+> +/// For all projections, shared borrow fields are only accessible with s=
+hared references, and
+> +/// mutably borrowed fields are omitted (they are only accessible throug=
+h the fields that borrow
+> +/// them).
+
+"shared borrow fields" -> "shared-borrowed fields" (to match "mutably
+borrowed fields" and avoid sounding like fields that hold a borrow).
+
+> +/// The fields are initialized in the order that they appear in the init=
+ializer. A let binding
+> +/// is generated so already initialized fields can be read. For [self-re=
+ferential
+> +/// structs](pin_data#self-referential-structs), you may also use such g=
+enerated bindings to
+> +/// initialize fields that borrow from them.
+
+`init!` just below still has `- no references to fields are allowed to
+be created inside of the initializer.` even though `init!` generates the
+same `let` bindings for named fields.
+
+Alice
