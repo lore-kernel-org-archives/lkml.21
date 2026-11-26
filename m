@@ -1,79 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795678550;
-	b=g/HlwbRfMdB3a4KZazSTvzxZ0fkhZHaA6GqFEGRkj+3Bj6DWWWbCNQPyod84xpiSrUaW
-	 mic56Yi2+1ir6PUzppHDLKuWQxcp/MeVjghThdPzUW1hNAOQEuUH7b40kFtrpLl+KlEq3
-	 JZu5uBWOtOmLTfQk3br31LtvSbBSzDQ+Spxpcun57p2/u9qH5s+kpP9fOH4NMqoc5Pzrl
-	 CJiNrQTgYFUZx7hZ82IzLlb7MybxM7y6gciBcbrZ1poql8VjjlZ/GHc2s85S/zhXlUnnT
-	 vC/efEYvPmjyO548ESPQrb+85tguDhB3b8j1sYgD0RtHP1XzGjg8Yfo72UsLKc/G/+w==
+	t=1795678706;
+	b=H3MNI1jBZsYeYfdL0JfTIHuc8rBa+TYtt0k+U71QTEqek4KV8gey3PljpWMDPPJTUsyr
+	 yTrWpN0fVrpnvttRJfBSUVWjTQNWiTUq/1tZBL5tStlD0AksopuU79hgBiVK5tKO9X8cI
+	 JWIU8Na1rnwSZDDk6ggqWqs9xfZQNaTNa43y7Wj4qAwKMZqpeAPpu8UnrbG/bf8rm0tR6
+	 K+PnmoyPtCfE6505fQeBiWbHurxjXmOuMlas6mGFEjt4z3gW30BnM5V+lAFAMOHqdEs7z
+	 pbz41uqqCuaQueDaOweMIDgBHAoK4JSsCUqBa1kTzsUekUTyECy40LZrN30Wu9I6HYg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795678550;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=2eugPvCFuopdM2cplxwflGqsU9A8QEDx/1U3R4WAaHc=;
-	b=d8f6zaXFw3udZ9xIxqym02ONkfPqEcKYrQ8Xb595NAR3kSKRnMg8TflJrQR9M9fU85nA
-	 +he6C3h6qBWkLzd0TPeRfmaHzwgX1XAEbLMD3ty1Ck3lr1FOweJAk09ZcERBABWClTC7w
-	 ToEleBFWAltvYyAcEULhTzeAadIrszboAnPXBgbGkLdrIH6RWutxzpL7C0Q/DNHp0s9Oe
-	 WmZZvvhUpGXZk3wL9ryicpi/ZXx7zqx+jqaHrb1r9Qj1Mg2x2nsPsv16myAYuOyH0ZVKj
-	 COP7LjBqOoRU4yTg6GIXGEyfuT61BpYJ2bEhkZaO8qAJLQ9vpw3CGY2UeUpzHqGsj1w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795678706;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:
+	 Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-Proofpoint-GUID:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=YA1Blq4ppgGh0yHluPfL3JZZmE/oyALbTlX72JCcysw=;
+	b=05upzN0OwZ7PHelD4adeQ+G5zJT9mz160PpMXKjBq2Vou3oU5/ENVsTomOPehXGBKvel
+	 iE6Plbq3Dbg3HSHlsRzZo2AYHKyq4hsLA7jTovs2tOO/q+cLzpbHurNo+auhFAQbMh55f
+	 Dw9wXwtC80+SMkoci2GEMkEhRKtUoKR0N7Ef4g4uZWs2uA3hZz4bjxayX7jvKj1LJDjc6
+	 eeEY5ztKdS8RidiHns8ualibJ4yrzkjla5KItdPZX+gFAHy0lVuQxRKeYXUeKyvSoSArj
+	 /3ArUcC6xj4fLWUcq5BUoGADI1iKzk3Awk8pRHH7jyF06GWuZZr/v0EzZ8aF0/7BukA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=IuYmYDsN;
-	arc=none smtp.remote-ip=198.175.65.15
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=cpH1xXzK;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=NVGHONBO;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 459CE606A31C;
-	Thu, 26 Nov 2026 07:35:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 459CE606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5E4E606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:38:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5E4E606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=IuYmYDsN
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795678549; x=1827214549;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=frTDRGBtprvjeW8e1zSOPrw9hbhdOFAeRBZMQNXbmgE=;
-  b=IuYmYDsNpnXuBbIQm3P80s5f2xDdVNPbIrdb+Ge7aoRTiWjl9X3JPwgA
-   NV3JtGKTWs+jmNSShTujnaGyCC/JSUrIuVK3EtELfMHe+RjcxsEJ8FZCL
-   28ZaOLt4wBi1c5j0bSGMJKiqPiFZmHS62V1jhvRzgT+QRfn0kjy8RSIIH
-   45VfA4jtwBq2F85ffqF07LpR4gxOBmmO63SgnBoFGMlkPUOC+garFNxKu
-   S35JXhYbrBylaSPZ4ICn8wi98W0IENzr2Qwzb/GLSCDcpZO//dlBUtADT
-   A4xX6qbonhdNkxsoUp6YoOhOz6QLxryHa936oXTxcgCckbbljOrn9NqZ/
-   w==;
-X-CSE-ConnectionGUID: 3sQMpprJSV6e8KfLb4P18Q==
-X-CSE-MsgGUID: lIz7evS+TuuFyZzUSPlsaw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4565351"
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="4565351"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 23:35:48 -0800
-X-CSE-ConnectionGUID: IAfJMe5YRzKfrVeBeUuE0A==
-X-CSE-MsgGUID: uEOi2c1+QeGm5wuDaRGuKQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="11880657"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by orviesa008.jf.intel.com with ESMTP; 25 Nov 2026 23:35:47 -0800
-Received: by black.igk.intel.com (Postfix, from userid 1001)
-	id B1F1098; Thu, 26 Nov 2026 08:35:45 +0100 (CET)
-Date: Thu, 26 Nov 2026 08:35:45 +0100
-From: Mika Westerberg <mika.westerberg@linux.intel.com>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Maciej Strozek <mstrozek@opensource.cirrus.com>,
-	Andy Shevchenko <andy@kernel.org>, brgl@kernel.org,
-	patches@opensource.cirrus.com, linux-gpio@vger.kernel.org,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] pinctrl: cs42l43: Add GPIO controlled mic/spk mute LEDs
-Message-ID: <20261126073545.GM191152@black.igk.intel.com>
-References: <20261110142058.354518-1-mstrozek@opensource.cirrus.com>
- <CAD++jLmUNxbVBLXg1aGysRGCjcQFjo=JSwx4-=8TWa7bj-iXuA@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=cpH1xXzK;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=NVGHONBO
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ7Cxgt062164
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:38:25 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=YA1Blq4ppgGh0yHluPfL3J
+	ZZmE/oyALbTlX72JCcysw=; b=cpH1xXzKBhWVYrY9gl5H953oMoIK4Ud4LDBeCC
+	rf3fBdmxLvLcScos3P0Qj4yELCD85kPHW7qFTM+W3ShgEjz95491wyS4jYX9XNmW
+	nPe/O3X2+uQopm2Q3ne7T7U9VZ2HveD0gQ8CBuHvlcag1BOgjAVSlZ2/kxVpIqaa
+	9LfeWnTHR2JtXiBOIUsJAj4/FFtKFjNRHV1kBZYZLGYa1tKOXk35++eLTJArCWOt
+	aslOUGCx+IamiIYTRx9xCzMQhMCC0f6tXtjF+cVjmBtGCFWqSYXxG20t80S2qjlb
+	8ur3GIa37xxoQvjeAOEkb5wgyMQSzWkRIR68L2XSHhIIEYig==
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j61ark8gu-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:38:24 +0000 (GMT)
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cc7361c62b9so4207170a12.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:38:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795678704; x=1796283504; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=YA1Blq4ppgGh0yHluPfL3JZZmE/oyALbTlX72JCcysw=;
+        b=NVGHONBOdlumplamWq2K89MX7EPtwVhVqilCn7b9oY4xAn0oHVZ3Dr6Es2E6bttYFe
+         XOzbcLrHCCBitjWj+PAh2okfoCNk5zDeejhINWIWt+POKfsniYX3bBW4yCJXRLLXaHeL
+         0iTQxsQB+aAEc7SX+YQhyP7JuMlU7GrpkfQ36FLxc9Ig9fW8ka4DkDKBCALNPfuplZaT
+         9yZmnLFMD4NwciOZdhays6MEb+obwROxE/fNQnxSNq9XAaHUmSkm8aCk5v5i/LaQWyOF
+         RZiv+nSWriYf7unOISOAkssPXaGidvQBghIoOWmfxRTF3jbIqNfQVAGSsMwWokTewTYU
+         aH6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795678704; x=1796283504;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=YA1Blq4ppgGh0yHluPfL3JZZmE/oyALbTlX72JCcysw=;
+        b=B/D6k4/cUL2FDI/pOx9dqMa9QMlibawjYZIx5SRELr+QIb/RETutXXbQ7jwSSbwFAg
+         4u31tKUPP5avuLc7HIwk8PsxzD/EQtZMrTnqnbzN9V4RF66FdzFVcCBjXxYUlp96zo+I
+         9ARhm2cbYg1DkTikrYl9vPUNzFnYXdoRUdxzyzEL0byV3tmy+uXt2lHcki/6Ak7HlQek
+         WtHHHJa0xAzR1fo6U2EzefC2PevFAxU/Uqn1TkDxrXArJbPPM/koCqrxBSKAa9Hep077
+         eYATLxJWqYDC0GK8/Q8Ez+bgCyJqaNXZlGuuY/l7VbQPABDDpIr/Ot9XJFSFnTVg0ZTF
+         4XZw==
+X-Forwarded-Encrypted: i=1; AL+hErG2B9whXclKDFpKk7xECE14F73N0c53o/o5WLRjtMj4A9idL9GxO6ZAowIaw6n+SdwOqjv3XOOkFPyMFw0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9pNvoLxR8cnOCMXo06YaqviUuKHKbLkG5W80VZuD9EeR20XYZI
+	Orr09AECUrOKb5Arcbp5nJ0zSwHJdK+YxKOFuG0vEsmbpgnYlvxTl4f+DhZ4v3r091SFq6B4lWj
+	vPOseDW00CMxTz/kyLfb4lTNhJQWGQEvm4tYitBhMC4WWtY0ZFkp23Oywk3w8P7+9tTg=
+X-Gm-Gg: AZFdTZdMSMZkF8lzQICtyv5JHSV4CrUSvPe6k7hcrdGrPvchk3cf4EU52L7HbEI8rhg
+	7Dk7SQzb5sP32eWfrtNgcgtCTKwwY2QCD+o1TJd2CEOZZFJzdd8UsCZ5k+ivqRV1Buf6DmPlT7U
+	33v/Xnqcfdz36DmCTtG2mL61urL9TStSFvNl+4on2acPnNWPxVUIEqPaimNU0QAYO0WomKCvquc
+	PbU5hK3F7K5/rwywfaZwUBJlW+Wtpzcz+VMmwBeME2EDU30Y1laYcvwNzHsS6B4rofbWdvaUxcM
+	szzsmeC1rqV9z8HFc/lstuE2Q6h5s+rbLzWf8mZRbMPKiaJsyRS62ODScbTn+iJewS4hkMeZhWj
+	s9tykxpvx2WCiG7PxDgEafR3bM89FIYPdlt4CuLlhJyzG7ue//IGes7tseMKm9RHipA/Cwzj6qM
+	9duAbPBqeD
+X-Received: by 2002:a05:6a20:6a0a:b0:401:d3:b917 with SMTP id adf61e73a8af0-4014cf54aa7mr21944008637.63.1795678703661;
+        Wed, 25 Nov 2026 23:38:23 -0800 (PST)
+X-Received: by 2002:a05:6a20:6a0a:b0:401:d3:b917 with SMTP id adf61e73a8af0-4014cf54aa7mr21943980637.63.1795678703172;
+        Wed, 25 Nov 2026 23:38:23 -0800 (PST)
+Received: from hu-jshekhar-hyd.qualcomm.com ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde9bb05981sm5042987a12.26.2026.11.25.23.38.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 23:38:22 -0800 (PST)
+From: Jayant Shekhar <jayant.shekhar@oss.qualcomm.com>
+Subject: [PATCH RESEND 0/2] arm64: dts: qcom: Enable DCP on Maili MTP
+Date: Thu, 26 Nov 2026 13:08:16 +0530
+Message-Id: <20261126-b4-jshekhar-maili-dcp-enable-v1-0-3d65c89bfe7c@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,254 +115,115 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAD++jLmUNxbVBLXg1aGysRGCjcQFjo=JSwx4-=8TWa7bj-iXuA@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+To: conor+dt@kernel.org, robh@kernel.org, andersson@kernel.org,
+        krzk+dt@kernel.org, konradybcio@kernel.org, abelvesa@kernel.org
+Cc: Jayant Shekhar <jayant.shekhar@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        devicetree@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795678699; l=3687;
+ i=jayant.shekhar@oss.qualcomm.com; s=20260925; h=from:subject:message-id;
+ bh=CxeNKvR8duZnvJRyTCCs+tbLsc277Ha+QtpXq82oRHY=;
+ b=Rv8Y4rzBHCVAOATAlQacBALWyXAnoiy+E4N1nsRgKi9YjLoidv4SByr81puMmF2TYN81kEpWA
+ de33ukKD3hOAMUf5NjYlJ/xKg4S40siTT62HRpPptaAe73Bn3RDSHqE
+X-Developer-Key: i=jayant.shekhar@oss.qualcomm.com; a=ed25519;
+ pk=saYTwtCCpug4b0Hz0jHFoATgDtdhFVicwMzDJo2z5ZE=
+X-Proofpoint-GUID: HCYfC3PpGm2DzYOoRf8Bep-pCJgq61uP
+X-Authority-Analysis: v=2.4 cv=OIOyTiaB c=1 sm=1 tr=0 ts=6b07e1f0 cx=c_pps
+ a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=EUspDBNiAAAA:8 a=Lx_9dNaADeAjOkdmO44A:9 a=QEXdDO2ut3YA:10
+ a=_Vgx9l1VpLgwpw_dHYaR:22
+X-Proofpoint-ORIG-GUID: HCYfC3PpGm2DzYOoRf8Bep-pCJgq61uP
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAyOSBTYWx0ZWRfXwXxYbYZLim3e
+ WtXBnmjWD831r4n5+q7Z0F8GzHncOdMTFmXnQF2STZbyM+q65vx1wnhyzNnwKQ/xLiEo49eYA4D
+ 3mcwGfClr/FU5rQscbd51CUaDxr/q+Y=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAyOSBTYWx0ZWRfX1w2FaagLVjDA
+ Ca5pJrs9UuwmYLTufQxEl3wV4qvME9krm29Ca6pGl+YvBlqYjfT+m+4Rht5qLA5eqVAcl+vLnPK
+ eSoLCVQ3VB5WV7xr0NpK3ggUXzFOwlmqo/cYyRm4+4sI1uvYKbVDRcqgEAJSxWagKwFdAU+h9KP
+ 8OxTZQFiB4NY7nMlZDwGkeOM4M34NeciGcTAgt7Eqr+3O+nRu7gCjhBSTe7bGUkhUQr9pKu8pVE
+ k+rJeLRT2XZ0EERHgAnCFb1mJsbWxCAprF3fyqsE48BPlEUk62jWcoTPxJUMQaQ2WWG1bhCdV82
+ QssPqEcwiBbFFNF4xzIQQz6gzlzGoIqMfQKVSkyno/N17gnL6dlyv36QW2S8Uf0AtxZG5mtAlrM
+ W1tyIQ5+4OJAiLU9byU+UJHhCUAWrig4hmqrCv6dIQNo/S9ixfd4GurdQMsKIwpSoOwzSKJxDst
+ XisIN/ObfIFUYnxudLg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_02,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 malwarescore=0 bulkscore=0 clxscore=1015 phishscore=0
+ adultscore=0 suspectscore=0 lowpriorityscore=0 spamscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260029
 
-Hi,
+This series enables Qualcomm DCP display support on the Maili MTP.
+DCP firmware owns the display hardware; Linux accesses it through the
+Qualcomm VirtIO host transport and the MSM DCP display driver.
 
-On Wed, Nov 25, 2026 at 07:06:24PM +0100, Linus Walleij wrote:
-> Top posting to loop in more people.
-> 
-> (Andy & Mika)
-> 
-> On Tue, Nov 10, 2026 at 3:21 PM Maciej Strozek
-> <mstrozek@opensource.cirrus.com> wrote:
-> 
-> > Add ability to use cs42l43's GPIOs to drive speaker and microphone mute
-> > LEDs. The LEDs must be described using
-> > 01fa-global-mute-led-(spk|mic)-mute-gpio ACPI property, which tells
-> > which of the 3 available cs42l43's GPIOs to use for the respective
-> > function.
-> >
-> > Signed-off-by: Maciej Strozek <mstrozek@opensource.cirrus.com>
-> 
-> ACPI property, so Andy and Mika need to decide if this is a reasonable
-> way to go about this issue.
+Patch 1 enables the Novatek NT37802 panel driver as a module in arm64
+defconfig. Patch 2 describes the DCP transport and firmware display
+subsystem in maili.dtsi, then wires the Maili MTP panel to DCP
+interface 1. It adds the panel supplies, reset GPIO, and pinctrl states.
 
-I think the properties themselves are already "known" so that should be
-okay (but let's see if Andy has any comments), there is though a tiny
-observation below.
+Dependencies (in application order):
+- VPU IOMMU iommu-ranges support (patch 4/13):
+  <20260926-vpu_iommu_iova_handling-v5-4-0322ca5dc10c@oss.qualcomm.com>
+- Qualcomm DCP VirtIO host transport (v1):
+  <20261126-jshekhar-qcom-virtio-dcp-v1-0-7b49bda74916@oss.qualcomm.com>
+- Qualcomm DCP DRM function driver (v3):
+  <20261126-jshekhar-v3-dcp-v3-0-f1e9d7505039@oss.qualcomm.com>
+- Novatek NT37802 panel binding and driver (v2):
+  <20261109-jshekhar-nt37802-v2-0-a8e9efdcabd7@oss.qualcomm.com>
 
-> > ---
-> >  drivers/pinctrl/cirrus/pinctrl-cs42l43.c | 156 +++++++++++++++++++++++
-> >  1 file changed, 156 insertions(+)
-> >
-> > diff --git a/drivers/pinctrl/cirrus/pinctrl-cs42l43.c b/drivers/pinctrl/cirrus/pinctrl-cs42l43.c
-> > index 8990fab0446cf..7e4e43783ef14 100644
-> > --- a/drivers/pinctrl/cirrus/pinctrl-cs42l43.c
-> > +++ b/drivers/pinctrl/cirrus/pinctrl-cs42l43.c
-> > @@ -5,11 +5,15 @@
-> >  // Copyright (c) 2023 Cirrus Logic, Inc. and
-> >  //                    Cirrus Logic International Semiconductor Ltd.
-> >
-> > +#include <linux/acpi.h>
-> >  #include <linux/array_size.h>
-> >  #include <linux/bits.h>
-> >  #include <linux/build_bug.h>
-> >  #include <linux/err.h>
-> > +#include <linux/gpio/consumer.h>
-> >  #include <linux/gpio/driver.h>
-> > +#include <linux/gpio/machine.h>
-> > +#include <linux/leds.h>
-> >  #include <linux/mfd/cs42l43.h>
-> >  #include <linux/mfd/cs42l43-regs.h>
-> >  #include <linux/module.h>
-> > @@ -29,9 +33,18 @@
-> >
-> >  #define CS42L43_NUM_GPIOS 3
-> >
-> > +struct cs42l43_mute_led {
-> > +       struct led_classdev cdev;
-> > +       struct gpio_desc *gpio;
-> > +       u32 gpio_num;
-> > +};
-> > +
-> >  struct cs42l43_pin {
-> >         struct gpio_chip gpio_chip;
-> >
-> > +       struct cs42l43_mute_led spk_mute_led;
-> > +       struct cs42l43_mute_led mic_mute_led;
-> > +
-> >         struct device *dev;
-> >         struct regmap *regmap;
-> >         bool shutters_locked;
-> > @@ -535,6 +548,143 @@ static void cs42l43_fwnode_put(void *data)
-> >         fwnode_handle_put(data);
-> >  }
-> >
-> > +#if IS_REACHABLE(CONFIG_LEDS_CLASS)
-> > +static int cs42l43_find_mute_gpios(struct cs42l43_pin *priv, struct fwnode_handle *fwnode)
-> > +{
-> > +       struct cs42l43_mute_led *mic = &priv->mic_mute_led;
-> > +       struct cs42l43_mute_led *spk = &priv->spk_mute_led;
-> > +       int ret;
-> > +
-> > +       fwnode_for_each_child_node_scoped(fwnode, child_fwnode) {
-> > +               struct fwnode_handle *ext_fwnode __free(fwnode_handle) =
-> > +                       fwnode_get_named_child_node(child_fwnode,
-> > +                                                   "mipi-sdca-function-expansion-subproperties");
-> > +               bool mic_present, spk_present;
-> > +
-> > +               if (!ext_fwnode)
-> > +                       continue;
-> > +
-> > +               mic_present = fwnode_property_present(ext_fwnode,
-> > +                                                     "01fa-global-mute-led-mic-mute-gpio");
-> > +               spk_present = fwnode_property_present(ext_fwnode,
-> > +                                                     "01fa-global-mute-led-spk-mute-gpio");
-> > +               if (!mic_present && !spk_present)
-> > +                       continue;
-> > +
-> > +               if (mic_present) {
-> > +                       ret = fwnode_property_read_u32(ext_fwnode,
-> > +                                                      "01fa-global-mute-led-mic-mute-gpio",
-> > +                                                      &mic->gpio_num);
-> > +                       if (ret)
-> > +                               return dev_err_probe(priv->dev, ret,
-> > +                                                    "Invalid mic-mute LED GPIO property\n");
-> > +               }
-> > +
-> > +               if (spk_present) {
-> > +                       ret = fwnode_property_read_u32(ext_fwnode,
-> > +                                                      "01fa-global-mute-led-spk-mute-gpio",
-> > +                                                      &spk->gpio_num);
-> > +                       if (ret)
-> > +                               return dev_err_probe(priv->dev, ret,
-> > +                                                    "Invalid spk-mute LED GPIO property\n");
-> > +               }
-> > +
-> > +               return 0;
-> > +       }
-> > +
-> > +       return 0;
-> > +}
-> > +
-> > +static int cs42l43_mute_led_set(struct led_classdev *cdev, enum led_brightness value)
-> > +{
-> > +       struct cs42l43_mute_led *led = container_of(cdev, struct cs42l43_mute_led, cdev);
-> > +
-> > +       return gpiod_set_value_cansleep(led->gpio, value != LED_OFF);
-> > +}
-> > +
-> > +static void cs42l43_mute_led_gpio_free(void *data)
-> > +{
-> > +       struct cs42l43_mute_led *led = data;
-> > +
-> > +       gpiochip_free_own_desc(led->gpio);
-> > +}
-> > +
-> > +static int cs42l43_mute_led_register(struct cs42l43_pin *priv,
-> > +                                    struct cs42l43_mute_led *led,
-> > +                                    const char *function, const char *trigger)
-> > +{
-> > +       int ret;
-> > +
-> > +       led->gpio = gpiochip_request_own_desc(&priv->gpio_chip, led->gpio_num - 1,
-> > +                                             trigger, GPIO_ACTIVE_HIGH,
-> > +                                             GPIOD_OUT_LOW);
-> > +       if (IS_ERR(led->gpio))
-> > +               return dev_err_probe(priv->dev, PTR_ERR(led->gpio),
-> > +                                    "Failed to request GPIO%u for %s LED\n",
-> > +                                    led->gpio_num, trigger);
-> > +
-> > +       ret = devm_add_action_or_reset(priv->dev, cs42l43_mute_led_gpio_free, led);
-> > +       if (ret)
-> > +               return ret;
-> > +
-> > +       led->cdev.name = devm_kasprintf(priv->dev, GFP_KERNEL, "%s::%s",
-> > +                                       dev_name(priv->dev), function);
-> > +       if (!led->cdev.name)
-> > +               return -ENOMEM;
-> > +
-> > +       led->cdev.default_trigger = trigger;
-> > +       led->cdev.brightness_set_blocking = cs42l43_mute_led_set;
-> > +       led->cdev.max_brightness = 1;
-> > +
-> > +       ret = devm_led_classdev_register(priv->dev, &led->cdev);
-> > +       if (ret)
-> > +               return dev_err_probe(priv->dev, ret, "Failed to register %s LED\n",
-> > +                                    trigger);
-> > +
-> > +       dev_dbg(priv->dev, "%s LED uses codec GPIO%u\n", trigger, led->gpio_num);
-> > +
-> > +       return 0;
-> > +}
-> > +
-> > +static int cs42l43_mute_leds_register(struct cs42l43_pin *priv,
-> > +                                     struct fwnode_handle *fwnode)
-> > +{
-> > +       struct cs42l43_mute_led *mic = &priv->mic_mute_led;
-> > +       struct cs42l43_mute_led *spk = &priv->spk_mute_led;
-> > +       int ret;
-> > +
-> > +       if (!is_acpi_node(fwnode))
-> > +               return 0;
-> > +
-> > +       ret = cs42l43_find_mute_gpios(priv, fwnode);
-> > +       if (ret)
-> > +               return ret;
-> > +
-> > +       if (mic->gpio_num > CS42L43_NUM_GPIOS ||
-> > +           spk->gpio_num > CS42L43_NUM_GPIOS ||
-> > +           (mic->gpio_num && mic->gpio_num == spk->gpio_num))
-> > +               return dev_err_probe(priv->dev, -EINVAL,
-> > +                                    "Invalid or shared mute LED GPIOs: mic=%u, spk=%u\n",
-> > +                                    mic->gpio_num, spk->gpio_num);
-> > +
-> > +       if (mic->gpio_num) {
-> > +               ret = cs42l43_mute_led_register(priv, mic, LED_FUNCTION_MICMUTE,
-> > +                                               "audio-micmute");
-> > +               if (ret)
-> > +                       return ret;
-> > +       }
-> > +
-> > +       if (spk->gpio_num) {
-> > +               ret = cs42l43_mute_led_register(priv, spk, LED_FUNCTION_MUTE,
-> > +                                               "audio-mute");
-> > +               if (ret)
-> > +                       return ret;
-> > +       }
-> > +
-> > +       return 0;
-> > +}
-> > +#endif
+Signed-off-by: Jayant Shekhar <jayant.shekhar@oss.qualcomm.com>
+---
+Jayant Shekhar (2):
+      arm64: defconfig: Enable Novatek NT37802 panel
+      arm64: dts: qcom: maili: Add DCP support
 
-If you do this:
+ arch/arm64/boot/dts/qcom/maili-mtp.dts | 130 +++++++++++++++++++++++++++++++++
+ arch/arm64/boot/dts/qcom/maili.dtsi    |  45 ++++++++++++
+ arch/arm64/configs/defconfig           |   1 +
+ 3 files changed, 176 insertions(+)
+---
+base-commit: 9437046953b2fb3bf55b36582450ea0267df82a7
+change-id: 20261126-b4-jshekhar-maili-dcp-enable-eb2ce69fcf55
+prerequisite-patch-id: eecfd66a55b8f2b7b2fc7d76d815facca0489d00
+prerequisite-message-id: <20261126-jshekhar-qcom-virtio-dcp-v1-0-7b49bda74916@oss.qualcomm.com>
+prerequisite-patch-id: 43f30570f31419a014962e6012f98f5b341d46bc
+prerequisite-patch-id: 08ffd8da137637eda4fa6d64a4a7fc5a24ea80a6
+prerequisite-patch-id: eca5d1310fd57c909cedf1668e075acb966db4ba
+prerequisite-message-id: <20261126-jshekhar-v3-dcp-v3-0-f1e9d7505039@oss.qualcomm.com>
+prerequisite-patch-id: 72baddd88461d6eb9ae02be5987fa1d6483cba22
+prerequisite-patch-id: 0c075c6b5ab526394f31e172b73d074382736e0e
+prerequisite-patch-id: 3263d4ca08492441a2f3c4b7d7724ae97535de29
+prerequisite-patch-id: 54c7c8d04f11036d716ec23976e94f962d261750
+prerequisite-patch-id: f6e5093f779820655cdcc0f8d5693c040873a823
+prerequisite-patch-id: c0330919436ea36a5322a93008d932aed1eca743
+prerequisite-patch-id: 0ad54e3e5eab2825b24bacee114ad25cd7133204
+prerequisite-patch-id: eb1547c27ab35800e8a38f4cfd760285cb57c0db
+prerequisite-patch-id: 1c47b825b6c7a78d6d89bff5655404cbb9ca4ae2
+prerequisite-patch-id: 38fe1330d79a5e6f4797f25588dcdc17f4a1450e
+prerequisite-patch-id: 15025d3b58e7f3b7a23533111eb26df3554e8c08
+prerequisite-patch-id: 655e9f37d822450523ebf1e485adc10d196e3a4b
+prerequisite-patch-id: 824412ddb416d43256347baa0dbd47ca8485f6e0
+prerequisite-patch-id: 6094e7eb2d3cce49e07be6f6428004321ec2d762
+prerequisite-patch-id: 58da7873bb288df93ab9d6e8e9cb6e8e3d5c8ebd
+prerequisite-patch-id: 53c063e0dd50f1462894bc5ba58d231e92fe3f1c
+prerequisite-patch-id: 182886b1aa1fc1e3200503ece0380e56446fb32f
+prerequisite-patch-id: 7f8ba80e3ad16ef84beb24781bcbbb774c8c6887
+prerequisite-patch-id: a036601e6280e82b4d8f1ba0afdbf04285e76f73
+prerequisite-patch-id: 529aec287f758d98fdc7760353a50297b737e87f
+prerequisite-patch-id: b5e513cd73a3b7132a5a0e049bac9d486051a874
+prerequisite-message-id: <20261109-jshekhar-nt37802-v2-0-a8e9efdcabd7@oss.qualcomm.com>
+prerequisite-patch-id: 3e049a8a6ef8ba6dd748d88d60c5c76dda51e308
+prerequisite-patch-id: 4b91b15bbaf8654013056643d40fdf40bfa043d4
 
-#else
-static inline int cs42l43_mute_leds_register(struct cs42l43_pin *priv,
-					     struct fwnode_handle *fwnode)
-{
-	return 0;
-}
-#endif
+Best regards,
+--
+Jayant Shekhar <jayant.shekhar@oss.qualcomm.com>
+-- 
+Jayant Shekhar <jayant.shekhar@oss.qualcomm.com>
 
-> > +
-> >  static int cs42l43_pin_probe(struct platform_device *pdev)
-> >  {
-> >         struct cs42l43 *cs42l43 = dev_get_drvdata(pdev->dev.parent);
-> > @@ -598,6 +748,12 @@ static int cs42l43_pin_probe(struct platform_device *pdev)
-> >                 return dev_err_probe(priv->dev, ret,
-> >                                      "Failed to register gpiochip\n");
-> >
-> > +#if IS_REACHABLE(CONFIG_LEDS_CLASS)
-> > +       ret = cs42l43_mute_leds_register(priv, dev_fwnode(cs42l43->dev));
-> > +       if (ret)
-> > +               return ret;
-> > +#endif
-
-then this reads better:
-
-	ret = cs42l43_mute_leds_register(priv, dev_fwnode(cs42l43->dev));
-	if (ret)
-		return ret;
-
-> > +
-> >         return 0;
-> >  }
-> >
-> > --
-> > 2.47.3
-> >
