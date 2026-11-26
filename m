@@ -1,79 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795652179;
-	b=GrcQYw2VmyE7oZUTdjKXb09XpxcAkloRkbdy62NCx5v1dC9vA3sc1w0PgTgdEFY6Gbcu
-	 1miKl+CEzu4SenZIT0FlTwND8WUpFXCCESfN6Sn2aFnMCjjEl8YFE1O98IihMWyiE8nBT
-	 RybTFtTIty8kJU5/rxxp4L/zha9c11oycCJ4CDDyCiVIm2fEZCx1o+QElWDcgjneyEKnG
-	 Dt/9zvSTN/Dl47olW7M8UwonF1pe3/OULVBYS/kIyOES4Rev9PbojNZU3TsdnQkn3dwMl
-	 RduDbmtPqMQHeQ5LZH/o4+X+l0LQklfjamC3W2JE2qHoGBQu3U/TjipaRZXIgWQaL3Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795652179;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=zNmJAkA6y9juDpGQpY7+mrGr13D6iYwVy8Jvx8ehUd0=;
-	b=XHXel32/fzqyfXA8kMD5lw1szg3pLEhIyi31iW4AbFwOBiFmUQuk1obFgTt3xBRJrKpS
-	 JhkmIvL2pwDVWmk8S/9BFuLLq/vRQ2MkX7y42x/yHZdcwudcx7r+8mkWCulT3uc/nFYkQ
-	 9tbFk8vNlYnRuz3C6wfZyQUTo5zC92o7iPRGwMAlpZIKSIsEKk7CwcrwBUNzlIvm3F6GK
-	 M0ma3LvniHeb4dvXgbNMwb68VoakkjXAzwr3Lv2IOpGyzbEZ9lnZ4CVazwAU+CVtLak5x
-	 cIRmyEYS26whpRAyfIneOZvhUqQmvIl72WLGQCoEA78BToEKJAoZSMMa4PZvamP3+gw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=owVAGp9V;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6C38606A31E;
-	Thu, 26 Nov 2026 00:16:19 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=owVAGp9V
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795652179;
-	b=VrUIeZ9CxcxAi7DM6vfG4NDeE5HmArA9/vSvG/MS+zUbF0jPKAHFcu8LTNofgULj6dav
-	 DKUKcYn8OBYoMCEsgoj9OOzmopCPRGtohZT8sIjxl5x50H8EtCdR10Ni95yCMKzMVVAuw
-	 QUXtWvMi8xDKo+BkFGPiQ20q35/cVs9fTJHSGTQmSZZyEbngdPSDTo2YueHWqOO9O5QYz
-	 U7/4Qd31oFXMcHILScp27ti39/W4I2dGsi3MofkxWFdJ9ix11JmMLZwO/B8ddVj+ze07t
-	 UtEzTHlwdDyplU9CT8ue3hUs1M3MqDAAgNBNSGsBO+XS1kavrP9yLASdn1SqKBkH1yQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795652179;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=zNmJAkA6y9juDpGQpY7+mrGr13D6iYwVy8Jvx8ehUd0=;
-	b=ao6pvecwaAKmOoepMiOe9Rp5bYBvFagWXZMbebi1Qpzi/a7r7JhoJUOhFZr3Wkel/O15
-	 mO8w0GqxCsCjuowHg7ncjAUGusCI+AyPPlT0a0H8tj85pqyovhd8ftFbLwsONy9MLcQz6
-	 83fZMzqfSh7JFQr8frSWMlsDWQ43o4ZPI8zYp1gVDdnMi64cuEwVxHnArSzNYm/LVO4Ed
-	 nBY8H/EXiVUWuYWAlSNYB9u+YoV9+eIlelhud8jSZI4zENZOSGcSRnIpW9Jh1lsHzYT3m
-	 z/60yHowQgBophmx/Smll0pAVQ7tl0IMQzplewukGT9n+sSn+spH3LcYIPRc2m3KKNA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.52
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795652222;
+	b=kMSo3XGKMlPyzo/AUVty0Tw4a3oGoOCsSoFB1l5e9bHn0nLTjM00yrFmP9KDGwW5Xabi
+	 D525FP6sjeJsro2eVpTse983B81J5yCZXjNpfIHMq4wAUkuoaanxU9039Oro1Dm/3Gvoh
+	 DRNtjtntEwCnHQhRpHcnjb5UOch6giXjLoEWdzfGNnMMeA8zwz9ARZMEEeFMPsLYFHMu+
+	 rWG5flcrvk32CD8K3r8SKEFsDyywHaAUJRsTs3y2Gd4Z+c+hZPZ1fJMYRM3y3uewFix9F
+	 FVTsZpZzBKxIWEHYQWspglu97YxwNdDXaEjWspeHlyTTfGW34qf6W50inlJwdlVhDpw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795652222;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:
+	 Organization:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Rspamd-Queue-Id;
+	bh=NJjDKjcR3y2MEVYEI6NpdcGn2af2AgvOjoZTpqMcRfE=;
+	b=G8UXPvk4jdfkfl9Bahramsurzu9CxYRR/IHVuRkK1eemEbxOPi5VIFhFYQX9xuKaLrSm
+	 xFWDAfX1vhdfcGUSQwRGY/bWzIYYl4oiKdYTE1A3YRXlb1w1kE7SI/pyWRkfRfDxLVgoc
+	 swSbbmiMPENGw8l8T9lLhvFYXK8xCWCnDNdiNkoFYA0ap2a2ptNIENfeDqodPrrVQ7u3v
+	 XIVntgbrzkZCR+gcVRc8q9xYfqn8GEoAokDcGMlL4g7GYVekM86Tt6B47NKFAH04cyWJT
+	 SZAGZ7pPenBNM+/7W118jF5dvGZcd5uBjX66UCn2t/jk9UvkQ1nCjirmLFJTZi+O9eg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=cukjlgCE;
+	arc=none smtp.remote-ip=195.10.208.52
+Received: from mout-b-203.mailbox.org (mout-b-203.mailbox.org [195.10.208.52])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 4A4701F000C6;
-	Thu, 26 Nov 2026 00:16:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795652179;
-	bh=zNmJAkA6y9juDpGQpY7+mrGr13D6iYwVy8Jvx8ehUd0=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=owVAGp9VL8YsabmKuhZSToT4WI4zJXF3xRrZyxoZMzC81nPIg714hZfhscuouST1n
-	 hJcdGaIH5gQKMJFvFvJO2//FSZabCdk7Xb+glVr5Oox+wvdiCa219qDuqOg8VXz/1m
-	 jy7JWjwuIClQvJtzyBMsdvmkC6AhqxXn1DKYY0y1NJr+V69mfZZaOwDPcw3Feaof2+
-	 Z9FoGs93iuicV1R0RUHaQoD8pTEThF0Ucdo4fhxu8KJunCASFzpCL2FCQQ5xB9ywns
-	 arQKOvP7Lw4xU6k4RFiW0fA1mZildG+10onz7YcdmrEOThMoIwZaMj5eV3nJwB1pwB
-	 XqizMW0koBm8w==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id BCF884D0EC;
-	Thu, 26 Nov 2026 00:16:15 +0000 (UTC)
-From: Daniel Svendsen via B4 Relay <devnull+das.emlogic.no@kernel.org>
-Date: Thu, 26 Nov 2026 01:15:35 +0100
-Subject: [PATCH] eeprom: at24: wait for write cycle before releasing
- runtime PM
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C31CC606A321;
+	Thu, 26 Nov 2026 00:17:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C31CC606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=cukjlgCE
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA512)
+	(No client certificate requested)
+	by mout-b-203.mailbox.org (Postfix) with ESMTPS id 4jZcYH6PZxzLm0Y;
+	Thu, 26 Nov 2026 01:16:51 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1795652211;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NJjDKjcR3y2MEVYEI6NpdcGn2af2AgvOjoZTpqMcRfE=;
+	b=cukjlgCEF4cFyHFiW/XrSM87E4gFrCzAmsD+kxAyEUW+URhHfvkgrahTGy7nX6HbQDYE3q
+	Tdb6Ytlr8pSCVl23gvxfYS1MMYNGz9DPnpK916sNG/D+zpae3EXKipIRbyd5rANaXsYaIt
+	KNGjJAYvxoG2o5Xd5TXaRd0fv1fQAmwUVLECI1yujL7sUf2hpshJSQbAidTib3+zM9xUSd
+	S6kjIWJgnR0gq4MsKhGB9Os0o36NlG5MnDUEVaXU4MLaUA+BhudTKp1E0fzPHe6h3qu7v8
+	w4ZGxVjedMAsZkqoxio7/j1OZNA9TeD0GpHWo4rIDQ1G/LrYc/+G7lxL2vLhGg==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of antonio@mandelbit.com designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=antonio@mandelbit.com
+Message-ID: <b201287c-002e-421b-880e-be1da8419e37@mandelbit.com>
+Date: Thu, 26 Nov 2026 01:16:49 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,95 +66,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-at24-write-cycle-v1-1-ec9c38617130@emlogic.no>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/yXMywrCMBBG4Vcps3YgGaRSX0Vc1MkfO6VUSVIvl
- L67UZff4pyVMpIh07FZKeFh2W5zhd81pEM/X8EWqkmctN5Ly32RPT+TFbC+dQIfFCEG52IXhWp
- 2T4j2+i1P57/zchmh5fuhbfsATyB/BHQAAAA=
-X-Change-ID: 20261126-at24-write-cycle-7cedfd00f9f2
-To: Bartosz Golaszewski <brgl@kernel.org>, 
- Srinivas Kandagatla <srini@kernel.org>
-Cc: Bibby Hsieh <bibby.hsieh@mediatek.com>, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Daniel Svendsen <das@emlogic.no>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795652175; l=2263;
- i=das@emlogic.no; s=20261125; h=from:subject:message-id;
- bh=jcPKGomz5djCGzdGpnaBBVY00UgyabG9Lq9DL7YvIlg=;
- b=E0uKLD3Ha7ZC/+CmF60IMx8YtdMMTlBT+Z0LdwwmzzUaMLHHRKShaDzMFiZH2ZMzteyt+Mnt7
- tvOEjBbvdT8A+yQ/gbUwxly6jwSCdkNSFrBYosuU79fgK4RlWNenY5u
-X-Developer-Key: i=das@emlogic.no; a=ed25519;
- pk=NOuNK5ezs2CmhXHDzJ0VumKw5T6c3m0ayEJIk/HKbyA=
-X-Endpoint-Received: by B4 Relay for das@emlogic.no/20261125 with
- auth_id=1644
-X-Original-From: Daniel Svendsen <das@emlogic.no>
-Reply-To: das@emlogic.no
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2] net/mlx5e: Prefetch the packet a few strides
+ ahead in the linear MPWQE path
+To: Dragos Tatulea <dtatulea@nvidia.com>
+Cc: netdev@vger.kernel.org, saeedm@nvidia.com, tariqt@nvidia.com,
+ mbloch@nvidia.com, leon@kernel.org, cratiu@nvidia.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, ast@kernel.org, daniel@iogearbox.net,
+ hawk@kernel.org, john.fastabend@gmail.com, sdf@fomichev.me,
+ linux-rdma@vger.kernel.org, bpf@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261104195241.1883539-1-antonio@mandelbit.com>
+ <a31e1e60-7e31-4a14-a087-428d1e3627f2@nvidia.com>
+ <674eb8ef-c93f-4926-a760-62df154ed3eb@mandelbit.com>
+ <20261125215233.3422038-1-dtatulea@nvidia.com>
+Content-Language: en-US
+From: Antonio Quartulli <antonio@mandelbit.com>
+Organization: Mandelbit SRL
+In-Reply-To: <20261125215233.3422038-1-dtatulea@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jZcYH6PZxzLm0Y
 
-From: Daniel Svendsen <das@emlogic.no>
+Hi Dragos,
 
-at24_regmap_write() returns as soon as the chip has ACKed the
-transfer, but the EEPROM only programs the data afterwards, during its
-internal write cycle (typically up to 5 ms). For all but the last
-chunk, the following write is NACKed and retried until that cycle has
-finished. After the last chunk nothing waits, and at24_write() drops
-its runtime PM reference right away. When vcc is controlled through
-runtime PM and has no other users, at24_suspend() disables the
-regulator in the middle of the write cycle and the last chunk is lost,
-while the write is reported as successful.
+On 25/11/2026 22:52, Dragos Tatulea wrote:
+> Overall I think these results are quite good. I was expecting to
+> see some issues at scale but nothing really stands out to be
+> honest.
 
-This was seen on a board where the EEPROM supply is a switchable
-regulator used only by at24: 32-byte writes with a 16-byte page size
-programmed just the first 16 bytes.
+Well, thank you for running all of this on hardware I can't get my hands
+on!
 
-Wait for the write cycle to finish before releasing runtime PM by
-doing a one-byte read of the last written address. at24_regmap_read()
-retries while the chip NACKs, up to write_timeout.
+> 
+> I wondered how much each prefetch bings and gathered some data
+> about that as well on the AMD system:
+> 
+>                            v2    without   without   without
+>                                  page      headers   shinfo
+>    UDP 64B flood          +7%     +7%       +3%       +7%
+>    UDP 512B flood         +8%     +8%        0%       +8%
+>    TCP 1 stream          +18%    +17%        0%      +18%
+>    XDP_DROP read         +81%    +81%       -2%      +82%
+>    XDP_DROP no-touch      -6%     -6%       -4%       -5%
+>    XDP_TX               +106%   +106%       -1%      +108%
+> 
+> It does look like the big bulk of the advantage comes from
+> the header fetch.
 
-Fixes: cd5676db0574 ("misc: eeprom: at24: support pm_runtime control")
-Cc: stable@vger.kernel.org
-Signed-off-by: Daniel Svendsen <das@emlogic.no>
----
- drivers/nvmem/at24.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+Agreed, for these tests.
 
-diff --git a/drivers/nvmem/at24.c b/drivers/nvmem/at24.c
-index b9db13cc3e33..03cd83e5caff 100644
---- a/drivers/nvmem/at24.c
-+++ b/drivers/nvmem/at24.c
-@@ -482,6 +482,7 @@ static int at24_write(void *priv, unsigned int off, void *val, size_t count)
- 	struct at24_data *at24;
- 	struct device *dev;
- 	char *buf = val;
-+	char dummy;
- 	int ret;
- 
- 	at24 = priv;
-@@ -514,11 +515,17 @@ static int at24_write(void *priv, unsigned int off, void *val, size_t count)
- 		count -= ret;
- 	}
- 
-+	/*
-+	 * Wait for the last chunk's internal write cycle to finish before
-+	 * dropping the runtime PM reference, which may switch off vcc.
-+	 */
-+	ret = at24_regmap_read(at24, &dummy, off - 1, 1);
-+
- 	mutex_unlock(&at24->lock);
- 
- 	pm_runtime_put(dev);
- 
--	return 0;
-+	return ret < 0 ? ret : 0;
- }
- 
- static int at24_make_dummy_client(struct at24_data *at24, unsigned int index,
+The skb_shared_info prefetch pays off when the stack keeps each packet
+in its own skb: with TCP through an ovpn UDP tunnel on my setup it
+carries most of the gain (+34% with it, +4-5% without), while plain TCP
+and pktgen were within 2% either way, which matches what you see.
 
----
-base-commit: ebb7a8dc1e74c705daffe11c2faf38ec2628f838
-change-id: 20261126-at24-write-cycle-7cedfd00f9f2
+> 
+>> I'm also testing a small follow-up: v2 doesn't prefetch when the stride
+>> 4 ahead is in the next WQE, so the first strides of every WQE are never
+>> prefetched. Following the WQ list to the next WQE (only when
+>> cur_sz >= 2, so it is posted and its pages are allocated) removes 26-32%
+>> of the remaining DRAM demand fills on the RX CPU and adds 1.8-3.3%
+>> throughput, measured with TCP inside an ovpn UDP tunnel (where the RX
+>> CPU is the bottleneck); its latency is the "+next" column above.
+>>
+>> I had planned to send it as a follow-up patch, but I can also fold it in
+>> a v3, whatever you prefer once you have your results.
+>>
+> Do you have some results for this?
 
-Best regards,
---  
-Daniel Svendsen <das@emlogic.no>
+Well... after running more extensive tests I came to the conclusion that 
+my follow-up is not bringing any gain, despite what I anticipated.
 
+Therefore I'd just keep v2 as is.
+
+Thanks!
+
+Regards,
+
+-- 
+Antonio Quartulli
+
+CEO and Co-Founder
+Mandelbit Srl
+https://www.mandelbit.com
 
