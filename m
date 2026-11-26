@@ -1,48 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795692169;
-	b=dw3arcI1tqccXHDEjCe9pPjc9wKrKKqSob3xx2vTKWUZCqlo143QZ7Bzp2dI0THGYJqW
-	 eJJH24UWKFki6zz1sS5JEjr+m5YosHTw19600ObyZ52I518wl3Ww0Z762Mt5FmxAOy8GL
-	 tXCr6O+VhQUlcbOGruryJve5T8EZSXKixgOsSF2J5ZY4rnT8q0NnTClYYgRA9SNEJ6fcB
-	 4pNV1qlO3j0ACpL9adJ45ZyyzV1DcPPD0y95W+5CpQh+4zU8fhCToy/sB7V493vPJwaRO
-	 BHtgmBalcmOUBuGf18cslY+6986LU1CZKQhDC0lkfv6PjtpdoGMke464oRA987Mfn5g==
+	t=1795692179;
+	b=RS5pQPXbG5UL4XKf8UYgkDHpJmwVq2uP2vmAaUropMctJuN8seBUctOb3dYygV1VZKFE
+	 rbMdgnGtqyQH6y349ZFwAHbzKdJaDm+XkNm3CEEJZ0tIqCNU5Z8UB6JD3YXuzl6lO83nk
+	 LCVeWZozgCLIDuYtx18oeGpfIK1wQM7eCYsW0uZPQjP7UsAcCpavJRt36jMG6DwalhVMH
+	 n+iFOteutkAEzjGwdLHknGyIuD6g2Q83aSEZjtHBlig40bPH6QrQ5Js4Lu7jt3mmcTEup
+	 3FdUCbPrlRd7ZUzonn9Xdf2sODTF/HsDFzPP+ZAR24fipJ41BUyr22HfCWl9h9D569Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795692169;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer;
-	bh=6WYcKE+tNEbcV6PVwG1N7LpHdq4HcIVT1zq0dfG4sec=;
-	b=xXMWBGm+Va22+7DzL5B6Hiw0lW2VmD0BZNVASwO/BUMs009CqU+y6BAZPSyOJkzdQUyc
-	 TWGw0qsv60DZgUgMo/cFUe9WchXPJg2JUX27t3fyHmF4lgcUwUPBXaLldZElMV+828fdG
-	 T5lXZN/PXkbsAzXaJqSWtg8wtvj2OTXX9zQwPOQW+OZoZ1uthF34QFzFmMyuer8ZG8GOL
-	 pFWgkavFmHtDsHWNT3C5jArM98ebkdHUmORVGv/KjB6KLCOZREWJXJMWN8Xxxm8hJ0DJy
-	 uk4GCm1xXlZZudg3ratWdSbQxQkR5bh6GkCC2noj8iV1BIATVyKhXBtdiYrNu+NHaGQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795692179;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=f2aTJR5ujlY1iuig4Lvg9F+LskDwvfVaLLYuQpm8ut8=;
+	b=UG3kjdDLz2z3Gmnm/nMxba08XqgOtSukI4GKNxXJA1A42ljTEDroaKHCTcja8QftG5aQ
+	 SJYxgaAjIkW9vVpM0cOxNdYqwrRW5AR4a7h1xS6ms6lJ4QN9IPcJaXVSu1/st0R2+rKoa
+	 SpZv6KQK/c92YBv6ERfzmAKnyWVmtCBdIRKqyDKHGfM0BGNEjrCJ6s6py7Ymu6gy1Fi40
+	 qMyP/LHZ4mLQsU8vGNMkySJbaTzW/fRgIiFQzQPTx+fC877RxT/zQxyIlC99pXdUhB9tJ
+	 8l9gQMavWYykIBQFy2x4QNtvjlbUxL30LdihvNTC4qMHBZ5dLKjXn/CPBY7alEhIXkw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zl+CRlyx;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=jclark.com;
+	spf=pass smtp.mailfrom=jclark.com;
+	dkim=pass header.d=jclark-com.20260707.gappssmtp.com header.i=@jclark-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=rUM4Q+6I;
+	arc=none smtp.remote-ip=74.125.82.174
+Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68C7D606A321;
-	Thu, 26 Nov 2026 11:22:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0541B606A33E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:22:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0541B606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=jclark.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jclark.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zl+CRlyx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EB421F000CF;
-	Thu, 26 Nov 2026 11:22:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795692168;
-	bh=6WYcKE+tNEbcV6PVwG1N7LpHdq4HcIVT1zq0dfG4sec=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Zl+CRlyx2I87IdbB1JjDCBPiNmKv4bM3IAC45ktE5s3I91L2jmCmRUoptnipGkKgl
-	 BUE5kN97wXFLUC85uzwNpJJy7KixHU2IXlqkidLGKe+3woRJZHzcPXmlb+AxWDuKBB
-	 UPGryb2k5YbIZxUqTu22JWldXgFR2GhweHJsnywyofX6FCMS+197XcSD+PpDSV91di
-	 0Robh4VbtGiy65suWKd5uGtTAUBp0SYHIy2Y2NU+abhtWG5slvBzvF2XW7wLKh3XBs
-	 MK+nfJOsSsKaW0gMv9BnXjO4gNsLD+feKOCcYwglUygk2LWwCivUbj7eMLAOX1Qa1b
-	 ua3YBSB8LM7wg==
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Thu, 26 Nov 2026 13:15:05 +0200
-Subject: [PATCH RFC v2 52/54] arm64: count the mappings of the linear map
+	dkim=pass (2048-bit key) header.d=jclark-com.20260707.gappssmtp.com header.i=@jclark-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=rUM4Q+6I
+Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-386c4d2e2ccso4557182eec.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:22:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=jclark-com.20260707.gappssmtp.com; s=20260707; t=1795692178; x=1796296978; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=f2aTJR5ujlY1iuig4Lvg9F+LskDwvfVaLLYuQpm8ut8=;
+        b=rUM4Q+6I3/M0io47xi6FkZ4+3QYkLQ+dBxio8MpItCE+cJEueofYt9thzNDnENUtX3
+         fe/MgHaw8oRThq9AG98M2yH11d1vS17MQTqBhYIoQJGftHX6l51KsvaOKKCODdnCkfXY
+         YzgZAkpmuMro383aEeRzjVbBh2lygiZ5Mhv1b0GeO1QX2QClt3n3Feb54HMaAa1AzTxM
+         GGkJJdaoObMKMAa28MfXNdNCSXn69Gz4pqMRLqTcfseWxqas5NE+v+tZpCP/BBIncPwe
+         OqZ7PUcX0lnhQ7q4i8+4AqrpnuQM/T+BrL8NwtuOmoJWoCthnmzBDTZcTTGG6dbPUbOR
+         vcnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795692178; x=1796296978;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=f2aTJR5ujlY1iuig4Lvg9F+LskDwvfVaLLYuQpm8ut8=;
+        b=kcQn63fdPeaaG1C3uUboE1zTskairW+w7+li9Qzduw0MY4WIbAcJ8Y5ueEPtvmyhOR
+         VNqgGtSvHcAf5J4g2iBpQr67WwIyfuDOkzeTpcK5hrWxoE/T/fae72oOtPdDFDnW29Nx
+         NfWm4sOAQjgPzfmOesXsBa7AkLoe02XXmuOALt16PQDteAsG5IyraglFb1UOSdT8jZ9x
+         ZNO0RFORCLp84aplDKQH2hKvrzggdqsLxvlvGjYyfj8S5njSeXP5R2x3R/z62lvPoXA/
+         M8Txz8ZrFpx9hFn9nkoOBEDjyQxF/cgwDxIjgQRMQ1i9C2ytTNXw4Oq6+CKDcrpTk0nm
+         VE/A==
+X-Forwarded-Encrypted: i=1; AL+hErFfRhEKhWC7cK2/Aq50LKEo25+NkhmKqd/TtpXIfpKe+wKsVU8nQNI5GlZH/qIEpLp6EBe+Fa8OCX9/hEE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/kPhwMurpSCMQmwXSdXu6A+w8YwgT7iFDh+IEmtlL/ApDEiJLJ
+	QGqErg7xR4v3vIm8t0Ff5pJBOHgFVsZAn4LqBYLiymF82fpow9d1Yevl9oy4xtF9Qw==
+X-Gm-Gg: AZFdTZdH5eEkvV5rHY1FMTGZFOVHuyBwIEfmpGbSSWlIh6SFVAYJOhCy/wZUPVbGqvi
+	X0TOhM67R1tt1YB4iYrJS2NXAju8CYEF/JYSWPjEasqM0zUWCip47j1+CpTBWTF+7GbpOfciKGi
+	xm/AhIhKRt+/X5kO/Ik7eVU75t6M36PIHb5NDFqd3pqsOpmZFr03LriVSIhX/HjzjSUmICKYHtc
+	5I6LpyJivAK2DdyJ7WpoiMlY5KLjPyDDGRBWHHm1JFjGIpnLNH5cldfUVxdT0lvsjl2CTvmwy/Z
+	1xLr01TohWdzY9oThJ5sgjKY+VlSur2w8Yp2M3ErRgKe5Iqe503k/AolwYbHU9r7BoSqa4y6WCI
+	xcUEPQBIIK2hjMnUpmNHwDjsSubMcksGcBPz4I6E+3gmu4ycodjprGjiI92/NZbA2Ufx+kQ9o6g
+	YwQmw/vOYgG7/czVSbrQ+26Jg20ATPKAbblD2deCXONtSXc9TVFpSUm4SPV0evlXwOWsJBeXOib
+	x3ENqGwG/bBDi9KzWgU5A4oeKHTJ9ihPHX1/jcANW7Autd/9V1lRTCWWnH5vWNr3Xlb4h2xLNqQ
+	YuvnqZQyvZcoBF4X41+kYlVvaATifoc9AecmPXDXPEIhZlhpbw5IKw0dFTEcRDGoatglEXkQYUI
+	/pNHdbsrgmG/wzPR01g==
+X-Received: by 2002:a05:7301:182:b0:386:b4db:74d3 with SMTP id 5a478bee46e88-386b4db7924mr11103689eec.21.1795692177950;
+        Thu, 26 Nov 2026 03:22:57 -0800 (PST)
+Received: from cantal.lan ([58.136.75.118])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567cafec4sm70620666eec.26.2026.11.26.03.22.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 03:22:57 -0800 (PST)
+From: James Clark <jjc@jclark.com>
+To: alex.cramt@gmail.com
+Cc: Dinh Nguyen <dinguyen@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Mahesh Rao <mahesh.rao@altera.com>,
+	Mohamad Asyraaf Azhar <mohamad.asyraaf.azhar@altera.com>
+Subject: Re: [PATCH v2 0/3] arm64: dts: socfpga: agilex5: add support for Terasic DE25-Nano
+Date: Thu, 26 Nov 2026 18:22:53 +0700
+Message-ID: <20261126112253.365806-1-jjc@jclark.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261126-de25-nano-v2-0-02e43ba72681@gmail.com>
+References: <20261126-de25-nano-v2-0-02e43ba72681@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,190 +106,11 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-generic-set-memory-v0-1-v2-52-723f1e33c3d8@kernel.org>
-References: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
-In-Reply-To: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
-To: linux-mm@kvack.org
-Cc: =?utf-8?q?Adrian_Barna=C5=9B?= <abarnas@google.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
- Borislav Petkov <bp@alien8.de>, Brendan Jackman <brendan.jackman@linux.dev>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- David Hildenbrand <david@kernel.org>, 
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
- Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, 
- Ingo Molnar <mingo@kernel.org>, Kevin Brodsky <kevin.brodsky@arm.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, Michal Hocko <mhocko@suse.com>, 
- Mike Rapoport <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <pjw@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Russell King <linux@armlinux.org.uk>, 
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@kernel.org>, 
- Vasily Gorbik <gor@linux.ibm.com>, Vlastimil Babka <vbabka@kernel.org>, 
- Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, x86@kernel.org
-X-Mailer: b4 0.16.1-dev
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-The core keeps a counter of the direct map entries at every page table
-level. A split moves an entry to the level below and counts a
-direct_map_level2_splits or direct_map_level3_splits event in /proc/vmstat.
-The counters start from what the architecture mapped.
+Tested on a DE25-Nano on v7.4-rc4 with socfpga for-next: boot from
+microSD, Ethernet, the HPS LED, I2C1 with the LIS2DW12, and the service
+layer interrupt (hwmon readings).
 
-arm64 never counts its linear map, so the core finds no large pages to take
-a split from, and the split events stay at zero.
-
-Count the linear map when it is created at boot and on memory hotplug, and
-when memory is removed. map_mem() maps the kernel alias and the KFENCE pool
-before it maps all of memory over them, so only the entries that were empty
-count. The split of the linear map at boot, when not all CPUs support
-BBML3, bypasses the core, so count its splits as well.
-
-Report the counters in /proc/meminfo.
-
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
----
- arch/arm64/mm/mmu.c      | 28 ++++++++++++++++++++++++++++
- arch/arm64/mm/pageattr.c | 13 +++++++++++++
- 2 files changed, 41 insertions(+)
-
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 40c5ac95f574..c415b81fb6f3 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -160,9 +160,19 @@ static void init_clear_pgtable(void *table)
- 	dsb(ishst);
- }
- 
-+static void linear_map_count(unsigned long addr, enum pgtable_level level,
-+			     long nr)
-+{
-+	if (__is_lm_address(addr))
-+		direct_map_count_update(level, nr);
-+}
-+
- static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
- 		     phys_addr_t phys, pgprot_t prot)
- {
-+	unsigned long start = addr;
-+	long nr = 0;
-+
- 	do {
- 		pte_t old_pte = __ptep_get(ptep);
- 
-@@ -179,8 +189,12 @@ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
- 		BUG_ON(!pgattr_change_is_safe(pte_val(old_pte),
- 					      pte_val(__ptep_get(ptep))));
- 
-+		if (pte_none(old_pte))
-+			nr++;
- 		phys += PAGE_SIZE;
- 	} while (ptep++, addr += PAGE_SIZE, addr != end);
-+
-+	linear_map_count(start, PGTABLE_LEVEL_PTE, nr);
- }
- 
- static bool pte_range_has_valid_noncont(pte_t *ptep)
-@@ -274,6 +288,9 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
- 			 */
- 			BUG_ON(!pgattr_change_is_safe(pmd_val(old_pmd),
- 						      READ_ONCE(pmd_val(*pmdp))));
-+
-+			if (pmd_none(old_pmd))
-+				linear_map_count(addr, PGTABLE_LEVEL_PMD, 1);
- 		} else {
- 			int ret;
- 
-@@ -410,6 +427,9 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
- 			 */
- 			BUG_ON(!pgattr_change_is_safe(pud_val(old_pud),
- 						      READ_ONCE(pud_val(*pudp))));
-+
-+			if (pud_none(old_pud))
-+				linear_map_count(addr, PGTABLE_LEVEL_PUD, 1);
- 		} else {
- 			ret = alloc_init_cont_pmd(pudp, addr, next, phys, prot,
- 						  pgtable_alloc, flags);
-@@ -750,6 +770,7 @@ static int split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
- 		return -ENOMEM;
- 
- 	split_pud(pudp, pud, pmdp, false);
-+	direct_map_count_split(PGTABLE_LEVEL_PUD);
- 
- 	return 0;
- }
-@@ -771,6 +792,7 @@ static int split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
- 	if (pmd_cont(pmd))
- 		split_contpmd(pmdp);
- 	split_pmd(pmdp, pmd, ptep, false);
-+	direct_map_count_split(PGTABLE_LEVEL_PMD);
- 
- 	/*
- 	 * We have split the pmd directly to ptes so there is no need to
-@@ -1424,6 +1446,8 @@ static void unmap_hotplug_pte_range(pmd_t *pmdp, unsigned long addr,
- 			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
- 			free_hotplug_page_range(pte_page(pte),
- 						PAGE_SIZE, altmap);
-+		} else {
-+			direct_map_count_update(PGTABLE_LEVEL_PTE, -1);
- 		}
- 		/* unmap_hotplug_range() flushes TLB for !free_mapped */
- 	} while (addr += PAGE_SIZE, addr < end);
-@@ -1458,6 +1482,8 @@ static void unmap_hotplug_pmd_range(pud_t *pudp, unsigned long addr,
- 				flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
- 				free_hotplug_page_range(pmd_page(pmd),
- 							PMD_SIZE, altmap);
-+			} else {
-+				direct_map_count_update(PGTABLE_LEVEL_PMD, -1);
- 			}
- 			/* unmap_hotplug_range() flushes TLB for !free_mapped */
- 			continue;
-@@ -1489,6 +1515,8 @@ static void unmap_hotplug_pud_range(p4d_t *p4dp, unsigned long addr,
- 				flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
- 				free_hotplug_page_range(pud_page(pud),
- 							PUD_SIZE, altmap);
-+			} else {
-+				direct_map_count_update(PGTABLE_LEVEL_PUD, -1);
- 			}
- 			/* unmap_hotplug_range() flushes TLB for !free_mapped */
- 			continue;
-diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-index a2f5266b77b2..5e6782ef4b6c 100644
---- a/arch/arm64/mm/pageattr.c
-+++ b/arch/arm64/mm/pageattr.c
-@@ -9,6 +9,7 @@
- #include <linux/sched.h>
- #include <linux/vmalloc.h>
- #include <linux/pageattr.h>
-+#include <linux/proc_fs.h>
- 
- #include <asm/cacheflush.h>
- #include <asm/pgtable-prot.h>
-@@ -16,6 +17,18 @@
- #include <asm/tlbflush.h>
- #include <asm/kfence.h>
- 
-+#ifdef CONFIG_PROC_FS
-+void arch_report_meminfo(struct seq_file *m)
-+{
-+	unsigned long levels = BIT(PGTABLE_LEVEL_PTE) | BIT(PGTABLE_LEVEL_PMD);
-+
-+	if (pud_sect_supported())
-+		levels |= BIT(PGTABLE_LEVEL_PUD);
-+
-+	cpa_report_meminfo(m, levels);
-+}
-+#endif
-+
- void arch_cpa_decode_leaf(struct cpa_leaf *leaf)
- {
- 	enum pgtable_level level = leaf->level;
-
--- 
-2.53.0
-
+Tested-by: James Clark <jjc@jclark.com>
