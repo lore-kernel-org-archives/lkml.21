@@ -1,69 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795715784;
-	b=pb6KBoJyUaO/kGYz6LaCu1pj4hzzB1MB1fx/Ls/cXX/q32uUCIXImNL+ahTSfoI/RaM9
-	 AmECk1hHlNo4rEHrazxBct6m648grRVkl8Tls+dg0fCVYnMw0oCB99gmqq8NsBHhOf1YN
-	 KtqcwHzf3CEOsCYqv4o4L/LDG3a/vvVnXWB18rhnl1+vKqoPAm1AO72/ASkEkOXtsV8VF
-	 6r7W09OKXKcWee7GODdlGcrW0Lsx41fiB1tJO37RoLsMcQTrhpvhO2uAi9VfvDBhuS3Eh
-	 QlknHoxaOK1h4qmPkiA+T93oXXg/4/Hl+w3rMLGsOa6idq3gFbDN74UZVxIOehAxUYw==
+	t=1795715789;
+	b=0ItuLi5VOn4Y10MyxwsRwP9CLWiPDXsN9x3PohDc6QEolgMtzdMuAQ2XGDjV3oFI3SvY
+	 +D1Ay3nNdswJKYD1LMrSIxgFvufd5jWA4103Wy5Y9cJQCrjsxoEyTN4xPPloME7PsVgZW
+	 QEqBRrc6QK48rYLC+Fk0tOmZln1O763y1TVKphdG6r7u4on/61B54RrMZp/DXZTj9aYnx
+	 xDZUkB41yuGod3UG4ic+Wy66DeB+NjkBlo0oonLR8x7eSScl8WNXIsrLOX/IE0SOGox22
+	 fnjNG35b9pDXV+HCsKT+ZaMbwq9JLntacqc4DtUTozWzw+f9rNOW7ngSwywTgu83bvA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795715784;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=mr0bQkccB1U5mIDJr2ilPGqZODIc5rowh2SbF+JihyU=;
-	b=SEzYNqUy+YqdPezFrfV3My2W0K+OWmxYjIArs5dD0FFQzFPexdnpg9DCOuIMpY4yfc/B
-	 zabdCgAxCguBPNXlIMTvqC8Yy3i/1MWf6o4LDpe93Ow5Q1z/WAcvIiDhg4u+ftnp8Tsi9
-	 a8gVsuxVsir9blQGu8Vsy9spypQHEB4H3gG0Uy13LWzPtsNT+7eGuQ0Z/1A0pnTHnrSdw
-	 kdXytxWN5uUDRMFf7JebE4xjNkM1E7fIzjpqbeSR2gExhf8vv71DzwPiSNdea9vvTXXtT
-	 7JVh4vzCfGy/p1iXYK3ikuaxsmRMtadkbYEzpE8r3ZaU7H2fuDAy6OscvEy3cINXxLg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795715789;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=opoQKkMaSFKlIYNfJJD/NSwL+CLSL9USTI2LdiHwLKQ=;
+	b=Mr3neVNOq5UXNszHZ2ngfJNNb3IA00rmBCSwjgbrwBrbuxiewOL6bwsFuN3ZRnn614a8
+	 INx8rjjGfmv3GZjQb1PL6FT1WJxi1fXDLrbm67FxQ2+4oIJA/+FpJhtXfpOBCt2rETqVA
+	 BuXVkrwp1wQyBbPM4vHd8IHryIy7K0PlOPueWeUOffoa6ufhFS+c08PqSRZ+kazf/Uu3w
+	 zYl874/Xs+rRJdBupvqeMI5kvI69YksadUV+oXZN3+umzTNBGqdlQUn3CpivhEU+X2z2Z
+	 YpI6BtlC6tkUFVEavwmIF6Uk142z3Urc6AhV/TZ86J8yXrg8lk+Y5uBVhChSJN63e7Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k51hQG8F;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A549C606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:56:24 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=uuxTBL0D;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 64B49606A329
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:56:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64B49606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k51hQG8F
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A332E1F000D8;
-	Thu, 26 Nov 2026 17:56:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795715783;
-	bh=mr0bQkccB1U5mIDJr2ilPGqZODIc5rowh2SbF+JihyU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=k51hQG8Fjyj3IE03hcECbxNRM+dG6XnLjuBgwlrTJVy5rnwwFL7vFrgSDGLAFITld
-	 5HO7uv+BE/78iJOQTHgwWzeQ4slzvZgcH4bMQk6AO6zVzfDZFj+urTC8gRO9HbBme6
-	 HK3NFyHRwlXSZXXxAjPv+PAjieWcPJYfgvSML4BkjOGcN6tFmcadmJXo9MbkE1NzzZ
-	 dhOX5jz2xudfH4A8tDroVaJrqNHrkG1AZihOm+iXm4k2Zlc+Esitr1KM44Gb1SCUxW
-	 ewuGGJvfl6ArufcUfFkViuBfvf6Rb34Tmad3bx3NlR8/S5jG3m3Vm/05VCA64YO9s3
-	 6Lvf6jETxDzLw==
-From: Will Deacon <will@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Tamas Petz <tamas.petz@arm.com>,
-	Tamas Zsoldos <tamas.zsoldos@arm.com>,
-	Suyash Mahar <smahar@meta.com>,
-	Amir Ayupov <aaupov@fb.com>,
-	Leo Yan <leo.yan@arm.com>
-Cc: catalin.marinas@arm.com,
-	mark.rutland@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	coresight@lists.linaro.org
-Subject: Re: [PATCH v2 00/23] coresight: trbe: Refactor buffer and IRQ handling
-Date: Thu, 26 Nov 2026 17:56:14 +0000
-Message-ID: <179571394630.2992027.10346522745976163448.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
-References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=uuxTBL0D
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D0E961BA8;
+	Thu, 26 Nov 2026 09:56:23 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 62D303F632;
+	Thu, 26 Nov 2026 09:56:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795715786; bh=1nsm/TtIfs1fFv+oARaSnNfpbfDJKckMkAWjRr5+/9Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uuxTBL0DpqsO947FQTHtPwNUypCGX5mu9ZhLQJoL2QZwA/lc6f2WNQuPyh0++DR8n
+	 ZZYrHDlHcGyRQPKlX+oBZR1TlY326qmGX3Ew/IzwVJwwp28d7rxiy+ysJoRXg7gfh5
+	 nSMdOVMw8rP6Kydxx4TfooMsn3PwT1V+PWeKxPqw=
+Date: Thu, 26 Nov 2026 17:56:22 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Daniel Cashman <dcashman@google.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64/mm: Limit ARCH_MMAP_RND_BITS_MAX to 24 for 42-bit
+ VA
+Message-ID: <awhyxoPzCmO0grrN@arm.com>
+References: <20261111042027.1541604-1-anshuman.khandual@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,34 +63,27 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261111042027.1541604-1-anshuman.khandual@arm.com>
 
-On Fri, 16 Oct 2026 17:54:58 +0100, Leo Yan wrote:
-> This series follows the earlier TRBE buffer refactoring posting [1].
-> The work is now split into two parts. This first part contains fixes
-> and refactoring in preparation for wrap and trigger mode support.
-> Support for those modes will be sent separately.
-> 
-> The patches are grouped as follows for easier review:
-> 
-> [...]
+On Wed, Nov 11, 2026 at 09:50:27AM +0530, Anshuman Khandual wrote:
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 1075bc661833..8d8b1331178a 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -300,7 +300,7 @@ config ARCH_MMAP_RND_BITS_MIN
+>  config ARCH_MMAP_RND_BITS_MAX
+>  	default 19 if ARM64_VA_BITS=36
+>  	default 24 if ARM64_VA_BITS=39
+> -	default 27 if ARM64_VA_BITS=42
+> +	default 24 if ARM64_VA_BITS=42
 
-Applied sysregs update to arm64 (for-next/sysregs), thanks!
+Why not 23? The comment above this config entry was meant say it's
+calculated as VA_BITS - PAGE_SHIFT - 3 since commit 8f0d3aa9de57
+("arm64: mm: support ARCH_MMAP_RND_BITS"). However, you changed it to
+"... + 3" with commit 51ecb29f7a65 ("arm64/mm: Define PTDESC_ORDER"), so
+you may want to fix the comment as well with this patch.
 
-[01/23] arm64/sysreg: Define TRBSR_EL1.EC event classes
-        https://git.kernel.org/arm64/c/9d3009259f0a
-
-NOTE: I included the asm/sysreg.h change from patch 12 as well and added
-a comment noting that the BSC encodings only apply for "Other" buffer
-management events. Ideally, we'd be able to namespace those in the
-sysreg file for each of the MSS2 encodings but I couldn't figure out an
-easy way to do that.
-
-Cheers,
 -- 
-Will
-
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+Catalin
