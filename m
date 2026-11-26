@@ -1,73 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.251.229.89
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795697086;
-	b=GWOZikGnFqJRbT95uQxNnx89LCtxMk8jrb7CSOWQ9VlWpJFfhfzjY2SNryT5KkiU9Xia
-	 89VrScg4bu8EvXapllXCNK/RRl3wLJ4AiIu+AbTuJMkw9N5Kq1C8Evce3HPEEP4EXz8QG
-	 wP/HEeIV5EOZd866/AOgpSody5BSp61gni6+xB6N3/dPVDwmSgW6n0lbgwcHzE9yLY6Bc
-	 qV3NT7D5EYotjuzGK+d6Ken7rg6OQBXO54hNBhsTiEv2UD7QgSXigWFyuKYMhfB8jZvi4
-	 eDO1IgMbgLzF/xJnLN0slouMnQPiD40BxpNJ/oy0hpNdk9T2+GvNFucVj4IhKfbM75A==
+	t=1795697088;
+	b=yB18gsSIPPj313wsvT2F+k8bV7ySYO2Daqo5rREcY6Xceez5OV0qbUpB+oRTAVro59ED
+	 1L2WE3poiq7XgW4U1X3QETDm+53RqHHu1Yu2GkPzSNmwVRZ7mImeOzFvXSJRmUsw0X6sE
+	 nqlvyVyXJ+FeH/dDTgsNHlHfYGjwMC3GrhBquZjCJD3VMw/9NWRKmV6RdEMbGLhTpGfwI
+	 hL62yQY1tP5kO4zWxkdcNEDlXa+rYk7woYAxFEWWPTKTA3L8LjRynkxO8FbQEdcJz6NSf
+	 qi7USKDfMpErYmyQXAB5jFMwNMCNL2qgjs8VC4yiYQtJK9h2ezcfcD4lp3KOUa25k9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795697086;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=A20fLKROFsB+9jgy05kR5kKvj3tj2h6ibj4IHp/qrKg=;
-	b=uHJQK1IgwlDLT7JRSYQEk5WgY+iQFKx+OIeeD74u5Her76CCTXfw8RU3BvyCGvUq9jzr
-	 dZPaJXGA8xNY4F5oKP/hzX4Yp+7V87UrAexX7z3aA4SiWAno2A8nRLjDGFt6msJZyvs3G
-	 tMdG03c3s1TM4NJeCAmhshlEID0rge051LwOz9pjMYofok5hzYQDl5VEGJjwN2SYQ38P2
-	 uOnj/V4paxxCaJ5A2kGdij4iJ0zNTtXuJtIeg8s7+IEYFpWjX5D6Z6gavrsJVrgWVmohR
-	 j+ScC6zUPE8BbexoZBz3+dPR4jDqdnhsmePEHwJ9KOnPelEq2QhqtD7Wq7X2XdiIHZg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795697088;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
+	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
+	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
+	bh=zGFVQnHOQzvc+hzruuCjHNAnpfckKwhZI0qrz6gEZ/o=;
+	b=FWVl/GGaQxaNrRqAslGR6YiNH1A6dqyUfS8Ae3y/g1NIOtxPd5ZoxpqaBh5HONiOtd32
+	 JKmOKQOTev9S6s5VfuqO054CzvRmH4CiKvRsIoZKmOz3z3icBoJVPhkuTE8z3pY0u7b0U
+	 srgHrkjib1p3DP/gqP3CkADyJ8CsqgrqOSvtdaJ5eTSrI56jQ28ib+cdDwAufjZ9ZJErF
+	 o1ztoJPr5K9OXAJ87keD/lLyG/Su820dJRdHkPOJdMop8Y58sB62RATs38Q1oY8yEtazW
+	 ODOvfvuzmGfocBJxof2SUCqgaaQi9d3IBiMaACEy8Bc0WlvX5odLx9uNyCYjJKxJSBA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nabladev.com;
-	spf=pass smtp.mailfrom=nabladev.com;
-	dkim=pass header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=MNtN0JMY;
-	arc=none smtp.remote-ip=178.251.229.89
-Received: from mx.nabladev.com (mx.nabladev.com [178.251.229.89])
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=X617KScC;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=b6ECwmh9;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6233A606A33B;
-	Thu, 26 Nov 2026 12:44:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6233A606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nabladev.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nabladev.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99FE5606A688;
+	Thu, 26 Nov 2026 12:44:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99FE5606A688
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=MNtN0JMY
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 77B17109597;
-	Thu, 26 Nov 2026 13:44:39 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1795697080; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=A20fLKROFsB+9jgy05kR5kKvj3tj2h6ibj4IHp/qrKg=;
-	b=MNtN0JMYCosKEqcmPTVBuJrziYc0Q3Efs21+c88cNwqYcdpiCQblShv4j00diN5tgnciTD
-	BgW97yBFnmvytnXB0B+B8PbUEfPdfBbjDNiJ7yBh418zf3e+bGXKRMvbhwubj7cQ+me3Lj
-	rukBxyji42/ZrzvNbm+jzxB58Alp3QGO3yXzmd+xPrjRY/ZlLb8m0q4wtjGVMoaz57xWF7
-	yuC8zXMnO5BsLBAx8e5KcM1RfSZi+gJxzimFzjFFW9W/U8zk5wfAJ5XxrpEnw7hdDz0TF3
-	gmj1D3V3obqggFBr5LPDQAzFUC97mzkIGUtKbWjY8LtfaO4DmtrxBE1gKDw+Fg==
-From: Lukasz Majewski <lukma@nabladev.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-hwmon@vger.kernel.org,
-	Lukasz Majewski <lukma@nabladev.com>
-Subject: [PATCH v5 2/3] dt-bindings: hwmon: Add National/TI LM77 temperature sensor
-Date: Thu, 26 Nov 2026 13:44:01 +0100
-Message-ID: <20261126124402.3015577-2-lukma@nabladev.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261126124402.3015577-1-lukma@nabladev.com>
-References: <20261126124402.3015577-1-lukma@nabladev.com>
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=X617KScC;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=b6ECwmh9
+Date: Thu, 26 Nov 2026 12:44:44 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795697085;
+	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zGFVQnHOQzvc+hzruuCjHNAnpfckKwhZI0qrz6gEZ/o=;
+	b=X617KScC1kx1i5KdKqHmG6JA/M0Ludz8qJGDemSoC9XHrbPmBQKW53mnx/x2SN6GOtHdxa
+	USJenSReRzfe7i9heHQwxwzSCEIlu6Pu8w6wtFT2aah7Gb1wN4r1QiZn5xmRK8cN4G5CNr
+	pd2GdZn9je0Llor+v86YHY+s254nednHiw0D7NeiBjt984gFGDSYOjotJ+ov5U7MBtT9+m
+	1HsvRof8q1b0A6qbn+dggWhlpDz291roeRrOa3Aob5eKBJrwu2c8T0aE0PqWlPzTUdTtHW
+	emwelRPRBrEMtDWEsgTXQGOGFV8cPzISiIRbrHIiQ9Zx5cnoUSXipRZSlf61Kg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795697085;
+	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zGFVQnHOQzvc+hzruuCjHNAnpfckKwhZI0qrz6gEZ/o=;
+	b=b6ECwmh9lc0Mh+b071o3Yx8kFzU1KWfQEWqjswJdIpqVI1ywzDK1CeHttuAW+WytfdkxuH
+	pf2T+D3Uqs+7Q7Aw==
+From: "tip-bot2 for Tengda Wu" <tip-bot2@linutronix.de>
+Sender: tip-bot2@linutronix.de
+Reply-to: linux-kernel@vger.kernel.org
+To: linux-tip-commits@vger.kernel.org
+Subject: [tip: perf/urgent] perf: Prevent duplicate sigtrap task work enqueue
+Cc: Tengda Wu <wutengda@huaweicloud.com>,
+ "Peter Zijlstra (Intel)" <peterz@infradead.org>, x86@kernel.org,
+ linux-kernel@vger.kernel.org
+In-Reply-To: =?utf-8?q?=3C45bd71c976aea1a0e8bf5762dd6b6552e6009439=2E1795053?=
+ =?utf-8?q?619=2Egit=2Ewutengda=40huaweicloud=2Ecom=3E?=
+References: =?utf-8?q?=3C45bd71c976aea1a0e8bf5762dd6b6552e6009439=2E17950536?=
+ =?utf-8?q?19=2Egit=2Ewutengda=40huaweicloud=2Ecom=3E?=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,106 +80,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Message-ID: <179569708404.92412.12602035824384208346.tip-bot2@tip-bot2>
+Robot-ID: <tip-bot2@linutronix.de>
+Robot-Unsubscribe:
+ Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
+Precedence: bulk
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 
-Add binding description for National/TI LM77 temperature sensor.
-When compared to LM75 - it has two output pins one for interrupt
-and another one to signal the critical temperature alarm.
+The following commit has been merged into the perf/urgent branch of tip:
 
-It also has only two I2C address pins (A0 and A1) - possible I2C
-addresses are: 0x4[89ab].
+Commit-ID:     e4c5112f01816b0ac6d74724545eca1195788c38
+Gitweb:        https://git.kernel.org/tip/e4c5112f01816b0ac6d74724545eca11957=
+88c38
+Author:        Tengda Wu <wutengda@huaweicloud.com>
+AuthorDate:    Thu, 19 Nov 2026 09:51:00=20
+Committer:     Peter Zijlstra <peterz@infradead.org>
+CommitterDate: Thu, 26 Nov 2026 13:41:02 +01:00
 
-Signed-off-by: Lukasz Majewski <lukma@nabladev.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Acked-by: Guenter Roeck <linux@roeck-us.net>
+perf: Prevent duplicate sigtrap task work enqueue
+
+The sigtrap handling in __perf_event_overflow() checks
+event->pending_work before calling task_work_add(), but only sets
+pending_work after the task work has been queued.
+
+This leaves a window where an NMI can interrupt task_work_add() and
+re-enter __perf_event_overflow() for the same (software/tracepoint)
+event. Since pending_work is still zero, the nested invocation can
+enqueue the same pending_task again.
+
+The re-entrant call path looks like this:
+
+  __perf_event_overflow()
+    task_work_add()
+      <NMI>
+        __perf_event_overflow()
+          task_work_add()
+
+The nested invocation may enqueue pending_task before the outer
+invocation does. When the outer invocation resumes, it inserts the
+same task work entry again, potentially creating a cycle in the task
+work list.
+
+As a result, perf_pending_task() may be executed repeatedly, leading
+to unbalanced event reference counting.
+
+Fix this by atomically claiming pending_work with cmpxchg_local()
+before calling task_work_add(). This ensures that only one invocation
+can enqueue the task work, even when another overflow occurs
+re-entrantly from an NMI.
+
+Notably: sigtrap events must be per-task, meaning that the there is no
+concurrency, only re-entrancy.
+
+[peterz: clarify and rewrite]
+Fixes: c5d93d23a260 ("perf: Enqueue SIGTRAP always via task_work.")
+Signed-off-by: Tengda Wu <wutengda@huaweicloud.com>
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Link: https://patch.msgid.link/45bd71c976aea1a0e8bf5762dd6b6552e6009439.17950=
+53619.git.wutengda@huaweicloud.com
 ---
-Changes for v3:
-- New patch, as this IC description is added to Documentation/hwmon
-  as a separate entry and not to trivial devices
+ kernel/events/core.c | 34 +++++++++++++++++++++++-----------
+ 1 file changed, 23 insertions(+), 11 deletions(-)
 
-Changes for v4:
-- Add Reviewed-by tag
-
-Changes for v5:
-- Add Acked-by tag
----
- .../bindings/hwmon/national,lm77.yaml         | 66 +++++++++++++++++++
- 1 file changed, 66 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/hwmon/national,lm77.yaml
-
-diff --git a/Documentation/devicetree/bindings/hwmon/national,lm77.yaml b/Documentation/devicetree/bindings/hwmon/national,lm77.yaml
-new file mode 100644
-index 000000000000..fbb6e711342c
---- /dev/null
-+++ b/Documentation/devicetree/bindings/hwmon/national,lm77.yaml
-@@ -0,0 +1,66 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/hwmon/national,lm77.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/kernel/events/core.c b/kernel/events/core.c
+index ee51134..5925752 100644
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@ -7776,9 +7776,15 @@ static void perf_pending_task(struct callback_head *he=
+ad)
+ 	rctx =3D perf_swevent_get_recursion_context();
+=20
+ 	if (event->pending_work) {
+-		event->pending_work =3D 0;
+ 		perf_sigtrap(event);
+ 		local_dec(&event->ctx->nr_no_switch_fast);
++		/*
++		 * event->pending_work also acts as a 'lock' for
++		 * event->{pending_addr, orig_type, attr.sig_data}. As such we
++		 * must clear after perf_sigtrap is complete.
++		 */
++		barrier();
++		event->pending_work =3D 0;
+ 	}
+ 	put_event(event);
+=20
+@@ -10953,16 +10959,22 @@ static int __perf_event_overflow(struct perf_event =
+*event,
+=20
+ 		notify_mode =3D in_nmi() ? TWA_NMI_CURRENT : TWA_RESUME;
+=20
+-		if (!event->pending_work &&
+-		    !task_work_add(current, &event->pending_task, notify_mode)) {
+-			event->pending_work =3D pending_id;
+-			local_inc(&event->ctx->nr_no_switch_fast);
+-			WARN_ON_ONCE(!atomic_long_inc_not_zero(&event->refcount));
+-
+-			event->pending_addr =3D 0;
+-			if (valid_sample && (data->sample_flags & PERF_SAMPLE_ADDR))
+-				event->pending_addr =3D data->addr;
+-
++		/*
++		 * Software events can nest and attempt this recursively;
++		 * claim the pending_work before task_work_add() recurses.
++		 */
++		if (cmpxchg_local(&event->pending_work, 0, 1) =3D=3D 0) {
++			if (!task_work_add(current, &event->pending_task, notify_mode)) {
++				event->pending_work =3D pending_id;
++				local_inc(&event->ctx->nr_no_switch_fast);
++				WARN_ON_ONCE(!atomic_long_inc_not_zero(&event->refcount));
 +
-+title: National Semiconductor / TI LM77 Temperature Sensor
-+
-+maintainers:
-+  - Guenter Roeck <linux@roeck-us.net>
-+
-+description: |
-+  The LM77 is a 9-bit plus sign digital temperature sensor and thermal window
-+  comparator with a 2-wire (I2C) interface.
-+
-+  Unlike the LM75, which has a single alert output, the LM77 features two
-+  separate open-drain outputs: an Interrupt (INT) output and a Critical
-+  Temperature Alarm (T_CRIT_A) output.
-+
-+properties:
-+  compatible:
-+    const: national,lm77
-+
-+  reg:
-+    maxItems: 1
-+    description: |
-+      I2C address of the device. Depending on the A0 and A1 pins, this
-+      can be 0x48, 0x49, 0x4a, or 0x4b.
-+
-+  vs-supply:
-+    description: +VS power supply regulator.
-+
-+  interrupts:
-+    minItems: 1
-+    maxItems: 2
-+    description: |
-+      The LM77 has two open-drain interrupt outputs.
-+      - The first interrupt should be the INT pin (window comparator).
-+      - The second (optional) interrupt is the T_CRIT_A pin (critical
-+        over-temp limit).
-+
-+required:
-+  - compatible
-+  - reg
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    i2c {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        temperature-sensor@49 {
-+            compatible = "national,lm77";
-+            reg = <0x49>;
-+            vs-supply = <&vcc_3v3_reg>;
-+            interrupt-parent = <&gpio1>;
-+
-+            /* INT routed to GPIO1_12, T_CRIT_A routed to GPIO1_13 */
-+            interrupts = <12 IRQ_TYPE_LEVEL_LOW>,
-+                         <13 IRQ_TYPE_LEVEL_LOW>;
-+        };
-+    };
--- 
-2.39.5
-
++				event->pending_addr =3D 0;
++				if (valid_sample && (data->sample_flags & PERF_SAMPLE_ADDR))
++					event->pending_addr =3D data->addr;
++			} else {
++				event->pending_work =3D 0;
++			}
+ 		} else if (event->attr.exclude_kernel && valid_sample) {
+ 			/*
+ 			 * Should not be able to return to user space without
