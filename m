@@ -1,100 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.218.52
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795722458;
-	b=GZ6X+Xj65NDH6vxAXb6+fsGtwXg3q8i1kudvPQmzJ8afe61fWjzQ+p1USGSfjeSNNVYl
-	 C8ZM2HvRAYJaxAAzlToVnaBak70l3Wh1NfViRtbyC5TZd1m1s96l9PwyMklMi2qkHRAgR
-	 4sDM1l8ShRwy54IJJSJQh7EOGnkKg5d09cTxBBgD9+jcd6BcwDuFaJBWIhKz4bR5DmIU5
-	 03Emv+EnW9LoLXSJY6IdNC7UDet1nEdOM30nd3i/OtB3aQn1kXYyGDQSAeikxB60zG02R
-	 r8Dlh4OMmHlL6P1ayosI0lQjPAneoK2jxL1FKerijyvpqCloKx4DjwYmXMhVWgcxu1A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795722458;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=ZwNdfJEWUtgIHR9kPjR/JEPXv3O1ikOBjSKnFDPee5I=;
-	b=fFy1tJAoaCo8ji6tTLjTWtdOXLOBNc7+RgusFOE4XXfLAZlEKeHIQDMe6+N877Jl6HbI
-	 Ycjr+TKLflNSRnt5cuUlpNdKGQffqnCzIysYgXM00iAVEmzTbLGSL8Oo2ojiytPn5FRvV
-	 L5E7u845GvVU9318t48kUoLsJDCkuM7o/wDYyO1ujDxEnHIiJpwnEsLCrQOc5o7jqVoR+
-	 mMcFOujr47ozMLHM65Y+MaNNuU5LQq58b+yM9NrL4tW2ph/CXCePilM+kTRkzMxglvTVV
-	 UtTW8/oiamkRB18uSSGP53rnHKw4dH+AroP6fxoTfnAAafcs3bZ2FezGrrvVMdb3fHg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dBpi6LwM;
-	arc=fail smtp.remote-ip=209.85.218.52
-Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com [209.85.218.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795722528;
+	b=y/kCVpxSefbFoF5qdRfp2cifzLfVCCDm0noOTYZfiAmRdbdxuOXXj49XATa1HDmhk+uh
+	 4c5xwCgMezdw0KZvUzr3lKDhmjW0qF/60q0Wdy5dHlYWIgIXGs8LL0fsO7l2S7itktKcw
+	 nS3Aq9PhuIeEMBDsB/Qif2pm7GJNxyTEnzeV1mGoLUGrrdldVug7kRqYmLRPvofnFY44B
+	 ZH9GJFvVPRXSiZLsjqNh/s7xy6A1KHb7ucd89oaJX5wm6zvqJ1ghpdaCob66iNPHqEtfA
+	 NXJD2alwT9FqeD2DmMC20WZa8Ll3SjjFP2v3KrZyp/GXbyhe4L4fX42FfK0nbIeyKiA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795722528;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=cb4cbrx5kZY+Yme6rnhcpB882HS6oqTOJ86HCQTYrak=;
+	b=JZMkug8gOPi+uTc+CyCqVv1juhaPHL93Rbu4yDFpmdAL/IAYW0hRResABMO4XuoW9Sjz
+	 uU2e3nPcEsMEJDi23MOdqLKRjwjIHgEYBm/wrU3Ug4qg7kWTOOsgmmVE+lUM1H0qTSkYc
+	 CPZsT35nBj3oGLv9/6mu6qEbtZblTIMZGOCK4cL1KlWQUho6gXEKPNtFoaqBMBlGJw4s2
+	 U+LJamnKpS2QVkF68mfgGIzrEx938l4tMT3Hvhy5wBelM2ohh35QixoYptHw27XZxOLNU
+	 3MiIyzDSV3xTIJh/1bNkLUdL1vc2vT9Ni6rn4W4IOMMHpv5wM4Y/+puC6dRBaiwPW8g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=YkzDBpou;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=ebZ7ZVIe;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB378606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:47:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB378606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0992C606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:48:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0992C606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dBpi6LwM
-Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c5127c7abd5so1134118366b.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:47:37 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795722456; cv=none;
-        d=google.com; s=arc-20260327;
-        b=O3J88Xjk3X/tb5Yl0aGXrKw3I54umRqelxuNJMQB1AWYHJaUv/TPVrPq1HJDzFRdkX
-         5MScyRfh1P3BRNaYnsxHIfdoRDmyPXEySj9h53efDaUNmm7/v5KIxOG/dMJ5Iv1t0W3F
-         8BeK/ViUT58Aey4bFEq6+EJ7UWDf5T6AY7squ6DpDlc0t4ARLgc2ewaTx6GPFCJ6t0fQ
-         DGyKn4nrSlhlKg36H3//JQBbUSLIUj8IL+QDNbbPkcG7zybTubLsy+QbCurxpC0E/u7M
-         pqUwY4/uOoRg/gcKKHaSXK5Crl3sKl42j0EoVZmNncIo651UUl3QzUBzi+ZcyH560ZZo
-         +rcw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ZwNdfJEWUtgIHR9kPjR/JEPXv3O1ikOBjSKnFDPee5I=;
-        fh=ZHq7o85qZb3RzSXPeDWt5TcCqNPI1V1UYInVqpyZAWs=;
-        b=o1eXu0zNixnIHHrgB3kqxV/hqdceSNHVqglj9y2odldLT5Yu2MnwlLV2tMayGcbW1R
-         0iqmBsaYulqb+Ba72zSu2WlkE+xEdmE+1WaS7H37/lywvg8vajCLd2u2UD5Dh9zvzFqb
-         I+Gkmp4tWJV/t1LTehCAhECcto3onTP6+YAsuCLUGBphP8C0xNe2u7cHDi8Enxz3MvWO
-         Buf/5fMk0hGz3rCKhnsah0RZdQ793kp6eBsptrlU5bV7CsMw1XqiO2ETP8sX0HlDlOvB
-         IrnyD1M9GRWm1QiaX9Hf4cWGPjYfljXEjOtqt4GoSFR3XTIO1NY1+Xrzw+KZg5PWnaZ4
-         C+jw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=YkzDBpou;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=ebZ7ZVIe
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQJdnXW2536157
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:48:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	cb4cbrx5kZY+Yme6rnhcpB882HS6oqTOJ86HCQTYrak=; b=YkzDBpouGmTgUZwV
+	n3FFqPM8RqNM690b8Ns3q+tXhs2VHZxIKF5NaMs+H7tiElze7GGHZlPx8Ka0NhGd
+	st7mMLPt3WaqxSOU4vbK8LIFqF0XNXzBrEz0sLEApjptSE4r1LNk9xv4Dr6FUkCZ
+	5IBsVgWANUgvWUeyW7+ECfG1xdtkgLwuNXJJOwyDTs325a98MYBc5JOSMBj3lKFQ
+	OnA6M20tkqB1HYXQbWkvTwGP89nmyLJ48557p51OQbQzUjnSSaZXTYt4T4AP7IO3
+	j04qTFYWWFEPOP61ymxNHOlzgdhBvRbpR2U7Gj80AR2i4dkd4h/NG4k1f5UIiUXm
+	t+89qg==
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6u4980nu-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:48:47 +0000 (GMT)
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-382af5cfc58so4017338eec.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:48:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795722456; x=1796327256; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ZwNdfJEWUtgIHR9kPjR/JEPXv3O1ikOBjSKnFDPee5I=;
-        b=dBpi6LwMnydME8z5YCPafEBeeY+nZhqmMSUpxMVL29N5W0LptXUyc9FJBNMI7CuSSx
-         dAqFsEVOaM3roEl2J8v3Mq72n6857vqacS0z46eZTYBK2dBJd4+Ce39JhqrptUGGJAXh
-         4v4qFVOQdsInFebh5ZJf6DIJuhyiXF0fZ1t1e7rGB9AKZvedWBQJH0sXvH6Nj8vQYElt
-         OigEsjbdVqzmONCXNO2K6FP7IUg1MaSfj6lvwXi3gqF2K6Scsf0mp5FvubqcKsQ8O/iC
-         iOKgpj56X4/kyZ2HRKVX6XEps5xlMSD8gDD+8WoKo5oyr11DGJ/4poKCzQa+N/05g3Fh
-         KHNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795722456; x=1796327256;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=oss.qualcomm.com; s=google; t=1795722527; x=1796327327; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ZwNdfJEWUtgIHR9kPjR/JEPXv3O1ikOBjSKnFDPee5I=;
-        b=B+eCi51wj6SnSbz7PlM2VwbM/6I0UCreH9+keWM+/noXGnI/UaohGrI23TOZmDDXgu
-         ZwwY+GZL7CsKSynYaGwXS/ja/PmhDqBiZsui4Ag2vvp7Djwa+AqskAH7BYx7lcjDt8go
-         +m1LQ6YNIMWUfad7c3vDZ3pIU4VRor/9y3D7wrmNMF3897XSkCibWuq2i3SxGyxOTyx+
-         uE7bgR1dgK3uTsDA8PQR0WKYyw6FZWeQ+gJCsuI68mtxELhV7Ix1VrdAttvI3k0eWtkN
-         yHCpZbKUNFm6X6ygaUDudPsnJx+YXjP8zSDnL7AbVnE83fZ44UYg7zAjgxl0Phpfi8Sw
-         x0fw==
-X-Forwarded-Encrypted: i=1; AL+hErEb735TN2iIQcoEjnWvjzgoFxnfA4S1alKSbwAea/hWNOcxg5t97Ko+/guH71GatBnHq+0cWcY7aVuPQ0c=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+sGohQmU7lCUexUtZuC8ZwGg0l20Cc69bTtX4l793mr/2ijgGT
-	a2GiAZOtGLYDD21Gv6OJPrVESoGwngDO+dRjjpgJFfWFTlu5edXWBEJ/BF2HA1dkFFjVgGddYre
-	58ni8rvQ1Q1d0O5al6TpteNpzVkBxnas=
-X-Gm-Gg: AZFdTZdeIJDqUYi/d08cOn7fW9pZr7gaXx+ckXRV/ipWh1MaOy7Uf6xmronMOUOxZq3
-	YlUJ7J4J13j/k51W2P5/Yy/MWWJyfYbS+oglhy1h56si/rGEfSR5pPkUBJXtfCeTOXCH15DWU/j
-	bd7LT0nuWu4v0S/cEYqMTGt+PQcY0vNlfV2cYkmE+TgMH0AIU7fuXJv1x7PSTIk1XoyO2ugTIzx
-	+lO98xsEIBvspd4DoVCFscF7fIyF0THxBnyVho0e26UqY+lFXiV4Js0CYR3zC+ipnYzoX+gYiNJ
-	bgmdSaN+WoMjCGA1truxJ1gVRdOI4bdQRr3mcXDGDZKR5PBSijJWhlomZomJncQB5v5SXMNwwse
-	sbdrc8+egEWLXWeSecDeLsEXs40K5NsU3Bubx5A==
-X-Received: by 2002:a17:907:9283:b0:c51:b3bf:14da with SMTP id
- a640c23a62f3a-c51b3bf1f93mr487105366b.39.1795722456064; Thu, 26 Nov 2026
- 11:47:36 -0800 (PST)
+        bh=cb4cbrx5kZY+Yme6rnhcpB882HS6oqTOJ86HCQTYrak=;
+        b=ebZ7ZVIepTLb62zudL/CKkdjnQO4H75HVpUX2kUNQrokyXiaRvW7z46G6GZTUnh5ky
+         ecsC0RCG+XZNcaQPnwkjrckit19+fsV/otnbhplJ+y8gaa6KAvqE20NwRPCZVs04aSzi
+         xBwfj2CcRJW5pygvtuZNKgDpv50uf/OsizZcYneQ/Ah7pjVHbW3zncVm4V7RGve6f5KA
+         xIdqoqNOpRxq6LemNSfKJOwGGsG+VYFRzt82Gu3GP0NrwENmeVcf7Uo68JWlerLKPc5x
+         rBOu/JtB2pJxbw5Bkp8mI2GRd1vhP4gWpFveX35crsBkYhFgrZM9jiDpmITIxCXukPYb
+         JmSg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795722527; x=1796327327;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=cb4cbrx5kZY+Yme6rnhcpB882HS6oqTOJ86HCQTYrak=;
+        b=FUmJbvOBvDg4SuPua9OsyYiV+wuGexk3LdW6Kdgz6FgzCm1OHlMt1IfOJCKTZpBRlQ
+         2TOoh3KIeOOGvxoRhevdeSHdE6tKBLqGNMaDgwSb8lEOPdNxWCDqI1VVYAnIi6nGVU0p
+         +i7kl9nEVTmm6ZaBS6Sm8swxhI9HWWRxw9yHLy6uDJ5nNJ4VnHe6jM6eLSjH3nPvY4Lp
+         76Il9IeXvfbnaPs0Ssf0LhQIYkFdzoCs5HYRkBc+EUoDTOh9K/O44BJCk4r7WsFTN06L
+         HhYMmkFBJo7SvOXJSPnhQ3ny0K8rE8RQqpXdxZ9Iyhd/1xVJr9w7KGph2iGC6pvXMZ/E
+         Bv4w==
+X-Forwarded-Encrypted: i=1; AL+hErGgU/sH448yYEMUV7drkxf+s9RuSPnSVB64DNkoQPw8wRwQ/1SaNoL3dCxi4BDXP7k4LAMcVtQCiy6yTVg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8S/sSx6sox4k4PVPS2O+mDMAqGVnWMrbmxV+RtihsFc7ecU7Q0
+	jECQeAKPuwZ/l195ogCIedz4a07hCBvFGKwlQ1aOb4zArsi5XkCtbUo/JMARBdkf25yc07Im1DX
+	1rBqENUGu1BhQbQZZ1limtofbMxKIdHENrm14GIuY35rl1NX/BlZKo0BoZiwhOWM/ypk=
+X-Gm-Gg: AZFdTZcHPUjxzsJHsDRFo7YjrP4zMYA2aLIyMA/xM8gM7PzRj/PrelVvdTRzi6bFykP
+	OCgoyNMwI3DL88gCV7aJliw1hpq+m6ZjZ/V839/b11Z699dGlF56yoo73+bUlN4SKP38iJL4VGS
+	RGf2Sdhy2dSnQdZhpRF3+5Yn5oZ6QvBZLSreXc5GHANxMmjblC4j96gh/32l95NxNVaiLX3rkB8
+	2lwe40PrBD1DSi9WiG0fj7S+4wFZfADdWX+8v8XLHD52+y7s4dnoWb0Ineggi1KuiMcA2vCe58V
+	9q3b5taWM3WNCj3ETel/XpvJEaNYt2GKWP5yBFpO+e+gcx7Xeiq70UV6fEGfkDxRGHIkDdDnM3A
+	L68RQIArJuyfH158fZ8lj4r6toHlL6q47+eAU3QPk/+C5HORQluxufOx8Ot7XCLqiTQ+GhTl47A
+	==
+X-Received: by 2002:a05:693c:414e:10b0:386:a1ae:6762 with SMTP id 5a478bee46e88-386a1ae6d5fmr19047973eec.36.1795722526654;
+        Thu, 26 Nov 2026 11:48:46 -0800 (PST)
+X-Received: by 2002:a05:693c:414e:10b0:386:a1ae:6762 with SMTP id 5a478bee46e88-386a1ae6d5fmr19047950eec.36.1795722526108;
+        Thu, 26 Nov 2026 11:48:46 -0800 (PST)
+Received: from [10.204.104.211] ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567cafec4sm74349135eec.26.2026.11.26.11.48.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 11:48:45 -0800 (PST)
+Message-ID: <b95594e1-fb17-4058-abaa-e889eb6e952c@oss.qualcomm.com>
+Date: Fri, 27 Nov 2026 01:18:40 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,164 +116,108 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261125183742.3039752-4-a.shimko.dev@gmail.com> <179571839263.3135.10510245952431569206@kernel.org>
-In-Reply-To: <179571839263.3135.10510245952431569206@kernel.org>
-From: Artem Shimko <a.shimko.dev@gmail.com>
-Date: Thu, 26 Nov 2026 22:47:25 +0300
-X-Gm-Features: Aa3M54r1QwvC9Q1S7Exzevzv30OuVOCFWJaZiHNYt3jh78euCSa6FdkwbAkWzIw
-Message-ID: <CAOPX747OUSNbg2vqba3LL8r0chrTdpz6hOg1yf-n_wMX+fpQag@mail.gmail.com>
-Subject: Re: [PATCH net-next v6 3/3] net: phy: dap8211r: add PHY LED control support
-To: netdev-bot+sashiko@kernel.org
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk, 
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	maxime.chevallier@bootlin.com, pavel@ucw.cz, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-leds@vger.kernel.org, 
-	netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/msm/gpu: Unwind power and clocks on resume failure
+To: Haoxiang Li <haoxiang_li2024@163.com>, robin.clark@oss.qualcomm.com,
+        sean@poorly.run, konradybcio@kernel.org, lumag@kernel.org,
+        abhinav.kumar@linux.dev, jesszhan0024@gmail.com,
+        marijn.suijten@somainline.org, airlied@gmail.com, simona@ffwll.ch
+Cc: linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        freedreno@lists.freedesktop.org, linux-kernel@vger.kernel.org
+References: <20261119034718.2818183-1-haoxiang_li2024@163.com>
+Content-Language: en-US
+From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+In-Reply-To: <20261119034718.2818183-1-haoxiang_li2024@163.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: RlcMbR6MRkptV2rCQii-XhumK2CrlP5V
+X-Proofpoint-ORIG-GUID: RlcMbR6MRkptV2rCQii-XhumK2CrlP5V
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA3NyBTYWx0ZWRfX5OWfVhrOTci0
+ yDMuh7sD7NvZ3+QuT6+2Yaresoltm6GfTH/94H/Z3hdJILrIc58sAB1Yfi/f1sq1lbqrEuPw+wd
+ 2PsmHv6Kp19/tMkpGyOwbKbtyLNGfXk=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA3NyBTYWx0ZWRfX7ugsB0f3DuAJ
+ mk+wLODYLmne8Jwai75ksqVwKDxecWoUPZV/DSTW9LJIM5RUUuUgMvGEpt6QkHIQrummtGER53+
+ 1qVEpiWPVlsj1Coj2K+BpzhzQoe9sXdUjf+YzdAQvULDkEl8GXsTiPn4Msxc9P+GWcSJon0G0Xh
+ sPazKUx6YGT+t2wK8vPzM0PU4n40cYD1mBuHCZpNKNXCPo6y3c0e9rOYjRYvlsPEoGoO1E7QmIZ
+ HZBVCNhZjenzDPclxjImML6sNU7D+AOIjA2xEaZzux+ybdabIs4sfI4GBm+zLPmiF+Bm8/1B+wM
+ stsUbsDtBz6ug+c3m2ux24tn3hz6s2HgI0s6nsDbjQ8NJGxlmy/K/ck5BHMNGESIVl0LsbXdwT/
+ MQdowGc6Ed1tp8vF9i23IQwchVQGg08MXHCfYoGaSVbRIpMtWb/8DYEeDB0Zi86cipN8+ArXY/6
+ LQUgqTN6X2WohCBQHgQ==
+X-Authority-Analysis: v=2.4 cv=A875rKWG c=1 sm=1 tr=0 ts=6b088d1f cx=c_pps
+ a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=Byx-y9mGAAAA:8 a=EUspDBNiAAAA:8 a=9G38XQudUm-3WiMgdEYA:9 a=QEXdDO2ut3YA:10
+ a=6Ab_bkdmUrQuMsNx7PHu:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_04,2026-11-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 spamscore=0 lowpriorityscore=0 bulkscore=0 malwarescore=0
+ priorityscore=1501 adultscore=0 clxscore=1015 suspectscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260077
 
-On Thu, Nov 26, 2026 at 9:39=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
-te:
->
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 2 =C2=B7 Low: 0
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] dap8211r_led_hw_control_get() (drivers/net/phy/dap8211r.c:322)
->   builds its rules only from LED_x_CON (0xA00C + index, read at line=E2=
-=80=A6
-> - [Medium] Speculative, because it depends on the reset scope of
->   DAP8211R_PHY_CON (0xA001) bit 15, which the code cannot show.
 
 
-> [Severity: Medium]
-> Will this LED setup survive the next call to dap8211r_config_init()? The
-> driver keeps no copy of LED_COMCON or LED0..2_CON. config_init does a chi=
-p
-> software reset and then reprograms only RGMII_CON:
->
-> drivers/net/phy/dap8211r.c:dap8211r_config_init() {
->     ...
->         ret =3D dap8211r_modify_ext(phydev, DAP8211R_PHY_CON, DAP8211R_PH=
-Y_SW_RST, 0);
->     ...
->         ret =3D dap8211r_modify_ext(phydev, DAP8211R_RGMII_CON, DAP8211R_=
-RGMII_CONFIG_MASK, set);
->     ...
-> }
->
-> config_init runs again from phy_init_hw(). phy_attach_direct() calls
-> phy_init_hw(), so for MAC drivers that connect the PHY in ndo_open this
-> happens on every ifup. mdio_bus_phy_resume() calls it too. The LED
-> classdevs are registered only once, at probe.
->
-> DAP8211R_PHY_SW_RST might also reset 0xA00B-0xA00E to their defaults. In
-> that case the LEDs would go back to power-on behaviour after an
-> ifdown/ifup or a suspend/resume. Meanwhile ledtrig-netdev would keep
-> hw_control=3Dtrue and its cached mode, or the LED core would keep its cac=
-hed
-> brightness.
->
-> This depends on the reset scope of PHY_CON bit 15, and the code doesn't
-> show it. If the LED registers survive the reset, this doesn't apply.
->
-> Can the reset scope be confirmed? If the LED registers are cleared, could
-> they be restored after the reset?
->
-> > +static int dap8211r_led_hw_control_get(struct phy_device *phydev, u8 i=
-ndex, unsigned long *rules)
-> > +{
->
-> [ ... ]
->
-> > +     led_mode =3D dap8211r_read_ext(phydev, led_reg);
-> > +     if (led_mode < 0)
-> > +             return led_mode;
+On 11/19/2026 9:17 AM, Haoxiang Li wrote:
+> msm_gpu_pm_resume() returns without disabling the power rails when
+> enabling the GPU clocks fails. If enabling the AXI clock fails, both
+> the GPU clocks and power rails remain enabled. In addition,
+> enable_pwrrail() leaves gpu_reg enabled if enabling gpu_cx fails.
+> 
+> Disable gpu_reg when enabling gpu_cx fails, and unwind the completed
+> power and clock stages in reverse order when resume fails.
+> 
+> Fixes: 7198e6b03155 ("drm/msm: add a3xx gpu support")
+> Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
 
-Confirmed on real hardware: asserting DAP8211R_PHY_SW_RST (bit 15 of
-PHY_CON 0xA001) across ifdown/ifup cycles preserves the contents of
-LED_COMCON (0xA00B) and LED0..2_CON (0xA00C..0xA00E). Therefore, no
-saving or restoring of the LED registers in dap8211r_config_init() is
-needed.
+Reviewed-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
 
-> [Severity: Medium]
-> Should this also check DAP8211R_LED_FORCE_EN(index) in DAP8211R_LED_COMCO=
-N?
->
-> dap8211r_led_brightness_set() sets that bit and leaves LED_x_CON alone.
-> The old rules stay in the register while the LED is forced on or off. Onl=
-y
-> dap8211r_led_hw_control_set() clears FORCE_EN.
->
-> Consider switching the trigger from netdev to none:
->
-> echo none > trigger
->   led_trigger_remove()
->     led_trigger_set(led_cdev, NULL)
->       __led_trigger_set()
->         led_set_brightness(led_cdev, LED_OFF)
->           ...
->             dap8211r_led_brightness_set()   <- FORCE_EN set, forced off
->
-> In the same way, writing a non-zero value to brightness while no trigger
-> is set leaves the LED forced on.
->
-> Then switch back to netdev:
->
-> echo netdev > trigger
->   __led_trigger_set()
->     flush_work(&led_cdev->set_brightness_work);
->     netdev_trig_activate()
->
-> When the PHY has an attached netdev, netdev_trig_activate() does:
->
->     trigger_data->hw_control =3D true;
->     set_device_name(trigger_data, name, strlen(name));
->
->     rc =3D led_cdev->hw_control_get(led_cdev, &mode);
->     if (!rc)
->         trigger_data->mode =3D mode;
->
-> On this path, set_device_name() skips set_baseline_state():
->
->     /* Skip if we're called from netdev_trig_activate() and hw_control is=
- true */
->     if (!trigger_data->hw_control || led_get_trigger_data(trigger_data->l=
-ed_cdev))
->         set_baseline_state(trigger_data);
->
-> hw_control_set() is never called, so FORCE_EN stays set. hw_control_get()
-> then returns 0 with the stale LED_x_CON rules.
->
-> Does the LED then stay forced off (or on) while sysfs shows netdev as
-> offloaded with link/rx/tx set? It looks like it only recovers when a mode
-> attribute or device_name is written again.
->
-> That doesn't match the kernel-doc above either, which says force mode
-> "will be disabled when hardware LED control is requested".
->
-> For comparison, gpy_led_brightness_set() in mxl-gpy.c clears the hardware
-> rule register on LED_OFF:
->
->         if (value =3D=3D LED_OFF)
->                 return phy_write_mmd(phydev, MDIO_MMD_VEND1, VSPEC1_LED(i=
-ndex), 0);
->
-> One option is for hw_control_get() to return no rules or an error when
-> FORCE_EN(index) is set. Another is for brightness_set() to clear LED_x_CO=
-N.
-> Would either of those work here?
+-Akhil
 
-agreed
+> ---
+>  drivers/gpu/drm/msm/msm_gpu.c | 13 +++++++++++--
+>  1 file changed, 11 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/msm/msm_gpu.c b/drivers/gpu/drm/msm/msm_gpu.c
+> index 8319119041eb..5480abe1aba2 100644
+> --- a/drivers/gpu/drm/msm/msm_gpu.c
+> +++ b/drivers/gpu/drm/msm/msm_gpu.c
+> @@ -40,6 +40,8 @@ static int enable_pwrrail(struct msm_gpu *gpu)
+>  		ret = regulator_enable(gpu->gpu_cx);
+>  		if (ret) {
+>  			DRM_DEV_ERROR(dev->dev, "failed to enable 'gpu_cx': %d\n", ret);
+> +			if (gpu->gpu_reg)
+> +				regulator_disable(gpu->gpu_reg);
+>  			return ret;
+>  		}
+>  	}
+> @@ -110,17 +112,24 @@ int msm_gpu_pm_resume(struct msm_gpu *gpu)
+>  
+>  	ret = enable_clk(gpu);
+>  	if (ret)
+> -		return ret;
+> +		goto err_disable_pwrrail;
+>  
+>  	ret = enable_axi(gpu);
+>  	if (ret)
+> -		return ret;
+> +		goto err_disable_clk;
+>  
+>  	msm_devfreq_resume(gpu);
+>  
+>  	gpu->needs_hw_init = true;
+>  
+>  	return 0;
+> +
+> +err_disable_clk:
+> +	disable_clk(gpu);
+> +
+> +err_disable_pwrrail:
+> +	disable_pwrrail(gpu);
+> +	return ret;
+>  }
+>  
+>  int msm_gpu_pm_suspend(struct msm_gpu *gpu)
 
-pw-bot: cr
