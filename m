@@ -1,120 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795690662;
-	b=Nsu3zqYbuMzoh/dvsTgyUlYAPEbZtE6YsMeVIOaUzUy6oXPouVIEZUFlMuZ2diJesYxS
-	 MufE7fe38j3X8Sd9m/+yPabOjFenn03zfViORzMrjYMIDdBa0ubXg1hpyW7w1GuLx97bo
-	 doULBMNZpnFw+I9s09uBbzntj/+lHalI+rBq2nhMBftE2/IfxUCvqPEGa2o1qLaR2mMOM
-	 iKHP+suy56ZWMSq0MHyEHlku4M57NuOjuzMuBGDKHOOHC4P3pAdV6CeifC/NN03MCVilV
-	 RDbvJo+0JUX/d54iCFCwPHWpPy3PG2cZJFtiFJNFcCfDuNYBJHF7vPzN1Y37pFpwIbQ==
+	b=cNQfyFREeaNEsH1x1s1LH8FxA4lDpjPjkU/14blg3Rf07YxSB0sxPZBJANSutUIJvYs3
+	 uoRTVawebZb/icJgNRfDisnopbCK4x8dpiJFKFRBHzG8CSP4GDggkYdeCJMq7RgDIdKun
+	 6Np2VRwhTRSCf59xTD+x+RRX6FUphcdVUmqVQbsScKQF4BDkby25P5HDAnNXwdg3ok48n
+	 Pfbp5KY71E0F56BFeCwO31m5tg3zESt0Czwg42RO12bD4O6KyaN1KDM2aXuW3GGtLAhuB
+	 PtJH5xc1ToRti0iy3T6jdR3ZcVX7T/RMGLWWt9XrLxogdpjyDS+FWOR+/hOQZFRb3bg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795690662;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-Spamd-Result:X-Rspamd-Server:
-	 X-Rspamd-Action:X-Spam-Flag:X-Spam-Score:X-Spam-Level:
-	 X-Rspamd-Queue-Id;
-	bh=9mWzlU3he+fyESHGNkqcr507tRPFrQL/Ymayc2PN8Ws=;
-	b=cD6669Qw74opoX8v04tg3tLY3osQ9e9OAZ4fKkksmD0tskTKVcWBnT2po4tkSjdv8ufI
-	 Zq7myq+87/Mb9hBPnpa6AiywCyrE+2QPLlenQ06Vt1eYY9BXohByG8SXne5v6h5i4k1oX
-	 Kgp8GxyaD2VCn8A5w5gAjTU95K4TNNQuI/RKIXDLlZZsqZBRNwInrrMl/4uZL9hCoUClR
-	 uAoJbyh/4grZ4AQTgNT79oZnJwPJ7kH8Jxhzyu35jpO6YoRr0ZweC8b9u54j8kNBm/q34
-	 aIbeKNoAHlRm6uEqKXPXNJlWETkeMsflWgaIHz5rb8NhRIFKFs0NSK+23BfrEtd7VMA==
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=K3WJv0/QVQugcZF/V09baRk+brmrFepsZpt52mh5UOE=;
+	b=2addT6RHscs1NneCriJZTwSOqmVS03GEgllQUP0f/Y4/9BjhKVcV1WtTk+G6pNPGulC6
+	 xWzBgz9dXLds7h10+4Llb64THBlHMrxXo00a5JYkpbMIesw9r8+Haq8/P9E0r1FhJrAhw
+	 rBWjv6xM6F6DR0g9ZOm4jzRcip8fJ1S6XiluYKKo8nzA6VJMzLKb2DLIB/ft6lfxxKG6y
+	 3WMpqjmfC3ljPbARatNKnZ1jBwd9pdhv1Aq0bS7XPje1PjKzXqwf73eHm2I9a1aiGoOlb
+	 DIEaj4hfbRDcL53z7ZHiv5w6jHyR8e2Igsxj3XqQ+C2zJE4+85QsunHCOLt8VA5EPQg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=suse.cz;
-	spf=pass smtp.mailfrom=suse.cz;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=PYzIYI5t;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Bm4sS4v3;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=PYzIYI5t;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Bm4sS4v3;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=cVGTVFWQ;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94016606A339;
-	Thu, 26 Nov 2026 10:57:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94016606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89032606A338
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:57:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 89032606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=PYzIYI5t;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Bm4sS4v3;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=PYzIYI5t;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Bm4sS4v3
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 667CD2272B;
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=cVGTVFWQ
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 0707D1A1807;
+	Thu, 26 Nov 2026 10:57:40 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id BFBC560237;
 	Thu, 26 Nov 2026 10:57:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795690659; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9mWzlU3he+fyESHGNkqcr507tRPFrQL/Ymayc2PN8Ws=;
-	b=PYzIYI5tBr8k1HNORhXxA+J5DtCIzluPhyywRPwznAJsNWyBCUUNqZMFDqgOXYtTiS62c/
-	AprDGhgclb2RulviHAmHH411GJXUKMf/RgMPjLRAF4fHSbC9ls+r4Ur+U9EybcHpYdLaSk
-	09IhpmO/euqtVoDoMy6U0CTgY4x/h+s=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795690659;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9mWzlU3he+fyESHGNkqcr507tRPFrQL/Ymayc2PN8Ws=;
-	b=Bm4sS4v3mT5DsuspaRs0OJo8/rrdGXc114d1QEJXjRK0O6L0Z0vzhnb9yWlydwX24pOJ7g
-	wYvPRnFZkLL1a/Aw==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=PYzIYI5t;
-	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=Bm4sS4v3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795690659; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9mWzlU3he+fyESHGNkqcr507tRPFrQL/Ymayc2PN8Ws=;
-	b=PYzIYI5tBr8k1HNORhXxA+J5DtCIzluPhyywRPwznAJsNWyBCUUNqZMFDqgOXYtTiS62c/
-	AprDGhgclb2RulviHAmHH411GJXUKMf/RgMPjLRAF4fHSbC9ls+r4Ur+U9EybcHpYdLaSk
-	09IhpmO/euqtVoDoMy6U0CTgY4x/h+s=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795690659;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9mWzlU3he+fyESHGNkqcr507tRPFrQL/Ymayc2PN8Ws=;
-	b=Bm4sS4v3mT5DsuspaRs0OJo8/rrdGXc114d1QEJXjRK0O6L0Z0vzhnb9yWlydwX24pOJ7g
-	wYvPRnFZkLL1a/Aw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 4038E13432;
-	Thu, 26 Nov 2026 10:57:39 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id P1frCKMQCGtjQwAAD6G6ig
-	(envelope-from <jack@suse.cz>); Thu, 26 Nov 2026 10:57:39 +0000
-Received: by quack.suse.cz (Postfix, from userid 1000)
-	id C196227DD9; Thu, 26 Nov 2026 11:57:34 +0100 (CET)
-Date: Thu, 26 Nov 2026 11:57:34 +0100
-From: Jan Kara <jack@suse.cz>
-To: Amir Goldstein <amir73il@gmail.com>
-Cc: Jan Kara <jack@suse.cz>, NeilBrown <neil@brown.name>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, Ian Kent <raven@themaw.net>, 
-	Jake Edge <jake@lwn.net>
-Subject: Re: [PATCH v6 0/5] Fix easy bits of the negative dentry problem
-Message-ID: <dy726gpfomckyt3se66pkdfj7qlsvmu4ysr666h3w5hxkay3l3@ibdy5kcibpjn>
-References: <20261123221410.3328780-1-neilb@ownmail.net>
- <179550252639.1728055.4014817916838632741@noble.neil.brown.name>
- <CAOQ4uxgF6=QoD9RoAOPmxtvkq1jWf+gG1AsJzR=Kt3ROMA=X0g@mail.gmail.com>
- <aau5z6kck6a2efcjvzrt6gno6ljs4eioncgizeh7vfbc6ipkr3@hjxzdk5pvgmt>
- <CAOQ4uxjXP4Zegb2Vgsv-yBeFmhvc8FT2bDKDcaM_t0=oJ5KpXQ@mail.gmail.com>
- <sc6xnwguimy23dexr3eosbe64xmmewn5ml5gso4m5xozw6fqlt@2hji64vi7eaw>
- <CAOQ4uxisP8YTUaexsXw4-Fxg0vand236cg5eDKirLm=kuDwSQQ@mail.gmail.com>
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BF59C11E6B361;
+	Thu, 26 Nov 2026 11:57:32 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795690655; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=K3WJv0/QVQugcZF/V09baRk+brmrFepsZpt52mh5UOE=;
+	b=cVGTVFWQU7MIYQP09wmObQrpbA8ecUmKCHw2BE21P0V9vq/2RcKD0q9kVh2Y/6fHOoMPGB
+	uUV5yxc6BqJdFIqb3Z9n06YPv5wA+rzx8n8/6iPvybvWAyuJcn0haPcb8mZs28LlR/OoEI
+	26/j/a0IcvexSg3s0FeZfVD4pHIXpj54vE6Stme23evxn+7fbNDiSA2PzqbqOL4X7bfABB
+	Mkki+mecz9t12pKzuqTfV+q2qfrYmlEkeMjhcf0BXK8lXpR7kXuj5+eyRnPlUeatjkGZnr
+	vmsCAoLiIbxGja+KLqlCw9eOJLrGmx8Jc61j8R3fcs++whRYSW6ykH1S+NvnKw==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
+ <vigneshr@ti.com>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,
+  filipp.dunsky@gmail.com,  linux-mtd@lists.infradead.org,
+  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] mtd: rawnand: Add Cortina CS7542 controller support
+In-Reply-To: <20261123-b4-cs7542-nand-v2-2-9d9f08608534@gmail.com> (Fil Dunsky
+	via's message of "Mon, 23 Nov 2026 23:27:07 +0300")
+References: <20261123-b4-cs7542-nand-v2-0-9d9f08608534@gmail.com>
+	<20261123-b4-cs7542-nand-v2-2-9d9f08608534@gmail.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Thu, 26 Nov 2026 11:57:31 +0100
+Message-ID: <87jylzyi5g.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -125,245 +76,613 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAOQ4uxisP8YTUaexsXw4-Fxg0vand236cg5eDKirLm=kuDwSQQ@mail.gmail.com>
-X-Spamd-Result: default: False [-13.01 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_TO(0.00)[gmail.com];
-	ARC_NA(0.00)[];
-	RCVD_COUNT_THREE(0.00)[3];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	RCVD_TLS_LAST(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	TO_DN_SOME(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[9];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	DKIM_TRACE(0.00)[suse.cz:+];
-	MISSING_XM_UA(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo]
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Flag: NO
-X-Spam-Score: -13.01
-X-Spam-Level: 
-X-Rspamd-Queue-Id: 667CD2272B
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Wed 25-11-26 18:39:20, Amir Goldstein wrote:
-> On Wed, Nov 25, 2026 at 12:34 PM Jan Kara <jack@suse.cz> wrote:
-> >
-> > On Wed 25-11-26 08:46:45, Amir Goldstein wrote:
-> > > On Tue, Nov 24, 2026 at 5:26 PM Jan Kara <jack@suse.cz> wrote:
-> > > >
-> > > > On Tue 24-11-26 14:08:07, Amir Goldstein wrote:
-> > > > > On Tue, Nov 24, 2026 at 7:42 AM NeilBrown <neilb@ownmail.net> wrote:
-> > > > > >
-> > > > > > On Tue, 24 Nov 2026, NeilBrown wrote:
-> > > > > > > This v6:
-> > > > > > >  - fixes the autofs changes in 1/5
-> > > > > >
-> > > > > > Sashiko says this is racy.  I think it is but the original code was just
-> > > > > > as racy.  Maybe the race isn't relevant.  I haven't properly understood
-> > > > > > it yet.
-> > > > > >
-> > > > > > >  - updates d_duplicate() in 1/5
-> > > > > >
-> > > > > > The fix was seriously broken.  Sorry.
-> > > > > >
-> > > > > > >  - uses a new version of 2/5 from Amir
-> > > > > >
-> > > > > > Sashiko has something to say about this
-> > > > > >
-> > > > > >     Can clearing FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN and dropping conn->lock
-> > > > > >     before fsnotify_set_children_dentry_flags() finishes allow a concurrent
-> > > > > >     watch-adding syscall to return to userspace before the children's
-> > > > > >     DCACHE_FSNOTIFY_PARENT_WATCHED flags have been set?
-> > > > > >
-> > > > > > Thoughts?
-> > > > >
-> > > > > Sashiko is right, but this race is not new.
-> > > > > The same window exists upstream: if another thread's recalc observes
-> > > > > the 0->watching transition and does the walk, fanotify_mark() can return
-> > > > > to userspace before all children have DCACHE_FSNOTIFY_PARENT_WATCHED set.
-> > > > >
-> > > > > What changes with this series is that the walk is sleepable, so the
-> > > > > window is longer, and in some workloads it could go from rare to
-> > > > > plausible. OTOH, skipping negative dentries may shorten the walk.
-> > > > >
-> > > > > The more important question is whether a child can be left without
-> > > > > PARENT_WATCHED permanently. Upstream it can: the transition can be
-> > > > > observed by a recalc from the mark destroy path, which never walks.
-> > > > > With FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN that cannot happen.
-> > > > > Every transition sets the flag, and every caller that can add a watch
-> > > > > consumes it,
-> > > > > so a walk that started after the transition always runs and fixes the flags.
-> > > > > What remains is the transient window above.
-> > > >
-> > > > I agree this is preexisting issue. Let's not block this series with it.
-> > >
-> > > preexisting, but sleepable children walks could make an
-> > > improbable race actually observable, because the scans are not
-> > > serialized and could take longer (I don't know how the scheduler
-> > > treats a dying process which has its marks removed).
-> > > Just wanted to make sure that the point is clear.
-> >
-> > Yes, the window can be larger now but it still shouldn't be a practical
-> > problem unless there are several watchers placing marks on insanely large
-> > dir in parallel. So I think we can live with the race for a while longer :)
-> >
-> > > > > I think a proper fix for the transient window needs a sequence counter
-> > > > > of scans in the connector. Each caller would wait until a scan that
-> > > > > started after its transition has completed, no matter which thread ran it.
-> > > > >
-> > > > > I think we can live with this v6 patch for your series and deal with
-> > > > > the remaining race later if we want to, but I am not sure and would
-> > > > > like to hear what Jan thinks.
-> > > > >
-> > > > > If you want, I can implement the sequence counter for v7.
-> > > >
-> > > > No sure what exactly you have in mind but a sequence counter per inode
-> > > > looks like an overkill for this. A global one can get contended and
-> > > > a bit hairy to manage but let's see...
-> > >
-> > > I had a patch with another conn flag _CHILDREN_WATCHED
-> > > set at the end of the walk, which covers the Sashiko race, but
-> > > leaves some other corner cases (see below).
-> >
-> > Yes, I was also concerned about those races when thinking about that
-> > yesterday. Let's discuss below.
-> >
-> > > Are you concerned over the size of the mark connector?
-> > > I think that connectors should be rare and scarce.
-> >
-> > Yes, I was concerned about the size of the connector. On a second thought
-> > I tend to agree it wouldn't be a huge deal if we need it.
-> >
-> > > With workloads that frequently add/remove watch,
-> > > Sleepable children walks could cause a situation where
-> > > scan that started a few add/remove cycles ago complete out
-> > > or order with the most recent walk.
-> >
-> > Well, let's discuss the behavior of the walks and the flags. I imagine we
-> > could have two bits like _UPDATE_CHILDREN and _UPDATE_CHIDREN_RUNNING.
-> > When children flags need update we set _UPDATE_CHILDREN. When we see
-> > _UPDATE_CHILDREN set, we call fsnotify_conn_set_children_dentry_flags().
-> > That function checks _UPDATE_CHIDREN_RUNNING. If already set, it waits for
-> > it to get cleared and returns. If not set, it sets _UPDATE_CHIDREN_RUNNING,
-> > does the walk and clears both _UPDATE_CHILDREN and _UPDATE_CHIDREN_RUNNING.
-> >
-> 
-> Yeh, I think that mostly works, with a minor variation.
-> 
-> If the RUNNING flag is already set, the function waits for it to get
-> cleared and then checks the UPDATE flag again.
-> If the UPDATE flag is set, it clears the UPDATE flag, sets RUNNING
-> and starts the walk. At the end of the walk it clears only RUNNING,
-> so every time UPDATE is set, a walk starts after it.
-> 
-> Anyway, serializing the walks per inode is a positive outcome
-> and better for our mental model.
+Hi Fil,
 
-I agree. The only thing to watch out is that if the user could fast enough
-switch the inode between "children watched" and "no children watched" during
-the walk, he could hold people waiting on RUNNING practically indefinitely.
-And indeed with the example you mentioned below - one group with mark with
-FS_EVENT_ON_CHILD | FS_CREATE, another group with mark with FS_OPEN - would
-create a situation where no single mark is watching children but together
-they create a mask which results in watching children. And by constantly
-adding and removing these marks userspace can stall other waiters on
-RUNNING flag without any bound (it depends only whether the victim task gets
-scheduled and rechecks RUNNING flag before malicious task wakes up, clears
-UPDATE, and sets RUNNING again).
+> +static void reset_ecc_bch_registers(struct cs752x_nand_host *h)
 
-So I guess we'll have to use the sequence counter in the end and we'll need
-to be careful. Something like:
+So you have BCH support not only Hamming. The binding is wrong.
 
-	spin_lock(&conn->lock);
-	gen = conn->scan_seqcount;
-	update_children = conn->flags & FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN;
-	/* Scan in progress? */
-	if (gen & 1) {
-		/*
-		 * We need to wait for scan to complete even if
-		 * UPDATE_CHILDREN is not set as somebody might have
-		 * started a scan for us.
-		 */
-		gen++;
-		wait_var_event_spinlock(&conn->scan_seqcount,
-					conn->scan_seqcount >= gen,
-					&conn->lock);
-		/*
-		 * Somebody started the scan we need while we waited? Just
-		 * wait for it to complete.
-		 */
-		if (conn->scan_seqcount == gen + 1) {
-			update_children = false;
-			wait_var_event_spinlock(&conn->scan_seqcount,
-						conn->scan_seqcount >= gen + 2,
-						&conn->lock);
-		}
-	}
-	/* Scan we needed is guaranteed to be complete */
-	if (!update_children || conn->scan_seqcount >= gen + 2) {
-		spin_unlock(&conn->lock);
-		return;
-	}
-	/* We will do the scan */
-	conn->scan_seqcount++;
-	conn->flags &= ~FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN;
-	spin_unlock(&conn->lock);
+> +static void cs752x_setup_page_regs(struct cs752x_nand_host *h, int page,
+> +				   bool write, bool oob_required)
+> +{
+> +	struct nand_chip *chip =3D &h->chip;
+> +	struct mtd_info *mtd =3D nand_to_mtd(chip);
+> +	u32 cmd, addr1, addr2, cnt;
+> +
+> +	cnt =3D NF_CNT_DATA(mtd->writesize - 1);
+> +	cnt |=3D NF_CNT_OOB(oob_required ? mtd->oobsize - 1 : NCNT_EMPTY_OOB);
+> +
+> +	cnt |=3D NF_CNT_CMD(NCNT_CMD_2);
+> +	cmd =3D write ? mk_nf_command(NAND_CMD_SEQIN, NAND_CMD_PAGEPROG, 0) :
+> +		      mk_nf_command(NAND_CMD_READ0, NAND_CMD_READSTART,
+> 0);
 
-	fsnotify_set_children_dentry_flags(fsnotify_conn_inode(conn));
+You should not need to hardcode the opcodes.
 
-	spin_lock(&conn->lock);
-	conn->scan_seqcount++;
-	wake_up_var_locked(&conn->scan_seqcount, &conn->lock);
-	spin_unlock(&conn->lock);
+> +	cnt |=3D NF_CNT_ADDR(mk_nf_addr(chip, page, &addr1, &addr2, 0));
+> +
+> +	fl_writel(h, FLASH_NF_COUNT, cnt);
+> +	fl_writel(h, FLASH_NF_COMMAND, cmd);
+> +	fl_writel(h, FLASH_NF_ADDRESS_1, addr1);
+> +	fl_writel(h, FLASH_NF_ADDRESS_2, addr2);
+> +	fl_writel(h, FLASH_NF_ACCESS,
+> +		  NF_ACCESS_WIDTH32 |
+> +		  NF_ACCESS_EXTADDR(((u64)page << chip->page_shift) >> 27));
+> +}
+> +
+> +static int cs752x_page_op_begin(struct cs752x_nand_host *h)
+> +{
+> +	int ret =3D check_flash_ctrl_status(h);
+> +
+> +	if (ret) {
+> +		fl_writel(h, FLASH_NF_ECC_RESET,
+> +			  ECC_RESET_ECC_CLR | ECC_RESET_FIFO_CLR | ECC_RESET_NF_RESET);
+> +		return ret;
+> +	}
+> +	reset_ecc_bch_registers(h);
+> +	return 0;
+> +}
+> +
+> +static int cs752x_nand_words(struct cs752x_nand_host *h, u8 *buf,
+> +			     unsigned int len, bool write)
+> +{
+> +	u32 value;
+> +	unsigned int i;
+> +	int ret;
+> +
+> +	if (len % sizeof(u32))
+> +		return -EINVAL;
+> +	for (i =3D 0; i < len; i +=3D sizeof(u32)) {
+> +		if (write)
+> +			fl_writel(h, FLASH_NF_DATA, get_unaligned_le32(buf + i));
+> +		fl_writel(h, FLASH_FLASH_ACCESS_START,
+> +			  FLASH_START_REGREQ | FLASH_START_CMD(write ? FLASH_WT : FLASH_RD));
+> +		ret =3D readl_poll_timeout_atomic(h->iobase_fl + FLASH_FLASH_ACCESS_ST=
+ART,
+> +						value, !(value & FLASH_START_REGREQ), 1, 10000);
+> +		if (ret) {
+> +			fl_writel(h, FLASH_NF_ECC_RESET,
+> +				  ECC_RESET_ECC_CLR | ECC_RESET_FIFO_CLR | ECC_RESET_NF_RESET);
+> +			return ret;
+> +		}
+> +		if (!write)
+> +			put_unaligned_le32(fl_readl(h, FLASH_NF_DATA), buf + i);
+> +	}
+> +	return 0;
+> +}
+> +
+> +static int cs752x_nand_read_page_pio(struct cs752x_nand_host *h, u8 *buf,
+> +				     bool oob_required, int page)
+> +{
+> +	struct mtd_info *mtd =3D nand_to_mtd(&h->chip);
+> +	int ret;
+> +
+> +	cs752x_setup_page_regs(h, page, false, oob_required);
+> +	ret =3D cs752x_nand_words(h, buf, mtd->writesize, false);
+> +	if (ret || !oob_required)
+> +		return ret;
+> +	return cs752x_nand_words(h, h->chip.oob_poi, mtd->oobsize,
+> false);
 
-> > > Only the completion of the most recent walk can guarantee
-> > > that all the children dentries are watched.
-> >
-> > So I don't think that's an issue. Look, if someone places a mark which
-> > watches children of an inode, we either end up updating the children flags
-> > or we wait for _UPDATE_CHIDREN_RUNNING to clear. So any mark update from
-> > userspace blocks, until the children walk is done and then they all return.
-> > We hold the group lock during the wait so the mark that makes the parent
-> > watch children is guaranteed to stay attached to the inode and subsequent
-> > mask updates on the inode all result in the conclusion that children are
-> > watched (so fsnotify_parent() doesn't clear the children flags while we are
-> > still walking).
-> >
-> > One catch in the above argument are oneshot marks for inotify & dnotify.
-> > Inotify is actually fine since it grabs group lock when removing mark after
-> > the event was sent (so the above argument holds). Dnotify doesn't grab group
-> > lock when removing oneshot mark and so breaks the argument. I think we
-> > should just make dnotify grab that lock to make our life simpler.
-> >
-> > Thoughts? Counter examples?
-> >
-> 
-> My thought is that this makes my head explode..
-> I rather have a simpler mental model if possible, which is less
-> dependent on all the callers and other locks.
+The spacing is broken everywhere. Please run checkpatch and /kreview
+using Chris Mason's prompts.
 
-I understand. Not sure if the above satisfies your wishes but I couldn't
-make it simpler...
+> +static int cs752x_nand_write_page_pio(struct cs752x_nand_host *h, const =
+u8 *buf,
+> +				      bool oob_required, int page,
+> +				    int (*fill_oob)(struct cs752x_nand_host *))
+> +{
+> +	struct mtd_info *mtd =3D nand_to_mtd(&h->chip);
+> +	int ret;
+> +
+> +	cs752x_setup_page_regs(h, page, true, oob_required);
+> +	ret =3D cs752x_nand_words(h, (u8 *)buf, mtd->writesize, true);
+> +	if (ret || !oob_required)
+> +		return ret;
+> +	if (fill_oob) {
+> +		ret =3D fill_oob(h);
+> +		if (ret) {
+> +			fl_writel(h, FLASH_NF_ECC_RESET,
+> +				  ECC_RESET_ECC_CLR | ECC_RESET_FIFO_CLR | ECC_RESET_NF_RESET);
+> +			return ret;
+> +		}
+> +	}
+> +	return cs752x_nand_words(h, h->chip.oob_poi, mtd->oobsize, true);
+> +}
+> +
+> +static int fill_hamming_oob_data(struct cs752x_nand_host *h)
+> +{
+> +	struct nand_chip *chip =3D &h->chip;
+> +	struct mtd_info *mtd =3D nand_to_mtd(chip);
+> +	u8 *ecc_calc =3D h->ecc_calc;
+> +	int eccsteps =3D chip->ecc.steps, eccbytes =3D chip->ecc.bytes;
+> +	int i, j, ret;
+> +
+> +	ret =3D wait_reg(h, FLASH_NF_ECC_STATUS, ECC_STS_DONE, "ecc gen");
+> +	if (ret)
+> +		return ret;
+> +	fl_writel(h, FLASH_NF_ECC_CONTROL,
+> +		  fl_readl(h, FLASH_NF_ECC_CONTROL) & ~ECC_CTL_EN);
+> +
+> +	for (i =3D 0, j =3D 0; eccsteps; eccsteps--, i++, j +=3D eccbytes) {
+> +		u32 v =3D fl_readl(h, FLASH_NF_ECC_GEN0 + 4 * i);
+> +
+> +		ecc_calc[j]     =3D v & 0xff;
+> +		ecc_calc[j + 1] =3D (v >> 8) & 0xff;
+> +		ecc_calc[j + 2] =3D (v >> 16) & 0xff;
+> +	}
+> +	return mtd_ooblayout_set_eccbytes(mtd, ecc_calc, chip->oob_poi, 0,
+> +					  chip->ecc.total);
+> +}
+> +
+> +static int hamming_correct(struct cs752x_nand_host *h, u8 *buf, int page)
+> +{
+> +	struct nand_chip *chip =3D &h->chip;
+> +	struct mtd_info *mtd =3D nand_to_mtd(chip);
+> +	u8 *ecc_code =3D h->ecc_code;
+> +	int eccsteps =3D chip->ecc.steps, eccbytes =3D chip->ecc.bytes;
+> +	int eccsize =3D chip->ecc.size;
+> +	int i, max_bitflips =3D 0, ret;
+> +	u8 *p =3D buf;
+> +
+> +	ret =3D wait_reg(h, FLASH_NF_ECC_STATUS, ECC_STS_DONE, "ecc gen");
+> +	if (ret)
+> +		return ret;
+> +	fl_writel(h, FLASH_NF_ECC_CONTROL,
+> +		  fl_readl(h, FLASH_NF_ECC_CONTROL) & ~ECC_CTL_EN);
+> +
+> +	ret =3D mtd_ooblayout_get_eccbytes(mtd, ecc_code, chip->oob_poi, 0, chi=
+p->ecc.total);
+> +	if (ret)
+> +		return ret;
+> +
+> +	for (i =3D 0; eccsteps; eccsteps--, i +=3D eccbytes, p +=3D eccsize) {
+> +		u32 sts, ctl;
+> +		int step =3D i / eccbytes;
+> +
+> +		fl_writel(h, FLASH_NF_ECC_OOB,
+> +			  ecc_code[i] | (ecc_code[i + 1] << 8) | (ecc_code[i + 2] << 16));
+> +		ctl =3D fl_readl(h, FLASH_NF_ECC_CONTROL) & ~ECC_CTL_CODESEL(0xf);
+> +		fl_writel(h, FLASH_NF_ECC_CONTROL, ctl | ECC_CTL_CODESEL(step));
+> +
+> +		sts =3D fl_readl(h, FLASH_NF_ECC_STATUS);
+> +		switch (ECC_STS_STATUS(sts)) {
+> +		case ECC_NO_ERR:
+> +			break;
+> +		case ECC_1BIT_DATA_ERR:
+> +			if (ECC_STS_ERRBYTE(sts) >=3D eccsize || ECC_STS_ERRBIT(sts) >=3D 8) {
+> +				mtd->ecc_stats.failed++;
+> +				break;
+> +			}
+> +			p[ECC_STS_ERRBYTE(sts)] ^=3D BIT(ECC_STS_ERRBIT(sts));
+> +			mtd->ecc_stats.corrected++;
+> +			max_bitflips =3D max(max_bitflips, 1);
+> +			dev_dbg(h->dev, "page %d step %d: 1-bit data error corrected\n",
+> +				page, step);
+> +			break;
+> +		case ECC_1BIT_ECC_ERR:
+> +			mtd->ecc_stats.corrected++;
+> +			max_bitflips =3D max(max_bitflips, 1);
+> +			dev_dbg(h->dev, "page %d step %d: 1-bit ecc error\n", page, step);
+> +			break;
+> +		case ECC_UNCORRECTABLE:
+> +			mtd->ecc_stats.failed++;
+> +			dev_dbg(h->dev, "page %d step %d: uncorrectable\n", page, step);
+> +			break;
+> +		}
+> +	}
+> +	return max_bitflips;
+> +}
+> +
+> +/* The controller sequences complete transactions; do not split CMD/ADDR=
+. */
+> +struct cs752x_nand_op {
+> +	u32 command;
+> +	u64 address;
+> +	unsigned int ncmds;
+> +	unsigned int naddrs;
+> +	const struct nand_op_instr *data;
+> +	unsigned int timeout_ms;
+> +	unsigned int delay_ns;
+> +};
+> +
+> +static int cs752x_nand_decode(const struct nand_operation *op,
+> +			      struct cs752x_nand_op *p)
+> +{
+> +	unsigned int i, state =3D 0, nsig =3D 0, nwait =3D 0;
+> +	char sig[7] =3D {};
+> +
+> +	memset(p, 0, sizeof(*p));
+> +	p->timeout_ms =3D 100;
+> +	if (op->cs || !op->ninstrs || op->ninstrs > 6)
+> +		return -EOPNOTSUPP;
+> +	for (i =3D 0; i < op->ninstrs; i++) {
+> +		const struct nand_op_instr *in =3D &op->instrs[i];
+> +		unsigned int j;
+> +
+> +		p->delay_ns =3D max(p->delay_ns, in->delay_ns);
+> +		if (in->type !=3D NAND_OP_WAITRDY_INSTR) {
+> +			if (in->type > NAND_OP_DATA_OUT_INSTR)
+> +				return -EOPNOTSUPP;
+> +			sig[nsig++] =3D "CAIO"[in->type];
+> +		} else if (++nwait > 1 || !i ||
+> +			   (op->instrs[i - 1].type !=3D NAND_OP_CMD_INSTR &&
+> +			    op->instrs[i - 1].type !=3D NAND_OP_ADDR_INSTR)) {
+> +			return -EOPNOTSUPP;
+> +		}
+> +		switch (in->type) {
+> +		case NAND_OP_CMD_INSTR:
+> +			if (p->ncmds =3D=3D 2 || state =3D=3D 4)
+> +				return -EOPNOTSUPP;
+> +			p->command |=3D (u32)in->ctx.cmd.opcode << (p->ncmds++ * 8);
+> +			state =3D 1;
+> +			break;
+> +		case NAND_OP_ADDR_INSTR:
+> +			if (state !=3D 1 || p->naddrs || !in->ctx.addr.naddrs ||
+> +			    in->ctx.addr.naddrs > 5)
+> +				return -EOPNOTSUPP;
+> +			p->naddrs =3D in->ctx.addr.naddrs;
+> +			for (j =3D 0; j < p->naddrs; j++)
+> +				p->address |=3D (u64)in->ctx.addr.addrs[j] << (j * 8);
+> +			state =3D 2;
+> +			break;
+> +		case NAND_OP_DATA_IN_INSTR:
+> +		case NAND_OP_DATA_OUT_INSTR:
+> +			if (p->data || !in->ctx.data.len ||
+> +			    in->ctx.data.len > CS75XX_OWN_BUF_SIZE)
+> +				return -EOPNOTSUPP;
+> +			p->data =3D in;
+> +			state =3D in->type =3D=3D NAND_OP_DATA_IN_INSTR ? 4 : 3;
+> +			break;
+> +		case NAND_OP_WAITRDY_INSTR:
+> +			if (!in->ctx.waitrdy.timeout_ms)
+> +				return -EOPNOTSUPP;
+> +			p->timeout_ms =3D in->ctx.waitrdy.timeout_ms;
+> +			break;
+> +		default:
+> +			return -EOPNOTSUPP;
+> +		}
+> +	}
+> +
+> +	if (!p->ncmds)
+> +		return p->data && p->data->type =3D=3D NAND_OP_DATA_IN_INSTR &&
+> +		       op->ninstrs =3D=3D 1 ? 0 : -EOPNOTSUPP;
+> +	/* Validate the whole sequence, not just the available register fields.=
+ */
+> +	if (p->command =3D=3D NAND_CMD_RESET) {
+> +		if (strcmp(sig, "C"))
+> +			return -EOPNOTSUPP;
+> +	} else if (p->command =3D=3D NAND_CMD_STATUS) {
+> +		if (strcmp(sig, "C") && strcmp(sig, "CI"))
+> +			return -EOPNOTSUPP;
+> +	} else if (p->command =3D=3D NAND_CMD_READID || p->command =3D=3D NAND_=
+CMD_PARAM) {
+> +		if (strcmp(sig, "CA") && strcmp(sig, "CAI"))
+> +			return -EOPNOTSUPP;
+> +	} else if (p->command =3D=3D (NAND_CMD_SEQIN | (NAND_CMD_PAGEPROG << 8)=
+)) {
+> +		if (strcmp(sig, "CAOC"))
+> +			return -EOPNOTSUPP;
+> +	} else if (strcmp(sig, "CAC") && strcmp(sig, "CACI")) {
+> +		return -EOPNOTSUPP;
+> +	}
+> +	switch (p->command) {
+> +	case NAND_CMD_RESET:
+> +		return !p->naddrs && !p->data ? 0 : -EOPNOTSUPP;
+> +	case NAND_CMD_STATUS:
+> +		return !p->naddrs && (!p->data ||
+> +		       (p->data->type =3D=3D NAND_OP_DATA_IN_INSTR &&
+> +			p->data->ctx.data.len =3D=3D 1)) ? 0 : -EOPNOTSUPP;
+> +	case NAND_CMD_READID:
+> +	case NAND_CMD_PARAM:
+> +		return p->naddrs =3D=3D 1 && (!p->data ||
+> +		       p->data->type =3D=3D NAND_OP_DATA_IN_INSTR) ? 0 : -EOPNOTSUPP;
+> +	case NAND_CMD_READ0 | (NAND_CMD_READSTART << 8):
+> +		return p->naddrs >=3D 4 && (!p->data ||
+> +		       p->data->type =3D=3D NAND_OP_DATA_IN_INSTR) ? 0 : -EOPNOTSUPP;
+> +	case NAND_CMD_RNDOUT | (NAND_CMD_RNDOUTSTART << 8):
+> +		return p->naddrs =3D=3D 2 && (!p->data ||
+> +		       p->data->type =3D=3D NAND_OP_DATA_IN_INSTR) ? 0 : -EOPNOTSUPP;
+> +	case NAND_CMD_SEQIN | (NAND_CMD_PAGEPROG << 8):
+> +		return p->naddrs >=3D 4 && p->data &&
+> +		       p->data->type =3D=3D NAND_OP_DATA_OUT_INSTR &&
+> +		       !(p->data->ctx.data.len % sizeof(u32)) &&
+> +		       !(p->address & 3) && state =3D=3D 1 ? 0 : -EOPNOTSUPP;
+> +	case NAND_CMD_ERASE1 | (NAND_CMD_ERASE2 << 8):
+> +		return p->naddrs >=3D 2 && p->naddrs <=3D 3 && !p->data ? 0 : -EOPNOTS=
+UPP;
+> +	default:
+> +		return -EOPNOTSUPP;
+> +	}
 
-								Honza
--- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+Is the controller only capable to send those opcodes because it is super
+smart? Or is it just sanity checks?
+
+> +}
+> +
+> +static int cs752x_nand_wait_ready(struct cs752x_nand_host *h,
+> +				  unsigned int timeout_ms)
+> +{
+> +	u32 value;
+> +
+> +	/* nflash_rbIn_d is the sampled NAND R/B input, not the FSM state. */
+> +	return readl_poll_timeout(h->iobase_fl + FLASH_STATUS, value,
+> +				 value & BIT(26), 1, (u64)timeout_ms * 1000);
+> +}
+> +
+> +static int cs752x_nand_pio(struct cs752x_nand_host *h,
+> +			   const struct cs752x_nand_op *p, u8 *buf,
+> +			  unsigned int len, bool write)
+> +{
+> +	u32 value;
+> +	unsigned int i, step =3D write && len ? sizeof(u32) : 1;
+> +	int ret;
+> +
+> +	ret =3D check_flash_ctrl_status(h);
+> +	if (ret)
+> +		return ret;
+> +	reset_ecc_bch_registers(h);
+> +	fl_writel(h, FLASH_NF_COUNT,
+> +		  NF_CNT_OOB(NCNT_EMPTY_OOB) |
+> +		  NF_CNT_DATA(len ? len - 1 : NCNT_EMPTY_DATA) |
+> +		  NF_CNT_ADDR(p->naddrs ? p->naddrs - 1 : NCNT_EMPTY_ADDR) |
+> +		  NF_CNT_CMD(p->ncmds - 1));
+> +	fl_writel(h, FLASH_NF_COMMAND, p->command);
+> +	fl_writel(h, FLASH_NF_ADDRESS_1, lower_32_bits(p->address));
+> +	fl_writel(h, FLASH_NF_ADDRESS_2, upper_32_bits(p->address));
+> +	fl_writel(h, FLASH_NF_ACCESS, write && len ? NF_ACCESS_WIDTH32 : NF_ACC=
+ESS_WIDTH8);
+> +
+> +	for (i =3D 0; i < max(len, 1U); i +=3D step) {
+> +		if (write && len)
+> +			fl_writel(h, FLASH_NF_DATA, get_unaligned_le32(buf + i));
+> +		fl_writel(h, FLASH_FLASH_ACCESS_START,
+> +			  FLASH_START_REGREQ | FLASH_START_CMD(write ? FLASH_WT : FLASH_RD));
+> +		/* Byte PIO completes in microseconds, below scheduler granularity. */
+> +		ret =3D readl_poll_timeout_atomic(h->iobase_fl + FLASH_FLASH_ACCESS_ST=
+ART,
+> +						value, !(value & FLASH_START_REGREQ), 1,
+> +					(u64)p->timeout_ms * 1000);
+> +		if (ret)
+> +			goto out;
+> +		if (!write && len)
+> +			buf[i] =3D fl_readl(h, FLASH_NF_DATA) >> ((i % 4) * 8);
+> +	}
+> +	ret =3D p->command =3D=3D NAND_CMD_STATUS ? 0 :
+> +	      cs752x_nand_wait_ready(h, p->timeout_ms);
+> +	if (p->delay_ns)
+> +		ndelay(p->delay_ns);
+> +out:
+> +	fl_writel(h, FLASH_NF_ECC_RESET,
+> +		  ECC_RESET_ECC_CLR | ECC_RESET_FIFO_CLR | ECC_RESET_NF_RESET);
+> +	return ret;
+> +}
+> +
+> +static int cs752x_nand_exec_op(struct nand_chip *chip,
+> +			       const struct nand_operation *op, bool check_only)
+> +{
+> +	struct cs752x_nand_host *h =3D to_host(chip);
+> +	struct mtd_info *mtd =3D nand_to_mtd(chip);
+> +	struct cs752x_nand_op p;
+> +	unsigned int len =3D 0, requested, col;
+> +	int ret;
+> +
+> +	ret =3D cs752x_nand_decode(op, &p);
+> +	if (ret || check_only)
+> +		return ret;
+> +	requested =3D p.data ? p.data->ctx.data.len : 0;
+> +	if (!p.ncmds) {
+> +		if (h->read_mode !=3D NAND_CMD_STATUS)
+> +			goto cached;
+> +		if (requested !=3D 1)
+> +			return -EOPNOTSUPP;
+> +		p.command =3D NAND_CMD_STATUS;
+> +		p.ncmds =3D 1;
+> +	}
+> +	if (p.command =3D=3D (NAND_CMD_RNDOUT | (NAND_CMD_RNDOUTSTART << 8))) {
+> +		col =3D p.address;
+> +		if (h->read_mode !=3D NAND_CMD_PARAM && h->read_mode !=3D NAND_CMD_REA=
+D0)
+> +			return -EINVAL;
+> +		if (col < h->cache_column || col - h->cache_column > h->buf_data_len)
+> +			return -EINVAL;
+> +		h->buf_offs =3D col - h->cache_column;
+> +		goto cached;
+> +	}
+> +	h->buf_offs =3D 0;
+> +	h->buf_data_len =3D 0;
+> +	h->read_mode =3D p.command & 0xff;
+> +	h->cache_column =3D 0;
+> +	switch (p.command) {
+> +	case NAND_CMD_READID:
+> +		len =3D max(requested, 8U);
+> +		break;
+> +	case NAND_CMD_PARAM:
+> +		/* Keep all standard ONFI copies plus room for extended parameters. */
+> +		len =3D sizeof(h->own_buf);
+> +		break;
+> +	case NAND_CMD_STATUS:
+> +		len =3D 1;
+> +		break;
+> +	case NAND_CMD_READ0 | (NAND_CMD_READSTART << 8):
+> +		col =3D p.address & 0xffff;
+> +		if (col >=3D mtd->writesize + mtd->oobsize)
+> +			return -EINVAL;
+> +		h->cache_column =3D col;
+> +		len =3D mtd->writesize + mtd->oobsize - col;
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +	if (len > sizeof(h->own_buf) || (requested > len &&
+> +					 (!p.data || p.data->type =3D=3D NAND_OP_DATA_IN_INSTR)))
+> +		return -EOPNOTSUPP;
+> +	if (p.data && p.data->type =3D=3D NAND_OP_DATA_OUT_INSTR)
+> +		return cs752x_nand_pio(h, &p, (u8 *)p.data->ctx.data.buf.out,
+> +				      requested, true);
+> +
+> +	ret =3D cs752x_nand_pio(h, &p, h->own_buf, len,
+> +			      p.command =3D=3D NAND_CMD_RESET);
+> +	if (ret)
+> +		return ret;
+> +	h->buf_data_len =3D len;
+> +cached:
+> +	if (!requested)
+> +		return 0;
+> +	if (h->buf_offs > h->buf_data_len ||
+> +	    requested > h->buf_data_len - h->buf_offs)
+> +		return -EOPNOTSUPP;
+> +	memcpy(p.data->ctx.data.buf.in, h->own_buf + h->buf_offs, requested);
+> +	h->buf_offs +=3D requested;
+> +	return 0;
+> +}
+> +
+> +static int cs752x_nand_program_status(struct nand_chip *chip)
+> +{
+> +	u8 status;
+> +	int ret;
+> +
+> +	ret =3D cs752x_nand_wait_ready(to_host(chip), 1000);
+> +	if (ret)
+> +		return ret;
+> +	ret =3D nand_status_op(chip, &status);
+> +	if (ret)
+> +		return ret;
+> +	return status & NAND_STATUS_FAIL ? -EIO : 0;
+> +}
+> +
+> +static int cs752x_nand_read_page_raw(struct nand_chip *chip, u8 *buf,
+> +				     int oob_required, int page)
+> +{
+> +	struct cs752x_nand_host *h =3D to_host(chip);
+> +	int ret;
+> +
+> +	ret =3D cs752x_page_op_begin(h);
+> +	if (ret)
+> +		return ret;
+> +	return cs752x_nand_read_page_pio(h, buf, oob_required, page);
+> +}
+> +
+> +static int cs752x_nand_write_page_raw(struct nand_chip *chip, const u8 *=
+buf,
+> +				      int oob_required, int page)
+> +{
+> +	struct cs752x_nand_host *h =3D to_host(chip);
+> +	int ret;
+> +
+> +	ret =3D cs752x_page_op_begin(h);
+> +	if (ret)
+> +		return ret;
+> +	ret =3D cs752x_nand_write_page_pio(h, buf, oob_required, page, NULL);
+> +	if (ret)
+> +		return ret;
+> +	return cs752x_nand_program_status(chip);
+> +}
+> +
+> +static int cs752x_nand_read_page_hwecc(struct nand_chip *chip, u8 *buf,
+> +				       int oob_required, int page)
+> +{
+> +	struct cs752x_nand_host *h =3D to_host(chip);
+> +	int ret;
+> +
+> +	ret =3D cs752x_page_op_begin(h);
+> +	if (ret)
+> +		return ret;
+> +	configure_hwecc_reg(h, false);
+> +
+> +	ret =3D cs752x_nand_read_page_pio(h, buf, true, page);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret =3D hamming_correct(h, buf, page);
+> +	return ret;
+> +}
+> +
+> +static int cs752x_nand_write_page_hwecc(struct nand_chip *chip, const u8=
+ *buf,
+> +					int oob_required, int page)
+> +{
+> +	struct cs752x_nand_host *h =3D to_host(chip);
+> +	int ret;
+> +
+> +	ret =3D cs752x_page_op_begin(h);
+> +	if (ret)
+> +		return ret;
+> +	configure_hwecc_reg(h, true);
+> +
+> +	ret =3D cs752x_nand_write_page_pio(h, buf, true, page, fill_hamming_oob=
+_data);
+> +	if (ret)
+> +		return ret;
+> +	return cs752x_nand_program_status(chip);
+> +}
+> +
+> +static int cs752x_nand_attach_chip(struct nand_chip *chip)
+> +{
+> +	struct mtd_info *mtd =3D nand_to_mtd(chip);
+> +	struct cs752x_nand_host *h =3D to_host(chip);
+> +	int ecc_total;
+> +
+> +	if (chip->options & NAND_BUSWIDTH_16 ||
+> +	    (mtd->writesize !=3D SZ_2K && mtd->writesize !=3D SZ_4K) ||
+> +	    (mtd->oobsize !=3D 64 && mtd->oobsize !=3D 128))
+
+Is your controller really so constrained?
+
+> +		return -EOPNOTSUPP;
+> +	if (chip->ecc.engine_type !=3D NAND_ECC_ENGINE_TYPE_ON_HOST ||
+> +	    (chip->ecc.placement !=3D NAND_ECC_PLACEMENT_UNKNOWN &&
+> +	     chip->ecc.placement !=3D NAND_ECC_PLACEMENT_OOB) ||
+> +	    (chip->ecc.algo !=3D NAND_ECC_ALGO_UNKNOWN &&
+> +	     chip->ecc.algo !=3D NAND_ECC_ALGO_HAMMING) ||
+> +	    (chip->ecc.size && chip->ecc.size !=3D 256) ||
+> +	    (chip->ecc.strength && chip->ecc.strength !=3D 1))
+> +		return -EOPNOTSUPP;
+
+Why refusing to use SW operations?
+
+> +
+> +	ecc_total =3D mtd->writesize / 256 * 3;
+> +	/* The standard Hamming layout reserves the last 24 or 48 OOB bytes. */
+> +	if (ecc_total > (mtd->oobsize =3D=3D 64 ? 24 : 48))
+> +		return -EINVAL;
+> +	chip->ecc.placement =3D NAND_ECC_PLACEMENT_OOB;
+> +	chip->ecc.algo =3D NAND_ECC_ALGO_HAMMING;
+> +	chip->ecc.size =3D 256;
+> +	chip->ecc.bytes =3D 3;
+> +	chip->ecc.strength =3D 1;
+> +
+> +	h->ecc_calc =3D devm_kzalloc(h->dev, mtd->oobsize, GFP_KERNEL);
+> +	h->ecc_code =3D devm_kzalloc(h->dev, mtd->oobsize, GFP_KERNEL);
+> +	if (!h->ecc_calc || !h->ecc_code)
+> +		return -ENOMEM;
+> +
+> +	mtd_set_ooblayout(mtd, nand_get_large_page_hamming_ooblayout());
+> +
+> +	chip->ecc.read_page	 =3D cs752x_nand_read_page_hwecc;
+> +	chip->ecc.write_page	 =3D cs752x_nand_write_page_hwecc;
+> +	chip->ecc.read_page_raw	 =3D cs752x_nand_read_page_raw;
+> +	chip->ecc.write_page_raw =3D cs752x_nand_write_page_raw;
+> +
+> +	dev_info(h->dev, "HW ECC %s, %d bytes per %d-byte step, page %u, oob %u=
+\n",
+> +		 chip->ecc.algo =3D=3D NAND_ECC_ALGO_BCH ? "BCH" : "Hamming",
+> +		 chip->ecc.bytes, chip->ecc.size, mtd->writesize, mtd->oobsize);
+> +	return 0;
+> +}
+> +
+> +static const struct nand_controller_ops cs752x_nand_controller_ops =3D {
+> +	.attach_chip =3D cs752x_nand_attach_chip,
+> +	.exec_op =3D cs752x_nand_exec_op,
+
+Maybe a supports_op() where you make your checks would be relevant to
+remove the churn from exec_op()?
+
+> +};
+> +
+
+Thanks,
+Miqu=C3=A8l
