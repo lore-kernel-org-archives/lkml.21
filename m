@@ -1,60 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795692814;
-	b=Ejh5zPfrfSXu4lts7qMQNTtqNTMiMZZMiq8T2ORYbnVWQIJ5jY/MtI6vBsQ/3K1onf9l
-	 nxoWNxNrQL/qDbrBXGu7KLUa3738XDOBJPgp8fmpVNbX+3bsSzkDfl3ZSDM2Q4TVuHS7X
-	 DvThcabAQYZuPFU+SWCRpS5aQop02pnDTpAg/i7wyafX0V6VuHbPjxW/T5bQ2kuA/OUii
-	 CTuHf3p3NbpjTI7dXwShu+cuy0ftizlvgiWdMybUi0FUGwlx31yMxwTQYFrs5I2UK3KqI
-	 PVxaRYRnNDyMd6ZkyaD/oHsVqVf68vR+m+eCgYZeHd9nDPBvG22Qc8rNYPuJZ/OXlIw==
+	t=1795692823;
+	b=5pGolP+NVAa5wUFqV133SYY4QL7jTf019eOw5xd+AgrNtudNfoui+dUtHxQjzLdovBbL
+	 E6/t7fxiBw3hWEgIhjPRHtYSkAUTd6wlaDvVjVngezU98p4dsgwy/gSeOJKnxZaRdB0/6
+	 XX98/297vJosK29VFASMoQJr2Cj3gbJ0ndHc7Cdgf/m8nMSzu6pZPWJ/hMR5oCwmqeQl0
+	 k7gPAPg4squ06FrTfICZppwHfPD4zcCJBndQBcnH8oksfCLTaN73Kr2h0Uq58CPLp01Df
+	 qBBa6JnOYXaUhrXVUfbQbEkJYEGlNTjdZwsoH50K+7NJq8Vrd+sGF0JqYHhZrCQ92Wg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795692814;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Last-TLS-Session-Version;
-	bh=HoA7X4ma5bwJj/kRPNS7vTcKgiIrboSXt7Y5O79fKEE=;
-	b=EF6sKbFsdyEcEoXC74jk80GKOJ5uDmRh83NUQUDSBnyWurrpWfIKONdgIjuFgi/pJCkX
-	 u8EYBCY/1XvQbGVhwH4HebBpYX+FTcZrgMI3gUjyKjJFDLkSV3LSMz0yEQhka9qeLgfnQ
-	 Pjs4H9aLCeoXmtwEkFjoJmsuXX/NtUJ/9mzd9ARnYKpGddY6gANbhCn+ne5JK3uMjknR7
-	 HyQ23H7WMBWqhZW/V+k6lKwdYw5tQW+Ttgwe3H7kosHVmwmj2zfB5zCGYjXJetLNFtILx
-	 Z1b6cnKsyOgkEdJrRC3uOscCUWci4OfCzHGcyy4pSodycJ8o4Jey5Aw4G58RLZ3WZTQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795692823;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=Z6b8XUkAe29Qbtx4GPrsYDuZ84bX6oCBHUSF9JuGiVE=;
+	b=gMpkhwD0FA73gogXudMl6sZfz2bgRrPNM05Jet9dxECL793aUUpzL9vcEq/MJ5NRe4vS
+	 AIB8AXB32chLPOSx/F4K22r+uzdr9KoT42DTm0aSM5qZgYVvslcGzbicImb60Qr/lOrx/
+	 UZEFYUhktyU1ChI9uWvTGs3N0aKuEIIyWJzDTCp9wQpMZ6S0qKfxIljc90v/VbDCeic7F
+	 Q3ySE1yDrScwQJoG5TSdELBt6pLM9APK3Pbt6x0N59QJO0pHptC+Ik0aZlmifI+c8IQnd
+	 MobMa7SvW5pasQKEXpUK8y8byquDPiXDgDJSrDbb3SLsyAXmjPFbtN4+KH5FHJqHjpg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=fXvRSfe0;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=kgbgu55N;
+	arc=none smtp.remote-ip=209.85.128.50
+Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2337606A32A;
-	Thu, 26 Nov 2026 11:33:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2337606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CD06606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:33:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0CD06606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=fXvRSfe0
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 9242B1A1808;
-	Thu, 26 Nov 2026 11:33:32 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 601B660237;
-	Thu, 26 Nov 2026 11:33:32 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2CDFF11E6B306;
-	Thu, 26 Nov 2026 12:33:21 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795692806; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=HoA7X4ma5bwJj/kRPNS7vTcKgiIrboSXt7Y5O79fKEE=;
-	b=fXvRSfe0MfaDTim26L+H+xvmIAfAJdy1AF4wSb1n/A1Ko0cq2qJvKz3Hy/WEsU5RyAL5tj
-	DOvCBD02/KO3AEHXnUM4MeUDGdOa4AasCWrEChDV44rJBollx0f/mVYIdaeReAmX2uw+pu
-	X0bCvAyeICVFkD/rWBwD0BWuyWEGy3JEPkTdyBZl4JfQ6mjuUtwzn5QfNMBUKTdy5BGmPX
-	PmsagCEJubaw/SNsFntJOhkX2rIF7sCAqScpv0rI+R6hFjaAl4J0+KOmiOmrmrHKlJqUV4
-	VdTkXa0xhrOldzo6hw7BHueJdh5ey943nFnte7N6M9PPbNRJ66Ryjx1F0DYtRQ==
-From: Louis Chauvet <louis.chauvet@bootlin.com>
-Date: Thu, 26 Nov 2026 12:29:26 +0100
-Subject: [PATCH v7 43/43] drm/vkms: Add ConfigFS interface for connector
- parent and port_id
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=kgbgu55N
+Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4bb77a462c6so57317375e9.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:33:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795692821; x=1796297621; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Z6b8XUkAe29Qbtx4GPrsYDuZ84bX6oCBHUSF9JuGiVE=;
+        b=kgbgu55NJWqtsl819u2td1h3BTQU/9so27oCJxFth9UtpwHASiUMZJXPMU3X3DVX8a
+         XHYpyO1Bj9RCj0FdM3Cv42VJb77av4BgmPN4oKfcfnO+RQRyWv8i6HJOHdbIavx0s7OW
+         4vGwxmmNQFnOsfhlB2XpUcy6Xc3cMs8MusZr4djrwqMIJxhhSNL8j0W71saUumvV9TOR
+         nwTh2CHjddK8k6Y5/U20tmOc3A7iiYaVV6pCEq2FG5cH2GkBab7F+sc4HwMI0pylQotO
+         gMfaPP3WQLcBsf4nYys8Eok8jEEiJtdIniAXp9nQm/gXUO5Ie33WyjbOmXpd1Y1FmCS/
+         HYfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795692821; x=1796297621;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Z6b8XUkAe29Qbtx4GPrsYDuZ84bX6oCBHUSF9JuGiVE=;
+        b=kLgROjlqrk44BlvvlzQKg2HFhzy6iNekNt1wPrmWEcaq6Wl2NUESWlVvTO/24igf3K
+         md+0Ld0z1dOP4hqCUnSCJpTDwnVBI0bRv5sh7b1QWEnVEfkpf1UfXXPpsofArhOYf5SR
+         zX1wc4cCU/bBfW1bUkuOhITsDj2dYS0IsI+NfiisGo2rjkKkpVpE2E6ads7qhpdbjZ9i
+         hoPA8ha61gHPDjpksfy1JSNW5nVxaIytWR35d39BNArGRRWDh5tckKUu+ypjE+d1DGnO
+         5GBuBT1sbSM7J52O1IPEyLA9o2JIafI8+yT/Brca/fwTyI5aJsSIIGKHdqPKht+rDJZi
+         inpQ==
+X-Forwarded-Encrypted: i=1; AL+hErF4KIP650Viqc2GTrLmcLiYxwh5U8OWDMwgEByAy4BWS5LSwo2qarpPpnrb20Fin9NOryXrsxHITQV2igs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/0pueQtDjynimKh60udls788jmN3kW1TA1u6S4zN6ahPvtw09b
+	0eY4Fvzu4vsx0aFpAh1IwGY2fPzxAXQUedpEnq+LQNzY2gxvrtBQoiQyNp88nNizDDQ=
+X-Gm-Gg: AZFdTZflK9oDPPK0kZrfqSAZb/lEPEkvQ6jUmQrivNUwfXgBAEYICgTMKChh1M+QCNI
+	bk77KOLbp2074BSR2A+ui863VZTELeeMSFjiczuQOZ3AGw14oyHW0pNhLdAptFU94SkkdG68z6H
+	Y5v4YDtVUaMMwz09tC/HeyrtZx9fPGbHu91no35U7Ub4idXK+gJzvsQyteDtpgNQG9Ms/F1dJms
+	+2bp5yefrvlPpB0BP7RnucTZWa2cLU1Ce89WW2uM+cZfpoBAszgPLJQHLpvqzrlXA6tlkrjQHOw
+	mYayJNNUtvzjkbqzmgkUILpjve7GGA8S8VMXj8JJI46knNebMUNTv8iljeWiO236WSloWssYp8P
+	PPbQWS0tZcFMRPnplcZz1LOf8SmibEhL75V/6iuP4gWsphp0ABsryQEnMfSktW8Ds221PbQ0cp5
+	1SSeuATKdfTwiufLxJ2+66QORBmznfn/+dbZP33YKOh0xzly8MrJ3Qt4jQASWz1scQMbGOV+wtF
+	7QCOKXmuuz0odw+ZbOcU+lX/bj+xi/0XUw51P86GJWSWbtmFx9TIcPMyoE7qed7GZNDnEN0yGDa
+	dZbGrL2R2oSeuzpPHXlE0UjjckuQuFb4i0galw==
+X-Received: by 2002:a05:600c:16c9:b0:4bb:7ad9:311d with SMTP id 5b1f17b1804b1-4bb861692a1mr322942735e9.19.1795692821256;
+        Thu, 26 Nov 2026 03:33:41 -0800 (PST)
+Received: from [10.11.12.111] ([79.115.63.240])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fe48sm36638402f8f.23.2026.11.26.03.33.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 03:33:40 -0800 (PST)
+Message-ID: <65f7bd9f-b8ea-46f9-94a1-5129268ead0f@linaro.org>
+Date: Thu, 26 Nov 2026 13:33:37 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,276 +92,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCHv3] thermal/drivers/samsung/acpm-tmu: Fix spurious CPU
+ throttling
+To: Christian Loehle <christian.loehle@arm.com>, bzolnier@gmail.com
+Cc: krzk@kernel.org, rafael@kernel.org, daniel.lezcano@kernel.org,
+ lukasz.luba@arm.com, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, linux-pm@vger.kernel.org,
+ Alexey Klimov <alexey.klimov@linaro.org>, Peter Griffin <gpeter@google.com>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Juan Yescas <jyescas@google.com>
+References: <20261125173959.2198116-1-christian.loehle@arm.com>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20261125173959.2198116-1-christian.loehle@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-vkms-all-config-v7-43-21194cda2468@bootlin.com>
-References: <20261126-vkms-all-config-v7-0-21194cda2468@bootlin.com>
-In-Reply-To: <20261126-vkms-all-config-v7-0-21194cda2468@bootlin.com>
-To: Haneen Mohammed <hamohammed.sa@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Melissa Wen <melissa.srw@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, jose.exposito89@gmail.com, 
- Jonathan Corbet <corbet@lwn.net>, Oarora Etimis <oaroraetimis@gmail.com>, 
- Harry Wentland <harry.wentland@amd.com>, 
- Lucas De Marchi <demarchi@kernel.org>, 
- =?utf-8?q?Ville_Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>, 
- Randy Dunlap <rdunlap@infradead.org>, 
- Nick Desaulniers <ndesaulniers@google.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>, 
- Shuah Khan <skhan@linuxfoundation.org>, Miguel Ojeda <ojeda@kernel.org>, 
- Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Kory Maincent <kory.maincent@bootlin.com>, sebastian.wick@redhat.com, 
- victoria@system76.com, thomas.petazzoni@bootlin.com, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-doc@vger.kernel.org, llvm@lists.linux.dev
-X-Mailer: b4 0.17-dev
-X-Last-TLS-Session-Version: TLSv1.3
 
-Add the parent and port_id configuration for a connector.
 
-- port_id can contain any u8 value
-- parent can contain at most one symlink to an other connector.
+I tested the patch. With the driver loaded, all clusters now run at their
+maximum frequency (measured via CPU_CYCLES) instead of ~200 MHz. Lowering
+the hot trip via sysfs to 55 C reprograms threshold 7, and the hardware
+then holds the CPU cluster at ~55 C under full load.
 
-Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
----
- Documentation/ABI/testing/configfs-vkms |  28 +++++++++
- drivers/gpu/drm/vkms/vkms_config.h      |   8 +--
- drivers/gpu/drm/vkms/vkms_configfs.c    | 103 ++++++++++++++++++++++++++++++++
- 3 files changed, 135 insertions(+), 4 deletions(-)
-
-diff --git a/Documentation/ABI/testing/configfs-vkms b/Documentation/ABI/testing/configfs-vkms
-index f59533e6f80e..27d307935771 100644
---- a/Documentation/ABI/testing/configfs-vkms
-+++ b/Documentation/ABI/testing/configfs-vkms
-@@ -106,6 +106,15 @@ Description:
- 	the device is disabled, the value is only stored and takes
- 	effect when the device is enabled.
- 
-+What:		/sys/kernel/config/vkms/<device>/connectors/<connector>/port_id
-+Date:		Nov 2025
-+Contact:	dri-devel@lists.freedesktop.org
-+Description:
-+	Port number of the connector, used together with parent to
-+	build the MST PATH property. Value is a decimal number
-+	between 0 and 255. Writing fails with -EBUSY if the device
-+	is enabled and the connector is enabled.
-+
- What:		/sys/kernel/config/vkms/<device>/connectors/<connector>/possible_encoders
- Date:		Nov 2025
- Contact:	dri-devel@lists.freedesktop.org
-@@ -116,6 +125,25 @@ Description:
- 	connector attaches it immediately, and linking into a
- 	static connector fails with -EBUSY.
- 
-+What:		/sys/kernel/config/vkms/<device>/connectors/<connector>/parent
-+Date:		Nov 2025
-+Contact:	dri-devel@lists.freedesktop.org
-+Description:
-+	This group contains a symbolic link to the parent
-+	connector, to emulate a DP MST topology. The target must
-+	be a connector of the same VKMS device. Creating the link
-+	fails with -EMLINK if the connector already has a parent,
-+	and with -EBUSY if the device is enabled and the connector
-+	is enabled. Removing the link detaches the parent. A
-+	connector with a parent exposes a PATH property of the
-+	form "mst:<root connector DRM ID>-<port_id>...", listing
-+	the port IDs along the path from the first connector below
-+	the root down to this one (up to 16 levels of nesting).
-+	Creating a link that forms a parent cycle (A becoming the
-+	parent of B while B is already the parent of A) is accepted,
-+	but such a cycle is rejected when the device is enabled,
-+	during configuration validation (-EINVAL).
-+
- What:		/sys/kernel/config/vkms/<device>/crtcs
- Date:		Nov 2025
- Contact:	dri-devel@lists.freedesktop.org
-diff --git a/drivers/gpu/drm/vkms/vkms_config.h b/drivers/gpu/drm/vkms/vkms_config.h
-index 83869e677f15..457239cfc2a4 100644
---- a/drivers/gpu/drm/vkms/vkms_config.h
-+++ b/drivers/gpu/drm/vkms/vkms_config.h
-@@ -432,6 +432,10 @@ vkms_config_connector_get_edid(const struct vkms_config_connector *connector_cfg
- 	*len = 0;
- 	return NULL;
- }
-+
-+int vkms_config_connector_set_edid(struct vkms_config_connector *connector_cfg,
-+				   const u8 *edid, unsigned int len);
-+
- /**
-  * vkms_config_connector_attach_parent - Attach a connector to a parent connector
-  * @connector_cfg: Connector to attach
-@@ -492,10 +496,6 @@ vkms_config_connector_set_port_id(struct vkms_config_connector *connector_cfg,
- }
- 
- 
--int vkms_config_connector_set_edid(struct vkms_config_connector *connector_cfg,
--				   const u8 *edid, unsigned int len);
--
--
- /**
-  * vkms_config_get_device_name() - Return the name of the device
-  * @config: Configuration to get the device name from
-diff --git a/drivers/gpu/drm/vkms/vkms_configfs.c b/drivers/gpu/drm/vkms/vkms_configfs.c
-index e6222db02a2e..55de6a06ab2d 100644
---- a/drivers/gpu/drm/vkms/vkms_configfs.c
-+++ b/drivers/gpu/drm/vkms/vkms_configfs.c
-@@ -112,6 +112,7 @@ struct vkms_configfs_encoder {
- struct vkms_configfs_connector {
- 	struct config_group group;
- 	struct config_group possible_encoders_group;
-+	struct config_group parent_group;
- 	struct vkms_configfs_device *dev;
- 	struct vkms_config_connector *config;
- };
-@@ -149,6 +150,10 @@ struct vkms_configfs_connector {
- 	container_of(to_config_group((item)), struct vkms_configfs_connector, \
- 		     possible_encoders_group)
- 
-+#define connector_parent_item_to_vkms_configfs_connector(item) \
-+	container_of(to_config_group((item)), struct vkms_configfs_connector, \
-+		     parent_group)
-+
- static ssize_t crtc_writeback_show(struct config_item *item, char *page)
- {
- 	struct vkms_configfs_crtc *crtc;
-@@ -1391,6 +1396,42 @@ static ssize_t connector_dynamic_store(struct config_item *item,
- 	return count;
- }
- 
-+static ssize_t connector_port_id_show(struct config_item *item, char *page)
-+{
-+	struct vkms_configfs_connector *connector;
-+	u8 port_id;
-+
-+	connector = connector_item_to_vkms_configfs_connector(item);
-+
-+	scoped_guard(mutex, &connector->dev->config->lock)
-+		port_id = vkms_config_connector_get_port_id(connector->config);
-+
-+	return sprintf(page, "%u\n", port_id);
-+}
-+
-+static ssize_t connector_port_id_store(struct config_item *item,
-+				       const char *page, size_t count)
-+{
-+	struct vkms_configfs_connector *connector;
-+	u8 port_id;
-+	int ret;
-+
-+	connector = connector_item_to_vkms_configfs_connector(item);
-+
-+	ret = kstrtou8(page, 10, &port_id);
-+	if (ret)
-+		return ret;
-+
-+	scoped_guard(mutex, &connector->dev->config->lock) {
-+		if (connector->dev->enabled && connector_is_enabled(connector->config))
-+			return -EBUSY;
-+
-+		vkms_config_connector_set_port_id(connector->config, port_id);
-+	}
-+
-+	return count;
-+}
-+
- CONFIGFS_ATTR(connector_, status);
- CONFIGFS_ATTR(connector_, type);
- CONFIGFS_ATTR(connector_, supported_colorspaces);
-@@ -1398,6 +1439,7 @@ CONFIGFS_ATTR(connector_, edid_enabled);
- CONFIGFS_ATTR(connector_, edid);
- CONFIGFS_ATTR(connector_, dynamic);
- CONFIGFS_ATTR(connector_, enabled);
-+CONFIGFS_ATTR(connector_, port_id);
- 
- static struct configfs_attribute *connector_item_attrs[] = {
- 	&connector_attr_status,
-@@ -1407,6 +1449,7 @@ static struct configfs_attribute *connector_item_attrs[] = {
- 	&connector_attr_edid,
- 	&connector_attr_dynamic,
- 	&connector_attr_enabled,
-+	&connector_attr_port_id,
- 	NULL,
- };
- 
-@@ -1505,6 +1548,62 @@ static const struct config_item_type connector_possible_encoders_group_type = {
- 	.ct_owner	= THIS_MODULE,
- };
- 
-+static int connector_parent_connector_allow_link(struct config_item *src,
-+						 struct config_item *target)
-+{
-+	struct vkms_configfs_connector *connector;
-+	struct vkms_config_connector *connector_cfg;
-+	struct vkms_configfs_connector *parent;
-+	struct vkms_config_connector *parent_cfg;
-+
-+	if (target->ci_type != &connector_item_type)
-+		return -EINVAL;
-+
-+	connector = connector_parent_item_to_vkms_configfs_connector(src);
-+	connector_cfg = connector->config;
-+	parent = connector_item_to_vkms_configfs_connector(target);
-+	parent_cfg = parent->config;
-+
-+	if (connector->dev != parent->dev)
-+		return -EINVAL;
-+
-+	scoped_guard(mutex, &connector->dev->config->lock) {
-+		if (vkms_config_connector_get_parent(connector_cfg))
-+			return -EMLINK;
-+
-+		if (connector->dev->enabled && connector_cfg->enabled)
-+			return -EBUSY;
-+
-+		vkms_config_connector_attach_parent(connector_cfg,
-+						    parent_cfg);
-+	}
-+
-+	return 0;
-+}
-+
-+static void connector_parent_connector_drop_link(struct config_item *src,
-+						 struct config_item *target)
-+{
-+	struct vkms_configfs_connector *connector;
-+	struct vkms_config_connector *connector_cfg;
-+
-+	connector = connector_parent_item_to_vkms_configfs_connector(src);
-+	connector_cfg = connector->config;
-+
-+	scoped_guard(mutex, &connector->dev->config->lock)
-+		vkms_config_connector_attach_parent(connector_cfg, NULL);
-+}
-+
-+static struct configfs_item_operations connector_parent_item_operations = {
-+	.allow_link	= connector_parent_connector_allow_link,
-+	.drop_link	= connector_parent_connector_drop_link,
-+};
-+
-+static const struct config_item_type connector_parent_group_type = {
-+	.ct_item_ops	= &connector_parent_item_operations,
-+	.ct_owner	= THIS_MODULE,
-+};
-+
- static struct config_group *make_connector_group(struct config_group *group,
- 						 const char *name)
- {
-@@ -1537,6 +1636,10 @@ static struct config_group *make_connector_group(struct config_group *group,
- 		config_group_init_type_name(&connector->possible_encoders_group,
- 					    "possible_encoders",
- 					    &connector_possible_encoders_group_type);
-+		config_group_init_type_name(&connector->parent_group,
-+					    "parent",
-+					    &connector_parent_group_type);
-+		configfs_add_default_group(&connector->parent_group, &connector->group);
- 		configfs_add_default_group(&connector->possible_encoders_group,
- 					   &connector->group);
- 	}
-
--- 
-2.56.0
-
+Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+Tested-by: Tudor Ambarus <tudor.ambarus@linaro.org>
