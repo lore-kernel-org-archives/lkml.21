@@ -1,100 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.44
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795713687;
-	b=wDRC9cHc7G955dl161RaWFfzf0UJOdKxGRpUaKs5pZ45JzQW16nUdAdEHiAEcN8LauTr
-	 R+m20xkr3OzUPd11QmX5/wNVDIMwJ1qViRQabSItpzFLKfo2yHxrzsKifbz9gTHoQwCHK
-	 PiSu7GWiSER82PrtXNuLtycDbJbrqmsUMv0eoJWOSqW+ltB/vwkC+Lz62g9rUOSLAfafg
-	 zMd8ush9OnOjN2WyNpdhiibVTDctTGTDTYYhk6PqDsleuDB1KeK0D8FibTurnAKyuS7y3
-	 vuc3mf7PNyLVzKlptsMx8qFww6LRgmY2pnc3/E8Zd5ZpOfxU27hoa8PoTgFsW+P287g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795713687;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795713755;
+	b=MjCjtNn1Uq1X4jnQ/FVwmf6AreC0ZaSz+GpAae9Kb2fWYaNcUVLU/S+/7Q88lFLnZeJE
+	 Zt0z1fBJ9vE7Hmmlc+AKgCQhwZXYWLBRrWKaeyP48PjyurnHECB4Q0xBaEWkbCAaWql4o
+	 qH4PAMCcFAovLCIbv/HkUXES7pUR7zwIKEr9xx3HFVuGexuUFcptuwW9LzExPdUY4nDOA
+	 7++0Epd/um2lqFxMNLmmxFTVtpL4o1juZDUBfwbw9+BQ82l0qC+wYg0DOKRIX/tX7MO6i
+	 dz3GrAKuDm6YM2J/ycPNxuskE3sM7UhaRm78uNvOXHm/mB4kIjAplRMS6yxAvvxlWug==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795713755;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=hFMU0WQIu/Khu5nkOekEsJ9G7/wupBV+7k9T9skPX/c=;
-	b=WDyjxzmBvhqjoAuxSFI0fussxksAYcD9SFUSyWuwBHDQe09DLHVF3oca6Nmb4961S9lv
-	 G2jZM3c0ce6S6qKRw2fxrgMFlYpvz6rYs7Qbo3sdSZRD738OkLgogsmz8c/79MYVChr9s
-	 VD90PtmaZXFexA05flo7vwq8feF4NgyxOjIq0dgAltxHPFKCLg5EhnTdsEzyNA9wgbgIQ
-	 1s7hUokkbxL+Oi1vdKI5LmUg/hHQ7QLprQcHO4jPn0laPzC3MJ0O5jW+ca1J+qRw2mlnx
-	 FgcC8u+VFoYH1MfsH5/F5Ox3UoNqMNS2H+uXFa+rHSeXDNOkdYsmtZFomoJzthY4FyA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=eAUyELCh;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.44
-Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com [209.85.218.44])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	bh=+o/+kD0PbzrgfqIeIyLt88wkMJdXcHeQPVqxrdmSlPw=;
+	b=PW0/NOHaybrKtZcG/gxkGCkCY4tAcktlOIq12h4NsnhhIUu8wDbstS+LdQoz6sqwBmfS
+	 6Vlf2XHLpZ4wHTFOZucjny2cY/pRAoehGwLTZQPzWYs9ZMwuVhO2H3gXzZxShX90ZzJM1
+	 ED89J/ZCeoAw+GFHpCuZXz1HRDeJmvM57hZqJYiSeTsslU4GdMcLCOkvhzObbiUpb7Z7a
+	 LPAoLbVMr+z7kAFxNR9ed7d8qN3zcMbo7WwLrkpk8ygeBkVU45uoHZE3EtZ16QaIaKqej
+	 lgJtq5une6Gyq52BWBIXzrS6UPq5XDXIqUW/LIsp0ruv86Rw0VMTX1987c6eLyi67XA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rFFixd9V;
+	arc=none smtp.remote-ip=209.85.128.53
+Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8ED62606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:21:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8ED62606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 562E8606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:22:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 562E8606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=eAUyELCh
-Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c4395d31228so1231595866b.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:21:27 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795713686; cv=none;
-        d=google.com; s=arc-20260327;
-        b=OoaNYS1MnIKr59u7IbvxQaL3mgMggD6gNaUBaXrzDUSUAFSP5XAeYsjD9RrPxCBEY9
-         8FDcK10TPdb4x8lXGIkf4KUzJ4vtajRK4sQeYtBOgZgZO8JHuvOL6HEqLcsKFBUxR91z
-         ce7kyewZPUS8pMa6w5PAiozlmtovywC25mFjOvjQT9O34lXs0wT7utq0nDhHvcXF8FOr
-         k7eAfFms+1PFtdArKkKT+JXXZ3wrz0Y/1eliTaDohcqBnnM6yYnh78/RcYZ6Kj/sYAHt
-         8fnJ+va9If4ERuEnj2MELN1Du7vmi9FowC/NroYIPxZVetbFaPI1JGlmD4olHqCkerFD
-         2vkQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=hFMU0WQIu/Khu5nkOekEsJ9G7/wupBV+7k9T9skPX/c=;
-        fh=nKv7JqMMTFu5howMNt4uhijdfhdmiwBN6KzC+Ttwt5I=;
-        b=ZJR5o7u3i7P/oyn0hBliZCvlLIwfrQA2T9DLni6BHo3cQR84R38dgEm+CB81wizf+Z
-         GsbupHJda/2yG40fdC/+7Hmb2W39BA2FHken/98daEBy03Qhbr30jJGK2xqOVoKo4ktW
-         kmTS440rNXk1HoOdNFac6SQMsnC1fN4s37ylAKzzgLaG7E8MRper1ksvFrPT9GQ+Qdnv
-         MsydLbencEc6BU4qcUTOD/OnzDMRf1tZxklNqnORPyhXuiM/Q3K+aqW4bqJBgdDP87LA
-         m11sY1zsWTXfToCd+KZVEw4ulfyHwGfoEMbTWJwYGueVvTkilevr3vfLbO6LS+DKalgX
-         hamQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rFFixd9V
+Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4bb72b44a97so62279785e9.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:22:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795713686; x=1796318486; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=gmail.com; s=20260707; t=1795713754; x=1796318554; darn=vger.kernel.org;
+        h=content-type:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=hFMU0WQIu/Khu5nkOekEsJ9G7/wupBV+7k9T9skPX/c=;
-        b=eAUyELChNxN03tFWhGSn40N0o3gjWO71tl5Ghcmskz8b4PGVkssqVMVbtcP1ufdgYD
-         siuET0E8+b/8ouzgAVqs2MIlCaW9vlronDx+CN5r4hENRnHoThYegScR0BXwbEXaFWVv
-         vbCqNQk7tkQOJoCj6JvZkgF6A2MrU7JYcLhNOXZ1Xe1EpXiHSTAa8An0988zX+AY8Pep
-         2FxXxxd9Yyf1K1seELTv3Pu/d0l8SVkab2alnZfc1y6/i2PE4nJZz1OmTUDwKwoKvPhp
-         1ls0QPxv3w/sWpsW686NeXrfa9MjQEe1y8xx6d3P6ciusGwK3AyEX4jEpfF4Bn9DZiMX
-         a+Kg==
+        bh=+o/+kD0PbzrgfqIeIyLt88wkMJdXcHeQPVqxrdmSlPw=;
+        b=rFFixd9VFppWyskf83oFgo4ScA/+0HdVHjm4gjQNPa9yvLe3NJhTufUFggkkPT7cM7
+         10tLKvi0MkT/q1cEyRG4rYZPFHOhgv5P6lOBct4QoVGRrxea0JM1Vg5EcAzFzXjwb34X
+         ev/iDK1YFv27Fmc3etSuTokLrPXyq0OMc6taqqH2rL493j7VY6WJTXrsnf4Z34bxE16M
+         n1XedJSwgz1fs7OeQ8RlKU2G7THvwJt689wgu9gYObUGEPpFX5Aw7sT7g7RLFT9T81Pj
+         ea9NLITnMOFnY5M8YUhtO/uVnNRy1T0OTwnX9CV2BENhNBh0vAtWA9jxJVUrLPTPMsvg
+         IcVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795713686; x=1796318486;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795713754; x=1796318554;
+        h=content-type:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=hFMU0WQIu/Khu5nkOekEsJ9G7/wupBV+7k9T9skPX/c=;
-        b=0NXTTC6OeqdvJGyJ22/vxKlYk1HyFMw1V+zlQ6H7RHoYTar2guaoLCwPBCRtPQNxcV
-         rd6VvFD9F1M3e+LPC/KZjHdrRFxlOnl+I653hl7GlVd0LPJNMrlSmiOtlXbLYVAjqIZ0
-         Dl1Et45f7G/Iiq34igYnSCmdF4DoYHv2RoSK7iQ6G/MbwwK4Rr9a5hA+aLvyTvGSxB49
-         eS/Qk/JpJKwvGu48UGNyvCGW33zXbpfmxyPEDXaadxuORBs7RGy1K7U5PP6QpcfUBeWL
-         jwp00bQpNjA2WUJE5XcecwdSlCo5HaX3n8BTkmXWv/OLcCeupme7hGtbtDIeq8dQZMWU
-         R6lg==
-X-Forwarded-Encrypted: i=1; AL+hErEYnrwkjo9K1nrK/pcXc78l+ZiXp+yVmkj+XoqidiJae4QY6UBLbmJ7edHHtu4MKmCf9yiJo8nxeTb4qv4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+JcH9TFGZ4uomKdzDlUj2ZeBs9zjAvm6wsFSog26hPf9YDsmD7
-	kOFpgfvm2DecfWmzgpEKMPryv5Oe/GVU2fofvmpcpGW/2RlEbZbe+nj70aMCPDzjpd7hNG4oT/K
-	trtbsP5LctfolHY7rZWCNA3XrcC4t1+zO0koecD9g
-X-Gm-Gg: AZFdTZeNYJBEvf9zZasw2Lmfg75pmj28SwEWNQX/PZ9Evqod/Ji6mz/pNBbrKSiE0ku
-	W9rpnu/WaqL7nc739g+0Ih/6wcpNN6EMTmfMSlt6jVj/hyAYbiYQJ4yV7+6EPG4DxFSDgxL9ZyD
-	Ufga++6cA1TpaEWgUX6ltW8ozPxEhdN31tNq/6UUSNqvnJCGTjOGZLsN00WbDJ6JiccCQpXyUTf
-	yfXfpdBYBIBolqKHuoihRfo3RQJK+d2or78qr8pzavc3jPyv2TDCC1/KTmdr53NYt9za+agBxLN
-	sP3MQSceHeBrEV2d6mL+mHflI/HjTzElW/0rWhVBLB9Jdy1N7kALZObC0NbGOsbEQKHjEwwReDb
-	1AnvOUb1Ejw8Ya6RuaOqGlBIbgWiiNN9DM/20R9v6AthAH1HAJB0vSkBpo30P/q9BA+zKsg==
-X-Received: by 2002:a17:907:9612:b0:c2e:2baa:a642 with SMTP id
- a640c23a62f3a-c513a8845femr1932673766b.30.1795713685324; Thu, 26 Nov 2026
- 09:21:25 -0800 (PST)
+        bh=+o/+kD0PbzrgfqIeIyLt88wkMJdXcHeQPVqxrdmSlPw=;
+        b=QGxuWC16WJQ1ahscZQey4hcehy33aixaYp+z1ChwYmgL/3grpjfTjggxMFj0VBLCZX
+         l3KJ90V43ohltb8ZY8PoJdtseskuaeb9bH9Z9szCJcabQLM7AuOrAwPUmwWYeKs+/x5B
+         Qgs0a+R23QF44WBYufYVkuDi2n9RWwbh0LXw+HW9Zs3Vb8uz6fV969lPZsfXWbBgIafD
+         7FddAYNNwabKmfRGvhU7//U0p59s6cRdIuTU8keS5HAsvim8CVlOBc9mJjHJvxwuHf+A
+         NkbQU4+7c14CYMWRf7kDcHmgH7FyQiODUTmKfuhalFD7bDPnQ7mZ32l9OakphV6agJ6v
+         UPTQ==
+X-Forwarded-Encrypted: i=1; AL+hErHQLFhkVOwcztgonUNtkhwDh5LustpURAqIZrRUGaZ0kukadqVcvNj2f2aipBLZXKxJpwiRtYixyjsHJRA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8kLIOGZBEZ41gsCaZcn0SdX3yC97Pi90TVsbRYylidYws7zSGd
+	5qtdRchLpfzrTDxIJd0A1de5csim/3ZqmD40j1Gh16PN7uNC33ODTymo
+X-Gm-Gg: AZFdTZfbTuJf+uMawZwGNKvg5xP9SfEwSq2TQ656xU/9b3goQsZf0Iw9C37oh4lfQ5S
+	rTVTwEVoxeMbCKtZt49AQZ5Zml5vlzjDo2B7/PDdLqPlQf+g0PBH1/QNRbxW5qcO8AElqyCKUiA
+	XR0V6oscBELILPXqhGRP2maqOldM9rFxzN1LS2wscY/twjRIiYKpwTv6jrLyoUUnwC9gRX4ekMR
+	Oj+qxko5mG9pvSf3W2ON2ICWdb047Sh4XXGg5OEp2LKJSXoIuSj9lafrT70W6b+4FYJOnlZkyT8
+	sCwCfENKBJjU4/wfiGqAUmfSzfvhB8PZJOJQnkiyh1kshzpt1XA29WB++8gyRyWbM5Za7oTXP9s
+	eFRZr1pz8kbydqY/t5zS1k2xD5JD81WJF1NiNySeNhh5+ud0AheRGlaHy9LjeIeY1eZjXdJDhcH
+	F9YIOU0brHa2MLZh3G7UifrYKLQzWenhEI3DzPs26SJNiY97vSWpV+Kt0UtVX9GItEtMi60Grvk
+	qI7zmN4wCX4BnqWAVLh8HgNPa7gDtNIpFAhilS6Yitc1J9ur1ChTf95hmilI0P0HEtHZFXznsS/
+	WAhZjqDzYnDgUj7/k40sad6bT6tBlmq7zUT2XLKXdm4ddf0YIjy78tgGxPzhBH30zOtGxPeBk4x
+	pjYZk2wmClAAnTxJCLEmEVqRahg+4sqkzr7nDSIW1m78S1dQp2XC5LlFmiuPCGud944v1sE0tV0
+	skZQ89mAUazwMQNprqaT0TxvL3sRO+u/gpAyGXR2vAyYp1h1vP+UOu8pw7E+uyzOJArCQSlABcJ
+	3DHuiD6f+nfrxjCrwUQRgpnyqzOvbDkynJNu+ARg7xszIJ/Ll0Tq/I/hsoOSA4=
+X-Received: by 2002:a05:600c:c84:b0:4a8:9a2f:d27 with SMTP id 5b1f17b1804b1-4bb8881f47emr450092465e9.25.1795713753675;
+        Thu, 26 Nov 2026 09:22:33 -0800 (PST)
+Received: from jernej-laptop.localnet (77-38-7-250.dynamic.telemach.net. [77.38.7.250])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906640a2sm348317715e9.0.2026.11.26.09.22.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 09:22:33 -0800 (PST)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Maxime Ripard <mripard@kernel.org>, Paul Kocialkowski <paulk@sys-base.io>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ Hans Verkuil <hverkuil@kernel.org>, aiyengar1990@gmail.com
+Cc: linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Arun Iyengar <aiyengar1990@gmail.com>
+Subject:
+ Re: [PATCH 2/2] media: cedrus: report only the picture as capture payload
+Date: Thu, 26 Nov 2026 18:22:32 +0100
+Message-ID: <KjxG6AExQdOXUtc6OkeVCQ@gmail.com>
+In-Reply-To: <20261119-b4-cedrus-generic-fixes-v1-2-f9f50812c85b@gmail.com>
+References:
+ <20261119-b4-cedrus-generic-fixes-v1-0-f9f50812c85b@gmail.com>
+ <20261119-b4-cedrus-generic-fixes-v1-2-f9f50812c85b@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,73 +108,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261113221248.3535369-11-wusamuel@google.com>
- <20261113221248.3535369-14-wusamuel@google.com> <a40ad738-cb7b-469e-b67b-353b64622dbd@suse.com>
-In-Reply-To: <a40ad738-cb7b-469e-b67b-353b64622dbd@suse.com>
-From: Samuel Wu <wusamuel@google.com>
-Date: Thu, 26 Nov 2026 09:21:13 -0800
-X-Gm-Features: Aa3M54rqUPDLnBBM9ls6-9-k9q7s0wsA5-hr6KgHVGGraAEFEEYG4syBhxuXwjw
-Message-ID: <CAG2Kctq7Mb=pb-SFU88eRA1cp2Qt_HJ0nADY5fET7Es-_CcCOQ@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v3 3/9] kallsyms: Add KALLSYMS_QUERY_BY_NAME
- ioctl to /proc/kallsyms
-To: Petr Pavlu <petr.pavlu@suse.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Luis Chamberlain <mcgrof@kernel.org>, 
-	Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
-	Aaron Tomlin <atomlin@atomlin.com>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
-	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Petr Mladek <pmladek@suse.com>, 
-	David Laight <david.laight.linux@gmail.com>, kernel-team@android.com, 
-	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-modules@vger.kernel.org, bpf@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, llvm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 
-On Thu, Nov 26, 2026 at 2:45=E2=80=AFAM Petr Pavlu <petr.pavlu@suse.com> wr=
-ote:
->
-> On 11/13/26 11:12 PM, Samuel Wu wrote:
-> > To find a few kernel symbols, users such as libbpf parse all of
-> > /proc/kallsyms, which is several MB and text based.
-> >
-> > Add the KALLSYMS_QUERY_BY_NAME ioctl. It finds a symbol by exact name o=
-r
-> > by prefix in the entries of /proc/kallsyms, with vmlinux matches first,
-> > and optionally in a single module with module_filter, or all modules by
-> > default. Each call returns one match and its position; pos + 1 continue=
-s
-> > the search, until -ENOENT. The output returns the address, the size, an=
-d
-> > optional name and module buffers. A buffer that is too small gives
-> > -ENAMETOOLONG and the required size.
->
-> The kallsyms data in the kernel can change between two
-> KALLSYMS_QUERY_BY_NAME calls, for instance, when a new module is loaded.
-> Should the mechanism provide a way to detect such changes, likely by
-> tracking and exposing some kind of generation number, or is it
-> unnecessary?
->
-> --
-> Thanks,
-> Petr
+Dne =C4=8Detrtek, 19. november 2026 ob 17:34:48 Srednjeevropski standardni =
+=C4=8Das je Arun Iyengar via B4 Relay napisal(a):
+> From: Arun Iyengar <aiyengar1990@gmail.com>
+>=20
+> For 10-bit H.265 the driver appends the low 2 bits of every sample to
+> the capture buffer and counts them in sizeimage (extra_cap_size).
+> buf_prepare reports the whole sizeimage as bytesused, so userspace that
+> copies the payload gets the private plane as part of the picture.
+>=20
+> Report only the picture; sizeimage stays the allocation size.
+>=20
+> Fixes: 65429ba82572 ("media: cedrus: h265: Support decoding 10-bit frames=
+")
+> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 
-I'd like to keep scope of this series simpler, and I feel it's
-unnecessary for now because:
-- today's multiple read() of /proc/kallsyms have the same race
-- vmlinux symbols are immutable (I imagine most queries come here)
-- ioctl is size versioned, so a generation number can be added in
-future as needed
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-I've documented the non-atomic behavior in the UAPI comments, so users
-should know what to expect.
+Best regards,
+Jernej
 
-Thanks!
-Sam
+> ---
+>  drivers/staging/media/sunxi/cedrus/cedrus_video.c | 11 +++++++++--
+>  1 file changed, 9 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_video.c b/drivers/=
+staging/media/sunxi/cedrus/cedrus_video.c
+> index 9b2d24e77fdb..b7e0cbe548e6 100644
+> --- a/drivers/staging/media/sunxi/cedrus/cedrus_video.c
+> +++ b/drivers/staging/media/sunxi/cedrus/cedrus_video.c
+> @@ -511,8 +511,15 @@ static int cedrus_buf_prepare(struct vb2_buffer *vb)
+>  	 * (for OUTPUT buffers, if userspace passes 0 bytesused, v4l2-core sets
+>  	 * it to buffer length).
+>  	 */
+> -	if (V4L2_TYPE_IS_CAPTURE(vq->type))
+> -		vb2_set_plane_payload(vb, 0, pix_fmt->sizeimage);
+> +	if (V4L2_TYPE_IS_CAPTURE(vq->type)) {
+> +		unsigned int payload =3D pix_fmt->sizeimage;
+> +
+> +		if (ctx->current_codec->extra_cap_size)
+> +			payload -=3D ctx->current_codec->extra_cap_size(ctx,
+> +								     pix_fmt);
+> +
+> +		vb2_set_plane_payload(vb, 0, payload);
+> +	}
+> =20
+>  	return 0;
+>  }
+>=20
+>=20
+
+
+
+
