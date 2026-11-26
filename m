@@ -1,98 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.138
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795688598;
-	b=ax4hsv+JnSnLy7wck1rLpwZu31tqRUo2ALKUsZXTpuLa4yiuREq85ArcA78w7Au/9KyT
-	 xQhwVnEZR+qnQdQbi5HpH0X30c2xvnuvxPRKJPN+yrpidkWm4ULfK6rjpO6vVmRSTDkrE
-	 kMSvq+vAu7LbjLEvuYj2y1Sv+ZdyHsGPSxGkFWAUx4FZH8x9lfb11qqtaCQRLjF6JvVDJ
-	 iey1SiXybq51Zs9ZltZpqHX0QMW53UVmhk14QC0B8zUJ1qrbEH351zDxVOJqMxrFWueLL
-	 ickUAkjEOiP4ppRjKnvBrG/58My4Xdv4QQ8C0OzT6lxbJSqqp+LpSsYJsM40KuZ7R6w==
+	t=1795688610;
+	b=xL9iGpsIrYK/thbWeeNg/oHpehGWUpqyZJQBgXjZd99W7HlD7gxHnC0C7aCKiSTe8HAs
+	 T53PDPlH1iht3mUSnRwrvG9gQizt6bi36eDigc0RSHa9J+PypVjxMVPSJIMw0i765T4DP
+	 Mf0ie0UIVX64vKX2kSqtxrJaiYh7yxm2NDap7zVIxniHjL7lta6xUo+Pop0HUFTbFJfJK
+	 XlYJO7qbywPFM2eRs8v5deyB0xFyJZm9xS5z9rPNTMUaXkqwrSN4HefyzUgMlzFuM3+jD
+	 K6538Kqxpr4JfPVVjT5KKqRwmWqq5J61u4JWxHKasmYrstUSSN0z0rUytjZQHanJRvw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795688598;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=H6N0X50m/DSlTn3HtbgXOmagDGxOT5v+Biy9jycT3iw=;
-	b=4ued+Qzz6Fg/yEnc6LOYgICult+Pw28KmAMPVAgvnxHwzwECZWgvrdHi6Gzb9raZF4hT
-	 8yv2JVJzvDluGDfjIL2eh6UcgBXSTdQrlIrBzH23FD/lPh1a/KWsEB5KpqB2mmagHZac6
-	 uYf3gbO1XOgqB70EiCaIlZ2ACV25N7ZtIyL5sCEX0ssWPOvAbdbzUO/PdaydxxV6xzzG+
-	 2ccFK3SbqEIz3Ihixrc+8TaxHvSaTn3dXauTPiBTRN9UEzPIXanq9TFIVF59vpTHGzwSA
-	 u6SodXhvSZqHQHQ1PfY8s0qDgKl4Ki+Dw/fc6zJduJQVCDbwqrCm4c7OTRM+sQMh1Lg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795688610;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=Djjd1SsMnHYhF1VCm8h+rLsGfSQLvywA+Lvp0R6m6sE=;
+	b=0ID1JtwvaFjqd1GMfyCqDqmaZf1S0l1Xhm1pr8hhriM0MKC9AszXzzcb+3ZCRxOWERhv
+	 W3tmS0AYRk0FqJ8xYrh7CQvRJc04OsYIHZ8ipChhEQ4zkPo4G9w/nN1zO100P4nu8+fJW
+	 E4MN0NmG+HRZBCkP98/SKCkevCB4oaKf6HBiyxixHRFcHQRnkwB0XtrXw+goZC3qnNHWM
+	 dPbyi/aQvwk+14bJpmlN6MYWE1qV7TOiujF98AdiQfUsIbrr5nDNtfUU0S+L5pNI1srAc
+	 diOmGnRfpEM66kTVBhzPX5QIcSHtcGME3THFpV34RFp3kDwYEG6/pN/CsHVKX4utFhA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lUWUwqh1;
-	arc=none smtp.remote-ip=209.85.216.49
-Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=l9AqAR9u;
+	arc=none smtp.remote-ip=95.215.58.138
+Received: from mta1.migadu.com (out-138.mta1.migadu.com [95.215.58.138])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B32DB606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:23:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B32DB606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23E7A606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:23:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23E7A606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lUWUwqh1
-Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3b4f6f98587so353635a91.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:23:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795688597; x=1796293397; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=H6N0X50m/DSlTn3HtbgXOmagDGxOT5v+Biy9jycT3iw=;
-        b=lUWUwqh1//I1+LAJzb4Bzn8jaKQ3owOuo2IGg6EQUm0jdSwW2IJmNpwQ0Iwm1G2Hfk
-         KiIc887qpbEOK8lGwHWOA3GWhF4eNtK8vY+JsO1KzKgcrZR8NXpdwJJBUSy+lLG6jkp6
-         6vArsjUBS/AvDvOSnKKZGgWamlXZoGUrEl2T0B6ZP2LlfA58F+qfqLkajUmgvKxPaB1Q
-         jMkaX5+Rq4h6jcOtLqK0P6HQTW5wYMn1amgUD5YgVy5d+kmU7WfmjDHADxh7rEP+G/47
-         /lMCJhFLuO+cj0hKGvQTYrLIzCXfebdF5Kz72NPUf/Qik/lf1cKsj32v8CcxmSWeZoFs
-         PIFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795688597; x=1796293397;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=H6N0X50m/DSlTn3HtbgXOmagDGxOT5v+Biy9jycT3iw=;
-        b=X0j8saQ3zYZbcX21deaqvy1zKI/wLYZNwSPFYfWBJWiBUirwFIbcgX/LY6hUdCbcHU
-         crivLOe3I5djxUrok8CHzrJ3D4qv4q9mb0p0gcg59+tu+qDz2icw8Iqdkg5wS7AkvMVa
-         95TSgqPlJJi1knRLqwn1vKOce/eTQGhd0toXeHVanOgE18gnkzhKZ7npTU9KdjkT2FJ4
-         IHpQiMpZszrXYtvWjYTMfTdxlyzoPc43AI5kgMmuEyLbJ3kuBHUxaArBwCsxwWpfBQcz
-         W+BatiN4XTDjpY8MO4J1M3zh6UhZ4eO4urUBBYVvIBjxked4d9x/6s/Q/hWuWs9FcgG8
-         nDdA==
-X-Forwarded-Encrypted: i=1; AL+hErHfJBapGn2w3qbyshpQCpE6H5+P/58Pot//3GDT44j/fIg7jL7uXWtBjRew7NelRr1cvDLrNYCYFpHn/mg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/eoD4dvvBKZMb+bSY+L5z8UXLAKZuF/h8OZC6Up238pKe57e1B
-	KD4PnplUr1EVvvukaK0Y5x2pa4IDcCaX/ci26D0jyF7uVblzivMPqZRd
-X-Gm-Gg: AZFdTZcWEUNLDIatXHz1bgH5fC5jGileczNI23EOzkCHoIVOTpckUNF+6QsRdis+SbP
-	qFCkLBWHkybRamWrz5zhPiCttkX982qrAma7Z1QZ82SRMpl02Qiqdryqfu76PE6nBJ+/rsnZQJT
-	fAwMlYdxlEoFCXYhf2JOADwzO46d0NRi+4vOk0H6MxsOsktm/a/IWIJ2LZ2ZHYQggVzmknLMVeY
-	kcEKdnQec/IMdbptRLM2aUkGjuUB1O/YOyOgBb2CuYUi6tYDOy9fusS4rRd+ueO9imJWNfGSZmk
-	q0V8UyzjfpUdxKkDkW/sQU/xipKnWC5QF+GlVuIvJksPkE0nzIXfhv1A8TgUx7OuQ0RTugMM6U5
-	6EaKCgZkmBHk2JKNf6e5yzGcAGY82GHFE5yON5iK0CR7biNdLeJKltektRFyljcKC46y8goW4+V
-	BbyCUAls1yZmysdQPfLgjJNErdncb3F30fdZTpsNCalPo0uCp3AWJ1HHaYPuq0fsU4GntuMiQf+
-	3hWpeNLlkKzKSlV+eBJAv+semetxpyVyfgXXCUeJIxsMlizs8xDIuv287BtYx61/0eNQZXJW9YJ
-	3aL47Z71M87E1DuCzWPZNZ/kQ8o/jeuDKvvh1L6huKlPbM6g8vurDukeAj64KE5ur1qcjY8REje
-	WF7atGpZXIQyM
-X-Received: by 2002:a17:90b:498c:b0:3ac:73c7:9c07 with SMTP id 98e67ed59e1d1-3b41c55b914mr29450973a91.0.1795688596883;
-        Thu, 26 Nov 2026 02:23:16 -0800 (PST)
-Received: from chenyou.. ([140.116.39.229])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cfc6130sm10758422a12.7.2026.11.26.02.23.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 02:23:16 -0800 (PST)
-From: Chen-Yu Yeh <chenyou910331@gmail.com>
-To: Vadim Yuzifovich <vadim@yuzi.co>
-Cc: gregkh@linuxfoundation.org,
-	thinhnguyen@synopsys.com,
-	inochiama@gmail.com,
-	linux-usb@vger.kernel.org,
-	sophgo@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] usb: dwc2: gadget: descriptor DMA fixes for BNA, found on Sophgo SG2002
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=l9AqAR9u
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=SE31xivb4Of1jeX735no3fJM75rqVpEISS9wXSOvIas=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795688607; v=1; x=1796293407;
+ b=l9AqAR9u+/WktkK8Ufk+89zPdDwdnfu3yMpOqTNJajQnxkN46LfFVJJ0twZovbWmwUcN6Ytm
+ H4OCMyxgV5X0LKk1x6UH17JqW/mL+Rt0FHCQ8StH+GTaYe+qijjpdPT5Rdibpg0rkkQUoxDCbKS
+ GOZKsXZdPB+5OxchguUycy94=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 433cdf8521d10379;
+	Thu, 26 Nov 2026 10:23:26 +0000
+X-Mizu-Trace-ID: 433cdf8521d10379
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <bff85d7b-84dd-4f4a-91c1-7f5c9ef2e51a@linux.dev>
 Date: Thu, 26 Nov 2026 18:23:06 +0800
-Message-ID: <20261126102309.859777-1-chenyou910331@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261116070433.2813951-1-vadim@yuzi.co>
-References: 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,71 +58,418 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 2/8] iomap: add dma-buf direct I/O guards
+To: Yun Wang <arsenova@a7snv.com>, Anuj Gupta <anuj1072538@gmail.com>,
+ Nitesh Shetty <nj.shetty@samsung.com>
+Cc: hch@lst.de, anuj20.g@samsung.com, axboe@kernel.dk,
+ sumit.semwal@linaro.org, christian.koenig@amd.com, phasta@kernel.org,
+ djbw@kernel.org, willy@infradead.org, jack@suse.cz, viro@zeniv.linux.org.uk,
+ brauner@kernel.org, tytso@mit.edu, adilger.kernel@dilger.ca,
+ libaokun@linux.alibaba.com, ojaswin@linux.ibm.com, ritesh.list@gmail.com,
+ yi.zhang@huawei.com, asml.silence@gmail.com, corbet@lwn.net,
+ skhan@linuxfoundation.org, rdunlap@infradead.org, liwang@kylinos.cn,
+ zhaomengmeng@kylinos.cn, mcgrof@kernel.org, linux-block@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ nvdimm@lists.linux.dev, linux-ext4@vger.kernel.org,
+ linux-xfs@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linaro-mm-sig@lists.linaro.org
+References: <20261125171600.4053585-1-arsenova@a7snv.com>
+From: Mengmeng Zhao <mengmeng.zhao@linux.dev>
+In-Reply-To: <20261125171600.4053585-1-arsenova@a7snv.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Hi Vadim,
+On 11/26/26 01:16, Yun Wang wrote:
+> On Fri, Nov 13, 2026 at 03:06:15PM +0800, Mengmeng Zhao wrote:
+>>  static int iomap_dio_hole_iter(struct iomap_iter *iter, struct iomap_dio *dio)
+>>  {
+>> -	loff_t copied = iov_iter_zero(iomap_length(iter), dio->submit.iter);
+>> +	loff_t copied;
+>> +
+>> +	/* zero-filling walks the data pages */
+>> +	if (iov_iter_is_dmabuf_map(dio->submit.iter))
+>> +		return -EOPNOTSUPP;
+> 
+> This also fails reads that run past EOF.  The filesystem maps the range
+> beyond the last block as a hole too, so a dma-buf read that starts
+> before EOF and ends past the last block of the file fails as a whole,
+> while the same O_DIRECT read into user memory returns the bytes up to
+> EOF.
+> 
+> I found it while testing the series for fastsafetensors' dma-buf copier
+> [1], which loads model weights from NVMe into GPU memory with READ_FIXED
+> into registered dma-bufs.  I ran v2 on top of v7.4-rc2 in a QEMU guest
+> with an emulated NVMe namespace, reading into udmabufs.  With a
+> 5000-byte file on ext4 with 4 KiB blocks, reading [4096, 12288):
+> 
+>   READ_FIXED into a registered udmabuf -> -EOPNOTSUPP
+>   O_DIRECT pread() into user memory    -> 904
+> 
+> It fails the same way whether the read is the first one on the buffer,
+> is issued inline once the map exists, or is forced to io-wq with
+> IOSQE_ASYNC.
+> 
+> Reading a file in fixed-size chunks hits this on the last chunk unless
+> the file size is a multiple of the chunk size.  With 1 KiB blocks it
+> also breaks the copier's normal pattern, 4 KiB-aligned reads up to
+> round_up(i_size, 4096): the last read fails.
+> 
+> Nothing past EOF is reported to the caller anyway: __iomap_dio_rw()
+> reverts the iterator to i_size and iomap_dio_complete() truncates the
+> result to it.  So a hole that starts at or after EOF can be stepped
+> over; a hole inside the file still needs zeroes and still fails.
+> Something like this on top of the series, or folded into this patch:
+> 
+> diff --git a/fs/iomap/direct-io.c b/fs/iomap/direct-io.c
+> index 83fda6973bb9..2de6d379f811 100644
+> --- a/fs/iomap/direct-io.c
+> +++ b/fs/iomap/direct-io.c
+> @@ -596,9 +596,20 @@ static int iomap_dio_hole_iter(struct iomap_iter *iter, struct iomap_dio *dio)
+>  {
+>  	loff_t copied;
+>  
+> -	/* zero-filling walks the data pages */
+> -	if (iov_iter_is_dmabuf_map(dio->submit.iter))
+> -		return -EOPNOTSUPP;
+> +	if (iov_iter_is_dmabuf_map(dio->submit.iter)) {
+> +		u64 length = iomap_length(iter);
+> +
+> +		/* zero-filling walks the data pages */
+> +		if (iter->pos < dio->i_size)
+> +			return -EOPNOTSUPP;
+> +		/*
+> +		 * Past EOF there is nothing to zero: the read is truncated to
+> +		 * i_size before it is reported, so step over the hole.
+> +		 */
+> +		iov_iter_advance(dio->submit.iter, length);
+> +		dio->size += length;
+> +		return iomap_iter_advance(iter, length);
+> +	}
+>  
+>  	copied = iov_iter_zero(iomap_length(iter), dio->submit.iter);
+>  
+> 
+> Signed-off-by: Yun Wang <arsenova@a7snv.com>
+> 
+> With it, the read above returns 904 with the right data in all three
+> cases.  Holes and unwritten extents inside the file still return
+> -EOPNOTSUPP, including a hole that straddles EOF after the file was
+> extended with ftruncate().
+> 
+> The rest of the series behaved as the cover letter describes in that
+> setup, with 4 KiB and 1 KiB blocks: registration on an O_DIRECT file,
+> reads into arbitrary offsets of the buffer, reads through a dup()ed fd,
+> -EBADF through another file's slot, -EINVAL when registering a buffered
+> fd, -EOPNOTSUPP after F_SETFL clears O_DIRECT and success again once it
+> is set back, WRITE_FIXED including a write that extends the file, and a
+> clean e2fsck afterwards.  I have not run it on real NVMe hardware or
+> xfstests yet.
+> 
+> This report and the reproducer below were drafted with the help of an
+> AI coding assistant (Claude Opus 5.5); the fix is mine.
+> 
+> [1] https://github.com/foundation-model-stack/fastsafetensors/issues/139
+> 
+> Thanks,
+> Yun
+> 
+> Reproducer.  It needs /dev/udmabuf and a filesystem with this series
+> on an NVMe namespace:
+> 
+>   head -c 5000 /dev/urandom > /mnt/f && sync
+>   ./dmabuf_eof_read /mnt/f 4096 8192             # first read on the buffer
+>   ./dmabuf_eof_read /mnt/f 4096 8192 warm        # map exists, inline issue
+>   ./dmabuf_eof_read /mnt/f 4096 8192 warm async  # IOSQE_ASYNC
+> 
+> // SPDX-License-Identifier: GPL-2.0
+> /*
+>  * Read a file range into a udmabuf that is registered against the file as
+>  * an io_uring fixed buffer, and compare with an O_DIRECT pread() of the
+>  * same range into user memory.
+>  *
+>  *   dmabuf_eof_read <file> <offset> <length> [warm] [async]
+>  *
+>  *   warm   first read [0, 4096) through the same buffer, so the dma-buf map
+>  *          exists and the measured read can be issued inline (nonblocking)
+>  *   async  set IOSQE_ASYNC on the measured read (issue it from io-wq)
+>  *
+>  * Exits 0 when READ_FIXED returns what pread() returns and the bytes match.
+>  * Needs /dev/udmabuf, and a kernel and filesystem with io_uring dma-buf
+>  * registered buffers.  The UAPI bits are declared locally because they are
+>  * newer than most installed headers.
+>  */
+> #define _GNU_SOURCE
+> #include <errno.h>
+> #include <fcntl.h>
+> #include <stdint.h>
+> #include <stdio.h>
+> #include <stdlib.h>
+> #include <string.h>
+> #include <sys/ioctl.h>
+> #include <sys/mman.h>
+> #include <sys/syscall.h>
+> #include <unistd.h>
+> #include <linux/udmabuf.h>
+> 
+> #define IORING_OFF_SQ_RING		0ULL
+> #define IORING_OFF_SQES			0x10000000ULL
+> #define IORING_ENTER_GETEVENTS		(1U << 0)
+> #define IORING_REGISTER_BUFFERS2	15
+> #define IORING_REGISTER_BUFFERS_UPDATE	16
+> #define IORING_RSRC_REGISTER_SPARSE	(1U << 0)
+> #define IORING_RSRC_UPDATE_EXTENDED	(1U << 1)
+> #define IO_REGBUF_TYPE_DMABUF		2
+> #define IORING_OP_READ_FIXED		4
+> #define IOSQE_ASYNC			(1U << 4)
+> 
+> struct sqe {
+> 	uint8_t opcode, flags;
+> 	uint16_t ioprio;
+> 	int32_t fd;
+> 	uint64_t off, addr;
+> 	uint32_t len, rw_flags;
+> 	uint64_t user_data;
+> 	uint16_t buf_index, personality;
+> 	int32_t splice_fd_in;
+> 	uint64_t addr3, pad2;
+> };
+> 
+> struct cqe {
+> 	uint64_t user_data;
+> 	int32_t res;
+> 	uint32_t flags;
+> };
+> 
+> struct sq_offsets {
+> 	uint32_t head, tail, ring_mask, ring_entries, flags, dropped, array, resv1;
+> 	uint64_t user_addr;
+> };
+> 
+> struct cq_offsets {
+> 	uint32_t head, tail, ring_mask, ring_entries, overflow, cqes, flags, resv1;
+> 	uint64_t user_addr;
+> };
+> 
+> struct params {
+> 	uint32_t sq_entries, cq_entries, flags, sq_thread_cpu, sq_thread_idle;
+> 	uint32_t features, wq_fd, resv[3];
+> 	struct sq_offsets sq_off;
+> 	struct cq_offsets cq_off;
+> };
+> 
+> struct rsrc_register {
+> 	uint32_t nr, flags;
+> 	uint64_t resv2, data, tags;
+> };
+> 
+> struct rsrc_update2 {
+> 	uint32_t offset, flags;
+> 	uint64_t data, tags;
+> 	uint32_t nr, resv2;
+> };
+> 
+> struct regbuf_desc {
+> 	uint32_t type, flags;
+> 	uint64_t size, uaddr;
+> 	int32_t dmabuf_fd, target_fd;
+> 	uint64_t resv[6];
+> };
+> 
+> _Static_assert(sizeof(struct sqe) == 64, "io_uring_sqe");
+> _Static_assert(sizeof(struct cqe) == 16, "io_uring_cqe");
+> _Static_assert(sizeof(struct params) == 120, "io_uring_params");
+> _Static_assert(sizeof(struct rsrc_register) == 32, "io_uring_rsrc_register");
+> _Static_assert(sizeof(struct rsrc_update2) == 32, "io_uring_rsrc_update2");
+> _Static_assert(sizeof(struct regbuf_desc) == 80, "io_uring_regbuf_desc");
+> 
+> struct ring {
+> 	int fd;
+> 	struct params p;
+> 	char *rings;
+> 	struct sqe *sqes;
+> };
+> 
+> static void die(const char *what)
+> {
+> 	perror(what);
+> 	exit(2);
+> }
+> 
+> static void ring_init(struct ring *r)
+> {
+> 	size_t sq_size, cq_size;
+> 
+> 	memset(r, 0, sizeof(*r));
+> 	r->fd = syscall(SYS_io_uring_setup, 4, &r->p);
+> 	if (r->fd < 0)
+> 		die("io_uring_setup");
+> 	sq_size = r->p.sq_off.array + r->p.sq_entries * sizeof(uint32_t);
+> 	cq_size = r->p.cq_off.cqes + r->p.cq_entries * sizeof(struct cqe);
+> 	/* SQ and CQ rings share one mapping (IORING_FEAT_SINGLE_MMAP) */
+> 	r->rings = mmap(NULL, sq_size > cq_size ? sq_size : cq_size,
+> 			PROT_READ | PROT_WRITE, MAP_SHARED | MAP_POPULATE, r->fd,
+> 			IORING_OFF_SQ_RING);
+> 	r->sqes = mmap(NULL, r->p.sq_entries * sizeof(struct sqe),
+> 		       PROT_READ | PROT_WRITE, MAP_SHARED | MAP_POPULATE, r->fd,
+> 		       IORING_OFF_SQES);
+> 	if (r->rings == MAP_FAILED || r->sqes == MAP_FAILED)
+> 		die("mmap ring");
+> }
+> 
+> /* one READ_FIXED from slot 0; addr is the byte offset into the dma-buf */
+> static int read_fixed(struct ring *r, int fd, off_t off, size_t len,
+> 		      uint64_t buf_off, uint8_t sqe_flags)
+> {
+> 	uint32_t *sq_tail = (uint32_t *)(r->rings + r->p.sq_off.tail);
+> 	uint32_t sq_mask = *(uint32_t *)(r->rings + r->p.sq_off.ring_mask);
+> 	uint32_t *sq_array = (uint32_t *)(r->rings + r->p.sq_off.array);
+> 	uint32_t *cq_head = (uint32_t *)(r->rings + r->p.cq_off.head);
+> 	uint32_t *cq_tail = (uint32_t *)(r->rings + r->p.cq_off.tail);
+> 	uint32_t cq_mask = *(uint32_t *)(r->rings + r->p.cq_off.ring_mask);
+> 	uint32_t tail = *sq_tail, idx = tail & sq_mask, head;
+> 	struct cqe *cqe;
+> 	int res;
+> 
+> 	memset(&r->sqes[idx], 0, sizeof(struct sqe));
+> 	r->sqes[idx].opcode = IORING_OP_READ_FIXED;
+> 	r->sqes[idx].flags = sqe_flags;
+> 	r->sqes[idx].fd = fd;
+> 	r->sqes[idx].off = off;
+> 	r->sqes[idx].addr = buf_off;
+> 	r->sqes[idx].len = len;
+> 	r->sqes[idx].buf_index = 0;
+> 	sq_array[idx] = idx;
+> 	__atomic_store_n(sq_tail, tail + 1, __ATOMIC_RELEASE);
+> 	if (syscall(SYS_io_uring_enter, r->fd, 1, 1, IORING_ENTER_GETEVENTS,
+> 		    NULL, 0) < 0)
+> 		die("io_uring_enter");
+> 	head = *cq_head;
+> 	if (head == __atomic_load_n(cq_tail, __ATOMIC_ACQUIRE)) {
+> 		fprintf(stderr, "no completion\n");
+> 		exit(2);
+> 	}
+> 	cqe = (struct cqe *)(r->rings + r->p.cq_off.cqes) + (head & cq_mask);
+> 	res = cqe->res;
+> 	__atomic_store_n(cq_head, head + 1, __ATOMIC_RELEASE);
+> 	return res;
+> }
+> 
+> int main(int argc, char **argv)
+> {
+> 	struct rsrc_register reg = { .nr = 1, .flags = IORING_RSRC_REGISTER_SPARSE };
+> 	struct regbuf_desc desc = { .type = IO_REGBUF_TYPE_DMABUF };
+> 	struct rsrc_update2 up = { .flags = IORING_RSRC_UPDATE_EXTENDED, .nr = 1 };
+> 	struct udmabuf_create create = { .flags = UDMABUF_FLAGS_CLOEXEC };
+> 	int fd, ufd, memfd, dmabuf, res, warm = 0, async = 0, i;
+> 	unsigned char *view, *host;
+> 	size_t length, size;
+> 	ssize_t expect;
+> 	struct ring r;
+> 	off_t offset;
+> 
+> 	if (argc < 4) {
+> 		fprintf(stderr, "usage: %s <file> <offset> <length> [warm] [async]\n",
+> 			argv[0]);
+> 		return 2;
+> 	}
+> 	for (i = 4; i < argc; i++) {
+> 		if (!strcmp(argv[i], "warm"))
+> 			warm = 1;
+> 		else if (!strcmp(argv[i], "async"))
+> 			async = 1;
+> 	}
+> 	offset = strtoll(argv[2], NULL, 0);
+> 	length = strtoull(argv[3], NULL, 0);
+> 	size = (length + 4095) & ~4095UL;
+> 	if (size < 4096)
+> 		size = 4096;
+> 
+> 	fd = open(argv[1], O_RDONLY | O_DIRECT);
+> 	if (fd < 0)
+> 		die("open");
+> 
+> 	/* the reference: the same range read into user memory */
+> 	if (posix_memalign((void **)&host, 4096, size))
+> 		die("posix_memalign");
+> 	expect = pread(fd, host, length, offset);
+> 	if (expect < 0)
+> 		die("pread");
+> 
+> 	/* a udmabuf over a sealed memfd */
+> 	memfd = memfd_create("dmabuf-eof", MFD_ALLOW_SEALING);
+> 	if (memfd < 0 || ftruncate(memfd, size) ||
+> 	    fcntl(memfd, F_ADD_SEALS, F_SEAL_SHRINK))
+> 		die("memfd");
+> 	view = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, memfd, 0);
+> 	if (view == MAP_FAILED)
+> 		die("mmap memfd");
+> 	ufd = open("/dev/udmabuf", O_RDWR);
+> 	if (ufd < 0)
+> 		die("open /dev/udmabuf");
+> 	create.memfd = memfd;
+> 	create.size = size;
+> 	dmabuf = ioctl(ufd, UDMABUF_CREATE, &create);
+> 	if (dmabuf < 0)
+> 		die("UDMABUF_CREATE");
+> 
+> 	/* a ring with one sparse buffer slot holding the dma-buf */
+> 	ring_init(&r);
+> 	if (syscall(SYS_io_uring_register, r.fd, IORING_REGISTER_BUFFERS2, &reg,
+> 		    sizeof(reg)) < 0)
+> 		die("IORING_REGISTER_BUFFERS2");
+> 	desc.dmabuf_fd = dmabuf;
+> 	desc.target_fd = fd;
+> 	up.data = (uint64_t)(uintptr_t)&desc;
+> 	if (syscall(SYS_io_uring_register, r.fd, IORING_REGISTER_BUFFERS_UPDATE,
+> 		    &up, sizeof(up)) < 0)
+> 		die("register dma-buf");
+> 
+> 	if (warm) {
+> 		res = read_fixed(&r, fd, 0, 4096, 0, 0);
+> 		if (res != 4096) {
+> 			fprintf(stderr, "warm-up read returned %d\n", res);
+> 			return 2;
+> 		}
+> 	}
+> 	memset(view, 0xa5, size);
+> 	res = read_fixed(&r, fd, offset, length, 0, async ? IOSQE_ASYNC : 0);
+> 
+> 	printf("READ_FIXED into dma-buf (%s, %s): %d%s%s, O_DIRECT pread(): %zd\n",
+> 	       warm ? "map ready" : "first read", async ? "IOSQE_ASYNC" : "inline",
+> 	       res, res < 0 ? " " : "", res < 0 ? strerror(-res) : "", expect);
+> 	if (res != expect)
+> 		return 1;
+> 	if (res > 0 && memcmp(view, host, res)) {
+> 		printf("data differs\n");
+> 		return 1;
+> 	}
+> 	return 0;
+> }
+> 
+Hi Yun,
 
-I tested v2 on a Milk-V Duo 256M (SG2002), on top of 65e4fd942f72
-(v7.4-rc3-406), with "p->g_dma = false;" removed from
-dwc2_set_cv1800_params() and dr_mode set to "peripheral" in the board
-DTS. The params file in debugfs shows g_dma 1 and g_dma_desc 1. The
-gadget is a configfs composite of ECM, mass storage (a 16 MiB file) and
-UAC1 with req_number 8, on an x86 host with xHCI, high speed.
+Thanks a lot for testing the series against fastsafetensors, and for the
+detailed report, reproducer, and fix!
 
-Three kernels: A without the series, B with patches 1 and 2, C with all
-three. On each:
+You are completely right — this is a real oversight in patch 2/8.
+I reproduced it and validated your fix on real NVMe (nvme-pci, ext4 4KiB
+blocks, udmabuf) and passed the tests. 
 
-- iperf3 over ECM, 60 s in each direction
-- dd of the whole LUN with O_DIRECT, one write and 20 reads
-- sg_turs -n 200000 on the LUN, while the board copies a 32 MiB file
-  in tmpfs to /dev/null in a loop
-- speaker-test playing a 440 Hz sine into UAC1 for 5 minutes. After
-  30 s the board writes a 120-character KERN_ERR line to /dev/kmsg
-  every 2 s, so each line goes out on the 115200 baud serial console,
-  about 10 ms like the hold in your test.
+Since Anuj is currently consolidating the XFS and ext4 dma-buf work
+(along with the cross-file registration sharing updates) into a unified
+series, I fold your diff into this patch and send a seperated V3 version
+with your Co-developed-by and Signed-off-by (if you're okay with that)[1]. 
 
-                        A           B           C
-  iperf3 in/out Mbit/s  138/94.9    149/97.9    142/95.9
-  dd write/read MB/s    6.6/18.8    5.8/23.6    8.9/23.5
-  sg_turs per second    3432        3279        3359
-  UAC1 runs wedged      3 of 4      0 of 2      0 of 1
+Hi Anuj, please make sure to include Yun's fix above when you put the 
+unified series together. 
 
-iperf3 is host to board / board to host. No retransmits, no sg_turs
-errors and no dd errors on any kernel.
+Thanks again, Yun, for the thorough testing across 4 KiB and 1 KiB
+block sizes and all the edge cases!
 
-On A, two runs wedged within about 45 s of playback with the console
-lines: speaker-test failed with -EBADFD and the host reset the port.
-The third went through the 5 minutes and wedged when playback stopped.
-The SET_INTERFACE to alt 0 timed out on the host (-110), and at the
-port reset the board logged
+[1] https://lore.kernel.org/all/20261126100721.313677-1-mengmeng.zhao@linux.dev/
 
-  dwc2_hsotg_ep_stop_xfr: timeout GINTSTS.GOUTNAKEFF
-  dwc2_hsotg_ep_stop_xfr: timeout DOEPCTL.EPDisable
+Best regards,
+Mengmeng
 
-after which the host could not enumerate the device again. Rebinding the
-UDC on the board failed; only a reboot recovered it. This looks like
-what you describe for patch 1, EP0 not answering after the stall, but I
-cannot show the BNA itself: on A it is dev_dbg and my config has no
-CONFIG_DYNAMIC_DEBUG, so the link to BNA is from the symptoms only.
-
-On B and C no run wedged. After the console lines, arecord on the board
-captured the sine, and after playback stopped the gadget was still
-configured with no port reset.
-
-On C I also ran everything together for 30 minutes: the sine, the
-console lines, the copy loop, iperf3 -R for 1800 s and sg_turs
-9 x 200000. iperf3 moved 11.0 GB at 52.3 Mbit/s on average with no
-retransmits, sg_turs had no errors, and
-the host logged no reset. Afterwards arecord on the board still
-captured the sine.
-
-The "BNA, DxEPINT" warning from patch 2 did not appear on B or C, and A
-showed no bulk errors either. My copy loop is much lighter than your
-H.264 encode, so patches 2 and 3 ran here without being exercised; for
-those this shows only that nothing regressed. The UAC1 counts are also
-small, 4, 2 and 1 runs plus the 30 minutes.
-
-Tested-by: Chen-Yu Yeh <chenyou910331@gmail.com> # Milk-V Duo 256M
-
-Thanks,
-Chen-Yu
