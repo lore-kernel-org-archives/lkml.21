@@ -1,122 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.156
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795672194;
-	b=5B2cg0b4EMiMFvIk4ansJs2BbjddhczbzWz8wZTapQyAsQuTp3tYiUsWIs6gZUgWnYIJ
-	 Nq8jvy5OvMh3PMGl2vNlOdNqpHTpfgYIi6Cwtjz2qoIFWCBuZ+Jiz4HnH1dpQnQqrqQ36
-	 hUcHPvnUwmo61MQ8MRSVnKP/KQnBozo8+hZS3NvjE1v9HOEhAELRyaV1K0S9ypK6OvGZv
-	 mQvtI+/C2eH+U+XUIHzbJNEk9bmgEccr7KfXE1K//g8HfR55jLZ+GwiqyFYLcFyML0tgX
-	 RMGFu5ks3VUUML4L/JghCrYeHALtW1igwOj7OSeLjwge5N96XtLRm+1JOWu9r/HETCA==
+	t=1795672288;
+	b=mpHrjniLHGIHjyPG+VHLcdJHZ555YizZKVX5fxXtQHQ/Po4Ku6x+H2eCL/mbYu1WOhcx
+	 /E066Ijrn15LzfklvINDbxHn3c70yb3NfogYH5hNrzwVuVITxQcIOWDc4V05hRspI7s/y
+	 kqUt+VYStXNUHnM5kPd4J1EVfijX8T26uJVOSOkS90BojaHNEbcrcqHE5At3mBjyWo67A
+	 ZjNF9asUsfiBWzaAgx96dJkMBQoPqak02J1t685aG1Je8Yvk2/klR8wrW3DOq3r+XtLpl
+	 iUnlHrLClAJB+NqJU7Y8L2E+oLUWboKxdPyK85+jFrScBhOQTA5LE1Bc7Jzehm+X5Zw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795672194;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:
-	 X-Mailer:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=HsXzRWYodix47CuBgzuQWHBhWBfw0W2pF7XPE87u9aU=;
-	b=XWHjPLK9B+7uqk1bC4ZpFOtRgyQj9ikSmUBn4kazDzgchTvtF5LmFcvOxfegQX2Ax1Pd
-	 iWekarKSTS3anicWiGXSUPO+YjxzlvyYmU7uwnHwg8vARQVGAqMF8P/geK5TBUi4hAcx3
-	 GzKzUabZLNHNKNLka4I632k4ftPlOJ1I6MsS69ShXxyKw2G4Kuj7+i3h3XaG/lN3LThGb
-	 4aUcBSD50nlFx7Jrcbm6AX+z+ymkvoSaz/jlSLHcLVtT4OKdfP95PUel5Bm2cm9hMV/m0
-	 LpK4pI8Il+uiZKeEl8UBQk+kSpbB+eueBVheR0wDUMHDmKwbV4nK36GfrV+Hq+zCz3Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795672288;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=HoLbLq9QRldxYKWRHOssa33uAoW/e56PGP4SD+reeog=;
+	b=NOXA7kxR4z8X3qOcVbfWbC/uMaSI5k5bvpqrfxfznbuX5Mg2p9cRw/anLv77ViWAtF8x
+	 8m0Hn7/gHcf170EEm2tCk9WXE/6ihRZh6Nn+QntG01xhSYKOgYRfI0O6/xbJTx5f1C4ld
+	 iCi/qNgumL3hck3sqGeQBlIVWSblIkcAof77tGvOsk0r6InzGzvH2bJfHVGfvIPsRZybo
+	 3YhVEY+UpU5GjcymKo6QEKZ7bZzRhYYulMYt+NUmrLiSVWs5dpLB+AP2WaBxpbh4V4bXc
+	 GZTtFPWQlOk7aHjh1WM9vMR1AIJRYYKs+dwEH+fHZdvI6ipk+3w6zusu52B1NQCdsNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=shazbot.org;
-	spf=pass smtp.mailfrom=shazbot.org;
-	dkim=pass header.d=shazbot.org header.i=@shazbot.org header.a=rsa-sha256 header.s=fm2 header.b=r54zHwoT;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b="OlI3/vYF";
-	arc=none smtp.remote-ip=202.12.124.156
-Received: from fhigh-b5-smtp.messagingengine.com (fhigh-b5-smtp.messagingengine.com [202.12.124.156])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f73SdHy9;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB72E606A339
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:49:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB72E606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=shazbot.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=shazbot.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEB66606A31C;
+	Thu, 26 Nov 2026 05:51:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=shazbot.org header.i=@shazbot.org header.a=rsa-sha256 header.s=fm2 header.b=r54zHwoT;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=OlI3/vYF
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 0EE337A05AF
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:49:53 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-04.internal (MEProxy); Thu, 26 Nov 2026 00:49:53 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shazbot.org; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795672191;
-	 x=1795758591; bh=HsXzRWYodix47CuBgzuQWHBhWBfw0W2pF7XPE87u9aU=; b=
-	r54zHwoTzg/asIflSTScbITYpa/tkCshWNPlyxjKBtpVhufapl46CERxi5tvGXkC
-	pcPT66oHfKGV/gCKRjrPsnurTkKo26sV2bwHLNzTy7zIbbS+nVccriiYcbYbg933
-	wurbKKco/4m4f4kmWGgMtKl3VfZ7OJ6pNoLpIW3LW7PK2TPOhwjO14FB3VYspCnV
-	5rdpTt06TgIHFDhSQA0/cDPRky510XJ2cNQTXIBFa8ZJBgjA1OF5VOhCfZe4o2PI
-	YD3u+gq/Hv4a9TMVjhCjsZlbujjfWlDV0ttbFgjItIFe0PVduFI045AnY4gucE8Q
-	/OzvcW4EbMGG2uwhq75n3Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795672191; x=
-	1795758591; bh=HsXzRWYodix47CuBgzuQWHBhWBfw0W2pF7XPE87u9aU=; b=O
-	lI3/vYF9s3j11tjCbA3GHCEJPyzhXiGteJXFS9I2wYaWkhaMCAC/7VTMvC/oXODk
-	XE5umypL0QvMjYMQ2cNKo9i80mggTU9TFrGmNTDCK+IMwLyNiEoN3erMKkZa61+e
-	83zhVWuvtAmc2BXYt9QKTrP5Ghp2j03TJ1Sq7vKDSFN8VUcRWySfR+AqFxYMuTSy
-	sZhhOaoCX4h6RFBPzOEa0OuHjK+vwmcetj4v1EwU5L6hPAFNKR8bJ+iRtc+QSMjt
-	ka68A9iglMOg0L+nh08gZLGqMUq6GK0VAVBkq2EVmRy8oFOHGi3fMJQ7skWVPT5N
-	yAttC+7uLhalBAnV3675g==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=shazbot.org a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795672191; d=shazbot.org;
-	mf=PGFsZXhAc2hhemJvdC5vcmc+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:Empmbj98Q1CXsLtsdVp0Xb9geAGkKTKDfbG1YZNe8sTxLoh
-	7IefGFwo+HRusJhGhA0dn98RjbfYqZpsGdGlh7aBGpNEggrZ3KYIkkBt1R7wlJJC
-	AGwZt6kzY+BAdal42xAP6Msgs5Dh3Q1b3wWVWtyTCDeOCx8K18GCM1eqMG1EHQuM
-	x9nnuHm5tSWi+qwqLT5VYtNJqxEFSxPlklhZJfYCecIKJhS8USi9Fc1SEsbatdI2
-	Uo3tymocMTwcw0/eD1L9H2hHWbGcI58TruXMaHjuByfkWm86RA9ulC6k0icjYcXc
-	WRODw84jlxK9tLPo4MYH5fUoUg0QnaPdZi651UQ==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:HYAdqQbSGMS1Y6aKCRY/uyfewmH01kaq1m9cJbFoOTM=:P0Vf7p2TwKsPkouEEc4pJ3WO/PAVF8RkJCvLDoNi4PM=;
-X-ME-Sender: <xms:f8gHa-TCW1mr0ae5q0ANYUxMQOewyjX6d0Eyz5cMbnFnFlHD6JKf_Q>
-    <xme:f8gHa4uI5-wCefqmhHHUUqdKEx86ay_zbwfwsgURwZomGqcg0KsGYnyTsp2qA8swo
-    HSfizEV6OtoA9jX458GQ9KH6aOKH3YgHZE3GhJf1YJ6uKIR-3JfN2I>
-X-ME-Received: <xmr:f8gHawE15s6R-m7RQDiVo_5ykciiW76xnT0tgDW__Wnvbf10h42QzVF3JzLLvA>
-X-ME-Proxy-Cause: dmFkZTEfPYW8nCNKUJkQRuBwJ2X4KoFrj5UQx4lP2ypIt/l/R2MJdtcdAqHE6kK5de9MbG
-    auv0SaVR0YGjqZeZ8qyQWlxvgraAQ9LFH4H0ia6E71bmsV6lxl0j+Bk+2SL6DMI24bXkrY
-    Qh5c93TbHfc4/Gm/upAmwwA0bF2mzarkgeO1F622axU+yofvRLQ8MHKYWU54ASVYcw7OVy
-    IB5TR5krngyDr9INYBrf27ex3gnsd1JcRbm4GCLp1VE28MZQwCMmaLiymuNfY2tg7K/m3p
-    PMr9f+kDZ7nF27Nwmuux/i4gVX/Gh7yTv0YeC5zQxjuEHG6c+yVhuYsR66nHLBr7xbDBSo
-    Md1axuygDZUIF4EWPV6oHXxWw8opv0zJSTHg64TMG+i0/F/kMcXuk7L0dAy/+oi5JTLyYl
-    +gEOqtS5j0Al/v9a1UXQQw3ejsLyIG1WQNolqluqqc7+WYS20BJq9Vk3PRmbH+nlN9tRRA
-    tbPWfEtbEb0pLNQar6jBYgxH6SUZlFVyM/JIbLW0G9eeGtvPQKz7SSd0yBTY9vO0Yo8w6I
-    dAdWZLKuUYKwKzNlM4o1wqSPkkawV2t6o92fOsZ4Fc5QiARi8mpveNM4iwUjpogSf3vUPz
-    x44+NXr7lR2d8dnimlfXpM5W9xNJb6SifbDeSjEG7v5w6lfG29qoA0gPkkQQ
-X-ME-Proxy: <xmx:f8gHa5wtMbhBQoHFT99Km7Wv_0Hyw4D9_8joOCekKkdr-mRjvrF3dQ>
-    <xmx:f8gHa62PwbjngfiApHLF4R5dD0-nkI8GlgoiVl9Bdq8dWdq2jeSPig>
-    <xmx:f8gHa5qBx4K__540s5Bh6sTk_RROuRaw7kaLrMmQ_cDsl2K4v_HIRQ>
-    <xmx:f8gHa3XDAGfar_AdGp5v_e3qRmgKRKAixfML9X8cS73BFhBULqk-Aw>
-    <xmx:f8gHazuOD12DGpxH9b5w-2ncMaJaBVNA35QVrVw9m8P9oSpa2I7RcPIb>
-Feedback-ID: i03f14258:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 26 Nov 2026 00:49:50 -0500 (EST)
-Date: Wed, 25 Nov 2026 22:49:07 -0700
-From: Alex Williamson <alex@shazbot.org>
-To: Hungyu Lin <dennylin0707@gmail.com>
-Cc: yishaih@nvidia.com, jgg@ziepe.ca, skolothumtho@nvidia.com,
- kevin.tian@intel.com, leon@kernel.org, kvm@vger.kernel.org,
- linux-kernel@vger.kernel.org, alex@shazbot.org
-Subject: Re: [PATCH] vfio/mlx5: Fix an unwind issue in mlx5vf_add_pages()
-Message-ID: <20261125224907.13d1fb8d@shazbot.org>
-In-Reply-To: <20261116030131.15346-1-dennylin0707@gmail.com>
-References: <20261116030131.15346-1-dennylin0707@gmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f73SdHy9
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 003491F000C0;
+	Thu, 26 Nov 2026 05:51:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795672287;
+	bh=HoLbLq9QRldxYKWRHOssa33uAoW/e56PGP4SD+reeog=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=f73SdHy9CCJq8yaqchYXKUPuqXhIwtGpTwM5Flzz32zbBGS+kKUMDZNXF/Gqut5bj
+	 QmGz401hBQ23fJt4MWBqoAkxEIXKhcgau7G452Hxs7V7ozg6Wr9YrvluKSC2/+L9VZ
+	 b5QvS+NcTBtDq3lCjVHV3MLRL7bTZYMCY4LEFNKiKofBfl5+OW0OVXHnclTVFsIUK1
+	 SVXRMXG6N3cg4t1Gb3ttj3Wqtt+FmQq/0v+e6aLeUxYMGWhHcYW2mPeG2gtvnmp3ep
+	 5yxBJcAN/jREAe+mDKz6AiauRNixfUFxTOcA7pb1S4/41SA2fON+5+K7OZUdgWCx8n
+	 PD9Ub5ycnMLUQ==
+Date: Wed, 25 Nov 2026 21:51:25 -0800
+From: "Peter Chen (Qualcomm)" <peter.chen@kernel.org>
+To: Xu Yang <xu.yang_2@oss.nxp.com>
+Cc: gregkh@linuxfoundation.org, alexander.shishkin@linux.intel.com,
+	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
+	jun.li@nxp.com, imx@lists.linux.dev
+Subject: Re: [PATCH] usb: chipidea: stop asynchronous work before destroying
+ roles
+Message-ID: <awfI3W8NDmuasHEE@hu-petche-lv.qualcomm.com>
+References: <20261112092556.2747348-1-xu.yang_2@oss.nxp.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -126,50 +58,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261112092556.2747348-1-xu.yang_2@oss.nxp.com>
 
-On Mon, 16 Nov 2026 03:01:30 +0000
-Hungyu Lin <dennylin0707@gmail.com> wrote:
+On 26-11-12 17:25:56, Xu Yang wrote:
+> From: Xu Yang <xu.yang_2@nxp.com>
+> 
+> Role teardown currently removes the gadget and host roles while OTG
+> interrupts, FSM processing and work items may still be active. Such
+> asynchronous processing can queue or execute role-switch operations
+> against partially destroyed roles. In particular, a gadget instance
+> may remain registered after the controller has been removed.
+> 
+> Disable power_lost_work before starting role teardown. During OTG
+> destruction, disable the IRQ and ci->work, clear canceled ID and
+> B-session-valid events, and remove the OTG FSM before destroying the
+> workqueue.
+> 
+> Finally, destroy the gadget and host roles only after the OTG machinery
+> has been stopped. This establishes a teardown order in which event
+> sources are quiesced before their target resources are released.
+> 
+> Fixes: cbec6bd55a45 ("usb: chipidea: move otg related things to otg file")
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
 
-> mlx5vf_add_pages() gets a pointer to the page list of its caller. If
-> alloc_pages_bulk() fails after some of the pages were allocated, the
-> unwind flow frees them with
-> 
-> 	__free_page(*page_list[i]);
-> 
-> The index is applied to page_list before it is dereferenced, so only
-> the first page is freed. For the other pages the code reads the memory
-> that follows the page list pointer of the caller and dereferences it.
-> In both callers this is a dma_iova_state that is still zeroed, which
-> ends in a NULL pointer dereference, and the pages are leaked.
-> 
-> The pages are allocated with GFP_KERNEL_ACCOUNT, so the allocation can
-> fail, for example when the memory cgroup of the task is out of memory.
-> 
-> Dereference page_list before indexing it.
-> 
-> Fixes: 089803c40193 ("vfio/mlx5: Enable the DMA link API")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
+Do you need to Cc stable tree?
+
+Peter
+
 > ---
->  drivers/vfio/pci/mlx5/cmd.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  drivers/usb/chipidea/core.c |  5 +++--
+>  drivers/usb/chipidea/otg.c  | 17 +++++++++++++----
+>  2 files changed, 16 insertions(+), 6 deletions(-)
 > 
-> diff --git a/drivers/vfio/pci/mlx5/cmd.c b/drivers/vfio/pci/mlx5/cmd.c
-> index 04180035a7fe..8e8514f2660f 100644
-> --- a/drivers/vfio/pci/mlx5/cmd.c
-> +++ b/drivers/vfio/pci/mlx5/cmd.c
-> @@ -518,7 +518,7 @@ static int mlx5vf_add_pages(struct page ***page_list, unsigned int npages)
+> diff --git a/drivers/usb/chipidea/core.c b/drivers/usb/chipidea/core.c
+> index 3461dd763a6e..eb7b9c0746d8 100644
+> --- a/drivers/usb/chipidea/core.c
+> +++ b/drivers/usb/chipidea/core.c
+> @@ -942,10 +942,11 @@ EXPORT_SYMBOL_GPL(ci_hdrc_query_available_role);
 >  
->  err:
->  	for (i = 0; i < done; i++)
-> -		__free_page(*page_list[i]);
-> +		__free_page((*page_list)[i]);
+>  static inline void ci_role_destroy(struct ci_hdrc *ci)
+>  {
+> -	ci_hdrc_gadget_destroy(ci);
+> -	ci_hdrc_host_destroy(ci);
+> +	disable_work_sync(&ci->power_lost_work);
+>  	if (ci->is_otg && ci->roles[CI_ROLE_GADGET])
+>  		ci_hdrc_otg_destroy(ci);
+> +	ci_hdrc_gadget_destroy(ci);
+> +	ci_hdrc_host_destroy(ci);
+>  }
 >  
->  	kvfree(*page_list);
->  	*page_list = NULL;
+>  static void ci_get_otg_capable(struct ci_hdrc *ci)
+> diff --git a/drivers/usb/chipidea/otg.c b/drivers/usb/chipidea/otg.c
+> index 89a6a37815f0..8ac8969a45f0 100644
+> --- a/drivers/usb/chipidea/otg.c
+> +++ b/drivers/usb/chipidea/otg.c
+> @@ -272,12 +272,21 @@ int ci_hdrc_otg_init(struct ci_hdrc *ci)
+>   */
+>  void ci_hdrc_otg_destroy(struct ci_hdrc *ci)
+>  {
+> -	if (ci->wq)
+> -		destroy_workqueue(ci->wq);
+> +	disable_irq(ci->irq);
+> +	if (disable_work_sync(&ci->work)) {
+> +		ci->id_event = false;
+> +		ci->b_sess_valid_event = false;
+> +		/* Balance disable_irq_nosync() performed in ci_otg_queue_work() */
+> +		enable_irq(ci->irq);
+> +	}
+> +
+> +	if (ci_otg_is_fsm_mode(ci))
+> +		ci_hdrc_otg_fsm_remove(ci);
+>  
+>  	/* Disable all OTG irq and clear status */
+>  	hw_write_otgsc(ci, OTGSC_INT_EN_BITS | OTGSC_INT_STATUS_BITS,
+>  						OTGSC_INT_STATUS_BITS);
+> -	if (ci_otg_is_fsm_mode(ci))
+> -		ci_hdrc_otg_fsm_remove(ci);
+> +	if (ci->wq)
+> +		destroy_workqueue(ci->wq);
+> +	enable_irq(ci->irq);
+>  }
+> -- 
+> 2.34.1
+> 
 
-Applied to vfio next branch for v7.5.  Thanks,
+-- 
 
-Alex
+Thanks,
+Peter Chen
