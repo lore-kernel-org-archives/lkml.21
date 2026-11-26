@@ -1,49 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795703822;
-	b=I28yEpt2gnOPZQHvgbFTFDgFpLxYdjEiNhL5i5dWTp/zhpX/QNpnX5Ja5pmFGr8Vybqe
-	 O816wE3ik0XttuMyZ4zFurxPYEOIm1k42SfB8fBOQeFjScuKE4BbzzG4rjrqP8Nckcg6k
-	 IEL9561jpG+XaV+2XadcEdArcdWC3M6f+X5KGzGcxQWpR5ZYDkBoWHADMLHVjd18P/zIr
-	 5P1SWWLCnGCr2hcTX2/uLJcWU6dDBbkxY/w6ty/YnBrYU5Nso4i5AGyLvpREbRvZKMIgh
-	 +PxYnxPfsP7lzkK+uB7bt0C+IV1hiFLKANxmvw0y9C/Gl20H2M8cl2mrLmBx8duqdvw==
+	t=1795703852;
+	b=FSIl9XpgbWE2HzC1MEpfZpm9zsf1ml1iezbe5hbyrT1hrVJNq+5gWM06o+PLhL1AyqLG
+	 5CPXQxcVXH+gDTVRrV0MTLMlJwwlv2PYhE6KOiYVVhkG/IYN/mYjduHceXxEuL9Q3XnWc
+	 NgGsQQiVn6bc2expEFEa4R6m4vzvl1vuDMm8XpbqA+XjHnQBC60ZeCxouwYWg9Wg5l5nJ
+	 Kj1dZKffNvH9lzm7Il5wd0Rd/0HP1KFoGTvKHHm2gUL33g7nMuAM1ZBAu1uklnTHvMzU1
+	 HShBywKsdY1pF2Ql3rmWwiGB/UBUAGU8x+k3LHIhVmfWbRYRbq7bgZOyDg/zOafb7ig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795703822;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=eIY/cZ2ZGAVUM/6AhJkgxHUgyfzR1EyOHoWRylAwhN4=;
-	b=iNhpJ76QUHuajJHCgT+WdDQ0/hl6cMU4ozmhVsh9wHD3nMxHlWihyr1lAnUNlcmZj6OO
-	 XwujusyoJ4e0Twa2woRw+ee/KEZZNFPhgkKrGDaWgojV6KJoglavVpHkmdRNIZ4regaQ/
-	 857jl1Lmwmrae0Ow0XNZKEqbioO2uNgQ77ZdiDNfhdrvfpvR7r84LUVviuHx3H6UtQfZ+
-	 Agm21JSxQkz6Xwxm0Ill502ldbHmlIK0d9QjpcYDobpHZJvA1xfTtLUIro0Gkw8IAUr9V
-	 3fIVSIJkSX0u9Kmu8o1g4RFKx1rvb2Mm3YFI4HmPAGi25aBQUhVkeRa46nURlM0/kRw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795703852;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=uvOAD9yOGnAC8Ztss/IjrgdkyvLur1+4cPbktijaMrU=;
+	b=5L2XuGjPKMcRxUggQ1PySQJc/3NLSIKY2i9phJCQyxwMyWKDWsKoIg8uxyLFfaO2Den2
+	 YaYSmdAbqhHTWJENmjT7jrAXloQTVsKKEZKdyj/MqmUWr6AoOK4/HtCpDwJY1fqS4Tguq
+	 aXO7g6YtW5JJH1IryD76tchDZZxYgdPI6GZmdjRW7+KtlrSLrzqZsfkzIfAWa3XjJX+tf
+	 DCdVY4gdLLBp93FCqXlsctpJVdIHmBexzFzy7LdpgOV9GlUBjHZ6sa0uxPOqwin/Z062N
+	 /suQIwyeTgEWZl8f+WnPLU5S0zwgMMCprlPozS7CJzST1YCtQEE21fWhm4JaQtBpdWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ki0jOakd;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ttn9dtxO;
+	arc=none smtp.remote-ip=198.175.65.18
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.18])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17895606A321;
-	Thu, 26 Nov 2026 14:37:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B49E4606A31C;
+	Thu, 26 Nov 2026 14:37:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B49E4606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ki0jOakd
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A50E31F000C4;
-	Thu, 26 Nov 2026 14:36:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795703821;
-	bh=eIY/cZ2ZGAVUM/6AhJkgxHUgyfzR1EyOHoWRylAwhN4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Ki0jOakdQF1iXDy3TJX0E5xo6LK+YbuXi9dIEhripoCQV4WV+xvA3OH/LZnpD25Iu
-	 6Q8lo7zG+0bQeKTw8/Pco5KhC5QGkIFkRfOCwFA/csCSjM83l9y0KpVadXvFn6Dtpj
-	 ybdJ3va/vE8aJNaJl1OU2hEiOJ/ubkS/HjnplrjFzPvPvE0VDSLV3WY3JRFgU9w+3W
-	 NtuYybHzbdE/C9dzEkRnh/rt9x/3x+G68hdO1MaDjHzW1Q+f9N6xz+9TNBBTcwuY/s
-	 NdM3KPYV8e1F2dJMD4cORPeLfC2TPMY539WYCvqH4SBtcOTEbBMy78vj4+kAzMwSPr
-	 J4ALFHaT4fQFA==
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Thu, 26 Nov 2026 14:36:22 +0000
-Subject: [PATCH v4 4/4] mm/huge_memory: only compare PFNs of huge entries
- on huge fault insert
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ttn9dtxO
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795703851; x=1827239851;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=NFMhsQ7/o1fMsj01WtwyF816qClvD9yZEfnRKx8D37Y=;
+  b=Ttn9dtxORVX/yLCkaFeMKEDdiIGx5emoBKV6Or5KBuJmS5BCV559pMfV
+   NNFzt+4DgX6juRoiDkAyzUq7xxU1xnIXmNMmLjrTpUHEfz7ZedGotKEOe
+   grhz+mwsmbz2L1LQvSy1WIrUmBTagZYQ2GVUPX6GhjpMvkpXYgyHwxrjw
+   jMFVA2EYcHay/Y7dJAN6PFnoS+mGa98IFi3K0MK6y/YgEuofbPPmnvQ4b
+   bwhcoY7ZdnIaULHCTrf3TjNwvdLKvmNG+63vG6wlvcYZ+Zl8bRyqNq20H
+   Zb4im3Y2R+0bkCVGpi03KRblm9TWBiZ8P+rDmhVo0RiYwJdS00YP72P+W
+   w==;
+X-CSE-ConnectionGUID: 6I0JEZBLQ++kqvF+Vt5YyA==
+X-CSE-MsgGUID: qelGVfCfRgmabvZ2FbFtFw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4624557"
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="4624557"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 06:37:30 -0800
+X-CSE-ConnectionGUID: 396ke5XTQ8+QU+WBAMzH2A==
+X-CSE-MsgGUID: KukHOz3eSM2Jqy0/UEKSTw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="13959107"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.208])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 06:37:28 -0800
+Date: Thu, 26 Nov 2026 16:37:25 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Joshua Crofts <crofts@kernel.org>
+Cc: Rupesh Majhi <zoone.rupert@gmail.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Eddie James <eajames@linux.ibm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 5/7] iio: pressure: dps310: use time unit macros for
+ sleeps and timeouts
+Message-ID: <awhEJX_XLkFS-ZF0@ashevche-desk.local>
+References: <20261126121331.10438-1-zoone.rupert@gmail.com>
+ <20261126121331.10438-6-zoone.rupert@gmail.com>
+ <065da662-2670-4f7c-93dd-410e9c11d18a@kernel.org>
+ <awg42TwLsgf_Xp3U@ashevche-desk.local>
+ <7951c11e-b7f3-4a1a-ac07-87e231e7eb68@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,117 +88,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-huge-pfnmap-fault-races-v4-4-feecd58bb14f@kernel.org>
-References: <20261126-huge-pfnmap-fault-races-v4-0-feecd58bb14f@kernel.org>
-In-Reply-To: <20261126-huge-pfnmap-fault-races-v4-0-feecd58bb14f@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>, 
- David Hildenbrand <david@kernel.org>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
- Michal Hocko <mhocko@suse.com>, Alex Williamson <alex@shazbot.org>, 
- Peter Xu <peterx@redhat.com>, Zi Yan <ziy@nvidia.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
- Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
- Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
- Kiryl Shutsemau <kas@kernel.org>, Wei Liu <wei.liu@kernel.org>, 
- Roman Kisel <romank@linux.microsoft.com>, 
- Saurabh Sengar <ssengar@linux.microsoft.com>, 
- Naman Jain <namjain@linux.microsoft.com>, 
- Michael Kelley <mhklinux@outlook.com>
-Cc: ljs@kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- Eliav Farber <farbere@amazon.com>, stable@vger.kernel.org, 
- "Jose A. Perez de Azpillaga" <azpijr@gmail.com>, 
- "Gregory Price (Meta)" <gourry@gourry.net>, 
- "T.J. Mercier" <tjmercier@google.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3097; i=ljs@kernel.org;
- h=from:subject:message-id; bh=K+RR+33UGV2GmJYO6SEBtAFdDaiBsoC1Eii+CMY/7o0=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLI5nF/IrZx1jPHhnx2cyyMaez4vXfb3m1dBFL+f+11x5
- ZYbj76e7ShlYRDjYpAVU2R5/kV8f5BI2LzOC/5uMHNYmUCGMHBxCsBEtk5i+KfM7WTMG/mZjc9+
- plpR9oe730P9c02m9e1h2zR/T5RV0nKGf2rh61mrRWdF5S2LsWovDDqS1LKj/vZq9v+RdtMEl6u
- fYAUA
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <7951c11e-b7f3-4a1a-ac07-87e231e7eb68@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-A driver that implements both ->fault and ->huge_fault must anticipate
-concurrent use of both.
+On Thu, Nov 26, 2026 at 03:19:06PM +0100, Joshua Crofts wrote:
+> On 26-Nov-26 14:49, Andy Shevchenko wrote:
+> > On Thu, Nov 26, 2026 at 02:17:34PM +0100, Joshua Crofts wrote:
+> >> On 26-Nov-26 13:13, Rupesh Majhi wrote:
 
-This can happen, for example, if a user calls prctl(PR_SET_THP_DISABLE)
-concurrent with faulting, as that only holds the mmap write lock and thus
-does not exclude faulting threads stabilised by VMA lock.
+...
 
-insert_pmd() and insert_pud() have issues with this as they both assume
-that, if the page table entry being populated is not empty, it must be a
-present huge entry.
+> >> > -	usleep_range(15000, 55000);
+> >> > +	msleep(20);
+> >> I think it's safe to use 15 as specified in the datasheet, as msleep()
+> >> guarantees sleep for the specified time + a max of 12.5% slack.
+> > 
+> > Wouldn't be better to have some margin still? You know that time goes
+> > differently on different CPUs and in general time can go backwards (in
+> > computers), so the long sleeps can (I haven't checked though) go both ways,
+> > and a minimum sleeping time can be less. Also on the other side firmware
+> > might have issues in some circumstances and require slightly bigger sleep
+> > than specified. That's why I proposed margin.
+> Sure, it's just that some patches add a margin and some patches ignore this
+> and just add the default datasheet value. A lot of times slack is an adequate
+> enough margin. I was always for just the default value.
 
-This is problematic as if it is a write fault, it compares its PFN against
-the one being inserted, warning if they differ, on the assumption that the
-entry is a huge leaf.
-
-Since the entry may be a page table, this is invalid and can result in
-spurious warnings.
-
-Equally, the entry might be non-present. Nothing can install such an entry
-in the VMAs that reach this code today, but there is no reason to rely upon
-that.
-
-Therefore only examine the PFN if the entry is both present and huge, and
-otherwise simply return VM_FAULT_NOPAGE so the fault is retried and handled
-at the appropriate level.
-
-This is what already happens for a read fault, for which the existing entry
-is not examined at all.
-
-Target the commit which introduced the first driver which both mixes fault
-orders and passes the write flag for the fix (since this commit, both
-drm_gem_shmem and panthor are prey to this issue).
-
-Reported-by: Eliav Farber <farbere@amazon.com>
-Closes: https://lore.kernel.org/all/20261112051440.16140-4-farbere@amazon.com/
-Fixes: 7bfe3b8ea6e3 ("Drivers: hv: Introduce mshv_vtl driver")
-Cc: stable@vger.kernel.org
-Reviewed-by: Jose A. Perez de Azpillaga <azpijr@gmail.com>
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
-Tested-by: Gregory Price (Meta) <gourry@gourry.net>
-Reviewed-by: Gregory Price (Meta) <gourry@gourry.net>
-Acked-by: Naman Jain <namjain@linux.microsoft.com>
-Reviewed-by: Zi Yan <ziy@nvidia.com>
-Reviewed-by: T.J. Mercier <tjmercier@google.com>
-Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
----
- mm/huge_memory.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-index ca9ca39d2768..b15e5b22b180 100644
---- a/mm/huge_memory.c
-+++ b/mm/huge_memory.c
-@@ -1644,6 +1644,10 @@ static vm_fault_t insert_pmd(struct vm_area_struct *vma, unsigned long addr,
- 		const unsigned long pfn = fop.is_folio ? folio_pfn(fop.folio) :
- 					  fop.pfn;
- 
-+		/* We may have raced a fault which installed a page table. */
-+		if (!pmd_present(*pmd) || !pmd_leaf(*pmd))
-+			goto out_unlock;
-+
- 		if (write) {
- 			if (pmd_pfn(*pmd) != pfn) {
- 				WARN_ON_ONCE(!is_huge_zero_pmd(*pmd));
-@@ -1775,6 +1779,10 @@ static vm_fault_t insert_pud(struct vm_area_struct *vma, unsigned long addr,
- 		const unsigned long pfn = fop.is_folio ? folio_pfn(fop.folio) :
- 					  fop.pfn;
- 
-+		/* We may have raced a fault which installed a page table. */
-+		if (!pud_present(*pud) || !pud_leaf(*pud))
-+			goto out_unlock;
-+
- 		if (write) {
- 			if (WARN_ON_ONCE(pud_pfn(*pud) != pfn))
- 				goto out_unlock;
+Yeah, probably for 10+ ms delays this is fine.
 
 -- 
-2.56.1
+With Best Regards,
+Andy Shevchenko
+
 
