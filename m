@@ -1,68 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.10
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.134
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795657743;
-	b=xrY+9OgjbCAY4juomnwV4da5wBkiWFDK5FYXsmj1UcsXQaoSo7CepFkS1mYkWof6BDIV
-	 fAOrizLSh7Jl9/0Wav6FZ0Lnt6i07XPngwq0/PSoxyHibO5Ifzz0clCIzu819PCyuuFSt
-	 Yit6++ElbxkupVLx8KFm2ipBr8FUulamPpga3ehSjpfVt8WAjIy1PNsrLX3/ggwqqqJ3+
-	 zFaIL/muonvXGxGZWjMyvU7d6D6uRsZVVSbOYYIkggYiZwxmf0//HS/pYxUO0OdQeTIL0
-	 zhQdSJYlh84n5ZKkD5Kbft6xgHqkHUmDtbmuWImPBjcoqECHfCxVjYWvBE5Twvh3Dxw==
+	t=1795657765;
+	b=UNb+D4CG7xTtX+kdcmWlm/0TXcufQMTRw93LQXNg/fUfyrPEFVQ+OYfUD2BIOqiAN5nl
+	 LaLr7Wc+KpXB8L8fm7daPyjveliwkfCXHSbHxqAqgc46qJOSRFqdVZKZIMZoCKarGZZsw
+	 NuHDTpaN/Ifm0f3TbW6+3Vccqaz/gRbuMXXuMmN8UVAPDEZKzMSb2FV1s7WSD902/gXIa
+	 gXG91HlKXiMA2qdMFeCvtbn3NgUV387JlwgSmxSJWdo/66sqZrWMJog4KB/Jy29e6oVd8
+	 ZJAWBxWkApHbBV6jBDhnnEg7k4qPS3zJBcDCrw9pfetS1d67I4sIshFqJbQ48/z/vRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795657743;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=XfkmyAbG74wypFhGwrzBiE7jWMzZjVwrMaaxCug4Zq4=;
-	b=Y2W7fI/h06T5gaZzm9D7AdyXBvPSXpC3ZHCgcO6fsPmCk6ciTKe/qYvVAjeAe5CNA3D0
-	 ZZ3nehdfX2rR6EmuMJS6yicFHGh/Z7OVrIuuQk/ZJ+BlNCxVBdyv1UPSE3AiOeNIOPMf8
-	 OMkAFRuK+SNpXxBEuIH6W8OTBjTbSqrBbiWqu0+dXkI6RXFHZDr/mRppniPhKq8+4v/qT
-	 hGOK2CNzc0jSc6Zbq7p6rZ/G2RcOgG8yifphUFUfOhwdsHa2+l4D76OxpUrnhpGL31U6F
-	 5moT2RKIeb0sqpa6Bgc2YMwDEjivJLZO6GQ1hb/Lro+cv7xrIA4ftnXLCg1D1KSK80A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795657765;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
+	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
+	 To:X-Mailer;
+	bh=fUm7OIYCLKHdOAGzUrU+yCvxeSMK1SFSB33JMsVoO2I=;
+	b=p+J2JEtyN7vvnN6AZN6Pfmc+LTX1kXgleu20NxKSvvelMcH7+hc+C6T3Po/HRA0LzJjs
+	 dzessQpwEZeuUQfc/4zOhb4Nev04mlz/QCMy7jDxjRDx9om8fZHy0FAR/xGqFjqWupirC
+	 +NTGBymCMTfqu1uFCth9MFl4dSrPyMld67/rtjfl6Sug6Wr9NS2uvAt8/23GoUDUBv+I9
+	 oFh1KNu88uo3WzPU2DmfKUNZvXB/hR3HEAlyv0v8gdN/Gj0lu/FfBYlTmQPzJ9LwpHSDy
+	 XvnYjlAiW0MnC4fxknZigniepnK9VlpgPy5iLhnI7+jA/Yl7U+8rSaH4sIDUEK+DnKQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gxCQLCvD;
-	arc=none smtp.remote-ip=192.198.163.10
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.10])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=aMSuIjFe;
+	arc=none smtp.remote-ip=91.218.175.134
+Received: from mta0.migadu.com (out-134.mta0.migadu.com [91.218.175.134])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74C91606A31E;
-	Thu, 26 Nov 2026 01:49:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74C91606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1D50606A332
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:49:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B1D50606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gxCQLCvD
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795657742; x=1827193742;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=GmyJq18JfTnpsiuaIdG3/VmYnhggXO6MFEljsQgOgaw=;
-  b=gxCQLCvDNDU7AkdQbqon0ONr0ZJtiF+SXA6kCcUyo7aPb+aw1z43oh87
-   09zVP+bTjFJjwINOe0RS5yEDhkeegH+J4gEcDYzOKdGywKsxSD984wcqL
-   X7rHUQ+830+mIXZfCdtBCkX6ok1/27GKRjziyT4AxkLVWdWxxYRGsLJSL
-   ryvA0eF6rL4LniY72VgNOu7yRz/SVQiDA5ptSIjsXcosme8Y3wKn4HS+b
-   MnFKtW6Bz8ZrWnLOzDv7/8Vyk7q4t/4prNcGqeXXrOApZA2hGBAnn8zH3
-   +hsTIuBRh9tQcu6isb5P2pF+h4Frq0xcLjKGOMhweV6+wyrhB7RsnNMh7
-   w==;
-X-CSE-ConnectionGUID: IDeaf98KQA6UwVp1snj6nA==
-X-CSE-MsgGUID: oTFnOy7bTwWfXuelz4An2g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4443689"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4443689"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 17:49:01 -0800
-X-CSE-ConnectionGUID: j1hFuDEhQ8Wnq9FwM6yZ4Q==
-X-CSE-MsgGUID: 8+k3hbzoTMiX/Z4PuYTkfA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="12455992"
-Received: from unknown (HELO [10.238.0.68]) ([10.238.0.68])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 17:48:58 -0800
-Message-ID: <436c641a-9d35-4695-b41f-547c46479a5d@intel.com>
-Date: Thu, 26 Nov 2026 09:48:55 +0800
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=aMSuIjFe
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=fUm7OIYCLKHdOAGzUrU+yCvxeSMK1SFSB33JMsVoO2I=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795657761; v=1; x=1796262561;
+ b=aMSuIjFeh4f2FLL/56THyfcFowmeUkUx6P1VIJ9B27LIOUqpYyLg05kO8UgS0XxuWrQ0uLEe
+ wHWaqRd8lLt2/u/GNijK1dZxKrb/xvt8HOZniac+RmYZKWpY2f4sUmH1GxWBA2c6mJu37g9n7mJ
+ KKfvFBq4raildqYZVdjfTA88=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id ce709ea24b407893;
+	Thu, 26 Nov 2026 01:49:21 +0000
+X-Mizu-Trace-ID: ce709ea24b407893
+X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain;
+	charset=us-ascii
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,44 +57,105 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/2] virt: tdx-guest: Fix and speed up the wait for a
- Quote
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "kas@kernel.org" <kas@kernel.org>,
- "sathyanarayanan.kuppuswamy@linux.intel.com"
- <sathyanarayanan.kuppuswamy@linux.intel.com>,
- "thomas.lendacky@amd.com" <thomas.lendacky@amd.com>,
- "Aktas, Erdem" <erdemaktas@google.com>, "djbw@kernel.org" <djbw@kernel.org>,
- "moe@flashbots.net" <moe@flashbots.net>
-Cc: "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
- "linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
- "Miao, Jun" <jun.miao@intel.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "stable@vger.kernel.org" <stable@vger.kernel.org>,
- "x86@kernel.org" <x86@kernel.org>
-References: <20261125-tdx-guest-quote-poll-v4-0-d89f26854b88@flashbots.net>
- <cd7bd4428398413e16ff214fc46f5d65076757d8.camel@intel.com>
-Content-Language: en-US
-From: Xiaoyao Li <xiaoyao.li@intel.com>
-In-Reply-To: <cd7bd4428398413e16ff214fc46f5d65076757d8.camel@intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
+Subject: Re: [PATCH 01/21] mm/hugetlb: charge the copy made at fork to the
+ parent
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <20261125-hugetlb_fixes_2-v1-1-db27fd2f71a8@kernel.org>
+Date: Thu, 26 Nov 2026 09:48:52 +0800
+Cc: Muchun Song <muchun.song@linux.dev>,
+ Oscar Salvador <osalvador@suse.de>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Jinmeng Zhou <jinmengzhou22@gmail.com>,
+ Hongfu Li <lihongfu@kylinos.cn>,
+ Andrea Arcangeli <aarcange@redhat.com>,
+ Mike Kravetz <mike.kravetz@oracle.com>,
+ Naoya Horiguchi <nao.horiguchi@gmail.com>,
+ Hugh Dickins <hughd@google.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Dave Airlie <airlied@redhat.com>,
+ Vivek Kasireddy <vivek.kasireddy@intel.com>,
+ Gerd Hoffmann <kraxel@redhat.com>,
+ Mike Rapoport <rppt@kernel.org>,
+ Mel Gorman <mel@csn.ul.ie>,
+ Dave McCracken <dave.mccracken@oracle.com>,
+ Andy Whitcroft <apw@shadowen.org>,
+ Adam Litke <agl@us.ibm.com>,
+ Lorenzo Stoakes <ljs@kernel.org>,
+ Rik van Riel <riel@surriel.com>,
+ "Liam R. Howlett" <liam@infradead.org>,
+ Vlastimil Babka <vbabka@kernel.org>,
+ Harry Yoo <harry@kernel.org>,
+ Jann Horn <jannh@google.com>,
+ Lance Yang <lance.yang@linux.dev>,
+ James Houghton <jthoughton@google.com>,
+ Yang Shi <shy828301@gmail.com>,
+ Suren Baghdasaryan <surenb@google.com>,
+ Shakeel Butt <shakeel.butt@linux.dev>,
+ Pedro Falcato <pfalcato@suse.de>,
+ Gregory Price <gourry@gourry.net>,
+ Zi Yan <ziy@nvidia.com>,
+ Joshua Hahn <joshua.hahnjy@gmail.com>,
+ Rakie Kim <rakie.kim@sk.com>,
+ Ying Huang <ying.huang@linux.alibaba.com>,
+ Matthew Brost <matthew.brost@intel.com>,
+ Byungchul Park <byungchul@sk.com>,
+ Alistair Popple <apopple@nvidia.com>,
+ Wanpeng Li <liwanp@linux.vnet.ibm.com>,
+ Andi Kleen <ak@linux.intel.com>,
+ Kenneth W Chen <kenneth.w.chen@intel.com>,
+ Hugh Dickins <hugh@veritas.com>,
+ Michal Hocko <mhocko@suse.com>,
+ David Rientjes <rientjes@google.com>,
+ Joern Engel <joern@logfs.org>,
+ Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>,
+ Randy Dunlap <rdunlap@infradead.org>,
+ Michal Hocko <mhocko@suse.cz>,
+ "Aneesh Kumar K.V" <aneesh.kumar@linux.vnet.ibm.com>,
+ KAMEZAWA Hiroyuki <kamezawa.hiroyu@jp.fujitsu.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Sasha Levin <sasha.levin@oracle.com>,
+ Guillaume Morin <guillaume@morinfr.org>,
+ Wanpeng Li <liwp.linux@gmail.com>,
+ linux-mm@kvack.org,
+ Jason Gunthorpe <jgg@ziepe.ca>,
+ linux-kernel@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org,
+ Andrew Morton <akpm@osdl.org>,
+ linux-doc@vger.kernel.org,
+ Chris Mason <mason@kernel.org>
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <7774BE16-BDD8-41BF-9FE7-E383F333B4E1@linux.dev>
+References: <20261125-hugetlb_fixes_2-v1-0-db27fd2f71a8@kernel.org>
+ <20261125-hugetlb_fixes_2-v1-1-db27fd2f71a8@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+X-Mailer: Apple Mail (2.3901.200.71.1.16)
 
-On 11/26/2026 5:42 AM, Edgecombe, Rick P wrote:
-> On Wed, 2026-11-25 at 14:11 +0000, Moe Mahhouk via B4 Relay wrote:
->> Getting a TDX Quote takes at least one second, because
->> wait_for_quote_completion() sleeps a full second before each status
->> check, while a local Quote Generation Service answers in a few
->> milliseconds. Patch 2 rechecks the status every 10 ms instead.
-> 
-> I think something went wrong in the send. All I got was the coverletter and it
-> looks like lore did too.
 
-FYI. I did receive patch1 and patch2.
 
-And the this lore link shows all the mails, at least on my browser.
+> On Nov 26, 2026, at 06:32, David Hildenbrand (Arm) <david@kernel.org> =
+wrote:
+>=20
+> When copying page tables during fork(), the child is not yet assigned =
+to
+> the right memcg. When copying possibly pinned anon hugetlb folios, we
+> must charge them to the parent's memcg, otherwise we can end up
+> allocating more hugetlb folios than allowed.
+>=20
+> Let's fix it by charging the copy to the parent's mm, like we do when
+> copying small folios in copy_present_page(), introducing a new helper
+> function alloc_hugetlb_folio_for_fork().
+>=20
+> This is a hotfix for v7.4.
+>=20
+> Fixes: c2deb1356d82 ("mm/hugetlb: charge folios to the target mm's =
+memcg")
+> Reported-by: Chris Mason <mason@kernel.org>
+> Acked-by: Michal Hocko <mhocko@suse.com>
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 
-https://lore.kernel.org/all/20261125-tdx-guest-quote-poll-v4-0-d89f26854b88@flashbots.net/
+Reviewed-by: Muchun Song (ByteDance) <muchun.song@linux.dev>
+
+Thanks.
+
