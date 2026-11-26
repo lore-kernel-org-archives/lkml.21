@@ -1,101 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.42
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795697002;
-	b=SJ8aqOqvSnAgDeLC6K/TnB6yD1kMEDi+WLjNFjwjNdisU4M3/odOXuk8oPXhcfkAweQh
-	 E2u7bBuWSZorS+K46xgNGZ2VvYy5Bew7aVEIjc3G7i7JaArkwmimQ3S48bfBE3VqGY22R
-	 DHEYQRjwMrZtpQdX/gKRKZfGvJho+ATnkYaFk1/uGwYS+reEm3LsQabx+vv0b0jscRizD
-	 6DL+yiXm11XyWPeOAcO7REok5GvJhTnD/EyTggw9MXqKSDqtkSI3mDXUSPajiVyVy9txy
-	 bzM5VY7OClojoar084IB1TZm4fgr3NDkHtsjLlKvplk/pJiCimi7ZCYz386OusHcOlg==
+	t=1795697012;
+	b=FJ7mcleLxSjOOZ35vCuWl9wkd6bbwSF/SWKwsK4JbOt7PfvefgKkmmYokiqqs1OfLGqb
+	 StbxBkiUPOcJwVjw/8dOOVjel9Wc+X3fpcRlJ/9daucpZwhsxI0bOcxpofr0qf19WR5J8
+	 7zhmazDqg66ICZ3QZAjxOhElA5tHL+f9WMLIYIHORELLh6OAhD0pHvH1LIGq0BDtmXnVb
+	 J+th3UsB0WdL2dUyJMLxqxnUhfMjPfqQfFxTBPb9XUqdmGXtiJZ1/CY5IFXvOxk1Q5wy8
+	 QckKmDNdOboICiUCxVxuDB/WgQZ4ThYi0vRkbOLReaQw4+uTF6qpj2/t58zmkNNgdoA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795697002;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=o9Abx8wExLURdMx+3brBY5biSd8oqBfJ6pvMSMTyXjw=;
-	b=zTfAEB7r1lOoKaHQLR/Dug+KPYgMUggRacmfTMwHeIrCw5vagvzX9LnBtx4eFZPSVtRe
-	 P6lXKF44nZhcwjL+pkuuRN3GQeT5oncRsGf7mok65my6IhUbGX14SalTSwmzMo0E4Vw5e
-	 0GVCjuqeMWX6E7eavq5jvXKC7ucl6L0OQiEsKpduFeXKtaEeTia7tNlTCPenCrS3uIZOP
-	 DbxeRHaRcTUFKM4fRk3ogn4BiwMIcbL21mqQMRxG1hEGTuD1xdeQiek8c4AgRClMwOJrm
-	 8rSMxKksGPFxf/K7ZtF76WvpYArTdGcUnz7woFH59jFBDLoZHXhQ35/mGkzUKyySKRw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795697012;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
+	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
+	 Cc:Content-Type:Content-Transfer-Encoding:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=GnmeKXoTKhOyCDZP+GpD1/6T8nYJ3ksjxHtTGDe1aX8=;
+	b=IvRFTu3NumkCKmCXVGEsHTG4DWBPBdX9ebo20yTwjmsEBIjoj+8hv8oiw2YNDdyiBtt5
+	 Js63I0dxw/yJjYiM23rJXtQZhzrd3/6ltzIlYhjqd//0WUgCeETOjA2SQIi2FJuJVODFN
+	 QfBRE/guUJoQNTAog6/gB+xU27R1aeeensCWBN+G3lbsamGE4efJKzcsTt83lzIsZpXuV
+	 HIGiZ4LZET7juQ1TN6SLBWTpPfyUMuayBZHtOCdFoYWvDOmt8HhusHuuIdEuCQY2y76AR
+	 oYB5RMNcBkajg+usNJlJ07Wh6XQHkyf8289k+eeGQAk0saVXeKg9aMMqZwHDTQbXsLA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=O1Hx2dsu;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.42
-Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=NcHOfw8r;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="eM/RtD19";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D85B606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:43:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D85B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D7EC606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:43:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D7EC606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=O1Hx2dsu
-Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-491846221ffso6061222f8f.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:43:21 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795697000; cv=none;
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=NcHOfw8r;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=eM/RtD19
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQBVR6g1497069
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:43:31 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	GnmeKXoTKhOyCDZP+GpD1/6T8nYJ3ksjxHtTGDe1aX8=; b=NcHOfw8ru6Y4BXRC
+	0ngT9SOy7f+e+5Ym7yuEXiV3KRGQrhm4JE82z9Iou0J0bbzl9X4lvf+zywRgQdpD
+	TBfAJTRsYLTDjJnAgHciPvBW/7u+lHPgftMCwp0Pq6y85EelLE9spIXbYru4/l5+
+	Ghjf0ZINuePAwwp4+85m0Gp9KW7jOtZY6MZXyRAOiiDeleDp9b6UxTFK/ELAT38n
+	JcblSv4xOPp+vs2eAVRcQLspbT3NRwlSpcAIlvuVuHAc4yJfsG7OrX5BfXUsk5Cn
+	7yLJf57Fv0/W8T5D2QvfmxOepgDEShR7miGXlIitqgrG0xP6mqn3VM4NRiCXpQR1
+	G6YuMg==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j662y33kb-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:43:31 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3b4ca90ed93so3283180a91.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:43:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795697011; cv=none;
         d=google.com; s=arc-20260327;
-        b=OSshsxOL8BpZMfYrBUPVMsx2sQo5q+QFv8ht7m/13mU95DbNihZ/0nfUe0nEuoaY5U
-         Hn79KpdAe0Oofn1i7691fSic3MPu1RgqlkM7fVRJCy8XhvCzX7XZ5h6U33WIy++5esG5
-         w9E7rZqGKd70o92qN7Q6pBntwvPM0EnBqG1CF4dMMQfQsUpVw+pyf/DsBptk2xHmtwSa
-         VM6wytMLYcbvJ5M9jQ2sqBEDHJcxsWKcKdMqY8Uz8nk8+eX8NOBHGWZKoz5Vws5IaZna
-         Tlh032AQzxUXnAOPzxhcQsn0TsnuaCAUzMWCaJUZRlN40FcYe6DL9e2iyQv5LrzQiS5f
-         63Dg==
+        b=dM9HOOEBd10xAtftAMHaJQWOB3rtdxI38Q8/CSGPaemFmOiODlKzcHUi0Sa6lUVtEg
+         azjFCVBsRcoRaxY1pHLIq7dRR/+riRT7JOMdzp8rxpdR4V8tSKZgRgHFCFXh8iq40IsJ
+         yDJ1ndxizt7tVlETQeDUBKmT2te9XDzqLTW7iy7rjEYeVro4vyN1XpT1qiwTLqWPp0Uo
+         TNHUHd3umGB+ET/4M1XFGoszO+cB5yHFh6hQ9nmTeNf8qHpuHZX3h+QlSKYVjBxoK1lp
+         KLeKm+doI5qmMbe6U7NVF69F4mSDg2z/fuLo4mPtI3encCSnlKm6QwoojOsqSEnrPMzm
+         NBXw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=o9Abx8wExLURdMx+3brBY5biSd8oqBfJ6pvMSMTyXjw=;
-        fh=M2W2/r/2+/LZ+pOY/jdW/hHrV6IRP7Bmp74OZS2BcB4=;
-        b=ntvMOa7qNZcu3tOn/Px3URDQtwGwuJFu24jvk+AQ15n6OCCPWxcILEfns7UKUt/yo1
-         2z80AtYH8U6q2sdKwziQ+oHpoxqYl9+gfrmHLOiO/BPNrzEBJdpieDYrtX+nDlR2FxFQ
-         TqyNtBOnAauiQo0QY0P7qhMSmhDBdZJ3ml79tvzist+SrqLGu36pqJvfLdyU+tfIsyDl
-         WgvLKXQGcHVgbzX6fQvNI88IEcZ+O49VZac5xSRLs+r54Qen3ErP3l7pGF12XpWheahZ
-         k3qmtfdxl6gxWGzqzDLX2lU/bQBaZPa/VEkU6W0XS0yIdveFsxgajHdebSO06PD2hGG8
-         q+/w==;
+        bh=GnmeKXoTKhOyCDZP+GpD1/6T8nYJ3ksjxHtTGDe1aX8=;
+        fh=ROQ4EeUx9uj6kpPWbjV1FGkanFGb66PAO7RPYrc7nS0=;
+        b=J70GY4IGiNObtZPcjKRrgj4Dn+C6BsosUQaQ3XBdYRsRv272E1LPcm/ZH3LyyOwCA9
+         PoYX8cmoLTOFTRIvYbK815P9DrcVRseEjX5LMptZ1BwLtYXTgKz9EHKAPxwOXSu+80sc
+         eXyU+t7P0MWwtWy55fJ7KwDr5CYgYGQjFEIFdfnYparYG8so7KcuVoQTzKmklpILJNaF
+         /7s/is01VRR9UcLiiPAIAXwM3kCN1BEyvI4YTESYLLcaVNzfRrjqpaZ74MhKgSfrmCDV
+         NywujK+GEabhtJmh6nhMu8W1isBS3vPC+Q/LUoIYp7jRNFnnVArKQR4ks/HobIah3MW2
+         qEfg==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795697000; x=1796301800; darn=vger.kernel.org;
+        d=oss.qualcomm.com; s=google; t=1795697011; x=1796301811; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=o9Abx8wExLURdMx+3brBY5biSd8oqBfJ6pvMSMTyXjw=;
-        b=O1Hx2dsuq10/oTIOFgdevzB1nCddtbfQ2o7VJksECNBoidtdLwaAR/syeHDZWp1w9/
-         03KKURVL8fYcZo2CvY+L6Ogs5vAepAUn+WL8hKy6Hy/9xbM/JyLeHHmVIax8uiE9UINa
-         GU0jwSZrg8cFzjLi9wo4y4gXbYsn3JXaX8Y1OPfjTTxtghFe176ExLWZbTggHc1oNuPY
-         /8tsPOHhoyrfvDBhf7X87GtDcyfc0Z0yUB5+yZ1nv0BIeyMUHSGIIUfw6/MMkbFoMtLT
-         vQMKU2ToW4NfSs9XP2lrrRlv5nwaSf72+WMH6R8CantHxXBQeQXVaY/eQQpfDolkFw97
-         xlvw==
+        bh=GnmeKXoTKhOyCDZP+GpD1/6T8nYJ3ksjxHtTGDe1aX8=;
+        b=eM/RtD19C3LI29nrDkTTn+1ZpgabUJvOR4AijaZeNETf13dIYMTs4MpRGVmlGsCZB3
+         DmbMOfMyX9s1bqYyJ6U7VBg+olxjdHnI4AszJXR+2uVLCqAeKeB5yZWIkTaUyGJzSe04
+         nr4Jab5B2LGOiQ31sQUqShiGQbMon2SsPOkR3Akxf0H3zKHeKex02HR086T3EEdACwFb
+         u2IHDdMv6GUMSjp4xA07zTG5OAQmDGw1BMNlyFKiKrpmoiGX0ZhCtJfESHVmvLOt5lVV
+         TqoHglQqD+sOizuA5cPGi+SEd6Kp/GoFtjMtzp3bOGxbgVqDIXj+CxEl7ooMNF/GPC5J
+         H3jA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795697000; x=1796301800;
+        d=1e100.net; s=20260707; t=1795697011; x=1796301811;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=o9Abx8wExLURdMx+3brBY5biSd8oqBfJ6pvMSMTyXjw=;
-        b=iwdYQlBbwY62/xSK8GYgqRcLT8YYmJb0+Lh8ZTviPRvKf/AuI9cQfycPgyBBqOBVLH
-         NQXqVkgAFJYRQ/+Y2APsOoKMg/+wxNqbODn5wTka641r3YXNiGCYqumwDBnw9zgdu1yi
-         mP+PBDs77Kd9BPvzaYhFdW9eXh0s1Ilb7nI2KIvTTNN2SImF9t9Qc8lahI8AFIskV7Ed
-         H8CP+M6+zT/qKD/SvmXcGlGSmIIwzS7Acu0j/mji101LycSM3/jvNGo3xvNMHTSiiIJU
-         3a/toWZTLaMsqPYh6hRsaGJOz2sr3C3ZnciGeTahrKrGttZE7/uj7AEdq2/NvkKj+unJ
-         1BMg==
-X-Forwarded-Encrypted: i=1; AL+hErEsEdPU6CJ/Z8/kk5cDR2RyhDy0XFoKd7jgjRSAUUTKqPRaL+ysF4eS5IcvBgmzoK4FEk9E9q1Z/K8ogak=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/a5Wb6x1I5MUZ8lvlpdATQ+PgVy6tnjeSntTZpJgHxcfDDxEt+
-	dA5G26kCQK/AhF9xtzbFq06eUlaovKbckkAKc5Aq510j83fEo6i1KJiOXBspC7CPcU2GnYhz11K
-	brqCybs+qI6qZ/r0sjMLQP1OrliAvtgmqYdfW43Jo
-X-Gm-Gg: AZFdTZd1Gnfjm9cHrdff8DC3ygtShzni4AqiGYx41+oFqkPmr6Fj7xT4QCMhYAmGm1v
-	H0eobfngLQuJW6LtXzK0gmXQrBaphsPqjZ5480Drth6eiZBGfSPK/y2yrg4LByYtgHJLu6vqi/O
-	+nHKxjdRjvuzHaPEcszvdrY2m/jt7Pbp37/1gCx10Q1WziS+0BEDdKa9vOktX14GYRqb37vGu40
-	QqOhfcgII3a3EWPKxpmQcr5AaQmnTI9+ZbVcWFqnWO2yp9nuHG/G5LMPdwEo8B7aBYqUsvYFauT
-	6Smwc+3EJlezF4uGZDeYPItd++8CqO0iV+q+mXJSHZBr3+27GV3WY0Uo6JNrQ3YKZ1e9WhLu4mU
-	YtxHl0nX/Ff719fT8KdNiCkF2hfAkNw4uC3lVK/ZsCqu3jm7pbGN/Le50/tycKfAbLBCQ6FEZLA
-	39bccG20h8M36+SJ/jG2+p4JYlhpzWj6wWf4tI0R/3gt/i
-X-Received: by 2002:adf:e00f:0:10b0:491:d224:aa78 with SMTP id
- ffacd0b85a97d-4abb27275e7mr29748444f8f.26.1795697000100; Thu, 26 Nov 2026
- 04:43:20 -0800 (PST)
+        bh=GnmeKXoTKhOyCDZP+GpD1/6T8nYJ3ksjxHtTGDe1aX8=;
+        b=B9renaG26zVep///PZvFmDSHyvIUiK4rb41CNi8ARWbd8wdum8At6h+PdD9iBjZ/Ul
+         THBGReLASfcOSQ/2V64YQ3whfftSmR+Dtyzv0NV0FOi1xkBXM+HqycOdkCIWiaCphZvc
+         ra7y1kdV3nKBMozdrfvUB+tCShmXr7XVzJD+tbdxO5foz9yc3wyTNnMTZZ3hnnoFV5Fs
+         PDwwsSfxU2EX0czSPapaE5oUhBUc/oVMj9D+HQTpmo8ADENqtLQhY5iGGDW5nT4+vtSv
+         jiUKho0q5hBcHihL6v+9VaJ8izc2xO4YOz/lPDhG4DIgoG5u/OSm7FOWcFGkRpoWBmWH
+         q58Q==
+X-Forwarded-Encrypted: i=1; AL+hErHRPotgvRPXtErbg3kDPIXRdDm8Lii87lPjkWfafH91MXtzroSnmwV808SGp9H1hZPhbib7acXg3/EyWtM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8KeMGo/KTjD9mavyZ+m3LpgKmr3wtehwzBPithCH9ZZLvE8GI0
+	KYfMWRDpTMszw2vMqzFsEPfIqv6uDyP56N6r5I9X/QxI0aYVaTOtxcXS8Vy2d3opmernawqbvxy
+	LIms/ZxCSqPLbEnWuyldD5e8mYDF+7R4FV6n2xI0ZGdYsbOOhmGU39ku0UyRd+qIaZZxsRbU3i0
+	BgLvJZYc3furVWEHh5RWrAAGglzZzGeJ+WdZDBPTXf4A==
+X-Gm-Gg: AZFdTZezB6YbAfxJ4NK2ALE0CgQump46JdGGTmx6jAnVEtzGLOXewtsamccLLTAQezB
+	aOnVYme7Okk40R0ly3/xqFPXQW+AebYObGjVtnl7QzSnrJlmmnR67gvLeB69/5qEi1PfwsP2Nnz
+	7JpHT56+1mBsAiv0crBxTnMUZ7JrNf5VUgdjsUiJBuJw/Rs+goDeoPtZ5+MQ==
+X-Received: by 2002:a17:90b:4ad0:b0:3ae:9944:3bf0 with SMTP id 98e67ed59e1d1-3b41c938c77mr19665431a91.34.1795697010845;
+        Thu, 26 Nov 2026 04:43:30 -0800 (PST)
+X-Received: by 2002:a17:90b:4ad0:b0:3ae:9944:3bf0 with SMTP id
+ 98e67ed59e1d1-3b41c938c77mr19665406a91.34.1795697010325; Thu, 26 Nov 2026
+ 04:43:30 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,85 +127,154 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119-rust-workqueue-v4-0-707c68994940@google.com>
- <20261119-rust-workqueue-v4-5-707c68994940@google.com> <5eec17370f67438e43bb1c82b1d6a16b@kernel.org>
- <20261125181752.2027207-1-aliceryhl@google.com> <f9d8ff6a6c4a4d098e0d461da4e40474@kernel.org>
-In-Reply-To: <f9d8ff6a6c4a4d098e0d461da4e40474@kernel.org>
-From: Alice Ryhl <aliceryhl@google.com>
-Date: Thu, 26 Nov 2026 12:43:07 +0000
-X-Gm-Features: Aa3M54p00DMhUzh_tewZfWZ2hi0LG_ZMSKy1ua0nr0PKeO0HqjITQRZNecEPYTM
-Message-ID: <CAH5fLgjvFXX6oZRkH9OFCun4eNGWKkmoeCfVK3_16Yc75dfRkw@mail.gmail.com>
-Subject: Re: [PATCH v4 5/5] rust: workqueue: add ScopedWork for non-'static
- work items
-To: Tejun Heo <tj@kernel.org>
-Cc: Lai Jiangshan <jiangshanlai@gmail.com>, Danilo Krummrich <dakr@kernel.org>, 
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Trevor Gross <tmgross@umich.edu>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
-	=?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
-	John Hubbard <jhubbard@nvidia.com>, Philipp Stanner <phasta@kernel.org>, rust-for-linux@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev
+References: <20261122-rockchip-pm-defer-v1-1-5b41635e3410@bootlin.com>
+In-Reply-To: <20261122-rockchip-pm-defer-v1-1-5b41635e3410@bootlin.com>
+From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Date: Thu, 26 Nov 2026 13:43:19 +0100
+X-Gm-Features: Aa3M54oXEG0UXV0h1Ay8EFT6l0_fiX2X2Hu5kQov4OoBP9nRPaNYuRXl0Vc7i6g
+Message-ID: <CAPx+jO8+WAK+W8BVOSJVHoLEvQUUr0-d7gEEK+yNwhJH5skYUw@mail.gmail.com>
+Subject: Re: [PATCH] pmdomain: rockchip: fix warning when deferring probe
+To: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+Cc: Ulf Hansson <ulfh@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+        Sebastian Reichel <sebastian.reichel@collabora.com>,
+        Shawn Lin <shawn.lin@rock-chips.com>,
+        Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+        linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA0OSBTYWx0ZWRfX2jXEV53Ji8Yv
+ FXEw0SvTeVwtupBkMje1nn/ZkxWT+IJ44BXoYO9I71QVr9YudLHwL5kqn6yKie39Ded5DMSpuI0
+ 7hQt43UDrkAttqYyF5zSkWSQeUrx9AuirZdgZBeiMF6hVvzh29tWfgl3MbRtOdOCYZaiUAOnKQ3
+ ghXw2lOUCKdNki7V25FCnuMM/y91RHrLUYbWE7E6d4c+C9vushbZhu/snWu4Iw1oLsd0uqmTuSi
+ F/lXfNWwpvII/+IOdn4B/gStGmNj2CsnliuQVoldVkCKh30gkDSjtjFQJdDgKz/4bbp0aS5PLRV
+ PVnqKQlofzA8JmFjgGBgivBQr4hG2jXZm91atFqXcQAMcP62zL3AvjCNmE9qGk+WEQUXSlHgE43
+ cmuR4p3aE9HugQc3uJGgQC4TNa7pPv/Fu0z9aT1x0Isw2wtbuOSI/8B0759ximZ1DcoXX8hKCja
+ DPhCb5j6AzwlQ/R0j0A==
+X-Proofpoint-GUID: 52KiBrKvhZpctw05Ph5qDwAw_GAY2vDv
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA0OSBTYWx0ZWRfX9thxObnzSaFr
+ /NR+DBwjRdtvM3V6xw4wsyvD8eKLnAGo+jM+bL2RFVYN7DS2k94c0cSFJf3ndWJApmeM+wpubxr
+ dwB/w6o93B9ZKB2auaQO3EJvuWbyQPM=
+X-Proofpoint-ORIG-GUID: 52KiBrKvhZpctw05Ph5qDwAw_GAY2vDv
+X-Authority-Analysis: v=2.4 cv=W/KtxhWk c=1 sm=1 tr=0 ts=6b082973 cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=DJpcGTmdVt4CTyJn9g5Z:22 a=P-IC7800AAAA:8 a=cFyDgtjIdI2ehFJVjNoA:9
+ a=QEXdDO2ut3YA:10 a=rl5im9kqc5Lf4LNbBjHf:22 a=d3PnA9EDa4IxuAV0gXij:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_03,2026-11-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 impostorscore=0 phishscore=0 malwarescore=0 adultscore=0
+ suspectscore=0 spamscore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260049
 
-On Thu, Nov 26, 2026 at 12:22=E2=80=AFPM Tejun Heo <tj@kernel.org> wrote:
+On Sun, Nov 22, 2026 at 2:38=E2=80=AFPM Alexis Lothor=C3=A9
+<alexis.lothore@bootlin.com> wrote:
 >
-> Hello, Alice.
+> When the PMU probe fails because a clock can't be acquired, the
+> pm-domains driver raises a warning in kernel logs:
 >
-> On Wed, Nov 25, 2026 at 06:17:52PM +0000, Alice Ryhl wrote:
-> > What I'd say is that this isn't the only way to spawn work on the
-> > workqueue. This utility is intended for use-cases where it's convenient
-> > to do it like that (e.g. because the queue is defined before the work
-> > item in the same struct). We already have another way of spawning work
-> > that uses different ownership rules (e.g. self-freeing work) and that
-> > mechanism would not go through ScopedWork.
+>   [...] power-domain: failed to get clk at index 0: -517
+>   ------------[ cut here ]------------
+>   WARNING: drivers/clk/clk.c:4831 at __clk_put+0xf8/0x130, CPU#0: swapper=
+/0/1
+>   Modules linked in:
+>   CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 7.3.5-00004-g552d0d1e0=
+9f2 #103 PREEMPT
+>   Hardware name: FriendlyElec NanoPi Zero2 (DT)
+>   pstate: 20000005 (nzCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=3D--)
+>   pc : __clk_put+0xf8/0x130
+>   lr : clk_put+0x10/0x20
+>   sp : ffff80008192b750
+>   x29: ffff80008192b750 x28: ffff80008147aee0 x27: ffff8000813400bc
+>   x26: 0000000000000000 x25: ffff800080e5d5c0 x24: ffff00000074f280
+>   x23: ffff00007fbe6bc8 x22: 0000000000000000 x21: 0000000000000000
+>   x20: ffff0000004f78b0 x19: fffffffffffffdfb x18: 0000000000000006
+>   x17: 70203a72656c6c6f x16: 72746e6f632d7265 x15: 0720075207450746
+>   x14: 07450744075f0745 x13: 0720075207450746 x12: ffff8000816ee830
+>   x11: 0000000000000058 x10: 0000000000000018 x9 : ffff8000816ee830
+>   x8 : 000000000000005d x7 : 3ffffffffffff000 x6 : ffff800081746830
+>   x5 : 0000000000017fe8 x4 : 0000000000000000 x3 : ffff0000004f78b0
+>   x2 : 0000000000000010 x1 : ffff0000004f78c0 x0 : fffffffffffffdfb
+>   Call trace:
+>    __clk_put+0xf8/0x130 (P)
+>    clk_put+0x10/0x20
+>    clk_bulk_put+0x3c/0x60
+>    rockchip_pm_add_one_domain+0x298/0x4a0
+>    rockchip_pm_domain_probe+0xd4/0x310
+>    platform_probe+0x5c/0xb0
+>    really_probe+0xc0/0x3e0
+>    __driver_probe_device+0x164/0x1d0
+>    driver_probe_device+0xb4/0x120
+>    __device_attach_driver+0xbc/0x190
+>    bus_for_each_drv+0x88/0xf0
+>    __device_attach+0xa0/0x1e0
+>    device_initial_probe+0x50/0x70
+>    __bus_probe_device+0x38/0xb0
+>    bus_probe_device+0x10/0x20
+>    device_add+0x604/0x850
+>    of_device_add+0x44/0x60
+>    of_platform_device_create_pdata+0x94/0x160
+>    of_platform_bus_create+0x198/0x520
+>    of_platform_bus_create+0x1f8/0x520
+>    of_platform_bus_create+0x1f8/0x520
+>    of_platform_populate+0x58/0x170
+>    of_platform_default_populate_init+0xe8/0x100
+>    do_one_initcall+0x60/0x1d0
+>    kernel_init_freeable+0x204/0x288
+>    kernel_init+0x2c/0x130
+>    ret_from_fork+0x10/0x20
+>   ---[ end trace 0000000000000000 ]---
 >
-> This is your design and you know this area far better than I do, so pleas=
-e
-> take this with a grain of salt. That said, I wonder whether the interface
-> is more tortured and twisted than it needs to be.
+> The warning is due to rockchip_pm_add_one_domain passing pd->num_clks to
+> clk_bulk_put, but pd->num_clks does not reflect correctly how many
+> clocks are correctly acquired (it is systematically set to the _known_
+> number of clocks, before attempting to get them).
+>
+> Only pass the number of retrieved clocks to clk_bulk_put by setting
+> pd->num_clks to the number of correctly processed clocks. The value will
+> be dropped anyway in case of failed probe.
+>
+> Fixes: d8b384777066 ("pmdomain: rockchip: fix clock leak on domain probe =
+failure")
+> Signed-off-by: Alexis Lothor=C3=A9 <alexis.lothore@bootlin.com>
 
-Always happy to discuss! Thanks for the question.
+I have already queued a patch for this at my fixes branch:
+c671660ea0af pmdomain: rockchip: Only put clocks that have been
+successfully obtained
 
-> Workqueue lifetime seems to add a layer of ugliness, at least going by th=
-e
-> restrictions on ScopedWork. Wouldn't that be relatively easy to solve by
-> adding a percpu refcnt to the Rust wrapper of workqueue and tying work an=
-d
-> delayed work items to it? Dropping the workqueue would wait until nothing
-> is pending, and cancelling delayed work items before that would be up to
-> the user. Work and delayed work items would then behave the same way and
-> be usable on any workqueue.
+If that isn't sufficient, please re-spin the $subject patch.
 
-I'll take a step back for one moment. The previous version of this
-patchset did not have the lifetime in question. Adding a percpu
-refcount doesn't resolve the issue that made me add it, unfortunately.
+Kind regards
+Uffe
 
-The problem is: if we drop a ScopedWork early, then once
-cancel_work_sync() returns, we may free resources used by that work
-item. Obviously if the work item is still executing on some workqueue
-after cancel_work_sync() returns, that would be bad, as it would use
-resources now freed.
-
-Originally I did not think this was an issue. I assumed that if
-cancel_work_sync() returns, and there was no concurrent resubmission,
-then it would no longer be running. However, this is not true:
-https://lore.kernel.org/all/20261118-ordered-wq-cancel-v1-2-916e01f9affe@go=
-ogle.com/
-
-My fix for this issue was to add a &Workqueue field to ScopedWork and
-enforce that the scoped work item can only ever be scheduled to that
-one workqueue. By only ever using it with one workqueue, I know the
-non-reentrance conditions hold, and so I know that when
-cancel_work_sync() returns, the work item is not running anywhere, and
-hence it's safe to perform cleanup.
-
-Of course, there may be other ways to enforce the non-reentrance
-conditions hold, which could let me get rid of the lifetime. But the
-lifetime is there to handle the cleanup before destroy_workqueue() is
-called case, so a percpu refcount does not come into play.
-
-
-Alice
+> ---
+>  drivers/pmdomain/rockchip/pm-domains.c | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/ro=
+ckchip/pm-domains.c
+> index e193f978d5f3..adc3bebcd928 100644
+> --- a/drivers/pmdomain/rockchip/pm-domains.c
+> +++ b/drivers/pmdomain/rockchip/pm-domains.c
+> @@ -854,6 +854,7 @@ static int rockchip_pm_add_one_domain(struct rockchip=
+_pmu *pmu,
+>                         dev_err(pmu->dev,
+>                                 "%pOFn: failed to get clk at index %d: %d=
+\n",
+>                                 node, i, error);
+> +                       pd->num_clks =3D i;
+>                         goto err_put_clocks;
+>                 }
+>         }
+>
+> ---
+> base-commit: 988117cc1bb17338c586a4e21ade88b5397eac33
+> change-id: 20261122-rockchip-pm-defer-adb33313f110
+>
+> Best regards,
+> --
+> Alexis Lothor=C3=A9 <alexis.lothore@bootlin.com>
+>
