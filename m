@@ -1,97 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795695910;
-	b=w87UQuPmAI4EXZqrNbc6Mwa9xyqU3fzPLCnv5RsdfxV1ot6LhH6JOmIBlRi6NHyQAo6e
-	 JFrotctXK1Arw5ziEI+qFHj/I6UTHgAAFNR64ZKqckDUtoeo7OXRwaZjQJNEv8M1XCRBY
-	 IhckXZb8afJurEL0w0GeN+PIYqoJT4wmd5x3xJHtFCKBtDtXOsvF39MomPrUT6ad7weMY
-	 P222hs6yzlH9uiNy03IxzOmcGdM3F0gpZYsDx+BKwep1tAoaF1/X8jYJjwddOmgwgPqHF
-	 DUQ43ucI5guO+Wc8ru+itb51kAekvf49Rll+n/HmDYJkT6GGrk/vbIon2GjyDREivuA==
+	t=1795695924;
+	b=vFd90lMcm02WVTMgr6fSXac8/G/LYk8IbkKvOveurohoqMiDCB/lNTwwF6DvTXL4qfX2
+	 +qw7FbBDq4GHlift3QgDfwWp3FbzYqFBbZ4m/xqCxWziA+aZQ6CZTfDgrirvoJxixpDU1
+	 7B1K3wk+OmbF51e3GXud8zy4rvLxqjA7SMh6xRyv67hUBEsLi/kMHQ0D7eg/tMgCXXSue
+	 TZvJMdxMlWzwUJMsrguP201OPVAT2njfeVY8dkjQDY4LVVF00WpIgXFPW/RVQU4iXS94o
+	 yYbg9bZpsCtYcGDGibCZY3OCaOSTlRGbLNfZ0lIIPLXzecTGPgqK8woeENnQxDGdjDw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795695910;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795695924;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=9S1/CScnjIL++4L924qR25v2xm0ZTSbwlBzEN5E6/RA=;
-	b=Txgw6dXY3RrcnIo+7/Ra3rXjv9NUiIpNStl3F6X+3NtsI+EE8S4mGC8y4MmoIj6v/b8B
-	 WWytaiQvhUu9i8MAP09AphMNdVlWIOSItGjtHKHrV34iZmO6v1n9Dp+19lvr+kPpKJxtm
-	 Rvuu6+e8IhwGWDey7EmJeVNL/pJ3h03IgUFUR/tSIBG/rLF2fj63YA8HOdXZ5MypNc/Cc
-	 RVDmzMFZZKnemr7amcHGfEWwfXxI+/RvKuW03VVYIZGTOUxZArWH0n0AwJrMK84loBnMy
-	 ri4sGp+8i1EgcEG4Dk/PNexZWDN+aNDcFbY0UmXUZgVoEnvmAU4LDPa1AOxkKbSbjyg==
+	bh=jY4prrYeethbYwaEBl7NR0t0hneBzAAuf7VOXeQQ51w=;
+	b=2C7aVOFHn7DYA/T4BASjpMAqnIk+Gw/eAbE75cNkkKKxvr7Gu8KqFk/w21ef3SUgeYNt
+	 I22fRpEyxVCW5VjI7Fi5QVDE5p6fBMvsF5FL7xClaAsu3E7k1NUIag87WzvD9EO/ReI6q
+	 N+Lc2c9MTN++EH2Qh4/VSTHPq5g06O+mkoVEwl0BoYnF1QX8MzUYjOppeVeluVDnarFgZ
+	 TAONPeY6t+pcGzhGfGXEt0QGXQ0HxPtGUFcISHDcszUAEQSKn47U3A1BLu4pGhfyNkEOF
+	 VTFEa88o9OQHuCRDC80a0Lx+PGllWRNfzAji4dXY8uweVZlAhvMJXC1qULzQnoNEqoQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Cohd1LrT;
-	arc=none smtp.remote-ip=209.85.215.179
-Received: from mail-pg1-f179.google.com (mail-pg1-f179.google.com [209.85.215.179])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lHf7RVFo;
+	arc=none smtp.remote-ip=74.125.82.47
+Received: from mail-dl1-f47.google.com (mail-dl1-f47.google.com [74.125.82.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCAA4606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:25:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BCAA4606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37506606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:25:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37506606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Cohd1LrT
-Received: by mail-pg1-f179.google.com with SMTP id 41be03b00d2f7-cdddc79a4afso2932577a12.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:25:09 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lHf7RVFo
+Received: by mail-dl1-f47.google.com with SMTP id a92af1059eb24-1b563e32936so2825839c88.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:25:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795695909; x=1796300709; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795695923; x=1796300723; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9S1/CScnjIL++4L924qR25v2xm0ZTSbwlBzEN5E6/RA=;
-        b=Cohd1LrTjGJmNCG2WnozJvCZUYVKnbopykoT3jvWYTAtuo3eqcgTbMvhCqpC2UobSQ
-         sHWnupmrN6QT2StCJGmCpWqpaQO3bqOnsQeKfTp6LwmwHH8jBRn9y7lUM1m71Rd15UzA
-         83wkXRbo0catR9jiSOBt00QTeRE2i0kxpT9A56hk9XL9io8nfvdB+wFleLDebfswhS0a
-         jjR31pURUuO1GiJp+u0v/kwaeSXQx7PPrlxkUj1ST4gBup1qbfs/U7Jxi4Gfzbg2eojf
-         1QUNe6syueUxffcBBFaih4L961OuFIz+z+c2KtMKMdk8XgH6M23yZN48TrQrdJ/b2D2P
-         oMYg==
+        bh=jY4prrYeethbYwaEBl7NR0t0hneBzAAuf7VOXeQQ51w=;
+        b=lHf7RVFojmOgsrIajjyLVRsOtNP3nHqiq6msIxIVQ8vR+xObUBpNW8eEgQKeBAAHdR
+         oJaX0XJ2daoPYg5iWTrQ6Lxn6R0AphDdXK8prZw5OE9+r43bWVpd807tNc101RyDimRD
+         dW4JataDYh4NE8Y+wyumVQp9maAD5n6QBJbmbPbMb/3UHvZF5iQZAVgLGJJaNTxkeyN0
+         UYIJbaOpreLyc30zHwhFt10JBHhM7qt9+4jEkt3ai9gpi38UUEUSM+z8GBjTvLUmwngZ
+         gubu+PaKNn2281w8Aoyei7jbkSIp7rDE6dwUAk0anbCWXbOq75+0VENbfPEagZ8q/9lc
+         pV5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795695909; x=1796300709;
+        d=1e100.net; s=20260707; t=1795695923; x=1796300723;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=9S1/CScnjIL++4L924qR25v2xm0ZTSbwlBzEN5E6/RA=;
-        b=ep3pJfsmEvfpHTPyM7DZJdN1TOmhTAUItC2O6p+1Giqrp9DUuyuesLUEy/OyOujRVP
-         ySt3h5nciqcRcfIvAReV/xmHAtVGszNam2f+H1izwqFuI7abtxQcXTYDPkwfVIARoFoW
-         ZSNcE+qHnchwEvTcKjCxlDq+AnTv2t46SYCz61e+bxCYM8tJep4VqBoUm4i7rT6tVQ0q
-         JltahCfysfu95ZepfQ4EihDAqarkpwmFCSCDF7itZj19BPGbVyyMcsmNQY/t45ZpDtRT
-         H6dd6rNKaBd422lFRhtxduGjQe18FPLNICfY/glxAGlYbLLRv927Gf8ZnfhNpJwIjpwY
-         h3Tw==
-X-Forwarded-Encrypted: i=1; AL+hErGpOhOmasUzJPYRu8gRBFbPEJKhOFE3qPd6L6KyjwU0nhyX2qOGpSRpjWwGmDA0uAl6JWxAjW8hdc+yH4A=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9K6lSX15FBccF2M2DzEQd/Js9GeRf1gStXxyCScN9J1ukBzc/j
-	B3okulO3Met4lkpBa9b/V3GExRPztIuFCWbGmUpqZttNr0gg/O3AWqo=
-X-Gm-Gg: AZFdTZc8RyF9J+vjwhsaur8/Q8RX3zw+vj4hhvmfiAEEC78UkMb2rYqSKOkZka//Tpv
-	JclWoy+mCJtxSxBD1xLezYP2tnUqtjPpPIcKGqMuArd85Aq3PdoIbgLRXI8lP8bMdC4I9qXKzE+
-	RBLsoQdEuWH6/K7tYRavpvrL0XFTM0F8gPPqTwsfhFvh7YfLDrJLZ+FrGCMu2C5rVVCyPeFHM+g
-	qIfGUssm3FD0uf3LAkIqGx5TKymjBRBEqgTaTBBNsTJL0m4aBe3aPqX7YUglLxY8ZITI0nhv4GB
-	O85OKz4PAku3qVAasysIJTFDaS0Gzb5Wpvckpr8EdoObe8hi+cmhCmLOt55M7JeUbNOTfEcUBVM
-	ci+HBmTGAvST5MnV9rCFKFELYopUqojKU0bRgMpSE6iUaZATWNyo08KKl+d5ULu39IcGR251LrP
-	569OJpyqQBO23gs3mlY/VLowx+WeqM/OvgC5G0/a2ERV9/eGHoRtbLzWzyLXqH/aXNYFJwhCkV2
-	xO8WNmLIYMJZ8SB8feu/g0blNEq6awJWU0e4SQnyoHm6A+Uu37kgW/0cmAnp0x9fRHkyypHYG91
-	wojjdbsTlEmjuWU7MKv1GkSVdXOBbvdGnL+CUvX26PkhjnuVHcCZ+E5LioRKD9LeCHA=
-X-Received: by 2002:a17:90b:3bc5:b0:3ad:1b31:92d8 with SMTP id 98e67ed59e1d1-3b41cb3e213mr18516740a91.60.1795695909040;
-        Thu, 26 Nov 2026 04:25:09 -0800 (PST)
-Received: from localhost.localdomain ([2406:3003:2002:639c:a06e:23f:85ed:4cfe])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b73b2b3sm15564188a91.2.2026.11.26.04.25.06
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 26 Nov 2026 04:25:08 -0800 (PST)
-From: Yige Jiang <yigejiang86@gmail.com>
-To: Madalin Bucur <madalin.bucur@nxp.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Yige Jiang <yigejiang86@gmail.com>,
-	Sean Anderson <sean.anderson@linux.dev>,
-	netdev@vger.kernel.org,
+        bh=jY4prrYeethbYwaEBl7NR0t0hneBzAAuf7VOXeQQ51w=;
+        b=naymhBmbh85lrj6o7H+AYF8bKngLRdTHiYs857FCAZw0K/PpXJVro0LPcY2sXtnjS4
+         axy5Kn5pjH5qT9fhiqvhiAAPzm3KbeqXmhdWIrBW6FHfZZlqlcC/fwo8luIqEiXrWE1a
+         OpxctjpaJtPEf6hkX3200xfpS5LaxSwZTuKKd/EpAclrOZ+bfE8lwP2Rucb0aHLWd/bB
+         /cuEAtssNMeKSihMNgn2azVMrnvodjoD25ZbEuF9+UVrOOJ38g1Ihv6LK6UT8kh1Evb6
+         qk3VQy4Ey3Ra7Ti/F7qjX6HHOPLfn/tpMLHzGrRysSAKFT87CBdDxvmC6wiQ/NiVPxHi
+         PvsA==
+X-Forwarded-Encrypted: i=1; AL+hErEyYx2lfRkql4OtjuTST0uHf+xiCI9W6GPaLZI0kyZ9LI17u8EMYu4Xbq8G45mCnUzQJ74FOkKNvcdletA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Kd1kiGxm3vQCxelKIF25b1QtYcllYMZOQAxhwvmZMVcmleLpD
+	NTRFSZHjeKRwOEP67f0zQPRjbX2mJNrri1kSuB/6bXc9UEXk4jsSf3TqTFeGAw==
+X-Gm-Gg: AZFdTZdtVqSWlWt3ugKVJSzbd+GXsNkFCUg9p0cUR51C45g6bpk60TNfT/yqvRJ72CY
+	eMrlafEY1VLiyGn5qFQyrTfHFSA58ntFBFmFoG9ArUVbk0T7CGIA+N7/D/1MokzvG1F4lmRVARJ
+	KNYSpxHYn8Yy2R6yqkypE0ClO/4pc+EA1se5tfVB7EctNMTVXyL7SDRLsUEf706JLIdFiYYVY6t
+	Db1pBIxPsEH+ZA2SJPJiI16ZSwIckrB4uUwbaa/EyaVrhEEtmwXlwMtEphZjjxzjKCStX+DxfMA
+	h1vkU0JkboDoV2Ld8Bee/jTY5cHGHmBKV/3on22scZoCCtqbg50C41AdeoS7AJRNsLfURk8jtFR
+	dKBi3OGGctyPvtwPtk3gHvPqfKOhggAMocY/bLiQXhluFk5p9x9yTaBElzeuzvgkmD26uUL8jZt
+	MpYMzGIA611REGARTrVg2r9tE5t9gE+qDh94cLaQ4cOOqG5OvJj7+qlFl4eieXVeqIBoYpKLEo9
+	p9hkaBfV1n67IxmiPidFRg3u8fQ2UfOQP6dE8Wz5hWH+4jr5lzAXrFDLTmDxvBpuziRcYTq4Fc+
+	Z0N/4VITcc5Ixqo0cu3WcQwZS6Pcbj1T5ebqncqsiJXW1oKsd/o2UQM3n9RhDQE+0SHr
+X-Received: by 2002:a05:701a:8148:20b0:1b5:227:7d1f with SMTP id a92af1059eb24-1b55689eac0mr20511682c88.11.1795695923199;
+        Thu, 26 Nov 2026 04:25:23 -0800 (PST)
+Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5569bffd2sm45954449c88.0.2026.11.26.04.25.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 04:25:22 -0800 (PST)
+From: Cong Nguyen <congnt264@gmail.com>
+To: Lee Jones <lee@kernel.org>,
+	Pavel Machek <pavel@kernel.org>
+Cc: Luca Weiss <luca@lucaweiss.eu>,
+	linux-leds@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net] fsl/fman: Fix device reference leak in fman_bind() and fman_port_bind()
-Date: Thu, 26 Nov 2026 20:25:02 +0800
-Message-ID: <rc-b1-20261110-vc-176-5127b53b8eab@gmail.com>
-X-Mailer: git-send-email 2.50.1
+Subject: [PATCH v2] leds: sgm3140: Put the child node reference on success
+Date: Thu, 26 Nov 2026 19:25:16 +0700
+Message-Id: <20261126122516.1198461-1-congnt264@gmail.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,75 +98,58 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-fman_bind() and fman_port_bind() call get_device() and return the
-device's driver data. They keep the reference even when the driver
-data is NULL, which happens when mac_probe() runs before the FMan or
-FMan port driver has set it. mac_probe() then fails and drops only the
-reference from its own of_find_device_by_node() call, so the reference
-taken by the bind helper is leaked on each such probe.
+sgm3140_probe() gets the LED child node with device_get_next_child_node(),
+which returns it with its reference count raised. The error path puts the
+reference, but a successful probe returns before reaching that code, so the
+reference is never dropped. The v4l2 flash sub-device takes its own
+reference on the node, and the LED class device only stores the pointer,
+so nothing else needs the probe's reference after probe returns.
 
-The FMan and port devices are created from the device tree and are not
-normally removed, so the leak has no visible effect in practice. The
-NULL return on the FMan side was pointed out as a probe ordering
-problem in a Sashiko review that Simon Horman forwarded to netdev in
-July 2026. The reference leak was not mentioned there.
+Remove the early return so that success also goes through the common
+exit that puts the reference, and rename the label to say what it does.
+ret is 0 on that path.
 
-Drop the reference in both helpers when they return NULL. mac_probe()
-is their only caller, and its success path is unchanged.
-
-Fixes: 3933961682a3 ("fsl/fman: Add FMan MAC driver")
-Link: https://lore.kernel.org/r/20260703074324.907294-1-zhaojinming@uniontech.com
-Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
+Fixes: cef8ec8cbd21 ("leds: add sgm3140 driver")
+Signed-off-by: Cong Nguyen <congnt264@gmail.com>
 ---
-Based on linux-next next-20261109 (630059a5a632).
-Compile-tested: arm64, GCC 14.2.0, W=1, CONFIG_FSL_FMAN=y, CONFIG_FSL_DPAA=y, CONFIG_COMPILE_TEST=y; baseline and patched fman.o and fman_port.o, no new warnings.
-No hardware or runtime test was performed.
+Changes in v2:
+- Use the common exit for the success path instead of a second
+  fwnode_handle_put(), as suggested by Markus Elfring, and rename the
+  label.
 
-The path needs mac_probe() to run before the FMan or FMan port device
-has its driver data set (probe ordering or module load order).
+v1: https://lore.kernel.org/r/20261125134013.2692510-1-congnt264@gmail.com
+---
+ drivers/leds/flash/leds-sgm3140.c | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
 
- drivers/net/ethernet/freescale/fman/fman.c      | 7 ++++++-
- drivers/net/ethernet/freescale/fman/fman_port.c | 7 ++++++-
- 2 files changed, 12 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/freescale/fman/fman.c b/drivers/net/ethernet/freescale/fman/fman.c
-index 46cc28895e56..35a8e25ba993 100644
---- a/drivers/net/ethernet/freescale/fman/fman.c
-+++ b/drivers/net/ethernet/freescale/fman/fman.c
-@@ -2493,7 +2493,12 @@ EXPORT_SYMBOL(fman_get_rx_extra_headroom);
-  */
- struct fman *fman_bind(struct device *fm_dev)
- {
--	return (struct fman *)(dev_get_drvdata(get_device(fm_dev)));
-+	struct fman *fman = dev_get_drvdata(get_device(fm_dev));
-+
-+	if (!fman)
-+		put_device(fm_dev);
-+
-+	return fman;
- }
- EXPORT_SYMBOL(fman_bind);
+diff --git a/drivers/leds/flash/leds-sgm3140.c b/drivers/leds/flash/leds-sgm3140.c
+index 107d02c3137f..e12f65d3e219 100644
+--- a/drivers/leds/flash/leds-sgm3140.c
++++ b/drivers/leds/flash/leds-sgm3140.c
+@@ -258,7 +258,7 @@ static int sgm3140_probe(struct platform_device *pdev)
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "Failed to register flash device: %d\n",
+ 			ret);
+-		goto err;
++		goto out_put_node;
+ 	}
  
-diff --git a/drivers/net/ethernet/freescale/fman/fman_port.c b/drivers/net/ethernet/freescale/fman/fman_port.c
-index 1b8fef69114e..5d96521066a5 100644
---- a/drivers/net/ethernet/freescale/fman/fman_port.c
-+++ b/drivers/net/ethernet/freescale/fman/fman_port.c
-@@ -1684,7 +1684,12 @@ EXPORT_SYMBOL(fman_port_enable);
-  */
- struct fman_port *fman_port_bind(struct device *dev)
- {
--	return (struct fman_port *)(dev_get_drvdata(get_device(dev)));
-+	struct fman_port *port = dev_get_drvdata(get_device(dev));
-+
-+	if (!port)
-+		put_device(dev);
-+
-+	return port;
- }
- EXPORT_SYMBOL(fman_port_bind);
+ 	sgm3140_init_v4l2_flash_config(priv, &v4l2_sd_cfg);
+@@ -270,12 +270,10 @@ static int sgm3140_probe(struct platform_device *pdev)
+ 					   &v4l2_sd_cfg);
+ 	if (IS_ERR(priv->v4l2_flash)) {
+ 		ret = PTR_ERR(priv->v4l2_flash);
+-		goto err;
++		goto out_put_node;
+ 	}
  
-
-base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
+-	return ret;
+-
+-err:
++out_put_node:
+ 	fwnode_handle_put(child_node);
+ 	return ret;
+ }
 -- 
-2.50.1 (Apple Git-155)
+2.25.1
 
