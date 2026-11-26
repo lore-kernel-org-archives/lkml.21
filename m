@@ -1,47 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=119.15.109.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795727051;
-	b=QRIHrGPSPizbQoNYWF8o9yP13RDZX5XCOaaRRfZX6ZTCTit3MwOUUKT50dSI7lIrjDnL
-	 7YWTw8rIHI5wJXrYVpU+nJoEHctxYyKFZ6MOUf9SzOZFE/k5OplGMCxLFNGQ8yDUszH6w
-	 8uBpuEmD/Z7rz3ZiVTvWgxiNdU5RRSTp/ubVoWARWGJQGiwiSqJYPRzsm6TnNAoYOpNfD
-	 KoT3kOCS9zTojQbvIkNTIp/iqaxUsAWDgpN6j5ZYjaIFaNUu4WKYy5xtq6Jdz9WVrAg7J
-	 ko+feemqyrGnYFhUB4TisescOej0ExYIh/82jauRp/Opexi/mg1fXsLGoMiMWkb16MQ==
+	t=1795727402;
+	b=MlYpuK0gsGpQkb4ljUMX2+/bYlAsTEoq2Iu7jzDBJmoZmX3ndfK8qSJbO9z13hbdftUU
+	 949BwRHH0HuWUFUbX11RQpjQTEHb7VLK1fxAOTGV7BUMn0auRcBxvy4kJg2uRGJbEJCs4
+	 6bzoz9NW7owZT53jDWJsThDGKvyf+LdyFkLV95EMnii1ASp5vw5/B1Yo7G7jcokhwq0Iv
+	 Nux22yys58YwtA0pOzt24aDpztQsvCd/BJMRilI3P+JdXqHM8av74eoxaknyHcj7hqsgv
+	 AObeG9HQ77XPXFQTYSHaXFebizkl2fphEPzbAkSgYVIYKZnY6OMcJ0m9GRd1L9Xm5Yg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795727051;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:References:Content-Language:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795727402;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=I+GHeDLJbWPdVlZNtAD4UCFOiWzWA153dGpfwYm/3PA=;
-	b=Sw1HufgcHflo0MnbPvXr+43fxW9o/CAYeiRzRE9q1Se4P0R5D8jqSLohIXTFKgytUBk0
-	 XcKoK/MFXtPGOcoiUDeNBF8l6me9+PQBWM9q70qeuTuM3JO0Jn8qJICHtGVy8PbVHP9nw
-	 FIkOCvx+IF2kBJhyEERtpJy9Cq0BMuSyhCdFlYTbjHpcpmNRxzQXXH1+vo7p7PjoIxLTn
-	 n2GgXOvsvlGmymjq8tTD3igElJyrGOWBe18JMK5lsOjaMd/A6fdoaYYC+Y+tE2hGuUtKT
-	 7N5yU46zBBO+mJUQr9zgPOXFNMl72O7OveCKkzYHYVbs26flwKHLi9facwO97MPrMKg==
+	bh=p2xNedof4Ko4NfZmXTB64oZmhca+eJLe1h7G8tH7eCA=;
+	b=C2UsmgX1g2zPK0P4l7Y8fL1rvFKsvB2s1XiR8NRgsSv6ahn+527j6VYBttv7Ba9usgkn
+	 t5z/6fMD5T5PfzHLotGicr1f+qnZlLhgnPmO61hQ2ggjY0YXMzdbXvStEiTpw2ppZMs7g
+	 ZlDsDpE2CqcBifFmqnXb0MgEMd9weTtJvfqJL3UXyzxtUz9vsZlD6mcZMS43vNPKZnMFs
+	 VPed2NllqVOOel+YYzQLaUKqJhyJ1KkLnEP3iQ3xYcf7JfGCMTXck0LDh9kY9ZTgGhu3h
+	 hv4jIJ4kU5uqybnJ/xUke+ppf242xI4fZ4w0sK9qkgAxlURRwb12bFpVFhxWkwVYlUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oOIgPFWO;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=d-silva.org;
+	spf=pass smtp.mailfrom=d-silva.org;
+	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=S1akCqD7;
+	arc=none smtp.remote-ip=119.15.109.137
+Received: from www.nmnhosting.com (watt.d-silva.org [119.15.109.137])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39B3D606A31C;
-	Thu, 26 Nov 2026 21:04:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABF55606A327;
+	Thu, 26 Nov 2026 21:10:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ABF55606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=d-silva.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=d-silva.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oOIgPFWO
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B0381F00929;
-	Thu, 26 Nov 2026 21:04:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795727050;
-	bh=I+GHeDLJbWPdVlZNtAD4UCFOiWzWA153dGpfwYm/3PA=;
-	h=Date:Subject:To:References:From:In-Reply-To;
-	b=oOIgPFWOf2um49LLSz8lSJkrRgbyOjNubAgsvK+J4q5Vj9VH4dV0sZfFOX+CleQCI
-	 clASUH0PAaov1VbRj83JhMhFJkl5ydB48BbDw9Acp0tPkjQJVEr1UzvWAUU4wX5nEe
-	 ekeNLxI99SaoXYqT9l1GZvBtzdJhLWtETxijQ4xb3S7mW17hsBDvWmIpLIpvgFSAbJ
-	 ou+L7R4lzYNBf6rvybBr8wXDNtm2sdI/DW5T6WRy93tCnjH0c3kF7E1XUbFOE3cfoL
-	 l/RwIyTK5LC+WYcSZtP2h9CYU9LwAniScYHlOs5GM6K8PU5W2TxgYKbGoNQHZxCrAj
-	 TqyqITZ2o3OSg==
-Message-ID: <f73334a2-17e9-4ffb-8f54-e3db224be282@kernel.org>
-Date: Thu, 26 Nov 2026 23:04:07 +0200
+	dkim=pass (2048-bit key, unprotected) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=S1akCqD7
+Received: from Hawking.lan (hawking.lan [10.0.1.4])
+	by www.nmnhosting.com (Postfix) with ESMTP id 7A223404C4;
+	Fri, 27 Nov 2026 08:09:55 +1100 (AEDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
+	t=1795727395;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=p2xNedof4Ko4NfZmXTB64oZmhca+eJLe1h7G8tH7eCA=;
+	b=S1akCqD7pVd3giXAKn02vOqeNyJDsak4S+Ugubkxc/i90OCi5kfA20TMnUYdjB+qWoZYna
+	3PHuW5rvdxMxQOvILicRV1PEuoke8XP8DCJ8cSvYgwdjJO/7wmnraSaDE96HZ4PI+G5wa6
+	Z5fa4/2Z6283mm5dKO5hwu5vae5YaXILEyxaYB5n5wF6kOIzIpR3Jqc8g3wmJbPvQILQ+6
+	KXpXhXl5U0fwy4xBFb0b8Xk2uh/hBV7gEc9JLYavRbuRolcrVA+XuENk0uwB2NBgbmqpCP
+	M9mdcp3ELGtbgc54+yIujKa2D8JSRMXVQmH2HKCYiXHNEBFpCsZQy5T0PoYQog==
+From: Alastair D'Silva <alastair@d-silva.org>
+To: Enzo Adriano <enzo.adriano.code@gmail.com>
+Cc: linusw@kernel.org,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	Andre Przywara <andre.przywara@arm.com>,
+	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
+	Norman Herms <dockseed@proton.me>,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Alastair D'Silva <alastair@d-silva.org>
+Subject: Re: [PATCH v4] pinctrl: sunxi: use automatic voltage detection on A733
+Date: Fri, 27 Nov 2026 08:09:55 +1100
+Message-ID: <20261126210955.3021478-1-alastair@d-silva.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261125-a733-pinctrl-v4@gmail.com>
+References: <20261125-a733-pinctrl-v4@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,118 +77,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 03/16] dt-bindings: clock: at91: Allow referencing main
- rc oscillator in DT
-To: Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Ryan Wanner <ryan.wanner@microchip.com>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-References: <20261105110715.2486432-1-ada@thorsis.com>
- <20261105110715.2486432-4-ada@thorsis.com>
- <5273baa7-aae5-4364-bb09-dccee581200b@kernel.org>
- <20261119-sixfold-tradition-ab9492ca6c2e@thorsis.com>
-Content-Language: en-US
-From: Claudiu Beznea <claudiu.beznea@kernel.org>
-In-Reply-To: <20261119-sixfold-tradition-ab9492ca6c2e@thorsis.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-Hi, Alexander,
+On Thu, Nov 26, 2026 at 03:33:36PM -0500, Enzo Adriano wrote:
+> A733 uses two-bit voltage-mode fields, but the handlers selected when
+> v7.4-rc1 added A733 support program them as one-bit fields. The R-PIO
+> handler also writes an A523 control register absent on A733.
+> 
+> Add BIAS_VOLTAGE_PIO_POW_AUTO to select auto (01) in every field of
+> POW_MOD_SEL at controller init and skip per-pin voltage setup. Use it
+> for both A733 controllers: the A733 User Manual v1.00 documents 01 as
+> auto in sections 18.14.6.1 and 18.14.7.20. Give A733-R a separate
+> descriptor so A523-R keeps its existing voltage handling.
+> 
+> On Orange Pi 4 Pro, the one-bit handler leaves bank H in 1.8 V mode
+> while supplied at 3.3 V, breaking RGMII Gigabit TX. Alastair D'Silva
+> reported that selecting auto mode restores TX.
+> 
+> Fixes: 0535bfbfa97b ("pinctrl: sunxi: add support for the Allwinner A733")
+> Fixes: 31d68e10381c ("pinctrl: sunxi: a523-r: add a733-r compatible string")
+> Link: https://lore.kernel.org/r/20261107000135.6b684277@ryzen.lan
+> Reported-by: Alastair D'Silva <alastair@d-silva.org>
+> Closes: https://lore.kernel.org/r/20261125115703.3724690-1-alastair@d-silva.org
+> Suggested-by: Andre Przywara <andre.przywara@arm.com>
+> Suggested-by: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
+> Tested-by: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com> # Radxa Cubie A7Z
+> Tested-by: Norman Herms <dockseed@proton.me> # Radxa Cubie A7S (A733)
+> Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
 
-On 11/19/26 16:53, Alexander Dahl wrote:
-> Hello Claudiu,
-> 
-> Am Sun, Nov 15, 2026 at 04:34:30PM +0200 schrieb Claudiu Beznea:
->> Hi, Alexander,
->>
->> On 11/5/26 13:06, Alexander Dahl wrote:
->>> The main rc oscillator will be needed for the OTPC to work properly.
->>>
->>> The new index introduced here was not used on the four affected SoC
->>> clock drivers before.
->>>
->>> Link: https://lore.kernel.org/linux-devicetree/20250207-jailbird-circus-bcc04ee90e05@thorsis.com/T/#u
->>> Signed-off-by: Alexander Dahl <ada@thorsis.com>
->>> ---
->>>
->>> Notes:
->>>       v4:
->>>       - change index for sama7g5 and sama7d65 after re-adding unused PLLs in patch 2
->>>       v3:
->>>       - adapt to different base changes, added lines are the same
->>>       v2:
->>>       - new patch, not present in v1
->>>
->>>    include/dt-bindings/clock/microchip,sam9x60-pmc.h  | 1 +
->>>    include/dt-bindings/clock/microchip,sam9x7-pmc.h   | 1 +
->>>    include/dt-bindings/clock/microchip,sama7d65-pmc.h | 1 +
->>>    include/dt-bindings/clock/microchip,sama7g5-pmc.h  | 1 +
->>>    4 files changed, 4 insertions(+)
->>>
->>> diff --git a/include/dt-bindings/clock/microchip,sam9x60-pmc.h b/include/dt-bindings/clock/microchip,sam9x60-pmc.h
->>> index 050e5e774b274..830e247ba2532 100644
->>> --- a/include/dt-bindings/clock/microchip,sam9x60-pmc.h
->>> +++ b/include/dt-bindings/clock/microchip,sam9x60-pmc.h
->>> @@ -10,6 +10,7 @@
->>>    #define SAM9X60_PMC_MCK		1
->>>    #define SAM9X60_PMC_UPLLCK	2
->>>    #define SAM9X60_PMC_MAIN	3
->>> +#define SAM9X60_PMC_MAIN_RC	6
->>>    #define SAM9X60_PMC_PLLACK	7
->>>    #endif
->>> diff --git a/include/dt-bindings/clock/microchip,sam9x7-pmc.h b/include/dt-bindings/clock/microchip,sam9x7-pmc.h
->>> index 292c5873e101e..58d2a08116795 100644
->>> --- a/include/dt-bindings/clock/microchip,sam9x7-pmc.h
->>> +++ b/include/dt-bindings/clock/microchip,sam9x7-pmc.h
->>> @@ -10,6 +10,7 @@
->>>    #define SAM9X7_PMC_MCK		1
->>>    #define SAM9X7_PMC_UPLLCK	2
->>>    #define SAM9X7_PMC_MAIN		3
->>> +#define SAM9X7_PMC_MAIN_RC	6
->>>    #define SAM9X7_PMC_PLLACK	7
->>>    #define SAM9X7_PMC_AUDIOPMCPLL	9
->>>    #define SAM9X7_PMC_AUDIOIOPLL	10
->>> diff --git a/include/dt-bindings/clock/microchip,sama7d65-pmc.h b/include/dt-bindings/clock/microchip,sama7d65-pmc.h
->>> index 08581418b9115..17105a6bedb54 100644
->>> --- a/include/dt-bindings/clock/microchip,sama7d65-pmc.h
->>> +++ b/include/dt-bindings/clock/microchip,sama7d65-pmc.h
->>> @@ -19,6 +19,7 @@
->>>    #define SAMA7D65_PMC_AUDIOIOPLL		10
->>>    #define SAMA7D65_PMC_ETHPLL		11
->>>    #define SAMA7D65_PMC_MCK1		13
->>> +#define SAMA7D65_PMC_MAIN_RC		14
->>>    #define SAMA7D65_PMC_LVDSPLL		15
->>>    #define SAMA7D65_PMC_MCK3		16
->>>    #define SAMA7D65_PMC_MCK5		17
->>> diff --git a/include/dt-bindings/clock/microchip,sama7g5-pmc.h b/include/dt-bindings/clock/microchip,sama7g5-pmc.h
->>> index 27668634b0a2b..4a1c4af8ecc9a 100644
->>> --- a/include/dt-bindings/clock/microchip,sama7g5-pmc.h
->>> +++ b/include/dt-bindings/clock/microchip,sama7g5-pmc.h
->>> @@ -19,5 +19,6 @@
->>>    #define SAMA7G5_PMC_AUDIOIOPLL	10
->>>    #define SAMA7G5_PMC_ETHPLL	11
->>>    #define SAMA7G5_PMC_MCK1	13
->>> +#define SAMA7G5_PMC_MAIN_RC	14
->>
->> I think we can use 12 instead. Correct me if I'm wrong. Otherwise, you
->> should change also driver code to allocate space for this clock. See
->> pmc_data_allocate() in drivers/clk/at91/sama7g5.c
-> 
-> The old definition had this (with PMC_MAIN = 3):
-> 
->      #define PMC_CPU                 (PMC_MAIN + 9)
-> 
-> That's the 12 which is missing in the new list.  PMC_CPU was not used
-> in the current code base.  Personally I'm fine with using 12 here, but
-> I was not sure if this is again some value Microchip wants to keep for
-> some reason?
+Verified on Orange Pi 4 Pro: PIO_POW_MOD_SEL (0x02000040) reads
+0x05555555 and 3.3 V RGMII Gigabit TX on bank H works at 1Gbps/Full
+(DHCP, ping, and iperf3).
 
-It looks like a mistake. Let's drop it.
-
-Thank you,
-Claudiu
+Reviewed-by: Alastair D'Silva <alastair@d-silva.org>
+Tested-by: Alastair D'Silva <alastair@d-silva.org> # Orange Pi 4 Pro (A733)
