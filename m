@@ -1,55 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795683296;
-	b=wkDhRbpsR1rJjoRf5DOp6F9SVomhpPk4d+tX3dGiKbvdhSYTwA/mKjyjEDCikU3VStBy
-	 j95MK670mUWI7KQmg5E7BKMLMkkWhzLKmUB97EDuY6ngV16ePsZqVf6/OQXj/tuOjiJl0
-	 mkO/UgVMvWLTs4t2cHDcoySEVNSWsd85rQBdZZalAxpmaWb7UViknm4Yo7Rwr/9XdHfs1
-	 Uxk9ccCstmdWflmvAC7SVvlkMKAp8yQ+BVMSRb1iFiUnEo2O52ekyjycRDuixenhP+Y+V
-	 ZHTo0Nts6FXGz5tgoofJUhMpdbW6RwLqMecKXBtje06nYE4A92R0C5ILcBlz+iTRVdQ==
+	t=1795683332;
+	b=lUPZ3tm5iuQ/5HIspph950RCy9/PlL4wip0v0N94rtO0fCT3t7vUWFJ/mbXyTZKBdYmX
+	 FPiRaLO0qfZ0x2jlNPRjvwUlLvChxcYDtpG/fv728aRGX45cFM5rq3gdTgHBvrjMnUyjV
+	 mEvuJXat8ZsowRxQdiWeAsYzVPXlxkJ2e46TTLvviE7ukMhcI0R7pNenpnPbDcm/Ytv+7
+	 FPsjO7HEKo8wvEYsUKmkjHNdwMouX+74egC6hTUrmQ6TpPelrK/UuPoEURHZV4QEI6beP
+	 wlACvZgcbN5cYqhq6l4kM6z9ULZgMrWeyWFb5eyKGn4oAphQJr/aw+dql9ic4qxhwZQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795683296;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=XD2aXTSUuiCiLHpGAugxfZVXZCiLEmjgR9QKZY9m6mI=;
-	b=0tYsg05oYdI9ZS/8PN9IjXAbx3MlWcfqj/NVzrP/KPzfY6n4i2qSZDFDax1R7OCcS8Hn
-	 CTlpdH9AEEpr+pzOel8/Ix6lEJ+VrimkOiiMLPmfV7l33BkgbJLvDC56cIyNciD2ij+u3
-	 f0AtOmnFMkRoLkspCO9HpmYPW4vQK4lR+5VGnZHq3TVzf+7nBIstGxS7DX/zPVTKkbMxh
-	 e3WD8DcLZbBTLNcdmULE4IO04Q+MsjOjUnlEh0zeHX1CnrkDF5IrXxm+eHqLYwJcqhFiW
-	 tnlFsGMqo0RZAJc+6YU82BdAkxLjbqNgTcBoHMIRO1P4yxFfr0DDDdeV460b+fy9Ezw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795683332;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=HqWxM4sTStKjFp4q0IoH0AiF+PXEee7+fHFB3ji0SXk=;
+	b=4S7gK2z6Pd1tDrGdiIc/3sPB0A/aFkX+8lvFqyQykYimBgxDVijBjkl36CN9BeQviybt
+	 ftk+8cvBbQ8yRobQ37XYcU2d8ECLzNWUrMlxdGiX6SeIUmPti7/IsK4UWzB+PvF8RVWuJ
+	 BO4iY6aNi1TYZasPAzQqXdlfwq6qJ6Dc4fsb6JYsoQHTps+RcOfIB/OZSoxTC0cwnWlBd
+	 ahuRivkT0hhzkFpfjGFtZRJ+w4jCBndhFIJZwMu8MgbbgTBDKF3dKMEE5nmQ0dmkKVcu6
+	 MyroX8947AD7NOP4sE/Kjt0Wg8quuUS4gD6jZEmmS2CeoVU4wAwElbIm5mMUMUWqC/A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NKZKjXt6;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bMaiWCp5;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE160606A327
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:54:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B339D606A326;
+	Thu, 26 Nov 2026 08:55:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NKZKjXt6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BA741F000D3
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:54:55 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bMaiWCp5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02B2C1F000C4;
+	Thu, 26 Nov 2026 08:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795683295;
-	bh=XD2aXTSUuiCiLHpGAugxfZVXZCiLEmjgR9QKZY9m6mI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=NKZKjXt60ggmjgkQWJs7L/z9sR6LDbN6c5x8VpKkLZDQE53ha1ofDe/J6yl0UZS32
-	 qzJaM4+wzGcmjm4PZRwDqFWYQD3EKl45jX2orGnelqnE8eYqfoHH7dytYIpYBkndMJ
-	 12B/SyZJnYFxj5CVxNehviesZLrza16sIOOMpM7lxscw0ntUIVaH/GFRgpnbQ9JlNQ
-	 V3VoRoKZ03LBCJjWduez4ImuY8wxZu/j/RF8Ot8LbprOmcOgzcnyItyBoN6DfJ5jpw
-	 7Ufd0tfHZr7iRU1FmGH6YOTfnUaeGK4YCMlOQVoRoYobzTHkSGmeu7IAfFqi8J/fhR
-	 ZIochXIzrnusQ==
-Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c505b2e1cb9so1231114366b.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:54:55 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGHfMbizEehWouFKZEr5qeEGFcyG57ENJI4VYgEUkgRdSDmmf3CRV44vZUWdKKPTxBs4yafPTjUWZ0RyXE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Qlz7bMIzsqHF5epTlV7NOArmaVHU7pWj6fLRH4OhzNwyh63O1
-	tY7wBzT0NNT1YKAqjPp+gbfqefYzjpZ4p68ahh+LalyK0iz0olMflrIerpVw/B9li3Yd3K5HVOS
-	cJn99rkipzI7E2Y57hApMWMQpprM40fQ=
-X-Received: by 2002:a17:906:c102:b0:c51:373e:d6a9 with SMTP id
- a640c23a62f3a-c513aace989mr1575933166b.15.1795683293890; Thu, 26 Nov 2026
- 00:54:53 -0800 (PST)
+	s=k20260515; t=1795683332;
+	bh=HqWxM4sTStKjFp4q0IoH0AiF+PXEee7+fHFB3ji0SXk=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=bMaiWCp5KspGN4lA5icZTBR0qngrGj35PeNTZDNXEjbUzm1Zlm2t6pCk8kN2Hn0KA
+	 mLlDHjEMrSclrphZUeODQTXUQ3f4SbBzMR0BwWMcKAfUtcca8Z7H1BCxxopA/5/yTN
+	 6pE31pAtsWmsZZyfAgxApwJbrqfI2H8ldVT3k2oR0hsF3meOeTVWJS+7IQeAn/SrM1
+	 VeV6qdS+5OYAnVXZ+0bs4AN5UpLPxlOzIL8E4RqSDCZ6VHlfvwNMTszB1U7cgyOcXx
+	 0qMtiRA68jW+y9NN75StgGuuZU73sKHmFDdC35z2XnKopxmBW98tHNIHnBnFeRpASQ
+	 24bVXXcB720jw==
+From: Leon Romanovsky <leon@kernel.org>
+To: Jason Gunthorpe <jgg@ziepe.ca>, Maor Gottlieb <maorg@nvidia.com>, 
+ Chiara Meiohas <cmeiohas@nvidia.com>, Mark Bloch <mbloch@nvidia.com>, 
+ Maher Sanalla <msanalla@nvidia.com>, Patrisious Haddad <phaddad@nvidia.com>, 
+ Edward Srouji <edwards@nvidia.com>
+Cc: linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Michael Gur <michaelgur@nvidia.com>
+In-Reply-To: <20261122-mlx5-port-events-probe-v1-0-0d54e3d53c61@nvidia.com>
+References: <20261122-mlx5-port-events-probe-v1-0-0d54e3d53c61@nvidia.com>
+Subject: Re: [PATCH rdma-next 0/9] RDMA/mlx5: Don't lose port configuration
+ events during probe
+Message-Id: <179568332961.1250082.2132083992228429570.b4-ty@kernel.org>
+Date: Thu, 26 Nov 2026 03:55:29 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,104 +62,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261124230746.850528-1-shaopei_1012@163.com> <CAKYAXd_ap120uprmarov-GuO0fb1eXEgw-U8G08L1xRJ9bv18A@mail.gmail.com>
- <20261126075247.850895-1-shaopei_1012@163.com>
-In-Reply-To: <20261126075247.850895-1-shaopei_1012@163.com>
-From: Namjae Jeon <linkinjeon@kernel.org>
-Date: Thu, 26 Nov 2026 17:54:42 +0900
-X-Gmail-Original-Message-ID: <CAKYAXd_Xc0XbehABVUOncbcDYxvfFg037+FxDivkM0NZMg29qQ@mail.gmail.com>
-X-Gm-Features: Aa3M54rKxK2yysLAQ3KYIgf-px-qmHSK27mnhAx20UoLmih8jMhUz2_ENxHtKqY
-Message-ID: <CAKYAXd_Xc0XbehABVUOncbcDYxvfFg037+FxDivkM0NZMg29qQ@mail.gmail.com>
-Subject: Re: [PATCH v7] exfat: add EXFAT_IOC_COMBINE to append a file's
- clusters to another
-To: Shaopei Zhu <shaopei_1012@163.com>
-Cc: Sungjong Seo <sj1557.seo@samsung.com>, Yuezhang Mo <yuezhang.mo@sony.com>, exfat@lists.linux.dev, 
-	linux-fsdevel@vger.kernel.org, linux-api@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Matthew Wilcox <willy@infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-18f8f
 
-On Thu, Nov 26, 2026 at 4:53=E2=80=AFPM Shaopei Zhu <shaopei_1012@163.com> =
-wrote:
->
-> On Wed, Nov 25, 2026 at 11:18 AM Namjae Jeon <linkinjeon@kernel.org> wrot=
-e:
-> > Is there a specific device or product expected to use this feature, or
-> > is it being added as a potentially useful capability without a
-> > concrete use case? If there is a target device or workflow, could you
-> > share some details?
->
-> Hi Namjae,
-Hi Shaopei,
 
->
-> Thanks for the review.  Yes, it is going to be used in camera products
-> that record to exFAT SD cards.  The open source user is exfatcombine,
-> posted for exfatprogs [1], and a test for fstests (exfat/002) is posted
-> as well.
->
-> The workflow: cameras and dashcams keep motion or position data with
-> the video, e.g. gyroscope and accelerometer samples for stabilization,
-> or GPS.
->
-> The products on the market keep that data in one of three ways:
->
-> - as a timed metadata track inside the MP4, e.g. GoPro's GPMF, muxed
->   while recording, so that the samples are interleaved with the video
->   in the mdat box and indexed in the moov box;
-> - as a separate sidecar file next to the video, e.g. the GPS logs of
->   dashcams;
-> - as a trailer appended after the MP4 boxes when recording stops,
->   which players ignore and stabilization tools read.
->
-> A sidecar file is lost in practice: users copy, share or import only
-> the video file, and matching the two by name breaks once either is
-> renamed or moved.  A track needs the muxer to take the samples in real
-> time along with the video.  Where the sensor data comes from another
-> writer, at a few hundred samples per second, it cannot go into the file
-> the muxer is writing, so it is written to a separate file in the same
-> directory during recording and appended as a trailer when recording
-> stops.
->
-> That last step is what this ioctl is for.  Today the sensor file is
-> copied into the video file, up to tens of MiB per recording, while the
-> user waits for the camera to be ready again, with flash wear and free
-> space needed for the copy.  With this ioctl its clusters are appended
-> to the video file instead, and the sensor file is removed.
-Okay.
+On Sun, 22 Nov 2026 19:39:08 +0200, Edward Srouji wrote:
+> mlx5_ib registers its event notifier after ib_register_device() and
+> dispatches no event until the device is active, so a port
+> configuration change that races with probe is lost: ib_core and the
+> clients keep what they read. A lost P_Key change leaves ib_sa on a
+> stale P_Key index and IPoIB without a carrier for good, as OpenSM
+> writes a P_Key block only when it differs from the one on the port.
+> This is hit on hypervisor setups, where the SM can program a VF's
+> partitions while it probes.
+> 
+> [...]
 
->
-> > I suggest changing EXFAT_IOC_COMBINE to transfer only the source's
-> > cluster chain to the destination, leaving the source linked as an
-> > empty file. Userspace can unlink it afterward if desired.
->
-> The sensor file is only a temporary part of the recording.  With the
-> unlink in the same call, a power loss, e.g. the battery being pulled
-> right after recording stops, leaves one of the two states the
-> recording application already handles: not combined yet, or combined.
-> With the unlink in user space there is a third one, the combined video
-> next to an empty sensor file, which looks like the first one unless
-> every application also checks the size of the file.  It would be easy
-> to append the sensor data a second time, or to leave an empty file on
-> a card that users read directly.
->
-> Doing it in the same call also refuses the whole call before anything
-> is changed if the source may not be removed, instead of leaving an
-> emptied file that cannot be deleted, and it removes the file that was
-> passed in, not whatever its name refers to by the time user space gets
-> to unlink it.  The unlink goes through start_removing_dentry(),
-> security_path_unlink() and vfs_unlink(), so it gets the same checks as
-> unlink(2).
->
-> Does this address your concern?
-Unlinking in the ioctl does not make the operation atomic against
-power loss. It only avoids the interval between a successful ioctl and
-a later userspace unlink. I don't think that is a reason for the
-kernel to perform the unlink. exfatcombine already has the source path
-and opens the file to pass its file descriptor to the ioctl. It can
-unlink the source file after the ioctl succeeds and report an error if
-that fails. The ioctl should only append the source file's cluster
-chain to the destination file. Callers must prevent concurrent renames
-or replacements if they need the pathname to continue referring to the
-same file.
+Applied, thanks!
+
+[1/9] RDMA/mlx5: Validate port number in handle_port_change()
+      https://git.kernel.org/rdma/rdma/c/b60b42559388d3
+[2/9] RDMA/mlx5: Don't let a slave port mark its master active
+      https://git.kernel.org/rdma/rdma/c/57e8846fbc47fa
+[3/9] RDMA/mlx5: Flush system error and slave port event work
+      https://git.kernel.org/rdma/rdma/c/4104da4f89854a
+[4/9] RDMA/core: Derive enforce_security from the cache event
+      https://git.kernel.org/rdma/rdma/c/5e2c7d3b46a3a2
+[5/9] RDMA/core: Add ib_dispatch_event_sync()
+      https://git.kernel.org/rdma/rdma/c/40fde0fd31f0b1
+[6/9] RDMA/mlx5: Pass the port and subtype to handle_port_change()
+      https://git.kernel.org/rdma/rdma/c/6db275d186dc45
+[7/9] RDMA/mlx5: Activate the device in a stage of its own
+      https://git.kernel.org/rdma/rdma/c/9c31888fdaf66a
+[8/9] RDMA/mlx5: Replay port configuration events after probe
+      https://git.kernel.org/rdma/rdma/c/c32ba2c6e113a6
+[9/9] RDMA/mlx5: Register event notifier before IB registration
+      https://git.kernel.org/rdma/rdma/c/bcfc30f05f9b87
+
+Best regards,
+-- 
+Leon Romanovsky <leon@kernel.org>
+
