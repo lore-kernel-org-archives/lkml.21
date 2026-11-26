@@ -1,49 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795691798;
-	b=Fqu2HS5W0MKvDKDwcpc619lpJ15inCvgJ5sCnSP2eK4Og52DSaBiOvq0JnlAW0j35aZx
-	 1jMs3+Jsifmr2X9TrAJ+gYIXr/Nm7ExD5NLHP4tScDprWOx8hNJgpmNuUt7JoKs/htPcj
-	 oee/hQ+FDcoZj9HVwK4vTfDMq8J9YklA9CJO70NpCsT3Kc//QdsR8YVeo/J6dI7VMTGaX
-	 2Q86Vg2gYikDX3/sMvkCprcbRKtI591uuwLTOpcPLVmxDnjfmrxLiTaUSTSxNxbbS8p0K
-	 /1UKF7u6/FG8Nq90nbyrpwS/J2QEMKezneSaMOblOLAHYMuremHLWGwuTS8S+gqaxmQ==
+	t=1795691802;
+	b=kcbtiEz4hKbdl2CnDrxyoztr4alszrGalGxJnNFbHZoCBYIEUDj4zKF35/UQD6Lncbbh
+	 H+j4UiPX1WHX947X01ynRBy/no5RlAuwO5R/utoS9F9RkR4PCQPh7txF0W7xO3pDK8lyZ
+	 V3HTzS9JkeDPc37N2/GYSKQufWy7EWj/GuVEAacj+xFQpKAFT3jfsj7rRUzLmvFI97Akz
+	 5JFmptzWRSVHmiYwWBNuYSTYYi/loZ82GAgSUl10YnP7nxWKdUKAO/eWoAdaiJfghWqjC
+	 kiO5kfrS97iW/Bfxk2IykH9vIIwZNMCAmAaKC4WdYVAQoXnF+F1nKAIdDLUaaGY/bqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795691798;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer;
-	bh=JWC/vBALKCjgB3Vp7e+Dp/3jppLyPAzKiZgZB+giSqk=;
-	b=VZ/OxtG8Tj3gsHGj4j6BwQINM54rgi2UVu1JwqdwY7dcBrMHT3oc0auDuVgAge2XbUdB
-	 9P9oLEzQXGS9KCdKN9F6BUDC2wZpHCz4gE6QmsaGkdVZZaeZ2BKmwGi2bnm2yVm8KUfUc
-	 DOffORHK3jgPA2AqUZ/tHsGB/AziAzfPA/vAmsbXjqm1PG7+uulzIzanS/CbuGkYRODhw
-	 JNwSl8oa/GgT0jMcpVVV8USvRtsP1+MscdzOEqYSxBKBRPSpHf+sApUvYWIjTGbHdrBHj
-	 c/nThbr+fsAUnLlkrAHI7J6LmdiZGTs3gyBZws8MkMVyCUojZT5Tq+EEkMr8kVWCm2A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795691802;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=1B+nCK7IVGBh795a0Rgcb1AZQ4kSvKVLL9SmHcTIfKA=;
+	b=ME9WNVKpy/2908cj+gkYuQVV03pZ4IE28YiwmCpOUgtMFAGBsgCFdUzMxHuJxaneByOI
+	 IWaJvodRXCJz5OvtDSfx5381ZmZXTJ65EcvY1n9VpyL6M3gaXDAbrNB8v4hbOK8lumla/
+	 dJDzxs84DP810d63V/I2eVs57KcrtuYtN01juphbWLPTEtnP8yURDpLF1IvWkr6dGDJSD
+	 sbysz7WugkGfaoWsPkVQU6Is2wkqAZipTB8Txr6KxwAbQaFqQhaagLw4Jv3BnM/4mJoeG
+	 u94mw3dlvv7v2Xs2Y6mf3hNdDbjxuU4X20HS91oWHT4tb6hKF+orKTQS1MXC2qyaw2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aYpj+ngS;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A64AA606A323;
-	Thu, 26 Nov 2026 11:16:38 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Yw5cxfDQ;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 3F76E606A31C;
+	Thu, 26 Nov 2026 11:16:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F76E606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aYpj+ngS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 733D71F000C4;
-	Thu, 26 Nov 2026 11:16:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795691797;
-	bh=JWC/vBALKCjgB3Vp7e+Dp/3jppLyPAzKiZgZB+giSqk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=aYpj+ngSiVFqOgPwkjKWlL43cMwZ+c5qm9pyvtLBv6pRVxFQz/EnGMvT3cqG60CKV
-	 gp17gvtMKi2AUU8TijAS5yNkCTOTjH2Hcpzo5zl5CqJX4AX6FkoKmRtDnCuSFqV1Me
-	 F5l2AWld4jnr12BgoJ/0hRgE9SX3p1+lkLsNAfVFhqEKgJ6rZL/qR7qp6M7cgLZYkA
-	 cajyHtUCZrnpDkX20HptjbPShYFK0PskDHvCpXjIeQQYNmZuANQV5dGi67AmHknFT9
-	 b0dh9ehw25xnd7VAFSRbYHeAn3Icdmn02VTQRbc8OoQpSYOJECww1+H2cR7XMAw8q2
-	 JUPAaB2anngGA==
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Thu, 26 Nov 2026 13:14:26 +0200
-Subject: [PATCH RFC v2 13/54] x86/mm/pat: make the direct map counters
- atomic
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Yw5cxfDQ
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A3A521BB0;
+	Thu, 26 Nov 2026 03:16:38 -0800 (PST)
+Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9C9603F632;
+	Thu, 26 Nov 2026 03:16:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795691801; bh=iAEd6xa9eOJeWCX84Erk4niZaFNGjwfaBPHspobCjOw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Yw5cxfDQLcdBCOTH8ZBtmILoVYfEkhTiO/dk2oCkdh/zSrgbbB76UGjl/5HDak7L2
+	 8U9K5hsJBVYLMPWOXvzI3uFN0gNWT4ivianMNbzzYWUyOZ8PJ2OIpNyVod+DCGgNse
+	 73aO3rD9AiioBwfXdLTCfLP//wYWX1bFlRLhXPFY=
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: will@kernel.org,
+	mark.rutland@arm.com,
+	ying.huang@linux.alibaba.com,
+	Yadong Qi <yadong.qi@linux.alibaba.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	ryan.roberts@arm.com,
+	robh@kernel.org,
+	gregkh@linuxfoundation.org,
+	ptg-linux-kernel@linux.alibaba.com,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v3] arm64: fixmap: fix missing break-before-make in __set_fixmap()
+Date: Thu, 26 Nov 2026 11:15:52 +0000
+Message-ID: <179569175258.1940346.15175112800352133.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261126022227.1618-1-yadong.qi@linux.alibaba.com>
+References: <20261126022227.1618-1-yadong.qi@linux.alibaba.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,128 +70,21 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-generic-set-memory-v0-1-v2-13-723f1e33c3d8@kernel.org>
-References: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
-In-Reply-To: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
-To: linux-mm@kvack.org
-Cc: =?utf-8?q?Adrian_Barna=C5=9B?= <abarnas@google.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
- Borislav Petkov <bp@alien8.de>, Brendan Jackman <brendan.jackman@linux.dev>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- David Hildenbrand <david@kernel.org>, 
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
- Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, 
- Ingo Molnar <mingo@kernel.org>, Kevin Brodsky <kevin.brodsky@arm.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, Michal Hocko <mhocko@suse.com>, 
- Mike Rapoport <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <pjw@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Russell King <linux@armlinux.org.uk>, 
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@kernel.org>, 
- Vasily Gorbik <gor@linux.ibm.com>, Vlastimil Babka <vbabka@kernel.org>, 
- Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, x86@kernel.org
-X-Mailer: b4 0.16.1-dev
+Content-Transfer-Encoding: 8bit
 
-In update_page_count() pgd_lock protects only the direct map counters. The
-splits and collapses in CPA update the counters under pgd_lock that they
-hold for other reasons.
+On Thu, 26 Nov 2026 10:22:27 +0800, Yadong Qi wrote:
+> __set_fixmap() installs a new PTE with __set_pte() but never invalidates
+> the TLB; only the clear path calls flush_tlb_kernel_range(). The
+> dsb(ishst)/isb that __set_pte() emits makes the new PTE visible to the
+> table walker but does not invalidate stale TLB entries. Overwriting a
+> still-valid slot therefore leaves the old translation cached and
+> violates break-before-make: accesses may keep hitting the old output
+> address, and changing the attributes of a cached entry can trigger TLB
+> conflict aborts or CONSTRAINED UNPREDICTABLE behaviour.
+> 
+> [...]
 
-Make the counters atomic_long_t, like s390 and powerpc do, so that updating
-them does not need pgd_lock.
+Applied to arm64 (for-next/fixes), thanks!
 
-A split checks that the counter of the large pages is not zero before it
-decrements it. Use atomic_long_dec_if_positive() so that a concurrent
-update cannot drive the counter below zero between the two.
-
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
----
- arch/x86/mm/pat/set_memory.c | 28 +++++++++++++++-------------
- 1 file changed, 15 insertions(+), 13 deletions(-)
-
-diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index 5e3c1152d202..8076d29a2931 100644
---- a/arch/x86/mm/pat/set_memory.c
-+++ b/arch/x86/mm/pat/set_memory.c
-@@ -84,56 +84,58 @@ static inline pgprot_t cachemode2pgprot(enum page_cache_mode pcm)
- }
- 
- #ifdef CONFIG_PROC_FS
--static unsigned long direct_pages_count[PG_LEVEL_NUM];
-+static atomic_long_t direct_pages_count[PG_LEVEL_NUM];
- 
- void update_page_count(int level, unsigned long pages)
- {
--	/* Protect against CPA */
--	guard(spinlock)(&pgd_lock);
--	direct_pages_count[level] += pages;
-+	atomic_long_add(pages, &direct_pages_count[level]);
- }
- 
- static void split_page_count(int level)
- {
--	if (direct_pages_count[level] == 0)
-+	if (atomic_long_dec_if_positive(&direct_pages_count[level]) < 0)
- 		return;
- 
--	direct_pages_count[level]--;
- 	if (system_state == SYSTEM_RUNNING) {
- 		if (level == PG_LEVEL_2M)
- 			count_vm_event(DIRECT_MAP_LEVEL2_SPLIT);
- 		else if (level == PG_LEVEL_1G)
- 			count_vm_event(DIRECT_MAP_LEVEL3_SPLIT);
- 	}
--	direct_pages_count[level - 1] += PTRS_PER_PTE;
-+	atomic_long_add(PTRS_PER_PTE, &direct_pages_count[level - 1]);
- }
- 
- static void collapse_page_count(int level)
- {
--	direct_pages_count[level]++;
-+	atomic_long_inc(&direct_pages_count[level]);
- 	if (system_state == SYSTEM_RUNNING) {
- 		if (level == PG_LEVEL_2M)
- 			count_vm_event(DIRECT_MAP_LEVEL2_COLLAPSE);
- 		else if (level == PG_LEVEL_1G)
- 			count_vm_event(DIRECT_MAP_LEVEL3_COLLAPSE);
- 	}
--	direct_pages_count[level - 1] -= PTRS_PER_PTE;
-+	atomic_long_sub(PTRS_PER_PTE, &direct_pages_count[level - 1]);
-+}
-+
-+static unsigned long direct_pages(int level)
-+{
-+	return atomic_long_read(&direct_pages_count[level]);
- }
- 
- void arch_report_meminfo(struct seq_file *m)
- {
- 	seq_printf(m, "DirectMap4k:    %8lu kB\n",
--			direct_pages_count[PG_LEVEL_4K] << 2);
-+		   direct_pages(PG_LEVEL_4K) << 2);
- #if defined(CONFIG_X86_64) || defined(CONFIG_X86_PAE)
- 	seq_printf(m, "DirectMap2M:    %8lu kB\n",
--			direct_pages_count[PG_LEVEL_2M] << 11);
-+		   direct_pages(PG_LEVEL_2M) << 11);
- #else
- 	seq_printf(m, "DirectMap4M:    %8lu kB\n",
--			direct_pages_count[PG_LEVEL_2M] << 12);
-+		   direct_pages(PG_LEVEL_2M) << 12);
- #endif
- 	if (direct_gbpages)
- 		seq_printf(m, "DirectMap1G:    %8lu kB\n",
--			direct_pages_count[PG_LEVEL_1G] << 20);
-+			   direct_pages(PG_LEVEL_1G) << 20);
- }
- #else
- static inline void split_page_count(int level) { }
-
--- 
-2.53.0
-
+[1/1] arm64: fixmap: fix missing break-before-make in __set_fixmap()
+      https://git.kernel.org/arm64/c/18817028301d
