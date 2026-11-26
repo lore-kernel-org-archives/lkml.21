@@ -1,111 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.137
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795696108;
-	b=5NumtpyBz2+spBND2NP+z2D3GCE3jxkmg3gFHGRYj/GeecDgGJEt7iHRGBHHUAJzyZ2o
-	 67xCbdM6rG/Srsd6bvZoDPRyh+gW7V1enrjHlc1PyekNYnjlyJc58sHBaYFYa6DKeK+A+
-	 wbwND2VO3LLQD9TBbbKnDbWBKNouTGbtCqxurPD70pvl/1tUD9YqNeDVSY0tD8GbVW0h/
-	 eOA4I0CVQmJPJNTb/qCI5idjzzgJe8hYwDCv6Ra/sb+CqdozRo35xxHd/9NU6QUDx942c
-	 6XcETcOesApZsdJAEXcfp9U52XK0iy5HK8VSdQPQys/nXJFYFpEDwR8dWJROoufOQDQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795696108;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=xu4Hob4T/c2RBRj9oSFW3u62G/KKa3D4oPKEkYrOGh0=;
-	b=u2XOs8rI/NgdPWYqv1JpCTFYhFEmpyM/rW5rZqOpSE/e3wzHxY13Gt5cT33rM1sgqU6O
-	 n+HqeDE5+dee0RCs5luoBXGfU87uZ181SRnwDDwVTU1gcylDTF/iVl9Pbv901L1KcMhiO
-	 2MzwnbgYfCw+lO3xHPvVqKnvvo/11eZhZLREfJIOMD6hq6QylcfL9PwqdcHlVQ/JWJvVR
-	 WZq2fHfxHjMVoPCMYbZ4IeyS5uMRPaovAPnwsdH8j7Q6vmsiMKYoSU8H/S8baDQjaJyPL
-	 CMYRPQPYnF8ejbJFPQcyoGqYqC/QKkdBNlhi1R+uzldXpXOIm1uO1mUOXFsj01nnBig==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=glider.be;
-	spf=pass smtp.mailfrom=glider.be;
-	dkim=pass header.d=glider.be header.i=@glider.be header.a=rsa-sha256 header.s=fm1 header.b=e6OCY5HE;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=gPHaXeVY;
-	arc=none smtp.remote-ip=103.168.172.137
-Received: from flow-a2-smtp.messagingengine.com (flow-a2-smtp.messagingengine.com [103.168.172.137])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.175
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795696115;
+	b=YSkxOQAx+1BWn6qefYe282yl0RVcn+g1Mzmo+W0ASqR7NgrkKZMHQZnr+IDv5tH8kGPM
+	 vQ4shyh2neyW7GJ3npbC4915/dCudd91eDGeWKRToxpM92YcKZ2ohAVhcUvMkJ4fi4xjB
+	 ds0Q3Zge5/gt0Vj4QZTHAwUf8zdgWy+tLtXIZBGINab34Lz6xdzwvyvzPm/jKkXnM8Te0
+	 eyma1+rRVuQHnsUaLS7Da9xryHiFn1zEBKOTO41uhXPRvCcC0qV0pfbdiCWwHDL8gQ1gQ
+	 jy4rLQp1mESGxYPmofMOshnQsVKBCGPj6SWyd/1RqyObsvizZT9Bm5OkcGaK6Aps2Lg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795696115;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=HRNrmfwaZcbb9652X0mDxC/CFD1bcMYKtscKgrkdekA=;
+	b=SWsBI3DMMnMRTpmtwymYD0ECPXjKZY/+8pUAPeDtQ54IQqpCLl5/Sbp9iPldS6ztpp8l
+	 fZEn8u+OcAnToO/sEuhHOnj2afcSW1ACyyU8kuaN2ZBPq5i9mK2Kvze82spwlPoQAdCHG
+	 GDoexD+Wc3hWuuzjY+RxyXD0zPsab2McAHycjPhOH+EQMAlZl0761eNfuiQXTa3H6L4/Y
+	 aTKRGiZ1ZIZOUDPfI40+SJ15L3I0wjVkIWoakqlp24i1S4QuywzA9H6rqzviEJCU+CFjk
+	 vaX2vxkTqaexzXYgoDPAuPuaoCr356uqPUsr9OC8YMqIYAqdrj12Xkv23BueTfCAGhg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tAhFjL30;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.175
+Received: from mail-yw1-f175.google.com (mail-yw1-f175.google.com [209.85.128.175])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33632606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:28:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33632606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=glider.be
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=glider.be
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0ABEE606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:28:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0ABEE606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=glider.be header.i=@glider.be header.a=rsa-sha256 header.s=fm1 header.b=e6OCY5HE;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=gPHaXeVY
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailflow.phl.internal (Postfix) with ESMTP id 3C143138064B
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:28:27 -0500 (EST)
-Received: from ams-imap-13 ([10.64.2.33])
-  by ams-compute-02.internal (MEProxy); Thu, 26 Nov 2026 07:28:27 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=glider.be; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1795696101;
-	 x=1795699701; bh=xu4Hob4T/c2RBRj9oSFW3u62G/KKa3D4oPKEkYrOGh0=; b=
-	e6OCY5HEsHMWHDpNXuor4iPuoUZRz06OnWHRGx/Ba40dgAc6p6p/mYAxy+wY5LRR
-	JeUV2w/vhulJh1cNFQtCqxlRQBwJ8z1ZAwb44G6SxLAE7TK8dxzFTkB8/MNdEYDN
-	Cgsw70JHXhX8zRa3qRQONfffGFLQMBiLEd5LKhTTrDEM7vyWwmsETbX8SfUludqI
-	FpN1Iw8sAUxQpUCc997EFsnnWP2ComIns+MtIhUmClaGfp3r6UnAbqyjgn8s5ibZ
-	7K2ehZuRBPU0C6fP2IeaHaDF9hO+ixpnLJ4qDm+FIIfQk3YLGOiiF07R3sr2IWtR
-	yROge4h1CIePk9TBBlnveQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795696101; x=
-	1795699701; bh=xu4Hob4T/c2RBRj9oSFW3u62G/KKa3D4oPKEkYrOGh0=; b=g
-	PHaXeVYZ/awO7BEIXECg9Z9mXPu5macsqgjq5m/8KsyzM0r0GinSKa+LDTmPypPU
-	wUem9iJ9ynhVjSv/fB4OXr361SQWYQUvUD8a9y6kna9fZ6vyRh7g88eICT4ekHlY
-	WRDg/Z4Q/4UnGYlGYve8WM3H7Zy5dijr4wd8mxY5LLTNwh54jVFrakYnNK/5BvKO
-	xkNT6huE2oQWBzXSVMDX4iF8znKYV8kpaUVYGWVXFmudhWIutNo4UqHZ5wTUOr1M
-	t+dhRNMd+jhM/DsWxXQM8g0ISBhZCIqYIBq7upvYUP+oM/Li0ACHaTs50JyCHHZG
-	4kkepmtkG+b93LOCTHmbw==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=glider.be a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795696101; d=glider.be;
-	mf=PGdlZXJ0K3JlbmVzYXNAZ2xpZGVyLmJlPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm1:rsa-sha256:fA+3mto0x8z4+VCtxanJEenUmYi5fI4Pg3RRqCV2W8J77w9
-	ftnnA9mwj4KQRWrg/40I9FVfJlfhq8tbPK8ipmQ6uoOk6mXDd+6ddjYpV7zcMqVg
-	aRrXIFUTZiKUGwOJAuCOAvE0/e5Fq+BspU3P4Xn5Wcq6mVvq8A8DT4q8hXXgeIUq
-	rnSZqZvirN3wxbHZLqtr0ccfBmLJZc2OmhZihNveqEfvSzp0UW8JfLpfiSh3Tu2b
-	rmWdyQbq5zuVql/yC+1Cag49wgSTXMrqNdeRNrbTAnqodKQwFUTjrD7ELrkg9i72
-	MnZ7hCPA7E4qP57Pd+Wad+WbQH+KBSjp9AO78/w==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:jkOwiisYvaimaD7aEFu0qippkfrPA824FSsblOr4xpw=:OiNd1Uft4081bt2SCEBPZKHGE7rtaoQoTYPz7jv/7Oc=;
-X-ME-Sender: <xms:4SUIa7cGedfw092ux_ZCeI0sjCj4irwMpx6uQj2nyUJ7zoL7W46U7A>
-    <xme:4SUIa8AZ0zhhDP4t7IeiSnEWG_U9fP4k94KqN5sln3DvzAAp1v0MooMx9tGDnuEwe
-    fW49hCOWagmPy-mm5Np3dDIVYuhux8DAPTLu6_p5djkX_eAR9i4ZTl1>
-X-ME-Proxy-Cause: dmFkZTGVm0NwrNPzjnsePArY1oNZC8jCvyBd1JNrwF5KI+JZaZ2MpkN+KcCFQFw0MoHSUX
-    6vEsjBKhDtCDDqGJbDtk1/F8fxeAfSIqmXJJQMjVt6vG6UD2h5npdRupHgDcaDs268kS4l
-    aZ98Ye4pgHukWz2ktCJ0OHs4JQ2IUYRnOOLksu3TJpR7N4vaotEtoQEADjvZI6MXUCZHzF
-    VAvrj433NYrLM/wLUnJ/LVskJORGCahkPXm+7f4QAh9iSHp669vTPxdmEZ2z+VAeYELGL1
-    RcKNCume5IIJJeDcG1PvBkfNTUcPYCkJUbv98fvlv8SzX59Z6/+VPhvMKmCDt2SoRM0yVc
-    8MZtBZw3up6rtTYZd1sTXDOv/asORVwHreP2NYDYFk81oGYxOMRTXrb3Cj/DzeM1WoNtmY
-    uSCltdT5SYTv4veZj0XHJf0ymdCEZSKcNFBz14Im6WttQhvzKeNZZomlMxcZ8Ho8alJ4nc
-    2g7RwBV4BrMLLCAvzuueIrah78IKPmpgere9RGE276BLeL0znRut4UPdhta1CeuyOm1t6q
-    +2ioy79p/duh7zcJOmW6IlwbiU4Ri760w2jBixK9uX2947W1tHr4iVB9dxn9ez7EzJ3/bJ
-    +8tMvM+rLhcKFSkiS3UjQxjz3Eb4rzFWJsC9aTCPOA4gYI94jLpioivHgWKw
-X-ME-Proxy: <xmx:4yUIa72EDJ56HSB41dkGWe1HGZD3vTaywXNDV2SiEGgfmlWJPkGhOg>
-    <xmx:4yUIayMk0fmBKWyeCGEm2tCvHK_slq2nP5Ww6yZtSju0Rj1lbc0sEA>
-    <xmx:4yUIa7biYLjmHB3Uw83X0njxb5EP6YGHSGpqlIAUxLMHwlG6KrE0mg>
-    <xmx:4yUIawyKIrND_LjniQUbp1BuIfxbsxzz71Vmd74EiS7XpfuUJi5iYA>
-    <xmx:5CUIa7mYZAIs0an1vbImXT_aQ14qy83LK5YxBf01KlK3UyXqeIydKqUY>
-Feedback-ID: ia0f84a9e:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 65656F800A1; Thu, 26 Nov 2026 07:28:17 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tAhFjL30
+Received: by mail-yw1-f175.google.com with SMTP id 00721157ae682-8b315dd057bso43940307b3.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:28:34 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795696114; cv=none;
+        d=google.com; s=arc-20260327;
+        b=YhEg4vBWFOhR3dkkjEx3Hyeh52RvVvpy6HRONQoJfLbTkQRnBcWG8W5exC64/Ien0J
+         3AW5TO74VbBPnAMIQ1hwni8PvFgVkqAovInLCAyXMRcZRrSG2MQRPmdZcrrXnv+z8LNs
+         E8U7z6kSPR57ROfYHO93JekCbWZxNbN/fdWSBMhqsIiitSDHhICnQBvRbeepwFvWy0O3
+         xNL7CN1F4hNZK8HbBhXreFsINxFibzHpbWRmc8jgNMJjjjrRniWPV+CPa/NzNleTEohS
+         D+p4lmM5hLA4qCKvWyTYTCuFzZIH7ud0RYbDNGtl3q6FFeznEtpwfNHw7ee01JCiWTDO
+         khrg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=HRNrmfwaZcbb9652X0mDxC/CFD1bcMYKtscKgrkdekA=;
+        fh=NAKDsKtgSFDcem7elWbdeKnikmliSdL9Nf1g/8W7b3Y=;
+        b=NvjtQk8Lqj8a3+ONIYvZ0l+Odz2xmwDur9MUsWisEs3W1RY0vVqdJluWDiXhuiwFjw
+         tc+kKd755Xk3PTZiIMzu7sb2GBsSQhJsQUi80SnEtBr+2AG4gVcadYmxu4MPRiDMo9IT
+         Mpvhi8jQ71RnXzDrR7StKpz8lR0+4HIg799bSCnH3tD/9W//vzfXI3CrqvPiNEelO89S
+         ZYO5Y7XXWSxr8uc+8ibJtr3WhUUgf9D9048di1twXjhiPzKSUJJuoINuj8LWzsoo54X3
+         sMwcS+43kLPPDECiH4+8PhSKmEU6tyVk+W7xc3x/AD2xAfBwpr8WL8dkSOFsOniB2RHF
+         SOIQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795696114; x=1796300914; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=HRNrmfwaZcbb9652X0mDxC/CFD1bcMYKtscKgrkdekA=;
+        b=tAhFjL30GDJIDzIHHmNiU645YBrP8AqWztEhqhPKnl2VjAxq3nEo9lVWhKlitchCXe
+         xznSytZsXszLNCygekSEiTAoCyORxijYAK6lKhl29oeaqrdXlkYfECa8/O9u4opjKx9O
+         A94cSfSH6I/Fy1esmuGrC7LDW73+5wQcq6p0cNogEIpnIIlD7S4RF9yzhPzxdw1LcD5+
+         aepG/StcDsxGZilFUwm3a+v7WT9VMO8NyE8fFeyMAS6iPeSq9pUGdZzgF9IY4JRLA1kM
+         KwmE9ZS6QalqoNxFS9LPkKFqw/kgwn/ErauwPXR8Dn4M+xkaMvAGvVylF8m74l+Zh5sc
+         D5YQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795696114; x=1796300914;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=HRNrmfwaZcbb9652X0mDxC/CFD1bcMYKtscKgrkdekA=;
+        b=nNVvgpbCYmg4m1L2Sh7zmlWx84ZFvZe+G5AtY7oyTEOcSAx8HHBxKIhNk6Ph2BH9hj
+         89IMXwa5x5rjCX9JdxosbwuXlK1ZrIjSGrE+7mCgcqHZgtmDMMzsshrVRMlTk2DxNMOs
+         vJKxgzKDfFyO1V1c0jIv2N4qHtoE03XCU3fxMYsPq+C0zCs6Q/gM0QRvlVMnXC0rr2tB
+         DqcJQ+ARNgMLlueAkyicIO9lKFjWOkForp2EcSPzWYYVYo0MT5HYArOotaMcCw+g9yIV
+         hRjKYEuT0pH6UBVpDsZdkCTD5gCfw0OocpCMnCMeyiDhBSrjjcoLKIOyHWDRPHzAWyH7
+         EpmQ==
+X-Forwarded-Encrypted: i=1; AL+hErHf+bB5q89iISnBLYksJyJFMG8timQJmH4bZP7P2HLvIqQ6hcIfZOvuS5ZmuZpueX6mNDZMqF086w1AGxk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9cOcqJRU9bYc5Rt3uBqemIgaCnSlVAhpgy/2ooETTyhDjIrU0t
+	5UJSzdA0qS4qhe7YsUoRrLeLC9x3SdJFxAKcDFeODqZpbAjjTZPIfX5u5vWh0eCNrRg79mp3qTU
+	wI2iPvC5UI26QaATp5RN3LwVzlH6+Nb4=
+X-Gm-Gg: AZFdTZfHnemoW1/qOXHaRlaOQbyI1IJfhhWMfvaXdiG7xOdJ5i4pi7hdBUjYpPnSSOv
+	3imVZ7pUXiB+JVp02kIA9wYacaG4evls19SZkv7Np7oA7VXbrUpKJRZoKV/0Srlsz1IkeeQ2VWJ
+	pKYDnPYL/eqvHPFsuc264Viljj5vJIYZf0RWrTmV7aj1O3SkGUVt16J0LSqE3kwdu+7QJFJaELy
+	Y78gTAiwbNef6XV0DU3RQ94+g7mJp8GkzdWBTa7v4wDQwvftcoB1jcuU3Gxf8Ys9hnL2ofnwOB8
+	1ZaSOEKB2VohA1F78L6oYCTFEFwTcnRJ/uIProvDGI0OBfCzlaTy0N9qeqI9D79bXOFmdNfgZKA
+	BLwqolSNH0boN/9LL5t8DjJ6zN+1gskLdpxnSlrF5De2MgXzZCmSw7/JQGvJMUR9c3+f9hw==
+X-Received: by 2002:a05:690c:63c6:b0:8b4:cc9d:967d with SMTP id
+ 00721157ae682-8b520513e7fmr87097987b3.59.1795696113717; Thu, 26 Nov 2026
+ 04:28:33 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,137 +104,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: AJ3dJRnBKuuc
-Date: Thu, 26 Nov 2026 13:27:57 +0100
-From: "Geert Uytterhoeven" <geert+renesas@glider.be>
-To: "Biju Das" <biju.das.jz@bp.renesas.com>,
- "Biju Das" <biju.das.au@gmail.com>
-Cc: "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "Magnus Damm" <magnus.damm@gmail.com>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Jonathan Cameron" <jic23@kernel.org>,
- "linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>
-Message-Id: <3b689e6a-98ad-422c-8b67-45d4a44377f2@app.fastmail.com>
-In-Reply-To: 
- <TYYPR01MB66036BB057404C15BB64E57B86422@TYYPR01MB6603.jpnprd01.prod.outlook.com>
-References: <20261125-usb_rzg3l-v9-0-ea14d3ab8a53@bp.renesas.com>
- <20261125-usb_rzg3l-v9-1-ea14d3ab8a53@bp.renesas.com>
- <a152df0a-0b0b-4193-b3ac-ee0df0350802@app.fastmail.com>
- <TYYPR01MB66036BB057404C15BB64E57B86422@TYYPR01MB6603.jpnprd01.prod.outlook.com>
-Subject: Re: [PATCH v9 1/4] arm64: dts: renesas: r9a08g046: Enable TSU
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+References: <20261125134013.2692510-1-congnt264@gmail.com> <366470ae-41ae-4e3f-9170-8b2f67cfe7fe@web.de>
+In-Reply-To: <366470ae-41ae-4e3f-9170-8b2f67cfe7fe@web.de>
+From: =?UTF-8?B?Tmd1eeG7hW4gQ8O0bmc=?= <congnt264@gmail.com>
+Date: Thu, 26 Nov 2026 19:28:22 +0700
+X-Gm-Features: Aa3M54pSZyA2SwxCMS98XKa8ac1EnDdRti9OZ4BvwqNoh_Gw5p_qcstm_-_CdkE
+Message-ID: <CAJpJ=GsNZnyqg0FBVB9jhNDY=2H=DMt5g+4pYJ1WYvFjp30spA@mail.gmail.com>
+Subject: Re: [PATCH] leds: sgm3140: Put the child node reference on success
+To: Markus Elfring <Markus.Elfring@web.de>
+Cc: linux-leds@vger.kernel.org, Lee Jones <lee@kernel.org>, 
+	Pavel Machek <pavel@kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	Luca Weiss <luca@lucaweiss.eu>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi Biju,
-
-On Thu, Nov 26, 2026, at 12:53, Biju Das wrote:
->> From: Geert Uytterhoeven <geert+renesas@glider.be>
->> On Wed, Nov 25, 2026, at 12:05, Biju Das wrote:
->> > From: Biju Das <biju.das.jz@bp.renesas.com>
->> >
->> > Add #cooling-cells to the CPU nodes, and describe the ADC1 (used
->> > exclusively by the TSU) and TSU nodes along with a CPU thermal zone
->> > using passive and critical trip points, with CPU frequency cooling
->> > maps for thermal mitigation.
->> >
->> > Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
->> 
->> Thanks for your patch!
->> 
->> > --- a/arch/arm64/boot/dts/renesas/r9a08g046.dtsi
->> > +++ b/arch/arm64/boot/dts/renesas/r9a08g046.dtsi
->> 
->> > @@ -381,6 +385,37 @@ scif5: serial@1004e000 {
->> >  			status = "disabled";
->> >  		};
->> >
->> > +		adc1: adc@108c0000 {
->> > +			compatible = "renesas,r9a08g046-adc1";
->> > +			reg = <0 0x108c0000 0 0x10000>;
->> > +			interrupts = <GIC_SPI 378 IRQ_TYPE_EDGE_RISING>;
->> > +			clocks = <&cpg CPG_MOD R9A08G046_ADC1_ADCLK>,
->> > +				 <&cpg CPG_MOD R9A08G046_ADC1_PCLK>;
->> > +			clock-names = "adclk", "pclk";
->> > +			resets = <&cpg R9A08G046_ADC1_PRESETN>,
->> > +				 <&cpg R9A08G046_ADC1_ADRST_N>;
->> > +			reset-names = "presetn", "adrst-n";
->> > +			power-domains = <&cpg>;
->> > +			#address-cells = <1>;
->> > +			#size-cells = <0>;
->> > +			#io-channel-cells = <1>;
->> > +
->> > +			channel@8 {
->> > +				reg = <8>;
->> > +			};
->> > +		};
->> > +
->> > +		tsu: thermal@108d0000 {
->> > +			compatible = "renesas,r9a08g046-tsu";
->> > +			reg = <0 0x108d0000 0 0x10000>;
->> > +			clocks = <&cpg CPG_MOD R9A08G046_TSU_PCLK>;
->> > +			resets = <&cpg R9A08G046_TSU_PRESETN>;
->> > +			power-domains = <&cpg>;
->> > +			#thermal-sensor-cells = <0>;
->> > +			io-channels = <&adc1 0>;
->> 
->> <&adc1 8>
+On Wed, Nov 25, 2026 at 10:15=E2=80=AFPM Markus Elfring <Markus.Elfring@web=
+.de> wrote:
 >
-> With the above entries, I get below error as adc1 has a single channel
+> =E2=80=A6
+> > Put the reference before returning success.
 >
-> https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/iio/inkern.c#L135
+> Please avoid a bit of duplicate source.
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/D=
+ocumentation/process/coding-style.rst?h=3Dv7.4-rc4#n526
 >
-> [   15.067383] iio iio:device0: invalid channel index 8
+Hi Markus,
 
-I am not surprised ;-)
+Agreed on the duplicate, v2 drops it and uses the common exit:
+https://lore.kernel.org/r/20261126122516.1198461-1-congnt264@gmail.com
 
->> You cannot have "channel@8" in the ADC node and magically assume consumers should refer to this using
->> "<&adc1 0>".
 >
-> ADC1 has single channel and HW manual says it is ADCR8(A/D conversion 
-> result register 8)
-> That is the reason for channel@8.
+> How do you think about to apply the attribute =E2=80=9C__free(fwnode_hand=
+le_put)=E2=80=9D
+> also in the implementation of the function =E2=80=9Csgm3140_probe=E2=80=
+=9D?
+> https://elixir.bootlin.com/linux/v7.4-rc1/source/include/linux/property.h=
+#L229
+> https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/leds/flash/leds-=
+sgm3140.c#L185-L281
+
+I kept fwnode_handle_put() rather than __free(fwnode_handle) because
+this has a Fixes tag and may be backported, and the __free() helper
+only exists since v6.10.
+
+Thanks,
+Cong
+
 >
-> You mean I should use channel@0 instead to avoid the above error as a 
-> single channel
-> registered by iio??
-> 	channel@0 {
-> 			reg = <8>;
-> 	}
-
-No, DT describes hardware, and the hardware manual says it is channel 8
-(and FWIW, the "reg" property must match the unit address).  If you
-want to deviate from this (I think you don't), you would need a DT
-bindings header file.
-
->> I don't buy your rationale in [1]:
->> 
->>    "There is a mapping between internal Linux array index (0) and the actual hardware channel ID (8).
->> 
->>     See the code
->>     https://elixir.bootlin.com/linux/v7.3-rc3/source/drivers/iio/adc/rzg2l_adc.c#L354"
->> 
->> This mapping is in the driver, and there is no mention of it in the DT bindings.
->> This means the driver must be fixed first, too.
->
-> OK. You mean I should add custom of_xlate in driver?
->
-> Please let me know if you prefer adding .of_xlate to the ADC driver
-> so we can use <&adc1 8> in the DTS, or keeping <&adc1 0> with the default
-> simple xlate.
-
-Please add an .of_xlate() function, so (possibly sparse) hardware
-channel numbers are mapped properly to software channels.
-Thanks!
-
-Gr{oetje,eeting}s,
-
-                                                Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                                            -- Linus Torvalds
+> Regards,
+> Markus
