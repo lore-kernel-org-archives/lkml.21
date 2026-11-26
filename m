@@ -1,99 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795672866;
-	b=UK+jQ+4HmrhuJx9P5nss5qAmtu/y5qiHsZOsZWS9n/KXdki6ShRocDZRVATJK5sNK8yO
-	 4ZHEOqmTlmEPEtMTohxHycYp0qKBt5thOxWnN18cz4+YaK1iDTgKCdBUGUVN1wO+Ccbbi
-	 kvsxQUIm7eBW2XlWNnIjLCaoWMxDwJEZBXXa0GKE3EZQfcvV3KuiuqQCmKtfAS3oFohmr
-	 1c/Ft7sex4GBpsPt7VLT+GJDjMVvhpUKRMI0q5vw5k+4GmGrArGJvGaTo3WRq98AritaO
-	 Y5cKSe8M2exAl+LgDAKeE5u9RIWQmy0v2FeIFVeoDjjjXwdnV+aBDgz5pQ6GLGIjBvA==
+	t=1795672870;
+	b=n/WI/Xr3s8X9mCL9xokTKF6QpSyYn2Dx4gQ5tcjT5YjrjUBtH/AoATWU+STUqez4B83A
+	 IAqVZN1SGgTikdRP6C36GqFaM0c+/N7vsVEqey2b1thkgcQzN/pfZlVmlAoWA8zF/ZbcJ
+	 wgCg8I7eDetPMBttB5ChN2TgnwYcE1trk5GgCvMEEczk3gMhhHdJRA7eE0Rju6tSkuZD1
+	 65u5JQ2DG+GdyTvL8KsceFBrJBjuC/BPHenKlqqXzt8BO+7nVT4S5Iii2bxp3sOjpZor7
+	 q2yhslTdJxBlzVTcBCIn/4Ai0o6sGqIdBnajw7q6qhwyfTeprhz05m8ozlN/sug6iZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795672866;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795672870;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=noZQpOwfLBmz3TPp2KJmxS4eR0zft1CATjF4Oh8nA1Y=;
-	b=g8XnEF3pODLMU4JRM+elkwgkAlb3fS0b8ByCgr2Tw5mb7kh/ChtFQWXYwkmuRoBpiW8R
-	 zpM9CTv6JnNRn3F1H+f06a71pE8jldZ8cr+QpzBNB6FskHiLg2HWaBJDJCeeYAD+gTOX2
-	 ndNYRPPQXf4hbu4JgCfciZVp6HL4zxxkU06WZl4Pjr546dd0p46lhMyq45SsV9FFgEf9o
-	 dmPZf4dqhERQ6Ho7F7gqHxTlD8SB1n1DhRIfWoV+x5Nw5MVSFVGIg50J4wNswkU21/o76
-	 Fss6nrwzPboSrfPH0IU5L9cji8aWMYJKlaBTTRPkDcFMeqWWHWZ+vx0DnWffM2YhOuA==
+	 Date:From:To:Cc:Subject:In-Reply-To:References:Message-ID:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=Adjp5RP4U0lbT5v6eOF7Mh/DtCyQZE5cE/uugkCDfqw=;
+	b=Zng5HlZCY5SKD3XYGNBCIdlLbrQy4fsQ9SPOP7ZjP70+9mcPluzo0X/NHtxyuxS+EyJu
+	 GjE+dFA5Yq0XCyCa0tj7wL9cXug9K8jyVIVyRQUgimWTE9f1lWILhmHRVpc6fu3cBEZ1m
+	 l6l12IYOYMzxrsPS5ADAsetx9tOlyxh0a9amLM5VgjCVLZJ8XsDYNgrsa2w7A1s/JBQNL
+	 BiCSSyFRS3H1w+jMhFNWuEDiqZP4Xjb9BNjuXgXQ4rekm5RTIkgQ/Z9TDTqElnmBhwMY2
+	 8TTUdASl5D9/xWNy69mUOm/C1l0qLvTYHbAugCjDRT31dBpPvT+GfuJQepIFAi2DocA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LwKMnaF4;
-	arc=none smtp.remote-ip=209.85.128.46
-Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JXE05y2A;
+	arc=none smtp.remote-ip=209.85.215.180
+Received: from mail-pg1-f180.google.com (mail-pg1-f180.google.com [209.85.215.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98070606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:01:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98070606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54FCA606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:01:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54FCA606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LwKMnaF4
-Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4bb70074ab2so70047035e9.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:01:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JXE05y2A
+Received: by mail-pg1-f180.google.com with SMTP id 41be03b00d2f7-cddc597d062so3995584a12.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:01:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795672864; x=1796277664; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=noZQpOwfLBmz3TPp2KJmxS4eR0zft1CATjF4Oh8nA1Y=;
-        b=LwKMnaF40gf2NenBXd9HKjJk5NoW1bd0N0ZWMM3TpugQG/lZzB1W6d03tog5bTiLqe
-         0Jvfo/vFCCLvRGpI562On+rVz6xBFos3VbGVKjMbgwjA2dm9AX61nRdbebCiA2kOJ1Ek
-         LJkKEG6J5pAIyys9SO3fl1X+FbVOdv38Qz98IARCZRsxnDEGCM1iRsa4VBblcseyMJVX
-         kJH3BAT9gYcIOmeX+yqyYXFkWpd21tw6Jx7rNhSzRLvlxAhNA4MegBpp8DaLs6RD8waG
-         oMKYEpCN2j1XC9VvBj+8DnyA8b2+d19uF9kvyPrV7rv0y6Bg1P3ju/HNvfo4sgBdaS3m
-         736g==
+        d=gmail.com; s=20260707; t=1795672870; x=1796277670; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:content-type:message-id
+         :references:in-reply-to:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Adjp5RP4U0lbT5v6eOF7Mh/DtCyQZE5cE/uugkCDfqw=;
+        b=JXE05y2A22ceOlqJrz09kRtSlGnLeaiWQ3Ld44fRaHDZ8r1SyXki+OaBduDCzI6r5g
+         LzwQo2Vw4ObgsAALNahfqcRjkxPNpUIG1rsjn04q/uy1OvtJ6Sw3ytBNEQNyp8uzg6lb
+         lhEBiFqhvwWZwqbJxX486H6yvryFchtp9unS7MvQCC+OweZrwWgpDHRowYhpLEF5Fgn8
+         RnIPV0Ypf4eD+MoPwJzuVuvsDVOE14S0f2QukiMX3BhpafM3HRtiSkDqJb+JYfd8MBzC
+         6dcOWOCeN1TctXZe2EwAu62nTpAdfoKyyiE6omAdC9T8FktjxH625yOtS+5cySdEi29o
+         3GZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795672864; x=1796277664;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=noZQpOwfLBmz3TPp2KJmxS4eR0zft1CATjF4Oh8nA1Y=;
-        b=ZejoK6IxjgNhy8sThgkgVMePPHqqlEPRvlFbe9zDTl5dwxXCbbIksUU3L+PnvtZmPv
-         iwUJEQy29Ne4P9ZKsCyWFjSPXJUOFSRv6PgcPq5alY5EX+0f/oo6GXj5kqJ/Wr4zMGq3
-         co2yUsALJdgnQ4IcSPHx5i4V3LT4alT4DpfFtjJmTTw5nXLPYn2AW94UezI6TB8eExHT
-         ODklLbd78QqpEijs82p/H0iVzSEgwI32LKqU153x+g7MR/RGGIRLQKK1TzHQtOBqXHTU
-         baqBAKexlEv3Y6qK5g1eQmRUzSHoUpHU8/ZstMnQY+XVSs4bfMz+V5KVuVBXDetRrkX2
-         iD/w==
-X-Forwarded-Encrypted: i=1; AL+hErGOvm9J2wwhBPObAQv9JEVEyy6/ZmjEbgJPJtVBZJ2h35sV2fOdp4/T4EQdHKw/fa4G+Op42Wkndi8eKRo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Rtv8N1AUverNKU4xvtWop/DnUmZfCd987m4Enswzb4dp43dqQ
-	8lHuUHxTt3CeLQER6/7iGpb6+lUaqOutzf0VorOrELfPQsJjikWcEHmK
-X-Gm-Gg: AZFdTZdPfncdfHvLEMaB8Vblm7LWfKoGLZCAefeFnaCGlFnHtP2qYVAwd7fvH8ZWcYW
-	vOnS/Hk67LYfb9WCHfTydSwnk/teZh2iY2wRHg4xOtSOZVcb8VODXAqfJ3tHhDEE2dtc/cAGVAx
-	LqX/xCY6qPkqsCAvIxkRtTvQ/qo7jR652tDzN59uvoKf9iEsv7W6vgHSTqw21fiXmCfe9zxId8w
-	mZZIrp5ZSFi9F5Im32CbZos0A/mPVuup4snpK4BwoIczWZZL1kf1btBrETym1ch/1jw93g6M/yk
-	DsCkUkvpBrdmAU99TR4kLZblGElS8PCNWkpHEffpuolfmFU+ZJF/5V1rhNg55FGP1FdjIGLYjvs
-	YhB0fy8V3/DHexZcDztfq47EDM4SdF3Q/m9XlcAginbFf5GGp/jIDy5+AxsxgGZIFzYthKoi/9u
-	iO4loD8SHCnGJU+ONO9xyV375ewZdvF922SIUX32E7FtLOxvkVnRfhCkjnDOnikhJ63f/XmhEhr
-	qxtUNlnTih5dOi1iC3zRD+4U3En6pmTPC4iuWlP/M22vIGFuYs0qSAhz4mHTWEMrXMA/CjVJSP5
-	dOcP6TLtHSIZSFd8bsWEcV0D8A==
-X-Received: by 2002:a05:600c:3ba5:b0:4b0:a307:46f8 with SMTP id 5b1f17b1804b1-4bb8880f29bmr451553765e9.10.1795672863649;
-        Wed, 25 Nov 2026 22:01:03 -0800 (PST)
-Received: from localhost ([212.73.77.104])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb884911e3sm697608555e9.6.2026.11.25.22.01.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 22:01:03 -0800 (PST)
-From: Askar Safin <safinaskar@gmail.com>
-To: josef@toxicpanda.com
-Cc: James.Bottomley@HansenPartnership.com,
-	andrew@amutable.com,
-	brauner@kernel.org,
-	jbingham@gmail.com,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	sergeh@kernel.org,
-	taherafahimi@linux.microsoft.com
-Subject: Re: [PATCH RFC v3 01/90] Documentation: add a design document for cells
-Date: Thu, 26 Nov 2026 09:00:54 +0300
-Message-ID: <20261126060054.2554394-1-safinaskar@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261105-b4-cells-v3-1-bc9095937a84@toxicpanda.com>
-References: <20261105-b4-cells-v3-1-bc9095937a84@toxicpanda.com>
+        d=1e100.net; s=20260707; t=1795672870; x=1796277670;
+        h=mime-version:content-transfer-encoding:content-type:message-id
+         :references:in-reply-to:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Adjp5RP4U0lbT5v6eOF7Mh/DtCyQZE5cE/uugkCDfqw=;
+        b=k5AKibgWE9M/1uikkkqBYsPABn+lLnPcOgbvW//tqZaZtdi9EYom+6CETKUaDp9Ccb
+         1KErqpchpqw9fB1WCYfwryXKFGBoM52lzrGYhubpQWZaHOCMTZrYxJ3vzm3BdfrVPdBF
+         ZhlCG6tf5BpIXujAOKemXYtJeBdv15I9sF8/lPelZsIImfKfmINV2SwwfiiQa9jWPz7O
+         R3whIWYmW0IHNu4R7mqxY+3nSyvG2zLArlmwKKs73oEWHYmMxZJCD+8iVpD32wsqnj4b
+         BuchTeb7ptaePWnJ3pxvF/LF0XwdfkGddZyXXA5hkVeq4QZ0QFf4ay8tRg/Y6Zy5Vlmm
+         tB2Q==
+X-Forwarded-Encrypted: i=1; AL+hErGO5qRaIbOJo/OR8rjb0LlkwN+lkuYHUz7JXuKBUe6RCLxKfvLnW92NRZGSKKsiz6kdd/R3vCVohPe7xug=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/lmj3gE8oL8WKP3MXulIN2kwZffOKLdL6LoRCMGvFx6wTSy/eI
+	tkT6q3W/7UDupeA/rxBb0We9n0Pe1Okz2BNR4U4u46yieb8O6Fj4O6wyPII2c9YK
+X-Gm-Gg: AZFdTZe2wVm9F13GRBC2fxNklEsP0Y2hjYyR+rW2qvqV72HLm8Bl9eWrqoa7cUF6hn5
+	TtUtPB/cAzRSspGnVJuztS9kQG8wb6i4YHvfqmud9a3oaqdehBkgNRoZFI5/dRdkoaMq8/Eh/WI
+	wB7uji1S0vMrpXEgjC9MhInRC8UHwotXp4j1jlii1FmtxYVwQz/vJiRsWVFTrhrHx1GcJjfqY8e
+	RJiQNEu53FAnLI4UtNi0Gzvnu1g6qed+8dz9oTqJwaLvF8JhaG4Q84rMUHypWGfEcQ7MBJJej/W
+	Un2zCh4HK0ykkPOVvg8WegnWq1zzHBR79hITsLtGOo09rV+mPtbY04HCQ7GTVogxpkDQ80jVxBR
+	ol4Y/CklgI8WDxzpMxzdCvmDOvCQS3K1ToxUbm/ZWJK0zkIESmjqG4iyVpPqXORawB9/9MyPEtJ
+	uqWP97siuGezX1Z2Hufv4fSVjpYNLosH5z/ZrF21KFsxhVTCtK2LVpx/8LYOTSown6jQW0wiHhu
+	s9sQrc6r8KNAdvnuOox6OPqjwD5AcQejAWU3ImULbl1Pr5N55rQdRJiqXvGBb434KQVy8A=
+X-Received: by 2002:a17:90b:278c:b0:3b1:bdc8:c32b with SMTP id 98e67ed59e1d1-3b41c97ac78mr20450613a91.53.1795672869686;
+        Wed, 25 Nov 2026 22:01:09 -0800 (PST)
+Received: from [172.21.0.2] (vldb.skku.ac.kr. [115.145.173.180])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0a33fsm31531327a91.6.2026.11.25.22.01.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 22:01:09 -0800 (PST)
+Date: Wed, 25 Nov 2026 22:01:09 -0800 (PST)
+From: Kyuwon Cho <kyuwoncho18@gmail.com>
+To: Ding Feng <dingf3ng@gmail.com>
+Cc: Christian Brauner <brauner@kernel.org>,
+ Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>,
+ Ian Kent <raven@themaw.net>, Jeff Layton <jlayton@kernel.org>,
+ linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] statmount: retry an overflowed seq buffer before any
+ other check
+In-Reply-To: <20261125-statmount-retry-v2-1-dingf3ng@gmail.com>
+References: <20261125-statmount-retry-v2-1-dingf3ng@gmail.com>
+Message-ID: <179567282158.141640.1989619625784759549@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,47 +101,18 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Josef Bacik <josef@toxicpanda.com>:
-> +The mount namespace stays owned by the user namespace of the builder.  That is what
-> +keeps a task of the cell from mounting anything.
+Hi Ding,
 
-fsmount creates mount in anon namespace. So fsmount is allowed?!
+On Thu, Nov 26, 2026 at 01:13:48AM +0800, Ding Feng wrote:
+> Check for the overflow before both, so the string is regenerated in a
+> larger seq buffer.
 
-> +not poll readable, ``PIDFD_GET_INFO`` has no exit to report, and its ``fdinfo`` says
-> +``Pid: 0`` and not ``-1``.
+On v7.4-rc3 (x86_64, QEMU), our reproducer, a tmpfs mounted on a
+12278-byte path, gets STATMOUNT_SB_SOURCE back with this patch. Without
+the patch, statmount() returns 0 and leaves it out of the mask.
 
-I don't like this. PID 0 is idle process (swapper). Let it be -1 or -2.
+Tested-by: Kyuwon Cho <kyuwoncho18@gmail.com>
 
-
-> Nobody has to
-> +wait for the task: it is reaped on its own, and the pidfd tells how it ended.
-
-I don't like this. I think task should be normal task, which reaped normally.
-If user wants the task to be autoreaped, then let the user set CLONE_AUTOREAP.
-
-Also, you said "pidfd tells how it ended", yet your later example reads status
-from cell fd, not from pidfd.
-
-Anyway, I think that we should get exit status the usual way, i. e. waitid
-on pidfd with P_PIDFD.
-
-> +   pidfd = pidfd_open(cfd, PIDFD_EMPTY);   /* no task yet, the caller does not fork */
-> +
-> +   pidfd_configure(pidfd, PIDFD_SET_STRING, "exec", "/usr/sbin/nginx", 0);
-> +   pidfd_configure(pidfd, PIDFD_SET_BINARY, "argv", "nginx\0-g\0daemon off;", 21);
-> +   pidfd_configure(pidfd, PIDFD_SET_FD, "1", NULL, log_fd);
-> +   pidfd_configure(pidfd, PIDFD_SET_FD, "2", NULL, log_fd);
-> +   pidfd_configure(pidfd, PIDFD_CMD_START, NULL, NULL, 0);
-
-Does new process indeed start with empty file table? If yes, then also set
-fd 0 to /dev/null in this example. Usual userspace programs are not
-prepared to fd 0, 1 and 2 to be closed.
-
-(I am human, not LLM.)
-
-(Don't add me to CC for next version.)
-
--- 
-Askar Safin
+Thanks,
+Kyuwon
