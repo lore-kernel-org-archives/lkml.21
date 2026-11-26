@@ -1,123 +1,132 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795699919;
-	b=nUK4iHIeYXWvN5LDJlB8xja4bR+qeW8tEgvfANBB1j+xNvv+wnUHDZk2bO7CWoIN56MB
-	 26+07YaSpyUj12iyKVmzZu9Q5EfY+pKCqggBbMkeMGHqvX3K45/NzIITFkQlwl5QXJ7b1
-	 hwBbJYfsNxt5xTdnwD/S729xnO/20SxpjXhqQNDnNSzDF4HPyEYkYXA6HASWnxFUGSdwS
-	 I0Sa1qOE2jyZ1NqpH7v/4/xNduEEBOkLplaxzYeueI35uD9tIXS1ZY2y4BHj4zUF2AoSP
-	 JZ1HsnNWxbu9oI0D27f8HxYi/oow0cTG7nZxaJvnsf5QNA+dOaFCRSFWgUy8StRxkAg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795699919;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
-	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
-	 Cc:Content-Type:Content-Transfer-Encoding:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=8OFxv6MKKXSdqKHSw83//4iMpg5debE9kS/FM6OLb50=;
-	b=dzxHLZ9G1Imp7h+5zrs/oGrVBapJF4iHl5KkhIMfOI1m+tT85FnOmGFEFNDdF/W70vbx
-	 XpZOUmeJD6j/lXsm3aOsb6lB7Y0lwtYQeMr7CP2Vxr8ugV/xXcylYzTA8K3VrRlKwkhZK
-	 BGxzqNWffFS8vyBYGvEKdOjqZs8JgfPkahgUVrlNplDovM3/967GfI8aPxx768phKqU1n
-	 d/Kmh/pxaLZZh5Zy1OSQWkoktRF9QJncAC3gTbUOzZeW9dJkLQphnCcEaFsrq1W9cBuKd
-	 RonOqFtDk2m3l2l/coyU4o59rf+xVZ0X5phgSY4GnJsj2cHkJT/lXuaJTjgg+wfLWNA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="lVnLx/XV";
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jJtOP7JW;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795699916;
+	b=1UYEKDmt6meMrr5Rd/pQgg5touu3Jp5nzH5SBegjhzQ6vii1j907hD0B1c9ryn9UkAqy
+	 48ciNUfwzXfujgWcjbOaOdGVf8sCp/7E1wgK1w5E0OT8uBiFaJ4MX+n435fLA9FDdo34e
+	 IxmF1JgI8h6CJUJ4Y8BKqSQdCsPQsdCXaP+nvWybyTq+dT6iniF64kcyUofejLWDIlncz
+	 S1Jha5lV3f9VJ1aRCMO19diN9wqvoIMlQwzHkWKtah0RQSVhP3SFhT/2l2lFfhu884u+x
+	 JDwePWbCCBfxPnFBRMp1MSeYHucMkyRc1D8u6qmVmL2mFcag0/69zUso7ItgqrCmvHQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795699916;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
+	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
+	 MIME-Version;
+	bh=3B43kyyzUUTLVNXK4AN+mljA56km2Ewzy7V4dK6lZDs=;
+	b=JjL7gfNY+pFFbk8jGqd3LSOGnDsCJ+H9fpPW34z31aDVhuAgs02Tj+FIbpvEaqpgTTaI
+	 XonVCsQT8WD9gTwzT2N2Snxv2hB51nAXqvS7dTvIYt+kVlBnA0dltqlEqKZjqvKmIcEXH
+	 +5br8lk8SH6gksLvwQDcSHZs7geg9Me0LovKBjCIaGEzqKpzjrsnbLPsRnHM9o9rkIvWc
+	 nlyZrZnv4TsezjEDUKENXp6e2aWiUfO3mCf9LhaaVUhEdw+KuELpI+OmEjpz5DJetypIE
+	 Swj5tyhqvkWNfM2NzupdmafMYZ93UyG7NxtYT/mh2FudiBPmLJyBj9gtNGn9QKit1pA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=f7EDdOir;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=AihzOTLr;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B2AD606A333
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:31:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B2AD606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38ED2606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:31:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38ED2606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=lVnLx/XV;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jJtOP7JW
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQBVb2E3476321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:31:57 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	8OFxv6MKKXSdqKHSw83//4iMpg5debE9kS/FM6OLb50=; b=lVnLx/XVkcJaiSpp
-	oLrrfQ0e7ix1RT9OrfS39lYUO3LgCgDlR0pPQctKZyXiAKUmKYttNwqctB1Su//4
-	bZyJYRE+/0ED3DvH+FJVuajrn7ZDd0FGi5N/+2ZljKaXaPrmEtLOoEjsWIS3xssN
-	0/eULf2JflCZhznLeu1S7ucb7S0C9BpL5fjA8X/qc8uKZ60b4Y3JHpJOqN3eNTZq
-	gqkxowsyWy6f6WnxdLPsUbtwcCtf+rneiRq68AiSgHp4hg/AAzVGOrd9qa2lk9kk
-	W0SgyL6W6JjziNki682KZA7YwyL/Mgc17iCmLWwZ69dB+CVkgmsvSJaWBQodPWgj
-	rxiKiw==
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6f8rhkbe-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:31:57 +0000 (GMT)
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cdd48746a49so4035238a12.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:31:57 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795699917; cv=none;
-        d=google.com; s=arc-20260327;
-        b=rsR97brv+EXUZ9Pf87JPRi5gRhb3ZqApGRjo6zcBlwYJbpNAO8ta6mmOq9iUoZq63t
-         JjS72acQXgHc1IQttxmjJ6rtnnLtd1KbcOgWSs28zaBOLZJRi8txwcGGL5zewmJio5l4
-         WBGEC7c9UxlXFOy9lVTwq5Bcqxp4C2AW6W0gc/sn98EyjK1EZrXEiLfpTdEqMeSOvbP/
-         2Dzx9m98obPa7vp0LgzhhKkYNkJygTbSnhR9l/TikSUfW9tfBFPsvpCw0MYDDXk4c5Lc
-         bRYAp0oa4cj5O1xpm55ThM7P00G2dd0ZOZBCRshpX/ppiKnz4YgNjOaZvXgWzFsNdqYv
-         eyfQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=8OFxv6MKKXSdqKHSw83//4iMpg5debE9kS/FM6OLb50=;
-        fh=fJjQGRUTvDvouZEZcCayoDMlTCUlVkHZCNLUyPcvOqA=;
-        b=o54HyX9a4R+zuP4ZtyVK8KlGQ9HlZ6Elbs7BDkAQgB8Afvw14d9EwblaZUhYwOfyNz
-         Qzz93q+reYY7dnM4AsWfciiu8oma2oiFBH+kSdO0CGVZE77TM90ITqhy/31i48UgcR9G
-         cW6Lh/SQiZh5x14TBhyhSJ0nwYPZcpYtIsroCjB33IiU9OtlfVABCs69lXQd3E/ir3bE
-         qcl+XE5kD7u7L9BoTl7Y/9ZLfwIC5L3x3R80+huAYnPqR66zabeKFixLvQslNL3AD55D
-         syOPG0VCIbJVVYO/j/g3gV//owWhig7ReNxEiwDNPbUzvk87wyaU0/P9+i/5n0KU8rA5
-         591w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=f7EDdOir;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=AihzOTLr
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795699915;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3B43kyyzUUTLVNXK4AN+mljA56km2Ewzy7V4dK6lZDs=;
+	b=f7EDdOirMWXC8akAqM9hNUNbt67exkg4w3GR3ZxjimjvLhVh0pYAcCTqRTE+ih/EONmbc2
+	LWmfgyO226ldZNKYd4m8ksWnOlp37kk8jH6L1AezJHweNA1QH9uegt6DCeg4hLebfG0jyB
+	ON/7vw0OJJKYkKFRXFjRMVTsQGz8zQI=
+Received: from mail-vk1-f199.google.com (mail-vk1-f199.google.com
+ [209.85.221.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-52-kO4doS7rOS68I2o9Z8tXDg-1; Thu, 26 Nov 2026 13:31:53 +0000
+X-MC-Unique: kO4doS7rOS68I2o9Z8tXDg-1
+X-Mimecast-MFC-AGG-ID: kO4doS7rOS68I2o9Z8tXDg_1795699913
+Received: by mail-vk1-f199.google.com with SMTP id 71dfb90a1353d-5eac42e83e0so1224152e0c.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:31:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795699917; x=1796304717; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=8OFxv6MKKXSdqKHSw83//4iMpg5debE9kS/FM6OLb50=;
-        b=jJtOP7JW+89nqM23yCpbNbCwrlCI0B4q5yD+RzlKyvpWQOXvw2WeqFQCon2iuCxtmN
-         9X/2Ow6JbFlvvFaaR15fah9xSoxj/Qy8ByXC7egAtrGSuBzKZe3xb+Eef6AfC/kZZO2D
-         JZdm+MXNqxvQiJUw4x98cdW/Wl0wamr4naGOv0eJFURvxRwZDl0tdvTR1g2kAwIuCzsX
-         12CQXHn4jMci1iA0px+mp2knagUHTAx1zpzzh4wGNKFs+i7FrqcWFmNCxY/uYwYQuBjh
-         aQL+dPOCBTX8+XKmMF72Snq1CJL1gnf0ZGWS6MeBI+bCpdpEzUBn2wHEMxcwMtG5bRLu
-         t2Bg==
+        d=redhat.com; s=google; t=1795699912; x=1796304712; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=3B43kyyzUUTLVNXK4AN+mljA56km2Ewzy7V4dK6lZDs=;
+        b=AihzOTLrQh899jzjsPKX75h0dSdvMcPhoCbb8JTgf38hLo7r2lv1dOELdPwaOHzcPk
+         dzPKj4TlF+KHZ5Kw2XItc1tVbO+fDv4UqE3DuRHS6NcNChxPPNs/lByzDq4CaFGNzAt9
+         0YASKrtU0ycops1hL65mt+9Wu+MghYJWw720J9H3PbOQGZdaw4tydD2ZrVuVmmwS+guI
+         wBMFkZYJEXMoheJHDqvlRhOcE0bJkEUbpW+Igty9dibVhXLc0ucTBjlxJYYLPE8i2gLM
+         hRNk+Vv5uiqz/dS7qci8u4jCaPE/jd5dY7L6mo6auwhf1paAXQwO53zDcNr1nM9orebe
+         jQww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795699917; x=1796304717;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795699912; x=1796304712;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=8OFxv6MKKXSdqKHSw83//4iMpg5debE9kS/FM6OLb50=;
-        b=0Uxyt8iu75bdQns3g4IuWpWa6OO7rRrwnhJ5ZTPqNJQ9br/WnAEW384e44G7v+N+EL
-         7a/v1yyHpCxOZY50kRIpOtabAVqj/C1Gc23GQ0yNrZc5CDcZ2DLaSfpmcLwf5xdq1ZmW
-         Y2iYPoDbt2FNMChyuugEVbO89OCbeTpFZKr1giZG9Ux6+hthXNisveqsjzR/ehmnAilx
-         gHuH8hl9P6Iu1YTWKku1l0Y0rWTgb+5K6CV5a9FyeVkhdGdMNxDdjqgvcfWusA6rrOVl
-         DuG9fczufzxIPyj6qWUMSzE8qOgwJuZqX5rrTF/AcJssyjJgjnrzCrE73coZROwMLP/W
-         8eSw==
-X-Forwarded-Encrypted: i=1; AL+hErERTOErXrz8X5Wt8GClhFDbi00zrXmUyNfJVqvMKgQhkRWvYlfKs/+U0wn0ZA/ZYRXx02fesYjz5RalUoc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8LuJW+cgqF4PUoNhWX0tMC9VaqOOJ8yMrNs3QkdYqXtni7tQf1
-	Eatru5vgxdvjZrJQKluJlJGerFZ9gjIvLhf2jHTlnIBC4GXPcUbIj+AqfKDUK5WsZI0KS6JYhbr
-	y2q6jJe84NmaDYO8lJ64AUQhUWppUvM+NvV3DuyD1fyJILYEVwc8mGus5szAplzsf4H3ZaPnT2Y
-	ayr2WraNlEqZursO+mBhJmAMg/yLqSs+YNeoKu1rIZNQ==
-X-Gm-Gg: AZFdTZff/7QQdl1M8Ilg/qAuzN61kM/47tX0FHifMbCyaoC1TtH07Q4HCZSXK9dWH9u
-	b5I1H66kDSD/Kv4ZMmtDTZBPjIxiJ8F0fScaZ0tjYzFKUVMBV1cZxPQOPuilahs+CXH0HoG+Ajh
-	h4PyWL69KA5T+lTx2fa6MLmosp3urB/40MHGR7ZnMmnCsBq33pqGcpEOW3Qg==
-X-Received: by 2002:a05:6a20:748e:b0:3fb:4a1e:2f82 with SMTP id adf61e73a8af0-4014ce58b6emr21264791637.61.1795699917067;
-        Thu, 26 Nov 2026 05:31:57 -0800 (PST)
-X-Received: by 2002:a05:6a20:748e:b0:3fb:4a1e:2f82 with SMTP id
- adf61e73a8af0-4014ce58b6emr21264768637.61.1795699916655; Thu, 26 Nov 2026
- 05:31:56 -0800 (PST)
+        bh=3B43kyyzUUTLVNXK4AN+mljA56km2Ewzy7V4dK6lZDs=;
+        b=yoOptf+kL0sUcTTL9CxmrzpYCFUNtJ7UtV2MvHoNbG0iuQwzDBzbPi2mfv0X6VUy1T
+         PmCx+YJe58sMR9b2GyXzfs41qAgjukm7XvXzbxJNqEnomQGcXvUcdkRWRDHwHuzzitwj
+         jfZVcXpEAfdq7TOMl8Jp+Eoa5MQkukhGCsKiOR7+nLtAlaIbTyu1tThWXe0OZF/pPuY5
+         FxpMwm3PBPeioOpv7F1SttFmFZXFQIQ2LFf5EXm5ohHGCJxh1nWtoYYdiY+QbkTL5LQY
+         7hLEtHDlYuzsyUOU7RtJnmx6eBzDGm/N5zrSesTxIN3y2p/ICmI4O0b+muoknfS8pc7k
+         HjBA==
+X-Forwarded-Encrypted: i=1; AL+hErGzkDFx4Hgdd7ozX/7q8AWBzFcMtt0EL86EuSMkOGJwQv4cNWMr+j3JqtG8bTMuWakedJFT1htk/xhW/ho=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9JKv4bYKUyDfDKJlSfpBKaxJU9NuVV7LiYrs+cu0cWb7h6Kgqs
+	8j0fltofWeXLG2PKbpPWYuANiX58oNl7CzVWGCbh2x2fOVJJB8NPLXNL8Lcl+cRnhLGYK+AGw90
+	fZfuxGnsYZjj9+zFlUo4l5W+xNEYIE02zfrWT7cWUpV2qWP3X7ljCN9OFcu3a1MB3ag==
+X-Gm-Gg: AZFdTZemaMAu9Ur7PQgvOsR/vCgHdxKZa3LcUZnCiz9BZiuDpuMmdoNcUNmGcdH9WDE
+	1IPrkpQZ2Gh+aBc7LdopO40cjUju+yn+t2Zu8rviRBkh58u7A+FG/1VgbP+NwNuCAbBumyiEJ91
+	8ltmSBOw867T7v/xUfhNFMrC0OHXSjrlj9xMNFSXClRxG9Cld0RjrAUXlIXjnbzKnmGXWLBAnVG
+	w5vyAA5/qxiEnowP7MZ27hMQIU3yAAhPmd4rzCCNRPUI8n6YSOpqoPTFf2u5z0MYy0aD6BrjH9g
+	dC4a3BOpoUfoAiPd1SN2nW3CbP0UTgWWYykkBWPIqcMLpzWu7e2mhhaa7adJ1OnWfig4gLseOUD
+	CLBbcJ9okYxLt7t8dFxppLUmS11IUP3LIDMgSAEHn+HSogODWeXGxV5hyd/eCjKHstk6nI5lths
+	qJIfBbDkY9gUkTtE5hlYlv0nfdIXeVoMFzyf1LBgWevnhkMqbORVSihMmDFAnLXtsrySnbig==
+X-Received: by 2002:a05:6122:29cd:b0:5ec:d751:a18e with SMTP id 71dfb90a1353d-5ee8af5d5c6mr11288512e0c.19.1795699911833;
+        Thu, 26 Nov 2026 05:31:51 -0800 (PST)
+X-Received: by 2002:a05:6122:29cd:b0:5ec:d751:a18e with SMTP id 71dfb90a1353d-5ee8af5d5c6mr11288267e0c.19.1795699910439;
+        Thu, 26 Nov 2026 05:31:50 -0800 (PST)
+Received: from loberman-thinkpadp1gen5.rmtusma.csb ([2600:6c65:2440:d8c:929c:b769:6def:faa3])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d788506b0sm180018331cf.17.2026.11.26.05.31.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 05:31:49 -0800 (PST)
+Message-ID: <f323c3d62265dfe90fa71514028af4d35f6e2420.camel@redhat.com>
+Subject: Re: [REGRESSION] DMAR fault by Intel H97 SATA controller since
+ "block: Increase BLK_DEF_MAX_SECTORS_CAP" (6.17-rc1)
+From: Laurence Oberman <loberman@redhat.com>
+To: Bart Van Assche <bvanassche@acm.org>, Lu Baolu
+ <baolu.lu@linux.intel.com>,  Jason Gunthorpe	 <jgg@ziepe.ca>, Joerg Roedel
+ <joro@8bytes.org>
+Cc: 70sp <70sp@protonmail.com>, Thorsten Leemhuis
+ <regressions@leemhuis.info>,  Tobias Laas <tobias.laas@posteo.de>, Damien
+ Le Moal <dlemoal@kernel.org>, Jens Axboe <axboe@kernel.dk>, 
+	regressions@lists.linux.dev, linux-block@vger.kernel.org, 
+	linux-ide@vger.kernel.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org,  David Woodhouse <dwmw2@infradead.org>, Will
+ Deacon <will@kernel.org>, Niklas Cassel <cassel@kernel.org>
+Date: Thu, 26 Nov 2026 08:31:48 -0500
+In-Reply-To: <0edb9525-5068-42e6-b6c3-a1dcebcbcea7@acm.org>
+References: <5ad27a97aafbc08a8702d5b90d09cd59@posteo.de>
+	 <awSs5Cw3hFkf4O4T@ryzen>
+	 <ec36d13e-e4c2-4bfb-8b50-69d4a1628839@leemhuis.info>
+	 <87b1bbd8-8113-4890-8623-738b19a9cc7b@leemhuis.info>
+	 <a0ff3156-add0-4f7d-8373-09f95bd7036b@acm.org>
+	 <2adaf0ef9e1a2fa18590f7d8dbf203c0f7de2be7.camel@redhat.com>
+	 <uJluFNYGCCrdvnYT3MatN_4Om8UczTJX_dzxumJxyCAC7F-Ubrekb7LPwlRxhCW0J91UBf-TqeRoJQfgYIYBRvMsPmE-Qs1eAg5zbDP0s58=@protonmail.com>
+	 <0edb9525-5068-42e6-b6c3-a1dcebcbcea7@acm.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,99 +136,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <confirmed-20261105-18-6a8421e1b241@gmail.com>
-In-Reply-To: <confirmed-20261105-18-6a8421e1b241@gmail.com>
-From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Thu, 26 Nov 2026 14:31:45 +0100
-X-Gm-Features: Aa3M54ozD6ck_D13iF_4G2ldlHlAUxaHQPOAD28BUKrT-8-JuoTdL0auTG-EAf4
-Message-ID: <CAPx+jO_btJdPP7Z-S-VCkM4hes33QKEJzjw-p7OhTcGRXirtTA@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: imx: gpcv2: Take a reference to each PGC node
-To: Yige Jiang <yigejiang86@gmail.com>
-Cc: Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>, linux-pm@vger.kernel.org,
-        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA1MiBTYWx0ZWRfX/3341VufMw99
- HO/SLc7ZbHfMwNzfL4XVxs4LzmcuGfe3IaDX2yk5bocFFAbL53joyKtzpbouqznGqd0mOeUB+Kc
- CZzZ3OW906Gzm3kOgdZR8f2FOGfWWGEPmdezPHyJtj8v2HV2PZ6fIJ0gaxw3DZwIyV2rHjzEZLn
- txLl2JwAjOylXuPUYsgdIOFHjfk/o6xxzcW5LuAStlqIvExUxrzTvbUJhZx/GbFRLyvxsECUr29
- zCGvNdXDmhJMB7TGlG4E4Rkus8LOBtAv41+hsP0CjvznVp3rk0TcgguVaUJ773n0qlkeScJqZpA
- Ds696tt4o8YPrU9L6VepplSsg8JCMqLOpGx65QPzSsDqHs2W4O2IkPiRF0CERPWCAqa4vhxIdFg
- HNmZWdiUabWYtwwnVe3oreh2Snf2QX9GtsyT7Ifs3PPxpYQNYLvEto7vbzZF622MuSFAK5nkxix
- uBxlSF3/hk2sYjoEkcA==
-X-Proofpoint-GUID: Hl6oUXmvGqEkLDPmt83XoJG7a0rZ8UiB
-X-Proofpoint-ORIG-GUID: Hl6oUXmvGqEkLDPmt83XoJG7a0rZ8UiB
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA1MiBTYWx0ZWRfX5uchvOUsmLKy
- 5sGZRV7omBhQS5BVIdVVYBe8m2TKvY5LlEbdm2GC9RcnpTaVyfdzK2vaoTdOplgEDgukovStePd
- IlDbZiiO3ToIHgts822Hwn+qSyOiLPU=
-X-Authority-Analysis: v=2.4 cv=FuOQbGrq c=1 sm=1 tr=0 ts=6b0834cd cx=c_pps
- a=rz3CxIlbcmazkYymdCej/Q==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=Um2Pa8k9VHT-vaBCBUpS:22 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8
- a=zyzk0L4BWZHpzulOrW0A:9 a=QEXdDO2ut3YA:10 a=bFCP_H2QrGi7Okbo017w:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-26_03,2026-11-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 impostorscore=0 malwarescore=0 adultscore=0
- suspectscore=0 phishscore=0 spamscore=0 lowpriorityscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260052
 
-On Mon, Nov 23, 2026 at 6:19=E2=80=AFPM Yige Jiang <yigejiang86@gmail.com> =
-wrote:
->
-> The child-node iterator owns the reference to each PGC node, but
-> imx_gpcv2_probe() assigns the node to a newly allocated platform device
-> without taking another reference. If platform_device_add() fails,
-> platform_device_put() releases the node through platform_device_release()=
-,
-> and the iterator then drops the same reference again.
->
-> Use platform_device_set_of_node() to give the child device its own node
-> reference, paired with the put in platform_device_release().
->
-> Fixes: 03aa12629fc4 ("soc: imx: Add GPCv2 power gating driver")
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Closes: https://lore.kernel.org/r/20260530004541.E04701F00898@smtp.kernel=
-.org/
-> Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
+On Wed, 2026-11-25 at 15:27 -0800, Bart Van Assche wrote:
+> On 11/25/26 2:51 PM, 70sp wrote:
+> > as I mentioned in the referenced regression thread I reported, the
+> > patch I sent out was basically an example to show that it works for
+> > my use case. I wrote that I don't think the patch is ideal (in
+> > fact,
+> > I think it's an absolutely terrible solution to fix this). This is
+> > also the reason, why I just sent it as a snippet of code.
+> >=20
+> > Please take a look at the code before the regression started to
+> > occur. It was implemented universally. These vibe coded patches are
+> > horrible compared to the original code. We are literally making an
+> > exemption for a specific CPU in a place where it shouldn't be. The
+> > actual correct solution would be to make a patch which works
+> > similarly to the pre-regression state.
+> >=20
+> > If we are going to merge something that is made by a LLM we should
+> > at least make it good. Ideally made by an actual human.
+> (+Lu, Jason and Joerg, signers/reviewers of the patch mentioned in
+> the
+> Fixes: tag)
+>=20
+> Is a better solution possible than the patch "iommu/vt-d: Disable
+> superpages on Haswell with integrated graphics" I posted here:
+> https://lore.kernel.org/linux-block/uJluFNYGCCrdvnYT3MatN_4Om8UczTJX_dzxu=
+mJxyCAC7F-Ubrekb7LPwlRxhCW0J91UBf-TqeRoJQfgYIYBRvMsPmE-Qs1eAg5zbDP0s58=3D@p=
+rotonmail.com/T/#mc147f250c5356e3742ab3d30ccf6b4a3a8c4196b
+> =C2=A0
+> ?
+>=20
+> Thanks,
+>=20
+> Bart.
 
-Applied for fixes and by adding a stable tag, thanks!
+@Simon,
+To be clear, What I tested was the patch Bart suggested. Not your
+original suggestion. We will still need a test from Tobias to make
+sure.
 
-Kind regards
-Uffe
-
-
-> ---
-> AI assistance was used for analysis and patch preparation.
->
-> Based on next-20261104 (8b7179210b22).
-> Compile-tested: arm64, GCC 14.2.0, W=3D1, drivers/pmdomain/imx/gpcv2.o;
-> baseline and patched objects built with no warnings.
-> Static source review; no hardware, boot, or KASAN test was performed.
->
->  drivers/pmdomain/imx/gpcv2.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/pmdomain/imx/gpcv2.c b/drivers/pmdomain/imx/gpcv2.c
-> index 6a54ee734514645db7e0628bdddcf579d1f0d904..7b377bf0196491298e9e772b9=
-7d15a2bda9ff83a 100644
-> --- a/drivers/pmdomain/imx/gpcv2.c
-> +++ b/drivers/pmdomain/imx/gpcv2.c
-> @@ -1513,7 +1513,7 @@ static int imx_gpcv2_probe(struct platform_device *=
-pdev)
->                 domain->genpd.power_off =3D imx_pgc_power_down;
->
->                 pd_pdev->dev.parent =3D dev;
-> -               device_set_node(&pd_pdev->dev, of_fwnode_handle(np));
-> +               platform_device_set_of_node(pd_pdev, np);
->
->                 ret =3D platform_device_add(pd_pdev);
->                 if (ret) {
->
-> base-commit: 8b7179210b22f8e48a82c5ceacb9d56a9c4cfec4
+Thanks
+Laurence
