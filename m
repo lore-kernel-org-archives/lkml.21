@@ -1,57 +1,131 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795658242;
-	b=bG0SI9JfB8VTqZOSEEUn27D3QaSyl1FLyZdp8VClFs/gaUVTYA39BY0u14qsrgpLnf9P
-	 VO/A0xL+6zycFmReZLiz/+as24J8lm0alTMJtIH2J/SpOuYfGlcjUaVVVv1VhAsehe5wi
-	 m9Pu/LBK9YKQxL/JtDFlr3LqiOCoaDwIAbheTUDkhaeUtmKpROqj3iOqgLaa7ZvLzjRa2
-	 Hpdol90EaXs0ZYxa4GZX9g8IE2RDA22rVx+DFdkUiERGq5hUpidOPBu59zay4oBfDVPPs
-	 PCnn3rQ8zJq2YNkCceG8L1McMHyMH4vtTv6Q+pOZhPeHLr9aUdXgsjtDtH3Al7AMdLw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795658242;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=p62QnwXnO0v/T1cHeC+iaQT9SNjiTZTWxNLljhxV0/M=;
-	b=qhAGF1kgE7A6ns8N6ch2NDIXMiNSvT1ogmYPU1GQh6IFrhBbQcmEclrdudT6mMWlHoiS
-	 gybgoCwOugabEEJk4h+/28uxRZjQHE06LVsoWUdtbt4I3/+oin4YRcHXYS88/FUeXvrjy
-	 1+i992+8N4AgdPvI4VYkKRpjaOvVosWdhJIfurTGrjtzQxNBYtApwytnZCRrvJnMB3oPW
-	 EP/t5+pUmGDNpQd9bS9fRkdvQ4yv1YzSQLNRE9HcZBzL67W3yEa42n2DlJmGBGw82X5iz
-	 ZipCAS46TyOKM7eEpEF2QOJPmOBs7RzB/eBYM/sCdQ9k+KGwdnxfTGCgcdAyMMhyBSA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DFETayfE;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.95.74
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795658243;
+	b=B5OI/S9TGoqNEhVRmVNXDGMK6v0JQbA+XY1qyzdSWlFa4A1q2PF4cDu8IX2hklomTS7M
+	 X5soeIMeXHrs1qi3jdsnhXVfYWVzhj/G9h0vOQ44tfjmLeoDK9tzCOHBQe3amNMttgRLU
+	 Vgr476/uNLb8xaJu+V18q0lg9ww4z4zw2UZQFqZXymg0AN0+Qk8d4uyx9tM3w7J5iZKYC
+	 U5Za5/1AS8YNYh8wY7Q5YJeiJLf4Rfo6WVTP+rDwNGC3Ma//ILw6bhAFx89a1tDPJt72i
+	 UWvFZic7ubsTlOwNyGy5Cul4ffoJgx54Gv49ws7OG2ZB5yqz2maEqvMhFYlE9BqYkcg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795658243;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
+	 From:To:X-Mailer:References:In-Reply-To:X-ClientProxiedBy:
+	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=wQwwexXKfYFWLv1n/CIfr1L3KdteJx8RrqGgVwMsGMs=;
+	b=wxf38g1PKcsppfl1XyZIWb3Tt0DJl3ZdSiKVWqsZB/cDIe8y17bE1ai+hPAsvf5Vxu58
+	 YT5ZyhtaiCsIiVZdAShKhf688SF8AAZHs2Dam7diTD3w2zNCW4HZoiUn8o1y/eDWQWCkG
+	 BGY41CaUYkmPe9Vejih+23tuCj7rr9IIbcI4VzpLVbm5zMe0JbbBrD5uJyf6TLR9Ztno2
+	 EVt0Xhq/aocGVoFIJw293fXI7/k8PwXgvZjGvPVTYAU0wYro1Cx66N0LO6SQ4RlUEW58i
+	 ilOICWxIsj+hCWlmUS+/yajcIfZ7ohPKRgLnkfuMursTcJvI6fnaGR+wh2yBBR+3PAA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=garyguo.net;
+	spf=pass smtp.mailfrom=garyguo.net;
+	dkim=pass header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=LDPMac3Y;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.95.74
+Received: from LO2P265CU024.outbound.protection.outlook.com (mail-uksouthazon11021074.outbound.protection.outlook.com [52.101.95.74])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C02A7606A326;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA945606A323;
 	Thu, 26 Nov 2026 01:57:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA945606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=garyguo.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=garyguo.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DFETayfE
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EEC41F000C0;
-	Thu, 26 Nov 2026 01:57:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795658242;
-	bh=p62QnwXnO0v/T1cHeC+iaQT9SNjiTZTWxNLljhxV0/M=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=DFETayfE3Gf3ynl3jwfpCR1YPetdhq1JnXUCJqm85fBvnOiaoVFNsAYd4KPGUtRuV
-	 AT+6jcU+gX2Gs1jKlIfx6gOEY5s9E/vUQf2wPSlto6ok8KmOqU3qIDStY2ardkR0Df
-	 g6ye8uja5xjNDqwhvDeblzIp6STGRj5VsjMN5pnbDfHIqEqEWIxio8rbO8TyZP18ob
-	 5L0Ddq5TygnAsW8xQ+kaOUIqElZb6qP/oVJtCr7winzr8spVDnikymDxITkf3cbATW
-	 qdg5UgDzqRsmkC2QQQuYHYQhz9nXQ/6h1MhJM1NTvEdT7zJT8THwAvrh1zSOTgVaIi
-	 CuLWTR3HYuLGw==
-Message-ID: <sashiko-outbox-234598@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v11 32/43] sched/deadline: Start a period for a task
- requeued onto an rt_mutex
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <ea269b2ab986ea98f5df5ace2a80c4b4d9d7e55f.1795646914.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795646914.git.mathieu.desnoyers@efficios.com>
- <ea269b2ab986ea98f5df5ace2a80c4b4d9d7e55f.1795646914.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
+	dkim=pass (1024-bit key, unprotected) header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=LDPMac3Y
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ugfqusank+TP8RlvX3IDp3uNNlNYMgA/pGtZlpT6ERo0HOeSiz7JowvWrPwd6pqreGz8kGZDPTiEN98Simxg/kFBG+xuxLG6rK5wtouDZSqroquswv8HD30WudB0OkXmq+aohbqbkNSG3ILeQCscdShWpOwsG0/DvMa56FImzZhCpV42vqbEG7FQEKVPxvQm/T/9uc3RhrCpjnDISZfTdfAUiLX3FWskMbho/8ZXXPfsdHfYj5xHypIUrCr5/YJnEU7CO7Q6Y85z9YwWQymkLjMX06tCDavMP8Fb2FKT3I5/27rgskDpemRPz1eUMMFmlpTit/uwmteF93jqxged1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wQwwexXKfYFWLv1n/CIfr1L3KdteJx8RrqGgVwMsGMs=;
+ b=MyvVld5HyWosyAlQ4eNIATC2OJNSNr4sqSl5izwZxj2nXlXXHeV8jyVSphViBzVv7tSSZ3QSDtN9M9hniRFjDpkfMG+D5OY/TK9H1UoWRxmUa7QFnw1pzd+SZfMFylUzUm9cHuFYIcnwRahLHvEM5O+e3mP8fVGOMstDZzQRoocgvHH2dOClYqzAltdtdWXLkvx0KiHKOP/zrCMvaqjJKTQ4Np+Vz++fF4Dx+goh5fwe6cNWPlozr+6GjNwHyByxCuoPBiJC/njpLZ1Ayx1zkD+PK8UI6lUhoyWoZ2v5/hlj0KGx9fD7538mkjN2q41yJKWvImgrxvKWnlixNucrmA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wQwwexXKfYFWLv1n/CIfr1L3KdteJx8RrqGgVwMsGMs=;
+ b=LDPMac3Y6lLbY06bE/y9PXx8ip7DqHVV7X4+qs+V+Noy8Iy1yRt3Cx6jgWMi5bHlYQc7UoiTx45FasGzBeHv4dF9VA5Vj7OMLmoNnGt56TU9e/4rY0LRxRWHI4/w/nuK2ijlsm1xh0mebNcwIg5Tp9SunCFxmqM4rGw64A9CRwA=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1cb::9)
+ by CW1P265MB440877.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:302::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
+ 2026 01:57:18 +0000
+Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::55f6:f98b:7fad:c6e3]) by CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::55f6:f98b:7fad:c6e3%2]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
+ 01:57:18 +0000
 Content-Transfer-Encoding: quoted-printable
-Date: Thu, 26 Nov 2026 01:57:21 +0000
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 26 Nov 2026 01:57:17 +0000
+Message-Id: <DN4RPY231N71.1XDIB9HKGBU0O@garyguo.net>
+Cc: "Jonathan Corbet" <corbet@lwn.net>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, "Steven Rostedt" <rostedt@goodmis.org>, "Bradley
+ Morgan" <bradley.morgan@linux.dev>, "Armin Wolf" <W_Armin@gmx.de>, "Masami
+ Hiramatsu" <mhiramat@kernel.org>, <linux-doc@vger.kernel.org>,
+ <driver-core@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+ <linux-trace-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>, "Alex
+ Williamson" <alex@shazbot.org>, "Mostafa Saleh" <smostafa@google.com>,
+ <kvm@vger.kernel.org>, <qat-linux@intel.com>,
+ <virtualization@lists.linux.dev>, <intel-xe@lists.freedesktop.org>,
+ "Vineeth Vijayan" <vneethv@linux.ibm.com>, "Peter Oberparleiter"
+ <oberpar@linux.ibm.com>, "Heiko Carstens" <hca@linux.ibm.com>, "Vasily
+ Gorbik" <gor@linux.ibm.com>, "Alexander Gordeev" <agordeev@linux.ibm.com>,
+ <linux-s390@vger.kernel.org>, <linux-hyperv@vger.kernel.org>,
+ <linux-spi@vger.kernel.org>, "Frank Li" <Frank.Li@nxp.com>, "Sascha Hauer"
+ <s.hauer@pengutronix.de>, <linux-clk@vger.kernel.org>,
+ <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-remoteproc@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+ <linux-sound@vger.kernel.org>, "Takashi Iwai" <tiwai@suse.com>
+Subject: Re: [PATCH v2 00/10] driver core: Disable driver overriding by
+ default
+From: "Gary Guo" <gary@garyguo.net>
+To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, "Greg
+ Kroah-Hartman" <gregkh@linuxfoundation.org>, "Danilo Krummrich"
+ <dakr@kernel.org>, "Johan Hovold" <johan@kernel.org>, "Bjorn Helgaas"
+ <bhelgaas@google.com>, "Nipun Gupta" <nipun.gupta@amd.com>, "Nikhil
+ Agarwal" <nikhil.agarwal@amd.com>, "Ioana Ciornei" <ioana.ciornei@nxp.com>,
+ "Longfang Liu" <liulongfang@huawei.com>, "Julian Ruess"
+ <julianr@linux.ibm.com>, "Ankit Agrawal" <ankita@nvidia.com>, "Brett
+ Creeley" <brett.creeley@amd.com>, "Giovanni Cabiddu"
+ <giovanni.cabiddu@intel.com>, =?utf-8?q?Micha=C5=82_Winiarski?=
+ <michal.winiarski@intel.com>, "Eric Auger" <eric.auger@redhat.com>, "Eric
+ Farman" <farman@linux.ibm.com>, "Matthew Rosato" <mjrosato@linux.ibm.com>,
+ "Tony Krowiak" <akrowiak@linux.ibm.com>, "Jason Herne"
+ <jjherne@linux.ibm.com>, "Harald Freudenberger" <freude@linux.ibm.com>,
+ "Holger Dengler" <dengler@linux.ibm.com>, "Haiyang Zhang"
+ <haiyangz@microsoft.com>, "Wei Liu" <wei.liu@kernel.org>, "Dexuan Cui"
+ <decui@microsoft.com>, "Michael S. Tsirkin" <mst@redhat.com>, "Mark Brown"
+ <broonie@kernel.org>, "Abel Vesa" <abelvesa@kernel.org>, "Stephen Boyd"
+ <sboyd@kernel.org>, "Brian Masney" <bmasney+clk@redhat.com>, "Jerome
+ Brunet" <jbrunet+clk@baylibre.com>, "Bjorn Andersson"
+ <andersson@kernel.org>, "Mathieu Poirier" <mathieu.poirier@linaro.org>,
+ "Srinivas Kandagatla" <srini@kernel.org>, "Sylwester Nawrocki"
+ <s.nawrocki@samsung.com>, "Liam Girdwood" <lgirdwood@gmail.com>, "Jaroslav
+ Kysela" <perex@perex.cz>
+X-Mailer: aerc 0.22.0
+References: <cover.1795171088.git.u.kleine-koenig@baylibre.com>
+In-Reply-To: <cover.1795171088.git.u.kleine-koenig@baylibre.com>
+X-ClientProxiedBy: LO4P123CA0280.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:195::15) To CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:400:1cb::9)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,235 +134,139 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CWLP265MB6051:EE_|CW1P265MB440877:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9b6b3e52-7308-474c-3d8d-08df4b609a1c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|10070799003|23010399003|376014|7416014|366016|1800799024|921020|10067099003|56012099006|261028144727099003|261022105027099003|261022075727099003|261022115727099003|261022113327099003|261026130827099003|261026121527099003|261026135527099003|261021135927099003|261021123027099003|261026140227099003|261021121427099003|261021130227099003|261102123227099003|261021133027099003|261009223027099003|18002099003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	8V8vcfFOw3oTrfc5RNxlZ5r0UkjYbCTU8eeisaf9JPjmuGWUs6rUGsW54CbWqsDGswx0m88s9bF37FBMRApCiYCcEY4owfPaM5HyBlKOnm/tviHhAzOofE/ITqM53k6oZ355aKBKCIuljeBvojZq1IQk1oRcK/bfPgNKbPaB+IQabbSWHPfbZJBe/WLAyx27ynBmbxqzhADC1Azk6Gi2sUuvYxCkH5rBxBr9GusLXf49TeP/kY0fAxhnH6I3yDrNLwXMc2s6fIyOrykAJH2LxCux4bOWcHHB1TdY7P+++OD/U5ybfgf0dDmXoPYt1DHqoZQssSJtNO3iqNHBUdpHLW2KlahyudHxNwj/c09SmDj90wycSVMzB7kNwrKaro74J+IJ27AX8zdQezVwhebAJ//FJcCmisGzK8qwLezvNj2ZwY6xwCVEhljaIEMBe4YwnoMB3jqwOvn3/jDCzvkbLr/w/UlZwF0yu8ya0LmsvlD65/CJvkZo5yivCAOctyYBdQULFzCjr3BNtOWz27oV5d9Suto6DURERR1hQ+zaZ0ji/Vw9dO6thGjdfrAoWZy2fc79LUU8ge2TiqwLUrGFCPGuUSUzv2wdwRqdFSC0ldUddjm3P4GoaTj3iIAHngRZegpDFawCRB6870XfYrYR0fqfrT/yeTZmm0SGOP40A94=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(23010399003)(376014)(7416014)(366016)(1800799024)(921020)(10067099003)(56012099006)(261028144727099003)(261022105027099003)(261022075727099003)(261022115727099003)(261022113327099003)(261026130827099003)(261026121527099003)(261026135527099003)(261021135927099003)(261021123027099003)(261026140227099003)(261021121427099003)(261021130227099003)(261102123227099003)(261021133027099003)(261009223027099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?TlE0dHFLNmVlMit5NSt0aCtqVHJrS2dTaGN5WDFsSXlIckIweDJiWlZURDFN?=
+ =?utf-8?B?cVZucDR5SG54YTR3NXNUdlZ2VUw0TDdRdVR0Tzc0Ulc1YmFvTWFMRHU0TW15?=
+ =?utf-8?B?em1xd3lRaCszUDZqZUVFc0hzdjdCN25SZ3ptbHhPMnEzK2w1ajArbjFCM2Ns?=
+ =?utf-8?B?RmFSOFNYc2Zna2kwZHlkVDZzQVcvbVoxcFZYYVYvODYzMDhMNC9rVDdydGcr?=
+ =?utf-8?B?cGZpaUQ1RUJMaS9TdjlRTFRRTE1YZTY1Mytwbm14cWJvK0Nydjc5NU1aSVpu?=
+ =?utf-8?B?dThobzhQdzNhYXdPWWprVlF2amlLUTBDNzgzdzIyaEN3RU1GR1ZzVUpMc05q?=
+ =?utf-8?B?UzhWUk5jSW9nMnIxNHp0Y1NGNXM3UU5Fd2xMNEttQU5jcnJQZ3VaOFFPTktW?=
+ =?utf-8?B?dGtoVXI0UlVQT3IxemFlU3hFbXVJd3VIOG53Mm5LN0NhWWFwY0J6bk5SNGxH?=
+ =?utf-8?B?SzlNOEdCQWVwZU9zNmJiUTJyeElDYUtCUXVYdWYxa2k3aWI2Q01wa0paWURv?=
+ =?utf-8?B?S1B4OEpkMjZwME9wZUlObU44UXVJM2pKbVFVa1UrQ2FYakozeDFGbXlJaGZH?=
+ =?utf-8?B?bWNMWGtoZGhkdkl0V3pGVmZwZlJibjBDNlkzeGt6dk56cW5OelMrMzluYzBZ?=
+ =?utf-8?B?TlREOW1rMU9tOEQ0WXVTT2YwdVlybnRVVnAraE8rbEFVRmtCdG5oL2NYbGh0?=
+ =?utf-8?B?ZzUzaGJScy9ZUmhhYW1kSGJndUttM29HaC9ZTjNKcmc4akxYbXc2T1dFT3Jh?=
+ =?utf-8?B?T2dzR1ZLRXBUajhOTlMxR3F0SE04eE1xWG1QYkN2TVdnZjU3TjZYcm9uZTZa?=
+ =?utf-8?B?Vk5kSVRJRHFNZGlUYld2RHJVaHgwcXJQblA0ZENVVjk4cVpxdHF0Tms2N1dS?=
+ =?utf-8?B?TGZiZXk1REtYWHdZQWlLV2Jrd01IalNaM1dCQzc4RUh4U3hqYVl3b0tIR2l1?=
+ =?utf-8?B?VW93QW5BVndNbzVRdFg4SERweXE2TDRFcFF2bDBqakplOWFTV1FCdmVLaGRw?=
+ =?utf-8?B?Tm5XNW9BNHZhdHF4T1FwV1BteERaWUNJTWdBZEhBVWFFaVNRNzR3LzFaUjNF?=
+ =?utf-8?B?ZW9PdWRJcW1wK1E1b0FrRTk0T3pXU29aZThyN0JranVWSnN5WmY1eFVZbk9k?=
+ =?utf-8?B?QlZNNGRFTlhReGdJaXBNUkVpQ29tejNZT292UkZOYXh3aHRGZlV6TVFkdHQ5?=
+ =?utf-8?B?UGtNNlNQTEtDNVNZaFJZcUdNcDlDczJacnRsMmVtMW1XcFAxQW8rcXBNWnN2?=
+ =?utf-8?B?dFcwdHdGOTJva0h0dnlkMlE3VU5QMXdtMmY5ays4Y1lucXlYdzNMNDdUTUNW?=
+ =?utf-8?B?N2lVSy83RjdTNGVyZmNqTnJ1STBKOFNLNkNCY2lOamRRdnBnSElySEU5VjVx?=
+ =?utf-8?B?VzRpSVlBTkIyWkF0U1NnQmxKajVhU3dyYi8vYmtsK0xVTHRUQkhuL3hmUjB6?=
+ =?utf-8?B?RUJVVEpuTHJ5Sk1rU3pVUVZNZncvYmhHczkxNC9yWUNrZHpVN2xLSmd0Lyt3?=
+ =?utf-8?B?VnpFTXdlb3I4RDJ5MHRPTHhWTmsydUhwVDhNVW1BSlQrR3FJN2d4YmpOLzNh?=
+ =?utf-8?B?Sm9tdFI3clQ4SSs4ZlNxeTJvTDhsbk1maFRmOWRxaVpDNUNVcjlLaU4vREt5?=
+ =?utf-8?B?SVptc1BVU0FwY21Jb29iUm83bUpDTUxwUDYxUExiSzRGOWV4UXc2cXQ5b1pm?=
+ =?utf-8?B?WnJiZTJHSzd3Sms0b3pkWnk2L1orNGlTcldpQ3g0SGtxa3VIam1leDlIeUtX?=
+ =?utf-8?B?REdWQ3EwTHAraE8xekRBdmRlZGZUY2V6VFJsZVpSNUpMRXNTbUZCMTdrcEhG?=
+ =?utf-8?B?OS8wSDNJa3Q0Si9hak5PSHlPUnFqSHFCcWFOTStybHIzYm9kRTRjbUM3Ukhl?=
+ =?utf-8?B?RnpPUUxNbDRLVmNpd0t1UktvbmowaDZCU0dZWG83YjFjbkZzQkU2cTFuSWps?=
+ =?utf-8?B?S1B6MTdGdGc3VE80anVxTjMxQ2g1Q090ZS9iTk5nVVlkQUFKQkZnVzVaUVd0?=
+ =?utf-8?B?ZTFXR1lVblRlME54SFNqU3lpdzNJekNoSXJLcWRqalVmSkxnZC9VL1MwSVN0?=
+ =?utf-8?B?bVh6MS9HOG1XendIS00xbmZoTmxoQVViTXlyVFBVZVVWVEJsZG54bzFydlc5?=
+ =?utf-8?B?YkMrL1pNUjh5Vlk0VmRXMnk0bjRPVFZIdE5oVGo4UkY5TE9IT3hWNVhCZURP?=
+ =?utf-8?B?U1c4M01QV0MvVkU1SEc5QlBURVlJYjllMDB1dWFGZTUwK1oyVEJMK2lnT1FB?=
+ =?utf-8?B?Y1ErVVgxdzBjdlZueXpmZnpKbEtMc2hEbnQ5OVMzNXE2a0NyQzFwLy96R1Ur?=
+ =?utf-8?B?MlpwUjRiVDA0VDFrTXpNSkE3Y0R0YjliRzAyR1pYdDAzSlB1aERWQT09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9b6b3e52-7308-474c-3d8d-08df4b609a1c
+X-MS-Exchange-CrossTenant-AuthSource: CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 01:57:18.5838
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: U5UFEh+CYdQxw1WOmqNHFXtH2C08DBwEU0PoDb2ICDRigteYFynBMSa6mCshbH9bRHtvHuhtyHKtqrrkb13sag==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CW1P265MB440877
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issues to consider:
-- [Medium] sched/deadline: dl_proxy_block() skips overflow check for
-  boosted tasks
-- [Medium] locking/rtmutex: race in __rt_mutex_start_proxy_lock() after
-  dl_proxy_block()
-- [Medium] sched/deadline: dl_note_donor_refill() saves zero
-  own_deadline
-- [Medium] sched/deadline: missing dl_proxy_block() in
-  futex_proxy_trylock_atomic()
---
-
-commit fbb8bd3107eb7bdbd7615a1083bdbc46d1982421
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-
-sched/deadline: Start a period for a task requeued onto an rt_mutex
-
-This commit adds dl_proxy_block() and calls it from
-__rt_mutex_start_proxy_lock() so that a sleeping SCHED_DEADLINE task
-requeued onto an rt_mutex via FUTEX_CMP_REQUEUE_PI has its deadline
-updated before the trylock and waiter insertion.
-
-> diff --git a/kernel/locking/rtmutex_api.c b/kernel/locking/rtmutex_api.c
-> index 6bdbd36bac949..f1246efc62d3a 100644
-> --- a/kernel/locking/rtmutex_api.c
-> +++ b/kernel/locking/rtmutex_api.c
-> @@ -342,6 +342,18 @@ int __sched __rt_mutex_start_proxy_lock(struct rt_mu=
-tex_base *lock,
+On Fri Nov 20, 2026 at 11:11 AM GMT, Uwe Kleine-K=C3=B6nig wrote:
+> Hello,
+>
+> here comes v2 which addresses the review feedback I got for (implicit)
+> v1. See https://lore.kernel.org/linux-kernel/20261116110853.3418077-2-u.k=
+leine-koenig@baylibre.com
+> for the discussion about that previous submission.
 > =20
->  	lockdep_assert_held(&lock->wait_lock);
-> =20
-> +	/*
-> +	 * A requeued @task sleeps, so its deadline can be stale. The trylock
-> +	 * below and the waiter node both read it: update it first.
-> +	 * futex_lock_pi() passes current, which is running. Its deadline is
-> +	 * up to date.
-> +	 */
-> +	if (task !=3D current) {
-> +		raw_spin_lock(&task->pi_lock);
-> +		dl_proxy_block(task);
-> +		raw_spin_unlock(&task->pi_lock);
-> +	}
+> The objective is to deny force binding a device to a driver that isn't
+> prepared for that. There are many drivers that run in a null pointer
+> exception when this happens and only very few drivers are supposed to be
+> used like that. So the first patch implements an explicit opt-in for
+> drivers and denies other matches; the remaining patches implement the
+> opt-in for drivers that rely on it. This makes it unnecessary to fix
+> individual drivers to explicitly refuse such bindings. See commit
+> 1e50a0349012 ("iio: adc: mcp3564: reject devices without match data")
+> for an example of such a driver-specific fix.
 
-[Severity: Medium]
-Can releasing task->pi_lock here before task->pi_blocked_on is set race
-with sched_setattr() or PI boosting on another CPU?
+For PCI, there is actually already a mechanism for it -- override_only. VFI=
+O
+devices already have that annotation. I think it's a better mechanism. In
+addition to providing a useful id_info, you can also say what IDs you want =
+the
+override match to become possible.
 
-If task is not in SCHED_DEADLINE when dl_proxy_block() runs, it returns
-with task->dl.deadline still at 0.  Before task_blocks_on_rt_mutex()
-re-acquires task->pi_lock and sets task->pi_blocked_on, another CPU can
-switch or boost task into SCHED_DEADLINE:
+We can do something like this?
 
-CPU0                                  CPU1
-__rt_mutex_start_proxy_lock()
-  raw_spin_lock(&task->pi_lock)
-  dl_proxy_block(task)
-    !dl_task(task) -> returns
-  raw_spin_unlock(&task->pi_lock)
-                                      __sched_setscheduler(task, ...)
-                                        raw_spin_lock(&task->pi_lock)
-                                        switched_to_dl()
-                                          !dl_task_pi_blocked(task)
-                                          /* task->dl.deadline stays 0 */
-                                        raw_spin_unlock(&task->pi_lock)
-  try_to_take_rt_mutex() /
-  task_blocks_on_rt_mutex()
-    raw_spin_lock(&task->pi_lock)
-    waiter_update_prio(waiter, task)  <-- copies deadline =3D=3D 0
-    task->pi_blocked_on =3D waiter
-    raw_spin_unlock(&task->pi_lock)
+diff --git a/drivers/pci/pci-driver.c b/drivers/pci/pci-driver.c
+index 2398f03a77c1..2cf4659b36a4 100644
+--- a/drivers/pci/pci-driver.c
++++ b/drivers/pci/pci-driver.c
+@@ -218,8 +218,8 @@ static const struct pci_device_id *pci_match_device(str=
+uct pci_driver *drv,
+ 	if (found_id)
+ 		return found_id;
+=20
+-	/* driver_override will always match, send a dummy id */
+-	if (ret > 0)
++	/* For a forced driver override, send a dummy id */
++	if (ret > 0 && device_forced_driver_override(dev))
+ 		return &pci_device_id_any;
+ 	return NULL;
+ }
 
-Because task->pi_blocked_on is still NULL when switched_to_dl() runs on
-CPU1, switched_to_dl() leaves task->dl.deadline at 0.  CPU0 then uses
-deadline 0 to steal the lock or enqueue the waiter ahead of all real
-deadline waiters.
+Where device_forced_driver_override your added logic about parameter and
+tainting/warning logic.
 
-> +
->  	if (try_to_take_rt_mutex(lock, task, NULL))
->  		return 1;
+I suppose the issue is that only CDX and PCI have this mechanism via ID tab=
+le.
+That said, other buses can gain a bus-specific allow_override field and you=
+ just
+do
 
-[Severity: Medium]
-Does the uncontended FUTEX_CMP_REQUEUE_PI fast path in
-futex_proxy_trylock_atomic() also need to call dl_proxy_block() on the
-new owner?
+diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
+index 720a72ecd174..7539b43961e6 100644
+--- a/drivers/spi/spi.c
++++ b/drivers/spi/spi.c
+@@ -563,7 +563,8 @@ static int spi_match_device(struct device *dev, const s=
+truct device_driver *drv)
+=20
+ 	/* Check override first, and if set, only use the named driver */
+ 	ret =3D device_match_driver_override(dev, drv);
+-	if (ret >=3D 0)
++	if (ret >=3D 0 && (sdrv->support_driver_override ||
++			 device_force_driver_override(dev, drv)))
+ 		return ret;
+=20
+Thoughts?
 
-When the target PI futex is uncontended and nr_requeue >=3D 1,
-futex_requeue() acquires the futex for top_waiter->task via
-futex_proxy_trylock_atomic() -> futex_lock_pi_atomic(), attaches
-top_waiter->task as the pi_mutex owner, and wakes it without going
-through __rt_mutex_start_proxy_lock():
-
-kernel/futex/requeue.c:futex_proxy_trylock_atomic() {
-	...
-	ret =3D futex_lock_pi_atomic(pifutex, hb2, key2, ps, top_waiter->task,
-				   exiting, set_waiters);
-	if (ret =3D=3D 1) {
-		requeue_pi_wake_futex(top_waiter, key2, hb2);
-	...
-}
-
-If try_to_wake_up() queues top_waiter->task on a remote CPU's wake_list
-via ttwu_queue_wakelist(), enqueue_task_dl() -> update_dl_entity() has
-not run yet when futex_requeue() loops to requeue the next waiter onto
-that pi_mutex via rt_mutex_start_proxy_lock().  The boost check against
-the new owner then sees top_waiter->task's stale deadline (0, expired, or
-overflowed), which can miss a boost from a waiter or cause the subsequent
-donor refill at wakeup on the remote CPU to save the unreplenished stale
-deadline as own_deadline.
-
-> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-> index 5d1d4ea288788..c59953e80b1a9 100644
-> --- a/kernel/sched/deadline.c
-> +++ b/kernel/sched/deadline.c
-> @@ -1682,6 +1682,59 @@ static inline u64 dl_next_period(struct sched_dl_e=
-ntity *dl_se)
->  	return dl_se->deadline - dl_se->dl_deadline + dl_se->dl_period;
->  }
-> =20
-> +#ifdef CONFIG_RT_MUTEXES
-> +/*
-> + * FUTEX_CMP_REQUEUE_PI makes @p wait on an rt_mutex while @p sleeps.
-> + * The waiter node of @p takes its deadline before any wakeup. So apply
-> + * the wakeup rule of update_dl_entity() to @p now:
-> + * - A deadline of 0, which a task that entered the class asleep has,
-> + *   gets a new period.
-> + * - A constrained task past its deadline and before its next period
-> + *   keeps its deadline. Its wakeup throttles it until that period. Its
-> + *   waiter node keeps that passed deadline, and sorts first.
-> + * - Any other task gets the check of update_dl_entity(). A deadline
-> + *   that has passed gets a new period.
-> + *
-> + * The caller holds the pi_lock of @p.
-> + */
-> +void dl_proxy_block(struct task_struct *p)
-> +{
-> +	struct sched_dl_entity *dl_se =3D &p->dl;
-> +	struct rq_flags rf;
-> +	struct rq *rq;
-> +
-> +	if (!dl_task(p))
-> +		return;
-> +	rq =3D __task_rq_lock(p, &rf);
-> +	update_rq_clock(rq);
-> +	if (task_on_rq_queued(p) || dl_se->dl_throttled)
-> +		goto unlock;
-> +	/*
-> +	 * A boosted task runs on the parameters of its donor. Start a period
-> +	 * from them if its deadline is 0 or has passed. A task in the class
-> +	 * with no runtime of its own is always boosted: the test of
-> +	 * dl_runtime is only a guard.
-> +	 */
-> +	if (is_dl_boosted(dl_se) || !dl_se->dl_runtime) {
-> +		if (!dl_se->deadline ||
-> +		    dl_time_before(dl_se->deadline, rq_clock(rq)))
-> +			replenish_dl_new_period(dl_se, rq);
-
-[Severity: Medium]
-When a boosted sleeping task has dl_se->deadline =3D=3D 0 and
-dl_se->dl_runtime > 0, does replenish_dl_new_period() here record
-own_deadline =3D 0 via dl_note_donor_refill()?
-
-If a sleeping non-deadline task is first PI-boosted via an rt_mutex it
-owns and then given its own SCHED_DEADLINE parameters via sched_setattr()
-while still asleep, dl_se->dl_runtime is non-zero while dl_se->deadline
-and dl_se->dl_donor_refill are still 0.  Calling replenish_dl_new_period()
-from dl_proxy_block() runs dl_note_donor_refill():
-
-kernel/sched/deadline.c:dl_note_donor_refill() {
-	...
-	first =3D !dl_se->dl_donor_refill;
-	dl_se->dl_donor_refill =3D 1;
-	if (first && dl_se->dl_runtime && !dl_se->dl_boost_held)
-		dl_hold_refilled_boost(dl_se);
-}
-
-Because dl_note_donor_refill() checks dl_se->dl_runtime without checking
-whether dl_se->deadline is non-zero, dl_hold_refilled_boost() saves
-own_deadline =3D 0 and sets dl_boost_held =3D 1.  When the boost ends,
-dl_end_held_boost() can restore dl_se->deadline =3D 0 and throttle the task
-with a zero deadline, causing its waiter node to sort ahead of all real
-deadlines.
-
-> +		goto unlock;
-> +	}
-> +	if (!dl_se->deadline) {
-> +		replenish_dl_new_period(dl_se, rq);
-> +		goto unlock;
-> +	}
-> +	if (!dl_is_implicit(dl_se) &&
-> +	    dl_time_before(dl_se->deadline, rq_clock(rq)) &&
-> +	    dl_time_before(rq_clock(rq), dl_next_period(dl_se)))
-> +		goto unlock;
-> +	update_dl_entity(dl_se);
-> +unlock:
-> +	__task_rq_unlock(rq, p, &rf);
-> +}
-
-[Severity: Medium]
-Should the boosted branch in dl_proxy_block() also check
-dl_entity_overflow(dl_se, rq_clock(rq)) as update_dl_entity() does?
-
-In update_dl_entity(), a boosted task whose deadline has not yet passed
-still gets a new donor period when dl_entity_overflow(dl_se, rq_clock(rq))
-is true:
-
-kernel/sched/deadline.c:update_dl_entity() {
-	if (dl_time_before(dl_se->deadline, rq_clock(rq)) ||
-	    dl_entity_overflow(dl_se, rq_clock(rq))) {
-		if (unlikely((!dl_is_implicit(dl_se) ||
-			      (dl_se->dl_defer && dl_se->dl_defer_running)) &&
-			     !dl_time_before(dl_se->deadline, rq_clock(rq)) &&
-			     !is_dl_boosted(dl_se))) {
-			update_dl_revised_wakeup(dl_se, rq);
-			return;
-		}
-
-		dl_se->dl_defer_running =3D 0;
-		replenish_dl_new_period(dl_se, rq);
-	}
-}
-
-Because dl_proxy_block() only tests !dl_se->deadline ||
-dl_time_before(dl_se->deadline, rq_clock(rq)) for boosted tasks and then
-jumps to unlock, a boosted task requeued after its overflow threshold but
-before dl_se->deadline keeps its stale earlier deadline for the trylock,
-waiter sorting, and owner boosting, even though waking it would
-immediately postpone its deadline to a new donor period.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795646914.gi=
-t.mathieu.desnoyers@efficios.com?part=3D32
+Best,
+Gary
