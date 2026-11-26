@@ -1,100 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795719119;
-	b=4dX6cTOI8rEefdVCTsmJI0x/Kyv1oZ0AF3Llsxuch4nyfxf+elhZGaSSCeHI6OBNkQva
-	 hOuBRq6vAgQSWDX8JiDDJrn3om+lwOJ3A+M2BkNlnMCioPbQVPj03RqBzxcizn+sD2zZI
-	 n7J5128sTm5lCXBiDYBDheuc2FB9kTNnFtz2L0qEhcGWA2qW9qHm5NAoRIJ+K+K1yDioN
-	 SLWUeOHB36jxh3PCv+24EmNpHhuQ8L4ROlkDhO0EREsM+X6aUjlbAulnZOXTj2FS1AGEv
-	 rhRbS2tOA2EMLXIQQktcN07GNPw5dFlXq2JVq//5uuTIuczOZrJTzZPiMDbcNG7N19Q==
+	t=1795719138;
+	b=W4ulCDblYu+Jh55NCbT8EmIsMm/Az897z7/3GvCCy5UMQ/V3OlPpw5taOtw18+dx0O9n
+	 Qk0WI8zyuXt05tmgssT0xBG13tgE/KHb5IomGgNkxT5Wfh783CTzMNxaHm8rpf8e4lmH3
+	 RuMiE3jDK/8bCBsdLwzP1bkcLAmzeCgRpN3Q4sy3CyD+yixWrUe8nGqi0Ox3q+QCEP9/o
+	 4qONkRjtbANvR1VpW0gUdZ1LV5irZofOU/5KBTD+TVVSdbboLkTf6j84xH6GWV9OeYLDe
+	 y3FoiI5ZkFNueUvXAd6dByMME1UnwZqa9cuAnYdtVa4k6qIiEmLdCSxcPZi1/TeJ7iw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795719119;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795719138;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=XMYQyEtwx5GngECoxaqxQHLv5tzhAgtmgz3LLMihPqo=;
-	b=26CGAPbWoYECDtEQ3Xl5EhhajofuSqK2qqDkjumyxXRk7pD6+gjUvQE8xH7cC41cGmDb
-	 Lwckb1svwG0O8OVgdAGgN0OjsCHDVP00IqVORLwsugQP2rmxCrEboRNhv6E50cvaX+KZK
-	 8RW4O2UJNI34oqLrYIxfi+KCzdapVW3yr9m/dCOU+QgotJlnDfBfIU97T45ERW1oiQRgn
-	 IQiDMF7tkYQnt4M82GZFzoLicAM3Nu8Lvw02JiwMwy0i9HiZjKunn3GFbMywelCF0v0iT
-	 2Hd4bH54pC4kgHbr3bctgGP1FONd/CSYiEt7mphOlZD+93MyD4qtxVYekUJVRpNKa/w==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=uATH8vRnOCM46AzAoKfdDLMgqNZkAeUKKJE9tEV1q+k=;
+	b=WYM9yIqCyiMp7QAXtWvRug8+xsGSWtiSniySG+39e4gcoNQgoPLxTMGw0Xn0zk1jm7Cj
+	 gaxzc8rMHW+/+3WEz/PolYlydRIdHXMq164+zCyEWBoUOk6YcreBGH0gX7iDJttycFECN
+	 gtq5wa8sI+pT+A49DW5lU9YzRLPS8rRQAhdmhI/TNpFAZLpWcxWR28mk5d/LTS7FoV3V4
+	 wZ46M7keugCU6TTqWCO+x8UyeNVIdzZVLlyxB0rY9LFkuWa7zgXAA+WZNVBvp+lrBA2hF
+	 fmcVOM4fBKTHRAdDqYBhkZIh4j0PZKR269yYQAxyeKCSqE2hpHIaFKGZhwESCIMEp+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eJYXIeGj;
-	arc=none smtp.remote-ip=209.85.214.182
-Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b="BCvxYjq/";
+	arc=none smtp.remote-ip=209.85.221.44
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1880D606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:51:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1880D606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46A49606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:52:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46A49606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eJYXIeGj
-Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2efe591a1f6so24605095ad.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:51:58 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=BCvxYjq/
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-48dfc0421d9so6734465f8f.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:52:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795719118; x=1796323918; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=XMYQyEtwx5GngECoxaqxQHLv5tzhAgtmgz3LLMihPqo=;
-        b=eJYXIeGjpHWGIP0+FDDlb/WL1DED4ZHVzuIZr2Ktc4hVEgvXoidtTh8yy5G50xvolD
-         ZOT6n388P33hHVZXJRz74nZm99jpQ+r3a3/sJCDW+AnW8dYgTUerAEtL+aTOz02t1rrA
-         5ZeRxtpprYoVNMUy/Oyu63ENViLvZo/pSjUkD03IFeI1ukFrq4B7MjRxsm2toS88yMNn
-         NXfJpyeI1Kc+Q7fhBO1xwC1B7mk6Pdz0dM/AvdnEN2SO71hbH8qHnlpwJNvDcnxYAqy5
-         HmMdn0BmWjBTBno0cL64EyKCjkgQl7GXgXh81B4V7ybQub/tSNIyPKwLubqXT3410elp
-         66YQ==
+        d=suse.com; s=google; t=1795719136; x=1796323936; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=uATH8vRnOCM46AzAoKfdDLMgqNZkAeUKKJE9tEV1q+k=;
+        b=BCvxYjq/lDUy+l3sq4k+8PvJ0G2hgILOxiPdEwkbPqSz80CG4ZdXZPA0AjI9kkWNBf
+         ekoLlJRnCXL2Cfx+PJ5IUZTtoC0aqtyTsTxL1OvqjhPdcnruLH2/V1Jh0SzS+uIYJuj1
+         82J7xKDRFTymWjyVwosnvDVNPE3gymrlawF2fRhCQeJQXeaHf37pGCobk7ccLdtL04V2
+         uscMplaCrQm7S1wOwSFgnQa/oAg15vLthzGrcIW87hcLv5N5M+Mejyf7tpHi/B1vWksU
+         Gu4Xxb7RLnWkq5oXjyBbhKi8gbhaZY7b029LjGqhOU8ROLMo2nLjpPCrrYEhl6hnKMro
+         T6+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795719118; x=1796323918;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=XMYQyEtwx5GngECoxaqxQHLv5tzhAgtmgz3LLMihPqo=;
-        b=k9gJTbjlmu8I8xBq4bUvPz6stQGOwXyEQrYh5Nj17zEWENoPPhmhejM59hMKlAIEoq
-         AUyUj9UP4iikcN2qNh/5504coYLvMniD711vHU4mS+++Rt7o09G7jkebaWk2lNUnvDd6
-         T/bPvsbjDJ0Vp0u3rd1bBdslc2g+62KnylrY1HtoqlY1pFFe0YX8JW5bB9h4iRgOvd86
-         8ePhbDUiEg8YZFda1i/tHi5t5jG2cM8dZz44PYpMmyFD+Pu+4QtXZDfDKrql+psf125z
-         WH/N3th5cvH6t82VeyKDjpLJ2TN/N6BTm0bBWsv4A43tvvqq5Bvjf4P3I0KKq1RAWfWn
-         tKCA==
-X-Forwarded-Encrypted: i=1; AL+hErHWrflmWUT7Z9ZajB2GIDnbTkIOOeK6pvwL+PuHXqiT+jCtnKZ4F5zd8JmsczGBmoMkL+8oXWcXTtj//N4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8npS/G10Q4LuwsIcimfjDuGpgJlW8lrYeLOZfwrLqieJEZw7+/
-	6De8hKMM4nxsX/ytrA9Qp2jgcJ78hzgu11BiICKAnGtYSRlz1moSl9kp
-X-Gm-Gg: AZFdTZeghPPo+rpqECWRagxdnxBvv+3c0ooC8PGtYZwrCgxdVqI5zuHkIat6K6TNIqz
-	88H+DS7wzDXrzN4QIqiFHcANCvAwWC0Fwr+hDIBfwLAjfo4kXk7u+IIBfRDZ8VitD5w6K2Fe0ib
-	R4hzE6mbBR3Fx45w2wfY6mlhs0XuN3Sjcz8++7krFJrfLS0JW4fzdoxabmY7mD7oK0VUAR4StTc
-	PF8vi8Xd9IBZDKS9wnvMHt9tqN/OPIQPz4XTrWzCevLPgn5NkJG/LNSlM5+KPgzg4Nb1bO5m63c
-	CjrH0gExQao/lVLF2+1nzDWase4jBw1cDTbWmwUr+gCFzDRKzYmlxft1xUzZ1vd5o0RbpF9/5GY
-	dHkHjLYf+0mAMHB7Z9r3ebVYUFMqCmyB39sTw6Jqwh/ir+9lIqbiPVcmmBf1sDVmyYGIsZQjbrd
-	8CgY61yOfaDmpB1YDCgrvOJ6WEOBMagksRxUWettiEew+bzfAip7GMXpL3zEr9EAI4MXd04xUIf
-	Y1mdtZ66EvxQTPIoGAQKvviyDgCSHnHuEPas7L2PQK56plBPAv90ijnvuskQo/5Sml0q3B7qeeq
-	RuznhFIj4Hz8ernn2iAUbnovZMauUrTEoTDEyqqMcLSBhfskKJAfwIYCrjQsXp91wnWUs6kWagG
-	YPtLV5QBDDuPOz9jCgglUEWA=
-X-Received: by 2002:a17:902:fc85:b0:2f0:3956:99a with SMTP id d9443c01a7336-2f03ef861cemr207485285ad.7.1795719118446;
-        Thu, 26 Nov 2026 10:51:58 -0800 (PST)
-Received: from visitorckw-work01.c.googlers.com.com (55.11.81.34.bc.googleusercontent.com. [34.81.11.55])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f1276c5sm112041665ad.67.2026.11.26.10.51.54
+        d=1e100.net; s=20260707; t=1795719136; x=1796323936;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=uATH8vRnOCM46AzAoKfdDLMgqNZkAeUKKJE9tEV1q+k=;
+        b=wbcn8VSTlQLH/3jKk1WP9QTC4GPmNQXS6JC2D0n+oKT1lRii9iWbHJVoyvQJLZAXuK
+         rmh6Th8gWHnoTFZXebuIWX35d52hU+0zCxMsm3iEHRWaflr4W8AHuwZo9xLRdimmJoal
+         OQ7sp8owcSpk0dsc6PfKpzK+PAHcSFtfHI6eI86IutoypfVnzubQ6enobWM7W4kh1zMC
+         Ljs3EiQu6Gm6Voc+4f7qdX+LMTsuzjYatX1xYBYuwPefu7VquoefNPB4CmiB3RI/GkR8
+         6Za2xwActC5mIoX9w0oHtMZFh0+YLDqzFoFV1LCjDk3vnw6uYAx98r12IYZhb7qIWHOR
+         6xEw==
+X-Forwarded-Encrypted: i=1; AL+hErGW5NlTFTZUxZonw11QTOjshCh8dVHDC+ZJzFHeAzzW6yKgOrlIouUh/cMPqSEiKplcxAN2LNqYIpSw1rg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Z7Rql2gBQEne8BZM4JOddVNjS0nYG4gwRCCrsebjkYfdRvRni
+	xNyWuvPUxfPEMXAv5aepczI8HxbMQW52iUdXOrBgA40/7W3IUTCMNrENwC4MTRCUACk=
+X-Gm-Gg: AZFdTZdTrXzCkEvaYMlWRaojPKk2hmzaSNscBrgYOQiK/Xmmj+iYpXx4rxMz/WX8Z4+
+	QHEMYiiJfEtiU9L6tisyLenqNyUHNjItRXu1VoRQrAzhWgvh/7YeIyzDLpZYhzuGG0uJOUZ4aAa
+	0L3xrtRqLh3WwSHYULVqojxsrCt1DzgVBUyU6nyRbg8blByUx3PLL8WnxL6FX78Y84TOl/s/dq4
+	tWzm+RF0B0C4W2L/dp69cg6iUds+a9fJcCTyi3jfLpm8L/NzSPna/FlJHDosgJEhmG3QjnjI99Y
+	XdTuQM+Z0JFymeBEoNJvOY/Uy6Et9ZfUYKWxyZh2qeY2L4ralvISp0SPTxwM8vWj6pk4i0NGcMp
+	r9rSeOIgjXBmUHheFZGBmEBxpdEBX3ddqI/PKLShpBSYRIp7soAn3VPX35qa4u7Oj4+dol7zuMg
+	cLlXInPPciQG1qXT4hERvoCyQuyP/DzBdti11Fv0CSH2eqbs2p2vA2uXaKUF+jOvFkVmWWZvVWf
+	UnnPvyCMLsu7+y/qBlzFRzE6MRKYd4PlmxY7jl9dvLtVPfU8hRDXFXp4DkGqrWbbrx1fEfLhC/y
+	5Tc9w3H/etC9mmB0+JayOFt5nzsurxI=
+X-Received: by 2002:a05:600c:5307:b0:4a3:d327:6ed with SMTP id 5b1f17b1804b1-4bb888283d8mr435462125e9.17.1795719135509;
+        Thu, 26 Nov 2026 10:52:15 -0800 (PST)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853b2437sm870851845e9.13.2026.11.26.10.52.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 10:51:57 -0800 (PST)
-From: Kuan-Wei Chiu <visitorckw@gmail.com>
-To: geert@linux-m68k.org,
-	tglx@kernel.org
-Cc: radu@rendec.net,
-	marscheng@google.com,
-	eleanor15x@gmail.com,
-	jserv@ccns.ncku.edu.tw,
-	linux-kernel@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org,
-	Kuan-Wei Chiu <visitorckw@gmail.com>
-Subject: [PATCH v2 7/7] MAINTAINERS: Update maintainer for goldfish PIC driver
-Date: Thu, 26 Nov 2026 18:51:20 +0000
-Message-ID: <20261126185120.3815699-8-visitorckw@gmail.com>
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-In-Reply-To: <20261126185120.3815699-1-visitorckw@gmail.com>
-References: <20261126185120.3815699-1-visitorckw@gmail.com>
+        Thu, 26 Nov 2026 10:52:15 -0800 (PST)
+Date: Thu, 26 Nov 2026 19:52:12 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: binoy@vt.edu
+Cc: "Paul E. McKenney" <paulmck@kernel.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang@linux.dev>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Miroslav Benes <mbenes@suse.cz>,
+	Joe Lawrence <joe.lawrence@redhat.com>, Song Liu <song@kernel.org>,
+	Ingo Molnar <mingo@kernel.org>, Jiri Kosina <jikos@kernel.org>,
+	rcu@vger.kernel.org, linux-kernel@vger.kernel.org,
+	live-patching@vger.kernel.org, Yafang Shao <laoar.shao@gmail.com>,
+	Jaidev Shastri <jaidevshastri@vt.edu>
+Subject: Re: [PATCH v4 1/3] rcu-tasks: Add helpers to visit tasks on the exit
+ lists
+Message-ID: <awh_3OkWvI7dIRA-@pathway.suse.cz>
+References: <20261126-klp-series-v3-v4-0-2ad73e9c9254@vt.edu>
+ <20261126-klp-series-v3-v4-1-2ad73e9c9254@vt.edu>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,31 +113,144 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261126-klp-series-v3-v4-1-2ad73e9c9254@vt.edu>
 
-Miodrag Dinic's email address bounces. Take over maintainership of the
-goldfish PIC driver and change the status from Supported to Maintained.
+On Thu 2026-11-26 11:41:32, Binoy Ravindran via B4 Relay wrote:
+> From: Binoy Ravindran <binoy@vt.edu>
+> 
+> A task joins its CPU's RCU-tasks exit list in exit_tasks_rcu_start(),
+> before exit_notify() unhashes it from the task list, and leaves it in
+> exit_tasks_rcu_finish(), after do_exit() has disabled preemption for the
+> final switch. Once exit_notify() has unhashed it, the task is no longer
+> found by for_each_process_thread(), but it still runs do_exit() and may
+> sleep there. Code that must reach every task that can still be
+> descheduled, such as the livepatch transition, has no way to find it.
+> 
+> Add two helpers. rcu_tasks_visit_exiting() calls a function on each
+> task on the exit lists under the list locks, without allocating.
+> rcu_tasks_snapshot_exiting() copies the tasks into a caller-supplied
+> array with a reference held on each, for callers that must sleep or take
+> other locks while examining them. Without CONFIG_TASKS_RCU there are no
+> exit lists, and the helpers do nothing.
 
-Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
----
- MAINTAINERS | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Nit: I would be nice to make the commit messages better human readable.
+     The dense paragraphs generated by AI are not easy to read. I mean
+     something like:
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index f6c37e1dbee7..b69c1a334587 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2000,8 +2000,8 @@ F:	Documentation/netlink/specs/binder.yaml
- F:	drivers/android/
- 
- ANDROID GOLDFISH PIC DRIVER
--M:	Miodrag Dinic <miodrag.dinic@mips.com>
--S:	Supported
-+M:	Kuan-Wei Chiu <visitorckw@gmail.com>
-+S:	Maintained
- F:	Documentation/devicetree/bindings/interrupt-controller/google,goldfish-pic.yaml
- F:	drivers/irqchip/irq-goldfish-pic.c
- F:	include/linux/irqchip/irq-goldfish-pic.h
--- 
-2.56.1.839.g22a8290db9-goog
+Add two helpers:
 
+  1. rcu_tasks_visit_exiting() allows to do a quick operation on
+     all exiting processes. It will be needed, for example, for...
+
+  2. rcu_tasks_snapshot_exiting() ...
+
+
+> rcu_tasks_postscan() keeps its place in an exit list with a bare
+> list_head while it drops the lock to reschedule, relying on nobody else
+> traversing the list. Move that cursor into struct rcu_tasks_percpu,
+> next to the list it marks, so that the new helpers can recognize and
+> skip it. Only the grace-period kthread runs postscan, one CPU's list at
+> a time, so one cursor per CPU suffices.
+> 
+> --- a/kernel/rcu/tasks.h
+> +++ b/kernel/rcu/tasks.h
+> @@ -33,6 +33,8 @@ typedef void (*postgp_func_t)(struct rcu_tasks *rtp);
+>   * @barrier_q_head: RCU callback for barrier operation.
+>   * @rtp_blkd_tasks: List of tasks blocked as readers.
+>   * @rtp_exit_list: List of tasks in the latter portion of do_exit().
+> + * @rtp_exit_cursor: Placeholder that rcu_tasks_postscan() parks on @rtp_exit_list
+> + *	while it drops the lock, so that exit-list walkers can skip it.
+>   * @cpu: CPU number corresponding to this entry.
+>   * @index: Index of this CPU in rtpcp_array of the rcu_tasks structure.
+>   * @rtpp: Pointer to the rcu_tasks structure.
+> @@ -49,6 +51,7 @@ struct rcu_tasks_percpu {
+>  	struct rcu_head barrier_q_head;
+>  	struct list_head rtp_blkd_tasks;
+>  	struct list_head rtp_exit_list;
+> +	struct list_head rtp_exit_cursor;
+>  	int cpu;
+>  	int index;
+>  	struct rcu_tasks *rtpp;
+> @@ -1068,7 +1071,6 @@ static void rcu_tasks_postscan(struct list_head *hop)
+>  		struct rcu_tasks_percpu *rtpcp = per_cpu_ptr(rcu_tasks.rtpcpu, cpu);
+>  		struct task_struct *t;
+>  		struct task_struct *t1;
+> -		struct list_head tmp;
+>  
+>  		raw_spin_lock_irq_rcu_node(rtpcp);
+>  		list_for_each_entry_safe(t, t1, &rtpcp->rtp_exit_list, rcu_tasks_exit_list) {
+> @@ -1081,14 +1083,15 @@ static void rcu_tasks_postscan(struct list_head *hop)
+>  				continue;
+>  
+>  			// Keep our place in the list while pausing.
+> -			// Nothing else traverses this list, so adding a
+> -			// bare list_head is OK.
+> -			list_add(&tmp, &t->rcu_tasks_exit_list);
+> +			// The cursor lives in rtpcp so that the exit-list
+> +			// visitors can recognize and skip it.
+> +			list_add(&rtpcp->rtp_exit_cursor, &t->rcu_tasks_exit_list);
+>  			raw_spin_unlock_irq_rcu_node(rtpcp);
+>  			cond_resched(); // For CONFIG_PREEMPT=n kernels
+>  			raw_spin_lock_irq_rcu_node(rtpcp);
+> -			t1 = list_entry(tmp.next, struct task_struct, rcu_tasks_exit_list);
+> -			list_del(&tmp);
+> +			t1 = list_entry(rtpcp->rtp_exit_cursor.next, struct task_struct,
+> +					rcu_tasks_exit_list);
+> +			list_del(&rtpcp->rtp_exit_cursor);
+>  			j = jiffies + 1;
+>  		}
+>  		raw_spin_unlock_irq_rcu_node(rtpcp);
+> @@ -1332,6 +1335,60 @@ void exit_tasks_rcu_finish(void)
+>  	raw_spin_unlock_irqrestore_rcu_node(rtpcp, flags);
+>  }
+>  
+> +/*
+> + * Call fn on every task on the exit lists, in place, with the per-CPU list
+> + * lock held and interrupts disabled. fn must not sleep. Does not allocate.
+> + * These are the tasks that have passed exit_tasks_rcu_start() but not
+> + * exit_tasks_rcu_finish(). Once exit_notify() has run they are no longer on
+> + * the task list, but they still run do_exit() and may sleep there.
+> + */
+> +void rcu_tasks_visit_exiting(rcu_tasks_exiting_fn_t fn, void *arg)
+> +{
+> +	int cpu;
+> +	unsigned long flags;
+> +	struct task_struct *t;
+> +
+> +	for_each_possible_cpu(cpu) {
+> +		struct rcu_tasks_percpu *rtpcp = per_cpu_ptr(rcu_tasks.rtpcpu, cpu);
+> +
+> +		raw_spin_lock_irqsave_rcu_node(rtpcp, flags);
+> +		list_for_each_entry(t, &rtpcp->rtp_exit_list, rcu_tasks_exit_list) {
+> +			if (&t->rcu_tasks_exit_list == &rtpcp->rtp_exit_cursor)
+> +				continue;
+> +			fn(t, arg);
+
+Is it acceptable to process all entries while keeping the raw_spin_lock()?
+
+rcu_tasks_postscan() contains the trick with the @tmp/@rtp_exit_cursor
+list_head to be able to release the spin lock while walking the list.
+
+You might argue that our fn() is short. But rcu_tasks_postscan() calls
+rcu_tasks_pertask() in the loop and it seems to be quite simple as well.
+
+IMHO, a better approach would be to make rcu_tasks_postscan() generic
+function to do an operation on the rcu_tasks_exit_list and release
+the spin lock regularly. The operation should be defined via a *fn
+passed as a parameter.
+
+I mean to allow to use the same RT-friendly for-cycle in both RCU
+and livepatching code paths.
+
+We might need more cursors. One for the RCU code path and
+another for the livepatching code path.
+
+It will be tricky. But it will remove the hack with copying the list
+of exiting processes into a temporary allocated array. The allocation
+and copying is problematic on its own. IMHO, it might cause a livelock
+when many processes are exiting...
+
+Best Regards,
+Petr
