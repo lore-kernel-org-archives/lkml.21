@@ -1,60 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795692737;
-	b=bcvCSsaJn/cpIEuWblszY2RhPXFylVlpp9bAVu3RTTVRSZk+UcQbJaK4DyA63V1IUoBW
-	 kG5B474By4f6n6UmhoJWivQ2vXo/qTni0P4A4ttTmzvqC46CLM7VoH+oMCqQDK73bq56A
-	 fWxA79Xir8ggnDpeU84wxd0mTji4erBAeDw6svczRGocE1jC+cYr1EajJWSKFr//tdrMf
-	 gr7PccuOu3YhMkKvbS+K0pTWPho2gCFY2vV+SJxkPeDPdH4HMHYFRpOSGA8pmBY0hsJU8
-	 jmHwiZmjZKYY7GDIA7jmbElgtZ37FXRxxQsKb/N0gIVH8J/xiL0azi/h4sby2LW77Zg==
+	t=1795692739;
+	b=DVXbT4o6wmBGPG5oyThxGCPmzO47B2xv/7CdVwmLB6ifjVSkAPVbTxWqKI8KRMYdoMn5
+	 YEuAv9lx7YGxcd08uiSv5szTjtSnaU9CNwsNPKylQqFFHcpmtO3diytHLIbsZC2xkaeJq
+	 CgEwGyw412XCKPQjx1R33cuD8hOJawegvvwhhP7vrI6YA5xh68ZrZrSuC0g2zyB5XN7yh
+	 p3ThYO1OplqqK4wO58ZhWHzlXQPl75MvoRpdOq5teAfm7uz5yIfT/eYtvYg60YL4VN567
+	 lRjjZqJ+BXEc3UwJ51YNsY+jSKxpriUUFmhTBM4yaUmtbySUt7WWaB60UrIqUAAdoTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795692737;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Last-TLS-Session-Version;
-	bh=d8aiIbnW5Anzz5aw+58qa6capVoPwKpSglvyhu5uxaM=;
-	b=cz5IpXjQwOC/pTkqSpW1iIPyN53mIPAhqi2WDQio6aNIqquFdyX8AVEIpMeTOD4Ziwa+
-	 kgwde2T4A9KzQSo+N4GTaQrhGxAAJW+Ss22kpT7c3Tr/M8bp2ccbw7WRngw+VBPnorMZY
-	 sbN/PGul/UmTzgoev4+yDqFJ+pM7ow/oTGx2LVoutxDdQeBqkFkFv3+RoAieoJjSkW97v
-	 10X9CMHsTgcDuW2dbnmSIpGR3le13IXw/uyv8g5Khi4UCjwsTqqfzcrzNpDt3Gi3ABw9/
-	 6XiuZRbQpkl5P7pO1s5swKCiSaUKg13SgnA60EMNdRYoNbvkW26A73UnhbWeq/yqKSA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795692739;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=eZHk0lUewvFPiZ+U/CMb2apduCb+QafvCAoyz+WUt1I=;
+	b=H9+JA2prvjcTlXT+NhufYO/bqD8WXhziVX8R91RZ8yFijz9OcsV/xlook+RqxQQQKJbX
+	 o+Una2yE44PvE3OhCG4Bm2GgB4/nbtSzN55haeqaebQUVsuZkSIt4XLn4D2smkMpYaW/B
+	 DTwmymKqzOCXwqTS1Z5aogSyBuF6dxaPAcgXiQYswm+4CF1k3k1VkumisdTb7tm01Lupy
+	 R7qWI/MAJF4aJEtFFzHDQRqpe4hiZ71wU9EceXk7FV8gdLOoTwN0PIzZt0Gptr3f2Vw+r
+	 mOXRB4fvfFJxDLkATBeCO5LWcJbnPBUroNBf+Wxpjqu68NW4t46H0IXjZYkTwe6LdsQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=mHIfgX9N;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XTtbtpV1;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b="A/2hT5d9";
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AAF3D606A685
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:32:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AAF3D606A685
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC7D2606A68D
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:32:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC7D2606A68D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=mHIfgX9N
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 59B7C1A1808;
-	Thu, 26 Nov 2026 11:32:15 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 268E160237;
-	Thu, 26 Nov 2026 11:32:15 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 21B6C11E6B324;
-	Thu, 26 Nov 2026 12:32:09 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795692733; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=d8aiIbnW5Anzz5aw+58qa6capVoPwKpSglvyhu5uxaM=;
-	b=mHIfgX9NIptIPxnelWvrb+nx8FI1JEpCxUlm6FPKflgjNDvdsKXm7OTLHTXBvGmQBc9J8u
-	CdtnZ3vKpBY8pg/ySlR0G9QOEyUwvJKVyDoUwNUwDiZu1MQ771CTiPPecxowj3GM1tZvnJ
-	v4bFlDFVy4TAOvmmJoXaNykHR5hL48zxFDHCfzJA2qJY+AJnLj9/26iescz3QZD3QU0ylv
-	pl8SIy6zs8nnwpaxtDneZFwTaNFB72HD5OdSHE6YTjyOKVtYTSoEXfEzatduQD8i+zDBW8
-	HgJ/Kn2T0t2marGzMP09y+oqjrP+dxferLbD6gBt8Vq28caEtt7h3Tyj2DVTsw==
-From: Louis Chauvet <louis.chauvet@bootlin.com>
-Date: Thu, 26 Nov 2026 12:29:12 +0100
-Subject: [PATCH v7 29/43] drm/vkms: Introduce configfs for plane zpos
- property
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XTtbtpV1;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=A/2hT5d9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795692737;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=eZHk0lUewvFPiZ+U/CMb2apduCb+QafvCAoyz+WUt1I=;
+	b=XTtbtpV1AeV7exlpc4R6znWMAbNguXi/1BmVpB/f37GBtkAxGS60Fcyz2SEvmMBtnDcS//
+	FuJcJoB+V/+0euKn1nYa+OmuTuSjqp2+bNaGTJQk9CEI73fO2TW6kIb23FtrkxGEvBwYZg
+	MJPqx6QFSJLrxFURgOycEup0BFTvZtQ=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-282-SoHd0X5TPHW_m2pYrKnu2g-1; Thu, 26 Nov 2026 11:32:15 +0000
+X-MC-Unique: SoHd0X5TPHW_m2pYrKnu2g-1
+X-Mimecast-MFC-AGG-ID: SoHd0X5TPHW_m2pYrKnu2g_1795692735
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-4a647e776b4so5280118f8f.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:32:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795692735; x=1796297535; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=eZHk0lUewvFPiZ+U/CMb2apduCb+QafvCAoyz+WUt1I=;
+        b=A/2hT5d971fEEgcxRU8UciKIPLvu2F38OKKOaR7oU4K+cWGmsn+g25d7hz8++QRdAv
+         Y2cUsvPNI3zcqwLm9vGTdueFRvWAC2uA3ljdb8tEWZqchCL6kBaSYoSvdXmRfdYZyO5B
+         B5hDP4A1VgDR2x/bVBO0Uou52LPba90yg7c08tDOBlHvYGpa3Un365wQ2RgnFHNTcBb/
+         AMvgQTDf18h74SSt2BierG2brTy5amSOQ0GSGnvFTnQ4reptuU+s2x3OsdLDyosjABT3
+         dLKdXuKJefDCRBF8G7Os8o7qGKKff9uSSbP7hceJtHCwTJdwijfFuBbXkiXAaNJa9x0V
+         MEKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795692735; x=1796297535;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=eZHk0lUewvFPiZ+U/CMb2apduCb+QafvCAoyz+WUt1I=;
+        b=toZTNeGJgc0Kiotb8nNT5pbR/dvjsiOA6BxxBbatNehN0YV+VJ4Nyg8+XgQDVRdc0H
+         09aCp0IWXsMYHAA4MPLZ3FvqDdVo3cID05uskVXY8lwXX5WAPq3iUpXL74U84+S9CxpF
+         AkzMN7dRQDX5maR8kAOT4CHgI3AcSdo1BpoHIftUCebwYeHikSa5pYaYwbBlgwP4LDNR
+         Q37PRVM5oYf3YSv40R/TXrFP4IF/D+nyMuJugvUo0kxxxku4ft1vTMDFIGTcq3K2W3YE
+         J1OEPT8FA7WtNXgRy+AVrXPo6lppy7N4eTifxUJGtUtCiJr0S48R6XlS4P5Vwlo1ZJVg
+         nMXg==
+X-Forwarded-Encrypted: i=1; AL+hErGJ63ZwgE0G9ouH/EHEkdo3Iik5bOBaZleOLpWOuCqRebybzmfCaCZVugb4O9ejFjnnswVhP34SQk4ykRw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9bWydbuhkHg+p5hkovFAxtQiRUC31KE6FIvKE8g/PXiIdwVwBX
+	y33RqNGWBiKUxwYHnTaBs0ncavmKMMYiRteWUdRQAgh4jJ964239CdUvCygt4SaJoLdj2eZGfJP
+	jZzMDSdlAfgrwAEjOak6IlmHVl8I+eR+USaxRAFsFi9/bZaULqHnfJMCBO+pRcLG3ww==
+X-Gm-Gg: AZFdTZc4nvfaKb2l4o6nCe8qUrUDNtDCicpDS+aHc9Xc+RhGXrp9rB54ViaXrucuXL2
+	A5L3FyK5ZBHwlD0S+UBApKY71e3YI3+6tOz0VVMNf6F5aFZUZ6iWFfVn0BNTBp0mjkdHR/kIA0V
+	wgi6w3+Q7D26HHcWhWtrJMzjmuMZE2EQ3QD/Nf+DqfWBa8fSmIkdRo/2d+DY+J6Fqi+ONtL93CB
+	PCPfgU6RhLXTTX5bQ/QLos5/a5qCXw7behD4DY/lHTS6G2ae+21CINZg0iWFiKOs7T6LkM8M8Cr
+	bXwje47/ZMgbtWQhQSbMyJNXkbpMohtD2i8a4Lk17qIvSyQIlp4kMt8uBN6qVMcs8lvvH3wP3Ik
+	4f5FCx1JaCp7LdUz3K+YU5WuJlgvvKdqDg97t3We1OITRxnluFR2+r97M5zGDrdzEOJ3qvU+gjv
+	uJlQhfamPrz5fglJLA7jMFdJDwx193DK8+juOKIkd8NhuL
+X-Received: by 2002:a5d:5888:0:b0:48c:4a62:9af7 with SMTP id ffacd0b85a97d-4abb70d6148mr36056421f8f.28.1795692734681;
+        Thu, 26 Nov 2026 03:32:14 -0800 (PST)
+X-Received: by 2002:a5d:5888:0:b0:48c:4a62:9af7 with SMTP id ffacd0b85a97d-4abb70d6148mr36056360f8f.28.1795692734155;
+        Thu, 26 Nov 2026 03:32:14 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c4353d6sm38692194f8f.56.2026.11.26.03.32.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 03:32:13 -0800 (PST)
+Message-ID: <5c2785c2-d041-4a8d-bf1b-4c2eab47b888@redhat.com>
+Date: Thu, 26 Nov 2026 12:32:11 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,376 +112,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v5 06/14] net: pse-pd: check the PI state under the
+ lock when setting a power limit
+To: Carlo Szelinsky <github@szelinsky.de>,
+ Kory Maincent <kory.maincent@bootlin.com>,
+ Oleksij Rempel <o.rempel@pengutronix.de>
+Cc: netdev-bot+sashiko@kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Simon Horman <horms@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Kyle Swenson <kyle.swenson@est.tech>, Ross Cawston <ross@r-sc.ca>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <c84543f7-b824-4da8-9f8a-8e15d8f89140@bootlin.com>
+ <20261120100851.2377899-1-github@szelinsky.de>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20261120100851.2377899-1-github@szelinsky.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-vkms-all-config-v7-29-21194cda2468@bootlin.com>
-References: <20261126-vkms-all-config-v7-0-21194cda2468@bootlin.com>
-In-Reply-To: <20261126-vkms-all-config-v7-0-21194cda2468@bootlin.com>
-To: Haneen Mohammed <hamohammed.sa@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Melissa Wen <melissa.srw@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, jose.exposito89@gmail.com, 
- Jonathan Corbet <corbet@lwn.net>, Oarora Etimis <oaroraetimis@gmail.com>, 
- Harry Wentland <harry.wentland@amd.com>, 
- Lucas De Marchi <demarchi@kernel.org>, 
- =?utf-8?q?Ville_Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>, 
- Randy Dunlap <rdunlap@infradead.org>, 
- Nick Desaulniers <ndesaulniers@google.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>, 
- Shuah Khan <skhan@linuxfoundation.org>, Miguel Ojeda <ojeda@kernel.org>, 
- Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Kory Maincent <kory.maincent@bootlin.com>, sebastian.wick@redhat.com, 
- victoria@system76.com, thomas.petazzoni@bootlin.com, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-doc@vger.kernel.org, llvm@lists.linux.dev
-X-Mailer: b4 0.17-dev
-X-Last-TLS-Session-Version: TLSv1.3
 
-Modern compositor rely on zpos management to offload some processing to
-deticated hardware. In order to test multiple configurations, add zpos
-configuration to configFS.
+On 11/20/26 11:08, Carlo Szelinsky wrote:
+> On Fri, 20 Nov 2026 10:32:01 +0100, Kory Maincent wrote:
+>> You have my R-by on all the series so we can only wait for a net
+>> maintainer to take it. Jakub, Paolo, would it be possible to take it?
+> 
+> Thanks Kory for the quick reply, I appreciate it! I am looking forward
+> to Jakub's and Paolo's feedback.
+The series LGTM, but is quite big and AFAICS fixes issues mostly
+present from the beginning and affecting the device initialization
+/tear-down.
 
-Introduce multiple attributes to configure zpos:
-- zpos_enabled - Create or not the zpos property. If not created, the zpos
-  is undefined.
-- zpos_mutable - If the zpos property is created, allow or not the
-  userspace to modify it
-- zpos_initial - Initial value for zpos property. Must be between zpos_min
-  and zpos_max
-- zpos_min - Minimum zpos value for this plane. Must be <= zpos_max
-- zpos_max - Maximum zpos value for this plane. Must be >= zpos_min
+At this point of the cycle the above does not qualify anymore as 'net'
+material. I'm applying this to net-next.
 
-Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
----
- Documentation/ABI/testing/configfs-vkms |  36 +++++++
- Documentation/gpu/vkms.rst              |   9 +-
- drivers/gpu/drm/vkms/vkms_configfs.c    | 180 ++++++++++++++++++++++++++++++++
- drivers/gpu/drm/vkms/vkms_plane.c       |  19 ++--
- 4 files changed, 237 insertions(+), 7 deletions(-)
-
-diff --git a/Documentation/ABI/testing/configfs-vkms b/Documentation/ABI/testing/configfs-vkms
-index 312631d12985..2db0c950adc4 100644
---- a/Documentation/ABI/testing/configfs-vkms
-+++ b/Documentation/ABI/testing/configfs-vkms
-@@ -174,6 +174,42 @@ Description:
- 	the driver, '-*' to remove all. Reading returns the
- 	supported formats, one fourcc code per line.
- 
-+What:		/sys/kernel/config/vkms/<device>/planes/<plane>/zpos_enabled
-+Date:		Nov 2025
-+Contact:	dri-devel@lists.freedesktop.org
-+Description:
-+	Enable or disable the zpos property. Value: 1 - enabled,
-+	0 - disabled.
-+
-+What:		/sys/kernel/config/vkms/<device>/planes/<plane>/zpos_mutable
-+Date:		Nov 2025
-+Contact:	dri-devel@lists.freedesktop.org
-+Description:
-+	Create the zpos property as mutable or immutable.
-+	Value: 1 - mutable, 0 - immutable. No effect if
-+	zpos_enabled is not set.
-+
-+What:		/sys/kernel/config/vkms/<device>/planes/<plane>/zpos_initial
-+Date:		Nov 2025
-+Contact:	dri-devel@lists.freedesktop.org
-+Description:
-+	Set the initial zpos value. Must be between zpos_min
-+	and zpos_max. No effect if zpos_enabled is not set.
-+
-+What:		/sys/kernel/config/vkms/<device>/planes/<plane>/zpos_min
-+Date:		Nov 2025
-+Contact:	dri-devel@lists.freedesktop.org
-+Description:
-+	Set the minimal zpos value. No effect if zpos_enabled
-+	is not set.
-+
-+What:		/sys/kernel/config/vkms/<device>/planes/<plane>/zpos_max
-+Date:		Nov 2025
-+Contact:	dri-devel@lists.freedesktop.org
-+Description:
-+	Set the maximal zpos value. No effect if zpos_enabled
-+	is not set.
-+
- What:		/sys/kernel/config/vkms/<device>/planes/<plane>/possible_crtcs
- Date:		Nov 2025
- Contact:	dri-devel@lists.freedesktop.org
-diff --git a/Documentation/gpu/vkms.rst b/Documentation/gpu/vkms.rst
-index e5280a99eee8..b58e96a3c273 100644
---- a/Documentation/gpu/vkms.rst
-+++ b/Documentation/gpu/vkms.rst
-@@ -87,7 +87,7 @@ Start by creating one or more planes::
- 
-   sudo mkdir /config/vkms/my-vkms/planes/plane0
- 
--Planes have 8 configurable attributes:
-+Planes have 13 configurable attributes:
- 
- - type: Plane type: 0 overlay, 1 primary, 2 cursor (same values as those
-   exposed by the "type" property of a plane)
-@@ -113,6 +113,13 @@ Planes have 8 configurable attributes:
-   To remove a format, use a minus and its fourcc: -XR24
-   To add all formats use +*
-   To remove all formats, use -*
-+- zpos_enabled: Enable or not the zpos property: 1 enable, 0 disable
-+- zpos_mutable: Create the zpos property as a mutable or imutable property: 1 mutable,
-+  0 immutable. No effect if zpos_enabled is not set.
-+- zpos_initial: Set the initial zpos value. Must be between zpos_min and zpos_max. No
-+  effect if zpos_enabled is not set.
-+- zpos_min: Set the minimum zpos value. No effect if zpos_enabled is not set.
-+- zpos_max: Set the maximum zpos value. No effect if zpos_enabled is not set.
- 
- Continue by creating one or more CRTCs::
- 
-diff --git a/drivers/gpu/drm/vkms/vkms_configfs.c b/drivers/gpu/drm/vkms/vkms_configfs.c
-index 9f24e9e6ed6d..1390f6084c19 100644
---- a/drivers/gpu/drm/vkms/vkms_configfs.c
-+++ b/drivers/gpu/drm/vkms/vkms_configfs.c
-@@ -659,6 +659,176 @@ static ssize_t plane_supported_formats_store(struct config_item *item,
- 	return (ssize_t)ret_count;
- }
- 
-+static ssize_t plane_zpos_enabled_show(struct config_item *item, char *page)
-+{
-+	struct vkms_configfs_plane *plane;
-+	bool enabled;
-+
-+	plane = plane_item_to_vkms_configfs_plane(item);
-+
-+	scoped_guard(mutex, &plane->dev->config->lock)
-+		enabled = vkms_config_plane_get_zpos_enabled(plane->config);
-+
-+	return sprintf(page, "%d\n", enabled);
-+}
-+
-+static ssize_t plane_zpos_enabled_store(struct config_item *item, const char *page,
-+					size_t count)
-+{
-+	struct vkms_configfs_plane *plane;
-+	bool enabled;
-+
-+	plane = plane_item_to_vkms_configfs_plane(item);
-+
-+	if (kstrtobool(page, &enabled))
-+		return -EINVAL;
-+
-+	scoped_guard(mutex, &plane->dev->config->lock) {
-+		if (plane->dev->enabled)
-+			return -EBUSY;
-+
-+		vkms_config_plane_set_zpos_enabled(plane->config, enabled);
-+	}
-+
-+	return (ssize_t)count;
-+}
-+
-+static ssize_t plane_zpos_mutable_show(struct config_item *item, char *page)
-+{
-+	struct vkms_configfs_plane *plane;
-+	bool mutable;
-+
-+	plane = plane_item_to_vkms_configfs_plane(item);
-+
-+	scoped_guard(mutex, &plane->dev->config->lock)
-+		mutable = vkms_config_plane_get_zpos_mutable(plane->config);
-+
-+	return sprintf(page, "%d\n", mutable);
-+}
-+
-+static ssize_t plane_zpos_mutable_store(struct config_item *item, const char *page,
-+					size_t count)
-+{
-+	struct vkms_configfs_plane *plane;
-+	bool mutable;
-+
-+	plane = plane_item_to_vkms_configfs_plane(item);
-+
-+	if (kstrtobool(page, &mutable))
-+		return -EINVAL;
-+
-+	scoped_guard(mutex, &plane->dev->config->lock) {
-+		if (plane->dev->enabled)
-+			return -EBUSY;
-+
-+		vkms_config_plane_set_zpos_mutable(plane->config, mutable);
-+	}
-+
-+	return (ssize_t)count;
-+}
-+
-+static ssize_t plane_zpos_initial_show(struct config_item *item, char *page)
-+{
-+	struct vkms_configfs_plane *plane;
-+	unsigned int initial;
-+
-+	plane = plane_item_to_vkms_configfs_plane(item);
-+
-+	scoped_guard(mutex, &plane->dev->config->lock)
-+		initial = vkms_config_plane_get_zpos_initial(plane->config);
-+
-+	return sprintf(page, "%u\n", initial);
-+}
-+
-+static ssize_t plane_zpos_initial_store(struct config_item *item, const char *page,
-+					size_t count)
-+{
-+	struct vkms_configfs_plane *plane;
-+	unsigned int initial;
-+
-+	plane = plane_item_to_vkms_configfs_plane(item);
-+
-+	if (kstrtouint(page, 10, &initial))
-+		return -EINVAL;
-+
-+	scoped_guard(mutex, &plane->dev->config->lock) {
-+		if (plane->dev->enabled)
-+			return -EBUSY;
-+
-+		vkms_config_plane_set_zpos_initial(plane->config, initial);
-+	}
-+
-+	return (ssize_t)count;
-+}
-+
-+static ssize_t plane_zpos_min_show(struct config_item *item, char *page)
-+{
-+	struct vkms_configfs_plane *plane;
-+	unsigned int min;
-+
-+	plane = plane_item_to_vkms_configfs_plane(item);
-+
-+	scoped_guard(mutex, &plane->dev->config->lock)
-+		min = vkms_config_plane_get_zpos_min(plane->config);
-+
-+	return sprintf(page, "%u\n", min);
-+}
-+
-+static ssize_t plane_zpos_min_store(struct config_item *item, const char *page,
-+				    size_t count)
-+{
-+	struct vkms_configfs_plane *plane;
-+	unsigned int min;
-+
-+	plane = plane_item_to_vkms_configfs_plane(item);
-+
-+	if (kstrtouint(page, 10, &min))
-+		return -EINVAL;
-+
-+	scoped_guard(mutex, &plane->dev->config->lock) {
-+		if (plane->dev->enabled)
-+			return -EBUSY;
-+
-+		vkms_config_plane_set_zpos_min(plane->config, min);
-+	}
-+
-+	return (ssize_t)count;
-+}
-+
-+static ssize_t plane_zpos_max_show(struct config_item *item, char *page)
-+{
-+	struct vkms_configfs_plane *plane;
-+	unsigned int max;
-+
-+	plane = plane_item_to_vkms_configfs_plane(item);
-+
-+	scoped_guard(mutex, &plane->dev->config->lock)
-+		max = vkms_config_plane_get_zpos_max(plane->config);
-+
-+	return sprintf(page, "%u\n", max);
-+}
-+
-+static ssize_t plane_zpos_max_store(struct config_item *item, const char *page,
-+				    size_t count)
-+{
-+	struct vkms_configfs_plane *plane;
-+	unsigned int max;
-+
-+	plane = plane_item_to_vkms_configfs_plane(item);
-+
-+	if (kstrtouint(page, 10, &max))
-+		return -EINVAL;
-+
-+	scoped_guard(mutex, &plane->dev->config->lock) {
-+		if (plane->dev->enabled)
-+			return -EBUSY;
-+
-+		vkms_config_plane_set_zpos_max(plane->config, max);
-+	}
-+
-+	return (ssize_t)count;
-+}
-+
- CONFIGFS_ATTR(plane_, type);
- CONFIGFS_ATTR(plane_, supported_rotations);
- CONFIGFS_ATTR(plane_, default_rotation);
-@@ -667,6 +837,11 @@ CONFIGFS_ATTR(plane_, default_color_range);
- CONFIGFS_ATTR(plane_, supported_color_encodings);
- CONFIGFS_ATTR(plane_, default_color_encoding);
- CONFIGFS_ATTR(plane_, supported_formats);
-+CONFIGFS_ATTR(plane_, zpos_enabled);
-+CONFIGFS_ATTR(plane_, zpos_mutable);
-+CONFIGFS_ATTR(plane_, zpos_initial);
-+CONFIGFS_ATTR(plane_, zpos_min);
-+CONFIGFS_ATTR(plane_, zpos_max);
- 
- static struct configfs_attribute *plane_item_attrs[] = {
- 	&plane_attr_type,
-@@ -677,6 +852,11 @@ static struct configfs_attribute *plane_item_attrs[] = {
- 	&plane_attr_supported_color_encodings,
- 	&plane_attr_default_color_encoding,
- 	&plane_attr_supported_formats,
-+	&plane_attr_zpos_enabled,
-+	&plane_attr_zpos_mutable,
-+	&plane_attr_zpos_initial,
-+	&plane_attr_zpos_min,
-+	&plane_attr_zpos_max,
- 	NULL,
- };
- 
-diff --git a/drivers/gpu/drm/vkms/vkms_plane.c b/drivers/gpu/drm/vkms/vkms_plane.c
-index 60fae99fed53..71abfe4b25d0 100644
---- a/drivers/gpu/drm/vkms/vkms_plane.c
-+++ b/drivers/gpu/drm/vkms/vkms_plane.c
-@@ -225,6 +225,7 @@ struct vkms_plane *vkms_plane_init(struct vkms_device *vkmsdev,
- {
- 	struct drm_device *dev = &vkmsdev->drm;
- 	struct vkms_plane *plane;
-+	int ret;
- 
- 	/*
- 	 * Keep the default "plane-%d" name from the DRM core when no name is
-@@ -258,13 +259,19 @@ struct vkms_plane *vkms_plane_init(struct vkms_device *vkmsdev,
- 		vkms_initialize_colorops(&plane->base);
- 	if (vkms_config_plane_get_zpos_enabled(plane_cfg)) {
- 		if (vkms_config_plane_get_zpos_mutable(plane_cfg)) {
--			drm_plane_create_zpos_property(&plane->base,
--						       vkms_config_plane_get_zpos_initial(plane_cfg),
--						       vkms_config_plane_get_zpos_min(plane_cfg),
--						       vkms_config_plane_get_zpos_max(plane_cfg));
-+			ret = drm_plane_create_zpos_property(
-+				&plane->base,
-+				vkms_config_plane_get_zpos_initial(plane_cfg),
-+				vkms_config_plane_get_zpos_min(plane_cfg),
-+				vkms_config_plane_get_zpos_max(plane_cfg));
-+			if (ret)
-+				return ERR_PTR(ret);
- 		} else {
--			drm_plane_create_zpos_immutable_property(&plane->base,
--								 vkms_config_plane_get_zpos_initial(plane_cfg));
-+			ret = drm_plane_create_zpos_immutable_property(
-+				&plane->base,
-+				vkms_config_plane_get_zpos_initial(plane_cfg));
-+			if (ret)
-+				return ERR_PTR(ret);
- 		}
- 	}
- 
-
--- 
-2.56.0
+/P
 
