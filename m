@@ -1,109 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795725657;
-	b=bOzrCr0CrjbgXRIydNMHWfvEldip9VmgwoJW0wABxFk1ZQpZAMAPsF2jOh4Xv2zinOFz
-	 JSe7ELhxv8NC+nzDIBr3QKBnceRC7DNBhJI9qxfXaXIqjia3nVXJvcA910boiL8IfAvHB
-	 I4aAkoKXURqdTIrf4IJ0VtgzS8N+ToU2GFgtFAuj9eILGVS2Bx3LVZZvSLY7l5NXv9CbZ
-	 UEdwZhHM/uhSmNCBp753MWdAABz6DuSw/Rvk+NiHRBFWuQhOSagQBKj6ynQ/1du2DHGwZ
-	 FDSRKuEKld5tQOfOVE2D75poUQaTEBDw2Kwmhj6CSw/Xb4YpnAP4Gz+KQ7XWnL2Zo4w==
+	t=1795725840;
+	b=EADcKjdDMNVStFqrf7oCZfNriNOCvRlalGqJRI4VQfoOR7zXOhqpicT0eSjwGe+Fciqs
+	 faWHGrGdFYVB6IRBkbqu3yGQt+ZJ2b5SoVpTAOw3dTuCcFwXoHP166WWY4idBQlMy7ljk
+	 r1XPpNe6/mCeXxKpZL58w0CVmmxLqOoNnAXO3KicwMk1GxdgbEGJjO421gHPW974hz+CX
+	 +8yKqXNtTELvhqOxBMyFsZTju6PvRMWtsX3KLtUypfPI/4WR0QdeYumhF75N4u/GYhdmx
+	 Q2J5878znhgReInHNL58tIZqlzu1qX6OEiuD6hMAvaBoyzFl+AvsJna1t04xBOYI6yA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795725657;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:Cc:Subject:From:To:In-Reply-To:
-	 References:Content-Transfer-Encoding:MIME-Version;
-	bh=vhLI3luhSnY5QjC9WSQKZtTBj+4qzkm0fNGEEgLeI6U=;
-	b=uU6w2Juuba6PJ8HKAjyPMs1jkzaq1KMrp6ywKNMdI5z5SHltuhovq7YKNry2AbrlLUl7
-	 lwonLnVR32jrNqH4mgt4pouIhS1215VQSGJlHL7wSO2qrCyKNYdlA/QiLOisLMHrDrHju
-	 uDhuBN/QBK2mdslo3q6s9ZEVtuOSa92O8/elOPlCMH+LGU4D193xUi1puXh1VB6qqBm/X
-	 BMH66jmIXEU+m6/6ZlKxdKMh3VDR8T4NlrqjeKF35iwXZLJozU2hBqp2T/fdtpnatjGkq
-	 fwXZ0UyScFeBbFMdkdyVPl3Ewi6z/kgtZjiNqMDspJo30IUATBLfsRzFcJYfztikC5A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795725840;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=HZWRevE1wEbxjpukKO4CHBOJXi8fdV+M/EXVnjp9qbQ=;
+	b=K4R21Xf4ZDSxvvL5h2nipMhv34GylF2ALZqx1Y239TdMyiOW6Si7ZTEvf00Jv0L10/v8
+	 RgU+zqEiXjS0GjgmYlFQJ1ifFTo1/sliXbJDPSw46m/yE5sSOvtUPMlHtX43Df0TjXxah
+	 6NbMUAhUshx7ixdxt3NB5AusvG/nsmbpJV5LgIOpRAMcw4Q1DbJYBWZSFc7wIGxsWT+TY
+	 kFVLdrj6vPLOofyiQd3iA8MpPr6I823QBYhDrmE9igXLYH8/9qbfworLJhdSthLd8uYtF
+	 AOQndmJqyxtajkfDW8fUtPGMioMGNRCjZwtlfOeiYiKiGATWmXjB6y4oES0hCJRcZSg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WbsIeKP5;
-	arc=none smtp.remote-ip=209.85.214.174
-Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HzrKrxkP;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5443C606A333
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:40:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5443C606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77F37606A69D
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:44:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WbsIeKP5
-Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2f04244c3d0so58648945ad.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:40:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795725657; x=1796330457; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=vhLI3luhSnY5QjC9WSQKZtTBj+4qzkm0fNGEEgLeI6U=;
-        b=WbsIeKP5XsiIBgC8Dr7ZBcZMZ4xF36wK+BWE+MzEtrXP6qc/2PZBrlwGfCAc0ulQzQ
-         pe3SALpLm4Xm0f2MaDh1tHFLE0vGygk0K8RMLS8hzVc/Q2OtE5cm4xKT1dW3ry1rPlIK
-         XQNkP6lbk9fhdWRv6mkpplEh9lZEx8LT+Yd3asyolPpm9wzq1cokNLWpY6zXHxld8mLd
-         mL/jgi0j/zFD5+6AN4T618eGKu1heCfJzoR/g244F2O6RZ7AbO3+9r5oHQzLNh3az0jS
-         L1o5m9a4JMmBF6kexKeTHPPo0Kg+aINm1gzZvg1MGX6sdIc5KOgLUy6Od6yDXWspStR5
-         E/rQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795725657; x=1796330457;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vhLI3luhSnY5QjC9WSQKZtTBj+4qzkm0fNGEEgLeI6U=;
-        b=WZNTMbaZiiJFiSUAWhXQUNZYsLv0AE479mLzD+JAtWGxKh8rIE7pE+f7F9RvPBiaLW
-         nruAP9CBAdREehDNfQ7naChKpcQ+z+9qkXC+WF+s4Mjl6siOhLmjODMJ7GtWOk5RVkyP
-         sghLgEzi9Vnd+DHr8jAk/UKTsfQ6rm533fLDf77VIjnmYaIZKAyFERBKrQUn01V0BQ76
-         cZOa7V6g6+7NUw2UN3c1SZPCGatleWqxNqv5aGlpk/XK0/p5Pd2c2ro/kNIpJf0M4M3G
-         VreX9mWmCTd+MXWFQNaKmygzCeIsFQY7iCMmutVFAdFuR2+36LMNyt0+4TwRLRxG54AR
-         mVRA==
-X-Forwarded-Encrypted: i=1; AL+hErH+IYlDVW5mWb5jkh9J1fP+rpI9cL1vpdik1A2aJ+CNsM1JKEDFc92WjW8iBYomR0M/ZsmtJc4v4lnVUrM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+93EYM3xFaNmKe5wj7CVP9uLAhJHw3o+/xItviTL1u6aTptFdP
-	cjYB1D3MNvgQbwxVzIkq108CjlOTPB0VC5efeOtvxRxBkmp+dhbohJ4N
-X-Gm-Gg: AZFdTZf9ruR59gPjnvUD8zt9maNoAyJZsbADiofG8uKQPMX/tSfUDfSMDQaPmVrUvMh
-	N96fMabL3rOgQ7ulER1xcI9Qy/ztfJ/i4FRXzC5YX+XhVjId+hNruuXzz/3f9HFGphPNBQn8VTY
-	/JDA+4Q7j5N7TYhO7+K400BjYKOeiDRXis9fNPWXBYfez/6Knt3diZ4XgoI2qfZqGBF+vM2vqz/
-	2s9TXQVyB4mTapjkTAdwB6+fb9/lsBrI33nsC3IvnWFa5OxX1FIaCs//a7KdGa26cJEKV8c1ES4
-	gaP3onBbf5hx/f0ZqM1W6nN1Ga7zNNC+6d/Uoh8TDc+IqqiOZ0/hqbgN/D578P9BAayQOJLebLt
-	zycW43Y9BAcq6UVZTHBOdJ+UP+elTNquaH/jA/qA63CWbB/00Se94YH9SsTC6u7IVoguAoKty2F
-	go8PcNdMKVVS6nxRmHqBEEpU2pudbFNNz9BVxMPivUuf83BNYmMJQpAqng01AMept9T/rg2rVx7
-	JgEmNsKlkkLXitjcVROzWQVY3QrJ2eSMdp6p7cyWLsVHxORG5AzyeCXMe9sXeE5bcGuUiEn+Y2G
-	LH7zEGlq/67sqJ3/9knLG8HKDloGgv5sE00mW4JbUShav5/NzFf1UELpCaFVZXdo1H3bDw3Ic22
-	vwW81Qllh9yD9JojcSg+W3enrbwnottmaYKI=
-X-Received: by 2002:a17:902:f603:b0:2e9:8505:5471 with SMTP id d9443c01a7336-2f03ef44affmr240191085ad.7.1795725656537;
-        Thu, 26 Nov 2026 12:40:56 -0800 (PST)
-Received: from localhost ([153.61.198.248])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1a74sm110470815ad.12.2026.11.26.12.40.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 12:40:56 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 26 Nov 2026 20:40:55 +0000
-Message-Id: <DN5FM9P3X2P0.2IFD5DFBRELP1@gmail.com>
-Cc: "Harry Yoo" <harry@kernel.org>, "Emil Tsalapatis"
- <emil@etsalapatis.com>, <bpf@vger.kernel.org>, <andrii@kernel.org>,
- <eddyz87@gmail.com>, <memxor@gmail.com>, <daniel@iogearbox.net>, "Sebastian
- Andrzej Siewior" <bigeasy@linutronix.de>, "Clark Williams"
- <clrkwllms@kernel.org>, "Steven Rostedt" <rostedt@goodmis.org>,
- <linux-rt-devel@lists.linux.dev>, "Vlastimil Babka" <vbabka@kernel.org>,
- "Hao Li" <hao.li@linux.dev>, "Andrew Morton" <akpm@linux-foundation.org>,
- "Suren Baghdasaryan" <surenb@google.com>, "Michal Hocko" <mhocko@suse.com>,
- "Brendan Jackman" <brendan.jackman@linux.dev>, "Johannes Weiner"
- <hannes@cmpxchg.org>, "Zi Yan" <ziy@nvidia.com>, <linux-mm@kvack.org>,
- "Ingo Molnar" <mingo@redhat.com>, "Will Deacon" <will@kernel.org>, "Boqun
- Feng" <boqun@kernel.org>, "Waiman Long" <longman@redhat.com>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH bpf-next v1 1/4] bpf: Add call for selecting kmalloc or
- kmalloc_nolock at call time
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>, "Peter Zijlstra"
- <peterz@infradead.org>
-In-Reply-To: <aecebb39-47c9-4b0f-a076-ac0ddc7724d9@kernel.org>
-References: <20261124060357.11700-1-emil@etsalapatis.com> <20261124060357.11700-2-emil@etsalapatis.com> <DN38HGVL8JHQ.2ZVZQCKFXVA9T@gmail.com> <awWRZ9xCzWLnj_R6@thinkstation> <20261125140902.GE2668804@noisy.programming.kicks-ass.net> <DN4QLI2XAGO1.2DDIFJ49PNRPS@gmail.com> <20261126094403.GA49833@noisy.programming.kicks-ass.net> <aecebb39-47c9-4b0f-a076-ac0ddc7724d9@kernel.org>
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HzrKrxkP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 230FC1F000C1;
+	Thu, 26 Nov 2026 20:43:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795725840;
+	bh=HZWRevE1wEbxjpukKO4CHBOJXi8fdV+M/EXVnjp9qbQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=HzrKrxkPYwpZq2p5I+W/uO0iC2l84srRfLNrBWBzW6/XTO/aqG7itxEvv32+GnbxO
+	 IUdqcYpOW833bg7Bf35iLPuePhrSxmJj9QeyB8JDL9yH1OMGQPTxzLFxtWqf3oH9hB
+	 n08mJlROwgG6fOzxMxJZYfiUmv17mB9gqLhnL9XNct9ADLDkUxROrSh8m1HSmmApMA
+	 8hagac7sQAlt2sCCRrM529JRFquZ90Mn8dsP0Q/2bHd4E3OIf4aTe/JafuC5b70CIa
+	 GjmYHkGUnrklq09lmce2yjixVUqKMTtrWHRziOguMsO5/mBA9K7qIesclbJ//2MEA2
+	 6GEoAVYakaSkg==
+Message-ID: <f43c375f-7648-465c-97f1-2678a879701b@kernel.org>
+Date: Thu, 26 Nov 2026 21:43:50 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,9 +51,120 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] mm: introduce copy_mc_highpages() and batch copy in
+ folio_mc_copy()
+To: "Garg, Shivank" <shivankg@amd.com>,
+ "tejavojjala@google.com" <tejavojjala@google.com>,
+ "Rao, Bharata Bhasker" <bharata@amd.com>, "rppt@kernel.org"
+ <rppt@kernel.org>,
+ "david.laight.linux@gmail.com" <david.laight.linux@gmail.com>,
+ "ankur.a.arora@oracle.com" <ankur.a.arora@oracle.com>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "vbabka@kernel.org" <vbabka@kernel.org>,
+ "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+ "mingo@redhat.com" <mingo@redhat.com>, "surenb@google.com"
+ <surenb@google.com>, "peterz@infradead.org" <peterz@infradead.org>,
+ "nhuhuan@google.com" <nhuhuan@google.com>, "hpa@zytor.com" <hpa@zytor.com>,
+ "tglx@kernel.org" <tglx@kernel.org>, "liam@infradead.org"
+ <liam@infradead.org>, "Salunke, Hrushikesh" <Hrushikesh.Salunke@amd.com>,
+ "bp@alien8.de" <bp@alien8.de>, "mhocko@suse.com" <mhocko@suse.com>,
+ "ljs@kernel.org" <ljs@kernel.org>, "rientjes@google.com"
+ <rientjes@google.com>, "pfalcato@suse.de" <pfalcato@suse.de>,
+ "torvalds@linuxfoundation.org" <torvalds@linuxfoundation.org>
+Cc: "linux-mm@kvack.org" <linux-mm@kvack.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "x86@kernel.org" <x86@kernel.org>
+References: <20261113-batpagecopy-v3-1-297f5b2fd28e@amd.com>
+ <7639d5f0-3dfb-4446-ab04-51317f604a69@kernel.org>
+ <8ef0c61f525f3a1881d2717b1b7e43cd74d7674e.camel@amd.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <8ef0c61f525f3a1881d2717b1b7e43cd74d7674e.camel@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 26, 2026 at 01:46 AM David Hildenbrand (Arm) <david@kernel.org> wrote:
-> This is all just way too complicated and shaky, sorry to say it.
+On 11/26/26 19:44, Garg, Shivank wrote:
+> On Mon, 2026-11-23 at 17:23 +0100, David Hildenbrand (Arm) wrote:
+>> On 11/13/26 18:09, Shivank Garg wrote:
+>>> folio_mc_copy() copies a folio one page at a time with copy_mc_highpage(),
+> <snip>
+>>> -
+>>> -	return 0;
+>>> +	return copy_mc_highpages(folio_page(dst, 0), folio_page(src, 0),
+>>> +				 folio_nr_pages(src));
+>>>  }
+>>
+>> What bugs me a bit is that we are not tackling copy_user_large_folio(). So this
+>> looks incomplete.
+>>
+>> There, we still have this. That keeps this process_huge_page() machinery alive,
+>> and a special case for gigantic pages (copy_user_gigantic_page).
+> 
+> Agreed.
+> 
+>>
+>> Meanwhile, folio_zero_user() moved to a range-based approach and abandoned that.
+>>
+>> Can we clean all that up as well while we are at it?
+>>
+>> These look like excellent candidats for using copy_mc_user_highpages() as well.
+> 
+> I've started working on this and the cleanups around it.
+> 
+> As copy_mc_highpages() patch stands on its own, I'd prefer to post those as follow-up
+> series on top.
+> 
+> Does that work for you, or would you prefer it in one series together?
 
-Which part?
-I don't see any new concepts of failure modes vs existing code.
+Let's do the full thing if possible please. Only if you get stuck there we could
+use a partial solution.
+
+-- 
+Cheers,
+
+David
