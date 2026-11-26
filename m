@@ -1,101 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.45
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795662389;
-	b=Ziwk2f3XYKuiwtk8R/BVRPCCalJs+VPUaToLCDtz6/YZb3sAckIFeYUF/KMBdCXsIIUN
-	 tS7902g89hJN3kT1XYr2EsSepk7STBP+OZBZxSzJLwfDSzEPJs9G9ykPCj3ZHL5NZ8ZLW
-	 r1sqfOb6tr6VPwduKC97Y3rxZkBQI7GnMckgXk/oHHZDQFVqtcRNV4wsYlfs+dnc3W4Xh
-	 iTBR5wTXAYMxvCfDu/rW2LVLlT1DDiEFN4l5zxyofMbZ9MvTzi6T+BOLnNrwByD4MS5r8
-	 vFuoAwPQhqqjd1DAcJWjd8gXH19bR1yHvf2ZCm3rzS5xJ4w/KLLoeFlObUZvBDt4sPw==
+	t=1795662607;
+	b=a1WYpYnK/XK1WBHuiL3x64Wz8k+LbX1Tk3kggs7innCwp5STuhrYNILpbKvRlBZitB6Y
+	 Lse+1Cx4KfKqVVDhP8Gq2oE0LzPHKKN3HegM6fr/ROSARyP0hvbWTuhwNuLU5I7JzGSiO
+	 L6PGPyRn796pKABKOc/CoeUtafXu5YAVAgG0DIk0vDU5p5iM/dkzGMTlJlIku7Ekkrzmm
+	 NiK4ouId1CKlOTuwDlJWgK9IosETgAn4IU8eTBm5wUxGnTflp9ola/aXp3iBbxUDuAWsj
+	 RbGcAmG/s5rwPABnHA88/aDcRgfVkeodc341ItV466x51JMxc6r8ZeR50ijpADmYbuw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795662389;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=VgeqwZ6c13ysK3Ffl+UlwXTHJlLqeIHDQOOx+5zpAXI=;
-	b=lIkPXf4S6LMZf7bMevtAnxZGa1t04MP6mNKwuhcA48wlF+li91+5TZ6YLkgXVIXh+qLI
-	 y4ucod1wekrP8tzLkfGMR8v1oGlBygBPldkfRN36gGmhf4B50F04AwZYf+Hy1m0gZIcfR
-	 s50a4TdPZnDdsHxaKMAF8xPfjzWTcKWGYZPI35bPbpFIJt2utTkWk54QaQ++ZydSnz6au
-	 9A1hDF2EaugBuRc6UoKYGgceaQA1M5JNqekd0EIjc1DMDU1F3vjJ0rWPaMu/BFaRli4dm
-	 LJov6czNfgrCTjNkRJ+75ukUmf6qWZ9Hrgyz+IYFjL2HBk2FV+/1ch3aMZa+DLh9lgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795662607;
+	h=Received:DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=uHOK7KrGkaPUSjstehlKPZRXCrxWsl59afQRh8DG1TE=;
+	b=ThYV/SGeVGF9XdkJ2fzGVVno15HqK2o6qxLlACC8P2Qf+intj4Z6joKSGsyQ0Km8w9QL
+	 St3trs0NePjVroPfDzfhO4FhVtmFeQIARsn8m6CIVsnpZ+KwWbxt5vPVbE1hfcysF+2RV
+	 3DBAKNuuU/IiLMBFwJaQCDuMvASEiokXuAySL4c9M7/FtECjKxra0BgApVRBQQeym26+p
+	 VZwTtUzpANo22gx/mgJqlupXozw5aRP4TPvqnwA3rcbAFhgHPklMDETzn75OeWB6RBGyA
+	 iP5pqYbmeHFn5n3fBh6VT6GTfvOKXUOPw5zx1+Wiw7mavR0An84jlrMrjdn/9WgoFjw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g7bzSk9e;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.45
-Received: from mail-oa1-f45.google.com (mail-oa1-f45.google.com [209.85.160.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NqF3Z4eS;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BCC1606A31E;
+	Thu, 26 Nov 2026 03:10:07 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NqF3Z4eS
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795662607;
+	b=tQ88yuCnMKrRjJ3QuD2J2j/7d2OpChzcduaFsWuZ2mtNXjn7mASOhv5B01T8Q92MMDyR
+	 0QAhobUldUZ9b3QfEZJewav7cuyeTS8NVfUKkx3EA66IYPyo8kJwyX6UCYaZ+/ARDHbXj
+	 6TVe63XtCJQx7U1Ybm04ZoYjQe+Cwcjyq8hz37Ty2G/JsBX7iKLglx8sdVJrrdqmtbw+O
+	 y5XNW7whOLMhmICijmudST+WL0zOz/KUD3Dfcs9aJuxHr46D7YjQV89AuOCntAlhPijJZ
+	 6YuDSPzEnipT00PtnXyXwmdkL2ghDgY5Ty0D9NQlY57/AkG6lbMTRYdwhr9wIPWrFVw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795662607;
+	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=uHOK7KrGkaPUSjstehlKPZRXCrxWsl59afQRh8DG1TE=;
+	b=Dhk2Jp1JZmluu44YEwRkfeVeplIVONjV8spuqBvr99xGIFkmglvzkwBAF4Kd6pJCY1nG
+	 jB4HzsOykY6QSr6ccYumrx2DA+Z+BnVT3ZU/dlVE6TetP7lI0MNDYjj99EDhvuArkLkXf
+	 KI7464EAHT/e61i6GQs1uxFECwmExSsx6ZqDLHIrndDpvlX5/X1SR/krjBz1gSWLEPZqc
+	 q1E57e/TBQrBIhGyESn53/WmmnZV1hKTznAgTZaZG/bzJ6J/rPykTliJ5GcoeHtlk9cXy
+	 ubqGRM0BLf/ix0BWQ00fGolopXg5kKK3l5mf5molMq7OtHW4Cj2lytJoWhF4Hof0oOg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5C8A606A332
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:06:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5C8A606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g7bzSk9e
-Received: by mail-oa1-f45.google.com with SMTP id 586e51a60fabf-43bf9548df4so5998964fac.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:06:20 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795662380; cv=none;
-        d=google.com; s=arc-20260327;
-        b=H+6UtCcrc7PbX70urhrJ4WDubUmCbQT7sVCYCHYJ6oV63bzaufSOT4OuMTjV/C9OIr
-         C6mH6JBn4OO+m7MroyQJCgcqhxTjrD/EYC9Y2YImBUDn5am7gWejBrUwjJ/7rAom8LTy
-         AH2o1dC3KUCdNd736eLmDfRVC1CaKreOlrNipGHtRrFXjzQLgOXy/dKJKucjOTM4Jpw0
-         s3tDl22ibUf5LUk41CF5FD6t3OG1X0K0kSgLgQlhg0BQhCBa561mD2ucdJSg4hNwMGdi
-         tS1awJ4FjO7dnCBq/ZBfLZCPuqaOx9QRKvgzfADfYRayn/sDEOr7A42ugx7GoTHK9+RD
-         oVEQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=VgeqwZ6c13ysK3Ffl+UlwXTHJlLqeIHDQOOx+5zpAXI=;
-        fh=d6YENrFp5Q8E4dJb2AbT6eB0PsYbkwU+6P99R52/0Uo=;
-        b=GYNc80QAJRlgVJ8U2zsrt6x6nMz1F4HlWWz7a7EuYsmoN1ME6i1cRJjvh7ZvMTSFiR
-         zz0ooCIYjdCHWFYGhVZz/5tIilDcTiiLFnYUYNKPyJ1ZkhJefLcLFZzRGTE8mjdqaSn7
-         /0+WxTSceLB0QCezq9eRLBwiQMq3aOHab63BGC3bPnnNswAODLFnNStDk0Pvm08OwPbZ
-         etoyi9gUUXYpQNxMIketlYf1ywUAF0kY/1LiARLrrrlKo0Bkkc6i94Yq66o0q53XQuFj
-         zgFdaJx4f+qltQhHs857tuTa/3JodDh7nA7YDnZ9gxuKSRSBc7D737x/sXS7dngxGhfd
-         F/qA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795662380; x=1796267180; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=VgeqwZ6c13ysK3Ffl+UlwXTHJlLqeIHDQOOx+5zpAXI=;
-        b=g7bzSk9ebQDuqYaFA8G5/zSJbCLIj3AjSjMfZccLbTpIz+1/Kn56MU6BMFmn6voXWg
-         VO0F8Y44teK+bF5f0g9CC2Kxc7Xj+dgFj+hbqSKwQPmoudrgyffS5NUVlg+4VybiemP0
-         3ODMePoSzFHwSMJMUq65Ex+RM1OdFV7j9/BGYSLZ4owLSkpKVmgnWbrYjpEBGnQsjjAu
-         BUkLP1YffgPBqtl6UwlqXeuBhjMqTtz6lEjDyT6B0VbYkqKE/hZzMiBgYtIztNDbtPK2
-         7GKxS4f8RA7UhUCXJZnsA+/FIUN4QCvjdWCD+1SvffQOA4igWnU3oG2iOkx27QTnJCFC
-         nJMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795662380; x=1796267180;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=VgeqwZ6c13ysK3Ffl+UlwXTHJlLqeIHDQOOx+5zpAXI=;
-        b=A5QqyyvVyHZEErr9KxHZGSuWfWR8aJ7KmzE6LtDYXy/xcBaxaS3TImqlbhuIkihdmz
-         PWzDjTEBvsF266f2/WWSfVeQcNMCyZXGafhS4/F2lrPUMAPZ4LhabHm4b0ICt44wHSNc
-         jMcM9f2WhtcbNUJDGtvp3awZ81rxvTO60BImF0GWSvHQb3q9MjDWdExNKewlVvtL8i5h
-         DSaLgm4TUcojYZkc9qoxhx2sfn/3zuWaetc2K/VL3vQa/ygSIjaSFm739QhHnuVLO20Q
-         FEglSq0nBpn149fWnwZlPYeORjH54X2rZDG6wta4GWFxsnBJIudVRlxmwcGXxOlxNtVM
-         7C9w==
-X-Forwarded-Encrypted: i=1; AL+hErE0Iiz4B8EnzGNpX/PmOhl28FuQ/4o3fEZmHEfYCB5sOAq7UMgIDYNX0aTtACYAD0ISJ8E30R50KHVUBkU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+54c4cgfuHX5JL3qMbOIKR1ZDX0z7i3hEvs+Et85w86hleHRgN
-	GkhHQKFhSXWSpE6v7s8xmRl/bO4wOyMzutfakUiQ4Mk7V4sF2Jm0a19zQuu3amLOxuhJovdQOkz
-	sJv0ZmaqZEb4voI+bpEwZhui9GJ61eIE=
-X-Gm-Gg: AZFdTZeIZCOi3lTAVv7q6YTPerG1x+W2MQUrnCAUgMlAL4cE0EU5+3NrAwfi+RRAmTh
-	VQG+VWAspSVLb2XGgNZQSS51Jb3PKG8OmhpvKB2VOwXH24ve0eJBip+lJvt3UPiqOOffhYnNNHA
-	WfEP2aMYG7Mrc1axooKaCdhnYgW/DTqBq6cZR8R6uiOrHG1gjVwJNRXG0g5dcTrWcLoCO4pt/bY
-	s21mozmPzxnZdS92Tyhln2JNn9ChAx3CLIKW+UlwDtQc5jrGX2E1Efs7Kl2Btf3xSUkJpYCgIs7
-	+EIhVnX7ygg4ZUdr1VrR6/s3wnrL140wiF9hvQsKQL58vlvAJdOT/+VQ+ywzLR98igwwfLSjU+0
-	66FBbb5pSBvrYRkoYm2el/X2bAPMHjqkNnF0RqyaKhOvcdpmYq2hnsjehR2xAm30I3/OkknJojM
-	LmhxDhMmqCKMfR4hXzDOCcAT2rU5TZMiMHVN28IuK2b8EqmNis+64P
-X-Received: by 2002:a05:6808:150b:b0:573:b059:4d5 with SMTP id
- 5614622812f47-57a0a516489mr21719385b6e.11.1795662379758; Wed, 25 Nov 2026
- 19:06:19 -0800 (PST)
+	by smtp.kernel.org (Postfix) with ESMTPS id 3D3B71F000C0;
+	Thu, 26 Nov 2026 03:10:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795662607;
+	bh=uHOK7KrGkaPUSjstehlKPZRXCrxWsl59afQRh8DG1TE=;
+	h=From:To:Cc:Subject:Date:Reply-To;
+	b=NqF3Z4eSMg4cbcNV3n90ddbF5nojdjAS/bGFj9+y2HJEnzuRLcFC1vnu63PAhg5JO
+	 xdCAQqGGte98ElXBp4dAZT/bTSfMOZyXR6N7LwznUk0BgBo36H19okR713JggxbGke
+	 5K09kDG7yuSflZ5zWiLZcvL0YyiHfDr9fl20WjGsVwvL6YXxLKsGIKoXu8sixiRpjh
+	 pJtNXWVZ1GPgrmkN4uwcq1adfbiqzXWSSe4ATDBmFKaxkEtB94cID9AeW5iw40AlZ8
+	 sLXd3yUlfSc/WHRwzG/AknNgOOqzcV3zfhqRkBcmA2OxVj6z/SUir4kH7hCQ0CZzzx
+	 Thw34N1tddtQQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id AF89A4D1D9;
+	Thu, 26 Nov 2026 03:10:03 +0000 (UTC)
+From: Ilia Snezhkov via B4 Relay <devnull+iasnezhkov.gmail.com@kernel.org>
+To: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ broonie@kernel.org
+Cc: flora.fu@mediatek.com, amergnat@baylibre.com, leilk.liu@mediatek.com, 
+ me@adomerle.pw, devicetree@vger.kernel.org, linux-spi@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/4] soc/spi: mediatek: Add MT6789 PMIC wrapper and SPI
+ support
+Date: Thu, 26 Nov 2026 03:10:01 +0000
+Message-Id: <20261126031001.27288-1-iasnezhkov@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,146 +91,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123142203.3860616-1-hjf3108@gmail.com> <20261123142203.3860616-3-hjf3108@gmail.com>
- <CAD++jLmHRkL7Zmw7VrV-UFo14nwgMTLB3UVA15vn9JWsvrXQfw@mail.gmail.com>
-In-Reply-To: <CAD++jLmHRkL7Zmw7VrV-UFo14nwgMTLB3UVA15vn9JWsvrXQfw@mail.gmail.com>
-From: Jie Feng <hjf3108@gmail.com>
-Date: Thu, 26 Nov 2026 11:05:42 +0800
-X-Gm-Features: Aa3M54pQKq03Y0-nnWMu9QCndX8rwmggo2h42nh5oUoLZC7NpdzpKY1Ii1Xr7tc
-Message-ID: <CABOQOSWT8pFPEECEfH6oR9yQT1_-_QU-okJGOGgdm_k9G=Ft6g@mail.gmail.com>
-Subject: Re: [PATCH 2/2] ARM: bcm: support more than two CPUs on BCMBCA
-To: Linus Walleij <linusw@kernel.org>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Russell King <linux@armlinux.org.uk>, William Zhang <william.zhang@broadcom.com>, 
-	Anand Gore <anand.gore@broadcom.com>, Kursad Oney <kursad.oney@broadcom.com>, 
-	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795662602; l=1679;
+ i=iasnezhkov@gmail.com; s=mindone2026; h=from:subject:message-id;
+ bh=SSX2MYOf3hgS1EqmIn9zqqUiKL7h1Rp1ieInLyB7OCU=;
+ b=kZ4V4FHt5o6RJ84Bp3g3s0xjpvWPzQOsDjGML3O1B52VHOCFPMhhOum+G1PN6q3ETTWrCUKcU
+ ZUq2vfVPek7BUFMMOgYFhTO4q6ONCAGHkmYUEs1mxts+L7MRvCsmp34
+X-Developer-Key: i=iasnezhkov@gmail.com; a=ed25519;
+ pk=hQgXfiWi4ukk2jh4BHu1vRVhg9BUivo//AFp50AKMag=
+X-Endpoint-Received: by B4 Relay for iasnezhkov@gmail.com/mindone2026 with
+ auth_id=1643
+X-Original-From: Ilia Snezhkov <iasnezhkov@gmail.com>
+Reply-To: iasnezhkov@gmail.com
 
-Hi Linus,
+This series continues the stalled July 2025 MediaTek MT6789 (Helio G99)
+initial bring-up patches originally posted by Arseniy Velikanov (on CC):
+- pwrap v1: https://lore.kernel.org/linux-mediatek/20250715225746.1321-1-me@adomerle.pw/
+- spi v1:   https://lore.kernel.org/linux-mediatek/20250715231921.4527-1-me@adomerle.pw/
 
-On Thu, 26 Nov 2026 at 05:01, Linus Walleij <linusw@kernel.org> wrote:
->
-> Hi Ho Jie,
->
-> thanks for your patch! It's nice to see others building on this
-> idea, for a while I thought I was the only person in the world
-> who care about BCMBCA upstream.
-I'm also trying to boot OpenWrt on a BCMBCA router and already got
-many things working. Going to send the dts upstream soon.
+Original authorship and Signed-off-by are preserved on patches 1, 3,
+and 4.
 
-> On Mon, Nov 23, 2026 at 3:22=E2=80=AFPM Ho Jie Feng <hjf3108@gmail.com> w=
-rote:
->
-> > +++ b/arch/arm/mach-bcm/bcmbca_headsmp.S
->
-> > +#include <linux/linkage.h>
-> > +#include <asm/assembler.h>
-> > +
-> > +       .arm
-> > +ENTRY(bcmbca_secondary_startup)
-> > + ARM_BE8(setend        be)
->
-> Are you aware about any people booting these platforms
-> in big endian? I don't think that works, just skip this.
->
-> > + THUMB(        badr    r9, 1f          )
-> > + THUMB(        bx      r9              )
-> > + THUMB(        .thumb                  )
-> > + THUMB(1:                      )
->
-> This code is for the CPU to switch from thumb mode to
-> ARM mode if it was booting in thumb mode. Does this
-> actually happen in practice? Else you can skip this too.
-> It just looks overly cautious.
-I am not very familiar with how bcmbca is used. Since these kernels
-can be booted by CFE and I do not know what kinds of CFEs or
-bootloaders are there, I left that in.
+Changes since v2:
+- Patch 2 (new): guard PWRAP_WDT_SRC_EN, PWRAP_WDT_SRC_EN_1, and cold
+  pwrap_init() with !HAS_CAP(wrp->master->caps, PWRAP_CAP_ARB) so
+  arbiter SoCs (MT6873, MT8195, MT6789) do not write wdt_src to offset
+  0x0 (PWRAP_INIT_DONE2) during probe.
+- Patch 3 (was 2/3): add [PWRAP_INT_FLG] = 0x458 and
+  [PWRAP_INT_CLR] = 0x45C to mt6789_regs[] matching PMIF-SPI bank 3
+  (INT_EN at 0x450, int_en_all = 0x180000) so pwrap_interrupt() does
+  not clobber offset 0x0 and leave a level-high IRQ asserted.
+- Patch 4 (was 3/3): renumbered to 4/4, unchanged.
 
-> Also the ordinary secondary_startup_arm does the same things already!
->
-> > +       mrc     p15, 0, r0, c0, c0, 5
-> > +       bic     r0, #0xff000000
-> > +       adr_l   r6, bcmbca_cpu_release
-> > +pen:   ldr     r7, [r6]
-> > +       cmp     r7, r0
-> > +       bne     pen
-> > +
-> > +       b       secondary_startup
->
-> And why are you first spinning on the GPIO address
-> and then spinning again in this "pen" (as a place for
-> livestock, such as CPUs ;) it was added to mach-versatile
-> to work around a CPU bug in early silicon.
->
-> As Russell King writes in 2018:
-> https://lore.kernel.org/linux-arm-kernel/20181213175952.GC26090@n2100.arm=
-linux.org.uk/
->
-> > The "pen_release" thing was created for ARM Ltd development platforms
-> > where there was no way to individually control secondary CPUs leaving
-> > the boot loader - they all jumped to whatever physical code address
-> > was supplied at the same time.  This made it necessary for _these_
-> > platforms to have a "holding pen" for the CPUs while the kernel
-> > initialised.
->
-> The "pen" is only needed if all CPUs jump to that address at the same
-> time. I don't think the BCMBCA platforms do that because you send
-> one IPI to each CPU?
-I can experiment with that.
+The v3 rebase and fixes were prepared with an AI coding assistant.
 
-> So I would skip this assembly completely...
-> I don't understand why you're doing this other
-> than copy/paste?
->
-This is obtained from the vendor source code where there is also a holding =
-pen:
-https://github.com/Asuswrt-Merlin/asuswrt-merlin.ng/blob/main/release/src-r=
-t-5.04axhnd.675x/kernel/linux-4.19/arch/arm/plat-bcm63xx/platsmp.c
-https://github.com/Asuswrt-Merlin/asuswrt-merlin.ng/blob/main/release/src-r=
-t-5.04axhnd.675x/kernel/linux-4.19/arch/arm/plat-bcm63xx/plat-ca9mp-headsmp=
-.S
+Base: torvalds/linux master 4dce97c6c265.
+
+Arseniy Velikanov (3):
+  dt-bindings: soc: mediatek: pwrap: Add compatible for MT6789
+  soc: mediatek: mtk-pmic-pwrap: Add MT6789 support
+  dt-bindings: spi: mediatek,spi-mt65xx: Add compatible for MT6789
+
+Ilia Snezhkov (1):
+  soc: mediatek: mtk-pmic-pwrap: Skip WDT source and init on arbiter SoCs
+
+ .../bindings/soc/mediatek/mediatek,pwrap.yaml |  1 +
+ .../bindings/spi/mediatek,spi-mt65xx.yaml     |  4 +++
+ drivers/soc/mediatek/mtk-pmic-wrap.c          | 44 ++++++++++++++++---
+ 3 files changed, 43 insertions(+), 6 deletions(-)
+
+-- 
+2.54.0 (Apple Git-157)
 
 
-> > @@ -58,17 +76,27 @@ static int bcmbca_boot_secondary(unsigned int cpu, =
-struct task_struct *idle)
-> >         /*
-> >          * The CFE stub reads GPIO GeneralPurpose after an interrupt an=
-d
-> >          * branches to it in ARM state. Clear any Thumb function pointe=
-r
-> > -        * tag and complete the MMIO write before sending the wakeup IP=
-I.
-> > +        * tag and complete the MMIO write before opening the pen and
-> > +        * sending the wakeup IPI.
-> >          */
-> > -       writel(__pa_symbol(secondary_startup_arm) & ~1, mailbox);
-> > +       writel(__pa_symbol(bcmbca_secondary_startup) & ~1, mailbox);
-> >         dsb(sy);
-> > -       arch_send_wakeup_ipi_mask(cpumask_of(cpu));
->
-> Have you actually tested *not* changing this code and see if
-> all CPUs just come up? It should just send each CPU in order to
-> secondary_startup_arm like we want?
-I traced the code to drivers/irqchip/irq-gic.c, since
-arch_send_wakeup_ipi_mask will eventually end up there.
-
-- Line 1248-1253 every gic_cpu_map[] entry is set to 0xff
-https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/irqchip/irq-gic.c#=
-L1253
-- Line 836, 845 the driver ORs the map, so IPI get sent to all secondary CP=
-Us
-https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/irqchip/irq-gic.c#=
-L836
-
-Since this platform is booted by the CFE and not using PSCI, I decided
-to use the vendor source code since it looks like the safest option.
-
-> Yours,
-> Linus Walleij
-
-Best regards,
-Jie Feng
