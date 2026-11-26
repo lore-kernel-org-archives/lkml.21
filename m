@@ -1,79 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795712466;
-	b=GUXPShqGqmdP8PnvRy7Wj+HA1eAVqu2duTjQeYm6O5GiSVJRPyo8mzCvVwLp9aZAUmln
-	 5QS6iclpN59AG/vM/5dU2jTA7NwLHN5ghqOmyAPsVXzpwVQsHhuQQGIEuun4QCcxFyyDG
-	 fG6PBCXIyIiHyMSoxpzmGPwtt/oHD77n6I0Kr5VlA5mv6xw7nPPR+9TpkY62CrRF+5gbG
-	 14AbFcBJqof7ye/ni6GuER6Ib5PE6ZMv61uq0FgQlSogjS7Nw4s1WMixpKCJAhhewRn6J
-	 vZZ4IOqUXGXDUhmZgDKouBa3r3du87hkflIr3EVlYFRk44LnVGYcw3BqMAQinniSqdw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795712466;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ihZQ5p8dWmSnrX+zlAWQt/Oqd+bBwdl3OovemPu4ORI=;
-	b=f6emCM5bP5v3mA16qAoYold+AXsQxJtmaZOpX2IYkHBx+HAW+YbqbCISBjE6Fkr1lULv
-	 xnjUba6H57SFCkB6EwwLT/kRzVIYfEcz8I7W21SlEB50gX9roh5ar1KqBD+Su4/NNPJ3q
-	 /BJtoOqUJePXLSmIbsMi88/DJpqIeU141QTERkYWxYtgBMJK/wLSNPDcUwPsd0wegE2S3
-	 LaNG6CAXMDH6wP7nXFKH+UeBnIQ44+KYJJ0yUJtm06ptiBmlwByEp3VwHhBr1Uxg7qFfF
-	 gz6bZYo8e/rOqqK7KtKdLxF2XiWYVn4A/h3p4JQW2I3YkX7ew2TMxSzJ8I1/Ce6aCPw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UcTugY3x;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30B04606A32D;
-	Thu, 26 Nov 2026 17:01:05 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UcTugY3x
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795712465;
-	b=bj5kZFxx78KtBPMo2UHV00RSeMDw9ubGzFdq9kR0KcXIil9qZhXOiLF+jSOrW1Fugbs/
-	 dQw0cAfNCzt+9iQZU4dol1RGIMCh8kebcriRCFXNPDAMqevxR0MnLNalu8/8Inm4xOu5E
-	 3HJH7U1+zN+DADl4Un0KO/g0Y9Nz3ku05MBMmhMrWTGZWA0cwPHUgyJ7S/5jc9Z4yCAQl
-	 KN3fUcYJHR2emggCtvRMYci/bXBJo9AlxKT6rCVGRAJClI1mxsHAszS3wG8ZXC8GCGxZj
-	 /u1BqN/LzWdffHGFBug7zXOLErjauhTYteSzfmXkfIjFsM/SpzNQL9zONtRHmDJb74Q==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795712465;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ihZQ5p8dWmSnrX+zlAWQt/Oqd+bBwdl3OovemPu4ORI=;
-	b=fhdxZIgEliyN9jf7hU+ZOhxIB6GRoVoMt4cUCBv/hEdimkwUpXSNU2ttEqB9hm0Oq7eD
-	 W/I2pg7Bc6rfeXCF4/uiQRHqFJ2GRFQkT2d+bCCfASIVztOQjSqUKjAgF1GFcQ/484KYL
-	 v/JD7RAKlJg2pPVjJOxgbqQ1RF5BHCAj9Z0t/B7qHVv1lcZ6xDZbT4PJ4b9Z357sCOxDS
-	 4gGjyQai/kQUlQ8m1kH2yTxksKtAoccSI+XaznRzdK4AnuIVqQszqtPU7xD+DxQjtEcKP
-	 62+IshMmVyc/hKl7nLwi8NTapNYAcNX/RX51R7pbiPImoQLB28gcUvXb14oxFy53Oxg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.199.235.221
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795712500;
+	b=366QjNBaCCTJO9mcvrCQzcTksMtlSNzpl8NjmWAeAhamEGlgQKqSAxRajdJ5/nZZ8XLC
+	 PzxkqfPlDWL/jpmmMUD5VQabiQ3QFKMrdxRtCDI5BnM6JAMD3gdT5nVDHbwPE1i/nmJI7
+	 4rtKC12NO47ZJh7ae7pWmMlVKSgZXur5IhKk8GNYyCZeIVqaDf1ime/bzOGY1E1cTyGMJ
+	 9h5o07LQdj/xwWbljjZqHsW5QQ+Nso+I69bAj5L34EaHBYLwyvIX+CMLXqIzYobm/0Cw8
+	 j35MLrw9+3C4sXh+AO9XfdCTeHnKVETACUV6EOksN3RZV2KCrkaqO8WcDuRXnb1PofA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795712500;
+	h=DMARC-Filter:Received:Received:DKIM-Filter:DKIM-Signature:
+	 X-Virus-Scanned:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=WJTpt+X9RF5ov4+gkKKicVGwQVPCzHMz365+2em8uJI=;
+	b=YBOIgxitVeRyZPOBRQYmjFf/WuaniB06xx8Z7snr/SBEBIpHCd942JYIGpCs68wv2XLB
+	 0S1AM2aGy5k2aE3A/ddM0tpeIy8LESxNbki0fAuDet9hEfPzqzR2vQsHsOggipr11QYUB
+	 gYdlV0dzd4SFKOeYUkh0J+OxyOhLZ8TsKGGrzBoNT8l9S+r/M7I5mebfDlm2UsxIVieg+
+	 2XZNYTMEpzGCLxmW1APB7CT8nLGCY1GOaAxoU/DDnI0c13YEoBixj2oycs6UsBov1O9NA
+	 xXzM2SUG8AamRv4ABWfFT/KMYP0NnYApbw4c82ueUvkVZiH6v9wQDMkfNm5K7vL1TtA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=cirad.fr;
+	spf=pass smtp.mailfrom=cirad.fr;
+	dkim=pass header.d=cirad.fr header.i=@cirad.fr header.a=rsa-sha256 header.s=573E3878-7916-11F1-BF4B-F68474317960 header.b=V24TKzqm;
+	arc=none smtp.remote-ip=194.199.235.221
+Received: from retz.cirad.fr (retz.cirad.fr [194.199.235.221])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 05D541F000C6;
-	Thu, 26 Nov 2026 17:00:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795712465;
-	bh=ihZQ5p8dWmSnrX+zlAWQt/Oqd+bBwdl3OovemPu4ORI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=UcTugY3xdOmwOnykSNtSk4RUuK1BVHFmyqeaZAWsmRD3Hy9hrBNArbn3ilS2Ejk/V
-	 iQgJgVqMFCY/+sWoy2YJUkE0lXDmZHI8VVoRcGsEdRoqF2Xo3aeB0bSGnYoSHFqYwX
-	 sCY+Z4NZAKDS1nXA5yepcHMyXtPGdVQh9E9rovWdqv6csrVDiQKZMaB8g/Q4FQlsO2
-	 b3uZHSj8mPgB4I6GvUlJ1SiluQpLOcDiioGcPlc6+IXHH0DUowPRAmWTxbI90nsq+L
-	 2OA1KymtQmWDlrKFgE5kyOYVpjOJWz8DpJXU1s71y8yGf+jlY7xJPPDFrQL63/AClJ
-	 8tvhbyRQX+eAw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 81DCC4D74F;
-	Thu, 26 Nov 2026 17:00:53 +0000 (UTC)
-From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-Date: Thu, 26 Nov 2026 17:00:54 +0000
-Subject: [PATCH v3 2/5] media: verisilicon: Keep the encoder coded size in
- sync with OUTPUT
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DEFE606A31E;
+	Thu, 26 Nov 2026 17:01:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2DEFE606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cirad.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cirad.fr
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=cirad.fr header.i=@cirad.fr header.a=rsa-sha256 header.s=573E3878-7916-11F1-BF4B-F68474317960 header.b=V24TKzqm
+Received: from retz.cirad.fr (localhost [127.0.0.1])
+	by retz.cirad.fr (Postfix) with ESMTPS id 97C8B210CB3E;
+	Thu, 26 Nov 2026 18:01:38 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by retz.cirad.fr (Postfix) with ESMTP id 6D3D820DC677;
+	Thu, 26 Nov 2026 18:01:38 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.10.3 retz.cirad.fr 6D3D820DC677
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirad.fr;
+	s=573E3878-7916-11F1-BF4B-F68474317960; t=1795712498;
+	bh=WJTpt+X9RF5ov4+gkKKicVGwQVPCzHMz365+2em8uJI=;
+	h=From:To:Date:Message-ID:MIME-Version;
+	b=V24TKzqm6S5AO/9g3OMqRN4hLIB/rPeMeao0L2Z9/UsK/sdGBdwHBf+NEO39BH3Os
+	 jb2gK6vTXGeKTCP+6Hs6EfGdpcGlMkAgJOMApZv5IZv/lX43K7V9GgTSh36ezB/MjB
+	 lt3qc97uZaF5iOv6gMbkU6YJXdYTYFlXIrBD4BFgle8Ldm/+2Sw9ci3qkfXheNGsjj
+	 QGWTMFQN08S7+HprJcNybEhKbE9ewkn1pDdkDIE8Cs7au6IoJeFJHN/891aJ7jP80W
+	 D9cncgvx0SI3iqxmX+a2qxOf7Lrx3R69SCQ043n5GiEmMd5G9rwl2xYAPv9p6CJP2n
+	 TQ6bSoUIKYXuQ==
+X-Virus-Scanned: amavis at retz.cirad.fr
+Received: from retz.cirad.fr ([127.0.0.1])
+ by localhost (retz.cirad.fr [127.0.0.1]) (amavis, port 10026) with ESMTP
+ id cJicDJtaFHn5; Thu, 26 Nov 2026 18:01:38 +0100 (CET)
+Received: from localhost.localdomain (78-196-243-100.subs.proxad.net [78.196.243.100])
+	by retz.cirad.fr (Postfix) with ESMTPSA id 6B332210CB3E;
+	Thu, 26 Nov 2026 18:01:37 +0100 (CET)
+From: =?UTF-8?q?Fr=C3=A9d=C3=A9ric=20Mah=C3=A9?= <frederic.mahe@cirad.fr>
+To: Yixun Lan <dlan@kernel.org>
+Cc: =?UTF-8?q?Fr=C3=A9d=C3=A9ric=20Mah=C3=A9?= <frederic.mahe@cirad.fr>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	devicetree@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	Iker Pedrosa <ikerpedrosam@gmail.com>
+Subject: Re: [PATCH v5 0/2] PM: spacemit: Add power domain support
+Date: Thu, 26 Nov 2026 18:01:12 +0100
+Message-ID: <20261126170113.905375-1-frederic.mahe@cirad.fr>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261118-04-k3-pm-support-v5-0-42394acdf3e3@kernel.org>
+References: <20261118-04-k3-pm-support-v5-0-42394acdf3e3@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,68 +91,18 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-hantro-jpeg-enc-fixes-v3-2-07357d84a64b@gmail.com>
-References: <20261126-hantro-jpeg-enc-fixes-v3-0-07357d84a64b@gmail.com>
-In-Reply-To: <20261126-hantro-jpeg-enc-fixes-v3-0-07357d84a64b@gmail.com>
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, 
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Hans Verkuil <hverkuil@kernel.org>, 
- Boris Brezillon <boris.brezillon@collabora.com>, 
- Andrzej Pietrasiewicz <andrzej.p@collabora.com>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Sergei Khomenkov <shomenkow@gmail.com>, 
- Arun Iyengar <aiyengar1990@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795712452; l=1236;
- i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
- bh=n5bwyJSG49jkdtemL0KSh1+eA5aydhtKJOe/+pE2GYE=;
- b=NfLRhF66l70a82f9aVI0jgytzYgmcM0cedvnN1BdyhvfiTZZ8enGBRSy6G0WOqkP2S1ted/Id
- tIE6TxLkzHHClI43MKvJMIcHhEwyNhWcJuE8NM7clN1leLm4Bk4py6m
-X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
- pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
-X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
- auth_id=1480
-X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
-Reply-To: aiyengar1990@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-From: Arun Iyengar <aiyengar1990@gmail.com>
+Hi Yixun,
 
-Setting the OUTPUT format leaves the coded size at the 96x32 default,
-so the JPEG header does not match the encoded frame. The OUTPUT S_FMT
-resets the crop to the full frame: copy its size to the coded format.
+Tested v5 on a Banana Pi BPI-F3 (v7.4-rc4 plus your two CCU pm-aux
+patches): the seven K1 domains register and unused ones are turned off
+at boot. With Iker's PowerVR GPU node (v2), the gpu domain turns on when
+the driver binds and the firmware loads. No new warnings; W=3D1 build is
+clean. Reboot from this kernel is clean.
+Testing done with the help of Claude (AI assistant).
 
-Fixes: 953aaa1492c5 ("media: rockchip/vpu: Prepare things to support decoders")
-Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
----
- drivers/media/platform/verisilicon/hantro_v4l2.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+Tested-by: Fr=C3=A9d=C3=A9ric Mah=C3=A9 <frederic.mahe@cirad.fr> # BPI-F3
 
-diff --git a/drivers/media/platform/verisilicon/hantro_v4l2.c b/drivers/media/platform/verisilicon/hantro_v4l2.c
-index 0d6d4f36d012..88b1cf66b713 100644
---- a/drivers/media/platform/verisilicon/hantro_v4l2.c
-+++ b/drivers/media/platform/verisilicon/hantro_v4l2.c
-@@ -561,6 +561,12 @@ static int hantro_set_fmt_out(struct hantro_ctx *ctx,
- 	ctx->vpu_src_fmt = hantro_find_format(ctx, pix_mp->pixelformat);
- 	ctx->src_fmt = *pix_mp;
- 
-+	/* Setting the OUTPUT format resets the encoder crop to the full frame. */
-+	if (ctx->is_encoder) {
-+		ctx->dst_fmt.width = pix_mp->width;
-+		ctx->dst_fmt.height = pix_mp->height;
-+	}
-+
- 	/*
- 	 * Current raw format might have become invalid with newly
- 	 * selected codec, so reset it to default just to be safe and
-
--- 
-2.55.0
-
-
+Fr=C3=A9d=C3=A9ric
