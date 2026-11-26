@@ -1,103 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795711501;
-	b=UZ7wvuDEkj9q788fRgsEJ21xpH2hucVRjZ5lMq4JKdREfbY2+Y3iEDfkcyHSC87st4O4
-	 5JmNnm0NZWZ4kSwa2/iCnnRoEnB/ClWYU/pINegvktS42XoclpmheewTDZM1rQ6CT0fGZ
-	 zjHfpx9D6XCNJuLMsuRH1g0yEXLv05G1tblSiHdJSPYIbPJY+MPIOidCrNn0W3AF7tEgm
-	 3aV0CQyW+kpk7CqGnNOtm/hMYdTEHVrbaFGIvvJWzfG2SyN6Ri7NZ2VxCjFBksdyfm3Hw
-	 6fw8SCBCItRuKYotMyIi8ZGc5PX61r5YS7PAf+Hiqw9otQpq5ETW6PLzF1HY2JMQDvg==
+	t=1795711525;
+	b=S6WxdS5pCr21bGmkuMOigciIER2cWKuVfZCNXlbRkIZaBiLIOCyX9YJCdUQJhd174+dG
+	 psdAujgqf9PqiBZGDT+ZzCCVDH5iwStsLqJQRNZvDw4aSMHTBA34IOQ44W/y1mAi3oBTb
+	 47hg3nyEuKe81PNdcaRioLa+aCHqoJKHKc3N7FCZazo4KqIwpzdootcByEaq4nH4zK6ez
+	 qI7wbtYumuZ8uv+gyalg5q1Op9oCnrDHYvC58yYot1E/li2e0jKTid0VKDhmmap6djyZl
+	 ph9V3iP9hstWwdt1QifSZXJSfRKvofQ6ZU6DYsfVauTsZHKI68k5aR0eEtF3Nq1/cJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795711501;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=fHUOAZ6mMNtMo23vR2WHKfUxqC/87b1E4Io2Mv6sKk4=;
-	b=JMumGegM/QPk2t0n4VOTkKpD/0U0Q65i0wnm0Dal+WiTQVOVBUu8gr9eQR9KJDs3+yCs
-	 Lb3RY0qbsahRWOBl2QQQKXedqz1M7ANjCvahYAJu3AeIXCdaorhQOPq51TY3wm2PozBEX
-	 ad9ltYJFrfD5CviWOLK0GrYhnO/16ClqzB3NT7HpREx484MucpIeNb4DEiyW0ycNM871k
-	 oUs2wfE1gICoKiqWxHy1IQIkIf/dzIqT8M1H9RBcTtESZdhotB8euo8KAbs+h25pSPGxy
-	 UzkQPoQuAtTWBtvKD90Qyudy6DrKcneLcM839+Qsy7Em6Bu4svmcJqn1ODTz+2jcx5A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795711525;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=UHhBZ5Uxp8/lUbBSy2xJRw/vE4j4zkIMEJqynNMt8sM=;
+	b=jOqjZXSt4uKiJJaoES0+shWlcP2j5pOyWkOxSBaqoxW/+0AGfr0IHVl+V/XvCY2oPdE9
+	 VArNLeCDegzgriJlCPV2mH0XZSE2peMUHP73ZYh4sW0aVM96G1v39HJuv0vsTuDoEIzOK
+	 deRTdIa5TrhTjfzgykV5xFsX6FT8IQ9NoFUY0tj0BBOfOBzMA6El2NWAecaBUtuvL1jbV
+	 6aIdTb7rFGgDo+1hgygRFKAe2wYYT5Rl8TtqxxJB4Q1UdZl8jvycp/3ITb8KZns95v2zQ
+	 63TPSGy8Yi3A7tkoQIUu4dk8fzUV3mauyOQusq52UPI82t8yQnzwjHq2ZYAKoIW/C1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lQiodYqu;
-	arc=none smtp.remote-ip=192.198.163.11
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B19D+lQx;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49849606A327;
-	Thu, 26 Nov 2026 16:45:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49849606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9C46606A31C;
+	Thu, 26 Nov 2026 16:45:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lQiodYqu
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795711501; x=1827247501;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=i50Q9NVKtCix8B4lDLFjoFRATEwHTTiRYUfMBO48zBA=;
-  b=lQiodYqu0fRB/pUpP7sJOzV2ZWytvDpVZ6b5BJ9AsQ3ZDrH+cy07Gl+u
-   ADHMRFL+SlEp9H6KUBRi2CdaaJi3ohIEVYdyaHPyM7c/Ju0rc4vHBoMAd
-   U2lJm3Da5TKuHwxAQuBelfCto+8VJjjFYLlqRviQTXPqCYTkNNF9xF7Fa
-   vxHgwAhhMlalIBSh6Nu6/uWgcQumW/ylTy+Uto5EETer2cj6KHfH7Zhxo
-   hSOFah4AsCZutrFRfzqTEzxiz89f7Ks2b90qapC/zuF1RqpzViDj+XYqu
-   Gwessyp4fq4mpggp4JdWUg9mS+dBrnvLvBRj3YX7uOuaqsc7GEhGYNpVZ
-   g==;
-X-CSE-ConnectionGUID: OLukKs9bRiGkKUVMbFJF+w==
-X-CSE-MsgGUID: hsnI5hw7Qiyq1s/Vn2rxFA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4536158"
-X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
-   d="scan'208";a="4536158"
-Received: from fmviesa012.fm.intel.com ([10.60.135.152])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 08:45:00 -0800
-X-CSE-ConnectionGUID: YtB+QfE5S9qxdiA/Q8e41Q==
-X-CSE-MsgGUID: BgF88I1nR1Shg2G0j7ck8g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
-   d="scan'208";a="13894609"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa012.fm.intel.com with ESMTP; 26 Nov 2026 08:44:55 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xWcaY-00000001UTg-354e;
-	Thu, 26 Nov 2026 16:44:50 +0000
-Date: Fri, 27 Nov 2026 00:44:34 +0800
-From: kernel test robot <lkp@intel.com>
-To: Louis Chauvet <louis.chauvet@bootlin.com>,
-	Haneen Mohammed <hamohammed.sa@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Melissa Wen <melissa.srw@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, jose.exposito89@gmail.com,
-	Jonathan Corbet <corbet@lwn.net>,
-	Oarora Etimis <oaroraetimis@gmail.com>,
-	Harry Wentland <harry.wentland@amd.com>,
-	Lucas De Marchi <demarchi@kernel.org>,
-	Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>
-Cc: oe-kbuild-all@lists.linux.dev,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	sebastian.wick@redhat.com, victoria@system76.com,
-	thomas.petazzoni@bootlin.com, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v7 34/43] drm/vkms: Introduce config for connector
- supported colorspace
-Message-ID: <20261127003812.SJ4m3pfw-lkp@intel.com>
-References: <20261126-vkms-all-config-v7-34-21194cda2468@bootlin.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B19D+lQx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F0191F000D0;
+	Thu, 26 Nov 2026 16:45:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795711524;
+	bh=UHhBZ5Uxp8/lUbBSy2xJRw/vE4j4zkIMEJqynNMt8sM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=B19D+lQxF/1G68HXkUW5LKi6A9FfsicKZeuwVabLs/u9mJz1Z6Df/Mj44/mkYMHWS
+	 0szjGrViOgksZnk0m0Y7/Pr7LQo0YqbPwL7q6/5pgCyuxXRX5Zr+OCArL6EqiDwDs4
+	 VJ9W7eAwEve69wJbEG3c6+vVyqmKvxPh84aNVOlBGfUiIoeX3NpWOAz+TU39bUiF7B
+	 aTa8HKWXAkpZG8Mywftn3xgs/t48PmtlSUN8Ev9ea/h8GYZescFitZEt2lO6ZdbVFH
+	 6lW1QwcevBw63MgcGKJ8MQWVDX31/4f7aPX3Twf9t/XkkxOzZpHJDA6y5jGtjVbTfn
+	 m2bv55b8DGo8Q==
+Subject:
+ Re: [PATCH net-next v8 1/3] net: macb: cache ENST config across link down/up
+From: netdev-bot+sashiko@kernel.org
+To: theo.lebrun@bootlin.com
+Cc: conor.dooley@microchip.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux@armlinux.org.uk, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ nb@tipi-net.de, pvalerio@redhat.com, vladimir.kondratiev@mobileye.com,
+ gregory.clement@bootlin.com, benoit.monin@bootlin.com,
+ tawfik.bayouk@mobileye.com, thomas.petazzoni@bootlin.com,
+ vineeth.karumanchi@amd.com
+Date: Thu, 26 Nov 2026 16:45:23 +0000
+Message-ID: <179571152363.3135.15940503307792785015@kernel.org>
+In-Reply-To: <20261124-macb-set-channels-v8-1-770cf8e50e6d@bootlin.com>
+References: <20261124-macb-set-channels-v8-1-770cf8e50e6d@bootlin.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,36 +67,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261126-vkms-all-config-v7-34-21194cda2468@bootlin.com>
 
-Hi Louis,
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-kernel test robot noticed the following build warnings:
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-[auto build test WARNING on 3c7c3c12dfc7704ca614abbfa266ca00a2b5a994]
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Louis-Chauvet/drm-vkms-Lock-the-config-dump-against-concurrent-configfs-changes/20261126-122844
-base:   3c7c3c12dfc7704ca614abbfa266ca00a2b5a994
-patch link:    https://lore.kernel.org/r/20261126-vkms-all-config-v7-34-21194cda2468%40bootlin.com
-patch subject: [PATCH v7 34/43] drm/vkms: Introduce config for connector supported colorspace
-config: i386-randconfig-1004-20261126 (https://download.01.org/0day-ci/archive/20261127/20261127003812.SJ4m3pfw-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261127/20261127003812.SJ4m3pfw-lkp@intel.com/reproduce)
+- [Medium] In macb_mac_link_up()
+  (drivers/net/ethernet/cadence/macb_main.c), when the link comes back…
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261127003812.SJ4m3pfw-lkp@intel.com/
+--
 
-All warnings (new ones prefixed by >>):
+net: macb: cache ENST config across link down/up
 
->> Warning: drivers/gpu/drm/vkms/vkms_connector.c:88 function parameter 'connector' not described in 'vkms_connector_init'
->> Warning: drivers/gpu/drm/vkms/vkms_connector.c:88 function parameter 'connector_cfg' not described in 'vkms_connector_init'
->> Warning: drivers/gpu/drm/vkms/vkms_connector.c:88 function parameter 'connector' not described in 'vkms_connector_init'
->> Warning: drivers/gpu/drm/vkms/vkms_connector.c:88 function parameter 'connector_cfg' not described in 'vkms_connector_init'
+The macb driver now keeps the ENST (taprio offload) config in bp->enst
+and writes it again on every link-up. If the link speed has changed, the
+cached config is dropped with a warning. The commit also caches the link
+speed in bp->speed_mbps, serialises the taprio paths with
+bp->mac_cfg_lock, and removes the pm_runtime_suspended() check.
+
+> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+> index 9f6111661b40d..1e06666921160 100644
+> --- a/drivers/net/ethernet/cadence/macb_main.c
+> +++ b/drivers/net/ethernet/cadence/macb_main.c
+
+[ ... ]
+
+> @@ -1009,6 +1048,15 @@ static void macb_mac_link_up(struct phylink_config *config,
+>  
+>  	spin_unlock_irqrestore(&bp->lock, flags);
+>  
+> +	if (bp->enst.speed_mbps && speed != bp->enst.speed_mbps) {
+> +		netdev_warn(bp->netdev,
+> +			    "TAPRIO dropped because link speed changed\n");
+> +
+> +		memset(&bp->enst, 0, sizeof(bp->enst));
+> +	}
+> +
+> +	macb_apply_enst_config(bp);
+> +
+
+[Severity: Medium]
+After the link comes back at a different speed, the cache is zeroed.
+macb_apply_enst_config() then sets the disable bits for every queue and
+writes 0 to the per-queue timing registers. ENST_CONTROL is not enabled
+again, because of this check:
+
+	if (bp->enst.queue_mask)
+		gem_writel(bp, ENST_CONTROL, bp->enst.queue_mask);
+
+>From then on the MAC applies no gate control at all. Only a netdev_warn()
+reports this.
+
+Does the taprio qdisc still report a fully offloaded schedule in this
+state? netdev->num_tc and tc_to_txq are left as they were, since only
+macb_taprio_destroy() calls netdev_reset_tc(). In offload mode the taprio
+core does not call ndo_setup_tc again on link changes, so nothing
+reprograms the hardware.
+
+Can the schedule ever come back without the user reinstalling the qdisc?
+struct macb_enst stores only on/off times already converted to bytes for
+one speed:
+
+	config.queues[queue_id].on_time_bytes =
+		enst_ns_to_hw_units(entry->interval, bp->speed_mbps);
+	config.queues[queue_id].off_time_bytes =
+		enst_ns_to_hw_units(off, bp->speed_mbps);
+
+macb_taprio_setup_replace() discards the nanosecond intervals from
+tc_taprio_qopt_offload. Because of that, macb_mac_link_up() cannot
+recompute or re-check the schedule for the new speed. It also cannot
+restore it if the link later comes back at the original speed, for
+example after a temporary PHY downshift or a cable swap.
+
+Would it work to keep the ns intervals in bp->enst, then re-validate and
+recompute the byte values on each link-up? The schedule would then
+survive whenever it still fits the new speed.
+
+>  	if (!(bp->caps & MACB_CAPS_MACB_IS_EMAC)) {
+>  		macb_set_tx_clk(bp, speed);
+>  		gem_shuffle_tx_rings(bp);
+
+[ ... ]
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124-macb-set-channels-v8-0-770cf8e50e6d%40bootlin.com
