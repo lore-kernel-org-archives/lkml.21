@@ -1,96 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795704984;
-	b=TRnba+FlS8GCMERB3ExqkQDZHGLqi21aRpaUY3MqYMXr5571JFojPpO2ETTLasv+GGtq
-	 oWUeF1d8rD5tQVcEyKybS9Uxhs7ZwzEoIu+Iil0REfpnwIf//3wQ+NQBT7vcphshTY4bq
-	 5r9pryvSsdE9EQhYu++jKQf1YhAreD9pfmF5eaSCPdveIwJpBxxNk9M/waw4i6yGg1OO/
-	 xSdhskDUmvCWbWYIjBgMfKMvYibM1rQvKE/5o8XCpnMwcbYE1lsxR2r16MJGjUdxuO0kb
-	 eDmIN6BoOjWlkkvEqWY7YUTFHZyVhHkM2WRF5ZE0z9fCEFwmMemycfS6bYMvZpWSVdg==
+	t=1795705043;
+	b=qtBw8uvWsxXuE7ilHRiwpmaHpPOiIX04ef49mqFUqAQXBtS2FcBUQKNCp4RCgOLkF6//
+	 YhQzkeF01yPMSJCx5iP4Pky8WhXS0TcxPBBT7AcSOX1ENohHZwOL7sKSkRB7iHZWwnFTm
+	 AXT0bbvwxAgmDgo9eWWs/fLSEMw1iYMoCCB5Olebz/S61w9B0UqzW1KHKmJQWanUBFS+U
+	 MjnX5U/LjkcjrSXu1tCIEWVgy/NNBnGt8cmw8bfDtlOWJryY7Vm0Okn9CA5W2yX3pjQyP
+	 o1PtxUrnB+l1euBEYkmYQPL+UmtfWBWcijiWHUNtA+5eQAGj+pBT5G4KsS+5c5cA5QA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795704984;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:In-Reply-To:References:Date:Message-ID:User-Agent:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=TrHz6TOmRTj7K/IVnMz2oUxTcCVWtjA1RyFgDD9jfkY=;
-	b=ran65RaIGtChN8a6tznVCRsz5w4B+Hp2j2SH8Xanfg7kzG+hUgVhUGJ0sZifpXN8XtSC
-	 35XsRVfDfeF9ZSLxIsDL7BxcejWAGiBYYgIj4YQmAtYVvaBS1IZIS61q1u4S4xrVZ+QDu
-	 aEOeAe9oUOK1p97fOD8+qIqIOW7shqnRuWqYeuJRrTRQ02bDAQ8NF4cnuoK/d+VLQDxdV
-	 /bNLK75cLos0DdtTFgYOXMxGZgsu9xi9mv5LQm73GagUMizWwfy8eA1m/PIsq90cXsMj5
-	 gaRHtnccKs+ZhL63GDEEq544nobmvVJvJ0l3hInXmwwnzOHZEoUWxXSYewcDXgA5LkQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705043;
+	h=DMARC-Filter:DKIM-Signature:Subject:Message-Id:In-Reply-To:
+	 Content-Transfer-Encoding:To:Cc:From:Received:Content-Type:X-Mailer:
+	 Date:X-Original-From:Mime-Version:References:X-Lms-Return-Path;
+	bh=QHqLS3Lb6Agvm1JH+yEBrEtKRMG4ffmyogGVZrw7Qn4=;
+	b=QKEAu5IJdWb+9ZDkGb+Z1Oekz7hqx441Il2N2exsG0jQEQWFj/xHOWVYISvZ6GPcG2J/
+	 ASmaw3cG/+J5leoILU/BksCZG0pxqENe7tdN91ffHTqcnAvsMHQAO69Bk/myKXEODzfUn
+	 lFzEAtbsbIe2hY8jlePoFraKufFqE4e+GgweoA5qKzBPxKNR50gEyi5Akoak95iqqQrfg
+	 r0aeqb7ZTRV0mCgSxK/B6/aXjMFN7ea1eApuDggu9rh6uStrrEIq0vlarKs0g1V/r/wQv
+	 5U7uXx+dZd5r7XLU4AneSqD8FVa+j89HDuisslZXkD3PK34ynewA73u/TsZxgtDngLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=beagleboard.org;
-	spf=fail smtp.mailfrom=beagleboard.org;
-	dkim=pass header.d=beagleboard.org header.i=@beagleboard.org header.a=rsa-sha256 header.s=google header.b=kuWFX0qE;
-	arc=none smtp.remote-ip=209.85.216.42
-Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com [209.85.216.42])
+	dmarc=none header.from=yunsilicon.com;
+	spf=pass smtp.mailfrom=yunsilicon.com;
+	dkim=pass header.d=yunsilicon.com header.i=@yunsilicon.com header.a=rsa-sha256 header.s=feishu2403070942 header.b=f1xIgfwg;
+	arc=none smtp.remote-ip=209.127.231.45
+Received: from va-2-45.ptr.blmpb.com (va-2-45.ptr.blmpb.com [209.127.231.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2636C606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:56:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2636C606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=beagleboard.org
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=beagleboard.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9716606A327
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:57:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9716606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=yunsilicon.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yunsilicon.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=beagleboard.org header.i=@beagleboard.org header.a=rsa-sha256 header.s=google header.b=kuWFX0qE
-Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3b413d04c93so4135602a91.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:56:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=beagleboard.org; s=google; t=1795704983; x=1796309783; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:user-agent
-         :message-id:date:references:in-reply-to:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=TrHz6TOmRTj7K/IVnMz2oUxTcCVWtjA1RyFgDD9jfkY=;
-        b=kuWFX0qE3kh/bmWRoRYWh8Ng18vFAxRf5il3ZdEUyKMzo/0HNxSp31hT7PnXO6yLvF
-         PkfPw/WLrJEotnIpGU035hL7l/5qz2HcSmN47wBoEVR0tjJKtc03Q23b+0KmfxzUn0ko
-         zDRXnJxkJ9tn/MQE2vs6Ab7fktR2+8MHGy21NpTgkiabrrY3ogPxhNUVVlbKLcA8pSrI
-         AvE7HqwrCy6rzhXf0Vt6SbE+XgCbyDpZugF58gPBTXbn7etHqdunGJA1c6fESeDQTfPA
-         82/IRIVKWOkoFeEQH2JmGU8XMW0drJSComjFKWPYURGBBUWDBHWsR+UvpmmFBlui6+fp
-         qArQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795704983; x=1796309783;
-        h=content-transfer-encoding:content-type:mime-version:user-agent
-         :message-id:date:references:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TrHz6TOmRTj7K/IVnMz2oUxTcCVWtjA1RyFgDD9jfkY=;
-        b=FUFrEcjaktCEXZkeVNIrIWw56cm3NpLnI5dslPvjJD9V/tNkNcekC8xOY3d4EOf7sS
-         +GD7DcNXPLCp8Dmln3uJBinaXBPt1UgPCCcsUi330TdQn71aS0VxnaQLK5Mfp06+HHMr
-         YS289TKm+Rpl7MYHXzLnLXUGQIomwRrFlepd5XE7G4Rd7u7QwmbakfSdhDrA1hRJEyPv
-         rw2lHudrFnith85bflXUv8b1KztbW+SP40baQJ8Wr0f1JLZG/MgwkcupX58CdAw3bY7K
-         yOTljfFjK8tdckkhyAWMVD5gA/gvZn0InHX45reE9bC58ays6dQFiuY60rx83I11RpPA
-         oDdQ==
-X-Forwarded-Encrypted: i=1; AL+hErEDFRkIO1JBg+H+2oo9uP7lZhgwIrkKSzpe0NiujyYNvAmcIfqWE7yrnAyZD3qU7mVi5OO1sbQ1BLYjopI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/DEbHN8hmeW5xu6VXt18IrLKZvKBqAbsgM1V9OeS0RvzIoQeAL
-	JxdoxI4VafV9+zuzGpSDaEhqfVjAvYsrDwJqXWT6hz6vE4JCMJ1e7M5tr6HJ3X/7om5/CTE2ekZ
-	Lz7M=
-X-Gm-Gg: AZFdTZe0Y8C7Ch8AFYOR4Q2yzuvgog6Q36/KYVq2BvGi+YKcwI6F5VDpYufhCH76tie
-	i86Gx437RpbKlIxFXbtWTU2tcJ2AIcFhVviHsQ5ZMF3vN9chx/qPXJCEv9gjjiHysPwK9HxbtA+
-	H0I9PpXZbVzxJQXbQZrWpqvLU41uTO6/SIMXr9ckRUL5EJTYLtraaAt8uTs4GLsan+4QMmBI15L
-	MF9dEVFdTkv7b70jPxscgW1uNOffotIEq8wkl+LPwyYJBk48lb6qp2/Yud5nOY9awnUYEugvcCQ
-	mc9V2dQcj3VFyqKGiZPgh04MzphicfbWzoTY9XK29BaJHBO7tDirp2Ktpl/3vg7fEAqFDUdECWV
-	EECMetgd1q80vEWNvH1n+ogujPDL9azcWHopK1AtXp9fer6J+fcFN0UVkB9ElSj6i3j3l9wM1tc
-	6dlt3UqPHQd4xRBa9kf32ieqwlTE4HDOo9FeR+FQG+8fGlktoxxLuuIDJ7f0NzS3sJHp5JK/Dos
-	FrsrsIdnyTHRb3EyDsqlJr3m5Vtt4rX39XQe2gDSTSknmreytrHfhD8xZo6KsQ+YVfYcqFbqgrJ
-	TnJ4L3TTLLYKNsDXtr01ip/5W89n34w=
-X-Received: by 2002:a17:90b:3f10:b0:3b4:1982:45b4 with SMTP id 98e67ed59e1d1-3b41cb212d5mr19343715a91.57.1795704983367;
-        Thu, 26 Nov 2026 06:56:23 -0800 (PST)
-Received: from fedorapc ([2405:201:4019:32fc:3c55:6b24:5147:322b])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad8ef99sm34215770a91.12.2026.11.26.06.56.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 06:56:23 -0800 (PST)
-From: Ayush Singh <ayush@beagleboard.org>
-To: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Cc: Ayush Singh <ayush@beagleboard.org>,  Len Brown <lenb@kernel.org>,
-  linux-acpi@vger.kernel.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ACPI: power: Add serialize_power_on_quirk
-In-Reply-To: <CAJZ5v0hVX0vQ3oy_jiSAqERc4tmTZECFbsGfRi3=3Gz1Q2+H1w@mail.gmail.com>
-References: <20261124-ssd-fix-v1-1-ee8ef43190b1@beagleboard.org>
-	<CAJZ5v0hVX0vQ3oy_jiSAqERc4tmTZECFbsGfRi3=3Gz1Q2+H1w@mail.gmail.com>
-Date: Thu, 26 Nov 2026 20:26:19 +0530
-Message-ID: <8733sniquk.fsf@beagleboard.org>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	dkim=pass (2048-bit key, unprotected) header.d=yunsilicon.com header.i=@yunsilicon.com header.a=rsa-sha256 header.s=feishu2403070942 header.b=f1xIgfwg
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=feishu2403070942; d=yunsilicon.com; t=1795705036; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=QHqLS3Lb6Agvm1JH+yEBrEtKRMG4ffmyogGVZrw7Qn4=;
+ b=f1xIgfwgGxG6fLx/CIf+1up+vWR6kHmXlkwBaL8im2I0Uw7Jm1CrrThbyhBdaqXGcTV910
+ rr1vY+gzDf5z3vFVBKQWJy+iSDSGjBjHyhfjcLxwwGSAVbu65keqYcKWiXD5PNYR1CX8om
+ AeK+gjnjMZOYFr86mkLP7UWFkwt9VI7R0Psr72wR9cjGFVTiojkmFFG64IuuYQtcC6i5/w
+ k31b+0tB/ElgA2VTdx9X8/IlLlz0CaiNuRPlCtp2YhmaR2qNpl0oZKJs3iLynX0XtI4/j6
+ /F02vJsRWau4UWHJzcIfR7WLPhLuhoXDLgh4JlCl/FRqlPdcsRqFjMRe7rI8qQ==
+Subject: [PATCH v2 01/11] net/xsc: add Yunsilicon XSC ethernet PCI driver
+Message-Id: <20261126145711.70868-2-tianx@yunsilicon.com>
+In-Reply-To: <20261126145711.70868-1-tianx@yunsilicon.com>
+Content-Transfer-Encoding: 7bit
+To: "Andrew Lunn" <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, 
+	"Eric Dumazet" <edumazet@google.com>, "Jakub Kicinski" <kuba@kernel.org>, 
+	"Paolo Abeni" <pabeni@redhat.com>, "Jason Gunthorpe" <jgg@ziepe.ca>, 
+	"Leon Romanovsky" <leon@kernel.org>, 
+	"Junxian Huang" <huangjunxian6@hisilicon.com>
+Cc: <weihg@yunsilicon.com>, <linux-kernel@vger.kernel.org>, 
+	<netdev@vger.kernel.org>, <linux-rdma@vger.kernel.org>, 
+	<kerneljasonxing@gmail.com>
+From: "Xin Tian" <tianx@yunsilicon.com>
+Received: from DESKTOP-TGBQGEC.localdomain ([183.193.56.110]) by smtp.feishu.cn with ESMTPS; Thu, 26 Nov 2026 22:57:13 +0800
+Content-Type: text/plain; charset=UTF-8
+X-Mailer: git-send-email 2.25.1
+Date: Thu, 26 Nov 2026 22:57:13 +0800
+X-Original-From: Xin Tian <tianx@yunsilicon.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,192 +70,408 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Mime-Version: 1.0
+References: <20261126145711.70868-1-tianx@yunsilicon.com>
+X-Lms-Return-Path: <lba+26b0848ca+2aef17+vger.kernel.org+tianx@yunsilicon.com>
 
-"Rafael J. Wysocki (Intel)" <rafael@kernel.org> writes:
+skeleton
 
-> On Tue, Nov 24, 2026 at 1:16=E2=80=AFPM Ayush Singh <ayush@beagleboard.or=
-g> wrote:
->>
->> On the Lenovo Yoga Pro 7 14AKP10 (83KG, AMD Krackan), the NVMe drive in
->> the second M.2 slot is frequently lost after resuming from s2idle:
->>
->>   pcieport 0000:00:02.1: broken device, retraining non-functional downst=
-ream link at 2.5GT/s
->>   pcieport 0000:00:02.1: retraining failed
->>   pcieport 0000:00:02.1: Data Link Layer Link Active not set in 100 msec
->>   nvme nvme1: Disabling device after reset failure: -19
->>
->> The _ON methods of the two M.2 slots' power resources update a clock
->> control register shared by both slots without any locking, and sleep in
->> the middle of the update. Since the root ports are resumed
->> asynchronously, the two methods can run concurrently, and one of them
->> can undo the other's change, leaving that slot's reference clock
->> disabled. Its link then never trains.
->>
->> Evaluate power resource _ON methods one at a time on this machine.
->> With this, 20/20 s2idle cycles succeeded, versus failure within 1-2
->> cycles before. Also tested in normal laptop usage for a few days.
->>
->> The same symptom has been reported on the closely related IdeaPad Pro 5
->> 14AKP10 (83JL) [0], which may need this quirk as well, but it is not
->> included here as it could not be tested.
->>
->> [0]: https://ratatoskr.run/linux-pci/2026/04/6586201/t
->>
->> Assisted-by: claude-opus-5-5
->> Signed-off-by: Ayush Singh <ayush@beagleboard.org>
->> ---
->> On the Lenovo Yoga Pro 7 14AKP10 (83KG, AMD Krackan, BIOS QFCN29WW),
->> the NVMe drive behind root port 00:02.1 (ACPI GPP3) is lost on nearly
->> every s2idle resume, while the drive in the other M.2 slot (GP10) always
->> comes back. Updating to the latest BIOS did not help, and neither did
->> disabling SSD power management via kernel parameters or recovering the
->> device from userspace.
->>
->> The "broken device, retraining non-functional downstream link at
->> 2.5GT/s" / "retraining failed" messages come from the Target Speed quirk
->> reacting to a link that cannot train at all. The actual cause is a race
->> between the two slots' power resource _ON methods in firmware, which
->> can leave one slot's reference clock disabled, as described in the
->> patch. I can share the relevant AML and debug logs if useful.
->>
->> Testing: 20/20 s2idle cycles with real S0i3 residency, versus failure
->> within 1-2 cycles without the patch. I have also done normal daily use
->> testing outside of synthetic suspend.
->>
->> The IdeaPad Pro 5 14AKP10 (83JL) appears to have the same problem on
->> the same root port [0]. I don't have one to test, so it is not in the
->> DMI table.
->>
->> I went with a DMI quirk that serializes power resource _ON methods
->> on this machine only. If serializing them unconditionally, or some
->> other approach, is preferred, I'm happy to rework it.
->>
->> [0]: https://ratatoskr.run/linux-pci/2026/04/6586201/t
->
-> So there is acpi_evaluate_object_exclusive() now and you can use it
-> for _ON evaluation.
->
-> It will serialize the method with other things too, but that's not a big =
-deal.
->
->> ---
->>  drivers/acpi/power.c | 41 ++++++++++++++++++++++++++++++++++++++++-
->>  1 file changed, 40 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/acpi/power.c b/drivers/acpi/power.c
->> index 23a4e207a01e..b997d98f38c4 100644
->> --- a/drivers/acpi/power.c
->> +++ b/drivers/acpi/power.c
->> @@ -64,6 +64,10 @@ struct acpi_power_resource_entry {
->>
->>  static bool hp_eb_gp12pxp_quirk;
->>  static bool unused_power_resources_quirk;
->> +static bool serialize_power_on_quirk;
->> +
->> +/* Serializes _ON evaluation when serialize_power_on_quirk is set */
->> +static DEFINE_MUTEX(power_on_lock);
->>
->>  static LIST_HEAD(acpi_power_resource_list);
->>  static DEFINE_MUTEX(power_resource_list_lock);
->> @@ -362,13 +366,27 @@ void acpi_device_power_remove_dependent(struct acp=
-i_device *adev,
->>                 acpi_power_resource_remove_dependent(entry->resource, de=
-v);
->>  }
->>
->> +static acpi_status acpi_power_evaluate_on(acpi_handle handle)
->> +{
->> +       acpi_status status;
->> +
->> +       if (!serialize_power_on_quirk)
->> +               return acpi_evaluate_object(handle, "_ON", NULL, NULL);
->> +
->> +       mutex_lock(&power_on_lock);
->> +       status =3D acpi_evaluate_object(handle, "_ON", NULL, NULL);
->> +       mutex_unlock(&power_on_lock);
->> +
->> +       return status;
->> +}
->> +
->>  static int __acpi_power_on(struct acpi_power_resource *resource)
->>  {
->>         acpi_handle handle =3D resource->device.handle;
->>         struct acpi_power_dependent_device *dep;
->>         acpi_status status =3D AE_OK;
->>
->> -       status =3D acpi_evaluate_object(handle, "_ON", NULL, NULL);
->> +       status =3D acpi_power_evaluate_on(handle);
->
-> So I'd replace acpi_evaluate_object() above with
-> acpi_evaluate_object_exclusive().
+Add the Yunsilicon vendor Kbuild glue and the PCI layer of the XSC
+ethernet driver. For now the PCI core only enables the device, maps
+BAR0 and records DMA capabilities; the doorbell, command queue and
+netdev layer are added by subsequent patches.
 
-Sure, that sounds good. Just to confirm though, I should do that only for
-devices with the quirk though, right? i.e. behind a conditional. Or do you
-mean that it should use acpi_evaluate_object_exclusive unconditionally?
+Signed-off-by: Xin Tian <tianx@yunsilicon.com>
+---
+ MAINTAINERS                                   |   7 +
+ drivers/net/ethernet/Kconfig                  |   1 +
+ drivers/net/ethernet/Makefile                 |   1 +
+ drivers/net/ethernet/yunsilicon/Kconfig       |  26 +++
+ drivers/net/ethernet/yunsilicon/Makefile      |   8 +
+ .../ethernet/yunsilicon/xsc/common/xsc_core.h |  35 ++++
+ .../ethernet/yunsilicon/xsc/common/xsc_reg.h  |  23 +++
+ .../net/ethernet/yunsilicon/xsc/pci/Kconfig   |  16 ++
+ .../net/ethernet/yunsilicon/xsc/pci/Makefile  |   9 +
+ .../net/ethernet/yunsilicon/xsc/pci/main.c    | 170 ++++++++++++++++++
+ 10 files changed, 296 insertions(+)
+ create mode 100644 drivers/net/ethernet/yunsilicon/Kconfig
+ create mode 100644 drivers/net/ethernet/yunsilicon/Makefile
+ create mode 100644 drivers/net/ethernet/yunsilicon/xsc/common/xsc_core.h
+ create mode 100644 drivers/net/ethernet/yunsilicon/xsc/common/xsc_reg.h
+ create mode 100644 drivers/net/ethernet/yunsilicon/xsc/pci/Kconfig
+ create mode 100644 drivers/net/ethernet/yunsilicon/xsc/pci/Makefile
+ create mode 100644 drivers/net/ethernet/yunsilicon/xsc/pci/main.c
 
->
->>         if (ACPI_FAILURE(status)) {
->>                 resource->state =3D ACPI_POWER_RESOURCE_STATE_UNKNOWN;
->>                 return -ENODEV;
->> @@ -1096,6 +1114,24 @@ static const struct dmi_system_id dmi_hp_eliteboo=
-k_gp12pxp_quirk[] =3D {
->>         {}
->>  };
->>
->> +static const struct dmi_system_id dmi_serialize_power_on[] =3D {
->> +       /*
->> +        * On the Lenovo Yoga Pro 7 14AKP10, the _ON methods of the M.2 =
-slot
->> +        * power resources update a shared clock control register without
->> +        * locking and sleep in the middle of the update. When the root =
-ports
->> +        * are resumed concurrently, one slot's reference clock can end =
-up
->> +        * disabled and its NVMe drive is lost after resume.
->> +        */
->> +       {
->> +               /* Lenovo Yoga Pro 7 14AKP10 */
->> +               .matches =3D {
->> +                       DMI_MATCH(DMI_SYS_VENDOR, "LENOVO"),
->> +                       DMI_MATCH(DMI_PRODUCT_NAME, "83KG"),
->> +               },
->> +       },
->> +       {}
->> +};
->> +
->>  static const struct dmi_system_id dmi_leave_unused_power_resources_on[]=
- =3D {
->>         {
->>                 /*
->> @@ -1156,4 +1192,7 @@ void __init acpi_power_resources_init(void)
->>         hp_eb_gp12pxp_quirk =3D dmi_check_system(dmi_hp_elitebook_gp12px=
-p_quirk);
->>         unused_power_resources_quirk =3D
->>                 dmi_check_system(dmi_leave_unused_power_resources_on);
->> +       serialize_power_on_quirk =3D dmi_check_system(dmi_serialize_powe=
-r_on);
->> +       if (serialize_power_on_quirk)
->> +               pr_info("Serializing power resource _ON methods\n");
->>  }
->>
->> ---
->> base-commit: 988117cc1bb17338c586a4e21ade88b5397eac33
->> change-id: 20261122-ssd-fix-6b7ab639796d
->>
->> Best regards,
->> --
->> Ayush Singh <ayush@beagleboard.org>
->>
->>
-
-
-Best Regards,
-Ayush Singh
-
---=20
-BeagleBoard.org Foundation
-https://www.beagleboard.org
+diff --git a/MAINTAINERS b/MAINTAINERS
+index c24144478..bc9e7d267 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -30069,6 +30069,13 @@ S:	Maintained
+ F:	Documentation/input/devices/yealink.rst
+ F:	drivers/input/misc/yealink.*
+ 
++YUNSILICON XSC DRIVERS
++M:	Honggang Wei <weihg@yunsilicon.com>
++M:	Xin Tian <tianx@yunsilicon.com>
++L:	netdev@vger.kernel.org
++S:	Maintained
++F:	drivers/net/ethernet/yunsilicon/xsc
++
+ ZD1211RW WIRELESS DRIVER
+ L:	linux-wireless@vger.kernel.org
+ S:	Orphan
+diff --git a/drivers/net/ethernet/Kconfig b/drivers/net/ethernet/Kconfig
+index 8581ccba1..88cdf87b0 100644
+--- a/drivers/net/ethernet/Kconfig
++++ b/drivers/net/ethernet/Kconfig
+@@ -189,6 +189,7 @@ source "drivers/net/ethernet/wangxun/Kconfig"
+ source "drivers/net/ethernet/wiznet/Kconfig"
+ source "drivers/net/ethernet/xilinx/Kconfig"
+ source "drivers/net/ethernet/xircom/Kconfig"
++source "drivers/net/ethernet/yunsilicon/Kconfig"
+ source "drivers/net/ethernet/zte/Kconfig"
+ 
+ endif # ETHERNET
+diff --git a/drivers/net/ethernet/Makefile b/drivers/net/ethernet/Makefile
+index 2b1153d35..5b571d761 100644
+--- a/drivers/net/ethernet/Makefile
++++ b/drivers/net/ethernet/Makefile
+@@ -101,6 +101,7 @@ obj-$(CONFIG_NET_VENDOR_VIA) += via/
+ obj-$(CONFIG_NET_VENDOR_WANGXUN) += wangxun/
+ obj-$(CONFIG_NET_VENDOR_WIZNET) += wiznet/
+ obj-$(CONFIG_NET_VENDOR_XILINX) += xilinx/
++obj-$(CONFIG_NET_VENDOR_YUNSILICON) += yunsilicon/
+ obj-$(CONFIG_NET_VENDOR_XIRCOM) += xircom/
+ obj-$(CONFIG_NET_VENDOR_SYNOPSYS) += synopsys/
+ obj-$(CONFIG_NET_VENDOR_PENSANDO) += pensando/
+diff --git a/drivers/net/ethernet/yunsilicon/Kconfig b/drivers/net/ethernet/yunsilicon/Kconfig
+new file mode 100644
+index 000000000..ffdfdf4bf
+--- /dev/null
++++ b/drivers/net/ethernet/yunsilicon/Kconfig
+@@ -0,0 +1,26 @@
++# SPDX-License-Identifier: GPL-2.0
++# Copyright (C) 2021-2026, Shanghai Yunsilicon Technology Co., Ltd.
++# All rights reserved.
++#
++# Yunsilicon driver configuration
++#
++
++config NET_VENDOR_YUNSILICON
++	bool "Yunsilicon devices"
++	default y
++	depends on PCI
++	depends on 64BIT || COMPILE_TEST
++	help
++	  If you have a network (Ethernet) device belonging to this class,
++	  say Y.
++
++	  Note that the answer to this question doesn't directly affect the
++	  kernel: saying N will just cause the configurator to skip all
++	  the questions about Yunsilicon cards. If you say Y, you will be asked
++	  for your specific card in the following questions.
++
++if NET_VENDOR_YUNSILICON
++
++source "drivers/net/ethernet/yunsilicon/xsc/pci/Kconfig"
++
++endif # NET_VENDOR_YUNSILICON
+diff --git a/drivers/net/ethernet/yunsilicon/Makefile b/drivers/net/ethernet/yunsilicon/Makefile
+new file mode 100644
+index 000000000..b2924ccaf
+--- /dev/null
++++ b/drivers/net/ethernet/yunsilicon/Makefile
+@@ -0,0 +1,8 @@
++# SPDX-License-Identifier: GPL-2.0
++# Copyright (C) 2021-2026, Shanghai Yunsilicon Technology Co., Ltd.
++# All rights reserved.
++#
++# Makefile for the Yunsilicon device drivers.
++#
++
++obj-$(CONFIG_YUNSILICON_XSC_PCI) += xsc/pci/
+diff --git a/drivers/net/ethernet/yunsilicon/xsc/common/xsc_core.h b/drivers/net/ethernet/yunsilicon/xsc/common/xsc_core.h
+new file mode 100644
+index 000000000..2d0eda8a2
+--- /dev/null
++++ b/drivers/net/ethernet/yunsilicon/xsc/common/xsc_core.h
+@@ -0,0 +1,35 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/* Copyright (C) 2021-2026, Shanghai Yunsilicon Technology Co., Ltd.
++ * All rights reserved.
++ */
++
++#ifndef __XSC_CORE_H
++#define __XSC_CORE_H
++
++#include <linux/pci.h>
++#include <linux/bitfield.h>
++
++#define XSC_PCI_VENDOR_ID		0x1f67
++
++#define XSC_MC_PF_DEV_ID		0x1011
++
++#define XSC_MF_HOST_PF_DEV_ID		0x1051
++#define XSC_MF_SOC_PF_DEV_ID		0x1053
++
++#define XSC_MS_PF_DEV_ID		0x1111
++
++#define XSC_MV_HOST_PF_DEV_ID		0x1151
++#define XSC_MV_SOC_PF_DEV_ID		0x1153
++
++#define XSC_PAGE_SHIFT_4K		12
++#define XSC_PAGE_SIZE_4K		(_AC(1, UL) << XSC_PAGE_SHIFT_4K)
++
++struct xsc_core_device {
++	struct pci_dev		*pdev;
++	struct device		*device;
++
++	void __iomem		*bar;
++	int			bar_num;
++};
++
++#endif
+diff --git a/drivers/net/ethernet/yunsilicon/xsc/common/xsc_reg.h b/drivers/net/ethernet/yunsilicon/xsc/common/xsc_reg.h
+new file mode 100644
+index 000000000..26773383f
+--- /dev/null
++++ b/drivers/net/ethernet/yunsilicon/xsc/common/xsc_reg.h
+@@ -0,0 +1,23 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/* Copyright (C) 2021-2026, Shanghai Yunsilicon Technology Co., Ltd.
++ * All rights reserved.
++ */
++
++#ifndef __XSC_REG_H
++#define __XSC_REG_H
++#define CMDQM_HOST_REQ_BUF_BASE_H_ADDR_MEM_ADDR 0x0
++#define CMDQM_HOST_REQ_BUF_BASE_L_ADDR_MEM_ADDR 0x4
++#define CMDQM_HOST_REQ_PID_MEM_ADDR 0x8
++#define CMDQM_HOST_RSP_BUF_BASE_H_ADDR_MEM_ADDR 0x10
++#define CMDQM_HOST_RSP_BUF_BASE_L_ADDR_MEM_ADDR 0x14
++#define CMDQM_HOST_RSP_PID_MEM_ADDR 0x18
++#define CMDQM_HOST_RSP_CID_MEM_ADDR 0x1c
++#define CMDQM_HOST_VF_ERR_STS_MEM_ADDR 0x20
++
++#define DB_CQ_FUNC_MEM_ADDR 0x8c4
++#define DB_EQ_FUNC_MEM_ADDR 0x8c8
++#define DB_CQ_CID_DIRECT_MEM_ADDR 0x8cc
++#define TX_DB_FUNC_MEM_ADDR 0x8d0
++#define RX_DB_FUNC_MEM_ADDR 0x8d4
++
++#endif
+diff --git a/drivers/net/ethernet/yunsilicon/xsc/pci/Kconfig b/drivers/net/ethernet/yunsilicon/xsc/pci/Kconfig
+new file mode 100644
+index 000000000..a27a37b3a
+--- /dev/null
++++ b/drivers/net/ethernet/yunsilicon/xsc/pci/Kconfig
+@@ -0,0 +1,16 @@
++# SPDX-License-Identifier: GPL-2.0
++# Copyright (C) 2021-2026, Shanghai Yunsilicon Technology Co., Ltd.
++# All rights reserved.
++# Yunsilicon PCI configuration
++#
++
++config YUNSILICON_XSC_PCI
++	tristate "Yunsilicon XSC PCI driver"
++	depends on PCI
++	depends on NET
++	help
++	  This driver provides the PCI core for Yunsilicon XSC
++	  ethernet devices.
++
++	  To compile this driver as a module, choose M here. The module
++	  will be called xsc_pci.
+diff --git a/drivers/net/ethernet/yunsilicon/xsc/pci/Makefile b/drivers/net/ethernet/yunsilicon/xsc/pci/Makefile
+new file mode 100644
+index 000000000..c163aa950
+--- /dev/null
++++ b/drivers/net/ethernet/yunsilicon/xsc/pci/Makefile
+@@ -0,0 +1,9 @@
++# SPDX-License-Identifier: GPL-2.0
++# Copyright (C) 2021-2026, Shanghai Yunsilicon Technology Co., Ltd.
++# All rights reserved.
++
++ccflags-y += -I$(srctree)/drivers/net/ethernet/yunsilicon/xsc
++
++obj-$(CONFIG_YUNSILICON_XSC_PCI) += xsc_pci.o
++
++xsc_pci-y := main.o
+diff --git a/drivers/net/ethernet/yunsilicon/xsc/pci/main.c b/drivers/net/ethernet/yunsilicon/xsc/pci/main.c
+new file mode 100644
+index 000000000..c926507a7
+--- /dev/null
++++ b/drivers/net/ethernet/yunsilicon/xsc/pci/main.c
+@@ -0,0 +1,170 @@
++// SPDX-License-Identifier: GPL-2.0
++/* Copyright (C) 2021-2026, Shanghai Yunsilicon Technology Co., Ltd.
++ * All rights reserved.
++ */
++
++#include <linux/slab.h>
++
++#include "common/xsc_core.h"
++
++static const struct pci_device_id xsc_pci_id_table[] = {
++	{ PCI_DEVICE(XSC_PCI_VENDOR_ID, XSC_MC_PF_DEV_ID) },
++	{ PCI_DEVICE(XSC_PCI_VENDOR_ID, XSC_MF_HOST_PF_DEV_ID) },
++	{ PCI_DEVICE(XSC_PCI_VENDOR_ID, XSC_MF_SOC_PF_DEV_ID) },
++	{ PCI_DEVICE(XSC_PCI_VENDOR_ID, XSC_MS_PF_DEV_ID) },
++	{ PCI_DEVICE(XSC_PCI_VENDOR_ID, XSC_MV_HOST_PF_DEV_ID) },
++	{ PCI_DEVICE(XSC_PCI_VENDOR_ID, XSC_MV_SOC_PF_DEV_ID) },
++	{ 0 }
++};
++
++static int xsc_set_dma_caps(struct pci_dev *pdev)
++{
++	int err;
++
++	err = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(64));
++	if (!err)
++		dma_set_max_seg_size(&pdev->dev, SZ_2G);
++
++	return err;
++}
++
++static int xsc_pci_init(struct xsc_core_device *xdev,
++			const struct pci_device_id *id)
++{
++	struct pci_dev *pdev = xdev->pdev;
++	void __iomem *bar_base;
++	int bar_num = 0;
++	int err;
++
++	err = pci_enable_device(pdev);
++	if (err) {
++		pci_err(pdev, "failed to enable PCI device: err=%d\n", err);
++		goto err_out;
++	}
++
++	err = pci_request_region(pdev, bar_num, KBUILD_MODNAME);
++	if (err) {
++		pci_err(pdev, "failed to request %s pci_region=%d: err=%d\n",
++			KBUILD_MODNAME, bar_num, err);
++		goto err_disable;
++	}
++
++	pci_set_master(pdev);
++
++	err = xsc_set_dma_caps(pdev);
++	if (err) {
++		pci_err(pdev, "failed to set DMA capabilities mask: err=%d\n",
++			err);
++		goto err_clr_master;
++	}
++
++	bar_base = pci_ioremap_bar(pdev, bar_num);
++	if (!bar_base) {
++		pci_err(pdev, "failed to ioremap %s bar%d\n", KBUILD_MODNAME,
++			bar_num);
++		err = -ENOMEM;
++		goto err_clr_master;
++	}
++
++	err = pci_save_state(pdev);
++	if (err) {
++		pci_err(pdev, "pci_save_state failed: err=%d\n", err);
++		goto err_io_unmap;
++	}
++
++	xdev->bar_num = bar_num;
++	xdev->bar = bar_base;
++
++	return 0;
++
++err_io_unmap:
++	pci_iounmap(pdev, bar_base);
++err_clr_master:
++	pci_clear_master(pdev);
++	pci_release_region(pdev, bar_num);
++err_disable:
++	pci_disable_device(pdev);
++err_out:
++	return err;
++}
++
++static void xsc_pci_fini(struct xsc_core_device *xdev)
++{
++	struct pci_dev *pdev = xdev->pdev;
++
++	pci_iounmap(pdev, xdev->bar);
++	pci_clear_master(pdev);
++	pci_release_region(pdev, xdev->bar_num);
++	pci_disable_device(pdev);
++}
++
++static int xsc_pci_probe(struct pci_dev *pci_dev,
++			 const struct pci_device_id *id)
++{
++	struct xsc_core_device *xdev;
++	int err;
++
++	xdev = kzalloc_obj(*xdev, GFP_KERNEL);
++	if (!xdev)
++		return -ENOMEM;
++
++	xdev->pdev = pci_dev;
++	xdev->device = &pci_dev->dev;
++
++	pci_set_drvdata(pci_dev, xdev);
++	err = xsc_pci_init(xdev, id);
++	if (err) {
++		pci_err(pci_dev, "xsc_pci_init failed %d\n", err);
++		goto err_unset_pci_drvdata;
++	}
++
++	return 0;
++
++err_unset_pci_drvdata:
++	pci_set_drvdata(pci_dev, NULL);
++	kfree(xdev);
++
++	return err;
++}
++
++static void xsc_pci_remove(struct pci_dev *pci_dev)
++{
++	struct xsc_core_device *xdev = pci_get_drvdata(pci_dev);
++
++	xsc_pci_fini(xdev);
++	pci_set_drvdata(pci_dev, NULL);
++	kfree(xdev);
++}
++
++static struct pci_driver xsc_pci_driver = {
++	.name		= "xsc-pci",
++	.id_table	= xsc_pci_id_table,
++	.probe		= xsc_pci_probe,
++	.remove		= xsc_pci_remove,
++};
++
++static int __init xsc_init(void)
++{
++	int err;
++
++	err = pci_register_driver(&xsc_pci_driver);
++	if (err) {
++		pr_err("failed to register pci driver\n");
++		return err;
++	}
++
++	return 0;
++}
++
++static void __exit xsc_fini(void)
++{
++	pci_unregister_driver(&xsc_pci_driver);
++}
++
++module_init(xsc_init);
++module_exit(xsc_fini);
++
++MODULE_DEVICE_TABLE(pci, xsc_pci_id_table);
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("Yunsilicon XSC PCI driver");
+-- 
+2.43.0
