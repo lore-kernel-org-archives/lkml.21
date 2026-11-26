@@ -1,65 +1,118 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795701701;
-	b=bqrzanYr2p40ui28iZwz8nGPKssF5GlugR2QtAUKfw8XhJjYTxDAshbUnyREEKUY85h8
-	 vl84eanH2KSpNL/FzqWkWt9CO9OLtiOmtaRFB7gulnFOXjWrkXDZbhQoO52JQJJ98XIuD
-	 QNH0EYP4OrL2BtiraiASUIgbTJQEuPfCBKOqGDMpBjb9N6HMcqaGx2eebxw4BeWBOAXd1
-	 lZf0l165SDQZahlC10hHzwcRAFyLCvzNye1StJsu8+PmqeUPnVa6NWk8qlIb1ylw+uSrQ
-	 04daeqDSoZIEwUiq8wzbhkqAsbRghqc3GOlRCKCjC24M5gC8qpRnGV/Gb+Okw/l7SSg==
+	t=1795701764;
+	b=RQ2PfywoGEaLSod3SwJeZrS7l4J6ojSCuW0Lyu86g+sh2nRQGqBlykSr1/QgWLOmo7li
+	 JFdD1DB8ZGBKtE3a6JzwCqaxulgbRCoWuDqHtQSkgH3U4nvDUtb/OTSkBLoakYiP8WGIC
+	 HLClrRgyeyFus9/Fs4UVTw0J+GgCiAP8RG2Iphb7C/hxA+/PPvMXSL5Z4Ohxq+95aKNKZ
+	 61cHwvua/iNaJCy7/PbgOTxF9SKyey5mmUSWeFoJwE3QVcFvbn1+qTSNPg+/8l35bAkHZ
+	 +M6C4v+FqbIodpetN+SJTIqlQJTWO9HqQzze/tynHWTob3+4uVKpKgAT9Lv15o7kajw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795701701;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=axz7TbyZfCz1r+C0ASr08xilH+HCS96/gQXwmQi+6d4=;
-	b=BdHT/1ybjSK4kFFwTnF4EbyIKIyDLm+RAPLY3MHo4hEdTsx3CoxwuxFtV5Nh+aRr6PRo
-	 oDPjeMmYzbAA03wS62e1hcoMTexZj+79WV3qqUkpD9roUaptCCDkEidfDonG+yC1Th3mI
-	 fEPswUXPGWSTVjHRBuazsfktmvng6iwXa/YXl1onrdEIUP3q2WcmUJGtc3ZQJp294W8v2
-	 I0rI7sY/PweyrWR5zxrGz9NOACofxiTDFGM73ODRnw5c40FcrPwjk0ZKaSAzcYJmrhUy8
-	 5AeltzOBALEFKKDyR5khHyDJA0rWcEi4GoCZO3e12XzybhG08t+jK7b3KwYuqtQo36A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795701764;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=Z9epXhgk8kv7aYQ6eP03FOVDBcgOKKV/qAqVe+wwWl4=;
+	b=q5Tp1LX9Hdxsb7y+wc/ZLDVKUWGzyBy+bZT40Ug8kV4Y9ahsVx8n/MMJ4orFDWziZoff
+	 beIU66Ck0imihkopH+t7X/aibflori7Y734LnLRcFcd33yOS3SBbkPFGhhN0vbF7vbZGq
+	 +EikNQHfHI3QUW5Egtla0NivuBjiduWbuoBeaxaTn6UVjF68oOOtFdbIdGAQJkb7ExWkG
+	 ObFXrEGJt8X9kcrWoz25AG5bTuZaYf6tj1ZzIxVUaHIqOqj3uwaD4exyr+A+avYa27gNx
+	 2Y8y4C6+hEX87YIBfy9gQzzVXz0jVcyShMRKkrfLZ/+bvN6n8aZdJ5hsdTwBTlhEh/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LoQ73B1M;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=bPhNLogQ;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED926606A31C;
-	Thu, 26 Nov 2026 14:01:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A434606A31E;
+	Thu, 26 Nov 2026 14:02:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A434606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LoQ73B1M
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EB881F000C0;
-	Thu, 26 Nov 2026 14:01:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795701700;
-	bh=axz7TbyZfCz1r+C0ASr08xilH+HCS96/gQXwmQi+6d4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LoQ73B1MVqtATP8QZPwwSeTiprDc2wKSxjj01xje7iiEZgFfFU0KMru+M3MzGYI6/
-	 Z6IqQcigpkNMo+6TO64XzXg6lZeZFiH/cY4GU5L2dyxgUAOqjQTClaOdObsxyiVdh9
-	 ea7pQkJOyMN/oizgooKeWq7KdJ5GqD3S1CKyilOlFQt7V9ZoFibHNTdPK9WxEi03lX
-	 funu331pIcghv+yY2brcDDtYHCiiA+n8B+W+8zqkiJoVAVjs9d0vsW2V8gsajhSi6l
-	 fJfkNvH5b5RPeFPnAUVv7x/3dbt4X6PSTJCIPFaOfrkoW3rg3xS0dn/RXOaXvQX68u
-	 FYfcM26VxRC6A==
-Date: Thu, 26 Nov 2026 14:01:30 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Michal Hocko <mhocko@suse.com>, Alex Williamson <alex@shazbot.org>, Peter Xu <peterx@redhat.com>, 
-	Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
-	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
-	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
-	Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Wei Liu <wei.liu@kernel.org>, 
-	Roman Kisel <romank@linux.microsoft.com>, Saurabh Sengar <ssengar@linux.microsoft.com>, 
-	Naman Jain <namjain@linux.microsoft.com>, Michael Kelley <mhklinux@outlook.com>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
-	"Jose A. Perez de Azpillaga" <azpijr@gmail.com>, "T.J. Mercier" <tjmercier@google.com>, 
-	Eliav Farber <farbere@amazon.com>, "Gregory Price (Meta)" <gourry@gourry.net>
-Subject: Re: [PATCH v3 0/4] mm: fix races between huge and non-huge faults in
- PFN mappings
-Message-ID: <awg3r1kVqhQy7wlZ@gremlin>
-References: <20261125-huge-pfnmap-fault-races-v3-0-bbc44489341b@kernel.org>
- <dc62bf2a-9188-4cc6-9850-14ab3a2e5274@kernel.org>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=bPhNLogQ
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 6ECA14E417A3;
+	Thu, 26 Nov 2026 14:02:41 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 29AC060767;
+	Thu, 26 Nov 2026 14:02:41 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 14CCD11E6830D;
+	Thu, 26 Nov 2026 15:02:09 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795701752; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=Z9epXhgk8kv7aYQ6eP03FOVDBcgOKKV/qAqVe+wwWl4=;
+	b=bPhNLogQ9VWimdCUOLB8QGQOQKOA3q3LOuc60lOK0VxQoGWyHNk3em3u0r79Qv2TJe9Cfe
+	20qCy8RMXQUbTvgUz7u/7GfAYOKn/ewG8lLFu1QNf0WJgIG5L+UoXthH0jZDMaXvtyNszH
+	N5Bcx2KVDBzThX5FDojZlNOhuwVnM0sVHkNJbJZCwV74cJVQkY6V6c/maD7VQYU6JV9TrJ
+	KF7VqiJWveeytEpTWXy3Div1ic2cBtXKpikJf9lQRxH107eQAczaA2QJr8uQnmof/znVZK
+	O6ZxG4QnWxNVw7k5esZ5CwwQb0hvFl5swQjUAt2M+XC1/yMdKhU32mauWb+i2A==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>,  Richard Weinberger
+ <richard@nod.at>,  Vignesh Raghavendra <vigneshr@ti.com>,  Pratyush Yadav
+ <pratyush@kernel.org>,  Michael Walle <mwalle@kernel.org>,  Takahiro
+ Kuwano <takahiro.kuwano@infineon.com>,  Vladimir Zapolskiy <vz@mleia.com>,
+  Robert Jarzmik <robert.jarzmik@free.fr>,  Alexander Usyskin
+ <alexander.usyskin@intel.com>,  Joern Engel <joern@lazybastard.org>,
+  Madhavan Srinivasan <maddy@linux.ibm.com>,  Michael Ellerman
+ <mpe@ellerman.id.au>,  Nicholas Piggin <npiggin@gmail.com>,  "Christophe
+ Leroy (CS GROUP)" <chleroy@kernel.org>,  "Ritesh Harjani (IBM)"
+ <ritesh.list@gmail.com>,  Shrikanth Hegde <sshegde@linux.ibm.com>,  Michal
+ Simek <michal.simek@amd.com>,  Nicolas Ferre
+ <nicolas.ferre@microchip.com>,  Alexandre Belloni
+ <alexandre.belloni@bootlin.com>,  Claudiu Beznea
+ <claudiu.beznea@tuxon.dev>,  Brian Norris <computersforpeace@gmail.com>,
+  Kamal Dasu <kamal.dasu@broadcom.com>,  Broadcom internal kernel review
+ list <bcm-kernel-feedback-list@broadcom.com>,  William Zhang
+ <william.zhang@broadcom.com>,  Anand Gore <anand.gore@broadcom.com>,
+  Kursad Oney <kursad.oney@broadcom.com>,  Florian Fainelli
+ <florian.fainelli@broadcom.com>,  =?utf-8?Q?Rafa=C5=82_Mi=C5=82ecki?=
+ <rafal@milecki.pl>,  Ray
+ Jui <rjui@broadcom.com>,  Scott Branden <sbranden@broadcom.com>,  Han Xu
+ <han.xu@nxp.com>,  Paul Cercueil <paul@crapouillou.net>,  Harvey Hunt
+ <harveyhuntnexus@gmail.com>,  Keguang Zhang <keguang.zhang@gmail.com>,
+  Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,  Liang Yang
+ <liang.yang@amlogic.com>,  Neil Armstrong <neil.armstrong@linaro.org>,
+  Kevin Hilman <khilman@baylibre.com>,  Jerome Brunet
+ <jbrunet@baylibre.com>,  Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>,  Matthias Brugger
+ <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>,  Frank Li <Frank.Li@nxp.com>,
+  Sascha Hauer <s.hauer@pengutronix.de>,  Pengutronix Kernel Team
+ <kernel@pengutronix.de>,  Fabio Estevam <festevam@gmail.com>,  Manivannan
+ Sadhasivam <mani@kernel.org>,  Heiko Stuebner <heiko@sntech.de>,  Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>,  Alexandre Torgue
+ <alexandre.torgue@foss.st.com>,  Chen-Yu Tsai <wens@kernel.org>,  Jernej
+ Skrabec <jernej.skrabec@gmail.com>,  Samuel Holland <samuel@sholland.org>,
+  Stefan Agner <stefan@agner.ch>,  Lucas Stach <dev@lynxeye.de>,  Thierry
+ Reding <thierry.reding@kernel.org>,  Jonathan Hunter
+ <jonathanh@nvidia.com>,  Jacky Huang <ychuang3@nuvoton.com>,  Shan-Chun
+ Hung <schung@nuvoton.com>,  Tudor Ambarus <tudor.ambarus@linaro.org>,
+  Linus Walleij <linusw@kernel.org>,  Kyungmin Park
+ <kyungmin.park@samsung.com>,  linux-mtd@lists.infradead.org,
+  linux-arm-kernel@lists.infradead.org,  linuxppc-dev@lists.ozlabs.org,
+  imx@lists.linux.dev,  linux-mips@vger.kernel.org,
+  linux-amlogic@lists.infradead.org,  linux-kernel@vger.kernel.org,
+  linux-mediatek@lists.infradead.org,  linux-arm-msm@vger.kernel.org,
+  linux-rockchip@lists.infradead.org,
+  linux-stm32@st-md-mailman.stormreply.com,  linux-sunxi@lists.linux.dev,
+  linux-tegra@vger.kernel.org
+Subject: Re: [PATCH 00/10] mtd: use desginated initializers in *_device_id
+ arrays
+In-Reply-To: <awg4ubbFu0FksThB@monoceros> ("Uwe =?utf-8?Q?Kleine-K=C3=B6ni?=
+ =?utf-8?Q?g=22's?= message of
+	"Thu, 26 Nov 2026 14:50:01 +0100")
+References: <20261125-acpi-mtd-v1-0-42ad2f645bee@thegoodpenguin.co.uk>
+	<awcZcuSbse5g3FWK@monoceros> <87v75jyiw2.fsf@bootlin.com>
+	<awg4ubbFu0FksThB@monoceros>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Thu, 26 Nov 2026 15:02:08 +0100
+Message-ID: <87a4mvwv1b.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,41 +122,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <dc62bf2a-9188-4cc6-9850-14ab3a2e5274@kernel.org>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Thu, Nov 26, 2026 at 02:26:37PM +0100, David Hildenbrand (Arm) wrote:
-> Dropped v2, tried to apply v3, doesn't apply.
+Hello Uwe!
+
+>> > Acked-by: Uwe Kleine-K=C3=B6nig <u.kleine-koenig@baylibre.com>
+>> >
+>> > with or without addressing the nitpick I had for one of the patches.
+>>=20
+>> Let me know what you intend to do.
 >
-> Against which branch was it based? mm/hotfixes-stable?
+> Your mail was sent To: me, but that was directed to Pawel, right? (FTR:
+> I intend to do nothing here ;-)
 
-mm-new. I can resend against mm-core for-next-fixes if that helps?
+Yes :-) My question was indeed for Pawel! (except if you have plans for
+the sentinel removal ;-) )
 
-Only one patch is changed anyway - patch 3/4 'mm/memory: do not report OOM if
-insert_pfn() races a huge fault'.
-
-Let me know if you want a resend!
-
->
-> I this really urgent stuff or can this wait until the next merge window?
->
-> I had v2 staged for the next merge window.
-
-It's currently broken in linux-next so you probably want to fix _that_ next
-sooner rather than later to avoid further reports :)
-
-As to the urgency stuff, as far as I + claude can tell nothing crazy here, so
-can wait for 7.5.
-
-OTOH I'm not sure how I feel about the triaging for hotfixes stuff, it feels
-like it makes it random what gets taken for that/not (if you sent a hotfix early
-more likely > late).
-
-Also meanwhile Linus moans about that but then took a 41k line 'hotfix' PR
-from ext4 ;) https://lore.kernel.org/all/awW86EI5fYafQx-o@mit.edu/.
-
-Anyway nothing to get too worried about here, as long as it's queued.
-
---
-Cheers, Lorenzo
+Cheers,
+Miqu=C3=A8l
