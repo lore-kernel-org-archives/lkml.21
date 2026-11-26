@@ -1,63 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795699403;
-	b=nvzEpL249EcyUvdwhjO23UQkF/886b6ejJ5ogcTSqNGpa0EI+aBOCtuD8BofDmY3bgpF
-	 DoTcWtyj2yiicV8lPOKklHc1pmNdriFKf6zwRHQpIHonxDZNTP7njZ/2k4ooaql/H2HE4
-	 L7ZlSlRLx5fJ1iUdfmnWLa9AZdtE3imkMY/2kRk/uvh+kReQdHN1/o4PfPoofkmGlurEB
-	 H/+uHflApUSr5QpHk3lOSIAY27iyquNPqr4WY4tN9iOo8wqvu1Z78s4lLy2QH/oY6cuSz
-	 d72tsGzHtMid2BayaROYJxVpRN7oAbbO9WVUeOQCRg0t3JCZPkkeyk2Ldr0agfNe//Q==
+	t=1795699464;
+	b=Iy6lRPemILxpH+hkGMPsGMmj7GyM1SYab+3s4KYc3CGLWpxqwyvboUsfswCzG2aWA+Zo
+	 sWsshyp2iGDy10ojkuwtKJFvgMczILb1fDwxyiOvFObkmvh47HhOeqWSQm/KRK/qXQ3A5
+	 a6/hF5ZzUysvPuA1j1cY4BhW5RvzVviZxuTmNAauU7LM2Sw0tYf7pMa4R9Fc3DujOOHyC
+	 Otc8Uo68qyMOR4OVllznqsfZdxR9o3wckdnUusT6PYkWUGjSCKvtG6t3wbTWxvLnZrjyZ
+	 J06sq1Htdquw9L1oz89XVwBmNfUfoWVLJZ+HmOBDZZDO3kl1x2kuczNt/W/c4jLBVQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795699403;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 Reply-To:MIME-Version:Content-Type:Content-Disposition;
-	bh=9Q4HPbDok+YSIxyUO4+Gr54EuShnAYriLRIDzQva5Zo=;
-	b=zsnOK/Bc+c7vx7bsSi/d3FB7Jq0pscthx2pT/BQpAhCgoGf+8iTxDnCdMsAq83xbksC4
-	 y6XEZsCpE1KFcl3IJIzDEHDgzplxc31I4Xjw1Kqn94kf5QMTieM+KNctdt2nctsDO/5yI
-	 Zl+PD6GkPOHWXZyADairTXUZINR8DIPjqpMLO+9LnxyILRoftD51XsaWM3FIb4QlUTZ5Q
-	 dbtrCH2+6BPPCYnCG0ptGzLcfFFzWNA3EpFZ7PRyLbuHZuE8pCx04U5OY1nTgBoTPxBRX
-	 QRuhPuCVsifASRBC2W1BMtCZcInzHrJmNwAJ8EY9ecPOx2buJCyNQBBeNRtT0xcjjpg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795699464;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-Cookie;
+	bh=mDRopIMGwzT6BXaAxV2Oyojc/oFZRkepQ1GugoEYb6g=;
+	b=e7KOdfgYltgNZjo5T/5dHq02hNwjFZw7ZHNZgkNaL7mvHB+/JVoBoWvK5nA8/RG+rnCv
+	 OmI1NFwj9UstjxuXBRusnOr5rcwQB9kj1nxXzaw8K6by6BzBigDfr3/pvj4+C7WHYhv4N
+	 Z6JP9WBbsjXiUdvBRKqkm9mE6KiLh8tiEns93iZJmhLCpXqHqaYS50rPMBwcKW5uoHI1/
+	 8ENORqif9GdOVlanvdginA/gGo45NwWb2UKVD9gXBuMIGBRx7Cg8NIyrYriijvMb695BG
+	 IAQMW3Og4k0z2yh2J1fAOc0yxlPNsaK5TYsv4PMguaEK+zZNEUEf6KM4weLvGoqNCrg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="A5iud+/e";
-	arc=none smtp.remote-ip=95.215.58.5
-Received: from mta1.migadu.com (out-5.mta1.migadu.com [95.215.58.5])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e6e3aoGS;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FFFF606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:23:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FFFF606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DDBE606A31C;
+	Thu, 26 Nov 2026 13:24:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=A5iud+/e
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=Gw/m0PMEovpXp86ymn4CNu2TctHCtUbXODjvntf+6Qg=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795699400; v=1; x=1796304200;
- b=A5iud+/ejTsomPvWG9oMwJ+GADdm0/7YcVnvJa6tSiUI1A7YA73M/83EdNUUXJuFELUfVKMJ
- 1QkP5wSNxrDBaRxYOMhG3I68ht9dFOZamgy9zbyuRyT3cP2uYoEupdDEzONBgF0UdSBjdJwJMgN
- 7E5kQ7B28gkAYMqOmkOf0tEU=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta12.migadu.com with ESMTPS id 7c97a814df217ae3;
-	Thu, 26 Nov 2026 13:23:19 +0000
-X-Mizu-Trace-ID: 7c97a814df217ae3
-X-Migadu-Flow: FLOW_OUT
-Date: Thu, 26 Nov 2026 15:23:10 +0200
-From: Matti Vaittinen <matti.vaittinen@linux.dev>
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: Matti Vaittinen <mazziesaccount@gmail.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] iio: dac: rohm-bd79703: Fix full-scale voltages
-Message-ID: <0723d51fa973f0204e1c436c08a784b7b1cca795.1795699121.git.mazziesaccount@gmail.com>
-Reply-To: Matti Vaittinen <mazziesaccount@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e6e3aoGS
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 189B21F000CF;
+	Thu, 26 Nov 2026 13:24:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795699463;
+	bh=mDRopIMGwzT6BXaAxV2Oyojc/oFZRkepQ1GugoEYb6g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=e6e3aoGS0640j5Ku4TsoqAkyqH1F+0CxEp7J/eWhK1tmNeWxFkoq4i9ZlM+sU8PBN
+	 tUuCwYquvpJm07Xa62MYFsm5axfp7KzW4nDo/G8pZH+2J8m4ymPw2ThnZsEI0LlGnf
+	 /09iPZXBvFzGX+YIOHgG3kG4W02bQHqReLMGlymP8UF6uwp3DO1R7jvMGOTu+FECBC
+	 FY8w2/jAi8ZQXucFE5buDMrfqQq/mgt9uiM6QYO5MjD0mogb0jJ0pbHQweb9CE4EGu
+	 TXyUBfN4Gqp+XKPQipNtuc0mJr0/88yZBrstffJ7O9JAXnUh2NsNR+pYlg1RgjhOvX
+	 X/ICZnkb+F8fw==
+Date: Thu, 26 Nov 2026 13:24:18 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Lee Jones <lee@kernel.org>
+Cc: Svyatoslav Ryhel <clamor95@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Pavel Machek <pavel@kernel.org>,
+	Griffin Kroah-Hartman <griffin@kroah.com>,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-leds@vger.kernel.org, mfd@lists.linux.dev
+Subject: Re: [PATCH v6 1/3] regulator: dt-bindings: maxim,max8907: Document
+ LED support
+Message-ID: <c0bc9e91-fe8d-4c0c-a6c0-f7c8d4d086a9@sirena.org.uk>
+References: <20261115090520.102216-1-clamor95@gmail.com>
+ <20261115090520.102216-2-clamor95@gmail.com>
+ <0670d537-0f9a-43dd-9d48-90272f04f1e2@sirena.org.uk>
+ <20261126122936.GH38590@joneslee-macbookpro.roam.internal>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,231 +67,42 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="SBrO5oM791bhl63I"
+	protocol="application/pgp-signature"; boundary="lkMTXpSo7LhnuO6t"
 Content-Disposition: inline
+In-Reply-To: <20261126122936.GH38590@joneslee-macbookpro.roam.internal>
+X-Cookie: Please go away.
 
---SBrO5oM791bhl63I
+
+--lkMTXpSo7LhnuO6t
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-=46rom: Matti Vaittinen <mazziesaccount@gmail.com>
+On Thu, Nov 26, 2026 at 12:29:36PM +0000, Lee Jones wrote:
+> On Sun, 15 Nov 2026, Mark Brown wrote:
+>=20
+> > On Sun, Nov 15, 2026 at 11:05:18AM +0200, Svyatoslav Ryhel wrote:
+> > > The Maxim MAX8907 PMIC supports a single LED; document it.
+> >=20
+> > Acked-by: Mark Brown <broonie@kernel.org>
+>=20
+> You should just apply this, I think.
 
-The BD79702 and BD79703 have a VFS pin which can be used to supply a
-full-scale voltage to be output with maximum DAC word. The driver
-assumes this voltage is the full-scale voltage for all of the DAC
-channels. This, however, is not true.
+Well, it doesn't apply so...  :/
 
-The VFS-pin voltage is only used for the first half of the channels. Eg.
-on BD79703, channels AO1 and AO2 use VFS, AO3 and, AO4 use the VCC.
-Similarly, the BD79703 channels AO1, AO2, and, AO3 use VFS, AO4, AO5, and
-AO6 use the VCC.
-
-Fix the driver to use correct full-scale voltages (VCC instead of VFS) on
-the last channels of the BD79702 and BD79703. The BD79700 and BD79701
-logic should not be changed.
-
-NOTE: This change is visible to the user-space, it makes the scale a
-per-channel property so the sysFS file out_voltage_scale gets replaced
-by per-channel variants out_voltageN_scale
-
-Fixes: af6aca656a85 ("iio: dac: Support ROHM BD79703 DAC")
-Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
----
- drivers/iio/dac/rohm-bd79703.c | 77 ++++++++++++++++++++++------------
- 1 file changed, 51 insertions(+), 26 deletions(-)
-
-diff --git a/drivers/iio/dac/rohm-bd79703.c b/drivers/iio/dac/rohm-bd79703.c
-index 127ccc2c4a22..1d58bc1544a1 100644
---- a/drivers/iio/dac/rohm-bd79703.c
-+++ b/drivers/iio/dac/rohm-bd79703.c
-@@ -41,7 +41,9 @@ static const struct regmap_config bd79703_regmap_config =
-=3D {
- /* Dynamic driver private data */
- struct bd79703_data {
- 	struct regmap *regmap;
--	int vfs;
-+	int vcc_mv;
-+	int vfs_mv;
-+	unsigned int num_vfs_chan;
- };
-=20
- /* Static, IC type specific data for different variants */
-@@ -49,7 +51,11 @@ struct bd7970x_chip_data {
- 	const char *name;
- 	const struct iio_chan_spec *channels;
- 	int num_channels;
--	bool has_vfs;
-+	/*
-+	 * Some ICs use VFS-pin for full-scale voltage for first N channels.
-+	 * We need to know these channels to get correct scale
-+	 */
-+	unsigned int num_vfs_chan;
- };
-=20
- static int bd79703_read_raw(struct iio_dev *idev,
-@@ -61,7 +67,11 @@ static int bd79703_read_raw(struct iio_dev *idev,
- 	if (mask !=3D IIO_CHAN_INFO_SCALE)
- 		return -EINVAL;
-=20
--	*val =3D data->vfs / 1000;
-+	if (data->num_vfs_chan > chan->channel)
-+		*val =3D data->vfs_mv;
-+	else
-+		*val =3D data->vcc_mv;
-+
- 	*val2 =3D BD79703_DAC_BITS;
-=20
- 	return IIO_VAL_FRACTIONAL_LOG2;
-@@ -88,16 +98,26 @@ static const struct iio_info bd79703_info =3D {
- };
-=20
- #define BD79703_CHAN_ADDR(_chan, _addr) {			\
-+	.type =3D IIO_VOLTAGE,					\
-+	.indexed =3D 1,						\
-+	.output =3D 1,						\
-+	.channel =3D (_chan),					\
-+	.info_mask_separate =3D BIT(IIO_CHAN_INFO_RAW) |		\
-+			      BIT(IIO_CHAN_INFO_SCALE),		\
-+	.address =3D (_addr),					\
-+}
-+
-+#define BD79703_CHAN(_chan) {					\
- 	.type =3D IIO_VOLTAGE,					\
- 	.indexed =3D 1,						\
- 	.output =3D 1,						\
- 	.channel =3D (_chan),					\
- 	.info_mask_separate =3D BIT(IIO_CHAN_INFO_RAW),		\
- 	.info_mask_shared_by_type =3D BIT(IIO_CHAN_INFO_SCALE),	\
--	.address =3D (_addr),					\
-+	.address =3D (_chan) + 1,					\
- }
-=20
--#define BD79703_CHAN(_chan) BD79703_CHAN_ADDR((_chan), (_chan) + 1)
-+#define BD79703_CHAN_VFS(_chan) BD79703_CHAN_ADDR((_chan), (_chan) + 1)
-=20
- static const struct iio_chan_spec bd79700_channels[] =3D {
- 	BD79703_CHAN(0),
-@@ -115,6 +135,8 @@ static const struct iio_chan_spec bd79701_channels[] =
-=3D {
-  * and 3, but to the channels 0, 1, 4, 5. So the addressing used with SPI
-  * accesses is 1, 2, 5 and 6 for them. Thus, they're not constant offset to
-  * the channel number as with other IC variants.
-+ *
-+ * Furthermore, the BD79702 and BD79703 can have different scale for chann=
-els.
-  */
- static const struct iio_chan_spec bd79702_channels[] =3D {
- 	BD79703_CHAN_ADDR(0, 1),
-@@ -124,40 +146,40 @@ static const struct iio_chan_spec bd79702_channels[] =
-=3D {
- };
-=20
- static const struct iio_chan_spec bd79703_channels[] =3D {
--	BD79703_CHAN(0),
--	BD79703_CHAN(1),
--	BD79703_CHAN(2),
--	BD79703_CHAN(3),
--	BD79703_CHAN(4),
--	BD79703_CHAN(5),
-+	BD79703_CHAN_VFS(0),
-+	BD79703_CHAN_VFS(1),
-+	BD79703_CHAN_VFS(2),
-+	BD79703_CHAN_VFS(3),
-+	BD79703_CHAN_VFS(4),
-+	BD79703_CHAN_VFS(5),
- };
-=20
- static const struct bd7970x_chip_data bd79700_chip_data =3D {
- 	.name =3D "bd79700",
- 	.channels =3D bd79700_channels,
- 	.num_channels =3D ARRAY_SIZE(bd79700_channels),
--	.has_vfs =3D false,
-+	.num_vfs_chan =3D 0,
- };
-=20
- static const struct bd7970x_chip_data bd79701_chip_data =3D {
- 	.name =3D "bd79701",
- 	.channels =3D bd79701_channels,
- 	.num_channels =3D ARRAY_SIZE(bd79701_channels),
--	.has_vfs =3D false,
-+	.num_vfs_chan =3D 0,
- };
-=20
- static const struct bd7970x_chip_data bd79702_chip_data =3D {
- 	.name =3D "bd79702",
- 	.channels =3D bd79702_channels,
- 	.num_channels =3D ARRAY_SIZE(bd79702_channels),
--	.has_vfs =3D true,
-+	.num_vfs_chan =3D 2,
- };
-=20
- static const struct bd7970x_chip_data bd79703_chip_data =3D {
- 	.name =3D "bd79703",
- 	.channels =3D bd79703_channels,
- 	.num_channels =3D ARRAY_SIZE(bd79703_channels),
--	.has_vfs =3D true,
-+	.num_vfs_chan =3D 3,
- };
-=20
- static int bd79703_probe(struct spi_device *spi)
-@@ -184,23 +206,26 @@ static int bd79703_probe(struct spi_device *spi)
- 				     "Failed to initialize Regmap\n");
-=20
- 	/*
--	 * BD79703 has a separate VFS pin, whereas the BD79700 and BD79701 use
--	 * VCC for their full-scale output voltage.
-+	 * BD79702 and BD79703 have a separate VFS pin. On these ICs, the VFS
-+	 * pin provides the full-scale output voltage for half of the channels,
-+	 * and use VCC for the rest.
-+	 * The BD79700 and BD79701 use VCC for their full-scale output voltage
-+	 * for all of the channels.
- 	 */
--	if (cd->has_vfs) {
--		ret =3D devm_regulator_get_enable(dev, "vcc");
--		if (ret)
--			return dev_err_probe(dev, ret, "Failed to enable VCC\n");
-+	ret =3D devm_regulator_get_enable_read_voltage(dev, "vcc");
-+	if (ret < 0)
-+		return dev_err_probe(dev, ret, "Failed to enable VCC\n");
-+
-+	data->vcc_mv =3D ret / 1000;
-=20
-+	if (cd->num_vfs_chan > 0) {
- 		ret =3D devm_regulator_get_enable_read_voltage(dev, "vfs");
- 		if (ret < 0)
- 			return dev_err_probe(dev, ret, "Failed to get Vfs\n");
--	} else {
--		ret =3D devm_regulator_get_enable_read_voltage(dev, "vcc");
--		if (ret < 0)
--			return dev_err_probe(dev, ret, "Failed to get VCC\n");
-+
-+		data->vfs_mv =3D ret / 1000;
-+		data->num_vfs_chan =3D cd->num_vfs_chan;
- 	}
--	data->vfs =3D ret;
-=20
- 	idev->channels =3D cd->channels;
- 	idev->num_channels =3D cd->num_channels;
-
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
---=20
-2.56.1
-
-
---SBrO5oM791bhl63I
-Content-Type: application/pgp-signature; name=signature.asc
+--lkMTXpSo7LhnuO6t
+Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAEBCgAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAmsIMrkACgkQeFA3/03a
-ocWZGgf/WGMQfQcG+5sPffKQaUguCrZfa0xsJhGRcalXJZtit7Fji1rfUcdXARtc
-WKta7FtrrRBunN4Fze9ZCl3gGDc1YvMUP3xdQP815mrpw41k/eE4krHa/6ZVbOug
-qUOKl8NnVtJ+BS8DNAbIZbsZ4ow5E0XMbA4Hznt7M5eTDgtNrr83yX/mAKltpCPn
-65EptkQEtzR+uspUuke7vLN7kByScNjn7dYwCDo02J2GdjssEQPJ5R1olv0b7S3z
-YtubUZ1oBdo4+akdqpOuNjwPp5s/gB6HPbH77lF00hyGt1ARX7pQw1xDDV24GvTU
-+/jYD87czL47JQ25hYBTFHjopKFnzw==
-=GNsh
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsIMwEACgkQJNaLcl1U
+h9DVKgf/WBUvfJFEfyB+Icwbu+WZM8E1O6+ZQbHgkeYdjEq/RtGvMdulmi4CV1kE
+uEzDd6ysp0d5ym+f82MslPo6cYTUZ67cI/vUiReHdXDFogfVOUmErvP9y/OvebxY
+kp1EWQu9kcx3Z2w3HVrqP7Zo2RSmSgTH3A+k3AY8ZszmSwkOl2EIkzNNnAlsc/ZE
+3FpyM8IZo9WIb3s6/s79QEpCvkYVRHR5b+rN7DNhNuN/sZmwFwIDqIpApj5lR7sK
+J9Ugul2CxaAvsykg7acJCf1KW02VZ+7WelqsVuZo8rwCG7LfnljKoxgfLI3+tGJF
+rXUfvMaksguAe/7sh4K3pTfkJdlj1g==
+=6Ev2
 -----END PGP SIGNATURE-----
 
---SBrO5oM791bhl63I--
+--lkMTXpSo7LhnuO6t--
