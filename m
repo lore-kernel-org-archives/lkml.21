@@ -1,67 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.57
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795680758;
-	b=IYuwXBQE7k2AqJcl7/Qb4ziDw7N0sDUwpAf8mDEVRn3R3HMyPVMeW7/7X6NvJjJh6h8W
-	 7UFJ9I22fRx5FDdbiOkL3HKN6qp/nSOru3Gc1z2mpzC/OYJe6AAjctUMeWpBagQbcoppc
-	 9qCHJTt97V15SC542Wf9ws8kx2BoSxtIkRdlYa3WXfOlvSHMdndGC7U7gCO9XHJK/HzCV
-	 KjKvDj5dBetpQF7vh/oPoyI67O1KpNkiV7fVjYN/HyO6cUWH1yX8ifShHUwADyMsPCVO7
-	 qGYS+s/zOZ3FU1DDU8NNnh4OcCh/DjLQSOr4BBxKvOvJk9/KH7RUqQ18ffl160NONXQ==
+	t=1795680775;
+	b=4UihDxbirfMa993AgZGK2fMzOO9x5g9txW1BfAuimKiZ9vXDS1GQb5uWJCNZeMC6lMDc
+	 ZO7QJn9Spi5cNNoFIg8sUb/mj7jBa5aFqlUfBOdBJIlx4I/T0lvVQdLq6f5/MC3XCiU40
+	 ViS+iMMZ0u9k3btW4Mk+gW2GF8t9W+wBKHOzpn9RUTOrZ3bma/5RzNuL+Z/1Qxm1qVlTF
+	 X2eKQ/LzwziuO4vB8V7q9YpjYYNdoEiaKAxS8b9DsHp/fk2T5m6sUw3GNW1VcZ6Dl77zL
+	 sl/RBeIklOyhuDtnQpIg4QMvwdzIBNbbN8WbLfUDcvl3aAxnHkWLqPa5OK7VPqpVrRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795680758;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=rLPkJUAGEWARQ2dIgwe2dGKd/2F+KCnofuKYobrMgA4=;
-	b=K4vs2a9nRKDmaD7Q5JXzhiDoT4oH5Wf5Vu7aRBVlEYVXUk5FwIKNUZstywT3CxXK6Px6
-	 RsbPSBFm1pYtLa/yPNexD+txuiqdM/VCcyfDk+vH1xQwl4mQjzgrU7568axWmDYWJneD0
-	 yN6OyCz85cv1yncfarnp4bIw9rez9uAMeOalq/ol1+aHtwnamEJwkKZoWVn4M9FG0Pokw
-	 8hH9NBN0BdOKObq3+vZNZlwmF1ngjoZFmKhXpQyyaNQm1cjI1DGjYtQpl5nm1Tj5SSB+x
-	 saiL0lcnClQqrL9ikeZD6kbcYedpnwoDOlxqNglGSwyD3ILy99mg6pj2LH7WKp56w6g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795680775;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=HF1NIA9YcotgBX4Xrtg69ziwH7IW313XtsQmHrwnOgM=;
+	b=F1//U1U/LskUZPFkDZq+BQ9voNgwHO7DlJSd6aITgaKqNOQJNgZJz3bLRJUPQPS8ieRU
+	 1XAL4jqcE0J5QBwmJ3KvlIbab+pD+cna5zZrb3a5IjMXN5Reo+JXCLNJa8c6/b3iLYUnr
+	 zIx7w53ceUauhTLKl9AtNFRqg9SnPCgBY29hyuy3qXlIZVTDp++n/6BtD2CmM3rqEewFg
+	 hBAh3sEIFJpoMM41p3U8QXWpS9MmxYmT0I7o/drW4MWYYwrO6qO1XjPcvjYWRDKC8u9Uw
+	 FCInWpsm2g8gjfVmkCbBmMELlKQn/J5nDDrb0bf0/ZqoAFS48myUJ7t/24bMnYdmI4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=kwxOEwQ1;
-	arc=none smtp.remote-ip=91.218.175.57
-Received: from mta0.migadu.com (out-57.mta0.migadu.com [91.218.175.57])
+	dmarc=pass header.from=googlemail.com;
+	spf=pass smtp.mailfrom=googlemail.com;
+	dkim=pass header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=aZ1IqDN0;
+	arc=none smtp.remote-ip=209.85.221.47
+Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 936EF606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:12:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 936EF606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F24B606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:12:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F24B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=googlemail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=googlemail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=kwxOEwQ1
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=SfcdMxFYA0q96NE83XCnix52dNJ48AiBhdfguxOC+wo=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795680755; v=1; x=1796285555;
- b=kwxOEwQ1KvbZ4Q8yWicro8AfcqCZFdNuyL7n3re1nfTIphr6XC3cncgHh8R2C4Z0EWbxUPiN
- w9KvPCCCQ0g7nn0LAupBYtrih6uTOkUvBizwa+f34cVTyLax5ES9ZnQmBg2kJJ0jrVZft8yGDB3
- Xbp2L3zJfXRjio1XupZZ+xVw=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta12.migadu.com with ESMTPS id 5eb27d89023d6b48;
-	Thu, 26 Nov 2026 08:12:35 +0000
-X-Mizu-Trace-ID: 5eb27d89023d6b48
-X-Migadu-Flow: FLOW_OUT
-Date: Thu, 26 Nov 2026 16:12:28 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
-Cc: netdev@vger.kernel.org, David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Alice Mikityanska <alice.kernel@fastmail.im>,
-	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2 3/6] sit: Enable BIG TCP packets
-Message-ID: <20261126081228.GE33976@Liu-laptop>
-References: <20261126025015.10416-1-yanhaishuang@cmss.chinamobile.com>
- <20261126025015.10416-4-yanhaishuang@cmss.chinamobile.com>
+	dkim=pass (2048-bit key) header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=aZ1IqDN0
+Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-4a7b8abe209so5163969f8f.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:12:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20260707; t=1795680774; x=1796285574; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=HF1NIA9YcotgBX4Xrtg69ziwH7IW313XtsQmHrwnOgM=;
+        b=aZ1IqDN0uIoiNuSSBMl0X5B84fRbreqaiDS9uA4+WP+o0Xcd3JThKU1wp836YnIoJR
+         01rv3lMRMX6EHqkPhVfOzzPBXDZ2YS2Rrr8ORRGAHYNmWnhwS85mvyNr7uufeWswoEVz
+         AKxIcSni0Y9XVcqixFP8C1vwcJXmqspKGWzCrzI8uJsYLNl2ppYy/MNrbD903GepnKrm
+         cph6sclytv9c3mh0/NZzD98MviAQbuRFVcqgPQmqQWVhMoKwrKErrhXK17rk39Ajwlgp
+         0Sf2iS4IpC5LB+/GcjoiMc+Pn+Mq0RHAAaeO69u4t3oJVuFd6VtkKOUPCD+Mf+pHxzJG
+         LzwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795680774; x=1796285574;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=HF1NIA9YcotgBX4Xrtg69ziwH7IW313XtsQmHrwnOgM=;
+        b=IPz18Gn4pJtd1orWgjlSi2cngz3muIBUWbnBsx2D+I3LEwkpnmwdCGDKttlPjXr01H
+         Y8l36ohK30SUWG+YLaS3NDpW+S0uuo0NiCgweZsGTYq8lWB+AjOydZOp2ZkjTSindFu2
+         3ezWHZstIVAJKJATcRZ/TD73WA6MjUbn6dd6Q2NfxT4n5wgfnvWjG2KWNX6Df+KtPV8O
+         GW5DStr02eZe1V0g5aDk/6wwX568YHVcyRDk+wQXMROraS2tPKuwhq0c4+68TdlNWQmb
+         qFebIn9xPZoJFDmc0w6sGAfGuR6+rcAhkqhUqRzACKjtQx9sYEnvsUmI8he7E9BAJ6Nz
+         DBhw==
+X-Forwarded-Encrypted: i=1; AL+hErHzd5jlvPWb1ehoYw5DcY6pg2yTDaZxnhGT0IKfBWfU+r//tORfgrW23vuTHZPPbBWl3gMh0ZUyjji46ig=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Yyq1I0PF2iW+fCV1mc2IWFyyw3eXPTxYtt4NSQb1Gkm3kQzXa
+	AUtThJdigoDaDmoIv1xBxsLbvngQQ7FrKxgtbVKC3rNneDxbZGSEFcM=
+X-Gm-Gg: AZFdTZdCrJOJk9pN93pZNkolL14Asfy2EjydlQ+5vi3peMU2ZtpITalym6iECXlQDqo
+	+pKLh7YNxftyE9AsjDrpV2RS7YMltBVdplGclT8a803glS4b7/jKG9eky/OO37YihsMSvhq+ne5
+	Z4Xq4k1RVHtKgdjPbms0/KrqZJLyp5U8k2O2yUjrivX0NZM96Mxe47PkVq6qWswXXg12zvi9kjq
+	COnqgcu9PB2nx/t+FCYUk44VT9iAZ9umXlZNx1k/WVRp4cSfl9M68HnrlJqeDqP5TUoahJncX/F
+	CmsLb3QOxuRm9hdejELhqlJrKEWzcyngHX1958LNxHNtIqgDYCDObF5miAigGrfAJxKknzODCg0
+	7s6Mz3tig3HmYPy/sVul3sdsm3AsIfbyhK9ar7wDVojzbcYloBOQXrtAwpDsfHPVUhc0ryLQDkf
+	No4EAUgOJ7x1+OzxiW0/9wdwIjNMWA2wmICPx5ISplMIuNiQFDD+RylBoV1FC08R2Piuj8z6bPT
+	u/MJJtE7dgduLoStVb7lAkHgB9ixUNdtwyDi49ow129OIWyiKLRbU0fAHHkMw8VIQgKjp3I/y1J
+	H2eGRuMEX04eXKMEGrWhF3x1E3qyaUsgWQbmGRTIEBkr8xps+GPkod6BKeUZopQ0xT5cr2fRxM9
+	p+6Ij
+X-Received: by 2002:a05:6000:420b:b0:4a7:518f:bec2 with SMTP id ffacd0b85a97d-4abb2ce47d7mr40551231f8f.28.1795680773406;
+        Thu, 26 Nov 2026 00:12:53 -0800 (PST)
+Received: from [192.168.1.3] (p5b2ac210.dip0.t-ipconnect.de. [91.42.194.16])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f281sm36790497f8f.22.2026.11.26.00.12.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 00:12:53 -0800 (PST)
+Message-ID: <db3d4f41-d0c3-44f7-b601-770031fcda5c@googlemail.com>
+Date: Thu, 26 Nov 2026 09:12:52 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,57 +93,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261126025015.10416-4-yanhaishuang@cmss.chinamobile.com>
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH 6.12 000/816] 6.12.120-rc1 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+ torvalds@linux-foundation.org, akpm@linux-foundation.org,
+ linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
+ lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
+ f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
+ conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
+ achill@achill.org, sr@sladewatkins.com
+References: <20261125143849.205329330@linuxfoundation.org>
+Content-Language: de-DE
+From: Peter Schneider <pschneider1968@googlemail.com>
+In-Reply-To: <20261125143849.205329330@linuxfoundation.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 25, 2026 at 06:50:12PM -0800, Haishuang Yan wrote:
-> Commit f3d0f753f066 ("vxlan: Enable BIG TCP packets") and
-> commit 03ebe91b0f61 ("geneve: Enable BIG TCP packets") allowed BIG TCP
-> on UDP tunnels. sit can carry BIG TCP packets as well: the outer IPv4
-> header gets its total length from iph_set_totlen() on output, the GSO
-> path already handles BIG TCP, and FOU encapsulation sets the UDP length
-> with udp_set_len() since commit 47282504ad21 ("udp: Support BIG TCP GSO
-> packets where they can occur").
-> 
-> Bump tso_max_size up to GSO_MAX_SIZE so that the admin can use BIG TCP
-> with sit. The default gso_max_size and gso_ipv4_max_size stay at 64KB,
-> so nothing changes unless they are raised explicitly.
-> 
-> iperf3 TCP over sit between two netns connected by veth, without
-> encapsulation, 3 runs of 10 seconds each, in a KVM guest with 8 vCPUs
-> on an Intel Core i7-14700 host:
-> 
->   gso_max_size 65536:   96.0,  95.4,  98.0 Gbit/s
->   gso_max_size 196608: 136.9, 131.0, 129.8 Gbit/s (+37%)
-> 
-> On the receive side, GRO does not build sit packets larger than 64KB, so
-> the gain comes from the sender when the underlay offloads GSO.
-> 
-> A later patch in this series extends big_tcp_tunnels.sh to cover sit
-> without encapsulation and with FOU and GUE.
-> 
-> Reviewed-by: Alice Mikityanska <alice.kernel@fastmail.im>
-> Signed-off-by: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
-> ---
->  net/ipv6/sit.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/net/ipv6/sit.c b/net/ipv6/sit.c
-> index a7ec800216a..97044b1cad2 100644
-> --- a/net/ipv6/sit.c
-> +++ b/net/ipv6/sit.c
-> @@ -1577,6 +1577,7 @@ static void ipip6_tunnel_setup(struct net_device *dev)
->  	dev->max_mtu		= IP6_MAX_MTU - t_hlen;
->  	dev->flags		= IFF_NOARP;
->  	netif_keep_dst(dev);
-> +	netif_set_tso_max_size(dev, GSO_MAX_SIZE);
->  	dev->addr_len		= 4;
->  	dev->lltx		= true;
->  	dev->features		|= SIT_FEATURES;
-> -- 
-> 2.43.0
-> 
-> 
-> 
-Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
+Am 25.11.2026 um 15:25 schrieb Greg Kroah-Hartman:
+> This is the start of the stable review cycle for the 6.12.120 release.
+> There are 816 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
+
+Builds, boots and works on my 2-socket Ivy Bridge Xeon E5-2697v2 server. No dmesg oddities or regressions found.
+
+Tested-by: Peter Schneider <pschneider1968@googlemail.com>
+
+
+Beste Grüße,
+Peter Schneider
+
+-- 
+Climb the mountain not to plant your flag, but to embrace the challenge,
+enjoy the air and behold the view. Climb it so you can see the world,
+not so the world can see you.                    -- David McCullough Jr.
+
+OpenPGP:  0xA3828BD796CCE11A8CADE8866E3A92C92C3FF244
+Download: https://www.peters-netzplatz.de/download/pschneider1968_pub.asc
+https://keys.mailvelope.com/pks/lookup?op=get&search=pschneider1968@googlemail.com
+https://keys.mailvelope.com/pks/lookup?op=get&search=pschneider1968@gmail.com
