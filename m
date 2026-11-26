@@ -1,78 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.29.242.92
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.97
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795697554;
-	b=1FHtH9cAVslf0WzE8f6fT3THZzIiDb1Wq5vHYAf1ONdW+7xb2zXtcqJ+R2mNyV+IdhIZ
-	 +TTFkQQS27JOaNq9OEEPwnYKpKtdKiAqwxMgEyv+tu3NZglhEneP3YTXzVJm+QdVpxfnK
-	 3MXushSAb4bqwcraefbZ3lzwwRiv965NqPa03+BwEwuujzbU3dOfWCICkmf+z01BRH5ek
-	 h0WzGoApL2LIY40UjNy9d4YiOiEb6LJf2JnQrp99FbHFaQDJNuWL/5uybfQlCoOwY1BFO
-	 h0BGRcmrv1NlypeUXEYRgxvMP3I1eaDVsz6/mvboCPoL1NEXlr6EkZJp46G1CH0lkrQ==
+	t=1795697567;
+	b=QpfQbr8ipJBcEDeAFnH+FKXk3rlGdctPRZ7uLL5XDHNt97cOAytbx0De5iPMWJOIEtUr
+	 RgfMZxWImE3mSwn084Po7z5CWhm8ipWdq0rWr5OT/4ZcT12iG7SzqEHQmIHHorsI12yn1
+	 xFagYQcnBT98r3oRjpuz8qCiUIgkVuBd5Fj5SKFRCPMc90ho33poa6bC7sE0yzrZA/y6D
+	 ktgYLP5tbj7EmgfQ1f71g+zhQ7AoPfND0q4MrU+rzexwZ4ZJKUNCZs7ctUu1OzrVf999T
+	 O5IRWJI3jkM/ekI6ENlhulY1vJrqo3zaM3NvN006up9meXmy0r4FaOF90lO92B0Y82A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795697554;
-	h=DMARC-Filter:DKIM-Signature:Received:X-Spam-Checker-Version:
-	 X-Spam-Level:X-Spam-Status:DKIM-Signature:Received:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
-	 References:Date:Message-Id:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key;
-	bh=YvNLhTKqDDpXUAR6Q89oTk1FRF4ua+oIU405Ro86IUA=;
-	b=4fZA997btCiqVHalm5A7VlX3FnLxOuf99c9/UfoqFbEJcMaH1hcSCUszCue7b/ZAqJJB
-	 i+vn6YjuwuDA/rdzTrhuRZiTQ2olj2Tx5W4g7KighKlC/u9bJxWk51b5xb2b4EebrRFbC
-	 4+0JECRnZO6/hK7gj4mCm2R1BlhvkD8d2nSOdWTqrFCmosqVDmLu1Ry3xPgiUCyb9ft/0
-	 gLiLngKgk1BzgRJGEe53dK0mul87pfhSjvxSF6OhuqpgAWzWsOGMQkZ86oPZiHHjV1E+6
-	 TUtD4RB/BxPqumxDMD/CRQaSJ5eRNn2ahV2w+4AgoWcZ/bt4os2e9jizkrnDMAym9WA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795697567;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
+	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-DetectorID-Processed;
+	bh=PVa9ekImbNy0eUOCh+fU0MyKlDIldS/ykE7Tfd4W/ZI=;
+	b=VA4+8QudxuXrwJnvwFJ9HfbJbY19SBodHxcRgiWIDAKByGzUEm7fs+/j+0vslqdG/2hq
+	 cRFSBgWSZmH3DwfOjzPOmK7m/hPsO4K8GT/qVu7o9/f6U5N8Ez67Hg0yp8ztjh3gIlx91
+	 3UOv3bQcyO8Lz0E49BuywXY5Ms0DcuPDHai0u7qcu4RxLG6kM26sQnb2ucsdc1uMKYYgH
+	 +4Tb2uQ97Zg1OKqKU8VV8b3+1RD3jJTjCf52abJs2bf6arA02Ve/1YdTRxhbiqMX0m3qF
+	 B/Q0W8ftS1t24DAcHob6Aggli8fL2Xaoq4dJvEopKNMwV/p5yXuS24yFsUpCeE4EKcw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=davidgow.net;
-	spf=pass smtp.mailfrom=davidgow.net;
-	dkim=pass header.d=davidgow.net header.i=@davidgow.net header.a=rsa-sha256 header.s=201606 header.b=Dhp3pEwS;
-	dkim=pass header.d=davidgow.net header.i=@davidgow.net header.a=rsa-sha256 header.s=201606 header.b="A/jA6NM1";
-	arc=none smtp.remote-ip=203.29.242.92
-Received: from sphereful.davidgow.net (sphereful.davidgow.net [203.29.242.92])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=C43ld5DV;
+	arc=none smtp.remote-ip=209.85.216.97
+Received: from mail-pj1-f97.google.com (mail-pj1-f97.google.com [209.85.216.97])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 338A4606A327;
-	Thu, 26 Nov 2026 12:52:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 338A4606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=davidgow.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=davidgow.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 868F3606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:52:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 868F3606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key, unprotected) header.d=davidgow.net header.i=@davidgow.net header.a=rsa-sha256 header.s=201606 header.b=Dhp3pEwS;
-	dkim=pass (4096-bit key) header.d=davidgow.net header.i=@davidgow.net header.a=rsa-sha256 header.s=201606 header.b=A/jA6NM1
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=davidgow.net;
-	s=201606; t=1795697545;
-	bh=9jGZoSF0cWjL4INvWpLcqT+H+ZPZuz4SfzmxRed+XvY=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date:From;
-	b=Dhp3pEwSTcDSlPhU/4gAIxRTb64D4+BCxtaDS9mwCkVRdkx8tFPHW+cdIENeA8mdC
-	 TLwrtMuHgN9G9pQCu/K30ITl90NKx4F8GLL/wdmwS6qYTTyPySuTNgDTjilnurIqbO
-	 PhxB4/tEHSkGtpjpibqfjWn3/UIgspHdvljg8XImrvIxiBdPsimeYnYjXYKK67BtMb
-	 61dF+d1oqpuI2RSxlVL/xSRtZZ3giHHp16DwX4ZHmDUh/M2yhsZh5InTMDD1kOLV/v
-	 o16um36lnd8sWd1IvZm1MiWYJri+iBxMHlicYbPOQJFBZr6TjjB0eEgNNBoIefGv98
-	 +96vVprNHrEedrMXacX4JBh4ktyXbOl1VnIKzeLiDQozRBTEgB49rAgkzmzG38Dqi8
-	 r2YmZCbN7fMc1CLSleoyS+q63krI/3n3I2MraU/ZjDQoy7L1wbo/BXXVIdGPesfYJD
-	 PnLbVkashhyVzagYQjFe2DRQ6D+EcyqutR3OM41blYoOoFUj+mM70qUI25kTCSNyby
-	 yFmYNu4NDtVjnxmgpS2D8iGNx+78QUxXNroH8IUCMb54/I25OsHx0O2rHePu4qG4J9
-	 B5LJ5Gc2G5ILUPQ6iO1ITVxLXqSEqmK1feOCE5LW2I73eWtnjKsbau3EuKQKn097MM
-	 b/sHhvSwucwxx1HWVlNdBRSs=
-Received: by sphereful.davidgow.net (Postfix, from userid 119)
-	id B6B161EADB5; Thu, 26 Nov 2026 20:52:25 +0800 (AWST)
-X-Spam-Level: 
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=davidgow.net;
-	s=201606; t=1795697544;
-	bh=9jGZoSF0cWjL4INvWpLcqT+H+ZPZuz4SfzmxRed+XvY=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date:From;
-	b=A/jA6NM1Llnkw+zrcQAWLMU8Kd0nTsO1TCqTH2+O84RI9hpC33T5WRcs8sHlv0BaC
-	 a3UGZWGo8fG2Mp/BhKLk3GL2O0gb7XtsB6iU4WWhJfxmcqSF2gnmSscuNYWGh1fh8k
-	 QeSh7Qx3/x86obD74fSUNGkt6Iib0DBRJtx9/qgKfIn07eZguPT0hIEI2cXIBlKkZK
-	 BlfegMKEfGDJsTsNMq0WI4lN/ciqD6pS50/bMKo1l3FqOhOz7sknp7h9EYOe1W/PkC
-	 O3VjgmTjYUoUHErWLQBgMnG8jQBDplxtzNiChYyo2Js55DyZRZ7ArNyGYRVed/mGvV
-	 OT1gnJ7QBT80L6J8rjUYA347Tuve6YBTwoo3zzDRJZY5y68+BLIECrjNMhOwRYaH+M
-	 OB5/a9fsMEs1dVcOdqv6Boh50scvTtCEd5Tl6citM1f6vc+eky393drF/Lvges9JXW
-	 Jzixt258fngbxKtSzF8kmxM/6Z8KFWJhqB1AQq98yYYBUaTVaJg3QgovwQ8cSKnoQK
-	 VplHr/LxPfjMYdlrc8AhxLHyRDSxenllk9osYBwN0uqXKXoBcQ+4ypqtyrAH+N/b2G
-	 JetUVZNifmZ7cLwRPsrTO5+T/zEhvKBYzfEoY5v/IBEWeQrAYLB16tD4siyWcrD6Sm
-	 qNqmP69aQ8xTaWUgcXK2ObGA=
-Received: from shelley.lan (unknown [IPv6:2001:8003:8802:7000::41b])
-	by sphereful.davidgow.net (Postfix) with ESMTPSA id ECA7B1EADAF;
-	Thu, 26 Nov 2026 20:52:23 +0800 (AWST)
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=C43ld5DV
+Received: by mail-pj1-f97.google.com with SMTP id 98e67ed59e1d1-3b40f4d4b5dso3110534a91.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:52:47 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795697567; x=1796302367;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PVa9ekImbNy0eUOCh+fU0MyKlDIldS/ykE7Tfd4W/ZI=;
+        b=SCTBFiXE3hzVxaf2ADhJ6ZdOsEmGLxYlXBiTz63saeeRNzuCrD0mOGI7fXCn6NF9Sa
+         hh18Z0xwjhAIE4b6Vdc2RjlCZBC1AuTCqloqFmLs+nbLI9/RXY87pmc0/+THR5UxL3j0
+         RLO5lWlACf9+3so530ALXxXoESJig3m/pFv7nhiof5n7a84p/kWSQQH4a92KDuJwa2OX
+         qswAkTY7AAnyA933hBttEAQRlAW0E6OBQLcJfAuy5r9oo/P3CZIasjvWXD1WKvQN2JqF
+         skFJ/x0M+q7L84su0fAWVb/Z9LBUUDNIH+6cDcoRw3I6/q9ysF//BkFd+LM5yay2J+JE
+         PoWA==
+X-Forwarded-Encrypted: i=1; AL+hErHyVAXENYVeA7SnFCWY1B93ciT70fYJ/lLSx7FJ6lKZ4SWxj0lZ8UJRess1rqwoWSP0KWg4bF5TX0kSosk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+IgZf4HnepJIrY6Hn5/FZIXx2MNExu7rXxskqxR4Alnku2oWSV
+	pXhcr+0dQNZl2ZR0a5ypALTjpVJtU2ne8+DYUZkBkxNE1rFNvAEYnGkM0NrdtHoVH8KQU7mOIxI
+	oiFEJyqqQkCI0gxpH6Lllvg3Ozuled3+Yi9vj5kklDmM4mqBm0t0egfaMFHzJ6hhSCr0imcrv+3
+	+62X13QtElyYP2MxfFoT+IzKrYihh8re52hS09KYVyhfUKpo2GDzgcf6xtASVDwSEKWLaSkIHbz
+	04LINgnlxQvAoSDrPW8+oo=
+X-Gm-Gg: AZFdTZfamKfHy5zGMf98wLd3Agn2PrQgjW+D983pLgWMkO+jJfhVsrmPNgwXHMmrGSY
+	9Zgc8voHXtpJpI9iQswe+p61uRlSoIWDldABid6D/+/4VSyOboGSVxBldLqUEMTb5u73Rk0kJdS
+	pTMpuylKvmJXrR4LQUT7BwSILOA4ROPGm5omNRlgYYbnS9/i6W0gSJFPKCeZ7EltK9JlROWGPpi
+	4IQRZeb5NpIPHGX+sKlMm4tLNWdDlZHJd25p5epcBukKcmlZRBVFwwipwRYfAkuemg1M8tyqp+c
+	id3DKzd+bRhgYTUiqrMD16gxywIrqK2yz1a66DxdWjEn5r4e79m5gQ6klzgRAx9pxjyVWSIHhOV
+	OtulwQpWDrQThGDRTBQd+UqiV6Qtb7MHM+IV5Dahs1rwiJy+oZZ/bRwu/SP19fy2jV5BTpKxZiI
+	xk+qm0ezpb+5RpzXrWJD3sLphfD9K9WNlTl/+XU9SDIA==
+X-Received: by 2002:a17:90b:3b52:b0:3b4:15e3:3a4e with SMTP id 98e67ed59e1d1-3b41c92c96cmr21883904a91.41.1795697566778;
+        Thu, 26 Nov 2026 04:52:46 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41d245549sm7682254a91.2.2026.11.26.04.52.46
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 26 Nov 2026 04:52:46 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-9493e89d4f9so964124985a.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:52:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1795697565; x=1796302365; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=PVa9ekImbNy0eUOCh+fU0MyKlDIldS/ykE7Tfd4W/ZI=;
+        b=C43ld5DVjh0EFQDGc8CsBRsGWj+Xv+RtyfKrgD38ggGjJUJQDuXl3eMavsdm/O9LEU
+         KCZAmMAOjlwiwmqhVWf0H1BOsGl1ZLiDYU+mhidoHBOhFqB4Ry++iMir6ZQRXCjNhh10
+         bXi8aJYIOyBqHr4d7LZrEaYYI0yw0M14N1wSw=
+X-Forwarded-Encrypted: i=1; AL+hErHN3OtPNZRyEe7O5t6wyGBBBJLpaGfn+M+njjOBnnRm5Ns46Jy7Lu82vrbb86I9cN4d/0wcsjOOVbATW0M=@vger.kernel.org
+X-Received: by 2002:a05:620a:460d:b0:93f:4d4e:ff6b with SMTP id af79cd13be357-949ba81a543mr3602881685a.12.1795697565337;
+        Thu, 26 Nov 2026 04:52:45 -0800 (PST)
+X-Received: by 2002:a05:620a:460d:b0:93f:4d4e:ff6b with SMTP id af79cd13be357-949ba81a543mr3602878285a.12.1795697564924;
+        Thu, 26 Nov 2026 04:52:44 -0800 (PST)
+Received: from bld-bun-02.bun.broadcom.net ([192.19.176.227])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-94a0c18267esm311983385a.4.2026.11.26.04.52.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 04:52:44 -0800 (PST)
+From: Arend van Spriel <arend.vanspriel@broadcom.com>
+To: Tristan Madani <tristmd@gmail.com>
+Cc: linux-wireless@vger.kernel.org,
+	fariyaf@gmail.com,
+	linville@tuxdriver.com,
+	kvalo@kernel.org,
+	brcm80211@lists.linux.dev,
+	brcm80211-dev-list.pdl@broadcom.com,
+	linux-kernel@vger.kernel.org,
+	Tristan Madani <tristan@talencesecurity.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH wireless 1/2] wifi: brcmfmac: zero-pad SDIO write to 4-byte boundary
+Date: Thu, 26 Nov 2026 13:52:40 +0100
+Message-ID: <20261126125240.958940-1-arend.vanspriel@broadcom.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261102122311.181075-2-tristmd@gmail.com>
+References: <20261102122311.181075-2-tristmd@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,62 +119,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH] kunit: tool: remove unused JUnit imports
-From: David Gow <david@davidgow.net>
-To: jahanzaibmir <jahanzaibashraf1318@gmail.com>
-Cc: brendan.higgins@linux.dev, david@davidgow.net, raemoar63@gmail.com, 
- linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20260930203707.38766-1-jahanzaibashraf1318@gmail.com>
-References: <20260930203707.38766-1-jahanzaibashraf1318@gmail.com>
-Date: Thu, 26 Nov 2026 20:51:27 +0800
-Message-Id: <179569748782.1202103.13250628048743028138.b4-review@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=972; i=david@davidgow.net;
- h=from:subject:message-id; bh=9jGZoSF0cWjL4INvWpLcqT+H+ZPZuz4SfzmxRed+XvY=;
- b=owEBiQJ2/ZANAwAIAcYipzoZDNtCAcsmYgBrCCtalLq5jPD9nrJX7NIZUTHjFKUEmxBzUV6Nq
- 24REV4XvdSJAk8EAAEIADkWIQSmmTCaqhqZOsxDGC7GIqc6GQzbQgUCawgrWhsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQxiKnOhkM20LnKhAAtYILaMc24mKEeWlMElVuRdJ4zHgvyg8
- YxY9OU7m88UCWAOJlXkswXyIOxwc+rimNtTaiKjPJvTjdwvXa/E6D9wSmXzVWrE/d+yQzGBpKot
- 527ykPc8xlSaW7Pexjg6X6bS/aJ3hEcV1Se/wtFtXqG2vFl4U0mhd/SUOzkR11vREVkyZkD7LgN
- R4w3l4/aRUtey1gmrMDUHwoJSLAUBUTyto98fFSRj6UsJ0X4Ln+QsVVJiKOF9V1tOyV7HWF0ixq
- juoRrquUbvEdDi82cdvPFYgd5GWw8mfYDATCvMlQXWf8fOUxDKZ6Mfi7sRCeEfY/Zfpqo97mvMY
- dj/UQdCdY4ndS35mljlZwU4Pt8ZHSiKpmhUJ2s1Y8x6SJfO/pbAK/3BmTZMusvqmuoh/JoAG7b8
- MaiwtN1YCtrZDwnFkvj0ULPTDCh1I3/McHZbZtoj1vcv3NdplX8zw5/+ClGJtyW6EUMV7pzzQ/i
- ieYxYQGeW1/7xw4r/JMTnjw26T/wpP1rKIfLQ12CtFxFVzuua5NA1RbnuhfJwpeGh9ac0Dc/fxM
- axMYzuXHdjteLpTRhoHtE5h45nn5oZWUq7fDjwwjVE7i+Fhd5GPjxMLJRQ3HlC1sRAOnJwsSp23
- GQBoCHwx5sKmaa9or5TJmyDp7NK9z+MrO4ibC8JVYrZ85AsCxgJQ=
-X-Developer-Key: i=david@davidgow.net; a=openpgp;
- fpr=3B0A53B1D9DF6AAC59C230322A821C5AD66AB03F
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-> The JUnit output implementation uses ElementTree directly, so the
-> xml.sax.saxutils imports are unused. Remove them.
-> 
-> Signed-off-by: jahanzaibmir <jahanzaibashraf1318@gmail.com>
+On Mon, 2 Nov 2026 12:23:10 +0000, Tristan Madani <tristmd@gmail.com> wrote:
+> brcmf_sdiod_skbuff_write() rounds skb->len up to the next 4-byte
+> boundary and passes the larger size to sdio_memcpy_toio().  The 1-3
+> extra bytes come from heap memory past skb->data, leaking stale kernel
+> data to the wireless device.
 >
+> Zero-fill the padding before the SDIO write.
+>
+> Fixes: 8f13c87ccc49 ("brcmfmac: Split brcmf_sdiod_buffrw function up.")
 
-Thanks for catching this.
+[...]
 
-A small note: please make sure your name is in the form you're normally known
-by (usually, but not necessarily your real name). If you need to adjust it,
-just send out a new version.
+> ---
+>  drivers/net/wireless/broadcom/brcm80211/brcmfmac/bcmsdh.c | 3 +++
+>  1 file changed, 3 insertions(+)
 
-> diff --git a/tools/testing/kunit/kunit_junit.py b/tools/testing/kunit/kunit_junit.py
-> index 3622070358e7..b76748947d65 100644
-> --- a/tools/testing/kunit/kunit_junit.py
-> +++ b/tools/testing/kunit/kunit_junit.py
-> @@ -4,7 +4,6 @@
->  #
->  # Copyright (C) 2026, Google LLC and David Gow.
+[...]
+
+> @@ -323,6 +323,9 @@ static int brcmf_sdiod_skbuff_write(struct brcmf_sdio_dev *sdiodev,
+>  	req_sz = skb->len + 3;
+>  	req_sz &= (uint)~3;
 >  
-> -from xml.sax.saxutils import quoteattr, XMLGenerator
->  import xml.etree.ElementTree as ET
->  from kunit_parser import Test, TestStatus
->  from typing import Optional
+> +	if (req_sz > skb->len)
+> +		memset(skb->data + skb->len, 0, req_sz - skb->len);
+> +
+>  	err = sdio_memcpy_toio(func, addr, ((u8 *)(skb->data)), req_sz);
+>  
+>  	if (err == -ENOMEDIUM)
 
-Reviewed-by: David Gow <david@davidgow.net>
+The padding lies beyond skb->len, so this memset is only safe when
+skb_tailroom(skb) >= req_sz - skb->len, and nothing guarantees that for
+the skbs reaching this function (e.g. a data skb in the non-glom path).
+If the tailroom is short the memset overwrites skb_shared_info. Please
+check the tailroom (brcmf_sdio_txpkt_prep_sg() does so before it adds
+tail padding) and handle the short case, e.g. by expanding the tail.
 
--- 
-David Gow <david@davidgow.net>
+Also, the 4-byte rounding of the length predates the commit in the
+Fixes tag, which only split the function up. Please point the tag at
+the commit that introduced the rounding. The SDPCM header carries the
+unpadded frame length so the device should ignore the padding bytes; a
+word on the actual impact and how this was tested would be good.
+
+Regards,
+Arend
