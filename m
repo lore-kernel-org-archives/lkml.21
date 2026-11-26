@@ -1,77 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795703020;
-	b=b9iAA7HKUGof7rkBR+1wjrTiAL5Dyf7nA14fql+m0WGfWZJJk+KEyKJnaFcQQmTU2XvX
-	 VNqowhsjyGPfwuhc7zwxj+GrcfsLqUCura637aVfm3xBpfdbS8yjBgytEU966xmZjbHFk
-	 GETQ/eDMBtIQcuQ6jnzYcnP1OiJBd6q7aW0+UCU7UyD/ZmyPK7zNg4RQkjrGVvDcBe7ZY
-	 GrRm7BF00bswSaHRklOJJnwdZcXAXWJQilB5D6LCfle6dVbNFdFtU1uQHTqBfVd/OjKFh
-	 hP/UJ54VY8/COEzgpMEEHpFpOH1XuqdsPDX3ynUMViclcFbK79rHZXTFrYrYJc+c9HA==
+	t=1795703023;
+	b=NySEyVELwwlAXw3WXVLlu81Gfoga/tkUwPyy86o64tCvfI3jkjhh1k5QxWDZu1ll78TR
+	 R0tXlubTUEiJn6gFQ+800de4frMd22RIEqFrEoxDDk6qvRqUfXRapfUQkkpjVnKN7fFIb
+	 IgPNMJO+i+4hamMv8C/f7Y7K5YUoAeGACNF4e49HbvsbNg8BSnYPZGj7Ysw1NjaT5zhCi
+	 w5XWp8q3HsW5xIu5PHyMoimxWFt2CWOgTVUoeXLfYm7NRerPXiFj1hahb1c0ebNUVIKns
+	 TrDUoviwjMKCaMImRHFkeHx52Sfytzn+VcuWWrmHgILJlaAMhGyy0JfZJBAnMb433fw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795703020;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=TM3nSQU4U49T6GuNdT3oigc7kZQ4pNCPYHhbPmQrcTg=;
-	b=DvyUu9OvwW4+KqMUCQPvIf5+quKQ/cSpVEsuPyefEp92mGudhRF/6xpl0WQfBJ+0X0bW
-	 NWvnSOlpPAd23F2X6O4SHhjUXFcQvZi0XuiJvX5pYocVitRI8GEebN11C08kffnAfEHdh
-	 P1LExnHKcr6tLjQOH5YuYx/XbZS2LJPOBYtx4W+qfphutBH+3w/2a/6bMEycrLgoX5o4e
-	 kn0lqZbpWE8DYtFIIAOo8I/iUfsf2HlF+QqDlReMUUXNUz0AMsUh2WbXPhtPXXmdtHsID
-	 luumCDcETE5IK8e6QET+lg++BFKGOKURh2ZvXFprgTbjCqtmEhnqoc+JIfAVelrF5QQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795703023;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=dm2y8Oq8oXMm7QsOuoqQEHDEq067SfqFTct2Ocjc2Ss=;
+	b=sf325pX6+Whh2l8omArm7J5DDacEuKfD1+Ms/dVmKCdxcwvIdWi4a0Te44oQBm5DX0Wc
+	 yccDDMqgoLcdlgE1XsZEWgYC8TdRsEqL6bIUsXWk0KFGfJP4tCP0nZ1PmSQc7yYUSdFtA
+	 RIMRAs6C1e/Ovv/WkTYhbnIpTjF82GIZnagjIeidaRhkokw7IDSTIGqGTidu+Qy8XSAl7
+	 EDyCOvRN790zi6vMzRkRZZ6peRTWFFl/5dHdlnelQBsqjv++Z7sPTJZr8Zol32B1DzHqP
+	 yRthq7ltn6twJYRexsOteXS9NHAXEQCVsyNTFKJW9cwrgcxWtNGAwJ5S72gasOb+j7A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cLtgzE2m;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=gKrKVYbv;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D412606A31C;
-	Thu, 26 Nov 2026 14:23:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E89A606A321;
+	Thu, 26 Nov 2026 14:23:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E89A606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cLtgzE2m
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E2CE1F000C6;
-	Thu, 26 Nov 2026 14:23:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795703019;
-	bh=TM3nSQU4U49T6GuNdT3oigc7kZQ4pNCPYHhbPmQrcTg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cLtgzE2m1YoJXGpueRMJ0WG9tvSKfNQlB02h6sqo7+CT8SIX7diyIjeNQZEBq+Rmt
-	 c3wVUQBaScWcqNmdizx9oeZqhcQnvwkubrAnPGao9ZHg/pRNuxscJLtGFEwWhyKHZe
-	 nD/eW4RvR6/G4RIOLr/J3D0i1W1bfaIVV4gV6Xo1o3NxvrDYmUXGUKIoxb5lrWYo0q
-	 Xm3lS0pcjZzeAgfeDD994mnwvbbJ6Bb4w8QRSJ88kkDhfkdRtNyJf6tq4OTMhrIQma
-	 cQteoWOcf297BZrDLqN31mAQGOYddmIaQKOZUGDlnYAJ1X9HJwRkWGecY/FtSID7JT
-	 LyLKLX3iIqGPg==
-Date: Thu, 26 Nov 2026 14:23:37 +0000
-From: Harry Yoo <harry@kernel.org>
-To: Jan Kara <jack@suse.cz>
-Cc: Vlastimil Babka <vbabka@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, Roman Gushchin <roman.gushchin@linux.dev>, 
-	Hao Li <hao.li@linux.dev>, Christoph Lameter <cl@gentwo.org>, 
-	David Rientjes <rientjes@google.com>, Muchun Song <muchun.song@linux.dev>, Hao Ge <hao.ge@linux.dev>, 
-	Pedro Falcato <pfalcato@suse.de>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	kernel-team@meta.com, "Liam R. Howlett" <liam@infradead.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Andrew Ballance <andrewjballance@gmail.com>, 
-	Matthew Wilcox <willy@infradead.org>, linux-fsdevel@vger.kernel.org, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, 
-	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Jiayuan Chen <jiayuan.chen@linux.dev>, netdev@vger.kernel.org, 
-	Kees Cook <kees@kernel.org>, David Hildenbrand <david@kernel.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Robin Murphy <robin.murphy@arm.com>, 
-	"Joerg Roedel (AMD)" <joro@8bytes.org>, Amir Goldstein <amir73il@gmail.com>, 
-	Casey Schaufler <casey@schaufler-ca.com>, Paul Moore <paul@paul-moore.com>, 
-	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, 
-	linux-security-module@vger.kernel.org, Richard Weinberger <richard@nod.at>, 
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, 
-	Eric Dumazet <edumazet@kernel.org>
-Subject: Re: [PATCH slab/for-next v2 04/14] fs/buffer: specify
- SLAB_MAY_ACCOUNT for buffer_head cache
-Message-ID: <awhA1sW94lviTsgT@thinkstation>
-References: <20261125-memalloc-prof-dont-waste-slabobj-ext-metadata-v2-0-7c680f02a734@kernel.org>
- <20261125-memalloc-prof-dont-waste-slabobj-ext-metadata-v2-4-7c680f02a734@kernel.org>
- <gmnosp2u47xewnszzrx4asmldxsyjtejyrbrng2ckrcfedymeu@evhwupv3iwhf>
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=gKrKVYbv
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795703021;
+	bh=SeH7W4HXcoMbKbmUVHcSDi20fgxLOytbLKN210ZOlI4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=gKrKVYbvVwu5WWkzcQ2z7uMhkNOB/Eoprtm7L4DXw9xL4Fz1yV4EPacje+wbpIcR/
+	 GXMb58l0xbb3Cf0DUgH+vpOK1yeO5hHa1K98pX+DOsFGPonrDnvtsEJrahTiRSNW4y
+	 a1IuTbRxlwO2F7uX84qr9nfZou9L5AWKm3cYC5PgipxqMgR3lxACu7L48VAJ/xJyAP
+	 +0NiBRQ0GKOexzhvyc+R8+vXTagF17YNxn2/uAH9t24DlfwAzRqmgmtbpXGLiMeLDL
+	 uG58itz9MlAlyMmbcLhskXxHBlM9A2zjP2Djm4u4Q+W28HPc1fcdcX99OeMCT3CXBw
+	 2mKIxD2l4tcNw==
+Received: from laura.lan (unknown [100.64.0.215])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laura.nao)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0680417E0FD4;
+	Thu, 26 Nov 2026 15:23:40 +0100 (CET)
+From: Laura Nao <laura.nao@collabora.com>
+To: dakr@kernel.org
+Cc: a.hindborg@kernel.org,
+	acourbot@nvidia.com,
+	airlied@gmail.com,
+	aliceryhl@google.com,
+	bjorn3_gh@protonmail.com,
+	boqun@kernel.org,
+	daniel.almeida@collabora.com,
+	deborah.brouwer@collabora.com,
+	dri-devel@lists.freedesktop.org,
+	gary@garyguo.net,
+	kernel@collabora.com,
+	laura.nao@collabora.com,
+	linux-kernel@vger.kernel.org,
+	lossin@kernel.org,
+	ojeda@kernel.org,
+	rust-for-linux@vger.kernel.org,
+	simona@ffwll.ch,
+	tamird@kernel.org,
+	tmgross@umich.edu,
+	work@onurozkan.dev
+Subject: Re: [PATCH v7 3/3] drm/tyr: add Job IRQ handling
+Date: Thu, 26 Nov 2026 15:23:28 +0100
+Message-Id: <20261126142328.216740-1-laura.nao@collabora.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <DN548CRVXMGK.BOPO5J56Y1OH@kernel.org>
+References: <DN548CRVXMGK.BOPO5J56Y1OH@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,32 +87,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <gmnosp2u47xewnszzrx4asmldxsyjtejyrbrng2ckrcfedymeu@evhwupv3iwhf>
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 26, 2026 at 10:05:35AM +0100, Jan Kara wrote:
-> On Wed 25-11-26 21:37:05, Harry Yoo (Meta) wrote:
-> > Buffer heads are allocated with __GFP_ACCOUNT to charge them to the
-> > memcg of the folio they are attached to. Specify SLAB_MAY_ACCOUNT when
-> > the object may be charged to a memcg. __GFP_ACCOUNT without
-> > SLAB_MAY_ACCOUNT will not be allowed.
-> > 
-> > Path: ext4_getblk() -> folio_alloc_buffers(GFP_NOFS | __GFP_ACCOUNT)
-> >   -> alloc_buffer_head() -> kmem_cache_zalloc(bh_cachep)
-> > 
-> > Cc: Alexander Viro <viro@zeniv.linux.org.uk>
-> > Cc: Christian Brauner <brauner@kernel.org>
-> > Cc: Jan Kara <jack@suse.cz>
-> > Cc: linux-fsdevel@vger.kernel.org
-> > Signed-off-by: Harry Yoo (Meta) <harry@kernel.org>
-> 
-> Looks good. Feel free to add:
+On 11/26/26 12:45, Danilo Krummrich wrote:
+> On Mon Nov 23, 2026 at 3:58 PM CET, Laura Nao wrote:
+>> +/// Requests a threaded IRQ registration for the Job IRQ.
+>> +///
+>> +/// # Safety
+>> +///
+>> +/// Callers must not `mem::forget()` the resulting registration or otherwise prevent its
+>> +/// [`Drop`] implementation from running.
+>> +pub(crate) unsafe fn job_irq_init<'a>(
+>> +    pdev: &'a platform::Device<Bound>,
+>> +    hw: Arc<HwGate<'a>>,
+>> +    events: Arc<JobIrqEvents>,
+>> +) -> Result<Pin<KBox<TyrIrqRegistration<'a, JobIrq>>>> {
+>> +    let job_irq = JobIrq { events };
+>> +    // Ensure interrupt sources are disabled until the handler is registered.
+>> +    job_irq.clear_mask(hw.access().iomem());
+>> +
+>> +    // SAFETY: The caller guarantees the resulting registration will not be leaked.
+>> +    unsafe { TyrIrqRegistration::request(pdev, c"job", job_irq, hw) }
+>> +}
+>
+> You could implement a constructor in an impl TyrIrqRegistration<'a, JobIrq>
+> block instead, which is think is cleaner than a free standing function.
 
-Thank you for reviewing them, Jan!
+Right, thanks for the suggestion. Will do.
 
-> Acked-by: Jan Kara <jack@suse.cz>
-
--- 
-Cheers,
-Harry / Hyeonggon
+Best,
+Laura
