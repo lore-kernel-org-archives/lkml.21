@@ -1,93 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795679833;
-	b=wzm1TjZgVrs48MRMXEcqw8QKB4g/X8P9f4BYW7F8TJoIYHcR4zdB63h0kbz1Zr4/wRun
-	 b6xoei+/x86MryWjB4COqVBgfviDLpUox3aDfTVjQjqLhaRlxNg6uajWi0W6KRahj2Ppy
-	 AJ0zDPb/Ce6ohpwrukK2dbWbjrq+IUeGZilwwf41NvLsVqaFL6Eoz6RZJjCxv3O7FTFMQ
-	 rhJYKe84gAhvQPbAVbs8qz+iwxONvlfqmoBNNMIhT0eul8LlI3OpDi1qMKCCVQs70r1Sl
-	 BvqXwda/wNE61737LNhe8B391si6JcBctSSSDzR9+DKDNgrB4U3TDKMF12qaL8sncJg==
+	t=1795679885;
+	b=R/iczFL/wz2z3yaedokRKQDtbvVhElQ6Qdc7RwO0VLDTQAeobqInsWtgMgBJKGrUuqmr
+	 GWj0ZkgFMw9T4CxKuH0ZXxj4NB0qgL6n9xqtieXtvQtgBPHWTkRg2U/DDXZ5dXoRjH2nT
+	 /vpmWjw3eOvnWXL9eMijxVgtuRo4GGdqyw8TWbWu9XaQon0OrxNOVDvStWn+uTwxYmyD4
+	 hUfQt5x4ReGSOVXK02pmqY5o4hHmTEAEyfjkyzNEJszTEX6yV5Nfl4BHtwCeZjnU/1gcm
+	 Dz9liWeioyFWEfQ+C6I88y7OX9EvwmkrDe9+51XXV5oOq4S6IfHtimAoIco1uxOz4KA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795679833;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=kvqxuyKdqOZIctZ1RVDJiTTys7XqmGboeKGR0Mb/Lz0=;
-	b=K31b/yvXHaesLOTH3cGa6cZEtI8Da+43guIVEgZZiCZRL6rwaxml96Gf8IZ7G7kYY3wq
-	 4kAWrD4gUcpocBBIhRS7MOtyLTcK4/D93Fx75QQeyq4djkMtKwNZVuUu7iJqeqmMVOZqb
-	 vARVkIhJ3FJHKGQTT189NjBW+l8GR4jp4mFg20eRgsOp7vtoFNnXszy+ZmtgFBcyLkLg1
-	 wW+Ztzt6PlTY7srQwxZepZNI14rnpuU8tOLJaJvu5+jrdVecHKWsUhHpqr41neDed761Z
-	 W9FQEq8uWdTBJf0fcIznqu49JZJ89l84XYAto91LskVVYFitFQwA6wpCA7KV/Vojmjg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795679885;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=LvwFbBDWNBefR0kvXHQjNB1xk2tLuKkLL0ZTvCS0RKo=;
+	b=oHFMQ1yXSES7r8rZtKm4klXCWBLFtG5gS8hnggRK6XBcoATRvqqeqSxH7cdBf7VIRmQL
+	 x8yjUxPMqSXSDSObE0hRHVrwz63Pdj8dDxV/WCGmwdyeqDRjxp6Nw7SUbFcF10FpxLCt9
+	 dqGZDT4ZAcGG4/RlhuPYQ0j+zKgQueuqghO1873l2umbfQud211cQcyRuwass+sp+FqeL
+	 +fkEaCQBnRTmjwEpXcBu7YHmusaSfV2Q7mG1/kNu95NmHRPJj8YecYRuEdOZUibhhENFG
+	 9+tk2AKhfzDI1tVt+giRjrdZbJbTwLALIR709IjqxvI5M+SmiWvJPQb9U8dkOmeP9Ew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GVKL0CWE;
-	arc=none smtp.remote-ip=198.175.65.15
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=o6bjUeAs;
+	arc=none smtp.remote-ip=95.215.58.246
+Received: from mta1.migadu.com (out-246.mta1.migadu.com [95.215.58.246])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02742606A31E;
-	Thu, 26 Nov 2026 07:57:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02742606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F663606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:58:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F663606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GVKL0CWE
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795679832; x=1827215832;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=7gqO7mtbAkU5IaNVQpE0KYsTeEo00WqOION0Mo8l5RQ=;
-  b=GVKL0CWEFGDvI0s36/UX/xO8hKFVpwEIhE6S4vfUyI/75GmNN+rJRBq8
-   0wMZXHYKBq1dkDTUzLeTKUFGXoKBh8tyhy/dn96jJwQjZ0j8iH2r7K4yh
-   JMvZ5z5kX1XJ/7UtNulMh5ZXOEYLykCU1ZDk+69ezj+Q+0xCLDFuuXSQj
-   Qm0Kellht+VWiFXwk/FJ8nwPy+x+qqjDSnepuXoUuWGtyLpFMzzjji4Sz
-   7wDmnTR1cmPeXDmAwl09W0C0LrovZHZO53P+i8XdvBfv7eBDBSicfx1W0
-   t3SvxCwyomuU6rNFh4GE++dScWhfWqP2AoZ2lQGtJFWSnfaVEsFZGLmgi
-   g==;
-X-CSE-ConnectionGUID: U/mHqQRrT62GaoTfKFYiRA==
-X-CSE-MsgGUID: zeLOX7BqSHejhPD4KDLHTg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4567260"
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="4567260"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 23:57:11 -0800
-X-CSE-ConnectionGUID: itKbRMG2R9iWVRnaqlN10Q==
-X-CSE-MsgGUID: sN7xmylnSZSZMY9a4fnawA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="12152074"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 25 Nov 2026 23:57:06 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xWULm-00000001TZw-2xrc;
-	Thu, 26 Nov 2026 07:57:02 +0000
-Date: Thu, 26 Nov 2026 15:56:28 +0800
-From: kernel test robot <lkp@intel.com>
-To: Alice Ryhl <aliceryhl@google.com>, Tejun Heo <tj@kernel.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Danilo Krummrich <dakr@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Trevor Gross <tmgross@umich.edu>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
-	John Hubbard <jhubbard@nvidia.com>,
-	Philipp Stanner <phasta@kernel.org>, rust-for-linux@vger.kernel.org,
-	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
-	Alice Ryhl <aliceryhl@google.com>
-Subject: Re: [PATCH v4 4/5] rust: workqueue: add creation of workqueues
-Message-ID: <20261126154348.RP9PjaYR-lkp@intel.com>
-References: <20261119-rust-workqueue-v4-4-707c68994940@google.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=o6bjUeAs
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=FjE3HtgmKFq8WFEo5xKnHSon1s4J/tMgqoWdmhdBcjc=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795679882; v=1; x=1796284682;
+ b=o6bjUeAscT1Lwh6QHVgwf2bJ1f75R+7XJvrz13QiJ08OF1Wvc9srPIbjDCJWT656QujjEIKP
+ C45RqbYJStESB/bkq3kguAp8+hhqQh35vGPP3sYNU5Hnvdp3VEuqWvW1n0n4ZDr7tBB1bRGoaUZ
+ /eWlpySvzH0QeYAOBQCoxV/w=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id c5246ef4abf9f853;
+	Thu, 26 Nov 2026 07:58:01 +0000
+X-Mizu-Trace-ID: c5246ef4abf9f853
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <b771065b-392d-4bf6-ab63-682179f6ed1f@linux.dev>
+Date: Thu, 26 Nov 2026 15:57:41 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,65 +58,218 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119-rust-workqueue-v4-4-707c68994940@google.com>
-
-Hi Alice,
-
-kernel test robot noticed the following build warnings:
-
-[auto build test WARNING on aebb7274476403040d582c61478df8f4a7bf9cd3]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Alice-Ryhl/rust-workqueue-support-stack-allocated-work-items/20261119-141242
-base:   aebb7274476403040d582c61478df8f4a7bf9cd3
-patch link:    https://lore.kernel.org/r/20261119-rust-workqueue-v4-4-707c68994940%40google.com
-patch subject: [PATCH v4 4/5] rust: workqueue: add creation of workqueues
-config: x86_64-rhel-9.4-rust (https://download.01.org/0day-ci/archive/20261126/20261126154348.RP9PjaYR-lkp@intel.com/config)
-compiler: clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
-rustc: rustc 1.96.0 (ac68faa20 2026-05-25)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261126/20261126154348.RP9PjaYR-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261126154348.RP9PjaYR-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   In file included from rust/helpers/helpers.c:110:
->> rust/helpers/workqueue.c:27:9: warning: diagnostic behavior may be improved by adding the 'format(printf, 1, 4)' attribute to the declaration of 'rust_helper_alloc_workqueue' [-Wmissing-format-attribute]
-      23 | __rust_helper
-         | __attribute__((format(printf, 1, 4))) 
-      24 | struct workqueue_struct *rust_helper_alloc_workqueue(const char *fmt, unsigned int flags,
-      25 |                                                      int max_active, const void *data)
-      26 | {
-      27 |         return alloc_workqueue(fmt, flags, max_active, data);
-         |                ^
-   include/linux/workqueue.h:519:76: note: expanded from macro 'alloc_workqueue'
-     519 | #define alloc_workqueue(...)    alloc_hooks(alloc_workqueue_noprof(__VA_ARGS__))
-         |                                                                               ^
-   include/linux/alloc_tag.h:270:31: note: expanded from macro 'alloc_hooks'
-     270 |         alloc_hooks_tag(&_alloc_tag, _do_alloc);                        \
-         |                                      ^
-   include/linux/alloc_tag.h:256:9: note: expanded from macro 'alloc_hooks_tag'
-     256 |         typeof(_do_alloc) _res;                                         \
-         |                ^
-   rust/helpers/workqueue.c:24:26: note: 'rust_helper_alloc_workqueue' declared here
-      24 | struct workqueue_struct *rust_helper_alloc_workqueue(const char *fmt, unsigned int flags,
-         |                          ^
-   1 warning generated.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 05/18] mm/memcg: add folio-based lruvec live helper
+To: kasong@tencent.com, linux-mm@kvack.org
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>,
+ Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>,
+ Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>,
+ Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>,
+ Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>,
+ Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
+ Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>,
+ Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
+ Vlastimil Babka <vbabka@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Nhat Pham <nphamcs@gmail.com>, Youngjun Park <youngjun.park@lge.com>,
+ Zi Yan <ziy@nvidia.com>, Gregory Price <gourry@gourry.net>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+ Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>,
+ SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>,
+ Yu Zhao <yuzhao@google.com>, Vernon Yang <vernon2gm@gmail.com>,
+ Zicheng Wang <wangzicheng@honor.com>, Tal Zussman <tz2294@columbia.edu>,
+ Kairui Song <ryncsn@gmail.com>, Xiang Liu <liuxiang.277@bytedance.com>,
+ Ehab Ababneh <ehab.ababneh@intel.com>,
+ Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, Lian Wang
+ <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>,
+ Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>,
+ Maxim Muzafarov <maxmuzaf@gmail.com>, linux-kernel@vger.kernel.org,
+ cgroups@vger.kernel.org, damon@lists.linux.dev, linux-doc@vger.kernel.org,
+ Tianyi Chen <hi@tychen.cc>
+References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
+ <20261124-mglru-fg-v6-5-8ffea39934a6@tencent.com>
+From: Ridong Chen <ridong.chen@linux.dev>
+In-Reply-To: <20261124-mglru-fg-v6-5-8ffea39934a6@tencent.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
 
-vim +27 rust/helpers/workqueue.c
 
-    22	
-    23	__rust_helper
-    24	struct workqueue_struct *rust_helper_alloc_workqueue(const char *fmt, unsigned int flags,
-    25							     int max_active, const void *data)
-    26	{
-  > 27		return alloc_workqueue(fmt, flags, max_active, data);
+On 11/24/2026 2:52 AM, Kairui Song via B4 Relay wrote:
+> From: Kairui Song <kasong@tencent.com>
+> 
+> Add a helper that resolves a live lruvec for a folio under RCU
+> without taking the lruvec lock.  It takes a folio directly so the
+> lruvec lookup happens inside the RCU read-side critical section,
+> which a lruvec-based interface cannot guarantee.  The first user is
+> the lockless folio_inc_lru_refs() path later in the series.
+> 
+> Factor the ancestor walk out of lruvec_live_lock_irq() into
+> __lruvec_get_live(), so that both entry points share it, and spell
+> out why the walk is enough while only the RCU read lock is held:
+> reparenting of a memcg that starts dying waits for a grace period,
+> so it cannot race with the caller until the lock is released.
+> 
+> Move memcg_is_dying() up in memcontrol.h, next to the other memcg state
+> predicates, and use it for the walk rather than repeating the open coded
+> css_is_dying() test a few definitions away from where it is explained.
+> 
+> No functional change for existing callers.
+> 
+> Tested-by: Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>
+> Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
+> Tested-by: Andrew Morton <akpm@linux-foundation.org>
+> Reviewed-by: Qi Zheng <qi.zheng@linux.dev>
+> Reviewed-by: Muchun Song (ByteDance) <muchun.song@linux.dev>
+> Signed-off-by: Kairui Song <kasong@tencent.com>
+> ---
+>   include/linux/memcontrol.h | 71 ++++++++++++++++++++++++++++++++++++----------
+>   1 file changed, 56 insertions(+), 15 deletions(-)
+> 
+> diff --git a/include/linux/memcontrol.h b/include/linux/memcontrol.h
+> index 980358bc6f49..a03f9711522e 100644
+> --- a/include/linux/memcontrol.h
+> +++ b/include/linux/memcontrol.h
+> @@ -571,6 +571,11 @@ static inline bool mem_cgroup_disabled(void)
+>   	return !cgroup_subsys_enabled(memory_cgrp_subsys);
+>   }
+>   
+> +static inline bool memcg_is_dying(struct mem_cgroup *memcg)
+> +{
+> +	return memcg ? css_is_dying(&memcg->css) : false;
+> +}
+> +
+>   static inline void mem_cgroup_protection(const struct mem_cgroup *root,
+>   					 const struct mem_cgroup *memcg,
+>   					 unsigned long *min,
+> @@ -1349,6 +1354,11 @@ static inline bool mem_cgroup_online(struct mem_cgroup *memcg)
+>   	return true;
+>   }
+>   
+> +static inline bool memcg_is_dying(struct mem_cgroup *memcg)
+> +{
+> +	return false;
+> +}
+> +
+>   static inline
+>   unsigned long mem_cgroup_get_zone_lru_size(const struct lruvec *lruvec,
+>   		enum lru_list lru, int zone_idx)
+> @@ -1510,28 +1520,41 @@ static inline void lruvec_lock_irq(struct lruvec *lruvec)
+>   	spin_lock_irq(&lruvec->lru_lock);
+>   }
+>   
+> -static inline struct lruvec *lruvec_live_lock_irq(struct lruvec *lruvec)
+> +/*
+> + * Reparenting moves a dying memcg's LRU state to its parent at any time,
+> + * so anything added to that LRU afterwards would be lost.  This helper
+> + * walks up to the nearest live ancestor while the caller must hold the
+> + * RCU read lock: reparenting of a memcg that starts dying waits for a
+> + * grace period, so it cannot race with the caller until the lock is
+> + * released.
+> + */
+> +static inline struct lruvec *__lruvec_get_live(struct lruvec *lruvec)
+>   {
+>   #ifdef CONFIG_MEMCG
+>   	struct pglist_data *pgdat = lruvec_pgdat(lruvec);
+>   	struct mem_cgroup *memcg = lruvec_memcg(lruvec);
+>   
+> -	rcu_read_lock();
+> -
+>   	/*
+>   	 * The memcg can be NULL when the memory controller is disabled.
+>   	 * Otherwise, the caller keeps the memcg owning @lruvec alive.
+>   	 */
+> -	while (unlikely(memcg && css_is_dying(&memcg->css))) {
+> +	while (unlikely(memcg_is_dying(memcg))) {
+>   		memcg = parent_mem_cgroup(memcg);
+>   		lruvec = mem_cgroup_lruvec(memcg, pgdat);
+>   	}
+> +#endif
+> +	return lruvec;
+> +}
+>   
+> +static inline struct lruvec *lruvec_live_lock_irq(struct lruvec *lruvec)
+> +{
+> +#ifdef CONFIG_MEMCG
+> +	rcu_read_lock();
+> +	lruvec = __lruvec_get_live(lruvec);
+>   	spin_lock_irq(&lruvec->lru_lock);
+>   #else
+>   	lruvec_lock_irq(lruvec);
+>   #endif
+> -
+>   	return lruvec;
+>   }
+>   
+> @@ -1561,6 +1584,34 @@ static inline bool folio_matches_lruvec(const struct folio *folio,
+>   	       lruvec_memcg(lruvec) == folio_memcg(folio);
+>   }
+>   
+> +/**
+> + * folio_lruvec_live_get - get a live lruvec for a folio under RCU
+> + * @folio: the folio
+> + *
+> + * Same as folio_lruvec(), except that a folio whose memcg is dying is
+> + * accounted to the nearest live ancestor, which is where reparenting
+> + * would put it anyway.
+> + *
+> + * Return: the live lruvec, with rcu_read_lock() held.  Pair it with
+> + * folio_lruvec_live_put().
+> + */
+> +static inline struct lruvec *folio_lruvec_live_get(const struct folio *folio)
+> +{
+> +#ifdef CONFIG_MEMCG
+> +	rcu_read_lock();
+> +	return __lruvec_get_live(folio_lruvec(folio));
+> +#else
+> +	return folio_lruvec(folio);
+> +#endif
+> +}
+> +
+> +static inline void folio_lruvec_live_put(const struct lruvec *lruvec)
+> +{
+> +#ifdef CONFIG_MEMCG
+> +	rcu_read_unlock();
+> +#endif
+> +}
+> +
+>   /* Don't lock again iff page's lruvec locked */
+>   static inline struct lruvec *folio_lruvec_relock_irq(const struct folio *folio,
+>   		struct lruvec *locked_lruvec)
+> @@ -1826,11 +1877,6 @@ void mem_cgroup_node_filter_allowed(struct mem_cgroup *memcg, nodemask_t *mask);
+>   
+>   void mem_cgroup_show_protected_memory(struct mem_cgroup *memcg);
+>   
+> -static inline bool memcg_is_dying(struct mem_cgroup *memcg)
+> -{
+> -	return memcg ? css_is_dying(&memcg->css) : false;
+> -}
+> -
+>   #else
+>   static inline bool mem_cgroup_kmem_disabled(void)
+>   {
+> @@ -1901,11 +1947,6 @@ static inline void mem_cgroup_node_filter_allowed(struct mem_cgroup *memcg,
+>   static inline void mem_cgroup_show_protected_memory(struct mem_cgroup *memcg)
+>   {
+>   }
+> -
+> -static inline bool memcg_is_dying(struct mem_cgroup *memcg)
+> -{
+> -	return false;
+> -}
+>   #endif /* CONFIG_MEMCG */
+>   
+>   #if defined(CONFIG_MEMCG) && defined(CONFIG_LRU_GEN)
+> 
+
+LGTM.
+Reviewed-by: Ridong Chen <ridong.chen@linux.dev>
+Thanks.
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Best regards
+Ridong
+
