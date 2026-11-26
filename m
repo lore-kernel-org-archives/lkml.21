@@ -1,87 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795712360;
-	b=YXQ657IBkqsCt43Y0MpqHfJ8UBIRwXqPmyAIBcbcWhALao++u67Cag4pHl+5ZecveoTP
-	 K2rzBGCCXcDaRi1WDIOmiWX6tN+2rbtzX37vZ5JuOEbogQIDQvEYPLBETyAGFtnzeY6ii
-	 24NY5UNAfk6Bknr8S1ykoCV8GvEEEcxihiTadoiFHkQMHG8Bgcw/ovEXAL4XALrFsgHpo
-	 V/d8XJWZAc80wjtmWbQ2JsbdzzqJRcRBuWc+swjUZUGLlvbW/NeyOGDrAGZ9jfdIfZDra
-	 BpgG2VBZNYkklWI+sQRlpEMY9REjD+RW0YpT/dsFyK8DPUM9Ak6GCgZqbTY+RIoRCaQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795712360;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
-	bh=bvHu9PdIza3tZOErw9g2L0SR3Amj/3cA4iNu6SeWynk=;
-	b=VLBh8C6zeY8TqsmSYtPQKNzvPAEN0iBouzYD+Ca9vOv1ZctIyak1rgpYjQWOIiYdFvjN
-	 7v2yGVMon/+uNt3C6PbKrE3lx5Gcl/wtpbWkuCHp1lm5KOt8BxA8k6sVWz5t7W4+6Dj6Y
-	 2Qywu381N6/1uKzP/RucEOi0XtM5PPlDNYW3G3QMUp89TRwwWObR8D3kQ1koCnOwVXery
-	 rlGqDArTLPS2RGgJSvMuQg4IA75/qFq044G36Tyk49IUsbvXtU1iWBdbgyZbKNdlR7rvt
-	 ai47jdIZnuj2QZpgFcCWJI+7eLtTkNWdK24oWh50VMxy0Qd40qYwdw/Jlx3qzUXMH4A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jFYCtSFV;
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.56.87.1
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795712365;
+	b=Rh5H+8bO4Pw6NBPil1xoVtmp/QzunxvqrXCo8PeWdZ/HMaJuxTtX0WUREXWJktMnIc3R
+	 FSlBX8E85Z251T+uKhcOE2ZEgUVrWDgVW5Dit4CxPtKZ8S/e/EvuFY4q2ZaEU0GvVF+w2
+	 ZNIeYheQArypc0lj4cDuOoilcdUuDfewQyo5OOl3ogAmdeF7jHk7Ztpv6X8YkN4/Vv8B4
+	 bgI0iBZuvJRKQeg750vaVRW+W3mKg1GOnUXHEdb3O2UF5S/gxLri/pig7Xcq4DVn3tInS
+	 DhC1HfRsdu12MaAALZzZLsFuZLhEBEHbyezPq/Lf5EoUEheEfUgo+v2uZQaeL5EAdFQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795712365;
+	h=DMARC-Filter:DKIM-Signature:Received:DKIM-Signature:Received:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-Source:X-Source-Args:X-Source-Dir:
+	 X-SGantispam-id:X-AntiAbuse:AntiSpam-DLS:AntiSpam-DLSP:AntiSpam-DLSRS:
+	 AntiSpam-TS:CFBL-Address:CFBL-Feedback-ID;
+	bh=Jq3lQfepJ94AqyPMdbvxSWp08SKSZvIh/ClUMKjqxQw=;
+	b=Hpa1PYd6VZ0zHEVJjBU54sx2vZiaO72YPSBuLIx1Ey3Lpjyk0UJBnNmpk8zavKn4KocQ
+	 i/rrjsB9cDRY2Nmb1WXVxpsJDAMsLWCeNteQKn5UgS9diG5TPiggHB+gAJEeaka6xtWWz
+	 yBIWmeF9C2Najq5oShsRIi96FOTeer9MWK47EPSHYczVd1Lm6RexjsJkheLKM3+RVqOWh
+	 KtKW5aAtGTe3E0q5xdTdS0ItEUkBA9Yer9DySb32LVyFT+cXNy0Q4Qav95vixxk6Usktl
+	 lIxnippToLSUx9NLHNoDt/bY4dbhFB9xDFthCeEHmbaRg2nEsYdm1T3PqG9++2YqjYw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=valla.it;
+	spf=pass smtp.mailfrom=valla.it;
+	dkim=pass header.d=antispam.mailspamprotection.com header.i=@antispam.mailspamprotection.com header.a=rsa-sha256 header.s=default header.b=AsCGbnSB;
+	dkim=pass header.d=valla.it header.i=@valla.it header.a=rsa-sha256 header.s=default header.b=Gaxg5V0N;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.56.87.1
+Received: from delivery.antispam.mailspamprotection.com (delivery.antispam.mailspamprotection.com [185.56.87.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DD70606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:59:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4DD70606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6F8B606A31E;
+	Thu, 26 Nov 2026 16:59:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6F8B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=valla.it
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=valla.it
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jFYCtSFV
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb77a462c6so59872525e9.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:59:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795712359; x=1796317159; darn=vger.kernel.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=bvHu9PdIza3tZOErw9g2L0SR3Amj/3cA4iNu6SeWynk=;
-        b=jFYCtSFVmK+9jRCpSFdZWywd5ayGp8l8yTypVQKuDZdabfR8ISMG/We5D+fmmAjZSI
-         F7aFFmBsLwdm7Onk4pguQpBFbxpRlZuoa+4tbtLMT8hXEWgKJ0h14ZsYkCS0Lmi9m9U4
-         4CHfBiXv4EkB0jinFJUX4XsuS7PiFqtO2p9e69+SkUV4/tNBvsGR0nht29QoP1eRDA2g
-         YrergSm0O+S0L+PlWzwnJDj3N6IYHj6fJlWwqyVufTOZOkyKFduFjos9loeBIM//t294
-         sLhnPSq/a293E2IifXE5xaAD9L58JV9c5e2r/yPLLAULRDhq2kWYEd66UPnOQQMLa0mt
-         9KPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795712359; x=1796317159;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=bvHu9PdIza3tZOErw9g2L0SR3Amj/3cA4iNu6SeWynk=;
-        b=TGa4jidjwe6IDpAH1WeMJqSkV2zDtlZ/KslPmi2bn60/mYVjlx9mg0U7483NPmAEQl
-         kVSJ4UuoXyQWngZdRtTLvcSxs1bt8OGYcVQAyDej71vMMVb9O4ydxGzRhLopIxEz2RsX
-         5XvK+paNj1azUWvrGuZ7VuPJ3fo7qVZZN9aSVA6DYZvQMn00jLQbfo7vgT/A3e0UEPLF
-         XOZt8iA5MPF3DzPhl29v0ijrCYkOJJNLi87dqsZ0NuWPoqNH7GUJWLPEQ8HopeTaiVK8
-         yN2hr81QYVKWUCdpux/0GYUWCb7QafhmOSUF5bBEXuF4gtu4irf1FN3D6ZvhVurMnt4S
-         PeYQ==
-X-Forwarded-Encrypted: i=1; AL+hErENfAiHzHS2BsQNEyN6ytyQ6ARfNG/guy22an2damLOhNjdUW4to01uAF0CfyMjnjCKrF0Jh6j62I8Pr/s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+U15WYSos/KeKOADyLTdHT9y9xkFPCk/5AGj91uZ4DwOKPWD6F
-	OxsYZx+1Iad18Ii43OE0S3hHi/bE/jIFHF8qeYTeQToEnho85WH3xTun
-X-Gm-Gg: AZFdTZepCpeIpbWxxD4ZZDIHZq/AqLLGK6QyFPJtpqoLMw7oe4APAYRA9uFNBC5WDI6
-	yJXRScxIzoxsK8UybD+FRn8kyLDZW8f4C1LczLSR8oU6K9egPxrRYASK3lBrriolpVQGzYnzNQC
-	nbaYRVRAaMLJ7AK20kW+keqUuR3FJacU/rWqVIEZxYJIgyeq4ZFGaooSp7p4HoFTVawSLP1n/tA
-	Jvya04pYqgcqKFYrGd2aPcUUaVxoIUkzmStf7Nu8qRgIusytxbAQQvVS5qiPrRm+veHFK7VotnQ
-	KK5ar14PqF4bu7c8kcQ/SQQzL04suxQETcHppZklqZqqGhnk6pHF4EUr0xPcsDj/PAtdAvlHm0j
-	0XvfJruAtkCADOupquYjatfVhQmGLqlX7IxCPkdPhcVLfTxcxiRPWFa39772oHlTkkCPHMeI+8N
-	sgWJGRlknmBsgD/7/kez7J6FtqQHo2EYVPvtKcUCAq10FCtciax9cWi+Cti5pA6kKB5oIJUvCF/
-	Ym1zbFwCnb4GffHFqoQDTgMS4fdCbi0EU+nupPwC1ePbcs0GSPiROTmJ15GmcEJq7grBYnTY88Q
-	JXT9gtnLuc5n6hEXLQXdkXQpWqPpoYHng8uqLmo=
-X-Received: by 2002:a05:600c:b8a:b0:4a0:20b4:ba93 with SMTP id 5b1f17b1804b1-4bb88818156mr434532475e9.16.1795712358587;
-        Thu, 26 Nov 2026 08:59:18 -0800 (PST)
-Received: from [10.56.169.198] ([95.179.249.152])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4b70c05b9desm17700731f8f.54.2026.11.26.08.59.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 08:59:18 -0800 (PST)
-From: Oarora Etimis <oaroraetimis@gmail.com>
-Subject: [PATCH v2 0/2] drm/vkms: skip composer work that changes nothing
-Date: Thu, 26 Nov 2026 17:59:02 +0100
-Message-Id: <20261126-composer-fastpath-v2-0-292ed6d4c4d6@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=antispam.mailspamprotection.com header.i=@antispam.mailspamprotection.com header.a=rsa-sha256 header.s=default header.b=AsCGbnSB;
+	dkim=pass (1024-bit key, unprotected) header.d=valla.it header.i=@valla.it header.a=rsa-sha256 header.s=default header.b=Gaxg5V0N
+ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-c9nw.prod.antispam.mailspamprotection.com; s=arckey; t=1795712363;
+	 b=P3UyvbZE/9kZeYqk4d5//ia/lUoKsavzcFhxtwuHPUftFBzUHdLFAg6HWFac3yaaVGEeI8b/65
+	  Zu5Ch75O+XmRtQHcgXQj8CjcKa7SwTWu8OZMXiPFSPxW0AlvcGvikiza9lbA3zK7/UcjMrjGEK
+	  Ed24b4LbsNbVRJgDOiuymwOnUuuOHVB4QMFs1QPunCce1Ngg26Ipgm+64OYmszysIOwiwi7wOm
+	  rf3vaoDJf1FlLI3fcN0xdlt7JzMu+H29dZJOf7TsB4wapa19liVV0EGVSFm7VAth2iKPc49Ka0
+	  iGIFv+IU4QfuvosVxCxxshvLeyUmeWOolSYzv0lYeqEg2w==;
+ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-c9nw.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-c9nw.prod.antispam.mailspamprotection.com; s=arckey; t=1795712363;
+	bh=0hAG/bw6u+RPngq+pfrPr/8ETRR5oCUWD+2LHzhlRkM=;
+	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
+	  From:Date:DKIM-Signature:DKIM-Signature;
+	b=jDlsa70Y2UxXm4lG3ouIv2fPlsquiBhCjpWQBd9fz67IardVD/AIvQ4YmNsjfKsuXqAjZ19Oni
+	  4hIw3YVaV8QRt2j91b3URhjfdxuntQwN224Pwp01ob/qjiNd5kSdbQyMTem9Ew2iZJ6OZqK0rB
+	  m4/RaQLPMBYy5vPjqmMlUDL4LGCvb2GXTzGXO1eo3Xyhy/++yE2KnRkgj4w6mruby6W8otmxqg
+	  M9y/TIOyIgiLznykr9eGtzDUySqrUT4J9z5r2x0Mam3UY6NBlTNZuQ/a+tcqY9D9v3GqC1z4vE
+	  zMsD9ULC9Iv8pxc4MYxx5RK03c4EXbDN6ea2BuPQ6TIYuQ==;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
+	:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	List-Unsubscribe:Content-Transfer-Encoding;
+	bh=Jq3lQfepJ94AqyPMdbvxSWp08SKSZvIh/ClUMKjqxQw=; b=AsCGbnSBUc4+GuZhnwkC0jKRO0
+	4PLt0OF5SHAmod+eeEH+zflfz9oAZB4JOC0gul4IMckYXzz12PgVNPDINI2q7vQjLJnKvJatK7KyL
+	Xq5T7FhCrrOLDt9pbGDJsTIWcKFhIJ1NFLc/D5I7mHYSp9KmOB0SwPUnC7ONo5kVaLkw=;
+Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
+	by instance-europe-west4-c9nw.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.2)
+	(envelope-from <francesco@valla.it>)
+	id 1xWcob-00000000GBa-11cN;
+	Thu, 26 Nov 2026 16:59:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
+	s=default; h=Subject:Cc:To:From:Date:list-help:list-unsubscribe:
+	list-subscribe:list-post:list-owner:list-archive;
+	bh=Jq3lQfepJ94AqyPMdbvxSWp08SKSZvIh/ClUMKjqxQw=; b=Gaxg5V0NA/GknFwAjZOU0/Q8Ax
+	3AxFKA/oZ/T/c0/j1RrkPEHWV0rKCRmTvhSQ2f0ArDF/J3PS2HiyRgXMwk7doiT//6W5WF1fbxMMb
+	kN7TSo2gJ66LchjXxwmW9SXtUKrztngspFNpEMQmXhOBK6aaylSZf67m7xZyzWs9x2Vk=;
+Received: from [79.28.115.6] (port=63542 helo=bywater)
+	by esm19.siteground.biz with essmtpa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.2)
+	(envelope-from <francesco@valla.it>)
+	id 1xWcoW-00000000EK1-1xeV;
+	Thu, 26 Nov 2026 16:59:16 +0000
+Date: Thu, 26 Nov 2026 17:59:14 +0100
+From: Francesco Valla <francesco@valla.it>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: Bjorn Andersson <andersson@kernel.org>, 
+	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, Joakim Zhang <joakim.zhang@cixtech.com>, 
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] remoteproc: virtio: Drop rvdevs list and
+ associated functions
+Message-ID: <awhi3Kg6kdELdT0d@bywater>
+References: <20261114-remoteproc_pdev_decouple-v2-0-95235dd056aa@valla.it>
+ <20261114-remoteproc_pdev_decouple-v2-3-95235dd056aa@valla.it>
+ <awhhVRBokzbdPJB2@p14s>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,48 +104,248 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22NwQ6CMBAFf4Xs2Zq2Adp48j8Mh6UsUCO0aSvRE
- P7dgvHmcZJ581aIFCxFuBQrBFpstG7OIE8FmBHngZjtMoPkshZCcmbc5F0esR5j8phGpqnmRvW
- KKk2Qdz5Qb19H89Z8OT7bO5m0h3ZjtDG58D5OF7F7v379p78IxhmiKivd6RJVex0mtI9zNqHZt
- u0DgeFoJsQAAAA=
-X-Change-ID: 20261120-composer-fastpath-8e60c7f7e58e
-To: Louis Chauvet <louis.chauvet@bootlin.com>, 
- Haneen Mohammed <hamohammed.sa@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Melissa Wen <melissa.srw@gmail.com>, Oarora Etimis <oaroraetimis@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awhhVRBokzbdPJB2@p14s>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - esm19.siteground.biz
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - valla.it
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-SGantispam-id: eefa63d69c36ec019d91599d66a5a759
+X-AntiAbuse: ID - eefa63d69c36ec019d91599d66a5a759
+AntiSpam-DLS: false
+AntiSpam-DLSP: 
+AntiSpam-DLSRS: 
+AntiSpam-TS: 1.0
+CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
+CFBL-Feedback-ID: 1xWcob-00000000GBa-11cN-feedback@antispam.mailspamprotection.com
+Authentication-Results: outgoing.instance-europe-west4-c9nw.prod.antispam.mailspamprotection.com;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
 
-Patch 1 reads a full-screen plane straight into the output line instead of
-blending it there. Patch 2 writes the frame straight into the writeback
-buffer instead of going through the 16-bit line buffer.
+On Thu, Nov 26, 2026 at 10:41:57AM -0600, Mathieu Poirier wrote:
+> On Sat, Nov 14, 2026 at 09:06:35AM +0100, Francesco Valla wrote:
+> > The rvdevs linked list is kept at rproc side to track the rproc_vdev
+> > devices registered at runtime and de-register them during cleanup, but
+> > the same information can be obtained from the driver core using
+> > parent-child relationships coupled with driver name.
+> > 
+> > Drop the list and all associated functions and de-register the virtio
+> > children of a remoteproc using device_for_each_child(), with the
+> > following benefits:
+> > 
+> >  - increased separation between the core and virtio parts of remoteproc;
+> >  - reduction in code and occupied memory;
+> >  - the platform devices whose probe fail are now de-registered correctly
+> >    during remoteproc cleanup.
+> > 
+> > A dedicated macro is used to register rproc-virtio platform devices to
+> > avoid duplication (in code, not in memory) of the same string.
+> > 
+> > Signed-off-by: Francesco Valla <francesco@valla.it>
+> > ---
+> >  drivers/remoteproc/remoteproc_core.c     | 34 ++++++++++++++++----------------
+> >  drivers/remoteproc/remoteproc_internal.h |  4 ++--
+> >  drivers/remoteproc/remoteproc_virtio.c   |  5 +----
+> >  include/linux/remoteproc.h               |  6 +-----
+> >  4 files changed, 21 insertions(+), 28 deletions(-)
+> > 
+> > diff --git a/drivers/remoteproc/remoteproc_core.c b/drivers/remoteproc/remoteproc_core.c
+> > index d5fa9d23bd5c..296b955f415f 100644
+> > --- a/drivers/remoteproc/remoteproc_core.c
+> > +++ b/drivers/remoteproc/remoteproc_core.c
+> > @@ -431,17 +431,6 @@ void rproc_free_vring(struct rproc_vring *rvring)
+> >  	}
+> >  }
+> >  
+> > -void rproc_add_rvdev(struct rproc *rproc, struct rproc_vdev *rvdev)
+> > -{
+> > -	if (rvdev && rproc)
+> > -		list_add_tail(&rvdev->node, &rproc->rvdevs);
+> > -}
+> > -
+> > -void rproc_remove_rvdev(struct rproc_vdev *rvdev)
+> > -{
+> > -	if (rvdev)
+> > -		list_del(&rvdev->node);
+> > -}
+> >  /**
+> >   * rproc_handle_vdev() - handle a vdev fw resource
+> >   * @rproc: the remote processor
+> > @@ -513,7 +502,8 @@ static int rproc_handle_vdev(struct rproc *rproc, void *ptr,
+> >  	 * as device id, then we get duplication in sysfs, so need to use
+> >  	 * PLATFORM_DEVID_AUTO to auto select device id.
+> >  	 */
+> > -	pdev = platform_device_register_data(dev, "rproc-virtio", PLATFORM_DEVID_AUTO, &rvdev_data,
+> > +	pdev = platform_device_register_data(dev, RPROC_VIRTIO_DRV_NAME,
+> > +					     PLATFORM_DEVID_AUTO, &rvdev_data,
+> >  					     sizeof(rvdev_data));
+> >  	if (IS_ERR(pdev)) {
+> >  		dev_err(dev, "failed to create rproc-virtio device\n");
+> > @@ -1212,6 +1202,19 @@ static int rproc_alloc_registered_carveouts(struct rproc *rproc)
+> >  	return 0;
+> >  }
+> >  
+> > +static int rproc_unregister_vdev_pdev(struct device *dev, void *data)
+> > +{
+> > +	struct platform_device *pdev;
+> > +
+> > +	if (!dev_is_platform(dev))
+> > +		return 0;
+> 
+> What other child of a remoteproc do you expect isn't a platform driver?
+>
 
----
-Changes in v2:
-- do not queue a CRC for a frame that was copied without computing one
-- restrict the direct copy to XRGB8888, the only 4-byte format vkms reads
-  and writes back
-- describe the new parameters in the kernel-doc
-- Link to v1: https://patch.msgid.link/20261126-composer-fastpath-v1-0-aa7458d84a7b@gmail.com
+Some Qualcomm drivers *do* register children of a remoteproc that are not
+platform devices; see for example qcom_add_smd_subdev() [1] in
+drivers/remoteproc/qcom_common.c that defines smd->dev = &rproc->dev and
+then uses that dev as parent of the new subdev's bare device in
+qcom_smd_register_edge() [2].
 
----
-Oarora Etimis (2):
-      drm/vkms: skip a blend that cannot change the frame
-      drm/vkms: copy a full-screen frame straight to writeback
+> > +
+> > +	pdev = to_platform_device(dev);
+> > +	if (!strcmp(pdev->name, RPROC_VIRTIO_DRV_NAME))
+> > +		platform_device_unregister(pdev);
+> > +
+> > +	return 0;
+> > +}
+> >  
+> >  /**
+> >   * rproc_resource_cleanup() - clean up and free all acquired resources
+> > @@ -1224,7 +1227,6 @@ void rproc_resource_cleanup(struct rproc *rproc)
+> >  {
+> >  	struct rproc_mem_entry *entry, *tmp;
+> >  	struct rproc_debug_trace *trace, *ttmp;
+> > -	struct rproc_vdev *rvdev, *rvtmp;
+> >  	struct device *dev = &rproc->dev;
+> >  
+> >  	/* clean up debugfs trace entries */
+> > @@ -1258,9 +1260,8 @@ void rproc_resource_cleanup(struct rproc *rproc)
+> >  		kfree(entry);
+> >  	}
+> >  
+> > -	/* clean up remote vdev entries */
+> > -	list_for_each_entry_safe(rvdev, rvtmp, &rproc->rvdevs, node)
+> > -		platform_device_unregister(rvdev->pdev);
+> > +	/* unregister platform devices */
+> > +	device_for_each_child(&rproc->dev, NULL, rproc_unregister_vdev_pdev);
+> >  
+> >  	rproc_coredump_cleanup(rproc);
+> >  }
+> > @@ -2521,7 +2522,6 @@ struct rproc *rproc_alloc(struct device *dev, const char *name,
+> >  	INIT_LIST_HEAD(&rproc->carveouts);
+> >  	INIT_LIST_HEAD(&rproc->mappings);
+> >  	INIT_LIST_HEAD(&rproc->traces);
+> > -	INIT_LIST_HEAD(&rproc->rvdevs);
+> >  	INIT_LIST_HEAD(&rproc->subdevs);
+> >  	INIT_LIST_HEAD(&rproc->dump_segments);
+> >  
+> > diff --git a/drivers/remoteproc/remoteproc_internal.h b/drivers/remoteproc/remoteproc_internal.h
+> > index 3a742ef6ef60..d587a3301811 100644
+> > --- a/drivers/remoteproc/remoteproc_internal.h
+> > +++ b/drivers/remoteproc/remoteproc_internal.h
+> > @@ -18,6 +18,8 @@
+> >  #include <linux/io.h>
+> >  #endif
+> >  
+> > +#define RPROC_VIRTIO_DRV_NAME	"rproc-virtio"
+> > +
+> >  struct rproc;
+> >  
+> >  struct rproc_debug_trace {
+> > @@ -122,8 +124,6 @@ struct resource_table *rproc_elf_find_loaded_rsc_table(struct rproc *rproc,
+> >  						       const struct firmware *fw);
+> >  struct rproc_mem_entry *
+> >  rproc_find_carveout_by_name(struct rproc *rproc, const char *name, ...);
+> > -void rproc_add_rvdev(struct rproc *rproc, struct rproc_vdev *rvdev);
+> > -void rproc_remove_rvdev(struct rproc_vdev *rvdev);
+> >  
+> >  #ifdef CONFIG_HAS_IOMEM
+> >  static inline int rproc_mem_entry_ioremap_wc(struct rproc *rproc,
+> > diff --git a/drivers/remoteproc/remoteproc_virtio.c b/drivers/remoteproc/remoteproc_virtio.c
+> > index 6cfdab831185..403519e78ee3 100644
+> > --- a/drivers/remoteproc/remoteproc_virtio.c
+> > +++ b/drivers/remoteproc/remoteproc_virtio.c
+> > @@ -549,8 +549,6 @@ static int rproc_virtio_probe(struct platform_device *pdev)
+> >  			goto unwind_vring_allocations;
+> >  	}
+> >  
+> > -	rproc_add_rvdev(rproc, rvdev);
+> > -
+> >  	rvdev->subdev.start = rproc_vdev_do_start;
+> >  	rvdev->subdev.stop = rproc_vdev_do_stop;
+> >  
+> > @@ -588,7 +586,6 @@ static void rproc_virtio_remove(struct platform_device *pdev)
+> >  	}
+> >  
+> >  	rproc_remove_subdev(rproc, &rvdev->subdev);
+> > -	rproc_remove_rvdev(rvdev);
+> >  
+> >  	put_device(&rproc->dev);
+> >  }
+> > @@ -598,7 +595,7 @@ static struct platform_driver rproc_virtio_driver = {
+> >  	.probe		= rproc_virtio_probe,
+> >  	.remove		= rproc_virtio_remove,
+> >  	.driver		= {
+> > -		.name	= "rproc-virtio",
+> > +		.name	= RPROC_VIRTIO_DRV_NAME,
+> >  	},
+> >  };
+> >  builtin_platform_driver(rproc_virtio_driver);
+> > diff --git a/include/linux/remoteproc.h b/include/linux/remoteproc.h
+> > index 00019b1895e6..77ea0e1067e0 100644
+> > --- a/include/linux/remoteproc.h
+> > +++ b/include/linux/remoteproc.h
+> > @@ -228,8 +228,7 @@ enum rproc_features {
+> >   * @carveouts: list of physically contiguous memory allocations
+> >   * @mappings: list of iommu mappings we initiated, needed on shutdown
+> >   * @bootaddr: address of first instruction to boot rproc with (optional)
+> > - * @rvdevs: list of remote virtio devices
+> > - * @vq_srcu: SRCU domain for the virtqueue callbacks of @rvdevs
+> > + * @vq_srcu: SRCU domain for the virtqueue callbacks of the virtio devices
+> >   * @subdevs: list of subdevices, to following the running state
+> >   * @notifyids: idr for dynamically assigning rproc-wide unique notify ids
+> >   * @index: index of this rproc device
+> > @@ -275,7 +274,6 @@ struct rproc {
+> >  	struct list_head carveouts;
+> >  	struct list_head mappings;
+> >  	u64 bootaddr;
+> > -	struct list_head rvdevs;
+> >  	struct srcu_struct vq_srcu;
+> >  	struct list_head subdevs;
+> >  	struct idr notifyids;
+> > @@ -351,7 +349,6 @@ struct rproc_vring {
+> >   * @subdev: handle for registering the vdev as a rproc subdevice
+> >   * @pdev: remoteproc virtio platform device
+> >   * @id: virtio device id (as in virtio_ids.h)
+> > - * @node: list node
+> >   * @rproc: the rproc handle
+> >   * @vring: the vrings for this vdev
+> >   * @rsc_offset: offset of the vdev's resource entry
+> > @@ -362,7 +359,6 @@ struct rproc_vdev {
+> >  	struct platform_device *pdev;
+> >  
+> >  	unsigned int id;
+> > -	struct list_head node;
+> >  	struct rproc *rproc;
+> >  	struct rproc_vring vring[RVDEV_NUM_VRINGS];
+> >  	u32 rsc_offset;
+> > 
+> > -- 
+> > 2.56.0
+> > 
+>
 
- drivers/gpu/drm/vkms/vkms_composer.c | 124 ++++++++++++++++++++++++++++++++---
- drivers/gpu/drm/vkms/vkms_drv.h      |   5 ++
- drivers/gpu/drm/vkms/vkms_formats.c  |  26 ++++++++
- 3 files changed, 145 insertions(+), 10 deletions(-)
----
-base-commit: 5ce32a0c94a827ff44ee60898c28060714dcff75
-change-id: 20261120-composer-fastpath-8e60c7f7e58e
+Regards,
+Francesco
 
-Best regards,
---  
-Oarora Etimis <oaroraetimis@gmail.com>
+
+[1] https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/remoteproc/qcom_common.c#L351
+[2] https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/rpmsg/qcom_smd.c#L1495
 
