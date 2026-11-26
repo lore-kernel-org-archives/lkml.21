@@ -1,87 +1,87 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795662626;
-	b=3AvUFY4J2CB/DcnxVwiDnzgSh01HRVfm+bn24ws0dj3JiqOB4egKCB3GMEfdaiUiw3QW
-	 SVhjN7DbOmh12L61dZaPNwRrZho3hmtSkQbX8rZht8VZ1kw1Os4RG/3FWi62YG8+6jRIo
-	 ZCyzNykBVmkGc40hCqTPrhBXVCAgccU4ehMWl2iJjEM7xE5v/wHFHTlkxE8d9tCDeYH9S
-	 HrYOifePnPMyoc1AJsDtOgIrQILh5PdGBIQHKSKTJxsByu7UQ8IlDeG4zp4RrjXnN+5O3
-	 pcLRO7dtM9KhTzYXK/wFnWUiwVeLKyII9thoUtABb4hkLJt4AdlyLRgmVSr63qqD6ew==
+	t=1795662638;
+	b=sVG0Gghr63UqJZTI7fUX5utFwcZMEycYB7fqYsX4Khus2nIuh1RSRNDYPWTzc26azZE0
+	 jIj2zZQSzohltSR4sqENwEXjBaMvr7KwI4UGFGEikQZPhgbPU3uvS0XwIgRGRF0jZdKLo
+	 2T1ziEuLTtTgJlqL+p7++Wpil6ulOSnHSlb145qaQUwnodo57/WPy8cBzNQBftgnwKlwT
+	 cazOen2qAeYuJjqnckszavPETQhVhMR0RGEsJAw08eTyo1ftKDAna8KMkREOxmfh2WdR2
+	 o9uzXKLXW9305cYiMMXto+VJnT6bQsqbwwltxKzzKGtqIvT4Yti8FGp/XRPoZ8pGqtQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795662626;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795662638;
 	h=Received:DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
 	 In-Reply-To:References:MIME-Version:Content-Type:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=4lG89XlZpENs4zeOK9AgQPwgrP8/MDI8XqvYIIzJlLQ=;
-	b=dRhMdKJBp//WA7ER14+PA8lArI+pTitE+HtUf1GJcjmQpEDCY4aDpGnHCNNXJ2odhfgb
-	 bvyc/O5ZTp9GpoS+uc1iHy2WoDIgw5m3x0N4o1IOVKN/apXw0k54Ja3SdtV0O2WQqTdCn
-	 Nyjm13ma/03tvuV7oT07nDR9RO2i2z96sB5S6v3WiwgSDJ5kGBHe8IqJxwA4W9AaRhx7z
-	 o1sT++QIcJfgVw4aAb4+meoFnCq0qdczrDv8wYussXKJrKUHPuWvp+BldgJvc9oMETgd3
-	 Gmq+/Xxxcl9pCtD5xmBwmPtX2n6JSg731QyQ9YRMLfmcYbCrvgLEn28M0NueoAo8rQw==
+	bh=8I57ZSU/sW/OUbXh5CAZCyvQxIaUbucbzW2WFatF0oc=;
+	b=FJuHyd+H0DCRmpAPWgprheVpLOqq9ry07tySmBXYS+5idNbKIf+W/oGjlhemEhLYToit
+	 W8KikVDiuG/SR+UVyjCSh9MRKA/jUnpmMCTKgfXmG4qhCQw26a1sZUphcIfbtsCHpLmdB
+	 CSuNz8w45E489FTrf3DZUoRulZlnhFYKhOH0oEdwIAltrFjBJMpv6wMS6z8Nkwf9dWVV5
+	 eH+U/GRRvHd5/eUQJN3gTILS3CL1sQPH0lIa7g6+DzM2Edj5cGq6qCIYWbkz/iDNiLlKI
+	 x0whRRA9Fo8vKyC0Lk0ANLmity4RIYh06IbwiBMHK/Y4kdMpvM7cYz+btnJlI+FMnhQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CFlj7F9h;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="QVkW/SK3";
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 526EC606A32E;
-	Thu, 26 Nov 2026 03:10:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F883606A33B;
+	Thu, 26 Nov 2026 03:10:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CFlj7F9h
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QVkW/SK3
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795662625;
-	b=ruMEuNhGqaYyJWXuJrOcvzOvoyoe11W+FqlzyHPsaNlF27ntRT77L8B1y6QQGNTgP0Qy
-	 MPyEm/cvKRtwpfbpCWKfqVnuBr+7F7fXNucd4J8wH3/BzOgBaTpHAy4epNSUprfYJQdX4
-	 f5R4NrnGBczZ/8z0f21cBGPKDCIXpbFz1mDAVupfI1zKbLw+lGqpl3+LphSVDHLaOOmo/
-	 FbcTYkWQKJp/HnmhnkHx905qc6ND7qryYZzs1ong/fTqJcCZcuObzdv907CLVn1MCx79l
-	 VENUW2/cZh0LkTf5+31nPwYktJZZ1C9zOWgUkY/mXuu1CdyUC3Bfx40WV+lKxXxw9uw==
+	t=1795662637;
+	b=fx1dJhAU4N3MmDZrpXYk2s574iMR6P179VzbnnCcgTrBLn6Dz7agv2F44dilAsV+HCbV
+	 Vgaani4vI5iYMKwi6vIdw3fycbWCh9LTfluBvMlF3i9wZARUD+km7pdPf9n+6TbLkXIev
+	 wlLc1XTD6lwnerUMtJvulfg30DRu0vYxpe/BQpHu44vxAgO/DUcfzL32hGXLarQ3gjcdC
+	 o6t00FkEAplwZdqB9FJb4taO8WYQLFnF2ve6Nweedzj3bnlkHFHGDSsGhR5RpT4XUqMsb
+	 Ciyau3GCE26x+t9HkGpRsXmbD4DCTnb1ggJOB8XbL05CktzsCIL00q2TCXdShvbuu2A==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795662625;
+	c=relaxed/relaxed; t=1795662637;
 	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
 	 In-Reply-To:References:MIME-Version:Content-Type:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=4lG89XlZpENs4zeOK9AgQPwgrP8/MDI8XqvYIIzJlLQ=;
-	b=tdv6I+xMBwMoRb/RQLgntPs5aJLIXwLqdVDFHkUYtBtRCoBVXb6STYPgo5lwafRglVzy
-	 HGbc2TPW9QnAM2bYWJlKHojgm4aIUpspLVqGqDeZDSz5l5p/7bu9C637B99zamBNDWc4Q
-	 Gof8hRGDxmU/KCMcroke6cpiTSvmDIjkDZf/U9PovpkW86ljjd09tqAb0rVbQECki3uMT
-	 NwmlWDpq1tgwMgaUyJDyIalVN+jqGEUp0V1UQ47XKDkQm8efLSGlm9IlDay6V2loVUxdk
-	 LaD9KN95qnwGyY0pZTrelVsGigL+Vw+arSQI7KBWh3rZ248PEoadyWzgIIzUHnUkBQQ==
+	bh=8I57ZSU/sW/OUbXh5CAZCyvQxIaUbucbzW2WFatF0oc=;
+	b=J+3c1duk27jr7Aa84lJ7z1P1JgE7glOcgOvxlbylDQDbEoY+Mx39i6+5a65EWgAZkKhI
+	 Iwynfo7gjfiguiDVY83wrAFjb+bPPhxEd5X9vjrJ/sUJfdx5EAzRlnhjt81PY0bsK4fYN
+	 agRHFjWUAsXJr8GWKk7LbHZltZLjec8L/r/quiyBmtx3MuVUK68vs+G+zrQ0hw4/F2djY
+	 +bUqfSuFBFSF9g5WxoYU1FVm6Gp/LU0MntJ7JK+T/z1xVJXCTMMxJY1urBl4QpB4sUe9l
+	 uOP3aIl134rRN0Ab0H2ntnGV67tyPrZ+YnSkyZP6Va0qV02HYhbCLFyKY8vQUjwLzzA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 5BF961F000D8;
-	Thu, 26 Nov 2026 03:10:10 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id BC1F41F00A3D;
+	Thu, 26 Nov 2026 03:10:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795662625;
-	bh=4lG89XlZpENs4zeOK9AgQPwgrP8/MDI8XqvYIIzJlLQ=;
+	s=k20260515; t=1795662637;
+	bh=8I57ZSU/sW/OUbXh5CAZCyvQxIaUbucbzW2WFatF0oc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:Reply-To;
-	b=CFlj7F9hoQIW2QayZZ0MLnnUVKbHhRDLOdrsXmkpgB3T6jRLnUeIFa6dfx3DLC5xN
-	 QDgk0AayYAGuCaXV9BFLA+ulzGKx4998cuhLs5mFugjzIGqsEYGCcgQTMJ2Yqeg+ae
-	 E744hp4ndLnBlVkTKP74/u/0voDTA6RRGSx3ff5pZBp1hBEhy/QUVO6uIB2YUkonzY
-	 JRa26t+nDvFR11s6+PfymfdVGFoYhhQnYJynBCChhMrF5IRhsA2Hfg+mBqg3ytgZNM
-	 5D2wVtt1QRJ/JM1U03F8DXbT/ginHE5MsopD9wM4vqG8Z0trZLmQh2pCqWIEFaQiXJ
-	 HRgJcE0D5KQhg==
+	b=QVkW/SK3tBZmz0rsnMGMmstnmuABn7tjLllWWak4OV7XwXjvMqcrntgsLV7t/tj4M
+	 ygGLt39TW99ARIRhbAo0ygRxtB06Q5gC8SpaKF+myhG8rFzgHDvvXEPEI/zWECD5eS
+	 akoqrzHWqDI4XXJb3Cbac+liYOeLTumLt5zOUioiYOlWvH2fwK46Nd1Qvu3SSvuUgz
+	 FwBcEzZ6YiDDvuFKUW2nGiY5Ie2IxS4L2ivjh3tYI1XuC/Re6ZRxKF/1glMdxC5En6
+	 D+F2iLc4VtHae73+aLyZIzhddnwVdjaz4c1ZW86ero4Sjy3LUh5qgaogztsA54JpBh
+	 ZRvImjkBPZTjQ==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id BE8194D1F0;
-	Thu, 26 Nov 2026 03:10:09 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 7910B4D202;
+	Thu, 26 Nov 2026 03:10:15 +0000 (UTC)
 From: Ilia Snezhkov via B4 Relay <devnull+iasnezhkov.gmail.com@kernel.org>
-To: peter.wang@mediatek.com, stanley.chu@mediatek.com, 
- martin.petersen@oracle.com, James.Bottomley@HansenPartnership.com
+To: jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com, 
+ andy@kernel.org
 Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
- louisalexis.eyraud@collabora.com, linux-scsi@vger.kernel.org, 
- linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/3] scsi: ufs: mediatek: allow clock scaling when
- ufs_fde is absent
-Date: Thu, 26 Nov 2026 03:10:10 +0000
-Message-Id: <20261126031008.27506-3-iasnezhkov@gmail.com>
-In-Reply-To: <20261126031008.27506-1-iasnezhkov@gmail.com>
-References: <20261126031008.27506-1-iasnezhkov@gmail.com>
+ linux-iio@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v2 3/3] iio: adc: mt6359: fix MT6358 VBAT impedance
+ resistance ratio
+Date: Thu, 26 Nov 2026 03:10:16 +0000
+Message-Id: <20261126031013.27701-4-iasnezhkov@gmail.com>
+In-Reply-To: <20261126031013.27701-1-iasnezhkov@gmail.com>
+References: <20261126031013.27701-1-iasnezhkov@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,11 +93,11 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795662608; l=1692;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795662614; l=1349;
  i=iasnezhkov@gmail.com; s=mindone2026; h=from:subject:message-id;
- bh=JrSCC6bqmjDSayjLVPuM/lqnbwzNiJ316tX4mC55cw0=;
- b=WlJ6RSWIlNpmwPCJm9rOCp74Wf4sAwQyre/FuX8xHvV2Wb1+gnofB6HT01qI3BxFab/QSk/hk
- T5xVyGu9vKxASqXffTcrtdDdaR1GyjXEyN/3ew8a14trS8Y3MznGiAW
+ bh=JtIaf+aptgsdQNrjuZzOWwJGJsMlugQHaT8ZbxTFbT8=;
+ b=eGLXWpH2yraGWz+KNJrogA0lqnF2eVewr9fxOtNOMs9Xshy/+DKsMdIEp3d1TMGUw+k2IuUqQ
+ Dg/dFyXh6SODzWb4u5e9wR74AnpUW6wFFS6oy+mIc4RJYDD8OvK/0OX
 X-Developer-Key: i=iasnezhkov@gmail.com; a=ed25519;
  pk=hQgXfiWi4ukk2jh4BHu1vRVhg9BUivo//AFp50AKMag=
 X-Endpoint-Received: by B4 Relay for iasnezhkov@gmail.com/mindone2026 with
@@ -108,48 +108,39 @@ Content-Transfer-Encoding: 7bit
 
 From: Ilia Snezhkov <iasnezhkov@gmail.com>
 
-ufs_mtk_is_clk_scale_ready() enables UFSHCD_CAP_CLK_SCALING whenever
-ufs_sel, ufs_sel_max_src, and ufs_sel_min_src are present, treating the
-FDE (AES) clock as optional. However, _ufs_mtk_clk_scale() bails out
-early on !fde_clki, so on SoCs without a ufs_fde clock (such as MT6789)
-ufshcd believes scaling succeeded and updates clki->curr_freq while the
-ufs_sel mux never switches parents.
+On MT6358 (and MT6366), both BATADC and the battery impedance VBAT
+channel use a 3/1 voltage divider (5400 mV full scale with 1800 mV
+VREF). mt6358_auxadc_ch_desc[PMIC_AUXADC_CHAN_VBAT] erroneously uses
+7/2 (copied from MT6359), over-reporting VBAT impedance readings by
+16.7%.
 
-Only require clki (ufs_sel) in _ufs_mtk_clk_scale(), and gate
-clk_fde_scale on fde_clki being non-NULL alongside its min/max parents.
+Change MT6358 VBAT r_ratio from 7/2 to 3/1 to match MT6358 BATADC and
+hardware.
 
-Fixes: 5e5976f5242d ("scsi: ufs: host: mediatek: Support FDE (AES) clock scaling")
+Fixes: 3587914bf61d ("iio: adc: Add support for MediaTek MT6357/8/9 Auxiliary ADC")
 Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
 ---
-Changes since v1:
-- Moved AI coding assistant note below ---.
-- Found on hardware and drafted with an AI coding assistant.
+Changes in v2:
+- Move AI coding assistant note below ---. No code changes.
 
- drivers/ufs/host/ufs-mediatek.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Found and drafted with an AI coding assistant.
 
-diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index 38d05ac..09b7993 100644
---- a/drivers/ufs/host/ufs-mediatek.c
-+++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -2059,7 +2059,7 @@ static void _ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up)
- 	if (!hba->clk_scaling.is_initialized)
- 		return;
+ drivers/iio/adc/mt6359-auxadc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/iio/adc/mt6359-auxadc.c b/drivers/iio/adc/mt6359-auxadc.c
+index 4a66253..915378c 100644
+--- a/drivers/iio/adc/mt6359-auxadc.c
++++ b/drivers/iio/adc/mt6359-auxadc.c
+@@ -285,7 +285,7 @@ static const struct mtk_pmic_auxadc_chan mt6358_auxadc_ch_desc[] = {
+ 	MTK_PMIC_ADC_CHAN(VGPU_TEMP, PMIC_AUXADC_RQST1, 10, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
  
--	if (!clki || !fde_clki)
-+	if (!clki)
- 		return;
+ 	/* Battery impedance channels */
+-	MTK_PMIC_ADC_CHAN(VBAT, 0, 0, PMIC_AUXADC_IMP0, 8, 128, 7, 2),
++	MTK_PMIC_ADC_CHAN(VBAT, 0, 0, PMIC_AUXADC_IMP0, 8, 128, 3, 1),
+ };
  
- 	reg = host->mclk.reg_vcore;
-@@ -2067,7 +2067,7 @@ static void _ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up)
- 	if (reg && volt != 0)
- 		clk_bind_vcore = true;
- 
--	if (mclk->ufs_fde_max_clki && mclk->ufs_fde_min_clki)
-+	if (fde_clki && mclk->ufs_fde_max_clki && mclk->ufs_fde_min_clki)
- 		clk_fde_scale = true;
- 
- 	ret = clk_prepare_enable(clki->clk);
+ static const u16 mt6358_auxadc_regs[] = {
 -- 
 2.54.0 (Apple Git-157)
 
