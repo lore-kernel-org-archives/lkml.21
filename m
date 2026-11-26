@@ -1,60 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795710286;
-	b=Afy5P9PEQzMjD5+xjJhjc4qJaFRtGFCURGdbyfI6no7ODaqGRtjFZt11ZTP6RhnhARHi
-	 fa5l4w/YsDmj4qLt0J9OWJHeGL0Vgg2Bw5tNpgc5LjYQzVIGTPxPKeAzqIJFLHMzDhawd
-	 L0cI1vX6G1nVNvDHZ+OLisBWRD26yAhIJxpikXC8ZB3vCVxC6Od4gbrMML/yNBjKANNSs
-	 kxfEerhh49jifunrTnoi9l0EyERQp4NTXNZ5dM+VlzuZ9b80DncQ60MRpYYcrrka4J/UB
-	 /l2plVtZSq2KOjMO08W7VEeMaDTw4XpzMKKSED2WAEdhs2poh1fecv3XWR7VgEuk7CQ==
+	t=1795710287;
+	b=oLOpIxfNdGUNKbqejZbc2l3SHOxFsCI2N8XEdhkq56GLvl5AXRhvvieHmcNnWawj8oEQ
+	 WdyQcPQK5QqsCCLZ7KjiB4aLcviZDo64AqgCKNnlLJnXbmFg2b4IudtWHj4TeAvUPos7Y
+	 oeHU2raS4uB36pB3AbQfiB5SIe3XpIAnawY1+Rv5vtiBHL5A2wFiIZ+nlEyS5VJRGHBrf
+	 C7MXcu1FlXPg2BUCRnbmyViiu9+g23EmOD2H/9Rx5XrW7rozxnxSpw+flPAH7WN0CazBK
+	 /VV0mPexLVBMnjJv5hzBgnh2bPCfIQQUvM2uQW9iOV26Q8YYU0/6+H+4HYFuYpZpe4g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795710286;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795710287;
 	h=Received:DKIM-Signature:Received:Message-ID:User-Agent:Date:From:To:
 	 Cc:Subject:References:MIME-Version:Content-Type;
-	bh=cDzWhLbak4bgU/Jb7tmfOS8t0GVGPGczgp7BVlC2UfQ=;
-	b=scI4RRokZWjKI4Scqo8FHXCXR+Jqfji6kjaQEDo2zzq1Z0YDZDtW3kxvg+VssNdWKZvb
-	 qbzKS9ww8bZNg+Hf+/GqJuZ97tNzHQWGj0erdsE2ok8XfahVLkhkI66lZseik5bHqHpXt
-	 DhXepuQwxpZP/TA7kfaXMiy6RchpM/SMhg7fBwRdUoX8lMEtLIHS3+mxEu0NHlcNhR4Us
-	 iqiwXJ8/yjf0NJBRHpBEOsQBTu9igXTYWCm6N1C1eNdt0x8INBM8Vi6RwMoQkiDyt7aQM
-	 KbgxP3n8eTbaD9k167ARzgnJMpEWePp9H3EKFMgkCwcDUrKTV1L48eHeb+2M8mYDL0w==
+	bh=aq2MROccW9VvgwnjEz0Bl1AraRkNChapWE48Yh3jJFk=;
+	b=B21azNFHly1E8rR20fPl30SvW8LwyDVVlw18ob3CtgoMhDTuXZRvsCqwlp3pZ/uPsqPP
+	 16hkJSRMoDlnjobd0rk9rvZD3/9f61tYSbq5TRYRLxsYFKC8b5yDT94qKOs6PBsZp+ysX
+	 H2PGgNMdh9AqeVhY7xw8fECdeGZxEtxvuwjz/jRj4QZUrgWJfa3Lww3QWEd2Plkrnh49F
+	 FnH/2BSkcrSi6Bb9Tnx4Zmauv2akE3SnYHj8cKj2A6T8klKIrpkBPk6y4ITlNNFWFkMbL
+	 FpyzUHQisLPq21DAcdMpUL+ru3uUF7sIErvPJUU6W66sBUNxTfJ9fsDTYzUxZY0hJBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qq0I4Aqm;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NHTPUteb;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B117606A695
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:24:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C129606A6A1
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:24:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qq0I4Aqm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6651A1F00A03;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NHTPUteb
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA78A1F00ADF;
 	Thu, 26 Nov 2026 16:24:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795710286;
-	bh=cDzWhLbak4bgU/Jb7tmfOS8t0GVGPGczgp7BVlC2UfQ=;
+	s=k20260515; t=1795710287;
+	bh=aq2MROccW9VvgwnjEz0Bl1AraRkNChapWE48Yh3jJFk=;
 	h=Date:From:To:Cc:Subject:References;
-	b=Qq0I4AqmzI45yBhMAQ9+39GwGOzF0ylsJBxntOV2zAD5aDGiw21DGuxmLmQkxBdaU
-	 QimkwMgmCzx27FoxwU7kgfi2GyHLYz08IZ+ToqUTAsZhQNox8awK96dY1NCglZPOJN
-	 q7lDOQ8dqF8y8C4qQc76WUaCPwtVy8pyV87pVCuEeU5jyuxdV1T7vQGu8x8jvjM7YC
-	 k9mUYLkpnX2B9cPkGlkiohxaDHxZ8SeYVHXYckJmAXKwyvG/IywDLgZae95VneTptW
-	 fwozhINxoEpxdUkmv5o/JfA4ijpxKt+6Qp9i/Ca2yTt+n03/aHu2cX3t8pOT2fnOnE
-	 vCVSk9oJqg5nA==
+	b=NHTPUteb5vKLdPAhBHWB270AFl6LoBUiZUBkyqGQ6E8CkYlIxK8xfzjdkNO+g613V
+	 fXXfEWjvabX9USA0DkT9VbGUdNTalNN7CG2JP56ov3sfrCxu7U/21XfLOe4ec+nEGe
+	 cOk/9UHTP/ej1YrO/8DiKGg5PhyZhAnPHT+k4Sh1fvbArcjR7zWeb0tH5yvvocdhhu
+	 od4ArhENn44WoPCOSLcsv7XWCM5REamkF2OuWC8nLY2ZueUxXlIEEI+E9gIwNv0WU5
+	 pVxE2yFkf5nU7bitQgbOFUOJYiH+LHWQnD5++82z4eWaqDz8k4M2SXBpUl5dteYdSE
+	 slUsCnr1nLhdg==
 Received: from rostedt by gandalf with local (Exim 4.100.1)
 	(envelope-from <rostedt@kernel.org>)
-	id 1xWcH7-00000007bnF-2quz;
-	Thu, 26 Nov 2026 11:24:45 -0500
-Message-ID: <20261126162445.494571221@kernel.org>
+	id 1xWcH8-00000007bou-1Fs4;
+	Thu, 26 Nov 2026 11:24:46 -0500
+Message-ID: <20261126162446.102860319@kernel.org>
 User-Agent: quilt/0.69
-Date: Thu, 26 Nov 2026 11:24:31 -0500
+Date: Thu, 26 Nov 2026 11:24:34 -0500
 From: Steven Rostedt <rostedt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Masami Hiramatsu <mhiramat@kernel.org>,
  Mark Rutland <mark.rutland@arm.com>,
  Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Leizhen Zhang <lzsx618@gmail.com>
-Subject: [for-next][PATCH 08/15] tracing/scripts: Do not reuse section pointers from a previous file
- in tracing-update
+ Andrew Morton <akpm@linux-foundation.org>
+Subject: [for-next][PATCH 11/15] tracing/filters: Reject empty unquoted operand in function event
+ filter
 References: <20261126162423.442922469@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -67,44 +66,42 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 
-From: Leizhen Zhang <lzsx618@gmail.com>
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
 
-check_data_sec and tracepoint_data_sec are static and set while scanning
-the section headers in process_tracepoints(), but are never reset. When
-tracepoint-update is given several files and a later file lacks these
-sections, the pointers from the previous, already unmapped file are
-used, which crashes:
+In parse_pred(), when parsing an unquoted operand for function events,
+if the filter expression has no operand before a delimiter (e.g.
+'(ip == )' or '(ip == && x == 1)'), the loop terminates with len == 0.
 
-  $ scripts/tracepoint-update --module a.o c.o
-  AddressSanitizer: SEGV ...
+While an empty quoted string (e.g. 'ip == ""') is syntactically valid
+and denotes an empty pattern, an unquoted empty operand is a syntax
+error where an operand was expected before the delimiter. Previously,
+this accepted the predicate with an empty pattern.
 
-Reset both pointers at the start of process_tracepoints().
+Reject empty unquoted operands by checking '!q && !len' and reporting
+FILT_ERR_INVALID_VALUE.
 
-Kbuild currently passes a single file per invocation, so this does not
-affect normal builds.
-
-Link: https://patch.msgid.link/20261008164117.3670267-1-lzsx618@gmail.com
-Assisted-by: Claude:claude-opus-5-5 ASan UBSan
-Signed-off-by: Leizhen Zhang <lzsx618@gmail.com>
+Fixes: 80765597bc58 ("tracing: Rewrite filter logic to be simpler and faster")
+Link: https://patch.msgid.link/179323791027.740114.822862076687011726.stgit@devnote2
+Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
 ---
- scripts/tracepoint-update.c | 4 ++++
+ kernel/trace/trace_events_filter.c | 4 ++++
  1 file changed, 4 insertions(+)
 
-diff --git a/scripts/tracepoint-update.c b/scripts/tracepoint-update.c
-index c70c0b076554..ad5f691c150c 100644
---- a/scripts/tracepoint-update.c
-+++ b/scripts/tracepoint-update.c
-@@ -163,6 +163,10 @@ static int process_tracepoints(bool mod, void *addr, const char *fname)
- 	int idx;
- 	int done = 2;
- 
-+	/* Do not use the sections of a previously processed file */
-+	check_data_sec = NULL;
-+	tracepoint_data_sec = NULL;
-+
- 	shdr_start = (Elf_Shdr *)((char *)ehdr + ehdr_shoff(ehdr));
- 	shentsize = ehdr_shentsize(ehdr);
- 
+diff --git a/kernel/trace/trace_events_filter.c b/kernel/trace/trace_events_filter.c
+index bce80a2c677a..79eb187be39d 100644
+--- a/kernel/trace/trace_events_filter.c
++++ b/kernel/trace/trace_events_filter.c
+@@ -1886,6 +1886,10 @@ static int parse_pred(const char *str, void *data,
+ 		len = i - s;
+ 		if (q)
+ 			i++;
++		if (!q && !len) {
++			parse_error(pe, FILT_ERR_INVALID_VALUE, pos + i);
++			goto err_free;
++		}
+ 		if (len >= MAX_FILTER_STR_VAL) {
+ 			parse_error(pe, FILT_ERR_OPERAND_TOO_LONG, pos + i);
+ 			goto err_free;
 -- 
 2.53.0
