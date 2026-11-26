@@ -1,76 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795707959;
-	b=jJdWHMkvUljmvtFTmJUP0x0DNpnCKzI7UuDdRAGTFwkjI1/54mYUYzcslCqEUxCzEssI
-	 tp2lPur90wbYPPyMrFZzSKs6ANA7eCZuu0rc3+mTwqNbE4Sikqap4foj59df0obtFi/n7
-	 ekUh97VoeYGi+sI0ywIXTd5Gmo8d7MTLjgzJCR4+pgdQjaOpgvOcBvUaVJhWEnSeuItPA
-	 OOiQjTEsEfjnYgF9bRmsX1bs9gReU1y1G8lKf0q4JDshjWX5yNff4hRpkwRurURgWdOAz
-	 zyCNmwkzooSnAAxwcdwbWJYiRCyTaPZ8pcqhQmfOgC/UW1VH8dxEgAgM5FwMpKLaDOA==
+	t=1795707965;
+	b=cPzXIrI7kDvetZVAQo43Pd1PtwlhF18YRmZ0fd0gctrDkstUCZP0bVRsWJxKQbcCSK5x
+	 niapFsT0rNnqrg+EEPe4PB1qU5tzlU/736oPSxLGD0WyRuTYMuZdRKPsdH5+313gJBLQn
+	 zVU9zfrzaY0pTJHao0MhWrlqTV59YNFKMADc3eZOErulf0C0O7nD6zPKeCRmIjKgnzSaa
+	 auFHAipMeS29aRNq25RAY/m3oFZhX325FfqfFjR4+07Y0CkYkprs3bh4sRrQMieAQziP6
+	 1ISdJTQzpelhd1ZOOiaaAPMdCWHUyvtwmfpb7PtLrF6Y/9tsWOPel19dmpFj7/L82GA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795707959;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=AlTkCdvZxwlRFxOm9+L2PEiwYGztHAFlTo7TXnt3Gs0=;
-	b=P07+iP0eXCYdiNdAfLlU3l6MrCqutWPoQ/5PPLJfwSpD8F1D+N01zPxYDBfQJQUoCQ8p
-	 IzqKmymGcmFMRlRQiscApEZo0esuUsRgD3+ScpDHDb9z+AC9vYdcdDkVJJrjgOvO65vD5
-	 a6xzVistw8yj4yPClSJxpFL84MS/FH6FECMVsFRhyqnfriL6ZwGAjMv0ZBbVyjUfTTh3R
-	 dVzS4A7tq7IFyerCT0bdI+hCOaVnVHNeOy6ruEhRo4b/Hz18a6aQamii6WfH2sW7/QAtm
-	 44K5H8g1YjYb+zgFvdmANlgT/RyzXrJWQOdBMYIZr+s54HO+HMU+hsUi1QqMB098b5Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795707965;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=CcIgPekR3mPxUG7ybhHN4QGjZuhudN2DV2cTFafDK9g=;
+	b=5Tavxtcrm5oyS8tq9NcX7jld9iNroI3aakqSAAEpFqzZDKySFb9jApyAJmSXisa7OZ2o
+	 93ZjNKUxlyort2HWAEkzWjdEPqAars+TeA2CyUFotDW/tKHuPOZNUrhrzzMrTxOIuLS2n
+	 OZP2QoRlCnobJ5OpcOW8Qbg9JTKxkC2iXD+CSlsTvkjs7y1CxV0wGeE45LCxbaAzVBG1+
+	 2R4/q2nh03WQKT+EvKE19LFtTB+lQhcXLgxrBRcsESQufgzLKEt3d5Rh4oohd/nrhnhnn
+	 Y0CSglcAyHGkd90GgHH2j401/RY241wp7FZ+qMVfSN9yEyABwBeseBTMgUtA6ASYsmw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RnVzj++6;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=SnrzJIGr;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=ZuRHO5z3;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36B41606A31C;
-	Thu, 26 Nov 2026 15:45:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FF15606A692
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:46:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5FF15606A692
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RnVzj++6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A47771F000D3;
-	Thu, 26 Nov 2026 15:45:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795707958;
-	bh=AlTkCdvZxwlRFxOm9+L2PEiwYGztHAFlTo7TXnt3Gs0=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=RnVzj++6RzzZyV1zjJJwGqvBKqxcUgQ5bCAEs7cOdyx8FOJyTr3RZgA3M3DQjpble
-	 yhjE10b9QPUyXaDetA2fgcg/8tRBRCNWJnyINqv9qxJE1oNsSYeB5uV92Sap/jBeT3
-	 5GTZienki64DHpZfGNYsG/nq+DLKs7jIclWxUj5hWHyM+IEn6qcRL4gsclaG/fcXtj
-	 beCZlRKgpSDuqhuzRzKDg4AB4ztohUNoWO8LAZKDTS3Sy/RQcFZKYNYJi6sn9EFKle
-	 44sVNJKOlbpPHM+QmTzOkpXLGMjEobd8kOBKYS8Duqzih5iYhvj8IKoc1udqL1hktn
-	 DzgcezFX0ar+g==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Todd Freed <toddfreed@meta.com>, netdev@vger.kernel.org
-Cc: "David S. Miller" <davem@davemloft.net>, Andrew Lunn
- <andrew+netdev@lunn.ch>, Boris Pismenny <borisp@nvidia.com>, Cosmin Ratiu
- <cratiu@nvidia.com>, Daniel Zahka <daniel.zahka@gmail.com>, Donald Hunter
- <donald.hunter@gmail.com>, Dragos Tatulea <dtatulea@nvidia.com>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Jamal
- Hadi Salim <jhs@mojatatu.com>, Jiri Pirko <jiri@resnulli.us>, Leon
- Romanovsky <leon@kernel.org>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-rdma@vger.kernel.org, Mark Bloch <mbloch@nvidia.com>, Paolo Abeni
- <pabeni@redhat.com>, Pedro Tammela <pctammela@mojatatu.com>, Saeed
- Mahameed <saeedm@nvidia.com>, Simon Horman <horms@kernel.org>, Tariq
- Toukan <tariqt@nvidia.com>, Wei Wang <weiwan@google.com>, Willem de Bruijn
- <willemdebruijn.kernel@gmail.com>, Kuniyuki Iwashima <kuniyu@google.com>,
- bpf@vger.kernel.org, =?utf-8?Q?Asbj=C3=B8rn?= Sloth =?utf-8?Q?T=C3=B8nnes?=
- =?utf-8?Q?en?= <ast@fiberby.net>, Qingfang
- Deng <qingfang.deng@linux.dev>, Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgense?=
- =?utf-8?Q?n?= <toke@redhat.com>,
- Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah
- Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>,
- Matthieu
- Baerts <matttbe@kernel.org>, David Ahern <dsahern@kernel.org>, Jonas
- =?utf-8?Q?K=C3=B6ppeler?= <j.koeppeler@tu-berlin.de>, Hangbin Liu
- <hangbin.liu@linux.dev>
-Subject: Re: [PATCH net-next v3 06/12] net/sched: add act_psp for psp
- transport mode
-In-Reply-To: <20261124221758.3230929-7-toddfreed@meta.com>
-References: <20261124221758.3230929-1-toddfreed@meta.com>
- <20261124221758.3230929-7-toddfreed@meta.com>
-Date: Thu, 26 Nov 2026 16:45:55 +0100
-Message-ID: <871p87iojw.fsf@all.your.base.are.belong.to.us>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=SnrzJIGr;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=ZuRHO5z3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795707963;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CcIgPekR3mPxUG7ybhHN4QGjZuhudN2DV2cTFafDK9g=;
+	b=SnrzJIGrTNMsLJZ/vOYyfLeClNG7sKWXBqlROBms5wQl/fQuB2VSiVlUUE+Cf+zbz5CaX8
+	5rYYY8jaX3QiVAoZTriDCBJo29+uz758Vwk+1zUo40L+N0axz3VRb9WatlHuA/uOw4Juh0
+	hCa83RE1l7+3cLeOIBB8OhSKw+uaLg0=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-361-YXC1ivMbPzC6qCjZqIX2Jg-1; Thu, 26 Nov 2026 15:46:01 +0000
+X-MC-Unique: YXC1ivMbPzC6qCjZqIX2Jg-1
+X-Mimecast-MFC-AGG-ID: YXC1ivMbPzC6qCjZqIX2Jg_1795707960
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-4aa0500c979so4301402f8f.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:46:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795707960; x=1796312760; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CcIgPekR3mPxUG7ybhHN4QGjZuhudN2DV2cTFafDK9g=;
+        b=ZuRHO5z3gfPKGqFUANkEae0oELPOMm6BoqxBpYQGJdnvdRFl1ID4t0I0vaBJ6vaDsC
+         dvnbkm5A/4EMB+3t+I9NlGND8fEUCUCVuVbdxjwzmKvvNBJf3AOnHx0usSIxHCtQa2L1
+         2SPxMlUWURyab+dLy2Wt9OYQvpXSx9jJdLCaL4djZ8TmGviXw5DX3+T/gV3ncqJ4jiwm
+         n+HUV05evIFU8cB0UNqgCuR7suMSA+mFwwLcyktIedMJTEyv6koVmqP04kGcFv+JbzPf
+         Yr+XS1Wuc9L0TOlTVIEBkdXbJp1vneQu3IUnT6sKQS0hMjWHZxpwUdtynVRn3OzeVbAX
+         Ce/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795707960; x=1796312760;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CcIgPekR3mPxUG7ybhHN4QGjZuhudN2DV2cTFafDK9g=;
+        b=CR9zWudPqpwgVQUlEXwkx2UERbAn/nMPfRT7BzXOuLQq38TpmtKph1sWFTXf3RXP1u
+         sf7V64ueICIHlqJtc6NscqyJmvXVE3PoZne6lEhMiQc9IeBZ21Kva96dvIGZIx4R4Li2
+         C3BDgc6aHCV4lyb/jRS+CLiR8gfjhMN3Dmyq19D19nJGPcWkhR3l/ifPf14xBbpPtd9R
+         Wne4A6ARFWqNsQ23/1Pr5Vo71rQ1G1fnKqO2bYMmonHAM1IULFwlwvWW2E8TrDsbA4nT
+         Sc2Om94OsdxEN/0oS/GsNbr99jRLUQlm3M4An87BKHQzxTuig5/gd/WT/tZUPv3h+Q9T
+         yxCg==
+X-Forwarded-Encrypted: i=1; AL+hErGyEhRnQqZQF0IWadKKpOHzb9bkOG2jLekVAvSJ4FRkRqYxLkpefJXjeXxWx1wjhf/fp8PQVf1tROOsq7Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/nwC0n+c5UCzH7YEDZw1PvrLi7BPZO3zXDBMA+pDsVmT05hkct
+	a1xSFpb/w5CDD3k5noVAB7Oe5R8ZQs4qJQIHX/ILpKYQA5gT6bv5uInFLLM2ACSUuurDIFKek5y
+	9Z4Vgzzlxs4oh9ppq0x2rR9Aa2VnSf/xhUBFbiEcwQ4a8BdGZ8B99YJtswizL8w2mGw==
+X-Gm-Gg: AZFdTZfSYBOrkKodpNGcXEjOkKT7Egtq8gR4608ATrY2E+5I9qK0iKcXHGG2lT+Dw5u
+	4WWqldME+h57Ek4p5U/RYz0bQJLaJWkNAGmqsKSUb1D2QjhiKaPQGmUYgo+/zekisflLqOngjnh
+	xNVeN/kEwsBidoFL3Nog1JHwi9WW2W1H8aLfSFONepd0CU7i/qz3mhA5Wi9YPgUIVNpim43RolR
+	Hemfhbj/dZ1rAsSDs+KSoZQ6+M4H4e0Kdavpj8E1ifB4qgQlkYUt8pF9s2bbXZnXiGlltfuK+lh
+	9fTUYlWwzKDorNPOe2R4790Z36V6hJrFCujjTrcVF4UmzPuQrFJ5hVtTZx3mcAoIwJ6XCP/pNuE
+	X0LAAEavdrzPqW5oXmpNLg/c5wm37zF+5sWET43LRDPoqa+VAyTv/MxIbaOWPtxcIACYRbibSye
+	d+S5PACvTlw90jPhR0mkpO
+X-Received: by 2002:a05:600c:3547:b0:4a3:5991:718 with SMTP id 5b1f17b1804b1-4bb88809795mr445865925e9.16.1795707960238;
+        Thu, 26 Nov 2026 07:46:00 -0800 (PST)
+X-Received: by 2002:a05:600c:3547:b0:4a3:5991:718 with SMTP id 5b1f17b1804b1-4bb88809795mr445865525e9.16.1795707959785;
+        Thu, 26 Nov 2026 07:45:59 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:11aa:87f0:ea69:b2b0:2dae:5ef9? ([2a01:e0a:11aa:87f0:ea69:b2b0:2dae:5ef9])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bba6a0d65fsm137969695e9.3.2026.11.26.07.45.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 07:45:59 -0800 (PST)
+Message-ID: <413a4dbc-cd7a-4a0c-ab98-da569f7a5484@redhat.com>
+Date: Thu, 26 Nov 2026 16:45:56 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,355 +111,190 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/log: Add an automatic integer scaling
+To: Thomas Zimmermann <tzimmermann@suse.de>,
+ Javier Martinez Canillas <javierm@redhat.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org
+References: <20261124224408.728354-1-jfalempe@redhat.com>
+ <b5f237cf-582a-42f5-8ebc-c006ccecf62f@suse.de>
+ <fe5485e4-c3fc-4f18-86b2-d37106876c47@redhat.com>
+ <e9d6ae3e-585b-4240-8f07-8c06911d83cd@suse.de>
+Content-Language: en-US, fr
+From: Jocelyn Falempe <jfalempe@redhat.com>
+In-Reply-To: <e9d6ae3e-585b-4240-8f07-8c06911d83cd@suse.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-Todd Freed <toddfreed@meta.com> writes:
+On 11/26/26 10:54, Thomas Zimmermann wrote:
+> Hi
+> 
+> Am 26.11.26 um 10:02 schrieb Jocelyn Falempe:
+>> On 11/26/26 08:47, Thomas Zimmermann wrote:
+>>> Hi Jocelyn
+>>>
+>>> Am 24.11.26 um 23:42 schrieb Jocelyn Falempe:
+>>>> On HiDPI screen, the default font might be too small, so if no
+>>>> scaling is specified, try to upscale reasonably.
+>>>> The auto scaling is computed for each display.
+>>>>
+>>>> Signed-off-by: Jocelyn Falempe <jfalempe@redhat.com>
+>>>> ---
+>>>>   drivers/gpu/drm/clients/drm_log.c | 36 +++++++++++++++++++ 
+>>>> +-----------
+>>>>   1 file changed, 24 insertions(+), 12 deletions(-)
+>>>>
+>>>> diff --git a/drivers/gpu/drm/clients/drm_log.c b/drivers/gpu/drm/ 
+>>>> clients/drm_log.c
+>>>> index 4654091fe11a..7a0db2690b55 100644
+>>>> --- a/drivers/gpu/drm/clients/drm_log.c
+>>>> +++ b/drivers/gpu/drm/clients/drm_log.c
+>>>> @@ -25,9 +25,9 @@ MODULE_AUTHOR("Jocelyn Falempe");
+>>>>   MODULE_DESCRIPTION("DRM boot logger");
+>>>>   MODULE_LICENSE("GPL");
+>>>> -static unsigned int scale = 1;
+>>>> +static unsigned int scale = 0;
+>>>>   module_param(scale, uint, 0444);
+>>>> -MODULE_PARM_DESC(scale, "Integer scaling factor for drm_log, 
+>>>> default is 1");
+>>>> +MODULE_PARM_DESC(scale, "Integer scaling factor for drm_log, 
+>>>> default is 0 (auto)");
+>>>>   /**
+>>>>    * DOC: overview
+>>>> @@ -42,6 +42,7 @@ struct drm_log_scanout {
+>>>>       const struct font_desc *font;
+>>>>       u32 rows;
+>>>>       u32 columns;
+>>>> +    u32 scale;
+>>>>       u32 scaled_font_h;
+>>>>       u32 scaled_font_w;
+>>>>       u32 line;
+>>>> @@ -72,17 +73,17 @@ static struct drm_log *console_to_drm_log(struct 
+>>>> console *con)
+>>>>   static void drm_log_blit(struct iosys_map *dst, unsigned int 
+>>>> dst_pitch,
+>>>>                const u8 *src, unsigned int src_pitch,
+>>>> -             u32 height, u32 width, u32 px_width, u32 color)
+>>>> +             u32 height, u32 width, u32 blit_scale, u32 px_width, 
+>>>> u32 color)
+>>>>   {
+>>>>       switch (px_width) {
+>>>>       case 2:
+>>>> -        drm_draw_blit16(dst, dst_pitch, src, src_pitch, height, 
+>>>> width, scale, color);
+>>>> +        drm_draw_blit16(dst, dst_pitch, src, src_pitch, height, 
+>>>> width, blit_scale, color);
+>>>>           break;
+>>>>       case 3:
+>>>> -        drm_draw_blit24(dst, dst_pitch, src, src_pitch, height, 
+>>>> width, scale, color);
+>>>> +        drm_draw_blit24(dst, dst_pitch, src, src_pitch, height, 
+>>>> width, blit_scale, color);
+>>>>           break;
+>>>>       case 4:
+>>>> -        drm_draw_blit32(dst, dst_pitch, src, src_pitch, height, 
+>>>> width, scale, color);
+>>>> +        drm_draw_blit32(dst, dst_pitch, src, src_pitch, height, 
+>>>> width, blit_scale, color);
+>>>>           break;
+>>>>       default:
+>>>>           WARN_ONCE(1, "Can't blit with pixel width %d\n", px_width);
+>>>> @@ -122,7 +123,7 @@ static void drm_log_draw_line(struct 
+>>>> drm_log_scanout *scanout, const char *s,
+>>>>           if (src)
+>>>>               drm_log_blit(&map, fb->pitches[0], src, font_pitch,
+>>>>                        scanout->scaled_font_h, scanout->scaled_font_w,
+>>>> -                     px_width, color);
+>>>> +                     scanout->scale, px_width, color);
+>>>>           iosys_map_incr(&map, scanout->scaled_font_w * px_width);
+>>>>       }
+>>>> @@ -206,6 +207,15 @@ static u32 drm_log_find_usable_format(struct 
+>>>> drm_plane *plane)
+>>>>       return DRM_FORMAT_INVALID;
+>>>>   }
+>>>> +/* Find the biggest integer scaling to get about 120x50 chars on 
+>>>> the screen */
+>>>
+>>> Something like 80x30 (VGA mode 0x17) or 80x50 (VGA mode 0x102) seems 
+>>> natural. But what is the reason for 120x50?
+>>
+>> I think this was a good default with old 15" CRT at 640x480. But for 
+>> example for code line length, it's now configured in the 100-120 range 
+>> in most codebase.
+>> When looking at dmesg, a lot of lines are longer than 100, so 120 
+>> allows to avoid too much line splitting.
+>> For the number of rows, it's important to have some log history, so 50 
+>> looks to be the sweet spot.
+>> User can set a scaling manually, or build the kernel with bigger fonts 
+>> if they don't like the default.
+> 
+> Some general thoughts on this:
+> 
+> Each font is designed for it's specific glyph resolution. Therefore, I 
+> think it is a problem to scale x and y independent from each other. That 
+> can mess up the font. I'd suggest to make the output aim for a certain 
+> display height. Text runs from top to bottom and number of lines is 
+> usually what people care for most. OTOH the display's right side is 
+> usually empty.
 
-> Add the tc action act_psp, for PSP transport mode encapsulation and
-> encryption.
->
-> encap attaches a PSP Tx association to the skb as a METADATA_PSP dst.
-> The packet must then be transmitted on the main netdev of the
-> association's PSP device, which encrypts it: encap on that netdev's
-> egress, or a redirect there from another netdev's egress. Any other
-> device drops it.
->
-> Encap on ingress isn't supported. Routing replaces the dst of a packet
-> entering the stack, so the packet would lose its association before it
-> reaches the PSP device.
-> A later series will add support for encap on ingress, in hardware
-> offload only.
->
-> On egress, encap sets skb->decrypted, so that sk_validate_xmit_skb()
-> drops the packet if it loses the METADATA_PSP dst on the way.
->
-> Some kinds of packets are not supported and are dropped:
->
->  - IPv4 and IPv6 fragments. Encap inserts UDP + PSP between the L3 and
->    L4 headers, and non-initial fragments don't have L4 headers, so
->    transport mode can't support fragments. Tunnel mode PSP, which a later
->    series adds, does support them.
->  - IPv6 packets with extension headers. Some extension headers could be
->    supported in the future.
->  - Packets already encapsulated for a tunnel (skb->encapsulation). Some
->    tunnel types could be supported in the future.
->  - Packets which are too large. On transmit, packets which won't fit the
->    device's MTU once encapsulated are dropped (see the METADATA_PSP
->    patch). The traffic's MTU needs to leave room for the PSP encap.
->  - Packets with another encryption offload. Packets of a PSP or kTLS
->    offload socket, for which sk_validate_xmit_skb() would apply the
->    socket's validator instead of checking the association.
->
-> Decap removes the PSP Rx state of a packet the device decrypted. To
-> take the packets of only one Rx SPI, a rule matches the PSP header
-> fields it was decrypted with: psp_spi, psp_ver and psp_dev. Those
-> flower matches are added in a subsequent patch.
->
-> Signed-off-by: Todd Freed <toddfreed@meta.com>
-> ---
->  MAINTAINERS                        |   3 +
->  include/net/tc_act/tc_psp.h        |  23 ++
->  include/uapi/linux/pkt_cls.h       |   1 +
->  include/uapi/linux/tc_act/tc_psp.h |  28 ++
->  net/sched/Kconfig                  |  13 +
->  net/sched/Makefile                 |   1 +
->  net/sched/act_psp.c                | 437 +++++++++++++++++++++++++++++
->  7 files changed, 506 insertions(+)
->  create mode 100644 include/net/tc_act/tc_psp.h
->  create mode 100644 include/uapi/linux/tc_act/tc_psp.h
->  create mode 100644 net/sched/act_psp.c
->
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 97308edec53d..63c5c4c084dd 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -22573,8 +22573,11 @@ F:	Documentation/netlink/specs/psp.yaml
->  F:	Documentation/networking/psp.rst
->  F:	include/net/psp/
->  F:	include/net/psp.h
-> +F:	include/net/tc_act/tc_psp.h
->  F:	include/uapi/linux/psp.h
-> +F:	include/uapi/linux/tc_act/tc_psp.h
->  F:	net/psp/
-> +F:	net/sched/act_psp.c
->  K:	struct\ psp(_assoc|_dev|hdr)\b
->=20=20
->  PSTORE FILESYSTEM
-> diff --git a/include/net/tc_act/tc_psp.h b/include/net/tc_act/tc_psp.h
-> new file mode 100644
-> index 000000000000..8640d7685475
-> --- /dev/null
-> +++ b/include/net/tc_act/tc_psp.h
-> @@ -0,0 +1,23 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef __NET_TC_PSP_H
-> +#define __NET_TC_PSP_H
-> +
-> +#include <net/act_api.h>
-> +#include <net/dst_metadata.h>
-> +#include <linux/tc_act/tc_psp.h>
-> +
-> +struct tcf_psp_params {
-> +	struct rcu_head		rcu;
-> +	int			action;
-> +	int			psp_action;
-> +	struct metadata_dst	*md;
-> +};
-> +
-> +struct tcf_psp {
-> +	struct tc_action		common;
-> +	struct tcf_psp_params __rcu	*params;
-> +};
-> +
-> +#define to_psp(a) ((struct tcf_psp *)a)
-> +
-> +#endif /* __NET_TC_PSP_H */
-> diff --git a/include/uapi/linux/pkt_cls.h b/include/uapi/linux/pkt_cls.h
-> index 28d94b11d1aa..14cff8f5da74 100644
-> --- a/include/uapi/linux/pkt_cls.h
-> +++ b/include/uapi/linux/pkt_cls.h
-> @@ -139,6 +139,7 @@ enum tca_id {
->  	TCA_ID_MPLS,
->  	TCA_ID_CT,
->  	TCA_ID_GATE,
-> +	TCA_ID_PSP,
->  	/* other actions go here */
->  	__TCA_ID_MAX =3D 255
->  };
-> diff --git a/include/uapi/linux/tc_act/tc_psp.h b/include/uapi/linux/tc_a=
-ct/tc_psp.h
-> new file mode 100644
-> index 000000000000..e58ebcae77be
-> --- /dev/null
-> +++ b/include/uapi/linux/tc_act/tc_psp.h
-> @@ -0,0 +1,28 @@
-> +/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-> +#ifndef __LINUX_TC_PSP_H
-> +#define __LINUX_TC_PSP_H
-> +
-> +#include <linux/pkt_cls.h>
-> +
-> +#define TCA_PSP_ACT_ENCAP	1	/* attach a PSP association */
-> +#define TCA_PSP_ACT_DECAP	2	/* drop PSP Rx state */
-> +
-> +struct tc_psp {
-> +	tc_gen;
-> +};
-> +
-> +enum {
-> +	TCA_PSP_UNSPEC,
-> +	TCA_PSP_TM,
-> +	TCA_PSP_PARMS,
-> +	TCA_PSP_PAD,
-> +	TCA_PSP_ACTION,		/* u32, TCA_PSP_ACT_* */
-> +	TCA_PSP_ASSOC_ID,	/* u32, encap only: Tx association ID from
-> +				 * the PSP netlink family (assoc-add)
-> +				 */
-> +	__TCA_PSP_MAX,
-> +};
-> +
-> +#define TCA_PSP_MAX (__TCA_PSP_MAX - 1)
-> +
-> +#endif
-> diff --git a/net/sched/Kconfig b/net/sched/Kconfig
-> index 6ddff028b81a..35f9d76c4cae 100644
-> --- a/net/sched/Kconfig
-> +++ b/net/sched/Kconfig
-> @@ -939,6 +939,19 @@ config NET_ACT_GATE
->  	  To compile this code as a module, choose M here: the
->  	  module will be called act_gate.
->=20=20
-> +config NET_ACT_PSP
-> +	tristate "PSP encryption tc action"
-> +	depends on NET_CLS_ACT && INET_PSP
-> +	help
-> +	  Say Y here to allow PSP associations, created through the PSP
-> +	  netlink family, to be attached to packets. PSP capable devices can
-> +	  then encrypt them on transmit. Enables transparent psp tunnels for
-> +	  forwarded traffic.
-> +
-> +	  If unsure, say N.
-> +	  To compile this code as a module, choose M here: the
-> +	  module will be called act_psp.
-> +
->  config NET_IFE_SKBMARK
->  	tristate "Support to encoding decoding skb mark on IFE action"
->  	depends on NET_ACT_IFE
-> diff --git a/net/sched/Makefile b/net/sched/Makefile
-> index 5078ea84e6ad..9fe8cc0abfdf 100644
-> --- a/net/sched/Makefile
-> +++ b/net/sched/Makefile
-> @@ -31,6 +31,7 @@ obj-$(CONFIG_NET_IFE_SKBTCINDEX)	+=3D act_meta_skbtcind=
-ex.o
->  obj-$(CONFIG_NET_ACT_TUNNEL_KEY)+=3D act_tunnel_key.o
->  obj-$(CONFIG_NET_ACT_CT)	+=3D act_ct.o
->  obj-$(CONFIG_NET_ACT_GATE)	+=3D act_gate.o
-> +obj-$(CONFIG_NET_ACT_PSP)	+=3D act_psp.o
->  obj-$(CONFIG_NET_SCH_FIFO)	+=3D sch_fifo.o
->  obj-$(CONFIG_NET_SCH_HTB)	+=3D sch_htb.o
->  obj-$(CONFIG_NET_SCH_HFSC)	+=3D sch_hfsc.o
-> diff --git a/net/sched/act_psp.c b/net/sched/act_psp.c
-> new file mode 100644
-> index 000000000000..757b15a812a2
-> --- /dev/null
-> +++ b/net/sched/act_psp.c
-> @@ -0,0 +1,437 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * tc action that attaches a PSP association to packets.
-> + *
-> + * encap: attach a Tx association referenced by its ID, as a METADATA_PS=
-P dst.
-> + *        The PSP device's netdev encrypts the packet on transmit. Egress
-> + *        only: encap on ingress isn't supported, and drops the packet.
-> + * decap: drop the PSP Rx state (SKB_EXT_PSP) of a decrypted packet. It
-> + *        takes no association. A rule which should only take the packets
-> + *        of one Rx SPI matches what they were decrypted with (flower
-> + *        psp_spi / psp_ver / psp_dev).
-> + */
-> +
-> +#include <linux/ip.h>
-> +#include <linux/ipv6.h>
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/skbuff.h>
-> +#include <net/dst.h>
-> +#include <net/inet_timewait_sock.h>
-> +#include <net/ip.h>
-> +#include <net/netlink.h>
-> +#include <net/pkt_cls.h>
-> +#include <net/pkt_sched.h>
-> +#include <net/psp/functions.h>
-> +#include <net/tc_act/tc_psp.h>
-> +
-> +static struct tc_action_ops act_psp_ops;
-> +
-> +/* The device inserts UDP + PSP between the IP header and the transport
-> + * header, so the transport header must be right by the time the packet
-> + * gets there. On a forwarded packet it may not be. Transport mode doesn=
-'t
-> + * support IP fragments or IPv6 extension headers.
-> + */
-> +static bool tcf_psp_set_transport_header(struct sk_buff *skb)
-> +{
-> +	unsigned int off =3D skb_network_offset(skb);
-> +	const struct iphdr *iph;
-> +	unsigned int hlen, len;
-> +
-> +	switch (skb->protocol) {
-> +	case htons(ETH_P_IP):
-> +		if (!pskb_may_pull(skb, off + sizeof(*iph)))
-> +			return false;
-> +		iph =3D ip_hdr(skb);
-> +		if (iph->version !=3D 4 || iph->ihl < 5 || ip_is_fragment(iph))
-> +			return false;
-> +		hlen =3D iph->ihl * 4;
-> +		len =3D ntohs(iph->tot_len);
-> +		if (!pskb_may_pull(skb, off + hlen))
-> +			return false;
-> +		break;
-> +	case htons(ETH_P_IPV6):
-> +		if (!pskb_may_pull(skb, off + sizeof(struct ipv6hdr)))
-> +			return false;
-> +		if (ipv6_hdr(skb)->version !=3D 6 ||
-> +		    ipv6_ext_hdr(ipv6_hdr(skb)->nexthdr))
-> +			return false;
-> +		hlen =3D sizeof(struct ipv6hdr);
-> +		len =3D hlen + ntohs(ipv6_hdr(skb)->payload_len);
-> +		break;
-> +	default:
-> +		return false;
-> +	}
-> +
-> +	/* The device takes the length of the payload from the packet: it must
-> +	 * hold the IP length, and L2 padding, e.g. of a minimum size frame,
-> +	 * must not be encrypted as payload. A GSO skb's header doesn't always
-> +	 * carry its length (BIG TCP).
-> +	 */
-> +	if (!skb_is_gso(skb)) {
-> +		if (len < hlen || skb->len - off < len)
-> +			return false;
-> +		if (pskb_trim_rcsum(skb, off + len))
-> +			return false;
-> +	}
-> +
-> +	skb_set_transport_header(skb, off + hlen);
-> +	return true;
-> +}
-> +
-> +/* The socket of the packet has its own encryption offload, kTLS or PSP:
-> + * sk_validate_xmit_skb() then applies the socket's validator instead of
-> + * checking the association.
-> + */
-> +static bool tcf_psp_sk_offload(const struct sk_buff *skb)
-> +{
-> +#ifdef CONFIG_SOCK_VALIDATE_XMIT
-> +	struct sock *sk =3D skb->sk;
-> +
-> +	if (!sk)
-> +		return false;
-> +	if (sk_fullsock(sk))
-> +		return !!READ_ONCE(sk->sk_validate_xmit_skb);
-> +	return sk_is_inet(sk) && sk->sk_state =3D=3D TCP_TIME_WAIT &&
-> +	       inet_twsk(sk)->tw_validate_xmit_skb;
-> +#else
-> +	return false;
-> +#endif
-> +}
-> +
-> +static int tcf_psp_drop(struct tcf_psp *p, struct sk_buff *skb,
-> +			enum skb_drop_reason reason)
-> +{
-> +	tcf_action_inc_drop_qstats(&p->common);
-> +	tcf_set_drop_reason(skb, reason);
-> +	return TC_ACT_SHOT;
-> +}
-> +
-> +static int tcf_psp_act(struct sk_buff *skb, const struct tc_action *a,
-> +		       struct tcf_result *res)
-> +{
-> +	struct tcf_psp *p =3D to_psp(a);
-> +	struct tcf_psp_params *params;
-> +
-> +	params =3D rcu_dereference_bh(p->params);
-> +
-> +	tcf_lastuse_update(&p->tcf_tm);
-> +	tcf_action_update_bstats(&p->common, skb);
-> +
-> +	switch (params->psp_action) {
-> +	case TCA_PSP_ACT_ENCAP:
-> +		/* Encap on ingress isn't supported: routing replaces the
-> +		 * dst of a packet entering the stack, so it would lose its
-> +		 * association before it reaches the PSP device
-> +		 */
-> +		if (unlikely(skb_at_tc_ingress(skb)))
-> +			return tcf_psp_drop(p, skb, SKB_DROP_REASON_PSP_OUTPUT);
-> +		/* PSP on a tunnel isn't supported: the encap would overwrite
-> +		 * the inner headers which the device's tunnel offloads use
-> +		 */
-> +		if (unlikely(skb->encapsulation))
-> +			return tcf_psp_drop(p, skb, SKB_DROP_REASON_PSP_OUTPUT);
-> +		/* Don't mix the association with another encryption
-> +		 * offload: the packet is already marked decrypted, or its
-> +		 * socket has an offload of its own
-> +		 */
-> +		if (unlikely(skb_is_decrypted(skb) || tcf_psp_sk_offload(skb)))
-> +			return tcf_psp_drop(p, skb, SKB_DROP_REASON_PSP_OUTPUT);
-> +		if (unlikely(!tcf_psp_set_transport_header(skb)))
-> +			return tcf_psp_drop(p, skb, SKB_DROP_REASON_PSP_OUTPUT);
-> +		skb_dst_drop(skb);
-> +		skb_dst_set(skb, dst_clone(&params->md->dst));
+Integer scaling is the same for x and y, otherwise I agree, the font 
+would be distorted.
 
-I'll continue my perf questions! dst_clone() -- potential contention
-point/cacheline ping-pong for multiple cores sharing the assoc?
+static int auto_scale(unsigned int cols, unsigned int rows)
+{
+	unsigned int scale_w = DIV_ROUND_CLOSEST(cols, 120);
+	unsigned int scale_h = DIV_ROUND_CLOSEST(rows, 50);
 
-> +		/* Must be encrypted: sk_validate_xmit_skb() drops it unless
-> +		 * it still carries the association when it is transmitted
-> +		 */
-> +		skb->decrypted =3D 1;
+	return max(min(scale_w, scale_h), 1);
+}
 
-My Q on the previous patch -- can this flag be used as a cheaper check?
+This calculates the "optimal" scaling for width and height but then 
+takes the min of both, and make sure it's 1 or more.
+
+> 
+> I agree that the original VGA mode 0x17 is a bit short one lines. The 50 
+> lines you choose seem right to me. For the number of lines, I'd start 
+> with the current font and scale if the number of lines becomes too 
+> large. So that the resulting console has between 30 and 70 lines.
+
+I think the minimum number of lines, is if you have 76 rows with 
+scale=1, then autoscale will apply a scale of 2, ending up with 38 rows.
+for larger number of rows, it will be closer to 50.
+
+> For the number of columns, why not pick the preferred number of columns 
+> in relation to the scaled font height and the display-mode resolution? 
+> That keeps the font geometry at a correct ratio.
+> 
+> 
+> I know all this is close to nitpicking and maybe the code does some of 
+> this already. I just think it's important to make it look good on a 
+> variety of displays.
+> 
+> 
+>>
+>> Currently, with 8x16 font (which is the most common), the default in 
+>> full HD is 240x67. In 4K it's 480x135. So doing some integer scaling 
+>> make the default experience much better.
+> 
+> Right, the current fonts are too small on modern displays.
+> 
+> Best regards
+> Thomas
+> 
+>>
+>> Best regards,
+>>
+> 
+
+Thanks for the review.
+
+Best regards,
+
+-- 
+
+Jocelyn
 
 
-Bj=C3=B6rn
