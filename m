@@ -1,72 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.71.94.104
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795665776;
-	b=pAO32585dmqCKRAdE2NjGPtcXzqKlFvqx/QeCtFViyOgbCm/a/nputHykl5HHHI2TI2p
-	 LsYQutnbw26CMt6YkDyhnI4w2VCLvhLf/ZYRhnk/YsB8o6+ujPXHvHvvDxWDwEN3mysKI
-	 qiJyun51M0mwrob9ZjVlMkeSVdPXqWDf/NrAiJJ8PUiC+3qX4FjKdX+0E9JIPTXGKjIPn
-	 7uyzQbN42bsMWXSQfnyv9iMJTqgemJxEnVAWk2YqrO5MWBS67c3rXY1QXl93EOe8AU8jc
-	 8Rh3HjAexq+Ems4KzP2e0uATQneg+NghNZNZvM8jTYcO5JrkLI/FSk7d5OR3P3X5b+g==
+	t=1795665940;
+	b=PllS4dsJ7gsEU3McpzF3B837nbT/vPbUmYubAdYptqE4AHwv9hLnTuZwDB7q/ssxNR1R
+	 O6Tb1gcdeU9svMb8JHP6nfn+0rO3Fm3fP9KyPHKMoaCfWteTeDxzzSo5c8g0OAHxoo1Wr
+	 wY3UEBw79o6zKc0BnTXdObvIii0czcSLrv1GFY32YufZ3RTSv9wOuNhsqgmcebYWeVZSC
+	 lU9TlsQaD2bJgy4Yg44jmrag+43Xqfy5PPlVHqahqgUjK7Fdt3J1k46fXnrvJlteRzogV
+	 yxBfOK4ja6eBod6JXGEXSRBbzUDG5SUaDDDS4Zh2LHLAbHED9c3mONp0d5Yq4eqWz7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795665776;
-	h=DMARC-Filter:Received:Received:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=NN4M4Jo+5ge6yw1x29JgvGW6JvzHEGW3JJZE1kQgeRg=;
-	b=srgvVkarYFtsvA/3NIpfxA9/hmDUe7uHU7JCV6xgF2iu4PhNdvT/Zk101iggV9Dp2jvY
-	 0q8QHU/AiqkLluNPNOqACkCtszN4iDMJOPIkoJzJy+MJladLKC3bGuC7oRIXm6wq1lvN0
-	 lC1bZVYnToBsBZ2jH8LbqV9v7OWFoEBSVWUJ2AN0Iy1fzGpkzO8pjCuj8iV3T9JXIPWgs
-	 zn3NEg5hMiY5tVbcl9i/kTYfkTV4F+gJHdAyDT3XWdSrzcemRZ2SSohfFIPeoi2vvpE30
-	 LsMWYbcOGwoh1lCDyMair9wHGIsRyNUmPhohL4kmPluA/USk2ltELYE4/sbmc2TrSAw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795665940;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:In-Reply-To:Date:Message-ID:References:
+	 MIME-version:Content-type:Content-Transfer-Encoding;
+	bh=tmTgOf0vdOyBS8Bx1fFfxvDmlxtGeAtHUM/fN8kwt08=;
+	b=pl18AhMc8nP/ExnM1m6/0O5Eh2EkxkeKxbO63dJ23QOEer/6ceYx3Vo+wcz2sjnL1FcV
+	 7G4sOjcBnE5MHUTJIOgS+o7rIE5TOb6LUB+zzb0QezmUEeEoFSugZnKj1l1OaCOQm2yeR
+	 kUOYQ+uqIv371xlqDorjs/mQQCGY89S+l7oQJco7kRUVHYo7l9D57idZC/rjXjugzqWMO
+	 RMFpUK+FCv1qQJThzexcfZl3XAp0E9l6A2VMbQnDVTtRhK4Gj/KFidEw9Aw/eUQ5aoEOp
+	 g5cMNWHU6Y9UizV4Jpz8Kh+Maj2qHv0gSicLvGgHvWpX1y2CiqCd8nkEXu3Z++Xu0Mg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=huaweicloud.com;
-	spf=pass smtp.mailfrom=huaweicloud.com;
-	arc=none smtp.remote-ip=124.71.94.104
-Received: from dggmsgout13.his.huawei.com (dggmsgout13.his.huawei.com [124.71.94.104])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uizGunrc;
+	arc=none smtp.remote-ip=74.125.82.44
+Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A72B7606A323;
-	Thu, 26 Nov 2026 04:02:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A72B7606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=huaweicloud.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huaweicloud.com
-Received: from mail.maildlp.com (unknown [172.19.163.177])
-	by dggmsgout13.his.huawei.com (SkyGuard) with ESMTP id 4jZjYz0PcLz1rqxP;
-	Thu, 26 Nov 2026 12:02:47 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id 77177405F2;
-	Thu, 26 Nov 2026 12:02:51 +0800 (CST)
-Received: from huawei.com (unknown [10.67.174.193])
-	by APP4 (Coremail) with UTF8SMTPA id gCh0CgAHOullrwdrepVXFw--.42150S2;
-	Thu, 26 Nov 2026 12:02:51 +0800 (CST)
-From: Luo Gengkun <luogengkun@huaweicloud.com>
-To: stable@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Sasha Levin <sashal@kernel.org>
-Cc: Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Song Liu <song@kernel.org>,
-	Kyle Huey <me@kylehuey.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	bpf@vger.kernel.org,
-	alexander.shishkin@linux.intel.com
-Subject: [PATCH stable/linux-6.6.y 0/9] perf/bpf: Fix NULL pointer dereference
-Date: Thu, 26 Nov 2026 04:34:49 +0000
-Message-Id: <20261126043458.2394658-1-luogengkun@huaweicloud.com>
-X-Mailer: git-send-email 2.34.1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CAAC9606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:05:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CAAC9606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uizGunrc
+Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1b546061d58so15047935c88.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:05:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795665939; x=1796270739; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :message-id:date:in-reply-to:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=tmTgOf0vdOyBS8Bx1fFfxvDmlxtGeAtHUM/fN8kwt08=;
+        b=uizGunrctfKEBEI3z66Xytj8npRwCy9yL95LZp6JI19S3i/4LzNNznpCxbGt5fuidK
+         cW++nsdZXZgHpbOfzwITVB4BnXJbO+ODUY6ameod3WeUlZ0deVZQjtLTzxnuFlzC9G0y
+         h1g6Q3Bny9An+D78aGQ2bcXJU+cmphctg2fuf3AKsqcpmyZIkQFJbW2fLgNjWwF1Kjom
+         jxh0s8/+lHPcwmlSggv6hB5XBYCeeY+e2oUlZRZ76TKAi6AsG7F1WHqYj5EWIoW8+7fL
+         3RcEm+OXraTa7fy6p1kniRWsZL6sXMv6NgkjyVx94UpApTdx4D/DNw19245on/3LzeSx
+         i/hg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795665939; x=1796270739;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tmTgOf0vdOyBS8Bx1fFfxvDmlxtGeAtHUM/fN8kwt08=;
+        b=rlCemQeT+bTGzqMjdCJ+9VE9jZkkKYfgHkBU4tBDTBoGfYJ5UVdI2QQILjf4K/17BJ
+         z+PK/Ei73hfFsX3f6BCDU/OWNzpJAB2AX8gY4AYWUmOJV2zMphTs7o9HZsK5ti0EZFsI
+         qsCuXi4W4UIlHf2ReoRlhPRiXiF+Uq5sg3iksWOjJ1Hn6irKCWwEyZwlzCmsCFR1Wp7v
+         rC5tYhyK30OqqsN3nF2kyrVIoaG308iV9crQ0T467E6sJALE6s0nzynqrOaotP191SXB
+         fNt3LCZku8V2Es7NKRgijR3BoBILukXEYPavJUC1a/1wJ42SLarLAhsaleX/nfwEtqsJ
+         qFIQ==
+X-Forwarded-Encrypted: i=1; AL+hErH1briQkNai6e2YFJSuRwM/HsGFSnrFvJTeDJO+sy0PtRwn2N7oMWy681jjRMc/S46rY786CL9iEo2cO7E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8P7I7jx0yFS8yeX9vckjb6AfFEY2SpkZrqPCuvo0WfT4jcuUw7
+	g+icXZ+1Y7z9TQO+LCYw1k9WVDz41LEHW7hcstcBm3lZoQMmMyRB9qPb
+X-Gm-Gg: AZFdTZcsR8Hcdd6M+5pgKMbHIMO6u4+9i2z/Ghn85jIRSKYz82az9+7dWK4CY7ooU8i
+	gu8eG+jXJYtrXyuGzgVKqska48Sr9mYS/eXEz+cx8xx8A8NvlVBtYBk5vRnP907S8tbX57LHA/3
+	0MogBMFl9lewXafBeUV/7qCPovuXK0bhe5nmNKU75fngUs8NgAyQWXo14E8qwZyGv3a/VDgoUM5
+	nIldLsCb97u3kDTc9Xvnfp0rpD2Fo+Eg40AiXUCAdQMZpcy9SA+kvVFU5MzNtv/JsKya+okoDCb
+	DcE357idB4f/bw488NSs4P/n1le9FKj9dY5BBWLYDiFRppcz2zr4dbChwLF2vArakzCsVELQHVB
+	fYthfjIksh0tK4+nQ5vLOlF2OGQHC5wc/cGA9V9gLqJvACtUABNdW4i0MKGV5w5kQFWpeM9xGC7
+	aJ+uThob2Gc4ozOkQAj3+kQxJ/acvjvz5ms8yaorG3RAt3GNRC2FbWLqSwmFOxjT/x3IdCgHUWs
+	JlWFktii1hhaczZII434vxvhMxxfTm6Vhcaqt0n4E6LeqdPRxHpP4o6U8dAqV3Z3Vjyd6TLwY9m
+	PAPGLErdrykcNJW919Uo7NC5P+c=
+X-Received: by 2002:a05:701b:204a:10b0:16d:1e24:5cc3 with SMTP id a92af1059eb24-1b5568c0e83mr22286570c88.19.1795665938757;
+        Wed, 25 Nov 2026 20:05:38 -0800 (PST)
+Received: from pve-server ([49.205.216.49])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386992b404bsm45343201eec.1.2026.11.25.20.05.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 20:05:38 -0800 (PST)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, linuxppc-dev@lists.ozlabs.org
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>, Venkat Rao Bagalkote <venkat88@linux.ibm.com>, linux-kernel@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, Mike Rapoport <rppt@kernel.org>
+Subject: Re: [PATCHv3 2/4] powerpc/execmem: Allocate kprobes insn pages from the modules area on book3s/32
+In-Reply-To: <92b40ffa-c9bd-4d1c-b60b-f27e89102f9d@kernel.org>
+Date: Thu, 26 Nov 2026 08:53:37 +0530
+Message-ID: <ld6gjmx2.ritesh.list@gmail.com>
+References: <cover.1795625038.git.ritesh.list@gmail.com> <128398ae7491112604572d94778c938bf1e306c3.1795625038.git.ritesh.list@gmail.com> <92b40ffa-c9bd-4d1c-b60b-f27e89102f9d@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,177 +95,133 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+MIME-version: 1.0
+Content-type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:gCh0CgAHOullrwdrepVXFw--.42150S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3GryUXF1UCryrZF4kCw1kGrg_yoWxZrW8pF
-	ZxKrnIkr4kGF1I9w4fA3W2yFnrur4fXr45Jw1vyrWrCa90grZxXF9rK343KrW5JryvvFy2
-	qw18KrWYkryUZa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUv2b4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0E
-	n4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I
-	0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8
-	ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcV
-	CY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAF
-	wI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa
-	7IU0s2-5UUUUU==
-X-CM-SenderInfo: 5oxrwvpqjn3046kxt4xhlfz01xgou0bp/
 
-We hit the following problem on x86:
+"Christophe Leroy (CS GROUP)" <chleroy@kernel.org> writes:
 
-	BUG: kernel NULL pointer dereference, address: 0000000000000000
-	#PF: supervisor instruction fetch in kernel mode
-	#PF: error_code(0x0010) - not-present page
-	RIP: 0010:0x0
-	Call Trace:
-	 <IRQ>
-	 bpf_overflow_handler+0xa4/0x120
-	 __perf_event_overflow+0x11d/0x2f0
-	 perf_swevent_hrtimer+0x127/0x140
-	 __hrtimer_run_queues+0x108/0x250
-	 hrtimer_interrupt+0xfb/0x230
-	 sysvec_apic_timer_interrupt+0x69/0x90
-	 </IRQ>
-	 <TASK>
-	 asm_sysvec_apic_timer_interrupt+0x1a/0x20
-	 __perf_event_set_bpf_prog+0xb7/0x180
-	 _perf_ioctl+0x1f9/0xb40
-	 perf_ioctl+0x41/0x70
-	 __se_sys_ioctl+0x82/0xc0
-	 do_syscall_64+0x44/0xb0
-	 entry_SYSCALL_64_after_hwframe+0x78/0xe2
-	 </TASK>
+> Hi Ritesh,
+>
+> There is a problem with the subject of most of your patches: the space 
+> between "PATCH" and "v3" is missing, therefore patchwork doesn't fully 
+> understand and it doesn't remove the PATCH word as it does when the 
+> space is there. I have not checked whether b4 understands it.
+>
 
-RIP is 0 with error_code(0x0010) (instruction fetch, not-present), i.e.
-an indirect call through a NULL function pointer.
+Thanks so much for pointing that out. Ealier I used to have a space
+between PATCH and vxx, however once a kernel release manager of a
+different area, told me that their script is missing my changes, though
+he fixed his internal script - but later I decided maybe to remove that
+space.
 
-perf_event_set_bpf_handler() records the handler currently installed on
-the event and replaces it with bpf_overflow_handler():
+Looking at this a bit more closer, I agree, I should keep that space.
+Seems like Sashiko is also unhappy when we don't have that. Looks like
+w/o a space, it doesn't mark it as a series and rather consider the
+series as individual patches.
 
-	event->prog = prog;
-	event->bpf_cookie = bpf_cookie;
-	event->orig_overflow_handler = READ_ONCE(event->overflow_handler);
-	WRITE_ONCE(event->overflow_handler, bpf_overflow_handler);
+> Le 25/11/2026 à 17:52, Ritesh Harjani (IBM) a écrit :
+>> On book3s/32, a kprobe on an instruction that can't be emulated and has
+>> to be single stepped out of line, crashes the kernel. For e.g. with the
+>> following cmds...
+>>      ~> echo 9 > /proc/sys/kernel/printk
+>>      ~> mount -t debugfs debugfs /sys/kernel/debug
+>>      ~> echo 'p:wx filldir64+0xb8' > /sys/kernel/debug/tracing/kprobe_events
+>>      ~> echo 1 > /sys/kernel/debug/tracing/events/kprobes/wx/enable
+>>      ~> echo 1 > /sys/kernel/debug/tracing/events/kprobes/enable
+>> 
+>> ...we can see the following crash:
+>>      kernel tried to execute exec-protected page (f101a008) - exploit attempt? (uid: 0)
+>>      BUG: Unable to handle kernel instruction fetch
+>>      Faulting instruction address: 0xc02b919c
+>>      Vector: 400 (Instruction Access) at [f19a9d60]
+>>          pc: c02b919c: filldir64+0xb8/0x2dc
+>>          lr: c02b9148: filldir64+0x64/0x2dc
+>>          sp: f19a9e20
+>>         msr: 10029032
+>>        current = 0xc112e900
+>>          pid   = 102, comm = ls
+>>      enter ? for help
+>>      [f19a9e20] c1a8d420 (unreliable)
+>>      [f19a9e50] c02e4074 dcache_readdir+0x208/0x2a8
+>>      [f19a9e90] c02b8c5c iterate_dir+0x88/0x1fc
+>>      [f19a9ec0] c02b96e0 sys_getdents64+0x88/0x198
+>>      [f19a9f10] c0014400 system_call_exception+0xf8/0x20c
+>>      [f19a9f30] c00191ac ret_from_syscall+0x0/0x2c
+>>      ---- Exception: c00 (System Call) at a7596164
+>>      SP (af802310) is in userspace
+>> 
+>> This happens because on book3s/32 the exec permission is per segment
+>> (256MB), not per page. The page tables have no hardware exec bit, only
+>> the segment registers have a no-execute (N) bit. mmu_mark_initmem_nx()
+>> sets N on all the kernel segments except the ones of the modules area.
+>> So nothing in the vmalloc area can be executed, even when the page is
+>> mapped with PAGE_KERNEL_ROX or PAGE_KERNEL_EXEC, because _PAGE_EXEC is
+>> a software only bit there and the segment's N bit is what the MMU
+>> enforces.
+>> 
+>> Before commit 1b750c2fbf82 ("powerpc: extend execmem_params for kprobes
+>> allocations"), the kprobes insn pages came from module_alloc(). That
+>> commit moved them to the whole of the vmalloc space, on the grounds
+>> that kprobes use a breakpoint and don't need to be near the kernel
+>> text. That is fine on platforms where the exec permission is per page,
+>> as PAGE_KERNEL_ROX is then enough to make a vmalloc page executable.
+>> It is not on book3s/32, where the modules area is not only close to
+>> the kernel text but is also the only page-mapped area whose segment is
+>> left executable. So the insn pages must keep coming from there.
+>> 
+>> Hence, use the modules area for EXECMEM_KPROBES on book3s/32.
+>
+> The patch is now correct as it now if #ifdef MODULES_VADDR block, but 
+> the description is incomplete.
+>
+> The description misses the 8xx for the reason explained here: 
+> https://lore.kernel.org/all/f7834f3e-6c43-4b58-806d-fe4c07a93457@kernel.org/
+>
+> And that reason also applies to book3s/32, as reminded here by yourself: 
+> https://lore.kernel.org/all/zev77i3i.ritesh.list@gmail.com/
+>
 
-WRITE_ONCE() is a single-copy atomic access, not a compiler barrier, and
-the store to orig_overflow_handler is a plain assignment, so the compiler
-may reorder the two stores. GCC 11.4.0 does; disassembly of
-__perf_event_set_bpf_prog():
+I remember updating the commit msg somewhere, however seems like I might
+have overwrote it and lost that change.
 
-	mov    0x3d0(%rbp),%rax                  ; prev = overflow_handler
-	mov    %rsi,0x3e8(%rbp)                  ; event->prog = prog
-	mov    %r13,0x3f0(%rbp)                  ; event->bpf_cookie = cookie
-	movq   $bpf_overflow_handler,0x3d0(%rbp) ; publish overflow_handler
-	mov    %rax,0x3e0(%rbp)                  ; orig_overflow_handler = prev
+let me fix that up in v4 like this -
 
-For a software event the overflow comes from perf_swevent_hrtimer() in
-hardirq context on the same CPU, so no memory ordering is involved at all,
-only the store order; the publish lands first and the hrtimer interrupt
-fires in between. bpf_overflow_handler() then runs the attached BPF program
-and, for a non-zero return value, calls the still-NULL
-orig_overflow_handler (struct perf_event is allocated with __GFP_ZERO).
 
-Upstream status:
-Not affected. f11f10bfa1ca ("perf/bpf: Call BPF handler directly, not
-through overflow machinery", v6.10) removed orig_overflow_handler and
-calls bpf_overflow_handler() directly from __perf_event_overflow(), so
-the reordering window no longer exists. That rework was not backported
-to any stable tree, and there is no standalone upstream fix for the
-ordering itself.
+This happens because on book3s/32 the exec permission is per segment
+(256MB), not per page. The page tables have no hardware exec bit, only
+the segment registers have a no-execute (N) bit. mmu_mark_initmem_nx()
+sets N on all the kernel segments except the ones of the modules area.
+So nothing in the vmalloc area can be executed, even when the page is
+mapped with PAGE_KERNEL_ROX or PAGE_KERNEL_EXEC, because _PAGE_EXEC is
+a software only bit there and the segment's N bit is what the MMU
+enforces.
 
-Affected version:
-Introduced by aa6a5f3cb2b2 ("perf, bpf: add perf events core support for
-BPF_PROG_TYPE_PERF_EVENT programs", v4.9) and still present in the 5.10,
-5.15, 6.1 and 6.6 LTS trees; v6.10 removed the field altogether.
+8xx and 603 (which is book3s/32) have one more problem. Their iTLB miss
+handlers walk only the current task's PGD, whose kernel entries are
+copied from swapper_pg_dir in pgd_alloc(). Only kernel text and the
+modules area are sure to be in that copy, the modules area because
+prealloc_execmem_pgtable() creates its page tables at boot. Unlike the
+dTLB path, nothing fixes up a missing entry on an iTLB miss. So an insn
+page in a vmalloc area mapped after the task's PGD was allocated can't
+be executed.
 
-To backport f11f10bfa1ca ("perf/bpf: Call BPF handler directly, not
-through overflow machinery"), that commit has to come with the series it
-was posted in, and with the fixups it later needed. f11f is not a
-standalone change: it calls bpf_overflow_handler() from
-__perf_event_overflow(), i.e. from a position the series first moves that
-function to, and the new call site reads struct perf_event members that
-the series first un-conditionalizes. On its own it does not produce a
-tree that builds in every Kconfig combination, and it regresses bpftrace
-until the follow-up fix is in.
+Before commit 1b750c2fbf82 ("powerpc: extend execmem_params for kprobes
+allocations"), the kprobes insn pages came from module_alloc(). That
+commit moved them to the whole of the vmalloc space, on the grounds that
+kprobes use a breakpoint and don't need to be near the kernel text. 
+That is fine on platforms where the exec permission is per page,
+as PAGE_KERNEL_ROX is then enough to make a vmalloc page executable.
+It is not on book3s/32 and 8xx, where the modules area is not only close to
+the kernel text but is also the only page-mapped area whose segment is
+left executable. So the insn pages must keep coming from there.
 
-The series f11f was posted in, and which this backport carries in full:
+MODULES_VADDR is only defined on book3s/32 and 8xx, so use the modules
+area for EXECMEM_KPROBES whenever it is defined.
 
-  Link: https://lore.kernel.org/r/20240412015019.7060-1-khuey@kylehuey.com
 
-  1. 4c03fe11b96b perf/bpf: Reorder bpf_overflow_handler() ahead of
-     __perf_event_overflow()                             [prerequisite]
-  2. 924d934393f9 perf/bpf: Create bpf_overflow_handler() stub for
-     !CONFIG_BPF_SYSCALL                                 [prerequisite]
-  3. 14e40a9578b7 perf/bpf: Remove #ifdef CONFIG_BPF_SYSCALL from struct
-     perf_event members                                  [prerequisite]
-  4. f11f10bfa1ca perf/bpf: Call BPF handler directly, not through
-     overflow machinery                                 [the fix]
-  5. 76f6d5884582 perf/bpf: Remove unneeded uses_default_overflow_handler()
-  6. c4fcc7d1f415 perf/bpf: Allow a BPF program to suppress all sample
-     side effects                                  [rest of the series]
+-ritesh
 
-  f11f (0004 here) is the fix. 0001-0003 are prerequisites: 0001 moves
-  bpf_overflow_handler() ahead of __perf_event_overflow(), which is where
-  0004 calls it from; 0002 and 0003 make the new call site, which sits
-  outside #ifdef CONFIG_BPF_SYSCALL and reads event->prog
-  unconditionally, work when BPF is disabled. 0005 and 0006 are part of
-  the same series: they clean up what the refactoring left behind and add
-  the ability to suppress side effects, which is the point of the rework
-  but not the reason we are backporting it.
 
-The follow-up fixes, i.e. what upstream had to correct after the series
-landed:
 
-  7. 93d3fde7fd19 perf/bpf: Change the !CONFIG_BPF_SYSCALL stubs to
-     static inlines                                  [compile fix, Ingo]
-  8. 854dd99b5ddc perf/bpf: Mark perf_event_set_bpf_handler() and
-     perf_event_free_bpf_handler() as inline too     [compile fix, Ingo]
-  9. 100bff23818e perf/bpf: Don't call bpf_overflow_handler() for tracing
-     events                                          [Fixes: f11f10bfa1ca]
-
-The result is a verbatim backport of the series and its follow-up fixes
-(one hunk re-based, see "Adaptation notes"), so the tree stays identical
-to mainline and later perf/bpf backports continue to apply.
-
-Adaptation notes
-----------------
-
-Only 0005 needs manual handling.  0001-0004 and 0006-0009 apply with
-plain "git apply".  0005 conflicts on include/linux/perf_event.h because
-the hunk trailer references perf_event_header__init_id(), which does not
-exist in 6.6.y (perf_event_header__init() still has the extra
-type/misc/size arguments).  It was applied by replacing exactly the
-removed block; the resulting file is byte-identical to the mainline
-result for that hunk.
-
-Ingo Molnar (2):
-  perf/bpf: Change the !CONFIG_BPF_SYSCALL stubs to static inlines
-  perf/bpf: Mark perf_event_set_bpf_handler() and
-    perf_event_free_bpf_handler() as inline too
-
-Kyle Huey (7):
-  perf/bpf: Reorder bpf_overflow_handler() ahead of
-    __perf_event_overflow()
-  perf/bpf: Create bpf_overflow_handler() stub for !CONFIG_BPF_SYSCALL
-  perf/bpf: Remove #ifdef CONFIG_BPF_SYSCALL from struct perf_event
-    members
-  perf/bpf: Call BPF handler directly, not through overflow machinery
-  perf/bpf: Remove unneeded uses_default_overflow_handler()
-  perf/bpf: Allow a BPF program to suppress all sample side effects
-  perf/bpf: Don't call bpf_overflow_handler() for tracing events
-
- arch/arm/kernel/hw_breakpoint.c   |   8 +-
- arch/arm64/kernel/hw_breakpoint.c |   4 +-
- include/linux/perf_event.h        |  23 +---
- kernel/events/core.c              | 193 +++++++++++++++---------------
- 4 files changed, 108 insertions(+), 120 deletions(-)
-
--- 
-2.34.1
 
