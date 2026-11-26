@@ -1,102 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795716647;
-	b=DLZCPUQE7TTM5x6+Bw4lTKvY3V2sv7DawfzRaStg8XvN+vJePn+/xMyCxkU5jrf817UW
-	 Pozhihfx4AveT1FdvgMecIRdK7AdERq7syjaBtBesZUe8E2Rx8GCGxXDG498Wi5quzKmA
-	 F59Ci/kcxofmSAVswsmqEbZK0n+r/WLFSuwKkJ0pdMYtYwG3LQLlcSBW9pcgRVLEnj81L
-	 BrvjWVcrGuXV9FdSKqmc21Ui5+pioB2SGZgRy78Wq6jRJjDpuaxwYhHmw0OdsF3YcjsXU
-	 gCgFDawKqRJyuxmslBqQ+vbcjtqruD/7fhf9fzE3q25+/NEUAkxRcEsbJEy8VV/rCNA==
+	t=1795716663;
+	b=mfHQ4ZYHxtXbH5ESMB7UoHLXOlTu6rBUcgNuAEKYY7m2F5HAR1lBoOcx8LfDk2xmn8YD
+	 Xewx2vGlrDswogjyHIq+dEoTmt5KqXe3hNpteNFCTwbqi30+efTKiIhzv7fkbfzjaoTA0
+	 vCJ5btKA1aBfaXWCpsIGl+wJLf44Y8A+zeatGLo/mdVR8RAMKlA1yEPfTuWMTPWDjSbip
+	 lUVLS0nnMpNSdkUFmaeDCf8lPdusRlYF3odoeActfWyQow+BqezzE6QPzzwLgKnySqr8U
+	 GFtP/VjOdtwa3FQR3n4/65pZ87It9RkMB5Ji3JVXWkjgzqvrlikr1VfsM8hPcACCCNA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795716647;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=9EE7ET7ZAHDkNqGUagc4f/OGnCE/6ki6vjCKYjQxI34=;
-	b=enIuKoSGe5oxx3m6m5nu2eRAiVOoYRngIGMMjtmWgZAjIgP8/0N/5si+9IMRE308O8Ln
-	 c78NTXMZjl7145rKrPo4bRF81ynF/ubeyrTcQbFhjIx5p/mmbqKjZKTwjXIbJ7QZdDg6b
-	 uwIZcj+08UHF8bOiruEiPBJk5rcyXK+P6PzLOFX9Dq6XlZ5QQWnhM3BU+fHwe8x4tFHMF
-	 xnM1yDOh+GWVyBYQX42uRPxu7BqfMvigdYhTQVJOZC5sGVXCs+KoAF8qvKYOWRk5lAvEI
-	 8U41PSEVaKGkT77cjEt52q0bXR3vGZBbGjtRKpBsyLdP7F/uc0zYTxZC0foCMe8WwFQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795716663;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=u9v575CLn7pmoDOzWOn9peb7SoijlK+LbrKGpES9aRg=;
+	b=zCRBOXk6piKOkjLeYJ25xMi4+S1hRDFTDabLsGrs7ecsDmCjUB0pnRBRIoopF15PKsgl
+	 xLrWzlsgqkxRNosRbNeqFkU2OU25bOCfU/83eejxIV2D/O7xdBq/+JZVNDZeVkqQy1Ysq
+	 4b9Th2KxfZRiwuxivc77n+mKKtnguJ3qe1YEjpUp8DKHK/85Ytdz6WSAau+v2BlL68til
+	 13Gfh7VjzT12cmZW1/5NcLW5I8n0b8DhzzAcQ5F6K15S/2OkeWJHKGl/P7y0l3lssCZgT
+	 /8Nlyo30HEXv8kenWsQE+0qO4Xl9ezX46D5RE8A48xVpBX3MCR8gGlqL9RL1SnNmpVw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=n4b0i9pJ;
-	arc=none smtp.remote-ip=209.85.128.43
-Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eTrh4ivt;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB5EB606A6B2
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:10:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB5EB606A6B2
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 866D0606A326;
+	Thu, 26 Nov 2026 18:11:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=n4b0i9pJ
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4a35a60499eso57252335e9.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:10:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795716645; x=1796321445; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9EE7ET7ZAHDkNqGUagc4f/OGnCE/6ki6vjCKYjQxI34=;
-        b=n4b0i9pJfy+xA3AKsJdVS83ypg7az/x6Hn3b/cgg/jK8klv6G3wREjV5UTajHBst43
-         F67AUFgmt5NLXE9QP0DywV9x3IRps3p0gne3wR0uHXdF0Tzqc5WAVpW4YfIVMUqycaMP
-         3dxc/QFEN6CR5pilnRRxd9n6E/zGayGGSm8d8KVmSX9YjWip186tNSrZP8r1Tc2OKj7L
-         Q341zxrSAb5yl2NHBD7Xvpzm7LIl9H6vsphgqxUiFTv6KLof9/WCAOtPX+qyp1lcX7lC
-         h37EXjSUH6mH6Q/OCpv+TVeZixba/SPYELe/0YTkDLvKGIq+iOJaP629Hpux+ASuusYX
-         4TgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795716645; x=1796321445;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9EE7ET7ZAHDkNqGUagc4f/OGnCE/6ki6vjCKYjQxI34=;
-        b=prmcZ7o9wWc/LMp4CvB6pc9RNpz2AXNvOjavePYpQx/niLyq6keYgOJdHXMJSVsis0
-         E+rWTARAvp+/VSNULEGq5kNKz0/JlSm51E5Gvxkj9uOMX07gKXgQZpRbIwbNNKdAZmLz
-         PJEfIbqyN3bUcKPV8tmy2PfvbYWusChEFT4bW/fD7NPDbn3TAsSfSVykZEgMFcnR644I
-         DsIn6qhmrFVB8L6UVAdZxLOELsqc6qFTjQbLAreJxECyYeBP5mMTdI9lf+h48Z5AlWKL
-         4ikpZG2Kx28rCOAVpw6Wz7VwESG38Wyl3bVB0mrsdFZk7BHyBW9gAZbUCK18QqO1XQ1n
-         1Dlg==
-X-Forwarded-Encrypted: i=1; AL+hErHsPnEZfvSa8C4jOkHTrwHseTJqa8QcPgDD8V7p9+slUF3z7pIQR3W5xBxRD2jyo1PqKzp8JilK8Ycmrdg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/N+s8npbJKMBjo4n1h8C+OTgsIg0xeC7hA26J/tpG/ARUyevV1
-	LQ/x77QKZIkmIN4f1DFEY/1kGDpHBnIScKCHNi1n3QYXm4s+k8vRyJg=
-X-Gm-Gg: AZFdTZev6XawMccGPnSxiQY+9ROe4AvQ8VqUl1Z6nuKVGsw/s5TDfOzY31nLRK5dLTq
-	Ef3C0tFbBwYqG8RoeC3MiVmbQApcXbbcIAOCjPir1qyEr32//BcfmNTE6qscdpK2rozkVppXBUQ
-	9t7k9NN6CKCz+GG0xox+C4LC4krkX1oiTqKAZgibuww7yVYu6ovVc25X/5s2jO6YimiD/3HVNx+
-	PF+omSeYW4vNwu2BJZtWQr3N80+cDPBR288AusrG5it0jxM2NuZi76TaMyd7mUoAtfxJA4HXtgB
-	6mmwApa3Kvv46+OekeeH9jBSI0ZUXslOoLh+LX7dp7vwaPf8n8Zb1AEusMJOuTK1Yzx9LupCXvY
-	gvCrQQu9gMjwJyiJkhLsBoIJxow9TDmR0SwMHlIkODZS9EK5gSSu4JWySCquNomtl6zAtVnhbSK
-	ukzKKwpD5ty9UbyHesMqMbUeM76x4qf+QrEBaDLXQ/6h+PfnRFJy+104MkCiTtBHrAy9cNVfHbX
-	nyGEuutuGBSepOAc/T9V/UAwOx+E5ODvCuZp3icMVWm0k2CoDsacDwT11FKAHPkyR/yv3lBOSbo
-	MDZtrjQkQGINKE9mSymETZ9RYBAeuNvyILq9Pi7z7MqzhV04u+CnZxuFiTPmRT2IsvO6k5H+FQs
-	jv5MSP7lSjYB776kd4tDT4FSCzAg2cOZgDtB+1cUzwAxY+qA1FZoNWs0WL5I=
-X-Received: by 2002:a05:600c:3547:b0:4a2:a6e:80f5 with SMTP id 5b1f17b1804b1-4bb888098bfmr446022625e9.11.1795716644989;
-        Thu, 26 Nov 2026 10:10:44 -0800 (PST)
-Received: from localhost.localdomain (host-94-89-17-99.business.telecomitalia.it. [94.89.17.99])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf630esm42675231f8f.16.2026.11.26.10.10.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 10:10:44 -0800 (PST)
-From: Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
-To: Mark Brown <broonie@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Shenghao Ding <shenghao-ding@ti.com>,
-	Kevin Lu <kevin-lu@ti.com>,
-	Baojun Xu <baojun.xu@ti.com>,
-	Sen Wang <sen@ti.com>
-Cc: Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
-Subject: [PATCH v2 4/4] ASoC: tlv320aic32x4: Add CM2_L and CM2_R negative MicPGA input routing
-Date: Thu, 26 Nov 2026 19:10:38 +0100
-Message-Id: <20261126181038.99595-5-gianfranco.mariotti94@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261126181038.99595-1-gianfranco.mariotti94@gmail.com>
-References: <20261126181038.99595-1-gianfranco.mariotti94@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eTrh4ivt
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E52761F00AD3;
+	Thu, 26 Nov 2026 18:10:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795716662;
+	bh=u9v575CLn7pmoDOzWOn9peb7SoijlK+LbrKGpES9aRg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=eTrh4ivtfPOlk36i/Syox5jVW6dXJmhOgZwioO+nYxMKjGShC7TMyjjJl/zzRZ/W3
+	 SkP6MLdWC5iwrRV6uvUn6/rKonHWO56PFB3c75THzdQTim1Mri+dYH52nOteGfRTCj
+	 M+BZepOCmKNRYHvlRa117MS6yceBdzXjdmtuENyHhISgbQTyWosUB771P8KFuwQKC8
+	 pVw08LjMZlVYdDIpRqOeWvsFhzaGdSX4qDT0MagmIoJIq2tNOTskLwvuvj9X76KZmW
+	 omTnmVri/xaVPYJp7AvvaZYW/JxAmTrlzAhShiP47YqYQ+fQwkXl5svB+CMxRIbwv0
+	 XMDyeevoEqAuQ==
+Date: Thu, 26 Nov 2026 20:10:43 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Barry Song <baohua@kernel.org>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Michal Hocko <mhocko@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-openrisc@vger.kernel.org
+Subject: Re: [PATCH RESEND v2 12/21] mm/pgtable: redefine PGTABLE_LEVEL enum
+ with ascend order from PGD
+Message-ID: <awh2I4llsjkB7Vds@kernel.org>
+References: <20261102-dummy_ptxp3-v2-0-78840b2ec73c@arm.com>
+ <20261102-dummy_ptxp3-v2-12-78840b2ec73c@arm.com>
+ <awXD4i47F-VAG1tD@kernel.org>
+ <awXc0MSZl9t9VW8e@e129823.arm.com>
+ <682c765f-332f-4ac2-b448-4201c8fae6fc@kernel.org>
+ <awhCnpiUc1R_BLx4@e129823.arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,107 +97,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awhCnpiUc1R_BLx4@e129823.arm.com>
 
-Bits 1:0 of AIC32X4_LMICPGANIN (Page 1, Register 54) and
-AIC32X4_RMICPGANIN (Page 1, Register 57) provide a second common-mode
-input resistor selection (CM2L / CM2R, Off / 10 kOhm / 20 kOhm /
-40 kOhm) to the Left and Right MicPGA negative terminals, used to match
-input impedance when mixing multiple positive inputs.
+On Thu, Nov 26, 2026 at 02:30:54PM +0000, Yeoreum Yun wrote:
+> On Thu, Nov 26, 2026 at 03:19:13PM +0100, David Hildenbrand (Arm) wrote:
+> > On 11/24/26 19:52, Yeoreum Yun wrote:
+> > > On Tue, Nov 24, 2026 at 07:05:38PM +0200, Mike Rapoport wrote:
+> > >> On Mon, Nov 02, 2026 at 11:21:25AM +0000, Yeoreum Yun wrote:
+> > >>> The PGTABLE_LEVEL enum values appear to be ordered in the opposite direction
+> > >>> from their intended usage.
+> > >>>
+> > >>> Intuitively, higher page table levels should have smaller enum values,
+> > >>> but PTE is currently assigned 0.
+> > >>
+> > >> That's not what x86 thinks :)
+> > >> They even expose it in /proc/vmstat with smaller numbers meaning lower levels
+> > >>
+> > >> $ grep direct_map /proc/vmstat 
+> > >> direct_map_level2_splits 152
+> > >> direct_map_level3_splits 4
+> > >> direct_map_level2_collapses 0
+> > >> direct_map_level3_collapses 0
+> > >>
+> > >> Just an observation, I don't mind either order.
+> > > 
+> > > Right. I made this change because a depth-based scheme seems more intuitive.
+> > > 
+> > > As you pointed out, though, the x86 specification uses smaller
+> > > numbers (0) for lower levels (pte), so I think we can leave the
+> > > x86-specific direct_map_* entries as they are.
+> > 
+> > patch #14 depends on this, no?
+> 
+> Interestingly, x86 documentation numbers the PGD level as 4 or 5,
+> whereas helpers such as effective_prot_pgd() use 0 for PGD.
+> 
+> Anyway, this follows the usage and semantics of effective_prot_pXd(),
+> rather than architecture-specific level numbering, which varies across
+> architectures.
 
-Add the CM2_L and CM2_R DAPM mux widgets, enum controls, and routes
-sourced from CM_L and CM_R, preserving the existing CM_L and CM_R
-control names for ABI compatibility.
+I asked an LLM and here's what it told me:
 
-Signed-off-by: Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
----
- sound/soc/codecs/tlv320aic32x4.c | 24 ++++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
+  x86, s390, riscv, LoongArch and powerpc count from the leaf. arm64 and
+  ARM count from the root, and so does the generic page walk and ptdump.
 
-diff --git a/sound/soc/codecs/tlv320aic32x4.c b/sound/soc/codecs/tlv320aic32x4.c
-index 92f77b26b4b40..ffa879c271273 100644
---- a/sound/soc/codecs/tlv320aic32x4.c
-+++ b/sound/soc/codecs/tlv320aic32x4.c
-@@ -395,6 +395,7 @@ static SOC_ENUM_SINGLE_DECL(in1r_lpga_p_enum, AIC32X4_LMICPGAPIN, 0, resistor_te
- static SOC_ENUM_SINGLE_DECL(cml_lpga_n_enum, AIC32X4_LMICPGANIN, 6, resistor_text);
- static SOC_ENUM_SINGLE_DECL(in2r_lpga_n_enum, AIC32X4_LMICPGANIN, 4, resistor_text);
- static SOC_ENUM_SINGLE_DECL(in3r_lpga_n_enum, AIC32X4_LMICPGANIN, 2, resistor_text);
-+static SOC_ENUM_SINGLE_DECL(cm2l_lpga_n_enum, AIC32X4_LMICPGANIN, 0, resistor_text);
- 
- static const struct snd_kcontrol_new in1l_to_lmixer_controls[] = {
- 	SOC_DAPM_ENUM("IN1_L L+ Switch", in1l_lpga_p_enum),
-@@ -424,6 +425,10 @@ static const struct snd_kcontrol_new in3r_to_lmixer_controls[] = {
- 	SOC_DAPM_ENUM("IN3_R L- Switch", in3r_lpga_n_enum),
- };
- 
-+static const struct snd_kcontrol_new cm2l_to_lmixer_controls[] = {
-+	SOC_DAPM_ENUM("CM2_L L- Switch", cm2l_lpga_n_enum),
-+};
-+
- /*	Right mixer pins */
- static SOC_ENUM_SINGLE_DECL(in1r_rpga_p_enum, AIC32X4_RMICPGAPIN, 6, resistor_text);
- static SOC_ENUM_SINGLE_DECL(in2r_rpga_p_enum, AIC32X4_RMICPGAPIN, 4, resistor_text);
-@@ -432,6 +437,7 @@ static SOC_ENUM_SINGLE_DECL(in2l_rpga_p_enum, AIC32X4_RMICPGAPIN, 0, resistor_te
- static SOC_ENUM_SINGLE_DECL(cmr_rpga_n_enum, AIC32X4_RMICPGANIN, 6, resistor_text);
- static SOC_ENUM_SINGLE_DECL(in1l_rpga_n_enum, AIC32X4_RMICPGANIN, 4, resistor_text);
- static SOC_ENUM_SINGLE_DECL(in3l_rpga_n_enum, AIC32X4_RMICPGANIN, 2, resistor_text);
-+static SOC_ENUM_SINGLE_DECL(cm2r_rpga_n_enum, AIC32X4_RMICPGANIN, 0, resistor_text);
- 
- static const struct snd_kcontrol_new in1r_to_rmixer_controls[] = {
- 	SOC_DAPM_ENUM("IN1_R R+ Switch", in1r_rpga_p_enum),
-@@ -461,6 +467,10 @@ static const struct snd_kcontrol_new in3l_to_rmixer_controls[] = {
- 	SOC_DAPM_ENUM("IN3_L R- Switch", in3l_rpga_n_enum),
- };
- 
-+static const struct snd_kcontrol_new cm2r_to_rmixer_controls[] = {
-+	SOC_DAPM_ENUM("CM2_R R- Switch", cm2r_rpga_n_enum),
-+};
-+
- static const struct snd_soc_dapm_widget aic32x4_dapm_widgets[] = {
- 	SND_SOC_DAPM_DAC("Left DAC", "Left Playback", AIC32X4_DACSETUP, 7, 0),
- 	SND_SOC_DAPM_MIXER("HPL Output Mixer", SND_SOC_NOPM, 0, 0,
-@@ -498,6 +508,8 @@ static const struct snd_soc_dapm_widget aic32x4_dapm_widgets[] = {
- 			 in1l_to_rmixer_controls),
- 	SND_SOC_DAPM_MUX("IN3_L to Right Mixer Negative Resistor", SND_SOC_NOPM, 0, 0,
- 			 in3l_to_rmixer_controls),
-+	SND_SOC_DAPM_MUX("CM2_R to Right Mixer Negative Resistor", SND_SOC_NOPM, 0, 0,
-+			 cm2r_to_rmixer_controls),
- 
- 	SND_SOC_DAPM_ADC("Left ADC", "Left Capture", AIC32X4_ADCSETUP, 7, 0),
- 	SND_SOC_DAPM_PGA("Left MicPGA", SND_SOC_NOPM, 0, 0, NULL, 0),
-@@ -515,6 +527,8 @@ static const struct snd_soc_dapm_widget aic32x4_dapm_widgets[] = {
- 			 in2r_to_lmixer_controls),
- 	SND_SOC_DAPM_MUX("IN3_R to Left Mixer Negative Resistor", SND_SOC_NOPM, 0, 0,
- 			 in3r_to_lmixer_controls),
-+	SND_SOC_DAPM_MUX("CM2_L to Left Mixer Negative Resistor", SND_SOC_NOPM, 0, 0,
-+			 cm2l_to_lmixer_controls),
- 
- 	SND_SOC_DAPM_SUPPLY("Mic Bias", AIC32X4_MICBIAS, 6, 0, mic_bias_event,
- 			    SND_SOC_DAPM_POST_PMU | SND_SOC_DAPM_PRE_PMD),
-@@ -623,6 +637,11 @@ static const struct snd_soc_dapm_route aic32x4_dapm_routes[] = {
- 	{"IN3_L to Right Mixer Negative Resistor", "20 kOhm", "IN3_L"},
- 	{"IN3_L to Right Mixer Negative Resistor", "40 kOhm", "IN3_L"},
- 
-+	{"Right MicPGA", NULL, "CM2_R to Right Mixer Negative Resistor"},
-+	{"CM2_R to Right Mixer Negative Resistor", "10 kOhm", "CM_R"},
-+	{"CM2_R to Right Mixer Negative Resistor", "20 kOhm", "CM_R"},
-+	{"CM2_R to Right Mixer Negative Resistor", "40 kOhm", "CM_R"},
-+
- 	/* Left Input */
- 	{"Left ADC", NULL, "Left MicPGA"},
- 	{"MAL Power", NULL, "Left MicPGA"},
-@@ -661,6 +680,11 @@ static const struct snd_soc_dapm_route aic32x4_dapm_routes[] = {
- 	{"IN3_R to Left Mixer Negative Resistor", "10 kOhm", "IN3_R"},
- 	{"IN3_R to Left Mixer Negative Resistor", "20 kOhm", "IN3_R"},
- 	{"IN3_R to Left Mixer Negative Resistor", "40 kOhm", "IN3_R"},
-+
-+	{"Left MicPGA", NULL, "CM2_L to Left Mixer Negative Resistor"},
-+	{"CM2_L to Left Mixer Negative Resistor", "10 kOhm", "CM_L"},
-+	{"CM2_L to Left Mixer Negative Resistor", "20 kOhm", "CM_L"},
-+	{"CM2_L to Left Mixer Negative Resistor", "40 kOhm", "CM_L"},
- };
- 
- const struct regmap_range_cfg aic32x4_regmap_pages[] = {
+My guess that the only reason that generic ptdump counts from the root is
+because it came from @arm.com :)
+
+> And yes, patch #14 depends on this, although changing the condition to
+> level != PGD_LEVEL would remove that dependency.
+
+I think the only real hard dependency on levels numbering is x86's KVM code
+that manages secondary page tables, but it anyway does not use enum
+pgtable_level but rather x86's own enum pg_level.
+
+> -- 
+> Sincerely,
+> Yeoreum Yun
+
 -- 
-2.25.1
-
+Sincerely yours,
+Mike.
