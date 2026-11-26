@@ -1,103 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795680999;
-	b=P83MirYoGlOGd339EGvOedZRY3mNZZecajC2fko1OVg65/LcpJLSDt4mwoWld6YGtu1L
-	 CZ+c1zWV+a5M53pWgPwOGV7uHZfhGjKy+cqAw+5SoqrIOwiQdA/IxXeDTrk3vMaWMiHha
-	 khFJm/a+Eoqi/yWe3U1XjqSiYDqeypy822doOPKfgmMUB5gRZHsU969JLPtTtjHwSZlbV
-	 SBTeuhfH3Qs6FZ1/QF3pNRLmd/P+UkOYShyQd0JrFZ8A9hMBt1EjuSACyKETbXQ4TnQMD
-	 ysrvd7hYwLBG2kHK6R/wSz7n+7E/L5+g5FeXtmtrKBGe2iLYn9aux0MMKsojODdDGfQ==
+	t=1795681014;
+	b=VWPFNYFxN/O0wpLFyn/29vHGNS5N1oadbocOCj0bdUgbuwRcapVo91UjHh4b36QLhGHP
+	 CNxzmFe4PWLpZijzsiWhVF9PlGkc/ePmPJ6fLxAFxSyO9rRROvfMzBeS3UalEzS3H80D6
+	 6G/sgjeJJXmGwbrorO8AHxBvrUcMcm6gfufGdW9QQSa+g4encZDUlkA6pi0lzK+qDtxxj
+	 Wpdamyf5C8RGRdcCXAhUVk/cJAreKXxam/+zBuW9z8cLiCjfPN2w9KkE6m6weuwZBStXt
+	 Q7RV8RLZoHJxNC/KkbmPZYELClZ30xqD4UW+PKqlzqdWlvE5zb8ByEVGv1C3kbzxZTQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795680999;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=CBSIDCKro4GDs12iDpbveHASbLjhtJ1zWAB1w2J4Ssg=;
-	b=Y24U2GBZ11uZcQthOTcWiHV9sGYwqLOwOBxQg5U13dEC9i9EmTtbOWXFcwKCzZC7Vjyy
-	 gy5fYjJN3DB6tIUTI/XgAtwy7EkKyjrRYbxasxEkgnlS06Vedl7BR1bQ9dXCWYcDKWzOa
-	 hSga9eUCo2Bk4Iag4tOWkzZ07GmOKy64q0JeygEMPgt6x7F3u4bVsXiMtIE8cqSb+tzDJ
-	 bDYiDHG+lwKv2Q8/Bmn9Hnea8Qcfczyl4uG82k26sUOYrwqXDToJZnFramvVUucL247TB
-	 O+Fr4mbkf+yLJnjxHuznqLsIE+tQ1zKuoLUfuDvrhc3/O1JSj2O5ncDKngVV8ZryJMA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795681014;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:Organization:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=N/cEzKcepYsGi3Rr32SGnZ2whiJRMg9YAJGcOs7d3pE=;
+	b=jzZ4TWHPO/CSfV+Y8ydnGY2+qKwp3EbggpM71fCAujHRXC+JoVTylf0zOpho+q7w1IZO
+	 4HtOcSQdo+Vbn+nxvqX3VCdu+HWqyKpQgW0daUKQMf4nDFC3F40nrH1d55Mhu/OEXzPz6
+	 CFawLnI7CFGx+GbtFh6QwXjeB2LDDVYrGHByyffKb48AyxcEgtJyh0rWYuL81iDP6S8uc
+	 ZrDb35HANrfYbnyt/Vm0Aut2waHLdYNzaV3ZRmots2XuYIXhvO0VOHKRGBKDFMhW4FR8M
+	 8Tg71oo5LQnPAWZS5BuwL6gUVtr+DzW8KfR4jSeVLBug67+f3lOiI2uxlS28nWXB7AQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PQa1AFXI;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="JH/+eCCL";
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63904606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:16:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63904606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0BBE606A31C;
+	Thu, 26 Nov 2026 08:16:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0BBE606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PQa1AFXI
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so86044815e9.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:16:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795680998; x=1796285798; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CBSIDCKro4GDs12iDpbveHASbLjhtJ1zWAB1w2J4Ssg=;
-        b=PQa1AFXIZS40/OkHRWSeK9C0cJH4iXrwvZSbqalNLtcMObluAt2ryBFq+7UwnlrGtk
-         Rpbe2zlplBYfObUSV+nJJDjWG678OAAU2fzBxTF8TZlvuYYdU/GZtHr7hSj8Q1IpBCmc
-         8yQFV7mvXIKXGc+W+jn0ycgK+gI1vzpJ3l2H4s629XIWdwtdjEcRdVSHbORecbNpHt3i
-         5mR5Xd+Jz+7wusXeD3RH9hRRtV0w7xy8BY04bYAHjHPdkXq43OacZwmVYeQZETI6dHcE
-         +SCTpHV7CYu1AjQYSuSBFHoaFIFiSg29kxlBkHG1eOXjWNMT72xh4kU38MjsOXLOYTpd
-         S2Dw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795680998; x=1796285798;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=CBSIDCKro4GDs12iDpbveHASbLjhtJ1zWAB1w2J4Ssg=;
-        b=zLr55InkZKIivGdvj/DPK7aT+jhVL/+cCcvs/L3uXwzrZ5PEo4rVL7anCfUM61K6PM
-         JlOdJ6RRurzJVPGvbOHznxVOOThhHXar1nB7LBaN4ivuI8qwZKuyhUTKv66VRxOtqwxn
-         TBD1G+4i7ipbi7DuNioHT/CGE6HdZaUT3BV0MjNu9RTpEK3Ie899x2zb9AME6MDAvS6L
-         KL18B3jD2bFl2yuDHwuH/Aa8JU/L0Uj3xDC2ZVGy58oJtnQul3uuhOTTdPYcE7zR/bYv
-         V63TXL/nDMel7aC4itq1tYN9yXzYj+1i70agw38jh2piFemZlHcLeUBbJC3vp7t4m5bZ
-         bmlQ==
-X-Forwarded-Encrypted: i=1; AL+hErE5wvcJRb60B50sfEE2MyVciFR3OVTM8yVZsXE7RSFi9aj/7wDJK7J+X5+Qz3NUlfuo40Aof03gX+qYIj8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/WD+AVHSzp9G5nY6eA8MwWA2T8lhxIx9iLgPsaTrjxFVc9QKcF
-	4BKXP8i1rtpkwP+E6nARVqEgqbaivVs8ET2bABmUBiGQWM1+pQJw0i7B
-X-Gm-Gg: AZFdTZeAc0dFzK8peJVLC8Ir8XGEpmV6+f44igAApm/++qFdfUV3wouQxQu/mOmY1S8
-	NYHRBQxaGik7MxvLFPT1N9BNgfUkojGiRR1AewfXIaVv9r/tKfUA79q6aTyF8gjYSVywp0fD9Eh
-	uj61aZ4NznKbRBhQEkTdmyfQXk8Op4Bwp7FCa6/di9fd7J3BrR7w66LGeJYRBcZHx/wl7x9agrg
-	vnkBiZw/PwVru0aXOIfay0ZiuH3md7XySoNgPiGsLvvekRqfM9R/2vPQoNUxvvOkswTZaiWRbtp
-	FeDVuviHqOYyZ2xeIzXYsi3XyQK1QLlSnZ0pti3XvoIl71z8HuLQyZsn17OUyyfWL8Rn8bfgTD3
-	23hWA2gysETJyucQxZnK8M6DZRmYBSobtS6UO3OHJo4GIP0K2wehBCB3JoBcHCotlXzVAgdt5nR
-	xhiCo08i16IUoO6zRvAeYJC+b5MIO6fu9Qd1LD4NN893KBkqI22cgWVDQWa94HfB/LmYleuJmg8
-	SjMVwUMMahYYgRjZ1XnhAnPGpm47DCX8Mo1ELgGm7I0w7ebqQ6kfi2/ItL+tkGYzG8yolOYFJrz
-	c05KARXwfIAWXJMwcJG+e8ASeq6f4nOkA72f/rf9RrW40/Q2WA5yX1CyPGmc7AO0NSCkWI+zfQ=
-	=
-X-Received: by 2002:a05:600c:154c:b0:4bb:6a78:7c42 with SMTP id 5b1f17b1804b1-4bb887c3428mr407967675e9.1.1795680997558;
-        Thu, 26 Nov 2026 00:16:37 -0800 (PST)
-Received: from grower.termidesk.ru (ppp91-78-19-165.pppoe.mtu-net.ru. [91.78.19.165])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf61e8sm40320996f8f.11.2026.11.26.00.16.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 00:16:37 -0800 (PST)
-From: Alexander Martyniuk <alexevgmart@gmail.com>
-To: stable@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Alexander Martyniuk <alexevgmart@gmail.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	Alex Williamson <alex.williamson@redhat.com>,
-	Cornelia Huck <cohuck@redhat.com>,
-	Baptiste Reynal <b.reynal@virtualopensystems.com>,
-	Antonios Motakis <a.motakis@virtualopensystems.com>,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org,
-	Mostafa Saleh <smostafa@google.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Abdifatah Suruur <suruurism@gmail.com>,
-	Alex Williamson <alex@shazbot.org>
-Subject: [PATCH 5.10/5.15] vfio/platform: prevent read-only region mappings from becoming writable
-Date: Thu, 26 Nov 2026 11:16:30 +0300
-Message-ID: <20261126081631.45468-1-alexevgmart@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=JH/+eCCL
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 68BCE4E41789;
+	Thu, 26 Nov 2026 08:16:52 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3441C60237;
+	Thu, 26 Nov 2026 08:16:52 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D29F111E6835E;
+	Thu, 26 Nov 2026 09:16:45 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795681011; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=N/cEzKcepYsGi3Rr32SGnZ2whiJRMg9YAJGcOs7d3pE=;
+	b=JH/+eCCLMcYtMAzvglxXXC+fGv/9T9mHlOPKeKUNwFxSdqCzdn78ULd5UpxXkrp4JbZC8l
+	OEKf0NHTs/7KFL4j5HsL3fB5AMLKfg9TeHoEKWr8m/83+F0IP+vHXJGZIDhaiJeopJ78Rn
+	NEsxpoTA1C5SXccCLA55tSlyRvuaK5iuc8alnQlZYJ47hKhobKCSYKYq0YpZRq+mvd0SyV
+	UF7vC6+x/OcRtAitIZEQ7UVMlhatVc7llFU1I+DqKLkKFREOFdmmnF98FCH2J6DlxQMVvt
+	XtHQelZwZbqh/5ZwnsZOTEsC9RUg7s6i1tQtwb/Ma1UFKmPL+ZyoWCayhJzJdg==
+Message-ID: <0828126f-54fd-43af-94ee-35d1047378db@bootlin.com>
+Date: Thu, 26 Nov 2026 09:16:45 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,59 +62,326 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 13/13] arm64: dts: synaptics: add SL2610 family RDK
+ boards
+To: Jisheng Zhang <jszhang@kernel.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Linus Walleij <linusw@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-gpio@vger.kernel.org
+References: <20261115102401.3520-1-jszhang@kernel.org>
+ <20261115102401.3520-14-jszhang@kernel.org>
+Content-Language: en-US, fr
+From: Richard GENOUD <richard.genoud@bootlin.com>
+Organization: Bootlin
+In-Reply-To: <20261115102401.3520-14-jszhang@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-From: Abdifatah Suruur <suruurism@gmail.com>
+Le 15/11/2026 à 11:23, Jisheng Zhang a écrit :
+> Add device trees for the SL2611, SL2613, SL2615, SL2617 and SL2619
+> reference development kits. Share their common console, memory, pin
+> configuration and regulator descriptions and enable the populated
+> peripherals.
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>   arch/arm64/boot/dts/synaptics/Makefile        |   5 +
+>   arch/arm64/boot/dts/synaptics/sl2611-rdk.dts  |  16 +++
+>   arch/arm64/boot/dts/synaptics/sl2613-rdk.dts  |  16 +++
+>   arch/arm64/boot/dts/synaptics/sl2615-rdk.dts  |  16 +++
+>   arch/arm64/boot/dts/synaptics/sl2617-rdk.dts  |  16 +++
+>   arch/arm64/boot/dts/synaptics/sl2619-rdk.dts  |  16 +++
+>   .../boot/dts/synaptics/sl261x-rdk-common.dtsi | 135 ++++++++++++++++++
+>   7 files changed, 220 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/synaptics/sl2611-rdk.dts
+>   create mode 100644 arch/arm64/boot/dts/synaptics/sl2613-rdk.dts
+>   create mode 100644 arch/arm64/boot/dts/synaptics/sl2615-rdk.dts
+>   create mode 100644 arch/arm64/boot/dts/synaptics/sl2617-rdk.dts
+>   create mode 100644 arch/arm64/boot/dts/synaptics/sl2619-rdk.dts
+>   create mode 100644 arch/arm64/boot/dts/synaptics/sl261x-rdk-common.dtsi
+> 
+> diff --git a/arch/arm64/boot/dts/synaptics/Makefile b/arch/arm64/boot/dts/synaptics/Makefile
+> index de71ddda6835..810d0d08c2de 100644
+> --- a/arch/arm64/boot/dts/synaptics/Makefile
+> +++ b/arch/arm64/boot/dts/synaptics/Makefile
+> @@ -2,3 +2,8 @@
+>   # Berlin SoC Family
+>   dtb-$(CONFIG_ARCH_BERLIN) += berlin4ct-dmp.dtb
+>   dtb-$(CONFIG_ARCH_BERLIN) += berlin4ct-stb.dtb
+> +dtb-$(CONFIG_ARCH_BERLIN) += sl2611-rdk.dtb
+> +dtb-$(CONFIG_ARCH_BERLIN) += sl2613-rdk.dtb
+> +dtb-$(CONFIG_ARCH_BERLIN) += sl2615-rdk.dtb
+> +dtb-$(CONFIG_ARCH_BERLIN) += sl2617-rdk.dtb
+> +dtb-$(CONFIG_ARCH_BERLIN) += sl2619-rdk.dtb
+> diff --git a/arch/arm64/boot/dts/synaptics/sl2611-rdk.dts b/arch/arm64/boot/dts/synaptics/sl2611-rdk.dts
+> new file mode 100644
+> index 000000000000..585872307834
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/synaptics/sl2611-rdk.dts
+> @@ -0,0 +1,16 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2025 Synaptics Incorporated
+> + *
+> + * Author: Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "sl2611.dtsi"
+> +#include "sl261x-rdk-common.dtsi"
+> +
+> +/ {
+> +	model = "Synaptics SL2611 RDK";
+> +	compatible = "syna,sl2611-rdk", "syna,sl2611";
+> +};
+> diff --git a/arch/arm64/boot/dts/synaptics/sl2613-rdk.dts b/arch/arm64/boot/dts/synaptics/sl2613-rdk.dts
+> new file mode 100644
+> index 000000000000..de75c9fab6a2
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/synaptics/sl2613-rdk.dts
+> @@ -0,0 +1,16 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2025 Synaptics Incorporated
+> + *
+> + * Author: Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "sl2613.dtsi"
+> +#include "sl261x-rdk-common.dtsi"
+> +
+> +/ {
+> +	model = "Synaptics SL2613 RDK";
+> +	compatible = "syna,sl2613-rdk", "syna,sl2613";
+> +};
+> diff --git a/arch/arm64/boot/dts/synaptics/sl2615-rdk.dts b/arch/arm64/boot/dts/synaptics/sl2615-rdk.dts
+> new file mode 100644
+> index 000000000000..ae03638a3a53
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/synaptics/sl2615-rdk.dts
+> @@ -0,0 +1,16 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2025 Synaptics Incorporated
+> + *
+> + * Author: Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "sl2615.dtsi"
+> +#include "sl261x-rdk-common.dtsi"
+> +
+> +/ {
+> +	model = "Synaptics SL2615 RDK";
+> +	compatible = "syna,sl2615-rdk", "syna,sl2615";
+> +};
+> diff --git a/arch/arm64/boot/dts/synaptics/sl2617-rdk.dts b/arch/arm64/boot/dts/synaptics/sl2617-rdk.dts
+> new file mode 100644
+> index 000000000000..ba4ea21ac505
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/synaptics/sl2617-rdk.dts
+> @@ -0,0 +1,16 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2025 Synaptics Incorporated
+> + *
+> + * Author: Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "sl2617.dtsi"
+> +#include "sl261x-rdk-common.dtsi"
+> +
+> +/ {
+> +	model = "Synaptics SL2617 RDK";
+> +	compatible = "syna,sl2617-rdk", "syna,sl2617";
+> +};
+> diff --git a/arch/arm64/boot/dts/synaptics/sl2619-rdk.dts b/arch/arm64/boot/dts/synaptics/sl2619-rdk.dts
+> new file mode 100644
+> index 000000000000..58901ac2a050
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/synaptics/sl2619-rdk.dts
+> @@ -0,0 +1,16 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2025 Synaptics Incorporated
+> + *
+> + * Author: Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "sl2619.dtsi"
+> +#include "sl261x-rdk-common.dtsi"
+> +
+> +/ {
+> +	model = "Synaptics SL2619 RDK";
+> +	compatible = "syna,sl2619-rdk", "syna,sl2619";
+> +};
+> diff --git a/arch/arm64/boot/dts/synaptics/sl261x-rdk-common.dtsi b/arch/arm64/boot/dts/synaptics/sl261x-rdk-common.dtsi
+> new file mode 100644
+> index 000000000000..78a9b28fdf99
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/synaptics/sl261x-rdk-common.dtsi
+> @@ -0,0 +1,135 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2025 Synaptics Incorporated
+> + *
+> + * Author: Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/input/linux-event-codes.h>
+> +
+> +/ {
+> +	aliases {
+> +		serial0 = &sm_uart0;
+> +		serial1 = &sm_uart1;
+> +		serial2 = &sm_uart2;
+> +		serial3 = &sm_uart3;
+> +		serial4 = &soc_uart0;
+> +		serial5 = &soc_uart1;
+> +		serial6 = &soc_uart2;
+> +		serial7 = &soc_uart3;
+> +		i2c0 = &sm_i2c0;
+> +		i2c1 = &sm_i2c1;
+> +		i2c2 = &soc_i2c0;
+> +		i2c3 = &soc_i2c1;
+> +		spi1 = &sm_spi1;
+> +		spi2 = &soc_spi0;
+> +		spi3 = &soc_spi1;
+> +		spi4 = &soc_spi2;
+> +		spi5 = &soc_spi3;
+> +	};
+> +
+> +	cpus {
+> +		cpu@0 {
+> +			cpu0-supply = <&vcore>;
+> +		};
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +		bootargs = "earlycon";
+> +	};
+> +
+> +	memory@0 {
+> +		device_type = "memory";
+> +		reg = <0x0 0x00000000 0x0 0x80000000>;
+> +	};
+> +};
+> +
+> +&osc {
+> +	clock-frequency = <25000000>;
+> +};
+> +
+> +&pinctrl {
+> +	soc_i2c0_pmux: soc_i2c0-pmux {
+> +		groups = "GPIO23", "GPIO24";
+> +		function = "tw2";
+> +		drive-strength = <7>;
+> +	};
+> +};
+> +
+> +&sm_pinctrl {
+> +	sm_i2c0_pmux: i2c0-pmux {
+> +		groups = "SM_GPIO12", "SM_GPIO13";
+> +		function = "tw0";
+> +		drive-strength = <7>;
+> +	};
+> +
+> +	sm_i2c1_pmux: i2c1-pmux {
+> +		groups = "SM_GPIO3", "SM_GPIO4";
+> +		function = "tw1";
+> +		drive-strength = <7>;
+> +	};
+> +
+> +	vcore_gpio_pmux: vcore-gpio-pmux {
+> +		groups = "SM_GPIO5";
+> +		function = "gpio";
+> +	};
+> +};
+> +
+> +&sm_uart0 {
+> +	status = "okay";
+This will be needed at early boot, so please add:
+	bootph-all;
 
-commit 420bed9131dbbe37abe9d6b32af51219875811e0 upstream.
+ > +};
+ > +
 
-vfio_platform_mmap() rejects writable mappings of regions without the
-WRITE flag, but leaves VM_MAYWRITE set.  Userspace can map such a region
-read-only and then upgrade the mapping to writable with mprotect().
+And also:
+&sm_clk {
+	bootph-all;
+};
 
-Clear VM_MAYWRITE for regions without the WRITE flag, as i915 does for
-its read-only objects and as fixed in drm/vc4 (CVE-2026-68445),
-drm/panthor (CVE-2024-53071) and commit a5edadbae57e ("ptp: vmclock:
-prevent read-only mappings from becoming writable").
+Regards,
+Richard
 
-Note this is defensive hardening: no in-tree platform driver currently
-publishes a region without the WRITE flag.  The guard costs nothing and
-keeps the mmap() interface honest if a read-only region ever appears.
-
-Fixes: fad4d5b1f042 ("vfio/platform: support MMAP of MMIO regions")
-Reviewed-by: Mostafa Saleh <smostafa@google.com>
-Reviewed-by: Eric Auger <eric.auger@redhat.com>
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
-Signed-off-by: Abdifatah Suruur <suruurism@gmail.com>
-Link: https://lore.kernel.org/r/20260929094848.7439-2-suruurism@gmail.com
-Signed-off-by: Alex Williamson <alex@shazbot.org>
-Signed-off-by: Alexander Martyniuk <alexevgmart@gmail.com>
----
-Backport fix for CVE-2026-99809, adapted for 5.10.y/5.15.y: vm_flags_clear() appeared only in 6.3,
-use the classic vm_flags assignment so the file builds on these stable branches.
- drivers/vfio/platform/vfio_platform_common.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/vfio/platform/vfio_platform_common.c b/drivers/vfio/platform/vfio_platform_common.c
-index ce67ed9510cc..64c4291592f1 100644
---- a/drivers/vfio/platform/vfio_platform_common.c
-+++ b/drivers/vfio/platform/vfio_platform_common.c
-@@ -617,9 +617,13 @@ static int vfio_platform_mmap(void *device_data, struct vm_area_struct *vma)
- 			&& (vma->vm_flags & VM_READ))
- 		return -EINVAL;
- 
--	if (!(vdev->regions[index].flags & VFIO_REGION_INFO_FLAG_WRITE)
--			&& (vma->vm_flags & VM_WRITE))
--		return -EINVAL;
-+	/* Prevent read-only region mappings from being upgraded with mprotect() */
-+	if (!(vdev->regions[index].flags & VFIO_REGION_INFO_FLAG_WRITE)) {
-+		if (vma->vm_flags & VM_WRITE)
-+			return -EINVAL;
-+
-+		vma->vm_flags &= ~VM_MAYWRITE;
-+	}
- 
- 	vma->vm_private_data = vdev;
- 
--- 
-2.43.0
+> +&sm_i2c0 {
+> +	status = "okay";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&sm_i2c0_pmux>;
+> +	clock-frequency = <100000>;
+> +
+> +	expander0: gpio@43 {
+> +		compatible = "fcs,fxl6408";
+> +		reg = <0x43>;
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +	};
+> +
+> +	expander1: gpio@44 {
+> +		compatible = "fcs,fxl6408";
+> +		reg = <0x44>;
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +	};
+> +};
+> +
+> +&sm_i2c1 {
+> +	status = "okay";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&sm_i2c1_pmux>;
+> +	clock-frequency = <100000>;
+> +
+> +	vcore: regulator@60 {
+> +		compatible = "silergy,sy8827n";
+> +		reg = <0x60>;
+> +		regulator-name = "vcore";
+> +		regulator-min-microvolt = <700000>;
+> +		regulator-max-microvolt = <987500>;
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-active-discharge = <0>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&vcore_gpio_pmux>;
+> +		enable-gpios = <&portc 5 GPIO_ACTIVE_LOW>;
+> +	};
+> +};
+> +
+> +&soc_i2c0 {
+> +	status = "okay";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&soc_i2c0_pmux>;
+> +	clock-frequency = <100000>;
+> +};
+> +
+> +&sm_uart1 {
+> +	status = "okay";
+> +};
