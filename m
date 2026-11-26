@@ -1,79 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.224
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795697446;
-	b=LC3MYKQYPqPWM4dSzGD/d0W1CBkrhCvCeD4Hh0BXMTPSP1TaR00yTxMN0euNVePCXOr4
-	 X+oe/x5E9s6GWM7K1sgtHmqQGhWDXDFMR1CrUtBZKuNP7R40ZcjOGFCUuskq7ShxNeIe9
-	 +WHYCxbF0fMmfRgwkAuDUsl7TSi72CUJ4jAdujktujxwAtY6vn5xsT98qITMTRuMJD2II
-	 RVFP6r15fdbczr0n23qr3rSARPuWZhkDBYjRJHoT5qNsUuL2OjjfFSvRRX8i18hW2llGD
-	 x8DedfO7K5jXrBT9I1hTtUIFVFObdipK7PnEgXyGt85TtJgWz/GPvOrvmGxb7ef1EzQ==
+	t=1795697452;
+	b=Doh0isXi1d8m+pgrQ5BK49oti2HbGNNMrYSGjSYQBfzw2F3ulkPNti+O/wN/+o3Dl5Hn
+	 14s0ZkZbQr4hRxa0nYZM78X33Wo6DQMTcAp92DLXdWDpCNy7cyVgWuAZuNa2MmOuGlQ51
+	 uRFjxSHUDCPcdXE7ooHn3Wgt5j/JDEVLFGhgefM3XKJH2NK4jwG+7C2KomTqvPDJjPEAJ
+	 d7KZJyHZqEVXVNpivh3x1wK4Y0+HxFp6MiB2XpM7M/U94NnxuUpRJArDYB/A/rLiIBtLJ
+	 eO1dK15ZhndroUtfBRWdONERDn28j0405zFrl6reDd1YM2xlYHglflDFrNNSZUXYI1w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795697446;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=QIBz8TBojmEnLkECnbDASygJqcIsVTEAYkDyeLheQLw=;
-	b=pfF0VFKe6c6IgK6YeX0/kRUNvv4MGQ/aG0jxsAkO0bxAReEcPnrauJ5WAVoPnhvPptaV
-	 alvjDKzlvDqrzDInj8vCC3+Q5HXMvuH/yqng21VSkPT/13exNil/Hj8VIsTqyTk+Oo5/f
-	 gJ0SQYlpfxe3NFx9fsQSBFOLtji0RJ4l4Kf5LybAAGIDzzgtS5KI1SIXdtAxbogNcL4IF
-	 QuagTPTdH6Fm8dO9ocCQoureNJC2oCDqnG3+Y7vstJXQXohCio2nUoJ0xFV/vpt4GaX5T
-	 /QfasQ4Se66fnuoQ1kz/NguNlSAvbKKliMEWiINqyJRkcxv8BxeaeSc57rD0RPK82hw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795697452;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:CC:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
+	bh=lUFCf/i33f0gFEHdJJLi5vE7e9M4uWkbvzZAlGrisW8=;
+	b=m39UoD/XRhuZ0J1hWw6q1HWZAC1LUqQZIRLwwoz+JEODRn6a4+tOy3m0jvIEQ5EtyGqR
+	 hhkilWqUbLOo75YPi8qhLUU8NvXafWFYBTqPAbhLYP5Dlq2gOkkH/mnVf/LQFoJoIprul
+	 nnyQci4bms2cIR6Zd/BAL0JYtFKjInrOSBxL2607iWIQrIHhLe7G5uA4s6kgvnyx/QJ2o
+	 Yx8XWUkTdIF3Lys/nZWM0TH/UJSF3xtqOGIDgZdkKFECnZYe0BhhEHYknB3t9hrW9Hao1
+	 npaK9CMLwtBnTK5NPyGk+KM03VQAikjFGo3ZiLQxJ3QoAWmmhcEseT+5ZgDyXpXLIEQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=UNTiTXQl;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=47+3007Y;
+	arc=none smtp.remote-ip=113.46.200.224
+Received: from canpmsgout09.his.huawei.com (canpmsgout09.his.huawei.com [113.46.200.224])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DAE4606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:50:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2DAE4606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84CC6606A323;
+	Thu, 26 Nov 2026 12:50:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84CC6606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=UNTiTXQl
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795697445;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QIBz8TBojmEnLkECnbDASygJqcIsVTEAYkDyeLheQLw=;
-	b=UNTiTXQlh9CTGpMu2cfkRmZDE7qtAUpIkRBpixyerpDw6b2Yya/PkU5TQkMR4GJTLCFJGz
-	+7C72p8vtx0z28DoOvKbyKczW4sBym7FPYN6Wlk4e427Q8xLcynY0c6hUgTSkexRR0uBh/
-	FfVwNMVKHKpSbNwr7KGMJBw8zhGun3w=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-657-exFAA_g0N-GOjz0CX5RyHQ-1; Thu,
- 26 Nov 2026 12:50:41 +0000
-X-MC-Unique: exFAA_g0N-GOjz0CX5RyHQ-1
-X-Mimecast-MFC-AGG-ID: exFAA_g0N-GOjz0CX5RyHQ_1795697440
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1EA441955F2E;
-	Thu, 26 Nov 2026 12:50:40 +0000 (UTC)
-Received: from jhladky-thinkpadp1gen7.redhat.corp (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 538FB1956087;
-	Thu, 26 Nov 2026 12:50:37 +0000 (UTC)
-From: Jirka Hladky <jhladky@redhat.com>
-To: will@kernel.org
-Cc: catalin.marinas@arm.com,
-	kristina.martsenko@arm.com,
-	luyang@redhat.com,
-	dockseed@proton.me,
-	jmario@redhat.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] arm64: clear_user: keep alignment padding out of the zeroing loop
-Date: Thu, 26 Nov 2026 13:50:33 +0100
-Message-ID: <20261126125033.1692064-1-jhladky@redhat.com>
-In-Reply-To: <CAL2CeByu46f48j8O9=237fvhpPUCsKjOZkFuuHU3xrr3wVF5Eg@mail.gmail.com>
-References: <CAL2CeByu46f48j8O9=237fvhpPUCsKjOZkFuuHU3xrr3wVF5Eg@mail.gmail.com>
+	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=47+3007Y
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=lUFCf/i33f0gFEHdJJLi5vE7e9M4uWkbvzZAlGrisW8=;
+	b=47+3007YhjxQwZG0R5za/zsqMyQW7tRu8Zd+abGNeBJ5+rj85f+FRKzOp1l/5mYeLUPfE1HvT
+	5CP0MzbyNbTDW+COXLrP8ByfdcWTmULbA+t+zYeBT37GLIfuKfnUQ4NH3hhD3KdeX5MTbjicjWt
+	wGbMONsRxjOSqtfXa6lq3Uo=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4jZxGg64F5z1cyRy;
+	Thu, 26 Nov 2026 20:50:19 +0800 (CST)
+Received: from whupemk100010.china.huawei.com (unknown [7.152.184.41])
+	by mail.maildlp.com (Postfix) with ESMTPS id B5A3240563;
+	Thu, 26 Nov 2026 20:50:44 +0800 (CST)
+Received: from [10.67.110.140] (10.67.110.140) by
+ whupemk100010.china.huawei.com (7.152.184.41) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Thu, 26 Nov 2026 20:50:43 +0800
+Message-ID: <00eed8d3-2444-4517-ab47-731a1a987386@huawei.com>
+Date: Thu, 26 Nov 2026 20:50:42 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,80 +62,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH -next -v2 0/8] lockdown: fix the securityfs interface and
+ add tests
+To: Nicolas Bouchinet <nicolas.bouchinet@oss.cyber.gouv.fr>,
+	"xiujianfeng@huawei.com" <xiujianfeng@huawei.com>
+CC: <paul@paul-moore.com>, <jmorris@namei.org>, <serge@hallyn.com>,
+	<shuah@kernel.org>, <kalevi@kolttonen.fi>,
+	<linux-security-module@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>, <bpf@vger.kernel.org>,
+	<lujialin4@huawei.com>
+References: <20261110132818.2231593-1-caixinchen1@huawei.com>
+ <179553449228.44882.5530794140051904297.b4-review@b4>
+Content-Language: en-US
+From: Cai Xinchen <caixinchen1@huawei.com>
+In-Reply-To: <179553449228.44882.5530794140051904297.b4-review@b4>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ whupemk100010.china.huawei.com (7.152.184.41)
 
-Commit fe59e0358d9b ("arm64: lib: Use MOPS for usercopy routines")
-restructured __arch_clear_user() and moved the loop alignment inside
-the function. In doing so, the loop label ended up in front of its
-own alignment directive:
+Hi, Nicolas
 
-	1:	.p2align 4
-	USER(9f, sttr	xzr, [x0])
-	add	x0, x0, #8
-	subs	x1, x1, #8
-	b.hi	1b
+Thank you for your review. I have revised following the comments above, 
+including Xiu's,
+and sent v3.
 
-The backward branch at the bottom of the loop therefore lands in the
-alignment padding, and every iteration of the 8-byte zeroing loop
-executes however many padding NOPs the linker happened to need (0-3).
-Because that count depends on where the function lands, unrelated
-code changes anywhere in the kernel can shift /dev/zero read
-performance: an irqbypass reorganisation in 6.17 [1] left two NOPs
-in the loop and cost about 30% of /dev/zero read throughput on
-affected builds.
+On 11/24/2026 11:34 PM, Nicolas Bouchinet wrote:
 
-Norman Herms diagnosed this and proposed moving the label below the
-directive, so the padding is executed only once on the fall-through
-path and the loop body starts 16-byte aligned as intended:
-
-	.p2align 4
-	1:
-USER(9f, sttr	xzr, [x0])
-
-Measured on Ampere Altra (Neoverse N1, no FEAT_MOPS), reading 4 GiB
-from /dev/zero, two otherwise identical kernels built from the same
-tree and toolchain, differing only in this change (two NOPs of
-padding in the unpatched loop):
-
-  kernel instructions per MiB:	797.5k -> 536.4k
-  throughput:			11.6 GB/s -> 22.3 GB/s (+92%)
-
-The instruction delta is exactly the two removed NOPs: 2 x 131072
-instructions per MiB at 8 bytes per iteration.
-
-[1] https://lore.kernel.org/all/20250516230734.2564775-6-seanjc@google.com/
-
-Fixes: fe59e0358d9b ("arm64: lib: Use MOPS for usercopy routines")
-Reported-by: Luke Yang <luyang@redhat.com>
-Suggested-by: Norman Herms <dockseed@proton.me>
-Reviewed-by: Kristina Martšenko <kristina.martsenko@arm.com>
-Signed-off-by: Jirka Hladky <jhladky@redhat.com>
-
-Co-Authored-By: Claude Code <noreply@anthropic.com>
----
-v3: fix the diff header path, which was missing the arch/ prefix
-(scratch repository layout mistake on my side when generating v2;
-no code change since v2).
----
- arch/arm64/lib/clear_user.S | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/lib/clear_user.S b/arch/arm64/lib/clear_user.S
-index de9a303..143d2f7 100644
---- a/arch/arm64/lib/clear_user.S
-+++ b/arch/arm64/lib/clear_user.S
-@@ -37,7 +37,8 @@ USER(6f, setet	[x0]!, x1!, xzr)
- 	subs	x1, x1, #8
- 	b.mi	2f
- 
--1:	.p2align 4
-+	.p2align 4
-+1:
- USER(9f, sttr	xzr, [x0])
- 	add	x0, x0, #8
- 	subs	x1, x1, #8
--- 
-2.56.1
-
+> For your information, your e-mail subjects starts with '[PATCH -next -v2 x/8]'
+> and break tools like b4 that help tracking your contributions, could you
+> fix it to [PATCH v3 x/8] ?
+>
+> Thanks in advance,
+>
