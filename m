@@ -1,96 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795692255;
-	b=Ha/ffIMRDPnuYHSP6UJIGDEP6a/2sGLZ5+eq5dSkTlt7/zWHG0JhY96gl61Nv3506LMx
-	 WPFjAFcQ1h3k3nIHrO9NN6HLL5wc4iDLEePSWifl3tEYFt13W8NF9LJ+D/M87c1yaUR31
-	 F9sPpyPVCiVdzbv3uZ/rqz3NsWpL4et/UkTkpvNaYIK2wUarfFZVIRUvmrVdelojdXEkC
-	 NnM46XmVxrBEcYs1uQOo+X6z7pca8KLK4KkSZP6Mb/RqL5ztJ+ywu9GTNUsHxZqwVlrfx
-	 SVJKaTVeAGNP1+MQoql3IpSqK2qBpVupHARoz/ytcatEXqL9IrKiVdAMg+Ak2Grth5w==
+	t=1795692253;
+	b=vRLwF2WJnM82wryQ+bt9CP5JQeh4DOyZMP3fELen0YGcgW20TimW4rZBRju0+SCKke8w
+	 X27ubM9jdHYSvceesa9UVNYTDSTeiAYxbBjakEzpH7p8F4hPYmjDCfvJ917pXtlAgPHEC
+	 RD7RwwNBVzHUkNo9LG08vsYr4yliKz9wxBFNuWvAgOlrptRjIssC+rfbKtGj57+98EbEC
+	 8+w+E3aK2ADFiIyKg9I7EoCO9XFGvIUE01ZBfaYiVnsiimv+3a5y+n3RPldtImfkKzj7f
+	 O2PmF36taQskJVOGH/z8q0xbttXNtbqDRSWyjnaU9r58oF4gVNGi9nRA9wcAUIeYEXg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795692255;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=CPuYlgDQkbI5iiO9/9VOzdNRhnNYoSZ2JGqLIJUR010=;
-	b=yIPzIt03MFY8kaeXEBmLtuRnmyi7MOIRJzxnX+Ak3ZE8E8Bg4GMUFuMHnz83Tjs/yGoP
-	 4wephMgfHc2gK+hsqKZ2OsT9hUEIXvjG8LGmDmKXpYOFMkT9ts9ev21ixnI6j1VpbOT/H
-	 FSAnhRbVGKeiuouMX3loB71PtToix5QRXf50RHmIooUxNuZcpUhp4kklOvcGkr5PeJRke
-	 m+p+EM5N4iDuhQCdzy2WKGXKvb1bSuARK49ROLQjbXxBH1m39tyhqycHFohO/s7N2NKwC
-	 4f2JMsmj9CWfbWqaGnsEZJ+RvhplB2/jD8BhyJ9/0c6WJqlmuJ3Tr+/mdaxd5AqrFvg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795692253;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=4PQzyrJId5iFWaXv2F4psoT+ZCMTu5VTBd79sMj6dkA=;
+	b=Yo+JkZZtlgmQcNPx6HYx2AJwxE67bzJOSO4WEh6+eOwG9mDtK112j07abMjYkE417OqV
+	 VsjyHHLYdEzCFXp2fJLWXokP6RF++nYkqEhSPQUUFsDCpz2MRcfs26IqsIn8Ji+wS3V8j
+	 YeC7nIK43HDq++C2laYfR3TFcF1NqXSt6Z5FPo+sZ/opjn2djntzTFu1FWJ6fhLap3t5x
+	 sMKMg20uLLhQn9HJ8E1ZgX+Nlep1bEpFe8eJyudOt13qJ9z83gNYZJLPVktY51UFN7639
+	 JZXxbwTwvLaeAmtecDnObBzEj8V9WOdp1/brnjFtOKc70PoaBqhakTrtgDgaqy9XTEQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="h6XS9/VI";
-	arc=none smtp.remote-ip=209.85.216.53
-Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="ajVI3Ww/";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 424CD606A6B3
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:24:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 424CD606A6B3
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4151B606A334;
+	Thu, 26 Nov 2026 11:24:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h6XS9/VI
-Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3b49a6e8212so2704445a91.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:24:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795692255; x=1796297055; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=CPuYlgDQkbI5iiO9/9VOzdNRhnNYoSZ2JGqLIJUR010=;
-        b=h6XS9/VI2KONMs6M1L+OQSSb4E6xVbWyzCe5DjgppJXQdAMxGs/oly3tREZmY1ilEl
-         WobMJtAelNE+HaInbboMAuWbJguOEzYefnnkNdo+lnx/JXjSS/m2rJWRFnNSGrm8Ysm4
-         K62zIMT6MM7y3hDG6cME/rg9lXAk2KIHdge6I9oG9cBDPn9Jt1fHUH4oqciF/TOzVH0A
-         HlyVZsD/J3XPc0Zm6zTpZWNvBlYEBSQNYjE6liCoEGG6vKd+II+CJmpqaSz4O1slL/vA
-         Xril0bcPMDu93Cxe5cmkVZiTrFKlxdKwASBT2gkmlnqPUzjJvuEl8Q1eUEo2GrglXPIC
-         a/Fw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795692255; x=1796297055;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CPuYlgDQkbI5iiO9/9VOzdNRhnNYoSZ2JGqLIJUR010=;
-        b=pBfSmJs0jedPmRJcQUUDmGbltUsjKkHHRLGpcCuoI5etJpDWzOAMI/tUA/9LZRUvs5
-         rB7ZPNDkllTWmsqyxex5HPbDcgvyq2ucUTdIWlIwJJ36pY4DLv+a7zkO3vuhYs3jRmHx
-         tBt/0SCEEt5YDqv2IhkKJ/6gLz3BI/21Giay74UYq3r4cwkh0ZrLnPu3alMr+XulJfGY
-         wJ4zcBz7rpegcD4lJiyg+v30wdix2MhPDp1tlQ1abdTriqXQsg2MKOC5OyntZC7L923B
-         srvK4QONPRo9CzJRM0Ytg4Tjt4hB8j5LmR4jO/e6giR124YZPtnWccAzIiXLql4ZOOpI
-         BZ1Q==
-X-Forwarded-Encrypted: i=1; AL+hErFk8VjOVpo5c5O4DeREiAWY35ZlKb+9GNU5CjSZJpYMCiuyGK0uddpV3FXibPvbI+0Z0q5/x6ZTWQvB7U0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z92e85oClLCp9azOeh1SnDrzNRvw446IF9dGAovms66fLOhgsbW
-	oaGVsi4M/991/UqzYJJ8illNLqcSx3TNgeiaTVlMZ/i0rk9eDycfl0cSE8OYLg==
-X-Gm-Gg: AZFdTZeEsmmJyFtUfEJKb6/KvRHJo5uBQXAx57S84SP4I4MfJ4oOU97yNR+DyNU7XB8
-	LGUCY7v5NIjdI9+PhRim9PdxV08kXMdvBNNElsapoxTaTkMPEX3FVdS2WVgakwJwvOYJkzd0Cob
-	7F1JkJFPS7LrcCcg4Xc3N05n55bhBgkIQU/PoAYwjV32WsjWEP1SNkc8lomnjy0SHCq5OFBS9Ls
-	JEC80e8l12qcHsThMwYCOO8JyYSTOz2tZJdHGOBqUzsOhwL9hklURs68hGwq+U+tXKqEkkqVpMb
-	dS8DecSjtMH/DBXjspE6fI2sASM6GBKXaiRKmNrS39htA3o1EWAdYAiNWZqcbYaUPyIzKc7aInK
-	74D0NF/WL2LUDzk6ziXHyYYYM+WacIv3kaVdn1EMx/tjoqmoLN4GVwpWs7UZvwNvK2GzA/9Vj9S
-	6iqfg233RgK1TuQ6HcEmm2J4fS4afvGMHev8uO7CPuWFnmIeukt0EN6d2BzPSZz5R9UZTntMa4i
-	pyPEzSENU/YcQjN5HZ2UxVJYjY6HklGeSNVDobPbaIa8nxMfN6Gt47kiUfxTIReR3aLNAkv2Jlb
-	rEXiuiPVe4pGIqq617iYF6zGS0/Lz5MCww==
-X-Received: by 2002:a17:90b:1801:b0:3ac:8446:c1b5 with SMTP id 98e67ed59e1d1-3b41c9e4b0dmr20385243a91.31.1795692254534;
-        Thu, 26 Nov 2026 03:24:14 -0800 (PST)
-Received: from server225.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4dfbe54a2sm11652192a91.17.2026.11.26.03.24.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 03:24:14 -0800 (PST)
-From: Ping Li <leeonion.muyu@gmail.com>
-To: miquel.raynal@bootlin.com,
-	richard@nod.at,
-	vigneshr@ti.com
-Cc: linux-mtd@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	leeonion.muyu@gmail.com
-Subject: Re: [PATCH v5 3/3] mtd: rawnand: r852: declare NAND_USES_DMA
-Date: Thu, 26 Nov 2026 19:24:09 +0800
-Message-Id: <20261126112409.8491-1-leeonion.muyu@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <878q2fyhvm.fsf@bootlin.com>
-References: <878q2fyhvm.fsf@bootlin.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ajVI3Ww/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 739E01F000EF;
+	Thu, 26 Nov 2026 11:24:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795692252;
+	bh=4PQzyrJId5iFWaXv2F4psoT+ZCMTu5VTBd79sMj6dkA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ajVI3Ww/N7PAJe7092To6cY8rWgzFqrcrs6UXSAuTJNH1HZJQnIOpj+FrFFHIqzFF
+	 OsPMXZb4DtkvzY5DRK/o8hLmPC6ix/7525XrdynXpw4N1d/gIyj2/vrcItCMloczHb
+	 /mw9oGdx77u4Uxfn+Q1rTm/EV51uV6CXfySfBpV995msTiufAwssHI4QKlQctfGBMm
+	 r2/uGUXMCu5aklbrYAMeUlBvM9iuNm5UZ7nBfOKP77AeY3Krvn0US5muR16rMAARC9
+	 Yz9ql3slzAuZHgncHWOeq9glUjBjg48mkBHmQUU8f7Ds4LUC3ocTshwKkUe1lnoIgr
+	 Pta62UY9BZ18g==
+Date: Thu, 26 Nov 2026 12:24:08 +0100
+From: Alejandro Colomar <alx@kernel.org>
+To: Sergey Senozhatsky <senozhatsky@chromium.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Minchan Kim <minchan@kernel.org>, linux-kernel@vger.kernel.org, linux-block@vger.kernel.org, 
+	linux-mm@kvack.org
+Subject: Re: [PATCH] zram: do not modify cont sysfs store buffers
+Message-ID: <awgV_Ngg8HLMUcsS@devuan>
+References: <20261126014518.1318583-1-senozhatsky@chromium.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,20 +57,176 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="dgsjs2ke7evooars"
+Content-Disposition: inline
+In-Reply-To: <20261126014518.1318583-1-senozhatsky@chromium.org>
 
-From: leeonion.muyu@gmail.com
 
-Hi Miquel,
+--dgsjs2ke7evooars
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+From: Alejandro Colomar <alx@kernel.org>
+To: Sergey Senozhatsky <senozhatsky@chromium.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Minchan Kim <minchan@kernel.org>, linux-kernel@vger.kernel.org, linux-block@vger.kernel.org, 
+	linux-mm@kvack.org
+Subject: Re: [PATCH] zram: do not modify cont sysfs store buffers
+Message-ID: <awgV_Ngg8HLMUcsS@devuan>
+References: <20261126014518.1318583-1-senozhatsky@chromium.org>
+MIME-Version: 1.0
+In-Reply-To: <20261126014518.1318583-1-senozhatsky@chromium.org>
 
-Thanks for the reminder about the threading, and thanks a lot for
-your guidance on this series.
+Hi Sergey,
 
-By the way, if you have some time to spare, I would appreciate if
-you could also have a look at the kvmalloc RFC this series came
-from:
+> Date: 2026-11-26 10:45:07+0900
+> From: Sergey Senozhatsky <senozhatsky@chromium.org>
+>
+> zram sysfs handlers that accept key=3Dvalue arguments (e.g.
+> algorithm_params_store(), etc.) pass their const char *buf
+> parameter through skip_spaces(), discarding const, and then
+> mutate it in-place via next_arg().  This is not dangerous
+> per se because kernfs_fop_write_iter() passes a temp copy
+> of user string to zram, however it is still probably worth
+> fixing, just for the sake of correctness.
+>=20
+> Allocate a temp non-const buffer for args tokenisation.
+>=20
+> Link: https://lore.kernel.org/all/awcpkJD6K1xtx_Pe@devuan/
+> Reported-by: Alejandro Colomar <alx@kernel.org>
+> Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
+> ---
+>  drivers/block/zram/zram_drv.c | 28 ++++++++++++++++++++++++----
+>  1 file changed, 24 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/drivers/block/zram/zram_drv.c b/drivers/block/zram/zram_drv.c
+> index 96b135e3f727..ca12c1918aec 100644
+> --- a/drivers/block/zram/zram_drv.c
+> +++ b/drivers/block/zram/zram_drv.c
+> @@ -1279,10 +1279,15 @@ static ssize_t writeback_store(struct device *dev,
+>  	unsigned long lo =3D 0, hi;
+>  	struct zram_pp_ctl *pp_ctl =3D NULL;
+>  	struct zram_wb_ctl *wb_ctl =3D NULL;
+> +	char *kbuf __free(kfree) =3D NULL;
+>  	char *args, *param, *val;
+>  	ssize_t ret =3D len;
+>  	int err, mode =3D 0;
+> =20
+> +	kbuf =3D kstrndup(buf, len, GFP_KERNEL);
+> +	if (!kbuf)
+> +		return -ENOMEM;
+> +
 
-https://lore.kernel.org/all/20261124025722.1476247-1-leeonion.muyu@gmail.com/
+Thanks!  The fix sounds good to me.  While this could be a breaking,
+since we're changing (or rather, not changing anymore) the string held
+by the caller, I assume the caller didn't want it changed (since it was
+const-qualified).  Thus,
 
-Thanks again,
-Ping
+Reviewed-by: Alejandro Colomar <alx@kernel.org>
+
+
+Have a lovely day!
+Alex
+
+>  	guard(rwsem_write)(&zram->dev_lock);
+>  	if (!init_done(zram))
+>  		return -EINVAL;
+> @@ -1303,7 +1308,7 @@ static ssize_t writeback_store(struct device *dev,
+>  		goto out;
+>  	}
+> =20
+> -	args =3D skip_spaces(buf);
+> +	args =3D skip_spaces(kbuf);
+>  	while (*args) {
+>  		args =3D next_arg(args, &param, &val);
+> =20
+> @@ -1779,12 +1784,17 @@ static ssize_t algorithm_params_store(struct devi=
+ce *dev,
+>  	char *args, *param, *val, *algo =3D NULL, *dict_path =3D NULL;
+>  	struct deflate_params deflate_params;
+>  	struct zram *zram =3D dev_to_zram(dev);
+> +	char *kbuf __free(kfree) =3D NULL;
+>  	bool prio_param =3D false;
+>  	int ret;
+> =20
+>  	deflate_params.winbits =3D ZCOMP_PARAM_NOT_SET;
+> =20
+> -	args =3D skip_spaces(buf);
+> +	kbuf =3D kstrndup(buf, len, GFP_KERNEL);
+> +	if (!kbuf)
+> +		return -ENOMEM;
+> +
+> +	args =3D skip_spaces(kbuf);
+>  	while (*args) {
+>  		args =3D next_arg(args, &param, &val);
+> =20
+> @@ -1899,12 +1909,17 @@ static ssize_t recomp_algorithm_store(struct devi=
+ce *dev,
+>  				      size_t len)
+>  {
+>  	struct zram *zram =3D dev_to_zram(dev);
+> +	char *kbuf __free(kfree) =3D NULL;
+>  	int prio =3D ZRAM_SECONDARY_COMP;
+>  	char *args, *param, *val;
+>  	char *alg =3D NULL;
+>  	int ret;
+> =20
+> -	args =3D skip_spaces(buf);
+> +	kbuf =3D kstrndup(buf, len, GFP_KERNEL);
+> +	if (!kbuf)
+> +		return -ENOMEM;
+> +
+> +	args =3D skip_spaces(kbuf);
+>  	while (*args) {
+>  		args =3D next_arg(args, &param, &val);
+> =20
+> @@ -2578,6 +2593,7 @@ static ssize_t recompress_store(struct device *dev,
+>  	struct zram *zram =3D dev_to_zram(dev);
+>  	char *args, *param, *val, *algo =3D NULL;
+>  	u64 num_recomp_pages =3D ULLONG_MAX;
+> +	char *kbuf __free(kfree) =3D NULL;
+>  	struct zram_pp_ctl *ctl =3D NULL;
+>  	s32 prio =3D ZRAM_SECONDARY_COMP;
+>  	u32 mode =3D 0, threshold =3D 0;
+> @@ -2586,7 +2602,11 @@ static ssize_t recompress_store(struct device *dev,
+>  	bool prio_param =3D false;
+>  	ssize_t ret;
+> =20
+> -	args =3D skip_spaces(buf);
+> +	kbuf =3D kstrndup(buf, len, GFP_KERNEL);
+> +	if (!kbuf)
+> +		return -ENOMEM;
+> +
+> +	args =3D skip_spaces(kbuf);
+>  	while (*args) {
+>  		args =3D next_arg(args, &param, &val);
+> =20
+> --=20
+> 2.56.1.839.g22a8290db9-goog
+>=20
+
+--=20
+<https://www.alejandro-colomar.es>
+
+--dgsjs2ke7evooars
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEES7Jt9u9GbmlWADAi64mZXMKQwqkFAmsIFtIACgkQ64mZXMKQ
+wqmnnw/+IhueUt4H5bq+DHR3fv4lOq4IBzTRkEugCwDpfAR3Ckp7cjPP4SnHl3ty
+PzPlpWL2ljrwnILODZ51c+1MT6cazfEzFSTzYPLwHxT94wRz+RbD0hSwsNEYrRnJ
+YJJ1Lh6V86Gj5qv9hwwYhelbzRrESW8GNVvVh0XJ/GEoSjkhoXCP2VZ45iNk3f9K
+qzseQFCcni91uW5szgY+SpeJVBxQCEFvVNsOKmcfnemeGJIVRwHTOLrng2zy8J8q
+h4o0XjhGG2olNbK3GuuhfDgHq7XPop0WPflv1Q+rcNIKEXQS95OMwqW8u0Mqh3ow
+2MnAAM20bAHRgZ1i8utJ6IOwJbD59Hi+9bSh3+NluYdDyLYKTFxAE/BcXhG1eCDC
+kLsdGzy4VvlQjpyqiCItPHkZ7l81gDePUoq4Aoxe87272AZDTYdVmRX3tA0wF6KH
+8hX4aLrP6i/NE/pJ3xk2JfctH0XS903LZc0E9B5X7rw9zbb3j4f0f3BO/L5DBroJ
+ev51US0NJHz5sWsS6S5qLTvf8QP5168cD8OPUJkx7R3OWFecwSZyZeZ/8IJqjjFT
+VrKG3eFbgEtMmoizFmDa221jtl2qfyDRezW5eUHmKYuN07fBfA8hyGKX1ut4LtKs
+X1fK5yrOO5wOZMmfu/HFO9NFNCx1WHg5ILnXIbx2wM9nwCDUICA=
+=q8RM
+-----END PGP SIGNATURE-----
+
+--dgsjs2ke7evooars--
