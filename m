@@ -1,66 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.236
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795664475;
-	b=ODXhkY5UgF0+KhwnDSIMxHzHV4fynuycp1Uv5r+3qQYIfu8HBVFHScfbP3hHGccme8xU
-	 IKg92mFYexBxbs0dPjmTPMHEm6UFWV55LRBMwyYobxJaJPLTUhbIXV4V6knpSbv86lza5
-	 C0VtbgBk73bGJ1eyfBuo9afm8iaWLxvF4635zCdVudSlFysjl+oCQKuyq213xkxdWakwC
-	 MM7me/cBaqXBdAmnRvnnjkav16xOcHWpL4YZGS9os+1RcqMnH90NaT53q/mpkCDiz5ntw
-	 IbdoSJCR4FlWEfpMaPThF0PfKoKp5lOxRiBmlhfHAmAfECelWSt1znYlItY8OIe4h+w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795664475;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=bZUI4zFvKI5feENhD2kLu0gGg8DBuciBEsqLP3fBRFU=;
-	b=S0LDcEiOWeyV7I37yKak5k0mLSKikwcyo0tpSpyc4ECrnHjBezNO2IFQg+dGW4Vvffrs
-	 4AqkUMiGjXyFVONJCyuoUmGIpeolLJg+sYARfWmckZKQi8djP71IOzblRaLTrHbMDkb7x
-	 c2HzRvCjNr/dLUjwjd7QRuu7v0mxt3Cc3p4OSgtABBlab/ijJFhhYzQu2gUTxNO9pmc7L
-	 hmyQ9VR9V/pQxEjcjgAdcv12u4QwoYkzkA+IR18rJFyMGEwPpwnRFdtbZUHhQqXefXCK+
-	 aGvAUB6+TQwiwHx94F4jJckAoEETAo8rwXFjacAEKXZzeDizKVm9TfOrVnTlVa4thAQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=hVtIMfrV;
-	arc=none smtp.remote-ip=95.215.58.236
-Received: from mta1.migadu.com (out-236.mta1.migadu.com [95.215.58.236])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.71
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795664485;
+	b=q18nt+13zcKwNObxUU0IXgfQtTU4IzbvpHOkWFkzIFCmXQrx3lAq39PwhX/Y4SBGGI0B
+	 baeEv6o6XO1osuEWxk7t3P47Np5aExDgnYpUHSZgspoJEKRCkd5BWP1yGhPqldtggE2cC
+	 LrfCZF/9FVEUK86mcnsSFI5sR6YBgfhdk5/k9Gd6yvta6w0A+hAgAO94zUYz6PSQx61dr
+	 pWHafDT5uWrFWYyXpIbr0a/3dRie7Om3Dxcn52VI0pQ/ShzT0+ibplbdHJf9b1IfM/o2y
+	 FT6ERLGRZw1+7I0Wpo/04los5OvxRTYy3q1c8J1yKDkANRidJLqTuQjLcYHCFz2VLQg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795664485;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=NX49c+RsfDmzzDi6BsCJc72BXdQGAuH+1TStIPaaQ90=;
+	b=3dYO76G+Tr2oCg9ftSZUkqfUT3rUOaHQk1fMzvi9qoCynqIazgA2PMV3YquO7aOCZRFY
+	 cTPFH8iE+uuaxQT40iOWmAORhl0RBITlDp7Q8IZZPSx41UgvcMoC411tT8876at0C/Mt+
+	 sRIp+viO8uyru0MxK3y/jyp+vDYMwfE7PFos73LSrbqfVHvSsjYHaUPsbApprjF1Jtkuk
+	 PmTsREL0DhHIqxNgQRDVjLEDCI8C6cIHsVFRTQZslWtJ8uCLHGsYLesXqXlJ2wBlS+lZP
+	 CE/Og8ure20/G6bcI8qbec6lZGFJ0AgC28zj4MU25ewpRzy7SmhNh0xSLBrZPkb4AxA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=JW4y6y9w;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.71
+Received: from MW6PR02CU001.outbound.protection.outlook.com (mail-westus2azon11012071.outbound.protection.outlook.com [52.101.48.71])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 836C8606A689
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:41:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 836C8606A689
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC6FB606A321;
+	Thu, 26 Nov 2026 03:41:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC6FB606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=hVtIMfrV
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=jVwd+DHedpkNv/GZhq681Sv6TG6fh3tLpPaV5jWETFw=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795664472; v=1; x=1796269272;
- b=hVtIMfrVvWAefucgujOzEp+d1PZx+semI3pTqvbfaIOE22FPMSI8ThNOt5YlU2VwtqNZjd7k
- mVyvt402hnLoF6yNXZECqM3lsDJk34ifXyFEGaRybD3SSwLGcjFxuilRItyeG+gMOVCD61Chgcj
- rzYKeOmuu/CWdwyISbMgTESg=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id e1608bf855ead876;
-	Thu, 26 Nov 2026 03:41:12 +0000
-X-Mizu-Trace-ID: e1608bf855ead876
-X-Migadu-Flow: FLOW_OUT
-From: George Guo <dongtai.guo@linux.dev>
-To: chenhuacai@kernel.org,
-	yangtiezhu@loongson.cn
-Cc: hengqi.chen@gmail.com,
-	guodongtai@kylinos.cn,
-	bpf@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 5/5] LoongArch: BPF: Add support for arena atomics
-Date: Thu, 26 Nov 2026 12:40:47 +0900
-Message-ID: <20261126034048.7370-6-dongtai.guo@linux.dev>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261126034048.7370-1-dongtai.guo@linux.dev>
-References: <20261126034048.7370-1-dongtai.guo@linux.dev>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=JW4y6y9w
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bfjV2bgcr+DzPc8rkV3P6RFNXXbjm/9PWmHqvDFSf1ebxKPRJoi+QE7grb5xhEWH+ig8+i26CCwruuejLTQ7kka0JA9TZOoA0tZ1EeC53PLU6TiHhfGtM86erBNxBFyHtzBYKEsdiwsaDtw2x3aZq0vvOKdaNkyavIGVp9CjwzSrlXzshjDzcYeIg+HB5N9TQSsXwewAx1Ruceg03F3O+0GjiKqZsFbGCTwarz/emauq2YLWdR8/kRFctjLCrgLU9aQowyRDAW7CrOpuNVbcecSP9P6F/8Kjl+jrNy4P8czZbqc8UYI+B8vmcH9dDjBPP1nYI458XIpLf7ON42477A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NX49c+RsfDmzzDi6BsCJc72BXdQGAuH+1TStIPaaQ90=;
+ b=Rk7SSJyP7aXlInldzFK+luDAI+JjYygc+PquDp/5JeWh0kK96YzapFnco6V8flvGWEd5b/CZe16AHaOsrmdrPbxFNaWY7xFxbJ63pwuX+HR7SQc8AnFCZU8rWeBjmpTDyiWdG3/0FVt6XVNJ9q6fhm8aKMx5r9dM4bH8k1CCk4mfYJ2eLw5FMOZInn/wdM8NxqODhb/s/j02ysxIRjNhiQDzzToC3/wzw6hFKRolEanR6Xp7BpUpuFJ4IzPKqGoVE6RyhMhPZ2x5FQr6r8K9WtiF1u0LDGqCL1oDhvvpvNwHmfRPohS7R7pvb36nNUg4+bSv1MZcplm/pcpPTshiag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NX49c+RsfDmzzDi6BsCJc72BXdQGAuH+1TStIPaaQ90=;
+ b=JW4y6y9wF/oqycoUwZEn3FgqRHHAJV3HW4bzpnPKVNa8wdqPzQ7YcgMSi16f/FVj5D4eAjs0kD+jgFKWrFF8X5SfM+y0YfeVJYx/ikvY5Omgnx0wzmS3WT4yDsKcUQYEOGhTpTgMdGU5re5kTF8w0M5MbVQjA0TDv9CrJu5GbB0dEHIVeYVke9zzPc5sdImBDlc+9kF74acgFqI1NQLyiAvi9mdfuS+7TFZUeSFHqHshF2LUzuKb/ALlUWodzIJvYg17HNK1Jbl5sAfwg42hrZcpVdPo+0F/Uo72MCJK7Jj348QxIrb3IPVrYb2YkzYpeHSeKqFqBvPT18e6CFGb6Q==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB4354.namprd12.prod.outlook.com (2603:10b6:5:28f::22)
+ by SA1PR12MB7126.namprd12.prod.outlook.com (2603:10b6:806:2b0::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Thu, 26 Nov
+ 2026 03:41:21 +0000
+Received: from DM6PR12MB4354.namprd12.prod.outlook.com
+ ([fe80::7106:c186:62e:bc0d]) by DM6PR12MB4354.namprd12.prod.outlook.com
+ ([fe80::7106:c186:62e:bc0d%5]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
+ 03:41:21 +0000
+Message-ID: <2b503e0e-8987-4e50-a968-09130e26d011@nvidia.com>
+Date: Thu, 26 Nov 2026 05:41:14 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3 5/5] net/mlx4: flush pending doorbell when
+ dropping a TX skb
+To: Joe Damato <joe@dama.to>, netdev@vger.kernel.org,
+ Tariq Toukan <tariqt@nvidia.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: edumazet@google.com, horms@kernel.org, linux-kernel@vger.kernel.org,
+ daniel.machon@microchip.com, linux-rdma@vger.kernel.org
+References: <20261125180021.1804204-1-joe@dama.to>
+ <20261125180021.1804204-6-joe@dama.to>
+Content-Language: en-US
+From: Mark Bloch <mbloch@nvidia.com>
+In-Reply-To: <20261125180021.1804204-6-joe@dama.to>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: TLZP290CA0003.ISRP290.PROD.OUTLOOK.COM
+ (2603:1096:950:9::17) To SA0PR12MB4367.namprd12.prod.outlook.com
+ (2603:10b6:806:94::13)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,308 +102,126 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB4354:EE_|SA1PR12MB7126:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0067f108-115b-4abb-f6b3-08df4b6f22e2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|1800799024|366016|7416014|376014|10067099003|11063799006|56012099006|4143699003|261021121427099003|261009223027099003|261102123227099003|261028144727099003|261022105027099003|261022075727099003|261026140227099003|261026121527099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	B0xPSVJOVXq3L/8hYjL6w6YHOPe9JONwFFQWWkwrnNG3T1Wtk3JS4EWMmabwC4Wdr56Bv9wSDM7j4A2O7SrA0QPK0VNxZQrUAlBNuCtlcACBaut9XCWS4S+lTuuJfvgUnuvE5VG40cgr9Gjr7u5nhdqwKO68XXalAB+Sr1k/kCGugSGuP6mmhfpt2WVZ4tGnlsBJteQrHtjdrZIUeqJCiSOPM6LuqiWdH3b0+XWFok7fILqox9csOa1jnBPMbip0fbJFJzlkHHf7JJjcc+NoCXD0TBDpnamhC4s7ZqpQyK8anzKbYWm2dFQxTO4ZzelrG3XLwfAllHrcskbDU3brJW7Ds4RqSi42Z9zRzaDqo0WXi1P40UGuhKYG9yrjE5+MWd8qebZcvH/s/EH3ALBFPm+YUTyzQhshJfsOdEnZ8qBYOGcFqMq3DpVILwwXXbGfOSMtWXH6+R2lwBXk7JwZnWT0lVIDSKzvljr9M0sVL66sTWc1fYkUB0DhLPrI4MdnGIoei+KsdGVWkZuHkuls4c6RVds9OCg29xsQx5Yjkw1j0h2HG8jKYJPtwNNYUklZxPS0E0VNhxRrqmsB26/330zJAOgX3sYOtervCgERrVa9uxLl50q9C0EBP7L1651gba8KPrqnv1Ryb9XIKQSlKi+iukVysh0FGxJI9gtyiSA=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4354.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(7416014)(376014)(10067099003)(11063799006)(56012099006)(4143699003)(261021121427099003)(261009223027099003)(261102123227099003)(261028144727099003)(261022105027099003)(261022075727099003)(261026140227099003)(261026121527099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?ZERCTFhhZm1FT1ZRYlRXRUpBK2tObFpoYndQYURJZDFyMnJXaTU2RVI0VTR4?=
+ =?utf-8?B?TEdoUDJBNk9EaGw0MUNsd1BtZEIreHhvQXNQYmNuZ1NZb0h5ZkQyY21xcmxV?=
+ =?utf-8?B?ZEhxUGxacE82QjlLM1NteWdUdFNPR0VNdUwwNXFJQ28vbE9yMUxMckNBQ25C?=
+ =?utf-8?B?QUdGZ1VGU1VsbTFUWU1IQUNrN1IwZWdYdFEyeXJLTFVMcXE3UEFGOUJmVWR5?=
+ =?utf-8?B?NExXWktYdUMvLzdjeDREVDV0Z05vaUk1OGhSd1VkSXdwWFF1YysxWHFKZ1hM?=
+ =?utf-8?B?b3d3RGM5bng3SUpZZlhVWW44ZE9hSWs4ZzJwRzNLQmRvQWJnQ3plWmJvV01X?=
+ =?utf-8?B?VHpySFVZZFhQL01pS25mOGlLQ2FGK29QNTJHR0hkdlpEZ050bW9tbnIrZnlK?=
+ =?utf-8?B?RE93blFzcDJxMkIzblRZRXZwbm8zNXpIZHpPT2l3TEhYWVlRU1ozdEd3M0ha?=
+ =?utf-8?B?T1FXNjF2emduMTQ0eTlaaXIzUnJQVEh4QmQ0V1BPQW44T2hpblhDT0NZWWpo?=
+ =?utf-8?B?VlpsWDN2NjNObnp6MjJDRW1uZXJWRjNWWkh4MDU0a2Fjdk5uVHpMK0EyaFpu?=
+ =?utf-8?B?eXZIbUpGVjdGWkhTc2d3Y21hL1VWdFNqYWFNMUxLWGU1aWNtNmU1Q3c4NnZp?=
+ =?utf-8?B?NGJ0L3VJVy9JWXNlb05UcFhwWXpqRFQxT2E1M2ErSzVtR0g2NC9nQ0xINnBS?=
+ =?utf-8?B?VTdVWnp1V0hza1E4TDV4Z2FzZDJkOHd5MWUxeU1CVDNLNTl2NExEclpSeTdH?=
+ =?utf-8?B?SzYrN21MTDA4MUNCSDBtSDhmL0NFT2xwWnE5L0JUQTlqeW9XWkhBVWJtMjh5?=
+ =?utf-8?B?UVRScStQV0tpOVRyRFR2OTBhUmxjVy8xa2E5RlFHT2pRbVg0T0JZbFVEeDNr?=
+ =?utf-8?B?bXRGbDBLUmU1OGlkNnJGeU92MTRqWTNQbGd5cmRDKytZL0VlN3dsL2RVMEc3?=
+ =?utf-8?B?QURFWFZVNENWNnZzM05henlvVmZvb2d1Q2J1S21MWXRHQTJGbStLOEdLZjcx?=
+ =?utf-8?B?cXVCV2RKNkRidTlyZW14RjBOeUQzMkI3OGFEc2NUdVcvbUhJL3BkZkRjZHJp?=
+ =?utf-8?B?a2FUSENydERXTGtJa3dzN2pvUGk2SEdweDV1Mm5hT2JmQnU2S2lnWEcwSE1s?=
+ =?utf-8?B?bGJ3YTVvakV1aThEdmowWXp4b2xVUG5aTWp5Q3RwSjhQWDVWb2pFb2xycnBu?=
+ =?utf-8?B?eXJSQngyQkFheDFTbHJZN2tIdnVBMnRaMmZrWVFCNzFwMktMMmo2MzdTZFFG?=
+ =?utf-8?B?c0RDK29PaytvQVg0WU9QZituSGJCU09yM2FxYVA3R2d0UjQveXlYak9qSjlB?=
+ =?utf-8?B?WDY5VE5sVmJNTWpnS2xkYjhDTjg3YzJLYkFsMTM5WFlPb2dtOGhXUUNrT0Nx?=
+ =?utf-8?B?eXA0UUthZmZmU3dpYzI1TVU4RXYzMXlUQUJYSEJOTVgrc2ZYV1ZsWU9iVTBq?=
+ =?utf-8?B?MU5wVW45b1dJdXZZNTJITGMzenNKMmVDYXJ4MWJIdWEvM2kzUUUraFNRTXo3?=
+ =?utf-8?B?YlkvbVFiNDk2dytOTkZrODZPblJ2NWxDUURjOHJWTFU2QXFqSWp1UE43MUNR?=
+ =?utf-8?B?V1gvZDVmSnA5aGlwbEkwU1ByTjZwSk5DczdXWDh5VkVmZmNxVXdUbTloOHRE?=
+ =?utf-8?B?UlZZNHhlTU5SdVEzTU5xU3ZvcFlMRlFVZTJqL2VxY2RHOU8zRHVhdnFzbDNL?=
+ =?utf-8?B?TnYzSEVyT1R5cGkrb0NxMXNzVnc0QVZOMi8yblNRMTJZcktnb1pDTXdVTzNU?=
+ =?utf-8?B?WHV6eVFGQUxUaDdCek5Idjc4U1NSTmIxSkxlbS9rcE5WT3BBaGg1TWhWYktU?=
+ =?utf-8?B?Ym9mRE9jMGNPMnJGc2ZWdVRUM0NoYW1WNmR0WmI2OWYwVmxVTEhCS3gvNjB1?=
+ =?utf-8?B?ZXgvcnRzVkhDVU02OXpnbnlHWHZLaWxnTDlOZjl6a1hiQml2UVdBcHZDRUdE?=
+ =?utf-8?B?RGhUM2xsQUlUWHJDRWVraWVPa3RybU1iWHp0OE5tcFhZRHY4MUl0TW9aZ2FC?=
+ =?utf-8?B?VXFvWnpDK0JZZEJBWmxla0ZMZHhab0pJN3F0QXFNMEF4MkVlbjJNWXduUkpQ?=
+ =?utf-8?B?a2pSVlFXRnZaM2p4YWI5NHdqMFU0N2Q4K3U4VjBPbXp5QWVkSk1zZC90dHRS?=
+ =?utf-8?B?OXZwaERwbWZ0SDN0S2xXaHB5Q2RTZkg3Y2ZDelFmM0cxZEhXUURIK1E3K3NB?=
+ =?utf-8?B?R1V6MVM2YjV4Ym9KdmNpeFF2dHJzdlB4alAwVTRhSUhUZ2h5QkFjV3BrbXU1?=
+ =?utf-8?B?WGtIanh6YkdqN0lEVDdKL3FnWVZGZ0ZmNlpHZXpQR0l0aHRxUDJXRHhFMGFw?=
+ =?utf-8?B?NHU2c0kvdklwUlBRN3NvTDY5VDk1RnZ5Q1o2d1dXK0JmTkpsOFY1QT09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0067f108-115b-4abb-f6b3-08df4b6f22e2
+X-MS-Exchange-CrossTenant-AuthSource: SA0PR12MB4367.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 03:41:21.3046
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZRvONoVZdaOGSOV+x30U/kOfwCCGdL7pk5xEkyWLPmU/QK/uTX2uswBsbhPW0unXjG7Bp8m2VLqP48s/YqUu2w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7126
 
-From: George Guo <guodongtai@kylinos.cn>
 
-In order to support the atomic instructions on arena pointers
-(BPF_PROBE_ATOMIC), add the arena base held in REG_ARENA to the address
-and add an exception table entry for the memory access instruction of
-read-modify-write, fetch, xchg, cmpxchg, load-acquire and store-release.
 
-If the memory access faults, clear the register that the instruction
-loads into, as the verifier expects: dst_reg for load-acquire, r0 for
-cmpxchg and src_reg for the fetch instructions. The zero-extension of
-the 32-bit fetch instructions is emitted after the memory access, so the
-cleared register remains zero.
+On 25/11/2026 20:00, Joe Damato wrote:
+> If mlx4_en_xmit drops an skb (for example because DMA mapping fails) and
+> that skb happens to be the last one in the batch, the doorbell for the
+> WQEs posted earlier in the batch isn't written.
+> 
+> The queue stays awake, though, so those WQEs are eventually announced to
+> the HW after the next TX, but that depends on traffic and could induce
+> latency.
+> 
+> Avoid all of that by writing the pending doorbell in the drop path and
+> clearing the flag.
+> 
+> Suggested-by: Mark Bloch <mbloch@nvidia.com>
+> Signed-off-by: Joe Damato <joe@dama.to>
 
-The ll/sc loop of cmpxchg is not suitable for arena: both ll and sc can
-fault if another CPU frees the page between them, but the verifier only
-reserves one exception table entry for each instruction. So emit a
-single amcas_db.{w/d} instruction for cmpxchg on arena, and make
-bpf_jit_supports_insn() return cpu_has_lamcas for it, just like RISC-V
-does with Zacas.
+Thanks for the patch,
 
-This is similar to commit fb7cefabae81 ("riscv, bpf: Add support arena
-atomics for RV64") and commit 1519f488e8ce ("bpf, riscv: Clear fetch
-destination on faulting arena atomic").
+Reviewed-by: Mark Bloch <mbloch@nvidia.com>
 
-Signed-off-by: George Guo <guodongtai@kylinos.cn>
----
- arch/loongarch/include/asm/inst.h |   4 +
- arch/loongarch/net/bpf_jit.c      | 137 +++++++++++++++++++++++++++---
- 2 files changed, 130 insertions(+), 11 deletions(-)
-
-diff --git a/arch/loongarch/include/asm/inst.h b/arch/loongarch/include/asm/inst.h
-index e061f966f7d1..1fc99b7d70be 100644
---- a/arch/loongarch/include/asm/inst.h
-+++ b/arch/loongarch/include/asm/inst.h
-@@ -198,6 +198,8 @@ enum reg3_op {
- 	fstxs_op	= 0x7070,
- 	fstxd_op	= 0x7078,
- 	scq_op		= 0x70ae,
-+	amcasdbw_op	= 0x70b6,
-+	amcasdbd_op	= 0x70b7,
- 	amswapb_op	= 0x70b8,
- 	amswaph_op	= 0x70b9,
- 	amaddb_op	= 0x70ba,
-@@ -817,6 +819,8 @@ DEF_EMIT_REG3_FORMAT(amorw, amorw_op)
- DEF_EMIT_REG3_FORMAT(amord, amord_op)
- DEF_EMIT_REG3_FORMAT(amxorw, amxorw_op)
- DEF_EMIT_REG3_FORMAT(amxord, amxord_op)
-+DEF_EMIT_REG3_FORMAT(amcasdbw, amcasdbw_op)
-+DEF_EMIT_REG3_FORMAT(amcasdbd, amcasdbd_op)
- DEF_EMIT_REG3_FORMAT(amswapb, amswapb_op)
- DEF_EMIT_REG3_FORMAT(amswaph, amswaph_op)
- DEF_EMIT_REG3_FORMAT(amswapw, amswapw_op)
-diff --git a/arch/loongarch/net/bpf_jit.c b/arch/loongarch/net/bpf_jit.c
-index 03c88cd9c96a..ebe603131396 100644
---- a/arch/loongarch/net/bpf_jit.c
-+++ b/arch/loongarch/net/bpf_jit.c
-@@ -418,6 +418,13 @@ static void emit_store_stack_imm64(struct jit_ctx *ctx, int reg, int stack_off,
- 	emit_insn(ctx, std, reg, LOONGARCH_GPR_FP, stack_off);
- }
- 
-+#define BPF_FIXUP_REG_MASK	GENMASK(31, 27)
-+#define BPF_FIXUP_OFFSET_MASK	GENMASK(26, 0)
-+#define REG_DONT_CLEAR_MARKER	0
-+
-+static int add_exception_handler(const struct bpf_insn *insn,
-+				 struct jit_ctx *ctx, int dst_reg);
-+
- static int emit_atomic_rmw(const struct bpf_insn *insn, struct jit_ctx *ctx)
- {
- 	const u8 t1 = LOONGARCH_GPR_T1;
-@@ -429,9 +436,15 @@ static int emit_atomic_rmw(const struct bpf_insn *insn, struct jit_ctx *ctx)
- 	const s16 off = insn->off;
- 	const s32 imm = insn->imm;
- 	const bool isdw = BPF_SIZE(insn->code) == BPF_DW;
-+	const bool arena = BPF_MODE(insn->code) == BPF_PROBE_ATOMIC;
-+	bool zext = false;
-+	u8 zext_reg = src;
-+	int ret;
- 
- 	move_imm(ctx, t1, off);
- 	emit_insn(ctx, addd, t1, dst, t1);
-+	if (arena)
-+		emit_insn(ctx, addd, t1, t1, REG_ARENA);
- 	move_reg(ctx, t3, src);
- 
- 	switch (imm) {
-@@ -502,15 +515,14 @@ static int emit_atomic_rmw(const struct bpf_insn *insn, struct jit_ctx *ctx)
- 			emit_insn(ctx, amadddbd, src, t1, t3);
- 			break;
- 		}
--		if (!isdw)
--			emit_insn(ctx, bstrpickd, src, src, 31, 0);
-+		zext = !isdw;
- 		break;
- 	case BPF_AND | BPF_FETCH:
- 		if (isdw) {
- 			emit_insn(ctx, amanddbd, src, t1, t3);
- 		} else {
- 			emit_insn(ctx, amanddbw, src, t1, t3);
--			emit_insn(ctx, bstrpickd, src, src, 31, 0);
-+			zext = true;
- 		}
- 		break;
- 	case BPF_OR | BPF_FETCH:
-@@ -518,7 +530,7 @@ static int emit_atomic_rmw(const struct bpf_insn *insn, struct jit_ctx *ctx)
- 			emit_insn(ctx, amordbd, src, t1, t3);
- 		} else {
- 			emit_insn(ctx, amordbw, src, t1, t3);
--			emit_insn(ctx, bstrpickd, src, src, 31, 0);
-+			zext = true;
- 		}
- 		break;
- 	case BPF_XOR | BPF_FETCH:
-@@ -526,7 +538,7 @@ static int emit_atomic_rmw(const struct bpf_insn *insn, struct jit_ctx *ctx)
- 			emit_insn(ctx, amxordbd, src, t1, t3);
- 		} else {
- 			emit_insn(ctx, amxordbw, src, t1, t3);
--			emit_insn(ctx, bstrpickd, src, src, 31, 0);
-+			zext = true;
- 		}
- 		break;
- 	/* src = atomic_xchg(dst + off, src); */
-@@ -553,11 +565,30 @@ static int emit_atomic_rmw(const struct bpf_insn *insn, struct jit_ctx *ctx)
- 			emit_insn(ctx, amswapdbd, src, t1, t3);
- 			break;
- 		}
--		if (!isdw)
--			emit_insn(ctx, bstrpickd, src, src, 31, 0);
-+		zext = !isdw;
- 		break;
- 	/* r0 = atomic_cmpxchg(dst + off, r0, src); */
- 	case BPF_CMPXCHG:
-+		if (arena) {
-+			/*
-+			 * Another CPU can free the arena page between the ll and
-+			 * the sc of an ll/sc loop, so both can fault, but the
-+			 * verifier reserves a single exception table entry per
-+			 * instruction. Use amcas, which bpf_jit_supports_insn()
-+			 * requires for cmpxchg on arena.
-+			 */
-+			if (!cpu_has_lamcas) {
-+				pr_err_once("bpf-jit: amcas instruction is not supported\n");
-+				return -EINVAL;
-+			}
-+			if (isdw)
-+				emit_insn(ctx, amcasdbd, r0, t1, t3);
-+			else
-+				emit_insn(ctx, amcasdbw, r0, t1, t3);
-+			zext = !isdw;
-+			zext_reg = r0;
-+			break;
-+		}
- 		move_reg(ctx, t2, r0);
- 		if (isdw) {
- 			emit_insn(ctx, lld, r0, t1, 0);
-@@ -582,6 +613,24 @@ static int emit_atomic_rmw(const struct bpf_insn *insn, struct jit_ctx *ctx)
- 		return -EINVAL;
- 	}
- 
-+	/*
-+	 * On arena, the memory access is the last instruction emitted so far.
-+	 * If it faults, clear the register it loads into, as the verifier
-+	 * expects, and resume at the next instruction: zero-extending the
-+	 * cleared register keeps it zero.
-+	 */
-+	if (arena) {
-+		int load_reg = bpf_atomic_load_reg(insn);
-+
-+		ret = add_exception_handler(insn, ctx, load_reg < 0 ?
-+					    REG_DONT_CLEAR_MARKER : regmap[load_reg]);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	if (zext)
-+		emit_insn(ctx, bstrpickd, zext_reg, zext_reg, 31, 0);
-+
- 	return 0;
- }
- 
-@@ -592,10 +641,37 @@ static int emit_atomic_ld_st(const struct bpf_insn *insn, struct jit_ctx *ctx)
- 	const u8 dst = regmap[insn->dst_reg];
- 	const s16 off = insn->off;
- 	const s32 imm = insn->imm;
-+	const bool arena = BPF_MODE(insn->code) == BPF_PROBE_ATOMIC;
-+	int ret;
- 
- 	switch (imm) {
- 	/* dst_reg = load_acquire(src_reg + off16) */
- 	case BPF_LOAD_ACQ:
-+		if (arena) {
-+			/* t1 = src + off + arena_vm_start; load from [t1]. */
-+			move_imm(ctx, t1, off);
-+			emit_insn(ctx, addd, t1, src, t1);
-+			emit_insn(ctx, addd, t1, t1, REG_ARENA);
-+			switch (BPF_SIZE(insn->code)) {
-+			case BPF_B:
-+				emit_insn(ctx, ldbu, dst, t1, 0);
-+				break;
-+			case BPF_H:
-+				emit_insn(ctx, ldhu, dst, t1, 0);
-+				break;
-+			case BPF_W:
-+				emit_insn(ctx, ldwu, dst, t1, 0);
-+				break;
-+			case BPF_DW:
-+				emit_insn(ctx, ldd, dst, t1, 0);
-+				break;
-+			}
-+			ret = add_exception_handler(insn, ctx, dst);
-+			if (ret)
-+				return ret;
-+			emit_insn(ctx, dbar, 0b10100);
-+			break;
-+		}
- 		switch (BPF_SIZE(insn->code)) {
- 		case BPF_B:
- 			if (is_signed_imm12(off)) {
-@@ -634,6 +710,31 @@ static int emit_atomic_ld_st(const struct bpf_insn *insn, struct jit_ctx *ctx)
- 		break;
- 	/* store_release(dst_reg + off16, src_reg) */
- 	case BPF_STORE_REL:
-+		if (arena) {
-+			/* t1 = dst + off + arena_vm_start; store to [t1]. */
-+			emit_insn(ctx, dbar, 0b10010);
-+			move_imm(ctx, t1, off);
-+			emit_insn(ctx, addd, t1, dst, t1);
-+			emit_insn(ctx, addd, t1, t1, REG_ARENA);
-+			switch (BPF_SIZE(insn->code)) {
-+			case BPF_B:
-+				emit_insn(ctx, stb, src, t1, 0);
-+				break;
-+			case BPF_H:
-+				emit_insn(ctx, sth, src, t1, 0);
-+				break;
-+			case BPF_W:
-+				emit_insn(ctx, stw, src, t1, 0);
-+				break;
-+			case BPF_DW:
-+				emit_insn(ctx, std, src, t1, 0);
-+				break;
-+			}
-+			ret = add_exception_handler(insn, ctx, REG_DONT_CLEAR_MARKER);
-+			if (ret)
-+				return ret;
-+			break;
-+		}
- 		emit_insn(ctx, dbar, 0b10010);
- 		switch (BPF_SIZE(insn->code)) {
- 		case BPF_B:
-@@ -678,9 +779,6 @@ static int emit_atomic_ld_st(const struct bpf_insn *insn, struct jit_ctx *ctx)
- 	return 0;
- }
- 
--#define BPF_FIXUP_REG_MASK	GENMASK(31, 27)
--#define BPF_FIXUP_OFFSET_MASK	GENMASK(26, 0)
--#define REG_DONT_CLEAR_MARKER	0
- 
- bool ex_handler_bpf(const struct exception_table_entry *ex,
- 		    struct pt_regs *regs)
-@@ -710,7 +808,8 @@ static int add_exception_handler(const struct bpf_insn *insn,
- 	if (BPF_MODE(insn->code) != BPF_PROBE_MEM &&
- 	    BPF_MODE(insn->code) != BPF_PROBE_MEMSX &&
- 	    BPF_MODE(insn->code) != BPF_PROBE_MEM32 &&
--	    BPF_MODE(insn->code) != BPF_PROBE_MEM32SX)
-+	    BPF_MODE(insn->code) != BPF_PROBE_MEM32SX &&
-+	    BPF_MODE(insn->code) != BPF_PROBE_ATOMIC)
- 		return 0;
- 
- 	if (WARN_ON_ONCE(ctx->num_exentries >= ctx->prog->aux->num_exentries))
-@@ -1591,6 +1690,10 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx, bool ext
- 	case BPF_STX | BPF_ATOMIC | BPF_H:
- 	case BPF_STX | BPF_ATOMIC | BPF_W:
- 	case BPF_STX | BPF_ATOMIC | BPF_DW:
-+	case BPF_STX | BPF_PROBE_ATOMIC | BPF_B:
-+	case BPF_STX | BPF_PROBE_ATOMIC | BPF_H:
-+	case BPF_STX | BPF_PROBE_ATOMIC | BPF_W:
-+	case BPF_STX | BPF_PROBE_ATOMIC | BPF_DW:
- 		if (!bpf_atomic_is_load_store(insn))
- 			ret = emit_atomic_rmw(insn, ctx);
- 		else
-@@ -2685,6 +2788,18 @@ bool bpf_jit_supports_arena(void)
- 
- bool bpf_jit_supports_insn(struct bpf_insn *insn, bool in_arena)
- {
-+	if (!in_arena)
-+		return true;
-+
-+	switch (insn->code) {
-+	case BPF_STX | BPF_ATOMIC | BPF_W:
-+	case BPF_STX | BPF_ATOMIC | BPF_DW:
-+		/* cmpxchg on arena is emitted as amcas, see emit_atomic_rmw() */
-+		if (insn->imm == BPF_CMPXCHG)
-+			return cpu_has_lamcas;
-+		break;
-+	}
-+
- 	return true;
- }
- 
--- 
-2.53.0
+> ---
+> v3:
+>   - Add mlx4_en_flush_pending_doorbell which clears the flag.
+>   - Call it from mlx4_en_xmit (Mark).
+>   - Dropped Daniel's Reviewed-by
+> 
+>  drivers/net/ethernet/mellanox/mlx4/en_tx.c | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/mellanox/mlx4/en_tx.c b/drivers/net/ethernet/mellanox/mlx4/en_tx.c
+> index 8a43c86f815c..8fd1850ba756 100644
+> --- a/drivers/net/ethernet/mellanox/mlx4/en_tx.c
+> +++ b/drivers/net/ethernet/mellanox/mlx4/en_tx.c
+> @@ -759,6 +759,14 @@ void mlx4_en_xmit_doorbell(struct mlx4_en_tx_ring *ring)
+>  		  (__force u32)ring->doorbell_qpn, ring->doorbell_address);
+>  }
+>  
+> +static void mlx4_en_flush_pending_doorbell(struct mlx4_en_tx_ring *ring)
+> +{
+> +	if (ring->doorbell_pending) {
+> +		mlx4_en_xmit_doorbell(ring);
+> +		ring->doorbell_pending = false;
+> +	}
+> +}
+> +
+>  static void mlx4_en_tx_write_desc(struct mlx4_en_tx_ring *ring,
+>  				  struct mlx4_en_tx_desc *tx_desc,
+>  				  union mlx4_wqe_qpn_vlan qpn_vlan,
+> @@ -1131,6 +1139,8 @@ netdev_tx_t mlx4_en_xmit(struct sk_buff *skb, struct net_device *dev)
+>  
+>  tx_drop_count:
+>  	ring->tx_dropped++;
+> +	/* an earlier skb in this batch may have deferred the doorbell */
+> +	mlx4_en_flush_pending_doorbell(ring);
+>  tx_drop:
+>  	dev_kfree_skb_any(skb);
+>  	return NETDEV_TX_OK;
 
