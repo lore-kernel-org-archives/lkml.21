@@ -1,52 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.27.60.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.71.93.112
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795700600;
-	b=Az46wLoMB9IdWX2opzw+dPXwu3uaK9HdltEDGMASPTudxcTUmvn3MJOTY7y3HIfrRNpI
-	 97oEIZXP4GVAzNlFG/5bqvEO/tLOiE0A+YWhTbNjhKX6ZENhmGOR3jXd9eD/+Fyvl+OwM
-	 WqbvF8tz8Z2cUIO4RhiGT0x2CaHMHsfDtfKIXwI3RIsjUuMwsen76r/9mBFIveyV1UUpL
-	 mYDWDpDfm5y6Lqw+fcqY8dp2HqBFvCeJI/ylSe5cVbKY4Y5ZKiR7lkN9Af+N/WEd9Nfs7
-	 e9mJb5gARKjbCPRI+Z5PuPlhr8m/4zM5bQoPpYWbv3+dCOu9PNVn3IiB9PN/tA6I5Vg==
+	t=1795700620;
+	b=RhVvHQHf5TFmq/L7p9/Yq3hgua+IvkE3690JbQVscnMVrjX8Hd6rWCnJcuAp24dYSg9A
+	 +EniXSzGDFUZAkEp87/DL70CIxA4X1mDPskvZM4sMXva7U3Se+1dZWoYt1NzjNhiu/CRT
+	 2BOgjpIL9hcYfy+4HqI1yrgIm94ntfc4p61w33IonRM4vo+1JoBYTFZF7wNH3yiGLI2Jj
+	 /yOoBt/kZpWGgE0pKowQsJ3cscLgGp59T1ENtictzXp0znaSi2oKItwydNp1ago3msXMK
+	 xW7vjvet0OwQFJYtlkYY47lTZ+DBZ3R7m7CpkJCISPiohnnwTXartiVhVn33xUuUK4Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795700600;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=ko4eL4z4K6V3lb/3C7dqqajHBKs8W+KA+MAk4fHSYBk=;
-	b=KiJU3PGBZqS22Xjh79Wn9jHGY5DvvWbsU8dc0y7viRQX4s4NpBDaPBwgNMLxdjVykqUv
-	 OaiqZwdaGpabqi2igXI4xlDFuZKDDbCzQ8jcIWEdy9c3yHaz5Ene//kFHMF49I+xdAPgM
-	 5o9/5vPe0ss9By3B3J/WzOAgumqG1+eBiAfdOt1DylGKssKpX4930HfGdqioSm3iqpLmq
-	 xH8d9ruj7rGGxlwOg7SCTOekkvrokCZpkuHjw8cA/IN/Yr68e1mF6y/GaG0FlQlWGIuVK
-	 Zihkq7RhvC2XKu8S6ikauKqLMdlvoGTYE4pnafNBoMINrbqNVdbGvVviZ43RfPv2tZA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795700620;
+	h=DMARC-Filter:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=IbtZayZDgJ9Vj67NFvonwGTERyhom3D0b6to9erQstw=;
+	b=XliIHuMlb/Cl7Wa7yMP6FaCW1dnp9JPx34CsEFW4p1teSaiLg5pXc/4RSsx7Z42LvdXK
+	 ZLDYVmpWDu5bPlwEjIjyD/7vTOMHM8IWmfjCP6XeNApLS7KU+TSAOmk67jNVZmIWBCdbm
+	 uPxSWAVUCvR3fFvd7Z23U2dJO73W9TGJILFl4vY7A2ehGm+w3vkBfc0stUxr21wcjkax5
+	 ZS5anUrLRYBK4Ky/g0s+gz2Yo4ocb6hi8wIIguMAN4Xa82TE8RHG1LzF2Dxf07Ln9MO+3
+	 yqmk4FUkvEIaT37NvQuQIuqulGeJm0CXcbBoS0ANMJLQcvcZZ0TxpFEFy1CUrWzGsjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=corp.free.fr;
-	spf=pass smtp.mailfrom=corp.free.fr;
-	dkim=pass header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=SH7PBekn;
-	arc=none smtp.remote-ip=212.27.60.169
-Received: from rcs.proxad.net (rcs.proxad.net [212.27.60.169])
+	dmarc=none header.from=huaweicloud.com;
+	spf=pass smtp.mailfrom=huaweicloud.com;
+	arc=none smtp.remote-ip=124.71.93.112
+Received: from dggmsgout12.his.huawei.com (dggmsgout12.his.huawei.com [124.71.93.112])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A261606A31C;
-	Thu, 26 Nov 2026 13:43:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0A261606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=corp.free.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=corp.free.fr
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=SH7PBekn
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=corp.free.fr; s=rcs;
-	t=1795700590; bh=Ru+TyEI2Iupe+FdyreM1ZguqMa4aXugpSK2X1PFjJ3M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SH7PBeknUlBS+Ko3TQRwaap3XHmzEB/MeBQW/HN6w6bUpjw67MJLZvURDtbHYG1C1
-	 WwKRadD1dZSjfkjOWwqlGzsmgkGAxIiU5aT7NyNE6mxTOwnG2VD2a13oIC38VBFs2D
-	 jHY9qhDDo67hlYzC7M5Wb0LmY84iJRLMlZBQRSwtiSlQHlaIzMT7YrwPbbIt4araBL
-	 8UR+H0Ag4ltugh0+YFVvhmZYbc9OzXai1ioACygfh+vXDZ+rZa6YxgFSTh0rEalBcW
-	 GqEKokbJDejQ3pdF3O0RLYObZ8B6lWC2bBft8UyKgZYfqVUmC2kjDXOtYY+gj4dKaC
-	 T5cXTxh9t/YZQ==
-Received: from [0.0.0.0] (unknown [213.228.1.188])
-	by rcs.proxad.net (Postfix) with ESMTPSA id 512E444C025D;
-	Thu, 26 Nov 2026 14:43:09 +0100 (CET)
-Message-ID: <c3f3dd4c-5dfa-4fb0-9a64-016192be5782@corp.free.fr>
-Date: Thu, 26 Nov 2026 14:43:08 +0100
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E26A3606A321;
+	Thu, 26 Nov 2026 13:43:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E26A3606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=huaweicloud.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huaweicloud.com
+Received: from mail.maildlp.com (unknown [172.19.163.198])
+	by dggmsgout12.his.huawei.com (SkyGuard) with ESMTP id 4jZyRz327Qz1yQv;
+	Thu, 26 Nov 2026 21:43:27 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id DA67440574;
+	Thu, 26 Nov 2026 21:43:32 +0800 (CST)
+Received: from [10.174.178.164] (unknown [10.174.178.164])
+	by APP4 (Coremail) with UTF8SMTPSA id gCh0CgB3sO+DNwhr0ziNFw--.19345S3;
+	Thu, 26 Nov 2026 21:43:32 +0800 (CST)
+Message-ID: <89b6062e-73c8-4a7b-8e7f-6899ac8470f6@huaweicloud.com>
+Date: Thu, 26 Nov 2026 21:43:29 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,67 +52,115 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2] net/mlx5e: Prefetch the packet a few strides
- ahead in the linear MPWQE path
-To: Antonio Quartulli <antonio@mandelbit.com>, netdev@vger.kernel.org
-Cc: saeedm@nvidia.com, tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
- dtatulea@nvidia.com, cratiu@nvidia.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
- john.fastabend@gmail.com, sdf@fomichev.me, linux-rdma@vger.kernel.org,
- bpf@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261104195241.1883539-1-antonio@mandelbit.com>
-Content-Language: en-US
-From: Alexandre Cassen <acassen@corp.free.fr>
-In-Reply-To: <20261104195241.1883539-1-antonio@mandelbit.com>
+Subject: Re: [PATCH] xfs: remove a few duplicated lines
+To: Carlos Maiolino <cem@kernel.org>, Zizhi Wo <wozizhi@huaweicloud.com>
+Cc: dgc@kernel.org, djwong@kernel.org, hch@lst.de, linux-xfs@vger.kernel.org,
+ linux-kernel@vger.kernel.org, yangerkun@huawei.com, chengzhihao1@huawei.com
+References: <20261126122229.2281679-1-wozizhi@huaweicloud.com>
+ <awgy2d_SbrvHtvkI@cronus.toxiclabs.cc>
+From: Zizhi Wo <wozizhi@huaweicloud.com>
+In-Reply-To: <awgy2d_SbrvHtvkI@cronus.toxiclabs.cc>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-
-Hi Antonio, Dragos,
-
-On 11/4/26 20:52, Antonio Quartulli wrote:
- > numbers from DDIO/SDCI systems and CX-6/CX-7 would be welcome.
-
-we are running perf tests over our 5G UPF code (pure XDP with mlx5), 
-just get your patch and test it over our stuff.
-
-use-case here is GTP-U encap, I tweaked your patch to fit tunneling 
-use-case around the net_prefetch() to add 128 bytes more.
-
-setup is Xeon Gold 6342 (DDIO) wiht ConnectX-7 (fw 28.48.1000): 2 ports 
-x 8 queues. 5G UPF in XDP (GTP-U and MAP-E, ~3200 insns per packet, 
-XDP_TX only) with 100k sessions running live mobile network traffic 
-pattern. Mpps per port with the 16 cores busy:
-
-                                   base      v2    v2+256B
-   RQ just opened                  10.55    10.85   >11.10
-   RQ after a burst                 9.96    10.82    10.95
-   L1 stride prefetcher off         9.85    10.72    10.84
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:gCh0CgB3sO+DNwhr0ziNFw--.19345S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxWF4kJry5Ar4rurW7Kw43Awb_yoW5Cr4xpF
+	Z5Ja1jkFs8tw17ur4xXw40vwn7tw1xurW8CrykAF1Sqwn8JF4IkFyv9r1rXw4rXan8ur12
+	grs0grs7Za13Wa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkv14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcVAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWUtVW8
+	ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r
+	1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij
+	64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr
+	0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF
+	0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
+X-CM-SenderInfo: pzr2x6tkl6x35dzhxuhorxvhhfrp/
 
 
-With DDIO the gain depends on the history of the RQ. Under XDP a stride
-is a page. While the pages of a WQE are adjacent the L1 stride
-prefetcher fetches the next packet by itself. Once XDP_TX completions 
-overflow the page pool cache then pages come back shuffled where the 
-vanilla driver loses 5%.
 
+在 2026/11/26 21:26, Carlos Maiolino 写道:
+> On Thu, Nov 26, 2026 at 08:22:29PM +0800, Zizhi Wo wrote:
+>> From: Zizhi Wo <wozizhi@huawei.com>
+>>
+>> Remove duplicated lines:
+>> - xfs_alloc_read_agf() checks pagf_freeblks twice.
+>> - xfs_ondisk.h checks the size of struct xfs_attrlist twice.
+>> - xfs_rtgroup.h declares xfs_rtginode_irele() twice.
+>>
+>> No functional changes.
+> 
+> This patch does not apply cleanly as it conflicts with another patch
+> that has been enqueued in for-next for almost a month...
+> 
+> Please make sure your patches apply cleanly to xfs-linux/for-next before
+> submitting them.
 
- > +	head_offset &= (1 << rq->mpwqe.page_shift) - 1;
+Sorry, I sent this one too quickly. I'll make sure to rebase and test
+against xfs-linux/for-next before sending patches next time.
 
-cosmetics: BIT(rq->mpwqe.page_shift) - 1
+> 
+> Also add the proper "Fixes:" tags as appropriate.
 
+I originally treated this as a pure cleanup and didn't add fixtag. I'll
+include the appropriate ones in V2, and drop the xfs_alloc_read_agf
+hunk.
 
- > +	net_prefetch(va + rq->buff.headroom);
+Thanks,
+Zizhi Wo
 
-For our tunneling use-case I just added:
-
-+       net_prefetch(va + rq->buff.headroom + 128);
-
-
-I will run production with your patch with the +128 for our stuff... 
-thanks for that !
-
-
-cheers,
-Alexandre
+> 
+>>
+>> Signed-off-by: Zizhi Wo <wozizhi@huawei.com>
+>> ---
+>>   fs/xfs/libxfs/xfs_alloc.c   | 1 -
+>>   fs/xfs/libxfs/xfs_ondisk.h  | 1 -
+>>   fs/xfs/libxfs/xfs_rtgroup.h | 2 --
+>>   3 files changed, 4 deletions(-)
+>>
+>> diff --git a/fs/xfs/libxfs/xfs_alloc.c b/fs/xfs/libxfs/xfs_alloc.c
+>> index ae221a158764..2c5b73803a6b 100644
+>> --- a/fs/xfs/libxfs/xfs_alloc.c
+>> +++ b/fs/xfs/libxfs/xfs_alloc.c
+>> @@ -3509,7 +3509,6 @@ xfs_alloc_read_agf(
+>>   	if (!xfs_is_shutdown(pag_mount(pag))) {
+>>   		bool	ok = true;
+>>   
+>> -		ok &= pag->pagf_freeblks == be32_to_cpu(agf->agf_freeblks);
+>>   		ok &= pag->pagf_freeblks == be32_to_cpu(agf->agf_freeblks);
+>>   		ok &= pag->pagf_btreeblks == be32_to_cpu(agf->agf_btreeblks);
+>>   		ok &= pag->pagf_flcount == be32_to_cpu(agf->agf_flcount);
+>> diff --git a/fs/xfs/libxfs/xfs_ondisk.h b/fs/xfs/libxfs/xfs_ondisk.h
+>> index 23cde1248f01..ae16b1bc2bbe 100644
+>> --- a/fs/xfs/libxfs/xfs_ondisk.h
+>> +++ b/fs/xfs/libxfs/xfs_ondisk.h
+>> @@ -305,7 +305,6 @@ xfs_check_ondisk_structs(void)
+>>   	XFS_CHECK_STRUCT_SIZE(struct getbmapx,			48);
+>>   	XFS_CHECK_STRUCT_SIZE(struct xfs_attrlist_cursor,	16);
+>>   	XFS_CHECK_STRUCT_SIZE(struct xfs_attrlist,		8);
+>> -	XFS_CHECK_STRUCT_SIZE(struct xfs_attrlist,		8);
+>>   	XFS_CHECK_STRUCT_SIZE(struct xfs_attrlist_ent,		4);
+>>   	XFS_CHECK_STRUCT_SIZE(struct xfs_ag_geometry,		128);
+>>   	XFS_CHECK_STRUCT_SIZE(struct xfs_rtgroup_geometry,	128);
+>> diff --git a/fs/xfs/libxfs/xfs_rtgroup.h b/fs/xfs/libxfs/xfs_rtgroup.h
+>> index fca2eb74908c..e505be68462b 100644
+>> --- a/fs/xfs/libxfs/xfs_rtgroup.h
+>> +++ b/fs/xfs/libxfs/xfs_rtgroup.h
+>> @@ -328,8 +328,6 @@ int xfs_rtginode_create(struct xfs_rtgroup *rtg, enum xfs_rtg_inodes type,
+>>   		bool init);
+>>   void xfs_rtginode_irele(struct xfs_inode **ipp);
+>>   
+>> -void xfs_rtginode_irele(struct xfs_inode **ipp);
+>> -
+>>   static inline const char *xfs_rtginode_path(xfs_rgnumber_t rgno,
+>>   		enum xfs_rtg_inodes type)
+>>   {
+>> -- 
+>> 2.53.0
+>>
+> 
+> 
 
