@@ -1,112 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=149.28.215.223
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795721200;
-	b=Cp6iZOXphebDL1fJ7GzxhUEpZFoBYlY2k8Biyr2KDEbxX1Cy2Adw4Cg1mfGOVAKqyXlr
-	 51sTG29TrmtDa7obiEQROGqEcRZ2+zIzAqHIfQCAcmcJn6Z4Pmr/7DViNKRn3mQb94sKd
-	 qiLYSVZawN/e9lik9VOKRieJt8MERtgi9VcdrNMETG1b9Hx95V0lRkp5C/pOyMHzby/2R
-	 WoQiPUtktOTP5Fv9LpMKuBSov/l9blK7H90UfelwQS1A3zL/J5tkCtoV6RV5KNNsLnjqx
-	 QMHmQA15C6xy0CLt8vKfnrvpepUrNph0rIty5bK2WyXBK3N8eTIhIrkE5vFRTzy6j4g==
+	t=1795721281;
+	b=h1oHXTNzEWEoXzT1/j+a+uZXZulJGsK4qG+AyL8rhTYWd57F9Nof85y1Nbn1OWhxBTCc
+	 Mtt+qcrSMTAz8tg2w7zakwKl6q95J77SBvTrybDcULiOTYMGS3zAnqMYe8IUq0urkqy70
+	 avTP7+9gAG7yMBYk41ytTy6r19g5luosnPEJYUzv3YylkkSNH9KG/vgYJDzYIHxoFTe+I
+	 dufzwSzCVRxC7cDwo8M2TUr5bQNczWzjlMNNbrtVWdKHCU1DQMQcUPcvRTnt/JoquHkXC
+	 P5CYS6qQ+w1abSoHCyKeFn+hKf9u518HlJy7w8KhQokV0ENwKsGfx9Aw4AfEPatMU0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795721200;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=RSbO/8C3j8RIVBHNdX+Dlhj+7Zj2tOE/srOubQ38wfA=;
-	b=ybXCzV4TEB096AHM42Is9x5uokfGMJblcPm/FSljssCFBDlcxd08a9VDpyg/9E0CeHLr
-	 f0yCzHecJlj2QCTgktPF/AEWKQKUrzw5Vkjkd0n6QJ9j6fETXJlSgAXtk2H7qSJHu5AY8
-	 mdq9M2qU+UE6JI/Y32Q/2JbiAKwlZFF1NJQaNHGeej9SUdlq6HoeEqc0jYDpKNBaHy+19
-	 8yQKvnlkgJhYHBgK9F58/7bdmdG7UUU3P+svuJtCMoLop8UKIUl93dwhIsMPXw1jFsctl
-	 NXH0SWvf7QVpiZ7u5H9JbTyXr1ZafWJMnfQERNlCy5kdF788XO/uakRjus8NSVagZJg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795721281;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:CFBL-Feedback-ID:
+	 CFBL-Address:X-Forward-Email-ID:X-Forward-Email-Sender:
+	 X-Forward-Email-Version:X-Forward-Email-Website:X-Complaints-To:
+	 X-Report-Abuse:X-Report-Abuse-To:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=FNzEHA4/L2PAmJ+F/LcXdz2bE0OJ7mWf/LIjnfOf7EY=;
+	b=3CHUmEGFoOTBuocSmTGpAarYCXLfgzDW47BLtLpfeNiNK33nR8Tc4hkQDcgkv2DuNX2P
+	 gFVMsp0G0CxnUhBbc16ZxQQEBT+aVnwKgUkSCxao2B9HJ+RrAr5vdVioEyt2QdpYGS9K5
+	 lalfDsQ/v0odk5Am/78DAECL7KXQKCRF5gcc3g4O9JjsSOvJn4a26CeqeNIokB+TvC+oo
+	 NxDrlhKCWXk2njATMbji+d2eV+TQLkNH0nAHS8s4OwB8VicgQsHXi6UXmANqUT+oGEKgN
+	 buGw4OWzZkFvKGkQlVZ6Ka9OKShCqeWhuXhmozCNsN1jYgqZFa8N6EpCKmvPa3mUjVQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Y6vxztZ7;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="eO0Qr+/R";
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dmarc=pass header.from=kwiboo.se;
+	spf=pass smtp.mailfrom=fe-bounces.kwiboo.se;
+	dkim=pass header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=dGPnzQ+b;
+	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=BYWix4Ms;
+	arc=none smtp.remote-ip=149.28.215.223
+Received: from smtp.forwardemail.net (smtp.forwardemail.net [149.28.215.223])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26B03606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:26:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26B03606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A14B1606A327
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:28:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A14B1606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kwiboo.se
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fe-bounces.kwiboo.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Y6vxztZ7;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=eO0Qr+/R
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQFu79H2835123
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:26:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	RSbO/8C3j8RIVBHNdX+Dlhj+7Zj2tOE/srOubQ38wfA=; b=Y6vxztZ7S8v5heaq
-	gLEDsIR0PNNktgZKZ+zUllJa3BnwCokbTyCKp35pawsJD7jUZLLCMflHewAhKqJS
-	7BqPortcbmF9YLDvciYxtaqgpAHWcnSRq5DRVOfTQtmaNRR4fRR0Q5UKGz/Q7SmM
-	5/wRD3IXwhdzsCJruxhIWegfLpDS/r/AAPsww0i6WTLTnYm6mRbHbE0LiQRtcCFr
-	GDHMfZ0DfQkMD01mm2hmRHQObVww2sm4DEBmwNuH3d61LU2qBOIO1KE50Xdy6/aV
-	SlT1DPOfnUdcv3VV6llZXD93nxzDYvizSLpaG6aMy2Nrkqi2//sHlhMrI3tf6/GC
-	Vyt1Ew==
-Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6pgqgvtp-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:26:37 +0000 (GMT)
-Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-1b55f4f3bb8so4276743c88.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:26:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795721197; x=1796325997; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=RSbO/8C3j8RIVBHNdX+Dlhj+7Zj2tOE/srOubQ38wfA=;
-        b=eO0Qr+/RaacgI2YzlWPMmhQaN42IU58jek8est1j/O23SR4QkplORHOJ+9gqqk1d0k
-         uaon1OHT3aglu4Rp6Xrd7qlmzUpq7qqh/AoQdXJ+VduFpONkpDqin49t89K3pKGxdw23
-         5HhWTw+mx3a85idfZ2WoSjO0OhtxkYVCGyi/QXDCHU9LgkM5BxAVoU7fDqY/5x1sSTgH
-         dst0SzMXVjxIarBW8IMYkk7XlofEFsBwG8x3ecxk6JmJ2ezXYalmRuPH9gfm95iPGjfZ
-         FU2abOoNsRKPwR/4Hqlm6NVQJvD0W5e1EZjXblCOzEsvV8dHwi4lyP8+FxIaxJF//lpU
-         YTlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795721197; x=1796325997;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=RSbO/8C3j8RIVBHNdX+Dlhj+7Zj2tOE/srOubQ38wfA=;
-        b=eqvZR7mdmAw0mmOENi5XmSM0ki4+2PL3yCuxsjdxo0MUCnWPItxBVwfbmvGxRI8Ceq
-         lKPUmQJ+mygCylyYSm4dyUmYS3/AlwjSlrQsMr6S+ikXbTOEJezzGdkmB3OlTe1Z3pKh
-         o1/OW3koCLFyDQYl2GebhzjnvlgHitAdcHL6QPDbdFgHrAAQrpMcXgAaPgKTqlhwRiR2
-         ijXIk2OLooG5q8r+w4CgPNFbaZ7T8YtJi+wsyXbX1B6Q4BWAk0LeYZWsq2p6CVjdyxaq
-         RABMQx5FNOBT+xSVPekCucDA5+zfuqdhyvNApmWdTWI+M9C+lWRvlamfTvJxndPULYPj
-         9ZdA==
-X-Forwarded-Encrypted: i=1; AL+hErGB/QFmF1C9CiWapWC5KU4qtprHVDYfEFp9G3xNEUn5IEToPcnYdAvIh3yKY6IssC1axKN/gAK4rHfiGtk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+cHNhsJBRfs36sBNzL0DkoDgPjA9g08t2oAv74TX/+ZzfSuwx/
-	QBtMTd7JPgLf5YZ3OMDR/t61cx8jw9ISyATAqVrfdbLTvqMXbCUP6sVa1LCXjLtqQYbVIwaP92u
-	q9fdFmNEPXeU9kTZwjKqc7R+17VdIvJN5gCjqL3j0Fj68SzIUw8g4q95X4SM68qj0MC4=
-X-Gm-Gg: AZFdTZeSv0zaAKSLkt64usTBn2ytqyeKs1B0MK31aXjGwG+c39sxTUabFF2KwFwHuhx
-	E1ZcxergqYbkl6TfeXqXhZDgrfiDa59r/DxcgJmJ2cbBHWcMFyM03hNo9RfM+WH9uOm9Upe/pJM
-	54jubLnQCACa4S374H5WiFnnHOctagRwxsIu4ShM5XfBoIBjNNGfDiOwp+hMgqlgCjEwo+XhFv2
-	S727Gw+tQfg+aWl+b3uHofFK3YlgiHtuIyCFnhPeZTTYrBohJuGAn82tkjkP5BEUg11HWQIJRyI
-	rIECyApwTE83bLzq2J5De7QZ4m7+URB/koAjZxD5s/VENlCNz4kUTS1qKC900xorfBJ6QkqPv8o
-	pX8MXViZkRKiw3tzv8Fn2AK1I8lHZ1/E4C1oR1CEdw6GMyORiDRNOmWoJYpuIm8yYdSW1Mdf4BA
-	==
-X-Received: by 2002:a05:701b:2051:20b0:1b2:4998:a0df with SMTP id a92af1059eb24-1b5568fa273mr22224579c88.35.1795721197182;
-        Thu, 26 Nov 2026 11:26:37 -0800 (PST)
-X-Received: by 2002:a05:701b:2051:20b0:1b2:4998:a0df with SMTP id a92af1059eb24-1b5568fa273mr22224548c88.35.1795721196695;
-        Thu, 26 Nov 2026 11:26:36 -0800 (PST)
-Received: from [10.204.104.211] ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566fdce48sm69877832eec.14.2026.11.26.11.26.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 11:26:36 -0800 (PST)
-Message-ID: <83e49e4a-0e31-4802-bbcd-7e0c178b6ac0@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 00:56:31 +0530
+	dkim=pass (2048-bit key) header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=dGPnzQ+b;
+	dkim=pass (1024-bit key) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=BYWix4Ms
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
+ Message-ID: Date: Subject: Cc: To: From: CFBL-Address: CFBL-Feedback-ID;
+ q=dns/txt; s=fe-e1b5cab7be; t=1795721280;
+ bh=FNzEHA4/L2PAmJ+F/LcXdz2bE0OJ7mWf/LIjnfOf7EY=;
+ b=dGPnzQ+bp/4Y+7WJHDRt5YysT5TaTRCdutYfknh8QJ8HJDz2UBwcGx9eM4GE8+ygz7K4MZufS
+ aBIVwPPYyWDKSnOmcfBj5Z1n/aeT408lE9NJtK1fRKOULyDdVsjPFskDLi5QU2AYrjaQ5RgvaiA
+ xL8pxxrlYBKRpNkZNBOWPUxDCfMoVp/JQ86t3Ah5LzvQsVyQjOryjQkd7zs+8ZiTHXpR+lUpg+9
+ VSH/zJRrTn0SKTa3TQuD9vu0pAWCo+r7GOTlcVM6XgA78ioO0XbwTejn1lha+6OQmjB3KXKINuK
+ 9kEvzIj9mKoEnylYsabJxTz9ycd1yF5rpjWooYhx5FQg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forwardemail.net;
+ h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
+ Message-ID: Date: Subject: Cc: To: From: CFBL-Address: CFBL-Feedback-ID;
+ q=dns/txt; s=default; t=1795721280;
+ bh=FNzEHA4/L2PAmJ+F/LcXdz2bE0OJ7mWf/LIjnfOf7EY=;
+ b=BYWix4Ms9/sVrgLIwYlFYXdvESHeB7BDHJeMYj13qjyly9Wij1UDDlw5q5efAUz62npf9rdyZ
+ 5ZQsXn8QwTvC39cqseg8lBscvcxWKGmai8WayWACozrNnlQ274PWs9JK5WMs7moCuSVPFdu6Od3
+ s5e5uyXoldUzLhlP08rq6v8=
+CFBL-Feedback-ID: 6b08883ab69a54ed847adb5e:08f0c09a429f60df47897387344267c7
+CFBL-Address: abuse@forwardemail.net; report=arf
+X-Forward-Email-ID: 6b08883ab69a54ed847adb5e
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 2.19.39
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Jonas Karlman <jonas@kwiboo.se>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 2/2] ARM: dts: rockchip: Add ArmSoM Forge1 board
+Date: Thu, 26 Nov 2026 19:27:45 +0000
+Message-ID: <20261126192746.1595707-3-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261126192746.1595707-1-jonas@kwiboo.se>
+References: <20261126192746.1595707-1-jonas@kwiboo.se>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,156 +91,267 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/8] drm/msm/a6xx: Add IFPC tables for Adreno 640/680
-To: Konrad Dybcio <konradybcio@kernel.org>,
-        Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar
- <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-Cc: linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        freedreno@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20261030-topic-a6xx_ifpc-v1-0-6992841a9a32@oss.qualcomm.com>
- <20261030-topic-a6xx_ifpc-v1-6-6992841a9a32@oss.qualcomm.com>
-Content-Language: en-US
-From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-In-Reply-To: <20261030-topic-a6xx_ifpc-v1-6-6992841a9a32@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: kILbxz48iyMwy9bkqa21FzwQCPFAtNgA
-X-Proofpoint-ORIG-GUID: kILbxz48iyMwy9bkqa21FzwQCPFAtNgA
-X-Authority-Analysis: v=2.4 cv=A7H5rKWG c=1 sm=1 tr=0 ts=6b0887ed cx=c_pps
- a=bS7HVuBVfinNPG3f6cIo3Q==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=EUspDBNiAAAA:8 a=PhAf4g791m7IZrnnNEMA:9 a=QEXdDO2ut3YA:10
- a=vBUdepa8ALXHeOFLBtFW:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA3NiBTYWx0ZWRfXzuObUp9NiTc4
- sG8FQmWBWRdFgEthKYWC2pI3uAovxw80/mHluXt7RLVPfPR7PWrovFZnPf7xp+YfjiycdCrXk4Q
- ctvDnuZ4oBbasZyINtCOxmdwQr3d9wo=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA3NiBTYWx0ZWRfX5j1pOM49WV0G
- yc40UyRfU4vRPII54L1Jm/hVno7RoSzsk9e3fKoKdHo2J2Qiu210n1mFT6wX0coEmKYbJQj0mrl
- o3qe3pJu8N23eQDFykt3g/7Lc72cOwUq205qNE7P94JiPtvQwZgpZFhkGyUkZw1IVANILvdwBbr
- I+LiaAeyFpQa2BL7vKizc/e3BwSa6p0weEI46uLjjrWnL1/JvvdOWTkpIInuu1UYT91wjz0lMpi
- 6Yqr0LrKL5tIxTWrdmn8h5POMbQ/7/7UH5Gp1tGee1WythSvVMOYqj3HHpc6Ex98cObXA+GPqAZ
- gciEjiaoXl4+UNV46qqO9zA0vsfsZKllg4BNqF6vbLUEMczIrnGkOWXCi+i4oDLPOwumUzqZ5N2
- 6YB8YXNDqQ9fdsDoZ3Dvq0exrFKMeoLWU2EMye3fSQbQ0HE7zmu5vdcpXKPKfrVMgkoNSTM57mA
- hLjlWyj1m3zqYxatt1A==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-26_04,2026-11-26_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 suspectscore=0 lowpriorityscore=0 clxscore=1015 bulkscore=0
- priorityscore=1501 malwarescore=0 phishscore=0 spamscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260076
+Content-Transfer-Encoding: 8bit
 
+ArmSoM Forge1 is an industrial-grade product powered by the RK3506J
+triple-core Cortex-A7 application processor. It is specifically designed
+for industrial gateways, HMIs, PLCs, handheld POS devices, and home
+appliance display/control applications.
 
+Link: https://docs.armsom.org/armsom-forge1
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+---
+Changes in v2:
+- Remove unintended use of zero-width space in commit message
+- Add spi_nand label to flash@0 node
+- Drop rtc_int pinctrl, it was not referenced and unclear how RMIO may
+  affect how hw description of RTC IC may end up
+---
+ arch/arm/boot/dts/rockchip/Makefile           |   3 +-
+ .../dts/rockchip/rk3506j-armsom-forge1.dts    | 223 ++++++++++++++++++
+ 2 files changed, 225 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm/boot/dts/rockchip/rk3506j-armsom-forge1.dts
 
-On 10/30/2026 3:34 PM, Konrad Dybcio wrote:
-> From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> 
-> Fill out the register tables to enable IFPC on these SKUs.
-> 
-> Signed-off-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-
-Reviewed-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-
--Akhil
-
-> ---
->  drivers/gpu/drm/msm/adreno/a6xx_catalog.c | 47 +++++++++++++++++++++++++++++--
->  1 file changed, 45 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_catalog.c b/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
-> index 5e1d91a73a4e..89829fa8f4f4 100644
-> --- a/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
-> +++ b/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
-> @@ -814,6 +814,43 @@ static const u32 a630_pwrup_reglist_regs[] = {
->  
->  DECLARE_ADRENO_REGLIST_LIST(a630_pwrup_reglist);
->  
-> +static const u32 a640_pwrup_reglist_regs[] = {
-> +	REG_A6XX_VSC_ADDR_MODE_CNTL,
-> +	REG_A6XX_GRAS_ADDR_MODE_CNTL,
-> +	REG_A6XX_RB_ADDR_MODE_CNTL,
-> +	REG_A6XX_PC_ADDR_MODE_CNTL,
-> +	REG_A6XX_HLSQ_ADDR_MODE_CNTL,
-> +	REG_A6XX_VFD_ADDR_MODE_CNTL,
-> +	REG_A6XX_VPC_ADDR_MODE_CNTL,
-> +	REG_A6XX_UCHE_ADDR_MODE_CNTL,
-> +	REG_A6XX_SP_ADDR_MODE_CNTL,
-> +	REG_A6XX_TPL1_ADDR_MODE_CNTL,
-> +	REG_A6XX_UCHE_WRITE_RANGE_MAX,
-> +	REG_A6XX_UCHE_WRITE_RANGE_MAX + 1,
-> +	REG_A6XX_UCHE_TRAP_BASE,
-> +	REG_A6XX_UCHE_TRAP_BASE + 1,
-> +	REG_A6XX_UCHE_WRITE_THRU_BASE,
-> +	REG_A6XX_UCHE_WRITE_THRU_BASE + 1,
-> +	REG_A6XX_UCHE_GMEM_RANGE_MIN,
-> +	REG_A6XX_UCHE_GMEM_RANGE_MIN + 1,
-> +	REG_A6XX_UCHE_GMEM_RANGE_MAX,
-> +	REG_A6XX_UCHE_GMEM_RANGE_MAX + 1,
-> +	REG_A6XX_UCHE_FILTER_CNTL,
-> +	REG_A6XX_UCHE_CACHE_WAYS,
-> +	REG_A6XX_UCHE_MODE_CNTL,
-> +	REG_A6XX_RB_NC_MODE_CNTL,
-> +	REG_A6XX_TPL1_NC_MODE_CNTL,
-> +	REG_A6XX_SP_NC_MODE_CNTL,
-> +	REG_A6XX_PC_DBG_ECO_CNTL,
-> +	REG_A6XX_RB_CONTEXT_SWITCH_GMEM_SAVE_RESTORE_ENABLE,
-> +	REG_A6XX_UCHE_GBIF_GX_CONFIG,
-> +	REG_A6XX_UCHE_CLIENT_PF,
-> +	REG_A6XX_RBBM_GBIF_CLIENT_QOS_CNTL,
-> +	REG_A6XX_RBBM_PERFCTR_CNTL,
-> +};
-> +
-> +DECLARE_ADRENO_REGLIST_LIST(a640_pwrup_reglist);
-> +
->  static const struct adreno_info a6xx_gpus[] = {
->  	{
->  		.chip_ids = ADRENO_CHIP_IDS(0x06010000),
-> @@ -1115,7 +1152,8 @@ static const struct adreno_info a6xx_gpus[] = {
->  		},
->  		.gmem = SZ_1M,
->  		.quirks = ADRENO_QUIRK_HAS_CACHED_COHERENT |
-> -			  ADRENO_QUIRK_4GB_VA,
-> +			  ADRENO_QUIRK_4GB_VA |
-> +			  ADRENO_QUIRK_IFPC,
->  		.inactive_period = DRM_MSM_INACTIVE_PERIOD,
->  		.funcs = &a6xx_gpu_funcs,
->  		.zapfw = "a640_zap.mdt",
-> @@ -1124,6 +1162,8 @@ static const struct adreno_info a6xx_gpus[] = {
->  			.protect = &a630_protect,
->  			.gmu_cgc_mode = 0x00020202,
->  			.prim_fifo_threshold = 0x00180000,
-> +			.ifpc_reglist = &a630_ifpc_reglist,
-> +			.pwrup_reglist = &a640_pwrup_reglist,
->  		},
->  		.speedbins = ADRENO_SPEEDBINS(
->  			{ 0, 0 },
-> @@ -1238,7 +1278,8 @@ static const struct adreno_info a6xx_gpus[] = {
->  		},
->  		.gmem = SZ_2M,
->  		.quirks = ADRENO_QUIRK_HAS_CACHED_COHERENT |
-> -			  ADRENO_QUIRK_4GB_VA,
-> +			  ADRENO_QUIRK_4GB_VA |
-> +			  ADRENO_QUIRK_IFPC,
->  		.inactive_period = DRM_MSM_INACTIVE_PERIOD,
->  		.funcs = &a6xx_gpu_funcs,
->  		.zapfw = "a640_zap.mdt",
-> @@ -1247,6 +1288,8 @@ static const struct adreno_info a6xx_gpus[] = {
->  			.protect = &a630_protect,
->  			.gmu_cgc_mode = 0x00020202,
->  			.prim_fifo_threshold = 0x00200200,
-> +			.ifpc_reglist = &a630_ifpc_reglist,
-> +			.pwrup_reglist = &a640_pwrup_reglist,
->  		},
->  	}, {
->  		.chip_ids = ADRENO_CHIP_IDS(0x06090000),
-> 
+diff --git a/arch/arm/boot/dts/rockchip/Makefile b/arch/arm/boot/dts/rockchip/Makefile
+index faebeb20f467..ef11b2b95ae4 100644
+--- a/arch/arm/boot/dts/rockchip/Makefile
++++ b/arch/arm/boot/dts/rockchip/Makefile
+@@ -49,4 +49,5 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += \
+ 	rk3506-luckfox-lyra-plus.dtb \
+ 	rk3506-luckfox-lyra.dtb \
+ 	rk3506b-luckfox-lyra-ultra.dtb \
+-	rk3506b-luckfox-lyra-zero-w.dtb
++	rk3506b-luckfox-lyra-zero-w.dtb \
++	rk3506j-armsom-forge1.dtb
+diff --git a/arch/arm/boot/dts/rockchip/rk3506j-armsom-forge1.dts b/arch/arm/boot/dts/rockchip/rk3506j-armsom-forge1.dts
+new file mode 100644
+index 000000000000..ddc752059d50
+--- /dev/null
++++ b/arch/arm/boot/dts/rockchip/rk3506j-armsom-forge1.dts
+@@ -0,0 +1,223 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++
++/dts-v1/;
++
++#include <dt-bindings/input/input.h>
++#include <dt-bindings/leds/common.h>
++#include "rk3506.dtsi"
++
++/ {
++	model = "ArmSoM Forge1";
++	compatible = "armsom,forge1", "rockchip,rk3506";
++
++	aliases {
++		ethernet0 = &gmac0;
++		ethernet1 = &gmac1;
++		mmc0 = &sdmmc;
++		serial0 = &uart0;
++	};
++
++	chosen {
++		stdout-path = "serial0:1500000n8";
++	};
++
++	adc-keys {
++		compatible = "adc-keys";
++		io-channels = <&saradc 0>;
++		io-channel-names = "buttons";
++		keyup-threshold-microvolt = <1800000>;
++		poll-interval = <100>;
++
++		button-maskrom {
++			label = "MASKROM";
++			press-threshold-microvolt = <0>;
++			linux,code = <KEY_SETUP>;
++		};
++	};
++
++	leds {
++		compatible = "gpio-leds";
++
++		led-0 {
++			color = <LED_COLOR_ID_GREEN>;
++			default-state = "on";
++			function = LED_FUNCTION_HEARTBEAT;
++			gpios = <&gpio4 RK_PB3 GPIO_ACTIVE_HIGH>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&run_led>;
++			linux,default-trigger = "heartbeat";
++		};
++	};
++
++	vdd_0v9: regulator-0v9 {
++		compatible = "regulator-fixed";
++		regulator-name = "vdd_0v9";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <900000>;
++		regulator-max-microvolt = <900000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	vcc_1v8: regulator-1v8 {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_1v8";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		vin-supply = <&vcc_3v3>;
++	};
++
++	vcc_3v3: regulator-3v3 {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_3v3";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	vcc5v0_sys: regulator-5v0-sys {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc5v0_sys";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++	};
++
++	vcc5v0_usb20_otg1: regulator-5v0-usb20-otg1 {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpios = <&gpio1 RK_PD0 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&usb20_otg1_drv_h>;
++		regulator-name = "vcc5v0_usb20_otg1";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++	};
++
++	vcc_ddr: regulator-vcc-ddr {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_ddr";
++		regulator-always-on;
++		regulator-boot-on;
++		vin-supply = <&vcc5v0_sys>;
++	};
++};
++
++&fspi {
++	status = "okay";
++
++	spi_nand: flash@0 {
++		compatible = "spi-nand";
++		reg = <0>;
++		bootph-pre-ram;
++		bootph-some-ram;
++		spi-max-frequency = <80000000>;
++		spi-rx-bus-width = <4>;
++		spi-tx-bus-width = <1>;
++	};
++};
++
++&gmac0 {
++	assigned-clocks = <&cru CLK_MAC0>;
++	assigned-clock-rates = <50000000>;
++	phy-handle = <&rmii_phy0>;
++	phy-supply = <&vcc_3v3>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&eth_rmii0_miim>, <&eth_rmii0_tx_bus2>,
++		    <&eth_rmii0_rx_bus2>, <&eth_rmii0_clk>;
++	clock_in_out = "output";
++	status = "okay";
++};
++
++&gmac1 {
++	assigned-clocks = <&cru CLK_MAC1>;
++	assigned-clock-rates = <50000000>;
++	phy-handle = <&rmii_phy1>;
++	phy-supply = <&vcc_3v3>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&eth_rmii1_miim>, <&eth_rmii1_tx_bus2>,
++		    <&eth_rmii1_rx_bus2>, <&eth_rmii1_clk>;
++	clock_in_out = "output";
++	status = "okay";
++};
++
++&mdio0 {
++	rmii_phy0: ethernet-phy@1 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <1>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&rmii0_rstn>;
++		reset-assert-us = <20000>;
++		reset-deassert-us = <100000>;
++		reset-gpios = <&gpio0 RK_PC2 GPIO_ACTIVE_LOW>;
++	};
++};
++
++&mdio1 {
++	rmii_phy1: ethernet-phy@1 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <1>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&rmii1_rstn>;
++		reset-assert-us = <20000>;
++		reset-deassert-us = <100000>;
++		reset-gpios = <&gpio1 RK_PC7 GPIO_ACTIVE_LOW>;
++	};
++};
++
++&pinctrl {
++	ethernet {
++		rmii0_rstn: rmii0-rstn {
++			rockchip,pins = <0 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		rmii1_rstn: rmii1-rstn {
++			rockchip,pins = <1 RK_PC7 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
++	leds {
++		run_led: run-led {
++			rockchip,pins = <4 RK_PB3 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
++	sdmmc {
++		sdmmc_det_l: sdmmc-det-l {
++			rockchip,pins = <0 RK_PA3 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++	};
++
++	usb {
++		usb20_otg1_drv_h: usb20-otg1-drv-h {
++			rockchip,pins = <1 RK_PD0 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++};
++
++&saradc {
++	vref-supply = <&vcc_1v8>;
++	status = "okay";
++};
++
++&sdmmc {
++	cap-mmc-highspeed;
++	cap-sd-highspeed;
++	cd-gpios = <&gpio0 RK_PA3 GPIO_ACTIVE_LOW>;
++	disable-wp;
++	no-sdio;
++	pinctrl-names = "default";
++	pinctrl-0 = <&sdmmc_bus4>, <&sdmmc_clk>, <&sdmmc_cmd>, <&sdmmc_det_l>;
++	vmmc-supply = <&vcc_3v3>;
++	vqmmc-supply = <&vcc_3v3>;
++	status = "okay";
++};
++
++&uart0 {
++	status = "okay";
++};
+-- 
+2.56.1
 
