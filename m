@@ -1,99 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795704786;
-	b=AwCIk/iPAjUaonusmK+1D05CbED4zDQyTn2s50JogpRcYMoAvNKdnxv9Zpc+FwZUaElP
-	 2uq2RYOSzEULJ1tZ5FPzZv9FHPSix7NGZ/UYrA859EvrLRhbWsHMkRFS3FCsmxfOWsLa9
-	 YzriyaWewQcCO5f8/MMptAM4X49655WwJzQ3cG+MxPSEvqEEw1nyO3EqdrYkXyLwKZ5lL
-	 wvXmoj7DcoVE15/njXwookcAyoYYcr3GZ1YCrwBhSFUeHtSPxhrIDQ7yBh132pjWNGpIz
-	 mco2KXVPmgu1bEsPKHAzNeP5YK9jkkRdNT84winSTszs5ODoMwx0WtHTICQdUm70y0A==
+	t=1795704787;
+	b=0Afdq0hix5w4OAYu2OREzwJJwUvuOQOd8mPrgBRmdLQ7y0lbbqfIIiQ1HNLhqwjh2/uD
+	 xZrqTrN0+clufwBQJB04t/dtyUSTbkb5eIGuOusGuahVG3JWRzRJQ5mMzLiqVFUqGWPag
+	 JYoxiPhPjU2NC4jDgqNP2xR2lbJU69xaSp5GHg9ketG7VX4cJshhOp9AwNbaEDIUOSuc8
+	 Hxpu9s+mnxdvLrbfTFdi6eICqrpfZ0ah0Z5jVIVsPEXVEEEVvB/yDYGFR2nj55HvuMs3h
+	 9NpQ3S37JV5CLkIu5DylLGKPHCWnmJtw23yTadefzFZFsIiieaMFQ8H9Bc5orQrVQ8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795704786;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=qRPa/B8ERbaRnXSclOcrcXc2SQlwZ7vaaTwPPh0UliM=;
-	b=SOe5VXWO8axNBgeeWnU9EeuPBMjizSU76Y1ncH6b1LW4hOfDrI2rvc7CTLj9CXZgHCIW
-	 Phmf4N+4o1gdiOPxLcXWh6Yh67D0W4110M50XWack0Yr1263ZngD6uGwvqdEAODUAJ7jq
-	 /NUP8Xsxx57m1EFBYfz3WVjGaaBDNwP396DVGFWZnRVQk/0qCsEDbr6FbD/oKfQcKPyEc
-	 4U7YevRY8Tpd3EX4THG5K/r/fvh4S5tF+Y9LetMrozNB9AjdM3ENXLf66Aohpkcmi572H
-	 Pl7OcL/C2NeYxQivorot8pShGVDT/yE4LRiwNFptvw95v5L1SjcCGB64H1TM/dcn7UA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795704787;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key;
+	bh=sPahzrcvT3RZFJ8PseMpGem8/LBfIlO+73qMBgTYdqo=;
+	b=QHzJOXW5YMtiK2RAnCCb+XfyxvjrrM4Hn3nGpFuU25UjbS+kEYhbVeaZmEBuXsH1sY3O
+	 60SR+U0aJg8hyI0GzvBtV2BwZqP22AtpHgMUcMIGDvneI1eT2G0eRIGt8x8LbdERO13Ly
+	 3FEj3QHEv0hs1I0um4+XZZVIZi7ahYdvG+0qvOpia9QqKjK4szq0ZrmzPKdaPaJjmG7gG
+	 wfDOfw+ELNgXXqahlR28lCwZPBjvpaWBNxVNpncLQoYYlPsSTUgYERTDqk0jBmrUvR9Kn
+	 SmEdlKpBlJzIYEieIclVAFdzkX7DJ3FiqhtpqbHF4AH+K3u2mehjJ0alOxWr+cAtGxQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linbit.com;
-	spf=pass smtp.mailfrom=linbit.com;
-	dkim=pass header.d=linbit.com header.i=@linbit.com header.a=rsa-sha256 header.s=google header.b=TJ2U6Bz0;
-	arc=none smtp.remote-ip=209.85.221.46
-Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=YSxwHOVA;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA9C2606A33A
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:53:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CA9C2606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linbit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A522606A33C;
+	Thu, 26 Nov 2026 14:53:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A522606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linbit.com header.i=@linbit.com header.a=rsa-sha256 header.s=google header.b=TJ2U6Bz0
-Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-48e46e449e8so4623646f8f.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:53:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linbit.com; s=google; t=1795704784; x=1796309584; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=qRPa/B8ERbaRnXSclOcrcXc2SQlwZ7vaaTwPPh0UliM=;
-        b=TJ2U6Bz04qwUZdgPNp+lr2ozjrvqp7QDyf9E2kAMAGN10wwl2GwK3q0b3cXmS7iEal
-         RARM6l5UNj677zLvyxws7yXUaO+Oag2VSIGAdtwO3SNs3qZ6ISvNtLg6qSI4pZ6k3NUT
-         pNWL4KXck1IB5h7+lFLVKtJq599GWYkOYexodNMl9Lecy0uIx10gt4Kkepr35xyakmYN
-         mv9S2STxYPpVtzNLK3oLu7xPxWBVqbebYhtQP6DOVayWlfxO6D7BqoqDTqh0/x2AobCl
-         7ZPhDSay78qTyD9eZkymjiTgw39p6IiRQwJNAFdDp64s+nSjk/cG+/jgn1XryIOvf7YW
-         lxlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795704784; x=1796309584;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qRPa/B8ERbaRnXSclOcrcXc2SQlwZ7vaaTwPPh0UliM=;
-        b=tsfmGBdzcjkIKvxshrhecqehqSdopTBNVawQg+btc2Ona64BcSNcOFh/qZff6gtf45
-         MNIyiwfYLeoEF2+BswrCzRjvKsAKO2PWGUPyYGO04T4b4vGUOaeqmrN/WrBUA6Y+Wo8h
-         drqjJKFwLmZMznGXaZWH1B6fZ6T8dE30s3BUYGDAS7u/MJkIS3wPH8+LG5t/WmNNAPd8
-         JesnN3na2+dHMvZAgJNAIdGmJOJfaYoCGw4iIm16lOVXKLR882rRzaOnqiJpoI2nXAl9
-         AuvNFeQCbRZYLiB98ib3L/Sm5gMDPwvc9akiq5SRDq/sA9wkCbOOb9O4awdd5cZU9ova
-         8l9w==
-X-Forwarded-Encrypted: i=1; AL+hErGQjSRn1WYnKGf8t9u6f/qXuSOfJlaFeaQWeQvbEManNKTwHFqctfDNDLYzJEf4xrQuRVPpl/zVt8mom1U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+W+3uIzESK/oaW3wWpi9jGxovUaMIDas9PjakywG/gZSW615M7
-	Pr+hD/yzt2LJsil8AB9Cd19uCq3y2p5LB2tUkUlw7QtFYmu8TwXyAZ/d1nlnmdRjcqA=
-X-Gm-Gg: AZFdTZekL/IFbUdoAEG7g5HGy+vz+J4IsKIWGUyUz2pC31Az3cP9MLA0ztx2MZzOdnL
-	AjDpP3l+MKlfQMPflGqTlE3q4k+Sledpx+BKmUdqDahIO9+3aSkLPzYCDGqbSR/KYEYGUeaxGfg
-	cQ96h8iCT8wTTHZeI2KFuQ2qKsgWCTp5OY9PmLwE76Oa+VmZwvKic+YLJPxbxGMv78VELrY+pOl
-	qiiH6FbQd4y9NWMIt9PYsK+eqxfHU6NqDBjaxUk595wDEv4M/c4uS/uigpJUgs/FTruR159enKI
-	cL6h5lKLy0NIO8hD0yOPPuGL305mcQ+AEe5BVkW6qUPN1TZGSKDU6hk/7BMJfMfV0w/8y9RsPP5
-	dDDXjB6limR3cMyRGCKmCeimuLrM98OKXFwktigrpC4LshvPGcBlw1vzZ0jCIyPTz3bK5i6XjJn
-	u5J/1GqrdDcskfrolN5VEUxtOZmoV7VMCUvYvcV4jUdFhg+9+35dSekqrFiPB4FsDf6a+OwMG7q
-	+1bd8jRW4r9D9H4WLgs1TRLS/fpD3Dmyy5AgroL8zwoCIIblMg42Nrs2ctwXu2vQDEpJcDzYzjH
-	BwbgSl8OCk3pPQ0W9vez8hggIhi1IDdjQLiLd67N7TllSLfK+gFDjbmMK8a3TzrjXaP0gaKClg=
-	=
-X-Received: by 2002:a05:600c:6290:b0:4bb:741d:eba with SMTP id 5b1f17b1804b1-4bb88824a5bmr425912685e9.13.1795704784215;
-        Thu, 26 Nov 2026 06:53:04 -0800 (PST)
-Received: from linbit.com (h082218129081.host.wavenet.at. [82.218.129.81])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906c089dsm356445905e9.1.2026.11.26.06.53.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 06:53:03 -0800 (PST)
-From: =?UTF-8?q?Christoph=20B=C3=B6hmwalder?= <christoph.boehmwalder@linbit.com>
-To: Jens Axboe <axboe@kernel.dk>
-Cc: Philipp Reisner <philipp.reisner@linbit.com>,
-	Lars Ellenberg <lars.ellenberg@linbit.com>,
-	drbd-dev@lists.linux.dev,
-	linux-block@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Christoph=20B=C3=B6hmwalder?= <christoph.boehmwalder@linbit.com>
-Subject: [PATCH 2/4] drbd: fix lost bitmap-work wakeup on weakly ordered CPUs
-Date: Thu, 26 Nov 2026 15:52:55 +0100
-Message-ID: <20261126145257.592085-3-christoph.boehmwalder@linbit.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261126145257.592085-1-christoph.boehmwalder@linbit.com>
-References: <20261126145257.592085-1-christoph.boehmwalder@linbit.com>
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=YSxwHOVA
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795704784;
+	bh=P+04Z1MX3zoNRz5DSJxgK1log1B1KePm97Us5+d/6J8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=YSxwHOVAARaqm+emsVcEV7p/Lb8Pg4ucF+SuCFYL0OpuJLPyRmkxq/uCVsrXwa9YK
+	 HQj3RICR1vgemSPp8Izz02BzkENLbBideQrrIqjrEBwSx7f7IVp5JvVFriuuQ+eqNE
+	 kAR9/hzw44O0Gn4/JefQ5qrNwok0kRskJ/x9+nvkF+UjWpJbXAw5jtbnio9PtqW+V9
+	 Vx2JP3wlhB+qDbpBiDxhgTlUA19RYxmeXvTRLjsilLF/J26l1SyG6KwNUpFmOBFK5p
+	 2hUO/ZBOwp6HpLT7tj7ALSD41Smr7VxsCSwBgPVO+KyooubVjDCKZQ79md0+I7j/8S
+	 BzQjFghsoEe+g==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A3DB017E07B5;
+	Thu, 26 Nov 2026 15:53:04 +0100 (CET)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 61A9A480030; Thu, 26 Nov 2026 15:53:04 +0100 (CET)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Thu, 26 Nov 2026 15:52:37 +0100
+Subject: [PATCH v3 2/6] dt-bindings: clock: rk3576: add more DFI clocks
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,74 +65,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-dfi-clocks-and-rk3576-support-v3-2-0f33c1b8df48@collabora.com>
+References: <20261126-dfi-clocks-and-rk3576-support-v3-0-0f33c1b8df48@collabora.com>
+In-Reply-To: <20261126-dfi-clocks-and-rk3576-support-v3-0-0f33c1b8df48@collabora.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chanwoo Choi <cwchoi00@gmail.com>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel@collabora.com, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=935;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=UfwNA4f0pWBVqpKkpibVMUgMqkfCfa2mC1buwCjD6uw=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGsIR9B3WOcP1GduoK97tw5PPWHVXhsahY3En
+ 1led8hJyUCuyokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJrCEfQAAoJENju1/PI
+ O/qaZBwQAILu2HobZ0WzFan/BMl502xHBwxP+3ze+9PGL9e9sxbJXC0TEYOMTeMPn10qKb+M7YR
+ h4FkUSFrz35w36JLDwezHM2Zp6c9PKYmw9ozstD3dch4iPgQb0nZZWtc2Kgj+f+RkDsW4HEaZgN
+ MEZe/qCZKJQpAdMROWbqRuLP+Tc8rmc5CslovNygWKqw8muEdWnC5rN4+VwZpJMjfqKgJXAb0f3
+ to9RSXQd/ThKUsrS0SzFoRBiBX5SOAUouC+J+wj45q5kgXiaLmTX42XpYb82mA1S4uGFov/z+nS
+ w6iTki7gtzKjoOZyRaNmJ0tMtCdq787XpYrWk6Rf7p29oIfIcim8WquSyr5H1MBWRGRYbkWegR+
+ x7+wTAqyQ8eSDaP9OAC5nKVyEolZqll0C+69633MmK8tMOy0zTEZHgva0VPfn6sbfjI/pJeZk2E
+ k5keYyY2UT5Dcf+iHKLXQJ9wsdKo6oViIapHGMwuuQwvWfZOwI5lxJ1QiXdP8DVv8JwMQA6Il8r
+ Apseu/CLDua8NivoWX5krHcV7Mqi/reesym4fczPr2EY+gyV30KbJQwNLjyeADHvy6k1xY1zYB4
+ OkT58o4SoelU9jD7hyM6Nh/HplPpSRCpXSr+CjrfuY1fSGdhfVCv3sVGojHigLeVrd/Pw5c/j5w
+ w8LKQz67E5ddp5YM5Ezg1Rg==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 
-From: Lars Ellenberg <lars.ellenberg@linbit.com>
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-  drbd_queue_bitmap_io(): set_bit(BITMAP_IO); read ap_bio_cnt (req_lock)
-  dec_ap_bio():           dec ap_bio_cnt;     test_bit(BITMAP_IO)
+When the RK3576 CRU DT binding got upstreamed, some DFI clocks
+were missed. Add identifiers for them.
 
-Both sites decide whether to queue the whole-bitmap work by inspecting
-the same two locations in opposite order. dec_ap_bio() does not take
-req_lock, so the lock gives no mutual exclusion between them. On a
-weakly ordered CPU the queue-side set_bit/atomic_read store-load pair
-may reorder, so both sites read the other's pre-update value and neither
-queues the work. BITMAP_IO then stays set and application IO is frozen
-until the connection times out.
-
-Observed on aarch64: a source-side reconnect parks in WFBitMapS,
-drbd_send_bitmap never runs (no "send bitmap stats", no WFBitMapS ->
-SyncSource), database threads hang in fdatasync/writeback. Not
-reproducible on x86, where set_bit() is a full barrier.
-
-Order the BITMAP_IO store before the ap_bio_cnt load.
-atomic_dec_return() already orders the dec_ap_bio() side.
-
-Commit 22afd7ee94c1 ("drbd: Fixed race condition in
-drbd_queue_bitmap_io") added the req_lock on the queue side only; it
-does not close this reorder.
-
-Signed-off-by: Lars Ellenberg <lars.ellenberg@linbit.com>
-Signed-off-by: Christoph Böhmwalder <christoph.boehmwalder@linbit.com>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/block/drbd/drbd_int.h  | 3 +++
- drivers/block/drbd/drbd_main.c | 8 ++++++++
- 2 files changed, 11 insertions(+)
+ include/dt-bindings/clock/rockchip,rk3576-cru.h | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/block/drbd/drbd_int.h b/drivers/block/drbd/drbd_int.h
-index 40be382b24d2..20899a0d7e45 100644
---- a/drivers/block/drbd/drbd_int.h
-+++ b/drivers/block/drbd/drbd_int.h
-@@ -2213,6 +2213,9 @@ static inline void dec_ap_bio(struct drbd_device *device)
+diff --git a/include/dt-bindings/clock/rockchip,rk3576-cru.h b/include/dt-bindings/clock/rockchip,rk3576-cru.h
+index ded5ce42e62a..c5b74f2d8926 100644
+--- a/include/dt-bindings/clock/rockchip,rk3576-cru.h
++++ b/include/dt-bindings/clock/rockchip,rk3576-cru.h
+@@ -604,4 +604,10 @@
+ #define CLK_FSPI0_TO_IO			576
+ #define CLK_FSPI1_TO_IO			577
  
- 	D_ASSERT(device, ap_bio >= 0);
- 
-+	/* atomic_dec_return() above orders this against the
-+	 * set_bit(BITMAP_IO) / ap_bio_cnt read in drbd_queue_bitmap_io().
-+	 */
- 	if (ap_bio == 0 && test_bit(BITMAP_IO, &device->flags)) {
- 		if (!test_and_set_bit(BITMAP_IO_QUEUED, &device->flags))
- 			drbd_queue_work(&first_peer_device(device)->
-diff --git a/drivers/block/drbd/drbd_main.c b/drivers/block/drbd/drbd_main.c
-index aed1d1ab6d0f..fd83fc492a79 100644
---- a/drivers/block/drbd/drbd_main.c
-+++ b/drivers/block/drbd/drbd_main.c
-@@ -3497,6 +3497,14 @@ void drbd_queue_bitmap_io(struct drbd_device *device,
- 
- 	spin_lock_irq(&device->resource->req_lock);
- 	set_bit(BITMAP_IO, &device->flags);
-+	/* Pair with atomic_dec_return() in dec_ap_bio(): order this BITMAP_IO
-+	 * store before the ap_bio_cnt load below. dec_ap_bio() decrements
-+	 * ap_bio_cnt and then tests BITMAP_IO in the reverse order. Without
-+	 * this barrier, on weakly ordered CPUs both sites may observe the
-+	 * other's stale value, so neither queues the bitmap work: BITMAP_IO
-+	 * stays set and application IO freezes.
-+	 */
-+	smp_mb__after_atomic();
- 	/* don't wait for pending application IO if the caller indicates that
- 	 * application IO does not conflict anyways. */
- 	if (flags == BM_LOCKED_CHANGE_ALLOWED || atomic_read(&device->ap_bio_cnt) == 0) {
++/* Clocks that were missed initially */
++#define PCLK_DDR_MON_CH1		578
++#define TMCLK_DDR_MON_CH1		579
++#define CLK_DFI_CH0			580
++#define CLK_DFI_CH1			581
++
+ #endif
+
 -- 
-2.56.0
+2.53.0
 
