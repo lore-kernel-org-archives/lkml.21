@@ -1,69 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795718971;
-	b=DliFpQuKO8An4SwNWfHup8T7yxZR27nQF1kkjLzXol2D73nIQryPoLTiCIMicuNWomrQ
-	 iYmtFaX3G85svq0I2Vz42Mb7G9dJ4cU0YJX96o5NZ0LZsHOk4S3cQJAjLtL9IsxiH2mn0
-	 s6OrYyeRkhqRpGdboba7zGnxya+2N9m0PeTySrKeBgZvuTVstWBAO/Z9E7e/9CdQJ5EzP
-	 pEoxWX6A3x2o6gCCbIMMj+mGhYeuhMXPpSzpJs28r8bw7nAPP8tWroHZTvwfNW7XgBvsf
-	 ZNaoVslQUXZLD7bGClCO5c1JJEWqedpKU29bKwm8t7CcL5QlxxYth1p3oJm7/THwIQw==
+	t=1795719051;
+	b=KHGNjE2d6vehn4IUyiD5S1L1N6kV9yxQWH3T5x4kuHDTmscB1w+k3phCgSaQ8/CqxdA4
+	 Ef8u4tbiSKznWUA/gAecZrWEH0okYG+03ibzKfFLwmHjADYieyCeCyo7GL0xQt+97cATg
+	 Evn1P6o/4yyienyQi6gbTrrx5XYYyAS9qPZo2oTWd85i0V+UZLvMbMn5g0/0HNOCTnwNN
+	 wqz18OJ83Jpwizy/qHlYrYRBAzKtnjxOQQUHEk507RbzKsoTdnBoe8sUzmScQ6NVkXTtW
+	 T9a9ONksMULYPxIo9ZU5VLVjvwF8NHMKXWNzpOK5wcRIXIe8KUPZF9EnRpnZ4dtjE+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795718971;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:User-Agent:MIME-Version:Content-Type;
-	bh=OJrIBssRihwY1hjT7BcClChtfC90/g3C4v7S4XKqBtA=;
-	b=1ErA4LhnGlgtuk8MKI7pnLmq49cXV/V2k5icPnzeNImobp3bnavyNU8END0emyu8WUSH
-	 7kFegIm5sZsaWAnLY5ZvI4Gp738I1dwxsPMklJFWSdoz6sRemFf0RFrRlhQpcPaYfzD3A
-	 Kq6UN7n8NDvn6RYZaCXg5rCJCsePDyO9E+8YMts6raCD556/PHJsxinmZSbrl70LBCAnK
-	 s0xisFOo6VBbC/JUduPrSC2o8qPZDhKGPKMVExYJnKoNuUUwvpzA/rDUsDkh3OrqTZOTG
-	 UEfVX6RV64JCtw5hat73RargdozJFqZVtepj9gz/tv/PFOkYyRb2TtzpR+/no4uJu6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795719051;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=rRMqTA9y4q1/feYnbWuhgBQMBo65uLHovNvV51CubRM=;
+	b=BPNEodZyZ0EgM8km0CEqSwkyzWUzMZCyhfRKRctEmcDVUV5pxQtHjTkSSrjr2A/h+xtm
+	 n+j1C9B3YkYFB75q0bb8Md8h2DVRlk8FM1G8Cgcb3K3/VRoYcpHReQ8dv4pIzVx+Mx0jZ
+	 RSSYDQ2rX/uO8Qe5ffZ98VmkvCt+j5PCJ/6rJk4YuetDUFpjLdFFHQwYpMAaT6j91cewL
+	 NTi0mpAfukcgEU8VKUO/D4PsToFMld96etrZkAe6lmOSwgn1ZTqbWFeg79JdOFfRIm+aD
+	 UeSy3od1skcTRAwq6TlS/WGeerv/ouqtJUgSs/GVYRwQX1f0St7oSW3+qSRDL/x8Uvg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n2CNBE5+;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oyez7plw;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDEA5606A31C;
-	Thu, 26 Nov 2026 18:49:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66F4C606A31C;
+	Thu, 26 Nov 2026 18:50:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n2CNBE5+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C5161F000C0;
-	Thu, 26 Nov 2026 18:49:25 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oyez7plw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 759181F000CA;
+	Thu, 26 Nov 2026 18:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795718971;
-	bh=OJrIBssRihwY1hjT7BcClChtfC90/g3C4v7S4XKqBtA=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=n2CNBE5+M6S3Gti+E4h/BEiW+QZsCLWVg3Z07JmCFD4CJWtQOT7wmTFvMHay90J17
-	 FASidj/Tb9qKR6r+t0f8m5l2GSXoRaCyDUjouiMfYBDRAya375OAB8ifBdjby0L3cN
-	 XvZu0xkJxI/+pA9AAyI7y3aIotV8xSxGc2csYUvuvg6Uw1JsXVX+0NOYxmoIoYXxv2
-	 M34fX1uPVfxBkS9zufumLpfpKWYxQRuFEpxczh1v12sNbqWWyTovgyCerZ8wJElZbL
-	 qHPbpDy15BB/FUoYPImERW6CSIHqZ46EBBEwU+aASP6SbeqtKq5FQihbH4FEKfQfVt
-	 VyCXs6QVLSDTA==
-From: Pratyush Yadav <pratyush@kernel.org>
-To: Tarun Sahu <tarunsahu@google.com>
-Cc: Pasha Tatashin <pasha.tatashin@soleen.com>,  Mike Rapoport
- <rppt@kernel.org>,  robin.murphy@arm.com,  maz@kernel.org,
-  will@kernel.org,  David Matlack <dmatlack@google.com>,  Alexander Graf
- <graf@amazon.com>,  seanjc@google.com,  jgg@nvidia.com,
-  loganodell@google.com,  arnd@arndb.de,  dwmw2@infradead.org,
-  baolu.lu@linux.intel.com,  Bjorn Helgaas <bhelgaas@google.com>,
-  oupton@kernel.org,  alex@shazbot.org,  gle.com@google.com,
-  pbonzini@redhat.com,  Andrew Morton <akpm@linux-foundation.org>,
-  kevin.tian@intel.com,  joro@8bytes.org,  kvmarm@lists.linux.dev,
-  linux-pci@vger.kernel.org,  Pratyush Yadav <pratyush@kernel.org>,
-  kexec@lists.infradead.org,  kvm@vger.kernel.org,  iommu@lists.linux.dev,
-  linux-arm-kernel@lists.infradead.org,  skhawaja@google.com,
-  sagis@google.com,  linux-arch@vger.kernel.org,  linux-mm@kvack.org,
-  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 18/19] mm: memfd_luo: Add feature header to struct
- memfd_luo_folio_ser
-In-Reply-To: <20261110050202.529473-19-tarunsahu@google.com> (Tarun Sahu's
-	message of "Tue, 10 Nov 2026 05:02:01 +0000")
-References: <20261110050202.529473-1-tarunsahu@google.com>
-	<20261110050202.529473-19-tarunsahu@google.com>
-Date: Thu, 26 Nov 2026 18:49:24 +0000
-Message-ID: <2vxz8q2fwhqj.fsf@kernel.org>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	s=k20260515; t=1795719050;
+	bh=rRMqTA9y4q1/feYnbWuhgBQMBo65uLHovNvV51CubRM=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=oyez7plw3Pnp4KN/cPbxRlYQNoWaepmpwBx2N2wB6ukponzEPgFMYCHj8UzsBRaWt
+	 n4h2OHuRUAYzhWzZl3CK6UT2oALBhg9yiw22sRUtKdy10nzzb6Vk3aXUA6rfiI4SjD
+	 ahzMg6XtjduWPbOEzOzdxXEXjwfzQ0HZYg/2pbb26VtGYqThA30It5ohq8cXzbeGkf
+	 GmF/8O2VqszVGsKsySp9LH+DMgyg7qsW66DHVv4WqBvC2OUvjwCrVblN9uldf84Oaw
+	 D1GSOkiEDc+ylj1Med278C0gJyUX3FU/CBmaE8xUMinFVUvHENiCpp1HmrmkBmziF4
+	 NrNDMhWR5v25g==
+From: Lee Jones <lee@kernel.org>
+To: Lee Jones <lee@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Arun Iyengar <aiyengar1990@gmail.com>
+Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>, 
+ Jeremy Kerr <jk@codeconstruct.com.au>, mfd@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+In-Reply-To: <20261119-syscon-clk-uaf-v1-1-dc4a4c1be353@gmail.com>
+References: <20261119-syscon-clk-uaf-v1-1-dc4a4c1be353@gmail.com>
+Subject: Re: (subset) [PATCH] mfd: syscon: Put the clock after
+ regmap_exit()
+Message-Id: <179571904924.17438.9838642142341171263.b4-ty@b4>
+Date: Thu, 26 Nov 2026 18:50:49 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,31 +61,25 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16-dev-ad80c
 
-On Tue, Nov 10 2026, Tarun Sahu wrote:
+On Thu, 19 Nov 2026 16:49:56 +0000, Arun Iyengar wrote:
+> On the error path, of_syscon_register() puts the clock before
+> regmap_exit(), which then unprepares the freed clock. This happens
+> when the reset lookup fails, e.g. with -EPROBE_DEFER.
+> 
+> Put the clock after regmap_exit().
+> 
+> 
+> [...]
 
-> Precede each serialized folio entry in the preserved memfd folio array
-> with struct kho_ser_hdr via DECLARE_KHO_SER so future per-folio memfd
-> features can append fields to struct memfd_luo_folio_ser without breaking
-> compatibility between adjacent kernels.
->
-> Allocate the preserved folio array using kho_ser_size(memfd_luo_folio_ser)
-> per entry and initialize each entry feature header in
-> memfd_luo_preserve_folios(). On the incoming path in
-> memfd_luo_discard_folios() and memfd_luo_retrieve_folios(), validate each
-> entry feature header with kho_ser_validate() and advance between entries
-> using fhdr->size so entries written with a different feature layout are
-> traversed accurately.
+Applied, thanks!
 
-No. The flags in each folio entry is a part of memfd's ABI. These flags
-don't have an ABI of their own. If the layout of memfd_luo_folio_ser
-changes, it goes in the memfd_luo_ser flags.
+[1/1] mfd: syscon: Put the clock after regmap_exit()
+      commit: 3b325481b239a9d9c744f10143e59b252eba836d
 
-Doubling the memory needed to preserve a memfd is not acceptable.
+--
+Lee Jones [李琼斯]
 
-[...]
-
--- 
-Regards,
-Pratyush Yadav
