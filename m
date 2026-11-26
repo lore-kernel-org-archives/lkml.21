@@ -1,62 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.7
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795655739;
-	b=IRTbcX2NE2VxlTrfuEW2LyCKLnFXPOdPcixQ6V5c/CrKnc6pZ1n35BzlEXILoMvprTSY
-	 3JbJ+NeQxBvWyswLHSz8N7OjaqUbuAQmP7XDBsAhhN1kvUdXs0GWkgS+Vic0t2at8eEfZ
-	 A7MCLyw2J+zA5Btm+6TV/I7JvKSOVw9gf3OJXtkWpKmQ5nlCH+oaCDEZNAklFGbUri3CT
-	 2WtrpQD/A7MP50158yZ7UPa5t21ysfKT2+afi8vrgIuY4jQisXGYN1WR2peYEjUtjrhvW
-	 k7CFYEgxYo9XLoWjBgcTagTKwBiBZgxvwDK9rcRjAI9g83p3JnemC9UQJoXS6u8u3LQ==
+	t=1795655797;
+	b=4YsCxn7O0cKtBf161oUUP32sF3B24g+mnsHkt3ZOutC2eAcQz21OmeqNtjIUJYd9+CqF
+	 LmahnSxE459uY0/+brTvC7ua7NutscUTMUbZLnD2NnGbknP/YouoWNXZy9iWOTMg3jRbo
+	 EUQCwn+WYvgFuSMS/RWU0eZ/lZfI+UsMYDHMSzerYt+4qP5ruShwjjRLqPY1ZrVvbE35h
+	 e8tBHini6X++UPodicKPdoLy/bjVjI/AAWvCwlYMSg3hx0cegPmjkNCZvInW0hmbe6/wK
+	 Fqi9toBum6horH5aJIbQkqdkVFMv5GL18EcPaNTOagBnKkgM+1yWrVlTvjOgxt2BB6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795655739;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key;
-	bh=WkHN9A3Y86juNKLrEVQSy/VEql3aXHqCYmFvIrSVDmo=;
-	b=VUTDE/+oViPMFWenhseWaFbIEfwQRDL2gXUMEMl2Wp+hk/t8Y8HSZIlWAxhxf2RGvI/F
-	 ARGnXVAvT8ET982H9rzgmAqW2s1I66xtkkqYcf7prBh3/uqpWpm7f3nR2gr+XXC8zS4YT
-	 d+fstBfO3qp0urUvczwdTklcOztWrmu0eiD6tbjXQF20zjADCBoX0HtogTU1uGSlQPVfo
-	 d0gHnyoZeHoGZExnd5VjQ3qac8klF3Feyr92vWx3Y5cVk9kzz7MkDboZb9l0Z/aNTKoZx
-	 +G7xRgxd1FWoQrI1eVUu9MaCJlSTRmD1ONcHRmAKOu+aqc1rVeOqcoHFTUOX+gwcQTg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795655797;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=kGkpHSPUPV5CUyV1od9kzaCcYXVPJFOcarbWhABwVRI=;
+	b=a/aR3oPxTj/s8R/0Ynay2VpRXQ+oDoIouYxiycKInYal+WSZ+Z/pocB3ytUxqg33lVBA
+	 A6ZvFzZRJy/pCNTaPGsK2cyqpDmU9OcdVoQ/HnhMq6SlpHe41HpJO0qIAsO7FbZinY8ni
+	 bvYagTxBlg827nJzgge9Kz74iqah6dZKwUqAhswQ6tsugvGUfcMrR/nam6efCVZBIQRS+
+	 BzTE1JqEaqyXUVw7iRBvemx3u4In11ObTqakCPFThRZoNVv4cVptLAV/K6mKn0gZjFJvH
+	 +4YZT3S+gHUpW0xwzZ6ci4XLM20AefQPRkyGe4Um0gNJtAjMoQxQA8sx95hQnCod/8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=NYg1LOrC;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FnsDG8pu;
+	arc=none smtp.remote-ip=192.198.163.7
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.7])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A815D606A691;
-	Thu, 26 Nov 2026 01:15:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A815D606A691
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E3E8606A332
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:16:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E3E8606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=NYg1LOrC
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795655734;
-	bh=TReSjAabIH0w5Lp+llK+KbrOfk2KHaTLEr6xiB4QYtw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=NYg1LOrCSTei0r9BiVMobgCs4/RupeRK9GY1Tt/Hj54AEJLw4bh9YwjoXOGCmG/JV
-	 nCVRp8rFrrB1F7AIXfb3ADVD9+wmzbDiEQE9/GNYkaJqIbqruokCWrV0OBRgvmu4SJ
-	 qguOaFPFUHJT3+jF0iekIj22FxpiyQR6pHEywM/+bFVA3ksXFbAkfOpeBE3DVZ4/dz
-	 WL9UnSeYHBo+fQBevUYVIRunpRBtIY/E1hJTXNa5X4TUkNBxtEI+7iizuMFlafNjrP
-	 r10CfEy9EIjqJRZ4od69NxKifKY6a5r0Opcso6w4QQnOcVyf0FipZi7fA3EN7f4ZAc
-	 WZ1Cc1+D2+LgA==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6B6DB17E12EB;
-	Thu, 26 Nov 2026 02:15:34 +0100 (CET)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id CAD2F480041; Thu, 26 Nov 2026 02:15:33 +0100 (CET)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 26 Nov 2026 02:14:36 +0100
-Subject: [PATCH 08/11] arm64: dts: rockchip: Add USB-C DP AltMode for
- RG-Vita-Pro
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FnsDG8pu
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795655796; x=1827191796;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=XVFTqBo+CJwzxoZI7Biy1XZPco1nvpzQl5ITb3ynK6I=;
+  b=FnsDG8pu20D0AimuDbb1qnB4Uxo5+5m2sbfaYiw9O0oZgBQMg0mj5s7Y
+   zFoiNFN6wmJddOJtcbMPz6dcIOhqV0jRkLJgPXy0mrGWka3pZwli9GuRK
+   g/nZ35kizVLgHwaDJEckbFF7z7D3x096Ps10cWS3fUMgs0FF06Kbfb5fo
+   6pqtzabsz5WosPcA3NncfRFO5tU73RlqqsUZd9Z6cRKC5qKpYBOx+gGfs
+   neP4j/nLzk1oWm1e7QU9JwRbZ9kb2+Fox6OTLsDHRAh9osHWef/wBUjFm
+   l8X36rniRY1nNIfCtcepQJ3YWIf7n+2k1tMtsZviwBfoXQqOWU3wNIqwL
+   w==;
+X-CSE-ConnectionGUID: LKJe6BjTRASS3/PCnmHTDA==
+X-CSE-MsgGUID: x4tPCb55SX6yFHjx+ntY1A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4397878"
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="4397878"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 17:16:35 -0800
+X-CSE-ConnectionGUID: LqTCoUBlQUOS/SHgfyex9g==
+X-CSE-MsgGUID: gZ8/MW6fTzuWPfQ5eMAQFQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="12159304"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa005.fm.intel.com with ESMTP; 25 Nov 2026 17:16:27 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xWO63-00000001T2U-3AGp;
+	Thu, 26 Nov 2026 01:16:23 +0000
+Date: Thu, 26 Nov 2026 09:15:52 +0800
+From: kernel test robot <lkp@intel.com>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Inki Dae <inki.dae@samsung.com>,
+	Jagan Teki <jagan@amarulasolutions.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Jessica Zhang <jesszhan0024@gmail.com>,
+	Douglas Anderson <dianders@chromium.org>,
+	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: oe-kbuild-all@lists.linux.dev,
+	Javier Martinez Canillas <javierm@redhat.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Hui Pu <Hui.Pu@gehealthcare.com>,
+	Ian Ray <ian.ray@gehealthcare.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 09/32] drm/display: bridge-connector: use a dynamic
+ connector
+Message-ID: <20261126090631.mLSCvuCb-lkp@intel.com>
+References: <20261125-drm-bridge-hotplug-v4-9-822722850492@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,181 +108,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-rockchip-usb-c-dp-altmode-v1-8-7991eb5bb426@collabora.com>
-References: <20261126-rockchip-usb-c-dp-altmode-v1-0-7991eb5bb426@collabora.com>
-In-Reply-To: <20261126-rockchip-usb-c-dp-altmode-v1-0-7991eb5bb426@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Cunhao Lu <1579567540@qq.com>, Chris Morgan <macromorgan@hotmail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3047;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=TReSjAabIH0w5Lp+llK+KbrOfk2KHaTLEr6xiB4QYtw=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGsHiDVHBf/7Z0cjKNlvICvyct4R2IeoVQJIe
- nBcZ/Vd4hxj7IkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJrB4g1AAoJENju1/PI
- O/qar3sP/2dGaRUH/H/vMuhjMk7X2iJZT3+qyME4NWYuAzLVDrehc0+zLt4+G7mFPKWo5uMRxbN
- C5Ii1HDZABNGSqU7Z1ZRTq9lMc0lWdDTR9nnGC4ozM6pAdr8RcfXSAiyNXqe3xikIGgqMwSMMRI
- HuW9loHRmgLIi/Wf4/+vUKLNpMOZlmAvpTjYs2hUKFnJyVerrvuJXP8/V41bVQEwonsH77vF4U9
- WhSY1uTtBUVTg1bjlLJEITAa6W56HJczIp1gA/mu26MSkCi8rpMJKXctMKjsJXsgL6fvn/Byljd
- bAntLIsg2XX0gQ1OG5LiBPttBxbXIvxkWHlvwhuVqSE2A0W+OninjxHhmG6/T3kgiauixyH2WVo
- Yq7amQ1lALH0UrGxruqRBtzD45Ej6mRTok/m5ByCaAl23MOuOuQBkt8gDPmHPfWOv6fDjHR4EXq
- YlxNPXh4QAMM7zt2XKj1FGBfEfl3FzItSzmZF7zhewSvYTD8b9jncFDSRs5ErUeCyNKAu6/TL7d
- HO8knERt1UB7r/Em9WVHsOF0LMlGE1DA9Xf84Pgnb2h/o6qafPSsOHcNRC0y4mPDFV2M1aOoGtW
- o9dsjD0yFDbip9JoLdk3GpzS2Avd8oxsbDExfhdbVCb4bnwVuIFEoQCK5YUP84hQmeLJtYd4sSd
- ZeuXh7NcLrI5XGYEc/vorhQ==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261125-drm-bridge-hotplug-v4-9-822722850492@bootlin.com>
 
-Properly describe the USB-C setup incl. DP AltMode support, which also
-fixes the USBDP PHY ports description for the RG-Vita-Pro, so that it
-follows the documented ABI.
+Hi Luca,
 
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- .../dts/rockchip/rk3576-anbernic-rg-vita-pro.dts   | 78 +++++++++++++++++++---
- 1 file changed, 68 insertions(+), 10 deletions(-)
+kernel test robot noticed the following build warnings:
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-anbernic-rg-vita-pro.dts b/arch/arm64/boot/dts/rockchip/rk3576-anbernic-rg-vita-pro.dts
-index 85576a437f7b..5da90f3792a1 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576-anbernic-rg-vita-pro.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-anbernic-rg-vita-pro.dts
-@@ -469,6 +469,22 @@ mipi_out_panel: endpoint {
- 	};
- };
- 
-+&dp {
-+	status = "okay";
-+};
-+
-+&dp0_in {
-+	dp0_in_vp2: endpoint {
-+		remote-endpoint = <&vp2_out_dp0>;
-+	};
-+};
-+
-+&dp0_out {
-+	dp0_out_con: endpoint {
-+		remote-endpoint = <&usbdp_phy_dp_in>;
-+	};
-+};
-+
- &gpu {
- 	mali-supply = <&vdd_gpu_s0>;
- 	status = "okay";
-@@ -932,22 +948,25 @@ ports {
- 
- 				port@0 {
- 					reg = <0>;
--					usbc0_hs_ep: endpoint {
-+					usbc0_hs: endpoint {
- 						remote-endpoint = <&usb_drd0_hs_ep>;
- 					};
- 				};
-+
- 				port@1 {
- 					reg = <1>;
--					usbc0_ss_ep: endpoint {
--						remote-endpoint = <&usb_drd0_ss_ep>;
-+					usbc0_ss: endpoint {
-+						remote-endpoint = <&usbdp_phy_ss_out>;
- 					};
- 				};
-+
- 				port@2 {
- 					reg = <2>;
--					usbc0_dp_ep: endpoint {
--						remote-endpoint = <&usbdp_phy_ep>;
-+					usbc0_sbu: endpoint {
-+						remote-endpoint = <&usbdp_phy0_dp_out>;
- 					};
- 				};
-+
- 			};
- 		};
- 	};
-@@ -1221,6 +1240,13 @@ vp1_out_dsi: endpoint@ROCKCHIP_VOP2_EP_MIPI0 {
- 	};
- };
- 
-+&vp2 {
-+	vp2_out_dp0: endpoint@a {
-+		reg = <ROCKCHIP_VOP2_EP_DP0>;
-+		remote-endpoint = <&dp0_in_vp2>;
-+	};
-+};
-+
- &u2phy0 {
- 	status = "okay";
- };
-@@ -1258,9 +1284,40 @@ &usbdp_phy {
- 	sbu2-dc-gpios = <&gpio4 RK_PB7 GPIO_ACTIVE_HIGH>;
- 	status = "okay";
- 
--	port {
--		usbdp_phy_ep: endpoint {
--			remote-endpoint = <&usbc0_dp_ep>;
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			reg = <0>;
-+
-+			usbdp_phy_ss_out: endpoint {
-+				remote-endpoint = <&usbc0_ss>;
-+			};
-+		};
-+
-+		port@1 {
-+			reg = <1>;
-+
-+			usbdp_phy_ss_in: endpoint {
-+				remote-endpoint = <&usb_drd0_ss_ep>;
-+			};
-+		};
-+
-+		port@2 {
-+			reg = <2>;
-+
-+			usbdp_phy_dp_in: endpoint {
-+				remote-endpoint = <&dp0_out_con>;
-+			};
-+		};
-+
-+		port@3 {
-+			reg = <3>;
-+
-+			usbdp_phy0_dp_out: endpoint {
-+				remote-endpoint = <&usbc0_sbu>;
-+			};
- 		};
- 	};
- };
-@@ -1277,15 +1334,16 @@ ports {
- 		port@0 {
- 			reg = <0>;
- 			usb_drd0_hs_ep: endpoint {
--				remote-endpoint = <&usbc0_hs_ep>;
-+				remote-endpoint = <&usbc0_hs>;
- 			};
- 		};
- 
- 		port@1 {
- 			reg = <1>;
- 			usb_drd0_ss_ep: endpoint {
--				remote-endpoint = <&usbc0_ss_ep>;
-+				remote-endpoint = <&usbdp_phy_ss_in>;
- 			};
- 		};
- 	};
-+
- };
+[auto build test WARNING on 479e381e77dcde0dfcc9d51e89ff3273da199804]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Luca-Ceresoli/drm-display-hdmi-cec-helper-use-drmm_-prefix-for-drmm-action/20261125-185014
+base:   479e381e77dcde0dfcc9d51e89ff3273da199804
+patch link:    https://lore.kernel.org/r/20261125-drm-bridge-hotplug-v4-9-822722850492%40bootlin.com
+patch subject: [PATCH v4 09/32] drm/display: bridge-connector: use a dynamic connector
+config: sh-randconfig-1001-20261126 (https://download.01.org/0day-ci/archive/20261126/20261126090631.mLSCvuCb-lkp@intel.com/config)
+compiler: sh4-linux-gcc (GCC) 10.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261126/20261126090631.mLSCvuCb-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/20261126090631.mLSCvuCb-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> Warning: drivers/gpu/drm/display/drm_bridge_connector.c:138 struct member 'has_cec_notifier' not described in 'drm_bridge_connector'
+>> Warning: drivers/gpu/drm/display/drm_bridge_connector.c:138 struct member 'has_cec_notifier' not described in 'drm_bridge_connector'
 
 -- 
-2.53.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
