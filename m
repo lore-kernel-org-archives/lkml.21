@@ -1,82 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795736627;
-	b=W9VxxY6CSjoknFlZEcYdwXWSd+SVHbQRa8JEVDgv1MyxhLc3HGIAuGy8YXgEUB1cj2Vp
-	 Gxdwc7Wv8csIblTpilWh2kK677BsDCs5CwPvZ6BUzwnmcta0Hzp3OqA9blUtGeQ2lEUfR
-	 6nMAlkyNZPZpTbDtkbGPHNK4AzU4XXWp1U6Iru7IadwcHEuXhZ6DelI3Ti3FgGIcp3vW8
-	 cEKtm9eDvZ+2Uz0v8No3YJb5FH8LgWuTiQrHz65ft28NHonNqKgwB03vR0L6wv28jL8dK
-	 9DQuTSeFmIT1kAh8vF/xahxxF04GEyi2i5zUciBx2Uv9mAO1qIZ9jD9vKGxfX/LqmSw==
+	t=1795736632;
+	b=Bwc9eFUqsaK2VlG8MWTYiGd1CgmdNnK6o0mwjxqN0YTXVWnhDN73DJBd4fD7h6AkMcfs
+	 3pJiwFAAg5RxMsbOCosxvu+rCl72ZDsHQxeCh8EBCMZziDD/x3YXeFWGD0A/nwPr69/Ll
+	 ZCHQa5gdtNUVC3Ct9mZD85mmkq3y5TBr7wWkJ7aEVcpCMYEKsmjXTJpVG8ra9CXuEqtQn
+	 ZcrU/Vae/cSdrFFwt9Gmjwc5+sSD6gWjpiB7uaeQJu6Z5ksvzTDw8vTePIu4fBCP1rHTS
+	 dFMLu2AkvnHK2/hY+X0CpjQ62IBP3IiJZWgDcogxMdkOK9I+e5xDnVKAPhlHFVzb2nw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795736627;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795736632;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=3htbF9Yrsa3dnBt/nq5An7sUvlJzo+crmssFJrosLQw=;
-	b=Zn0d5eJOFiWq4RBTi8z3ciBWYQ9+79rkgnOj67IaG33G7IBgkjdu4pn/bSO5dhmK2fUn
-	 CWslLOexqwQ76+YLC125ufsvLRk+UBZl0wQZn8baj4TIyK5dVetlyFdS3BxL889jfVM70
-	 fyKcFME8wQQi8wvtl7TmXFN2gbxQOQuYUQ3UfK+/dyICWuET+mY4tp/pTt4ksnqV4BtpH
-	 /X18f9wZQQDZW5BQ1qZV+frTquEsfzxoGSVy78kxBM0rkSNTcKAveEh5XHRZ4S+lq3VF/
-	 98MxE90pXsZFd5pxSucFt2ItG5njoZDupvV/aHG6RueUQvaHM5WGYyEC114DrflE3YQ==
+	bh=nabDe3IU+lYPz/hho1p8Df8ddg25m4scBSKD0WbOpWg=;
+	b=YR99klbq4S3DsUqF0JgA0NXwTwS32VoTCI0gJz2kVsvws06MgrxnjGgvQEDvmz0ZgOXv
+	 M/fyww5m8y+OKv9xShqbs6sRg/x6gYRugvZ8a9BJx+MpX/UvkA5td5PjhoXqB8FTNbzKn
+	 UxFUmtdQKL7/esRwzQbM/ABWnomglqVvVRLjzfSXgzUl+0ZkW14hRFHvTa8ZcCDOIgS/W
+	 0Ds09mL5l6yj17TPC9UPpfloTIJ56KOjeE4k5NHlRkrB6DiSjNNosvT8EW699onSRKBqF
+	 BoXEI+QziPQ+dK7UfxnXOGYWXJiMCtbqCz+aspn6UYsDKeaViegKMfVrHYA3xfQU0sA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="wKpXo/ns";
-	arc=none smtp.remote-ip=209.85.215.172
-Received: from mail-pg1-f172.google.com (mail-pg1-f172.google.com [209.85.215.172])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="PWsloo/P";
+	arc=none smtp.remote-ip=209.85.210.179
+Received: from mail-pf1-f179.google.com (mail-pf1-f179.google.com [209.85.210.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3263606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 23:43:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3263606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCA67606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 23:43:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BCA67606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wKpXo/ns
-Received: by mail-pg1-f172.google.com with SMTP id 41be03b00d2f7-cc147d86bebso4596808a12.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:43:46 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PWsloo/P
+Received: by mail-pf1-f179.google.com with SMTP id d2e1a72fcca58-8a0880a46e7so4485840b3a.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:43:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795736626; x=1796341426; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795736631; x=1796341431; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3htbF9Yrsa3dnBt/nq5An7sUvlJzo+crmssFJrosLQw=;
-        b=wKpXo/nsQjXctCEIf32kJowgsK5LI1X/PTQRoqM3b7KHTuSJ5/9TRYcAvhtlHXK/gr
-         H1L5qJAs1TQWB6VVZDf1eLjEe/wDnGR1S/ogaUUXPKnYfoaJznR1zt3MQPcxjiZj9YPQ
-         18v/umtDejJYm3oi6iDr6Vu2hGve9wTNzyx+jT+VEBQQ6z30JvdBMSZXmS4SzIWcePax
-         nx2wXptUElibm6JS2yQvuIrwOVepguKXCp0qp3zt9Wy86m29vyHT+POl1pq0orgFDY1/
-         vsnFNoBy1liuzpB3Wrf+XZpx56lLJj/zCiYCWefktcR8js0c6CxVZ6roQzoIOASouiSK
-         j2rg==
+        bh=nabDe3IU+lYPz/hho1p8Df8ddg25m4scBSKD0WbOpWg=;
+        b=PWsloo/PvjA5g6LQHjM5Y5EhQ4f8S3XxTwIe8Tzrv4Z7CqD68w1vmx0a15FO7VQdMZ
+         yH4jcTSVVgbAXOnyM69SIFi4Ml9Pnbp/D/bDCEijY51cBZfVAGyV0Q5rW5Usn4meHVuo
+         zUcYmKtEqcWVHhd0PAZ/lYyzWmDbA8KO2FWZ2SBhPfHeO3Tez1Jb+cQiUdb8oSla2t4d
+         2n1J1UpKvUlvZxPp5c83tMvazzCA1fsnplomSahONSZnXjn7E3L3sMkqDUXP2bOAjjLs
+         E8E3UXm3VxylBaT8EGhxAdNQLJEESGSNCKgA5kbWGTLG1SoDQgJgoFnzdeCkZi5ITBcF
+         7u7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795736626; x=1796341426;
+        d=1e100.net; s=20260707; t=1795736631; x=1796341431;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=3htbF9Yrsa3dnBt/nq5An7sUvlJzo+crmssFJrosLQw=;
-        b=DG/A5tlEvteUTNkLDb3IsBj0khVyBc6679Tv6G9zACmGoBTLsQW3c8W5DTqExDwW3v
-         PpT2XWxrnHo7pWwIY2xvI0dqAg/X2tp6mhVF8vRFz7e4kHUcWrNCYdqxY+50F3UWX4QS
-         wT+Ej3cTjqLUes4RP6Ks+WIWYCRM8G9aWImDpmN/HWl5nmQ//m3RXw4b+gpf80LEBo62
-         AQ1rkfGNYSjzaGoglXslzq7c8nRY1Ovlaq0+y33tEHCRUFhNXGQsovOJKJUL2HyV/+J4
-         0294deds2Plr/m/aG42faH71Q6pEpoziExKVfoVSj1jDehMktd5QJ6b4VxX7sQGwmPpr
-         TJWw==
-X-Forwarded-Encrypted: i=1; AL+hErHPe1LH4+R2fn+F3W2wu3p0gRYt1vJUTXBZf/YO1LctA4v5nMsy3Fub0PSPNLdHl6PGNf13WCaeJB9E6ts=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+4AYiuBlGmBOuHrKlKIth12DAutMPLvCulOvKuSyB2UueYspYE
-	U6u7nUxHJlaUuGYX4Ot6Qb5RDf5IwEX30UXmLE/hNuGVssAQ00P4O5N7
-X-Gm-Gg: AZFdTZcpZH+EJSXWa59e97MVe9ZeUAHiBT5IGR8nD+SdBMnYSF803Zm/kP+vEawVNcc
-	HTExytvtLyw7ORBHXLNrkJGbekh+BNJsV92JsgQ52pwcu1XQuXCUbm4q2nhUwjJhekCxJh69FS3
-	LO5jOAg2Zo6giDb/uoOGyxaLfqymPXIKMkLGCx7A/LyxapYSqWZg3wzBbqNTw7evS24JnzA9iEm
-	xvOSEi1Rl6zJAVOdVPPQFGpM6YfUXCz0JARyXQ6odyEVB72LTcM4N5gz+FSwWr9NdvqMhEVfkuS
-	v/ruIDvHDGyMmgQNFdpMOqR9raVPfPartVSifrHxbVUUuWCeOSXJUApIXkzoxRInhn8vMO4oD79
-	0XVVpukGlauW/8ZWaoT2miXPSEUk0dyvwPpjh6q6IqIBJwnRnnsqHi29B2MeeshaeJBxmMzSXl7
-	s5LjX/kq6T0jrfeeQvJ1tGcT1817nICCVgDVDu8V0P1cVjCD1Y7neOuj1IcfGy9iJgCEb0Dv3kV
-	FwDa7KfQqu/+7rO52tXAktDVI09Wubb8nxlySz7c87g5MxVv++yXkxMXItvPjMUp67T/S4dKKRg
-	LEVWI0BuPYWvadvIfXS+Uucf4PKS7XrZKcSaUexyZ9lZVhzZUoY=
-X-Received: by 2002:a17:903:298d:b0:2f0:3dc0:9bbb with SMTP id d9443c01a7336-2f03f2115e7mr162175365ad.34.1795736626027;
-        Thu, 26 Nov 2026 15:43:46 -0800 (PST)
+        bh=nabDe3IU+lYPz/hho1p8Df8ddg25m4scBSKD0WbOpWg=;
+        b=ChD7zNLWijoLMewbHnYZ8yJ6tYJ3KS7QfHZv4Wj2nqcPFvBObj4KMwnHk6GXu/LS6g
+         xNAb/YlyMCfPcPay7wTy9IT3U9BG8m/MTlyAEFkQiUlU1RPQY3jahxAylzdCtQUREKFx
+         06FnoDyH4zS4DzSwgrPzQH7BU25KAPgW0Jv2X1q0YmjSNe0KMk6h7V8KrIFyZ6y7anKR
+         sIzm8rm5OdboPA9bQR2ZtBpZs9UYtd7swgIPr1XOMyGbGJ61OFTM5XOhJCBBp9sFlyQ8
+         xSwjo2Vgj0BEKwNf0CbSlFpSCWjMZM3uBnsIlJupe8nVRK6pvc89vtB9jMQOhas/1oOt
+         EoQg==
+X-Forwarded-Encrypted: i=1; AL+hErFXR27xVBusW+AbhxaiUb4lq8CrYJuQKBKINLgSWZVXc5hMezU0pDizNSnU9pXFf0I4xmyJyw9qJ0Pk340=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/7kWa8PUnzfo71b1TURtmYmMBPP6rj4qasX8pNxK1jQR9VIoKb
+	ydFU+vQXesopQJ5rWdq064qB7BZpPgMw4i2MeOrTmo2zK467qgtMwtBG
+X-Gm-Gg: AZFdTZc/yc3RltfjnmZg3EFv3MfK1yLi9esMb711OosEh5LCOEoPwSbT0Vhq5SxbPrR
+	zkDRNmeyqfhFcAzpwpbRvcAxendLnPgHOg8c8TZXzNnyDsSyNKBwShtlcltv471ni7CRSIi3+9I
+	fr4cntBUhvoXcO47McRiy94qHUPlmLidTWxeyV89VK+lgSu7jJX9OE13bYEXjCtH/058Ua7MkZV
+	QNcuwAjsel5txRYYRDZ16h5pkXHTs9V7a2+ywMGRpv669LPA93xU0TOCOfc4cR5u74GAMuA5Bxr
+	JXu/xc4NAkr8mWLi8vzJ3cFyfM1hwSUth0jM4oh4xV7tyIFYwkUmWKQZhQ5f4+JqyxOIVgCvg2i
+	1aWj4icdFMVlJK58Ko1Qdd7MNhwghg2F2Nky1m4wvpY7KHTVOYF7IFt3dXcOxhNrnWXDxR2udcb
+	IT04mkYWOnLvNF58UsX1AwS5y0i4r/HGzn0SfRSvvConKBbMD2cSXjhc4yYPwDV760yidl953BN
+	TPP+VpQpca+2GqzuGgIm/OJKxpGAcTfw55IDwB3uGWgecBWXODc5tPpeOB9BnIYa4wLKM07UrgB
+	upNdQLHqVBEPW/9u5s/Z12Gp4+pWp133aPNX+HCdSOmRWdBzBw==
+X-Received: by 2002:a05:6a00:4c10:b0:8b7:6ffa:f201 with SMTP id d2e1a72fcca58-8c7ddfaf8ebmr15763613b3a.29.1795736631025;
+        Thu, 26 Nov 2026 15:43:51 -0800 (PST)
 Received: from fedora.tailc1fb0a.ts.net ([172.219.65.15])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f0bc695f31sm52493035ad.49.2026.11.26.15.43.44
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e4d7basm11120665b3a.21.2026.11.26.15.43.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 15:43:45 -0800 (PST)
+        Thu, 26 Nov 2026 15:43:50 -0800 (PST)
 From: Artem Novak <artem122novak@gmail.com>
 To: Yoshinori Sato <ysato@users.sourceforge.jp>,
 	Rich Felker <dalias@libc.org>,
@@ -84,9 +84,9 @@ To: Yoshinori Sato <ysato@users.sourceforge.jp>,
 Cc: linux-sh@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Artem Novak <artem122novak@gmail.com>
-Subject: [PATCH] sh: Kconfig: remove trailing whitespace
-Date: Thu, 26 Nov 2026 17:43:43 -0600
-Message-ID: <20261126234343.74235-1-artem122novak@gmail.com>
+Subject: [PATCH] dma: dmabrg: remove trailing whitespace
+Date: Thu, 26 Nov 2026 17:43:49 -0600
+Message-ID: <20261126234349.74357-1-artem122novak@gmail.com>
 X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -99,91 +99,28 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Remove trailing whitespace from Kconfig entries and help text
-in the SuperH configuration files.
+Remove the tab-only line from dmabrg_request_irq().
+
+No functional changes.
 
 Signed-off-by: Artem Novak <artem122novak@gmail.com>
 ---
- arch/sh/Kconfig        | 6 +++---
- arch/sh/Kconfig.cpu    | 2 +-
- arch/sh/boards/Kconfig | 6 +++---
- 3 files changed, 7 insertions(+), 7 deletions(-)
+ arch/sh/drivers/dma/dmabrg.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/sh/Kconfig b/arch/sh/Kconfig
-index 5512f446eed1..aa579aa041b5 100644
---- a/arch/sh/Kconfig
-+++ b/arch/sh/Kconfig
-@@ -234,7 +234,7 @@ config CPU_SUBTYPE_SH7201
- 	select CPU_SH2A
- 	select CPU_HAS_FPU
- 	select SYS_SUPPORTS_SH_MTU2
-- 
-+
- config CPU_SUBTYPE_SH7203
- 	bool "Support SH7203 processor"
- 	select CPU_SH2A
-@@ -485,7 +485,7 @@ config CPU_SUBTYPE_SH7366
- endchoice
+diff --git a/arch/sh/drivers/dma/dmabrg.c b/arch/sh/drivers/dma/dmabrg.c
+index 3778c6a363ec..1fe63b2e4c61 100644
+--- a/arch/sh/drivers/dma/dmabrg.c
++++ b/arch/sh/drivers/dma/dmabrg.c
+@@ -132,7 +132,7 @@ int dmabrg_request_irq(unsigned int dmairq, void(*handler)(void*),
  
- source "arch/sh/mm/Kconfig"
-- 
-+
- source "arch/sh/Kconfig.cpu"
- 
- source "arch/sh/boards/Kconfig"
-@@ -608,7 +608,7 @@ config GUSA
- 	  This is the default implementation for both UP and non-ll/sc
- 	  CPUs, and is used by the libc, amongst others.
- 
--	  For additional information, design information can be found 
-+	  For additional information, design information can be found
- 	  in <http://lc.linux.or.jp/lc2002/papers/niibe0919p.pdf>.
- 
- 	  This should only be disabled for special cases where alternate
-diff --git a/arch/sh/Kconfig.cpu b/arch/sh/Kconfig.cpu
-index 336c54369636..4f03b29c7b16 100644
---- a/arch/sh/Kconfig.cpu
-+++ b/arch/sh/Kconfig.cpu
-@@ -2,7 +2,7 @@
- menu "Processor features"
- 
- choice
--	prompt "Endianness selection" 
-+	prompt "Endianness selection"
- 	default CPU_LITTLE_ENDIAN
- 	help
- 	  Some SuperH machines can be configured for either little or big
-diff --git a/arch/sh/boards/Kconfig b/arch/sh/boards/Kconfig
-index d89b74177233..99fc5183e2fa 100644
---- a/arch/sh/boards/Kconfig
-+++ b/arch/sh/boards/Kconfig
-@@ -36,7 +36,7 @@ config SH_SOLUTION_ENGINE
- 	select CPU_HAS_IPR_IRQ
- 	depends on CPU_SUBTYPE_SH7705 || CPU_SUBTYPE_SH7709 || CPU_SUBTYPE_SH7710 || \
- 	  CPU_SUBTYPE_SH7712 || CPU_SUBTYPE_SH7750 || CPU_SUBTYPE_SH7750S || \
--	  CPU_SUBTYPE_SH7750R 
-+	  CPU_SUBTYPE_SH7750R
- 	help
- 	  Select SolutionEngine if configuring for a Hitachi SH7705, SH7709,
- 	  SH7710, SH7712, SH7750, SH7750S or SH7750R evaluation board.
-@@ -56,7 +56,7 @@ config SH_7619_SOLUTION_ENGINE
- 	help
- 	  Select 7619 SolutionEngine if configuring for a Hitachi SH7619
- 	  evaluation board.
+ 	dmabrg_handlers[dmairq].handler = handler;
+ 	dmabrg_handlers[dmairq].data = data;
 -	
 +
- config SH_7721_SOLUTION_ENGINE
- 	bool "SolutionEngine7721"
- 	select SOLUTION_ENGINE
-@@ -95,7 +95,7 @@ config SH_7751_SOLUTION_ENGINE
- 	help
- 	  Select 7751 SolutionEngine if configuring for a Hitachi SH7751
- 	  evaluation board.
--	  
-+
- config SH_7780_SOLUTION_ENGINE
- 	bool "SolutionEngine7780"
- 	select SOLUTION_ENGINE
+ 	dmabrg_enable_irq(dmairq);
+ 	return 0;
+ }
 -- 
 2.56.1
 
