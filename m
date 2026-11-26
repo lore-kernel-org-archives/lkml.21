@@ -1,123 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795726013;
-	b=Pki4cmg9GdScqLM8B2EAanmuUvudoimKHoX4KHTQIwRuijpmwbnTL6tSNq5mmujtiF4+
-	 Jxvr8CaP0+BiKvgi/5T7SKXPIfJTVOVJg8Vq8Bq9PrXY34cgMIG8WAK8uKBK+LHu8C04g
-	 DiGVbIVmtF4kgk5xLyZ+rpboPf4QIJEN4FL9CWyk6UcaM3jhPk851+b1pPrPiWaw/f4x3
-	 wd3tsILqRsfk7kFhzwdo9tYxzlcmcIbDQ4KRHeVMfjWj+xs2lSDwg2KtMul5dIHg2eSgu
-	 H4dsXgJPCIuuve/ZKRHHZ2aaCRvI35ORXj7TbVHY2Rxn+nSLT/sEu9m3jpMHyncALlQ==
+	t=1795726038;
+	b=qEDaC7r7cpU1IhHI5JnVr782BZIvAd+nMiX5/UUHIg9bvynMYEh7hepGlluS6PVeSASo
+	 qXaUksmZQiYiCZH54Xelftq2ztq1fR1xwptZzreucev/ZJxp4UW4ooyvXp66B8UHZCl1D
+	 sg/ha5Po5bmhwenYsbnl6BTclhZH2Vp04cTBz8Ce6UidU3Lr8/8NnDIdoXrpUtk3IcT3d
+	 HkI/E7EmRVgDwYsCr3UKG8x459iInpVbYa6nB0Sloh3ZyY4mmOP71WIeFGH0AGsGS+vjB
+	 7LD5YS/v1ZZiew/11n7n5GCGM2dDpLEX+0OdXPBus39gAXoh2wJ5ohT/G69tvJ8Vecw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795726013;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:Date:From:To:CC:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-NV-OnPremToCloud:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=yzFloxmxnCImu50zEcc5C9ihVXwmXJ2wif4YvMV/Yug=;
-	b=m3nE8Xoyc0wiKXIUpyoUpDj6KyCsrG7O8A1+Vht2d9nD0eGuZKhjrT7bkw4q2bQTqE9o
-	 V8VRkbPO/m2CzgpqzKGOvc1c/je5e6Qb+RmV5SmZGWETmnJrksaaQuAZWlBhLohSUW4sQ
-	 2cJmdvhZD46IqLwBlwrEr81Bh8xU03RlU3gosRlxghcuLQQ6iHmMHPr+GLzXdZGaDw44S
-	 Dfuj1BzsnjooxbGj2kZfhjekG6ZSHbeU8U0es/jfYaHspwrVACsNWoy96a5PThlbZGUNy
-	 uWEWbD4n09UgUWfnI9FDxGvUIk0/4OpWd1oNQRSMmF+AfWGIq5iGRiz9jUHNYzxASAA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795726038;
+	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-ZohoMailClient;
+	bh=7skOuYzYPTry/TblpYJR9UAACaIhegaKxC50HTc/l38=;
+	b=yv9HtW06mOhVPNDikRkGJz589VK6IbCvWJFSMKrxhBVhAg2iQXt1llciO6fdJMvMxBfZ
+	 ktiljrbOVsgS2kd45GxhKO9SaWAQRi3Fnlhknsq5FMLgHQs+MrZIVtJmuzqOoP9tWTVfW
+	 e+97XpMcC5s1vbd2IGrUZznXf/BcGKxOd2ZGvrCR+TdeSsWq7R+xi0GxPnrwbeUPIOJgu
+	 QtpwC28QH5U2ni18+Es+Cj0pgq/L1A+M9KbFNE/k9idkMC7XKc5npwl3lliC/vDmSczMY
+	 A6h7jnir3oTXfsJFI497Mrb4Hk+zufwVTcidGOwD2y4K+JVlWqhgXzNVWfnCFu5GGGQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="n/tv7qA4";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.18
-Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazon11010018.outbound.protection.outlook.com [52.101.193.18])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=Ds91mDRD;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 689DB606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:46:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 689DB606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3EF9606A31C;
+	Thu, 26 Nov 2026 20:47:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3EF9606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=n/tv7qA4
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x5Oy0vqfvxoZigvOfVyFdVKXfh/CulA61b8Ycvjog3HNzBalMcnPRH/KSci1k7EV6xzHz8wKYgI5rKxVlPo+OF4v9kGIAUH0DvtsC16vxtmLRGrpxPm/OKFmsMtwYQ7wtcfAEyWg5S7NLcFuU3us94m66h7gtBT/CRgymG4pWJ05SQ+loWrcBoS9Fpubq1eW0ebNqsUmXxHRSjhkaMqweyFIqutjJrlk880G5z5olNAr3V1MvvhlWNZlU0ml984bxfO5M2mTsMf5ygcvmGdafX2qthRK36awN/oMqPNFnPm5P8hkmqq9/o0I4+Hv9QXUwG3mphBKvCgITaHbp72ghQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yzFloxmxnCImu50zEcc5C9ihVXwmXJ2wif4YvMV/Yug=;
- b=g8o/3w2sCleq6HgyEKzop08ytYcDrOxkCwfBVuUg4ZD4aJY/Vmy5fAQhcA2UuFhnvKSMTGGeHkn8RO/uV/EMWy3+kmr5Zf9Cp55I8CjzD4WuMY2zITLboB3sQfONsjSziMuRUj8due6KY4+ddnWRuOiGL8MQR/AHuuOjSx/Jf0J8WpAiMGTtmWDL+w82SWmI9dfM3ySrOoUrDSIiLH+4Svs51ztS2XYGtpr+oQjcrP4/wmwNyELi8NBauquHE7xHErXVmhNTAOvc0im/DDXDa0KYonmzdk9EswWGHduddDFOg3LLYyKfzu6AabnXhY5wm+dxm4QaQ0KmDdym9UJvLQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yzFloxmxnCImu50zEcc5C9ihVXwmXJ2wif4YvMV/Yug=;
- b=n/tv7qA40kzz3d6pQiDbiwfeIsitsCR7GPiA8im96btZ2xO5K3BS2nqZDgAGnME4fNlH89NF4d8ZcCgWcZaYAr2/ut4GRBM8SlEP/tjD5l319c4rbtgHeA7us8XMpQglaL64cChVcJAhX9uHbnIddL4xcHf2+fn1rZXdRqhno6MAn4MkAyWAd5mD/r+SCA7CCq6YUrWSWLzgrdVdkVtGyoBJ/BAR+j9lRSjCIYz7hUGhuEVrnccC5yDdS8tLRI1AE1ZXFXZGs8wDmrHRAIQiVQ+CD/uBD1GfHtZJk9MtlIRD4MlJhmV8H1OHf234bti/rTRtWWzhQIqmzjH4DxO9Kw==
-Received: from CH2PR15CA0028.namprd15.prod.outlook.com (2603:10b6:610:51::38)
- by CH1PR12MB9574.namprd12.prod.outlook.com (2603:10b6:610:2ae::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
- 2026 20:46:47 +0000
-Received: from BL2PEPF000352CA.namprd02.prod.outlook.com
- (2603:10b6:610:51:cafe::5b) by CH2PR15CA0028.outlook.office365.com
- (2603:10b6:610:51::38) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.7 via Frontend Transport; Thu, 26
- Nov 2026 20:46:47 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BL2PEPF000352CA.mail.protection.outlook.com (10.167.249.132) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.688.5 via Frontend Transport; Thu, 26 Nov 2026 20:46:47 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 26 Nov
- 2026 12:46:28 -0800
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 26 Nov
- 2026 12:46:28 -0800
-Received: from nvidia.com (10.127.8.14) by mail.nvidia.com (10.129.68.8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57 via Frontend
- Transport; Thu, 26 Nov 2026 12:46:26 -0800
-Date: Thu, 26 Nov 2026 12:46:25 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <joro@8bytes.org>, Will Deacon <will@kernel.org>, Robin Murphy
-	<robin.murphy@arm.com>, Catalin Marinas <catalin.marinas@arm.com>,
-	<rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Johan Hovold
-	<johan@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>, Mark Rutland
-	<mark.rutland@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Pranjal Shrivastava <praan@google.com>, Mostafa Saleh <smostafa@google.com>,
-	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<driver-core@lists.linux.dev>, Sonang Patel <sonangp@nvidia.com>, "Ankit
- Agrawal" <ankita@nvidia.com>, <shameerali.kolothum.thodi@huawei.com>
-Subject: Re: [PATCH v3 5/7] iommu: Introduce TDISP T=0 state for confidential
- IOMMUs
-Message-ID: <awiaoX4RrQPP23OY@nvidia.com>
-References: <cover.1794343501.git.nicolinc@nvidia.com>
- <07ea92910895a2b0db33afefaa3a0ef182b2968c.1794343501.git.nicolinc@nvidia.com>
- <179563006502.253973.9155049351516451537.b4-review@b4>
- <awe6WgoiKaBTgINn@nvidia.com>
- <20261126145715.GG114472@nvidia.com>
- <awiLcoPfk0xxEL4A@nvidia.com>
- <20261126195346.GJ114472@nvidia.com>
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=Ds91mDRD
+ARC-Seal: i=1; a=rsa-sha256; t=1795726006; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=LJMlbpytMkIyPev2CDE2n1g89s8TKpLiiaXHOrCPCLdqfEUdGeg4lFNi97n6GF/pKewDodXH+oJvtIJNpCQnviSyiERsujRGBw4pZHYSAcwLpIU5w81FsaElFCU7zdcIUfS28QPMx7JYnvAroUjqmMd8tSy1yqJZlrpq9JT11k8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795726006; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=7skOuYzYPTry/TblpYJR9UAACaIhegaKxC50HTc/l38=; 
+	b=Cn46JgpsOtaK0NN/shdfZXr0OMUmVXLjIeY0JGipQ4eXXUoXSTR6TCLtx0ocgj3wR6lzeWLTlr+2348taENoIPPiKNnL3+oqI+j/nIr3mOhid/g7MvyjR76AnCs2QVDbv7ZYfBieD+8LsC8cTICRmWSwtvD9cilzYSZrA4oGi1o=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
+	dmarc=pass header.from=<daniel.almeida@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=Ds91mDRDQmnDJYklSX21AT3u9i8jv8tNbnuMxmAegeCzPQBx3zcaR6NTdeo1nufRBfoWZ/6zVSSA8qcOrajCCoa8g9ZkCz24Ms9Znt2r2Pkcf6BhWXZQMoLcekZhfcnHeFHDdvd5PH1zUSHtjzxiZqDuR2bmXIojutFfViRYDSI=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=7skOuYzYPTry/TblpYJR9UAACaIhegaKxC50HTc/l38=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 179572600353920.21911314558963;
+	Thu, 26 Nov 2026 12:46:43 -0800 (PST)
+From: Daniel Almeida <daniel.almeida@collabora.com>
+Date: Thu, 26 Nov 2026 17:44:40 -0300
+Subject: [PATCH] rust: drm: gpuvm: store the driver data in UniqueRefGpuVm
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,92 +59,161 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261126195346.GJ114472@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL2PEPF000352CA:EE_|CH1PR12MB9574:EE_
-X-MS-Office365-Filtering-Correlation-Id: 55eaa975-483b-45e5-8e25-08df4bfe63a1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|36860700016|376014|1800799024|7416014|82310400026|10067099003|261028144727099003|11063799006|261021121427099003|261026140227099003|261022105027099003|261026121527099003|56012099006|261021135927099003|261102123227099003|18002099003|22082099003|4143699003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	GDsKTGM+P4FTeTzJzafk5VRtSZ7TFNUJrU3KWk0K0cWc3M3u+P5GtU/iCx0UHkhJYc5JyLWkn1zfE2DI8F5ewuXat9r/1dCufKbxlAo6CYDL8VpTvCT7C5mzkvu5HLKmktOpZb5NnZT57Ar29cVboBNALbEB5xxCWtpalgUMjOLBadNxQ+Cl4vxSjtByLSN7lUM1JbKL9TMDmWAsToMH1hutWv55+x1qfd39d3afO5T6YbK4GMRU8oG3dYfAnVe9IYNNz2ltR0I9UxfH1D4/osOLBlMx49vFGr1A5Rrtr/7fklx4bOMylbkx6PS3mz1orSALlk0lKG3tHeC415TGOGfVk8gIiOwKxJT18Anae7eTWuhaCDeV0aqVGUg4rr5fRMI1q3dXfxojCWH83RhpBcNbOWrEr0SnX69kpxqbi6FTI7Wkb5zHtcrkPqoDN9Ep1M56XF9jS3xJcSi+7dsXAv34BbLJOmk/oM3vrANPE6kIquHIuURku0ncMG0SjtNpGGVv+kVyFW2ZoG25YVW5stZyhZz0tdN5BcIQMUeXaNX7cJrYBsO9NgoPCf8V8VIrp0dYsficyHpHdhGhRP+XCDueovYr+PA0V5Rjdx2wOfVvWF4HaBLs1YyEHDFhJCL9oCs2fCDSyDIMM2VmdFJzfbhnSWLRVl4t1OLd05wxD+2g8UDSjO+Kb1/59pWfZeZSlqTDSY7KVPizfWlj7p3ihQ==
-X-Forefront-Antispam-Report:
-	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(376014)(1800799024)(7416014)(82310400026)(10067099003)(261028144727099003)(11063799006)(261021121427099003)(261026140227099003)(261022105027099003)(261026121527099003)(56012099006)(261021135927099003)(261102123227099003)(18002099003)(22082099003)(4143699003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	Ns3Tr/EX8F4ecZzp8z+HSmeDdLLsibCmzidL8UfMvWAlGgMxwmDpv2mVH5L/ljfQp5/2odDEuUjsVpMK3PJNqeuwBZD71MS8HSoFU2vYVpFlTfwlTg0UloT/eml12JvKmlEsm9zKO1/Ntk8CsZzT/9jywA+rqNqlUtkQ4gZQfYC6ODHdKmLBakNT+4OuICw4g8mSfrI+hJuOzRLKaSAPP0PXlp5D/Sr3Y1Pq1fN/qE/jIZV3CIyKMsdotfPF++CzNRf0xKy+4F9PoiL1aaCZGfPVciw1n9beAuFuGkhzEUq+kGwUSlavjnVijpKHTdc4pJeF81zeb4FfsLKyz572amtllaWZra3dTd5hYqC+NgiZtmqFBdkgXSK2vsAxsQtyWOE2Vqs4VAWAhtY4INmNFVIxbQazj/EDSh1whOwdesgMFAuoIEq3GB+IWIacsHlT
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 20:46:47.3533
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 55eaa975-483b-45e5-8e25-08df4bfe63a1
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	BL2PEPF000352CA.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PR12MB9574
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-gpuvm-data-in-handle-v1-1-47b1e9928f20@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqEMAyF4atI1gZMkSy8yuCittGJOFVaFUG8u
+ 3VcfvDef0KSqJKgKU6IsmvSOWRQWYD72jAIqs8GUxkmMozDsu0/9Ha1qAHzxE+CrqurmiwzCUO
+ +LlF6Pf7ZT/s6bd0obn1acF03PoS2IngAAAA=
+X-Change-ID: 20261126-gpuvm-data-in-handle-cb4041a661e6
+To: Danilo Krummrich <dakr@kernel.org>, 
+ Matthew Brost <matthew.brost@intel.com>, 
+ =?utf-8?q?Thomas_Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>, 
+ Alice Ryhl <aliceryhl@google.com>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Miguel Ojeda <ojeda@kernel.org>, 
+ Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Trevor Gross <tmgross@umich.edu>, Tamir Duberstein <tamird@kernel.org>, 
+ Alexandre Courbot <acourbot@nvidia.com>, 
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>
+Cc: dri-devel@lists.freedesktop.org, rust-for-linux@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Matthew Leach <matthew.leach@collabora.com>, 
+ Deborah Brouwer <deborah.brouwer@collabora.com>, 
+ Daniel Almeida <daniel.almeida@collabora.com>
+X-Mailer: b4 0.15.2
+X-ZohoMailClient: External
 
-On Thu, Nov 26, 2026 at 03:53:46PM -0400, Jason Gunthorpe wrote:
-> On Thu, Nov 26, 2026 at 11:41:38AM -0800, Nicolin Chen wrote:
-> > On Thu, Nov 26, 2026 at 10:57:15AM -0400, Jason Gunthorpe wrote:
-> > > On Wed, Nov 25, 2026 at 08:49:30PM -0800, Nicolin Chen wrote:
-> > > > On Wed, Nov 25, 2026 at 02:07:45PM -0400, Jason Gunthorpe wrote:
-> > > > > Though I am wondering if we really need the ATS stuff. Why do we need
-> > > > > that? The pci_ats_required() in the hypervisor should force ATS since
-> > > > > the hypervisor is not going to construct a vSTE or use a nesting
-> > > > > domain that would inhibit that? Can we just drop this whole patch?
-> > > > 
-> > > > Ah, you're right. It was added for non-pci_ats_required (non-CXL)
-> > > > cases where the ATS state needs to be in sync with the hypervisor.
-> > > > 
-> > > > However, the justification/usecase here is pci_ats_required alone.
-> > > > 
-> > > > One small concern is whether VMM always exposes the underlying ATS
-> > > > state or not to the guest VM. QEMU seems to do so. I did a test by
-> > > > dropping the patch: lspci in the VM still shows: ATSCtl: Enable+
-> > > 
-> > > It probably shouldn't do that, but it is also not harmful. The guest
-> > > PCI controls should be fully ignored by the VMM..
-> > 
-> > Would a PCI device driver (running in the guest) check the guest
-> > level ATSCtl state for its ATS pathway?
-> > 
-> > If VMM is not supposed to read through the physical config space,
-> > without this patch, I suppose ATSCtl would be disabled and ATS on
-> > RID might not be functional?
-> 
-> VMM does not bind guest vPCI ATS Control to the physical ATS control.
->
-> ATS is controlled through the vSTE only on all arches.
-> 
-> Without a vIOMMU ATS is controlled entirely by host preference ie
-> always on if available usualy.
->
-> There is no need for the guest to read or write the vPCI ATS config
-> space, but it does anyhow because it doesn't know it is a guest.
+GpuVm<T> keeps the driver data in an UnsafeCell<T> inside the
+refcounted allocation, and UniqueRefGpuVm hands it out through unsafe
+accessors. Only UniqueRefGpuVm accesses the data, so it does not need
+to live in the shared allocation.
 
-Hmm, I think we are talking about different layers.
+Move the data into UniqueRefGpuVm, which turns data() and data_mut()
+into plain field accesses. GpuVm<T> keeps a PhantomData<*mut T> so that
+it stays invariant in T without the UnsafeCell.
 
-I get that the physical ATS control is decided by either vSTE or
-the hypervisor.
+The data is now dropped with UniqueRefGpuVm rather than when the last
+reference to the GpuVm goes away, and UniqueRefGpuVm is Unpin only if T
+is.
 
-But both the ATSCtl state and pdev->ats_enabled, in the guest OS,
-reflect the vPCI status.
+Suggested-by: Matthew Leach <matthew.leach@collabora.com>
+Suggested-by: Deborah Brouwer <deborah.brouwer@collabora.com>
+Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
+---
+ rust/kernel/drm/gpuvm/mod.rs | 35 ++++++++++++++++-------------------
+ 1 file changed, 16 insertions(+), 19 deletions(-)
 
-Since VMM isn't supposed to read through the physical PCI config
-space, the ATSCtl state would be disabled.
+diff --git a/rust/kernel/drm/gpuvm/mod.rs b/rust/kernel/drm/gpuvm/mod.rs
+index 23e73da865fb..d3b11e2a39d5 100644
+--- a/rust/kernel/drm/gpuvm/mod.rs
++++ b/rust/kernel/drm/gpuvm/mod.rs
+@@ -28,7 +28,6 @@
+ };
+ 
+ use core::{
+-    cell::UnsafeCell,
+     marker::PhantomData,
+     mem::{
+         ManuallyDrop,
+@@ -62,22 +61,21 @@
+ /// # Invariants
+ ///
+ /// * Stored in an allocation managed by the refcount in `self.vm`.
+-/// * Access to `data` and the gpuvm interval tree is controlled via the [`UniqueRefGpuVm`] type.
++/// * Access to the gpuvm interval tree is controlled via the [`UniqueRefGpuVm`] type.
+ /// * Does not contain any sparse [`GpuVa<T>`] instances.
+ #[pin_data]
+ pub struct GpuVm<T: DriverGpuVm> {
+     #[pin]
+     vm: Opaque<bindings::drm_gpuvm>,
+-    /// Accessed only through the [`UniqueRefGpuVm`] reference.
+-    data: UnsafeCell<T>,
++    _invariant: PhantomData<*mut T>,
+ }
+ 
+ // SAFETY: It is safe to send a `GpuVm<T>` to another thread: all data reachable through it
+-// (`T`, `T::VmBoData`, and the GEM `T::Object`) is `Send` by the `DriverGpuVm` bounds.
++// (`T::VmBoData` and the GEM `T::Object`) is `Send` by the `DriverGpuVm` bounds.
+ unsafe impl<T: DriverGpuVm> Send for GpuVm<T> {}
+ // SAFETY: It is safe to share a `&GpuVm<T>` between threads: `&self` methods only alias data
+-// that is `Sync` by the `DriverGpuVm` bounds, and any thread may drop that data, or upgrade the
+-// reference and ultimately drop `T`, which the same bounds make `Send`.
++// that is `Sync` by the `DriverGpuVm` bounds, and any thread may drop that data, which the same
++// bounds make `Send`.
+ unsafe impl<T: DriverGpuVm> Sync for GpuVm<T> {}
+ 
+ // SAFETY: By type invariants, the allocation is managed by the refcount in `self.vm`.
+@@ -132,7 +130,7 @@ pub fn new<E, Ctx: drm::DeviceContext>(
+     {
+         let obj = KBox::try_pin_init::<E>(
+             try_pin_init!(Self {
+-                data: UnsafeCell::new(data),
++                _invariant: PhantomData,
+                 vm <- Opaque::ffi_init(|vm| {
+                     // SAFETY: These arguments are valid. `vm` is valid until refcount drops to
+                     // zero. The `vm` is zeroed before calling this method by `__GFP_ZERO` flag
+@@ -163,7 +161,7 @@ pub fn new<E, Ctx: drm::DeviceContext>(
+             )))
+         };
+         // INVARIANT: This reference is unique.
+-        Ok(UniqueRefGpuVm(aref))
++        Ok(UniqueRefGpuVm { vm: aref, data })
+     }
+ 
+     /// Access this [`GpuVm`] from a raw pointer.
+@@ -298,29 +296,28 @@ fn sm_step_remap<'op, 'ctx>(
+ 
+ /// The core of the DRM GPU VA manager.
+ ///
+-/// This object is a unique reference to the VM that can access the interval tree and the Rust
+-/// `data` field.
++/// This object is a unique reference to the VM that can access the interval tree. It also owns
++/// the Rust `data` field.
+ ///
+ /// # Invariants
+ ///
+ /// Each `GpuVm` instance has at most one `UniqueRefGpuVm` reference.
+-// `Send`/`Sync` derive from `ARef<GpuVm<T>>`; the trait bounds make them correct for the unique
+-// handle's `&mut T` access.
+-pub struct UniqueRefGpuVm<T: DriverGpuVm>(ARef<GpuVm<T>>);
++pub struct UniqueRefGpuVm<T: DriverGpuVm> {
++    vm: ARef<GpuVm<T>>,
++    data: T,
++}
+ 
+ impl<T: DriverGpuVm> UniqueRefGpuVm<T> {
+     /// Access the data owned by this `UniqueRefGpuVm` immutably.
+     #[inline]
+     pub fn data(&self) -> &T {
+-        // SAFETY: By the type invariants we may access `data`.
+-        unsafe { &*self.0.data.get() }
++        &self.data
+     }
+ 
+     /// Access the data owned by this `UniqueRefGpuVm` mutably.
+     #[inline]
+     pub fn data_mut(&mut self) -> &mut T {
+-        // SAFETY: By the type invariants we may access `data`.
+-        unsafe { &mut *self.0.data.get() }
++        &mut self.data
+     }
+ }
+ 
+@@ -329,6 +326,6 @@ impl<T: DriverGpuVm> Deref for UniqueRefGpuVm<T> {
+ 
+     #[inline]
+     fn deref(&self) -> &GpuVm<T> {
+-        &self.0
++        &self.vm
+     }
+ }
 
-And pdev->ats_enabled would not be set, after we drop this patch.
+---
+base-commit: 94c9ad2fd7a15f58782c50e471397d1efe6b6363
+change-id: 20261126-gpuvm-data-in-handle-cb4041a661e6
 
-I agree that there is no need for the guest PCI device driver to
-read those two vPCI-related states, but if it ever tests either
-of them and gates its ATS pathway on it, this can break, right?
+Best regards,
+--  
+Daniel Almeida <daniel.almeida@collabora.com>
 
-Thanks
-Nicolin
