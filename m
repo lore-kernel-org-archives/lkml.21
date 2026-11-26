@@ -1,108 +1,126 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.158
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795692339;
-	b=zMnVq0fbEOZXoVgP88m2baE3wHrYCM/YaKlsB/z86TDW2LQGSfa/OmAxphQKBm9hJS0T
-	 NQGkn3cF8opX1kG5I7Qeum/hx52ySQhbXTv6uXeztANnpW9YiFE/V34PTwEhqNWtXwiZa
-	 Eh0nw4VCM8Rm//TubcfQ432wY93JHBiS9Ppfl7vtK14T8GKAI2Dn7hdnC3MEsubnxWe/u
-	 +yHZQGXzNaXKkpF0bfSlxkisbvCx7rWvYZFURLDuokFrg9gYUmQZUAWqSnw9Q72cA4exA
-	 txR35fDLFIxU3Vi+sEDpY88CZx1KkAlurTX4EsYOg9h27mCXhVYnSLH4G6eRNCClLpA==
+	b=lq4j3fezSR9vELcbdSIXaquHDCZJfZ3/HxcGRIYMzjoktn6owSt7cWrkRGfRdA0Ioxfv
+	 fENPbxYsestTbKYeoJWSIgQgmn2VjyKkYDNBDHUsEu54dWm4+rpHhXr4y12syjcCpjODv
+	 qj87BS6RImUzoqPK9zqW5uIkdU06yTWmikRepCS8ZZ3uuPToZd6eOJz+uEx27HkLTy73f
+	 4er/ni5EhS4WpwZlSgoxncrZJuds9x1cQs3S8kXEhsP6CTUYm45xYegbl8mq6jjEHjQH+
+	 AHrTHdou9iXyn36kdgDPOajYAvkdQtGSrFButMKzPdjKDoh/3swudffk27VfedAMk6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795692339;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=l1rG3sYne2tdlIq1MaAmTO6Mrc8TdahETTJ3Jk7THx8=;
-	b=ms2nTeoisFF40aeHfkJKxCxyMCrZCz9qiXl2uuTpyUioeuzjk+krvn/NA8gg58Hm0Nxf
-	 dQVx0UViWZ4Yxd8LBOqCXxRfzj9bvJU9yeYW7+MgNOv9KMbuBT5LTu8MaOPv+++xrjQvm
-	 a9v4604su1iMYkk6vQHpxH5VBivSu80jKqVKQZnTArvIskyhUrtp3tJISuFDxaQPukVoK
-	 x6huBfZynTlWxfo1m/Or1HiXTY1jKL8J4WFupxrJRmrUNpw0vPxDWkrfwwAJ6fTAqMahx
-	 My6de4YIIjghhPvmpU1lnO+8ExX0Pm2+jSJWBqb5B5sHb/fZLNgN1CnjVL8hQkbq+aw==
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:Message-Id:To:Cc:Subject:From:In-Reply-To:References:
+	 Mime-Version:Content-Type:Content-Transfer-Encoding;
+	bh=XSe4nQaPVvSh1m8GNLDefCvo1h12oVijF6wU0EAGZno=;
+	b=41BvmB+Ntz/wLU6IUhi2yL9DwxUR9+oXDIzl+GQAC2xR1u0Zq1aKoUN9NZk8GyXIskOH
+	 cjzYQXmXQXSw6DEYat7tLkRAXCMWvJMOu1GOlnJ1afgxJtlg5xMqyKu+9yqgiDYVASe3N
+	 2GadcrdwUWgqE6AxZFo4c4d7AoR8fVxzTPCwjCBNRYIT9fGBVuP79s77VY7BJwY0fqiou
+	 slHFhHs0BRcQ7jBrSA3osB2G3aaikTBnKxChcOY/M0yOwiroCjtLgZDnxzNKninDlWqQf
+	 aWtB1ffngcdNzzhHmkn0z+uHz48bc2wz6lkNB2upO5qvSw0DElKs2CZwFxInm4Bnz6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=MjbFUwF+;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=I9GylhP+;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dmarc=none header.from=flapping.org;
+	spf=pass smtp.mailfrom=flapping.org;
+	dkim=pass header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=N2s1DyPW;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=QOFBd9EP;
+	arc=none smtp.remote-ip=103.168.172.158
+Received: from fhigh-a7-smtp.messagingengine.com (fhigh-a7-smtp.messagingengine.com [103.168.172.158])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07A71606A33B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 014C8606A338
 	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:25:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07A71606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 014C8606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=flapping.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flapping.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=MjbFUwF+;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=I9GylhP+
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795692338;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=l1rG3sYne2tdlIq1MaAmTO6Mrc8TdahETTJ3Jk7THx8=;
-	b=MjbFUwF+1KI4lEnXYf1OeKLTmtScvWOvgxbZFyUgDMNjQKRORNCVuGXTlTg87gnuUfkB+t
-	pv6z7KTHa0WDriWEtyW4N/mb1eUKOl1clDfWNgjxkRxnvjStuiDre3KT+NY/ME7Pp/86MI
-	K0LmtYo8n8dg09OHUR2KUnG2npTuv80=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-595-Tgt3lrp9M_K9C1g2lOB_qA-1; Thu, 26 Nov 2026 11:25:36 +0000
-X-MC-Unique: Tgt3lrp9M_K9C1g2lOB_qA-1
-X-Mimecast-MFC-AGG-ID: Tgt3lrp9M_K9C1g2lOB_qA_1795692335
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4a35e1d2dddso58543085e9.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:25:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795692335; x=1796297135; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=l1rG3sYne2tdlIq1MaAmTO6Mrc8TdahETTJ3Jk7THx8=;
-        b=I9GylhP+YHFNhiOIqu+Sjf4dgfqyhHojxESXTa3r8Cgw1gBWLBcC6DffmL3YKdSeCi
-         Kt/gjRjklGYamgvhuBGd3O3J2S1/jGBdHyFWVJbRVtBoycS4WpJVsdSksrVM+/DHiM+n
-         9bnV9R0i0+BIx3+kF4Y/hHE6TzEoR/7NLclTtcPdMqsgCUw7L3GYoGSIj8EevBuKd7eH
-         I577pVFA0xJeYxV6qxziXUKxc/2zcsUFDngDaRgLys2AgXNvurph+MK+nt5TOGhWgoUr
-         rilooN4vnYEaCFtQHO3sC8oxED7z99W1QrGkfKbUVCPnGU6tcyuHt05r5HVi/QQpRWKx
-         souw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795692335; x=1796297135;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=l1rG3sYne2tdlIq1MaAmTO6Mrc8TdahETTJ3Jk7THx8=;
-        b=CQkhR3KDO1QcF1zsZhWxboeK/UjqrVduwlIMekOjgHSedjyo22gBWHf2AIk2zQh0bw
-         7oHXVyzPSd/EUWQDaYpouTdNHb7ffL6nvwptiA8pA0W6veiHCX5tyUsSmfqEQkX7Gg5f
-         7SvnIrGXHGZUQmdAwSRJySL83/uA3z3yLV0M9di6GMw8ZwNS8EDPYof++tYH4Dg0FTLY
-         MTRk3TEytRss4oSaZ3LDP8vU4cz6GVikg0x7CudF81+xMR4WsMVlsV0QG9ZOKTD1lSvm
-         zfrKGw1DmKLww5BdfQFO23HUAPVgFNMCd56CfQgOxQ94llT9vworcwX85KDAYWzV4fNw
-         v4Rw==
-X-Forwarded-Encrypted: i=1; AL+hErFwyLIonpkJYxR3KHNjVPFmKY68S2RjLbwCds73RMmQJhKurxt8X3EVis01IFKLSDzuomOBpDD2FOCyF2k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8OW7haMwKxycxXz4Zt1Tpbf4Qa3AtGud3agzaCnqKQT8A8ZgHx
-	RLkWJarG6oXTwKIQ8dyWBdJK7sdkMEy4hzzLLm6hNHVgK6PmSuqQxOvdMNiX+EwDRDHRJ0g3K20
-	F6Yx8aFPo4hYJJ1MZCW7y3B/AHXplYeMGeZP1eek2qDfMfSEhUZyNh3Lypue44TGz+A==
-X-Gm-Gg: AZFdTZeAev4EYIuLQDXwgpzvYD3L7dDNTLWMpwtIAjxUWTD5ZjkJgOAuUy801A649zQ
-	VHa/DI58JkK88H74weI1W6RBiyW54XQ84heG4Vwfgt+7ozLgLubA/njblQ5VPYkCKcnvsJFuDsO
-	QtB+o5etqJBEYvqmSdA9nlWNgyIdDiwVfLHABSyRnfEwbCwmpGtCIbGUs7pVMcxH3O/x/qs+GY7
-	LTGF8fKvkHwMq8GcUTuvbJZ8h4iK5NWos4LSxmNed/5bXoPDQSTB7IiZvVKEGZaXLO99wE7iCC4
-	eHJZ/p5NHJBRNziXDS/86UG/Z2fAmx+/gsVSzDFuxoTYAFTKG392qfti4cy+klqNdp2ZuVCA6jZ
-	1/mQO+TNBelL1NfWr3dlUhcV7eP6DXdoqyp3Ct15WvUF9M2TAuf4nod4puquHRb49W74p94WsNh
-	RNopet4qLoCoM4jNTFcbw0o2aDtBVoA0w/JcT6ATaQa+r/
-X-Received: by 2002:a05:600d:82c5:b0:4a3:5aee:2c25 with SMTP id 5b1f17b1804b1-4bb88822642mr470109085e9.31.1795692335232;
-        Thu, 26 Nov 2026 03:25:35 -0800 (PST)
-X-Received: by 2002:a05:600d:82c5:b0:4a3:5aee:2c25 with SMTP id 5b1f17b1804b1-4bb88822642mr470108545e9.31.1795692334821;
-        Thu, 26 Nov 2026 03:25:34 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bc8ce06sm38694819f8f.47.2026.11.26.03.25.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 03:25:34 -0800 (PST)
-Message-ID: <4a434d3a-a8d4-48b5-a630-7dd8a73bf463@redhat.com>
-Date: Thu, 26 Nov 2026 12:25:33 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=N2s1DyPW;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=QOFBd9EP
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 23E3014002EA
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:25:38 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-05.internal (MEProxy); Thu, 26 Nov 2026 06:25:38 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flapping.org; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795692338;
+	 x=1795778738; bh=XSe4nQaPVvSh1m8GNLDefCvo1h12oVijF6wU0EAGZno=; b=
+	N2s1DyPWBMY18/yvfq48isK0oiWyzkLbqZy5A95dKFxPN1Fnc4sYHYd4hdWHP9ha
+	krR8gAOJBhCRTZmeIKsyK0ooO9CnGqw+jDY3Csew8eB2NBCKaN6QNeUgFAtK0Vuu
+	xx96k8T2NziybLKVjukQtfYg/9H/WkZtT5zkMa4ityNQkui2iJ7LJ2/SMmWSwrPO
+	IKiDZO89zorIZL0lkjrHmLIyPDzl3V32GN4LcATlgr8hXcPCYSBbEarw3YxgWRR5
+	ckx77aPGHq1R8w0n9qhl1RoQJIz19xfccL5Hqfn6shaWU0Sn8uqUQvZaIO9qKZuM
+	JEeSYNvU23yZCyuXMN82cQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795692338; x=
+	1795778738; bh=XSe4nQaPVvSh1m8GNLDefCvo1h12oVijF6wU0EAGZno=; b=Q
+	OFBd9EPLc500XrJCry21QoXPfukHHnrcAbE/ndb3QvzfuOZk+NmwSplTChAQ3Dhy
+	obTeXf0U++EY/Fv/TCfYLwaNlR6mjQQd5PwHquDmg2Ii3Xk/g7C01buyhtbq480T
+	/YQxz5Yc7wJ48b7SP9zOrQa+k1ssY2WrnYah+8STt1LChdreCKL6u5Zy8V6gAroP
+	GpHA3kc4SffhmjVsJlVF2aNCkonISMnyRlZm5Hfqc6Dpe1PVsWcppHhImn6qyWyw
+	UHD/2/zxjf2h+syzhVuVCy61dFk2cGb1Rl1fEc24bzQapC8rL6Xf9UJ2p1d0JJEW
+	gt3766wklNlru6JZNAe+w==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=flapping.org a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795692338; d=flapping.org;
+	mf=PHRvbW9AZmxhcHBpbmcub3JnPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:ITZM5yx+J2OTGR0Z+fKO0464g14L7AXd3FWI2Zf6TxzRlHG
+	tEbJ3zR2dRLPUb25y+hxiCHLxJoz/BkyRx4rSyzdbWH3fOZcYU6C+WDydc+RsDva
+	bhVjGrWnwVJYYH63QWZzzCENLdDlwTLZMkHTn8TKBV5wcQujAwIsESCm/VHaMp2O
+	UdrnnycNvzZxfvlFeQ22mndzVHMzC89nTA9rISlAX5Ot3CqwYXFw7lxgYNtbA5ct
+	Xjk3L44SppCDlAPwnV+fiTJOL1n9dAZ8LRzkEqkPat4mJY3oUCMZcmXfGem3Y19/
+	TXWadXM9JGK961EBG5fa20LbFvyt+qWGAnWTCQw==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:qTOl7lUwf+GmKoN4POrAbArC+HO0ppiARC4hTlU01yA=:hJmUFYcGWIAetiTKwGm19NINzKro7Mj7gZ8iw44+Plo=;
+X-ME-Sender: <xms:MRcIa_PGkshct23ehyWMKsYrWlqI6rlAa1ngEURj4Gx9M7GNGpsAng>
+    <xme:MRcIa7S4EgXN-hoowI_jirsz29TUhIck0F6tBtmkbRuYGBa7Ptd7u96WKAs6ZUIYh
+    5Nc89atcMPdt5CXQiBMYoxuuy9G2TOda_wmaJzPFLLRzYy1KMtd5Obc>
+X-ME-Received: <xmr:MRcIay5hCfRWSdFgp6uOGvp09-q7BKDxJYov_26xSEGJ6NEWmJ7037FLApqMKXhwpQgudRWeM0_LrQRMtJba7W_O>
+X-ME-Proxy-Cause: dmFkZTETYMbP3iRRj/UkGAVUrE3lUNmjjfwo1zwuLtykPFAvEb2wZ/KoIVFTBBXNx++Oet
+    +vPO64tPuxDsaT0qHqauCd0ag2pvvaR4BQR5+QC4babDlJ1/3AtGwyob8Wq8DK7q5hW2SA
+    HHCarjPpXt/Jms8KA87KrsVdEFcZIVj9wd3MdbcJFxJ2oCLzqZwivLeaFIOrbDWV0NOwBf
+    7Xmfl0DUN2/mSJtuiBQUEmj71bDk8v6uPZiDoDee9y69SxgE/UulmTWssu/QLlGdT12XFa
+    heJElzdgoWOF4R+B8D8su7ZnFTsPdvN31Zs/OrVz8ysmUvJPEFLPTIP7FdWwVIsFEz/7mi
+    I1gDRgea0CqG9d5FGoq2st1XlOxa+NurOx/Qh24mINJZG5mEW/YXJPiNym74mtZt8zR5fi
+    QRp3FeWzmcP3GejFBQ5OemMWX1wE+OkaAZyvr7P7nXORkyuqUt7C48oVOj+Eoteb5Iqa7x
+    CgkYlzXBat9X1yOfnH2uvuA+TTwlXyy6KD/Tuej4Hx4hotDqEldWyh0bgyoIrgw7e46dhj
+    vA6mq+SF6BjwtR3agNBaHhIDGUOOvwfIbbv8FeyLO2osn2GQAtN8I37+skYOQOCdqZoOM2
+    Hj7ynU6KkdmhFr/y0BKiVg8jKXzLy+WvfrXJQqI1/AfvTyk5hMuwiRE8qWzg
+X-ME-Proxy: <xmx:MRcIa2ZccXrRAKik8-peIVrFbgaDCv3erme_-NZopkqUj5rzGgvMLg>
+    <xmx:MRcIa-aYdeOgdd7vvfz38feyDL12FSY51gh3Qqo_li9igBbUw08EmA>
+    <xmx:MRcIax2F5QOnGzgYHFRo6wvU4YUmM0bHqGAWOZD6OuBHM2MhWqO7HQ>
+    <xmx:MRcIa-b-y497F3MLTcVvNjoL5ai3bPec9h-LMh088JBpHXQDkG4T3w>
+    <xmx:MhcIa9YUczOUjKidaLNO3RYvizxcJCeyNiNFgcDq6MCddaYQl68QpRMo>
+Feedback-ID: i51fe4b43:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 26 Nov 2026 06:25:33 -0500 (EST)
+Date: Thu, 26 Nov 2026 20:25:30 +0900 (JST)
+Message-Id: <20261126.202530.1337423276496737821.tomo@flapping.org>
+To: a.hindborg@kernel.org
+Cc: fujita.tomonori@gmail.com, frederic@kernel.org, lyude@redhat.com,
+ tglx@kernel.org, anna-maria@linutronix.de, jstultz@google.com,
+ sboyd@kernel.org, ojeda@kernel.org, gary@garyguo.net,
+ bjorn3_gh@protonmail.com, lossin@kernel.org, aliceryhl@google.com,
+ tmgross@umich.edu, dakr@kernel.org, boqun@kernel.org,
+ daniel.almeida@collabora.com, tamird@kernel.org, acourbot@nvidia.com,
+ work@onurozkan.dev, rust-for-linux@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] rust: time: implement `Debug` for `Delta`
+From: FUJITA Tomonori <tomo@flapping.org>
+In-Reply-To: <20261126-time-delta-display-v3-1-aeeecc72f3a8@kernel.org>
+References: <20261126-time-delta-display-v3-1-aeeecc72f3a8@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,90 +129,49 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v6 0/5] bnxt_en: Make RING FREE more robust
-To: Joe Damato <joe@dama.to>, netdev@vger.kernel.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, horms@kernel.org, michael.chan@broadcom.com,
- pavan.chebbi@broadcom.com, selvin.xavier@broadcom.com,
- kalesh-anakkur.purayil@broadcom.com, linux-kernel@vger.kernel.org
-References: <20261120152830.699712-1-joe@dama.to>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20261120152830.699712-1-joe@dama.to>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Mime-Version: 1.0
+Content-Type: Text/Plain; charset=us-ascii
 Content-Transfer-Encoding: 7bit
 
-On 11/20/26 16:28, Joe Damato wrote:
-> Greetings:
-> 
-> On two production systems, I saw the following dmesg pattern:
-> 
->    NETDEV WATCHDOG: transmit queue 0 timed out 6073 ms
->    Resp cmpl intr err msg: 0x51                  x20
->    hwrm_ring_free type 1 failed                  x12
->    hwrm_ring_free type 2 failed                  x8
->    AMD-Vi: IO_PAGE_FAULT  x3
-> 
-> This suggests that, for some currently unknown reason, TX completions stall
-> and the netdev watchdog fires. The driver asks FW to free the rings, this
-> times out, but the driver ignores the possible failure and frees ring memory.
-> Since the FW didn't respond to the ring free command, it is possible that the
-> FW is still DMAing to the memory which was freed.
-> 
-> To address this, this series makes the driver stop DMA before freeing ring
-> memory when the firmware did not answer RING_FREE.
-> 
-> Since the RFCv4, I found a third system that hit this repeatedly:
-> 
->    NETDEV WATCHDOG: CPU: 35: transmit queue 0 timed out 5459 ms
->    hwrm_ring_free type 1 failed. rc:fffffff0 err:0    x64
->    hwrm_ring_free type 2 failed. rc:fffffff0 err:0    x32
->    hwrm_ring_free type 0 failed. rc:fffffffb err:1    x64
->    hwrm_ring_alloc type 1 failed. rc:ffffffe4 err:4
->    hwrm_ring_free type 1 failed. rc:fffffff0 err:0    x44
->    Abandoning msg {0x51 0x3e35} len: 0 due to firmware status: 0x408100
->    nic open fail (rc: fffffffb)
->    DMAR: [DMA Write NO_PASID] Request device [47:00.0] fault addr
->    0xffffa07ef000 [fault reason 0x05] PTE Write access is not set
-> 
-> This case differs from the first two in a few ways, but this series would have
-> still helped:
-> 
->   - The ring frees fail on the close path and again on the error path of
->     the reopen (bnxt_init_chip()), and the device then writes to memory the
->     driver has already unmapped. The series stops DMA on both paths.
-> 
->   - The interface came back up later, the watchdog fired again, and the
->     cycle started over. The host logged 79 DMAR write faults in about 20
->     hours. Patch 4 breaks this loop by refusing to reopen after DMA has
->     been stopped.
-> 
->   - The firmware answers each RING_FREE about 5 seconds late, after the
->     driver has given up, and finally reports an error in its health
->     register. Patch 2 does not treat these late responses as success because
->     their sequence ids do not match.
-> 
-> In this most recent case, I suspect the hardware is faulty, but the driver
-> shouldn't hand memory back to the system while the device could still write to
-> it.
-> 
-> In all of the above cases, the IOMMU caught the error. If the system had no
-> IOMMU or the IOMMU was in passthrough mode, data corruption or crash would
-> have occurred.
-> 
-> In the future, this could possibly be extended to make recovery automatic.
-> 
-> I wonder if Sashiko reads cover letters and then avoids flagging stuff, let's
-> find out. (Unrelated: I wonder if anyone reads cover letters).
+On Thu, 26 Nov 2026 11:51:14 +0100
+Andreas Hindborg <a.hindborg@kernel.org> wrote:
 
-Some poor guy still does that, especially when the cover letter is
-shorter than a novel :-P
+> +    fn fmt(&self, f: &mut kernel::fmt::Formatter<'_>) -> kernel::fmt::Result {
+> +        let value = U::repr_to_i64(self.value);
+> +
+> +        if value < 0 {
+> +            f.write_str("-")?;
+> +        }
+> +
+> +        // `unsigned_abs` is used because the magnitude of `i64::MIN` is not
+> +        // representable as an `i64`.
+> +        let mut magnitude = value.unsigned_abs();
+> +
+> +        // Split the magnitude into groups of three digits, least significant
+> +        // group first. A `u64` holds at most 20 digits, so 7 groups suffice.
+> +        //
+> +        // Dividing by the constant keeps the compiler from emitting a check for
+> +        // a division by zero with a potential panic.
+> +        let mut groups = [0u64; 7];
+> +        let mut used = 0;
+> +
+> +        for group in groups.iter_mut() {
+> +            *group = magnitude % 1000;
+> +            magnitude /= 1000;
 
-FTR the upstream sashiko was not propagating the cover-letter context
-to the individual patches review. I'm unsure if the nipa variant has
-fixed that.
+Code that uses this Debug impl fails to build on 32-bit ARM, for
+example the doctests:
 
-/P
+ld.lld-20: error: undefined symbol: __aeabi_uldivmod
+>>> referenced by doctests_kernel_generated.ea22ff07120af58c-cgu.0
+>>>               rust/doctests_kernel_generated.o:(<kernel::fmt::Adapter<&kernel::time::Delta<kernel::time::Jiffy>> as core::fmt::Debug>::fmt) in archive vmlinux.a
 
+div64_u64() in my series [1] should work here:
+
+    let quotient = div64_u64(magnitude, 1000);
+    *group = magnitude - quotient * 1000;
+    magnitude = quotient;
+
+If you prefer, we could also add div_u64_rem() to the math module.
+
+[1] https://lore.kernel.org/rust-for-linux/20261118224826.2491684-1-tomo@flapping.org/
