@@ -1,76 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.233
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795691976;
-	b=1CHEnwVkQqU/JPhzub+Nuuc/u1vuXDoUvGZtou9OVO+TFrf+JLwA2uBltITZPy1M+S9b
-	 8P7/PNtMCDSgNxM76ph4IrTg4BUqCscSkFVJVA37DgUaux3+KtOm5PRlSv4Hls+aOjAbb
-	 kI4FYcfNu9UZdxdPNJmCE7T5R/YrMeM3ODfBGU7BPuN3zydQDwwQQlY4jdp3z1hANR/W/
-	 sQMPoaXdZEBfxPA7aPU+rmvTfgb+4qrNE3qUXNXKoY99kXlC/Dq7xYJbsIfI7PVz4erKe
-	 nKKMdx4B2nqxtFqAT5VD/uqsfo+EVdb0MXr3TKw/7GE9CvDCaBypQ4t5ltnmnJfgpxA==
+	t=1795691978;
+	b=X+zj1KU8Sp8WbjmfgQTfGcMrYKShgTqaYHaRw28S3iiXh5pToSyKXbfIOqwXDTmEZ3Bc
+	 JkGGS9OZZ2C+671S/n5Tq1eAXfBgGnF6cAZ3yMtp77btNxZq9cB+HX3/YGtIHFDc+E/jZ
+	 Gb27JimceYVtztzE8ov8JGNmt75tTO/brrTfmbBaximfXvitMs2lPQMEOLQeoAGUm8wY/
+	 uPRzXBrnBxS53iiJs1sBZa5cVg8N6epani/PkGHx80zUsDaTA/3PDATCJ5NuldAQMtDxl
+	 vhcU0swhNVUCRmVUW/9Ru28O5vBt8Fv34lNl5lkYDTlDwLffJX2nOrFyNdCQporGiiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795691976;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=jqaDdka667zC3QLL/2NfjHtHFN/hbwgftkPOJofn4oA=;
-	b=up2b0hXXLkjQFMn94EJ5VZ4MPZopk3w/K8eucRpUCmHX51GSNkKUxVwKS3HZR9c4V+gC
-	 FmojRGqBANj0nuGgmDdlNbadjxF1Gc3G6eoucluuVFMlgRJDrAp42GwK6nz7nUwld6YMJ
-	 0cKqOeoh+N1XVnbwiQwCKz8f4LENq348OKMlC+rbOas45iMTJby0iRJZBGzIYz20gIUE0
-	 uUWJEh4gpFBlWpEUyE56HVvD9DHILBCx2MwbvIcbbUq4gEnpBuJJzSRFVMmnz2Kg0Cm39
-	 8+Ihln5a2i2zJ/fjKWFcMiA5iiXBvJn0ZxsrW7QLJ8G7EBy3S5avFy9TWLi+4/Xb1lA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795691978;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer;
+	bh=6IUAESVFtsidcpD6OicOHeScwyTIg4rQEjzbtezfzqA=;
+	b=zMT0ZB2iZ/4DJIS4r0mUp8gjA9PcLLQFy27CH7BskJvR86w+f8Sc+Nk2mtj8cLR870us
+	 Ft/jgnz16H1qjYU40PnpTasOJb30FJNqJY/4FCFeAEujTYU/HH5KZbVBWvU//Mjb5zNFn
+	 3cDj7Be5Fh5/d2tzBguZ/OBx67a4A104j0d/9N5MX3WRaceEfWrxtBNVfgBR5VFp9B6s5
+	 RzH9PLD8GRtRDzrz/XjChZ9uDDLvXF6DkTy32vUm8PsfNe1HXixEnP6BKs4TRyWbIs5Qn
+	 kmKZWlSWiT0pk7kykXeOuHelKVwPmxX3eZk28EwU0BrvTWqh6sv85YrCbmt+cl8bQRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=ywUUWZZg;
-	arc=none smtp.remote-ip=203.205.221.233
-Received: from out203-205-221-233.mail.qq.com (out203-205-221-233.mail.qq.com [203.205.221.233])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PzgtvDcA;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AA62606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:19:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AA62606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C11F606A321;
+	Thu, 26 Nov 2026 11:19:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=ywUUWZZg
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795691966; bh=jqaDdka667zC3QLL/2NfjHtHFN/hbwgftkPOJofn4oA=;
-	h=From:To:Cc:Subject:Date;
-	b=ywUUWZZgKVe20OSieoPA6K4LMedZ0Pgtnz/cXik3cHyzoRjQpWX2D6lrxIpfwlaOc
-	 sFdHwU60YTq+vgbvrqdKiuxwlf+zffMenLxJamYRkKLPXDo6D4/JY16YvzB1KSHKpu
-	 9MbAB/ZaIY2LJECJ6qEzsvBRUDbUmLwSXKTllWN0=
-Received: from shuai-VMware-Virtual-Platform.. ([218.28.192.28])
-	by newxmesmtplogicsvrszc50-0.qq.com (NewEsmtp) with SMTP
-	id 4D834E28; Thu, 26 Nov 2026 19:19:24 +0800
-X-QQ-mid: xmsmtpt1795691964tk1136yr1
-Message-ID: <tencent_DC2C02F2FD4DBEB8416265132CEED7D2AA08@qq.com>
-X-QQ-XMAILINFO: N/WmRbclY25GsTA7YI+XQrq8X6I3TwtF3ugMUB5gVUqTJvxXwKGEZqKBmpw8g9
-	 k4ite7yvcdH6/C/ompjbDjnbQtAgKuRRIDcTaHsH/vMHLp6LdpfW89GcAXkHWx6PooMimMewqHjZ
-	 ER3KMkYjEKRH1sVinGfI+pZV1G3BCU/8L97Nan9tslw9xKyTkXav3myMHEwZ2X4hquMxQwa0VrYR
-	 sg7gfI3rw2yEnUMjKuk9hbuLbpKs4RoV1lHzhv/UnQrfl1V7p705sWXJ1DK7om9OQrhthDY743gx
-	 EsILeKxhvoHyfxUiO/7O1viqMvhvOn8PlBNErzNVE1UiwtFI0lsj8pfc911rS5DCKEtY+BXS1rEt
-	 xLekAmkjXniZ4jssCRibFmIe0hVIAy5jLcumxS1QW08yjhTNdbBU2yyHN4t3kpCMI4YScwbXIzLA
-	 Bje/PUnfRtbkhTbMfsf+lRWxe9+lS8Yo3CFhGbQVAU7R2VqioXHU+LVnVzCu8fk/PDEj2FyIhggx
-	 MxmDPkyMbU4iMIVA1AVjCNC27+4XF+1dDkyN8b0U1RlQ/f+/QKfkjWv7HYPboQxsK8EQfP1+JDaH
-	 6q2797zbWiyj72Cg/pSkuE6PWyuhAZ8DQAA4jhhP6rCQKV07MBB3thydOrGSs0rsDmkXsdXih0j1
-	 cWphpBEYNwwMofETALWegmHo4N4luLpeq5TzgtE8Q5AGXtetfILktBtXsffVIvpF5mvLgrmRxnBP
-	 BLDoMxPIAn9qJEI3sQX7KY3oSpkVNbKA7U1KpqX+7Mq56aeoe/AOAb4ym5PDaLRMCGbR+GlpU4sI
-	 ZdP3lauB45HsowbdvHYTk1jucJ8lGGAkTG4lG401jWfddYKjHLb8d0MNjLPHJmI66buO7xcqtje7
-	 MDjQRDMUDC2q5MUqQCf58/8kMkTrVKoedRWOqTOQp9N7Uey0H4y3UYuW+2BfVt1lKw0MBoy2311a
-	 bojdAUzMVl4E7OsueNsd55l+iZ5/FWU63K35wZCxg3KNxDux3miOBJo6kL3hPbNdkNV8HLKGYhwd
-	 h/gs7Il5fW7qSV7EStwE4bBrfH9YsrZEGczbpWai13R2j0DbhjcgIE3DtFXAmxc1MyC7Jona1UpO
-	 bHrfIiKIwQPf1eCsaHMSknexL/oQ==
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-From: Shuai Liu <847807867@qq.com>
-To: phillip@squashfs.org.uk
-Cc: akpm@linux-foundation.org,
-	squashfs-devel@lists.sourceforge.net,
-	linux-kernel@vger.kernel.org,
-	syzbot+f1290205423d04eee4cb@syzkaller.appspotmail.com,
-	Shuai Liu <847807867@qq.com>
-Subject: [PATCH] squashfs: fix NULL pointer deref in squashfs_lookup TRACE
-Date: Thu, 26 Nov 2026 19:19:24 +0800
-X-OQ-MSGID: <20261126111924.197602-1-847807867@qq.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PzgtvDcA
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79D211F00A03;
+	Thu, 26 Nov 2026 11:19:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795691977;
+	bh=6IUAESVFtsidcpD6OicOHeScwyTIg4rQEjzbtezfzqA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=PzgtvDcA4yy/D2Uepj3A4ekmgkoMVvK8vCHb6UdANFhGAR3OBnrXkvAS3r9CqvP2I
+	 eDmwCIrTD3P98wMkVnY3W85BeGo+ZeBhcoHLlCd12HdFjujk8Zaf5uhR8BV51AOM9P
+	 oW6Xtzx0AUymGG49kFi+8vJRbIFAGKIoVzVQwMCXSTZexmCClqXB7irUaJOvnH7AT5
+	 H8yglHbC98pbN4quyuAGcNaw3RNs1KOwrdkUjWO3r1r/5ZIYpv9vJVR16CKt6bfdWC
+	 KH8ca4HCAeD7eXntGrPQqRIQieHY1E0JUb0HMs7NmNLeElY0r6qD2n6VSHz7fdgu6N
+	 3KyI5zsbNkYeQ==
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Date: Thu, 26 Nov 2026 13:14:45 +0200
+Subject: [PATCH RFC v2 32/54] asm-generic: add an empty pageattr.h
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,41 +52,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-generic-set-memory-v0-1-v2-32-723f1e33c3d8@kernel.org>
+References: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
+In-Reply-To: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
+To: linux-mm@kvack.org
+Cc: =?utf-8?q?Adrian_Barna=C5=9B?= <abarnas@google.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Borislav Petkov <bp@alien8.de>, Brendan Jackman <brendan.jackman@linux.dev>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ David Hildenbrand <david@kernel.org>, 
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
+ Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, 
+ Ingo Molnar <mingo@kernel.org>, Kevin Brodsky <kevin.brodsky@arm.com>, 
+ "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, Michal Hocko <mhocko@suse.com>, 
+ Mike Rapoport <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <pjw@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@kernel.org>, 
+ Vasily Gorbik <gor@linux.ibm.com>, Vlastimil Babka <vbabka@kernel.org>, 
+ Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, x86@kernel.org
+X-Mailer: b4 0.16.1-dev
 
-In squashfs_lookup(), commit 5b515c0ec855 ("Squashfs: don't compute start
-or alloc memory on empty directory or index") moved the TRACE statement
-to before the block/offset variable initialization, so the TRACE was
-rewritten to use squashfs_i(inode) instead of squashfs_i(dir). But
-inode is initialized to NULL, so squashfs_i(NULL) evaluates to an
-invalid pointer which triggers a kernel page fault when
-CONFIG_DYNAMIC_DEBUG or DEBUG enables the pr_debug() call.
+linux/pageattr.h includes asm/pageattr.h for the overrides of the CPA
+hooks. An architecture that is fine with all the defaults has nothing to
+put there.
 
-Fix: replace squashfs_i(inode) with squashfs_i(dir) in the TRACE.
+Add an empty asm-generic/pageattr.h and make it mandatory, so that such an
+architecture does not need an empty header of its own.
 
-Fixes: 5b515c0ec855 ("Squashfs: don't compute start or alloc memory on empty directory or index")
-Reported-by: syzbot+f1290205423d04eee4cb@syzkaller.appspotmail.com
-Link: https://syzkaller.appspot.com/bug?extid=f1290205423d04eee4cb
-Signed-off-by: Shuai Liu <847807867@qq.com>
+LoongArch, ARM and powerpc will pick up the asm-generic/pageattr.h when
+they switch to the CPA core.
+
+Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- fs/squashfs/namei.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ include/asm-generic/Kbuild     | 1 +
+ include/asm-generic/pageattr.h | 5 +++++
+ 2 files changed, 6 insertions(+)
 
-diff --git a/fs/squashfs/namei.c b/fs/squashfs/namei.c
-index c8009e0b2edda..30e9383f09928 100644
---- a/fs/squashfs/namei.c
-+++ b/fs/squashfs/namei.c
-@@ -134,8 +134,8 @@ static struct dentry *squashfs_lookup(struct inode *dir, struct dentry *dentry,
- 	int offset, err, length;
- 	unsigned int dir_count, size;
- 
--	TRACE("Entered squashfs_lookup [%llx:%x]\n", squashfs_i(inode)->start,
--			squashfs_i(inode)->offset);
-+	TRACE("Entered squashfs_lookup [%llx:%x]\n", squashfs_i(dir)->start,
-+			squashfs_i(dir)->offset);
- 
- 	if (len > SQUASHFS_NAME_LEN)
- 		return ERR_PTR(-ENAMETOOLONG);
+diff --git a/include/asm-generic/Kbuild b/include/asm-generic/Kbuild
+index b7a388bef6ea..fd9fb2c3260b 100644
+--- a/include/asm-generic/Kbuild
++++ b/include/asm-generic/Kbuild
+@@ -42,6 +42,7 @@ mandatory-y += mmu_context.h
+ mandatory-y += module.h
+ mandatory-y += module.lds.h
+ mandatory-y += msi.h
++mandatory-y += pageattr.h
+ mandatory-y += pci.h
+ mandatory-y += percpu.h
+ mandatory-y += percpu_types.h
+diff --git a/include/asm-generic/pageattr.h b/include/asm-generic/pageattr.h
+new file mode 100644
+index 000000000000..07bf3b0e84a0
+--- /dev/null
++++ b/include/asm-generic/pageattr.h
+@@ -0,0 +1,5 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __ASM_GENERIC_PAGEATTR_H
++#define __ASM_GENERIC_PAGEATTR_H
++
++#endif /* __ASM_GENERIC_PAGEATTR_H */
+
 -- 
-2.43.0
+2.53.0
 
