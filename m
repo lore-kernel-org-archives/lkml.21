@@ -1,95 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795702423;
-	b=wykDwLtt26/AYsvXRB5MDC0p5Qxnlhp+U6Vk2VosGXOz6OGvvqqp3XtEazaEoCsjc/X6
-	 DfL0Sh5JVH1WXkydkJbFVfVM1T7zOdgvLzPyWC9iK0sbpSRgJjoSQ2NLYRFIx1x0mbv/G
-	 7rSuH/rnmCGMSpww1ytrwpHrsVMFZyqr1wlAtmEQQgulqijniX0Dt5673/xCFX+FbBwOi
-	 9Xmh9iZ/B9IO39JLZo4gnZP8lpkdS7/qoOpzCFFq8Hs0JfcYYoKnkqDhRQVSQ4iggSChV
-	 7nFjVHYdpUuvUcPrxYtTFST2IU8zg1SxqrZAsHh9F7GH+bEMg80jdXzChgT9JX8I4GQ==
+	t=1795702446;
+	b=3hGpig89EjG7ikpgmkJ4zmAahh5RHrifBdqwhzWCBJrJilIhf1hphN/ao13y1R8hkdo/
+	 eeXJHUze8qR2AAmcnxWQmfz3BNRptY7MtiNScsjAvKGDLxslufMVvW44Be+NkNM2192Tn
+	 T0/XKvIc8MqZaKPZ1s01XJduBKMg2TY90f81pmPPb3hzrYfxQ+KpZsB2JqxkL3Vq5Y5st
+	 /ZcHkglaABFP/AOl2lhwPnehs1bhBwi2BE+sc5c2u9m0FIZ1hjvnz1nWo5Kd1RQb/k3J7
+	 77j/yXLVp9lg3zb4RITYgrBwMK2UDKxTzUuqOoC3go9M7lB8Mc5ajletjDNQy8K5d6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795702423;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=UqL3Wpz/mpEA5/gi5iaPzqW5ysijFqXD7W3q78hLBpM=;
-	b=b3aHi2S73+lmFDBz0UbBD95b5RqYP2Ma5ax/Z6JRPbCRwopoyp2L0fQPZjqcQ9iZgBKO
-	 k9dMlhjoo/pTbSyBysdzYg3f44cvn0xoKV02rMCwmoj+qhVfOIPKeg9mc391orcM3pkx7
-	 UN/lOZzluiLt6bJ0GGkIJ2IxKsRO1hWidI+HL7nTGu18skrsexhP12few77ITsW/mpHqG
-	 pmnyWNKqHKQA6qGk6TZMrbSY5j7vii/FiLcGIGotfichPXTg78FH9uccV2KeyIA31ITst
-	 9xVOjQYay1+JL4HXZA3IE7w3gHxN5nhR5i0i2lTP4zz9ZjckfxW5HGsA0c+J3BHEneg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795702446;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=unoPs7xtQ5MF1x7IuGq02jNg5rd2kg+olh3lRYLWtXs=;
+	b=Vm0ttM5av/AFjvyOaXthvCIahWR4nhwnTJP+PBxZfG6sTDjm6PQ+jwHeoafiM/rrlvjr
+	 MnnKuvJhPsGUhMQOsYFOn2RCRiJyPRm0cuMAaW65dQVdq+VI1kCqObTOE2cYC9DlNpshT
+	 xUcxLoouYTGEj+DDH5ufvT0pvTME1JHClNlxGSVkhD9UhGmBgSFStks0Tmu2UHsSz4aUB
+	 ZN6b8Wfw/gsZRbN/rOjFz9VxE5PPa5RPtuel52lRSSdSQ+fm/KS8GopuVscfyi/VXZaYq
+	 LnA/sllvoKRaXHfS8mnIpe1qX6RysbTecSEAl56k7l+EYj21V4GofvAMnIzvzveFt0A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=C4Z6b0A3;
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S3HdT7nz;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4510606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:13:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4510606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80C0F606A31E;
+	Thu, 26 Nov 2026 14:14:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=C4Z6b0A3
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4a56e05568aso15966315e9.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:13:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795702420; x=1796307220; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=UqL3Wpz/mpEA5/gi5iaPzqW5ysijFqXD7W3q78hLBpM=;
-        b=C4Z6b0A3EuhZliyCsGSkDMPbQbJidxOy5SfDjkBF4jTSkfrXi6MTxAxeR6v7Q1wcxr
-         Bv+hA2a1fsugPQyziIgcOI1rCBR5fJTiTAwnX9ueKVtGMlvsTMXv+uELDUZ4VBMCdpPF
-         S7aQPIZtMBm1KEXb5tZO1polSFuqRm0uu2XV6XRV6ck3Z6AEusPrI0HXPUpSjCrT37Oa
-         Pv6kEcyQX58U1dAcFU7t9XP9g5pJldrGiBWZn7T3rMgcC6efw96ktssAcB+9AAyvAAeb
-         7agGATV2ciAdl8hGVpc6mSGBIpC3HDW3y5+iJs4uorfk3TEw+uz7ltF1G1qf9S6GQC6g
-         d3lQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795702420; x=1796307220;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=UqL3Wpz/mpEA5/gi5iaPzqW5ysijFqXD7W3q78hLBpM=;
-        b=gj72Mt0Ij9lU/0NhNwEpPUj/kXmY4+JDgndqKpCyWepxRgGstGVaa/+0ieVUKqY9xM
-         VvN18qe3qTUzdAMYdHjYdOUZAVL4ZMKICGWD4Wg/vfgymAnXbLVSfzDbNmYtKVdbGgXK
-         xDzsZHe6F7/rXbKU5EZmGPtod0aMFSRd5tkWWRcRkVW2RYCiIFHf25NqKhcaTC7Vmnqb
-         GN85jYfPFxaFXdvVKpRm6Fr1W1sgucveeXZ/PO55azeDixPCltirMUG4AX+BJp1AJ+ki
-         jYisSjAaoDmodrHn4eOQJR9QtE7IGVhyMC9iGL4TxUt92nHiuY/vUzMp3hqFkZ5S/204
-         FfTw==
-X-Forwarded-Encrypted: i=1; AL+hErGDKbY4M5OsbD5cLegKSkiQEOf3Xj15ciAZtyXxk0Zcit0LvctF0s3+bBIBOYijkmW4icxcAxONxAfGVQs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+oiS9717wNBUwQOzCxt9/K6r6HOEDiULewc583VHmvECEosJbB
-	RsPMXAVvJJOrqvRJgNXytBQdah5YoDNi8EYci8pwSROdNwCuE4cvx9zT
-X-Gm-Gg: AZFdTZejfxUo9C5k7yAWrcCFcEPknOfh14qQiwBERH1jwpUYvUQwNGCkjy1FNOsouk8
-	pQUaC5fShdcbnLDeDyIZ5POXbk9j7MknK5S03Xfkdz4dsVQfpE4QiyRN45bWjzEUWmKvNtL9MNJ
-	hWTbNCu0h+QsTr0ejTIa+1QQ0saR3hF2iRcFgIHUwlsmvHS3qqNs5qGMmb8gwpp7LM9mk0KiOm7
-	DMzgT//ogY4EyUKpzb6TyXIA9+sOQrB/gY4zyLOgkOZyp+Ma1iKidZitlxxi61vTwE5qEMQcW68
-	k6gcui3huQbCIJ41gcOchmDPckPBbc+8VOhj3L5D6/3qqGWn0dhUcGGkZJU7LgNckqIeqQpB2HX
-	flwKx+rM0mUJHMv4DLcZI668aWmdZsxw3ODYGmNYFJ2kjww8xVm+yFR6WHVtU8yo57TUHOB0EDl
-	nmQTIxCPSK56x3pWvxfjKgY1k9Ga+dUbUzxvG6rjOGBtZh6rsDn90kwTwfG66IMG6nIOp+bVNEx
-	Ks/05KnHpLVFzMDeEj1ec77U5/IVstU2QJKBFMRAYQsDrTEzSSE6+O7jE1rLx4IOU4TvBGKrnWT
-	csKSFHmE3S/4JXlsThEBI0gMBp1qbvD07H+Q0cQHYw0zoPvj9eQjeC0j61KkPrbRGnLsVZNIaPK
-	5fjIojfBuDqp0vVChjEoOWNz1dDFbS6VUaFoXzPn1
-X-Received: by 2002:a5d:5e01:0:b0:4a8:eed3:770 with SMTP id ffacd0b85a97d-4abb47b25eemr44322800f8f.4.1795702420197;
-        Thu, 26 Nov 2026 06:13:40 -0800 (PST)
-Received: from thomas-precision3591.paris.inria.fr (wifi-pro-83-006.paris.inria.fr. [128.93.83.6])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f281sm38519262f8f.22.2026.11.26.06.13.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 06:13:39 -0800 (PST)
-From: Thomas Fourier <fourier.thomas@gmail.com>
-To: 
-Cc: Thomas Fourier <fourier.thomas@gmail.com>,
-	Koby Elbaz <koby.elbaz@intel.com>,
-	Konstantin Sinyuk <konstantin.sinyuk@intel.com>,
-	Oded Gabbay <ogabbay@kernel.org>,
-	dri-devel@lists.freedesktop.org (open list:HABANALABS PCI DRIVER),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] accel/habanalabs/gaudi2: free the event queue IRQ with the right dev_id
-Date: Thu, 26 Nov 2026 15:10:53 +0100
-Message-ID: <20261126141100.44391-2-fourier.thomas@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S3HdT7nz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 476D91F000CF;
+	Thu, 26 Nov 2026 14:14:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795702446;
+	bh=unoPs7xtQ5MF1x7IuGq02jNg5rd2kg+olh3lRYLWtXs=;
+	h=Date:From:To:Cc:Subject;
+	b=S3HdT7nzKSL93ustD2S2hTO4jkobK2Mxb7JaNi/O1LfRIGdTqC8hzysPklV7Vyv1s
+	 ZCvm/p+0GQRCrAMG2rpQQe/3ZgUbAqNRofazQutyl6ABzvzgM3poP3CdXm64zALkYN
+	 XrGIY7xs+twXujKrZSPDCAitqILgF7MwD5e1H5gG9lkKvG1CwZAGc5ixrdfmeNMHcr
+	 BrpZf8iZEMjPG69G/W1Kztnw1tsR4SBfLJs3lj9KWz6im5QziBsCPtcE3rPP57O+ga
+	 8xeUlpTBFI7vigh46vcPShX2GVxSLr7RVg5HrgSlwejdNhLf1FuoU6GkMTeFt9IdXQ
+	 5jBF4SmosK41g==
+Date: Thu, 26 Nov 2026 14:14:01 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>, soc@lists.linux.dev
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>,
+	Thomas Huth <thuth@redhat.com>
+Subject: linux-next: manual merge of the arm-soc tree with the asm-generic
+ tree
+Message-ID: <awg-qQ3MZwOS7Rws@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,35 +57,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="t6oM05WHMPgAl72P"
+Content-Disposition: inline
 
-gaudi2_enable_msix() requests the event queue vector with
-&hdev->event_queue as dev_id, but its error path frees it with the
-completion queue pointer. free_irq() does not find the action, so the
-event queue IRQ stays registered while pci_free_irq_vectors() tears the
-vectors down.
 
-Use the same dev_id as the request.
+--t6oM05WHMPgAl72P
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
-Fixes: c833ac1a5f34 ("habanalabs/gaudi2: free event irq if init fails")
----
- drivers/accel/habanalabs/gaudi2/gaudi2.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Hi all,
 
-diff --git a/drivers/accel/habanalabs/gaudi2/gaudi2.c b/drivers/accel/habanalabs/gaudi2/gaudi2.c
-index 5d9c6f0698b7..b082d7eb6c45 100644
---- a/drivers/accel/habanalabs/gaudi2/gaudi2.c
-+++ b/drivers/accel/habanalabs/gaudi2/gaudi2.c
-@@ -4761,7 +4761,7 @@ static int gaudi2_enable_msix(struct hl_device *hdev)
- 	gaudi2_dec_disable_msix(hdev, GAUDI2_IRQ_NUM_DEC_LAST + 1);
- free_event_irq:
- 	irq = pci_irq_vector(hdev->pdev, GAUDI2_IRQ_NUM_EVENT_QUEUE);
--	free_irq(irq, cq);
-+	free_irq(irq, &hdev->event_queue);
- 
- free_completion_irq:
- 	irq = pci_irq_vector(hdev->pdev, GAUDI2_IRQ_NUM_COMPLETION);
--- 
-2.53.0
+Today's linux-next merge of the arm-soc tree got conflicts in:
 
+  arch/arm/include/asm/hardware/dec21285.h
+  arch/arm/mach-footbridge/include/mach/hardware.h
+  arch/arm/mach-sa1100/include/mach/bitfield.h
+  arch/arm/mach-sa1100/include/mach/hardware.h
+
+between commit:
+
+  4a81407e4d4d0 ("arm: Replace __ASSEMBLY__ with __ASSEMBLER__ in non-uapi =
+headers")
+
+=66rom the asm-generic tree and commits:
+
+  aed54038a668c ("ARM: remove sa1100 platform")
+  e6f3817ff3caf ("ARM: remove footbridge")
+
+=66rom the arm-soc tree.
+
+I fixed it up (see below) and can carry the fix as necessary. This
+is now fixed as far as linux-next is concerned, but any non trivial
+conflicts should be mentioned to your upstream maintainer when your tree
+is submitted for merging.  You may also want to consider cooperating
+with the maintainer of the conflicting tree to minimise any particularly
+complex conflicts.
+
+[Deleted the files]
+
+--t6oM05WHMPgAl72P
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsIPqgACgkQJNaLcl1U
+h9BXqQf/Q70MJeWwOvg/PGEnCbNdhubB9LnTJxDiHiBqBgmhOom5OcHH89lLyqwn
+J3ricMptINfFOMLl0nya8u0bV5dtOIoat7w1BlJXIKygibFGMBNtBD291DP2e8OO
+4/sjNHtaI3EMAAu01r6t9TA44R0ZKIMPXKkacDdGfKobEsXCmRrwd+djeuJ/vyuF
+40b9c+FnkEuKW/M8vXMkx8hT02aX1telEhEUMeTrJFgP0yaQ1cYnh08RFYFoeGA7
+Ou9aBzpKiagQNiwD6TZDZh3crmbJnMQErEynFIlVl2uGZN6p9sgQKC9xIHV3zcbZ
+/ntkjbB3rFUwGKZ4XuLEC4ja9oZ9Mw==
+=H0f1
+-----END PGP SIGNATURE-----
+
+--t6oM05WHMPgAl72P--
