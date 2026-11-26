@@ -1,79 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795674733;
-	b=xP/OGZDnn3loYJs3+cU6FFdvduXXHTjaYmjWiq8Bi3AbK+A9NtPc2CtHIyenlnjufPnI
-	 XC6HV05uw4VBJkUYTdR1KHVnK5Ii7KNbMfKZE6oQFsICTGbJ0fOKlAaSozFrs2AsfLIBo
-	 lL39KopfaQB8+hZGGHjr4yZYZGaZUwoahje39Xo/h8hQsMq+9lkrMV22SI4tRnt3AiIGw
-	 uObI+sPuVsY3DDFhC2E2iYQUBHpp1K2oIzt3DvMjdLJmRlrb2sYQgweP52CKpfEZvqCHa
-	 xNCbiKmDYM5AdxPvX6dRjIxB6XKWpJ1mZ9mDXrugm+PQKHK6dxDffkCKiDEVBP1YBbA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795674733;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=POwzoRZ+mEwbM1RA6LhR+VsE7K5I8yMuPMpUZQdbXKU=;
-	b=n/egfSk+hQlSDKoTxtzhDpdCY7xnhkaH9NhCoKEk2eG7/+OYLsXXOIT6w6XUIlWGg35H
-	 XF8hv8nFAgiY993Ph6J0/EpgdptR+TY81/6SqcpQFdNu4ujovQd/ZkyStJeJWKQyV/Hme
-	 XLLkUlbgqEcCMLDkXctqcAj2dxMkikEidz6CDd9szV+6VKMVeDu0SkiHbhodWZ7efMITp
-	 N5wyLAAtSexk6SSTZCz5ervlpwGTDcl118aZAs61Q73ItZ3NLvhHrW5IKQQSdd/ZHvRqD
-	 C5eoHyWBra2M46cI+QkZAHZT9HZ3UcL06k1XVtCK8RYHNcKpJSs0XIxLtTK5YrY4LKw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MsWXr00A;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F867606A68B;
-	Thu, 26 Nov 2026 06:32:13 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MsWXr00A
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795674733;
-	b=j392bniUeJuUz5F0K5i7j0m1pe3BMuOB2bGr10oh/hocV6XjR/5Ga2ejcDE7OV2QXos3
-	 I/xt4ixwpvlvhUJ8hD3QYaVNXDz4bxUvBIc59B/klRlGfTxgJL1y3aXWvUhbAzT3yRmHo
-	 OuVDWHR3o5+guAAjtpkJ9sUwmyh3a/+OmyW5VNGk8sFh4cfWrMsVISmwhdm18tnTda+Eq
-	 k8v5lU3HdxzyF4Wmo+eTtNvgnzB5TgGSq6pkl6b3248rtkY2f77gFbsl8JzShlEfBfrT7
-	 /pHf6354k4hSJeO5pCvSc2iUQHh1iEWEPfR0d3alMKT1pInytRWTUEpGuZLttfglySg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795674733;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=POwzoRZ+mEwbM1RA6LhR+VsE7K5I8yMuPMpUZQdbXKU=;
-	b=ACliwmyPl4H8C/su8f8UL0csbuChJRDQiAEZYZv5JLxu9me4EKp5FJtb3SIgu8mqjYJD
-	 e76AaNAsp9VtJP09xOvLwmhVx2dgh9c1DLvj90+qqtirBv0aOHD/akeWt4ZlY/z1Yx2k3
-	 oI6OaqTUluCDrOWwahtELJjHI6oquoLfyN3tVYbAKH1v38fbWTZpM4AEA6wOXvNCKzvmk
-	 jqfd3LZJ1/ety5143jCmvfmeluG/q9XZxhCVG/Hc6Qaf/dyMzWvX5hgjk4Y7EYhoa0ILb
-	 3ZoCLpM0pMlRaqzRlET0JxCvaJLqD7/aTr0WIonlOD0QAaD88cZ4rKqvp0mweJWCx1g==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795674749;
+	b=fpQSuQTnewUYM69UNJikKo1lJmM5064dkwbRErAK/gfeuodncNDaCROFvzbH7J5bVlul
+	 2RChf77l5Pgmt8WTqkboW8AW0Qpc02WbBGy1Csd7rXXumjMfRNhoBvr84ZD3nTHUcJW6b
+	 QBJUoEndynkKDIgJoa3pBddH+r7STcaaN6smklybLaypGO8hWyJGlt4hQnQv49JeZlo7P
+	 GDpBn6/8aqGFnM8bglFqUmjcGsKm7P8k/yGWohHhKWxjsZZxU0/6F01TWlQ/GXF243lpf
+	 1Twi7hi8oktu9MsnFDRj1RosD+poSGBXrEaHzpp1W9rKnrfigqmLh3iq6EpSt7VU6BQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795674749;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=wXveSJFcQwL36raoOk+JqlDXdJhqjUXocXOXXRact5g=;
+	b=CKqW09TS6AeiB0h1TbszG/jKmgesxSrMz2Fc6qWOBEaTd44SOX8nGXs5gREuid1YplQQ
+	 +LhEI+TAcAPZcngDxxBHSo7xOVz7tCWu6Fr4xAb3HAHSByl/fl0Rj7cat03DzkFc9FPzl
+	 RAXqbYhwXnlHqVQN0dwrv3wFlX7FlOXu+ANuKzpBXQm9m2v5epXYMHSKgu2GHMVXGQxT4
+	 niOBord3H1KVtkMFNf59cizXvtA3Da1ZVEX4NDKkoKEzr1T2O/TDDPqflGm+HxCAAweDK
+	 fEvPjV/1lYaf/I/loMQT5bXoxlTdCkGpFiJXNzqZEIxTgaD/W6UD656/CoZhU6QdHoA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=m9+p5TqP;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Vb60Tsl7;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 6E93F1F01567;
-	Thu, 26 Nov 2026 06:31:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795674733;
-	bh=POwzoRZ+mEwbM1RA6LhR+VsE7K5I8yMuPMpUZQdbXKU=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=MsWXr00A8XExV1mBgzLDZPwLipqjfi6lPQi+g1zQDztzSx4G/g7AjXwU6vE2k6uPr
-	 jD3S+sB/K0Fy0+4um0Tp7osl3B4WXnlHv4lfEeu93B6l3uEG6M2ayitPf7PrNCzSRx
-	 wjW2FoKX+qUM07xLtPllsYgNQ1Bey7Jo+iCUDpoe6yYMBzCiQTeBCmYO5lfZ0lSIGB
-	 IfUpCu4TeTrTYAd1l4TBMF+KgYr5KtgF3Q5RDXQji5XzexBLJSSgNaLo17/8p9YZFh
-	 C5qKpESQwP14n7RUMAvYSq+ZDlv/JpxrGpGkwhGNKcC9ND0bW+iXr2F9DGLFI94VIJ
-	 y184qOyBzkiNQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id AC8F94D275;
-	Thu, 26 Nov 2026 06:31:22 +0000 (UTC)
-From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Subject: [PATCH v13 0/2] i2c: Add driver support Amlogic A9 I2C
-Date: Thu, 26 Nov 2026 06:31:16 +0000
-Message-Id: <20261126-a9-i2c-v13-0-926e2072cc4f@amlogic.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6594C606A33A
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:32:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6594C606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=m9+p5TqP;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Vb60Tsl7
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ36WPk1647554
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:32:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	wXveSJFcQwL36raoOk+JqlDXdJhqjUXocXOXXRact5g=; b=m9+p5TqPL/EDovvt
+	RUOnHsWOlRVCHu0PagWbZ33E8yfTiLX8MafDmfqCfJW6m3GkMIG06umt4qg/Jr1u
+	A/FaixFcV+U23UrLN84L4HZJw4hjx/NYQti3CqbGmyEOhhzQu7/GjkneTHrI3iCg
+	dmgvjsikNoh2P0ZDHcXvzao/wC5B5mbNzmxaL/ojWQY3w5lEuSy4W2ccVxqjE99d
+	fp6QFjCBQqBATZtsUFkWelTgZ1aLLaQNsSsStrFXBUytvNy3OMjpGoIk9ah3WqXP
+	khYfI7tQqJgWLPnxFb3YhUt8k/3OhtOEUPrROrKl95/RKFL48ulJDf3vKU+eD2EV
+	gomY6A==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j61ahu2hx-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:32:27 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2f0a5868265so38156185ad.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:32:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795674747; x=1796279547; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wXveSJFcQwL36raoOk+JqlDXdJhqjUXocXOXXRact5g=;
+        b=Vb60Tsl7WMsb8YMdeqshzetl0JcUEYDmyHUrX+d04vkFGsfJ58VYcwtwOn8NwO66XK
+         1+RES99xfdRcXm2ynLq5OR1BbBo4lnkV7TAXwzE+L0mTZ1XJzcPUmJwwXibPDoTyheNR
+         3/NiwWuiuyv8qEUAr+eN+7GAL3kfuSR2/wFC/5Xqoa36uWj82HkO8cigfauv6hjDIl6q
+         3r/hGDaJILHhW6X4yPkCnqPiz0yXeVuyG3l451KD3bax/GJo5D2U3VuGd+tcpe2TjRtu
+         RkL1nzRImTu/drP/X4jFTPb7y2ySE60KnS/bFOBD2tya5OgkQS8r/3fOvjEvmX1BngZb
+         eydw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795674747; x=1796279547;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=wXveSJFcQwL36raoOk+JqlDXdJhqjUXocXOXXRact5g=;
+        b=omq79brlt8rSIqvEcvV5nyx4EImajLcVJFNPq2foBlQSukQyayPSd0eaNx1I+tsbg2
+         /x1/Erud1J6y2q3ANkfQ/nUpqZicWMq9zoFw05Ww5z8VHIgGsb+3jq00hUQQ0yQOqJI+
+         sIjP6/z71Dzs/5qwCq5DwzqdS9KYbWcTH+TwOiYbLldkIra5RkhHEx+uuLBzeBX+DcJw
+         vx/tqCrRRsuhml1POgRxv1RdmLxBT7ZFmGZWWlguOsatt0XT9ve6byZt3WVF0sAc4rdm
+         fzWIJi7rqWNqOM7gDFxzJzFJlJBxZEcsucUcPGe59dZTZP8zz2zRNia/VKN390TgkJ76
+         9eUQ==
+X-Forwarded-Encrypted: i=1; AL+hErF8JfIV1IvAIbkY7d7vD4seH0oZMithqLmWSCqvT74rJDN1QsgvpEjqMEyzcXV6Nfoip9JvyFHRJ/GG0Ug=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+coLMNABNFkIZrzl3XNYZRHMeijhKsMrOtqm+lUKhNAv+aj/I5
+	f57OwYWGTxEPhKvcrUdqczxaKZQe/gUAieUQ73OJoYo6fNrMeoC14lpDuYkrfpbHJuLv9qXuvNO
+	KRLGmij8a5SQNgXcJusLU2+dQyVhF9wHFt8YztoVjIy/YAyhCOd8wHdzfxNQyWZFqsWc=
+X-Gm-Gg: AZFdTZcGR1xkPLopWZP+VCcz6NdGRaRgC/4G5p1M9qB83IrR0B7BbhQQPbJdUHA3ZQ2
+	8JeA9ENmsE9Y5J+SU2d8HvOMkRFnzoDVkrN0liJJ/TXgi5AY86qdYBFIrHx1FqF9hx9uu/IHpg8
+	/zM7A0WXX8MtLho3Yxp84V3qwr5v9faGW65d6PlIvPwq64vnImpqrLZl+meN2/9k6Sn9mfLCNou
+	U9iFEV5Exn5WBGscMzEhkk4KDh6fRjSM4DFfLKjjtum94p9Xy8I55Z7DirJXwIAgc4Dhgj15+hu
+	4PjSGy1iZk2TziJ4qJWyt8FHlbLynuQ2a1zNKh+uo6Hwi6KL0NeerjHgsjW1rK8o7tE46aoR/6P
+	JJQl+67vUuvsL+YpoaWz/QagKBIxxj2vLEUId6BsMsnk9woSoszVS2MPBfylP+qexVP/25RkTBw
+	8tfrufQVjg
+X-Received: by 2002:a17:903:2407:b0:2f0:43fa:566e with SMTP id d9443c01a7336-2f043fa7827mr179016665ad.10.1795674746513;
+        Wed, 25 Nov 2026 22:32:26 -0800 (PST)
+X-Received: by 2002:a17:903:2407:b0:2f0:43fa:566e with SMTP id d9443c01a7336-2f043fa7827mr179016435ad.10.1795674745945;
+        Wed, 25 Nov 2026 22:32:25 -0800 (PST)
+Received: from hu-jshekhar-hyd.qualcomm.com ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f147a9esm97159715ad.72.2026.11.25.22.32.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 22:32:25 -0800 (PST)
+From: Jayant Shekhar <jayant.shekhar@oss.qualcomm.com>
+Date: Thu, 26 Nov 2026 11:59:29 +0530
+Subject: [PATCH v3 21/21] arm64: dts: qcom: hawi: Add DCP support
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,123 +118,265 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIADXSB2sC/3XSzU7DMAwH8FeZeqYQ2/nkxHsgDknqbJVYi9qpG
- pr27iTT6IpajnH8y1+xfKlGHloeq9fdpRp4ase27/IB6GlXxYPv9ly3TS5UKFALB1B7V7cYa5T
- SWEZkbanKzcGPXIfBd/FQ2nPLS2nr+Hwq118Dp/Z8C3r/yOdDO5764fuWO0Gp3hNQ/iZMUIs6W
- N+4IHWS3r7542e/b+Nz7I9VeWTCGYJAnCFmKBVT5ARGhbSGtIRuhpShCSRijEIoojWUD5jlDGW
- GyoN2CCpYdmuolpBmqDK0OmETGzCu2fijXsLHcHQZjvcaDCTUaQOabWgKpIyCouSTXEO7gCBma
- DMEdg1qi8nqsIZuCc0M3X2qFK2Tif0agtiWOV3UROyd5xQZxQaFJbUPWrZHW09sXEqStlLxH1r
- 2J0VLUREgsP5Lr9frDzN/CEE3AwAA
-X-Change-ID: 20260911-a9-i2c-24478e22e683
-To: Junyi Zhao <junyi.zhao@amlogic.com>, Andi Shyti <andi.shyti@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Xianwei Zhao <xianwei.zhaol@amlogic.com>
-Cc: Junyi Zhao <junyi.zhaol@amlogic.com>, 
- Markus Elfring <Markus.Elfring@web.de>, linux-i2c@vger.kernel.org, 
- linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
- Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795674680; l=4011;
- i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
- bh=VG38lz3bQkFtaNsrKv2JR7dmLOKBqQpIx9rJVzY1Afk=;
- b=5sqqu0gv5XNxfbHLSA9rQFtAUzZA9aBqMeEWrU9YM/CmM+PtC2X4g4k0n2X1DRGUVXXTv1DjX
- mk/BHLNpoj9AOe2TPn8aZTGmLn3eEqkGrdungW+oUJ47NjClJ8WhqiT
-X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
- pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
-X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
- auth_id=578
-X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-Reply-To: xianwei.zhao@amlogic.com
+Message-Id: <20261126-jshekhar-v3-dcp-v3-21-f1e9d7505039@oss.qualcomm.com>
+References: <20261126-jshekhar-v3-dcp-v3-0-f1e9d7505039@oss.qualcomm.com>
+In-Reply-To: <20261126-jshekhar-v3-dcp-v3-0-f1e9d7505039@oss.qualcomm.com>
+To: Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Sumit Semwal <sumit.semwal@linaro.org>,
+        =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
+        Philipp Stanner <phasta@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>,
+        Flemin Jose <flemin.jose@oss.qualcomm.com>,
+        Mahadevan P <mahap@oss.qualcomm.com>
+Cc: Jayant Shekhar <jayant.shekhar@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+        linaro-mm-sig@lists.linaro.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795674555; l=5143;
+ i=jayant.shekhar@oss.qualcomm.com; s=20260925; h=from:subject:message-id;
+ bh=giewpTQrZZVV20ml7CV6gG7RnmPP9xMRQcPv0COC1lE=;
+ b=qU8Ttt4Szokv3b86bytlduDWEANO9b5MhZ9lnOQKHZv+ALr+8UtSQz2OrOvnBc2J7pyUmqzsp
+ 8RDEoYrk1LzAbuQWX0hAw+055JaZrWR50okBbCOCGEtYwmJ9IDdkLRB
+X-Developer-Key: i=jayant.shekhar@oss.qualcomm.com; a=ed25519;
+ pk=saYTwtCCpug4b0Hz0jHFoATgDtdhFVicwMzDJo2z5ZE=
+X-Proofpoint-GUID: iNNdobtHf5fOGRVl5onqq4Zo1vzEhCNG
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAyNCBTYWx0ZWRfXxqvVpiS5Cq6G
+ 6FNN2QOs/xFFCG8S3QU1lDvd/GDC6v8vVbmpsDxkrEvWbkxmxXzkult81REHwGcH20qSH5yQVji
+ 2SdwtAD5RHA1RM0wl2HKC54nlr6np78=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAyNCBTYWx0ZWRfX4e+0wwJrYkAG
+ CSnceG12b2EdRAnVJaA6y0cJComajs+iPiYV/9GF6VgsBrE+b1B+MQ7cha2Bm6Bvs2K0qZrhGoA
+ S0O6MZ8NKdOSJLeTARZyMdsxZdiAOtWoU7Ci6u2KjDQZQdOUz+PkU20HkNAco2qw2GJOWPmjsFl
+ QyHVAcie+aGO6RzGVhnlF3W6BANM0WW+JskTvrOOIOhqjYe0oTeF2JLcmeChkchEC55Yo7oOCPA
+ GBBpifXGBEeGNlQtETrc4gUcB/262fX/RValiVD1OnmbXd7Syw2ZXzGsBhs4aBt7EGVSXfbZfrw
+ 0mQII2eX2Waucpde3LeVQCWBwgB7ecRUKQ8F46wFlE3JS3XBKX3moC3upEKKzZW0FVyrzYo6nNm
+ UMGcaUlnIYNvZ4sfB65GmJab9/ygLZ9GZZTvqmefJ/WhemIegATKom6Tx7qfhCceuudeKUl+NA1
+ 9aNtlXKnmzU4O1UGiWg==
+X-Proofpoint-ORIG-GUID: iNNdobtHf5fOGRVl5onqq4Zo1vzEhCNG
+X-Authority-Analysis: v=2.4 cv=BbxNQbt2 c=1 sm=1 tr=0 ts=6b07d27b cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=rMwJWs0V9SWzAl7URZYA:9 a=QEXdDO2ut3YA:10
+ a=1OuFwYUASf3TG4hYMiVC:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_01,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 bulkscore=0 adultscore=0 suspectscore=0 impostorscore=0
+ priorityscore=1501 malwarescore=0 spamscore=0 phishscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260024
 
-Add a device tree binding and driver for the I2C controller found on the
-Amlogic A9 SoC.
+Hawi display hardware is owned by DCP firmware, so the platform device tree
+must describe the Qualcomm transport wrapper, firmware display subsystem,
+power-notify channel, IOMMU contexts, and display graph used by the MSM DRM
+driver.
 
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Describe the Qualcomm DCP transport and its VirtIO-MMIO child,
+the IPCC power-notify channel, IOMMU assignments, firmware-visible IOVA
+range, and DSI display endpoints on Hawi. Enable the DCP display device on
+the Hawi MTP platform.
+
+Assisted-by: LLM
+Signed-off-by: Jayant Shekhar <jayant.shekhar@oss.qualcomm.com>
 ---
-Changes in v13:
-- Fix commit message in the dt-bindings patch ("device tree" -> "Devicetree").
-- Clear pending IRQ status before configuring and starting a new I2C transfer.
-- Link to v12: https://lore.kernel.org/r/20261118-a9-i2c-v12-0-fc83c53121e6@amlogic.com
+ arch/arm64/boot/dts/qcom/hawi-mtp.dts | 108 ++++++++++++++++++++++++++++++++++
+ arch/arm64/boot/dts/qcom/hawi.dtsi    |  45 ++++++++++++++
+ 2 files changed, 153 insertions(+)
 
-Changes in v12:
-- Cancel the initialization of local variables "ret".
-- Link to v11: https://lore.kernel.org/r/20261118-a9-i2c-v11-0-68a3e79ff43a@amlogic.com
+diff --git a/arch/arm64/boot/dts/qcom/hawi-mtp.dts b/arch/arm64/boot/dts/qcom/hawi-mtp.dts
+index c38e5fab7a2c..50484d006db6 100644
+--- a/arch/arm64/boot/dts/qcom/hawi-mtp.dts
++++ b/arch/arm64/boot/dts/qcom/hawi-mtp.dts
+@@ -34,6 +34,18 @@ chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
+ 
++	display_panel_vdd: regulator-display-panel-vdd {
++		compatible = "regulator-fixed";
++		regulator-name = "display-panel-vdd";
++		regulator-min-microvolt = <1100000>;
++		regulator-max-microvolt = <1100000>;
++		gpio = <&pmd8028_e1_gpios 2 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++		regulator-boot-on;
++		pinctrl-0 = <&sde_disp0_vdd_active>;
++		pinctrl-names = "default";
++	};
++
+ 	clocks {
+ 		bi_tcxo_ao_div2: bi-tcxo-ao-div2-clk {
+ 			compatible = "fixed-factor-clock";
+@@ -995,3 +1007,99 @@ &usb_dp_qmpphy {
+ &usb_dp_qmpphy_out {
+ 	remote-endpoint = <&pmic_glink_ss_in>;
+ };
++
++&dcp_dsi0 {
++	panel@0 {
++		compatible = "novatek,nt37801";
++		reg = <0>;
++
++		pinctrl-0 = <&sde_te_active &sde_esync0_suspend
++			     &sde_mdp_vsync_p_1p2_active &sde_mdp_vsync_p_1p8_active
++			     &sde_disp0_rst_1p2_active &sde_disp0_rst_1p8_active>;
++		pinctrl-1 = <&sde_te_active &sde_esync0_suspend
++			     &sde_mdp_vsync_p_1p2_active &sde_mdp_vsync_p_1p8_active
++			     &sde_disp0_rst_1p2_active &sde_disp0_rst_1p8_active>;
++		pinctrl-names = "default", "sleep";
++
++		vddio-supply = <&vreg_l12b_1p8>;
++		vci-supply = <&vreg_l13b_3p0>;
++		vdd-supply = <&display_panel_vdd>;
++
++		reset-gpios = <&tlmm 210 GPIO_ACTIVE_LOW>;
++
++		port {
++			panel_dcp_in: endpoint {
++				remote-endpoint = <&dcp_intf1_out>;
++			};
++		};
++	};
++};
++
++&dcp_intf1_out {
++	remote-endpoint = <&panel_dcp_in>;
++};
++
++&pmd8028_e1_gpios {
++	sde_disp0_vdd_active: sde_disp0_vdd_active {
++		pins = "gpio2";
++		function = "normal";
++		input-disable;
++		output-enable;
++		bias-disable;
++		power-source = <2>;
++		qcom,drive-strength = <2>;
++	};
++};
++
++&pmh0110_d_e0_gpios {
++	sde_mdp_vsync_p_1p2_active: sde-mdp-vsync-p-1p2-active-state {
++		pins = "gpio9";
++		function = "paired";
++		input-disable;
++		output-enable;
++		power-source = <2>; /* 1.2v */
++	};
++
++	sde_mdp_vsync_p_1p8_active: sde-mdp-vsync-p-1p8-active-state {
++		pins = "gpio10";
++		function = "paired";
++		input-enable;
++		output-disable;
++		power-source = <1>; /* 1.8v */
++	};
++};
++
++&pmh0110_f_e0_gpios {
++	sde_disp0_rst_1p2_active: sde-disp0-rst-1p2-active-state {
++		pins = "gpio9";
++		function = "paired";
++		input-enable;
++		output-disable;
++		power-source = <2>; /* 1.2v */
++	};
++
++	sde_disp0_rst_1p8_active: sde-disp0-rst-1p8-active-state {
++		pins = "gpio10";
++		function = "paired";
++		input-disable;
++		output-enable;
++		power-source = <1>; /* 1.8v */
++	};
++};
++
++&tlmm {
++	sde_te_active: sde-te-active-state {
++		pins = "gpio86";
++		function = "mdp_vsync";
++		drive-strength = <2>;
++		bias-pull-down;
++	};
++
++	sde_esync0_suspend: sde-esync0-suspend-state {
++		pins = "gpio88";
++		function = "mdp_esync0";
++		drive-strength = <2>;
++		bias-pull-down;
++	};
++
++};
+diff --git a/arch/arm64/boot/dts/qcom/hawi.dtsi b/arch/arm64/boot/dts/qcom/hawi.dtsi
+index 77d704fa6cf7..9d22243b97d7 100644
+--- a/arch/arm64/boot/dts/qcom/hawi.dtsi
++++ b/arch/arm64/boot/dts/qcom/hawi.dtsi
+@@ -6854,4 +6854,49 @@ timer {
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
+ 	};
++
++	dcp: virtio@9be8000 {
++		compatible = "qcom,dcp-virtio";
++		reg = <0x0 0x09be8000 0x0 0x1000>;
++		interrupts-extended = <&intc GIC_ESPI 956 IRQ_TYPE_LEVEL_HIGH>,
++				      <&ipcc 13 5 IRQ_TYPE_EDGE_RISING>;
++		iommus = <&apps_smmu 0x15a3 0x0>;
++		iommu-ranges = <0x0 0x84000000 0x0 0x04000000>;
++		dma-coherent;
++		mboxes = <&ipcc 13 5>;
++		mbox-names = "dcp-power-tx";
++
++		display-subsystem {
++			compatible = "virtio,device34";
++
++			iommus = <&apps_smmu 0x400 0x2>;
++
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@1 {
++					reg = <1>;
++					dcp_intf1_out: endpoint {
++					};
++				};
++
++			};
++
++			interface@1 {
++				reg = <1>;
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				dcp_dsi0: dsi@0 {
++					reg = <0>;
++					#address-cells = <1>;
++					#size-cells = <0>;
++				};
++			};
++		};
++	};
+ };
 
-Changes in v11:
-- Convert hand-rolled spin_lock_irqsave()/spin_unlock_irqrestore() pairs
-  to scoped_guard(), and drop the now unused  "flags" variable.
-- Link to v10: https://lore.kernel.org/r/20261117-a9-i2c-v10-0-33ea9aefce20@amlogic.com
-
-Changes in v10:
-- Convert hand-rolled spin_lock_irqsave()/spin_unlock_irqrestore() pairs
-  to guard().
-- Drop unneeded braces around the single-statement early return in the
-  IRQ handler.
-- Add MODULE_AUTHOR entry for Xianwei Zhao.
-- Fix commit message capitalization in the dt-bindings patch
-  ("Device Tree" -> "device tree").
-- Link to v9: https://lore.kernel.org/r/20261117-a9-i2c-v9-0-7b303c894fea@amlogic.com
-
-Changes in v9:
-- Use guard(spinlock) instead of spinlock according to Markus's suggestions, no logic change.
-- Link to v8: https://lore.kernel.org/r/20261110-a9-i2c-v8-0-1e9d2682f86b@amlogic.com
-
-Changes in v8:
-- Reserve complete(done) into lock, and adjust the code process in irq func.
-- Link to v7: https://lore.kernel.org/r/20261104-a9-i2c-v7-0-b31f2b53faf4@amlogic.com
-
-Changes in v7:
-- Move complete(done) out of lock, and when state = idle not complete(done) in irq func.
-- Link to v6: https://lore.kernel.org/r/20261104-a9-i2c-v6-0-baa6171f26f8@amlogic.com
-
-Changes in v6:
-- use xfer instead of master_xfer interface, and when div=8 remain valid.
-- Optimized the function.
-- Link to v5: https://lore.kernel.org/r/20261103-a9-i2c-v5-0-86f2dcd179d8@amlogic.com
-
-Changes in v5:
-- Mask out I2C_FUNC_SMBUS_QUICK and return I2C_FUNC_I2C | (I2C_FUNC_SMBUS_EMUL & ~I2C_FUNC_SMBUS_QUICK).
-- Link to v4: https://lore.kernel.org/r/20261102-a9-i2c-v4-0-5a169215b8e9@amlogic.com
-
-Changes in v4:
-- Repocess xfer len equal 0 use I2C_AQ_NO_ZERO_LEN, and Optimized the function.
-- Disable A9_RX_THRESH_READ/A9_TX_THRESH_WRITE enables of irq when xfer timeout.
-- Use guard(spinlock_irqsave) instead for direct call spinlock in xfer timeout process.
-- Link to v3: https://lore.kernel.org/r/20261029-a9-i2c-v3-0-7b30ccc00533@amlogic.com
-
-Changes in v3:
-- Based on the questions raised by the robot, the data flow was reorganized.
-- Some processing was optimized according to Andi's and Markus's suggestions.
-- Link to v2: https://lore.kernel.org/r/20261022-a9-i2c-v2-0-45e3cef175bf@amlogic.com
-
-Changes in v2:
-- dtbinding: make some minor modifications, suggestted by Conor and robot.
-- driver: Make some adjustments, including macro definitions, format adjustments,
-          adding quirks, process optimization, and so on. According to Andi and robot's suggestion
-- Give up MAINTAINERS file the separate submission, make it together with the driver.
-- Link to v1: https://lore.kernel.org/r/20260924-a9-i2c-v1-0-b8ad9b46f4a8@amlogic.com
-
----
-Junyi Zhao (1):
-      i2c: amlogic: Add Amlogic A9 I2C controller driver
-
-Xianwei Zhao (1):
-      dt-bindings: i2c: add Amlogic A9 I2C controller
-
- .../devicetree/bindings/i2c/amlogic,a9-i2c.yaml    |  56 +++
- MAINTAINERS                                        |   9 +
- drivers/i2c/busses/Kconfig                         |   8 +
- drivers/i2c/busses/Makefile                        |   1 +
- drivers/i2c/busses/i2c-amlogic-a9.c                | 428 +++++++++++++++++++++
- 5 files changed, 502 insertions(+)
----
-base-commit: 4cd099f240b0b74101fde32b6e3b15ea6e26714c
-change-id: 20260911-a9-i2c-24478e22e683
-
-Best regards,
 -- 
-Xianwei Zhao <xianwei.zhao@amlogic.com>
-
+2.43.0
 
