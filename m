@@ -1,94 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795670521;
-	b=Nw77PGs5W3j5YVs+sIqHfSxD770hl3znCj5MzePyUHPRjUAQ38xAiQDx43OqwRhO01Qd
-	 ArFpfcpocarZ4rxXl9lDUD1wfGmUXgz2ohXUsVObPPIyV+hJyCN3YXi/8JOjGBmMtZR26
-	 tbt2/ic82pbS4i6964RHqex9/idZu3CcsSIFPzmsdt3Gw+jCMppVVsOFSxNtSEgcMFytP
-	 gIm7I20N0eOefuomDKkQ/TNcB3wTqfsCkeirJrVJU7VBWDlU0UC3Qk9p6BIIXBVM5dEIX
-	 nwpkwhZPL+qIcabSAgr6L3d2mV0zmSmgvVYq86BDbTmRHV6GgmHxldggAnuEpc6vgyQ==
+	t=1795670749;
+	b=G9rhVAqQCEFAAE3NK3eH5qAAbDY+nnCTZ/qN9LQR6Dx6nR99laJ/gCW26ruhTIntKle6
+	 TbEGVcO/KZwAx36JDrlmGN7RmaR5V9gaRgWM4IXrSlwUkTXk+m7a5B4Sg6N3L2I2sdpaD
+	 YEYdWbTcEr7X//0lV8l9pHZ6smpiYPlH/NAV3/oxA4z/8AvLuu7d1AsjtJVjioQUokqjn
+	 cF6oDLzd7+tEpiCKCITyVWbWR7C9OJZCkzwlOdVTdAoV4HownPD0h2btXKsn34R47qQOd
+	 Jss9Ixqyjk8VhqPdgwe3tkg7QXsWCzqvVTO6X8TXLseNoSFm3nmbzRaOpL0T0gJITag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795670521;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795670749;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 From:X-Google-Original-From:Received:To:Cc:Subject:Date:Message-Id:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=onk+iKTNJvSLjSgmayiHFki7AAkKSNYYZ+ceWP4cnXQ=;
-	b=hg3x30GidmoLsCPoeKmPlP7/LY+tm6dZ5HbfsoV17qCNYph6H2OTPbhTlA5updDSLovJ
-	 t/Rmjeb8w7C56FLNPyC3tA0KxjYtVe0GrMs5pSOPNlmuFxUQyB7SwMA7h56HLLOwNk5TQ
-	 E093KiHJM+f20WN0NF8w9HAsTlAT7baOXJ/FpfMjrmqanUFx+EvHI3z7SWVavm/G+V5Z7
-	 C60Alus1ydM0Z0pcLLehIj1rb3waRc/x8gaf1qjX6XoyulDbqgpuuBHGqel511IqJEfaM
-	 sscYPkwPoJh8oRJd5ulBVbrPPnJk0bW/0zpwqP3WhO4hDLuZLfkom2oMPR/zRhY+scw==
+	bh=Kj9OnfHKDgvvaSCC/2rH11WH3QsDA+JckreBPEmumlM=;
+	b=WW6iNxzLd38g4yUQeIGC+eLd0sl3628XzqLJyouLz3JT20vr/M4HUV9+LfINJU4BcNzW
+	 T0Og+cq6pcBUdAk6ciABBGHq2MZHeVwvhvHuU+olni/PmphHhyzassjbX38vVg7keSchw
+	 tVbScHaxqi35v80bdl0HPdfQdqaxmqezjhSrQT6gcXu7wgk5bQO5n9P1x0sDtkZBW/iGV
+	 RIqD/t8cOfRyaQPY/f1+OOyc7cPSdUPfmfvO1dSpIVMn8R55Q6gFk1I2fF3qgvFGOJCe4
+	 TNVIrR2wmMwSWGa0Uy2UvbEiiMOvEx9Rl+s0aq+Gj42qV8baErNBmEHfPYtPyVRevwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f8PbKIi1;
-	arc=none smtp.remote-ip=209.85.216.50
-Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0KKjfxZ0;
+	arc=none smtp.remote-ip=209.85.214.171
+Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0BC3606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:22:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0BC3606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C368F606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:25:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C368F606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f8PbKIi1
-Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3ac78f4c10bso3161882a91.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:22:00 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0KKjfxZ0
+Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2efe591a1f6so22614795ad.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:25:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795670520; x=1796275320; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=onk+iKTNJvSLjSgmayiHFki7AAkKSNYYZ+ceWP4cnXQ=;
-        b=f8PbKIi1CS5x5lIZiSjkTRACKg5FurJS/mPBBYSYZaIX8dTrczQ7LJ2qu+6LiGIh4p
-         Xl/G/MeG05PpIydrx1aIFbqSuMO3ETiogNEdPKAbORlFhoV81bYdgdpjt4BVonHiBPNo
-         WoavpEqaog7RTBG5jiqeCynsSXT0+HU7Yh/mWECo5NH88B+WvDpqnf+dHwVDLgUYaK9u
-         BPQEz2GeMIS2CuM4jjRK8N6BxA26UbwU6kyO32ON8uhKbKQ7metU9ozuoyMBSzEmhhzU
-         zFIfezvZnZW1Ek6PuUhwSY2CFoCE50Zz4XUNvqc3TX+QUYd6PKcV8TZi19oqrICNMLm4
-         17lQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795670520; x=1796275320;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795670748; x=1796275548; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=onk+iKTNJvSLjSgmayiHFki7AAkKSNYYZ+ceWP4cnXQ=;
-        b=rA7MFyBasCgHSpww2PFV9/kVAZ2/pCFB0Km/wODxgXcjjS9NXe6v4nIgZgyA+s6r+g
-         a+bmCKJ4redWoL/ShJNJxo/ImQofrClh5CNC3vHkP+RAUcUq/TL7NmjFz1LGEj0B3iMJ
-         fnfLaVXhqermM+Q3aD52nxNIzWJnpFc4xqFIhSg6PblLivFjRsXTFFa30s76lJa47/Dg
-         MzZ9M03LUEZNcK65u8k19eA9CkuYMtmADHn2/C2+8F5rhMgmUeseXlbKAyBjT03h85OU
-         J8ej8tK+ztZ05Z5tGF8n3W/zkmj5oNOBpaYfMByqBdwmJnX24liycSnbheN6AwMgj/Ja
-         r/0Q==
-X-Forwarded-Encrypted: i=1; AL+hErEusXWlesr2J91ePefxlTP6Z4iokERhnXIWrnOBjaCzUTl3XttReKcHNtxUN/edyy4qhZXsL+5hXnIas00=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9TWoxQ4A87A9HDP2SLGmEjqAiPmBTW6et9FL1mVDWZ0h9PdTjm
-	ilvrZmJ2D2An3OsAaoKEwj7WWZNfXsb5RmTBnfR/hZtGzPMN4UMaMhM=
-X-Gm-Gg: AZFdTZePOniX3vY9gbz5DVDGe8ezo2vrPzFbH4KlMoZcJQ+1K098shY0+aB1uJd87CZ
-	m0EeyYFAa1AgHyfXHDN7p3EpQGXvIsjcGjSjT7WPXPmbef1zXyPo/jD+SBn8gE+F/C9JRCmiLlJ
-	LGRh6MPDQ6IigH1xE+yioREBB0F3R4O05n+OrdK2HG8uigcxRIJPe+E5+DKMSlPtTrGI4LK8CNX
-	Os/oxhrdRHe/U+IBzJUtgX1moH7wWmLZd5SooLYOE8jxgJ++x9GOOPZENk16wmklKjzXJ6gjX8t
-	HDF80B8DSgtdbpT6+CyGbepslL9NYpMW2RC2zvu49TJx7SZc15PvK0gnmnOYuoRoD1W5qjXLaZj
-	NV0TV3iDGBNJTSITKsubPi60qs+qtBKzsgvf9829WKNxHovOQ7xoYaBAvRw7yIgKZkga5tzEsd7
-	xKP+hroRNZSF1bNibJBiVArIF9R2QAYb2oHXdnuqFzO5VGhtQFggsJ4vEuPfiOhm9mhbD//vcby
-	RqiD8Tb6OWFpoa47zLnR1KFbnYfVJbl5bXLNh0pjhmU9u/yonxhDFksHkiOU7G7ifTaC3RSVuZg
-	8mRGC4QnogEcu2levSoTVz6adIsztS2ILFf7U7RkbM6xIMQ+pT/8q+IawfL13BIOUqhVy6CMZGk
-	qKD9xXETImYbp
-X-Received: by 2002:a17:90b:2f8f:b0:3b0:9bfa:72b1 with SMTP id 98e67ed59e1d1-3b41c942d13mr19705625a91.49.1795670520219;
-        Wed, 25 Nov 2026 21:22:00 -0800 (PST)
-Received: from localhost.localdomain ([2406:3003:2002:639c:a06e:23f:85ed:4cfe])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecbd0bsm33748176a91.15.2026.11.25.21.21.58
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 21:21:59 -0800 (PST)
-From: Yige Jiang <yigejiang86@gmail.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: Yige Jiang <yigejiang86@gmail.com>,
-	linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH] media: coda: Release firmware if code buffer allocation fails
-Date: Thu, 26 Nov 2026 13:21:54 +0800
-Message-ID: <rc-b1-20261126-vc-161-779570fc1703@gmail.com>
-X-Mailer: git-send-email 2.50.1
+        bh=Kj9OnfHKDgvvaSCC/2rH11WH3QsDA+JckreBPEmumlM=;
+        b=0KKjfxZ0KuDQQ8eYDYKhTI2JKNURp3b9lbTOhPnP47AVm525JKNGqjp4PHoaeLFxXH
+         FQSH/D9DCec+F1O+J/5B71l0azM2e6jLMy/6zo8dlpB+eU64uX9Lg/AlJWCn9aeU8fZk
+         LLwjnA6lvXun9YyBrpfcsBLYIpLe6wB/7aQy5FhZe7rSxMlMFkmpoIkWLHOL3UoT7Zgp
+         PkuSlQlXwzM1ymw/59+D+toFcRy/On90yu7rNZAcd0AixWa9ApavQ6SKr5XZNIX06ISD
+         we1U59m4K86MahXVmMLXkY/aEBbp1mJrH3J1XlpRyJNyzx4tIy3xJBkRfITgFJJ7A/1j
+         wmyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795670748; x=1796275548;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Kj9OnfHKDgvvaSCC/2rH11WH3QsDA+JckreBPEmumlM=;
+        b=T4GOeH+mgG40ilqtE220vGGlzWLCwl/ZREMMDsh0Cfh/Jb9pMbKOVJy7jVBUZHv9hn
+         MsK+H+NNhwJ/1m/eCSiZd9OPG/5hSduCOt2CqZLo6eUXjrjEdhp4VzJn/eyOP0SAEo4j
+         HwWg6cUnzqZjOMzMojakP1KibssvyTtmFjaKmoMM2hxPN1JUXITYP1MBUn4m4y16GiL3
+         tefo+jpp5m7qjVAmofmmt1AM+0TC3UNYbmziDSOChXdMNQGmH9blVWzd+2sTDIfnGpzJ
+         n0As4vsd44JiNO8rSBDC542tmHobVN4WfsBVIf019lKiyJLb4X37rtheeVibInxnZJJS
+         62hg==
+X-Forwarded-Encrypted: i=1; AL+hErHOrJWVwpPhu7ArKUqXEgiPKVedTEBAaQD1iUq+ZMRYrfmmXHQwSbyQ+WYVgtNa3VKvbNovi+wmoVYZ9rc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8JOdMQ9Gw7VdCM6AITfNiJ2BtOEcX1uu+s8NTi23afR6ysvMI5
+	T2fHLrnUFvVgqo2AP9yitOwBXLtaIhfwrS2t3KO23CTdO98oM2avwkLQxu08Jw==
+X-Gm-Gg: AZFdTZf+BQVN2wGaVUT18tfwINaFkjSWGdO4jIsuuHHKWOKGkBAMgzdcYLAn7k4gxrh
+	m2JbhsTBsOMhWEto3bnV1PMVDBdoyZb+RX5JwLF5muiRIrwQx4ROjTD5x2rj0mbbOPHiwdCM7vY
+	lHZ+UcbXN514joL0bc+vaWGublWQa47hHO4vlWs/1Iat4YHltICVG4G0Dpw6qprnpT5vOWh5TWN
+	6Ew1sxpRyiQjB1Q4904Ld89aaRuz5vxQWpG8PxzCQmk4/vZoEd1y+nNDrUfZmJemaPK3UPaHpFg
+	rH0ONo5FP5MjXtuYvfipSAaYzbVhC3iRxr8RHyHQ7zBTd+DFjbo8Q4bMWWOrUW2eRmMfrqs6eiQ
+	9iKh5OQU94yTuq3Qjx6gjdPxFJr/vW5NplXB/2kNcwY5UdqUeAUiqZdX8ie+9mCMKJ/xHM+adMB
+	KcLuL5iAANlAfTkgos7eEYqKVPryNngMiFbV/83aGe/RqClpq8C/ihHz6/11KuOZpCGyPWVZBnI
+	lMTJGU0vTQuvGW8oOSM/Uq562Q8RgSoXKdlVErOcbR1njCT0zQHTeG6ivftzEb5tNygtoNUP8mo
+	heWDgYMjQG0OD0nCDg9+ELYPZC0UYhrttgn3CAPLUFOCsDBF5w==
+X-Received: by 2002:a17:903:b0e:b0:2e8:e17d:c8c3 with SMTP id d9443c01a7336-2f03f1da4e5mr192444935ad.62.1795670748092;
+        Wed, 25 Nov 2026 21:25:48 -0800 (PST)
+Received: from twhmp6px (mxsmtp211.mxic.com.tw. [211.75.127.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f191464sm99968545ad.1.2026.11.25.21.25.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 21:25:47 -0800 (PST)
+From: Cheng Ming Lin <linchengming884@gmail.com>
+X-Google-Original-From: Cheng Ming Lin <chengminglin@mxic.com.tw>
+Received: from hqs-appsw-a2o.mp600.macronix.com (unknown [172.17.236.67])
+	by twhmp6px (Postfix) with ESMTPS id 740CE4163B63;
+	Thu, 26 Nov 2026 13:25:45 +0800 (CST)
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Pratyush Yadav <pratyush@kernel.org>,
+	Michael Walle <mwalle@kernel.org>,
+	Takahiro Kuwano <takahiro.kuwano@infineon.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Alvin Zhou <alvinzhou@mxic.com.tw>,
+	linux-mtd@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/4] mtd: spi-nor: macronix: Clear the RDCR opcode on MX25L3255E
+Date: Thu, 26 Nov 2026 13:25:24 +0800
+Message-Id: <20261126052524.1816136-1-chengminglin@mxic.com.tw>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20261125-macronix-upstreaming-spi-nor-cleanup-v1-2-0d1ab783fd8b@bootlin.com>
+References: <20261125-macronix-upstreaming-spi-nor-cleanup-v1-0-0d1ab783fd8b@bootlin.com> <20261125-macronix-upstreaming-spi-nor-cleanup-v1-2-0d1ab783fd8b@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,47 +111,38 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-coda_fw_callback() owns the firmware passed to it by
-request_firmware_nowait(). It normally releases the firmware after copying
-it into the BIT processor's code buffer. If allocating that buffer fails,
-the callback jumps to put_pm and skips release_firmware(), leaking the
-firmware and its associated resources.
+Hi Miquel,
 
-Release the firmware before jumping to put_pm, which drops the runtime PM
-reference taken in coda_probe().
+On Wed, Nov 25, 2026 at 07:01:35PM +0100, Miquel Raynal wrote:
+> The MX25L3255E BFPT table is incorrect which leads to the RDCR opcode to
+> be reset. Make sure the configuration for this chip remains correct.
 
-An AI coding assistant helped identify the leak during review of static
-analysis results and helped draft the fix and commit message.
+I think this patch is not needed.
 
-Fixes: 186b250a0725 ("[media] media: coda: Add driver for Coda video codec")
-Cc: stable@vger.kernel.org
-Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
----
-Based on linux-next next-20261109 (630059a5a632).
-Compile-tested: arm64 coda-common.o with GCC 14.2 and W=1,
-CONFIG_COMPILE_TEST=y, CONFIG_ARCH_MXC=y and CONFIG_VIDEO_CODA=m.
-The baseline and patched object builds both produced 0 warnings.
-No hardware or runtime test was performed.
-The path needs the coherent DMA allocation of the code buffer to fail in the async firmware callback (OOM or fault injection).
+The MX25L3255E BFPT is JESD216 rev 0, its parameter table length is
+0x09 DWORDs (see Table 9, offset 0Bh, on page 64 of the datasheet [1]).
+spi_nor_parse_bfpt() returns before touching the SR opcodes and the
+QE mask in this case:
 
- drivers/media/platform/chips-media/coda/coda-common.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+	/* Stop here if not JESD216 rev A or later. */
+	if (bfpt_header->length == BFPT_DWORD_MAX_JESD216)
+		return spi_nor_post_bfpt_fixups(nor, bfpt_header, &bfpt);
 
-diff --git a/drivers/media/platform/chips-media/coda/coda-common.c b/drivers/media/platform/chips-media/coda/coda-common.c
-index 3fe33c4..ca8f953 100644
---- a/drivers/media/platform/chips-media/coda/coda-common.c
-+++ b/drivers/media/platform/chips-media/coda/coda-common.c
-@@ -3004,8 +3004,10 @@ static void coda_fw_callback(const struct firmware *fw, void *context)
- 	/* allocate auxiliary per-device code buffer for the BIT processor */
- 	ret = coda_alloc_aux_buf(dev, &dev->codebuf, fw->size, "codebuf",
- 				 dev->debugfs_root);
--	if (ret < 0)
-+	if (ret < 0) {
-+		release_firmware(fw);
- 		goto put_pm;
-+	}
- 
- 	coda_copy_firmware(dev, fw->data, fw->size);
- 	release_firmware(fw);
+Since macronix_nor_default_init() now always runs before
+spi_nor_parse_sfdp(), the read_sr2 = 0 set in patch 1 is kept for
+this part. So the BFPT is not incorrect, it just predates the QER
+field.
 
-base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
+>  	params->qe_mask[0] = BIT(6);
+>  	params->qe_mask[1] = 0;
+> +	params->opcodes.read_sr2 = 0;
+
+The same is true for the qe_mask lines above. They were only needed
+because the old spi_nor_init_params() did not call the manufacturer
+default_init() when SFDP was required. With the reworked init flow
+they can be dropped too, and only the 1-4-4 PP part needs to stay.
+
+[1] https://media.digikey.com/pdf/data%20sheets/macronix/mx25l3255e.pdf
+
+Thanks,
+Cheng Ming Lin
