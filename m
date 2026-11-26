@@ -1,60 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.27.60.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795700569;
-	b=blZbKdjmvKcmjpJC/1Pk7+txe4L1+Ik5Pqq9If5C5lGaAMvx41prf/oZJs7TbA4VJiDJ
-	 KRM9e7BcKMv+iEboGLeb4qdlZmPs7yQ6LSlrDYJzItKUN1Lx+8WvkidDIaas+kskiFNwQ
-	 Ooma6cbtEEUtXFxrRBfdRzbPTO8/5MbOwIU/LH49VvhfyIqmef65LpOqiAM8Y3E0jobU3
-	 nr/cDHTi6jdWBkZW+O6Pi6T2ouWsJSikJBcbHIDbIWyR0uU+iOfYCfigRYO2nGb33Q8Sp
-	 a4BtI5jEgyWuJbisjwZaxHpAIKoK3yCf7VgbUNuQsu48KTCvML2BBhoqrp23MAnlYiQ==
+	t=1795700600;
+	b=Az46wLoMB9IdWX2opzw+dPXwu3uaK9HdltEDGMASPTudxcTUmvn3MJOTY7y3HIfrRNpI
+	 97oEIZXP4GVAzNlFG/5bqvEO/tLOiE0A+YWhTbNjhKX6ZENhmGOR3jXd9eD/+Fyvl+OwM
+	 WqbvF8tz8Z2cUIO4RhiGT0x2CaHMHsfDtfKIXwI3RIsjUuMwsen76r/9mBFIveyV1UUpL
+	 mYDWDpDfm5y6Lqw+fcqY8dp2HqBFvCeJI/ylSe5cVbKY4Y5ZKiR7lkN9Af+N/WEd9Nfs7
+	 e9mJb5gARKjbCPRI+Z5PuPlhr8m/4zM5bQoPpYWbv3+dCOu9PNVn3IiB9PN/tA6I5Vg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795700569;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Last-TLS-Session-Version;
-	bh=C+zlYm8XOv9lDruCz8zt6yvmvSgz2YtAFpzwlSl9RtA=;
-	b=Nj47WcDTTzgLhzSDWlm1K3dSpoz8iKs0LREIQeoaJBkIVYwO2mYAojbo+oqNjvidZ3Ip
-	 7PGeVvjzzVjp4q3dtpAsSjP8iZCUGdVvtivXLdTuhRulhpiKmnSgNoMmTWHbvm9X6aWOA
-	 dkDExDzl8EmPOpRjEzKKsz1iJ2/eQZvI6NPvAwKjBkD/W968FKYwKPgxlI348+iLjjN02
-	 3vFLLX0759dOxJbQWP4Mha1N+eaReSh3RmtTW1MTLQxP19cDLbiG/IIjbAk4EzBCXpb0I
-	 7fwrwtDzYyhGN0UJUdvf5fpXIN4wtSXqr66vIdvzFeI7Mw3Zm012eNsHyyPe4Yog72w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795700600;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=ko4eL4z4K6V3lb/3C7dqqajHBKs8W+KA+MAk4fHSYBk=;
+	b=KiJU3PGBZqS22Xjh79Wn9jHGY5DvvWbsU8dc0y7viRQX4s4NpBDaPBwgNMLxdjVykqUv
+	 OaiqZwdaGpabqi2igXI4xlDFuZKDDbCzQ8jcIWEdy9c3yHaz5Ene//kFHMF49I+xdAPgM
+	 5o9/5vPe0ss9By3B3J/WzOAgumqG1+eBiAfdOt1DylGKssKpX4930HfGdqioSm3iqpLmq
+	 xH8d9ruj7rGGxlwOg7SCTOekkvrokCZpkuHjw8cA/IN/Yr68e1mF6y/GaG0FlQlWGIuVK
+	 Zihkq7RhvC2XKu8S6ikauKqLMdlvoGTYE4pnafNBoMINrbqNVdbGvVviZ43RfPv2tZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=1AOuqAUb;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dmarc=pass header.from=corp.free.fr;
+	spf=pass smtp.mailfrom=corp.free.fr;
+	dkim=pass header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=SH7PBekn;
+	arc=none smtp.remote-ip=212.27.60.169
+Received: from rcs.proxad.net (rcs.proxad.net [212.27.60.169])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE673606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:42:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE673606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A261606A31C;
+	Thu, 26 Nov 2026 13:43:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0A261606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=corp.free.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=corp.free.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=1AOuqAUb
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id A84BF4E417A1;
-	Thu, 26 Nov 2026 13:42:47 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7E370604ED;
-	Thu, 26 Nov 2026 13:42:47 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C0ED211E68018;
-	Thu, 26 Nov 2026 14:42:44 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795700566; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=C+zlYm8XOv9lDruCz8zt6yvmvSgz2YtAFpzwlSl9RtA=;
-	b=1AOuqAUbUzkHOVUrXbC8OuNdgZdmdkNzmQmub8NURF5O6JAA4bj//5a7UhOyP3FT1azVmr
-	4gAfa1qTKY/6HcQ/vhBsxgxzHuCwZJNYYGuRE8zdCb1upVV/1pEgxNoNB01M0JkSTegYIm
-	sXSirqozCMgaT4nMPn1gz8TRUaChU0gf/w2rV78BZHDiUMfVpx42xkJoLB5r2Q6QP7Pcrb
-	ftKotuGpcVL3kpKRmFYpA9xvxmop5zK/oM+vMkldgt8d4tAAW3L4EJvsRnt4MCPdxZc1cs
-	WX78Yn0UtfBHADdwg4nvcFGZZEU4n8t0MjZfI59fuPDWNZwXv0o+d87j8JADoA==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Thu, 26 Nov 2026 14:42:29 +0100
-Subject: [PATCH v2 4/4] mtd: spi-nor: macronix: Describe locking support
- for MX25L51245G
+	dkim=pass (2048-bit key, unprotected) header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=SH7PBekn
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=corp.free.fr; s=rcs;
+	t=1795700590; bh=Ru+TyEI2Iupe+FdyreM1ZguqMa4aXugpSK2X1PFjJ3M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=SH7PBeknUlBS+Ko3TQRwaap3XHmzEB/MeBQW/HN6w6bUpjw67MJLZvURDtbHYG1C1
+	 WwKRadD1dZSjfkjOWwqlGzsmgkGAxIiU5aT7NyNE6mxTOwnG2VD2a13oIC38VBFs2D
+	 jHY9qhDDo67hlYzC7M5Wb0LmY84iJRLMlZBQRSwtiSlQHlaIzMT7YrwPbbIt4araBL
+	 8UR+H0Ag4ltugh0+YFVvhmZYbc9OzXai1ioACygfh+vXDZ+rZa6YxgFSTh0rEalBcW
+	 GqEKokbJDejQ3pdF3O0RLYObZ8B6lWC2bBft8UyKgZYfqVUmC2kjDXOtYY+gj4dKaC
+	 T5cXTxh9t/YZQ==
+Received: from [0.0.0.0] (unknown [213.228.1.188])
+	by rcs.proxad.net (Postfix) with ESMTPSA id 512E444C025D;
+	Thu, 26 Nov 2026 14:43:09 +0100 (CET)
+Message-ID: <c3f3dd4c-5dfa-4fb0-9a64-016192be5782@corp.free.fr>
+Date: Thu, 26 Nov 2026 14:43:08 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,97 +56,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2] net/mlx5e: Prefetch the packet a few strides
+ ahead in the linear MPWQE path
+To: Antonio Quartulli <antonio@mandelbit.com>, netdev@vger.kernel.org
+Cc: saeedm@nvidia.com, tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
+ dtatulea@nvidia.com, cratiu@nvidia.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
+ john.fastabend@gmail.com, sdf@fomichev.me, linux-rdma@vger.kernel.org,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261104195241.1883539-1-antonio@mandelbit.com>
+Content-Language: en-US
+From: Alexandre Cassen <acassen@corp.free.fr>
+In-Reply-To: <20261104195241.1883539-1-antonio@mandelbit.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-macronix-upstreaming-spi-nor-cleanup-v2-4-672a59abed62@bootlin.com>
-References: <20261126-macronix-upstreaming-spi-nor-cleanup-v2-0-672a59abed62@bootlin.com>
-In-Reply-To: <20261126-macronix-upstreaming-spi-nor-cleanup-v2-0-672a59abed62@bootlin.com>
-To: Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
- Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Alvin Zhou <alvinzhou@mxic.com.tw>, 
- Cheng Ming Lin <chengminglin@mxic.com.tw>, linux-mtd@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Miquel Raynal <miquel.raynal@bootlin.com>
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
 
-The MX25L51245G, MX25L51273G and MX66L51235F share JEDEC ID 0xc2201a.
-They have the same 4-bit block protection scheme as the MX25L12805D:
-BP0-BP3 in the status register. Their Top/Bottom select bit is however
-located in the configuration register (bit 3) and is OTP, which means
-TB choice cannot be supported as-is and would anyway become
-inconsistent once the TB bit set.
+Hi Antonio, Dragos,
 
-Read the configuration register in a fixup and enable locking iff TB is
-cleared.
+On 11/4/26 20:52, Antonio Quartulli wrote:
+ > numbers from DDIO/SDCI systems and CX-6/CX-7 would be welcome.
 
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
----
- drivers/mtd/spi-nor/macronix.c | 35 ++++++++++++++++++++++++++++++++++-
- 1 file changed, 34 insertions(+), 1 deletion(-)
+we are running perf tests over our 5G UPF code (pure XDP with mlx5), 
+just get your patch and test it over our stuff.
 
-diff --git a/drivers/mtd/spi-nor/macronix.c b/drivers/mtd/spi-nor/macronix.c
-index 9a40c2b14cb4..06ebd5482bc8 100644
---- a/drivers/mtd/spi-nor/macronix.c
-+++ b/drivers/mtd/spi-nor/macronix.c
-@@ -15,6 +15,7 @@
- #define MXIC_NOR_REG_DOPI_EN	0x2		/* Enable Octal DTR */
- #define MXIC_NOR_REG_SPI_EN	0x0		/* Enable SPI */
- #define MXIC_NOR_OP_RDCR	0x15		/* Read Configuration Register opcode */
-+#define MXIC_NOR_CR_TB		BIT(3)		/* Top/Bottom select, OTP */
- 
- /* Convert dummy cycles to bit pattern */
- #define MXIC_NOR_REG_DC(p) \
-@@ -86,6 +87,38 @@ macronix_qpp4b_post_sfdp_fixups(struct spi_nor *nor)
- 	return 0;
- }
- 
-+static int
-+mx25l51245_late_init(struct spi_nor *nor)
-+{
-+	struct spi_nor_flash_parameter *params = nor->params;
-+	u8 cr;
-+
-+	/*
-+	 * Locking is optional, so leave locking disabled if the CR cannot be
-+	 * read (e.g. the controller does not support the 0x15 opcode).
-+	 */
-+	if (spi_nor_read_sr2(nor, &cr))
-+		return 0;
-+
-+	/*
-+	 * MX25L51245G supports locking, but TB bit is OTP. Since a TB=1 bit
-+	 * cannot be supported with the current software, prevent locking
-+	 * entirely in this case. Also do not advertize the TB bit at all to
-+	 * the capabilities set consistent.
-+	 */
-+	if (cr & MXIC_NOR_CR_TB)
-+		dev_dbg(nor->dev, "TB is set, bottom protection not supported\n");
-+	else
-+		params->flags |= SNOR_F_HAS_LOCK | SNOR_F_HAS_4BIT_BP;
-+
-+	return 0;
-+}
-+
-+static const struct spi_nor_fixups mx25l51245_fixups = {
-+	.late_init = mx25l51245_late_init,
-+	.post_sfdp = macronix_qpp4b_post_sfdp_fixups,
-+};
-+
- static int
- mx25l3255e_late_init_fixups(struct spi_nor *nor)
- {
-@@ -406,7 +439,7 @@ static const struct spi_nor_fixup macronix_fixups[] = {
- 	{ .id = SNOR_ID(0xc2, 0x28, 0x16), .fixups = &macronix_rdcr_fixups },
- 	{ .id = SNOR_ID(0xc2, 0x20, 0x18), .fixups = &mx25l12805d_4pp3b_fixups },
- 	{ .id = SNOR_ID(0xc2, 0x20, 0x19), .fixups = &mx25l25635_fixups },
--	{ .id = SNOR_ID(0xc2, 0x20, 0x1a), .fixups = &macronix_qpp4b_fixups,
-+	{ .id = SNOR_ID(0xc2, 0x20, 0x1a), .fixups = &mx25l51245_fixups,
- 	  .fixup_flags = SPI_NOR_4B_OPCODES },
- 	{ .id = SNOR_ID(0xc2, 0x20, 0x1b), .fixups = &macronix_qpp4b_fixups },
- 	{ .id = SNOR_ID(0xc2, 0x20, 0x1c), .fixups = &macronix_qpp4b_fixups },
+use-case here is GTP-U encap, I tweaked your patch to fit tunneling 
+use-case around the net_prefetch() to add 128 bytes more.
 
--- 
-2.56.0
+setup is Xeon Gold 6342 (DDIO) wiht ConnectX-7 (fw 28.48.1000): 2 ports 
+x 8 queues. 5G UPF in XDP (GTP-U and MAP-E, ~3200 insns per packet, 
+XDP_TX only) with 100k sessions running live mobile network traffic 
+pattern. Mpps per port with the 16 cores busy:
+
+                                   base      v2    v2+256B
+   RQ just opened                  10.55    10.85   >11.10
+   RQ after a burst                 9.96    10.82    10.95
+   L1 stride prefetcher off         9.85    10.72    10.84
+
+
+With DDIO the gain depends on the history of the RQ. Under XDP a stride
+is a page. While the pages of a WQE are adjacent the L1 stride
+prefetcher fetches the next packet by itself. Once XDP_TX completions 
+overflow the page pool cache then pages come back shuffled where the 
+vanilla driver loses 5%.
+
+
+ > +	head_offset &= (1 << rq->mpwqe.page_shift) - 1;
+
+cosmetics: BIT(rq->mpwqe.page_shift) - 1
+
+
+ > +	net_prefetch(va + rq->buff.headroom);
+
+For our tunneling use-case I just added:
+
++       net_prefetch(va + rq->buff.headroom + 128);
+
+
+I will run production with your patch with the +128 for our stuff... 
+thanks for that !
+
+
+cheers,
+Alexandre
 
