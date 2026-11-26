@@ -1,71 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795689379;
-	b=fGfdPe6Kfurckr/42uPoyC+HQ/C1QVXDfys5oN37BY2JlDG2Jas97ej8EH9aqHlD4B/s
-	 AVNtoriJ3fVr6L6rMPugdJtdvUw0Bav31H5pFfv/OtdS58UGJXcxjtjcsVnSNl9xhjXZ7
-	 wMYOV347a1RXwUf3yQLDz/EEGeRFrKauneM2bUASpUu0x2gIH5TFiexCyh1gxauWmTkkB
-	 290FJ0rEX/ubjstPJnUiAJ5QwZenBztTMyfiTWBnDI30u8cC4F1+aI9ChZB1ReiFzE88U
-	 VVlavLyu5FT4NMoV8Asm8Sj2ZK03EK0A9yp9NTOab3NR5MdIyjyJrnuot64SVrzfRRA==
+	t=1795689396;
+	b=DJSacJd83u3KKbh2vaUKZwsKN1PJ5yOC+SFJ25rVm/gtZdfRGqXmSphGvRfb9Fb9EJdE
+	 yFnZfxRNGfcjOAsBgLejQ+1QjKBdfgkJvX+ORPR8kQ5LK+Kr5NSIaHTpMhsYk4JBp6wDW
+	 Y2YiXFbM3C+6TReE1FscWSDXF7CxfSbzeDyg/MMUxp1GsbJnambHMdn/KctDvz741AKoK
+	 ZvjkujYsolveXf3PFg5E8qAOmkCxthzk/FzFrN+bGsk6CH3P+543Xc9mVoZ+BOD1m1FLP
+	 zv8MTwiR1xsyDFXGQYqfTtIaO9zg41NVwWC1a3b+2O7M54APtCwo14jDAstWtnUgeOA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795689379;
-	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:
-	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
-	bh=Jw+M1WRUyiknpCKAJoMVGDk38c3faU3rcCZRwbIRH8o=;
-	b=18qjAO6vo4tCb11UeWdaaE/Ipm0efRmGibh1eeGQ11GxmH9VIk75+sIIxuYc+zRsgr+K
-	 GBDIcVmGcl93FJLzSIY1uC/epWIc4UlMXjQOskvOfn7pSiBtwuP8f3r6h2p9TQ75tFUsn
-	 t6fZnPafzlBGH8PEhWm5lKx6BdeJTuWb/MbcA+CBlhX/ZaasWt5xPZbBCMoEvLF/EUQM7
-	 54d6EO+xkxcIxt76Op5CM9ettbeM+LAAPDPV6Q+n2ltpKkcMV1/sUkyw0INXHqCYxXe58
-	 ARPKKmjuOSPmzkcZ1wX8fnlOgjzYvHMDcxslmjFhylPap2nrKHg5x3kPgRwuP1Pm53g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795689396;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type;
+	bh=BknOnw1WI2qf9/kWDyDfN/VzVJjb6D7uWp+IMhLFm60=;
+	b=DLyEa+6T4Iy2H3hgVGub59lnoDrkWeNzyMAo8GpchfHmVLqoJOF9XmdUD3wkqoFE/1a3
+	 gCHi699+Jp/u/CBKY3bBfj5OVUqEGnFf/jyg/75JR6vvUNJ2L3QtOP1+eRLR3vnSbUc6g
+	 5WTqC8+WqlrD5tpjmRJ6Rg/QJBSlwz+fdGrZazKpPkY9VRahD20Xcb0bWilmvxm1qbuPu
+	 SIT1mJqaWQ/vOmf73sLhCOfct9GTnoo2fmz9pRKHj+iXZoESwGGrHUFs2VaI01UDDPcsD
+	 mQuqPWbqqmImImrQhDmUr5PIlpT6fc4r1VRA1Apav2brt7RmG3BogWE0MgEzz3O21NQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Ep4xBEZf;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=orq3f8fr;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZLvt0zFW;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC420606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:36:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC420606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22D56606A31C;
+	Thu, 26 Nov 2026 10:36:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Ep4xBEZf;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=orq3f8fr
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795689377;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Jw+M1WRUyiknpCKAJoMVGDk38c3faU3rcCZRwbIRH8o=;
-	b=Ep4xBEZfE2lLSui8heffp4kdNyg9qnkHjJIc5Z0YFhGminsKa1BZlZGah3iPGy6zpnC1Z3
-	9akFZbQtH9fhuy32RWH7CB9yM3qzhO+a/hP3OupiQBoq4yvU1K8bLYbjeb+o7nDStBbivB
-	AsOarDiGeJD8rubgVMmq/JAA/VqkEvLzEJ08zolXYwh5r2jwz65pd+NBrYlCH5aGXaWVbr
-	9B/SMSSKbl29ABKe6P6ejv+nJ3nyG5LWtLfHEO6qRLVavgrmmWW7ev8Py4n7UCLar/JSUf
-	9zAQZ95qwvjv+MO8pP0v8JVRIPI6RHCNxxmHoIMNxX4wOblN/RvknW0PfBTKwA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795689377;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Jw+M1WRUyiknpCKAJoMVGDk38c3faU3rcCZRwbIRH8o=;
-	b=orq3f8frHv3lJP1UXZb4Vnpv0pV1N0t4MYsp+g22wnYIvL21/kE3PMocuMMJbgmoscjvHV
-	lQrr859RDvdKUDDw==
-To: Petr Mladek <pmladek@suse.com>
-Cc: Sergey Senozhatsky <senozhatsky@chromium.org>, Steven Rostedt
- <rostedt@goodmis.org>, Ryan Roberts <ryan.roberts@arm.com>, Breno Leitao
- <leitao@debian.org>, printk@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH printk v4 5/8] printk: nbcon: Expand unsafe takeover
- check for general unsafe
-In-Reply-To: <awa28PGg8L4rEDha@pathway.suse.cz>
-References: <20261121163557.963029-1-john.ogness@linutronix.de>
- <20261121163557.963029-6-john.ogness@linutronix.de>
- <awa28PGg8L4rEDha@pathway.suse.cz>
-Date: Thu, 26 Nov 2026 11:42:16 +0106
-Message-ID: <87h5h37ucf.fsf@jogness.linutronix.de>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZLvt0zFW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E47E51F000C4;
+	Thu, 26 Nov 2026 10:36:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795689395;
+	bh=BknOnw1WI2qf9/kWDyDfN/VzVJjb6D7uWp+IMhLFm60=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=ZLvt0zFW5Th26lQMIG9pSp5grGTAIjrEnLz2KoaFPJzweNSx2FKaTfjfiRAkvy801
+	 0n5e2iC80xodYbMomtnwAgE0xSpkumFYlOafVcYkWSLirirMRO1HGRyqF+OelJIxrX
+	 OfdOfChwEFU0ATqWxJAdQwC50fVudCxTw37QWnN7F0hnvtU/olUHNPOWJxzwZsi/0h
+	 WH2tCJLt9xHuKmGZKLqhlpJuq1AHkUBw0PaCywlYR/TVD0XphPNQ8zhwPiPdu1+IpS
+	 4AqXBxh58I7juwVaTrCngYxZiREKIcoPU/S6KNqGNX5wsCDG/aNkntNzhtsAT2uFbO
+	 Nw6Tq0UmY+Y6w==
+From: Andreas Hindborg <a.hindborg@kernel.org>
+To: Tran Van Tien <7enlab@gmail.com>, ojeda@kernel.org
+Cc: boqun@kernel.org, gary@garyguo.net, bjorn3_gh@protonmail.com,
+ lossin@kernel.org, aliceryhl@google.com, tmgross@umich.edu,
+ dakr@kernel.org, daniel.almeida@collabora.com, tamird@kernel.org,
+ acourbot@nvidia.com, work@onurozkan.dev, rust-for-linux@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] rust: sync: make `AlwaysRefCounted::inc_ref` an
+ associated function
+In-Reply-To: <1795684556.6d661f19@gmail.com>
+References: <OToxFKfgF7gRhE7bRLNCy8rCFgDYsz3vWShTvaBIm5_P087CsaSTZlwyx4vhVvAruJaRUGhZMg9GJoY02B5qcQ==@protonmail.internalid>
+ <1795684556.6d661f19@gmail.com>
+Date: Thu, 26 Nov 2026 11:36:25 +0100
+Message-ID: <871p87vpzq.fsf@t14s.mail-host-address-is-not-set>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,12 +64,63 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain
 
-On 2026-11-25, Petr Mladek <pmladek@suse.com> wrote:
-> I suggest to rename
-> nbcon_allow_unsafe_takeover() to nbcon_check_unsafe() and pass
-> *allow_unsafe_takeover as a parameter.
+"Tran Van Tien" <7enlab@gmail.com> writes:
 
-OK. This has the benefit that we could later introduce a per-console
-policy to forbid hostile takeovers.
+> `AlwaysRefCounted::inc_ref` is currently a method taking `&self`, which
+> makes it easy to increment the reference count by accident on any value
+> that happens to be in scope. Incrementing the refcount should be a
+> deliberate act: every successful call must be paired with exactly one
+> `dec_ref`, and getting that wrong leaks the object or frees it early.
+>
+> `dec_ref` is already an associated function taking `NonNull<Self>` for
+> the same reason. Align `inc_ref` with it so that the two halves of the
+> refcount protocol have the same shape, and so that a call site has to
+> name the type explicitly.
+>
+> Callers that legitimately need to increment the refcount now obtain a
+> `NonNull` first, which also makes the safety requirement explicit: the
+> pointer must be valid.
+>
+> This is a mechanical conversion of the trait and of all 27
+> implementations in-tree. `ARef::clone` and `From<&T> for ARef<T>`
+> already hold a `NonNull`, so they pass it directly. `serdev::Device`
+> forwards to the inner `device::Device` implementation. `Fence`,
+> `FwNode`, `GpuVm`, `I2cAdapter`, `I2cClient`, `Request`, `Mm`,
+> `MmWithUser`, `MmWithUserAsync`, `OPP`, `Chip`, `Credential`,
+> `PidNamespace`, `Task`, `LocalFile`, `File`, and `Device` (platform,
+> pci, usb, auxiliary, drm) each take the raw pointer through a shared
+> reference.
+>
+> All 27 implementations are converted; no behaviour changes.
+>
+> Suggested-by: Benno Lossin <lossin@kernel.org>
+> Link: https://github.com/Rust-for-Linux/linux/issues/1177
+> Signed-off-by: Tran Van Tien <7enlab@gmail.com>
 
-John
+<cut>
+
+> diff --git a/rust/kernel/sync/aref.rs b/rust/kernel/sync/aref.rs
+> index 9983ee085..0198c042e 100644
+> --- a/rust/kernel/sync/aref.rs
+> +++ b/rust/kernel/sync/aref.rs
+> @@ -49,7 +49,11 @@
+>  /// alive.)
+>  pub unsafe trait AlwaysRefCounted {
+>      /// Increments the reference count on the object.
+> -    fn inc_ref(&self);
+> +    ///
+> +    /// # Safety
+> +    ///
+> +    /// Callers must ensure that `obj` points to a valid object of this type.
+> +    unsafe fn inc_ref(obj: NonNull<Self>);
+
+I do not think we should make this unsafe. Leaking is safe. I also I
+don't think there is any reason to make this take `NonNull`. You can
+make it an associated function that takes `this: &Self`.
+
+Best regards,
+Andreas Hindborg
+
+
+
+
