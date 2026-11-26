@@ -1,63 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795684764;
-	b=3Bpp2r3MGAVpGkUJ4BgXAy+BPVcQoskYeKO0p+pwAWZbBuny2MqYpdohYUoMNd3OEQB9
-	 byqnKyHQqQzqRolXgf3sOp0nLw6OHopPLvhLQYA6hLzPL7Ie3//gj3ZNGqVXIEpd1B/Wb
-	 0/YL8Ta0lLQqnwyQsRCvCYUztj+9Yq+hxKgwvinD2aEpTmSvCJ3IoeP9eHxOtPauhXPUY
-	 kC32rHNlvVohaYsEmrG+b90NCa3s9XHAWznK8SLjcI5lV0afdr2Ic97bZVb0iB69KvYCu
-	 kf4EoyQRz38l4Rsdatd+XMJsuICw7l05Q42tXS/u/OdBP7e7sq6Z6iUqkdlO+4IPRqw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795684764;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Q8yqgBgzTDJmfW5A1DWYJIHW8nL4dwX5V+usI6LVyyo=;
-	b=Sm3KxKKTDweSLN4PNWO1idOBFd6uCqDH+o5qcF8e/v0h1OidooOLrtfEAxEq93pmQuRS
-	 y4NA8WKeozTnZ8a3gYTQAMNjU2NNqP/GWQI0HzN1AoS3peSESH9XRjkm9zWMPfI4sbdJ3
-	 e/jmUGcNl6R0o1fwr8NSRRMTqRmf/YuePYhuTzuzXXQU4z7YZlS9x5qpgHZs3+WB5kxKW
-	 ySqSUTF9exzcabngyqWNszfMKpHvY7OASwlwEuLDKsMvEYIL+a+D68r6BW80tnLwLUXW5
-	 0TKHuQcQC2eJu+aifhsm0/qW7MBuGPMMrFmd+oBkZQVEUx9dBnvuNWyCQjE3K8Cj3pQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m2eWfEDc;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795684769;
+	b=Ljzw0TK6vXFXAWyVyNEgw3GoshUjnsdqj8jzZs2jQ/o3WwxvHyX8nPPqTDw0r8RUVjFP
+	 4vi0gHHNd7xE0npWqoM8FYmOQUVaPeQ7aplAkV7LNqT3MCw6pJQ3jcmxy+SyA8lH0a3Hg
+	 cINLYjsxX3MpPFYaI5shFzmrdgXXZy1tY38zibkxr5hlnR24i2zKw+PICdRH85oqXLRyo
+	 15YPYRjlzxtZ/pQVYosACsOVxBnwj7pA+o55HdcuO+DgHUgEKKv0e28xm4h21RiZ3oyOx
+	 3NRKOP4jUaHeatb2sk7yA1qpRwBxP1x0sdhz3tNDHNtQXK1UPmBMfGeqgCj+WphUCqw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795684769;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=rjO4Z9fnGzJyAT3zi59WpM5QjCpGo5vCmcnuMsX5xB0=;
+	b=3502dXzJwWTwXCM5UHAvPVjEDONenvG9VqWcXnmFxGr2ZDyN9DxqpBRg6WVe+Osytd5Y
+	 Aq0UcGDRwM0v4cvS9xq6JVTM89X2WS+3HC2kg1eWQ79zmpwGr1jZ5xKWpJQbsSWSQgGPO
+	 OMLqQcUIIPsIHiMPeLZsIt47ARFAvb7BQFGbmFY/5ryYYs/VdLTn1MPUTpA4cxA7BaAmf
+	 R6ofmTIIi3JyHij+HrZLHB/KO3Yr2ky3cP0RGNsVe97uuRQRNgeHSWSgdsxPsEOBYh5l8
+	 Pefylt0YZDEitN5TzACuyLGEXtaZQkkVRY21SvV7e1be+Djwpku2UOPNhEBKL3SLwRw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h6dCFrdy;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2C5C606A31C;
-	Thu, 26 Nov 2026 09:19:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CB00606A321;
+	Thu, 26 Nov 2026 09:19:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m2eWfEDc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CC961F000D0;
-	Thu, 26 Nov 2026 09:19:22 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h6dCFrdy
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795684768;
+	b=ugT8VNumOhl71Pvi1B9ZwWJ84VHEinQIdfWK1zBEOLJQh0QupSacXsbb3lrDbQafVpKE
+	 hV6QCsiPv3MmAqWLutQbWKSoFxIguVYduOjMJS2oWkiN2gBVA593QwJ0v+YwKBPNFSKcB
+	 2+/eo8TBWhKfexo24PrZZnmrcpxZ9vBl/HoXbCbgspf1Z07U1xew+J9VgMFhbrgsdMwbx
+	 Er7LB/4pVaYU7ZNgoGiNSjVQQGd5TsWdmZwZnupnbQp+vlYRB7RnQ8yLGvugqFngNqxVn
+	 /rYJZWUdPjFqTrI5iyFsNK2xAj42RR0gHPn+PIMJ4CFgVAXMWDeOKAandW8mNG/qXDQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795684768;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=rjO4Z9fnGzJyAT3zi59WpM5QjCpGo5vCmcnuMsX5xB0=;
+	b=CLWqOjjKLMmMaK5AgnmBAzQxB3DfM5eKlAxBFqeZKEfkAh9Rui5qrwz6dyx5xjbtQ0uT
+	 U5TJvRGoJg4MAbaBwaYWwy7TlwsVAu/KXpu6Z8jg6c1Q24cePpBGVfB07Xzo4FfOFEO8H
+	 CmwEfHe13dKcGl+IVzEYbq5HU7Q4IGbAg+a6gaSZzdBuE2psOBinsKqa2W4ceFV+OwqAk
+	 reXmOE7r+0Mou+eSQ3bwqpY5N2uFKuehErf6Omj2QGARFje7JlpjE9L4uWDJUVNNxBP2a
+	 0TwRE6LDAADoFxMHVKCS3sY34XZyKrsJwbP32bfWBNm00EI0TSm5iIG+TrOb8UWIAPg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 52D0D1F000C6;
+	Thu, 26 Nov 2026 09:19:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795684763;
-	bh=Q8yqgBgzTDJmfW5A1DWYJIHW8nL4dwX5V+usI6LVyyo=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=m2eWfEDckBiV4URE17VXZMhzfxL8BBTiDuHqWG7oji0R8xam1bnn93Y4ZKGUc2B1j
-	 wJlaw1uFL9zNDd0+4s5sBHAEdC4PjJToOvhMTv2qMyKoguJVMOH9pGj5jV/0262Jxj
-	 5F7KLJRSx1PLWPMG1Df6RPSaj8nfrV2uESimdttsVM6GJPmfs2UNL/uXl7P5CdDHJ6
-	 Hf4dx19Py7sc9NZdX7E7V3jXTCqKLN8BUSAJXyvpPFq4e4xpd0dz4AKp5PmeCHnVth
-	 Qd16UOqdiIl3H0DljYQH/Ypdusb7S5WiwVwulP2KZwscFIr1F/eWfwE0Hu9AQZnGXj
-	 USnYjonUnVm9g==
-Subject: Re: [PATCH net-next v6] selftests: net: veth: derive invalid-tx test
- value from kernel max
-From: netdev-bot+sashiko@kernel.org
-To: emmaonana18@gmail.com
-Cc: tianyi@cloudflare.com, hangbin.liu@linux.dev, kuba@kernel.org,
- netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org, davem@davemloft.net,
- edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org, shuah@kernel.org,
- ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
- john.fastabend@gmail.com, sdf@fomichev.me, skhan@linuxfoundation.org,
- kernel-team@cloudflare.com, tianyi.gao@linux.dev
-Date: Thu, 26 Nov 2026 09:19:21 +0000
-Message-ID: <179568476191.3135.16062946746480831699@kernel.org>
-In-Reply-To: <20261124211645.5751-2-emmaonana18@gmail.com>
-References: <20261124211645.5751-2-emmaonana18@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795684768;
+	bh=rjO4Z9fnGzJyAT3zi59WpM5QjCpGo5vCmcnuMsX5xB0=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=h6dCFrdyQvdiJ3okXT5Y4qWO9wzEXpRq7jT4IETmB8lcI3/h9WI9mZlgISFUwZEJN
+	 ES5/B3SFlevbj8p4mHWL8AW4xEKAtCpyOdGUmFeSKEj37DKNT57qxkLzdGntbDOTUl
+	 Da+J97R63oNKuhxG1SQGKVcKUJiDt7hVJgwO87K8oIi7ZT7/tL+95oCc+lUfDs5H1P
+	 RT2RByP3Kwx4Nr/vh8J8ADV6dWf9Jkhi/nIuAInpyY6rpLgjApafsFMKcS9tqpIfGZ
+	 VlSgUUNzixUoVjAPMOp3p9wAzFxZI/umVy1VhIUUHSi52tMN8Ggif/5F0Z/O84g//w
+	 YMhrhifwzdcCQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id A2BCF4D326;
+	Thu, 26 Nov 2026 09:19:20 +0000 (UTC)
+From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
+Subject: [PATCH v3 0/2] usb: typec: Find a Type-C partner after a warm
+ reboot on the Orange Pi 5
+Date: Thu, 26 Nov 2026 09:19:20 +0000
+Message-Id: <20261126-tcpm-attach-reboot-v3-0-1c97dfa5024a@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,105 +84,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32Nyw7CIBQFf6VhLYZHH9aV/2FcwIW2GFsaQKJp+
+ u9C3XRhXE5yzsyCvHZGe3QuFuR0NN7YKQE/FAgGMfUaG5UYMcJqSinBAeYRixAEDNhpaW3AquW
+ q6nhdEi5ROs5Od+a1Sa+3L/unvGsI2ZQXg/HBuvdWjTTv/gYixQQ3ddUAUM0UiEs/CvM4gh1RD
+ kS2V7CfCpYUspRQgzjxsiV7xbquH4Iq5u8JAQAA
+X-Change-ID: 20261110-tcpm-attach-reboot-d93d5f36403b
+To: Badhri Jagan Sridharan <badhri@google.com>, 
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ Arun Iyengar <aiyengar1990@gmail.com>, stable@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795684760; l=1385;
+ i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
+ bh=O8mJr7+GZG2WrudGQ9eZZi1UioAIWkg07uAFPVTyYSU=;
+ b=GA9s3Yl1E+f6Nk1yfkUbft03ym7vcUn4ZSTL1j7Pzs8LGaQ6jkS+AQr0uamuXWBhYGc9IiOYg
+ ft/6LOPSeyHCD2EFF8mbH03W4AUfswZ2lTkN1cZBWewx/Q9dyAvEomb
+X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
+ pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
+X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
+ auth_id=1480
+X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
+Reply-To: aiyengar1990@gmail.com
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+After a warm reboot, an Orange Pi 5 (FUSB302) often did not find a
+USB-C to DisplayPort cable that stayed plugged in; only a replug
+brought DisplayPort back. Two causes:
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+  1. tcpm: a re-queue at port registration cut the 100 ms
+     ErrorRecovery after PORT_RESET to 6 us.
+  2. fusb302: the chip never found this cable while toggling with
+     Rp 3.0A.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Tested on an Orange Pi 5 with a USB-C DisplayPort monitor: DP alt mode
+on 16/16 warm reboots. Not tested: other TCPCs, ports without PD.
 
-- [Medium] chk_channels() in tools/testing/selftests/net/veth.sh (lines
-  175-196) prints " fail ..." on a mismatch but never sets `ret=1`.
-- [Low] The commit message says that once "failure propagation" is fixed,
-  the false failure "fails the whole script".
+Developed with Claude (Anthropic), which wrote the code and the commit
+messages. I reviewed every change.
 
---
+Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+---
+Changes in v3:
+- Patch 2: Cc stable (Heikki Krogerus)
+- Code comments dropped, shorter messages, no functional change
+- Link to v2: https://patch.msgid.link/20261112-tcpm-attach-reboot-v2-0-b4bc6ca83490@gmail.com
 
-selftests: net: veth: derive invalid-tx test value from kernel max
+---
+Arun Iyengar (2):
+      usb: typec: tcpm: Don't cut a pending state delay short on a re-queue
+      usb: typec: fusb302: Toggle with the default Rp current
 
-The "setting invalid channels nr" check in veth.sh used to try nproc+1
-TX channels. It now reads the TX maximum the kernel reports through
-ethtool -l and tries max+1. The old value can be valid on hosts where
-nproc is less than num_possible_cpus().
+ drivers/usb/typec/tcpm/fusb302.c | 12 ++++++++++--
+ drivers/usb/typec/tcpm/tcpm.c    |  5 +++++
+ 2 files changed, 15 insertions(+), 2 deletions(-)
+---
+base-commit: 90d6263e867be7089b3d3323bef8d2accd327c77
+change-id: 20261110-tcpm-attach-reboot-d93d5f36403b
 
-> selftests: net: veth: derive invalid-tx test value from kernel max
->
-> The "setting invalid channels nr" check treats CPUS+1 (CPUS=nproc)
-> as an invalid tx count, but the kernel allows up to max_tx, for veth
+Best regards,
+--  
+Arun Iyengar <aiyengar1990@gmail.com>
 
-[ ... ]
 
-> the ethtool -L call succeeds and chk_channels() reports a false
-> failure. With failure propagation fixed, this fails the whole script.
-
-[Severity: Low]
-Which patch provides the failure propagation fix mentioned here? In this
-tree, chk_channels() only echoes on a mismatch and never sets ret=1:
-
-tools/testing/selftests/net/veth.sh:chk_channels() {
-    ...
-	if [ "$cur_rx" = "$rx" -a "$cur_tx" = "$tx" -a "$cur_combined" = "n/a" ]; then
-		echo " ok "
-	else
-		echo " fail rx:$rx:$cur_rx tx:$tx:$cur_tx combined:n/a:$cur_combined"
-	fi
-}
-
-So before this patch, the CPUS+1 false positive printed a misleading
-"fail" line, but veth.sh still exited with 0.
-
-Suppose the failure propagation change is applied or backported to
-stable without this patch. Then veth.sh would fail on hosts where nproc
-is less than num_possible_cpus(). veth_get_channels() reports max_tx as
-dev->num_tx_queues, and ethnl_set_channels() only rejects
-tx_count > max_tx.
-
-Could the two changes go in the same series, or could this one name the
-dependency? Could it also carry a Fixes tag for the commit that added
-the CPUS + 1 value?
-
-Fixes: 1ec2230fc721 ("selftests: net: veth: add tests for set_channel")
-
-> diff --git a/tools/testing/selftests/net/veth.sh b/tools/testing/selftests/net/veth.sh
-> index 9496b599d722c..bd0d19c49b7cd 100755
-> --- a/tools/testing/selftests/net/veth.sh
-> +++ b/tools/testing/selftests/net/veth.sh
-> @@ -569,7 +569,9 @@ fi
->  ip netns exec $NS_DST ethtool -L veth$DST combined 2 2>/dev/null
->  chk_channels "bad setting: combined channels" $DST $CUR_RX $CUR_TX
->  
-> -ip netns exec $NS_DST ethtool -L veth$DST tx $((CPUS + 1)) 2>/dev/null
-> +MAX_TX=`ip netns exec $NS_DST ethtool -l veth$DST |\
-> +	grep TX: | head -n 1 | awk '{print $2}'`
-> +ip netns exec $NS_DST ethtool -L veth$DST tx $((MAX_TX + 1)) 2>/dev/null
->  chk_channels "setting invalid channels nr" $DST $CUR_RX $CUR_TX
-
-[Severity: Medium]
-Can this check ever change the test result? The other checkers in
-veth.sh set ret=1 on failure, for example chk_napi_ids(), and
-chk_channels_carrier is called with "|| ret=1". chk_channels() does
-not set ret at all.
-
-The script ends with exit $ret. Suppose the tx_count > max_tx check in
-ethnl_set_channels() or ethtool_set_channels() regressed, and
-ethtool -L tx $((MAX_TX + 1)) were accepted. veth.sh would print "fail"
-and still report success to kselftest.
-
-The same applies to the other chk_channels() checks: "setting tx
-channels", "setting both rx and tx channels" and "bad setting: combined
-channels".
-
-The commit message relies on failure propagation being fixed. Should
-that change be part of this submission, so the updated check actually
-affects the exit status?
-
->  
->  if [ $CPUS -gt 1 ]; then
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124211645.5751-2-emmaonana18%40gmail.com
