@@ -1,49 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.254.49.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795694407;
-	b=Q7FNDPimHS761XzX25bGX9zpnLIMcmT9dEAiQHp6M/TEulNDmOamCzZAGs69xRSUft85
-	 jQCGvGWhO4Me9txfG9SgxA/jSh1/UK1PSLOYFrIWf0evaISjm9bi3d6M5tTvJ5aPfSdpE
-	 VbT6t0WPFJD6X78xZDpl8ELvRO21V/3jqQiNWrQdaLelkvetMSfWwqUlmXpEpzwIEcTFY
-	 fiwTE6Yj+Je1WCoxQL+gq8OebTSKyMQeuaEoAtoPt/IgWdilj/DyiuTEyropZnoj2Dsgo
-	 5RdFTYjAoCPO6BrJARF3fBrH415bjbUN9uOejeZ/pui+LB+K0nJpjRbZQwLN4t64pMA==
+	t=1795694446;
+	b=QSgGpf01jqOcWOQ3Ysgny41URWsdJBdRG89+9OQcvGxXALXIM+BTlR4HcPnco6zmj+jE
+	 MDIGFSk3hKmQNOZAFaPg5LIbpNjDIhWFUeN7XRBvqv5yDUC1wiJ7doZqTtsNFdAlL+8ru
+	 68geVwtkB5lF5gsVjc6Hk2j3Yv9ArW1JvIYIVnGf0oFkCdflDY0MZDHCEa1438L+uhMrr
+	 8QjCbcEb3spttqMLNj1CqJ+xncAfPT4CarVQUCSM5c2Qj0jTebGSQWHpVWpmsGCIBtDlT
+	 oWsxOJ0CqkGgH4H98YX0uG6B6XqR5R4B7PCKI2QmhTX4MuBofigBJL0n2FqbeB13+pA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795694407;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=j6mVNxa5ZIIys5YzBgMtF53fVPUMEzmGnA7SbgZM5xE=;
-	b=yLlZSFpRshbqBzUsB6RXktOQXJIQfUq4K3+pUpqLWxD573wCXMh5vjFAfykS+ISjH5+F
-	 JtcmqGBahX2r/+wvU5pHwQcvm+JQ6/V/jiqdHh63ne85H8xVRC8bwJR8GScwc6l/45B3t
-	 AmmybcKaZravJdB4vdD3KYCmmKDs3GUJeiuEDpqNKi1j0ZlSaWM6JcIPfzCsodaU8EPdf
-	 hG8PDLEBL1u8KhBEN8MAp8QDhBt1Xr4b4Uj2jwPmu+HGrwQA+iEOYGpG57O+0f7MbrVvi
-	 YAcapn1LD0BzlhqJG0DM1E1Lj6pFKnkOhh51ID9oElximiz9Zj0k1g2Wd44JdGktPpA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795694446;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
+	 X-HM-Spam-Status:DKIM-Signature;
+	bh=Wo8gr7WxxCAAD6ElcLjXd3fdhLktIq01023AeY93blE=;
+	b=yzG92NS43GMoiUYdP8B6xM5lF67d+xtPpobCZT9CRPhxJ7sYARG9T/hBRnGizLoI1LwK
+	 6685FM7epq5QBmfbRerDOJJ36ahCj2ojbtKwxUVUtvqxT9rUkQSLFCYbrei5NSN7UBGkq
+	 RVI6UrhA+iNS5menglSrKykwhCfSQLSn3mdmVjT2Fx/nmd4VG0b8XlyyucsjWX/6xY9hM
+	 kLlAYIuS43AaAhwBV9VOKZ3JGpPeSOekjv4ah2Z7bTCiwT6tpn3QkOJcFyuFTucqyOF3e
+	 K61CSMi/om8E8yBvF9g3BkdZQADhghgEBD9iVqQp13wC0zunIWpXdf4Y46d+3/OPs+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gRLzE7qW;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=mail.sdu.edu.cn;
+	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
+	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=eXPMLLQI;
+	arc=none smtp.remote-ip=45.254.49.198
+Received: from mail-m49198.qiye.163.com (mail-m49198.qiye.163.com [45.254.49.198])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96B61606A326;
-	Thu, 26 Nov 2026 12:00:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8671606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:00:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8671606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gRLzE7qW
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE72C1F000CF;
-	Thu, 26 Nov 2026 12:00:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795694406;
-	bh=j6mVNxa5ZIIys5YzBgMtF53fVPUMEzmGnA7SbgZM5xE=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=gRLzE7qWxUGUkw6D2VvIqkCxeESUFAVSORjbXaT5FRRK2z/0Mn2N+9+aWhGwR36gJ
-	 E9O7Lf3jwGkDf6YaE+t066Unc4bawS9bEdkjneEcdeK8qTcY6pE6RmQJtQKfFH9vAo
-	 +vjQveUCtV8PsIqQVmuGXX25vkhN+duBL+WY4mllUE5ggFl/BXLqhrl4exFQhl7d4k
-	 AjsY9eVVarLfve66t61LUhquLT4nDETVVe6+sF5M3vFiEtKJj7mM2JMh11tUn3Rk6h
-	 /sQkSBVvR0F8vKSq13YWPwHwbxZUi9YxezcSJIQBdTAt8IyWx/mZp/uDTNd+eAiG/q
-	 XnwzYgyGKbk9g==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B4532380A96A;
-	Thu, 26 Nov 2026 12:00:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (1024-bit key, unprotected) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=eXPMLLQI
+Received: from user.localdomain (unknown [223.80.110.101])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 561dabdfe;
+	Thu, 26 Nov 2026 20:00:40 +0800 (GMT+08:00)
+From: Tian Xuechen <202300460064@mail.sdu.edu.cn>
+To: chunkuang.hu@kernel.org,
+	p.zabel@pengutronix.de,
+	chunfeng.yun@mediatek.com,
+	vkoul@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	jie.qiu@mediatek.com,
+	junzhi.zhao@mediatek.com
+Cc: neil.armstrong@linaro.org,
+	mani@kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-phy@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	liguangshuo@mail.sdu.edu.cn
+Subject: [PATCH] phy: mediatek: hdmi: Fix potential stale PLL provider on unbind
+Date: Thu, 26 Nov 2026 20:00:39 +0800
+Message-Id: <20261126120039.4049943-1-202300460064@mail.sdu.edu.cn>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,42 +67,48 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: dsa: tag_brcm: fix link-local detection with a
- prepended tag
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179569440527.1780623.1665313975505848003.git-patchwork-notify@kernel.org>
-Date: Thu, 26 Nov 2026 12:00:05 +0000
-References: <20261118184004.1916105-1-florian.fainelli@broadcom.com>
-In-Reply-To: <20261118184004.1916105-1-florian.fainelli@broadcom.com>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: netdev@vger.kernel.org, jonas.gorski@gmail.com, andrew@lunn.ch,
- olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, linux-kernel@vger.kernel.org
+X-HM-Tid: 0aa217baadfd03a2kunm6834bc74359e8a
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUtXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaTkpIVhpNTh9DHR5LQ0IaGFYeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlJSUhVQ0tVSkpLVUpLSllXWRYaDxIVHRRZQVlLVUtVS1VLWQ
+	Y+
+DKIM-Signature: a=rsa-sha256;
+	b=eXPMLLQI+lhb816WAFKexCyQTaPrpLTT51kzqu3SQespGmRTCTBIud/pSiVNR05EzF4ZWGOBa2ezlp0kwjJPlKpqoUWVnlJqLVa+uSl6Jtll0Mhf17d85dsH3USb+xKb5wt0JE+ZgqZoLxWGkkltQhVBnUbyzZ1N4gI+o9vabRE=; s=default; c=relaxed/relaxed; d=mail.sdu.edu.cn; v=1;
+	bh=Wo8gr7WxxCAAD6ElcLjXd3fdhLktIq01023AeY93blE=;
+	h=date:mime-version:subject:message-id:from;
 
-Hello:
+From: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
 
-This patch was applied to netdev/net.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
+The HDMI PHY registers its PLL with devres but leaves the OF clock
+provider registered on unbind. Publish the PLL hardware through a
+managed provider so it is withdrawn before the PLL is unregistered.
 
-On Wed, 18 Nov 2026 10:40:04 -0800 you wrote:
-> brcm_tag_rcv_ll() checks eth_hdr(skb)->h_dest to avoid marking link-local
-> frames as forwarded by the switch. With a prepended tag, eth_type_trans()
-> sets the MAC header at the start of the tag, so the address checked is the
-> tag plus the first two bytes of the real destination address. Link-local
-> frames such as BPDUs, LLDP or EAPOL are then not recognized and get
-> skb->offload_fwd_mark set, which keeps the bridge from forwarding them in
-> software to the other ports of the switch when it is configured to do so.
-> 
-> [...]
+This issue was found by our static analysis tool under development.
 
-Here is the summary with links:
-  - [net] net: dsa: tag_brcm: fix link-local detection with a prepended tag
-    https://git.kernel.org/netdev/net/c/ae8e5ef9fa9e
+Fixes: 8f83f26891e1 ("drm/mediatek: Add HDMI support")
+Signed-off-by: Tian Xuechen <202300460064@mail.sdu.edu.cn>
+---
+ drivers/phy/mediatek/phy-mtk-hdmi.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-You are awesome, thank you!
+diff --git a/drivers/phy/mediatek/phy-mtk-hdmi.c b/drivers/phy/mediatek/phy-mtk-hdmi.c
+index d063fc787c28..06784393b0ef 100644
+--- a/drivers/phy/mediatek/phy-mtk-hdmi.c
++++ b/drivers/phy/mediatek/phy-mtk-hdmi.c
+@@ -178,8 +178,8 @@ static int mtk_hdmi_phy_probe(struct platform_device *pdev)
+ 			return ret;
+ 	}
+ 
+-	return of_clk_add_provider(dev->of_node, of_clk_src_simple_get,
+-				   hdmi_phy->pll);
++	return devm_of_clk_add_hw_provider(dev, of_clk_hw_simple_get,
++					   &hdmi_phy->pll_hw);
+ }
+ 
+ static const struct of_device_id mtk_hdmi_phy_match[] = {
+
+base-commit: 4dce97c6c265544342e716e62fd24bbb232590c5
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.43.0
 
