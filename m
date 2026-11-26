@@ -1,74 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795718116;
-	b=YDAHQSMejARWFZf/hI/2kZl+TVPfdL3o9fFr2gZhBECpd+RAVMJ9WdaWtQLOssSreAlr
-	 l9n0fp8b6WgZ2+DvR6Rvd3CN96iQQaR+y/OlsDqWssbtbsJfAuYAYsSa3BznjXPINKa1N
-	 ZRLCH7oK7I0rniG5Eo98E9GonaJVHn7tjEVUVBVJuBMgO8Tit1uxSGsMU5KCM6TNs4BrL
-	 gUS1dsBtuqnzGHJuIXR1arqh2d6J/L55GFAt7OjPxfU8ZscGQfR1pIzdjbdz8kLcG4viE
-	 3KnAtxt5ZGHsejZ4r2he7VVwu7vKXpI1TpWJOMhAif4Z3M6f9rDEAGDPxylqupUM3+w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795718116;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=lNoDcgtyIRtshKKQA77hdTnKAgEL8asv9kuIbWA+WPc=;
-	b=cs+nLenylHSLw66iUqIk+Zivt30gDLuZekkjJYu93K5qAUpvy6BFc29DKeeUKG3OapaD
-	 8ifZ3kkSqCOb0xiO4dmjdNpTdhdR9RxnRTc+pUF4EG2metFyJtDcipHQxQCnDHgvkw2JX
-	 HfhSbRrMXbsMtxLraSBhqvRPZjnLfRINuJimkZoPqNrs3rbR0xufSxvI1DoqJL6k5Iz82
-	 XqvmXwikOnxmo7Dv1HDCml+z+n3o8NzKUbn86maVgJ6Xyovgk+m3DI9klBBib+t+9rcKZ
-	 jG/AXBEbQ6LNUSkK8QzwSDne0eK/rZAt5WMnAr/Q0efaZTwED+tPyYuFQXAsdqdUwxg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=rCRivMKW;
-	arc=none smtp.remote-ip=90.155.50.34
-Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795718281;
+	b=FvpO6ZrkZPB3PXkBguxTYTqZpdJRDEX75CAup+sM/rVCAY218Az+C5+iTMD6Vg3Tfwh7
+	 kAsOa4DszzX/WqFRwxMIXX+rXlUpECHKJxZjCoTZBSKZvOUsMCd5DG1ucq2YKI3lwE23o
+	 aSdmFjggft4MW0ZtcNjjDEvGta5Lhqjl7sCrv5UJ9At2HQBw5sLCXC82K9jUu3hwju61Y
+	 EGkhsK1X9llQ37yDVrVzIIJhUa1mrfNbUl/QnfV1SdSIcQYegL9q9fy+NXpDY1FY7g/Jp
+	 ehijzRV+kGb0KWMLlT/lmRW7SCyhonCS/RXc4mIkw9c7ZfPppneRC9ol9/1ELnAPs2w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795718281;
+	h=DMARC-Filter:DKIM-Signature:Received:Content-Type:Mime-Version:
+	 Subject:From:In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:
+	 References:To:X-Mailer:X-ZohoMailClient;
+	bh=eY8jWJFPHqeyb/HkuAKihPr1I/XvOpTtt7B78KGWqzc=;
+	b=iffMvkdkMcKJauTZPOE0yVRUTtZg7WGjQdLhDxWU9VCShfeyupIxWGBJ/pjzKd72ZJGg
+	 o79jfNXgjsYXT4Avpp571r+CC/2hFIrFJl2oFHgLlz048mLNc3gPgDiHlOgFyFwFX9qc8
+	 cJOeK6/3I7TMwkRUg6Ggdh8o2tmLSDJXA7rAWhEo0mvXf/QLo9zUxCfqmRel6ex9sfkOC
+	 ZNLV8Zca8klr47kxiSgsJFXLVgd7LjfYTHtg1RFx8RNuNvalQDLp+oXNxhKHP7VClN+Ul
+	 89rwm1pN2+/656caP6MC/8C1lNrLf4kgMFUlAMizabcid38aK/LPm8orP8URvvI+CKA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=lRGZ26Jw;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 253F5606A31C;
-	Thu, 26 Nov 2026 18:35:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 253F5606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66C69606A31C;
+	Thu, 26 Nov 2026 18:38:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66C69606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=rCRivMKW
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=lNoDcgtyIRtshKKQA77hdTnKAgEL8asv9kuIbWA+WPc=; b=rCRivMKWHsAiaN8JRlhI3+jK8V
-	+T0Sca7uBnOGSjoNNgOIu0W/geC6OsBdDDKHdzjRIcHhNB5bzFnkkOsNVQXeN2IPAGJ8hWqRGNud1
-	xB8l50rPqNOIrVlfnsBMeXw7ADQb9DDVc9h0iN+TWHrU3Tvk4rO9wReixGol+gBuRHEV7N9zkX2pG
-	TgapIprlCIPmlc11tAhkkZwRC6D+vvG5pFVy98gkr0VgvMT3hVRWRrmsGVmi+DmWl22Ab7Mh2/6rM
-	5c8QEQcK+s55noA2BmBwI3gc8CBlWaXq/akpEkUsUqOiyP6l82caF79JOtrR49T/1NR8v2hmHqgpq
-	LLLLjTVg==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWeJB-0000000A55i-2Zkw;
-	Thu, 26 Nov 2026 18:35:01 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 6F22E302186; Thu, 26 Nov 2026 19:34:53 +0100 (CET)
-Date: Thu, 26 Nov 2026 19:34:53 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Ingo Molnar <mingo@redhat.com>, Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Hongyan Xia <hongyan.xia@transsion.com>, Song Liu <song@kernel.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] sched/preempt: Check notrace preempt-count updates
-Message-ID: <20261126183453.GM49833@noisy.programming.kicks-ass.net>
-References: <cover.1795631277.git.kmehltretter@gmail.com>
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=lRGZ26Jw
+ARC-Seal: i=1; a=rsa-sha256; t=1795718235; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=G1ASujFLBFV51mXh8IlS3jA9c8VoNpxlKWfeDdbF9qQfiGcfrPOQ2Ll7J5OAV7wqrdZuJvEogGJenXbos1k/5p2/WxALtdSbNU6OJ4SBXtJNKEh10J7uehbj5nd6hYCXpVqqJa+/XqH9WDoqq7ABEonMxXFrW46yXL+wdcEYcZI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795718235; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=eY8jWJFPHqeyb/HkuAKihPr1I/XvOpTtt7B78KGWqzc=; 
+	b=b+j062L9Ogl5pt3qil9usw2Ob95GycMrgxxWWibjqgDpvZHqVbory3At83r4ccE4D+VuAzbadwyXefK4TgtU+vWeIUPNmI5dCDQtYwMaohhYlmq60ANlSSm3cqYyXlejcAWJ+VNR6ebEsx1vwpDHWR5TEsbBtDPLZ8lYDIxeoCU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
+	dmarc=pass header.from=<daniel.almeida@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=lRGZ26Jw1gn4h0yNVxFKIj3uGKUc67fKSlt6j8/MotGWmwXyD/gWojhVzaQvMLSfBWTNscsRl+clSagY/MPNpIWupdpn0fwK09J1/4UBgK4ybDnTsJC1ofS5hQe8mmyer7G0Rw34+eoHCqCcY9VVT29MXRZSF6vFOwdys/aq8wQ=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=eY8jWJFPHqeyb/HkuAKihPr1I/XvOpTtt7B78KGWqzc=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795718234041548.7559792769806;
+	Thu, 26 Nov 2026 10:37:14 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,25 +57,83 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1795631277.git.kmehltretter@gmail.com>
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
+Subject: Re: [PATCH 0/7] rust: reset: add reset control abstractions
+From: Daniel Almeida <daniel.almeida@collabora.com>
+In-Reply-To: <ffb55e45af601f0afaf5071f92e123c81de22a70.camel@collabora.com>
+Date: Thu, 26 Nov 2026 15:36:56 -0300
+Cc: Miguel Ojeda <ojeda@kernel.org>,
+ Boqun Feng <boqun@kernel.org>,
+ Gary Guo <gary@garyguo.net>,
+ =?utf-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
+ Benno Lossin <lossin@kernel.org>,
+ Andreas Hindborg <a.hindborg@kernel.org>,
+ Alice Ryhl <aliceryhl@google.com>,
+ Trevor Gross <tmgross@umich.edu>,
+ Danilo Krummrich <dakr@kernel.org>,
+ Tamir Duberstein <tamird@kernel.org>,
+ Alexandre Courbot <acourbot@nvidia.com>,
+ =?utf-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ linux-kernel@vger.kernel.org,
+ rust-for-linux@vger.kernel.org,
+ dri-devel@lists.freedesktop.org,
+ Detlev Casanova <detlev.casanova@collabora.com>
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <D28A86A5-8077-49BA-B366-FF29E9E75736@collabora.com>
+References: <20261126-b4-rust-reset-v1-0-9c4c3d029080@collabora.com>
+ <6300821339d6891983af704e2044fd1ed25285f6.camel@collabora.com>
+ <299B626E-DC60-4175-9D66-2DE58BA5070A@collabora.com>
+ <ffb55e45af601f0afaf5071f92e123c81de22a70.camel@collabora.com>
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+X-Mailer: Apple Mail (2.3901.200.71.1.16)
+X-ZohoMailClient: External
 
-On Thu, Nov 26, 2026 at 03:30:51AM +0100, Karl Mehltretter wrote:
 
-> Hongyan Xia (1):
->   arm64: Always inline raw preempt count updates
-> 
-> Karl Mehltretter (2):
->   arm64: Always inline preempt count and reschedule checks
->   sched/preempt: Check preempt counts in notrace helpers
-> 
->  arch/arm64/include/asm/preempt.h | 10 ++++----
->  include/linux/preempt.h          | 23 +++++++++++++-----
->  kernel/sched/core.c              | 40 ++++++++++++++++++++++++++++----
->  kernel/trace/Kconfig             |  1 +
->  4 files changed, 59 insertions(+), 15 deletions(-)
 
-A quick reading doesn't show anything weird; I'll sit on them a while --
-at the very least until I get an ACK from an ARM64 person ;-)
+> On 26 Nov 2026, at 15:11, Nicolas Dufresne =
+<nicolas.dufresne@collabora.com> wrote:
+>=20
+> Le jeudi 26 novembre 2026 =C3=A0 15:02 -0300, Daniel Almeida a =C3=A9cri=
+t :
+>> What does not work with shared resets on the C side?
+>=20
+> Above make sense, for shared, you need a mechanism to coordinate the =
+reset. A
+> bit like the comment above you made about flushing active jobs, and =
+holding on
+> new jobs until the reset has completed. I think for multiple instance =
+of the
+> same driver its quite feasible, but when the triggering driver have no =
+clue what
+> other driver it shares with, there is nothing as far as I know to help =
+with this
+> coordination, and its possibly non-trivial, specially if that was not =
+part of
+> the initial design.
+>=20
+> Nicolas
+
+
+My understanding (correct me if I am wrong?) is that this coordination =
+is
+indeed needed, but baked into the C assert/deassert API:
+
+Someone on a shared line has no power to assert the line
+unconditionally, all a single consumer can say is "I'd like this line to
+be asserted". The line is only asserted when all users agree (i.e.: when
+all other users also ask for a reset).
+
+So if driver A wants a reset, it gets its house in order, and asks for
+it. Same for all other drivers, and it goes through when the last one
+does so. This is the de-facto coordination between consumers and it is
+not something that Rust influences one way or the other.
+
+Sure, B is not told that A wants a reset, and A is not told by the reset
+APIs when the reset goes through, but at least no user gets its hardware
+yanked from them all of a sudden.
+
+In fact, we do enforce this even harder by making sure that one cannot
+construct a SharedResetControl<Asserted>, for the reasons above.
+
+-- Daniel=
