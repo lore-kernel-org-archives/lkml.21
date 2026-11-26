@@ -1,71 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.143.172.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795719889;
-	b=Hd5kNPqokN4a+b8JQEi6/t6jwQHPcRKBwywmkv/5Q90PbNGHsXI9nPSLq1wM8WHTIa5G
-	 r62sFMi7et124YNeDKLBdHWOyAN5a67hiXy/YjGkiMdetMwR6CbjajxVTR6qdOLl7RzvB
-	 hRg8RJzi9d9CfhnkYkBb8j47QET2cB5qxi25+GVpH1TtnLZS4ybVF6OUtbO2lY5kcKYCi
-	 2nsY9asKuy+Qqrw2hxRb+t2/kBzaL1uRmdxnH8Rpo7vOikLh526pf4udM5GZr3O3t2LbJ
-	 GKNA3YsY0ux36KILIBZQjBNu3v53BsMi4UbtTEwLrlZc5MeVncMRtiEwIXI714tIOkg==
+	t=1795720063;
+	b=igebn+aATYbD+GesilXFkzyWIcFTvjTdEGudkw4sdlIQGskgL7rQ7Z3LIcmAOVnK3loO
+	 g9j1sRlzQ7x6sq5yi0FhejIp7kVQF30Z8e4E04TGyg6ECQPTq/RdeET/6Ji6R3HNTQQsY
+	 nzzTvsesTm3h+eSvNTI2HtHwCBiApuX5xUyWoll2RqdEvN3EeiBkiEqeQrUQ5q+c8R5Qy
+	 zMCXxET9p+qoFJyo53k8n4xcfR9/4Yb+ypB/g7aqWeUdRrKr2GmsNz6WSCOg8gNnfWX8c
+	 p1ztSx1RBhyDwbnXBl5apIZJ/yvFfCQ5UZ2F8gtHlQ9VXTW22QcTlRQfbWAp1HwGl/g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795719889;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=1ctk+fL6PfkLhV/dsGiKFfYsEV93GnfIM2lI38MnYwI=;
-	b=RMwP211eC4VmV/zfuzQjqDlV6/6rTOs0mglcOE5scQMuh+LviuNjd0lT1+mP10Im8NG2
-	 jPbG2EjhuY9v+62NFZ2vzyF068jd8zpMKmyNvVKe9sdcB0J+af8q63OTAARq1roKFKx4p
-	 BhXGm4cDi5iT17wlKAwpW8azA7aiRU8kxfGt3DAnxGSmYAVtXdLOmtcg8wQcfA5MOfbpL
-	 O0Aq1rNpabQjizQ944sBHnBg5Or+q0l+HDT1s+bl7+XhSMXI9PfVdzwNuHcK5TNr0JGuI
-	 Wv/NBu1U8GJ/qN+yANPm3FFgGBkqpKMfyRHBJASBo6YpJ7GpdAnBf0STgmSnpzsYDCA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795720063;
+	h=DMARC-Filter:Received:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Rspamd-Bar:X-Rspamd-Report:X-Rspamd-Score:DKIM-Signature;
+	bh=U2FTcCNi5583Is2IhKPqL19uFDnG+/gy9FyUW4ItkdQ=;
+	b=yQ6I43d3EAK1vf8sKOVK0C2OJkO/ISrKMDlul5BgsNQYmkLb37Gnr/z8i8dGT4Jgikm9
+	 jZJ1q+FrwyS1tEbkaKSM86rwrJhzJBOItiFH0HYPR1xE8FXvDCa95BBTUNHwxWE77vWkD
+	 kKhNw+AnpNMvxoOz1SVTfVyO9V1WCbsqEsSHkbSirjadRxJ/So76s3BnMS8QlHSGgLVTo
+	 oY1NEtN3SF1uD69LP4kB5GJopxJCwY769SRiL/wwmAoRYueFVBmjacSvOgVM0WPkLvGMz
+	 gvAKcQxMqP2SQZrUCvkZTgo+qdG60r/+Xs5rMn4U+h8pma2bfYJOZi3J3VOeFlsvGWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ELPyyP7h;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=lausen.nl;
+	spf=pass smtp.mailfrom=lausen.nl;
+	dkim=pass header.d=lausen.nl header.i=@lausen.nl header.a=rsa-sha256 header.s=uberspace header.b=YkBs96yW;
+	arc=none smtp.remote-ip=95.143.172.20
+Received: from mailgate01.uberspace.is (mailgate01.uberspace.is [95.143.172.20])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92971606A327;
-	Thu, 26 Nov 2026 19:04:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 103AE606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:07:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 103AE606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lausen.nl
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lausen.nl
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ELPyyP7h
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0875D1F000E0;
-	Thu, 26 Nov 2026 19:04:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795719889;
-	bh=1ctk+fL6PfkLhV/dsGiKFfYsEV93GnfIM2lI38MnYwI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ELPyyP7hVMh0/g3BN0EPouCpHxSVlPg2qC8KK5w339Xge6VbncRU1rFYEx2q/3Um5
-	 D7v3tWoLPh3WeRjOlAIGdUQVnKmhlEOjtu3986HOcsuEidSOe2MGWF8eRDFmvxX6Dg
-	 Z14MX/Ln0cyD14UGzdenen71u6x1P+CZxhbmtuhhgmDrhhz91g3+LqGxaeTaYHGdrl
-	 XTIAAdQQ8Ab0VQKbgs3+kSN9s5tvGuKYuwFtiGzpiVS/YP6eIUTPvM+i5ot29Bi4rm
-	 GP0+9l82scEc93XAS5wF/Pc8FDyN4wKH1mraexD8DezKYgszG1RRblPxGWgWFFJ6/p
-	 IIbZCpHnolt7g==
-From: Miguel Ojeda <ojeda@kernel.org>
-To: gregkh@linuxfoundation.org
-Cc: achill@achill.org,
-	akpm@linux-foundation.org,
-	broonie@kernel.org,
-	conor@kernel.org,
-	f.fainelli@gmail.com,
-	hargar@microsoft.com,
-	jonathanh@nvidia.com,
-	linux-kernel@vger.kernel.org,
-	linux@roeck-us.net,
-	lkft-triage@lists.linaro.org,
-	patches@kernelci.org,
-	patches@lists.linux.dev,
-	pavel@nabladev.com,
-	rwarsow@gmx.de,
-	shuah@kernel.org,
-	sr@sladewatkins.com,
-	stable@vger.kernel.org,
-	sudipm.mukherjee@gmail.com,
-	torvalds@linux-foundation.org,
-	Miguel Ojeda <ojeda@kernel.org>
-Subject: Re: [PATCH 6.18 000/990] 6.18.66-rc2 review
-Date: Thu, 26 Nov 2026 20:04:37 +0100
-Message-ID: <20261126190437.95251-1-ojeda@kernel.org>
-In-Reply-To: <20261126105725.767748294@linuxfoundation.org>
-References: <20261126105725.767748294@linuxfoundation.org>
+	dkim=pass (4096-bit key) header.d=lausen.nl header.i=@lausen.nl header.a=rsa-sha256 header.s=uberspace header.b=YkBs96yW
+Received: from devico.uberspace.de (devico.uberspace.de [185.26.156.185])
+	by mailgate01.uberspace.is (Postfix) with ESMTPS id 1C01C617B5
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:07:40 +0100 (CET)
+Received: (qmail 28508 invoked by uid 990); 26 Nov 2026 19:07:40 -0000
+Authentication-Results: devico.uberspace.de;
+	auth=pass (plain)
+Received: from unknown (HELO unknown) (::1)
+	by devico.uberspace.de (Haraka/3.1.1) with ESMTPSA; Thu, 26 Nov 2026 20:07:39 +0100
+From: Leonard Lausen <leonard@lausen.nl>
+To: Ping-Ke Shih <pkshih@realtek.com>
+Cc: leonard@lausen.nl,
+	Luka Gejak <luka.gejak@linux.dev>,
+	=?utf-8?q?David_H=C3=A4rdeman?= <david@hardeman.nu>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-wireless@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH rtw-next v5 0/2] wifi: rtw88: reduce RTL8822CS SDIO request overhead
+Date: Thu, 26 Nov 2026 19:07:31 +0000
+Message-ID: <20261126190734.1151883-1-leonard@lausen.nl>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,26 +65,96 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Rspamd-Bar: -
+X-Rspamd-Report: MID_CONTAINS_FROM(1) BAYES_HAM(-2.99994) MIME_GOOD(-0.1) R_MISSING_CHARSET(0.5)
+X-Rspamd-Score: -1.59994
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+	d=lausen.nl; s=uberspace;
+	h=from:to:cc:subject:date;
+	bh=/2lcIvZ1NIRbNOxDMXK1/2IJX+amxIEYS7IAp9bqB+M=;
+	b=YkBs96yW7k68faMhStJUgRNcCzEdPADTwX275PbH/hlxsh6NNz/41C5J3oiXpT8u7prxcldjWW
+	yLfl1z/hu+FAPStoBaeIUlBBqQxnKIG+JR9YIiDo703sSPHLnWkF1dQ0VOTxOhdr6iB2m9izDDDU
+	/lIMf4S4gqrO0pyndPWZA+4Q6XiYKqSl+ARCdpPgYVzz6ZOospVsjVYmkCN2kqLOfx/oenvu2tWN
+	uJxexF6BobVOqq0m+dqvlbQ3EMyqaWQ4RPkzvA+HrlhsY7F1PVipqMpv7xpATckkXmIy4EqQHjm4
+	mqQRJ8VkVekSFVY9aIxci2dGTZjCx1eb6BNYUMz1Iyabqkn9JSKjYVJHnByOGVW7q5D3cWP8SIi8
+	8Ap4e2gltovT6hOItrcbSWIvfWfCwE4b8zOZly4JUcbgEw1J3isxIsRnOINEN1rnxbyIM51vuvTN
+	OrrugP2uTd4HC0p3QY5bvtFDgGPA8IjBly1QkBZKf4k4a/I5DbFRQq0GOs63WM4oBNN1GBTktGX8
+	hU9Z+pXH3ZLGGRFfmE4lCPbfHOLLyZw/n0d0WItorQrDVsbS/UBK+v/fCldcNDs+XMN+X7umpg3T
+	1d//1Zg97t54Z+nqqpWbEfYc5yrSAyGed7VhpJRszV4Xs9lG9NIRmw6ixWQpZflbFdVHroEewgYp
+	Q=
 
-On Thu, 26 Nov 2026 11:58:43 +0100 Greg Kroah-Hartman <gregkh@linuxfoundation.org> wrote:
->
-> This is the start of the stable review cycle for the 6.18.66 release.
-> There are 990 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
->
-> Responses should be made by Sat, 28 Nov 2026 10:55:59 +0000.
-> Anything received after that time might be too late.
+Reduce RTL8822CS SDIO request overhead by filtering hardware-handled
+control frames and combining adjacent TX-capacity reads.
 
-Boot-tested under QEMU for Rust x86_64, arm64 and riscv64; built-tested
-for loongarch64 and arm32:
+Changes in v5:
+- Add Luka Gejak's Reviewed-by to both patches; no code changes.
 
-Tested-by: Miguel Ojeda <ojeda@kernel.org>
+Changes in v4:
+- Add the requested blank line, order RXFLTMAP1 bits from high to low,
+  and describe the filter as not forwarding the selected control frames.
+- Quantify patch 2's request time and isolated throughput gain, and add
+  Ping-Ke Shih's Acked-by with that description.
 
-I don't see Peter's `offset_readdir` warning in my QEMU boots, though
-they use a minimal userspace.
+Full-series testing on RTL8822CS/NanoPi M5 on 16 November with v3
+measured these TCP medians in Mbit/s:
 
-Thanks!
+                              Upload   Download
+  Neither patch (rtw-next)      163.4      247.5
+  Both patches                  285.4      277.0
 
-Cheers,
-Miguel
+That comparison used three 20-second samples per direction and build:
+74.6% higher median upload and 11.9% higher median download.
+
+The follow-up v4 tests on 17 November isolate patch 2, with patch 1
+enabled in both builds. Median TCP throughput in Mbit/s:
+
+                              Upload   Download
+  Filtering only                254.4      275.4
+  Both patches                  284.7      285.5
+
+Upload increased by 11.9% and download by 3.7%. Each configuration used
+six 20-second samples per direction in F/FC/FC/F blocks, three samples
+per block. The two tables report separate test sessions on a shared
+Wi-Fi network; download samples overlap and throughput can vary.
+
+Separate MMC traces timed the reads of available transmit-buffer space.
+Without patch 2, the driver reads three registers using three 4-byte SDIO
+requests; patch 2 reads the same 12 bytes in one request. The median time
+from the first request start to the final completion fell from 51 to
+13 us (74.5%). This measures the SDIO request span, excluding waiting to
+acquire the host before the first request and processing results after
+the last completion.
+
+Two traces per build reproduced the same respective median during
+15-second UDP uploads. The sender's requested rate was 600 Mbit/s;
+achieved TCP throughput was measured separately above. No MMC errors
+or dropped trace events were observed.
+
+AI assistance: Codex developed the changes and messages and automated
+builds, hardware checks and measurements. Prompts requested the review
+corrections and an isolated, repeated benchmark of the register reads.
+
+Earlier discussion:
+https://lore.kernel.org/linux-wireless/20261116100804.425592-2-leonard@lausen.nl/T/#t
+
+Leonard Lausen (2):
+  wifi: rtw88: 8822c: filter hardware-handled control frames on SDIO
+  wifi: rtw88: sdio: combine free TX page register reads
+
+ drivers/net/wireless/realtek/rtw88/bf.c       |  4 +-
+ drivers/net/wireless/realtek/rtw88/mac80211.c | 10 ++-
+ drivers/net/wireless/realtek/rtw88/main.c     | 11 ++++
+ drivers/net/wireless/realtek/rtw88/main.h     |  2 +
+ drivers/net/wireless/realtek/rtw88/reg.h      |  4 ++
+ drivers/net/wireless/realtek/rtw88/rtw8723x.c |  2 +-
+ drivers/net/wireless/realtek/rtw88/rtw8814a.c |  2 +-
+ drivers/net/wireless/realtek/rtw88/rtw8821c.c |  2 +-
+ drivers/net/wireless/realtek/rtw88/rtw8822b.c |  2 +-
+ drivers/net/wireless/realtek/rtw88/rtw8822c.c | 12 +++-
+ drivers/net/wireless/realtek/rtw88/rtw88xxa.c |  2 +-
+ drivers/net/wireless/realtek/rtw88/sdio.c     | 64 +++++++++++++++++--
+ drivers/net/wireless/realtek/rtw88/sdio.h     |  1 +
+ 13 files changed, 100 insertions(+), 18 deletions(-)
+
+
+base-commit: 61a5eb87b2d9b4d5e353780b781cf691f39ba9e1
