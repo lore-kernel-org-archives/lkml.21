@@ -1,90 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795723509;
-	b=06xG5MLp+b1O21M710ZPfkzw6zYrp8ttMCGcImcSJEXJbfUvL4iHA+2oxuhG7xuwjV2G
-	 ex+ILcjqBZHJrUc//XEcHNkRYbKRSFwYcfx0qC6leKORNmT4pMKpDu7bXRa6x+mDS8TJA
-	 O+EzQH/xy8fpxppoHNP4MCMq5Pfuefm1dUEigc2g30eAfmQrFG76oTAIIhp+TXzy8aBPt
-	 IUSZ5cY2GvWBy41fe8f5KOb33WQOeaKblnx2UNS5YYERVgKZ7+qH5JksC48RzL5VyZDSb
-	 xNnFN7SYWSLExOkD09JNJ9xLuoB5I6sC3KTOYdvKiQ/QoWbetnhTH+zGmylI6z6qNDA==
+	t=1795723691;
+	b=KPVvAWsub0lfpPOKCGYhwBWHXyyk5nSyxlhhyUVUx5b7F2a7jIuCWLJbQcffUYG4byOq
+	 8NkhmeEb2ntMnJrdJDq9QrO+KppQwq1GFmNZKR5ZVOTdiqK2rYCe1waud7eRvV/Eqlxk9
+	 /v0qHUmP+hPnAYaPBN4tAw0TN92ymkcqBTyHiycCfFLW4OeQ19KfarLrE7Z0ni3k28EtT
+	 MBsXfCQcT9JrpCWN32bCoFvwbYmLzfz6H//B44JQqNvfue2N2KsQD/dkdSCFbhlEnkSBZ
+	 QwGyGoGmubnrKAFdT0bcg1GSYmLEn7NvxFt+OW2dUYEAS6lRhf7P+QIn9mZCE0OsNnw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795723509;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795723691;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=0RoDpXKihy0m0eE8eaR3PRpGL9mwDqhVFzBp2hDW0qA=;
-	b=3EqvmyVMbWSkDpeQKrlUFnj6SrCuoWMgyAPFy/ITatUOFgO0D8q7i7I+D06Ksu3fTsTs
-	 QcuOXjQ4Ba1ZGuqIjzF+DFRYVryyVzN57xHTRSfJfM5voQ5HhPI5JMBkfejJB+OckedW3
-	 Toq0oiAmX4dat/zc1vHNchcpH7x+e/QUIs0UV398wd2DLvWANCc1jtWnjHXj03upvKIbU
-	 ig5kPisabkXC9PpiFevF0H4rSqmFbAjriuCbk+Xog/xQvD3Mq4CDp+LYGr0fMs+td/TZq
-	 3jxt9dEbJJ95ejbMi6UVDdQWAYRxNr8USBgNrTdKxugBKh8AfynxK6vRGafW2GwYLyA==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=uLqWBBlD9sWHuj/q7x3/6dvATP1P6dXJhD0nvFViC8c=;
+	b=qyAvrr0e5gcoBaL7I66jR9FkeR+9M20NK4TUVjVCcxp0bodzqLEL1P382r32iClxSU27
+	 Kl8PcBciYkd2QEf5ywULSigGUzxLv8I/XCsd4a938/J6bELlAoFMRm2ljaSaRhOPyqT/R
+	 1ZvBRFIfH8apZVvXUJ8LNDcaX6krIDfPzgbjLtlPSAqLk+ZvImXSB9UO+TXKYTVNjcDCu
+	 R8LYgKDffxNpl7f2BujVOanfWYlua0PT8g+q2MVGM98RT2NF/gfwSZH+ur3WdICYZnH3q
+	 F59CpX4ICh+oP0GP+LrC8aYuS1gWEQR5ElGPYglEzOv1HS5/Ej0WmXFhCkF0e3Qw1RA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=L6EOr7Nf;
-	arc=none smtp.remote-ip=209.85.160.54
-Received: from mail-oa1-f54.google.com (mail-oa1-f54.google.com [209.85.160.54])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=et9UYc6I;
+	arc=none smtp.remote-ip=209.85.218.52
+Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com [209.85.218.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFEAD606A337
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:05:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DFEAD606A337
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C873606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:08:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C873606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=L6EOr7Nf
-Received: by mail-oa1-f54.google.com with SMTP id 586e51a60fabf-4932b13c4ccso4114143fac.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:05:08 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=et9UYc6I
+Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c511c0e2826so846938966b.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:08:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795723508; x=1796328308; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0RoDpXKihy0m0eE8eaR3PRpGL9mwDqhVFzBp2hDW0qA=;
-        b=L6EOr7Nf+bg+rsFbhJf9o4POLyVIn8fDAk3GtJdVFcJwr75S8PqriS7MLcekZYIYQk
-         2FqP8UCw7FWFO45MOukibZln9LGl+2zMYbAs1CQF0aBSju1F3tN/c4r1aP4VOXzXhA8Y
-         5nzog3pXW5M0PCrabsbQtbWFsFwqg60K2NsYyyP4Gn3i9MKS1l364ESKwXc3yJmT56Xd
-         1E2h8dkKPrAbrisckNM/7M2gpF7gZp2v/zpPeEc6MXWOWicIQTNxm2N430EK6LZrJld0
-         kt/udOc4CwS4fyB4RNq7rTE00RK8erx5hNGzJFyJGVKCn6lcoD/hOXO1SJGVc9duYDeG
-         4CGQ==
+        d=gmail.com; s=20260707; t=1795723689; x=1796328489; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=uLqWBBlD9sWHuj/q7x3/6dvATP1P6dXJhD0nvFViC8c=;
+        b=et9UYc6IVKul1QaHts9/mT2CQvZn3tQGTzj1HjxfgWwTOJIrSjdX2YJL59556Ifezs
+         2fAD2qSc2MlAj9Q0I1+pTO9vg2Jlwubyv9KPUwJ/Ar85nkF+g57UvhO0Z/LOaUP2Qee8
+         twfZlesxAybyrG3koc5BuyOuwYsjjDNoMwCH+UI3zzmeOjXpVJVs7pXcVk1amwQG96dP
+         DJqoRsVAX7tyWdLJexvsIyeTbyL0FR5WDUfF7klz4qLf0G55GjxH1XjYverzz/XymrtQ
+         NH8g8+zWyQs9w1NrefAjAeBZrttGmUtmqZaR4Lhv5ZxGtoZgBfxfAezcrcpm4YJn6hWD
+         EfbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795723508; x=1796328308;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0RoDpXKihy0m0eE8eaR3PRpGL9mwDqhVFzBp2hDW0qA=;
-        b=gIS+lcP9/vizt3wbcGGyphb+PPOC/5ntEIedXbB4PGIs4izwGinlpk5cxSd95cKG5+
-         Y47OMAntn5Km2rjoZ4O5cvlQ52b888NiKNnoM4sTjmwHI4p/vBL0gPOUjANzti3u2yTJ
-         c1nZyzAkocPDxhKscNLhJejpmTtlyyPAAETtXNT0OREB3gCrLCpNIAQHczVKg9E5H2/I
-         VNFw6mTEEGuVdvkheKUKJkNhIiBRJGTmU8Ny8IdkYAPW+7n+h5+bWlgnLDxHVZu7yBjq
-         IXjuONUpF5VYX5ELxPmS/pBsiGTpQgDXRafp2bkR0C5fdocdjK/LbDc8YyqZcTuP3+h+
-         SSqg==
-X-Forwarded-Encrypted: i=1; AL+hErEbOY+qxpq9KGILHK+r0dNNvvERMCFULqWLLKpg3WSAW1cK1ULxS3eClVZ+x+7A5Ck19jdSPJYPdvTbM4g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9j3tkpHAic5QkiLma3aYNFhc4pmk3cV/IYvwkFy2tV+GIFiloA
-	W3iqNUT6jcdPBiYtxqsodmlhFXsZ0LUTtBwgsX8ppaXwjo6suAuxiFPP
-X-Gm-Gg: AZFdTZc1pKV7YLa7/r5kwRFj5UgEshHQ7rOtwC259k/rpIc4P4B/RqFnxM+0oY2UHER
-	VOIO8EAYSEqazW5bB+A8E81wz+lwdV2+rDIUwTGd7ySgnbv5xWZn+L8pTFmxsFkub5zFMgtc/7N
-	dlMelG+7Ck1PkPghb7NXax4Qrwem28s1fDXflg3NbXV5AUv8aLcWtLTUQFaJ3tCKV18dJuYHihX
-	+NIyWFCaW+r5rmJh9VePSkc5JFMlu3TySOstdAU3fdHBGgUqLZi+Vbx2x3zlhKyyhiBBHKiwmTT
-	RPl51oDrF+GtESQNBTf2PByBX9w8ODFWIx7PkEDhaC0nqZ/47oCt/Ggo9ax9uzN8ng72iEGbnES
-	yutZhXu+BfHCTuNp1arxf89u71fN3ASdmLj0Y6m6Vo2wbjOQMF4RAxbCp2JFWHSOIIPOgLnsrJT
-	oP894fl5geNTtCkpDx8wknMZd/HCkgUMi2JDUewBlrEVY4KfJ9kWWZPOLzGFNZcTJoeeb09Mtxj
-	vAV3NjIkqIJpOZJBRP2KjPbQV2NdmoaErWI8ABVw9xuNHS9ZV6uVMLx+PeFhHSGt501VshrSrzU
-	/0t5MKVJCzozeebpuIOzStcuHH3NgYYEAkRlsukGrRY+7dKBuC8ClB9dRiyJO1SlcJ01+YWfB7W
-	Z7c6+6DmYFVEBshEEZrPZFbeylNggpoeW138fCBfZRBB/vbHrQHVUV0Sf5Jqba7ij0T6ZgHOapK
-	fzv1c5PvDer03Oa4OAB4wjTmG7tepbQEoi22Vuys1jwyZ+WAqZrids
-X-Received: by 2002:a05:6870:b88:b0:4a7:4c99:8d96 with SMTP id 586e51a60fabf-4bc7beaefd6mr20170070fac.2.1795723507852;
-        Thu, 26 Nov 2026 12:05:07 -0800 (PST)
-Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bc5fc97bb2sm19548249fac.9.2026.11.26.12.05.07
+        d=1e100.net; s=20260707; t=1795723689; x=1796328489;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=uLqWBBlD9sWHuj/q7x3/6dvATP1P6dXJhD0nvFViC8c=;
+        b=22m7d5V4eKWJa/ZoTh+9pWFeSjFi5P+0rs+81N8NwwbMM6cLPpCtOSmTfe06fj0Ttc
+         OLN+youYRpu76SX0y3wy0uaQvnSKLQ6PN8dkZKMQHWlQM/Mjrym7UL1bBixgaYnmp+yq
+         0IfAYnNMaZu1H2jUYoJxt+EJhujb0mC8mrB2+b2btfbh3PrvXTwB3j7gRhg3xpIGnUM3
+         ly9mIrveI7rQ3Vxemehxpq+dlhhp7/7Ld6vgacFI9ber/aQB6fpHccbNsdKYtqDsdXbD
+         I9I6R8/YX5dbd1E1wjEBcniP9GPi7K3JuD2GbEV9AcaNuq/C63VB2XbSzWYROHPzVkZ/
+         UGQA==
+X-Forwarded-Encrypted: i=1; AL+hErFM3gqOYRVJpjl50jtTFDXl+feaULh+TZIlQA82BIPopPYK+pBK6aBi7EWvT++TkasbGCrmyp50ph+GkWI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9K+RoyfoIsfG6oevvSPHWXevz6BRF06jtZNISgBYSErK0bVRqX
+	9Rf/nWwfqEiEISR0ukM1GpwR7I4TKc8tfnCIWVFmkn7lpS7soxnpeRpm
+X-Gm-Gg: AZFdTZd3ZN3KgKCZK0rRM5VO5FkDdWpiZzRECJ1ByjUI8HkuvRJ2xp/uGf+x1laAWIE
+	Yj7EVkckEIxpxmfXV3ZIEcDnxADw+9A0QBI9nlAiN6kvJh4T9ZyWTEj8eohc++wZLQ3xNS7hezG
+	HEC14EgJK06rvwiaFRo7qHjwGULBEmKtIMtExGODlwJmQ+KP8jolnQ4+bEMWHg4ccZsJxs4fwML
+	pw/rZ+G9ahBmlMxLCEgqcAYwxQDWIIJZDiSVo5Z+Qq8xJImtTwRMeIxQRLVAklLP4thpjlEd8xV
+	BripdzjCBEeKbx0TfCgHjYHFdv+HcERIl1mQTaOMxaJRWUha5bUcMAnXkPWXkIufjRCPALuXQSa
+	2HDKE/nqCrKT+G2pglGGeTqlew7XLlkQFJS8nu6BQgsnb+r0UnJE6GQ79l+MJkbEqF5PriodCIt
+	+d91slIyYhHSws3z5tJFIaFzNwiNuX08C/cJNh5qZM2MRhbDEr9ZrXFDwTnDoOZMNXS1W3tlmfE
+	K6Agzf9pI+Wdwl90vBEmneTKiYdad0ys/WqDaFSdZL7Ku9paKXBcNrFFUoUKydY3hB4nvNehTdn
+	27tjCRZShLYIA/FJVB3vWf1DCW5ZZj6UGhxlUOYCntNT0pnghiny+drflU+oeyaM36fVSzPYdDy
+	YoKA3uOMQKGs5ybwju7rNCvaDISD+UZeBI/bql4ataokBN3G2J+Ky0UAafw25JU6su7BGpoH3zW
+	2d
+X-Received: by 2002:a17:906:7ac6:b0:c40:4965:72bd with SMTP id a640c23a62f3a-c513a9ae10cmr1297992966b.19.1795723689407;
+        Thu, 26 Nov 2026 12:08:09 -0800 (PST)
+Received: from desktop.home.arpa (2a02-1810-1e16-ac80-898e-1938-27eb-b890.ip6.access.telenet.be. [2a02:1810:1e16:ac80:898e:1938:27eb:b890])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afe85fdsm799348766b.69.2026.11.26.12.08.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 12:05:07 -0800 (PST)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Thu, 26 Nov 2026 13:04:52 -0700
-Subject: [PATCH v3 2/2] mtd: rawnand: serialize bad-block marker writes
- during BBT recovery
+        Thu, 26 Nov 2026 12:08:09 -0800 (PST)
+From: Stijn Cleynhens <stijncleynhens@gmail.com>
+To: Jiri Kosina <jikos@kernel.org>,
+	Benjamin Tissoires <bentiss@kernel.org>
+Cc: linux-input@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] HID: quirks: add ALWAYS_POLL quirk for Ajazz AK820 Pro 2.4G dongle
+Date: Thu, 26 Nov 2026 21:08:02 +0100
+Message-ID: <20261126200802.3717356-1-stijncleynhens@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,97 +97,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-submit-rawnand-operation-locking-v1-v3-2-cd3794332f23@gmail.com>
-References: <20261126-submit-rawnand-operation-locking-v1-v3-0-cd3794332f23@gmail.com>
-In-Reply-To: <20261126-submit-rawnand-operation-locking-v1-v3-0-cd3794332f23@gmail.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Arseniy Krasnov <AVKrasnov@sberdevices.ru>, 
- Kyle Roeschley <kyle.roeschley@ni.com>, 
- Boris Brezillon <bbrezillon@kernel.org>
-Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org, 
- James Hilliard <james.hilliard1@gmail.com>, stable@vger.kernel.org
-X-Mailer: b4 0.17-dev
+Content-Transfer-Encoding: 8bit
 
-When erasing or writing a flash-based BBT fails, write_bbt() marks the
-failed block bad before trying another reserved block. The erase and
-write helpers release the NAND locks before returning, but
-mark_bbt_block_bad() calls nand_markbad_bbm() without acquiring them.
+The 2.4 GHz dongle of the Ajazz AK820 Pro keyboard (0c45:fdfd) exposes
+five HID interfaces: keyboard, mouse, a consumer/system control
+collection, and two vendor-defined interfaces (usage pages 0xff60 and
+0xff59) used by the vendor's configuration software.
 
-A BBT update triggered by a bad-block marking request can therefore
-issue the recovery marker commands concurrently with other NAND I/O or
-while the chip is suspended. The chip selection and shared page/OOB
-buffers are not protected on this path.
+Nothing opens the vendor interfaces during normal use, so usbhid does
+not poll them. After a while of use the dongle stops delivering any
+keyboard input, while it stays enumerated, until it is unplugged and
+plugged in again. This happens behind several different USB hubs and
+docks, and not on Windows, which polls every HID interface.
 
-Take the chip and controller locks around the recovery marker write,
-as nand_block_markbad_lowlevel() already does for normal marker writes.
-Expose the raw NAND lock helpers through the internal header for this
-cross-file use.
+The AULA F75 Max ships the same dongle hardware and firmware (bcdDevice
+1.38, byte-identical report descriptors) but enumerates as 05ac:024f.
+That ID already has HID_QUIRK_ALWAYS_POLL, and that dongle never stops
+working on the same machine.
 
-Fixes: 10ffd570f117 ("mtd: nand_bbt: scan for next free bbt block if writing bbt fails")
-Cc: stable@vger.kernel.org
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+Booting with usbhid.quirks=0x0c45:0xfdfd:0x00000400 avoids the problem:
+the dongle has kept working for several days, where it used to stop
+after about an hour and a half.
+
+Signed-off-by: Stijn Cleynhens <stijncleynhens@gmail.com>
 ---
- drivers/mtd/nand/raw/internals.h | 2 ++
- drivers/mtd/nand/raw/nand_base.c | 4 ++--
- drivers/mtd/nand/raw/nand_bbt.c  | 2 ++
- 3 files changed, 6 insertions(+), 2 deletions(-)
+ drivers/hid/hid-ids.h    | 1 +
+ drivers/hid/hid-quirks.c | 2 ++
+ 2 files changed, 3 insertions(+)
 
-diff --git a/drivers/mtd/nand/raw/internals.h b/drivers/mtd/nand/raw/internals.h
-index b8b29341b88c..2668f527e637 100644
---- a/drivers/mtd/nand/raw/internals.h
-+++ b/drivers/mtd/nand/raw/internals.h
-@@ -81,6 +81,8 @@ extern const struct nand_manufacturer_ops toshiba_nand_manuf_ops;
- extern const struct mtd_pairing_scheme dist3_pairing_scheme;
+diff --git a/drivers/hid/hid-ids.h b/drivers/hid/hid-ids.h
+index c40d818417a2..cab0b3fc21e5 100644
+--- a/drivers/hid/hid-ids.h
++++ b/drivers/hid/hid-ids.h
+@@ -799,6 +799,7 @@
+ #define USB_DEVICE_ID_JESS_YUREX	0x1010
+ #define USB_DEVICE_ID_ASUS_MD_5112	0x5112
+ #define USB_DEVICE_ID_REDRAGON_ASURA	0x760b
++#define USB_DEVICE_ID_AJAZZ_AK820_PRO_DONGLE 0xfdfd
+ #define USB_DEVICE_ID_AULA_MINI_60_HE_PRO 0xfefe
  
- /* Core functions */
-+void nand_get_device(struct nand_chip *chip);
-+void nand_release_device(struct nand_chip *chip);
- const struct nand_manufacturer_desc *nand_get_manufacturer_desc(u8 id);
- int nand_bbm_get_next_page(struct nand_chip *chip, int page);
- int nand_markbad_bbm(struct nand_chip *chip, loff_t ofs);
-diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
-index 5c877e2536e4..886512cf87bc 100644
---- a/drivers/mtd/nand/raw/nand_base.c
-+++ b/drivers/mtd/nand/raw/nand_base.c
-@@ -207,7 +207,7 @@ EXPORT_SYMBOL_GPL(nand_deselect_target);
-  *
-  * Release chip lock and wake up anyone waiting on the device.
-  */
--static void nand_release_device(struct nand_chip *chip)
-+void nand_release_device(struct nand_chip *chip)
- {
- 	/* Release the controller and the chip */
- 	mutex_unlock(&chip->controller->lock);
-@@ -336,7 +336,7 @@ static int nand_isbad_bbm(struct nand_chip *chip, loff_t ofs)
-  *
-  * Lock the device and its controller for exclusive access
-  */
--static void nand_get_device(struct nand_chip *chip)
-+void nand_get_device(struct nand_chip *chip)
- {
- 	/* Wait until the device is resumed. */
- 	while (1) {
-diff --git a/drivers/mtd/nand/raw/nand_bbt.c b/drivers/mtd/nand/raw/nand_bbt.c
-index a18e10284b9f..a56597dfcea0 100644
---- a/drivers/mtd/nand/raw/nand_bbt.c
-+++ b/drivers/mtd/nand/raw/nand_bbt.c
-@@ -721,10 +721,12 @@ static void mark_bbt_block_bad(struct nand_chip *this,
- 	loff_t to;
- 	int res;
- 
-+	nand_get_device(this);
- 	bbt_mark_entry(this, block, BBT_BLOCK_WORN);
- 
- 	to = (loff_t)block << this->bbt_erase_shift;
- 	res = nand_markbad_bbm(this, to);
-+	nand_release_device(this);
- 	if (res)
- 		pr_warn("error %d while marking block %d bad\n",
- 			res, block);
-
+ #define USB_VENDOR_ID_JESS2		0x0f30
+diff --git a/drivers/hid/hid-quirks.c b/drivers/hid/hid-quirks.c
+index 39e93b1383b1..e7773c946bcc 100644
+--- a/drivers/hid/hid-quirks.c
++++ b/drivers/hid/hid-quirks.c
+@@ -116,6 +116,8 @@ static const struct hid_device_id hid_quirks[] = {
+ 	{ HID_USB_DEVICE(USB_VENDOR_ID_HP, USB_PRODUCT_ID_HP_PIXART_OEM_USB_OPTICAL_MOUSE_1f4a), HID_QUIRK_ALWAYS_POLL },
+ 	{ HID_USB_DEVICE(USB_VENDOR_ID_IDEACOM, USB_DEVICE_ID_IDEACOM_IDC6680), HID_QUIRK_MULTI_INPUT },
+ 	{ HID_USB_DEVICE(USB_VENDOR_ID_INNOMEDIA, USB_DEVICE_ID_INNEX_GENESIS_ATARI), HID_QUIRK_MULTI_INPUT },
++	{ HID_USB_DEVICE(USB_VENDOR_ID_JESS, USB_DEVICE_ID_AJAZZ_AK820_PRO_DONGLE),
++		HID_QUIRK_ALWAYS_POLL },
+ 	{ HID_USB_DEVICE(USB_VENDOR_ID_JESS, USB_DEVICE_ID_AULA_MINI_60_HE_PRO),
+ 		HID_QUIRK_ALWAYS_POLL },
+ 	{ HID_USB_DEVICE(USB_VENDOR_ID_KEYCHRON, USB_DEVICE_ID_KEYCHRON_LINK),
 -- 
-2.53.0
+2.56.1
 
