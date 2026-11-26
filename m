@@ -1,107 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.60
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795676993;
-	b=ZT8CXPhE53TZdikvN/O+3eAtidXNND3vhvDXHbgFD2b74ggOhdYHXYUy6LOr8R/crdQ5
-	 EG6mFQ408EpY+wRCsQ/gJJ5ZePxIIi/l8OOA57SPw53x2bZeTsBe0s6jKfWoXT8Q8Ero6
-	 ofXaSSleCPOnnZ0GKQHi27gPfjHXN6oWgUUoPJLLzlVwMiJL/UqQk18OqDZEQsB6tTjWD
-	 QN7/V1TlgHARBGCoC98FO/wZiJKVNIEulmUY5GTXq9jfVPD1MZZFo4HJyiHVfwSbVpOX4
-	 rYRYFfqHtC959bh57VldzfFXg41pd/PICQiDBBY5LABPts6pFhRzC5KOn/uHETqqfGQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795676993;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:In-Reply-To:References:Content-Transfer-Encoding:
-	 Content-Type:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=axM1dj/gNiR7L8LDkog9ZdPdhkAJ2jCwUv5mkjYXUU4=;
-	b=NSkGbCzWIYgOVx3S1SWHItr6uBuh7V47YW4VzS/fMpZ7268CVKnTSB/Zev+4x94JiZoD
-	 11kd6xNO0iU3Y+gJ/qHzm9Ss7JZptMNllWqpRda2z6X7hUJQ9VPuUDp1G2u6KYXN08gsE
-	 FwLKF7gxRUBKYjfXnw8I6fkj89zY+EmAMYV9NBfaPB4ahCHzngD7n+b0gaRdkhLuMecEj
-	 XWOonvDveXoVSgOJI410e/9709h3f5bt0y8iQi0LvPeW10tuMYCn0ImYZlLw2qL7FDKLi
-	 R/xqaafzxs2gIqE2PZMNqcCdsbTpbw5oy4o5oXPEslSJtxwvveV01URWNNxDSUpg5zw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="jhcn/KRJ";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.60
-Received: from CH4PR04CU002.outbound.protection.outlook.com (mail-northcentralusazon11013060.outbound.protection.outlook.com [40.107.201.60])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795677050;
+	b=eX3eoBmSZWaLiVzmCItOR/FQSactjoh+ghg66Jlcdy7dpQr+1BwU0l3PvefCloAqYoni
+	 dkIKcUjtDWJpukd6gQ1Bw8XXOm7nQqRhczfcJl7xb8OONs7iHnGT+nr3+R3ya9bCEpusc
+	 ajk1WzldkSsKHa+B68KUoiwfkYs65KTw6cADYk2iVPpwINgwdP/fhzkEVJXEVluZpe1cz
+	 Erx3skEb8aLhm4iMMmkAu4GC2n8bbRgU4bnWpQgmRIWT2mmi17S+/ZB64RDQbJSOduj2H
+	 /Fh2oKyzxBdkTT/E9PSNSpLWkEwSvgwrXKDupoOYEHLcAHEpJP/FFEnnLQ8z+kS87yQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795677050;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=5mJRDNzMlq1nfeOxClu49B/b8pA8+rKf+6ZtNiTNyaM=;
+	b=e+fl4swGS1VwCvrdLPVAv0Zjwim95vQwSfHcle8dgVzCWEKEZqdqkNqILsj4LhifmN0q
+	 D5RPWEGvq5bn70hN2fJrQ8LovXvza8iycCy6GD1H8sMPUqW8P3QSeY0p8WvhH63x5F7zE
+	 C1NQ1+1ytJub31XPmRTaDE6ILU1PvFShQxuSE8YKaVoaKI5ABCcnoKNOYJlrhQq+Zt9Fz
+	 WPAHbzsVpNJbnR4ZK9uuubGn6fP+VeIoCaYFpHpN2tpWxYtJdlPP7Q0nn0hykujjgNzNW
+	 cAV3bG6TtsizyAXDfMy+razRhjU6WLpcLO9BXq0ndVSiXYCr/UM0DXCN2lQsTs9xPow==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=USwIohAj;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=iKJh3y87;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C65C606A31C;
-	Thu, 26 Nov 2026 07:09:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C65C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B22D6606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:10:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B22D6606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=jhcn/KRJ
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tauSOUVQ/uA0Ua8e+flW3Rdf08veLXhYoU2Sz94vRD0aVxnze4893emUUCh13afo2/2KyJQWWYkbE2mMyaLJPGCGY3p4Jd3/wPdqwhsh7tGEXi4YIteAMswUvJ2YNaQd4GMicnyCbfvR6n8G7u2sENn0V8W6aw+LkaeKZcM9eB45tmHdVG7pUdsCZebhQ4JCC8oASYq02iUXgNej7lU1ztWq4IHsGEdwT2cbqHz6vAfB7f3UKre/FdAe7bPGxFn5nBestLQ/4L/g7P8PxnZ76cJI0Yln60drRZgC3DE5dAgD1HTAsKzFAh1YWSr0gEW3aprgfR3UI2UMuxbexJtcLw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=axM1dj/gNiR7L8LDkog9ZdPdhkAJ2jCwUv5mkjYXUU4=;
- b=aR3Z7vfNZIpHvEfXdk8wvd6rW9ZBtvmnErUnEsqyD29/JDw+GazJZjNsfkK3yU4/vbKGYxkx77s1JYfx7Bm9abHs4LFVR7t3Qaz3HoCT0m1ezkhd6gH2xdhDVHMnJy3ZtD2D/0NVMkQ8jXRIyG3e1QH0N3ZWHB/Kio4zwtiRhgsIhCLfhhDdLIrt6sNHbCwkzdurrY+lhNtlsIg05KJ69YKw5WNskj7T3ZXLsih7Gd+E19kY7FLLjvJtRsmCBi7UDjGvs/JTE4QpbWZut5MlZUl2IOBXHMPiWF9f6l60MxbaMkI5verKX5Tr5o57VTBLzgXGa1x5AeMQs3642Dp8Ew==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=axM1dj/gNiR7L8LDkog9ZdPdhkAJ2jCwUv5mkjYXUU4=;
- b=jhcn/KRJR5jAK8aQus4MAIqmlK+hl8hu6QEFeX8zYvwYgsxN9S0h7xEkMZqR6vGQ0gAFCvaqqM8XpOTwNwONvCA1G/cJ7v7QBsMEUTpOg8o4rWMTrU7WOg0jk+LaDPz1E7iLuocmqsjX7irLzwD/BF4zA8wNHGZMk9NriDh+whSDuq7fs31sU9GlN87caZwPIwFkuAI68DgK4XFlo2nAQmKxetFXF+1Hu7mW8o0fWrpGq/sh0dVH5+X5tCOWsaVEL8ULfvqZFxED9FnzghPeyefxaK4DK8dniTgRUuvORl4E34yGDhM3U3WfR1ix8ZGS+7QrPwtRQcyMSO1aOucO4g==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
- by CY8PR12MB7193.namprd12.prod.outlook.com (2603:10b6:930:5b::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Thu, 26 Nov
- 2026 07:09:46 +0000
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0639.012; Thu, 26 Nov 2026
- 07:09:46 +0000
-From: Mikko Perttunen <mperttunen@nvidia.com>
-To: Thierry Reding <thierry.reding@kernel.org>,
- Jonathan Hunter <jonathanh@nvidia.com>, Lyude Paul <lyude@redhat.com>,
- Danilo Krummrich <dakr@kernel.org>, Sasha Levin <sashal@kernel.org>
-Cc: Sasha Levin <sashal@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Alexandre Courbot <acourbot@nvidia.com>, Aaron Kling <webgeek1234@gmail.com>,
- Diogo Ivo <diogo.ivo@bootlin.com>, Svyatoslav Ryhel <clamor95@gmail.com>,
- Dmitry Osipenko <dmitry.osipenko@collabora.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- dri-devel@lists.freedesktop.org, nouveau@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-tegra@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject:
- Re: [PATCH v2 6/6] drm/nouveau/tegra: Keep the fuse clock enabled while the
- GPU is powered
-Date: Thu, 26 Nov 2026 16:09:42 +0900
-Message-ID: <vaif4BJtRCizzGlGyucUTw@nvidia.com>
-In-Reply-To: <20261016160700.3831336-7-sashal@kernel.org>
-References:
- <20261016160700.3831336-1-sashal@kernel.org>
- <20261016160700.3831336-7-sashal@kernel.org>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-ClientProxiedBy: OSTPR01CA0005.jpnprd01.prod.outlook.com
- (2603:1096:604:220::19) To SJ2PR12MB9161.namprd12.prod.outlook.com
- (2603:10b6:a03:566::20)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=USwIohAj;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=iKJh3y87
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ36W1d1647604
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:10:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	5mJRDNzMlq1nfeOxClu49B/b8pA8+rKf+6ZtNiTNyaM=; b=USwIohAjRHlPc8uE
+	9dWA+PvTYtBhYGnW7WmI8kMQfuCwIPdzIuUGk4fmpCWerPW/EE8Ko970mZznQK5O
+	WVOCCnbL9uzddkGIGHtVfbSHa4Nlka6YCN+q4Kg6qPCLiU4CtUCvygu4/S5LHSTp
+	LE5ui30dfpMTOLqJOo4BwEpDM/vRDUMiyVpktFe/cHQpC9zgV7GTPYvOFsuW4g4g
+	qlZKmegh/JBCbx490QzSeRPjyLCahvNYg6/pvw16IDlmznPRK400JhSJP7iP2DXK
+	qJV6IVZFMVzf7ffuEvsl0Frq98T8FOyvnCnPEWzes27u2oFys5QvaSoo4FKtcV6h
+	z+l/wA==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j61ahu734-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:10:48 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2ed05b3eaecso61014655ad.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:10:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795677047; x=1796281847; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5mJRDNzMlq1nfeOxClu49B/b8pA8+rKf+6ZtNiTNyaM=;
+        b=iKJh3y87h0WsGyElIqhuojCPssboW59WRp3aWnlpg3trJYb62WiXcfhTQ+d5BniZGa
+         Rb04ilipTYjaTjmjeUI4/LCpi51rLYjL7/nQpF15SbbZPosS0S/mPcSj7CK96OT9luiO
+         WvCl5fctUwDezykT9DTFt0poWzjfsrgcvMwpPTE0oGs+fm7cekgrvk9GvwJb0fADqJk0
+         fZKaa+5+EHrnJ81Qku+hJI29WnhGRnNeJTSstLXqCefZAQ2T7IvT9pXs/GRZd9vI6d31
+         lyK2pIHsmpaYYhRSa7jAGJQMPbzMs2TilAk5y725g7MDhKsf5zo87uxJCtvSgN+suGYi
+         SZVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795677047; x=1796281847;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5mJRDNzMlq1nfeOxClu49B/b8pA8+rKf+6ZtNiTNyaM=;
+        b=TZmozC8BCRUBNCbvNZoLZF3GFo9hAO5IWDCdcca+BZO22i3GtxTwM6t+corfsx1xuR
+         pbJEsxmhZih0d8jK3MNWt3itmkZKr2dogoQeh/ccLL/DA1nhl0EA+vnKwlrbOlH95dD4
+         VXh3+Ie1CytcIUqIxUvJ0xyx1D+oq1VqctgnWdQy/dpQg1UAKJWNuCx2u/q/6jvwaog0
+         hjxOfrS43RwsMiraXgxlTh2yLhP6H2/zz68Xf+JPeyQoiSsR+9UBBjGDaQYf/+yGF321
+         2940SPqyZJABLTF6WripzWMIgcryP6N7akhqQFD033jamXtwUek8Qd8mp2rESFCuJSom
+         CMwQ==
+X-Forwarded-Encrypted: i=1; AL+hErEvwoUdXMSpy1+nFBKxoqPcMv5eu/4frKMebsbDPUh+/TmzEb8idman+Xx1JLB+YOQeg98eLrD20LgBzmo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9vgWzNjcjGQLxrReyxj84l0XKfV1/qiqdXqxF5Y5AcQxNSmxZK
+	XTbk4B8DwZnct37y1xTpHIQMyLwaH+RorFsOdroIInIecDLqh7d+oLl3g71D75lYLTzfgjI26kI
+	l8B1uZHKAOBpgH+RCtY4FDBG8vuOv/noXijvkBq1b18AvVhPXHG2QqdrhsUK63zPlc1plx5KWH6
+	Q=
+X-Gm-Gg: AZFdTZdXxGz+k16qXsfvebyWTM45+pDgLSVrWLCgCgJittPN3QuikE+SDKsdEhOSMrM
+	7WkndAeA7ahW5+DMIh2MA+0s24qIE2r8y+5Ad4XRMin336vTvwBC2FOwmqk3JCVntmuty49WXbE
+	MhoUuwLP7hTTZLoEuo+oGBBfQLNnSILiNbUAftvS3S/mIclgzdqDZ6OHAYSOyK4Ici7EOLMMw44
+	yWVV5HGyr26eZMoFRxZmYG1ZyP5RbzTD9ffG6kkOu81xqCk+rbUmMnT98dazCZMIxg9GuS9Hf/q
+	LR79IQMeqSwFTpKxBbSnOa2fux74ZmwlKb8Hgis+qTJr89G1n2uNa7f3XPbZSw3rCJg1yJWip8q
+	I/QuQ1/PZf7L7EYCb+wFuuJ4jubdDR0uKAydZgrqR3yOJ7VnAezEr4gO4g0T4qpqhFChDxUNn6d
+	sgcQOG7oynTx79gcoPVPTSQUoooFtLqHDsgxvwhr3cY2XSTw==
+X-Received: by 2002:a17:902:fc8e:b0:2f0:429a:e3a8 with SMTP id d9443c01a7336-2f0429ae437mr195602365ad.47.1795677047378;
+        Wed, 25 Nov 2026 23:10:47 -0800 (PST)
+X-Received: by 2002:a17:902:fc8e:b0:2f0:429a:e3a8 with SMTP id d9443c01a7336-2f0429ae437mr195602125ad.47.1795677046816;
+        Wed, 25 Nov 2026 23:10:46 -0800 (PST)
+Received: from [10.133.33.161] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f118c88sm98893155ad.56.2026.11.25.23.10.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 23:10:46 -0800 (PST)
+Message-ID: <bf1f2b46-8392-47d1-aa83-785a63fcef54@oss.qualcomm.com>
+Date: Thu, 26 Nov 2026 15:10:43 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,203 +117,477 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|CY8PR12MB7193:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0478ce89-23db-4a55-3987-08df4b8c40a9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|1800799024|7416014|376014|10070799003|366016|18002099003|22082099003|4143699003|56012099006|11063799006|260925022911599003|260925021911599003|260925021311599003|261009223027099003|261026121527099003|261022075727099003|261026140227099003|261028144727099003|261021121427099003|261022105027099003|261021123027099003|261102123227099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	LuP8uviXSTKJMR/3LVsiGtmC9l9WymnetmCF1oeL5Z72w7v/6z4/8KUn+LChOVPkIFnCYL7mPERlepUvE47DF1AcWEL3dEykBrupA/cw5jryRUqytM4QzMhGSOQiGUabP1Ed4PHY2AZOxAUT6SvvuTlyaHyAXo1o4T/7f99r75a7LzX8l9oAAb4gdeLTnxajEH/tvasqUL/N8e+wHJaNnA7vwlI4nYFN+ZwOw7A1AJ38ubqFpajsqXd4+PViYFl/CHe6gP9dK3KWT0D4+lvve447jm6EzCE8YUlUNMu/tyb2v1WeYYJsU9j5dPIn5v6X/RwN2YAme/lGCF8lUJHv5ZPrrS+zT13KjxT9nDw0kRus90AIPVy81xW9YvdGikPmnxAvFD4G8f8wLXS0Y6TorxF5NiNidkR7FI4r6XIKcbX7CUdk80vZgIKH1Hqnff2HiS+9MyDm3hPlqFGkSP6r8RD19ip39OmEonbn8qZ/Qe/EwhHz1PFMSwWhak3XuUk3z25swzvLGT7UMd1IYScxCLW6vgYYG44nfrr3z17G8GvsPWGtWdrIw2t2sxDgi4b9m/eCD1GS8fty2Ecj3nZb/0mTJ4Vdf+oZY4lH1a2P1jETaxt2bf9TICBoV2rzOm2/qLVfYfNf8fXtAVM1GGNtEctdWf6mbq8x6+buzNQbjoI=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(376014)(10070799003)(366016)(18002099003)(22082099003)(4143699003)(56012099006)(11063799006)(260925022911599003)(260925021911599003)(260925021311599003)(261009223027099003)(261026121527099003)(261022075727099003)(261026140227099003)(261028144727099003)(261021121427099003)(261022105027099003)(261021123027099003)(261102123227099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?NUJRQnRjaDJQYzI4NlA4SDczU1dENzg5YW51VjBOUko1eHo5Rk55Tld4Zmdr?=
- =?utf-8?B?OFRNbDZiekVoRmV3MU9ZQkFBMEQ2WTduVElFQk1leGpZV1czTVN1aWExSlBa?=
- =?utf-8?B?RTlWd2sxVS9BU1JtaTlRWStkeEllQUx0aFZ0OWN4MEtJUHpoM28yQzI2aERN?=
- =?utf-8?B?Tjdva2NmKytXTWZDREFvR1dHd2NrQjBvbjhtdVF3M3J6ZlBJSzd0TTA2N3lT?=
- =?utf-8?B?cHJtR0N5UHNOWC84OWV5Uk4rMnJzUHhweGJKY3FIOE1WcWlyZTVrYVNyQUlx?=
- =?utf-8?B?UTFPSHNOb2RLVm5uRFRUby9ZdmhWOXVsRzlNNkNycENrVHJrclFHc3hOckJL?=
- =?utf-8?B?dmpxWVd6cHl6ZXFxRFU0Tk1SZ29UcHhvNGx1aE1EWFhLM083R3JyYUZpSStj?=
- =?utf-8?B?bHRJUkRLQmsrcGY2UWU5RlFtWTY0Sjk4SXB6SEVpN0RGVFA3aUd5K2xwdDZp?=
- =?utf-8?B?MkNIUHZhbHNUS3kyL05Gei9jc3JlQ3QxN1JJTExadXFoRnJ3enp5K3IrV3B4?=
- =?utf-8?B?Z3BOSmdJempQWnN5b25QQmZpN2d6WElUdXBWeXRVOHNyMkxNNEx6endFektk?=
- =?utf-8?B?emd0aWJDQVU2OVQrdE5ST3lmdUtyWHdROXhac2s0YnNEdGdKTXovMXhQS1VV?=
- =?utf-8?B?MmZWQ2w5amJtVzJIRE93bE40VHZGNkZES0p6THVXM1krOTJ0OHRXNysxQzhP?=
- =?utf-8?B?Q044Y0tBNE1kMVVadVl5ckVUa0xoQ1lTY0tZRUQ2dVNQcnNDZk9CZDN6OS9l?=
- =?utf-8?B?aFJrU2tWeHBRQnlzaUZqblFxZ0FKK3hvU3pDVGwxWDRHeGlabmFyUHF0cmUr?=
- =?utf-8?B?M2h6a2pZc2Q4WkU2TXE5elYrVlJ6MXdYeVdPVEFoc0xJZUxPSG5leHF4UzVK?=
- =?utf-8?B?QTRnMXBJU1hKZkcyNDNWSUhSMjVVblZaZ1c4QXc4VUNOaXJyOWYxVE1sYm9y?=
- =?utf-8?B?SGxDUDdZRmJPaXR5R1ltY1U0eDJSSm9ibUMxN3cyS09IRjBkTUo1bXl4RW1G?=
- =?utf-8?B?TlU3QzdBUU9wcXFpOUR5ODVsRzgraGYzM0VJdHJNUGdWcXV6US95NiszcDYr?=
- =?utf-8?B?YWRiNGRhUDZjUlp6M0MwMXlmek94elVqcjdWOTgybzlSZHhpTW1ZL0VjOXRN?=
- =?utf-8?B?QjBLc256Z3FXci9IS1pJQ1NDdW1mVmN4bnROTXVIOWRuTitCd0M3WXMraGhw?=
- =?utf-8?B?enBoVEw5MnV0aEtGOVVzZHhub1ZwUWJwS29HMm9kNjZBb0poK0JMVExIaFE5?=
- =?utf-8?B?Z1B1RytNUHF3czVUSWhJWUVBQTZ2MndieDF3aUJjQ1JuQW9zZW9yK21jSUd3?=
- =?utf-8?B?aUVHU1J2WkNNS3BYUTAvMTNoNlZPOXdHRkZJV3cwVkRIRW84WGRsWnJwR0J6?=
- =?utf-8?B?VjA3bTMyRng0eWpQNjd6Z3pyWGcxVldkaXVvTk9UZ1BlVDZ6ak5LUkVnRUJQ?=
- =?utf-8?B?WDJVR0F3OE9yUUVzaHJIdlpoVmZhTjRwUW9wb3B6Mnk4RmFIK0MvRlRNQlQ3?=
- =?utf-8?B?T2g2SFpCZm9hVGluL21xNWQyQ080SlFsVTFPRWg2N2xEOTFEZUF4TzFDcnF5?=
- =?utf-8?B?WWxhTHZxdGs1d2NtNVZ4ZWI5Nks1U1lEL1JVUG1ZUXZoYnFSZDNaNTdGeW9E?=
- =?utf-8?B?TWZTVlJQTXpVbENGUTVody9MQUlkdUFRdi9qbTlFL1RpZGRSYkp2b3lvU2JK?=
- =?utf-8?B?TlNiaTE0SmFQQVYzT2hLNW5GMVltd0RWMDBpaE5tdWRDRUlGOFlQMHA1VzFi?=
- =?utf-8?B?OTVzTlpTKzgxQ2pwSDZBcGxHWWE1NEpaSTVOQnVLWVJacFEzOUxXMSt6RExQ?=
- =?utf-8?B?UHM2Vnd2VExja1JHT0pTK0lodTMzSWcrYlV3SmFyai85UC9jeng5THFhQUhO?=
- =?utf-8?B?VGdCMzR2bHhYYXRDNkthOWtKanMyZjVJbU1OQmJJSVNsYTJTWjQxVkpYUU5K?=
- =?utf-8?B?R1g4M01jSnBVYWZMa1Jac2xVd3orOVJlZjh2NjRqalExamtvMmxaNVA5NG1K?=
- =?utf-8?B?OHcxOUp3Q3dzbXk0MHl0RVkwUm9QcEQvOEVPQVlaWHE4WHNwQlEwUDdWQ0t5?=
- =?utf-8?B?a0pqUUR2U1B5ZjBBZ0htbDg0cldjUHJzS0MwdUUvMFF4Y0tBVUJNc0dtTEpr?=
- =?utf-8?B?Q1gwRmdWRG9xNHE4T3kxRG9qRVVsK3B2QVVRbm4xZE16Q09SV2tHMGxYRmx2?=
- =?utf-8?B?aHJyWGlPalNMZ290ZkJ0UG04ZWRWOGdYRW05WTN3T1J5K050ZkFCNzFtOVFk?=
- =?utf-8?B?Ty9BekZDVkpIdVNYZEtnaUx1SHhwdHY4eVJianZydnRML0NseGdoVG8vR3Nw?=
- =?utf-8?B?Rk5HS0FiZFp3VStTcVkzWXpvOGRMMVFwN2VuODBaWVd6Y0lSanVtWGZLYVJQ?=
- =?utf-8?Q?naRa23O7kv+VO/0uQw5B5cTkraEZfC2kt4tSAmaQEL+Vc?=
-X-MS-Exchange-AntiSpam-MessageData-1: Gdyu+ulkrthP5Q==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0478ce89-23db-4a55-3987-08df4b8c40a9
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 07:09:46.5489
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uyMNCO8YviqFRvKPDSmw6G2kpSWeB8HRVPwEGqd8Q+MAUZWI52c7w9sAUGsQxfh6KYgzTI16bFQO9/Aq19l6gA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7193
-
-On Saturday, October 17, 2026 1:06=E2=80=AFAM Sasha Levin wrote:
-> Since the GPU on the Jetson TX1 was enabled in commit d1b725476104
-> ("arm64: tegra: p2180: Explicitly enable GPU"), nouveau often fails to
-> bring up the GM20B. Either BOOT_0 reads back garbage ("unknown chipset
-> (5ffefa47)"), or PRI reads of the GPC PLL time out ("MMIO read of
-> 00000000 FAULT at 137000 [ TIMEOUT ]"), or the first register reads in
-> nvkm_device_ctor() stall until an asynchronous SError. How often depends
-> on the board; one board fails on every boot.
->=20
-> nouveau powers the GPU up with the fuse clock gated: since commit
-> 24a15252ff04 ("soc/tegra: fuse: Add runtime PM support"), the Tegra fuse
-> driver only enables that clock around its own fuse reads. NVIDIA's
-> downstream nvgpu driver enables the fuse clock along with the other GPU
-> clocks whenever the GPU is powered. Do the same: take an optional "fuse"
-> clock and keep it enabled from before the GPU rail is turned on until
-> after it is turned off. The clock is optional so that device trees that
-> lack it keep working as before.
->=20
-> Tested on eight Jetson TX1 devkits, on mainline and on v6.18. Without
-> this patch, the GPU failed to come up in 27 of 109 boots; with it, in 11
-> of 291, none of them with a garbage BOOT_0. On the board that failed on
-> every boot, 38 of 40 boots now succeed. The remaining failures are
-> mostly a register read that stalls until an SError; wherever the console
-> shows when, nouveau had already finished probing. Such stalls also occur
-> without this patch and are a separate problem. The Jetson Nano, which
-> shares the Tegra210 GPU node, still works (24 of 24 boots).
->=20
-> Fixes: d1b725476104 ("arm64: tegra: p2180: Explicitly enable GPU")
-> Assisted-by: LLM
-> Signed-off-by: Sasha Levin <sashal@kernel.org>
-> ---
->  .../gpu/drm/nouveau/include/nvkm/core/tegra.h |  1 +
->  .../drm/nouveau/nvkm/engine/device/tegra.c    | 22 ++++++++++++++-----
->  2 files changed, 17 insertions(+), 6 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/nouveau/include/nvkm/core/tegra.h b/drivers/=
-gpu/drm/nouveau/include/nvkm/core/tegra.h
-> index 6aaa30ef167f6..0189043382d02 100644
-> --- a/drivers/gpu/drm/nouveau/include/nvkm/core/tegra.h
-> +++ b/drivers/gpu/drm/nouveau/include/nvkm/core/tegra.h
-> @@ -15,6 +15,7 @@ struct nvkm_device_tegra {
->  	struct clk *clk;
->  	struct clk *clk_ref;
->  	struct clk *clk_pwr;
-> +	struct clk *clk_fuse;
-> =20
->  	struct regulator *vdd;
-> =20
-> diff --git a/drivers/gpu/drm/nouveau/nvkm/engine/device/tegra.c b/drivers=
-/gpu/drm/nouveau/nvkm/engine/device/tegra.c
-> index 3c8d0878891ad..74b292659ee9a 100644
-> --- a/drivers/gpu/drm/nouveau/nvkm/engine/device/tegra.c
-> +++ b/drivers/gpu/drm/nouveau/nvkm/engine/device/tegra.c
-> @@ -32,6 +32,10 @@ nvkm_device_tegra_power_up(struct nvkm_device_tegra *t=
-dev)
->  {
->  	int ret;
-> =20
-> +	ret =3D clk_prepare_enable(tdev->clk_fuse);
-> +	if (ret)
-> +		return ret;
-> +
->  	if (tdev->vdd) {
->  		ret =3D regulator_enable(tdev->vdd);
->  		if (ret)
-> @@ -76,26 +80,26 @@ nvkm_device_tegra_power_up(struct nvkm_device_tegra *=
-tdev)
->  	if (tdev->vdd)
->  		regulator_disable(tdev->vdd);
->  err_power:
-> +	clk_disable_unprepare(tdev->clk_fuse);
->  	return ret;
->  }
-> =20
->  static int
->  nvkm_device_tegra_power_down(struct nvkm_device_tegra *tdev)
->  {
-> -	int ret;
-> +	int ret =3D 0;
-> =20
->  	clk_disable_unprepare(tdev->clk_pwr);
->  	clk_disable_unprepare(tdev->clk_ref);
->  	clk_disable_unprepare(tdev->clk);
->  	udelay(10);
-> =20
-> -	if (tdev->vdd) {
-> +	if (tdev->vdd)
->  		ret =3D regulator_disable(tdev->vdd);
-> -		if (ret)
-> -			return ret;
-> -	}
-> =20
-> -	return 0;
-> +	clk_disable_unprepare(tdev->clk_fuse);
-> +
-> +	return ret;
->  }
-> =20
->  static void
-> @@ -308,6 +312,12 @@ nvkm_device_tegra_new(const struct nvkm_device_tegra=
-_func *func,
->  		goto free;
->  	}
-> =20
-> +	tdev->clk_fuse =3D devm_clk_get_optional(&pdev->dev, "fuse");
-> +	if (IS_ERR(tdev->clk_fuse)) {
-> +		ret =3D PTR_ERR(tdev->clk_fuse);
-> +		goto free;
-> +	}
-> +
->  	tdev->pmc =3D devm_tegra_pmc_get(&pdev->dev);
->  	if (IS_ERR(tdev->pmc)) {
->  		ret =3D PTR_ERR(tdev->pmc);
-> --=20
-> 2.53.0
->=20
->=20
-
-This enables the fuse clock first thing during power up, even before the=20
-regulator. Have you observed this to be necessary? I'm inclined to think=20
-that it doesn't need to be on before the regulator, and the code would=20
-look cleaner that way.
-
-During power down, we certainly should be able to disable it before=20
-regulator disable with the other clocks. I've found some data saying the=20
-fuse clock only needs to be enabled briefly during power up.
-
-FWIW, I've tested this on Tegra194 and it helps even there.
-
-Thanks
-Mikko
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH ath-next 7/7] wifi: ath12k: handle MLO active link updates
+To: Rameshkumar Sundaram <rameshkumar.sundaram@oss.qualcomm.com>,
+        jjohnson@kernel.org
+Cc: ath12k@lists.infradead.org, linux-wireless@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+References: <20261118025520.39269-1-miaoqing.pan@oss.qualcomm.com>
+ <20261118025520.39269-8-miaoqing.pan@oss.qualcomm.com>
+ <d10c7d75-2113-454d-bffb-a71b826ccff6@oss.qualcomm.com>
+Content-Language: en-US
+From: Miaoqing Pan <miaoqing.pan@oss.qualcomm.com>
+In-Reply-To: <d10c7d75-2113-454d-bffb-a71b826ccff6@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: RrUGfdt-tUV-s4tQoyBoFIJqcVfp4g68
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAyNyBTYWx0ZWRfXySDHF6VQYe7K
+ +P1YgxZYR90iNsQ0pMqbnqaKrzyOrp6ni7D6FIETjw3xBRIIA5Ilb34sNhOuIGCZ0yesQWJpn2h
+ SAUsypVi4sBwKxK5q86+aWktfO6Bphg=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAyNyBTYWx0ZWRfX87ZtU0tkM8wj
+ 1Y+ZjfeAMUZ2pDtx5SWbMoQ/XkMGLR7bJtxmBGqw/DAl7ZXYIxJHab3a1coojNx8uEJJ181hwxF
+ 1mjURvjH7ENgdykQMsHeRKpAJi/nr0ExdP8LK/zkj5RjE8IdCtDBnIHU4Lrw62QsMKOwFAiPcoT
+ 70IRM0WFp9E+YvjprsGG8qElCEM2eIbQlb7RS7WL9vXngw8k46gXshVDkF+rZK+XVj6VLtZD9FC
+ 3qIvcf77lBJJCJqyY0gnMDsYj1IGS4L+H/h30OylOi3YOSrPFLvGu/t5bB/ejoi+jgTlcT5+EWZ
+ l0N1ZTl41/km8vJkr5CAcT/7A/ysvODqWcaM2fuu9yo7Jnf9a3Fg9RW9pK4Bwkqgw7CbDOfpOvE
+ 5BbsFNYlVlDd6CzgQ6MsDY9FV3Zf/BxBEGHH6sddkOc2ONCNz3lFEOYrl58Jcbj97iqklagqQHh
+ QNz5Ft/57zeRLZW1arg==
+X-Proofpoint-ORIG-GUID: RrUGfdt-tUV-s4tQoyBoFIJqcVfp4g68
+X-Authority-Analysis: v=2.4 cv=BbxNQbt2 c=1 sm=1 tr=0 ts=6b07db78 cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=Dr3Gg3Y-FhNBr10yXqAA:9 a=9Or771OM3RG0_sXS:21
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_01,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 bulkscore=0 adultscore=0 suspectscore=0 impostorscore=0
+ priorityscore=1501 malwarescore=0 spamscore=0 phishscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260027
 
 
+
+On 11/25/2026 4:54 AM, Rameshkumar Sundaram wrote:
+> On 11/18/2026 8:25 AM, Miaoqing Pan wrote:
+>> ath12k_mac_op_change_sta_links() handles both valid-link and active-link
+>> changes from mac80211. For an active-link change, old_links and new_links
+>> are the active sets. The callback returned early whenever new_links was
+>> smaller than old_links, and outside connect nothing sends an active-link
+>> command to firmware. So when an associated MLO STA deactivates a link,
+>> e.g. active links 0x5 -> 0x1, firmware keeps link 2 active while
+>> mac80211 has already released its channel context.
+>>
+>> Sync the active links to firmware from the callback once the STA is
+>> AUTHORIZED:
+>>
+>> - Create link STAs for sta->valid_links instead of new_links. Firmware
+>>    cannot remove a single link sta, so removals are only logged and are
+>>    left to STA removal.
+>> - Take the active set from channel contexts: a link with a link STA and
+>>    a link vif is active if it holds a chanctx, inactive otherwise.
+>>    mac80211 releases the chanctx of a deactivated link and assigns one to
+>>    a newly activated link before it calls the callback.
+>> - Send WMI_MLO_LINK_SET_ACTIVE only when this set differs from the one
+>>    last programmed, cached per vif. Send it to each device that holds
+>>    vdevs of the STA, with that device's links, and wait up to 5 seconds
+>>    for each response. Two active links on the same MAC use
+>>    INACTIVE_LINK_NUM, as at connect, and that command is not waited for.
+>>    Update the cache only if all devices succeed, so a failed sync is
+>>    retried on the next callback.
+>> - Reset the cache on ASSOC -> AUTHORIZED, so the first sync after each
+>>    (re)connect is always sent. This also covers hw restart, where
+>>    mac80211 replays the station state transitions.
+>>
+>> If the device crashes while a request is pending, the waiter still holds
+>> the wiphy lock. ath12k_core_pre_reconfigure_recovery() therefore releases
+>> the waiter before it takes the lock, otherwise recovery stalls until the
+>> timeout expires.
+>>
+>> Tested-on: QCC2072 hw1.0 PCI WLAN.COL.1.0.c2-00277- 
+>> QCACOLSWPL_V1_TO_SILICONZ-1
+>> Tested-on: WCN7850 hw2.0 PCI WLAN.HMT.1.1.c7-00108- 
+>> QCAHMTSWPL_V1.0_V2.0_SILICONZ_UPSTREAM-3
+>>
+>> Signed-off-by: Miaoqing Pan <miaoqing.pan@oss.qualcomm.com>
+>> ---
+>>   drivers/net/wireless/ath/ath12k/core.c |  15 ++
+>>   drivers/net/wireless/ath/ath12k/core.h |  20 ++
+>>   drivers/net/wireless/ath/ath12k/mac.c  | 241 +++++++++++++++++++++++--
+>>   drivers/net/wireless/ath/ath12k/wmi.c  |   9 +-
+>>   drivers/net/wireless/ath/ath12k/wmi.h  |   1 +
+>>   5 files changed, 271 insertions(+), 15 deletions(-)
+>>
+>> diff --git a/drivers/net/wireless/ath/ath12k/core.c b/drivers/net/ 
+>> wireless/ath/ath12k/core.c
+>> index 42a9cd28c652..183da4cb5e64 100644
+>> --- a/drivers/net/wireless/ath/ath12k/core.c
+>> +++ b/drivers/net/wireless/ath/ath12k/core.c
+>> @@ -1524,6 +1524,19 @@ void ath12k_core_halt(struct ath12k *ar)
+>>       idr_init(&ar->txmgmt_idr);
+>>   }
+>> +static void ath12k_core_abort_mlo_link_set_active(struct ath12k_base 
+>> *ab)
+>> +{
+>> +    struct ath12k_mlo_link_set_active_req *req;
+>> +
+>> +    rcu_read_lock();
+>> +    req = rcu_dereference(ab->mlo_link_set_active_req);
+>> +    if (req) {
+>> +        req->status = -ESHUTDOWN;
+>> +        complete(&req->done);
+>> +    }
+>> +    rcu_read_unlock();
+>> +}
+>> +
+>>   static void ath12k_core_pre_reconfigure_recovery(struct ath12k_base 
+>> *ab)
+>>   {
+>>       struct ath12k_hw_group *ag = ab->ag;
+>> @@ -1538,6 +1551,8 @@ static void 
+>> ath12k_core_pre_reconfigure_recovery(struct ath12k_base *ab)
+>>       if (ab->is_reset)
+>>           set_bit(ATH12K_FLAG_CRASH_FLUSH, &ab->dev_flags);
+>> +    ath12k_core_abort_mlo_link_set_active(ab);
+>> +
+>>       for (i = 0; i < ag->num_hw; i++) {
+>>           ah = ath12k_ag_to_ah(ag, i);
+>>           if (!ah || ah->state == ATH12K_HW_STATE_OFF ||
+>> diff --git a/drivers/net/wireless/ath/ath12k/core.h b/drivers/net/ 
+>> wireless/ath/ath12k/core.h
+>> index 7c7057468916..74f184d283b7 100644
+>> --- a/drivers/net/wireless/ath/ath12k/core.h
+>> +++ b/drivers/net/wireless/ath/ath12k/core.h
+>> @@ -401,6 +401,12 @@ struct ath12k_vif {
+>>       struct ath12k_link_vif deflink;
+>>       struct ath12k_link_vif __rcu *link[ATH12K_NUM_MAX_LINKS];
+>>       struct ath12k_vif_cache *cache[IEEE80211_MLD_MAX_NUM_LINKS];
+>> +    /*
+>> +     * Last active/inactive link state programmed to firmware via
+>> +     * WMI_MLO_LINK_SET_ACTIVE. Zero means unknown: forces a resend.
+>> +     */
+>> +    u16 fw_active_links;
+>> +    u16 fw_inactive_links;
+>>       /* indicates bitmap of link vif created in FW */
+>>       u32 links_map;
+>>       /* Must be last - ends in a flexible-array member.
+>> @@ -797,6 +803,12 @@ struct ath12k {
+>>       } incumbent_signal_interference;
+>>   };
+>> +struct ath12k_mlo_link_set_active_req {
+>> +    struct completion done;
+>> +    int status;
+>> +    struct rcu_head rcu_head;
+>> +};
+>> +
+>>   struct ath12k_hw {
+>>       struct ieee80211_hw *hw;
+>>       struct device *dev;
+>> @@ -1153,6 +1165,14 @@ struct ath12k_base {
+>>   #endif /* CONFIG_ACPI */
+>>       struct ath12k_hw_group *ag;
+>> +
+>> +    /*
+>> +     * Set-active request in flight to this device, NULL when idle. 
+>> Freed
+>> +     * via kfree_rcu(). The links of an MLO STA can be on several 
+>> devices,
+>> +     * and each device is programmed separately, so at most one 
+>> request is
+>> +     * outstanding per device.
+>> +     */
+>> +    struct ath12k_mlo_link_set_active_req __rcu 
+>> *mlo_link_set_active_req;
+>>       struct ath12k_wsi_info wsi_info;
+>>       enum ath12k_qmi_firmware_mode fw_mode;
+>>       struct ath12k_ftm_event_obj ftm_event_obj;
+>> diff --git a/drivers/net/wireless/ath/ath12k/mac.c b/drivers/net/ 
+>> wireless/ath/ath12k/mac.c
+>> index dfb0f6e678ac..885eedbbdd67 100644
+>> --- a/drivers/net/wireless/ath/ath12k/mac.c
+>> +++ b/drivers/net/wireless/ath/ath12k/mac.c
+>> @@ -7667,6 +7667,8 @@ static int 
+>> ath12k_mac_mlo_sta_update_link_active(struct ath12k_base *ab,
+>>       u8 num_mlo_vdev = 0;
+>>       u8 link_id;
+>> +    lockdep_assert_wiphy(hw->wiphy);
+>> +
+>>       for_each_set_bit(link_id, &links, IEEE80211_MLD_MAX_NUM_LINKS) {
+>>           arvif = wiphy_dereference(hw->wiphy, ahvif->link[link_id]);
+>>           /* make sure vdev is created on this device */
+>> @@ -7982,6 +7984,14 @@ int ath12k_mac_op_sta_state(struct ieee80211_hw 
+>> *hw,
+>>       if (ieee80211_vif_is_mld(vif) && vif->type == 
+>> NL80211_IFTYPE_STATION &&
+>>           old_state == IEEE80211_STA_ASSOC && new_state == 
+>> IEEE80211_STA_AUTHORIZED) {
+>> +        /*
+>> +         * The cached active link state is only updated while 
+>> AUTHORIZED,
+>> +         * so reset it on each ASSOC -> AUTHORIZED. The next active-link
+>> +         * sync then sends the state to firmware.
+>> +         */
+>> +        ahvif->fw_active_links = 0;
+>> +        ahvif->fw_inactive_links = 0;
+>> +
+>>           for_each_ar(ah, ar, i) {
+>>               ab = ar->ab;
+>>               if (prev_ab == ab)
+>> @@ -8243,6 +8253,194 @@ static struct ath12k_link_sta 
+>> *ath12k_mac_alloc_assign_link_sta(struct ath12k_hw
+>>       return arsta;
+>>   }
+>> +static struct ieee80211_chanctx_conf *
+>> +ath12k_mac_link_chanctx(struct ieee80211_hw *hw, struct ieee80211_vif 
+>> *vif,
+>> +            u8 link_id)
+>> +{
+>> +    struct ieee80211_bss_conf *link_conf;
+>> +
+>> +    link_conf = wiphy_dereference(hw->wiphy, vif->link_conf[link_id]);
+>> +    if (!link_conf)
+>> +        return NULL;
+>> +
+>> +    return wiphy_dereference(hw->wiphy, link_conf->chanctx_conf);
+>> +}
+>> +
+>> +struct ath12k_mlo_dev_links {
+>> +    u8 active_vdev[IEEE80211_MLD_MAX_NUM_LINKS];
+>> +    u8 inactive_vdev[IEEE80211_MLD_MAX_NUM_LINKS];
+>> +    u32 active_freq[IEEE80211_MLD_MAX_NUM_LINKS];
+>> +    unsigned int num_active;
+>> +    unsigned int num_inactive;
+>> +};
+>> +
+>> +static u16 ath12k_mac_mlo_vif_active_links(struct ieee80211_hw *hw,
+>> +                       struct ieee80211_vif *vif,
+>> +                       unsigned long links)
+>> +{
+>> +    u16 active = 0;
+>> +    u8 link_id;
+>> +
+>> +    for_each_set_bit(link_id, &links, IEEE80211_MLD_MAX_NUM_LINKS) {
+>> +        if (ath12k_mac_link_chanctx(hw, vif, link_id))
+>> +            active |= BIT(link_id);
+>> +    }
+>> +
+>> +    return active;
+>> +}
+>> +
+>> +static void ath12k_mac_mlo_sta_collect_dev_links(struct ieee80211_hw 
+>> *hw,
+>> +                         struct ath12k_vif *ahvif,
+>> +                         struct ath12k_base *ab,
+>> +                         unsigned long links,
+>> +                         struct ath12k_mlo_dev_links *dl)
+>> +{
+>> +    struct ieee80211_chanctx_conf *conf;
+>> +    struct ath12k_link_vif *arvif;
+>> +    u8 link_id;
+>> +
+>> +    dl->num_active = 0;
+>> +    dl->num_inactive = 0;
+>> +
+>> +    for_each_set_bit(link_id, &links, IEEE80211_MLD_MAX_NUM_LINKS) {
+>> +        arvif = wiphy_dereference(hw->wiphy, ahvif->link[link_id]);
+>> +        if (!arvif || !arvif->is_created || arvif->ar->ab != ab)
+>> +            continue;
+>> +
+>> +        conf = ath12k_mac_link_chanctx(hw, ahvif->vif, link_id);
+>> +        if (!conf) {
+>> +            dl->inactive_vdev[dl->num_inactive++] = arvif->vdev_id;
+>> +            continue;
+>> +        }
+>> +
+>> +        dl->active_freq[dl->num_active] = conf->def.chan->center_freq;
+>> +        dl->active_vdev[dl->num_active++] = arvif->vdev_id;
+>> +    }
+>> +}
+>> +
+>> +static bool ath12k_mac_mlo_dev_same_mac(struct ath12k_base *ab,
+>> +                    const struct ath12k_mlo_dev_links *dl)
+>> +{
+>> +    return dl->num_active == 2 &&
+>> +           ath12k_mac_freqs_on_same_mac(ab, dl->active_freq[0],
+>> +                        dl->active_freq[1]);
+>> +}
+>> +
+>> +static int ath12k_mac_mlo_sta_send_inactive_link_num(struct 
+>> ath12k_base *ab,
+>> +                             struct ath12k_mlo_dev_links *dl)
+>> +{
+>> +    return ath12k_mac_mlo_sta_set_link_active(ab,
+>> +                          WMI_MLO_LINK_FORCE_REASON_NEW_CONNECT,
+>> +                          WMI_MLO_LINK_FORCE_MODE_INACTIVE_LINK_NUM,
+>> +                          NULL, dl->active_vdev, dl->num_active,
+>> +                          NULL, 0);
+>> +}
+>> +
+>> +static int ath12k_mac_mlo_sta_send_set_active(struct ath12k_base *ab,
+>> +                          struct ieee80211_vif *vif,
+>> +                          struct ath12k_mlo_dev_links *dl)
+>> +{
+>> +    struct ath12k_mlo_link_set_active_req *req;
+>> +    enum wmi_mlo_link_force_mode mode;
+>> +    int ret;
+>> +
+>> +    req = kzalloc_obj(*req);
+>> +    if (!req)
+>> +        return -ENOMEM;
+>> +
+>> +    init_completion(&req->done);
+>> +    rcu_assign_pointer(ab->mlo_link_set_active_req, req);
+>> +
+>> +    mode = dl->num_inactive ? WMI_MLO_LINK_FORCE_MODE_ACTIVE_INACTIVE :
+>> +                  WMI_MLO_LINK_FORCE_MODE_ACTIVE;
+>> +
+>> +    ret = ath12k_mac_mlo_sta_set_link_active(ab,
+>> +                         WMI_MLO_LINK_FORCE_REASON_NEW_CONNECT,
+>> +                         mode, vif->cfg.ap_addr,
+>> +                         dl->active_vdev, dl->num_active,
+>> +                         dl->inactive_vdev, dl->num_inactive);
+>> +
+>> +    if (!ret && !wait_for_completion_timeout(&req->done,
+>> +                         ATH12K_MLO_LINK_SET_ACTIVE_TIMEOUT_HZ)) {
+>> +        ath12k_warn(ab, "timeout waiting for mlo set active links 
+>> resp\n");
+>> +        ret = -ETIMEDOUT;
+>> +    }
+>> +
+>> +    if (!ret && req->status)
+>> +        ret = -EIO;
+>> +
+>> +    rcu_assign_pointer(ab->mlo_link_set_active_req, NULL);
+>> +    kfree_rcu(req, rcu_head);
+>> +
+>> +    return ret;
+>> +}
+>> +
+>> +static int ath12k_mac_mlo_sta_sync_active_links(struct ath12k_hw *ah,
+>> +                        struct ath12k_vif *ahvif,
+>> +                        struct ath12k_sta *ahsta,
+>> +                        struct ieee80211_sta *sta)
+>> +{
+>> +    struct ath12k_base *ab, *prev_ab = NULL;
+>> +    struct ieee80211_hw *hw = ah->hw;
+>> +    struct ath12k_mlo_dev_links dl;
+>> +    unsigned long links;
+>> +    u16 active, inactive;
+>> +    struct ath12k *ar;
+>> +    int ret;
+>> +    int i;
+>> +
+>> +    lockdep_assert_wiphy(hw->wiphy);
+>> +
+>> +    links = ahsta->links_map & ahvif->links_map;
+>> +
+>> +    /*
+>> +     * A link holding a channel context is active. The links of an 
+>> MLO STA
+>> +     * can be on different devices, so the active set is derived over 
+>> all
+>> +     * links and each device is then programmed with the links it holds.
+>> +     */
+>> +    active = ath12k_mac_mlo_vif_active_links(hw, ahvif->vif, links);
+>> +    inactive = links & ~active;
+>> +
+>> +    if (!active) {
+>> +        ath12k_hw_warn(ah, "no active link for sta %pM\n", sta->addr);
+>> +        return -EINVAL;
+>> +    }
+>> +
+>> +    if (active == ahvif->fw_active_links &&
+>> +        inactive == ahvif->fw_inactive_links)
+>> +        return 0;
+>> +
+>> +    for_each_ar(ah, ar, i) {
+>> +        ab = ar->ab;
+>> +        if (ab == prev_ab)
+>> +            continue;
+>> +        prev_ab = ab;
+>> +
+>> +        ath12k_mac_mlo_sta_collect_dev_links(hw, ahvif, ab, links, &dl);
+>> +
+>> +        if (!dl.num_active && !dl.num_inactive)
+>> +            continue;
+>> +
+>> +        if (!dl.num_active) {
+>> +            ath12k_hw_warn(ah,
+>> +                       "cannot deactivate all STA links on a device\n");
+>> +            return -EOPNOTSUPP;
+>> +        }
+>> +
+> 
+> for a configuration where more than one QCN9274 is combined in a hw 
+> group and advertised under one wiphy, the only link can be deactivated 
+> on ab
+> 
+> ah->radio[0] -- ab-1 QCN9274 5GHz
+> ah->radio[1] -- ab-2 QCN9274 6GHz
+> 
+> This setup can associate as 5+6GHz ML STA and if mac80211 deactivates 
+> one link say 5GHz, ath12k_mac_mlo_sta_collect_dev_links() will report 
+> dl.num_active as 0 and dl.num_inactive as 1 which is still valid.
+> 
+> I tested this with such a setup and when AP removes one link i get below 
+> errors,
+> 
+> root@buildroot:~# [  208.620233] wlan0: authenticate with 
+> 00:03:7f:01:57:45 (local address=32:43:40:d5:13:f0)
+> [  208.620278] wlan0: send auth to 00:03:7f:01:57:45 (try 1/3)
+> [  208.646676] wlan0: authenticate with 00:03:7f:01:57:45 (local 
+> address=32:43:40:d5:13:f0)
+> [  208.646705] wlan0: send auth to 00:03:7f:01:57:45 (try 1/3)
+> [  208.656809] wlan0: authenticated
+> [  208.662463] wlan0: associate with 00:03:7f:01:57:45 (try 1/3)
+> [  208.681771] wlan0: RX AssocResp from 00:03:7f:01:57:45 (capab=0x111 
+> status=0 aid=1)
+> [  208.706457] wlan0: [link 0] local address 32:43:40:d5:13:f0, AP link 
+> address 00:03:7f:01:57:45 (assoc)
+> [  208.707397] wlan0: [link 1] local address 4a:cd:9a:9c:d5:a5, AP link 
+> address 00:03:7f:01:56:84
+> [  209.128875] wlan0: associated
+> 
+> 
+> root@buildroot:~# [  278.858680] wlan0: MLO Reconfiguration: work: 
+> valid=0x3, removed=0x2
+> [  278.860079] ath12k_wifi7_pci 0000:01:00.0: cannot deactivate all STA 
+> links on a device
+> [  278.864245] ath12k_wifi7_pci 0000:01:00.0: failed to sync mlo active 
+> links for sta 00:03:7f:01:57:45: -95
+> [  278.871936] ------------[ cut here ]------------
+> [  278.881468] WARNING: net/mac80211/link.c:650 at 
+> _ieee80211_set_active_links+0x398/0x3c8 [mac80211], CPU#0: kworker/u17:0/39
+> [  279.021054] Call trace:
+> [  279.028167]  _ieee80211_set_active_links+0x398/0x3c8 [mac80211] (P)
+> [  279.030428]  ieee80211_set_active_links+0x88/0x138 [mac80211]
+> [  279.036677]  ieee80211_ml_reconf_work+0xc8/0x13c [mac80211]
+> [  279.042579]  cfg80211_wiphy_work+0x94/0xcc [cfg80211]
+> [  279.047961]  process_one_work+0x178/0x2b0
+> [  279.053168]  worker_thread+0x180/0x2f4
+> [  279.057160]  kthread+0xf8/0x118
+> [  279.060806]  ret_from_fork+0x10/0x20
+> [  279.063845] ---[ end trace 0000000000000000 ]---
+> 
+> 
+> 
+> [Apologies for not catching this earlier :(]
+> 
+
+Thanks for testing this on a multi-device setup.
+
+Yes, the behavior you observed is expected for QCN9274. Baochen had 
+pointed out this limitation earlier. I checked the QCN9274 firmware code 
+and confirmed that it does not support making the only link on an 
+ath12k_base inactive. With two QCN9274 devices in one MLO hw group, each 
+device owns a single link, so deactivating either link results in 
+dl.num_active == 0 for that device. The firmware cannot represent or 
+program this state. Therefore, QCN9274-based multi-device MLO does not 
+support this type of active_links update.
+
+I will fix this in v2 as follows:
+- Before sending any WMI command, ath12k_mac_mlo_sta_sync_active_links() 
+now checks all devices holding vdevs of the STA. If any device would end 
+up with no active link (num_active == 0 && num_inactive > 0), the sync 
+is skipped. It logs an info message and returns 0.
+- The firmware is not programmed and the cached active/inactive links 
+are not updated. The behavior is the same as before the patch, with no 
+WARN and no disconnect.
+- The check runs as a separate pass before any command is sent. 
+Otherwise, with the 6 GHz link removed, ab-1 could already have been 
+programmed when ab-2 turns out to be unsupported, leaving firmware 
+partially updated.
 
