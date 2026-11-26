@@ -1,54 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.214
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795703531;
-	b=KkoC+blvsMrFoYeugf/eYBuU/9xV46kzIyBZu5mBXt+jSmD8/DqI8MxcHdntnEs5SpHT
-	 oLDaY4x+NapaBNWURJsNkQK9d8Tdr9SRgIAGFF943OppDmm1Swpab/hV0R+KtjwguYXXm
-	 NRQ9zTXb5x9XdKsIk0g65mHsXwFOwb5EvGsxzCTz3JckeylSVXxw195M5kSfJw8WanVi0
-	 8cP07pA6fOvSy/PL6S0kQ/k6LmzSaDxG8Kok7vUv3juWrOxmox7fFWdUecjVDw76mxv/Q
-	 79yW9hud9HNZNX5V/63uRtrGnxL7A/pyMNT2IGOowzl9kwGH5YQbUBkzvEgcz+XGXww==
+	t=1795703535;
+	b=re+QVziGIBIcvdWesbbla6B9BvLX9fm8y6stDKojlvt8g/t+JFAzzEcUHR4AeyTpJ9FK
+	 YvQL0Rjv3xCSgJ8AlE74zekPDPCN2ox/1Z/4gZn7hlXNH32AMstuBodETT4cFBZY+3OR8
+	 bwFUdklb2Qth0Itbv0sJdW2lS/3cI3pIKWObmwdBjn+M72lKPwzqmurCv95ZFfN+yqC5e
+	 8pXBbzUfP/YldtcvFlLtaW+T1x963QwWhixIBgyb0PnFqaKIoSCaWQWao3V45S3hTQtVZ
+	 tW08E0KGM4wWb6NgMnek4wDss1UJX0bMWrh+dfXN4D7sAGS3iPQZ3uX+6mmI0cr0gcQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795703531;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=Govo4r8+nAYzJTvFpEXUjY65QbZ4bFSiu78PfI+BWQw=;
-	b=eKa4wySmWrxfNnpiSJAHHf1gYoXnx3bCdm/XEZEXxJlTyoaS8ahgTFSnYIBzWI+LmE48
-	 zl0Vgjp4r7+vM+Xg3kMqcY5v7xi55QQMZuOwyirbWJr+06f8F8vSiUsaNi6xzeo3EbYN7
-	 uDNIXmB+zJtZoMMRxEwvro6CGETpoDj64SeKbuFYrT7hPmrtMWFP2cv/K2OXIhJp8S2az
-	 UYr/Ej8rFcYoFCDvBc5fJyi343nN3NHrcs3R9AOXckYo9Z5NxT6dpv6yPcYDd0FDebTBV
-	 NaQuIRBXQJXxWbkbJM4kGSpDGcJMK9r6n2n8JXU5BRIJTlcsIgbfMI2Mg9w5QCXoaeA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795703535;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=2O2AI1/Vkx7CyITACfLQUlmlo7eAKIgc+T3zYHs3WNE=;
+	b=hwCTodwSBEbkuVPvDSIAsS8k979Jhs++NAJ+JpCgsCCMzJutFGWQGaQOprxvZhiDx3T5
+	 YWTh5TAy6usntpWeEa2s0JwH09ffWcAj9LdUv6uFZNDfJfBSnpEPfwu430TQAMOz8HyNd
+	 DbTUOGq2BFTiXlSN/YvxvZ+a3/ulNJTCpQ4vPQ02PvXDuhL9xHczsNrwqap4xqARUkXNx
+	 VH3yMqSzQFCAbMLTGc5Spfjr5msXCLbF3yKDlw3DVT1uhxV3TUqMwjrg3rvf5XDR++zEH
+	 ScqkqemfLoyfg6BTGoKfyeSolI3pZPRQKaEOjmxyhrSQAkxfgSyUTf9qvCt3xXLEB1A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bG8cN2RZ;
-	arc=none smtp.remote-ip=91.218.175.214
-Received: from mta0.migadu.com (out-214.mta0.migadu.com [91.218.175.214])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Zuic+b+Z;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=P8m9wcIP;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1EECF606A33B
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:32:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1EECF606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FFE6606A684
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:32:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FFE6606A684
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bG8cN2RZ
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=1nwB7BJF7Q6n+CMViIulALOZVvB0xneBvfIAWGHuXzg=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795703525; v=1; x=1796308325;
- b=bG8cN2RZgSdQZssj0quOHlVRRxrQmO8AxYtJTbmDv/Vp0MhaCz6+SpGb2JIzZU1dmDgcoQKC
- tKvtQNH7epqc3Td1e4j6KC8huEE7+gWSMfQKQn2qlOsnv54nHzxplDM8xpUh7dNl8gp5DdvE6FS
- ml771yolzawi3gaAr79HnBzs=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 699c661509b79829;
-	Thu, 26 Nov 2026 14:32:04 +0000
-X-Mizu-Trace-ID: 699c661509b79829
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <563d2406-dcfe-43b6-8f21-2a7694f1f266@linux.dev>
-Date: Thu, 26 Nov 2026 14:32:04 +0000
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Zuic+b+Z;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=P8m9wcIP
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQEV9qw3664918
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:32:12 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	2O2AI1/Vkx7CyITACfLQUlmlo7eAKIgc+T3zYHs3WNE=; b=Zuic+b+ZyUBYCnYB
+	Ye31Y4qBd2rm+sfBodz25oJpX2oO8njVZ3iT96cRqLD8R/m7BnbEP7wTfYBRlJ9m
+	pXTy0u9zfxXuJJ7QD+Hj9MgnsGHdl/ZtQkcDWCA9EEDYTqaD2qKzdpkB46Bh+Hg4
+	uNtratNK0owXs+ywKZ8YU5q1oiz3O5ddToJLkSJQ7dSyvnZUhxnQWiX7uBkNv8Jd
+	wWFYC2RFQKK/01Sy5OHaeh7BvkdKsxwPJITg5FWTnDUXWolrZyFmFXwNXVqNEbfg
+	Uu54Wdu73yaxZACxCoxO1iJbKY3mZdAA1T2dHhE468o2DawfxaNAYpfsYm+d1c9i
+	mDRKOw==
+Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6h7g9aak-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:32:12 +0000 (GMT)
+Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-57c59d5865eso704992b6e.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:32:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795703531; x=1796308331; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2O2AI1/Vkx7CyITACfLQUlmlo7eAKIgc+T3zYHs3WNE=;
+        b=P8m9wcIP6IgcKOB1s/ujb0wz0GvlIxz6nOZhsW45kTekV5dp+ci8AU4UAIErO/sD+5
+         9lTORsEF5EUbZhSqhXVZuUSHiZSZ9O8SIMjO2KerZH535dYVJR5gSR3Vfoy2wYjEyWef
+         Sys8b858PzHkqTSmoBBex58feo6v8c7V65E5BtU9eTFkDbBsZTgeAXxsFzm4J9bvYcjC
+         KsQ6BO10tKsdJt8D7PfcjN6KmhJ6dJaA/2g3TMspLTIJFvwjuR5Uf+SIaByjPXfKBAik
+         szgtaoKv+JZ1YJIeABO4P2BVqqC4MXAHfnc0FGv8dVLANd3mrPEpMDU+th78TA56QGvi
+         +eIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795703531; x=1796308331;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=2O2AI1/Vkx7CyITACfLQUlmlo7eAKIgc+T3zYHs3WNE=;
+        b=yGl2T54RnBYx8fKCDeUi7bxDLptgcuhvqLiFgYchBgQcZdEL/TH74lhBCzkb8YrX3d
+         183TEpE2zPhf2C+PYFfPxwoH7kRFviEaELaubaRKX8hzKACwOrUKqiQI76ubvqrQ8ImN
+         qgkrekAYqbuWq/PJElhfOYPiVgCGAp1OhjlxSU7JEQspmPDfpP4xXyIN3ORb832qx3Ck
+         omiPmIcLggHmvTRn/45+Qqi2MYZzL2I/I/ubHrmQgDa0aUMEFynF/KgJD0dPuknn6F8c
+         DSq3KMZUvB8tuAQ/Ra1nqQgfQP2E+UDoorLsWwkVtICAcnt81wf38XIxofzssYZ7++vT
+         BO1g==
+X-Forwarded-Encrypted: i=1; AL+hErGPT678EnVPglyBBjYmeOKGcOqfCaM919NcLQzQdJVg+45iN2+/Hsq1RjAIHwpjBWmzieaObTDiHvuWtOQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9+cFVdP0GxM7rRW12lba9K7FcnhxBeF4IPDyJtasc6xsf0r+0i
+	/dHv7ngX8L87SsnLkWsn3/VVYboWG2GP8LT4WZranBvkVf1DEIiHKbw2+dQ75d6Y7F15HTlyrmZ
+	S5AddEcAI0PjatzrFAKEHrTn3SAfoCJSrd8VE6tWFicv4/u7oT42eQxFObATEBjU+2Dg=
+X-Gm-Gg: AZFdTZd+fXG3ckn5d+8zMeNboOR+X9Xq7so9LsivcWyXHiSGQ/BZKDzYWAuZBXw3BaM
+	Pimm7fdbt276TSIlGhI8IxKsPWYSbbGNQ/Uv+AP/0BnUQFxbvo5KKU1FTJpMWl2unrWb5kxpovb
+	QC2ley4WsZMi4JlCf+zqFSr2KNPcjRublFQU3Ai4bJ8MPILIT2ewqdfTyvicf98ynD5iWrX/QY+
+	t8PLTklj1oXu9fRFeORn8KkRGi9+Sgql8agYz6+hiB5CH6vMrbi6btL6q+Nj7qXgn+oU80pRKAj
+	30JGQ94kUjlp0z5oGJ5eA1L/hxnKtYPaXncWdNdrrit/8vES+81ZBoQdkZWn2nQwBsatkgh9Sl6
+	lhEM/AvskI7H1fOfpbX5yQk9aAb63cpVjqs76/nRLfgQiRLwyU0Lmx7HgWmu918VAok48
+X-Received: by 2002:a05:6808:bc6:b0:4bd:73d9:85c7 with SMTP id 5614622812f47-57a024f2218mr31443859b6e.0.1795703531627;
+        Thu, 26 Nov 2026 06:32:11 -0800 (PST)
+X-Received: by 2002:a05:6808:bc6:b0:4bd:73d9:85c7 with SMTP id 5614622812f47-57a024f2218mr31443826b6e.0.1795703531228;
+        Thu, 26 Nov 2026 06:32:11 -0800 (PST)
+Received: from [192.168.0.242] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a9687sm676995995e9.10.2026.11.26.06.32.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 06:32:10 -0800 (PST)
+Message-ID: <84fbc195-8e93-4d25-ab0e-14c3510edf40@oss.qualcomm.com>
+Date: Thu, 26 Nov 2026 15:32:08 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,153 +116,73 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: Reduce the stage-2 page cache on 64 KiB hosts
-To: Marc Zyngier <maz@kernel.org>
-Cc: oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com,
- seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
- catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
- kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, riel@surriel.com, shakeel.butt@linux.dev,
- kernel-team@meta.com, rkeilty@meta.com, atish.patra@linux.dev,
- dgreid@meta.com, Lorenzo Stoakes <ljs@kernel.org>
-References: <20261124152842.2634495-1-usama.arif@linux.dev>
- <86wlpzycnn.wl-maz@kernel.org>
+Subject: Re: [PATCH v4 0/2] Add pinctrl driver for Qualcomm Halliday
+ (SXR2250P)
+To: Stanislav Aleksandrov <lightofmysoul@gmail.com>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Bjorn Andersson
+ <andersson@kernel.org>,
+        Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+Cc: Konrad Dybcio <konradybcio@kernel.org>, linux-arm-msm@vger.kernel.org,
+        linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+References: <20261124-halliday-tlmm-v4-0-3e3a1d0fb4eb@gmail.com>
 Content-Language: en-US
-From: Usama Arif <usama.arif@linux.dev>
-In-Reply-To: <86wlpzycnn.wl-maz@kernel.org>
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20261124-halliday-tlmm-v4-0-3e3a1d0fb4eb@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: 4oF5KEO13jIfNhizoOL2lbKkGvVhKN5I
+X-Proofpoint-GUID: 4oF5KEO13jIfNhizoOL2lbKkGvVhKN5I
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA1NiBTYWx0ZWRfX+8RoRkMja1DC
+ +4+rQk9Whzo8AJuiFYuGrEuCNutLVvTxiG7PA/Akd2cSKhZiZ110hcssv7SpnrXnqEmMA3bgq4y
+ AzhblbTIoZwPCdLsZGfaq30umnHTjyInmCwFRZ/JOXdRzMSHkTWNCNZdi4XzF/akcRYqGNaysU5
+ VIdq0RHGmnyA878FY6+FvzdlEAbc6kLIoBDPdWYUz/k+1wgbOzOArZ2Y/oebI1fmuKN+AZsyBq2
+ FIYiUJbCJfu5Cb86yrkNDHd3DAarFCZFZ+/nI6x1FyNK383UZGb8uENoaiDPdkO4DtoSp9YNIx5
+ SF4+WbOuM+1dibny8zvPiutUnJhYF3rDtpoI5AnKd0bXPLDVQaPtI6Hvz/lZV488WUMbTHS0ayE
+ rxJmoduWGid/UBwZADMxFILKGf2KqbUhp7WlWpodOz4KdM9OcMYdryPdPBW6pAe2we5BuqcPthO
+ oKopfZ5iwrfU/6wwhbA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA1NiBTYWx0ZWRfX69TnLEbr1tZN
+ DbpmAwjJzie86EG4CjZYhZluwNH9wQivtuj2te1IvuQq03YyQqiX65gGtGgewIMgSn/ClNNyrJI
+ cVsR1sLjREw8ctl5a1ZaeMoSBRRf9BA=
+X-Authority-Analysis: v=2.4 cv=L4GI0OT8 c=1 sm=1 tr=0 ts=6b0842ec cx=c_pps
+ a=4ztaESFFfuz8Af0l9swBwA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=pGLkceISAAAA:8 a=dvIHkycpzy01oOa2bCIA:9 a=QEXdDO2ut3YA:10 a=zZCYzV9kfG8A:10
+ a=TPnrazJqx2CeVZ-ItzZ-:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_03,2026-11-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 bulkscore=0 suspectscore=0 malwarescore=0 lowpriorityscore=0
+ clxscore=1015 spamscore=0 impostorscore=0 phishscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260056
 
 
 
-On 26/11/2026 04:56, Marc Zyngier wrote:
-> On Tue, 24 Nov 2026 15:28:42 +0000,
-> Usama Arif <usama.arif@linux.dev> wrote:
->>
->> When a stage-2 fault may need new page tables, KVM first tops up the
->> vCPU's page cache: if it holds fewer pages than the fault might need, it
->> is refilled to KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE, which arm64 sets to
->> 40. Unused pages stay in the cache until the vCPU is destroyed.
->>
->> With 64 KiB pages, that is 2.5 MiB per vCPU, and most of it is never
->> used. Stage-2 has at most three levels and the root is preallocated, so
->> a fault needs at most two new table pages (kvm_mmu_cache_min_pages()).
->> As every last-level table covers 512 MiB, an 8 GiB guest needs just 17
->> table pages to map all of its memory, while its four vCPU caches get
->> filled with 160.
->>
->> On a production host with 64 KiB pages running 101 VMs with four vCPUs
->> each, the caches were still 86% full. The memory used:
->>
->>                         before      after
->>   per-vCPU capacity     2.5 MB     512 KB
->>   all 404 vCPUs         869 MB     <= 202 MB
->>
->> Let's lower the capacity to 8 with 64 KiB pages, In the production
->> usecase above, it frees at least 667 MB. That still covers the two-page
->> minimum and leaves room for several table allocations per refill. 4 KB
->> and 16 KB pages keep 40.
+On 24-Nov-26 16:29, Stanislav Aleksandrov wrote:
+> This series adds the devicetree bindings and pinctrl/GPIO driver for the
+> Top-Level Mode Multiplexer (TLMM) on the Qualcomm Halliday (SXR2250P /
+> Snapdragon XR2+ Gen 2) SoC.
 > 
-> I'll glance over the use of 64kB pages, because that's definitely a
-> niche configuration that hardly anyone uses. But the scale of the
-> numbers strike me a bit: 808GB worth of guest memory, and you're
-> complaining about 869MB? That's roughly 0.1% of the total, and the
-> savings you're gaining are even less... I know memory is expensive,
-> but you'd save a lot more than that by using a realistic page size.
-> Just saying...
+> This is part of the initial bring-up effort for Qualcomm Halliday
+> and Samsung Galaxy XR.
 > 
-
-Hello Marc,
-
-Thanks for the review!
-
-The 808 GB is what the guests were sized to, not what the host had.
-Guest memory there is overcommitted (with ballooning): the host has
-254 GB of RAM. v2 from [1] gives back at least 768 MB. The usecase
-is very memory intensive, so saving more than 0.5G is a very good win.
-
-The cost also scales with vCPUs, not with guest memory: up to 2.5 MB
-per vCPU, whatever the guest size. On a test host of the same type
-running 101 VMs with 4 vCPUs and 1 GB each, the caches held 986 MB,
-while the stage-2 page tables they exist to feed took 25 MB. That is
-39 times more memory held in reserve for page tables than used for
-them, and 89% of all kernel memory charged to the VMs' cgroup
-(1106 MB). With v2, the caches take 84 MB and the total is 204 MB.
-
-As for the page size, 64K is the default NVIDIA recommends for Grace,
-and both RHEL and Ubuntu ship 64K arm64 kernels. We use 64K base
-page size for all ARM hosts in the meta fleet and see regression in
-workload performance for 4K. I do know of other hyperscalers that
-use it as well, so this is not a niche in server world IMO.
-
-> I also question the assumption you are making that the guest is
-> strictly using IPA contiguous memory, and that therefore a very small
-> set of pages are all you need to map a guest. Guests with multiple,
-> disjoint memslots are (sadly) extremely common, specially in these
-> days of tiered memory and other random horrors.
+> This work was made together with Claude, ChatGPT and Gemini.
+> Reviewed and tested on my Galaxy XR.
 > 
+> Signed-off-by: Stanislav Aleksandrov <lightofmysoul@gmail.com>
+> ---
 
-The patch doesn't rely on that. The 8 GB guest needing 17 table pages
-was only an example of the scale. The capacity bounds how many pages
-are allocated ahead of time, not how many tables a guest can have:
-every translation fault tops the cache up to kvm_mmu_cache_min_pages()
-before taking mmu_lock, and a single map never needs more than that.
+Feedback from an LLM with doc access:
 
-Disjoint memslots mean more refills, not more allocations. The top-up
-allocates one page per iteration either way, so a 40-page refill is
-40 calls to __get_free_page(), with nothing amortised. With 4, the
-total is the same or lower, and the most a single fault allocates
-drops from 40 pages to 4. That also answers Wei-Lin's point.
+gp_pdm_mira: GPIOs 35-37 at mux 2
+gp_pdm_mirb: GPIOs 88-90 at mux 2
+gp_mn: GPIO63 at mux 4
 
->>
->> The temporary cache in kvm_phys_addr_ioremap() uses the same capacity,
->> but it is topped up before every page it maps, so 8 is sufficient there
->> as well. The pKVM hypervisor memcache and the eager split cache don't
->> use this capacity.
->>
->> Signed-off-by: Usama Arif <usama.arif@linux.dev>
->> ---
->>  arch/arm64/include/asm/kvm_types.h | 5 +++++
->>  1 file changed, 5 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/kvm_types.h b/arch/arm64/include/asm/kvm_types.h
->> index 9a126b9e2d7c99..28568da9ea4a7b 100644
->> --- a/arch/arm64/include/asm/kvm_types.h
->> +++ b/arch/arm64/include/asm/kvm_types.h
->> @@ -2,7 +2,12 @@
->>  #ifndef _ASM_ARM64_KVM_TYPES_H
->>  #define _ASM_ARM64_KVM_TYPES_H
->>  
->> +/* Must cover kvm_mmu_cache_min_pages(), at most 2 with 64 KiB pages. */
->> +#ifdef CONFIG_ARM64_64K_PAGES
->> +#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 8
->> +#else
->>  #define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 40
->> +#endif
-> 
-> Now, to the patch itself: I see no reason to special-case this. If
-> kvm_mmu_cache_min_pages() is an indication of what is needed, then
-> this macro should be driven by it, or the whole allocator take it into
-> account. And then you adjust it by whatever fudge factor seems
-> appropriate.
-> 
-
-Completely agree! [1] does that: no page-size special case, and
-a capacity of KVM_PGTABLE_LAST_LEVEL - KVM_PGTABLE_FIRST_LEVEL for every
-page size.  It can't track kvm_mmu_cache_min_pages()
-at runtime: the vCPU's cache is shared by the canonical and NV shadow
-MMUs, and its capacity must stay fixed. So it has to cover the largest
-minimum, which stage-2 caps at 3, and 4 is that plus one page of fudge.
-
-For what it's worth, my understanding is that 40 currently used here was
-never derived from stage-2, it was copied from x86's KVM_NR_MEM_OBJS by the
-initial port.
-
-Thanks!
-Usama
-
-> Thanks,
-> 
-> 	M.
-
-[1] https://lore.kernel.org/all/e7bdcfa9-bbd8-4649-8318-2f6dc236db15@linux.dev/
+Konrad
