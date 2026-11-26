@@ -1,38 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.47.186.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795663790;
-	b=rpLTZ5It13mcUx5sls4mu2N7l7YnWvdCikA3nx3tvvbN5x4PgA4uNGcLThV+15S1DYHd
-	 A4rQTs88KDtxbj3/Rt3G4hRtYmUlbhsvhkcLzvg1Ks7v96rBh9m9rk7n1g10t5RScXcqK
-	 ztINJ5Wmr2Nvhfrpriv7A2YdFUQJC1btG2Bap9wKFSKHvlZPSSoYwNHaX3pPu6tJMdrnp
-	 8M2NVIsqSVyrDapMrwWt13Hjky0c9XeKSIYkPUB3ywsxI4mZ0GlEon5+SzSgZoeUOxRXS
-	 DH0cWDBHMYcBd7NNugW6faAC8WiD5LkqYv6LQrIJoHkJKbp000HwOTUFrBhizfnO3uQ==
+	t=1795663786;
+	b=BUb2OOngGJ1RbfD73lZS90btkGQxGTFzrFY467uYwV0YzNxysmGzI8yMwiAu63zetnBh
+	 4Z7lmU80ItFojle6fw44QKM8nXakwdzlxyl+og6qUSpuZyOwX/hYt2T6B6d/+a+4jYd8T
+	 +/O7c5y0DC2RcDfYzDkmAZZrZxXATtPHbD1LG1+D0yGYdkUr3nYQ0lsM/4/FlUqoAOSTh
+	 d7emYavsYrTmUaEGXzBbkBm6HAmEvn+VYbL6p/idbA79+ZePobB5T0tcNUcdjpcKmLNWg
+	 UfbUToP32HNdpFrwvBzKg379BN5nLHrRxkrQ+liP4EKmpaZ4PnJuP1XHgvGRjeBFGaw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795663790;
-	h=DMARC-Filter:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=lwHm2eXGQfsQLxAsDpBUxULj2YCIKJh637GLHu4D0yk=;
-	b=4u/dhOVU/EdRgciL6AhqosF+oWG6ee73pNdUiEXklfjEjzgMGRssaIeSwnamBkUb4acG
-	 3VWmkkxqU/wG6TapaA1L4w5YM/s0rQnu5/T9MqhSeAOBytwYDwLxDeuMEFJ8tBuEpfm9X
-	 fQpdH3h6OWBsAKxZlog/7Yn2XT2Hava4H4bq2ZdPiWcKpdiPdcvvdSX9aITNR5gWfjBTz
-	 R6F2vmRrcT3fPY8h6G8u45aOnILbRG+sIiDDcQGy7dfioBbh5KqNkNjgxIiAPZ+gC9gIc
-	 tPf4fDs1gPgBTKrUEqwiotLLrM+e/bgzz9ZP4LlUssvom/P/5qon3GQoA07+Z5kzeMA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795663786;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=+bQlBTYtkAoBws6JgVwmAU54iz9oraRWE7IfPY9x/zw=;
+	b=VAVT6f4jvM0Kpq3mKXbyx8bC1/4bes/uaxlDELbvSyqKqUe4ABzAwjkFjTThl+9T9acP
+	 tnegpuP4+VfwimP6qvKbedXPQsDjMwB66KRlTUWZAo6maKsUQebnFuxwwFsW1yHMfeYsn
+	 ZL6i1NqCJzF6wN+yEYvVoXevoP51WOsK/MtzVTwwIcN43Jt+nnk+t45/A4XbMcUuEYnvZ
+	 ijq+NJLhMjHm/uPD3otCFMljueg2SqE8e6OMzjAaxwq9V9jYEoqcBzxxnivZ0u1TTZ/HH
+	 0kaK5GlnVZeOnLWevjZibMsfY8wcdedN0DRr179RPVD+OzpODNCckTzhK8VMdKJevNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=krgm.moe;
-	spf=pass smtp.mailfrom=krgm.moe;
-	arc=none smtp.remote-ip=103.47.186.116
-Received: from krgm.moe (krgm.moe [103.47.186.116])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 2CA9C606A333;
-	Thu, 26 Nov 2026 03:29:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CA9C606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=krgm.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=krgm.moe
-Received: from [10.42.0.96] (unknown [114.242.206.180])
-	by krgm.moe (Postfix) with ESMTPSA id 0A17283B;
-	Thu, 26 Nov 2026 08:59:45 +0530 (IST)
-From: SignKirigami <prcups@krgm.moe>
-Date: Thu, 26 Nov 2026 11:28:37 +0800
-Subject: [PATCH v2 1/2] dt-bindings: regulator: qcom,rpmh: Add PM6450
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mY2S7fDn;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 555EA606A31E;
+	Thu, 26 Nov 2026 03:29:46 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mY2S7fDn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 646E81F000C0;
+	Thu, 26 Nov 2026 03:29:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795663785;
+	bh=+bQlBTYtkAoBws6JgVwmAU54iz9oraRWE7IfPY9x/zw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mY2S7fDnQgUD7EECM/t+cXrhZBxCIDHaM5mA21LFWhX7mGM2gXN8HrGyzFjYWhPSU
+	 rqY7oTfO+GWuWAHrpqjZMScWjyw0NJAIKIHwkIgAO1oNjDQ1zRqEk29pkC2dqmxj7v
+	 UxZpf+EAt3vCJ9EM75bLNxBgvTZ59Oxeronq0ogRVUEvSHKnK9LeciiO79n08GTEf0
+	 jZS2/mYHJyU6TS4ylMlLPugAbSxjIX4Sel7d2h7oPfh/iYaeAZ7ww4UqpHAxOINhLo
+	 Sim9HtXYzBcDO5xI1jrxnJKlr6F6TnyQJBBCgskqcWvRUsD+oZw7Jth5a/v8zRhWjl
+	 owPOwxJkEwGdQ==
+Date: Wed, 25 Nov 2026 19:29:44 -0800
+From: "Peter Chen (Qualcomm)" <peter.chen@kernel.org>
+To: Hyunjung Ko <hj351016@gmail.com>
+Cc: Xu Yang <xu.yang_2@nxp.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] usb: chipidea: core: cancel power_lost_work on removal
+Message-ID: <awenqGbTNLEp2Oc-@hu-petche-lv.qualcomm.com>
+References: <20261110111402.2504885-1-hj351016@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -42,62 +58,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-netrani-pm6450-v1-v2-1-2539a2422218@krgm.moe>
-References: <20261126-netrani-pm6450-v1-v2-0-2539a2422218@krgm.moe>
-In-Reply-To: <20261126-netrani-pm6450-v1-v2-0-2539a2422218@krgm.moe>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-msm@vger.kernel.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- SignKirigami <prcups@krgm.moe>
-X-Mailer: b4 0.15.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1322; i=prcups@krgm.moe;
- h=from:subject:message-id; bh=JTcehRhWC5D7m3DhQb5HW5rKAsfVUWSIVzZ4T5udMSM=;
- b=owEBCQL2/ZANAwAIAV0dOJt2umJjAcsmYgBrB6eAgEoeyzKW3VtCVIjVRluv7ucck+EwvlQPr
- tp9mcXvs2WJAc8EAAEIADkWIQRSClJ2zjncUdNU0FFdHTibdrpiYwUCawengBsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwwLDIACgkQXR04m3a6YmOjqwwAra+aM3HAQeATT43e1VP18t0PqVPuWKH
- XDcoL5LQuckMX/5ArqaGoC4j3auEpl8i3eZOJMO6O7yyX4KwO6jO61djEex5Cql/Y/2Gq9xV7wd
- 94V2TIXEkdBIe4x62mr4T4Evd5VnkXgFo/zv1X3i24rVXk5nFZ7dGE0q5sqlMQEPixgtaPkPMZz
- fNoHflsVXxgAjxpzOWA7osaGVHR4t/ZbeM+MCLCMfv0ztuEbQZzfRseDQ7F4dThry0P2W3XAnFn
- e/f2j4E9ynVcPUNHcrGPpjleiPHqLNE6PIy8vfov84Brqe3bGyD4UGxM+gQ0y194xfB2OmrSjlA
- Pyku3HBNH6f7gU5DZHh8eVfNvAzQQQRgD7d9a3j4F/kFqxzIKy5Aa0XhmDjLQQjc15+0yvuoQqV
- 7b9TYDNg3TPH43qCRn/Sma76oCplCfFv6RQDR/2ZHwTGGH35g0vgUBrRwJ6k16sGUvoqZQacr4L
- 2xMlHXfszn5nF5rvlXLzVN0v+aE/4X5
-X-Developer-Key: i=prcups@krgm.moe; a=openpgp;
- fpr=520A5276CE39DC51D354D0515D1D389B76BA6263
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261110111402.2504885-1-hj351016@gmail.com>
 
-Add the PM6450 compatible and document its supported RPMh LDO
-resources.
+On 26-11-10 20:14:02, Hyunjung Ko wrote:
+> ci_hdrc_resume() queues ci->power_lost_work on system resume when the
+> controller lost power during suspend. The work (ci_power_lost_work)
+> dereferences ci: it touches ci->irq, ci->dev and switches the role.
+> 
+> ci is allocated with devm_kzalloc(), so devres frees it after
+> ci_hdrc_remove() returns. ci_hdrc_remove() never cancels power_lost_work,
+> so a work queued by a resume just before unbind can run after ci has been
+> freed and dereference freed memory -- a use-after-free.
+> 
+> Cancel power_lost_work at the start of ci_hdrc_remove(), before the
+> devm-allocated ci is released.
+> 
+> Found by static analysis; not runtime-reproduced (needs a chipidea
+> controller losing power across a system suspend/resume that races unbind).
+> 
+> Fixes: cc509b6a47e7 ("usb: chipidea: core: handle power lost in workqueue")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Hyunjung Ko <hj351016@gmail.com>
+> ---
+>  drivers/usb/chipidea/core.c | 7 +++++++
+>  1 file changed, 7 insertions(+)
+> 
+> diff --git a/drivers/usb/chipidea/core.c b/drivers/usb/chipidea/core.c
+> index 3461dd7..400e4ca 100644
+> --- a/drivers/usb/chipidea/core.c
+> +++ b/drivers/usb/chipidea/core.c
+> @@ -1246,6 +1246,13 @@ static void ci_hdrc_remove(struct platform_device *pdev)
+>  {
+>  	struct ci_hdrc *ci = platform_get_drvdata(pdev);
+> 
+> +	/*
+> +	 * ci_hdrc_resume() queues power_lost_work when the controller lost
 
-Signed-off-by: SignKirigami <prcups@krgm.moe>
----
- Documentation/devicetree/bindings/regulator/qcom,rpmh-regulator.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+There is no function name ci_hdrc_resume, it should be ci_resume
+Others are okay for me.
 
-diff --git a/Documentation/devicetree/bindings/regulator/qcom,rpmh-regulator.yaml b/Documentation/devicetree/bindings/regulator/qcom,rpmh-regulator.yaml
-index 9115885e7985b..ba3f50352773c 100644
---- a/Documentation/devicetree/bindings/regulator/qcom,rpmh-regulator.yaml
-+++ b/Documentation/devicetree/bindings/regulator/qcom,rpmh-regulator.yaml
-@@ -37,6 +37,7 @@ description: |
-       For PM6150, smps1 - smps5, ldo1 - ldo19
-       For PM6150L, smps1 - smps8, ldo1 - ldo11, bob
-       For PM6350, smps1 - smps5, ldo1 - ldo22
-+      For PM6450, ldo5, ldo7, ldo13, ldo16, ldo19, ldo23 - ldo25
-       For PM660, smps1 - smps6, ldo1 - ldo3, ldo5 - ldo19
-       For PM660L, smps1 - smps3, smps5, ldo1 - ldo8, bob
-       For PM7325, smps1 - smps8, ldo1 - ldo19
-@@ -72,6 +73,7 @@ properties:
-       - qcom,pm6150-rpmh-regulators
-       - qcom,pm6150l-rpmh-regulators
-       - qcom,pm6350-rpmh-regulators
-+      - qcom,pm6450-rpmh-regulators
-       - qcom,pm660-rpmh-regulators
-       - qcom,pm660l-rpmh-regulators
-       - qcom,pm7325-rpmh-regulators
+Peter
+
+> +	 * power during system suspend; the work dereferences ci, so drain it
+> +	 * before the devm-allocated ci is freed.
+> +	 */
+> +	cancel_work_sync(&ci->power_lost_work);
+> +
+>  	if (ci->role_switch)
+>  		usb_role_switch_unregister(ci->role_switch);
+> 
+> --
+> 2.43.0
 
 -- 
-2.56.0
 
+Thanks,
+Peter Chen
