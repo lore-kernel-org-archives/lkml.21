@@ -1,108 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795692739;
-	b=DVXbT4o6wmBGPG5oyThxGCPmzO47B2xv/7CdVwmLB6ifjVSkAPVbTxWqKI8KRMYdoMn5
-	 YEuAv9lx7YGxcd08uiSv5szTjtSnaU9CNwsNPKylQqFFHcpmtO3diytHLIbsZC2xkaeJq
-	 CgEwGyw412XCKPQjx1R33cuD8hOJawegvvwhhP7vrI6YA5xh68ZrZrSuC0g2zyB5XN7yh
-	 p3ThYO1OplqqK4wO58ZhWHzlXQPl75MvoRpdOq5teAfm7uz5yIfT/eYtvYg60YL4VN567
-	 lRjjZqJ+BXEc3UwJ51YNsY+jSKxpriUUFmhTBM4yaUmtbySUt7WWaB60UrIqUAAdoTg==
+	t=1795692741;
+	b=vg/aD3eBVt8pkheidnvYW2457MumBkmz4NTEFnKZS94fJ2GQ+eTP7ZC9/UWZn1LBtn1d
+	 O8o8TP7JwpEdJELXWjrL40OnBmmyhUcJOLjyGPni7KPWnwcRXc98vZcJtIfMqbI5LbRc0
+	 9bDxoaBve4a5MA8/WSTFaQn2dZEqrGsygBTH9cOMszP/lhAt/Lsa8JBgMjJed0kW6nkgK
+	 vKm6qFLd1zYRGT2yRAg6FcwRqAEa0zuOhkSYek9Hc+p5N/4teus+gZJRoVFXWI1cO9Yuf
+	 7LHwJUU6p2lL5Ksc+NKx56SL1vraqHAnykE5mjndOGCJ/HVU0LDo0ogHqyoIIchrhTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795692739;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=eZHk0lUewvFPiZ+U/CMb2apduCb+QafvCAoyz+WUt1I=;
-	b=H9+JA2prvjcTlXT+NhufYO/bqD8WXhziVX8R91RZ8yFijz9OcsV/xlook+RqxQQQKJbX
-	 o+Una2yE44PvE3OhCG4Bm2GgB4/nbtSzN55haeqaebQUVsuZkSIt4XLn4D2smkMpYaW/B
-	 DTwmymKqzOCXwqTS1Z5aogSyBuF6dxaPAcgXiQYswm+4CF1k3k1VkumisdTb7tm01Lupy
-	 R7qWI/MAJF4aJEtFFzHDQRqpe4hiZ71wU9EceXk7FV8gdLOoTwN0PIzZt0Gptr3f2Vw+r
-	 mOXRB4fvfFJxDLkATBeCO5LWcJbnPBUroNBf+Wxpjqu68NW4t46H0IXjZYkTwe6LdsQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795692741;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=ZHVX62wBRWW7xGq0GauMky9QTZyuhLqBMxJaaoGzdPk=;
+	b=w1/z/z03MVFzNK7Z72QVA6UwfTazVHFN/ba7vxHwDgIKClcO/d7TlPWZYed118F0iqmP
+	 ud0HpS24WIGMxoExWnLsTkNSNHfEd13A29QW76ITMqH3iXW4jNCEWctCziBn7RSTulXev
+	 1mYnIFhAamquzpywyx2AWQ77C01kvGrjUwEJom7OIc8fstS0l+JbEl54aTciEa/JkRuao
+	 /xgf30PQwTlyN/DbfGw0ODsdDu/yMYA4oFUOxmfjrYzMTlbIbam4alM1GxX7e4BbNJP19
+	 3ATyTO2OwKk7cpXOL60fsdDiR187OtVbZDfxPURBk3FgwKgFInnibIuScKi3POPQ3Wg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XTtbtpV1;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b="A/2hT5d9";
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=EvlrFSrB;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC7D2606A68D
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:32:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC7D2606A68D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFA74606A6A1
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:32:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AFA74606A6A1
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XTtbtpV1;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=A/2hT5d9
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795692737;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eZHk0lUewvFPiZ+U/CMb2apduCb+QafvCAoyz+WUt1I=;
-	b=XTtbtpV1AeV7exlpc4R6znWMAbNguXi/1BmVpB/f37GBtkAxGS60Fcyz2SEvmMBtnDcS//
-	FuJcJoB+V/+0euKn1nYa+OmuTuSjqp2+bNaGTJQk9CEI73fO2TW6kIb23FtrkxGEvBwYZg
-	MJPqx6QFSJLrxFURgOycEup0BFTvZtQ=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-282-SoHd0X5TPHW_m2pYrKnu2g-1; Thu, 26 Nov 2026 11:32:15 +0000
-X-MC-Unique: SoHd0X5TPHW_m2pYrKnu2g-1
-X-Mimecast-MFC-AGG-ID: SoHd0X5TPHW_m2pYrKnu2g_1795692735
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-4a647e776b4so5280118f8f.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:32:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795692735; x=1796297535; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=eZHk0lUewvFPiZ+U/CMb2apduCb+QafvCAoyz+WUt1I=;
-        b=A/2hT5d971fEEgcxRU8UciKIPLvu2F38OKKOaR7oU4K+cWGmsn+g25d7hz8++QRdAv
-         Y2cUsvPNI3zcqwLm9vGTdueFRvWAC2uA3ljdb8tEWZqchCL6kBaSYoSvdXmRfdYZyO5B
-         B5hDP4A1VgDR2x/bVBO0Uou52LPba90yg7c08tDOBlHvYGpa3Un365wQ2RgnFHNTcBb/
-         AMvgQTDf18h74SSt2BierG2brTy5amSOQ0GSGnvFTnQ4reptuU+s2x3OsdLDyosjABT3
-         dLKdXuKJefDCRBF8G7Os8o7qGKKff9uSSbP7hceJtHCwTJdwijfFuBbXkiXAaNJa9x0V
-         MEKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795692735; x=1796297535;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=eZHk0lUewvFPiZ+U/CMb2apduCb+QafvCAoyz+WUt1I=;
-        b=toZTNeGJgc0Kiotb8nNT5pbR/dvjsiOA6BxxBbatNehN0YV+VJ4Nyg8+XgQDVRdc0H
-         09aCp0IWXsMYHAA4MPLZ3FvqDdVo3cID05uskVXY8lwXX5WAPq3iUpXL74U84+S9CxpF
-         AkzMN7dRQDX5maR8kAOT4CHgI3AcSdo1BpoHIftUCebwYeHikSa5pYaYwbBlgwP4LDNR
-         Q37PRVM5oYf3YSv40R/TXrFP4IF/D+nyMuJugvUo0kxxxku4ft1vTMDFIGTcq3K2W3YE
-         J1OEPT8FA7WtNXgRy+AVrXPo6lppy7N4eTifxUJGtUtCiJr0S48R6XlS4P5Vwlo1ZJVg
-         nMXg==
-X-Forwarded-Encrypted: i=1; AL+hErGJ63ZwgE0G9ouH/EHEkdo3Iik5bOBaZleOLpWOuCqRebybzmfCaCZVugb4O9ejFjnnswVhP34SQk4ykRw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9bWydbuhkHg+p5hkovFAxtQiRUC31KE6FIvKE8g/PXiIdwVwBX
-	y33RqNGWBiKUxwYHnTaBs0ncavmKMMYiRteWUdRQAgh4jJ964239CdUvCygt4SaJoLdj2eZGfJP
-	jZzMDSdlAfgrwAEjOak6IlmHVl8I+eR+USaxRAFsFi9/bZaULqHnfJMCBO+pRcLG3ww==
-X-Gm-Gg: AZFdTZc4nvfaKb2l4o6nCe8qUrUDNtDCicpDS+aHc9Xc+RhGXrp9rB54ViaXrucuXL2
-	A5L3FyK5ZBHwlD0S+UBApKY71e3YI3+6tOz0VVMNf6F5aFZUZ6iWFfVn0BNTBp0mjkdHR/kIA0V
-	wgi6w3+Q7D26HHcWhWtrJMzjmuMZE2EQ3QD/Nf+DqfWBa8fSmIkdRo/2d+DY+J6Fqi+ONtL93CB
-	PCPfgU6RhLXTTX5bQ/QLos5/a5qCXw7behD4DY/lHTS6G2ae+21CINZg0iWFiKOs7T6LkM8M8Cr
-	bXwje47/ZMgbtWQhQSbMyJNXkbpMohtD2i8a4Lk17qIvSyQIlp4kMt8uBN6qVMcs8lvvH3wP3Ik
-	4f5FCx1JaCp7LdUz3K+YU5WuJlgvvKdqDg97t3We1OITRxnluFR2+r97M5zGDrdzEOJ3qvU+gjv
-	uJlQhfamPrz5fglJLA7jMFdJDwx193DK8+juOKIkd8NhuL
-X-Received: by 2002:a5d:5888:0:b0:48c:4a62:9af7 with SMTP id ffacd0b85a97d-4abb70d6148mr36056421f8f.28.1795692734681;
-        Thu, 26 Nov 2026 03:32:14 -0800 (PST)
-X-Received: by 2002:a5d:5888:0:b0:48c:4a62:9af7 with SMTP id ffacd0b85a97d-4abb70d6148mr36056360f8f.28.1795692734155;
-        Thu, 26 Nov 2026 03:32:14 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c4353d6sm38692194f8f.56.2026.11.26.03.32.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 03:32:13 -0800 (PST)
-Message-ID: <5c2785c2-d041-4a8d-bf1b-4c2eab47b888@redhat.com>
-Date: Thu, 26 Nov 2026 12:32:11 +0100
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=EvlrFSrB
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 884704E41798;
+	Thu, 26 Nov 2026 11:32:19 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 527D160237;
+	Thu, 26 Nov 2026 11:32:19 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8F7D511E6B306;
+	Thu, 26 Nov 2026 12:32:13 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795692737; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=ZHVX62wBRWW7xGq0GauMky9QTZyuhLqBMxJaaoGzdPk=;
+	b=EvlrFSrBd0LsgaDyFMfEuvlgFmEpQy3dP3mEJd76n92o7YnxrQKzJ28rLaPtNBrNrrgeJ6
+	2ilym5aia42TC9o5tHqg2aFxzoADEr8WJtrZan93Wjakhc+Fp5ZyntWCnQhmFqSlSoSE0x
+	KlrCn7sRhMb+fDRlXEHeAMDn/aGdZLOhzorHHfdUwHDaBMp2e4OHu72zrZGvjSUCCyIZ7n
+	fgWZIIYvD7ltD8I5RnwxKvTAnfR9k1ASNOWW6Iq2272FU8OIh4ul6U2VuVtY2ijw310mkF
+	SLfoX5XC9kLJejQaWCYFSphdhAP/zQ+J7fxKId/LikZ0XiUJJKoq93tUUZlQ/g==
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+Date: Thu, 26 Nov 2026 12:29:13 +0100
+Subject: [PATCH v7 30/43] drm/vkms: Introduce back pointer to connector
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,41 +63,167 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v5 06/14] net: pse-pd: check the PI state under the
- lock when setting a power limit
-To: Carlo Szelinsky <github@szelinsky.de>,
- Kory Maincent <kory.maincent@bootlin.com>,
- Oleksij Rempel <o.rempel@pengutronix.de>
-Cc: netdev-bot+sashiko@kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Simon Horman <horms@kernel.org>, Mark Brown <broonie@kernel.org>,
- Liam Girdwood <lgirdwood@gmail.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Kyle Swenson <kyle.swenson@est.tech>, Ross Cawston <ross@r-sc.ca>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <c84543f7-b824-4da8-9f8a-8e15d8f89140@bootlin.com>
- <20261120100851.2377899-1-github@szelinsky.de>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20261120100851.2377899-1-github@szelinsky.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-vkms-all-config-v7-30-21194cda2468@bootlin.com>
+References: <20261126-vkms-all-config-v7-0-21194cda2468@bootlin.com>
+In-Reply-To: <20261126-vkms-all-config-v7-0-21194cda2468@bootlin.com>
+To: Haneen Mohammed <hamohammed.sa@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Melissa Wen <melissa.srw@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, jose.exposito89@gmail.com, 
+ Jonathan Corbet <corbet@lwn.net>, Oarora Etimis <oaroraetimis@gmail.com>, 
+ Harry Wentland <harry.wentland@amd.com>, 
+ Lucas De Marchi <demarchi@kernel.org>, 
+ =?utf-8?q?Ville_Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Nick Desaulniers <ndesaulniers@google.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Shuah Khan <skhan@linuxfoundation.org>, Miguel Ojeda <ojeda@kernel.org>, 
+ Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Kory Maincent <kory.maincent@bootlin.com>, sebastian.wick@redhat.com, 
+ victoria@system76.com, thomas.petazzoni@bootlin.com, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-doc@vger.kernel.org, llvm@lists.linux.dev
+X-Mailer: b4 0.17-dev
+X-Last-TLS-Session-Version: TLSv1.3
 
-On 11/20/26 11:08, Carlo Szelinsky wrote:
-> On Fri, 20 Nov 2026 10:32:01 +0100, Kory Maincent wrote:
->> You have my R-by on all the series so we can only wait for a net
->> maintainer to take it. Jakub, Paolo, would it be possible to take it?
-> 
-> Thanks Kory for the quick reply, I appreciate it! I am looking forward
-> to Jakub's and Paolo's feedback.
-The series LGTM, but is quite big and AFAICS fixes issues mostly
-present from the beginning and affecting the device initialization
-/tear-down.
+Each connector now stores a pointer to its vkms_config_connector and
+takes a reference on it when created, released through a drmm action on
+device cleanup; detect() uses the back-pointer instead of walking the
+configuration list.
 
-At this point of the cycle the above does not qualify anymore as 'net'
-material. I'm applying this to net-next.
+Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+---
+ drivers/gpu/drm/vkms/vkms_connector.c | 33 ++++++++++++++++++++++++---------
+ drivers/gpu/drm/vkms/vkms_connector.h |  9 ++++++++-
+ drivers/gpu/drm/vkms/vkms_output.c    |  2 +-
+ 3 files changed, 33 insertions(+), 11 deletions(-)
 
-/P
+diff --git a/drivers/gpu/drm/vkms/vkms_connector.c b/drivers/gpu/drm/vkms/vkms_connector.c
+index 080a0240d5e9..bb023b5af4e4 100644
+--- a/drivers/gpu/drm/vkms/vkms_connector.c
++++ b/drivers/gpu/drm/vkms/vkms_connector.c
+@@ -11,11 +11,9 @@
+ static enum drm_connector_status vkms_connector_detect(struct drm_connector *connector,
+ 						       bool force)
+ {
+-	struct drm_device *dev = connector->dev;
+-	struct vkms_device *vkmsdev = drm_device_to_vkms_device(dev);
+ 	struct vkms_connector *vkms_connector;
++	struct vkms_config_connector *cfg;
+ 	enum drm_connector_status status;
+-	struct vkms_config_connector *connector_cfg;
+ 
+ 	vkms_connector = drm_connector_to_vkms_connector(connector);
+ 
+@@ -26,11 +24,12 @@ static enum drm_connector_status vkms_connector_detect(struct drm_connector *con
+ 	 */
+ 	status = connector->status;
+ 
+-	vkms_config_for_each_connector(vkmsdev->config, connector_cfg) {
+-		if (connector_cfg->connector == vkms_connector) {
+-			scoped_guard(mutex, &vkmsdev->config->lock)
+-				status = vkms_config_connector_get_status(connector_cfg);
+-		}
++	cfg = vkms_connector->cfg;
++	if (cfg) {
++		cfg = vkms_config_connector_get(cfg);
++		scoped_guard(mutex, &cfg->config->lock)
++			status = vkms_config_connector_get_status(cfg);
++		vkms_config_connector_put(cfg);
+ 	}
+ 
+ 	return status;
+@@ -70,7 +69,16 @@ static const struct drm_connector_helper_funcs vkms_conn_helper_funcs = {
+ 	.best_encoder = vkms_conn_best_encoder,
+ };
+ 
+-struct vkms_connector *vkms_connector_init(struct vkms_device *vkmsdev)
++static void vkms_connector_static_cfg_release(struct drm_device *dev, void *res)
++{
++	struct vkms_connector *connector = res;
++
++	vkms_config_connector_put(connector->cfg);
++}
++
++
++struct vkms_connector *vkms_connector_init(struct vkms_device *vkmsdev,
++					   struct vkms_config_connector *connector_cfg)
+ {
+ 	struct drm_device *dev = &vkmsdev->drm;
+ 	struct vkms_connector *connector;
+@@ -87,6 +95,13 @@ struct vkms_connector *vkms_connector_init(struct vkms_device *vkmsdev)
+ 
+ 	drm_connector_helper_add(&connector->base, &vkms_conn_helper_funcs);
+ 
++	connector->cfg = connector_cfg;
++	vkms_config_connector_get(connector_cfg);
++	ret = drmm_add_action_or_reset(dev, vkms_connector_static_cfg_release,
++				       connector);
++	if (ret)
++		return ERR_PTR(ret);
++
+ 	return connector;
+ }
+ 
+diff --git a/drivers/gpu/drm/vkms/vkms_connector.h b/drivers/gpu/drm/vkms/vkms_connector.h
+index 52ae97af2bc1..89d7f3a15d6e 100644
+--- a/drivers/gpu/drm/vkms/vkms_connector.h
++++ b/drivers/gpu/drm/vkms/vkms_connector.h
+@@ -4,6 +4,7 @@
+ #define _VKMS_CONNECTOR_H_
+ 
+ #include "vkms_drv.h"
++#include "vkms_config.h"
+ 
+ #define drm_connector_to_vkms_connector(target) \
+ 	container_of(target, struct vkms_connector, base)
+@@ -12,19 +13,25 @@
+  * struct vkms_connector - VKMS custom type wrapping around the DRM connector
+  *
+  * @base: Base DRM connector
++ * @cfg: Configuration of the connector. A reference on it is taken at
++ *	 creation and released by a drmm action on device cleanup
+  */
+ struct vkms_connector {
+ 	struct drm_connector base;
++
++	struct vkms_config_connector *cfg;
+ };
+ 
+ /**
+  * vkms_connector_init() - Initialize a connector
+  * @vkmsdev: VKMS device containing the connector
++ * @connector_cfg: Connector's configuration
+  *
+  * Returns:
+  * The connector or an error on failure.
+  */
+-struct vkms_connector *vkms_connector_init(struct vkms_device *vkmsdev);
++struct vkms_connector *vkms_connector_init(struct vkms_device *vkmsdev,
++					   struct vkms_config_connector *connector_cfg);
+ 
+ /**
+  * vkms_trigger_connector_hotplug() - Update the device's connectors status
+diff --git a/drivers/gpu/drm/vkms/vkms_output.c b/drivers/gpu/drm/vkms/vkms_output.c
+index 982c6cd5fcc7..7783a2f6d343 100644
+--- a/drivers/gpu/drm/vkms/vkms_output.c
++++ b/drivers/gpu/drm/vkms/vkms_output.c
+@@ -97,7 +97,7 @@ int vkms_output_init(struct vkms_device *vkmsdev)
+ 		struct vkms_config_encoder *possible_encoder;
+ 		unsigned long idx = 0;
+ 
+-		connector_cfg->connector = vkms_connector_init(vkmsdev);
++		connector_cfg->connector = vkms_connector_init(vkmsdev, connector_cfg);
+ 		if (IS_ERR(connector_cfg->connector)) {
+ 			DRM_ERROR("Failed to init connector\n");
+ 			return PTR_ERR(connector_cfg->connector);
+
+-- 
+2.56.0
 
