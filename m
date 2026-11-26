@@ -1,64 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.71.155.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795681563;
-	b=RF/Dxl+2DWLA2ZtZWvAAeyVrHESKdFygvIqGE1tOKSm96OlhTTV3zW27FR0omkAcyUJv
-	 cwL8NhaFYqfmnEfcIDOBJBvhAbSAnlGSAgGP0vKVIz/QBsQGPFnatKP256L+3LlpFlp+H
-	 FJDh3XDlXsS5HmJHynXa3a67lJ/BE3m7uIsDJQegtdpbh4RY0C2HhEyA9d2dMe4kXpkEz
-	 IUYn73eRq+NTR1jPEm3Pyx/fSz84JExHUQ7yEzlfR0j5TSFPVX2wsC/HujTBwFnAeOhRv
-	 l62N30DnMPUEoVn8YPbICC2zpEJY4dIvnN6MS4VdEkPhOPqumBuzrYXxKfK/5xfQADA==
+	t=1795681571;
+	b=BgACVzNPR7CIhckJMBKjoAOlH0VOUMOScYuX8Pg9dRwnqwKP93UU+RzVEylUFzZFiHE9
+	 70J/vSJsnP82GmlGEQVBRcKFPfadD+bkR0eI89njheLzmQ1x/TzscvRQFg7wLVg/J09An
+	 mFntjsLrr72OcX0iG324dVPfl4vE/a2yLpJQmcohF0bTZttD7VJ4B0HGj/KIm3NXjBNS8
+	 0RDqI3NEA2QDoL0Zhv4HJFW9cFPcQ4SSzrd9uuc6/Q/a54xWBI0f68yzpthSl9+0ROm38
+	 +T5+TPpjdeU6bp0aXzQ455ed9Dslu74Rf+pXCnqX4XhG2jS+MJF1eU5SnNXGvfV4y/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795681563;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=nMb0vrZtB0rCGRBMD5Szuw+BH4dPouiVXcf115w+KNw=;
-	b=TsGPmVmE/VutoW3pda6aj78+B1b8hr5/5quH5KMOxj4w9eood8av/hYpyeq+COpmLyiZ
-	 PbFktUo92q9TLi5KzXnffQCqt9OwwLxMjTKUPGfL1zQRd30ONdUqkYBQzV+TKuhCzxIg/
-	 kI3baCRnMTAyO+CumMNctiFcuCWOXCc776P5NnpQLnwP9+pAtuvISK8Qy+xJSF1VpTw3u
-	 a3qb+goVvE4AxH2e0PzbWAv3kAVg2TVEHvkfqSqPYpgl0slA06A3BGr3LcqTpN0LVauMu
-	 8godKktxVZExXs+8jprMN8ODjMqSAF1h+9LBLdV/6XnQ1pDpKjya60upSZSVHdA2hNg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795681571;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 X-HM-Tid:X-HM-MType:X-HM-Spam-Status:DKIM-Signature;
+	bh=nELR0AG6ykj7IewQ+VEaOZ+4U+W09QWTbbBa1f2/xd4=;
+	b=Fhf8btMTVq4AMII/p0MX3YYGa9nUbNWToM8nFsRRW37LwEjDhWDp9zvDZ3ZUgTR9XKwk
+	 OnJJM10KnV9rrV9sF5V2PMG1A2lTw5HEWTc3Ujllw1kPGYJO8R+LyINujvPVznvmi1mLy
+	 9xhxqlQqRyNdNfl0Wk42KFn+7FSqIzrjqv6uUcUicJkaDheNYIKd/6uatAOwdOLun5hqm
+	 M/5b96RZWFFgENQBdM4HbSJEZQSrbYePmett/woNaPIsqvWVEteKTGAowisY+Gt2yj2ve
+	 wIjZs4BK/OixYjktXxRxWwUfVjfstipT5kk8NaYXSZzjrpws7XxhUTrINqshXxWc/2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=gGjQAK0S;
-	arc=none smtp.remote-ip=117.135.210.3
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
+	dmarc=pass header.from=mail.sdu.edu.cn;
+	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
+	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=BLWEzal4;
+	arc=none smtp.remote-ip=101.71.155.101
+Received: from mail-m155101.qiye.163.com (mail-m155101.qiye.163.com [101.71.155.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6167E606A31C;
-	Thu, 26 Nov 2026 08:25:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6167E606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC818606A326;
+	Thu, 26 Nov 2026 08:26:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC818606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=gGjQAK0S
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=nM
-	b0vrZtB0rCGRBMD5Szuw+BH4dPouiVXcf115w+KNw=; b=gGjQAK0SchH66Xv5cB
-	IH/SNZ11X5xwvf4qc/a5r+NbwdiYfmdYEPP1Wg15lsz66K/fzfuAoD3kC8mUyJzk
-	oVatuwLT2DJQA/X2mMnk8+mLh3NUdpMqLBy7/JQsUMnklfqbB9Yq1r0bo4C4qiCh
-	0jTd2Xlx6Nf0C50x/LY8Syahw=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wD3v6L57Adr+2gWKg--.36520S2;
-	Thu, 26 Nov 2026 16:25:30 +0800 (CST)
-From: "Li Youhong" <dayou5941@163.com>
-To: dayou5941@163.com
-Cc: linux-kernel@vger.kernel.org,
-	linux-raid@vger.kernel.org,
-	liyouhong@kylinos.cn,
-	magiclinan@didiglobal.com,
-	song@kernel.org,
-	stable@vger.kernel.org,
-	xiao@kernel.org,
-	yukuai@fygo.io
-Subject: Re: [PATCH v6 1/2] md: use work_busy() to flush sync_work in stop_sync_thread()
-Date: Thu, 26 Nov 2026 16:25:28 +0800
-Message-Id: <20261126082528.191484-1-dayou5941@163.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261126080830.144525-1-dayou5941@163.com>
-References: <20261126080830.144525-1-dayou5941@163.com>
+	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=BLWEzal4
+Received: from lgs.. (unknown [101.76.249.61])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 5617268ff;
+	Thu, 26 Nov 2026 16:26:07 +0800 (GMT+08:00)
+From: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+To: angelogioacchino.delregno@collabora.com,
+	sboyd@kernel.org,
+	bmasney+clk@redhat.com,
+	jbrunet+clk@baylibre.com,
+	matthias.bgg@gmail.com,
+	wenst@chromium.org,
+	drinkcat@chromium.org,
+	weiyi.lu@mediatek.com,
+	msp@baylibre.com,
+	fparent@baylibre.com
+Cc: linux-clk@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 1/4] clk: mediatek: mt8167: Unregister apmixedsys clocks on unbind
+Date: Thu, 26 Nov 2026 16:26:06 +0800
+Message-ID: <20261126-a35bb25eb5-u14-1@mail.sdu.edu.cn>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261126-a35bb25eb5-u14-0@mail.sdu.edu.cn>
+References: <20261126-a35bb25eb5-u14-0@mail.sdu.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,18 +67,68 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3v6L57Adr+2gWKg--.36520S2
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjfUnVyIUUUUU
-X-CM-SenderInfo: 5gd103ivzuiqqrwthudrp/xtbC+RoWxGsH7PqZhwAA3V
+X-HM-Tid: 0aa216f6415103a1kunm20e7a42e3c29de
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTx1IVk8fTEkYQk1NSU9CTFYeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0
+	NMVUpLS1VLWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=BLWEzal4XvSB1FtMRPcR2zi66u/DFRv2/3iDFIo85SpEAU+jnFM55EMrlLMJduJLM1Sg9PN1gPlChu9BtPNDfhbOYzh2NDvL6jAEJQRmeXOUxbG+OjaDWecAnHJ7PJNx1xL72rD5HC+YtbCHaHLWLVLVIokAzu9mFZjTtkj12Lk=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
+	bh=nELR0AG6ykj7IewQ+VEaOZ+4U+W09QWTbbBa1f2/xd4=;
+	h=date:mime-version:subject:message-id:from;
 
-Hi,
+The apmixedsys driver leaves the OF provider and clocks registered
+on unbind. The clock table is device-managed, so the provider can
+retain a pointer to released storage.
 
-Sorry, this series was not sent correctly (the patches were not
-posted as one continuous, dependent series). Please ignore it.
+Remove the provider and unregister the dividers and PLLs during removal.
 
-I will resend a corrected v6 shortly.
+This issue was found by our static analysis tool under development.
 
-Thanks,
-Li Youhong
+Fixes: b27284336aa4 ("clk: mediatek: mt8167: Move apmixedsys as platform_driver in new file")
+Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+---
+ drivers/clk/mediatek/clk-mt8167-apmixedsys.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/drivers/clk/mediatek/clk-mt8167-apmixedsys.c b/drivers/clk/mediatek/clk-mt8167-apmixedsys.c
+index fb6c21bbeef8..70fc5e5215e5 100644
+--- a/drivers/clk/mediatek/clk-mt8167-apmixedsys.c
++++ b/drivers/clk/mediatek/clk-mt8167-apmixedsys.c
+@@ -118,6 +118,8 @@ static int clk_mt8167_apmixed_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto unregister_dividers;
+ 
++	platform_set_drvdata(pdev, clk_data);
++
+ 	return 0;
+ 
+ unregister_dividers:
+@@ -128,6 +130,15 @@ static int clk_mt8167_apmixed_probe(struct platform_device *pdev)
+ 	return ret;
+ }
+ 
++static void clk_mt8167_apmixed_remove(struct platform_device *pdev)
++{
++	struct clk_hw_onecell_data *clk_data = platform_get_drvdata(pdev);
++
++	of_clk_del_provider(pdev->dev.of_node);
++	mtk_clk_unregister_dividers(adj_divs, ARRAY_SIZE(adj_divs), clk_data);
++	mtk_clk_unregister_plls(plls, ARRAY_SIZE(plls), clk_data);
++}
++
+ static const struct of_device_id of_match_clk_mt8167_apmixed[] = {
+ 	{ .compatible = "mediatek,mt8167-apmixedsys" },
+ 	{ /* sentinel */ }
+@@ -136,6 +147,7 @@ MODULE_DEVICE_TABLE(of, of_match_clk_mt8167_apmixed);
+ 
+ static struct platform_driver clk_mt8167_apmixed_drv = {
+ 	.probe = clk_mt8167_apmixed_probe,
++	.remove = clk_mt8167_apmixed_remove,
+ 	.driver = {
+ 		.name = "clk-mt8167-apmixed",
+ 		.of_match_table = of_match_clk_mt8167_apmixed,
+-- 
+2.43.0
 
