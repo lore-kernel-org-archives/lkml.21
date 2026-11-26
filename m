@@ -1,110 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795687241;
-	b=JzgYHsTaioCAlDYrCktPRoHpX3GpvvoNM5ILxB1WoKidJ8aAqofUUURCAk1o1LYei54V
-	 bNo3Fxdj1kKVBoM8YqbgAIlswrAGKhni5gCMYFMxWFXnqpiAnR70ejBBZwazWMUfNZ3Y3
-	 tlTJaK1RfB8gKWvydEe03AdgjkBjDMjQKQZ6OL4/0P7oQTP+eeucfO8jJXqSl3nL5TDYT
-	 snnCBWsA63/l7gVeZhuZVcWK5eOQnHKxpQcKBwYqlHmxeQGNwuQzYB0IoU45SyHTbj7BA
-	 KRpO16FijfkUW+WjyQjHDZNkm85axT9JB2NnO/FAqOnYoiuRI7lqrKmqHh5PSe6YOIg==
+	t=1795687273;
+	b=of9gpMyTWvUlG8Oa5DCcXcKWOG7xSdB8FmAvxkTcNOKfJ6GPQtgoPs8GkVogbBm3/qTD
+	 P2pT+gqmlhFMfvKxGfbteGhPeXAxpgu9MlD+J/tPAQVeCuLE/j6fnOYTHtYHCmO2vNVFt
+	 iGaqlh35W16BRtmaP4JrVCDDF/nDUjLmIF5tcTLEa4rbQF52EyhYxPsGoFKFXrrwKFQcJ
+	 GvLSMa420lHWilDbTvYekqdDwZ64OfdF9azgII1tFvtMwm4VD0JOLdeo324m2ZI6e5cZ2
+	 1IRhcwlqn1ZMMJ87GsjvND2Jus0HpCv0opEZSCaWCWf0Ocp+bau+isCOLtvPr+ruqIg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795687241;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-Spamd-Result:X-Rspamd-Server:X-Rspamd-Action:X-Spam-Flag:
-	 X-Spam-Score:X-Spam-Level:X-Rspamd-Queue-Id;
-	bh=UFFp1oiGPIwV8RD8ciokVUvncMDM8WVuzmh4qG6CApE=;
-	b=T9w4Ht768QHzxZjUPJ1IL6lOGI1Ai2CbNqHYb84bM85i5KNMkeIyDAgbky33PRwEhHrZ
-	 gMa4CwpmCmTv2y6kDXslKPp9nXXE/cIagu/+ZeYID+Arj9YJAt8NagSQFVGQh2Evg3bym
-	 QGN/KvgXb2zM8xmAGNJvFOh5iVU94wQT2SL22fWizu3UqUgRQ0cDMDZRfpbOItKp/Xskn
-	 c/zBCI6QH/AW7iYUjpV/JCTjM79E2LTHtzytPGoGEI+IVwjfw51GUKQrY/X7Sb1sLhjh4
-	 +B6gX5wVFnG8u6MDhmGlYi4ejqGY2Rsuu/4XxXro2HYHzLQuIr9b4Pt1mR4TCB+Vo3w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795687273;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=aPAOj8/sEiImf5Q5w0lmK7mWVF1uN6/NWzG/i3miSOs=;
+	b=GsXK638ZxKTsjbKnYlNnZ5/Inxzo93Uomo8yhtbDxVmhgbqZeFUZK8Du0y7cxe6FpQWF
+	 dyLIOwE7r5PRBoRMpadgS2UAZ7d/tOTI6rCk6ydiAv2bM1w2ERJOe0rp6TuIVrInmpLPi
+	 ktQNxBCDSwWqytNRdoPWhVyD5zZPZVhL9P684olJKGYfwvBRPEGAEvQ4cWTEwb8KTGqrL
+	 77p06GTwrwcpMJppGsSrfJD6gO1Lqs1j+HOPJLV1oCQvE7ICAAXP3w6xu+MmNmXl+le7g
+	 4F6jMU9Ip7z5xMUyJNwFhu1hjD2MY+xY2sycPVVKU/sSPBM6nbrleF6CSxPpZqIvFnA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=CERyQ3DQ;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="2j2d3/W2";
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=OauXt523;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=QKejRXX8;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=LGL+MJ0O;
+	arc=none smtp.remote-ip=209.85.216.52
+Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F14A5606A321;
-	Thu, 26 Nov 2026 10:00:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F14A5606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C51B8606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:01:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C51B8606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=CERyQ3DQ;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=2j2d3/W2;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=OauXt523;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=QKejRXX8
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id CD12C22608;
-	Thu, 26 Nov 2026 10:00:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795687238; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UFFp1oiGPIwV8RD8ciokVUvncMDM8WVuzmh4qG6CApE=;
-	b=CERyQ3DQ4HGhJ5DYl83HjbSu3zVSwSJQtcQwghJhQOp0bMjNCYo7WZ/4r5i+UnLpxc7OQS
-	sHkJ5TUf5LcqUGlRP3hzuewZ7mNWg4Lw3gTL8sO0ayixjJijtaqTlWZ5ZQFO+/+4RyRSE6
-	5waRw9IOqakAulYC1QLNY7ZParPRocY=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795687238;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UFFp1oiGPIwV8RD8ciokVUvncMDM8WVuzmh4qG6CApE=;
-	b=2j2d3/W2G1dFlCKn3Euu/DICXfb9HeSGVLzESiwW5OFEJjAsdsltJj87A5qzeEy9vlNtzr
-	of6ipMb+p9NDyCDg==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=OauXt523;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=QKejRXX8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795687237; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UFFp1oiGPIwV8RD8ciokVUvncMDM8WVuzmh4qG6CApE=;
-	b=OauXt523YqXZ4nqClv7Q9Szx8Hyz5S6b1tf/JmtzX6+KbkSUWC+ZNoIoVW7XCcUpIgLLqu
-	yMW6bO76zTUo9kx34Z6zK+Cbw30Dd/CtfIt6gYgzBUc2dJa68R8J35SFvd/sOkfZiXfrl2
-	jgQJdj5VL36wwv3yzmZ36US+5mbvXJg=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795687237;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UFFp1oiGPIwV8RD8ciokVUvncMDM8WVuzmh4qG6CApE=;
-	b=QKejRXX8nDmiIlTvUEXnBSG9jNPyDvzO6OMU0bFZ60FCIpq8gJhtsLwyyBqXqbJ44R8CGB
-	j6VoAMDB86OUsdCA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 814A1134C3;
-	Thu, 26 Nov 2026 10:00:37 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id ObgzFkUDCGv1BgAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Thu, 26 Nov 2026 10:00:37 +0000
-Date: Thu, 26 Nov 2026 11:00:37 +0100
-Message-ID: <87ld6f6hfe.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: security@nitrohex.com
-Cc: Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] ALSA: timer: Protect the slave instance flags with the timer lock
-In-Reply-To: <20261126-alsa-timer-slave-flags-v2-1-8e07a536fea3@nitrohex.com>
-References: <20261126-alsa-timer-slave-flags-v2-1-8e07a536fea3@nitrohex.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=LGL+MJ0O
+Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b41188c8b9so4813015a91.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:01:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1795687272; x=1796292072; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=aPAOj8/sEiImf5Q5w0lmK7mWVF1uN6/NWzG/i3miSOs=;
+        b=LGL+MJ0OPmAso0EVacerztUnAtvIZ2EUwLYi2xOHBoMu0OVHlDiq/tSehnd7MMbLui
+         e6D1rVtLQaCwky7QohNEBNr4dLcpfmQX75iASGie4sK6bgAk976ILi7busCF270voK7f
+         Jb75xjmAmA44oCiHl2XhPVWYiMBEoEOl9ABB8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795687272; x=1796292072;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aPAOj8/sEiImf5Q5w0lmK7mWVF1uN6/NWzG/i3miSOs=;
+        b=VTmsHDjhsURY95rrUHPy+UoM0Z7O9pwnkwlrLPY/wfwfqteN6HyDnwaB67ngplr4GS
+         Cqvo3qxadVkWWWzeP3XaiMQ6/D672TRPh5U4tVvxQsF5e2kEevhD/dztvbaEZ5tRQ81N
+         v1S/T2WOd8yYDJkE9dW5wFSQV4HMxybAXfQesxr+oaT7ZlM6CW3/vTBvA2gAHerb3Og/
+         yTTlRF8/mqsHFghF9DhGePP0puOqY9EssekQwPf1xhwZ8lJ2WOo4Rzs09Q03lqSAqGsh
+         7ES8M78yHKQyynr6YcaHW8165IC7f08YO6Xlo0fxdFN380DXzVflO5B+hid6MKNtphwI
+         UEGQ==
+X-Forwarded-Encrypted: i=1; AL+hErFQTSaFwlpihRot0awpjW8uNx9sVZw26MfaeE7FtgSczh9mrc7QH6TCh5vy51BDXnne/sm7Qq1oVdvDlts=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9AhXC9HdZbp48MoXxaFcZaw3JYiKPvN2XkyKaBCOA0gkthz4dC
+	Tz+XdJNorrNdmndzSI+P6aVcHO6vxSZg9xB3S02jreu1Fv7fbZEro98SvXSvpKK+ZMzngKUxjH/
+	tFAdCdQ==
+X-Gm-Gg: AZFdTZcEXCxG6tsgO8shiVRWXcJ3atAfDY5Dty/4qBYDzjIBCGP2xdESzCRn708KsTz
+	hzpKnDeuFIwlWTYvjmEG3oI2CfAmyEy+Q/cpZT7OCEc8uUtKxZgjkdY16TrAlMeAHY+oYfvjZL+
+	PE9jQYHFAOFVtNlCc0Qw4+SLL9W/4ZWDfqfzRm1PwNkGlWBjYqlTX/jwiaBZtzvQrHXy+yg6oH0
+	QOAoOnRCLLOgndZeFlUVIN1de9VaZ5FA0nQeHvJBsGwISdKqvADCSl5mlVgoWY7TcMdmcdWJ4uL
+	Tt73rtcB+uzdvY3ouZA9gGFr9Lg/mSxUfZgW7ANBzc4IqdGqwuzfO4e9UzYQCLWZpzezEAzMbfO
+	+PwDhk83nDWl5fvnWUl+gWoTd9Ia55LldU2DnOS6HPqRGDmfVka8P/gFTaCiBnPodJQaIlZf1oA
+	jp5SNvs9aWtRnfaOe3ERIRozMWiJdadJQXBELR5m1uV8DCJ5q0RTwMXEyPlkbKUF7+l+yU1f+97
+	/5et8ADGtV250GQtQxxkD6CxBX8v5dUQtoLnHV0uTuVlFYlYouMZBeph/Vi3kZtUMzbs5mCFm7F
+	AObDrX1Bfy10fvGVHbh70H17XJrIZKX+zlcnxg0o7SFPCOtln1RMK2Wpatc0eEk6LrU=
+X-Received: by 2002:a17:90a:ec88:b0:3b4:127a:2bb9 with SMTP id 98e67ed59e1d1-3b41c8d9275mr19392647a91.13.1795687272023;
+        Thu, 26 Nov 2026 02:01:12 -0800 (PST)
+Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com. [74.125.82.169])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecb486sm34652141a91.16.2026.11.26.02.01.11
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 02:01:11 -0800 (PST)
+Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-386c4d2e2ccso4469650eec.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:01:11 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHPoffgyUiDpbsgGwWkyJqib5c0gqwcj0myCBg3evYTnNB38CDYGTz9a7ilTP6SnyB3t6OP+7RPuB8G/f0=@vger.kernel.org
+X-Received: by 2002:a05:7300:e9cf:10b0:386:e571:4bb4 with SMTP id
+ 5a478bee46e88-386e5715040mr399450eec.13.1795687269562; Thu, 26 Nov 2026
+ 02:01:09 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,86 +93,76 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-Spamd-Result: default: False [-12.51 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCVD_TLS_ALL(0.00)[];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TO_DN_SOME(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_FIVE(0.00)[6];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim];
-	URIBL_BLOCKED(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim,nitrohex.com:email];
-	DKIM_TRACE(0.00)[suse.de:+]
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Flag: NO
-X-Spam-Score: -12.51
-X-Spam-Level: 
-X-Rspamd-Queue-Id: CD12C22608
+MIME-Version: 1.0
+References: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com> <20260714114414.184512-36-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20260714114414.184512-36-angelogioacchino.delregno@collabora.com>
+From: Fei Shao <fshao@chromium.org>
+Date: Thu, 26 Nov 2026 18:00:31 +0800
+X-Gmail-Original-Message-ID: <CAC=S1nj8rJ0WJp7DcO68zyejSvzFhhB5Q_q+_jKY2itMAJ64eA@mail.gmail.com>
+X-Gm-Features: Aa3M54r8mZgCPYkjyk_HhGWN4kbWoWQVSbV0f4Pj7KzdyzjM_U47c8LDiim4nPQ
+Message-ID: <CAC=S1nj8rJ0WJp7DcO68zyejSvzFhhB5Q_q+_jKY2itMAJ64eA@mail.gmail.com>
+Subject: Re: [PATCH v2 35/46] drm/mediatek: Add support for Display Output
+ Processor component
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
+	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	matthias.bgg@gmail.com, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	justin.yeh@mediatek.com, jason-jh.lin@mediatek.com, kernel@collabora.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Thu, 26 Nov 2026 10:18:33 +0100,
-Rongen Wang via B4 Relay wrote:
-> 
-> From: Rongen Wang <security@nitrohex.com>
-> 
-> snd_timer_start_slave() and snd_timer_stop_slave() set and clear
-> SNDRV_TIMER_IFLG_RUNNING in timeri->flags while holding only
-> timeri_lock.  For a slave that is linked to a master, the interrupt
-> path updates the same word under timer->lock:
-> snd_timer_process_callbacks() sets SNDRV_TIMER_IFLG_CALLBACK before it
-> calls the instance callback and clears it afterwards.  Both sides do a
-> plain read-modify-write, so when they overlap one of the two updates is
-> lost.
-> 
-> If the set of SNDRV_TIMER_IFLG_CALLBACK is lost,
-> snd_timer_close_locked() does not wait for the callback that is still
-> running, the owner frees the instance, and the interrupt path clears
-> the flag in the freed object:
-> 
->   BUG: KASAN: slab-use-after-free in snd_timer_process_callbacks+0x269/0x2b0
->   Read of size 4 at addr ffff888007e5cc10 by task poc/90
->    snd_timer_process_callbacks+0x269/0x2b0
->    snd_timer_interrupt+0x7b8/0x1100
->    snd_utimer_ioctl+0x7c/0xb0
->   Freed by task 91:
->    kfree+0x127/0x3b0
->    __snd_timer_user_ioctl.isra.0+0xe93/0x28f0
-> 
-> If the clear is lost instead, the flag stays set: the instance gets no
-> further callbacks, and closing it spins in the drain loop of
-> snd_timer_close_locked() with register_mutex held, which blocks every
-> other open and close of an ALSA timer.
-> 
-> Take timer->lock around the whole flag update of a linked slave, as
-> snd_timer_start1() and snd_timer_stop1() do for master instances.  The
-> callers hold timeri_lock, so timeri->timer is stable, and the lock
-> order is the one these functions already use.  A slave that is not
-> linked to a master cannot be reached from any timer and needs no
-> additional protection.
-> 
-> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Rongen Wang <security@nitrohex.com>
+On Tue, Jul 14, 2026 at 7:46=E2=80=AFPM AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
+>
+> Add support for the Display Output Processor hardware component,
+> found in the MediaTek Kompanio Ultra MT8196, Genio Pro 5100 MT8894,
+> Dimensity 9400 MT6991 and others.
+>
+> This hardware handles the post-stage of pixel processing in the
+> layer overlaying process and is also capable of performing gamma
+> correction, ensuring that the per-pixel values are within the
+> expected gamma range.
+>
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
+> ---
+>  drivers/gpu/drm/mediatek/Makefile           |   1 +
+>  drivers/gpu/drm/mediatek/mtk_ddp_comp.c     |  14 ++
+>  drivers/gpu/drm/mediatek/mtk_disp_drv.h     |  14 ++
+>  drivers/gpu/drm/mediatek/mtk_disp_outproc.c | 247 ++++++++++++++++++++
+>  drivers/gpu/drm/mediatek/mtk_drm_drv.c      |   3 +
+>  drivers/gpu/drm/mediatek/mtk_drm_drv.h      |   1 +
+>  include/linux/soc/mediatek/mtk-mmsys.h      |   1 +
+>  7 files changed, 281 insertions(+)
+>  create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_outproc.c
+>
+[snip]
+> +       priv->irq =3D platform_get_irq_optional(pdev, 0);
+> +       if (priv->irq > 0) {
+> +               ret =3D devm_request_irq(dev, priv->irq, mtk_outproc_irq_=
+handler,
+> +                                      IRQF_NO_AUTOEN, dev_name(dev), pri=
+v);
+> +               if (ret)
+> +                       return dev_err_probe(dev, ret, "Failed to request=
+ irq\n");
+> +       }
 
-Applied now.  Thanks.
+platform_get_irq_optional() can return error codes that need to be
+handled; otherwise, mtk_outproc_bind()/unbind() will pass the negative
+values to enable_irq()/disable_irq():
 
+ret =3D platform_get_irq_optional(pdev, 0);
+if (ret < 0 && ret !=3D -ENXIO)
+    return dev_err_probe(dev, ret, "Failed to get irq\n");
+if (ret > 0) {
+    priv->irq =3D ret;
+    ret =3D devm_request_irq(dev, priv->irq, ...);
+    ...
+}
 
-Takashi
+Regards,
+Fei
