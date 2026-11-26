@@ -1,94 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795672564;
-	b=yevOLkoYjg+XKfRLPFJr1Ld0oO2iU6RHfwAO+nVTB62Bq/3fm2nRZdWVc4PN65iaOH3g
-	 qs5+LSXCfUEN9SZFCDBqRD3trAyYwZbSmur4ySQ96PWMZ4c0/AP+iO600t69KkIYqlZ1o
-	 vcoj+YpO2fovdFseqIuhtqNroOoEIl2YoLu49B17NWuNZ7POsq6Rb5WKKRXkhpm9mS6d6
-	 g0BNDMm7mREfA2+zRrnq4IarLlOvBKi0A8v5qA7vXgVwU6/JVii2Kpy8KkfJ8j52VENII
-	 XkY9EgRmC8SDUqv5dsjNgAriOsV9nwN+S2LarTbU748B+4Z17WJSKKFYTxI/HPgDtbA==
+	t=1795672617;
+	b=fIpLm5IMeoGqHRVG0Oc3iRRscxr1iqHXuOsZ4SHhtQaLme1FYWOv+UQZqMbByoX1WEgj
+	 KmU94hqc8N1J+8h1ZvICl8hkvGToNKSuObyzSgXEl+zBBlDv2hPrJa8DjZLiPK0ELn0Gn
+	 OQwcE1VaorGWfKIo2BScz2d63l0zL+LhdJHegJaqSXVdXjrSQlLKRblJW/iJKrSzQpWUl
+	 oU5j1IyZwMeBUPsKRAdYTt2O8Lok6eEWYj+2NZaotPE4f0IzfEGE/npfdz5vTwnriLD+W
+	 CRI8n9ybvFlgF5foLdLmd/E1Ef80aAqj9BgULZJxdKN+W6w4A7KmKkLVKol4WYykaYg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795672564;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795672617;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=f9W/X3ZSGPrXignHGoNXmPj3EgNkTGQgkxY9HizUk10=;
-	b=noHWDxCy4E+HEDbdDzfPytP3v3B/Kd9W2IC/uFbxG9LzU6O9X8AIXk584YxKbgQEDD8l
-	 IRa5pC2HhI63Sb8fgVjA1E4ukeXS0P8fna36ZNsEZHIBliI+Z9P7IUbaRIIonAsE/IiFS
-	 mMPvjEVTrZcsyL2N59+FUAWaLe4bBcYXMztVaLfRhfGzNs6Aa7nanLaNLTCWfJpJtBZTu
-	 ya36mXgd/l6z6q3hIMsF7QrAQZVyvzQWkjsioq1WmE/vCsF2yuiF3xYrK2KbOtQJiDLUN
-	 jZWju+zf7GuGuIrLEshQoHc1fjSz+INde3p7HXEgOcT0mDFilDLI+WUCu4bNlt9xCFA==
+	bh=GaDF/oabtnPz5CC+z3Y48KsX5H9ec5sap3k/VVqc69M=;
+	b=raGq7iFrCcuO2DIMU/C2DIGD2gONazDncO4sAHv4JccWb9V8Fe3UGlW2fVACB2uzHFvM
+	 Ecp7pAqyj7VLoW7aibvj/bBjdmT72XIWxgUeVp3we+nWg/q2rZncxVMUoHe9IsMIRfGr2
+	 fS7DgUz/7dlIEoTEWckQNWZeRjD7Sjii6y5PZWYz0FwH1SBneswRQP3CdFgrk6M820njd
+	 YMV4tlUnqGsY0iSVjt5aV0Er6vkEm0K1EQodu5i90jfdRJmDL8WKQU7PKHM4L2R9rVXqT
+	 D9VWKJdS2y08ZtZcOxKZI+qAl+9CzDlN69xnGCzYiYsHffRfj8i/pGDyr4nxq+C2+pw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FG7buiis;
-	arc=none smtp.remote-ip=209.85.216.42
-Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com [209.85.216.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ggdGyTHK;
+	arc=none smtp.remote-ip=74.125.82.173
+Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57476606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:56:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57476606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70325606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:56:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70325606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FG7buiis
-Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3b08cf16decso3980442a91.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:56:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ggdGyTHK
+Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-386ab9ab619so8598698eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:56:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795672564; x=1796277364; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795672617; x=1796277417; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=f9W/X3ZSGPrXignHGoNXmPj3EgNkTGQgkxY9HizUk10=;
-        b=FG7buiisxYEulSoe5M2X3xjYextDw1OYO1+X5KmGszrbI37LvW5D07w8n+bLsGW7gt
-         4rlNqEcBrnPBma4oBOENKENfKWv7oxElu9Aau0onjsMPsqVcRqldA6FeeyfZRw754GCR
-         OcolyDEpVjr57AAjMJdUqPT4SVbiSRIX8xuURu3O0Ju0/YWnO/SX31fVtpFCCzyaxWLf
-         DfKEQ8BFCK0AdpsccnD7cfiCkEtl961oRBW4voZ21WPK+PAc57f3mZufvcRjJoI1Pp0Z
-         f0Tl3iQhOIc4JwYJA7gQEKa97J08fTdlnvpvHVZLPbn32wJcoP7h4nrqaofWdfmrq/ks
-         e1eQ==
+        bh=GaDF/oabtnPz5CC+z3Y48KsX5H9ec5sap3k/VVqc69M=;
+        b=ggdGyTHKICLNcWcMun1QBSRIj+w58Q8fDLAGuRoUVpqWwEYcJl+IxC0paMlWlrjzj8
+         LkGy2S/7LOjq3cxbx+Gx8CPb9F24aCXiSNacF5N/VuvMLIc1qGO7kNqUEymVtJSVrYrJ
+         btK0pCq7u4HBVGSiYT9T3NV7J1umh28GUfrkEpmjYVo8itfIZXcSOcfu5jRvnrPrCy3M
+         7lsAwtRQ5AoUCgB5yL6MD+Jf0lmHeydBFXU5tefO9XjUv6B9bArbtDfpndnB0S5UwVHY
+         T4ppcVXwvo82LuNSccQTzYmIEw9SH3NGX0WteqaLndZ3Rlka/hL03DlUiqyvgC8n3w1e
+         Hqaw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795672564; x=1796277364;
+        d=1e100.net; s=20260707; t=1795672617; x=1796277417;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=f9W/X3ZSGPrXignHGoNXmPj3EgNkTGQgkxY9HizUk10=;
-        b=N4YbVyGdvXa+YEV1WSzt5a/4iqRBaId5PifXtRIXKm5bo+dZpHjrdgD3e5YAS/dYFJ
-         p/ne8Q1xK69odorRL1flsgWSVq6IbTED0BxajNEvTtLYGzRzfVMCHkDuZEbVK1oL79FJ
-         jd1gFSrerWY8c4SkawKU00tlQpTU4M+WFoU8h0DmumpUJCbdvJcrQL1cfIpdhWsdhhaq
-         nPPpeDsQzftHjb0EtUwUF+pBFHTsL9piZdY5FizXWHjlUTWdK4H2WV+FgixTO9CIkIkA
-         ix2JxRuefpizFOXRKgG88OlT118ukvgCDk7KO6O/94857fHr+d8pQAdeyTgTfrcaLDRG
-         ux/Q==
-X-Forwarded-Encrypted: i=1; AL+hErFn/3CojPHaroh/seEmiDzYFWAADgdKN9Xr+AyZoiFKKP/jS3ftI7ziHJu0solZ6KhUj4E8VNXYKNxVmfc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8nHn6RRU0kCItWRrANXbBe02a5EBYWw9yKdhnY61pSDqnF2O+1
-	CbZjuPz6rw8e6lMIPl2LwKtDNvKE6OGjgZQN5GCjK1iI8gEgCLa8cyf+0ZB6NAxS
-X-Gm-Gg: AZFdTZfDXNW4UMDRJaOWVZFKu3ijjsBAbh5Tgq5tS8XBcck7K0X4Qp9DTSqfZg8gien
-	HlLxjmEH6oZKdaxNK2Ga6xLhkTbEaYbgkizs9C/p4jje1Jcs+DY/eW5eoKeF9FMixHPsz5KAKV3
-	8bH+49dA2DZpnbcycdBvuoVjTJgDsBrUdI2PJLCBcgCSydw8OTTxRpVrOb1SJAxeI5PwpYnhkJJ
-	TuPA+xOf2kk7aZJGZOHZ1SBBlA9MEq/9dDA8ltgU23fXgXL0hwyqRKK431zNgwtsYR6/Y/qtdXr
-	8r0mlHe20Haxf7Ib5IEQ5/4Mq510avcfhTwxgfvjRvMhyH9onvcgWLj99+oyoy1M2mnmgwdfInN
-	M2BE/YpyefXG77Cr5AN7+gEmI7ImtXbjVcZe/NAw+gr0oSA7n1rUXxLBT/D/Zu1KoBVGtqIA2GT
-	conn+JHAVraCPDj/rIrVWHH9HJXA9GmqmukI5s2Q/OvtHRFSrmi3GOFNDYGqfxtW5rFBcCorbPd
-	7XnCLgZz3jJovzP1OJC0Qa1JCO6E55AJM4FPkyR+oiVV/wvuekqftVWBePu71+gPe3jHDnWQWTy
-	t4PQzEWsfHnQvTFArAnRc/0A9B3v6fkSY4Wq2i0iZqgV0EJ24w==
-X-Received: by 2002:a17:90b:3843:b0:3b5:29e:11b3 with SMTP id 98e67ed59e1d1-3b5029e144emr2879706a91.61.1795672563597;
-        Wed, 25 Nov 2026 21:56:03 -0800 (PST)
-Received: from fedora.tailc1fb0a.ts.net ([172.219.65.15])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad8e93asm30760213a91.11.2026.11.25.21.56.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 21:56:03 -0800 (PST)
-From: Artem Novak <artem122novak@gmail.com>
-To: herbert@gondor.apana.org.au,
-	davem@davemloft.net
-Cc: anirudh.venkataramanan@intel.com,
-	mark.d.rustad@intel.com,
-	linux-crypto@vger.kernel.org,
+        bh=GaDF/oabtnPz5CC+z3Y48KsX5H9ec5sap3k/VVqc69M=;
+        b=NELMipYJadWB4a3zSrrpPdb/FzlDnZMC7J4Z1+JyoIR9XavYXsP/fOzDtvYKg5+4B3
+         0sBBsyrE7DaAfHU9YhQ/yeY8yQG5Tnep8g9s4Er0jRY/Jt1kou8FY4xhIAzHL3m+N/i/
+         QpZUiat8DQBzGQaMYQ/iQNp025/BDrA9+4GPBIeMp96NhDn7dGJAwT0cLUwGL5Wb8bee
+         Q8cISH1PUBwGyu93sMJT3YZZanN4Iluupt64Ddg5efrdhENuvwDn9zhbdukroYilYV2u
+         4aK4S2og6VI53mhGhswGaR7U2mXlu2sGuzwaW6c+UUQmU4A13FGTXHod6NX+St3b+vY9
+         ACnw==
+X-Forwarded-Encrypted: i=1; AL+hErHFmSwf+vSAhB7sluPYad5R9fEHkMg5xufoPrflbJqBtS3KZm0UeT0CO0eyQ8U7Ov7X/Np/U3tAfH3SxeA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9C8TSzy6oLSnBDktD/kV7pPN5hamz8sqHwNUMO2vvmRU3E9eNn
+	eyrsbmsgvJnzgFbcfX7WdkR5AANpeoMSbnKhx2jDUjCGeITg/1qS8pM=
+X-Gm-Gg: AZFdTZd20deAUR1bUvc7YVtsWt3VNO4MJDbcLFFNM/Yl4ZSlm0IR72Mi1okG8KsquNF
+	sQXTZ5+aozZOWWXJsRG6a21kFmhKdlDP6eQDKY82pbO5bq+ACh5BR3I5hs+TKH0o2nrEV1/xcM3
+	GoPEO0w+EFFPtics49Q3QrjNf9rOXss/A3LbHq4iCf4S3UrWMAe10U+VaKqIlmc1a+qEOmbfwv8
+	oYxsNlHd6tzhvq/C82V7mwYkM2WB2jRvoPmUzQK7q32GuOjEzXPn87PriNm3Y3VK1t7T70gG1qN
+	uolTvg2pM6eWAgUo8lP/ZjRQsuYO+0UBV0e/8oQFH0CGgraL9usKS4aYyY+0eCbziZ1ABut4kPA
+	muxwdmQEO4sOOY4ldaZW0JTE7s2GgHsB/OQipaw5oe04/rDAX6mk61a683Q9C2w9JztCis3z7w9
+	rY+Taa79EF1ln+6fZBxIkY8JcZnPLtZLrcf/YJ9NHTnPbp+mbYA5P5cecvBqDqwgEqa9Qg1NqXm
+	CB0O0oGybefmhXEv5t4+XjJ153gYw8o2mBK0zo1PV92dKog+/PxSWuxDemkf5Lj2mYC2xPcrFKD
+	2eVXQ9wEnxJqTPgraC4ecYRG5Uz+fFqKkbFbOs9ey4dKPSpmS2hDj0oFSfc34VqKPi4=
+X-Received: by 2002:a05:7301:4201:b0:385:b8f4:755d with SMTP id 5a478bee46e88-385b8f47ad3mr20537639eec.20.1795672616579;
+        Wed, 25 Nov 2026 21:56:56 -0800 (PST)
+Received: from localhost.localdomain ([2406:3003:2002:639c:a06e:23f:85ed:4cfe])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672c6f31sm57523404eec.15.2026.11.25.21.56.54
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 25 Nov 2026 21:56:56 -0800 (PST)
+From: Yige Jiang <yigejiang86@gmail.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: Yige Jiang <yigejiang86@gmail.com>,
+	linux-media@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Artem Novak <artem122novak@gmail.com>
-Subject: [PATCH] crypto: tcrypt: avoid 32-bit overflow in throughput calculation
-Date: Wed, 25 Nov 2026 23:56:00 -0600
-Message-ID: <20261126055600.23172-1-artem122novak@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	stable@vger.kernel.org
+Subject: [PATCH] media: tvp5150: Free connectors on probe failure
+Date: Thu, 26 Nov 2026 13:56:51 +0800
+Message-ID: <rc-b1-20261110-vc-28-73976feaa334@gmail.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,69 +98,62 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Cast bcount to u64 before multiplying by blen to prevent 32-bit
-overflow when calculating throughput on 32-bit architectures.
+tvp5150_parse_dt() fills core->connectors[] using
+v4l2_fwnode_connector_parse() and v4l2_fwnode_connector_add_link().
+Each connector then owns a label string and a list of allocated
+links, and each link holds a reference on its local and remote
+fwnode. Only tvp5150_remove() releases them with
+v4l2_fwnode_connector_free().
 
-Fixes: fdaeb224e2bf ("crypto: tcrypt - Use pr_cont to print test results")
-Fixes: 3e3dc25fe7d5 ("crypto: Resolve shadow warnings")
+Every tvp5150_probe() failure after a successful tvp5150_parse_dt()
+skips that release. tvp5150_mc_init() and tvp5150_detect_version()
+failures return directly, and the control handler, IRQ and
+v4l2_async_register_subdev() failures go to the err label, which only
+frees the control handler. Each such failed probe, for example when
+the decoder does not respond on I2C, leaks the links, the label and
+the fwnode references held by the links.
 
-Signed-off-by: Artem Novak <artem122novak@gmail.com>
+Free the connectors on these error paths, as tvp5150_remove() does.
+
+Fixes: 0556f1d580d4 ("media: tvp5150: add input source selection of_graph support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
 ---
- crypto/tcrypt.c | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
+Based on linux-next next-20261109 (630059a5a632).
+Compile-tested: arm64, GCC 14.2, W=1, CONFIG_VIDEO_TVP5150=y, CONFIG_MEDIA_CONTROLLER=y, CONFIG_OF_DYNAMIC=y, CONFIG_COMPILE_TEST=y; no new warnings versus the base object.
+No hardware or runtime test was performed.
+The path is taken when tvp5150_probe() fails after DT parsing, e.g. a DT-described decoder that does not answer on I2C.
 
-diff --git a/crypto/tcrypt.c b/crypto/tcrypt.c
-index e6834bdde9b9..1e6132045c24 100644
---- a/crypto/tcrypt.c
-+++ b/crypto/tcrypt.c
-@@ -28,6 +28,7 @@
- #include <linux/interrupt.h>
- #include <linux/jiffies.h>
- #include <linux/kernel.h>
-+#include <linux/math64.h>
- #include <linux/module.h>
- #include <linux/moduleparam.h>
- #include <linux/scatterlist.h>
-@@ -734,6 +735,7 @@ static int test_ahash_jiffies_digest(struct tcrypt_ahash_request *treq,
- {
- 	struct ahash_request *req = treq->req;
- 	unsigned long start, end;
-+	u64 bytes;
- 	int bcount;
- 	int ret;
- 
-@@ -744,8 +746,9 @@ static int test_ahash_jiffies_digest(struct tcrypt_ahash_request *treq,
- 			return ret;
- 	}
- 
--	pr_cont("%6u opers/sec, %9lu bytes/sec\n",
--		bcount / secs, ((long)bcount * blen) / secs);
-+	bytes = div_u64((u64)bcount * blen, secs);
-+	pr_cont("%6u opers/sec, %9llu bytes/sec\n",
-+		bcount / secs, (unsigned long long)bytes);
- 
- 	return 0;
- }
-@@ -755,6 +758,7 @@ static int test_ahash_jiffies(struct tcrypt_ahash_request *treq, int blen,
- {
- 	struct ahash_request *req = treq->req;
- 	unsigned long start, end;
-+	u64 bytes;
- 	int bcount, pcount;
- 	int ret;
- 
-@@ -777,8 +781,9 @@ static int test_ahash_jiffies(struct tcrypt_ahash_request *treq, int blen,
- 			return ret;
- 	}
- 
--	pr_cont("%6u opers/sec, %9lu bytes/sec\n",
--		bcount / secs, ((long)bcount * blen) / secs);
-+	bytes = div_u64((u64)bcount * blen, secs);
-+	pr_cont("%6u opers/sec, %9llu bytes/sec\n",
-+		bcount / secs, (unsigned long long)bytes);
- 
- 	return 0;
- }
--- 
-2.56.1
+ drivers/media/i2c/tvp5150.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/media/i2c/tvp5150.c b/drivers/media/i2c/tvp5150.c
+index c889624..efbb588 100644
+--- a/drivers/media/i2c/tvp5150.c
++++ b/drivers/media/i2c/tvp5150.c
+@@ -2158,11 +2158,11 @@ static int tvp5150_probe(struct i2c_client *c)
+ 
+ 	res = tvp5150_mc_init(core);
+ 	if (res)
+-		return res;
++		goto err_free_connectors;
+ 
+ 	res = tvp5150_detect_version(core);
+ 	if (res < 0)
+-		return res;
++		goto err_free_connectors;
+ 
+ 	/*
+ 	 * Iterate over all available connectors in case they are supported and
+@@ -2232,6 +2232,9 @@ static int tvp5150_probe(struct i2c_client *c)
+ 
+ err:
+ 	v4l2_ctrl_handler_free(&core->hdl);
++err_free_connectors:
++	for (i = 0; i < core->connectors_num; i++)
++		v4l2_fwnode_connector_free(&core->connectors[i].base);
+ 	return res;
+ }
+ 
+
+base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
