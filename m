@@ -1,60 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795680677;
-	b=XXe36mAkGzI+FW7oUr11GqweytL89p97XvgZdpjARBYGDKfFOClMHCh+pY5C1i1di2Dk
-	 449lu3adaeU4sF4ggD7l3EfLScNjPSJwkXgenuMeEilafmqS6fAyZSYmtvfqv2onv2AQz
-	 7pltOyw6jl9SPzwa9fSoubllbKFqGe3tn9OjicOMQR0KxZW40LOUV0sgUCU1JfaSUKhMU
-	 ra9n9/HyjbKYIYFqjSjxPVEL/xJ7whiOaFyNQSzCRUCofTNH6nAqjQuFOpQjAPNitjMHg
-	 pknfcGoyUJV0Jbj6OhgZ5uR3qW/06CAEnISnKpqRz8hBFls5i5XjI/u0cDCaPZdr91g==
+	t=1795680681;
+	b=S6GtiBEwoY1nDE1CUQaybcfuNhWXg0ivKTqDvBA0/DZWjSsHJbnEDjZMXLhLA5+UIC9v
+	 NWC5xDPjDoHGLVTXhmzAT6UR+TkB4Butai5xJ1uFwxJZx6H8TRHEjpJG1icS4oXMKObJ+
+	 /SOCFJ3OSTlpRoyYVMIBJinPEXRANCJUFSeQKFF89wiVmkL6Tx7JWzZT+uEF4GB7ECUxV
+	 4xqfBZ7QXuTf48tqGeDHa+cOshciHj2BBQTe7/GFdQ8lzlLhVmxV8x9zcktblG9xf9yFG
+	 ESxILC2xUPT4syLsH0K3BV3xkUATAjZIVNj1XMHB/56OKpVGPojce9qVi04wx3fL5EQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795680677;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=kx8h+Ar+4Gc1qWaoobGzkg9ZynxpfsO5B9MeCPzrIdw=;
-	b=sT8SXwsEgKbH3uvjk60Tdbh/mPlzuoM2XesEI+bIG0Rc+9iMnlsIBZjDNh2HQikP2ngS
-	 /MaAAp0SKyIAi4PH3tPdzs2UFyURYtxvEukxi2Zn6zfzFUfU+69NbPRflO4INABn0s4qD
-	 oMw4A11q/WSlBbOpY2Lm+43eQ8p009kigG2HoQAvt4T6iO+GE2ieI4b7FRMLU6gb17lCt
-	 wdgCsn8kC+f7AjM83U0dBhAwyXmwQJpHV9ti6TA4210Ye2IsyP140QPG5Oqqs/a+2ALa5
-	 +8SFoQXfY/OC7uhsWIDdwynviWoTWF1Fyjz7vsO4DQsJkX745MuZ0LfqyROgsN/9B/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795680681;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=zEQwtcUWwjAq78GdjPwtjH5gDHtM20DukqhFmEz6c/g=;
+	b=PxAfzeSgWD30vRSuL0M8oDgNLsIS4vtd7fLdJpOuEuT7UZa1LkmlSYO/4EgKbZFLkPkk
+	 4Y6mnuIGXfPg41IgfLDzerMUtcCHnDdmnx6iyzp45z6TVBh/uKbbODQbluG6vbLcdSat9
+	 QMtCHEcosk4m4v/P+PHDCaHRIb6zYZfeLDor9lKA/AGNxUXcPfL5gcIl08gTQy3uNWdFJ
+	 muV5SFMsyB27Gv+TpQm3Go7b8Ein/MFpf72cZFRJz0mP8bJQoXX04n8Qu3mUryeQrz0VI
+	 klKybPqt0Ye+9Cw72fYcZvWySEmXYE3kCLacG/Q89EfI7ATnaHW7/+RFO+XzSi6MYeQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=protonmail.com;
-	spf=pass smtp.mailfrom=protonmail.com;
-	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=Zdh3mf8Y;
-	arc=none smtp.remote-ip=109.224.244.16
-Received: from mail-24416.protonmail.ch (mail-24416.protonmail.ch [109.224.244.16])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Ei22lknx;
+	arc=none smtp.remote-ip=220.197.31.4
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE93C606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:11:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE93C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1D13606A327;
+	Thu, 26 Nov 2026 08:11:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1D13606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=Zdh3mf8Y
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1795680673; x=1795939873;
-	bh=kx8h+Ar+4Gc1qWaoobGzkg9ZynxpfsO5B9MeCPzrIdw=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=Zdh3mf8Ysd87iU3bY8C49poOuhDda4EevLwzGVf9g1ZyfEwOU/tAd1jpnLWIGqcYv
-	 7VHZM+bpTx4hUBBYmlw82aoCdxIdEStqu6SbH1LE6hjlD3Ckdm8ILyCNZxI/u13EHL
-	 Y2EZCWKrBn1ou6wtKYPr6rGxUbE1MjSNatlEN9uJamdJ++999OPHQ/OXq7mC/+PDjw
-	 exd7/5Au2mTVTuHHqYeM+Sx0Sc9eeT4qZyFbj3KdcFdWG1Dt1WZVL8EVwDzUHMRYAL
-	 hZesa1h+hDGUfar5TTU+la7ad9GpbLweV7sNw75+YV2d8KKb00d6ngJILCeCZjLxsE
-	 d0XNoLJwl/HEw==
-Date: Thu, 26 Nov 2026 08:11:07 +0000
-To: iasnezhkov@gmail.com
-From: Roman Vivchar <rva333@protonmail.com>
-Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, broonie@kernel.org, flora.fu@mediatek.com, amergnat@baylibre.com, leilk.liu@mediatek.com, me@adomerle.pw, devicetree@vger.kernel.org, linux-spi@vger.kernel.org, linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/4] soc/spi: mediatek: Add MT6789 PMIC wrapper and SPI support
-Message-ID: <0Af_vuU3D7JCxCsHmjyJZCQhptiOPd3Y325yrg4ufwjT3C5cz6cgJxU4CHY4qfES7Hhzcb-sxm0o7dj-diOzMJPCcw5bSyrYi5CWUNsXQus=@protonmail.com>
-In-Reply-To: <20261126031001.27288-1-iasnezhkov@gmail.com>
-References: <20261126031001.27288-1-iasnezhkov@gmail.com>
-Feedback-ID: 173184497:user:proton
-X-Pm-Message-ID: f5e5584ad9f8c9446847ecc24663ff6184cab23b
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Ei22lknx
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=zE
+	QwtcUWwjAq78GdjPwtjH5gDHtM20DukqhFmEz6c/g=; b=Ei22lknx7JSeUpb/2v
+	Ekt8HgRfA1xvDgERXeZrgs8zM1sX70K3ooREsFL0+m6gbHAo+HBNruGcr+q5RJPw
+	+e71A0/pojFw3UnPt9bberiG1rJVvZmzcFdLwukB5wWB8t+8RZ4nugZXuF0q6VGA
+	xXSEPVZ2fYofvyaz4CwuDBHG0=
+Received: from localhost.localdomain (unknown [])
+	by gzsmtp5 (Coremail) with SMTP id QCgvCgAnxpp36Qdr_XPjIA--.32026S2;
+	Thu, 26 Nov 2026 16:10:32 +0800 (CST)
+From: "Li Youhong" <dayou5941@163.com>
+To: song@kernel.org,
+	yukuai@fygo.io,
+	agk@redhat.com,
+	snitzer@kernel.org,
+	mpatocka@redhat.com,
+	bmarzins@redhat.com
+Cc: dm-devel@lists.linux.dev,
+	magiclinan@didiglobal.com,
+	xiao@kernel.org,
+	linux-raid@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Li Youhong <liyouhong@kylinos.cn>,
+	syzbot+a53c2918175b36cfd601@syzkaller.appspotmail.com,
+	stable@vger.kernel.org
+Subject: [PATCH v6 2/2] md: fix sync_work vs array teardown races
+Date: Thu, 26 Nov 2026 16:10:30 +0800
+Message-Id: <20261126081030.150032-1-dayou5941@163.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,65 +70,133 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:QCgvCgAnxpp36Qdr_XPjIA--.32026S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxZF15AF4xZry3Kw45tr1DKFg_yoWruryxp3
+	yrJFn8Jr4Ut3yrZFyDKFyDua4Yvw1ag3yDtryxua4rAw1ftr4a9Fy093WjvFWDJas3tayU
+	Z3yrJFZxZFyvgF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jjCJQUUUUU=
+X-CM-SenderInfo: 5gd103ivzuiqqrwthudrp/xtbC+hg142sH6XjahAAA3X
 
-On Thursday, November 26th, 2026 at 5:10 AM, Ilia Snezhkov via B4 Relay <de=
-vnull+iasnezhkov.gmail.com@kernel.org> wrote:
+From: Li Youhong <liyouhong@kylinos.cn>
 
-> This series continues the stalled July 2025 MediaTek MT6789 (Helio G99)
-> initial bring-up patches originally posted by Arseniy Velikanov (on CC):
-> - pwrap v1: https://lore.kernel.org/linux-mediatek/20250715225746.1321-1-=
-me@adomerle.pw/
-> - spi v1:   https://lore.kernel.org/linux-mediatek/20250715231921.4527-1-=
-me@adomerle.pw/
->
-> Original authorship and Signed-off-by are preserved on patches 1, 3,
-> and 4.
+dm-raid tears down arrays via md_stop(), which cleared mddev->pers
+without waiting for previously queued sync_work. That work could
+then call remove_spares() with pers == NULL, or keep using mddev
+after raid_dtr() frees it.
 
-Why this series has both spi and pwrap? There's no dependency between
-them.
+do_md_stop()/md_stop_writes() already call stop_sync_thread() before
+teardown. Do the same in md_stop().
 
->
-> Changes since v2:
-> - Patch 2 (new): guard PWRAP_WDT_SRC_EN, PWRAP_WDT_SRC_EN_1, and cold
->   pwrap_init() with !HAS_CAP(wrp->master->caps, PWRAP_CAP_ARB) so
->   arbiter SoCs (MT6873, MT8195, MT6789) do not write wdt_src to offset
->   0x0 (PWRAP_INIT_DONE2) during probe.
-> - Patch 3 (was 2/3): add [PWRAP_INT_FLG] =3D 0x458 and
->   [PWRAP_INT_CLR] =3D 0x45C to mt6789_regs[] matching PMIF-SPI bank 3
->   (INT_EN at 0x450, int_en_all =3D 0x180000) so pwrap_interrupt() does
->   not clobber offset 0x0 and leave a level-high IRQ asserted.
-> - Patch 4 (was 3/3): renumbered to 4/4, unchanged.
->
+Calling stop_sync_thread() from md_stop() can drop reconfig_mutex,
+which introduces two follow-on issues:
 
-All notes about addressing review in your patches should go below ---,
-otherwise they will be included in the git history. Alternatively,
-you can put them right here.
+- When nothing is in flight, keep reconfig_mutex if the caller held
+  it (gate the idle early-return with work_busy()). Otherwise clear
+  of an inactive array can race with do_md_run().
 
-Best regards,
-Roman
+- While the mutex is dropped, mddev->thread may run
+  md_reap_sync_thread() and queue event_work. Flush event_work on
+  the raid_ctr() error path before raid_set_free().
 
-> The v3 rebase and fixes were prepared with an AI coding assistant.
->
-> Base: torvalds/linux master 4dce97c6c265.
->
-> Arseniy Velikanov (3):
->   dt-bindings: soc: mediatek: pwrap: Add compatible for MT6789
->   soc: mediatek: mtk-pmic-pwrap: Add MT6789 support
->   dt-bindings: spi: mediatek,spi-mt65xx: Add compatible for MT6789
->
-> Ilia Snezhkov (1):
->   soc: mediatek: mtk-pmic-pwrap: Skip WDT source and init on arbiter SoCs
->
->  .../bindings/soc/mediatek/mediatek,pwrap.yaml |  1 +
->  .../bindings/spi/mediatek,spi-mt65xx.yaml     |  4 +++
->  drivers/soc/mediatek/mtk-pmic-wrap.c          | 44 ++++++++++++++++---
->  3 files changed, 43 insertions(+), 6 deletions(-)
->
-> --
-> 2.54.0 (Apple Git-157)
->
->
->
->
+Separately, the read-only path in md_check_recovery() queued
+sync_work without honouring MD_RECOVERY_FROZEN, unlike the
+read-write path. Check FROZEN there so freeze/stop cannot race
+with a new queue.
+
+Fixes: db5e653d7c9f ("md: delay choosing sync action to md_start_sync()")
+Fixes: 81e2ce1b3d5a ("md: delay remove_and_add_spares() for read only array to md_start_sync()")
+Reported-by: syzbot+a53c2918175b36cfd601@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=a53c2918175b36cfd601
+Cc: stable@vger.kernel.org
+Signed-off-by: Li Youhong <liyouhong@kylinos.cn>
+---
+diff --git a/drivers/md/dm-raid.c b/drivers/md/dm-raid.c
+index ac019a0f5a92..f82c09d858de 100644
+--- a/drivers/md/dm-raid.c
++++ b/drivers/md/dm-raid.c
+@@ -3319,6 +3319,13 @@ static int raid_ctr(struct dm_target *ti, unsigned int argc, char **argv)
+ 	md_stop(&rs->md);
+ 	mddev_unlock(&rs->md);
+ bad:
++	/*
++	 * md_stop() may drop reconfig_mutex so mddev->thread can run
++	 * md_reap_sync_thread() and queue event_work; wait for it before
++	 * freeing raid_set. Skip if INIT_WORK has not run yet.
++	 */
++	if (rs->md.event_work.func)
++		flush_work(&rs->md.event_work);
+ 	raid_set_free(rs);
+ 
+ 	return r;
+diff --git a/drivers/md/md.c b/drivers/md/md.c
+index 1974943bf746..2d87b3297da4 100644
+--- a/drivers/md/md.c
++++ b/drivers/md/md.c
+@@ -5199,7 +5199,14 @@ static void stop_sync_thread(struct mddev *mddev, bool locked)
+ {
+ 	int sync_seq = atomic_read(&mddev->sync_seq);
+ 
+-	if (!test_bit(MD_RECOVERY_RUNNING, &mddev->recovery)) {
++	/*
++	 * If nothing is in flight, keep reconfig_mutex when locked so
++	 * callers such as do_md_stop() cannot race with do_md_run().
++	 * work_busy() is required: md_start_sync() may clear RUNNING and
++	 * still use mddev after unlocking.
++	 */
++	if (!test_bit(MD_RECOVERY_RUNNING, &mddev->recovery) &&
++	    !work_busy(&mddev->sync_work)) {
+ 		if (!locked)
+ 			mddev_unlock(mddev);
+ 		return;
+@@ -5207,12 +5214,14 @@ static void stop_sync_thread(struct mddev *mddev, bool locked)
+ 
+ 	mddev_unlock(mddev);
+ 
+-	set_bit(MD_RECOVERY_INTR, &mddev->recovery);
+-	/*
+-	 * Thread might be blocked waiting for metadata update which will now
+-	 * never happen
+-	 */
+-	md_wakeup_thread_directly(&mddev->sync_thread);
++	if (test_bit(MD_RECOVERY_RUNNING, &mddev->recovery)) {
++		set_bit(MD_RECOVERY_INTR, &mddev->recovery);
++		/*
++		 * Thread might be blocked waiting for metadata update which
++		 * will now never happen
++		 */
++		md_wakeup_thread_directly(&mddev->sync_thread);
++	}
+ 	if (work_busy(&mddev->sync_work))
+ 		flush_work(&mddev->sync_work);
+ 
+@@ -7130,6 +7139,14 @@ void md_stop(struct mddev *mddev)
+ {
+ 	lockdep_assert_held(&mddev->reconfig_mutex);
+ 
++	/*
++	 * md_check_recovery() may have queued sync_work; that work accesses
++	 * pers. Wait for it here before __md_stop() clears pers, as
++	 * do_md_stop()/md_stop_writes() do.
++	 */
++	set_bit(MD_RECOVERY_FROZEN, &mddev->recovery);
++	stop_sync_thread(mddev, true);
++
+ 	/* stop the array and free an attached data structures.
+ 	 * This is called from dm-raid
+ 	 */
+@@ -10520,9 +10537,11 @@ void md_check_recovery(struct mddev *mddev)
+ 
+ 			/*
+ 			 * Let md_start_sync() to remove and add rdevs to the
+-			 * array.
++			 * array. Honour MD_RECOVERY_FROZEN like the read-write
++			 * path so freeze/stop does not race with a new queue.
+ 			 */
+-			if (md_spares_need_change(mddev)) {
++			if (md_spares_need_change(mddev) &&
++			    !test_bit(MD_RECOVERY_FROZEN, &mddev->recovery)) {
+ 				set_bit(MD_RECOVERY_RUNNING, &mddev->recovery);
+ 				queue_work(md_misc_wq, &mddev->sync_work);
+ 			}
+
