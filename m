@@ -1,52 +1,44 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.73
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.95.11.211
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795682890;
-	b=YsVy7hWE494LtqnUJl9bJOkteRNR6tctja2t986u/KhThfpxEJtpez3NHMbiwoI2Grv1
-	 Tdv+qSfydX9LfKlBxWiw3YbsOwgikR7mPUcvnN+oO5KTq2JcTIaRAHBNueFmTzpjd1JYM
-	 cSGEoafnElac4z852mYlJ0P1Q2zPPrmgDwFrvYrmQOn169N1FobCJvrnF4qsQeZlNq4/C
-	 GEytK3qCRuWVGbrawFg+aVmHJGx1m1z34H9ebpNNuCgbL9LCaj5TSR65HseohEZhJSf+j
-	 GPxuXt43zksJzzyFXS2t6c77xMI4Y9RbABI/JOOYTdbJvp9xKA5hJvMOnVUSdLdVSwA==
+	t=1795682905;
+	b=PKYEGItjPb6mMKu0cycunN5lTjV9d/Q7rnPBy6NedUmELtCivTwvd9IgyW8J/ABeWtIm
+	 n/Ac5vmbjaM/1rn4KwJII9yWsAGK5WMqrSsub4h4KdHQOG1UOFgluvXb0rxkYVgM3n8+a
+	 N6q364s+hODBUSW+A6VxmYhIDSyF4uWNUa34jPXFz0yHkwFSZ1W74f0fnA4M6V7m0nkjR
+	 SoAloY/7kLHrYYFlPlbCpJN1vkeNwNuAUaeAZV/UPSros4drP2/Lm/NHAaDvTyXOKvMRi
+	 Taz1nbJ6ex0zV6wqlY5e2PKZYhfYBYL3wdA9pa9KamaYxLaxpbPSMLXu6zOAhL74DQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795682890;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:MIME-Version:Date:Content-Type:
-	 Content-Transfer-Encoding:From:Message-ID:TLS-Required:Subject:To:Cc:
-	 In-Reply-To:References;
-	bh=eEqrglkqWiQv9ByDl8q6YHM+PPnMMtPyGy7NziGSOCE=;
-	b=H2Y/ekfSs7nkRtKw/YUPMf4rsGAVBk/T7900YiB12oPOhoDgZkVKS5v5aUp+8smRel6i
-	 8Z34otsKU3sgoWAvm5ytYUvC72tcpvlovmsexJSECoqTBvdu3O3GbunJMxla76bVo26oa
-	 lT4d1zvmtlgJO/CZGASXUD4orcYcNRKvgdSKkoQnGhNJHYOJl7pDJas8dHE7t2hnEU5n2
-	 P6EfxFIq4YihB/aMk8jCFKa9oPl7DOd44LaDW0Axb4O2/NKqHCAyM05Ab/3VDn5VTCBbV
-	 LjqS8Xh1zXcz94rYdey7tyydYUEvGOWAj5GaRhBGEPoX6QaF+95bnwTTylQJruVOGnA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795682905;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:User-Agent;
+	bh=M7NmYC/Iylm9myghHwqILim55SAUt9QrM+UZYk0eJlw=;
+	b=k+QouRNI1uHxt3hweqWR8woAvyGab0jC4T/uBCc07pS1H3XOwZQjMoaDOcX8KKRrcZcd
+	 q9WIIePfB5Qr2drGhCy5D0T3oiTTFwNDIUFZSJ+Ti8WuDYRp7tWfy93pkNS0RpbAisAZ3
+	 Grf3TivJIy/0pSiBmeW/0yA+nnVsL0+AK+3FcD6ougOZuRwyvMf9QRPvCw+qaJ0Hz0erR
+	 IxJyZ0SYtf2xN/u+V7VCTABjAoVw9iS1NJcUCkwGITTuBFsMHJh7G1mHGlZSfhlBv8RcX
+	 9gGeEt5jC3M5bLe2OWaNNa6PbS1wMYctXQDBlu4kdhd2ACeeej71NYJ54t/xfqosq5A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=NoJtdc7e;
-	arc=none smtp.remote-ip=91.218.175.73
-Received: from mta0.migadu.com (out-73.mta0.migadu.com [91.218.175.73])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=lst.de;
+	spf=pass smtp.mailfrom=lst.de;
+	arc=none smtp.remote-ip=213.95.11.211
+Received: from verein.lst.de (verein.lst.de [213.95.11.211])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2952606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:48:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2952606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=NoJtdc7e
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=WzPAXzKv5qNfueG+8GIA/dCl0/+muC6HE/6UOijGqYY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795682888; v=1; x=1796287688;
- b=NoJtdc7eHcyjs0Gk2e+oksFBOH6DdHwmMxLokBqwbEPNc6bCNY6l4Hi8Z/XBHHbpCSwakxn5
- Rl5EVvNk/AKV9yLLBGN0gtsePes7OiB/95gsXHQCJ1O5KM+9/kVx1AnWaCL8y1gfXw0lG7NG2do
- qMUHkLES9nTAO0Zd5Dn7Q9U8=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 5446df3b68f9b5ae;
-	Thu, 26 Nov 2026 08:48:07 +0000
-X-Mizu-Trace-ID: 5446df3b68f9b5ae
-X-Migadu-Flow: FLOW_OUT
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4773E606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:48:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4773E606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lst.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lst.de
+Received: by verein.lst.de (Postfix, from userid 2407)
+	id AF8E768B05; Thu, 26 Nov 2026 09:48:20 +0100 (CET)
+Date: Thu, 26 Nov 2026 09:48:20 +0100
+From: Christoph Hellwig <hch@lst.de>
+To: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+Cc: kbusch@kernel.org, sagi@grimberg.me, kamaljit.singh@opensource.wdc.com,
+	linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] nvme: reject a controller type change on
+ reinitialization
+Message-ID: <20261126084820.GA7617@lst.de>
+References: <20261124133122.4167640-1-yhlee@isslab.korea.ac.kr> <20261125145902.254297-1-yhlee@isslab.korea.ac.kr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,120 +48,11 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Thu, 26 Nov 2026 08:48:07 +0000
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-From: gang.yan@linux.dev
-Message-ID: <133c1ca98af6beb48c0db1e6bb539a2a76ccda49@linux.dev>
-TLS-Required: No
-Subject: Re: [PATCH net-next v1 0/6] net: avoid stack canaries in TCP/IPv4
- fast paths
-To: "Xuanqiang Luo" <xuanqiang.luo@linux.dev>, netdev@vger.kernel.org
-Cc: "David S . Miller" <davem@davemloft.net>, "Eric Dumazet"
- <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>, "Paolo Abeni"
- <pabeni@redhat.com>, "Simon Horman" <horms@kernel.org>, "Alexei
- Starovoitov" <ast@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>,
- "John Fastabend" <john.fastabend@gmail.com>, "Andrii Nakryiko"
- <andrii@kernel.org>, "Eduard Zingerman" <eddyz87@gmail.com>, "Kumar
- Kartikeya Dwivedi" <memxor@gmail.com>, "Martin KaFai Lau"
- <martin.lau@linux.dev>, "Song Liu" <song@kernel.org>, "Yonghong Song"
- <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "Emil
- Tsalapatis" <emil@etsalapatis.com>, "Ihor Solodrai"
- <ihor.solodrai@linux.dev>, "Matthieu Baerts" <matttbe@kernel.org>, "Mat
- Martineau" <martineau@kernel.org>, "Geliang Tang" <geliang@kernel.org>,
- "David Ahern" <dsahern@kernel.org>, "Ido Schimmel" <idosch@nvidia.com>,
- "Stanislav Fomichev" <sdf@fomichev.me>, "Neal Cardwell"
- <ncardwell@google.com>, "Kuniyuki Iwashima" <kuniyu@google.com>, "Pablo
- Neira Ayuso" <pablo@netfilter.org>, "Florian Westphal" <fw@strlen.de>,
- "Phil Sutter" <phil@nwl.cc>, bpf@vger.kernel.org,
- linux-kernel@vger.kernel.org, mptcp@lists.linux.dev,
- netfilter-devel@vger.kernel.org, coreteam@netfilter.org, "Xuanqiang Luo"
- <luoxuanqiang@kylinos.cn>
-In-Reply-To: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
-References: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261125145902.254297-1-yhlee@isslab.korea.ac.kr>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 
-November 24, 2026 at 9:06 PM, "Xuanqiang Luo" <xuanqiang.luo@linux.dev ma=
-ilto:xuanqiang.luo@linux.dev?to=3D%22Xuanqiang%20Luo%22%20%3Cxuanqiang.lu=
-o%40linux.dev%3E > wrote:
+Looks good:
 
-
->=20
->=20From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
->=20
->=20With CONFIG_STACKPROTECTOR_STRONG=3Dy, a function that has a local ar=
-ray or
-> passes the address of one of its locals to another function needs a sta=
-ck
-> canary. The canary is set up and checked on every call, also when the
-> local is only used on a path that almost never runs.
->=20
->=20This series removes the canary from functions of the TCP/IPv4 fast pa=
-ths,
-> by returning results by value, by using storage that is not on the stac=
-k,
-> or by not calling a function that has nothing to do.
->=20
->=20Patch 1 returns the two mptcp_space() values in a structure, so that
-> __tcp_select_window() no longer needs a canary.
->=20
->=20Patch 2 changes ip_neigh_gw4() to take a pointer to the address, like
-> ip_neigh_gw6(), so that ip_finish_output2() no longer needs a canary.
->=20
->=20Patch 3 uses pskb_may_pull() in icmp_filter(), so that
-> raw_local_deliver() no longer needs a canary.
->=20
->=20Patch 4 turns skb_try_coalesce() into an inline wrapper over a functi=
-on
-> returning its results by value, so that its callers no longer need a
-> canary because of it.
->=20
->=20Patch 5 returns the result of the TCP receive coalescing by value, so
-> that tcp_rcv_established() and tcp_data_queue() no longer need a canary=
-.
->=20
->=20Patch 6 calls bpf_skops_write_hdr_opt(), which needs a canary, only i=
-f a
-> BPF program reserved room for TCP options.
->=20
->=20The bloat-o-meter numbers are from gcc 16.2 on x86_64. The functions
-> named in patches 1 to 5 also lose their canary with clang 23.1.6 on
-> x86_64, with and without ThinLTO, and on arm64.
->=20
-
-Hi=20Xuanqiang,
-
-Thanks for this series. Besides the code size, do you have any runtime pe=
-rf
-numbers (TCP_RR, cycles per packet...)? I think it may help the maintaine=
-rs
-judge the real gain.
-
-Thanks
-Gang
-
-> Xuanqiang Luo (6):
->  tcp: avoid a stack canary in __tcp_select_window()
->  ipv4: avoid a stack canary in ip_finish_output2()
->  ipv4: raw: do not use skb_header_pointer() in icmp_filter()
->  net: avoid stack canaries in skb_try_coalesce() callers
->  tcp: avoid a stack canary in tcp_rcv_established()
->  tcp: do not call bpf_skops_write_hdr_opt() unless needed
->=20
->=20 include/linux/filter.h | 2 +-
->  include/linux/skbuff.h | 35 ++++++++++-
->  include/net/mptcp.h | 13 ++++-
->  include/net/route.h | 16 +++---
->  net/core/filter.c | 2 +-
->  net/core/skbuff.c | 50 ++++++++--------
->  net/ipv4/raw.c | 25 ++++----
->  net/ipv4/route.c | 15 +++--
->  net/ipv4/tcp_input.c | 99 +++++++++++++++++---------------
->  net/ipv4/tcp_output.c | 25 ++++----
->  net/mptcp/subflow.c | 9 ++-
->  net/netfilter/nf_flow_table_ip.c | 4 +-
->  12 files changed, 178 insertions(+), 117 deletions(-)
->=20
->=20base-commit: a4c450594f5d1dc0fc4daacfb95d40554d99dead
-> --=20
->=202.43.0
->
+Reviewed-by: Christoph Hellwig <hch@lst.de>
