@@ -1,78 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795711319;
-	b=Nw3vC+QdB4l94Ihgl7a4ytf1CJzOm4EUhcp36keaMzIngOXhQdGQr7BSXQkJ/4c2W2V9
-	 6ol3TUWhbsdzp+KUZgPFWPAx2QpP0o7TU67cVPRhpPY3EaOZ4spvNeJyUpQid1Pj6Dzq0
-	 Id9cGfN01g0BuRAaooFpTFcDngvZTAGo3GMNUnOF75DgN1pQTT2JjVpq11G5IyrI2XyjQ
-	 lAr+W9iFLQLPGL+QhTRFVrdfxfw9l1MdDrZgMZSqnWQ3PV3XvXM9XHrn7uqfpukBhBKhm
-	 EaUX7/gTxnKzB2WkL/3FHmZHbAVGej8EMc4nJWr9+GzcwIZ0xFSNgfmFv9p+1OCdZyQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795711319;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=mdu7Z8CZ2xsh6CHuWN/GYQTEyzCcPd7fkZReJlYDDvQ=;
-	b=IkKjdIPHRSOaVIV0T9O1+RbgtEh9lkP0AeQQUpB7X6qeOPPHmSTIm5xlsjfIN+N+t/41
-	 vhCalQ9T2tlMlCnf2sP305YgQBTj3WDiHa7xmMpi54y4uTpcTgilewPVw0gUZZ5FmPfp2
-	 0ouv6eSeo5v54u+xntwyXb0ZXBOQis5qi4CishPNG2nla3/1QaELKaiJYLTSVlP1B5cO3
-	 WJ7Q/VB9nUOyEaw8JPvEoDXQYHG4pwbS3Smf1oGHZhRPC2FdngSEscq9e3i7p/7UVQ1nG
-	 e6/kTXn5BJ0Y66slfRdgrT1u24FDv/zXsks7Qs2m4HIVKPAJJxuxK58hENfenHXNQcA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XJhDk5Sw;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49F8F606A68E;
-	Thu, 26 Nov 2026 16:41:59 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XJhDk5Sw
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795711318;
-	b=z/3CE6MTFlGIqtZSGQDBB9zfcw0i7IJ7jlO8bHUQl5Kzm0C0c7T403rSVUsdVnldaYI7
-	 S8RtKms8UsHgA/JFkRJ7LUuIx1us1uUAhGCqy7pHl0ozgtdPIZgqwhr4vXHNOt7znmXyV
-	 Ic9V4ti/mnPApf6cQG5hKDS5siHEhEzzjTVvmKB1qML0x6ifaA/Qr+T/PxFstySpuJhFE
-	 URJFSjox0DxMZzNcNBFxRRcpcDk3EW183JLxugposzmAninIvywBwDqaUp7LdDNlUnapk
-	 VM3acCYLKkLH1wj5jONH1KBkPReeKADDYNoCa1zZf0e9dVyuepQlQ1vvdHeEbACax8w==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795711318;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=mdu7Z8CZ2xsh6CHuWN/GYQTEyzCcPd7fkZReJlYDDvQ=;
-	b=gFMv0Cpb8RFoD5vODLfjH38D63O1i3z7lAwAbr8gftqcf1Kd+0TuAzmTNlBFkKNmlAql
-	 DT1gBzpkJWtfdHt5ngnht2FCWV9zRxL7a3Yi9yro6RMkHEEhPGM7rRtc3dluWa4OtFD9/
-	 +u9HNGGE42LCPKPW+wbd+zlxTmmrL+H7FBreOSz/udzjw9LYBpLHRgYB2qJIGk8VqmP5H
-	 f/IuD8llAMo4f8SVt4yDr8XojrxnM+1Jexvavyug/pPLYsfUU1g23kxsUbZeNNs/vjDZA
-	 UomZl20s2d3h10Sjl0qiyvxmGGEv5RE561MlPGCUtbOrQP38DUE2F7wNBtzM21LeA3A==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.181
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795711321;
+	b=ZjdZ0lVNclwRylmVkURLRP7+EGx/9zO2p2T5t1pGZiaqprH1CqW3gTY7MXNz0CwtRiY6
+	 L6yrscteeOwVZOdBv8/CTMXFg1t/l274Ya3pHqEfR3nwQIld7MdBaCPowehnc/EYJ+QrQ
+	 NoKtIs0GHpEq0FNJ5IUzlMGXk610DPWdg5Bb4C0pehYPl+ShIHBSwPzWjqTEtpL7OmDc2
+	 HTFi9wEVAQLEl0V+C6xUobNefZLE/LlJv7H2k6ZJim5MHBFHhR/xKDjf989hnagIeaLQo
+	 iDP3eWR8DRItnRDN8iiNQ6sC9bYMWhrHfy0dV5KOVT9qwSfsvpMoqsiPi4rdDGFrxvA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795711321;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=DFx8uLlfH38O1wM08TWFx3spSB+MhB3V2u/GmquIAZ4=;
+	b=BvPM4/1KLpyy7nU5vvDMKPdlsIqwAsyeDDQQnAKL7xHPyc6MY+DSE3qlW0TIft5aogIK
+	 mB4zQ+CFSgsuEOd54UqgxrUOOyiXc/8zJPs+0Y7e1lGlkPVmS64pBGmIS44lJ6GUfc9i5
+	 bdAFA87nW5fvXZBeo40wgsUIZMKsLscWa5O0Jp32ic79Lo+OYmR0GpQMvddbc+98D9znf
+	 lpqfTHIvpOpyrcF9LRqGBvHvHvQk+fOkas2XLoYNozVU+tT7d9Xlv0EeVmAkAUc66SU0w
+	 d//rxUNmPBBXEQXINAgDIJROEi8R7QHmPZnlmSOSxRLM9obCOI6MTdF8sR6Wtr0niAA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Ym0pG+Bc;
+	arc=none smtp.remote-ip=209.85.210.181
+Received: from mail-pf1-f181.google.com (mail-pf1-f181.google.com [209.85.210.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 146321F000EF;
-	Thu, 26 Nov 2026 16:41:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795711318;
-	bh=mdu7Z8CZ2xsh6CHuWN/GYQTEyzCcPd7fkZReJlYDDvQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=XJhDk5SwbivN6VQwhlWiRqoxH4x1bKq1Wn1MT3sYZtHy2oz0lwEyLr68FyXij9coK
-	 tYRaCKPuFEQ5MvGPxTN8lNSVZzKb+AurqY2TyYwNqq6c5wPdtQqrCNneLTQpYTP7dJ
-	 HN5ikKMyjnSnt1G4my9+F7u70mQBr5Z+zFxwFQt5828nLkcHct0kXaN7RqcMBJhi0o
-	 kOG9blyTOWBs+WC2BYHe1XRLhpmp9UXWESC093wX1RibobmEf+IgKGA0xZLaXJCKRB
-	 FuEiRnzl438OmmrFHjdv7l73m4WlDOTZ7zRYLL5pug43v/iD02aLpjRGkw6vWpVgEG
-	 2HLoiyf9ptjYA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 98F3C4D725;
-	Thu, 26 Nov 2026 16:41:46 +0000 (UTC)
-From: Binoy Ravindran via B4 Relay <devnull+binoy.vt.edu@kernel.org>
-Date: Thu, 26 Nov 2026 11:41:33 -0500
-Subject: [PATCH v4 2/3] livepatch: Include exiting tasks in the transition
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02CEB606A6AB
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:42:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02CEB606A6AB
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Ym0pG+Bc
+Received: by mail-pf1-f181.google.com with SMTP id d2e1a72fcca58-8b32bc605d9so3539744b3a.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:42:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795711320; x=1796316120; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=DFx8uLlfH38O1wM08TWFx3spSB+MhB3V2u/GmquIAZ4=;
+        b=Ym0pG+BcFynmcz8B2d4N6OfByGIpmzmiPdbaS9dWXroPgtGcZp55zqnFaCgjBR7xjA
+         BZjE7sAgyb8bVxYfPIYJgZwXoEj4F/Fnl0f7Te5WNT3IBFd1a9ypYM7R2egWuZ2qLZd0
+         60WjOd6UvqV9tdsxowg7RoNs2gt+UvjMCNr/OCQb4xxoNhO1BjzCr+9gmIteYmbzLC1z
+         K+drecOscsEdGt2lJ9J4jiD/YJgTRIALCTTkDEc9PM0sCC2LQqqUzdQNJL73CiKYRthk
+         9cYtRw4sqxr74by+lojDytgDUOS6iZcx5+5KXKEmRGANdpICQ16ZmFvymDqw4eCUS0WF
+         kTLQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795711320; x=1796316120;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DFx8uLlfH38O1wM08TWFx3spSB+MhB3V2u/GmquIAZ4=;
+        b=yMFCik+vzEADZA+Zrc3MYtfZX/KjjUV1w5i+/iBJHB9CU1y0UFfTlayOts48HftkX3
+         RztZS+jSTo59cDhbMfg8zdSOELno3p5rmGHO9lrxwJZ0fSVvfCKF65J2zL8Di+dAX46W
+         zmp6k6qp03r49zxhVIlwZs8BlwQXcvDDmlxz5nSm7BcXRJ/aD8PjIvzBS3NCNmEVeIqF
+         tMfNbacTvUfp8hnLaQAFV7li6Dr77Mf6WREVwMbWOh554T/JIvApZe2Bno4XpyRQhUA0
+         Q6WzAgFaP81NM/45mni7zMAMhf6syYilxeQB7hdc4aw0Y0ZjI9/rrQbE/7F0qGjPMD3O
+         x/Yw==
+X-Forwarded-Encrypted: i=1; AL+hErEQKEQ/nr/mw64imeI6hw/zfMNvSFdBsVhfP8boVLz5oTThq2jFYhszQZm91+kPpuNEJUO4TqNCtcNUesk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+05V7gBOZ/fg4C/gRiAT8Agn4ZGZGMYcPKP6Je0ecd4yg7OaM9
+	abZm4KHkSq4bJqTmRWwQ/k00bhGRIAILhPBBeBjKrwKn1fJpVKv0hMz75uXV5Ho+fDI=
+X-Gm-Gg: AZFdTZedYlhx3kgvxhkyZcqpO3JOSZSSkik6l3fi8SATYTqXA+iHMoVP2efpovqtscA
+	Sbk5K0igIdcAuI3KsFVxKTwoIuHK/61Ok4Fd0TXsuoccPobUDojJVmcgxrWjvU8qgRqmNNyWX2Q
+	oGHo+dTmflt569oZoYhwQ+707C3XaBhkK6Uz6FdiLnhPs0S5NCj8DOy8XMvjqpBVtJsqhdETsS7
+	nR2jGkXFdvOEcE0vs0qSs/XhaEYAY3vL5Np7e9lZbI+nHfcT0+AhIPcrWeKmbiImlQsjSc9kPnJ
+	4iXIG28xR/RFj1Q9kmMQDh+uMbqrbFN5D0Aj7F8zOZ6ppa1NQoZDbuz5Zhl6nec4ung9Rpiw3cf
+	cE6d7oHDX3g8K8D+gt6hTq/LQlsWOnqZPsYGl61z25QyM2oqJaND3DtzT6fww6TiwsNg5SjsMK8
+	CZK9kWz1R84FSkPuT2rbO+tonEn/kL97ugkfX2HtEYBNMkAbjzO9jWPGxPWrsibosze0qDd3iqe
+	ORIZH5RuSf1o8qbipSiT74XCaAcSTgn34VauWevJ1vMhXYFSMqQw/LyEnYVFxED7d5OTslYxtOX
+	Ez+VzhNXGnk17Kunjnu+sLqcXYnj7D0L1Z1lEJNaMAyNY3a2wco9bg==
+X-Received: by 2002:a05:6a00:27a2:b0:8bc:686a:a54b with SMTP id d2e1a72fcca58-8c87daf2a2amr19220157b3a.56.1795711320184;
+        Thu, 26 Nov 2026 08:42:00 -0800 (PST)
+Received: from p14s ([2604:3d09:148c:c800:ce00:143c:88b9:bd58])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c8707792e8sm11312174b3a.7.2026.11.26.08.41.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 08:41:59 -0800 (PST)
+Date: Thu, 26 Nov 2026 10:41:57 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Francesco Valla <francesco@valla.it>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+	Joakim Zhang <joakim.zhang@cixtech.com>,
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] remoteproc: virtio: Drop rvdevs list and
+ associated functions
+Message-ID: <awhhVRBokzbdPJB2@p14s>
+References: <20261114-remoteproc_pdev_decouple-v2-0-95235dd056aa@valla.it>
+ <20261114-remoteproc_pdev_decouple-v2-3-95235dd056aa@valla.it>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,299 +100,210 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-klp-series-v3-v4-2-2ad73e9c9254@vt.edu>
-References: <20261126-klp-series-v3-v4-0-2ad73e9c9254@vt.edu>
-In-Reply-To: <20261126-klp-series-v3-v4-0-2ad73e9c9254@vt.edu>
-To: "Paul E. McKenney" <paulmck@kernel.org>, 
- Frederic Weisbecker <frederic@kernel.org>, 
- Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
- Joel Fernandes <joelagnelf@nvidia.com>, 
- Josh Triplett <josh@joshtriplett.org>, Boqun Feng <boqun@kernel.org>, 
- Uladzislau Rezki <urezki@gmail.com>, Steven Rostedt <rostedt@goodmis.org>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Lai Jiangshan <jiangshanlai@gmail.com>, Zqiang <qiang.zhang@linux.dev>, 
- Josh Poimboeuf <jpoimboe@kernel.org>, Miroslav Benes <mbenes@suse.cz>, 
- Petr Mladek <pmladek@suse.com>, Joe Lawrence <joe.lawrence@redhat.com>, 
- Song Liu <song@kernel.org>, Ingo Molnar <mingo@kernel.org>, 
- Jiri Kosina <jikos@kernel.org>
-Cc: rcu@vger.kernel.org, linux-kernel@vger.kernel.org, 
- live-patching@vger.kernel.org, Yafang Shao <laoar.shao@gmail.com>, 
- Jaidev Shastri <jaidevshastri@vt.edu>, Binoy Ravindran <binoy@vt.edu>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795711306; l=10390;
- i=binoy@vt.edu; s=20261123; h=from:subject:message-id;
- bh=/6y/g3YAYlbT7GXgmBNhG6R4zrmHQo00OyBKj0Ngb70=;
- b=bFjM1dOwKEv2lUUtDrhMfvQGLUuErXmNzpmhupog64sF3S/lWwYD3sNrlOwt/ECacw7qrGx+W
- FDQmyz31aKDAesLZrGwRFf2TXUa2aen4ndu8pkD5EiqCkbjk8HChKA8
-X-Developer-Key: i=binoy@vt.edu; a=ed25519;
- pk=4cNdKPHP0InmhK/9bb7Tm2ZMUXUvLGfw1pmVt5b98fA=
-X-Endpoint-Received: by B4 Relay for binoy@vt.edu/20261123 with
- auth_id=1622
-X-Original-From: Binoy Ravindran <binoy@vt.edu>
-Reply-To: binoy@vt.edu
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261114-remoteproc_pdev_decouple-v2-3-95235dd056aa@valla.it>
 
-From: Binoy Ravindran <binoy@vt.edu>
+On Sat, Nov 14, 2026 at 09:06:35AM +0100, Francesco Valla wrote:
+> The rvdevs linked list is kept at rproc side to track the rproc_vdev
+> devices registered at runtime and de-register them during cleanup, but
+> the same information can be obtained from the driver core using
+> parent-child relationships coupled with driver name.
+> 
+> Drop the list and all associated functions and de-register the virtio
+> children of a remoteproc using device_for_each_child(), with the
+> following benefits:
+> 
+>  - increased separation between the core and virtio parts of remoteproc;
+>  - reduction in code and occupied memory;
+>  - the platform devices whose probe fail are now de-registered correctly
+>    during remoteproc cleanup.
+> 
+> A dedicated macro is used to register rproc-virtio platform devices to
+> avoid duplication (in code, not in memory) of the same string.
+> 
+> Signed-off-by: Francesco Valla <francesco@valla.it>
+> ---
+>  drivers/remoteproc/remoteproc_core.c     | 34 ++++++++++++++++----------------
+>  drivers/remoteproc/remoteproc_internal.h |  4 ++--
+>  drivers/remoteproc/remoteproc_virtio.c   |  5 +----
+>  include/linux/remoteproc.h               |  6 +-----
+>  4 files changed, 21 insertions(+), 28 deletions(-)
+> 
+> diff --git a/drivers/remoteproc/remoteproc_core.c b/drivers/remoteproc/remoteproc_core.c
+> index d5fa9d23bd5c..296b955f415f 100644
+> --- a/drivers/remoteproc/remoteproc_core.c
+> +++ b/drivers/remoteproc/remoteproc_core.c
+> @@ -431,17 +431,6 @@ void rproc_free_vring(struct rproc_vring *rvring)
+>  	}
+>  }
+>  
+> -void rproc_add_rvdev(struct rproc *rproc, struct rproc_vdev *rvdev)
+> -{
+> -	if (rvdev && rproc)
+> -		list_add_tail(&rvdev->node, &rproc->rvdevs);
+> -}
+> -
+> -void rproc_remove_rvdev(struct rproc_vdev *rvdev)
+> -{
+> -	if (rvdev)
+> -		list_del(&rvdev->node);
+> -}
+>  /**
+>   * rproc_handle_vdev() - handle a vdev fw resource
+>   * @rproc: the remote processor
+> @@ -513,7 +502,8 @@ static int rproc_handle_vdev(struct rproc *rproc, void *ptr,
+>  	 * as device id, then we get duplication in sysfs, so need to use
+>  	 * PLATFORM_DEVID_AUTO to auto select device id.
+>  	 */
+> -	pdev = platform_device_register_data(dev, "rproc-virtio", PLATFORM_DEVID_AUTO, &rvdev_data,
+> +	pdev = platform_device_register_data(dev, RPROC_VIRTIO_DRV_NAME,
+> +					     PLATFORM_DEVID_AUTO, &rvdev_data,
+>  					     sizeof(rvdev_data));
+>  	if (IS_ERR(pdev)) {
+>  		dev_err(dev, "failed to create rproc-virtio device\n");
+> @@ -1212,6 +1202,19 @@ static int rproc_alloc_registered_carveouts(struct rproc *rproc)
+>  	return 0;
+>  }
+>  
+> +static int rproc_unregister_vdev_pdev(struct device *dev, void *data)
+> +{
+> +	struct platform_device *pdev;
+> +
+> +	if (!dev_is_platform(dev))
+> +		return 0;
 
-The transition walks tasks with for_each_process_thread(). A
-self-reaping task is unhashed in exit_notify() but keeps running the rest
-of do_exit(), so the walk never sees it. The transition can then
-complete, and with atomic replace the previous patch module can be
-freed, while that task is still executing, or about to return into, the
-previous module's copy of a patched function. This is the race discussed
-in the thread linked below.
+What other child of a remoteproc do you expect isn't a platform driver?
 
-An exiting task is on an RCU-tasks exit list from exit_tasks_rcu_start(),
-before exit_notify(), until exit_tasks_rcu_finish(). Make every step of
-a transition also visit the tasks on these lists, using the helpers from
-the previous patch. klp_init_transition(), klp_start_transition(),
-klp_complete_transition(), klp_reverse_transition() and
-klp_force_transition() only set fields and flags. They walk the exit
-lists in place, under tasklist_lock, and skip tasks that are still
-hashed, so that each task is visited exactly once.
-klp_try_complete_transition() may inspect a task's stack, so it takes a
-snapshot with a reference on each task. If the snapshot cannot be
-allocated, or more tasks start exiting than it has room for, the
-transition is treated as incomplete and retried. An exiting task must
-therefore switch, like any other task, before the transition can
-complete.
-
-After exit_tasks_rcu_finish() the task may be on neither list, but it
-can still run patched code until its final switch. do_exit() disables
-preemption before exit_tasks_rcu_finish(), so from then on the task
-cannot sleep, be preempted or migrate, and the next context switch on
-its CPU is its last. klp_synchronize_transition() returns only after
-every online CPU has switched context, so it waits out every task in this
-stretch. synchronize_rcu() is not enough here: __schedule() reports the
-RCU quiescent state in rcu_note_context_switch(), before switch_to(), so
-it can return while the task still runs traceable code in __schedule().
-Call it in two places:
-
-- In klp_init_transition(), after patch_state has been set on every
-  task and before func->transition is set. An exiting task that the
-  walks did not visit had left the exit lists before or during them,
-  so it is gone before any function enters the transition.
-
-- In klp_try_complete_transition(), before klp_complete_transition().
-  A task that left the exit lists unswitched after the snapshot is gone
-  before func->transition is cleared and before the previous patch can
-  be freed.
-
-Covering the initialization and completion steps matters as well:
-otherwise an exiting task keeps a stale patch_state from an earlier
-transition, which can equal the new target. Likewise, the reverse path
-clears TIF_PATCH_PENDING on exiting tasks and the force path updates
-their patch state, so neither leaves an exiting task behind.
-klp_send_signals() is not extended: a task that has passed exit_notify()
-never returns to user space, so a fake signal cannot help it switch.
-
-The exit lists exist only with CONFIG_TASKS_RCU, which every kernel
-that can enable LIVEPATCH builds today. A following patch makes
-LIVEPATCH select it.
-
-Tested on v7.4-rc2, x86-64, under QEMU/KVM. Two klp-build livepatches
-that each replace do_exit() replace each other ten times per run while
-self-reaping tasks exit continuously, with a debug-only msleep() after
-exit_notify() to widen the window. Without this series, 9 of 12 runs
-crashed executing freed module memory after the previous patch was
-removed. With it, all 12 runs completed their 120 replace cycles
-without a fault. Without the delay, both kernels completed 60 cycles
-without a fault.
-
-Fixes: d83a7cb375ee ("livepatch: change to a per-task consistency model")
-Link: https://lore.kernel.org/all/20250127063526.76687-1-laoar.shao@gmail.com/
-Assisted-by: Claude:claude-opus-5-5
-Signed-off-by: Binoy Ravindran <binoy@vt.edu>
----
- kernel/livepatch/transition.c | 102 ++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 102 insertions(+)
-
-diff --git a/kernel/livepatch/transition.c b/kernel/livepatch/transition.c
-index 2351a19ac2a9..2b13b0b04eeb 100644
---- a/kernel/livepatch/transition.c
-+++ b/kernel/livepatch/transition.c
-@@ -10,6 +10,7 @@
- #include <linux/cpu.h>
- #include <linux/stacktrace.h>
- #include <linux/static_call.h>
-+#include <linux/slab.h>
- #include "core.h"
- #include "patch.h"
- #include "transition.h"
-@@ -74,6 +75,54 @@ static void klp_synchronize_transition(void)
- 	schedule_on_each_cpu(klp_sync);
- }
- 
-+/*
-+ * Tasks past exit_notify() are off the task list but still run do_exit() and its
-+ * callees, possibly from this patch's or a replaced patch's code, so the
-+ * transition must cover them too. The try step inspects stacks, which needs a
-+ * reference on each task, so klp_try_switch_exiting_tasks() works on a
-+ * snapshot of the exit lists.
-+ *
-+ * The other steps run with tasklist_lock held and skip tasks that are still
-+ * hashed, so every task is visited exactly once: an exiting task can be on
-+ * both lists until release_task() unhashes it.
-+ */
-+static void klp_exiting_init(struct task_struct *t, void *arg)
-+{
-+	if (pid_alive(t))
-+		return;	/* still on the task list: already visited */
-+	t->patch_state = *(int *)arg;
-+}
-+
-+static void klp_exiting_start(struct task_struct *t, void *arg)
-+{
-+	if (pid_alive(t))
-+		return;	/* still on the task list: already visited */
-+	if (t->patch_state != klp_target_state)
-+		set_tsk_thread_flag(t, TIF_PATCH_PENDING);
-+}
-+
-+static void klp_exiting_complete(struct task_struct *t, void *arg)
-+{
-+	if (pid_alive(t))
-+		return;	/* still on the task list: already visited */
-+	clear_tsk_thread_flag(t, TIF_PATCH_PENDING);
-+	t->patch_state = KLP_TRANSITION_IDLE;
-+}
-+
-+static void klp_exiting_clear_pending(struct task_struct *t, void *arg)
-+{
-+	if (pid_alive(t))
-+		return;	/* still on the task list: already visited */
-+	clear_tsk_thread_flag(t, TIF_PATCH_PENDING);
-+}
-+
-+static void klp_exiting_force(struct task_struct *t, void *arg)
-+{
-+	if (pid_alive(t))
-+		return;	/* still on the task list: already visited */
-+	klp_update_patch_state(t);
-+}
-+
- /*
-  * The transition to the target patch state is complete.  Clean up the data
-  * structures.
-@@ -123,6 +172,7 @@ static void klp_complete_transition(void)
- 		WARN_ON_ONCE(test_tsk_thread_flag(task, TIF_PATCH_PENDING));
- 		task->patch_state = KLP_TRANSITION_IDLE;
- 	}
-+	rcu_tasks_visit_exiting(klp_exiting_complete, NULL);
- 	read_unlock(&tasklist_lock);
- 
- 	for_each_possible_cpu(cpu) {
-@@ -419,6 +469,35 @@ static void klp_send_signals(void)
- 	read_unlock(&tasklist_lock);
- }
- 
-+/*
-+ * Try to switch every task on the exit lists. Returns false if one of them
-+ * could not be switched yet, or if the snapshot could not be taken in full.
-+ */
-+static bool klp_try_switch_exiting_tasks(void)
-+{
-+	struct task_struct **xt;
-+	bool complete = true;
-+	int i, n, max;
-+
-+	/*
-+	 * Size the array from a count taken now, plus slack for tasks that
-+	 * start exiting before the copy is made. If even more arrive, report
-+	 * an incomplete walk: klp_try_complete_transition() runs again later.
-+	 */
-+	max = rcu_tasks_snapshot_exiting(NULL, 0) + 64;
-+	xt = kvmalloc_array(max, sizeof(*xt), GFP_KERNEL);
-+	if (!xt)
-+		return false;
-+	n = rcu_tasks_snapshot_exiting(xt, max);
-+	for (i = 0; i < min(n, max); i++) {
-+		if (!klp_try_switch_task(xt[i]))
-+			complete = false;
-+		put_task_struct(xt[i]);
-+	}
-+	kvfree(xt);
-+	return complete && n <= max;
-+}
-+
- /*
-  * Try to switch all remaining tasks to the target patch state by walking the
-  * stacks of sleeping tasks and looking for any to-be-patched or
-@@ -450,6 +529,8 @@ void klp_try_complete_transition(void)
- 		if (!klp_try_switch_task(task))
- 			complete = false;
- 	read_unlock(&tasklist_lock);
-+	if (!klp_try_switch_exiting_tasks())
-+		complete = false;
- 
- 	/*
- 	 * Ditto for the idle "swapper" tasks.
-@@ -489,6 +570,13 @@ void klp_try_complete_transition(void)
- 	/* Done!  Now cleanup the data structures. */
- 	klp_resched_disable();
- 	patch = klp_transition_patch;
-+	/*
-+	 * A task can leave the exit lists unswitched after the snapshot. It
-+	 * runs with preemption disabled until its final switch, so wait until
-+	 * every CPU has switched context. synchronize_rcu() is not enough:
-+	 * __schedule() reports the quiescent state before switch_to().
-+	 */
-+	klp_synchronize_transition();
- 	klp_complete_transition();
- 
- 	/*
-@@ -526,6 +614,7 @@ void klp_start_transition(void)
- 	for_each_process_thread(g, task)
- 		if (task->patch_state != klp_target_state)
- 			set_tsk_thread_flag(task, TIF_PATCH_PENDING);
-+	rcu_tasks_visit_exiting(klp_exiting_start, NULL);
- 	read_unlock(&tasklist_lock);
- 
- 	/*
-@@ -579,6 +668,7 @@ void klp_init_transition(struct klp_patch *patch, int state)
- 		WARN_ON_ONCE(task->patch_state != KLP_TRANSITION_IDLE);
- 		task->patch_state = initial_state;
- 	}
-+	rcu_tasks_visit_exiting(klp_exiting_init, &initial_state);
- 	read_unlock(&tasklist_lock);
- 
- 	/*
-@@ -590,6 +680,16 @@ void klp_init_transition(struct klp_patch *patch, int state)
- 		task->patch_state = initial_state;
- 	}
- 
-+	/*
-+	 * A task that has passed exit_tasks_rcu_finish() is on neither list but
-+	 * may still call patched code until its final switch, which it makes
-+	 * with preemption disabled. This returns only after every CPU has
-+	 * switched context, so every such task is gone. synchronize_rcu() is
-+	 * not enough: __schedule() reports the quiescent state before
-+	 * switch_to().
-+	 */
-+	klp_synchronize_transition();
-+
- 	/*
- 	 * Enforce the order of the task->patch_state initializations and the
- 	 * func->transition updates to ensure that klp_ftrace_handler() doesn't
-@@ -642,6 +742,7 @@ void klp_reverse_transition(void)
- 	read_lock(&tasklist_lock);
- 	for_each_process_thread(g, task)
- 		clear_tsk_thread_flag(task, TIF_PATCH_PENDING);
-+	rcu_tasks_visit_exiting(klp_exiting_clear_pending, NULL);
- 	read_unlock(&tasklist_lock);
- 
- 	for_each_possible_cpu(cpu)
-@@ -714,6 +815,7 @@ void klp_force_transition(void)
- 	read_lock(&tasklist_lock);
- 	for_each_process_thread(g, task)
- 		klp_update_patch_state(task);
-+	rcu_tasks_visit_exiting(klp_exiting_force, NULL);
- 	read_unlock(&tasklist_lock);
- 
- 	for_each_possible_cpu(cpu)
-
--- 
-2.39.5
-
-
+> +
+> +	pdev = to_platform_device(dev);
+> +	if (!strcmp(pdev->name, RPROC_VIRTIO_DRV_NAME))
+> +		platform_device_unregister(pdev);
+> +
+> +	return 0;
+> +}
+>  
+>  /**
+>   * rproc_resource_cleanup() - clean up and free all acquired resources
+> @@ -1224,7 +1227,6 @@ void rproc_resource_cleanup(struct rproc *rproc)
+>  {
+>  	struct rproc_mem_entry *entry, *tmp;
+>  	struct rproc_debug_trace *trace, *ttmp;
+> -	struct rproc_vdev *rvdev, *rvtmp;
+>  	struct device *dev = &rproc->dev;
+>  
+>  	/* clean up debugfs trace entries */
+> @@ -1258,9 +1260,8 @@ void rproc_resource_cleanup(struct rproc *rproc)
+>  		kfree(entry);
+>  	}
+>  
+> -	/* clean up remote vdev entries */
+> -	list_for_each_entry_safe(rvdev, rvtmp, &rproc->rvdevs, node)
+> -		platform_device_unregister(rvdev->pdev);
+> +	/* unregister platform devices */
+> +	device_for_each_child(&rproc->dev, NULL, rproc_unregister_vdev_pdev);
+>  
+>  	rproc_coredump_cleanup(rproc);
+>  }
+> @@ -2521,7 +2522,6 @@ struct rproc *rproc_alloc(struct device *dev, const char *name,
+>  	INIT_LIST_HEAD(&rproc->carveouts);
+>  	INIT_LIST_HEAD(&rproc->mappings);
+>  	INIT_LIST_HEAD(&rproc->traces);
+> -	INIT_LIST_HEAD(&rproc->rvdevs);
+>  	INIT_LIST_HEAD(&rproc->subdevs);
+>  	INIT_LIST_HEAD(&rproc->dump_segments);
+>  
+> diff --git a/drivers/remoteproc/remoteproc_internal.h b/drivers/remoteproc/remoteproc_internal.h
+> index 3a742ef6ef60..d587a3301811 100644
+> --- a/drivers/remoteproc/remoteproc_internal.h
+> +++ b/drivers/remoteproc/remoteproc_internal.h
+> @@ -18,6 +18,8 @@
+>  #include <linux/io.h>
+>  #endif
+>  
+> +#define RPROC_VIRTIO_DRV_NAME	"rproc-virtio"
+> +
+>  struct rproc;
+>  
+>  struct rproc_debug_trace {
+> @@ -122,8 +124,6 @@ struct resource_table *rproc_elf_find_loaded_rsc_table(struct rproc *rproc,
+>  						       const struct firmware *fw);
+>  struct rproc_mem_entry *
+>  rproc_find_carveout_by_name(struct rproc *rproc, const char *name, ...);
+> -void rproc_add_rvdev(struct rproc *rproc, struct rproc_vdev *rvdev);
+> -void rproc_remove_rvdev(struct rproc_vdev *rvdev);
+>  
+>  #ifdef CONFIG_HAS_IOMEM
+>  static inline int rproc_mem_entry_ioremap_wc(struct rproc *rproc,
+> diff --git a/drivers/remoteproc/remoteproc_virtio.c b/drivers/remoteproc/remoteproc_virtio.c
+> index 6cfdab831185..403519e78ee3 100644
+> --- a/drivers/remoteproc/remoteproc_virtio.c
+> +++ b/drivers/remoteproc/remoteproc_virtio.c
+> @@ -549,8 +549,6 @@ static int rproc_virtio_probe(struct platform_device *pdev)
+>  			goto unwind_vring_allocations;
+>  	}
+>  
+> -	rproc_add_rvdev(rproc, rvdev);
+> -
+>  	rvdev->subdev.start = rproc_vdev_do_start;
+>  	rvdev->subdev.stop = rproc_vdev_do_stop;
+>  
+> @@ -588,7 +586,6 @@ static void rproc_virtio_remove(struct platform_device *pdev)
+>  	}
+>  
+>  	rproc_remove_subdev(rproc, &rvdev->subdev);
+> -	rproc_remove_rvdev(rvdev);
+>  
+>  	put_device(&rproc->dev);
+>  }
+> @@ -598,7 +595,7 @@ static struct platform_driver rproc_virtio_driver = {
+>  	.probe		= rproc_virtio_probe,
+>  	.remove		= rproc_virtio_remove,
+>  	.driver		= {
+> -		.name	= "rproc-virtio",
+> +		.name	= RPROC_VIRTIO_DRV_NAME,
+>  	},
+>  };
+>  builtin_platform_driver(rproc_virtio_driver);
+> diff --git a/include/linux/remoteproc.h b/include/linux/remoteproc.h
+> index 00019b1895e6..77ea0e1067e0 100644
+> --- a/include/linux/remoteproc.h
+> +++ b/include/linux/remoteproc.h
+> @@ -228,8 +228,7 @@ enum rproc_features {
+>   * @carveouts: list of physically contiguous memory allocations
+>   * @mappings: list of iommu mappings we initiated, needed on shutdown
+>   * @bootaddr: address of first instruction to boot rproc with (optional)
+> - * @rvdevs: list of remote virtio devices
+> - * @vq_srcu: SRCU domain for the virtqueue callbacks of @rvdevs
+> + * @vq_srcu: SRCU domain for the virtqueue callbacks of the virtio devices
+>   * @subdevs: list of subdevices, to following the running state
+>   * @notifyids: idr for dynamically assigning rproc-wide unique notify ids
+>   * @index: index of this rproc device
+> @@ -275,7 +274,6 @@ struct rproc {
+>  	struct list_head carveouts;
+>  	struct list_head mappings;
+>  	u64 bootaddr;
+> -	struct list_head rvdevs;
+>  	struct srcu_struct vq_srcu;
+>  	struct list_head subdevs;
+>  	struct idr notifyids;
+> @@ -351,7 +349,6 @@ struct rproc_vring {
+>   * @subdev: handle for registering the vdev as a rproc subdevice
+>   * @pdev: remoteproc virtio platform device
+>   * @id: virtio device id (as in virtio_ids.h)
+> - * @node: list node
+>   * @rproc: the rproc handle
+>   * @vring: the vrings for this vdev
+>   * @rsc_offset: offset of the vdev's resource entry
+> @@ -362,7 +359,6 @@ struct rproc_vdev {
+>  	struct platform_device *pdev;
+>  
+>  	unsigned int id;
+> -	struct list_head node;
+>  	struct rproc *rproc;
+>  	struct rproc_vring vring[RVDEV_NUM_VRINGS];
+>  	u32 rsc_offset;
+> 
+> -- 
+> 2.56.0
+> 
