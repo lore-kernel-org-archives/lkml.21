@@ -1,58 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795728204;
-	b=2nKUSJOvb/NuHSTsaEIZsA8wHDPgr7ZD1LE+ifJJu9XV/fOMVWJaUhuNI5/VJ5I9FfeS
-	 EP+MHG/U5rxgI/cF2Grpoh4fuvKziKGDDQnH/i7+yJv+l1adnFI1LPa0y8ymt9SLULBie
-	 iKguknVgarrg4zlZ7tnjX7YH6VJ/JsesmBCx7xHfIeavW6QyzltC2YuKnPkFoaUNkjnZg
-	 3BQvTZXuHI/Li9bF2n8yGmMQqQfuWHcRUtLmdRovgXWThMs9WbHR7gHSpBKk0DxSU4VJU
-	 MpchkO6R5sESL2ap0XUbmUBIrImWGC0H9nXNaqG27zS6B5IsvboAMb/Wc8oQK8zUDGA==
+	t=1795728335;
+	b=5ngA4elLP3gTd9jqdNq9nrj6nIVGV68//MuYAwXEgiXFLb0wuRrwcwWSzZxhrRl6txzc
+	 Cs7jhwG3jSLLcNMD217JZVeZmha5VcabXuvtfHmmkamz5ka6h63ofohg+b5DMid9HNQot
+	 NkV0p6TbtpcAR6IOqLIteUvLlCpNDKiMj+mdcgXjukoZ5UQanKNq97KUWdIhpWFlUMpWQ
+	 /ZcP3BWFqcIRQUDd2HUoL7eJ9KDT059qNm4U0jc/A+ySVUFkq+3aotnS5iMcl/WNPdEZ6
+	 EupqgWQxQLVbpZS3Of6o/+Whk+hHd7gq4kbqKf4MXX9aWyIuA2Iz9vFh8T2oJlgOWAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795728204;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=1sXQoOr9ufXdRrrO1fTUryvUg5uBcvBK4hxZ5Qgo9Yo=;
-	b=Frk2Rgxmg4ai1I9CrwzYWeff2nvIvGA5DIJriZh6aIyFZbebCNOE/FiNKFXyAgQbVfWP
-	 pF+tgbOAR4zzGjGqMcIZ7t+jSd2VkrPr6H9vlg8rDCo1u7Hjj7LkqxdH4ZYWW56MV+S51
-	 fzdbPFl3f870XMk6pQkaPfgl7WmgpUIMG2LrVKxeX7isqCJZXJuMxqEDisgVma9peJjV1
-	 RLHg3rq63mRkWJr7rhsOtKpjNoiTpetPeI2mS4eF2ZyPPntudAOz+XShagAFhun/lIXRA
-	 znKL/Lo2Dtk9C4zal5/MZEbjteiwIKf86Fn4hUtxNq4CG2lWggNeJSm/xdntZrd195A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795728335;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=c5eeda9qiC62nEeMHC+7zZ2MMcAFNCCGVAvY//zFjIY=;
+	b=H6VDlmaOCOs7tEuBmbU2Ev8zcVL3wLDUdxvx/K7sdhjLqWGPU+nSOi0Ct+T3BcbHr7l8
+	 i74dqpy4pgrde1E/dLqh+eEcrRiThoVBBIOz6NXV0sb1dvsWXgtZlgupD+t1GX/4i07Sg
+	 y2iOAQf7VjqeCw+7+nZrY1llX1d/GqibaY2P2soOtDKVXotOBvz3ZUM95fEUWkySwgEuj
+	 TRhW+iPASDv9fOuisw+YrK/T6HbB+PwLvzm9nomFTnEvm9nrkv2+Ut5DmST7WwjZZIkP3
+	 slHjs5/GRGeryMXg/legDL+r75TyMQT2ZCuXbK6qJ6TtHVXxOcQ6P2M0gL7XJdjiH7g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OsPIauqA;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cVHut988;
+	arc=none smtp.remote-ip=209.85.216.43
+Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A8BA606A31E;
-	Thu, 26 Nov 2026 21:23:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82E67606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:25:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82E67606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OsPIauqA
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 820191F00897;
-	Thu, 26 Nov 2026 21:23:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795728203;
-	bh=1sXQoOr9ufXdRrrO1fTUryvUg5uBcvBK4hxZ5Qgo9Yo=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=OsPIauqA5mBp6YEjqZrCzVJaPsdQswVDb/Lg4Pj5LPubLn2mxe4JFO5NprC47it00
-	 3RsLdYQq6lQmW01OpkMM6LSCx7kr83OfbOUl3e4y3SPvLinQY+3sxbhLQB4smKYxf9
-	 BlozocSCOht5oOg6kgIxVzYPOJFYhqsWvW/2fyDq539LGgvw9UOMoQ7fnHxPFAwQfA
-	 xjUvWzKPtV/PzrTBebjpx3945G9D09lIijsRI/WYanm1WefLU7BakePvzNzzWO9vtv
-	 ZITqx5PVuyU5EPogV35n/Y4I5Zd3V8st0XoAa1tb04ABVoXhK383QTYnXKI2quj9hM
-	 PDB++I7qAUypA==
-From: Mark Brown <broonie@kernel.org>
-To: yung-chuan.liao@linux.intel.com, lgirdwood@gmail.com, 
- peter.ujfalusi@linux.intel.com, Suyuan Wang <shyckless@gmail.com>
-Cc: linux-kernel@vger.kernel.org, sound-open-firmware@alsa-project.org, 
- kai.vehmanen@linux.intel.com, tiwai@suse.com, 
- pierre-louis.bossart@linux.dev, daniel.baluta@nxp.com, 
- linux-sound@vger.kernel.org, perex@perex.cz
-In-Reply-To: <20261121-sof-mtrace-wrap-v1-1-9798707c3439@gmail.com>
-References: <20261121-sof-mtrace-wrap-v1-1-9798707c3439@gmail.com>
-Subject: Re: [PATCH] ASoC: SOF: ipc4-mtrace: fix the wrapped read when the
- user buffer is short
-Message-Id: <179572194440.838304.17974974734455095165.b4-ty@b4>
-Date: Thu, 26 Nov 2026 19:39:04 +0000
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cVHut988
+Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3b41e627cadso4600342a91.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:25:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795728335; x=1796333135; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=c5eeda9qiC62nEeMHC+7zZ2MMcAFNCCGVAvY//zFjIY=;
+        b=cVHut988tmb8bptPnF4kHEwqu3fFCgzOThkzmWdKCvv+1Ax8ef08zxZ23riaYUWU8t
+         2AEMfYHUH+9mzoRqTcavk2ii6U60jZym0lfxZe4E56St/EMjRv0CWrf4N3mWLVCLNZhh
+         4uW/nBxH6BhLV6J8tbI3sW6/HDW/HVxdFd00yZvtbeKQivhhbg0Id8AL4hwEo4sq3ONS
+         ucicIXN5T4dG+ChN/iuBe2p/5EbXWduj6YoaVmnd+kTvrjPSCP+rQunII0fLRMDcyuii
+         d+4MDkqhPgLYj3MWErTJHbzFe6WVlHis/LXoLpEWqRavUeCuDLcyBcNC7pomaNeylG7y
+         Q+Kw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795728335; x=1796333135;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=c5eeda9qiC62nEeMHC+7zZ2MMcAFNCCGVAvY//zFjIY=;
+        b=q/L/wLF88t7OD476aP84nDEhT8aU8ZhGGXvdQiTyO1dc3/yO1BDkH3Hyy2VHS/2Dsl
+         Pf+S9jBpl2STVkRZ6I9JkEEZzHzLjFLVpqpJILh0a+Ax6Ox3TySi7QoPN2i8DxW9OOGZ
+         IgrqnlCyLE+pwoA5T1mix8y3tfYTS2/BbptzRMRJiaCvofPzX4xE4DzBQpeHnfQ7QMgV
+         hUvxbCo2Fd8RuOR1bNghVwVenMk0thDEXtgte393t8dR/2nW3mSsi87eD9cme8P5aWE0
+         ak1ZZ/GhfpTjmRrrxXzEIQw4WgN+ATE4IPCcK+YWyT7T5EnGU8SalJicP05DdNlgLaRQ
+         lXsA==
+X-Forwarded-Encrypted: i=1; AL+hErGPeq/GdZMmEADm6xPFATylZ1WgvIpQfQM8mROjAUhkueBxWkGoIb0jgWcfQ7/L20QFg9ARMgWK8735wV8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/hoqt7d4lKIy61pLnjgGN/JFPFwrYWQHhYKA7VUWPiaKg63y/Q
+	bCj08omo+yqax5ootd7T72Lw4+VFQvVWGZy+n73W1HpVvGF5Ze+elOG0
+X-Gm-Gg: AZFdTZdsjBVJtN2t/RDeLimWKgsvTMFGcSq8gqdbyLeKkX2wELRltMwzS8V3NP2hh0I
+	72iaYM8p4C3yis4Rz3aRZBn3beqPUeZccGpQU8sVCmNi0kf02iFcXon6slMLtQqZT0TCmzld9BX
+	MZ7ANmOCFB6NVVG9vnFZCuD5VOyKJTD7A6QYLVMk3hRznC56C8gRa9TbeT2FkCuBafIHHAEaQtp
+	AfgDYrcLduKXXV0LGk0d4QZVj585eHJ/lCDDVEzsMKhSVa/Y4kZc0gc0pUP4rNKeL7LIehTneVR
+	ew3Gr4S9IgI0dsks4yF0EnJk1hFy8KZevtWIxBtV4+x9ogfMxjcSGUX+5uKOdsw09hjvomREwnF
+	emNGqrr5aNb85bx4RbQfjheTS/fD7Kxl4AT+ojy9VLFJrl5z12P2wZWbv54+ofLdwlGdySTEngO
+	ImCn9lGYmj1b71U5imvQc6fxIlf+f/t2EyXm7yJuD4/qdIFDyrzewRsoRj8+uwI+/54fn7EXInS
+	1aL09yuqoLqJFR/38qHuzOMOPsHNURBpMc2aykjx5tkDdjQbNMCgnWqVHeR0SY3vOMW4aA6tU28
+	KA/BLRmqJwFmdCnNWBk6Dz99uTj1bqgRQfqsvH34DrgmRlDj4g==
+X-Received: by 2002:a17:90b:5888:b0:3b5:a3:442a with SMTP id 98e67ed59e1d1-3b500a34677mr6071730a91.40.1795728334841;
+        Thu, 26 Nov 2026 13:25:34 -0800 (PST)
+Received: from fedora.tailc1fb0a.ts.net ([172.219.65.15])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b420e1307csm33482401a91.7.2026.11.26.13.25.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 13:25:34 -0800 (PST)
+From: Artem Novak <artem122novak@gmail.com>
+To: dlemoal@kernel.org
+Cc: cassel@kernel.org,
+	linusw@kernel.org,
+	linux-ide@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	vireshk@kernel.org,
+	Artem Novak <artem122novak@gmail.com>
+Subject: [PATCH v2] ata: sata_dwc_460ex: add missing newlines to error messages
+Date: Thu, 26 Nov 2026 15:25:31 -0600
+Message-ID: <20261126212531.28154-1-artem122novak@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261126051523.14431-4-artem122novak@gmail.com>
+References: <20261126051523.14431-4-artem122novak@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,46 +101,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1165; i=broonie@kernel.org;
- h=from:subject:message-id; bh=o5/im7gci0kq6votsJ3qcT+TFypIgwB1i3d615Dn0Yg=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLI5FrtfcNPr+b3z4xc9898pvWbiKtO3WJ/SO7O3aqNwz
- sV/mU4uHaUsDGJcDLJiiixxWdwv60ter+E7uLANZg4rE8gQBi5OAZjIiv2MDC38L5faPJ94tXB6
- 0f89orNXX7eb4Dn94he7uhJmgV33TmxkZLjk+FnfbLm4XnQ0f6nfMenqjJ/FIXUlHhtV3jyperf
- ZngUA
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Transfer-Encoding: 8bit
 
-On Sat, 21 Nov 2026 15:26:27 +0000, Suyuan Wang wrote:
-> ASoC: SOF: ipc4-mtrace: fix the wrapped read when the user buffer is short
+Terminate the error messages with newlines so that subsequent
+kernel log messages are properly separated.
 
-Applied to
+Signed-off-by: Artem Novak <artem122novak@gmail.com>
+---
+ drivers/ata/sata_dwc_460ex.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
-
-Thanks!
-
-[1/1] ASoC: SOF: ipc4-mtrace: fix the wrapped read when the user buffer is short
-      https://git.kernel.org/broonie/sound/c/da96c8b9ebb2
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+diff --git a/drivers/ata/sata_dwc_460ex.c b/drivers/ata/sata_dwc_460ex.c
+index 486ea94a0184..c2bbd991a460 100644
+--- a/drivers/ata/sata_dwc_460ex.c
++++ b/drivers/ata/sata_dwc_460ex.c
+@@ -421,7 +421,7 @@ static void sata_dwc_error_intr(struct ata_port *ap,
+ 	tag = ap->link.active_tag;
+ 
+ 	dev_err(ap->dev,
+-		"%s SCR_ERROR=0x%08x intpr=0x%08x status=0x%08x dma_intp=%d pending=%d issued=%d",
++		"%s SCR_ERROR=0x%08x intpr=0x%08x status=0x%08x dma_intp=%d pending=%d issued=%d\n",
+ 		__func__, serror, intpr, status, hsdevp->dma_interrupt_count,
+ 		hsdevp->dma_pending[tag], hsdevp->cmd_issued[tag]);
+ 
+@@ -498,7 +498,7 @@ static irqreturn_t sata_dwc_isr(int irq, void *dev_instance)
+ 
+ 		qc = ata_qc_from_tag(ap, tag);
+ 		if (unlikely(!qc)) {
+-			dev_err(ap->dev, "failed to get qc");
++			dev_err(ap->dev, "failed to get qc\n");
+ 			handled = 1;
+ 			goto DONE;
+ 		}
+@@ -612,7 +612,7 @@ static irqreturn_t sata_dwc_isr(int irq, void *dev_instance)
+ 		tag_mask &= ~(1U << tag);
+ 		qc = ata_qc_from_tag(ap, tag);
+ 		if (unlikely(!qc)) {
+-			dev_err(ap->dev, "failed to get qc");
++			dev_err(ap->dev, "failed to get qc\n");
+ 			handled = 1;
+ 			goto DONE;
+ 		}
+@@ -707,7 +707,7 @@ static void sata_dwc_dma_xfer_complete(struct ata_port *ap)
+ 	tag = ap->link.active_tag;
+ 	qc = ata_qc_from_tag(ap, tag);
+ 	if (!qc) {
+-		dev_err(ap->dev, "failed to get qc");
++		dev_err(ap->dev, "failed to get qc\n");
+ 		return;
+ 	}
+ 
+@@ -1186,7 +1186,7 @@ static int sata_dwc_probe(struct platform_device *ofdev)
+ 	 */
+ 	err = ata_host_activate(host, irq, sata_dwc_isr, 0, &sata_dwc_sht);
+ 	if (err) {
+-		dev_err(dev, "failed to activate host");
++		dev_err(dev, "failed to activate host\n");
+ 		goto error_out;
+ 	}
+ 
+-- 
+2.56.1
 
