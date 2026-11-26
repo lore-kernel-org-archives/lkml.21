@@ -1,88 +1,117 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705310;
-	b=rwDf7wa0/UktefRQFQ8f84ozlusWS1RJeDZDByOLTCh+s/L1Lfxyt2CSEKqiPWWn/2+h
-	 N1JtK1bSIb2UzLKOUkpl9TNYPc0vCZoZIov2TNj5RC9O0nNHpc66GJlodUi5//jtTSAXq
-	 SegIQsghDZjGc1YDrzwdxXersmFfRKgYfF25krsSrWzbj7bvH6ZUi7bI60MIibuzsODZE
-	 F1Me5ewnwd72vEfrbLbrXWmI9X+sNSTAXBlidmOrR6tcz/7kHMpR6gpqcM0gm7SjPEg1u
-	 46rb39D1/6U5E9MmWzPVtj1Arc6+lY9hA2JWacssDRWRnM4LeQl6i47sDtUpB0hW53Q==
+	t=1795705312;
+	b=XqV5Vr3nu2r42Ycy5m0NJYgwpjdLzx8Ej8s/e98QSvsLUMp9qBfDjlENziuJvQ2aArkn
+	 dvIdwORqQUstJmj6gjTD47bXeeWdNLwfP4qqODJl1ldnb7omFtSSIb4C3OKchJJCAecb7
+	 b2dsaqEIUp5xM0wrINm9gzppihQYSYkxyt2QEjUiNXN7ZZ95xpNxjVCkGZ4j/8ct5F24r
+	 sjMCz6FgR6wdB8bCaG6MIz70BVzK52r51XzSkiTeka3UuGAolFbDrTk/+cNVcTUskee9b
+	 hLVzyxiicFZb5KjkbKqxrd4euXeY9+umqlC+Vj3/QEnKR+wKPqbaHnBgs902EpQ5eFQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705310;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705312;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=9pYcO5w1lWnU3LcG/lV8xW3siO5fUaDfkMFhAjIz8xI=;
-	b=RpB7p5/EfbpTlI0Lbbn9MEUDJpWLqre3YEJ5KPptkGzx+c4CqFU2mjTN1hDJGha+dCaS
-	 ik8zkD/SemVrX4ndUKxQ3C/jX+vwpbMqVzMiHwa+yRhhXr4QOTzlXVEDfsWMokpaUOCOu
-	 bM7Q/rUzoST9ME+fM2j6kH3/fqL5id5NupnuILkBrFD+4APQVhTSow06JF83i8WKoJmRR
-	 5TojZOC3ZZ2HUzuFro0RIbJ0SZaG26dlly+X8/1AWX9eXYtLTyyn5v1P2lWEFeBikIIuN
-	 Z8emLEg0CX8v1zTuvDiDm5+s4HSJgHY87Jgcnm0mroA0h0mOulU1qLz8SlIN898tRDQ==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=CnA3zlb6+Q4MfV6Y5oL8cXYKHj+wdTkqxg32r451qEk=;
+	b=VvOjTB4CHLTJLuEuQ6Na6zlRXlKE7H6QHIf97o7lxApS5r5N5kmIXsTx+007DfBQmP5i
+	 wXcWUTlLXZIgvZRanB1qeDA3g887huoqo/gycvFVPp4/ggUpjVuwUiC8etlwlPe0A9RSs
+	 AS0dQ8zbG+tzL4xnfxWvTntSPb4eqgAs/gOksvtvc97iCLp2fFO+IiN2yzd1xObl28909
+	 EAW7INv3PsBevVdf4jh55IIz/SxVWU7A6T0gThNjVVE2VHKOVaNmFei8Qofd4CJjPuhbN
+	 FIfqDoD585jfZHHInX66IRFZfcCyDW9T4VO75V0a/4wmeFtWZ/O7iFfvxt8JH8wda+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=mGdON0z5;
-	arc=none smtp.remote-ip=209.85.218.45
-Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="b3sZ+/K3";
+	arc=none smtp.remote-ip=209.85.214.173
+Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com [209.85.214.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7075E606A32D
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:01:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7075E606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0A51606A33C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:01:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0A51606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=mGdON0z5
-Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c4395d31228so1212448566b.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:01:50 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=b3sZ+/K3
+Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-2f01f296937so54067885ad.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:01:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795705309; x=1796310109; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9pYcO5w1lWnU3LcG/lV8xW3siO5fUaDfkMFhAjIz8xI=;
-        b=mGdON0z5Hd2gUiYXS+tF/sU4H5tRqVTowVDdto0ksgy9JEQhONQYVH1Rt5nx8L4xnj
-         ukoUh93VXrojd4IOz6idsh/09361GsT+h7sDiIWt1vQ7QTd9LamPcxkPIl8Stz3bQxck
-         wTIvIhtJGHKGlvtNt71ValTst3GOG9fMLz6BCFzT7Ck+46i930sDGnRklTBTyZ0LBZCH
-         jiTXzEBfUDgsTFjT0+Yh6uXQPKh8pRnbrmdgAPqUF8lCskQ06Nnm4QA0rsWdXo7YanGs
-         zH5HUpl0PCr8jJnsrOcD1jPY4o7DzWgs644rj80UXaEo24gnzyTc44VTz3NJfOFkYEfm
-         qOkw==
+        d=gmail.com; s=20260707; t=1795705311; x=1796310111; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=CnA3zlb6+Q4MfV6Y5oL8cXYKHj+wdTkqxg32r451qEk=;
+        b=b3sZ+/K3mFnawrjvx85flgmuT1zHOx3Wa6bQmig/FPG7IvWZnnPujUtt04UcCQm+tp
+         YcbNqvBn72KW+GtFsj9T/6MBlkXuLF0S7bpw0gc6Bb8hhVQq2yHUIgIC2as1r1XxCewg
+         55bEJ76AQOJHJlwW6zc2MZpJjZk4qgrzvXJmecel7U+zkoAjp/Fkh706tNW5xMLtzs5U
+         Nz7YrwTQY15c4kchCoSiAdI7/oOsOEQHeRqHVF6CqoQntJEAghHEakYfz5f0vcztnUAD
+         izPsxD9LCqUra0KUfUdOD/ui2YcGE6idNSNRt+CnZCHSV7AODbvljIuCrRBWKTVf0xNc
+         X40Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795705309; x=1796310109;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9pYcO5w1lWnU3LcG/lV8xW3siO5fUaDfkMFhAjIz8xI=;
-        b=SJAg/wvFVqEkDin+CcoAf6wVP2CSLTkT8Sa4Hi/Wzo7klaFSdA5SSwYsEKlqlMx+ZO
-         YZJ1eoxQieZMgbwH2W3D2wcUk0MZlF60NZN9ndFE4tEcTHTsf7WHi8UtbrcGEosXOdWX
-         VaNYc/tOYoQXeH1aQ9mKyThLCjeWjnBm85DJ0WiGmbEiDCKCLPoVSO6U8nFaKO0ZjwXx
-         mNFAaZDaDjsQSaTiF+ATpgtUVZYsoE3x/FwSJHlI+KWcYd9OQlMUeUYK+n1ypcvxYhJB
-         v6CF061tzHsRRooG25VQOqD0lUCGZyd/Gt5jaFfvAI+dCS6GgXq4XVLQEzTZmrOWqjx5
-         GnEg==
-X-Forwarded-Encrypted: i=1; AL+hErERvtS6FhyT+MhG/q/m8ll5Sh7Ba075SqWGfvAzTpEf91+WbiaIqF0A4dsRV3D+l40T3S2I9ZZAF336Urw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+UoXwJ9AGCu9RBuOvxgutob8ai08gRw+vDrcPzD39knUO59Bf3
-	c9z5ZTzDL2Vxe60I4bYFfP6rBEhGdg2N5HqLK0lyk/J6hN5EzSQ84iGJUUwWnpwx1og=
-X-Gm-Gg: AZFdTZcv3iVwKGmx4fTUXCRqRBnlwHROtES6eY55YvcAlRXuAjkKxnf1jiVyc0ohkMy
-	mAb0OKz2dJaj05xQRghwqr7NDZdJTvA3cT4oiBu85C+vUpC5Vt2C0skxc2HyHJy/qyDrCnbgqCA
-	fevW5We0y5I2pFLqZSZBYALiM8R2cUFPNWDGdTdwSSZGDjXmHn0PeyZ2RgZB9+gua5lqIiEsgrO
-	7ystkqOQCcw38HE1mhcg7w73XvyCKOnos0z9HTUXWvnc/cv1reF1DOlbCL0gAJXJWTV4OFq3LNj
-	GhqYkstbIs8QaCLBK+HUjl2+EBp7mSCkdNBt0BEa98bBzwMCu1ISBQSuYNxvJ+S2T0+0DrhpzNo
-	w0oF7gvzufL1uTPRkyAKT/faGExiPWRZL5VRCu0Woyaw4vgkMJiOtftCre2KltH1gBxqShiWKiy
-	fnOlV35lxho3UK5mcmsJXGqQo0PlJYgmJoReLDYGmcxau8vW9RDzq3BF3gizJXUpcJ9+vv3h2Ud
-	uYJstodHR3YfOH6pAzbLYu/wb51TfcM28UD/YzXooFfEFLGJ83ds7ICCvbuSGucHUnHCWlmrcp7
-	UUhoNQUyFc1LhOAdNlIfEJ3RIyEKWm1wNMEkiQ==
-X-Received: by 2002:a17:906:d54d:b0:c51:cbde:cbd7 with SMTP id a640c23a62f3a-c51cbded0bbmr129708166b.17.1795705308647;
-        Thu, 26 Nov 2026 07:01:48 -0800 (PST)
-Received: from [10.11.12.111] ([79.115.63.240])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fe75sm47430756f8f.24.2026.11.26.07.01.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 07:01:48 -0800 (PST)
-Message-ID: <e329ce21-5a24-4301-9328-917d0ae4fdb1@linaro.org>
-Date: Thu, 26 Nov 2026 17:01:45 +0200
+        d=1e100.net; s=20260707; t=1795705311; x=1796310111;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CnA3zlb6+Q4MfV6Y5oL8cXYKHj+wdTkqxg32r451qEk=;
+        b=YFSoI9dilv+fR8YfGQmqP7EHoNRypN4Cs6F1CRXfByWjwgYANMklLvO7PBMmT+Ws+0
+         /vlh2S4y5KXtsc6CsZm85vY1sqs5HJx7jw7+VCYvYIuRTuPnRzQQ/LFgYXpREwzDf/5P
+         2/4mazQIrl0pQX+Yv0ry+CZps7uLVCATEl2pZYhfE/hQfuuPoBYYbawsn7XcfYhjMplt
+         NzGktUp3y5qxyPzvW1r1XRXMGDCgdA76OT0A8hxRVhkLSE0BVssFDJ8fhFcduAWwtleC
+         Ct5sHdS/nD83eO+zcgOqCzkVuZ7MtmWRcUekyz/setHSIUHil0V9H41K9t43zYH6fab/
+         r9Bg==
+X-Forwarded-Encrypted: i=1; AL+hErEkt3wF+Wtxss4Q9G6d2rdn5tujmNnvPWIGkOJSr9RqCSZ/uo6IZUw7FepTd2zcSugDvjmNk/Y4O+sEnwE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8WNrRyFjrwmX9MYTLs4CaDkkM/9DchQBSjnZXsdbNGilPd8HA1
+	d3i4AJf00B6gC4LTsbH8ezInkkzeBHY1TTXy9TPy15IlAze49crwpJ+m
+X-Gm-Gg: AZFdTZceLNh4fmSfSn5NU2ai+G2sKTNVABL/gorYBD584KuPgIRffqZSzcmNF9hiCri
+	0/0bfa5qQr6Vbj5jyPNcAVBtcihiOl94BQDaZ0iEIdRbynvN0Jv4fxicVZP+dHYEgDH5NSXOcGM
+	kwCIPhhhvKQOE+ktnI+94NY9B2lFmJEUd4B6rX797WpclvQQDREYss1+tz7AszUiskQMlOxK0a+
+	CKrox0Ip9+hJOjOjhZ+Pw3mQ5PlxRXWi8e+MnvCpfjp8cbnM4naFEF/TnqULI0rnKChOL62HEJl
+	fAF5wbdbRdpdSX5437Kck7LDeYvMaDP4AW7PzZo1QjNX2RBtiMWRD7hv1zFdoRolO/o6IWnMguz
+	iAF4WQTChUhw2LpylUrsZUFrUCCh4QCrbdIiAURKrCuts8kKFOdKdjBAccUAeN3KaJCY+22uYf7
+	W8BOrFwBMr2uLplw64ZtKv7IiXZ5jJaqNA1AlTBkSLNDItNN9hXykW5bocfMFnI0mm8jq2Vw6bn
+	rt7PmFcy1bWOLHNBx4YwHjdhy80pspJkwJmtqc/84vdsNijFt8s34ua8JFRDsiBgf+Ra2ubuqGY
+	q+X2Y9isxk3mIJxK+KPySxEuUC7Ug+MlG3bPIGiRuhXc
+X-Received: by 2002:a17:902:ec8a:b0:2ef:e25e:e13c with SMTP id d9443c01a7336-2f03efb015amr233195175ad.5.1795705310670;
+        Thu, 26 Nov 2026 07:01:50 -0800 (PST)
+Received: from localhost.localdomain ([240e:b8f:1df9:a600:c693:b19f:ada0:748])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f15663fsm103299005ad.76.2026.11.26.07.01.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 07:01:50 -0800 (PST)
+Date: Thu, 26 Nov 2026 23:01:33 +0800
+From: Vernon Yang <vernon2gm@gmail.com>
+To: Kairui Song <ryncsn@gmail.com>
+Cc: kasong@tencent.com, linux-mm@kvack.org, 
+	Andrew Morton <akpm@linux-foundation.org>, Johannes Weiner <hannes@cmpxchg.org>, 
+	Muchun Song <muchun.song@linux.dev>, Qi Zheng <qi.zheng@linux.dev>, 
+	Ying Huang <ying.huang@linux.alibaba.com>, Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>, 
+	Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+	Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
+	Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
+	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
+	Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>, 
+	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Nhat Pham <nphamcs@gmail.com>, 
+	Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>, Gregory Price <gourry@gourry.net>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, 
+	Hugh Dickins <hughd@google.com>, SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>, 
+	Yu Zhao <yuzhao@google.com>, Zicheng Wang <wangzicheng@honor.com>, 
+	Tal Zussman <tz2294@columbia.edu>, Xiang Liu <liuxiang.277@bytedance.com>, 
+	Ehab Ababneh <ehab.ababneh@intel.com>, Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, 
+	Lian Wang <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>, 
+	Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>, 
+	Maxim Muzafarov <maxmuzaf@gmail.com>, linux-kernel@vger.kernel.org, cgroups@vger.kernel.org, 
+	damon@lists.linux.dev, linux-doc@vger.kernel.org, Tianyi Chen <hi@tychen.cc>, 
+	Ridong Chen <ridong.chen@linux.dev>
+Subject: Re: [PATCH v6 10/18] mm/mglru, gup: mark folios referenced via a
+ fast helper
+Message-ID: <c37b9336-95ac-4787-8a7c-73f6ee9d17c2@gmail.com>
+References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
+ <20261124-mglru-fg-v6-10-8ffea39934a6@tencent.com>
+ <6c3d32a9-3004-4a17-b854-7088e69f164a@gmail.com>
+ <awfb-vGF62XvcX_F@KASONG-MC4>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,105 +121,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv3] thermal/drivers/samsung/acpm-tmu: Fix spurious CPU
- throttling
-To: Alexey Klimov <alexey.klimov@linaro.org>,
- Christian Loehle <christian.loehle@arm.com>
-Cc: bzolnier@gmail.com, krzk@kernel.org, rafael@kernel.org,
- daniel.lezcano@kernel.org, lukasz.luba@arm.com,
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-pm@vger.kernel.org, =?UTF-8?Q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, Peter Griffin <peter.griffin@linaro.org>,
- Juan Yescas <jyescas@google.com>
-References: <20261125173959.2198116-1-christian.loehle@arm.com>
- <CANgGJDp02H7-wLv6DoaPMeiy4UvDUC2nvSR=+mngEZ+Z4Hqgog@mail.gmail.com>
- <2162b02c-642a-446c-973e-ca80607da294@arm.com>
- <CANgGJDrnH7R9aTXhH-nj710OjwNcUTfpxE7eWGSP=9a3eoUnug@mail.gmail.com>
- <4adc1712-3608-4fd7-9eba-79b129c67b77@linaro.org>
- <DN586284T46G.271ABU0A683IZ@linaro.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <DN586284T46G.271ABU0A683IZ@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awfb-vGF62XvcX_F@KASONG-MC4>
 
+On Thu, Nov 26, 2026 at 03:16:32PM +0800, Kairui Song wrote:
+> On Wed, Nov 25, 2026 at 09:47:18PM +0800, Vernon Yang wrote:
+> > On Tue, Nov 24, 2026 at 02:53:02AM +0800, Kairui Song via B4 Relay wrote:
+> > > +/**
+> > > + * folio_inc_lru_refs_fast - Bump folio refs count without promotion.
+> > > + * @folio: the folio
+> > > + *
+> > > + * Raise refs from 0 to LRU_REFS_REFERENCED and leave hotter folios
+> > > + * untouched. For a folio off the gen lists with MGLRU off, a plain
+> > > + * PG_referenced set.
+> > > + */
+> > > +static __always_inline void folio_inc_lru_refs_fast(struct folio *folio)
+> > > +{
+> > > +	unsigned long new_flags, old_flags = READ_ONCE(*folio_flags(folio, 0));
+> > > +	unsigned int refs;
+> > > +
+> > > +	do {
+> > > +		refs = lru_get_refs_flags(old_flags);
+> > > +		if (lru_get_gen_flags(old_flags) < 0 && !lru_gen_enabled()) {
+> > > +			/* For CLRU, just do folio_set_referenced() */
+> > > +			if (refs & LRU_REFS_REFERENCED)
+> > > +				break;
+> > > +			refs |= LRU_REFS_REFERENCED;
+> > > +		} else {
+> > > +			if (refs)
+> > > +				break;
+> > > +			refs = LRU_REFS_REFERENCED;
+> > > +		}
+> > > +		new_flags = old_flags;
+> > > +		lru_set_refs_flags(&new_flags, refs);
+> > > +	} while (!try_cmpxchg(folio_flags(folio, 0), &old_flags, new_flags));
+> > > +}
+> >
+> > The implementation code of this function looks a bit convoluted.
+> > Would it be better to simplify it into the following code?
+> >
+> > 	do {
+> > 		bool clru = !lru_gen_enabled() && lru_get_gen_flags(old_flags) < 0;
+> >
+> > 		refs = lru_get_refs_flags(old_flags);
+> > 		if (clru ? (refs & LRU_REFS_REFERENCED) : refs)
+> > 			break;
+> > 		new_flags = old_flags;
+> > 		lru_set_refs_flags(&new_flags, refs | LRU_REFS_REFERENCED);
+> > 	} while (!try_cmpxchg(folio_flags(folio, 0), &old_flags, new_flags));
+>
+> Hello Vernon,
+>
+> That's very good suggestion!
+>
+> Only one thing here is that
+> `!lru_gen_enabled() && lru_get_gen_flags(old_flags) < 0` doesn't mean
+> it's classical LRU, maybe it's just isolated. How about bool on_gen?
+> Or bool has_gen?
+>
 
+Thank you for your explanation!
 
-On 11/26/26 4:50 PM, Alexey Klimov wrote:
-> On Thu Nov 26, 2026 at 2:43 PM GMT, Tudor Ambarus wrote:
->>
->>
->> On 11/26/26 1:51 PM, Alexey Klimov wrote:
->>> On Thu, 26 Nov 2026 at 10:50, Christian Loehle <christian.loehle@arm.com> wrote:
->>>>
->>>> On 11/26/26 09:16, Alexey Klimov wrote:
->>>>> Hi Christian, Tudor,
->>>>>
->>>>> On Wed, 25 Nov 2026 at 17:40, Christian Loehle <christian.loehle@arm.com> wrote:
->>>>>>
->>>>>> acpm_tmu_set_trips() supplies two thresholds, but the ACPM command writes
->>>>>> all eight slots, zero-filling the rest. On GS101, slot 7 limits CPU clocks
->>>>>> independently of its interrupt mask. Setting it to 0 C limits all three
->>>>>> clusters to about 200 MHz while cpufreq reports the requested frequencies.
->>>>>> This was found through trial and error while tracking EAS regressions.
->>>>>
->>>>> Cpufreq reports the requested frequencies — are these cached values
->>>>> being reported?
->>>>> Or is this what the kernel gets via the ACPM call?
->>>>
->>>> Requested frequencies are reported. The 200MHz I only deduced from PMU counters.
->>>
->>> Tudor, your thoughts?
->>> Is ACPM reporting an incorrect rate or are those cached values?
->>
->> Both. I checked with debug prints in cpufreq:
->>
->> - scaling_cur_freq returns the cached policy->cur.
->> - cpuinfo_cur_freq gets the freq via ACPM call. The value always matched
->>   policy->cur
->>
->> So ACPM reports the DVFS level it was asked to set, not the throttled
->> clock. With the hot trip lowered via sysfs so that the slot 7 throttle
->> engages, on the X1 (cpu6):
->>
->>       zone     cycles/s (perf)   scaling_cur_freq   cpuinfo_cur_freq
->>       68 C     0.85-1.21 GHz     2802000            2802000
->>
->> Without throttling, the three agree (e.g. 2.19 GHz measured, 2188000
->> reported).
->>
->> It would be good to specify in the commit message that the governors
->> don't see the throttle. Something like:
->>
->> Program slot 7 from the lowest hot trip. Above that temperature the
->> firmware throttles the CPU clusters on its own, without cpufreq or the
->> thermal governors noticing, so the hot trip must stay above the range
->> where the governors regulate. This matches the downstream setup.
-> 
-> Ain't that mean that ACPM ->dvfs.set_rate() call doesn't work?
+For has_gen, looks to me good.
 
-No, set_rate() works. Without throttling, the measured frequency follows
-every requested level (1.80/2.25/2.76 GHz at the cluster maxima, 2.19 GHz
-for 2188000, and scaling_max_freq caps take effect). FREQ_GET returns the
-level that was set; the throttle is applied by hardware below that level.
+For on_gen, it could be misunderstood as "whether MGLRU is enabled".
+So I prefer has_gen personally.
 
-> I don't remember all the detauls but I think you mentioned that
-> downstream doesn't execute set_rate() ACPM call and does the SFR
-> (mmio) reads, basically what we have on Exynos850.
-> 
-
-Downstream sets CPU rates through ACPM as well: cal_dfs_set_rate() calls
-exynos_acpm_set_rate() for ACPM vclks and caches the rate in vclk->vrate.
-cal_dfs_get_rate() returns that cached value and only asks ACPM when
-nothing is cached. So GS101 doesn't need the E850 approach, since its
-firmware implements FREQ_GET.
-
-> What about clocks and corresponding PLL clocks?
-> 
-
-Upstream has no CMU_CPUCLx driver. I'd expect a PLL readback to show the
-DVFS level too.
-
+--
 Cheers,
-ta
+Vernon
