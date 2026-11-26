@@ -1,75 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795685142;
-	b=i/WfMLNDB0xyLwHh/n8q+Z6Nm//KmE4sHdUHbKivEOt2VYQBYS/ts1zFFI7X2FbbeWKg
-	 0LLsjjw+rscgVQi853p/FEI+RYwB7E/5U1gK3fD4WcZJQ57iKJf12egJViV0Is3lUnGBw
-	 ld9cZFR1JjkCOHwLfxwrJEn/pTmot4eA8g7iMBsLOwWMMe08ssM1CCi2xQGa9x4EzovJQ
-	 GSLGpIRGluJGoIT1mrIKcucmzrJlfkBF047R56o/WkfEJoY0PJfI/C+qFEVJ1CAfMg+7o
-	 99Xu+t5GDKDCbbvRErim2zDoHyL1JkQR93LYTaLGuCMXo0xXdriF5x45EqAUVSmsGXQ==
+	t=1795685150;
+	b=HkhvkahXOp04EeG0tZY1074jIge3ZfK0B1ABawRb9J33u1QaiIsFhCyowCRMdaEby5Oo
+	 DmsZlkpYkUi1aMJx1ZKk/sZvl6KgqXfUENzUZLOGWFIxnHrQcwaBkCIHRDI3tLjNBaemE
+	 PbPAnRTDGmT5cCh2gZPXwWzewbnJiqQ8LCh4OaCALzRuxA1y/BKM7HGibbZOuKu/aB+Hg
+	 9JUOQ/CEDTVGYHFwKs9LJ8NZtcWGCkPT6DcsU10JGDbVb/f5o0PjWA7/TYENWzD8mGw7c
+	 P3p7R/NqpCbsz4iNk68YMx+xRBYJqNv1BmkflGYjZ/pn5EVNnx/HqKrJTZJTXP9EBZw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795685142;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795685150;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
 	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=7kHgHxT5Ek5JU2p4PufIw+wkxobKZgF3oxjmlTkBiYg=;
-	b=bT+5btE3beiyAEEvBTtjCOmUzbZHkRDZlitZcvmmuhTKop7vjU0mZqLs59j9dD9Ye3hY
-	 +U726TEMRUWyqeYzzwM7qUtlbD7URYsTNQUfpicWT1rpbk76R5+awdcrBIS1zE6Bu1GdV
-	 T6+e5DN10rnKBS5q8GUCVW5L3GGxy3BI5QQR9v5xri+hGRTMhvYdcTjz0l9h+iHCcz2M0
-	 +khEMY5at5t8FK0axkgcGjKS42WNMsTCM4hvGYrvGLgQLme2YrX8fEyzzz7w2jeYpruoq
-	 Dn2zQ99aWW8wIo1h20EtbiyG9fUzPeNdPQ/mGs7MKFCGumTpLthtDJ4an5XfFF+wLOQ==
+	 Content-Disposition:In-Reply-To;
+	bh=aKApNAjFNuW6/wq/vS146NocYcxpNSbPfKkUgd3vTt8=;
+	b=mtbGrmgVatuMetP6BJUPftIcxp7j3BCmsArnrnfEhV2iAfaRxwn0QlTdo+SUvbwExwNB
+	 WHRvaHGGo6hZdv2cXFA+T+i7oqgbj1m0FUAECUZO8Q+LW2+e/vmqLfQjZXOF11688zpsW
+	 TjqDSMpyX9OHJzPhS7y5ElN6bH6e3DEHuQM+B43LOI8sPMrJ5kIy4CCCNK0jFEVrs3YtK
+	 RwvKBvt56UTefVzTW4Enjb9Z7wut49712a9o5laFvAn9C6vL1YYlv4tmhjjzP6EFoCEDc
+	 BEMqsrnAj5yL+hxSPduwcFOYw5S2lH4ecIvETcgcrK0BLUWLevSm3u9NvLpL5YduQLA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LpDBL6+g;
-	arc=none smtp.remote-ip=198.175.65.13
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E19B8606A31C;
-	Thu, 26 Nov 2026 09:25:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E19B8606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="fytAJIt/";
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id CB24E606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:25:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB24E606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LpDBL6+g
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795685142; x=1827221142;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ybeAPc6iqgpJgd3cizVcIIkQO1XvmRAvYnQ9+k9Udpg=;
-  b=LpDBL6+gbaQM4Bnknj4K6FHUtsdwZoUJF9sMwJAodzcCAlZOr7za7PoM
-   +zf6xgmcimf7cO9SfZjvJqUftRVvWfpOXNAHPGABbGOpqGKGtaKoe8erp
-   dBW1mNcNGbzl8rxaikjFSQ3LuFV97VCHcv58ADFJxcszMSrmk5yiafkMY
-   oTY0TCWf18hu/l86WeNXHjn7d7Qf9zyMS8gTcT/ZNeJsUKInp5x31Mx36
-   tG1DiOS3XFlxM341AaRUmXnZ2xa49qzYQW1YPMAMAkdMVPG/J7qn4MtyL
-   Yr0pwJt+p8LhHz11uku4hpW1sFXkwklavDEHIwIlM9oIbrKX+IFvh1xEW
-   w==;
-X-CSE-ConnectionGUID: 1iZrSU94SsmTTqyqVMueBQ==
-X-CSE-MsgGUID: 9ZHHJgYtQ6GLTOKcxyvLqQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4495442"
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="4495442"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 01:19:59 -0800
-X-CSE-ConnectionGUID: 44vbINN+RtGDU9xp6IlDfg==
-X-CSE-MsgGUID: 1VYzEzlGRwOeRjYwiYz21g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="11995726"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.208])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 01:19:57 -0800
-Date: Thu, 26 Nov 2026 11:19:54 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: iasnezhkov@gmail.com
-Cc: jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
-	andy@kernel.org, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iio: inkern: guard fwnode_xlate with info_exist_lock
-Message-ID: <awf5uvVpYC72orT_@ashevche-desk.local>
-References: <20261125234827.94791-1-iasnezhkov@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=fytAJIt/
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C0D661BA8;
+	Thu, 26 Nov 2026 01:25:45 -0800 (PST)
+Received: from localhost (a085714.arm.com [10.164.19.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E0FDA3F632;
+	Thu, 26 Nov 2026 01:25:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795685148; bh=Hbxa4IjJkMzsMDpju7sU3gXs/jL+CVj1EcFYUSt0hhY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fytAJIt/ajmL5jTVWMxzkakTC6xw3pTwIVq8nYP+1wRcqvdE7IH+DM9FsC6Jg1xZf
+	 XLx+SPAJxFl1QVjR/2HSoORWNFHBnG2oJv3p1Z9KU3k9uvpvxcglm2rIMui5Imr/2W
+	 m03B95GEVOoVhW7Zdm5fjeCfedMqHjBBIB3JIJHY=
+Date: Thu, 26 Nov 2026 14:55:45 +0530
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: JonasZhou-oc <jonaszhou-oc@zhaoxin.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Uladzislau Rezki <urezki@gmail.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	jianhuizzzzz@gmail.com
+Subject: Re: [PATCH] mm/vmalloc: avoid false sharing with drain_vmap_work
+Message-ID: <gdy3cvqeppwda5zydfl3cq37gmihrbizbnio5bnandkl2brnt4@vw5s5wcbejoq>
+References: <20260825104659.100134-1-jonaszhou-oc@zhaoxin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,60 +62,62 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261125234827.94791-1-iasnezhkov@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <20260825104659.100134-1-jonaszhou-oc@zhaoxin.com>
 
-On Wed, Nov 25, 2026 at 11:48:27PM +0000, Ilia Snezhkov via B4 Relay wrote:
+On Tue, Aug 25, 2026 at 06:46:59PM +0800, JonasZhou-oc wrote:
+> free_vmap_area_noflush() queues drain_vmap_work after the number of
+> lazily freed pages exceeds lazy_max_pages(). Until the worker purges
+> those pages, concurrent frees keep calling schedule_work(). Even if
+> the work is already pending, queue_work_on() performs a locked
+> test_and_set_bit() on the pending bit in the work item.
 > 
-> __fwnode_iio_channel_get() dereferences indio_dev->info->fwnode_xlate
-> and invokes it without holding info_exist_lock. Concurrent
-> iio_device_unregister() clears indio_dev->info under info_exist_lock,
-> allowing a NULL dereference or callback execution during provider
-> teardown.
+> On the tested x86-64 build, drain_vmap_work and vmap_nodes occupy the
+> same 64-byte cache line. The work item starts at offset 0 and the
+> vmap_nodes pointer at offset 32. The latter is read by vmap allocation
+> and free paths, so updates to the work item invalidate a cache line
+> read by all CPUs.
 > 
-> Hold iio_dev_opaque->info_exist_lock with scoped_guard(mutex, ...)
-> matching the rest of inkern.c, return -ENODEV if indio_dev->info is
-> NULL, and bounds-check the translated index against
-> indio_dev->num_channels before indexing indio_dev->channels.
+> Put drain_vmap_work in the cacheline-aligned data section. Tests were
+> run on Linux 7.2.
 
-Sounds legit.
+Should the test be performed again on latest RC kernel ?
 
-> Found and drafted with an AI coding assistant.
-
-Move this to the comment block after the '---' line below.
-
-> Fixes: acd8256723f2 ("iio: inkern: Add of_xlate function to struct iio_info")
-> Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
+> 
+> On a two-socket Intel Xeon Silver 4208 system using 16 workers, the
+> runtimes of vmalloc.fix_align, vmalloc.fix_size, and
+> vmalloc.no_block_alloc decreased by 12.61%, 5.78%, and 6.87%,
+> respectively. HITM samples for the affected cache line and total HITM
+> samples decreased by 96.55% and 13.36%, respectively.
+> 
+> Signed-off-by: JonasZhou <jonaszhou-oc@zhaoxin.com>
 > ---
+>  mm/vmalloc.c | 7 ++++++-
+>  1 file changed, 6 insertions(+), 1 deletion(-)
+> 
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index f4fa227a8d7f..6b4b287e91f6 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -1088,7 +1088,12 @@ RB_DECLARE_CALLBACKS_MAX(static, free_vmap_area_rb_augment_cb,
+>  static void reclaim_and_purge_vmap_areas(void);
+>  static BLOCKING_NOTIFIER_HEAD(vmap_notify_list);
+>  static void drain_vmap_area_work(struct work_struct *work);
+> -static DECLARE_WORK(drain_vmap_work, drain_vmap_area_work);
+> +/*
+> + * Keep the work item, whose pending bit is updated by freeing CPUs,
+> + * away from vmap metadata read by allocation and free paths.
 
-...
+s/away/cacheline away/ instead ?
 
->  	indio_dev = dev_to_iio_dev(idev);
-> +	iio_dev_opaque = to_iio_dev_opaque(indio_dev);
->  	channel->indio_dev = indio_dev;
+Besides the comment could be re-worded with some more detail perhaps.
 
-More naturally the new code line looks better when placed here.
-
-> -	if (indio_dev->info->fwnode_xlate)
-> -		index = indio_dev->info->fwnode_xlate(indio_dev, &iiospec);
-> -	else
-> -		index = __fwnode_iio_simple_xlate(indio_dev, &iiospec);
-> +	scoped_guard(mutex, &iio_dev_opaque->info_exist_lock) {
-> +		if (!indio_dev->info)
-> +			index = -ENODEV;
-> +		else if (indio_dev->info->fwnode_xlate)
-> +			index = indio_dev->info->fwnode_xlate(indio_dev, &iiospec);
-> +		else
-> +			index = __fwnode_iio_simple_xlate(indio_dev, &iiospec);
-> +		if (index >= indio_dev->num_channels)
-> +			index = -EINVAL;
-> +		if (index >= 0)
-> +			channel->channel = &indio_dev->channels[index];
-> +	}
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+> + */
+> +static __cacheline_aligned_in_smp
+> +DECLARE_WORK(drain_vmap_work, drain_vmap_area_work);
+>  
+>  static __cacheline_aligned_in_smp atomic_long_t vmap_lazy_nr;
+>  
+> -- 
+> 2.43.0
+> 
+> 
