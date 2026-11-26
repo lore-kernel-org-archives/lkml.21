@@ -1,98 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.43
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.46
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795661119;
-	b=sUK+Ji17t4VC8M1rmGU/r7j4ntl5YTCAgnTw9+LGT9PbljMvDGMNDSLlJFuxMff2IJFI
-	 EnQQISzw8rDM4fcmFL2aQdj/T5zgwRiOlk2OyMNX21bYIauyAEqOtm30m+9pvYOTWyRKG
-	 EDRN8mLU+9efw45OXFDf+/tjnoaYnJM9upabnzwLYofm7ctFGIFotvo2kiDr0zb2ac8bA
-	 19WKwZKgnt6VTrYWzs5t6mE/stNA80aRX5W75SEQo636+ckoN0pLfM0v+0F4LfRgXT5iW
-	 VzMHEvShWBWuhnwiw8C13MHcwEZVdk1JFFz5RgReg2R1simrx+16XjL412qo4XaPKkg==
+	b=UXv4Ki1B83VT/xqHVUkPwHnYyu5ZE1sqrmkbzRHZcnZRHZmEYFStbo1Jai9ogZqlFCIl
+	 pgUf+8k4grqTM6mq387CVZ1jpjarjBVWc//naPblhyR7PlboE+AMuo6RctjNVmFVj9i3I
+	 qe8zBzYD42dgmALH6CCgulUYfYUWR25KfxR1xI5To2ESW64WX8e//cM9LoNyQZUpwrKLO
+	 hOfcuDzBfb95mKm9ADfn1dqlzlYJRblqaXDKtxWpAbA4TE/OGR8LGICF32EZTRy5pKu2d
+	 KkWRMQyW5zdS/bV3kJxkmgvm5ZeZRbth8s/oCTfR1pkrRIpnXEq96Vg0wBx7xEk0CLQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795661119;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
 	 Content-Type;
-	bh=D0zUcqm0LArVGjUdPeqXQxQsBa36gzl+dj/r8CT2+pI=;
-	b=svE1L3spwM8frdtZsnr/kK5xqt/R0Z5ZyDzAknWvgYKfO6Rk6U/DSv5i455X+zS3zlHx
-	 2TR7CVQ5uT/ugZioZNccavama0Des7XWRLeivxp1txIsxHKiHlfD20GKNl41QOP+f1UP8
-	 Oxy4uwCwl4ajOp17P9R6utahmT48Eqxyu6djMdQLHWpLeGVqx9ODWmpotoDTS0iFBvISF
-	 S09g3yE2XYPriWhgd/6Tyd/361xmqATzCcXdwOqtHsYzZrNMS+7UhcutWUs3vcSXOB6QH
-	 8FHsg72q2jHQ0sC8SLodLB8xtL8I+/2Oi5Cg9W8vISwxiADVJvGNcDEKpttPt8i42uA==
+	bh=qyZ3Z/w9Fggbci4w4XggEaIjph37o7PsqDHHOvsTEb4=;
+	b=AHwC7pjqWwCCNRvmHqVKe0Lh/AovJyO/nKox2xYciJZcRf0NRAVITKeYKv7Vwp79XzuV
+	 YSdg/rU9Xlfw5zWfdmPF/DZTBsQyG5XnGBafHMQZ4fMvCYziILh0spwHc8VxTy29S9/3t
+	 lEW2nGJQC3Qu6C1XRTmI8a6cTLozXb8/NDPr9jw7aDhjNIFstfGa8qzvMxLOqvhK5jtCv
+	 XG4sMmpIRK1G65RrA5CIrxo2LDZ3uWhcsAirSIv6NbQtXk7i+Aw+qANacl2SeZAiZpm3V
+	 0L2948JHgKc5/wBOajXvxtF/jKjOR2+QwIxU85Wg4w1H+AeEUxVaU1Z/9T26RRFbPbw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=certik.com;
 	spf=pass smtp.mailfrom=certik.com;
-	dkim=pass header.d=certik.com header.i=@certik.com header.a=rsa-sha256 header.s=google header.b=T0nJ4ZjR;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.43
-Received: from mail-yx1-f43.google.com (mail-yx1-f43.google.com [74.125.224.43])
+	dkim=pass header.d=certik.com header.i=@certik.com header.a=rsa-sha256 header.s=google header.b=HrEBjPHq;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.46
+Received: from mail-yx1-f46.google.com (mail-yx1-f46.google.com [74.125.224.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09F82606A689
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:45:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 09F82606A689
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CF10606A68C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:45:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1CF10606A68C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=certik.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=certik.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=certik.com header.i=@certik.com header.a=rsa-sha256 header.s=google header.b=T0nJ4ZjR
-Received: by mail-yx1-f43.google.com with SMTP id 956f58d0204a3-675617e81f9so7459573d50.3
+	dkim=pass (1024-bit key) header.d=certik.com header.i=@certik.com header.a=rsa-sha256 header.s=google header.b=HrEBjPHq
+Received: by mail-yx1-f46.google.com with SMTP id 956f58d0204a3-67583c777abso6849049d50.1
         for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:45:18 -0800 (PST)
 ARC-Seal: i=1; a=rsa-sha256; t=1795661118; cv=none;
         d=google.com; s=arc-20260327;
-        b=b2jLbNSxaZqdheGp83o0h62N6EAXEWDrjO9CJ1e4t5Ss3BpI6TDqMrZBy+T8A9gGst
-         k3hp8FD6e/nge0G0WT0E7OwNXWkUsBczYRxsqaK6pYPingf93TdwWMNLRjk2r8tR6lpf
-         02gXReG85nHfneJueGtrEhI4qy87FOpTpp7dEmGBdgH/HboZsYtDDYAySSIr66a0s+Nv
-         fpej4rwSkrZE2bE+YntL9QPgrIYwFB2EWsy0LXcpvDwKf/yDryyBKg55zRUc5Bq0xMB7
-         Vjejpvr/VlAaX3Q86Y17Ueq/3tn5V5MHI/QRqittlTUTj/Dv88NPHdxm7JlOFQKBN8uu
-         SzOg==
+        b=WMzyZtKmGKq1N63U799G/tmUQF4S/YKcZms2Nl+5vPVaTXMQYd9/mt4E3UTcDxkvcQ
+         CLYYGPaVKCX3jTmYHmtAmiHj0kVLS/J+McwGUaJuZVR4eMqmFsimKFlgNLTKp9D52MrJ
+         FNYW4jj9RyAqFHybTLekpHYFys8FNS5JGNZv6aQlQcpnKY2NYClIV2QqJ9U8zUwVYKqI
+         VupMb1VxFmSCpNixE1mbtBTC/MHvWjaT9qCTRYRugu7ZOCpQK/tny1dV/pSWd66LAYkx
+         yh3SwWRdCNSDBRENK0WYa5++EB+x0nvJ/IGsRFfWPb8JwEu7HgRz7FdGjpVw+vW3hwFw
+         YxPw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=D0zUcqm0LArVGjUdPeqXQxQsBa36gzl+dj/r8CT2+pI=;
-        fh=Tj8sHNCC7RVtwcHppTIQGyhWoobliufyClOh6/HQ2wg=;
-        b=qijLIhNDxuHIaj9xObz2JNrIxXsm/YSN2m+WxJtY0C24JqqmMXqz3FDFhZDMwpjIX1
-         jSvcQyNOxn/2NKzDQfggSYXuH4suhL48BQ/x/brokJOyL3Qs3hEsnV0AM3yGB6DdUTrl
-         l7o2EfpcBFiq1pqIGZCjkgZetU0wIDJyfBLXaOXv811OWs+TTVZKlYUJ3h96cEWSXOOL
-         nqyi9NNWeHfH0CfQCGQLNcKIREMshnvgg7vJhBuz6YUCtAar6ve0Y13rwJkIUGWYkK38
-         yDzjs6ObBT4GPJ2CVyVTUnRgA6f651iDBi6WcLwbldG0Aotwit1Nvy02xASYax6GtIiD
-         0dkQ==;
+        bh=qyZ3Z/w9Fggbci4w4XggEaIjph37o7PsqDHHOvsTEb4=;
+        fh=V8lqY7ksgkWiXQAy67tkR9W7fjD/eTp+MlI9QdWbAC8=;
+        b=ortBt9fGEQ0fyggTSASZe+W4KJZmWgm8cyuxDe3S/viJ1VC+3c2AlyrmjpUzJDhaur
+         zoJ/sbXQOcAEjp9Q0SpFEN3fMYeVnA08kq8ME0vVIj96PcKNb59o/xoAle0wEu+2/pTT
+         rwg1GkEfkKfS1lcPW0nNZiVON22wo8xkDwFcVDairtD35iygyGvJZ36hHZ3K/VfXffOl
+         5NQcazcg/OeYCh5lNr5TiCTmy3M0LuaZuVSvZaJg2NimHZzNRdxq4xGTcyGEIJ3u8SUb
+         9dGM6f7n8ZM/Qs6pJ9qHSGGsXEilTWMqFZOm2duC46MN5LGZ12/Du9HNaHZI0riXDMMI
+         ZWVA==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=certik.com; s=google; t=1795661118; x=1796265918; darn=vger.kernel.org;
         h=content-type:cc:to:subject:message-id:date:from:mime-version:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=D0zUcqm0LArVGjUdPeqXQxQsBa36gzl+dj/r8CT2+pI=;
-        b=T0nJ4ZjRXmyGh2nx7gflbplcqd2MWlUYLwSYxN6EXWl5fspT/s6i3ifGaLew3nt6rH
-         8nNqfgZXX+DtxMsNqtlo8ypdAF9vgYp9QYAffWIbDIyVXUBm+jpMHnJrxOvCIHflNat1
-         n4qtxmZXMVicuUHyUSV9oEfIRVOQ/9UnFcjO0=
+        bh=qyZ3Z/w9Fggbci4w4XggEaIjph37o7PsqDHHOvsTEb4=;
+        b=HrEBjPHqvFckSbp20U4PYhmcVd0d7yDI+xF63Vhxvb09eZ3NPzGWHq4Qf4o4o7hGdb
+         aSFJJ4AfTFJDISadOuKKOTkJxI9rDP5A2C7YaJAV7MyuG+BzD5Z/SJdzmK86lwXOkerP
+         uySVlG5MN8ZUsuHjn2qjHa8XpCKliStV1EzKM=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795661118; x=1796265918;
         h=content-type:cc:to:subject:message-id:date:from:mime-version
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=D0zUcqm0LArVGjUdPeqXQxQsBa36gzl+dj/r8CT2+pI=;
-        b=kFY3W1xDStkXM2/vLx/vckvuHFTOxz0NcK3P6731qS3As4HIdOwGUCR/AMGg7fbjAM
-         Ec1Pc2zlzZDptmUPifH3zeSHy2ILmlD+q/93jo713fy0vSjwV5tH6GOxRULdLjJ781PZ
-         rqc3JJMczJiVN12PoeBkBNDzgmTgYLL1YA3zDq8HNt9ndlz2HlkVSZAPAlnNpssyiRpu
-         kvGat9qAhLWQWAgrkP/2BpKi+ufDMGxLFgpkgp6AQzUU/MjdjDjtbzw78tV9j77Ftq0S
-         UOZPwXBCl3UOtjxXT8STjoULqQa4gC92aZbCRYKebfQ10SLH2w0Gu36K7QqdlCdqu2cd
-         ZJ9Q==
-X-Forwarded-Encrypted: i=1; AL+hErHOPCMvBm68w8TDaXWx6tQ5RTS6Pd1bnBRI2G7ZrmclNnrhlzXTWJYWO3hUO30GjMnPpbAlNvU94CIfqUk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8KrB12yK8sHIFzIcTukefg8+PiuhdySOJ6cy/Mq5S60a1s5PGn
-	8FvXSJFLFaHz0uhqpOCYjhE+1JPISFHR25EIzd4uWhdUqy0kvyeY1sy1SrL+iweBteJfuivD9rR
-	60NqsJuIuzjePP5XFS+DR4PMnAm2aIIbPsH9Qwr7BxhpHpw3uAAwklY0=
-X-Gm-Gg: AZFdTZcqSr+bvvYAw5u88ifq2YelETQpP4LxAvdZelikoR1t8wi4SpxCEDafsOsJJre
-	vSSTQloDMG0A1LNxPz3+FKhugwUxcPRIsLEvD0H0MELG8qpNIUcYH6NTOa6f6ZOfgkUwGJU0QkM
-	w3f1QDBclHQVeHlzCJ5ZNqel5EIZrBXvEcECxsQGblCGiMUv22kMSrrYVuQRm1MPqSRYk73fwFZ
-	c7SWEn82y8J/Mgc3rN4TwyAK5VD0P6mLSAhQuXHLnZgfa6B6dJgW6nVKyRgUxxwG2+2QFhxbbdJ
-	ooLRIe6r69R9+ynegetFTAL3lHe5HN6n3yCNIDE+jiZRddSjyDO+ZJx8zJpsnK5iVmc6Fg1B1NE
-	md2aQTUExwSdM96qLQdV3i5E+D6ObyDU6KAcmmrW7mc8lYBKV7SURa2Eh47ow1c9HLeygk0GyhD
-	I5kWiQwQlKF5AorjHU3XYT5/tAIpKMkyVFmtoR5ufWACh99qeqXfxgXIwE56l8USCPhItbNSLf/
-	LJUUyc7Mnk1XzYvNKuOsnTUdl1X4pstWX4tkRUY28XnwuKnduWaRsj9Mw==
-X-Received: by 2002:a05:690e:190a:b0:67d:ebad:8c79 with SMTP id
- 956f58d0204a3-67df43cd1damr9240466d50.26.1795661117914; Wed, 25 Nov 2026
- 18:45:17 -0800 (PST)
+        bh=qyZ3Z/w9Fggbci4w4XggEaIjph37o7PsqDHHOvsTEb4=;
+        b=SujQ4QJ/o/lowVfONwF6gFsRYXU3bDmsczSEoc7K7FP+ExfmrNb7Ywi9oCnrpO+qOS
+         aqPsTtDcW4JoUjrBbl6qW8GowwUu73o3DVFUhhWc+Fu9HYYTUkOv7sqjEaP3OvwQEeD3
+         egWxOYrryFlLJjCdIMB6wGV4lzp4npY46u87VHuGqe/KUYEggQ+i3G+0d1jnP9xaUlUw
+         bh/QamVZuLDTL6/CM3fMF/13FP4XjcxGylYBgixq8EHxH3tt0MUkykuHj+E45/q7dolt
+         96xJ3BxV/CEDf/DFVUszqE2ZlS69b8jQN/TH5NN3XGWn4UIa4doViTI9KNqxVmIAMhtL
+         pepg==
+X-Forwarded-Encrypted: i=1; AL+hErFnQXWyi2sXq/zXuVIzGUHVq7PZurNeGjtV/QKJr4QlV734oX+FmYfuOvLTsChJrU3cMcCDKrTSH/uoJjg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+vNLOmWVJoHmtSUAQOOSP7LpahbQbqw7OLwwsJAHRqtnDF1b6h
+	m8L+dEnoC7eBoItUF6xQd04waCRw2nEsAwLj3TjqKHMLwcY5DEHoYQbiyY3AI3GLdfrHh9q+dnB
+	k/RdG0xADZSzAFTIQ2VWx94LZ4Ev/PamTm44W4ZLG0w==
+X-Gm-Gg: AZFdTZf5fX4ogs3Q6uifaoYUicw0Q4Anh//BS5rLMze0dwVqIe4rxkQR+ISuHfyNABH
+	XhhkxH+bU8+u7fk2bswZr4QbuW8QyrzuhbK2v/oTeJSWxTc+EKcervy81K8SKf/iWPNK6J4z1Y3
+	1Zaqk85munyqmY0TK9/JG0dsrJY/5QHGI5aNoZkEmqAr5OlQZT81WBC88nOzDXMdBFnYd+lT3iS
+	8m8zUd3ef9TgpH4bYu1f2XjHgEgb434vMtlZwF4GaLv+3BVk8qj6/xuWD9tsOxdcVkupCjM75wH
+	BU5nlikUQxRH7BfqgDNIABalpqv98xrf5m/eGpZgw3HzRImmspRHbUKMjXhnoULAyYoR/ZN53VO
+	084q1Wl8GXTS0o342rpE+CkxhkJETyJ4LiL4ypXr1x6wbuZclCQcDz7TWlgcA+DldHBl2ZhH5dS
+	GmD+sqNQ4/M7gvh3gDlAeIH7O3pQc7LhH0OAdvh7uSbovDXyOnQ8DRQGedj4Z2MVBO2TEzZrJeA
+	7SnK8Bhy2+lWZzT/OlAsN/CbbePn0mdTDYW
+X-Received: by 2002:a05:690e:1c09:b0:67d:bc4d:4524 with SMTP id
+ 956f58d0204a3-67dec47a61bmr9629241d50.30.1795661118097; Wed, 25 Nov 2026
+ 18:45:18 -0800 (PST)
 Received: from 77377267392 named unknown by gmailapi.google.com with HTTPREST;
- Wed, 25 Nov 2026 20:45:16 -0600
+ Wed, 25 Nov 2026 20:45:17 -0600
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,80 +103,48 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 From: Dickson Wu <dickson.wu@certik.com>
-Date: Wed, 25 Nov 2026 20:45:16 -0600
-X-Gm-Features: Aa3M54o_FkKMyMPQ76iVqaRJQDs_ogTl2m96GprmqGGhavz4dlD9Q5rYhhV_j4I
-Message-ID: <CAFaZ9ep64RtaNeyK42OVLSCwD_g-E5RqjP4qbK0=45unkG=Zag@mail.gmail.com>
-Subject: [PATCH 5.10.y 2/2] pid_namespace: prevent TIF_NOTIFY_SIGNAL from
+Date: Wed, 25 Nov 2026 20:45:17 -0600
+X-Gm-Features: Aa3M54qDUVBD0UobwvN0Np77hp-ieqmfIJ36B90oCQ98uHa_LiRVanYCvb5mk9I
+Message-ID: <CAFaZ9epYnFzn_EE9Q+g_hn-rmPc70PPC07TXm+9yScHN68hLEA@mail.gmail.com>
+Subject: [PATCH 5.15.y 0/2] pid_namespace: prevent TIF_NOTIFY_SIGNAL from
  interrupting the reaper
 To: stable@vger.kernel.org
 Cc: Christian Brauner <brauner@kernel.org>, Oleg Nesterov <oleg@redhat.com>, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-From: Christian Brauner <brauner@kernel.org>
+Hi,
 
-commit 5c0985dd3c32fc2bbd0e8beaf13cf52cd97376a2 upstream.
+This backports the fix for CVE-2026-99244 to 5.15.y:
 
-Since commit 7fea700e04bd ("zap_pid_ns_processes: clear
-TIF_NOTIFY_SIGNAL along with TIF_SIGPENDING") zap_pid_ns_processes()
-clears TIF_NOTIFY_SIGNAL before every kernel_wait4() call. Otherwise
-kernel_wait4() doesn't sleep and returns -ERESTARTSYS if
-signal_pending() is true and the reaper busy-waits.
+  22b7f491be8f signal: allow taks to temporarily block TIF_NOTIFY_SIGNAL
+  5c0985dd3c32 pid_namespace: prevent TIF_NOTIFY_SIGNAL from
+interrupting the reaper
 
-But clearing TIF_NOTIFY_SIGNAL doesn't fix it. It can get raised again.
-For example, klp_send_signals() sets it raw against any task that hasn't
-transitioned yet. And it keeps sending it until the livepatch finishes.
+6.1.y and newer already have both. Two changes for 5.15:
+- 0x00800000, the bit upstream uses for PF_NO_NOTIFY_SIGNAL, is still
+  PF_SWAPWRITE here, so patch 1 uses the unused 0x01000000 instead.
+- Patch 2 calls no_notify_signal_save() and no_notify_signal_restore()
+  directly instead of guard(no_notify_signal)(), restoring at the
+  function's single return. guard() in the middle of that block adds a
+  W=1 declaration-after-statement warning on this branch.
 
-The sleep loop waiting for pid_allocated to drop has the same problem
-and it doesn't even clear anything. So a schedule() in
-TASK_INTERRUPTIBLE returns immediately.
+Tested on v5.15.226:
+- x86_64 allmodconfig W=1 build of the touched signal and pid namespace
+  objects, base vs patched, no new warnings
+- defconfig boots under QEMU/KVM, and the existing pid_namespace
+  regression_enomem selftest passes on base and patched
+- No existing test forces task work to interrupt the reaper, so that
+  path itself is untested.
 
-Use a no_notify_signal guard. signal_pending() will ignore
-TIF_NOTIFY_SIGNAL and the pid namespace reaper sleeps until a child
-exits or free_pid() wakes it.
+Same two as the 5.10.y series I just sent.
 
-Link: https://patch.msgid.link/20260824-work-tif_notify_signal-v2-5-6609e42b3157@kernel.org
-Fixes: 7fea700e04bd ("zap_pid_ns_processes: clear TIF_NOTIFY_SIGNAL
-along with TIF_SIGPENDING")
-Reviewed-by: Oleg Nesterov <oleg@redhat.com>
-Cc: stable@vger.kernel.org
-Suggested-by: Oleg Nesterov <oleg@redhat.com>
-Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
-[ adapted to 5.10: explicit save/restore instead of guard() to avoid a
-declaration-after-statement warning ]
-Signed-off-by: Dickson Wu <dickson.wu@certik.com>
----
+The two patches follow as separate mails with the same "5.15.y n/2"
+subjects. My mail setup can't thread them under this one, sorry about
+that.
 
-diff --git a/kernel/pid_namespace.c b/kernel/pid_namespace.c
-index e032b1ce7964..2c525208b6ad 100644
---- a/kernel/pid_namespace.c
-+++ b/kernel/pid_namespace.c
-@@ -174,6 +174,7 @@ void zap_pid_ns_processes(struct pid_namespace *pid_ns)
- {
- 	int nr;
- 	int rc;
-+	unsigned int no_notify_flags;
- 	struct task_struct *task, *me = current;
- 	int init_pids = thread_group_leader(me) ? 1 : 2;
- 	struct pid *pid;
-@@ -219,9 +220,10 @@ void zap_pid_ns_processes(struct pid_namespace *pid_ns)
- 	 * kernel_wait4() will also block until our children traced from the
- 	 * parent namespace are detached and become EXIT_DEAD.
- 	 */
-+	/* Task work must not busy-loop the reaper, see signal_pending(). */
-+	no_notify_flags = no_notify_signal_save();
- 	do {
- 		clear_thread_flag(TIF_SIGPENDING);
--		clear_thread_flag(TIF_NOTIFY_SIGNAL);
- 		rc = kernel_wait4(-1, NULL, __WALL, NULL);
- 	} while (rc != -ECHILD);
+The backport and the test runs were prepared with AI coding tools
+(OpenAI Codex agents, with review by Claude). I went over the result
+before signing off.
 
-@@ -277,6 +279,7 @@ void zap_pid_ns_processes(struct pid_namespace *pid_ns)
- 		current->signal->group_exit_code = pid_ns->reboot;
-
- 	acct_exit_ns(pid_ns);
-+	no_notify_signal_restore(no_notify_flags);
- 	return;
- }
-
--- 
-2.43.0
+Thanks,
+Dickson
