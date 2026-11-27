@@ -1,49 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=141.14.17.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795797579;
-	b=ydfN4oVilP4YFSqZTAeZOqkJaPTlJeUQ4Yq/GUu4lmSBymOXyf0yX9w/DllgmE03qI2Q
-	 wJ4V36pdI/LBCQEi6wfdSXxcWuERpGREb4/3zPZ9ZPtiGPYAfqXW7VPX8tzBP6rONDpp1
-	 EThahUXwohvAy47LdthuBUtd5ZZ1oqQglvkmNUCC/lHLyjGyge3piRxjclipPa8eWiwrO
-	 N+ZcQow2gsJ4XiI8O0HfnWh6keO5TLg5KnBuj8Ky/o2zIrZTkOY7otxhTewXBBRyaxVo3
-	 yW4NukKHa/bZt013Uj/WEfwQJLzhBRB2aKrcMNIKleudcAII0d0I+bC/Ufion4Wmqcg==
+	b=2/Zb+J3OmM/x66S97Op3ASTOVqoMTiIc8n4u0UkhEWuh0gXIgQ4WLnybwNyQC+pl+y3N
+	 +IP+YDD8wqa5ms+EZIOBXXnENe0VKax62qkKwmRA8vA1OkSTp4Hdw5gJkSj1/K6CHIMb1
+	 Z3iBTXwZvbSThABbEhX3c7lE3uTnlDALOjGwVIBIyDOxKQJ+d2gX9EKTwcNQvL5FEua68
+	 SIN483cn6QtkCO6Mmff/uSfPMFbfBq4NRjE2BHCi8CsnVyO9erHMvNKca3ZME7Ie2bHa2
+	 Zi8sbMJmaDU/ma69fDyRYerX7PBKdqJ24u0ssTPcxxUDngAzLEwarrdNhMS4RwSzy2Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795797579;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=Zx1oVhA6VmSJRgH/LGhZzA7qtz4N/i4xfifsR87MlB0=;
-	b=3+BVVA16+Xw5+i+ooXLDA/hMFfUrkrfglGqLg4/h2NVgFsJ7FQBIRJibut5vloGYKHNN
-	 zrPIVhbwOiIMnNABrhw2cr+7duj8ULLV6iJSAKPCSZgYATBzvLKtsZyYXvgDYkNMYLHQ4
-	 xfvWbnv6sR6AVEEIC+SLle5TvP/R8oB8ydHZmvh6/l7imuT8wAuLKUy2kO2CGdKSrd/ua
-	 wPxXA8GvwJIF5TIRGv9gS1KKRiMu1QyNNutJhCVoR22tRLBlSi/yuqtQYmLCMKJdJZnxR
-	 PmHaOW6NtFnFUkZV614YW37lTCcABCB4ojn8669InY6w520J74WWmuoPkH1GJA/p7eg==
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:DKIM-Signature;
+	bh=cpuzMF203iBIm0LK/odzPtCekUJWNzPfkeHY5U9XYwI=;
+	b=x+geDQtwEswCdwuECDwAvXYHgmUmdXonTv3rvLtBrTg9JAp1Sz699ipvBzn8LkUmOssY
+	 TvT55AcXrrFnjkr0vygGvN1Jt9SJp8ktW5TEpVa5UN5vsRzenPGq82FsZyhP87Hnconsw
+	 696Qf8SLd1xzUH8Mt3XzpVQpsjrc3/ag7I7udfziW5/NAXQr+2Swun8u9I6OlsAGSm01c
+	 QSFPer2N2B9/82X0tt8guWrNLS+8TRvNEZrT9KkYXBYVl28N4ffxSotkuogj9INGfbS8J
+	 8bugbSpwt6JaEDMRTFWuqD6Wmu8Kmxf8JGmxThq68FNA7zwk/og6iAg0uhZr41+5akQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=XwawPmii;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 0E025606A69E;
-	Fri, 27 Nov 2026 16:39:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0E025606A69E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=molgen.mpg.de;
+	spf=pass smtp.mailfrom=molgen.mpg.de;
+	dkim=pass header.d=molgen.mpg.de header.i=@molgen.mpg.de header.a=rsa-sha256 header.s=20260906 header.b="TGdAo/MR";
+	arc=none smtp.remote-ip=141.14.17.11
+Received: from mx3.molgen.mpg.de (mx3.molgen.mpg.de [141.14.17.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 898CB606A336
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:39:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 898CB606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=molgen.mpg.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=molgen.mpg.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=XwawPmii
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 58E991570;
-	Fri, 27 Nov 2026 08:39:33 -0800 (PST)
-Received: from [10.57.71.121] (unknown [10.57.71.121])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C42E43F632;
-	Fri, 27 Nov 2026 08:39:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795797576; bh=XhGanY3aQ88emXTEaZk5qtH//VWHLvLWmlIfZRuWgzk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XwawPmiiVgcGo4ddaZzciv06Q6JB/9Lp/Eiogo+D3FaM/zA2ofPdcYbP+1GvM0K5K
-	 POTvta/F84ACVss1o4NNS/k+zjq8dApUR30yJj39bXs/u2SfmUwNdP1pg716b+DXXZ
-	 AuncDOc2l1RekhOkfHV7jeCNKKwyGrvkfASsxkL8=
-Message-ID: <73cf359b-365f-48fb-ae46-b6b3e13e1794@arm.com>
-Date: Fri, 27 Nov 2026 16:39:30 +0000
+	dkim=pass (2048-bit key) header.d=molgen.mpg.de header.i=@molgen.mpg.de header.a=rsa-sha256 header.s=20260906 header.b=TGdAo/MR
+Received: from abreu.molgen.mpg.de (g44.guest.molgen.mpg.de [141.14.220.44])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: pmenzel)
+	by mx.molgen.mpg.de (Postfix) with ESMTPSA id 8F7DA4C442F95C;
+	Fri, 27 Nov 2026 17:38:02 +0100 (CET)
+From: Paul Menzel <pmenzel@molgen.mpg.de>
+To: Jani Nikula <jani.nikula@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Matthew Brost <matthew.brost@intel.com>,
+	=?UTF-8?q?Thomas=20Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>
+Cc: Paul Menzel <pmenzel@molgen.mpg.de>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Antheas Kapenekakis <lkml@antheas.dev>,
+	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+	intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/3] drm/i915/backlight: Honor panel backlight quirk for minimum brightness
+Date: Fri, 27 Nov 2026 17:37:45 +0100
+Message-ID: <20261127163752.54806-2-pmenzel@molgen.mpg.de>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261127163752.54806-1-pmenzel@molgen.mpg.de>
+References: <20261127163752.54806-1-pmenzel@molgen.mpg.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,71 +74,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/8] Enhance TLP packet decoder with field-level
- parsing and versioning
-Content-Language: en-GB
-To: Arnaldo Melo <arnaldo.melo@gmail.com>, linux-perf-users@vger.kernel.org,
- Arnaldo Carvalho de Melo <acme@kernel.org>, Sizhe Liu <liusizhe5@huawei.com>
-Cc: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
- corbet@lwn.net, skhan@linuxfoundation.org, bhelgaas@google.com,
- yangyccccc@gmail.com, jic23@kernel.org, john.g.garry@oracle.com,
- will@kernel.org, james.clark@linaro.org, mike.leach@arm.com,
- leo.yan@linux.dev, peterz@infradead.org, mingo@redhat.com,
- namhyung@kernel.org, mark.rutland@arm.com,
- alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
- adrian.hunter@intel.com, wangyushan12@huawei.com, wuzongyu1@huawei.com,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linuxarm@huawei.com, prime.zeng@hisilicon.com
-References: <20260908140509.2485649-1-liusizhe5@huawei.com>
- <aqB37YCMUYKodo3N@x2> <b1733f2a-ed03-4f38-8c40-6e0e535f1632@arm.com>
- <D6C7F85D-0A2C-4569-98FD-ADB616FA106E@gmail.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <D6C7F85D-0A2C-4569-98FD-ADB616FA106E@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=molgen.mpg.de; s=20260906; 
+	t=1795797483; 
+	h=from:from:subject:date:message-id:mime-version:content-type:content-transfer-encoding; 
+	bh=cpuzMF203iBIm0LK/odzPtCekUJWNzPfkeHY5U9XYwI=; 
+	b=TGdAo/MRmMZPqMlaFX9rZrKB44TvbUaMxMAFEIKFQhk33XF8z8f9TDsrNNEabYo9jVl9zrCDt8rT
+	6MtGRC0sljTxhUgNr1qy9sNOjfOh5l/rMjcTZ9eDdX+mUDTbH6e8vENsilO4+DR4f0aCunNvwsTW2u
+	RSzV17Sa2YOgrcptFNkLuMMAvf5Mhxb/T3Z8l6z3urbxlVlvZFWI0cpNxEaHZspayDRZRN69TR/dpI
+	JZj+VEOSg2Vyf5pehVpa39NxImPj+r143ITdUgDitVzgk4DFgxYC+e956v8cPZq41YaRA4qgMAvcjy
+	SKZXhyhXS44YHZycTsJyaHqXJVTSEcgQ==
 
-On 27/11/2026 16:31, Arnaldo Melo wrote:
-> 
-> 
-> On November 27, 2026 12:12:14 PM GMT-03:00, Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
->> Hi Arnaldo,
->>
->> On 08/09/2026 22:02, Arnaldo Carvalho de Melo wrote:
->>> On Tue, Sep 08, 2026 at 10:05:01PM +0800, Sizhe Liu wrote:
->>>> The original hisi-ptt-decoder only prints raw hex values with generic field
->>>> names for DW0/DW1/DW2/DW3, without classifying TLP types or decoding
->>>> DW0/DW1/DW2/DW3 fields according to the hardware-defined packet format.
->>>>
->>>> This series enhances the HiSilicon PTT (PCIe Trace and Tuning) packet
->>>> decoder in perf tool to provide detailed field-level parsing of TLP headers
->>>> based on message type, and adds a versioning mechanism for backward
->>>> compatibility both in hisi_ptt driver and perf tool.
->>>
->>> Series is sashiko clean by now, has a Reviewed-by, but it touches both
->>> kernel and tools, I wouldn't have a problem if it was processed by
->>> whoever maintains the kernel part.
->>>
->>> - Arnaldo
->>
->> Please could you add your Ack on the series, so that I can pick it via
->> Coresight tree.
-> 
-> Acked-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+The DRM panel backlight quirk table (drm_panel_backlight_quirks.c)
+overrides the minimum PWM brightness per system and panel, but only
+amdgpu consults it. i915 always takes the minimum from the VBT, so a
+firmware minimum that is too high cannot be corrected without patching
+the driver.
 
-Thanks !
+Look up the quirk with the panel’s EDID in get_backlight_min_vbt(), and
+if it sets min_brightness, use it instead of the VBT value. Like the
+VBT field, the quirk value is on the [0..255] scale, stored plus one so
+that 0 means unset; amdgpu reads it the same way. The lookup covers all
+PWM backends, as they all get their minimum from get_backlight_min_vbt().
 
-> 
-> But you could have taken my "I don't have a problem if this gets processed" by somebody else as an Acked-by me, documentation says so.
+Select DRM_PANEL_BACKLIGHT_QUIRKS for i915 and xe, which builds the
+i915 display code as well.
 
-Alright, didn't know that.
+Tested on hardware with GNOME 51 at its lowest brightness
+(sysfs 960/96000):
 
-Cheers
-Suzuki
+- Dell XPS 13 9310, BIOS 3.17.0 (Sharp LQ134N1, SHP 0x14f9): v7.4-rc1 and
+  v7.4-rc4 based kernels; PWM duty 6551 -> 960 (6.8 % -> 1 %).
+- Dell XPS 9315, BIOS 1.26.0 (Sharp LQ134N1, SHP 0x1548): v7.4-rc4 + this
+  series, Debian 7.3.5 config; duty 6551 -> 960.
 
+     [CONNECTOR:676:eDP-1] Applying panel backlight quirk, min brightness 0/255 (VBT 15/255)".
 
+Signed-off-by: Paul Menzel <pmenzel@molgen.mpg.de>
+---
 
-> 
-> - Arnaldo
+Notes:
+    
+    Prepared with Claude Code (claude-opus-5-5).
+
+ drivers/gpu/drm/i915/Kconfig                   |  1 +
+ drivers/gpu/drm/i915/display/intel_backlight.c | 15 +++++++++++++++
+ drivers/gpu/drm/xe/Kconfig                     |  1 +
+ 3 files changed, 17 insertions(+)
+
+diff --git a/drivers/gpu/drm/i915/Kconfig b/drivers/gpu/drm/i915/Kconfig
+index 71426b9c91f00..c2075a4a48b8b 100644
+--- a/drivers/gpu/drm/i915/Kconfig
++++ b/drivers/gpu/drm/i915/Kconfig
+@@ -18,6 +18,7 @@ config DRM_I915
+ 	select DRM_DISPLAY_HELPER
+ 	select DRM_KMS_HELPER
+ 	select DRM_PANEL
++	select DRM_PANEL_BACKLIGHT_QUIRKS
+ 	select DRM_MIPI_DSI
+ 	select FB_IOMEM_HELPERS if DRM_FBDEV_EMULATION
+ 	select RELAY
+diff --git a/drivers/gpu/drm/i915/display/intel_backlight.c b/drivers/gpu/drm/i915/display/intel_backlight.c
+index b128896cb1c2d..b0c0e7f3d6e24 100644
+--- a/drivers/gpu/drm/i915/display/intel_backlight.c
++++ b/drivers/gpu/drm/i915/display/intel_backlight.c
+@@ -10,6 +10,7 @@
+ #include <acpi/video.h>
+ 
+ #include <drm/drm_file.h>
++#include <drm/drm_panel_quirks.h>
+ #include <drm/drm_print.h>
+ #include <drm/intel/pci_config.h>
+ 
+@@ -1207,10 +1208,24 @@ static u32 get_backlight_min_vbt(struct intel_connector *connector)
+ {
+ 	struct intel_display *display = to_intel_display(connector);
+ 	struct intel_panel *panel = &connector->panel;
++	const struct drm_panel_backlight_quirk *quirk;
+ 	int min;
+ 
+ 	drm_WARN_ON(display->drm, panel->backlight.pwm_level_max == 0);
+ 
++	/* Quirk min_brightness is the minimum in [0..255] plus one, 0 = unset. */
++	quirk = drm_get_panel_backlight_quirk(IS_ERR(panel->fixed_edid) ?
++					      NULL : panel->fixed_edid);
++	if (!IS_ERR_OR_NULL(quirk) && quirk->min_brightness) {
++		min = quirk->min_brightness - 1;
++		drm_info(display->drm,
++			 "[CONNECTOR:%d:%s] Applying panel backlight quirk, min brightness %d/255 (VBT %d/255)\n",
++			 connector->base.base.id, connector->base.name,
++			 min, connector->panel.vbt.backlight.min_brightness);
++
++		return scale(min, 0, 255, 0, panel->backlight.pwm_level_max);
++	}
++
+ 	/*
+ 	 * XXX: If the vbt value is 255, it makes min equal to max, which leads
+ 	 * to problems. There are such machines out there. Either our
+diff --git a/drivers/gpu/drm/xe/Kconfig b/drivers/gpu/drm/xe/Kconfig
+index 049d2f25d0e60..dab996c7d205d 100644
+--- a/drivers/gpu/drm/xe/Kconfig
++++ b/drivers/gpu/drm/xe/Kconfig
+@@ -16,6 +16,7 @@ config DRM_XE
+ 	select DRM_KMS_HELPER
+ 	select DRM_KUNIT_TEST_HELPERS if DRM_XE_KUNIT_TEST != n
+ 	select DRM_PANEL
++	select DRM_PANEL_BACKLIGHT_QUIRKS
+ 	select DRM_SUBALLOC_HELPER
+ 	select DRM_DISPLAY_DP_HELPER
+ 	select DRM_DISPLAY_DSC_HELPER
+-- 
+2.54.0
 
