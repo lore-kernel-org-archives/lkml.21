@@ -1,54 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795763873;
-	b=VS1sRJ8eUB3gKvRFSjrMFtWEftl7xlF/MQwTNMEbhhIAcAArUYeP24RYkAFnTT+PGmJi
-	 Jn46BtMqgv97TQDlJBg0AZyem42HBvtcJ70NNeFjwDerSOUtNVKW5+XktUad2edb39b01
-	 gv3BtfgR3/OOFHoIC1zrRiK+a1ia2zuR4KU0PbPHpSy2k2sl5dwjzdAoX1LL2s99GNgso
-	 jbsIaeW4wCbldKe5Xp2b/dUGBzkf6vPuf3fzEdHerp1jqEhrwRHHtAhu54Nix233WyF8g
-	 OkZWYJ65r3hk4THHUv2edEfIt4QOA+bHJKOBpRbHLfkwPGP0lQtkZVfkAyHGJQzCgHg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795763873;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ZohoMailClient;
-	bh=QThccq8aVO4qT5svmvutaMycEXGwprtb+sQAgRodxfE=;
-	b=I0Uj5Gqz5XjJ6Jso63ZDdvvv4bQekFI/NK5l7GrLx7So740kcswqcfOtwtaNFaC5uXZM
-	 fk9EoCArB8plo3K+Ukq/vyEHFMcDIBkQFoZp1rFiQ++ILXwmahXAbRtqYhkf+XV4baR6T
-	 w7COojOVcasXVRSQLNv95zuIhIaUonuJ8ZOo74CCzZ3/ystlYXscT69YyHK+LV4hHf1Qb
-	 NMpTccObPTn5IP+khCYt70wYtyv+mjzIxzu1AlHrElyr3zSQL/jY2AyqISqlFBGMNgcTO
-	 E688bJ38/5wqO6QOn9bsBV8V4RAjQNyqNwEV3XU3aNP1E7T0/678V0LQYFPjXlxY9Mg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=koyXUugt;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
-Received: from sender6-pp-f112.zoho.com (sender6-pp-f112.zoho.com [165.173.180.112])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795763919;
+	b=b/VTfFNVhRIw2Jex4L10XiSSttsQ6rS3pqyQziVy62n0rn/A+s1aOZf1I0RuGuKBt4Df
+	 BFKEdHOmEWPHcmrxRK+uKiAVVYMYr1EGfRBaZ+OZRLiHEDcP5DV4jEtjdcf0kA8dI4N+2
+	 ezJdjVkApYeHuB7dGH5uhC72BvriEDmv5tVMtYK57QNiNUfeU8fesdmLiqiLG9uVVlXCu
+	 ofMm6u9XIlaP0kpjh1thPhwe3pJP8MBGNQ81G4L5k0+HQyE1MVGV5JRVmgVYNe9e6k38B
+	 qbaAaFMzOI4qj/PWGGJOPtL9nTZfTigG1wyd0vQl95+tgF3B11HaqO7A3e8BMhvsYXg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795763919;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=4aq30QWobXQ2txyzbMoYSdHGyuTaadPcHWj998/7oSY=;
+	b=Fqsg+/QjN6Hxo1wvf57tpjZM+B+Q2XnLX3fGWuYS48mDVqRKgwA7QbE1rXHw2fabLTJf
+	 IVgrF0Hw1wk0SjCJeczUcTa9MJUebol/UFQXcXA6Dows3KLi0HjCS4fqNF7wIGWvEfTnu
+	 v1bBMoy9jkXaw731ky2IsCIs1dwQcWUxHC1x2E1O4O45gFOzb2+oy7MJewRhsJXMTpH03
+	 3+uAiG1PNnAYeqmlFrWz21b3n9kq92YXXPlX4L7l8ik4eClHyCzZCbWrZTai5NAqoJGKm
+	 g+o8V2MlgmJbOVmXnJr+j0jrDq0ijUcYq0xxXKCwfbJ5QiqBr2DZMUEY+uaF7VsLCyA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yAcmMtP0;
+	arc=none smtp.remote-ip=74.125.82.43
+Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3264C606A31E;
-	Fri, 27 Nov 2026 07:17:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3264C606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14A93606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:18:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14A93606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=koyXUugt
-ARC-Seal: i=1; a=rsa-sha256; t=1795763841; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=S7piGxenIQRfIfFugIGmND7h2L/Q/ME+HW19qKb/k3vFGqsNkUA2uhFERE11LTdtKlsdTzcldqq+JTOvGUv3tmiZnSf54nhcy1zfGQGWCTt39r6uaGZvlYblmI0KvYSLE7+TTqWkLAT38kvfURzAbwTnjnelzcmX+4jD4VmHIAg=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795763841; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=QThccq8aVO4qT5svmvutaMycEXGwprtb+sQAgRodxfE=; 
-	b=KmyVbxEnXtCtn+yPS2llXrCywoIg105QHwbYM+iFtu+T5zWCqLqxi5Dq577Lw6a8uOFc99OZgzFU58ZdmXncOx11j45sgXOLudxjUE0pDS9Y8mO9L5JPgCOMwtYgW8VCwgPjpwS96qpF17uCl0BcU440mfOafAs4k5h+Tbkvb+s=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
-	dmarc=pass header.from=<michael.riesch@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=koyXUugtIGFaI3oRPdQ/lKnH8TJmMOlJ0tOcQ61edgXXMngNR8tfcnhtJf6uyuNTu0oth5FYuwDiU+gd8LK7ROXtELehd6aFL/WDnnEBP7z5A4W67dwD7fkaRffewTXTiRITRrhCBh1b93JrLYkABfawEZyMRtcyNcsObqjWzrE=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=QThccq8aVO4qT5svmvutaMycEXGwprtb+sQAgRodxfE=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795763839368810.0143316630227;
-	Thu, 26 Nov 2026 23:17:19 -0800 (PST)
-Message-ID: <d83e09c8-cfac-46cd-83bb-d2ad751fa6fe@collabora.com>
-Date: Fri, 27 Nov 2026 08:17:12 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yAcmMtP0
+Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-1b589050416so1756808c88.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 23:18:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795763918; x=1796368718; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4aq30QWobXQ2txyzbMoYSdHGyuTaadPcHWj998/7oSY=;
+        b=yAcmMtP0mYoV3BZXmu4pqDeTMQvjtRv6Dddg/HkjvBB7KwR03pflT+rvM8zoWPSleP
+         7UhWIKkEbYDj94B8mnvL1rl6+lmiEt46+dWAX4eyofPUvPGm8xOTZY9PlnUIyLAQRh+V
+         v8I/8AaJnY0ZPxrxF3nP5XEkaulBn+ctkSku8jX5Tls8hzi9UTVP+ofjSWUhx0ZzbeMm
+         8aS/wEtdX5GEbm3O5aFspkSwdbpncM7hT+5KG1Y7mj/R9ydHbFL7v948Rtpi63ReUvkG
+         AlABBQGtM40+XQ78Tl2VVOirHRGXIvscnujJqaCPjN+VcIcYaizfaIUxgo4pOqEn57ea
+         i5wQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795763918; x=1796368718;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4aq30QWobXQ2txyzbMoYSdHGyuTaadPcHWj998/7oSY=;
+        b=zixBoDY5TPkJD+gkPlejXlyqyQ0x+8b9ZWZ/OpY2feJONO4Ls0PBU8orgVt6KqAOxQ
+         wXcCCMOaO/dTzKHNC+sgLhA4Sbg03vC3h1VS0k5oIPyoBIEw673NrkVafvaL5oHFuKxX
+         /rpmymrgFPuDNx1k+GwQVZv/e+Y7GsFDARuhAzL6WO+0tjY81Un5YZWSx98jALT3a2N/
+         KiBv2Yxm+5c/bWzH5pIYdwlVG7GUIbN2audUG+fzbiy+q8y/Q1c9WlnLABapmL3EZz+Q
+         DWItWFGh2m5g+01yC2pKbAAV/7DUut/jrO0AXGYdfAU7JA4FPo70DoO9yQ5Zh5IY/BoG
+         NGQw==
+X-Forwarded-Encrypted: i=1; AL+hErH8q7Hxqxb9pTnQUFRUCXsCvuNrP3kdkn2jejj0KFJxIlDRyXFK0OgiRkwmOoKRWJ+CFW6kDktRWCVNFJw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+2JIUn2D4bWi7N1FwGmiLgcJRSnVz7Cmf1rD9+jn0YcSBA5kcQ
+	dXBIL9fG8//GKZ9h/HWFGtEFY/ZbFOQPcsKdtr7tzxv7HDitbfK1M72IyE8ohw==
+X-Gm-Gg: AZFdTZdHaBx6wC93Lf6/7kscV6vXRarZ80P++0klbu7uchizVIarrsSvK1zbZZQ2Gdg
+	OFGxb7EMF/cWI/j87lly/qZjyktMFRhsS/K/BnNdrTMBjNXUh1NHkB7mNRLlDw8jgoy6Kcdd1S6
+	yiKr15CSu0L2Vglo2T5wFCHCbujJnLrTw06Lo5bg1iqFbiJTXt1UM9KtoCkTDsgyEnoUdt93ceK
+	4yIhjQHhPLVaKP4RZgujtVHMx+YwJsT740CVMp7V1n37s8KzxRomqaFnaJ+JkhLN0/qSK6Cx/r7
+	TRV0yFjD9+JH671XGj0uTvnxtPETXaXDiS2R2tyqknkTC8je7EJqaA0CxbRecqqbWrF1Bt9xokB
+	fTjp3WohsGLnwC4fT6TWdq71EbhQK0mvMzam0fVsDJa0m119s6Ws6WwPylpTDL/D0hcBK6jetii
+	gRm39wUpdJP9cbRsq+U5C0uoXQUybl4qm4U8qjUDw45hVED/Ns4rBZsz11nYqpCH1NbIU4GlYKH
+	kbfUG5r2sq5/RVrdsfb1Z1MfMS6P0aJYfcLFdSPkymVSEdACOQFYaHMRhfegYz0GWex9ctYqxHh
+	ZTaTeO4+XT2GzIn2rgG4rFYkajC56olPxsd/v26czmrai6A=
+X-Received: by 2002:a05:7022:906:b0:1a4:c892:b14f with SMTP id a92af1059eb24-1b556904c50mr30443195c88.29.1795763918073;
+        Thu, 26 Nov 2026 23:18:38 -0800 (PST)
+Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5568592adsm53260893c88.15.2026.11.26.23.18.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 23:18:37 -0800 (PST)
+From: Cong Nguyen <congnt264@gmail.com>
+To: Lee Jones <lee@kernel.org>,
+	Pavel Machek <pavel@kernel.org>
+Cc: Luca Weiss <luca@lucaweiss.eu>,
+	Markus Elfring <Markus.Elfring@web.de>,
+	linux-leds@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3] leds: sgm3140: Put the child node reference on success
+Date: Fri, 27 Nov 2026 14:18:31 +0700
+Message-Id: <20261127071831.136694-1-congnt264@gmail.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,53 +97,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 0/9] phy: rockchip-samsung-dcphy: Add the MIPI D-PHY
- receiver
-To: =?UTF-8?B?5qWK5pm65oiQ?= <jason98166@gmail.com>,
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Guochun Huang <hero.huang@rock-chips.com>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Quentin Schulz <quentin.schulz@cherry.de>, Sashiko <sashiko-bot@kernel.org>
-References: <20261118-dcphy-rx-v1-v7-0-8de1adac3a74@gmail.com>
- <CAPwA33K7f2EbtH8rqihnxB8RkB1PzJTmDyGJ39ojROuTYwK0Dw@mail.gmail.com>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <CAPwA33K7f2EbtH8rqihnxB8RkB1PzJTmDyGJ39ojROuTYwK0Dw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
 
-Hi Jason,
+sgm3140_probe() gets the LED child node with device_get_next_child_node(),
+which returns it with its reference count raised. The error path puts the
+reference, but a successful probe returns before reaching that code, so the
+reference is never dropped. The v4l2 flash sub-device takes its own
+reference on the node, and the LED class device only stores the pointer,
+so nothing else needs the probe's reference after probe returns.
 
-On 11/27/26 07:24, 楊智成 wrote:
-> Hi all,
-> 
-> Michael, I kept your Reviewed-by from v6 on 6/9, 8/9 and 9/9, as the
-> v7 changes there follow your suggestions. Are you fine with keeping it?
+Remove the early return so that success also goes through the common
+exit that puts the reference. ret is 0 on that path. The goto before the
+label then jumps to the next statement, so drop it.
 
-Oh yes, absolutely. For the whole series:
+Fixes: cef8ec8cbd21 ("leds: add sgm3140 driver")
+Signed-off-by: Cong Nguyen <congnt264@gmail.com>
+---
+Changes in v3:
+- Drop the label rename. v2 did not build on the leds tree, where
+  another goto err exists.
+- Drop the redundant goto before the label.
 
-Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
+Changes in v2:
+- Use the common exit for the success path instead of a second
+  fwnode_handle_put(), as suggested by Markus Elfring.
 
-> For v8 I only plan to drop the Tested-by tags from 1/9 and 2/9.
-> Please let me know if anything else should change before I send it.
+v1: https://lore.kernel.org/r/20261125134013.2692510-1-congnt264@gmail.com
+v2: https://lore.kernel.org/r/20261126122516.1198461-1-congnt264@gmail.com
+---
+ drivers/leds/flash/leds-sgm3140.c | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
 
-Please go ahead with v8!
-
-> 
-> Thanks,
-> Jason
-
-Thanks and best regards,
-Michael
+diff --git a/drivers/leds/flash/leds-sgm3140.c b/drivers/leds/flash/leds-sgm3140.c
+index 107d02c3137f..14568ac21289 100644
+--- a/drivers/leds/flash/leds-sgm3140.c
++++ b/drivers/leds/flash/leds-sgm3140.c
+@@ -268,12 +268,8 @@ static int sgm3140_probe(struct platform_device *pdev)
+ 					   child_node,
+ 					   fled_cdev, NULL,
+ 					   &v4l2_sd_cfg);
+-	if (IS_ERR(priv->v4l2_flash)) {
++	if (IS_ERR(priv->v4l2_flash))
+ 		ret = PTR_ERR(priv->v4l2_flash);
+-		goto err;
+-	}
+-
+-	return ret;
+ 
+ err:
+ 	fwnode_handle_put(child_node);
+-- 
+2.25.1
 
