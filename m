@@ -1,63 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=92.121.34.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795771811;
-	b=fT4mUwLhY0VCuYDrklkkYOjC4PMfzBVH7r1ctrrpTHMm141BCu8+wnJuKwGYsr3FTTyG
-	 uAbavrYpBU4L7pOPVjAjuW+LCmqz/XVf3qnAhi3eIcEiR+SNnCvFN/XQsiUX01NOdRpZN
-	 9OQR/PWTRd8y/SGMDDDw+8AW+yST25A5TgwtpmcfF4yGcucCCnrrarCqRAdKVh43A+Yxy
-	 KISd2D1/yN1uzZZ2PyHSPVeI9C50oU5yANmX1AH36ErifjeBxT0S+/tcAHQkLlkf1TiHr
-	 rkBoGpW2Jn92xT7FdXjuaagKn/4ynBS2uELxo8tFxG7Zqku+Hh6jH/5W3LGpBhNdcLQ==
+	t=1795771825;
+	b=ildxCK780n6t0SncoEQisghUGp+WnpgNnxQrWhaopb0RJLScqMwsinYEmlx0pi9PBHlL
+	 ldDqZwb9yyjVi+sD+I+gn888Op3T0NL1R/NrLBsvrZi3gAWnhEjKMLRIvXtKvU8pYUKun
+	 w40Zd7saNSlwgU5LMiSNnxjkX1cpY4soXCm020sAAtd6MAz+stVQSE3bqLYiQrGCU39CA
+	 WDu13eAu1SXan2uKE5U6YmiHI9DYj4uAt5cmEcZGi6oonvje8PBIuCr1EZaY/Z7PG+07D
+	 dcMlBUOhSUFChzNwRGJJG2EoNqLo3tpc1xoikOg+aqwzZFjcUKPxtoG+yP1pSWkyKpw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795771811;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
-	b=u61xyLkBEKui5b/hZjDVoIFylH0RkHZhOLpPTJn5Blk2wfqsHMqeCm2I/4BXtDon/Hcc
-	 9oBA/Qm74qP5P5WrRh6cyWmWYEnm9DvgOWY7ywqbRA9mwAKoGt6eqcgjWfUjhpu+ckO8+
-	 m50PScVGlpKH9ilbdIro9WD1xQ5QhsYULzYin3F87FUDaHd0+/aJP+1Ei65o+D5wZCwkW
-	 hy8HuUbZ9AQjwAm+fWis0MdJu07Y35nKS9yq4eJegdl2GQ6p+smddpZCHMybdaRS5Pv7K
-	 ZNFdJeYB4zVWwdu/QJbW0TmpFY+QrF9ARSEAbDl+yVBuWrM1sLhGmF0Wi7MwpPebdHw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795771825;
+	h=DMARC-Filter:Received:Received:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Virus-Scanned;
+	bh=W0u25ogk6D4Izs9yDvKWlqrOdKbKUkEUyurW8cDHL2U=;
+	b=Qq3jLRJYEKTsUc2gazyOYgfz5ArYvaRdOKiNuIxcFmVpeopchlRiIHTjb/Oh1Eh3vY5y
+	 ks4tFttkzyFR/cH8STQqmSIDwLRe6bGURmC0MuFCrTljUqpXpD1v45kOt3FXIScNnP/gQ
+	 TkjtmHldSK2huBprQHCLZZ8Qg5F9yyWIDZcIEwzQUIq0z1r3YLHMG0QdaGNXhP5pgsj6E
+	 YeppOwS9A8E7mHx2Nlu8K73DI3YZudlQN2WeGpbeV6vecPglM0r7gEQEv7Ti+/JJP40gA
+	 xClaXA5kPaMocrNimgF9kHn1OoOoGiucJagb0OX7CoOS/fHfPGAqerrEtVAMrmFqicQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=em7+NEQm;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=nxp.com;
+	spf=pass smtp.mailfrom=nxp.com;
+	arc=none smtp.remote-ip=92.121.34.13
+Received: from inva020.nxp.com (inva020.nxp.com [92.121.34.13])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3986C606A326;
-	Fri, 27 Nov 2026 09:30:11 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=em7+NEQm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B1321F00926;
-	Fri, 27 Nov 2026 09:30:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795771810;
-	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=em7+NEQmBXzuUweQeu0bwV0KcXjZrQlnz14TitHjwEu853W2L+9ZPtImfxQr7FCHb
-	 qW+I6vL4MUHCuJx0TU0Omeks69phWbHLVGiNtLIYGbBnWCEIMi//ZHyukPfj5QV/17
-	 lA+nB+Ae40gCWHt4JKFLn5khhepnM/6aGdmZbGooCCVkJBmAZ6fPpNVG9InflXzdJt
-	 L2/imUlmLSxTBV4g7a4QNW5vew/C6LY6glisQ1s7/JqV/AbHjjUy2wgdR1A2pwvt6l
-	 z/6IRy3hRm/6sOIko/AsbEI0PNu4ybiXO7oeSkT4f5+I/7+qQaQRyDSCe4qjV139Uz
-	 kgjjrP5LoX8ug==
-From: netdev-bot+sinfo@kernel.org
-To: Linkui Xiao <xiaolinkui@126.com>
-Cc: Paul Moore <paul@paul-moore.com>, netdev@vger.kernel.org,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, James Morris <jmorris@namei.org>,
- linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
- Linkui Xiao <xiaolinkui@kylinos.cn>
-Subject: 
- Re: [PATCH net] netlabel: fix duplicate IPv4 entries in the staticlist dump
-Date: Fri, 27 Nov 2026 09:30:09 +0000
-Message-ID: <179577180965.3294.12209541123439066397@kernel.org>
-In-Reply-To: <20261127092325.3563681-2-xiaolinkui@126.com>
-References: <20261127092325.3563681-1-xiaolinkui@126.com>
- <20261127092325.3563681-2-xiaolinkui@126.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 220B2606A324;
+	Fri, 27 Nov 2026 09:30:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 220B2606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
+Received: from inva020.nxp.com (localhost [127.0.0.1])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id B22711A0035;
+	Fri, 27 Nov 2026 10:30:23 +0100 (CET)
+Received: from aprdc01srsp001v.ap-rdc01.nxp.com (aprdc01srsp001v.ap-rdc01.nxp.com [165.114.16.16])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 86D791A0037;
+	Fri, 27 Nov 2026 10:30:23 +0100 (CET)
+Received: from lsv031125.swis.in-blr01.nxp.com (lsv031125.swis.in-blr01.nxp.com [10.12.177.172])
+	by aprdc01srsp001v.ap-rdc01.nxp.com (Postfix) with ESMTP id C7A3418000B6;
+	Fri, 27 Nov 2026 17:30:20 +0800 (+08)
+From: Shiv Prakash Gupta <shivprakash.gupta@nxp.com>
+To: andi.shyti@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	peda@lysator.liu.se,
+	linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: vikash.bansal@nxp.com,
+	priyanka.jain@nxp.com,
+	Shiv Prakash Gupta <shivprakash.gupta@nxp.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v3 1/2] dt-bindings: i2c: Add NXP PCA9641 I2C bus master arbiter
+Date: Fri, 27 Nov 2026 15:00:12 +0530
+Message-Id: <20261127093013.2857245-2-shivprakash.gupta@nxp.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261127093013.2857245-1-shivprakash.gupta@nxp.com>
+References: <20261127093013.2857245-1-shivprakash.gupta@nxp.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,22 +66,139 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: ClamAV using ClamSMTP
 
-Hi!
+Add device tree binding schema for the NXP PCA9641 2-to-1 I2C bus
+master arbiter.
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+The PCA9641 arbitrates between two upstream I2C masters competing for a
+single downstream slave bus using a lock/grant ownership model. The
+binding supports an optional 'interrupts' property for interrupt-assisted
+arbitration.
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+Signed-off-by: Shiv Prakash Gupta <shivprakash.gupta@nxp.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ .../devicetree/bindings/i2c/nxp,pca9641.yaml  | 109 ++++++++++++++++++
+ 1 file changed, 109 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/i2c/nxp,pca9641.yaml
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
-
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
+diff --git a/Documentation/devicetree/bindings/i2c/nxp,pca9641.yaml b/Documentation/devicetree/bindings/i2c/nxp,pca9641.yaml
+new file mode 100644
+index 000000000000..649a3f6d1776
+--- /dev/null
++++ b/Documentation/devicetree/bindings/i2c/nxp,pca9641.yaml
+@@ -0,0 +1,109 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/i2c/nxp,pca9641.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: NXP PCA9641 2-to-1 I2C bus master arbiter
++
++maintainers:
++  - Shiv Prakash Gupta <shivprakash.gupta@nxp.com>
++
++description: |
++  The PCA9641 is a 2-to-1 I2C bus master arbiter that manages two upstream
++  I2C masters competing for a single downstream slave bus. It uses a
++  lock/grant ownership model: a master requests the downstream bus by setting
++  LOCK_REQ, waits for the arbiter to assert LOCK_GRANT, then explicitly
++  connects to the bus via BUS_CONNECT before issuing transactions.
++
++  Key features compared to the PCA9541:
++    - Lock/grant ownership model (LOCK_REQ + LOCK_GRANT bits in CONTR register)
++    - BUS_CONNECT bit must be set explicitly after receiving LOCK_GRANT
++    - Reserve Time register (RT): guarantees bus ownership for 1-255 ms
++    - INT0 and INT1 interrupt outputs (one per upstream master) and INT_IN
++      interrupt input that propagates downstream slave interrupts upstream
++    - 16-bit shared mailbox (MB_LO + MB_HI) for inter-master communication
++    - ID register (read-only, value 0x38) to distinguish from PCA9541
++    - Four address pins (AD0-AD3) allowing up to 112 unique I2C addresses
++
++properties:
++  compatible:
++    const: nxp,pca9641
++
++  reg:
++    maxItems: 1
++    description:
++      7-bit I2C slave address of the PCA9641 on the upstream bus. The address
++      is set by hardware pins AD0-AD3 at power-on or hardware reset.
++
++  interrupts:
++    maxItems: 1
++    description:
++      Optional interrupt from the INT0 or INT1 output pin. When provided the
++      driver uses interrupt-assisted arbitration (waits on LOCK_GRANT interrupt)
++      instead of polling the CONTR register. Either INT0 or INT1 can be
++      connected depending on which upstream master port is used.
++
++  i2c-arb:
++    type: object
++    $ref: /schemas/i2c/i2c-controller.yaml
++    unevaluatedProperties: false
++    description:
++      I2C bus node representing the downstream slave bus controlled by the
++      PCA9641. Downstream slave devices are declared as child nodes here.
++
++required:
++  - compatible
++  - reg
++  - i2c-arb
++
++additionalProperties: false
++
++examples:
++  - |
++    /* Minimal example: polling mode (no interrupt wiring) */
++    i2c {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        i2c-arbiter@74 {
++            compatible = "nxp,pca9641";
++            reg = <0x74>;
++
++            i2c-arb {
++                #address-cells = <1>;
++                #size-cells = <0>;
++
++                eeprom@50 {
++                    compatible = "atmel,24c32";
++                    reg = <0x50>;
++                };
++            };
++        };
++    };
++
++  - |
++    /* Interrupt mode: INT0 wired to SoC GPIO */
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    i2c {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        i2c-arbiter@70 {
++            compatible = "nxp,pca9641";
++            reg = <0x70>;
++            interrupt-parent = <&gpio1>;
++            interrupts = <5 IRQ_TYPE_EDGE_FALLING>;
++
++            i2c-arb {
++                #address-cells = <1>;
++                #size-cells = <0>;
++
++                temperature-sensor@48 {
++                    compatible = "national,lm75";
++                    reg = <0x48>;
++                };
++            };
++        };
++    };
 -- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+2.34.1
+
