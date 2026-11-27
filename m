@@ -1,99 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.35
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795772044;
-	b=odzGmcwIRoUhRxssq9HmSp/DcHWK2+9Ip9zVmV4Ik/GbeV+nuq2mwcF7s3ZIuLL/sVIg
-	 VJ3T53IYJP7ST6GnSJ8Ycelj1yyMjg7TVgEu1U7hPoG06a5HULQ/hE86I8K3ReMNfKyTz
-	 7YB57ynTf4PNTmOFy8idJOng5EsAPggT9XTrddEMAWK63nL4ImpfPaoIV8aHOrvoCOItF
-	 znCTPWIdxaq2t8cTACXx9QUoH9Ps4yoqyqHt4/OMOBwOnfMaG7tJcoTk2SCewbthzSmdR
-	 IniIbKpVN4Sdny3Ebd6eZ5TsjsiR6/Vlb9OolkOJRr9V+olNk87bVYmPpPi6p+zn31Q==
+	t=1795772061;
+	b=WM9dQHFltsgrr5tgUzu5ZsBe5OYvbWj2wIj1jCgYogrZEccFUrXi/4aHHA4kL6cT0h53
+	 uF5MXn/dkt+xkc+VlYRQuMnks29iU7VKj2QjAu9M8dxLvGoG8N8ZV9wqE2WSPVU8ohdNv
+	 WW8d7223Bl63eUmR/jAmRBvC3lHA2zP9Ws0vfD4zhwWJhTuN+fTycPOZWjrDflJigVBH9
+	 xevssT9p7Yz6IXw6IqBYCFs8jHFk46yq1Ut7UmKR9JImQWzB5amZI8ZZeDI5xPQFvomsN
+	 6JfD9ryKR4zXL0m5z0bIiZHfYhQvL5Qkg8xcZXIxc3AnTOe1wNmOWovJvllsl5WbMXw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795772044;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:In-Reply-To:References:Date:Message-ID:
-	 MIME-Version:Content-Type;
-	bh=Jn5vbA2HA26YYZAVHurR2qnRXvY7PEKSS/j0oDB/fbA=;
-	b=gLP1PZns3lUFUcZrm5aZiuiuEfbZ0gZmgAxsqMhqYKrv7CTczBoBeTvpeEVNCCHFWmrT
-	 sZrUQoas5Vv/xQt2QadgRbvjxhbmdpcwRkOI+iOPfgtOMTAZE06omOeJZ/2RxVGW909/U
-	 uO4w3fyYF8wE3ABa1JT4uMuUnINszdgN9CJkP6I6fv7YNn50yc0sB35BsnU1irxCDttwJ
-	 7Gp98x5R+RQ+qBYdSier7j7m+3f/shO+u5Tzl3WbIKIzwtzi6Oq9eNGR51CiAjsveE/kS
-	 mUczsDPLVBr6RVnGuwNplDRVFfCq8OpoMeu5IUIisT6RS78Uf3iE4PD7pDaPDS8pe0w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795772061;
+	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:
+	 X-Source:X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
+	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
+	bh=ZCkXVoC3SMGDxaQVGjQt1ZsXPslPf2vI/gx469RFFa8=;
+	b=4iVxwz5/jwafFDFtwnR/EICznBaC9SqlPE7nxuW961//BgMOdszwejHmd83DS6If/zNk
+	 lVF95/VPc9B9JrQtUsDYnoYByjC60pd5KOCw5ni7ddm7PqoGEBn71HMAZcPE346PPs1HM
+	 K3owxpzfROLNgLjTfYEETaa3QkWYKJ4nlSDCZgu6WroEyDZFRcOI4QK8QyC4pgot0ndZH
+	 jC2aIKNctvLG4NDYBXWv9oNr8svUXa+JffzepHMMwh+vkLYQAj02QIylqb9+moTGx7wEp
+	 cBiGcgxtDXJya7OBO6sdqjzvjcepmD39WxoccU9JkWPm1ZQT//wu1RNiG07iUS1TMjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b="nV0+w/3z";
-	arc=none smtp.remote-ip=209.85.208.49
-Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com [209.85.208.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=w6rz.net;
+	spf=pass smtp.mailfrom=w6rz.net;
+	dkim=pass header.d=w6rz.net header.i=@w6rz.net header.a=rsa-sha256 header.s=default header.b=oMsIuB7H;
+	arc=none smtp.remote-ip=35.89.44.35
+Received: from omta36.uswest2.a.cloudfilter.net (omta36.uswest2.a.cloudfilter.net [35.89.44.35])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74B28606A321
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:34:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74B28606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43FBF606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:34:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43FBF606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=w6rz.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=w6rz.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=nV0+w/3z
-Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6b167ffd132so12232047a12.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:34:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795772042; x=1796376842; darn=vger.kernel.org;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Jn5vbA2HA26YYZAVHurR2qnRXvY7PEKSS/j0oDB/fbA=;
-        b=nV0+w/3ztlgeQuzORjR2dnh44aZed2JE8zRP22/HHWUbwHP+zSm1yZyM8VjGmh0pNQ
-         kjgnWkZOEo4Be5y42ZWPGrgkicDWr7bVoeAwh2GR49W1kMDsigxuermYl6vAzk3cRpuW
-         vhyvhMMGyLGeokT2gf9bj0QB8oOhXduFm6FeAYvxU2JHEmGleoKRr8frBc4L/CiOqYMX
-         BOKdGePRDWlR6j7RUiCLChrlNjzmO38Bi4G6uBzJ6KTcKSTw3ZytjyCoaCNQBu1tEz/7
-         YTWaquLX7Lx4SbfCUasGbgcOwmegnpDSBOOEFvfYiXdL7flbNy+npJeL8c/rzjRsUbjO
-         LZuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795772042; x=1796376842;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Jn5vbA2HA26YYZAVHurR2qnRXvY7PEKSS/j0oDB/fbA=;
-        b=Bs8XqNvO6nflNX4wMMGDliWrgapbUr4VR1atSD22FVDrgKXKuU4/61f6oyXf20R+ky
-         ajQzHiCVe2ttDDnNgfHbqkVjv8aNGHcrqX/0SQmcba3smmO8ZIRooottPUtjPxO1kIaP
-         581mTZEgH3gp6ZZr3oQO3iTutsTpg2P0nPbSXjaXAdZYPGw4VBkK05bvC2lNpkc5a20Y
-         U1QXQia15yBaKmoXevNnA/W9lnqw38p3F5SBKY7XBXgDFvnR2/Ej2r6uVZ+w7+/immRe
-         L1V3GhcD6yFmUHw8hyQHJO02VAIFbR/vFLefeoMf+m37zpturgCB0an0UE5k2MhTXUFk
-         vfRQ==
-X-Forwarded-Encrypted: i=1; AL+hErHpN8VYfUCRnY61+g9EtyspRUkG5vqIIf8hEFO6J3Fsg/E0h3ssVz3/1nMN7CnofF8wkADFOl+dzcZbDww=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8j7xfYKf3/LhYZNxgf1716vXus0dHEM8cfe3fR/XYEh+tnnfbW
-	nwD5AsvTWn4F17Jh4f4zgtLY3PUoBN8so6/QxWreMnD4DfX9VM3nWjbE8fk58GOQuDU=
-X-Gm-Gg: AZFdTZc9z/EJNsyOqCIwkp2nvr8164YKm7istGsYcgtW4K0ZsECC5gvriDFSCUNs7Ul
-	ZGa1XUaxj6nskwenbOQLOWYToLhNv2BQDjgEr8PSPbisdLWlHPwIhFCRs1cMuUBSW42uArZGNMU
-	vRD4w+q/iWTeb6IuOWUwjraqPvBklC3gqb71C/QjapAnUKNJipnXmgIFxohwex9av5C2owHBam0
-	s6mocqxHKQv0tfJ15MARBDzallW6v+aUHXpCFWlhvg889g8p7RsV+awHBHsoW/7vZPlnBxi7Dcj
-	KU6F2a9vvx8HQKqcFLxDo3hOpg5HOtA+7zITuyHEcksmV/YU77uex3L3gK6cne69bCV+yCS05i/
-	umf1mJXxC8ukMhZk1grqZqOLDjMd34wtrlrkXNy8t21Z3OW82MDn4KwjN9DsQJxIR5y1eUKv0YG
-	343OJmf0DLvvFqUZMIk+LUe1Rsb4fxgib3Y+8iwfI+sHAoF8z4in/jFJrt4CgBbUs4h8hJZle/p
-	f0nkMObr8zcAna6Fk/gs5OJLcS3YpzroaDJN8/l3dITaFDjhHIy1BekhrNEJ0MlqW1CMW1oKppC
-	9wginVdUlzeDp3LI/X7oeyfmxjGMQJsF09xdKlj4oV75nE54VaBIOKe3LhWlaqp21kNL3Q==
-X-Received: by 2002:a05:6402:2403:b0:6bb:aaf:5d94 with SMTP id 4fb4d7f45d1cf-6bb0aaf5f7emr8353882a12.25.1795772041771;
-        Fri, 27 Nov 2026 01:34:01 -0800 (PST)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fc020sm10607522a12.25.2026.11.27.01.34.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 01:34:01 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Jiebing Chen via B4 Relay <devnull+jiebing.chen.amlogic.com@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>, Michael Turquette
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Kevin Hilman
- <khilman@baylibre.com>, Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>
-Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, Jiebing Chen <jiebing.chen@amlogic.com>
-Subject: Re: [PATCH 0/2] Add Amlogic S4 audio clock controller support.
-In-Reply-To: <20261127-clock_audio-v1-0-cf3ccf6b2bf0@amlogic.com>
-References: <20261127-clock_audio-v1-0-cf3ccf6b2bf0@amlogic.com>
-Date: Fri, 27 Nov 2026 10:33:59 +0100
-Message-ID: <1jmrquwrco.fsf@starbuckisacylon.baylibre.com>
+	dkim=pass (2048-bit key, unprotected) header.d=w6rz.net header.i=@w6rz.net header.a=rsa-sha256 header.s=default header.b=oMsIuB7H
+Received: from eig-obgw-6001b.ext.cloudfilter.net ([10.0.30.143])
+	by cmsmtp with ESMTPS
+	id WmQkxCYn8RiNxWsLOxwc5z; Fri, 27 Nov 2026 09:34:14 +0000
+Received: from box5620.bluehost.com ([162.241.219.59])
+	by cmsmtp with ESMTPS
+	id WsLNxBYnNdRrRWsLNxYHwS; Fri, 27 Nov 2026 09:34:14 +0000
+X-Authority-Analysis: v=2.4 cv=LOhmQIW9 c=1 sm=1 tr=0 ts=6b094e96
+ a=30941lsx5skRcbJ0JMGu9A==:117 a=30941lsx5skRcbJ0JMGu9A==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=7vwVE5O1G3EA:10 a=VwQbUJbxAAAA:8
+ a=HaFmDPmJAAAA:8 a=vOf806ianDT3JLFn31AA:9 a=QEXdDO2ut3YA:10
+ a=nmWuMzfKamIsx3l42hEX:22 a=L5EjiQpGQaFGZdqT14z7:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=w6rz.net;
+	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ZCkXVoC3SMGDxaQVGjQt1ZsXPslPf2vI/gx469RFFa8=; b=oMsIuB7H8gMlqOssW3wHuzDY/C
+	CfAuJoUzgmm3kX6zmrueGcrsXyoV7kP+FZpmsAIsI7u0MEnrjgbBZ+SW4QZDY28aLU6haHYbz2CEQ
+	a41h6hiUu0iMPBY61q2dy3tJCWsIkQS/VrRDflp88y9D7jr0eZt6ybdQROsJVt56dPsUeWNKxc7wV
+	xZf/O/6liYNPksEpt7Bhtt4uC8+kxSPmsvCm22WAiZA0dqeLC44fT5Ia1EP7nQPZL8zjjkeoPzTvL
+	4QjuvsusxqCgWs1FV4Kn4ALVo91JX5FyXpkNDmvDhdZfxFeq/YStSfzEFPSZq1Xnbk80qLEMcY9Tw
+	FXa618oA==;
+Received: from c-73-162-206-103.hsd1.ca.comcast.net ([73.162.206.103]:53926 helo=[10.0.1.180])
+	by box5620.bluehost.com with esmtpsa  (TLS1.3) tls TLS_AES_128_GCM_SHA256
+	(Exim 4.100.1)
+	(envelope-from <re@w6rz.net>)
+	id 1xWsLN-000000009X7-03JE;
+	Fri, 27 Nov 2026 02:34:13 -0700
+Message-ID: <7f9018c9-2422-4a2e-b437-44cd587a153f@w6rz.net>
+Date: Fri, 27 Nov 2026 01:34:11 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,49 +76,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 7.3 0000/1002] 7.3.7-rc2 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+ torvalds@linux-foundation.org, akpm@linux-foundation.org,
+ linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
+ lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
+ f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
+ conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
+ achill@achill.org, sr@sladewatkins.com
+References: <20261126105729.110697432@linuxfoundation.org>
+Content-Language: en-US
+From: Ron Economos <re@w6rz.net>
+In-Reply-To: <20261126105729.110697432@linuxfoundation.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - box5620.bluehost.com
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - w6rz.net
+X-BWhitelist: no
+X-Source-IP: 73.162.206.103
+X-Source-L: No
+X-Exim-ID: 1xWsLN-000000009X7-03JE
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: c-73-162-206-103.hsd1.ca.comcast.net ([10.0.1.180]) [73.162.206.103]:53926
+X-Source-Auth: re@w6rz.net
+X-Email-Count: 17
+X-Org: HG=bhshared;ORG=bluehost;
+X-Source-Cap: d3NpeHJ6bmU7d3NpeHJ6bmU7Ym94NTYyMC5ibHVlaG9zdC5jb20=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfEBZEJ/arMlmqR94PFuSPdOEPJqD8BPdKStz4+0qOpAvgEZHUaK+Uo7X1ZRYxPxDxW6eImwZDZv8m4bcFVSmdqXtm6Jy6VJF+nqNb0/hvjYYtiL47MqC
+ sOWwhJh8ELRTELRTEprCF8hrfIdSpqiz/hTYmrtP8xytpI2ZWFnCSC13gN8txNJ1huNLRn5lh731iAYyYHqJ4ECuc8L+k5yrfg0=
 
-On ven. 27 nov. 2026 at 17:11, Jiebing Chen via B4 Relay <devnull+jiebing.chen.amlogic.com@kernel.org> wrote:
+On 11/26/26 02:58, Greg Kroah-Hartman wrote:
+> This is the start of the stable review cycle for the 7.3.7 release.
+> There are 1002 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
+>
+> Responses should be made by Sat, 28 Nov 2026 10:55:59 +0000.
+> Anything received after that time might be too late.
+>
+> The whole patch series can be found in one patch at:
+> 	https://www.kernel.org/pub/linux/kernel/v7.x/stable-review/patch-7.3.7-rc2.gz
+> or in the git tree and branch at:
+> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-7.3.y
+> and the diffstat can be found below.
+>
+> thanks,
+>
+> greg k-h
 
-> S4 uses the existing AXG audio clock driver and reuses the SM1 and
-> G12A clock hardware. Pad clock and data selection is done by pinmux,
-> so those pad clocks are not registered. The controller has an internal
-> reset line, like G12A and SM1, and an audio power domain that must be
-> enabled before use. The new compatible is amlogic,s4-audio-clkc;
-> power-domains is required for S4 and forbidden for the other
-> compatibles.
->
-> Signed-off-by: Jiebing Chen <jiebing.chen@amlogic.com>
-> ---
-> Jiebing Chen (2):
->       clk: meson: axg_audio: add S4 support
->       ASoC:dt-bindings:clock: Add audio power domain for S4 soc
+Built and booted successfully on RISC-V RV64 (HiFive Unmatched).
 
-This title is messed up - Remove ASoC and proper spacing please.
-Also you did not collect the trailer given on the v8 by Krzysztof.
+Tested-by: Ron Economos <re@w6rz.net>
 
-Next time you send something like this, keep the series numbering
-please. This could either be a v8 RESEND or v9. Like this, it looks
-brand new, which it isn't.
-
->
->  .../bindings/clock/amlogic,axg-audio-clkc.yaml     |  17 +++
->  drivers/clk/meson/axg-audio.c                      | 165 +++++++++++++++++++++
->  2 files changed, 182 insertions(+)
-> ---
-> base-commit: a0c666c25aeefd16f4b088c6549a6fb6b65a8a1d
-> change-id: 20261127-clock_audio-76eed7ee7ca2
->
-> Best regards,
-> --  
-> Jiebing Chen <jiebing.chen@amlogic.com>
->
->
->
-> _______________________________________________
-> linux-amlogic mailing list
-> linux-amlogic@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-amlogic
-
--- 
-Jerome
