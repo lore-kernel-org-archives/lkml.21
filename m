@@ -1,81 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.178
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795790609;
-	b=WSF0KLjHKMHOMn6iPhD9l1Oio2VBk4q3LSJs1f20zesQSuZnDtSl8bIxwBzaw+vhdecg
-	 urMHsJNz0UTLLoQxyds7ucgajhsaNQKcU+5uP5/aBPlKuwDTGtxdJfkKJy9XUDara2HbT
-	 KMrwWhF5JV6YWYTlBYWJx7jWeBhxI66JLvVmrjUGjhc/NiHnYpDp9qTtFKprqlLB8AdPR
-	 gfZo94EKzxCL7LY0mV5zZlfaEyNB77ovaH/yn+zgfa64Y+lW2dDt05sj15sl+BO8MH0bk
-	 ejaauIrnlGoVz3HhBdk/nWKXZkkE/YdAabuw3gnnhNSIqExdii2vEzjMzsOTeu3fVig==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795790609;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=UakudTfMFD0Grv+nF2HayxQINkZzLgeIdbc8TIqvNyU=;
-	b=HAURsYf67ZnGxQgd0Ax7FnKVbuGoOgLMk3uEMT5AfYAqVWAvuGsKxcrmdeWXaQYM/WkW
-	 qqwJo3MMY8iw/DVtZ7Q7VUZU9NKQ8nQ0+yTRy8jd8n8AN9vFP8diD6/bEwB64Zxint2ye
-	 gDbyoncGonhXpQt3Fj15h8xXCiU/Wa6l0CcGAt52lSQQJwZKLPvOFshxgwN8Dw3FOKx+6
-	 XGbAZQ4HgxWDgAEPAhTZ6AbxSQZKgpxYepiLw7IaAbdO7xdGqGUTJPjurJnFcGVZcnYbz
-	 Nv44xgI6zBBTezkqQmE2g+8gK+T1Y1mY92rTi3vTAPuaJUfH1Ij8ZULcLzJifUNh7UA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kylinos.cn;
-	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=209.85.214.178
-Received: from mail-pl1-f178.google.com (mail-pl1-f178.google.com [209.85.214.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795790620;
+	b=GaNvFPMwmgoZfvSj6if5b9hhd6wwsf2OHdBX1EN8DaOC39cj/6QzoVOh+OeRMYG8Qp2h
+	 xzjiapjerqpliPnztcGhnHeZbCPzDhtTNloZn7kHX3qHYC0gSXYdzMUpRsc5i44MxmmSt
+	 PvenrgHoGK0rYSmn+wU0wZBN0D0rh3xyZKL3YM99xo/dGC8ojpretvo3qGK4DrKcI8m8U
+	 U0t9QPHmlJZaRMJX4URqTfd8t7NIofOlpeJhBbysYFNUBuNXRWUFeGLMNL/C3KjpNrpnd
+	 fVlJpAipZ4aprPFeJ2lcaOYNRdPayVO9CJ0beqRrzpkkk9ozYSxQDnqElUb9kLgIvaw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795790620;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
+	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
+	 Cc:Content-Type:Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=RRK9YDLFBZXwKuXQtKu/5tdjSq98zFs+D+5971VO7Ts=;
+	b=1Ib035YhpXR7NuKgjXYAaK2iyzDHD1OnE7CHzo+nXVNXno7Cybv3g8n0lPwCa/WI98g9
+	 MXQaBDAJ2tz9RLvhbrTigUVOWiNq8rpte9OCrmMcqPt/fMgeEFBYdEg7UVDYlIIUaKCDw
+	 53rb4DQTM+yruaosa5Nr+LgQhcS1qUvdmhHzh6G1Rvw99bRAd5mmB1M2WZBIF1P3DjoZp
+	 g2r1ME7IF3bDH2bjM0S/Vki2Cwvr0nyiBV+Rz94Tq5uJ48UvBW6chAbrBBWSDg8q2tzhn
+	 beXmWMPDFLB2ixMDyJV/o0LjAm5WiG0d7Q+ViU++9rxChG0QBkl7mlJWWrjyMs/2jHQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hqqAxN0G;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Ive80ljp;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AA57606A31F
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:43:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9AA57606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2f04fab527eso62052635ad.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:43:27 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795790607; x=1796395407;
-        h=mime-version:content-transfer-encoding:content-type:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C100606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:43:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C100606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hqqAxN0G;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Ive80ljp
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE1S2T2376489
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:43:39 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	RRK9YDLFBZXwKuXQtKu/5tdjSq98zFs+D+5971VO7Ts=; b=hqqAxN0GNzYrANOV
+	N2LnDp+WhRYAw5kO2qoaodHMWpgO1mRSPdHr6G4WTJr5xKodB9R6r09G2H4x/iqE
+	PnyZsab4IDxYmr0fxMvAGWKx9GqI5zzxccRRLd0p4C6/Soqs8dBhPFfgRXvUMc7Z
+	4V3Ck2+Z7aLypxXvpTLf2sDY5GKFou7RenLThyN+AFu2KnWq8lMuilTB9U06dXHf
+	VXyhsr/dwmTe7fzQGf7UvGCxTFwUEWo+mixbwtNFIxcRbedlpKm+6A6B0G/FkSsX
+	X+7ANsCnk0zfTQgnlSwTHDSmiBCXJoNdeNdulwyyXatOHD8AroEeHbqvjdzlkMfW
+	ooGJpQ==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6u4hughe-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:43:39 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b0a7cbf164so6653230a91.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:43:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795790619; cv=none;
+        d=google.com; s=arc-20260327;
+        b=LxZeaYI/CXwD7TeS4SOUO60lXr9x3Xz7+7J70XHDyJz9W6cYYY2Uh3UlB7yflYaIWK
+         n2U1zSBrEUeloRXyZcIMWr74Z7DPivMHZQQnb27FJqRm703mCixayyA+lYBedaQGZNSi
+         MQyaOO5OSfA0q4dxISD4K6o1uIpBS7IEhoMtzQmBkxDtH5HlhQliOM6AmARRW1ImHG/R
+         IXE+7+do4v0Ns7QNR9/6l0XOmKsaTSTFCU38rlUH8gqZ+9w2aIvJ7I9ld0dWOOX3STBm
+         XFHyld1/PjLi8HbOVfBtOQX6AcfuTxj2La2gO00MW6rlyxH9/foOMxUztlxEDhOT/wz/
+         ms7A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=RRK9YDLFBZXwKuXQtKu/5tdjSq98zFs+D+5971VO7Ts=;
+        fh=03SaCIBPbrA/uFJB+lHHjpf8yAqbm7h5RS7NFw3nMGc=;
+        b=RcD2g1Xvr+qFxsRbozM+1I6VoLBojr521174XGBU6SJCMrMq5DeYeu8e7Sd4XU6xkW
+         VXdojl2LcqPLm4Y5cH+c4CGvjTl1LQc3R+iJlbsiTsK2/4LXmTLltk29CY42DQrndRRq
+         Rim2/UZFWhyRhi8wxGK3YlcvKtEsVKfy6Et1pt/rYWnTFboc7Zt5NtoyMxk2uj2lfoee
+         n8PqqHQlfPi6+mEz2CstsfC3UwiVrqkeBlNeCEpPmsU8SMXk4Q/NiWW84g/xS8z2NaJq
+         8rA7Nva8kWTvItg9wMfNQyGA5S83nBtev/Zac3x6dr3evO28QeB1jnj5Tk3qYVHC6vwu
+         5KLA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795790619; x=1796395419; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=UakudTfMFD0Grv+nF2HayxQINkZzLgeIdbc8TIqvNyU=;
-        b=1LDNaeQbVLUB7eJ6JXk15AmM2E1L0gQKnedBDczAxWfXXi4P9C3Q3d6ZRtHWyiahMl
-         4B0X+7nGSNvqkeWqwXcWYI0bfEu+QgF19Vnj1ljc0O55kclYwr9CGMZJdzMQ2gFMbf47
-         IbhDiakHqjOw5wSxqDVON8tdEYyt5GBto5h4OCIYceBld6HA1TRNaBbCjBnCMHULqr8u
-         TxRLuoOc9QUamfzvDKGYB9t+DmphHQEe/1p/S1N8yodLQG4uXx4xSJLWTYM0gWbNN4JG
-         uz5/Oq/Y836ifrQqviVawLbILhPp8zNF5Wu3QMJtkVyuC1KkBxhazzh9F5UPjKK/+Yfa
-         LfqQ==
-X-Forwarded-Encrypted: i=1; AL+hErHoG1UoSH2/ta0uMyNlZAWPddLrxtonDDmT10H+q7DghYTd+It0ApN9J1Bzj3SGqUTZNNeJVotrY8XyBLU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+dcxYYgZY9hUMeW2mlnyL0Dje3tpgm+dqcKmafIdsp9C2gE7ZG
-	OQTQh9RFnWooMG0HHwVg2alWS+JzO53EHcX1HovI16LaZwKxw7S9tZpw
-X-Gm-Gg: AZFdTZd7rnFbBKKfvSHb/MkfG22ak0ulITn5dV46EHDzOKXFXu4AZzIma2OAhxMWS3J
-	RALmfYEmul64eA8Z4cIcxAo4KCpUDQ+NwtVrQfgJmO8LOS7+RrJYyG8N0W21pG7kPCxBkvCCaxZ
-	zJuOqsTQOx3oOGmZ1Dl40juwm3zawkyrOJxrN02CwLcqi6vUoDYKp9ix9jlDX1RL6NFbCdTFIAq
-	0JzuUTq31nEsGpwWqMDQdXfw5VnXJz1kQSgY7dRyRNvwGoPKqWlH0cPu7H6G24LAhnSx3oSwr7N
-	lXhzfvUrkkO1dhUpgZ42rxWuHkrBCpDPkw5tR5cU++MJC53QYSo0zoy4JR139R2PgmOZ6gIc2r/
-	Gm3NYkwJX/kBjbNmBQWu9BEoTF+nnMSZVZqWRte9lR0354mCYzuZgpBz/LRzYkrVhzdrzx9rdU8
-	OtXY2zbU6KeAkH9TOxo6LjgwHphmfrLULVKP3koGODtJRtTTFqKpol5mRSY6cTPbTpCv2D5cJbM
-	zEYkQvKS9CwkgBBVWZjheUWIAUu2i7f6BVH9JuP9BYLBqenToSeP04fs5lUivqLhSKeEc83Q8+V
-	gUTqYwft3VHOuI5910wdtYyy34h3XV4ZhbBJXbfC0Bb1clD1Qo3YWPlBtCTC1lQw81cFctf0nKE
-	wbBcQnFy93yDr7UUy+T6DgiTQt4dvYa1WeUV2gcC2LQVBew==
-X-Received: by 2002:a17:902:e802:b0:2ef:dbee:373e with SMTP id d9443c01a7336-2f03efb10a4mr297498585ad.6.1795790606590;
-        Fri, 27 Nov 2026 06:43:26 -0800 (PST)
-Received: from 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa ([216.236.36.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84294sm120659185ad.9.2026.11.27.06.43.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 06:43:26 -0800 (PST)
-From: Hongyu Xie <xiehongyu1@kylinos.cn>
-To: Shuah Khan <skhan@linuxfoundation.org>, shuah@kernel.org,
- valentina.manea.m@gmail.com, gregkh@linuxfoundation.org
-Cc: i@zenithal.me, bgmerrell@novell.com, linux-usb@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- syzbot+b6f11035e572f08bc20f@syzkaller.appspotmail.com,
- syzbot+a7edecbf389d11a369d4@syzkaller.appspotmail.com,
- syzbot+bfa320b67fcbe2583c6f@syzkaller.appspotmail.com
-Subject: [PATCH v3] usbip: vhci_hcd: time out unanswered unlink requests
-Date: Fri, 27 Nov 2026 22:43:22 +0800
-Message-ID: <179579060266.47199.14552707473292683159@kylinos.cn>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+        bh=RRK9YDLFBZXwKuXQtKu/5tdjSq98zFs+D+5971VO7Ts=;
+        b=Ive80ljphiblUd6oBrSDkkQ4Ujj+O7m1A6KYZfCqm8isuPE1D2SomIvANEOHE+vK+d
+         mhuWn6OT6I3yKbjAGNsoEL3sxBcgZB/guqEV3EvRjmXGcNPDHNOlBSoQ2S3YGdrLMW9B
+         6S70TD8PGZMz9hclf1njOAvGt1xl315sSiDAOAXG4bu9wOSNTfrll/quSk/ZPIpr97XD
+         oMojht29XHNS91l+byTSsGC//gQsWJaB2brp3HkQLzPr6pVVsHkr08ecbhYXZ6NoZJQ7
+         jmL2PnZL5iiiSjX/o4wqgfuYLeJeEMEwl38sJkwrz+Jl9tTfTYrZwaFI9vfkpe0ES0uC
+         YZtg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795790619; x=1796395419;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=RRK9YDLFBZXwKuXQtKu/5tdjSq98zFs+D+5971VO7Ts=;
+        b=ukK0nMZXUImIKJrx+2fyBT6x+8AKiND0RRfooZJ/j2vO7Sq2gTacoqQ81Xq2U6Ge3Q
+         fhOX7gPl9Pzw/6N+45w5XXY7Xg4cfMJudgsUk8g5FuAI4w32Hw0AJmmPo+At2ZqeehgW
+         R+Gn+zgJyZ1LaxqaPPqXpSvJy9+JWn3mNvkW5+cKdev6vp69pTX9hKduu/EbA0W+Ulsn
+         v6TTfMWA3OGcVIZbliw/uIthSmDUG782Pol/saV3jybRRHFVLjkZ+D6lMzztZ4sgtIPL
+         kihmhdG8eeVev9uqOD0G3EQ9dfiFfS6we3E10EbhFAGmwPRpGBVjdxT7Bcx/6f+fvWSv
+         qoyA==
+X-Forwarded-Encrypted: i=1; AL+hErGPrt1/qsTn3NaPZzuHucc6pOXlE1uFbt5fBktITKRGygfbKOY1TXKHNHHxrT/+fYykY1JImsPvV8Vmvs4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/uRSYUSHRgH5WSg2RRaFk/lG/IhiYDbs5iaqLoFmPIgxiNlESo
+	Txndm/O2CdnHeC0X8SXkdbJiDRwbWIN0iQmsjwzZeL9gaRkJKCJKzcCczPFRv+E0BenE37tuf69
+	rXJsw2nwnhPT7Y8dEz6dmML0dIdPHAWtjZXbCoQ8AJq0rhzpf2EyWwQnVXhejkALgR1VRgf7X+w
+	p4hbg0W9NKg01JBWcN+rBmLjO7rF0O3O2x6q5SXwPxFXC4D01W6Q==
+X-Gm-Gg: AZFdTZdczO6gFnB+zXY5Z/6LNRGVjamnYQBKNlSvZBRCHxhzfgtutAhGgRAgMEzak/A
+	wh7MinSoEtaDYeJEJufHjPO3091sSk1iremoPd12FdcuNdbjAU4ZLkyP6dZePGqHAz1GO22Tdzr
+	0xJR1bfqso6xEm804Tu+j/cG17bgWaxfp8Ly17XwovIU7aObJZGyAnK4swnA==
+X-Received: by 2002:a17:90b:4a47:b0:3a8:9d0d:ca50 with SMTP id 98e67ed59e1d1-3b41c8fe84amr25941780a91.10.1795790618994;
+        Fri, 27 Nov 2026 06:43:38 -0800 (PST)
+X-Received: by 2002:a17:90b:4a47:b0:3a8:9d0d:ca50 with SMTP id
+ 98e67ed59e1d1-3b41c8fe84amr25941754a91.10.1795790618594; Fri, 27 Nov 2026
+ 06:43:38 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,361 +127,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261104-db9e3c75b3-memstick-1@mail.sdu.edu.cn>
+In-Reply-To: <20261104-db9e3c75b3-memstick-1@mail.sdu.edu.cn>
+From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Date: Fri, 27 Nov 2026 15:43:27 +0100
+X-Gm-Features: Aa3M54rAfwIYDABxWCNYEdkvpiiKvboY2-gyIiFTT9Xk0nwjfgKFrPw3cxJtvSk
+Message-ID: <CAPx+jO-e4iQtrziy=MJ7zbTRbvEJzQkrU=31J-L1DSKVj1_aYg@mail.gmail.com>
+Subject: Re: [PATCH] memstick: ms_block: Fix potential block buffer leak
+To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+Cc: Maxim Levitsky <maximlevitsky@gmail.com>, Alex Dubov <oakad@yahoo.com>,
+        Ulf Hansson <ulfh@kernel.org>, linux-mmc@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1OCBTYWx0ZWRfX3bcyg5jcH/IV
+ zNiGtCncSvhYP0PVpQcfBQNAgd+SSj8M3ZaGrnwEyfdj/fYwRwSAVgongh+KAE1pqYxpKj32LYl
+ tNxp5fJCemKbo/TijObrvoFcStn21wA=
+X-Proofpoint-GUID: K6NHL1xeF112HUJvXNvK3d5SWHURoS78
+X-Proofpoint-ORIG-GUID: K6NHL1xeF112HUJvXNvK3d5SWHURoS78
+X-Authority-Analysis: v=2.4 cv=M9fYuCws c=1 sm=1 tr=0 ts=6b09971b cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=yOCtJkima9RkubShWh1s:22 a=ZXBGRh9IYtYWsRDO8FYA:9 a=QEXdDO2ut3YA:10
+ a=mQ_c8vxmzFEMiUWkPHU9:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1OCBTYWx0ZWRfX82yAIANd/jQt
+ MvgHHI5t5T0EkHUYAH0CA8q4I0U4RACCAnBZR4cG1sfMLY4BhRoPuyIFXu+REdB8mWypjKj5GrS
+ Tq62L18CrNxJzbIQqN/TDEno0EMPL8S4K0gnZbq/MSvktLX3vADtL71x1vI1JEBVkh9UZw0XKm7
+ hlf115YFkmuFmcCBv4ygG4yO9nsqnWwEe2FMpQdT1IH6qmqtze+MD1YZrwvAQO7m65VdoLciC47
+ RMElIGBCEHtsQg6JnjQW2SItaLzsfkWXDq+0sY/s7l7IhgEtS7iUo4IbVnypJqFu/WncZ0ip82s
+ TdelYRmv5Mkk1jDYGfMHDQKwCcrvVeDprGaFSd4tmVEhfvN36HulQ6gz7dZXzOV3evugededyyB
+ L7bqyPtXqH2jmtr4w2q0D7mkkoynlDV9r6ineVD3tKgibZd2wkfGi/fFMPKq1NFQ4jthlEwSpHS
+ RR/FJ9MUX5L4RqmjUyg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-27_02,2026-11-27_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 adultscore=0 impostorscore=0 suspectscore=0 malwarescore=0
+ spamscore=0 lowpriorityscore=0 priorityscore=1501 phishscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270058
 
-When the connection to the peer is alive, vhci_urb_dequeue() only queues
-a CMD_UNLINK PDU and relies on the peer to send RET_UNLINK (or
-RET_SUBMIT) before the unlinked URB is given back.  A peer that keeps
-the socket open but never answers therefore makes usb_kill_urb() wait
-forever.  The waiter is typically the hub work item, which runs with
-the shared address0_mutex held, so every later task that needs that
-mutex or the device lock chain - a second attach, usbfs open/release/
-ioctl, udev - piles up behind it and the whole USB stack wedges.
+On Wed, Nov 4, 2026 at 3:33=E2=80=AFAM Guangshuo Li <liguangshuo@mail.sdu.e=
+du.cn> wrote:
+>
+> msb_init_card() allocates a block buffer, but msb_data_clear() does
+> not free it. The buffer is leaked on probe failure, removal and
+> when discarding the temporary card state used during resume.
+>
+> Free it with the other allocations in msb_data_clear().
+>
+> This issue was found by our static analysis tool under development.
+>
+> Fixes: 0ab30494bc4f ("memstick: add support for legacy memorysticks")
+> Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
 
-syzbot reports this shape in three long-lived bugs:
-  INFO: task hung in hub_port_init
-  INFO: task hung in hub_event
-  INFO: task hung in usbdev_release
+Applied for fixes and by adding a stable tag, thanks!
 
-Give every queued unlink request a deadline of its own and arm a
-per-device watchdog; when the watchdog fires, it tears the connection
-down through the existing error path (VDEV_EVENT_ERROR_TCP) if any
-active request is still unanswered past its own deadline.  The teardown
-already knows how to give back every pending URB with -ENODEV, and a
-RET_UNLINK that arrives late (or never) after that is handled by the
-existing "already given back" paths.
+Kind regards
+Uffe
 
-Queueing an unlink arms the watchdog with timer_reduce() so newer
-requests cannot push the expiry past an older pending deadline.  When a
-request is answered via RET_UNLINK, or its target URB completes first
-via RET_SUBMIT, the watchdog is re-armed to the earliest remaining
-active deadline or cancelled when none remains; if the callback fires
-early, it likewise re-arms to the next pending deadline.  Connection
-cleanup stops the timer with timer_delete_sync() before port reset so an
-in-flight callback cannot queue a stale teardown against a later
-attachment, and controller removal calls timer_shutdown_sync() before
-posting VDEV_EVENT_REMOVED so no callback can queue work after
-usbip_stop_eh() returns.
 
-In a regular setup, any network stall that leaves the TCP connection
-established while the peer stops replying (such as a wedged proxy, a
-firewall dropping server-to-client traffic, or a hung server) triggers
-this whenever a client control transfer times out into usb_kill_urb().
-Verified end to end with usbipd exporting g_serial on usbip-vudc and
-usbip attach through a TCP relay stopped with SIGSTOP after enumeration:
-deauthorizing the device hangs forever in usb_kill_urb() without this
-patch, whereas with it the 5s watchdog tears the connection down and
-the writer returns cleanly.
-
-A similar fix was proposed as an RFC by the syzbot assisted-fix
-pipeline; this version arms a single per-device watchdog instead of a
-timer per unlink request.
-
-Fixes: 04679b3489e0 ("Staging: USB/IP: add client driver")
-Reported-by: syzbot+b6f11035e572f08bc20f@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?id=3D58aef18c1ad93d87652f24a0bc7a74=
-b6d98ac710
-Reported-by: syzbot+a7edecbf389d11a369d4@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?id=3D7ff8ae4abed51ff2354c1addb66414=
-3ec26ca588
-Reported-by: syzbot+bfa320b67fcbe2583c6f@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?id=3D048da78aba1a3a6139509492b2be50=
-5b2d223762
-Link: https://lore.kernel.org/all/1d6db53d-07ab-46ad-adc4-d09c95b2c83f@mail.k=
-ernel.org/
-Signed-off-by: Hongyu Xie <xiehongyu1@kylinos.cn>
----
-Changes in v3:
-- Arm the watchdog with timer_reduce() in vhci_urb_dequeue() and re-arm
-  it to the earliest remaining active deadline when requests complete or
-  when the callback wakes early, preventing newer unlinks from starving
-  an older deadline.
-- Mark matching queued unlinks completed when their target URB finishes
-  via RET_SUBMIT (and skip queueing CMD_UNLINK if vhci_rx already claimed
-  urb->hcpriv) so a lazy server RET_UNLINK cannot trigger a spurious
-  timeout on an idle connection.
-- Use timer_delete_sync() in vhci_device_unlink_cleanup() so an in-flight
-  timeout callback cannot post VDEV_EVENT_ERROR_TCP after port reset.
-- Move timer_shutdown_sync() before VDEV_EVENT_REMOVED in vhci_stop() so
-  a racing timeout callback cannot queue event work after usbip_stop_eh().
-- Link to v2: https://lore.kernel.org/r/179577001740.23588.175989404245058093=
-86@kylinos.cn
-
-Changes in v2:
-- Document regular-setup reproduction and end-to-end usbipd/vhci test
-  verification in the commit message per Shuah Khan's question on v1
-  (no code changes).
-- Link to v1: https://lore.kernel.org/r/20261006125652.10296-1-xiehongyu1@kyl=
-inos.cn
-
- drivers/usb/usbip/vhci.h     |  12 +++
- drivers/usb/usbip/vhci_hcd.c | 138 +++++++++++++++++++++++++++++++++++
- drivers/usb/usbip/vhci_rx.c  |   4 +
- 3 files changed, 154 insertions(+)
-
-diff --git a/drivers/usb/usbip/vhci.h b/drivers/usb/usbip/vhci.h
-index 5659dce1526e..af5d6504eb83 100644
---- a/drivers/usb/usbip/vhci.h
-+++ b/drivers/usb/usbip/vhci.h
-@@ -11,6 +11,7 @@
- #include <linux/list.h>
- #include <linux/spinlock.h>
- #include <linux/sysfs.h>
-+#include <linux/timer.h>
- #include <linux/types.h>
- #include <linux/usb.h>
- #include <linux/usb/hcd.h>
-@@ -44,6 +45,9 @@ struct vhci_device {
- 	struct list_head unlink_tx;
- 	struct list_head unlink_rx;
-=20
-+	/* fires when the peer leaves an unlink request unanswered */
-+	struct timer_list unlink_timer;
-+
- 	/* vhci_tx thread sleeps for this queue */
- 	wait_queue_head_t waitq_tx;
- };
-@@ -65,6 +69,12 @@ struct vhci_unlink {
-=20
- 	/* seqnum of the unlink target */
- 	unsigned long unlink_seqnum;
-+
-+	/* deadline enforced by the per-device unlink watchdog */
-+	unsigned long expires;
-+
-+	/* target URB completed via RET_SUBMIT; no longer watched */
-+	bool completed;
- };
-=20
- enum hub_speed {
-@@ -124,6 +134,8 @@ extern struct attribute_group vhci_attr_group;
-=20
- /* vhci_hcd.c */
- void rh_port_connect(struct vhci_device *vdev, enum usb_device_speed speed);
-+void vhci_rearm_unlink_timer_locked(struct vhci_device *vdev);
-+void vhci_complete_unlink_locked(struct vhci_device *vdev, __u32 seqnum);
-=20
- /* vhci_sysfs.c */
- int vhci_init_attr_group(void);
-diff --git a/drivers/usb/usbip/vhci_hcd.c b/drivers/usb/usbip/vhci_hcd.c
-index 39e8faf4c18c..18a0d42ba390 100644
---- a/drivers/usb/usbip/vhci_hcd.c
-+++ b/drivers/usb/usbip/vhci_hcd.c
-@@ -19,6 +19,15 @@
- #define DRIVER_AUTHOR "Takahiro Hirofuchi"
- #define DRIVER_DESC "USB/IP 'Virtual' Host Controller (VHCI) Driver"
-=20
-+/*
-+ * How long to wait for RET_UNLINK after sending CMD_UNLINK.  A peer that
-+ * cannot answer an unlink request within a control-transfer timeout
-+ * (USB_CTRL_GET_TIMEOUT) worth of time is considered stuck, and the
-+ * connection is torn down so that URBs waiting for their unlink reply can
-+ * be given back instead of hanging their owners forever.
-+ */
-+#define VHCI_UNLINK_TIMEOUT_MS	5000
-+
- /*
-  * TODO
-  *	- update root hub emulation
-@@ -846,6 +855,105 @@ static int vhci_urb_enqueue(struct usb_hcd *hcd, struct=
- urb *urb, gfp_t mem_flag
- 	return ret;
- }
-=20
-+/*
-+ * Find the earliest deadline among queued unlink requests whose target URB
-+ * has not completed yet.  Requests whose target URB already came back via
-+ * RET_SUBMIT have nobody waiting on them and are ignored.
-+ *
-+ * Caller must hold vdev->priv_lock.
-+ */
-+static bool vhci_unlink_next_deadline(struct vhci_device *vdev,
-+				      unsigned long *expires)
-+{
-+	struct vhci_unlink *unlink;
-+	bool found =3D false;
-+
-+	lockdep_assert_held(&vdev->priv_lock);
-+
-+	list_for_each_entry(unlink, &vdev->unlink_rx, list) {
-+		if (unlink->completed)
-+			continue;
-+		if (!found || time_before(unlink->expires, *expires)) {
-+			*expires =3D unlink->expires;
-+			found =3D true;
-+		}
-+	}
-+	list_for_each_entry(unlink, &vdev->unlink_tx, list) {
-+		if (unlink->completed)
-+			continue;
-+		if (!found || time_before(unlink->expires, *expires)) {
-+			*expires =3D unlink->expires;
-+			found =3D true;
-+		}
-+	}
-+
-+	return found;
-+}
-+
-+void vhci_rearm_unlink_timer_locked(struct vhci_device *vdev)
-+{
-+	unsigned long expires =3D 0;
-+
-+	if (vhci_unlink_next_deadline(vdev, &expires))
-+		mod_timer(&vdev->unlink_timer, expires);
-+	else
-+		timer_delete(&vdev->unlink_timer);
-+}
-+
-+void vhci_complete_unlink_locked(struct vhci_device *vdev, __u32 seqnum)
-+{
-+	struct vhci_unlink *unlink;
-+	bool changed =3D false;
-+
-+	lockdep_assert_held(&vdev->priv_lock);
-+
-+	list_for_each_entry(unlink, &vdev->unlink_rx, list) {
-+		if (unlink->unlink_seqnum =3D=3D seqnum && !unlink->completed) {
-+			unlink->completed =3D true;
-+			changed =3D true;
-+		}
-+	}
-+	list_for_each_entry(unlink, &vdev->unlink_tx, list) {
-+		if (unlink->unlink_seqnum =3D=3D seqnum && !unlink->completed) {
-+			unlink->completed =3D true;
-+			changed =3D true;
-+		}
-+	}
-+
-+	if (changed)
-+		vhci_rearm_unlink_timer_locked(vdev);
-+}
-+
-+static void vhci_unlink_timeout(struct timer_list *t)
-+{
-+	struct vhci_device *vdev =3D timer_container_of(vdev, t, unlink_timer);
-+	unsigned long expires =3D 0;
-+	unsigned long flags;
-+	bool expired =3D false;
-+
-+	spin_lock_irqsave(&vdev->priv_lock, flags);
-+	if (vhci_unlink_next_deadline(vdev, &expires)) {
-+		if (time_after_eq(jiffies, expires))
-+			expired =3D true;
-+		else
-+			mod_timer(&vdev->unlink_timer, expires);
-+	}
-+	spin_unlock_irqrestore(&vdev->priv_lock, flags);
-+
-+	if (!expired)
-+		return;
-+
-+	dev_info(hcd_dev(vhci_hcd_to_hcd(vdev_to_vhci_hcd(vdev))),
-+		 "peer did not reply to an unlink request within %d msecs\n",
-+		 VHCI_UNLINK_TIMEOUT_MS);
-+
-+	/*
-+	 * Reuses the teardown path taken on other peer failures, which
-+	 * gives back all URBs waiting for their unlink reply.
-+	 */
-+	usbip_event_add(&vdev->ud, VDEV_EVENT_ERROR_TCP);
-+}
-+
- /*
-  * vhci_rx gives back the urb after receiving the reply of the urb.  If an
-  * unlink pdu is sent or not, vhci_rx receives a normal return pdu and gives
-@@ -949,6 +1057,15 @@ static int vhci_urb_dequeue(struct usb_hcd *hcd, struct=
- urb *urb, int status)
- 		struct vhci_unlink *unlink;
-=20
- 		spin_lock(&vdev->priv_lock);
-+		if (!urb->hcpriv) {
-+			/*
-+			 * URB was just picked up by vhci_rx and will be
-+			 * given back shortly; no CMD_UNLINK needed.
-+			 */
-+			spin_unlock(&vdev->priv_lock);
-+			spin_unlock_irqrestore(&vhci->lock, flags);
-+			return 0;
-+		}
-=20
- 		/* setup CMD_UNLINK pdu */
- 		unlink =3D kzalloc_obj(struct vhci_unlink, GFP_ATOMIC);
-@@ -968,6 +1085,17 @@ static int vhci_urb_dequeue(struct usb_hcd *hcd, struct=
- urb *urb, int status)
- 		/* send cmd_unlink and try to cancel the pending URB in the
- 		 * peer */
- 		list_add_tail(&unlink->list, &vdev->unlink_tx);
-+
-+		/*
-+		 * Tear the connection down if the peer leaves this request
-+		 * unanswered past its deadline; timer_reduce() keeps any
-+		 * earlier pending deadline armed so newer unlinks cannot
-+		 * starve it.
-+		 */
-+		unlink->expires =3D
-+			jiffies + msecs_to_jiffies(VHCI_UNLINK_TIMEOUT_MS);
-+		timer_reduce(&vdev->unlink_timer, unlink->expires);
-+
- 		wake_up(&vdev->waitq_tx);
-=20
- 		spin_unlock(&vdev->priv_lock);
-@@ -1029,6 +1157,13 @@ static void vhci_device_unlink_cleanup(struct vhci_dev=
-ice *vdev)
-=20
- 	/* give back URB of unanswered unlink request */
- 	vhci_cleanup_unlink_list(vdev, &vdev->unlink_rx);
-+
-+	/*
-+	 * Wait for any running watchdog callback before vhci_device_reset()
-+	 * clears the port so a racing timeout cannot queue a stale teardown
-+	 * event against a later attachment.
-+	 */
-+	timer_delete_sync(&vdev->unlink_timer);
- }
-=20
- /*
-@@ -1143,6 +1278,8 @@ static void vhci_device_init(struct vhci_device *vdev)
-=20
- 	init_waitqueue_head(&vdev->waitq_tx);
-=20
-+	timer_setup(&vdev->unlink_timer, vhci_unlink_timeout, 0);
-+
- 	vdev->ud.eh_ops.shutdown =3D vhci_shutdown_connection;
- 	vdev->ud.eh_ops.reset =3D vhci_device_reset;
- 	vdev->ud.eh_ops.unusable =3D vhci_device_unusable;
-@@ -1267,6 +1404,7 @@ static void vhci_stop(struct usb_hcd *hcd)
- 	for (rhport =3D 0; rhport < VHCI_HC_PORTS; rhport++) {
- 		struct vhci_device *vdev =3D &vhci_hcd->vdev[rhport];
-=20
-+		timer_shutdown_sync(&vdev->unlink_timer);
- 		usbip_event_add(&vdev->ud, VDEV_EVENT_REMOVED);
- 		usbip_stop_eh(&vdev->ud);
- 	}
-diff --git a/drivers/usb/usbip/vhci_rx.c b/drivers/usb/usbip/vhci_rx.c
-index a678e7c89837..c71645499a7b 100644
---- a/drivers/usb/usbip/vhci_rx.c
-+++ b/drivers/usb/usbip/vhci_rx.c
-@@ -63,6 +63,8 @@ static void vhci_recv_ret_submit(struct vhci_device *vdev,
-=20
- 	spin_lock_irqsave(&vdev->priv_lock, flags);
- 	urb =3D pickup_urb_and_free_priv(vdev, pdu->base.seqnum);
-+	if (urb)
-+		vhci_complete_unlink_locked(vdev, pdu->base.seqnum);
- 	spin_unlock_irqrestore(&vdev->priv_lock, flags);
-=20
- 	if (!urb) {
-@@ -123,6 +125,8 @@ static struct vhci_unlink *dequeue_pending_unlink(struct =
-vhci_device *vdev,
- 			usbip_dbg_vhci_rx("found pending unlink, %lu\n",
- 					  unlink->seqnum);
- 			list_del(&unlink->list);
-+			if (!unlink->completed)
-+				vhci_rearm_unlink_timer_locked(vdev);
-=20
- 			spin_unlock_irqrestore(&vdev->priv_lock, flags);
- 			return unlink;
-
-base-commit: 9437ee8b6cf607e883b36e44bd755968daaebd48
---=20
-2.32.0
-
+> ---
+> Build-tested the changed object with x86_64 GCC W=3D1, using defconfig
+> with the driver dependencies enabled. No hardware/kernel runtime test or =
+full linked-kernel
+> build.
+> OpenAI Codex assisted with source review, patch implementation and
+> commit-message drafting. The submitter has reviewed the changes.
+>
+>  drivers/memstick/core/ms_block.c | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/drivers/memstick/core/ms_block.c b/drivers/memstick/core/ms_=
+block.c
+> index cd4ff1b79a6d..d62350f9ef5b 100644
+> --- a/drivers/memstick/core/ms_block.c
+> +++ b/drivers/memstick/core/ms_block.c
+> @@ -1953,6 +1953,7 @@ static void msb_data_clear(struct msb_data *msb)
+>         bitmap_free(msb->erased_blocks_bitmap);
+>         kfree(msb->lba_to_pba_table);
+>         kfree(msb->cache);
+> +       kfree(msb->block_buffer);
+>         msb->card =3D NULL;
+>  }
+>
+>
+> base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
