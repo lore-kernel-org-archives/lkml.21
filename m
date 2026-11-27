@@ -1,134 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.8
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795790003;
-	b=Yjob7blXHOB0PF3pykNeWCbPtsrBkccmYA0tSinD6nLjwyGgZCyCvwiMEHkvTMdEUI54
-	 k4ksRhsQwuFHZKnX8Uzncq0YDF2gRozPbyRMAuCwonSaNGxBpD8wbb5HGwMTIuKv9QJYa
-	 2IxpZc8h/WTF0gnhfZsKVc5K91zq+CueRiMz1+SJkqzFeqy91shHWegGCjEQcwoN8l63s
-	 eXTadgCQeNG3m0iCAmfICwJ8A+maGmuK6wOU1q3DCICN/dXv/3lgopN2hIgw4s22A0JRr
-	 0oN7UZ4YYkK0ZMymnsIwcnB0g5ZWo9rqHNzmzIEspOO4Usp4SLz2jnO966EKOAaHgrg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795790003;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:Received:Received:Date:From:To:CC:Subject:Message-ID:
-	 References:Content-Type:Content-Disposition:In-Reply-To:
-	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=+GZNtGlArrny4BKyfqA/WeN2L3SohMvvUNeGlrMRSLw=;
-	b=SGC+i/nN/YJs516hYmrSOiaE7Tyuap0GIP/rvqzttr5PUKdjiejtTwGWdgTGYd/kWiaj
-	 Xte+7bXS/BRQAB5cvk2N55ERSd97dg4Ygn6IwI8RdRqzA8/PYxVZUQPgEi7vsUkVLL6u/
-	 V32jnvBeMqXTghHMgW49ah2NIN9n0yk55cWjouQbxOUkUyNFHA3Uu7kI76pYyjTvwlkk9
-	 o8DIFsY1kyn4BRSb7/lZ5hloSBs+4y4NopGQeDO8v93u3xgeiAqrHWWm60viW48j4grM4
-	 B35CLEj+FmSNa1vIGa+aFgDIy2v9fjYmU2odKPxc024KPOfhcU72TTBBCWAHRp9VUmQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="M/Mt/xnM";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.8
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.8])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.43
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795790006;
+	b=z6IJEwK9PpHy+pphFVLMUg0iIICC03dvloBQEoKjU0SjbmV9PFKF4QHxFH8mjjNuta2p
+	 j5a2n1tW6jPbIfVVY1zw5osnfYxtFj9/tgl6wH+e1LSot5EKQVwTGxx9I9ajJizIRZdIm
+	 2C+vx0xG63CCn8tQQPvG9OYO7uZgGA3stSTRdXctJCwp2nQVaGqU6cq8vZuzBDbOzMg0F
+	 TC71ejiuMyz/k6VueK+JR0f1GoCXSvb+ow8lO6ElwV9QmD8afyMVKPinWZ7JOh/HcbB8U
+	 I6j/YXtNGUV/t6T+cVUAEnyfVGQ5zBVWwtx4Xg/iJX0/veTF0zXccxBMqCFPeNluwVQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795790006;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:In-Reply-To:References:Subject:Message-Id:Date:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=4jk+eMtoNzyBPcbPSMP2jejnX5Q5wRK8gv8j2BTbshs=;
+	b=AN4YIfYC2p8mcdQWPujY72gIKc8SLl+tTp4F6z9ANP9qTFv+xkcZypznUNDL1RAnO/fp
+	 bTwWfv+IGWix4FpRzll5uXUd+5FAsmFC2Ajjm2AHO15ncGC8RZhYNr6C2myJrBXuMJlm2
+	 qJ2FzkOx/FjqPZYRvw2SEjb/PQhVu4neGIFYFc4ndPo3xtUDibWcYVVHieaje4l+6lAFH
+	 4DQyJn6Bwf5ooY+8guc2/vUSXz6TqLjz82tQCt+4nPwixkwPJW1GIxeKqzN4nu+CgxTmv
+	 chcAQhJ+avFypkLA3PNrKMyRUft2LrFX99FrjeTPjUPigZTbd6ZyonTb2lZA+9GRbvg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=Kh4yhHoy;
+	arc=none smtp.remote-ip=209.85.208.43
+Received: from mail-ed1-f43.google.com (mail-ed1-f43.google.com [209.85.208.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25FD1606A31F
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:33:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25FD1606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2119606B1AD
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:33:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2119606B1AD
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=M/Mt/xnM
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795790003; x=1827326003;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=fHHwmij4Aqa3H9e/838yCuopLAg6DYSuPA8d4TrgVss=;
-  b=M/Mt/xnMs/+472/Ww89n+HTOFYGtMZXU1kIffmhrmemYjYSOYhG/hdtX
-   7sGvodRu7oeo9pInylzx7VfJbI/PPbp66lk9kQRYEaFVkDYOB2/byz2Jz
-   V8K3APdjTujj8z114IuP1Kv74QJIJnetpcIzHSUUfx4YvT6dhnnOc7AOm
-   vYvFaiOh2KZH+sU2n8I4+TCmv2lEZEHHVXt2hu/+ytWZw0LZ40xxypJPY
-   YqOhRLn/BhvkQIFJyBOPaFV313QDa8FHdpXmTPmGhkRh6d0gC1UCRMtRJ
-   8uqFMn2J/fh3QIX8Oe7ZWdBTutwgYnRYEozaObiA53RT7j0W8ymalEE28
-   w==;
-X-CSE-ConnectionGUID: eg7tu/8ET2aSVN3wxc8vwA==
-X-CSE-MsgGUID: Haci1WqgQSurp7mEz7MpyA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4588272"
-X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
-   d="scan'208";a="4588272"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 06:33:21 -0800
-X-CSE-ConnectionGUID: mrb0BtCkSeKwBhuVW3XV+A==
-X-CSE-MsgGUID: XOSzA1F0TMKXthaeDrld9A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
-   d="scan'208";a="12758299"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by fmviesa006.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 06:33:20 -0800
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Fri, 27 Nov 2026 06:33:20 -0800
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Fri, 27 Nov 2026 06:33:20 -0800
-Received: from CY7PR03CU001.outbound.protection.outlook.com (40.93.198.45) by
- edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Fri, 27 Nov 2026 06:33:19 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xAgXwmw1bXUUKfWqEF+k8WlU9ocT5NTYXv5qmNRHsdGKCSWcQPbasdMTk596dZDwhwJwLQOpUpANlWS6Q5m84vzSjTQzGap9xQC2ENEZYu9ubiYBvCKOxshDs7/P2Ml5MxTisuinN9KIBvKyTsikCaHc3JnNvtzyoL97rYlWAfDdKOk9g9aZtl8ooHQcYUBvoPj/SOhmyuQ7+Ts2CI5oe53A8z6ilEu0ZXnoHADTTFYrBMVpFbsTXTlTasTwN7l12NPekaEYNvQsROyYd0xNR7LDrAYitsGMCSweJOQLxtiRuGwnJZj8lBT3HkiunLV1AV5t1IbWOKO4xuOGvFPL2Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+GZNtGlArrny4BKyfqA/WeN2L3SohMvvUNeGlrMRSLw=;
- b=SY74sxyTlSJe6VwHxlJSnuQmdWYkbLjyaCm8zvN14yo4ZpQfBdccThtr2q4Yg4kFPW+fo1rcqUvjCz0QDuzRcYcGFtKlQk6Q4jDZGf87aF3idyOWcVYsDN1sZJ+l5YZO6Nu7qfnFp9VtajKeW6F80URZMHidswsv0jIv0yltmvBD98uvNVQ68DEUuGEXJKruV34r4PEKFSeSF/AANmr3vpmbtHYgwuaH+bVmU2PjjU3szabzMEGVrLmc9xmWiqCNq2eQBSjdHE0woirZi47SndgT/qFQeTUA/r2yl6Q6ulAwFJ+LkDh0utFvOrDSoWT3mWBCmzMpAq8/mOKmLko6Hg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DM4PR11MB6020.namprd11.prod.outlook.com (2603:10b6:8:61::19) by
- SN4PR11MB9965.namprd11.prod.outlook.com (2603:10b6:806:4fe::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.10; Fri, 27 Nov
- 2026 14:33:11 +0000
-Received: from DM4PR11MB6020.namprd11.prod.outlook.com
- ([fe80::3058:1480:e4ac:5765]) by DM4PR11MB6020.namprd11.prod.outlook.com
- ([fe80::3058:1480:e4ac:5765%3]) with mapi id 15.21.0662.007; Fri, 27 Nov 2026
- 14:33:11 +0000
-Date: Fri, 27 Nov 2026 22:22:09 +0800
-From: Chen Yu <yu.c.chen@intel.com>
-To: Vincent Guittot <vincent.guittot@linaro.org>
-CC: Peter Zijlstra <peterz@infradead.org>, K Prateek Nayak
-	<kprateek.nayak@amd.com>, Ingo Molnar <mingo@redhat.com>, Andrea Righi
-	<arighi@nvidia.com>, Juri Lelli <juri.lelli@redhat.com>, Dietmar Eggemann
-	<dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, "Valentin
- Schneider" <vschneid@redhat.com>, James Buck <jbuck2005.linux@outlook.com>,
-	Usama Arif <usama.arif@linux.dev>, Tim Chen <tim.c.chen@intel.com>, Yi Lai
-	<yi1.lai@intel.com>, <linux-kernel@vger.kernel.org>, <chen.yu@linux.dev>
-Subject: Re: [RFC PATCH] sched/fair: Expand SIS_UTIL scan depth for small LLC
- system
-Message-ID: <awmSEefDOF89Nbnb@chenyu-dev>
-References: <20261127094038.3422499-1-yu.c.chen@intel.com>
- <CAKfTPtBexuKgiVWWk2avKzVo2MpH=8BLE3b11nXDvoKqqopgSQ@mail.gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAKfTPtBexuKgiVWWk2avKzVo2MpH=8BLE3b11nXDvoKqqopgSQ@mail.gmail.com>
-X-ClientProxiedBy: SG2PR06CA0237.apcprd06.prod.outlook.com
- (2603:1096:4:c8::20) To DM4PR11MB6020.namprd11.prod.outlook.com
- (2603:10b6:8:61::19)
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=Kh4yhHoy
+Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-6b587538a37so12379002a12.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:33:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795790004; x=1796394804; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:date:message-id
+         :subject:references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4jk+eMtoNzyBPcbPSMP2jejnX5Q5wRK8gv8j2BTbshs=;
+        b=Kh4yhHoyRLyamHP4c589eGt6mFYKg+T4DCFz2chTTM2iLS+5BJgzihuYm8dycaqj+I
+         D+UKNRnLeHIZdIY/Y3uM0He11I7oK8XERH+Dd51NTF/1SOfYnGyaBxSQ2sgAauQrI3JJ
+         zkqBx/uP/8Y/D2R735Kbyoa2uVQRT680ZyUSO6O/OoFkfSryNOU8TtTB1iSIeSuqdGsb
+         WIw2Z3oRQJS2zsXHiwiQgEC3Dh9gGMUa+P3DS0GD9kfQZu3FTWYp18ijl0xwON/f85LU
+         dKCDMPu7PDFm/gm7Xlal8NbeYYPaao0MhoOWVsFcssb0EU5O4EXz46Qp6dJys14hb/mQ
+         kbaw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795790004; x=1796394804;
+        h=content-transfer-encoding:content-type:mime-version:date:message-id
+         :subject:references:in-reply-to:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4jk+eMtoNzyBPcbPSMP2jejnX5Q5wRK8gv8j2BTbshs=;
+        b=b6pqJtNEdTTmS1S8lroSiCrSNPxU3mYhHAs4dddI3KkGMKJFnx+5wJq3lQ7eE+JnDx
+         J4yUiFC5DgDTfzmCh0LRsVTpWyEsmdAunJxtBZOt+RaNeNxmhjivz0aGWxYek/hkEijH
+         Hx3l6wYGtV+Pp1uc/HeZa+CyCtlK7+7aOIhQnEfxdpaexzvWZoPQg/+lHkOUk6OewSa6
+         TWL7IO9XRFbi4T0K0RbEXi6jK86JYrJvRo+G2kJgWr9KDv3m0RFk3I1v9QOGg5yhZ8bx
+         4od59EtIJqGV9deMvLZGzE1vOewFVzMI54PXU4zFRzPuD901lNLf65FrLxDFD91KQV0a
+         CRUw==
+X-Forwarded-Encrypted: i=1; AL+hErHZdzZR0Z29X6Ipk+A7mbG7UuGVF/h4SfRKKtNT5MUNEC701TpdZu/mmoI9umXT51yypNk6nJ+WJyw0kDw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/EPlO0HO02zu5wLruGuhJ5z5wgpP6oyr67geEDXz5PQCSkmJPq
+	rwfKhoAMfXqmNvECopBvd9AdvUG3A8taKMfFNTRAQsFGsgUffTDzKy+/CYC7Pvfnyr4=
+X-Gm-Gg: AZFdTZekqXy455gv6dNwY/2eCiRr0+kObNyFe7YBLnbmuJLtF3cfe/BEq80MW7ZJxE6
+	i7WzIcP+kFxWDoed1Ymoz6M0/7mKH7g/T0923LoKRqcgyJFyqBS0alS9sBCdIPK5XFaFRy//90p
+	mLaI1arqHZqG4/ARcuMzXBSoer5J5w1MXmv3f2MmPsRmT0YAtepRtuVqP+a/uUa97NZ6SlyRs2H
+	lfXug3XTB/PkSEsCT4mJs5P7dApAqikmyDax24O8RwGYG6mNNfsWwzI+eyD5N99Pvwv+VtNHpP4
+	Y7gaDMRtw2qRaTb8icuVRC13ivz7+aQM0Do+MxO87H1D2xroLQMGFA8YatNgui8v0uXCDVmWf79
+	BJViBNPh3e4xoyw7P0SmZbEy8mpSDe1lhBQ52pXmiwsjkphaP4GYgswC2BxtaYM5Ex3U99AKDct
+	Y1GbrWgPQKNdrXemgwRJ4k/5dt1S9BgJTn46MJPy7VWmh58XsFuGVZWuprDt37a1QGVciljn9g7
+	hYj8l8VSkrplhSx1qxSH2VMpDQfPlZQaPS0ZpfZUpET2/A/CNFvB86Bvp+R6A3EhRyvHhyyGXVF
+	F9JSCc2BKBnffjMIWGElOrJTmPRMuerdBhjvbiXZfQW44pcR
+X-Received: by 2002:aa7:c4d9:0:b0:6b5:9731:90fa with SMTP id 4fb4d7f45d1cf-6ba37cc0ad9mr13284812a12.6.1795790004077;
+        Fri, 27 Nov 2026 06:33:24 -0800 (PST)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6bb9f8160ecsm72961a12.15.2026.11.27.06.33.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 06:33:23 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Richard Cochran <richardcochran@gmail.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
+ Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
+ Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Steam Lin <STLin2@winbond.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
+ openbmc@lists.ozlabs.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ stable@vger.kernel.org
+In-Reply-To: <20261124-perso-ma35d1-upstream-clk-v13-0-c920f4a9f0ce@bootlin.com>
+References: <20261124-perso-ma35d1-upstream-clk-v13-0-c920f4a9f0ce@bootlin.com>
+Subject: Re: [PATCH v13 00/10] clk: nuvoton: ma35d1: Fix mux parenting and
+ peripheral clock rates
+Message-Id: <179578999837.3130490.1321256774164046797.b4-ty@b4>
+Date: Fri, 27 Nov 2026 15:33:18 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -138,226 +115,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR11MB6020:EE_|SN4PR11MB9965:EE_
-X-MS-Office365-Filtering-Correlation-Id: f7c18416-1285-43dd-b96e-08df4c935cb3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|4143699003|22082099003|18002099003|11063799006|10067099003|56012099006|261026121527099003|261102123227099003|261028144727099003|261022075727099003|261022105027099003|261021121427099003|261021123027099003|261026140227099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info: ZRUZzXmAmlJdWdK9clrZQOdETdtI4kvkrR/UADu6wgJbU7N0loyJ1MweWGMWB8Zjy9PsTPUkXbAQXvBBDV9brRb1TS5Y5ApPtWTyzA4tIT33vuXoi5Ezk0j/rFQTzrwySvfY981iOXvxpTT0rNSokK+HZ1t6uFKD5mg59FIhkZoFH3g1ffQJd3N0maz4/WHw9jvQQVc0wISK2B0fYCjmfKZzXiB8zWZqpOJ0O/iOOPvjzVSbgIzccNAnx+K5q7WBnJt/Mkw16PbIDc6dGMCz9Bt2fBGplyyqCP0pgZn8WdwwfDL79FwMPEGDU2NcU6OOvEpOpZuCvgrpUb7yRV1jSlojZlfpbSVb4G1fSG+LnCe5x0IKwzNrTowjcGbldQ9rHU7wBTzuIge5p7FxCOiEklo/Lna52kZ79hZS50daAwfQ3k+GlzZ0E2SvA/PoJNokKW/WABQ1ukvONaSHKCCdC5TB35uBw5mw5Yu8DBrgVgS/zuhFBPU05MUQLIpDcKfiI5zeztMhnjdikIXRAdd2MueqMNErnX5bizDhaGFEg3feDrizpapYw/RbAGUuG0/pqJJ8JeBYdgrN7C2dLyENyUIvfvDWdbkWzooGWbE/0Dh/dOWjUi7HDkLXEoFsHMgh
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR11MB6020.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(4143699003)(22082099003)(18002099003)(11063799006)(10067099003)(56012099006)(261026121527099003)(261102123227099003)(261028144727099003)(261022075727099003)(261022105027099003)(261021121427099003)(261021123027099003)(261026140227099003)(261009223027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?K9/Aqf9cxi3DxYy6+A4RQZ+lsgWRaLVDlltOOqvM7Wr1yFFTbZ4slkWIZTtH?=
- =?us-ascii?Q?jTLjYYnopNWqrm1P9iKqLpLpTsDfi3JG3JhJoEpp+R/KievickeKBYKABXwF?=
- =?us-ascii?Q?vUr8k1VE++5ZQNpcObTa6UkCZEVZNXVpbi+CMNSaiZZHNZoECsT1hi19h2RY?=
- =?us-ascii?Q?n7pdFWOkhch6Q4BXaX4M5uxDVHjYxbnFSRJKJ0g9f5JwvEDWK5I+G+Fu+7e7?=
- =?us-ascii?Q?6OhcMakFo52s6/Gfw4dY0tWZ+vvRpjCEFQ2G6Mevpv3GiSDylIk4zhm1xA9v?=
- =?us-ascii?Q?vQPOFUDPG7kiC2q4CxQqQGSAAM/5VR4l3zioICk0YoGzbBsqBs+C9E2Ry7Dh?=
- =?us-ascii?Q?tdyPq3NW8AmIziOf7zD+G//3fSjIPkFV3au4/Yda8NtOvXoaFRfinQObIzgR?=
- =?us-ascii?Q?vPY5OLwNBLzzMYf0ukhBNxXXzNByN81xBfZZZhiFKmRA6cJjCSuAEdRKg31G?=
- =?us-ascii?Q?s9XwM3UPr5KokZEWMtQb8A+tBGj7WW57jaSz3gg39vVFTkwFPLE3SN9ZEXCm?=
- =?us-ascii?Q?Wp38Xi3gTA/Tz7npAFZ0zv6OW7sY6S3bB9TCrfXKTjo5fXcIIHig73YK1emg?=
- =?us-ascii?Q?A2hK2s73/kkRYzUMm+raXw9Q4b3pcWcV1xf/Qo+b7eH13rZFWkulglGUOQzd?=
- =?us-ascii?Q?WWZ7H/tNM5cxBPcldajDa250PdmRJUWn3ZV9JZ/NQnUuDP37HVk9WjahaH7X?=
- =?us-ascii?Q?+dRpOdMlEvl4nLe2hFaobGHia+zmf/ALv59LuL+Jo2CnphBbnYRwtXk3BIN4?=
- =?us-ascii?Q?40KkyqHBPEEQ8r5+AJYJkGhSFaQBQzWcCqZaYD+ngcTDTT6WYkxrovOIa0O+?=
- =?us-ascii?Q?kCEzmBfom8pOJS0hxjJR8AAuKssy4dv6kdlp/ye/GSGOWYh9WNPERPxOozbk?=
- =?us-ascii?Q?uZYsbn5epiBqgXhzDSWlJw7MhdapSp3x0fEUEwchSlwtpR87ksGb8pACM5Eo?=
- =?us-ascii?Q?PpYCmRZ0y8VnmegZyJQX3JtD9lOjuX624YFYrc5QEM/W67zZKRIBq4+5eSZB?=
- =?us-ascii?Q?BX1r7QgUePwVeyKKP5d9VW92JTxUudNTPob6KNu0M5aVRzeoo/LuPKMiNL5K?=
- =?us-ascii?Q?mExj8B0LmX1j+elY69+2ORj3AlqDR27xbHCwWDTfNAp45lCR1Hiq42pBnkLO?=
- =?us-ascii?Q?6s8TgMKbsZa8giVPV2WmF6Gpuu3pPHVuRqNslsMYKXLaEs3yT1osSo/Hyx0d?=
- =?us-ascii?Q?FuKDgdpOqXLEqLhha/hbheCOuwwk+mMFJL7dgG5V0dAo00UpaHU68oSWqOFi?=
- =?us-ascii?Q?OpwJqeSG0jfv+7W8vRUDqwT6+lMAi7xdkdy4MnkvOxsOyZ4EuI/4aUeRMMiU?=
- =?us-ascii?Q?3QWcjbrJVx12Z93dlXg8K1Bn2n+4nZOtxIUcnlj5vR8Msj1+WNQk6XF1JEVb?=
- =?us-ascii?Q?Rqx1+9ojtXm6uxNIqmPvU0GLkHEA3TbcN/+NsR+BWQbY6/6D1I13x+D8hoGF?=
- =?us-ascii?Q?q0eZi+4lzauANI7EpQ46p9RTDVvfSdOc+cUrH+4hoIEQv8ylFTnB9adI+zZU?=
- =?us-ascii?Q?GUkKHFWANl5okzLV0y9AAvsQhrWuMeZLFetQjSlboopAhAQEBvp+5a6JmVYV?=
- =?us-ascii?Q?/BvmT6faa2y3J31jZei/L9UmWF7PWmx+kNQWQGqpENbGjxye9pWdUIpTw1kv?=
- =?us-ascii?Q?D0KJ+fxlzyuJKy4mAHUWGQHa7d0c6spXT0os5TdKZnSMTyCZCp2loy4JCDOk?=
- =?us-ascii?Q?Chelk5P7xyacm+XDCuXqlKxnMs4Rtj9TlntIHl6hZn7ejsvHI2lTQxiahX7t?=
- =?us-ascii?Q?K+1ZgXSXKQ=3D=3D?=
-X-Exchange-RoutingPolicyChecked: ZaJW4gAcO+RC06L9DmW1edUZfYt9Gqz0TLMgn+jITok9cL4yLLrPKRjyr9PiWfpWyeVewUFsSh/5R0KrHD/GYjtA6TfggiqLBdl+DZ7Ohn/Chd8Ja583dE8bicTLHTtLet3QTDVr0jQmVrlHBAIe914hkKXl4B3kOyKIAWioUpQpx62MJPMype7Zw+CYSlSE/vbK6YRoskEbzmX3QdYBorpPAkJO7OIJqhNVxlb/hCCvp6XoeDWEQRuk1y2kXk04iLaOictMy7g8ih1pLCH9P8og0oNXIv75WENRkIPWhGN+6BWXkC1oZ9Hl+jeuhAap/nQKp7WDK8e3nepAYwDejA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: f7c18416-1285-43dd-b96e-08df4c935cb3
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR11MB6020.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 14:33:11.0862
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /VL3zVGiVlDDgZhhBYKmttuXv7eC6rcVuiDnUElaUu2JkAmieZsa+cJ7Q3D9yMapX8cAg4Vu6qdfXm3OCyodKg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN4PR11MB9965
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1318; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=/kkh+STkW16bo61fnrALXUXLopXwJUn8icTeFUDyuzM=;
+ b=owGbwMvMwCW2VtK+WnvWU3HG02pJDNmcUzaJnLvllxStGv1dWD2t2zaPaXOLj2dHvMC8gu0yX
+ moGSbc7SlkYxLgYZMUUWWq4q8XfSWp9mTVd5zbMHFYmkCEMXJwCMBGnfkaG06uzPxgxWazev9T8
+ nBznBSb/J5mvX23n5H1avOdw6kn1AEaG219YnyTk+92QXLDoc8rr7wv2Lb6115HvlPH6mBXGqbP
+ SmQE=
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 
-On Fri, Nov 27, 2026 at 12:11:17PM +0100, Vincent Guittot wrote:
-> On Fri, 27 Nov 2026 at 10:51, Chen Yu <yu.c.chen@intel.com> wrote:
-> >
-> > It was reported that scanning more CPUs on a system with a small LLC
-> > benefits the workload more than limiting the scan depth, because
-> > scanning more CPUs does not cost much and work conservation is
-> > preferred.
-> >
-> > Expand the scan depth so that systems with fewer than 32 CPUs per LLC
-> > behave like a 32-CPU system. This way, the scan number can be scaled up
-> > for such small systems.
-> >
-> > The effect is as below:
-> > nr_idle_scan before -> after the patch
-> > (LLC = 8, 12 and 16 CPUs for example)
-> > Cell format: util_sum : nr_scan before -> after
-> > Load% = util_sum / (llc_weight * 1024)
-> >
-> >   Load% | LLC=8            | LLC=12           | LLC=16
-> >   ------+------------------+------------------+------------------
-> >    10%  |   819 :  7 ->  8 |  1228 : 11 -> 12 |  1638 : 15 -> 16
-> >    20%  |  1638 :  7 ->  8 |  2457 : 11 -> 12 |  3276 : 15 -> 16
-> >    30%  |  2457 :  7 ->  8 |  3686 : 10 -> 12 |  4915 : 14 -> 16
-> >    40%  |  3276 :  6 ->  8 |  4915 :  9 -> 12 |  6553 : 12 -> 16
-> >    50%  |  4096 :  5 ->  8 |  6144 :  7 -> 12 |  8192 : 10 -> 16
-> >    55%  |  4505 :  4 ->  8 |  6758 :  7 -> 12 |  9011 :  9 -> 16
-> >    60%  |  4915 :  4 ->  8 |  7372 :  6 -> 12 |  9830 :  8 -> 16
-> >    65%  |  5324 :  3 ->  8 |  7987 :  5 -> 12 | 10649 :  6 -> 13
-> >    70%  |  5734 :  2 ->  8 |  8601 :  3 -> 10 | 11468 :  5 -> 10
-> >    75%  |  6144 :  1 ->  7 |  9216 :  2 ->  7 | 12288 :  3 ->  7
-> >    80%  |  6553 :  1 ->  4 |  9830 :  1 ->  4 | 13107 :  2 ->  4
-> >    82%  |  6717 :  0 ->  2 | 10076 :  0 ->  2 | 13434 :  1 ->  2
-> >    84%  |  6881 :  0 ->  1 | 10321 :  0 ->  1 | 13762 :  0 ->  1
-> >    85%  |  6963 :  0 ->  0 | 10444 :  0 ->  0 | 13926 :  0 ->  0
-> >    86%  |  7045 :  0 ->  0 | 10567 :  0 ->  0 | 14090 :  0 ->  0
-> >
-> > It was reported that with this change, the regression was fixed on Orange
-> > Pi 6 and Radxa O6. Since Intel servers usually have >= 32 CPUs per LLC,
-> > this change does not impact Intel servers much. AMD servers have 16 CPUs
-> > per CCX, testing on AMD Milan showed no significant difference on
-> > redis/mysql, and a slight improvement on hackbench/schbench:
-> >
-> >   =========================================
-> >   hackbench threads+pipe
-> >     num_runs:      5
-> >     host:          AMD-Milan
-> >     kernel:        7.4.0-rc4-sis-patched+
-> >   =========================================
-> >   G   FD  | baseline s/se% | patched s/se%  | SPEEDUP | RESULT
-> >   ------------------------------------------------------------------
-> >   1   1   |   6.352/ 7.57% |   5.680/ 5.74% |   1.12x | noise
-> >   1   2   |   6.225/ 8.75% |   5.624/ 7.27% |   1.11x | noise
-> >   1   4   |   8.834/10.23% |   8.799/10.24% |   1.00x | noise
-> >   1   8   |   4.833/ 1.70% |   5.060/ 1.72% |   0.96x | noise
-> >   1   16  |   5.471/ 1.61% |   5.551/ 0.60% |   0.99x | noise
-> >   1   20  |   5.220/ 1.17% |   5.298/ 0.82% |   0.99x | noise
-> >   2   1   |   5.558/ 6.23% |   6.114/ 8.63% |   0.91x | noise
-> >   2   2   |   8.056/10.44% |   8.029/12.53% |   1.00x | noise
-> >   2   4   |   5.292/ 1.26% |   5.152/ 1.89% |   1.03x | noise
-> >   2   8   |   5.493/ 2.15% |   5.403/ 3.38% |   1.02x | noise
-> >   2   16  |   5.557/ 1.68% |   5.407/ 0.88% |   1.03x | noise
-> >   2   20  |   5.224/ 0.68% |   5.341/ 1.19% |   0.98x | noise
-> >   4   1   |   6.047/ 2.89% |   5.797/ 4.41% |   1.04x | noise
-> >   4   2   |   5.597/ 2.19% |   5.791/ 1.77% |   0.97x | noise
-> >   4   4   |   5.397/ 1.62% |   5.501/ 1.18% |   0.98x | noise
-> >   4   8   |   5.468/ 2.67% |   5.155/ 0.95% |   1.06x | IMPROVED
-> >   4   16  |   5.989/ 3.31% |   5.507/ 1.36% |   1.09x | IMPROVED
-> >   4   20  |   5.267/ 0.79% |   5.101/ 0.60% |   1.03x | IMPROVED
-> >   8   1   |   5.322/ 3.12% |   5.273/ 1.96% |   1.01x | noise
-> >   8   2   |   5.531/ 2.38% |   5.367/ 1.64% |   1.03x | noise
-> >   8   4   |   5.672/ 0.70% |   5.814/ 2.60% |   0.98x | noise
-> >   8   8   |   5.037/ 0.93% |   5.100/ 0.97% |   0.99x | noise
-> >   8   16  |   5.455/ 0.45% |   5.290/ 0.39% |   1.03x | IMPROVED
-> >   8   20  |   5.388/ 0.36% |   5.285/ 0.18% |   1.02x | IMPROVED
-> >   16  1   |   5.519/ 2.49% |   5.296/ 2.10% |   1.04x | noise
-> >   16  2   |   5.398/ 0.77% |   5.503/ 3.05% |   0.98x | noise
-> >   16  4   |   5.274/ 1.72% |   5.363/ 1.72% |   0.98x | noise
-> >   16  8   |   5.416/ 0.37% |   5.185/ 0.20% |   1.04x | IMPROVED
-> >   16  16  |   5.596/ 0.41% |   5.337/ 0.24% |   1.05x | IMPROVED
-> >   16  20  |   5.292/ 0.88% |   5.076/ 0.55% |   1.04x | IMPROVED
-> >
-> >   redis (redis-benchmark -t set)
-> >   =========================================
-> >   THR | baseline rps/se% | patched rps/se% | SPEEDUP | p99 ms b/p  | RESULT
-> >   -----------------------------------------------------------------------
-> >   4   |  1492165/ 0.76% |  1480823/ 0.00% |  0.992x | 0.541 0.546 | noise
-> >   8   |  1665556/ 0.01% |  1665501/ 0.00% |  1.000x | 0.490 0.489 | noise
-> >   16  |   984279/ 0.60% |   974545/ 0.00% |  0.990x | 1.124 1.109 | noise
-> >   32  |   887091/ 0.01% |   883212/ 0.44% |  0.996x | 1.713 1.721 | noise
-> >
-> >   mysql
-> >   =========================================
-> >   THR  | baseline tps/se% | patched tps/se% | SPEEDUP | p95 ms b/p | RESULT
-> >   -----------------------------------------------------------------------
-> >   8    |   151897/ 0.76% |   152428/ 0.54% |  1.003x | 0.07 0.08 | noise
-> >   16   |   294014/ 0.59% |   296699/ 0.28% |  1.009x | 0.07 0.07 | noise
-> >   32   |   386817/ 2.18% |   377835/ 0.31% |  0.977x | 0.09 0.09 | noise
-> >   64   |   560950/16.97% |   481494/ 5.68% |  0.858x | 0.19 0.23 | noise
-> >   128  |   752079/ 4.92% |   729685/ 3.89% |  0.970x | 0.36 0.38 | noise
-> >   256  |   772771/ 0.62% |   771630/ 0.21% |  0.999x | 0.79 0.78 | noise
-> >
-> >   schbench
-> >   =========================================
-> >   T   WRK  METRIC   | baseline/se%   | patched/se%    | SPEEDUP | RESULT
-> >   -----------------------------------------------------------------------
-> >   2   8    rps      |  1683.8/ 0.04% |  1681.3/ 0.10% |  0.999x | noise
-> >   2   8    wake_p99 |    10.2/ 1.96% |     9.8/ 3.82% |  1.041x | noise
-> >   2   8    req_p99  |  4904.0/ 0.00% |  4904.0/ 0.00% |  1.000x | noise
-> >   4   16   rps      |  3369.0/ 0.03% |  3353.9/ 0.44% |  0.996x | noise
-> >   4   16   wake_p99 |    10.0/ 0.00% |    10.0/ 0.00% |  1.000x | noise
-> >   4   16   req_p99  |  4904.0/ 0.00% |  4904.0/ 0.00% |  1.000x | noise
-> >   8   32   rps      |  6724.6/ 0.04% |  6722.0/ 0.16% |  1.000x | noise
-> >   8   32   wake_p99 |     9.8/ 2.04% |    10.0/ 0.00% |  0.980x | noise
-> >   8   32   req_p99  |  4904.0/ 0.00% |  4904.0/ 0.00% |  1.000x | noise
-> >   16  64   rps      | 10933.0/ 4.10% | 11179.8/ 1.80% |  1.023x | noise
-> >   16  64   wake_p99 |    12.0/ 0.00% |    12.0/ 0.00% |  1.000x | noise
-> >   16  64   req_p99  | 10051.2/ 0.13% | 10051.2/ 0.08% |  1.000x | noise
-> >   24  96   rps      | 12970.1/ 0.22% | 12971.0/ 0.48% |  1.000x | noise
-> >   24  96   wake_p99 |    13.4/ 3.81% |    12.4/ 1.98% |  1.081x | noise
-> >   24  96   req_p99  | 10179.2/ 0.21% | 10185.6/ 0.21% |  0.999x | noise
-> >   32  128  rps      | 12613.1/ 0.09% | 12667.2/ 0.11% |  1.004x | IMPROVED
-> >   32  128  wake_p99 |    37.2/ 3.55% |    34.2/ 1.43% |  1.088x | IMPROVED
-> >   32  128  req_p99  | 10467.2/ 0.59% | 10358.4/ 0.06% |  1.011x | noise
-> >
-> > Fixes: 61ea17a63719 ("sched/fair: Add SIS_UTIL support to select_idle_capacity()")
-> > Reported-by: James Buck <jbuck2005.linux@outlook.com>
-> > Closes: https://lore.kernel.org/lkml/CY5P221MB09262B7D6A68954CC1B3199FBD442@CY5P221MB0926.NAMP221.PROD.OUTLOOK.COM/
-> > Suggested-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > Tested-by: James Buck <jbuck2005.linux@outlook.com>
-> > Signed-off-by: Chen Yu <yu.c.chen@intel.com>
-> 
-> Tested-by: Vincent Guittot <vincent.guittot@linaro.org>
-> Reviewed-by: Vincent Guittot <vincent.guittot@linaro.org>
->
+Applied to clk/linux.git (clk-nuvoton), thanks!
 
-Thanks. 
+[01/10] dt-bindings: clock: ma35d1: Mark HXT and LXT legacy
+        https://git.kernel.org/clk/linux/c/5cb3fcb3a35e
+[02/10] clk: nuvoton: ma35d1: Use clk_hw pointers as mux parents
+        https://git.kernel.org/clk/linux/c/4df94650b44a
+[03/10] clk: nuvoton: ma35d1: Avoid possible error pointer dereferencing
+        https://git.kernel.org/clk/linux/c/88997515be60
+[04/10] clk: nuvoton: ma35d1: Retrieve HXT/LXT from DT when possible
+        https://git.kernel.org/clk/linux/c/4154c8b3d3bc
+[05/10] clk: nuvoton: ma35d1: Reparent the gates correctly
+        https://git.kernel.org/clk/linux/c/1c2214475dce
+[06/10] clk: nuvoton: ma35d1: Use device managed helpers for fixed rate clocks
+        https://git.kernel.org/clk/linux/c/c31aa10b3ca6
+[07/10] clk: Create devm_clk_hw_register_fixed_rate_parent_hw()
+        https://git.kernel.org/clk/linux/c/5093f6f2543f
+[08/10] clk: nuvoton: ma35d1: Reparent SYSPLL correctly
+        https://git.kernel.org/clk/linux/c/107caca779a5
+[09/10] clk: nuvoton: ma35d1: Fix CCAP muxes bus width
+        https://git.kernel.org/clk/linux/c/6f6ef44a950a
+[10/10] MAINTAINERS: Add myself as Nuvoton MA35D1 clock controller maintainer
+        https://git.kernel.org/clk/linux/c/350f54ff5b92
 
-> > ---
-> >  kernel/sched/fair.c | 3 ++-
-> >  1 file changed, 2 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-> > index da0d9e19c457..1c0e2ac7751d 100644
-> > --- a/kernel/sched/fair.c
-> > +++ b/kernel/sched/fair.c
-> > @@ -12937,8 +12937,9 @@ static void update_idle_cpu_scan(struct lb_env *env,
-> >         y = SCHED_CAPACITY_SCALE - tmp;
-> >
-> >         /* equation [2] */
-> > -       y *= llc_weight;
-> 
-> nti: it's worth adding a small comment about the reason for the 32 below
-> 
->
+Best regards,
+--
+Jerome
 
-OK, let me add the comment in the next version:
-Scanning a small LLC is cheap, so work conservation is preferred over limiting
-the scan depth. Treat a small LLC as if it had 32 CPUs, then the number of
-CPUs suggested by SIS_UTIL is scaled up for small LLCs.
-
-thanks,
-Chenyu
-> > +       y *= max(llc_weight, 32);
-> >         do_div(y, SCHED_CAPACITY_SCALE);
-> > +       y = min_t(u64, y, llc_weight);
-> >         if ((int)y != sd_share->nr_idle_scan)
-> >                 WRITE_ONCE(sd_share->nr_idle_scan, (int)y);
-> >  }
-> > --
-> > 2.25.1
-> >
