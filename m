@@ -1,45 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.243.244.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795780264;
-	b=TeDr5RnfpL9XSogy85y6d+ywqNHHARN+DS77q6QS3/kZqtWQzv6KCFvvuwjp2roiNqCI
-	 JuE7lXrsCj9MPB2SB/gKJIh6EpEFM3JoqOX2ajM/BPhUNAu9+ISxanmNtD1NMSrNwSNMK
-	 h/OdVwYcEs1U3okzKunme8HCoIqV+OPffsyCF+c/VfzJe5x8BG4FMVep0L5gV98nuYFCX
-	 KN5yepccHhvdDw66PR8x5tD/GKnDZX/NWCxXkEH2p916+8BRCWfZY6MM7+6kXMz2MHr10
-	 X/ZNm0lxjH+HzAUcDWi6o8utJg9xNCIx7DhN7Wm92zCflUYHYwuMHnJSXVlcQ9cB4RQ==
+	t=1795780265;
+	b=loDRu4QbkHVW9qvtqrsLfZBhe2kxY13qslbAhePZk6zyiY2Ee9GDYqXQXGY99sopXqHC
+	 ybB0I1+yAVaCzsjTdIYKj8PYjCHjcgaVnv1AGfcVMtH7zCMdj7Eo+eZWKg4x+6hd8iYB/
+	 G6B/ANA463lIGngLCMJw8ifjs2/AEHUFHREYZ+SvutY8fkfqlYO+lU3efVCpj8fxx/LhY
+	 oIVQCLZDM7kHFmDkSAeIywS3qK6++QOykvcTOb+Fxg94RLy+uFaPXfRBmneFUdzUwKsM8
+	 4NikWsTg+/x9FNfA4uoPzjC0hDKjL1wUCEmWs55zVFmMaTLXUyFvmVeEF1JFPC8WFXQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795780264;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=HF9YKM3qySdp71vvMXfdu+eMeA4N9PDI494ydnXnj58=;
-	b=UYTpuEtICTlVEofYsxfXHrFKcOBcfvInE6q01bNQtyFNo6mPswiGMQgEjO7lgxfraBxk
-	 dYD74zVYC5rEBn1M5HTn4INSQvmKpkPKAk13QohmzOJsHlvepsiKvuKOpo4lAvVpZmrlq
-	 SxOlYGaBYukLenxaGC4i9QzUVTAz92s97udBdX+srsa2J568Vqw4qudQQkUUwW92pg/lW
-	 m7sxiFlnNQIiEqf9IJ+u1TOdMyU26coY7vR28gB7LVteeq4rczKgEu8oE9hAvIKccvdOy
-	 8MEOl2Zu9H1ogUUuW5fiYbUSxf5Fyvi0Td4YDnw516B/Jf8JtGn0+3em2M8UOGqQIEQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795780265;
+	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
+	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:
+	 X-QQ-RECHKSPAM;
+	bh=LeIkLzKkDvUFHkvwd+1spI4HrRS2YPMbvTtXbbEthrQ=;
+	b=SFdQK4zh6K09In4LbhL2ndQL5CUhTMtTU1y5NHsSj5TMP3zsqTNBg1VzNrmMAp2qYzB+
+	 M/5Nm00cmYexitpTj7FdUuCgo+UHixc4PbotLZUYDkkfIFQQPHKBOUwWKJ4niOV/YBn4h
+	 MaxlA9JCsVOBS4A+RN9yCFM27D/GlYJ/K+EtHmewqkeL0T7Rw0a4GpJCF1Yf7j2tQKqa+
+	 Cr5IO9opRzqLzBTI3R27t6X55xGeL5lBQf0gkl5zUfn8drzo3wefL0QwXjazpGwYduSvp
+	 /9zQc4w2WKUTi7iR+Umu6IAUADMeBZQIBixHuMawk68+ETZCc0nWUk3hu5l3IVfr6iw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WerBzao2;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=radxa.com;
+	spf=pass smtp.mailfrom=radxa.com;
+	arc=none smtp.remote-ip=54.243.244.52
+Received: from smtpbguseast3.qq.com (smtpbguseast3.qq.com [54.243.244.52])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0AE83606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:51:03 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WerBzao2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7C7B1F00893;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2746F606A326;
 	Fri, 27 Nov 2026 11:51:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795780263;
-	bh=HF9YKM3qySdp71vvMXfdu+eMeA4N9PDI494ydnXnj58=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=WerBzao2beC7vVxh5Dea+hptJQFKGg6jULeV/lGSTFEthqkuNr2CP8/l9yYpMmDdT
-	 zHWHgc5Eyr0WXMsnccRPP+0BYOHZxLJatn+eJLyXUsvUGHfgEs0FrcxtTc9VpTnLXA
-	 +Wc8h1FlID+z8zihcni0macobeKnWasQAcWJcNMw0oDvcgPCqWsXfy/VbaGOtrbbeS
-	 QAdRRBC5U5co54u3H/Ggah1HzXxFkJxJhtEO+5U4JGapyM2fFTMi9v2Vr1i7KnSveI
-	 M2Kd/XojoG7iLXL+g+UOIhhABd7KLkSFUboJjj9s1jBjrOvSSapooTy/0uGdhzWHid
-	 EXC0gaI63jK8Q==
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2746F606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=radxa.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=radxa.com
+X-QQ-mid: zesmtpip2t1795780183t4d1fda40
+X-QQ-Originating-IP: G7ajAXhux6tUPStxBQXe0BE92Mg7JngGoim0GO4Wasw=
+Received: from [192.168.30.32] ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 27 Nov 2026 19:49:41 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 13024802239966438896
+EX-QQ-RecipientCnt: 12
+From: Xilin Wu <sophon@radxa.com>
+Date: Fri, 27 Nov 2026 19:49:32 +0800
+Subject: [PATCH RESEND 1/2] PCI: of: Correct pci_set_of_node() return value
+ documentation
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,45 +56,76 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH] phy: ti: omap-usb2: fix OF node leak at probe
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Zhao Feng <zhaofeng2@cmss.chinamobile.com>
-Cc: Vinod Koul <vkoul@kernel.org>, linux-phy@lists.infradead.org, 
- Johan Hovold <johan@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
- Miaoqian Lin <linmq006@gmail.com>, Guangshuo Li <lgs201920130244@gmail.com>, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261109072450.1005-1-zhaofeng2@cmss.chinamobile.com>
-References: <20261109072450.1005-1-zhaofeng2@cmss.chinamobile.com>
-Date: Fri, 27 Nov 2026 17:20:56 +0530
-Message-Id: <179578025671.13164.10837931399215798521.b4-reply@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=693; i=mani@kernel.org;
- h=from:subject:message-id; bh=asCYCABtuQZZaJied0t9+9hFbnGEIInAKC7eOFlUOJw=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBrCW6jMSa89peYrFPB4acHymYne9v2noHNOSrdB
- hsmyQww/j2JATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCawluowAKCRBVnxHm/pHO
- 9SrDCACNPXxflh0JQTed6hyqX1HvQWJUY66vGkdc/ZZYFQ8uElUdsUEkTR6CRAuXn8xkxf5hI06
- zYFgi9hPfaMpk2jSv46V98xHIau1W66sd8Wo3ymm5t4XCsmh7J+MYy8RTYjsJHQg4i/T2kuGH0s
- VlWewkMUdlQ314D2X8ASimJZj2QGNdbnq9R4IpeQHSyll3ogXMMgVaKQbRzpYANJcqGZLr+Cz8a
- u+aocHPD4feT4NYZgdLabh176wP9ZDhzWSmf7DXf5fdjkjEHo1nOIdIcPudxMawt6FLikTYG46M
- Og2G/CEKlGqZ2MsfDF/c7K6axusSYcot7yo5syhji3LcADoQ
-X-Developer-Key: i=mani@kernel.org; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
+Message-Id: <20261127-pci-of-disabled-bridges-v1-1-3bedcbe51cda@radxa.com>
+References: <20261127-pci-of-disabled-bridges-v1-0-3bedcbe51cda@radxa.com>
+In-Reply-To: <20261127-pci-of-disabled-bridges-v1-0-3bedcbe51cda@radxa.com>
+To: Bjorn Helgaas <bhelgaas@google.com>
+Cc: Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Stephen Chen <stephen@radxa.com>, Junhao Xie <bigfoot@radxa.com>, 
+ Daniele Briguglio <hello@superkali.me>, dragon@radxa.com, 
+ Xilin Wu <sophon@radxa.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1099; i=sophon@radxa.com;
+ h=from:subject:message-id; bh=k/kLlokSneUeoKS4FVw2ibyiWAgmHjBwSfjL3GuN8sA=;
+ b=owGbwMvMwCVmdFg0fe08Iz/G02pJDNmceUGTLP+yv2dbcGRJzNTbEx9ILVvGKWDQxG2S9KNm/
+ Zqkr8sudpSyMIhxMciKKbIoxDPMZa/MvfZUrFQPZg4rE8gQBi5OAZjIMxmG/8ExnAY7zOui/San
+ Sc7fZiTEITeDY+bM6CPdT5Xdum0uuDAy3J+u3sFopZtwyGuSM//ujoMVM86KOe2qT/q2edmtxgN
+ /2QE=
+X-Developer-Key: i=sophon@radxa.com; a=openpgp;
+ fpr=205F009D07796DD6E516752E32C31567AD9E324E
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:radxa.com:qybglogicsvrsz:qybglogicsvrsz3b-0
+X-QQ-XMAILINFO: NYzuS3BMnxktMljWXz3mVi0hqyL4cM1fkfE9voHCt3Y+swAm85wH7ndV
+	Ib2Q+0Xv4axQiXT5FkyqvGGEr/eBYydL9S53++lKcOGGh25DGTYUeAYfEvnve2vOzOljHI+
+	y5A7doNV7AZlibD4T5JWejIezdNdwWd7gdG6eZCPaIp8CXt8dA5YuvmHeyedEN94CbvRZgG
+	qKM3rN9wdqiLz7xy4HTMq7JHFVDIp9+MlDsE1/lo5Gz6mhqwi92cN4tjZ0dfdpApuTrzRkd
+	v3UgDvXCVi36XuWn6c4agv6YjNIV7WK804tZKsStzR1ecMr34br8jRpxaoRwX4YY9fNrrTO
+	3X2AzERFdJ4ZMsUuPIyKW4LAtAcBcp6isQPzaA447ZinISEfxYpS8SdB8Jl1bgt60CoCTnw
+	cZQnRpRYdKibRoFUhfk/NfIFgyXiYHi6g06XlL1mAPwHcRcxNY50e64glwKjfiiTanlfOEx
+	ldTa7KoMT5FNWNv6V7fv7+esdKZQmDfeXgB63IlXre4l/GFueYSylm8CiycrAu4LO7C69IY
+	dJDjxUOOfZ3E84LGJTyeENGEY3pAHhz1YMlx7NyD0g3ngsnyllEd0kguL/5e/ML2eEabT5U
+	BwM0scGkqLAy14gW8I2dDggx3yoGIVlKFhZEmDyO5LQobKtxtR3fZd03AxZs7NRFaJtZYr0
+	JhwT/g0o4b/IM1r3M6oYW66G2Zl9zRvmwGPK5gsorNanDqrph09ap+v6uSKWgcMio5CzRhV
+	Hs6niD7AiGQ7Xhrfd5d6ke/tk1Ei11wHlClRvZX3YQO7EvPUu9EzBA9h2by8xqOV+zrROJ6
+	5WeLa2XJA2IpeQBpgXfGSa8wPUzbb/gTKPy/5T71k2JgOW/lNCTIqLyFBhrIWn20L94qXAB
+	+5CYE0h7nO9Ceh7VaGhLir2MwRa9bnpGntLMBO8qdVywgeATVTStNHSDX/iwv5r734IsXXE
+	8CbojH3YkeSSabXstc/ODQoXrHXkpok0lDkKBYy0iu/CS8CgyWZvNo39tJ9wCfeUUBHjnCd
+	WlQ9G193P72+ZPO18T/5FudrcE0BRbINjU0yQ2l84uKKiv64yAFQuN5maXyBy3XWBq2V2RW
+	BMCh9fUyHeImwiwz1qbLlTOOr9Kz2NrVA==
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-QQ-RECHKSPAM: 0
 
-On 2026-11-09 15:24 +0800, Zhao Feng wrote:
-> omap_usb2_probe() obtains a reference to the ctrl-module device node
-> with of_parse_phandle() and never drops it, on either the successful
-> path or the !control_pdev error path.
-> 
-> Drop the node reference right after of_find_device_by_node(); the
-> device reference taken by of_find_device_by_node() keeps the platform
-> device alive and is released at unbind by the devm action registered
-> below.
-> 
-> Fixes: 478b6c7436c2 ("usb: phy: omap-usb2: Don't use omap_get_control_dev()")
-> Signed-off-by: Zhao Feng <zhaofeng2@cmss.chinamobile.com>
+Commit 1a8c251cff20 ("PCI: move OF status = "disabled" detection to
+dev->match_driver") removed the availability check from pci_set_of_node().
+The function now returns 0 even when the device is disabled in the device
+tree, but its kernel-doc still says that it can return -ENODEV.
 
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Remove the stale -ENODEV description and use the kernel-doc Return:
+heading for the return value.
 
-- Mani
+Signed-off-by: Xilin Wu <sophon@radxa.com>
+---
+ drivers/pci/of.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/pci/of.c b/drivers/pci/of.c
+index a51dff91b196..9e82c79be3d8 100644
+--- a/drivers/pci/of.c
++++ b/drivers/pci/of.c
+@@ -24,8 +24,8 @@
+  * pci_set_of_node - Find and set device's DT device_node
+  * @dev: the PCI device structure to fill
+  *
+- * Returns 0 on success with of_node set or when no device is described in the
+- * DT. Returns -ENODEV if the device is present, but disabled in the DT.
++ * Return: 0 on success with of_node set or when no device is described in the
++ * DT.
+  */
+ int pci_set_of_node(struct pci_dev *dev)
+ {
+
+-- 
+2.56.1
 
