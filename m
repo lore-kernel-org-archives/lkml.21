@@ -1,45 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795786908;
-	b=kXsMMlGY8AYIlKPV7Zh5GRVXKYFr7Q5eiARCGJd04ER1obIuXo/rRB1XzGBcTeruNi1N
-	 uUTXv+W2CXQZlL1zXbS8A38H84cpVQArflkeWGfEpEi5bI533irv8UIy9QMmJHTUywlBn
-	 BpA+1sUy4tfg/NodJP9Rrv6iqwT0FlorCGHQrrVw6DoTOwnsMqoSJVqKwxftD7ykxeIxc
-	 C7Yw0Pv3EdZpyOyGd8bJ7DeFPVBxvHuBYq3u7SAm24bAEkxbgjroQFZ8Q/BxTYqCMLzdm
-	 IyM6ymB5A2tGxPwkmLob/I4Rsa+hnyV/1DphuB11Bsu7ZWUDcaefcnp6GX2s0IddbWQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795786908;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=BDo//JmYwl1UQRJ5WVgMZg3yymgH4OPVdjLNDAoJQ+A=;
-	b=C1NIZXme18lSgP/6gWGu1/Y5fd4GjDTR/nW3lEvtRtnv2bHkFpU8iiousBuDUH6YVk8B
-	 +jR0JCZdkSutZe4eyVt0zSgt2v8gtL9Wm+HwQ/K5AflJ0uIKTGH6eDLgHOexmgGyoai5e
-	 ougxTWAF+sRJsa2e1RrT6YtnXb4bUFhRZcIRTLtDO9qhSvIKJ2WLgDBuZDu0l0X6FVWwm
-	 wQGdqLp7ZlzgPwnBbKaQDwmXZgFKGLHHBGllrrL2PkDKn7FsFmA9nF/0UWc22IYZTkURL
-	 bgpEGao/1kXdMmeHB+gOsguzqfrGrNiZ1MDjL5/KuhSDrZkDVY9hDDLrCIokTzhKyPw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UKQWceuC;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.125.12
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795786929;
+	b=u+04R1nw5AhMBYnPJmfqxRngOQ/ge42yDdbIdizRVefcgYfhYMQKTcJZiS1XAvg/1krr
+	 trRyJw/5QC6RlJXrqGZJpsBAS5yyCtW/e/j7dFqg7XVzyyfoF5t4VVEw5ZV3JicV+l5Qs
+	 yH1EjpHP/GGDGnQTjSEYO02NcNVfOvUEU1mZIIO1qT8LAscAMMhhmGhjKGggGNibKk8Q2
+	 7zSdkwvT1X6U4NKxNsSm9yL9KnUNK1M7xUCB5IGoNncOu86peCM3xEB27EfFSkdtJtgf8
+	 rck5gQaQc7F5xsUj2PQ5YVPsEM4N+Iq1nxb+CebQ2osyMexFgFCgxWU95SeKSX1D7+w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795786929;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=atyb43qYmihoBCqNKLY27VMh3jBuUG9hc9RrYHqQ2yE=;
+	b=spMjJ/usMjIkb8/Mfc2d/PzsDzamt6v76zyRwZ9sVhbtcD/IyDCRWRRoep/sNX+SoDYl
+	 ACjYhn45o7MqmrM4ZVBD26fKEC+F6zzGEIeMFXmAZ81lphaAzEqJanu9SXgxNNpZczll4
+	 ufiXjNka9xrETZ3ANbnNEOpUWjJ6TH3u3MjzqFQbH8qY3ks/K/BzjOSqfPv5ROvJz1qdF
+	 8ZhV7qQ75xTrZonP88myBJYBf+q8j0FANWbWxkrbSP0PGbhn8ZtqxQ3fEavIh1aXoElHY
+	 tNxnmMeoNMtBHq3nyKV8rGtWyrePqDK2HCPqgOwmj3gFR5GTh93vAmHYmj7ZSpFAVLA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=renesas.com;
+	spf=pass smtp.mailfrom=renesas.com;
+	dkim=pass header.d=renesas.com header.i=@renesas.com header.a=rsa-sha256 header.s=selector1 header.b=FERLc25K;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.125.12
+Received: from TYVP286CU001.outbound.protection.outlook.com (mail-japaneastazon11011012.outbound.protection.outlook.com [52.101.125.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFCF1606A330;
-	Fri, 27 Nov 2026 13:41:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 859C3606A31C;
+	Fri, 27 Nov 2026 13:42:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 859C3606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=renesas.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=renesas.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UKQWceuC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C02541F00893;
-	Fri, 27 Nov 2026 13:41:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795786907;
-	bh=BDo//JmYwl1UQRJ5WVgMZg3yymgH4OPVdjLNDAoJQ+A=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=UKQWceuCZyzZ+uqcWviiLyA5Kg9HClcVe3LQ59lbX/flKnZg7g/I9z5sRyAHbxJt8
-	 4mDgKYcWOacgr7upCIGw2TDDcKq0zEPP5j3vZFwRFyDI+yXT1XuMq6OpM/hngufg7v
-	 6fzz6tboP9rm+ZnVdi4+kK9aJrLmL1yxNcbI2RQFiJk6blKnkF1RxfZvj3s0GXgQZL
-	 q9RCNDWj+CI045lpGZ1VbQqyPIhqBym43InYk6xnUkDrKbnLIzkthArZ3wBjzn2ll4
-	 bv/sDs9R1MLwW74Ra93Skcv5Da4W/ol/TpfGUVlV53u6RM+0n53GOMBokhuTVITlQD
-	 /3VY1aLaZ5jhA==
+	dkim=pass (1024-bit key, unprotected) header.d=renesas.com header.i=@renesas.com header.a=rsa-sha256 header.s=selector1 header.b=FERLc25K
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dafh59c96deJRV7MT09+u7BChD2xT3XIaiR7RvAcHYzXqUkeFkjzraUQ2kyMlA5+xfFhX6hoxGZuBuUG3MLjp2On67eFZG6oMj2yhnklbMU8/NGClBMsxTTTyO0Y2/V1TNXPt7YIzoBX6dWsp1XJx8MuIhY+NoIMlfMEVwGg8ntJWyNRCve24H3upMUgCN4i8+f+BSofDHjD+GFCD/uGOTldFuerrj55Nu7ajynlprWLyTTwMXSZUQBu0zkUE3xZmOQKFJVeUVA9ccAkLj/ktJ4jRmdKoLwthzpRsKnV51M8MQVrk6zyXp8ZVtcPfyJE14yxLDbih13k+xseizWvGw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=atyb43qYmihoBCqNKLY27VMh3jBuUG9hc9RrYHqQ2yE=;
+ b=O0HM3DGs0C+/CWdXq1dLp2mrtLxU6ovCmSR1QkFylEhrIr62mvynNwC3Q++O3VRHRcleb7lyNwhi8h+zjfBNeX6oj9kCy+x0Q5VgK1oZ9yElF32SSNMK6cksY3fOKK4K67zM28F8K9lACUuChICXo7Y+AjTYHJERGiLzWArjG1slGyT/X3RKM8Go2PHY7xwsR4H757XS+33kMNpuegD15VjZ8cH55YUPQv/xOnd7VUQ7XWZbSjykJNql9KyACiiK6oDJp3z9ChM2wmS46ZXXPbHlyGjKRnsTJdOfpAoawH+dFYTo65wjUkWPrwu2dMNCV/l44LoJcagzKTIyuj+nxw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 8.62.32.50) smtp.rcpttodomain=kernel.org smtp.mailfrom=renesas.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=renesas.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=atyb43qYmihoBCqNKLY27VMh3jBuUG9hc9RrYHqQ2yE=;
+ b=FERLc25KmT3sUnzjN08aKmYWk1tIydtFTTJ6U3hAtIWFXjKmQcIwiy0LE+Y88i44fSp25kNPWeTsOENnYCiGDtegAUN5j3N+MFbyLQNOzkiQUWG8c0ZPoSYWhXIURaaOiz79XvngkWtgsXlKfMP5NOMnHJZgCM6RvMLIERRZrh0=
+Received: from OS7P286CA0027.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:26d::8)
+ by TYCPR01MB18545.jpnprd01.prod.outlook.com (2603:1096:405:390::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
+ 2026 13:42:04 +0000
+Received: from OS1PEPF0000D215.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:604:26d:cafe::6e) by OS7P286CA0027.outlook.office365.com
+ (2603:1096:604:26d::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.11 via Frontend Transport; Fri,
+ 27 Nov 2026 13:42:04 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 8.62.32.50) smtp.mailfrom=renesas.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=renesas.com;
+Received-SPF: Pass (protection.outlook.com: domain of renesas.com designates
+ 8.62.32.50 as permitted sender) receiver=protection.outlook.com;
+ client-ip=8.62.32.50; helo=ejcrelay004p.adwin.renesas.com; pr=E
+Received: from ejcrelay004p.adwin.renesas.com (8.62.32.50) by
+ OS1PEPF0000D215.mail.protection.outlook.com (10.167.240.22) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.688.5
+ via Frontend Transport; Fri, 27 Nov 2026 13:42:04 +0000
+Received: from [192.168.1.200] (unknown [10.226.92.192])
+	by ejcrelay004p.adwin.renesas.com (Postfix) with ESMTP id 677663000224;
+	Fri, 27 Nov 2026 22:41:59 +0900 (JST)
+From: Diogo Ivo <diogo.ivo.sx@renesas.com>
+Date: Fri, 27 Nov 2026 13:40:57 +0000
+Subject: [PATCH] serial: rsci: Clear TDRE once per TX FIFO refill
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,82 +101,143 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v2 2/2] phy: qcom: qmp-combo: Add PM suspend/resume
- callbacks
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Prashanth K <prashanth.k@oss.qualcomm.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
- linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261113103111.156476-3-prashanth.k@oss.qualcomm.com>
-References: <20261113103111.156476-1-prashanth.k@oss.qualcomm.com>
- <20261113103111.156476-3-prashanth.k@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 19:11:41 +0530
-Message-Id: <179578690105.13164.10122053052435645688.b4-reply@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1985; i=mani@kernel.org;
- h=from:subject:message-id; bh=y1ICl9vTrafLL51TQXZn7JctWWJLDdci3DtJErJWppU=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBrCYiXVAgM1GXDFYHgHjC61HHDNS0KF/izNjPux
- 3WXJzR1geWJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCawmIlwAKCRBVnxHm/pHO
- 9ScMB/4ymnEjlhbG+zY4Hv/PZ2nwUxVkgwo4O0/1+0zXApW2fmgRW+FMNCnoVvgiDxyz2MMxhcJ
- yRGAbjkUD/cmWHd48yl5OyO2dRE0NGC5703NBUKIzchfNO4IKEk4FUnQNbb58qzUwWdXeIKWz8J
- KbIJIe3x7NfgfDVijf96Ya2rh0kXpgx7AcVlDJAOcAcL59f8JponXG3bn5DRJtgfwsgE14lQaML
- oPjfkDsfBxVh1oiLDKM7czHGKOpZCUh6xrdKsnNJEOywKBzlESwOe9RKpgy3HXS8gsgMeA6XP2P
- 5SczwWMOptHQC2pWPYRyfCHO6sOqfoNr9+mWjv1zktpFuixA
-X-Developer-Key: i=mani@kernel.org; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
+Message-Id: <20261127-divo-ssgrlpcsrc-2996-rsci-txi-v1-1-88e1614ea0b8@renesas.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/02O26rCMBBFf6Xk2UAy2mnSXzmI5DLtGVHrybRFE
+ P/deHk4jws2a6+7EipMovrmrgqtLDxdKthNo9JvuIykOVdWYACthU5nXictMpbTNUlJGrxHXSS
+ xnm+sB5cd7dDGTF5Vx7XQwLe3/2f/YVnikdL8kn4Xhf6Wejx/ZioGIZ2m85nnvtlmAJ/IeYcQH
+ TnInQ2erM04uJ1JAToImFH9D+6bd64Bo0dYTodXXayMBim0se3XVu0fjydwpMSP/QAAAA==
+X-Change-ID: 20261127-divo-ssgrlpcsrc-2996-rsci-txi-f8d8e461bde9
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>
+Cc: Cosmin Tanislav <cosmin-gabriel.tanislav.xa@renesas.com>, 
+ linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+ linux-renesas-soc@vger.kernel.org, Diogo Ivo <diogo.ivo.sx@renesas.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795786918; l=3519;
+ i=diogo.ivo.sx@renesas.com; s=20240529; h=from:subject:message-id;
+ bh=62oEN9KCPFY5TOgPKuoUWjc9cPu6NmFjLDK+Gt4Al+s=;
+ b=tPBL0XRGJaJ9WscCVCddiXb8+ER1KHZ0+T7eaiWi3C0mM+GcBUIFkTun2wwwUcgyCAsKPkZDB
+ +XaOj0FV2M4D0onutXtRIBUAlVvTDLWIAWruwmu1bt6rriYpndBYfB0
+X-Developer-Key: i=diogo.ivo.sx@renesas.com; a=ed25519;
+ pk=BRGXhMh1q5KDlZ9y2B8SodFFY8FGupal+NMtJPwRpUQ=
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OS1PEPF0000D215:EE_|TYCPR01MB18545:EE_
+X-MS-Office365-Filtering-Correlation-Id: 119174c9-b635-48df-5a0f-08df4c8c38e1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|36860700016|376014|1800799024|82310400026|23010399003|10067099003|11063799006|56012099006|261021121427099003|261026121527099003|261022105027099003|261021123027099003|261028144727099003|261102123227099003|261026140227099003|261009223027099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	ANwOfZxWlpq4pRuSu+JgB+BfBFVakWqRWaUZwkw6LwsL6bexIvmMeFuIgoZSKNjdO8rc7MkHwWvVHQwp9UmXwUa2rUA+70PWtH5lxjRCJ9YjHBchvzG2J2ECFWZxq3KIDxFNEsmEnm+5cmNgtNnFBZ/vCwuCc6J7SSofUeW/0J+tmrQyh5rZenHeFV2P27g1mAdG2+tg7V4siuSYpi9Vauk/AuTJy91mHhihQTLxXHK9ToRHHQ8AxPfkPj/M1FO8m6LpxV6V6yED1XZlX4c92VX4heGYVYuKmSvs3wSDK+5xI0UJiP1uo6hI7qnnQNkvRuxTcjYsYtVL61tv2MXNYwLOvmIKFc0z0NG1CERdUPtA0DjvIom8cr0WurqfUOk9PTblAUAMQpWe7BJMSmlzLTh/yCCynA/UmQ+g4Yozrm76vh425XfrIO8x4GlBxGYtUHQ82SnA8k16vbzRLOSASImeWVerU8kP4cAjxvg7HsoiSLlbP0t5PFJaukZj3fIAMS4pGJqxolumXdixKL7r9y+Bu93JIowzzfOgFOUqSDI7tVqLE2CBcrev8CiUmSG3i3XVDA+24Tk/wESIE1RfNdkpuX3QfpYmVrcSEhYJaDUUATqySvDZuyt/vVXSnHorlxNE/6HrZTty2Jfc2v9rNxwfis93TDVr3MiAIn6UAqdfMVoxPxvuRKbCbZeukgiJ2nw0k0mejYI12Fh/P/erKw==
+X-Forefront-Antispam-Report:
+	CIP:8.62.32.50;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ejcrelay004p.adwin.renesas.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(1800799024)(82310400026)(23010399003)(10067099003)(11063799006)(56012099006)(261021121427099003)(261026121527099003)(261022105027099003)(261021123027099003)(261028144727099003)(261102123227099003)(261026140227099003)(261009223027099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	AEOA6M7JXuhxOZGP5G4pM76nqQovithz1qzApjHJ7ySvHgSbOu98K+xsh96RMnUCL1xM3635lT36d/6D4gqgD3QVGGqB3mPlqQU7RLGwL26HuOseQq5sT8jbLSUsTEdM7GpnsTCsk0dDChSHSGw0UvEhe1cVEbxJvK8RG9I/OXSh13UBDawa4NvYiQW/8FvRJysMkmwsj6uVZlOYJdCGeSLdewsf8ZaAp2hIomJL7XLk2uG73jUnUpkix9QsUXxSm7WYn0ghiWXkbsk03IvAAkaCTMuLGbexkuwcIeF/xEWqX+iyq2zwCurcftfOtLegB9iOFrNqxnViHue1pn/hIwKNy+i9Tp+udW57VHqQ42/K3v+vD0u0p3J0xRDKXipkZQ7SlGLzzM2Pjt/7h9FL20wkMFF0khI6nTgvsEXwQg+eKqLQ2ctVAezW4Ru8qaqq
+X-OriginatorOrg: renesas.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 13:42:04.2680
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 119174c9-b635-48df-5a0f-08df4c8c38e1
+X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=53d82571-da19-47e4-9cb4-625a166a4a2a;Ip=[8.62.32.50];Helo=[ejcrelay004p.adwin.renesas.com]
+X-MS-Exchange-CrossTenant-AuthSource: OS1PEPF0000D215.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB18545
 
-On 2026-11-13 16:01 +0530, Prashanth K wrote:
-> Currently when we perform system suspend, the phy clocks aren't
-> turned off leading to power leakage. Prevent this by adding PM
-> suspend/resume callbacks for the qmp-combo-phy which toggles
-> clocks on/off correspondingly.
-> 
-> While at it, add mutex guard in runtime_suspend/resume in order
-> to prevent any race between RT operations and phy_init/exit(),
-> as it can lead to unclocked register access crash, underflowing
-> the clock enable counts.
-> 
+rsci_transmit_chars() clears TDRE before each write to TDR, going
+against what is stated in Figure 7.3-17 of section 7.3.3.8 (Serial
+Data Transmission (Asynchronous Mode)), FIFO mode, of the RZ/G3L
+hardware manual:
 
-I don't see how this race can happen.
+  To continue serial transmission, write all transmit data to
+  the transmit FIFO (TDR) by using a TXI interrupt and clear
+  TDRE flag to 0.
 
-> Signed-off-by: Prashanth K <prashanth.k@oss.qualcomm.com>
-> ---
->  drivers/phy/qualcomm/phy-qcom-qmp-combo.c | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-combo.c b/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
-> index 187f0cd11f6c..65d280f45db1 100644
-> --- a/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
-> +++ b/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
-> @@ -4717,6 +4717,8 @@ static int __maybe_unused qmp_combo_runtime_suspend(struct device *dev)
->  
->  	dev_vdbg(dev, "Suspending QMP phy, mode:%d\n", qmp->phy_mode);
->  
-> +	guard(mutex)(&qmp->phy_mutex);
-> +
->  	if (!qmp->init_count) {
->  		dev_vdbg(dev, "PHY not initialized, bailing out\n");
->  		return 0;
-> @@ -4737,6 +4739,8 @@ static int __maybe_unused qmp_combo_runtime_resume(struct device *dev)
->  
->  	dev_vdbg(dev, "Resuming QMP phy, mode:%d\n", qmp->phy_mode);
->  
-> +	guard(mutex)(&qmp->phy_mutex);
-> +
->  	if (!qmp->init_count) {
->  		dev_vdbg(dev, "PHY not initialized, bailing out\n");
->  		return 0;
-> @@ -4761,6 +4765,7 @@ static int __maybe_unused qmp_combo_runtime_resume(struct device *dev)
->  static const struct dev_pm_ops qmp_combo_pm_ops = {
->  	SET_RUNTIME_PM_OPS(qmp_combo_runtime_suspend,
->  			   qmp_combo_runtime_resume, NULL)
-> +	SET_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend, pm_runtime_force_resume)
+This leads to two problems: (a) up to (FIFO_SIZE - 1) unnecessary MMIO
+writes to clear TDRE that take a significant amount of time in interrupt
+context and (b) a second TXI interrupt is generated while the first is
+being handled. This is described in the RZ/G3L hardware manual in section
+7.3.2.2.18 (Common Status Register), under the TDRE bit,
 
-Same comment as patch 1.
+  When the condition which becomes 1b and the condition which becomes 0b
+  were formed at the same time, TDRE flag will be 0b. After that, when the
+  number of data stored in transmit FIFO is judged, and if that is equal to
+  or less than TTRG value, TDRE is set to 1b after 1b RSCI_m_PCLK.
 
-- Mani
+meaning that if we clear TDRE while the FIFO is still empty TDRE can
+reassert and trigger another TXI. This was observed on a test on RZ/G3L:
+clearing TDRE with an empty FIFO made another TXI pending.
 
+Fix both issues by writing the batch to TDR before clearing TDRE. If no
+bytes were written leave TDRE alone.
+
+A test on an RZ/G3L platform (FIFO_SIZE = 32) sending 64KiB of data led
+to 4096 TXIs and around 159 ms spent servicing them without this patch.
+With the patch the number of TXIs went down to the expected
+(64KiB / 32) = 2048 which took around 86 ms in total.
+
+Signed-off-by: Diogo Ivo <diogo.ivo.sx@renesas.com>
+---
+ drivers/tty/serial/rsci.c | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/tty/serial/rsci.c b/drivers/tty/serial/rsci.c
+index 80087be11808..e4704cb3b6c7 100644
+--- a/drivers/tty/serial/rsci.c
++++ b/drivers/tty/serial/rsci.c
+@@ -432,16 +432,16 @@ static void rsci_transmit_chars(struct uart_port *port)
+ {
+ 	unsigned int stopped = uart_tx_stopped(port);
+ 	struct tty_port *tport = &port->state->port;
++	unsigned int sent, room;
+ 	u32 status;
+-	int count;
+ 
+ 	status = rsci_serial_in(port, CSR);
+ 	if (!(status & CSR_TDRE))
+ 		return;
+ 
+-	count = rsci_txroom(port);
++	room = rsci_txroom(port);
+ 
+-	do {
++	for (sent = 0; sent < room; sent++) {
+ 		unsigned char c;
+ 
+ 		if (port->x_char) {
+@@ -451,11 +451,13 @@ static void rsci_transmit_chars(struct uart_port *port)
+ 			break;
+ 		}
+ 
+-		rsci_clear_CFC(port, CFCLR_TDREC);
+ 		rsci_serial_out(port, TDR, c);
++	}
+ 
+-		port->icount.tx++;
+-	} while (--count > 0);
++	if (sent) {
++		rsci_clear_CFC(port, CFCLR_TDREC);
++		port->icount.tx += sent;
++	}
+ 
+ 	if (kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS)
+ 		uart_write_wakeup(port);
+
+---
+base-commit: 3d229ce89862b8e82d71a9e11d6f840ca272a6d6
+change-id: 20261127-divo-ssgrlpcsrc-2996-rsci-txi-f8d8e461bde9
+prerequisite-change-id: 20261020-g2ul_sci-b610606ea5b5:v5
+prerequisite-patch-id: ed5f3ae4090037e6b4c6126e86b3a5ef1c6c1b44
+prerequisite-patch-id: bec547271f9d220883db537de4c595fb9734d5ce
+prerequisite-patch-id: fd136809f0c9d90c66f23b5165f59d3e50117928
+prerequisite-patch-id: 498b88618f0dd6fcc63f671fde36edaf5cd0c811
+prerequisite-patch-id: da7a159d3cd6376a17a9ab5edb91eb283574243b
+prerequisite-patch-id: fd9ac71ffbbcc1aa106be6f923583a39342c7296
+prerequisite-patch-id: 988f616382a3b4aedf191e097cc829b7be0546e1
+
+Best regards,
+--  
+Diogo Ivo <diogo.ivo.sx@renesas.com>
 
