@@ -1,76 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.37.255.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795780122;
-	b=2lRKNk3bdTwoSpi/BKjTTG09JXcaP6TSepOtUTOX3+69VMbEJGskE94vukdUbOu/9u0K
-	 QkHbFS97X99h/CszjEyp0g8TCPtbEfW4el9jvxZSgtxIVsAMc2XC9Bhx5uFBnCESgJvaf
-	 1dkNrnu48tMWhf4d/zMOcQJxScnxWeuw936ylZOF1bd2P1C6/axYZrOTuVnX44uit60oh
-	 64K1LIjNmayKySbDKwVEjNI5xXm2Ao4FSIJaxYgJuTaK8y0d0TxChE9lcjCOIHDdD+hrC
-	 G9g0ERpBWf+Z+5zLvTVgHQMghkoUKp8wzzl9r2HiwyvBy/2MZ/GM00Wq56+GrOGPlog==
+	t=1795780127;
+	b=USvIXg4ripEF9Tw4udVdyT37VA50kTqxC4EznqUhXyslXV221JmbwauZfsxVDI07Co+v
+	 /QNsapK7O2PcawciORPwM28LHghMwkuxsJ2QNwIhkah4LZArrnknWJ+82Ho8nvcfAXTu8
+	 JlEwS7uRLy4zJDKPMp0lcPhSF2gUfEnETeAdQ6yF30pimb50E7qqNpSgoYIbHeRhLE8k/
+	 dzUqOWhlW7KUzM4Zi7QBAJy9n67vy+fvNUnFcKe7vJuUiROJKiLXNBjHhk0sMMcgrRGPk
+	 vzTitoDin+KQnUkXsccqS7zEyfo07uDEp/BYgHy0iQbFXreUfTiA6FtIuIkLEsNr8uA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795780122;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=XoVuZ/Auip5toU3PbcJl2w3oz1W2jXDEKyOD6MbonM0=;
-	b=lEvhd/2jaMqBJ4E0Leks757mnN4Q2B71kXThUUSqhN6qZ8yMm8RqH6Pr+H4YPn5UJ8b2
-	 bYTce9DEo1LCsAHaDMSTvNOH9vPEl0YtYxOVh9vkd+eZBIoHiAQPFlb7PJ4EJRzGvyBCg
-	 dVPXsI9b6MQBMIPD2PgDK3hMhy0CD3IcfFgRcTZt/+cQoqrVMPuYzBcEgJx9W/obRbQ+2
-	 e/cfKTGaSymgow0vFo4FImQsK3P9KIhAtJXBELXDWKDpsRn/rOLDxeAr3RtpBopUyXfU0
-	 UGAUqoX9mMtAVTKnraMtEpe4oVASxpEgCEPR9DKNcY6MRLf7Jvx3dQUZ9Pzm5yraNEw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795780127;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Received:
+	 Received:MIME-Version:Content-Type:Content-Transfer-Encoding:Date:
+	 From:To:Cc:Subject:Organization:In-Reply-To:References:Message-ID:
+	 X-Sender:User-Agent:X-Spam-Status:X-Spam-Checker-Version:
+	 X-purgate-type:X-purgate-ID:X-purgate;
+	bh=77fQfPnTo4BMHwifxwrJ7vUrPWAWFrLMMt9Tjlz8aRs=;
+	b=WkAddPFaz+lPQzSZsGF80L7Lf0bI65UIqlboGBKuOrNuCWAO/P1hVmmy42hjmnMLw1Nj
+	 8Lnnq5lDeRIgIMsWt2MdleQEEDc3gzf2Smv8MtInV9YVogfBwiQOEA37VnApQ1HDYuXMg
+	 LNbkaRwZ8tK8WvErAwPTDtRdBiA3V6vagis6Fg4YotWmKsYbWgVmiDO2hFdojwjPzqMMq
+	 QGHNo7bRhbxNcjqy9+VCIRbJlhEKuCZIHHPz2BVzfKHSxT3JOt0vXBdZOH8H59jlZK5CI
+	 Wbrjuq9Of4SbqbpnG236h1RmovpVpLrhMPJqN/NW8mEaFYFvpGA/AO35sMja6YuJxKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b="oSt/Yhtz";
-	arc=none smtp.remote-ip=90.155.92.199
-Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=dev.tdt.de;
+	spf=pass smtp.mailfrom=dev.tdt.de;
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b="AJ/wBGA3";
+	arc=none smtp.remote-ip=194.37.255.70
+Received: from mxout70.expurgate.net (mxout70.expurgate.net [194.37.255.70])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 369D1606A685;
-	Fri, 27 Nov 2026 11:48:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 369D1606A685
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 580C1606A33F;
+	Fri, 27 Nov 2026 11:48:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 580C1606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dev.tdt.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dev.tdt.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=oSt/Yhtz
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=XoVuZ/Auip5toU3PbcJl2w3oz1W2jXDEKyOD6MbonM0=; b=oSt/YhtzIHOaoNm99RLjfK79RN
-	8a8JWywA/gz7/XGpQN1v1R81QjVNVZGflkLNZKa9dBN3oN34hYG/MJj8RNS0Y69tJjo8LZ4bgkcQt
-	xZYOX8z1YzvouCGre1tM+sI39A+JsfggRETMlo3gH+UJEETn+c1eysPrPZ/lk7gmSCXhGyC+JlWEY
-	YN45SR627HzO0qgm+XvJS7ljpJ3D9BjQeneIWBZ3EByUorS0kECRgy+P0OUmP3IyptaOQy3vfAnhB
-	Q+Lfak9IK/bbSN6d5ywwCodIs3gwLPc5dszlXFWCAVAHPkH7RfFE/qCNBZOZ4ahyps8nJtkwxdiqT
-	NGLMW3Gg==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWuRK-00000007f2h-3Tbk;
-	Fri, 27 Nov 2026 11:48:30 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id D383B30027B; Fri, 27 Nov 2026 12:48:28 +0100 (CET)
-Date: Fri, 27 Nov 2026 12:48:28 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Juri Lelli <juri.lelli@redhat.com>
-Cc: luca abeni <luca.abeni@santannapisa.it>, Tejun Heo <tj@kernel.org>,
-	Yuri Andriaccio <yurand2000@gmail.com>, bsegall@google.com,
-	cgroups@vger.kernel.org, dietmar.eggemann@arm.com,
-	hannes@cmpxchg.org, kprateek.nayak@amd.com,
-	linux-kernel@vger.kernel.org, mgorman@suse.de, mingo@redhat.com,
-	mkoutny@suse.com, rostedt@goodmis.org, vincent.guittot@linaro.org,
-	vschneid@redhat.com, yuri.andriaccio@santannapisa.it
-Subject: Re: [RFC PATCH v7 00/29] Hierarchical Constant Bandwidth Server
-Message-ID: <20261127114828.GS49833@noisy.programming.kicks-ass.net>
-References: <20261111175657.250354-1-yurand2000@gmail.com>
- <58cb2cbaf82c0f671213eaca46465cd5@kernel.org>
- <20261119151416.33f90a64@linux.fritz.box>
- <471bf8d446becabfca00041fb2a78067@kernel.org>
- <20261120120659.2e902463@linux.fritz.box>
- <6fef47e08a37079c08806b3c57994778@kernel.org>
- <20261120212418.10221f2e@linux.fritz.box>
- <06f4c157677f99fc5386dba4c9d68cd2@kernel.org>
- <20261123084345.4e24e3ca@luca64>
- <awQTy09VbrDn9RpA@jlelli-thinkpadt14gen4.remote.csb>
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=AJ/wBGA3
+Received: from [194.37.255.9] (helo=mxout.expurgate.net)
+	by relay.expurgate.net with smtp (Exim 4.92)
+	(envelope-from <prvs=68051b93b8=ms@dev.tdt.de>)
+	id 1xWuRW-008VBF-1z; Fri, 27 Nov 2026 12:48:42 +0100
+Received: from [195.243.126.94] (helo=securemail.tdt.de)
+	by relay.expurgate.net with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ms@dev.tdt.de>)
+	id 1xWuRU-003i4I-HH; Fri, 27 Nov 2026 12:48:40 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dev.tdt.de;
+	s=z1-selector1; t=1795780119;
+	bh=77fQfPnTo4BMHwifxwrJ7vUrPWAWFrLMMt9Tjlz8aRs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=AJ/wBGA3Nh48C4MaB579KaCiJjJH0eYLG9CL1/VqLBmfQMZUrYSqBb3jyEn/iJUtB
+	 nAxt8x82hdgvW/EhYQJpk38uKzLF5H54dED6imvf0J0jdP5gh61a/zrJ0316ltQ+j8
+	 ZAaUyv/kbEbeKBPYOe8b8w9aMyeWQwInVhXP+ol/w1Ivk7KTkTr0g26Fv2ZRjySenB
+	 MtbxZII/Fy6enp+OgZ6TWjCP+iGQ+tLGoiDtAPi2QZCpyIf4K97AHEoALU0hqIHkE0
+	 q95+gDVJywZlOJJJIAhbl0UquKx/GIS/Ft55fPXxavTrJwh3beJ8bg2tNXonEg7/py
+	 cLdVj8KmG7EdQ==
+Received: from securemail.tdt.de (localhost [127.0.0.1])
+	by securemail.tdt.de (Postfix) with ESMTP id DA8B5240041;
+	Fri, 27 Nov 2026 12:48:39 +0100 (CET)
+Received: from mail.dev.tdt.de (unknown [10.2.4.42])
+	by securemail.tdt.de (Postfix) with ESMTP id B8CE6240036;
+	Fri, 27 Nov 2026 12:48:39 +0100 (CET)
+Received: from mail.dev.tdt.de (localhost [IPv6:::1])
+	by mail.dev.tdt.de (Postfix) with ESMTP id 432CF2AD04;
+	Fri, 27 Nov 2026 12:48:39 +0100 (CET)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,101 +71,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awQTy09VbrDn9RpA@jlelli-thinkpadt14gen4.remote.csb>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Date: Fri, 27 Nov 2026 12:48:39 +0100 (CET)
+From: Martin Schiller <ms@dev.tdt.de>
+To: Martin Schiller <ms@dev.tdt.de>, "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>, Lin Ma <linma@zju.edu.cn>,
+	Duoming Zhou <duoming@zju.edu.cn>,
+	Xiyu Yang <xiyuyang19@fudan.edu.cn>, Xin Tan <tanxin.ctf@gmail.com>
+Cc: linux-x25@vger.kernel.org, netdev@vger.kernel.org,
+	Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>,
+	Shuai Liu <847807867@qq.com>,
+	Krystian Kaniewski <krystianmkaniewski@gmail.com>,
+	syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com,
+	syzbot+9faa82ae2e94c5c7d2ef@syzkaller.appspotmail.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2 0/2] net/x25: don't call lock_sock() from softirq
+ in x25_kill_by_neigh()
+Organization: TDT AG
+In-Reply-To: <20261127-x25-kill-by-neigh-v2-0-c7cdcc9f1320@dev.tdt.de>
+References: <20261127-x25-kill-by-neigh-v2-0-c7cdcc9f1320@dev.tdt.de>
+Message-ID: <28933d907154ebb330675c661718841c@dev.tdt.de>
+X-Sender: ms@dev.tdt.de
+User-Agent: Roundcube Webmail/1.3.17
+X-purgate-type: clean
+X-purgate-ID: 151534::1795780121-2BF0DF8D-B1262DF7/0/0
+X-purgate: clean
 
-On Mon, Nov 23, 2026 at 11:22:03AM +0100, Juri Lelli wrote:
-> IIUC reading your RTNS'21 paper with Stephen and Jim [1] right, those
-> are its conditions (1) and (2) for semi-partitioned systems, and
-> together they keep the system feasible. Did I get that right? The catch
-> is that the paper also needs changes to the migration logic (no throttle
-> bypass for tardy tasks, and the pushed task not counted in cpudl when
-> looking for a target) for tardiness to stay bounded, and AFAIK we don't
-> yet have that in mainline.
-> 
-> So today's DL isn't "pinned aware", but we already live with that:
-> fair/ext servers are pinned and simply added to total_bw. I don't think
-> this series should fix that too. What I'd suggest instead is:
-> 
->  1. keep the interface per-CPU as Tejun proposed, and do admission as
->     above (sum into total_bw plus per-CPU check). When a config is
->     symmetric across the CPUs of a root domain, this is the same as
->     today's uniform reservation, so it works with the current DL
->     implementation with the same guarantees we have now;
-> 
->  2. accept asymmetric configs too, but document that, until DL becomes
->     aware of pinned bandwidth, they come with no tardiness guarantees
->     for DL tasks (as with non-default fair server settings today).
->     Once the migration side is fixed (the paper's changes, or
->     something similar), they get the guarantees without any interface
->     change.
-> 
-> This also avoids the cost of the max approach, where 50% on one CPU
-> takes 50% of DL capacity on all CPUs of the root domain, and it should
-> be less code, since cgroup servers would just follow the dl_server
-> accounting paths (dl_server_apply_params(), dl_server_add_bw() on
-> root domain rebuilds), but Yuri should keep me honest here. :)
-> 
-> The root entry would then just limit what cgroups can reserve per CPU,
-> on top of the above, which I think is what Tejun described.
-> 
-> Thoughts?
+The netdev/contest failure for this series comes from two older
+patches for the same bug that are still pending in patchwork: Shuai
+Liu's workqueue variant [1] and the syzbot-generated fix [2]. Both
+have been withdrawn in favour of this series, so they can be dropped.
 
-Still slowly working my way through all this email :/ So bear with me if
-I missed things already discussed elsewhere.
-
-
-So my suggestion to make all this cgroup-v2 only and couple with cpuset
-is exactly because of the bandwidth accounting. Specifically, cgroup-v2
-makes it possible to map a cgroup to a cpumask (exactly like we do in
-tg_cpus()). This in turn means we have a natural limit on the bandwidth
-consumption -- a cgroup's deadline servers will never run outside this
-mask and will thus never consume bandwidth outside of it.
-
-Without this, you get to account every cgroup to all CPUs, which is
-incredibly pessimistic; to the point of not actually being worth it.
-
-As to bandwidth accounting; I once started adding per-cpu reservations.
-Sadly I never finished it and I seem to have misplaced those patches.
-But yes, that is something that wants to be done.
-
-I'm not sure I see how all this can function without having that TBH.
-All this runs on a giant pile of per-cpu servers; without strict per-cpu
-accounting much goes out the window.
-
-The basic idea isn't hard either, give each CPU 100%, subtract the
-per-cpu demands and hand out the rest to the global pool. When demand
-exceeds supply, reject. The only somewhat tricky bit was that adding a
-local claim means you first have to try and lower the global supply --
-if that fails the whole thing fails.
-
-[ I think at the time I wanted to add pinned DL tasks support or so, but
-  its been so long that I can't even remember that :/ ]
-
-
-A cgroup setting bandwidth for CPUs it cannot reach -- fine; the value
-will not be used. If the cgroup is grown (through cpusets) to include
-such a CPU, it will enact such a value, and if bandwidth reservation
-so demands, block the cpuset mask extension.
-
-Since FIFO/RT themselves don't actually request bandwidth, shrinking,
-either through cpuset or hotplug, will not be a problem as such. Were we
-to offer this cgroup bandwidth to DL tasks however, then we must ensure
-the total cgroup bandwidth stays sufficient to serve the existing DL
-tasks and refuse shrinking if not (however, I do not believe this is
-currently proposed).
-
-
-As to the whole max thing; am I understanding things right if I say this
-means the cgroup itself will not have a constraint? I saw talk about one
-cgroup having mixed constaint and no constraint CPUs? That's crazy talk
-and makes absolutely no sense. Please don't support this.
-
-Either a cgroup has a constraint or it does not.
-
-I would suggest that writing a reservation into the file that is not
-specific to a CPU, results in (runtime/nr_cpus, period) for all CPUs;
-where nr_cpus is the cpuset's effective weight.
-
-
+[1] https://lore.kernel.org/all/tencent_8BA4FF587EE5579AB67149C5062618DC7109@qq.com/
+[2] https://lore.kernel.org/all/00f667e3-a158-4fb5-84a3-9ecda4718ce8@mail.kernel.org/
