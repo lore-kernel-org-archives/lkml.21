@@ -1,83 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.254.224.25
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.38.64.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795785789;
-	b=nyudTmjERR2ob3nl6dKnK/Wiyenx0DSI+k901H1LO0H5YhKp9P/hs7U9RhGCVcMcL2PF
-	 ypH/prCi6MTqsVifmZZzKEhvGj7hgmRXDV19UiKgA4VjAmfbOybf99MoMxr94tpa0SBd+
-	 b/vg9QUMcVv4KUuPmYnQ6BO/1uTunK8D1dNK+7vWPDI+cjDFqIZV5wbGV0Utwt3KzDqNe
-	 SxSeAX1gVV9nCgvBivukFsn8EK0q1WKsCGLjJdG4ma0k30GmH3Wxv16A7S3+WomtxFPT1
-	 FcoVavAbdH8OkJxFg6TEtEvX8b2TqoHXgypwpmxwInrLyDwklJikHsjTcF0NDTH2wXQ==
+	t=1795785829;
+	b=C7nsdp3oW1n9xl5Ol5fWX2ckE0qwvnwlBaphmK8zpZ3BUvV0eCjSpFbOgkvEGD4ivCIe
+	 /r6jv7WyOiZrn0z2BqqRLfbYe+09z9Y3MEDpX2ggTYwmWZ+8O+tnp37Qthi6a+G1KzW1x
+	 6UGQZd2B+uRflytHcMAcEu7cD4rTfjCJGbzuJrLzc0h5iRwnPwSvkBLc76tgGdYmxk3pR
+	 AXlPRhMmF4SP8Ve6sbeE6w2OeOGQFFj9Xan8tbQHndv02Wx7LcSfTlZGtG/caPxMzPy5/
+	 c8UyIyH9jz9BN3iuyJ5I8yjDMAW7Xug6QqjXorOzsoAKW77M0nlCiVVYHk4GbmXQb8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795785789;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 Received:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
-	 In-Reply-To:MIME-Version:Content-Transfer-Encoding:X-CMS-MailID:
-	 X-Msg-Generator:Content-Type:CMS-TYPE:X-CPGSPASS:cpgsPolicy:
-	 X-CFilter-Loop:X-CMS-RootMailID:References;
-	bh=1fOyVmbi8GMwRgnaSTvC0ckI7ZWpz7JtmRQJp/2ONcg=;
-	b=ZIo7FVi2SRA3U3K/FiMhBUXzcu52vhYFC1SB5i1lEKYZNSPMgObjDazBWjxs75vUj/CQ
-	 qrOMjpe07gMCUahzWnSU/eIVuNVmobOtwvSKmNksQZM0B2yeugsu6mkbIZaOzq0tMxKHX
-	 3DC+zNP1W0H6BH7s2i8k3JkCIVc85d7/8s0PjFaAVgfbgq6Gn1hLpUvIxgko5dL//wHSo
-	 j//TMxrfMS8Bx26x9ZlFr3nakpcBHAlbPwIGuGYsYxNn0LeU+I5BfRNN7X1kiL72Wzd3l
-	 V21f2rSQITsZObKlxUeQixIX11A0zuW/131zGlT3Z59vH4dvGmIJ0Ft3s4Ut/cGRXfg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795785829;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-CM-TRANSID:
+	 X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=OIAUaF+cl5nkakNNQfkJ+TrCSBQlfbDZwKFIBcVxDL8=;
+	b=GjqBaH2iDsO+YfXroecqpdirQptps6HXmtUZPzTUvflR47J7ESNnqmPJYvaJQimkYh+d
+	 vqZelc/TDofegDr/UZbTikzsxDpPCZrQwM9bZpeu1Lo29pxRoFVjvk9RP2ox20bc2YzGt
+	 2B4/6Q8biK9b9ukPSTlOpjpi1ZYDkmFLdv2JCUFePQJjwm2KAYJLMPMllSPy1vA4ci0Jp
+	 +tM+zdpi6Ts7vYls2Hw2d6ZJfozlUw8uq2ISNO6q94iuSVlT5RVQVaNdaY4vDX2WXIfDt
+	 Xo3FpWGTLSIMSvCJc/bJq+4aoLIyRKEr6ZypI+GK6xdxHH36CO/OMkKibJ76uIFegog==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=samsung.com;
-	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=BjprcmgC;
-	arc=none smtp.remote-ip=203.254.224.25
-Received: from mailout2.samsung.com (mailout2.samsung.com [203.254.224.25])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2143606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:23:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2143606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+	dmarc=pass header.from=mail.ustc.edu.cn;
+	spf=pass smtp.mailfrom=mail.ustc.edu.cn;
+	dkim=pass header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=vtgGzNsR;
+	arc=none smtp.remote-ip=202.38.64.46
+Received: from ustc.edu.cn (smtp.ustc.edu.cn [202.38.64.46])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 725D1606A31C;
+	Fri, 27 Nov 2026 13:23:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 725D1606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.ustc.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.ustc.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=BjprcmgC
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20261127132305epoutp022892b8e734914e54d7eabc81eb891163~r6aheWUYi0825808258epoutp02m
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:23:05 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20261127132305epoutp022892b8e734914e54d7eabc81eb891163~r6aheWUYi0825808258epoutp02m
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795785785;
-	bh=1fOyVmbi8GMwRgnaSTvC0ckI7ZWpz7JtmRQJp/2ONcg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BjprcmgChqgW//zyzhQC5t9hqv99KxjpFCtPxq8X4oEvI8p/pyVmbaTwbdzVwLI5X
-	 nAF9wmLYz69k9ZdLpGmswmTj318EgktSGj1fc6Mb39As8QXQ8Ea7ifXhAOUsCBZHgg
-	 BXvQj5i7KXTodHS303YmNQ8RZR7+jsON83BBZCD8=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20261127132305epcas5p3d81aa8212484a0c992998502f081f0e9~r6ag0VcD_3222332223epcas5p3J;
-	Fri, 27 Nov 2026 13:23:05 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.93]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4jbYy02cBHz6B9m6; Fri, 27 Nov
-	2026 13:23:04 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20261127132303epcas5p4c8e774f6bce688ebdc0a4b7a29644dde~r6afu-ok80517605176epcas5p4u;
-	Fri, 27 Nov 2026 13:23:03 +0000 (GMT)
-Received: from ws2030076956.sa.corp.samsungelectronics.net (unknown
-	[107.99.235.31]) by epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261127132300epsmtip14fb4eb8422da4093e96ed74aa199658e~r6acLyZeN1042710427epsmtip1Z;
-	Fri, 27 Nov 2026 13:22:59 +0000 (GMT)
-From: Irlanki Sandeep <irlanki.s@samsung.com>
-To: kuniyu@google.com
-Cc: alexei.starovoitov@gmail.com, ameryhung@gmail.com, andrii@kernel.org,
-	ast@kernel.org, bpf@vger.kernel.org, corbet@lwn.net, cpgs@samsung.com,
-	daeil2.hwang@samsung.com, daniel@iogearbox.net, davem@davemloft.net,
-	edumazet@google.com, g.pokhra@samsung.com, irlanki.s@samsung.com,
-	kuba@kernel.org, linux-kernel@vger.kernel.org, lorenzo@google.com,
-	madhan.raj@samsung.com, maze@google.com, motomuman@google.com,
-	ncardwell@google.com, netdev@vger.kernel.org, pabeni@redhat.com,
-	r.kumawat@samsung.com, raj.kumars@samsung.com, ramyashree.s@samsung.com,
-	sharmasagarika@google.com, sporeba@google.com, srihari.k@samsung.com,
-	ts413.lee@samsung.com
-Subject: [PATCH bpf-next v10 0/2] bpf: tcp: add ecn_init callback to
- bpf_tcp_ops
-Date: Fri, 27 Nov 2026 18:54:09 +0530
-Message-Id: <20261127132411.2523201-1-irlanki.s@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <av8pip2n63ZBofcE@google.com>
+	dkim=pass (1024-bit key, unprotected) header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=vtgGzNsR
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=mail.ustc.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-ID:In-Reply-To:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version; bh=OIAUaF+cl5nkakNNQfkJ+
+	TrCSBQlfbDZwKFIBcVxDL8=; b=vtgGzNsR1fdTvYVSc/pimYY5fREaHk7GXY5pE
+	F2FZl2YfK/k1+xIiVIndGdf/RZ80CY/snvyTGaWc9vBh+27WoNTjj+7Zak9o4HiT
+	+aLbK8Gjf/ISaLWQkfS3eQaRlz345zM18D0jzAqy9Y3GkbepQ4ltd+vPu7/nwsj2
+	P/IXQQ=
+Received: from [127.0.1.1] (unknown [114.214.180.66])
+	by mailimap2024 (Coremail) with SMTP id 3pYKCgBn2S1chAlrTd4CAQ--.2870S2;
+	Fri, 27 Nov 2026 21:23:41 +0800 (CST)
+From: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject:
+ Re: [PATCH 0/2] arm64: dts: qcom: sm8750: describe the TNOC AMBA periphid
+Date: Fri, 27 Nov 2026 21:23:40 +0800
+Message-ID: <179578582079.1094405.15142623585619157958@mail.ustc.edu.cn>
+In-Reply-To: <20261127113158.932414-1-xiaqinghuan@mail.ustc.edu.cn>
+References: <20261127113158.932414-1-xiaqinghuan@mail.ustc.edu.cn>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,111 +66,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261127132303epcas5p4c8e774f6bce688ebdc0a4b7a29644dde
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-X-CPGSPASS: Y
-cpgsPolicy: CPGSC10-065,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20261127132303epcas5p4c8e774f6bce688ebdc0a4b7a29644dde
-References: <av8pip2n63ZBofcE@google.com>
-	<CGME20261127132303epcas5p4c8e774f6bce688ebdc0a4b7a29644dde@epcas5p4.samsung.com>
+X-CM-TRANSID:3pYKCgBn2S1chAlrTd4CAQ--.2870S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7CryDJryfuFWrWF43Xr1UKFg_yoW8WFy5pa
+	95tay5KF4vgFn2y34Uuw17ZrW8ZwsY93Z8W3Z8try0gw45tr9xGFWfKwn5GFnrCF4vgF1q
+	vFWYyw4vga1UZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUk2b7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
+	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7CjxVAaw2AFwI0_Jw0_GFyl42xK
+	82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGw
+	C20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48J
+	MIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMI
+	IF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E
+	87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU2wIDUUUUU
+X-CM-SenderInfo: 50ld1x5qjk3t3q6ptxnoox23vfohv3gofq/1tbiAREDB2sHyZtdggAYst
 
-Hi,
+Hi Jie,
 
-This series adds an 'ecn_init' callback to struct bpf_tcp_ops. A
-cgroup-attached BPF program can use it to choose the ECN mode (off,
-RFC3168, or AccECN) for each connection during the handshake. The
-net.ipv4.tcp_ecn sysctl stays the default: the program sees it through
-bpf_get_retval(), and out-of-range return values fall back to it.
+please drop my series above as a duplicate: your "[PATCH 0/4] Fix the
+TraceNoC probe issue on QCOM platform" (2026-11-18, series 1214623)
+already carries both changes I sent -- [1/4] relaxes the binding the same
+way, and [3/4] adds the very same periphid to sm8750.
 
-v9 -> v10:
- - Split the selftests into a separate patch (2/2).
- - Skip the ecn_init BPF call in tcp_ecn_create_request() for SYNs that
-   neither request AccECN nor carry ECE+CWR (Kuniyuki Iwashima).
- - Sort variable declarations in reverse xmas tree order inside
-   tcp_ecn_send_syn() and tcp_ecn_create_request() (Kuniyuki Iwashima).
+The overlap, for anyone who does not want to diff it by hand:
 
-v8 -> v9:
- - Fix multi-line comment style in
-   selftests/bpf/prog_tests/bpf_tcp_ops_ecn.c (sashiko).
- - Add copyright headers to both new selftest files.
- - Update the bpf_get_retval() comment in net/ipv4/bpf_tcp_ops.c to
-   include ecn_init in the list of bpf_get_retval() users (BPF CI).
+  - 2/2 of my series: `tn@109ab000` in arch/arm64/boot/dts/qcom/sm8750.dtsi
+    gains `arm,primecell-periphid = <0x000f0c00>`; your 3/4 touches the
+    same node with the same value.
+  - 1/2 of my series: the `arm,primecell-periphid` allowance in
+    Documentation/devicetree/bindings/arm/coresight-tnoc.yaml; your 1/4
+    does the same.
 
-v7 -> v8:
- - Respin on top of bpf-next and convert from the legacy sock_ops
-   kfuncs to a bpf_tcp_ops struct_ops callback 'ecn_init' (Alexei
-   Starovoitov).
- - Drop tp->ecn_mode, TCP_ECN_MODE_UNSPEC, tcp_ecn_mode_eff() and the
-   kfuncs; the prog is queried on demand during the handshake like
-   timeout_init()/rwnd_init(), which also enables per-peer decisions
-   on the passive side (Alexei Starovoitov).
- - Clarify the per-application motivation (AccECN for latency-sensitive
-   apps vs bulk traffic on the same route) in the commit log (Alexei
-   Starovoitov).
- - Drop the AccECN option kfunc to focus on ECN mode negotiation;
-   to be discussed separately.
- - Replace the sockops selftest with a bpf_tcp_ops_ecn struct_ops
-   selftest covering IPv4 and IPv6.
+Your series is clearly the better vehicle -- it covers kaanapali and
+glymur in the same pass, and it already has Abel's and Konrad's
+Reviewed-by tags.  Nothing in my copies is worth keeping.
 
-v6 -> v7:
- - Document BPF_SOCK_OPS_TCP_LISTEN_CB timing window in kernel-doc
-   for both kfuncs: connections arriving before the callback runs
-   will use the sysctl value rather than per-socket overrides.
- - Add fallback behavior note to commit message.
- - Remove Suggested-by tag per maintainer guidance.
+One measurement you may want to fold into v2, or ignore if you already
+have it: on SM8750 hardware (Lenovo Legion Y700 Gen4, TB322FC, kernel
+7.3.1) that TNOC instance is `tn@109ab000`, and before the property is
+present AMBA reports the device unbound; with
+`arm,primecell-periphid = <0x000f0c00>` the driver binds and all 28
+CoreSight AMBA devices on the board reach bound state (unbound count
+28 -> 0).  That is a before/after comparison on one board, not a claim
+about your series.
 
-v5 -> v6:
- - Reject non-TCP sockets in both kfuncs with sk_is_tcp(). The TX
-   timestamping sockops callbacks run with is_fullsock set for UDP
-   sockets too, so tcp_sk() on them was an out-of-bounds write (sashiko).
- - Fix selftest and comments: accepted children are cloned from the
-   listener and inherit ecn_mode/ecn_option (sashiko).
- - Use standard multi-line comment style in the BPF selftests (sashiko).
- - Document per-socket kfunc override precedence for tcp_ecn and
-   tcp_ecn_option in ip-sysctl.rst.
- - Reword subject: the TCP_ECN/TCP_ECN_OPTION optnames no longer exist.
+Sorry for the noise, and thanks for the earlier work.
 
-v4 -> v5:
- - Replaced setsockopt implementation with BPF kfuncs.
- - Placed ecn_mode/ecn_option in the cold section of tcp_sock to avoid
-   polluting hot cachelines (suggested by Eric Dumazet).
- - Updated Documentation/networking/net_cachelines/tcp_sock.rst.
- - Removed userspace UAPI and documentation for the sockopt.
- - Added new selftest for the kfunc implementation.
+Best regards,
+Qianhui Xu
 
-v3 -> v4:
- - Define TCP_ECN and TCP_ECN_OPTION in bpf_tracing_net.h to fix
-   BPF selftest compilation failure in progs/setget_sockopt.c (bpf-ci).
-
-v2 -> v3:
- - Use READ_ONCE() when reading ecn_mode and ecn_option in
-   tcp_ecn_mode_eff() and tcp_accecn_option_eff() to prevent compiler
-   double-fetches (sashiko-bot).
- - Move cookie_ecn_ok() to include/net/tcp_ecn.h and update syncookies.
-
-v1 -> v2:
- - Remove unused variable 'net' in tcp_ecn_create_request() reported
-   by kernel test robot.
-
-Irlanki Sandeep (2):
-  bpf: tcp: add ecn_init callback to bpf_tcp_ops for per-connection ECN
-  selftests/bpf: add selftests for bpf_tcp_ops ecn_init
-
- Documentation/networking/ip-sysctl.rst        |   8 +
- include/net/tcp.h                             |   6 +
- include/net/tcp_ecn.h                         |  16 +-
- net/ipv4/bpf_tcp_ops.c                        |  21 +-
- net/ipv4/tcp_input.c                          |  11 +-
- .../bpf/prog_tests/bpf_tcp_ops_ecn.c          | 224 ++++++++++++++++++
- .../selftests/bpf/progs/bpf_tcp_ops_ecn.c     |  57 +++++
- 7 files changed, 333 insertions(+), 10 deletions(-)
- create mode 100644 tools/testing/selftests/bpf/prog_tests/bpf_tcp_ops_ecn.c
- create mode 100644 tools/testing/selftests/bpf/progs/bpf_tcp_ops_ecn.c
-
--- 
-2.34.1
+---
+AI-assistance disclosure: this reply was drafted with an LLM coding
+assistant and reviewed and edited by me; the measurement quoted above is
+mine and reproducible; the decision to withdraw the series is mine.
 
