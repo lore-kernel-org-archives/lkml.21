@@ -1,84 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.152
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795779841;
-	b=iiVoCWuea3cMC7/pfqGHKqWIrIZuvuQ8A03JioVKPl/5k1OVO1PmlgytjQP9k6llHc5O
-	 iCmZv7wQbWP0NrFdr+9z0F1ubHqiMOs7Bk5qU7FkdDNt7nNPPyfQZqTcE/FMTVr5b/vCN
-	 58uGKrqSNEOkioG1YIUajmE4ISN2zz3IFlqXL1r95VMO6qUSU7rRw/N+Qmjw9BqJXzIN9
-	 vEhsM6HPs+3d+6wHnvCPlU0JQX2A9zajRYw5E8bAHZKfYsGwPV9M7oIZ1ZrrrVYTt/jnw
-	 spGrEaq7OCsk3Qmdr6lrS199nATQIpGV3sh7vpZAeQq0HkO5AGH/MYutz4eVbiSDThA==
+	t=1795779871;
+	b=Q1d2AfacSPCGKm97+4DMa4ai1N/oW9b/wSgQ+4/J5JhwVsBeKM2NO/0riOuDYj1BLc8z
+	 BShqBxU5bxNRml25WUqQu0T5RxE82nFJoF/hacRnmvsyB5Te03gQD7UvKMd0v8/mlnlKj
+	 vbqb8vIrPiY4afXqBnWi+jOKEEedkyLWUurEzm2a+nqUEPDnrXYwkv6ydf4QOiBSzgob9
+	 LNGmjzo6LwvzufrsMdHNsek+Gw6+YJrDcX6Qzc/ktdzGnQEJ/Krcx7UpcIF2KwSxHGrHM
+	 lE0wm8ByC4RlU8tRQgvfhxDt4YKUhWVuh7EtzcIJD9p4ao8T0jkCfh+9HSTqVDA403g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795779841;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Subject:From:
-	 Reply-To:To:Cc:Date:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:User-Agent:MIME-Version:X-MBO-RS-ID:
-	 X-MBO-RS-META;
-	bh=XpO7QIZp9eDf2b/vorZ5cqU73l47qHouBGMtAMaWFeQ=;
-	b=1SFDcIbXReSWaBulc0e9pZgmbT74NIjgTFhR1fnVQhjHQNuyDRQuyAOgR1lARYgwNy8O
-	 k7WDuLH24ei1BHLejBdoT3RhIZHuF64CMRHhWOODuLqDHTxpy7btTOsZkCCmZBJbi7Rgs
-	 F8t+t+TNttjtRLPvOYUGp0+uY/7PSaN5R/YEiU/6eJjpJ/6inmgp1FdZ/D+tg+6nlHVym
-	 lzGcArftR3xuh3yi0aOzhen2PsWD9BEyfDfOpqydjV20POOnL/1bCyxLbHXKrMvpMwo2p
-	 8OsnzTxzVnWK+7McFQfrh01scMGsJDaAb0gCThBWLd5en+DAVPfF8Xlee8XQSccwCqw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795779871;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=z8QPTJ81+fZJS4M7LndXTeeI+QYCXyZKcBukwunJ0Mo=;
+	b=KMzK4hFenOZ6cxuIXt43Bmnd6PlgsR4oWHtTFzktRboD6m/6MuytjtIUamOklkppvq2C
+	 REICAUi1muqI8xTM2FTElE8gCNUr81dlU7ysU1/BI0/2U3QChBgRH3mIJp6QRKfpY3eQs
+	 d6R8su2Y3qsmqZqqzsDC17LV0kPA+ZtBQQvTWTrMFI6PS48VhpXdcTIFeFLaoM6I+O959
+	 d1bIir4QEDv+Dqijbjxg/tvBgKD8myFuDtBCpdQD5wqlC3R8mYN97swwAwP6vv283b3Y/
+	 dcVBEFSqsR2P2Mq1cBnmo5RerzfZH2ie97YmFjjYEKW8GN8a3njtwIhyA7c20ltHWEQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mailbox.org;
-	spf=pass smtp.mailfrom=mailbox.org;
-	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=wC0EA7Xs;
-	arc=none smtp.remote-ip=80.241.56.152
-Received: from mout-p-102.mailbox.org (mout-p-102.mailbox.org [80.241.56.152])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DsNaMaqb;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17FF7606A31C;
-	Fri, 27 Nov 2026 11:44:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17FF7606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4261C606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:44:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=wC0EA7Xs
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4jbWlS2mFhzKmSh;
-	Fri, 27 Nov 2026 12:43:48 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1795779831; h=from:from:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XpO7QIZp9eDf2b/vorZ5cqU73l47qHouBGMtAMaWFeQ=;
-	b=wC0EA7Xs45NGUfeZwEsTQxN90TKphYNgpa9X+iA6adC6YhWArhmjHvOjL1tHJCNHf3N1dq
-	mBQ7Y9JZ/qEiRTEqGCY4tYt7E/Lq9aWXHwrdt5V6CIgo5UQo9kpqBlaQNJ/fUY7IDuiw2Z
-	tVh+bXYHwqn6XjEZcuzVFylwxC7r6+jf/bq8FeIkA0h1ARzWjZC1UuTDI3LNpaESzjmdSG
-	RuftL9dIsYLkXmHREOgPhwaJm436vjUkGHaHYIyV92WMQjIVB/lva90ZA/E4tVw/28wYlq
-	uOa7Qi7A7rXpusCQk2fV5gmJpWleTLPFXKQRaFaVGThkYF9Q5MWeb7T2R1tXhw==
-Message-ID: <b6b75395da594c4bf8deb1daaf857854565c66cd.camel@mailbox.org>
-Subject: Re: [PATCH 0/3] dma-fence: Properly order timestamps
-From: Philipp Stanner <phasta@mailbox.org>
-Reply-To: phasta@kernel.org
-To: Danilo Krummrich <dakr@kernel.org>, Philipp Stanner <phasta@kernel.org>
-Cc: Sumit Semwal <sumit.semwal@linaro.org>, Christian
- =?ISO-8859-1?Q?K=F6nig?=	 <christian.koenig@amd.com>, Alex Deucher
- <alexander.deucher@amd.com>, David Airlie <airlied@gmail.com>, Simona
- Vetter <simona@ffwll.ch>, Matthew Brost	 <matthew.brost@intel.com>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Tvrtko
- Ursulin	 <tvrtko.ursulin@igalia.com>, "Mario Limonciello (AMD)"
- <superm1@kernel.org>,  Aurabindo Pillai <aurabindo.pillai@amd.com>,
- Pierre-Eric Pelloux-Prayer <pierre-eric.pelloux-prayer@amd.com>,  Gustavo
- Padovan <gustavo.padovan@collabora.com>, Chris Wilson
- <chris@chris-wilson.co.uk>, Luben Tuikov	 <ltuikov89@gmail.com>, Shashank
- Sharma <shashank.sharma@amd.com>, "Paul E . McKenney" <paulmck@kernel.org>,
- Gary Guo <gary@garyguo.net>, linux-media@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	amd-gfx@lists.freedesktop.org
-Date: Fri, 27 Nov 2026 12:43:44 +0100
-In-Reply-To: <DN5YMFCMLL2E.3LMY2Z5ZQAYFG@kernel.org>
-References: <20261126172046.2473303-2-phasta@kernel.org>
-	 <DN5YMFCMLL2E.3LMY2Z5ZQAYFG@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DsNaMaqb
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38F191F000C1;
+	Fri, 27 Nov 2026 11:44:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795779870;
+	bh=z8QPTJ81+fZJS4M7LndXTeeI+QYCXyZKcBukwunJ0Mo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=DsNaMaqbQhqgZ/Ezt8T6C+1adAo/0rtq5CADL6dxzf/QkEB7c/m7S8QChc/XnLxsz
+	 fbSljDXqtZoWlZgu8kNR5Vymo8xdeDLYdQJs0O9rt8+8QNlcV/eGc03YVXMBkarHkE
+	 4uwWBRN0hsVbvzwzvjjb7C1sQP75k3J2tqP+U2JoIRUH7Y89bmvP8spWfrRgQ+bcwe
+	 2xU11M+u+CTevLcbES3AAiW7795x86/9Lnq5hbK2gzNYeN09xEYt1ZXZhJYlP8VHZm
+	 xCQss/DAPkmpp2+jQXv5xJ28NaYbquwrhT8wUJr42YxYOA/ctxaGiYXJxUCeFnEPIN
+	 2vuhDuwMW3Y1A==
+Message-ID: <1c9d9335-14d0-4870-b83d-a5b69ba8d633@kernel.org>
+Date: Fri, 27 Nov 2026 11:44:28 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,29 +51,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MBO-RS-ID: 40531303c2cea4e117c
-X-MBO-RS-META: i6e7srj96rpfrqs6kw1sdcq97sckomz4
-
-On Fri, 2026-11-27 at 12:34 +0100, Danilo Krummrich wrote:
-> On Thu Nov 26, 2026 at 6:20 PM CET, Philipp Stanner wrote:
-> > I propose stuffing these hotfixes into the stable kernel / misc-fixes
-> > while we move on on misc-next with a more proper solution. I'll post a
-> > series for that soonish, too.
->=20
-> What has changed that this now became an issue that needs a hotfix? Do we=
- have
-> broken users?
-
-We don't know. But we have no reports, no.
-
-It's literally UB. Can explode any time, or after 5 years, or never.
-
->=20
-> If so, it would be good link a report if there's one publicly available.
-> Otherwise, I'd suggest to just go ahead with the proper solution you work=
- on.
-
-What do you mean with that, like not backporting it?
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/2] nvmem: validate access ranges and fix SPRD reads
+To: "Pradhan, Sanman" <sanman.pradhan@hpe.com>,
+ Srinivas Kandagatla <srini@kernel.org>, Orson Zhai <orsonzhai@gmail.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>
+Cc: Chunyan Zhang <zhang.lyra@gmail.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Freeman Liu <freeman.liu@unisoc.com>, Maxime Ripard <mripard@kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Sanman Pradhan <psanman@juniper.net>
+References: <20260921165055.421933-1-sanman.pradhan@hpe.com>
+From: Srinivas Kandagatla <srini@kernel.org>
+Content-Language: en-US
+In-Reply-To: <20260921165055.421933-1-sanman.pradhan@hpe.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
 
-P.
+
+On 9/21/26 5:51 PM, Pradhan, Sanman wrote:
+> From: Sanman Pradhan <psanman@juniper.net>
+> 
+> Patch 1 adds a device-size bounds check to the two nvmem core read/write
+> functions, so an out-of-range request is rejected before it reaches a
+> provider. v1 open-coded this check in the sprd driver; this version puts
+> it in the core instead.
+> 
+> Patch 2 fixes sprd_efuse_read(), which reads one four-byte block but
+> copies the caller's full length from that stack variable, and never
+> advances past the first block. Its provider-side range check is removed
+> in favour of patch 1, so patch 2 should be applied after patch 1:
+> without the core check an out-of-range in-kernel request would let the
+> new block loop read past the eFuse region.
+> 
+> Both patches are compile-tested only. No Spreadtrum eFuse hardware was
+> available for runtime testing. The bounds check intentionally permits a
+> zero-length access at offset == size and rejects all ranges extending
+> past the device size.
+> 
+> Link for v1:https://lore.kernel.org/all/20260904003815.462352-1-sanman.pradhan@hpe.com/
+> 
+> Sanman Pradhan (2):
+>   nvmem: core: reject reads and writes beyond the device size
+>   nvmem: sprd: fix out-of-bounds read in sprd_efuse_read()
+
+does not apply cleanly, can you resend base on nvmem-next
+
+--srini
+> 
+>  drivers/nvmem/core.c       |  6 ++++++
+>  drivers/nvmem/sprd-efuse.c | 17 ++++++++++++++---
+>  2 files changed, 20 insertions(+), 3 deletions(-)
+> 
+> 
+> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+
