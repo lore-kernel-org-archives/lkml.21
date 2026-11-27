@@ -1,53 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=94.124.121.26
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795785359;
-	b=FfUNQPaNIM6GURmVhq/lyHZMNHQPmrtdPg/NHhrx/yTATlFJk4CtBmG9ev9qkpU/T5dD
-	 grdzYMGqAgGpLljvdlgcGwxqI9wp3+yvD5bEKYWbjO+TeUD4h1u8Oz4qQHwnfNyksSZDX
-	 CC7gC3tuTGltiDkr9zJY1SDj7Oq/1eVutXxPsQ3Osl7xEn5L3QF9aHvDTOAXYm+feOSTf
-	 Pzo17mzYAnIgL4bHSOPIGrFU/bubr9cdx/ED7Niyzsm/9yFzJNU8orIaoCzAx4M6zzoZw
-	 KUQfYQ1paBgvkqVXUgBYJF2b+U/6m/I5OrfDTNT3lrJMcAQDG3Bc+rvo/53hvCBPcLg==
+	t=1795785380;
+	b=SfD1T29Zc0vLGXv5OVyirKs8hD22nSuvAQSqfRAHDp85Gq8uERoi5+oCUCKqX9dBq3C9
+	 6dfpyr8jFS4g9XQ9EPo3HNLo8/uyj+REs/F/RzUKZK5GTl1nbNcHVzLYNZ6au4bAvF6ye
+	 q3G3hbK+E+nAH2SRGcFJ76aYjuro7FJt3gculCy23QwmQsRp1lF2xHWqSEYywfCCwcfKW
+	 Gdn3PXHROqddSkfUvOvbj5uU2J5xe1l98cYJzUKMBLCKUj+wC/8ynhMf2fVcykPS5KR9V
+	 p2OlQ4H4bVc06t4gOikUbuIPi9OucVODlBCghSqsvwkXrkIyDpT5DbaEGYb0ipKcDUg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795785359;
-	h=DMARC-Filter:DKIM-Signature:X-MSG-ID:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=aCFTVSVXG6wB77a8PDQDLAYBUxPyj3OUMGSVgEGZX8A=;
-	b=P02FPCwfP6ulLhP7oPhiD2wPQmGHId2xKULO415Uz+lcUGa0kTwBqGrLr2KbQj/APMku
-	 gjC8H6mu9KChUE7+PlLhSG1SH67CDVHjL98TxjNQjw4AUsQEj+9WtKn6BUWUGsLZCj+op
-	 Lf/f08NgZ46l7DwFVTW+BjjFO9fYaAGkRSsF0J90MQK7AxpUpl+W9BRnKo7U2c87dsOHV
-	 MhB5w5ju/ik0OwYhfVkjjxp7P3AWymqFPN8RrQNrbvgyoxw143kGcJ9+ZyIPssoMJTuHR
-	 3rJH+1GDubka4OjOYSCuc9Ggo3YjANeG7Lzltl2W6rR95ZRV0e+tvqMd1XJSLZ5fguw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795785380;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Type:Date:Message-Id:Subject:From:To:Cc:X-Mailer:
+	 References:In-Reply-To;
+	bh=KP1KQQ5zc6J2penQP9T7HSMskKwpsejXhyxZijwDgBw=;
+	b=BEW21KyYvOwygw6B2nYl60IbiGT3Fa72xnMlOzM/Tbi3Qot9T4wy3Jx9SmSkOSPgr9UT
+	 ezhHa9QyWu3RSakA9YD5EuaHbRe4v5Z1C7LXJZK5qP8iAY+N0gh0qFdXD6ppEekYjcQ7E
+	 308IacVxqy/YVnDg49P3p1CSXojWWHCilkwFVWjopA89WO2rud5rIwdCB2bmNp/9Ta9ox
+	 KUGPWvH3myqBsLjxU95uMJWI0EEfiPkPZyMUVx8CXZa7zLTz79M8g+6wUx85krd9MPPF9
+	 gnALXAr5hMUg3JhL/bb5mL+ma80jW7Jgq3KtY/6k1PCJACm04TqMZbqtgjC/kPrn2Dw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=zanders.be;
-	spf=pass smtp.mailfrom=zanders.be;
-	dkim=pass header.d=zanders.be header.i=@zanders.be header.a=rsa-sha256 header.s=202002 header.b=U3nrn1TM;
-	arc=none smtp.remote-ip=94.124.121.26
-Received: from smtp15.bhosted.nl (smtp15.bhosted.nl [94.124.121.26])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jDNYoHai;
+	arc=none smtp.remote-ip=209.85.221.45
+Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3895606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:15:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3895606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=zanders.be
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zanders.be
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28D9B606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:16:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28D9B606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=zanders.be header.i=@zanders.be header.a=rsa-sha256 header.s=202002 header.b=U3nrn1TM
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jDNYoHai
+Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-492f0a1b685so5777647f8f.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:16:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=zanders.be; s=202002;
-	h=cc:to:in-reply-to:references:message-id:content-transfer-encoding:
-	 content-type:mime-version:subject:date:from:from;
-	bh=aCFTVSVXG6wB77a8PDQDLAYBUxPyj3OUMGSVgEGZX8A=;
-	b=U3nrn1TMXWL8RX8Yae4iIAaIUF9CKip7Ejz9rEzZs+PtXY9ebAIiLtVdNBPcGcU7NRlooiyOz7+mQ
-	 MGqMUgngD9n8ODjRgbeyFEiqZ13tWeIxeq5WFHymxJQEl6l0gcSTSLH82w3htRayPWTLso6vtvtFcA
-	 1ebBrNhFfeyJb+mdceyUbTA2dGeHiGMmuIkaNEivo/fpIoxjUNGzJazpkARwIsbpauO/r7GnSXkRWr
-	 ZqbHAxVUIok0t59W5s9ZgaGYt4JXd2l5Zlh4traBd27GTFj4i4i1kd/5sOPYpsUqt3SzWSYHMO1Ki3
-	 l0UsXzSl3flRVJYDgSOTCmdrOo3rg3A==
-X-MSG-ID: aac02d20-ea64-11f1-8642-00505681446f
-From: Maarten Zanders <maarten@zanders.be>
-Date: Fri, 27 Nov 2026 14:15:31 +0100
-Subject: [PATCH v2 1/2] clk: vc5: Enable PFD frequency doubler for
- 5P49V6965
+        d=gmail.com; s=20260707; t=1795785378; x=1796390178; darn=vger.kernel.org;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=KP1KQQ5zc6J2penQP9T7HSMskKwpsejXhyxZijwDgBw=;
+        b=jDNYoHaiPCM26YLr1LFLyg6vcqQ3lRu+qOryzuAYi+xEuAHmc0UqBdZ4poBpehE/5s
+         7PiUWUCK2wkW2dteZs/thupIvuqyOU4W3Pq5sVdCMf0lb1Kxo4J28XQbhfyF7mT2cs7q
+         3uFW87E7O1hT4++crNJt3NAX0SUI6+EOb5aReqGo7+i54H0+ooS6ly1ZFIV5I74tqsqS
+         IKB4ZHTTJl+Khf2B08Stb1mg1Yplxkn/8s7Lx6Cqfze+pKKEyi0RsBeOj+BbhwP9gSIJ
+         mP2LhvB4dpZzb760HoemttcxB1nTp4qjR8BwnjtOJyYwn3j7VDur80K0A/7El8aVvwX8
+         YkZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795785378; x=1796390178;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=KP1KQQ5zc6J2penQP9T7HSMskKwpsejXhyxZijwDgBw=;
+        b=0UF8fW0xvCKEQIhWgUwZUQKDYKv+y/A7fvcFaD2WDruuXZTZ/OG+LRLazRlYcFrRTF
+         vulWExI7p4tUy9QI4DEzmhqkTE3kLCLxPN3dwoMFQorODEOhh/o1Xi3xDwzctEFZBvSG
+         +YDG7rBt42HIQHJkhc8npV2WJgUCBB2/7e1di0qBEEt+rZAy5dS/Ym8bqEQwSzpD5YZQ
+         AWmcqzaYr5zHcuvoON6H7L/6HzjEG+GIWK7/Fxz4YqsrvtHNnwr0Q6wd/e7K6YWi4K7F
+         YptsH9mazFNreWeD4SV2FiudDKr72nbjlNdKeL02fEI1JtZBvtX1jR1sRSxcCVKsDx5m
+         qo7A==
+X-Forwarded-Encrypted: i=1; AL+hErGvaejbq8Fg0xHt8YK+F7VKQEagys/ECogm8jDGDrl7oG3gPtWogroV1GYDjHC1EuZX9G+IRBkOgIFK4/8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+OXF5WV+4brTnGyRONNz5i1sAsD6KEJeps0NDozhWNe2jdqXG9
+	+DaihUoVGHNNR67p/w82opoJL7hLT1ejT4M14IDd93NePpstVsvyc3ap
+X-Gm-Gg: AZFdTZckpXuU4NcN9p58fjW3EoJMu7eqTgUNXm7dp+1yZdDf3gb5gItGy1xq7MQcI12
+	rKx5OFy73HYSoiaK7zMPfTNYkTbgdoRMslSolNg9zQd2uyK5T2r72OoZl7BlojFckCGIltJ6lDv
+	n2hKtkhnHA2v59LSaCWcjytwPZ1PrgtqoHwJptSkhmuef/y0b7ypIcV2hJGnA1EunAYKmI0PVGz
+	J5NYinRYddKc+bKiakSD2070vmhJoiTEPFrZ2HfEKsTF9bAyglqlAdKbP6rWj5WN8v5hsY9J76d
+	P+qZ199OpiUpZDoEIZvqIx40ECne1XmO1pOvxsm9bogi4qbfsRkrhExgFrgEj3tY+isRMD5/oKA
+	ZNZTAeFWHqhAoCMnzAx1HIi+Dx3wYCeUeb11F9QNdbEW+m3BR/pwivur3QZfRsdsndJrUR9L58h
+	RjLaGoOyeuoLk92xp7xKP+rMWtRPuco120nus/W9THqHwXw9tsOI74jweHeRKd9QL3U9r1kJ66R
+	KOCz5iQ7H2yvF4bkYlv1lYLdST9MCOnNwZ1VZEIHKzTpcOT3Vuc8UvnzvzFX6sRB+LcYnLd2Zom
+	DacTyqI31o/wBPSi9/IJJb47u4fVgm3x5NiiZOzawNbBEvNG2fihbnDe31iC
+X-Received: by 2002:a05:600c:6219:b0:4bb:a5f1:fc5f with SMTP id 5b1f17b1804b1-4bba60168f3mr171039875e9.26.1795785378311;
+        Fri, 27 Nov 2026 05:16:18 -0800 (PST)
+Received: from localhost (mob-176-246-245-5.net.vodafone.it. [176.246.245.5])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b7515sm947107665e9.13.2026.11.27.05.16.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 05:16:17 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,58 +86,135 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-vc5-6975-dbl-v2-1-5a05581902c1@zanders.be>
-References: <20261127-vc5-6975-dbl-v2-0-5a05581902c1@zanders.be>
-In-Reply-To: <20261127-vc5-6975-dbl-v2-0-5a05581902c1@zanders.be>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Matthias Fend <matthias.fend@emfend.at>, Adam Ford <aford173@gmail.com>
-Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, 
- Maarten Zanders <maarten@zanders.be>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795785348; l=1089;
- i=maarten@zanders.be; s=20261117; h=from:subject:message-id;
- bh=kd89PotW/xzgMsI9YP0phLrL9nJkd11Q+dQOl+MrkK4=;
- b=jGmOSPVID50W9Bk+ui5uXjOvD4qdyODo9dinxEbnOtGZsBVHMH+7wFz7mkfzidmWo2R/IoAdJ
- UMA/ukOqCRbD7sa6bMw5vzDaHc15nP0frNo36DgstP6QuRK+pf/J/GW
-X-Developer-Key: i=maarten@zanders.be; a=ed25519;
- pk=9vkWF6gtn9DS+97n+W487XUEhrI3+9cvA7Fdon8T1uI=
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=d266ab6a5424ddaad121a0a52eacc7f99696bf23ca7b0dd531f4216c8dd3;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Fri, 27 Nov 2026 14:16:09 +0100
+Message-Id: <DN60SA2AMQI2.3C10NXIO3L211@gmail.com>
+Subject: Re: [PATCH v2 2/4] fscrypt: update fscrypt_prepare_setflags() to
+ use xflags
+From: "koraynilay" <koray.fra@gmail.com>
+To: "Amir Goldstein" <amir73il@gmail.com>, "koraynilay"
+ <koray.fra@gmail.com>
+Cc: "Namjae Jeon" <linkinjeon@kernel.org>, "Hyunchul Lee"
+ <hyc.lee@gmail.com>, "Eric Biggers" <ebiggers@kernel.org>, "Theodore Y .
+ Ts'o" <tytso@mit.edu>, "Jaegeuk Kim" <jaegeuk@kernel.org>, "Alexander Viro"
+ <viro@zeniv.linux.org.uk>, "Christian Brauner" <brauner@kernel.org>, "Chuck
+ Lever" <cel@kernel.org>, "Jeff Layton" <jlayton@kernel.org>, "Jan Kara"
+ <jack@suse.cz>, "Alexander Aring" <alex.aring@gmail.com>, "Darrick J .
+ Wong" <djwong@kernel.org>, "Andrey Albershteyn" <aalbersh@kernel.org>,
+ =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, "Lauri Gates"
+ <lauri.gates@gmail.com>, "Christoph Hellwig" <hch@infradead.org>, "Dave
+ Chinner" <dgc@kernel.org>, <linux-btrfs@vger.kernel.org>,
+ <linux-xfs@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-fsdevel@vger.kernel.org>, <ntfs@lists.linux.dev>,
+ <linux-nfs@vger.kernel.org>, <linux-api@vger.kernel.org>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261126163114.403846-1-koray.fra@gmail.com>
+ <20261126163114.403846-3-koray.fra@gmail.com>
+ <CAOQ4uxjGLfuZMFABCwMvdXwnU+P24G_aTJLudWbjeSmWwyDF6Q@mail.gmail.com>
+ <DN5YPR39J7QI.1S1LCFLNUCZNL@gmail.com>
+ <CAOQ4uxgzmB0dEpQCVGKOc8reJ6OFV=BxDMgRW81aKiCMwDSn_Q@mail.gmail.com>
+In-Reply-To: <CAOQ4uxgzmB0dEpQCVGKOc8reJ6OFV=BxDMgRW81aKiCMwDSn_Q@mail.gmail.com>
 
-The 5P49V6965 supports the reference frequency doubler, but
-VC5_HAS_PFD_FREQ_DBL is not set for this device. As a result, the
-doubler setting is ignored and all PLL and output rates are reported at
-half their actual value when it is enabled.
+--d266ab6a5424ddaad121a0a52eacc7f99696bf23ca7b0dd531f4216c8dd3
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Set VC5_HAS_PFD_FREQ_DBL for the 5P49V6965.
+On Fri Nov 27, 2026 at 1:02 PM CET, Amir Goldstein wrote:
+> On Fri, Nov 27, 2026 at 12:38=E2=80=AFPM koraynilay <koray.fra@gmail.com>=
+ wrote:
+>>
+>> On Fri Nov 27, 2026 at 12:35 PM CET, Amir Goldstein wrote:
+>> > On Thu, Nov 26, 2026 at 5:31=E2=80=AFPM koraynilay <koray.fra@gmail.co=
+m> wrote:
+>> >>
+>> >> Update fscrypt_prepare_setflags() to use FS_XFLAG_* xflags instead of
+>> >> legacy FS_*_FL flags.
+>> >>
+>> >> Signed-off-by: koraynilay <koray.fra@gmail.com>
+>> >> ---
+>> >>  fs/crypto/hooks.c       | 10 +++++-----
+>> >>  fs/file_attr.c          |  2 +-
+>> >>  include/linux/fscrypt.h |  6 +++---
+>> >>  3 files changed, 9 insertions(+), 9 deletions(-)
+>> >>
+>> >> diff --git a/fs/crypto/hooks.c b/fs/crypto/hooks.c
+>> >> index 149498bdab94..52d6a33fc9e9 100644
+>> >> --- a/fs/crypto/hooks.c
+>> >> +++ b/fs/crypto/hooks.c
+>> >> @@ -182,10 +182,10 @@ int __fscrypt_prepare_setattr(struct dentry *de=
+ntry, struct iattr *attr)
+>> >>  EXPORT_SYMBOL_GPL(__fscrypt_prepare_setattr);
+>> >>
+>> >>  /**
+>> >> - * fscrypt_prepare_setflags() - prepare to change flags with FS_IOC_=
+SETFLAGS
+>> >> + * fscrypt_prepare_setflags() - prepare to change xflags
+>> >
+>> > prepare to change the file attributes with file_setattr() or one of
+>> > the legacy ioctls
+>>
+>> Ah yes.
+>>
+>> >>   * @inode: the inode on which flags are being changed
+>> >> - * @oldflags: the old flags
+>> >> - * @flags: the new flags
+>> >> + * @oldxflags: the old xflags
+>> >> + * @xflags: the new xflags
+>> >>   *
+>> >>   * The caller should be holding i_rwsem for write.
+>> >>   *
+>> >> @@ -193,7 +193,7 @@ EXPORT_SYMBOL_GPL(__fscrypt_prepare_setattr);
+>> >>   *        another error occurs.
+>> >>   */
+>> >>  int fscrypt_prepare_setflags(struct inode *inode,
+>> >> -                            unsigned int oldflags, unsigned int flag=
+s)
+>> >> +                            unsigned int oldxflags, unsigned int xfl=
+ags)
+>> >
+>> > This here is a backporting landmine -
+>> >
+>> > Changing the semantics drastically without changing the helper name
+>> > or signature.
+>> >
+>> > Please rename the helper something like fscrypt_prepare_fileattr_set()
+>> > so that backporting mistakes will be caught at build time.
+>>
+>> Yes, though, would it maybe be better to just use xflags_to_flags() in
+>> the vfs patch instead of changing the fscrypt function at all?
+>
+> Yes, much better. I agree.
 
-Fixes: 2bda748e6ad8 ("clk: vc5: Add support for IDT VersaClock 5P49V6965")
-Cc: stable@vger.kernel.org
-Reviewed-by: Jerome Brunet <jbrunet@baylibre.com>
-Signed-off-by: Maarten Zanders <maarten@zanders.be>
----
- drivers/clk/clk-versaclock5.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Ok, will do in v3.
 
-diff --git a/drivers/clk/clk-versaclock5.c b/drivers/clk/clk-versaclock5.c
-index 1cf8526975eb..ffa9e1c74fcd 100644
---- a/drivers/clk/clk-versaclock5.c
-+++ b/drivers/clk/clk-versaclock5.c
-@@ -1299,7 +1299,7 @@ static const struct vc5_chip_info idt_5p49v6965_info = {
- 	.model = IDT_VC6_5P49V6965,
- 	.clk_fod_cnt = 4,
- 	.clk_out_cnt = 5,
--	.flags = VC5_HAS_BYPASS_SYNC_BIT,
-+	.flags = VC5_HAS_PFD_FREQ_DBL | VC5_HAS_BYPASS_SYNC_BIT,
- 	.vco_max = 3000000000UL,
- };
- 
+> Now looking at the /* initialize missing bits from old_ma */
+> hunk my reaction is to look away its huge and it should be
+> using helpers probably called from within fileattr_set_prepare()
+> itself - because if this is de-facto preparing for a set.
 
--- 
-2.55.0
+(I'll reply to this in the vfs patch thread, so it's easier for me to
+find it again)
 
+Thanks,
+koraynilay
+
+> Thanks,
+> Amir.
+
+
+
+--d266ab6a5424ddaad121a0a52eacc7f99696bf23ca7b0dd531f4216c8dd3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRJ2XvJtXGwULYEerQ0bnTtJTDoOAUCawmCmgAKCRA0bnTtJTDo
+OM+8AQC9tcOsGFPF287JKL4pLZnhvZs7off4ihtuxm56vgpT2AEArgij7OQEsKKN
+AWm00Ai0JaPzKxHQtiid5dTOQhG5TAY=
+=uJ63
+-----END PGP SIGNATURE-----
+
+--d266ab6a5424ddaad121a0a52eacc7f99696bf23ca7b0dd531f4216c8dd3--
