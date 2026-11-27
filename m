@@ -1,86 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795760610;
-	b=KSPif2InKS2eZzRgB2kIDEPQfa0IxSXMeqxzKqrQByIj5yGKUfKvMJ+agnWybuF3YZ64
-	 9m3/zjcLH+2B327Tb5IJuuSAj2apcj9wN6tpAMyWGoTlVISslBusjktSeUheYzlh3cJkI
-	 HkqfT5wjza2KfAh6rGXLTEKRiC9z92m1zlnsB7R1CiSiVYZFBfJxoayq/u+RQXAbJeYmD
-	 N4cQ7DFbtYUibEFcvC3Cms4KDl/eRnnwgaXRWWN+BcFA/m10tP9C982ZsU3HyRhHtiiv3
-	 gszYmRE48sLINaYxu8cfJK/7FOtxEmXM8BXAlHsqr5l56lUSjmGx8ybVzpMkJGsU8Dg==
+	t=1795760628;
+	b=Auw5t1/2NJXLbUfOsk9a4GVaQWl6hC0XaqZyG+3AAS2evrecgi6dtvOfn7LcrvA/auaf
+	 PtippSR2vmhO+u5XWjrS19tVM+lW9Gj0feRyfY7U9HoAROwBlyJbYTqJqml0iTZpk899e
+	 O9AfkHCeHhZPPsVj7kzLXONV1IfMe8WbItcQnPuqrHkuyl1SuftIsH6ycIdMRcLaBoeBw
+	 gmiktM0Dkif4CSKuJa6CChXgD7QFDg4VLn3o61GJNlmSGnkH58jZY7wDG3m8Bhaq3isLX
+	 vRhDmONvIprdG05RuDnmcH/4k1L1gt3FdBJxR09oUNaYkiM39nRxIi+dGcTyS9I22Fg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795760610;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
-	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=VBIt+qdAst8yPVKvtQ+E8Xjhi1bgbwChpLbiiXzW4ME=;
-	b=PDsYrDhXTpuTL0wxtijW84Cy0Q+eGwjCVfQOAdpr81WEBgaRaLxZgkrhTUdPFZNlCmrj
-	 skidx/CUyoxgyWLu+Ef+H26oNsJNDbP6EZy+EYDlp3Pk1yUG85A2BhHT5qY/fC3YkSfJ7
-	 pL3aiDx79brfrS+jo5rrvOy+jyvLKQHJOJggC+4z1i4nImUfwM2bH9mfuAVuB9BWaAITc
-	 w46qQO4Vor85Bbt8mzO6/6bUFpfrvp9iChPCT3l9Iaut5NPeNqZUuNDmLSjfsRJUSvtYS
-	 Scbzyt4vsTSIINxC/gJTrKGq9aC0Jr7TTrFyjAAwalBQAjpDTjd0hjxGbu64KiaQI+w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795760628;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Cc:Content-Type;
+	bh=xYgQga9u8hUjdEXzpEX9HRImBpLpNALqvIW917WJ9ec=;
+	b=hq2ED8J5RhYOQZDlVBgXzwzSkljqVE6Viw3zNjPMvP0+vP52WTL1VxkGtE/Zcdb6yCtw
+	 UuguCHbyos+9qMwJdoFx2vOAHh90SRyoZ/zUciZpS7HSGx3Z1oShtijMoz7ihMl+SB1HL
+	 wIpruEju2Itc5JR9L63drhuUqKIlfeTChmvK3ViEPi9QtOQw1AXxUJuPphD8OBtTGhOvx
+	 OC7M6Tkx0Ulfyjf1hhOs5S2H9RsDlIyzInND5w/x5bgtTnJA+hqtHEnk4D4Yzvf+h8uw8
+	 25ywEQ2GUJqqhQJ5xSQ3YYivKH8cgrNVP/PqHsnZ/6svik6gQHenUsdBTUcLFnBvZCw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=iT3g5sWi;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.167.197
+Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C0EB606A337;
-	Fri, 27 Nov 2026 06:23:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C0EB606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=iT3g5sWi
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AR6N9NY0730705, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795760589; bh=VBIt+qdAst8yPVKvtQ+E8Xjhi1bgbwChpLbiiXzW4ME=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=iT3g5sWiphHLMwLLLSxyart7ugUZ9bHBNmRdRwWTrSDAaT46JpfMGe3AXrvbfiynh
-	 ZXB5Hs9pK6Xk678GIst3Px5w0wSCX1HbuyZv/kAy8vuQos/UOfLdv7tLyMA2Z597Nh
-	 JpbAgTLThHDd8nbeRMYWe0cMBUF3gRdq/q1OXqKa+EIxKFJPlDA/mNE1KOecSxOrh/
-	 Lm5nTt5YOL+xaKimNB1pQU8gAyY+vPST8vsbkBwtzdklesyyGBg+UTHiXAhzdvscbm
-	 dzbIjz0sxgygvGSketkwwCN/bku8fF7eQNJVZ6XLWZNK4NhD+v6PIKZ2lu4T1Em5qD
-	 vtiXpprTdiehg==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AR6N9NY0730705
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 27 Nov 2026 14:23:09 +0800
-Received: from RTKEXHMBS01.realtek.com.tw (172.21.6.40) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 27 Nov 2026 14:23:09 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS01.realtek.com.tw (172.21.6.40) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 27 Nov 2026 14:23:09 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Fri, 27 Nov 2026 14:23:09 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: Mehmet Fide <mehmet.fide@gmail.com>
-CC: Luka Gejak <luka.gejak@linux.dev>, Bitterblue Smith
-	<rtl8821cerfe2@gmail.com>, "linux-wireless@vger.kernel.org"
-	<linux-wireless@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "mehmet.fide@screeningeagle.com"
-	<mehmet.fide@screeningeagle.com>
-Subject: RE: [PATCH rtw-next v14 2/3] wifi: rtw88: support channel switch in
- AP mode
-Thread-Topic: [PATCH rtw-next v14 2/3] wifi: rtw88: support channel switch in
- AP mode
-Thread-Index: AQHdee+p8j6aIxstNkarBQ/O0oJacrdBdPNg
-Date: Fri, 27 Nov 2026 06:23:09 +0000
-Message-ID: <84030084b4f24c4199a85cf05fae10b0@realtek.com>
-References: <20261121193644.603289-1-mehmet.fide@gmail.com>
- <20261121193644.603289-3-mehmet.fide@gmail.com>
-In-Reply-To: <20261121193644.603289-3-mehmet.fide@gmail.com>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3870606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:23:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3870606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-574ae6cc614so6925687b6e.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:23:47 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795760627; x=1796365427;
+        h=content-type:cc:to:from:subject:message-id:in-reply-to:date
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=xYgQga9u8hUjdEXzpEX9HRImBpLpNALqvIW917WJ9ec=;
+        b=qf21SGuN/0ygXzQKgh+5KDVQHo2P0e4ycpGfIbB1ZBCJSU2/AIZuxiv0RWcXSx3a7/
+         Lmn7bFEKJryOqRBSb/xa48R3VTf/MwhAW/kDqGQwvUOUdyI+B1vSaNoF78Z1tEpNCYFM
+         y/aZ8NtDRsXkjdCebT0vggFGWL5AEwnYSnTlpDDGvyXw4pD2AL4Nx1HvqUDJHb3ph1I9
+         5LGBtul7E6SySX0a74Rln6YWY6SJzPg1clbjL5Oejma1KqL+6jz8GRx4zl5E4+EVjEeQ
+         v2MU8TSjLMBsUEwmP6Vv4yDgl6//yP2+SW8Uqxh0f8lHVGbVfaiPZ059qatDmUDPvAE6
+         w1/A==
+X-Forwarded-Encrypted: i=1; AL+hErGoj9pIMn6Me55gTRzM6R01MmEXYGvXgw2/ozfSo2iqvEtJpk9Ubrn74XpsrsjKYDEjiSBp+RDMTHVZNM4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8SAOncmQXDUeFwpaJM9pPoVVxIEBWwPXPQelgISK9yX1vcfg+E
+	xNIZLzDWcKh4WFsy/o3feGGY8jxonEadAejzezKDt3Iiz1UVIhtVbIl7c+2w59GPmhcaqr6LDqQ
+	1zzKWfZa8eYpKNYlj2gwPnCy8c+pFKXGWlW7s4bk6282bjt7xBEveP7o6gzk=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,72 +58,145 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-Received: by 2002:a05:6808:4441:b0:568:195a:3ba8 with SMTP id
+ 5614622812f47-5797d0b44dbmr19422730b6e.29.1795760627077; Thu, 26 Nov 2026
+ 22:23:47 -0800 (PST)
+Date: Thu, 26 Nov 2026 22:23:47 -0800
+In-Reply-To: <20261122090454.6217-1-25031212351@stu.xidian.edu.cn>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6b0921f3.1492ceaa.187240.0078.GAE@google.com>
+Subject: [syzbot ci] Re: ALSA: line6: Stop URBs synchronously via sync_stop callback
+From: syzbot ci <syzbot+ci4a0a685a2ad8288a@syzkaller.appspotmail.com>
+To: 25031212351@stu.xidian.edu.cn, byu@xidian.edu.cn, 
+	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, perex@perex.cz, 
+	stable@vger.kernel.org, tiwai@suse.de, wencheng@xidian.edu.cn
+Cc: syzbot@lists.linux.dev, syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
 
-Mehmet Fide <mehmet.fide@gmail.com> wrote:
-> @@ -857,12 +878,16 @@ static int rtw_ops_suspend(struct ieee80211_hw *hw,
->                            struct cfg80211_wowlan *wowlan)
->  {
->         struct rtw_dev *rtwdev =3D hw->priv;
-> +       struct ieee80211_vif *csa_vif;
->         int ret;
->=20
->         mutex_lock(&rtwdev->mutex);
-> +       csa_vif =3D rtwdev->csa_vif;
-> +       rtw_fw_csa_stop(rtwdev, csa_vif);
->         ret =3D rtw_wow_suspend(rtwdev, wowlan);
->         if (ret)
->                 rtw_err(rtwdev, "failed to suspend for wow %d\n", ret);
-> +       rtwdev->csa_wow_vif =3D ret ? NULL : csa_vif;
+syzbot ci has tested the following series
 
-Have you actually tested WoWLAN with AP mode operating CSA?=20
-If not, I prefer not resuming CSA.=20
+[v4] ALSA: line6: Stop URBs synchronously via sync_stop callback
+https://lore.kernel.org/all/20261122090454.6217-1-25031212351@stu.xidian.edu.cn
+* [PATCH v4] ALSA: line6: Stop URBs synchronously via sync_stop callback
 
-As I know, we can only support STA mode WoWLAN under single one interface
-combination.
+and found the following issue:
+general protection fault in line6_kill_audio_urbs
 
->         mutex_unlock(&rtwdev->mutex);
->=20
->         return ret ? 1 : 0;
-> @@ -871,12 +896,18 @@ static int rtw_ops_suspend(struct ieee80211_hw *hw,
->  static int rtw_ops_resume(struct ieee80211_hw *hw)
->  {
->         struct rtw_dev *rtwdev =3D hw->priv;
-> +       struct ieee80211_vif *csa_vif;
->         int ret;
->=20
->         mutex_lock(&rtwdev->mutex);
->         ret =3D rtw_wow_resume(rtwdev);
->         if (ret)
->                 rtw_err(rtwdev, "failed to resume for wow %d\n", ret);
-> +       csa_vif =3D rtwdev->csa_wow_vif;
-> +       rtwdev->csa_wow_vif =3D NULL;
-> +       if (!ret && csa_vif && csa_vif->bss_conf.csa_active &&
-> +           csa_vif->bss_conf.enable_beacon)
-> +               rtw_fw_csa_start(rtwdev, csa_vif, false);
->         mutex_unlock(&rtwdev->mutex);
->=20
->         return ret ? 1 : 0;
+Full report is available here:
+https://ci.syzbot.org/series/142062cf-1e2f-45f6-889f-e755c6f0dfc7
 
-[...]
+***
 
-> --- a/drivers/net/wireless/realtek/rtw88/main.h
-> +++ b/drivers/net/wireless/realtek/rtw88/main.h
-> @@ -2096,6 +2096,12 @@ struct rtw_dev {
->         struct work_struct ips_work;
->         struct work_struct fw_recovery_work;
->         struct work_struct update_beacon_work;
-> +       struct delayed_work csa_beacon_work;
-> +       struct ieee80211_vif *csa_vif;
-> +       struct ieee80211_vif *csa_wow_vif;
-> +       ktime_t csa_due;
-> +       u8 csa_count;
-> +       bool csa_retry;
+general protection fault in line6_kill_audio_urbs
 
-Create a struct to hold these CSA data?
+tree:      torvalds
+URL:       https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux
+base:      9437ee8b6cf607e883b36e44bd755968daaebd48
+arch:      amd64
+compiler:  Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+config:    https://ci.syzbot.org/builds/fa7bddbf-e0c4-41e2-9f96-995d29f44c33/config
+syz repro: https://ci.syzbot.org/findings/3b9dd218-32a8-4b85-8604-77328ada3c3e/syz_repro
 
->=20
->         /* used to protect txqs list */
->         spinlock_t txq_lock;
-> --
-> 2.56.0
+snd_usb_toneport 1-1:0.0: cannot get proper max packet size
+Oops: general protection fault, probably for non-canonical address 0xdffffc0000000000: 0000 [#1] SMP KASAN PTI
+KASAN: null-ptr-deref in range [0x0000000000000000-0x0000000000000007]
+CPU: 0 UID: 0 PID: 994 Comm: kworker/0:3 Not tainted syzkaller #0 PREEMPT(full) 
+Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+Workqueue: usb_hub_wq hub_event
+RIP: 0010:line6_kill_audio_urbs+0x1eb/0x320 sound/usb/line6/pcm.c:133
+Code: 4c 8b 24 24 4c 89 e5 48 c1 ed 03 42 80 7c 35 00 00 74 08 4c 89 e7 e8 d4 96 92 f8 4d 8b 24 24 4a 8d 3c 23 48 89 f8 48 c1 e8 03 <42> 80 3c 30 00 74 05 e8 b9 96 92 f8 4d 8b 24 1c 4d 85 e4 74 0f e8
+RSP: 0018:ffffc9000632ec10 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: 0000000000000000 RCX: 0000000000000000
+RDX: ffff88810d8e0000 RSI: 0000000000000010 RDI: 0000000000000000
+RBP: 1ffff11023131427 R08: ffffffff91be37bf R09: 1ffffffff237c6f7
+R10: dffffc0000000000 R11: fffffbfff237c6f8 R12: 0000000000000000
+R13: 0000000000000001 R14: dffffc0000000000 R15: ffff88811898a000
+FS:  0000000000000000(0000) GS:ffff88818bdf6000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000055bf9470d0a0 CR3: 0000000117d14000 CR4: 00000000000006f0
+Call Trace:
+ <TASK>
+ line6_pcm_disconnect+0x1c/0x30 sound/usb/line6/pcm.c:515
+ line6_disconnect+0x166/0x260 sound/usb/line6/driver.c:844
+ line6_probe+0x9f5/0xcd0 sound/usb/line6/driver.c:818
+ usb_probe_interface+0x751/0xe00 drivers/usb/core/driver.c:399
+ call_driver_probe drivers/base/dd.c:-1 [inline]
+ really_probe+0x254/0xae0 drivers/base/dd.c:707
+ __driver_probe_device+0x1e8/0x360 drivers/base/dd.c:869
+ driver_probe_device+0x4f/0x240 drivers/base/dd.c:899
+ __device_attach_driver+0x270/0x410 drivers/base/dd.c:1027
+ bus_for_each_drv+0x258/0x2f0 drivers/base/bus.c:500
+ __device_attach+0x2bd/0x430 drivers/base/dd.c:1131
+ device_initial_probe+0x9c/0x100 drivers/base/dd.c:1190
+ __bus_probe_device+0x126/0x220 drivers/base/bus.c:614
+ device_add+0x7d7/0xb80 drivers/base/core.c:3778
+ usb_set_configuration+0x1bb5/0x2260 drivers/usb/core/message.c:2280
+ usb_generic_driver_probe+0x8d/0x150 drivers/usb/core/generic.c:250
+ usb_probe_device+0x1c3/0x3b0 drivers/usb/core/driver.c:293
+ call_driver_probe drivers/base/dd.c:-1 [inline]
+ really_probe+0x254/0xae0 drivers/base/dd.c:707
+ __driver_probe_device+0x1e8/0x360 drivers/base/dd.c:869
+ driver_probe_device+0x4f/0x240 drivers/base/dd.c:899
+ __device_attach_driver+0x270/0x410 drivers/base/dd.c:1027
+ bus_for_each_drv+0x258/0x2f0 drivers/base/bus.c:500
+ __device_attach+0x2bd/0x430 drivers/base/dd.c:1131
+ device_initial_probe+0x9c/0x100 drivers/base/dd.c:1190
+ __bus_probe_device+0x126/0x220 drivers/base/bus.c:614
+ device_add+0x7d7/0xb80 drivers/base/core.c:3778
+ usb_new_device+0x9aa/0x1690 drivers/usb/core/hub.c:2713
+ hub_port_connect drivers/usb/core/hub.c:5585 [inline]
+ hub_port_connect_change drivers/usb/core/hub.c:5725 [inline]
+ port_event drivers/usb/core/hub.c:5889 [inline]
+ hub_event+0x28e8/0x4d30 drivers/usb/core/hub.c:5971
+ process_one_work kernel/workqueue.c:3497 [inline]
+ process_scheduled_works+0xc5d/0x1650 kernel/workqueue.c:3580
+ worker_thread+0xa47/0xfb0 kernel/workqueue.c:3661
+ kthread+0x38b/0x480 kernel/kthread.c:436
+ ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:line6_kill_audio_urbs+0x1eb/0x320 sound/usb/line6/pcm.c:133
+Code: 4c 8b 24 24 4c 89 e5 48 c1 ed 03 42 80 7c 35 00 00 74 08 4c 89 e7 e8 d4 96 92 f8 4d 8b 24 24 4a 8d 3c 23 48 89 f8 48 c1 e8 03 <42> 80 3c 30 00 74 05 e8 b9 96 92 f8 4d 8b 24 1c 4d 85 e4 74 0f e8
+RSP: 0018:ffffc9000632ec10 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: 0000000000000000 RCX: 0000000000000000
+RDX: ffff88810d8e0000 RSI: 0000000000000010 RDI: 0000000000000000
+RBP: 1ffff11023131427 R08: ffffffff91be37bf R09: 1ffffffff237c6f7
+R10: dffffc0000000000 R11: fffffbfff237c6f8 R12: 0000000000000000
+R13: 0000000000000001 R14: dffffc0000000000 R15: ffff88811898a000
+FS:  0000000000000000(0000) GS:ffff88818bdf6000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000055bf9470d0a0 CR3: 0000000117d14000 CR4: 00000000000006f0
+----------------
+Code disassembly (best guess):
+   0:	4c 8b 24 24          	mov    (%rsp),%r12
+   4:	4c 89 e5             	mov    %r12,%rbp
+   7:	48 c1 ed 03          	shr    $0x3,%rbp
+   b:	42 80 7c 35 00 00    	cmpb   $0x0,0x0(%rbp,%r14,1)
+  11:	74 08                	je     0x1b
+  13:	4c 89 e7             	mov    %r12,%rdi
+  16:	e8 d4 96 92 f8       	call   0xf89296ef
+  1b:	4d 8b 24 24          	mov    (%r12),%r12
+  1f:	4a 8d 3c 23          	lea    (%rbx,%r12,1),%rdi
+  23:	48 89 f8             	mov    %rdi,%rax
+  26:	48 c1 e8 03          	shr    $0x3,%rax
+* 2a:	42 80 3c 30 00       	cmpb   $0x0,(%rax,%r14,1) <-- trapping instruction
+  2f:	74 05                	je     0x36
+  31:	e8 b9 96 92 f8       	call   0xf89296ef
+  36:	4d 8b 24 1c          	mov    (%r12,%rbx,1),%r12
+  3a:	4d 85 e4             	test   %r12,%r12
+  3d:	74 0f                	je     0x4e
+  3f:	e8                   	.byte 0xe8
 
+
+***
+
+If these findings have caused you to resend the series or submit a
+separate fix, please add the following tag to your commit message:
+  Tested-by: syzbot@syzkaller.appspotmail.com
+
+---
+This report is generated by a bot. It may contain errors.
+syzbot ci engineers can be reached at syzkaller@googlegroups.com.
