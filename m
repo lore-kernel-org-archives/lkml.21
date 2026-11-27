@@ -1,63 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.118
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795744191;
-	b=Z2WHH6Qgg57cDXssIu/gbinjqOrf3vXSJarDw6qy/TDjhjKkyc+73PA9PkF80Rt4jvIF
-	 JIeyg8sMVZYX8+9/TCr3oNqmv0Qs9tDzuijFQrzi/TwerUuHw/sRq8d5Vm5KH3Aev6HSk
-	 6RDg9F4y097WFfMIPffIvKcKLMtoaGbI51gyM93eHGToP34GEw3g7acrgO03vX9ffOQ6x
-	 92j6TTub1WqIX3NTAAVATZ3dcLoDSP7p0toWJtfWdpajtzovezcBvySRIDNGls1268MZl
-	 9OEYpTgH7huqHakz0tOlY/m7Px0wl142+YBoVgiqYXSE1zrjgZJEwCVSk/npdjvIcvg==
+	t=1795744228;
+	b=M30pESNsou4njAvDdW4ghXAJUPj8EiqI2/XtbhLHXupmKCWHfesmpDbcKNxkh7T5mkwn
+	 AaF3LuYnYFuhbt/u1YdUS4BTEOedGOI072NsucxnXzdD3PznjTTVwWYtuUDyxrR6zBpcL
+	 vVzwCzcki4nXaQFTRf7zrNsQj+WOt2k9UJuYrOlyYHC01UTxQ37zSnfRVDn7u38qn1pOk
+	 GKbVa2F2CF8uWbtOucd0YEQDfNeaHggcoHl1NloYD8Pu1z0GTeKJSx+IvtHxLfqIDjnP0
+	 YjsNWaNufvlXDr1IWFUR3IV8O8BLkSvBMDZOb7NYY81W86JiA+3ItCY9ip3dQpWAFLw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795744191;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=x14zHhnV4N4TwPMA5axxL2E1JT7/FZeG+7OjV1ttJ1c=;
-	b=5sVCOAzvsScbcj8rOYRrDq8P7KhH6M8/sFY8o0BI+QifwkBNEjCe2B4Tl08+tB5t5k8V
-	 +W3Zvw1Rv9KHN/NiLAeS/f9YTdHlkOTWsSMDZ40HqhkEzcW2zce0dM61W3a6bLhSirAYb
-	 NbBFUGJXVf5PbnPw4vlCGbYOUhoxfckBE9Op+Sum9upN77l92MCfSwracZKU+N1bWAbst
-	 K0I6VvZPuWHLa1NL1j/S2jJ/22bmB+iHEK0g/3GaR2Hjpxc/f+fpihwbXHmGIt+mPPeCe
-	 onUI/2AsSthE6WN1aT4pzIujAaJxWbGvb5TYPb6WcUcZa/ZwaTBP4RWF38RUB628tww==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795744228;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=uUavxelTZRtFV0GBlnXp7zzHRPVbuF2ydfagKIyAC6I=;
+	b=LtGSO9UUwwinF12xqB2Fo2aj6gek7B6r5HvxKVDgHEKrpZN/02io4EXcepee5yn4A94s
+	 Tu6E1C+kedGCq2lGrHPYAEfKypWYoaRTgJSINw9LICCXCjDYr7EoNzFtTSVVi+0YDJHxB
+	 Y9fZF6Wdeop0i/WGso2ZA7jYDzqGyl5qZSBA3YgyqfjX3KwHefTKwLGl7G5C9bNUvzuI3
+	 LalgH08MSRx6m+7HRPFdw/hIuB5yGD0PKgsL7EwqLbKhOL5XYSEFoNthnsV0UsCCpIVC1
+	 QJnxpAeb+pgz/A3qJhA+WLO062xE5uys1f8QWO6+Zjox7qDbs3WBhhLks8YqSqwqiUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.alibaba.com;
-	spf=pass smtp.mailfrom=linux.alibaba.com;
-	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b="nlWWOV/D";
-	arc=none smtp.remote-ip=115.124.30.118
-Received: from out30-118.freemail.mail.aliyun.com (out30-118.freemail.mail.aliyun.com [115.124.30.118])
+	dmarc=pass header.from=alien8.de;
+	spf=pass smtp.mailfrom=alien8.de;
+	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=X4oontNW;
+	arc=none smtp.remote-ip=65.109.113.108
+Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37CED606A31C;
-	Fri, 27 Nov 2026 01:49:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37CED606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9599F606A31C;
+	Fri, 27 Nov 2026 01:50:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9599F606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=nlWWOV/D
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1795744187; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=x14zHhnV4N4TwPMA5axxL2E1JT7/FZeG+7OjV1ttJ1c=;
-	b=nlWWOV/DNbGNEhDUiG99DGsmoAUxEDvezkf9bWNmDL5ADwPPQHDt8GwEwbBXJOK3uvgqohZDyw8q1bJeiBoxp00b8uCb6baqH7OrXZiGL9+jLSpg8h5ubZsBEGJ2wdmDjtDkARkNxggL9OKV6Y/VmsmBc97W/QLSyFP45e1uVAk=
-X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R121e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=jiangtianfeng@linux.alibaba.com;NM=1;PH=DS;RN=9;SR=0;TI=SMTPD_---0XFW0kue_1795744178;
-Received: from h68d07384.sqa.eu95.tbsite.net(mailfrom:jiangtianfeng@linux.alibaba.com fp:SMTPD_---0XFW0kue_1795744178 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 27 Nov 2026 09:49:47 +0800
-From: Jiangtian Feng <jiangtianfeng@linux.alibaba.com>
-To: rafael@kernel.org,
-	viresh.kumar@linaro.org
-Cc: linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	christian.loehle@arm.com,
-	ananthu.cv@oss.qualcomm.com,
-	pierre.gondois@arm.com,
-	zhongqiu.han@oss.qualcomm.com,
-	jiangtianfeng@linux.alibaba.com
-Subject: [RFC PATCH v2] cpufreq: Keep global boost enabled after partial enable
-Date: Fri, 27 Nov 2026 09:49:33 +0800
-Message-ID: <20261127014937.413500-1-jiangtianfeng@linux.alibaba.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261126110903.3747240-1-jiangtianfeng@linux.alibaba.com>
-References: <20261126110903.3747240-1-jiangtianfeng@linux.alibaba.com>
+	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=X4oontNW
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 21AB640E0219;
+	Fri, 27 Nov 2026 01:50:25 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id F4nSUESuFsq6; Fri, 27 Nov 2026 01:50:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1795744221; bh=uUavxelTZRtFV0GBlnXp7zzHRPVbuF2ydfagKIyAC6I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=X4oontNWub6DK1ACbhGnPPvfWTxg+N6xqcMDviD75yX9EOkr8tU59KFI4Yhlzk5+L
+	 h2I/Lj3fJmJ206MHZ+KRKFEjB64R3PFTG73Ztt33Wqo+ug4QmVKv6mBc3iCknmJW81
+	 LqmUvJyEb/mvJNs18coEcFjuQS8D+VZO3dXL7TnCgebDHxjPVtF95ascABpPCLf/WU
+	 QeLX4m4xNB1ELRX5X2+9Drhx8Jc9HGwChSOZSrT/rdZHpqSQWeDmBCEVIeMNOUXeGe
+	 ZVOJVMLWd8q5UmJbvoC9CNW7za/kpNgugmHzQ9IY2n5LF8cryNiaF8Cq2R+XalE5eR
+	 3qBpV0IAjbTOGdfeChDe8mtomBDSskLmgTefyyPTOFSeLAebi3gtnQFhDVVZVBDX/Z
+	 +zhSKFRJ2v8+a5JCcmdj1SA+eDCszsH4ZYd7f9LCL9OCy83G6bbzDG6GHgTBJBDC4g
+	 BvlEYq6gbkao+0P3n3k8B+vT49sRO7JHBMvzcQl6kfMoNskNH9ENOZsjCsG1gwfNNy
+	 zKJzaUboJjp9HchAawT05gX45+MkRu4BB6FfAoHQedUMx4EljFfoXV98BGowihRaCZ
+	 KwuUsuo3vORov9p9wTYnHJ5Mpi4/O8T4HwhRP/8KV0iT3KsRRNXyKxfTY273DcAvbI
+	 +Szu+RaH8qccVC0ilMwkNhkM=
+Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 2ABD140E00C2;
+	Fri, 27 Nov 2026 01:49:57 +0000 (UTC)
+Date: Thu, 26 Nov 2026 17:49:55 -0800
+From: Borislav Petkov <bp@alien8.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Sasha Levin <sashal@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Willy Tarreau <w@1wt.eu>, Leon Romanovsky <leon@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Marc Zyngier <maz@kernel.org>, Eric Dumazet <edumazet@google.com>,
+	Hans de Goede <hansg@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Theodore Ts'o <tytso@mit.edu>, David Hildenbrand <david@kernel.org>,
+	Security Officers <security@kernel.org>, workflows@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs
+ and a cover letter
+Message-ID: <20261127014955.GBawjhw2j2YEUeiG1G@fat_crate.local>
+References: <20261126171926.2766137-1-sashal@kernel.org>
+ <20261126171926.2766137-2-sashal@kernel.org>
+ <cf3596c6-742e-49c1-a90b-941d300d0b4a@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,70 +93,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <cf3596c6-742e-49c1-a90b-941d300d0b4a@kernel.org>
 
-When global boost is enabled from the disabled state, a failure after
-one or more policies have been updated successfully currently restores
-the global flag to 0 without rolling back those policies. This leaves
-them locally enabled, with their boost-related driver/QoS updates
-retained, while the global flag rejects per-policy sysfs writes.
+On Fri, Nov 27, 2026 at 02:34:26AM +0100, Krzysztof Kozlowski wrote:
+> On 26/11/2026 18:19, Sasha Levin wrote:
+> > Commit messages written by AI coding assistants are too long.
+> > Maintainers keep asking for them to be cut down [1][2][3][4]: they read
+> > like a copy of the assistant's analysis and bury what a reader needs.
+> > When an assistant does trim, the opposite problem shows. A few lines of
+> > a backtrace do not tell a reviewer how the failure was produced, and
+> > Leon Romanovsky showed a case where only the full log revealed that the
+> > crash came from an out-of-tree module written to provoke it [5]. Willy
+> > Tarreau suggested a short quote in the changelog plus the full log
+> > attached [6].
+> 
+> Shall we rather ask them not to write commit msgs at all? By writing
+> commit msg we encourage - or try to encourage - at least basic
+> understanding of what the patch does.
 
-Keep the global flag enabled if at least one policy_set_boost() call
-succeeded, while preserving the existing error return path. Global
-boost = 1 grants permission to boost; it does not require every policy
-to have boost enabled. The mixed per-policy state is therefore valid
-and individual policies remain accessible through per-policy sysfs.
+Agreed.
 
-Retain global-state restoration for enable failures without a
-successful policy update, same-state resynchronization failures, and
-disable failures. Do not roll back earlier policy updates.
+Just have the LLM write a commit message and then the human should go
+and whack most of it to the bare minimum of coincisely explaining the thing
+and cull all the bullsh*t.
 
-Qoder, an AI coding assistant, helped analyze the issue, develop the fix
-and state matrix, and draft this description.
+I constantly do that with submitters' overloaded bla nowadays. And don't even
+get me started on all those explaining what the patch does. There's not small
+amounts of text which basically spells out the code in the diff, in English.
 
-Fixes: 218a06a79d9a ("cpufreq: Support per-policy performance boost")
-Signed-off-by: Jiangtian Feng <jiangtianfeng@linux.alibaba.com>
----
- drivers/cpufreq/cpufreq.c | 12 +++++++++---
- 1 file changed, 9 insertions(+), 3 deletions(-)
+/facepalm.
 
-diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
-index 4332cb114070..707de10ad36b 100644
---- a/drivers/cpufreq/cpufreq.c
-+++ b/drivers/cpufreq/cpufreq.c
-@@ -2887,6 +2887,7 @@ static int cpufreq_boost_trigger_state(int state)
- 	struct cpufreq_policy *policy;
- 	unsigned long flags;
- 	bool boost_enabled;
-+	bool policy_success = false;
- 	int ret = -EOPNOTSUPP;
- 
- 	guard(mutex)(&cpufreq_boost_mutex);
-@@ -2911,6 +2912,8 @@ static int cpufreq_boost_trigger_state(int state)
- 		ret = policy_set_boost(policy, state);
- 		if (unlikely(ret))
- 			break;
-+
-+		policy_success = true;
- 	}
- 
- 	cpus_read_unlock();
-@@ -2918,9 +2921,12 @@ static int cpufreq_boost_trigger_state(int state)
- 	if (likely(!ret))
- 		return 0;
- 
--	write_lock_irqsave(&cpufreq_driver_lock, flags);
--	cpufreq_driver->boost_enabled = boost_enabled;
--	write_unlock_irqrestore(&cpufreq_driver_lock, flags);
-+	/* Keep partial enable usable and repairable through local sysfs. */
-+	if (!state || !policy_success) {
-+		write_lock_irqsave(&cpufreq_driver_lock, flags);
-+		cpufreq_driver->boost_enabled = boost_enabled;
-+		write_unlock_irqrestore(&cpufreq_driver_lock, flags);
-+	}
- 
- 	pr_err("%s: Cannot %s BOOST\n",
- 	       __func__, str_enable_disable(state));
+Anyway, I try to hold on to this structure below, with variations ofc, if
+needed:
+
+"1. Prepare the context for the explanation briefly.
+
+2. Explain the problem at hand.
+
+3. "It happens because of <...>"
+
+4. "Fix it by doing X"
+
+5. "(Potentially do Y)."
+
+And some of those above are optional depending on the issue being
+explained."
+
 -- 
-2.47.3
+Regards/Gruss,
+    Boris.
 
+https://people.kernel.org/tglx/notes-about-netiquette
