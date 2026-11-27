@@ -1,63 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.7
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.105.56.78
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795771459;
-	b=R1CKzt/G61e0hsfIrr9trhFP716eWxJ+W5kLyGsm4HA88mpURWQhxtPFSUeqdVfnPJpe
-	 z0j7VuYVYiErPOXQTyild1j+5kmW0il/psVw9sEBFJ4iGZtxiwFGAAref2ZDmJeh7tBoi
-	 Zx1RRHaRH6Dv+wVEOOPJYE+TXqsDFLl/6rMo9oG4M4go6fIMd4k3RaWV0kCGQD7dovn+S
-	 6bEpbk7y3ql12inwcTgyX2FxZ1SDoI+nrPak8x4s3sGfEK49qwh+7/ORaticjfhq7Ka/1
-	 cO3TEOF9eCc5mSj3+kjhQJRnSpSLO9KKUJ3KVGLvHuaStmMQWsCbskcYSi3v+jazLpQ==
+	t=1795771485;
+	b=1UtJFjm28N5T8RvJKsr8X4MkRl3y8lpXdHwN5n7c9fw2jcu+/L7dG2E4UVLb+vVDy3Bl
+	 gtLnNZR1E8VvTz82fl2oHQcksBv16DLq+n+NqHOAr76+dC0ktryp5oLs70e0eeT1CiYLj
+	 2aUMtLKGXocnkJfHJpkpvVnshA0M0fmPwOpLIEAin8OrTylu+jYZiHPdDlO6R012Rr/mR
+	 1cDLV0zRduaCZvNbTarEfKCxGgpqOBFY2WjetjebGhpLJ3/EAlFmd05WVybxxEDXJymOc
+	 ksfM1XC4oPYF+h7fIPGjppmb1W/qV6e224d1NAx1YvZC/Sz62MX9UTDRZPdgb3S1QEQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795771459;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=7ty1iZfjrQRaq0ygLizQ45rXD2THgByLVqAbfFxEQJg=;
-	b=ZN02c6pOaYNDRUYDD7M5qVNvY2qvy4l/KCcnGjHa1I8n+ZIGSfLon9JSSIiNXZI984GA
-	 fhA3kxie2ji9eREiZUXvQK/JqChaqkzFnvHE+dvXKwlQ3ANWPSYkxeQEo4PmF/uMJIckQ
-	 th847GRTOd1J+CmBPQgk4J/rhg7GlPnOORuzDBxUa0bCQbGkyO/IIUxlDaQnZHnyJg7eY
-	 SPHeZ0tfyEsAOGHVOnUuw0pgG3hywea/DR62JOXBVxIVcXoWtS7gdo9boLqRofuerYGT3
-	 NKerau6hdojVoBULiwPku4B0eH/vsdjyZFXwxTF4RSbxOQbVmQ4OLLmET5zfPIVgjqQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795771485;
+	h=DMARC-Filter:Received:Received:Received:X-OVh-ClientIp:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:x-ovh-tracer-id:X-VR-SPAMSTATE:
+	 X-VR-SPAMSCORE:X-VR-SPAMCAUSE:DKIM-Signature;
+	bh=O/40p9mPUJ9lzAMAARPW6FZcfYSAz2NfyvuBdIj3BtM=;
+	b=zrjX7G5M6cTT+0P7ZkrDpH1Ddsm4nGnh1XACxETacM0mKWeYlU5BP4LpPJLuMQ8W4YOH
+	 lYR3wMAZfi8js/sJV1+zPAEFUZGvGUPZfZw/JqWuwW1fRc87X02jeNaj/I64dRujYP3XE
+	 Dpf8emEVK4zlz8m3YFBLCdH96pMHVPWA+Qmx8sPUWE3FfkFbRQa5HtruAFYJ//eERPqSu
+	 Pek/y9c7+ug+YwyNMS16sZE/72Xgjtbk307TzUl2oXmhHy1RPv4dPIY+0LvIZepdMf73h
+	 bWWOoZ/C82EUeNBaVfjjnkaTFEliukZ1RPUErto6wBTPQddTv3/ODviN5IiX9ayowzQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=126.com;
-	spf=pass smtp.mailfrom=126.com;
-	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b="IE/YnoAq";
-	arc=none smtp.remote-ip=117.135.210.7
-Received: from m16.mail.126.com (m16.mail.126.com [117.135.210.7])
+	dmarc=none header.from=3mdeb.com;
+	spf=pass smtp.mailfrom=3mdeb.com;
+	dkim=pass header.d=3mdeb.com header.i=@3mdeb.com header.a=rsa-sha256 header.s=ovhmo3617313-selector1 header.b=a8ojFqMF;
+	arc=none smtp.remote-ip=46.105.56.78
+Received: from 9.mo576.mail-out.ovh.net (9.mo576.mail-out.ovh.net [46.105.56.78])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0366C606A32E;
-	Fri, 27 Nov 2026 09:24:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0366C606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BFF0606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:24:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BFF0606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=3mdeb.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=3mdeb.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=IE/YnoAq
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=7t
-	y1iZfjrQRaq0ygLizQ45rXD2THgByLVqAbfFxEQJg=; b=IE/YnoAqLf4H1iGFua
-	kEGA15gVI4wuOCjx1ToGPtkbsqq2ojIZVMqFC5SWuk6/sEbMYqK9HMYDm+hCpg3z
-	crB8SyT01X5F+Bgnc4BDCcjYIeo1qOBVMMAEdzj2ziyjJyXzA+AqMeGY3cOgX5tA
-	wuhvNmcY6MuhvMYQwXgq38jR0=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wD3NzAPTAlrktpmEA--.64683S2;
-	Fri, 27 Nov 2026 17:23:27 +0800 (CST)
-From: Linkui Xiao <xiaolinkui@126.com>
-To: Paul Moore <paul@paul-moore.com>,
-	netdev@vger.kernel.org
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	James Morris <jmorris@namei.org>,
-	linux-security-module@vger.kernel.org,
+	dkim=pass (2048-bit key, unprotected) header.d=3mdeb.com header.i=@3mdeb.com header.a=rsa-sha256 header.s=ovhmo3617313-selector1 header.b=a8ojFqMF
+Received: from director3.ghost.mail-out.ovh.net (unknown [10.110.58.189])
+	by mo576.mail-out.ovh.net (Postfix) with ESMTP id 4jbSfr0xv2z5x4t
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:24:36 +0000 (UTC)
+Received: from ghost-submission-7ccd8bbbb6-fkvks (unknown [10.108.42.118])
+	by director3.ghost.mail-out.ovh.net (Postfix) with ESMTPS id 8B524C0148;
+	Fri, 27 Nov 2026 09:24:34 +0000 (UTC)
+Received: from 3mdeb.com ([37.59.142.110])
+	by ghost-submission-7ccd8bbbb6-fkvks with ESMTPSA
+	id BUE8FlJMCWvH9xQAMqfShQ
+	(envelope-from <michal.kopec@3mdeb.com>); Fri, 27 Nov 2026 09:24:34 +0000
+Authentication-Results:garm.ovh; auth=pass (GARM-110S00442b59f09-659f-4e85-8f3e-1b21a2cb2032,
+                    D697370656FF9958A21AC54DA46BA3848F1D2CE7) smtp.auth=michal.kopec@3mdeb.com
+X-OVh-ClientIp:213.192.77.249
+From: =?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal.kopec@3mdeb.com>
+To: =?UTF-8?q?Filip=20Go=C5=82a=C5=9B?= <filip.golas@3mdeb.com>
+Cc: Hans de Goede <hansg@kernel.org>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	platform-driver-x86@vger.kernel.org,
+	linux-hwmon@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Linkui Xiao <xiaolinkui@kylinos.cn>
-Subject: [PATCH net] netlabel: fix a race in netlbl_unlhsh_condremove_iface()
-Date: Fri, 27 Nov 2026 17:23:24 +0800
-Message-Id: <20261127092325.3563681-1-xiaolinkui@126.com>
-X-Mailer: git-send-email 2.25.1
+	=?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal.kopec@3mdeb.com>
+Subject: Re: [PATCH v4 0/3] platform/x86: dasharo-acpi: Add fan control
+Date: Fri, 27 Nov 2026 10:23:54 +0100
+Message-ID: <20261127092354.2974097-1-michal.kopec@3mdeb.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261127084910.3355833-1-filip.golas@3mdeb.com>
+References: <20261127084910.3355833-1-filip.golas@3mdeb.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,57 +71,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3NzAPTAlrktpmEA--.64683S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7KF1kWw1kXF45KF4xXryrJFb_yoW8tr1kpr
-	y2qrnYkrykX3sIqa92vF4UGrW0va1UCFWUCr1Sk34FyFs8Xr13ZFyUGa9rZa45ZFs7JFZ8
-	JFWUXws8Ww48WFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07ULFxUUUUUU=
-X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqQ8zCmsJTA8GYwAA3b
+x-ovh-tracer-id: 5499739571757031070
+X-VR-SPAMSTATE: OK
+X-VR-SPAMSCORE: -100
+X-VR-SPAMCAUSE: dmFkZTERTqOI1oZsiv08VZZ6wCeuxaP5sraS596JdYbW3aVQtcM3PtH1n6tj0S+zKg2BSAqfZatgikFkAIKpsf6nZuyqPQhCTH73PD5KuYVAzbKN+8L8FjG14aWlZCaJNnyjZyP+7h3jXgEpL4dw2madG1XFT5o3xCYZKdcjr/nGTRt2DxLbgbQA7xx54zPn4tqxGsiGAhYPvPxy2FyLZGr4T8Y0SMg4ABcAFnYegGKJ59egup1qQX/yRqE+tZk541zUQ/L2c6FGGoGSNmjtif6Ep5FgJctMIclh4qhWfet2W+BDrk33M5sNdfIXYl+mL3vzY9mOVeBDot9ZxAwS01lqEJE9KW+WzdhBk1LV/mW/2KEUvHOW3kWjgUTjinII4olxX60z6S5cmz8pcOi0WQTTD0XmvlVV7xNS3AyhUDxKR0VxYHnSJt884MyGMZOcHN8+hFrJY+ylsOH0/RV8o2KOhJTHYTCAGx+PsrDXLl+DmxPEErjKPoK0+pBnUywgIoOnX42aHU8bLX0GNo0s/VEjvpqzFNWFdiNmB5QBfhGy84Q5g/Wzegb8QwCs1qSifzIPkRhWvdpmwIhriOsubhlHZ4KWz1yGwBmp2PNW9FebL2pe+c0VDPtKHh/B2MJdXjPP1mNn7o32Zyowrst3xs6BveojK1XSbDsvS0OxtbjzjChAMw
+DKIM-Signature: a=rsa-sha256; bh=O/40p9mPUJ9lzAMAARPW6FZcfYSAz2NfyvuBdIj3BtM=;
+ c=relaxed/relaxed; d=3mdeb.com; h=From; s=ovhmo3617313-selector1;
+ t=1795771476; v=1;
+ b=a8ojFqMF7UKwKKfSfG9pvbTjdnf8q0gKVtJa8r07Jm59O6xyjHwSsNmTW0vZHHlPwDmWUkWc
+ AO6HGGt4rpVxCAHcBG2t6zdhQnJVOzFK3IpH+/keRjN5vVwYwCIqtHGGm4fEkUa4BfZ+m1AEcGy
+ N6+eOmhYjLumDdkrTZU6SmwJJ51pWuUssI3aqCrW1hcrN7bgpK6stNP+2FunWbLaUMFuAOsRfX3
+ SCRqDFAIqWTWt7EG8osJPdm4Az66ZOO4V8XIHF40/g+zmldKaao9wI1wuBgBOX7DmMHxN5tAIA+
+ MSBFgWwW64O3KUlSdoRkbzX+1QJvCbcnlivPWhjQYK5kA==
 
-From: Linkui Xiao <xiaolinkui@kylinos.cn>
+On Fri, Nov 27, 2026 at 09:49:07AM +0100, Filip Gołaś wrote:
+> Add the capability to directly control fan PWM and configure the fan
+> curves. The initial version of the driver only supported monitoring
+> the fans.
 
-netlbl_unlhsh_condremove_iface() unlinks an interface entry and queues it
-for freeing without checking ->valid, so it can do both a second time for
-an entry that somebody else has already removed.
+For the series:
 
-netlbl_unlhsh_remove() looks the entry up under RCU, drops the lock,
-removes the address entry and only then calls condremove_iface().  If a
-NETDEV_DOWN notifier runs in between it takes netlbl_unlhsh_lock, clears
-->valid and does list_del_rcu() plus call_rcu() on the same entry, and
-nothing serialises the notifier against a STATICREMOVE doit, which only
-holds genl_lock.  The second list_del_rcu() then dereferences the
-LIST_POISON2 that the first one left in ->prev, and the second call_rcu()
-queues an rcu_head that is already queued, so the entry is freed twice.
-
-The default entry can hit the same thing without any notifier: smackfs
-reaches netlbl_unlhsh_remove() through netlbl_cfg_unlbl_static_del() and
-is not serialised against a concurrent STATICREMOVEDEF, so two callers can
-each remove one address from the same entry and both find it empty.
-
-Check ->valid before unlinking, the way netlbl_unlhsh_netdev_handler() and
-netlbl_domhsh_remove_entry() already do.  Everything that invalidates an
-entry does so under netlbl_unlhsh_lock, so the check is reliable.
-
-Fixes: 8cc44579d1bd ("NetLabel: Introduce static network labels for unlabeled connections")
-Signed-off-by: Linkui Xiao <xiaolinkui@kylinos.cn>
----
- net/netlabel/netlabel_unlabeled.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/net/netlabel/netlabel_unlabeled.c b/net/netlabel/netlabel_unlabeled.c
-index 47bae5e48db6..d73c27b0c9d0 100644
---- a/net/netlabel/netlabel_unlabeled.c
-+++ b/net/netlabel/netlabel_unlabeled.c
-@@ -582,6 +582,8 @@ static void netlbl_unlhsh_condremove_iface(struct netlbl_unlhsh_iface *iface)
- #endif /* IPv6 */
- 
- 	spin_lock(&netlbl_unlhsh_lock);
-+	if (!iface->valid)
-+		goto unlhsh_condremove_failure;
- 	netlbl_af4list_foreach_rcu(iter4, &iface->addr4_list)
- 		goto unlhsh_condremove_failure;
- #if IS_ENABLED(CONFIG_IPV6)
--- 
-2.25.1
-
+Reviewed-by: Michał Kopeć <michal.kopec@3mdeb.com>
