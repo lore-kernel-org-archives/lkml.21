@@ -1,77 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795793947;
-	b=hW9ZV13nlfLsD71hjeqsd7laYNxDiZUU2FGa5+TQQvRdqdcGcmwkUEHvI6nM7epAPZ/a
-	 3UjmU2KrHtjseqV+Z+YxKmy30g7Ie90Re+d6CtkVVRbjMRAKjic1hyNEe/vr3cnsxhydR
-	 RYA+ctFMZXJ3tHDJRrVMT3ypevay3bYZh2BoFFDSZHhBvCTUq4nRKmNu//8yucdxLJsrM
-	 K545KmyA84MVUrrwUqTUQ77zzf6tF/zWkAOvrv+msUfYVvu4NJbf2nbUQLSc5eTwdnWxc
-	 PHK7owrw7eDMtVcU40SuHaSwHWa9lAb69vyNRi+6XojgBc6yUb94GA6fg8p+w2re4vw==
+	t=1795793961;
+	b=tDLC6vtipQBkmtNOsINMecBACxI3fYzJojCR1jtjmL0Woh+C68NwYM48bCCgg6ml9HBF
+	 b8zs8IV+AjsmzYbrg27utHGuKuqirDlEj3t5RJMWE/PfRvYuV76FF96EMS4hccc4CjcDt
+	 gTpy2SoYFZteH5eUTbqg3+t6TULSFJnENN8PcetymzBYXQVeSWTeZPyHZsUjHAoEj/r7V
+	 9bw4djU/mIfEvujQYzvso+vmKdvVtq2jnkrZMGjyNR12rwYtWJKwQRXQpHMOmnqsTc41k
+	 c5hq0q44kkTqBorbachoO6AORnq00RhrdBmaqj6oTBOupPnjwvNyoxPiVjO0lbyIbHA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795793947;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=qH5+Ww68xkZnvfrsvjQG23c2fAu6p2U8OwJnyhiAXxc=;
-	b=NMJ3Q5jRi0zSkvoJ/VvuwrhPDTBZPo4PWmQOuHY4sHBNnQlswNeT5b7aHoW7haQ7AuRD
-	 680pca3CD/19LIUoeVLyJg8S/WzCZJx4WODKETKz8Wg/0ON1l/o8iq6g30THgbmfKG1JJ
-	 jHM2YUFhIFu/BVU8Ivx3srnHlyP79m805lpS2uhQFNgMf/EeusDLXmiHC5cupoxrgpgDg
-	 vYbE0iJB7oAO/A5TQ8sBHvq6j9UNhP09HZRdABVbd0NQTzzwULvTP2XdnCz6p6QQ5ba25
-	 Yxc+Eh9/DBUCNouSj1TX1wSXmf49UA/1d1pAFOnT53E+lZ45q/LKYfPWjgF8wSAzG5A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795793961;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=yqB5DRZzw4GAT7M3ixHliER6cQD69webi93fwhdLPow=;
+	b=Vjkk7YgaKKJwklF7jleoZuOPCMYbcTKVOrVpjS4abJYYCSzeTC/qRAJl/arKf70nhuB8
+	 VYtDUXFyIaBAM85tYmySGidCBIcMt5yvH8sFqloehJCd/HS153YfqO02v0HUR4fsvq4z3
+	 7AGX9am4AuEPtbpyKSzdXuArwdbhnLK+fexhOYKfGQGRQOmFDy0BxXlzd3xqXAykoXvKq
+	 9Lp2Rmr2puoR48hkpambYxPJd+hi33HNcKkhQ4b8WSxi2YRM/b5CSdeJjFhwinD9AOI58
+	 cBKinHFA6yFvOoPzIjMj4cWzv8801P1H6VhRrC9P8zHlFEOUUba3POugY9alcGp7PLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WG1+CJ+b;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JNX2kE+w;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 112AD606A31F;
-	Fri, 27 Nov 2026 15:39:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35BAD606A31C;
+	Fri, 27 Nov 2026 15:39:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WG1+CJ+b
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D1121F000C1;
-	Fri, 27 Nov 2026 15:39:04 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JNX2kE+w
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 577B01F00899;
+	Fri, 27 Nov 2026 15:39:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795793946;
-	bh=qH5+Ww68xkZnvfrsvjQG23c2fAu6p2U8OwJnyhiAXxc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=WG1+CJ+bdn3mEVHsQkUf7yzWJViNTCZh8/bNEclvEurYJS8pfS8JoiO3k4uIM7uYl
-	 fz34ZNYSZiRPpHt3g81798CdeDHkzFWK2oPx9Z3tSYNOFA+WMi/Moeg9gL05A8VvnJ
-	 1ZQVn35tdSbjfCAYrXJX8andLQbX4vU4hKouyAvXBpClcOvoJEAlCdmd2XhAFN+8hE
-	 XNAPmmv+oCLhxEDlyJjCdKgyD3tGj8x8rV53rXEIUvQYupyLnG10EVX1izv910WB3z
-	 UFm8ApHoo8svpTwyQPhpcSWCZmKgqPcWFr3HxH141wcIFYmx7pytHnog5U5eiV5Uu3
-	 3ELW+KbjkbxcQ==
-From: Sasha Levin <sashal@kernel.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: "David Hildenbrand (Arm)" <david@kernel.org>,
-	Willy Tarreau <w@1wt.eu>,
-	Borislav Petkov <bp@alien8.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Leon Romanovsky <leon@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Hans de Goede <hansg@kernel.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Theodore Ts'o <tytso@mit.edu>,
-	Security Officers <security@kernel.org>,
-	workflows@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs and a cover letter
-Date: Fri, 27 Nov 2026 10:39:02 -0500
-Message-ID: <20261127153902.1320179-1-sashal@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <awmU4L01OH9kWEVv@gremlin>
-References: <20261126171926.2766137-1-sashal@kernel.org> <20261126171926.2766137-2-sashal@kernel.org> <cf3596c6-742e-49c1-a90b-941d300d0b4a@kernel.org> <20261127014955.GBawjhw2j2YEUeiG1G@fat_crate.local> <awjopqoCJqwChwnF@laps> <awlCy3vDs0fKx1ku@gremlin> <awlNYsu1y8EhYgor@1wt.eu> <33c6cf3a-6b18-4e09-bd5c-68ed2c34de56@kernel.org> <awlR9pQUjodcLjZK@gremlin> <20261127133756.455469-1-sashal@kernel.org> <awmJ2c87NSDjtSwp@gremlin> <20261127143124.1039470-1-sashal@kernel.org> <awmU4L01OH9kWEVv@gremlin>
+	s=k20260515; t=1795793960;
+	bh=yqB5DRZzw4GAT7M3ixHliER6cQD69webi93fwhdLPow=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=JNX2kE+wC7eE5lXs2H1z5zsGdwx5jTNckuTKnqCvrgiBzUWhuJrbndqeW/9xW8BSE
+	 M28xCFJGQsc6Pb2Ko4RgLQvWY0pNReCTFCG4s5kydua0Dja1piOAStDAGCtOb2hS0b
+	 jVFVtUH+69h7F2RN0mbtp53Q1sEkf68xZgvsSdQX1HRMOWYOpi7r3K+T2VbjrGOlqw
+	 Stl4EW7IAI/Hnt1TLREpwCsGZ+gpr1rWuhfRPXZ9w5cOBVbb0vQjKYnYi52+EKY21q
+	 1e0YkJlk2SSif2UNUjKuqrHd8LF0MJXptiZF8+rIpYBOHZxgqDcVbqm4dOUFeVjF2C
+	 vyUO2bySK75GQ==
+Message-ID: <d0e76f09-a360-4c1d-bfab-c5658f2a69e0@kernel.org>
+Date: Fri, 27 Nov 2026 15:39:12 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,58 +51,128 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 0/4] of_iommu: add support for "iommu-ranges"
+To: Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, Vasant Hegde <vasant.hegde@amd.com>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>,
+ Jean-Philippe Brucker <jpb@kernel.org>, Rob Herring <robh@kernel.org>,
+ Saravana Kannan <saravanak@kernel.org>,
+ Tomasz Nowicki <tomasz.nowicki@caviumnetworks.com>,
+ Eric Auger <eric.auger@redhat.com>, Joerg Roedel <jroedel@suse.de>,
+ Srinath Mannam <srinath.mannam@broadcom.com>,
+ Oza Pawandeep <quic_poza@quicinc.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Alex Williamson <alex@shazbot.org>
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ virtualization@lists.linux.dev, devicetree@vger.kernel.org,
+ kvm@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-media@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>,
+ stable@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
+References: <20261120-add_iommu_ranges-v8-0-d90486973b73@oss.qualcomm.com>
+From: Bryan O'Donoghue <bod@kernel.org>
+Content-Language: en-GB
+Autocrypt: addr=bod@kernel.org; keydata=
+ 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
+In-Reply-To: <20261120-add_iommu_ranges-v8-0-d90486973b73@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Fri, Nov 27, 2026 at 02:51:35PM +0000, Lorenzo Stoakes (ARM) wrote:
->On Fri, Nov 27, 2026 at 09:31:24AM -0500, Sasha Levin wrote:
->> I see this as the beginning of a guardrail. It'll take us some time to get to
->> something like checkpatch for LLMs, but we have to start somewhere.
->
->I'm honestly not sure checkpatch, which is false positive-central and gets
->confused very easily is the gold standard to aim for ;)
+On 20/11/2026 10:35, Vikash Garodia wrote:
+> The series adds support for recently introduced property
+> "iommu-ranges". It adds the required checks to error out for cases
+> which are not following the schema definition.
+> 
+> Iommu-ranges was defined in schema with this PR
+> https://github.com/devicetree-org/dt-schema/pull/207
+> 
+> These changes are required for following clients
+> DCP display controller
+> https://lore.kernel.org/all/20261026-jshekhar-dcp-hlos-v2-0-7cf014efdee1@oss.qualcomm.com
+> 
+> fastrpc
+> https://lore.kernel.org/all/20261007-extended-mapping-v2-0-5dca3aa2c2d3@oss.qualcomm.com
+> 
+> Iris video
+> https://lore.kernel.org/all/20261103-vpu_iommu_iova_handling-v6-0-e4b6ad864f8f@oss.qualcomm.com
+> 
+> This patch series is being posted as revision v6 onwards, since the
+> patches were initially part of the media series [1]. The patches were
+> moved out to get review comments from iommu reviewers, which was
+> otherwise looking as a media series. Happy to move this back to media
+> series if anyone have any concerns.
+> [1]
+> https://lore.kernel.org/linux-media/20260926-vpu_iommu_iova_handling-v5-0-0322ca5dc10c@oss.qualcomm.com
+Hey.
 
-Yes, checkpatch has bloated a bunch in recent years, but at its core it's been
-great at helping people write good commit messages.
+What's up this series. A number of other series are predicated on it and 
+therefore are stuck.
 
->You're putting in a bunch of specifics about what the LLM SHOULD add and
->what we WANT to see etc.
->
->I.e. more text :)
->
->I think you should keep it VERY simple and make it REALLY clear that you
->want it to produce LESS text, as little as possible, in as clear terms as
->possible. And do NOT write code-as-English etc.
->
->Make it a denylist of stuff, not an ever-growing list of things to add,
->because if you do that you're just making my life harder, honestly.
+Link: 
+https://lore.kernel.org/linux-media/20260529-enable_iris_on_purwa-v8-1-b1b9670459ab@oss.qualcomm.com/
 
-The series calls for *less* text in the commit message. The extra text goes
-into the cover letter, which humans can ignore if they don't want it.
+Link: 
+https://lore.kernel.org/linux-media/20261117-add_iris_for_eliza-v3-1-02a55a9272ef@oss.qualcomm.com/
 
->Where was this floated? I didn't hear anything about it? Was it another
->decision made by a cabal behind closed doors? :)
+Link: 
+https://patchwork.linuxtv.org/project/linux-media/patch/20260914-add_iris_for_maili-v1-2-09df2b54c317@oss.qualcomm.com/
 
-Hallway track during LPC mostly :) There's no "decision" here. Folks were
-raising both concerns: "the changelogs are too long, they suck for humans" and
-"the changelogs are too short, we don't get enough information / the AI fakes
-stuff".
+Link: 
+https://patchwork.linuxtv.org/project/linux-media/patch/20260918-add_iris_for_hawi-v1-2-ac60fd15c98b@oss.qualcomm.com/
 
->Anyway, let me rephrase I guess - please don't ask LLMs to add more slopped
->text for me to deal with?
->
->I really dislike the idea of a cover letter for a single patch in general,
->but from an LLM you literally just made my life twice as bad.
->
->Please, don't?
+Link: 
+https://patchwork.linuxtv.org/project/linux-media/patch/20261123-mahua_iris_enable-v2-2-b1a16b16afca@oss.qualcomm.com/
 
-I suspect we won't find something here that works for everyone, so subsystems
-could tune it in their maintainer handbook docs if they need to.
+Link: 
+https://patchwork.linuxtv.org/project/linux-media/patch/20261001-kaanapali-iris-v4-2-642f9ac5e699@oss.qualcomm.com/
 
-One question though: what stops you from ignoring the cover letter altogether
-and looking only at the commit message? We can have AI explicitly tag a
-"slopped" cover letter if it'll make it easier...
+If the approach is wrong then the above submitters need to align on 
+whatever is right...
 
--- 
-Thanks,
-Sasha
+---
+bod
