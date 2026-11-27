@@ -1,109 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.47
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795774479;
-	b=JZQd1B3bLmlBtS1Nu21PtyR8wN2JDEJqYuxO1C5jqWWOTtbRzzdPs3Yfflbi1vZbq5mr
-	 mYbVqWaeCrSi4PBw1a5UOX2LRmEtgOxKQWyEOP+iSTWhbPOzkAPLPIbAe6X5QcFvOX3xw
-	 nzMuP/E80v3zn+6R/6Pjn9+ey6SldXL8BQ1FbougdbsZ1Xdb6NiLPIm7SUEKjoSAhY7Xd
-	 MB0z/yAs2CSPEgIJCuXSSr1DTmqZVPD9hfG4CDsOME4WqRlfh9Zzbs9gfpoPLGXTL77F7
-	 7h1gPawQOuypj2d9svi0J0sZa1i144NFQTRaNmRjelT/7R5fhKGIDI0Ix1S2ycKTlFA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795774479;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=AanAh9kUpFsvj61PDy3xC4hTGFLWOOg8Pq3sgXBBnsg=;
-	b=Lz1BxzXc4rWe4QygJZiHRgnLtFyMox5jkAFTzyyEaNIaBxliEZeQaeczdm/++09OBRJX
-	 rCJPrnLeGx3vJxWFEfqYhrk+lLoTkhVIRq4kbiK+sYOpeijlxJH8b+LQ867eFUl40G4YH
-	 o6HWsBWgY6jV/ddoLON27G9p1gqjBRBdQXNMv6DkjPdxL2MWUm2JKKEx055MKX3yoekxv
-	 N+1FjTICDPiEET5sI3WKHde4l7VvFuEYZ8sKMcJjjPEmC0i9VfPquZQ9r7PZPgXwIJw2J
-	 qaRPe3RoQpRUghsjwY86mh8mFVt75WN1VUGEAqcm8nGRClCvXCtDa/fHbXxIo87ZXhQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SIPyCis5;
-	arc=none smtp.remote-ip=209.85.218.47
-Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com [209.85.218.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795774481;
+	b=P6R0wUdYoLKC/W1rH4+azD/08GeU6L7Pwehr5WP+hFcEwAVf8vFLO2KMWURvsPWgRqMO
+	 +Vbiow5FPA5gfYhKm3L3yyYQsoqs5kdj4poN0y7pcfD5BuCJuWLtjQZyqL8QX1Vaid+Ij
+	 TIHtFBE8uLizD9LKIY6TbwtvjRH6f14bsn/LJAi6TdpoUDJr07Yf+3/pcEZu9Vdgmqsw3
+	 Ab3VlJ1+rH/SGErh3bEA91mJe4RGkeYW0EFfU3gFRl5incwj20yV6FSxktqkXvJbuEwOF
+	 4QMZtPtuS7KoIw6wondb7Ylxh9XvnI2BEjsbStEQGw/vPdaJp+EFq8JW7jtHwcYY2ng==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795774481;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=Wc4QEbDEjZ9019x0s/7ACnW0Rgv3ptfJWkJRwqm8NZQ=;
+	b=WdX6uRRo1/Vt4Nuv2LNrkVCQIjndUnkOTmvu3Ogt4bN9FMPGLebVyxZj7AayHzd9tRfX
+	 IUDbdzzO5uBnNmnB9SYNZqm+Adsc3OJwAY0iHaY7NeJxsQrVETr2vowxcC/TeDjzUJGQF
+	 nFO6CHraazkQWqUP/5uCFn2z5kqPbc4W2BPi/pxLTQs3dA/Ec9DPPE4YoTaBHcHILq1e0
+	 ycrvg2JDNCVLrhq6Lh9sS1fehdvTVqS3ZxoRGMXu8gBjJmT6teiyFacCYKzoyXclUmbuL
+	 C4ytcboaFT3aEx1opRfpJpKSdvJkXwlWn0NukMckySktxBTOD4B9220ILMbLYtHAyYw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="THrjtl/r";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 624E3606B3C7;
+	Fri, 27 Nov 2026 10:14:41 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=THrjtl/r
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795774480;
+	b=l8nAc3xWyTeB42pfDcN/PxwL2TCVQ6w+rIuFwuKaIjjTVne2VcFetioE+4zZj896XGVZ
+	 FJoAS9uVgyPoxr1tjp+KY1L/gK/AwnOw/HJynUeM5WPmEKwkJkKh1WIOHcYNMIc+k7WRx
+	 f409X0mveP/wjIpwJ3XJX6QuJu/cOoMC7bTNDMF1hoqekgRCKEWmshcbQuYt2ESymVroV
+	 Np6XDmWkxDy9qmw8nPSfSn/8kjFx14YDMevsP/SquTWplsga5LxrAyEBbKs5P3G43MXE+
+	 QbgdNK2ZyO78RMrB9m3w/n48PHg4KjOqo3fNbpNW1ghsrFuqp/dgwYtJqMI33Cr+9Qw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795774480;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=Wc4QEbDEjZ9019x0s/7ACnW0Rgv3ptfJWkJRwqm8NZQ=;
+	b=fVQbcZdhS+Vkg5QuhE4CypXY/mjUAu1fWFzus3k0j/RKYjrCjaHhhqNxfcFtLupAXgBo
+	 cwIG7/SGoD9HyVSBRBXnEZqjqDlHUQj2bfTxM42Kt7jWcg33Mye+ronIBx7rcXdB5dYnK
+	 bv3PxrAgKAVXQ2pZCW1GA+KjvMqrfUiA5SBAWFNP1tzI46zMNUy9eAMs17hOfTMZx4Uoa
+	 IBF1o6DoMijhoNldLrF+zXkenWkEpz7gYi7T8UT4UO2SawdV66tG8bK23e9IZvGIAvD+P
+	 frIXqbtRxp7HxiJVHm1kz3h7K+spuNPzbY+vcQCMsqSIcxsaoGSMtKkSZk7CMRR5EuQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 204A660A6F4F
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:14:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 204A660A6F4F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SIPyCis5
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-c50d3ac6b51so1548088766b.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:14:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795774476; x=1796379276; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=AanAh9kUpFsvj61PDy3xC4hTGFLWOOg8Pq3sgXBBnsg=;
-        b=SIPyCis5qdcv136S60ThDuZ+SWP+iha/rfTvlyoiQIzQAt+itWw3s11+fVtXS2rLNv
-         lo/Au+SVtO72ns0bxn2+NMta2QkZCB7Y5MX40bNnAXXOTjd2PmbG0IGWn0VDUVubEyDQ
-         t9z3oyHe5ulouUlNScVGbYrLoUinj4eNN+pB7CFUKpNsUEBZYdEtTC29Ty/KQHodluSf
-         N5+3v3R8pwsVes/af5oE/SJgKV0nA8+r+11emt5wDZXA4piFCkbWS7L34m3vFMf8OCtg
-         oxgzWb1yGst9PVPGZFUSUh9+iI3+UWo3113K+d1wVtXfDHMEJPgyWrupiwmbQ3tQTe1+
-         puTA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795774476; x=1796379276;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=AanAh9kUpFsvj61PDy3xC4hTGFLWOOg8Pq3sgXBBnsg=;
-        b=kImb6EnyGc9mKObgh/QYDro5603R2bRHRZ3riJirFdNc72Xotte1RU3FgGeRHVqGUc
-         B8Va0eqSbZiWS5hPKIK+L+DQDMS+3IedqJhwbSd4qgDKJHlTGBeDQSkA9TW8KB3kMj71
-         Zu8n2HESm3IFPgdaqRDyCNE9RWM4HgSGUpcWG6whwXedjUWHcA/8Zl1650xCxnH2LxnN
-         j15YEnBmy9D05fxCvDdthLunOhVOiFG0eBOOsYKWyr6LlQcHxHMpv+W/0JkFDxe78771
-         yVpMpC8HjgHyUQmxi12AhLULLwr9rpA72qi9AjMN4rLSZRAaK5nm5gbnt0F8mB4XMSYB
-         SaNg==
-X-Forwarded-Encrypted: i=1; AL+hErFHI08L+5YlWLy44hsxOHCdo25lboO6K8jEGcv4pRZgwkERUNsJ32tZohbSbREnJoh5niG+jTBIIxcGf7o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Gmtcr1WdSYBJZCgZynWiBBeig2ltpl01oMOK1sBJimVqsz92r
-	mFHwjZCVrFXFIKkMpnxh73sJBd/B7XO+pF8nHIfu4/8zZrVErSC7qcIxO5eZ2UJexA==
-X-Gm-Gg: AZFdTZdHjNAwUjXObwYRYtddOAxR+gPrK8bokh7Rtk/1Tru+x0vhTMfnp9KMHO8MbtD
-	sHIMayHg2SGUyO9D/KS906XyvUILV+RyJ1xPk0d0uc9azQvpw3K8sPEgyFWewV24pDYPslmo64P
-	MVa1KHzrwfRl7lwr9LCYr3LE3cJJtPf852AY9j/2u6kxZX/E85CPF7UospyXW8FS7XhJaOExGpm
-	HgdY1bCRjVgd7Gb8uxeLg6krINaZ5/67bR1u8R4Sirnl5+WOF15Odh8K6IGc9tnOu2XSIPupv21
-	pRKLVh5q3MKEgla6IP86om4a8D5R2ULHEF/mi4d5uuZN6/7DxhNB+qx+MsxyzhM1Xo2cTI3dvpk
-	CCyPncl32Ms18LOTLahl/+O4Ep2vR/Hw8bxCtU1dA28ohRguQRkV1VpJIyqB4ImwoZDuy5hHbNG
-	yDC/UElZGKWN+8esEhG29nCHW6ZrYxoDOy2OTkKYQ40qPdlcXLp9Kt87SLXH/mELY9fWDhQ2hai
-	ga9wajsGUqsPU0kyQP45FAOtx5S0+UhKdz7N5GL0revXbGFpN5Q4puo8sXtz9Wqxi0Z2S3Vmi73
-	Er5chB1txlr/WXoZqGhAdVnZ8P0EP1MRiInmdLmT8PwlWO6mfggNQGZ3au6g6rELdmTLO3XLZFv
-	npiO6bLMsehnqRZI6OnnmICCdNBQZlIrslbb+eIlE7yt7JlzsccSpztpUJYM=
-X-Received: by 2002:a17:907:3f18:b0:c46:9711:e30e with SMTP id a640c23a62f3a-c5131a1601amr2025588766b.29.1795774476374;
-        Fri, 27 Nov 2026 02:14:36 -0800 (PST)
-Received: from localhost.localdomain (host-94-89-17-99.business.telecomitalia.it. [94.89.17.99])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fec7sm43651234f8f.26.2026.11.27.02.14.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 02:14:36 -0800 (PST)
-From: Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
-To: Rob Clark <robin.clark@oss.qualcomm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-	Sean Paul <sean@poorly.run>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>
-Cc: Yongxing Mou <yongxing.mou@oss.qualcomm.com>,
-	Xiangxu Yin <xiangxu.yin@oss.qualcomm.com>,
-	Dale Whinham <daleyo@gmail.com>,
-	Stephen Boyd <swboyd@chromium.org>,
-	Jens Glathe <jens.glathe@oldschoolsolutions.biz>,
-	linux-arm-msm@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	freedreno@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
-Subject: [PATCH v2 10/10] drm/msm/dp: dispatch native IRQ_HPD directly to msm_dp_irq_hpd_handle()
-Date: Fri, 27 Nov 2026 11:14:17 +0100
-Message-Id: <20261127101417.24303-11-gianfranco.mariotti94@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261127101417.24303-1-gianfranco.mariotti94@gmail.com>
-References: <20261127101417.24303-1-gianfranco.mariotti94@gmail.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id B676D1F00939;
+	Fri, 27 Nov 2026 10:14:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795774480;
+	bh=Wc4QEbDEjZ9019x0s/7ACnW0Rgv3ptfJWkJRwqm8NZQ=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=THrjtl/r928keQnoyK1m//pPc/TdwuAVWPStDEmQM14ZMNnXqI73zEiBhENKpl36j
+	 am/KpGAbWQ1ofkqIRxH9JEIsWP4APphmztSIBqg08f5OGVlkjgT/nPmXHNlFy0XP0C
+	 hxxJhV8N4MeCr9HCnLN+pZxGD7DEM4PAczkTHC7fx/WE6Hrd9/CZx3UB431yymTB+V
+	 nZTHt4gt7Yd9BPEKLd55C4knhb0YiyABsAAjjmPDnMFO6MMo0fk4YuBUob9uvqPmrC
+	 K6644SoyfQlFG+3w8xfF/3wNSG5nVlBT+xyWHHApUp44iZszZvisMOI2AYKsI3398l
+	 /RnA+2dV6xk+w==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 47FD04B6ED;
+	Fri, 27 Nov 2026 10:14:22 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Subject: [PATCH net-next v4 0/3] Add Cortina Systems CS7542 MDIO controller
+ support
+Date: Fri, 27 Nov 2026 13:14:21 +0300
+Message-Id: <20261127-b4-cs7542-mdio-v4-0-0e37fc0c47d5@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,168 +84,121 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33NQQ6CMBAF0KuQrq1pZ9qCrryHcQHtADUChiLBE
+ O4u4IZodPkz8/4fWaDWU2DHaGQt9T74pp6D2kXMlmldEPduzgwEGCkBeaa4DbFWwCvnG05WKYp
+ 1TAkoNqN7S7kf1sIzq6njNQ0du7wv4ZFdyXZL3/Jb+tA17XPd7uUqfs30kgtuwDiRCsJMuVNRp
+ f62t021lvfwn8PMUSijKUGZaPzkuOXmi+PCdYyHVOQIoLd8mqYXMEeqkkYBAAA=
+X-Change-ID: 20261123-b4-cs7542-mdio-ec44e757e824
+To: "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
+ Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, Andrew Lunn <andrew+netdev@lunn.ch>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795774461; l=4018;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=cL1FyNfM+w+TuBfusbsasQXCzAFXpIl+/zYfl/yh6WE=;
+ b=XoT5tbTPB+u4Hl3bU23tP2j+OHoTf8/TOLp4E8sGdrfqBt1kaGwloPBGi4E3924nxFhBLvQPE
+ Jit/TekuftRDUubP8lIB0YEcod3qJQqc/5vP73/R5nJmXAoW/Yamy+D
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Reply-To: filipp.dunsky@gmail.com
 
-msm_dp_display_irq_thread() forwards DP_DP_IRQ_HPD_INT_MASK via
-drm_bridge_hpd_notify(..., connector_status_connected), relying on
-msm_dp_bridge_hpd_notify() to observe ISR_IRQ_HPD_PULSE_COUNT in
-REG_DP_DP_HPD_INT_STATUS[STATE_STATUS].
+Add the CS7542 Clause 22 MDIO controller with bounded, sleepable polling.
+The driver is independent of the pending platform series and COMPILE_TEST.
+It retains the firmware MDC prescaler while enabling software-initiated
+transactions.
 
-Because an IRQ_HPD short pulse lasts 0.5-1.0 ms, STATE_STATUS has
-already returned to DP_DP_HPD_STATE_STATUS_CONNECTED by the time the
-threaded IRQ handler runs, misrouting the short pulse to
-msm_dp_hpd_plug_handle() instead of msm_dp_irq_hpd_handle().
+This revision acquires and enables the APB input required by the binding
+before the first register access. The managed clock remains enabled until
+the managed MDIO bus is unregistered. Clock lookup or enable failures,
+including probe deferral, return before touching registers. No clock-rate
+or MDC-divisor programming is added.
 
-Dispatch DP_DP_IRQ_HPD_INT_MASK directly to msm_dp_irq_hpd_handle():
-- Guard msm_dp_irq_hpd_handle() with dp->plugged and skip sink requests
-  in msm_dp_ctrl_handle_sink_request() while mainlink clocks are off.
-- On DS_PORT_STATUS_CHANGED from a branch device, update or clear
-  downstream sink state and invoke drm_bridge_hpd_notify() after
-  releasing dp->plugged_lock when called from the IRQ thread (skipping
-  re-entrant notification when called from msm_dp_bridge_hpd_notify()).
+The APB source was established previously on Almond+ by changing APB from
+150 to 100 MHz while AXI stayed at 150 MHz and comparing MDIO transaction
+timing. The binding describes that source and allows clock-frequency from
+mdio.yaml; the exact prescaler divisor encoding remains unestablished.
 
-Fixes: 5043357e75ba ("drm/msm/dp: rework HPD handling")
-Signed-off-by: Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
+Validation for v4:
+- The actual probe passes 10 allocation, map, clock, registration and
+  cleanup-order cases with GCC/Clang ASan/UBSan. The pre-fix probe reproduces
+  an MMIO access without an enabled clock under the same helpers.
+- Native ARM driver=y object and exact Linux 6.18 driver=m module compile
+  with W=1 and KCFLAGS=-Werror; existing configurations are unchanged.
+- A read-only consumer probe on the running Almond+ obtained and enabled
+  cs7542-apb at 150 MHz. MDIO CFG stayed 00200001; all references were dropped,
+  the same OpenWrt boot continued and its watchdog/settings were preserved.
+  This exercises the consumer/provider path, not a full live bus reprobe.
+
+Earlier v2/v3 full independent builds, binding checks and RAM PHY read/write
+results remain recorded. The transaction logic and firmware prescaler are
+unchanged here; the old hardware matrix was not repeated.
+
 ---
- drivers/gpu/drm/msm/dp/dp_ctrl.c    |  5 ++
- drivers/gpu/drm/msm/dp/dp_display.c | 86 +++++++++++++++++++++--------
- 2 files changed, 68 insertions(+), 23 deletions(-)
+Changes in v4:
+- Enable the required APB input before accessing MDIO registers and keep it
+  enabled through bus teardown.
+- Clarify MANUAL transaction selection and preservation of the firmware
+  MDC prescaler.
+- Link to v3: https://lore.kernel.org/all/20261126-b4-cs7542-mdio-v3-0-35739a0f3225@gmail.com/
 
-diff --git a/drivers/gpu/drm/msm/dp/dp_ctrl.c b/drivers/gpu/drm/msm/dp/dp_ctrl.c
-index 1b2ab7db28cb..2b5e085afbcb 100644
---- a/drivers/gpu/drm/msm/dp/dp_ctrl.c
-+++ b/drivers/gpu/drm/msm/dp/dp_ctrl.c
-@@ -2329,6 +2329,11 @@ void msm_dp_ctrl_handle_sink_request(struct msm_dp_ctrl *msm_dp_ctrl,
- 	}
- 
- 	ctrl = container_of(msm_dp_ctrl, struct msm_dp_ctrl_private, msm_dp_ctrl);
-+	if (!ctrl->link_clks_on) {
-+		drm_dbg_dp(ctrl->drm_dev, "link clocks off, skipping sink request\n");
-+		return;
-+	}
-+
- 	sink_request = ctrl->link->sink_request;
- 
- 	if (sink_request & DP_TEST_LINK_PHY_TEST_PATTERN) {
-diff --git a/drivers/gpu/drm/msm/dp/dp_display.c b/drivers/gpu/drm/msm/dp/dp_display.c
-index fd9d5f176329..fef758ca9062 100644
---- a/drivers/gpu/drm/msm/dp/dp_display.c
-+++ b/drivers/gpu/drm/msm/dp/dp_display.c
-@@ -513,32 +513,74 @@ static int msm_dp_hpd_unplug_handle(struct msm_dp_display_private *dp)
- 	return 0;
- }
- 
--static int msm_dp_irq_hpd_handle(struct msm_dp_display_private *dp)
-+static int msm_dp_display_handle_ds_port_status(struct msm_dp_display_private *dp,
-+						enum drm_connector_status *hpd_status,
-+						bool *notify_hpd)
- {
-+	struct msm_dp *msm_dp_display = &dp->msm_dp_display;
-+	int rc;
-+
-+	if (dp->link->sink_count) {
-+		rc = msm_dp_display_process_hpd_high(dp);
-+		if (!rc) {
-+			*hpd_status = connector_status_connected;
-+			*notify_hpd = true;
-+		}
-+		return rc;
-+	}
-+
-+	dp->panel->video_test = false;
-+	if (!msm_dp_display->is_edp) {
-+		drm_edid_connector_update(msm_dp_display->connector, NULL);
-+		drm_dp_set_subconnector_property(msm_dp_display->connector,
-+						 connector_status_disconnected,
-+						 dp->panel->dpcd,
-+						 dp->panel->downstream_ports);
-+	}
-+	msm_dp_display_handle_plugged_change(msm_dp_display, false);
-+	*hpd_status = connector_status_disconnected;
-+	*notify_hpd = true;
-+
-+	return 0;
-+}
-+
-+static int msm_dp_irq_hpd_handle(struct msm_dp_display_private *dp, bool notify)
-+{
-+	enum drm_connector_status hpd_status = connector_status_disconnected;
-+	bool notify_hpd = false;
- 	u32 sink_request;
- 	int rc = 0;
- 
--	guard(mutex)(&dp->plugged_lock);
--
--	/* irq_hpd can happen at either connected or disconnected state */
--	drm_dbg_dp(dp->drm_dev, "Before, type=%d, sink_count=%d\n",
--			dp->msm_dp_display.connector_type,
--			dp->link->sink_count);
-+	scoped_guard(mutex, &dp->plugged_lock) {
-+		if (!dp->plugged)
-+			return 0;
-+
-+		/* irq_hpd can happen at either connected or disconnected state */
-+		drm_dbg_dp(dp->drm_dev, "Before, type=%d, sink_count=%d\n",
-+			   dp->msm_dp_display.connector_type,
-+			   dp->link->sink_count);
-+
-+		/* check for any test request issued by sink */
-+		rc = msm_dp_link_process_request(dp->link);
-+		if (!rc) {
-+			sink_request = dp->link->sink_request;
-+			drm_dbg_dp(dp->drm_dev, "sink_request=%d\n",
-+				   sink_request);
-+			if (sink_request & DS_PORT_STATUS_CHANGED)
-+				rc = msm_dp_display_handle_ds_port_status(dp,
-+									  &hpd_status,
-+									  &notify_hpd);
-+			else
-+				rc = msm_dp_display_handle_irq_hpd(dp);
-+		}
- 
--	/* check for any test request issued by sink */
--	rc = msm_dp_link_process_request(dp->link);
--	if (!rc) {
--		sink_request = dp->link->sink_request;
--		drm_dbg_dp(dp->drm_dev, "sink_request=%d\n", sink_request);
--		if (sink_request & DS_PORT_STATUS_CHANGED)
--			rc = msm_dp_display_process_hpd_high(dp);
--		else
--			rc = msm_dp_display_handle_irq_hpd(dp);
-+		drm_dbg_dp(dp->drm_dev, "After, type=%d, sink_count=%d\n",
-+			   dp->msm_dp_display.connector_type,
-+			   dp->link->sink_count);
- 	}
- 
--	drm_dbg_dp(dp->drm_dev, "After, type=%d, sink_count=%d\n",
--			dp->msm_dp_display.connector_type,
--			dp->link->sink_count);
-+	if (notify && notify_hpd)
-+		drm_bridge_hpd_notify(dp->msm_dp_display.bridge, hpd_status);
- 
- 	return rc;
- }
-@@ -1037,10 +1079,8 @@ static irqreturn_t msm_dp_display_irq_thread(int irq, void *dev_id)
- 		drm_bridge_hpd_notify(dp->msm_dp_display.bridge,
- 				      connector_status_connected);
- 
--	/* Send HPD as connected and distinguish it in the notifier */
- 	if (hpd_isr_status & DP_DP_IRQ_HPD_INT_MASK)
--		drm_bridge_hpd_notify(dp->msm_dp_display.bridge,
--				      connector_status_connected);
-+		msm_dp_irq_hpd_handle(dp, true);
- 
- 	ret = IRQ_HANDLED;
- 
-@@ -1661,7 +1701,7 @@ void msm_dp_bridge_hpd_notify(struct drm_bridge *bridge,
- 			msm_dp_hpd_unplug_handle(dp);
- 			msm_dp_hpd_plug_handle(dp);
- 		} else if (hpd_link_status == ISR_IRQ_HPD_PULSE_COUNT) {
--			msm_dp_irq_hpd_handle(dp);
-+			msm_dp_irq_hpd_handle(dp, false);
- 		} else {
- 			msm_dp_hpd_plug_handle(dp);
- 		}
--- 
-2.25.1
+Changes in v3:
+- Use sleepable polling in the MDIO bus callbacks.
+- Describe the experimentally established APB input and allow the inherited
+  optional clock-frequency property.
+- Remove the unused private mii_bus pointer.
+- Link to v2: https://lore.kernel.org/all/20261123-b4-cs7542-mdio-v2-0-30465e831853@gmail.com/
+
+Changes in v2:
+- Drop pending-frame state after Andrew Lunn's review.
+- Sort Kconfig/Makefile entries and retain Andrew's Reviewed-by on the
+  MAINTAINERS patch only.
+- Link to v1: https://lore.kernel.org/all/20261123-b4-cs7542-mdio-v1-0-626d0a0e3b4d@gmail.com/
+
+To: Fil Dunsky <filipp.dunsky@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>
+To: "David S. Miller" <davem@davemloft.net>
+To: Eric Dumazet <edumazet@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+To: Paolo Abeni <pabeni@redhat.com>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Andrew Lunn <andrew@lunn.ch>
+To: Heiner Kallweit <hkallweit1@gmail.com>
+To: Russell King <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+
+---
+Fil Dunsky (3):
+      dt-bindings: net: Add Cortina CS7542 MDIO controller
+      net: mdio: Add Cortina CS7542 bus controller
+      MAINTAINERS: Add Cortina CS7542 MDIO controller entry
+
+ .../bindings/net/cortina,cs7542-mdio.yaml          |  52 +++++++++
+ MAINTAINERS                                        |   7 ++
+ drivers/net/mdio/Kconfig                           |  12 ++
+ drivers/net/mdio/Makefile                          |   1 +
+ drivers/net/mdio/mdio-cs75xx.c                     | 126 +++++++++++++++++++++
+ 5 files changed, 198 insertions(+)
+---
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+change-id: 20261123-b4-cs7542-mdio-ec44e757e824
+
+Best regards,
+--  
+Fil Dunsky <filipp.dunsky@gmail.com>
+
 
