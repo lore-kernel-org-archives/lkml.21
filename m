@@ -1,52 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=114.242.206.163
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795741970;
-	b=0g676j4bjYYcwTqKGJ+15oZgm4m75TWI/aYpdFW9+8m2lx+4X8hKThVFiieHW/++LM+J
-	 brNBW5fOyk3rieU+Qm6/iwV3+KujWgrqYuBSJGeL+a0P1oQbhPkpLpsg8pG4mpxS498Nn
-	 CkiULk54vXKhiC76TVGvSPaQ+Oga3WWFUPIPEP+tmDBqVMi32PZJhoP09n/jfm5Y34eyF
-	 N9CuAz6iE8ECRDqSVNDXAYlP4Rf0ia4kXTR4CE9o4uOpUvGD7cG/p31rT9SxbuZEwtmG3
-	 aAsdpXZ5RQc4xkkaFrNgaBo1jGjsq9v7lYXMPTlMKsFyfwlNM4VUH9wpVWPH+DWd2Ng==
+	t=1795742074;
+	b=ZdTqHYmh0SlTmXqtnrRd9wgtDCMyJjOLt6k+GX527UYOizqE7EaErQjWv6Vpgtp/U0z7
+	 DpUq9OJovQDV/JnCPQb35YBQw9KoHUOrOYfq5+6SttZrYTfwbiwqJsPzhQlnm2x6SELZq
+	 a79H/UREVB6dUGyfnyoatcxmTHCiuQTtoWBVfREgKMQQ4R9pHdYtkg5cmWG5X4Z8goqRc
+	 tcAqLFLOKRs8+kpxm9vgP0Ak7e1ZBrvzpXqNKY090VbVP+TBoMV365h49Z4q6OcXtspme
+	 pGYnbGlLui1C6wlt05hhFNN320aSjcRfM/o5oNpjLPdICB3uzn9qLXHKudMKg4WYzjQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795741970;
-	h=DMARC-Filter:Received:Received:Subject:To:Cc:References:From:
-	 Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:Content-Type:
-	 Content-Language:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-CM-SenderInfo:X-Coremail-Antispam;
-	bh=WL6jcyaBgXtjlwf2xKoJMQ4E9Qb5FW6oej1sKLlt6UI=;
-	b=wsZbegxHIkYzvhfeuDUaPQraEnytKs1DYJkpwjNG0rIslMb3e9xG9BgXGq9LSIl3xjIc
-	 IN0dvcB84/4io/HWV4lQ8MAV2YYkq9Caam5mhPnX8ZoAbMhnqXiojuqvOCFPrcjwzNG6D
-	 OJcSsJ0NeYNpZkRKGEpJpFzCfw55zZI1ZIGkt/eMNOK7A+FM1sLpMINL8H7ysJT0oXxKb
-	 LfST45/abdfw7AqlGys0tIk818xi+DjASAclyWBhJz92M4jiUGRmr5cWCiDmHlGicXtuT
-	 8946sJGY/bwOma6XzKfBK43jAAnjPTJ6lZ1GS/FvbS+V5sA/iWhlOqEMWRZo6t3AtGQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795742074;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:In-Reply-To:References:Content-Type:Date:
+	 Message-ID;
+	bh=4QuyiSQPiIDTfEJTEpYvEBkj4Se4WoY6XU6KWrukd4U=;
+	b=GhOU9pc3e39n+HwIUXZzGCWunnZrWR1ZT+YQYcbw2upZf830U5kI/DQAKGU8wEyRkCHj
+	 JdGmU4hD/xuD6UvlTAlK+/Vhot1Zh6P62NpDe0YO6qyxBnmCjY8YSanJDtzI0vNRPuRIP
+	 0kGu1x2kOvIQbNvKEdoMGyUaOzPE5xi+Z8/uQ4Rr9OU99pW415jLJ+iqfHOfz3xwZ/DtM
+	 FFrDib2qbhvu53UkSNLEjmf6AV4LFAGiubZVTu1UQZBO32vr/XOq1QDL6+Si7QuEAodnl
+	 wd09zrj2keEM6Vle7OBUEiIFNW7VCf6v38kOrRtAsewT5OY/VjSbwSpkexeIZvWgE8Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=loongson.cn;
-	spf=pass smtp.mailfrom=loongson.cn;
-	arc=none smtp.remote-ip=114.242.206.163
-Received: from mail.loongson.cn (mail.loongson.cn [114.242.206.163])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 8BF77606A327;
-	Fri, 27 Nov 2026 01:12:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8BF77606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=loongson.cn
-Received: from loongson.cn (unknown [10.20.42.62])
-	by gateway (Coremail) with SMTP id _____8BxLNAI2Qhr2WcjAA--.7030S3;
-	Fri, 27 Nov 2026 09:12:40 +0800 (CST)
-Received: from [127.0.0.1] (unknown [127.0.0.1])
-	by front1 (Coremail) with SMTP id qMiowJCxf88F2Qhr3ac3AA--.46655S2;
-	Fri, 27 Nov 2026 09:12:37 +0800 (CST)
-Subject: Re: [PATCH v2 0/2] KVM: LoongArch: selftests: MAINTAINERS coverage
- and a VM leak
-To: Gokul K <gokul02k@gmail.com>, Tianrui Zhao <zhaotianrui@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
- Shuah Khan <shuah@kernel.org>, kvm@vger.kernel.org,
- loongarch@lists.linux.dev, linux-kselftest@vger.kernel.org
-Cc: Sean Christopherson <seanjc@google.com>, linux-kernel@vger.kernel.org
-References: <20261126050352.1957454-1-gokul02k@gmail.com>
-From: Bibo Mao <maobibo@loongson.cn>
-Message-ID: <b5d4b059-6561-a68c-e00d-247566a081f8@loongson.cn>
-Date: Fri, 27 Nov 2026 09:13:48 +0800
-User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
- Thunderbird/68.7.0
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hmOzr30c;
+	arc=none smtp.remote-ip=209.85.215.181
+Received: from mail-pg1-f181.google.com (mail-pg1-f181.google.com [209.85.215.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14916606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:14:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14916606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hmOzr30c
+Received: by mail-pg1-f181.google.com with SMTP id 41be03b00d2f7-cdac6d19ddaso3082422a12.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:14:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795742073; x=1796346873; darn=vger.kernel.org;
+        h=message-id:date:content-type:references:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4QuyiSQPiIDTfEJTEpYvEBkj4Se4WoY6XU6KWrukd4U=;
+        b=hmOzr30c+0qgpXbHWE5P4GmRbt5ZUi11M2NqCYYQLylThd5knPq6PJ6ogs3KT6vEF6
+         JZX1M9FEsE6Q//IT9/vUUxgHLdm/tRsFFmGgCjhDErrqojsROvjBDfRKlG2bNr9yGf3D
+         A5Le1zG0zhl/FfMkTR432M2U0kb8uR3p4vYjh1JJ8OV+p7EbAJR9zuOym0EdGHcyzjMy
+         Cf0sKL16bmabvYS4p45bZ2Rub9ppW99S02ysbKY7tB/z6uy60sMC+Sw4qFhDjYTieMOk
+         tBBPcZ/q+Bm2vRweffm2bNerpKs9TJJgurpFS6PT6Db9hrWCjb7Zd7V9QLxCaO9NIWIw
+         igAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795742073; x=1796346873;
+        h=message-id:date:content-type:references:in-reply-to:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=4QuyiSQPiIDTfEJTEpYvEBkj4Se4WoY6XU6KWrukd4U=;
+        b=UaYZWqp9D6jKjtLL3Al18xZJ+XoejtuNb2hjZqAC7rVnI3ffMO8753/vfVe1mRVQby
+         uLtXPuZOPRM6PigNmcc5h4uhOwaShYvZM3VUzKYlQHyzFDAsYuqLRTCw6uSdVPtTRwTL
+         UXNAJs9nZt7XMGIih6eC02IumC+PkEiJlFfqjhCTqAYSMHMkbfuiiPqvMqJr0GHy/swb
+         hXoLL/7peJdVlIIsxIp/0Kxlg75ip1M3039oKSDJnx3yGXKK3O0TEJHVSTR+z1MC93jl
+         utZ68eSNAo45giUZBSVG7reV09k8RyJvwMIR8m9p22CTDMHuRYU1PkFKfAlWINgZ18Bi
+         +0QQ==
+X-Forwarded-Encrypted: i=1; AL+hErGKM+qkJfTylYahtIQuUq4ADsSqyUHjBSQWWhfDjFMMxAq2YhD3jGyjqoBWqknCIsLUpZdYhHRZt+mupo8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+SlDBcwLQK1BKi/06khSiBTFiOmeKaVl805o066DnlLKdnYrUB
+	YcyxUmFk6uBAe02h7ZA/z3/nGJKrxCZHla15V2Z9Galu02dIfxEhCLAm
+X-Gm-Gg: AZFdTZdSHoITI4868OiD/b7818/VOSbu/9Kzj263dUGCuPWP+0lX6TQ4A5f9s3gY5AT
+	CyKGucVE62EBeB63/bIcOb8YnG9e3Lt3i7ITogFKrnrPVdBY084xbJk8/l8nKJqIUgBqJNuJYpi
+	3Q12lhcP/Ny970i2KXvPNq2deHPmGc2COFtHv4nu4tJ2S5DRm7AqZLCbAF26uEQbrcw2YAWKQgV
+	YM2jhRF5DvaKWJeJq7wggYnxgao4DW3kbnSXX9FtznjAAvWzm2xK2mGQrzAp+Uw2obesf9lSQwq
+	V9Po7nxXRFm8svq6pv3l7G9hoTDl+tYAKOK4Wfk/RygU0u9xJDz0Ofif++oCErpQPzhqIMgz0/W
+	CDG773+wXo21wK76ZcD7Tt8p6Hb4ZuLzQp+TqWnuZQuVL7hY5AkbjaBLvxBtHLE1WTy6QXw2E0x
+	EASUaZ53dC5NPkRyejkxHMGBlT439cYDfgebn4A0OBREPo6+6A6nAuh11iiIiWOJmCFOjYQWn7F
+	wBDnnYCBY8/JtCLnyKez8pcVAo8kOS6hDUGTOpCl4xETR18Ge1n4V9ZMUgff9jZK4K0LZflJHAC
+	1GmwtvK34Npv0wrSIWbhUpMu2UN2b+cS6oox5Lhj/tk03mozILiC20B6vQ5RRM/eeU4mfu9d++F
+	BtZMkfhsklEIjIXhIKDnC
+X-Received: by 2002:a17:90b:1a90:b0:3b0:9941:8d42 with SMTP id 98e67ed59e1d1-3b41c92a1c0mr20960400a91.33.1795742073166;
+        Thu, 26 Nov 2026 17:14:33 -0800 (PST)
+Received: from mac.lan (114-45-165-38.dynamic-ip.hinet.net. [114.45.165.38])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0b2c4sm35005235a91.4.2026.11.26.17.14.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 17:14:32 -0800 (PST)
+From: Ilia Snezhkov <iasnezhkov@gmail.com>
+To: Peter Wang <peter.wang@mediatek.com>
+Cc: stanley.chu@mediatek.com, martin.petersen@oracle.com,
+ James.Bottomley@HansenPartnership.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, louisalexis.eyraud@collabora.com,
+ linux-scsi@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] scsi: ufs: mediatek: round scalable clock bounds
+ to clk_round_rate()
+In-Reply-To: <00ba0aec941a72c8401eab7c3d4036caa2ae8aee.camel@mediatek.com>
+References: <20261126031008.27506-1-iasnezhkov@gmail.com>
+ <20261126031008.27506-4-iasnezhkov@gmail.com>
+ <00ba0aec941a72c8401eab7c3d4036caa2ae8aee.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 27 Nov 2026 09:14:28 +0800
+Message-ID: <179574206826.56397.7920531590189565888@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,68 +102,34 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-In-Reply-To: <20261126050352.1957454-1-gokul02k@gmail.com>
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Language: en-US
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:qMiowJCxf88F2Qhr3ac3AA--.46655S2
-X-CM-SenderInfo: xpdruxter6z05rqj20fqof0/
-X-Coremail-Antispam: 1Uk129KBj93XoW7uF13KF4kurW5Cw48Gr1fZrc_yoW8Ar1kpa
-	yfu3ZFyr1vgFs7Ga1qk34jg3ZxXFnrJF1xZ3Z0k34Uurs8Zry8Xrn29r4DXa4DZ39YgFWS
-	ga1Ska4Fga1DXacCm3ZEXasCq-sJn29KB7ZKAUJUUUUr529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUBjb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
-	Gr0_Gr1UM2kKe7AKxVWUXVWUAwAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYI
-	kI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUXVWU
-	AwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMx
-	k0xIA0c2IEe2xFo4CEbIxvr21l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_
-	Gr1l4IxYO2xFxVAFwI0_Jrv_JF1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67
-	AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8I
-	cVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI
-	8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v2
-	6r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07jepB-UUUUU=
 
-On 2026/11/26 下午1:03, Gokul K wrote:
-> Two small fixes to the LoongArch KVM selftests. Patch 2 frees the VM on
-> the PMU test's skip path. Patch 1 came out of routing it:
-> get_maintainer.pl did not name the LoongArch KVM maintainers for
-> tools/testing/selftests/kvm/loongarch/, because the MAINTAINERS entry
-> does not cover that directory, so this series would otherwise have
-> gone to Paolo, Sean and Shuah only.
-> 
-> Based on loongarch-kvm in linux-loongson.git.
-> 
-> Patch 2's hunk sits next to the one in "KVM: selftests: Convert comma
-> to semicolon" [1], which is not applied yet. They do not overlap and
-> apply in either order.
-> 
-> Compile-tested only. Patch 2 builds: tools/testing/selftests/kvm/loongarch/
-> pmu_test links for loongarch64 with a GCC 15.2.1 cross compiler, using
-> glibc from Debian's loong64 port as the sysroot. The binary was not run.
-> Patch 2 changes the PMU-not-enabled skip path, which only runs on a
-> LoongArch host whose VM config leaves the PMU off.
-> 
-> Changes in v2:
-> - 1/2: also drop the lib/loongarch/ line, which */loongarch/ already
->    covers, so the entry matches the other arches (Zenghui Yu)
-> - 2/2: unchanged
-> 
-> v1: https://lore.kernel.org/all/20261123100701.1679376-1-gokul02k@gmail.com/
-> 
-> [1] https://lore.kernel.org/all/20260428053204.1018608-1-nichen@iscas.ac.cn/
-> 
-> Gokul K (2):
->    MAINTAINERS: Add the LoongArch KVM selftests directory
->    KVM: LoongArch: selftests: Free the VM when the PMU test skips
-> 
->   MAINTAINERS                                      | 2 +-
->   tools/testing/selftests/kvm/loongarch/pmu_test.c | 3 ++-
->   2 files changed, 3 insertions(+), 2 deletions(-)
-> 
-For this series.
-Reviewed-by: Bibo Mao <maobibo@loongson.cn>
+Hi Peter,
 
+It is not a missing hardware calibration — it comes directly from the
+fractional-N PLL PCW quantization against the 26 MHz reference crystal
+(clk26m).
+
+On MT6789, msdcpll has pcwbits = 22 and pcwibits = 8 (14 fractional
+bits, 2^14 = 16384), with VCO range 1500..3800 MHz, and ufs_sel_max_src
+is msdcpll_d2 (msdcpll / 2). To target msdcpll = 384 MHz (msdcpll_d2 =
+192 MHz) at postdiv = 4, VCO = 1536 MHz, so the required multiplier is:
+
+  1536 / 26 = 768 / 13 = 59 + 1/13
+
+Because 1/13 is a non-terminating binary fraction, no integer PCW value
+can represent 384 MHz exactly in 14 fractional bits:
+
+  pcw = 0xec4ec (967916) -> vco = 1535999512 Hz -> msdcpll = 383999878 Hz -> msdcpll_d2 = 191999939 Hz (-61 Hz)
+  pcw = 0xec4ed (967917) -> vco = 1536001099 Hz -> msdcpll = 384000275 Hz -> msdcpll_d2 = 192000137 Hz (+137 Hz)
+
+(With postdiv = 8, VCO = 3072 MHz = 26 MHz * (118 + 2/13), the closest
+PCW values give 191999939 Hz and 192000038 Hz — still never exactly
+192000000 Hz.)
+
+So the CCF __mtk_pll_recalc_rate() / clk_round_rate() result for
+msdcpll_d2 is deterministically 191999939 Hz, which never matches a
+nominal 192000000 Hz entry in freq-table-hz under ufshcd_devfreq_target()'s
+exact `freq == clki->max_freq` check.
+
+Best regards,
+Ilia
