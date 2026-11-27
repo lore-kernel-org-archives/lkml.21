@@ -1,105 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795738610;
-	b=Jjl7SEr5J7tH3aqda8hg+Ri/BsCjb25H5xmLH5z6MsvlMa6uIZa64vu/Eoi/Si5kfPuQ
-	 xRS7IY6Z/+llxqP8d40QFczYl32BjZKDABfXpRpN1NRDGd1BxiWeoMjC0xhway3m2C50m
-	 aM94xEFoYt66u0/53BLMLam5n+weE7eU36PMgibSGZHqEtJCYgdVnQhNlLUJKv3pLfEyK
-	 QZw/1GZ5STcLmxfwR/v+eyjGyPqD5KOI8ebZX1jOzq0fahV6CystHRNZe1huKE7295BfL
-	 mKFLw0QE2cL92m5UDe004q0ndxGzJkNsWBdxvKlQF4ktsOWVgTSv88v+WYkaPcCTMeQ==
+	t=1795738719;
+	b=P0aEawwkWz0n4uEkJdz/J03D2G0clDkiLkA7Sj1LtoivcJ1RiSTgP3PtU/d27KEpU5Ni
+	 wyr7YxOEqMt3HqELvBc6BcE2+Euf1YR94oT7xdFHQs1S76gmEz4z9/OJ1/Y7bpXTq6inP
+	 ygPOrnVo2pPGAk/GA2bQePPR5ikTueCXJ26KmqcD1sM+O+PJS7z7hrQ6X0KcAV9EAQvpf
+	 JxPJQf49iZPO3N53QH00fkwkDMW+zqLJaDHYb5mVukI7nH8VSC0DZXAvs/NuRrEwAk6QM
+	 EHmO6uf6rqE5GuxapDRcknCJ5V6L2dXdoyOO3Dah3Cj8UiKx3VlSPK2R0jXU4k3lcrw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795738610;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795738719;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=9nVnoKawCciJJKvofe0ViAurGqoccYhIy4wdIXnHSVE=;
-	b=DJFu6vnbwbKjgsiKjQPrJTTONq9s1FcZiBUd2uQk3T/CzSRCuAcWicJ34Eniah2zhwr9
-	 +l+7TxdnJdYNV5ub4HWQVIdQvwsy9VlouKmt0jOrsU+XG6kMKO8dHCfBZlwSEurCbXLI0
-	 EblkIbKbORbMe74yPbdS+RoY+38A5ow+QSO0UlAzh6svfUpx01O7tKaR5CudGnfJEcaw3
-	 7t2RmGvR+qRj7aOPMZGRVzRjThcpXFkvIDBJRyupGuDXYgMoTHQlhD0tw7tcAArgCKGn4
-	 hwGyZUFD3blTxuTzaqkcVXn0zDUVggsd38aV2OfXv8EicxuiHOrGUQbsQPfl4YdEjvA==
+	 Content-Type:Date:Message-Id:Subject:From:To:Cc:In-Reply-To:
+	 References:Content-Transfer-Encoding:MIME-Version;
+	bh=jEQoUDUHXfe47VJ+kLpzPaj5h2l+/kTai5BVTBPq2W4=;
+	b=jsLTT1FowFYJ6IIRvFEx/dyG2Bi/yguh5dcQzwx0akIqyd3Y9I4aR65a8hFo8J2jmRSe
+	 MMV1zeW9Yz1J5JJFBqNZCBaHXwPEnQMqGLrgt8Crn1Mu/wc0H1o2vr47ySUTVWVgOrDqU
+	 WXScSQSDMZD6eNfXsfxPB+EKPm+k6xBnh3BeO1FcFM3/D+rucDxsCWh/ucPXigM4eIZeD
+	 bONRYLf67CiH9ySHHZjlYdRM70HS7fAO2gGIvoiyAzlX84pF9UpnjRulOT51a+T4qobAc
+	 XhmtdHgttWvFN319zK9P8qt9bonhaFz8UE+X5MPxIKKoeHNnmW4KhDddS9u51UuXIVQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gTyRMsh9;
-	arc=none smtp.remote-ip=209.85.221.43
-Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RFUT+IRS;
+	arc=none smtp.remote-ip=209.85.215.169
+Received: from mail-pg1-f169.google.com (mail-pg1-f169.google.com [209.85.215.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37054606A693
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:16:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37054606A693
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62B88606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:18:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62B88606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gTyRMsh9
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-492f0a1b685so5347490f8f.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:16:49 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RFUT+IRS
+Received: by mail-pg1-f169.google.com with SMTP id 41be03b00d2f7-cc758830601so5554018a12.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:18:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795738608; x=1796343408; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795738719; x=1796343519; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:cc:to
+         :from:subject:message-id:date:content-type:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=9nVnoKawCciJJKvofe0ViAurGqoccYhIy4wdIXnHSVE=;
-        b=gTyRMsh9XGGeLgDZLXjO7XZSKbo+yBjLM9WRsFDN86Q2ovOeLCH4qChPqGozxhmVNS
-         C2hqkmY72B9gawQh8BMCZ6/54ms0o4T9rs+rsOh2aIDIXYh6z9F6RyBrum53dxgrvaRw
-         W/qFLObMtiCACdySief3G1IBZBuRQKL6je9gxQSBn1ObifSbv66SJclVPcGQPdSzX+Aj
-         mc426/+ugAtnGKpvXPrRgCDd3nex+ulW9xLKvRye/jQHADqFebQQcpbRhgwiPPAddgDm
-         NjIPr5CmPEsadmfz2cNBp3zC+g/dTY558D23aERp/PjEyOI5dvFcP3ytmzMbGoLxjM4a
-         9H9w==
+        bh=jEQoUDUHXfe47VJ+kLpzPaj5h2l+/kTai5BVTBPq2W4=;
+        b=RFUT+IRSg/juX6qTvxJ7Ac7jOoqAHJkDITQUBthK9OscfT8CSlOOyHthdGZKs/Wd5c
+         MrQz3z4eQMDLCLkflKukQ9fynuNaE4beSAb7/QUHmLaaowidTgzHCHQoIZLSUa8MQ0A9
+         Dw71Zhruay3Tb1PDcZKZnZB92oT7HWAq+hb1mu6Cv5ROrnaeQOz17uktFdkNS93qHJ+o
+         5Z0LYHJWwdt5TAeLQGpg0cCQRwedLLZBs5gGZHYgN178OknMv5Jkd30BSN+GhPhTdF09
+         33V9KEHM/6ixQkh4bcrp9MpvnJ5XtakDKt0rbZthbDt6tqP3WARno32UriQapTVjWAfy
+         yh5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795738608; x=1796343408;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9nVnoKawCciJJKvofe0ViAurGqoccYhIy4wdIXnHSVE=;
-        b=ciCRT+qMYCqzESnhrBVA1Jd2y42SFW8JVQ8QjTr3mXta3h2v6z17YP1G2++IDidoD5
-         SKKYnO0LTOp5//d+hqnv9HefoHj4hCZF6z9BcrcIQBPJWGyRbrBS1fVJHQUu1M+eNWZZ
-         vMy6oxyO//GP0P4nj8bnubSoGkXb2ihyoYO5mzuA4Z/NeJ2nfiJlO1TyOqrQW2WSJV5A
-         8tXWb3nYaagRES+ctsTNt53o6p+QMBBr7k0pvP08usIo0ypFtqERprNpv8MECLeHi0ZO
-         M9kMtrZcaj8byVhJsoGwxaA/Q01QN3AoToh710SqIPq6XEa62T/qzIFU/vQZWBSaSL9u
-         IXLQ==
-X-Forwarded-Encrypted: i=1; AL+hErHF9NJoYnRItUD6WexvLQp0iSc8LiYSS54ynWPdrk0ut0Dwr/+SP3fzIbq56UUgIOhOSm5vaTInvMj7l50=@vger.kernel.org
-X-Gm-Message-State: APuU4Z81rWqlJHdN1rzhf2ynG009TsQGq6Tpr3DHs4RRNLZ5I64IMuBp
-	cWx+Y2Pi8nateCcQ2akyAYSH83RWZZoBARINbFW9nM0o/ALyli5Civ0=
-X-Gm-Gg: AZFdTZf+iC1KCPRLONuVy2mgSw4khv9ak3qvo4f+k8gaDRM6nHy9AvjrkingY/lmqsr
-	HCETrJqE7qb0uBOoO5/hTZBWPvX0Zifmx4G82qm5IvtKDwFjNw9pDttKLrmDozOmXLLdemN29Au
-	ZOKzhNJ912qvSeuj/e6S+/YbTkznVIjOk2dzA2OKDLxcP+RdWpf1s8gh3qK4GvLAr4UpWSzeWMY
-	PQbizmOqGwWdlzXeXPlTCPyjU6zkcTNWZcEsQS0VMUWx3t5ozBSJOlcIZ/h2kD4jy5H+/UJdvKS
-	sm0U2aM40y+1KrWCQxqOZm76eDOeGLr/AK0ih7f0t0tNsNYV2VpG12GaJcCCoVqpoFY1e9oYQnc
-	mJ0tVk+f16e584QglNToj1It50Ic5PDk45PCQu2xIjh+qijC8LRhEvQB/zjESTbDfmXiCSUUnck
-	YaAl/XgnRP7beqgeMYiW6Y0H6BoU5IRsdhr7LhOsuqZh9/JbHPilvyIgOcQcjF4DxmIzHlCGP40
-	PzldSQhE6pNo3y5U6m6lsyW0QQyqGD78dRHoS2PuoI7YYTtyFPy1leXgxjh88ZYB6qRVG24zE8Z
-	ev+mYDeNs2Gk7os=
-X-Received: by 2002:a05:600c:83ca:b0:4a1:9661:14b5 with SMTP id 5b1f17b1804b1-4bb888176eamr461715755e9.29.1795738608524;
-        Thu, 26 Nov 2026 16:16:48 -0800 (PST)
-Received: from localhost.localdomain ([2001:41d0:303:db6b::])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906d6a13sm356650865e9.3.2026.11.26.16.16.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 16:16:48 -0800 (PST)
-From: Tristan Madani <tristmd@gmail.com>
-To: Pablo Neira Ayuso <pablo@netfilter.org>,
-	Florian Westphal <fw@strlen.de>
-Cc: Phil Sutter <phil@nwl.cc>,
-	Christian Brauner <brauner@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	coreteam@netfilter.org,
-	netfilter-devel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Tristan Madani <tristan@talencesecurity.com>
-Subject: [PATCH v2 nf 3/5] netfilter: nfnetlink_log: pin file with get_file_active before reading f_cred
-Date: Fri, 27 Nov 2026 00:16:35 +0000
-Message-ID: <20261127001637.1026589-4-tristmd@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261127001637.1026589-1-tristmd@gmail.com>
-References: <20261127001637.1026589-1-tristmd@gmail.com>
+        d=1e100.net; s=20260707; t=1795738719; x=1796343519;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:cc:to
+         :from:subject:message-id:date:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=jEQoUDUHXfe47VJ+kLpzPaj5h2l+/kTai5BVTBPq2W4=;
+        b=nc1mJCcee+VhQeB57g+Nw0xLQj4GqbBHprVuilVNw0++kU0S4PxWJYvc8/8OKDFyI1
+         3LrYpe9b7QcjWwP3ENkaSh/kIUAoPggcAixGiGo3GVEUPYrN81TYhJcJa2nDw5GJTSU7
+         ZYQt422in8P2xZRUyT5WQpXFiZCVNfTzx9l8dM7E6JvscozDzjog1i92NUku590pw8wt
+         PoGqykbKFD+Xc0zmzxroHdSylM+HtpuIJnuFl1r/iL3ERVS4ZH7jY53OTjth4JeCK0ar
+         mcRpfD9nIkOiVDW5S67FKXvWoSmX4FW7n/qGEDy99sB2WgdeIvP1seIiUh7N2ARJFJJK
+         b7vA==
+X-Forwarded-Encrypted: i=1; AL+hErEaQcb4GChzVcuKDj+xrjCxytu3VeGrFdyW8tgBvxI/AbDUa7ok/y73bEMEf7VXdvOTN7n8rYPTg2ViB04=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+XGUVRU20ILJhERy1NPID28vycb/a1skH4lGsyeQ9LNeJHNTld
+	LEwFOnB2GQQFrNuArTDekMosaq7cZtlBMmXKNCltxhQBA39TPEO9HGlW
+X-Gm-Gg: AZFdTZdOl+aQSfNRXOlt9sDNsQR6rMPZZMJdWTS8nxlHH/xvWJkQZ1BWvmY1/ZpGom6
+	UCjIRIvosEkVyzQ2V3w2hGiH0/0tzxCbZ33BXR2kVTI9VAd7qvNi9niEQCsDm1piGko2Y/4gnrW
+	nCuCWnZZPpAQpoE+dJ8/KlnDhrLw0nP0tDE4+63tnM9xqR6zD/OAKS4BjBvCA+gGHUikQZTa2q0
+	oo8Uxzcm9w59TB/5NrDn5SGz8CRhtRVVEL4DDg0qqn8g+8TTzd26N1nxOvsneHiAVNEx8jbEqeo
+	mhwRI/n7DXpO4bcv8C4LUumfrIRMsQTUlUqCvjHVhK5Ii/cicoYoz5hhRUF0LXTENdzZpq/Ndzm
+	ZFLWu7hUlMZiBpMTHLvxlrlkh1T2JxOdrAFEFE1Hgfua3oUOM6Ns/yt+iilG97Q7K0LDjaneNwQ
+	G49v7GMpkLnV1Xp8Xbpg79f0jgY2+p7enYLtxy+CEQ8El11RUbJ833Ba1ACM/6Z4Eb2PmbTzRyB
+	Xpvxt0XO2PAplnW/ECsDhLuAINBqwnbDYU4jKGyI40lK5fqo+Se4Ov/OMzxOAf1sJsMPBaZQcU6
+	lwpvBz4akqF9OVRyS2Kl2CpJoPyqTTpr/ZoDOWS7+fYStfnzhFiakFNP94nvxrb+65p9DnDhlEs
+	IB3r3hix9zRo+jvorVU3mQya+CpzeFail8w==
+X-Received: by 2002:a17:90a:e70c:b0:3ac:9df3:6b07 with SMTP id 98e67ed59e1d1-3b41c9234b2mr23726357a91.24.1795738718594;
+        Thu, 26 Nov 2026 16:18:38 -0800 (PST)
+Received: from localhost ([153.61.198.255])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b2156c2sm15510580a91.0.2026.11.26.16.18.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 16:18:38 -0800 (PST)
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 27 Nov 2026 00:18:37 +0000
+Message-Id: <DN5K8Y9824AE.3GPOE0WP9ELFN@gmail.com>
+Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups
+ for user address faults under SMAP
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "Andy Lutomirski" <luto@kernel.org>, "Kumar Kartikeya Dwivedi"
+ <memxor@gmail.com>, <bpf@vger.kernel.org>
+Cc: "Puranjay Mohan" <puranjay@kernel.org>, "Andrii Nakryiko"
+ <andrii@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Eduard
+ Zingerman" <eddyz87@gmail.com>, "Emil Tsalapatis" <emil@etsalapatis.com>,
+ "Ihor Solodrai" <ihor.solodrai@linux.dev>, "Dave Hansen"
+ <dave.hansen@linux.intel.com>, "Peter Zijlstra (Intel)"
+ <peterz@infradead.org>, "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar"
+ <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>, <kkd@meta.com>,
+ <kernel-team@meta.com>, "the arch/x86 maintainers" <x86@kernel.org>, "Linux
+ Kernel Mailing List" <linux-kernel@vger.kernel.org>
+In-Reply-To: <03275761-8de2-41be-92fd-8e3012a87eeb@app.fastmail.com>
+References: <20261009024925.3169077-1-memxor@gmail.com> <20261009024925.3169077-2-memxor@gmail.com> <df69ab5d-bc97-4651-8668-a2b3e4bb272a@app.fastmail.com> <DN437OYZ5FGP.20VLV7ZEXQ5YY@gmail.com> <5f46d1c1-fdce-4f3b-9d56-675a822b2d65@app.fastmail.com> <DN4X9KVYMONH.VHKD1QED1BUQ@gmail.com> <03275761-8de2-41be-92fd-8e3012a87eeb@app.fastmail.com>
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,81 +109,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-From: Tristan Madani <tristan@talencesecurity.com>
+On Thu, Nov 26, 2026 at 09:30 AM Andy Lutomirski <luto@kernel.org> wrote:
+> Okay.  So maybe there should be a nice patch set to *fix* it.
 
-__build_packet_message() reads sk->sk_socket->file->f_cred without
-holding a reference to the file. Since the file slab uses
-SLAB_TYPESAFE_BY_RCU, a concurrent close() may free and recycle the
-file object, causing stale credential data to be read through f_cred.
+In a perfect world, yes, it would be nice to fix, but no one stumbled
+on it since the probe_read_kernel appeared in 2009, so it's worth
+fixing only if it doesn't kill tracing as a feature.
+Kernel observability is a mandatory feature.
+Looking at 3 options:
 
-Pin the file with get_file_active() before accessing its credentials
-and release with fput() afterwards.
+> 1. Walking a little list or table to validate the address (which may require some sort of synchronization and obviously needs to be NMI-safe -- for systems that use TLB-flush IPIs, blocking interrupts could probably do most of the hard work, and otherwise a little flag set while a read is in progress that can block the change of an address from safe to unsafe would do it.
 
-Found by manual code inspection; not triggered at runtime.
+walk and the synchronization makes it unusable due to NMI,
+but we we can give uncached ioremap() a different range vs vmalloc()
+then it might be practical with a single range check.
 
-Fixes: 0ede61d8589c ("file: convert to SLAB_TYPESAFE_BY_RCU")
-Cc: stable@vger.kernel.org
-Signed-off-by: Tristan Madani <tristan@talencesecurity.com>
----
- net/netfilter/nfnetlink_log.c | 35 +++++++++++++++++------------------
- 1 file changed, 17 insertions(+), 18 deletions(-)
+> 2. Allocate a PKS key for the purpose and use it.  (Only works on systems that have PKS.)
 
-diff --git a/net/netfilter/nfnetlink_log.c b/net/netfilter/nfnetlink_log.c
-index d923f2cb13980..d4fe9a12088f4 100644
---- a/net/netfilter/nfnetlink_log.c
-+++ b/net/netfilter/nfnetlink_log.c
-@@ -28,6 +28,7 @@
- #include <linux/spinlock.h>
- #include <linux/sysctl.h>
- #include <linux/proc_fs.h>
-+#include <linux/fs.h>
- #include <linux/security.h>
- #include <linux/list.h>
- #include <linux/slab.h>
-@@ -632,25 +633,23 @@ __build_packet_message(struct nfnl_log_net *log,
- 	/* UID */
- 	sk = skb->sk;
- 	if (sk && sk_fullsock(sk)) {
--		const struct socket *sock;
--		const struct file *file;
--
--		/* The sk pointer remains valid as long as the skb is.
--		 * The sk_socket and file pointer may become NULL
--		 * if the socket is closed.
--		 * Both structures (including file->cred) are RCU freed
--		 * which means they can be accessed within a RCU read section.
--		 */
-+		struct socket *sock;
-+		struct file *file;
-+
- 		sock = READ_ONCE(sk->sk_socket);
--		file = sock ? READ_ONCE(sock->file) : NULL;
--		if (file) {
--			const struct cred *cred = file->f_cred;
--			struct user_namespace *user_ns = inst->peer_user_ns;
--			__be32 uid = htonl(from_kuid_munged(user_ns, cred->fsuid));
--			__be32 gid = htonl(from_kgid_munged(user_ns, cred->fsgid));
--			if (nla_put_be32(inst->skb, NFULA_UID, uid) ||
--			    nla_put_be32(inst->skb, NFULA_GID, gid))
--				goto nla_put_failure;
-+		if (sock) {
-+			file = get_file_active(&sock->file);
-+			if (file) {
-+				const struct cred *cred = file->f_cred;
-+				struct user_namespace *user_ns = inst->peer_user_ns;
-+				__be32 uid = htonl(from_kuid_munged(user_ns, cred->fsuid));
-+				__be32 gid = htonl(from_kgid_munged(user_ns, cred->fsgid));
-+
-+				fput(file);
-+				if (nla_put_be32(inst->skb, NFULA_UID, uid) ||
-+				    nla_put_be32(inst->skb, NFULA_GID, gid))
-+					goto nla_put_failure;
-+			}
- 		}
- 	}
- 
--- 
-2.47.3
+My research showed that the effort to get PKS into the kernel stalled years ago,
+and it's intel only feature.
+
+> 3. Use an entire mm for the purpose and treat it as a user access.  This is probably the cleanest solution but it will be slooooooooow.
+
+You mean like use_temporary_mm() with direct cr3 writes ?
+If every read needs mm switch that might expose intel HW bugs.
+I remember div bug and I bet there are more lurking in the hw.
+I'd rather not push the hw limits.
+
+As a summary I don't see a practical improvement for probe_read_kernel.
+Maybe there is an option 4 and 5.
+
+The main point that it's orgonal to this patchset.
+
+btw I'm planning to explore PKU for other bpf needs
+if writes to PKRU register are fast enough.
 
