@@ -1,60 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795795804;
-	b=FV0X8sB3Co9QOH56FYvUR6pcFpsONZ2Utp/phCrHpotPw8Bhf8Bs4jCMbvnJEXs4Andt
-	 TdkLMJfadlFXgnWTSRG77ov3LBRwZHzWXuDEBYa/FJKv1jS5iXj67sc0HNEVEvNuoD04P
-	 p3cA7RBVzMZKUVdrCpd9ju5qEfDIOU3QScg+zO6U/MT4G+AaIELBhFFsMhjQQP/Z5024l
-	 DPAGWSzzhQKozgjJim3Q3sdJp/3CmifjiDKnslk5p/sqbxvorjAvb1/DjAjXQooV3lr81
-	 GnDN1auJfITEdl8kACBn8/QG/+IDlfpmpmhtHv3tfee2DVmqzygUVgzFMVFDlh8l2tQ==
+	t=1795795808;
+	b=IM5w4yfYfSTuhkUjIy4q3Z+XN/1WQMdo3wS1Y4oOTEydm5IoxxwNlx4L90uXKuOEPWFb
+	 c6giMpgR/oIqLsekZflSdRGkAZWmqGZICYL8vwli1IwOlGDkvG8DabOV7edbvkI15I31i
+	 OA0DHaf+SCCRJQygANiaCGAyf8fczolJBcJw+rnAfUAccOAt19JRzqq5ojXWiUEv8ezBW
+	 KBPKLqMRG8IoC3n5c+jSBXY+J4GSCBPjbvpFqkjfZbm0FvW4q7kIxcccWVOc2eUtEnRGT
+	 rALK2VJDkAliCm7DtMvqTaLD8vyAfw7UdnYz8GYlwySC5w+UUhBY9KwfHupLaapjZkw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795795804;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795795808;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Last-TLS-Session-Version;
-	bh=+z9lIGbJ9Utj5Ssuh2Y5ZEM1xMNrAcgaOBqBSUpINvA=;
-	b=XVbjh/OacGq5V8xhKAUu2XwLHXv0qJoEHvnhJKLlnzXWXKipELWMYwJbHUbBZ4bJQ+jr
-	 yavIaVkam5PvG/ALdvfZ6eLZsMVyJFfDxerv0jjNgPKYVe7lFzdSILiIRBBVrWqBJu66k
-	 IE3i9wRXXhxK6Bi55BtXg1aXT5BlXV2WBrm2kHaSp/qq/XY4Ryo3b7tusmoKWMs5nuWXd
-	 WOLWvOXsPlRL32jgtArrMHe4r5SuZqFrv0qxjtxQGyfORXRMDk2SiMaoiGQEn4PTEwwn4
-	 q9IeRa01IHPPt2eLXKT4SDSRfxXnXzRrCfjud+Tx3LIYNgJGq+kN515fU3HuKGQmUpA==
+	bh=4e5PKTjiW84n5jy4UhyLQl27v48Ri/xKF0c93x04o3k=;
+	b=Pdo9xdo/PlSDekxqW6r/FI+15HUXncbNaK6K0lRLL4ltXBw+wFy5of7DOHZQSBwUL7+H
+	 tYNclLqwEVhVM4JYTEunLP+qE5h+QMjNHl1e+/mZ+eOxhhpQQUXCtUBmkAHPNSQUODS73
+	 F2eOQ8N/Qu+ZTLtJ0yTagzIT4H7nAVFZSC1OguH0zYDYe7LTgaxaFvIomvLUrVLGRc10d
+	 XsV4XyXOIuztt3fvbNqG3b/rs17X/TmOQ9MchWrNUd8FgBNPsKCK5bitYg+HpgutnDwb4
+	 U3EjJiM9w7T6IN7uXJykxpOrX7u6yr5fFMQ81uNSKs8rn5yEOlqFdAu9CsFiUxFYcag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=eS85E9vu;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=mHKGPuVG;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99AAB606A33D
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:10:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99AAB606A33D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25F4B606A696;
+	Fri, 27 Nov 2026 16:10:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25F4B606A696
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=eS85E9vu
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=mHKGPuVG
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 4B45E1A183C;
-	Fri, 27 Nov 2026 16:10:02 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id E0D694E417C9;
+	Fri, 27 Nov 2026 16:10:06 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 15F176049C;
-	Fri, 27 Nov 2026 16:10:02 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0E95D102F011A;
-	Fri, 27 Nov 2026 17:09:57 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B6F856049C;
+	Fri, 27 Nov 2026 16:10:06 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 294B311E90D03;
+	Fri, 27 Nov 2026 17:10:04 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795795800; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795795805; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=+z9lIGbJ9Utj5Ssuh2Y5ZEM1xMNrAcgaOBqBSUpINvA=;
-	b=eS85E9vu+I5zwPfhcHF41aE6cpYrkmk0lBkdFH105TOcwP5jGxgCLnO60hAx5UF3swOK9t
-	6KTpJKDdNme/TmPQQnHcV0Oybwu89MFxAOrr2h3BqMnrj0yOg0OwYC8ylU0dTeJhX75Rs6
-	7QwO4bmeTSENiBqEIEWBnzLgwmMkxAmTrlAwInkbX8nKR/PcB33GRou4G0lWRMaftLKexY
-	Y0692EQig2Kr+81TQ80bYkF+nDmErTQ0fIOcKIE7CGx+1lNzNRLSR/8WWf5DUl55IxRznY
-	pjI/6oH5VqjjA21E6DtMN2n238jScemNQdu94vrdlVqqMpUIXk5KGRYN5A0IuA==
+	bh=4e5PKTjiW84n5jy4UhyLQl27v48Ri/xKF0c93x04o3k=;
+	b=mHKGPuVGEAHK9Jv+381mXRcmKUE4FCTgIjwuOUpzhiO3iWadOKQsbH24RKNDAP28VMHlN7
+	VXK9oXdvaQW09nBGy8oZpqt/GxkKIJEuLF/zJM7JgbuDtaufblt3W4W2Trg8kvWXtpibTl
+	VfhApTDMmGd0dD+ZuOWFPieofyd00bTYeLDQZkc9vLyENlHSsxgRK8OLPHZvnlHP9FIMEQ
+	gy5dsMJBK/G9VU/c7EOqlT1/xgDkmf5RihAo5u8aWq9ufNlvjNM+Djm8SjMbj5gfYajJzE
+	HnVG/fkve2vSmRyELi7BOao37opGsyWhLLRVcnXGFcvFZSZyJ33K6N/Y+np+7Q==
 From: Gregory CLEMENT <gregory.clement@bootlin.com>
-Date: Fri, 27 Nov 2026 17:09:49 +0100
-Subject: [PATCH 1/4] MIPS: mobileye: dts: eyeq6h: clean up to follow
- dt-check-style
+Date: Fri, 27 Nov 2026 17:09:51 +0100
+Subject: [PATCH 3/4] clk: eyeq: add EyeQ6H I2C clocks
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,7 +65,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-b4-eyeq6h-i2c-v1-1-d3232984fe83@bootlin.com>
+Message-Id: <20261127-b4-eyeq6h-i2c-v1-3-d3232984fe83@bootlin.com>
 References: <20261127-b4-eyeq6h-i2c-v1-0-d3232984fe83@bootlin.com>
 In-Reply-To: <20261127-b4-eyeq6h-i2c-v1-0-d3232984fe83@bootlin.com>
 To: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
@@ -84,122 +83,38 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 
-Clean up the EyeQ6H device trees so they follow the rules encoded in
-scripts/dtc/dt-check-style:
-
- - order the root child nodes and the soc properties as expected,
- - add the blank lines required before child nodes,
- - wrap the uart0 clocks line to 80 columns.
-
-Also move interrupt-parent to the soc bus so its children inherit it,
-instead of repeating it in every controller node.
+Add the EyeQ6H I2C serial and peripheral clocks. The I2C controllers
+need these clocks.
 
 Signed-off-by: Gregory CLEMENT <gregory.clement@bootlin.com>
 ---
- arch/mips/boot/dts/mobileye/eyeq6h-epm6.dts |  2 +-
- arch/mips/boot/dts/mobileye/eyeq6h.dtsi     | 39 ++++++++++++++++-------------
- 2 files changed, 22 insertions(+), 19 deletions(-)
+ drivers/clk/clk-eyeq.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/arch/mips/boot/dts/mobileye/eyeq6h-epm6.dts b/arch/mips/boot/dts/mobileye/eyeq6h-epm6.dts
-index 59a3e95050eb9..c0e1de2bb5a0e 100644
---- a/arch/mips/boot/dts/mobileye/eyeq6h-epm6.dts
-+++ b/arch/mips/boot/dts/mobileye/eyeq6h-epm6.dts
-@@ -8,8 +8,8 @@
- #include "eyeq6h.dtsi"
+diff --git a/drivers/clk/clk-eyeq.c b/drivers/clk/clk-eyeq.c
+index ae0faee316890..712824d6bb1b3 100644
+--- a/drivers/clk/clk-eyeq.c
++++ b/drivers/clk/clk-eyeq.c
+@@ -828,7 +828,10 @@ static const struct eqc_match_data eqc_eyeq6h_west_match_data = {
+ };
  
- / {
--	compatible = "mobileye,eyeq6h-epm6", "mobileye,eyeq6h";
- 	model = "Mobile EyeQ6H MP6 Evaluation board";
-+	compatible = "mobileye,eyeq6h-epm6", "mobileye,eyeq6h";
+ static const struct eqc_clock eqc_eyeq6h_east_clks[] = {
+-	PLL_FRACG(0, PARENT_BY_FWNAME, "pll-east", "ref", 0x074),
++	PLL_FRACG(EQ6HC_EAST_PLL, PARENT_BY_FWNAME, "pll-east", "ref", 0x074),
++
++	FF(EQ6HC_EAST_PER_OCC, EQ6HC_EAST_PLL, "east-per-occ", NULL, 1, 10),
++	FF(EQ6HC_EAST_I2C_SER, EQ6HC_EAST_PLL, "east-i2c-ser", NULL, 1, 40),
+ };
  
- 	chosen {
- 		stdout-path = "serial0:921600n8";
-diff --git a/arch/mips/boot/dts/mobileye/eyeq6h.dtsi b/arch/mips/boot/dts/mobileye/eyeq6h.dtsi
-index 5ae939d25ea87..dd0f1c7483180 100644
---- a/arch/mips/boot/dts/mobileye/eyeq6h.dtsi
-+++ b/arch/mips/boot/dts/mobileye/eyeq6h.dtsi
-@@ -10,9 +10,25 @@
- / {
- 	#address-cells = <2>;
- 	#size-cells = <2>;
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	xtal: clock-30000000 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <30000000>;
-+	};
-+
-+	coherency-manager {
-+		compatible = "mobileye,eyeq6-cm";
-+	};
-+
- 	cpus {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
-+
- 		cpu@0 {
- 			device_type = "cpu";
- 			compatible = "img,i6500";
-@@ -21,10 +37,6 @@ cpu@0 {
- 		};
- 	};
+ static const struct eqc_match_data eqc_eyeq6h_east_match_data = {
+@@ -1237,6 +1240,7 @@ static const struct eqc_clock eqc_eyeq6h_west_early_clks[] = {
  
--	aliases {
--		serial0 = &uart0;
--	};
--
- 	cpu_intc: interrupt-controller {
- 		compatible = "mti,cpu-interrupt-controller";
- 		interrupt-controller;
-@@ -32,21 +44,13 @@ cpu_intc: interrupt-controller {
- 		#interrupt-cells = <1>;
- 	};
+ 	FF(EQ6HC_WEST_PER_OCC, EQ6HC_WEST_PLL_PER, "west-per-occ", NULL, 1, 10),
+ 	FF(EQ6HC_WEST_PER_UART, EQ6HC_WEST_PER_OCC, "west-per-uart", NULL, 1, 1),
++	FF(EQ6HC_WEST_I2C_SER, EQ6HC_WEST_PLL_PER, "west-i2c-ser", NULL, 1, 40),
+ };
  
--	coherency-manager {
--		compatible = "mobileye,eyeq6-cm";
--	};
--
--	xtal: clock-30000000 {
--		compatible = "fixed-clock";
--		#clock-cells = <0>;
--		clock-frequency = <30000000>;
--	};
--
- 	soc: soc {
- 		compatible = "simple-bus";
-+		ranges;
-+
- 		#address-cells = <2>;
- 		#size-cells = <2>;
--		ranges;
-+		interrupt-parent = <&gic>;
- 
- 		olb_acc: system-controller@d2003000 {
- 			compatible = "mobileye,eyeq6h-acc-olb", "syscon";
-@@ -69,9 +73,9 @@ uart0: serial@d3331000 {
- 			compatible = "arm,pl011", "arm,primecell";
- 			reg = <0 0xd3331000 0x0 0x1000>;
- 			reg-io-width = <4>;
--			interrupt-parent = <&gic>;
- 			interrupts = <GIC_SHARED 43 IRQ_TYPE_LEVEL_HIGH>;
--			clocks = <&olb_west EQ6HC_WEST_PER_UART>, <&olb_west EQ6HC_WEST_PER_OCC>;
-+			clocks = <&olb_west EQ6HC_WEST_PER_UART>,
-+				 <&olb_west EQ6HC_WEST_PER_OCC>;
- 			clock-names = "uartclk", "apb_pclk";
- 		};
- 
-@@ -112,7 +116,6 @@ olb_east: system-controller@d3358000 {
- 		emmc: mmc@d8010000 {
- 			compatible = "mobileye,eyeq-sd4hc", "cdns,sd4hc";
- 			reg = <0 0xd8010000 0x0 0x1000>;
--			interrupt-parent = <&gic>;
- 			interrupts = <GIC_SHARED 91 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&olb_south EQ6HC_SOUTH_DIV_EMMC>;
- 			bus-width = <8>;
+ static const struct eqc_early_match_data eqc_eyeq6h_west_early_match_data __initconst = {
 
 -- 
 2.53.0
