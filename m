@@ -1,113 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795789730;
-	b=b5Q30ZbDNao5lc60Li2VxJNTqSL1DU2HUrMYlE7JumTTVzst8mTnqnhLxhIY9nV3fU5c
-	 YDKMmIOFL1dwl4Cca9kV8gSoWv5aGzG0oeegAPvU0OnU+81JXXwED4fytRo3r0A+WqpBd
-	 fIdUmIceokfKVXv8Y62y0+hyaivYabX3Nnb8kGh+wquHpHWOBm+dEze/04PybP8kT0enq
-	 fdy1+SsFVflbx4vL+n9V48eT1JaVBp212up2R74JAB9xTzYZr1lJVBpI8D4YjDStSAbGm
-	 4/1jVv8a/EH0+9hmKvAg3cw/ErXV+vSn8oc0HpAuyJP4bsf6rHW8jnUg1A5CIOwjTwg==
+	t=1795789735;
+	b=D3Kj68IApbI9bydqq+4jobP2wT52W/5f80qMuJfgMmDge59ni4w+EkMnRvZHC2VOyABH
+	 wRznbEn0VzQyQeE0w13YD7Hu9RM9DNuYkyPcuiuhIx4R0XH+kHnbeqcIiiImOFeI2K+8G
+	 21hEf48IkynW04ur9R3IglznMFlUz3VG7dpMOl+X44xEtd/B2nMuBfZRF0BSPy08YZE4U
+	 lMKwIE8EMFdOYx+I+y5b9FpKgvIz8rgTKsKcfoju5NWfJRbbhiqk24jEjJKeDvaUyLFua
+	 vQu5TN5pxjdoACZlFoeHWmVhVd+4HhW5H6WwL7R8bohz/D6DMfZBAJoqfEp9QqBCq0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795789730;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=pl61tywIjHKWOijz0wTqXxW3qDD1wHyEe1xZW1YEAMk=;
-	b=pZUE9MVGWwL74RxTkCi7F4KYRDQGexvXcKPlYKKIQ9b3atm1FlnDf8t2HmwU6Av9XKz3
-	 SNqrOUl/PtkNbq+plJWwF7QE5e7UxSOaqZyxaQ4wRrJ84llBbX/CWDNITfHm7wgPrRGGv
-	 tDTp05s91keZLzRyLC7bEYAnUv58eb9frewl5jwqRXkLI8xc1aAG4UR0wS1yb5Lju/ne4
-	 b3F/wISxxpwgam3horaJaTW7qhRatkesdVCXfLDvoev1UYlEhc04ihiHts1zo/stll4Uv
-	 Sp8ugyQM9DJ/Ky+JmVCs3sSbKlD79ZpIRPGWNzTFK61E5vtgWntS1qVU1nG6RtvCMJg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795789735;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=ctO9FSnU4U0seeRIMh4Nou3mn86PJ1Df6Anh/gflICk=;
+	b=tr/HlV+m0PqjHbugSpjeaImmcDoBq5bNdWPI67mjAiqw8X5YELilxkFi1ocKfGuuYLdm
+	 xtV11Jo0f7MP6oLAAgnZ4EakXsABlbyYsynA3P3hamT2nOgYcgfS9YHDxhE4VKvlLj5VW
+	 dJzSc+QoVo6lFoRC6l5pc6zGyTeAu/pANAJ6HpaaHIkKIv/sdx7+VFfcXG4SroWYRkTjT
+	 R8BT+K1/69770KG0Q2DE2cpRUhuIJRP++qE9W/ieCM4Wh9cLwGE2V0iuiFyctPzmSQI78
+	 PNANpJHaf+3dIQeWHp3/zNoEQQSeVPelB6wTA2af2YN4sZxft/Ia8s60uUA9nEeT1Ww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=pwnz0Gye;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="QJ0RW/QA";
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DVT7qceI;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3746606B43E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:28:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3746606B43E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6DDC606A33C;
+	Fri, 27 Nov 2026 14:28:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=pwnz0Gye;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=QJ0RW/QA
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE1GuQ2683853
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:28:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	pl61tywIjHKWOijz0wTqXxW3qDD1wHyEe1xZW1YEAMk=; b=pwnz0Gye62u9Xfkt
-	E5sKVFoBG8xOnqk3DfCYPhRQk4zDZV1DF3dkkZIe8XsDV9KN5KF0aWR4F/19lbCH
-	6CcvGsxjmtJnfIud2lTeCOiMewyRP/Nkpk2fNtJvzmTkSixI5UiRA7+LJSbLUIUz
-	CFaRgCn55Bw+aHhI3zkXpzpg2d7/yueVreOFN++cfEUa9oznrtpHl1HbIUOzf5Qm
-	zMLP1OQOFlTc2dKBpq+nrx5shsgOWfYpjyEGcK5SQvFS2PAbZowoK6q5gAJBVMwc
-	pyqlr+I7Hsv5P8CalbOB1VsUiRLHiN7lHTLW7B/KSYtZzuE+F80B01spDJiA0M9A
-	hgjWXg==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j73uhj1cs-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:28:49 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2f04053e460so68124445ad.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:28:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795789729; x=1796394529; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pl61tywIjHKWOijz0wTqXxW3qDD1wHyEe1xZW1YEAMk=;
-        b=QJ0RW/QA2ebi2ReIYRVS3EVhG3uVw+jox5E1tVKLaSMBWT2vAkdQUv8YT2od1gfqyd
-         Eg83S5CKl4sh9rfJJyZMo/5fphZ8HHxtoyMwTLKAgIRM+pZC3F1KehoXUpsDekDa6k13
-         Ch2cA18zIjfx7bZ7jA2blDx3Fvqq5YiGGq5adHQYG1PG+Vy0130OmPkBxzDw4rXOD1d4
-         h3P1FJHF0TSwHKBfxjDMOxgiZiV0humyA2wVpaCs8bD5dLalC1maw5RdQp2vkAjoCMOd
-         oaCCKqWOATCZGthohbuYcbXf+ZL0uu8bBfbtBM/nT/lrtEHZhpktQgfXc2/V5PqY6UXt
-         4OoA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795789729; x=1796394529;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=pl61tywIjHKWOijz0wTqXxW3qDD1wHyEe1xZW1YEAMk=;
-        b=XYcrKKvepHxDOxKfSIRXshgUnlpBnHbab1CL4AEa1wjmN0wMyssO+OE/+8oQ1WCzOg
-         dw0QNnq1Lu8TUKmanPMogW4wk4tB6bZV0GL8YJBpa3IQVep2RZOzVpk7r5oAnGHRtlg2
-         4/pNRIRSusTYZ+N/mCTYNB3UpvzL1V7wAg56BayOEbnPWaIFgabJifvQiNLdwBoOYjKU
-         DOjgIqcgcL29Ag4fGA7FZKvFp7Yyq7Yzj16tzji2tmqHsMC7Kz5rHlD4ZuaYTJh34Ql2
-         mcBC5IYoUjTUZaTFQby74Sz++vfHZAnkzbDydnTuuUmfaLd2ITgoBBb8MOCJzRhqcRPf
-         MFQg==
-X-Forwarded-Encrypted: i=1; AL+hErGKgBJhk9HLMyrdwTICnjsuf6L9VewvdLMMNbxOBvKly+lVyg+1gYWdeHvg4GXf9LFIW16zM0GLL5veuh8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8fbZxkYJ6GakvWYW8nNrVCzajut8BX8ZBieSly4Dk6tT9aW8Y6
-	G/wEcBXG0K6/PTSLjQheNm4x88kh95CKhwi0aXfb5kfxfFcQR2r1i7YT4cEP+PzhS1d6U+BI1nC
-	dSvVF/l3YVJE+a9IDLvartqIb5/A51MOBQZkkmU9jYxDVhNOBx7CfVhzQX+xdiAnJiEg=
-X-Gm-Gg: AZFdTZc+BQijD3y9GgJOs9Fo9AUdvJneO+usgCZRce1bIc1V2ImzYyexj7dzpar2Dmd
-	pqk6BknECE+bGDZSv9pBWwE9kp9wBqzsrTZhGpyN03seb2CIEuFlKfQ2uFEvFm3hrv9975UXfec
-	82EvZ/a7E1mneZ/iEtgBe+PaEwzY77v2NXbZ2LF7ya92CvyJ1j7LGI29KHhZTHWFmo2wUt3lODY
-	eswgFPL05yd46LZuPj7LNadwW9ii2blKhK0xjtwpbNIfmuVp4snbbOJmqWZt++qxWBwumrE3Waj
-	zB3VJUKHIxwqh6jVkf/CBoTuTSf3qYthEkJHdu2++65doP4RHHuGndTqI5e/DVGli8qsrZr8AvA
-	Ubb8LXZY8UZyzNn2y0JqJ/yGEqXIm5VMtArW4SgwE58aBFMEVP9N2ZDxz1xXUQtrT0+fZsg9fmz
-	F8FnfN3PQFKg==
-X-Received: by 2002:a17:902:e80b:b0:2f0:943:118c with SMTP id d9443c01a7336-2f03f18fceamr239299615ad.25.1795789728368;
-        Fri, 27 Nov 2026 06:28:48 -0800 (PST)
-X-Received: by 2002:a17:902:e80b:b0:2f0:943:118c with SMTP id d9443c01a7336-2f03f18fceamr239298905ad.25.1795789727763;
-        Fri, 27 Nov 2026 06:28:47 -0800 (PST)
-Received: from hu-spratap-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84285sm120324055ad.3.2026.11.27.06.28.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 06:28:47 -0800 (PST)
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 19:57:02 +0530
-Subject: [PATCH v28 09/10] arm64: dts: qcom: Add psci reboot-modes for
- monaco boards
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DVT7qceI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F42B1F00A15;
+	Fri, 27 Nov 2026 14:28:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795789735;
+	bh=ctO9FSnU4U0seeRIMh4Nou3mn86PJ1Df6Anh/gflICk=;
+	h=Date:From:To:Cc:Subject;
+	b=DVT7qceIrRFW7u35MRMv31uj7Qkg9FSbPK0JydPBO1tYxnsMPt+qQjW2ydcycPOAk
+	 gxTkXvS62kgsPfUj0lIo/hY69qc/ll8nEHf/aOYxkj108vQL855wd3lv+s1m+BMOje
+	 pNw723OIt2RbVPcIqn10osjFyqCAa9dxr6exoocsTzoTWKsk6T1p119zuWTgWg6uYv
+	 8q3jN2JWXxfnZzyO0EWizQg0JgDLOoLFTN5R9OiMnt3Wv+E2z3A1xOX+lWNC4HZbfG
+	 qbhGySky3KhhaTF5D/fL2y5cx4mWAjMggw5BulHtgEuViAjv/YOo+BZYvorwBUV+oy
+	 X7zKkoK960CdA==
+Date: Fri, 27 Nov 2026 14:28:51 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Christian Brauner <brauner@kernel.org>
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>,
+	Miklos Szeredi <miklos@szeredi.hu>,
+	Miklos Szeredi <mszeredi@redhat.com>
+Subject: linux-next: manual merge of the vfs-brauner tree with the fuse tree
+Message-ID: <awmTozkMyM-9FEiB@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,149 +57,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-arm-psci-system_reset2-vendor-reboots-v28-9-da05a33b08d8@oss.qualcomm.com>
-References: <20261127-arm-psci-system_reset2-vendor-reboots-v28-0-da05a33b08d8@oss.qualcomm.com>
-In-Reply-To: <20261127-arm-psci-system_reset2-vendor-reboots-v28-0-da05a33b08d8@oss.qualcomm.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        John Stultz <john.stultz@linaro.org>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Christian Loehle <christian.loehle@arm.com>,
-        Lee Jones <lee@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
-        Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
-        Abel Vesa <abelvesa@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
-        Sudeep Holla <sudeep.holla@kernel.org>, Andy Yan <andyshrk@163.com>,
-        Ulf Hansson <ulfh@kernel.org>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org,
-        Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
-        Srinivas Kandagatla <srini@kernel.org>,
-        Abel Vesa <abel.vesa@oss.qualcomm.com>,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795789617; l=2135;
- i=shivendra.pratap@oss.qualcomm.com; s=20250710; h=from:subject:message-id;
- bh=dSQwIim7V7/rULXlCKUdNr3qm3JfQWAAjzv2bwKQVlE=;
- b=H0ydfSAVrKfYH6W8G2CaDvfckptjvnYSi2jHXy/IdrzR/rOdsokmCe/1bwvzr4ps6qctiwHlh
- wGGivLVq7Z7A/KAWiHwqC5PNb7ZkliL5N4SpGRmFS2P/JUe8eq5ff2w
-X-Developer-Key: i=shivendra.pratap@oss.qualcomm.com; a=ed25519;
- pk=ssWsJFX3OM9pkdoe4+guOfGPaulHOFt0GVnVlB6on+s=
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1NyBTYWx0ZWRfXzF1nJqQxAARm
- xdQGCpwvRKY680my3OBQuiiMnGQNos6oz7j8+H4FadkAhb6TFfb8VQmuFAIqgjo18CyRY5YDtP4
- yxJrR8W1x8hZT4g7HWsCft/TkHIawfs=
-X-Proofpoint-ORIG-GUID: 7C4gRwil0Oh57dlB3pI-p5YHaEk_KUG8
-X-Proofpoint-GUID: 7C4gRwil0Oh57dlB3pI-p5YHaEk_KUG8
-X-Authority-Analysis: v=2.4 cv=BbBNQbt2 c=1 sm=1 tr=0 ts=6b0993a1 cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=EUspDBNiAAAA:8 a=t9IVmYW30V31rltyR78A:9 a=QEXdDO2ut3YA:10
- a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1NyBTYWx0ZWRfX9qxsN6DGJ5sQ
- huQgDIJx8Ou7D/Zki3+jNVBT8JLVlWwXMV6eSV1VIdW5C5Q0ohi23hr+YnEeV32J53jUE2pjpNr
- hPXiz13wjXX/hP4Mp6LJZ6p2gRnxhI3DT5K7io2MwwgBazlPgzgE5tJkNgP7b0gPirbDk0FklQv
- gLjWFfnsr6WLTjGz2f6rfO27eohbQU1TNRWTEYV3lCJeAwQ5WhcdFEYUoX577sxH/FBlEjRnDDP
- qLj273VhWMiASYlBPPmhHvldTZMDE822KqVjZStDpX/jNN0ZYV1LsnQLJbKzsPT9tpXBIlRp1Rd
- KK9jkabXr6xsSQEy3omy0MHa95wLhNxo9HijimDB79IJ01w5QwBcAE6ln49WHwu2/EitV1ve94r
- HWEnrjPbFPDnTq8rJU887r7NF14N9bd/4gpd9CmShNQrpxPscqUrCFybghXgoZOrhYvt6tqt1oJ
- bFJ7dZwTSyV611XRlcw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-27_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 lowpriorityscore=0 bulkscore=0 adultscore=0
- priorityscore=1501 phishscore=0 spamscore=0 impostorscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270057
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="JZSvye0QZAVe47gj"
+Content-Disposition: inline
 
-Add PSCI SYSTEM_RESET2 reboot-modes for monaco-evk and
-qcs8300-ride for use by the psci-reboot-mode driver.
 
-The following modes are defined:
-- bootloader: reboot into fastboot mode for fastboot flashing.
-- edl: reboot into emergency download mode for image loading via
-  the Firehose protocol.
+--JZSvye0QZAVe47gj
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Support for these modes is firmware dependent.
+Hi all,
 
-Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/monaco-evk.dts   | 7 +++++++
- arch/arm64/boot/dts/qcom/monaco.dtsi      | 2 +-
- arch/arm64/boot/dts/qcom/qcs8300-ride.dts | 7 +++++++
- 3 files changed, 15 insertions(+), 1 deletion(-)
+Today's linux-next merge of the vfs-brauner tree got a conflict in:
 
-diff --git a/arch/arm64/boot/dts/qcom/monaco-evk.dts b/arch/arm64/boot/dts/qcom/monaco-evk.dts
-index 539c9c80a808d..074971d310eaf 100644
---- a/arch/arm64/boot/dts/qcom/monaco-evk.dts
-+++ b/arch/arm64/boot/dts/qcom/monaco-evk.dts
-@@ -711,6 +711,13 @@ usb2_id: usb2-id-state {
- 	};
- };
- 
-+&psci {
-+	reboot-mode {
-+		mode-bootloader = <0x80010001 0x2>;
-+		mode-edl = <0x80000000 0x1>;
-+	};
-+};
-+
- &qup_i2c0_data_clk {
- 	drive-strength = <2>;
- 	bias-pull-up;
-diff --git a/arch/arm64/boot/dts/qcom/monaco.dtsi b/arch/arm64/boot/dts/qcom/monaco.dtsi
-index 3541313a79bf4..efb233458b3ae 100644
---- a/arch/arm64/boot/dts/qcom/monaco.dtsi
-+++ b/arch/arm64/boot/dts/qcom/monaco.dtsi
-@@ -655,7 +655,7 @@ pmu-a78 {
- 		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW>;
- 	};
- 
--	psci {
-+	psci: psci {
- 		compatible = "arm,psci-1.0";
- 		method = "smc";
- 
-diff --git a/arch/arm64/boot/dts/qcom/qcs8300-ride.dts b/arch/arm64/boot/dts/qcom/qcs8300-ride.dts
-index be850a23472fc..abe21242d7104 100644
---- a/arch/arm64/boot/dts/qcom/qcs8300-ride.dts
-+++ b/arch/arm64/boot/dts/qcom/qcs8300-ride.dts
-@@ -678,6 +678,13 @@ &mdss_dsi0_out {
- 	remote-endpoint = <&dsi2dp_bridge_in>;
- };
- 
-+&psci {
-+	reboot-mode {
-+		mode-bootloader = <0x80010001 0x2>;
-+		mode-edl = <0x80000000 0x1>;
-+	};
-+};
-+
- &qupv3_id_0 {
- 	status = "okay";
- };
+  tools/testing/selftests/filesystems/fuse/.gitignore
 
--- 
-2.34.1
+between commit:
 
+  0d2c729bdefe0 ("selftests/fuse: test listing directories with long names")
+
+=66rom the fuse tree and commit:
+
+  ddd75941c4a1b ("selftests/filesystems: test walks racing the unlink of co=
+vered names")
+
+=66rom the vfs-brauner tree.
+
+I fixed it up (see below) and can carry the fix as necessary. This
+is now fixed as far as linux-next is concerned, but any non trivial
+conflicts should be mentioned to your upstream maintainer when your tree
+is submitted for merging.  You may also want to consider cooperating
+with the maintainer of the conflicting tree to minimise any particularly
+complex conflicts.
+
+diff --cc tools/testing/selftests/filesystems/fuse/.gitignore
+index cd5492659ffcf,3fde4061654cf..0000000000000
+--- a/tools/testing/selftests/filesystems/fuse/.gitignore
++++ b/tools/testing/selftests/filesystems/fuse/.gitignore
+@@@ -6,4 -6,4 +6,5 @@@ write_extend_eof_tes
+  fuse_acl_cache_test
+  fuse_symlink_cache_test
+  fuse_readdir_cache_test
+ +fuse_readdir_long_name_test
++ unlink_reval_test
+
+--JZSvye0QZAVe47gj
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsJk6IACgkQJNaLcl1U
+h9DP6Af/VYgNoaiJRMjlOSL/8UBFO8Pp91+1wl1zWhWRynMVtkbn8eslMCqWHUQq
+M9/SBHmYiTx3QHgc1Unj2LyZBIW05OpqciPEckJXHTTtO7iHC6Eb5ULuYsXz26Xu
+8nI6IDimy+yciJmOfzmrCgvDh0uAMjSbXatC9YS4zroiyOoMLhbW16mtBGlyjEuf
+cfuv4bRzeytR/i+sOY9MkwN/A69bUZhWT77wzXs7cp6e4Q4Eh1Cqv1s8/HoOXTeY
+DDRROjfPI4UpiOh3zAD84yXDM5nn25MsoTKNraYOPyr9bwPPpfLu9MGlQFcY+Z2h
+kzSNF+k6dKunDeKAx+ODOUJ3TfLIrA==
+=/dnG
+-----END PGP SIGNATURE-----
+
+--JZSvye0QZAVe47gj--
