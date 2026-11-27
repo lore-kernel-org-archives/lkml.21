@@ -1,87 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.21
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795778669;
-	b=2PsxNNN6dmcQqEl+BqmO4EspepPeCLR9wGwlCOAKabsDq9F9+4jYNOhMsXw2uqW4tROh
-	 fLw2X6oc9Rp1jbadvhfeCXGuOhmzO611lBJNsEMiMm6syQeu/g/2twuKVTXgkCTnawWzv
-	 HnaVZlDQkALjd8cTAnVhIQLdyAoOK8Peex/RijL2w+TtV/qjHuqQ6OEgL0vhFcov/t1X2
-	 a17hpPmn3j7NG5LrfTPN5SdkplVjKKzzYGukYyYgPVszLtuzg55qcpexMprK7+sRkIPPQ
-	 4hDsg+sdNfV4m0ANv2/BdMuFBJrKXCX5Ognvuu2PDs7tVMBeG1Og3ieecjdnxySh5GQ==
+	t=1795778691;
+	b=Wo7gmtOrgMBt7Qv9/Xc29V5NTp0tImR4sQrRD/f/vQGvEMcj3AIRZj506/YJpEz6g0CI
+	 xhpe1W6FXY3nYtJXbQFe1BwD5EJaAvR0odcvF4Ebxwa4P30b5lpVeRLsJfSY0FLXI33LD
+	 ziNS8AN+oPOZt2EaYJUltE5vxmnvn7iHGOFO+Et1WZR9+WWjg288MGYDDY+AsfydGIDE/
+	 KFrf5E0P/KPV6pD9bhQdr6vWON2VrUuJmq0PCwmWI/0AnNc5IqxkpSuPybGY1BHRG7cpE
+	 gn3lnkfJkbAktkL9QXmetbnpSuSUrfJLqpNd2seIMouFK+cifAekp5Y+r7jIRtzmrDQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795778669;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795778691;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
 	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=T9EauWO6cQ2WfpHoCweGwNuAL/bymTltRgB04eRJXrU=;
-	b=ViylIpD0UZM1GLrMHPMqdYxOzZimsYevku97Y7UIkI7ciA7vmmMemlOSEArpVivEdBDv
-	 Nk6PfrGjpHhL94ytxOPGdtAIJpTX+pf2vrMWT5X+VaeClOu2hyJSsoNf4bm6LWY6ax6xr
-	 GfXZ4sYtAq+HwqTOOlW3/3w4U5EdCXgmPlkSIJQQbmveD4Lo+xfc+fN/JY578HQokScA0
-	 ENI9oZa65dJ+l1Ut6v09jGdvk+C+IznXF3Q/M8Bs5wtcQvmtspPWNTiMc4Eermmo3aAcg
-	 64GQ1f4L0v4GP3m/svfn/MibpF3pzmtT7xNYnue6TLeFQLaAyFwwujRV17QeDckgC3A==
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 Organization;
+	bh=eDqHbHm1XXFGu37niY/Et941Y4XRH5yby1Mq7WJ18BE=;
+	b=eRXIItAxpv/IDB967kunwWBs/XJo+M8tsOvZOv7mcrH2GhZcwESJToYSZ5Fu99c/0PaM
+	 NsxbzbHM3WkzY3ZdHOYCYaQui5VsqKkzZv59kuYev5aJKhmYDecFUQjN+cvgRCziadL//
+	 6Qm/6yKqyiTB8dfvPdhYS7r5wwgpoVvgky1MN4EZgALVuaix4a6UiLte5B/8pcN8VO7xH
+	 Siyqbiw7yXRx5Tjw1JaBK6D0E6YmM2Ta2ZR7uTPE7LaRLSVFOCKTzhec2Uk30OjN50j8l
+	 +2rCP2MooGt5nWwUp1O9BOwGXXxoF74Aq5xt2vegztMw2j0ejsi42BycM799vOZ14qQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="n/GcYhyF";
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6798C606A31C;
-	Fri, 27 Nov 2026 11:24:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6798C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PChHtBGw;
+	arc=none smtp.remote-ip=198.175.65.21
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31B84606A31C;
+	Fri, 27 Nov 2026 11:24:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31B84606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=n/GcYhyF
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D1F85152B;
-	Fri, 27 Nov 2026 03:24:25 -0800 (PST)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 568983F632;
-	Fri, 27 Nov 2026 03:24:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795778668; bh=ElfG0zfwSKVhwzHS3lUakxTIG4KBhbx2STHreNU7ca4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=n/GcYhyFjXnGZ05+0HmsOhEouFkUBNZJZnREWcBBYEYuJ1UiwwsIFkQa2gz9QrcnK
-	 2O96p/rgEtjPJhflYAbG1IAWB5NouXC2E+U1y7TiTuEY5GiY3sxYhB3bjL+KZkx5sL
-	 MKcfLY+XRJyus9eAfxFYyw0sgV1FXh3NSITUHfsM=
-Date: Fri, 27 Nov 2026 11:24:26 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Puranjay Mohan <puranjay12@gmail.com>, vladimir.murzin@arm.com,
-	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Rob Herring <robh@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Shuah Khan <shuah@kernel.org>, Breno Leitao <leitao@debian.org>,
-	Ravi Bangoria <ravi.bangoria@amd.com>,
-	Stephane Eranian <eranian@google.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Usama Arif <usama.arif@linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org, kernel-team@meta.com,
-	Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Subject: Re: [PATCH v6 0/3] arm64: Add BRBE support for
- bpf_get_branch_snapshot()
-Message-ID: <20261127112426.GC861809@e132581.arm.com>
-References: <20260810164622.1829843-1-puranjay@kernel.org>
- <CANk7y0ixo5a3Vfzj_HVhVHRNce2Rsit4pP27GCtXd4jHHzmiKg@mail.gmail.com>
- <CAEf4BzapC=7YM2QLMyKKfyOWGgBTfEJmPPN8e9Jf5xT9SutBTQ@mail.gmail.com>
- <dfa8362e-0dad-4f23-9d2e-dde03cb5facc@linaro.org>
- <CAEf4BzZ=ahQNtA-1KdZFRONXMOEkV9Nb1OUY==JRQCarkbMM0Q@mail.gmail.com>
- <5c7f4a5f-fe5e-4367-9c60-86f1818346e8@linaro.org>
- <20261126180214.GB809232@e132581.arm.com>
- <9a471409-04c2-4f6e-aec9-0b23bb9b69f0@linaro.org>
- <20261127111128.GB861809@e132581.arm.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PChHtBGw
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795778692; x=1827314692;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=LhX8MywNexia1GR7rIRBx8izEBjSh/iEG2+h8wG1Et4=;
+  b=PChHtBGw0Lp1jJT44gbhyN/mqdxYMoxTOV/yts1jJ9+R+4eIWX15tB4x
+   zP+39z4gid8ZpxYew6UgFpjKo430byMbTYnWur2bR9ff4q0P1YfYqJrM0
+   xwQGlXovbbqxQ+Dl89g84qI2CsWwz+adD11qFZbcvZ1Nftfoh2rsIufYL
+   /uVBZQ7p+avo91mZ1XANPrWI80FPKBEdtUKowxK4tizg7qjojSsvnwU0N
+   2Yo9i9Y9fIdE4qhEpRdnUrxGWktj3SwG/Xc8Cb6c/2mLBGHGBYCobEiTu
+   9Bkek3PFCRisikUa+s7v1NwDjUSJq/B4dk9yqFSUFmrRa6XpwdwURI3tU
+   A==;
+X-CSE-ConnectionGUID: 8Njd7FAkTH2vuiQ0EFzjxQ==
+X-CSE-MsgGUID: G0Ec8c62Q9WRGduP99cytA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4780077"
+X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
+   d="scan'208";a="4780077"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 03:24:51 -0800
+X-CSE-ConnectionGUID: e4YKRBGtQ2GL61u97+pSqA==
+X-CSE-MsgGUID: Y3CsIdapTpC8j7u6QsFh5g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
+   d="scan'208";a="12894439"
+Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.115])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 03:24:48 -0800
+Date: Fri, 27 Nov 2026 13:24:46 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Ilia Snezhkov <iasnezhkov@gmail.com>
+Cc: jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
+	andy@kernel.org, Arnav Kapoor <kapoorarnav43@gmail.com>,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] iio: inkern: guard fwnode_xlate with info_exist_lock
+Message-ID: <awlofo4jXD6QLJw0@ashevche-desk.local>
+References: <20261126060615.63790-1-iasnezhkov@gmail.com>
+ <awhBEfD6I5nakCKJ@ashevche-desk.local>
+ <179574260890.61388.10862990171445957182@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,23 +82,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261127111128.GB861809@e132581.arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <179574260890.61388.10862990171445957182@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Fri, Nov 27, 2026 at 11:11:28AM +0000, Leo Yan wrote:
-
-[...]
-
-> > If any sampling BRBE event gets scheduled then the snapshots just start
-> > skipping and returning empty.
+On Fri, Nov 27, 2026 at 09:23:28AM +0800, Ilia Snezhkov wrote:
 > 
-> BPF program can be attached to interrupt handlers (even it can be
-> attached to PMU interrupt handler). As you suggested, we can use per-CPU
-> flag to return an empty snapshot for the nested call.
+> Sorry for the confusion — I did not ignore your comment; our emails
+> crossed in flight. I sent v2 at 06:06 UTC (after Arnav's 04:59 UTC
+> review on v1), and your v1 reply arrived later at 09:19 UTC. I should
+> have replied on the v1 thread right away to make that clear.
 
-I should have distinguished the two cases in my previous reply.
+The problem is that you sent the v2 too quick. Always wait at least 24h to let
+your code being reviewed around the globe in working hours.
 
-BRBE driver could return an empty snapshot if a sampling event is active
-on the CPU. In free-running mode, a nested call could do the same while
-another snapshot is in progress on that CPU.
+> I will address both of your comments in v3:
+> - place `struct iio_dev_opaque *iio_dev_opaque;` in reverse xmas tree
+>   order, and
+> - move `iio_dev_opaque = to_iio_dev_opaque(indio_dev);` right after
+>   `channel->indio_dev = indio_dev;`.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
