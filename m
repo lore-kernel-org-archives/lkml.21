@@ -1,99 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795770062;
-	b=Pr/6jdMJv3nJKaud1WFFbKTxKwynJ/tABxiAi0Yt4ziWbSpBPbamyooSusC/XmLPTK/i
-	 t9l3bHlGHOO+q5O4pRdEW4TnohsSrR273W73e2yEs3Nz8dQFVZgW7s3lH4QbtQ+6oBuUp
-	 pscbowjxLBiRhrS+cjI7uR+VTv2UGHy9jWbvlVLotFekaOccrysPv/Kwm9tsXc87l8nQz
-	 a8mNRF0GUK/cMMoZAedson9kTvep6uCrQRvheBwlAsgdYdZ4YPIBNeUVmxGZqlN4KFZl7
-	 EQpX2g4SIn4Cc0k8g6tHwHwGL5qBCoFBXsWvlF1mSY+CAgraCQmCYX8HNq1zwRk+qhw==
+	t=1795770072;
+	b=vzrS0eFlYYCIGhKWjOGOlCZ6Eb7y9HJemoY+VMfQUK+VeXD8cJJqI7xZE/7b/qpaNlM5
+	 Gm/yvcZ/3FJPZrynnn+FRtSSnYAj/i+qRQbtFz1Fzdop+eteBAPS+0w1NP/5zQtq97WS/
+	 t11+KFsARkRuyJMg+FpSq7XI2IHejshkTvAM1JMYyPH6W2c5vYK1bhCiyq4elaFxl+LT9
+	 ETUhvT+Z454nyuy3yntkB2CWWb8qjWTfrM7rrPtGRhO3CwXMaWXWiqzW+VcETyDn/5W3l
+	 uNErWXw2HyE2dtpz1heP7Kh7OosOsK8GUH3nnYOFcLrtV6OIcg/2WfAqrTtbCKH6Kyg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795770062;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=HU0J3/+pl0PPUVxUA6gVTC/0c3E32/WaV1tvPlY0ciA=;
-	b=tAOFZ1+y9y3U0sJEvsArwqvMLNhRFM8HuE7XiAPo2HXRmn/6XlfGHTE0z3Nc6uE6v4RI
-	 IFHnHBRt3QN1aVNbHzlavmz5PBGWnaj78VQJ3mFi5l+fGqynSozvvpNLbtqyOy1gUlcHi
-	 mt/DBLDN8WChtJ0W8ddsipuBkyEyMreZkBu+vahzgW81M+2hB+Cgkcx6cPFUIosSWfYdU
-	 Q/PlRxxRx5ES2cBcPSKSw7eBrnrHYmOTIa9gzimdzn2DkD6TT8lW/nrSUQRbPsWER4JxY
-	 Uj6eAQ0gIPw/SOlibHdcZujEBQCHECcp/ILLu3xaJtU15CYodoT3ru21fK6dIdug0hg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795770072;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=yGfxGis/8g0KaCRnCd2Ma8RfczzUtJnT7BRnU64wFQA=;
+	b=HuX2BWVTiYKGzOXYZ0vTdLLnHi1pdwURSCpACw68FA6JlI6eWPy3Mv7cGgHW1ltv2yHl
+	 /gTQ362PcfzWEDiH7fLbKig/YxGwzciDgieJpjcOjECLXweg+Hs33VD3Y2m1YKIXlE3i5
+	 xasCfPCgIQZInQQDTQrO3L6TPmQerCSUW4FfggzpU5IayKnKvCZyf+YReruumKEjWBuZM
+	 NbR3QwUtmYDgFcTo7i9FEulf6KwtCu2ekTZTfj3tWiTX8zwkh4k+ZrvQmHIhTyf8enKUc
+	 +p9FRHijUjBpoRwBqc/rkG9jJSFYzIoX4QOffns+OsvJ4FokvjJh9zZ0eGXF1Po37qw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
+	dmarc=none header.from=kylinos.cn;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GYqEUL9D;
-	arc=none smtp.remote-ip=209.85.214.180
-Received: from mail-pl1-f180.google.com (mail-pl1-f180.google.com [209.85.214.180])
+	arc=none smtp.remote-ip=209.85.214.182
+Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DF41606A337
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:00:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DF41606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 701AE606A6A0
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:01:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 701AE606A6A0
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GYqEUL9D
-Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-2f03eeda984so43370005ad.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:00:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795770059; x=1796374859; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HU0J3/+pl0PPUVxUA6gVTC/0c3E32/WaV1tvPlY0ciA=;
-        b=GYqEUL9DofcYgG+tXJ+XnKRm2PeDaL1CorIMXw0qumTrfpx0Br3fVx0pLmiJ5PQgib
-         F//q8eKjORHupFuzSHRzdeiF7aZZumpj89TXljoV2rc696RSkOIMChRhJek2BvWjFWrA
-         H8u+jIPxkwBkALkSRfEOXj95fZiJxskvJWCPkCcLdzyVHhck5V2MTDKRLhRRzxZytvzb
-         uc+zfpDBpDkNFyAYMjLW7IqViQWlmXbyEjDH6VC7q3UVsNyTFew5bcsQBmztuPyyjkQA
-         7dBlDBryTWHJkTC3MyvBXWDsqk+D0EwDp5/HV72KjeGQSc5/tD3lYTtwHKn8pw4iiwAs
-         7Q2w==
+Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2f07a960666so55079375ad.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:01:02 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795770059; x=1796374859;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=HU0J3/+pl0PPUVxUA6gVTC/0c3E32/WaV1tvPlY0ciA=;
-        b=E0+m7Py3DD7WLGZu+t9paZ7GYoVNC2J/dNK74D9UriOh0y/BnNyF9vThQfNnTl4UYZ
-         9PXoIMcqmEQmF8LOnK/de8bJPB6nGAjMmBZBVvTECha6GS97Y2zoXnWbr3zmM6ibRZ1A
-         hsk6nCANbye1Rh5KhDAdBSvSloc4Z017n0yk+YKeqrr3q0LQV9GxXf5x92KxnwIXdmjc
-         TrU357uMBijyanYlJAjvsnH5LIh59/4nS51mX/L+0+8+CcQJ0wv/V2AXJbHu9H+G86ep
-         qw7E9XocxDFGFfgRUgt2rZc2gERXD3SOcmgcDZCH3Z907H7ddi4bG9APE89QioTFksCK
-         ZTuA==
-X-Forwarded-Encrypted: i=1; AL+hErHkXWTWcqTKenKH7Q7w83ZnVmjEQVtiViprtJEp4sNevoNJGg7iKgFiFHKhX+bieaK/b/el+owykON+xZU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+RDq9sgrNOVUTfAjoJFUHJMnaXQM+DSoD5kQquP0RVm4kGq/LO
-	knoDXRNvisNzpHs3sjFnsGpCWwNI2ZmQYdrvCnc8Lq8JGXUXPW0G7d1B
-X-Gm-Gg: AZFdTZcHJnVxjixMDs0md6V6GyGo1u9uwW5txAPOYZnDTxaiWMqwoIp6DVYimUrKMIi
-	Hdi15TnrBus2nNRmRdz5DX91NdFjYg/oJeOjw7TRDIWVVQbGRcbx0+/VgnWEmb8tjrktzX3tLTZ
-	/+KVXYl724iir7tMnnA95q6EDfN2QZ4Sje70HwH/iRT4k6/zY0TP5PclSS6oC1oUNJvq0udyZdp
-	1pzTtxKjxO0GZ/ypyAg6aEcvkIzdxZma9r77ptY7todzrfpaYX+uObRrXlQr1lg/tMOwPmt1y6p
-	IZ36WpKcGVRdAcU3rwGpnb6qNPLRiCHYkld63wGhXM1t/xipJSXV7mSLEBk7dh4L5y0f6cygbA6
-	UY+vRNubYOdQYp8zb1Yz7pjgzm2K5wWT38AsbhaJ/3F03kLCD6WlUS/m1GBuMRj29cG7pNEzizu
-	mDknhJgubUbQS1TetMP66c4SBfKF+zUYx+92ME8XEXwD6IQj9JbsNXFHuCa9RshdHbhOjEya/JE
-	sQuWj5Ko1+l7tX/NMUFRSK/tArA5p96WPi/2bwRU+zTE5m3OyMUINDHyYTev8agMBktKlr6vkik
-	pHhzIuWrIOzIogT13RboYR/1jkZhPuS+VHFDU+HVWmOxT7L6aIrGbBkXXh37yMoCU6V6f/Z9XBE
-	mykwEIf1L9hqHP3LHT/lRgRbcLwGUyZCvMYrz3+2mJI7mPLUNr5GNe6wEPQlJTsnYcF66WERqno
-	DdZMdS7xPd6Da3rpZZ/THghC4zUwOnDZ5gpfwUsY8FO2wQJAsGC8V234Jjj+0aX/qyAfx9g57R/
-	NbHeYNEV+eN/n1mABCxYGfCuSDDIMo+C6gPxknSBsMUB25ziWhzr7wzAWbfxwfd
-X-Received: by 2002:a17:90b:3e81:b0:3b0:a9de:9884 with SMTP id 98e67ed59e1d1-3b41c92a389mr20166058a91.40.1795770058478;
-        Fri, 27 Nov 2026 01:00:58 -0800 (PST)
-Received: from localhost.localdomain (27-32-254-230.static.tpgi.com.au. [27.32.254.230])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d639fdsm40257422a91.10.2026.11.27.01.00.54
+        d=1e100.net; s=20260707; t=1795770062; x=1796374862;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=yGfxGis/8g0KaCRnCd2Ma8RfczzUtJnT7BRnU64wFQA=;
+        b=lj5eIq2qKodWks4R1pmEfh7rmGvtJlzfOV11U+ud53OYhxy/oep6auJosJ4cXW02Ny
+         VxVr++I8MgamVUs07oFyp6Ac2pnalSQpGvixJ3U+6JI653r+TbNaQlJMFskR9JMQZSFc
+         Iar2CTDSRm7ZkimdM2/gNtjf5QN0LAM3N6d1T07Wux4/nuW15ZD8LXEKyqwmWqaVu1fg
+         e8WDX9oZ9HHbZJjsS1LypO1dP4Fj1DcTEA0N7E59AqmqgfK+akibWN8zBQezbBuTV6lc
+         gS0h4u2r2zPmHRFSGZM491hM4opgHplwJ5mSO53quapASH1E6zd98wrGFrPPrVzbdNXm
+         AKog==
+X-Forwarded-Encrypted: i=1; AL+hErEtjbZkNEzqF2sAal6L0T71GNQBJoGCx2C/lEHNnCRtrO2MJ4ri4yqOsM2WIUq8OUAl0TcM2EmQvZJgm6Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+QQcQH7qFs21Lk+vfV4HjNvkNiFg01B95fnMtuUROkaeG41+nx
+	A6RuRQ7LhJmJOQh37R3W/ZY3q/l+wpgbkh97HPW3vt7rOgiVfvxo56Q6
+X-Gm-Gg: AZFdTZdwxQL6RMfxtgKq4ZYdCoq8FBKp1Rq0sMskUmHhD0akjxmN9W4pf2gyiWrHw0z
+	avocYEm/3J6Xowsk3akYEazYmf8XzhZpknsNzmHbz9pjICArI+gTdYfPBNx8qJLmNLrEPRZynQi
+	E9LCYg7hVlwiuSOstI+I1HlauJ3+FmncAU10YgxKvMDrkgqUg8KeRhOpTg1dejGWO7CkTb11pgx
+	BIOZk/4qTlKbEJShpWlvPQw1AsUJIBIpF/vMnh6t4huQBGQjLYh4QMO7ruWKNRe+aaQ0xdZDr+p
+	lIQ4+6xOgPGEe3Z6z/wFVX/jq2pw1dJMV3SQ+uw4Mow7f+qp5InxFNUmaJL1P3k0U63heCqn70D
+	tj+DSLeG0a9JGa+53AAx7x3dw6Gffxvm/LM7NumFu4dlnMYu1sUspGJ8PUlHLWduO/DMV2+m8YM
+	Sk2hnSm+M8cHTHdc7QCFKB+Gkw8x3U3p18RhpizBvAedX8anzNjIMwTpQDeR36/toMpm+ipiXim
+	iOGXtk3zK35wt2zVEyR8nGNaTZs0RsYZBXim9zBCFGfyDR+/ix5RlBKIRw90etvS0lCAZsYPDK0
+	wquJKi9gERoYptoLmiM66rWv3Hfp0YV1jLetA+0tyKHnA61rAc793+VtPbSfMxTJX/k+NOp4XRk
+	8HmA6QG+Ec66jUeaWvQHtCvTYSlq4fbplUKOqynEhF0V6Mg==
+X-Received: by 2002:a17:902:dacb:b0:2f0:25ea:8fca with SMTP id d9443c01a7336-2f03f11e6f1mr266297825ad.26.1795770060116;
+        Fri, 27 Nov 2026 01:01:00 -0800 (PST)
+Received: from 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa ([216.236.36.151])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f120769sm117050725ad.57.2026.11.27.01.00.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 01:00:58 -0800 (PST)
-From: Daniel Wade <danjwade95@gmail.com>
-To: Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org
-Cc: "H . Peter Anvin" <hpa@zytor.com>,
-	"Chang S . Bae" <chang.seok.bae@intel.com>,
-	Andrei Vagin <avagin@google.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] x86/fpu: Put non-enabled dynamic features into init state on sigreturn
-Date: Fri, 27 Nov 2026 19:30:39 +1030
-Message-Id: <20261127090039.1557-1-danjwade95@gmail.com>
-X-Mailer: git-send-email 2.39.0.windows.2
+        Fri, 27 Nov 2026 01:00:59 -0800 (PST)
+From: Hongyu Xie <xiehongyu1@kylinos.cn>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Samuel Thibault <samuel.thibault@ens-lyon.org>
+Cc: speakup@linux-speakup.org, linux-kernel@vger.kernel.org,
+ chris@the-brannons.com, kirk@reisers.ca, w.d.hubbs@gmail.com,
+ stable@vger.kernel.org
+Subject: [PATCH RESEND v3 4/4] speakup: Serialize synth clearing against
+ locked readers
+Date: Fri, 27 Nov 2026 17:00:55 +0800
+Message-ID: <179577005597.23588.2542403252088469180@kylinos.cn>
+In-Reply-To: <179577002884.23588.802785530849276690@kylinos.cn>
+References: <179577002884.23588.802785530849276690@kylinos.cn>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,62 +88,264 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-A dynamic feature not enabled by a task is expected to be in init state
-while that task owns the FPU registers. The direct sigreturn path limits
-both restore and init masks to fpstate::user_xfeatures. If the task loses
-registers inside rt_sigreturn(), another task's tiles can remain there:
+speakup_key() checks the global synth before taking
+speakup_info.spinlock, but do_spkup() and its handlers dereference
+synth inside that lock: speech_kill() calls synth->is_alive(), and
+the flush path reaches synth_start() reading synth->alive.
+synth_release() clears synth under spk_mutex, which does not
+serialize against the key path, so a speakup key pressed while the
+synth is being removed can pass the unlocked check and oops on the
+stale pointer:
 
-  A: rt_sigreturn() with AMX permitted, XTILE_DATA not enabled, faults or
-     is preempted; TIF_NEED_FPU_LOAD is set.
-  B: runs on the same CPU and leaves nonzero XTILE_DATA in the registers.
-  A: resumes with XFD set. XRSTOR leaves XTILE_DATA untouched, then
-     fpregs_mark_activate() marks the registers as A's.
-  A: first AMX instruction traps. fpstate_realloc() clears XFD without
-     reloading, so TILESTORED reads B's tile data.
+    CPU0 (speakup key)             CPU1 (rmmod -> synth_release)
+    ------------------            ----------------------------
+    speakup_key():
+      if (!synth)                  mutex_lock(&spk_mutex)
+        return  /* passes */       synth_release():
+    spin_lock(&speakup_info.         ... drain in-flight catch_up() ...
+        spinlock)                   synth->release(synth)
+    do_spkup():
+      speech_kill():
+        synth->is_alive()
+        /* synth whose release() already tore down its I/O */
 
-A supplies TILECFG in its signal frame, avoiding LDTILECFG, which would
-zero the tile data before TILESTORED.
+Close the window on both sides: clear synth under
+speakup_info.spinlock in synth_release() and in the do_synth_init()
+probe-failure path, and recheck it after acquiring the lock in every
+reader that dereferences it there - do_spkup() at entry, the console
+notifier paths after their trylock, do_handle_shift(),
+do_handle_spec(), the speakup_key() special-handler dispatch,
+synth_direct_store(), and the /dev/synth and /dev/synthu write
+paths.  The unlocked checks that used to gate these paths only
+duplicated the in-lock recheck, with a window a clear could still
+slip through, and are dropped; the only behavior difference is that
+an empty write to /dev/synth or /dev/synthu with no synth loaded now
+returns 0 instead of -ENODEV, which is harmless.  The speakup thread
+keeps its existing fence: synth_release() drains the catch-up count
+before clearing.
 
-If the task no longer owns the FPU registers, reset any state its signal
-frame did not restore, including XTILE_DATA. Otherwise keep the old mask.
+Two sites of this shape remain, preexisting.  The cursor_done()
+timer callback dereferences synth inside the lock with no synth
+check at all; closing it needs the cursor_timer lifetime handled
+against synth teardown, which is beyond this series.  The serial
+read buffer handler (synth_readbuf_handler()) has the same shape but
+cannot run in this tree: the only registration chain goes through
+spk_serial_synth_probe(), which has no callers, and any
+registration from outside the tree is still serialized by the
+free_irq() in the serial synth release path, which runs before the
+in-lock clear.
 
-Fixes: 5509cc78080d ("x86/fpu/signal: Use fpstate for size and features")
-Suggested-by: Chang S. Bae <chang.seok.bae@intel.com>
-Signed-off-by: Daniel Wade <danjwade95@gmail.com>
-Tested-by: Andrei Vagin <avagin@gmail.com>
-Reviewed-by: Andrei Vagin <avagin@gmail.com>
+Fixes: 2067fd92d75b6 ("staging/speakup: Move out of staging")
+Suggested-by: Samuel Thibault <samuel.thibault@ens-lyon.org>
 Cc: stable@vger.kernel.org
+Cc: Samuel Thibault <samuel.thibault@ens-lyon.org>
+Reviewed-by: Samuel Thibault <samuel.thibault@ens-lyon.org>
+Signed-off-by: Hongyu Xie <xiehongyu1@kylinos.cn>
 ---
-v2: Use Chang's suggested code and comment. Add Andrei's explanation
-of how the race happens.
+ drivers/accessibility/speakup/devsynth.c | 13 ++++++----
+ drivers/accessibility/speakup/kobjects.c |  8 +++---
+ drivers/accessibility/speakup/main.c     | 31 ++++++++++++++++++------
+ drivers/accessibility/speakup/synth.c    |  4 +++
+ 4 files changed, 41 insertions(+), 15 deletions(-)
 
-Andrei's selftest for this is at
-https://lore.kernel.org/all/CANaxB-zWf3BkCM8hsd0pXTULHi2ZmpRnLgpp2BFzT=_XwMdRrw@mail.gmail.com/
+diff --git a/drivers/accessibility/speakup/devsynth.c b/drivers/accessibility=
+/speakup/devsynth.c
+index e3d909bd0480..5a32d3bbf7b8 100644
+--- a/drivers/accessibility/speakup/devsynth.c
++++ b/drivers/accessibility/speakup/devsynth.c
+@@ -20,8 +20,6 @@ static ssize_t speakup_file_write(struct file *fp, const ch=
+ar __user *buffer,
+ 	unsigned long flags;
+ 	u_char buf[256];
+=20
+-	if (!synth)
+-		return -ENODEV;
+ 	while (count > 0) {
+ 		bytes =3D min(count, sizeof(buf));
+ 		if (copy_from_user(buf, ptr, bytes))
+@@ -29,6 +27,10 @@ static ssize_t speakup_file_write(struct file *fp, const c=
+har __user *buffer,
+ 		count -=3D bytes;
+ 		ptr +=3D bytes;
+ 		spin_lock_irqsave(&speakup_info.spinlock, flags);
++		if (!synth) {
++			spin_unlock_irqrestore(&speakup_info.spinlock, flags);
++			return -ENODEV;
++		}
+ 		synth_write(buf, bytes);
+ 		spin_unlock_irqrestore(&speakup_info.spinlock, flags);
+ 	}
+@@ -47,9 +49,6 @@ static ssize_t speakup_file_writeu(struct file *fp, const c=
+har __user *buffer,
+ 	u16 ubuf[256];
+ 	size_t in, out;
+=20
+-	if (!synth)
+-		return -ENODEV;
+-
+ 	want =3D 1;
+ 	while (count >=3D want) {
+ 		/* Copy some UTF-8 piece from userland */
+@@ -84,6 +83,10 @@ static ssize_t speakup_file_writeu(struct file *fp, const =
+char __user *buffer,
+ 		/* And speak this up */
+ 		if (out) {
+ 			spin_lock_irqsave(&speakup_info.spinlock, flags);
++			if (!synth) {
++				spin_unlock_irqrestore(&speakup_info.spinlock, flags);
++				return -ENODEV;
++			}
+ 			for (in =3D 0; in < out; in++)
+ 				synth_buffer_add(ubuf[in]);
+ 			synth_start();
+diff --git a/drivers/accessibility/speakup/kobjects.c b/drivers/accessibility=
+/speakup/kobjects.c
+index e1860f8d9d42..45a8e9fbd8de 100644
+--- a/drivers/accessibility/speakup/kobjects.c
++++ b/drivers/accessibility/speakup/kobjects.c
+@@ -416,9 +416,6 @@ static ssize_t synth_direct_store(struct kobject *kobj,
+ 	char *unescaped;
+ 	unsigned long flags;
+=20
+-	if (!synth)
+-		return -EPERM;
+-
+ 	unescaped =3D kstrdup(buf, GFP_KERNEL);
+ 	if (!unescaped)
+ 		return -ENOMEM;
+@@ -426,6 +423,11 @@ static ssize_t synth_direct_store(struct kobject *kobj,
+ 	string_unescape_any_inplace(unescaped);
+=20
+ 	spin_lock_irqsave(&speakup_info.spinlock, flags);
++	if (!synth) {
++		spin_unlock_irqrestore(&speakup_info.spinlock, flags);
++		kfree(unescaped);
++		return -EPERM;
++	}
+ 	synth_write(unescaped, strlen(unescaped));
+ 	spin_unlock_irqrestore(&speakup_info.spinlock, flags);
+=20
+diff --git a/drivers/accessibility/speakup/main.c b/drivers/accessibility/spe=
+akup/main.c
+index e9b7c2761f6f..60be4d4df363 100644
+--- a/drivers/accessibility/speakup/main.c
++++ b/drivers/accessibility/speakup/main.c
+@@ -1166,9 +1166,13 @@ static void do_handle_shift(struct vc_data *vc, u_char=
+ value, char up_flag)
+ {
+ 	unsigned long flags;
+=20
+-	if (!synth || up_flag || spk_killed)
++	if (up_flag || spk_killed)
+ 		return;
+ 	spin_lock_irqsave(&speakup_info.spinlock, flags);
++	if (!synth) {
++		spin_unlock_irqrestore(&speakup_info.spinlock, flags);
++		return;
++	}
+ 	if (cursor_track =3D=3D read_all_mode) {
+ 		switch (value) {
+ 		case KVAL(K_SHIFT):
+@@ -1763,11 +1767,15 @@ static void speakup_con_write(struct vc_data *vc, u16=
+ *str, int len)
+ {
+ 	unsigned long flags;
+=20
+-	if ((vc->vc_num !=3D fg_console) || spk_shut_up || !synth)
++	if ((vc->vc_num !=3D fg_console) || spk_shut_up)
+ 		return;
+ 	if (!spin_trylock_irqsave(&speakup_info.spinlock, flags))
+ 		/* Speakup output, discard */
+ 		return;
++	if (!synth) {
++		spin_unlock_irqrestore(&speakup_info.spinlock, flags);
++		return;
++	}
+ 	if (spk_bell_pos && spk_keydown && (vc->state.x =3D=3D spk_bell_pos - 1))
+ 		bleep(3);
+ 	if ((is_cursor) || (cursor_track =3D=3D read_all_mode)) {
+@@ -1792,11 +1800,15 @@ static void speakup_con_update(struct vc_data *vc)
+ {
+ 	unsigned long flags;
+=20
+-	if (!speakup_console[vc->vc_num] || spk_parked || !synth)
++	if (!speakup_console[vc->vc_num] || spk_parked)
+ 		return;
+ 	if (!spin_trylock_irqsave(&speakup_info.spinlock, flags))
+ 		/* Speakup output, discard */
+ 		return;
++	if (!synth) {
++		spin_unlock_irqrestore(&speakup_info.spinlock, flags);
++		return;
++	}
+ 	speakup_date(vc);
+ 	if (vc->vc_mode =3D=3D KD_GRAPHICS && !spk_paused && spk_str_pause[0]) {
+ 		synth_printf("%s", spk_str_pause);
+@@ -1811,9 +1823,13 @@ static void do_handle_spec(struct vc_data *vc, u_char =
+value, char up_flag)
+ 	int on_off =3D 2;
+ 	char *label;
+=20
+-	if (!synth || up_flag || spk_killed)
++	if (up_flag || spk_killed)
+ 		return;
+ 	spin_lock_irqsave(&speakup_info.spinlock, flags);
++	if (!synth) {
++		spin_unlock_irqrestore(&speakup_info.spinlock, flags);
++		return;
++	}
+ 	spk_shut_up &=3D 0xfe;
+ 	if (spk_no_intr)
+ 		spk_do_flush();
+@@ -2087,6 +2103,8 @@ static spkup_hand spkup_handler[] =3D {
+=20
+ static void do_spkup(struct vc_data *vc, u_char value)
+ {
++	if (!synth)
++		return;
+ 	if (spk_killed && value !=3D SPEECH_KILL)
+ 		return;
+ 	spk_keydown =3D 0;
+@@ -2115,10 +2133,9 @@ speakup_key(struct vc_data *vc, int shift_state, int k=
+eycode, u16 keysym,
+ 	u_char shift_info, offset;
+ 	int ret =3D 0;
+=20
+-	if (!synth)
+-		return 0;
+-
+ 	spin_lock_irqsave(&speakup_info.spinlock, flags);
++	if (!synth)
++		goto out;
+ 	tty =3D vc->port.tty;
+ 	if (type >=3D 0xf0)
+ 		type -=3D 0xf0;
+diff --git a/drivers/accessibility/speakup/synth.c b/drivers/accessibility/sp=
+eakup/synth.c
+index 1af80eb116af..aef482f8b14e 100644
+--- a/drivers/accessibility/speakup/synth.c
++++ b/drivers/accessibility/speakup/synth.c
+@@ -519,7 +519,9 @@ static int do_synth_init(struct spk_synth *in_synth)
+ 	pr_warn("synth probe\n");
+ 	if (synth->probe(synth) < 0) {
+ 		pr_warn("%s: device probe failed\n", in_synth->name);
++		spin_lock_irqsave(&speakup_info.spinlock, flags);
+ 		synth =3D NULL;
++		spin_unlock_irqrestore(&speakup_info.spinlock, flags);
+ 		return -ENODEV;
+ 	}
+ 	synth_time_vars[0].u.n.value =3D
+@@ -585,7 +587,9 @@ void synth_release(void)
+ 	for (var =3D synth->vars; var->var_id !=3D MAXVARS; var++)
+ 		speakup_unregister_var(var->var_id);
+ 	synth->release(synth);
++	spin_lock_irqsave(&speakup_info.spinlock, flags);
+ 	synth =3D NULL;
++	spin_unlock_irqrestore(&speakup_info.spinlock, flags);
+ }
+=20
+ /* called by: all_driver_init() */
+--=20
+2.32.0
 
- arch/x86/kernel/fpu/signal.c |   11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
-
-diff --git a/arch/x86/kernel/fpu/signal.c b/arch/x86/kernel/fpu/signal.c
-index 164255d..7d0642a 100644
---- a/arch/x86/kernel/fpu/signal.c
-+++ b/arch/x86/kernel/fpu/signal.c
-@@ -266,7 +266,16 @@ static int __restore_fpregs_from_user(void __user *buf, u64 task_xfeatures,
- 
- 		/* Restore enabled features only. */
- 		xrestore_mask &= task_xfeatures;
--		init_bv = task_xfeatures & ~xrestore_mask;
-+		/*
-+		 * If the FPU registers do not belong to current, they may still
-+		 * contain state from a previous task with features beyond
-+		 * current's enabled features. Clear up to max_features to
-+		 * prevent state leakage.
-+		 */
-+		if (test_thread_flag(TIF_NEED_FPU_LOAD))
-+			init_bv = fpu_user_cfg.max_features & ~xrestore_mask;
-+		else
-+			init_bv = task_xfeatures & ~xrestore_mask;
- 		if (likely(!fx_only))
- 			ret = xrstor_from_user_sigframe(buf, xrestore_mask);
- 		else
