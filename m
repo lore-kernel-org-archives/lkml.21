@@ -1,94 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=119.15.109.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795764761;
-	b=v9pnzqk1Er7RlKpfQUH4Zoy1nHw4S5Lslx8jZYaCkdFZd9otpkumNtRezh0rAwzwgzPW
-	 2SmRqd1A/MhZ0JKKfr8KLKVXwFeG8WvUIWjnD5HI7FUCYkz+sPNtev/CzWag/unNSDpJ+
-	 BbAnQbQX3YzYFsRuktLcUR2bVpzZFzFJW/wNCgheAYN5n+8q+FR6B01TVddVUc7/kuNxR
-	 DGz0oKbGDCfv/nHYEwT+ODS+vXe+FJS7AeQLDAcd7XZl4NUAiUGPq4/7RREGH/F/ThhPp
-	 rqV0cly+T7H5NduWq6rdn7B8WM/A9U2BKqJnIcdgWVcldhA5JWvlV3piuMnFSEhoZRQ==
+	t=1795764770;
+	b=ylagko+SLlUlEeQglDByAZU9ZIXXubohCdh6scJA5blC+usLlcJF5VYO3YNdi/jZFPX2
+	 C4FPgzkFbpwr+KdiC610V2M8Sp/s4a6DjRaIZLOzXVnr7xBPRzv6GCpWOE6tPrKSkYu2P
+	 uzhMPyeXz3sd4awLdbVY3GGW8HZd7EUmp4o71q3C+KJn2VKWFwZhv7Owdr2BZbmSERGsn
+	 Vj2w0wa2uV/Kz4Z5RMLAWfdRD+e5HZhCH8l7TIYAXcZ2dFKUMWLho/3uLklv/k2lgD7jV
+	 RBPmUgcqSiNmn0PLx24z15D2kX2Y99htm525lZHiWkh1f+GZWpzan/3KZ2v5GGdWKXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795764761;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795764770;
+	h=DMARC-Filter:Received:DKIM-Signature:X-GPT-Reason:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=5CHKL/ZtHCrib3BVjwLtVv0WqKmxeKuSdrXUeRFBD58=;
-	b=05RMwj/2UgrZO+1OFNzRlEnkRlgbRgE1VwhjVZQBKHD1ThMSc0vbAfbxkYQVWspIxzUh
-	 55aCbfYJcT3ayf0xVxM5cAMRS/QnYSfHC8Bq3lGKGH1nAd45um+4SBHXREP3S2iXUGupE
-	 VB83j3PlqZ2RNCvSFWkqZjg5WRGggyIE0E+OKon4ZW93JYozzXMGZen/TwsM7YZ3ddKyA
-	 VcAk8NHaMtLu+WjV9KDwtypfxJ1iesZhp/qLL8Df4pOhtDKwJNmtZnCi4UeWhgr7XSah+
-	 KFivEfmk1oTPdl5Hg3IAFo+4aZ/VYWfuHX4Ewhu7JTW8mZ4Z1lvlSxvgyF1chKTlE7w==
+	bh=LMyaIeOekCuLTnuJbssjNi7FJvFc27BdHLPchlDN+WM=;
+	b=l/nDed1iEeAQhmGTzABLfDMOjdP3MHMXFTlXck+PL4zGgNvadxZR0W0uM82KdYEHpwR0
+	 nAPgCIlgr4kKZABpk/KyKq79yfV/Gubq+OFYnzHkRjpA6QEVPz8XdMQWBui8ZWf+EvCEC
+	 JdCLpk0Z0ccKC2Y0ET9LBAVLuvOow+zUNLqn/mTElX2gNBrmulLqKi+Hv9JNPY3aKNN/G
+	 EFsqpAuxzuhpKFqWrmqmLFRFGQm5Bub0QQXNuLOx4grr8Mt/W2ge7g9vqMSK5C3ZtjMBG
+	 dTnTqn33Zm4iyi6BWnOySAULasGq+D39tZo/rKJcsGcV0Ms1xFJsKaUx8nn8ey4sADQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Kzx9ZZrL;
-	arc=none smtp.remote-ip=74.125.82.170
-Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=d-silva.org;
+	spf=pass smtp.mailfrom=d-silva.org;
+	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b="GOd/YsQ7";
+	arc=none smtp.remote-ip=119.15.109.137
+Received: from www.nmnhosting.com (watt.d-silva.org [119.15.109.137])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D95BA606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:32:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D95BA606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B9C2606A323;
+	Fri, 27 Nov 2026 07:32:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B9C2606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=d-silva.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=d-silva.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Kzx9ZZrL
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-38190551625so14945077eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 23:32:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795764760; x=1796369560; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5CHKL/ZtHCrib3BVjwLtVv0WqKmxeKuSdrXUeRFBD58=;
-        b=Kzx9ZZrL/EDdPoNVDguy4uUQHvfrLbRe+5pu5vvCwHwBOKDtOYvENQXazWF9Q4QG9S
-         RErEtlF1I8fl2bbP5a8rpgtSfrjD1QE3vdZHreBqkNFQYUqwQiN4PMOnyNYzctbcCAWX
-         4+houz0x1MJ4+72svaeoYgBJLkQiZheUdD+2cHAY8jZb3xzDBcoc0Xm5MB1yiiH5/qoU
-         PekSK3e7BHqIOObn2z/hfEQWeLVAYugix34HFADqzQoQRH/3t7TRgYZqPrFrFyH9ots6
-         IEbgRQVnEzOTy5i56LoA0JcCJEwJbYRspYwvYu/qWQ0W2XD24HFFZo9K6lJadYizwakz
-         os5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795764760; x=1796369560;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5CHKL/ZtHCrib3BVjwLtVv0WqKmxeKuSdrXUeRFBD58=;
-        b=XITIHvKTXXiQndTYXxsr47sAjdZ6MpACQN+EYUQ3FqB4jwUi/RSnk0Kpp22IOF/+7u
-         zEQkOZ1UL6nk/XYk1rANWOd2amd/EtY88tYmUPYURS/MANnZxaqOTo6LdLmRo3KrqFr/
-         HouuIFoXBPAVtYK65izXBeJd+JTbXlF1nU9NaObOgIPUiip8eabpcmysoPP9hll+E3+G
-         A6CjazYR0XhgBwYYAxfp7BrvnOWw1CsKB7UmAxeX76YKabIGaAFR3sdClTGTKYN0JuLW
-         mjf72LuDy+qtVbh+l6QLX71ijggwxexMBerpAGm3N3yPms8T6qsMe1vIgZZDmOEID6UY
-         15AQ==
-X-Forwarded-Encrypted: i=1; AL+hErEMrsqdzPbX5JfyGA1tllIMrD81B9tCSRlnuovrwxIydmmEmLIUIVvW88JXl2u2OPP8OUdMUg0EZYZpCIY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9ekh8S/jT9wMq3H/tI3USqTPXFCt8WmQlUIS40OSMDVMLAD2p2
-	hVwXZgORtY0qGW1QSmdw4RhDILZL0K4oQmDQEEXJsbyySnH32HtTBWZh
-X-Gm-Gg: AZFdTZc0X6HoN+Tb5f7NvQnCXQ1rm7kl/xFUeK+4mG+hNJ4+e8qhVdb6kd7PvVpzTnA
-	6SObhF3KMOcuIHojD4ji8VGPCTmrZiepg05YNTlePuEmRA+zTCFKwXWJN2rc9ORe38gyBlvYBJO
-	erOAWAznotWcbM9DeMUW4K+sArm58sxfC+WoQIZ0UUlAEKm7oW1BZJQBahVY5PG8PWz072AlWKM
-	8Gkes1FUTWzDWPCIeyCnW8Wxvy3FmaHW+4BoUtIcUXiIOO+2kea+F7Xe+OpSs1PIwnPC87lGRM6
-	lru7/bECbUsO9Sxfbmbpfxc52D29wVQ+QHlW3AcIDTtneZCU7c5HYLJRm22aTuQiwnUO8oTcVRN
-	RLQwZxqUbZZEoNKeoqKlHsY5RQTt5u2lJ8BN9iC0lk3nchlmvv101AxWYGX2sXE7Y3FtRnMbHeF
-	RoICmyHVbj9uIZN4h980lkkYKbYtO4JQMTN7v4qHkwp/VVUN0HQ/5dJQrsQ8UbqfwUVUysl2ccG
-	RizFu5muGPzlSuPTUWrMUwbImXlNxoeiKbVTtzI5NXK+9hqJrFiojeiN8toYJOb0plUfLnDL7ff
-	nhSroJ0TTntnb08l1/KaR2B4QrIHh6aAv+QCKu1IEgpNIMU=
-X-Received: by 2002:a05:7300:2301:b0:385:4c54:3c8c with SMTP id 5a478bee46e88-3856c0c9403mr33946786eec.1.1795764759968;
-        Thu, 26 Nov 2026 23:32:39 -0800 (PST)
-Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385c6830815sm62804163eec.20.2026.11.26.23.32.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 23:32:39 -0800 (PST)
-From: Cong Nguyen <congnt264@gmail.com>
-To: Mimi Zohar <zohar@linux.ibm.com>,
-	Roberto Sassu <roberto.sassu@huawei.com>
-Cc: Dmitry Kasatkin <dmitry.kasatkin@gmail.com>,
-	Eric Snowberg <eric.snowberg@oracle.com>,
-	linux-integrity@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ima: free the restored template entry on error in ima_restore_measurement_list()
-Date: Fri, 27 Nov 2026 14:32:33 +0700
-Message-Id: <20261127073233.181925-1-congnt264@gmail.com>
-X-Mailer: git-send-email 2.25.1
+	dkim=pass (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=GOd/YsQ7
+Received: from Hawking.lan (hawking.lan [10.0.1.4])
+	by www.nmnhosting.com (Postfix) with ESMTP id DFF8F4C95E;
+	Fri, 27 Nov 2026 18:32:40 +1100 (AEDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
+	t=1795764760;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LMyaIeOekCuLTnuJbssjNi7FJvFc27BdHLPchlDN+WM=;
+	b=GOd/YsQ7g2Eh7I/IaPFht+veXWMqVOeBfO1wRSeo593m8hrdm/xfrchf8eDOJBfYPTsCwq
+	cJ85On97rPPpN91jfilUvl/2AOxiJxy5U4I29IZuaQxCHXLd3JI2NxnfURkouw2ZZchoBJ
+	82hvGYNClayPrfDHJGpEX4tPugHQYgxy7wqtFgMmM/u6cAjZUPxPBQaF4prJCgkUj4hM0n
+	O+clUUCDvS9wKd3V7QO8JzF149ynMTV1oZFd0yXgCxgoAcBA4jpZy9eMSs8Lal36FORDp6
+	og5OUJhMJ8qYU4o5CpmsymSl6lK6Hu1PYmTuhx7uaUUaAc2i+WnMUi0u4dCTnw==
+X-GPT-Reason: legitimate; the message is a technical patch submission
+	for a Linux kernel/device tree project which perfectly matches
+	the personal mailbox (alastair@d-silva.org) and the sender's identity;
+	the subject line and content describe a specific hardware binding
+	(Allwinner A733 USB 2.0 PHY) consistent with a developer's workflow;
+	the From and Return-Path domains align with the recipient's domain,
+	and the URL (devicetree.org) is a standard, relevant domain for
+	this type of technical contribution.
+From: Alastair D'Silva <alastair@d-silva.org>
+To: Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Mathias Nyman <mathias.nyman@intel.com>
+Cc: linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-usb@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Alastair D'Silva <alastair@d-silva.org>
+Subject: [PATCH 01/11] dt-bindings: phy: allwinner,sun60i-a733-u2phy: Add Allwinner A733 USB 2.0 PHY
+Date: Fri, 27 Nov 2026 18:32:21 +1100
+Message-ID: <20261127073231.1776847-2-alastair@d-silva.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261127073231.1776847-1-alastair@d-silva.org>
+References: <20261127073231.1776847-1-alastair@d-silva.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,45 +96,78 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-ima_restore_template_data() allocates a template entry that the caller
-owns once it returns success. ima_restore_measurement_list() breaks out
-of its loop without freeing it when ima_calc_field_array_hash() fails
-or when ima_restore_measurement_entry() fails, so the entry, its digests
-and its field data are leaked.
+Add DT binding schema for the Allwinner A733 USB 2.0 PHY.
 
-Free the entry with ima_free_template_entry() on both paths.
-
-Fixes: 1ea973df6e21 ("ima: Calculate and extend PCR with digests in ima_template_entry")
-Fixes: 94c3aac567a9 ("ima: on soft reboot, restore the measurement list")
-Signed-off-by: Cong Nguyen <congnt264@gmail.com>
+Signed-off-by: Alastair D'Silva <alastair@d-silva.org>
 ---
- security/integrity/ima/ima_template.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ .../phy/allwinner,sun60i-a733-u2phy.yaml      | 58 +++++++++++++++++++
+ 1 file changed, 58 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/phy/allwinner,sun60i-a733-u2phy.yaml
 
-diff --git a/security/integrity/ima/ima_template.c b/security/integrity/ima/ima_template.c
-index 16154078fd70..d5256da8f76e 100644
---- a/security/integrity/ima/ima_template.c
-+++ b/security/integrity/ima/ima_template.c
-@@ -526,6 +526,7 @@ int ima_restore_measurement_list(loff_t size, void *buf)
- 						entry);
- 			if (ret < 0) {
- 				pr_err("cannot calculate template digest\n");
-+				ima_free_template_entry(entry);
- 				ret = -EINVAL;
- 				break;
- 			}
-@@ -541,8 +542,10 @@ int ima_restore_measurement_list(loff_t size, void *buf)
- 		entry->pcr = !ima_canonical_fmt ? *(u32 *)(hdr[HDR_PCR].data) :
- 			     le32_to_cpu(*(__le32 *)(hdr[HDR_PCR].data));
- 		ret = ima_restore_measurement_entry(entry);
--		if (ret < 0)
-+		if (ret < 0) {
-+			ima_free_template_entry(entry);
- 			break;
-+		}
- 
- 	}
- 	return ret;
+diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun60i-a733-u2phy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun60i-a733-u2phy.yaml
+new file mode 100644
+index 000000000000..7291311d3c4d
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/allwinner,sun60i-a733-u2phy.yaml
+@@ -0,0 +1,58 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/allwinner,sun60i-a733-u2phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Allwinner A733 USB 2.0 PHY
++
++maintainers:
++  - Alastair D'Silva <alastair@d-silva.org>
++
++properties:
++  compatible:
++    const: allwinner,sun60i-a733-u2phy
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: OTG bus clock
++      - description: USB subsystem AHB clock
++
++  clock-names:
++    items:
++      - const: bus
++      - const: ahb
++
++  resets:
++    maxItems: 1
++
++  "#phy-cells":
++    const: 0
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - resets
++  - "#phy-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/allwinner,sun60i-a733-ccu.h>
++    #include <dt-bindings/reset/allwinner,sun60i-a733-ccu.h>
++
++    phy@6b00000 {
++        compatible = "allwinner,sun60i-a733-u2phy";
++        reg = <0x06b00000 0x800>;
++        clocks = <&ccu CLK_BUS_OTG>,
++                 <&ccu CLK_AHB_USB_SYS>;
++        clock-names = "bus", "ahb";
++        resets = <&ccu RST_BUS_OTG>;
++        #phy-cells = <0>;
++    };
 -- 
-2.25.1
+2.53.0
 
