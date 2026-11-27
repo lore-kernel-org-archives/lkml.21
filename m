@@ -1,125 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795786231;
-	b=kZS5jO+kThTrROgVerJNiXKRuDktYgbavQ8oH1OEfD5od0OC0YIhpnCYYVcjCwVgn7zd
-	 Z8aq0jJ89QZ72proLP7o/qcWY4rkjVeobRpnbaJWndGd3dsNCAzx501VVN4TKC99sM0cl
-	 3b0OYF7UFp5KXF4Rl+4vejl/R+lQYoWkxDmD32vFtVgtv2wRsBwC+9zYtpBuVYJUynP1L
-	 UR4a04BHdBYBHtjAjtcmIEE0iwP12OSh9j5afJQ2o+WFnQ5f7Y6P/TmqgAfWElmWRPLRL
-	 f7nMwqSUWRn5R3ry+HKlvP1Yauh4K9b4pDc3MXJ36TIwP0ZTacCAqCxBlzgcpAQN57w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795786231;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-Spamd-Result:X-Spam-Score:X-Spam-Level:X-Spam-Flag;
-	bh=H0Jql31Gwg5cy7/8LbYEz5eBl7mNTW69sIgrCB0NofA=;
-	b=mJWdBKYtFDZrg1tSdBfW7xqqAX4nELv3erAghgHuN6VMm9SxSglFa+QDhtquLUf2r1Gl
-	 aysth1muAvBDgjBFugiWW7IoGAyab4D00DNNSCgbFCGMeA4CXwnokWXx3yWr97jIq9LqI
-	 ImxoCB13TREAnq78oUs1ZVXqmUZ5VYBw8sPGfcorYW9dIb/w3jrnFXNe055+GwiS39CFM
-	 exB3/k2YpIo8HBBfnoLRAVUFe4rhTPOKIfHhK07GJsvfuKruwkk6almji1/MyQrtlNoFe
-	 ZOGw6QLtsZGe0GvRi67EYWBuDrne4wypJ92xbF5hDvGj5RIDkEThDkyPHXs7c1PnKug==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=U4NKcntY;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=RqNzIgqE;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=BaKocssb;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Xle0tI5a;
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795786237;
+	b=V1qvhg7DWBKYv2B3V+HssWXBEIH4qSVK+Rt/TQw6HQYZ44VonFAHMNz3B69apAfkfbiu
+	 I1YcubIBK0FaK0kBWVZdijzLexCiCyAGKiE9XbLbZgSgD4fE4W0Xr1+jf5N4ws6SUYk67
+	 czl0yKu2suWiXprKkQu2yIN6V2GGHV5DBUHiXvxyYO60dudPRXhUUS81tYLyM9QhZWchH
+	 nVxT2CD+IgEpMxk0WxRpE7TXOC5aXzbdyv+2Ms9af2qyksfuDzngYqy/ybD9eatPAcfg3
+	 O6pEuUOWPweSPYnQMOhLiCJX9LVywe14TWsqbvJBbQ4g2+nXGAmUxwLqZ2AB4Ph23tg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795786237;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date:
+	 MIME-Version:User-Agent:X-ZohoMailClient;
+	bh=nPGTWrYZUtA6BZuh+wiLhpAh7CV60j0At2N6zzUUEOM=;
+	b=rsFmeSycd83SSF3xFLK+gmsO1CNDrwawWMFxN32DUttOZ7x4CHJ30PBIfSTZwmIw/dLB
+	 Ts/o+EP9dM0anqSIq3Zta5feGUjo4EwNvT1+pbxM7smTPWcQMGoqwOzERQVFdKfdes9wp
+	 MZBlvOgFIYtLYiQeG2g+dKbMyVlCOtCTdWm9YRvWRc0w97aWyLu92iYQPD7mCQ0+TLLif
+	 3wHPq1Xs1gW9bqrnbYox3rPKYC6hDvGToCJf3lJV8Sr5gHp7oPA2Pr4UeNdsdKEnZXTIS
+	 6e8treY9j9XuhaX4unRdbJHzVLYllHryuHRE85s92/1hmOEuGX7mQmM87Qg0X4+iIeQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=rong.moe;
+	spf=pass smtp.mailfrom=rong.moe;
+	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=budjLwHz;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E17F606A31E;
-	Fri, 27 Nov 2026 13:30:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E17F606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39C3A606A336;
+	Fri, 27 Nov 2026 13:30:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39C3A606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=U4NKcntY;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=RqNzIgqE;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=BaKocssb;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Xle0tI5a
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 196091FF00;
-	Fri, 27 Nov 2026 13:30:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795786224; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=H0Jql31Gwg5cy7/8LbYEz5eBl7mNTW69sIgrCB0NofA=;
-	b=U4NKcntY06TBTWk+IHhUJ5kuPFeYKqhQbotvPIvQDYGH9MOMGFHRDnJYoKotITYl6WNX8B
-	ADY9SpBKRNCnkm3qO1VXyXeoKWuk9CpKUnFOFRfugKMdDHkLnrJyfGe0L2b+HYxAHdgWf2
-	vEYSrDuzhHNz01IfDskcmsI3c1RRvtU=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795786224;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=H0Jql31Gwg5cy7/8LbYEz5eBl7mNTW69sIgrCB0NofA=;
-	b=RqNzIgqEdc7lsUieUicKkHJFxdXdCOpVphPrRXi+ocnzy6PbKtg5JV7ImUXgFYHVde3mm6
-	KjZO977JawC+ILAA==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795786223; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=H0Jql31Gwg5cy7/8LbYEz5eBl7mNTW69sIgrCB0NofA=;
-	b=BaKocssbOonWoDcnn8ip9+Sy+3PuM4qiaBRWZl83bJBRRpPaLIpqCedCNxV4HMw6JKSuZw
-	LywuQm1zwtNJGO2qPDJB1UznC0gIrvcYUdpld63uO73SRAVS4RW+BjrNC6rcvLaAAVf1I9
-	TMYeJb/CFGdZIZ2yV/HWT33sMdVDw+c=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795786223;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=H0Jql31Gwg5cy7/8LbYEz5eBl7mNTW69sIgrCB0NofA=;
-	b=Xle0tI5aYu+cWxA+eRC57J7LdJQh7KEJpefFicnS5oKAlZPVJEBHmoewIapk1u1OVITcFD
-	78iv9d9bvAR2mwBA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 9931F13432;
-	Fri, 27 Nov 2026 13:30:20 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id nO6AGeyFCWsfFwAAD6G6ig
-	(envelope-from <pfalcato@suse.de>); Fri, 27 Nov 2026 13:30:20 +0000
-Date: Fri, 27 Nov 2026 13:30:18 +0000
-From: Pedro Falcato <pfalcato@suse.de>
-To: "David Hildenbrand (Arm)" <david@kernel.org>, 
-	Tal Zussman <tz2294@columbia.edu>
-Cc: Christoph Hellwig <hch@infradead.org>, 
-	Miklos Szeredi <miklos@szeredi.hu>, fuse-devel@lists.linux.dev, John Hubbard <jhubbard@nvidia.com>, 
-	Jan Kara <jack@suse.cz>, Andrew Morton <akpm@linux-foundation.org>, 
-	Zi Yan <ziy@nvidia.com>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, Peter Xu <peterx@redhat.com>, 
-	Johannes Weiner <hannes@cmpxchg.org>, linux-ext4@vger.kernel.org, linux-nfs@vger.kernel.org, 
-	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Michal Hocko <mhocko@suse.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
-	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
-	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
-	Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, 
-	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
-	Michal Hocko <mhocko@kernel.org>, linux-fsdevel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH RFC 0/5] mm: GUP dirty + ->release_folio() fixes
-Message-ID: <awmE8VSlF2VTHLGu@pedro-suse.tail5790ac.ts.net>
-References: <20261119-gup-dirty-what-v1-0-236d69f25c24@suse.de>
- <4f096d70-6f94-4148-8f47-242b8551e5f9@nvidia.com>
- <awWNyDZT2SVu2Zp9@pedro-suse.tail5790ac.ts.net>
- <55114986-0ba1-4a80-8498-bf674d64e01b@kernel.org>
- <away88BuU8ibcTA5@infradead.org>
- <d088452f-1118-4a06-bc16-1942e523e0fc@kernel.org>
- <20261126022418.3620783-1-tz2294@columbia.edu>
- <50045fa1-0b46-402f-baf0-a08d05282410@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=budjLwHz
+ARC-Seal: i=1; a=rsa-sha256; t=1795786215; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=kx6V3RXNRu4oinmMudDUyahfTGY477ZddjkK4aAMxAyCyVB8JpN3ZyfpSSUQ+wYqAEcScirkRR7wAimiFqIyNc9NdH9SYIsr2mNp/00MATXE3F04sfO9nicbsYq+VsKgOxsLVqBu11Tf16mqZiZAB2FckHvXHyHsVXB4gXoYR/w=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795786215; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=nPGTWrYZUtA6BZuh+wiLhpAh7CV60j0At2N6zzUUEOM=; 
+	b=AUsj29NGcBXMu71K8dOc6/aQdhT+fjl7Iwz3a7fLPB/bxEWsZ154M9CW2/03GgcvSh6cDX0/RpXOdp6snWgFTeKFbDYy9+4x15gqU24vc5O+UBcZfnQNkIPbId57xP8mcem6ICz8ELrl/DXXgIFXgywzVvh0fvfpwhfMFzFQG6Q=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=rong.moe;
+	spf=pass  smtp.mailfrom=i@rong.moe;
+	dmarc=pass header.from=<i@rong.moe>
+DKIM-Signature: a=rsa-sha256; b=budjLwHzh4iUUcl+0g/3mhgOy4ucbA4NA4mtN0FijtyfAAgTKQynIhrjH9Zv0ZHRbAucfC41eIRxLK2ANxYDblIUGZSUUHbmi4lbasnBcyWP/e4HSSwSi7K/Oxgoo2w+WReGoV3TaUXUSgUCZZfi3z8XTd3JFuADbrziDEX2+0r4lo9MQQ04RNKf8Kn1dUFBoNh2kYzg+u9LAvbXb2f9vHTp4loD2PGGYzBhpMjR1kZT/Sm6qKY+yc23XyZ3LkvvS+ceuEzhYZDS+PjBIONn5WhDPSKc8zEFOTkTYhTK9PSw+SiZb+r8680tzGmZ00pNXqcVTlkDshkwR/2czWRbOA==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=nPGTWrYZUtA6BZuh+wiLhpAh7CV60j0At2N6zzUUEOM=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795786212668151.25235551005665;
+	Fri, 27 Nov 2026 05:30:12 -0800 (PST)
+Message-ID: <4bf35b5511056fb224c5be7aacbd182b0841ac4e.camel@rong.moe>
+Subject: Re: [PATCH 0/8] platform/x86: thinkpad_acpi: clean up hotkey
+ polling and locking
+From: Rong Zhang <i@rong.moe>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, Henrique de Moraes
+ Holschuh	 <hmh@hmh.eng.br>, Mark Pearson <mpearson-lenovo@squebb.ca>,
+ "Derek J. Clark"	 <derekjohn.clark@gmail.com>, Hans de Goede
+ <hansg@kernel.org>, Ilpo =?ISO-8859-1?Q?J=E4rvinen?=
+ <ilpo.jarvinen@linux.intel.com>
+Cc: platform-driver-x86@vger.kernel.org,
+ ibm-acpi-devel@lists.sourceforge.net, 	linux-kernel@vger.kernel.org
+In-Reply-To: <20261125-thinkpad-acpi-hotkey-poll-v1-0-6dee57519c2e@gmail.com>
+References: <20261125-thinkpad-acpi-hotkey-poll-v1-0-6dee57519c2e@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 27 Nov 2026 21:25:03 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -129,71 +72,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <50045fa1-0b46-402f-baf0-a08d05282410@kernel.org>
-X-Spamd-Result: default: False [-13.30 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MISSING_XM_UA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[40];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RL8d8xedm6iu8o66torxsk6bwd)];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo]
-X-Spam-Score: -13.30
-X-Spam-Level: 
-X-Spam-Flag: NO
+User-Agent: Evolution 3.62.1-4 
+X-ZohoMailClient: External
 
-On Thu, Nov 26, 2026 at 07:43:37AM +0100, David Hildenbrand (Arm) wrote:
-> On 11/26/26 03:24, Tal Zussman wrote:
-> > +CC Miklos
-> > 
-> > On 11/25/26 5:19 AM, David Hildenbrand (Arm) wrote:
-> >> On 11/25/26 11:05, Christoph Hellwig wrote:
-> >>>
-> >>> We need to, if not for this series then for all the other outstanding
-> >>> issues with GUP writes.
-> >>
-> >> Cool, and I agree (that's why I placed it at 1).
-> >>
-> >> But who is "we"? Because I recall that "we" wanted to do that a while ago.
-> >>
-> >> (I won't be "we" ;) Pedro, can you take a look? I'm afraid the fuse thing might
-> >> be the harder nut to crack)
-> > 
-> > Coincidentally, I sent out a patch to convert fuse_copy_fill() to use
-> > iov_iter_extract_pages() a few days ago in order to remove its usage of
-> > set_page_dirty_lock() and address a different race. I think it should
-> > address the fuse side of this issue as well.
-> > 
-> > https://lore.kernel.org/all/20261120-fuse-copy-fill-pin-v1-1-72a0d888f140@columbia.edu/
+Hi Dmitry,
 
-Awesome!
+Thanks for working on this.
 
-> 
-> Oh, nice! I was assuming the usual "we use put_page() on some random hidden path
-> or core code" would make that harder.
+On Wed, 2026-11-25 at 15:11 -0800, Dmitry Torokhov wrote:
+> This series fixes a kthread lifecycle bug and cleans up hotkey NVRAM
+> polling setup and locking in thinkpad_acpi:
+>=20
+> - Remove the unsafe early return on TPACPI_LIFE_EXITING in
+>   hotkey_kthread() so kthread_stop() never races with kthread exit.
+> - Drop the dead -ENXIO check on hotkey_mask_set() in hotkey_init().
+> - Drop obsolete tpacpi_lifecycle checks from hotkey_inputdev_open() and
+>   hotkey_inputdev_close(), fold hotkey_poll_setup() calls into existing
+>   hotkey_mutex critical sections, and remove hotkey_poll_setup_safe().
+> - Call hotkey_poll_setup() in hotkey_user_mask_set() so that runtime
+>   hotkey mask updates via /proc/acpi/ibm/hotkey also start or stop the
+>   NVRAM polling thread.
+> - Replace the HOTKEY_CONFIG_CRITICAL_START/END macros and manual
+>   hotkey_thread_data_mutex lock/unlock calls with scoped_guard().
+> - Convert hotkey_thread_data_mutex to a spinlock.
+> - Remove the unused hotkey_poll_active bitfield from tp_features.
+> - Drop the redundant tpacpi_inputdev->dev.parent assignment in
+>   tpacpi_pdriver_probe().
+>=20
+> Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 
-Right.
+The series LGTM, thus:
 
-> I recall that's the reason why vmsplice
-> still uses FOLL_GET years after we discussed that it should be using
-> FOLL_PIN|FOLL_LONGTERM.
+Reviewed-by: Rong Zhang <i@rong.moe>
 
-You almost gave me a heart attack, before I remembered these vmspliced pages
-aren't writable :) That's a battle for another day!
+Thanks,
+Rong
 
--- 
-Pedro
+> ---
+> Dmitry Torokhov (8):
+>       platform/x86: thinkpad_acpi: remove early exit in hotkey_kthread()
+>       platform/x86: thinkpad_acpi: drop dead -ENXIO check in hotkey_init(=
+)
+>       platform/x86: thinkpad_acpi: simplify hotkey open/close and poll se=
+tup
+>       platform/x86: thinkpad_acpi: update polling state in hotkey_user_ma=
+sk_set()
+>       platform/x86: thinkpad_acpi: use scoped_guard() for hotkey config l=
+ocking
+>       platform/x86: thinkpad_acpi: convert hotkey_thread_data_mutex to a =
+spinlock
+>       platform/x86: thinkpad_acpi: remove unused hotkey_poll_active flag
+>       platform/x86: thinkpad_acpi: drop redundant input device parent ass=
+ignment
+>=20
+>  drivers/platform/x86/lenovo/thinkpad_acpi.c | 148 ++++++++++------------=
+------
+>  1 file changed, 52 insertions(+), 96 deletions(-)
+> ---
+> base-commit: 9437046953b2fb3bf55b36582450ea0267df82a7
+> change-id: 20260930-thinkpad-acpi-hotkey-poll-6c5e037cbf3c
+>=20
+> Thanks.
