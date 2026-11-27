@@ -1,91 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.170
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795749425;
-	b=X4uf/FTegkJomu0WM9l0Hzd/GBwJDmJmbEYgVm9kP34Pt3e08wN2D8fg2RXljt2PWgNS
-	 7GHo/KYGfkosndH/up+vhSPtmo4Pb1j+vjzXnybNTXi6bjn0LMOAxNgwE1Qj1gFhnxM2E
-	 yfHTrsfKQVD90hjXKmKPPeuIFjvBfQmrrkMtqwEh3J6uPiV2L7g5z/kmdOv9lQEvQ+hYL
-	 5lv083mBbd16QemJHVGGIE4DXujtk5aCo8cTzNNWionuMB1XoNWaFUDnvrxtPJglSNXTe
-	 YT/BZT5tmAmCr7/RxhLuaBhmyXJqBvFXPWt3fTUlnkSEDvtwHoklcVStbnGjAYemCow==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795749425;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=zYwGFrVXRtVQNbh2j9jq0UMXN8rATCr949DIEhCXwno=;
-	b=4qqPxIsje5oqoJDVoGgNn4MOsaa+CX7ATJAlFw8Se0/vC5wKozOxZrXS0v3dJvDHTAc/
-	 /E/s4QDfVGk5bF82WiNXgRGjNxYVNv8D+G7C3hIBty4yxi/+Jg8h5Zui4XhsHUJShq4nW
-	 aYM6gE+0H0I1yspdUuZeHTsJpt4CvmabGIcH+d2fk4NttMGh+l3e+cUn9qT/wLfyKIJ/9
-	 xGZpaVJ6hLtAAGJB9iieyBDU5tekbFWAuXtkkhjiXa5LB10+oHJLKDCSI1kc0BIM17X1A
-	 9ztC9tJEfa7JxPvUvV912PaLyjT30sOvwDs1hAyWJG8MELgAs8A1brNzXhSPa8s76mA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Nfsq6Q7w;
-	arc=none smtp.remote-ip=209.85.210.170
-Received: from mail-pf1-f170.google.com (mail-pf1-f170.google.com [209.85.210.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795749527;
+	b=rKmlkghvvh93TuofOtJUqijaGFBTWRchQU7Cx0bFBX9KG11UxTObVa7iue/IWK3sIUM3
+	 QCYvkrjCcTiNadYtHN+rcFLTnFAp4XOSwRZmdUI2VzYi55KqmavIaU1B/lXDT4qJjfwZZ
+	 2h4SOD/t/Q/MtA8nfOso8rtM++Ku3YGBK8Lp1Vb6V05Jg9MpLYs1KqYYyHq8Gkk7ez36R
+	 fMYcmvswzICi/GErS3EC6hEyGCOqoG6XJDRyHTolazGd0IIK45DQpROXuLzYan2Qkuvtd
+	 IsMIMsiFowGOcUj0QC6+N3Bu2oD0702ziP8N/UAVexn/zsVGBUmeDC4A+lTv9UOdeog==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795749527;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=RLS/jgeLOKWzdwCj4pd6cH1OV040FEIUeXWjXTT8HNQ=;
+	b=pUOS/u/mVOwtTBUOu7famw0tL1fxrpCaO8RTL2PLAoQhWQZZbt3KQhSWUzbLhfcqCqYm
+	 ZjQiYlduxoVLcedzlhfHDoYCtxpUbtdTYUXk3CuUpMOGSP/fGP3z5UYZmYI21aKvKNU21
+	 kuxfueNzfIrMe5LQaq+KyvINkp3bsVX9g/O2dAYUPgB0slGmTMwYqDaecK5ZSnQeQ+GD+
+	 1ZFinvmGkoz2tP6270FdDC6zT2MtqlbTcddfJgsTzwx4xdX7HHd/6chBMps5kWgMO7rYl
+	 Orcr8UPUD2lEHlz5ML2YhnDxxFDloLkNaKDrNsvYJeDttUgXi9MGQ0dl4X7qYQ6krQw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jBqlW9rD;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83AFC606A31E;
+	Fri, 27 Nov 2026 03:18:47 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jBqlW9rD
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795749526;
+	b=e4korflbKEDIjFigjhScfZfLtgSFxm4lm27qXC/3nB5k+f9pvkiHddb4JZH5V9FdtBrh
+	 Cux+TxU7u0mYjnI2hRFHBuoWm+TzKyds2wYiSIdGiYPFHFj9XaYOzJZ5uQuiK5XAyuxro
+	 CI5zPcPP8QcFGN+zpgnzMN04Gy36VmliI1xtKJ6hjmHIiCgmc/pk9huMedpgdhwQ9lyh/
+	 SkAtpAgEq/2vw+ZjkQQPCH9sOFz5wxiddtQijo4s46NVjg9uoioF/X2iHVLPNI0Rzszp6
+	 XPMUNF0jZYrFROTxxcUqT5Yrs8n7WoUFQTW/Rh3qwEYKpfOQzqpsdapfxsGeshBJJQw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795749526;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=RLS/jgeLOKWzdwCj4pd6cH1OV040FEIUeXWjXTT8HNQ=;
+	b=gczHxEDDVOfT01di7uB93ZcLyBPq3cGjmAhp8XlYhx/hp+eEbBbgGAgWOczZTfAbenfj
+	 YiD7P7yASbOYY94nVkshyO3XH8MeyKvpimrXFZeMnAyeLt2zQLMhrLuw87TjZbDLdqcGj
+	 MSNkwvCKloGLow29pGI8SK+epFOWT0lIaMeKo6bs0oW2qC4WHYPd1mXK5zUyY0HFTP3ki
+	 TUItrqTH45boDM8y41DL2rbJ4jm8j50XSXPPIY83cVslXpkfqLHcJMLdRJhFu2gzBhSru
+	 FTTrOak5Ot1zfXYiSWbzP/DuC8SEcCWz2uDmx3naSHCFaDTHvZ9vz+2EOYb8GgL24oA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F859606A321
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:17:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F859606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Nfsq6Q7w
-Received: by mail-pf1-f170.google.com with SMTP id d2e1a72fcca58-8b6b22be970so2944054b3a.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:17:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795749424; x=1796354224; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zYwGFrVXRtVQNbh2j9jq0UMXN8rATCr949DIEhCXwno=;
-        b=Nfsq6Q7wRhpNbfSiRyUNzpz5NbquK9H4W2aGEej2aXFwSsFi7ym9g86K1Pt8jpkXZ1
-         pfg2Be/7L6jereXokz8Qwyx5kZdovJCpeuHGCeA630Yzk/DKYIbYEjNNYKnHOVDzWw3Z
-         Qa1SoebOfpE1aG7OG+6J26FmTnVCImrBOdF5c=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795749424; x=1796354224;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=zYwGFrVXRtVQNbh2j9jq0UMXN8rATCr949DIEhCXwno=;
-        b=mcsokEGUScsL7XNx2+5JGb323ejA20c2jgCzOzm8cN42zHD58TJ1Uwd8N2prnHf8qY
-         lzstayjdQETRAICZGARIP5R8utZXSFzjRwUAn/sNDPFYF5AR/8Hfhc+TXbO8DmuzYkBy
-         GSkY8bBILVuUNq3bsKmaxrXJzrM2di6cEK7FtzNHTT0yfXPtaEg5Va6+BNfgVvo6ftbV
-         iIuWW/LJ/wVYyx7aKVStEqz4vjgeRv0MVg9YEMJvuTllBzJM+R3Ds+CzSsGsDfHVFG5R
-         WKfCMPzNUaGkXj7Oc8FqHBbE2W8BI8ho9pB75PcQSwToPqaj5LoEyBg5rCpotzMILD8K
-         yH/A==
-X-Forwarded-Encrypted: i=1; AL+hErEe1mOtr/XZyG3OOcL8O6KWbXRlmiTxLQEnOdQxyiHgErsluo1+D4QQSkfvyYPpLKqJ01/qo03aPB3M6nE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9xvLyArdPkCbPCTECLsUItfimfcm8EKkiLw4TeR/4/MdwbYSh2
-	1SlRtidqci9klmBZgBJw0WRZIJ74kKKrrhxMYWkZmlyZdtM+1fgsjS2k+36rZRz3Xw==
-X-Gm-Gg: AZFdTZeL4eDXDjQBLRKmhr720jUxq7VBirLavxS40IfKkATyMz4MOe52uQTe3E22xjJ
-	z6nIZg+Tg9tzYWjn94EygTNarvS8uaVlMTmBEGfePZ08/85ITTMoC3M5TZHf2/0K+6MDaTnjvWd
-	vjS1811lG57Z7CDHVncUnpvw8VeJCdgg/4QfImxrvkOvr2jh4ru42sK+iDESrpJsCfiGGNDvXbN
-	jJZSt5xgwuuF0Vy2B93EbqZFRpwC7wW/iJM15Jd0ErtHgVUx/Ai2NR7tmALhJkBZPT081ePii/l
-	m7E3TSRLT3Vqbpry2ycb2zFm3yyGZWW2d0rb5EDSOu/mt9BIyBIUxyzdWlChyDhabLg5IH4NswW
-	xLIQWnDubfVipS1fTKlDVPdpX8u28XROoVQRJB8FZcFwZAMZQrzfHcuDyR4GwywNJr08GMgftjL
-	GHJXjL46DuqJvVBwIaNwKPTAo9TXwCMVwGBdk/vJsCMuiy7G51SZ5l02PBxpV1NDplSp6tsQomY
-	Q+EhwuKrXowCyUmRkdCKP8SUUvgIxHd5jpnZye7C3JzDSHmAdy/G95KAiGqeijM4Dr7ESQrEu0R
-	MdeR9fI4dCTokjkCWHwbTvly4FBAOWXj+S2KIVJCZUm+F5TZhVQpDXabv0HjunWnBXJ0fiywaja
-	/K9KA3d+/WVQMTSZoLw==
-X-Received: by 2002:a05:6a00:419b:b0:89a:5:92b9 with SMTP id d2e1a72fcca58-8c87cf2ace1mr19349814b3a.44.1795749424469;
-        Thu, 26 Nov 2026 19:17:04 -0800 (PST)
-Received: from tigeriii.tok.corp.google.com ([2a00:79e0:2031:6:5bf8:984e:5bb:e51d])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e4d7basm11333567b3a.21.2026.11.26.19.17.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 19:17:04 -0800 (PST)
-From: Sergey Senozhatsky <senozhatsky@chromium.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Minchan Kim <minchan@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-block@vger.kernel.org,
-	linux-mm@kvack.org,
-	Sergey Senozhatsky <senozhatsky@chromium.org>
-Subject: [PATCH] MAINTAINERS: add mm and block lists to zram entry
-Date: Fri, 27 Nov 2026 12:16:38 +0900
-Message-ID: <20261127031658.2049871-1-senozhatsky@chromium.org>
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+	by smtp.kernel.org (Postfix) with ESMTPS id 8DD991F00898;
+	Fri, 27 Nov 2026 03:18:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795749526;
+	bh=RLS/jgeLOKWzdwCj4pd6cH1OV040FEIUeXWjXTT8HNQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=jBqlW9rD32146Ipn6m40cEcD47cHMfrhpyLWEyk2SCJoSjGXWeuF0/9qeegFMIoU4
+	 1ObyYo1MbfWR1a91GcAFgH7V+9e3SVqTqxd18UGK8kObKht3wQcp5AHJ1TFiWPrpg2
+	 DkyZfh/MH51G66N3P0sJKGoLgjMDYEcH+L4/CmicD3gbZA9Jkt/F8a3m5quVe0MKCn
+	 N7zH5l4w9ChPtWl5t6QyDbAGYpP9ewql8pVZnrPd4SxGUG7odTV0Djy5F2kKjsV4RJ
+	 0LpITjn0FFYpNTJktGao/YyVMeu25Da5ilKJmyPdv4ftlNAYy58y6KbfpqxZ1auF95
+	 I0Q6At2HY5Ygw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 16C894B52E;
+	Fri, 27 Nov 2026 03:18:39 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Date: Fri, 27 Nov 2026 03:11:13 +0000
+Subject: [PATCH v4 2/2] arm64: dts: amlogic: a9: Add IR controller support
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,36 +82,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261127-a9-ir-v4-2-666dbffa76da@amlogic.com>
+References: <20261127-a9-ir-v4-0-666dbffa76da@amlogic.com>
+In-Reply-To: <20261127-a9-ir-v4-0-666dbffa76da@amlogic.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Sean Young <sean@mess.org>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795749517; l=2083;
+ i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
+ bh=uVqKmngtre8D85X97L1agM7jjiKqs/7e0xWwzs/gfjw=;
+ b=pCMZyrl08wLePSDn6u5KyW7SMYCc5s/bKxbV+N3aS79/qHC+myZpTSGUT1o30oFIeP6N/YWpv
+ 574BTWNgzApDw8ucmciYdAYLSe5QEJIxoaJB1PCgLPNNbLoPYgD4NLX
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
+ auth_id=578
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Reply-To: xianwei.zhao@amlogic.com
+Content-Transfer-Encoding: 7bit
 
-Route zram patches via linux-mm and linux-block lists,
-rather than through the generic linux-kernel.
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-While at it, fix a DRVIER typo.
+Add the IR controller node for the Amlogic A9 SoC and describe the
+corresponding remote input pin configuration.
 
-Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
+Enable the IR controller on the Amlogic A9 A311Y3 BY401 board with the
+proper pinctrl setting.
+
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
- MAINTAINERS | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts |  6 ++++++
+ arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi             | 14 ++++++++++++++
+ 2 files changed, 20 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 68811a0b7916..3f10a5772b31 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -31316,10 +31316,11 @@ Q:	https://patchwork.linuxtv.org/project/linux-media/list/
- F:	Documentation/driver-api/media/drivers/zoran.rst
- F:	drivers/media/pci/zoran/
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts b/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts
+index a6b380ca47a5..389c9de3dc3c 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts
++++ b/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts
+@@ -38,3 +38,9 @@ secmon_reserved: secmon@5000000 {
+ &uart_b {
+ 	status = "okay";
+ };
++
++&ir {
++	status = "okay";
++	pinctrl-0 = <&remote_input_ao_pins>;
++	pinctrl-names = "default";
++};
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
+index 91f4cf319b0d..b1766ea57c2a 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
+@@ -246,6 +246,13 @@ test_n: gpio@c0 {
+ 					#gpio-cells = <2>;
+ 					gpio-ranges = <&aobus_pinctrl 0 (AMLOGIC_GPIO_TEST_N<<8) 1>;
+ 				};
++
++				func-ir-in {
++					remote_input_ao_pins: group-remote-input-ao-pins {
++						pinmux = <AML_PINMUX(AMLOGIC_GPIO_D, 5, 1)>;
++						bias-disable;
++					};
++				};
+ 			};
  
--ZRAM COMPRESSED RAM BLOCK DEVICE DRVIER
-+ZRAM COMPRESSED RAM BLOCK DEVICE DRIVER
- M:	Minchan Kim <minchan@kernel.org>
- M:	Sergey Senozhatsky <senozhatsky@chromium.org>
--L:	linux-kernel@vger.kernel.org
-+L:	linux-mm@kvack.org
-+L:	linux-block@vger.kernel.org
- S:	Maintained
- F:	Documentation/ABI/testing/sysfs-block-zram
- F:	Documentation/ABI/testing/sysfs-class-zram
+ 			gpio_ao_intc: interrupt-controller@4080 {
+@@ -259,6 +266,13 @@ gpio_ao_intc: interrupt-controller@4080 {
+ 					394 395 396 397 398 399 400 401 402 403>;
+ 			};
+ 
++			ir: ir@14080 {
++				compatible = "amlogic,a9-ir", "amlogic,meson-s4-ir";
++				reg = <0x0 0x14080 0x0 0x30>;
++				interrupts = <GIC_SPI 413 IRQ_TYPE_EDGE_RISING>;
++				status = "disabled";
++			};
++
+ 			uart_b: serial@1e000 {
+ 				compatible = "amlogic,a9-uart",
+ 					     "amlogic,meson-s4-uart";
+
 -- 
-2.56.1.839.g22a8290db9-goog
+2.52.0
+
 
