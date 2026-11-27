@@ -1,67 +1,91 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795793477;
-	b=eoWXtrlWiz9XXIM9ZOl+kUpSzOqy0bb+J/e3AXquyqb/SXK8sHPTizJ/kAmV92A4nLDq
-	 ae6Y1Zh4WOIiJhp57r+8PDBjDSmX7HT9p3ZEvBS0cGnQidsgGTZc5QYsvCsrWKL472bKU
-	 f2w+kPETWUS2uqNTqwg1lvp/384L5vDZcUaByL7DVB4I2JLt3rsrNIo5ih6ejFXgBsabd
-	 9zd5sPvI+H1vKPgI97eNT72MxAGqaiZH8I2/6c0EMF8u1EDjH7xV3NiSdjuVvTy9l2XmR
-	 8ogcBm4+BXnYNEDCKQLAeGlN1TsU0LOWzQkLrScLsReoQGgcEsB5m8IgyJ415b3CPRQ==
+	t=1795793527;
+	b=wNgXzt8PK3lxsWAh7umfFUd3ErIL9rzZiux+af79+R9JD+SP4MxvlMVpqzrV0Rhheahr
+	 TzLSLfLcYdcC0ZFvgxH7tBwXzaCb9iv9jB8N+R9swjUH7sQNSN1dmmq8wbu2j/lm4n5b4
+	 KvZ56TDVn9Yp1fAc18Zs4ntr3RiVRo5V7/q0dVuzDXvAwCud15eYRYe+dciklWW3y7ixO
+	 uek7rbFLEfl2eKHBB6gvlqo0NDSyNjJudIgbWCQMhbU3puy6piF7ktH8SvXyU89JMh6zO
+	 gQ/GwNc8/Vm6IWQ1lYxlw8CQa1IUHpKe301KSmDKR5PTx2yTtzrS8dZn38ebulgz4JQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795793477;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=AiKgiR/T4qeQ5YDnuOshjx2CZduMAwFjjmKloTtaWZE=;
-	b=exHRpXDAmDQNtCsMCfRVfyFI/KAN1jQNJkf5iDuzjP0a1SYlxTz/LdwrNwKrCgoS2IiA
-	 iaIXZ6565/CLsgztoXRLrk0GZw8vfMiP3W+3AxuKEumF7KdZdTWlwMAfxRcIx3MH+yBlm
-	 bEIPXklEur2uxWRGUVS2BQuqrt4zLC74ZzT/jPC9mxDRrNdXdqyqIYy86/dIMoI3Gp9Q6
-	 HnXVcpZHm9zOlXOHKQiSeUNgjU7RmgsP63kWqikbSOJg0csWdI7cOrnFhnY8X9m7JRbMG
-	 VYaWcBCbVLIbyKvKyQ9SoOKle/Wu5TmRqqXK2J4f4UN164wSBhZuJ4Wf+YaoNWz+iBQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795793527;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=9RDnkosvS/VG9gv5TnH9dYBxLUR1ZIHWYvcSLOH8qdQ=;
+	b=aeKRFfRiZ3dNwzQ8CI+8GPgits6CppYQfI7Et7V5udi1+5ma0+zjKTxSX9aDkiNq622r
+	 rCVC/TfNQBCdyoMJmgLucodOhMs8IVlXSBX1vLlYE88XWXQo4sfydnLkaovz6BlwpoHJ3
+	 bRvA5NQa61+7X78ndoyG4//XbQt6rA7nkif0Byzlo3eI1TsI7zr8w86O3cNPgnu3ol/vV
+	 AYQbovlMX8KQTnjoV+jO3CQiBHmNYuh5ZNYOHDPFmMZs137ih1403u1pJPgkLpUcMRgI3
+	 W1kg4lNSinAFfOHdc8+cJtGdd3c8DluWT0Xh63yh1FahgJ/sTVeas08UAmJhFCWM1lA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="b/bxmaPz";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jbPn31L4;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DBDF606A321;
-	Fri, 27 Nov 2026 15:31:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EB7F606A31C;
+	Fri, 27 Nov 2026 15:32:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b/bxmaPz
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 942CD1F0089F;
-	Fri, 27 Nov 2026 15:31:16 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jbPn31L4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 637C51F00932;
+	Fri, 27 Nov 2026 15:32:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795793477;
-	bh=AiKgiR/T4qeQ5YDnuOshjx2CZduMAwFjjmKloTtaWZE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=b/bxmaPzPalF4fWgf3uVw3MTeg+rguOh01GZtKw7oI6ojWL6/CEY5l93aX1+7IQjO
-	 iTNClzh1X/9MdlVCEF913BQ9Du/xnbvst6YmGtr+bPEuTuN3z8I37wQ9hfI3Ggd4Ry
-	 khqlNXFbURegBYYm5rPprF5JHGyLffngpRuaeZ7a4g0R+h6khPN6XOlcYG0SiqA5cR
-	 93gIU2oyYk/1XGtybQwV7NTXOavW1gPadA0NVS/2t7Vbz8gEb67l/M1gGM1pKFObOg
-	 TmxxJyf1nbyB3nY3GwZNLb6gXNVxDI9IaH2W+GbQ3cN2I4xu/P1x54iin77ERkctdX
-	 gvBy2GT9vwLRA==
-Date: Fri, 27 Nov 2026 17:31:13 +0200
-From: Leon Romanovsky <leon@kernel.org>
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: iommu@lists.linux.dev, linux-media@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Sibi Sankar <sibi.sankar@oss.qualcomm.com>,
-	Honglei Huang <honghuan@amd.com>, prakash.gupta@oss.qualcomm.com,
-	Alex Williamson <alex@shazbot.org>,
-	Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
-	Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>,
-	Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Bryan O'Donoghue <bod@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH 4/4] iommu/dma: restore flush queue use in
- dma_iova_destroy()
-Message-ID: <20261127153113.GB774860@unreal>
-References: <20261127115849.2780625-1-m.szyprowski@samsung.com>
- <CGME20261127115903eucas1p27ccc4cddb7f705d6afa5c2603597b97a@eucas1p2.samsung.com>
- <20261127115849.2780625-5-m.szyprowski@samsung.com>
+	s=k20260515; t=1795793527;
+	bh=9RDnkosvS/VG9gv5TnH9dYBxLUR1ZIHWYvcSLOH8qdQ=;
+	h=From:To:Cc:Subject:Date;
+	b=jbPn31L4uj8I28oPIA8sQRMmPiqajwLaP4uxWM9+lluWhNjTJefqsB0RQtnQ9lJAP
+	 43shSSbjY4X043opZEKvQr4GVOBCsgSdpfMXUP8RWWovxvPR+Sei3ffXq7WJnOaTBu
+	 GwgIBNW/P0KQ7l64X8HfIe9vBl+TeBjk+WM5ac1bMDnA0Mi1lE9awK/KqDmr7/E9uL
+	 EoGhfFge4zrCLH7WchAKtG15UJelE5Tgx8LMiwofINFJyfiHo+7K+bketlhm70NuJe
+	 yzlw3rtJG8kw65nmL09vHGyI5alA9VzRPq7uF0d9CinRzcS7Dr09lbXKZhLY9ufaGA
+	 iZoJ89cEq4ECg==
+From: Lee Jones <lee@kernel.org>
+To: lee@kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>,
+	Anton Vorontsov <avorontsov@ru.mvista.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Boris Brezillon <bbrezillon@kernel.org>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Chris Boot <bootc@bootc.net>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Dhruva Gole <d-gole@ti.com>,
+	Felix Gu <ustc.gu@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Foon Tan <lftan@altera.com>,
+	Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Gabor Juhos <juhosg@openwrt.org>,
+	Giulio Benetti <giulio.benetti@benettiengineering.com>,
+	Graham Moore <grmoore@opensource.altera.com>,
+	Grant Likely <grant.likely@secretlab.ca>,
+	Han Xu <han.xu@nxp.com>,
+	imx@lists.linux.dev,
+	Jayshri Pawar <jpawar@cadence.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Johan Hovold <johan@kernel.org>,
+	Johannes Thumshirn <jth@kernel.org>,
+	Konrad Kociolek <konrad@cadence.com>,
+	Linus Walleij <linusw@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-spi@vger.kernel.org,
+	Mark Brown <broonie@kernel.org>,
+	Murugan R <vadivel.muruganx.ramuthevar@intel.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Parshuram Thombare <pthombar@cadence.com>,
+	Pratyush Yadav <p.yadav@ti.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Suresh Gupta <suresh.gupta@nxp.com>,
+	Tomoya MORINAGA <tomoya.rohm@gmail.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Witold Sadowski <wsadowski@marvell.com>,
+	Yogesh Gaur <yogeshnarayan.gaur@nxp.com>
+Subject: [PATCH v2 00/10] spi: Fix DMA, bounds, clock, and chip-select bugs
+Date: Fri, 27 Nov 2026 15:31:03 +0000
+Message-ID: <20261127153158.2969573-1-lee@kernel.org>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,81 +95,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261127115849.2780625-5-m.szyprowski@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 27, 2026 at 12:58:48PM +0100, Marek Szyprowski wrote:
-> Commit 1acce29926d9 ("iommu/dma: simplify dma_iova_destroy() and drop
-> the free_iova helper") turned dma_iova_destroy() into dma_iova_unlink()
-> followed by dma_iova_free(). Before it, the destroy path marked its
-> IOTLB gather as queued for DMA-FQ domains, skipped iommu_iotlb_sync()
-> and handed the IOVA over to the flush queue, exactly like
-> __iommu_dma_unmap(). After it:
-> 
->   - dma_iova_unlink() never queues its gather and always calls
->     iommu_iotlb_sync() after iommu_unmap_fast(),
->   - dma_iova_free() passes a NULL gather to iommu_dma_free_iova(), so
->     the IOVA goes straight back to the allocator via free_iova_fast().
-> 
-> DMA-FQ domains therefore get strict invalidation on this path. This
-> includes blk_rq_dma_map(), which NVMe uses for all data transfers, so
-> iommu.strict=0 has no effect on NVMe I/O. On a Qualcomm Glymur CRD
-> (SMMUv3 without RANGE_INV, 4K pages, NVMe on PCIe Gen5 x4) sequential
-> fio throughput drops from 10.6/11.9 GiB/s (write/read) to the strict
-> mode level of ~2.7 GiB/s.
-> 
-> Instead of reverting, decide once in dma_iova_try_alloc() whether the
-> IOVA space is going to be released through the flush queue and record
-> it in a new DMA_IOVA_USE_FQ flag in dma_iova_state::__size, next to
-> DMA_IOVA_USE_SWIOTLB, so struct dma_iova_state does not grow.
-> dma_iova_destroy() then unmaps with a gather queued according to that
-> flag, skipping the sync for flush queue domains, and passes the same
-> gather to the IOVA free, so the IOVA space (and any page table pages
-> released by the unmap) goes through queue_iova() again. dma_iova_free()
-> honours the flag as well. The whole reservation is still freed, keeping
-> the size fix of the reverted commit.
-> 
-> A gather must always be retired, either by iommu_iotlb_sync() or by
-> handing it to the flush queue together with the IOVA, and the IOVA must
-> never be returned to the allocator while a queued invalidation for it is
-> still pending. To keep that obvious, the internal unlink helper only
-> unmaps into a gather supplied by its caller, and each caller retires it
-> right away: dma_iova_destroy() syncs or queues it together with the IOVA
-> free, exactly like __iommu_dma_unmap(), while dma_iova_unlink() always
-> uses a never queued gather and syncs it, as the unlinked range remains
-> owned by the caller and may be linked again immediately.
-> 
-> Fixes: 1acce29926d9 ("iommu/dma: simplify dma_iova_destroy() and drop the free_iova helper")
-> Reported-by: Sibi Sankar <sibi.sankar@oss.qualcomm.com>
-> Closes: https://lore.kernel.org/all/20261125135120.1126571-1-sibi.sankar@oss.qualcomm.com/
-> Suggested-by: Leon Romanovsky <leon@kernel.org>
-> Cc: stable@vger.kernel.org # v7.3+
-> Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> ---
->  drivers/iommu/dma-iommu.c   | 103 ++++++++++++++++++++++++++----------
->  include/linux/dma-mapping.h |   8 ++-
->  2 files changed, 83 insertions(+), 28 deletions(-)
+These issues were reported by Sashiko.
 
-<...>
+This v2 series addresses Theo Lebrun's review feedback on
+cadence-quadspi (patch 06) and rebases onto spi/for-next.
 
->  /*
->   * All flags stored in the upper bits of dma_iova_state::__size. Sizes passed
->   * to dma_iova_try_alloc() must not overlap with them.
->   */
-> -#define DMA_IOVA_FLAGS			DMA_IOVA_USE_SWIOTLB
-> +#define DMA_IOVA_FLAGS			(DMA_IOVA_USE_SWIOTLB | DMA_IOVA_USE_FQ)
+v1 => v2:
+ - Rebase onto spi/for-next.
+ - Reject num-cs values exceeding CQSPI_MAX_CHIPSELECT in cqspi_of_get_pdata(), store cs as u32, simplify the commit message, and drop the stable tag in patch 06, per Theo Lebrun's review.
 
-We need to be careful here. Every bit reduces the IOVA space available to
-everyone. It is only a matter of time before someone complains that __size
-is too small for their use case. This extra bit is probably not an issue,
-but that could change if we keep adding bits to DMA_IOVA_FLAGS.
+Cc: "Théo Lebrun" <theo.lebrun@bootlin.com>
+Cc: Anton Vorontsov <avorontsov@ru.mvista.com>
+Cc: Baolin Wang <baolin.wang@linux.alibaba.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Boris Brezillon <bbrezillon@kernel.org>
+Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: Chris Boot <bootc@bootc.net>
+Cc: Chunyan Zhang <zhang.lyra@gmail.com>
+Cc: Dhruva Gole <d-gole@ti.com>
+Cc: Felix Gu <ustc.gu@gmail.com>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Foon Tan <lftan@altera.com>
+Cc: Frieder Schrempf <frieder.schrempf@kontron.de>
+Cc: Gabor Juhos <juhosg@openwrt.org>
+Cc: Giulio Benetti <giulio.benetti@benettiengineering.com>
+Cc: Graham Moore <grmoore@opensource.altera.com>
+Cc: Grant Likely <grant.likely@secretlab.ca>
+Cc: Han Xu <han.xu@nxp.com>
+Cc: imx@lists.linux.dev
+Cc: Jayshri Pawar <jpawar@cadence.com>
+Cc: Jisheng Zhang <jszhang@kernel.org>
+Cc: Johan Hovold <johan@kernel.org>
+Cc: Johannes Thumshirn <jth@kernel.org>
+Cc: Konrad Kociolek <konrad@cadence.com>
+Cc: Linus Walleij <linusw@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-rpi-kernel@lists.infradead.org
+Cc: linux-spi@vger.kernel.org
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Murugan R <vadivel.muruganx.ramuthevar@intel.com>
+Cc: Orson Zhai <orsonzhai@gmail.com>
+Cc: Parshuram Thombare <pthombar@cadence.com>
+Cc: Pratyush Yadav <p.yadav@ti.com>
+Cc: Ray Jui <rjui@broadcom.com>
+Cc: Scott Branden <sbranden@broadcom.com>
+Cc: Suresh Gupta <suresh.gupta@nxp.com>
+Cc: Tomoya MORINAGA <tomoya.rohm@gmail.com>
+Cc: Vignesh Raghavendra <vigneshr@ti.com>
+Cc: Witold Sadowski <wsadowski@marvell.com>
+Cc: Yogesh Gaur <yogeshnarayan.gaur@nxp.com>
 
-Thanks
+Lee Jones (10):
+  spi: fsl-cpm: Map the zero page's address, not its struct page
+  spi: bcm2835: Store native chip-select GPIO descriptor per device
+  spi: ch341: Limit transfers to the hardware packet size
+  spi: sprd-adi: Do not copy uninitialised data to rx_buf on read
+    failure
+  spi: topcliff-pch: Advance tx_buf between DMA chunks
+  spi: cadence-quadspi: Validate num-cs against CQSPI_MAX_CHIPSELECT
+  spi: cadence-xspi: Zero the tail word in m_iowriteq()
+  spi: fsl-qspi: Propagate clock errors from fsl_qspi_select_mem()
+  spi: cadence-xspi: Advance tx pointer between Marvell b0 chunks
+  spi: cadence-xspi: Skip tail read for qword-aligned Marvell b0
+    receives
 
->  
->  static inline size_t dma_iova_size(struct dma_iova_state *state)
->  {
-> -- 
-> 2.43.0
-> 
+ drivers/spi/spi-bcm2835.c         | 18 +++++++++---------
+ drivers/spi/spi-cadence-quadspi.c | 12 +++++++++---
+ drivers/spi/spi-cadence-xspi.c    |  8 ++++++--
+ drivers/spi/spi-ch341.c           |  6 ++++++
+ drivers/spi/spi-fsl-cpm.c         |  3 ++-
+ drivers/spi/spi-fsl-qspi.c        | 26 +++++++++++++++++---------
+ drivers/spi/spi-sprd-adi.c        |  3 ++-
+ drivers/spi/spi-topcliff-pch.c    |  5 +++++
+ 8 files changed, 56 insertions(+), 25 deletions(-)
+
+-- 
+2.56.1.839.g22a8290db9-goog
+
