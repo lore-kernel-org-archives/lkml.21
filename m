@@ -1,47 +1,122 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795775102;
-	b=rtgjV+bX86O5U+fJ57D3Aord9KVpx6QYumfMqoakqli83EpuFVV64OD+gA7FMgKTU6Hu
-	 z1ZnI+zDxhkGbX2tmJA+NS8vTlzMOcxJjCHy33dMwoykT3P89qYfsFQ3oU2jSmQf76SEY
-	 pxuFTKQ/T5Y5w5aqc6LWX0ZB5RFzxjrOK5GCKh1fq9yREvxq1s1GPmRwd6McoUqTig1xh
-	 LGutYgVkKWcRrKDcKJdyx+VUhL7FFfi1CnBKzdpzts0aOnOx84+im8pmkxrnpJDIF2a4X
-	 LTocO05qrCnnKsx1m/0aMzi6CZAy9EkRoXmNlzyAirSIcx5sYgjvRlimrP2RhY/Fk5g==
+	t=1795775121;
+	b=Pxwtl7LxnfOTlht6tp7qN26nG/8c5BveOULZemidx8rkc8lRjTbxwEzNKcdesd5YQqfP
+	 Je0pOZIuSa33dGwxZVDzKD2gB0jUS95YF8NuHFHCj/EqiZjcFcwJQ6OQdUxHiv96N1mt+
+	 +1eZYOsgsauj9/o7ni+sjGhbMqjNuZx6C36sLsOmhUFaQ5SVObSteUlyJgeWHHNKrrMyd
+	 6jT6kjU6gKuH8DuZE5DW9yunBmsuKYmypY5u04Nayyq18I1AM+kniBrqeCwJkUT2apAdm
+	 P1/SMHTCsQS37b0GspmUFu5gsFyIBlu6d6Ujq7NgNryilltau/OZjfnEqT81+hgYgmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795775102;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=osc6Le5e4xpAnnXdYlkTJopbY6b6us6Q1tqpgew+zvQ=;
-	b=eJN8+VPyY7LkvvT2j6Nwj5yu5dbCFKUZ3CeZrjwhk7E1NuKPCJLhDgTJ3NOJCUpAS2MG
-	 2q2OrSoG4uqUXAsOpnWc3VhmNiKCnQc6UNhMepO3/UeHAuT17Lo1eqRvEPSJeMshVbg9A
-	 gmOLzno1qJtgbo/j6Lf3WJR0AGkYyJzYzEaMIhByE6w0Djn+uS8EhPYJKkhNZxFs5J2G3
-	 LhUUwK6sBMiNoJiHnI7k3O+dhyk8CE0LnmDcaVCk//HwrhafFXPp7I0Amj73+Neuc26c4
-	 nC7Myt+9FwUWgqbaKqcwPsbJ6/sXrdl05tyGI9SYUXBfWtHP5iyJMkqd0PiXYLgbBWQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795775121;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding;
+	bh=mc1ssleJtu8B4w1hoFLbQA3D7PDsqJA2CqNZTg9L5j8=;
+	b=fXdOZ34jjb3LcAES89riO9N1g18AYVnVH0t0J6pQQAMA2xJtzWDva4Gt+1mRJPOaJof6
+	 X29v/huv1sN/eNpcLF9cqVxrBEersZG9y2NzuOr1ByNek+rPe7TUqFqjmoQIt5kBBPmQK
+	 +Zouu574n14wiT2aPMiYrkzVACLxk6b8XV4I7189j9roajriVRdFlgAgtBtzuGdjdzTUG
+	 1xmLFEYiT1tUDEFbj9qaOhuZk4xjpJrLZ8xnasCbvXtvvgQIcr/X7RYs26ul2o/qnzokD
+	 JkpW0wSMik8GdgffzD5/trL0AYkBpz/ai8SmNdBrFHgO7CtaI24YVzokXD7Ldvs+E/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a2X1rn05;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x09ARc4d;
+	arc=none smtp.remote-ip=209.85.221.41
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65281606A31E;
-	Fri, 27 Nov 2026 10:25:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2409C606A323
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:25:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2409C606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a2X1rn05
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 860601F00893;
-	Fri, 27 Nov 2026 10:24:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795775102;
-	bh=osc6Le5e4xpAnnXdYlkTJopbY6b6us6Q1tqpgew+zvQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=a2X1rn05e+hkfFVi6MZe80aRyuiWXxUE//5I2oxdL0kR+rOgtmKrgCWw2YsNFUPxv
-	 kJKjWHASNNr0ohYavbxG6DtUwkRbtBEMnUzxMnf1vIKz1zWYkYlCYFRsu6A53uO3uj
-	 0mgXAjeCdh6s/OBxsn9Hd8ymOzJOby+VtoHp/m0dAXMsHMKacTBtgnhlsWt9RxzbUk
-	 g5Ycui0Y6FOrRUquVRhle1ZljGHKEyMvcb54TE+ZOyBsulcsQEMV2MCD6r9TKn8XIg
-	 rCUUp6r3qVs2CvmjL/UII7M/aQljguDe3i42rABJBGfOl7uWjakJxEJCHR0Q38H8ln
-	 /geuqMmP+gR4Q==
-Message-ID: <8707e3b0-c948-44ea-8afc-d33387925173@kernel.org>
-Date: Fri, 27 Nov 2026 11:24:55 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x09ARc4d
+Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-4a358881793so4168823f8f.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:25:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795775118; x=1796379918; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-disposition:content-type
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=mc1ssleJtu8B4w1hoFLbQA3D7PDsqJA2CqNZTg9L5j8=;
+        b=x09ARc4dEpbJm2mw7dehBgq9g96PhoPVNTPqm4UD33OmEymvTsufK1J1uPavmbfPtA
+         rUq6fAuPFFbqdQ501QYMXs1zbEIDRiDc7tri26DGtc7DjCz8Janyr3Sx7YkdowuhuUUD
+         sKPc/vENG2m10Xnm+AV3xnnhmFIxKdNGJfLAkAfrXiLDWxurH13O8/k86ItsQ0UDml9Q
+         gtSvv0GygLETgFftQy5kgeITPPKnYnUvh4dvigy7DwaSTW/e0Q5q7t6XNJMIKP1xqNDf
+         4WCy61wHyRLMulgLTzEpQZN5fBXV+2SnDtOBvTbgzRKOJb9U0TiEE5UltZluYRibOluc
+         ptJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795775118; x=1796379918;
+        h=content-transfer-encoding:content-disposition:content-type
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=mc1ssleJtu8B4w1hoFLbQA3D7PDsqJA2CqNZTg9L5j8=;
+        b=HWg4cXVNdovDlbZOEMKSUKVCvn98vwEk/eTIqk8eHKHJ9dZvMpdSm9veETdCtdoUyt
+         U6mgp3DqBqMaKZYZ89GG4y/X8RTSztW6OHkxhXJDO2EbOR8c/DsjighuR0GdAJum6a0o
+         3BxbhC53j+S/DrO1y9xq19U2AmVcAe2lBWkLO0sMYW646+8rHsNXllHrhL2KhZwKh1J9
+         xA+bYnLaVCkyUUOlLo6OJYE1xe9IWRyICVHLeHPlo5zxTjMSJXUckqe77edqoGIe7P2y
+         xdwQY88Z6gy39NDx/r7LMAKYbmd7tTD7tXbU8Mr7paboyWIkV9VQljremK/1fhzIFW6F
+         6Q6g==
+X-Forwarded-Encrypted: i=1; AL+hErHyRVMqUZMX69AeZzwmyDSUYHkmNlcwdwNyJXGVDE039nb5A9zzANTpGjUEpYBUicloruZytkU8rlDMtp4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+1Mn4K+2KJGw9fTY9jowESv31OlM2/MF/ft64QNrjnsYWAKh0t
+	SvoaPsSQnh0SzwS8KGJiYJD20MF2In9YUSOLsf/5irJVDo3GU+s0Z029
+X-Gm-Gg: AZFdTZd7lUXykFDem06od+/NuONtmfKyII9aVlnepbNIXj6QbzhsicTAyhjrqAnl45i
+	TA2unhBN9Z5am+Sg8XMQI99cknUYfh6X0S+I18QNuKqv0rL0rglj8XJPKY147iBFmIqjPgqq9yd
+	beC+P5U4oqI3PgDeToCryKebiv0jYWbqjmP/RqXfwslVHOmw8kp51AZo/t1A7YhRii8knuIKtyW
+	MTenP7T3UuGXrEz66Umq2ycOU2zueCvbLygO0AyYmWPNquXgqN+MrxXd/MgBjLkNesNyjLh+ApH
+	udlsPzZ7P39FFx3JXmAPkD8ZNoL0pybKl2fQX1LfieXF/yzr2nGyu2JA+EmqXFtA2NXuakAVcOg
+	YkVQOa5oHqzW+pG9uNQmCdsmvVZHg1Ui/pdcEIcLCa/uJaN422kVjP4qvkLr1IKIpHkbtq7se1/
+	BLqcDCvmx40L4zU1hYcgBrpXKUlfJj7URJTWACpylWCvwTdbrxEC0uoeuN05bSc3x9QbHS7XmnK
+	9ico/hfK/Df4DAnEoxhQAN8CCQu9FohdGFuW1+LjX3u8UZtmiinc2ailF4Sf3aTyN5MnkuVN0x0
+	nhpqnSQ3mukeNc7KN1XgumilimCKN+0=
+X-Received: by 2002:a5d:6f13:0:b0:4a7:a7d2:eb45 with SMTP id ffacd0b85a97d-4abb6d04777mr42212072f8f.44.1795775118151;
+        Fri, 27 Nov 2026 02:25:18 -0800 (PST)
+Received: from ArchOarora ([95.179.249.152])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b2052c8sm46450608f8f.41.2026.11.27.02.25.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 02:25:17 -0800 (PST)
+From: Oarora Etimis <oaroraetimis@gmail.com>
+To: Louis Chauvet <louis.chauvet@bootlin.com>
+Cc: Haneen Mohammed <hamohammed.sa@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Melissa Wen <melissa.srw@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	jose.exposito89@gmail.com,
+	Jonathan Corbet <corbet@lwn.net>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Lucas De Marchi <demarchi@kernel.org>,
+	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	sebastian.wick@redhat.com,
+	victoria@system76.com,
+	thomas.petazzoni@bootlin.com,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v7 12/43] drm/vkms: Add KUnit test for device lifecycle
+Date: Fri, 27 Nov 2026 11:24:57 +0100
+Message-ID: <awlZ_hnb32taepmt@Oarora>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261126-vkms-all-config-v7-12-21194cda2468@bootlin.com>
+References: <20261126-vkms-all-config-v7-0-21194cda2468@bootlin.com> <20261126-vkms-all-config-v7-12-21194cda2468@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,88 +126,371 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH net-next 0/5] lisp: add a LISP (RFC 9300) tunnel device
-Content-Language: fr
-To: Vincent Jardin <vjardin@free.fr>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Donald Hunter <donald.hunter@gmail.com>,
- Nicolas Dichtel <nicolas.dichtel@6wind.com>, Simon Horman
- <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Shuah Khan <shuah@kernel.org>,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-References: <20261126-for-upstream-lisp-v1-v1-0-7382a4bcfd9b@free.fr>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- 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
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <20261126-for-upstream-lisp-v1-v1-0-7382a4bcfd9b@free.fr>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 
-Hi Vincent,
+On Thu, Nov 26, 2026 at 12:28:55PM +0100, Louis Chauvet wrote:
+> The configuration objects are now reference-counted and their lifetime is
+> driven by explicit get/put calls. Add tests aiming to spot UAF and leaks
+> using KASAN.
+> 
+> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+> ---
+>  drivers/gpu/drm/vkms/tests/.kunitconfig          |  10 +
+>  drivers/gpu/drm/vkms/tests/Makefile              |   3 +-
+>  drivers/gpu/drm/vkms/tests/vkms_lifecycle_test.c | 280 +++++++++++++++++++++++
+>  drivers/gpu/drm/vkms/vkms_drv.c                  |   3 +
+>  4 files changed, 295 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/gpu/drm/vkms/tests/.kunitconfig b/drivers/gpu/drm/vkms/tests/.kunitconfig
+> index 6a2d87068edc..c9752bde8487 100644
+> --- a/drivers/gpu/drm/vkms/tests/.kunitconfig
+> +++ b/drivers/gpu/drm/vkms/tests/.kunitconfig
+> @@ -2,3 +2,13 @@ CONFIG_KUNIT=y
+>  CONFIG_DRM=y
+>  CONFIG_DRM_VKMS=y
+>  CONFIG_DRM_VKMS_KUNIT_TEST=y
+> +CONFIG_KASAN=y
+> +CONFIG_KASAN_INLINE=y
+> +CONFIG_KASAN_VMALLOC=y
+> +CONFIG_KUNIT_ALL_TESTS=n
+> +CONFIG_DEBUG_KERNEL=y
+> +CONFIG_DEBUG_KMEMLEAK=y
+> +CONFIG_DEBUG_OBJECTS=y
+> +CONFIG_DEBUG_OBJECTS_FREE=y
+> +CONFIG_DEBUG_OBJECTS_TIMERS=y
+> +CONFIG_PAGE_POISONING=y
+> diff --git a/drivers/gpu/drm/vkms/tests/Makefile b/drivers/gpu/drm/vkms/tests/Makefile
+> index d4d9ba8d4c54..a7810a12c9c8 100644
+> --- a/drivers/gpu/drm/vkms/tests/Makefile
+> +++ b/drivers/gpu/drm/vkms/tests/Makefile
+> @@ -3,6 +3,7 @@
+>  vkms-kunit-tests-y := \
+>  	vkms_config_test.o \
+>  	vkms_format_test.o \
+> -	vkms_color_test.o
+> +	vkms_color_test.o \
+> +	vkms_lifecycle_test.o \
+>  
+>  obj-$(CONFIG_DRM_VKMS_KUNIT_TEST) += vkms-kunit-tests.o
+> diff --git a/drivers/gpu/drm/vkms/tests/vkms_lifecycle_test.c b/drivers/gpu/drm/vkms/tests/vkms_lifecycle_test.c
+> new file mode 100644
+> index 000000000000..7f7b31368710
+> --- /dev/null
+> +++ b/drivers/gpu/drm/vkms/tests/vkms_lifecycle_test.c
+> @@ -0,0 +1,280 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +
+> +#include <kunit/test.h>
+> +#include <linux/string.h>
+> +
+> +#include "../vkms_config.h"
+> +#include "../vkms_drv.h"
+> +
+> +MODULE_IMPORT_NS("EXPORTED_FOR_KUNIT_TESTING");
+> +
+> +#define LIFECYCLE_ITERATIONS 50
+> +#define STRESS_ITERATIONS    500
+> +
+> +/*
+> + * vkms_init() may already have registered a device named DEFAULT_DEVICE_NAME,
+> + * so give each test configuration its own name: vkms_create() fails with
+> + * -EEXIST otherwise.
+> + */
+> +static void vkms_lifecycle_test_set_unique_name(struct kunit *test,
+> +						struct vkms_config *config,
+> +						const char *name)
+> +{
+> +	const char *new_name = kstrdup_const(name, GFP_KERNEL);
+> +
+> +	KUNIT_ASSERT_NOT_NULL(test, new_name);
+> +	kfree_const(config->dev_name);
+> +	config->dev_name = new_name;
+> +}
+> +
+> +static void vkms_lifecycle_test_create_destroy_default(struct kunit *test)
+> +{
+> +	struct vkms_config *config;
+> +	int ret, i;
+> +
+> +	for (i = 0; i < LIFECYCLE_ITERATIONS; i++) {
+> +		config = vkms_config_default_create(true, true, false, false);
+> +		KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
+> +		vkms_lifecycle_test_set_unique_name(test, config, test->name);
+> +
+> +		ret = vkms_create(config);
+> +		KUNIT_ASSERT_EQ(test, ret, 0);
+> +
+> +		vkms_destroy(config);
+> +		vkms_config_destroy(config);
+> +	}
+> +}
+> +
+> +static void vkms_lifecycle_test_create_destroy_with_overlay(struct kunit *test)
+> +{
+> +	struct vkms_config *config;
+> +	int ret, i;
+> +
+> +	for (i = 0; i < LIFECYCLE_ITERATIONS; i++) {
+> +		config = vkms_config_default_create(true, true, true, false);
+> +		KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
+> +		vkms_lifecycle_test_set_unique_name(test, config, test->name);
+> +
+> +		ret = vkms_create(config);
+> +		KUNIT_ASSERT_EQ(test, ret, 0);
+> +
+> +		vkms_destroy(config);
+> +		vkms_config_destroy(config);
+> +	}
+> +}
+> +
+> +static void vkms_lifecycle_test_create_destroy_with_pipeline(struct kunit *test)
+> +{
+> +	struct vkms_config *config;
+> +	int ret, i;
+> +
+> +	for (i = 0; i < LIFECYCLE_ITERATIONS; i++) {
+> +		config = vkms_config_default_create(true, true, true, true);
+> +		KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
+> +		vkms_lifecycle_test_set_unique_name(test, config, test->name);
+> +
+> +		ret = vkms_create(config);
+> +		KUNIT_ASSERT_EQ(test, ret, 0);
+> +
+> +		vkms_destroy(config);
+> +		vkms_config_destroy(config);
+> +	}
+> +}
+> +
+> +static void vkms_lifecycle_test_create_destroy_minimal(struct kunit *test)
+> +{
+> +	struct vkms_config *config;
+> +	int ret, i;
+> +
+> +	for (i = 0; i < LIFECYCLE_ITERATIONS; i++) {
+> +		config = vkms_config_default_create(false, false, false, false);
+> +		KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
+> +		vkms_lifecycle_test_set_unique_name(test, config, test->name);
+> +
+> +		ret = vkms_create(config);
+> +		KUNIT_ASSERT_EQ(test, ret, 0);
+> +
+> +		vkms_destroy(config);
+> +		vkms_config_destroy(config);
+> +	}
+> +}
+> +
+> +static void vkms_lifecycle_test_create_destroy_writeback(struct kunit *test)
+> +{
+> +	struct vkms_config *config;
+> +	int ret, i;
+> +
+> +	for (i = 0; i < LIFECYCLE_ITERATIONS; i++) {
+> +		config = vkms_config_default_create(false, true, false, false);
+> +		KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
+> +		vkms_lifecycle_test_set_unique_name(test, config, test->name);
+> +
+> +		ret = vkms_create(config);
+> +		KUNIT_ASSERT_EQ(test, ret, 0);
+> +
+> +		vkms_destroy(config);
+> +		vkms_config_destroy(config);
+> +	}
+> +}
+> +
+> +static void vkms_lifecycle_test_stress_many_cycles(struct kunit *test)
+> +{
+> +	struct vkms_config *config;
+> +	int ret, i;
+> +
+> +	for (i = 0; i < STRESS_ITERATIONS; i++) {
+> +		config = vkms_config_default_create(true, true, true, false);
+> +		KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
+> +		vkms_lifecycle_test_set_unique_name(test, config, test->name);
+> +
+> +		ret = vkms_create(config);
+> +		KUNIT_ASSERT_EQ(test, ret, 0);
+> +
+> +		vkms_destroy(config);
+> +		vkms_config_destroy(config);
+> +	}
+> +}
+> +
+> +static void vkms_lifecycle_test_interleaved_create_destroy(struct kunit *test)
+> +{
+> +	struct vkms_config *configs[5];
+> +	char name[64];
+> +	int ret, i, j;
+> +
+> +	for (j = 0; j < 20; j++) {
+> +		for (i = 0; i < 5; i++) {
+> +			configs[i] = vkms_config_default_create(i & 1, i & 2, i & 4, false);
+> +			KUNIT_ASSERT_NOT_ERR_OR_NULL(test, configs[i]);
+> +
+> +			snprintf(name, sizeof(name), "%s-%d", test->name, i);
+> +			vkms_lifecycle_test_set_unique_name(test, configs[i], name);
+> +
+> +			ret = vkms_create(configs[i]);
+> +			KUNIT_ASSERT_EQ(test, ret, 0);
+> +		}
+> +
+> +		for (i = 4; i >= 0; i--) {
+> +			vkms_destroy(configs[i]);
+> +			vkms_config_destroy(configs[i]);
+> +		}
+> +	}
+> +}
+> +
+> +static void vkms_lifecycle_test_destroy_uncreated_device(struct kunit *test)
+> +{
+> +	struct vkms_config *config;
+> +
+> +	config = vkms_config_default_create(true, true, false, false);
+> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
+> +
+> +	KUNIT_ASSERT_NULL(test, config->dev);
+> +
+> +	vkms_config_destroy(config);
+> +}
+> +
+> +static void vkms_lifecycle_test_double_destroy(struct kunit *test)
+> +{
+> +	struct vkms_config *config;
+> +	int ret;
+> +
+> +	config = vkms_config_default_create(true, true, false, false);
+> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
+> +	vkms_lifecycle_test_set_unique_name(test, config, test->name);
+> +
+> +	ret = vkms_create(config);
+> +	KUNIT_ASSERT_EQ(test, ret, 0);
+> +
+> +	vkms_destroy(config);
+> +	KUNIT_ASSERT_NULL(test, config->dev);
+> +
+> +	vkms_config_destroy(config);
+> +}
+> +
+> +static void vkms_lifecycle_test_create_after_destroy(struct kunit *test)
+> +{
+> +	struct vkms_config *config;
+> +	int ret, i;
+> +
+> +	for (i = 0; i < 20; i++) {
+> +		config = vkms_config_default_create(true, true, false, false);
+> +		KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
+> +		vkms_lifecycle_test_set_unique_name(test, config, test->name);
+> +
+> +		ret = vkms_create(config);
+> +		KUNIT_ASSERT_EQ(test, ret, 0);
+> +
+> +		vkms_destroy(config);
+> +
+> +		ret = vkms_create(config);
+> +		KUNIT_ASSERT_EQ(test, ret, 0);
+> +
+> +		vkms_destroy(config);
+> +		vkms_config_destroy(config);
+> +	}
+> +}
+> +
+> +static void vkms_lifecycle_test_connector_ref_outlives_config(struct kunit *test)
+> +{
+> +	struct vkms_config_connector *connector_cfg;
+> +	struct vkms_config *config;
+> +
+> +	config = vkms_config_default_create(false, false, false, false);
+> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
+> +	KUNIT_ASSERT_FALSE(test, list_empty(&config->connectors));
+> +
+> +	connector_cfg = list_first_entry(&config->connectors,
+> +					 struct vkms_config_connector, link);
+> +
+> +	/* Simulate the rmdir while DRM hold the device */
+> +	vkms_config_connector_get(connector_cfg);
+> +	vkms_config_destroy_connector(connector_cfg);
+> +	vkms_config_destroy(config);
+> +
+> +	/* The connector must survive, detached from the configuration. */
+> +	KUNIT_EXPECT_EQ(test, kref_read(&connector_cfg->refcnt), 1);
+> +	KUNIT_EXPECT_TRUE(test, connector_cfg->unlinked);
+> +
+> +	/* Last reference: connector and configuration are freed here. */
+> +	vkms_config_connector_put(connector_cfg);
+> +}
+> +
+> +static void vkms_lifecycle_test_connector_static_drmm_release(struct kunit *test)
+> +{
+> +	struct vkms_config *config;
+> +
+> +	config = vkms_config_default_create(true, true, false, false);
+> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
+> +	vkms_lifecycle_test_set_unique_name(test, config, test->name);
+> +
+> +	KUNIT_ASSERT_EQ(test, vkms_create(config), 0);
+> +
+> +	/* vkms_destroy() runs the drmm action, which frees and detaches the connector. */
+> +	vkms_destroy(config);
+> +	vkms_config_destroy(config);
+> +}
+> +
+> +static struct kunit_case vkms_lifecycle_test_cases[] = {
+> +	KUNIT_CASE(vkms_lifecycle_test_create_destroy_default),
+> +	KUNIT_CASE(vkms_lifecycle_test_create_destroy_with_overlay),
+> +	KUNIT_CASE(vkms_lifecycle_test_create_destroy_with_pipeline),
+> +	KUNIT_CASE(vkms_lifecycle_test_create_destroy_minimal),
+> +	KUNIT_CASE(vkms_lifecycle_test_create_destroy_writeback),
+> +	KUNIT_CASE(vkms_lifecycle_test_stress_many_cycles),
+> +	KUNIT_CASE(vkms_lifecycle_test_interleaved_create_destroy),
+> +	KUNIT_CASE(vkms_lifecycle_test_destroy_uncreated_device),
+> +	KUNIT_CASE(vkms_lifecycle_test_double_destroy),
+> +	KUNIT_CASE(vkms_lifecycle_test_create_after_destroy),
+> +	KUNIT_CASE(vkms_lifecycle_test_connector_ref_outlives_config),
+> +	KUNIT_CASE(vkms_lifecycle_test_connector_static_drmm_release),
+> +	{}
+> +};
+> +
+> +static struct kunit_suite vkms_lifecycle_test_suite = {
+> +	.name = "vkms-lifecycle",
+> +	.test_cases = vkms_lifecycle_test_cases,
+> +};
+> +
+> +kunit_test_suite(vkms_lifecycle_test_suite);
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_DESCRIPTION("KUnit test for VKMS device lifecycle, aiming to catch UAF and memory issues");
+> diff --git a/drivers/gpu/drm/vkms/vkms_drv.c b/drivers/gpu/drm/vkms/vkms_drv.c
+> index 24572bc779b4..f73f136e5588 100644
+> --- a/drivers/gpu/drm/vkms/vkms_drv.c
+> +++ b/drivers/gpu/drm/vkms/vkms_drv.c
+> @@ -18,6 +18,7 @@
+>  #include <drm/drm_atomic.h>
+>  #include <drm/drm_atomic_helper.h>
+>  #include <drm/drm_colorop.h>
+> +#include <kunit/visibility.h>
+>  #include <drm/drm_drv.h>
+>  #include <drm/drm_fbdev_shmem.h>
+>  #include <drm/drm_file.h>
+> @@ -252,6 +253,7 @@ static int __init vkms_init(void)
+>  
+>  	return 0;
+>  }
+> +EXPORT_SYMBOL_IF_KUNIT(vkms_create);
+>  
+>  void vkms_destroy(struct vkms_config *config)
+>  {
+> @@ -271,6 +273,7 @@ void vkms_destroy(struct vkms_config *config)
+>  
+>  	config->dev = NULL;
+>  }
+> +EXPORT_SYMBOL_IF_KUNIT(vkms_destroy);
+>  
+>  static void __exit vkms_exit(void)
+>  {
+> 
+> -- 
+> 2.56.0
+> 
 
-Thank you for working on that.
-
-On 26/11/2026 22:37, Vincent Jardin wrote:
-
-(...)
-
-> The lisp link type of iproute2 comes as a separate series, for
-> iproute2-next. Tests are skipped without it. Tell me if you want
-> iproute2 series too for a simultaneous review.
-
-Do you mind sharing a branch on top of iproute2-next with these patches,
-please? (or the patches)
-
-With that, we can build an iproute2 version supporting lisp, and the CI
-can validate this series next time, instead of always marking this
-series as "Changes Requested" because some tests are marked as 'skip'.
-
-Cheers,
-Matt
+Reviewed-by: Oarora Etimis <oaroraetimis@gmail.com>
