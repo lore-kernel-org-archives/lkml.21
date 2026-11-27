@@ -1,97 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.8
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795773592;
-	b=J6+b1JFHZAnlqE8FsPQQPlpnkpNT/bGakNnpg3Ii+QzMDDAqkGn9snaBKnZ7KNljDlJp
-	 s/mBg9Q0lMuYALdb8TgmIG1+PuaKz6bSvW4ytu5+UEocO5xamzBuHqUrshE8DWhhYLsLd
-	 Wou4bV9hrgzvl+D4/RAHpbGI6RZefR61NPvkQQ0zQB8CuUm3B5Sw54zQZyl4CtnxmFirg
-	 VlSJidVCKfEv4tNoKjT79r8wN6l+5t4klJIRzxB6GCJYrQiGG/c178tOz36u7p78rMzVn
-	 jM6G0DbnDkEtjyx+AednKFgmlP6rsexD5dusA9yPyk7FlrzbKNqd6LdayOypwFZ8FeQ==
+	t=1795773589;
+	b=aqbzIhlsEHxc1mYExNBgnT7UJJe75WkVtsCI7/90/EMHLf8lRQjYaNs++cM+Q8njHlnw
+	 X1r4FOQUHeYPGc5gnuqcR4Le4LMYiQ37vwPc58uiDrxERToqwyZNS/DIgDpn0tAQ9quJR
+	 xd9FJlxeqnloLFipTt7HYIsPc3jkuxbdcJZ04BbbZQ1TknmNHOoG6tCZ24qGfMN4YPaGE
+	 wZQHneu/TDPvtCyfq+tI8Smh3n+fmq29QD0krFGZvyzrit0kc6MNS6ryB0XajnLSa4XXE
+	 x8MXtq225U8/StRc8V4LIi1ev50+HVDjSjxetQpToFcSYGOdAYw9p9IBqczmZTxahQA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795773592;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795773589;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=hTvv7qUUNUw1BVCSb7V38xhCLr5q5WG8pFcvGI869r4=;
-	b=GBiVNs9hLONOQIRONfOUuxEC0xdnXwanMLJx+/2Sy2rK+zUNGs8JNAkkAuiZ+6rKQX7J
-	 WMx/poB04YfUA8zkBRBynq/DKyOciU3vhVmgLZnNa2CmnB0XoqVvs/iAJc11rLC7xL7CQ
-	 8AwQyrx0KrXTqgSyNHd+fLiSK4X17M4SK/bzgvtuF9s3kE40WZoxe8azHFN2xLzh975kF
-	 SbAaBu6PCpJm1TW/oB/tWk5NFAr5Z7WjNMcQsqoNo9oRVLVwcQn0a0vEGjcW+8Yunyb8X
-	 5tNIawTiBI3RwX3nA4exzh8L9QH8+Lx8bmzraohVXK5+PNRyaHIykRZbUm6rKqn/ZBg==
+	bh=0nK6oALc+naSloQwr+O6Q/o/NLhG5dNIKnSetmOiKA0=;
+	b=3x6WFKgosYEPNgU0PN6PvuSaJGrq/oKEoBeipVHIaoZsoewdl8dmpK77UF5Js8ebf+Na
+	 R/kht/c37xb9a4JKZr2dYFaDcxdiDRDtMzrOlnr2BKjF8x68AsIGFTCI4NPGl3qTk0b/3
+	 yF2VR41VZPZvo55uKGGoi/MuMtm0MTSDOZoj+PVjXLz1SbmKFNbZ9hZ2UG5vXNJQUtEBU
+	 xX9Xd/z6o91T1+z5LLTeGm4vZJRRaVaso8JqrO1T37hd/c19ymx/8smPx4frmd4Tk+NRt
+	 4xbWC4mN6gDUabA6d8an8Rohjfit3xmafVWypMBAxF45dCLMHD4KnSOg3zGhPXI5URQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RAuSlj4t;
-	arc=none smtp.remote-ip=74.125.229.8
-Received: from mail-dy2-f8.google.com (mail-dy2-f8.google.com [74.125.229.8])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=p1yox5AY;
+	arc=none smtp.remote-ip=209.85.218.50
+Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com [209.85.218.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A95EE606A690
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:59:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A95EE606A690
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8163606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:59:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8163606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RAuSlj4t
-Received: by mail-dy2-f8.google.com with SMTP id 5a478bee46e88-36a6ce64b95so2823764eec.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:59:51 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=p1yox5AY
+Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-c51373ae637so359186666b.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:59:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795773591; x=1796378391; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795773587; x=1796378387; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=hTvv7qUUNUw1BVCSb7V38xhCLr5q5WG8pFcvGI869r4=;
-        b=RAuSlj4t9bqRTkl9psL2V3CBHAsK+PhQE2Rtk+LM12iIem1Pl8EZ7oG+W309Vb8ERs
-         kYvFlvJXHQgwKpm3V4SFnDlYZy4CIPib0iLaUKiD69FOerog+98s7tmk+GMKe+ZdbhYC
-         aRmbc2f0Ao6KmX0vp/IBYrFWbQRg+t30DhqH+zgAfXPMC3BB5o09vmkz0u1sJdnkfx6L
-         FZi59Cfy1YrJGUKrbOjUca+uWdMERQiB3x4M/9BQCJYYer0F1C/ZOR+L2s4l+4CWl6Jq
-         KtVjM3BrQb2tDXVaiNj5h82MTQFHy9YzkJ9v+H2AP+B+C88lbr3uoEUqkoVk89aBrom6
-         LWwg==
+        bh=0nK6oALc+naSloQwr+O6Q/o/NLhG5dNIKnSetmOiKA0=;
+        b=p1yox5AYNN2uipZQJnbpRMDXSaCRlxjVfqocWix9bJXh6U29ZRSWOk6AxAz2mejS5g
+         Ev0B5+rw6V4ykP9QG+hqKg9XzXbvKqUQ5G51RFNj6bDS8STlvTtBldjL7ehBF7MbuhIY
+         a9GqdncJIKydAShBiTz8UMqpgoo6gEsHwRL1OqblF/JTxQ7E6luqB4lwmU6tmLaotuHd
+         ltuefe8RBlTO+xrsLjGDFpLYkvQ3/BAFdPYZMlYFKQToKxM0q8x+KzDNEODB4sePc4ag
+         bu4bDv9TIAmAloS4bcxC7WUGLrxQGOAZBL8Hs1cBRPFatTW6X0YrKjSbcGLNTcFAYNQ9
+         uPeA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795773591; x=1796378391;
+        d=1e100.net; s=20260707; t=1795773587; x=1796378387;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=hTvv7qUUNUw1BVCSb7V38xhCLr5q5WG8pFcvGI869r4=;
-        b=ZBU71jT+pP96JZbFygbRI71YRyNockvKOX7lbP6K+AayCY9KGi41Vx4drqY7u2uaoe
-         2HEsxcBXGVHCR/vgJdfg07W55ln41fmzDsybhtvRnARJ6ZI2pbx+qDQGWGAkEbu4WJMo
-         SBXVrVUMP7FyNe5s48g3EJgQBl+JJlmOpizl1GNmlLSTplSz3vLC2omdsjJTFlhNo8Eg
-         yMQ1AdVxTI4lx7uuRu1IIcqhBQypxKCHM+1t0JJt5BwolhyleZVWVAL4B3eKncdaug03
-         VOKjfY6xQGDJ8N1xR3qYrPIiSo+lUlil5SxDXcSYni4Hf2LO8+WyLPL6WVuUFAaY0JKW
-         k30A==
-X-Forwarded-Encrypted: i=1; AL+hErFg7HeQxDZ8aBCy1wsWJANeO6m+d29dTrFSLlTcXg9UeiHBBNucj8Geh95IoNLwEHmL+QlX9xIMNds1cGs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/MIb/Mw4BHDcUNZyXniNwJ7mkT407XXPmgCbxnkGNf0LO48jrp
-	PjjuKSCSvEhX5jqJKmWetpDMX7TnFw8o88dg2CBQyUqK+FDR89QjkTLW
-X-Gm-Gg: AZFdTZeLYZaom2HMUsMvOVhrhqQCje9OxdeF2QFciQCKcImo168a4S+XEt+AvsK3c2V
-	wXFuioYCh3aybhdhyQ1ysNoXfaEVQQgxAX1MGVXD8xwFYrJYt1s3Q5P34kSOr62WktJN6UbcJgz
-	9ZEePcg+di+jF2Jzm3sbFGJzQA4MaLKVBjxXM1WqvAl0v6j1/bedpZ6CKC/ik2smHffpM/8sSQ8
-	+get6Xip1liRKp8Shzzz9FFpcN3VALXTX1X2eCDsj6Tu3hEQiaAuQmxh4i0RnssytxOeO8I/N/m
-	6/+WH/K9EiWDbaJzwMmzhf+v6d27ge6QD1GVvcOsVhnLYaL6uNLaxrT3B/OEZKAUQGrS/DV0gzp
-	ig9tuVHs+8PMpEBC9ZbzKeJGHjnX7RfvjzxpLM/ieS4t3hck9cU/r7p3LOHD8tx9PDC66uuSbpM
-	O/S5UOuSTM2gqwrtU49/9vs7DutAbk2J65Z62MTIww7neAP2mKzjsW8vaU8CRWIXQ59tIR4QIQw
-	aXC72jXqKYKbGqdHH5vfyDutojAdSCvbQ3SULd3rsh/wzRKVpTuAdGO157BPTVjmdSEjqAORcsu
-	2UPkeGsV5GDZZ6MO7oUEcr8TxneAlXTMb1FLUBI=
-X-Received: by 2002:a05:7301:10c4:b0:386:d310:4c1c with SMTP id 5a478bee46e88-386d3104c52mr9148454eec.21.1795773590605;
-        Fri, 27 Nov 2026 01:59:50 -0800 (PST)
-Received: from WannaCry ([2405:201:a418:c1d0:90a2:f39d:9eab:aa4d])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm85784524eec.5.2026.11.27.01.59.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 01:59:50 -0800 (PST)
-From: Adhyansh Verma <adhyanshverma2010@gmail.com>
-To: aliceryhl@google.com
-Cc: cmllamas@google.com,
-	gregkh@linuxfoundation.org,
-	arve@android.com,
-	tkjos@android.com,
-	brauner@kernel.org,
+        bh=0nK6oALc+naSloQwr+O6Q/o/NLhG5dNIKnSetmOiKA0=;
+        b=WWvdarwNA9VQTYVWBDq6lNE9hoRwcHERhDx460NyU0lEGMkMo5p8KD6eKJS6mPZeUF
+         5P+QtOMZHy/iwOjT6UsTKOWr+C1V5Sdd0nAseT7lwgsKQjGzxJ0+dh21eIUw+a/PcuXt
+         asKiNJeCa2f24f2VOqqPvsPmXHD/Kbv2jjIQ7XFHCqELUFjHkl2WZ+Tkk/kpa3WV7F40
+         4yUsUoqRpPQPValnJWuoT5MfVBAprYJ9Aj9akFWkOdQpmn9gOtlb4/BvuxjgiOh0/OuY
+         D2ZBamey5dnjLl13sxfCpRw/jYvPFlZnmSGzw1p8TBzsTVNhxJLO6fCA2Hc/gvNnDMfu
+         q1ag==
+X-Forwarded-Encrypted: i=1; AL+hErHebs7UeQeit6jV39eOy5tvI1lsaCr1ZRws71fDEyL9PzZMCX+kOhpdvrnq+pNLVngQZ1sJrs+3fS50DHg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z912z0CjipfidzQN5X/hONEuAuZ7/j4L+kxPR5qSI3bnuPmGW0A
+	vjTow9OsF5yz5fMin9jM0K5W/tZqCOnoUt/n/rndWvJo6FlsaTFZ5b5o
+X-Gm-Gg: AZFdTZfpS7H8+0Uv9jfGbwKxte3CmiMtIils11oeSVYUUYZxrsAzzfckyHYp6F24a4l
+	L4GkSUqeaxM2T+zd+MzR7NH9R4RdnTBDJhgIuSsJ/C92CSpbD90lIucajPnZcDWDNSTDyPrxxE3
+	+oWTUUkK5T3iBP4j2kQPLmddVkWZGkrR2AxtcmnDNFlP1XNKGd6YhChW8ASPHNm9x6D18y8+CM1
+	tsNy7acTqcW22I3xtOhgHXYzgnKKWMbZ/ba9Wj+8dy0n+9qNCR2H4mm8MsjZfx7dRqr/WATDeb4
+	c9h0to5SrV5qdfXryKWq2Ngwyj+y4bCMlL1UZioviIxSIcq8X/wtpvBKwHVN0rxYct45uVRFVRE
+	XJWcmFSWrtv+6fYqzwPW2w7wX0FA+iY3zghoAPogTORnOFctXgXCXnc7MrMePZTmR/rJK6RTQ28
+	hunsTtFNg1aj/gXwTyQ/68RzUf5NCqLE3icVD8hNH90juQk0/dw9webSU+ueyyfRXJ8ICizUDpT
+	sCFMKS5bDiroqRvuV187nu6TkMODhvyqIyVADQ3v3Z7C9uyV9b9FnBVNxOltUjxq9RZLeaOAWPb
+	ZWJhOpgs0Ycx2dl8pY9pSWw4w0UKFvZ6iLjZQ4Ihc/GRCHod
+X-Received: by 2002:a17:906:7944:b0:c41:8e21:4d58 with SMTP id a640c23a62f3a-c513a41edc0mr2010416766b.5.1795773587030;
+        Fri, 27 Nov 2026 01:59:47 -0800 (PST)
+Received: from Air-pasichndev ([188.163.8.107])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae8ce16sm841249266b.37.2026.11.27.01.59.46
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 27 Nov 2026 01:59:46 -0800 (PST)
+From: Andrii Pasichnyk <apasichnik9@gmail.com>
+To: "Jason A . Donenfeld" <Jason@zx2c4.com>
+Cc: wireguard@lists.zx2c4.com,
+	netdev@vger.kernel.org,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] rust_binderfs: fix minor number leak on binder-control creation failure
-Date: Fri, 27 Nov 2026 15:29:43 +0530
-Message-ID: <20261127095943.63884-1-adhyanshverma2010@gmail.com>
+Subject: Re: [PATCH net v2 1/2] wireguard: peer: free packets left on the per-peer queues on removal
+Date: Fri, 27 Nov 2026 11:59:43 +0200
+Message-ID: <20261127095944.17844-1-apasichnik9@gmail.com>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261126075835.3414193-1-aliceryhl@google.com>
-References: <20261102144532.123432-1-adhyanshverma2010@gmail.com> <20261126075835.3414193-1-aliceryhl@google.com>
+In-Reply-To: <179577288773.3135.10772290029017294104@kernel.org>
+References: <20261126094722.73025-2-apasichnik9@gmail.com> <179577288773.3135.10772290029017294104@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,23 +107,36 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 26, 2026 at 07:58:35AM +0000, Alice Ryhl wrote:
-> Reviewed-by: Alice Ryhl <aliceryhl@google.com>
+Sashiko AI review wrote:
+> [Severity: High]
+> Can this purge of peer->tx_queue run while peer->transmit_packet_work is
+> still pending or running on packet_crypt_wq?
 
-Hi Alice,
+Yes, it can. An encrypt worker that the second flush waits for can queue
+transmit_packet_work after that flush has started, and then nothing
+waits for it. Before this patch that was harmless, because the entries
+on tx_queue keep the peer alive until the worker has consumed them. The
+purge breaks that.
 
-Thanks for the review and the context regarding commit fd2bc059ed46!
-Much appreciated.
+> Would a flush_work() or cancel_work_sync() on &peer->transmit_packet_work
+> before purging tx_queue close this window?
 
-I am back at the workstation today and was following up on the thread.
-While auditing the open and initialization error paths in the Rust
-binder driver, I also noticed a process leak in rust_binder_open() when
-BinderfsProcFile::new() fails (where Process::open() registers the
-process into ctx.manager.all_procs, but on subsequent failure we return
-without deregistering, permanently leaking the Process and credentials).
+It would, but the tx_queue purge is not needed at all. The leak I
+reproduced is on rx_queue only: the transmit worker has no budget and
+drains everything that is ready. So v3 will drop the tx_queue purge and
+free only what the disabled NAPI left on rx_queue.
 
-I have verified a fix for that against char-misc-next and will post it
-shortly as a separate patch for review.
+As far as I can see rx_queue does not have the same window: a decrypt
+worker queues no further work when it is done, it only schedules the
+NAPI, and napi_disable() waits for the poll.
 
-Thanks again,
-Adhyansh
+> [Severity: Low]
+> That makes the new comment the accurate one. Should the old comment be
+> updated to match?
+
+Yes. v3 updates it and says why tx_queue is left alone.
+
+Thanks,
+Andrii
+
+pw-bot: cr
