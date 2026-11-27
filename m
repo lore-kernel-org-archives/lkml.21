@@ -1,60 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795804986;
-	b=YVR8EWoqCIvGdI1Q+gd+XIhblis7Who8MBEhZ+bqMfIeujsOgdSM0OX2XReYclmciKqR
-	 /FIasdCQdcNUaJktg54mTgTR16f9y1yqssC+fEHC3Ch2kkZsNE7vaj8mHJtoaH0jagwhP
-	 Dzj31uOiCJiEuttN8gCHhvzcXDWalRnbdDoa5nA+ivTyHOyEdgvKoxaiBY9S1BBBDMqIx
-	 xbtzVlb6WneeuN/rJ625e5USOzvFilB7xWwdCcKTVXrKOJhHozY6iya0toT5n12bO3w3c
-	 HrJxGUPoGj+inOxKMnHgRCGDhHZtX54NkEEmVGV0Cd1zuE6E+f19FtQZ6FzQKNKwVmw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795804986;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=qrI+q31BIpWtMoEbziu548DpuRgk3fdVsj3KMauVdqQ=;
-	b=z7fbn9xjWb/qmbSrGkTrvT4+4BhQjPfSaXC3gekRejwIHhygx8pXskLLiG92qjVbZUEB
-	 K04oDJvSyIsVyT4zp6tpiplutWp72HMIPqTfieg7qwIPwhDkB67WYYXga0IQD6RnP1LKJ
-	 X118vaZWa53hQ8U0p7MiMZ18L1D1FwoSvJNaPgC/PqL4+rJQGaQFuLLWthlC8IqYNJTLK
-	 SdaRYCkD6Y2mH10I0CGueKC0TwF2CJqL0aW4U1XKcb0V6N/OuGEaTE0AuLhjZ6bv0WzmI
-	 vwwTrBHSCazPWhhl+BAStybcf5u6qtUo2r0ZdqUsECIrUhZHKfCLEK82PsPar23E0yg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WPREk5If;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795805000;
+	b=t+6F+ode+pwxrRK5LLPpEhDc9b7mto/QQpq8XrCrKHz+R5X1I20cG4+Q0X+WGZjGugMK
+	 oAIfZ8dssaR14XN97OlPOyMhoRAYSK79bFbLyuXUvbuXm5VzZqwtYLzn+C7urZfCJnvsG
+	 pGvhOBB/MIiV1LrowC8JMvYvGaWyseCEmzdhwZsPh14FRcRbF9NMgwHxZrUa8B+bhm9y4
+	 OD5SiRjpnzWO4+2TmrEY8qrNLJcYJouRH+5tgKexVaEPVkEL+bBnXzFh6k/TeQH/c6QZN
+	 YyxEN2DvM/OwQLOiScW6kWEJBkWdyAdGjnaBJ3FzS2Ec2oykBjFkku6TI5Lf08URckg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795805000;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-ZohoMailClient;
+	bh=RZV2Bz1rnR1nwBwCIHteBeBwrgGrqm/NvJnIi7wGD7A=;
+	b=ow4GKHWGiPz/uvEJHX+gBaCffoykr5nahkSKdkCW/SIDIJEztWBQwipP0vx7LoWfYlLV
+	 q7Cjp6olFj3vRC5RvDiZZhI88wpjZBBsysIhD6NIsUVI5Ppa2SQNb/r0Ubd4ZvHSaUCU4
+	 KAiXvEFnWgHhm/7HcvXXHczVnQJVoCyDWxxbaJbMhkBxu8+0oaXCxONXp+ak6mtNRyggR
+	 hFe3A74UNmFVpWHUjFjThXu5/NnigNj00w2X5pT6auccgU2LLsCep1DEBhO0i7DfpjN5t
+	 Pxn89bXI6m35wwQ0tE3gqK8NCFnqbEVnQPGZUHLwV/MZBVHU+wTtgE3/75zG/D2nBmA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=AlhFf8zC;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
+Received: from sender6-op-o11.zoho.com (sender6-op-o11.zoho.com [165.173.180.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 129D8606A331
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:43:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0A39606A321;
+	Fri, 27 Nov 2026 18:43:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0A39606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WPREk5If
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB8E31F0089A;
-	Fri, 27 Nov 2026 18:43:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795804985;
-	bh=qrI+q31BIpWtMoEbziu548DpuRgk3fdVsj3KMauVdqQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WPREk5If5fx4c3eNJOCqTPQJnLKG1UkUOw+ME9wh9lL70Eb4bii/CkcUosaOQHVZm
-	 xYT28Bmw07Sjk1H4ANb2WECnCkli+gmX2p6T0A6docMsBUL+/UKF+NhGC+uxa8NCVn
-	 YveYex0mi5DzkGsxF9o+l+l61Hn+jRx3K3BqL8YFT1uitTWyWU7vnurDBzBTHxe6pA
-	 Rbmdjc6/rhgN65WynmuEGWqxbCrl8G5NlriduOU0rTIdn3ifZPFuwep1raWAEz3ESH
-	 LzE1NhO8zTEjjIYr1YwJw5cBbIAuABjN0kuvhB5biMiMZ+jgjqiqUGsXrLqtOxOXKD
-	 9K1VAI+S1nwyA==
-Date: Fri, 27 Nov 2026 18:43:00 +0000
-From: Will Deacon <will@kernel.org>
-To: Breno Leitao <leitao@debian.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kas@kernel.org, kernel-team@meta.com
-Subject: Re: [PATCH] arm64: Kconfig: Don't select CPUMASK_OFFSTACK with 64K
- pages
-Message-ID: <awnPNMn6AIH17d_K@willie-the-truck>
-References: <20261007-arm_stack-v1-1-b48dad5fa8b2@debian.org>
- <auCSG2OmNMQKp3dq@gmail.com>
- <auRxNDAe_tv-mCvk@willie-the-truck>
- <auR0kSCYyo31Inxf@gmail.com>
- <auSFVKVuGryqTgjG@willie-the-truck>
- <auSem6kzc2d52n-H@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=AlhFf8zC
+ARC-Seal: i=1; a=rsa-sha256; t=1795804954; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=WcZtN3tD/zjvkk8uI44gdbTyPfvaOlx2Uyw+n6EalGUJfhu2vyRP3ATf6Fs40uUjjalYJ977Uv0z2PRkZEQd4IE76JryonkGpgoiw1qvX9Tjg50seYZmaLv9K8mvWj/gPVkYdhK0u8bXblt9FClGbhL12aU4fpfWVvHFl6VtlEk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795804954; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=RZV2Bz1rnR1nwBwCIHteBeBwrgGrqm/NvJnIi7wGD7A=; 
+	b=msZ1BEW68rpZfIn05UPZaNVYPC8P2EHyim38o+oe5zt9X9dp44yOvAx9CnvPK5qD/D1GBqYnuT/2sBQJt4EHNFrJqJF3szqKvjcqHtF+1tXkCDkPW/S46i+J8E8M7FLiXTWXTUVGU/U0NSV+81pRf4Z5ehYkZFrVipV5e7U4UzA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
+	dmarc=pass header.from=<detlev.casanova@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=AlhFf8zCtIALPrXe8zga3TTnuSQt0lRzQGYtAzDrHn++w3fCVG+LhzmCx3usebRtnZHI1BJiwQhUVIvcEw6uiMt6Y9Crx6rnJoiYG0SEBR0fRflpO+xdg7OInUwN4YW4I9QP9CdbTZaNb+O6aUic1mFDxOzvtuMlUIk52JxFIY4=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=RZV2Bz1rnR1nwBwCIHteBeBwrgGrqm/NvJnIi7wGD7A=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795804951277426.7074106650923;
+	Fri, 27 Nov 2026 10:42:31 -0800 (PST)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Heiko Stuebner <heiko@sntech.de>, Hans Verkuil <hverkuil+cisco@kernel.org>,
+ Jonas Karlman <jonas@kwiboo.se>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Cc: Sven =?UTF-8?B?UMO8c2NoZWw=?= <s.pueschel@pengutronix.de>,
+ kernel@collabora.com, linux-media@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 2/5] media: rkvdec: Remove unused need_reset
+Date: Fri, 27 Nov 2026 13:42:29 -0500
+Message-ID: <sHCcy4ZARIqHsoGbYpMAqg@collabora.com>
+In-Reply-To: <c0da8a7d22c6b837c2c8d62e6d267b54d6ed28f4.camel@collabora.com>
+References:
+ <20260810-rkvdec-multicore-v2-0-986f89d22cdc@collabora.com>
+ <20260810-rkvdec-multicore-v2-2-986f89d22cdc@collabora.com>
+ <c0da8a7d22c6b837c2c8d62e6d267b54d6ed28f4.camel@collabora.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,38 +74,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <auSem6kzc2d52n-H@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-ZohoMailClient: External
 
-On Fri, Oct 30, 2026 at 06:50:18AM -0700, Breno Leitao wrote:
-> On Fri, Oct 30, 2026 at 11:53:56AM +0000, Will Deacon wrote:
-> > Because you might have thousands of CPUs?
-> 
-> I checked that case. I built defconfig with 64K pages and NR_CPUS=4096,
-> with and without this patch, and compared clang's -fstack-usage output.
-> 
-> With the patch, 62 functions grow by 512 bytes or more. The worst are in
-> cpuset: update_prstate(), cpuset_write_resmask() and
-> cpuset_handle_hotplug() grow by ~1.5K, to 1648 bytes. Nothing crosses
-> FRAME_WARN, and the largest frame in the build goes from 1312 to 1648
-> bytes, out of a 64K stack.
-> 
-> I believe this higher frame usage is still way better than the kmalloc
-> at function invocation (the reason for this patch), but honestly I don't
-> have real numbers, and I am happy to take them, if it is worth.
-> 
-> > Because copying these things by value could be expensive?
-> 
-> Hmm, I _think_ having the cpumask on the stack or not doesn't change how
-> it is passed. cpumask_var_t is either a pointer or a one-element array,
-> which decays to a pointer, so callees get a struct cpumask * in both
-> cases.
-> 
-> Which copies do you have in mind?
+Hi !
 
-Fair enough, I hadn't looked too closely into that. But the fundamental
-observation remains that the page size and the number of CPUs are
-unrelated.
+On Thursday, 19 November 2026 12:35:43 EST Nicolas Dufresne wrote:
+> Le lundi 10 ao=C3=BBt 2026 =C3=A0 11:22 -0400, Detlev Casanova a =C3=A9cr=
+it :
+> > A left-over from the iommu restore mecanism was forgotten.
+> > As need_reset is never set to true, the if has no use.
+> >=20
+> > The actual restore function is called above it vase the IRQ isn't in a
+>=20
+> Tell me what you wanted to say instead if "it vase the IRQ", or define the
+> verb "to vase"?
 
-Will
+It's not a verb, it is very ancient belgian English meaning "in case".
+
+> > success status.
+> >=20
+> > Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+>=20
+> Reviewed-by: Nicolas Duresne <nicolas.dufresne@collabora.com>
+
+Detlev.
+
+
