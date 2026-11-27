@@ -1,118 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795794946;
-	b=EG4xoxvxFTBkLpZICSACzV90K8448UuQmari4YEKOko2X/IgyhsU/U/jp04ksJxlrXwI
-	 t48nY548QCBpbybKAIQoP61gwcCHfTfTBCCn5HHpOPNCXywy4tvaVuT0HyHKFtuH2EXXx
-	 fSrT6v58bX8eXEspxuUHcXfycz5vKV4n2Ug/36H/v4lVVybJ6TssIz0aHYfAeFOYUG160
-	 4FyLviE/iXx7BJYi3WBmjvOVxMZ084D9vsg9kwpCumrvmjK66pZPVdmDcD8gwYbpFo3Bh
-	 aRyN8ZaxlsPwxUgS1OuAogCLZwhBEIFolbVcgUf8VjvVnYGWgSHwpw4Z5tmlDYZXdsw==
+	t=1795794944;
+	b=eP7zoCyBV/hN914bsdw5isbf1kOp0g4epKVTvrlrB4bnylYBde0ZWWifCb9Cu6epQSJK
+	 /7DfRIjSrNWD0jTOWOf3wIQ3vVOCINUuICQLh6NAMPMvKOi9pPtzoV3zIb6OSGXkJFNym
+	 XQt8C6bcPUDl+jLjzca1G1XYiZ5BWgTAYRC0KWwyuIylB5+UIGRi4ADpuQAGw9ADIE4E7
+	 1+zB1ZCnI1hKBQY3NrRA3wDmSt6fthxqflzoek+T7Q5KK80grVZr5KpQKXEJWlSeg+8ro
+	 kX/lb0SKnryYxUJQvsfh46H81I9/b8nJz6YJ6sWZOakswXAclWyuiXeZ8DLzV6JhLVw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795794946;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=6nyF58dcnncG871ju7X3tQ8ZZEDodvi/j1FoZtxjGfs=;
-	b=yZFqgzAnW9PjYRHcKx/gV/Kv53bqSy7Z9zl7ejYrKJLoNtGgyh0c1f8jnVtn/BXjumIM
-	 rK3XZ6urI4YM+LAv0CLinjBruyw5u5IDDj90cjUnnVR5Y7b1kE5sBkxwEKsIRdO2HhGe5
-	 8tD1PKigj7JWuHNFCF4eMqCeydag/EXfwCTz+RCeG4lmHoY2zHyod6AXTCjjKYt+0Rua2
-	 OIOYeYl84tmUH+8dq9BhrlvgpLEOPKh/2antXpTwfXhZ0Btc5iDzUXi+EwxldmM4qUT2V
-	 NFPduyv37Knq136dkouG0cKK/otJM5e6FyxbMZAmQ37z4sa8jRfjBygwAgNKgQm4Q4Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795794944;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=1pqLOfrF4A8gzlm1vcy72kMFFObqAYDDR49GStzDPdE=;
+	b=NysZnNLp7sOfR97QTSZg8O/8TFPiMU9g8lW7wrcWGFbFG/vMwu1nrszSnJGf9CVzY7O1
+	 Jax3y6dP5GtFMk+Wm/W16R5EqRzM+jN1tEihGE1lgsv1GiV1Vkils+4kKHBck2vA4uOj/
+	 j0YQDcyLZGtmmtSTcITNtBz028eebdizkJQbmZXsAGUR69AQQYTaINIbGLsI3rVC53jWd
+	 oO3O7F9dvZ+sI9HHI0TWwKuwG4i3c2YaVGCZzPn+3i+kptQkdIKp5CRgP46O2VNhCKX99
+	 4D6UEgUsgA5AfusHH6DuaAQjyYjGeLCyUOEXLvxoaaX8ImxBToketnBhqoqhnYcNp4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=FgOdbpEA;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=c792ZMJB;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=esHtmYzR;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90CC6606A6A4
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:55:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90CC6606A6A4
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEC0A606A6B2;
+	Fri, 27 Nov 2026 15:55:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=FgOdbpEA;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=c792ZMJB
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARFosg41703511
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:55:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=6nyF58dcnnc
-	G871ju7X3tQ8ZZEDodvi/j1FoZtxjGfs=; b=FgOdbpEAl4pSbM/oCGkEbnfIitB
-	55t+tnJUQD5EVgsFAXej27PiwYSRVZLuooqN61csqVFG+rMwl6WZcEmWsaO0PKPa
-	+Xnc6RAjX4MuBF7oUI0iPATbsa2Bnb7VhEWuBpabAWHzZJKJl+QpeDDuwLU1lj7c
-	1OG8KLvHrlQ4iPgIGUSdl8+QwWtNB4doTGsFoCRX4mRO/2l2E5z3RW85A2UotPK5
-	2Yorazn/srVpTQfTcLjLOcC3aPuSubpeiFzyomCWyVwcVW5eXutTHk8A8bEn+ZBI
-	2wu/OLrE0jJx/5jv9nWetzst1UHp9QJBUDykKLvAyg6p3DuI/jP03KCkYHg==
-Received: from mail-yx1-f71.google.com (mail-yx1-f71.google.com [74.125.224.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6pgqmp69-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:55:44 +0000 (GMT)
-Received: by mail-yx1-f71.google.com with SMTP id 956f58d0204a3-679f81d5d7bso13240779d50.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:55:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795794944; x=1796399744; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6nyF58dcnncG871ju7X3tQ8ZZEDodvi/j1FoZtxjGfs=;
-        b=c792ZMJB1D5ap0q4lFgOnCh6W7yRQ0uPAdzcZJK6jFY+ATIHFt0T0Ckw3PnBg3wDJi
-         EkfwJkrVItswTbZPwEKRzSI2re/g2D0rc/2oVJJS7/gHYJdiuJuPC9/rZffp8NLEGPR+
-         +Jv1FAoo46HSAt05PLHTkTGp3CXIgP9/UBGv3RlT/3AfEp0d7X52gVJIC+sNvZJvUovM
-         97Nf5inoPzvgMD8U3fYDDq/HP+81JbSpK8QPV4GTzsrGhTd0XZQQpr4lrAgYKCauHoOi
-         NP7hu+K0mkjjummfv9bxqY1RQEJ5F+aT3V+SLe6r3n9xCp2OLvlYIkdRezvecMeSpR3T
-         ub4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795794944; x=1796399744;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6nyF58dcnncG871ju7X3tQ8ZZEDodvi/j1FoZtxjGfs=;
-        b=0j4/Oz8Gw7+7r4pE4F0ahbobsrQOzbGXiJCifsqamtgTVpyQlhCKMrcQPB1cUenn8I
-         VqljgtvdM/jkWPdczaEnKVkrwCDs1t6VFS6rsqA0YaSqfxmPzJk8D3CV0xCqqmYQD+A2
-         h29nCfSdkBeQQUksp8z25wI7lhpo2xQ679c/NTi3EPVL/6zlaKZhH1ksmPSUrJERn2q2
-         eSlfLds4EM848Ouc8QqoyzHDCOex8Xkm8DR8aB4Jn1YKarrZEA/UQOiflXzNvqU2SVS+
-         k1/GWTJQr72X7fZexY/H5Kj412vWD900sqcgEEv7AYW6HfTksz+5lG6TbFVCBPyL5fnb
-         pxUg==
-X-Forwarded-Encrypted: i=1; AL+hErGfdxF1KIVmTiMUN3xF7ji46DMNfMnqz0isy76D8AsC6LV1BBG5is6se7AM7dNr0wd1vz2cn5Jgc2l6UYg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+EJTXz07nQvdXFg1Paj8ZhzwHOv6XYwjH4B8tmP9y5GME1Fs4U
-	2yXqeHvrad+ISryOc5taoOKXdeMnd52I8nq5OgKp7Cj0+ukEkfsD6h5tj7TCUT3Gzv1GxOSVZf0
-	Cij0Z0sWMFsMRNXhI5rgBEHiCzFUxk75Hj6avc2lRlKrHb8NUvJPA2rVkOwIC7kh0u0Y=
-X-Gm-Gg: AZFdTZffBmOqb+WxeBAiX6p3/FYWDcCFla39dFta2wfhi2r1of7P1X79lzfFkdHj2Kj
-	THOLy1r9IDl0OSy+jkKAZ8Vhzr9Pbzxzx2Z1/X87NnHlaP4zic+u69r2pXh80PE1rT7VyqmWXr2
-	xjGu25JMPj5HZjA1YpGumJ9fEtLkCPVtgsh4gDt9i6biKnB7Nmfd2XQSuAaPqxLkdcHOF2LxmLA
-	UDEZprCMuGBXU9CLUMQr3ybt73I/xxer7DXE/OLe8iT5syiAh/273a+hpCOxYoeULGgHiu8ug9p
-	y5fGZooLm6wDhnuOoBFzbxLCoG7Kp7niy7hAL+4QO8A4qrCPYTBZM4hhPpt/X6Geg32enRTk1sY
-	vDlD85VN5VEKgVh/pJfckHeCZHZ0BZYALGdC5omcHXG+PnA1WaAY0iOkeccB2ffLY
-X-Received: by 2002:a05:690e:130c:b0:674:1fdd:6116 with SMTP id 956f58d0204a3-67df445e102mr8628421d50.100.1795794943678;
-        Fri, 27 Nov 2026 07:55:43 -0800 (PST)
-X-Received: by 2002:a05:690e:130c:b0:674:1fdd:6116 with SMTP id 956f58d0204a3-67df445e102mr8628411d50.100.1795794943270;
-        Fri, 27 Nov 2026 07:55:43 -0800 (PST)
-Received: from debian ([5.133.47.210])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf6804sm47272636f8f.10.2026.11.27.07.55.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 07:55:42 -0800 (PST)
-From: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
-To: andersson@kernel.org, konrad.dybcio@oss.qualcomm.com, abel.vesa@linaro.org,
-        robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        alsa-devel@alsa-project.org, linux-sound@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
-Subject: [PATCH v2 7/7] arm64: defconfig: enable SDCA class driver and WCD9378 codec
-Date: Fri, 27 Nov 2026 15:55:20 +0000
-Message-ID: <20261127155520.358909-8-srinivas.kandagatla@oss.qualcomm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261127155520.358909-1-srinivas.kandagatla@oss.qualcomm.com>
-References: <20261127155520.358909-1-srinivas.kandagatla@oss.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=esHtmYzR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C2E21F00935;
+	Fri, 27 Nov 2026 15:55:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795794944;
+	bh=1pqLOfrF4A8gzlm1vcy72kMFFObqAYDDR49GStzDPdE=;
+	h=Date:From:To:Cc:Subject;
+	b=esHtmYzR9mOJwSZWNxi3fvy2fk8vFZ/W7wPy8e6WxiJNpFT087gCImuyRzyWEfmzB
+	 iE0Jin7VyV6M5L2bPXqB8GTvsi2RJPOJPfBIYP16izzSCDa+TCFEmwU4Lmz0BMk6V2
+	 emd08Qk2pHrlnjPCN8rrlMqWbpxNMHaAAFnEJFHr1jAtjjIAAb5WK4OKOr4nt77PvV
+	 XK9D8hzGUHEbRi9o+Rrg2kNe65AvumeU33FUU1XQpn3jCvpOz/pWF229f8VfvfeBNw
+	 Y5KKeFA89EP/GyF9iN/9l+dEK+oJyhyYiXGTJr6IhHEfEzSMnHUvxGPcY9y89qRydt
+	 /TUxXp2qU5PfQ==
+Date: Fri, 27 Nov 2026 15:55:39 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>, bpf <bpf@vger.kernel.org>,
+	Networking <netdev@vger.kernel.org>
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>
+Subject: linux-next: manual merge of the bpf-next tree with the bpf tree
+Message-ID: <awmn-8pxvHphS_xZ@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -122,65 +60,232 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: nSgb92_TtwImClE-DUIaMXdtT3Rq-wss
-X-Proofpoint-ORIG-GUID: nSgb92_TtwImClE-DUIaMXdtT3Rq-wss
-X-Authority-Analysis: v=2.4 cv=A7H5rKWG c=1 sm=1 tr=0 ts=6b09a800 cx=c_pps
- a=ngMg22mHWrP7m7pwYf9JkA==:117 a=ZsC4DHZuhs/kKio7QBcDoQ==:17
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=EUspDBNiAAAA:8
- a=Lb-CJUeqFN5ILZ2-pT8A:9 a=yHXA93iunegOHmWoMUFd:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA2MyBTYWx0ZWRfX3LfFo2VtUABW
- AGbm2cbAU/W/M06e4UKbXDmeQpxamp9dEQqaNlUr6iis7EVu9ygAYXoaBxLd+A15KBSZoquktAl
- Bb2LJELC/ylacnUu+q/bv1BAIZYxgyM=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA2MyBTYWx0ZWRfX5uLMsWOzwVoP
- BcBaJYn1phbB/UbKTHvbel/ET6Iuy43I5/G+M7gh0niO+RdUEEy+3QCU0RTuCyb1ohixeodaCcI
- QKwflqhAKEvtZurVmIZQA4zToOC+qXOP38/RygAkWtA+99lLXPUZ1bup0TzKZkqcgglOA5NFttl
- RvDh1JgbhkwMywI8AqxqS7zN3+Cg2jwciTgj6mjiPPrpb4kIBMpccENll5A4Ab8fAyhft90Mas1
- FVk6YBoQP0EmaDUEzLC9Eum0TkP2fz8zDtz6dPyQcVu5/cvSCjoF8l80T5oNuUvRLxVgbd/48AW
- CI6ZC0aQHWw1pg8jCZWcSzgJvkEjGTnEm8bmnLRubpVg1qEmDTPD6mCXSD4jC/0+N4wls1ih+1v
- Z1Bux6MLNGfPJOxIVRdPuUjnDzMRHXpPpaCl91B/0FERWoW/eZVFzxv60KJbbVvtwe5Oi94V44C
- k6v+a3kC+dQ62o9XTIg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_03,2026-11-27_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 suspectscore=0 lowpriorityscore=0 clxscore=1015 bulkscore=0
- priorityscore=1501 malwarescore=0 phishscore=0 spamscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270063
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="/PoCzhzasBjJC5sz"
+Content-Disposition: inline
 
-Enable CONFIG_SND_SOC_SDCA, CONFIG_SND_SOC_SDCA_CLASS and
-CONFIG_SND_SOC_WCD9378_SDCA so Qualcomm Glymur-based laptops such as
-the Qualcomm Glymur CRD, the Lenovo ThinkPad T14s Gen 7 and the ASUS
-Zenbook A16 have working headset audio out of the box.
 
-Signed-off-by: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
----
- arch/arm64/configs/defconfig | 3 +++
- 1 file changed, 3 insertions(+)
+--/PoCzhzasBjJC5sz
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 9c5b64f34a22..86b33019eaa0 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1184,6 +1184,8 @@ CONFIG_SND_SOC_RK3308=m
- CONFIG_SND_SOC_RK817=m
- CONFIG_SND_SOC_RT5640=m
- CONFIG_SND_SOC_RT5659=m
-+CONFIG_SND_SOC_SDCA=m
-+CONFIG_SND_SOC_SDCA_CLASS=m
- CONFIG_SND_SOC_SIMPLE_AMPLIFIER=m
- CONFIG_SND_SOC_SIMPLE_MUX=m
- CONFIG_SND_SOC_TAS2552=m
-@@ -1194,6 +1196,7 @@ CONFIG_SND_SOC_WCD9335=m
- CONFIG_SND_SOC_WCD934X=m
- CONFIG_SND_SOC_WCD937X_SDW=m
- CONFIG_SND_SOC_WCD939X_SDW=m
-+CONFIG_SND_SOC_WCD9378_SDCA=m
- CONFIG_SND_SOC_WM8524=m
- CONFIG_SND_SOC_WM8904=m
- CONFIG_SND_SOC_WM8960=m
--- 
-2.53.0
+Hi all,
 
+Today's linux-next merge of the bpf-next tree got a conflict in:
+
+  kernel/bpf/verifier.c
+
+between commit:
+
+  02d3452bdd80c ("bpf: Set the run context for async callbacks")
+
+=66rom the bpf tree and commit:
+
+  d83c595d9480e ("bpf: Put a barrier where no mask fits")
+
+=66rom the bpf-next tree.
+
+I fixed it up (see below) and can carry the fix as necessary. This
+is now fixed as far as linux-next is concerned, but any non trivial
+conflicts should be mentioned to your upstream maintainer when your tree
+is submitted for merging.  You may also want to consider cooperating
+with the maintainer of the conflicting tree to minimise any particularly
+complex conflicts.
+
+diff --cc kernel/bpf/verifier.c
+index 85fec1f389277,b5dda95c286f7..0000000000000
+--- a/kernel/bpf/verifier.c
++++ b/kernel/bpf/verifier.c
+@@@ -11493,13 -11472,9 +11477,15 @@@ static int push_callback_call(struct bp
+  	if (bpf_is_async_callback_calling_insn(insn)) {
+  		struct bpf_verifier_state *async_cb;
+ =20
++ 		if (state->speculative)
++ 			return 0;
+  		/* there is no real recursion here. timer and workqueue callbacks are a=
+sync */
+ +		/* there is no cgroup to take the storage from */
+ +		if (env->prog->aux->cgroup_storage[BPF_CGROUP_STORAGE_SHARED] ||
+ +		    env->prog->aux->cgroup_storage[BPF_CGROUP_STORAGE_PERCPU]) {
+ +			verbose(env, "async callback in a program with cgroup storage\n");
+ +			return -EINVAL;
+ +		}
+  		env->subprog_info[subprog].is_async_cb =3D true;
+  		async_cb =3D push_async_cb(env, env->subprog_info[subprog].start,
+  					 insn_idx, subprog,
+@@@ -20834,46 -21913,109 +21938,109 @@@ static int do_check_block(struct bp=
+f_ve
+  			env->insn_idx++;
+  		}
+ =20
+- 		if (state->speculative && insn_aux->nospec_result) {
+- 			/* If we are on a path that performed a jump-op, this
+- 			 * may skip a nospec patched-in after the jump. This can
+- 			 * currently never happen because nospec_result is only
+- 			 * used for the write-ops
+- 			 * `*(size*)(dst_reg+off)=3Dsrc_reg|imm32` and helper
+- 			 * calls. These must never skip the following insn
+- 			 * (i.e., bpf_insn_successors()'s opcode_info.can_jump
+- 			 * is false). Still, add a warning to document this in
+- 			 * case nospec_result is used elsewhere in the future.
+- 			 *
+- 			 * All non-branch instructions have a single
+- 			 * fall-through edge. For these, nospec_result should
+- 			 * already work.
+- 			 */
+- 			if (verifier_bug_if((BPF_CLASS(insn->code) =3D=3D BPF_JMP ||
+- 					     BPF_CLASS(insn->code) =3D=3D BPF_JMP32) &&
+- 					    BPF_OP(insn->code) !=3D BPF_CALL, env,
+- 					    "speculation barrier after jump instruction may not have the des=
+ired effect"))
+- 				return -EFAULT;
+ -		/* only a store that stays gets it, see bpf_convert_ctx_accesses() */
+++		/* End speculation at a retained store with a trailing barrier. */
++ 		if (state->speculative && insn_aux->nospec_result && !insn_aux->fastcal=
+l_pattern &&
++ 		    bpf_is_mem_insn(insn) && BPF_MODE(insn->code) =3D=3D BPF_MEM) {
+  process_bpf_exit:
+  			account_current_path(env);
+- 			mark_verifier_state_scratched(env);
+- 			err =3D bpf_update_branch_counts(env, env->cur_state);
+- 			if (err)
+- 				return err;
+- 			err =3D pop_stack(env, &prev_insn_idx, &env->insn_idx,
+- 					pop_log);
+- 			if (err < 0) {
+- 				if (err !=3D -ENOENT)
+- 					return err;
+- 				break;
+- 			} else {
+- 				do_print_state =3D true;
+- 				continue;
+- 			}
++ 			bpf_free_verifier_state(env, state, false);
++ 			memset(state, 0, sizeof(*state));
++ 			return flow_drain(env);
++ 		}
++=20
++ 		/* if the insn pushed a part, the current state is a part too */
++ 		for (elem =3D env->head; elem; elem =3D elem->next)
++ 			again |=3D elem->again;
++ 		err =3D flow_drain(env);
++ 		if (err)
++ 			return err;
++=20
++ 		/* the parts of a state meet at the next insn */
++ 		if (env->insn_idx < insn_cnt &&
++ 		    (again || bpf_flow_is_bb_start(env, env->insn_idx))) {
++ 			account_current_path(env);
++ 			return bpf_flow_deliver(env, state, env->insn_idx, prev_insn_idx, fals=
+e);
+  		}
+  	}
++ }
+ =20
+- 	return 0;
++ /* What the pass assumed about loops does not hold, see do_check_all() */
++ static bool pass_needs_restart(struct bpf_verifier_env *env)
++ {
++ 	return (env->restart && bpf_flow_loops_lost_bound(env)) || env->guards_l=
+ate;
++ }
++=20
++ /*
++  * The loops that keep the current state apart pay for the work since the=
+ last state, but not
++  * a loop that the state enters. A trip that is peeled on the budget of a=
+ loop belongs to that
++  * loop. Such trips can use up the budget of an inner loop.
++  */
++ static void charge_loops(struct bpf_verifier_env *env, u64 cost)
++ {
++ 	const struct bpf_verifier_state *st =3D env->cur_state;
++ 	const struct loop_stack_entry *e;
++ 	struct bpf_loop *starved_loop =3D NULL;
++ 	int fr, i;
++=20
++ 	for (fr =3D st->curframe; env->pass && fr >=3D 0; fr--) {
++ 		for (i =3D st->frame[fr]->loop_stack_cnt - 1; i >=3D 0; i--) {
++ 			e =3D &st->frame[fr]->loop_stack[i];
++ 			if ((e->peeled || e->loop->disjoint_apart) &&
++ 			    (e->trip || e->loop->header !=3D st->insn_idx))
++ 				e->loop->this_pass.cost +=3D cost;
++ 			if (e->peeled && e->trip >=3D e->loop->peel_cnt) {
++ 				if (starved_loop && e->loop->partitioned)
++ 					starved_loop->this_pass.starved =3D
++ 						e->loop->this_pass.starves =3D true;
++ 				return;
++ 			}
++ 			if (e->loop->partitioned && !bpf_loop_has_budget(e->loop))
++ 				starved_loop =3D e->loop;
++ 		}
++ 	}
++ }
++=20
++ static int do_check(struct bpf_verifier_env *env)
++ {
++ 	bool level2 =3D env->log.level & BPF_LOG_LEVEL2;
++ 	u64 log_pos =3D env->log.end_pos, diag_pos =3D 0;
++ 	u64 cost =3D env->cost;
++ 	int prev_insn_idx, err;
++=20
++ 	err =3D bpf_flow_deliver(env, env->cur_state, env->insn_idx, -1, false);
++ 	while (!err && !(env->path_sensitive && env->cost >=3D env->failing_path=
+_max_cost)) {
++ 		err =3D bpf_flow_next(env, &prev_insn_idx, &log_pos, &diag_pos);
++ 		/* at the limit the work on equations is not complete, such a pass prov=
+es nothing */
++ 		if (err =3D=3D -ENOENT)
++ 			return bpf_check_limits(env);
++ 		if (err)
++ 			break;
++ 		charge_loops(env, env->cost - cost);
++ 		cost =3D env->cost;
++ 		/* A pass logs one basic block at a time. A path-sensitive run logs a f=
+ull path. */
++ 		bpf_diag_event_log_restore(env, diag_pos);
++ 		if (!level2) {
++ 			bpf_vlog_reset(&env->log, log_pos);
++ 			env->prev_linfo =3D NULL;
++ 		}
++ 		err =3D do_check_block(env, prev_insn_idx);
++ 		if (env->bug)
++ 			return -EFAULT;
++ 		/* a pass had no error at this insn, possibly with a state that has mor=
+e values */
++ 		if (err && env->path_sensitive && is_error_of_state(env, err) &&
++ 		    (env->cur_state->infeasible || env->cur_state->equations.infeasible=
+ ||
++ 		     !bpf_failing_path_may_end_at(env, env->insn_idx))) {
++ 			bpf_free_verifier_state(env, env->cur_state, false);
++ 			memset(env->cur_state, 0, sizeof(*env->cur_state));
++ 			free_pushed_states(env);
++ 			err =3D 0;
++ 		}
++ 	}
++ 	/* bpf_flow_edge_unproven() noted it with the state that failed */
++ 	if (err && !bpf_insn_is_unproven(env))
++ 		note_error(env, err);
++ 	env->run_over_budget |=3D !err;
++ 	return err;
+  }
+ =20
+  static int find_btf_percpu_datasec(struct btf *btf)
+
+--/PoCzhzasBjJC5sz
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsJp/oACgkQJNaLcl1U
+h9Cgdgf/Sd/j3w9NuY65xVxvzrMsCU66equD86VLI+q8OEoqjjKeZqAUhk1XsA6z
+YVMejQHO6276bzqcDELizjYRaUKr2r4erE8MEWtUskbVi0HbLM24swha+CLRURr2
+aZTjo0mk76zMP/7A6tS90ceYH+cgLuSLcQhj4Cuk24FpmFOfVtHgtKi7n6MLruTM
+AgZxI/3mBIDk2fSsl1+qW9jzs9cpVCxZ+eu/Zrz/UNrZ5gzi2hPKxwfktU0N+Ny5
+L0M0US3TYcet8D1jlxe8XAEQweYcQzjsETTf+qH6X5pLrZ4fdD9BTOqtn+d8NUgM
+CpZB9U7mgugBUcHIHol+iHxhKYkNtQ==
+=LfCN
+-----END PGP SIGNATURE-----
+
+--/PoCzhzasBjJC5sz--
