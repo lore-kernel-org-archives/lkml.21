@@ -1,123 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795790637;
-	b=jzzyjjt0bm3+Xw8WP53QWal60fUWtWyNZRA5MBbd3AwvoGI9RtulNn1O8DgzykxI72dZ
-	 1s9Ixh74ZS40DLFQzzxTutKjiYiZT0BY0fAauPCuqsqLwpeFVW9CEJqYU1eg4RlkTfO4T
-	 ql72B8H78QHTVx+tGOMYvCDlFd9pg3PyMlYt8F+QBcmEEFpXCDShaWI/931ZYI2ooaiPr
-	 vAR0Dn/Fk1SqG/jSwVp7bPNjNnEHe7s+6w1FBb/wygcqvOx+JUgnILX69KcHy1wII25YV
-	 crfkODE56/h9YlPELFHTPlmysOfObqz+uG6xujUQs3JovXi+BwVUtViE2C8kYU6W90A==
+	t=1795790640;
+	b=5BEQVLt4JWcijR6LUZLnhBP9Jr8MloKN3KAIVJ7IzjN1J7L/pV06+fzZZ1HqMF5NdDnm
+	 B3XiKnwRd3yHrbv0gHlOa3M3qgnOCoBqmSS7+thIMCTqB775iAhiC87Gp6BXLsaWaHbzp
+	 ZYhnSJXgu1xOYEUlxb4h0dfLrkZoo4jxC40Ah5fJy86v6WKp63zeYEWLa8yShrvr6/r7q
+	 K2pXm/Aus8q9XenWaN2UHLpW5qMgA0lBaRhWVVuwKSElC4ROgVgTlOLrvhQnJ/GDvbAFH
+	 Ru22llxLn/bxPVPEr47oLmQYcf9kRn0BKfeEoV5n8KUTR2ALKvNKnTNkaAeKz8Fg+mw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795790637;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795790640;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
 	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
 	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
-	 Cc:Content-Type:Content-Transfer-Encoding:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=Ril6/pwfVdg5gu9k4cDXZUxaEC5nPCVnaNVlfqYTX5c=;
-	b=iubPesNpok9AA3yDTLK2WJCN1kFt2E0j2DwmzPB5q1Tr6GZ3H3aGuqYTBxhbxav67RNj
-	 tcvJHqVfM5A5oIoF2bKR1BizfHWDOEhVAvcmuP8dXtr7y52R/cHtTLkx0JZZIs9cLkv0o
-	 legW8LdHR6R68a1aN37xJ0ADrDlH2M1YMHUxzAgwEiqKxLqDdNiAf2g7LNdJVSzT34+bX
-	 VkxvAAJ5eTXtZcO24qAuJfO4mmHc0spDQFjA72A2fqogEk7YdT9jjby7/00xppLJd9nD3
-	 Bj36PentL0ffDdLISvIFw0OdjdyCn0lKHjzxDulElVi9fUGR8myFhfHLpBXxj0ykW9A==
+	 Cc:Content-Type:Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=Djo26OlJqqISxdmZSNHoEzOkF7q+XbnUuQmHWoc5SVg=;
+	b=acc6M0t4xu6+aDEsvutw4yePf+F+V0UTwOpf4ZwlKZTVeHLjR/z55yuhaZrlOUcmaClY
+	 dk5vMqgUBBGbd/fibO6Kww1/kUbFJLXCZSQzyGKJ+/ZHoK3oEhyZNmVrlpcNqxaz0kkH0
+	 5J9l4KTKocOJjsOGaGDaJ+IijdTwcz0QezKZfeDxCM3taOOq7ouKErgUFT45Vpu4C77pd
+	 K7oiv3tVkDIoD1fbpHSJscXX7giu6mRRuIL0+MUmtb7QGWM0ZZvg65scDycNUfuccwaW7
+	 GyTO/gZ+x8B0coTUw9GmVjNIuGqjMAKyFuCMAj0LD6pVph21N+oJW1pnLowG+0wbt3A==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=oss.qualcomm.com;
 	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=d2gpw+yD;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=kGTB8jzV;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=f8FSn2iZ;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Yg8aOwut;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34632606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:43:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34632606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4D36606A335
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:43:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4D36606A335
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=d2gpw+yD;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=kGTB8jzV
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE1YLQ2097660
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:43:56 GMT
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=f8FSn2iZ;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Yg8aOwut
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE1GWr3320409
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:43:59 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Ril6/pwfVdg5gu9k4cDXZUxaEC5nPCVnaNVlfqYTX5c=; b=d2gpw+yDLk7DPW9o
-	QXGPp1jaxL3hNRSC5p6J1ryAUl3d+8Os/28iIj0+G+knWFxNuvXDtd1PEhBAQTsn
-	aaL77/ZndtjM/Ehwr+QfK/SPq0iGbPEQJRk/6TT7E3SoHCUxGT1xzPfik4VPeCW0
-	Vl+j4iImF/460N6jFHNOeFC9tjRWMmWL3C1hGd3hXlgQvWZRvJ8s2cYP7fBAEXhS
-	72MdBgYaZILseaCZbqfGI5V0dsGqZE3UlsA8vOIIwXBXFVAgWjxhb4VN9MPAJ1Vi
-	lE8UCDwG3mPBAxBUd9cYZV/I/BZAj0hjuQtSmRy83f4mr6HfDo+QIbpKHaSoRe64
-	CBk4YQ==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j756k9qce-1
+	Djo26OlJqqISxdmZSNHoEzOkF7q+XbnUuQmHWoc5SVg=; b=f8FSn2iZHcsATKgF
+	WJAeJexnlKz3j7WLV/2YKbtM3l9JM4zIBSCZNtCVZkSFLnetxhOoCgADsCKPyyDw
+	N2AwHYTLToyOhsd07p1V2HSh6hijG5Kri7/5J6frbe0waGRZqJ1DhocyLHtcRJ4U
+	hIJBYxdCDzNU2rX8zUiHQusE4nnPYbAfshnlHtQPt4eyyo0/yPHVHSDzvCAUgZko
+	ZvEc/0XGqPhrsgO3u4GzHpUFnX7UzoMXhjS4wxNa3gvvFcxJyDr1iQQtB1PKNAhX
+	L3acFofw3917cqzAA0cOfLaR825HOzt6Ehe7bT03fkEuPgjCDHb3VLGhIPPb1pqZ
+	Vo0VrA==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6rf94087-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:43:56 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2f04561ee04so45984915ad.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:43:56 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795790635; cv=none;
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:43:58 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2f040c6e0ceso75732035ad.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:43:58 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795790638; cv=none;
         d=google.com; s=arc-20260327;
-        b=ZUrQ2EGsUy/IXaTjh8/3kzmpPtpvYYmDAX1J5PDHgl8ECcuESBCbmkcMvoAD804GZy
-         ENKGZX+asbnXnws87whAzInGqPzYMA8GtxAKwq9B/gXPlBwS9bRmYkx5YrS0l0ejON8E
-         03YScx4qeZbowE42MaoQWJxUVDWmb34xTq3rWx8TwFvcavtBronS9R7MQl1nzx/QlRJ2
-         H56jZwAgb8IbV11evAKXLy/2E0muEWafI5T/4uLTtI4YJ2tIwsWHlXRyP0H/oOK1zvQh
-         TQzeN4FhpwuOv0Gz2y+90xZ8dGjGfI+wGN1mIbj6Li2i5LU4bgcruxmzd48wdjeqmxE/
-         Zutg==
+        b=NEUb+vhwbK2ix7Nqe6pGiOxV0nwD99vh3/fSUHa58e84Nkz42aktCa8O85ZBmtZGQ4
+         Qjc4LhuO48lkqW3mtG9F+nQUuiK3RhsXXNd9axhHH5e1QzonNkO5h0MNMpwhuDiCFuBd
+         PLIfy2v9wV6SViGa4stwgnCKfxJ3gI1289KI0J0Xsb/IuZHx5c5/3EAUUemCA67P9YJD
+         aSXhsAQQc66aVdFGqy1CHe7goMW2TqTzMxN3NyY7kxpAh6R9BqI40Lo8gIv/gm/9Wfoy
+         62OBI2k/Nnf0+xRc1iaLrbrRaL2n+8Csy5QiCN+MOgzl7GZwhDnkCrCnfX43slApbw/p
+         h96g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=Ril6/pwfVdg5gu9k4cDXZUxaEC5nPCVnaNVlfqYTX5c=;
-        fh=R3IupBceI9P20t/LlOwpBCPtqH7olvjKKnM0rWhKMBs=;
-        b=R5W7xWbvfPHcw5Q32EWjjueYZbAtmVcuPvZyr5Sb+fSKgYzkjz9YC2F1gv8yVFW58L
-         KslWpz5/9o9zjDmy5mbRYs26T0rWmtFRU+cpF59T3ye1MbPNrktDPs/NId4eLSIOuR8R
-         nQlFS8MXQzYZy+bo3mScHlCF/mtIiks5Uz1Uph7bMkDnKA2ENI8uSg3kEokdbHgzMlZP
-         QdMtYqbF91sBqnlXf2YBtirpkM2wWq5yOjpy3LaQxZgCvAqy5t49JCtKAzTbnAsEepsm
-         7T/dpZM5DghqI15/tE0U7ZX9rAZw5CBwiBEgxQaz2QbZoZw6mQOGbJ2rpNhWnhLlwuRR
-         5CCA==;
+        bh=Djo26OlJqqISxdmZSNHoEzOkF7q+XbnUuQmHWoc5SVg=;
+        fh=fKJ6TrRlmIqAa7EibJhPE6MxSTJ3xSj8yxr3zBXl3Kg=;
+        b=L8utyoamQpWTmWBEzsbThP09qzfs4kMrSGhkh6lkYYg0+dVky6KRZywv33UqxNZZeN
+         0E8z1pbjqDeqVIi4KYS2fwi2agjdUgK9OSBrLc7KxCnzseAZBFDRZX7+4R7UTpnzuVms
+         82/ZC5abdCcLlm4XkieWenG0GCACovuGEXzJ3g1bHc1sqAinxX4n08dV2AfYwdUm2nwG
+         Dk+o9/7UsuaJDo0KqUgoCZdnDiyhpwu8r6oUOzuGrUUwoIrkho0oEv6s0J2Mdqp7r0/r
+         cDk16bNBicTLQmJJlxLFkKEh+gW0+4YPZA5HzwgS+ktB9tvNaJzBM5VrozvZzTYuLvJB
+         youQ==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795790635; x=1796395435; darn=vger.kernel.org;
+        d=oss.qualcomm.com; s=google; t=1795790638; x=1796395438; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=Ril6/pwfVdg5gu9k4cDXZUxaEC5nPCVnaNVlfqYTX5c=;
-        b=kGTB8jzVBnktjMfvs1nUKCJF+7s+XIPLADFClPYus+B7R441DiLGVhhz0O7mp/n8IX
-         HgmM9Mo3hkOCmkYHt2O+w8cXVc/dICV2WoBW2iGvWek6Qo+RNs7UBl+/k/Dl/emdTj6M
-         ou17+3pQa2qlEoAlpfe7ggcEhBKRGI8lsHmLo46HHL/AWD6QfLDnONgmgTBI8x85SG+m
-         /mYvLoQi3ejqtjulJzjK6Bwfp2C8C81d4Z9acuO5UowhogVvKhh1Y0LUX2XDZXjbkP/+
-         aliTaS0jJ1YTAd/qV5OObPDFeIPhpZ/F4x/1cPyFP3Ku2endE2b1TbNor4hgiuBWYRGE
-         4nGA==
+        bh=Djo26OlJqqISxdmZSNHoEzOkF7q+XbnUuQmHWoc5SVg=;
+        b=Yg8aOwut3eeoZcPoP1WFT57JWYkP4i4Me8Q2XvR+Xe3eOfMdJV3lGgYY5+Dtawlao/
+         rO9LFyL5/iusyZTjZVE7/bsDDjS5K9GJI4bpfrcGp9leCoQJOO3Ord/yXUxLtDZkkjD2
+         Y/IqVFW9QNi8faxXtt7Yj4r7KKjhjhu7gP8w0H6x5i1SrpMZqtwo9RZ56jJq/v/wyvv9
+         LqCb/Q9JJqJ3AizKMagWekdXPQJhXpS788H6KiXndwYyFGbfWnc350DzPw8inniinUGN
+         os6pjGznDX+25TQL/9JEmXoghucY4Si4YNUheIJ8dPUERezZ7CXZSy3sk4/npdKM277x
+         mkPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795790635; x=1796395435;
+        d=1e100.net; s=20260707; t=1795790638; x=1796395438;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Ril6/pwfVdg5gu9k4cDXZUxaEC5nPCVnaNVlfqYTX5c=;
-        b=JKcz7S23QecB5wKeyUz2s4v7Iu6HQiQ0tpMAqJWliKGUTwF4C6sMqgbn6bTi9iTL5f
-         Ck24GI0nWZgAMlChqZLJefw8aTcdsDxisa52TN0bQZH9RXPsZcQ7Bi1jPskeuN3Pc1YJ
-         nhgmaJFaGI1eM77z1U0oghj0XX+P2uHZKhVO2t3/s9dP0aqgQlIYRyGdm2ZUWn1DiJaB
-         4VW4v+M9F5xtjx3XcEnT6JvQAVtQDdin6hBcp4Xz1EkDkSoxYwKneNqkE0kmlVPh16Qk
-         Q0g9J0oPQMICSKSL6ltR/vFOe5GwBATNGJARiAF8y8TyBMOkoulYnkkI5A9HcIqqjJ1D
-         lfNg==
-X-Forwarded-Encrypted: i=1; AL+hErGIQv1U6Kg9fCLgHeyJoDhAIE9rw0ZZHRtmv2iWz/I16l9Ni8ZnxMuTUWuGcmlO2j1ajeQSucZrlaXGfxs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+OjfA1SS3G8zgkK5aPgc4H6VyscRF2biqkwZtVNDAjzo96arDn
-	mFrO3PWrU8r+1pZu+aRCq+3vkORRTHDk5C5yAsSr89UXLoDIw9UZj3zVTwJoeCr6X6ogHRRTQLu
-	usQTzMIL6q/roQuM9df3LpCUpYBRA7Byqetd6n023MdJOjg79r4spetPkuZ7JcDQcv0Bidj1aTJ
-	lO7r88Y8Io7gPZ5di3Qlg3H4ZjQzF4LmCRfK5obgdgeQ==
-X-Gm-Gg: AZFdTZetpxxUp1Pn61EqXQux/3+4LyHOaflsaPXnB8KSGsJYoRjQ6MVcr0KgNy7feTW
-	PKSG97DvGblh9d5jyXYsO4sGOSA+/jbOZCyx2A5CaZ1nmTssy9MIcyHM4qjYAw+5OOJBT/c3adb
-	hQl91a7ziZqS6JgVv8eHWGfqCKlLTpAbiZFMHPHuIrAcL9v41jlcgMotC4KQ==
-X-Received: by 2002:a17:902:cf0b:b0:2f0:25ea:8fa7 with SMTP id d9443c01a7336-2f03f18a1a5mr246985785ad.38.1795790635203;
-        Fri, 27 Nov 2026 06:43:55 -0800 (PST)
-X-Received: by 2002:a17:902:cf0b:b0:2f0:25ea:8fa7 with SMTP id
- d9443c01a7336-2f03f18a1a5mr246985505ad.38.1795790634777; Fri, 27 Nov 2026
- 06:43:54 -0800 (PST)
+        bh=Djo26OlJqqISxdmZSNHoEzOkF7q+XbnUuQmHWoc5SVg=;
+        b=TAUbMhuc/0GrVYrpWUhdAltlJpJFwhd72Z6xwQpcKz8ybMuVL38YIws1WhHcp4Yl8C
+         dWfVjdJbrSzwwhpCFCVaFdmAl3iOpjUL2uOTvS1/XuCx3pgKzNDuzlLssq6tEDVmOR17
+         sVjXef+Z6M7AGXomZrJHhM67aEG6mrTuLJcWp6mn4LfauYDKABLz4l5lu+nq08rsLJZV
+         06IpWM4rRsdmrIgB73oIOJUhDzr4GB2ZG3+LHjBaU74BsXPQ4a24Z6myh2z96E9C6vgF
+         cVCi5e2O4G9RzIMHVNB8s9rltrp6+7pbSx9SFK7vfTP9VL/FPNpAMXKJOl+VTZ3QJvBp
+         ThQA==
+X-Forwarded-Encrypted: i=1; AL+hErHewhYwwuYyrTzkJTGsSVaI8Zr7+peIquVYVU4mc1Q4rwLzCyFr/QpFhbRGtfkuOBF7DcxuBUIR+Ksaf+o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8vlJnklE8aJ2mZlTNeRdfhNZHw5NpzeIgC0f9QMzqrnDdt4DRo
+	BpQ3XQr//FCy09ks8mOcnAWpiSzx08OLW0cnsaVWzRK7rMS28AAG0u4SkWcXiEjbwvcBvIo9Xcm
+	4o028ytcXsUmozVdU2EWr5+FQrnaLvmXLHIX/7BNh4TlYA4H+EksVVvha3mrY7Kbnh6QcUXbw48
+	+/0rvSsh8Lz8hrHtZ8yBikIj0gV2Vs+zRNsXc0Hlm6qnVfC0UnZw==
+X-Gm-Gg: AZFdTZe6l1u15gsLnIQ9vX4jwKH8FChPiLz1Q3u1xgXepfFKstM2WytHb9oyvm5h/FY
+	tfdvA598j7SKgcOImPH0J3ix7sG+FQozp0X+tS+9nNd8JIE7iKcpOisw1JJQ5+A763RwA3PQEnF
+	N01jiazkK087rmRRfgkbgl1K0mMq5iJ6znkE0kanckKFOnFQklVc9T3Q+MiA==
+X-Received: by 2002:a17:903:26ce:b0:2ed:3d3b:c5f5 with SMTP id d9443c01a7336-2f0f4a36319mr59480055ad.64.1795790638333;
+        Fri, 27 Nov 2026 06:43:58 -0800 (PST)
+X-Received: by 2002:a17:903:26ce:b0:2ed:3d3b:c5f5 with SMTP id
+ d9443c01a7336-2f0f4a36319mr59479645ad.64.1795790637838; Fri, 27 Nov 2026
+ 06:43:57 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,114 +127,127 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261104142341.50294-1-mmyangfl@gmail.com>
-In-Reply-To: <20261104142341.50294-1-mmyangfl@gmail.com>
+References: <20261104152657.14909-1-mateusz.nowicki@posteo.net>
+In-Reply-To: <20261104152657.14909-1-mateusz.nowicki@posteo.net>
 From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 15:43:42 +0100
-X-Gm-Features: Aa3M54qV2kcyYTG3vkcpE6lAYkcRBJRplILzwvvRirUG3PSX4mnwqWiE3k-KZJQ
-Message-ID: <CAPx+jO_2CpmakqD5nifE+g558_XsxFR9zKpzeKgCX1heFs8ZJg@mail.gmail.com>
-Subject: Re: [PATCH] mmc: hisilicon: mv200: stop treating the CIU clock as the
- card clock
-To: David Yang <mmyangfl@gmail.com>
-Cc: linux-mmc@vger.kernel.org, Jaehoon Chung <jh80.chung@samsung.com>,
-        Shawn Lin <shawn.lin@rock-chips.com>, Ulf Hansson <ulfh@kernel.org>,
-        linux-kernel@vger.kernel.org
+Date: Fri, 27 Nov 2026 15:43:43 +0100
+X-Gm-Features: Aa3M54qMTgg09-LOlmQZO96BQZ0rleJjZ6ArcEP-EJUj-jeo15UHbVxIpCxwPn0
+Message-ID: <CAPx+jO-nDpYJyeKGqjqaO7rMrTW2DzFsv_1WCdFjcR8EborPzg@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] mmc: mmci: stm32: silent data corruption and HS200 fixes
+To: Mateusz Nowicki <mateusz.nowicki@posteo.net>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Ulf Hansson <ulfh@kernel.org>, linux-mmc@vger.kernel.org,
+        Russell King <linux@armlinux.org.uk>,
+        Linus Walleij <linusw@kernel.org>,
+        Yann Gautier <yann.gautier@foss.st.com>,
+        Christophe Kerello <christophe.kerello@foss.st.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1OCBTYWx0ZWRfX7bo7q8fZBvgB
- RKHo4cVlpRodBVtdk2RdZIJWxQxEg7DZQEJFUnViWVNX0Sphv5cZFny8H8Xm/x53QCo6kU+E8Vw
- rJnZMnifqD3E8zCHW16QF6tOXgtgfwpbUaV/nU+PAev9UKa6BC2FoGuVqHBGlWCX40/w8qysU1M
- OletRZ0JNTIu0B3fMugKSokgIBaXlo4K/+gkHVBxqZcFho+Mi/rnzwR4wnAPnn3Tct6kSQp/tIp
- FOEGCTkpPw4wASiKMO1I0ofpNBhh7Ywr3/c0purExUvIy3GOaEW8wcYsCNhRuhGxwmIXgodg1N3
- LOJ4KLzhepKhu6lCEjmVLuBBM2u/i4uQ6aHeloRP+7e80Dej2wohqJP5lf6/vwFmx+oqeMLfecl
- CuWyvKaxqNU/4rVmPLhWX9z8gnmbJRN8JEdqLMouaXogrQqDtV7Q/KJsqUnykvCKz4/F0FNoAK/
- sHGHUl2qW6DZvW19log==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1OCBTYWx0ZWRfXzfvhwHNH6uD4
- yYLiAVd4BoaKEv48/UD+vDmBFCk0LmsNCrGsfjNmv/UHFWh5W/egyDls9O6VqVweC9LixPbbjgA
- U4iF0HViMoKUzROMtcJUF6hjIgTdH/E=
-X-Authority-Analysis: v=2.4 cv=ebWo7LEH c=1 sm=1 tr=0 ts=6b09972c cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+X-Proofpoint-ORIG-GUID: hHM8sTZPrwMV9-eRObzz3rocj_j-jsnJ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1OCBTYWx0ZWRfX2+oM3vgXLuY3
+ /IxanHodrE/qpL/EMHPwHEM7dB9zyKjZ7RURZQcU5cg3cnV36K1LkqO9Z6WiF8gZAAD7iSRtpy3
+ 78CpyERmv8PsYWJIEqB3UE2FvOweEiyq5l5fSyP0gSkrZtADJ0vRs2ZS2hKnrWU9+tk/2aQ/qg0
+ SVv+TdmhbY5H6ExIFs1Cq4oU9t3O3GC2SzL72RANOZc7QbWO3oz2N8yhTp9Hz54t3OQU8cfIErf
+ ILKxf/XvF6Yc4ZeMjARZULOcJIi+lx15wo91oBUcmhBI13sZbVKJ0GHn9t3ONG4lEGyKvvH6WMq
+ 0iDBKuHpAj+iQspOFBL5BIjXxu9iMR7TSjzg9iAaQi+07Ec+y7nALBL1PS8pb54x5AdVQlDWoHA
+ JJsbnHDjiMN5TQPxxTAEBmgmFjR9cEs4Do1yElXXAm9HXpAefWQ6x2wkimdAi+Yn/s3uaWIMRlv
+ Az0h4Iedo7VW7HcYH+g==
+X-Authority-Analysis: v=2.4 cv=cpkOAF4i c=1 sm=1 tr=0 ts=6b09972f cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
  a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=ZpdpYltYx_vBUK5n70dp:22 a=pGLkceISAAAA:8 a=P1bdStQrB_pqgD3IWdEA:9
- a=QEXdDO2ut3YA:10 a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-GUID: QdlNu6Qwccn2KKariC4lbQkIrx4kN412
-X-Proofpoint-ORIG-GUID: QdlNu6Qwccn2KKariC4lbQkIrx4kN412
+ a=eoimf2acIAo5FJnRuUoq:22 a=VwQbUJbxAAAA:8 a=uChsZFC9AAAA:8
+ a=VTaG3boj7W6_II-ye28A:9 a=QEXdDO2ut3YA:10 a=1OuFwYUASf3TG4hYMiVC:22
+ a=ULtXvzFHYWHLyBAuiDia:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1OCBTYWx0ZWRfXxC4DeY65Iwhg
+ vPWIcgOf0q2Y85rDzOsN+lO0ZCbY82rf0hPvw1LbV7wOaEwCFctR/0/IW1W78O4xe/k6F3LCFo9
+ LxF39ZLeu2GL1BgvvciM4lpbWRMdh24=
+X-Proofpoint-GUID: hHM8sTZPrwMV9-eRObzz3rocj_j-jsnJ
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-27_02,2026-11-27_03,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 spamscore=0 priorityscore=1501 malwarescore=0 clxscore=1015
- lowpriorityscore=0 phishscore=0 adultscore=0 impostorscore=0 bulkscore=0
+ clxscore=1015 adultscore=0 priorityscore=1501 spamscore=0 phishscore=0
+ suspectscore=0 malwarescore=0 lowpriorityscore=0 impostorscore=0 bulkscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270058
 
-On Wed, Nov 4, 2026 at 3:23=E2=80=AFPM David Yang <mmyangfl@gmail.com> wrot=
-e:
+On Wed, Nov 4, 2026 at 4:27=E2=80=AFPM Mateusz Nowicki
+<mateusz.nowicki@posteo.net> wrote:
 >
-> The card clock comes from the controller's own divider; the CIU only
-> runs at the rates its mux offers, 25/50/100/150/200 MHz. The driver
-> nevertheless asked the framework for the card clock on every
-> set_ios() and warned on every refusal. The refusals are the framework
-> working as designed: the 400 kHz identification clock is below the
-> lowest mux rate, and clock =3D=3D 0 is a clock-stop, not a rate. On an
-> Hi3798MV200H board that warning accounts for 18 of the 24 error
-> lines of one boot.
+> The eMMC of the STM32MP257F-DK in HS200 returned stale data and lost
+> writes without any error. Patch 1 makes data CRC errors visible to the
+> core again. Patches 2 and 3 are the fixes of the ST downstream kernel
+> for the causes seen on the DK, as Christophe pointed out. Patches 4 and
+> 5 move the eMMC of the DK back to the sdmmc2 pins_a groups and remove
+> the pins_b groups I added for it in 7.4: the corruption came from the
+> delay block, not from the slew rate, and the slower pins avoid
+> overshoots on the SDMMC2 clock. Patches 1-3 are for the mmc tree, 4 and
+> 5 for the STM32 device tree, patch 4 needs patch 3.
 >
-> Ask for the rate only when there is one, ignore refusals, and read
-> the settled rate back, so the divider always starts from the rate the
-> framework actually provides.
+> Tested on the STM32MP257F-DK with a v7.3-rc6 based kernel with the same
+> changes, each run writing 832 MiB to the eMMC and reading it back:
 >
-> Signed-off-by: David Yang <mmyangfl@gmail.com>
+> - SDMMC2 kernel clock 200 MHz, HS200 at 100 MHz as in mainline: without
+>   patch 3 the writes failed with I/O errors in all 9 runs (sdmmc2 pins_a
+>   or pins_b, with or without NEGEDGE), with it all 6 runs were correct
+>   (pins_a and pins_b).
+> - SDMMC2 kernel clock 150 MHz, HS200 at 150 MHz with the delay block:
+>   all 6 runs correct (pins_a and pins_b), the tuning picked the same
+>   phase in all 10 rebinds on each pin group.
+>
+> Build tested on v7.4-rc1 (arm64 defconfig, W=3D1). Not tested on
+> STM32MP1x.
+>
+> Changes in v2:
+> - Drop "mmc: mmci: stm32: do not use NEGEDGE in HS200 mode". NEGEDGE
+>   has no effect with CLKDIV =3D 0 and is valid with a divider, I misread
+>   RM0457 (Christophe). The writes at 100 MHz fail because of the delay
+>   block, not NEGEDGE.
+> - Replace "mmc: mmci: stm32: lock the STM32MP25 delay block again before
+>   tuning" with the same change from the ST downstream kernel, "mmc: mmci:
+>   stm32: release the delay block before enabling it" (Christophe).
+> - Add "mmc: mmci: stm32: use the delay block above 100 MHz on stm32mp25
+>   SoC" from the ST downstream kernel (Christophe), with dlyb checked
+>   before reading min_freq from it.
+> - Add "arm64: dts: st: use sdmmc2 pins_a on stm32mp257f-dk" and
+>   "arm64: dts: st: remove sdmmc2 pins_b from stm32mp25" (Christophe).
+> - Rebase on v7.4-rc1.
+> - Link to v1: https://lore.kernel.org/r/20261031120700.42576-1-mateusz.no=
+wicki@posteo.net
+>
+> Christophe Kerello (2):
+>   mmc: mmci: stm32: release the delay block before enabling it
+>   mmc: mmci: stm32: use the delay block above 100 MHz on stm32mp25 SoC
+>
+> Mateusz Nowicki (3):
+>   mmc: mmci: do not count a data CRC error as a complete transfer
+>   arm64: dts: st: use sdmmc2 pins_a on stm32mp257f-dk
+>   arm64: dts: st: remove sdmmc2 pins_b from stm32mp25
+>
+>  arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 58 -------------------
+>  arch/arm64/boot/dts/st/stm32mp257f-dk.dts     |  4 +-
+>  drivers/mmc/host/mmci.c                       |  5 +-
+>  drivers/mmc/host/mmci_stm32_sdmmc.c           | 28 +++++++--
+>  4 files changed, 27 insertions(+), 68 deletions(-)
+>
+>
+> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+> --
+> 2.56.0
+>
 
-Applied for next, thanks!
+Patch 1->3 applied for fixes and by adding stable tags, thanks!
+
+Note that, I am planning to submit a pull-request with fixes to Linus
+beginning next week. So if things work as expected these should be in
+v7.4-rc6, if that can help Alexandre/Maxime to pick up the DTS
+changes.
 
 Kind regards
 Uffe
-
-
-> ---
->  drivers/mmc/host/dw_mmc-hi3798mv200.c | 16 ++++++++++------
->  1 file changed, 10 insertions(+), 6 deletions(-)
->
-> diff --git a/drivers/mmc/host/dw_mmc-hi3798mv200.c b/drivers/mmc/host/dw_=
-mmc-hi3798mv200.c
-> index fda417888be9..e64d5bdc068e 100644
-> --- a/drivers/mmc/host/dw_mmc-hi3798mv200.c
-> +++ b/drivers/mmc/host/dw_mmc-hi3798mv200.c
-> @@ -53,15 +53,19 @@ static void dw_mci_hi3798mv200_set_ios(struct dw_mci =
-*host, struct mmc_ios *ios)
->                 val &=3D ~SDMMC_DDR_HS400;
->         mci_writel(host, DDR_REG, val);
->
-> -       if (clk_set_rate(host->ciu_clk, ios->clock))
-> -               dev_warn(host->dev, "Failed to set rate to %u\n", ios->cl=
-ock);
-> -       else
-> +       if (ios->clock) {
->                 /*
-> -                * CLK_MUX_ROUND_NEAREST is enabled for this clock
-> -                * The actual clock rate is not what we set, but a rounde=
-d value
-> -                * so we should get the rate once again
-> +                * The card clock comes from the controller's divider, wh=
-ich
-> +                * only divides down, so a fast mode needs the CIU lifted
-> +                * first. Ask for the card clock and ignore the outcome: =
-the
-> +                * mux has nothing below 25 MHz, so the 400 kHz identific=
-ation
-> +                * clock is refused and just leaves the CIU where it was.
-> +                * Whatever the framework settles on is the divider input=
-, so
-> +                * read it back; clock =3D=3D 0 is a stop request, not a =
-rate.
->                  */
-> +               clk_set_rate(host->ciu_clk, ios->clock);
->                 host->bus_hz =3D clk_get_rate(host->ciu_clk);
-> +       }
->
->         if (phase.valid) {
->                 clk_set_phase(priv->drive_clk, phase.out_deg);
-> --
-> 2.53.0
->
