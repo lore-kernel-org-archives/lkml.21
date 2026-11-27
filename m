@@ -1,95 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795797398;
-	b=aLA+pDwpGWllAYFiPf1voG9sxUtSAO/+tGPqUnZIo5AeANb4XsIbkjkKueg7gc586L/p
-	 YqEx0oqjhsaNcJM6xpP+ntuEpQQHCaAr1xqFAtKvn06j+DZZTso4gkBOeMPM6TICxWWRn
-	 m88Smso6ByxwtxH8ZsSxoTR0sAYSQsPwsQHBjy539BOYM5Iq8IEi3I6Kxh/d/q+6vdubG
-	 ayzRMp2kKk3fdQx9PWlfejAt5qcPNK3s7SGp/CitTspGwfLm3XgEHFZoYubJ03bL+Zg0C
-	 hBBgtq9ng8hBDeOM1DFocp4MRAjk9uMbdopiEQwhtjpq/+cxIwuuXPYW7MKHfkzKkjQ==
+	t=1795797399;
+	b=LDqeWncV71Kg+h8Q8k0brm26pxCkWvDP8LpQf+7dy7WQ47+HBcmdA8JJzJtuprkq1dR/
+	 Z9n0kLE9wP/tFzXGqqLcw7TT4t+5EFUR2X9+zQ7wcPQUoQ7QIXT3CIoDZMJymNHZQXhCY
+	 A+gjE+Mj9zE2Bfmca0dFhxEV0G8wBb5y2ABMp+SH0I1gACrOIrttEDr2LDUASzNByDoDL
+	 QOJeksXY6RYsahU5oKZLmIrzIdTf1CKsmGPCVAWWEG4lvF3UJwRmdq/TY/DFLDcB33jWp
+	 NpUWFgzWEXiE4shtBrZ67XLBeDfyg3JFMoJ04QOwYFDZHGrXxYNNi96rSBCSzO+3vUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795797398;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=jZk2vXbxzjtX67c5jJifbTQJPrSiWJsANuJuPhZHRHs=;
-	b=oI9Ck2a3ac/4lAogxmptsTeQbUzpXyoYO4uJFv13zcT7LsombhsUAye01L0WEGqUFipP
-	 G5NDn5N592nBVk2Ukc3DyUytK6YGdM8BRu6hXLFaoJmI+VEIPLs0ixz6+Fd/5Ex9PxNTU
-	 YVvRH0FDd/agpHBMjOb9yMed5kL2U269WynPFz+JkLJBCVNitR/bHJ9GBzkKZt3ThyYSS
-	 FHtzY+it37vOlPmxGK8qffJfW9K/Xtj9mnite+uTVcMMOoLSnGaXXtQRPpfrdsU14mDDu
-	 DOr5umqjTFwYK2XiPLr03j09KuKFYlzbCm+9WtQjdQe2Gx8ytP0lJvLhKUp5isYdURg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795797399;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=nyxEO58jG2eRS60AFB3FuIq+ozdE/sL6szu/SNOCHkU=;
+	b=4qeLtaCd4IRxFvHDvcS7pGF1ESt9cTE+mf+SSnxU0yvB4WcZbDLWvHNZyFVfCo7zv0px
+	 zDUou+3nG9YH3WNP/xnqaZpZkIaSkX1OY8KKXT34H/MA5dgWXpyALhW33VhNkSmDAyN2d
+	 afz3RnGE+ztTMnvQUuhcqoluW7V+Hk7nNdPDoNNNiN/QBUCT/48dNl8Ysy4+1RF1ARMUp
+	 r/8+8nS7m3KQHSfn4f53iGYrf5unMMBq0fCuArAMC9Jb0XRNDNZHJ648WWAMpAUzq9wO8
+	 6Jx08WHW/aLa20dQMdDvstmF6TQ81h0GCtgYXIJwvl36YwC3W59hi3gDufE/50GLtDg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=px0QNtvo;
-	arc=none smtp.remote-ip=209.85.218.54
-Received: from mail-ej1-f54.google.com (mail-ej1-f54.google.com [209.85.218.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4011C606A324
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:36:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4011C606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=RuXYDHbs;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 90A10606A32A;
+	Fri, 27 Nov 2026 16:36:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90A10606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=px0QNtvo
-Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-c5188e17487so397259466b.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:36:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795797397; x=1796402197; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=jZk2vXbxzjtX67c5jJifbTQJPrSiWJsANuJuPhZHRHs=;
-        b=px0QNtvoc6glcKLk8fB9tGNePVpAPu8uPWj5MIuX4iq+2TsX49Rn/Tne38xCxYSwL6
-         ZTpQQ2scyRDGfVZ2dQ3J0f7KVDcoZ3rbBCKwQ9YKXQblgIXVgeLjnNdCwRtyK72u4MEj
-         ILl+S5SZLH6/nK3IHgPKUYJtdQOEoourGRoyJZ5lLFOGnHguXcNlCS5tYOqgzIYegMxP
-         iU88B1A7vjce3GCFvIBlIanbNzHCOFwyw+QrMMYlRCsk8fm5P/JJosrWkTzcg9n5EgpD
-         FPK5nPxpmmorp24ojOvruaJBL1goWGDpXnsGsvftylhvBkUq18+sOfrOhMp6y5/G7Ar3
-         egJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795797397; x=1796402197;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jZk2vXbxzjtX67c5jJifbTQJPrSiWJsANuJuPhZHRHs=;
-        b=vd8ijTYwteVUvXmyQPxGr8c8Rn3igbC7O8gbct1AOdO87p0wOIIw4+zU17+8ehKKot
-         xQiWb4LS8HaaMUzA2RHSzIIDwhADNGu9/hyyiHFWpaTz/KPMoe9gzaUvHlXwDNnVjpMX
-         XP5tTTKsQqvXSyzpMAqvL1JZVw8DlKTqUHcoh3kBkozgIalCGHMbQdychF6zFKmcld8z
-         tpkXKLtWeIpYzbRr3CcW67oag18c97mn4hqreJPtiwL8gfaAxqxOVBgx7/2cuenPmmlD
-         VFB5QpKCOQz49/dZ9qS6DpuMXsJafqAKxU6kq5di0t5QUwEVbididvFgCyWEw2KXM3P4
-         7WSA==
-X-Gm-Message-State: APuU4Z+J4tAUHsI3CB7bbwfbrmWXninwEsOqk+JeGmEh9Q+9mxHw3nnc
-	qYavVMzrOHrhZY3R7pGB03NdZF1xoZx8gZJ6gIkNlX/m6jQmJ6pn96Vl
-X-Gm-Gg: AZFdTZfyQzOoZ/IeeGUweY2ZA1BYKZGUFO4jCF35DuwJ1oJGXjaz58gdBHZB0ZaHLMu
-	ImM8w3t0vXTCpZy5d0Dr4kethbpStDzDAoZbfQheHXcqLvaK7JcHCm8wHtUpfOqeGida/jEkcVY
-	/2p4SM+rvvuDQ3KGSdgWqCzfN625qrQ4HAfEuZRYwFKDW9fFqr2wOGWezkdo7MAhKLhY4D7NWzv
-	2rSVSCXZS8TwpXM7kA0lYrfQuP4c5mRYzvyiH/4iJRTISfN48WntM9enBqmmVrTuz2inwjhBhQ+
-	NIOAQQ597ZNA6MwQsgwrU5QSyz4BJiYIKy+mVeyAmsBG7fKUTjNNSCi+A7HyzRe4YHcD3UckNIN
-	CTN1QckxBeCq9yg3xyJkWWUj7e1cPwvR6MqiJeCB8OSQ6K0W5IQygV8vDSGWtlDSmZaT5cc9Dto
-	bXknMlnka7AHCsJBBEGhPrQGio/qMVjsYGoVlLNIgSAEqpduONA+TPmG+NzKt6htyvHuzQwfkFo
-	EKKoIYCNgrFE2Q5EPsKvQmp/ZUhdfenvsPx6/6t0ekwaW/wcZ8H4j+nQ2ZJzyfXcV5Tpt9fKXDJ
-	pPn7PsE4BokR6BgYiWFohLZlc6Dfqttvza8uN71Usmxma7Qiq+dva8gPd4vvNBKR0dLrPzQoPtQ
-	5OVqrNfwE8w==
-X-Received: by 2002:a17:907:3e90:b0:c51:898c:ff with SMTP id a640c23a62f3a-c51898c01a9mr1186347466b.12.1795797396406;
-        Fri, 27 Nov 2026 08:36:36 -0800 (PST)
-Received: from xeon ([188.163.112.54])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae9dc7asm893079566b.41.2026.11.27.08.36.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 08:36:35 -0800 (PST)
-From: Svyatoslav Ryhel <clamor95@gmail.com>
-To: Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Svyatoslav Ryhel <clamor95@gmail.com>
-Cc: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH v1 1/3] regulator: dt-bindings: maxim,max8907: Convert to DT schema
-Date: Fri, 27 Nov 2026 18:36:10 +0200
-Message-ID: <20261127163612.280186-2-clamor95@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261127163612.280186-1-clamor95@gmail.com>
-References: <20261127163612.280186-1-clamor95@gmail.com>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=RuXYDHbs
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6C3E41570;
+	Fri, 27 Nov 2026 08:36:34 -0800 (PST)
+Received: from [10.0.129.128] (e122027.cambridge.arm.com [10.0.129.128])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 93AB23F632;
+	Fri, 27 Nov 2026 08:36:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795797397; bh=EFyjz5K6FQSICQk4qVCWxpHVr1zg47R7gms4zh34/8Q=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=RuXYDHbs0klo6rqmTIFbWccVkoffHuEh+tKD+TdfkhY8pOhrThjyfqgwOEx3GX8i1
+	 p2OlSLNY5CUwgHLb95vhb/+eyNx9NsndsVzI9o5La3N5rsszhDPzN1YIj/7GLwZKYN
+	 A/eh1lMd9TGmf/KM8gzt0BrzFQAdsyDdQxgdCNNM=
+Message-ID: <3970b78c-b72a-49ca-9125-75d242508a9d@arm.com>
+Date: Fri, 27 Nov 2026 16:36:26 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,385 +53,241 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 02/13] drm/panthor: Minor scheduler refactoring
+To: Ketil Johnsen <ketil.johnsen@arm.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Liviu Dudau <liviu.dudau@arm.com>, Akash Goel <akash.goel@arm.com>,
+ Karunika Choo <karunika.choo@arm.com>,
+ Lukas Zapolskas <lukas.zapolskas@arm.com>,
+ Chris Diamand <chris.diamand@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Daniel Almeida <daniel.almeida@collabora.com>,
+ Alice Ryhl <aliceryhl@google.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ rust-for-linux@vger.kernel.org, Florent Tomasin <florent.tomasin@arm.com>
+References: <20261116112601.3483649-1-ketil.johnsen@arm.com>
+ <20261116112601.3483649-3-ketil.johnsen@arm.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20261116112601.3483649-3-ketil.johnsen@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Convert Maxim MAX8907 regulator binding from text to DT schema. Reference
-to nvidia,tegra-regulators-coupling in child regulator nodes.
+On 16/11/2026 11:25, Ketil Johnsen wrote:
+> From: Florent Tomasin <florent.tomasin@arm.com>
+> 
+> Refactor parts of the group scheduling logic into new helper functions.
+> This will simplify addition of the protected mode feature.
+> 
+> Remove redundant assignments of csg_slot.
+> 
+> Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
+> Signed-off-by: Florent Tomasin <florent.tomasin@arm.com>
+> Co-developed-by: Ketil Johnsen <ketil.johnsen@arm.com>
+> Signed-off-by: Ketil Johnsen <ketil.johnsen@arm.com>
 
-Acked-by: Mark Brown <broonie@kernel.org>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
----
- .../devicetree/bindings/regulator/max8907.txt |  69 -----
- .../bindings/regulator/maxim,max8907.yaml     | 283 ++++++++++++++++++
- 2 files changed, 283 insertions(+), 69 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/regulator/max8907.txt
- create mode 100644 Documentation/devicetree/bindings/regulator/maxim,max8907.yaml
+Reviewed-by: Steven Price <steven.price@arm.com>
 
-diff --git a/Documentation/devicetree/bindings/regulator/max8907.txt b/Documentation/devicetree/bindings/regulator/max8907.txt
-deleted file mode 100644
-index 371eccd1cd689..0000000000000
---- a/Documentation/devicetree/bindings/regulator/max8907.txt
-+++ /dev/null
-@@ -1,69 +0,0 @@
--MAX8907 regulator
--
--Required properties:
--- compatible: "maxim,max8907"
--- reg: I2C slave address
--- interrupts: The interrupt output of the controller
--- mbatt-supply: The input supply for MBATT, BBAT, SDBY, VRTC.
--- in-v1-supply: The input supply for SD1.
--- in-v2-supply: The input supply for SD2.
--- in-v3-supply: The input supply for SD3.
--- in1-supply: The input supply for LDO1.
--...
--- in20-supply: The input supply for LDO20.
--- regulators: A node that houses a sub-node for each regulator within the
--  device. Each sub-node is identified using the node's name (or the deprecated
--  regulator-compatible property if present), with valid values listed below.
--  The content of each sub-node is defined by the standard binding for
--  regulators; see regulator.txt.
--
--Optional properties:
--- maxim,system-power-controller: Boolean property indicating that the PMIC
--  controls the overall system power.
--
--The valid names for regulators are:
--
--  sd1, sd2, sd3, ldo1, ldo2, ldo3, ldo4, ldo5, ldo6, ldo7, ldo8, ldo9, ldo10,
--  ldo11, ldo12, ldo13, ldo14, ldo15, ldo16, ldo17, ldo18, ldo19, ldo20, out5v,
--  out33v, bbat, sdby, vrtc.
--
--Example:
--
--		max8907@3c {
--			compatible = "maxim,max8907";
--			reg = <0x3c>;
--			interrupts = <0 86 0x4>;
--
--			maxim,system-power-controller;
--
--			mbatt-supply = <&some_reg>;
--			in-v1-supply = <&mbatt_reg>;
--			...
--			in1-supply = <&mbatt_reg>;
--			...
--
--			regulators {
--				mbatt_reg: mbatt {
--					regulator-name = "vbat_pmu";
--					regulator-min-microvolt = <5000000>;
--					regulator-max-microvolt = <5000000>;
--					regulator-always-on;
--				};
--
--				sd1 {
--					regulator-name = "nvvdd_sv1,vdd_cpu_pmu";
--					regulator-min-microvolt = <1000000>;
--					regulator-max-microvolt = <1000000>;
--					regulator-always-on;
--				};
--
--				sd2 {
--					regulator-name = "nvvdd_sv2,vdd_core";
--					regulator-min-microvolt = <1200000>;
--					regulator-max-microvolt = <1200000>;
--					regulator-always-on;
--				};
--...
--			};
--		};
--	};
-diff --git a/Documentation/devicetree/bindings/regulator/maxim,max8907.yaml b/Documentation/devicetree/bindings/regulator/maxim,max8907.yaml
-new file mode 100644
-index 0000000000000..6cf8e93867e1a
---- /dev/null
-+++ b/Documentation/devicetree/bindings/regulator/maxim,max8907.yaml
-@@ -0,0 +1,283 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/regulator/maxim,max8907.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Maxim Integrated MAX8907 PMIC
-+
-+maintainers:
-+  - Svyatoslav Ryhel <clamor95@gmail.com>
-+
-+properties:
-+  compatible:
-+    const: maxim,max8907
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  maxim,system-power-controller:
-+    type: boolean
-+    deprecated: true
-+    description:
-+      Telling whether or not this PMIC is controlling the system power.
-+
-+  system-power-controller: true
-+
-+  mbatt-supply:
-+    description:
-+      The input supply for MBATT, BBAT, SDBY, VRTC.
-+
-+  regulators:
-+    type: object
-+    additionalProperties: false
-+
-+    patternProperties:
-+      "^(sd[1-3]|ldo([1-9]|1[0-9]|20)|bbat|mbatt|out(5v|33v)|sdby|vrtc)$":
-+        allOf:
-+          - $ref: /schemas/regulator/regulator.yaml#
-+          - $ref: /schemas/regulator/nvidia,tegra-regulators-coupling.yaml#
-+        unevaluatedProperties: false
-+
-+patternProperties:
-+  "^in-v[1-3]-supply$":
-+    description:
-+      The input supply for SD1, SD2 and SD3.
-+
-+  "^in([1-9]|1[0-9]|20)-supply$":
-+    description:
-+      The input supply for LDO1 - LDO20.
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - regulators
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    i2c {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        pmic@3c {
-+            compatible = "maxim,max8907";
-+            reg = <0x3c>;
-+            interrupts = <0 86 0x4>;
-+
-+            system-power-controller;
-+
-+            mbatt-supply = <&vdd_5v0_sys>;
-+            in-v1-supply = <&vdd_3v3_vbat>;
-+            in-v2-supply = <&vdd_3v3_vbat>;
-+            in-v3-supply = <&vdd_3v3_vbat>;
-+            in1-supply = <&vdd_3v3_vbat>;
-+            in2-supply = <&vdd_1v8_vio>;
-+            in3-supply = <&vdd_3v3_vbat>;
-+            in4-supply = <&vdd_3v3_vbat>;
-+            in5-supply = <&vdd_3v3_vbat>;
-+            in6-supply = <&vdd_3v3_vbat>;
-+            in7-supply = <&vdd_3v3_vbat>;
-+            in8-supply = <&vdd_3v3_vbat>;
-+            in9-supply = <&vdd_3v3_vbat>;
-+            in10-supply = <&vdd_3v3_vbat>;
-+            in11-supply = <&vdd_3v3_vbat>;
-+            in12-supply = <&vdd_3v3_vbat>;
-+            in13-supply = <&vdd_3v3_vbat>;
-+            in14-supply = <&vdd_3v3_vbat>;
-+            in15-supply = <&vdd_3v3_vbat>;
-+            in16-supply = <&vdd_3v3_vbat>;
-+            in17-supply = <&vdd_1v8_vio>;
-+            in18-supply = <&vdd_3v3_vbat>;
-+            in19-supply = <&vdd_3v3_vbat>;
-+            in20-supply = <&vdd_3v3_vbat>;
-+
-+            regulators {
-+                vdd_3v3_vbat: mbatt {
-+                    regulator-name = "v_powerrail";
-+                    regulator-always-on;
-+                };
-+
-+                sd1 {
-+                    regulator-name = "vcc_1v2_ddrio";
-+                    regulator-min-microvolt = <1200000>;
-+                    regulator-max-microvolt = <1200000>;
-+                    regulator-always-on;
-+                    regulator-boot-on;
-+                };
-+
-+                vdd_core: sd2 {
-+                    regulator-name = "vdd_core";
-+                    regulator-min-microvolt = <950000>;
-+                    regulator-max-microvolt = <1300000>;
-+                    regulator-always-on;
-+                    regulator-boot-on;
-+                };
-+
-+                vdd_1v8_vio: sd3 {
-+                    regulator-name = "vcc_1v8_io";
-+                    regulator-min-microvolt = <1800000>;
-+                    regulator-max-microvolt = <1800000>;
-+                    regulator-always-on;
-+                    regulator-boot-on;
-+                };
-+
-+                ldo1 {
-+                    regulator-name = "vcc_3v3_ddr";
-+                    regulator-min-microvolt = <3300000>;
-+                    regulator-max-microvolt = <3300000>;
-+                    regulator-always-on;
-+                    regulator-boot-on;
-+                };
-+
-+                ldo2 {
-+                    regulator-name = "vcc_1v1_pll";
-+                    regulator-min-microvolt = <1100000>;
-+                    regulator-max-microvolt = <1100000>;
-+                    regulator-always-on;
-+                    regulator-boot-on;
-+                };
-+
-+                iovcc_1v8_lcd: ldo3 {
-+                    regulator-name = "vcc_1v8_lcd";
-+                    regulator-min-microvolt = <1800000>;
-+                    regulator-max-microvolt = <1800000>;
-+                    regulator-boot-on;
-+                };
-+
-+                avdd_3v3_usb: ldo4 {
-+                    regulator-name = "avdd_3v3_usb";
-+                    regulator-min-microvolt = <3300000>;
-+                    regulator-max-microvolt = <3300000>;
-+                    regulator-always-on;
-+                    regulator-boot-on;
-+                };
-+
-+                vcore_emmc: ldo5 {
-+                    regulator-name = "vcc_2v8_emmc";
-+                    regulator-min-microvolt = <2800000>;
-+                    regulator-max-microvolt = <2800000>;
-+                    regulator-boot-on;
-+                };
-+
-+                vcc_hdmi_pll: ldo6 {
-+                    regulator-name = "vcc_hdmi_pll";
-+                    regulator-min-microvolt = <1800000>;
-+                    regulator-max-microvolt = <1800000>;
-+                };
-+
-+                vcc_3v0_sensor: ldo7 {
-+                    regulator-name = "vcc_3v0_sensor";
-+                    regulator-min-microvolt = <3000000>;
-+                    regulator-max-microvolt = <3000000>;
-+                    regulator-boot-on;
-+                };
-+
-+                vcc_1v8_sensor: ldo8 {
-+                    regulator-name = "vcc_1v8_sensor";
-+                    regulator-min-microvolt = <1800000>;
-+                    regulator-max-microvolt = <1800000>;
-+                    regulator-boot-on;
-+                };
-+
-+                ldo9 {
-+                    regulator-name = "vcc_3v3_fuse";
-+                    regulator-min-microvolt = <3300000>;
-+                    regulator-max-microvolt = <3300000>;
-+                };
-+
-+                vcc_3v1_touch: ldo10 {
-+                    regulator-name = "vcc_3v1_touch";
-+                    regulator-min-microvolt = <3100000>;
-+                    regulator-max-microvolt = <3100000>;
-+                    regulator-boot-on;
-+                };
-+
-+                vdd_3v3_hdmi: ldo11 {
-+                    regulator-name = "vdd_3v3_hdmi";
-+                    regulator-min-microvolt = <3300000>;
-+                    regulator-max-microvolt = <3300000>;
-+                };
-+
-+                vdd_usd: ldo12 {
-+                    regulator-name = "vcc_2v8_sdio";
-+                    regulator-min-microvolt = <2800000>;
-+                    regulator-max-microvolt = <2800000>;
-+                    regulator-boot-on;
-+                };
-+
-+                vcc_3v0_motor: ldo13 {
-+                    regulator-name = "vcc_3v0_motor";
-+                    regulator-min-microvolt = <3000000>;
-+                    regulator-max-microvolt = <3000000>;
-+                };
-+
-+                vcc_2v8_lcd: ldo14 {
-+                    regulator-name = "vcc_2v8_lcd";
-+                    regulator-min-microvolt = <2800000>;
-+                    regulator-max-microvolt = <2800000>;
-+                    regulator-boot-on;
-+                };
-+
-+                vcc_3v3_temp: ldo15 {
-+                    regulator-name = "vcc_3v3_temp";
-+                    regulator-min-microvolt = <3300000>;
-+                    regulator-max-microvolt = <3300000>;
-+                    regulator-boot-on;
-+                };
-+
-+                /* LDO16 is not used */
-+
-+                avdd_dsi_csi: ldo17 {
-+                    regulator-name = "vcc_1v2_mipi";
-+                    regulator-min-microvolt = <1200000>;
-+                    regulator-max-microvolt = <1200000>;
-+                };
-+
-+                ldo18 {
-+                    regulator-name = "vcc_1v8_vi";
-+                    regulator-min-microvolt = <1800000>;
-+                    regulator-max-microvolt = <1800000>;
-+                };
-+
-+                vcc_1v8_touch: ldo19 {
-+                    regulator-name = "vcc_1v8_touch";
-+                    regulator-min-microvolt = <1800000>;
-+                    regulator-max-microvolt = <1800000>;
-+                    regulator-boot-on;
-+                };
-+
-+                /* LDO20 is not used */
-+
-+                out5v {
-+                    regulator-name = "usb0_vbus_reg";
-+                    regulator-min-microvolt = <5000000>;
-+                    regulator-max-microvolt = <5000000>;
-+                };
-+
-+                /* OUT33V is not used */
-+
-+                bbat {
-+                    regulator-name = "vcc_bbat";
-+                };
-+
-+                vdd_rtc: sdby {
-+                    regulator-name = "vcc_rtc";
-+                    regulator-min-microvolt = <950000>;
-+                    regulator-max-microvolt = <1300000>;
-+                    regulator-always-on;
-+                    regulator-boot-on;
-+                };
-+
-+                vrtc {
-+                    regulator-name = "vrtc";
-+                };
-+            };
-+        };
-+    };
-+...
--- 
-2.53.0
+> 
+> ---
+> 
+> v5:
+> - Actually handle error from csg_slot_prog_locked()
+> 
+> v4:
+> - Handle error from csg_slot_prog_locked()
+> 
+> v3:
+> - Use panthor_fw_csg_endpoint_req_update() (was rebase mistake)
+> - Function rename to tick_ctx_update_group_prio()
+> 
+> v2:
+> - Moved option to ding only the CSG doorbell to later patch
+> ---
+>  drivers/gpu/drm/panthor/panthor_sched.c | 135 +++++++++++++++---------
+>  1 file changed, 83 insertions(+), 52 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/panthor/panthor_sched.c b/drivers/gpu/drm/panthor/panthor_sched.c
+> index a343c5180e01e..d632fe1bf4db8 100644
+> --- a/drivers/gpu/drm/panthor/panthor_sched.c
+> +++ b/drivers/gpu/drm/panthor/panthor_sched.c
+> @@ -2345,12 +2345,85 @@ tick_ctx_cleanup(struct panthor_scheduler *sched,
+>  	}
+>  }
+>  
+> +static void
+> +tick_ctx_evict_group(struct panthor_scheduler *sched,
+> +		     struct panthor_csg_slots_upd_ctx *upd_ctx,
+> +		     struct panthor_group *group)
+> +{
+> +	struct panthor_device *ptdev = sched->ptdev;
+> +
+> +	if (drm_WARN_ON(&ptdev->base, group->csg_id < 0))
+> +		return;
+> +
+> +	csgs_upd_ctx_queue_reqs(ptdev, upd_ctx, group->csg_id,
+> +				group_can_run(group) ?
+> +				CSG_STATE_SUSPEND : CSG_STATE_TERMINATE,
+> +				CSG_STATE_MASK);
+> +}
+> +
+> +static void
+> +tick_ctx_update_group_prio(struct panthor_scheduler *sched,
+> +			   struct panthor_csg_slots_upd_ctx *upd_ctx,
+> +			   struct panthor_group *group,
+> +			   int new_csg_prio)
+> +{
+> +	struct panthor_device *ptdev = sched->ptdev;
+> +	struct panthor_fw_csg_iface *csg_iface;
+> +	struct panthor_csg_slot *csg_slot;
+> +
+> +	if (group->csg_id < 0)
+> +		return;
+> +
+> +	csg_iface = panthor_fw_get_csg_iface(ptdev, group->csg_id);
+> +	csg_slot = &sched->csg_slots[group->csg_id];
+> +
+> +	if (csg_slot->priority != new_csg_prio) {
+> +		panthor_fw_csg_endpoint_req_update(ptdev, csg_iface,
+> +						   CSG_EP_REQ_PRIORITY(new_csg_prio),
+> +						   CSG_EP_REQ_PRIORITY_MASK);
+> +		csgs_upd_ctx_queue_reqs(ptdev, upd_ctx, group->csg_id,
+> +					csg_iface->output->ack ^ CSG_ENDPOINT_CONFIG,
+> +					CSG_ENDPOINT_CONFIG);
+> +	}
+> +}
+> +
+> +static int
+> +tick_ctx_schedule_group(struct panthor_scheduler *sched,
+> +			struct panthor_csg_slots_upd_ctx *upd_ctx,
+> +			struct panthor_group *group,
+> +			int csg_id, int csg_prio)
+> +{
+> +	struct panthor_device *ptdev = sched->ptdev;
+> +	struct panthor_fw_csg_iface *csg_iface =
+> +		panthor_fw_get_csg_iface(ptdev, csg_id);
+> +	int ret;
+> +
+> +	ret = group_bind_locked(group, csg_id);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = csg_slot_prog_locked(ptdev, csg_id, csg_prio);
+> +	if (ret) {
+> +		group_unbind_locked(group);
+> +		return ret;
+> +	}
+> +
+> +	csgs_upd_ctx_queue_reqs(ptdev, upd_ctx, csg_id,
+> +				group->state == PANTHOR_CS_GROUP_SUSPENDED ?
+> +					CSG_STATE_RESUME : CSG_STATE_START,
+> +				CSG_STATE_MASK);
+> +	csgs_upd_ctx_queue_reqs(ptdev, upd_ctx, csg_id,
+> +				csg_iface->output->ack ^ CSG_ENDPOINT_CONFIG,
+> +				CSG_ENDPOINT_CONFIG);
+> +
+> +	return 0;
+> +}
+> +
+>  static void
+>  tick_ctx_apply(struct panthor_scheduler *sched, struct panthor_sched_tick_ctx *ctx)
+>  {
+>  	struct panthor_group *group, *tmp;
+>  	struct panthor_device *ptdev = sched->ptdev;
+> -	struct panthor_csg_slot *csg_slot;
+>  	int prio, new_csg_prio = MAX_CSG_PRIO, i;
+>  	u32 free_csg_slots = 0;
+>  	struct panthor_csg_slots_upd_ctx upd_ctx;
+> @@ -2360,44 +2433,13 @@ tick_ctx_apply(struct panthor_scheduler *sched, struct panthor_sched_tick_ctx *c
+>  
+>  	for (prio = PANTHOR_CSG_PRIORITY_COUNT - 1; prio >= 0; prio--) {
+>  		/* Suspend or terminate evicted groups. */
+> -		list_for_each_entry(group, &ctx->old_groups[prio], run_node) {
+> -			bool term = !group_can_run(group);
+> -			int csg_id = group->csg_id;
+> -
+> -			if (drm_WARN_ON(&ptdev->base, csg_id < 0))
+> -				continue;
+> -
+> -			csg_slot = &sched->csg_slots[csg_id];
+> -			csgs_upd_ctx_queue_reqs(ptdev, &upd_ctx, csg_id,
+> -						term ? CSG_STATE_TERMINATE : CSG_STATE_SUSPEND,
+> -						CSG_STATE_MASK);
+> -		}
+> +		list_for_each_entry(group, &ctx->old_groups[prio], run_node)
+> +			tick_ctx_evict_group(sched, &upd_ctx, group);
+>  
+>  		/* Update priorities on already running groups. */
+> -		list_for_each_entry(group, &ctx->groups[prio], run_node) {
+> -			struct panthor_fw_csg_iface *csg_iface;
+> -			int csg_id = group->csg_id;
+> -
+> -			if (csg_id < 0) {
+> -				new_csg_prio--;
+> -				continue;
+> -			}
+> -
+> -			csg_slot = &sched->csg_slots[csg_id];
+> -			csg_iface = panthor_fw_get_csg_iface(ptdev, csg_id);
+> -			if (csg_slot->priority == new_csg_prio) {
+> -				new_csg_prio--;
+> -				continue;
+> -			}
+> -
+> -			panthor_fw_csg_endpoint_req_update(ptdev, csg_iface,
+> -							   CSG_EP_REQ_PRIORITY(new_csg_prio),
+> -							   CSG_EP_REQ_PRIORITY_MASK);
+> -			csgs_upd_ctx_queue_reqs(ptdev, &upd_ctx, csg_id,
+> -						csg_iface->output->ack ^ CSG_ENDPOINT_CONFIG,
+> -						CSG_ENDPOINT_CONFIG);
+> -			new_csg_prio--;
+> -		}
+> +		list_for_each_entry(group, &ctx->groups[prio], run_node)
+> +			tick_ctx_update_group_prio(sched, &upd_ctx, group,
+> +						   new_csg_prio--);
+>  	}
+>  
+>  	ret = csgs_upd_ctx_apply_locked(ptdev, &upd_ctx);
+> @@ -2425,34 +2467,23 @@ tick_ctx_apply(struct panthor_scheduler *sched, struct panthor_sched_tick_ctx *c
+>  	for (prio = PANTHOR_CSG_PRIORITY_COUNT - 1; prio >= 0; prio--) {
+>  		list_for_each_entry(group, &ctx->groups[prio], run_node) {
+>  			int csg_id = group->csg_id;
+> -			struct panthor_fw_csg_iface *csg_iface;
+> +			int csg_prio = new_csg_prio--;
+>  
+> -			if (csg_id >= 0) {
+> -				new_csg_prio--;
+> +			if (csg_id >= 0)
+>  				continue;
+> -			}
+>  
+>  			csg_id = ffs(free_csg_slots) - 1;
+>  			if (drm_WARN_ON(&ptdev->base, csg_id < 0))
+>  				break;
+>  
+> -			csg_iface = panthor_fw_get_csg_iface(ptdev, csg_id);
+> -			csg_slot = &sched->csg_slots[csg_id];
+> -			ret = group_bind_locked(group, csg_id);
+> +			ret = tick_ctx_schedule_group(sched, &upd_ctx, group,
+> +						      csg_id, csg_prio);
+>  			if (ret) {
+>  				panthor_device_schedule_reset(ptdev);
+>  				ctx->csg_upd_failed_mask |= BIT(csg_id);
+>  				return;
+>  			}
+>  
+> -			csg_slot_prog_locked(ptdev, csg_id, new_csg_prio--);
+> -			csgs_upd_ctx_queue_reqs(ptdev, &upd_ctx, csg_id,
+> -						group->state == PANTHOR_CS_GROUP_SUSPENDED ?
+> -						CSG_STATE_RESUME : CSG_STATE_START,
+> -						CSG_STATE_MASK);
+> -			csgs_upd_ctx_queue_reqs(ptdev, &upd_ctx, csg_id,
+> -						csg_iface->output->ack ^ CSG_ENDPOINT_CONFIG,
+> -						CSG_ENDPOINT_CONFIG);
+>  			free_csg_slots &= ~BIT(csg_id);
+>  		}
+>  	}
 
