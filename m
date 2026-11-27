@@ -1,115 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.148
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.121
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795767948;
-	b=Udg+NysFQ4b0uex1DUe3pFIin73vVgruJrT280R1VoHW9+f+ySjpsDy0CzIFQiUW0OXq
-	 ol1gekQ6vZagPIHHNoXarPhlYp708UuJtIby3wdn6vpZETzlgYMGY8JBpgP+gt/eD0B9t
-	 rsn3wQ348MyEOUuED5WAzS2SfRMoJdNq9aUNc80Zkpyxvaj1cjLVWoe/G6INaKBwYA0SK
-	 QErmPaCNw/7m4fRaxKljCTEwEiqQePlBKE5lSfpCyfau0ktMlOzJw2QN5XYTpKmRfZEFi
-	 07dsBleC8x/7yUj6Ycg8LYPyVPQbZqkIpmTekha9YMEUBJQyCp2JgTpLYNeFtMZG2sQ==
+	t=1795768036;
+	b=IBg5EviImGNxqC+mwDZNNX0WIgGxKqxE/DjNxgbtyCvEOFpEG12O2a0DIykm0rnQoEMe
+	 brOfZz2YHwxgNPqp4Lq/jcmhE4HxclisJSZixs/jUrdFnyk+eVR4bRDjKwtmrdifSzkFp
+	 k59SS9B/k3eze6dazAByphIwyBYHPh69fWrHFBiOSBj9/KxNFoBqWg4DIX1cHk/t/vrOd
+	 1vMDvdOZ2FEJ0Tkfd2ueoBvhyhVJXEEau374ahibSnuwghoRu2M5+zpFgLKMzqkcqp4gH
+	 5kTQ3OGIkxp+g2YNPVD6JIYS9S+1VI3Bk7427TsnRA/5e+/8uLhz8ZRtVjTkI15rNfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795767948;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=zDmzXu0NFQj2oA+T/NCkwzTX7oOI4zb62sgTL/zr73Y=;
-	b=U+Kqj7Wn5zx505zVNrHkyBgW0Zii/D1ImQpu9rw1T2cI3FmWI8TZJnQWvdXJoKDOYEoA
-	 SZyuhDajJslI+STKloTMCTPZ6+B3PPqGWETgW6XivgFfGIylhHgATF/o6EMt5pAjM329K
-	 D2TuZaGSRn8wtgtZl08Gm7SuEga4zPkVZtqPKFFGke1mWiw7Ze5Nn2ymhAGrtzA2R1wqt
-	 9BseQne7IOApNgOx2ZEiIrg63lwi/5/E29RmJH6pRJmXF9JYWJXtDPuN9FOYuXZlthtuM
-	 qnwn/+3s55FfUoS5zML6QkinUO4VDlW9sObNH7LzvqWs4Rk3vHY1pg7K7AYPsG39G9w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795768036;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type;
+	bh=0qdXfgFbrt8cELQOGisVmBrQ50jtAJGNxPG8ew5/7vY=;
+	b=M9tm+5V6mTr4I5H4UTEiq4QORk4q0sJEtI9QXzmwjSk62Q04Jy+EWRHlW5CQsZKJSG2Q
+	 4axiq+vS9N3TFl9LN1Mnp0AGOJDqkNR2eYzAm+L5IZZFbHnfSQ5phHXoOHKdHiqBn5e2v
+	 Kfr/AxT7LX2DIpEn/y7gqRac/Q4VsxjTk8g6Pl6otewR0Tg+eEjc4oE6qRS8aY4vBg9Er
+	 MAGf3boD6Y2TPt3WVvkDowwVqeogalVANQENQyG3CpVwAr9Nc7xSF/qPkFV9oO060tvU8
+	 Nt6B11QmBYd4cX+guOV0pEL3GH/lZ86klTCLrlu5oiQwZPnSQLBdiaQbqSe3/zg/fJA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=pobox.com;
-	spf=pass smtp.mailfrom=pobox.com;
-	dkim=pass header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=P28Pzs3r;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=ZoDbpXC6;
-	arc=none smtp.remote-ip=103.168.172.148
-Received: from fout-a5-smtp.messagingengine.com (fout-a5-smtp.messagingengine.com [103.168.172.148])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JFc4cP7j;
+	arc=none smtp.remote-ip=95.215.58.121
+Received: from mta1.migadu.com (out-121.mta1.migadu.com [95.215.58.121])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10A18606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:25:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10A18606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=pobox.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pobox.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1036D606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:27:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1036D606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=P28Pzs3r;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=ZoDbpXC6
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfout.phl.internal (Postfix) with ESMTP id 3E85EEC0BA4
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:25:47 -0500 (EST)
-Received: from phl-frontend-02 ([10.202.2.161])
-  by phl-compute-06.internal (MEProxy); Fri, 27 Nov 2026 03:25:47 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pobox.com; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795767947;
-	 x=1795854347; bh=zDmzXu0NFQj2oA+T/NCkwzTX7oOI4zb62sgTL/zr73Y=; b=
-	P28Pzs3rG/Ql+Z/3b/AIRZOsnLghSC+HjbSaKzpQtrOa1MzT8DRedIMrKasnR/3B
-	Q4aTLcACx8iq6evN0dug0yPDk1ltbgskOo1ZskUnKLzOXULqWhuwrnsanqDVvafg
-	iluXxCg0NBjV2OW486MG46W078EuBJqyLI3O1/Iz81OlI8nS0lNagUF3pRBj6vZf
-	SDb4IWS1b8i+OSpYlyCJm+weYLgjeNAqxfMvdbyCjAuSNgUd4of5zCb1/lhQ8y8Q
-	qldwp6GG/QR6Xm2nPKv/gHN8aDcWIkrxizyS74JhM0hkuuH/nc85IVyjrct3bA9g
-	HtCdzgskDkFi2y+ReKdOpQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795767947; x=
-	1795854347; bh=zDmzXu0NFQj2oA+T/NCkwzTX7oOI4zb62sgTL/zr73Y=; b=Z
-	oDbpXC6OiG1UZVGZ8opCisBRPFRGBaZibG0dvp/7Qrmrzm/Du6h+2YDE2uY9DZNF
-	/HVoVMHFw7MMoJfSjnj0ROBP5chvdZlElOFQp5FxtpsJRGcSb8gOCUg0/7QUNkNO
-	2JnE9LFzOAFqlJvvK0qq2uqkl7weYG62iwmHMMA3Iiz+e+qF8UcMaoI3UcONq+tl
-	O1qHlyWrrSMiHhXKRe689eV83w7hqxICXoaqxi0g/v2fX41ai92lHMoreF4ijtY/
-	U5Afu7xh2f0ObD2XEaW3tjl2nZ572miuvPWjOR6GNSN8VoVLRi1n8Ot+D+efM3YA
-	EqYDN1sOg7BylKqd6cCjA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=pobox.com a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795767947; d=pobox.com;
-	mf=PGJhcnJ5bkBwb2JveC5jb20+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:huj4AimRTIs/as7J3eV15qSqqjsy0JAO2wvHV4u4w9Ykrj9
-	oygf2JDWDEgZkbKIJsYBi68yZnrKJfaerPg0R5AIMCIbcRS/6YQdVIe/HFPxkc2x
-	bf4tRk/Z4U5ZP7ee3HBpVtP+3AqN/I99SI1CEpM039EuulzPEtTNeLBv/bVSkvyx
-	psjAc6+w7n2S0ZQfQcUGtjDbWvbE+zQb3bA5PcbSXsF7W1AWLBTzJxcAOqRjBJuF
-	MV9eIeYUsBypWj3P6Uhta2lN/rRW6/nt8v+H1odsv/tAtcW0WnGwoABA9yXrPMWf
-	If51h6L2pbJywdSxgOKJhjbSQIYrdSxSNeCQClQ==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=14;
-	hn=cc,content-language,content-transfer-encoding,content-type,
-	date,feedback-id,from,in-reply-to,message-id,mime-version,
-	references,subject,to,user-agent;
-Message-Instance: m=1; h=sha256:IN3N6R8aKo1aFDIDyk6mt1B3VNjp10IaXnV/s+rW0Og=:kH/9QYKA3sqNfHu1Ipc5Bgi+YdEDMsdF9GaXc3tTQO8=;
-X-ME-Sender: <xms:ij4Ja5YMjI6XpBTk5sueWesmvFBSeVPNGigXXjv5mqW7bizYcYVtqw>
-    <xme:ij4Ja-EGTDxmu9NNBv-i0pRL9mV1Q_ydYTqma6JxOZWXNPtGGnzIV3OkSgKPX6Es4
-    BD6T20jjBLYQCizsTe4oOMfZvwBeaPUGUBN8dJCXLKioBnbetAZZ74W>
-X-ME-Received: <xmr:ij4Ja9v9a8NOW5V45ANLEtSK4dJZ8rX8cbGbEfYpkPLymCVcmbjH4YNLIrrUW4PrWImrv5gEHwB6vn27fyytQUNyVtW7IZ4K>
-X-ME-Proxy-Cause: dmFkZTFADugZRovXfKmbemIN3QJamIXdr1KouCfBULZu1xG/dabUyzXYu/3Fjgo0prw1Z3
-    NkoY6lKMsK0mdAbMleCV83Y+2I7K/j6eMG9p1Cdv2VCVj7QJU5+9VZSwh32ZmM3OghVfWF
-    hsJ46d3mOvU+7+0anWZtn15nbpAFuouItvFvl9eyJhl1BpX3Gw8CbqhMnWTAqkmRhIjfCC
-    V/U+MmWOcVZHvgipZ2YwRcokhmPG74Kbe2AAU2rBABQmldd3J/ZKMryXHO6BWolbNdwMo5
-    tRF0joSK7HAgnrvhU698riohYqRzauKnG5EFtyABeXEWcdp/Cgi1BaDAIpKtWJ+BlmkXfD
-    xeHWo4mI/4B0LCoSXHZAS9hbqYQ3NOzL9G+eX3Flb2Kx1YL233oUK/UPlCKtFOh2G8Zq8O
-    4baWHESL3rDdJ1kWrzNJQ0o3yH67JZGz9NO4zUO5kpOCH7208P+7JnUDY71yDXIh/XI01L
-    kV23FLFlxuThWO75Mj+Fn0g1XXJ7M5EHT/sj387c+KeuhDP3DX/RQyPBHFPAPuYOS4MWwp
-    xzMQ7rgMVEGVmABmpUYF45JpXztK2RzKSCcqPbmvLhcA2vx9DpFTnfu2a9DHXN5CVwyqT/
-    hoSf4RqrV5WFK4ZjjMCHHBKVytQelZOkkdbezCj7SmqdJRohQ1xq28HkcK1w
-X-ME-Proxy: <xmx:ij4Ja0KRXab81tRTtbDn8PwF_r_NN8KUz2UikYQNxk3Dw9ZRyEF3pA>
-    <xmx:ij4Ja7O7i8uMZspfFb2tKwY38-dn4sAYZkEMHA75WcvQd-invLdYUQ>
-    <xmx:ij4Ja8be74G6GsnY73ybe9AUXFpCfUThyBvWP31eCISn8XFd3IV0kA>
-    <xmx:ij4Ja3xy3rGanqnq3uVWO5yp8-fcD95OqXILX0Z-bjfwI6JElE21cQ>
-    <xmx:iz4Ja8CdWAWxgt5yeoSR-GX1SwfD1Ku2Yju6qt7nswO5ro9j4KMqtziH>
-Feedback-ID: i6289494f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 27 Nov 2026 03:25:44 -0500 (EST)
-Message-ID: <0b8e15dc-bd02-4fd8-87ab-198851769707@pobox.com>
-Date: Fri, 27 Nov 2026 00:25:43 -0800
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JFc4cP7j
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=P7zTh4ysMCYZDF5Ib3q0oR+g3D93VzbkeVMGD4akERA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795768033; v=1; x=1796372833;
+ b=JFc4cP7jslkxQxCuhwTcRBbebMpUhUtNpG78hXZW0r4J5O96mQMKupB/btDzuXoPHDT5oFhk
+ VmaXRvBF4EFEHeDML0N10AGnqP0ltb14x5+XZi8fp6zNW9TiKXog5NZdRsKRNULHibSEujOYw10
+ dWgoOWQgNonlMs3VavxVIao8=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 91d9130bbee715c5;
+	Fri, 27 Nov 2026 08:27:13 +0000
+X-Mizu-Trace-ID: 91d9130bbee715c5
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5c14bc5a743so53324e87.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:27:09 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFPlp2xCxuJAvuXfi+AMTg8uDkAFg1uVXPCcJTEFTC8I7vdA+z3QOF0gvXw9d+YYb34O9m2ntHMZmrQtmc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9gyP/ZqbIviK+neMoxmcZYUlXDZ7cnAIU8QKbfsfmBQHiNO1JR
+	LANZoRp8n0W8X6/RJs1oXURmYllQXxmKHcnHDin9dLuQVRQ/+uk8YJDo886Yzp4FA1MJ3u8jfBY
+	0p0AnZQKIKfd/5AirfTQVwZQasektpXotSczXjW7h
+X-Received: by 2002:a05:6512:3041:b0:5c0:7c6e:4559 with SMTP id
+ 2adb3069b0e04-5c21a2490b8mr800282e87.9.1795768028694; Fri, 27 Nov 2026
+ 00:27:08 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,46 +66,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7.3 0000/1002] 7.3.7-rc2 review
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
- conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
- achill@achill.org, sr@sladewatkins.com
-References: <20261126105729.110697432@linuxfoundation.org>
-Content-Language: en-US
-From: "Barry K. Nathan" <barryn@pobox.com>
-In-Reply-To: <20261126105729.110697432@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20261009072147.474952-1-fuad.tabba@linux.dev> <awV15Rv-caDclC9K@arm.com>
+In-Reply-To: <awV15Rv-caDclC9K@arm.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Fri, 27 Nov 2026 08:26:32 +0000
+X-Gmail-Original-Message-ID: <CA+EHjTw_T_HhfNUytcqf6xefkOoOHgpFq3=J7bgsZSMyu1ON-A@mail.gmail.com>
+X-Gm-Features: Aa3M54qBZ_c98t9Ayo9A6TeJjo0TeideV9tW7aQLWPW5qkPop4MRVlx3am7GbX8
+Message-ID: <CA+EHjTw_T_HhfNUytcqf6xefkOoOHgpFq3=J7bgsZSMyu1ON-A@mail.gmail.com>
+Subject: Re: [PATCH] arm64: Use symbolic constants for the ccmp NZCV immediates
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: will@kernel.org, mark.rutland@arm.com, maz@kernel.org, oupton@kernel.org, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	anshuman.khandual@arm.com, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On 11/26/26 2:58 AM, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 7.3.7 release.
-> There are 1002 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
-> 
-> Responses should be made by Sat, 28 Nov 2026 10:55:59 +0000.
-> Anything received after that time might be too late.
-> 
-> The whole patch series can be found in one patch at:
-> 	https://www.kernel.org/pub/linux/kernel/v7.x/stable-review/patch-7.3.7-rc2.gz
-> or in the git tree and branch at:
-> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-7.3.y
-> and the diffstat can be found below.
-> 
-> thanks,
-> 
-> greg k-h
+On Tue, 24 Nov 2026 at 11:32, Catalin Marinas <catalin.marinas@arm.com> wrote:
+>
+> On Fri, Oct 09, 2026 at 08:21:47AM +0100, Fuad Tabba wrote:
+> > diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+> > index f7dc5fb9427d6..15c381ef7d2c2 100644
+> > --- a/arch/arm64/include/asm/ptrace.h
+> > +++ b/arch/arm64/include/asm/ptrace.h
+> > @@ -30,6 +30,10 @@
+> >  #define PSR_MODE_THREAD_BIT  (1 << 0)
+> >  #define PSR_IL_BIT           (1 << 20)
+> >
+> > +/* CCMP NZCV immediates that make the named condition hold */
+> > +#define CCMP_NZCV_EQ         (PSR_Z_BIT >> 28)
+> > +#define CCMP_NZCV_LT         (PSR_N_BIT >> 28)
+> > +
+> >  /* AArch32-specific ptrace requests */
+> >  #define COMPAT_PTRACE_GETREGS                12
+> >  #define COMPAT_PTRACE_SETREGS                13
+>
+> One nit: I'd place the definitions above (or below) the
+> ARM64_S390_COMMON block, the generated s390 header shouldn't need them.
+> Otherwise it greatly improves clarity.
+>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
-Tested on 2 amd64 systems and an arm64 virtual machine. Working well,
-no regressions observed.
+Thanks, I'll respin it as you suggest.
 
-Tested-by: Barry K. Nathan <barryn@pobox.com>
-
--- 
--Barry K. Nathan  <barryn@pobox.com>
+Cheers,
+/fuad
