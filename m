@@ -1,79 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795768549;
-	b=jvd38wDffqNclyTzoWJFPjsAYpHKXvsz0Baegbh4LTntTGWkm2BQwbfcOTz0dJsBKchL
-	 Y9pcrqlQFdAtZ93lxymTdBgf5nIgZ2D/nngdoQhUNvJ63pikr7d6Lqh/gdGMxhz7xBJCl
-	 efOEBuwbwX44o1B0+/Hbu/83F0Tdo4iSKvaushbiTATpRmGMO0clxZvmV9r7Jh4thqscj
-	 0d8dgMJ5dn6S9tS/Lp7cUC4nMf6Qi/rY9zTYvC6rkEYkdXSoAAINCdhDDXqZdTICeYqEV
-	 lu+fcQj0BlRQATTpDUT1u7BoVLrCSyQqoY0QPUtOo9a9HYumLBGDaOslm/AX1I8d+HQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795768549;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=4JgdAsw4jseOUXmgAc6kMAnlvyUSFU5daWVWuiyh7Ac=;
-	b=WXmOoDonke3D8ffZ4xtclhSPPuTgDtnbZQQWgZ5LpaFHj4c0Z3nkZTNTnEam0QZX+x11
-	 aXSoJaWAbYkHjH5dVHJkygi8b5oI5R6KkEm4HI0/NHpfX8WKw0AppX9eDPDSdth/Hcfhx
-	 8hNCA3mxvd5o26c3JRsZHaRFCa7Im9O0uOX2KIQbYv9K8CdYXCdHicPze6x92TZQiUjoE
-	 8pUyMBkZ6u5kFYpc8OYCy5qEumwMu5uM3EG7TgnIbw/xdE8FG0myMsbs1WlzB+cCeOXqS
-	 +H1FgWsDy0PsxoBbSnJfwHxMDQrjjaMYszklsjK2hdHMFbYRQ/UUiyEMrK/cmogVXWg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nufbe8QR;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CFCC606A32A;
-	Fri, 27 Nov 2026 08:35:49 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nufbe8QR
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795768548;
-	b=J1NQueWCKyPpD1bRTp56nmK3ddE8JyTwkWD1W4A8isIUX2qOz/Pbv5rl19epz8Q4QpRa
-	 9dStujcmeRerm+pk9h757z8I5fsUwLps6sHXMUnXBkPjvt6fWHoAVPj6iuoCYajvKEnPD
-	 CyN7mJwt7bDrJRkyIXpq0rPyvVFwtuPCoUwqTGP+nWxWEes0EMJ78HHao2YVnbhsuHOhh
-	 28dFdN95IaOJb/NR/cywSN660n687hgyMWA1ATsmA0phA5EXq8Y0t/DpCA4XV3WJ73Ofp
-	 6lXl3fEGEzq2NnbHbbIPBYyLwljo7GNDlwarnMXIQIULRp/Ip6oLt1+7p/femWQnyLQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795768548;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=4JgdAsw4jseOUXmgAc6kMAnlvyUSFU5daWVWuiyh7Ac=;
-	b=BltTiWxF4nsts0X11VUZsHLbnk5cMY39giteNtwK+FCnzebeHPX6RQW+CQ4NMuBduxnH
-	 ZOSPM39y8nNIduDeApFbRJz7X34Kmdn+ZFQvv/khrSxV+0mgojbX5ojZzOllx4BVL8FvW
-	 Tm/OIeiglxf5vy4PhRspAjq3O7qY/G/rsyRn7bLK9eVJzsp3MwMLuGuyH1+K9/Hcl02Ip
-	 40Kb9nO6GDRXSY+XQpA3kvAgd/SqwtQ1audrgFxpETKGvtSImLa7AxiSao7Wf3IPsArwp
-	 hRjuxD9gU+It8OXfQXxsztNuvstqJlxsHBaLWa+456bL4T/RwWKCm9Sv30NqWZCcMyA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795768607;
+	b=TrdpFiqtZwEEj9xQ0VOU8r4BPXL1muy24RGKN08q2hpFuoFekBM/yJJ0l+VMY6NqHpUh
+	 b9y1+EP1uT0UHNHnQ4l4DhvZ11bhXL6cXZ+S4tDPDQ0LYK24QXbh+WSlkDT1y7p1cDRfl
+	 gRRY+0dhF5SbPQSigtTiW5He4COVYqNqCfpL1jYjX/Q5O5bv4aEa1Xfy/dp6sz5o+8MMV
+	 uPtfxUio84TDI70/nMXnfPeh1LDQ5wop8O/0z7LevVjJmncwFqrMzaf6Sc3//iJFpJk9H
+	 N3I/VK9mcETLDd/0eeOW/8MZshinkivjjCPdoGe0vjNA3KyvVHBPsfqePTW4q0dGaDA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795768607;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Db+joe8rpw399lL58pGgMb5PYNQLeC5tKwj9k0QIVOA=;
+	b=LKmQ9yZTLaYwNbUyWFM1NXq6nH6jcKd5BDTBVsYJRv6U70YVE0sEJ8JXKG0o19w3Oxfx
+	 OeNrNkPZBDKVJ6FAL/X56MyyjSVuKpBOBUMjws7R8PWMcAaWUjHVDy/upmKv4NBkJUUHO
+	 7IpFbTHR0WIcYTdUVxIDDgG+wUbO7n1/PSO/m03RK1zWGLj0mGXKPsuBshSt6hJGA31z5
+	 WfvGc6pMG/VvRhj253q9BA69CgmGEAl4AWJyGKqYddwG9p+j9/536ZBsR3aWIVJtZgenz
+	 3YWiGpsCI4f/OIrY7pvI5gdN2uMhvIxd2uZv+ZGcgLPzfiZilXLPRN50ysMmjTsTcJA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=K914BApr;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 8902D1F0092C;
-	Fri, 27 Nov 2026 08:35:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795768548;
-	bh=4JgdAsw4jseOUXmgAc6kMAnlvyUSFU5daWVWuiyh7Ac=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Nufbe8QR/nR11w5IYaHAOrKXbO0oEGWd+dNYXmrmrnUZC7XEjKFDYxFTdUxb8CdcZ
-	 GehgFKeXLZQZQ6at2ByFYtHUMKC8eVLBkoskx9xfOtIziiXhHgUAMYM+iJk+Lrem73
-	 tNV4hcJiRyH9gELiQgwSMYsIIiWnlWPMzRd+Vw7BofJTIBxuzKAhrI+lzE3rMunBqB
-	 0R7M6ELFlH00ZLF5IZnQNmuxh0GpVmRH4IqCcqUMNlS84QHYQGcmYaRGkKqlbBuWfe
-	 p8esFoAMd8fFyJhgcoI7nPEfsUTtU93qE5JDFcxxH4v+O4J0IrZsP/HouLqDrfCUEh
-	 GZp1ixRCgRWEA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 36E974B656;
-	Fri, 27 Nov 2026 08:35:29 +0000 (UTC)
-From: Murad Dadashev via B4 Relay <devnull+llamapersonaltv.gmail.com@kernel.org>
-Date: Fri, 27 Nov 2026 11:35:18 +0300
-Subject: [PATCH 07/10] wifi: mt76: mt7603: skip PCIe specific setup on
- non-MMIO buses
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 864D2606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:36:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 864D2606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=K914BApr
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb69f5b161so50958615e9.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:36:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795768606; x=1796373406; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Db+joe8rpw399lL58pGgMb5PYNQLeC5tKwj9k0QIVOA=;
+        b=K914BAprYdabZwltvD+D7iBmXnO1hjFFIlxPoORHYa0kJgn+V9Gfb2lEm2wO0dGyAO
+         x/QHMYNxJI3CxeLZ95p9nvJAEW49GeMMhPS4h71jC9i1+mWBDkQKMhEPH78JLZCocFgq
+         2UxM1p7VPVmkKIowcUFcwPkU2UmVNNkniX3Zz5Zvss4U3V71UnTL+IEYXHrtWh6o9rmn
+         gLd/HFpWF+3CWQKmcElu81fIFf3LmzDa3JPRwMvmTrqEcV2Oropq8YmlCno3F6TgYLnD
+         /9A3Ho6Hx2WIP1ME3wn567SrYexhAqbptVPhRv6/p+AHaj7RTnltDvGz0Tn9WOiE49vk
+         FOHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795768606; x=1796373406;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Db+joe8rpw399lL58pGgMb5PYNQLeC5tKwj9k0QIVOA=;
+        b=fGDz5driaofUnR5jzg86UCBdnP+haYknmPaavkGof4ySVlp/qxNauWzfNR5+4++sRZ
+         z/RgH6aulWAqeZPaXcnkb/ExDLj5ebauFQ+/hyhIlJTt24qp769hbRk3bEas+hKgGdl0
+         5bch2xa+xjWEUBQkspFfx/f0E1wgVM77o72Jfbua9oeHrDQuZzJ+Ltutvea2YjAKDHp9
+         QcqFlRJirZvSq3ScGgCUBI0BcDuxNkn6QADpfJcLrMgxdWEXwIEtkD9QZtykPgQhb8Ej
+         q15f26yILzZrgq0MjvFh7BW6YWpjlmHBZeMiiyTtBquTAQcexEVNcjm0YHTtA5736xO2
+         Wesw==
+X-Forwarded-Encrypted: i=1; AL+hErF/sF/GpkNOWWSV9D2423DhG3/4j1Oqx/fGSCt+YfO92O+D3tsIjxOxv1Y21H+CjtOGROTl+qWbILPj31Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z84hkwelI3bT28kv/rzvVF2khYeCMrupLHRgP6tyT13vi8l1LSv
+	O/6/szEpWVefeXnNAGQJqi3tKVp1JvqNlRqMBKgGW4cfWaJOqJfKezAWsrFgtQ==
+X-Gm-Gg: AZFdTZewAJIKeQhccl/JdssjD1DnOfMhlDvSwilzKf0fH39rsTzujP6EMJ0FQTckgEK
+	VD42BGC9NDC9AyQLaC4NG4RQj4SoICO6wovdz7zC1TaeD0H/wJTOWGD8ZdFgksOxxELEDnqV8Vw
+	OjMLkOvQUMpJF0EO8h1Xk2d+dmmyRkquzC+nid0OOhlMNOxvnAqR3UDiW/yp4945L7Eny0kpf0u
+	bHB7axxDuj4dpqMxvZJS2wyI9/HeIJ4+CD0LQXhJCyHnaBd0XfmuyWBwjPZ20xmokuq2qI5PAOz
+	IaUCNn4fyBwclvmtmETmAAGY1rfxOBxhdXUO+9fcjRoZU8lEt5GEuWTZ584Tv5J0FySwNsfvpT0
+	P1Na5srMHJjHO/r4JL4YhVRpDHstMPGkVqktDs55ite+XXxe76CiB7LqOkBDHeVfJOykzrEwQtI
+	X4aTMO0NIVxjmFINrcbo4OZ8XOq5SbVEdmQeZph9v/LkN7sBQd2t7DPppYM7p7AAM4ZM4QyqvC+
+	7PhWGG4oUsfotiFJFVQKcLes4XE7blq5Y5fBx5nTXoLs7LCnkmAlkzbLQbB56jZnSVIs68aLq83
+	tSL/tWFXwxMhpuGfQk7+jeJpYdt4o/BBc60wZJHs8mynBtDhjT+TLjLQbgmuCCviQBv22I8mknR
+	TQTw=
+X-Received: by 2002:a05:600c:820e:b0:4ac:da92:2bd4 with SMTP id 5b1f17b1804b1-4bb887c9936mr468832785e9.1.1795768605767;
+        Fri, 27 Nov 2026 00:36:45 -0800 (PST)
+Received: from localhost.localdomain ([2a00:23c4:a702:d301:ff94:bbe1:5ba9:635a])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884911e3sm820464965e9.6.2026.11.27.00.36.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 00:36:45 -0800 (PST)
+From: Biju Das <biju.das.au@gmail.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Biju Das <biju.das.jz@bp.renesas.com>,
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Luca Weiss <luca.weiss@fairphone.com>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Sven Peter <sven@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Biju Das <biju.das.au@gmail.com>,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH] arm64: defconfig: Enable RZ/G3L LVDS driver
+Date: Fri, 27 Nov 2026 08:36:40 +0000
+Message-ID: <20261127083642.131486-1-biju.das.au@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,199 +107,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-mt7603u-v1-7-369bee9846f8@gmail.com>
-References: <20261127-mt7603u-v1-0-369bee9846f8@gmail.com>
-In-Reply-To: <20261127-mt7603u-v1-0-369bee9846f8@gmail.com>
-To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
- Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, 
- Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Murad Dadashev <llamapersonaltv@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795768526; l=6545;
- i=llamapersonaltv@gmail.com; s=20261127; h=from:subject:message-id;
- bh=7hNOZZrAbeMscPWoLKhgzZSs39hMPOTAK7zA0t6r4A8=;
- b=cqaYJ8vijeYtM89rdaLWTn+xndOIiN/bW6Iq6BMATMbRkjjh59pKKmR4sefTdcTfpl3uvDs9x
- nbOGmLzUyZrDVm8tF/y1k5yBJzHNmLF3mpamUjzjBzUG8U3gOm9ZWvp
-X-Developer-Key: i=llamapersonaltv@gmail.com; a=ed25519;
- pk=CeMIX207ioWRbMAA6A2GYgT+DpeVlKHVn7I0KjfHeCg=
-X-Endpoint-Received: by B4 Relay for llamapersonaltv@gmail.com/20261127
- with auth_id=1664
-X-Original-From: Murad Dadashev <llamapersonaltv@gmail.com>
-Reply-To: llamapersonaltv@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Murad Dadashev <llamapersonaltv@gmail.com>
+From: Biju Das <biju.das.jz@bp.renesas.com>
 
-Prepare the shared code for MT7603U:
+The Renesas RZ/G3L SMARC EVK uses the RZ/G3L LVDS driver.
+Enable DRM_RZG3L_LVDS so the display works on this board.
 
-- do not touch the PCIe interrupt, WPDMA and PCIe remap registers
-- skip the DMA watchdog and reset in mac_work, which rely on the WPDMA
-  registers
-- skip the LED callbacks, which run in atomic context
-- start the MAC without DMA setup and do not reload the firmware if
-  the bus driver already loaded it
-- USB takes physical addresses, so mt7603_reg_map() passes them through
-- the firmware download bypass queue is 8 on USB
-
-No functional change for MT7603E and MT76x8.
-
-Signed-off-by: Murad Dadashev <llamapersonaltv@gmail.com>
+Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
 ---
- drivers/net/wireless/mediatek/mt76/mt7603/core.c   |  3 +++
- drivers/net/wireless/mediatek/mt76/mt7603/init.c   | 30 ++++++++++++++--------
- drivers/net/wireless/mediatek/mt76/mt7603/mac.c    |  5 ++--
- drivers/net/wireless/mediatek/mt76/mt7603/mcu.c    |  4 ++-
- drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h |  6 +++--
- 5 files changed, 32 insertions(+), 16 deletions(-)
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/core.c b/drivers/net/wireless/mediatek/mt76/mt7603/core.c
-index a99e4d3156eb94d580fe6b8c262b8f7c19368fb2..52f8f075c7e85a1f1238714f065e314bea1706d0 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7603/core.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7603/core.c
-@@ -62,6 +62,9 @@ u32 mt7603_reg_map(struct mt7603_dev *dev, u32 addr)
- 	u32 base = addr & MT_MCU_PCIE_REMAP_2_BASE;
- 	u32 offset = addr & MT_MCU_PCIE_REMAP_2_OFFSET;
- 
-+	if (mt76_is_usb(&dev->mt76))
-+		return addr;
-+
- 	dev->bus_ops->wr(&dev->mt76, MT_MCU_PCIE_REMAP_2, base);
- 
- 	return MT_PCIE_REMAP_BASE_2 + offset;
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/init.c b/drivers/net/wireless/mediatek/mt76/mt7603/init.c
-index 66b65ec2add7ccdd4d205ee203d10b3d221cae7b..d1db7176c0fa9ed451ed8bfa45071ace36493f67 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7603/init.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7603/init.c
-@@ -224,7 +224,8 @@ mt7603_mac_init(struct mt7603_dev *dev)
- 		MT_DMA_TCFR_TXS_AGGR_COUNT | /* Maximum count */
- 		MT_DMA_TCFR_TXS_BIT_MAP);
- 
--	mt76_wr(dev, MT_MCU_PCIE_REMAP_1, MT_PSE_WTBL_2_PHYS_ADDR);
-+	if (mt76_is_mmio(&dev->mt76))
-+		mt76_wr(dev, MT_MCU_PCIE_REMAP_1, MT_PSE_WTBL_2_PHYS_ADDR);
- 
- 	for (i = 0; i < MT7603_WTBL_SIZE; i++)
- 		mt7603_wtbl_clear(dev, i);
-@@ -281,18 +282,23 @@ mt7603_init_hardware(struct mt7603_dev *dev)
- {
- 	int i, ret;
- 
--	mt76_wr(dev, MT_INT_SOURCE_CSR, ~0);
-+	if (mt76_is_mmio(&dev->mt76))
-+		mt76_wr(dev, MT_INT_SOURCE_CSR, ~0);
- 
- 	ret = mt7603_eeprom_init(dev);
- 	if (ret < 0)
- 		return ret;
- 
--	ret = mt7603_dma_init(dev);
--	if (ret)
--		return ret;
-+	if (mt76_is_mmio(&dev->mt76)) {
-+		ret = mt7603_dma_init(dev);
-+		if (ret)
-+			return ret;
- 
--	mt76_wr(dev, MT_WPDMA_GLO_CFG, 0x52000850);
--	mt7603_mac_dma_start(dev);
-+		mt76_wr(dev, MT_WPDMA_GLO_CFG, 0x52000850);
-+		mt7603_mac_dma_start(dev);
-+	} else {
-+		mt7603_mac_start(dev);
-+	}
- 	dev->rxfilter = mt76_rr(dev, MT_WF_RFCR);
- 	set_bit(MT76_STATE_INITIALIZED, &dev->mphy.state);
- 
-@@ -302,9 +308,11 @@ mt7603_init_hardware(struct mt7603_dev *dev)
- 		mt76_poll(dev, MT_PSE_RTA, MT_PSE_RTA_BUSY, 0, 5000);
- 	}
- 
--	ret = mt7603_mcu_init(dev);
--	if (ret)
--		return ret;
-+	if (!dev->mcu_running) {
-+		ret = mt7603_mcu_init(dev);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	mt7603_dma_sched_init(dev);
- 	mt7603_mcu_set_eeprom(dev);
-@@ -549,7 +557,7 @@ int mt7603_register_device(struct mt7603_dev *dev)
- 	ieee80211_hw_set(hw, NEEDS_UNIQUE_STA_ADDR);
- 
- 	/* init led callbacks */
--	if (IS_ENABLED(CONFIG_MT76_LEDS)) {
-+	if (IS_ENABLED(CONFIG_MT76_LEDS) && mt76_is_mmio(&dev->mt76)) {
- 		dev->mphy.leds.cdev.brightness_set = mt7603_led_set_brightness;
- 		dev->mphy.leds.cdev.blink_set = mt7603_led_set_blink;
- 	}
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/mac.c b/drivers/net/wireless/mediatek/mt76/mt7603/mac.c
-index efe680d67e4af728dbef32290a55e4279926f532..3758d55c299b6f143ef87dc70e72e6250695a409 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7603/mac.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7603/mac.c
-@@ -2033,7 +2033,8 @@ void mt7603_mac_work(struct work_struct *work)
- 	if (dev->mphy.mac_work_count == 10)
- 		mt7603_false_cca_check(dev);
- 
--	if (mt7603_watchdog_check(dev, &dev->rx_pse_check,
-+	if (mt76_is_mmio(&dev->mt76) &&
-+	    (mt7603_watchdog_check(dev, &dev->rx_pse_check,
- 				  RESET_CAUSE_RX_PSE_BUSY,
- 				  mt7603_rx_pse_busy) ||
- 	    mt7603_watchdog_check(dev, &dev->beacon_check,
-@@ -2051,7 +2052,7 @@ void mt7603_mac_work(struct work_struct *work)
- 	    mt7603_watchdog_check(dev, &dev->mcu_hang,
- 				  RESET_CAUSE_MCU_HANG,
- 				  NULL) ||
--	    dev->reset_cause[RESET_CAUSE_RESET_FAILED]) {
-+	    dev->reset_cause[RESET_CAUSE_RESET_FAILED])) {
- 		dev->beacon_check = 0;
- 		dev->tx_dma_check = 0;
- 		dev->tx_hang_check = 0;
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7603/mcu.c
-index cf81fc2e252a37e1d40c1f297b1c9688c054ca40..dea48b85d0dd8b03f3b25e45598a0bfa3e19b57a 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7603/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7603/mcu.c
-@@ -164,7 +164,9 @@ int mt7603_load_firmware(struct mt7603_dev *dev)
- 
- 	/* switch to bypass mode */
- 	mt76_rmw(dev, MT_SCH_4, MT_SCH_4_FORCE_QID,
--		 MT_SCH_4_BYPASS | FIELD_PREP(MT_SCH_4_FORCE_QID, 5));
-+		 MT_SCH_4_BYPASS |
-+		 FIELD_PREP(MT_SCH_4_FORCE_QID,
-+			    mt76_is_usb(&dev->mt76) ? 8 : 5));
- 
- 	val = mt76_rr(dev, MT_TOP_MISC2);
- 	if (val & BIT(1)) {
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h b/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
-index 6c4836fbd2264288b99b0b6780f66b776a92e930..1b50c6b4bb8faf277e126f9c18fefbaa88150d41 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
-@@ -210,12 +210,14 @@ void mt7603_init_debugfs(struct mt7603_dev *dev);
- 
- static inline void mt7603_irq_enable(struct mt7603_dev *dev, u32 mask)
- {
--	mt76_set_irq_mask(&dev->mt76, MT_INT_MASK_CSR, 0, mask);
-+	if (mt76_is_mmio(&dev->mt76))
-+		mt76_set_irq_mask(&dev->mt76, MT_INT_MASK_CSR, 0, mask);
- }
- 
- static inline void mt7603_irq_disable(struct mt7603_dev *dev, u32 mask)
- {
--	mt76_set_irq_mask(&dev->mt76, MT_INT_MASK_CSR, mask, 0);
-+	if (mt76_is_mmio(&dev->mt76))
-+		mt76_set_irq_mask(&dev->mt76, MT_INT_MASK_CSR, mask, 0);
- }
- 
- void mt7603_mac_reset_counters(struct mt7603_dev *dev);
-
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 9c5b64f34a22..aad8ea31c76b 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1057,6 +1057,7 @@ CONFIG_DRM_PL111=m
+ CONFIG_DRM_RCAR_DU=m
+ CONFIG_DRM_RCAR_DW_HDMI=m
+ CONFIG_DRM_RZG2L_DU=m
++CONFIG_DRM_RZG3L_LVDS=m
+ CONFIG_DRM_ROCKCHIP=m
+ CONFIG_ROCKCHIP_VOP2=y
+ CONFIG_ROCKCHIP_ANALOGIX_DP=y
 -- 
-2.47.3
-
+2.43.0
 
