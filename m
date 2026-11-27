@@ -1,113 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.206.34.216
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795779708;
-	b=FNnr7gMBxHHVG3EedqmUgO9QGXHsf3QmIDVVJeshsg68WW1MlV4BGFWM5VhS57SMpM+i
-	 M5WDbruj9h0JQTYOMS07qLHBAA5HttPv8ppRNoqJ7oYQVPoJA4ErNVolQFkBsHNHwB+MR
-	 T8R06yllNYNID8CTwXTq/JFXbSW7BrJuSFk+eGEpDrfdZ/nn4tPAI0ZUODRMqVx7xCYZj
-	 zpS6cFSkvQWWhgBztGQnm+phH2B3CNPE5RBFbNaMCKpWXgFovfCgrCx+geQ9ZeG21p+Wc
-	 shs8eUuYXrsifnOVgHsKBrZj6uTQkrlMOiCWtIXgEUTNugfxWQlX5iJeTvnfJQrjwSA==
+	t=1795779704;
+	b=3kbBqTP/9+LpueMSDnJzkkeqQL/jVIHVQg40wGwyJbvcn/L/qwwUBMv4R6NxJrzTB8aM
+	 JJTJ+e+l3mrUuYYlagPUEMUcNf+SvYPQhInk9sQn7Y0c/TJ+p3238QQ6roC1L1nU0I00G
+	 PRcJpvAvojQSV730bboM5mFwYNjhcskCSKKrJib6Pk7vxjEVzq+oT7xiedvuCYxhJlRqc
+	 Q8srCfyelxcW6Bwe6CvQ89pUUoFjLvtndXJLHEmUx9cXB1h+iF4xJ9Gb/iq4klkRCzELA
+	 /zwY5e29CSZTlUVwv+So6Eyb0YZmlj0lcYeIyVkLOS+D/+4LNATMQ/LmkXkqXs4O5uQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795779708;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=VlvsZhKQ5bte9z2ki1x34C633JPVJM4x+mie8ldYyLk=;
-	b=j7a4LY8Ak18KfNMz9PawaCuFKpB5Z7zPiKUTOcWmGLsDLzltW8ZviFnj0H/6LcyjDNUp
-	 lHVwZcNsZU1vf6wiVwweQ1zUPzM6nwV/Yvtg4igBgPY7boR6nYUmp9l1vPBvN8t6pGV7r
-	 raN8XG05PirXJ7vAyrUUbgf1vPudoLR6F/elY1lCbVg2upcUOKfGA3Nsrj9QsgeXH+gN8
-	 3hJpQmWE5XhDhxMQjEecBK6tSA1z6KDigZpqgAjsc0WJ5770S+ZW60oLlaDRjKdeuyZDz
-	 ghNb+RkHWKH/iBe3vuahlDNuga4hLq6vlKXTA86IdQkxz4uqABu+igdTYOHkoNV08rw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795779704;
+	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
+	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:
+	 X-QQ-RECHKSPAM;
+	bh=4dMkvqFMI+lr0Yu1ZwqbzWALRMZItsyPOQ2LJhwLN8w=;
+	b=fE/l/nN17evduAv6ipsUOJE5Wb6r+7QeKWWmtgx3l/dn2rWhreknoQAUenYvceZXSXcR
+	 YmAdTPgPoOkEJxY/go3xwpqzFnr0LFzSSRHRbO3MvDc3uejiGatfNyPlAwVfMX3cy18S9
+	 6E1SGSFOAizFmTRChb9+Ts6Q4bU7D1yg64BwtyJ0zCleIardYilNnF3vfhco95kY7wp8Z
+	 4UecAXqLMGC2wu5VKPx8YO23xyc+0Nbq5vgs2gE3HhoalNZvd5hGjVvSFtZdLRhnHhnMu
+	 RTdE1plZZ5oDummbA7ltYs7MLa/857dUB4cPdvYn9++RPsWK/t743qQiO6ign/l3ijA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=emAeV3+B;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=OgDP9Hv+;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=radxa.com;
+	spf=pass smtp.mailfrom=radxa.com;
+	arc=none smtp.remote-ip=54.206.34.216
+Received: from smtpbgau2.qq.com (smtpbgau2.qq.com [54.206.34.216])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94A01606A6B8
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:41:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94A01606A6B8
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=emAeV3+B;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=OgDP9Hv+
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARApNk02269151
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:41:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	VlvsZhKQ5bte9z2ki1x34C633JPVJM4x+mie8ldYyLk=; b=emAeV3+Bpc1PnQp6
-	VRf7r0qX7MoO5wXmTY/dQVSIXFKgAD1iYdydUzAbOYtlQ68YbOJUrLUK4TX6B4St
-	2NkSZF21iZdoWiBPuXPI6qkjm02zPD+ViUvxq56JuGqGcnm1qs/O9VDEuZJJFbCf
-	pXEaNe0zfBrgS/pSLZDGG/asw93JEKs2zjd5Gvbm+4qMKi7Zh3IHD8tYB23NB3s9
-	gfbEBegMAkocF+6ZNe2uko9p0sMeMw4PPzJlW0JcfXqf2WjLDUo7ZVvYAs0FK3rz
-	JR64o7NeK1noiXMLRoPEvH1RdjfDskb7XHdw7xRnBq4osXGwoSg/a1BANsimVOat
-	k19gpw==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j73uhhdwv-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:41:46 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-9493e89d4f9so1078539785a.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:41:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795779706; x=1796384506; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VlvsZhKQ5bte9z2ki1x34C633JPVJM4x+mie8ldYyLk=;
-        b=OgDP9Hv+7kjT+EJK4s9oKTgMxB4rPz5aT7EvmRwtKEAuVlr0l7kZttr/VIqgVAbOhB
-         JUpCveo3lES70ZvnQLj+3jVzLHrUd8+Kj+/r6G5UfOiFSIlsbR5muKBC1NEgA02aBaNT
-         KsaOxLdN1MCUzWc98HcdLBdGir0dbvXFiujPLVHi/j75I+NSyZzZWDG4mRI76n99Z9ud
-         JxQVenUOFWxguD9gqedRXFmNskwJ7CJB6rBtxP7NlVI4dBtiEf0l5WYDaUzskwbpK8+R
-         gEKcPIaf8j76e/QP0EJ9fzat+hy9s6WJ/Ul/n/BOqcq24K9zdbM4fd7LGKHv5bZfhPYQ
-         N9Cg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795779706; x=1796384506;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=VlvsZhKQ5bte9z2ki1x34C633JPVJM4x+mie8ldYyLk=;
-        b=rwQdBUHq4vHdYR0U1hdc2My7kWnJrlukDh85eLgV1J/GZ6BGhHHEc1aWr3wluDxXAQ
-         pS39dOMZB1xR3UkfxI6GILMQvqeRvw8JM+lqZVYlUI9ZUQNb/FeHEUhX1+OmJ9VO7IlV
-         +IbW+x9Ymvyrw4fKXmh5pPGBpRAj3elsD/SejXVBWAkaUFrv6UTTwuT7yuEcor5ENszF
-         mRKvleVm5opCavMLJRSXTUlg+qryIH5CVxM/T20k0mxQzszfNoaqiUhgy1wl0QSSeQ46
-         t/KTaM/+c02ByyZYaKxSNjQrWdcg3nNjzjYJPfWlThWHtXRfqHATD5TmyPv1kfm2aN0X
-         fsXg==
-X-Forwarded-Encrypted: i=1; AL+hErFr7x5NUiS2RBcmcI4aorTVniMGEy8ug10L9Js62Fxc7u5OFwfAeCOwlDg1aZvZvwJIbXDQJRsu9hp8Sdg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Bc2wgKl+jcEtGfdwo4Kfjm/QHO4m9JbKSqXbHOXuvcYwxRyDa
-	7iMXZv/fuvsOR2BHQLuY0024XlFtkFjxV1sGxw09GSmyLlRSjzz0GOXO1gQxZmFeDR1FA3i4Fi6
-	s8Ia7Hts6Kk26Od7gnrrpNZfItjH01N/oRUk8Umsy7PwkVVRAB2NH0Vo9yUuIZhsPnzo=
-X-Gm-Gg: AZFdTZez/AKYBJnVCBX8Rr61GD2ROTjh40EqSiRmx36kWVsbVrgYfwB7uya3p/RKfRV
-	UDivd/HA+ybkdTk4LFt1eyuNaW1Fj/fFqwaAYx3lNSS3mRBBv/5WRWqaUQweg9Cqlsx2nPMi3au
-	uPovP1VZ4XjGLTSwS/U6aba/mCWlPuc4XNkZC3woeEtjpEHVEl4acJiTodFCL2c8V4WwvlkaS9x
-	3iLtIfFKs4ARAujHuHyH4FGlVa3ZXyG4cslqYMxMvjT1A484AjV73PnHzRoT5j9uNKpra7glGTZ
-	gLgyeL0sgHCRPYJJAqYctS2xu1QP1ZraSu81wwx9pUNoDJbFXXWlpMHDr8l1KPZSs+47+12N2hz
-	hRPgE6cCy773T64Ll9iNu35TDzTghcZ5Bjz8Etb6jWaqf11u2+xu829In7hrCvpaAFmCSfNZqGe
-	FNqcPnLNg53yx3hMks18sxAp+JSEhJQaGcqDuEXIKQfumFCjmlTrwjXyL0zaWPL/A=
-X-Received: by 2002:a05:620a:270d:b0:949:8109:8bcd with SMTP id af79cd13be357-949bab6d24dmr4114417985a.77.1795779705806;
-        Fri, 27 Nov 2026 03:41:45 -0800 (PST)
-X-Received: by 2002:a05:620a:270d:b0:949:8109:8bcd with SMTP id af79cd13be357-949bab6d24dmr4114412085a.77.1795779705324;
-        Fri, 27 Nov 2026 03:41:45 -0800 (PST)
-Received: from brgl-qcom.local (2a01cb1d00dc7e0089167b9b97a26c96.ipv6.abo.wanadoo.fr. [2a01:cb1d:dc:7e00:8916:7b9b:97a2:6c96])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab65cb41f4sm45137049f8f.7.2026.11.27.03.41.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 03:41:44 -0800 (PST)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 12:41:32 +0100
-Subject: [PATCH 3/6] dt-bindings: clock: qcom: document the Seca TCSR Clock
- Controller
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EFA7606A692;
+	Fri, 27 Nov 2026 11:41:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2EFA7606A692
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=radxa.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=radxa.com
+X-QQ-mid: zesmtpip3t1795779683teaa78799
+X-QQ-Originating-IP: pIQfLFMJpPw0dHknpm7oplcqe3ILtDyfjC7te9lTdKQ=
+Received: from [192.168.30.32] ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 27 Nov 2026 19:41:21 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 16290186260747655819
+EX-QQ-RecipientCnt: 18
+From: Xilin Wu <sophon@radxa.com>
+Date: Fri, 27 Nov 2026 19:40:58 +0800
+Subject: [PATCH v2 5/5] media: iris: Recycle decoder buffers for
+ non-display pictures
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,181 +56,190 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-seca-clocks-v1-3-1781298e658b@oss.qualcomm.com>
-References: <20261127-seca-clocks-v1-0-1781298e658b@oss.qualcomm.com>
-In-Reply-To: <20261127-seca-clocks-v1-0-1781298e658b@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
-        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
-        Jerome Brunet <jbrunet+clk@baylibre.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Taniya Das <taniya.das@oss.qualcomm.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-        Tyler Baker <tyler.baker@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3511;
- i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
- bh=UU3EbnJaLdHT0l2zmjczzAnpGAGzw6I+1J+L+nykF9E=;
- b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBrCWxwfy590nfgqX7sjByb+r7MdExcTAoxugkiV
- vuu2zCSCUyJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCawlscAAKCRAFnS7L/zaE
- w8ObD/9F59keoAIFgmv3etoAvDTpaxgoVCTgyH0PIKzceesdu5c+4Aj5Sb4YbsplXdl0X5qTgXf
- y7vOgRz0pVvnbolF9ccfDYRKwTiX6Af8CuKnDqxeiTxmVY1V36OJQZJq0lpSqBlTUsjgCxFPP2j
- Vr8wrZaWtj9KqakvaffOLEEO1IikjyIrHBLfs0rtJlPWvy6lN6qXRIUInkr0nsVxwWvSb2odC/Q
- esd+dNwGZSjnSmkpaVUU3FLFYv6GmS5vh5Z/11egKboXlwEt/Sl26snJ5TILxmD7K5ulX6YCzvt
- dkCD13I77zdCm44W4bau2PPwHZhAhab1jz8W/dg4/PCTgUsSx/Zi6BSLUl6ujW7K7FV95JfThji
- EEzZ055SW5esI+yiz5nlpNPevn2jmHdtrIM179uqW5k9xuTBZp+f5/6GAdQX4wQS+3aLG+PqpBl
- Fy5uVF5U1E42zkhMYntwrUDTBfwSPGABZlR30eg1XEI4ZgRzQkDk9UUIDfi2UBiCR2kAcEuOYb7
- r2w05BWxshS3kIIOv6Kqm3YhsTZx0nHRpJqYVSm9CvZJ7cNgZMjFReBdd86ewHKZJan4ps1HtAk
- 8bWbLapSKKpAprBveAgRJjfq35rm3HB+ElHE6AZHEeH1nc6rUfn/pVghRO+IG+S0eVoVsdbIMO/
- hxZGxvZSRtK5Grw==
-X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA0NiBTYWx0ZWRfX9sV+zcLkQHwt
- 5neOZIfA0EN8JXP7L0TNMh7Au9IJMSScU3zA3SFXsGlHvE8FFVYrmJOPYnfvQDULYAYQxC8YuB7
- iWIffHaylIz8FpfNGhNLcAilBiEJasU=
-X-Proofpoint-ORIG-GUID: qQeHw9zMu9IVkgpsy1srqLEcogO4zd-q
-X-Proofpoint-GUID: qQeHw9zMu9IVkgpsy1srqLEcogO4zd-q
-X-Authority-Analysis: v=2.4 cv=BbBNQbt2 c=1 sm=1 tr=0 ts=6b096c7a cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22 a=gEfo2CItAAAA:8
- a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=Eo1YCTbVZX2S2jacn6oA:9 a=QEXdDO2ut3YA:10
- a=bTQJ7kPSJx9SKPbeHEYW:22 a=sptkURWiP4Gy88Gu7hUp:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA0NiBTYWx0ZWRfXxJUOxteNfR/e
- uakI68ugHNUKjzCIowjELiB6R0AKFrFtI/9YcTEDC+DlmWyNcV0Zas3nVNRLzWLeu120HgaDbhd
- 8viymmOo/EI/NM3UtAabgD6fSrOFFr+X5jzqzk1wcQlhyhnierh2BeyraTR4XYHP9aaeEfoZVVy
- tvlPJG7feygrL6lCFDCZgB6AYaCntDYcp4abI4DtE1c5na8eDTXAGlYT2bDcqzEMmOzLzbkMbVv
- OOEBw7+PEA9Z3Vd3CW03c/VpYdXsw1f7bTI/IiT1ZTqU8jjIDt2KMNiajJ1jamWOPkIkgoPB5wg
- VVLPp578ncCnOBKXE5MPxD7Z1yTfiHUpjVbvrv0wmrlV/O7s+7MHLF0gJIdTMv0+8idSWPQoyy0
- Fjtahmj/UD6RvrbSruR9xvae37lVoOHSnk+nUU0sPsGQLl3Qos4Ln15cPjogvLCQuGLdIJVngnv
- Rk5rZqp8WrhkkTpEPmA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-26_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 lowpriorityscore=0 bulkscore=0 adultscore=0
- priorityscore=1501 phishscore=0 spamscore=0 impostorscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270046
+Message-Id: <20261127-iris-va-fixes-v2-5-385e8636c22d@radxa.com>
+References: <20261127-iris-va-fixes-v2-0-385e8636c22d@radxa.com>
+In-Reply-To: <20261127-iris-va-fixes-v2-0-385e8636c22d@radxa.com>
+To: Vikash Garodia <vikash.garodia@oss.qualcomm.com>, 
+ Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>, 
+ Abhinav Kumar <abhinav.kumar@linux.dev>, Bryan O'Donoghue <bod@kernel.org>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Hans Verkuil <hverkuil@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
+ dragon@radxa.com, Chris Obbard <chris.obbard@oss.qualcomm.com>, 
+ Deepak Sikri <sikrid@qti.qualcomm.com>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Loic Minier <loic.minier@oss.qualcomm.com>, 
+ Jason Pettit <jason.pettit@oss.qualcomm.com>, Xilin Wu <sophon@radxa.com>, 
+ sakimidare <ssmzhn@163.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5771; i=sophon@radxa.com;
+ h=from:subject:message-id; bh=sBcFBFxUby0dkUV+LiHZOIYUzIKmr/fsxIRvq9UJBDk=;
+ b=owGbwMvMwCVmdFg0fe08Iz/G02pJDNmcOYGVIdzJ1h+nKl1wNtp20Wtb8aw/HMzFe29m8hgGT
+ 7xkUeLaUcrCIMbFICumyKIQzzCXvTL32lOxUj2YOaxMIEMYuDgFYCJGgQx/Zb6+yPnjfd1x1ibD
+ kHU8+h7Jr4ofTSu03t9Y2+ywQKFCmZHhi9OXSy5dL4KE2Gtz+mImnr7y+OfHjEqfBTNfsrQ/+p/
+ OBQA=
+X-Developer-Key: i=sophon@radxa.com; a=openpgp;
+ fpr=205F009D07796DD6E516752E32C31567AD9E324E
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:radxa.com:qybglogicsvrsz:qybglogicsvrsz3b-0
+X-QQ-XMAILINFO: OLzt+G0KylFPSUUq3oNyVY/JC5ZZABD2y9ZwESbHoHravWId64C/A+1P
+	cJFQsR+nvicMqa5lfy4Ewf9ragac1WsWtlKHHbGBMqJ0eyjGzphm1RflJuWZDhNePbXdkS0
+	rBlcSug0GK+wbMgnEcmO0emOWVqkS+Co55gcDAduDlaK7KVmHS/MaQ7HQoTQca7KtpsL5oJ
+	6zsKgEP6V02LK47VmBAGUbsHskfOG93/j0xFleeD9rEuArV0+8paEGSjXOMMY2rd3G94H7M
+	ou74WAY+v3jBUY0yWYNXS+WPnjaMjDYq2eWu8nvkWcuoKe3IZOVGX/cC21+BEtnbPm7qPAb
+	EsPKpJ71jasCorJT44U76NnGu6PuO7MAGjH7jUlpyktrJPLaPR2XGfMFRbZ5i/qKw2Dy57Q
+	sS0KZ0Axm3oajAWeepx0Plpptb3BAHcuN3V5JAQwhBJ1PMP34wbMZa7hXZmDTmOiGfRhoWK
+	TIrxPuLHnQ13v9BjtNjuXvaqAF0CDqBl3YqWlejdrFJnznZTJP7C8I8trzL0wmWX9Qmv0Fw
+	yRb60kf5Cr18fQYO5R70bSnKnAz9+gXh7G/HUb/P5WMNOrwez+UKE2qGhZwg+pfPmPwt8OX
+	EUXA8ohRaZls98bD8kn66gwGyx9ECVn8B/sS3EGV2dYI9mnFxLbgSOmIWmTYeFIBAq41h2z
+	NPHH3MLNupRdsdxrrl0JqEzUSJsqFuNa/BH1skHbsSyPF/Tt0qVVtbPZTTTEAKVh5SVn65P
+	SYho8J8U8uYjeHWGiJVy6LRmSCWxCY+WA4cH202s2TZOgP83dhWRc2WlxmzzKz0rCP1TFR7
+	0x6pmv4fW/Rp2QkmnDhicUPm4cto2W6IndwUGNT6frCUh+yB73dfbNYWie4J9X2p7iHAWQE
+	J0uCLO2AY6xp4GFNjiqNrvSOPQMyrLOE5jQ3Rzbz/OAsmGo5/wfG9bZAHnVFz6psEaXl6F4
+	M5WmUtftbf/oiAE0RG/SKyfvLsNsqs+g0nToWXuRs6lHRCR7fqs/D7LVAPucSDb90LTOAz0
+	NXWum/BZb2FcDP2Ekxe4hvTySwBKfGVfa/ZnLkpwx66b4i9UE+K4byMr/fqkQ7Cym4g7jla
+	Q==
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-QQ-RECHKSPAM: 0
 
-Add devicetree bindings for the Top Control and Status Register Clock
-Controller on Qualcomm Seca SoCs.
+HFI gen2 reports non-display pictures with HFI_GEN2_PICTURE_NOSHOW, but
+Iris returns them as errors. For AV1, hidden and displayed pictures can
+share a timestamp, so GStreamer's v4l2av1dec drops the pending frame and
+loses the displayed picture.
 
-Co-developed-by: Tyler Baker <tyler.baker@oss.qualcomm.com>
-Signed-off-by: Tyler Baker <tyler.baker@oss.qualcomm.com>
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Recycle successful non-display buffers within the driver instead of
+returning them to userspace as errors. This also fixes VP9 streams using
+hidden alt-ref frames.
+
+Fixes: ac72ad9deafa ("media: iris: Add handling for no show frames")
+Tested-by: sakimidare <ssmzhn@163.com>
+Signed-off-by: Xilin Wu <sophon@radxa.com>
 ---
- .../devicetree/bindings/clock/qcom,seca-tcsr.yaml  | 65 ++++++++++++++++++++++
- include/dt-bindings/clock/qcom,seca-tcsrcc.h       | 25 +++++++++
- 2 files changed, 90 insertions(+)
+ drivers/media/platform/qcom/iris/iris_hfi_gen2.h   |  2 +
+ .../platform/qcom/iris/iris_hfi_gen2_command.c     | 11 ++++-
+ .../platform/qcom/iris/iris_hfi_gen2_response.c    | 47 ++++++++++++++++++++--
+ 3 files changed, 55 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/clock/qcom,seca-tcsr.yaml b/Documentation/devicetree/bindings/clock/qcom,seca-tcsr.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..1349f70b5672a2de4e9388056e4c560cd1eacde2
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/qcom,seca-tcsr.yaml
-@@ -0,0 +1,65 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/qcom,seca-tcsr.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/media/platform/qcom/iris/iris_hfi_gen2.h b/drivers/media/platform/qcom/iris/iris_hfi_gen2.h
+index 21ab58e0aa84..79aac2d4e500 100644
+--- a/drivers/media/platform/qcom/iris/iris_hfi_gen2.h
++++ b/drivers/media/platform/qcom/iris/iris_hfi_gen2.h
+@@ -20,6 +20,7 @@ struct iris_core;
+  * @packet: HFI packet
+  * @ipsc_properties_set: boolean to set ipsc properties to fw
+  * @opsc_properties_set: boolean to set opsc properties to fw
++ * @output_stopping: capture STOP command is awaiting its response
+  * @hfi_frame_info: structure of frame info
+  * @src_subcr_params: subscription params to fw on input port
+  * @dst_subcr_params: subscription params to fw on output port
+@@ -29,6 +30,7 @@ struct iris_inst_hfi_gen2 {
+ 	struct iris_hfi_header		*packet;
+ 	bool				ipsc_properties_set;
+ 	bool				opsc_properties_set;
++	bool				output_stopping;
+ 	struct iris_hfi_frame_info	hfi_frame_info;
+ 	struct hfi_subscription_params	src_subcr_params;
+ 	struct hfi_subscription_params	dst_subcr_params;
+diff --git a/drivers/media/platform/qcom/iris/iris_hfi_gen2_command.c b/drivers/media/platform/qcom/iris/iris_hfi_gen2_command.c
+index a285e6fc8728..77ea153bf2d7 100644
+--- a/drivers/media/platform/qcom/iris/iris_hfi_gen2_command.c
++++ b/drivers/media/platform/qcom/iris/iris_hfi_gen2_command.c
+@@ -1172,7 +1172,16 @@ static int iris_hfi_gen2_session_stop(struct iris_inst *inst, u32 plane)
+ 	if (ret)
+ 		return ret;
+ 
+-	return iris_wait_for_session_response(inst, false);
++	/* The response wait drops inst->lock, allowing buffers to be returned. */
++	if (plane == V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE)
++		inst_hfi_gen2->output_stopping = true;
 +
-+title: Top Control and Status Register Clock Controller on Qualcomm Seca SoC
++	ret = iris_wait_for_session_response(inst, false);
 +
-+maintainers:
-+  - Bartosz Golaszewski <brgl@kernel.org>
++	if (plane == V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE)
++		inst_hfi_gen2->output_stopping = false;
 +
-+description: |
-+  Qualcomm TCSR clock control module provides the clocks, resets and power
-+  domains on the Seca SoC.
++	return ret;
+ }
+ 
+ static int iris_hfi_gen2_session_pause(struct iris_inst *inst, u32 plane)
+diff --git a/drivers/media/platform/qcom/iris/iris_hfi_gen2_response.c b/drivers/media/platform/qcom/iris/iris_hfi_gen2_response.c
+index f0782c4b1e6e..a545410d1e8d 100644
+--- a/drivers/media/platform/qcom/iris/iris_hfi_gen2_response.c
++++ b/drivers/media/platform/qcom/iris/iris_hfi_gen2_response.c
+@@ -101,9 +101,7 @@ static int iris_hfi_gen2_get_driver_buffer_flags(struct iris_inst *inst, u32 hfi
+ 		HFI_GEN2_PICTURE_CRA | HFI_GEN2_PICTURE_BLA;
+ 	u32 driver_flags = 0;
+ 
+-	if (inst_hfi_gen2->hfi_frame_info.picture_type & HFI_GEN2_PICTURE_NOSHOW)
+-		driver_flags |= V4L2_BUF_FLAG_ERROR;
+-	else if (inst_hfi_gen2->hfi_frame_info.picture_type & keyframe)
++	if (inst_hfi_gen2->hfi_frame_info.picture_type & keyframe)
+ 		driver_flags |= V4L2_BUF_FLAG_KEYFRAME;
+ 	else if (inst_hfi_gen2->hfi_frame_info.picture_type & HFI_GEN2_PICTURE_P)
+ 		driver_flags |= V4L2_BUF_FLAG_PFRAME;
+@@ -345,9 +343,40 @@ static int iris_hfi_gen2_handle_input_buffer(struct iris_inst *inst,
+ 	return 0;
+ }
+ 
++static int iris_hfi_gen2_requeue_output_buffer(struct iris_inst *inst,
++					       struct iris_buffer *buf)
++{
++	struct iris_inst_hfi_gen2 *inst_hfi_gen2 = to_iris_inst_hfi_gen2(inst);
++	u64 timestamp = buf->timestamp;
++	int ret;
 +
-+  See also:
-+  - include/dt-bindings/clock/qcom,seca-tcsrcc.h
++	buf->data_size = 0;
++	buf->timestamp = 0;
++	buf->flags = 0;
++	buf->attr &= ~BUF_ATTR_DEQUEUED;
++	buf->attr |= BUF_ATTR_DEFERRED;
 +
-+properties:
-+  compatible:
-+    const: qcom,seca-tcsr
++	/* Leave stopped buffers for streamoff cleanup or the next streamon. */
++	if (inst_hfi_gen2->output_stopping ||
++	    (inst->state != IRIS_INST_STREAMING &&
++	     inst->state != IRIS_INST_OUTPUT_STREAMING))
++		return 0;
 +
-+  clocks:
-+    items:
-+      - description: TCXO pad clock
++	ret = iris_queue_buffer(inst, buf);
++	if (ret) {
++		buf->attr &= ~BUF_ATTR_DEFERRED;
++		buf->attr |= BUF_ATTR_DEQUEUED;
++		buf->flags = V4L2_BUF_FLAG_ERROR;
++		buf->timestamp = timestamp;
++	}
 +
-+  reg:
-+    maxItems: 1
++	return ret;
++}
 +
-+  '#clock-cells':
-+    const: 1
+ static int iris_hfi_gen2_handle_output_buffer(struct iris_inst *inst,
+ 					      struct iris_hfi_buffer *hfi_buffer)
+ {
++	struct iris_inst_hfi_gen2 *inst_hfi_gen2 = to_iris_inst_hfi_gen2(inst);
+ 	struct v4l2_m2m_ctx *m2m_ctx = inst->m2m_ctx;
+ 	struct v4l2_m2m_buffer *m2m_buffer, *n;
+ 	struct iris_buffer *buf;
+@@ -390,8 +419,18 @@ static int iris_hfi_gen2_handle_output_buffer(struct iris_inst *inst,
+ 
+ 	buf->flags = iris_hfi_gen2_get_driver_buffer_flags(inst, hfi_buffer->flags);
+ 
++	if (inst->domain == DECODER &&
++	    inst_hfi_gen2->hfi_frame_info.picture_type & HFI_GEN2_PICTURE_NOSHOW) {
++		/* A hidden reference picture is neither a display frame nor an error. */
++		buf->data_size = 0;
++		if (inst->state == IRIS_INST_ERROR)
++			buf->flags |= V4L2_BUF_FLAG_ERROR;
++		if (!(buf->flags & (V4L2_BUF_FLAG_ERROR | V4L2_BUF_FLAG_LAST)))
++			return iris_hfi_gen2_requeue_output_buffer(inst, buf);
++	}
 +
-+  vdda-qref-1p2-supply: true
-+  vdda-qref0-0p9-supply: true
-+  vdda-qref1-0p9-supply: true
-+  vdda-qref2-0p9-supply: true
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - '#clock-cells'
-+  - vdda-qref-1p2-supply
-+  - vdda-qref0-0p9-supply
-+  - vdda-qref1-0p9-supply
-+  - vdda-qref2-0p9-supply
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/qcom,rpmh.h>
-+
-+    clock-controller@f1d7000 {
-+      compatible = "qcom,seca-tcsr";
-+      reg = <0xf1d7000 0xf00c>;
-+      clocks = <&rpmhcc RPMH_CXO_CLK>;
-+      #clock-cells = <1>;
-+      vdda-qref-1p2-supply = <&vreg_px11>;
-+      vdda-qref0-0p9-supply = <&vreg_l1h>;
-+      vdda-qref1-0p9-supply = <&vreg_l1h>;
-+      vdda-qref2-0p9-supply = <&vreg_l1h>;
-+    };
-+
-+...
-diff --git a/include/dt-bindings/clock/qcom,seca-tcsrcc.h b/include/dt-bindings/clock/qcom,seca-tcsrcc.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..ab77bb343a607813def35276fdbfda927accf346
---- /dev/null
-+++ b/include/dt-bindings/clock/qcom,seca-tcsrcc.h
-@@ -0,0 +1,25 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-+ */
-+
-+#ifndef _DT_BINDINGS_CLK_QCOM_SECA_TCSRCC_H
-+#define _DT_BINDINGS_CLK_QCOM_SECA_TCSRCC_H
-+
-+/* TCSR_CC clocks */
-+#define TCSR_DP_RX_0_CLKREF_EN					0
-+#define TCSR_DP_TX_0_CLKREF_EN					1
-+#define TCSR_DP_TX_1_CLKREF_EN					2
-+#define TCSR_DP_TX_2_CLKREF_EN					3
-+#define TCSR_PCIE_CLKREF_EN					4
-+#define TCSR_UFS_0_CLKREF_EN					5
-+#define TCSR_UFS_1_CLKREF_EN					6
-+#define TCSR_USB2_0_CLKREF_EN					7
-+#define TCSR_USB2_1_CLKREF_EN					8
-+#define TCSR_USB2_2_CLKREF_EN					9
-+#define TCSR_USB3_0_CLKREF_EN					10
-+#define TCSR_USB3_1_CLKREF_EN					11
-+#define TCSR_UX_SGMII_0_CLKREF_EN				12
-+#define TCSR_UX_SGMII_1_CLKREF_EN				13
-+
-+#endif
+ 	if (!buf->data_size && inst->state == IRIS_INST_STREAMING &&
+-	    !(hfi_buffer->flags & HFI_BUF_FW_FLAG_LAST)) {
++	    !(buf->flags & V4L2_BUF_FLAG_LAST)) {
+ 		buf->flags |= V4L2_BUF_FLAG_ERROR;
+ 	}
+ 
 
 -- 
-2.47.3
+2.56.1
 
