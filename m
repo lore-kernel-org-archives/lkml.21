@@ -1,49 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795773386;
-	b=NDm6B7BGz2xbhRWpZGexD7v0C/nnPm9xKOeeLXk1QkPCRapA+nEvh9kmr2nIf+jL3TFH
-	 EGGZWPq2yWSX9MkhoAVo6p6T5iEnpjTpTlLZuz2aKypMIgB3r+xYYI5QH31bzW4CoZiw7
-	 XyuNkwbYrururI2lMTUZ3WVSYWqtDvScyVnEpNAIsHdwDUK6DQ3A8AiGrRJ9y6KZt3WAy
-	 ZuuIFCx2vTuLbYtAjXr2aS0Su8JV5+IdyoppUN5X40AjJXaoa1KHoQJkUxvb/ImM8a2r0
-	 JX2FV0z2LCLaX1hmCxa5G2rrA/PO0cpxXRz++qqEI4Ws1yBMeCqxzn9mmSq0hdccIAw==
+	t=1795773459;
+	b=SK3jZ0XJrVQtzLOMMQg7puwcFgxzGKkw5LwUC0oJT1x77vYWsN2H8C9VchC2GvOMJNia
+	 nKawCjpUk6NnU2es5Wlb1zTfJ78ukWknJ+KDms15mVUhJkiwJ69ofQNPRMrGCqAAueSyO
+	 03s0sjGrc6J7ywbGorg17lGFKmYiQKtIrpj1xR3ZoBB/SbmTYHWzvOl2mkEnr9/QRNTiq
+	 zXqK5byzlBN8GbioHa6tID0bcXYGduHmkLoHcuLfy4Xdm2a6ugut3GmhVcu8C+eyIw/w1
+	 FNoLh8iF8YYyY02oWKrlpnFC1BnLdz2/02IuTb6mVFG+rjeoVy0dR4XlVLzH6UpXwUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795773386;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=cghKiIhIs3WHdTzauouM7yuuYOP4RHk/lDCEL2J3FDw=;
-	b=R7TbWi6Wiys1uJq5PRHjxwTno0bcwHUu20DVIOU8JIPgiYGiOHO/a0bgn4oz1j/4hG2H
-	 Zb/bJ9ldA+5rLVu8vPIBzB9Op4AIrmc97B6OgcH/j4WufPQFcSmznlOjgQtxpQrXkZzgO
-	 vJTsiNvVQB1Cvsnx30H8U0DuyLKcUo+eYQZ/h1pSLs8Rtuu4Wq09o7wrVrDZ0OsP2CVzH
-	 Z/fCQ+4UiKUcMP37esEE8l8MgStYofY1/ow4eOV/NgeQ9lxU3UJNGMA3EYQzGOk/Y9l26
-	 D325TpPaVOMdaKUIlQ2ivKXhRp5zax3GUoxJwelPYt97edh9a2pi6fnD1g/u9TIQhvg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795773459;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=69+4bHVY7J3UMA/5+KV1w/FUHDxIBD0PWF/YGVpWFJc=;
+	b=NAbVlsdZXukTB8+3tyWES6ek4f38ApDCRQzTHrZIYabqpOEroyZCnzH5R8C0/SIYDwFl
+	 qB8IsQZBmE9EWPW1QzSIeTXIzjWrvPidThaaplNsLx25mbK46YqnTEyBTBNAbJac5Q6Gj
+	 cKqWEEVDE13yPxSFXIGGFDONi2BC9KFFdoG1oOq7egvIWrti95r8fQujBYwRZG5fVUHOo
+	 ucNFX+8HNc7ooNyN6nUTsiwESki9MduVcD2ycUTnr0VLprxq6e+SZ4EgglOqRR/ct44JR
+	 LLmc4MBKhFCTeJzJLbSeUG+PZ4TSZqXkymayO9xlbgHcFA6D211xComHE2fYof4aQHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=O5pnT0OT;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id E31A4606A31E;
-	Fri, 27 Nov 2026 09:56:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E31A4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=GmRyzO0+;
+	arc=none smtp.remote-ip=117.135.210.5
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D2CC606A31C;
+	Fri, 27 Nov 2026 09:57:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D2CC606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=O5pnT0OT
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 529671758;
-	Fri, 27 Nov 2026 01:56:22 -0800 (PST)
-Received: from [10.33.50.35] (e142021.arm.com [10.33.50.35])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1B3533F959;
-	Fri, 27 Nov 2026 01:56:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795773385; bh=P0Ygt22URPNRtmd0Nyy4UP8exHQvtkyPWnL1LCnEUKg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=O5pnT0OT1erQHzgvnkdXZbX3pSxTodazlHC5PpMaAS69pDc30zEVloGcAS0ARILJE
-	 EJ6elfFV7fPP+4Awmwe6erpmecbzlXZ/vZqUhbdC3Pc9n0pw5NMV6sMqnNPiuuI3BS
-	 U8uhoq+9hJd2gDbpHsVet5b0Cplqq3HA/0ZfQOvs=
-Message-ID: <114b03ba-914f-4494-be12-d967be62da00@arm.com>
-Date: Fri, 27 Nov 2026 09:56:18 +0000
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=GmRyzO0+
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=69
+	+4bHVY7J3UMA/5+KV1w/FUHDxIBD0PWF/YGVpWFJc=; b=GmRyzO0+tN4zGIMIzb
+	j+AT0kEkxcFLa4T5yIXw9h8inFXk0/9VmTjUI23Ips60frSGxQ6MpEvXY4DLcfAO
+	U3hxV3KGb7dBVhrTDrjYxADI2bCqcfnvSHKMcrncJU3WX7352YzsvAngFuruCaRC
+	1XeMZqyPkwhNUzR8sjvknbPkU=
+Received: from shaos.localdomain (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id PSgvCgCXagrcUwlrG+rhHw--.25255S2;
+	Fri, 27 Nov 2026 17:56:45 +0800 (CST)
+From: shaos <shawnq1@163.com>
+To: shaggy@kernel.org
+Cc: Yun Zhou <yun.zhou@windriver.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Christian Brauner <brauner@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	jfs-discussion@lists.sourceforge.net,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] jfs: reject self-linked directory tree pages
+Date: Fri, 27 Nov 2026 09:56:44 +0000
+Message-Id: <20261127095644.1193523-1-shawnq1@163.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,140 +64,195 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/11] arm64: dts: allwinner: Add Allwinner A733 USB 3.0
- support
-To: Alastair D'Silva <alastair@d-silva.org>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>,
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
- Mathias Nyman <mathias.nyman@intel.com>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-usb@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261127073231.1776847-1-alastair@d-silva.org>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20261127073231.1776847-1-alastair@d-silva.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:PSgvCgCXagrcUwlrG+rhHw--.25255S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3Xw4fCrW8Xry7Xw47WrWrAFb_yoW3JF17pw
+	1fCF1ftr4kKr4UAw1xGF4kZayfC3ykJrWYy3Z7Gw4xCasYqw17urySyr13Z3W2qrWkW3ya
+	9r4jgr129ayUKaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jOtxhUUUUU=
+X-CM-SenderInfo: pvkd40jtr6il2tof0z/xtbC8h0pN2sJU90TYAAA3u
 
-Hi Alastair,
+A malformed JFS directory leaf can point its next or previous
+sibling link back to its own block.  check_dtpage() validates the
+page's slot metadata but accepts either self-link.
 
-On 11/27/26 08:32, Alastair D'Silva wrote:
-> This series adds USB 3.0 host support for the Allwinner A733 SoC and
-> enables it on the Xunlong OrangePi 4 Pro.
+For an empty leftmost leaf, jfs_readdir() emits no entries from the
+page and follows header.next without making progress.  A single
+getdents64() then loops in kernel context.  A crafted image reproduces
+this on a read-only JFS mount.
 
-I think you should step on the brake for a bit, sending out (AI 
-generated?) patches like crazy is not going to make you friends with the 
-maintainers and reviewers. At the moment we are trying to get the basic 
-A733 DT merged (for v7.5), so anything non-essential has to wait. And 
-the list of out-of-tree dependencies below already shows that this is a 
-bit early.
+Reject a non-root directory page whose sibling link names its own
+block.  Save the requested block number before BT_GETPAGE() so the
+validator can compare the page links with the block that was read.  If
+the leftmost page is rejected, leave the directory position at EOF so
+a later getdents64() does not retry the corrupt page after returning
+the already emitted dot entries.
 
-So I'd say wait for v7.5-rc1, which is probably going to happen in early 
-January, then you have a much saner base, and we have more time for 
-reviewing more fancy features.
+The reproducer uses a 16 MiB JFS image with one valid empty leaf at
+block 112.  The trigger has header.next=112; the control changes only
+that field to zero.
 
-Oh, and also: please try to look beyond your particular board. It's not 
-just the OrangePi 4A that is out there, we have other well documented 
-boards as well. Peeking at their schematics should make it easy to add 
-the respective USB nodes to their DT.
-The OPi 4A is benefiting from work of other people as well, so it would 
-be nice to do the same for other boards. It's fine if you can't test it 
-there, just mention that and others can test. That has also the 
-practical benefit of keeping the dependencies together.
+HEAD commit:    8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
+git tree:       fe970b05333fb8e41da21e9e289f652abcc7cba7
+source version: Linux 7.4.0-rc4
+compiler:       gcc 11.4.0, GNU ld 2.38
 
-Look at Jernej's H616 HDMI series[1], for instance, he just enables a 
-bunch of boards in the final patch.
+Console output:
+https://gist.githubusercontent.com/shaos26/111949c00d3d0b42fe7a11e90f0f47fb/raw/dde677d84dbf51c6bc82fc81535aefae86370afd/console-output.txt
+Kernel config:
+https://gist.githubusercontent.com/shaos26/111949c00d3d0b42fe7a11e90f0f47fb/raw/dde677d84dbf51c6bc82fc81535aefae86370afd/kernel-config.txt
+PoC:
+https://gist.githubusercontent.com/shaos26/111949c00d3d0b42fe7a11e90f0f47fb/raw/dde677d84dbf51c6bc82fc81535aefae86370afd/poc.c
+JFS image builder:
+https://gist.githubusercontent.com/shaos26/111949c00d3d0b42fe7a11e90f0f47fb/raw/dde677d84dbf51c6bc82fc81535aefae86370afd/mkjfs_cycle.py
 
-Cheers,
-Andre
+Build the test kernel from the specified commit and config.  Required
+tools are gcc, make, cpio, gzip, Python 3 and QEMU.  Run these
+commands to download the files, build the kernel and create both
+images and the initramfs:
 
-[1]
-https://lore.kernel.org/linux-sunxi/20261126214433.3562326-1-jernej.skrabec@gmail.com/T/#m8df03e7de13c7152685c921605b000e0a7236bc5
+    work=$(mktemp -d /tmp/jfs-readdir.XXXXXX)
+    cd "$work"
+    gist_id=111949c00d3d0b42fe7a11e90f0f47fb
+    gist_revision=dde677d84dbf51c6bc82fc81535aefae86370afd
+    gist_base=https://gist.githubusercontent.com/shaos26
+    gist=$gist_base/$gist_id/raw/$gist_revision
+    for file in console-output.txt kernel-config.txt poc.c \
+        mkjfs_cycle.py; do
+        curl -fL "$gist/$file" -o "$file"
+    done
+    git clone \
+        https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+    cd linux
+    git checkout 8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
+    mkdir build
+    cp ../kernel-config.txt build/.config
+    make O=build olddefconfig
+    make O=build -j"$(nproc)" bzImage
+    cd ..
+    python3 mkjfs_cycle.py trigger trigger.img
+    python3 mkjfs_cycle.py control control.img
+    mkdir -p rootfs/dev rootfs/proc rootfs/mnt
+    gcc -O2 -static -Wall -Wextra -Werror -o rootfs/init poc.c
+    chmod 0755 rootfs/init
+    (cd rootfs && find . -print0 |
+        cpio --null -o -H newc --owner=0:0 |
+        gzip -9) > initramfs.cpio.gz
 
-> It adds the USB 2.0 UTMI PHY driver, USB 3.0 mode for ComboPHY0, USB2
-> CCU gates, DWC3 glue support, an xHCI W1C port change quirk, and DT
-> nodes.
-> 
-> Verified on the Xunlong OrangePi 4 Pro with a SuperSpeed (5000M) USB
-> 3.0 flash drive.
-> 
-> Prerequisite series:
-> - arm64: dts: allwinner: Add Xunlong OrangePi 4 Pro support (v2):
->    https://lore.kernel.org/r/20261127065343.1449675-1-alastair@d-silva.org
-> - Add Allwinner A733 (sun60i) PCIe and Combo PHY support:
->    https://lore.kernel.org/r/20261125062948.1234677-1-alastair@d-silva.org
-> - Allwinner A733 PCK-600 power domain fix and DT node (included in
->    prerequisite-patch-id below).
-> 
-> Alastair D'Silva (11):
->    dt-bindings: phy: allwinner,sun60i-a733-u2phy: Add Allwinner A733 USB 2.0 PHY
->    dt-bindings: phy: allwinner,sun60i-a733-combophy: Add combophy0 USB 3.0 support
->    dt-bindings: clock: sun60i-a733: Add USB2 bus and sys clock IDs
->    clk: sunxi-ng: sun60i-a733: Add USB2 bus and sys clocks
->    dt-bindings: usb: allwinner,sun60i-a733-dwc3: Add Allwinner A733 DWC3
->    phy: allwinner: Add Allwinner A733 USB 2.0 PHY driver
->    phy: allwinner: sun60i-combophy: Add USB 3.0 PHY mode support
->    usb: dwc3: Add Allwinner A733 DWC3 support
->    usb: host: xhci: Add W1C port change quirk for Allwinner A733
->    arm64: dts: allwinner: sun60i-a733: Add USB 3.0 controller and PHYs
->    arm64: dts: allwinner: sun60i-a733-orangepi-4-pro: Enable USB 3.0
-> 
->   .../phy/allwinner,sun60i-a733-combophy.yaml        |   5 +
->   .../bindings/phy/allwinner,sun60i-a733-u2phy.yaml  |  58 +++
->   .../bindings/usb/allwinner,sun60i-a733-dwc3.yaml   | 103 ++++
->   .../dts/allwinner/sun60i-a733-orangepi-4-pro.dts   |  31 ++
->   arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi     |  61 +++
->   drivers/clk/sunxi-ng/ccu-sun60i-a733.c             |  10 +-
->   drivers/phy/allwinner/Kconfig                      |  17 +-
->   drivers/phy/allwinner/Makefile                     |   1 +
->   drivers/phy/allwinner/phy-sun60i-combophy.c        | 573 ++++++++++++++++++++-
->   drivers/phy/allwinner/phy-sun60i-u2phy.c           | 233 +++++++++
->   drivers/usb/dwc3/core.c                            |  18 +-
->   drivers/usb/dwc3/core.h                            |   8 +
->   drivers/usb/dwc3/dwc3-generic-plat.c               |  15 +-
->   drivers/usb/dwc3/glue.h                            |   6 +
->   drivers/usb/dwc3/host.c                            |  10 +
->   drivers/usb/host/xhci-hub.c                        |  53 +-
->   drivers/usb/host/xhci-plat.c                       |   3 +
->   drivers/usb/host/xhci.h                            |   2 +
->   .../dt-bindings/clock/allwinner,sun60i-a733-ccu.h  |   2 +
->   19 files changed, 1177 insertions(+), 32 deletions(-)
-> 
-> base-commit: 9437046953b2fb3bf55b36582450ea0267df82a7
-> prerequisite-patch-id: 19691099774bd3dc41f56585c03ddefb7bdc6f9c
-> prerequisite-patch-id: 85db03df3394cdcb2780a0da122a74b2c1fe220d
-> prerequisite-patch-id: a3e883da50bf03e8f522444def66fec7f996ffbe
-> prerequisite-patch-id: c6889699a6dc13c336ce4cf4659e21b551e9a9fc
-> prerequisite-patch-id: ef2f0344452092edb2221b93c44a3e82cb896a2d
-> prerequisite-patch-id: c598480f753e36b7f6230129b864c559b9f185d5
-> prerequisite-patch-id: f86b468a896a40f132adfcba885700327dff1bc5
-> prerequisite-patch-id: 079d60101e1b9e5425458060314bde3e9cc2fe4c
-> prerequisite-patch-id: 090c5ff78d4e2150804aa8d294581cd338b1e971
-> prerequisite-patch-id: af0aebcae7c38d58354925119c412178b5821b5e
-> prerequisite-patch-id: beb8a098ba14724e316ff243bdf8e00e729243c1
-> prerequisite-patch-id: 63342c5ec38e8eb9e55c8c74d3c5a81a630d5f69
-> prerequisite-patch-id: 1dc8d70f80674c98b2b15d09556dd27f643b20da
-> prerequisite-patch-id: 4555860586ef50f27bf787a23f6ba693e9c3b0d6
-> prerequisite-patch-id: 0279f281cd59cf54bceee39b0fa4d0b6a7b87c48
-> prerequisite-patch-id: 14424bd8324b6cae2b8c4d6840df0db626d1385f
-> prerequisite-patch-id: 7b42728bc8271e5dfd57fffec47a7f5745eff357
-> prerequisite-patch-id: 74f5c7d066477024a374a789b3180e841398fb07
-> prerequisite-patch-id: 309a5a3ca5b216915907263dea7024263abf1d1c
-> prerequisite-patch-id: 55e543b9854c7ae2fa86969233d05ccadd3792e9
-> prerequisite-patch-id: cfcad85224e288ec2168e7f245b4a1c63e9a34a7
-> prerequisite-patch-id: 18dadb9c1e41141d015422b658b7dd0d153b7d69
-> prerequisite-patch-id: 47a863f533ee9ae1589e25618f27a7282a0f8d37
-> prerequisite-patch-id: 54181ce00a78f9f69031d3964f14bf800dd98e0f
-> prerequisite-patch-id: 5a6d6dac4f6b42edf911fbca2078508e977bdce9
-> prerequisite-patch-id: e919d9591e97e3b69fa86625a868583ee74d16db
+Run the vulnerable kernel with the trigger image and then the
+one-field control:
+
+    kernel_cmdline='console=ttyS0 earlyprintk=serial nokaslr'
+    kernel_cmdline="$kernel_cmdline panic=1 oops=panic"
+    qemu-system-x86_64 -machine pc -cpu qemu64 -m 1024 -smp 2 \
+        -kernel linux/build/arch/x86/boot/bzImage \
+        -initrd initramfs.cpio.gz \
+        -drive file=trigger.img,format=raw,if=virtio,readonly=on \
+        -append "$kernel_cmdline" \
+        -nographic -no-reboot
+    qemu-system-x86_64 -machine pc -cpu qemu64 -m 1024 -smp 2 \
+        -kernel linux/build/arch/x86/boot/bzImage \
+        -initrd initramfs.cpio.gz \
+        -drive file=control.img,format=raw,if=virtio,readonly=on \
+        -append "$kernel_cmdline" \
+        -nographic -no-reboot
+
+The trigger kernel stays in state R, with CPU ticks advancing from
+100 to 142.  Its stack includes check_dtpage() and jfs_readdir();
+it remains in state R at tick 206 after SIGKILL.  With the patch
+below, the trigger logs the rejected self-link and getdents64()
+returns the dot entries followed by EOF.  The control also completes
+normally.  The console file contains all three runs.  To build and
+check the patched kernel, save the diff below as fix.patch in the
+Linux source directory, then run:
+
+    git apply --check fix.patch
+    git apply fix.patch
+    make O=build -j"$(nproc)" bzImage
+
+Run the same two QEMU commands with the rebuilt kernel to check both
+images again.
+
+This is a local denial of service when a crafted JFS image is mounted.
+The test used a read-only mount.  It demonstrates no memory
+corruption, information disclosure or privilege escalation.
+
+The patch was built against the same source tree and config.  The
+positive and control images were both tested with it.  The PoC builds
+with -Wall -Wextra -Werror.  The patch passes
+scripts/checkpatch.pl --no-tree --strict and git apply --check.
+
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Signed-off-by: shaos <shawnq1@163.com>
+---
+ fs/jfs/jfs_dtree.c | 21 +++++++++++++++++----
+ fs/jfs/jfs_dtree.h |  2 +-
+ 2 files changed, 18 insertions(+), 5 deletions(-)
+
+diff --git a/fs/jfs/jfs_dtree.c b/fs/jfs/jfs_dtree.c
+index 8ce6e4458cc256a88c596748f5b0dc611a85a184..3058c56c758994ff35a9c6e26dfd6a00e9bb2678 100644
+--- a/fs/jfs/jfs_dtree.c
++++ b/fs/jfs/jfs_dtree.c
+@@ -113,9 +113,10 @@ struct dtsplit {
+ /* get page buffer for specified block address */
+ #define DT_GETPAGE(IP, BN, MP, SIZE, P, RC)				\
+ do {									\
+-	BT_GETPAGE(IP, BN, MP, dtpage_t, SIZE, P, RC, i_dtroot);	\
++	s64 dt_bn = (BN);						\
++	BT_GETPAGE(IP, dt_bn, MP, dtpage_t, SIZE, P, RC, i_dtroot);	\
+ 	if (!(RC)) {							\
+-		if ((BN) && !check_dtpage(P)) {				\
++		if (dt_bn && !check_dtpage(P, dt_bn)) {				\
+ 			BT_PUTPAGE(MP);					\
+ 			jfs_error((IP)->i_sb,				\
+ 				  "DT_GETPAGE: dtree page corrupt\n");	\
+@@ -2826,8 +2827,12 @@ int jfs_readdir(struct file *file, struct dir_context *ctx)
+ 				return 0;
+ 			}
+ 
+-			if ((rc = dtReadFirst(ip, &btstack)))
++			rc = dtReadFirst(ip, &btstack);
++			if (rc) {
++				/* Avoid retrying a corrupt first page on the next call. */
++				ctx->pos = DIREND;
+ 				return rc;
++			}
+ 
+ 			DT_GETSEARCH(ip, btstack.top, bn, mp, p, index);
+ 		}
+@@ -4381,12 +4386,20 @@ bool check_dtroot(dtroot_t *p)
+ 	return true;
+ }
+ 
+-bool check_dtpage(dtpage_t *p)
++bool check_dtpage(dtpage_t *p, s64 bn)
+ {
+ 	DECLARE_BITMAP(bitmap, DTPAGEMAXSLOT) = {0};
+ 	const int stblsize = ((PSIZE >> L2DTSLOTSIZE) + 31) >> L2DTSLOTSIZE;
+ 	int i;
+ 
++	/* A directory page cannot be its own sibling. */
++	if (unlikely(le64_to_cpu(p->header.next) == bn ||
++		     le64_to_cpu(p->header.prev) == bn)) {
++		jfs_err("Self-referential sibling link in dtpage %lld\n",
++			(long long)bn);
++		return false;
++	}
++
+ 	/* Validate maxslot (maximum number of slots in the page)
+ 	 * dtpage_t slot array is defined to hold up to DTPAGEMAXSLOT (128) slots
+ 	 */
+diff --git a/fs/jfs/jfs_dtree.h b/fs/jfs/jfs_dtree.h
+index dfc87b6690a9a8e9f4e080a7f28abb7bd89f0e85..c62e3b8b5441a9c5bca93c646656deeb3f0246c7 100644
+--- a/fs/jfs/jfs_dtree.h
++++ b/fs/jfs/jfs_dtree.h
+@@ -256,5 +256,5 @@ extern int jfs_readdir(struct file *file, struct dir_context *ctx);
+ 
+ extern bool check_dtroot(dtroot_t *p);
+ 
+-extern bool check_dtpage(dtpage_t *p);
++bool check_dtpage(dtpage_t *p, s64 bn);
+ #endif				/* !_H_JFS_DTREE */
+-- 
+2.43.0
 
