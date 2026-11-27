@@ -1,54 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.243
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795744704;
-	b=vicBMNWxZHMqwESXKnRRKVWkw/gZvpKCsukn41G0FSpWOyj/hiZ8K+pkK20ZtnhuZaDH
-	 us85B/Ni7xMz1qVZa3StNKEYPUiJm4htc4I5gQQmNCEpVGcDbKMJtH07hnJOjavJUDSuZ
-	 drhgVq7uEBS0UOiTwHTCggRW1Kqtu9sdJAh6oV3EUbZIviN4Y+ijIOuq34Rt5YrhHDo0X
-	 yXAo0bKQdnVEZ6IeuhBdtvE11HYZLYbndM8lsnIPpqKbJ976RXvQzEI97Nce7nFIiF236
-	 VcuwuhLR4Slethz4Jh6zYGp84Z1qvkDicySpoYCBkRzSXfUT4DkbJc520NnDrPyzkzA==
+	t=1795744785;
+	b=is4a/9khBmLA6JKVGQTuVqbeYzN5rh2T2yiXW8PnWkcDyYbpa6u+YUz4Sv2evjQng6KX
+	 bN6Hrtjq0T9oW7+xmUJGIGdzFi76B3igEoK1OXvyR5AExwwXc8BwIp9WbsAHyxF1q41ab
+	 CSPPCkBRxj16lVyA4C+EcfCPoAIEXJVJHefrE/J4WpcCZ2s7lTUEICfEPmpvvzw5mUmxb
+	 fHZEd+c4b3e48OAfolRbDZVVKXfI/xNLcqM6+ntuaONF8/LSZwqlms07bumH7biHA/7Ow
+	 F6QrzLG4qd/aE/DSUB8pWC8aPI6pCW2yXclkdfjw/hFsPnhe1LGzPLp3KWdpdcKhM5g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795744704;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795744785;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=obbyL0zw6mklk/YkTTdAAz/LHAlhh9d3bNFL7FQ9SkE=;
-	b=X2pED/Tngj+7QSwQO4kB5ucuyTZgPaf4zvfQ28S2iTteMXSZiZZZzkXYZIjkMCtEoHiv
-	 r4dX2aDzZtaefc3Vd+nUm4qGFtyyU+JQYBXpGCx9VjIh1WTlRwGXATOQVKNH0MXb4dMbP
-	 pI6mSELZUMbaOgi4JYjSjBQeXFmiVyt9l/galgIZGTZI77gdK5gsfppR5lfJLHZd92tra
-	 m/SrvRRJ6/Lh2tMPEZugk3afLFtM9siQAPf5e8fvWk/v1p1ko9XCZtduofzOhZomYTEXz
-	 pdbHclkkMtiwHd9Z2x/z1upLuXaAVeLS9oTVO9lRkqny3KDHX/WgL4Vfn8r1YLu69FQ==
+	bh=KvH0hopfpv+dCdNRhn5bg21YimqLr87Kiz9kswyfh3c=;
+	b=MaF7mzi7ieGMYWCnyu03ht1GoNrEONzQkpHYjJUx6NZbX/rP5TmOYiiAFy9qm63S04n5
+	 v0OGljln8ph38ezDUlQf15NT/FMl7IxeIDxZDm6E4oRkiNbLjadnlEgdeSewRpcndOJpe
+	 pDmrGSYkQMcl2QFK3Ejqa0myVMKDb2uKjvSApjQ5lUcq2hoG/ABt2j10Ofz6oNWhVlJAP
+	 y+T2BDTt7zaEDDJZtamOaFrA7XQjipY03Llk8CZmwXLI/MVtMyOF8Q0ucaTdpIWILdYQ2
+	 j+/VxGIlRraeGNe7OVfJgftSG3fyGURUqzos4SZvHeZyDO+CC9FcCvUbAE/OszwhL/A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=g7GF19eI;
-	arc=none smtp.remote-ip=95.215.58.243
-Received: from mta1.migadu.com (out-243.mta1.migadu.com [95.215.58.243])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rIcLA6Y5;
+	arc=none smtp.remote-ip=209.85.210.171
+Received: from mail-pf1-f171.google.com (mail-pf1-f171.google.com [209.85.210.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F3A6606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:58:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F3A6606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0391F606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:59:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0391F606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=g7GF19eI
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=QjfUiP89GkKSdXn8+nDhgldc3LmrFASytM3T5E1sg0U=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795744701; v=1; x=1796349501;
- b=g7GF19eI/ckIh11/s1z3KQFk2JTVwf0ZgXKG9jTuh+XAcADTrqjwMC+YywkoTw2qw+ZU3tgd
- S9b99OVli5eMX62flPHpknLvCELLLjFsO7OGwsQ/DkkXlLyHwmzMM0RAFsnm0zvulHncOXlXlgL
- MzEJJT1c8/71zYu1GSz04yB8=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 48d9a373175d1383;
-	Fri, 27 Nov 2026 01:58:21 +0000
-X-Mizu-Trace-ID: 48d9a373175d1383
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <95498d18-5267-4153-bc06-7b918f9f469c@linux.dev>
-Date: Fri, 27 Nov 2026 09:58:16 +0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rIcLA6Y5
+Received: by mail-pf1-f171.google.com with SMTP id d2e1a72fcca58-8a06e79e152so3679156b3a.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:59:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795744784; x=1796349584; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=KvH0hopfpv+dCdNRhn5bg21YimqLr87Kiz9kswyfh3c=;
+        b=rIcLA6Y5C8JEI2kSPAjOE5IL14hAZfbNi7ckBZnp5flUvv9pDH0u48eal8TTFngLf+
+         q0vd0EZBh8Hod+Ugu/CJZRuwfSN7XkFZ9Yv9g8wsDPr1Y+1Y6tosU3ccxfXHoPVQ2oVu
+         Ch5s16eo5Vhcgq6KqzyDXkDWglRGaJMuuzSGLjK3ARHCD1pA0E66EodtM50zESI2QHxR
+         Sq0Z6P+XBdPjrWo5yHGAGyU1zkHsNJe6v+hrHwh9lRhAc+0vOVFHr4Q9xDcDYsZR3Sci
+         Zmn0SasPRZGtmNosGbNLQWPHvQ8sYBjUH6KH25Mh+Ew95QI/bYOyb73YUBHUyflIWtcX
+         cVxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795744784; x=1796349584;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=KvH0hopfpv+dCdNRhn5bg21YimqLr87Kiz9kswyfh3c=;
+        b=RFHo/NI2uzPOGLyqFEED4I460XlEwieyrOLwLwkRC6uYtcZk9RnEH16+RfPl3MF35J
+         gmIZB/z4zvsxixpJ+9Oaj7FNMuKM4ZGX82M7hB9ss3w4MzOhz5S9F0rHxoRMbdlnL+ib
+         RRBajqtuTWz3c194YKkAzGRYEp4eBOWs3ZHm9tPUamRB4okxJCVgy86cCuMmaWOaTe/x
+         qnG6vIDFpUIwejZsktko5VZjbDHhoxh61L305rovhoP/a1g04VExzPFAEcVom7/6RDdM
+         hBu27p+qr85J3KobL2zVuQTwyLGcwBBbs2rwoL36mx2z7ATZZgTbEJRerBplQgsBT5yi
+         uMJA==
+X-Forwarded-Encrypted: i=1; AL+hErHpinlQbvwuQLCY39wYmCi1xY6uhFJanO6PDZT+wwKscwyJx2KQZ9JDindhm4VxbX59gjNyLrilBGi4iek=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Ly3zDi91VXemz5M9PBNCGObHakTE9uA2voMrbRpCu37zbg4K0
+	B7myat2fNQzVdCoPh1yahIisAxgperP6QnGM0ZOkJZ72oFP+O55/LdCZ
+X-Gm-Gg: AZFdTZcYCMYuh4O1Q4QqAg6CuO+dNKPfektQ81ZHN22zaxgfjDhANwSp/EgJ0PoduCn
+	phSl9BxOCdhqYNy0FLlTYTWJCG+pb1oycXrZ2AzLhIjOAMWShUdp9XtaS6jmW9qZgFNdSpAG2oH
+	8G24g9rvNl/m0KKmtfSQqgW0FBp5zgzWKN1DG0pPYBqtnJr2YTbMG0vB35zSJQYW+nWttBP+2he
+	nTDXxqSeNchtvi6ENRUw4cID0geSvbJegw56/TH4KhGghMRw0eSWzaUPYjbj/+U2wJRAd1ueAAG
+	Dukw0bL1iWkCCZ53mrEVhH/Uu75emPydwFRLOdjIFH51eWe7FH0uBgaoZCjga5xwVP8Aqdw/kc7
+	PYzmzizACl86HOXyzCx0CJx/ADMz6M67d0EIdfmDmXTl0uNYaluxQObzGlByzAB7ZK5I7PbKf4M
+	vhukGAA5FUonIPXtLtYPqyTshaBbaN9UqUj+w54Den4YeJGyaYcr849V/fXuBblJ/888b/Z3dL2
+	dvcOfRYdDSx7gElj0YB8+taDCI8pvUQv+GJCJu8i97KvSc9mRGsGGdWxxTPz/9FS9Jp4uGTD4Tw
+	uswaK/BQXfsSYlivTqUnxLYz0cD+20bH238caYizZGwx4D6Xr5+XKc63J3mN+P5Z3Qxc1+gVdx4
+	LksyasEiGfqvkwJAT3Yo34jURwotB+14=
+X-Received: by 2002:a17:90b:2585:b0:3ac:a11a:7c7f with SMTP id 98e67ed59e1d1-3b41c9cd182mr20276785a91.23.1795744784296;
+        Thu, 26 Nov 2026 17:59:44 -0800 (PST)
+Received: from [192.168.29.169] ([49.43.113.97])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41aab4729sm35008632a91.0.2026.11.26.17.59.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 17:59:43 -0800 (PST)
+Message-ID: <07f2e58e-d576-49c3-a3ff-91e499d412e5@gmail.com>
+Date: Fri, 27 Nov 2026 01:59:38 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,55 +94,83 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2] tcp: fix division by zero in tcp_cong_avoid_ai()
-To: mdshahid03@gmail.com, netdev@vger.kernel.org
-Cc: edumazet@kernel.org, ncardwell@google.com, kuniyu@google.com,
- davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org, willemb@google.com
-References: <20261126164150.8838-1-mdshahid03@gmail.com>
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-In-Reply-To: <20261126164150.8838-1-mdshahid03@gmail.com>
+Subject: Re: [PATCH] kconfig: warn about malformed KCONFIG_SEED values
+To: Julian Braha <julianbraha@gmail.com>,
+ Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>
+Cc: "Yann E . MORIN" <yann.morin.1998@free.fr>, linux-kbuild@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261118071557.791279-1-singhpriyanshu9838@gmail.com>
+ <4335df02-3864-4635-8429-a2946bd76a00@gmail.com>
+Content-Language: en-US
+From: Priyanshu Singh <singhpriyanshu9838@gmail.com>
+In-Reply-To: <4335df02-3864-4635-8429-a2946bd76a00@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
+Hi Julian,
 
+Thanks for the review!
 
-On 11/27/26 12:41 AM, mdshahid03@gmail.com wrote:
-> From: Mohammad Shahid <mdshahid03@gmail.com>
+On 11/25/26 23:30, Julian Braha wrote:
+> > Switch to strtoull(..., 0) and consume trailing whitespace so
+> > whitespace-padded seeds are not discarded. Reject 0b/0B prefixes
+> > explicitly so C11 and C23 builds behave identically.
 >
-> The tcp_cong_avoid_ai() function divides tp->snd_cwnd_cnt by
-> the argument w without checking whether w is zero.
+> C23 builds aren't supported yet.
 >
-> Since w is an unsigned value, the condition tp->snd_cwnd_cnt
->> = w does not prevent division by zero when w is zero.
-> The function is also exposed as BPF kfunc through the bpf-tcp-cc
-> allowlist. The BPF verifier does not enforce a nonzero value for
-> this argument.
+> > Emit a warning whenever KCONFIG_SEED deviates from a canonical unsigned
+> > 32-bit integer, and exit(1) if KCONFIG_WERROR is set. Otherwise, retain
 >
-> Return early when w is zero to prevent division by zero.
+> Yes, it would be good to improve the input validation for KCONFIG_SEED,
+> especially to reject negative values.
 >
-> Fixes: e78aea8b2170 ("bpf: tcp: Put some tcp cong functions in allowlist for bpf-tcp-cc")
-> Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
+> In a v2, could you make this part more explicit (add it to your bullet
+> list of changes above?)
 
-Reviewed-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+Sure, I will add negative values to the bullet list in v2.
 
+One quick clarification on negative values before I send v2:
+Documentation/kbuild/kconfig.rst currently only states "You can set this
+to the integer value used to seed the RNG" and does not explicitly
+forbid negative integers. When KCONFIG_WERROR is unset, is emitting the
+malformed-format warning while preserving modulo 2^32 truncation (and
+exiting 1 under KCONFIG_WERROR) acceptable for backward compatibility,
+or would you prefer negative values to fall back to the clock seed even
+without KCONFIG_WERROR (along with updating kconfig.rst)?
 
-> ---
->  net/ipv4/tcp_cong.c | 3 +++
->  1 file changed, 3 insertions(+)
+> > Fixes: 0d8024c6ebad ("kconfig: allow specifying the seed for randconfig")
 >
-> diff --git a/net/ipv4/tcp_cong.c b/net/ipv4/tcp_cong.c
-> index 8e83ef81fc18..f70f49b4b1e7 100644
-> --- a/net/ipv4/tcp_cong.c
-> +++ b/net/ipv4/tcp_cong.c
-> @@ -469,6 +469,9 @@ EXPORT_SYMBOL_GPL(tcp_slow_start);
->   */
->  __bpf_kfunc void tcp_cong_avoid_ai(struct tcp_sock *tp, u32 w, u32 acked)
->  {
-> +	if (unlikely(!w))
-> +		return;
-> +
->  	/* If credits accumulated at a higher w, apply them gently now. */
->  	if (tp->snd_cwnd_cnt >= w) {
->  		tp->snd_cwnd_cnt = 0;
+> Improvements in input validation are good, but 'Fixes' is for bugs.
 
+Agreed that input validation improvements shouldn't carry a Fixes tag.
+However, on 32-bit hosts signed strtol() clamps seeds in
+[0x80000000, 0xFFFFFFFF] to LONG_MAX (0x7FFFFFFF), so half of the seeds
+printed by randconfig itself cannot be replayed on 32-bit hosts.
+
+should i split v2 into a 2-patch series?
+- Patch 1 (with Fixes:): switch strtol() to strtoull() to fix 32-bit
+  replay of [0x80000000, 0xFFFFFFFF] seeds.
+- Patch 2 (without Fixes:): add malformed input warnings (negative values,
+  whitespace, >UINT_MAX, garbage), KCONFIG_WERROR handling, trimmed
+  regression tests, and any Documentation/kbuild/kconfig.rst update.
+
+> In a v2, you can remove the changes for binary 0b/0B handling.
+
+Makes sense, I will drop the 0b/0B handling in conf.c along with the
+corresponding test cases and C23 mentions in v2.
+
+> > +				seed = (unsigned int)val;
+>
+> This cast is unnecessary, you can just do 'seed = val;'
+
+Will remove in v2.
+
+> This is *a lot* of test code for input validation of just 1 var. Could
+> this be simplified at all?
+>
+> Is every test here absolutely necessary?
+
+Definitely not, I will cut it by half or more in v2.
+
+Thanks,
+Priyanshu
