@@ -1,85 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795777584;
-	b=qahqrdyYV9Ul/jrQbFTep/eN4Yx8anegP6GcEFZcTYJoBLNSGSeTQ25ddukF6UED156f
-	 5dhRVFBdx4I0FCNNAl6mNQJei+yiP/WlD/pa5xQXmI/Cw+EZyDZoFtdSLt/ziTJA0MSO2
-	 JbdP20LBq0WCmiARWqxbkDU7+Ku2YqLKQt+bdvJnAcxtfDJ8ka8G//VfWCwiph+WqeOPd
-	 sNZJjE2Dstw0ILIAOEMvJKN/1t1qG9HSPhf9S9q8ZfBdjbTx1eYTnAnagXS/tEiKt5HKg
-	 UeqQVKRP7kcEZBvYJkx9cNnH55DM0SGJg7xRdHGIGaAYPumlF/6zGcjcDGr7GWnmqpg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795777584;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 Organization;
-	bh=Dui+vEEV/G41k6/mg1mi5KVhdsPiSj4G83/EQMbYYmw=;
-	b=OvtB2soxBKsg3qSWVjove+I9zYQ5i7RaAtouOOVYGMMGYW1NILEMbYSbUnqrbPqgscrW
-	 rXCFfHcNobZ/AKeBgAsiNSWopr51E6yhM+VB1oICxgVGF9W3suZDBE7ZRZScGXAk0EIlU
-	 VXCg6nIclia2dtAE3Z3wJ0J/I8jXfBSP5uuGruG/Ze67au8HTtK3SjOhnZ9fzdAXWjoAA
-	 ++Sr90l0dz50FJEHmFMNlFqeDT0hb3/FyUTIzcTz9Nt+H7U9a3Skq8O/I9ZVdoBylHH1f
-	 as31QUmp+19HA4JtgyyTMnJwgG99oUomT9pJGsTAkC2ouoxx4+5OiAJ+K64GBc2yC5g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="m/MusV3H";
-	arc=none smtp.remote-ip=198.175.65.20
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.127.119
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795777589;
+	b=qqTyzw6ZUs2M5pUm+a0iVH/gAeHAj5t8ruXNAtV6iQJ5nLykSKMhp7QX4h5pC+C0kZeF
+	 yPwHSdKFKhs7FYEx2oQRheQiyiXhcxETRLYyI4T2HQhhaEwcbgvDELDeLCpAQzruY9PC+
+	 QTWkwcionk3sezBKzKVR348+54gkewkPFjq+XHslZwvP0IRSp6A5ERkrZQfsKxrYBGUmX
+	 SnyC7iJLuvFoKFmjPIOJdUVWsWhy31ElN3C8nVmbGMZzYnEyU+Bnac9OrQdLpv1jkZmWq
+	 emunMelGyfNoITwmtm9eSvSJiDIHieMaowBdP384TJSr0zLKMPjhjNr7zA+UrQEtIdw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795777589;
+	h=DMARC-Filter:Received:Received:X-MS-Exchange-Authentication-Results:
+	 Received-SPF:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=eXxs9F16RtEuu0k6jHE3yLvGrvYM8FFLkPv2vMXkRAw=;
+	b=YiSJ0LZKUSyQYgqJkn/oDwMCKZQuPHw9fq3tOx+5r72RANanAbN1JzPbvIXedJV7sbRz
+	 fgP7RDXDi1w25uaGiXW7MolvaTWY/6y7o126UFxPsYVi/QMzsTmld7jbGBGrmV8CPayRT
+	 8P7uyrKVb4AGIzouB62DidSRFQ6Xe14e2GukhOC4R1+VVFazeE7iV/snksYaY4yRl0+iv
+	 z2oLAmXbG/hbMuBuXX8xHSviCtP9YamcJ0kjr4tNzKZ5E5foznX8c/xDTq9yBXPGU1bBU
+	 jk8QtyYmVq4oGb/O4mx5bhWsV4sGU1KA9EMzsnRKcIz6okI1L0ZYsKpQOOH5EZIMYCA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=cixtech.com;
+	spf=pass smtp.mailfrom=cixtech.com;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.127.119
+Received: from TYDPR03CU002.outbound.protection.outlook.com (mail-japaneastazon11023119.outbound.protection.outlook.com [52.101.127.119])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE3E7606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:06:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE3E7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=m/MusV3H
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795777584; x=1827313584;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=+FWnBspwhXj+rxtsZj26r/KKxe2xn7l/3OKbJUy0rQI=;
-  b=m/MusV3HPOL9Wpy8/jccqKc/RzvKC4f7R5t23qAUoY+UlrEmFmF5XhsF
-   tcL8UTzNkXLpNQNdfuZLsBtS1sSOyYbRpvJl4pPKFsgdE3o/9vmuknpVV
-   hyE9kxr1YL0CAwR5Lb3FTVal9O6mcYFSiYmY47zZIw2OgAvhKCZJ7E2nr
-   0PUBnPWzJ5e2ANh8INAWawMXpU98vqFpHEuyMKY5YlEnPkyy5ZZph/fcs
-   +hjoGMf2vfjSinlgrcsKsGYY+ZaPzE/IhRhmdc+Mpt3jwJvFvITMSW0Of
-   oP6V3EuEX4VR7LgTUsGG9UWx9qEOY4wz2Z2XtyQx1bEq0/H5GRIPNzIed
-   g==;
-X-CSE-ConnectionGUID: nmSZWAs3QCuHmxJhn5FVxw==
-X-CSE-MsgGUID: IjSFb4C4R7yInfROq6hshQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4738267"
-X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
-   d="scan'208";a="4738267"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 03:06:23 -0800
-X-CSE-ConnectionGUID: tnL6Brd3Qvip37xsLlXyCA==
-X-CSE-MsgGUID: S50pukh3Q4KT0j1VUM82Nw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
-   d="scan'208";a="12629370"
-Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.115])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 03:06:19 -0800
-Date: Fri, 27 Nov 2026 13:06:17 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
-Cc: Andy Shevchenko <andy@kernel.org>,
-	Robin van der Gracht <robin@protonic.nl>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Takashi Sakamoto <o-takashi@sakamocchi.jp>,
-	Randy Dunlap <rdunlap@infradead.org>, Wang Jun <1742789905@qq.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Kees Cook <kees+treewide@kernel.org>,
-	Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] auxdisplay: Use designated initializers for arrays of
- i2c_device_data
-Message-ID: <awlkKRdcMGSTTeQb@ashevche-desk.local>
-References: <45e66776a1cb0fa54d1606b856887abe7e826ae6.1795776138.git.u.kleine-koenig@baylibre.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BA50606A31C;
+	Fri, 27 Nov 2026 11:06:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BA50606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=cixtech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cixtech.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lU24OW37P8oigIqEU6IQank9dJ34Y+QLys6FoI+rv2slC5IXBlP3xxVb5z/fRdGERBp8bWEk+Kz54WZti2RR/iGDUFcXhnfFk9YrYPitkt89+BWCrquUp1rqMN3fu5hhyC+LyFNfd2P+ATZJKsgCQqQpXJ2TrPw2n8IetqjCQh5rN0437zsn4qJrdnfN3nIHw+zIA8mi3X3YrwvbasNrkpQOubGH88pETN8YpdrTu+d1cpjDYmLcANlSdDLuQqbV/zptJlU/fAKp+dRX0kw20q3WSSLRnaHBp7Gr2M8NIYgMqyGXSucwSAUZM73ciDnHodg1TxYc8IPtDIxT3miIrg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eXxs9F16RtEuu0k6jHE3yLvGrvYM8FFLkPv2vMXkRAw=;
+ b=T/r5q1CyEDB26CIBjlLXvalQjVVgBjTKjrMgfzYOITkYf4bln5E3WQA5vJQYI9o7tUlVefIXoVcjt/wHbqsTnjRUN+NV/ckByRcbdy38CiieQ0FSQFPqO6rNCA5EGZ/D1OBXe20r2jiX5cFTpfloO2Sy2tWWlT6X5Eo58hMY3mA9b7kdn5cdV68u5fMJnCFmpkbi4lAQy1xCTisy2Z9i7o0tfYdcTny1e5PpszVEhYOtG/rOuMp+lPaPw9hfd/3nRHyUoSnVmc7iwuXXdOTAbMyEpxv7iiFm8y5TAKhUmy2ClmWUNUFbZrU1piT9Y4zPGRvny+qO+Cozjppv6XNB1Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SI2PR01CA0037.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:193::9) by SEZPR06MB5716.apcprd06.prod.outlook.com
+ (2603:1096:101:ae::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.688.4; Fri, 27 Nov
+ 2026 11:06:23 +0000
+Received: from SG2PEPF000B66CC.apcprd03.prod.outlook.com
+ (2603:1096:4:193:cafe::2c) by SI2PR01CA0037.outlook.office365.com
+ (2603:1096:4:193::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.9 via Frontend Transport; Fri, 27
+ Nov 2026 11:06:23 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG2PEPF000B66CC.mail.protection.outlook.com (10.167.240.25) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.688.5 via Frontend Transport; Fri, 27 Nov 2026 11:06:22 +0000
+Received: from gary-System-Product-Name (unknown [172.16.66.27])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 006D2427EFCE;
+	Fri, 27 Nov 2026 19:06:21 +0800 (CST)
+Date: Fri, 27 Nov 2026 19:06:20 +0800
+From: Gary Yang <gary.yang@cixtech.com>
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fugang Duan <fugang.duan@cixtech.com>,
+	Luo Liu <Luo.Liu@cixtech.com>,
+	CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] phy: cix: add Sky1 USB/DP combo PHY support
+Message-ID: <awlkLCRQaKtD_pIV@gary-System-Product-Name>
+References: <20261102082112.2306326-1-gary.yang@cixtech.com>
+ <20261117083434.3414417-1-gary.yang@cixtech.com>
+ <179577695532.3421.8058975724074009117.b4-reply@b4>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,30 +105,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <45e66776a1cb0fa54d1606b856887abe7e826ae6.1795776138.git.u.kleine-koenig@baylibre.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <179577695532.3421.8058975724074009117.b4-reply@b4>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CC:EE_|SEZPR06MB5716:EE_
+X-MS-Office365-Filtering-Correlation-Id: f0ce93b2-72d3-4bf8-e50f-08df4c7678db
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|82310400026|1800799024|376014|7416014|36860700016|23010399003|22082099003|18002099003|56012099006|4143699003|261026121527099003|261026140227099003|261022075727099003|261022105027099003|261028144727099003|261009223027099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	GuOuqcA/rKPkZ3VoLcd1RqxHg0s7qI9MQEO+phZIKo4qXMtjjatom7hmSEHxH9aqSt7srjZFZXMNHqbvWeKVHo8gLpBw0p4kCEMUNX8kx/dYKXuF7oJPaaSghzWyCiPCXMbCk7/rc5Bad2jcxnhlg/tG5V52s+/6yE/K8k0r8HeVQUfQaZvyxTAAYjLCcQlQd8kSJSjY9Rml5F99b1RR3jlDIvZU6dls7OgwE69RKvVrPGA+/mjb+aIcw3xSIOjEff89seFilkARHgw37memuerVFG7ex1GNrceoBRQQ9TVr6qaJg2XD1ejTojK/MROpQoNZx8eCfzb+0GgilwIiYN50QLTwpV9YRhdWNohp95jQVg6I5O5+GI9AgYWSG/KPJw0Nhv0VEaWlJufxe1gIaS06H4BF+Gt6REqhOaddJDZe7XQnNUCz1I6sfdQxRCNGlBw1EvEVbpY3UK3WcmTpaLEosRtQQMSyPPfvqp3KMZGU29oX9QceToZhZri7HRcgpz8qwZh5BUfP5DAzVksFJSNQomzqSlP/EQynGnVY+kqLEYU/nvinU0/HDEEIlY4QDIIJo2IM5JxmQb00UpXvPVmMQ1xbmA38QSOqWn0lAldIYEijfhVuM08Yx9EnfsX0O9cZWjzKYhxSkuO4Etfxqv0rXuQVY5aOQcfc75MQpz4=
+X-Forefront-Antispam-Report:
+	CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(7416014)(36860700016)(23010399003)(22082099003)(18002099003)(56012099006)(4143699003)(261026121527099003)(261026140227099003)(261022075727099003)(261022105027099003)(261028144727099003)(261009223027099003)(10067099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	eAJYl6OQUTuhTsrtRuEYH3QeR/gx3LqIxCx8qgIWnffLks8AmW+fiUI2d/YqlYmT8Leqg+FwYcxGMyKDrtMtUsMZXgOJ+NW9/DwhbAOz1fxxItbQkTbDclxHOKtzhrjzpG5G7eWtGKDNTDzWPssY64KrO4fR92CWeLb27jLn6B1A0op2xmRl+ZCUEz1CS/JRf/FeF/uORbojDYU42+Pb+QKI+5xLd9K8QVbw54/+mZkoRhsPjlkeEbjqempzKVExRpWqHpSjFqf0cwQdDU6mNhAoJd+rSKM6y7I6MSZgQp4goICm52HsDjr4HtT0826Fv7fLYBXkcMf6BawLS4msZ0HFr1qBd2zzutmK+uLgnWqH0mYSHUi87JQ2GO4AjEFYWFD0I0uKs4E/h7YQRRoU7TKM+Vzn/AMXYHaMPoLN12YsiEriSVyyC+FiW8zRstn0
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 11:06:22.5732
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f0ce93b2-72d3-4bf8-e50f-08df4c7678db
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	SG2PEPF000B66CC.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB5716
 
-On Fri, Nov 27, 2026 at 11:45:51AM +0100, Uwe Kleine-König wrote:
-> While being less compact, using designated initializers allows to more
-> easily see which members of the structs are assigned which value without
-> having to lookup the declaration of the struct. And it's also more
-> robust against changes to the struct definition.
+On 2026-11-27 16:25, Manivannan Sadhasivam wrote:
+
+> [Some people who received this message don't often get email from mani@kernel.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
 > 
-> The mentioned robustness is relevant for a planned change to struct
-> i2c_device_id that replaces .driver_data by an anonymous union.
+> EXTERNAL EMAIL
 > 
-> This patch doesn't modify the compiled arrays, only their representation
-> in source form benefits. The former was confirmed with x86 and arm64
-> builds.
+> On 2026-11-17 16:34 +0800, Gary Yang wrote:
+> > This series adds support for the USB/DP combo PHY of the CIX Sky1 SoC.
+> > Each PHY instance drives one SuperSpeedPlus USB lane and up to four
+> > DisplayPort lanes of a USB Type-C port. The USB and the DP controller get
+> > their own PHY through the PHY_TYPE_USB3 and PHY_TYPE_DP cells. Plug
+> > orientation and the USB/DP mode decision are taken by the Type-C connector
+> > driver; the PHY consumes them through the Type-C switch and mux API.
+> >
+> > The USB and the DisplayPort controllers and the Type-C connector are not
+> > yet described in the CIX device trees. The graph links and the consumers
+> > will be added together with them.
+> >
+> > Patch 1 adds the binding and patch 2 the driver. The SoC and board nodes
+> > are sent separately as a follow-up, since they go through the SoC tree.
+> >
+> > Patch 2 builds on Luo Liu's "Add Sky1 DisplayPort PHY support" series:
+> >
+> > https://lore.kernel.org/linux-phy/20261102030425.1957585-1-Luo.Liu@cixtech.com
+> >
+> > That series creates drivers/phy/cix/ together with the PHY_CIX_DP Kconfig
+> > symbol and the CIX SKY1 DISPLAYPORT PHY DRIVER MAINTAINERS entry. This
+> > series adds the PHY_CIX_USBDP symbol and the new binding, and renames the
+> > entry to CIX SKY1 PHY DRIVERS. It should be applied on top of Luo's series
+> > to avoid conflicts in drivers/phy/cix/{Kconfig,Makefile} and MAINTAINERS.
+> >
+> 
+> Please do not send new versions as a reply to the previous version. It makes it
+> harder to spot new revisions.
+> 
 
-I'm fine with this. Geert, do you have a chance to look at and give a tag?
+Sorry, I made a stupid  mistake. As soon as I realized it, 
+I sent out a RESEND patchset immediately â€” would you mind reviewing it?
+https://lore.kernel.org/all/20261118015140.3559331-1-gary.yang@cixtech.com/
 
--- 
-With Best Regards,
-Andy Shevchenko
+Best Regards
+Gary
 
-
+> - Mani
+> 
+> 
