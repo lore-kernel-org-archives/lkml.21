@@ -1,67 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.33.253.128
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795770148;
-	b=y3xu+TLsmmUXQK6PCx+i8lkjdlLNOHS3JdCIYhsKnQS1sSMEGr3M8Iquc+13tHcU9WFj
-	 E+c6wW4ttqnUnLzxQ2lAV/4m71wThbuG7Y3Tu2mw99BT7m6FjjUj6xyLl4yy6UQ+QklA2
-	 epVQ1MKH/QKkoQ/6Ikp8KMkx8w200CG12xCFHDkQWY0EWFIssQQpQ5/ID+5wXflqE526Q
-	 TVKyzJg8Stzi/stWQwshYs6v38fC4AD2TNxrPbJUYPUV+pzzanNhlSi0B90kzDU8dI/E+
-	 vDSkTtj7AAD32GqI7wtAzn9rlK/qEpEVra/swDKsP47kanEnzbsj1D0/DiXY7kk76FA==
+	t=1795770155;
+	b=4w1fNaKW9Msz9laYBMjC1vbPuhpftsqpgb0MjWTbQKVnW+twJjOW1ii65eFmmpxToyUb
+	 NHtlw1iMDtnh5Z/f2nvpTBwflJyYfYF/VuJ/jtc3SRQnPq50pUcGJRC7rW3/aW+hRmYFk
+	 4suWkc16NEILgeWAJyL4RHoGp9M9y1nuSiS+muXR+/qDzie9Nrp4TFPRhDgl9wKukrxE5
+	 PvaBDvqA+U3hqlWz7T9nLP1A8DWuLtTfeJkR/v0MHndtp1xqGiZEIr4KrkBzAhnZh6pdA
+	 R5obr3BEWVBcTK1DofHwilz56eXoasUz+//G8E905+t48TXcsC+bnOmSUbDqJIMzH7Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795770148;
-	h=DMARC-Filter:Received:Received:Received:X-OVh-ClientIp:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:x-ovh-tracer-id:X-VR-SPAMSTATE:
-	 X-VR-SPAMSCORE:X-VR-SPAMCAUSE:DKIM-Signature;
-	bh=7CLOBYbNi1X6W8t+viisTSOz4Vl/AACkz0yRw2Y7JRU=;
-	b=ofGfT0Hcai6m94PbbQ0ZySy5Y84xNsvfiZPO2OGEo+Q4UnbAARYlUoqrDWsoxPnbae7P
-	 9wzrsSkFg3UCrSU8ZjxlXOvPA3qvs4CnM5ZlgPs3BTEuYvKKC9+KjvQVvAPaF+e/3uxbt
-	 ILboLVWQBxARlDWxUoYLvBIrLjXMevkjGEh4pEbuXqmv/cAKSb9vw6Q0AYZyzBYtkYZTQ
-	 pd2g0OqEcY5SX5BVF+p99K/iuDTvIykg5ML0XUUtpaBAMEtmdrNjwrSIlrE/C3j6qTwk7
-	 LtfDwpFz3LH5OZyEvKTrLz9I/toaYEx0pZNCi9mHvUh3wGhdEXzCHLSuVxgMRNN67WQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795770155;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=12rBhZxLBZO1KzBgdN9MP8LgMGvvEaRD2RODE4fY23g=;
+	b=hIk3y9fp6iqa08VTdR1Lj9FsE63vUvRhWvwMAiH7VoN4urUZ8u7VGtiOwHCuc5CNOAkc
+	 fo7ABTqLNxjXtu2jZvWlf/J2mNQ4a1TnTDVGcp6UsoXnXOWqpZTVK4Ay/jt8M6JKKLEBe
+	 YckSB51bx9VqQOwlDqA5+m+Pd8DYZu3L+vs29hxJIszoUeTsx13/3x55UQSGi25t8dgl1
+	 xzytNggggK6uLsOD0IvQ4HOqHpGWViSJ58nWe56JLNRlUpBauabV3hsdrpCvzDIYfyGV9
+	 nQynGyCyUYN+94aTfrJOfYzlSURE10FN24xTGiINhl3/Nc91z/40wh3ofChfe4Y2f+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=3mdeb.com;
-	spf=pass smtp.mailfrom=3mdeb.com;
-	dkim=pass header.d=3mdeb.com header.i=@3mdeb.com header.a=rsa-sha256 header.s=ovhmo3617313-selector1 header.b=mNMbRpsj;
-	arc=none smtp.remote-ip=178.33.253.128
-Received: from 13.mo550.mail-out.ovh.net (13.mo550.mail-out.ovh.net [178.33.253.128])
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=tfZQoa8g;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84C21606A323
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:02:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84C21606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=3mdeb.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=3mdeb.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DF46606A31E;
+	Fri, 27 Nov 2026 09:02:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=3mdeb.com header.i=@3mdeb.com header.a=rsa-sha256 header.s=ovhmo3617313-selector1 header.b=mNMbRpsj
-Received: from director9.ghost.mail-out.ovh.net (unknown [10.110.58.156])
-	by mo550.mail-out.ovh.net (Postfix) with ESMTP id 4jbS982QBrz62hV
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:02:20 +0000 (UTC)
-Received: from ghost-submission-7ccd8bbbb6-qgh79 (unknown [10.109.249.183])
-	by director9.ghost.mail-out.ovh.net (Postfix) with ESMTPS id B17C181D82;
-	Fri, 27 Nov 2026 09:02:19 +0000 (UTC)
-Received: from 3mdeb.com ([37.59.142.114])
-	by ghost-submission-7ccd8bbbb6-qgh79 with ESMTPSA
-	id wBV3JBtHCWvG7hQA11hrdg
-	(envelope-from <filip.golas@3mdeb.com>); Fri, 27 Nov 2026 09:02:19 +0000
-Authentication-Results:garm.ovh; auth=pass (GARM-114S0086ebe963c-11e6-4064-90d7-40b8bccae90e,
-                    2D78F170DE5B25267C595F1CD7CE4558A7ADEF44) smtp.auth=filip.golas@3mdeb.com
-X-OVh-ClientIp:213.192.77.249
-From: =?UTF-8?q?Filip=20Go=C5=82a=C5=9B?= <filip.golas@3mdeb.com>
-To: michal.kopec@3mdeb.com
-Cc: filip.golas@3mdeb.com,
-	hansg@kernel.org,
-	ilpo.jarvinen@linux.intel.com,
-	linux-hwmon@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux@roeck-us.net,
-	platform-driver-x86@vger.kernel.org
-Subject: Re: [PATCH v2 3/3] platform/x86: dasharo-acpi: Add EC fan curve support
-Date: Fri, 27 Nov 2026 10:02:17 +0100
-Message-ID: <20261127090219.3366764-1-filip.golas@3mdeb.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261126165506.2793034-1-michal.kopec@3mdeb.com>
-References: <20261126165506.2793034-1-michal.kopec@3mdeb.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=tfZQoa8g
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FCC41F00929;
+	Fri, 27 Nov 2026 09:02:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795770154;
+	bh=12rBhZxLBZO1KzBgdN9MP8LgMGvvEaRD2RODE4fY23g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=tfZQoa8gUqBK3DXvc1ofF4GRvPOH3/0sd7edB/vdMfwYAvkPJ7PrvA0Vs+8+II/37
+	 gc2LweREtB1EkxBNJCzoeQc6N2Wg1bF9b25b3Zw7Pfm8v7CW/jLRQbUMEvXGaWm45f
+	 wTgWB2bPha+SlHlsWOepdzRZsSlgH7eXS3CvYMGI=
+Date: Fri, 27 Nov 2026 10:02:29 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: sungbyeongchan <tjdqudcks0424@naver.com>,
+	"Michael S. Tsirkin" <mst@redhat.com>, Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>, stable@vger.kernel.org,
+	patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+	torvalds@linux-foundation.org, akpm@linux-foundation.org,
+	linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
+	lkft-triage@lists.linaro.org, pavel@nabladev.com,
+	jonathanh@nvidia.com, f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
+	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
+	sr@sladewatkins.com
+Subject: Re: [PATCH 6.18 000/990] 6.18.66-rc1 review
+Message-ID: <2026112702-donator-rebuff-16b2@gregkh>
+References: <20261125143822.072087159@linuxfoundation.org>
+ <20261126173920.GA180459@francesco-nb>
+ <20261126174236.GA183126@francesco-nb>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,27 +64,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-x-ovh-tracer-id: 5123970479740088070
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: 0
-X-VR-SPAMCAUSE: dmFkZTFr33H5/GZ57e8zOAjy4AbQhwCa71Igc6rICZvEgYy22LsZUcJYgngSL2TZA7w4Ee4abVHmx2CVSiPYNMyD1rmsOTDiAFMtT5hRzkjbQGdazAvQlyBCtPZdJge747x9Epl1I25W76Q0ncVJti4mrg6zoaE7wtpXDPb0Q2i1I2x+T7d14P6v9zzrDBTDIAqMM6IU9GAj5fA9M61FlNTKIaxauqoRaPenq0pb5efhKPlASLxbounT/dORk0yy0kVCOFKPxsQidMqVJHCsQlZPyrdlIkjQbPF0zzYp0Gju+mNOWSH4j0Di5Bsa9G03a1ZJAQq3SVvbh+aYgzZpXZtGaiITDRsbDgtYYbzGeKmfl+CiCBKkxo48X+9PIBiq/nYaAvsAyTH/CHxVsaYewy+nvLEkfQghPRUVHo+NgziODUk5YHSvHno4oupUbz5qkP060TzUEo78z49COaGuR9poe2i+YoSscgFRyN2iv5PcdjlwYmunzPSC+ZV2vHKBqfXnUWvAHqVWaHi3NWKfYAOrIOfKb/9Bo47qydDSywwYZWvicqMBH/oVn1a7TCmhCWOVYz18HxjiHK3kbhCYvnkfnn3IFsIWtP0qXF+LtfA5Vih52MJxMQo+1b3hN3Y3ZCB27oxJrNek4sQgAVbxjKYwys3V8+ptyEdQla9u9j4bs1zakQ
-DKIM-Signature: a=rsa-sha256; bh=7CLOBYbNi1X6W8t+viisTSOz4Vl/AACkz0yRw2Y7JRU=;
- c=relaxed/relaxed; d=3mdeb.com; h=From; s=ovhmo3617313-selector1;
- t=1795770140; v=1;
- b=mNMbRpsj9J3U8fieD55axxz3YD74v7f+H91p08Nj5uMeigZRI5pK1JDkckS3MSaj54ZMlx4j
- HqazIVs9D7KKHU35RnxNGDQuKHPDvD69I0uvj+4iouXXTnH/cT4jNin6dc4vFgx8asD7Ss8EZXl
- aPhz299onHj6Rvwm0s1D9ZqlsnO4jMRQ14kSOpG1su/7/GTNPllXz8C7PKvpzslH02kU+BRbij+
- Z4exVkETWzIB9xUvlDwCN9itRScTNjHefTbIt0xzdlWeQcF34R4R7R7mpWehK6aMB7iJNne/HdT
- 7eB5VlxfxaFoHNKbRagpVB+eeVYE9njsDn5UXTCY2c8Vg==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261126174236.GA183126@francesco-nb>
 
-Hi Michał,
+On Thu, Nov 26, 2026 at 06:42:36PM +0100, Francesco Dolcini wrote:
+> On Thu, Nov 26, 2026 at 06:39:33PM +0100, Francesco Dolcini wrote:
+> > +Nishanth, Vignesh, Michael and sungbyeongchan
+> > 
+> > Hello Greg,
+> > 
+> > On Wed, Nov 25, 2026 at 03:22:47PM +0100, Greg Kroah-Hartman wrote:
+> > > This is the start of the stable review cycle for the 6.18.66 release.
+> > > There are 990 patches in this series, all will be posted as a response
+> > > to this one.  If anyone has any issues with these being applied, please
+> > > let me know.
+> > 
+> > Failure on various TI K3 boards (AM62, AM62P and AM69), during our CI/CD tests
+> > 
+> > [  477.440292] rtc-ds1307 0-0032: write error -110
+> > [  478.374406] wm8904 1-001a: ASoC error (-110): at snd_soc_component_update_bits() on wm8904.1-001a for register: [0x00000043]
+> > [  478.464258] rtc-ds1307 0-0032: read error -110
+> > [  479.520264] rtc-ds1307 0-0032: write error -110
+> > [  480.342404] wm8904 1-001a: ASoC error (-110): at snd_soc_component_update_bits() on wm8904.1-001a for register: [0x0000005a]
+> > [  480.576282] rtc-ds1307 0-0032: read error -110
+> > [  481.600274] rtc-ds1307 0-0032: write error -110
+> > [  482.310409] wm8904 1-001a: ASoC error (-110): at snd_soc_component_update_bits() on wm8904.1-001a for register: [0x0000000e]
+> > [  482.624288] rtc-ds1307 0-0032: read error -110
+> > [  483.680291] rtc-ds1307 0-0032: write error -110
+> > [  484.278402] wm8904 1-001a: ASoC error (-110): at soc_component_read_no_lock() on wm8904.1-001a for register: [0x0000004a]
+> > [  484.320383] INFO: task kworker/1:5:66 blocked for more than 362 seconds.
+> > [  484.330368]       Not tainted 6.18.66-rc2-8.1-devel #1
+> > [  484.338741] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+> > [  484.350050] INFO: task weston-simple-e:783 blocked for more than 241 seconds.
+> > [  484.360452]       Not tainted 6.18.66-rc2-8.1-devel #1
+> > 
+> > According to claude the issue is
+> > 
+> > commit e498eb93f961 ("virtio_ring: use shadow flags when detaching split descriptors")
+> > 
+> > and those commits should be dropped
+> > 
+> >   e498eb93f961 ("virtio_ring: use shadow flags when detaching split descriptors") [22944d517ff8]
+> >   9dc6b944f16c ("virtio_ring: factor out split indirect detaching logic") [44b6e54e4a0a]
+> >   4b7bf8d55032 ("virtio_ring: code cleanup in detach_buf_split") [032159f85f3f]
+> > 
+> > I am not able to do any test now or tomorrow, unfortunately. And the
+> > above analysis is just claude. Might be correct, might be wrong.
+> 
+> 2 more cents on this, it seems that the issue is the communication with
+> the device manager. 
 
-thanks for the review. I've addressed your comments in v3
-followed by a v4 fixing some problems it introduced.
+What do you mean by this?  What "device manager" and why does virtio
+have anything to do with that?
 
-Link to v4: https://lore.kernel.org/all/20261127084910.3355833-1-filip.golas@3mdeb.com/
+confused,
 
-Thanks,
-Filip
+greg k-h
