@@ -1,106 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795773295;
-	b=czqTsOO+iy7WWJot+ZFbzNduVZit0tcKIuJVjR0RYCO0OoQTxV9cji+M6jm2Sw1rlhhp
-	 33DZceVRPqAsLpyCKGQMtWlludqeKxbrJauVAmcxacyrMYOXiwCy4HdSNfZYbat6hzA8+
-	 Lap0etCiZG+b0MIl3+N4T0u+6s15iWIKlg1+so4iVaCCp1210STUywFZsegAj1ho/NI7K
-	 ly65JYgXKKl9oXDWpdkNKejmP7TSEQgFekIFloTIl4nDHABkicwZ9GchEjZ4lAOjD2He2
-	 ZVb4/sgFJx1dsAnflWyfkirNRG0zYcQG+0AoOBjPFXH578siqonE5uEbyDBepO1bd9w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795773295;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=kkXzDaF3eaS6VJFvp7kAp6/ZENBv/khq1VHA8+CmPX4=;
-	b=Xcn1ffoW9aLIenqputV9+Fslh/zQ5QE64ASplZnkDKM86MK/vhsAzI1QSJGQtaA0r25R
-	 iKzRKdLhfNKXxtTaKqOu8kJ3vJQZnTHBIBRXi1D0XA8aUthZf5NdUlNK8egX/ICZ0/kH0
-	 exk8L8ndp40NRxG4LaalknIUK3EAQ6zpshgwgpglTGBdGqIRectbP3OUvm0jM/poXItLq
-	 xsHaZ1Yfw9FcbUBm+9Mi9h9NP/IUfIE4HACkx38GkZaP2KxP5lq8tCIGEyqREYPq2IOHy
-	 5ZHq935GOz7o7q90f+2gvuKyRaiAtCGKd4sYJIC2puadwIZvp0Wbxu3D2WC6v/OMRhg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=gUQkMdfg;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.13
-Received: from BYAPR05CU005.outbound.protection.outlook.com (mail-westusazon11010013.outbound.protection.outlook.com [52.101.85.13])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795773298;
+	b=B8HpwsJHv9MNvgGyBi6bGRq7ota4Dd2mBEA/VBSPvw+ef0fxGWNMzYvn27katkF97DLD
+	 kbhHjYnlLpf68HiaD18VLrKwq2NkCb2Q5cvzOApEYN7gegmNBWHCN+ezZrZuz6oPNnGCU
+	 Y+2rT5adSVchWm2mo1missqnEvdziHl8gmBwfsJrQC1p3/J1lFsLUJh8fg3kt5glxaiey
+	 cbMbdMxDHm8AZyoOD6oJupiyryca+TP2Jor86RGQoKrxALd2tnWmr3n+ux9Ed2SYUkpF1
+	 Hs9BoQdrKlUSs8lcb3cSSDbSJRuGU1pJAXZqXFAjrgXoKQLsoqVaaM40Qbuaigr3MBQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795773298;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=R5NRBFE6LyQ+OcOMVwBzMt4B5m7JjyvvYW8xEn2fXVY=;
+	b=T5ICDxpLx5a6URrDO3hT/gfc3kyDu1a7yFJmzLYm4qmbvT9L9SH1LW3z7z+t5RLUZ7sZ
+	 O0NOymds22eeK/qojSagMRGEQZtSFqfHDN7abxYUA2BbRxufhanpi2p2Zc56yVdwRMQWC
+	 oCMmxz+5ZmoaY+cPwpFKLb6U4IEbBppnZy3uVoPBODf24vB4OFJr6uvM9f1S+2XZcjy1X
+	 JZZHwlmGFG2xFmxgt1nj3jyIz7ZNWEhfAcY7pt7cVmt5u8c/aCQv83FPQPePpxbVgcuD/
+	 DNQGmRNeOctLqb+L8b+wsl8HdGr+v9DDPLcS7Nu5TO2kH/fQfDmJsuxuEghjfiADZ+A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=cs.unc.edu;
+	spf=pass smtp.mailfrom=cs.unc.edu;
+	dkim=pass header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b=nJpM88aV;
+	arc=none smtp.remote-ip=209.85.128.172
+Received: from mail-yw1-f172.google.com (mail-yw1-f172.google.com [209.85.128.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 410F7606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:54:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 410F7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50185606A33A
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:54:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50185606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cs.unc.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cs.unc.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=gUQkMdfg
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=p0DDpnqJRiDxp82Zm5lj9L8Rjxit38jwd0w7EEeXf/QxJ0tPvZ8PueJgBBNvk05aNJ2tRIOs77PckbEaNN5F3YZiJpWfSeecMPOOG+l9yA9K9xx+eXvnWS34gmKXtVSkRhF2MEQjEG8CwqHvLFB/mWi83/7IsO7KpTZH47Q81X+5aTiZRC30sFChgYtHm6UlA42H5MFB//TL0eGNfDStgY/ZsNUqdq/xSadQR0qGm+EVJcMyaYRSxz09eK4+TrrG72qDkwNqKuGSYBv8N1hNAm4ZPqr2xtKAiOjAMabRkIIfu4fnGyT2raLWJkEOtdhvA4eL9dhepCieDES2/pddDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kkXzDaF3eaS6VJFvp7kAp6/ZENBv/khq1VHA8+CmPX4=;
- b=u+uZXoaMUvAwI3pZzGiKvoQ9daR6H3mPLA3b4sEGccio7HUVb4oo3u5Q1uRnyEDlGH4DzphfdiLTPTv191lUaQPLKd+vWfYd0vxr/UAxpczGIcoBMG/oQOeITXL3HP99KnH5Cc0GaqQ3bwVhtdqnbN0I67KWwrqLKdiOmzF7dsFQVSnr822ENBPPJtRttJvkvsnoaIzWXRnvGiTZ3dnLp/UCHThVW2UG39n6/2PNgkjRMg5siCF+NRDWMR7lb0OWwHcC2wpnLqYbnxoQ5L7h3N8S7Sq3AhzcOvwRjiXxoGtLI4E9m0SNixk9fx/NSTjbCk/RlbnPa8OQXIJRTrQsMQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=linuxfoundation.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kkXzDaF3eaS6VJFvp7kAp6/ZENBv/khq1VHA8+CmPX4=;
- b=gUQkMdfgXP+tANvbMwBWaYyUn7rMGIfoZb5IRDm8Ob4PG1C3Lb6cdV1OnJAdsjUiKY3Xh3KfpHpwj1+IQDaq30HesGVGlpFuahNEMqPb/Lw7eW6B+SarBfML63ommG6frTXun9p1Csn35ZVjjcjrrWYlGcBn5PtmvqsQofbIYiE=
-Received: from SJ0PR05CA0003.namprd05.prod.outlook.com (2603:10b6:a03:33b::8)
- by SJ2PR12MB9140.namprd12.prod.outlook.com (2603:10b6:a03:55f::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.10; Fri, 27 Nov
- 2026 09:54:52 +0000
-Received: from CO1PEPF0001885F.namprd02.prod.outlook.com
- (2603:10b6:a03:33b:cafe::5b) by SJ0PR05CA0003.outlook.office365.com
- (2603:10b6:a03:33b::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.3 via Frontend Transport; Fri, 27
- Nov 2026 09:54:52 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- CO1PEPF0001885F.mail.protection.outlook.com (10.167.249.248) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.688.5 via Frontend Transport; Fri, 27 Nov 2026 09:54:51 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 27 Nov
- 2026 03:54:50 -0600
-Received: from xhdipdslab46.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Fri, 27 Nov 2026 03:54:43 -0600
-From: Abhijit Gangurde <abhijit.gangurde@amd.com>
-To: <nipun.gupta@amd.com>, <nikhil.agarwal@amd.com>
-CC: <gregkh@linuxfoundation.org>, <linux-kernel@vger.kernel.org>,
-	<michal.simek@amd.com>, <shubhrajyoti.datta@amd.com>, <git@amd.com>, "Abhijit
- Gangurde" <abhijit.gangurde@amd.com>, Nikhil Agarwal <Nikhil.agarwal@amd.com>
-Subject: [PATCH v4 1/1] cdx: register shutdown callback for cdx controller
-Date: Fri, 27 Nov 2026 15:24:17 +0530
-Message-ID: <20261127095417.282425-2-abhijit.gangurde@amd.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261127095417.282425-1-abhijit.gangurde@amd.com>
-References: <20261127095417.282425-1-abhijit.gangurde@amd.com>
+	dkim=pass (2048-bit key) header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b=nJpM88aV
+Received: by mail-yw1-f172.google.com with SMTP id 00721157ae682-8b531cd9bbaso68537937b3.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:54:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cs.unc.edu; s=google; t=1795773296; x=1796378096; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=R5NRBFE6LyQ+OcOMVwBzMt4B5m7JjyvvYW8xEn2fXVY=;
+        b=nJpM88aVuWd6NlXHVoqKaTO7UqOEpXIliV1H5+UHbq4wjj2ZeqLqUwGUY7hS0N08V7
+         RHNJs3fHTck5qPsixpUH7UX7vxNZC3XTwF8lWnOtSkkGHOILCuAKivHo7AZRS5CBeytq
+         1rG0938Q+tPwd2ZXBhFMAwy54PHOlqXB2reeoc+jZTG1DMnP29NbWf/zcw97lGcoGRFJ
+         Jc7oSajVj5ADGTlU2Zd9/5l4kyjH7TnR4uNy7yqzYTvp51hkQ/CkvbAo+Ntqf+yXGwxO
+         gSaDu0IRotpK+BQJv3HJ/55STY9aSgiXtmfxjE/dTiG1LqZNMFLC3B5LRkVIY1M8j8Q0
+         z2qw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795773296; x=1796378096;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=R5NRBFE6LyQ+OcOMVwBzMt4B5m7JjyvvYW8xEn2fXVY=;
+        b=TkoXRK4SP6yx40sL7NPhp4xw4d/FigYDA7NeATwry3aHZxtmtBE8PLmXbCYkqabYfZ
+         GR82RKBe3hYORgD3Q74MhAbzRaB8BW02jbdW3YpD+B1JQirww+2Gtbe5Q7wCMxNamlFU
+         VzUnsMpqYBaB1lBOZwtZEjan5gSyMOqqaa7Q8NznFquHV5mMq0mozJjw7xyIcU1uBqfe
+         LTeSQiFczXEZo2jtHLFIxTONrhZlMFAineOesOU0U9h+uvpufVvnxzAGgr7l1bQxskbZ
+         Y4EEO+4VZZZDYpH735m4tOGzqSpCGpbfby5IO5dPFO4AZcl+zQb7K5LEX8dwXW+hOw06
+         jLIQ==
+X-Forwarded-Encrypted: i=1; AL+hErG3d459iIGH3t9pAnkCRhkueXTZEhGfu1bvUS30akM82KfMFvR/+ACaCX+P4774jC25hatU4fHov5effYc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/KSWz9v3LRrVJ8WEjO73gVVs9WoNbFvb/oiAqS6M26LK2dLr6z
+	1eVDSfR8EY7aTftmpC3yt8F+YLZAwmHhk5C5gQ7LIi7aBz5+Lm/LQibB3QEdfR7JxA==
+X-Gm-Gg: AZFdTZfzsN4tUFLRyih1a8b/1yLb2XXGxMys3Y8yHOvYOHFrPEd9U/Lfrme1NnC0gJ0
+	/ysQUheUNmDgVAQRFIvaCdoLCeYQTaIBw6R7wcM2bAA04S52blNXHmnPPJfl1/VgiCVUN9vqKZx
+	8W7OO9JhuIzH9Sz5xkKEv/do5Y6Uak1vY+hfTH0uZdG5Kkoi0I8wxZ8cZ1S5yIHbKUJnvvwPaXe
+	3roCZshPth5Az5ReDfbIB4Wn5HMStf9EzyxwhDpQmK755pCfVFEli93cy8K7TL71I1Pm/yneRaW
+	TXNRHEp4kA2CiVoU9VDDV2KERJSiK6xv7npv45QNcS8NcWsDGM05te200saudAM+qc/o70sDbTH
+	Pvwxj9CzdUIS+6DZPs8Blu4a23MVhFp3zrQfZZa4lZENy+hWjg4W9b5Pbf5j0I3kWLjquofaGac
+	uBuz7YrdEwZtx08osD3GYXcaa9sJ4W3mW3KcXh5sY3BJdRILJnI1O8uZ5ebodN2TeDPCSz5qxib
+	Xc9ggSu3WLtiprhRZWpIHlYdCjvrN2z47GdiV1Mf+otoDPcD3+oWC0qMWYYgtJ7Blto6jf53745
+	xhw6ubgip4CRK6BcboMrqDO1g2HM4XdXoHkqLnYEaqJruJoMEgw=
+X-Received: by 2002:a05:690c:3347:b0:8b4:da4e:ef09 with SMTP id 00721157ae682-8b520325401mr116169647b3.1.1795773296194;
+        Fri, 27 Nov 2026 01:54:56 -0800 (PST)
+Received: from cobra01.cs.unc.edu (cobra01.cs.unc.edu. [152.2.130.143])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5202cb0b0sm95567197b3.23.2026.11.27.01.54.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 01:54:55 -0800 (PST)
+From: Hengyu Liang <hengyul@cs.unc.edu>
+To: Ryusuke Konishi <konishi.ryusuke@gmail.com>
+Cc: Viacheslav Dubeyko <slava@dubeyko.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-nilfs@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH v2] nilfs2: count new blocks that a short copy leaves dirty
+Date: Fri, 27 Nov 2026 04:54:49 -0500
+Message-ID: <20261127095449.1379289-1-hengyul@cs.unc.edu>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,67 +99,190 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF0001885F:EE_|SJ2PR12MB9140:EE_
-X-MS-Office365-Filtering-Correlation-Id: 638a4cf8-1fd9-4304-539a-08df4c6c7b5a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|36860700016|82310400026|1800799024|376014|261102123227099003|261021121427099003|261026121527099003|261022075727099003|11063799006|56012099006|10067099003|22082099003|18002099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info:
-	0pxJi/Sj/oVJEaaqIqswKOOIkDUntQLQ3oHdix8EPDU002gFWJi+r5ySR1Ik2t6g6HabXJdCjn5kGbDvwuvcIJm2osroa6y8qa4cT0Daq/tC+BIKWbqK/OoH+M4a97x3EcbURsiil2NDfz4+ICUnary+jPZeYKhZzSxEBDegrKxYojOUJCgVzL8jmQrTDJ9BVpLmEfDSs17br8sr/H15ZLTedx16K17zJUeaodGlTmY+1sMY8Z+lVnQrO/supzAXyUz1ImAHbF/GoIPJAdaIAoqmhEGLJEpQdQBo2X7TW7IFPNzJaG2DBTAeJZZbQlQjMCSiU499GndQod0jLl7A4cOljHgJmJ+ei0Hn7soY93M9nanz12kwIlSXRZTOjxNzIg5BDmoooH+/qTn8RuZydiJJQGYd9NCLr02RbRQD1JEvOMrJ9V6ccspBprHuvvXbPhXCYUk7OAEdg6n8CEIq/kJD3VPFa8bS+nGkJLB9HV6OhVVNv5r4ublz2SxVHzhkLcl6pZD8tN0oJMtl0XMmRo03VmPc67IaTo/LO2Q1OIfGjr9UBP408oDIej/vcCPj1Cn56FASHNvbk3UOsrOJGbIH3T58anvVIYGx7gbzcvJbI9tgJxRelis8m4Sc9jq7aRHnlRjyIDLxu2tY9otVgQnJ9U3rWS5/uq1ObFZl8gBR1ALM9wiLKz4ei9URdiLNzpC3jj+slaF242BLtKCCmQ==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(1800799024)(376014)(261102123227099003)(261021121427099003)(261026121527099003)(261022075727099003)(11063799006)(56012099006)(10067099003)(22082099003)(18002099003)(261009223027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	m7WvVc5CII9pJFtQM8JmdSSg0g7S9gtjBplsYgk3swZMtvmKTQ/CFfC6GrRk0hcYegxPYmYMEYkBch3fXmwEdklMf84eJ66vY2ehZ1GNSTd+mLAU7Q9a3t7MulrO7ohbv/+yy7gFmgEUFTaJy0N+natIuyks5O1yhCU+NmcolDuiI7QDnpFnEmGplThc89WFuDYsNVn+2vZ3jjDehQU3KESFvohAlgZGj27GlsJRl+HG2971koA9prLLAa4/6x/oGgTCjFdPa5T0h1JfggRboNrkPAlEDsJnu25NZkfcYhGKd8kjAJrvpO3LSRiqYpiUiVcqjIJpQZCPmk5eiO8zwDWHomGdJZbNBramnKpj/oaA9LOjtwGnBqp5q1WPYanPFhl9vwe3I5L3/mPfOjbHrgZ9ck2hgf4Z8zTqR0sGKI1D5UGvOPmCl1qMhhk55nVO
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 09:54:51.8249
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 638a4cf8-1fd9-4304-539a-08df4c6c7b5a
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	CO1PEPF0001885F.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9140
 
-Register shutdown callback for cdx controller platform device
-to handle graceful connection closure of rpmsg transport.
+nilfs_write_end() adds only the clean buffers of the copied range to
+the count of dirty blocks.  After a short copy, however,
+block_write_end() also zero-fills and dirties the newly allocated
+buffers of the part that was not copied, which is the whole range when
+the folio is not uptodate.  The write is then retried, finds these
+buffers dirty, and does not count them either.  This skews the free
+space calculation: nilfs_near_disk_full() does not stop the writer in
+time, and the reserved segments are consumed.
 
-Reviewed-by: Nikhil Agarwal <Nikhil.agarwal@amd.com>
-Signed-off-by: Abhijit Gangurde <abhijit.gangurde@amd.com>
+This has been the case since nilfs2 was merged, but it used to take an
+unusual short copy, for example from a source buffer that runs into an
+unreadable page.  Commit 665575cff098 ("filemap: move prefaulting out
+of hot write path") made it much easier to hit: generic_perform_write()
+now faults in the source buffer only after a copy into the page cache
+has made no progress, so a write from memory that is not present yet
+first calls ->write_end() with copied == 0 for each page.  As of now, a
+write from a fresh anonymous mapping is accepted far beyond the free
+space, fsync() fails with ENOSPC, and the file is gone after a remount,
+together with the other changes made since the last log was written.
+On a volume shared with another user, that user's fsync() fails with
+ENOSPC too, and the files and directories that user created after the
+write are lost the same way.
+
+The issue can be reproduced on a 160 MiB disk with this program:
+
+    #include <errno.h>
+    #include <fcntl.h>
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+    #include <sys/mman.h>
+    #include <unistd.h>
+
+    int main(int argc, char *argv[])
+    {
+            size_t len = atol(argv[2]) << 20;
+            /* fresh anonymous memory: none of its pages is present yet */
+            char *buf = mmap(NULL, len, PROT_READ,
+                             MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+            int fd = open(argv[1], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+
+            printf("write: %zd\n", write(fd, buf, len));
+            printf("fsync: %s\n", fsync(fd) ? strerror(errno) : "ok");
+            return 0;
+    }
+
+and these commands:
+
+    mkfs.nilfs2 -q /dev/vda
+    mount -t nilfs2 /dev/vda /mnt
+    ./cold /mnt/f 256
+    umount /mnt
+    mount -t nilfs2 /dev/vda /mnt
+    wc -c /mnt/f
+
+Before commit 665575cff098 ("filemap: move prefaulting out of hot write
+path"), the result is:
+
+    write: 67518464
+    fsync: ok
+    67518464 /mnt/f
+
+After that commit, the result is:
+
+    write: 268435456
+    fsync: No space left on device
+    wc: /mnt/f: No such file or directory
+
+With this change, the result is:
+
+    write: 70217728
+    fsync: ok
+    70217728 /mnt/f
+
+Count the buffers that block_write_end() is going to dirty, including
+the zero-filled new ones, before calling generic_write_end().
+
+Fixes: 05fe58fdc10d ("nilfs2: inode operations")
+Cc: stable@vger.kernel.org
+Signed-off-by: Hengyu Liang <hengyul@cs.unc.edu>
 ---
- drivers/cdx/controller/cdx_controller.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+I found this while comparing the behavior of different kernel versions.
+I used an LLM to analyze the problem and to draft the patch and this
+message, and I analyzed the result myself.
 
-diff --git a/drivers/cdx/controller/cdx_controller.c b/drivers/cdx/controller/cdx_controller.c
-index 960c4f8b6b30..8b7119d056e6 100644
---- a/drivers/cdx/controller/cdx_controller.c
-+++ b/drivers/cdx/controller/cdx_controller.c
-@@ -233,6 +233,11 @@ static void xlnx_cdx_remove(struct platform_device *pdev)
- 	kfree(cdx_mcdi);
+v2: as Ryusuke asked, the Fixes tag now names the original
+implementation, the stable Cc has no version, and the message says the
+bug is old and 665575cff098 made it easier to hit. No code change.
+v1: https://lore.kernel.org/linux-nilfs/20261122130247.2069007-1-hengyul@cs.unc.edu/
+
+Tested on nilfs2 for-next with KASAN and lockdep, also with the short
+copy from Ryusuke's reply (1 KiB blocks, source running into a
+PROT_NONE page): the dirty block count is right, and a nearly full
+volume returns ENOSPC instead of accepting more than the free space.
+
+ fs/nilfs2/inode.c |  3 +--
+ fs/nilfs2/page.c  | 41 +++++++++++++++++++++++++++++++++++++++++
+ fs/nilfs2/page.h  |  4 ++++
+ 3 files changed, 46 insertions(+), 2 deletions(-)
+
+diff --git a/fs/nilfs2/inode.c b/fs/nilfs2/inode.c
+index b217eee57c36..dd0bed24972a 100644
+--- a/fs/nilfs2/inode.c
++++ b/fs/nilfs2/inode.c
+@@ -249,8 +249,7 @@ static int nilfs_write_end(const struct kiocb *iocb,
+ 	unsigned int nr_dirty;
+ 	int err;
+ 
+-	nr_dirty = nilfs_page_count_clean_buffers(folio, start,
+-						  start + copied);
++	nr_dirty = nilfs_page_count_buffers_to_dirty(folio, start, len, copied);
+ 	copied = generic_write_end(iocb, mapping, pos, len, copied, folio,
+ 				   fsdata);
+ 	nilfs_set_file_dirty(inode, nr_dirty);
+diff --git a/fs/nilfs2/page.c b/fs/nilfs2/page.c
+index 857926da9f21..0dec7b5b27c4 100644
+--- a/fs/nilfs2/page.c
++++ b/fs/nilfs2/page.c
+@@ -481,6 +481,47 @@ unsigned int nilfs_page_count_clean_buffers(struct folio *folio,
+ 	return nc;
  }
  
-+static void xlnx_cdx_shutdown(struct platform_device *pdev)
++/**
++ * nilfs_page_count_buffers_to_dirty - count buffers a write will dirty
++ * @folio:  folio being written to
++ * @from:   offset of the write in @folio
++ * @len:    number of bytes to be written
++ * @copied: number of bytes copied into @folio
++ *
++ * Count the clean buffers of @folio that block_write_end() is going to mark
++ * dirty: those overlapping the copied range and, after a short copy, the
++ * newly allocated ones in the rest of the range, which it zero-fills.  As
++ * there, a short copy into a folio that is not uptodate counts as a
++ * zero-length write.
++ *
++ * Return: Number of buffers that the write changes from clean to dirty.
++ */
++unsigned int nilfs_page_count_buffers_to_dirty(struct folio *folio,
++					       unsigned int from,
++					       unsigned int len,
++					       unsigned int copied)
 +{
-+	cdx_destroy_rpmsg(pdev);
++	unsigned int to = from + len, end = from + copied;
++	unsigned int block_start, block_end;
++	struct buffer_head *bh, *head;
++	unsigned int nc = 0;
++
++	if (copied < len && !folio_test_uptodate(folio))
++		end = from;
++
++	for (bh = head = folio_buffers(folio), block_start = 0;
++	     bh != head || !block_start;
++	     block_start = block_end, bh = bh->b_this_page) {
++		block_end = block_start + bh->b_size;
++		if (buffer_dirty(bh))
++			continue;
++		if ((block_end > from && block_start < end) ||
++		    (buffer_new(bh) && block_end > end && block_start < to))
++			nc++;
++	}
++	return nc;
 +}
 +
- static const struct of_device_id cdx_match_table[] = {
- 	{.compatible = "xlnx,versal-net-cdx",},
- 	{ },
-@@ -247,6 +252,7 @@ static struct platform_driver cdx_pdriver = {
- 		   },
- 	.probe = xlnx_cdx_probe,
- 	.remove = xlnx_cdx_remove,
-+	.shutdown = xlnx_cdx_shutdown,
- };
- 
- module_platform_driver(cdx_pdriver);
+ /*
+  * NILFS2 needs clear_page_dirty() in the following two cases:
+  *
+diff --git a/fs/nilfs2/page.h b/fs/nilfs2/page.h
+index c3ba3468af5c..4ccd740966ec 100644
+--- a/fs/nilfs2/page.h
++++ b/fs/nilfs2/page.h
+@@ -45,6 +45,10 @@ void nilfs_clear_folio_dirty(struct folio *folio, bool force);
+ void nilfs_clear_dirty_pages(struct address_space *mapping, bool force);
+ unsigned int nilfs_page_count_clean_buffers(struct folio *folio,
+ 		unsigned int from, unsigned int to);
++unsigned int nilfs_page_count_buffers_to_dirty(struct folio *folio,
++					       unsigned int from,
++					       unsigned int len,
++					       unsigned int copied);
+ unsigned long nilfs_find_uncommitted_extent(struct inode *inode,
+ 					    sector_t start_blk,
+ 					    sector_t *blkoff);
+
+base-commit: 8fef1a9dec7bf58a29bc8a7ee6909ab629401cd3
 -- 
-2.43.0
+2.53.0
 
