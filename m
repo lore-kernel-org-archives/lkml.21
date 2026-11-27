@@ -1,101 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795822387;
-	b=pDtxVzXlcncX6iLI0qSRw64r9tE4gmtJMIoJjbplGprfZ/xdnVwivUCl5cOkADYqhzYu
-	 3aUD9/sCGgWWhI4QjC0GN6gQXosJMWTi0iFksS+B9z//wpdxLycZN0QsgUhMuiR2iqWOE
-	 uD4VUlcDIL7oCIJxrZDBLnu+kCkzQUTkZT+uuainXgPWUSWTehpbSHdAO5UixHrFk5zIw
-	 NOCtZxOj2kNyrkTehvlMnyJViQpmGj/LDJxm1QZPfax9TsPwX0KTr8Na/inCrc8P9Q8U/
-	 UrQBlQ8iOHw6C5BwJfZYl+VSrVuEYRej9v6R6dPjfjGzTPrm8zcQt5qv48WRGSDnZiA==
+	t=1795822393;
+	b=SL7eM4WgNr+BqAd4Ta8P6jz4riprtc7ig544cd1XRODE3aVrhPaE0sE7J8fLgJw9iNVk
+	 xU6Hv01dVu0e079EejW1Mc8xzZ7FGHTfP++QikJ7x6n1IqKnDG2sXPWwtwXl+Dp8+yFRR
+	 fEoPiiZ2yHvFlxfuyY3Adr+TdV/52/qN4VGWAeRBIceVyQ3rmYB5xaQwQcDDveTpdECXl
+	 XyMegWyYZDdMZhdwQPZCbrl3cENSSh7jIh2jvWsBiU+FV0M6KwKItYHG3EReTtOZOaLxO
+	 Mmx8rMEemeoWHP3MQbCIE5zLwvyDYsHGM8tkJ3MOHC6pK5ilbUwySl0p5jssFn35VEw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795822387;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:Subject:From:To:Cc:In-Reply-To:
-	 References:Content-Transfer-Encoding:MIME-Version;
-	bh=Hgp2tkog+fmNuQ20vBF7F2LaDTU6lyjZR93nHU1ofUc=;
-	b=PK6MMVxDvPfUYPVlOaI+rk5b0VSBwEXtDDpAzCwPKxhmD+kjL3mUSiylPzmbfD9kcvEV
-	 MizatTOYi7nKVMt77tCF8pkC0Tq82kpf+juXViATdPn14UaAoLSjT5KXjyc2EXcYKMEEL
-	 QODm10notKK7+qXBxYW5/TTgOSbR85cBXVbA0lUZsvej6pt+dJSObSnBS6oJfwYcNpuz7
-	 bXTZmjNwzUipT5atUXS4ZWmPO88teCAn4GCLo63abFsqWQiodZ7ch9DhrIo+bavG5Dfpl
-	 WMDOa/g5jHE9SUiN2VHTer/dxvwcC/84C4SCOlshDi9QlepHFAT1HPqNG7EjJQtdsXA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795822393;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=8nngIs7gwvxnYNNnqBOO7c37DqQ6Fbks03ryrz0eP/w=;
+	b=ygrrXRdjQQ+BM9tfqKfUgIjO/nnggbOFe7geZteDhNxjWpGffb+wwjDx+UoqgqMQWD/K
+	 T2PcYBJBkjWk221Na4Ld5h8FbkrzV/wxvGKc2+LW3vwc8qLQM9TqgAQwq7KIbaVCfuq6w
+	 Ftr7pFZzGGEL4pbq5YJcMyuSImEu1KzUuiCEzKtTAEPlkAnzimxcMDsD2QHUMOYyLiHx/
+	 fj/+o0fi4+wqBwh85KuiWyMLH5U20R9F5UOU8/qlWxsvzwij5v+zkaC1pGfOohQBS4cAF
+	 9bSpekjOItBwBTf49++W2bk7PJkmEA2lfxyoCUXh1oXyWNK8tss7I+BHKJ6TRh7HPAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dLplWFMh;
-	arc=none smtp.remote-ip=209.85.210.170
-Received: from mail-pf1-f170.google.com (mail-pf1-f170.google.com [209.85.210.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="W8g/xdCb";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A5EB606A321
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 23:33:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A5EB606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC60C606A32C;
+	Fri, 27 Nov 2026 23:33:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dLplWFMh
-Received: by mail-pf1-f170.google.com with SMTP id d2e1a72fcca58-8a07078200fso4519746b3a.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:33:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795822386; x=1796427186; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:cc:to
-         :from:subject:message-id:date:content-type:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Hgp2tkog+fmNuQ20vBF7F2LaDTU6lyjZR93nHU1ofUc=;
-        b=dLplWFMhn5q/YrwEE01ZyG4IzSFVnYy6mbRwNzGE7tp9BPq2lMrFLxuA/Q8bJ8QxR6
-         scV1e5ZDWT5xDpZITkXqVWP6dWPT88BOW9GsOrEjgKzVjovkEyEWElCJR5s0ex1D8GAr
-         RJOVbNrRAM1N3KyLRCTt25pRL2pXCsBzCOThrgD3Thn3ALqznpNIkWdrtPjzjVBi0oy9
-         WG+8AG8NVPrKtIR7ok1+s6WI+/MeUgWz8nFKFqui7FmrKmJCK3i/ZH+TSXNRDFJu1l05
-         LEViSyWn4IJEa8c/MsjOd4F10sF+g85gaALoID3nAgBCNkWwCGAlfw00SKfVtl/WWrjh
-         3OJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795822386; x=1796427186;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:cc:to
-         :from:subject:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Hgp2tkog+fmNuQ20vBF7F2LaDTU6lyjZR93nHU1ofUc=;
-        b=h5d7lLZhJRkTC/HFLMpUC8HZ7nqrDNc5uUP+DkBbfsQAe0K1cNqtLerBK1x1LNQwVM
-         3QKg9seLO8qZJ08uBSq3D1WbrQLoRaCGkwuiRoqFdJr1/hQ6JlrRJJy2+8bl4CfCbnVk
-         ZmIIkUKxJRKRk4OKJzNIyMElGURbyi5Fk71/eWYrUk4WlBLRjuUBxQa93qI9jW6TWWRd
-         rPKi0zk90nXNuSZY3ZQJL0/iW4XFirxtV5fyF2aULiCPLSrClP9ifKtNs/2BiIoM3RfB
-         71Zhep+IvK4QQjV5rVAi4jyjYNvdNHJUsmwtpsxjfEwuqc+RBKYcUJBSmTgvOsn5p8Ji
-         0Gdg==
-X-Forwarded-Encrypted: i=1; AL+hErGYGXDjTDrzazjNEsjMiC1yEFKDoC+nThjrYndkcTgPwVhglmEVZPVulRTrVfMGHc7W0qPMkevjpCAuK4k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+VwlXJkXVYCSKceUpbxhnSMv9qzi3FmPChs1XtIZ1SPsRADW4v
-	OUldZTEcq9y3XOD4yA5B/EybzEZlZAzTHzsg6UJnGykBeCpDGSpPnYiS
-X-Gm-Gg: AZFdTZdbFQjhrvRnZkmVfOX953ux1h6TgFvpcbNwb6MAcSUJpmM9uGVZsj5DfEcchug
-	Q95ElmxFItuxRnuBK69SEGXxEhTk2fV9UWAtCyoMgVc+/LpWyr4AiXiVuQQaLdCikOZiI6728iV
-	3m/9hJeItJ6t9309XBoqXFanAQ438eYdNhDIP4WABJqiFyecOm6ghk5jTiKiABrt5G1yXtvMwYH
-	gAPvtQznFPJPifqgVAU8lFGhwDHj6UFnt7NtbSUW3tlN7KmbCPkd1K3VQkwujh1B3ngL4JjhuD0
-	QL8/+3ROG+xQ3PhVGnvOsgwDm9NnuIfsfXZDsOmyP6nPcsivKagygL6FMDLBVvt74K/R/oWm6tJ
-	6gNWEegVXM59PcDJLxTFXtNuiositoN7mMmcLLfliuaxyzTMub2saR2u0TwUXuNgOet6W0FimVI
-	aSRzBUlinEYGZ4KdGqAlAFl5o+IoAgnEjHYumVQvljol+UOPmIe0+DqGBsyv6jZ+Nkj6gYtgQCf
-	476UdbytY9ayKme+J8QwBrddVDV095kXdjNurnY/NjkJh5cv/95BtvTtQVcu8c1MA4QJjzWQJvA
-	aPTPrKpdC8Xlyr9aBZBi22FGkkTW0+vjcjGZzMQtwWOXhfUFfjuGI+W47t3a3/kw8yrYGFHAKT+
-	Qufwxogc4+kFkXRzndeLMzNUY7EcwPnzQVw==
-X-Received: by 2002:a05:6a20:734f:b0:3fb:3355:e440 with SMTP id adf61e73a8af0-4014ea47a6cmr28155512637.74.1795822385980;
-        Fri, 27 Nov 2026 15:33:05 -0800 (PST)
-Received: from localhost ([153.61.198.240])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cea7c38sm13857410a12.2.2026.11.27.15.33.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 15:33:05 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W8g/xdCb
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C08E61F0089F;
+	Fri, 27 Nov 2026 23:33:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795822393;
+	bh=8nngIs7gwvxnYNNnqBOO7c37DqQ6Fbks03ryrz0eP/w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=W8g/xdCbOlQ/H9v1E0J4HjojSDxEoiBXVNnYrtokkH0u8DdftHARodaDaffmTdNkv
+	 rC+y2nYsnglIk7tDeRLvYHtxjfaY1OwDCVieG5i/pkNpaNerNHAgFAhKtt4NSKJvVp
+	 y5T4iRcdaNLd5zQbprJNEznVzDDihvL+TD+wcBUgDjy1JqSpKnsoERI6w0TCd1Of2j
+	 rDXWFnshN1OtA7oW+WjplZgZCw0eEkDWIb/O3n3pC+yPnjAYBAwMLy8kZkSPTPAYDr
+	 2Ms4e5RNTplUqQGelQ1XuKEN9TIDjatK5V4ZJJLFy93EI95Lwzv5h9N05YYCjnTLmp
+	 kYOVxsEvygb9Q==
 Date: Fri, 27 Nov 2026 23:33:05 +0000
-Message-Id: <DN6DWMLNI044.39KJNBB9RWCQY@gmail.com>
-Subject: Re: [PATCH v3 05/18] rv: Add generic monitor event tracepoints and
- BPF kfuncs
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "Gabriele Monaco" <gmonaco@redhat.com>, <linux-kernel@vger.kernel.org>,
- <linux-trace-kernel@vger.kernel.org>, <bpf@vger.kernel.org>, "Steven
- Rostedt" <rostedt@goodmis.org>, "Masami Hiramatsu" <mhiramat@kernel.org>
-Cc: "Nam Cao" <namcao@linutronix.de>, "Wen Yang" <wen.yang@linux.dev>,
- "Tobias Schaffner" <tobias.schaffner@siemens.com>, "Viktor Malik"
- <vmalik@redhat.com>, "Peter Zijlstra" <peterz@infradead.org>, "John Ogness"
- <john.ogness@linutronix.de>
-In-Reply-To: <20261126130004.127155-6-gmonaco@redhat.com>
-References: <20261126130004.127155-1-gmonaco@redhat.com> <20261126130004.127155-6-gmonaco@redhat.com>
-Content-Transfer-Encoding: 8bit
+From: Jonathan Cameron <jic23@kernel.org>
+To: Marcelo Schmitt <marcelo.schmitt@analog.com>
+Cc: <linux-iio@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux@analog.com>,
+ <Michael.Hennerich@analog.com>, <nuno.sa@analog.com>,
+ <eblanc@baylibre.com>, <dlechner@baylibre.com>, <andy@kernel.org>,
+ <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+ <olivier.moysan@foss.st.com>, <marcelo.schmitt1@gmail.com>
+Subject: Re: [PATCH v2 0/5] Add support for ADA4355
+Message-ID: <20261127233250.30bb880e@jic23-hlaptop>
+In-Reply-To: <cover.1795816065.git.marcelo.schmitt@analog.com>
+References: <cover.1795816065.git.marcelo.schmitt@analog.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,248 +63,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 26, 2026 at 04:59 AM Gabriele Monaco <gmonaco@redhat.com> wrote:
-> Add also bpf_rv_event_monitor() / bpf_rv_error_monitor() kfuncs wrapping
-> them, so BPF monitors can emit similar events to in-kernel monitors.
->
-> Userspace callers need now to use ftrace filters to get the right events
-> but events and errors are separate channels to ease the most common
-> filtering and account for dramatically different volume (errors are
-> rare).
+On Fri, 27 Nov 2026 18:51:32 -0300
+Marcelo Schmitt <marcelo.schmitt@analog.com> wrote:
 
-I thought we agreed that plain bpf_printk() works with glob filtering on top.
-Why do you need these new kfuncs?
-See below diff that illustrates the point.
+> ADA4355 (and ADA4356) are programmable transimpedance, current to bits receivers.
+> ADA4356 main difference from ADA4355 is the set of configurable transimpedance
+> (Tz) options which result in different scaling to miliampere units.
+> 
+> Change log v1 -> v2:
+> [device tree]
+> - Added explanation about why the parts can have a fallback compatible.
+> [IIO]
+> - Improved backend interface documentation.
+> - Fixed mistake on the scale to mA.
+> - Made reads to the mA scale also synch with scale write operations.
+> - Set buffer setup ops to enable backend channel.
+> - Enabled vcc supply.
+> - Stop calibration on lane calibration error.
+> - Removed unneeded includes
+> - Alternative in_range check.
+> - Declaring loop counters within loop declaration.
+> - Unknown chip ID message update.
+> - No longer keeping extra IIO channel pointer in state struct.
+> 
+> Previous submissions:
+>   v1: https://lore.kernel.org/linux-iio/cover.1795003864.git.marcelo.schmitt@analog.com/
+I'm sure you'd check anyway but for anyone else reading along, Sashiko
+is not at all happy with the binding.
 
-> +	if (strnlen(msg, msg__sz) == msg__sz)
-> +		return -EINVAL;
-> +
-> +	trace_event_monitor(mon__str, id__nullable, msg);
++ some smaller bits in the driver parts.
 
-This will read out of bounds. msg can point to a map value.
-Take a BPF_F_MMAPABLE array with one page size value. NUL is the last byte:
-
-  prog                                  user space
-  strnlen(msg, msg__sz) finds the NUL
-                                        writes 'x' over the NUL
-  __string(msg, msg) -> strlen(msg)
-  runs into the vmalloc guard page
-
-There is no limit on msg__sz either.
-When perf is on the event, a msg above 8192 bytes hits WARN_ONCE() in
-perf_trace_buf_alloc().
+As such I might take a somewhat more superficial look than otherwise at least
+partly due to my 483 unread IIO related emails.
 
 
-diff --git a/tools/verification/rv/bpf_monitors/da_monitor_bpf.h b/tools/verification/rv/bpf_monitors/da_monitor_bpf.h
-index e9e673c..6996c01 100644
---- a/tools/verification/rv/bpf_monitors/da_monitor_bpf.h
-+++ b/tools/verification/rv/bpf_monitors/da_monitor_bpf.h
-@@ -24,8 +24,6 @@
- #define da_implicit_guard()
- #define IS_ENABLED(conf) 0
- 
--#define DA_TRACE_MSG_MAX 128
--
- /*
-  * Also used to filter out events higher values imply lower ones.
-  * Userspace will parse this enum but expects EVENT to imply ERROR(s) and ERROR
-@@ -328,10 +326,9 @@ static inline void da_reset_bpf(da_id_type id, monitor_target_bpf target)
- 
- #endif /* RV_MON_TYPE */
- 
--extern int bpf_rv_event_monitor(const char *mon, const int *id__nullable,
--				const char *msg, u32 msg__sz) __ksym;
--extern int bpf_rv_error_monitor(const char *mon, const int *id__nullable,
--				const char *msg, u32 msg__sz) __ksym;
-+/* "rv: <type>: <monitor>: <text>" in bpf_trace:bpf_trace_printk */
-+#define rv_printk(type, fmt, ...) \
-+	bpf_printk("rv: " type ": " __stringify(MONITOR_NAME) ": " fmt, __VA_ARGS__)
- 
- #if RV_MON_TYPE == RV_MON_GLOBAL || RV_MON_TYPE == RV_MON_PER_CPU
- /*
-@@ -345,28 +342,22 @@ static inline void da_trace_event(struct da_monitor *da_mon,
- 				  const char *next_state, bool is_final,
- 				  da_id_type id)
- {
--	char msg[DA_TRACE_MSG_MAX];
--
- 	if (trace_level < RV_TRACE_EVENT)
- 		return;
- 
--	BPF_SNPRINTF(msg, sizeof(msg), "%s x %s -> %s%s",
--		curr_state, event, next_state, is_final ? " (final)" : "");
--	bpf_rv_event_monitor(__stringify(MONITOR_NAME), NULL, msg, sizeof(msg));
-+	rv_printk("event", "%s x %s -> %s%s",
-+		  curr_state, event, next_state, is_final ? " (final)" : "");
- }
- 
- static inline void da_trace_error(struct da_monitor *da_mon,
- 				  const char *curr_state, const char *event,
- 				  da_id_type id)
- {
--	char msg[DA_TRACE_MSG_MAX];
--
- 	if (trace_level < RV_TRACE_ERROR)
- 		return;
- 
--	BPF_SNPRINTF(msg, sizeof(msg), "event %s not expected in the state %s",
--		 event, curr_state);
--	bpf_rv_error_monitor(__stringify(MONITOR_NAME), NULL, msg, sizeof(msg));
-+	rv_printk("error", "event %s not expected in the state %s",
-+		  event, curr_state);
- }
- 
- #elif RV_MON_TYPE == RV_MON_PER_TASK || RV_MON_TYPE == RV_MON_PER_OBJ
-@@ -379,28 +370,22 @@ static inline void da_trace_event(struct da_monitor *da_mon,
- 				  const char *next_state, bool is_final,
- 				  da_id_type id)
- {
--	char msg[DA_TRACE_MSG_MAX];
--
- 	if (trace_level < RV_TRACE_EVENT)
- 		return;
- 
--	BPF_SNPRINTF(msg, sizeof(msg), "%d: %s x %s -> %s%s", id,
--		curr_state, event, next_state, is_final ? " (final)" : "");
--	bpf_rv_event_monitor(__stringify(MONITOR_NAME), &id, msg, sizeof(msg));
-+	rv_printk("event", "%d: %s x %s -> %s%s", id,
-+		  curr_state, event, next_state, is_final ? " (final)" : "");
- }
- 
- static inline void da_trace_error(struct da_monitor *da_mon,
- 				  const char *curr_state, const char *event,
- 				  da_id_type id)
- {
--	char msg[DA_TRACE_MSG_MAX];
--
- 	if (trace_level < RV_TRACE_ERROR)
- 		return;
- 
--	BPF_SNPRINTF(msg, sizeof(msg), "%d: event %s not expected in the state %s",
--		 id, event, curr_state);
--	bpf_rv_error_monitor(__stringify(MONITOR_NAME), &id, msg, sizeof(msg));
-+	rv_printk("error", "%d: event %s not expected in the state %s",
-+		  id, event, curr_state);
- }
- #endif /* RV_MON_TYPE */
- 
-diff --git a/tools/verification/rv/src/trace.c b/tools/verification/rv/src/trace.c
-index 629b4f6..91f86bf 100644
---- a/tools/verification/rv/src/trace.c
-+++ b/tools/verification/rv/src/trace.c
-@@ -15,7 +15,7 @@
- #include <trace.h>
- #include <utils.h>
- 
--#define FILTER_MAX 128
-+#define FILTER_MAX 256
- 
- /**
-  * collect_registered_events - print an event collected from the trace buffer
-@@ -176,20 +176,25 @@ static int enable_specific_event(struct trace_instance *inst, const char *event_
- }
- 
- /*
-- * enable_generic_event - enable a generic event with filters
-+ * enable_bpf_events - collect the messages of a BPF monitor
-+ *
-+ * BPF monitors report via bpf_printk("rv: <event|error>: <monitor>: ...").
-+ *
-+ * Returns 0 on success, -1 otherwise.
-  */
--static int enable_generic_event(struct trace_instance *inst, const char *event_name, char *name)
-+static int enable_bpf_events(struct trace_instance *inst, char *name)
- {
--	struct tep_event *tevent = tep_find_event_by_name(inst->tep, "rv", event_name);
-+	struct tep_event *tevent;
- 	char filter[FILTER_MAX] = "";
- 	size_t len;
- 
-+	tevent = tep_find_event_by_name(inst->tep, "bpf_trace", "bpf_trace_printk");
- 	if (!tevent) {
--		err_msg("trace: fail finding the rv:%s event\n", event_name);
-+		err_msg("trace: fail finding the bpf_trace_printk event\n");
- 		return -1;
- 	}
- 
--	len = snprintf(filter, sizeof(filter), "mon == \"%s\"", name);
-+	len = snprintf(filter, sizeof(filter), "bpf_string ~ \"rv: *: %s: *\"", name);
- 	if (len >= sizeof(filter)) {
- 		err_msg("trace: monitor name %s too long\n", name);
- 		return -1;
-@@ -197,31 +202,12 @@ static int enable_generic_event(struct trace_instance *inst, const char *event_n
- 
- 	if (config.my_pid > 0)
- 		snprintf(filter + len, sizeof(filter) - len,
--			 " && common_pid != %d && !(has_id == 1 && id == %d)",
--			 config.my_pid, config.my_pid);
-+			 " && common_pid != %d && !(bpf_string ~ \"rv: *: %s: %d: *\")",
-+			 config.my_pid, name, config.my_pid);
- 
- 	return apply_filter_enable(inst, tevent, filter);
- }
- 
--/*
-- * enable_bpf_events - enable rv:event_monitor and rv:error_monitor for a monitor
-- *
-- * BPF monitors report via generic rv:event_monitor and rv:error_monitor events.
-- * Enable the events and filter them to only collect the messages of the given monitor.
-- *
-- * Returns 0 on success, -1 otherwise.
-- */
--static int enable_bpf_events(struct trace_instance *inst, char *name)
--{
--	if (!config.trace_errors_only && enable_generic_event(inst, "event_monitor", name))
--		return -1;
--
--	if (enable_generic_event(inst, "error_monitor", name))
--		return -1;
--
--	return 0;
--}
--
- /**
-  * trace_enable_monitor_events - enable a monitor's events in a trace instance
-  *
-diff --git a/tools/verification/rv/tests/rv_mon.t b/tools/verification/rv/tests/rv_mon.t
-index 30d1dda..f51f194 100644
---- a/tools/verification/rv/tests/rv_mon.t
-+++ b/tools/verification/rv/tests/rv_mon.t
-@@ -104,16 +104,16 @@ cpu="\[[0-9]\{3\}\][[:space:]]\+"
- state="[a-z_]\+ "
- id="[0-9]\+"
- selfid="\$pid"
--# BPF monitors report via the common rv:event_monitor/rv:error_monitor
--# events, which add a "<mon>: " prefix to the message.
-+# BPF monitors report via bpf_printk()
-+type_bpf="bpf_trace_printk: rv: \(event\|error\)"
- trace_task="${genpid}${cpu}${type}: ${id}: ${state}"
- trace_task_self="${genpid}${cpu}${type}: ${selfid}: ${state}"
- trace_cpu="${genpid}${cpu}${type}: ${state}"
- trace_cpu_self="${selfpid}${cpu}${type}: ${state}"
--trace_task_bpf="${genpid}${cpu}${type}: ${mon}: ${id}: ${state}"
--trace_task_bpf_self="${genpid}${cpu}${type}: ${mon}: ${selfid}: ${state}"
--trace_cpu_bpf="${genpid}${cpu}${type}: ${mon}: ${state}"
--trace_cpu_bpf_self="${selfpid}${cpu}${type}: ${mon}: ${state}"
-+trace_task_bpf="${genpid}${cpu}${type_bpf}: ${mon}: ${id}: ${state}"
-+trace_task_bpf_self="${genpid}${cpu}${type_bpf}: ${mon}: ${selfid}: ${state}"
-+trace_cpu_bpf="${genpid}${cpu}${type_bpf}: ${mon}: ${state}"
-+trace_cpu_bpf_self="${selfpid}${cpu}${type_bpf}: ${mon}: ${state}"
- 
- check_if_exists "run per-task monitor with tracing" \
- 	"$RV mon sssw -t" "$RVDIR/monitors/sched/sssw" \
-@@ -154,10 +154,10 @@ check_if_exists "run per-task monitor tracing only errors" \
- 
- check_if_exists "run per-task BPF monitor tracing only errors" \
- 	"$RV mon tqueue -t -E" "$RVTOOL/bpf_monitors/tqueue.o" \
--	"$header" "event_monitor"
-+	"$header" "rv: event"
- 
- check_if_exists "run per-cpu BPF monitor tracing only errors" \
- 	"$RV mon nohz -t -E" "$RVTOOL/bpf_monitors/nohz.o" \
--	"error_monitor" "event_monitor"
-+	"rv: error" "rv: event"
- 
- test_end
+
+Jonathan
+
+> 
+> 
+> With best regards,
+> Marcelo
+> 
+> 
+> Marcelo Schmitt (5):
+>   iio: backend: Add calibration source interface
+>   dt-bindings: iio: adc: Add AXI ADA4355 IP CORE
+>   iio: adc: adi-axi-adc: Support AXI ADA4355 IP core
+>   dt-bindings: iio: adc: Add ADA4355
+>   iio: adc: Add support for ADA4355 and similar ADCs
+> 
+>  .../bindings/iio/adc/adi,ada4355.yaml         | 104 +++
+>  .../bindings/iio/adc/adi,axi-adc.yaml         |   1 +
+>  MAINTAINERS                                   |   8 +
+>  drivers/iio/adc/Kconfig                       |  11 +
+>  drivers/iio/adc/Makefile                      |   1 +
+>  drivers/iio/adc/ada4355.c                     | 822 ++++++++++++++++++
+>  drivers/iio/adc/adi-axi-adc.c                 |  66 ++
+>  drivers/iio/industrialio-backend.c            |  28 +
+>  include/linux/iio/backend.h                   |  22 +
+>  9 files changed, 1063 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/iio/adc/adi,ada4355.yaml
+>  create mode 100644 drivers/iio/adc/ada4355.c
+> 
+> 
+> base-commit: 39508411b82d4dc29dd245bb471ec9ecc1111c9d
 
