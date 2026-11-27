@@ -1,59 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795797956;
-	b=gxssiwgvja122XOPE02fJtkZ9pNDet/Wy6GDp7xgYZm06YOYLmf1tjxMuHoUbfdrzwD9
-	 ELrRL7OpAf4I0lt7NFf8Sc4+7VJKolt+YCBQYgDHkN+kNrtMjW7HeqakbijmcMYXdpquJ
-	 kNmnN2kvhvs36Amlg2sqnrlAIT7ZsAvkmRRF/pv9de5TAbhEGKm9o+0y99qLpfOZEVjIU
-	 IhAgxP6Gk5WMH+TafKgpp8ZNoccgzLVGTJ9o6S6CxJoL2CGqhb2hRWKv09vy93jKLH59W
-	 pjlkIFsF7eI8iVuW8FRp1Jr3RFqvqcGBZRk5yTqewZ5q4T8aNVhZbo0Ywwt5Fak9M4w==
+	t=1795797951;
+	b=2FWIkin6+T7J+ar0Q5j2M3rrzYFKNLNRrGd2JgRV2ub7JXxY2nAdf2iG4rMohPFNnMm4
+	 9hEtqormbAS6TG1QToj439m4ffVjhyOSG/sxpQeL9gFkW5PTFUHO8Xh8IKWd55TwgGu3O
+	 hfC/mMm66Bhae6yx6qk9lPD8UTCt14UU+Jyoo9XB8jIUQezaPTh/15AKCPonCA2zr4clY
+	 KlGACrH11ScufWF1oIFzOGgeJftW5gYx7YtQa6yaU4Boyu/s4RPMIEHjJbNQVoB05ajip
+	 w6/dTmom6jY+5Gh+09lEhFy858JQefWR+b23kfkF0iM3yeHN7a2VELhwJyBugtf730w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795797956;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795797951;
 	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
 	 In-Reply-To:To:Cc:X-Mailer;
-	bh=1M3acFGCLR5KsNELoY15riziLexMyJMhHyB0Ci8R3Vo=;
-	b=jcpTPIVOCmB41WqKGVm3xYRNSbcO6uteSG4A39tjKu+0LdCJ4D9hnQ2n1FXhj1Bl46X4
-	 YkpqAfki/ugssMVZewM6YaWpZLX6uTuhqCaqWwHAjmadQwrwZaGLM1lD5eSoMOciS1IZd
-	 5vp9nMbQ2af1ePk4MG99G7hmTKd4tZGOE8Ie9JJ+m5EgXHAGYdKEpw/EsB9AYXmYVAcoi
-	 X+9g2xuiJdUcdUPQIUpVIzFPYhGGpwDWyY0vleJ2ciNdQS6ef5j0rB0Vh2+pESJ3f3Y/1
-	 527xhs2Zf1MYWJtYlJDot3QTdY8ta6hlEvmX+E1+WX8wK2vRwn3w54L96uyXn0JXC6A==
+	bh=6TexNp2ZDl+3hX+Vq6c0lera+2kj3Ba5hH/oMxLRynY=;
+	b=yDm/bbFlpt9RvBhyJKdrKmNZl3kdl7yPpudU3jynk02Vw4w4jxKoKkSieEvsvuP9PauI
+	 V5yjvW+rnxxR65kTWYs7ngbh+epPEO9ElvTm0T5IRYFMEbheY8rH2QXeKRvP2aigmqhpq
+	 2jZOiopeItTQn4/yJFE8TCWpt9iNGt3a6GPaTxwNCNC5ZfTA1XZnnWJCsh3h23A5368ml
+	 KNAIXxXFvYXmQN5Csh+iBfAxQMLoK34pAUiPjsA+wTugL3KoLqf7dLfRc+CnL00l1zzIe
+	 8xeekNnoxpT0qzDDwIPZj07b1BJregxOsy/4xnAEID6MAB8NFDd+l51Za5B9iCnRmkg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=collabora.com;
 	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=hMZMbxgX;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=J8YFFQ0a;
 	arc=none smtp.remote-ip=148.251.105.195
 Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A82C4606A324;
-	Fri, 27 Nov 2026 16:45:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A82C4606A324
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 330C0606A32F;
+	Fri, 27 Nov 2026 16:45:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 330C0606A32F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=hMZMbxgX
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=J8YFFQ0a
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795797954;
-	bh=L6rZvcWM1EhsZRVJ5/aUwEYKuvUsh9+nsLQFVzmMG7M=;
+	s=mail; t=1795797949;
+	bh=Ojr4CPkhMmvonRIHNhgph/1SQ75Ajo/2PT1nLoJMfng=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=hMZMbxgXT3mbhra3N6rQX9B1oSR1Cf2j4MhwgxKNwunaIj+6erhWva49h+QSuQ+gK
-	 Sts4VtKDLxYCBLApHIZylitJCXV91x2JcvAyk9/V8dBSExR7d4+t1wcWaI89udoUYF
-	 a1cKnrIF5N7Dmy23/zqqCIjDdXI2a8z9k2k2sinQtut1pYww1VCWXMf75EiTa4R1Zx
-	 Gbnq8prjbWK/2gg0/aiOfvtjLgjvwaZLUOTjRMKIhDc0NFCrVhkpxOgN8ltMPHZvAc
-	 87JtlUVM/wSXZ1KjoKRfgp+hrCyPtjDaHjpoOwM8PDQSu+QSGw+1y5qMPMjU1hhkKE
-	 +FZldVVotlIVw==
+	b=J8YFFQ0aUe4gZM0y9GtsFjGfErA4HSVCjwbflJNONTsK+FHkDPQwQdCcEZ3ycJItw
+	 LovaW/wXwR9GlBzioupxneGCONKP1yV6uiN99In+foU5KVE3/QX/LZpAiDR352Y99r
+	 cXIuLSRB9koyYflF0GOsak+Be796vMm7NASpP0KoxkcS0iL61Bsfj27+V8K8iCaEIc
+	 RCwd9s1CccSY9RmlKa1eRLMBgMRo+UF8PKV9zv+/xq7VaDxCIQQv/VC78T1BO73C3F
+	 Ptq+NWCedbrf5bFjhYiZpIGATIVndhqhJJhQrsURNYX/7/QfPNIjaYu/QCUjM6wMGG
+	 JYoXhgQ5OXXSQ==
 Received: from [192.168.0.15] (unknown [100.64.0.170])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 206BF17E010F;
-	Fri, 27 Nov 2026 17:45:52 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AEC0717E08C6;
+	Fri, 27 Nov 2026 17:45:47 +0100 (CET)
 From: Detlev Casanova <detlev.casanova@collabora.com>
-Date: Fri, 27 Nov 2026 11:45:11 -0500
-Subject: [PATCH v4 7/9] media: Add stream on/off traces and run them in the
- ioctl
+Date: Fri, 27 Nov 2026 11:45:09 -0500
+Subject: [PATCH v4 5/9] media: Add missing types to v4l2_ctrl_ptr
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,7 +64,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-v4l2-add-ftrace-v4-7-24138479002f@collabora.com>
+Message-Id: <20261127-v4l2-add-ftrace-v4-5-24138479002f@collabora.com>
 References: <20261127-v4l2-add-ftrace-v4-0-24138479002f@collabora.com>
 In-Reply-To: <20261127-v4l2-add-ftrace-v4-0-24138479002f@collabora.com>
 To: Daniel Almeida <daniel.almeida@collabora.com>, 
@@ -82,103 +81,39 @@ Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
  Detlev Casanova <detlev.casanova@collabora.com>
 X-Mailer: b4 0.15.2
 
-Automatically trace stream on/off events for all v4l2 drivers.
+The v4l2_ctrl_ptr union contains pointers for all control types, but
+v4l2_ctrl_hevc_decode_params and v4l2_ctrl_hevc_scaling_matrix are missing.
 
-The queue type is also logged so that userspace can identify the possible
-multiple stream on/off events per stream.
+Add them.
 
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 ---
- drivers/media/v4l2-core/v4l2-ioctl.c | 22 +++++++++++++++++++--
- include/trace/events/v4l2.h          | 37 ++++++++++++++++++++++++++++++++++++
- 2 files changed, 57 insertions(+), 2 deletions(-)
+ include/media/v4l2-ctrls.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
-index 29ca2f7959ef..71dec6618d08 100644
---- a/drivers/media/v4l2-core/v4l2-ioctl.c
-+++ b/drivers/media/v4l2-core/v4l2-ioctl.c
-@@ -1965,13 +1965,31 @@ static int v4l_try_fmt(const struct v4l2_ioctl_ops *ops, struct file *file,
- static int v4l_streamon(const struct v4l2_ioctl_ops *ops, struct file *file,
- 			void *arg)
- {
--	return ops->vidioc_streamon(file, NULL, *(unsigned int *)arg);
-+	struct v4l2_fh *fh = file_to_v4l2_fh(file);
-+	unsigned int type = *(unsigned int *)arg;
-+	int err;
-+
-+	err = ops->vidioc_streamon(file, NULL, type);
-+
-+	if (!err)
-+		trace_v4l2_streamon(fh->tgid, fh->fd, type);
-+
-+	return err;
- }
- 
- static int v4l_streamoff(const struct v4l2_ioctl_ops *ops, struct file *file,
- 			 void *arg)
- {
--	return ops->vidioc_streamoff(file, NULL, *(unsigned int *)arg);
-+	struct v4l2_fh *fh = file_to_v4l2_fh(file);
-+	unsigned int type = *(unsigned int *)arg;
-+	int err;
-+
-+	err = ops->vidioc_streamoff(file, NULL, type);
-+
-+	if (!err)
-+		trace_v4l2_streamoff(fh->tgid, fh->fd, type);
-+
-+	return err;
- }
- 
- static int v4l_g_tuner(const struct v4l2_ioctl_ops *ops, struct file *file,
-diff --git a/include/trace/events/v4l2.h b/include/trace/events/v4l2.h
-index 248bc09bfc99..b11293365123 100644
---- a/include/trace/events/v4l2.h
-+++ b/include/trace/events/v4l2.h
-@@ -262,6 +262,43 @@ DEFINE_EVENT(vb2_v4l2_event_class, vb2_v4l2_qbuf,
- 	TP_ARGS(q, vb)
- );
- 
-+/* Events for stream on/off.
-+ *
-+ * These events will be fired every time userspace starts or stops a stream.
-+ * tgid and fd are used to identify the process that opened the video device.
-+ * type is the &enum v4l2_buf_type of the queue being started or stopped.
-+ *
-+ * Note that this even can be fired multiple times for a given tgid/fd pair.
-+ * E.g.: mem2mem drivers expect stream on/off on both output and capture queues.
-+ */
-+DECLARE_EVENT_CLASS(v4l2_stream_class,
-+	TP_PROTO(u32 tgid, s32 fd, u32 type),
-+	TP_ARGS(tgid, fd, type),
-+
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(s32, fd)
-+			 __field(u32, type)
-+	),
-+
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->type = type;
-+	),
-+
-+	TP_printk("tgid = %u, fd = %d, type = %s",
-+		  __entry->tgid, __entry->fd, show_type(__entry->type))
-+);
-+
-+DEFINE_EVENT(v4l2_stream_class, v4l2_streamon,
-+	TP_PROTO(u32 tgid, s32 fd, u32 type),
-+	TP_ARGS(tgid, fd, type)
-+);
-+
-+DEFINE_EVENT(v4l2_stream_class, v4l2_streamoff,
-+	TP_PROTO(u32 tgid, s32 fd, u32 type),
-+	TP_ARGS(tgid, fd, type)
-+);
-+
- #endif /* if !defined(_TRACE_V4L2_H) || defined(TRACE_HEADER_MULTI_READ) */
- 
- /* This part must be outside protection */
+diff --git a/include/media/v4l2-ctrls.h b/include/media/v4l2-ctrls.h
+index cec9217d97ac..6e363262c868 100644
+--- a/include/media/v4l2-ctrls.h
++++ b/include/media/v4l2-ctrls.h
+@@ -49,6 +49,8 @@ struct video_device;
+  * @p_hevc_sps:			Pointer to an HEVC sequence parameter set structure.
+  * @p_hevc_pps:			Pointer to an HEVC picture parameter set structure.
+  * @p_hevc_slice_params:	Pointer to an HEVC slice parameters structure.
++ * @p_hevc_decode_params:	Pointer to an HEVC decode parameters structure.
++ * @p_hevc_scaling_matrix:	Pointer to an HEVC scaling matrix structure.
+  * @p_hdr10_cll:		Pointer to an HDR10 Content Light Level structure.
+  * @p_hdr10_mastering:		Pointer to an HDR10 Mastering Display structure.
+  * @p_area:			Pointer to an area.
+@@ -81,6 +83,8 @@ union v4l2_ctrl_ptr {
+ 	struct v4l2_ctrl_hevc_sps *p_hevc_sps;
+ 	struct v4l2_ctrl_hevc_pps *p_hevc_pps;
+ 	struct v4l2_ctrl_hevc_slice_params *p_hevc_slice_params;
++	struct v4l2_ctrl_hevc_decode_params *p_hevc_decode_params;
++	struct v4l2_ctrl_hevc_scaling_matrix *p_hevc_scaling_matrix;
+ 	struct v4l2_ctrl_vp9_compressed_hdr *p_vp9_compressed_hdr_probs;
+ 	struct v4l2_ctrl_vp9_frame *p_vp9_frame;
+ 	struct v4l2_ctrl_hdr10_cll_info *p_hdr10_cll;
 
 -- 
 2.56.1
