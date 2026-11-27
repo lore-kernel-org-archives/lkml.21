@@ -1,79 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.155
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795768553;
-	b=D+O/ckuMQ2U2bv/bD78GFnEM+vS5/lacMmsuAHNL51ugo9THdPDwm2CiulsLj8dLg/O6
-	 /2GIUPoAeZHhGe2uUA+Ie8Bxo2bPU5CwCvS1FVV9FeAYU3mVj+8dxLpuhE+DoVOcX1KGT
-	 NwFHnKgKgeleJ4vfd+CMglU+o2ROCsAjJkicPkxTW2GD4LPMkLVGRnFK6I2sSo3uVyqWN
-	 FTiILMk/Vdf5kP2QXawkU+zJ1UHrngSy2/VCqYUpE2stvZAgSS+sWnEw3bE93ub8ApV6H
-	 UtYWg2cQdo5vtashEtWcCnpQC6ego2mvdQp0xImOd6CeUWz/AeM9fMYNvYMXYvDYa+Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	b=UFm4dZIaQkI1uRCL2m/jACeoXNE71agIix3OgG5znzMLdRFry66DDbUDtITJpnFm7kyJ
+	 XguG2iqQJ/SH8nrGk0V2LKxVNnoweNHoUM+AXTQtNgixW9NWyHF/zy+FW/AkKbDgSddd3
+	 wlxu32HTk4v2VJs2ElHqxTZH4R9mcgU4VL1oT8C1tFw8AXRuDZ29ZpwZ3Zj3Lh1A8Bnz/
+	 SJdfI24iu3aECOvjqRh0wlGX/NTyG7vVFtbWXpyoNxVzmRfn4HktteeP9dnaUeKwrVUam
+	 LmZU0ArAeasXrywts94mob4s4asQVkfBgtGarhmbgNymq5Tyi8NONq+jQafvygF7svw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795768553;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=fLqf6YfOCjBaG4a1Aer12vUFt+59JHEWFYJtZISecp8=;
-	b=P6fT8qkeKWro4t00W887osySW+VsIJqsMIJcBDHz41p3y/PRt0Wqn8rtOPG5G0+su6Kn
-	 wMTL8Fh0l6DuR1YD3ZIPEVLprYpXar9KiOe9jKr2q9mUsVOrdr2rhB4nRW9V15JmJY3VG
-	 p2NIf1YmKqkksI6qE/M7joSf5g2X/7UCYjWM6GYMdUacNPf0nC8DP5hR6I/IXX13JHR7n
-	 kFSo/XGga2z1v1XIbgCtSyjc8yqaJcotnQI0usvK2apdfQPnCDoDLf4pNMlWOQMv3BFCj
-	 fMdcXVZgQiQKJqCtwUQ/qVLosbHtaqIP9P/XvqYHP9UDDlD6t4+v+rLYW5t+2mfsXuA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jOmI3KCJ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=2gExnDziqQCLCOyyBY+NmvOXjuQh1t7xPz+6DQ+plyY=;
+	b=pImPNQry0U9L6rZ5kla0iHjP4PALeUeVa8r4SXTn98dDnDGXaqFATOr0A9mOL+YaSuhh
+	 Q68EOTgZSQvRkztFKtH8JflEvBuOaYhRuedPaIedJeFn8CCK0Hv6gFihQZxTDtSjnzAf/
+	 MRQfA7mgI51SNARHdYvW0mOCrtMoH2KsDyrT7KVXewMycnxw8vlBGPy9ZLJiIxEILavYd
+	 gC4ncG7v4le2Y8QQiq6lIaHIC2TBisaOLeAtv5AxnZmLSHePOVrixzJE8z+ZEC0aNiF1+
+	 JgtRj1HqCX4ziaS7uPdsh6KuQPtby8A5hPGUVqT1XFnb4nNObwtxQS0KirLLeQVKEPw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=seanlyon.dev;
+	spf=pass smtp.mailfrom=seanlyon.dev;
+	dkim=pass header.d=seanlyon.dev header.i=@seanlyon.dev header.a=rsa-sha256 header.s=fm2 header.b=JtE+tbmN;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=g+jnpqDs;
+	arc=none smtp.remote-ip=103.168.172.155
+Received: from fhigh-a4-smtp.messagingengine.com (fhigh-a4-smtp.messagingengine.com [103.168.172.155])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A99E606A33B;
-	Fri, 27 Nov 2026 08:35:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD91A606A68E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:35:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD91A606A68E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=seanlyon.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=seanlyon.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jOmI3KCJ
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795768553;
-	b=pGAYvPnbM3BKUlAnjI0CZweyXK5w82Eo4+DKmKbEtuQBFk71pipxtVWuy7uzc0JI74j0
-	 S35lEYidXZl0mUbse5fWlYnhC554uWopa0Hlaau4Ssl5vl+Furib8M8bZQ5viel4FywY/
-	 aESgYWgvtyqBgivBR3YIiZ/iNbgIVlw8LA/PPC2rBZI4wEm1mcMYy3VWNdpOG5zkFNXal
-	 BBkxRrtYVsx10lQGsZ0n58sHhHGLhe4YG1gouc3B2j5h1VRWvtYDOFwZ2BhQ+AuCh/0ZG
-	 HyACZcV/oPBabVtgoR4BbkUZmm7toTxcJ4UVFFeJqHXEPQiB7AT6AtlW1L1FHKHkFjg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795768553;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=fLqf6YfOCjBaG4a1Aer12vUFt+59JHEWFYJtZISecp8=;
-	b=Ae4RsgxWMgx/kMW0S0gpLqywrMTQ5PFuMaiw5LBM/RqVzYbWmVtHuOYC9YrA+n69YDIR
-	 bEmKFTxxwXCV9v3xqL6cpIcw2etuNsOD0xOfVXHouwK3X4CRgV8hA8rIaGkzAjPdI0bUE
-	 vcow1f3MprDTziIODR4ldHDfFPrn6Mxu5sgOpXP7ts4lAeON9HPmbF0VpkgqWvgJrZEOB
-	 TTwnfD0OUCwYDoepVgkhibrTFFLODnq5X4NAUN4B7Lne5RXqQfbm3G75VyKGY2EMZrKgu
-	 ez0KYfrt81SF7ymrmkisTi0atyL2ePgDHNmAuHTYaJNrP1RoZINYha9NShdT1D2lw+g==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id D11B61F0089F;
-	Fri, 27 Nov 2026 08:35:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795768553;
-	bh=fLqf6YfOCjBaG4a1Aer12vUFt+59JHEWFYJtZISecp8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=jOmI3KCJvXtRyLKh4jgfswQexiSIK3nWkAMO61qAZIQMMrfJebWkTum4R9tU9GwMP
-	 ZUpBDZaItTDMs5onfynuU5OVYp3Un5/7jtdEPNOeRypFQPJ0y5iv27FgA7e1+ozf3l
-	 xvusN/hEshZ1Rz3RAABhoojlLiSP1prV4JLHm6VriaeizhG6MNGYPL14HzpxziJRq0
-	 LxbctX6HQFNhFyMBxCma35D0WPLJsvir0RZWCsOPPjiSVgQCkeHNWSv5HtlJECUdQY
-	 BVSDLgzGy7zqdnBFdQy4nTd5XZRsfB1pMAVe4mz8cK/mv6pfMiHPSJs9AJ58t+et4t
-	 GN8rmj4KXwXqA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id EFF3A4B64E;
-	Fri, 27 Nov 2026 08:35:28 +0000 (UTC)
-From: Murad Dadashev via B4 Relay <devnull+llamapersonaltv.gmail.com@kernel.org>
-Date: Fri, 27 Nov 2026 11:35:16 +0300
-Subject: [PATCH 05/10] wifi: mt76: mt7603: allow configuring TX and RX
- antennas separately
+	dkim=pass (2048-bit key, unprotected) header.d=seanlyon.dev header.i=@seanlyon.dev header.a=rsa-sha256 header.s=fm2 header.b=JtE+tbmN;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=g+jnpqDs
+Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id E6B2F1400348
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:35:51 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-11.internal (MEProxy); Fri, 27 Nov 2026 03:35:51 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=seanlyon.dev; h=
+	cc:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm2; t=1795768551; x=1795854951; bh=2gExnDziqQ
+	CLCOyyBY+NmvOXjuQh1t7xPz+6DQ+plyY=; b=JtE+tbmNziMNaO93RAJLljr9UW
+	iU+b7KrkXpHjOTp6jFDVkjRDjUxLhbUyx+N9bjA4TKhEW6PaJHSzQwdHS8G2JejE
+	XUin9HxNpxZsjBYzOLkqudRBAKa4N8r3LiWG8JVm438+z9MrCF1/8G1RiY9ER3vW
+	kaOOmO3w2Vi0nsXXvPScDAcyKrbxeIyjaCDhxJto6kHWgqFaZJDLtJPET5psyulI
+	+t9WufGuLd47qLgCfcC2joQssK3Fm/U+4GZvO6rTO6XKqIEGzOp0S51qe3or5BTy
+	hdNBlb/ALDoANFhxI6NC9vEq+GtnhlRLnHQCv45FMLO7eAaoTKzxHbzaCo0Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1795768551; x=1795854951; bh=2gExnDziqQCLCOyyBY+NmvOXjuQh1t7xPz+
+	6DQ+plyY=; b=g+jnpqDsqlBpvZONwehvJQMmClYUGx2knwQdsMbO4+qKiF6pBVO
+	At2eoxrtb0KNro68wC1uTQyvRDmN7e+bYG533lefrqBxQqO4Ysn2JFGFaGxuH0Ea
+	cRVlKvWt2GvL3o/VwnImhEnIRcKn/SwbjnRfpnxX8iUO7fAYW6Bp5K2njnzXQkwF
+	7O+QC5ViFquJu1L8zDnUP/8kISe6ehO97L4hfwv5byryiM3qMC9FgiQujGboFpf6
+	X6oW6k1XXfvLIpV8MJo+9ly4jW4SXcYFgBugu2u5ji9Xsu8VNYbH4n4kYZIPALu1
+	uPuNKjV6mWQsTXgMRdjJV8X0x0NKd3oddbQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=seanlyon.dev a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795768551; d=seanlyon.dev;
+	mf=PHNlYW5Ac2Vhbmx5b24uZGV2Pg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:amOF59YzIG1Uahjv8K1LRJg54bay+w2ATAkcbqACUjV1DZy
+	nzxGrsZTNcQ0n4oEd3W1OKbhsiy422uwLHkC+F0+5xpDG2hZDyP5E/Yhvy7KOglr
+	nuT/51qZP7S6pQh9lDg+gw4UzgKcSmFNKSCjHqRVgUnMxVDa8KIEbDxhC1VhqeSQ
+	jdBKjBOD+9UDWn/djsiUpvQSlQOVZq6788d+Ih91I4q2wmmOe7Kr15S+QigaLUu+
+	0hCZkHsIEgUbz10VVWuY/JR34Xu+RHO5eBNuU4TVp+bQ65d8c54YkCPF5TTdd9Vr
+	oD2YJy69nx0xPL0P96PYFd+W7vsjmydbU6yd0mw==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-disposition,content-type,date,feedback-id,from,
+	in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:0HH+WWnIssLmjrsR5pRxMSaIJ2DKYH2PiV8zt1WK4bM=:OLvQCrDXRome2oCJAbqXihGX1pPGBiEVaG5msmOY7GQ=;
+X-ME-Sender: <xms:50AJawvII7EtQhN3CZnpTORI7nB06iDFGfEAcEoQE8XwiLjDmKgQ3g>
+    <xme:50AJa5VdHWIgMoWNxtSK9Rsp4rrbRRcDOHxdRxIqjSnhRUzHlnPeoTHz2OOxVhUKT
+    7rdusvsGpkywCyBcUxO-sljLa-YoMQCXlwIHpB3otBCnkB7ba9BBoSJ>
+X-ME-Received: <xmr:50AJa3SdBK1XCbNQqft8EnNmKZT81Irhr6TZtSSK-mwS3g09TrmWhX-kOVVzSgqb5xIkujx49pApKIN-PV089rkMsPg>
+X-ME-Proxy-Cause: dmFkZTEPFTcbPrtJb2BDJpmV+LLckDLJ120FG/dSg5R9gIApwBSoWB5a3yow5Ny7VlMIc+
+    Vpf6MkxMJrn8byQ4qAbuxTB+fscGrNsYzjAOaOjwaDX4Mdec2sRl4e+tvaNvYTJyp2hZ87
+    9H1DvUeTvoJNmt6fAaqLGRl9lloU1osBcAOc4p4a5rLlIB/2Fl16SVuThXChlvNpkybBS9
+    VawgdRUxDJcj1K3Mop0YQNXPtlobss07/xHfFninC9ub3KbFT/EswPQpxsnSCTJy0Tpkzk
+    q3J+10m6WyzipM6/Qq12v9r8EJ1s2YW+gc3t0snCFKScShjozuTyZ5h4KBftTxZNjBHZkQ
+    ZJPBjySHok2+hjZpsTnUQOUKGPJunjkuKBSgzNcOVrAKqTqqNpJmqf44ccZCtiRhT0WC7Q
+    OAN4aElpBnQslYbXLQhWxD+UKrjBMdsYxvvWcV+U36DLgAlFiMpKUbQ5EOW9KEoKpHv+z1
+    XYhbiqgOSS6gx5JJeLI9dcF7hFLW4CfngBr0aSMARPifoTkPj8JePIc5j+deQxvoxhumGI
+    eXOLBx7RYn4QcC02qqeI9C+LLTEqKHBm4JQHjiglgXDwtVppFvE9gpKwC9nTyKhSyZdQp+
+    XP7/G9+viSC/q9rew0xfmRvcN9Q8HWQEJLX7/Rd7rU9Sr9zFcSpwTUfDePhg
+X-ME-Proxy: <xmx:50AJa3Is0OKyPL2d8E7LxELR1rlovtXCOQ_isZeruI4jrAib93R4HA>
+    <xmx:50AJa40RFesTBybewboMRcEDacHB0Ggexd3tLzu8cLSYWqdVghNZRQ>
+    <xmx:50AJa6K9FDrvC9KXd_MMR9Cd6R5rJbNOUBuHQmQIWqaJC9Dztk-rIw>
+    <xmx:50AJa4lrVrTGjP8JIXaaiX17J0QEUXu2A5cfImnuB-hFtLVijKmSew>
+    <xmx:50AJa9x3GLWOp5dpr82Th-B7iTneqfzsl1hzMisIsHlTDIKNdJhznN6Y>
+Feedback-ID: i07c64b5b:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 27 Nov 2026 03:35:50 -0500 (EST)
+Date: Fri, 27 Nov 2026 03:35:49 -0500
+From: Sean Lyon <sean@seanlyon.dev>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
+	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
+	patches@kernelci.org, lkft-triage@lists.linaro.org,
+	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
+	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
+	sr@sladewatkins.com
+Subject: Re: [PATCH 7.3 0000/1002] 7.3.7-rc2 review
+Message-ID: <awlA5QWvNxlXr58e@ncase>
+References: <20261126105729.110697432@linuxfoundation.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,172 +127,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-mt7603u-v1-5-369bee9846f8@gmail.com>
-References: <20261127-mt7603u-v1-0-369bee9846f8@gmail.com>
-In-Reply-To: <20261127-mt7603u-v1-0-369bee9846f8@gmail.com>
-To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
- Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, 
- Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Murad Dadashev <llamapersonaltv@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795768526; l=5149;
- i=llamapersonaltv@gmail.com; s=20261127; h=from:subject:message-id;
- bh=Y74MJP9ElQtXX28cMEHxNG9OMLyPAiUoKVMjMJdxzCY=;
- b=i9ttqsa4JnW0uDjs5F5uSWJ3DoWL5r2Efwf/TaN8rHBKjs8BzVEGJMvorbrxrN7dUxeO2L9g7
- ccunndeahLDDtGf2gSrrG4PoXEuNa7IUJVLCIfWIqUUGy5qKALg6fbn
-X-Developer-Key: i=llamapersonaltv@gmail.com; a=ed25519;
- pk=CeMIX207ioWRbMAA6A2GYgT+DpeVlKHVn7I0KjfHeCg=
-X-Endpoint-Received: by B4 Relay for llamapersonaltv@gmail.com/20261127
- with auth_id=1664
-X-Original-From: Murad Dadashev <llamapersonaltv@gmail.com>
-Reply-To: llamapersonaltv@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261126105729.110697432@linuxfoundation.org>
 
-From: Murad Dadashev <llamapersonaltv@gmail.com>
+On Thu, Nov 26, 2026 at 11:58:20AM +0100, Greg Kroah-Hartman wrote:
+> This is the start of the stable review cycle for the 7.3.7 release.
+> There are 1002 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
 
-Add set_antenna support with independent TX and RX chain masks. When
-fewer TX than RX chains are used, keep the RX MCS set and advertise the
-lower TX stream count through IEEE80211_HT_MCS_TX_RX_DIFF, so rate
-control does not pick rates the hardware cannot send.
+Built, booted, and tested on hardware for x86_64:
 
-This is useful for devices where one TX chain is not usable, which
-otherwise lose a large share of two-stream frames.
+- AMD Ryzen 9 5900X, Nvidia RTX 3080 (nouveau)
 
-Signed-off-by: Murad Dadashev <llamapersonaltv@gmail.com>
----
- drivers/net/wireless/mediatek/mt76/mt7603/eeprom.c |  1 +
- drivers/net/wireless/mediatek/mt76/mt7603/main.c   | 56 +++++++++++++++++++++-
- drivers/net/wireless/mediatek/mt76/mt7603/mcu.c    |  3 +-
- drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h |  2 +
- 4 files changed, 60 insertions(+), 2 deletions(-)
+No regressions found.
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/eeprom.c b/drivers/net/wireless/mediatek/mt76/mt7603/eeprom.c
-index 05f7aaefaf89b455681bf9e7e9a2440864aff4b5..28fd818428e1ce6f69866e7e192f62a952c6a80d 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7603/eeprom.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7603/eeprom.c
-@@ -183,6 +183,7 @@ int mt7603_eeprom_init(struct mt7603_dev *dev)
- 		dev->mphy.antenna_mask = 1;
- 
- 	dev->mphy.chainmask = dev->mphy.antenna_mask;
-+	dev->tx_ant = dev->mphy.antenna_mask;
- 
- 	return mt76_eeprom_override(&dev->mphy);
- }
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/main.c b/drivers/net/wireless/mediatek/mt76/mt7603/main.c
-index be4da5023e439a9e0f3386d1e2140464efad4e94..80dafe89e2c54c1148611b89c7cd65885214463c 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7603/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7603/main.c
-@@ -719,6 +719,59 @@ mt7603_sta_rate_tbl_update(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
- 	spin_unlock_bh(&dev->mt76.lock);
- }
- 
-+static int
-+mt7603_set_antenna(struct ieee80211_hw *hw, int radio_idx, u32 tx_ant,
-+		   u32 rx_ant)
-+{
-+	struct mt7603_dev *dev = hw->priv;
-+	struct mt76_phy *mphy = &dev->mphy;
-+	struct ieee80211_sta_ht_cap *ht_cap = &mphy->sband_2g.sband.ht_cap;
-+	u32 avail = hw->wiphy->available_antennas_tx;
-+	int n_tx = hweight8(tx_ant);
-+
-+	if (!tx_ant || !rx_ant || (tx_ant & ~rx_ant) || (rx_ant & ~avail))
-+		return -EINVAL;
-+
-+	if (BIT(n_tx) - 1 != tx_ant || BIT(hweight8(rx_ant)) - 1 != rx_ant)
-+		return -EINVAL;
-+
-+	mutex_lock(&dev->mt76.mutex);
-+
-+	mphy->antenna_mask = rx_ant;
-+	mphy->chainmask = rx_ant;
-+	dev->tx_ant = tx_ant;
-+	mt76_set_stream_caps(mphy, false);
-+
-+	ht_cap->mcs.tx_params = IEEE80211_HT_MCS_TX_DEFINED;
-+	if (tx_ant != rx_ant) {
-+		ht_cap->cap &= ~IEEE80211_HT_CAP_TX_STBC;
-+		ht_cap->mcs.tx_params |= IEEE80211_HT_MCS_TX_RX_DIFF |
-+			FIELD_PREP(IEEE80211_HT_MCS_TX_MAX_STREAMS_MASK,
-+				   n_tx - 1);
-+	}
-+
-+	if (test_bit(MT76_STATE_RUNNING, &mphy->state))
-+		mt7603_mcu_set_channel(dev);
-+
-+	mutex_unlock(&dev->mt76.mutex);
-+
-+	return 0;
-+}
-+
-+static int
-+mt7603_get_antenna(struct ieee80211_hw *hw, int radio_idx, u32 *tx_ant,
-+		   u32 *rx_ant)
-+{
-+	struct mt7603_dev *dev = hw->priv;
-+
-+	mutex_lock(&dev->mt76.mutex);
-+	*tx_ant = dev->tx_ant;
-+	*rx_ant = dev->mphy.antenna_mask;
-+	mutex_unlock(&dev->mt76.mutex);
-+
-+	return 0;
-+}
-+
- static void
- mt7603_set_coverage_class(struct ieee80211_hw *hw, int radio_idx,
- 			  s16 coverage_class)
-@@ -783,7 +836,8 @@ const struct ieee80211_ops mt7603_ops = {
- 	.set_coverage_class = mt7603_set_coverage_class,
- 	.set_tim = mt76_set_tim,
- 	.get_survey = mt76_get_survey,
--	.get_antenna = mt76_get_antenna,
-+	.get_antenna = mt7603_get_antenna,
-+	.set_antenna = mt7603_set_antenna,
- 	.set_sar_specs = mt7603_set_sar_specs,
- };
- EXPORT_SYMBOL_GPL(mt7603_ops);
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7603/mcu.c
-index eb633f5d7171e99a0339a2f44fa0ab39379642f1..cf81fc2e252a37e1d40c1f297b1c9688c054ca40 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7603/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7603/mcu.c
-@@ -397,6 +397,7 @@ int mt7603_mcu_set_channel(struct mt7603_dev *dev)
- 	struct cfg80211_chan_def *chandef = &dev->mphy.chandef;
- 	struct ieee80211_hw *hw = mt76_hw(dev);
- 	int n_chains = hweight8(dev->mphy.antenna_mask);
-+	int n_tx = hweight8(dev->tx_ant);
- 	struct {
- 		u8 control_chan;
- 		u8 center_chan;
-@@ -410,7 +411,7 @@ int mt7603_mcu_set_channel(struct mt7603_dev *dev)
- 		.control_chan = chandef->chan->hw_value,
- 		.center_chan = chandef->chan->hw_value,
- 		.bw = MT_BW_20,
--		.tx_streams = n_chains,
-+		.tx_streams = n_tx,
- 		.rx_streams = n_chains,
- 	};
- 	s8 tx_power = hw->conf.power_level * 2;
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h b/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
-index f91968a63b6497460a26fed7d775f3745269bfa7..8559a1ee06cd79a00ec4e382065f24f5180a8a21 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
-@@ -108,6 +108,8 @@ struct mt7603_dev {
- 
- 	const struct mt76_bus_ops *bus_ops;
- 
-+	u8 tx_ant;
-+
- 	u32 rxfilter;
- 
- 	struct mt7603_sta global_sta;
+Tested-by: Sean Lyon <sean@seanlyon.dev>
 
--- 
-2.47.3
-
-
+Thanks!
+Sean
