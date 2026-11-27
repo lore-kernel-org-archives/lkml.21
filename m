@@ -1,54 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795793260;
-	b=EaAQ0wcsrd8LjTYv3sRly4YHE47977AZEdgCY6fXPkJWiLypbka2xAS+x1N9D/Zi1XPC
-	 4nLIdU9z0cfjt7t9xeyyLVna2WI7mLIRj/1T44AbYGKwshUHn5CJGq4PX70VXSc7VwxOQ
-	 T9kZO9KPR60/sPsfcpTnynp42CUpipdd2pHD5Cehu6zIDcvBikRrAs9KdHCd01vtm19bQ
-	 nvGVHfH8tFJEG42zSI7Uvw924LwI8/X9W9K1cfJ8ul+SnlCQyk1b9EvXsvEF/B8GydOh6
-	 RH7JhstBpqdHajilSImlQaebXFDUQsauoD97MESsm/fCGCj0/Egv/de7eWHISfE2WZg==
+	b=CdQUw8I6PKp7vc6g3lhNGISnfd73OC2af3uYmKL9GAiMAy1bwVF2UEl3BmO1fNSka1/4
+	 wHsiVaNnex1e/XM2dq6QGLTG+PHPVKCo9ZAzQWRxk/ZUwVuZNLBsnLfEEmTUZp/lR2ZsV
+	 MYUCGcHDFO5ujTPUI4xSQEwF3ZkaLerAIqWmWp81HYKkn3pw4hS0IasM+ZFRyh6VLScnU
+	 aiYHJxq1bd22btBKCLX1tr1gJDThf92krJqKdMPfoEMR6bcis5j7sS4eeIauD6NP0Lj3y
+	 l3vdJbFMmBTOxSCrn4okPB61sVEIzPPT7lGqL4FmmAytddRc82M3kKXcvjQ+Bx3S/mw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795793260;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:Sender:X-SRS-Rewrite;
-	bh=Ukx0O8oxDW21L8q50oPdnx4Z+HK1r/B4WyzP7b5ZREw=;
-	b=LWONI/10yZv9Z07ulcRcHZ1Kna3nRt2ePnt4JhEkafUOFaANqBuTGK5gwx53fFLfiPr5
-	 XUbNgROxFw+LTD6vc/xM1HQ8t8Oc2dLi8IF+5w4oTJdBv/xXXxkb+xklyiDL+ZHisX6bo
-	 BzZE36QgORb6pyJcWdISPcui67kPJKoW9b3NPcOGszRTzMMVlivkV1bKgeAxjYxOVGwwC
-	 rdk9YLOvNmT4Y76WeO9fkh95I3QbySH8yT9/iAYEqbf67eVb070EMedQR2/hkbQM7JLvh
-	 oq4nt6QmfJfW2COzLIPq5yFg67sSRchX4ypXGl7ZhB5HHfyqAXb9iv3BZ2Z2l8ZTnig==
+	bh=1BsiWFpQn5takhG8tcqf/7xB4zmGy3GbEtI5gNdaBYA=;
+	b=vp101/RkCk9lQCPJZfLMJTNHP9sj9iQ0uQg+ObzmH8/vypJvo/gY7YsIAE3ODp2BuuE9
+	 lt1taQC+dn8Z3XX3Fb/p51Cw6CJ+/+tYIOU2E9YJhSI4QOudN27mDB0x7bK8bgrdKD8jn
+	 nabdnDwjKAjfzxMirpaYLpW78QnE3tP/94UVt03KwrXsFXnwrsNHkyCQs0rTz4Vynd2C9
+	 b9L6c0dD7HwQcZ4xSjWjDziHxbQV20rN1ZOaKRqKCdNgwnNBp3fO4rZlaMwfLBFPTIwW+
+	 MKAXinOxyiomdEsQiDjTpzMtRvZAGZdLHlCmVd6Qj2YfiR8tE1ZMv+e8Qx7zky855oQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=infradead.org;
 	spf=none smtp.mailfrom=desiato.srs.infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=AGIAV6t9;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b="NSW/inQz";
 	arc=none smtp.remote-ip=90.155.92.199
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDF0A60A2621;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDCE960A261A;
 	Fri, 27 Nov 2026 15:27:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDF0A60A2621
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDCE960A261A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=desiato.srs.infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=AGIAV6t9
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=NSW/inQz
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description;
-	bh=Ukx0O8oxDW21L8q50oPdnx4Z+HK1r/B4WyzP7b5ZREw=; b=AGIAV6t9bmEm+y2qKa4Rb7ivwP
-	vJYRxMDIKHoUfQ2ZkhGgfkpuJv/UNvgO7NTs8Tfnpp7Us/pX6y3NBj0NOhDk6lD3Lx7cMiAgGBI9/
-	wgTBf2nk78bdBhzci3rR8VCgb1H4V5IgxrK4uoUD3/9gjw02GC1XszVXpzSvDkFe0YxqV/pOsddVV
-	6dBRTBv+CfIspstV5BtgVJDoCvLXKKUfncPIOsTmoWFjw/tuicvrdNCV3rLf2NDOB0oXq/d548eIi
-	RC3cc3fX2nQogN0U4aptTQpww32IR9d8pmDv94f3lu/Q2hwhrLJ0x1p9yA08B5a2HfuUBkK408gxT
-	SeJnnUGA==;
+	bh=1BsiWFpQn5takhG8tcqf/7xB4zmGy3GbEtI5gNdaBYA=; b=NSW/inQzjTkQnljtiht0JG+mgl
+	Lsu2flLp3tES4Ob4V4DGNMu1yNiG4cbsicyf6O1epMRP9zM3QYl1k+7WxaQrASl47E4xL/uHOH30f
+	boSNti7b1NR+jP6rjCZVLdvqer9dJz2Fg7CQskffXaQ7lKnRjFhqK9UvDQY2rLJzf50K8Zla4BEIj
+	chLBsy4RQyDe5xis/u6JFknc9q2Ffn3+4zfmFf1Cz3YnMR/EEjcHk7Kr7ZeAAuswb7F/M63DdrK1O
+	/vpQP/psh2uOauoY0FY7QXoV3rIjmrHyvIXZqOXllovBnZooK53ylo7TuGzT+y9RjTgYYd+OisHB2
+	fwWH3cKg==;
 Received: from [2001:8b0:10b:1::425] (helo=i7.infradead.org)
 	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWxrJ-00000007tkp-2EIE;
+	id 1xWxrJ-00000007tkk-2EcX;
 	Fri, 27 Nov 2026 15:27:33 +0000
 Received: from dwoodhou by i7.infradead.org with local (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xWxrG-00000000Pqe-2lLX;
+	id 1xWxrG-00000000Pq4-0p3Y;
 	Fri, 27 Nov 2026 15:27:30 +0000
 From: David Woodhouse <dwmw2@infradead.org>
 To: kvm@vger.kernel.org
@@ -89,9 +89,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Liran Alon <liran.alon@oracle.com>,
 	Arbel Moshe <arbel.moshe@oracle.com>,
 	David Woodhouse <dwmw@amazon.co.uk>
-Subject: [PATCH v3 10/15] KVM: x86: Filter emulated CR0 and CR4 writes
-Date: Fri, 27 Nov 2026 15:27:25 +0000
-Message-ID: <20261127152730.99319-11-dwmw2@infradead.org>
+Subject: [PATCH v3 01/15] KVM: selftests: Make the x86 SSE register helpers volatile
+Date: Fri, 27 Nov 2026 15:27:16 +0000
+Message-ID: <20261127152730.99319-2-dwmw2@infradead.org>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20261127152730.99319-1-dwmw2@infradead.org>
 References: <20261127152730.99319-1-dwmw2@infradead.org>
@@ -110,147 +110,116 @@ X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato
 
 From: David Woodhouse <dwmw@amazon.co.uk>
 
-MOV to CR, CLTS and LMSW can reach the emulator instead of the vendor
-fast paths.  Check the filter in those three handlers, not in
-->set_cr(), which RSM and task switches use too.
+read_sse_reg() and write_sse_reg() were borrowed from KVM's
+_kvm_read_sse_reg() and _kvm_write_sse_reg(). The kernel is built
+without SSE, so the compiler never uses the XMM registers itself and a
+plain asm() is enough there. Selftest guest code is built with SSE, and
+there the asm statements have to tell the compiler what they do.
 
-The emulator retires what it raised, as it does for XSETBV.  Nothing
-can arm a CR0 or CR4 filter yet: the vendor patches which follow
-advertise them, and SVM leans on the emulator where it lacks decode
-assists or NextRIP.
+read_sse_reg() has an output and is not volatile, so the compiler may
+treat it as a pure computation and move it, for example ahead of the
+hypercall whose XMM output it is meant to read. write_sse_reg() has no
+outputs and is therefore implicitly volatile, but it doesn't declare the
+register it overwrites, so a value the compiler was keeping there does
+not survive.
 
+Mark both volatile, and declare the register each write_sse_reg() case
+writes as clobbered. A read_sse_reg() after __hyperv_hypercall() now
+stays after it.
+
+That still leaves the compiler free to use an XMM register for its own
+code between a write_sse_reg() and the asm which consumes it.
+hyperv_write_xmm_input() in the hyperv_ipi and hyperv_tlb_flush tests
+relies on that not happening; GCC 11.5 at -O2 emits nothing there.
+Closing that window entirely would mean passing the XMM values as
+operands of the hypercall asm itself.
+
+Fixes: 676a863ce605 ("KVM: selftests: Better XMM read/write helpers")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/all/sashiko-outbox-209724@kernel.org/
 Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
 ---
- arch/x86/kvm/emulate.c     | 21 +++++++++++++++++++--
- arch/x86/kvm/kvm_emulate.h | 10 ++++++++++
- arch/x86/kvm/x86.c         | 37 +++++++++++++++++++++++++++++++++++++
- 3 files changed, 66 insertions(+), 2 deletions(-)
+ .../selftests/kvm/include/x86/processor.h     | 32 +++++++++----------
+ 1 file changed, 16 insertions(+), 16 deletions(-)
 
-diff --git a/arch/x86/kvm/emulate.c b/arch/x86/kvm/emulate.c
-index 465b7d402f75..9a4aebcccc95 100644
---- a/arch/x86/kvm/emulate.c
-+++ b/arch/x86/kvm/emulate.c
-@@ -3252,6 +3252,10 @@ static int em_cr_write(struct x86_emulate_ctxt *ctxt)
- 	int cr_num = ctxt->modrm_reg;
- 	int r;
- 
-+	r = ctxt->ops->filter_cr_write(ctxt, cr_num, ctxt->src.val);
-+	if (r != X86EMUL_CONTINUE)
-+		return r;
-+
- 	if (ctxt->ops->set_cr(ctxt, cr_num, ctxt->src.val))
- 		return emulate_gp(ctxt, 0);
- 
-@@ -3409,9 +3413,15 @@ static int em_invlpg(struct x86_emulate_ctxt *ctxt)
- static int em_clts(struct x86_emulate_ctxt *ctxt)
+diff --git a/tools/testing/selftests/kvm/include/x86/processor.h b/tools/testing/selftests/kvm/include/x86/processor.h
+index 5898a277a2e0..571f8a602edd 100644
+--- a/tools/testing/selftests/kvm/include/x86/processor.h
++++ b/tools/testing/selftests/kvm/include/x86/processor.h
+@@ -866,28 +866,28 @@ static inline void read_sse_reg(int reg, sse128_t *data)
  {
- 	ulong cr0;
-+	int r;
- 
- 	cr0 = ctxt->ops->get_cr(ctxt, 0);
- 	cr0 &= ~X86_CR0_TS;
-+
-+	r = ctxt->ops->filter_cr_write(ctxt, 0, cr0);
-+	if (r != X86EMUL_CONTINUE)
-+		return r;
-+
- 	ctxt->ops->set_cr(ctxt, 0, cr0);
- 	return X86EMUL_CONTINUE;
- }
-@@ -3512,8 +3522,15 @@ static int em_smsw(struct x86_emulate_ctxt *ctxt)
- 
- static int em_lmsw(struct x86_emulate_ctxt *ctxt)
+ 	switch (reg) {
+ 	case 0:
+-		asm("movdqa %%xmm0, %0" : "=m"(*data));
++		asm volatile("movdqa %%xmm0, %0" : "=m"(*data));
+ 		break;
+ 	case 1:
+-		asm("movdqa %%xmm1, %0" : "=m"(*data));
++		asm volatile("movdqa %%xmm1, %0" : "=m"(*data));
+ 		break;
+ 	case 2:
+-		asm("movdqa %%xmm2, %0" : "=m"(*data));
++		asm volatile("movdqa %%xmm2, %0" : "=m"(*data));
+ 		break;
+ 	case 3:
+-		asm("movdqa %%xmm3, %0" : "=m"(*data));
++		asm volatile("movdqa %%xmm3, %0" : "=m"(*data));
+ 		break;
+ 	case 4:
+-		asm("movdqa %%xmm4, %0" : "=m"(*data));
++		asm volatile("movdqa %%xmm4, %0" : "=m"(*data));
+ 		break;
+ 	case 5:
+-		asm("movdqa %%xmm5, %0" : "=m"(*data));
++		asm volatile("movdqa %%xmm5, %0" : "=m"(*data));
+ 		break;
+ 	case 6:
+-		asm("movdqa %%xmm6, %0" : "=m"(*data));
++		asm volatile("movdqa %%xmm6, %0" : "=m"(*data));
+ 		break;
+ 	case 7:
+-		asm("movdqa %%xmm7, %0" : "=m"(*data));
++		asm volatile("movdqa %%xmm7, %0" : "=m"(*data));
+ 		break;
+ 	default:
+ 		BUG();
+@@ -898,28 +898,28 @@ static inline void write_sse_reg(int reg, const sse128_t *data)
  {
--	ctxt->ops->set_cr(ctxt, 0, (ctxt->ops->get_cr(ctxt, 0) & ~0x0eul)
--			  | (ctxt->src.val & 0x0f));
-+	ulong cr0 = (ctxt->ops->get_cr(ctxt, 0) & ~0x0eul) |
-+		    (ctxt->src.val & 0x0f);
-+	int r;
-+
-+	r = ctxt->ops->filter_cr_write(ctxt, 0, cr0);
-+	if (r != X86EMUL_CONTINUE)
-+		return r;
-+
-+	ctxt->ops->set_cr(ctxt, 0, cr0);
- 	ctxt->dst.type = OP_NONE;
- 	return X86EMUL_CONTINUE;
- }
-diff --git a/arch/x86/kvm/kvm_emulate.h b/arch/x86/kvm/kvm_emulate.h
-index 5e18c0cc7f60..311ff6a01079 100644
---- a/arch/x86/kvm/kvm_emulate.h
-+++ b/arch/x86/kvm/kvm_emulate.h
-@@ -214,6 +214,16 @@ struct x86_emulate_ops {
- 	void (*set_idt)(struct x86_emulate_ctxt *ctxt, struct desc_ptr *dt);
- 	ulong (*get_cr)(struct x86_emulate_ctxt *ctxt, int cr);
- 	int (*set_cr)(struct x86_emulate_ctxt *ctxt, int cr, ulong val);
-+	/*
-+	 * Check a guest control register write against the vCPU's write
-+	 * filters (KVM_X86_SET_REG_WRITE_FILTER) before performing it.
-+	 * Returns X86EMUL_CONTINUE when the write is to be applied, or
-+	 * X86EMUL_IO_NEEDED after setting up a KVM_EXIT_X86_REG_WRITE exit;
-+	 * the emulation is then abandoned with no architectural effect, and
-+	 * the exit's completion retires the instruction.
-+	 */
-+	int (*filter_cr_write)(struct x86_emulate_ctxt *ctxt, int cr,
-+			       ulong val);
- 	int (*cpl)(struct x86_emulate_ctxt *ctxt);
- 	ulong (*get_effective_dr7)(struct x86_emulate_ctxt *ctxt);
- 	ulong (*get_dr)(struct x86_emulate_ctxt *ctxt, int dr);
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index b559c7880e54..4e6f0cb80288 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -5846,6 +5846,42 @@ static int emulator_filter_xcr_write(struct x86_emulate_ctxt *ctxt, u32 index,
- 				       vcpu->arch.xcr0, xcr);
- }
- 
-+/*
-+ * Divert an emulated CR0/CR4 write into a KVM_EXIT_X86_REG_WRITE exit when
-+ * it hits a write filter.  Called by the instruction handlers (MOV to CR,
-+ * CLTS, LMSW) before any architectural effect; state loads that reach
-+ * ->set_cr() on other instructions' behalf (RSM, task switches) are not
-+ * guest register writes and stay unfiltered.
-+ */
-+static int emulator_filter_cr_write(struct x86_emulate_ctxt *ctxt, int cr,
-+				    ulong val)
-+{
-+	struct kvm_vcpu *vcpu = emul_to_vcpu(ctxt);
-+	u64 old_value, new_value;
-+	u32 reg;
-+
-+	switch (cr) {
-+	case 0:
-+		reg = KVM_X86_REG_FILTER_CR0;
-+		old_value = kvm_read_cr0(vcpu);
-+		break;
-+	case 4:
-+		reg = KVM_X86_REG_FILTER_CR4;
-+		old_value = kvm_read_cr4(vcpu);
-+		break;
-+	default:
-+		return X86EMUL_CONTINUE;
-+	}
-+
-+	/* Match the merge emulator_set_cr() will do with the same value. */
-+	new_value = mk_cr_64(old_value, val);
-+
-+	if (!kvm_reg_write_filtered(vcpu, reg, old_value, new_value))
-+		return X86EMUL_CONTINUE;
-+
-+	return emulator_reg_write_exit(ctxt, reg, old_value, new_value);
-+}
-+
- static int emulator_get_cpl(struct x86_emulate_ctxt *ctxt)
- {
- 	return kvm_x86_call(get_cpl)(emul_to_vcpu(ctxt));
-@@ -6118,6 +6154,7 @@ static const struct x86_emulate_ops emulate_ops = {
- 	.set_idt	     = emulator_set_idt,
- 	.get_cr              = emulator_get_cr,
- 	.set_cr              = emulator_set_cr,
-+	.filter_cr_write     = emulator_filter_cr_write,
- 	.cpl                 = emulator_get_cpl,
- 	.get_effective_dr7   = emulator_get_effective_dr7,
- 	.get_dr              = emulator_get_dr,
+ 	switch (reg) {
+ 	case 0:
+-		asm("movdqa %0, %%xmm0" : : "m"(*data));
++		asm volatile("movdqa %0, %%xmm0" : : "m"(*data) : "xmm0");
+ 		break;
+ 	case 1:
+-		asm("movdqa %0, %%xmm1" : : "m"(*data));
++		asm volatile("movdqa %0, %%xmm1" : : "m"(*data) : "xmm1");
+ 		break;
+ 	case 2:
+-		asm("movdqa %0, %%xmm2" : : "m"(*data));
++		asm volatile("movdqa %0, %%xmm2" : : "m"(*data) : "xmm2");
+ 		break;
+ 	case 3:
+-		asm("movdqa %0, %%xmm3" : : "m"(*data));
++		asm volatile("movdqa %0, %%xmm3" : : "m"(*data) : "xmm3");
+ 		break;
+ 	case 4:
+-		asm("movdqa %0, %%xmm4" : : "m"(*data));
++		asm volatile("movdqa %0, %%xmm4" : : "m"(*data) : "xmm4");
+ 		break;
+ 	case 5:
+-		asm("movdqa %0, %%xmm5" : : "m"(*data));
++		asm volatile("movdqa %0, %%xmm5" : : "m"(*data) : "xmm5");
+ 		break;
+ 	case 6:
+-		asm("movdqa %0, %%xmm6" : : "m"(*data));
++		asm volatile("movdqa %0, %%xmm6" : : "m"(*data) : "xmm6");
+ 		break;
+ 	case 7:
+-		asm("movdqa %0, %%xmm7" : : "m"(*data));
++		asm volatile("movdqa %0, %%xmm7" : : "m"(*data) : "xmm7");
+ 		break;
+ 	default:
+ 		BUG();
 -- 
 2.50.1
 
