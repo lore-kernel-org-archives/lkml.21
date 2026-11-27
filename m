@@ -1,122 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795788238;
-	b=2ouNtIJXBuWuEMe2ZfCsnrlirvLJE6qM4yBO4dFhwZKFvrV+okI1pYFeqBuxV9qT+6dd
-	 gvkYnComwnvwDhemnwCaQUf68bLWUulBytgRDTEPs9f+Dz8FZolH1rXGISZ3ofnUdWvHA
-	 HLw1m5dDvfLRzj44nuieokTHzEcBp0e5/xO1ECA7KVuL7xRX68tID7OOUWaxTytQzXxN6
-	 RsXTwf8XAt+a+jiNga6dG3l4vfoQhpdk8AUfHHERrgiYlhFXJ6dmGeqR1rsB03UH+jK0F
-	 sI0uMvupuJQ+d2HIVXQTzz5xspq800alt/ggz3hguhV46QARIU9rIi0/R/6DHe5n2Uw==
+	t=1795788243;
+	b=OYH8YXz5E7m3CEFzdUqiKizO0aaf6OuZ6wSZlv5aM16q8I8ZhtPs+08os0vMcqJPthkt
+	 cDuVzRNsuovHcc92hx6XXx7P2a33k6CLEipEn4yvG90hClmVroBpfZ/0aSRncO5HJyU+N
+	 MoNzzPBnkO/IXmpym2CCtO9iVqlISE8p1m7Zz6HnhtoWuVJ4kj4/ke3wU3RqKF+v+eDhb
+	 aQmmw2/sU6vvwH2z5cb2h0M0EbJVzlhMqLNa3Bbu8TNSkjZ3vfLBTWiDrfEx0tWNyAk7C
+	 KArX/D9e56pL6DDq1c2oSLPwanlwBlCScDx4b17Kt2RcvZ2gVKX79d+WjmXBBJAoDiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795788238;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-Spamd-Result:X-Rspamd-Server:
-	 X-Rspamd-Action:X-Spam-Flag:X-Spam-Score:X-Spam-Level:
-	 X-Rspamd-Queue-Id;
-	bh=0OW9ZyYKCZqKZl7q7CogLU0g5vabU4+IWXGGAbZVYHU=;
-	b=vZzYYg1VI+gucvPiTKR6qG8BD9KcPPZfddA814ZFUJBnDLdpxWAytHzcfgywARskEHL8
-	 9R4qj+xg3iQa7jQPbQYu6dadk1LSM/EjoQUNwPxqMhFUuKcaVxzLhxhbsBciWckLrMQ+x
-	 SY7O00cyG0ZxEvNGmX1ghKgl0YREfsd+PsCfpVDUqEgY6MvmdXnK0xggg1d6uD+MVclRH
-	 dRUembXILpVnl6mGz/GJ0hBu5mJOXuBLsgcIBgs4vIdGNo0Hoan+Ol+EGO6yPX1vT88NI
-	 b0b11bX9yBcSiWluEXDK+lsACo5HjDvIhp5o4WSqBwjFsdC1jtdRuvgQ1JXe5JnbeRQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795788243;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:From:To:Cc:References:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
+	 UI-OutboundReport;
+	bh=dIzYnYYMaTwzjShAcLVHdry4SlK5tN0cpNluHURwl50=;
+	b=YMn9gd/4f8vKvlKK1a1fearTXY+v6N8Cai3qAIjFCvd8gFJAomCpfkvxVQ91UH+NUQuE
+	 b4jJsqB9NN2kmvarYDr8nmQRgOp5hOcqERd3LLCbAyv59LNLmB7djGrOXemm/3UYDXJJA
+	 pI7p5PiO0O64XEgAY232+/GThgDYDGjNjDRg8B2UqyeLM1hFuwe+hlaZ4thBt7uvC06ga
+	 s/giAh4vtThvn5nBXWR/7pbhA7zAJlfW7qoB8Ci26MyiuOAWsR4UHbkdulL7Q9pUDb5+x
+	 SQ6DSnxeD5RKeGeGHT2zAToFh3A8cqiDeusIhRUF6LY8U/2s0HTXtsW9x01ZOhi1Ggw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=suse.cz;
-	spf=pass smtp.mailfrom=suse.cz;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=YYuncEyD;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=v5uXmNcI;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=YYuncEyD;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=v5uXmNcI;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	dmarc=pass header.from=web.de;
+	spf=pass smtp.mailfrom=web.de;
+	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=jqRqdO31;
+	arc=none smtp.remote-ip=212.227.15.14
+Received: from mout.web.de (mout.web.de [212.227.15.14])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A8A5606A31C;
-	Fri, 27 Nov 2026 14:03:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A8A5606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B8F8606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:04:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B8F8606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=YYuncEyD;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=v5uXmNcI;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=YYuncEyD;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=v5uXmNcI
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 0E32722961;
-	Fri, 27 Nov 2026 14:03:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795788235; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0OW9ZyYKCZqKZl7q7CogLU0g5vabU4+IWXGGAbZVYHU=;
-	b=YYuncEyDn1wtqVyok+7Q59Z450F1SQyTK3SDOw2ooP5SYrqg2sgNf0AHuNTHSfTmWFDOWn
-	u1/eRz4SU3L3WjQN/kes1KlLSSvf9kvxM6nivptijw84XVi/6tSu2IP/jMGkl7n1ZTi9cJ
-	6/tCDmiN+KHXxCiKBGw9TOf1t372gA4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795788235;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0OW9ZyYKCZqKZl7q7CogLU0g5vabU4+IWXGGAbZVYHU=;
-	b=v5uXmNcIicdyrsxm/th/Y76Tj3lI7oFbLoLU0bqg8g8bsX9Q0uvMtoH5t/NIgkWcbLv5G6
-	VZ4RlipNmWYAvOAw==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=YYuncEyD;
-	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=v5uXmNcI
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795788235; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0OW9ZyYKCZqKZl7q7CogLU0g5vabU4+IWXGGAbZVYHU=;
-	b=YYuncEyDn1wtqVyok+7Q59Z450F1SQyTK3SDOw2ooP5SYrqg2sgNf0AHuNTHSfTmWFDOWn
-	u1/eRz4SU3L3WjQN/kes1KlLSSvf9kvxM6nivptijw84XVi/6tSu2IP/jMGkl7n1ZTi9cJ
-	6/tCDmiN+KHXxCiKBGw9TOf1t372gA4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795788235;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0OW9ZyYKCZqKZl7q7CogLU0g5vabU4+IWXGGAbZVYHU=;
-	b=v5uXmNcIicdyrsxm/th/Y76Tj3lI7oFbLoLU0bqg8g8bsX9Q0uvMtoH5t/NIgkWcbLv5G6
-	VZ4RlipNmWYAvOAw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id DF5B013432;
-	Fri, 27 Nov 2026 14:03:54 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id XMIiLsqNCWs0OgAAD6G6ig
-	(envelope-from <jack@suse.cz>); Fri, 27 Nov 2026 14:03:54 +0000
-Received: by quack.suse.cz (Postfix, from userid 1000)
-	id 719225103D; Fri, 27 Nov 2026 15:03:50 +0100 (CET)
-Date: Fri, 27 Nov 2026 15:03:50 +0100
-From: Jan Kara <jack@suse.cz>
-To: Amir Goldstein <amir73il@gmail.com>
-Cc: Jan Kara <jack@suse.cz>, NeilBrown <neil@brown.name>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, Ian Kent <raven@themaw.net>, 
-	Jake Edge <jake@lwn.net>
-Subject: Re: [PATCH v6 0/5] Fix easy bits of the negative dentry problem
-Message-ID: <64zxzak73c7rm7kog2wd3akdgpuksyayz5ncl4rbc3h4epo5pi@ujzmtg5c5245>
-References: <20261123221410.3328780-1-neilb@ownmail.net>
- <179550252639.1728055.4014817916838632741@noble.neil.brown.name>
- <CAOQ4uxgF6=QoD9RoAOPmxtvkq1jWf+gG1AsJzR=Kt3ROMA=X0g@mail.gmail.com>
- <aau5z6kck6a2efcjvzrt6gno6ljs4eioncgizeh7vfbc6ipkr3@hjxzdk5pvgmt>
- <CAOQ4uxjXP4Zegb2Vgsv-yBeFmhvc8FT2bDKDcaM_t0=oJ5KpXQ@mail.gmail.com>
- <sc6xnwguimy23dexr3eosbe64xmmewn5ml5gso4m5xozw6fqlt@2hji64vi7eaw>
- <CAOQ4uxisP8YTUaexsXw4-Fxg0vand236cg5eDKirLm=kuDwSQQ@mail.gmail.com>
- <dy726gpfomckyt3se66pkdfj7qlsvmu4ysr666h3w5hxkay3l3@ibdy5kcibpjn>
- <CAOQ4uxiZtxa75j8+wSSfYZFrAvwDuo8ZfYh5+07n+mZfSsa2mA@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=jqRqdO31
+DKIM2-Signature:  i=1; m=1; t=1795788240;
+ mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=web.de;
+ s=s29768273:rsa-sha256:CUngTFFWJfN3NY9DM3Cl/VhhbpWo
+   bbLnbZkgDMvXni/JyWC6wlaDwnhryEdbkIvabKGZBwnQYS0gt1K2Gv3E/VnouQNviWAr5eU3IIV
+   iv0WZ4nkuhZCLTp3p07RkO3XLKPQcUwAu6/xx8oPBs9deMNJEw5+xSynpp9WnbxnG57lo8UV7Ct
+   ToI90pfqOdSb34Iev7j7nc+rL+ict2QY/r4UyRpaHwkPBGEHFTAoz1J60bB2cWnPWCHVu2s9wg7
+   TrpnNM8noSXfYyKkNjWBz0PyH2a9QNasoAviBRFaFIaUFms+XfHl7hyQlUdYjN1yB0yy7/G5ueb
+   wSqBVS6BE7WteQ==;
+Message-Instance:  m=1;
+ h=sha256:
+   9carCh/p8G0Kq7K/FIShjOOBTeRx8klOmz9ddy59CdE=:
+   u2u+zc7bg+6jtjIvPM4tFXQCWko7YDRluawfrzPIFrs=,
+  sha512:
+   SjGwCDit0KiyWSmxoAtsvWJAxyOqs7VoBw7GXVSIfURsUqU8AGrj89bQWpGgwz3aNhv4sRO4iFgZ+O9ZAmy6Ag==:
+   UeUaDAT8W5rbO39wn6axSHXECniF+8kcR1mU56+VBgvtnx2Aw2fOX3gRj8y/L/X8+38UFubf26W8iPfpVwqWXQ==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1795788237; x=1796393037; i=markus.elfring@web.de;
+	bh=dIzYnYYMaTwzjShAcLVHdry4SlK5tN0cpNluHURwl50=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:From:To:
+	 Cc:References:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=jqRqdO31oe3DfhNLx+vEl3Aor1NqIWkWeuII0mhLTYgU3GTDWzwWdXeFLNDFbCJj
+	 y+6TWufnM1Ic1A33rqSTiMouqTPdqyDIXmX/6nqcntyus+0Ly1eq8ncou1lL15Luj
+	 IXQTspmcdYJKuiWwrJyRE9UGIslD3J6vmirfTOPjkaoRlokgcdqZnqFCYJ0FwJo4h
+	 YVaQVlS5ccar+ODJpYLSuEXM8ukCaLunAzytzxAJIlduVFxigvUzXULXoBXHOPa0S
+	 8KKsU2KS60h5sXWw+Ra4W41FhWENL1BO3tlP0IbCOrIHnIn2B+uIM3EkR7Asmvee+
+	 npxRnq8fSM1ZTNCaiA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MyvB8-1ySdiQ3nH8-00sZyr; Fri, 27
+ Nov 2026 15:03:57 +0100
+Message-ID: <0302adc3-dbf2-4e62-ac9b-8923ac285506@web.de>
+Date: Fri, 27 Nov 2026 15:03:52 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -126,134 +80,191 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAOQ4uxiZtxa75j8+wSSfYZFrAvwDuo8ZfYh5+07n+mZfSsa2mA@mail.gmail.com>
-X-Spamd-Result: default: False [-13.01 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_TO(0.00)[gmail.com];
-	ARC_NA(0.00)[];
-	RCVD_COUNT_THREE(0.00)[3];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	RCVD_TLS_LAST(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	TO_DN_SOME(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[9];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	DKIM_TRACE(0.00)[suse.cz:+];
-	MISSING_XM_UA(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.cz:email,suse.cz:dkim]
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Rspamd-Action: no action
+User-Agent: Mozilla Thunderbird
+Subject: [PATCH net v2 1/2] bcm63xx_enet: Prevent unbalanced
+ clk_disable_unprepare() call in bcm_enet_remove()
+From: Markus Elfring <Markus.Elfring@web.de>
+To: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Hemanth Selam <hemanth.selam@gmail.com>, Jakub Kicinski <kuba@kernel.org>,
+ Jonas Gorski <jonas.gorski@gmail.com>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
+ Florian Fainelli <f.fainelli@gmail.com>, Frank Li <Frank.Li@kernel.org>,
+ Julia Lawall <Julia.Lawall@inria.fr>
+References: <7d7b20e7-6749-46c4-a6f8-462f83cd27e3@web.de>
+Content-Language: en-GB, de-DE
+In-Reply-To: <7d7b20e7-6749-46c4-a6f8-462f83cd27e3@web.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:KgBftyQvTcfkLhePclSnnX7FNb0BvEYqOakEtUOxK+sVgHjg2Xc
+ LiDTUEZHiZXLQVPcLwpAC4xvXDDs1MTVablfUlycaDH6Zkb/g0Pekjmaw8YJAdERgJSPf9f
+ tFIaTN6N+6gMBYkpp4HFGCgd8ZSYfHK17f0Ja3/JEkQkuqTrp2riS1vmMiO9CwzdCWcc6Au
+ qGcUGSQW6/CSE2s1tuxlw==
 X-Spam-Flag: NO
-X-Spam-Score: -13.01
-X-Spam-Level: 
-X-Rspamd-Queue-Id: 0E32722961
+UI-OutboundReport: notjunk:1;M01:P0:BC/w4KidlhE=;KTxs4qsSC8ZlOo2RTJvR7Y+ysbO
+ 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
 
-On Thu 26-11-26 13:24:42, Amir Goldstein wrote:
-> On Thu, Nov 26, 2026 at 11:57 AM Jan Kara <jack@suse.cz> wrote:
-> > So I guess we'll have to use the sequence counter in the end and we'll need
-> > to be careful. Something like:
-> >
-> >         spin_lock(&conn->lock);
-> >         gen = conn->scan_seqcount;
-> >         update_children = conn->flags & FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN;
-> >         /* Scan in progress? */
-> >         if (gen & 1) {
-> >                 /*
-> >                  * We need to wait for scan to complete even if
-> >                  * UPDATE_CHILDREN is not set as somebody might have
-> >                  * started a scan for us.
-> >                  */
-> >                 gen++;
-> >                 wait_var_event_spinlock(&conn->scan_seqcount,
-> >                                         conn->scan_seqcount >= gen,
-> >                                         &conn->lock);
-> >                 /*
-> >                  * Somebody started the scan we need while we waited? Just
-> >                  * wait for it to complete.
-> >                  */
-> >                 if (conn->scan_seqcount == gen + 1) {
-> >                         update_children = false;
-> >                         wait_var_event_spinlock(&conn->scan_seqcount,
-> >                                                 conn->scan_seqcount >= gen + 2,
-> >                                                 &conn->lock);
-> >                 }
-> >         }
-> >         /* Scan we needed is guaranteed to be complete */
-> >         if (!update_children || conn->scan_seqcount >= gen + 2) {
-> >                 spin_unlock(&conn->lock);
-> >                 return;
-> >         }
-> >         /* We will do the scan */
-> >         conn->scan_seqcount++;
-> >         conn->flags &= ~FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN;
-> >         spin_unlock(&conn->lock);
-> >
-> >         fsnotify_set_children_dentry_flags(fsnotify_conn_inode(conn));
-> >
-> >         spin_lock(&conn->lock);
-> >         conn->scan_seqcount++;
-> >         wake_up_var_locked(&conn->scan_seqcount, &conn->lock);
-> >         spin_unlock(&conn->lock);
-> >
-> > > > > Only the completion of the most recent walk can guarantee
-> > > > > that all the children dentries are watched.
-> > > >
-> > > > So I don't think that's an issue. Look, if someone places a mark which
-> > > > watches children of an inode, we either end up updating the children flags
-> > > > or we wait for _UPDATE_CHIDREN_RUNNING to clear. So any mark update from
-> > > > userspace blocks, until the children walk is done and then they all return.
-> > > > We hold the group lock during the wait so the mark that makes the parent
-> > > > watch children is guaranteed to stay attached to the inode and subsequent
-> > > > mask updates on the inode all result in the conclusion that children are
-> > > > watched (so fsnotify_parent() doesn't clear the children flags while we are
-> > > > still walking).
-> > > >
-> > > > One catch in the above argument are oneshot marks for inotify & dnotify.
-> > > > Inotify is actually fine since it grabs group lock when removing mark after
-> > > > the event was sent (so the above argument holds). Dnotify doesn't grab group
-> > > > lock when removing oneshot mark and so breaks the argument. I think we
-> > > > should just make dnotify grab that lock to make our life simpler.
-> > > >
-> > > > Thoughts? Counter examples?
-> > > >
-> > >
-> > > My thought is that this makes my head explode..
-> > > I rather have a simpler mental model if possible, which is less
-> > > dependent on all the callers and other locks.
-> >
-> > I understand. Not sure if the above satisfies your wishes but I couldn't
-> > make it simpler...
-> 
-> It satisfies my concerns in that the logic is local and easy to follow.
-> 
-> Maybe it will be easier to read with a helper target variable and aim for
-> conn->scan_seqcount >= target, because the gen+2 arithmetics is a bit hard
-> to follow for all the cases, but not sure if the end result will be better.
-> 
-> Anyway, this is fine as far as I am concerned.
-> I assume that you will send a patch following Neil's patches.
+From: Markus Elfring <elfring@users.sourceforge.net>
+Date: Fri, 27 Nov 2026 11:52:23 +0100
 
-Yeah, once Neil's patches get to VFS tree, I can do these changes and send
-a patch.
+A clk_prepare_enable(priv->phy_clk) call was specified within an if branch
+in the implementation of the function =E2=80=9Cbcm_enet_probe=E2=80=9D whi=
+le
+a clk_disable_unprepare(priv->phy_clk) call was unconditionally performed
+in the implementation of the function =E2=80=9Cbcm_enet_remove=E2=80=9D.
+Move this clk_disable_unprepare() call into a corresponding if branch.
 
-								Honza
--- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+Fixes: 7e697ce99ceb09538cdc1dfa9ebb3db60236b0a7 ("bcm63xx_enet: use manage=
+d functions for clock/ioremap")
+Cc: stable@vger.kernel.org
+Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
+=2D--
+ drivers/net/ethernet/broadcom/bcm63xx_enet.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/broadcom/bcm63xx_enet.c b/drivers/net/et=
+hernet/broadcom/bcm63xx_enet.c
+index f6595fdc888d..cc9a5cd2a2a3 100644
+=2D-- a/drivers/net/ethernet/broadcom/bcm63xx_enet.c
++++ b/drivers/net/ethernet/broadcom/bcm63xx_enet.c
+@@ -1915,6 +1915,9 @@ static void bcm_enet_remove(struct platform_device *=
+pdev)
+ 	enet_writel(priv, 0, ENET_MIISC_REG);
+=20
+ 	if (priv->has_phy) {
++		if (!priv->use_external_mii)
++			clk_disable_unprepare(priv->phy_clk);
++
+ 		mdiobus_unregister(priv->mii_bus);
+ 		mdiobus_free(priv->mii_bus);
+ 	} else {
+@@ -1927,7 +1930,6 @@ static void bcm_enet_remove(struct platform_device *=
+pdev)
+ 	}
+=20
+ 	/* disable hw block clocks */
+-	clk_disable_unprepare(priv->phy_clk);
+ 	clk_disable_unprepare(priv->mac_clk);
+=20
+ 	free_netdev(dev);
+=2D-=20
+2.56.1
+
