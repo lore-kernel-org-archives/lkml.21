@@ -1,55 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795776254;
-	b=OxK8R5JJIWweKde7oCm3N4z0vHeu/aUEoH/zexTbMAnM31db54Uf/wvrlxogI0aa4O5K
-	 Bf9DqzWxlH8ynOSXf7FaIngmExugPwqkgQBqhvZ92R7ukW0LyjeWviu6dT0agynlwUCEG
-	 FV97dQP35aKYmUDVqCxPiLOUMpZt41HRI1yMp3CqNbCD/WpYj5s5DoR/DBBGU9jOjBOWm
-	 4Hqi1sHNVOtbshbQ0ucKq2UgxL5W+GsdU1O7n/sz5FGZ7FLJcbA33gl/e5m1qBe3aNcHP
-	 zHj39eKZBTsZqxnnmqwgkYSO6Ljz4WCrDvpPNuOVqmFEyzk/VKCdkH8FuGQqRNsZ1Yw==
+	t=1795776259;
+	b=UVshNviRrfltlmZy4XStfT2l2PRJQVsfGjwMJbs6kCQhglAKdKgjsFcd5eRM6auH2CO+
+	 UN7b93AKx88ZloKiHUqbDDhaEX7JEhOUYWHe13C5Jdf9+/9OXNt6VRZujKBmLr+NyIGqB
+	 SbtAra6PZDAluqOXi77IpozdueZcb0sNnFX/fMw4wDyXKlMzRlhuXVdt/Fq/ZMenQWhFE
+	 clQA5UhF4LbUbRpbWPWKCxc8NA5+NsgDLtzoV65iPx6Y5ax9O8kSuDYtf7O17E2LyLi3a
+	 FAvvk8OW3TqRP2jg4DzU4h/38ZVHBQVtz8Rb1wgGNeJ6vtFXGyNwpXmf6eqMCPPzn+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795776254;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795776259;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=vtm4MqjxYYJpw2N7dLTQzTeBC7iRAkscIg+jXPYVL3c=;
-	b=DDnUA0EQf/q4MD4eaNsN3E0wlKirVqA+aO8PWezBZqkorrqrtWQ2pdt0Z4caxn/Lj4wz
-	 P+bHxEsgZcUDUgPVNZrXVzLLf4jzjJEyk/UCGpSIRxOALUDc+C3NwTlQ3RR+aJxJf3bNz
-	 XVIIRUD8+vrfaToUGcbhxE/YZGiFDlLTNQh1PCJhy8MWHdj4iU+sVxo9xc/xNK2DcGUnM
-	 YV3TUgBf4gfUh5JgFD2dV4sAeapRLJMDHgkoHScWZV7yZ5PcP60siaE1TfRHfJSv1yOd6
-	 IbchSr+17uV3aOggI44gT7pAYbd/2uwhLY5NRqEakMmrKbUd+kUmtajmhGKyZJaW5qg==
+	bh=h9NfHUU7wsvgpOoiC9hCjSiFZvlFNOPc00tKvYYq73A=;
+	b=Nu75RCv7ijtMntgpLzP/tJUeCF5FXgfAuBfDObY4+A3UNfwX68Oo/UdkB/5vRFcDXJ2u
+	 sXVV5APKpQLHaDaZ3eNYaPeVj5/o5sqxJraz+EMR/WuA8Ddn9F20ewR47lw5w/Xq4jXjn
+	 P4XtgTVLvunLZTZw+eF6v2iah2gZ7E82BV2kkv8qA4veepNzL5cs8XhiMTSvmNOmDtxBl
+	 mdlbHWrj3LH0pNgf0z+ypxIbPqLII1wiRoT4zadezuDIgSW0iPNm39MLW8HNDRRIMmL/7
+	 Rwm3a8h1fbkUqm3BPKrMjELQVKC8EaIK87adLF1wseMck9k6KEnG1xUVdXLyEt0SV2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="HE/QFapr";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PLbpdJON;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 695E9606A32E;
-	Fri, 27 Nov 2026 10:44:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 819F7606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:44:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HE/QFapr
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6DEB1F000C1;
-	Fri, 27 Nov 2026 10:44:12 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PLbpdJON
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0717B1F00897;
+	Fri, 27 Nov 2026 10:44:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795776254;
-	bh=vtm4MqjxYYJpw2N7dLTQzTeBC7iRAkscIg+jXPYVL3c=;
+	s=k20260515; t=1795776259;
+	bh=h9NfHUU7wsvgpOoiC9hCjSiFZvlFNOPc00tKvYYq73A=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=HE/QFaprMa5KlDuiZsk6lotqx/+wHui/nRqK5g/GxHqCOmKaPHjbCz9wuXvM8qeZi
-	 AYZqltaSlUEAASV5E8DE+lDsaOPQ/MDwU096D+x4KqIN5qzk6HQoZCT9SZKUSlP5+Y
-	 5jR/kLfBv2kHGKWTE8TRgHoAfbsPshSp6fUiUUOv+tGIBFKEDsHpHfd3qufoiJzgES
-	 IOlk2IIvcN4j1neHifimXgfATRk7jxJwDjMF+Iq3IRKPq/CF0QvkXlaMCbBuQhoqUB
-	 RLm51BNk8Nsy6iw6ernp1paes+GGYVIDBJMa0DzYe4B4gwpj+xAuM+c6b3NRNasmNw
-	 2Tbe9KCGlWXnw==
+	b=PLbpdJON9IIJ+73e6bhV9peLxbGjx1wpdBK7jo+Cpy6K3qRxWTQpt8hrfMx4nf3nZ
+	 vI+oppz7O+eF5bR3VKuoeJTnHNvuL1Yjlnj3Tf/I5AzOP4EzJZVqLiCFycLRZ682dT
+	 Q22QjOP0msfYpJY0wA+vNym/qmZ5eILB8dUnubUPAUvulE10QcKvR0xFvubJIJqLAT
+	 vDHBIT1blxhOxKV+7um12AVIF7abT4uYStLWIZ3fVpTpIpVCcMBnrOcoeS5BOst3sF
+	 Nr80iMucbJ2N7NClMfp9AFxOD5/hmlAdq+P9vv5qb4xJLo3WxO75A1a2QMfJr7RAeM
+	 xLklhNur3uCog==
 From: srini@kernel.org
 To: gregkh@linuxfoundation.org
 Cc: linux-kernel@vger.kernel.org,
-	Vinayak Katoch <vinayak.katoch@oss.qualcomm.com>,
-	stable@vger.kernel.org,
-	Ekansh Gupta <ekansh.gupta@oss.qualcomm.com>,
-	Tyler Baker <tyler.baker@oss.qualcomm.com>,
+	Anandu Krishnan E <anandu.e@oss.qualcomm.com>,
+	stable@kernel.org,
 	Srinivas Kandagatla <srini@kernel.org>
-Subject: [PATCH 1/6] misc: fastrpc: fix NULL rpdev dereference when session alloc fails
-Date: Fri, 27 Nov 2026 10:43:49 +0000
-Message-ID: <20261127104354.8452-2-srini@kernel.org>
+Subject: [PATCH 4/6] misc: fastrpc: drop the DSP-response reference on channel removal
+Date: Fri, 27 Nov 2026 10:43:52 +0000
+Message-ID: <20261127104354.8452-5-srini@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261127104354.8452-1-srini@kernel.org>
 References: <20261127104354.8452-1-srini@kernel.org>
@@ -64,72 +62,54 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Vinayak Katoch <vinayak.katoch@oss.qualcomm.com>
+From: Anandu Krishnan E <anandu.e@oss.qualcomm.com>
 
-When a fastrpc client process dies abnormally without closing its file
-descriptor, fastrpc_device_release() is never called and the compute-cb
-session slot is never freed. The abnormal client death on the DSP side
-triggers a glink channel teardown which propagates up through the rpmsg
-bus and calls fastrpc_rpmsg_remove().
+fastrpc_invoke_send() takes a second reference on the invoke context
+before calling rpmsg_send(), to be dropped later by whichever side
+consumes the eventual DSP response: fastrpc_rpmsg_callback() for a
+real reply, via schedule_work(&ctx->put_work).
 
-fastrpc_rpmsg_remove() nulls cctx->rpdev before calling
-misc_deregister(). If a concurrent open() enters fastrpc_device_open()
-in this window and fastrpc_session_alloc() returns NULL (sessions
-exhausted by the leaked slot), the error path dereferences
-cctx->rpdev->dev causing a NULL pointer dereference:
+fastrpc_notify_users(), called from fastrpc_rpmsg_remove() when the
+rpmsg channel goes away (e.g. on subsystem restart), only completes
+each pending context with -EPIPE so its waiter can return - it never
+schedules the matching put. Since the channel is gone, no response
+will ever arrive to trigger it through the normal callback path
+either. Every context that was genuinely in flight (successfully
+sent, not yet answered) at the time of an SSR therefore leaks that
+second reference, and with it the context, its DMA maps, and the
+reference it holds on fl and cctx.
 
-  Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
-  pc : fastrpc_device_open+0x1b8/0x258 [fastrpc]
-  Call trace:
-   fastrpc_device_open+0x1b8/0x258 [fastrpc] (P)
-   misc_open+0xd8/0x1a0
+Schedule the same put_work that a real response would have
+triggered, exactly as fastrpc_rpmsg_callback() does. rpmsg guarantees
+.callback and .remove are mutually exclusive for a given device, so
+there is no concurrent real response that could race with this.
 
-Fix by moving misc_deregister() before rpdev = NULL. misc_open() and
-misc_deregister() both take misc_mtx, so misc_deregister() will either
-block until fastrpc_device_open() completes or prevent new opens from
-entering it entirely.
-
-Fixes: 7c11df42d0c7 ("misc: fastrpc: Fix device_open when no session is available")
-Cc: stable@vger.kernel.org
-Reviewed-by: Ekansh Gupta <ekansh.gupta@oss.qualcomm.com>
-Tested-by: Tyler Baker <tyler.baker@oss.qualcomm.com> # Eliza EVK, EL2
-Signed-off-by: Vinayak Katoch <vinayak.katoch@oss.qualcomm.com>
-Fixes: 46248400d81e ("misc: fastrpc: reject new invocations during device removal")
+Fixes: c68cfb718c8f ("misc: fastrpc: Add support for context Invoke method")
+Cc: stable@kernel.org
+Signed-off-by: Anandu Krishnan E <anandu.e@oss.qualcomm.com>
 Signed-off-by: Srinivas Kandagatla <srini@kernel.org>
 ---
- drivers/misc/fastrpc.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ drivers/misc/fastrpc.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
 diff --git a/drivers/misc/fastrpc.c b/drivers/misc/fastrpc.c
-index af18ff1992ee..4f1c6ff8054c 100644
+index 60c9d1d0834b..7820c384cde6 100644
 --- a/drivers/misc/fastrpc.c
 +++ b/drivers/misc/fastrpc.c
-@@ -2675,6 +2675,12 @@ static void fastrpc_rpmsg_remove(struct rpmsg_device *rpdev)
- 	struct fastrpc_user *user;
- 	unsigned long flags;
- 
-+	if (cctx->fdevice)
-+		misc_deregister(&cctx->fdevice->miscdev);
-+
-+	if (cctx->secure_fdevice)
-+		misc_deregister(&cctx->secure_fdevice->miscdev);
-+
- 	/* No invocations past this point */
- 	spin_lock_irqsave(&cctx->lock, flags);
- 	cctx->rpdev = NULL;
-@@ -2682,12 +2688,6 @@ static void fastrpc_rpmsg_remove(struct rpmsg_device *rpdev)
- 		fastrpc_notify_users(user);
- 	spin_unlock_irqrestore(&cctx->lock, flags);
- 
--	if (cctx->fdevice)
--		misc_deregister(&cctx->fdevice->miscdev);
--
--	if (cctx->secure_fdevice)
--		misc_deregister(&cctx->secure_fdevice->miscdev);
--
- 	list_for_each_entry_safe(buf, b, &cctx->invoke_interrupted_mmaps, node)
- 		list_del(&buf->node);
- 
+@@ -2544,6 +2544,13 @@ static void fastrpc_notify_users(struct fastrpc_user *user)
+ 	list_for_each_entry(ctx, &user->pending, node) {
+ 		ctx->retval = -EPIPE;
+ 		complete(&ctx->work);
++		/*
++		 * fastrpc_invoke_send() took a second reference for the
++		 * DSP response that will now never arrive since the
++		 * channel is gone; schedule the matching put the same
++		 * way a real response would via fastrpc_rpmsg_callback().
++		 */
++		schedule_work(&ctx->put_work);
+ 	}
+ 	spin_unlock(&user->lock);
+ }
 -- 
 2.53.0
 
