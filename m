@@ -1,86 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795821489;
-	b=VOY4d9lPWuPqk7CZ7kKKV2bFxgf+LENBILBTcBtPkFMcZ9gnjK7KtRNA3DbZ3qVtaHPj
-	 V+fwWO6ysp2cuXCtrfJmdkxdUWhodByvY+qo8Z+kPsjdYaYvMZC7W0MLig+PQr6YRL6HC
-	 8vLqqmo/aC3AcNG1wXc2ChTyOpdbIfdM4iKS7GmBrpo+ERoORCz1U0GWFkc0Ezw7YXFf0
-	 b668Sd+Wrl/ugysn55IxzW3C8ZfEmU2FaOOHzGeYmnpYp6Y3fIEXw0sWZ6ZoPI7IUUHbN
-	 id6TgO506UNbina7XJeShTAHBVmD/UQyo9d44uytd14hrz2+vIDbbLvjQSh4WcH2SOg==
+	t=1795821516;
+	b=CnVxUapWBmqAewXbbwQGpBz3Pjewei3KBwMC1VluGz8ZSNQ8T0RC7KjFU54/ui5DgxbI
+	 zXLiEM8jX4Pydi5LssljdZxFv2IyVX4WhfLxRLJt0wlFCX6hDRVJ63lSZR2PfLmR9mNoJ
+	 bR9JrjSVHImnKDwj9QFLDpmr0eL5QXjK7RKYHhWpjaky7EOwGdGjqwEyDtOwaidAd8A4W
+	 5Z1Q2P6EkN1XvYx0ObxLJ4PMnoAyaJOkoQzJChSxJhcC5Mo4ZLz197reAn/x3jVoKfwVU
+	 efhBYuTvUrveoBf/n74KGOMN+oRhmRTMWYwz53OeedWlE+0D9fgB4Vx9Bi9Jd59x4BQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795821489;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795821516;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Reply-To:Subject:Content-Language:To:Cc:
-	 References:From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=dRBwepvEc84ti5G0r6gYv9Re/mpBE70ISEuNrETw7+I=;
-	b=vwCirTK+7LqL40LMuZL+S6UBo3VASxY+1dS28zBtSZOnCEuHV8288g5zUYBjK5j5WBqY
-	 e+FzCir60FS5+G8tDdiG4mdZT0PRw6hyO+4mi5TW0eN2TFBW+7wJF/to8hw5prFro1kkp
-	 1w5eXt2EEdc8XxDLXM082Hdbo3VYf5rUb3wD50MuSeuQWGp3uXZRjDkU3t/nVPuwkh4/K
-	 RSBi7aPipMHQCduTOFgZCjtfRpaY9YGMqfJVHdVRKE56afj3DgUJbYQpSW0beUDEbGmWS
-	 B1VL5fYxyBiLVi6e0deL2XywdoB+7U8GttiwPbQtYE2ZqoN81Wzzqr3f722pDzaoOzw==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
+	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=L68NfkLh2sSnkPajUSfsYj9MfFaavbba0O0y/vWyU0c=;
+	b=Dm8KCMUqZ5r9t5xiVWYFdb/iT8Q052AJffpyD/ERNoieemeXdRA1ZhP3UN8mxnkz1zIy
+	 j73KrDVAMP6lEb063qkKnaeWnWW1LQ5ofm4SqUIWPpDQ2Zc+Y8sfTe7ubb7kXsmbtSFSO
+	 VDMP4gupaaE+P21MmFJhpS0fsV5Gwnit9p0ZGs0Z3+RvYPpFP4VEcDPx9vERaltk6xOz7
+	 jCwiTrLN890swejSop6vJU3g/HGgpfafB1R3ZfxHogebKT/4RDUUrq8i2KqJZg5RVmBZT
+	 UYZxp4TMcKYKDULitKxEeMtPZH6MT+omorGpl1DLsgagr3GW9L8JNgPSb9KFVSnZI2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aYcGZQ4q;
-	arc=none smtp.remote-ip=209.85.216.42
-Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com [209.85.216.42])
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=gE2gqa1H;
+	arc=none smtp.remote-ip=209.85.221.47
+Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C7F7606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 23:18:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C7F7606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97EA4606A31F
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 23:18:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97EA4606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aYcGZQ4q
-Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3b43d30822fso4562535a91.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:18:08 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=gE2gqa1H
+Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-4ac08f4a0b2so6087229f8f.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:18:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795821488; x=1796426288; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:reply-to:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dRBwepvEc84ti5G0r6gYv9Re/mpBE70ISEuNrETw7+I=;
-        b=aYcGZQ4qYJMTjQ92Mj7CrJi4JY3WuxJlaEGJWgNmBHI5uCPMZOaNk1+vXlS5F065GT
-         25XFspQnPc31reH9ZxaW3wXdWlnkcxxcTB7jDSgcSjLaZFi7aZjgz9C6uCPwnI2ud3HD
-         GQMb9paibGzPCPeEyCTh1ZwSREcJEJpg5FiXyyv07UklnOKhQGUItz6UDvIYiWzkNxzF
-         f0RAMjlqiAOsmq5Lhh8BBJLLoymf9MDUQvnqW1eW34NDqTrZb/9TJ0Sm+tgzuLNx1pXP
-         +ilgIy8legcKcdMI0BHFGpXX/8NJrj2Vyy063xaR8Ubf71+6yEE3HQViijTM+WwW3Zlq
-         xxPw==
+        d=baylibre.com; s=google; t=1795821514; x=1796426314; darn=vger.kernel.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=L68NfkLh2sSnkPajUSfsYj9MfFaavbba0O0y/vWyU0c=;
+        b=gE2gqa1HASDlw4HLZWgBBQWSdvUizr9GH8J6QVL8nNPedx6uB61BV+HUrF6Wuyw/BB
+         PcA6z+0Uj48zloEWvjEtcqzJ6IyjLWGQdrBFlb9TfOIALwBJmsi9FopHkiOS+kS0Zkuq
+         lXR9jkjMff8XjBdzfe9l+t1Ajy7tytED3MNkSNa5U+qORRIxgJl/MZxYtBhsyHaL+hu2
+         rfA67xg5fPpRqOtfSCJbWRjoq1vy3/2eACqpJWjP/ndPBC0iOXPGzPDFNi+qvLOYCeIM
+         TnX4kg0P9GQQjDzUxH9rCeI2O8r7iWh5FFSvfJ2RcZf1Az9ApjNXvlcgLK5AyXr+P9B/
+         WR+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795821488; x=1796426288;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:reply-to:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dRBwepvEc84ti5G0r6gYv9Re/mpBE70ISEuNrETw7+I=;
-        b=kgrWVcI/Zn+3nQEUJlQUF5G3eWOjUyPSu9fO+TEJ1xC5Hhl12k1ssj/ORTFVfsRJO5
-         gmJLjT9vxGT1ULNpq9nSVnFsc28EzQnvlxzA1c0JW6W2wT4hgTKYaFStwjKdePzIH+Dj
-         0zzvX7f5VBP8UB80nm2Ycvlujq/AUIfh7uSRnEkwJnlbJIUQ0EfTrW3FEvFAtxv0SpwZ
-         EvH5gcYXWwr9FDqR+8qYHW+guZo+5yq7Q5sUFBs9qYqgeOfJ0cbeGEKwCPg7d4LQntx2
-         X3Usz0dKtoS+QqHP/VpDtuSqKiAEaI6UtitwMq16VZ+ccPraRpfT1qGfMoymDy4neRsK
-         hJLQ==
-X-Gm-Message-State: APuU4Z85kixSFRAA8Wtfp2YNUB9JQkYyyNRY4TvX67pU44joeybfMPl3
-	eW4XMQYYTesX0C4CN2MEb0ie+LJmm37AO2cyG6Plrx8HOe1JaShvQauU
-X-Gm-Gg: AZFdTZfgVmgQGj6X6LMIg5NVSLjU3f6GlHYE3o13zBGTbcmim5SyqswlsEafGuGKfs1
-	YxFFPqGl0T8J8TkB0NI5PRF/dc+04MAS9NKntR1woGpnATGZHWb8NtuHYkqECivRjrptzJaIwzv
-	qKltr1S/ky6ToOMyVaiea9PqruA1Oj/bNeTNizKmH4C70JG0EozgWdOD1hDLRaONrXrqtiVgEt/
-	SH6Q/LQQrnvOPaS17PKeZaW8wDgrTIUPJUxNSo+TxxV8R4OHOprDgH2OLzKJ5HJZdbygn6/HiTo
-	dB9JMPEtr+jS5rDv3idG29w+srK9TzSVT7YNraHgSRPEn+biAXpeojNMzdBESlsqme5ikno9PF/
-	ac0tclkWFSYLAsxxbO3P2tzO5V/McTL2TFMFo8EnWc3CcLcYmiCv2cMaq0RDSXDKze2EVA7nq7K
-	GNJU6XaBNQ+ko0sig+X4LH7YXOFPYRDQ+DLGxrET1Xzw7xDH+wxW7DR8VoT+USoibSY1WR5JMlB
-	UVkaP30oCYVlAJ+eKCbJoChR1dOb8zRoTad/D2HOPb1fxHj1XurE9xTtdfTzaSVwz8AFp7IY9Bn
-	dWOeR80CSTtGqyGfbvWmGGotHd3FOko2Cs6xQ6OyqpUrI3xbzvnvAlE1gc7McrysJCI=
-X-Received: by 2002:a17:90b:1b0e:b0:3b5:3606:f7a with SMTP id 98e67ed59e1d1-3b536060fa4mr4512968a91.1.1795821488334;
-        Fri, 27 Nov 2026 15:18:08 -0800 (PST)
-Received: from [192.168.35.60] ([218.50.238.131])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d135e9sm42857690a91.4.2026.11.27.15.18.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 15:18:07 -0800 (PST)
-Message-ID: <9f51b843-148d-44f9-8910-79cb9091f17c@gmail.com>
-Date: Sat, 28 Nov 2026 08:18:05 +0900
+        d=1e100.net; s=20260707; t=1795821514; x=1796426314;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=L68NfkLh2sSnkPajUSfsYj9MfFaavbba0O0y/vWyU0c=;
+        b=Y+d5HqBJZb+lFtkqgc9w/9rKQ/gU+5VuIdWXgf+oMC4wye87beM6vB6nhUMQ51P747
+         R5slQPWHPMNea9tHSe5WKHqUTYFi7KrOdEfJH8rjvk/C7qiQx5WEpkNUqOUddNp8g0gZ
+         BBO0NDOyESfz6oTcTfVeCplCBlxpX4ZxyfZRIXgI12riwi0zqqv5LJUOXfLUIqdBGfOQ
+         PpFUd6T+VqaWm/3KPdU+icOLFTHW1b0926YuZKxg8Oob5O/bAK+jDaM9MhhqLFjQGE2C
+         ndlLzc2x0PDNkB1byhRZqWD+AJBrh9Gpm4hkLEdVxjKgOVWii9DSJzvYF+al82F3uYsi
+         HnRw==
+X-Forwarded-Encrypted: i=1; AL+hErECrAb1eYlW1R8Qwx9cLU+XsAJx+6iBh+gG+HgRnz+I6NW68j2OBnSDZSs3OYsPFf5Oll42OrpgDKeg3jA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8yfiQ7bWgHKARu2v2n9tPJUdXPvFAPA1lsL/3UHPDSrRVFz2lA
+	eydLSbxOgZdob7UYEVzLiNuDismK1ZyOwMPcLQy6Jb0PGGkFvAwmYwbzbmME0FG4i7Q=
+X-Gm-Gg: AZFdTZebyYCuMMcRFYjy5aNxdaKu7us3IBin+PwxPXIlD7Dhq6MqLR4goL0e5cJvaaE
+	ann+WnVWpnwIGWarc6za6XYZvF8OQmfPF1cJU/GE2MKe6tD8Dn8Hoi+TAAKriLz/FWh2NB/3iEL
+	cmJ3j3PM5lMXqqAT7/W7gMt4sdtnh2SprXj1UdWFxzSsH1c25Ubzcu+Zcl/l7a8JnzaljlunGL8
+	ohnqsfeJHUrWb5+e+8NxpzUjxJ86PzgsS3/PTxOnw4iqTCp7oj1R+2tXbrCAoZXchQKTh8yxgk/
+	O/Z7AvAIbDdQp9Tvn1Sk6b7Ucld2Us9Ap6omeZevqu5/VXMoNXeG5tn6OVTBkpgD9kzWq0sAkD/
+	z0FWFNsHVkYNmLZ6pfraBEyK3w+fR5sbHjbPQEJxG8c6tLMxbqzjH7uQdOahWs/243dfL9aQoLW
+	8/aHbmfM5GLbvMkQvL0kzkCzxrS2AHv78+sWfmvsbql+cE2cgTHGrDa077gQu4oE8WDEiEC8qVC
+	QFfnl1g+NNXHiiOKHeDUQmb85W8wpKhTJnTwX70vAu05KmLIGqYlDmM4u4zHb9W6Kt4A1dY4gdb
+	Bm1A7KyNgQEq2krvdnEiThxOUe0=
+X-Received: by 2002:a05:6000:2b8e:b0:491:45bc:d69a with SMTP id ffacd0b85a97d-4abb3f158c5mr33838415f8f.44.1795821513578;
+        Fri, 27 Nov 2026 15:18:33 -0800 (PST)
+Received: from [127.0.1.1] ([151.42.79.162])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b2052c8sm49822762f8f.41.2026.11.27.15.18.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 15:18:33 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,121 +89,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Reply-To: chanwoo@kernel.org
-Subject: Re: [PATCH] extcon: fix typos in comments
-Content-Language: ko
-To: Hemanth Selam <hemanth.selam@gmail.com>,
- MyungJoo Ham <myungjoo.ham@samsung.com>, Chanwoo Choi
- <cw00.choi@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-kernel@vger.kernel.org
-References: <20260904110622.16766-1-hemanth.selam@gmail.com>
-From: Chanwoo Choi <cwchoi00@gmail.com>
-In-Reply-To: <20260904110622.16766-1-hemanth.selam@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 04/13] mmc: meson-gx: Fail request when descriptor
+ chain DMA mapping fails
+From: Valerio Setti <vsetti@baylibre.com>
+To: Lee Jones <lee@kernel.org>
+Cc: Ulf Hansson <ulfh@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Heiner Kallweit <hkallweit1@gmail.com>, linux-mmc@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+In-Reply-To: <20261123191703.179283-5-lee@kernel.org>
+References: <20261123191703.179283-1-lee@kernel.org>
+ <20261123191703.179283-5-lee@kernel.org>
+Date: Sat, 28 Nov 2026 00:18:21 +0100
+Message-Id: <179582150150.1958718.8445295799895434689.b4-review@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=784; i=vsetti@baylibre.com;
+ h=from:subject:message-id; bh=8BHON/4l5h6q1xjm/WKKH4SM6biaPJLVHJzVeZlzOuU=;
+ b=owGbwMvMwCV2z3ty7kUrRgbG02pJDNlc/Ef1ln9ojoqOfGmv63j0Za3rE67Ytoe1i3aea+zbk
+ Xl4U/HOjlIWBjEuBlkxRRaW6fd+F5SqPTROOFkAM4eVCWQIAxenAEykKpHhv/skRnH3ZWsKxTbM
+ FxcprJMXFZi7cAO3n97ixSuES+q0PzAyPN0r92Wbun/44eYT/FZf7qt8Piy7m+G/VFx8vqJM/Qc
+ PNgA=
+X-Developer-Key: i=vsetti@baylibre.com; a=openpgp;
+ fpr=0497DEFB707526E13360C970DE4B936DD13A0100
 
-On 9/4/2026 8:06 PM, Hemanth Selam wrote:
-> Fix typos in comments, reported by scripts/checkpatch.pl using the
-> misspelling list in scripts/spelling.txt.  Only touches comments, no code
-> changes.
+On Mon, 23 Nov 2026 19:15:48 +0000, Lee Jones <lee@kernel.org> wrote:
+> meson_mmc_pre_req() flags eligible transfers with
+> SD_EMMC_DESC_CHAIN_MODE before mapping the scatterlist with
+> dma_map_sg().  If dma_map_sg() fails and returns 0, meson_mmc_pre_req()
+> logs an error but leaves SD_EMMC_DESC_CHAIN_MODE set with
+> data->sg_count equal to 0.  When meson_mmc_request() subsequently
+> dispatches the transfer to meson_mmc_desc_chain_transfer(), the
+> for_each_sg() loop executes zero iterations and
+> desc[data->sg_count - 1].cmd_cfg writes to desc[-1], corrupting memory
+> immediately preceding the coherent descriptor buffer before starting the
+> DMA engine.
 > 
-> Assisted-by: Cursor:claude-opus-5
-> Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
-> ---
->  drivers/extcon/devres.c              | 6 +++---
->  drivers/extcon/extcon-intel-cht-wc.c | 4 ++--
->  drivers/extcon/extcon-max77693.c     | 4 ++--
->  3 files changed, 7 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/extcon/devres.c b/drivers/extcon/devres.c
-> index f9d52e8ec5cf..01da069ad4c9 100644
-> --- a/drivers/extcon/devres.c
-> +++ b/drivers/extcon/devres.c
-> @@ -113,7 +113,7 @@ EXPORT_SYMBOL_GPL(devm_extcon_dev_free);
->   * If extcon device is registered with this function and the device needs to be
->   * unregistered separately, devm_extcon_dev_unregister() should be used.
->   *
-> - * Returns 0 if success or negaive error number if failure.
-> + * Returns 0 if success or negative error number if failure.
->   */
->  int devm_extcon_dev_register(struct device *dev, struct extcon_dev *edev)
->  {
-> @@ -167,7 +167,7 @@ EXPORT_SYMBOL_GPL(devm_extcon_dev_unregister);
->   * "old_state", not the current state. The current state can be retrieved
->   * by looking at the third pameter (edev pointer)'s state value.
+> [...]
 
-Thanks for your fixup. you better to fix 'pameter -> parameter' together on this patch.
-
-Also, there are remained typo. Could you please fix it together?
-~/kernel/extcon$ git grep -n -e specfic -e negaive -e upto -e pameter -- drivers/extcon include/linux/extcon*
-drivers/extcon/devres.c:168: * by looking at the third pameter (edev pointer)'s state value.
-drivers/extcon/extcon.c:908: * the current state of an external connector and the third pameter
-drivers/extcon/extcon.c:971: * the current state and the third pameter is the pointer of extcon device.
-
-
->   *
-> - * Returns 0 if success or negaive error number if failure.
-> + * Returns 0 if success or negative error number if failure.
->   */
->  int devm_extcon_register_notifier(struct device *dev, struct extcon_dev *edev,
->  				unsigned int id, struct notifier_block *nb)
-> @@ -223,7 +223,7 @@ EXPORT_SYMBOL(devm_extcon_unregister_notifier);
->   * device resource management and simplify the control of unregistering
->   * the notifier of extcon device. To get more information, refer that function.
->   *
-> - * Returns 0 if success or negaive error number if failure.
-> + * Returns 0 if success or negative error number if failure.
->   */
->  int devm_extcon_register_notifier_all(struct device *dev, struct extcon_dev *edev,
->  				struct notifier_block *nb)
-> diff --git a/drivers/extcon/extcon-intel-cht-wc.c b/drivers/extcon/extcon-intel-cht-wc.c
-> index 99a9dfc62e2b..0f2168150a98 100644
-> --- a/drivers/extcon/extcon-intel-cht-wc.c
-> +++ b/drivers/extcon/extcon-intel-cht-wc.c
-> @@ -145,7 +145,7 @@ static int cht_wc_extcon_get_charger(struct cht_wc_extcon_data *ext,
->  	int ret, usbsrc, status;
->  	unsigned long timeout;
->  
-> -	/* Charger detection can take upto 600ms, wait 800ms max. */
-> +	/* Charger detection can take up to 600ms, wait 800ms max. */
->  	timeout = jiffies + msecs_to_jiffies(800);
->  	do {
->  		ret = regmap_read(ext->regmap, CHT_WC_USBSRC, &usbsrc);
-> @@ -192,7 +192,7 @@ static int cht_wc_extcon_get_charger(struct cht_wc_extcon_data *ext,
->  		return EXTCON_CHG_USB_CDP;
->  	case CHT_WC_USBSRC_TYPE_DCP:
->  	case CHT_WC_USBSRC_TYPE_DCP_EXTPHY:
-> -	case CHT_WC_USBSRC_TYPE_MHL: /* MHL2+ delivers upto 2A, treat as DCP */
-> +	case CHT_WC_USBSRC_TYPE_MHL: /* MHL2+ delivers up to 2A, treat as DCP */
->  		ext->usb_type = POWER_SUPPLY_USB_TYPE_DCP;
->  		return EXTCON_CHG_USB_DCP;
->  	case CHT_WC_USBSRC_TYPE_ACA:
-> diff --git a/drivers/extcon/extcon-max77693.c b/drivers/extcon/extcon-max77693.c
-> index 2c567e0b7b7f..2839f0c946c9 100644
-> --- a/drivers/extcon/extcon-max77693.c
-> +++ b/drivers/extcon/extcon-max77693.c
-> @@ -689,7 +689,7 @@ static int max77693_muic_adc_handler(struct max77693_muic_info *info)
->  		 *
->  		 * The MAX77693 MUIC device can detect total 34 cable type
->  		 * except of charger cable and MUIC device didn't define
-> -		 * specfic role of cable in the range of from 0x01 to 0x12
-> +		 * specific role of cable in the range of from 0x01 to 0x12
->  		 * of ADC value. So, can use/define cable with no role according
->  		 * to schema of hardware board.
->  		 */
-> @@ -708,7 +708,7 @@ static int max77693_muic_adc_handler(struct max77693_muic_info *info)
->  		 *
->  		 * The MAX77693 MUIC device can detect total 34 cable type
->  		 * except of charger cable and MUIC device didn't define
-> -		 * specfic role of cable in the range of from 0x01 to 0x12
-> +		 * specific role of cable in the range of from 0x01 to 0x12
->  		 * of ADC value. So, can use/define cable with no role according
->  		 * to schema of hardware board.
->  		 */
-
+Reviewed-by: Valerio Setti <vsetti@baylibre.com>
 
 -- 
-Best Regards,
-Chanwoo Choi
-Principal Engineer, Samsung Electronics
+Valerio Setti <vsetti@baylibre.com>
