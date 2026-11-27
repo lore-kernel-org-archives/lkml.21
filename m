@@ -1,59 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.190
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795795755;
-	b=ESBl/8IRwiCwgUUEFJDCR7VtJF/ils95FT49EGG3c1O8vMyIwKRgQJwcf0gR7k5yn2NA
-	 z2I8Tt00vxCMYappWDciANsmrSG2Qym7NgSYRGsj9C34F/888aXdPz10RbHUu+Mzl6mhs
-	 JSsZGhBxJAYtPoJc/nkE8YhZr7oadgT3xXJGuXEqWcOYmiik383tc8xlosGrsUMnzzRju
-	 lpUBBdRsSoMm2KOQy3SOcicd60dUPHTkeho9uNrlKJaUxh2meeI0CeJiFJ5DzWI0aYdBp
-	 bYgmZrhOESjjmYd/ZedTVM79qzg/Kgr91qWAVh+fPevDmR4FQREi2CvUKeZQMrRqcHw==
+	t=1795795760;
+	b=dB8NvT+9Sn8F83ox8QTflFFoospiH0xs9pNRmcpsMn/D4qyOzOY7y5w8My2xkMp5TnNI
+	 wGnAORBotIXEGDHf3/NyLu0RpiBMQ4uPo6wMNwWOZQlM0ILen3NB8geXBWAQpu5oe8pxe
+	 xwCqyQKisJWDzR6teqDYl49FjURejcyhQ9DP+3W0sbw107krr2LfyJ6EgwWhP5Ku2KB+0
+	 dw2A5Qiy/ixTjScDLoVN3mmj17yK2IGERC200xKgeS30Yocr41A7zmq95uC2BwxMRIOr+
+	 P/vxMZLKdsU2kVWBC9FuHzFA8BIyoxAY3s12FZtA26RHfH6fQAeIFJIjaZuy5rdVz2A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795795755;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-Cookie;
-	bh=Ml4VwIKGOiE8YCDXqiSrrOhJQR4Oh8LsFKsQo4KwMkY=;
-	b=F5RzbJ/G4gBohs4AOKRSLGg2Z5FYkS5lJ+uK3c/0R61uy+a1D3k0tT0aYMTxOW2zITOy
-	 Vjxf27n640gMfRI2EdY7XBY//LInsWbvx8ECw5XhKaNqwaJvc0EfmEuHKSh171LYhrx3s
-	 P5EDDrhk22Abj0wNf6KkYgLpxdZ1JDspGueVQWvZhzIgHAw+bMULrzu2fOCh11gCTBhCD
-	 zydAlWYCgTVHKMq8xysCHx+WTXrEshyCw/odsOi9dojef5UNsZEQZxUyOYH4vS1pqospt
-	 8AVsPICEE7Kdz+L9FYYWICcdjWSZn5iwTuVBiofnjneL4cjvjTmPaDeJRCRQQdSrCaA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795795760;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Subject:Date:X-OQ-MSGID:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 MIME-Version;
+	bh=NXv6ov7j2JUiAHmIY3+LWvm5ECdzsKbptyp8TPWwrdU=;
+	b=4btVC/8oi2YeROBtBtfF1wZqU/nVNNxV8zb3FFtkPx1s6X2U5DUSamieHPFUufbNwYod
+	 byDDQDzS/Wp5tHj74u3TNxLAQYBVYAuF4ZW/f8Bl7Ns8UKDMWFBhE1LTubBfxanmB5dgK
+	 xeKbvwxle/y/XLDtygAawr4irALftJW3mxCs89WNVW0VD5QjEHPgdq48zNYZWvI6ltIB6
+	 Joa/yNFT5A5xvr/dCh7oXxIrUVOkPttO1XwDGKzuqjYInDx12tEQnEXQKo53clGbJpbP9
+	 VRAA+dKnC4q9B9G80ox1gIT9PD8f7INI8qSyrTUKktY6l5kZlP5CBYJzdDA6/+QX5tQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="AsI/YOK0";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=yOs1OJlX;
+	arc=none smtp.remote-ip=203.205.221.190
+Received: from out203-205-221-190.mail.qq.com (out203-205-221-190.mail.qq.com [203.205.221.190])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3CDA606A31C;
-	Fri, 27 Nov 2026 16:09:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4E9C606A332;
+	Fri, 27 Nov 2026 16:09:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4E9C606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AsI/YOK0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 541091F00893;
-	Fri, 27 Nov 2026 16:09:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795795755;
-	bh=Ml4VwIKGOiE8YCDXqiSrrOhJQR4Oh8LsFKsQo4KwMkY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=AsI/YOK0+WknOqRvkJOgFIYqtv+F9m7F62C0CF5HywY9/EFulnmy4nLPBuyGHQTDz
-	 vhFU3i+9JCn5HvL8qNKc6QZ0SPHlXmzIbZvasyZizyuKZRZGTHo97hWTMy8jc8a7ln
-	 NbEZPQFk0vxYlhQ5g7K4uKioYC0ewRjVvcDD2yTo5/VZ2fMxBf6/LiyQ7qrkZRYxjS
-	 41hbMTDH5W3/3UvFQ97vIEafQw3J5WXWWnhtILcUzOutw1nCGMx4IK2RPuq0c4EYaW
-	 8QB76M1eK+CXppMH6qCHzz211qAVOLR12AKFrRZVdoXKPKMq1VDRMkGDbdeOc/eN0x
-	 lFw98SBur0Mfg==
-Date: Fri, 27 Nov 2026 16:09:10 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Paul Cercueil <paul.cercueil@bootlin.com>
-Cc: linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Bharat Bhushan <bbhushan2@marvell.com>,
-	Sunil Kovvuri Goutham <sgoutham@marvell.com>,
-	Tanmay Jagdale <tanmay@marvell.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	George Cherian <gcherian@marvell.com>,
-	Witold Sadowski <wsadowski@marvell.com>
-Subject: Re: [PATCH v6 0/1] spi: cadence-xspi: Fixes and ACPI changes
-Message-ID: <ff6d6dde-65d8-4673-82ab-020e4cdea50f@sirena.org.uk>
-References: <20261127160759.249979-1-paul.cercueil@bootlin.com>
+	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=yOs1OJlX
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1795795750; bh=NXv6ov7j2JUiAHmIY3+LWvm5ECdzsKbptyp8TPWwrdU=;
+	h=From:To:Subject:Date:In-Reply-To:References;
+	b=yOs1OJlXen1ssNgoXdNsu/+VN3Iqx9iBSJ9PIJmcYmmZxPdmfsYX0u63pBPWbx67Y
+	 lciprx5gpKQCaKiBD9QhEr3yzq8LiarSWQraRRjSzjSFu9jFHR3ha3Rj++1tSR9y/f
+	 IeQ86qpsT5uOv6I7oMwnAb0rafdyVL6PnY/JUDYY=
+Received: from [172.16.4.32] ([2408:8221:620:8610:f181:7ac4:be13:908a])
+	by newxmesmtplogicsvrszc56-0.qq.com (NewEsmtp) with SMTP
+	id 24693453; Sat, 28 Nov 2026 00:09:06 +0800
+X-QQ-mid: xmsmtpt1795795746tsbxqqkzk
+Message-ID: <tencent_2C2BD6A76160698ABD6C98DFEA45B7D72006@qq.com>
+X-QQ-XMAILINFO: OIJV+wUmQOUAYZJ1yPXDADI7prF8jlUSyveBgXjrUTk2icDAbvztgHmHnMZ6av
+	 mrY/6hjo5Bh55ZlWg1yNth7OFxT/79yezicuQX6KIDJDfYoiRc1zrjBkVGc2W4k8626SjpRrQnpU
+	 nxTyQA0Bo+SrNM7JjpMzBRhORhFXM7KLmi4EVgzyey65z9FSu8GQkag3XxYXoIaa5DL+cQdJrgOh
+	 0fnvol1RD52Cacgy8/AR9mJwo+Ye+31dpoeSkOgwTHpx8+d5uD/tzaU365REJtDV0XRMEIrFFJzR
+	 diHflhahm6cyGtCZYNbz4Wn3b+nXNI6ucMK97RLgt0KvqMtr55tQZPakvVTOYzBxgpYFMpc12/F9
+	 yd0K7yj4gypE2kVlIwtrbEa3v9wY4FstE8ny480hmhSevsGF0RIk2gkXiM5IeNt97c/hi1BsM+53
+	 PmlwTLr19szKKT7IVknKlvpjh7PCUEsawdTvbD9l+uEcZ+syQUViOpgAcU9eFyHVs1uxDOXOLCrz
+	 wLqIrx5d2jpZlR+TRCHPTsbpTv4d8ZZBaHCu7VWGfbJUc06A2IpCB198Wu388cXBEQmzPPX2Cwjl
+	 n7CvNo5fJRKosugMti+sWFexUFDcqM7eeCc6Q5dRIvGSDlylEo6wDivDG9XhYgtzOyd151xzG1y3
+	 w6TZzrAaICIT+aeiUwAfgNYyFuMFeE90gcSnPJVpOgRGYkkq1kheexPTWdAwBwWEQjgvZBPIvlVl
+	 sxBAbYaxjH79g6FPYd1Ad1xrINQKrC0TpuKufR0blUduRdtJ2ab7fGmITE5beNbOkN0I2Lm/83hL
+	 M4m2Ex/h1zbDw4mFPTmUnzk2GCU/BXIlmcO0MJXVn+dY2wYaHPwfr6ZmN08FRC42zpwiq0rZeSFV
+	 6E9VBYu1zDng5d/amPNaZnCVBKcMnAqr/Ka4YackX/94455MdFCoAI6XkC8vYrRAFULp0DyEZEW2
+	 z+EvETM9foJJ9i+Y4YCb5RwXTde0PDIHecJYi5wJ6rFWUHiALqzLz6Tg8sGPCBTTwpo/JItGW7+W
+	 NnscuyaQYjvbRrFpfOQFuhKkeRD5jrUHbbMucEUM9Y/9hKu3XRbT/XVzCFdD80ptwFnB+Cg8iZ8k
+	 WjQT+YJtEoLL7vrx7JNGV4LQ1l8w==
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+From: Chenshuo Zhang <abc0eichs@qq.com>
+To: linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org
+Subject: Re: [PATCH] lib/asn1_encoder: fix encoding of zero OID components
+Date: Fri, 27 Nov 2026 23:59:47 +0800
+X-OQ-MSGID: <179579518734.36512.17026717360352959442@qq.com>
+In-Reply-To: <20261123220311.9ee34b6c33545185d41d09ce@linux-foundation.org>
+References: <tencent_AFE15D698FFD4F18E16A6EF7CDA002D69806@qq.com>
+ <20261123220311.9ee34b6c33545185d41d09ce@linux-foundation.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,43 +80,15 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Q1Q0f2FUQlODdKPM"
-Content-Disposition: inline
-In-Reply-To: <20261127160759.249979-1-paul.cercueil@bootlin.com>
-X-Cookie: Sank heaven for leetle curls.
 
+> So for now I'll rewrite this as From:me and Reported-by:zzz.
 
---Q1Q0f2FUQlODdKPM
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Thanks, Andrew. Please use Chenshuo Zhang for the patch attribution.
 
-On Fri, Nov 27, 2026 at 05:07:58PM +0100, Paul Cercueil wrote:
-> Hi Mark,
->=20
-> This v6 fixes the remaining patch of my "Fixes and ACPI changes"
-> patchset [1].
+I tested James's suggestion to share the final-octet path for
+single-octet subidentifiers. The UML KUnit tests and the x86_64 W=1
+build passed. Would you prefer a v2 to replace the queued patch,
+or a follow-up patch?
 
-Please don't send cover letters for single patches, if there is anything
-that needs saying put it in the changelog of the patch or after the ---
-if it's administrative stuff.  This reduces mail volume and ensures that=20
-any important information is recorded in the changelog rather than being
-lost.=20
+Signed-off-by: Chenshuo Zhang <abc0eichs@qq.com>
 
---Q1Q0f2FUQlODdKPM
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsJqyUACgkQJNaLcl1U
-h9A+NQf+LpMvjphDksURME/FU9wSeARpnqlX8tKDb52jj3P0wnz6OPP7foOwdRLt
-NePI2NijniFollDhSvHpQ1uYhv/ucj8p3Si4jia50dr4TE0QRe1wrbr/8LJoPa3C
-yUBGx4sX7WewKccRB0W3HwOsQ++luXvk/4hGLf0KsFm3lIfs+qP0+nEE2xbJt+sq
-E9FAajq1qlkr5bj6+1qf7qXnj2GEoQ2JUnnxTjWghWqol0XxqEyFLE/3vur23CZk
-L3UO/xlGSMnBv5D66u4ScRWxUirf6Y3MNmK7lM2uwfy2BgTUqw8alpilq9l9u3XT
-DT2fhZtDsdst4fVTRA0WRiZk65jgNg==
-=xQ8A
------END PGP SIGNATURE-----
-
---Q1Q0f2FUQlODdKPM--
