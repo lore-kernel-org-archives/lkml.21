@@ -1,132 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795739841;
-	b=TmtN0TA021qASr+cdPMFtPjK40MGs74NKmmi9pV8GRokyM3jWb20lF+aqWqHCbi8wbXq
-	 vi62fYze1bjXHLzP3NKGKauv1bm1OyEIR/D7/xOe3Lzy02bYTVvZyV/O6bkcHjXoph+X1
-	 +5yXNapiHZszdmoKlM9sdLRt+Bf4/TKG0k8ZhS9Y0mwA+T7oBgQ6mQFHwmIteuUO17njq
-	 amqtjSKIjygtGVX+nm8a26tyt6L+iIRVE3IC9zHRoxIIXTU9OXr+O1QLCdhYX6YTv1E/3
-	 LQiaADy7cwCm/ycH5iOdgr7xSp9aqmVmlwP+09gbipj0jsxyEJIl9xoIElLE7BHs7wQ==
+	t=1795739891;
+	b=s2T+137LukpL7INpsUig8IwiEqd6xdkhTtAV4/GO2ybnS3ouCpQ6knj9JU/7A3k+ad2q
+	 RptKFVAk29s4SP2pullGtHO7pnZStMD8hCYnahfOQl12ELINg/xJsAYQEI3VGDVSV1VcI
+	 5bl6Buet8KkQciiWxwGt1cYGnRvwU6618VJDHZm8t+W3zJoH0GwzHNdX44Lm6L6mEk51m
+	 TsFQBA1uAon9twaVOCJ2UtYjLSEnjxNsL06Gubm8kWIDKIaOT9x21gX5rEYtYeKNxW46G
+	 tdvHgO4BH0nW68V4Fw2gqFmBuUSBGgnwkyuhnKW8+Hyxv2NC4qIFo0Y8d3WS3owc9yA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795739841;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=BYEpToCdu/Jrl7504w/3VIKWXqy3i8TunCn9olVHqm8=;
-	b=VHzBMWhIdpQe+yjflFrKeAWEdIrbQ2OQFb3ckrKDF5zLPEqZb8EPjZJW7VoKV3JggyAU
-	 Sykpa6IkKnV9RA/BZ9IXeONq9U0P0UM4nhn70MifD4uLwCfXTJeNfUR1E5leDpqfA1obl
-	 cJWtODrSfhFopAR/VM8Iuz6G6rqscC2oWLFiQvuvAZrRhDrRl3FQ2JdWfLjCirtCijMZc
-	 ge2kKY7Utyf7yU44BgS/d0t0MFKfMArh2V6kzq2umsrqQTdvg1hqfMYBJFN+k9AMytpAG
-	 He7YFNnh6rHDOPf+aWbrMxdCpIF3XuuQbLNzLn6vKQatbfD4HvLbN/0Ifz27fohxzbQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795739891;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
+	 References:In-Reply-To:Accept-Language:Content-Language:
+	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=Y1FKW8xIYiIpaEPrmECOjixE7s76tYmG2eWADy2j5wk=;
+	b=0xfZy+Fhnzl3USKHCpgvQOWR4KofJvC323+fPjZqUlMdEB6hM1h8sAbDDZLpF1yduomw
+	 o6WeZp8P3kmKgDDDlx8e5sJxVZB7fZ82mFcJrGbgf1JJ7oNRydkjBzBOMhe9rHEg4WQrm
+	 v3lkTTC/aVn83L7+boDS0XDh41Qy0W5XSf9fZsnITwT30SfGIbdwHkyzUUfDooMxxhtMv
+	 tGntX1aINi+mm2h0WvUUUi7Q4AAdEyz75GqCu3rZJAJfbmdGUeqqf+FeBtvTkwKecZg7B
+	 eV1G0Cslpw/A7ZWWM4zUyJ0pio72kWSXrSC93QZsUBh2ATB5IEPTN3QD4xo9hHgJxmw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=ziepe.ca;
-	spf=pass smtp.mailfrom=ziepe.ca;
-	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=RYi3Edqp;
-	arc=none smtp.remote-ip=209.85.160.172
-Received: from mail-qt1-f172.google.com (mail-qt1-f172.google.com [209.85.160.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=realtek.com;
+	spf=pass smtp.mailfrom=realtek.com;
+	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=a2Nf7Otc;
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60E69606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:37:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60E69606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D676606A31E;
+	Fri, 27 Nov 2026 00:38:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D676606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=RYi3Edqp
-Received: by mail-qt1-f172.google.com with SMTP id d75a77b69052e-53644ab1f7bso66730001cf.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:37:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1795739839; x=1796344639; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BYEpToCdu/Jrl7504w/3VIKWXqy3i8TunCn9olVHqm8=;
-        b=RYi3Edqp0iJYoWgnyFakqRlcBMM8VcDiE8d4VlY5bSzWrQs7C3jbXpEvdsf5xbs0HR
-         k8SJFejOERTl3boet9eADaubxky0nrElyxMPXPWpVpP4P4sFBNoLT0vNQZStolAgoetA
-         AVu2Mh8zCbpacWNyUVPHGl3RGM6A9CQHETQIX4aOfJBdNhGQef7KqYfIDR6ufufdP8LP
-         5jHoiOvsTjxDjWW0L90H9rgfkvqlxNkDfm7h3cX67l/8MpA/9M1cz2dLCiNt8o5kr/5Q
-         JdnVCeij4xVh62dHP4PJZYsGnouQAS5wg9J0Y6QCTQui72S1909B3CcTDDr25xXeCo8X
-         2BJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795739839; x=1796344639;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=BYEpToCdu/Jrl7504w/3VIKWXqy3i8TunCn9olVHqm8=;
-        b=zCvnLzgfxD5Qwvu8ZvKLmIdWwRy1QbbSBBObfVGueZvkAspF21NXCfWy8ASk0U3L7B
-         R5dLLthSAXdXtx3OAmrAJHEubjx9dOuIOv4YODtWxEjILQS8B4eKDygK0CerPNGH5yto
-         T4bXPH+JkRAGh929TzIhfTvQ4TFAaQJy5BVsp5aJ1Mzfd3PDKkaXeyuuO69y75WvubUf
-         Khm/qVFtfyO2Cune99CJuerCe64R+y86QIZJsVR09/alp5PLg/9Il3eWUCe5FuEJ0JIB
-         gVy8yzRU2bkjye8JtDV/El5rNjdbaHqn58+cBOHWqq14RjXzTa5igpwGgO0pYTVyzngO
-         P0ew==
-X-Forwarded-Encrypted: i=1; AL+hErEMIhoXZuGE/9BZ3sWKoxXiF8ugWLJoGHPseKW+DV6q4kEUvtfMdmojeVu4DuJvJxXcUyTmzCj7JYf7LVw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8yENvtLVflt7ra2ubF3pD/cVcqVKghfOpAD6Xy5PBxDKKVqX2R
-	KaIZwGg/AmNdDsBVJYPNK9Tq+pOXr6dlaSO++Udubj5chTGpQWJn3dtQSP2/4FmVjN4=
-X-Gm-Gg: AZFdTZf3oUCGqee3QyV9mlo/dPg5CHNPfPDmHBCaT3mFgSQlLjvoHdZT0WHAMOUJ3tW
-	ezGIBiSu6v/h0qCxKhwC1Zuh7vLKhJ+MHC/+QUmmM9Tmddc+XbhKGc2bNVLFuZ3s+lJl0U2lbcU
-	WUbVw7ztx06GD8RAROQCR13GuQOlI1edU4LAdJhvjCQ6jVNuZtQmeHJN4pryt3NKfj+JH2Xo7KH
-	54cLMr3xSbUd/qqu2uVWH8A27/4FN/P1pWP9vnNMEoybKTyxk9mSdaDA5SSA9k1RN1GEH9wBvEi
-	CRV+A1yt1baJo93jNnFXNQ9IcH7mXkvb7qtfuyHlOsJYWieEO+h01DBM5o3u+TN3c7mkEblD/cl
-	rRgl6XVmvar3cPPbAZw2L03zD4dcCb8BiMEBKpvvGhHZLo5uAbq2fAYIqFGb2Lxarc8iiIvcxPI
-	U5vzihH2OhcBCGE2laGW6k9XNSwEOXU2r3ZeL0WFOKdn6AfW4Pf5WzRFJGO3BWNbbiqriUWruSG
-	Hp5Km3zRDB1WMwubGQsFVE39NbhZDkZliLrJ7v6dxB+NWRkQXe/Lv/qxCWNcbb09LxmHQMV7coh
-	0jw8Jw==
-X-Received: by 2002:a05:622a:1f13:b0:533:8900:4eae with SMTP id d75a77b69052e-55d76a168d0mr403124891cf.13.1795739839275;
-        Thu, 26 Nov 2026 16:37:19 -0800 (PST)
-Received: from ziepe.ca ([142.177.118.84])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d788506b0sm192115611cf.17.2026.11.26.16.37.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 16:37:18 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xWjxm-00000005OdJ-0d4j;
-	Thu, 26 Nov 2026 20:37:18 -0400
-Date: Thu, 26 Nov 2026 20:37:18 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>
-Cc: Alistair Popple <apopple@nvidia.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Thomas =?utf-8?Q?Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
-	Simona Vetter <simona.vetter@ffwll.ch>,
-	Matthew Brost <matthew.brost@intel.com>,
-	Vivek Kasireddy <vivek.kasireddy@intel.com>,
-	Dongwon Kim <dongwon.kim@intel.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	Karl Mehltretter <kmehltretter@gmail.com>,
-	Baolu Lu <baolu.lu@linux.intel.com>,
-	Felix Kuehling <felix.kuehling@amd.com>,
-	Alex Deucher <alexander.deucher@amd.com>,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, amd-gfx@lists.freedesktop.org,
-	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
-	linux-rdma@vger.kernel.org, iommu@lists.linux.dev,
-	Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
-	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
-	linux-nvme@lists.infradead.org,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Mina Almasry <almasrymina@google.com>, netdev@vger.kernel.org,
-	Alexey Kardashevskiy <aik@amd.com>, zhipingz@meta.com,
-	treding@nvidia.com, jhubbard@nvidia.com, chaitanyak@nvidia.com,
-	Leon Romanovsky <leon@kernel.org>
-Subject: Re: [PATCH v3 03/24] dma-buf: Add the SGT DMA mapping type
-Message-ID: <20261127003718.GR246011@ziepe.ca>
-References: <20261124142032.GN9566@ziepe.ca>
- <7a5a2d3a-e42e-4dc0-8d22-8dd1bd249501@amd.com>
- <20261124194618.GC114530@ziepe.ca>
- <awZ_Os1pXelOGaFP@nvdebian.thelocal>
- <fb9a6b12-c134-4e40-86a5-dbcb59c0b91b@amd.com>
- <20261125155559.GL246011@ziepe.ca>
- <5fb8bb60-7d9f-49b1-899c-40a890fdc14b@amd.com>
- <20261125190705.GN246011@ziepe.ca>
- <awfMy1d8ICL6mr9i@nvdebian.thelocal>
- <a8c00bbf-dddb-4207-bcdf-af58d27116c5@amd.com>
+	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=a2Nf7Otc
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AR0ba2Z3515030, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1795739856; bh=Y1FKW8xIYiIpaEPrmECOjixE7s76tYmG2eWADy2j5wk=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=a2Nf7OtcbtlvLKZEtrkewhGNAp/xBmTVkrUvmqTni0QMohEMQurSpSpIsvFRYsAPu
+	 F9utC9PVa1vIH81chtsqEQKQh4mRwMZeY9WFSwrqJeGC247rgR12csCYe5hX8wiwJX
+	 BTyGiFPNbF4UPCEPokhR/ILM9gTEwVNpVQEDXn9caiiFdY2eta0LkMCRqgq3h5Gcyx
+	 Li66j11tq06qJu5ZLR78As04Ns+l8KQDY7sZnzdd1VlwY0WngZbq429ZOmd4fKnOmZ
+	 2XfuUOSG/mb54qtkX1IfM+Gjjt+esR1yxpyC1InXfrc6Gs38J29bqGHKdrUm+g5JzZ
+	 Ot1HG1T/X8lSw==
+Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AR0ba2Z3515030
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 27 Nov 2026 08:37:36 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Fri, 27 Nov 2026 08:37:37 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
+ 15.02.2562.056; Fri, 27 Nov 2026 08:37:37 +0800
+From: Ping-Ke Shih <pkshih@realtek.com>
+To: Zeshan Ahmed Nobin <zeshanahmednobin@gmail.com>,
+	"linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>
+CC: Luka Gejak <luka.gejak@linux.dev>, Kalle Valo <kvalo@kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH rtw-next v4] wifi: rtw88: 8822c: validate bw and nrx read
+ from registers
+Thread-Topic: [PATCH rtw-next v4] wifi: rtw88: 8822c: validate bw and nrx read
+ from registers
+Thread-Index: AQHdfRzleDq60UXOdU+FWOgyWX/QErdBFHPA
+Date: Fri, 27 Nov 2026 00:37:36 +0000
+Message-ID: <2942bdc6c66949bcb90cbc9ea61dfcaa@realtek.com>
+References: <20261125203753.428868-1-zeshanahmednobin@gmail.com>
+In-Reply-To: <20261125203753.428868-1-zeshanahmednobin@gmail.com>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -136,18 +83,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <a8c00bbf-dddb-4207-bcdf-af58d27116c5@amd.com>
 
-On Thu, Nov 26, 2026 at 10:58:13AM +0100, Christian König wrote:
-> Would it help if have a call on Teams or similar services to discuss the whole thing?
-> 
-> That might be easier and especially faster than by mail.
+Zeshan Ahmed Nobin <zeshanahmednobin@gmail.com> wrote:
+> rtw8822c_phy_cck_pd_set() reads nrx and bw from the chip with
+> rtw_read32_mask() and uses them as indexes into dm_info->cck_pd_lv[][]
+> and rtw8822c_cck_pd_reg[][].
+>=20
+> When the chip stops responding on the PCIe bus, register reads return
+> all ones, so bw and nrx both become 3. bw =3D 3 is past the end of both
+> arrays.  When the chip stopped responding on Ubuntu's 7.0.0-43 kernel,
+> UBSAN reported:
+>=20
+>   UBSAN: array-index-out-of-bounds in .../rtw88/rtw8822c.c:4407:21
+>   index 3 is out of range for type 'u8 [2][4]'
+>   Workqueue: phy0 rtw_watch_dog_work [rtw88_core]
+>   Call Trace:
+>    rtw8822c_phy_cck_pd_set+0x33c/0x510 [rtw88_8822c]
+>    rtw_phy_dynamic_mechanism+0x310/0x330 [rtw88_core]
+>    rtw_watch_dog_work+0x217/0x330 [rtw88_core]
+>=20
+> nrx =3D 3 fits in cck_pd_lv[][], but rtw8822c_cck_pd_reg[][] only has
+> registers for nrx 0 and 1. The entry for nrx 3 is empty: register 0,
+> mask 0. If bw is valid and the level changes, the driver uses that
+> empty entry. rtw_read32_mask() then shifts by __ffs(0), which is
+> undefined; in a test that faked only nrx 3, UBSAN reported "shift
+> exponent 64 is too large".
+>=20
+> Return early if bw or nrx is out of range, before either is used as
+> an index.
+>=20
+> Fixes: 479c4ee931a6 ("rtw88: add dynamic cck pd mechanism")
+> Reported-by: Luka Gejak <luka.gejak@linux.dev>
+> Closes: https://lore.kernel.org/linux-wireless/f6a7d3272fe7635c6a83698dfa=
+b5d85500437ca6@linux.dev/
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Zeshan Ahmed Nobin <zeshanahmednobin@gmail.com>
 
-I think that is a good idea, I suggest you and Alistair should pick a
-time and see who else can come. From experience eu/au/eastern na
-doesn't jive :)
+Acked-by: Ping-Ke Shih <pkshih@realtek.com>
 
-Jason
+
+
