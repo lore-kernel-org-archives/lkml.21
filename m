@@ -1,61 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=141.14.17.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795772734;
-	b=lYC2ZsxabBap6z7AW3CyYr8mZZ/oX6BIGZ2usps/ye92dB8ZPN+oA0hH+eIvyna0uKoO
-	 skkNCnd9pK6CYDxmcFtSWWDdVXm7UUOMB17BwOS9BKD/ONMPRPdWGb6PGWN5DrX4Zv9zy
-	 /d/ZYMUPY189m7/LSJ2MzlSqwB64rRoijOAI+ir7FJq4c9vmU37C2MjQOpw6J6nJwaBOW
-	 Y+QPrstHIsMTxN+afWPTXuA7topKQsFoq+OwatByjbExKB3so5LKjDLLxxjhl2aczti3O
-	 G8zMVRLr5riSa4REGg7tRuQgiDoKP7zccqZ74uIDlNNRjtQCqe7RNEyfCp1B0T1CmMA==
+	t=1795772768;
+	b=l2UlK8b7xpZdA1ymXAZvGnvY4/BlXj7sW9Oo+BAVd3HB7lF6/FUXRHlwBl3HqRlL+mPt
+	 0Dy2YF359Wc7fF1WrBpp/HG3z1XzTguIUm/SK9q+WkW0wzBRsQHXjGv7US121cOZi/nJD
+	 XsNIfC+FmV8Qpt3y+pVrvn7IjQY6+vdpfBlhxSOuwgjIwMG2DhJ16LRox5LhuxH3G+VMA
+	 9oAoxvG3k02bx1BQ8azwldMPksgRAUJC0BbpDdta/rCSYJmgex974pmKDC2EmD02ZN/W8
+	 gD/TlTFnMOeKM4FOJuVfqS+VcUmZaSEhjyBTA8B1Dfz/TeoTmstdcJ65qcNvzYQBIIg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795772734;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=RczoZg2Epk8iTLi3BcJGcft1wIDv/G28fsZ43jaIlC8=;
-	b=WeX8FxXPFiY6wn5LGs4dywZT4/ZhdEzJNB4nv1FiluZbsjEfRMuSSA+azFOiJeywxxNu
-	 ZREY1vRdXGiuiNkbQO82zCVJnWdynHVTtkfNP59gbYkANQoo1s7oyB98GBXuggv3PooJ1
-	 vExVMBuCqPGZQ/VzD3247zK467YfJy2JDR/53rzH9egm/EeyDH/SvWtrUy7i3fsonjfE/
-	 Dq/VdHqC+d7px44AOfrV5szhnpEAr/18ilbRqHjTgUq7NkrwQVmwdoIEFW5PCm9yZoPxn
-	 O7dSjNNSsV3qtXngHvde5NAdTi3sdZViIOplLkIdm0gi/cl5oCCznrStyhUuRRapo1g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795772768;
+	h=DMARC-Filter:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:DKIM-Signature;
+	bh=3Y5xW9zL7afkUZwasjtlFb9Ki7bYkdZcTDdq3Crlcdg=;
+	b=dTSSWsZrKv6dFwJ8wZRV0Ae055RB56ycHVuHedGpVrGMma0kY2HZLROXIZ+D+FYPolf7
+	 5nB9hSjfmS6bqhd99Ch6mpDT0vvN4UCZxYFNXPVLDT9HuhM5yMpgUcxOLKiCkc8CrMSzs
+	 TdlL44tPF6tgjcdYLNWiaEO/tvMrDYl9G+HsGR5FcV0WeO+2qhiTOa9AMxvdgg79IKXJf
+	 Eh5WVWXuPPDZahToS3LsuppQpJqo0m9V3y74vbNYV0G/067IkKzAL54Kct1jb8zpUk0QU
+	 sQ6jc1RHKAA6IHSnfSinUWMP0nWugqlgmdlYrentM+SeNUPuxBRZ3/GkLgjnBSSsTAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g+Jybfkf;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=molgen.mpg.de;
+	spf=pass smtp.mailfrom=molgen.mpg.de;
+	dkim=pass header.d=molgen.mpg.de header.i=@molgen.mpg.de header.a=rsa-sha256 header.s=20260906 header.b=b+fvNiyz;
+	arc=none smtp.remote-ip=141.14.17.11
+Received: from mx3.molgen.mpg.de (mx3.molgen.mpg.de [141.14.17.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98E5B606A31E;
-	Fri, 27 Nov 2026 09:45:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1ADFB606A31C;
+	Fri, 27 Nov 2026 09:46:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1ADFB606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=molgen.mpg.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=molgen.mpg.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g+Jybfkf
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45A231F000C1;
-	Fri, 27 Nov 2026 09:45:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795772734;
-	bh=RczoZg2Epk8iTLi3BcJGcft1wIDv/G28fsZ43jaIlC8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=g+Jybfkf+uM2Z4Bz7gFkrAEcGEmsYF6TNblOKK2JEe0WjTZxM52r/8xMXxHMyrl13
-	 WbvM4gLObGcyluRttsE8TrMm1k0fOFCvc6SwUmmNL91SIx2Tjd9JiBkRj3zOyQxztH
-	 XHSbf08rhGb4NJFAjZKXKjy8lle7uzN3/JYV6DWv2arg+rdYHeASta7eOofoXNOsUX
-	 y1FJxtxQSxf7aaVLX0lYo+KIRP7GQYDOGMH0vbMC7GU88U5Ua8P49syEi7XLrTjHGb
-	 yZs4k9bDrqSm8vi1Z4ehGHm7xScKJv/4Kyiyl+6tC3sZJwzbMG//kbYhwbLiKOMGYd
-	 9BZ7xA21VRt8w==
-Date: Fri, 27 Nov 2026 10:45:28 +0100
-From: Christian Brauner <brauner@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: linux-perf-users@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
-	Jann Horn <jannh@google.com>, linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
-	adrian.hunter@intel.com, alexander.shishkin@linux.intel.com, dapeng1.mi@linux.intel.com
-Subject: Re: [PATCH 1/2] perf: look up address filter files without
- ctx->mutex held
-Message-ID: <20261127-tonlage-pilze-demolieren-5948f82f401c@brauner>
-References: <20261126-work-exec-update_lock-leftovers-v1-0-1024b26792bc@kernel.org>
- <20261126-work-exec-update_lock-leftovers-v1-1-1024b26792bc@kernel.org>
- <20261126152414.GH49833@noisy.programming.kicks-ass.net>
- <20261126-gedruckt-gastarbeiter-vorsorgen-5fea7cea1877@brauner>
- <20261126-erlogen-bedrucken-dementieren-5de5e5460481@brauner>
- <20261127081303.GN49833@noisy.programming.kicks-ass.net>
- <20261127091852.GD83911@noisy.programming.kicks-ass.net>
+	dkim=pass (2048-bit key) header.d=molgen.mpg.de header.i=@molgen.mpg.de header.a=rsa-sha256 header.s=20260906 header.b=b+fvNiyz
+Received: from [141.14.220.44] (g44.guest.molgen.mpg.de [141.14.220.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: pmenzel)
+	by mx.molgen.mpg.de (Postfix) with ESMTPSA id 392454C1A256EC;
+	Fri, 27 Nov 2026 10:45:27 +0100 (CET)
+Message-ID: <7dac94da-c783-4a17-b0de-32b3bf257cf3@molgen.mpg.de>
+Date: Fri, 27 Nov 2026 10:45:25 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,293 +51,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261127091852.GD83911@noisy.programming.kicks-ass.net>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] i2c: acpi: Limit DLL0945 100 kHz quirk to Dell Precision
+ 5560 and XPS 15 9510
+To: Fangzhong Zhou <myth5@myth5.com>, mika.westerberg@linux.intel.com
+Cc: Mika Westerberg <westeri@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Hans de Goede <johannes.goede@oss.qualcomm.com>,
+ Dell.Client.Kernel@dell.com, linux-i2c@vger.kernel.org,
+ linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261119143218.586632-2-pmenzel@molgen.mpg.de>
+ <20261120071924.GI229695@black.igk.intel.com>
+ <20261127021203.35477-1-myth5@myth5.com>
+Content-Language: en-US
+From: Paul Menzel <pmenzel@molgen.mpg.de>
+In-Reply-To: <20261127021203.35477-1-myth5@myth5.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=molgen.mpg.de; s=20260906; 
+	t=1795772727; 
+	h=from:from:subject:date:message-id:mime-version:content-type:content-transfer-encoding; 
+	bh=3Y5xW9zL7afkUZwasjtlFb9Ki7bYkdZcTDdq3Crlcdg=; 
+	b=b+fvNiyzLPgmEh6XKNTNCS1HPav55zvqgYZRMIVBK++S66PnLwsxH/TeE8UiZBmPPj3A/uGzZF0w
+	aB+3J08f5EQcOOpJgH6Wtdzqcmw/BWb47fhcLs/M+UwrIQa4c6pYm3ObV+Ogz+LsZYB+KB3r4WYBsG
+	3SDVxgwKERLncwLJv+F92lOnC0wf/PZfVW2m6wh262JgDwh8oDr3RK0UqdBqUvEGo9P5iIipXYSOw2
+	kT2/XIOrqado+lrKMkx6f3ynWDAxxZq5o1fd/cZz9xIEQN2urWFyWlS6OrTFTQXeAhT99D9pp0sVbd
+	VbIiB3E5rIE+wv0UnMAadJOJRzWSdZtQ==
 
-On Fri, Nov 27, 2026 at 10:18:52AM +0100, Peter Zijlstra wrote:
-> On Fri, Nov 27, 2026 at 09:13:03AM +0100, Peter Zijlstra wrote:
-> > On Thu, Nov 26, 2026 at 10:26:02PM +0100, Christian Brauner wrote:
-> > > So ok, if we can't drop ctx->mutex in the middle of the ioctl then how
-> > > about we don't hold ctx->mutex during parsing to begin with?
-> > > We let perf_ioctl() hand PERF_EVENT_IOC_SET_FILTER off before it takes
-> > > the mutex:
-> > > 
-> > > ioctl(PERF_EVENT_IOC_SET_FILTER)
-> > > -> perf_ioctl()
-> > >    -> perf_event_set_filter()                // no ctx->mutex
-> > >       -> perf_event_set_addr_filter()
-> > >          -> perf_event_parse_addr_filter()   // kern_path(), own list
-> > >          -> perf_event_ctx_lock()
-> > >             // revoked? has_addr_filter()? ->addr_filters_validate()
-> > >             -> perf_addr_filters_splice()
-> > >             -> perf_event_addr_filters_apply() on each child
-> > >          -> perf_event_ctx_unlock()
-> > > 
-> > > The parser fills its own list and counts the file filters in locals.
-> > > Everything that needs ctx->mutex then happens in one go under
-> > > perf_event_ctx_lock().
-> > > 
-> > > So ctx->mutex is never dropped in the middle of an ioctl, a migrated
-> > > event is handled by perf_event_ctx_lock() like everywhere else and no
-> > > ctx is carried across the lookup?
-> > 
-> > Let me try this.
+Dear Fangzhong,
+
+
+Am 27.11.26 um 03:11 schrieb fangzhong.zhou:
+> On Fri, 20 Nov 2026 08:19:24 +0100, Mika Westerberg wrote:
+
+>> On Thu, Nov 19, 2026 at 03:32:16PM +0100, Paul Menzel wrote:
+>>> Commit 0b7c9528facd ("i2c: Force DLL0945 touchpad i2c freq to 100khz")
+>>> forces the I2C bus to 100 kHz for all devices with the ACPI ID DLL0945 to
+>>> work around a sluggish cursor on the Dell Precision 5560. But DLL0945 does
+>>> not identify a touchpad model. Dell uses it for touchpads from different
+>>> vendors:
+>>>
+>>>      System                Touchpad
+>>>      Dell Precision 5560   ELAN 04F3:311C
+>>>      Dell XPS 15 9510      ELAN 04F3:311C (bugzilla #214597)
+>>>      Dell XPS 13 9310      Synaptics 06CB:CDE6
+>>>
+>>> The ELAN touchpads are the ones known to need 100 kHz, but the Synaptics
+>>> touchpad of the Dell XPS 13 9310 is slowed down without need. Its DSDT
+>>> specifies 400 kHz, and Linux logs:
+>>>
+>>>      i2c_designware i2c_designware.0: [Firmware Bug]: DSDT uses known not-working I2C bus speed 400000, forcing it to 100000
+>>>
+>>> The touchpad scans every 7.1 ms (scan time field in the input report), and
+>>> i2c-hid reads wMaxInputLength (64 bytes) for each report. Tracing the I2C
+>>> transfers for 30 seconds of moving a finger on the touchpad shows:
+>>>
+>>>                               100 kHz   400 kHz
+>>>      read time (median)        7.3 ms    2.5 ms
+>>>      bus busy                   87 %      36 %
+>>>      reports per second          111       140
+>>>      frames lost                18.6 %     0 %
+>>>
+>>> At 100 kHz the host cannot keep up with the touchpad, and every fifth frame
+>>> is lost. At 400 kHz all frames arrive, and no sluggish cursor was noticed.
+>>>
+>>> So, only apply the DLL0945 entry on the Dell Precision 5560 and XPS 15 9510
+>>> by pointing the entry's driver_data to a DMI table, which can be used to
+>>> restrict other entries in the same way.
+>>
+>> Yeah, we should really figure out how this works in Windows. I'm sure they
+>> don't have such a quirk list so maybe it's up to the vendor specific
+>> drivers to "tune" the bus to their needs whereas in Linux we obey the ACPI
+>> description.
+>>
+>>> Tested on the Dell XPS 13 9310.
+>>>
+>>> - The `[Firmware Bug] … forcing it to 100000` line is gone from dmesg.
+>>> - Re-probed the touchpad’s I²C controller with debug output on, and it
+>>>    reports `Bus speed: Fast Mode (400 kHz)`. The touchpad came back up
+>>>    under hid-multitouch.
+>>>
+>>> Fixes: 0b7c9528facd ("i2c: Force DLL0945 touchpad i2c freq to 100khz")
+>>> Link: https://bugzilla.kernel.org/show_bug.cgi?id=214597
+>>> Cc: Hans de Goede <johannes.goede@oss.qualcomm.com>
+>>> Cc: Dell.Client.Kernel@dell.com
+>>> Signed-off-by: Paul Menzel <pmenzel@molgen.mpg.de>
+>>
+>> Acked-by: Mika Westerberg (Intel) <westeri@kernel.org>
 > 
-> Compile tested only; Alexander, Adrian; could any of you take a hard
-> look at this and actually test?
+> From my subsequent testing, the cursor lag issue still appears when the
+> laptop is under high load or any other reasons, so my earlier patch did
+> not fully resolve the problem.
 > 
-> ---
->  kernel/events/core.c | 135 +++++++++++++++++++++++++--------------------------
->  1 file changed, 67 insertions(+), 68 deletions(-)
+> I then replaced the original touchpad with a brand-new unit. After more
+> than one and a half months of continuous testing, the cursor lag has not
+> reappeared.
 > 
-> diff --git a/kernel/events/core.c b/kernel/events/core.c
-> index 77c501005143..c019e4faf655 100644
-> --- a/kernel/events/core.c
-> +++ b/kernel/events/core.c
-> @@ -6632,16 +6632,24 @@ static inline bool is_perf_file(struct fd f)
->  
->  static int perf_event_set_output(struct perf_event *event,
->  				 struct perf_event *output_event);
-> -static int perf_event_set_filter(struct perf_event *event, void __user *arg);
-> +static int perf_event_set_filter(struct perf_event *event, struct list_head *filters);
->  static int perf_copy_attr(struct perf_event_attr __user *uattr,
->  			  struct perf_event_attr *attr);
->  static int __perf_event_set_bpf_prog(struct perf_event *event,
->  				     struct bpf_prog *prog,
->  				     u64 bpf_cookie);
->  
-> -static long _perf_ioctl(struct perf_event *event, unsigned int cmd, unsigned long arg)
-> +struct perf_ioctl_ctx {
-> +	unsigned int cmd;
-> +	unsigned long arg;
-> +	struct list_head filters;
-> +};
-> +
-> +static long _perf_ioctl(struct perf_event *event, struct perf_ioctl_ctx *ctx)
->  {
->  	void (*func)(struct perf_event *);
-> +	unsigned long arg = ctx->arg;
-> +	unsigned int cmd = ctx->cmd;
->  	u32 flags = arg;
->  
->  	if (event->state <= PERF_EVENT_STATE_REVOKED)
-> @@ -6692,7 +6700,7 @@ static long _perf_ioctl(struct perf_event *event, unsigned int cmd, unsigned lon
->  	}
->  
->  	case PERF_EVENT_IOC_SET_FILTER:
-> -		return perf_event_set_filter(event, (void __user *)arg);
-> +		return perf_event_set_filter(event, &ctx->filters);
->  
->  	case PERF_EVENT_IOC_SET_BPF:
->  	{
-> @@ -6751,10 +6759,21 @@ static long _perf_ioctl(struct perf_event *event, unsigned int cmd, unsigned lon
->  	return 0;
->  }
->  
-> +static inline bool perf_event_is_tracing(struct perf_event *event);
-> +static void free_filters_list(struct list_head *filters);
-> +static int
-> +perf_event_parse_addr_filter(int event_node, bool event_task, char *fstr,
-> +			     struct list_head *filters);
-> +
->  static long perf_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
->  {
->  	struct perf_event *event = file->private_data;
->  	struct perf_event_context *ctx;
-> +	struct perf_ioctl_ctx ic = {
-> +		.cmd = cmd,
-> +		.arg = arg,
-> +		.filters = LIST_HEAD_INIT(ic.filters),
-> +	};
->  	long ret;
->  
->  	/* Treat ioctl like writes as it is likely a mutating operation. */
-> @@ -6762,10 +6781,34 @@ static long perf_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
->  	if (ret)
->  		return ret;
->  
-> +	if (cmd == PERF_EVENT_IOC_SET_FILTER) {
-> +		int cpu = READ_ONCE(event->cpu);
-> +		int node = cpu == -1 ? NUMA_NO_NODE : cpu_to_node(cpu);
-> +		bool task = event->attach_state & PERF_ATTACH_TASK;
-> +		char *filter_str __free(kfree) =
-> +			strndup_user((void __user *)arg, PAGE_SIZE);
-> +
-> +		if (IS_ERR(filter_str))
-> +			return PTR_ERR(filter_str);
-> +
-> +#ifdef CONFIG_EVENT_TRACING
-> +		if (perf_event_is_tracing(event)) {
-> +			return ftrace_profile_set_filter(event, event->attr.config,
-> +							filter_str);
-> +		}
-> +#endif
-> +		ret = perf_event_parse_addr_filter(node, task, filter_str,
-> +						   &ic.filters);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
->  	ctx = perf_event_ctx_lock(event);
-> -	ret = _perf_ioctl(event, cmd, arg);
-> +	ret = _perf_ioctl(event, &ic);
->  	perf_event_ctx_unlock(event, ctx);
->  
-> +	free_filters_list(&ic.filters);
-> +
->  	return ret;
->  }
->  
-> @@ -11990,9 +12033,8 @@ void perf_bp_event(struct perf_event *bp, void *data)
->   * Allocate a new address filter
->   */
->  static struct perf_addr_filter *
-> -perf_addr_filter_new(struct perf_event *event, struct list_head *filters)
-> +perf_addr_filter_new(int node, struct list_head *filters)
->  {
-> -	int node = cpu_to_node(event->cpu == -1 ? 0 : event->cpu);
->  	struct perf_addr_filter *filter;
->  
->  	filter = kzalloc_node(sizeof(*filter), GFP_KERNEL, node);
-> @@ -12035,8 +12077,17 @@ static void perf_addr_filters_splice(struct perf_event *event,
->  	raw_spin_lock_irqsave(&event->addr_filters.lock, flags);
->  
->  	list_splice_init(&event->addr_filters.list, &list);
-> -	if (head)
-> +	event->addr_filters.nr_file_filters = 0;
-> +
-> +	if (head) {
-> +		struct perf_addr_filter *filter;
-> +
->  		list_splice(head, &event->addr_filters.list);
-> +		list_for_each_entry(filter, &event->addr_filters.list, entry) {
-> +			if (filter->path.dentry)
-> +				event->addr_filters.nr_file_filters++;
-> +		}
-> +	}
->  
->  	raw_spin_unlock_irqrestore(&event->addr_filters.lock, flags);
->  
-> @@ -12186,7 +12237,7 @@ static const match_table_t if_tokens = {
->   * Address filter string parser
->   */
->  static int
-> -perf_event_parse_addr_filter(struct perf_event *event, char *fstr,
-> +perf_event_parse_addr_filter(int event_node, bool event_task, char *fstr,
->  			     struct list_head *filters)
->  {
->  	struct perf_addr_filter *filter = NULL;
-> @@ -12213,7 +12264,7 @@ perf_event_parse_addr_filter(struct perf_event *event, char *fstr,
->  
->  		/* filter definition begins */
->  		if (state == IF_STATE_ACTION) {
-> -			filter = perf_addr_filter_new(event, filters);
-> +			filter = perf_addr_filter_new(event_node, filters);
->  			if (!filter)
->  				goto fail;
->  		}
-> @@ -12299,7 +12350,7 @@ perf_event_parse_addr_filter(struct perf_event *event, char *fstr,
->  				 * different processes.
->  				 */
->  				ret = -EOPNOTSUPP;
-> -				if (!event->ctx->task)
-> +				if (!event_task)
->  					goto fail;
->  
->  				/* look up the path and grab its inode */
-> @@ -12310,11 +12361,8 @@ perf_event_parse_addr_filter(struct perf_event *event, char *fstr,
->  
->  				ret = -EINVAL;
->  				if (!filter->path.dentry ||
-> -				    !S_ISREG(d_inode(filter->path.dentry)
-> -					     ->i_mode))
-> +				    !S_ISREG(d_inode(filter->path.dentry)->i_mode))
->  					goto fail;
+> I will keep testing to confirm whether the issue is completely gone.
 
-Just a thought on this. In vfs-7.5.lookup I have:
+Thank you for your update. Do you know, what is different exactly in the 
+brand-new unit? Revision or firmware?
 
-file_check_backing() which is the new default way to figure out whether
-something can be a backing file for a given subsystem. Its checks are:
+And just to be sure, you indeed have an ELAN touchpad, right?
 
-int file_check_backing(const struct file *file, fmode_t mode, umode_t type)
-{
-	fmode_t io = mode & (FMODE_READ | FMODE_WRITE);
-	/* Drivers may point ->f_mapping at something else. */
-	umode_t fmt = file_inode(file)->i_mode & S_IFMT;
-	struct inode *real_inode;
 
-	/* O_PATH files are only fine for callers that just use the path. */
-	if ((file->f_mode & FMODE_PATH) && !(mode & FMODE_PATH))
-		return -EBADF;
+Kind regards,
 
-	if ((file->f_mode & io) != io)
-		return -EBADF;
-
-	if (fmt != S_IFREG && !(type == S_IFBLK && fmt == S_IFBLK))
-		return -EINVAL;
-
-	/* Look through stacking filesystems at the inode with the data. */
-	real_inode = d_real_data_inode(file->f_path.dentry);
-	if (IS_ERR(real_inode))
-		return PTR_ERR(real_inode);
-	if (real_inode->i_sb->s_iflags & SB_I_PSEUDO)
-		return -EINVAL;
-
-	if ((mode & FMODE_READ) &&
-	    (!(file->f_mode & FMODE_CAN_READ) || !file->f_op->read_iter))
-		return -EINVAL;
-
-	if ((mode & FMODE_WRITE) &&
-	    (!(file->f_mode & FMODE_CAN_WRITE) || !file->f_op->write_iter))
-		return -EINVAL;
-
-	return 0;
-}
-
-It excludes anything that is a pseudo filesystem:
-
-arch/powerpc/platforms/cell/spufs/inode.c:      fc_init_pseudo(fc);
-arch/s390/hypfs/inode.c:        fc_init_pseudo(fc);
-drivers/android/binder/rust_binderfs.c: fc_init_pseudo(fc);
-drivers/usb/gadget/function/f_fs.c:     fc_init_pseudo(fc);
-drivers/usb/gadget/legacy/inode.c:      fc_init_pseudo(fc);
-drivers/xen/xenfs/super.c:      fc_init_pseudo(fc);
-fs/binfmt_misc.c:       fc_init_pseudo(fc);
-fs/configfs/mount.c:    fc_init_pseudo(fc);
-fs/debugfs/inode.c:     fc_init_pseudo(fc);
-fs/devpts/inode.c:      fc_init_pseudo(fc);
-fs/efivarfs/super.c:    fc_init_pseudo(fc);
-fs/failfs.c:    fc_init_pseudo(fc);
-fs/fuse/control.c:      fc_init_pseudo(fsc);
-fs/kernfs/mount.c:      fc_init_pseudo(fc);
-fs/libfs.c:             fc_init_pseudo(fc);
-fs/nfsd/nfsctl.c:       fc_init_pseudo(fc);
-fs/nullfs.c:    fc_init_pseudo(fc);
-fs/ocfs2/dlmfs/dlmfs.c: fc_init_pseudo(fc);
-fs/openpromfs/inode.c:  fc_init_pseudo(fc);
-fs/proc/root.c: fc_init_pseudo(fc);
-fs/pstore/inode.c:      fc_init_pseudo(fc);
-fs/tracefs/inode.c:     fc_init_pseudo(fc);
-include/linux/pseudo_fs.h:static inline void fc_init_pseudo(struct fs_context *fc)
-ipc/mqueue.c:   fc_init_pseudo(fc);
-kernel/bpf/inode.c:     fc_init_pseudo(fc);
-net/sunrpc/rpc_pipe.c:  fc_init_pseudo(fc);
-security/apparmor/apparmorfs.c: fc_init_pseudo(fc);
-security/inode.c:       fc_init_pseudo(fc);
-security/selinux/selinuxfs.c:   fc_init_pseudo(fc);
-security/smack/smackfs.c:       fc_init_pseudo(fc);
-
-I don't think anything on this list is something that you would ever
-want to use as an object file?
-
-I think we should do an O_PATH open of the target file and then you
-call:
-
-file = filp_open(filename, O_PATH | O_REGULAR, 0)
-
-if (file_check_backing(file, FMODE_PATH, 0))
-	return -EINVAL;
-
-We had a whole bug class where various subsystems that used backing
-files just allowed arbitrary files to be used.
+Paul
