@@ -1,63 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.216.248.207
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795785910;
-	b=EntruoJN/0p5jpKtNazXAFIl811OGsvW73/05kHxxjEieQikjs6NxkKMGxyTleYA3r6U
-	 WyIHv0HQPNoEc/3iLuWUqP0m2PPZ3yeijBk59um1EZbP1ePt3kBp5G7PtnamUCQimgeH+
-	 9mRyjmO0vYk483lvwqN0Pt7PiG6ZJSGvfiZjIvfPX5S02ml22Om7kNPQwsXVxY3Hpmbig
-	 chnnB0GkypZsrBfNJJzntO4EjOzxkcLMtyCUKXkQ6B3BZrs5m8uXXk/FJO5YQ7d9DA+ny
-	 rvY1hGH8vUA5CZzIQ1X57/xxQBwRJStk+vZJSs9LOKOQDTvi6pZjQjxQaTB5le6UNkQ==
+	t=1795785911;
+	b=XcbVRe47R4p4D7xk5n4jZ95iKbg0fy14i26U4zKcvrhq8oy7rn8akm7pzZTEUd+mK8qm
+	 u55bn0MSvijhjuYWPEEtnfRxEOp2LOFzIwPQTnTXR0pXsGwnWjtDF3Xy8Bry3PO1h+blm
+	 IR0sAaLa15kfsWTXUTaESoovLaqVTQnoz1HwPWtJ+9vVmu50G2/DzitGXHsNBhLqn08c5
+	 ijIpsXsapHrSu2V9rtPP9VLMFvPBOvupk2XOp8VjtI1fJJZIOV+8sH81tBHS2WeiZklY1
+	 72JlbWapC6g8ZW9nJygko3PJtvawJXOwOgOv/p18Jzf0kGuZhSJI74KsGStqvVjqlUg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795785910;
-	h=DMARC-Filter:From:X-Lima-ML-UUID:DKIM-Signature:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=v3yEbC+AJmlftdTFGRLi1VzGahJ69Ti/aAE4/7WZpZ8=;
-	b=aR5s4/Iw86UqzRi7E4vNc9upw/CgqjoCwacod4tk0dFy+pX5eRTDN7uSEgR9p1o3wmUS
-	 ZCfT3z3nAgTKqLCl48fz29yOvWQt2uyqZDfyel6kMeuXfG34LDZ4L9c+sQc+i4oYJ1Atl
-	 4cspRwxY9D23B0YsWkdJJGsZz27xpjMgFdHsP77Ur31KZEAeugJU2Onx+UHijDwVGHlR3
-	 uWm4dim+buj9zBNtjGVtrrwi8bVs8IEgvQF/iG0BC+1QLmkeBdb7fydo5sC82j9mVADD1
-	 OxPVWzXDOJ8feQE50QLhBV3WSdfoaQLbmJIV3H/RdGJm8AzkEZNp+VN3mopFtJ3CteA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795785911;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=ZD8zIs47GHv3bIeOyhb3lpgrupfkTqj2lYrONuaJviQ=;
+	b=SKDFuyvEZrnZbsFe3Z1TxV2/+tccIv3Td1mSvsdXoSoxTdBt3Wq3NdfMl1/5W+dbgxHE
+	 +MhNallqSaj7SiX5zFtCU9t9uQJE9HdST//tPvtzbknW938oX3fPebaUFUj1PLvsnJ+bS
+	 /RTG65Dc8wZ2x1pvlCh1uvAF/xK/2m8hz22B6QFbWTDSxEUNwmrdtdSDygrerlBGmpLVj
+	 WESG9+qSi8yTH3DIxfnPgYB/3i04U6SOc8VgCKPQx3ozsFKzffAh1Hy1Hps4/Dce+qqE8
+	 H5jy3MrJdh8jXYZfZTKRlkswzHayga8PO3PRueHOTXSbv5qOepg8GhBUpKRfzMbDCcA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=deq.rocks;
-	spf=none smtp.mailfrom=deq.rocks;
-	dkim=pass header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=XIee0nPO;
-	arc=none smtp.remote-ip=91.216.248.207
-Received: from mx5.mail-out.lima-city.de (mx5.mail-out.lima-city.de [91.216.248.207])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OsuN1urR;
+	arc=none smtp.remote-ip=74.125.82.176
+Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55A21606A32E;
-	Fri, 27 Nov 2026 13:25:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55A21606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=deq.rocks
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=deq.rocks
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5971606A32F
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:25:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A5971606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=XIee0nPO
-From: Andre Eikmeyer <dev@deq.rocks>
-X-Lima-ML-UUID: be76e0bf-39fa-4763-b198-36333ccb8c8d
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=deq.rocks;
-	s=securedbylima-20251205; t=1795785905;
-	bh=jCbGfbLhz0HJs0XbEZQr5LjpS053K2gG8GUfQl41Qr0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=XIee0nPOFMYsVn0LGgyRbwD8r91BOqjTLtTGbqQmsNLRzh8eYtV+hjX+XvGwjd+lv
-	 3KUvI0EfxBWmO6WWZEr6pAmHVwxDOnhkdPu6EqnXv81YHXbEvCXzH6D6Jlj3h+0fHK
-	 a7Wuw5atrgwrygc/xxbVmxua/FcftRx5W//K1a29xiy1d1zTLlhnKg7Y2UNURE310O
-	 Huo1zb/ZTMWF25endityMHWoquAMfRCzNh1oWEVQ0cXUZQiqb49fzZx+9qw5B01oJT
-	 JwuJDH1YOTMk9VLE0FYsK5CKRRcdiFgCnN3PVXg1Hyg6Gavxz5rHSD93A8lVVw1yF5
-	 LFU2hbOFyuLXA==
-To: sven@kernel.org,
-	marcel@holtmann.org,
-	luiz.dentz@gmail.com
-Cc: j@jannau.net,
-	neal@gompa.dev,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-bluetooth@vger.kernel.org,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OsuN1urR
+Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-38692f62b22so10936928eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:25:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795785910; x=1796390710; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ZD8zIs47GHv3bIeOyhb3lpgrupfkTqj2lYrONuaJviQ=;
+        b=OsuN1urRmo0kR1oHgU7OSDiuTrpvYprEnAqbC53vh0S9GRcpbZix4DHD14KGu+yj0P
+         EvdUGt6l7eID1sRP4m7nfCrNW+X06Ce03uwAfopY3cN6ObMfoO9jOodZz37MZeTQOiJl
+         +5zcjQMrTHMNSHREWsamTWZiOtTqQA/XkFSaivQ2k6cQerZ+d334/m/JN83lA25lcgTR
+         Yfekk2VhajRBpltFovPVRyKa10EG6jQszfmdwP7l0uUIkneEOBQtOvd+FcE7A3Ag8RIN
+         Tevkh+WyVz70YrqVuOo0c/EGqxMoHV+OG1mg8to+wiHx4+4AJ8LvcFMGy91iQDpxQ2n5
+         3aTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795785910; x=1796390710;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ZD8zIs47GHv3bIeOyhb3lpgrupfkTqj2lYrONuaJviQ=;
+        b=2ACICM9SM+mEhUDBUc0gYL7vU9IOOvF04tvfn21dz/ayrm05grABGbm6PA+vFob51I
+         UWYtEP4RJrgVFNkBEIF9D29qKYzSv6QC/+LtQ9B5LH69A4dQ7DGyhgp2lSXzkjSUJdAu
+         bkD+YuTF+polhSvIf8DiF2AGeXiYzCctVHYHW2bM8Q1AhPYGf0OvfjT+yOkhzpvq4nhb
+         TavzdJMAz5ysrcHz3Y61ZGrNxKtzDzs0L/ma30KSjftYXQOEEQDtUZYwRdv4TMit9jvH
+         J8xAbSYj2YeuvdywV4xVg1fRYZ0o4iDvH+j58dfey51G9PT03BbF896adwm4HkKqbk8Q
+         zDAA==
+X-Forwarded-Encrypted: i=1; AL+hErF/dPzJsvXGrsIhd0aAprArBeo+Qwslkni3k+G6X/sw7xZFgtvmI9aSAJcsqW2RAHZX4nFPnZfNjY3ma9o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z97ZXH4kIgzV87XkWPEC/jbLdLXjvYiZFenkvmPAXuLGeSZ5vqO
+	FQWHbGBFT3BKKer9S0+Eefj/y+gO3NFBYQeWCZCOF45RyjujIfhi+Uh5ehWkGw==
+X-Gm-Gg: AZFdTZdl+9ZqUFXSve/Vxp0oH957EglXssTmml3Ry6M7sxAlLFZkkS/+9L5Wnay+BSl
+	7Itv6gnfCY4fjmUk0vY5Dk9vd6AbIe7kNilb9DKub1LUCvMhorT050pjhLLJVFkWMMSCz1pgxFi
+	Hxd66ooMIhgLrcw60M8NspeWLsxtKsYgrYRQvW9lGMHgr71XQPnSYncYDGNdItA/6j/mVZiFFfJ
+	rfBstBd2xA2e0axkcsKerN/APsbkewDeNeEMF3oayFsDGPLkEh6jzhekB9CZRsLftfPSTL7NZrO
+	i13CxuGN0vqz2ts+iUXQMpKQ2A//M6i+KWVPqQg5e/9/cbdsy7GTUkXtN8SwjTML3be3qOlVOiA
+	1s/7wpwplsQcGzeYVzN7XtxfYoHTgGTOTagIYTEJ8b+q10LyfsbkHw22mPs7K3gI/S8frE3CVro
+	kZkQeiKTkrs+H7xHi3m6K/FHAkf+Y73uhmZDTHkRzpGvJaTaVNx29uXPhv6LEfM9hT1B7UPWP0f
+	Y9LrPLRURpOEn3Mo2lYlIMwajqvtBpHz/HKbXFMaR9YB9R1DiZadnegjHwiv6mbEW0/cnQR+tF7
+	xXqmX631wZEjJAXBxrgbsDargt9BAk7q25eiC0bYGKAJSf2fy5Ne
+X-Received: by 2002:a05:693c:414e:10b0:386:a1ae:6762 with SMTP id 5a478bee46e88-386a1ae6d5fmr21349026eec.36.1795785909724;
+        Fri, 27 Nov 2026 05:25:09 -0800 (PST)
+Received: from 192.168.1.36 ([2402:a00:163:2ce9:b15c:e4fe:6de1:494a])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386992b404bsm59082431eec.1.2026.11.27.05.25.05
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 27 Nov 2026 05:25:09 -0800 (PST)
+From: Ajit Singh <blfizzyy@gmail.com>
+To: romain.gantois@bootlin.com
+Cc: gregkh@linuxfoundation.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heikki.krogerus@linux.intel.com,
+	linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Andre Eikmeyer <dev@deq.rocks>
-Subject: [PATCH v3 0/3] Bluetooth: hci_bcm4377: resume after ACPI S3 and ASPM
-Date: Fri, 27 Nov 2026 14:24:58 +0100
-Message-ID: <20261127132501.262651-1-dev@deq.rocks>
-X-Mailer: git-send-email 2.56.0
+	Ajit Singh <blfizzyy@gmail.com>
+Subject: [PATCH v3 2/2] usb: typec: mux: tusb1046: Support no-hpd
+Date: Fri, 27 Nov 2026 18:54:49 +0530
+Message-ID: <20261127132449.89081-3-blfizzyy@gmail.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20261127132449.89081-1-blfizzyy@gmail.com>
+References: <20261127132449.89081-1-blfizzyy@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,45 +106,79 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-After ACPI S3 the Bluetooth function of the BCM4377 comes back without
-its firmware. Patch 2 probes it again after such a resume.
+When HPD_IN has no usable hardware signal, set HPDIN_OVERRIDE over
+I2C in DisplayPort Alt Mode so the device treats HPD_IN as asserted.
+Clear the override when leaving DisplayPort mode, and preserve the
+existing register value on boards without no-hpd.
 
-When the previous controller is still being released, the re-probe
-registers the new one under another index, which runs into the probe
-return check fixed in patch 1. Patch 1 is a fix on its own and goes
-first.
+Reviewed-by: Romain Gantois <romain.gantois@bootlin.com>
+Signed-off-by: Ajit Singh <blfizzyy@gmail.com>
+---
+ drivers/usb/typec/mux/tusb1046.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-Because of a hardware erratum the driver keeps ASPM disabled on the
-whole link to the Wi-Fi and Bluetooth chip for as long as it is bound,
-which holds the CPU package at PC3. Patch 3 disables ASPM only while
-the firmware boots and restores it once the firmware runs, also after
-the re-probe from patch 2.
+diff --git a/drivers/usb/typec/mux/tusb1046.c b/drivers/usb/typec/mux/tusb1046.c
+index 34ef81f75693..50a856c8245d 100644
+--- a/drivers/usb/typec/mux/tusb1046.c
++++ b/drivers/usb/typec/mux/tusb1046.c
+@@ -21,6 +21,7 @@
+ /* General register bits */
+ #define TUSB1046_GENERAL_FLIPSEL BIT(2)
+ #define TUSB1046_GENERAL_CTLSEL  GENMASK(1, 0)
++#define TUSB1046_GENERAL_HPDIN_OVERRIDE BIT(3)
+ 
+ /* Mux modes */
+ #define TUSB1046_CTLSEL_DISABLED          0x0
+@@ -32,6 +33,7 @@ struct tusb1046_priv {
+ 	struct i2c_client *client;
+ 	struct typec_switch_dev *sw;
+ 	struct typec_mux_dev *mux;
++	bool no_hpd;
+ 
+ 	/* Lock General register during accesses */
+ 	struct mutex general_reg_lock;
+@@ -44,6 +46,7 @@ static int tusb1046_mux_set(struct typec_mux_dev *mux,
+ 	struct i2c_client *client = priv->client;
+ 	struct device *dev = &client->dev;
+ 	int mode, val, ret = 0;
++	bool dp_active = false;
+ 
+ 	if (state->mode >= TYPEC_STATE_MODAL &&
+ 	    state->alt->svid != USB_TYPEC_DP_SID)
+@@ -67,9 +70,11 @@ static int tusb1046_mux_set(struct typec_mux_dev *mux,
+ 	case TYPEC_DP_STATE_C:
+ 	case TYPEC_DP_STATE_E:
+ 		mode = TUSB1046_CTLSEL_4LANE_DP;
++		dp_active = true;
+ 		break;
+ 	case TYPEC_DP_STATE_D:
+ 		mode = TUSB1046_CTLSEL_USB3_AND_2LANE_DP;
++		dp_active = true;
+ 		break;
+ 	case TYPEC_STATE_SAFE:
+ 	default:
+@@ -80,6 +85,13 @@ static int tusb1046_mux_set(struct typec_mux_dev *mux,
+ 	val &= ~TUSB1046_GENERAL_CTLSEL;
+ 	val |= mode;
+ 
++	if (priv->no_hpd) {
++		if (dp_active)
++			val |= TUSB1046_GENERAL_HPDIN_OVERRIDE;
++		else
++			val &= ~TUSB1046_GENERAL_HPDIN_OVERRIDE;
++	}
++
+ 	ret = i2c_smbus_write_byte_data(client, TUSB1046_REG_GENERAL, val);
+ 
+ out_unlock:
+@@ -131,6 +143,7 @@ static int tusb1046_i2c_probe(struct i2c_client *client)
+ 		return -ENOMEM;
+ 
+ 	priv->client = client;
++	priv->no_hpd = device_property_read_bool(dev, "no-hpd");
+ 
+ 	mutex_init(&priv->general_reg_lock);
+ 
+-- 
+2.50.1 (Apple Git-155)
 
-The Wi-Fi function of the same chip needs the same after S3 and goes to
-linux-wireless in "wifi: brcmfmac: pcie: S3 suspend and resume on the
-T2 Mac chips".
-
-Tested on MacBookAir9,1 and MacBookPro15,4.
-
-Changes in v3:
-- Rebase on bluetooth-next
-- Patch 1: shorter subject, add Sven's Reviewed-by from v1
-- Patch 3: add Sven's Acked-by
-
-Changes in v2:
-- Add patch 3, keep ASPM off only while the firmware boots
-- Patches 1 and 2 are unchanged
-
-v2: https://lore.kernel.org/all/20261111120248.21062-1-dev@deq.rocks/
-v1: https://lore.kernel.org/all/20261107154839.89941-1-dev@deq.rocks/
-
-Andre Eikmeyer (3):
-  Bluetooth: hci_bcm4377: check hci_register_dev() for a negative return
-  Bluetooth: hci_bcm4377: probe again after a resume through firmware
-  Bluetooth: hci_bcm4377: keep ASPM off only while the firmware boots
-
- drivers/bluetooth/hci_bcm4377.c | 93 +++++++++++++++++++++++++++++----
- 1 file changed, 83 insertions(+), 10 deletions(-)
-
-
-base-commit: f57f78086ab54f3b3122fbaeba2c842ba7bb6d00
