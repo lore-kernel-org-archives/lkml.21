@@ -1,45 +1,77 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795789836;
-	b=iAYk3nfyD2rBn7kGYP6qA4dAhH7DWi5G5RCjPeM178SnCdwUS/8jIxJCZ6lbmq+897EJ
-	 kL8p8vuFzYoV8+WEQZfTmKIm/ywywxoFp6YduIThRRuK7YsKKYw6r4yn1AyFnAeWU8EiR
-	 ao2Cnorf/XCFU1F/sPaWcuHBkTsTxzxexbk54Un6H6ijBFma/h1dNae1rX9PBfyAF6p53
-	 f28sI0OSYvVbIY67gKYML0hhIbkJyHfVqFEa4DbgWp6xPrKTKcqyRJO/2cx3VI5XMPNbY
-	 FzKnB/MEOK+FsWHGtaNlrvZo3gfZwBKJgCGJvssO5OhlMxPCsgzTiLMdLyn6dn47QAw==
+	t=1795789889;
+	b=E7viB8reVKcLf9YfYZtyAlfUDkM+v+oT/MyvF4oVDteiUmz1D0KLWTX03eo4xBmowETH
+	 qfTwqPUJYwGDdIu6GFLFFVs4KxHaXUKsLsdRpWrPlRT5gT9OWxjcQ8VTeN6G0sfMlN3Di
+	 kK8t2DCu9rh10jlhufJ4znKKOQVMPP1xoIlhfsHNkQ/d8LS4cbbJduEuDOwDrh7lcwv6g
+	 0lyd+zvA/fv1kPwKHjA1pVPSLPDBCBMrazUp0eiFF5fPjBZEVrSkNIF8BAYO1EADScorE
+	 avLKfHI87/+VIMkIuVB4B7dOv0oiPOxbwJ5VNOxgaY2dt/hNlq/l3EMiyS7yGujTJgQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795789836;
-	h=Received:DKIM-Signature:Mime-Version:Content-Transfer-Encoding:
-	 Content-Type:Date:Message-Id:Cc:To:From:Subject:References:
-	 In-Reply-To;
-	bh=6uEJdRpzIecL7B4T/UaaujAOtHBrEgeZYaX/LhI1YXU=;
-	b=5gmSBbwCZKdRfbmUZiBgGZG7keuyr9iFXAdjRXUjSnzYvru3RJgveTemdwsUD9eocIBN
-	 KxHx1MQOA8RydM6mvESeNxFEU9ydIjE2rGljPStQn9QVXPOw5rFXrnRY7v6xcgJ8BVTux
-	 FWfsimZ8KX3NUBYNhNGZPPVFbqFqcc/qQdjRgW1yLtkbC4uos2LBLReRdRcAc/okq+FPN
-	 KoWteeG1eHRPiBkJIMPtPLmbJRowM7rpN3CDXcjyy3uCrHXYZxHepkSagpwvFe6A3KGlT
-	 6lBrq1c+93XM3GlFuD3k788/mZVNDauhWPV1+8iczNr9wxg7SlsaUCw+NdhonsfCU0Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795789889;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=A+uCVE2PpdgjhOXoHLNfle7gUf46golrIpGcOCuv45w=;
+	b=UceNdR8mTHLJb00y3obecMsTUjY2WhVPizv7zSi9eWZVOsovFRjBm4bzdSxyuK7h3lX7
+	 j13Bbk3DBx97pWHLZPeDqrxTwY8XYiTGcDP1kzX5GlCYRQtXhvhNhIYq1ctesX/hGdLU6
+	 DzVrPxGbfY0vdILAFBOFahMRKZL4pLyLSc600Onz7xI72om/AIJ8OeQKjAX+dUcTXJcGD
+	 PKy5j+BPkdwQQfG2GB4FhpZ3KH4mkGEZNocuBuoQ5uHBYHulw5BDNi0mp7apceKAjC+Xm
+	 jAcpVPaCS4PrfCwjcNt/dFxPtHM2PExLsHIaX+C8bkKYFXwXH6TAm5KzSimhaBisJPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U+rWz7fN;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="R6t/6vwq";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3364606B19F;
-	Fri, 27 Nov 2026 14:30:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D9E8606A332;
+	Fri, 27 Nov 2026 14:31:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U+rWz7fN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95F721F00A02;
-	Fri, 27 Nov 2026 14:30:34 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R6t/6vwq
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D03461F0089B;
+	Fri, 27 Nov 2026 14:31:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795789836;
-	bh=6uEJdRpzIecL7B4T/UaaujAOtHBrEgeZYaX/LhI1YXU=;
-	h=Date:Cc:To:From:Subject:References:In-Reply-To;
-	b=U+rWz7fNUZwT5gY0YEv0D4tQd0m3mK/TP7Y2N7Z5IA3moxhkpnGklUpPp6K9cWxWN
-	 wlHsiVgrD5fuXkq3Kc6u/ELaQ6WvUJ1bkHQwvCAY+jyTrghXHhA/+4auSEzI9SLD0R
-	 3R5XZxp24Tv/X81w9Cn3abgOdgb4Di7NNcwgTi9unYRMQ48HBy5rWws9BYS2a+Zgve
-	 BH74a2nmlrFD8+LlvzKUGX/CUhA1RT7IUbTdw7SzOz2btgg+Whvv4Mdr5v1ofw3LPF
-	 aRJgC3w0KyHUDT3R+CDsXbWUKopKw8LFYeGCyxtg6unkbQrEfY7jOyNhsYsXDuFcHk
-	 GatBj7AbhIa5Q==
+	s=k20260515; t=1795789888;
+	bh=A+uCVE2PpdgjhOXoHLNfle7gUf46golrIpGcOCuv45w=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=R6t/6vwqg8UIuyDjib7SpJyQixy5FnxVlaGchrfNO+q5muHKQFn7oULyktSyFAc9A
+	 95PkQF7UMsb8cZLiVU6i55oIdGoc94WG8S9eGD0T++8hpDsdEX0S7I65iURwNpek2a
+	 FZdVHGSTEbD7yF/yN9cmJXQRxwF3XwdMJRlAgZqC72uln/ohIr2kbRLEsZ9SeLnb+F
+	 Is5M1CpbxVkcGgZoDp4V4LKIxIdXVRL5Es3/98X08ZeKNHi0cgkO18T4jcK02AD5BH
+	 HqXx1yObqZsUkcoGDaIvhgwT9miiIud2FAWIVkBQ6P5DYuTceK8rg9+2bB2aqcFrKr
+	 9mTS552PlYjdw==
+From: Sasha Levin <sashal@kernel.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>,
+	Willy Tarreau <w@1wt.eu>,
+	Borislav Petkov <bp@alien8.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Leon Romanovsky <leon@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Hans de Goede <hansg@kernel.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Theodore Ts'o <tytso@mit.edu>,
+	Security Officers <security@kernel.org>,
+	workflows@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs and a cover letter
+Date: Fri, 27 Nov 2026 09:31:24 -0500
+Message-ID: <20261127143124.1039470-1-sashal@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <awmJ2c87NSDjtSwp@gremlin>
+References: <20261126171926.2766137-1-sashal@kernel.org> <20261126171926.2766137-2-sashal@kernel.org> <cf3596c6-742e-49c1-a90b-941d300d0b4a@kernel.org> <20261127014955.GBawjhw2j2YEUeiG1G@fat_crate.local> <awjopqoCJqwChwnF@laps> <awlCy3vDs0fKx1ku@gremlin> <awlNYsu1y8EhYgor@1wt.eu> <33c6cf3a-6b18-4e09-bd5c-68ed2c34de56@kernel.org> <awlR9pQUjodcLjZK@gremlin> <20261127133756.455469-1-sashal@kernel.org> <awmJ2c87NSDjtSwp@gremlin>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -48,69 +80,43 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 27 Nov 2026 15:30:33 +0100
-Message-Id: <DN62D8GGT0NN.1YHSKVVC6M67B@kernel.org>
-Cc: "Matthew Brost" <matthew.brost@intel.com>,
- =?utf-8?q?Christian_K=C3=B6nig?= <ckoenig.leichtzumerken@gmail.com>, "David
- Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Sumit
- Semwal" <sumit.semwal@linaro.org>, "Tvrtko Ursulin"
- <tvrtko.ursulin@igalia.com>, <dri-devel@lists.freedesktop.org>,
- <linux-kernel@vger.kernel.org>, <linux-media@vger.kernel.org>
-To: "Philipp Stanner" <phasta@kernel.org>
-From: "Danilo Krummrich" <dakr@kernel.org>
-Subject: Re: [PATCH] drm/sched: Document reclaim restrictions for
- ops->prepare_job()
-References: <20261127142425.2956053-3-phasta@kernel.org>
-In-Reply-To: <20261127142425.2956053-3-phasta@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 8bit
 
-On Fri Nov 27, 2026 at 3:24 PM CET, Philipp Stanner wrote:
-> drm_sched_backend_ops->prepare_job() gets called from
-> drm_sched_entity_pop_job(). Thus, it's in the fence critical path where
-> a memory reclaim might wait for the job / fence to complete.
+On Fri, Nov 27, 2026 at 02:20:15PM +0000, Lorenzo Stoakes (ARM) wrote:
+>On Fri, Nov 27, 2026 at 08:37:56AM -0500, Sasha Levin wrote:
+>> Very much the case. But we can't stop the "wrong hands" from using it, so we
+>> need guardrails around them that make it produce what we, as a community, think
+>> is the right thing.
 >
-> Sleeping in general seems to be (currently) allowed in prepare_job(),
-> but a sleeping allocation risks deadlock.
+>These aren't guardrails, you are just trying to modify the output of
+>something that's broken here IMO.
+
+I see this as the beginning of a guardrail. It'll take us some time to get to
+something like checkpatch for LLMs, but we have to start somewhere.
+
+>I think a placeholder works better, personally.
+
+I don't think we can really instruct LLMs not to write the message. The human
+will just turn around and tell it to ignore that instruction and write the
+commit message anyway.
+
+>+10. Write the cover letter described in "Cover letter" above from what the
+>+    previous steps produced. This part is not optional, not even for a single
+>+    patch or a one-line fix.
 >
-> Document the allocation pitfals for prepare_job().
+>BTW this seems to be instructing LLMs to generate cover letters for single
+>patches which I don't personally love to see.
 >
-> Signed-off-by: Philipp Stanner <phasta@kernel.org>
-> ---
-> Didn't we recently discuss deprecating this callback for good?
-> There's a great many users, though...
-> ---
->  include/drm/gpu_scheduler.h | 4 ++++
->  1 file changed, 4 insertions(+)
->
-> diff --git a/include/drm/gpu_scheduler.h b/include/drm/gpu_scheduler.h
-> index 3b0978fa8cf0..1e4d0399a9b9 100644
-> --- a/include/drm/gpu_scheduler.h
-> +++ b/include/drm/gpu_scheduler.h
-> @@ -447,6 +447,10 @@ struct drm_sched_backend_ops {
->  	 *
->  	 * Can be NULL if no additional preparation to the dependencies are
->  	 * necessary. Skipped when jobs are killed instead of run.
-> +	 *
-> +	 * This gets called in the job submission path (dma_fence critical path=
-).
+>And it therefore gives the LLM double the chance to post awful word
+>salad. So I'd prefer not to have that clause ideally.
 
-I think "job submission path" is slightly misleading. Not all of the operat=
-ions
-a driver performs on job submission are within the DMA fence signaling crit=
-ical
-path.
+The single patch cover letter was something that was floated during LPC and the
+Maintainers Summit. The other option I was thinking about is a git note
+attached to the patch: format-patch puts it below the "---" and git am discards
+it, so it never lands in the tree. I'm open to suggestions though.
 
-Maybe something like "This is called after the job's fence may have been
-published and hence must be considered a DMA fence sginaling critical secti=
-on."
-
-> +	 * You must not perform sleeping allocations in your implementation, or
-> +	 * deadlock can occur.
->  	 */
->  	struct dma_fence *(*prepare_job)(struct drm_sched_job *sched_job,
->  					 struct drm_sched_entity *s_entity);
-> --=20
-> 2.56.0
-
+-- 
+Thanks,
+Sasha
