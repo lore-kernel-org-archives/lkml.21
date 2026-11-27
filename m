@@ -1,113 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.39
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795760239;
-	b=5FmWpM6cQoCpSHucOCigPGv4SqmPyEbmftJENkK62LXLF5kb3VlAdcANALwbqnG3g7jl
-	 tBDwS2k/UDJQHj8i/zqomuz0TD6HSy4rCVaMNjb9EwkDR+kpYsXAmG1IF64cDhA6VJwwx
-	 ctNIL8v0uBT3VthnIvhw6gcW+tDiOkLPXy0zqtEDOoJfra6bnGySjINWxWjbLFc3kax17
-	 YGux5mHOQe1oBQtiJ7scKb3ivIw5o4D2QGz/B+bkHnx5FsvxqWTwQeXM8Z9swvbRIWDbV
-	 NT3lkeOXncSDAUG9ggl2F3mNJyPkfpuovmSabKBXSy/UUi7gBfyDrETtjEYDHKIxoVg==
+	t=1795760307;
+	b=39kEfMAgCL3gRjNJp2kCllhql4Q3IpIY7gOK8ZzN7QQ2S349RAH7ri+0T/fsBWuNvqwB
+	 +R6OE+lre4haOCDBbWgyMnqp24DtbdT4R3LGepbcAR1VnBhmLHJANnaiO7jGI9WVSiNX8
+	 orXGesXnz4kiQ30ozKO1VT25kuFBZr8CEK6e5BPHmKAQonplpdw1C27gR79IW6gd2vra6
+	 ZPk33Bs3DIb/k41hd58l0DMsY43I7lKJO2bOSOXS7tSOgVFMbN3XYzjxyGvY6BdaaiZIW
+	 qGERP6z+rxvi1IrdhU4ZiaIRcQgv3RTNmCCb+S1/Z3KiPVJylikusCWIiYS0hRiPI/w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795760239;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
-	 Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=n1R6G+j9Y5dC8NY0Dnd6V51TKEM7xLf0H5qeWnZ3dCE=;
-	b=W7tn7w9aahGxv6sImjn01X/iH4HZPzB7bUuzYwpCvuVysR73J7AByTd8Ph7PzfuvA81n
-	 HqpOAjIAuzJr9450iCDrPQ/4PQvbNa+E1CkwviA3PIGOdfWOE8JdfVLZEuR6b9v7uKqvR
-	 6fBOTrS499wQ++hr1oCMXi2ykv2NdJJ9RH6GzwqbHA/EAuF0UTxuDcfjgEKap+CVWoW0D
-	 K6uCIWwOqv2mTWgXvNBOyuxe99wyb3q5GIDKJQuBiedsZg0AmjZEvJ5ehvdexSBUyWehv
-	 rKhe5oxP9O+IfLWjS17bEvokdXK0wyKMqn3+c6LiV0Y44AxkVo/nFruoJDQ4Ogcc73g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795760307;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=Xall2LvYqrNEWJ3haGr3baDKY0fqS4yjvxamjxNnjGY=;
+	b=Wobj+OzJkLsCOxqTwOIoXIqIsSxtPMwvWbRx9jy1TuLRmvhTvrijZkciz44piQK7ZEI5
+	 zkZdZnJQEL7GyodUKk+07tFP7BF3nc7YAQvUbyMyy5oux8ysRSrVQj1vR8XCs2T1H8t2C
+	 8jsHpfnE8NKIRbB/lETnEQDzzqVBCis10z7QIPTwxL80tSKUqRAOdsPvoKVvqSDX/oJz/
+	 8Nh5l8LpOL+e5QIIRVve7noJ5hZfKMkA8RGIrd2aakf1JwVHoTnaO4y26AE9JkkJhjSxh
+	 F+O4enPAeFybc1vSq72WHgCVGFvS2ssd1jAXAemMGJZQpTXKRAP9qN6d+PaIADHMCGA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=NtfSIil9;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=CcjW2T1y;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sKr55MTO;
+	arc=none smtp.remote-ip=95.215.58.39
+Received: from mta1.migadu.com (out-39.mta1.migadu.com [95.215.58.39])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CB59606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:17:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3CB59606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98285606A324
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:18:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98285606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=NtfSIil9;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=CcjW2T1y
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AR6AtDQ1010037
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:17:18 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=n1R6G+j9Y5dC8NY0Dnd6V51TKEM7xLf0H5q
-	eWnZ3dCE=; b=NtfSIil9QhHdQAl4WCehJcVv9oRyaWe7i2Ns+NuZMskhfrrKqzF
-	AeDvLzQ09Fd1PIdNMkoy2Ji+cN6lrewrsMDPMFTKX8PE/y4HSO2OZJh0gb0D+uUW
-	sqbLHCQag8LxGVIddpcJvoE/OIePpLcI/MNs0SfHVJRhQdeYNLdAlZHZTh6m/F04
-	MozanR5n400uT4kWdQZwB3FMMlYC8qP/dl3q6RpbroBCdBRj8tA+7g46HewWPERR
-	4MJyWxqDZOtmWmY1oNRZAah/gVO1so8DnZQzzjV7ezrt77828nMA44w8soKJ5vph
-	bbUHWA3EzeoE49OrW+hI/l+ikwVxiEBIVhg==
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6rf922g7-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:17:18 +0000 (GMT)
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-3b41333cb47so6521900a91.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:17:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795760238; x=1796365038; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=n1R6G+j9Y5dC8NY0Dnd6V51TKEM7xLf0H5qeWnZ3dCE=;
-        b=CcjW2T1yUbxMOy7quZlaupgDC0904dpBNdQHLq7rQRzy8kwHLirAwkHf0rNzstcG7s
-         XVdnyoD6PdFZb+ekcXOGvyt+pUAfQvI/K1IveqU1lKkHBgX2jtI3WeiJLCp10NDFOZl0
-         3GBev88NTtpxS/ODlH3AaxQ2AD7rElLrfU5n6VnD8EqX2bo5mbIe7sT5KjeV3N0ysSTV
-         cojlAfDrHh1+vmQ4X/fuTDs+Fw9RdOk4lR1WR4iJVnItjSrOZtKmj1ZKG2GtK1n7FyZF
-         EK7w9CgX1XUUmLS500UmE294yMe9x8Y/2hsqQJSdBK6rl1Lcsm6otg4pKjBNeTQL9YXN
-         fOJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795760238; x=1796365038;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=n1R6G+j9Y5dC8NY0Dnd6V51TKEM7xLf0H5qeWnZ3dCE=;
-        b=svxHI3OTOAy7tECzI9ruuQRS3qYDfO++IifZOrkNO/Keh1ochg335M32nbfbrwKJ89
-         8mzol0OR3mPQ0JP0p2Tj+iA0DjArNYozNZ7wHQycujy6A3XKckwixxFLUKZQBCKKq1E+
-         K0/XH78ktlOvQ40M+SGMExMcKi7jTCfUhktgCsFJPLk24f5ymOU6hHOM1un9ojjWMXCW
-         sjycW46Nu0TEzpYDZIB5IxdtWvbT0ZgMeGHWEKvIDcuIZCx5bd2EgV/iUFeDsNpvRe1g
-         JtpR5H7h6gRn2tQyqtX1HHTU2/28wz7YQ8BLuCUIkM2r+ut7iNQnCFbFXTBa9SG3XQvb
-         TR9g==
-X-Forwarded-Encrypted: i=1; AL+hErFJb2gM1cEab3OYE/TZPtMc4Q668JufYsu1A/bOiq8VbhI18MgiTrxY77k8PQbFnAng7Cj1ZHIXtdfPml4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/W8CSLgnFfY1j0ovKwQ9YtJ99gCjXzTVRJG25tR/U3SqESRjKx
-	rnxnF50cvJfKaxkZI+wX8f8XcL6zGhI70bBtPYNHaK0+LCsKivD7KM52Y5AtedT4TPoY0Z9ccyw
-	jBgjUcgn+WYtLJ7qT25UIHThhQVLXCYsD6OUlTsfNlgnK1YBlPoQ1XkgjYp/e1Gdfu+Y=
-X-Gm-Gg: AZFdTZd0JAL8KPUm+vIKGc1zXCu4UBZqQXttpF0Y21D4+RqesWdh/E0rZgDiDZsR6Yo
-	v+jPS6QmetskxrCXwuef/PtqPaju/1c4LamCk8QCf029gA5pRXp/Pt6W6fAzDCEBeQHz2rIH2GV
-	/cdbUZyUbMH1CCCFPJLmUvkQRrolLnjIJjpAaKSpRCI4hVoCxyDlU41NvT0ofPzqCCaO8u85zeu
-	EXq1seGyMWVnl4oF9jG+xL2r2paDCs1hNqwlhi5GuXJGfLASsf+6xUYojt34n54nZucgcDqkgEp
-	XYhyuVVz8IhjzKmGmVVtNXFsWMhWNKuzbjeKbAMBA48YvPWOd4P2LvCWPFs/O14aAfnRzUcYaJI
-	vx7uuST9NzfwJ0MhYBUMGStffpnjaxx5jpfJevPZIpukKsC1evQcXcdEE0mh0X2VIAw==
-X-Received: by 2002:a17:90b:3f0f:b0:3b3:ba43:54bf with SMTP id 98e67ed59e1d1-3b41c925a7amr28431839a91.27.1795760237607;
-        Thu, 26 Nov 2026 22:17:17 -0800 (PST)
-X-Received: by 2002:a17:90b:3f0f:b0:3b3:ba43:54bf with SMTP id 98e67ed59e1d1-3b41c925a7amr28431810a91.27.1795760237169;
-        Thu, 26 Nov 2026 22:17:17 -0800 (PST)
-Received: from hu-amrianan-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0b2c4sm36174483a91.4.2026.11.26.22.17.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 22:17:16 -0800 (PST)
-From: Amrit Anand <amrit.anand@oss.qualcomm.com>
-To: maz@kernel.org, tglx@kernel.org
-Cc: radu@rendec.net, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org,
-        Amrit Anand <amrit.anand@oss.qualcomm.com>
-Subject: [PATCH] irqchip/gic-v3-its: Export its_cpu_init for hibernation restore path
-Date: Fri, 27 Nov 2026 11:47:11 +0530
-Message-Id: <20261127061711.1837870-1-amrit.anand@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sKr55MTO
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=kS24aWEDVFAGZg9av7QpzpXRdTf89yuZQQWrd8Pe7YI=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795760304; v=1; x=1796365104;
+ b=sKr55MTON/+6jrOYoyP4mbHJKogHVXu9Sy8xuEmw89uAYd4PLeivI6FcOlRQwTBLAeu3cSVF
+ uh7hEohrUeSmHTgPd+SFC4C0L1YiokNOradNPZrh86Ik6+ihBWo4j2q8XICHqB01t4IjwRlu1z1
+ xSzqw+oyTwgaacapk//YEWLo=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 7a6dd275991888ae;
+	Fri, 27 Nov 2026 06:18:24 +0000
+X-Mizu-Trace-ID: 7a6dd275991888ae
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <d5c55d47-8651-4c75-a0b6-2734a1394a9e@linux.dev>
+Date: Fri, 27 Nov 2026 15:18:02 +0900
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,59 +58,132 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: fZ9wji5QEcak54wq09E6pV3c9VAp89Jx
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDAyNCBTYWx0ZWRfX3G4jeX4BEb0m
- mII4n89ASaul+bZcF9a7BUT71sAdWlvJNTJuo3K/VzacsyVZCMWk9k5zZlPYxTx6xI0AOgWrsFe
- Xtma9Tg8Nh52rmXBVimzgDdyAO5b8NyQ596fm9iat5dZxIOGFJ9uxny7+7gsgMh5+bd5m0vjTxm
- o5Rxhwo6lE70HHpAfcFCAoFiiPJCSpEkJ9w+0NuOZ4vMBPiOTXgYLukJ+KpP3q6x7E8nuG/FOy8
- hVkxYB2E7KHR+hV7FJ/uAYAI0bWfcFVdu5x8SOPloZ1Xkd8cT4jtuK06dQsVZNuxCf8EwBfnXKB
- 3t4xyBrRuEXfyTxeaq+uKdf+nV/fl0YYbn96ljEnXjzR/2YgNu1jxZWp0xVIHjt8f4nbIgqLdD4
- svCQHdJtVCX/MukcTZFU1tq3Kt66hNIVkaRd4TOal2IXl0ZJqP/ST4MlUO6Znx5RisiFrioqGBW
- kI0mN8CeW9WzMIwp5kA==
-X-Authority-Analysis: v=2.4 cv=cpkOAF4i c=1 sm=1 tr=0 ts=6b09206e cx=c_pps
- a=RP+M6JBNLl+fLTcSJhASfg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=EUspDBNiAAAA:8
- a=VdNlaMo01x4upjs-fioA:9 a=iS9zxrgQBfv6-_F4QbHw:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDAyNCBTYWx0ZWRfXzJX3svSDLQiE
- f6e0j2pTe5oKMDUVKjg9xyyeUk++qW8z6w+Bb94AYmUcTtDApQ6Uia6PzXC25gLcSAel0zM+720
- QxLb+335EinupogD0DcIU/avuZhAUTo=
-X-Proofpoint-GUID: fZ9wji5QEcak54wq09E6pV3c9VAp89Jx
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-26_05,2026-11-26_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 adultscore=0 priorityscore=1501 spamscore=0 phishscore=0
- suspectscore=0 malwarescore=0 lowpriorityscore=0 impostorscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270024
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v1 0/6] net: avoid stack canaries in TCP/IPv4
+ fast paths
+To: gang.yan@linux.dev, netdev@vger.kernel.org
+Cc: "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
+ Emil Tsalapatis <emil@etsalapatis.com>,
+ Ihor Solodrai <ihor.solodrai@linux.dev>, Matthieu Baerts
+ <matttbe@kernel.org>, Mat Martineau <martineau@kernel.org>,
+ Geliang Tang <geliang@kernel.org>, David Ahern <dsahern@kernel.org>,
+ Ido Schimmel <idosch@nvidia.com>, Stanislav Fomichev <sdf@fomichev.me>,
+ Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>,
+ Pablo Neira Ayuso <pablo@netfilter.org>, Florian Westphal <fw@strlen.de>,
+ Phil Sutter <phil@nwl.cc>, bpf@vger.kernel.org,
+ linux-kernel@vger.kernel.org, mptcp@lists.linux.dev,
+ netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
+ Xuanqiang Luo <luoxuanqiang@kylinos.cn>, david.laight.linux@gmail.com
+References: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
+ <133c1ca98af6beb48c0db1e6bb539a2a76ccda49@linux.dev>
+From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
+In-Reply-To: <133c1ca98af6beb48c0db1e6bb539a2a76ccda49@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-After hibernation restore on affected systems, MSI users can observe
-timeout/failure symptoms consistent with ITS LPIs not being fully
-re-initialized for restored CPUs.
+On 2026/11/26 at 17:48 gang.yan@linux.dev wrote:
+> November 24, 2026 at 9:06 PM, "Xuanqiang Luo" <xuanqiang.luo@linux.dev mailto:xuanqiang.luo@linux.dev?to=%22Xuanqiang%20Luo%22%20%3Cxuanqiang.luo%40linux.dev%3E > wrote:
+> 
+> 
+>>
+>> From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+>>
+>> With CONFIG_STACKPROTECTOR_STRONG=y, a function that has a local array or
+>> passes the address of one of its locals to another function needs a stack
+>> canary. The canary is set up and checked on every call, also when the
+>> local is only used on a path that almost never runs.
+>>
+>> This series removes the canary from functions of the TCP/IPv4 fast paths,
+>> by returning results by value, by using storage that is not on the stack,
+>> or by not calling a function that has nothing to do.
+>>
+>> Patch 1 returns the two mptcp_space() values in a structure, so that
+>> __tcp_select_window() no longer needs a canary.
+>>
+>> Patch 2 changes ip_neigh_gw4() to take a pointer to the address, like
+>> ip_neigh_gw6(), so that ip_finish_output2() no longer needs a canary.
+>>
+>> Patch 3 uses pskb_may_pull() in icmp_filter(), so that
+>> raw_local_deliver() no longer needs a canary.
+>>
+>> Patch 4 turns skb_try_coalesce() into an inline wrapper over a function
+>> returning its results by value, so that its callers no longer need a
+>> canary because of it.
+>>
+>> Patch 5 returns the result of the TCP receive coalescing by value, so
+>> that tcp_rcv_established() and tcp_data_queue() no longer need a canary.
+>>
+>> Patch 6 calls bpf_skops_write_hdr_opt(), which needs a canary, only if a
+>> BPF program reserved room for TCP options.
+>>
+>> The bloat-o-meter numbers are from gcc 16.2 on x86_64. The functions
+>> named in patches 1 to 5 also lose their canary with clang 23.1.6 on
+>> x86_64, with and without ThinLTO, and on arm64.
+>>
+> 
+> Hi Xuanqiang,
+> 
+> Thanks for this series. Besides the code size, do you have any runtime perf
+> numbers (TCP_RR, cycles per packet...)? I think it may help the maintainers
+> judge the real gain.
+Hi Gang,
 
-Export its_cpu_init() so restore code can invoke ITS per-CPU
-re-initialization explicitly at the required point in resume flow.
-This also avoids relying on fragile probe-based invocation.
+I omitted runtime numbers from the cover letter because earlier cross-NIC
+TCP_RR runs were within boot-to-boot noise, and I did not want to overstate
+the gain. I re-ran the full 6-patch series against its base commit
+(a4c450594f5d) in a tighter setup on an x86_64 server (Hygon C86-4G,
+ConnectX-5 10GbE mlx5, GCC 12.3, CONFIG_STACKPROTECTOR_STRONG=y, identical
+.config, nokaslr, boost off, isolated CPUs/IRQs, busy_read=0, 3 alternating
+boots per kernel x 4 runs):
 
-Signed-off-by: Amrit Anand <amrit.anand@oss.qualcomm.com>
----
- drivers/irqchip/irq-gic-v3-its.c | 1 +
- 1 file changed, 1 insertion(+)
+1. Single-CPU loopback 1-byte TCP_RR (both endpoints on 1 CPU running the
+    kernel under test, 99.9% busy with no cross-CPU lock contention; each
+    RR counts 2 TX + 2 RX = 4 Tcp InSegs+OutSegs):
+    - instructions:k / tx:  33,562.3 -> 33,410.6 (-151.8, -0.45%, CV 0.01%)
+    - instructions:k / seg:  8,372.8 ->  8,336.1 ( -36.8, -0.44%, CV 0.02%)
+    - branches:k / tx:       7,627.9 ->  7,604.4 ( -23.5, -0.31%, CV 0.03%)
+    - cycles:k / tx:        48,883.8 -> 48,613.8 (-270.0, -0.55%)
+    - throughput:           52,804   -> 53,068 tps (+0.50%)
 
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index c952c069f937..6cf156d1aee6 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -5456,6 +5456,7 @@ int its_cpu_init(void)
- 
- 	return 0;
- }
-+EXPORT_SYMBOL_GPL(its_cpu_init);
- 
- static void rdist_memreserve_cpuhp_cleanup_workfn(struct work_struct *work)
- {
--- 
-2.34.1
+2. Cross-host 10GbE mlx5 8-flow 1-byte TCP_RR (server CPU-bound on 1 app
+    CPU + 1 IRQ CPU, client pinned on a fixed peer kernel):
+    - instructions:k / pkt: 12,040.6 -> 11,946.0 ( -94.6, -0.79%, CV 0.43%)
+    - cycles:k / pkt:       19,652.2 -> 19,450.1 (-202.1, -1.03%, CV 0.52%)
+    - throughput:           79,455   -> 79,883 tps (+0.54%)
 
+3. Loopback small-write TCP_STREAM (-m 512 -D, 2 CPUs):
+    - instructions:k / seg:  5,805.6 ->  5,713.7 ( -91.9, -1.58%)
+    - cycles:k / seg:        8,538.5 ->  8,416.8 (-121.7, -1.42%)
+    - throughput:            641.8   ->  650.5 Mbit/s (+1.37%)
+    (Note: in the 2-CPU / multi-flow cases above, perf shows part of the
+     larger per-packet drop comes from fewer spinlock-slowpath and idle-loop
+     samples in addition to the direct TCP path savings; test 1 isolates
+     the direct instruction/branch reduction.)
+
+4. perf record (cycles:k and instructions:k) confirms
+    bpf_skops_write_hdr_opt() drops from 0.04-0.12% to 0.00% across all
+    profiled workloads, with consistent drops in tcp_rcv_established(),
+    __tcp_transmit_skb(), and __tcp_select_window().
+
+One caveat to be transparent: on a loopback 1-byte UDP_RR control (which
+only exercises patch 2's ip_finish_output2() canary removal),
+instructions:k/tx changed by the expected -23.2 insns/tx (-0.07%) and
+branches:k/tx was flat (+0.02%), yet wall-clock tps/cycles still shifted
+by -0.80%/+0.68% due to fixed code-layout/IPC differences under nokaslr.
+
+So the reliable runtime signal here is the deterministic drop in kernel
+instructions and branches (~152 insns / ~23.5 branches per loopback TCP_RR)
+and the disappearance of bpf_skops_write_hdr_opt() from the profile, while
+wall-clock TCP_RR tps/cycles (~0.5%) remain in the same range as
+code-alignment effects on this machine.
+
+Thanks,
+Xuanqiang
