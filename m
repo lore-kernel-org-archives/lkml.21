@@ -1,61 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795780833;
-	b=tX/kahreU63Dwlptv+OrRDxzFR4uXhRO6HsZL9kRJSWgoYIWvostCkz0V91EtcY1dYWV
-	 +2ceILWo8SZIEE/m32VeKd0416y/veKCrwO8l0PLub5B6rcrroDot/07wBDHHAnq/+8+m
-	 1zUbQmBm2YdX04lC9M343mvKoXwmx6mViM7E6h/8vhwOmjka0aQJ7UXz4FDsMoXXv7THc
-	 Am7R/GMHbzd4l6J04ARqaof0Gjm3oWp3gSsfV1BczhNxnpEc5W/P0BZ3EQjD5TmNHJzTh
-	 vc3N3Fcs7f4SpjQGpHycgLjmHcHuM9CYcCtjZvI3plADQcSov5HnYYYkVIm0GQ4hYOA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795780833;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=KSEeh67sBSl8sIpNlrndQe4Z/1v2xOVb0YY4a7skXG4=;
-	b=HaJjDtKCF73hSV38om8wP42qFPxXnXGIvAJGxJzClWVR3M1XYtHXaQ9gEM5C1eAZCRGS
-	 fMN9O6rPuQVWn6OKKN+jjnHn2ny74jXZRNK6bIYptwexdDrz1ZO5tHNHE3yHY2AMe5+Dy
-	 qGZXrwd2YHn7ihTUiSeWd2iS3/emKWrM8NNesH9IArKZyodF5Lps0a6cw0XSXpdkowaKG
-	 sD0YUfptdky3FrzMnU8Zx75gNznRIJCmCqr01/sOaWWLC8xepT0ZCsvvjTDIBOL3LIA9c
-	 gOaJ580N2OytMk+Dib4Yi3AI0uydtRFpC+LAqS6NmQN0PTFc87TCvi9OXAheOgX7Zsw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BGeqiLGv;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.176
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795780980;
+	b=ZFGXGUyjYBtyrvpf63pScBfgv9NwltJx8tsJf50NHtDPvqOJFkSbsBszNtCj5fC8VkPJ
+	 RrzEpXv9rkms5Xg63PVX1YBKFwNlz+Uvd7sMH4m8fzFnIyq028ILg1YRNpyQyamYeyOX9
+	 x1x5KqMayyuihxfsB6B+KnmOdfIFUJSPaNy2uAPk66sr83rIzjzVPDyQx9lgXhifywYpG
+	 f0Dmpaw19Dms3+40eGeb5kDmun2YXnvf2wVYNGv24CIdKiabEhcyMYRgjvrrNv/qsPMXY
+	 F2l21XZUEokg4PpfRie3OinARTqfBYzU65WjVgG3tBhTFd32GaQxf2aC7D4t9GauQFQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795780980;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=sKBAqoHb6dKCB8lGd+jVvxodjbVVN2AMGRa9Yq/Mby4=;
+	b=ADUZTkS9+18xuT1vV3RXk5/ARx6Nm+xpXLk47kv+BMkRWmc8DwJ2jxFV+k62h4gyVCHo
+	 nSKoA1gtUKrtoxj0EGfBk8bVaYxEkr60mdNui969SFAMbY2Ubini3rPPnOexINsB7jqdS
+	 6qr4KJgjnsJ7qvKIrtkqUrxfcj1RIWDwu+CfumDb3J/eEOuKxTgno6HlMRGW7yyRn3L4+
+	 GSJDb5D8qDMJl2qXLZ8diU5ikpWktNsy63B1uszBN0SJrJTFpP+KfZk/3QJqGppJX9gAc
+	 s411O3nvb6Eqzq1edNl0WX4Yz1citDB0b0z/ZQTvdJz968CZeJrDEvhpzi1oVHJQYcQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SnFA07cx;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.176
+Received: from mail-lj1-f176.google.com (mail-lj1-f176.google.com [209.85.208.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4903C606A31C;
-	Fri, 27 Nov 2026 12:00:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C77C1606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:02:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C77C1606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BGeqiLGv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25AD01F00893;
-	Fri, 27 Nov 2026 12:00:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795780832;
-	bh=KSEeh67sBSl8sIpNlrndQe4Z/1v2xOVb0YY4a7skXG4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=BGeqiLGvmtz6wML/hLm/I0ulbG3cd12KoGOEax3nm7FKWy2VEa3cLOR7Ea5SRoaU8
-	 YuzGNbIVkfnBKPdubyGT7pICc9UcJJzNo5RFJuIwsLcVwX1KCCUsnY5e7gLqC/11Fs
-	 JbzjniiBnONjWPu/J+JVWenjVsnsumDpoqJIdIrvQINOD/Pze3gpEajRikUQ+wjSuJ
-	 wwwcRjx5JISz9v7uZYbvkcZmlZov9vUbst9AgZ9dgFzNoQbmL14hya9CRmCg3iRn7o
-	 mzCL1lzNPGirySVXH5o4OuL5qUFfXUZw0g8sAAO7ngJw6cCcyVZklwW/FO6YOqM+Nm
-	 /c1SdX27KEkCg==
-Subject: Re: [PATCH net-next v6] net: stmmac: program the FSM timeout timer
-From: netdev-bot+sashiko@kernel.org
-To: zxyan0222@gmail.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- rmk+kernel@armlinux.org.uk
-Date: Fri, 27 Nov 2026 12:00:31 +0000
-Message-ID: <179578083166.3135.13505754138480842888@kernel.org>
-In-Reply-To: <20261126115912.3145086-1-zxyan0222@gmail.com>
-References: <20261126115912.3145086-1-zxyan0222@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SnFA07cx
+Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-3ab30b3212aso63562841fa.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:02:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795780978; cv=none;
+        d=google.com; s=arc-20260327;
+        b=RyBSp7zT9HXkY2wDSeQPFc3u2G4oYGtxROeV3jrUOwr2TupmhYRimWv0az7/F0Ow/y
+         vg8Pef1jC/1aPls/lRP7a+LsuU2JQCgEc2PcR+n40HHaBn9bNjHtf7rOHuvemdEKzwcZ
+         nmHgQAVjTyzhy89jyiKi0qJl5izF9VGdrchGvw0RwO/ObnDIcPMu+Exkh/1+aUIy54Zc
+         rC3/dQH9WqBUUWvaiYmcUrJhwDlqBgNT9cxdKubbclV6p6u36RPhOr2TKxsClbgbDRNv
+         h/IDWzZ+1hSBAT+2HhS1/EX0Xh01n4C0tYeVprIs2rKTXvuOBoaIvXC8TmkVfWkBGcHB
+         oRTA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=sKBAqoHb6dKCB8lGd+jVvxodjbVVN2AMGRa9Yq/Mby4=;
+        fh=sKVsg+fuGO6hWg3rxIITXz7T4GboCQTI21aWatgzNmU=;
+        b=gWJNPHo4fD/ADRfQRjF4w+S3wXbi29V0PZ6u9WRyxIJgziBySXNxjNFYdDWXZTgtUp
+         shMvGrFRjl7FbHhqiHEVWa4uyWFxfkRqAXmVn9ij70Kf2MWUMyhlgOonkOpZbU+sZYa3
+         G1FyppiY2pseH51NFq96NaWyAFqEnQ3uVfqKsFsOBKPQkgu3UKlO22F1nMrlVGjV8v04
+         LyYw1gVLkSRjRRpUbaM0Z9OTsYr/jX6yXjaynjAA41m+bU1FuBMpJZD4yPF7WXzUFv/L
+         YuobjDFNvT04KZ7LREMGPpKGKxuTm9VkwrfAyRfmZu13z8bYEeF35VCdeWOZjp6X5tnE
+         mnsQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795780978; x=1796385778; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=sKBAqoHb6dKCB8lGd+jVvxodjbVVN2AMGRa9Yq/Mby4=;
+        b=SnFA07cxVyuwSSQ2WlqVldYscrENhFj8PVisFe6EUr/u+zjaGcOlyf+NO4/VeKXXX7
+         4E5nqOC+Z3I662UCySIHIiaMwrjJK+ZjK9X5FK/V848T+A65ClvPxk5bvJvrsV+MWdo/
+         JIM89r7vSI7FFB67/tWpYnfwZs9/cVksgSfXEE4llKDhqleU1ZWfSy+N4AE/zsZMEKkf
+         FXtLBubySwAUA91pvO8XAdbubi6E7QFc7BDt/+z27xlpQGmIW0sbpzCnfaiUYkOVUtJK
+         S6zwuiZQCA+1rzhAC+jCChTTNWgaEmMmc18deOG2Q+9ze1ubEHLrjAXDP7U1S018fipI
+         jn7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795780978; x=1796385778;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=sKBAqoHb6dKCB8lGd+jVvxodjbVVN2AMGRa9Yq/Mby4=;
+        b=WnzfyCYk0cS9GgN4BDOYfX166s2J/49FsUZ8exWU+s78CkVI4w2wWzau/yv6KBSt41
+         m/zam0WwyzU3yrKutCxaFSNEeetqeTlgxv+q9Ifgy0TUeyRPbceCdMorzQeD0BBkpBTb
+         53BytlZDBPDSclDjy5jpju/m/FC4RbXMSIphvPhGLwdaKJ+gMgGTvi3hluWEwMCWFppo
+         BzDDTZqSQVi4Ceo4+DBlrzzsRR0f0IAdMpAAz4o/QdbdQjyUwbld49NcUr/uXRuY15P6
+         00aJWhraoPnoHXMeFKYeiRujvGyyx+y+74mxMlktilwqJQhYcsISHMb8uJ+jBQWJmTgc
+         ffog==
+X-Forwarded-Encrypted: i=1; AL+hErHe36Xfm7jNJYs2o1i1Awv2nkeCWq7mTEX5WpL3DqWPw4YLdhimPamm1D/beJb+rQ7dbaUWeX3F/JptiVo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9EIYZSnA0ax+RrgA1wj6pxqoahGSaPX7NtXbgLr8zyyXD2dKrs
+	QUbneZUgpi/vU/1S2y7zr43hJ7yCNAYBK8i9yutfWn9Vt1CbelHAGcdAHWEO9Xw+6zYWlrM3hqq
+	el7mnNVtMel84Z/01bmsxujozsUc2TLs=
+X-Gm-Gg: AZFdTZdLGwO44utleTlk2NBFawu8o71SdnVKAA+elplv6XW203KG1BCO3MvHYxHwbUz
+	wTAa3NKoZSR3ST4J/lJPs/02YiYkwNYXehwVxxnbpWKyWZtINMgX1LGYGfx8pXlkx4yXk2RsN5y
+	ISyyXbaXeh6qr0G8mSXAYvNiNOJeaqF3XLBq8L03jK7XZ4dHUndf2qGTrHr56hUjwDHWIC4TyDh
+	U/uNNQuD1+9m02JUBxq09Z6FTVom8thDExoKhLlgES36hxW1IFevlYIRPD2s+x2H+mvjERmaps+
+	L4kGJiNj2lsPTQD+YhG/rcX6Zwak+THrtYZ07dmPMlGpdk2MfvruF056CvcjB5nZrj2yKOwj6lR
+	esjVqpsbdx63Eleitq96v5N9GVyP57c6Jlqritr1Qxxcge4v2uHF9QG3wlm74lfjYu9n92A==
+X-Received: by 2002:a05:6512:1148:b0:5bc:cc46:1849 with SMTP id
+ 2adb3069b0e04-5c1bc874b3cmr6981033e87.54.1795780976912; Fri, 27 Nov 2026
+ 04:02:56 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,184 +104,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261126163114.403846-1-koray.fra@gmail.com> <20261126163114.403846-3-koray.fra@gmail.com>
+ <CAOQ4uxjGLfuZMFABCwMvdXwnU+P24G_aTJLudWbjeSmWwyDF6Q@mail.gmail.com> <DN5YPR39J7QI.1S1LCFLNUCZNL@gmail.com>
+In-Reply-To: <DN5YPR39J7QI.1S1LCFLNUCZNL@gmail.com>
+From: Amir Goldstein <amir73il@gmail.com>
+Date: Fri, 27 Nov 2026 13:02:44 +0100
+X-Gm-Features: Aa3M54ohq34732gC99y698hjwvA-0NF3EsaW7G0zij4KAugMs04c_-FFLASygdQ
+Message-ID: <CAOQ4uxgzmB0dEpQCVGKOc8reJ6OFV=BxDMgRW81aKiCMwDSn_Q@mail.gmail.com>
+Subject: Re: [PATCH v2 2/4] fscrypt: update fscrypt_prepare_setflags() to use xflags
+To: koraynilay <koray.fra@gmail.com>
+Cc: Namjae Jeon <linkinjeon@kernel.org>, Hyunchul Lee <hyc.lee@gmail.com>, 
+	Eric Biggers <ebiggers@kernel.org>, "Theodore Y . Ts'o" <tytso@mit.edu>, Jaegeuk Kim <jaegeuk@kernel.org>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, 
+	Chuck Lever <cel@kernel.org>, Jeff Layton <jlayton@kernel.org>, Jan Kara <jack@suse.cz>, 
+	Alexander Aring <alex.aring@gmail.com>, "Darrick J . Wong" <djwong@kernel.org>, 
+	Andrey Albershteyn <aalbersh@kernel.org>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
+	Lauri Gates <lauri.gates@gmail.com>, Christoph Hellwig <hch@infradead.org>, Dave Chinner <dgc@kernel.org>, 
+	linux-btrfs@vger.kernel.org, linux-xfs@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	ntfs@lists.linux.dev, linux-nfs@vger.kernel.org, linux-api@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+On Fri, Nov 27, 2026 at 12:38=E2=80=AFPM koraynilay <koray.fra@gmail.com> w=
+rote:
+>
+> On Fri Nov 27, 2026 at 12:35 PM CET, Amir Goldstein wrote:
+> > On Thu, Nov 26, 2026 at 5:31=E2=80=AFPM koraynilay <koray.fra@gmail.com=
+> wrote:
+> >>
+> >> Update fscrypt_prepare_setflags() to use FS_XFLAG_* xflags instead of
+> >> legacy FS_*_FL flags.
+> >>
+> >> Signed-off-by: koraynilay <koray.fra@gmail.com>
+> >> ---
+> >>  fs/crypto/hooks.c       | 10 +++++-----
+> >>  fs/file_attr.c          |  2 +-
+> >>  include/linux/fscrypt.h |  6 +++---
+> >>  3 files changed, 9 insertions(+), 9 deletions(-)
+> >>
+> >> diff --git a/fs/crypto/hooks.c b/fs/crypto/hooks.c
+> >> index 149498bdab94..52d6a33fc9e9 100644
+> >> --- a/fs/crypto/hooks.c
+> >> +++ b/fs/crypto/hooks.c
+> >> @@ -182,10 +182,10 @@ int __fscrypt_prepare_setattr(struct dentry *den=
+try, struct iattr *attr)
+> >>  EXPORT_SYMBOL_GPL(__fscrypt_prepare_setattr);
+> >>
+> >>  /**
+> >> - * fscrypt_prepare_setflags() - prepare to change flags with FS_IOC_S=
+ETFLAGS
+> >> + * fscrypt_prepare_setflags() - prepare to change xflags
+> >
+> > prepare to change the file attributes with file_setattr() or one of
+> > the legacy ioctls
+>
+> Ah yes.
+>
+> >>   * @inode: the inode on which flags are being changed
+> >> - * @oldflags: the old flags
+> >> - * @flags: the new flags
+> >> + * @oldxflags: the old xflags
+> >> + * @xflags: the new xflags
+> >>   *
+> >>   * The caller should be holding i_rwsem for write.
+> >>   *
+> >> @@ -193,7 +193,7 @@ EXPORT_SYMBOL_GPL(__fscrypt_prepare_setattr);
+> >>   *        another error occurs.
+> >>   */
+> >>  int fscrypt_prepare_setflags(struct inode *inode,
+> >> -                            unsigned int oldflags, unsigned int flags=
+)
+> >> +                            unsigned int oldxflags, unsigned int xfla=
+gs)
+> >
+> > This here is a backporting landmine -
+> >
+> > Changing the semantics drastically without changing the helper name
+> > or signature.
+> >
+> > Please rename the helper something like fscrypt_prepare_fileattr_set()
+> > so that backporting mistakes will be caught at build time.
+>
+> Yes, though, would it maybe be better to just use xflags_to_flags() in
+> the vfs patch instead of changing the fscrypt function at all?
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 1
+Yes, much better. I agree.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Now looking at the /* initialize missing bits from old_ma */
+hunk my reaction is to look away its huge and it should be
+using helpers probably called from within fileattr_set_prepare()
+itself - because if this is de-facto preparing for a set.
 
-- [High] stmmac_safety_feat_configuration() takes csr_clk_mhz only from
-  clk_get_rate(priv->plat->stmmac_clk) / 1000000.
-- [Medium] With NTMRMD now set to 4s, an FSM timeout raises a MAC safety
-  error.
-- [Low] The patch fixes a defect that users can see.
-
---
-
-net: stmmac: program the FSM timeout timer
-
-This patch programs MAC_FSM_ACT_Timer on dwmac5 and xgmac cores after
-TMOUTEN is enabled, so that the FSM timeout checker actually fires. TMR is
-derived from clk_get_rate(stmmac_clk) in MHz and NTMRMD is set to a 4s
-timeout. The safety_feat_config callback gains a csr_clk_mhz argument to
-carry the rate down.
-
-> The issue was hit in testing on dwmac4 and dwxgmac, where a stuck FSM was
-> not reported through the safety interrupt despite TMOUTEN being set.
-
-[Severity: Low]
-Since this fixes a problem users can see, should it carry Fixes: tags and
-target net? Each core has its own origin commit.
-
-The DWMAC5 path dates from:
-
-Fixes: 8bf993a5877e ("net: stmmac: Add support for DWMAC5 and implement Safety Features")
-
-The XGMAC path dates from:
-
-Fixes: 56e58d6c8a56 ("net: stmmac: Implement Safety Features in XGMAC core")
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac5.c b/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
-> index f1bb981cab7cd..37e70b82c8b56 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
-
-[ ... ]
-
-> @@ -245,6 +247,19 @@ int dwmac5_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
->  		value |= TMOUTEN; /* FSM Timeout Feature */
->  	writel(value, ioaddr + MAC_FSM_CONTROL);
->  
-> +	/* Program the FSM active timer so the timeout checker actually fires.
-> +	 * TMR is the number of CSR clocks per 1us tic, i.e. csr_clk in MHz.
-> +	 * Use a 4s timeout.
-> +	 */
-> +	if (safety_feat_cfg->tmouten && csr_clk_mhz) {
-> +		value = readl(ioaddr + MAC_FSM_ACT_TIMER);
-> +		value &= ~(MAC_FSM_ACT_TIMER_NTMRMD | MAC_FSM_ACT_TIMER_TMR);
-> +		value |= FIELD_PREP(MAC_FSM_ACT_TIMER_NTMRMD,
-> +				    STMMAC_NTMRMD_4SEC) |
-> +			 FIELD_PREP(MAC_FSM_ACT_TIMER_TMR, csr_clk_mhz);
-> +		writel(value, ioaddr + MAC_FSM_ACT_TIMER);
-> +	}
-
-[Severity: Medium]
-What happens once this 4s timer expires? Every MAC safety error is
-handled as uncorrectable in dwmac5_safety_feat_irq_status():
-
-	corr = false;
-	if (err) {
-		dwmac5_handle_mac_err(ndev, ioaddr, corr, stats);
-		ret |= !corr;
-
-stmmac_safety_feat_interrupt() then does:
-
-	if (ret && (ret != -EINVAL)) {
-		stmmac_global_err(priv);
-
-That turns the carrier off, sets STMMAC_RESET_REQUESTED and resets the
-whole controller. dwxgmac3_safety_feat_irq_status() takes the same path.
-Before this patch NTMRMD was 0, so this path never ran.
-
-The commit message only says a stuck FSM will now be "reported". Should it
-mention that every timeout now causes a full controller reset?
-
-Is 4s enough margin? The commit message says "a shorter timeout could
-wrongly report a flow-control stall as a stuck FSM". It only accounts for
-a single maximum-quanta PAUSE frame (about 3.36s at 10 Mb/s).
-
-A congested link partner can keep sending fresh PAUSE frames before the
-quanta run out, so the transmitter stays paused indefinitely. If PAUSE
-stalls count toward the TX FSM activity timer, as the commit message
-implies, could back-pressure from a peer that lasts longer than about
-4.19s cause repeated resets? Whether a fresh PAUSE frame restarts the
-timer is hardware behaviour that can't be confirmed from the code alone.
-
-Was there a reason not to use one of the longer encodings (16s, 32s or
-64s)?
-
-On XGMAC, dwxgmac3_safety_feat_config() programs the timer whenever
-csr_clk_mhz is non-zero:
-
-	if (csr_clk_mhz) {
-
-It doesn't check safety_cfg->tmouten, so platforms have no way to opt out
-of the new timeout.
-
-[ ... ]
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index ca4c7fb11b73f..4ee4952a14273 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -3707,10 +3707,16 @@ static void stmmac_mtl_configuration(struct stmmac_priv *priv)
->  
->  static void stmmac_safety_feat_configuration(struct stmmac_priv *priv)
->  {
-> +	unsigned int csr_clk_mhz = 0;
-> +
->  	if (priv->dma_cap.asp) {
->  		netdev_info(priv->dev, "Enabling Safety Features\n");
-> +		if (priv->plat->stmmac_clk)
-> +			csr_clk_mhz = clk_get_rate(priv->plat->stmmac_clk) /
-> +				      1000000;
-
-[Severity: High]
-What happens on platforms that request tmouten but have no stmmac_clk, or
-whose stmmac_clk runs below 1 MHz? In that case csr_clk_mhz stays 0.
-
-dwmac5_safety_feat_config() still sets TMOUTEN, but skips the timer write
-without logging anything:
-
-	if (safety_feat_cfg->tmouten && csr_clk_mhz) {
-
-dwxgmac3_safety_feat_config() always sets XGMAC_TMOUTEN and also skips the
-write when csr_clk_mhz is 0.
-
-At least two in-tree users that explicitly request the timeout checker
-appear to end up in this state.
-
-stmmac_pci.c sets plat->safety_feat_cfg->tmouten = 1 and plat->clk_csr =
-STMMAC_CSR_250_300M for the GMAC5 PCI device, but it never assigns
-plat->stmmac_clk.
-
-dwmac-mediatek.c also sets tmouten = 1 and probes through
-devm_stmmac_probe_config_dt(), which looks up the "stmmaceth" clock:
-
-	plat->stmmac_clk = devm_clk_get(&pdev->dev,
-					STMMAC_RESOURCE_NAME);
-	if (IS_ERR(plat->stmmac_clk)) {
-		dev_warn(&pdev->dev, "Cannot get CSR clock\n");
-		plat->stmmac_clk = NULL;
-
-The mediatek-dwmac binding lists axi, apb, mac_main, ptp_ref,
-rmii_internal and mac_cg as clock-names, with no "stmmaceth". As a result
-stmmac_clk ends up NULL.
-
-On both platforms TMOUTEN is enabled while NTMRMD stays 0. That is the
-state the commit message describes as broken.
-
-Could this fall back to plat->clk_csr? stmmac_mdio_bus_config() already
-treats plat->clk_csr >= 0 as the platform's CSR clock range. Failing that,
-could the driver warn, or leave TMOUTEN off when the timer can't be
-programmed?
-
-Separately, stmmac_clk is not always the CSR clock. dwmac-intel registers
-it at the PTP reference rate, and include/linux/stmmac.h says it may be
-hclk_i, clk_csr_i, aclk_i or clk_app_i. Where it differs from the real CSR
-clock, TMR would be off by a factor of f_stmmac/f_csr, and the 4s timeout
-would scale by the same factor.
-
-No in-tree platform was found that hits this case, since Intel sets
-tmouten = 0 and does not use XGMAC.
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126115912.3145086-1-zxyan0222%40gmail.com
+Thanks,
+Amir.
