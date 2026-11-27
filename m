@@ -1,96 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.96
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795782256;
-	b=r9Icxwtzd4S4dKIDaRrPR+gTm8dAWLpD6o/lpqici7hHSyC/tdNcB3cqEgLtsI0SvrRx
-	 3BQMgHeyJgCJ0xCMtteLYwmnIDhuXZbpTmKzSz4K+1gL0Gb2NyudPWqspfLDc/OF6jWjB
-	 ZtOAJeBi8q81ZfjCIyoqT6q10dnIAOZgqRfidiBdFztlwq4/RZYGpgVtdkt4fyomSD5qF
-	 FRowGs6eRrb7VXL4GJ8sLCzWNm32sJkOgbsSXnCRftwsearzzDHBpJp6t1UBFtwctM3bD
-	 SlJvaWJPu8ED4h1yt3keIEgzhLyMxkhvr0bFxZy+0dgLQYfEfD4ibuSPCsWFub31F4A==
+	t=1795782278;
+	b=odq6JRxEFdWbhAV1dvALKM7Mi+TtuKzpfZZCYL+uko5yESP8DZ0kB4SvFueG/aMYYesM
+	 ETXpPpBlGQI6HfZTqdONM67z3rPwWzknny77AC/bAmtaZ9LmKf9d9eB11bvY0m3gKst68
+	 eaUZWXNIhRRMkvdruBAFRZ+WkzizuNkB9q6zPvE4+7lqLlAzJUkp8jnmIxWGcVSNb7es0
+	 6tVZ4p69A93g37cXgqRjQBajNG1orIJ6WwwoPdcVHxe3wO87FhZdf+CdCI2gji8jyHvJE
+	 y7dFCHDb/eL/2DXtrznCMs6R6AKkQqXob7phDuddSwQSBeGN4BB8QobohHl7ZfDjMVQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795782256;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=JhQeLHAOS781k5w4uun7J9WWIR0Qr+uoFEbbpSQQgl4=;
-	b=zNarZqbyeSuOLWB5rtDOYPyvr5bwrBo/q9dqqDHhApoSRAJcxiT6gRynzhn/zauNcbm5
-	 TTb8joy/SZypb7QIpu5a8k4YwaSijv4b7jDosYC+T+lpU+yFUIj9EoMfac1kG96yNQE4Z
-	 kUrE0vDQiA28VN/qEEVBpK+0E4TTi3m2xjW6FsQrmpOr1qTW9CQpxzdxbFYmJtveddq9G
-	 UmWljvXYdXg19dI3/V5obMFfaW/7YB5mebykqGHbzcy74FK3Gitrge4Ekd/I2qEvQya5k
-	 KKPGw615ZSNn+2zynwroDXe0irVbVtHntvWRsZ0DrTcs0rpzMmE8vWTgeC0qH+RmaGA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795782278;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=ooAw7eHbmTnXMWW702N8U0swBBfiyfCOGm4Ne53xs2Q=;
+	b=gzvoq5m+K6phS9hJi1ZjFvhG1X2zjrYm9daLIJmDBJggFoL4mXjkoQEa4SHn/9hs/ot8
+	 uFwqrSVXcuIQCJToe3d9+mtz5RkSdKLd/td2P1c+pVjMAQG7NJhaBJLS2ONYEzb3jQDvS
+	 hDQ0Fp6Rg+sV+4r32+AiAsUgNHYocy4eykH8vs/hzkyiFU0uBs4Rwry0bFQN6WLui0lQJ
+	 CHOjxLhqaIrTQjj+sFmjmeV49wfQ+9PEZ5q9UxYvaiutrxMdhsRb8IuJwAVo2dXp7aEjn
+	 F0rI8rHUrmoBrripvY+Vt4h6QmEGYZGyf/D4XrPYPm4d5WjZ9sHJRqakgkF4nJ3e6Wg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=W4peUhgd;
-	arc=none smtp.remote-ip=209.85.215.172
-Received: from mail-pg1-f172.google.com (mail-pg1-f172.google.com [209.85.215.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=proton.me;
+	spf=pass smtp.mailfrom=proton.me;
+	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=KxtIaIQ+;
+	arc=none smtp.remote-ip=79.135.106.96
+Received: from mail-10696.protonmail.ch (mail-10696.protonmail.ch [79.135.106.96])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80230606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:24:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80230606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2A6F606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:24:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2A6F606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=W4peUhgd
-Received: by mail-pg1-f172.google.com with SMTP id 41be03b00d2f7-cc4aa18f9afso3210539a12.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:24:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795782256; x=1796387056; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JhQeLHAOS781k5w4uun7J9WWIR0Qr+uoFEbbpSQQgl4=;
-        b=W4peUhgdCXq8uSZ08sv1+MrEllNH39zooP4K54TnQQ1rCvAS8vODgJY5qwPUfrKwGA
-         saBSJJu02Gw65B3zEEP/Y8H5pBpao4eF3I+g3XpfO7899o7SEdKTCV3ZNfR3HkhEDaON
-         4u+awf6CRZvwVqz+p34LXV1its37HPEeNBM4moryvbSDcM0y6ShuiNb/L0xu7DoIDbk8
-         HGNayX9Fs0wHgoccj6AAZCPqCLIRnoiiiw3sdhgt7iUlbJ3APTVc+cvdik/7ogFQytiM
-         VDWLJvcJaYuGIEhlf6sHxbX9kDzPE2rpuVSwDAd1uLim64zLijV/65ZQ8otC2Vxspl4N
-         sCzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795782256; x=1796387056;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=JhQeLHAOS781k5w4uun7J9WWIR0Qr+uoFEbbpSQQgl4=;
-        b=XUDHH8i94qHgVgEP7tHf1glujLp3DbIPc04nDqbdEuyrd9HXeUXu0Ka175PaXrQp1I
-         Ac+3xTk6V7+qVOuTq/QPlqVtE70JcTzMPaHSDnc0YmSaGMCBIFbmLAdzJ8Y3x9WRpGzP
-         sGByBjjA6GtnGG3FSEw4Cb1UPsw9mOzfdF+g7MtLASr6RGNSjxmt9Yq+4q0J461NJN/6
-         xsHkJe3DjS7OG0DXuYAK81JudyPb3tjBUUw9QubdAj3Q/7NgaZJO0tPC7RpjbqkXoMSY
-         QB9r2WBzBJj6HQdqSYsrqZANCkq2ZYXZ88xjvzY+CUEXf0i5MYbgcg9wa2PyBvBrLoxY
-         6+Rw==
-X-Forwarded-Encrypted: i=1; AL+hErGu5qJJQ/uOTRKr5qfsTl3iibGM2o9LYfoId77OS+qMW4g0zPeCQJveOOpn/yJrggZxT8UWSt47KzVd4qA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/X2NICmb6ZCpC+lrBF9ordDqRHl2T0d1XmbQwFhHP1b3WK7KAj
-	mS7gacB0Mqdb6kMAK3kgG2wIq1Qycl5xE6+CZS3+QHDgaPzTMsVPTM1A
-X-Gm-Gg: AZFdTZd5ZW7TCgnkqRv3KHz6pVQ6h4z8Kl7waxjw9hTX1T1l26x/mcKxK6TJoh3B1+D
-	X5CdgM7qoWcfiAXoKESDEdAoh0fwdJm0Csgx5IzPR8RDEFl4pghwLLsKABOPgL37FPvQ9UTU6cQ
-	scujD10Cz95W1aKpXgqZPC/GvlZ0ddgZ/C6DQNE9Xk9/q9ETP2Hr93SRFyM+N125LoEgZP9EqB0
-	vXUIWtsBtwgTZlDHlo30V/Rajmm5OtyUBLmLD0ijygJiIYwqBbayL+GFj4TzPYqGc2vGLlj7IkD
-	QYPi632x65a38uHNP1FLocapmliGW/PwuVhjfIi5/1AqnN7EazFS82BIvfyhdP7q/mO2qwvx1RQ
-	TGXhJs3erR+Yz+Cu2vurhN4mXr28rF4+87wgJHDRa7tuJY+QKZxFCpoSJ4pnbyFxqs9dPvVk2Ej
-	VA25pgIzbjnsYaQIzdF3uvbnU2mRcgL83XrmpoOBIejIpdqHtMmkofbAD+l4fHDWbe2zoqb5L6l
-	CXnR9z2tuIIidXb4SiKYllpZgfCXO2FjNXU2iRB0jCReSg5cNWK9luUOA3dnXvuRp0Kws5+Nx2C
-	OvivfVyaiHwVuiboNDhSeuj5waube0YFiJOLhkvvZTCXBvt9g4CMIh7/pBdCsjx8GTLlyoeT
-X-Received: by 2002:a17:90b:390b:b0:3b3:b858:cc92 with SMTP id 98e67ed59e1d1-3b41c97ac6bmr23397370a91.63.1795782255781;
-        Fri, 27 Nov 2026 04:24:15 -0800 (PST)
-Received: from Fantast-WT.localdomain ([120.229.37.123])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41aab4729sm37581203a91.0.2026.11.27.04.24.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 04:24:15 -0800 (PST)
-Date: Fri, 27 Nov 2026 20:24:12 +0800
-From: Teng Wu <gigadevice2025@gmail.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: linux-mtd@lists.infradead.org, vigneshr@ti.com, richard@nod.at,
-	linux-kernel@vger.kernel.org, teng.wu@gigadevice.com,
-	weijie.huang@gigadevice.com
-Subject: Re: [PATCH] mtd: rawnand: Skip timing mode readback check for
- GigaDevice NAND
-Message-ID: <awl2bMa2cqHZWfD-@Fantast-WT.localdomain>
-References: <awWLzWDg-m9VBZVr@Fantast-WT.localdomain>
- <87qzgas5yv.fsf@bootlin.com>
+	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=KxtIaIQ+
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail2; t=1795782275; x=1796041475;
+	bh=ooAw7eHbmTnXMWW702N8U0swBBfiyfCOGm4Ne53xs2Q=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=KxtIaIQ+/TtgqSmLn57bodayxdJhl38NxQW3GiisNMg4nZSWUCcG11PHx9hMBiBC1
+	 hfNDo5HNtK8WO3r/wnMB5r/PEJTHG4S3y0+R5oqhpj+iLAcqVM5ARR2rRrXpmWlLi6
+	 7GdCWTAvHp/wwrQeB8+ZXhUy8aGclYGmF1d97QtCUCUHXki4MO5OcWgKg8JjDE+lNv
+	 /r6sDQ0OSGWhVUkTzlnhzYZNMLG1nWvbu86x18HLpozknpHAFDKdKIzYzibbanyaCJ
+	 IibJfbBR9yvNBHFBpg6c+e/fSWCYblzdxA67QBqPhgUgjIjZx/u6EzmyOmbB5nAOxU
+	 pqeAkW9HzoOhQ==
+Date: Fri, 27 Nov 2026 12:24:30 +0000
+To: Luka Gejak <luka.gejak@linux.dev>
+From: Ahmet Zeren <niko3x@proton.me>
+Cc: Ping-Ke Shih <pkshih@realtek.com>, linux-wireless@vger.kernel.org, Bitterblue Smith <rtl8821cerfe2@gmail.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RFT rtw-next v2 2/2] wifi: rtw88: honour the retry count and NO_ACK of injected frames
+Message-ID: <lUYU-yUlqcxAHvQlBh6eKKVYi7frkZ_fN2EGuKe-xAQuUw0yOq0pepH-cZ-u22KNcB4AsLP1dV7SqZ9puCg0e-tot3cyO-FKJws5WdwmB4Q=@proton.me>
+In-Reply-To: <20261127115929.40205-1-luka.gejak@linux.dev>
+References: <20261127-b4-rtw88-inject-v2-0-f9701b9243a3@proton.me> <20261127-b4-rtw88-inject-v2-2-f9701b9243a3@proton.me> <20261127115929.40205-1-luka.gejak@linux.dev>
+Feedback-ID: 201311995:user:proton
+X-Pm-Message-ID: 3f92139ac2ada6b06c4d58858d8fe282ecec049f
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,38 +64,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <87qzgas5yv.fsf@bootlin.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 24, 2026 at 02:40:24PM +0100, Miquel Raynal wrote:
-> Hi,
-> 
-> >  	if (request != tmode_param[0]) {
-> > +		/*
-> > +		* GigaDevice raw NAND chips (manufacturer ID 0xC8) support
-> > +		* the timing modes advertised in their ONFI parameter page.
-> > +		* Skip the strict ack check; keep it for other vendors.
-> > +		*/
-> > +		if (chip->id.data[0] == 0xC8) {
-> > +			goto update_interface_config;
-> > +		}
-> > +
-> 
-> There is a vendor driver, you shall use it rather than polluting the
-> core with vendor specific fixups. Check what
-> macronix_nand_fix_broken_get_timings() does for example.
-> 
-> Thanks,
-> Miquèl
 
-Thank you for your review.
+Hi Luka,
 
-I agree that vendor-specific workarounds do not belong in nand_base.c. 
-Adding a dedicated nand_gigadevice.c would be a substantial piece of 
-work and is outside the scope of this effort.I understand if this patch
-is rejected, and I will drop it for now. 
+> As far as I can see, ieee80211_add_tx_radiotap_header() sets
+> IEEE80211_RADIOTAP_F_TX_FAIL for a unicast frame whenever
+> IEEE80211_TX_STAT_ACK is clear.
 
-That said, if there is a significant future need to add nand_gigadevice.c,
-we will refer back to the changes in this patch.
+Yes I missed that. It also affects rtl8xxxu, which already reports
+NO_ACK frames as IEEE80211_TX_STAT_NOACK_TRANSMITTED. I think it's
+better fixed in mac80211, so that TX_FAIL is not set when
+IEEE80211_TX_STAT_NOACK_TRANSMITTED is. I'll send a separate patch for
+that, tested with rtl8xxxu.
+
+> For the test in the cover letter, I think we need the raw CCX result to
+> tell whether the firmware actually reported retry exhaustion.
+
+Agreed. For testing only, this prints it with CONFIG_RTW88_DEBUG and
+rtw88_core debug_mask=3D0x2:
+
+--- a/drivers/net/wireless/realtek/rtw88/tx.c
++++ b/drivers/net/wireless/realtek/rtw88/tx.c
+@@ void rtw_tx_report_handle(struct rtw_dev *rtwdev, struct sk_buff *skb, i=
+nt src)
+ =09=09st =3D GET_CCX_REPORT_STATUS_V1(c2h->payload);
+ =09}
+
++=09rtw_dbg(rtwdev, RTW_DBG_TX, "tx report: sn %u status 0x%02x\n", sn, st)=
+;
++
+ =09spin_lock_irqsave(&tx_report->q_lock, flags);
+
+Thanks,
+Ahmet
+
+
+
+Sent with Proton Mail secure email.
