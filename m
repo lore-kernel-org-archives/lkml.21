@@ -1,107 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.195.103
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795790462;
-	b=nj0eyiCK9XAR/1TYt7dDzM2mQBoJ6Sn3VKwHPhiLp9KeN0AYS0UGJuyUUP1D8PpqYsxg
-	 Lkjr02WvfvXznWtUL5gv6yqKQCfcvOuWgrV91CTim1T3vGiMaSBBm2CRsbYcfMO+YKs6S
-	 5WutljsyAqhVCfMtqm6Kwhgb+JC8wLuZqpw2R4MrXdt64Gq/YyBab8dZI1L6EYYEf/0ag
-	 ijvcjWAO9tmpMYzmHMwfJTVzfQn/W94n9QLP0mL5saAtAP/P6UkvGjetwlDvMejJsecNj
-	 jG3i1FBqeoSH0Buhn6LtcGSBSPi35KXVnYMkgGyqQWa06zxxAAhZa1HWR31tcwu7F4w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795790462;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
-	 From:To:X-Mailer:References:In-Reply-To:X-ClientProxiedBy:
-	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=+HtZgRWAJPCuOI4+66uQWN1VE+x8uWI+FbBBcumgHLk=;
-	b=yly7hsonyMnQbe76+ZFfzWpmDG+bfShhUDKIvtqm+s0a5j9o6EnFrOnxR4UpT/ryXDRD
-	 Cjn/awpyYzRU6EBh01lwgY6TnhZT9CqYOv3GKxYt3cWczKo3Eqc3LCKhpLRE0ceTjYYhI
-	 Nh4qBA125iZTFseXCcQDD1nwkwQYAX6PXDHguqlaWMdJNWFj99zGitPZRvA+OXdEa7vnK
-	 B9V8QksfADczP9ZnSpeKUeQJ3GLkR7L85Gfk5oFqdqfBlXX32eWAlWNYt8qaGIK3/GiIL
-	 /YVNS5+7goDEB/wWfEZsFFeFasgVq6JGMUGOOap3DxWhNA+44OfsGyWtljJxzfB0dkg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=garyguo.net;
-	spf=pass smtp.mailfrom=garyguo.net;
-	dkim=pass header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=pmLspOQF;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.195.103
-Received: from CWXP265CU008.outbound.protection.outlook.com (mail-ukwestazon11020103.outbound.protection.outlook.com [52.101.195.103])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795790469;
+	b=XECo7JscLtNFLgEwpk4KdkVzlcVOilH8VLAfNVfJJiza3vGDpM4xOFu94Kl5WxMFKBeA
+	 RlTMtWJsOSXBa7GC5x8zfzwq1yyj/IEswIzaknbPYWrZdNe7bhJW4OcmwGvFGn5DsOmH1
+	 b61WckJd29P04v7JAQOyQ+MNEi5BOFI1dEo+BII3in55Je3CN+9EO7q7tWiG3x4yxFZX2
+	 Zc9C+zsS9SO+Y296WXJuQ4EBYp5J8OZzGzvPls/lj/OhTto+lNPd6O17PVSWEvZCFn0NQ
+	 o4N/u8HHHOzbK1IQlJmA1wJZpnbMJxXE0yC/hBAN0AAC+mpxKb0PZpu2QD5aTG7eetA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795790469;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=cQrPmeNJla6MknwzStsoB43gW4Bhd7IUtxWsEgN5PGY=;
+	b=01GY329t5d4Am1XEXXoPFsfoh/uZCZq08MKuzXyWbY1ZHph7f7NMb6WTSthruNOfwEYW
+	 MZ8hbEyD28m4ZC1yp3eIVul6AFavPf/0RTL2xDaLUizcklq0I19HNKAHyJPfxvBcKyjvH
+	 ZXbeRhuz84MRXgXmP6S+QU4jJJVlXjSelgXXZRzQVXQy3ZAuVZDrCMHxps48wbzNAgpew
+	 HxIY8ir4YUTMhalxdU0h7uBhTDkdI+eUwgW/26uM2bvemBjafPoz804SNwr/jsYz4Wnwf
+	 L3g3i/uR8LtDFXpSO1o484f1MS1IKMaILLtwUZIIxjpx6pVkm2hw3jiHX/Hlz0fMBXQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hgNdX3u2;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=J2VlyVtq;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D79C606A31C;
-	Fri, 27 Nov 2026 14:41:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D79C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=garyguo.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=garyguo.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16D02606A69B
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:41:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16D02606A69B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=pmLspOQF
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=k2ZFO2jwk7SOO76SLIGJopm8Q+tK6yd3a0VEQCRpHYB5hF9c9I3eSBgEtwU9TKwv2JNOi1EyjwL8Fg66UkXBDulRbk96hhdAegI3VWlJFwj+cH9aslDw/wLReoJmKi/s+3/za9dbJJa2MGClUxtYj8BfqBrzUetTgKG22TY9MSo7r10KOMI+1512L3+Zlngt+Ja4453DiruUzjcG2ukU7Vd5turp09AOmaeSSeVUFe2Pym+PomSofY5H4Kej76JKIp7grbS92MEO86E9a5DarlaEjH/F1CWXIbF5BUK6+hkaHh3DQdgFAUU8H9XxGvJ2H3mzcS+xttC0TO32FjGgFQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+HtZgRWAJPCuOI4+66uQWN1VE+x8uWI+FbBBcumgHLk=;
- b=deq/sMLI6fO78lxD9oSV7FvnveQi2nT6Fx5aJnMqbrvlrjnz94wLaIz1QZXOMNiyy2Rmu80Qmu9fd/tt8N+VhIITB74QYW2swPBD3SDg9PD1pOqwJe6dpXN2KcRZU7wGtpXSqhrMTzCxRjkNB1JzPS97wfo1nFh4kBqg1bz7n/iNUn4eAAV9FEkc3RK2bSZo1k7GRQGhghVbiljWTIS+76b+amelkiPtSR8dCZhGfcaSd8UW3OiNcTMFv9NK5U/ingpiMWFsWMbQ3FP4R7+SR+IZXHz56sxFA6GNpUWwNi6Y+8uzg6JA5t0dA6nBE4P0cDGpEoOlTNlKi02rryB6vw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+HtZgRWAJPCuOI4+66uQWN1VE+x8uWI+FbBBcumgHLk=;
- b=pmLspOQFVYXKH3ldqcrHatNIoRWoldhRtFL9kP6uTtlTUMKs+ghVS1a76D099xvHzLVbtStkzmcTJAhiyA3vtF8o+mefMRIl/vDB0cY6tQ9nwPWzf33fEwPNSaw3A6h3FqGSEPTwgsR2Aiz77AGUuwQeOwdcn1QGRaFO5cApOZo=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1cb::9)
- by CWXP265MB2823.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:c4::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
- 2026 14:40:57 +0000
-Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- ([fe80::55f6:f98b:7fad:c6e3]) by CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- ([fe80::55f6:f98b:7fad:c6e3%2]) with mapi id 15.21.0662.007; Fri, 27 Nov 2026
- 14:40:57 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 27 Nov 2026 14:40:56 +0000
-Message-Id: <DN62L6PL724V.2HIAY6WVTYPFP@garyguo.net>
-Cc: "John Hubbard" <jhubbard@nvidia.com>, "Timur Tabi" <ttabi@nvidia.com>,
- "Eliot Courtney" <ecourtney@nvidia.com>, "Zhi Wang" <zhiw@nvidia.com>,
- <rust-for-linux@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <nova-gpu@lists.linux.dev>, <dri-devel@lists.freedesktop.org>,
- <linux-pci@vger.kernel.org>
-Subject: Re: [PATCH 2/3] rust: pci: return a bitfield type for dev_id
-From: "Gary Guo" <gary@garyguo.net>
-To: "Alexandre Courbot" <acourbot@nvidia.com>, "Yury Norov"
- <yury.norov@gmail.com>, "Miguel Ojeda" <ojeda@kernel.org>, "Boqun Feng"
- <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Alice
- Ryhl" <aliceryhl@google.com>, "Trevor Gross" <tmgross@umich.edu>, "Danilo
- Krummrich" <dakr@kernel.org>, "Daniel Almeida"
- <daniel.almeida@collabora.com>, "Tamir Duberstein" <tamird@kernel.org>,
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Bjorn Helgaas"
- <bhelgaas@google.com>, =?utf-8?q?Krzysztof_Wilczy=C5=84ski?=
- <kwilczynski@kernel.org>, "Alistair Popple" <apopple@nvidia.com>
-X-Mailer: aerc 0.22.0
-References: <20261127-nova-gsp-dbd-v1-0-0fb5f7c2ce63@nvidia.com>
- <20261127-nova-gsp-dbd-v1-2-0fb5f7c2ce63@nvidia.com>
-In-Reply-To: <20261127-nova-gsp-dbd-v1-2-0fb5f7c2ce63@nvidia.com>
-X-ClientProxiedBy: LO4P265CA0178.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:311::9) To CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:400:1cb::9)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hgNdX3u2;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=J2VlyVtq
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE1Rnh2376469
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:41:08 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	cQrPmeNJla6MknwzStsoB43gW4Bhd7IUtxWsEgN5PGY=; b=hgNdX3u2YU/EMaza
+	AbJzE8XdBraumYCE4WUnXKEElOyIqqLgUANYohccrXdvNw7sOD7njBDyLzKN7f3k
+	HzWS3rf4w94gwoNBGu5AeG06jdc/+vA2oH3WndZNS8jq3xuPl12lk1AWrByda+Eo
+	8f5HUd9UkPHNrF2R2/YIN69pWDaVgqFfQ9lbJvF+UHpcCPxWXIDhQRB8R4ZBEs55
+	Sr4l99Au0uxzKri0Ir2Akgd9CzoOlzW/A+/P0WRTmpd5aLcOmrBtiU0kfZ2TXjGm
+	IrMcy//UfS4M+igEz3Res6og9OLG944ZQf5yi3qfmUju27MoYU1JaVMrmlR6a7rB
+	PDtQhQ==
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6u4hug8r-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:41:08 +0000 (GMT)
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-3425098ae4bso8332223eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:41:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795790468; x=1796395268; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=cQrPmeNJla6MknwzStsoB43gW4Bhd7IUtxWsEgN5PGY=;
+        b=J2VlyVtqd52egO3nBHopjItviu89CVAAeL012+LYtZ/31IQwaxW/mjy1PgkWllZtuB
+         Iio4D5VZMADguH5DDDj/KAMYhrsVBa/krpIjcfIYrBZ2lvYqMWpYZjv9fQAhNsQkeqcW
+         yWyL7bb0N8kvbqeJCPZRADJXnLqnKAzU0C875X7DXoTd32Sd18Zr5DcaLr5vQx7wLaEN
+         LVS4r4WMoQTYZPrhiytMZ8KJ2Yq4ItqhahRm5RIKeahphWmP7hy78NXc7+uAmm/o1kLM
+         XCn/xd+0z5VL70NaA51c26+Xnyz+x6Rnalhe7JkcUppiRq5fkdCIA0Mr0dJhgd7XcmHK
+         EZzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795790468; x=1796395268;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=cQrPmeNJla6MknwzStsoB43gW4Bhd7IUtxWsEgN5PGY=;
+        b=jy/xgesg6DtCUcTa9aHKJ4zDe3rM5aCxRg8FGs3kdSrrKdesMducAkiRazkGCkg0gQ
+         +cDLB60IlW57ie5P6fKWt+h5z9NNn6mD8zy7RoMY4MQD1w6cFtS1EPb+1avTfqGouYcJ
+         gd2wrSaBZ+nJ2t0Li8aTWUPykaOcUiRz4gSPzCsgpip6GTyG+k0pdOA6szy808KKWLJY
+         C0sxxtdkvJTteKKtG5rHMrF7OBj+ZY43JOtSU/zZaxs9+obR+mYfvV/l/XAbYbAWmJXo
+         +qDpZFBBd+/3B60Oe/aM+wjLC0r2J7wX+Hnv1qJSZn37MA8ZI8Kr70G+TXgpM0SlmhR6
+         6q6A==
+X-Forwarded-Encrypted: i=1; AL+hErEbldaOUq5QwP5OfU2NTOxgMS0f+snyP8+cgBVMLtFIAj3GhhgO/Vez3S+iYznk6g8SLK4oKOfpy72WrnU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+BQGHzO7k4MlFEs9slTYo6V45PjWDrRDpuZlca+XbEqI7uGj2M
+	/CtebOV615feTObV6tSNCvv7lffYgLhe6qVFWFz18pGJDpRzpO20MeiCurlcsuDurcEhVyytmlK
+	Ad/LVzTFTHUMepU73MTypfa+PHHSdTLuv7o4PeytXjrqmxdxiihz0jKRvrvYuoosQcaL8Y8wLoz
+	s=
+X-Gm-Gg: AZFdTZe/Dp52tOmpOeWyvfNTt7eGWg8P5rMpGorZj9poJCyySNgviW5ycs85eSxTXdK
+	Zt+/e7iJLOn0pJJ2qQEv/qjLPgQnCh7SLWmS5CbJQXlh8sTRy0iQBuGMWejDzPI8n0e7RxuJSjk
+	/9Ge7tdRU3JPIP5DT9qGq6YjNAj1sNxoXM0c04LatxQsjLvX/WNHzrOBYZtTbUbYS8nBF2EX691
+	oxbr7YqvWWTIUCi/PaHBtZpZEU5AJYi/gs7X8zJEXdb/fWDJk35DwLb1h/U8ZxaPrrhY1+L6XOw
+	7c5e93k9EkiYEkY+qmgnKRTMkhrMTv0vI8R7/g6gUg0MIP75God68/jgzEA7ZZcbDMqo3Xw9wh4
+	B0NToY7KSBocTKAieHGwQhv38nLKNV1pyOEsRRcCsjFiAHZC4QlOtIv+xh6oiasvLabQ/vHkKQ4
+	B0d2b2Ag==
+X-Received: by 2002:a05:7301:5098:b0:381:5fe2:a079 with SMTP id 5a478bee46e88-3856c6b010amr24691108eec.1.1795790467420;
+        Fri, 27 Nov 2026 06:41:07 -0800 (PST)
+X-Received: by 2002:a05:7301:5098:b0:381:5fe2:a079 with SMTP id 5a478bee46e88-3856c6b010amr24691082eec.1.1795790466715;
+        Fri, 27 Nov 2026 06:41:06 -0800 (PST)
+Received: from hu-msarkar-hyd.qualcomm.com ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567cafec4sm82970809eec.26.2026.11.27.06.41.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 06:41:06 -0800 (PST)
+From: Mrinmay Sarkar <mrinmay.sarkar@oss.qualcomm.com>
+Date: Fri, 27 Nov 2026 20:10:49 +0530
+Subject: [PATCH v2 1/2] PCI: qcom: Implement .reset_root_port() for
+ firmware-managed controllers
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,212 +118,144 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CWLP265MB6051:EE_|CWXP265MB2823:EE_
-X-MS-Office365-Filtering-Correlation-Id: 51eac577-9dbd-48bf-3cd0-08df4c947271
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|7416014|366016|376014|23010399003|1800799024|4143699003|6133799003|261009223027099003|22082099003|18002099003|3023799007|921020|260925021311599003|260925021911599003|260925022911599003|10067099003|56012099006|261102123227099003|261028144727099003|261026121527099003|261026140227099003|261021121427099003|261021123027099003|261022075727099003|261022105027099003;
-X-Microsoft-Antispam-Message-Info:
-	N3KmW6qoubn7GqTzVDCXBiP4gKxasNFvsjAuYYrJl4vwLXvE0uVf9q1Kv2xQ1YCo0NlfM+Ca3ooAIvpzGJzYJkK0s+5JGp79/eW47yD6n4STCs/3U67Wmb2iNOAGoDDmRaWL+h2oL4gYNRFaeJn3EQV3q0ROu5b4qVROCyNMhCFh0KAHHCpcgQY5eEAT2c88997mj8mJan3XrA7HhqRW8wULK9g9hvJpzofO0Hxqtqqzpka2CXEImkFywrcAPyCBHrtZ2oyrgK/swVFL8kQvZU2oKKzzjVUeDj4TU9n9bS6hhYrEJbgAmh56NGGgfIUs+Rn+xAPzdG6nxaoCZdIwv4K9gsmTuQAGtrSBsUpNYT90SqNYhGdVrnlCfZFU9HS+Ro/1dJAGDZzxgIsFbuRyEfcotKanB+EJG1DvG7WoaTlxH+XaAYunvWX01F4maqYQjLRllLZ398W0qhHd3sHG6eJ8FtkWK1ZU9JEJUxghFL8b6HTBlQWWcVFCYZSFctSqt1bCkTJdF0zrB1T47lLV6ZxzJbosP68lH9fxh+hITbf58mA08b4E4F/wrQzCdTPfRMMnqSPUvg0cZnpg9x5hUZIyN2rY/+a8O+s7tQ6X7A18zKMgst7HjqpQxmDYn9i9N4s9adT8dHXWUcdVq8JcQA==
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(23010399003)(1800799024)(4143699003)(6133799003)(261009223027099003)(22082099003)(18002099003)(3023799007)(921020)(260925021311599003)(260925021911599003)(260925022911599003)(10067099003)(56012099006)(261102123227099003)(261028144727099003)(261026121527099003)(261026140227099003)(261021121427099003)(261021123027099003)(261022075727099003)(261022105027099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?aEV6QWpKRnZ5SjR3ODBTMEpaTHUrWlhVd1RoVEJCbW8xOVptallVb2RPR2VT?=
- =?utf-8?B?TXI0OEF4UkIwTmNHZnlqaktzdWJIcjNqRDl2elh1Z2pXYmczbmZqT3BiR3ZT?=
- =?utf-8?B?Q2NqTWFaa2VVZXRpRnhSVnBuYzc4alY1TEo5NXRXUnBXYzhxVXo1MkpNdlV2?=
- =?utf-8?B?OEg1eE5SQ3dCSmVTZXdsSGk3UkxQVlpLQ3BQRXlCVXZqekRNNHBLM2hlTlZF?=
- =?utf-8?B?aURlNXpUMk5HRHcrbzhLcUQ1V1A4djM1OGEzV3lQdm0xSUtIZU8yeEJnMHQ4?=
- =?utf-8?B?K21zY0FjVmNrMTZTdzZBNHNOWENualNoS1BMYWdWcEEyamJuSEl2b0l3VkpK?=
- =?utf-8?B?N2Z4V0huTkM3YkhpeERFOHBhdlQ0WDRtNTRCbmtpWHdIT3QwTlJLWWVvcEc5?=
- =?utf-8?B?WHVueHpnazQ5emVBck1OVmpidXNDK1k2aHVzY1JHTzRjVm1UZk13WVJuOEZZ?=
- =?utf-8?B?Z0dKZkFuR1lwQW04eTVub2VzWmx0aW45STZTRkxwMzhSY2ZZUjFuNVVhNzZ1?=
- =?utf-8?B?TmFrMm5vL0k2aEJUVXUxRkZuQjd6YzBpdXhNYmhKU0J6eU5yUkZrTjNocUdU?=
- =?utf-8?B?UTRiTXkvL0dzejlrdjhsWVF6dXlCc2JyTDNub2Rxbkh6Rk5iWHZEdVhyMGJV?=
- =?utf-8?B?UGxNWFJIbnF4bStnZyt0UjB5ckJlTUZEV01hQUhTTGJPQTJJaW1TUTJmdERY?=
- =?utf-8?B?R0tLT1lOUVdZQVNZNU1uQkI4VHlvWXFDdUVJelE4UkZWRXRPK3BGS1NmZGJi?=
- =?utf-8?B?d0lIMVpkSVpIbGEzUkJrUlovVWRlZWVMamNMNlpQaTkvMncrMlhxQTVVM283?=
- =?utf-8?B?b3lRakFxSkhWV2xzOVM2alYxbmR3Snk4c1YvVXVDdzlEL0NDYXNud3R6Q0VG?=
- =?utf-8?B?OEZCUlNMSUM2ZG9nVnAzZVk4MmpQMXU0SXdVeEdxcE5FbDlSQlJiT2xOWUI2?=
- =?utf-8?B?L2pFNWxtbmZLVUZTcE9PK290ZUZXbXdtOGFrMUV4eU56NUtabkhRMEpzOUUr?=
- =?utf-8?B?QkxsSTN4bVVzSGh1UWowNWhaV2ZvWGYxREpWVHErUVYwOUlkcFlOSzNBakNJ?=
- =?utf-8?B?S242ZmVvdGsxWk9IUWJCM1BZdkZabVp0bkNSdjc1akZMZFdlamZsQXlvTUVj?=
- =?utf-8?B?WVZrZnNKV3JXR2c0T2MxWjhBZDV0Y0p2bytiUTlKcDRtOHpBUVB0Rmx0T2ht?=
- =?utf-8?B?b004cmhxWElMc01MWi9UcmJ6Ny8rUjU1alZoWHVpa1lpODBPeGFSRWowVWNr?=
- =?utf-8?B?N091WWRVWWFRakl3Z0VZcUJQV0FTYXlUV1VGNStVTWVrT3dqV0hjcVJQMWtE?=
- =?utf-8?B?NWdUMUx4ajlvQXFJTU8rK3VodWJPb3pwSFc2U2owWlRBdEUzaGRKOGROcEFD?=
- =?utf-8?B?akp6UzV0bW5ud21MSUp4bjkwWGExZ21xNi9veEg1Tm5HaC9jY1h3c01kTVdk?=
- =?utf-8?B?UnRxMHpKdldCQVNtTWNscGVYLzNqeXRJVms5UFJiRnJQei9oMDYybmR1NnJx?=
- =?utf-8?B?RDMvTlVpZW1oRmZ2c1VaYkdSTlhZLzZqa2cvTjlZajRYWTFkSlJ1RTRPVGd0?=
- =?utf-8?B?ZzhVOUZDblBxTC9RdW92T3dYY2UvY3lBQ3BNclZXOWh3OHNKMGtBS0JFTHE3?=
- =?utf-8?B?MGZLOUMwdmxsYWttejBUNnBZa0I1K1NXdDF2VXArbkFaeEF1M3RyTVNwenB3?=
- =?utf-8?B?dGI0TW1Fb3VlNEZheU8rMi9SREhqdDdPbll4RFZ0dUZvV1l3eHp6V2JCTlp4?=
- =?utf-8?B?OUNyYVdydW8wdGtCUVhGbDdnVlVnWnpqK1piN2wxSzRsdmVZNG40YzhNUnRL?=
- =?utf-8?B?ZCtZWDg5d0EvMVlCOVRFQ2xydnpCZlNoc2tMN1hsUVdaNUE4T0dpYnB0RjBC?=
- =?utf-8?B?U1pqZjA0ZEJWbENBR2NtWmJRbXZ5bFVSY2g4OEVLTGsxaTEyTnZ2MmxWUVo3?=
- =?utf-8?B?K3MvalJBeUZJbEdYVVRIaUhFV2p2cjJHbit3eFNrM2dTTEdjandIYVJ6aFNx?=
- =?utf-8?B?dDUwdzV4b21hZk8xOXhKUENLQUEyQ3k2YU91YlR5NVRZcDZ5WnRmQmdkZ0NH?=
- =?utf-8?B?UlpYR1JGM1hEYi9nZ1dldVRFN0xmeENGMVV3WmhUVytiUXd5MFc1S095QU1J?=
- =?utf-8?B?V2llU2R1dkdNbDllZ3JwMU8rQjF1Z0FVRmJ2b2RVZW80YWNmSFV4ZUsxTTRu?=
- =?utf-8?B?b0sxcTdQRnRtYWhqbC9yRERQTmhrVjk5bk1GdURQNlgzNnhpbzJsSVl4UWEw?=
- =?utf-8?B?VFd0TmhBZUppZmttNStQS3lDRUFTZ29KRWFURjY3cmltUVVkUTZ2OWZIekph?=
- =?utf-8?Q?E2A+Pyi1ceioE9GdZj?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 51eac577-9dbd-48bf-3cd0-08df4c947271
-X-MS-Exchange-CrossTenant-AuthSource: CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 14:40:57.0852
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sm01JAX7M1rTrRKQGmjI0eoL62QTZ5Ciyswbpi8Iw9fwfx2oKcU0aVEJXnJfO9aY0yrFNGI3mgckjXC6kvpA0g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CWXP265MB2823
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261127-pcie-controller-reset-v2-1-17467b64f5f5@oss.qualcomm.com>
+References: <20261127-pcie-controller-reset-v2-0-17467b64f5f5@oss.qualcomm.com>
+In-Reply-To: <20261127-pcie-controller-reset-v2-0-17467b64f5f5@oss.qualcomm.com>
+To: Manivannan Sadhasivam <mani@kernel.org>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+        Bjorn Helgaas <bhelgaas@google.com>
+Cc: linux-pci@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
+        Rama Krishna <rama.krishna@oss.qualcomm.com>,
+        Nitesh Gupta <nitesh.gupta@oss.qualcomm.com>,
+        Ayiluri Naga Rashmi <ayiluri.rashmi@oss.qualcomm.com>,
+        Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
+        Shazad Hussain <shazad.hussain@oss.qualcomm.com>,
+        Mrinmay Sarkar <mrinmay.sarkar@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795790457; l=2937;
+ i=mrinmay.sarkar@oss.qualcomm.com; s=20250423; h=from:subject:message-id;
+ bh=nTCJouOPtcRST+Npmv3BTg5gqJs09AaCB0vd/5YgXDY=;
+ b=hk/C9j7skE13T+ziWxNra+8H8OVQfs20SUhjh+HIdAAH8vDVYQESC1zJqoVdW/Kq3CsW8II4S
+ j7ii4X1KwaBCMhrcMMrlWbSCe7lWdzrMWgk2BH9t5pcN6ZrGUEBf187
+X-Developer-Key: i=mrinmay.sarkar@oss.qualcomm.com; a=ed25519;
+ pk=5D8s0BEkJAotPyAnJ6/qmJBFhCjti/zUi2OMYoferv4=
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1OCBTYWx0ZWRfX15YITqEGrm5o
+ YKwwoH5y/+Rz+zB6TB5CJMrgkUuYwZmC/w6iIilY4vKYbCe80lDbBaFLzS+qNzkNT5Aw3fDP8ER
+ JOLw/BINnpFej6E8jYyykFEztl99Yp4=
+X-Proofpoint-GUID: JbRBviECu0d0WvFlfIKqE5Jjqyaxt2qH
+X-Proofpoint-ORIG-GUID: JbRBviECu0d0WvFlfIKqE5Jjqyaxt2qH
+X-Authority-Analysis: v=2.4 cv=M9fYuCws c=1 sm=1 tr=0 ts=6b099684 cx=c_pps
+ a=Uww141gWH0fZj/3QKPojxA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=EUspDBNiAAAA:8 a=_Z1ICBCpGxnOzRxCLNAA:9 a=QEXdDO2ut3YA:10
+ a=PxkB5W3o20Ba91AHUih5:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1OCBTYWx0ZWRfXz846lQI0nByn
+ NIJeG+zBG2+MCEAHZ8m8LwbB3AMxG7hmLtVzCCxkEBcGVmuy+teQ1g6kNgJLp76wUHiyx7yegBD
+ WL51nGpE1xgeeqrqJFwM0iobUQpBLJVxO1c+FrWlAJlR6CeGkGizWIBjul6KW9Y1H4IIgHUTJIC
+ l91s+++Hlg/bMfDNkeyTU/ffzwha2wiKlxlRG6wDXTO3sEMmSC+ej6+Ln72MKe43ah71/nnwV2E
+ 7hpii+fgKTv6aFTXawYVHXXFgg5NpylYhwfbpcnyrubQvnS93sUStb/8A6rRVKo75jGX/5Ev9SS
+ oMF07/BRZJQ7Q/EazpKOiY2dOypPavrcwJdZKV82X7EyIOIiES3PQ7Pw1mdD9vfQHrDTeq3pJb6
+ /438Xm4my/L4H9DbkEwVpwN+trBsPMhb/Or6+r6Xq9mSkn7KCjcDCbVlF1xDWdqrbYYi9upfISn
+ MOgGxPQXkhBaiwjpmKw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-27_02,2026-11-27_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 adultscore=0 impostorscore=0 suspectscore=0 malwarescore=0
+ spamscore=0 lowpriorityscore=0 priorityscore=1501 phishscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270058
 
-On Fri Nov 27, 2026 at 11:46 AM GMT, Alexandre Courbot wrote:
-> The return type of `dev_id` has a well-defined bit layout encoding
-> the bus, device and function IDs of the PCI device. Add a `Bdf` bitfield
-> defining that layout and make `dev_id` return it so users can benefit
-> from it and are not tempted to define their own BDF type.
->
-> Also update the current two users of `dev_id`.
->
-> Signed-off-by: Alexandre Courbot <acourbot@nvidia.com>
-> ---
->  drivers/gpu/nova-core/gsp/fw/commands.rs |  2 +-
->  rust/kernel/pci.rs                       | 33 ++++++++++++++++++++++++++=
-++++--
->  samples/rust/rust_driver_sriov/pf.rs     |  2 +-
->  3 files changed, 33 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/gpu/nova-core/gsp/fw/commands.rs b/drivers/gpu/nova-=
-core/gsp/fw/commands.rs
-> index b4bdbddad79f..37b89e62387f 100644
-> --- a/drivers/gpu/nova-core/gsp/fw/commands.rs
-> +++ b/drivers/gpu/nova-core/gsp/fw/commands.rs
-> @@ -88,7 +88,7 @@ pub(crate) fn init<'a>(
->              gpuPhysAddr: dev.resource_start(0)?,
->              gpuPhysFbAddr: dev.resource_start(1)?,
->              gpuPhysInstAddr: dev.resource_start(3)?,
-> -            nvDomainBusDeviceFunc: u64::from(dev.dev_id()),
-> +            nvDomainBusDeviceFunc: u64::from(dev.dev_id().into_raw()),
-> =20
->              // Using TASK_SIZE in r535_gsp_rpc_set_system_info() seems w=
-rong because
->              // TASK_SIZE is per-task. That's probably a design issue in =
-GSP-RM though.
-> diff --git a/rust/kernel/pci.rs b/rust/kernel/pci.rs
-> index 04a6d240afb2..0592b220767c 100644
-> --- a/rust/kernel/pci.rs
-> +++ b/rust/kernel/pci.rs
-> @@ -6,6 +6,7 @@
-> =20
->  use crate::{
->      bindings,
-> +    bitfield,
->      container_of,
->      device,
->      device_id::{
-> @@ -17,6 +18,7 @@
->          from_result,
->          to_result, //
->      },
-> +    fmt,
->      io::resource,
->      prelude::*,
->      str::CStr,
-> @@ -279,6 +281,33 @@ macro_rules! module_pci_driver {
->  };
->  }
-> =20
-> +bitfield! {
-> +    /// Bus-Device-Function ID of a PCI device. Equivalent of C's `PCI_D=
-EVID`.
+During PCIe recovery events, such as a fatal AER event or other
+platform-specific PCIe failures, the controller may enter a state that
+requires a full reset before normal link operation can be restored.
 
-You can use
+On firmware-managed PCIe controllers, Linux does not control the PHY,
+clocks, resets, or LTSSM state directly. Instead, these resources are
+managed by firmware through the power-domain framework.
 
-    #[doc(alias =3D "PCI_DEVID")]
+Implement the reset_root_port() callback by performing a Runtime PM
+power cycle of the controller. This allows firmware to reset and
+reinitialize the hardware before bringing the controller back online.
 
-for doc searchability.
+Since controller state is lost across the power cycle, reinitialize the
+DWC MSI configuration after resume.
 
-> +    pub struct Bdf(u16) {
-> +        /// Bus number.
-> +        15:8 bus;
-> +        /// Device number.
-> +        7:3 device;
-> +        /// Function number.
-> +        2:0 function;
-> +        /// Aggregation of `device` and `function`, which are commonly u=
-sed together in code.
+The callback is only registered when CONFIG_PM_SLEEP is enabled, as the
+required PM support is unavailable otherwise.
 
-I wonder if this is actually true, or is this just a result of existing API
-being designed to bundle these together? I quick grep shows that the combin=
-ed
-value is most commonly used to make API happy and packing/unpacking happens
-immediately before/after the API call.
+This enables Root Port reset and recovery support for firmware-managed
+controllers.
 
-For C code it is done this way before it avoids having bitfields. But given=
- that
-we're using bitfields here already, we can just use `device` and `function`=
- and
-omit `devfn`.
+Signed-off-by: Mrinmay Sarkar <mrinmay.sarkar@oss.qualcomm.com>
+---
+ drivers/pci/controller/dwc/pcie-qcom.c | 33 +++++++++++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
 
-Best,
-Gary
+diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
+index d903f10211c2..fe86b8fbc895 100644
+--- a/drivers/pci/controller/dwc/pcie-qcom.c
++++ b/drivers/pci/controller/dwc/pcie-qcom.c
+@@ -1855,6 +1855,35 @@ static int qcom_pcie_set_max_opp(struct device *dev)
+ 	return ret;
+ }
+ 
++/*
++ * Reset for firmware-managed controllers: power-cycle via runtime PM and
++ * reprogram DWC MSI registers on resume.
++ */
++static int qcom_pcie_fw_reset_root_port(struct pci_host_bridge *bridge,
++					struct pci_dev *pdev)
++{
++	struct pci_config_window *cfg = bridge->sysdata;
++	struct device *dev = bridge->dev.parent;
++	struct dw_pcie_rp *pp = cfg->priv;
++	int ret;
++
++	ret = pm_runtime_force_suspend(dev);
++	if (ret) {
++		dev_err(dev, "Failed to force runtime suspend for reset: %d\n", ret);
++		return ret;
++	}
++
++	ret = pm_runtime_force_resume(dev);
++	if (ret) {
++		dev_err(dev, "Failed to force runtime resume after reset: %d\n", ret);
++		return ret;
++	}
++
++	dw_pcie_msi_init(pp);
++
++	return 0;
++}
++
+ /*
+  * Qcom PCIe controllers only support one Root Port per controller instance. So
+  * this function ignores the 'pci_dev' associated with the Root Port and just
+@@ -2031,6 +2060,8 @@ static int qcom_pcie_ecam_host_init(struct pci_config_window *cfg)
+ 
+ 	dw_pcie_msi_init(pp);
+ 
++	cfg->priv = pp;
++
+ 	return devm_add_action_or_reset(dev, qcom_pci_free_msi, pp);
+ }
+ 
+@@ -2292,6 +2323,8 @@ static int qcom_pcie_probe(struct platform_device *pdev)
+ 		bridge->sysdata = cfg;
+ 		bridge->ops = (struct pci_ops *)&pci_qcom_ecam_ops.pci_ops;
+ 		bridge->msi_domain = true;
++		if (IS_ENABLED(CONFIG_PM_SLEEP))
++			bridge->reset_root_port = qcom_pcie_fw_reset_root_port;
+ 
+ 		ret = pci_host_probe(bridge);
+ 		if (ret)
 
-> +        7:0 devfn;
-> +    }
-> +}
-> +
-> +/// Formats the ID as `bus:device.function`, like the corresponding part=
- of C's `pci_name()`.
-> +impl fmt::Display for Bdf {
-> +    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-> +        write!(
-> +            f,
-> +            "{:02x}:{:02x}.{}",
-> +            self.bus(),
-> +            self.device(),
-> +            self.function()
-> +        )
-> +    }
-> +}
-> +
->  /// Abstraction for the PCI device ID structure ([`struct pci_device_id`=
-]).
->  ///
->  /// [`struct pci_device_id`]: https://docs.kernel.org/PCI/pci.html#c.pci=
-_device_id
-> @@ -700,10 +729,10 @@ pub fn revision_id(&self) -> u8 {
-> =20
->      /// Returns the PCI bus device/function.
->      #[inline]
-> -    pub fn dev_id(&self) -> u16 {
-> +    pub fn dev_id(&self) -> Bdf {
->          // SAFETY: By its type invariant `self.as_raw` is always a valid=
- pointer to a
->          // `struct pci_dev`.
-> -        unsafe { bindings::pci_dev_id(self.as_raw()) }
-> +        Bdf::from_raw(unsafe { bindings::pci_dev_id(self.as_raw()) })
->      }
-> =20
->      /// Returns the PCI subsystem vendor ID.
-> diff --git a/samples/rust/rust_driver_sriov/pf.rs b/samples/rust/rust_dri=
-ver_sriov/pf.rs
-> index 8f9958683528..c367c891abf4 100644
-> --- a/samples/rust/rust_driver_sriov/pf.rs
-> +++ b/samples/rust/rust_driver_sriov/pf.rs
-> @@ -34,7 +34,7 @@ pub(crate) fn submit(vf: &pci::Device<Bound>) -> Result=
-<u64> {
-> =20
->          dev_info!(
->              pf.pdev,
-> -            "Handle PF request {} from VF devfn {:#x}.\n",
-> +            "Handle PF request {} from VF {}.\n",
->              request,
->              vf.dev_id()
->          );
-
+-- 
+2.43.0
 
