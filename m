@@ -1,83 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795737378;
-	b=jOrGgiU6eYRAJAfVZnGu5zHoBWMTycEBe3qiM8cQDWgVIsuOdxHy1RI6jMtJkBZ6bYCg
-	 aZ4ZZhD/uM09mZ0RAQjNHaJ43f6tWFOmCac0n+S/LN01rZhGlOgbXhF3Cbm6TU60AQLlC
-	 Z4z9aC3y5KghnSBKjFUuDCEu+8SySw5ItlO3Y61LWIDKQKSmJv6WQJjl8+kBYlCWK+nSR
-	 Uk2n4Tg8rbQvrlMd1BF6xOXNwNmBfnQwmqxUnbCAh6P/ZlfbTwWzau6s67dNhzcjkDqkm
-	 UkkKzokDUFZRH8/Dxmvw1JPm2xTyy9A0YzrPh2QEm4LpQL8oO9Ir7P3vNtU2mOesoLw==
+	t=1795737626;
+	b=RQ1eN04o5hgPgPbVPM6UqQvRutVJ6DPOT/aRDGshJ166OeSF58YOoaQJ+hXJykON3IHK
+	 YpGgSIi/R/A5Eu6E9Tin7ZUbAMPS4eqKxm98bjrK+khgzLmj1GMqjK3LW1DLc2rqLUZ2A
+	 r/PGwnvT4jfHSrlNdyLUFDFT6Fl5P8C9h7bxLOddt5rnHAXEcBmu9qhWuwh6x0YQcoubM
+	 hgcj5TdOz712cN2Ma0efu0KDRMfp680RFY1NYugM16sq/Hjqs3FBRP4Ibz93EZcVSeb8j
+	 x5KFgbpqV4zEYaN8zYoEom3nsfyauDrLxehKu0EzCuBlBZd+lRY0Uh/73EWhAAa1RVw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795737378;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795737626;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:From:
-	 To:Cc:X-Mailer:References:In-Reply-To;
-	bh=LaUG1WyYJVQ7dlLvzt89P9Dst4rSbBmHbm3uXYe8MRQ=;
-	b=AxmcO52lHWs9SW9cC57Au7K6WLWTdg5FCpXt0miOQgHYVTDraF2Q7Y7B52psMr58OeTE
-	 ApBRsKllIEZtOEq/RHcOYIDy26KQ6ycqhxTL2G/EPFkaa4gJGp/NVVjquX+FD5dNVLR9L
-	 02AndyqQzgohPmwMbanVHWqPTbxQR3jBafUNlhBvWuOWg5QnYCLSRS8ej/o5AM7MnSopP
-	 W9YIgZkXvMmbevWCsw8hpnu3yAzoiwN+qlgTF9/5WPb9dsRSmBD0yDFpjyvg8l00iBQEX
-	 eERyTp81jMkSDrMGpRd9D9fCTEuy9Egqhdv8Ck3f6l+hReivMNSarE4kAVNt+iTtDaA==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Sender:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=rbi2jPDujmhRc5z5gppxjoRcMRQjvajoDkRklULDng0=;
+	b=qmV7g71RMh14rulXCnp9dert2PGNhX/3nNyFLd5k3X8C/UqZKUCGXKhmggXcuflBEJOD
+	 GWHa4PUPjoLdtnAKe/jnVBuQYLO80CG8c0owhE43KoZqAkVBP1Arg5vXvc3+KH84asjl1
+	 JUQvqPLeScWD2C4i5Oe5C1Stsgdj+OX6JOaUpVI2vetJuxD5YG0k3Z+d5khUuvpc0lX5T
+	 qpxghF80BD92W3t3rO+C5wVwRq1KbaD3huLh2VJntTJo1Pujz5WwrVeN/mehatiw5YxlW
+	 3GUiIzynheHQRwtIKGo0p2cnduTM+savvyuquBTKT3GBrLGvy6k5JTGjt8krOsNfbeg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ikJhu+W6;
-	arc=none smtp.remote-ip=74.125.82.45
-Received: from mail-dl1-f45.google.com (mail-dl1-f45.google.com [74.125.82.45])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GGCFJtq6;
+	arc=none smtp.remote-ip=209.85.221.50
+Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91BE5606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 23:56:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91BE5606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5DF0606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:00:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A5DF0606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ikJhu+W6
-Received: by mail-dl1-f45.google.com with SMTP id a92af1059eb24-1b3ada81853so8705035c88.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:56:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GGCFJtq6
+Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-49412eb1474so4935870f8f.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:00:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795737377; x=1796342177; darn=vger.kernel.org;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=LaUG1WyYJVQ7dlLvzt89P9Dst4rSbBmHbm3uXYe8MRQ=;
-        b=ikJhu+W6juEwDhcC4tRupeakNXkzVbxGKgrdXD19Dy4SL2lQ17Ll6DeeDvZdYxOUzI
-         +9VJIZ6Y0Mz5hi4u1RNa9gEiLZZGWOwDCcgkmfYyslEsD4A/9tjVbewqlSsT/5a8yWkN
-         fjYcVYejRr8Shh5mw1hejUuI0AqxvmVhOcyjN0QldOZuyg0M2uGFGpgZy7v1xy/ldI3b
-         CtfgNjN9maYwagLkdJTFVsA9fwYtKiQoSRWsiIYDG4bm94qmVdJc/6oDnYd0m8gl2G+n
-         heR790DtFHFunGZt8xeHakgTdtNj/go68pACV0o/+LwIdqH0dg2XfAENrus/gbj97vd2
-         r1sg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795737377; x=1796342177;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1795737624; x=1796342424; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=LaUG1WyYJVQ7dlLvzt89P9Dst4rSbBmHbm3uXYe8MRQ=;
-        b=hsAvqnHugQ2C54S1kyDh0YBGuFDOl6Ro46K4A/WcCsL0xNx67joQq2mlnmBuYvq4uF
-         xNU+l2lVSFN0cmMDoPJeV7gcX03DUpkf8rBwsE+6skYDN6CqHdYA2oV5BE7UNowWJQGX
-         9Naw4yRdHASjXpbdllhgapBuTWzjhcy6Cprai0meOguSt/2M6iVkGx6PXD0O8tkkrN6k
-         Zkaofhs8FsdsCqxNlwPRpHYL1kfy5agczUW7VY2k+XqdHco3HO1sT0qJCe3Ex2jHfiNV
-         enKEeM2eX+HAsXhCOFGDuQ9/cef1UZ9g1lmkAy/rIrjj+yT7qd6iNzmers6E1RD9019V
-         tefg==
-X-Gm-Message-State: APuU4Z896JRNLpwH75lcuEtt4P5BoPhA2tzGw1zNBp3r3wrRQgGqR3KC
-	T5hU6tzMKJo0j/lw5zXJJTKpqhEz6VfWCXJcgB952/ygzYDQBhpnymwa
-X-Gm-Gg: AZFdTZeuXUw2KAJyb2Ll3Giox+GLrkPkX5LE6A+eDMDecW278Qa6rdlES9BN8PlF/er
-	C8quc04BCLt5jRiKd8JfaKEPL2J/1K1HqaNa3dysis/92thOdS7hUHgNex+n4ha+eKK6XPYnCog
-	i7k52E5w+UsKSVjm6yWZZyBtWT4+BuisRkr0EqM+iMLdBFjryX84zZhzZ3X6PgTmm0NGPfKQ8e+
-	ygu/fsYNc4i0wiaM1hGT8/5R4JpM2KLpYqDrkoy5aQe/4lOHSz5NIndsgO+6LmHk6c6i+FFg6oo
-	aUE/2SdQ5/Zrr22fL84qGrD7DSxhPhkL+eB4hB3Q0YLo1VSvezPabYWmVZQjJXJH7tIPVRDeBYf
-	LkQOj2SyT9MZlQMgqRdP3tmVNFjnPVM4CDdIrCjOv/7Bf/YHbEloc8lyNx154P64U3ZPiUP/Els
-	8L+WG9wcuQszVlUJKwXH5KomTI0d/yjPFYLwRIdXnKKKYhx160sM4wFhpxny6wQ/CJWyAY0h8vr
-	6rYoxVj+iI6F11A9I+/cpqvxWkUouubwusMSSMIYKiioaUyrNBPiJbyFsx4b1vjhacTGdIMFEIu
-	ccOgqxSCTfEdct3va5q+vMygW3w=
-X-Received: by 2002:a05:701a:ccda:10b0:1b5:7477:ff7d with SMTP id a92af1059eb24-1b574780064mr13682312c88.15.1795737376560;
-        Thu, 26 Nov 2026 15:56:16 -0800 (PST)
-Received: from localhost ([2001:8004:6f80:e4a4:63f4:2ea2:b5db:9dfa])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5566c1142sm51067878c88.2.2026.11.26.15.56.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 15:56:16 -0800 (PST)
+        bh=rbi2jPDujmhRc5z5gppxjoRcMRQjvajoDkRklULDng0=;
+        b=GGCFJtq6+W6CPFGF/ZSFEz958RH/AeA5EoHxtT4RIDGKhxyLfiIkj8VwSJtyz36D8e
+         H948/ejyUIZ5xRunN7CqL8amDGNfMN33ZSPKi0usW1tCJIIHqR8cNSbDGIlQKAkCKYlA
+         YFxfe2OY5G4KMUkdWR5A0zKdj58fKdJVy12tXfgSn8I7h+zKQxruG9Cad7YIoB2ktyne
+         Yf0ziticDpRYz5mRIQD5stRH+w42GwtpQcjukYUrgqJSPYqN95xiteGAmMjACtO46jJT
+         sKDYfAZtGdOamjrtlTiOt7CcXPn4T+uMt7PPIeU3UCEuU7oPXvPXFDeSPoxWaLEUBaMG
+         KrzA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795737624; x=1796342424;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=rbi2jPDujmhRc5z5gppxjoRcMRQjvajoDkRklULDng0=;
+        b=NbNR+Rmwrd07Jk915Hv3YrHFA7FB3urOHDGATJ449ZQi2Gw0WxXESP9V3s+ievx2jj
+         EELF/xQoIuUYbuP0loc4tnDMmpYzhtyvQWkoe6TGHMDVVJFZxBBPKPSSI7zjmMHJMTGk
+         CW1Pn035EsRvvyPPqaMsXVw0ALOdh3XWbzxsre1Jzl+nbX2WvbQyHVHQGHvO3LuxIAsB
+         NeXi3C0/6XnEWOd7HNMrlVzkXWaFleKw+4vBLlvyf75szbOCxhDjez9e4SoJXq6IQbbx
+         4QlIk5I8Knj16nuKN/S7Q5Q8fJMNl6UkjK6XwnhB9CFRQGn1SHEeDSxYYAHfkOKdw8f+
+         b7YQ==
+X-Forwarded-Encrypted: i=1; AL+hErGd864pl9Jr7K0O2NNiiMwG1ewSZrgHRbiCBXhWmaeMFeujOyAzHATwyWvrA64MEOKUL6Cm+IQcbLNfJ/g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8EK/SlmSvmllOr4Z4eCyjYMXsJ5ayn69LU5jq1ikFtQvo8ZE8i
+	6xfBmi5eogYdfzwihlWiyXXhD8+/g69GrUotitnr8AerRh25lAg28Eli
+X-Gm-Gg: AZFdTZfBrSnw3l0ednKrUGQYI/yn5QtmNByp87VLwXbks1/cgSjTZebdGKRkEq1Meat
+	YlZkCoB8R2Wo0aSeMu+ztQ8hlgFlYSNncBZxrief7c9sedRft8FDowEqQJPDr8HW72wdWj/Fs9S
+	WV/GMHxBMa8Oty86gGvYRqbHU9BmOp1mBUKOeTAsp0NDHM0sTqNSMxYCgYplF+g9EEdnzCyJFy1
+	4IvpdfS0bMe5aKpnzs4/xFyZkii/ou9wVTTyetUPPO99+jBZZfb1b108YL9GW14crjTDCVeOZA/
+	mo/HJZ444H08Mhzjt9rm+bXAU+1fIslOypTWhQQ38HYbz0hTnOuaSEFqTyY/7masj52VqYuRUjA
+	0XO6HyAXcHzdMDZkgKDXlTto2jznrfTNoetqN+K6l6NxvxaiZeSqppYFYepKi8f+4GwmXPuWsN+
+	Fx0c6FUUmplHsD3oZZJF10As47YO+cwo+Qs/CIpaVSD52befsm7K9cucUGpNa2B733bddBvLw6D
+	Meb+YYhuYyZvsLL3oGrlczs1NobpalaXMnccnuYKCasM5avC5nFuLrih0KRHib2W8g1FrgDxy7n
+	zqmoyL/cIrRW/mtqAUwKOAnOEM95AT31PbMnfxz/wqOcH13GRzmRUGd69rgRR6wRN3XVxe0EGMG
+	w8KVKF5gswo8IpxiSDA==
+X-Received: by 2002:a05:6000:4024:b0:4a5:2e5b:51c2 with SMTP id ffacd0b85a97d-4abb4f59b72mr44345292f8f.29.1795737623844;
+        Thu, 26 Nov 2026 16:00:23 -0800 (PST)
+Received: from nixos-office (195-23-151-163.net.novis.pt. [195.23.151.163])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a68048esm45536616f8f.29.2026.11.26.16.00.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 16:00:23 -0800 (PST)
+Sender: Julian Braha <julian.braha@gmail.com>
+From: Julian Braha <julianbraha@gmail.com>
+To: nathan@kernel.org,
+	nsc@kernel.org
+Cc: samitolvanen@google.com,
+	torvalds@linux-foundation.org,
+	ljs@kernel.org,
+	david.laight.linux@gmail.com,
+	sashal@kernel.org,
+	lzsx618@gmail.com,
+	zuoan.penguin@gmail.com,
+	petr.pavlu@suse.com,
+	jani.nikula@intel.com,
+	xur@google.com,
+	sidnayyar@google.com,
+	robertusdchris@gmail.com,
+	acourbot@nvidia.com,
+	linux-modules@vger.kernel.org,
+	linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Julian Braha <julianbraha@gmail.com>
+Subject: [PATCH 0/5] kconfig: fix slow 'make oldconfig' by reverting host header simplifications
+Date: Fri, 27 Nov 2026 00:00:10 +0000
+Message-ID: <20261127000015.3662267-1-julianbraha@gmail.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,28 +112,65 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 27 Nov 2026 07:56:04 +0800
-Message-Id: <DN5JROQRBFHK.1T3SMLE6KKBVD@gmail.com>
-Subject: Re: [PATCH v2] rust: dmi: add basic DMI matching abstraction
-From: "Nick Dowsett" <nick42d@gmail.com>
-To: <nick42d@gmail.com>, "Miguel Ojeda" <ojeda@kernel.org>, "Boqun Feng"
- <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Alice
- Ryhl" <aliceryhl@google.com>, "Trevor Gross" <tmgross@umich.edu>, "Danilo
- Krummrich" <dakr@kernel.org>, "Daniel Almeida"
- <daniel.almeida@collabora.com>, "Tamir Duberstein" <tamird@kernel.org>,
- "Alexandre Courbot" <acourbot@nvidia.com>, =?utf-8?q?Onur_=C3=96zkan?=
- <work@onurozkan.dev>, "Jean Delvare" <jdelvare@suse.com>
-Cc: <linux-kernel@vger.kernel.org>, <rust-for-linux@vger.kernel.org>
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261126-rust-dmi-v2-1-33064f0bb005@gmail.com>
-In-Reply-To: <20261126-rust-dmi-v2-1-33064f0bb005@gmail.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Please ignore this - I missed the `#[inline]` annotation.
-v3 will follow at a later stage with this corrected.
+As Linus noted when reporting the 'make oldconfig' performance issue [1],
+when the kernel's internal hash table implementation was copied over for
+Kconfig to use, it also improperly simplified these headers.
 
-Nick
+By passing '(key) % HASH_SIZE(table)' to hash_head(), this caused a poor
+hash table distribution due to using the clear lower bits with power-2
+hash table size, leading to a slowdown in Kconfig's expr_lookup() which
+makes heavy use of this.
+
+To resolve the performance issue, let's revert the simplifications such
+that the signatures of the host functions match the original and takes
+the number of bits. Also, replace XOR in Kconfig's expr_lookup() as
+suggested by Linus.
+
+Patches 1-3 are pure refactors, restoring code from the original
+hash.h and hashtable.h; 4 and 5 resolve the performance issue directly: 
+
+Patch 1/5 reverts the removal of the bit count parameter from hash_32()
+and hash_ptr() in scripts/include/hash.h (needed by hashtable.h in 3/5).
+
+Patch 2/5 reverts the removal of the 64-bit path from hash_ptr(), so that
+potential future callers can safely pass higher bit counts.
+
+Patch 3/5 restores the original names of DEFINE_HASHTABLE() and
+DECLARE_HASHTABLE() from the in-kernel implementation.
+
+Patch 4/5 reverts the removal of the bit count parameter from
+DECLARE_HASHTABLE and DEFINE_HASHTABLE in scripts/include/hashtable.h.
+
+Patch 5/5 replaces XOR with addition in expr_lookup().
+
+Link: https://lore.kernel.org/all/CAHk-=wi_GuySe0L-uCAM2+nScCLYGBp5BLi6UUPR1gALmNM_3w@mail.gmail.com/ [1]
+---
+Julian Braha (5):
+  scripts: add bit count parameter back to host hash functions
+  scripts: restore full 64-bit support in the host hash functions
+  scripts: restore host hash table macro names
+  scripts: add bit count parameter back to the host hash table functions
+  kconfig: replace XOR with addition for expr_lookup() key generation
+
+ scripts/gendwarfksyms/cache.c         |  4 ++--
+ scripts/gendwarfksyms/die.c           |  4 ++--
+ scripts/gendwarfksyms/gendwarfksyms.h |  4 ++--
+ scripts/gendwarfksyms/kabi.c          |  4 ++--
+ scripts/gendwarfksyms/symbols.c       |  6 +++---
+ scripts/gendwarfksyms/types.c         |  2 +-
+ scripts/genksyms/genksyms.c           |  4 ++--
+ scripts/include/hash.h                | 20 ++++++++++++++++----
+ scripts/include/hashtable.h           | 24 ++++++++++++++++++------
+ scripts/kconfig/expr.c                |  4 ++--
+ scripts/kconfig/internal.h            |  8 ++++----
+ scripts/kconfig/symbol.c              |  2 +-
+ scripts/kconfig/util.c                |  2 +-
+ scripts/mod/modpost.c                 |  2 +-
+ 14 files changed, 57 insertions(+), 33 deletions(-)
+
+-- 
+2.56.0
+
