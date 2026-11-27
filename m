@@ -1,55 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795777007;
-	b=ep8WnbcNeL3Sfd+E4VXGViN+0Vl9OcqIIi4m4P/52WrDlFwJkTX7bzWguelPL42bqmjz
-	 /rSu8M9m5EbjvUni9IliMZPb6cFgGTqNdfxFq/Nu+MjTk71lsKomuiDsFefdzMk42PRQ/
-	 shmbxyDn4xqf754s/8ifS9KGY5KvcQ0l+iH8LUQd8dFcro/iGdKgE2Vs21HSpakmaPZhn
-	 1RQ0zjihrx66XHB1VBIm8eXbzh9A9dHv+yMApdB9uCZnxa1iXm5t0NFmozc/aCnNrIofA
-	 xOFRI8N9AuvqAiI7MNeathkU27EGEe04e2YmuxZq2KW/I42d9cOejAx4GrMrzEdTAng==
+	t=1795777009;
+	b=30hmUz4pEP5Aoq+3MXaO1ON8yhv527FsiOO9eKF1eN+y0aV0e4df7bw5t8qn062mqxCa
+	 2nF3cDvsJRU0bnXi3zDaRn3xmYS22ywQB5ye2i9Mi6EeWsM4AGpMt0t8F/zGA6ByThmk0
+	 YwsbcQtdz569699R5ZLbyVfXfoA9r4rs5daHq/gFughqAPtrhWGR8EqTfxRuXA9w1AKM2
+	 YeJs/TTaKI49BoFWzYobj0qGic75H99rxNJ727A/ItFiPIKZRqotUzuI3GZ/VMa3c5C1u
+	 Nonj6aVTUYWjngW6nrrAUjSp4QU3hkoSsbBxpDPf54NnfhXWh7fczkpYxM488dKjraA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795777007;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=nKxvd4Whhjy3nNlqgbUalcl3CVEmFt+eAZC9xwLFB5A=;
-	b=38kyTk7RxKxGnQZtAPoUOajfn3MZoA28bj7mvYE+sZ7rX4sBEHy76T0V7Nk/uvVeByMN
-	 QtARJ/50Fg3xy24qra7aOD0+9tuf12cBDm7izSwmRgLuoyEBGezbgVw4zSR0af1C7fcYO
-	 6M2RfsUBUCTNjJg1UiWbubqBmj5khcxVyqSrSHCn5f1O67iTbvFQ6UOEThvA+bMqduhbN
-	 nK9QBFKHCpVnZj0orlcSbs+YIA/b9SZBhMAJz8JS6J9hQZtX+5kPsQOnB5uHK/lGAg6qD
-	 Z4h0s2ckfzTArzJa+EK16Y9faMDBQuvvHSh1jI5mDvxNTjtX2fqGkqwR7RpqpGr6eCA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795777009;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=uGRu1YiKX/bMIxmsS1uKkMBOHlcKQ3bTOVU2lGWV4Hg=;
+	b=UiRYXmfI+ZXF36+YixQyXQHJOFiVUbKtloyqQcSurMMRh0hPbsJzzNXutdvLceLoWDYY
+	 rzevoQnJpTKvT2jmloqaU8oUofXGbMDmXhqoTAZNffWUAEvi8EfVbZJ1M30Zac5kkxHpK
+	 mhT+d6NDP8KIFT52OBm8aJ8cEphLFWE0vn+nUeurCUqQMr4BPn51QSCNleaZ+R0p6PDUh
+	 hocU39Vvw34eDzrTdjSwowmESeRTzQqZbcsYUXnxLCh2jxbBgAfYDqVfdtmnmb+vuBRs4
+	 pYjTFGo+0+Jx1ZA0Ga4gbU7QIy/bPYzmD7jychAC7tywR+rcz7OQYgqxuwiBJmDjp8A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jmXI6omU;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=iiitd.ac.in;
+	spf=pass smtp.mailfrom=iiitd.ac.in;
+	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=Y+1PcCbF;
+	arc=none smtp.remote-ip=209.85.210.181
+Received: from mail-pf1-f181.google.com (mail-pf1-f181.google.com [209.85.210.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3757A606A6B9
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:56:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BADFC60A2607
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:56:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BADFC60A2607
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jmXI6omU
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 107341F00936;
-	Fri, 27 Nov 2026 10:56:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795777006;
-	bh=nKxvd4Whhjy3nNlqgbUalcl3CVEmFt+eAZC9xwLFB5A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=jmXI6omUjSUpWB1kL1kVNZbz2cRNyFfzCS1Z+uKLR3VyuRkLrG2E6ZC+LmjNmCCDL
-	 5wqXbP4FtGrbqxp+RLDJSV2Sq3uLMDFjpt/SwYmG0rXHDDYvVhtX5qndwLZ0WmowSM
-	 HuQQifQOzUaq/TCged2ESyJYzJ/eaI5A0Ivc7gTI95ilCzLMhhH/j8cTfyUSjzwPZs
-	 aolJL+usrieqwrBWSFet7wuYS8q39R4xM69GqY6QVEum5rb3HQZoGxEodH6sTdSA3v
-	 YHp6+Lv47+mKiILqqzjKUKJb9EcxYyTOhyt2QAtEDUtfarQ1c4SJTn3r6sz7CUsDX4
-	 Xkk3QdsQ62i5A==
-From: Chao Yu <chao@kernel.org>
-To: jaegeuk@kernel.org
-Cc: linux-f2fs-devel@lists.sourceforge.net,
-	linux-kernel@vger.kernel.org,
-	Chao Yu <chao@kernel.org>
-Subject: [PATCH v2 3/3] f2fs: remove max_atc_write_bio_size
-Date: Fri, 27 Nov 2026 10:56:43 +0000
-Message-ID: <20261127105640.537608-6-chao@kernel.org>
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-In-Reply-To: <20261127105640.537608-4-chao@kernel.org>
-References: <20261127105640.537608-4-chao@kernel.org>
+	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=Y+1PcCbF
+Received: by mail-pf1-f181.google.com with SMTP id d2e1a72fcca58-8b68e59ab33so5854845b3a.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:56:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=iiitd.ac.in; s=google; t=1795777008; x=1796381808; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=uGRu1YiKX/bMIxmsS1uKkMBOHlcKQ3bTOVU2lGWV4Hg=;
+        b=Y+1PcCbFNDEPQQhERe56HBn2ULcX9K7X1rig7/w1KebamCCkqB8QHsWcCVWJlsQMPv
+         W/N9w3QnnKj3DxsGlmDV+3rp6MZO2GHV2xyzB9x0T1TejFIQDF+A1wskMWUMomPR0jac
+         95cJ8kQBq63BBZU7hsb1oBsf0ePHjvO26ky7Q=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795777008; x=1796381808;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=uGRu1YiKX/bMIxmsS1uKkMBOHlcKQ3bTOVU2lGWV4Hg=;
+        b=eBiUbBUAY+4O/lyUY675dnRowwEE27/qEzsQ5l7Ghi/EFdtRtsR3aRulQHZS7OXvJJ
+         s1HQk+cbUbxVXDnYt5tl5WRjxD0H4T7EohAOCdTcUVEWrKY645d0L8144q1eLiT3kwto
+         Wj6h7e92Y1NQmJZ+r9tx2/whVrG0EHcp9DUCJFwXnccL5WClc9He1JanpMekECUsZc8K
+         hGLjKL/NesLp58Syn3VGalH4ulHGdrnt5rHabAZWtQXStFhmnRnVM4p0oaGXn3qDbzq5
+         20fYz8MgdP9WCYCtF/yeY5xZ4NSKq7foky6uZ6rwl6iff9hRVyBODJuCmleKVsdFPgID
+         c4xw==
+X-Gm-Message-State: APuU4Z9WUeD6H/Q87x8y9fm0czOEehZ+tz/ikIb8KPOOJOmZTVpcgI/Q
+	ftX0R9UZLpcRCAA45XXykE22eraotlJmmRZk4pF4siOMhJ2cB2E3B8l59+EDodPBBXe8IVx5sM8
+	me58G8ncBig==
+X-Gm-Gg: AZFdTZeQfX6iCae2NHE0WAWPhD1xXEOMPcYNqq31Ho9Fnrgfyl2oW3avPjF3uR/fOVE
+	sOCgJvfvxmLNAw04X/5LS6lKvdoUxoWv1ZBZdUhE/xckIIKgUxVYoW6MgsFCIEdehQO4g5IjtsF
+	rOJbFRt2Dn/v4vJFDDlFVRO0TIhnr/01zrU9jNM6DvV8/d860GAywbNwy9GzE+o/7r4TEAgVpTw
+	STlvvxEnSlbHKh352y5l2Ro6kxVt84KjDiiVAYqvrI33TkCvI/nJDCQwTHtlmDx0x40x9woUK0I
+	vEctH/14oDAHaEQYmgJcU436zfQpzRZKT2SUdFsOxL3SZyyCnxxiZmLTYA2HE0eq/YgjddWQ/MC
+	HXNgBauOW1zpAa5Icng9ZfcXe75yyr1NO4PQpu2lmwmT81b/+4mGZPId1HU+zJDasSdBfOk018i
+	rBAaVPnppzp3lNmHQPuPNznBO8DtgScf5buEk6wMOXeuzo27PSpM2+QoFXlhgtdGOtkDzlR/qj3
+	LaVNsQrLgGQMEwEuS5Y7mt0najaEgD1McW5vipS5q6/eh89ykZXovJryBrk+Jerv0z2WjZLTHjs
+	3EkHm80ALVRy9CfA02kgE1jalNMr37klVc6RJ/b9hvw3R7Z79VF41Db6Iu9zDjhhHnd0murMQLi
+	eK9EF8uhbg6qlGFRyOfk1bfAEYLjQoEWPwC2u3EnAZleWviAnao9UPhJoZkuEQeMh
+X-Received: by 2002:a05:6a00:4408:b0:878:34d7:697b with SMTP id d2e1a72fcca58-8c87c8602c3mr21453562b3a.41.1795777008027;
+        Fri, 27 Nov 2026 02:56:48 -0800 (PST)
+Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e485f5sm12505768b3a.22.2026.11.27.02.56.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 02:56:47 -0800 (PST)
+From: Piyus Kedia <piyus@iiitd.ac.in>
+To: Trond Myklebust <trondmy@kernel.org>,
+	Anna Schumaker <anna@kernel.org>,
+	linux-nfs@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Kapil Vaswani <kapil@presceralabs.ai>
+Subject: [PATCH] nfs: do not trace an xdr_stream that has no RPC request
+Date: Fri, 27 Nov 2026 16:26:43 +0530
+Message-Id: <20261127105643.3281166-1-piyus@iiitd.ac.in>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,120 +95,78 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Chao Yu <chao@kernel.org>
+The nfs_xdr_event class reads
+xdr->rqst->rq_task->tk_client->cl_program->name, so it needs a stream that
+belongs to an RPC request.  The readdir decoder has no such stream:
+nfs_readdir_folio_filler() builds one over the page cache with
+xdr_init_decode_pages(), which leaves xdr->rqst NULL.
 
-Commit 3de6b8094115 ("f2fs: Run f2fs_write_end_io() asynchronously")
-introduced max_atc_write_bio_size to offload the completion of large
-write bios to sbi->wq when f2fs_write_end_io() is called in atomic
-context.
+decode_nfs_fh3() traces nfs_xdr_bad_filehandle when a server sends a
+filehandle longer than NFS3_FHSIZE or of length zero.  Reached from
+nfs3_decode_dirent() that stream has no request, and the trace handler
+dereferences the NULL pointer:
 
-However, relying on bio->bi_iter.bi_size has two issues:
-1. bi_size is not reliable at completion time: on a direct blk-mq path
-   (e.g. SCSI or UFS), blk_update_request() consumes the bio iterator
-   via bio_advance() before calling bio_endio(), so bi_size is already 0
-   in f2fs_write_end_io(), whereas on a DM / zoned path (e.g. dm-linear)
-   only the clone bio is advanced and orig_bio->bi_iter.bi_size stays
-   intact.
-2. With large folios enabled, folio size may be larger than 4KB, so
-   bi_size cannot indicate how many folios are in a bio.
+  BUG: KASAN: null-ptr-deref in trace_event_get_offsets_nfs_xdr_event+0x32/0x1c0
+  Read of size 8 at addr 0000000000000098 by task syz-executor
+   trace_nfs_xdr_bad_filehandle+0x16c/0x1b0 fs/nfs/nfstrace.h:1979
+   decode_nfs_fh3+0xb5/0xd0 fs/nfs/nfs3xdr.c:442
+   nfs3_decode_dirent+0x3be/0x4a0 fs/nfs/nfs3xdr.c:2017
+   nfs_readdir_entry_decode+0x14a/0xab0 fs/nfs/dir.c:814
+   nfs_readdir_xdr_to_array+0x8af/0x1040 fs/nfs/dir.c:966
+   nfs_readdir+0x1003/0x23f0 fs/nfs/dir.c:1277
+   iterate_dir+0x29d/0x520
 
-Since max_write_bio_{folio,entry}_cnt module parameters have been
-introduced to limit the number of folios or cached blocks completed in
-atomic context without depending on the bio iterator, let's remove
-max_atc_write_bio_size logic and its sysfs entry.
+The tracepoint has to be enabled for this to happen.
 
-Signed-off-by: Chao Yu <chao@kernel.org>
+Give the class a condition so it only fires for a stream that has a
+request.  The event reports the task and client ids, so it has nothing to
+say without one.
+
+We found this with a syzkaller-based fuzzing harness driven by an AI tool.
+
+Fixes: eb3d58c68e39 ("NFSv4: Catch and trace server filehandle encoding errors")
+Cc: stable@vger.kernel.org
+Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
+Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
 ---
-v2:
-- rebase to the latest dev-test branch.
+Reproduced on 7.4.0-rc1 (63fe746a609a) with KASAN, same config and image
+before and after, only fs/nfs rebuilt between the two.  The reproducer runs
+rpcbind, MOUNT and NFS servers inside the machine, enables the nfs
+tracepoints and reads a directory whose READDIRPLUS entry carries a
+zero-length filehandle:
 
- Documentation/ABI/testing/sysfs-fs-f2fs | 10 ----------
- fs/f2fs/data.c                          |  3 +--
- fs/f2fs/f2fs.h                          |  2 --
- fs/f2fs/super.c                         |  1 -
- fs/f2fs/sysfs.c                         |  2 --
- 5 files changed, 1 insertion(+), 17 deletions(-)
+  before   KASAN null-ptr-deref at 0x98, then "Kernel panic - Fatal exception"
+  after    the same program reads the directory, no report, twice
 
-diff --git a/Documentation/ABI/testing/sysfs-fs-f2fs b/Documentation/ABI/testing/sysfs-fs-f2fs
-index 65d45d8edc68..7b7843d3d67b 100644
---- a/Documentation/ABI/testing/sysfs-fs-f2fs
-+++ b/Documentation/ABI/testing/sysfs-fs-f2fs
-@@ -1004,16 +1004,6 @@ Description:	It can be used to tune priority of f2fs critical task, e.g. f2fs_ck
- 		- it requires user has CAP_SYS_NICE capability.
- 		- the range is [100, 139], by default the value is 120.
+ fs/nfs/nfstrace.h | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/fs/nfs/nfstrace.h b/fs/nfs/nfstrace.h
+index a32c76df72db..a3056264344f 100644
+--- a/fs/nfs/nfstrace.h
++++ b/fs/nfs/nfstrace.h
+@@ -1971,13 +1971,19 @@ DECLARE_EVENT_CLASS(nfs_xdr_event,
+ 			show_nfs_status(__entry->error)
+ 		)
+ );
++/*
++ * Only trace a stream that belongs to an RPC request.  The readdir decoder
++ * builds a stream over the page cache with xdr_init_decode_pages(), which
++ * leaves xdr->rqst NULL, and this class dereferences it.
++ */
+ #define DEFINE_NFS_XDR_EVENT(name) \
+-	DEFINE_EVENT(nfs_xdr_event, name, \
++	DEFINE_EVENT_CONDITION(nfs_xdr_event, name, \
+ 			TP_PROTO( \
+ 				const struct xdr_stream *xdr, \
+ 				int error \
+ 			), \
+-			TP_ARGS(xdr, error))
++			TP_ARGS(xdr, error), \
++			TP_CONDITION(xdr->rqst))
+ DEFINE_NFS_XDR_EVENT(nfs_xdr_status);
+ DEFINE_NFS_XDR_EVENT(nfs_xdr_bad_filehandle);
  
--What:		/sys/fs/f2fs/<disk>/max_atc_write_bio_size
--Date:		June 2026
--Contact:	Bart Van Assche <bvanassche@acm.org>
--Description:	Every time a write operation completes f2fs_write_end_io() is
--		called. This function may be called from an atomic context,
--		e.g. from inside an interrupt handler. This attribute controls
--		the maximum size of a write bio that is completed in atomic
--		(atc) context. The default value for this attribute is UINT_MAX
--		which means that this functionality is disabled by default.
--
- What:		/sys/fs/f2fs/<disk>/pinned_area_max_secno
- Date:		August 2026
- Contact:	"Daeho Jeong" <daehojeong@google.com>
-diff --git a/fs/f2fs/data.c b/fs/f2fs/data.c
-index dbc21e4f147e..aecedd3a4298 100644
---- a/fs/f2fs/data.c
-+++ b/fs/f2fs/data.c
-@@ -497,8 +497,7 @@ static void f2fs_write_end_io(struct bio *bio)
- 	sbi = bio->bi_private;
- 
- 	if (bio_in_atomic() &&
--	    (bio->bi_iter.bi_size > sbi->max_atc_write_bio_size ||
--	     F2FS_BIO(bio)->entry_cnt > f2fs_max_write_bio_cnt(bio))) {
-+		F2FS_BIO(bio)->entry_cnt > f2fs_max_write_bio_cnt(bio)) {
- 		struct work_struct *w;
- 
- 		w = &container_of(bio, struct f2fs_bio, bio)->work;
-diff --git a/fs/f2fs/f2fs.h b/fs/f2fs/f2fs.h
-index 7f6ca03baa8f..07285f9aa1e9 100644
---- a/fs/f2fs/f2fs.h
-+++ b/fs/f2fs/f2fs.h
-@@ -1833,8 +1833,6 @@ struct f2fs_sb_info {
- 	struct f2fs_sm_info *sm_info;		/* segment manager */
- 
- 	/* for bio operations */
--	/* Largest write bio size completed in atomic context (atc). */
--	u32 max_atc_write_bio_size;
- 	struct f2fs_bio_info *write_io[NR_PAGE_TYPE];	/* for write bios */
- 	/* keep migration IO order for LFS mode */
- 	struct f2fs_rwsem io_order_lock;
-diff --git a/fs/f2fs/super.c b/fs/f2fs/super.c
-index 392d5a76d26e..5e29da6e0371 100644
---- a/fs/f2fs/super.c
-+++ b/fs/f2fs/super.c
-@@ -5354,7 +5354,6 @@ static int f2fs_fill_super(struct super_block *sb, struct fs_context *fc)
- 		err = -EINVAL;
- 		goto free_sb_buf;
- 	}
--	sbi->max_atc_write_bio_size = UINT_MAX;
- 
- 	INIT_WORK(&sbi->s_error_work, f2fs_record_error_work);
- 	memcpy(sbi->errors, raw_super->s_errors, MAX_F2FS_ERRORS);
-diff --git a/fs/f2fs/sysfs.c b/fs/f2fs/sysfs.c
-index 81de27bebaaa..e0b28c9f1c98 100644
---- a/fs/f2fs/sysfs.c
-+++ b/fs/f2fs/sysfs.c
-@@ -1293,7 +1293,6 @@ F2FS_SBI_RW_ATTR(gc_idle_interval, interval_time[GC_TIME]);
- F2FS_SBI_RW_ATTR(umount_discard_timeout, interval_time[UMOUNT_DISCARD_TIMEOUT]);
- F2FS_SBI_RW_ATTR(gc_pin_file_thresh, gc_pin_file_threshold);
- F2FS_SBI_RW_ATTR(gc_reclaimed_segments, gc_reclaimed_segs);
--F2FS_SBI_RW_ATTR(max_atc_write_bio_size, max_atc_write_bio_size);
- F2FS_SBI_GENERAL_RW_ATTR(max_victim_search);
- F2FS_SBI_GENERAL_RW_ATTR(migration_granularity);
- F2FS_SBI_GENERAL_RW_ATTR(migration_window_granularity);
-@@ -1545,7 +1544,6 @@ static struct attribute *f2fs_attrs[] = {
- 	ATTR_LIST(seq_file_ra_mul),
- 	ATTR_LIST(gc_segment_mode),
- 	ATTR_LIST(gc_reclaimed_segments),
--	ATTR_LIST(max_atc_write_bio_size),
- 	ATTR_LIST(max_fragment_chunk),
- 	ATTR_LIST(max_fragment_hole),
- 	ATTR_LIST(current_atomic_write),
 -- 
-2.49.0
+2.34.1
 
