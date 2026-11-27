@@ -1,96 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=114.242.206.163
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795741966;
-	b=PkhDnZlxsD9no/Gfjfk7V7+ULC75p8uqBZ06CoaE8zRo90GgiIZmm3w3AEVsfNsyLO2a
-	 2pSmjsKDAcEk9it6qTSx2qHcqyheZINzIHHOJ/NAPnYl5/a5tc646uTq0YoD3dw0N+LqL
-	 3Mr6G0J9Mhw23veHNGpnEFuWg16sTgmI96XCJoqQkVrQjVdBREe0+txgP3dYb5By/Nr1l
-	 go9fX1aX5tpyy3wjEEpfUlOGAsSxUzGWiIVS6fTyAPAmEtK4h/t6TG1GO4izl6+nvRjoI
-	 fBvMJqpKLO20rUsdHrYlQyfx0rrDZ/9dSKUeANt5mZNZo1WeKsadpWReF+dDipXM1jA==
+	t=1795741970;
+	b=0g676j4bjYYcwTqKGJ+15oZgm4m75TWI/aYpdFW9+8m2lx+4X8hKThVFiieHW/++LM+J
+	 brNBW5fOyk3rieU+Qm6/iwV3+KujWgrqYuBSJGeL+a0P1oQbhPkpLpsg8pG4mpxS498Nn
+	 CkiULk54vXKhiC76TVGvSPaQ+Oga3WWFUPIPEP+tmDBqVMi32PZJhoP09n/jfm5Y34eyF
+	 N9CuAz6iE8ECRDqSVNDXAYlP4Rf0ia4kXTR4CE9o4uOpUvGD7cG/p31rT9SxbuZEwtmG3
+	 aAsdpXZ5RQc4xkkaFrNgaBo1jGjsq9v7lYXMPTlMKsFyfwlNM4VUH9wpVWPH+DWd2Ng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795741966;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=rOaXMWz/87oI93lqqKPMBOKv2/6Eat6aF1tKcKKMg6Y=;
-	b=4XvYUqB3RkWzSTuLDIdPjm79ETUuodFe26Nrp4KDgi4BpL7jdWGLrehQTOzCK1p4y4z1
-	 YJEprz5x69rPOU68skVv9ysniuv8UI3Q0ulIBSDhirXt+aZGViUjEj6U1CoKmBqgWLop8
-	 sCfZWEo+HXGgIClyZSLN1W5IismqASv/gSOmrve3s5oqHKNtv9aLgOFYcZXGbq3t1W7q3
-	 8DfCGYJ0k6E0t5Vjnzp3kZsjYNDYGVGkxUlGE4sc3OScbx0eFQNfii9W8T+UP2V0DvXoa
-	 +/DysSvytPqqVboSD4JFW+YLSJFRuFEHGTceMnUJoKx5AMAMA9DYQW1BkF/an0yTKsQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795741970;
+	h=DMARC-Filter:Received:Received:Subject:To:Cc:References:From:
+	 Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:Content-Type:
+	 Content-Language:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-Coremail-Antispam;
+	bh=WL6jcyaBgXtjlwf2xKoJMQ4E9Qb5FW6oej1sKLlt6UI=;
+	b=wsZbegxHIkYzvhfeuDUaPQraEnytKs1DYJkpwjNG0rIslMb3e9xG9BgXGq9LSIl3xjIc
+	 IN0dvcB84/4io/HWV4lQ8MAV2YYkq9Caam5mhPnX8ZoAbMhnqXiojuqvOCFPrcjwzNG6D
+	 OJcSsJ0NeYNpZkRKGEpJpFzCfw55zZI1ZIGkt/eMNOK7A+FM1sLpMINL8H7ysJT0oXxKb
+	 LfST45/abdfw7AqlGys0tIk818xi+DjASAclyWBhJz92M4jiUGRmr5cWCiDmHlGicXtuT
+	 8946sJGY/bwOma6XzKfBK43jAAnjPTJ6lZ1GS/FvbS+V5sA/iWhlOqEMWRZo6t3AtGQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="p8M3/HG5";
-	arc=none smtp.remote-ip=209.85.210.181
-Received: from mail-pf1-f181.google.com (mail-pf1-f181.google.com [209.85.210.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D8CE606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:12:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D8CE606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=p8M3/HG5
-Received: by mail-pf1-f181.google.com with SMTP id d2e1a72fcca58-8c70c2ab5a2so2969855b3a.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:12:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795741965; x=1796346765; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rOaXMWz/87oI93lqqKPMBOKv2/6Eat6aF1tKcKKMg6Y=;
-        b=p8M3/HG506gqQL/rWqvbZ0Qec/c5vpdIhPnwXHc8zIpU2EqDOO73Yk/HzuSXNDL2f2
-         TgSfQeCa0e4Ls4fkjbEHMMevixc2Z8VPcHkFgvp+daOQXljU7E1x33d/j3cmE4H7E/lu
-         0OD1TvMLqxZAkCgpo+dxU5iPY9d/y5g/GN5q6lPmmidbMQHS/KBQI+bvxIL4lbX+j10Q
-         /bm4T5nISmNA84j+6a7Q0HsQMAoZiDMN5U0KL8Wia9BHXWdGpCNuLU+dBaqbyj2V0+VZ
-         oKklRcW4j1C6KZgEigszHCfZDR7SVamsAPYMySo5gUCgRLYUAzhSZ3x2x8Co3lspQbNC
-         v1GA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795741965; x=1796346765;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rOaXMWz/87oI93lqqKPMBOKv2/6Eat6aF1tKcKKMg6Y=;
-        b=Ri9vq1yjW4ZpUKNlOBr3yFRjPwGEWv9RjtCqyfQ5NcTF6iZ8k8CrxmThzJ9ohN2xel
-         d6MV7DY75CEZtsr7pb03NCggpgSdvAXPl6s3LGMts/3GhICRxc3zeqkiC5deuzN7cjCy
-         ZsOxePda3jVSA2HqWz39fjkdCKzzn63IY77v/x2eTNuyFFIHUfdBqC3qMuNBdxpnJ1tC
-         1ntlGu9pkgCpzcyii54HNpzVaAA7tzEAP6BQWb6LlNZLUz8d4af+GUefe2Q3hijoC9KP
-         BikbgZ2q0tksCCO8CuBUUe5ll7dKpecMSxoWiI+CXeVVjPxHuSjfoKxORbEdoQckxESD
-         5hpA==
-X-Forwarded-Encrypted: i=1; AL+hErGurcuXhmjgBtlgsARSe3xPAiP5GfPAFH3H3YAkqLbAGaxfO+DBM46KtUI5Hom2b1BazXoVlmM/HpKLNFU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/BVIreDLOcF7UllySGjEYIBtH09HPUUg4o99VqQhXO9ytMaInG
-	T/dy1VFZKhUdSOrtuOw9Bv/6mogLazaNHBQ3+7YVtFCiFE+5W40NE1eD2XMYmA==
-X-Gm-Gg: AZFdTZfwCMZ8ZYZi3nPvAl/NaiYUcmEpXCY/P3EdFvNuY+NvaeNn8tG5gaPN07YQLUR
-	piS1uPKw4OSs6qwD12hJKRAXfxZaPrhu6KS0zytpDa9Meznv1DsbptS5YLtpBqrKbDcDF6HBOKT
-	DVzeEpAH4QQygX440L4mWib7z6QmqplhbDTZ3GzD4RkMsWXr46LidvYmJPGmbERy9WBe80+9mxC
-	6ta5muyZ4T262OxT5G0rXWcHScVZZzrKHQa6CnYWMmI1cES41S9pcv0HBdkUhGvEGbZuThu5xCo
-	tVG5kcB/i3ipm6dTL5nukePjkVH7FI0/pSjidLcLZesCszqhp3ch7tRrNlYzdF9LihpThx9ucU2
-	p7QqXZ2ghl454LacmIXp2ONZZSzm0GqkGGF7t9PmkvIkjHW3MfkHObv2juezEsfJCHPEifcPgt5
-	OG+EJCDsdPFhsIkckYKaDvtPHx1zWMS5xc3ynoxMqK5XESmXZ2b8V5pNkXff1nzJrzoU4FZlShF
-	8YiQSMNqOgXUF5raYEKXx1BX+Iss//KeB8Sqs3xxWpMWBW80WOC9hWGGOp26OvfTlX2QSwtJKz6
-	/8y9KmE2KAHvym20+GzUo7DgsfUFf+tcKWBGw51b20ZN7oWDDw==
-X-Received: by 2002:a05:6a00:230b:b0:8a7:3c62:30f2 with SMTP id d2e1a72fcca58-8c87cc42cfcmr18473116b3a.36.1795741965249;
-        Thu, 26 Nov 2026 17:12:45 -0800 (PST)
-Received: from HP-Pro-Tower.mioffice.cn ([43.224.245.243])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e456a7sm11593461b3a.29.2026.11.26.17.12.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 17:12:44 -0800 (PST)
-From: Zhijun Li <zhijunli.leo@gmail.com>
-To: Jaegeuk Kim <jaegeuk@kernel.org>,
-	Chao Yu <chao@kernel.org>
-Cc: linux-f2fs-devel@lists.sourceforge.net,
-	linux-kernel@vger.kernel.org,
-	Chen Zhangqi <chenzhangqi@xiaomi.com>,
-	Zhijun Li <lizhijun3@xiaomi.com>
-Subject: [PATCH v2] f2fs: stop checkpoint on pinned segment allocation failure
-Date: Fri, 27 Nov 2026 09:12:31 +0800
-Message-ID: <20261127011231.1564680-1-zhijunli.leo@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261022120833.1698722-1-lizhijun3@xiaomi.com>
-References: <20261022120833.1698722-1-lizhijun3@xiaomi.com>
+	dmarc=none header.from=loongson.cn;
+	spf=pass smtp.mailfrom=loongson.cn;
+	arc=none smtp.remote-ip=114.242.206.163
+Received: from mail.loongson.cn (mail.loongson.cn [114.242.206.163])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 8BF77606A327;
+	Fri, 27 Nov 2026 01:12:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8BF77606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=loongson.cn
+Received: from loongson.cn (unknown [10.20.42.62])
+	by gateway (Coremail) with SMTP id _____8BxLNAI2Qhr2WcjAA--.7030S3;
+	Fri, 27 Nov 2026 09:12:40 +0800 (CST)
+Received: from [127.0.0.1] (unknown [127.0.0.1])
+	by front1 (Coremail) with SMTP id qMiowJCxf88F2Qhr3ac3AA--.46655S2;
+	Fri, 27 Nov 2026 09:12:37 +0800 (CST)
+Subject: Re: [PATCH v2 0/2] KVM: LoongArch: selftests: MAINTAINERS coverage
+ and a VM leak
+To: Gokul K <gokul02k@gmail.com>, Tianrui Zhao <zhaotianrui@loongson.cn>,
+ Huacai Chen <chenhuacai@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+ Shuah Khan <shuah@kernel.org>, kvm@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-kselftest@vger.kernel.org
+Cc: Sean Christopherson <seanjc@google.com>, linux-kernel@vger.kernel.org
+References: <20261126050352.1957454-1-gokul02k@gmail.com>
+From: Bibo Mao <maobibo@loongson.cn>
+Message-ID: <b5d4b059-6561-a68c-e00d-247566a081f8@loongson.cn>
+Date: Fri, 27 Nov 2026 09:13:48 +0800
+User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
+ Thunderbird/68.7.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,117 +56,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+In-Reply-To: <20261126050352.1957454-1-gokul02k@gmail.com>
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:qMiowJCxf88F2Qhr3ac3AA--.46655S2
+X-CM-SenderInfo: xpdruxter6z05rqj20fqof0/
+X-Coremail-Antispam: 1Uk129KBj93XoW7uF13KF4kurW5Cw48Gr1fZrc_yoW8Ar1kpa
+	yfu3ZFyr1vgFs7Ga1qk34jg3ZxXFnrJF1xZ3Z0k34Uurs8Zry8Xrn29r4DXa4DZ39YgFWS
+	ga1Ska4Fga1DXacCm3ZEXasCq-sJn29KB7ZKAUJUUUUr529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUBjb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
+	Gr0_Gr1UM2kKe7AKxVWUXVWUAwAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYI
+	kI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUXVWU
+	AwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMx
+	k0xIA0c2IEe2xFo4CEbIxvr21l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_
+	Gr1l4IxYO2xFxVAFwI0_Jrv_JF1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67
+	AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8I
+	cVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI
+	8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v2
+	6r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07jepB-UUUUU=
 
-From: Zhijun Li <lizhijun3@xiaomi.com>
-
-f2fs_allocate_data_block() updates SIT before rotating the current
-segment, since SSR needs the latest valid block information:
-
-	update_sit_entry(sbi, *new_blkaddr, 1);
-	update_sit_entry(sbi, old_blkaddr, -1);
-
-If the rotation fails, it jumps to out_err without reverting the SIT
-update. This is fine as long as checkpoint has been stopped by then,
-because the stale SIT will never be persisted. do_write_page() asserts
-this with f2fs_bug_on(!CP_ERROR_FLAG), and every failure in the
-rotation path satisfies it: get_new_segment() stops checkpoint on
--ENOSPC and -EFSCORRUPTED, and change_curseg() only fails after
-f2fs_get_meta_cache_retry() has stopped checkpoint.
-
-Pinned allocation is the exception. Since
-commit 48ea8b200414 ("f2fs: fix to avoid panic once fallocation fails for pinfile"),
-get_new_segment() does not stop checkpoint for pinned allocation, and
-since commit c966d29e01bb ("f2fs: support resizable tail section and unify pinned allocation"),
-it may also return -EAGAIN for it.
-
-That is intended for f2fs_allocate_pinning_section(), which fails
-before any SIT update. But when a CURSEG_COLD_DATA_PINNED segment
-becomes full in the middle of a section, f2fs_allocate_data_block()
-calls new_curseg() after SIT is updated. If it fails, fallocate()
-returns an error and the filesystem keeps running, with a block marked
-valid in SIT that no node refers to, while __allocate_data_block() has
-already reverted valid_block_count. The next checkpoint persists the
-SIT, and the next mount fails in build_sit_entries():
-
-  F2FS-fs (vda): SIT is corrupted data# 513 3 vs 515
-  F2FS-fs (vda): Failed to initialize F2FS segment manager (-117)
-
-fsck.f2fs also reports "SIT valid block bitmap checking [Fail]".
-
-It can be reproduced with CONFIG_F2FS_FAULT_INJECTION:
-
-  mkfs.f2fs -f -s 4 /dev/vda
-  mount -t f2fs /dev/vda /mnt
-  touch /mnt/pin; f2fs_io pinfile set /mnt/pin
-  echo 0x100000 > /sys/fs/f2fs/vda/inject_type   # FAULT_NO_SEGMENT
-  echo 2 > /sys/fs/f2fs/vda/inject_rate          # fail the 2nd segment
-  fallocate -l 64M /mnt/pin                       # fails with ENOSPC
-  echo 0 > /sys/fs/f2fs/vda/inject_rate
-  umount /mnt
-  mount -t f2fs /dev/vda /mnt                     # fails with EUCLEAN
-
-Fix it by stopping checkpoint when the rotation fails after SIT has
-been updated. The early -ENOSPC return for curseg->segno == NULL_SEGNO
-is not affected: it happens before any SIT update and is the expected
-path once a pinned section is used up. Pinned allocation failures in
-f2fs_allocate_pinning_section() still don't stop checkpoint.
-
-Fixes: 48ea8b200414 ("f2fs: fix to avoid panic once fallocation fails for pinfile")
-Co-developed-by: Chen Zhangqi <chenzhangqi@xiaomi.com>
-Signed-off-by: Chen Zhangqi <chenzhangqi@xiaomi.com>
-Signed-off-by: Zhijun Li <lizhijun3@xiaomi.com>
----
-v2:
-- Drop the SIT rollback. v1 claimed that change_curseg() may fail with
-  -ENOMEM without stopping checkpoint, which is wrong: the summary read
-  retries on allocation failure, and f2fs_get_meta_cache_retry() stops
-  checkpoint on any error. The only gap is pinned allocation.
-- Stop checkpoint instead of partially reverting SIT, which also left
-  ckpt_valid_map, discard_map, mtime and curseg state behind. This
-  matches the existing assumption in do_write_page().
-- Fix the Fixes tag, drop Cc: stable.
-- Add a reproducer. Tested in QEMU on top of f2fs/dev b61a029304bb with
-  and without this patch: 200 rounds of pinned fallocate with
-  FAULT_NO_SEGMENT at random rates (1..12) and sizes. Without the patch,
-  138 rounds left an image that failed to mount; with it, the same 138
-  rounds stopped checkpoint and the images passed fsck and mounted.
-  Rounds that failed in f2fs_allocate_pinning_section() did not stop
-  checkpoint either way. No lockdep/KASAN report with the patch.
-
-Alternatively, we could check that the next segment can be allocated
-before updating SIT for the pinned curseg, so that fallocate() fails
-without shutting down the filesystem. I'm fine with either way.
-
-v1: https://lore.kernel.org/linux-f2fs-devel/20261022120833.1698722-1-lizhijun3@xiaomi.com/
-
- fs/f2fs/segment.c | 12 +++++++++++-
- 1 file changed, 11 insertions(+), 1 deletion(-)
-
-diff --git a/fs/f2fs/segment.c b/fs/f2fs/segment.c
-index 066b7cf813d7..5499f20d6428 100644
---- a/fs/f2fs/segment.c
-+++ b/fs/f2fs/segment.c
-@@ -4051,8 +4051,18 @@ int f2fs_allocate_data_block(struct f2fs_sb_info *sbi,
- 			stat_inc_seg_type(sbi, curseg);
- 		}
- 
--		if (ret)
-+		if (ret) {
-+			/*
-+			 * SIT has already been updated above, stop checkpoint
-+			 * so that the inconsistent SIT won't be persisted.
-+			 * Most failures have stopped checkpoint already,
-+			 * except pinned allocation failure.
-+			 */
-+			if (!f2fs_cp_error(sbi))
-+				f2fs_stop_checkpoint(sbi, false,
-+						     STOP_CP_REASON_NO_SEGMENT);
- 			goto out_err;
-+		}
- 	}
- 
- skip_new_segment:
--- 
-2.43.0
+On 2026/11/26 下午1:03, Gokul K wrote:
+> Two small fixes to the LoongArch KVM selftests. Patch 2 frees the VM on
+> the PMU test's skip path. Patch 1 came out of routing it:
+> get_maintainer.pl did not name the LoongArch KVM maintainers for
+> tools/testing/selftests/kvm/loongarch/, because the MAINTAINERS entry
+> does not cover that directory, so this series would otherwise have
+> gone to Paolo, Sean and Shuah only.
+> 
+> Based on loongarch-kvm in linux-loongson.git.
+> 
+> Patch 2's hunk sits next to the one in "KVM: selftests: Convert comma
+> to semicolon" [1], which is not applied yet. They do not overlap and
+> apply in either order.
+> 
+> Compile-tested only. Patch 2 builds: tools/testing/selftests/kvm/loongarch/
+> pmu_test links for loongarch64 with a GCC 15.2.1 cross compiler, using
+> glibc from Debian's loong64 port as the sysroot. The binary was not run.
+> Patch 2 changes the PMU-not-enabled skip path, which only runs on a
+> LoongArch host whose VM config leaves the PMU off.
+> 
+> Changes in v2:
+> - 1/2: also drop the lib/loongarch/ line, which */loongarch/ already
+>    covers, so the entry matches the other arches (Zenghui Yu)
+> - 2/2: unchanged
+> 
+> v1: https://lore.kernel.org/all/20261123100701.1679376-1-gokul02k@gmail.com/
+> 
+> [1] https://lore.kernel.org/all/20260428053204.1018608-1-nichen@iscas.ac.cn/
+> 
+> Gokul K (2):
+>    MAINTAINERS: Add the LoongArch KVM selftests directory
+>    KVM: LoongArch: selftests: Free the VM when the PMU test skips
+> 
+>   MAINTAINERS                                      | 2 +-
+>   tools/testing/selftests/kvm/loongarch/pmu_test.c | 3 ++-
+>   2 files changed, 3 insertions(+), 2 deletions(-)
+> 
+For this series.
+Reviewed-by: Bibo Mao <maobibo@loongson.cn>
 
