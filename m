@@ -1,78 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795759982;
-	b=ilF6Ii70PVtYeJFBnJBCe371ze7kH69TkjsDcwln1uJYGKvy+bds9VRfffCRZJKc7Y5+
-	 HgQJRjkceVsxhYWxnGRnB/1d/jl02kUR6VsZoGfPWg8DkoVBbyXX04gkZV7cjG3RyFKNC
-	 QXNTnB27Wdsh9R4v8uxVwDIszNHVO/pweoSaZA/nq7ycdM4JgGE/z6AoU/bNrZetf38Vn
-	 4aeeimmPdawJUkweRtz2x4rgjmyv45Tu7F4zZ5nmqR+/vFv91dKR0dtAphytlkAFp5771
-	 dtbw07tOAQn30vTeVl2hGeNU461/XkXyoS7U0u4juepFp4JmPocvPhY1oxYUAEns9EQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795759982;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=+21aXSIhxglzzoXkMAiio1qQ/0kfiM8rQZc7UqiPAfs=;
-	b=omG9uvYRerfyaIA7BH94TIip5JWhb/C61Et7rUwPnJ5a60d1EHfDsQsAZVw+k28115Cc
-	 AZ2UfU+Scf4hcrzOlokbExkdjlvmLaLKnapGqyFhBa/VyymXVF66YPTn6wZBK6RNbpUTh
-	 leLr73Z/4AAm5FJroJbBPEZuJXlLHzQ+2ovp2JAcLblRwmabk0OCPMNYhl1zmQYNHe4gA
-	 /r6+rCZbyCzAB+l8WhEs0JiEqJ98CXbaGmEXkbjWp0tQabSnGR2Yhnzyaob+hFi7HQroc
-	 I18MktyieayObqW/IkJJvUmtU3XoENr0FrUkwxq5bivEeUXTULidwK7oPDTdVDCk9aw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kcDKX9nc;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7EB0606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:13:02 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kcDKX9nc
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795759982;
-	b=McGBfs6affbwUrHjaxi58by3ZjdERqe91Aef2zdFm0MTI8/KQk3z0Noqk5xBubsZ4ceh
-	 14dOCZAvsXZPX64LbNtUYwGqNlokFJsg4XVCHxBuwVI7l2TWoKOpoSC3z4bi5XZJDMWVn
-	 JLu/azeDISBIXXLEc8cpNf3sY6QT9vhRycLjzNrwcmubcetSDa3qDFvxOtmtvbyLCRfis
-	 jTtpjO4sf+3RKN31xi3sjjqFBuCgRY9SZVplVpRo1wI8AXz2kgVQ4TBW4yAr21fQjup+q
-	 giZbT8nhBbiKHnAVArF0SdYG/Ao1ggV5xgWu2toVLJQBoQxe1GE9s/m2xdKCb60ZPNg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795759982;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=+21aXSIhxglzzoXkMAiio1qQ/0kfiM8rQZc7UqiPAfs=;
-	b=wPUMBWzSqP0C7FXA+L51Zq0cDPARuujtlg6cfmyn+HFF1W/zzft34B+mx8+WyPj/VSr+
-	 pi2r/2T+0krC96QNzfCU8gzark2zyTH7qIdG+Wc22lcwn/NHiPz/PdckbdzXAgk0YX735
-	 vkXMZQR/z6e1eL9bM7blauWs6Sr09Rifq3hrZddTOo0sOn1VxNlDqCpFzOM5A4ANVrD2j
-	 BrTdZ8ube4fIo8RdPf5xEQA1Yt7RpE/W2kK8mt0RTt/nG4e0Wz4kYjPyyknps2DVIWS1r
-	 PfufjCA5axa4uFi2VdUn8FCWx/OrJoKmq6qZBnR2kASkN6XSAZHnw+meZhD9+QI646w==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795759983;
+	b=QDxAUC+LL+RYR0LHOIS/mgh9e8tGImEh7PDUIdPKJ/rTNVuKXJVxNXCi5byQ98l7vqBt
+	 hsBIpaHN31GSC0J+DC1jYr4nnOHzrMes6lr2hOpv4b/CwgkDmP/hNtQpa0cf9ppm+sZqT
+	 Tf1yFzlNeNRoM0ZLJQM4a8GbKSmnIWxEtpipIVi36AnecK9Qe2NwNuPvHhSE3pzCIAIUN
+	 fDmyOnLBjOoj+OHWKoM00q+e2unH0OzZHlNIn7GMoIBq2SJRhcO+0Yrm7uqMKSTy6vJ+S
+	 sGA2sHKE7hvTsYaeSieJVe6HHQKpOXqzRJsnZAlOey7S3JyOQA6kRUguNWh+LC+Pbbw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795759983;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=uKSQxebDokb2ys9UHctF3cTAzVxMrJvvKwhXq5pMm2Q=;
+	b=JmHW/wJxBMYwCVI1/jjONq3T8xmlQelETUl1OGtCrHlgTpVpjl/fMS7nEIL3BQV1PiJ/
+	 D2slrzDiRZTv/lgt5IaTIxxKXDQljRz0BQBJqFVSjlmxRx2nT5vFL+rtp3kygEUNJjeS0
+	 dESF22pUtlNOdy3hugIprXd2Wd8ly/HXhNu/6B4icTDxjL+FTV905uAIRekuj3b9c4+GN
+	 smtHkY6VNfJssgj54T34OcIoskll+taN4bWJgrlGNOlM4sUG1Fx7mnhfPOMYEHKm2M7M2
+	 5CSutn8uRtIKYjl5lVA5Q7PWO9WPPYrZRuZvL2wo0POE93fKH1K6rPbH8mj7GU1f4pQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g4EI82nF;
+	arc=none smtp.remote-ip=74.125.82.179
+Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id C12981F00899;
-	Fri, 27 Nov 2026 06:12:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795759982;
-	bh=+21aXSIhxglzzoXkMAiio1qQ/0kfiM8rQZc7UqiPAfs=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=kcDKX9ncepVtuwjyJoi4sudyslTA9ITO5I9WiO/GtdXvqxIWfeLx7NT453qKplkVI
-	 ANxKPhvptBKrlXs8lgqwnVH2eD/GLo1VnRYbagL5ZSdjtVASMCzIUA8mZ5Alh15caP
-	 nT/Gblx50ECVoFMBR25a5D4U11CoX5G3lOv9wXd0vi7ywiNQVKsYvKxFLIzRLkLuH4
-	 dyLYt2Ofhq2/Dsn1a4txiru1yE+iBhBcc3mg/6zcAuwMLkiX1ah8prTzbfTS0IepIj
-	 mDlrSnCFhA97sfVxOkshdStV/K4xaHSO9lmJ0GfvnQewhaLvrvEnzenth+FxBP4xx6
-	 8tln9b5k3lGGQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 3D5494B5A9;
-	Fri, 27 Nov 2026 06:12:57 +0000 (UTC)
-From: Hank Liou via B4 Relay <devnull+hank.liou.mediatek.com@kernel.org>
-Date: Fri, 27 Nov 2026 14:12:56 +0800
-Subject: [PATCH] phy: phy-mtk-dp: Suppress sysfs bind/unbind
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 123A3606A323
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:13:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 123A3606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g4EI82nF
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-3866a784546so10595707eec.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:13:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795759982; x=1796364782; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=uKSQxebDokb2ys9UHctF3cTAzVxMrJvvKwhXq5pMm2Q=;
+        b=g4EI82nF7Nloy8AYW+a/hEg1Vp9CiPUs78opiAEqztAWGt+rnfZGYefHRuK/3P3MIb
+         u0FtuGU3ck2AoKHcWINsJZ0/xFyfLdRcpFAPIUXBaFduy1J+aLnZqWzVSYjxIw1IVLpU
+         PkjOycV+9mLS5yKR7wrXBTc+uFeWbTfsfES7CAiU3vT0rYcm2N4UMQ1m7goBn/jOf3pb
+         l3cSpqsw//tJS0gvI1snGWfBdBpmrWTvzhfms0icTgDhNiMfWBCafA/vQLk1QaWwhETM
+         URt1FZF08BON6/v0tw6+d9kB6DkrZXgcVrK3HDZ7x6aVZR1y+QMV+ZA/LKjcYjj4WnUG
+         h0pw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795759982; x=1796364782;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=uKSQxebDokb2ys9UHctF3cTAzVxMrJvvKwhXq5pMm2Q=;
+        b=HnZCOnqvafXaS4Y290Puj9y+6ArpxrmW0mxBEHUnWNjCK1Szyqd5b6+3TylBsYwuNt
+         NT+8oYCmy/8vGgxz1ohf0qSZQHt7RZWjVwASplDKXGzOxrmRI+dWmgo61dshHnPNNJYG
+         ECSU5K89L35XzrstUFU9mbdt+FijSpL7CmsTQrhEKyUtuM4E1oblyPQjau0jWcWu65UU
+         A4eRdy3GiJau0ddfxPyppdJ7VJ10VcJIwdoI+Jy6wmTtNV8I22kYnidvhN+HqgoMBcnM
+         yZuFIDhyoZUNMYJHbaRWjbRrlm1JrJ86K86/GNIMIRSpS672B6X0Tq27A7/7eludYsDt
+         cSEQ==
+X-Forwarded-Encrypted: i=1; AL+hErFbZij+1iac4xkDwWFaeRE9hFc1V0+jHxRYxjZRavaT0F/E1jSn8UmnlxZeUDZErr8pHIezPBlYR50z/5o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8WeE+nl2NvozFhtqu9ahTurx/jRUKbsSwK8bW+tWkdx6+fQMS8
+	deZVesO3+QjW9EfIC3yKfiHK4p76KMUmoFDe2dmn8mTL8kqoFM7yQfQ8Vd7dRux5F74=
+X-Gm-Gg: AZFdTZdH2AoO2AOe+2HQk/IjBcbDMmmEk9WcCN+tJmNg/pqxMnKnr5PHtvby4te6olx
+	7NkjHIwrvihLaMHQc+KRs7+sEHt+j1479xeujBeU9gdkYhZsp2TwZNuPRi1YqC4yHGh8uJhBBab
+	639/pGxiKG+MBhhn5Esk1MaAzQx0C06yJSj4KLOJJzqPUouhirZRpx+JafXQtEVwXnEbjXX9tZP
+	DNxJQw8eSSsuSflxFo1dW5FduDinVjlcTU9XtgvHVZ3XmZzP6EcaoN38A5LH9SmzpGV7lA3IdwD
+	uHqO5PGdutrl4W648l3zwwuhpbchu8rYEViCx2YOL0+MgDuJyh5D3QXGQjOzd5weVr0DprsAAxV
+	Pkf+8wl6hqFdsMq+dQeYJ8jJ4Zl/USLyM29tPs6ahtQU8fsd50bQy19Fc1cRS1AO3iVeGlJkFWJ
+	PBDwrGcf62wx4jAL5EGP92gv3z/pKoeiHaqZWQ0E7WTl1OIQjzpJ0o0LO2/b0qGNgFMTKNK1pa5
+	stc9NWoOT8BpqDpQOMFd/AcvI00E+tE/JoyES+HHIjI2VF3ZbknBv1YLzM8Pp05yVl69PUeWYrr
+	Kbugm0kMk5JKGbRnlMhob+wBtdMquvdVNiUAT6xt+gpgNGv+elcHF74fVsCoY6Sd1K3gtlePKe4
+	9ti5jIHPxsOpFtq4=
+X-Received: by 2002:a05:7300:1c17:b0:386:a105:fa66 with SMTP id 5a478bee46e88-386a105fd17mr17976279eec.7.1795759982150;
+        Thu, 26 Nov 2026 22:13:02 -0800 (PST)
+Received: from acemagic-m1.lan ([2401:7400:c804:b668:d6a6:bf90:ed18:c855])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386aaae4960sm40300425eec.18.2026.11.26.22.12.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 22:13:01 -0800 (PST)
+From: Ragul Balaji <ragulbaby@gmail.com>
+To: linux-wireless@vger.kernel.org
+Cc: Arend van Spriel <arend.vanspriel@broadcom.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	brcm80211@lists.linux.dev,
+	Ragul Balaji <ragulbaby@gmail.com>,
+	Ho Jie Feng <hjf3108@gmail.com>,
+	brcm80211-dev-list.pdl@broadcom.com,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH wireless-next v2 02/11] wifi: brcm80211: move d11.h to the shared include directory
+Date: Fri, 27 Nov 2026 14:11:32 +0800
+Message-ID: <20261127061147.506129-3-ragulbaby@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261127061147.506129-1-ragulbaby@gmail.com>
+References: <20261127061147.506129-1-ragulbaby@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,81 +103,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-phy-mtk-dp-suppress-bind-v1-1-eb64c6e39240@mediatek.com>
-X-B4-Tracking: v=1; b=H4sIAGcfCWsC/x2MQQqDMBAAvyJ7dqGJWsWvSA/GbOpSjCFrRQn5e
- 0OPwzCTQCgyCYxVgkgnC+++gKorWNbZvwnZFgb90E+ldI9hvXE7PmgDyjeESCJo2FvslqFzfdN
- aRwZKXpTj67+eXjn/APeP2aZqAAAA
-X-Change-ID: 20261127-phy-mtk-dp-suppress-bind-5c85f734dfeb
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Chunfeng Yun <chunfeng.yun@mediatek.com>, 
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Markus Schneider-Pargmann <msp@baylibre.com>, CK Hu <ck.hu@mediatek.com>, 
- linux-phy@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- dri-devel@lists.freedesktop.org, Hank Liou <hank.liou@mediatek.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795759976; l=1859;
- i=hank.liou@mediatek.com; s=20261126; h=from:subject:message-id;
- bh=O3jXFQr6H1w8UsvUZJ9qBE1F3KBO3rzzg1q1UUmq4PE=;
- b=0Qq9O8JaNLT8C+2TcaCnF7eQXA+zB8jRSZrFJjKrHanyORj07ENpyhfdLhjuUmcbhxvvAtinQ
- qlksxz2dR4sDTTdl3HiVOxkzXmeqU+Q3aqgo1eD3lvZ57A98med4pIm
-X-Developer-Key: i=hank.liou@mediatek.com; a=ed25519;
- pk=oQN2zU+HMrJQgqX4bhL5CVRrBmac4amZ/53yK20L/6M=
-X-Endpoint-Received: by B4 Relay for hank.liou@mediatek.com/20261126 with
- auth_id=1646
-X-Original-From: Hank Liou <hank.liou@mediatek.com>
-Reply-To: hank.liou@mediatek.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Hank Liou <hank.liou@mediatek.com>
+Move the header to brcm80211/include, where the other hardware
+definitions shared between the brcm80211 drivers live, and include it
+as <d11.h> in brcmsmac.
 
-mtk_dp_register_phy() registers the "mediatek-dp-phy" platform device
-as a child of mtk_dp and caches the struct phy returned by
-devm_phy_get() in mtk_dp->phy. The PHY driver still exposes the sysfs
-unbind attribute, so root can unbind the child while mediatek-drm-dp
-stays bound. devres then frees the struct phy, and the next
-phy_configure(), phy_reset() or phy_init() call from mtk_dp uses freed
-memory.
-
-This was observed on a MT8188 Chromebook running a ChromeOS 6.1 kernel:
-after unbinding the PHY device from sysfs, plugging in a DP monitor
-panics in phy_reset() from the HPD IRQ thread.
-
-The legacy PHY device is only created and destroyed by its parent, so
-set suppress_bind_attrs to drop the bind/unbind attributes and let the
-PHY go away only together with mtk_dp.
-
-Fixes: f70ac097a2cf ("drm/mediatek: Add MT8195 Embedded DisplayPort driver")
-Signed-off-by: Hank Liou <hank.liou@mediatek.com>
+Signed-off-by: Ragul Balaji <ragulbaby@gmail.com>
+Signed-off-by: Ho Jie Feng <hjf3108@gmail.com>
 ---
-Other PHY drivers disable sysfs bind/unbind for the same reason, e.g. commit 6aeec986f1bc ("phy: samsung: disable bind/unbind platform driver feature"): their consumers have no way to be told that the PHY went away.
----
- drivers/phy/mediatek/phy-mtk-dp.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/net/wireless/broadcom/brcm80211/brcmsmac/mac80211_if.c  | 2 +-
+ drivers/net/wireless/broadcom/brcm80211/brcmsmac/main.h         | 2 +-
+ drivers/net/wireless/broadcom/brcm80211/brcmsmac/rate.c         | 2 +-
+ drivers/net/wireless/broadcom/brcm80211/brcmsmac/rate.h         | 2 +-
+ drivers/net/wireless/broadcom/brcm80211/brcmsmac/stf.c          | 2 +-
+ .../net/wireless/broadcom/brcm80211/{brcmsmac => include}/d11.h | 0
+ 6 files changed, 5 insertions(+), 5 deletions(-)
+ rename drivers/net/wireless/broadcom/brcm80211/{brcmsmac => include}/d11.h (100%)
 
-diff --git a/drivers/phy/mediatek/phy-mtk-dp.c b/drivers/phy/mediatek/phy-mtk-dp.c
-index 0048e1a8c6..924f08ed4d 100644
---- a/drivers/phy/mediatek/phy-mtk-dp.c
-+++ b/drivers/phy/mediatek/phy-mtk-dp.c
-@@ -828,6 +828,7 @@ static struct platform_driver mtk_dp_phy_driver = {
- 	.driver = {
- 		.name = "mediatek-dp-phy",
- 		.of_match_table = mtk_dp_phy_of_match,
-+		.suppress_bind_attrs = true,
- 	},
- };
- module_platform_driver(mtk_dp_phy_driver);
-
----
-base-commit: ebb7a8dc1e74c705daffe11c2faf38ec2628f838
-change-id: 20261127-phy-mtk-dp-suppress-bind-5c85f734dfeb
-
-Best regards,
+diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmsmac/mac80211_if.c b/drivers/net/wireless/broadcom/brcm80211/brcmsmac/mac80211_if.c
+index c1a2318d7e..eeae85cae0 100644
+--- a/drivers/net/wireless/broadcom/brcm80211/brcmsmac/mac80211_if.c
++++ b/drivers/net/wireless/broadcom/brcm80211/brcmsmac/mac80211_if.c
+@@ -28,7 +28,7 @@
+ #include <net/mac80211.h>
+ #include <defs.h>
+ #include "phy/phy_int.h"
+-#include "d11.h"
++#include <d11.h>
+ #include "channel.h"
+ #include "scb.h"
+ #include "pub.h"
+diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmsmac/main.h b/drivers/net/wireless/broadcom/brcm80211/brcmsmac/main.h
+index 9cb09c8a13..d81de701a3 100644
+--- a/drivers/net/wireless/broadcom/brcm80211/brcmsmac/main.h
++++ b/drivers/net/wireless/broadcom/brcm80211/brcmsmac/main.h
+@@ -21,7 +21,7 @@
+ 
+ #include <brcmu_utils.h>
+ #include "types.h"
+-#include "d11.h"
++#include <d11.h>
+ #include "pub.h"
+ #include "scb.h"
+ 
+diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmsmac/rate.c b/drivers/net/wireless/broadcom/brcm80211/brcmsmac/rate.c
+index 0a0c0ad4f9..6841bc0052 100644
+--- a/drivers/net/wireless/broadcom/brcm80211/brcmsmac/rate.c
++++ b/drivers/net/wireless/broadcom/brcm80211/brcmsmac/rate.c
+@@ -17,7 +17,7 @@
+ #include <brcmu_wifi.h>
+ #include <brcmu_utils.h>
+ 
+-#include "d11.h"
++#include <d11.h>
+ #include "pub.h"
+ #include "rate.h"
+ 
+diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmsmac/rate.h b/drivers/net/wireless/broadcom/brcm80211/brcmsmac/rate.h
+index 2b10fd5427..e178b1a0e2 100644
+--- a/drivers/net/wireless/broadcom/brcm80211/brcmsmac/rate.h
++++ b/drivers/net/wireless/broadcom/brcm80211/brcmsmac/rate.h
+@@ -18,7 +18,7 @@
+ #define _BRCM_RATE_H_
+ 
+ #include "types.h"
+-#include "d11.h"
++#include <d11.h>
+ #include "pub.h"
+ #include "phy_hal.h"
+ 
+diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmsmac/stf.c b/drivers/net/wireless/broadcom/brcm80211/brcmsmac/stf.c
+index 79d4a7a4da..6e92dc4c90 100644
+--- a/drivers/net/wireless/broadcom/brcm80211/brcmsmac/stf.c
++++ b/drivers/net/wireless/broadcom/brcm80211/brcmsmac/stf.c
+@@ -17,7 +17,7 @@
+ #include <net/mac80211.h>
+ 
+ #include "types.h"
+-#include "d11.h"
++#include <d11.h>
+ #include "rate.h"
+ #include "phy/phy_hal.h"
+ #include "channel.h"
+diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmsmac/d11.h b/drivers/net/wireless/broadcom/brcm80211/include/d11.h
+similarity index 100%
+rename from drivers/net/wireless/broadcom/brcm80211/brcmsmac/d11.h
+rename to drivers/net/wireless/broadcom/brcm80211/include/d11.h
 -- 
-Hank Liou <hank.liou@mediatek.com>
-
+2.53.0
 
