@@ -1,100 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795772996;
-	b=2DTJARFQ1kPQ5CwotMiMukAd0XEkDVbisZUFjeXhgjrX7b2QXeHlseT/5u9A/35gYDZa
-	 c9H3Y2GIG2uHccocFEyXYYc93yPfaZ+LdcbwLkCqyZWzBrqFO3NysKDfNKppXnP0tMaiZ
-	 ojmN8C0BHWZCixNXmvXZ+RSK8j/IiZlux0EKVCmgtNyRCfBvOWWU5ap38+bIodwJRoti0
-	 iVGNkMkSy4IKCN+khnXDwbim9zJkIfB+yGfqdTYopKsHeX3EZg917f7vwmjOakxeQp8Hh
-	 O9fnVzD5bvNDiFHR5ALl+SsAG/iXyNroAEGrxpAwDeFR0yOpo9yxaKf//Yn8PjbzkWQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795772996;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=GPGFP4sreEa8pcqEXU6GZ2Nw6FWeow+EWOPTmXiDvGA=;
-	b=aD+xEirrdDdDdvm7hYJFKMsxEq40e9vRfan+xMQuSAdNXEjC+m2nmnvnc/pZ+zvDH6FV
-	 X+42CQ8HHQit4IKO9xkgfY67BCrKW0BpmXagyrYLT71T8CaQqPprm/k9HRg5lO7nO3Cdl
-	 ophzdtz3rBbDLtNamhxub3v/goayMn1vumZs+JQzaMTKImoOcOEQRJDg3srfXmiLC3Mmq
-	 yXG0DpP/B85sAJ5oT3k+nM+z/cMkroPZzjypyM/ZYpWwrB8uEtQZY3UcUdVDvePd05P9Y
-	 7s+DhvQdw/7lsVs1OLQt9ZNzBWRgtCYFHsJ7Sv8KG5D4yHLaAtD6mzS9L0zsJLtK4Hw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b="t2V/yCNr";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
-Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com [209.85.208.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795772997;
+	b=mS0/1CMO432uHOpvXHWgc/qzsVTZztu5wNzxWNedwkS4iPpswy7BlzDVFEQxFPPmbOUW
+	 kcuXs4o/RrGXchKQ9kKUHvRQpf1tWHJ/6ZbOBPHgBGHMWb+4lwFlnxSg14hI8JcU61bdB
+	 oz3x9L09UiKVJWdkDN5d6Cp7/5J4S0t68fzUCbNBQ/6U3yzySL9ZunEomU0A6igdWnfmh
+	 M/qu7lDAjX6MKJpThABWPAScZJ5OZ9jlNbrU0lwEwkb5RKoqWgafwetroeopmt+WVCH1n
+	 4IHxrDY+cMkOXTxdYqMB/ZjbwdrgkzxZMWw+L0dSaQFS7DIOFaJfyNf7r+H3knNGjSg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795772997;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
+	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
+	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
+	bh=8qcXglV3ccGraSlpDQigzkuVwJhAWsgF1bHwT1/2QvM=;
+	b=k0aFdp69TvhQHiijv9YkJF6q7fXXkmXKmuwc/xH67FYcrBCEZfUI8nJJe3+TIkNxaOZc
+	 XUKr9dVG941iWrhQtka/RNK//O5SSgZA5ErmeDOwVskj5FY/RGDEM+MrtbUQ2p3UzSCad
+	 /mIaz6+MuN4dzBNVCwpRULyQ3vXa+dH9xk8OGeREXSU4U0gsSiAENkSWWU1D2eMy04has
+	 3/surQgmYK4/Z/C7uVnTv/dcEStIM209suKUE5LYZDKdVuP0zYxCEgoqOiShHbQ9E3CBJ
+	 /RM6rYCBKlYIMIvyzzprWlYNg9TRDbHWIGA/mSMDacYvQpaGVayvXAsaNlI+g6w34HQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=yNbCzFCZ;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=WCEDcPWr;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E34D5606A686
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:49:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E34D5606A686
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04056606A684;
+	Fri, 27 Nov 2026 09:49:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 04056606A684
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=t2V/yCNr
-Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6b8a52db5f9so9639443a12.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:49:55 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795772994; cv=none;
-        d=google.com; s=arc-20260327;
-        b=cE2HL0Nj/GWJjoD0shZw+TpuHFGfiDVBpS9WJWyKLJ32mBs3M9hXi7AvGVHslSwl4d
-         MeGmOdqLUKVJrvdn+yRGnQ04PalDJaVy5xjvsjdXcRO6g3NNlW1RNSfBuafdtvfwCOfI
-         JO4IwDzLKmi2iSj6cWGiGMg98diVHsPyZUujDXkwvWV5jhFSjWfmu5nUgKSvwr4oJA86
-         OsDxG7kRKtIJHoU3XOqp3tw5T7Tk/amx61nWSxSOHniCbBH3k4KAo/CYUxYZeqxF7SHr
-         jOMbw2AhhD5WJSZcDUhGbPHczP7eEACSdOYXUwHbKaTa8KCejpAbxm3/MTPMvDXK4GtH
-         ntvg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=GPGFP4sreEa8pcqEXU6GZ2Nw6FWeow+EWOPTmXiDvGA=;
-        fh=8fKISH8614MLJ0ee8WDvqHxpxeLz/vyfRBHB9QpbkUU=;
-        b=rVVvXQzR0uSAKGXu01f57s0njahnUAqXcu9cSA0Lf6+MpJ1BBfepGDKRuILnfVlvmz
-         EvVJdKMw/W0PkOSxZ6Tjo9FFER7tr7UMPNVIBOTYCbdQ1BOqv6nF0y5NLPaalqcVAzT8
-         az53M/Lsk6l5UQxwwLhvWNmT7iwWY/fnk8+ZD02nj2cZPsPtZh5DdRlrXoJqBxkXsVFW
-         ru5de9WospT08sTN6AXZNLK22VCPeiE+2f7Pe0YqlWb0k4yjcgz/aVB1pSlOP2GY0pK8
-         fHefXvjtTEc/WHBkjm3dcWSHSnT6n0MJr9YkiOeijXhhA+YqY/qNtEz8qEF6Wk3OV6mU
-         c3gA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795772994; x=1796377794; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=GPGFP4sreEa8pcqEXU6GZ2Nw6FWeow+EWOPTmXiDvGA=;
-        b=t2V/yCNrI2uPjbcMFiS5DiwrzJdln2YJB7eKH+xMY4aq/NfHJ1wHiRnVj5rvW5h15s
-         QtyQsOaSHUYkGmajiRNVwbGbcC+MwMwJgsz5ahGepNNdg+Ilk/IH/kYRvf9aGDp+4MNF
-         OwBwU2MiEZ58dWZLY9lQ6ffhgJVFC/C6yiYW9S050i36u1cbXf73NtVnjvA3QlelFSrH
-         vu8MYoafMBF3vjN6gUPXNq/Y3FxJj+M5K7pEziRqHpL7/xG9AJitmYSQfM1M/TfDAQZ5
-         6xatHOB5Lu0ID13dSVOOGjvbnsC0OJjpBCmxSHuImzAnVOT/fB9ntw1P/n3wWS8Eddny
-         rr7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795772994; x=1796377794;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=GPGFP4sreEa8pcqEXU6GZ2Nw6FWeow+EWOPTmXiDvGA=;
-        b=Bk79vK1ql18RCDSerdqMMgLZRwEeBIaNLhPZMRkfVJJQipE8mI+qDVgcMoBEQKcTg/
-         iImNZ0RwJGhOryscJ0R9xTa7C5D54NENR4N7E5yM3S6c3KRM36gm2TuuuRRwYY0hGP9I
-         hbdb19f0MThUL9iY1WVaUw+5lFO9w0YJB5r2R2s6L+j+Gd9lwrCstbRlwdAlWGQC1tu/
-         Nw3URBiaZ1EUT07nbnyRwdJbsWSkR3yHFd+t1efW892KNhqETXSpHNMpv0MYIJ4vlfNK
-         bAoFXahjtJNuAhSnUopWGg9MFzKowVLOra4WMXcgVnQ2lOl5fpw8bG4dSoCAkrBIhZia
-         DB6Q==
-X-Forwarded-Encrypted: i=1; AL+hErGUyG3Pt7SUJuim/qcB2DVHtTZXgbcY9C7JzKjoGMpH+zKK8BR2LNmTgsU5yY2Sfg5/h31WZVoqdlKKw7w=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Cpo+S1ATVvFH1mZcvoHS1Vey0PrS4bhKnAm00WEjzbWkO0fWH
-	JlgV0ZiMAU57TlWJlCqqdYDMNO0KtaFVWMRAzKz2H4SLkbWI3DtZq+ZqpGwfzk+xiyiLJj5KdzO
-	7JqMtxX3MwIXMyS5ytleHbwCkULUBbJ6Nz4NrhgboBw==
-X-Gm-Gg: AZFdTZeXmVsvVIppGVfrl8CQIoDWCjIC3dHjMXJXnbYjqSln2FsdsJfzSHVQqsdMm2s
-	gBsbpP/krKEThanlccN3PJyWZ8lmefgdkuwJ/NO62OIUgBEtRk4QcHeGtWDyAQTiewK5WcfGgB1
-	geTzFonM1UiIimKTQ92MCUsGWEUr2F+idx8MruTnhDHYGeeYYgaL1Fu+ZGMHDN4knrt0RoTaDqX
-	0Yf6e0Lyjedjzv9UOHOuhc1fn6cjdhF7pCLkt1IOzMXBHVVngNncHFks2wasGPoMDpL9EENyETn
-	1AUIiLmbfC+KuKj+EDa05MfRNvzNzo/0pDHFwZHPeMZ4lF4k/eUZzY/w/EXO56+ojhtyNrGLLZy
-	VxAywI3a3wzAufPyClWYsIYt+Ldk6fCaZ49afKAsjvCT8geNYJgrRf+5shYpZBzIVarjK3w==
-X-Received: by 2002:a05:6402:4019:b0:6b1:ca87:c588 with SMTP id
- 4fb4d7f45d1cf-6ba37eb9c13mr20096021a12.37.1795772993605; Fri, 27 Nov 2026
- 01:49:53 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=yNbCzFCZ;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=WCEDcPWr
+Date: Fri, 27 Nov 2026 09:49:51 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795772993;
+	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8qcXglV3ccGraSlpDQigzkuVwJhAWsgF1bHwT1/2QvM=;
+	b=yNbCzFCZ5PE8pfOP2q7bnKOCAhPpCcCgomu8i+sk3wy7M+iztX0OFrFYTL1Nsb91/9JqBB
+	3b6+clHjj2H9TjPbUXMiUEZRr8hF+xK67P5Mfi/AkswzsW3cg9iUujJqe/YJvd+Zmkdojt
+	KXhPKqh7fuIFUJ37fY7DT1EQN76JkuivDtoGR+jz+oi9PC2nQhKFROZw41YkDhgfauPElx
+	j8/5Ba0ourfhl2inL/jGPQwQDfD3ipLHknEYdPQWDs8QQnB3NAKrKYzzAC8NpA80GSTRPq
+	iQZ0z4V0iu3aBcOuVN3DyC0eFdmozr7Zw48gy0QM4qzk492Cc7BF1ggSp/Rudg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795772993;
+	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8qcXglV3ccGraSlpDQigzkuVwJhAWsgF1bHwT1/2QvM=;
+	b=WCEDcPWrqaiEiDEIVYRxT7bKaAKcAf+DM1xwvOqdgyUTmFm7vgfIbryKaaP26iGZa3XfKp
+	cr/s+UKO16wo/LAA==
+From: "tip-bot2 for Jay Hilton" <tip-bot2@linutronix.de>
+Sender: tip-bot2@linutronix.de
+Reply-to: linux-kernel@vger.kernel.org
+To: linux-tip-commits@vger.kernel.org
+Subject: [tip: perf/urgent] perf/core: Use the elapsed period for
+ frequency-mode period adjustment
+Cc: Jay Hilton <jahilton@janestreet.com>,
+ Gregg Leventhal <gleventhal@janestreet.com>, Ingo Molnar <mingo@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,  <stable@vger.kernel.org>,
+ James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
+ x86@kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261117152351.1294050-1-gleventhal@janestreet.com>
+References: <20261117152351.1294050-1-gleventhal@janestreet.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,135 +81,178 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261127083542.3172843-1-christian.loehle@arm.com>
-In-Reply-To: <20261127083542.3172843-1-christian.loehle@arm.com>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Fri, 27 Nov 2026 10:49:39 +0100
-X-Gm-Features: Aa3M54rjnnVhSXL35BlQDgTZhZnFpsdADZDYLiRCLnKpoPpo2Ju2HPDXgLMZins
-Message-ID: <CAKfTPtB67yXDi84yXy3=x2znRYt5huQNiHDK-0KYxAcezHhULg@mail.gmail.com>
-Subject: Re: [RESEND][PATCH 0/2] sched/uclamp: Fix dequeue accounting across
- static-key updates
-To: Christian Loehle <christian.loehle@arm.com>
-Cc: mingo@kernel.org, peterz@infradead.org, qyousef@layalina.io, 
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, jstultz@google.com, 
-	kayracizmeci@gmail.com, wvw@google.com, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Message-ID: <179577299177.92412.18280468441258006136.tip-bot2@tip-bot2>
+Robot-ID: <tip-bot2@linutronix.de>
+Robot-Unsubscribe:
+ Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
+Precedence: bulk
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, 27 Nov 2026 at 09:35, Christian Loehle <christian.loehle@arm.com> w=
-rote:
->
-> Static-key updates can let enqueue account a task before dequeue observes
-> uclamp as enabled. Patch 1 checks the task's effective UCLAMP_MIN active
-> flag on dequeue, so accounted clamps are released regardless of static-ke=
-y
-> update progress. The early check keeps the unused dequeue path short, and
-> enqueue retains its static key.
->
-> Patch 2 picks up Qais's idle-flag wrapper cleanup from v7 [1].
->
-> The measurements below are for patch 1 on v7.4-rc4, before adding patch 2
-> and rebasing. Each cell gives fix / always-on percentage changes versus
-> unfixed, with CONFIG_UCLAMP_TASK=3Dy throughout. The unfixed and fixed
-> kernels keep the uclamp key disabled while always-on performs accounting.
->
-> Nine fresh boots per variant, 20 measured repetitions per boot. Changes
-> are geometric means of paired boot-median ratios.
-> Positive time/latency is slower, positive throughput is faster.
->
->  Workload / metric              =E2=94=82 i7-13700K: fix / always-on =E2=
-=94=82 Xeon: fix / always-on =E2=94=82 Orion: fix / always-on
-> =E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
-=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
-=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
-=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=BC=
-=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
-=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
-=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
-=E2=94=80=E2=94=80=E2=94=80=E2=94=BC=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
-=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
-=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
-=E2=94=80=E2=94=80=E2=94=BC=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
-=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
-=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
-=E2=94=80=E2=94=80
->  messaging-processes / seconds  =E2=94=82        (-0.06%) / (+0.09%) =E2=
-=94=82   (-0.40%) / (-0.21%) =E2=94=82      -0.38% / (-0.31%)
->  messaging-threads / seconds    =E2=94=82        (-0.19%) / (+0.05%) =E2=
-=94=82       -0.86% / -1.77% =E2=94=82    (+0.10%) / (+0.11%)
->  pipe-processes / usec_per_op   =E2=94=82          (+0.18%) / +1.56% =E2=
-=94=82    (-0.002%) / +2.41% =E2=94=82        -1.17% / +1.19%
->  pipe-threads / usec_per_op     =E2=94=82            -0.78% / +0.88% =E2=
-=94=82     (+0.01%) / +2.91% =E2=94=82    (-1.61%) / (+0.53%)
->  schbench-256k / rps            =E2=94=82       (+0.002%) / (-0.04%) =E2=
-=94=82    (+0.004%) / -0.05% =E2=94=82    (-0.20%) / (+0.03%)
->  schbench-256k / wakeup_p99_us  =E2=94=82        (+0.42%) / (+0.51%) =E2=
-=94=82    (+2.33%) / +10.62% =E2=94=82    (-1.44%) / (-0.37%)
->  schbench-4096k / rps           =E2=94=82        (+0.00%) / (+0.00%) =E2=
-=94=82   (+0.00%) / (+0.00%) =E2=94=82    (+0.00%) / (+0.00%)
->  schbench-4096k / wakeup_p99_us =E2=94=82        +32.68% / (+12.93%) =E2=
-=94=82  (-10.66%) / (+2.71%) =E2=94=82      (+3.03%) / -6.99%
->  tcp-stream-1024 / Mbps         =E2=94=82          (-0.24%) / -0.69% =E2=
-=94=82       -0.61% / +1.07% =E2=94=82      +0.36% / (-0.52%)
->  tcp-stream-16384 / Mbps        =E2=94=82          (-0.03%) / -0.29% =E2=
-=94=82       -0.57% / +0.23% =E2=94=82    (+1.04%) / (-0.82%)
->  tcp-stream-64 / Mbps           =E2=94=82         (+3.05%) / +18.60% =E2=
-=94=82    (+0.12%) / +23.54% =E2=94=82        +2.50% / +2.09%
->  tcp_rr / transactions_per_sec  =E2=94=82          (-0.57%) / -1.68% =E2=
-=94=82       -0.66% / -1.33% =E2=94=82      (+0.10%) / -1.58%
->  udp-stream-1024 / rx_Mbps      =E2=94=82        (+0.19%) / (+0.17%) =E2=
-=94=82   (-0.41%) / (+0.32%) =E2=94=82      -1.58% / (-0.63%)
->  udp-stream-128 / rx_Mbps       =E2=94=82        (-0.82%) / (-0.15%) =E2=
-=94=82     (-0.38%) / +1.54% =E2=94=82        -1.31% / -0.69%
->  udp-stream-16384 / rx_Mbps     =E2=94=82        (-0.31%) / (-0.49%) =E2=
-=94=82       -0.35% / +0.30% =E2=94=82        -1.52% / +0.61%
->  udp-stream-2048 / rx_Mbps      =E2=94=82        (+0.02%) / (+0.06%) =E2=
-=94=82   (-0.24%) / (-0.09%) =E2=94=82      -1.18% / (-0.74%)
->  udp-stream-256 / rx_Mbps       =E2=94=82        (+0.33%) / (+0.29%) =E2=
-=94=82       -0.72% / +1.56% =E2=94=82        -1.76% / -0.86%
->  udp-stream-3312 / rx_Mbps      =E2=94=82        (+0.38%) / (-0.07%) =E2=
-=94=82   (-0.04%) / (+0.14%) =E2=94=82      -1.18% / (-0.54%)
->  udp-stream-4096 / rx_Mbps      =E2=94=82        (-0.06%) / (+0.22%) =E2=
-=94=82   (-0.24%) / (+0.08%) =E2=94=82      -1.31% / (-0.66%)
->  udp-stream-64 / rx_Mbps        =E2=94=82        (-0.18%) / (-0.17%) =E2=
-=94=82       -0.57% / +1.20% =E2=94=82        -1.51% / -1.45%
->  udp-stream-64-pinned / rx_Mbps =E2=94=82        (-0.94%) / (+0.90%) =E2=
-=94=82     (-0.28%) / +1.63% =E2=94=82      -1.21% / (-0.30%)
->  udp-stream-8192 / rx_Mbps      =E2=94=82          (-0.25%) / -0.39% =E2=
-=94=82       -1.54% / -1.01% =E2=94=82      -0.96% / (+0.15%)
->  udp_rr / transactions_per_sec  =E2=94=82          (-0.72%) / -1.69% =E2=
-=94=82       -0.94% / -1.55% =E2=94=82        +0.44% / -1.84%
->
+The following commit has been merged into the perf/urgent branch of tip:
 
-I rerun the test on my dragon rb5 with patch 1and  perf sched pipe -T,
-perf cpufreq gov and only WFI:
-- on big, the diff is -0.68% (+/- 0.32%)
-- on medium it's -1.35% (+/- 0.58%)
-- and on little it's -3.99% (+/- 0.56%)
+Commit-ID:     67b34211a9eb103aba474bc179fab3dd2912f07e
+Gitweb:        https://git.kernel.org/tip/67b34211a9eb103aba474bc179fab3dd291=
+2f07e
+Author:        Jay Hilton <jahilton@janestreet.com>
+AuthorDate:    Tue, 17 Nov 2026 15:23:51 -05:00
+Committer:     Ingo Molnar <mingo@kernel.org>
+CommitterDate: Fri, 27 Nov 2026 10:41:45 +01:00
 
-That being said, I don't have a better solution so far ... So although
-I always favor putting this kind of feature behind a static key to
-avoid penalizing non-users, if others are fine with it, the solution
-is okay with me too
+perf/core: Use the elapsed period for frequency-mode period adjustment
 
+In frequency mode, __perf_event_account_interrupt() estimates the event
+rate from hwc->last_period and the time since the previous overflow,
+and passes it to perf_adjust_period().
 
-> Separately, paired log-ratio t-tests with Holm correction across the 69
-> fix-versus-unfixed comparisons retained only significant regression:
-> Xeon UDP_STREAM 8 KiB throughput =E2=88=921.54%.
->
-> [1] https://lore.kernel.org/r/20261126012836.15205-3-qyousef@layalina.io
->
-> Christian Loehle (1):
->   sched/uclamp: Always account active clamps on dequeue
->
-> Qais Yousef (1):
->   sched/uclamp: Use wrappers instead of open coding UCLAMP_FLAG_IDLE
->
->  kernel/sched/core.c  | 27 +++++++++++++--------------
->  kernel/sched/sched.h | 10 ++++++++++
->  2 files changed, 23 insertions(+), 14 deletions(-)
->
->
-> base-commit: 029fd68a263364583b6f9b34d22761acf0a3940c
-> --
-> 2.34.1
+The PMU drivers re-arm the counter before they call
+perf_event_overflow(), and re-arming sets hwc->last_period to the
+period of the next interval. The estimator therefore divides the next
+period by the time the previous one took. While the period ramps up
+from its initial value, each period is much larger than the previous
+one, so the rate is overestimated by that ratio and the period
+overshoots its target.
+
+On an AMD EPYC 9655P running v7.3, sampling user-mode cycles at 11 Hz,
+the period jumped from 21.9M to 2.3G cycles, 5.6x the target, and the
+next sample arrived after 544 ms instead of 91 ms. When the overshoot
+exceeds 8x, the next tick's perf_adjust_period() resets period_left,
+and the cycles counted before the reset are not attributed to any
+sample (145M in that run). Intel and AMD IBS show the same overshoot.
+On Intel, intel_pmu_freq_start_period() hides it for the default
+hardware events, but not for raw events.
+
+Since commit 1734d98fbcce ("perf/arch: Record sample last_period before
+updating on the x86 and PowerPC platforms"), the PMU drivers record the
+elapsed period in data->period before re-arming. Pass that to the
+estimator instead of hwc->last_period. perf_event_account_interrupt(),
+which has no sample data, keeps using hwc->last_period.
+
+This fixes the overshoot reported in the Closes: thread.
+
+Tested on v7.3 with and without this patch, using the reproducer from
+the report and repeated runs (user mode, 11 Hz unless noted). Runs
+with the bug, i.e. a period over 2x the target or a sample whose period
+doesn't match the cycles counted:
+
+  AMD EPYC 9655P (Zen5), bare metal   v7.3         v7.3 + patch
+    cycles                            50/50        0/50
+    instructions                      50/50        0/50
+    raw cycles                        50/50        0/50
+    cycles, 4000 Hz                   10/10        0/10
+    IBS (ibs_op, incl. kernel)        20/20        0/20
+    max period / target               up to 7.0x   1.00x
+
+  Intel Xeon Platinum 8468, bare metal v7.3         v7.3 + patch
+    raw cycles (0x3c)                 49/50        0/50
+    cycles                            0/50         0/50
+    instructions                      0/50         0/50
+    max period / target               up to 6.8x   1.02x
+
+(On Intel, intel_pmu_freq_start_period() already keeps the default
+events close to the target, so only the raw event shows the bug.)
+
+With the patch, the period approaches the target from below, as the
+low-pass filter intends (9655P, target ~411M cycles):
+
+        period      counted    dt(ms)
+          2371         1791     0.001
+         11854        11880     0.004
+      28341794     28341765     6.284
+     251213029    251213027    55.579
+     411087485    411087548    90.895
+
+All perf_event_overflow() callers under arch/ and drivers/ in v7.3
+initialize the sample data with the period recorded before re-arming,
+so data->period is the elapsed period on every path we checked.
+
+perf_event_account_interrupt() still passes hwc->last_period, and this
+patch doesn't change its callers. Two of them run after the counter
+has been re-armed, so they still feed the estimator the next period:
+perf_ibs_handle_irq() when it discards a sample (user/kernel mode
+filtering, the load-latency and fetch-latency filters, and the
+zero-RIP erratum workaround), and powerpc's record_and_restart() for
+an invalid SIAR. The Intel PEBS error path runs before re-arming and
+is fine. We haven't measured the IBS discard case; if it's worth
+fixing, those callers could pass the elapsed period too, in a
+follow-up.
+
+On kernels without 1734d98fbcce, x86_pmu_handle_irq() and
+handle_pmi_common() still put the next period in data->period, so a
+backport there also needs 1734d98fbcce.
+
+The original change was written by an AI coding assistant in Jay's
+session. This version, the changelog and these notes were prepared
+with an AI coding assistant; Jay and I reviewed them, and I ran the
+tests above.
+
+Fixes: abd50713944c ("perf: Reimplement frequency driven sampling")
+Signed-off-by: Jay Hilton <jahilton@janestreet.com>
+Signed-off-by: Gregg Leventhal <gleventhal@janestreet.com>
+Signed-off-by: Ingo Molnar <mingo@kernel.org>
+Acked-by: Peter Zijlstra <peterz@infradead.org>
+Cc: <stable@vger.kernel.org>
+Cc: James Clark <james.clark@linaro.org>
+Cc: Leo Yan <leo.yan@arm.com>
+Link: https://patch.msgid.link/20261117152351.1294050-1-gleventhal@janestreet=
+.com
+Closes: https://lore.kernel.org/all/CAFN_u7G94CC_RGL1La66jX+jRKHSJdAB5PKkTRSW=
+rUvqhM48oQ@mail.gmail.com/
+Assisted-by: LLM
+---
+ kernel/events/core.c | 15 +++++++++++----
+ 1 file changed, 11 insertions(+), 4 deletions(-)
+
+diff --git a/kernel/events/core.c b/kernel/events/core.c
+index 08f0e0f..4ab3919 100644
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@ -10759,8 +10759,15 @@ void perf_report_aux_output_id(struct perf_event *ev=
+ent, u64 hw_id)
+ }
+ EXPORT_SYMBOL_GPL(perf_report_aux_output_id);
+=20
++/*
++ * @period is the period of the interval that just ended. PMU drivers
++ * re-arm the counter before calling perf_event_overflow(), which sets
++ * hwc->last_period to the period of the next interval, so the overflow
++ * path passes the sample's period instead.
++ */
+ static int
+-__perf_event_account_interrupt(struct perf_event *event, int throttle)
++__perf_event_account_interrupt(struct perf_event *event, int throttle,
++			       u64 period)
+ {
+ 	struct hw_perf_event *hwc =3D &event->hw;
+ 	int ret =3D 0;
+@@ -10788,7 +10795,7 @@ __perf_event_account_interrupt(struct perf_event *eve=
+nt, int throttle)
+ 		hwc->freq_time_stamp =3D now;
+=20
+ 		if (delta > 0 && delta < 2*TICK_NSEC)
+-			perf_adjust_period(event, delta, hwc->last_period, true);
++			perf_adjust_period(event, delta, period, true);
+ 	}
+=20
+ 	return ret;
+@@ -10796,7 +10803,7 @@ __perf_event_account_interrupt(struct perf_event *eve=
+nt, int throttle)
+=20
+ int perf_event_account_interrupt(struct perf_event *event)
+ {
+-	return __perf_event_account_interrupt(event, 1);
++	return __perf_event_account_interrupt(event, 1, event->hw.last_period);
+ }
+=20
+ static inline bool sample_is_allowed(struct perf_event *event, struct pt_reg=
+s *regs)
+@@ -10927,7 +10934,7 @@ static int __perf_event_overflow(struct perf_event *e=
+vent,
+ 	if (unlikely(!is_sampling_event(event)))
+ 		return 0;
+=20
+-	ret =3D __perf_event_account_interrupt(event, throttle);
++	ret =3D __perf_event_account_interrupt(event, throttle, data->period);
+=20
+ 	if (event->attr.aux_pause)
+ 		perf_event_aux_pause(event->aux_event, true);
