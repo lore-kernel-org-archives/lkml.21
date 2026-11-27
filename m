@@ -1,122 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795749351;
-	b=BtiQ7wpA8sDsmgcblPkSOIwjQyjEB1bvuRVjbrffreOVvhk5G7IVu8dWhJBtWETx9siK
-	 vqHYfwZrVRlfFG9kxKb6G/rBmNyLt16gyxSwYVvzjMbsrRO1hLL1RwGEFCh//JCDtUhdn
-	 yxRYTZahvvoIcBSFfutyOXcRCN9mTf/TbyTwLT9Pw8URyCj8hlyhwxIrKlsJ397r3bh+H
-	 aLJETDUy6eLDdiNiLqo5oaey7Tu6GwdpExZl22+eQ0VezxbYO8k44xQHHfFWFveGpElEs
-	 B4Sz3SCkOKu7BQlmJxXuv6FCPL7FIrIG1D9WqQZCKRRVBQ3braIDKVDnIjQ5aPgLa4A==
+	t=1795749358;
+	b=dlPP2FGiaL694cHVh6P0NWZ5/s+9B25JdXgrfqzUqmRBs4Msal9rQVP8CkqfIyGP7Epv
+	 yyJJsRo8FsK8v+0ijJLjAOaaCfI+7EGR/jQRjr/aqwNS3LCv3Nf8/9kRl+rHucPKBZKDI
+	 HGt0dz+TMjUDHXhSjB8iP1mfSLuPBwtSfnr6bTR+ytoru8UpHeY26KUFZXzFkPSIZMDtV
+	 O5xqWe+uU9cpYmumqZw4d6ZLMcmbP+6v4kKyAxQqwo0q5H5j8ivECKESf8iEXafHLwM4N
+	 mrPqjHFrS4tBCOgen2HWYgbtDIOSOAC+eh5/QVxTXq/NLPLTihYxJ5xKC+aDQ7vP6hg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795749351;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=axAdrv+zRsPNCPdePNYoKf8dQmnv2l67HHhbrEvN3mM=;
-	b=NCqOl/e9MOh9QuUdv+iPJOPw27dzOljksnR5izn+1zg5ELDaIFcfZTBTs9fSG0fq+IsC
-	 +LqOXCG+g8fBqOqmdq7llIeZRt1WJNpjQdpB1XtVciT/nOnW3Enhi2Bpta4EhsIYkdR3N
-	 ifnjYtuwA4KKz6QurriRSPKIXQv4QgIHl6OSJslkCSrg9VuOdvoxfY118xO7gkXJPzEnw
-	 W/YmDY2wyFmq9svP3i0BYn+SOUDp8j9YdQ3qOB591bA/kDre8ZAHbCEyrmyg6Bf5y63Mv
-	 cZ8x4NHTN688fy1iJJFPV4VhsD8mwIpvtr9Ab6MDh1um8H9ZslBeJ6lEEigPANMxgMw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795749358;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=NexVNqunXuB86kwix8gWk/1ouKqyr5xdOMHE2DlkftI=;
+	b=ZrXV4J313aob1N4K5BHzC1sTvaQdKvSPO/UFiGXU9ZmbFSwe5txRaumqhMWZKXCWvyWf
+	 u2pulZil/RP/+zWpB5OulXjLZYO/42I/JzrB119Bt5uf12jwbFs1Fziq6kqbIwE1fHLt7
+	 bv602DifFgoYhgPvphWnOwNqAM8kXKOv7ngmnp1nVp1HO570S+QsIGm/wl8sYv0yoDFlK
+	 KIr45FZcxLWX1dhXKUzS/uiqqGORZHMYPbzi0U7aNCbkKY6lMlR6yE+JbD0ITrcUYn9w5
+	 L9oSD5/mtzWws2CbpelB/ICuuU9Fu6XEcK8sXg+MIQUL8Vr29c5qx9ctwiZGCHRk98Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fastmail.org;
-	spf=pass smtp.mailfrom=fastmail.org;
-	dkim=pass header.d=fastmail.org header.i=@fastmail.org header.a=rsa-sha256 header.s=fm3 header.b=pZvvh0v5;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=c3r4C1mC;
-	arc=none smtp.remote-ip=103.168.172.151
-Received: from fout-a8-smtp.messagingengine.com (fout-a8-smtp.messagingengine.com [103.168.172.151])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iiZB8FMA;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4B0B606A323
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:15:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4B0B606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=fastmail.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fastmail.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A13DE606A31C;
+	Fri, 27 Nov 2026 03:15:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=fastmail.org header.i=@fastmail.org header.a=rsa-sha256 header.s=fm3 header.b=pZvvh0v5;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=c3r4C1mC
-Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
-	by mailfout.phl.internal (Postfix) with ESMTP id B0AA6EC0977
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:15:49 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-10.internal (MEProxy); Thu, 26 Nov 2026 22:15:49 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.org; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=fm3; t=1795749349; x=1795835749; bh=axAdrv+zRsPNCPdePNYoK
-	f8dQmnv2l67HHhbrEvN3mM=; b=pZvvh0v5wlIEE8WSOqu1zuSsGUyzYxSQ3Gakd
-	65St5hijB1u7tvx7AEpBsVsVLJlgN5k7ZQq98qRx/i8o/EZvA859wxBJBXk8p9R5
-	RW/GNSXtC8poA1uFDz4dZA89H2lQv/e6JNK5guAk5znzytusoZKE52eyjAsTqZY+
-	T0CsEGT5M8M4gxFiARPgNiyE3txaqcN5ka1Yypz4tTszdAuesuPpAjlzYy25AOAP
-	2HC//q6/BXs7eWpw0BdfY64HZC+Ciw/QTk71UF/vsljtYFsklKNzCGKXzj43OlF0
-	arahmARCHVegWIqXETmk4UB1d2Xv1ZlKXGdTP4jWDicU1P26Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795749349; x=1795835749; bh=axAdrv+zRsPNCPdePNYoKf8dQmnv2l67HHh
-	brEvN3mM=; b=c3r4C1mCBAMRBzwnsGgqop5oSfSTTcWY1nhH23f3uuBvjnOgffA
-	KNn/GKUnoj4c4r+QpgRTguznEV2tNKssScfEVyIj0e7scY2+xEmCzkX3Ur81hOpi
-	mBC0hIbUzoMAiPlRtHpfQ40FSqnKZwO+XBpKl5VCHpLpJmMRglDCpKkHawcugTj7
-	hAWyvIg79Tt47B9JRP0DCghdRrO+t3oFPFrSikTJvNZlF1nwQgjsDtPLjSJfwPnX
-	UWZgP7Bkfz9sURF70xOehCfKQbrjGVwt7wZchnP0yh5jZylZZkoAkvfVPBo9RQ+5
-	hijyK81XwwukBRfKc/GrM3DPDZ5ddl3FS2w==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=fastmail.org a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795749349; d=fastmail.org;
-	mf=PGljYkBmYXN0bWFpbC5vcmc+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:MEFoy1JuG5bAMw7hbLlFQo6In/QWCOC5qIHmbWgkVgn6a7f
-	7gEwWqEHJOOK/VLgG8ZELhbdJsMyfDbVE0Xrwc6UGiIOW3zJ8y8N0r7Luy3TinIe
-	lBS9aFbbf3A6rwpJ+PemgaXF31oNhHfKMSx22e/SHZ5yz2UdHQsdmHZ8rNokTslG
-	FR1vuV+Nj5hFJGfk/xrJsGT2QJOt12vh8HP4yrIXL1VJGrAycEOdqM9Zhw58hl0m
-	XoLBba77yOBZ09O+3kfMS53D+KqaJdZXFwZSBzljlcWD1flMpgYXz9x+0GZX4m1X
-	Z7AUSexvt9ERCpVCgf/bo4EwXid4NbuZqJvaWmQ==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=9;
-	hn=cc,content-transfer-encoding,date,feedback-id,from,
-	message-id,mime-version,subject,to;
-Message-Instance: m=1; h=sha256:gPvjH358mXvk557ugfhpaXM9XwLdOdXeLOwXO5ByvJw=:BN6oi1N/O/sumQ9WlAlspdBJzHbYFwJt7MF/04zsLDg=;
-X-ME-Sender: <xms:5fUIa5GdJ1x41kWkIjeumVnZ3DuoUrgX0Am6aDAl6rMBAhySTG36BA>
-    <xme:5fUIa6Va0rQbrwP98ez-g6ijQLluGabD9R_fojfhXHZfnu4r1M2R92yUhBjdLZtR3
-    5GQoImmM1APRswavsYwHvIAD0Rj61YeRX2wzwA0ZgZSRCCgThFMoolU>
-X-ME-Received: <xmr:5fUIa9Um4CM2gLiAVc0oqaOeGp45Wa-LPj9cJIRR78C_5W60EEAHcpWYdnSZ-KHT>
-X-ME-Proxy-Cause: dmFkZTEVB1K5zqo6vBiwbt1cra3FHQdcsEgfwD7yL4qEf5MM0e6IZAuLjLR3O7T6DsAPX2
-    Q0R6c2EJQ4T30hUpoqihRcRTvadrkO5tJ/9tJ6yqlkNTJpGY6a+xRgvC05556UwzMF1WOr
-    oKK6DuYPtFF50oPn8lvBN00JhQ3LxpykOvUEaNWOQDK14fH55184OzYc341RMlFZGM+0Ax
-    DB2gFABtHYcfLoIeaxrxEx1L4BTXbO2h7HPEesRRklG2fOPx+bVOmNZN46y+Ahg2An3EpJ
-    9F7ygFEW/WTIHoLWgXbsTg9tC66OZ1BsO+52huz7h18aOnY/WsDUba9uO1rDJ3HkXd+cM+
-    iRQIoBAbGt8kb5GHeMWcR614oEHgkwT4GivW2dg3ya4YN5mQqAoqlPHS/nHdf3MLXpxjgH
-    dF0cwYgHKcDNFDFcdt6aTwp1TMrokwOA6fSRJtmETcfpY4sT/afduUAcryqpLk8c/NUT8H
-    hUZkHXiX90krVODho5OxfkSweawhPyzbuC7Fs+MI52GBEZSe2/4Ai8iEW0v6ReqL7qQhtb
-    aqfcLY2Hg6JWFjIqqIvRfN2LB1CMguV+52sTh0gd14SKvb8cBd2TTGBxUqA3/WdsZKbGgo
-    pX3RJ5SKciuZ+fhlhH4tcdgRpY6HQLMjPYbNCEam2RhemjueVnc23dvFBwYw
-X-ME-Proxy: <xmx:5fUIawLHY15Y3ELPA961hsPryfX4rE8ZduFdIb-r-1YY-U9GQUS_xg>
-    <xmx:5fUIa9BcPY4zL-vdbBPTghTDDKTGArFOsI13_pARU_eI_3Ej3ibKbw>
-    <xmx:5fUIawca0K6gXCCdNnWUEOxgXFUua8AHu7j4hg-_g3fljYfNfOvCwQ>
-    <xmx:5fUIa82O8feP9iBGYHNJXG3hzbDNAVe6tGty-IRl_O1VTcvJIlrYCg>
-    <xmx:5fUIaxOB6cHjyhBFFN9ZrF-7zanf-xnm0Op-8EVWvlAGyroM8tdqeu89>
-Feedback-ID: ib53e4b78:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 26 Nov 2026 22:15:48 -0500 (EST)
-From: Ian Bridges <icb@fastmail.org>
-To: linkinjeon@kernel.org
-Cc: senozhatsky@chromium.org,
-	tom@talpey.com,
-	chenxiaosong@chenxiaosong.com,
-	linux-cifs@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Ian Bridges <icb@fastmail.org>,
-	stable@vger.kernel.org
-Subject: [PATCH] ksmbd: fail a non-directory delete-on-close open of a directory
-Date: Thu, 26 Nov 2026 21:15:42 -0600
-Message-ID: <20261127031542.1542831-1-icb@fastmail.org>
-X-Mailer: git-send-email 2.47.3
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iiZB8FMA
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8554C1F000C1;
+	Fri, 27 Nov 2026 03:15:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795749358;
+	bh=NexVNqunXuB86kwix8gWk/1ouKqyr5xdOMHE2DlkftI=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=iiZB8FMA2CQdQhDUAzXYjRX0rP1wEJj59/QpYimn4FkiMvOwgLy6uTUQoBi4A2VSA
+	 Zf+cPc+JzQFngyusHuY98jcWQ4G6011HTQ9p6C/qiNjV+nEs1I3N6YARDjv8EML/Vn
+	 O0McEyv4wY2vdo/4A/3++AAVJTHr53q0tmzzHVexEwrfMEeuS9Bd65w3tM7AmRkbWF
+	 cW0kuTH8Lh3QUDIwVCEa2NoZPGdLYBAh1goi9FFoDlVidnrk6vtLyKWzjACNO1c4s4
+	 CvBg2fTnsfjmUILqogEny97lQL8jKajxH7RAGQeRLvxZ8QkR8WVBrDxIAqV7l6+7pP
+	 gJdgBg10jLanQ==
+Subject: Re: [PATCH net 2/3] bonding: update slave array on link change for
+ broadcast mode
+From: netdev-bot+sashiko@kernel.org
+To: hangbin.liu@linux.dev
+Cc: jv@jvosburgh.net, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ tonghao@bamaicloud.com, razor@blackwall.org, shuah@kernel.org,
+ jiangjiehua1@huawei.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org
+Date: Fri, 27 Nov 2026 03:15:57 +0000
+Message-ID: <179574935712.3135.18271637068349106750@kernel.org>
+In-Reply-To: <20261126-bond_broadcast_updelay-v1-2-188e5538d6ca@kylinos.cn>
+References: <20261126-bond_broadcast_updelay-v1-2-188e5538d6ca@kylinos.cn>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -126,58 +65,157 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-smb2_open() fails an open with FILE_NON_DIRECTORY_FILE when the target
-is a directory, unless FILE_DELETE_ON_CLOSE is also set. With both
-options the directory opens and is marked delete-on-close. An empty
-directory is then removed at close, although the client asked for a
-non-directory. A directory that is not empty stays, and the close
-still succeeds.
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-MS-FSA requires STATUS_FILE_IS_A_DIRECTORY for a non-directory open of
-the unnamed data stream of a directory, and delete-on-close makes no
-difference. Fail that open whatever the other options are. A
-delete-on-close open of a named stream of a directory still succeeds
-and removes the stream at close.
+Critical: 0 · High: 0 · Medium: 2 · Low: 1
 
-Fixes: e2f34481b24d ("cifsd: add server-side procedures for SMB3")
-Cc: stable@vger.kernel.org
-Signed-off-by: Ian Bridges <icb@fastmail.org>
----
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Tested on ksmbd-for-next 3c31349456c5 with KASAN. An open of a
-directory with FILE_NON_DIRECTORY_FILE and FILE_DELETE_ON_CLOSE now
-fails with STATUS_FILE_IS_A_DIRECTORY, and the directory stays. Before,
-an empty directory was removed at close. A directory that was not empty
-stayed, and the close returned STATUS_SUCCESS. A delete-on-close open
-of a named stream of a directory still removes the stream.
+- [Medium] The commit message says the patch makes the broadcast
+  usable_slaves snapshot 'follow link transitions the same way balance-…
+- [Medium] Because broadcast now publishes usable_slaves (the revert,
+  which this patch relies on), switching a broadcast bond to balance-rr…
+- [Low] The series ordering is not bisect-safe, and the dependency
+  between the two patches is not recorded in tags.
 
-smbtorture first tries to remove a test directory with such an open. On
-the base that open succeeded, so later tests in the same run found the
-old directory and failed. Those tests now pass, and each of them gives
-the same result on the base when run alone. The other smbtorture
-results are the same as on the base.
+--
 
-This patch was developed with LLM assistance.
+bonding: update slave array on link change for broadcast mode
 
- fs/smb/server/smb2pdu.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+This adds a BOND_MODE_BROADCAST case to bond_miimon_link_change(), so the
+usable_slaves snapshot is rebuilt on miimon link transitions. That keeps
+the ignore_updelay decision in bond_miimon_inspect() in line with the
+current slave link states. It depends on a revert of 45fc134bcfad so that
+bond_set_slave_arr() publishes the array for broadcast.
 
-diff --git a/fs/smb/server/smb2pdu.c b/fs/smb/server/smb2pdu.c
-index 5a7842264b98..28fb77bcd3dc 100644
---- a/fs/smb/server/smb2pdu.c
-+++ b/fs/smb/server/smb2pdu.c
-@@ -4976,7 +4976,8 @@ int smb2_open(struct ksmbd_work *work)
- 
- 	if (file_present && req->CreateOptions & FILE_NON_DIRECTORY_FILE_LE &&
- 	    S_ISDIR(d_inode(path.dentry)->i_mode) &&
--	    !(req->CreateOptions & FILE_DELETE_ON_CLOSE_LE)) {
-+	    (!stream_name ||
-+	     !(req->CreateOptions & FILE_DELETE_ON_CLOSE_LE))) {
- 		ksmbd_debug(SMB, "open() argument is a directory: %s, %x\n",
- 			    name, le32_to_cpu(req->CreateOptions));
- 		rsp->hdr.Status = STATUS_FILE_IS_A_DIRECTORY;
+> Add the broadcast case so the snapshot follows link transitions the
+> same way balance-xor does. This needs the revert of 45fc134bcfad as
+> a prerequisite: with 45fc134bcfad applied, bond_set_slave_arr()
+> discards the refreshed array for broadcast.
+>
+> Fixes: e0caeb24f538 ("net: bonding: update the slave array for broadcast mode")
+
+[Severity: Low]
+Is the series order bisect-safe? The revert of 45fc134bcfad is applied
+before this patch. On its own, it makes bond_set_slave_arr() publish
+usable_slaves for broadcast again, but nothing rebuilds the array on
+miimon link changes yet.
+
+At that intermediate commit, a batch enslave with updelay leaves the new
+slaves in BOND_LINK_BACK. The snapshot taken at enslave time then has
+count == 0 and is never refreshed, so bond_miimon_inspect() ignores
+updelay permanently. That is the bug 45fc134bcfad fixed.
+
+If this patch went first, it would be a no-op under 45fc134bcfad, and
+every commit in the series would be correct.
+
+Also, this patch carries Fixes: e0caeb24f538, but the revert it depends on
+has no Fixes: tag and no dependency annotation. 45fc134bcfad is likely
+already in stable trees.
+
+Would a tag-driven backport of only this patch leave the stale snapshot
+behaviour unchanged there?
+
+> diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
+> index d6675e87d06b6..b1efbdf597ec4 100644
+> --- a/drivers/net/bonding/bond_main.c
+> +++ b/drivers/net/bonding/bond_main.c
+> @@ -2780,6 +2780,7 @@ static void bond_miimon_link_change(struct bonding *bond,
+>  		bond_alb_handle_link_change(bond, slave, link);
+>  		break;
+>  	case BOND_MODE_XOR:
+> +	case BOND_MODE_BROADCAST:
+>  		bond_update_slave_arr(bond, NULL);
+>  		break;
+>  	}
+
+[Severity: Medium]
+The commit message says the snapshot follows link transitions "the same
+way balance-xor does". Does that hold outside the MII monitor?
+
+balance-xor also rebuilds the array when the ARP load-balance monitor
+changes a slave's link state. Broadcast is still left out there:
+
+drivers/net/bonding/bond_main.c:bond_loadbalance_arp_mon() {
+    ...
+		if (slave_state_changed) {
+			bond_slave_state_change(bond);
+			if (BOND_MODE(bond) == BOND_MODE_XOR)
+				bond_update_slave_arr(bond, NULL);
+		}
+    ...
+}
+
+Broadcast can use ARP monitoring, because bond_mode_uses_arp() only
+excludes BOND_MODE_8023AD, BOND_MODE_TLB and BOND_MODE_ALB.
+bond_slave_netdev_event() also skips broadcast, since
+bond_mode_can_use_xmit_hash() is false for it. So under ARP monitoring,
+the broadcast snapshot keeps the state from the last enslave or release.
+
+bond_option_miimon_set() can switch the bond from ARP monitoring to
+miimon at runtime. It zeroes arp_interval, cancels arp_work and queues
+mii_work, but it does not rebuild the slave array. params.updelay
+survives the switch.
+
+For example, slaves enslaved with carrier under ARP monitoring are marked
+BOND_LINK_UP and counted in usable_slaves. Later the ARP monitor marks
+them BOND_LINK_DOWN, but the snapshot is not refreshed. Once miimon is
+enabled, bond_miimon_inspect() sees usable_slaves->count != 0:
+
+	if (usable_slaves && usable_slaves->count == 0)
+		ignore_updelay = true;
+
+Recovering slaves then wait out updelay even though the bond has no usable
+link.
+
+The reverse case also happens. If slaves are enslaved without carrier,
+count == 0 and updelay is wrongly ignored. Either state lasts until the
+first miimon commit reaches bond_miimon_link_change().
+
+Should BOND_MODE_BROADCAST also be added to the condition in
+bond_loadbalance_arp_mon()?
+
+[Severity: Medium]
+Now that broadcast publishes usable_slaves, does a switch from broadcast
+to balance-rr leave a stale snapshot behind?
+
+Releasing the last broadcast slave goes through __bond_release_one():
+
+	if (bond_mode_can_use_xmit_hash(bond) ||
+	    BOND_MODE(bond) == BOND_MODE_BROADCAST)
+		bond_update_slave_arr(bond, slave);
+
+This runs after bond_upper_dev_unlink(), so the slave list is already
+empty. The result is a non-NULL usable_slaves with count == 0, and after
+the revert that array is kept for broadcast.
+
+Neither bond_option_mode_set() nor bond_close() resets the arrays.
+
+In balance-rr, nothing rebuilds the array afterwards:
+
+  - bond_enslave() and __bond_release_one() only rebuild for xmit-hash
+    modes or broadcast
+  - bond_open() and bond_slave_netdev_event() only rebuild when
+    bond_mode_can_use_xmit_hash() is true
+  - bond_miimon_link_change() has no BOND_MODE_ROUNDROBIN case
+
+So in balance-rr, bond_miimon_inspect() would see count == 0 on every
+pass. It would set ignore_updelay = true and force slave->delay to 0 for
+every recovering slave.
+
+Documentation/networking/bonding.rst section 13.1 says updelay is ignored
+only when the bond has no active links.
+
+In the baseline tree with 45fc134bcfad, broadcast never published
+usable_slaves, so a switch from broadcast to balance-rr left it NULL. The
+same missing reset on mode change already existed for a switch from
+balance-xor to balance-rr.
+
 -- 
-2.47.3
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126-bond_broadcast_updelay-v1-0-188e5538d6ca%40kylinos.cn
