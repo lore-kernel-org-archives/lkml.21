@@ -1,56 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.254.224.33
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795790808;
-	b=m78H35uK/bolVAjI4VMKH24RYk+nVgOil1ZPltc6YhLnXue+93qZYXPSA0EIlxOp6YQn
-	 LGFygwlkkso7Dii1KkASL1bInjnk2InMpF3t6wZUoafZgkrv6a6QG0K/IpBzshhF1BGF6
-	 14Hs22GRYOjLRAlnjkYQRgZc1UFx0jUA/y9v6HPFjH0kA6zdc5DNhqHThAI/LstnSWemL
-	 0SROs7e8VAEcOrosXyNerjKwTW+vS3ncAIXBw9fHXPUVL6aH7qTCZV+aNj9EjBgOj5M34
-	 rYWLifiyEBIsfWL3rQzLLVgI4AOv326AbH3FNbDTFwaF10eMxwaXkKUONmdi85q7D6Q==
+	t=1795790874;
+	b=ME1tYnXxrOOCAhstkpaUozC+NhdiFH7Iayyub9/5qIk6GpHBQqltk5m76vmCHiBjyMKS
+	 vnTQoS5ivZLPcsTOZfCN8k3F9HRJ42ZbJ0vErD/FQZW2WeGF0NPQqgELmzhR9WoyrG4Bb
+	 JRJXsQWcNtY27ZKRvyN3ndoRI5rgVexUPOCvPiwUhsKfop3YJTTq13/FsCEEHS+UFEAXL
+	 ++S25nTTn89ZW7Fwcy5NitOAEH9Pyt/J77EQlg1pRsvCzFVmoS/dA0g7fqUsSZnP2BHIy
+	 7gUmg10tWRGkh0y7EnUNDx7wSD0VjUfMVxWQJDZF7k2SvrOKAi7F3NLPVWvi+p2Xu8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795790808;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=vpOeS1zLysQBqy4y0tcCfJ4mFvl/Hm26T1odAFXU41I=;
-	b=SkCxQ202zeguPTQaCg+Xlig7dJD2lXCd3AQthBGMXP0RQyTb9+mVazfQb9ezelCyo9c6
-	 xyztG8AsXDCOFE8OgwXas99N3InllV6lh06Fuugdgb5gH66RuI2NCW9wrIG++CED8OP81
-	 IFWOVcTJ9Y6tKB84NU9ppGfwUG2uj7BqWabktZUlv/AiLHE5R43bGtl/sNAbmOELcPi0H
-	 xU4r5KekQ82HfyJ+R3U9DeAXVbtJmabDew0NnuaywMvwl+B7Pmvj01AbTorZb6rpuRGHg
-	 DfAv8/mLvcApp2iMN4yGWZxJryKjALPunowipawR3h9K34GWcbNYMABs/tYXQoBeubg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795790874;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
+	 Received:Received:From:To:Cc:In-Reply-To:Subject:Date:Message-ID:
+	 MIME-Version:Content-Transfer-Encoding:X-Mailer:Thread-Index:
+	 Content-Language:X-CMS-MailID:X-Msg-Generator:Content-Type:CMS-TYPE:
+	 X-CPGSPASS:cpgsPolicy:X-CFilter-Loop:X-CMS-RootMailID:References;
+	bh=LigbDYHgFUyhETTkgekQg93P9iKK9kMEZK/QoESy0XE=;
+	b=AHWIpJTreZFk3r+6sSls/kT4fuA+frRozDQjBC4j+xrc1rNN97iGC4D/Bdk3oo/UZG+o
+	 H9z4VrEdnU4nzOMTp9OoYRk8Ha3gWSUstOLhPyjlrFv1wJwa/0Lv1p/wW2zZjAoL66t7E
+	 EieT3Kn8fdLsMLT2/4G0Mr0Yf2Vh+qXJ3ezbIci4pRmcIDkOvkbXpMFSmGMeW9YwPuNhM
+	 K58Kq5oVnwHZCdL2IqskIYdD4NU3bWxmJxTej4q3DPY4EDOUTNtqcl/miOad21kcylv1Y
+	 hTuIXV8h9XgZ29aFAwJen3i6PdwHbGM7tVpM6tlgpv2Glsc26MBwa6RdkjkcbJzLnmw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b="tKvkIX/q";
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=samsung.com;
+	spf=pass smtp.mailfrom=samsung.com;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=sIbjzqZ6;
+	arc=none smtp.remote-ip=203.254.224.33
+Received: from mailout3.samsung.com (mailout3.samsung.com [203.254.224.33])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07750606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:46:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07750606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98A03606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:47:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98A03606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=tKvkIX/q
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=vpOeS1zLysQBqy4y0tcCfJ4mFvl/Hm26T1odAFXU41I=; b=tKvkIX/qsR5EQqZ3xxnvhOkD+k
-	/nkpp39lr0Wjt9OKV2nxffpt6gNnSxZU4YS8fyCXgBLDIRwfn4RhdrkMoFQBfdQqpcnBcbT1R88vT
-	CbNyxDFx/SffB5N+cjbshjruiXTHCI8ux9FOn50wFXzHX/93uA15JxE4BC2InTABEiOc=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xWxDm-001oS0-Dn; Fri, 27 Nov 2026 15:46:42 +0100
-Date: Fri, 27 Nov 2026 15:46:42 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: zhaofeng2@cmss.chinamobile.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] soc: dove: fix OF node leak in dove_init_pmu()
-Message-ID: <0c93419e-11d4-473a-a01b-689e7c33ab3e@lunn.ch>
-References: <20261127074219.1188-1-zhaofeng2@cmss.chinamobile.com>
+	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=sIbjzqZ6
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20261127144750epoutp0312c31acc939dc49c81949de82e912114~r7khK8ArS2104221042epoutp03Y
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:47:50 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20261127144750epoutp0312c31acc939dc49c81949de82e912114~r7khK8ArS2104221042epoutp03Y
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795790870;
+	bh=LigbDYHgFUyhETTkgekQg93P9iKK9kMEZK/QoESy0XE=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=sIbjzqZ641dRkba/PO0L2PZ/V2F+oqYTeIritnuJjc/vA9WhmIQjSJp3l60NRP5tQ
+	 lv3vpu2MBtWR9tyz+7YyytgzzNwodVWAiZOGwirlprkZoWqyaARQqcFclSbHW5wU/Q
+	 OPq/FJ/cvYwDi/yJfwmvMz+Ea3e8MG+YVt4KenJQ=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20261127144749epcas5p49e7591462797aaed3ad3aebe6d3ce918~r7kfprcBC2671426714epcas5p4v;
+	Fri, 27 Nov 2026 14:47:49 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.91]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4jbbqm2VM4z6B9m5; Fri, 27 Nov
+	2026 14:47:48 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20261127144747epcas5p3ea5291d4421b9dd1c7b5bd9f689d7639~r7kd9qO0n2159821598epcas5p3p;
+	Fri, 27 Nov 2026 14:47:47 +0000 (GMT)
+Received: from SRIBCU13LG9P71 (unknown [107.108.208.92]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261127144743epsmtip11a938de5238cc75244ef9229b378d8a2~r7kaaIVkO2293022930epsmtip1S;
+	Fri, 27 Nov 2026 14:47:43 +0000 (GMT)
+From: "Irlanki Sandeep" <irlanki.s@samsung.com>
+To: "'Kuniyuki Iwashima'" <kuniyu@google.com>, <ameryhung@gmail.com>
+Cc: <netdev@vger.kernel.org>, <bpf@vger.kernel.org>, <kuba@kernel.org>,
+	<cpgs@samsung.com>, <edumazet@google.com>, <davem@davemloft.net>,
+	<pabeni@redhat.com>, <ncardwell@google.com>, <ast@kernel.org>,
+	<alexei.starovoitov@gmail.com>, <ameryhung@gmail.com>,
+	<daniel@iogearbox.net>, <andrii@kernel.org>, <corbet@lwn.net>,
+	<linux-kernel@vger.kernel.org>, <lorenzo@google.com>, <maze@google.com>,
+	<sporeba@google.com>, <motomuman@google.com>, <madhan.raj@samsung.com>,
+	<srihari.k@samsung.com>, <g.pokhra@samsung.com>, <r.kumawat@samsung.com>,
+	<raj.kumars@samsung.com>, <ts413.lee@samsung.com>,
+	<ramyashree.s@samsung.com>, <daeil2.hwang@samsung.com>,
+	<sharmasagarika@google.com>, <irlanki.s@samsung.com>
+In-Reply-To: <av8pip2n63ZBofcE@google.com>
+Subject: RE: [PATCH bpf-next v9] bpf: tcp: add ecn_init callback to
+ bpf_tcp_ops for per-connection ECN
+Date: Fri, 27 Nov 2026 20:17:42 +0530
+Message-ID: <000001dd7e7e$448c3000$cda49000$@samsung.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,31 +87,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261127074219.1188-1-zhaofeng2@cmss.chinamobile.com>
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQLz+NqzmYpujPtDh8x08WfmcH857AK2nUVDAsdHS6ECyy+hMbTSuHvQ
+Content-Language: en-in
+X-CMS-MailID: 20261127144747epcas5p3ea5291d4421b9dd1c7b5bd9f689d7639
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+X-CPGSPASS: Y
+cpgsPolicy: CPGSC10-065,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20261116151200epcas5p4218c26338b3e9580a9e232be400aecc5
+References: <DM6GLQVDXGWL.1ZV7PCL5B2B0K@gmail.com>
+	<CGME20261116151200epcas5p4218c26338b3e9580a9e232be400aecc5@epcas5p4.samsung.com>
+	<20261116151331.500313-1-irlanki.s@samsung.com>
+	<av8pip2n63ZBofcE@google.com>
 
-> @@ -451,5 +454,7 @@
->  			pr_err("dove_init_pmu_irq() failed: %d\n", ret);
->  	}
->  
-> -	return 0;
-> -}
-> +	of_node_put(domains_node);
-> +
-> +	return 0;
-> +}
+Hi Kuniyuki,
 
-The logic of the change looks O.K. But this hunk looks odd. I would
-expect it to be:
+Thanks for the review. v10 is posted as 0/2, 1/2 and 2/2.
 
-+
-+	of_node_put(domains_node);
-+
- 	return 0;
- }
+> Why can't ip-rule (or VRF) be used with a per-route attribute ?
 
-i.e. insert the put. Why did it replace the return 0;. Is there a
-space/tab issue here?
+Routes and rules select traffic by destination, interface, mark, uid
+range, protocol and port, not by cgroup or application. A uid or mark
+rule can separate apps, but the existing per-route ECN bit
+(RTAX_FEATURE_ECN) only force-enables classic ECN, so selecting AccECN
+would need a new route feature. VRF separates traffic by routing table
+and interface, not by application on the same route.
 
-	  Andrew
+> Also, a route attribute would work with syncookie.
+
+Correct. Syncookie connections do not run the callback, so with this
+series they use the sysctl; the route bit still applies via
+cookie_ecn_ok(). ip-sysctl.rst documents this. An automated review of
+v10 pointed out that the commit message is wrong about syncookies. It
+says no request_sock is created, but a request_sock is allocated; it just
+has no listener, so sk_to_full_sk() returns NULL and the program is
+skipped. v11 will fix the commit message and add a comment at the call
+site. I consider the fallback acceptable, since syncookies only come into
+play under load. If you think the per-connection policy should also cover
+the syncookie path, I'm happy to discuss options.
+
+> This is simple, but one concern would be that we end up adding more
+> single-purpose stateless callbacks during 3WHS, which could be more
+> expensive than stateful solution.
+>
+> For stateful use case w/ per-socket field, rwnd_init() + kfunc would
+> suffice (and we have such a use case).
+
+The cost concern is valid. The callback runs at most once per side per
+handshake, and since v10 on the passive side only for SYNs that request
+ECN.
+
+For the stateful alternative, rwnd_init() + kfunc works on the active
+side, because rwnd_init() runs in tcp_connect_init() before
+tcp_ecn_send_syn(). On the passive side it does not, because
+tcp_ecn_create_request() decides the ECN bits before rwnd_init() runs,
+so a field set there would not affect that SYN-ACK. If your per-socket
+use case is active-side only, rwnd_init() + kfunc is viable for it, and
+we can discuss it as a follow-up.
+
+> nit: reverse xmas tree order
+
+> Please avoid calling it if not needed,
+> !tcp_accecn_syn_requested && !th_ecn
+>
+> also nit: reverse xmas tree
+
+Done in v10. The declarations in tcp_ecn_send_syn() and
+tcp_ecn_create_request() are reordered. tcp_ecn_create_request() now
+returns before calling tcp_ecn_init_bpf() unless the SYN requests AccECN
+or carries ECE+CWR.
+
+> Please split selftest into a separate patch.
+
+Done in v10. The selftests are in their own patch (2/2).
+
+Thanks,
+Sandeep
+
