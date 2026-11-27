@@ -1,61 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=106.10.242.84
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795804963;
-	b=yGlhZ+PCPJIIGpKM/7nBaP2QQZ3ZhSt013LG7XMsB+AP/qqw9Jsvpuk9fr6/jyMGgB0F
-	 dbvNz964SkK1tRfxZGsErBLtuSwO/9jLPtU+UMi4gZSFVYk8xIfIrWC7vcXvSvoIpw7tc
-	 4WdapoR4NltpzDMqHzIOHNB6xb1lS/0aKiYXPYJVGH3DcEpSTTl6rAIfwaoBTF9E1ojEA
-	 GRAfmuFKC8AfKTgX7pRzzEn2t459PWOZgJjg9Ku4uqAY82FWzrXhXCtNqpXPTAq6ED5LT
-	 PIPj/HwQTPBQHAB4nFv1mvemjQWtDxgFzwSO5VCJr7aN8pGYwDn0if3ZsR9pvFgLg6g==
+	b=wZcXEKBJ0zhcLiBo1rznbGo4QwbzGum9YGFSYZ4loviUyx9JvqkmYmFmNT/q0I7qlLKb
+	 BZP7E9MhJSpf54YXqfZAJvxbrNB+NFwy0qHkKV2sRcH4fB3+KOxieWtDNgXTCpIB0Ar4E
+	 TrPZCuOmncu+Cw4jo+wCZ7tvLri0P3CZZfJbl3k/mUnO5bkQuU0eNu2D0PQZx1DN1lUo0
+	 O+93nCwpJ9USsi3uSNeb0+YDNXvTRxeehubKvpr+o+kAOT0z4SULsZUKY6ZYkOsyvfqo6
+	 zpyQ9Cop/kME2cqURKo59M8UhIcIpbvYt0ugUFA/rBIP0ABrzWHddcl5Z+S7WKSaLZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795804963;
-	h=Received:DKIM-Signature:Received:Message-ID:User-Agent:Date:From:To:
-	 Cc:Subject:References:MIME-Version:Content-Type;
-	bh=i6vuZp5iYUjCT16EX6/ryDV5VdHO/oUi/XuED6Um3Dg=;
-	b=tlgTu+85ZdCKg/ZX0aUVThpQ5fU5veyFoje1uHH2LB6eYRp+MNi0dOqz5KPRYqKacywn
-	 /WjyIf7C/FOxOvzh/ROy2l5fifh47pYOxkRlp4Xjd8hOD0MI/Y6zcNsi9MG35cKD6ThC0
-	 K/CBKLSeggGSbi7Pj0x/DmYWR0pIVV7yG8dd9arbFvWxywZO76KdktbOHaMHR4o9sisBk
-	 K3274STuqu8qvB9elgRsEX3YJ2ljsmiPS9EKCB0jZU1ib/jWDN8S686+Rt78zD3d10FXH
-	 2SYbdlZsYcRA/uQdj1wChpbfC1SwUklFHwPYgUzqahaaqgLJFocDwihpYkqYthsKGig==
+	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
+	 X-Sonic-ID:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=faDONGWkfAuDNx7cFOlN96ZgR+Ck6XywIVc0ff0uZlQ=;
+	b=OZH+0qfKLGeTDOlr/JJVYk1vfYssDgBYp3D4CZpTcokLFRbQkmM6oSmJBV7MK9u649Ua
+	 VJ89P+sBHZZABR5ztvqN9HiUPmRfYS6AsAcUaRhZyImVzkNCVreuCmoeVN9v+4qqLg/tU
+	 6+q5RptOWRJsgDCjRI0GCfBsQshPu8wmHWc0jN8OEA01i/LL3uG3lAoVEojaVaMVr9WVa
+	 CBEFpdkEFwJra8DHm8W2oEFbtDBmT/UQWnl5RH1nHUWbmhEfNKEE6lHxJC+Wu5tk07pcd
+	 dcfh4rH2cVgiLXexfFnoPWicDb4vLB5c2K6VLi+g1LDY9nQymZpZfa4IsyRoSeagsGQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ad0hTuHo;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=yahoo.com;
+	spf=pass smtp.mailfrom=yahoo.com;
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=YClVWdL7;
+	arc=none smtp.remote-ip=106.10.242.84
+Received: from sonic301-21.consmr.mail.sg3.yahoo.com (sonic301-21.consmr.mail.sg3.yahoo.com [106.10.242.84])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8370C60A2617;
-	Fri, 27 Nov 2026 18:42:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 235AB606A6A4
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:42:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 235AB606A6A4
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ad0hTuHo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 251A21F0093A;
-	Fri, 27 Nov 2026 18:42:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795804963;
-	bh=i6vuZp5iYUjCT16EX6/ryDV5VdHO/oUi/XuED6Um3Dg=;
-	h=Date:From:To:Cc:Subject:References;
-	b=ad0hTuHoj7BS20iNcGvtV060azXQp3gLUQ/rsGjxKswj0WqQUH21OgSFzUTPHN1GN
-	 k93CPL/czMO0CK0uNB33UJpcZObWtkGTOX4V27iv6Oj6N7KLRrhzVot/kPiXcDg6LV
-	 5h5nK1LvpsTbDaEFHTgedwAUHRWH0EXxWTTlpA/nCENDH0MCTj3RMfQQQZ02qRO/4Z
-	 VVaLcBhcBWwWvp5DzsBdmbBUlpXBoe8a+rODXnfuFGN/7RgRhCb9S9K1nXTa2YEhHn
-	 yPUEKooZp2BSapnGE7VZW1FLxzcV/8x8QZvLlgIRTrJLnoBPNECxV5ordr/ejDUFBo
-	 cqgKYO+thspPg==
-Received: from rostedt by gandalf with local (Exim 4.100.1)
-	(envelope-from <rostedt@kernel.org>)
-	id 1xX0uA-000000085aS-1eEM;
-	Fri, 27 Nov 2026 13:42:42 -0500
-Message-ID: <20261127184242.197661244@kernel.org>
-User-Agent: quilt/0.69
-Date: Fri, 27 Nov 2026 13:42:07 -0500
-From: Steven Rostedt <rostedt@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: Masami Hiramatsu <mhiramat@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- stable@vger.kernel.org,
- Yifan Feng <evanfengff@gmail.com>
-Subject: [for-linus][PATCH 4/5] ftrace: Reject "!!" in front of a set_ftrace_filter command
-References: <20261127184203.439481361@kernel.org>
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=YClVWdL7
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795804961; bh=faDONGWkfAuDNx7cFOlN96ZgR+Ck6XywIVc0ff0uZlQ=; h=From:To:Cc:Subject:Date:In-Reply-To:References:From:Subject:Reply-To:Content-Type; b=YClVWdL7Hn/I5dmQ7y8yrFCtifw3ip0YK4mHdd1MymXJfxRpr7/F64kxEU7BxoVS8H/iFGF5Xbk2aOaQAcznjBpHSh/G37krN92ZDY6h+nmp7hgyOgC2PjkoLWNsq1OlaFpUQDP9aK0Ep2I0QJ4i969LjxkDgDmgJNo3cydaIVYmhROR30+IKOumQHrc6/SiaYU/n/17l9VlETp91oKlgqiWWoes3eFutFKlObEU+rqHs0+rncRXR1t7jmZJE4gjvpG8ZJgb9FR1iKbCw+mVmfVrw9Oh1titmygo497ONjLqo8Sv9IC0i3/FsCXE7ITMTK1jAsXXxT22MWduKKaJpQ==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795804961; bh=K4xAHI6e8jdoIkxVMcUseRJumcmRisyuPqzroRQa90H=; h=X-Sonic-MF:From:To:Subject:Date:From:Subject; b=XifUCYRe+RWDmyZu4lou6in0MqDBqrIHRq/U9BkGF6IJJrwrLa4c2Ke0P287b8TG7ratbIq+rihkT2FzibrpR1qo21awu1K4aTTN4l9KMLYFV9f4JHJ8587PmCge1aoYgHKrfcjdBDwDqG3PNM05hApbBM3fx4czHDfVzsJJs3oSi3snmGeYELyHnjLmcOtFqeVNgcnlO/In6+lWFTTv61+Avb0Uh4r6COeRJniIUJtwlos3EZYs8i5ZDfcFecqru1I9ecyPzKXRetrNt4aZr3sY87sSOZCS/wo4nNFjKKALkKtgbJu85uvvDgCgZgBAOXbaIScs/uaG9IG58KrUFA==
+X-YMail-OSG: yz1Dch4VM1lj_M59J6.2MNSolckKNffvOHSATxmVulkCWd5gKvtnOUEM2HEnPlV
+ QDu0_k_Wo3kz1q63k4xclrTGMvtUVlTtv73RZv_JAmAQhcy0Q37GoiDgwrpmHwCat5uRyREtwdlS
+ d_Zy2jhRQIiFn7k7nMO7zwbAwjQBMThHyCFzIpPH12JK5uuBwn2IBkoHs46zIwJwZmjJGQhWHQ4E
+ c_RIMyZVLFYsVpAvVm85IYCY1DkEVNja0EckyBSIB3kqDr1f.0qSJM_XxmlYFWQD7q3TjgmBbe9b
+ Tbp73LJp3SAjJ_rFgbl5dMlLAWlQ0bEHvXJFrvo7jJsJIk.tVMcL_OcomYlYhoBivcVz44vQQ4H4
+ QuEzAzV54w4v8AWZ9SCUSSh1S4oFjbasKhwBheDgJ06rhDMJgHyGlMibXc9qenubT9eqcTxWdFdl
+ jRQY5KecCFexeBIO3hXS_XVo7IYav9xRv1bgyJwd5FR4i8NLZBJb5BR_lkR.gfsdLcJsJ313_C88
+ IshmU9nIG5NC3nVWgpGnKU7mQAYYDIwC26A8WYRi75h6ITA7cLkWITvkLu6ogRkEG9UYgCjGDN.n
+ BBF45sriOLwAAkd84Oa4VofKIVmRrmZwIa8Eq.5YgDYqE8ghFRiUPtSAzG302wsGJO12xoTvGaxI
+ D5nq1iACMgrohvZLby1LHpRISUgiHBjV6Ai3psoNjKUjY2QvhtnUdcu25Bc9rYrbLYaashfv0Zk0
+ ceiDOIG0b1SnOjzrG4z0tnyVb8ckMtSiDrPxSx3.N9tOULqeaSF1eWQ5WYHaR11iJn4v8_nyZ718
+ PABr033hWxWirJscO6bdxhzJ..pQL6.5ndxj8jrP.65_KJiUgXfYLh6axLA8cnGCBzIB_d8gPpcR
+ zP0XLQmIM9syYjxydaxfRrz6hRsAKXb.8dCFuQdzv_ExLqZoFwPzD9QVeRXZAi2CntSkYSubyoAO
+ raITwN_k4isO4u1Eif6XZMa0TzOCyPLQcuNEOTDmgEu5qrU9sODvO92koY1PYK7wuYRfyPXTZdfV
+ 3MCZutr1GK2YCwhIXuEHtU6RPzekh_Ec6NYEzwX5LcOQd_6VA98nmQysyJ_xzg26ps5M_TcTdOOq
+ 62.StnZOYdCkWf3wNRVevyQISHEZR5IPZRncYCDaYpdFqKzLu1_GExn7yTKzqo3HiAMrj.csrWCc
+ 8rjvlo0EqLU7fZbm5re7EhGS6v0vN2l0YS1cb2ulOY0lCO3sLjNneSJX7gWCQna.v3I5WaxAudCC
+ IgW3s1FVOxhKt27vTHSIPeA1dLtJZa1vdm8X8KdhYCMgz6FxvGO3_TlhRjMzjs37T.I6goyqEKpz
+ KZoYECUzKn8CklZmulBpI5_cAhNoSuN2suz2EiM.NQmI5XlOt2R8aadKM7_AXlrJgOYIqIOzHf4n
+ pZV646ybluol_d3WoreqxIKTyOKT_T9enhW6IYrSgXARq581q56l.Nh8jN4Cierg_O3oDAHUtWXt
+ zUVgxNy6gjP0LDggh2hspTPwN6wPCf5bRHYqWmcM.bZKF_f2KaGzavJrPbRPXS_AaQbGEGaR7D83
+ 2a3CDqkql7bHgn3wJgUIbCcxYu_x8AX3T82Rsa0tIYAIOunJeTgvHo986Pkw2iCiLVtTE42qZfT3
+ mJcwrCcceZBeI7xYDXo2l3WKxnQhrEL8JXJQCVn0jmU1jELcybuc_zVy8XwoOPGqR9qTJ6yWorEQ
+ AuhOcKMgrvtS6L.aGs8ZDNrxj40qIMgffHoZ2ld2OQgpGymWYei7RZtO9xC.NON1Mpk6oe2XCDgz
+ Hi7Ad0FFP_4CRPDRklhQGTZwOgEQYuWr.HykrgIByMH2KkDxG_jEs9d0qru2vneESf74iAoVzu.z
+ TorxDHLGrtbFsmaaDQEkRqTynfGDZYopUJgtlSaP4bQm8sWAp8sgvw.PJIOkB_XoaEGDvdUy26qD
+ xW5wAFiAHv5VMiEO18_6pkb8MVDEQjhRSS1eyFaguOu1iBrzC5maCRoPs17bHnyOLo56UmikHFqC
+ IvnZbJ4_4BSmYOWYu9BY4IfQvJUtZN1ZGGpbZH7Wh5AdgPRQOSnzBo8yLltIOfxiotzutQGeEPEA
+ vbdGjK0JYZkfIQYRghkYdZwhlpBO0r7PS2P3TO_Zp9GECqCLrgt6dfupgFmqYEFydEMPcwWbXUNO
+ 46Rs70vU65Q8zgHZyxRF6maRUciGv2B_axv4ntuwZ7NPXTTOGIwjq_0.6Lwm7M_sr7kMezVm9_fn
+ OLl5v0Be6P6oshokwUxKmbQpM0fY1r4EYtD9cJjTacTiGmGLXaqD0lQ--
+X-Sonic-MF: <venkat.yadlapati@yahoo.com>
+X-Sonic-ID: 890b40db-28a4-473a-bd1b-d41a843fdaae
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic301.consmr.mail.sg3.yahoo.com with HTTP; Fri, 27 Nov 2026 18:42:41 +0000
+Received: by hermes--production-sg3-5ff9d6888d-5kb5h (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID e4ab3347475f853fc74f7d143b76b9e6;
+          Fri, 27 Nov 2026 18:42:37 +0000 (UTC)
+From: Venkat Yadlapati <venkat.yadlapati@yahoo.com>
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Cc: Georgi Djakov <djakov@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Abel Vesa <abel.vesa@oss.qualcomm.com>,
+	linux-arm-msm@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	phone-devel@vger.kernel.org
+Subject: Re: [PATCH v2] interconnect: qcom: Don't read back BCMs without an RPMh address
+Date: Sat, 28 Nov 2026 00:12:10 +0530
+Message-ID: <20261127184218.670679-1-venkat.yadlapati@yahoo.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <8184404e-93f9-42c8-b10c-ccd88c7934cd@oss.qualcomm.com>
+References: <20261123-icc-bcm-readback-v2-1-bacee81398e5@yahoo.com> <8184404e-93f9-42c8-b10c-ccd88c7934cd@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,52 +96,16 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-From: Yifan Feng <evanfengff@gmail.com>
+On Fri, Nov 27, 2026 at 12:05:29PM +0100, Konrad Dybcio wrote:
+> Well, you made a great case for it being separate!
 
-A command written to set_ftrace_filter with two '!' in front of the
-function glob triggers the WARN_ON() in
-unregister_ftrace_function_probe_func():
+Thanks. The separate Molokai interconnect driver is out:
 
-  # echo '!!vfs_read:traceoff' >> set_ftrace_filter
-  WARNING: kernel/trace/ftrace.c:5675 at unregister_ftrace_function_probe_func+0x662/0x870
+https://lore.kernel.org/all/20261128-molokai-icc-v1-0-a5e1754f086d@yahoo.com/
 
-The command callbacks strip the first '!' and pass the rest as the glob
-of the probe to remove. filter_parse_regex() then reports the second
-'!' as a negated glob, which function probes do not support.
+It replaces this patch, so please drop it.
 
-Return -EINVAL for such input in ftrace_process_regex(), before a
-command callback is called.
-
-Cc: stable@vger.kernel.org
-Link: https://patch.msgid.link/20261119191205.32892-1-evanfengff@gmail.com
-Fixes: 23b4ff3aa479 ("ftrace: add traceon traceoff commands to enable/disable the buffers")
-Suggested-by: Steven Rostedt <rostedt@goodmis.org>
-Signed-off-by: Yifan Feng <evanfengff@gmail.com>
-Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
----
- kernel/trace/ftrace.c | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-index 6654da9d1bbf..5b161959e701 100644
---- a/kernel/trace/ftrace.c
-+++ b/kernel/trace/ftrace.c
-@@ -5847,6 +5847,13 @@ static int ftrace_process_regex(struct ftrace_iterator *iter,
- 
- 	/* command found */
- 
-+	/*
-+	 * A double "!!" confuses the parser. This isn't a boolean operation,
-+	 * simply reject it.
-+	 */
-+	if (func[0] == '!' && func[1] == '!')
-+		return -EINVAL;
-+
- 	command = strsep(&next, ":");
- 
- 	guard(mutex)(&ftrace_cmd_mutex);
--- 
-2.53.0
+Thanks,
+Venkat
