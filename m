@@ -1,64 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795803133;
-	b=Kcx5hYgLMQQm7IcvoUKPwHvUzMcSQyXPiUg8HeJtT0BQM1UNcfkbTAyf3NDErXqaAQxZ
-	 kJbQ0U2t2THpxLkqsWP31H6Q6ljv/C+oilFql5NNcJMad066vSRtOMWFpNXL3duQrjcnz
-	 QeDtskLwzwx8mlY7+WZTAJdN7MlIo+x40aDdKo2pJwBb5c5vcw66R3rXU3tgd1zBz8a1d
-	 cC56h32VdHTvIgso25nnKez5g82RFl4dXyOhjftRJGDHE6jYUqBb+o5ehgCrk1KTQcgMO
-	 ZUCk75SlSY4OIyy/wRtj0vnV5qHQz2WAMOurxAze2bnJri8QNgd5hRN6KV9l0DlKu9A==
+	t=1795803142;
+	b=BW9XFMxrN7p7rYR0wPCDjp/wfBxXPLsLE9PWYUyQmu/lJWqo96NGgublk3w20LRlOKqE
+	 y/7vdRDH3KpUbys/duqQ6c4f6isPkJFFvdPJ1HdC8fviWzAXyrUiQH0nKpGxbhEOs+VoT
+	 6xTlbThegwJw+OcNlbOoaMTjnELmWrGQxJD3Twy+y9FcnmRsyOBSM9CgOtV65S++ryWaR
+	 joG/tm2WyOPkUilJszZYhbE9nBqan4+cZkWeFg6i25lwg21cnxyUCwpDewUNoZa/ucyf9
+	 dtC5d2X1mF3eQ5y1oEf7itxeZBBKMx7OU2NerheVk97Wdf3/wo/w6GLTvEulKGXxcGA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795803133;
-	h=Received:DKIM-Signature:Received:Subject:From:In-Reply-To:References:
-	 X-PR-Tracked-List-Id:X-PR-Tracked-Message-Id:X-PR-Tracked-Remote:
-	 X-PR-Tracked-Commit-Id:X-PR-Merge-Tree:X-PR-Merge-Refname:
-	 X-PR-Merge-Commit-Id:Message-Id:Date:To:Cc;
-	bh=Gy/r35+5JEtOtSHxIpzplhZdK/32CUJxIe81/3GxOy8=;
-	b=KxZJcSkAA5QLGcGY/D056Uzq+3e4FxWSIwA6vs68WcnonKz3AF1oLe3YpYWcVRzmQ4Rg
-	 uGZD/D6P9yUC1dnBV7COppsc6bQerKKiJgzkRcAIfxEewKDC9GrVe5kyiMYTtIahUfx1Q
-	 pVawW5CwRShf8t3jFoBRStuAnETbfJSaMuKs3Pa/7u084vJ1r+7gSjK8GpWfskcp5Oi7n
-	 Ps4o8iockbnp9ZSbFd9CW4w6d7FMsjbbIzO/JUZvjCqRMSi+7GDo1LnU5W70YhUgD1Rn7
-	 6Ht1rQ/mle5txLxS5zKCvnW2FIOu9uQdmGtkLJJGemNNojjcv/wrlbjYbauMugxioSQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795803142;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=NZGcvqBJEfT7g/whVf4ukhs+6BekUU6T21N+nSw//EY=;
+	b=QbFi4qRnFYvQf40z1UgpeNwkDNIgu8qBjo8AMl4OlQhvfpCXravsGCebefyEefY/59Oo
+	 MGCrqATtU+MowMo5CzMNKC2O6lkuTfE412M65sgTqq5J5HAGgv5YN7u72f2e29GqJCSLE
+	 XEQVFm8g8RUk23yyFdPSTRSNwdk+3JpFqsj3ZjG/VA3HZca0tYyJP2UikUdC5moFlI9SV
+	 7MdjuG/5Ty7eSh0q2e5G+IqgbLFT6vCqklEVY+tLt7SMU/7YCRHnxcCwqkGJbdj1fwoli
+	 vdiaq3MwdSDX8a0yPZcjIBGdeITE/CLm00RUS8lwW1psyGrt/XhxHSsLhGWTp5Nc7ng==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QzoxtWJA;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BBA0606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:12:13 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=HHc77jFv;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 67BD5606A321;
+	Fri, 27 Nov 2026 18:12:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67BD5606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QzoxtWJA
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B785B1F000C1;
-	Fri, 27 Nov 2026 18:12:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795803132;
-	bh=Gy/r35+5JEtOtSHxIpzplhZdK/32CUJxIe81/3GxOy8=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc;
-	b=QzoxtWJAQqU6sp1dcNoVnq4QhKj78g3moCbvKrAZJNoCRzyhlNkDmwvGO7v2GIfwf
-	 g3lizhljOESyUI0rW9EAMxcqoDbcX286GwjN9gaKjxcOTvRXc0K4ngWi5F3ZX/t9lp
-	 +UHne3go9xcVjrIsyxAvwewtisuqeuQ5u9ScskLOrcTsE3wIyky2ejIzxsGlpqknBI
-	 DQf9M4nfFElaFlV3AB0Lhmq/dYbQKIw/0q1wFk6OogO0v5PXjBnl2oKTalHa+LalcE
-	 pGX6Gi8Ewrr+3tRSwqm4oOedkSde9ITn18+vtpHs6XFxtoESz+Nl/E1SUODN06nTal
-	 cHBPsihlmE+lg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE906392704F;
-	Fri, 27 Nov 2026 18:12:12 +0000 (UTC)
-Subject: Re: [GIT PULL] arm64 fixes for 7.4-rc5
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <awm_2b5a-TzetyOj@arm.com>
-References: <awm_2b5a-TzetyOj@arm.com>
-X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
-X-PR-Tracked-Message-Id: <awm_2b5a-TzetyOj@arm.com>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
-X-PR-Tracked-Commit-Id: 18817028301de963a3a25f6d7d652d1d3b79f570
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 822ba3a89c7896b26e4beb70e2ebffb881924dfe
-Message-Id: <179580313150.1619291.17779977413302110781.pr-tracker-bot@kernel.org>
-Date: Fri, 27 Nov 2026 18:12:11 +0000
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=HHc77jFv
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 891F61575;
+	Fri, 27 Nov 2026 10:12:18 -0800 (PST)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EBA4E3F86C;
+	Fri, 27 Nov 2026 10:12:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795803141; bh=BX01zZQ8nHBs4mxff7UBzSukxYsQTZNUpf0gX1VR81o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HHc77jFvjaccfHJE17xqKL/IqiGPQ+BeH6zBI+g2ieHQmh2//J2eW8wELdkkk8hRu
+	 dO/oTl4A3EAMrpugvgDmxQrH2rsSUmToa4UBPRb6Y5gHJGiXiSml4XSNmZSjqEaPjT
+	 FKNykJLuwmnANFhWJPm0cV+aM5RAEJZy25LS3Ack=
+Date: Fri, 27 Nov 2026 18:12:15 +0000
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-security-module@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Steven Price <steven.price@arm.com>,
+	Sami Mujawar <sami.mujawar@arm.com>, thuth@redhat.com,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
+	Pawel Chmielewski <pawel.chmielewski@intel.com>,
+	Jiri Pirko <jiri@resnulli.us>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <shuah@kernel.org>, Len Brown <lenb@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Mark Brown <broonie@kernel.org>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	Gavin Shan <gshan@redhat.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Subject: Re: [PATCH RFC v3 3/8] arm64: acpi: Enable ACPI CCEL support
+Message-ID: <awnH_1vFvFXpny-M@e129823.arm.com>
+References: <20261127-arm_cca_mr-v3-0-df3230afce8f@arm.com>
+ <20261127-arm_cca_mr-v3-3-df3230afce8f@arm.com>
+ <3a46bcc3-33bb-4c9d-a3e5-44144406dbda@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,16 +77,59 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3a46bcc3-33bb-4c9d-a3e5-44144406dbda@arm.com>
 
-The pull request you sent on Fri, 27 Nov 2026 17:37:29 +0000:
+On Fri, Nov 27, 2026 at 04:28:01PM +0000, Suzuki K Poulose wrote:
+> On 27/11/2026 15:32, Yeoreum Yun wrote:
+> > From: Suzuki K Poulose <suzuki.poulose@arm.com>
+> > 
+> > Add support for ACPI CCEL by handling the EfiACPIMemoryNVS type memory.
+> > As per UEFI specifications NVS memory is reserved for Firmware use even
+> > after exiting boot services. Thus map the region as read-only.
+> > 
+> > Cc: Sami Mujawar <sami.mujawar@arm.com>
+> > Cc: Will Deacon <will@kernel.org>
+> > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > Cc: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+> > Cc: Steven Price <steven.price@arm.com>
+> > Cc: Sudeep Holla <sudeep.holla@arm.com>
+> > Cc: Gavin Shan <gshan@redhat.com>
+> > Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > ---
+> >   arch/arm64/kernel/acpi.c | 11 +++++++++++
+> >   1 file changed, 11 insertions(+)
+> > 
+> > diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
+> > index 681aa2bbc3995..3d6335db882d3 100644
+> > --- a/arch/arm64/kernel/acpi.c
+> > +++ b/arch/arm64/kernel/acpi.c
+> > @@ -354,6 +354,17 @@ void __iomem *acpi_os_ioremap(acpi_physical_address phys, acpi_size size)
+> >   			prot = PAGE_KERNEL_RO;
+> >   			break;
+> > +		case EFI_ACPI_MEMORY_NVS:
+> > +			/*
+> > +			 * ACPI NVS marks an area reserved for use by the
+> > +			 * firmware, even after exiting the boot service.
+> > +			 * This may be used by the firmware for sharing dynamic
+> > +			 * tables/data (e.g., ACPI CCEL) with the OS. Map it
+> > +			 * as read-only.
+> > +			 */
+> > +			prot = PAGE_KERNEL_RO;
+> > +			break;
+> > +
+> 
+> Unfortunately this breaks some platforms, where the NVS must be mapped
+> R/W. Thats why we dropped this patch.
+> 
+> https://lore.kernel.org/all/20251124103329.363afcc6@foz.lan
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
-
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/822ba3a89c7896b26e4beb70e2ebffb881924dfe
-
-Thank you!
+Thanks to share. anyway it's enough to read in this series.
+So I'll drop this in the next spin. Thanks!
 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+Sincerely,
+Yeoreum Yun
