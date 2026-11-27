@@ -1,100 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795793260;
-	b=MS/8whN+v/9kij1DJCnimuKZxVdGwHYxUi1ViB+AoUUQotbozAdq8cARMKin0/8VZYxc
-	 liRj8Xb7ete0E24lSqq/ESxpdv06W+6nTKanAIxurFeh/qVZ8n2X3niZ/VJrBSTzed1uC
-	 a3kttNXDFLPVV4mU5q8ljk10hLfg4tkeKMwaieXJOXSY9HJxVbbf10idku66OCqeHIdoJ
-	 btS56c4TsePpKFC0GlcvOr1AQYn8WM2AnM1qPJ8y2+Qu3eS0xFSygzbgz6AOrEdU6oMVi
-	 Yu2mjMDqmqLN9mYoX935q0fxp4uuEW1rtE3A23dDEE0Jis55FQyXua4SsLp6rjUlJlw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795793260;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:Sender:X-SRS-Rewrite;
-	bh=Blb7Mg/UOWA71rnTCoPfVbDymfiRcX3jB92crLcpHmM=;
-	b=KZchYnWb5Yxu3SeBrbetUfKQ1HPnKzJTHMk00ejieAO5T2Pjf9zYtuV2aLT2FIQKdaO6
-	 9uFMBnE7Fl9wYrSMEbZI18HSaTILSPVVwQ9dJOLoWPzcxOrBliuSFShZaoe69Cf627So7
-	 Y1DsSD8b9y6S985ZvrOc8T6Z9j8w0NzVhDomr4dI9TSaR5wkb13dshiTKXNSIizkBVE3g
-	 F7GqlO5shEC3oLZywr4pvTthdS6jtfymBe/iyCpOreCJoPTkDTuMxqL/bJCdX9RwIxLJy
-	 TWXXyUTHenqQOWoSN4xCX9fGUI6cN3JqxX5l5Bm3JDzI920ePXhbPUidtPNjtVSM3HQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=none smtp.mailfrom=desiato.srs.infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=BE8Zt7ij;
-	arc=none smtp.remote-ip=90.155.92.199
-Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795793319;
+	b=oj9DNVEJh7UBcD5TDEKQJG0tnLCLecO/7tFKJJarhpfcyOx/RGAaHXOLUQmeYIxXXVCj
+	 PNS7mBGp3rhb9mZzpZbFgpRLim6CvCTg4N0svjVgRgsmyvmAdvNBHtUWk3aJ+YxpTdnRY
+	 hSGaRT+AdAVUDbYtS6fCK38yzFcUmfCYAeuVWvKOLhp2rPIgyVhPGFu+G6DGa4/w/KQPB
+	 YDVq2vZ0LpTmSfjZZ8iSSHYYBm7jCoizU1gy0J5p9ZF7tLLnrVEd9h+jj9xllZBtSKHAs
+	 3bs1SYiw4JJQjVuCOrVaPXGuh4FEw9iIN0MF5mBwajfHs7dD1N5gao2BPRuU9qVYROg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795793319;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=NgtfBGZW6JnOX8QXxkHMy03vg6zeloIYXjLXT43yxao=;
+	b=GrqX5FJoL4TzLPy5mljSGlxodL5M5+nDHI3SO9BcnEOfwclhTppzM8jjiJAzfdzXzpV8
+	 FHDNEGaLDmg7m3FrWsmVKzPVRWvGNzBu2BAseVptm7pf5O23kOb1YZdajlYpxEZccG5MP
+	 6eX/ZcUA84kpDRrfsqmRsqsFaD3htgGY3OJbg59Au/YGMu2XGSIqYrtoIhjIhiM0Ebhm6
+	 dQVWZhNiGruRFjr2qMfYyisjt0xP9x52yl029nXGJZT/iBE4puxf/lAFK8wt8CRn0iJuA
+	 DaaAWUjh2vintq/utpYBQXcRqM7Sjdw/EBYRH7N5SOd1d72aWxSzMaLROAUjPtGprJA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gSXBaJiH;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87DD6606A31E;
+	Fri, 27 Nov 2026 15:28:39 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gSXBaJiH
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795793319;
+	b=uzcmpTkgpFLFHg3B4Eq9p7aJZRCbVi7+cjmCW1Gyx3ESEWiIB1S+eL8W5MJEHWy2Ube9
+	 Ms2Z9ahQft243jk5HMkPpUSpr098px+YmMbHof/pB1r4qIr/HIf/WIu5aaAYhCpJ1QHQC
+	 YpNIVw6ZhiQgis+Euv63S3Evafl6ZnUBLUmpZU/ra/UN0gh3IQcWi8PRrtRj5PuhiBgZZ
+	 +Dl2I/cYurEuHa1PnrVb3/iVNQYoUDkMFwtFZXYzpVHFOqhOxwXbhEsh93PazA2VO62Hu
+	 h6sbkjVFrHxx4eUfUOJIP2jCQVTKtWlFETYiYPT2tBwineSyB/iueNQ3B0qHWvGKf/A==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795793319;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=NgtfBGZW6JnOX8QXxkHMy03vg6zeloIYXjLXT43yxao=;
+	b=uyIk8w4m9YhhJ+31bwnN7F4STuE7Cb4eN22JOhRRCU4WaalvchBQs/saKl5MVEtb/T2R
+	 Go6690089mjouxnY8JwW05MXvQUTlzpbdKFqhOFbGSPYR0sG9rIHhityZmj0k9MMteTPU
+	 Qd65HgnyGPwXqFlrm0RnY7k22m622nLENJqnfqHeDF5CUgx02EVvgeWTPNVaTzFC+XOCv
+	 2tgzvKKi5G14BO7edUEX+hCajEt1lrlT2bI5DuruCB6R+wAO7iOzV0yuVoR1yKJFvF/AA
+	 MVUmhtp291IWuOAzQwLeO+voOchVaw83SB46M2oOe6gLEsi1A/w+iY8oopYtQkqu4DA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDEC460A261F;
-	Fri, 27 Nov 2026 15:27:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDEC460A261F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=desiato.srs.infradead.org
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=BE8Zt7ij
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description;
-	bh=Blb7Mg/UOWA71rnTCoPfVbDymfiRcX3jB92crLcpHmM=; b=BE8Zt7ijIQFxXAcVLD3kw9fV5L
-	FC+rM3e69g9WhhZzgQJnlvSYGeAxFusbMqdVLG6CCVAJq5Pa3HuOZIDXFUB8peSewuR/JVUAQLslH
-	pTTpi9gIo8yYJEWa/hIzH7wmvkepmQsOG1M2Qz61Eyhg/MlPa2L9HWyXfwcjco8Wsx66j34sQrEFH
-	vCN/+Jmha3jYtwKybOd2vwrv5JiG5pWk1YfGi6yUJNdcSupc54hF4rCueK09FkWb4NZ+y5ZHWkrHe
-	m2teBxZpLUMAZRp8AwlNZvKEMtMb5UbZ07ZyfM4jHp/kapAFy8oBP9OqVYI5oSfD5SJCwu4EFv/rU
-	O6qWzTiw==;
-Received: from [2001:8b0:10b:1::425] (helo=i7.infradead.org)
-	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWxrJ-00000007tkn-2Ea9;
-	Fri, 27 Nov 2026 15:27:33 +0000
-Received: from dwoodhou by i7.infradead.org with local (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xWxrG-00000000PqS-2Oj9;
-	Fri, 27 Nov 2026 15:27:30 +0000
-From: David Woodhouse <dwmw2@infradead.org>
-To: kvm@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-hyperv@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Vitaly Kuznetsov <vkuznets@redhat.com>,
-	Marcelo Tosatti <mtosatti@redhat.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	James Bottomley <James.Bottomley@HansenPartnership.com>,
-	Thara Gopinath <tgopinath@linux.microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>,
-	Michael Kelley <mhklinux@outlook.com>,
-	Nicolas Saenz Julienne <nsaenz@amazon.com>,
-	Nikolas Wipper <nik.wipper@gmx.de>,
-	Mushahid Hussain <hmushi@amazon.co.uk>,
-	Sriram Nambakam <snambakam@linux.microsoft.com>,
-	Zack Rusin <zack.rusin@broadcom.com>,
-	Doug Covelli <doug.covelli@broadcom.com>,
-	Jim Mattson <jmattson@google.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Paul Durrant <paul@xen.org>,
-	Xin Li <xin@zytor.com>,
-	Francesco Lavra <flavra@baylibre.com>,
-	=?UTF-8?q?Radim=20Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>,
-	Liran Alon <liran.alon@oracle.com>,
-	Arbel Moshe <arbel.moshe@oracle.com>,
-	David Woodhouse <dwmw@amazon.co.uk>
-Subject: [PATCH v3 07/15] KVM: x86: hyper-v: Advertise XMM fast hypercall output
-Date: Fri, 27 Nov 2026 15:27:22 +0000
-Message-ID: <20261127152730.99319-8-dwmw2@infradead.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261127152730.99319-1-dwmw2@infradead.org>
-References: <20261127152730.99319-1-dwmw2@infradead.org>
+	by smtp.kernel.org (Postfix) with ESMTPS id 60A821F00899;
+	Fri, 27 Nov 2026 15:28:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795793319;
+	bh=NgtfBGZW6JnOX8QXxkHMy03vg6zeloIYXjLXT43yxao=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=gSXBaJiHLLiZ+4DbLwfLbKXGfKxEqluk7htCpxtmIHraem3dzdLUUJUW5+W+pz8fC
+	 Rl9bAc+drgTxZdpFHZjwiMd04NWhsRf9sHCOuxJy5ccLWTgWhTBmqPq1Zm/C2a85GS
+	 lGuQLysvddprG++sngS33ela2k3PBIn79k8Z4mpMd/nkE5ZdbysNR1hee39eu74gNA
+	 6f6aPOGfocoSMFLomDCVGVtoErHGz77xdZU+0in8c2Ma7PF+wvNohyKK7E1PfbzsEn
+	 9EzeQvktoSnf65BkmYTZC5YvqtcWQqoOrIfzzn7Puuw80vVqhewbgt2fb89OIGDrQA
+	 Z/4Q3Ku/EcPdg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id DF4094DC71;
+	Fri, 27 Nov 2026 15:28:28 +0000 (UTC)
+From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
+Date: Fri, 27 Nov 2026 16:27:02 +0100
+Subject: [PATCH v5 01/12] dt-bindings: soc: amlogic: meson-gx-hhi-sysctrl:
+ Fix compatible matching in conditionals
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,38 +83,143 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Sender: David Woodhouse <dwmw2@infradead.org>
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261127-meson-drm-create-hdmitx-phy-v5-1-88c43eb95468@aliel.fr>
+References: <20261127-meson-drm-create-hdmitx-phy-v5-0-88c43eb95468@aliel.fr>
+In-Reply-To: <20261127-meson-drm-create-hdmitx-phy-v5-0-88c43eb95468@aliel.fr>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Ulf Hansson <ulfh@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-phy@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>, linux-pm@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3283;
+ i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
+ bh=PVKFWIK5TVZ+BrIG2D/sPckomoO1CwEMBpgyzjwKon8=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQzbnwo4lXSy+ejIvDHe5M+3L5snh+DcrYbFnrZmTR/kSO
+ R31J1wdpSwMYlwMsmKKLP1zLU+8u3z0zNc96ikwc1iZQIYwcHEKwEQ6tzMydN89U8+sm9O3Kl6s
+ /TXbUd9LenuaNl+q58vjUGg6yC/2g+EPz77O44zd728/UEpj2eEYwpKyY8PJxlk603Mc9oYHxNk
+ wAAA=
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
+ fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
+X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
+ auth_id=744
+X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Reply-To: linux-kernel-dev@aliel.fr
+Content-Transfer-Encoding: 7bit
 
-From: David Woodhouse <dwmw@amazon.co.uk>
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-A fast hypercall may return its output in XMM registers when the
-hypervisor reports HV_X64_HYPERCALL_XMM_OUTPUT_AVAILABLE, and Windows
-only uses those forms when the bit is set.  KVM does not report it,
-although a VMM handling a forwarded fast hypercall can write the output
-through the vCPU FPU state.
+The conditional schemas select on "compatible" with a bare enum. On a
+list such as:
 
-Report the bit.  None of the hypercalls KVM implements itself returns
-output, so it only matters for those which the VMM handles.
+  compatible = "amlogic,meson-gx-hhi-sysctrl", "syscon", "simple-mfd";
 
-Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+an enum applied to the whole array only matches single-entry lists, so
+the if: blocks never match as intended and the per-variant constraints
+are not applied reliably.
+
+Wrap the enums in "contains" so that the conditions match on any entry
+of the compatible list.
+
+Doing so exposes the "phy" child node of "amlogic,meson-gx-hhi-sysctrl":
+it was forbidden (phy: false), but some DT legitimately describe an
+"amlogic,g12a-mipi-dphy-analog" PHY node under this system controller,
+which resulted in dtbs_check warnings such as:
+
+  system-controller@0 (amlogic,meson-gx-hhi-sysctrl): False schema does
+  not allow {'compatible': ['amlogic,g12a-mipi-dphy-analog'],
+  '#phy-cells': 0, ...}
+
+Allow the phy child node for amlogic,meson-gx-hhi-sysctrl by referencing
+the amlogic,g12a-mipi-dphy-analog binding instead of rejecting it.
+
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 ---
- arch/x86/kvm/hyperv.c | 1 +
- 1 file changed, 1 insertion(+)
+ .../soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml  | 32 +++++++++++++---------
+ 1 file changed, 19 insertions(+), 13 deletions(-)
 
-diff --git a/arch/x86/kvm/hyperv.c b/arch/x86/kvm/hyperv.c
-index 67c9d20547d8..bf0e37d026c0 100644
---- a/arch/x86/kvm/hyperv.c
-+++ b/arch/x86/kvm/hyperv.c
-@@ -2882,6 +2882,7 @@ int kvm_get_hv_cpuid(struct kvm_vcpu *vcpu, struct kvm_cpuid2 *cpuid,
- 			ent->ebx |= HV_ENABLE_EXTENDED_HYPERCALLS;
+diff --git a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml
+index f3a85c67ce8a..285edac4c082 100644
+--- a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml
++++ b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml
+@@ -40,8 +40,9 @@ allOf:
+   - if:
+       properties:
+         compatible:
+-          enum:
+-            - amlogic,meson-hhi-sysctrl
++          contains:
++            enum:
++              - amlogic,meson-hhi-sysctrl
+     then:
+       properties:
+         clock-controller:
+@@ -53,9 +54,10 @@ allOf:
+   - if:
+       properties:
+         compatible:
+-          enum:
+-            - amlogic,meson-gx-hhi-sysctrl
+-            - amlogic,meson-axg-hhi-sysctrl
++          contains:
++            enum:
++              - amlogic,meson-gx-hhi-sysctrl
++              - amlogic,meson-axg-hhi-sysctrl
+     then:
+       properties:
+         clock-controller:
+@@ -67,9 +69,10 @@ allOf:
+   - if:
+       properties:
+         compatible:
+-          enum:
+-            - amlogic,meson-gx-ao-sysctrl
+-            - amlogic,meson-axg-ao-sysctrl
++          contains:
++            enum:
++              - amlogic,meson-gx-ao-sysctrl
++              - amlogic,meson-axg-ao-sysctrl
+     then:
+       properties:
+         clock-controller:
+@@ -81,17 +84,20 @@ allOf:
+   - if:
+       properties:
+         compatible:
+-          enum:
+-            - amlogic,meson-gx-hhi-sysctrl
++          contains:
++            enum:
++              - amlogic,meson-gx-hhi-sysctrl
+     then:
+       properties:
+-        phy: false
++        phy:
++          $ref: /schemas/phy/amlogic,g12a-mipi-dphy-analog.yaml
  
- 			ent->edx |= HV_X64_HYPERCALL_XMM_INPUT_AVAILABLE;
-+			ent->edx |= HV_X64_HYPERCALL_XMM_OUTPUT_AVAILABLE;
- 			ent->edx |= HV_FEATURE_FREQUENCY_MSRS_AVAILABLE;
- 			ent->edx |= HV_FEATURE_GUEST_CRASH_MSR_AVAILABLE;
- 
+   - if:
+       properties:
+         compatible:
+-          enum:
+-            - amlogic,meson-axg-hhi-sysctrl
++          contains:
++            enum:
++              - amlogic,meson-axg-hhi-sysctrl
+     then:
+       properties:
+         phy:
+
 -- 
-2.50.1
+2.56.1
+
 
