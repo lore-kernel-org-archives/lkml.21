@@ -1,86 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795771423;
-	b=pR7j8D0zxnA7169wse+Rxo3Cwb8nme067aiY3djgbPF6KC6b8tNhp6tpPVYvHRqf5007
-	 EwB9iIqQAg9uCQ0b0cHQ13aqT3Euu2C/NCbDbMoJQ8agI0Tp8ky7y4o68hbKLvO7yVwQF
-	 bQzbbab55X8P+cFRkj6uqvOEkwza5VzG8eBTVmYYekgHgtGYXJ4MBH77AffOGTlBnMR0u
-	 vZRs2orv1bEoeRXnBuXg+sutgQGzBYDKGNIB5oQluKvSYTb/fZIi8VF+Wc6IFXQ5JInOn
-	 UORmJXmWNjzXsmrXAy/0PDlOwZtdtW3n43AQXbAkH9RK+i8e4Um2iJtR8D1k/PSoqHw==
+	t=1795771442;
+	b=Hoc1sxURhDyWZTNvzaKMbp83A82Cj2xH6zYS3XqbCQ6sDUQNIj7PBuXeksG3meQT5fIR
+	 Zjrwg69L39axHPOnhhZiLq+e7mG9L8D391SOpJOIEyvKctHGnnyp1d9omxjHwtOSEh/f5
+	 LNGQSncbbf4lDEIXlQtRLIrbC0tdnSykdijWUmdWunJRibRC8u9cnVv15lH26Ye4fHinB
+	 eAxi4p9X/f+9IZUJtHtPSJWgsElYVTPM+RsPeqUMLpL/7souxyKH6aB6mIlRrjXUAnV7g
+	 3VyteAkBeqZjQbfW/EARHwXSMYiQQzv0HpEWFWkLo+OtFwGvCTUlRfmHr5487974ydg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795771423;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=PH+l0IfQ28b7UEDSOlC/cTnR6aoCEbyBOr2fiW8TlTU=;
-	b=hNbA5h9c96GJm26oVAWQbmr0nAcpyYj+5kxZZmqqNLXkEnP1Bg4/IKpLXlxvD4idayzf
-	 GreqkUoBuUAjkmBg1gUKSui842on4TzBLLhlTzBD2L8RZWvWs9g/HjJaDSCUzufnNC1c7
-	 4883L1rjAfak3uEGBW8WEYSz3uQtAMRTENTexg2C/x1VryiD0Wd3kgNgvzbytlPvy+9Fh
-	 YJ7m13rFdveCUdUIrqQfmrRCx96H0BqkDI+YDNbampJbbD8TL9S1mymnG96RwdSALQfw+
-	 sFs1QjhJ36k2e4ZYzmdJwDgTITL8el+BR4ax+I8jSIXoDj2Es9g/JpTQa8ICPnrcPxg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795771442;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
+	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy;
+	bh=dcm3vEaafSdM/C5J8kdxevbXyamY5QJ7Qrldbj24bk8=;
+	b=b622evEGguf5bmzbUUljpqrvnU6/UOb+MRgJPw8GEBqumy1JATm2f7nuYwPfuZylTkqO
+	 QUh6AfJ2O+TqFSO6v57KLFzkvOgHVjpMjeDFsONls6hQy77kRF6rWddYru95mfei0XbGh
+	 nwSs6OkxUJcEFiJJunDI9x1alJ/cOmOdmi26ujL3rrqP7S8VvMS+DwGvKrs4X46L0rBg8
+	 4hCjvEyeK95U7FDgQOOO9iGR3Dp4J77gLhBvXuXqgghCsm1mI1gVO3FziPMg/ZFPRm4eE
+	 GDgXxCsEIvJ3cPQxmEobFmX+Nb8bOSsmOE7ULXbJxzA3/IGHEqFcSuGHukiYcDVOFZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ff2U6hPn;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=secunet.com;
+	spf=pass smtp.mailfrom=secunet.com;
+	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=cF1aTWG+;
+	arc=none smtp.remote-ip=62.96.220.36
+Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A3BC606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:23:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A3BC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4DEC606A31E;
+	Fri, 27 Nov 2026 09:24:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4DEC606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ff2U6hPn
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 6BEF04E41795;
-	Fri, 27 Nov 2026 09:23:41 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 3FD5D6049C;
-	Fri, 27 Nov 2026 09:23:41 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 997C311E69295;
-	Fri, 27 Nov 2026 10:23:30 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795771419; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=PH+l0IfQ28b7UEDSOlC/cTnR6aoCEbyBOr2fiW8TlTU=;
-	b=ff2U6hPnfdWAVrHeE+QURp8p7spbk1dJChI6RpTqx3eZ6Z3NSmqEVqcsrKBWqUpqwxoqWW
-	zc/fJA/3RG5rOfbi3GI0F41sSS9iHwSig5LSCGt1aXBDcpRxI3DT8e8RJknK0sQbIl5kfU
-	fdQvbBmJgmrJbK1tkN+JTKCuLjWJUt8EV3cO/KgSmj55J+HF2kejPGpxpzQJlPHmgFegnn
-	gT98jrBXT2PzOH6AL4wHjqlAbY+tfPkFyNcwy0ZMUmc8pSVOvdPYHQMXQlEU96yCUjPdH1
-	ZbVOCf20wWo+PSdFfV0SZC2WzOlKgPtH9tgx0ynelI4M7dV1719v3WkwGWwZmw==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Bough Chen <haibo.chen@oss.nxp.com>
-Cc: Mark Brown <broonie@kernel.org>,  Liang Yang <liang.yang@amlogic.com>,
-  Feng Chen <feng.chen@amlogic.com>,  Xianwei Zhao
- <xianwei.zhao@amlogic.com>,  Han Xu <han.xu@nxp.com>,  Conor Dooley
- <conor.dooley@microchip.com>,  Valentina Fernandez
- <valentina.fernandezalanis@microchip.com>,  Daire McNamara
- <daire.mcnamara@microchip.com>,  Haibo Chen <haibo.chen@nxp.com>,  Jyan
- Chou <jyanchou@realtek.com>,  Yu-Chun Lin <eleanor.lin@realtek.com>,
-  Maxime Coquelin <mcoquelin.stm32@gmail.com>,  Alexandre Torgue
- <alexandre.torgue@foss.st.com>,  Pratyush Yadav <pratyush@kernel.org>,
-  Michael Walle <mwalle@kernel.org>,  Takahiro Kuwano
- <takahiro.kuwano@infineon.com>,  Richard Weinberger <richard@nod.at>,
-  Vignesh Raghavendra <vigneshr@ti.com>,  Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>,  Alvin Zhou <alvinzhou@mxic.com.tw>,
-  Cheng Ming Lin <chengminglin@mxic.com.tw>,  linux-spi@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-amlogic@lists.infradead.org,
-  imx@lists.linux.dev,  linux-riscv@lists.infradead.org,
-  linux-stm32@st-md-mailman.stormreply.com,
-  linux-arm-kernel@lists.infradead.org,  linux-mtd@lists.infradead.org
-Subject: Re: [PATCH RFC 02/16] spi: spi-mem: Stop checking the dummy
- buswidth against board wiring
-In-Reply-To: <20261127085359.euu6z5rydr655ycr@shlinux89> (Bough Chen's message
-	of "Fri, 27 Nov 2026 16:53:59 +0800")
-References: <20261125-macronix-upstreaming-spi-mem-cycles-v1-0-fd036402fd37@bootlin.com>
-	<20261125-macronix-upstreaming-spi-mem-cycles-v1-2-fd036402fd37@bootlin.com>
-	<20261127085359.euu6z5rydr655ycr@shlinux89>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Fri, 27 Nov 2026 10:23:30 +0100
-Message-ID: <875wxivd9p.fsf@bootlin.com>
+	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=cF1aTWG+
+Received: from localhost (localhost [127.0.0.1])
+	by mx1.secunet.com (Postfix) with ESMTP id 2EFB720854;
+	Fri, 27 Nov 2026 10:24:00 +0100 (CET)
+X-Virus-Scanned: by secunet
+Received: from mx1.secunet.com ([127.0.0.1])
+ by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id X0G047dj0qH4; Fri, 27 Nov 2026 10:23:56 +0100 (CET)
+Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.secunet.com (Postfix) with ESMTPS id EDAE120839;
+	Fri, 27 Nov 2026 10:23:55 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com EDAE120839
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
+	s=202301; t=1795771436;
+	bh=dcm3vEaafSdM/C5J8kdxevbXyamY5QJ7Qrldbj24bk8=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
+	b=cF1aTWG+3V4v29+SEEMfMv9E5crQnBDJI+uKpUmTQ4XutlW20uU/LPWcGFLyUwCJo
+	 uvlWN1wpvUqCbIog9C2Epm9zBBXiH7v8dyiqhhzLqMvSBUAxluJNZy89XE4yBdc3hY
+	 35pkRdopPK54hs34a09bq/7e+dOnl21rDyxG9SKRpvk394K+SUUL6juhKvOe9HgFKk
+	 CFTNz0iCxH8mrHW5uR6wGMWRwl7TzlgPEMRDWRgUIn2SSoghmKU5b3Vy3B8h3wqB/B
+	 6dX7Ezw6vslH95QHdfqt9dhsb8guiKqGHzZP19AcCDBfaqvEZwrppLmcDHsKn41eJb
+	 /yMrbon3eMPHA==
+Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 27 Nov
+ 2026 10:23:54 +0100
+Received: (nullmailer pid 3467634 invoked by uid 1000);
+	Fri, 27 Nov 2026 09:23:53 -0000
+Date: Fri, 27 Nov 2026 10:23:53 +0100
+From: Steffen Klassert <steffen.klassert@secunet.com>
+To: Andrii Tereshchenko <opensource@andrii.net>
+CC: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
+	<horms@kernel.org>, Christian Hopps <chopps@labn.net>, Fernando Fernandez
+ Mancera <fmancera@suse.de>, Willem de Bruijn <willemb@google.com>, Piyus
+ Kedia <piyus@iiitd.ac.in>, <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>
+Subject: Re: [PATCH ipsec v2] xfrm: iptfs: make room before copying a
+ continuation in reassembly
+Message-ID: <awlMKdcVSQEShHlw@gauss4>
+References: <e417c7f2-eaee-4fb0-b365-65cd521efd6b@mid.andrii.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,35 +85,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <e417c7f2-eaee-4fb0-b365-65cd521efd6b@mid.andrii.net>
+X-ClientProxiedBy: EXCH-03.secunet.de (10.32.0.183) To EXCH-01.secunet.de
+ (10.32.0.171)
 
+On Sun, Nov 22, 2026 at 05:09:25AM -0800, Andrii Tereshchenko wrote:
+> When iptfs_reassem_cont() cannot share a continuation as page frags, it
+> linearizes the in-progress skb and copies the data in with skb_put(),
+> without checking the tailroom. An skb started by iptfs_pskb_add_frags()
+> has little room after linearizing, so a larger continuation panics the
+> kernel in softirq:
+> 
+>   skbuff: skb_over_panic: ... len:2884 put:1442 ... end:0x6c0 dev:eth1
+>   kernel BUG at net/core/skbuff.c:215!
+>   Call Trace:
+>    <IRQ>
+>    skb_put.cold+0x1f/0x1f
+>    iptfs_reassem_cont+0x242/0x760
+>    iptfs_input_ordered+0x382/0x3e0
+>    iptfs_input+0x24d/0x630
+>    xfrm_input+0x12a5/0x29f0
+> 
+> After linearizing, grow the head if the rest of the inner packet does
+> not fit, and abandon the reassembly if that fails.
+> 
+> Made with an AI coding assistant, reviewed by the submitter.
+> 
+> Fixes: 5f2b6a909574 ("xfrm: iptfs: add skb-fragment sharing code")
+> Fixes: 0b352f83cabf ("xfrm: iptfs: fix skb_put() panic on non-linear skb during reassembly")
+> Reported-by: Piyus Kedia <piyus@iiitd.ac.in>
+> Closes: https://lore.kernel.org/all/20261119142308.3272570-1-piyus@iiitd.ac.in/
+> Link: https://lore.kernel.org/all/20260908224855.1591147-1-kuba@kernel.org/
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Andrii Tereshchenko <opensource@andrii.net>
 
->> -	if (op->dummy.nbytes &&
->> -	    spi_check_buswidth_req(mem, op->dummy.buswidth, true))
->> -		return false;
->> +	/*
->> +	 * The dummy phase implies no actual transmission nor reception.
->> +	 * Its buswidth therefore does not matter much.
->> +	 */
->>=20=20
-> Hi Miquel,
->
-> With this change, do you plan to add the linked patch back?
-> Setting the dummy buswidth to match the data buswidth is more reasonable.
-
-No I do not. Doing this would only paper over the problem for certain
-cases and would for instance break many of the SPI NAND cases. Those
-chips currently derive a number of dummy bytes based on the dummy
-buswidth, which is the same as in the address phase. So changing this in
-spi-mem or drivers would break this assumption. Either your controller
-has a cycle oriented dummy phase, in which case there should be no
-problem once converted (see the patches below) or it is byte oriented
-and the mode should likely be refused.
-
-But maybe if you tell me what you have in mind we can search for a
-solution for it.
-
-Thanks,
-Miqu=C3=A8l
+Applied, thanks a lot!
