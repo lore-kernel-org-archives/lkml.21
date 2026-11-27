@@ -1,99 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.50
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795790480;
-	b=TifAyTUHXF3xs+VxrtYWTnpmi8NvobMFYdbR5M61r/m+yqxOHc1zG9y7CHbYsm2cHGy/
-	 +PwyA+1hsW26hyY06nPlV78N+cd035l736hVwSY4h3+IdlJFvJJCdRHDfsQC/LdVlMXva
-	 h2gH2nktAZZf+oa3lY/X4zhFPZZdFir9qLjYKUDvD43rs+opV0F4L7jRSlESh5w/1gghN
-	 vkksvfCIwGJjFjMhPCtphyOZ3CFRNLc2rPFljq3LS1SySApaD0hVr0luDTmbdeFSKn4kj
-	 JR35tVzOYKhS7mW00r9BW/LF3rvMId5GVqwyYM91kl2agaEqgAp6pWNQTy1WCRRb6gw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795790480;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=1xAA2Goyp0+/R7QCDqIjCUY9e99g0trvUh4YZU4vu90=;
-	b=0W6jjbN8J4CiMRonyT0IWaLBnRAFBmogIf6T9RdXnS6ZoK1TWVoQF1P7yyTM/JBaZRAC
-	 tdD4SoSRvoeVIGkKcFln1u85N/KJa9ZbkAE+j8iliv5Y/6gkxZB+UQEUinaF54103UacI
-	 xv/VOQYEusrJqs0EWOG5FSWjcQYVhlavHJx3S47TfZV3JoNX+YghiFGsdNl2X3acm+8Dw
-	 lTJsEmsONey2LLpCslDJVzXRDtTR0D5DPRiOqTffK4rKZZK0rfKMksCDfGoYQYqvA76e5
-	 HSnHBa1OcZsgBH87a+QVRo5hTvwCHK4oEVrRDSZRFedB9S1IjHEavXVYpJom9xm29eg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cloudlinux.com;
-	spf=pass smtp.mailfrom=cloudlinux.com;
-	dkim=pass header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=LHfcB0pa;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.50
-Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com [209.85.218.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795790534;
+	b=rK3kvqPvJfogm7EBU5XOj9zyhpsGfa8PAnvuJBPBQ2jUSq+QOnB+KH0XscbuiRFW7YWD
+	 BXhcoIrRCzKI/YQIZv8sN8XlvHvEzsFfKTx1n6uBHv4ngNWSWsR1ShoTPAKUZcecd6fud
+	 cWVX6d8AVyHzBXUXMqKMJv274wsUXM8tsWXuxJ81Dz72IpEJTNPUcr2BaRKLJa/UWfyWg
+	 m7SvIaqUURRKh1vHvDIDFgHAE88N3mf9tdUFAkmv4+h4j4Q25dhWuqpwRfmZA7Czu1IU5
+	 xqGvR22ZxpDM7Ua2vEC8ewH9n83Sk2H2fxkERNv7tjQVpqyRw92L+5U0Zgo1OIWY9mQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795790534;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-AI-Review-Draft;
+	bh=TYE6CrUU05VzJT2OvbyvbZtdDwgxWflUs6iHXhIq+1c=;
+	b=D5JR4gSmflYTrDs3YVDboKVoO7Rv7j66MkOpjLcxlJuQJXziikdvDm6sPYaEP9NUlWdT
+	 PAlPfD6f0gzj6+oTQWmhB9JaZtLwZkniT1lz6PyKGZWi7r5C+e4VB47ubU/RPgJgxNvo/
+	 eAl7ZuUgk+CydKAQAjeB+5Gh91zTxFtaMzU2QsylzJg6v3vTztu2CIAD+Vvdg7wFzXDce
+	 YzAsJONvxF07IQ+0ddtl+QPHP+fAbmN0oYFU5N+B9wmqmkdForCXBh9p4uBI6+M5St0l6
+	 kQfnAh/WowdYL1/InDjr/ZNtvsslxVvYzAah3TkTf659A/kcO5VOdpvOAOn1Qi7Iyqg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FOYJZTfb;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A289606A33E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:41:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A289606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cloudlinux.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudlinux.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AC1C606A31E;
+	Fri, 27 Nov 2026 14:42:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=LHfcB0pa
-Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-c4d427836e9so1077977666b.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:41:20 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795790479; cv=none;
-        d=google.com; s=arc-20260327;
-        b=GBEo0HhGLKdbDcuVLBWkXvIkT/oOk8+kJAjDB47M/NWDQBZLJjbd+zmRHEi8tRXdn2
-         wigu8Sn3GurpBOjlYrk+vLPiDD11UJFC3TXS8J2Ilc99nCkgjHazQI95doseIT5P4hJ0
-         /OIzwdZCj9O+Ygg3Y1GWlydF4+sxrQo8tTxVtIN+t/j8lrvcpAAZceWGGJ/pT4TOsekW
-         t2P1E3gKS/yg4p2yNeL8RHpvaWyQ+a3AICBL5hYqoluzfZahEIdTQosxxFGpDfRHQQzO
-         cIW4bKu+AB2cndsP2EqJIEDL4f7cB/nJR+bW87+Q1hjyPTqc0YzxusOpAIUttBdd3EK9
-         EnoA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=1xAA2Goyp0+/R7QCDqIjCUY9e99g0trvUh4YZU4vu90=;
-        fh=2q84zW7H0morvDUTgI4W9nAKM1Rc247EJ00S40zAdAM=;
-        b=DgvTOyNoIXKQvfN13Z9Ln27mtKx4rrfVlyc0tYrDrOl/Y+LdYqdvp4HAzPCBrZBFy2
-         gd+UAGxcEf0+NiN5SJokwLxiF4YiBHU8whwB5nt8dzDwA+zLCzWBMkh5sEzqb2pT44o5
-         M5s1z69k4U24tVeO4p4Dec94607MPE2g4IBCPa0WWk9kaZATA7rzh1stNHAxVe/YcCTY
-         YzrK62iR8tH9KG0RAxP1RqiWN5HHS9vy1WP2WhIK1MilIH7FIiQtMm8JeCv0bzpESd3b
-         lcNnGM3IsiiUkAJRGk9E07sB+OzVemuZAmv4uoRBD4vhzZpTmtxoJfTDVru9XqRBSjfb
-         LIDA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cloudlinux.com; s=google; t=1795790479; x=1796395279; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1xAA2Goyp0+/R7QCDqIjCUY9e99g0trvUh4YZU4vu90=;
-        b=LHfcB0pa9Ab7t7V5ree0LguhPCVLlgg2YVYz63+bEkwiJyWjniALgiV+VY1f+LDElB
-         InK/6q7KAQPVAydVOQ6A4ZP6uQ7kBwJka+DdBeq4fTSGLzLnvRmlagDjZ1L+OYp9ykVH
-         i0muj6dUr7iSzFw957h0/294/PqZcgMnfY0+s7Dexyz8rjbTQEAQlYf5o7n89hQPMde1
-         TR5LIiH+LrHYKfF+Kt4y0p4AsI82qeIVXihhlj51XMNtV9AcpQmx+gwAKsfoXKueGA7I
-         o+DHJtdwzc2UC27L2qVBjsVO2jDomfEMDfkK62o31ORctEkaEs2+pELR3DjfBJ6Gfur1
-         O9/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795790479; x=1796395279;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=1xAA2Goyp0+/R7QCDqIjCUY9e99g0trvUh4YZU4vu90=;
-        b=t4oXoRpdLsJ6K5klcyobo0Xn1QZTlEpBrrolWIiIVr3dddh26/iIDp7x3g+LVhRdlz
-         2nCxBB/ml4V8sUUEwNaCt6TC5qyIE4xNLRlzs3tbjX/RIpdjKpnn2i1A4ULJKZxCyFMY
-         s1VFwWoP0zwTYvJNaG0cmA+k9CVWDoEJvC1mHymRnFgMWE763ym4S0B4yWo2QhTk5VjB
-         5ux5bf381pagEpI4juUAwr5pfVbFmA2SecFv8sjSQhkz2icYymCaNxjGCkDQtpx7rf2V
-         z/uhSpOdZVbladfQMDeCe+sIdesRvd8enbrFY3mWX4rsQqSWpEjZZNZ6SuAPMfqgkXHg
-         ukjA==
-X-Forwarded-Encrypted: i=1; AL+hErH9EezT7hGiaJGWfGCvx8HGDAED+G+c9FR95o2qHg5mHY16Gjcm00CunFws8JCJyxIC7JhsNP75FFDiuxA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9F9vZaXtcprVsA3PUcz7Rr8IoumZBUlDcLYl8NBolDB8YWUqZY
-	K015+lDRntyarEHLMhCjXyYO/xz/o8d9zd6E2I7HhSkT3iBWeVAcBppALJMpkfDHrVF+GOIP7Ha
-	qFLpikKsC/6XB1lSZvNSEHEYh0O2ViWL7wuAvXFX1Fw==
-X-Gm-Gg: AZFdTZfz2cLIbckzzI4f2s71RWxesIV6SW7W94iXNXsES9ngrlY119xR9q4VrcQu3Pk
-	jbBsw6vC5OBBNu+tHYdtfATa70czqvwuZOcf9m/pHskd3HMQF1FxCiMgbBW4ViiEBF3ZJ8pgYwO
-	sdao7zQ9vz+gCGfoTSLwuotbr18itFwxBOWKPJeldAoBqAUCXgDirRwIkqXiroH27jIgB4berFm
-	VSOIXE57YgSukvb6BrgziZcYAwkXCA8UEiKQnv5nDVk6S43uIvGqtwk1MYAenMxJDy2X+iz3lby
-	MKrnunwBfcZDuZIlQjIKjrcCwTvbXtghk5g07raUPCRbWHWApo/FmhWUTxEEQ+fFtaX6+vgWamn
-	RtBQkDbOLWKj6qT6CTo5C+S73Ii7hAmhnISI=
-X-Received: by 2002:a17:907:1b0b:b0:c51:e06a:4744 with SMTP id
- a640c23a62f3a-c51e06a478emr187991766b.7.1795790478468; Fri, 27 Nov 2026
- 06:41:18 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FOYJZTfb
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5951C1F00923;
+	Fri, 27 Nov 2026 14:42:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795790533;
+	bh=TYE6CrUU05VzJT2OvbyvbZtdDwgxWflUs6iHXhIq+1c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FOYJZTfbeslGiZJtKKJ4TzZQjobXmk8hjxMjIV5Bsf7dyu6+CQ/Q4iBpFgcdre00D
+	 +0M61e0NyrzjL6U7yN5kkJSaFakYeV5mV/bzLO5zw/v4wSWtABYwh0jR44Bo+7on8c
+	 7/C9BbVCqVRd27uZ8Eskvj/EQ71IHjIMTNsk+RVZROf/weXvo14ix2eHQ8A6lmonQ8
+	 SLxu1ove5qEYJP62mQB8p2I6Nc2yWzt6CobR58f6wMdhbWM/wXPPzaPmNTiXMSuBhU
+	 1wlzbVwDJsc+dqtBe0k7XypKBqKyI49UVOEriTDxTHl9Ri1L7ooPcwpwMWAqKpe9Lo
+	 ztyjTecdK9inA==
+Date: Fri, 27 Nov 2026 14:42:09 +0000
+From: Lee Jones <lee@kernel.org>
+To: Armin Wolf <W_Armin@gmx.de>
+Cc: pavel@kernel.org, linux-leds@vger.kernel.org,
+	linux-kernel@vger.kernel.org, i@rong.moe
+Subject: Re: [PATCH v3 08/11] leds: class: Split led_classdev_register_ext()
+Message-ID: <179568576204.32537.4412828047245874349@kernel.org>
+References: <20261120212431.152081-1-W_Armin@gmx.de>
+ <20261120212431.152081-9-W_Armin@gmx.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,33 +58,205 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123104236.4179425-1-rmustafin@cloudlinux.com> <179551712630.3135.52212996809224784@kernel.org>
-In-Reply-To: <179551712630.3135.52212996809224784@kernel.org>
-From: Rustam Mustafin <rmustafin@cloudlinux.com>
-Date: Fri, 27 Nov 2026 21:41:07 +0700
-X-Gm-Features: Aa3M54ridbYcbm90XHp9x2LSe6zmQntTNNJ5b4vHfgqbclmUtnKlfUB5zVS6gIA
-Message-ID: <CAG6=z5vW4aPe9f5S_8m73oKvEkxSZySc7tJJo_hbK7F-bL3ZJA@mail.gmail.com>
-Subject: Re: [PATCH ipsec v2] xfrm: use the frame's own socket in the too big checks
-To: netdev-bot+sashiko@kernel.org
-Cc: steffen.klassert@secunet.com, herbert@gondor.apana.org.au, 
-	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
-	horms@kernel.org, netdev@vger.kernel.org, ipsec@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120212431.152081-9-W_Armin@gmx.de>
+X-AI-Review-Draft: <20261120212431.152081-9-W_Armin@gmx.de>
 
-On Tue, Nov 24, 2026 at 5:45 PM <netdev-bot+sashiko@kernel.org> wrote:
-> Does iptfs_is_too_big() in net/xfrm/xfrm_iptfs.c still have the same
-> mismatch?
+--- checkpatch.pl (4 issues) ---
+Line 149: ERROR: code indent should use tabs where possible
+Line 149: WARNING: please, no spaces at the start of a line
+Line 150: ERROR: code indent should use tabs where possible
+Line 150: WARNING: please, no spaces at the start of a line
+----------------------------------
 
-IP-TFS has its own output path, which this patch does not reach. It is
-fixed in a separate patch:
-https://lore.kernel.org/all/20261127142550.66326-1-rmustafin@cloudlinux.com/
+???
 
-> This isn't a bug introduced by this patch, but this branch leads into
-> xfrm6_local_error(), which looks like it can leak kernel heap memory:
+> Split led_classdev_register_ext() into two separate internal functions
+> to prepare for future changes around LED class device initialization.
+>
+> Signed-off-by: Armin Wolf <W_Armin@gmx.de>
+> ---
+>  drivers/leds/led-class.c | 102 ++++++++++++++++++++++++++++++++-------
+>  drivers/leds/leds.h      |   3 ++
+>  2 files changed, 87 insertions(+), 18 deletions(-)
+>
+> diff --git a/drivers/leds/led-class.c b/drivers/leds/led-class.c
+> index 8494a1ca0353..2f62141268ab 100644
+> --- a/drivers/leds/led-class.c
+> +++ b/drivers/leds/led-class.c
+> @@ -253,9 +253,15 @@ static struct led_classdev *led_module_get(struct device *led_dev)
+>  	return led_cdev;
+>  }
+>
+> +static void led_classdev_release(struct device *dev)
+> +{
+> +	kfree(dev);
+> +}
+> +
+>  static const struct class leds_class = {
+>  	.name = "leds",
+>  	.dev_groups = led_groups,
+> +	.dev_release = led_classdev_release,
+>  	.pm = &leds_class_dev_pm_ops,
+>  };
+>
+> @@ -490,16 +496,19 @@ static int led_classdev_next_name(const char *init_name, char *name,
+>  }
+>
+>  /**
+> - * led_classdev_register_ext - register a new object of led_classdev class
+> - *			       with init data.
+> - *
+> - * @parent: parent of LED device
+> + * led_classdev_init - Initialize a new LED class device.
+> + * @parent: parent of LED device.
+>   * @led_cdev: the led_classdev structure for this device.
+> - * @init_data: LED class device initialization data
+> + * @init_data: LED class device initialization data.
+> + *
+> + * Initializes a new LED class device, but does not register with the
+> + * subsystem yet. Useful for performing additional initialization before
+> + * adding the LED class device to the subsystem using led_classdev_add().
+> + *
+> + * Return: Zero on success or a negative error code on failure.
+>   */
+> -int led_classdev_register_ext(struct device *parent,
+> -			      struct led_classdev *led_cdev,
+> -			      struct led_init_data *init_data)
+> +int led_classdev_init(struct device *parent, struct led_classdev *led_cdev,
+> +		      struct led_init_data *init_data)
+>  {
+>  	char composed_name[LED_MAX_NAME_SIZE];
+>  	char final_name[LED_MAX_NAME_SIZE];
+> @@ -564,12 +573,52 @@ int led_classdev_register_ext(struct device *parent,
+>  	if (!led_cdev->max_brightness)
+>  		led_cdev->max_brightness = LED_FULL;
+>
+> +	led_cdev->dev = kzalloc_obj(*led_cdev->dev);
+> +	if (!led_cdev->dev)
+> +		return -ENOMEM;
+> +
+> +	device_initialize(led_cdev->dev);
+> +	led_cdev->dev->class = &leds_class;
+> +	led_cdev->dev->parent = parent;
+> +	led_cdev->dev->groups = led_cdev->groups;
+> +	dev_set_drvdata(led_cdev->dev, led_cdev);
+> +	ret = kobject_set_name(&led_cdev->dev->kobj, "%s", final_name);
+> +	if (ret) {
+> +		put_device(led_cdev->dev);
+> +		led_cdev->dev = NULL;
+> +		return ret;
+> +	}
+> +
+> +	led_cdev->wq = leds_wq;
+> +
+> +	led_init_core(led_cdev);
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(led_classdev_init);
+> +
+> +/**
+> + * led_classdev_add - Add a new LED class device to the subsystem.
+> + * @led_cdev: the led_classdev structure for this device.
+> + * @init_data: LED class device initialization data.
+> + *
+> + * Adds a new LED class device to the subsystem, allowing userspace applications
+> + * and/or kernel consumers to access it.
+> + *
+> + * Returns: Zero on success or a negative error code on failure.
+> + */
+> +int led_classdev_add(struct led_classdev *led_cdev, struct led_init_data *init_data)
+> +{
+> +	int ret;
+> +
+>  	mutex_lock(&led_cdev->led_access);
+> -	led_cdev->dev = device_create_with_groups(&leds_class, parent, 0,
+> -						  led_cdev, led_cdev->groups, "%s", final_name);
+> -	if (IS_ERR(led_cdev->dev)) {
+> +
+> +	ret = device_add(led_cdev->dev);
+> +	if (ret < 0) {
 
-It is pre-existing and this patch does not change that path, so I have
-left it for a separate fix.
+Does (ret) work for this?
 
-Br,
-Rustam
+>  		mutex_unlock(&led_cdev->led_access);
+> -		return PTR_ERR(led_cdev->dev);
+> +		put_device(led_cdev->dev);
+> +		led_cdev->dev = NULL;
+> +		return ret;
+>  	}
+>
+>  	if (init_data && init_data->fwnode)
+> @@ -588,10 +637,6 @@ int led_classdev_register_ext(struct device *parent,
+>
+>  	led_update_brightness(led_cdev);
+>
+> -	led_cdev->wq = leds_wq;
+> -
+> -	led_init_core(led_cdev);
+> -
+>  	/* add to the list of leds */
+>  	down_write(&leds_list_lock);
+>  	list_add_tail(&led_cdev->node, &leds_list);
+> @@ -603,11 +648,32 @@ int led_classdev_register_ext(struct device *parent,
+>
+>  	mutex_unlock(&led_cdev->led_access);
+>
+> -	dev_dbg(parent, "Registered led device: %s\n",
+> -			led_cdev->name);
+> +	dev_dbg(led_cdev->dev->parent, "Registered led device: %s\n", led_cdev->name);
+>
+>  	return 0;
+>  }
+> +EXPORT_SYMBOL_GPL(led_classdev_add);
+> +
+> +/**
+> + * led_classdev_register_ext - register a new object of led_classdev class
+> + *                             with init data.
+> + *
+> + * @parent: parent of LED device.
+> + * @led_cdev: the led_classdev structure for this device.
+> + * @init_data: LED class device initialization data.
+> + */
+> +int led_classdev_register_ext(struct device *parent,
+> +                              struct led_classdev *led_cdev,
+> +                              struct led_init_data *init_data)
+> +{
+> +	int ret;
+> +
+> +	ret = led_classdev_init(parent, led_cdev, init_data);
+> +	if (ret < 0)
+
+if (ret)
+
+?
+
+> +		return ret;
+> +
+> +	return led_classdev_add(led_cdev, init_data);
+> +}
+>  EXPORT_SYMBOL_GPL(led_classdev_register_ext);
+>
+>  /**
+> diff --git a/drivers/leds/leds.h b/drivers/leds/leds.h
+> index 6d00e6f44126..def7166f062a 100644
+> --- a/drivers/leds/leds.h
+> +++ b/drivers/leds/leds.h
+> @@ -18,6 +18,9 @@ static inline int led_get_brightness(struct led_classdev *led_cdev)
+>  }
+>
+>  void led_init_core(struct led_classdev *led_cdev);
+> +int led_classdev_init(struct device *parent, struct led_classdev *led_cdev,
+> +		      struct led_init_data *init_data);
+> +int led_classdev_add(struct led_classdev *led_cdev, struct led_init_data *init_data);
+>  void led_stop_software_blink(struct led_classdev *led_cdev);
+>  void led_set_brightness_nopm(struct led_classdev *led_cdev, unsigned int value);
+>  void led_set_brightness_nosleep(struct led_classdev *led_cdev, unsigned int value);
+> -- 
+> 2.56.1
+>
+
+-- 
+Lee Jones
