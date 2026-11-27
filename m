@@ -1,87 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.150
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795748746;
-	b=zu/4WG14Gzb0gSu+ayBEDM2aZsOoxwNgkNei255v0kZWNm403JdjnNzUgdw9zb54X7k0
-	 d120UU6DLE8jFQ6DvtKdPS3MfXBLZ9OVeepxQE/vof7P/wC3NIw0+HQgBN2/t/OpdbkYR
-	 3MCByRDRhbIYNG5gMhuXjv4U1N6HCLFpUG9ReBdPDP+iD+MKxxa6JiavbdLM59jCFAMrx
-	 2Rxq+TJHAR9JSpbZ+qYYY7WLRxe78JSHJnOg2GUahAyCJKoqefnCTty+0MjFG6jSBKYFH
-	 0O2AIeYJOsMKXZ2LcyUO3eo30VSPOkSk9bCNYszh7XrYnGt5ByPkhHH8XP11EC6gkTg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	b=dAemafk52tgs3lZ6EAaDx5XB4fbtLcv6oaZzwIk2sUaeHU0A9iuPGq0qjfbmIbWxYQRt
+	 ExGt+eoN69scefE3KgPRUZU0xLBoDu+zwHU21iWueJL4lSfCI+97yR3NHOqNakauQEy1e
+	 S+07JSXqvnvBhs64fqJF86jbiNha13POwUHaUt9AeeT+K0dydJ47axaoGTCSqevXOMxns
+	 6gwi/QtC8r0KLD4zsi51Ai2Sai8CZyyDOLksngMrPgOaeKOGmjY4VgSKVg0KfvbJ6GQZT
+	 zxZc1rLy+ZeuT2npFLmc0509+ZA/xmdB3HKzQ/NveEsP5N0QRuqU6fn9RjS8UvshHiw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795748746;
-	h=Received:DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=ZYSpWaydzi/HLoHbkGjLDcru//1qD664DYcG/RjHYVY=;
-	b=fNpBfp/TnhE0ixZb4Oc+V2Ymdgvx6Vz15pW64VqTn+yog65H4SsfoflCXKvw/P7wArZE
-	 Utlz580BNPqlHyNTvU3rO5NGunO66OKo1yULNoywEVMaohIo6gfYEeldM/ZUma0sFu5DL
-	 WSTz8aBOruUGHbcE0j3fSveQhatV+HdAqr8eCidiCWI1b37c6nwS7221DCtvaAmB4Tczc
-	 IdGc8xctUmGWoAMg1I28ja1UTEdfizeHNKdjzWHUuWeib8pMRZJXjsp2WUzhPlzgKXbBl
-	 lwLoKxNGq1Srt8ElfMamEp3Xt3IvW655uFRm48WBZo+n03NNclnVXH9YyCVNgLtbrGg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="eq6jpS0/";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=0iyRO/RdJsLPm+V8gWlwRu8Z0TdmRrgl6OxGF0qoYQc=;
+	b=mGJ/gD6JGuCGE//o+n7dLeWz1PL4DsygA5xjbW0TjlN0yOpbmlYGfb7IK3lvm0883z7n
+	 gqKUA9dj/vg795dnkUGkOnavIrIjXE9pssQ6F2ZxRp1fhFPGI9pIombJt94JdmWEg7gkN
+	 c8O55aI4IQSjIjIC5G59YvYFfHZSJPP2nlNkt6R7v8QR4J9itiK7vZZaQ9fseNhFI1KAg
+	 6+k74y22ECIfj3f8de/6zyC2OZqspufkXYDbQkBLG+ubX0igCVGFEVxRpaGrwksBv9Eyu
+	 IqITz3M1UopuJCCTlTnr0N7AAzhXO560uoE2UEKUjQ9KW28vYSqeNLqS7LIwbUOhllw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=squebb.ca;
+	spf=pass smtp.mailfrom=squebb.ca;
+	dkim=pass header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=d9GZBZUw;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=pcd+zkR9;
+	arc=none smtp.remote-ip=202.12.124.150
+Received: from fout-b7-smtp.messagingengine.com (fout-b7-smtp.messagingengine.com [202.12.124.150])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 164F4606A324;
-	Fri, 27 Nov 2026 03:05:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59AC7606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:05:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59AC7606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=squebb.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squebb.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eq6jpS0/
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795748745;
-	b=l9QC1lSpILgi022u5FAIXRNTIscTWzvR+262C0YALSspXQdkkAbK/JtZy5kw43dr67FC
-	 z9Gu282EjEQ316B7C+kLJ040obDm5wi9xOIzQ/iXwpSvekBeNuYg3qCUKVPIjUyD3PhQM
-	 DJODhw3km01GPxdNh06hlFhClc9m7vjrvn6XkKDPO/OwJd2WC0wsmqzHXQIfv5y9FZedo
-	 p47q5gFiEBmTKRAX53S5Hg4WyKAtiz7gCZ6vDV9CtHm8OQQ1YxYLuR5ozSjdBimr2yLYm
-	 jvftXMHXKXSOcpDDT7X2Z2oxKLrn6IfqMPUUhxh8f7qTrfE2vgprWJGGapTAgmwx6BA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795748745;
-	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=ZYSpWaydzi/HLoHbkGjLDcru//1qD664DYcG/RjHYVY=;
-	b=SfmdIoEIHlqQmM0MnFk/JzRBbORM5KK3rWlGJbU/pfYxvCy677UhMz6lYo5YeQpdNFK5
-	 JJD582IpFyHf4bKja0FxD5U/KKN5OE2s4sG+k+fSdfe4I9oaCRCLzetHZ4qxZv8smy+ep
-	 cnoc6tQwFKS81F2F1Bl2YGkv2ktjrmeK0OiyxMm5H/84akoLy6bkea5E4fXGB7Hj/BO4u
-	 Hn5pkL9Ks46wKKely6A6mvNMthBtnKA/ZWUg56JsDUB8U9I153VuaGlSuV9tXGNfLK+Rp
-	 semWs/uEWIvEfwRPnxhrMFz/ILaPeCp5yJKDrnoAvfUdIwHSqUNWU4f6qb0v1eK7yDA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 7512D1F000C1;
-	Fri, 27 Nov 2026 03:05:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795748745;
-	bh=ZYSpWaydzi/HLoHbkGjLDcru//1qD664DYcG/RjHYVY=;
-	h=From:To:Cc:Subject:Date:Reply-To;
-	b=eq6jpS0/kyquKPPhnRS6PUnvyvttlOX5AzWJCYyl6NAMRpev2N5u9dFI7Ij+Z5hx9
-	 8KRj1nD6JLDPyn/L6kce+HB39rmn44c6tMKFuuxOYoknI83E3mlVvX0fpZ0KA3jpiA
-	 jDQ8GjSXbQzvKO8KHqccA4yUh5ECYmYBPZ2sWcMWq7Z4Ck4CxNLvtmb9qLTokkqWTu
-	 qz0wcL8S2EiEK0zGWEgvdf5g7nTUA5DEj+y5rDr5M/4DHntaP4HYtSb0JyZJmcIGDg
-	 ycJqGzKlcfgKDZcvO0eVw5gjz/z5xdVp6fHN+02MqppxefikEULjbHfCPILMALX5Pz
-	 pvCH59F1cf4SQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id EAC424B513;
-	Fri, 27 Nov 2026 03:05:42 +0000 (UTC)
-From: Ilia Snezhkov via B4 Relay <devnull+iasnezhkov.gmail.com@kernel.org>
-To: broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
- conor+dt@kernel.org
-Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
- leilk.liu@mediatek.com, me@adomerle.pw, 
- Roman Vivchar <rva333@protonmail.com>, devicetree@vger.kernel.org, 
- linux-spi@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v4] spi: dt-bindings: mediatek,spi-mt65xx: Add compatible
- for MT6789
-Date: Fri, 27 Nov 2026 03:05:42 +0000
-Message-Id: <20261127030542.11696-1-iasnezhkov@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=d9GZBZUw;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=pcd+zkR9
+Received: from stl-compute-04.internal (stl-compute-04.internal [10.204.2.64])
+	by mailfout.stl.internal (Postfix) with ESMTP id A705A1D00556
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:05:44 -0500 (EST)
+Received: from stl-imap-02 ([10.204.2.93])
+  by stl-compute-04.internal (MEProxy); Thu, 26 Nov 2026 22:05:44 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squebb.ca; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1795748744;
+	 x=1795835144; bh=0iyRO/RdJsLPm+V8gWlwRu8Z0TdmRrgl6OxGF0qoYQc=; b=
+	d9GZBZUwvMnfzrS2O7rU/LQoDbWXR9iaxZc7xghL/elbGWBhlOaFTEehVPnbEQFf
+	Skfo/bvbquFMkbZCa3COzE/g22tjgOXFgys49DgEZOtY8qLvR3kJT8d2pih0F9FL
+	LCwz1srvsvyHO532VOCiGplVqHqq0IxRWXbmIjQHOJrDW7tkhP4oYSEcZroNzprI
+	4ZobE47jSdb0/GmOATzA7JYT1LjfuBpuRAZ1oMGUswLrLz3kppUP1oD7yiM7dneE
+	J2PoeDvxF8uh5JzUN11plA0DYmO9rh/xZlLH0hmlH4A3yNtDXf4IuCJ86kwHf5l8
+	tbvDgL1szv3UZS2zL/D7oA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795748744; x=
+	1795835144; bh=0iyRO/RdJsLPm+V8gWlwRu8Z0TdmRrgl6OxGF0qoYQc=; b=p
+	cd+zkR9B5oyzg8pV4cGL3OSnxcf+mSiTIjTNDdlrm4EkFP5GUaB+ru/L1VivrB+r
+	F1sy8jUZyK4KBynhustdr3mKrQ5v+3XCHYKE+QMpDB5KCVUVjUl/p++G+rDSRMnN
+	gdVsEZYuc0gayRvkPDmCbJzQTIddw9oqKA6PLo4op8YBAZg+mhp/d/GUYh9+mFxq
+	/esAKzerg7klqd40+zgVl3TB4bRJ+VOV9z0bMO5YvmtkySRb7d/Re6DFt3AE1WmU
+	gvj5J6g7+paYzUHOpCDAhOtrWQ8WXEeUB/9qt7kAUKhl49zaHoIcbPVniZcY0nai
+	7bij8tIWcbTXbHrKylkpA==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=squebb.ca a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795748744; d=squebb.ca;
+	mf=PG1wZWFyc29uLWxlbm92b0BzcXVlYmIuY2E+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm1:rsa-sha256:AwJ76KZ1f/Tqhy6oM7dgOOiAF5EQgV3kkxfDHTJ8u37b5mF
+	Em3o8UnKkCTyNzmrGsM2o6yhLphzhCVb7u1aKTtxBWb6d0MLACT9AwFjx8sjZ9Di
+	KYRGUkTG1XuQfLOUzXIBuWxhSPjBaxpZnOX/sJzuHuggT0k2dHJrPQggRvm+StmO
+	UMDu+tworlrclNTBhLGau1XUm35IiQymM1J9a897TGjsDgPy5lVjP8+9oY2P153t
+	YjhUFyye0Puunpr3qw8LshxX20bl1Bfk4p0ZjoDgJQ6gvmisaXUu+2u/SKhzoCiC
+	jNxDew115NZwgwbw9XKKxGMZfMloWgLWepJVDfQ==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:gICJ4STrfMPmOlS2OcTl7LgtYk+KZMEpdr23OjGQv+w=:oeQeiQPaV+aNKLmSAN6E1Q8PFUVom0vicpXat5mya3c=;
+X-ME-Sender: <xms:h_MIa1vexfdYLmmgOG2-fnR248QKROnqPeXCwLSQp3Oub3IhQg0mog>
+    <xme:h_MIa5RCeAbzCpVGfBRix60ikcTUbcAFleMgP9E2ReI96Ql7eklXu0clyEUB0nq40
+    a24WwNAxEP_4-SsxNLFZmIy45WoL-dwVOpdVB_paNi5y8rrQTtiJzEN>
+X-ME-Proxy-Cause: dmFkZTGqbt+JqTAICgd4CPFKfXccBfgF1GfBzlJZzfchP6ZgjEcby5/Vz9cZG8yK7Zx14T
+    Hx4czaFnOX+/Ks54NJDgL6Z7z7CPeTNKs4pfApD//yg0EBYh6SSdKE506OsJDVtp80mVFy
+    dF8yOkrok28XZt6M1itVzEh2n+xjPPIql71BuNA+AjqawpJFuLItYcIV+b/iz41KkybQKl
+    VBtccsg98c8Sy2iyN+ysNoJyO5eL6CsKC6l1fnsZbBHXtoqMW1DM1nfBCbjoC43ZgPOOPT
+    E3dgLdrvux8GyOm4Cc7Di+YJyxtsWJI4yqh2wof+gm2rLaYVdCMA5lEvajXWR2B26V3GfB
+    5IDZGhptEENRSWZ58/IWETBXmAtiKqX210iDgluORNKOouqXW6RTeuQxFg0ZBuDc2K/vQ1
+    d7ON8nsZrMb9X2oW52muuEE47GaLS0HH0ypyf73UB6F0iPaFP0wgCp9sQ9vA0cQe1TOblm
+    mMTpuPj3jFuMfCoMlW0yBAS3akcDc+PqhqzPniqBgWvXYLwb66moRWyZMeJv9WRNClXSaP
+    sCanxH+U5eU+Jlt8iu2F3ByVZozZQfeWM4N8UaaVCK2G5gc8r/RTzr/Qa2PYTwfhErihcL
+    Tngd6ygJKOWArvxJly5MNk4Pj4DjC3IGIoBAJwPFb+ImdX1ffC8UCFXj7dxQ
+X-ME-Proxy: <xmx:iPMIa64DmISjzfbfc7CikY42bLh1rGWU1Rl7efHZnPDczqCLoIkT0w>
+    <xmx:iPMIa55ccikAwAF8HtEuYzz9FHCJZNEIMZCNtChEYDChPQw8ZXpJZQ>
+    <xmx:iPMIa0TMT17BlL3IhL-ker23kZ1Sx0HgGEtfvz76Uvkv0B6uKLUJkg>
+    <xmx:iPMIa58hoeJO1SvTptS2Lh4FWShVIkzDRLbAyYNX5qCb83m4rG2o0w>
+    <xmx:iPMIayykW4OuqJ51veQnXLHrHLvpU1zvgNlglJ6Z302KY6yb9HeXxTlD>
+Feedback-ID: ibe194615:Fastmail
+Received: by mailuser.stl.internal (Postfix, from userid 501)
+	id C05BC2C00085; Thu, 26 Nov 2026 22:05:43 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,61 +115,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795748742; l=1611;
- i=iasnezhkov@gmail.com; s=mindone2026; h=from:subject:message-id;
- bh=sl67F/NTDPcA/UZxNAmRnJaGzbkAwbuNN2+Fz3m685o=;
- b=Hy2FnvqAyjz44CTPE4b1DcOaO/n2DUIuTQY/BcngfHKgXNEVNbvB0xCQPBkIfYHpR827nRR2h
- aUl2X33T4xcAXuxt7RPmgmphV2WGxgaMxUVCZc1yb9VSOSqmb5NeLy6
-X-Developer-Key: i=iasnezhkov@gmail.com; a=ed25519;
- pk=hQgXfiWi4ukk2jh4BHu1vRVhg9BUivo//AFp50AKMag=
-X-Endpoint-Received: by B4 Relay for iasnezhkov@gmail.com/mindone2026 with
- auth_id=1643
-X-Original-From: Ilia Snezhkov <iasnezhkov@gmail.com>
-Reply-To: iasnezhkov@gmail.com
+X-ThreadId: AkaS3-A5g5Bw
+Date: Thu, 26 Nov 2026 22:05:23 -0500
+From: "Mark Pearson" <mpearson-lenovo@squebb.ca>
+To: "Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
+ "Henrique de Moraes Holschuh" <hmh@hmh.eng.br>,
+ "Derek J . Clark" <derekjohn.clark@gmail.com>, "Rong Zhang" <i@rong.moe>,
+ "Hans de Goede" <hansg@kernel.org>,
+ =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: 
+ "platform-driver-x86@vger.kernel.org" <platform-driver-x86@vger.kernel.org>,
+ ibm-acpi-devel@lists.sourceforge.net, linux-kernel@vger.kernel.org
+Message-Id: <29491d1e-992d-4a2a-bde4-74f3b7da2695@app.fastmail.com>
+In-Reply-To: <20261125-thinkpad-acpi-hotkey-poll-v1-8-6dee57519c2e@gmail.com>
+References: <20261125-thinkpad-acpi-hotkey-poll-v1-0-6dee57519c2e@gmail.com>
+ <20261125-thinkpad-acpi-hotkey-poll-v1-8-6dee57519c2e@gmail.com>
+Subject: Re: [PATCH 8/8] platform/x86: thinkpad_acpi: drop redundant input device
+ parent assignment
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-From: Arseniy Velikanov <me@adomerle.pw>
+On Wed, Nov 25, 2026, at 6:11 PM, Dmitry Torokhov wrote:
+> Drop the manual tpacpi_inputdev->dev.parent assignment in
+> tpacpi_pdriver_probe(), as devm_input_allocate_device(&pdev->dev)
+> already sets the parent device.
+>
+> Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+> ---
+>  drivers/platform/x86/lenovo/thinkpad_acpi.c | 1 -
+>  1 file changed, 1 deletion(-)
+>
+> diff --git a/drivers/platform/x86/lenovo/thinkpad_acpi.c 
+> b/drivers/platform/x86/lenovo/thinkpad_acpi.c
+> index 898d919d697a..e809ed417e0c 100644
+> --- a/drivers/platform/x86/lenovo/thinkpad_acpi.c
+> +++ b/drivers/platform/x86/lenovo/thinkpad_acpi.c
+> @@ -12245,7 +12245,6 @@ static int __init tpacpi_pdriver_probe(struct 
+> platform_device *pdev)
+>  	tpacpi_inputdev->id.vendor = thinkpad_id.vendor;
+>  	tpacpi_inputdev->id.product = TPACPI_HKEY_INPUT_PRODUCT;
+>  	tpacpi_inputdev->id.version = TPACPI_HKEY_INPUT_VERSION;
+> -	tpacpi_inputdev->dev.parent = &tpacpi_pdev->dev;
+> 
+>  	/* Init subdriver dependencies */
+>  	tpacpi_detect_brightness_capabilities();
+>
+> -- 
+> 2.56.1.839.g22a8290db9-goog
 
-Add the SPI controller compatible for the MediaTek MT6789 SoC using
-mediatek,mt6893-spi as its fallback compatible, as MT6789 SPI is
-programming-model compatible with MT6893 and needs no driver change.
-
-Signed-off-by: Arseniy Velikanov <me@adomerle.pw>
-Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
----
-Changes in v4:
-- Split out from the MT6789 pwrap series into its own standalone patch
-  (suggested by Roman Vivchar).
-- Use spi: dt-bindings: subject prefix (Mark Brown).
-- Remove review-history wording from commit message body.
-- Add sender Signed-off-by.
-- Link to v1: https://lore.kernel.org/linux-mediatek/20250715231921.4527-1-me@adomerle.pw/
-- Link to v3: https://lore.kernel.org/r/20261126031001.27288-1-iasnezhkov@gmail.com
-
-Rebased onto mainline with an AI coding assistant.
-
- .../devicetree/bindings/spi/mediatek,spi-mt65xx.yaml          | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml b/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
-index 3bf3eb1..7d82369 100644
---- a/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
-+++ b/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
-@@ -39,6 +39,10 @@ properties:
-               - mediatek,mt7988-spi-single
-               - mediatek,mt8188-spi-ipm
-           - const: mediatek,spi-ipm
-+      - items:
-+          - enum:
-+              - mediatek,mt6789-spi
-+          - const: mediatek,mt6893-spi
-       - items:
-           - enum:
-               - mediatek,mt8196-spi
--- 
-2.54.0 (Apple Git-157)
-
-
-
+Looks good.
+Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
+Mark
