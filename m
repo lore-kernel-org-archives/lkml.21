@@ -1,79 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795793330;
-	b=g7dq/JIWz3fk5Fo7Wumh79N+Va3qmfRTfqg+kEid3RVHrot0qoKHKoqZ/9ddQ2rBI3tS
-	 2Olgc+Pn4EcWXtKkkqF8Zv/ZZxqq0dgyikqCK62OgFXaJnrUJtqob2esy1WlGgPBKrdd3
-	 eg2Ab8YFcOspD28op6nnN6DlHFLqzXnhHLPEZeOBLwl80jgwJhkSu0CcJ5N+FAGHzYAA9
-	 ZmrMWqTtNeyIjv3HeiA+LoHHEpp1jtfF3SjZ4PiJ7JQqt0hBEXsMB02Q2iCYPbnyAfGI8
-	 wfTt7FrcCpMrRVPv3TpsF1XAkYm7igx23Q58t9Zhw/IDnUZhZQbO99SjMl8n0diY/1g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795793330;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=y8B3yYureNWw/gPn5TmCorzbaVWuAnwa7i0qf1DFZYY=;
-	b=blB7I9H5itj9dcyhem0SmQJrXn8G6etkGl/mmv63mSGVNFTvzNxaHpJ1py1e3U8ePNxo
-	 lmBvrmkVBk86NK9hWidM1TW2y1Qiy+IW6HsnsUjTssSQHeBeyOWR6ENYgX68BufwhnaJO
-	 cMN31Mfidye+ToHK0Eb1mXGZEICvtCztjJ2HaeBm8FwdEfF6aywrDUM5Qz0TAG8Hx0WfG
-	 bxyKcGYK+z0JRPaZsopUY2GvPGdkkAy91VvYj23ZUn5ppq3jiqoaLH4IcMcd3avntepFA
-	 Z+7GuesGB5GnRJiwz1+60A4pJ8unBZyl8j2TTUSdIefEm05AQM87e83RS5OuxpEwdYA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Sb10ThbZ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECF3360A2614;
-	Fri, 27 Nov 2026 15:28:49 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Sb10ThbZ
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795793329;
-	b=IywXHFGyuqLc/hsijVNoTJXETCpeuI8KyyakPX9tp4a1IdihoID4uW1m4lDtXSGZYop+
-	 pfR7obGozR3QPBvaj3puysbuY3+y11jmtjCp4pOk6BJywn9dWQ/g7zj6+YyvGmEq0fHp2
-	 hUcCwfwldRdcJWLDibjUzLUpl05NlI6RO5pNIVMUO9rmJta/GN7f76kO8p4V2ZEDUl1Uj
-	 aSDgeEsIc1yn2cho2eWJ7gcY98Ps51t0U+N85la/BR8MMoL+WTUaDvMyU7cyv+XSZeTx8
-	 f8Mm12PhwzTVxQYDB8tKvHiJq+4ExuKfD74Ue7wHlFWdBpI7wyq4QPMPEbVr8kwwr5w==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795793329;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=y8B3yYureNWw/gPn5TmCorzbaVWuAnwa7i0qf1DFZYY=;
-	b=SNOu6Gh5QFtXKmbgP2jSRigLhFDGuljzIHC0vE1SyTaAYEAJgXHQmWdMqG5jvpNra1+J
-	 Vn+7jWcwZBf27qDu0ejFgQaoud2VUk3Avo9xONRc8fuUQZYpQAj9I4EYJMvqb2Uj1GMQm
-	 ydS1Li8ySUgVGV2HY/jJaVWLxCm0DJDLswrxiZ7wXvOeETMG7mHYMAd2cPRfoCN5lvzVQ
-	 pNlZMbNaBaD8d85ITEm3cSgOa2SII4aW5gMr1QcWkFSHVXixtw+Dds6qNcc6kctfHtTIx
-	 aFezE+t74bMFgz3sQEyiUPFZjrJwz/hB4j8thwJU7pjuUIn/Hj7XaaGU6yaYO76r93w==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795793342;
+	b=BdvCukJ/0aXwckzI1HWCQDDj9LVO8YRcG+yj5nEAxRkDwHl17GXU/9Re31gqrkqd9UD6
+	 pPQY34uaXaDAsMn019ycKU4VbA3k6UPXmfv1qJ4uA3NRDnLlmdMPFxqomi12epkAIh049
+	 dQdPIBb5d+OE3AfZhGYS2Ne5FAtX7NLPS3i25rggynABK+nGV52ZfDJl6Zt3xKtsU6gpk
+	 xCbEYVVPXBSv/NpP+AVGy1Q02JPqoqWQuZ4jHM6ANA3Pox4FcCCbdAVZwG+6B8pctA3wB
+	 tO6FON0uPx+9gtUsUrCbV/qBKXmwZfWMk5F6StSDDQB1uGm/yg3VkKGzj2PJf891UEA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795793342;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:Date:Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=jYioDbmV2lkNLd/xY1Lk394T4HvjLuyRvjfb+TZF9bM=;
+	b=JaQdtdxXV7/PRiXFMcpKNVN8Pkt/uEInlliWiHYVtugU5phQLiGqDp54j8gxvnEvoLrM
+	 5I/JrehErZCMIJF7yV/SrpAmgyP7c3z9Vd3RD6OBlGNBOPJ4JOd1pyUHk3Juw4F0PSW5w
+	 Kw9+PWbN6psl5XtTPXGi1j10jaFQlfRCg3EoV4p6nq5hprebWQur+5HS86ByE0kGYjLs9
+	 3+pQl/bniDLZxjkg4icibdi/tvJIUzuAI9x6X2NHZxUsUKc1NPfrgNi/4kKlUzscPDPUi
+	 ctQkr6s4DIc9zEzyQEjYW2d8z6QXhBYaWvxi67vYa8vpsgAPY1wMOB0mX684PT3AgsQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=sT9JE1O0;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 709E41F00924;
-	Fri, 27 Nov 2026 15:28:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795793329;
-	bh=y8B3yYureNWw/gPn5TmCorzbaVWuAnwa7i0qf1DFZYY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Sb10ThbZFg8I8BMpDHCO+ltMzwQeIOCoYtxr5RrmS5ubr4Jybma+NlB8Um1tUYdNC
-	 ZzQ4AkRitIsT1ZzcOJzhM3FqPDGidmR9V7w9gR35tsd/f+1hy42KTbw3H8DyxgNULB
-	 uc+ZXeGZ19yi6CEce9mlcg5lIvRgDiu8Fpd7mf3Dg4+zYyI4JkpAh41YzHZ15c4IwW
-	 h4f8lMKxcMKVBwiwpzQrQrIAiYgSwrTBrGrZYAKAOGha89MSnpm0rpR8A5Qu23n1e4
-	 rndYKOdJj5oUmrCCWlKLw/sgSzUKlGRkFvEdVJreyp9ouLlJ/zskSS8tCLhQ8MKEkj
-	 TElR9PFdAPNdg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 96DAB4DC84;
-	Fri, 27 Nov 2026 15:28:29 +0000 (UTC)
-From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
-Date: Fri, 27 Nov 2026 16:27:07 +0100
-Subject: [PATCH v5 06/12] dt-bindings: display: amlogic,meson-dw-hdmi: Add
- phys
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2284860A383E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:29:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2284860A383E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=sT9JE1O0
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id AAB2B1A1838;
+	Fri, 27 Nov 2026 15:28:59 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 7F4E56049C;
+	Fri, 27 Nov 2026 15:28:59 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9827111E90AD2;
+	Fri, 27 Nov 2026 16:28:56 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795793338; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=jYioDbmV2lkNLd/xY1Lk394T4HvjLuyRvjfb+TZF9bM=;
+	b=sT9JE1O0y/Q8g/zTZCiOZ51Wk1PnCeeuTAz2PjQQ/0z9s9zuyJXKDVus1SaiB9mGpE7Ixo
+	R2T/xpYkSs17GEwKMBsnMv/uJ1htROw4LBTVXSerSXjj2modU1bONXI6KBapa0j/XIbeT9
+	pTQRPzPwmPVxpCb3XN7Zaw8x8uXJsBLtoDbZV0Q98K+tRftUA16LjLw/GHId8/SlgEnaYz
+	ADSQMr4BMGP6AMWHQrRz6J2YPgwBYmCPeMRlFaVl7tU8DWCy1/IOKmgOwLSUIFO2Mt+nP0
+	MIAVlasIxNcukDy5zJglrAGUU+FxdZSjA1EaS9/5Ao/OOTQQAqP23Iam04WQZw==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>, Lee Jones <lee@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
+ <sebastian.hesselbarth@gmail.com>
+Cc: mfd@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 0/9] arm64: dts: marvell: DT warning fixes
+In-Reply-To: <20261124-dtbs-marvell-v2-0-663009a769da@kernel.org>
+References: <20261124-dtbs-marvell-v2-0-663009a769da@kernel.org>
+Date: Fri, 27 Nov 2026 16:28:55 +0100
+Message-ID: <87a4mu1efc.fsf@BLaptop.bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,79 +71,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-meson-drm-create-hdmitx-phy-v5-6-88c43eb95468@aliel.fr>
-References: <20261127-meson-drm-create-hdmitx-phy-v5-0-88c43eb95468@aliel.fr>
-In-Reply-To: <20261127-meson-drm-create-hdmitx-phy-v5-0-88c43eb95468@aliel.fr>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Ulf Hansson <ulfh@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-phy@lists.infradead.org, dri-devel@lists.freedesktop.org, 
- Ronald Claveau <linux-kernel-dev@aliel.fr>, linux-pm@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1278;
- i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
- bh=gEM9bIkhQe1Q+n5KKc7w/RzPzlM5UABBv5gf7bLSb8c=;
- b=owGbwMvMwCWm1SvKXP3cUInxtFoSQzbnwglzElaKKM5o3jc1dV4fA8cnnxObWZ70/TmR3qwWw
- DF5XYBTRykLgxgXg6yYIkv/XMsT7y4fPfN1j3oKzBxWJpAhDFycAjCRtwoMfzh8WXmO/p0g/dOt
- 3ePkm77X0oHXZCKbfnpoCBznueoTNYeR4bvj0dM3q05vVy20qN+/V1Zxu1rX+nzX7o+ZFdIrOAq
- DWAA=
-X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
- fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
-X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
- auth_id=744
-X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-Reply-To: linux-kernel-dev@aliel.fr
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+"Rob Herring (Arm)" <robh@kernel.org> writes:
 
-The HDMI TX PHY now has its own binding and driver. Describe the link
-between the HDMI TX controller and its PHY with a "phys" property
-holding a single phandle, and update the example accordingly.
+> Another batch of DT schema warning fixes for Marvell platforms. This
+> fixes most of the remaining warnings on Marvell platforms.
+>
+> It's best if the whole series is taken together.
+>
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+> Changes in v2:
+> - Update the system controller compatible strings to avoid using the old
+>   legacy ones.=20
+> - Drop patch dropping 'phy-supply'.
+> - New patch to rework ac5-98dx25xx 'behind-32bit-controller@7f000000'=20
+>   bus.
+> - Link to v1: https://patch.msgid.link/20261111-dtbs-marvell-v1-0-938788a=
+ff3ae@kernel.org
+>
+> ---
+> Rob Herring (Arm) (9):
+>       dt-bindings: mfd: Add Marvell AP806/CP110 system controller schema
+>       arm64: dts: marvell: Add AP806/CP110 syscon compatibles
+>       arm64: dts: marvell: Drop SPI max frequency
+>       arm64: dts: marvell: armada-8040: Fix node names
+>       arm64: dts: marvell: Fix w25q32 compatible strings
+>       arm64: dts: marvell: Drop unused USB 'phy-names'
+>       arm64: dts: marvell: cn9131-cf-solidwan: Drop st,m41t80 reset-gpios
+>       arm64: dts: marvell: armada-3720-gl-mv1000: Add switch fixed-link
+>       arm64: dts: marvell: ac5-98dx25xx: Rework 'behind-32bit-controller'=
+ bus
+>
 
-The property is optional so that existing DT, which do not describe
-the PHY, keep validating; the driver falls back to creating the PHY
-itself in that case.
+All series applied on mvebu/dt64
 
-Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
----
- Documentation/devicetree/bindings/display/amlogic,meson-dw-hdmi.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+Thanks,
 
-diff --git a/Documentation/devicetree/bindings/display/amlogic,meson-dw-hdmi.yaml b/Documentation/devicetree/bindings/display/amlogic,meson-dw-hdmi.yaml
-index 416fe263ac92..7ece4ea262bd 100644
---- a/Documentation/devicetree/bindings/display/amlogic,meson-dw-hdmi.yaml
-+++ b/Documentation/devicetree/bindings/display/amlogic,meson-dw-hdmi.yaml
-@@ -108,6 +108,9 @@ properties:
- 
-   sound-name-prefix: true
- 
-+  phys:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - reg
-@@ -136,6 +139,7 @@ examples:
-         power-domains = <&pd_vpu>;
-         #address-cells = <1>;
-         #size-cells = <0>;
-+        phys = <&hdmi_tx_phy>;
- 
-         /* VPU VENC Input */
-         hdmi_tx_venc_port: port@0 {
-
--- 
-2.56.1
+Gregory
 
 
+
+>  .../mfd/marvell,ap806-cp110-system-controller.yaml |  59 ++++++++++++
+>  arch/arm64/boot/dts/marvell/ac5-98dx25xx.dtsi      | 101 +++++++++------=
+------
+>  .../boot/dts/marvell/armada-3720-gl-mv1000.dts     |   6 ++
+>  .../dts/marvell/armada-8040-clearfog-gt-8k.dts     |   4 +-
+>  arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi |   2 +-
+>  .../boot/dts/marvell/armada-8040-puzzle-m801.dts   |  10 +-
+>  arch/arm64/boot/dts/marvell/armada-ap80x.dtsi      |   6 +-
+>  arch/arm64/boot/dts/marvell/armada-cp11x.dtsi      |   6 +-
+>  arch/arm64/boot/dts/marvell/cn9130-crb-A.dts       |   2 -
+>  arch/arm64/boot/dts/marvell/cn9130-sr-som.dtsi     |   2 -
+>  arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dts |   1 -
+>  .../boot/dts/marvell/cn9131-db-comexpress.dtsi     |   4 +-
+>  12 files changed, 127 insertions(+), 76 deletions(-)
+> ---
+> base-commit: 3191063649dbf7c0d0b768e1f3655e4c5fc6edb5
+> change-id: 20261111-dtbs-marvell-3ae21c8ac47d
+>
+> Best regards,
+> --=20=20
+> Rob Herring (Arm) <robh@kernel.org>
+>
+
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
