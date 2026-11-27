@@ -1,79 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.19.12.180
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795772414;
-	b=v8OWsQHI9zOktodVDun8pO7grDTjLr9WV4nnmtksDn6aJw72O0HUnm+tiA1CyZjrFwuE
-	 g///L7980Y2QWbsfq6xKiYPGiit53aKm13kzqNeAhwyNtS7sVId1tB6jK5GrzDEJzjRJM
-	 NpZ3PQgm/xv4wPoHqilQQNeYVrIZmJ8C+rjxPHVma6c2lhaAyjjT3nJH+Vi3YpNBiS1Q2
-	 9cUKeiElGOejpZr1q8ugyhPBb/JYrvLSOVDe9JS9EJYYekK6yG/6Qy6xYjaldl/yyXjse
-	 efEyDIyX+CM/aK+18bGCJACrfo6Zj04/75SVrTslTD03p0I4eJTw+OmDR6gz64x27EQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795772414;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
-	 X-Get-Message-Sender-Via:X-Authenticated-Sender:X-Source:
-	 X-Source-Args:X-Source-Dir;
-	bh=0XWNk6O+PAAYTuKWgmTwOpHOlIhYqI0eh8fUor46d0Q=;
-	b=boVk4BRQZSbj7rwgEsI8hHXaStBkKMQTQSu69QmjUqGXQpFhYgGTDAr6WUAODdt3C20M
-	 u5hk90qwNhyW7fSugYwPDjHwQEj4s7C8GZhYLM/NAQpa128cNDuhJpSXb+yw2qSbY0cUB
-	 mP6mSEqDpA6abC2z3SSWBxN2jyIvlzbyiqa3YE25crpGfWNBt4fxaKpntLCBoz0t0DNzT
-	 KvvxeUNAGMd1PeAbw9c+t8/mH7BR0Uz1RrKictahG7Fj5v6eUmDB77iL4LuVQJDRdczJB
-	 qSQ3ofpn9pExyaLzQ7wYFbfFFRq2MQh9hjQeoEqKDg9H5oRKzx6d/bQ1mJbs0cv+qqQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=norik.com;
-	spf=pass smtp.mailfrom=norik.com;
-	dkim=pass header.d=norik.com header.i=@norik.com header.a=rsa-sha256 header.s=default header.b=b8vqXXzu;
-	arc=none smtp.remote-ip=46.19.12.180
-Received: from cp2.siel.si (cp2.siel.si [46.19.12.180])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.50
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795772419;
+	b=ctTkOIrAZ7n5wZ6poWFTsgxMtXjwmfdgVpuZDVV3u8o5isbov0TnIOp0Ty/8uZQ6R+vD
+	 uT2iG6ePY/Z2u6u0zeO7By80clbfM9FdsCE3e9/i2ektlgtvyuUdi47gRaCq24DAKSFtm
+	 xCa4K6FCXtNtV6okOd0rQmlBhJV/avODzSMV1INerJu8c621IjZw5uQHGCRVEyNsZ2chC
+	 ARfLn8w1uKdlWkxgB/J14/atvZEfT+Q1Lleyd10MZQysJyarH+kOd4mm6NYbsj8AXG5VA
+	 ZzD+8xU944Hch5adrbv9btkJdFcPu3O+swNRR7PUqB8hkwueeAUM281I0oVLzBd8rdg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795772419;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=j/S2sE6LJNqIp5xSQpYLBNCbXBU+Ch2UhYSZo3FN//s=;
+	b=lebHls3049X7XQoUXDEh9pV0K1F4+RBawvlue6O/vmBqAn3jhGFvnxclkM+RmN1vFlLZ
+	 gi823FNrjabdwZ57l7UVUlXzoq4UAXle/4U/CBcwFAOq6wVy+J3jmD/paLK+rNVzhXfm2
+	 ja5gRN/0tK8LqaE2aMlLocVyZmhQ/6eg65HmwxpLDt9q9dOBO3582jmwj4ZpzcoLa8kVw
+	 VgjL5zJQDbfQNUOnYolFQqhILfpikagXby2AEq+522xsOa6/xoDcoNalOdwo9gisEA0vp
+	 MGugtsXwq2n6sOotqj3Nb9ti5938ivcIlKicstOY8YsZM9MLiwgaSJw6scrTvYVU9Sg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=mechasystems.com;
+	spf=pass smtp.mailfrom=mechasystems.com;
+	dkim=pass header.d=mechasystems.com header.i=@mechasystems.com header.a=rsa-sha256 header.s=google header.b=FjuyAmVz;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.50
+Received: from mail-dl1-f50.google.com (mail-dl1-f50.google.com [74.125.82.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5660606A331;
-	Fri, 27 Nov 2026 09:40:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5660606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=norik.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=norik.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6F6E606A329
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:40:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D6F6E606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mechasystems.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mechasystems.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=norik.com header.i=@norik.com header.a=rsa-sha256 header.s=default header.b=b8vqXXzu
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:
-	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=0XWNk6O+PAAYTuKWgmTwOpHOlIhYqI0eh8fUor46d0Q=; b=b8vqXXzuPo7B7rbk8w4D9tXgvk
-	q2i87xhbilNJ5pbRn2rZEMJQ6Yesl+FOG1OV8Z+9tk73LMysNa8YDxQwuImKFHqg2G9lhaRBRHSsq
-	tXg6eGAGX0vOtRpBkFR1m5SwqYCTYMiGKkzSD720GjR7b8Im0X+INh/F5fFax/stW1RuQwLdjGPR+
-	SKT+6UmpGtEWgZmPxMy1elUsW3+odNBBmbumDs9MndoRDMFN3OEBU2kMgGrFx2KgbXd41Rxp1I98n
-	0t0URCclI6pkNnwzp2Io6vgbKpLsFCVsWHtmLIWJOhle4fXHCxkXvQPDTIII0Qb5F0Lue+FuP4oKU
-	+lQLW6sw==;
-Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:44792 helo=localhost.localdomain)
-	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <andrej.picej@norik.com>)
-	id 1xWsR4-00000004G7F-2UpA;
-	Fri, 27 Nov 2026 10:40:05 +0100
-From: Andrej Picej <andrej.picej@norik.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: kernel@pengutronix.de,
-	Fabio Estevam <festevam@gmail.com>,
-	Teresa Remmet <t.remmet@phytec.de>,
-	Jan Remmet <j.remmet@phytec.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	upstream@lists.phytec.de,
-	Andrej Picej <andrej.picej@norik.com>
-Subject: [PATCH] arm64: dts: imx8mm-phyboard-polis-peb-av-10-etml1010g3dra: Fix display glitches
-Date: Fri, 27 Nov 2026 10:39:53 +0100
-Message-Id: <20261127093953.3541816-1-andrej.picej@norik.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key, unprotected) header.d=mechasystems.com header.i=@mechasystems.com header.a=rsa-sha256 header.s=google header.b=FjuyAmVz
+Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-1b563e32936so3758670c88.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:40:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795772418; cv=none;
+        d=google.com; s=arc-20260327;
+        b=O9LQkOSWz5zfqOI5zk9lnu+qsfU4MEpj3p+w/8uJultMZmFOV2689J+uFTIhnO4vDv
+         F+cdbZb7JBs30ivDtH4xj+9fA+k3CZatFiNbg2csbccBuPyPF3t9MhI5o0RKM4DUQF+o
+         usERKMf3RnSY9TcSXX6za1FLVbuUWnG1oH7M8SjrQDheu/C8JzxdAy37lrZN3V2pLJZx
+         4rQ9I3wNIZz8mJIxKyFRQ4ClvE5kJf/krbyW50LDY8ATJseZ6imr7++BVwOIUvQRb+db
+         rT1bqyftUwD9Sx2GEub/JkbBxbS61x714FxQQwVgVx3T8Ve9AqSP68iAbqDpFVh5iWDE
+         bLbA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=j/S2sE6LJNqIp5xSQpYLBNCbXBU+Ch2UhYSZo3FN//s=;
+        fh=CazRKwkaCZR5uGnpznwfentbvcmbr+biVZY6JWtw28w=;
+        b=PgWF7SXUV7shzcDP/p5NzCL/BgM+Ky30HRmCF+ESin+PsFmfj9vCNVsOpQ/KxEXESG
+         7DaIjXNPBjj+f8/Cdm/IvNScPZ1IApNzT+B6HLpPOqqzCWwmyKJxw1aBMTwZtYWdxrU/
+         tlURNw5k7c4eJnLuRbVTnPPPRpElV9HQsA96CErgIuiMexR8HDMDoHhOk7znzZTCzH8J
+         5Ta6ZWjv0OYce3AfYsXSFdKznLtOt+UO1aKAjuclcH2ojOq+DrjHb72qwBwOw6HIzQYt
+         ohzFV5rMGYY7apUH3MWyYz0i3GQy7LuR2cHgWrbZaEb9J6wKOPM5exXNMqRvd4FwPFV+
+         gAIA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=mechasystems.com; s=google; t=1795772418; x=1796377218; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=j/S2sE6LJNqIp5xSQpYLBNCbXBU+Ch2UhYSZo3FN//s=;
+        b=FjuyAmVzedyapcV8+J5+xQLnT8tRrqPfgvZb3sfqnCUY+bcouKkmivF+Zy27oQXxTq
+         luM2ZtgCdrzLeEe3KDO1EFLoP8CLQSMg5FcH9+MGCsp5glQgudYHj3mDvQF/lH6sfUJv
+         yRiaKoRaIGY9ay1g+lMc8O57cNQxVcJAq4GqQyddiMPIU3NIl+om2uGbUyJZhnYEHDhq
+         H8+JQuEp0yOHIPvAbvI0M0QdapiKhtLt190gOs/zcjngMtFS2pnT+4pybcnrg6qXvmtf
+         NdwdyWZQLyOJ0ZXP4oEOMEaKZK37I+7+XZlvh6VNNSdwojQmCClZBnO4nKQ2dd8eEzBq
+         klsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795772418; x=1796377218;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=j/S2sE6LJNqIp5xSQpYLBNCbXBU+Ch2UhYSZo3FN//s=;
+        b=nk2/StajAPD5B7n257EtUnWMy4prd0OJ+S/qeBomtesh+TBYXK9L63338/0EwSvgMF
+         dZMLe+NPc/gS4//jJUV9XQQ6kR8OU2ItEeUdmeYpoVTKaWmf7B+HPrOi2IADVwLc7BY2
+         /BB3Nf4suvgiIujup3fBN86uIDgy+WuBa7ilx9nSVuSSzB3h+SSYRS3ezmbYo7fsLSEL
+         7BrXL8XA5TKGV4qBb0F7k5vNFtdN8tCMJSgyYfCTipNAVUfUABJTfUtHwYgvhpzyVids
+         q4nYGd4TPGJO80Q2PUC89oiPsf5H0EvWNYHSIT43BIQW7v1cVuNhuXLFuhXZ64u0hBLd
+         4Snw==
+X-Forwarded-Encrypted: i=1; AL+hErFrVS8yPfa4IWvuZlVnXsPNb3d7/PYxSkAJW47zlDJlxTH60rQemMQgLas+5WiLYk+teXbeowYJmWqicdQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Rumlm/1BWiVof2orMyVhHihRmV76fFim0O1bkL09zEp1tfSkY
+	0QPZgu5JOcD5pYNQcT8B5Zz3QMMk+vw3g1920NOwOTrQvsAJwfhfRABvEhWv6O2KMbjPIVZ4+WX
+	2jO4C+XG9KXzfLJRnEp9Q6VxgQyDoF0FjXHeywS5ELA==
+X-Gm-Gg: AZFdTZfckLzrIblO2UnhofZSdqbTWG0oZ9376pA3GZGw4pmk3WYGX0Zi2ywJOkPMePS
+	eHKx4s/OxKtYF9OrxiKcyy3GoIGfecaK9sFAqkN1ojdSX98dV9TlX1nlg9uJcyRE2U9mfJsGW/8
+	fBE9dxgpYNxrAjVbcRm2iIF4KSVIZ1yHlX9VudjF4bBjp2dwLxBC7gxzc9lYEUmGTra//wX7bGC
+	KXsvrEPbxHwQm2boS8wZ2ssByHsXLjgNn3IcjfYF+5xS9JtQJFCh3K/IhlZLDnzGzdMj5dxnPv5
+	1I6Lgcy162e4u007b02+414dRLi+o3H0colPO5manwLtAExDFT0i0zoXCdE11maoXPWF+kltl/D
+	yxmo37wwALr4WWrxIMCeCzM6g93Ui5Vxa+EvRHXr/vrZ9LAuZ5we1
+X-Received: by 2002:a05:7022:1585:b0:15b:7f7a:730d with SMTP id
+ a92af1059eb24-1b55690c5a4mr24437470c88.28.1795772417913; Fri, 27 Nov 2026
+ 01:40:17 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,109 +103,27 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cp2.siel.si
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cp2.siel.si: authenticated_id: andrej.picej@norik.com
-X-Authenticated-Sender: cp2.siel.si: andrej.picej@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+References: <20261126164058.2373605-4-ivitro@gmail.com>
+In-Reply-To: <20261126164058.2373605-4-ivitro@gmail.com>
+From: Advait Dhamorikar <advaitd@mechasystems.com>
+Date: Fri, 27 Nov 2026 15:10:06 +0530
+X-Gm-Features: Aa3M54pqKM0_HhnbUssU_T72ZIWahp4yBY12MFpBmxas869Jc17TdRiWDxmiqGk
+Message-ID: <CAAPs2HRq=BXVabGvHfK33XcCnu1huzkBW8=VxzaJVcz85Cwc7w@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] pmdomain: imx: fix suspend/resume order of the
+ blk-ctrl virtual devices
+To: Vitor Soares <ivitro@gmail.com>
+Cc: Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Vitor Soares <vitor.soares@toradex.com>, linux-pm@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Lucas Stach <l.stach@pengutronix.de>, 
+	Marek Vasut <marex@nabladev.com>, Peng Fan <peng.fan@nxp.com>, Adam Ford <aford173@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 
-The SN65DSI83 bridge derives its LVDS clock from the DSI clock. When the
-LCDIF pixel clock is exactly the same as that LVDS clock (72.4 MHz),
-the panel randomly shows line glitches after a display start. A DSI
-clock slightly above the nominal 434.4 MHz makes the glitches appear on
-every start.
+Tested on i.MX8MP Mecha Comet with both patches applied on top of
+7.3.4, Suspend to idle, RAM and resume no longer hangs.
 
-With the DSI clock at the nominal 434.4 MHz and the pixel clock at
-72.375 MHz, no glitches were seen in 50 display starts.
+Tested-by: Advait Dhamorikar <advaitd@mechasystems.com>
 
-Override the panel timing with a 72.375 MHz pixel clock, which is still
-within the range of the EDT ETML1010G3DRA panel (66.3 - 78.9 MHz), and
-fix the DSI clock at the nominal rate. Also assign the initial rates of
-video_pll1 and the LCDIF pixel clock.
-
-Fixes: 1811697151f9 ("arm64: dts: imx8mm-phyboard-polis: Add support for PEB-AV-10")
-Signed-off-by: Andrej Picej <andrej.picej@norik.com>
----
-
-Tested on a phyBOARD-Polis i.MX8MM with PEB-AV-10 on v6.18, on PHYTEC's
-NXP-based v6.18.37 kernel, and on v7.4-rc2 with commit 4af021a97773
-("drm: bridge: ti-sn65dsi83: Remove NO_HFP and NO_HBP mode flags for
-LVDS stability") reverted. With that commit applied (v7.3 and later),
-the display glitches constantly on this board, also with this patch.
-I will report that separately as a regression of 4af021a97773.
-
----
-
- ...hyboard-polis-peb-av-10-etml1010g3dra.dtso | 38 +++++++++++++++++++
- 1 file changed, 38 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10-etml1010g3dra.dtso b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10-etml1010g3dra.dtso
-index 193fa9dc34d4..0d84578aac75 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10-etml1010g3dra.dtso
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10-etml1010g3dra.dtso
-@@ -23,16 +23,54 @@ &bridge_out {
- };
- 
- &lcdif {
-+	/*
-+	 * Set the initial pixel clock, so that video_pll1 is not changed to
-+	 * reach the 24 MHz default.
-+	 */
-+	assigned-clocks = <&clk IMX8MM_VIDEO_PLL1>,
-+			  <&clk IMX8MM_CLK_LCDIF_PIXEL>,
-+			  <&clk IMX8MM_CLK_DISP_AXI>,
-+			  <&clk IMX8MM_CLK_DISP_APB>;
-+	assigned-clock-parents = <0>,
-+				 <&clk IMX8MM_VIDEO_PLL1_OUT>,
-+				 <&clk IMX8MM_SYS_PLL2_1000M>,
-+				 <&clk IMX8MM_SYS_PLL1_800M>;
-+	assigned-clock-rates = <144750000>, <72375000>,
-+			       <500000000>, <200000000>;
- 	status = "okay";
- };
- 
- &mipi_dsi {
-+	/* Nominal 72.4 MHz pixel clock * 24 bpp / 4 lanes */
-+	samsung,burst-clock-frequency = <434400000>;
- 	status = "okay";
- };
- 
- &panel {
- 	compatible = "edt,etml1010g3dra";
- 	status = "okay";
-+
-+	/*
-+	 * The SN65DSI83 derives the LVDS clock from the DSI clock. With the
-+	 * LCDIF pixel clock equal to that LVDS clock, the panel shows line
-+	 * glitches after some display starts. Run the pixel clock slightly
-+	 * below the nominal 72.4 MHz, while the DSI clock above stays at the
-+	 * nominal rate.
-+	 */
-+	panel-timing {
-+		clock-frequency = <72375000>;
-+		hactive = <1280>;
-+		vactive = <800>;
-+		hfront-porch = <72>;
-+		hback-porch = <86>;
-+		hsync-len = <2>;
-+		vfront-porch = <15>;
-+		vback-porch = <21>;
-+		vsync-len = <2>;
-+		hsync-active = <0>;
-+		vsync-active = <0>;
-+		de-active = <1>;
-+	};
- };
- 
- &pwm4 {
-
-base-commit: acba37c2e2df26ad722d470777044fd21620834e
--- 
-2.34.1
-
+Best Regards,
+Advait
