@@ -1,111 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795784083;
-	b=4qqaZvccax6G00LeEBncHuLNJC4Exk88aqiuvz9ZDYaFdjsnNFIFSkprRsLLUWCHP9he
-	 g0EpmyTjfsTYKIW8iUH0uTy1FubqnkZv0mQaTgzsJTpXzBeJbbJiVv6e/vhGKffE0L03v
-	 ExcgRYePFdOcvml3IPc4FrSznbGJYtb/URg0TYjeNVBjiJXD3pkUQ+CssAlBeXsKIE9TM
-	 ILjPSFcvb7kFyZl/qsA3pIll62aQGzJxMwQnLxgXRqJoaiAeelVIqTKTW6NRrvioiyIDo
-	 nLYK9GP81osyxOp/dsL70HOpmdYtT9A9CP9UE3SpkIr+R/5g+COToq0+NHDDTYqfWAg==
+	t=1795784098;
+	b=zpKpM0syCuStGQTEYM4bKDJY85vlB1bqkVcR/yEFGKNjLrCx/trlsa3w3soWO0RDEmev
+	 2RwIYuU1ZP8K/2ALSOnsiE1Vz+QUfq2AJjw9w/XZUISlKkQKXkDhk62SU3ow4+/uQcJUh
+	 Sxe3XaCfQqbDStAWlm3qQuR2/E9cxaGhWTs9y7OZzetT7eGNPnpJWZXIabHm3uuxvekDy
+	 o3W2EzMqLX2+SY7GDfqpBayVwT19DK6G4PVgnYsnq6yg1QxWXFbgAWYt0zz/iBaQtbA5q
+	 QaQFb9KgTeGfokH5DMao3ytXlDJC100rQFagauRzRjIpHGxkpSGCzMLH0CXnEPZayZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795784083;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=qyG7mz1+iqRSmDE+0/L6t1wuS6VVHsnCtrQ54KSfWOo=;
-	b=LqpWhldTzhjksmuwWILZQwGVDkkpfs874l7jygHIA9JECv2LQhyI/GF6wdhL/cCOSeP+
-	 55xZ/1GrA0ZWwMjwKz5arqSJUMXQsZb+CqvTP5uaFhDOBjXcN8ZMMsYA4u6uTsNR3PM4z
-	 URv3htVY/77D5OtOO5X/tBhUU6B+aShro2IT1xqY6e3VyTNo5LPdBq+auPsblCgJ0wjAb
-	 OWdXUi6DOTb87fq+Iz8TQykrxM/nOkdf+93KZun1BSwAKlWDGwKa33mgCrVqLTIMuAx5S
-	 LkkaWCBJmcZXtgxYnQrPAuIpJqUOUWnMEPoUnnccKwSZAymurqJxvelpz9ITlDteGww==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795784098;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=BIsNU2toYcPxvRASiDSGEyVwKK+YxJ3krLZbrLRoCLo=;
+	b=CDUjDA5jW0TQmvlBdVtBH8C+4cd6Av+64Raej2dT8vj6+RTdUzUgf1/UG8Jh0s2ihX7E
+	 veVR7hg8Ov+S9YSND8LRFHVcLRZghoJESmRaJQ9U0k1EJtF1RrkXr9v4qdBBTBjr8kfFf
+	 F3k71Y0FzCWkfB6oAmbVZBdPtdSFAmitWQ90xwZIZfztLqvkmDz8gWq9XQEJt+PNBdRMm
+	 Dj8PN2qvdfVrDaNDc1VoJPYjhhHRMyllvyjlaOCFYUyh5uZ2q4CwFkjQvGgu8xB8EGzHq
+	 TZaFEJSzRNxiSbUHBWwURnguW3TxQ1QZVvVIv/9HiR1mUa6upvRZKIBWp3ag9uF3/Zw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="PIz1R/Qh";
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="X/RJQl35";
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=resnulli.us;
+	spf=pass smtp.mailfrom=resnulli.us;
+	dkim=pass header.d=resnulli.us header.i=@resnulli.us header.a=rsa-sha256 header.s=google header.b="h/lSNS6m";
+	arc=none smtp.remote-ip=209.85.167.47
+Received: from mail-lf1-f47.google.com (mail-lf1-f47.google.com [209.85.167.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7AA02606A332
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:54:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7AA02606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5872606A323
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:54:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5872606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=resnulli.us
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=resnulli.us
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=PIz1R/Qh;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=X/RJQl35
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARCh7722301663
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:54:41 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	qyG7mz1+iqRSmDE+0/L6t1wuS6VVHsnCtrQ54KSfWOo=; b=PIz1R/QhdUpCx97W
-	tWM0/xr0ThcMO0YawZmNyMiHAyWJ/hBs5RDKuyLd8tkeQ7h4VbaqSsPs/sYmaSg3
-	o2IFqUo5zOfS6w93MD3YB10yItDy7rejlWYWPARD/2o13K5dGoT+WATdk4wTHCRE
-	SNeZfImpSbrUR2rg5UIZbyczLM8/N5Q26ZJTGY4s2VVaPE//3qaOSSFcD+xYnyht
-	r+aInWF4BQw3KbHtC7a9NQiWO8/t3MgYvSN3i9HrzmTix1iW4hIRiKdi4QgmvVS4
-	enCbsYffVPiHwa0tCDNXtigGVGMJnrgDr7iHVQlzmZVt+2yLXHd89FFHA+R+SmX2
-	/v5/Ew==
-Received: from mail-vk1-f197.google.com (mail-vk1-f197.google.com [209.85.221.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j74gasgkf-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:54:41 +0000 (GMT)
-Received: by mail-vk1-f197.google.com with SMTP id 71dfb90a1353d-5ece1a3bf7fso346073e0c.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:54:41 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=resnulli.us header.i=@resnulli.us header.a=rsa-sha256 header.s=google header.b=h/lSNS6m
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5c1a3374400so6502043e87.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:54:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795784081; x=1796388881; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qyG7mz1+iqRSmDE+0/L6t1wuS6VVHsnCtrQ54KSfWOo=;
-        b=X/RJQl35OwXkpBuFVpiHbXoujn4OxURb244259C3upSvs+Kyb6up2BIgvRdaWjv/vs
-         trrv6UHlc+xzYKBdRiCUwXDY2WfSasI66D0hVKLHMtgVe9MsNZtARLPpSEO3SSwl46VR
-         lngISoaEjIqT1wodpCXnbX+uLzc+SyMop42tZm+9dMlYXeeNI4RMPEyO0FG4aRdNwXU3
-         zxPLPvv8RlFeghWKTm7KoSS65Lsf1HYqN4jAItRYerIMgm6Xvlt3NtVxqrvTq4Cavuqj
-         S7AMiYUxH5pza1X4uRNNfrlefwq2bfM66X4roc3zlUeJuwIE56SnfNR+NEKHSfudBhH2
-         uDwA==
+        d=resnulli.us; s=google; t=1795784095; x=1796388895; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=BIsNU2toYcPxvRASiDSGEyVwKK+YxJ3krLZbrLRoCLo=;
+        b=h/lSNS6meNH3H33ItcK06LQ4siOR34uSFHUeHIkaa9tQVVkXDGSr5/fyoyUqZjM+4v
+         5nXjOR74edcabmb0d44caTq1P2mhqQyo4AZvRAklJNxQXS32K8mHR5yxOAhn+AK4deKm
+         nTQRj2lE0MiLFUZjIAXfCoxLWqeHe6vCDrczVRPwwRXtgxbBMogwnx2qUOXrw656oCWi
+         PDm3EV40p5p+xnKWU86lNx7nH+oaov3v2Lcza+jJj2VopoB2N2UE5rlOilEQ7Ts9nDXD
+         9rX9ncUq5461FLOhUlKIs4WD3CfOS6CN3b96kMBj31oddJ5ESzGKNWje8ne/b172bm7T
+         zsSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795784081; x=1796388881;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qyG7mz1+iqRSmDE+0/L6t1wuS6VVHsnCtrQ54KSfWOo=;
-        b=nI21vVl095JmfQhHE2+fz4ikKw4Bf4h94gqnr8CuA66hOE1dyiLoOzEWWeet2tcev4
-         mUJQTS7BqyYk/0t/yfGqegrLdHeLk2wfblKtXy1oBOBeTbbc6RyYmbPK5MQBOzZHeccV
-         whAULjpyhkSVT/h6zmhNXQyh+ekekCmAnwOiUBFgAKgb6rUaRdtXeCIBHlRgx3ql3J10
-         f2nVYXxf2//Q7no/RqtI+mwU2tm5OgvpZnPtL5aeOwHmrUU+rXBXq8QuCbnqsqmr3cIU
-         gZhfWqrk4DrG/i9Wmx3vd64dj8SQs0+Q9mtNeP+hALqLLFNKKcDNDKggdxKrCoxCNQjg
-         UTtQ==
-X-Forwarded-Encrypted: i=1; AL+hErEtC1SkVmfvO/dx/mUm09RMHdN555eMmGhovMQSICrD6f0Ku6DzoKeyHsdoYPPC6CIcCngCu/sPCooC7Nw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8UFmJm+gX8TFLP2wfjU4fMqhdgcz1+3AjsH/NTufB7kA5MTnCi
-	z+qAIJCqe7vElGTcdFCrMbRmjl818yOHWFKvxmh2XoYpoAVwNoVPvIZT9I0NZS6iJhGStlXz0oN
-	BibARBXhDdksc4p5GmtmmmLMsGKYze2TAg9xJu9LyRk834A5ZOYNV5/+0DYzcGnRrLgY=
-X-Gm-Gg: AZFdTZcc39rfMqOH9HGKAPfbhn5MxEBefCjCgprxaW6p5L53cCrhNtTxBVvze/kIs14
-	wcrdMPsHzZkiroW3hkT2roPRNTUw4iqC5Dhsh8kRnLwVhZUWl338Ypf6K4JFZVXFF0hL9Mooj4J
-	L7XDfvYYehvJPfvXAa0lDQLQU1LtGBum5kOCG4zoNi6Yd+md09oZTgbDeaEpGuiX5wsTb6ZwEiE
-	qdui4sqJEl2G0rber0R/DMntoJmTTKtupQTrrJmvTyqS4CUX0ZsJ0L5/c56Cfu5wJeKqhU5gQfl
-	xtxm4sxDKjRzbI7hLRpgYQ2wrGqk/zH5Mu2sxv/3eKI9QNSUV+2aPXcL+JHIc5L7QOqB8MTti4B
-	OiTCsdtErDDJj2RPKPZCKsVWGMQXr3oE01EQaDvScWhMIpZXRU1wKF9nrjh4xq+Iu/b7GN8g=
-X-Received: by 2002:ac5:cd3b:0:b0:5ec:e2a2:b70e with SMTP id 71dfb90a1353d-5ee8af4a71fmr16430666e0c.4.1795784080703;
-        Fri, 27 Nov 2026 04:54:40 -0800 (PST)
-X-Received: by 2002:ac5:cd3b:0:b0:5ec:e2a2:b70e with SMTP id 71dfb90a1353d-5ee8af4a71fmr16430642e0c.4.1795784080301;
-        Fri, 27 Nov 2026 04:54:40 -0800 (PST)
-Received: from [192.168.226.72] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba371072f6sm11126122a12.28.2026.11.27.04.54.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 04:54:39 -0800 (PST)
-Message-ID: <bebd75e6-3d67-4f1f-8909-f7a9786ce3d6@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 13:54:36 +0100
+        d=1e100.net; s=20260707; t=1795784095; x=1796388895;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BIsNU2toYcPxvRASiDSGEyVwKK+YxJ3krLZbrLRoCLo=;
+        b=FaArKwgxn1D67/Nw52HAlblWu6uMD7rfQgnVwtllUaeZO4fnlfPK/1R2LqWUFG8KnH
+         GF1v+UmXSwhHsPW41GTwQw42OAoEjWlyV1nOa6chdQ+2n3vh5RNWaeyhyGBhpfZVG4iA
+         PJAeXl6S4MsGIQPvH+zCB60dY9pdhqTV3bF2dzWeYK8m0+YyuAdU6Bcu3E/E8YRelAxN
+         T/rBG2zo+MtfRSuyuN2NLXdf0pAWRiGmjerQWFuahl/i2PE5ehHf7iYNcjnXMP6CHFsv
+         GLR0n8Taixm5F/GSOfoJymf6VduvzlpMLgE+f6QZAu8mRnNrJkI0K+0ClRmi/EEKquMG
+         vnDA==
+X-Forwarded-Encrypted: i=1; AL+hErGDYP8FyYJ4aXlBIHdqTY1DaeMKenjciJJEJsqOreLhZVqLgQfm/4cbmIgR0mAMyH6/DuoRJJ6hwPDAErc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+quKITan31qvjx7CAgB4Wk9u+56MSrecOCteMxDJpw26N4Tg23
+	G+8CDG6YZGPfM/+RRV8PkQM1PfSFpS0kmvRqOCBqlQwki09ynwRHvknuIL4mG+TrPKE=
+X-Gm-Gg: AZFdTZeHJqYtf5EQYhP05AMva4KO/vikfD2PVyrAjAUFH6kX+XgjdXZAs6AlIV2+Y5t
+	0NRm6+9KvPV08mjbHPHoUUy1qS1UC7qlP0IYSO+LBh6UxtETGcnFH93VYjS+8RCwJqbzMKznju7
+	3BUxoDPDM9HKeKNNw+t1df6JPqr5rNOBJVboRfdjonWP1MKRllXar6frrfBHejZMXmpUfuFm/FX
+	JA6uu/1yX83jdK7bp2Ls45SB70WDs0SRWUwBY86xKlYsK4D/+t4A1Ee6QXFzl746ru9dKg5Pd7v
+	QCGAJ7s6nwuThLvlW/zXs3fJM1XIiQ73Fa+xy8mxf6EoO2niTpwhdF6NJP8ZS7/riRSAUPehGb8
+	TAR3uk0TVXvd9rdKansMQFa/4o7eKR6Tb73sC/bOmKzO2XLlLYJk38VLcH/xOTd0wpOXD/9axhf
+	uMA8LFMhcdV8KD2yA8P7wwJf7K8VdKZNdr2/vuyNgN8JypYn3sbfOgYnpiff68iYer9P2DSEy8Z
+	lNiTq4ryof9RcNlugUr7ideLp9BryLBgsdqosM/JuQVfbbzt/NFHj/R/NBfvvFIk8FnScIJV7Tx
+	Qn1nZlXYZx1iTt53IjPZ5Op0TIYS7kwku32WiwOM
+X-Received: by 2002:ac2:4bd5:0:b0:5c1:5986:cd2 with SMTP id 2adb3069b0e04-5c1bc82f327mr8185787e87.56.1795784094485;
+        Fri, 27 Nov 2026 04:54:54 -0800 (PST)
+Received: from localhost ([140.209.217.212])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd079047sm5936259e87.76.2026.11.27.04.54.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 04:54:53 -0800 (PST)
+Date: Fri, 27 Nov 2026 13:54:49 +0100
+From: Jiri Pirko <jiri@resnulli.us>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-api@vger.kernel.org, x86@kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
+	jgg@ziepe.ca, david.quigley@intel.com, lukas@wunner.de, ksinyuk@kernel.org, 
+	rodrigo.vivi@intel.com, cedric.xing@intel.com, sameo@meta.com, drdeeglaze@gmail.com, 
+	James.Bottomley@hansenpartnership.com, aik@amd.com, jpiotrowski@nvidia.com, qinkun@google.com, 
+	pgonda@google.com, jic23@kernel.org, alistair.francis@wdc.com, ankita@nvidia.com, 
+	suzuki.poulose@arm.com, kas@kernel.org, rick.p.edgecombe@intel.com, 
+	elena.reshetova@intel.com, dave.hansen@linux.intel.com, 
+	sathyanarayanan.kuppuswamy@linux.intel.com, peter.fang@intel.com, jarkko@kernel.org, zohar@linux.ibm.com, 
+	yeoreum.yun@arm.com, aneesh.kumar@kernel.org, dave.jiang@intel.com, 
+	nik.borisov@suse.com, sergii.dmytruk@3mdeb.com
+Subject: Re: [PATCH RFC v2 1/9] attestation: Add the base family
+ specification and generated files
+Message-ID: <awl4L8vEV5bvwE-Z@FV6GYCPJ69>
+References: <20261113160838.2512652-1-jiri@resnulli.us>
+ <20261113160838.2512652-2-jiri@resnulli.us>
+ <179573913907.519186.8407997114208887089.b4-review@b4>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,72 +108,330 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] arm64: dts: qcom: sm8750-mtp: Set sufficient voltage
- for panel nt37801
-To: Arpit Saini <arpit.saini@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Linus Walleij <linusw@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        mahadevan.p@oss.qualcomm.com, rajeevny@qti.qualcomm.com,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Ayushi Makhija <ayushi.makhija@oss.qualcomm.com>
-References: <20261117-resend-upstream-attention-v4-1-3f11ab312d2f@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20261117-resend-upstream-attention-v4-1-3f11ab312d2f@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: 54UjB9UPZJ88L9JpHU9aiKZzThRl7lrE
-X-Proofpoint-GUID: 54UjB9UPZJ88L9JpHU9aiKZzThRl7lrE
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1MSBTYWx0ZWRfXxWPYM01Fru8z
- KxB5v9e0LPXmLmYJ8qJ3tvtaxiINPxlmNFqXLIZvTBtacu/IHa9pDovYOtTSpVFAsxdvxYlgJvG
- lULaasaEAb5Z2nE6K44hgvTuXQ9Q9CXFxq+MPoDmacMW+uNJrd22q0CO+QU5oX2S/+lA75qEc/R
- 59ifZx9JnNrnsjD/9EH3GWkdO1ApNR5YIrQT591NcilBz0JIm8IM0QY/bdGmeOwBKleV8OlaZ/y
- fK9ACAxZKqQYAT/0cUWYvqx6Bu+Wn613ISnqgf9vwEjmTaOo7r9yD+2s7S9sRVaYJf0dCCg0RgJ
- YVsE7/TWD3ZWPj0gXQuqTgdANn5LjmLAt7QCqrawFiICCbbSmP5dLsy0erQW7ZQ4+BtAkvXekcE
- Fne2aFCrDddhKO7cBPF5mes32bERUn/gxdS9UjoPK1+uVBLgM2cducnjjglqx7pNa5bAgrwRrH/
- QmTuSaEgKIIqARaAm4Q==
-X-Authority-Analysis: v=2.4 cv=I5bw19gg c=1 sm=1 tr=0 ts=6b097d91 cx=c_pps
- a=JIY1xp/sjQ9K5JH4t62bdg==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=EUspDBNiAAAA:8 a=MsdpSpnpVP8ozw9Nrd0A:9 a=QEXdDO2ut3YA:10
- a=tNoRWFLymzeba-QzToBc:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1MSBTYWx0ZWRfX0P0zZDRStYA2
- xQee8Yn2Ti0CxbXY91Pm1zYkSuWfsn5mKt+A5kyrvqgUeB2bgKECAtcT3N2IQz60XTboGl8CKdy
- EzCNz7IrFraK4pNdGG2em8u9P8XHhVA=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-27_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 suspectscore=0 bulkscore=0 priorityscore=1501
- malwarescore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270051
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <179573913907.519186.8407997114208887089.b4-review@b4>
 
-On 11/17/26 6:54 AM, Arpit Saini wrote:
-> From: Ayushi Makhija <ayushi.makhija@oss.qualcomm.com>
-> 
-> The NT37801 Spec V1.0 chapter "5.7.1 Power On Sequence" states
-> VDDI=1.65V~1.95V, so set sufficient voltage for panel nt37801.
-> 
-> While 1.65V is within the range accepted by the panel, the power grid
-> documentation specifies L12B as a 1.8V rail, so set the minimum to 1.8V
-> to match what the hardware is expected to use.
-> 
-> Fixes: 4fca6849864d ("drm/panel: Add Novatek NT37801 panel driver")
-> Signed-off-by: Ayushi Makhija <ayushi.makhija@oss.qualcomm.com>
-> Co-developed-by: Arpit Saini <arpit.saini@oss.qualcomm.com>
-> Signed-off-by: Arpit Saini <arpit.saini@oss.qualcomm.com>
-> ---
+Fri, Nov 27, 2026 at 01:25:39AM +0100, jgg@nvidia.com wrote:
+>> [ ... 60 lines skipped ... ]
+>> +++ b/Documentation/ctlv/abi/ctlv-attestation.yaml
+>> @@ -0,0 +1,147 @@
+>> +# SPDX-License-Identifier: ((GPL-2.0 WITH Linux-syscall-note) OR BSD-3-Clause)
+>> +%YAML 1.2
+>> +---
+>> +# Checked-in ABI snapshot of the ctlv-attestation family, from
+>> +# Documentation/ctlv/specs/ctlv-attestation.yaml, written by
+>> +# "make -C tools/ctlv regen".
+>> +#
+>> +# Updating the file is how a UAPI change gets reviewed; an update that
+>> +# removes or renumbers anything, narrows a bound, or makes a member required
+>> +# is an ABI break, whatever the file says afterwards.
+>> +family: {name: ctlv-attestation, id: 1, inherits: ctlv}
+>> +enums:
+>> +  evidence-class: {signed: 1, event-log: 2}
+>> +  evidence-format: {ccel: 1}
+>> +  hash-algo: {$header: linux/hash_info.h, $enum: hash_algo,
+>> +              $end: HASH_ALGO__LAST}
+>
+>I feel like this should parse the C enum into numbers here so the ABI
+>can be checked too?
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Well, note that this only works for uapi/ enums. So those are already
+part of ABI. I don't think we need to do anything extra here.
 
-Konrad
+
+>
+>> +flags:
+>> +  mr-device-caps: {extend: 0}
+>> +  mr-caps: {extend: 0}
+>> +records:
+>> +  mr-desc:
+>> +    id: 0x00010000
+>> +    fields:
+>> +      name: {number: 1, type: string, min-length: 1, max-length: 128}
+>> +      supported-hash-algorithms: {number: 2, enum: hash-algo,
+>> +                                  max-occurrences: hash-algo}
+>> +      caps: {number: 3, flags: mr-caps}
+>> +      register-index: {number: 4, type: uint, max: u32-max, optional: true}
+>> +  mr-value:
+>> +    id: 0x00020000
+>> +    fields:
+>> +      hash-algo: {number: 1, enum: hash-algo}
+>> +      data: {number: 2, type: binary, min-length: 16, max-length: 64}
+>> +  mr-generation:
+>> +    id: 0x00030000
+>> +    fields:
+>> +      mr-generation: {number: 1, type: uint, max: u32-max}
+>> +  mr-values:
+>> +    id: 0x00040000
+>> +    fields:
+>> +      mr-values: {number: 1, record: mr-value, max-occurrences: hash-algo}
+>> +  device-get request:
+>> +    id: 0x80010000
+>> +  device-get reply:
+>> +    id: 0xc0010000
+>> +    fields:
+>> +      caps: {number: 1, record: device-get caps}
+>> +      info: {number: 2, extension: device-info}
+>> +  device-get caps:
+>> +    id: 0xc0011000
+>> +    fields:
+>> +      evidence: {number: 1, record: device-get caps.evidence, optional: true}
+>> +      mr: {number: 2, record: device-get caps.mr, optional: true}
+>> +  device-get caps.evidence:
+>> +    id: 0xc0011100
+>> +    fields:
+>> +      objects: {number: 1, record: device-get caps.evidence.objects,
+>> +                max-occurrences: 16}
+>> +  device-get caps.evidence.objects:
+>> +    id: 0xc0011110
+>> +    fields:
+>> +      id: {number: 1, type: uint, max: 15}
+>> +      class: {number: 2, enum: evidence-class}
+>> +      formats: {number: 3, enum: evidence-format, max-occurrences: 4,
+>> +                optional: true}
+>> +      vendor-formats: {number: 4, enum: evidence-vendor-format,
+>> +                       max-occurrences: 4, optional: true}
+>> +      max-length: {number: 5, type: uint}
+>> +      challenge-lengths:
+>> +        {number: 6, record: device-get caps.evidence.objects.challenge-lengths,
+>> +         max-occurrences: 8, optional: true}
+>> +  device-get caps.evidence.objects.challenge-lengths:
+>> +    id: 0xc0011111
+>> +    fields:
+>> +      length: {number: 1, type: uint, min: 1, max: 4K, unit: bytes,
+>> +               optional: true}
+>> +      min-length: {number: 2, type: uint, min: 1, max: 4K, unit: bytes,
+>> +                   optional: true}
+>> +      max-length: {number: 3, type: uint, min: 1, max: 4K, unit: bytes,
+>> +                   optional: true}
+>> +  device-get caps.mr:
+>> +    id: 0xc0011200
+>> +    fields:
+>> +      flags: {number: 1, flags: mr-device-caps}
+>> +  evidence-get request:
+>> +    id: 0x80020000
+>> +    fields:
+>> +      challenge: {number: 1, type: binary, min-length: 1, max-length: 4K,
+>> +                  optional: true}
+>> +      objects: {number: 2, record: evidence-get objects, max-occurrences: 16}
+>> +  evidence-get objects:
+>> +    id: 0x80021000
+>> +    fields:
+>> +      id: {number: 1, type: uint, max: 15}
+>> +      data: {number: 2, blob: output, backings: [va], max-length: u32-max}
+>> +  evidence-get reply:
+>> +    id: 0xc0020000
+>> +    fields:
+>> +      results: {number: 1, record: evidence-get results, max-occurrences: 16}
+>> +    members: ['record mr-generation?']
+>> +  evidence-get results:
+>> +    id: 0xc0021000
+>> +    fields:
+>> +      format: {number: 1, enum: evidence-format, optional: true}
+>> +      vendor-format: {number: 2, enum: evidence-vendor-format, optional: true}
+>> +      length: {number: 3, type: uint}
+>> +  mr-get request:
+>> +    id: 0x80030000
+>> +    fields:
+>> +      id: {number: 1, type: uint, max: u32-max, optional: true}
+>> +  mr-get reply:
+>> +    id: 0xc0030000
+>> +    fields:
+>> +      items: {number: 1, record: mr-get items, max-occurrences: unlimited}
+>> +  mr-get items:
+>> +    id: 0xc0031000
+>> +    fields:
+>> +      id: {number: 1, type: uint, max: u32-max}
+>> +    members: [$include mr-desc]
+>> +  mr-read request:
+>> +    id: 0x80040000
+>> +    fields:
+>> +      id: {number: 1, type: uint, max: u32-max}
+>> +  mr-read reply:
+>> +    id: 0xc0040000
+>> +    members: [record mr-generation, record mr-values]
+>> +  mr-extend request:
+>> +    id: 0x80050000
+>> +    fields:
+>> +      id: {number: 1, type: uint, max: u32-max}
+>> +    members: [record mr-values]
+>> +  mr-extend reply:
+>> +    id: 0xc0050000
+>> +    members: [record mr-generation]
+>> +extensions: {device-info: 1}
+>> +enum-extensions: {evidence-vendor-format: 1}
+>> +ops:
+>> +  device-get: {id: 1, type: action, fd-access: read,
+>> +               request: device-get request, reply: device-get reply}
+>> +  evidence-get: {id: 2, type: action, availability: dynamic, optional: true,
+>> +                 request: evidence-get request, reply: evidence-get reply}
+>> +  mr-get: {id: 3, type: query, fd-access: read, optional: true,
+>> +           request: mr-get request, reply: mr-get reply}
+>> +  mr-read: {id: 4, type: query, fd-access: read, optional: true,
+>> +            request: mr-read request, reply: mr-read reply}
+>> +  mr-extend: {id: 5, type: action, optional: true, request: mr-extend request,
+>> +              reply: mr-extend reply}
+>> diff --git a/Documentation/ctlv/abi/families.registry.yaml b/Documentation/ctlv/abi/families.registry.yaml
+>> index 5845e745777150..7a5c6af2956578 100644
+>> --- a/Documentation/ctlv/abi/families.registry.yaml
+>> +++ b/Documentation/ctlv/abi/families.registry.yaml
+>> @@ -5,3 +5,4 @@
+>>  # Written by "make -C tools/ctlv regen".
+>>  families:
+>>    - ctlv
+>> +  - ctlv-attestation
+>> diff --git a/Documentation/ctlv/families.yaml b/Documentation/ctlv/families.yaml
+>> index 4d219d7af74a79..dbb0243b873d68 100644
+>> --- a/Documentation/ctlv/families.yaml
+>> +++ b/Documentation/ctlv/families.yaml
+>> @@ -15,3 +15,4 @@
+>>  
+>>  families:
+>>    - ctlv
+>> +  - ctlv-attestation
+>> diff --git a/Documentation/ctlv/generated-files.yaml b/Documentation/ctlv/generated-files.yaml
+>> index d4766b176ceb98..00a56634805d40 100644
+>> --- a/Documentation/ctlv/generated-files.yaml
+>> +++ b/Documentation/ctlv/generated-files.yaml
+>> @@ -16,3 +16,10 @@ families:
+>>        kernel-header: include/linux/ctlv_gen.h
+>>        kernel-source: lib/ctlv/ctlv_gen.c
+>>        user-source: tools/ctlv/libctlv/ctlv_user_gen.c
+>> +
+>> +  - name: ctlv-attestation
+>> +    source: Documentation/ctlv/specs/ctlv-attestation.yaml
+>> +    outputs:
+>> +      uapi-header: include/uapi/ctlv/ctlv_attestation_gen.h
+>> +      kernel-header: drivers/attestation/generated/ctlv_attestation_gen.h
+>> +      kernel-source: drivers/attestation/generated/ctlv_attestation_gen.c
+>> diff --git a/Documentation/ctlv/specs/ctlv-attestation.yaml b/Documentation/ctlv/specs/ctlv-attestation.yaml
+>> new file mode 100644
+>> index 00000000000000..78b2dad6318a6f
+>> --- /dev/null
+>> +++ b/Documentation/ctlv/specs/ctlv-attestation.yaml
+>> @@ -0,0 +1,181 @@
+>> +# SPDX-License-Identifier: ((GPL-2.0 WITH Linux-syscall-note) OR BSD-3-Clause)
+>> +%YAML 1.2
+>> +---
+>> +# Attestation devices: evidence and measurement registers (MRs). The device's
+>> +# family inherits this one, fills device-info and gives evidence-vendor-format
+>> +# the formats its vendor defines.
+>> +family: ctlv-attestation
+>> +inherits: ctlv
+>
+>This is much easier to read, I think it works well like this!
+
+Yeah, pretty happy with it as well. Thanks for the suggestion!
+
+
+>
+>> +
+>> +enums:
+>> +  # What an evidence object is.
+>> +  evidence-class:
+>> +    # Made by evidence-get over its challenge, and signed by the root of
+>> +    # trust.
+>> +    - signed
+>> +    # The platform's log of what firmware and the boot chain measured into
+>> +    # the MRs. Later extends, through mr-extend or otherwise, are not in it.
+>> +    - event-log
+>> +  # A layout of an evidence object that a standard defines.
+>> +  evidence-format:
+>> +    # The log area of an ACPI CCEL table, a TCG crypto-agile event log.
+>> +    - ccel
+>
+>Lets be in the habit of including a detailed spec reference for things
+>that are standards.
+
+Agreed. Will add it.
+
+
+>
+>> +  # A layout of an evidence object that one vendor defines, given by the
+>> +  # device's family.
+>> +  evidence-vendor-format: extension
+>
+>I find this 'standard' 'vendor' distinction confusing. Is this an
+>artifact of the compilation process?
+>
+>This would be more usable if there was one enum but both this yaml and
+>the driver yaml can contribute values to it. If we made an 'extendable
+>enum' then the values could be full 64 bit ID numbers with the tree
+>coding so that the extension works the same way as a op and record?
+>
+>Though I'm a bit nervous about what happens if something in a driver
+>turns into a standard. It would be nice to be able to make the
+>driver's ID promoted to a global ID without changing the ID. That
+>sounds like something the generator could learn to do later I guess.
+
+I see your point. Bit if we have 64bit enum value what included the
+family id, we still have per-family namespace of enum values. Hard to
+"promote to global id". We would have to have one range of enum values,
+some of which would be driver, some global. How exactly you see this
+happening?
+
+
+>
+>The comment should be improved to define what consitutes a 'format'. I
+>was advocating that the format should define enough to check the
+>signature and the challenge universally.
+>
+>Like Peter described the new TDX evidence as "tdx-quote-eat-cwt-1.0".
+>
+>Poking at the IETF RFCs with AI a bit I think it should be described
+>as "CWT EAT" in this language. The EAT RFC defines the location of the
+>challenge and uses the CWT packaging which defines how the signature
+>is placed.
+>
+>I think ARM uses this format too, IDK what AMD uses.
+>
+>The EAT itself should have information inside that describes the
+>"tdx-quote-1.0" idea, so we don't need it externally.
+
+Perhaps we need 2 attributes, "evidence-packaging" and
+"evidence-format"? This is a bit unclear to me to be honest.
+
+
+>
+>> +  # The kernel's hash algorithms.
+>> +  hash-algo:
+>> +    $header: linux/hash_info.h
+>> +    $enum: hash_algo
+>> +    $end: HASH_ALGO__LAST
+>> +
+>> +flags:
+>> +  # What a device offers for its MRs.
+>> +  mr-device-caps:
+>> +    # mr-extend is provided.
+>> +    - extend
+>
+>I guessed the userspace should learn what operations are supported
+>using introspection directly on the operation? Do we need to specify
+>what ops are implemented in device-get?
+
+True, will remove this leftover.
+
+
+>
+>> [ ... 5 lines skipped ... ]
+>> +records:
+>> +  # One MR, as mr-get describes it.
+>> +  mr-desc:
+>> +    # The platform's name for the MR, such as rtmr0.
+>> +    name: string(1..128)
+>> +    # Its banks, each once, in the provider's order.
+>> +    supported-hash-algorithms[hash-algo]: hash-algo
+>
+>I wonder if it would be wise to put a bit more syntax here:
+>    supported-hash-algorithms[num_entries(hash-algo)]: hash-algo
+>
+>Just to be clear about exactly what is being extracted from
+>hash_algo.. It is the total number of entries, not the maximum value
+>or something else.
+
+I already have this changed in my work tree as:
+"supported-hash-algorithms[enum hash-algo]: enum hash-algo". I think it
+is enough, what do you think?
+
+[...]
