@@ -1,77 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795804591;
-	b=BHUq1c+G5dVU6XpcmqJ3TWkAV2BUfEUVuTrkeY+YeW0SQ/kBsFxxjLsrtbNoHa8wE00J
-	 eVcTzVewILwj+6Re/28RKNrsNsrMoFvoiaHftGFmABB/OfBAmCqgoBOeJ+T1wL0REW2Aq
-	 6SsYyn/rvfqQdkWrqHZ++KRU7o9+BuziOcm7ZKdVrK/PHjcJ8kqlQ8RqWFB0ThK2iS8AH
-	 0wJisOvbL49ABnpg3Whu39EuwB/FpIH4QO3yIVwTLesq7132a5xHtw1awDDYYDk6PQxfb
-	 2EKO+onDRbNcRkazVn9wsT6J8E8X0Xcy4vkN7KUi1Jkdk9BDhOvkUHjyaNnPcKy9e+Q==
+	t=1795804598;
+	b=AS+s83VkIq5sPErGoA8PhwzGVUf2YwSD0qiSHMwEaLyxPahTTb2eNDwl8CKRB8B+HqT+
+	 wDX3lz49IAHPEqDEwIRuERlFmRXHZ3iLf4TlncCn+Q1WdkTPIe4GBjqa2L4rur6Sq9QCG
+	 iEH7yNZiuJ5qbc/hJKq0Wxsn24C8SFbQaaW9ZvK8WsVGTl6qRCBgBzyfyVQ0VM/72oABZ
+	 ypulcJJWDN6uPrYuD4btcRCA3DdQS1sM4VLwxzLK68+pRNNICcHvfkhFDxI4XkkLM8t59
+	 YtpUTrrEYNmEy4J9UKdX0WLv0XBlrb7g5q7jlKB2eWkdG+VaJIXE6/fv+A2uqOvdt5g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795804591;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795804598;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=dnCyPV6D2bArF3GLES9sJUnpZcNoKPgSrEv1HpReYYc=;
-	b=aWuQBPuPxDQEBYYBzR2xxCJ+lOxzi6U/IO5kX81It8TE6vLIq/5oj3gN8sh7B4T7K9RT
-	 BsOY+ZD11ruU5PY3RpVv2W7z2yIPCMZddPp3xJPA9jRX3xQN85ESaIVxQlwzcf7+WNxv+
-	 148xPu80qFHjpMDXUf/0XNtF+MP1zD/RcNtplWfc4WUtrGLR/7K59HXDOTgIj+jsezIDZ
-	 r2gpxb5Xt6VoksOxmOxnvVBSVlrU6pCtmIeNHRWuQavxc4gAmufiCADpw5p95Mb1ynl4M
-	 hZRGoMrF64L3PoI6Cl8ouDmYwtyP3QlewlEroC3Nrd9KNFQ5r31vNHW47RMyDnwrqlA==
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=wMIKscvgJyz6s31NMv0NlSVP0vJydCQ+WGHxYrw4eIE=;
+	b=unpYvu3K2Oo65V6g1aq58FgjWxlioCBIT5ThU1LqgYQxlSrkq7QWEok/byvCyL2obL5Z
+	 X9lNQXMjIhbD0as+Tc6Bf8iPRBSouQL/6cT0Ky5MScqR+4ctAI/ctz+u9geWavMCuwy7O
+	 7jnKD8JpyP6256LgrZ3Y1O2uKgvmG4vchb60FZbeLscJGv5Wjvhosn9fBQS1cH/nV6jFA
+	 ml9myanpgH9gJfyY6SfzTYSJqN5vRzC7/hN6tcBLYqGHLDwsPeT7SQGZ+fctHPRv/lq9v
+	 oey4VLjxOAfFruL8Y2feF+BrclcCmcYPgZW91O8kHTtdOvk5+e2bJ7TDw61Gv1xkNSA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kKpDybEm;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cNtMRNpF;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFAC7606A31C;
-	Fri, 27 Nov 2026 18:36:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74237606A31E;
+	Fri, 27 Nov 2026 18:36:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kKpDybEm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 724E21F000C1;
-	Fri, 27 Nov 2026 18:36:27 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cNtMRNpF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8913A1F00898;
+	Fri, 27 Nov 2026 18:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795804591;
-	bh=dnCyPV6D2bArF3GLES9sJUnpZcNoKPgSrEv1HpReYYc=;
-	h=From:To:Cc:Subject:Date;
-	b=kKpDybEmuPt4Ni4wm+qrSrm6qahoB9wY52yf0j9Yvcx5MYkBqK0toucrFoDn39z7v
-	 k3EcaEzHnkN5liDjS1K3QR51dw+pFoZSQPY5QApFtE2AVkRbGS4Uu76/CxQ56YsNIZ
-	 mIdL2P/mKlBvLeOSwmNLl4JeX8rhqsMG0rSB2NiR5TNsCkMFN3tapTu9jz3BXqwo3C
-	 S0gvbA30RQ/xhvCROU0BEtJZbb9NLfR3uRS0ipzGFLeSpllAHVGnjyqEN7VMMmFKUh
-	 NfYOjjmuZdo9ZBEJTs6Qv7Obqi6d+iqHiPYFrDIQEqdP/XPCekcatfRZE8I5ZYZ6lO
-	 Nb6jwsG2Z399Q==
+	s=k20260515; t=1795804597;
+	bh=wMIKscvgJyz6s31NMv0NlSVP0vJydCQ+WGHxYrw4eIE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=cNtMRNpFvvcZK99vRCDQlXdIBHzeEBU9UV/yIBq92vUQwEcgn1CSCFDN52YRRXjlc
+	 HGmY8D+iTJSW3sWjo7zHyZ+CvVRnlQBSNzNWSsd/Dt2VwV4akyUtFAynv98QJ283Xn
+	 gSRgkUG/ZlC2aeEVgI8dj6STb3qdNCNxpZstJmGhoXsGk4kLYufnbYDxl79lCrTSru
+	 UDbwz6RhLtgC6E/RjS3pi4e+BxNMUc5j1j/cSe+xlctArHLPbeqbGFVHim568ZP+aM
+	 q6fxtn+NhMoCeitnracA6HQa4Z/g6r+HH20TPntf6b0rV6v+p4yaS7LKmNDPXyt/kd
+	 5RtSXpd5NNvdw==
 From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Alexey Charkov <alchark@flipper.net>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Corentin Labbe <clabbe@baylibre.com>,
-	Douglas Anderson <dianders@chromium.org>,
-	Eduardo Candelaria <jedu@slimlogic.co.uk>,
-	Esteban Blanc <eblanc@baylibre.com>,
-	Graeme Gregory <gg@slimlogic.co.uk>,
-	Gyungoh Yoo <jack.yoo@maxim-ic.com>,
-	Jerome Neanne <jneanne@baylibre.com>,
-	Jin Park <jinyoungp@nvidia.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Laxman Dewangan <ldewangan@nvidia.com>,
+To: lee@kernel.org,
 	Liam Girdwood <lgirdwood@gmail.com>,
-	linux-omap@vger.kernel.org,
-	Mal Nadar <m.nirmaladevi@ltts.com>,
 	Mark Brown <broonie@kernel.org>,
-	Markus Schneider-Pargmann <msp@baylibre.com>,
+	Douglas Anderson <dianders@chromium.org>,
 	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Rajendra Nayak <rnayak@ti.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Samuel Ortiz <sameo@linux.intel.com>,
-	Stephen Warren <swarren@nvidia.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Uday Khare <udaykhare77@gmail.com>
-Subject: [PATCH 0/8] regulator: Fix locking, OOB read, lifetime, and global state bugs (batch 2)
-Date: Fri, 27 Nov 2026 18:35:40 +0000
-Message-ID: <20261127183624.3341010-1-lee@kernel.org>
+	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
+	linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+Subject: [PATCH 1/8] regulator: core: Defer supply cleanup and unregister event forwarding on error
+Date: Fri, 27 Nov 2026 18:35:41 +0000
+Message-ID: <20261127183624.3341010-2-lee@kernel.org>
 X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+In-Reply-To: <20261127183624.3341010-1-lee@kernel.org>
+References: <20261127183624.3341010-1-lee@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,68 +63,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-These issues were reported by Sashiko.
+When enabling rdev->supply fails in set_machine_constraints(), the error
+path calls _regulator_put(rdev->supply) without holding
+regulator_list_mutex and clears rdev->supply to NULL.  Neither
+regulator_register() nor regulator_resolve_supply() holds
+regulator_list_mutex here, and when called from
+regulator_resolve_supply() under regulator_lock_dependent(), clearing
+rdev->supply prevents regulator_unlock_dependent() from unlocking the
+supply chain and skips unregister_regulator_event_forwarding().
 
-This is batch 2 of Regulator bug fixes, based on regulator/for-next.
-It addresses supply teardown and locking bugs in regulator core, slab
-and global out-of-bounds reads in tps6594 and tps65910, devres lifetime
-mismatches in tps6594, a NULL device_node dereference in of_regulator,
-and shared global table mutations in max8907 and aat2870.
+In addition, the wash error label in regulator_register() releases
+rdev->supply and drops the device reference without calling
+unregister_regulator_event_forwarding(), leaving a dangling notifier on
+the supply chain after rdev is freed.
 
-Cc: "André Draszik" <andre.draszik@linaro.org>
-Cc: Aaro Koskinen <aaro.koskinen@iki.fi>
-Cc: Alexey Charkov <alchark@flipper.net>
-Cc: Andreas Kemnade <andreas@kemnade.info>
-Cc: Corentin Labbe <clabbe@baylibre.com>
-Cc: Douglas Anderson <dianders@chromium.org>
-Cc: Eduardo Candelaria <jedu@slimlogic.co.uk>
-Cc: Esteban Blanc <eblanc@baylibre.com>
-Cc: Graeme Gregory <gg@slimlogic.co.uk>
-Cc: Gyungoh Yoo <jack.yoo@maxim-ic.com>
-Cc: Jerome Neanne <jneanne@baylibre.com>
-Cc: Jin Park <jinyoungp@nvidia.com>
-Cc: Kevin Hilman <khilman@baylibre.com>
-Cc: Laxman Dewangan <ldewangan@nvidia.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>
-Cc: linux-omap@vger.kernel.org
-Cc: Mal Nadar <m.nirmaladevi@ltts.com>
-Cc: Mark Brown <broonie@kernel.org>
-Cc: Markus Schneider-Pargmann <msp@baylibre.com>
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>
-Cc: Rajendra Nayak <rnayak@ti.com>
-Cc: Roger Quadros <rogerq@kernel.org>
-Cc: Samuel Ortiz <sameo@linux.intel.com>
-Cc: Stephen Warren <swarren@nvidia.com>
-Cc: Tony Lindgren <tony@atomide.com>
-Cc: Uday Khare <udaykhare77@gmail.com>
+Leave supply teardown in set_machine_constraints() to its callers, which
+already handle cleanup with proper locking, and unregister event
+forwarding before putting rdev->supply on the regulator_register() error
+path.
 
-Lee Jones (8):
-  regulator: core: Defer supply cleanup and unregister event forwarding
-    on error
-  regulator: max8907: Duplicate of_regulator_match table per device
-  regulator: tps6594-regulator: Use dedicated handler for external
-    regulator IRQs
-  regulator: tps65910: Fix OOB read and bit shift in external sleep
-    config
-  regulator: tps6594-regulator: Bind IRQ resources to child platform
-    device
-  regulator: core: Respect is_locked when disabling supply on enable
-    failure
-  regulator: of: Guard against NULL device_node in
-    of_regulator_bulk_get_all()
-  regulator: aat2870: Duplicate regulator data per device
+Fixes: 05f224ca6693 ("regulator: core: Clean enabling always-on regulators + their supplies")
+Fixes: 433e294c3c5b ("regulator: core: forward undervoltage events downstream by default")
+Fixes: 8d38423d9dea ("regulator: core: don't fail regulator_register() with missing required supply")
+Closes: https://sashiko.dev/#/bug/linux-f6e93cf6-c907-4a0b-b748-617186aee410
+Cc: stable@vger.kernel.org
+Signed-off-by: Lee Jones <lee@kernel.org>
+---
+ drivers/regulator/core.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
- drivers/regulator/aat2870-regulator.c  | 30 +++++++++-----
- drivers/regulator/core.c               | 18 ++++----
- drivers/regulator/max8907-regulator.c  | 57 +++++++++++---------------
- drivers/regulator/of_regulator.c       |  3 ++
- drivers/regulator/tps65910-regulator.c | 20 +++++++--
- drivers/regulator/tps6594-regulator.c  | 27 +++++++++---
- 6 files changed, 95 insertions(+), 60 deletions(-)
-
+diff --git a/drivers/regulator/core.c b/drivers/regulator/core.c
+index 8bb1ae4e03ea..18ec8b77e620 100644
+--- a/drivers/regulator/core.c
++++ b/drivers/regulator/core.c
+@@ -1680,11 +1680,8 @@ static int set_machine_constraints(struct regulator_dev *rdev,
+ 			ret = (is_locked
+ 			       ? _regulator_enable(rdev->supply, NULL)
+ 			       : regulator_enable(rdev->supply));
+-			if (ret < 0) {
+-				_regulator_put(rdev->supply);
+-				rdev->supply = NULL;
++			if (ret < 0)
+ 				return ret;
+-			}
+ 			supply_enabled = true;
+ 		}
+ 
+@@ -6392,7 +6389,10 @@ regulator_register(struct device *dev,
+ 	regulator_remove_coupling(rdev);
+ 	mutex_unlock(&regulator_list_mutex);
+ wash:
+-	regulator_put(rdev->supply);
++	if (rdev->supply) {
++		unregister_regulator_event_forwarding(rdev);
++		regulator_put(rdev->supply);
++	}
+ 	kfree(rdev->coupling_desc.coupled_rdevs);
+ 	mutex_lock(&regulator_list_mutex);
+ 	regulator_ena_gpio_free(rdev);
 -- 
 2.56.1.839.g22a8290db9-goog
 
