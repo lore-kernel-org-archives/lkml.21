@@ -1,106 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.180
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795787166;
-	b=lb/VfKRSyeDWUrKyeMdD5JKlrHhbmKgqJEx4qax45Xep2nPnrvfc9npN5Be7rOwFLD1a
-	 PJ/tv9bt12K87n606fZyBXlWZ5Kg3+Veyu2f+Ld9StejDAMQkrbD1twBlxfC1x6FNNHrW
-	 YHowDqR70nBzvvbL2i0+M08zK25M8rEa9DnTEqmCpnMUS2Cn0AKEhZwvCls3Q7ASRd0Vm
-	 XcxWfeiQmDAOmxMImXnOl2OrRIVuxoIDD56KwIce97M1FMvtA7SOaXWv+fxvZzbMlo9yP
-	 5yWEa05Pqrki9plRxCZ9MMYF8GaVZCpMlulKdqpxkrBK2fkxeAbLFwDhqqKnRD66UnQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795787166;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=RoL42gzoJZnx/2rfnpic2MzKrIpTAAEm9+NNRJEbmT4=;
-	b=RjxmTcg1j1to4E5oG7BRyF1WkG88Pjy6AXqbeEIFS1H7Pby5sZ2maaXl/vVsVRYsCT7C
-	 u7PE//rzt+uplChfLbUnXKU1Gkqs1zA3gUq/iC2cHPvt/ur21mUujheJW82TFbPWOfcJT
-	 HjjvVV5OMgPzOCpMn07aGf6OxWH1SDAyW0B/0OAj7QCTuXnUMJ5D532BdplX4cAYYOgFL
-	 XNXhajw7upfrRfWyNQBLTTLhB63zMji+O1VumpA5nzqA4GYDCMQ0OV64CNCjAZLrKiZSi
-	 u4leAt2WxBv7fIDVpkl2+QH8c5+l7frwuhS+E3o+oNGWipwxbf0Grzs12xXWFWsiqdw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="ynJ/3l+6";
-	arc=none smtp.remote-ip=209.85.214.180
-Received: from mail-pl1-f180.google.com (mail-pl1-f180.google.com [209.85.214.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795787170;
+	b=CVlH/AhGgibgIgj9J1EPO4DBDw/JCGbn6r0V8XLkxAuXIg9r5EXnlnhGypiGyfauXo95
+	 y+mW0hwDOVWRg5lLX5OBYkO9IqSfnxYPKq89urXYbFJroeCt5IzFoA+mcpdr7un/MxhD0
+	 CXtvQRq9FPssPckPd14O7sNlNwZQADCCdRzIE97B9xVoiGzbm64A3aNWOyWzc5MiN8H+0
+	 liC6oJcmrSNRBtbQrJ22od6u1pgJY5271TBaNae+KTuNSd1FpqaEcetTdsNLvHEVhdnk4
+	 XFFMfkXsh/bIFi3vSK/ujcocducBthefw+cQlnfI8qQ8uE98ggQseWd9SyPRqENdTqQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795787170;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ZohoMailClient;
+	bh=728jjslXS0U7w2RI+WsoqD5/WFmEi0hGQnc/ijojtm0=;
+	b=27W96A7HUbXLQFmp0KJWMaXfyllCTnPozTqRBwYL6RK/gXpioVehYtGL+CtpDX7uG5h7
+	 eN/orNIFVLH8MI5IxmNfjrFPfThfpmTttt9uK9wrkHpi1rjdi1zmAonQV68cm9m25WgdB
+	 9/IR5nrmikHRNiofXKkTfXHIksK7JXYVaF0i1yzUe3qwYE7eMqWCxSOdidKwgdo9MxNbo
+	 YlC4aLDBNDTWRpEApf05oPc5JYU/RrPUSqx+mIOHwlsleXJHRN0cu726Xq4SuEWOSl0ZR
+	 sxJMfCvM4v1QCGRSpwH9qSC4fO/oNjq5iOwnS2ywFm7vlPgCmoiekRviB+fJuyhcwdQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=Bx4HZ2OY;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B0D1606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:46:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B0D1606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FD69606A335
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:46:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FD69606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ynJ/3l+6
-Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-2f04e3bf46dso59931375ad.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:46:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795787165; x=1796391965; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=RoL42gzoJZnx/2rfnpic2MzKrIpTAAEm9+NNRJEbmT4=;
-        b=ynJ/3l+6RFwBPz7uZzu67TeyuGiX2s+NP+WaOzycTaf1K8DdvQ9n+DgZDfk2wYbL7f
-         YOOKjFD1W54PpUIlakpL20B66GQsIlfLvXASFHdInYq6qBmzbvwowfijB6YpfEHbYlMH
-         fM1iFl+AVkJbjcKHfkohG+35tJshkS9AxAnxyujbXXJIoA2zHFszDR0hUmsQyEr8P8SP
-         tqc6fch3ixFYa+O+6X9v7sZJowhYBpqiNpYa9RA1Ojw0Xo5t0PijW9LWs9RypIjfmUCf
-         N6z2sRqiOiFa3gP2C+VlKxOCmFFiVDGwAx1bSRyXo53tZmXu3vUEEjUJUplEH6ZosK7i
-         +J0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795787165; x=1796391965;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RoL42gzoJZnx/2rfnpic2MzKrIpTAAEm9+NNRJEbmT4=;
-        b=k8zRQ0ozyaIMBxnIhO91QHLUWWseNDL+Yop8SNEJXFazikHo0GF9C+3+eKxysT0ye8
-         0xg3i6DLYJX/vVlxQTVIB64lntPOTMRLYF2iDKuzBP5ID921LnTDJwxi0YTp6lBBID4J
-         RHk7fPdi/1uv8YjxnzefAxiZWJbBb5J4EUJU7YspiYqxl/Sl4zyESH43yd3+hwSObFiw
-         rXp8xHfx+WsMUE2shfrQOkC/VppicC1Yo4Q6eIdct0XhuL0WsBcW5iYrmihtzFLnWQ0w
-         gQ8yfWO/uUgXt45Ugdd8cM5PEpVvynDl5JEjyjfyN/tCFCWDRTW8SdasP21AicFBx4gl
-         xyZw==
-X-Forwarded-Encrypted: i=1; AL+hErGs1i1fxqIC/b9qSZgIerlyUlwND4mYSqr79OdmKFnqqQPU0f5aQJwffSY0xTeWJYx3fsoydPmYA/8fowI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/LLLd9rceln6zevAm4HUcC03aQtsEwprgP9P/22dsZ0sEiLVUe
-	f7mrHOx95wY9G+MCDRXy3qiO7HNCttOTM0C+PXLlhR32CRH0QrbBBZ/a
-X-Gm-Gg: AZFdTZf8oQAe3B4On2VmvDydly7ul1+h4Be6pti/E9PlUVNxEsSsE30X35bKxGwtXZL
-	egsHcBoJVSPhLBNrAKDwzqoOyTHBLWH7ZIZaMlfT1gFiAbDm1UsF+fObwaaLTohYj8YwUUPit2z
-	GDQTTQe54WhaOUcp5BnC7ynR3Q7g8Af0oYRvg+jebyXRufbGp+4e1ALFTaBRJGkrsun2lEpqQLN
-	w+rmzYH643LmB/5MBUiGKezyCFnxpOu29LkYINBiJKNNgv3ktg4tJwZApJrqMNQTnT0dgk/BFcA
-	YMvKJ/vCfw1nCoAfc7ibygTEwdgHxK1Q2o19YSiXpSbCsGtUcU1oDwt7tIeai59k0VE8Wz3923q
-	P9ShNffSQ42VIYiyxjO9Jz+7hC98/jjQ0juaTK7AzGYTUUHbUdEOp3u0k8R8n2+3I+nAmguOWzU
-	gGs6bjaZoN/JAhvPD5YCdwiB7jze0JcQAgamP1OQsl2tVMZc2cGOBHo2XtKHuk7J/dJ4OhyFxI6
-	aCBL4TtPWHhATjYBvqn/ZevyUrY7MOWr9uFdfe7Vk/r+nyGz0CsRwgyuc17wyAqGCNo9+KaZvIV
-	sQwz58wx74HbiBKCJBhsDby8qzhD+O6jV6VIM7xQZiwyURTh6zJN2MY7xPyJNUj9JcMi
-X-Received: by 2002:a17:903:4b03:b0:2ed:ebc:460f with SMTP id d9443c01a7336-2f03f2118f0mr254452305ad.33.1795787164460;
-        Fri, 27 Nov 2026 05:46:04 -0800 (PST)
-Received: from localhost.localdomain ([2404:c0:aa07:12b3:e89:dfdd:d14b:d911])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1f2csm121741545ad.22.2026.11.27.05.45.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 05:46:04 -0800 (PST)
-From: Hikmah Gumelar <hikmahgumelar@gmail.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	Abel Vesa <abelvesa@kernel.org>
-Subject: [PATCH v5 5/7] media: i2c: add ov12a10 image sensor driver
-Date: Fri, 27 Nov 2026 20:45:05 +0700
-Message-ID: <20261127134507.125513-6-hikmahgumelar@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261127134507.125513-1-hikmahgumelar@gmail.com>
-References: <20261127134507.125513-1-hikmahgumelar@gmail.com>
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=Bx4HZ2OY
+ARC-Seal: i=1; a=rsa-sha256; t=1795787153; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Rz7jq2XyYtiirDzCgkWNKZ0z6e5uFBUJEhJWLrEDSE6BdnKGnSC8DxzG0zD2s7d/aRWWquhxr+SBkJFcKqf4QRT0k3yTLshGwm34mRK7nZ7Nyhx5j4kWIElpv4r4l5TWb6/zKtS08jdpDBWhyhPbisgjO3dAMrXxUBFUu4+kJc4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795787153; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=728jjslXS0U7w2RI+WsoqD5/WFmEi0hGQnc/ijojtm0=; 
+	b=U7aGuVBX55zKRKzOxNO5hlqwS0xMYbVNGiwVFgbE+BFbVDRvKkgyt+EqRxLNCrHR/7/idyo9LQWkv+/Y7hkaMLEXjJKw+qLO/aCPrroXeR6RA9Xh+Vq49wSi+NEzsIXWsQnVN/GelMR2Df8bUSYUzQnnBK0Wxfp61jCplrK0n4U=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=dmitry.osipenko@collabora.com;
+	dmarc=pass header.from=<dmitry.osipenko@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=Bx4HZ2OYBQsjyz4NfuTWQucwu4jqizIVM7JfRZjn0cVqLM1BUy5CFlmxzxszlh7KWaK39uvYlor9Jvd5s/okwYYcA4Ew+aczWrmFFfGZsM8vPuK/oJqJswrRLxDzfYPXKAK75lRsEzm7Iv8DHSprsLRqvBVgFOPQ272NLUhr8QY=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=728jjslXS0U7w2RI+WsoqD5/WFmEi0hGQnc/ijojtm0=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795787151838696.5437119289173;
+	Fri, 27 Nov 2026 05:45:51 -0800 (PST)
+Message-ID: <8680b1cf-b997-40c9-a789-b9e8566c93ec@collabora.com>
+Date: Fri, 27 Nov 2026 16:45:46 +0300
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,848 +58,548 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v10 3/4] drm/virtio: implement userptr resource
+ support
+To: Honglei Huang <honghuan@amd.com>,
+ Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>,
+ David Airlie <airlied@redhat.com>, Gerd Hoffmann <kraxel@redhat.com>
+Cc: Gurchetan Singh <gurchetansingh@chromium.org>,
+ Chia-I Wu <olvaffe@gmail.com>, Ray Huang <Ray.Huang@amd.com>,
+ dri-devel@lists.freedesktop.org, virtualization@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20261106082625.812860-1-honghuan@amd.com>
+ <20261106082625.812860-4-honghuan@amd.com>
+Content-Language: en-US
+From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+In-Reply-To: <20261106082625.812860-4-honghuan@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 
-Add V4L2 subdev driver for the OmniVision OV12A10 12-megapixel MIPI
+On 11/6/26 11:26, Honglei Huang wrote:
+> Add userptr blob objects so the guest kernel can pin an existing
+> userspace mapping and advertise it as CREATE_BLOB backing entries.
+> 
+> - New virtio_gpu_object_userptr type for userptr resources
+> - Pin pages with pin_user_pages_fast() and FOLL_LONGTERM
+> - Omit FOLL_WRITE when VIRTGPU_BLOB_FLAG_USE_READONLY is set
+> - Charge FOLL_LONGTERM pins against RLIMIT_MEMLOCK
+> - DMA-map the scatterlist only when virtio_gpu_use_dma_api() is
+>    required; use DMA_TO_DEVICE for USE_READONLY blobs
+> - Mark writable pages dirty when unpinning
+> - Keep pages pinned until RESOURCE_UNREF is queued; drop them from
+>    cleanup_object() on the unref response or on create failure
+> - Clear userptr->pages on pin failure to avoid double-free on cleanup
+> - Reject unaligned or overflowing userptr ranges at create time
+> - Disallow PRIME export of userptr objects
+> - Save CREATE_BLOB params and restore userptr resources after
+>    hibernation without using the shmem restore path
+> 
+> Map with DMA_ATTR_REQUIRE_COHERENT at create time, on hibernation
+> restore, and on unmap.
+> 
+> Signed-off-by: Honglei Huang <honghuan@amd.com>
+> ---
+>   drivers/gpu/drm/virtio/Makefile          |   3 +-
+>   drivers/gpu/drm/virtio/virtgpu_drv.h     |  42 +++
+>   drivers/gpu/drm/virtio/virtgpu_object.c  |  22 ++
+>   drivers/gpu/drm/virtio/virtgpu_userptr.c | 350 +++++++++++++++++++++++
+>   4 files changed, 416 insertions(+), 1 deletion(-)
+>   create mode 100644 drivers/gpu/drm/virtio/virtgpu_userptr.c
+> 
+> diff --git a/drivers/gpu/drm/virtio/Makefile b/drivers/gpu/drm/virtio/Makefile
+> index d2e1788a82..fe7332a621 100644
+> --- a/drivers/gpu/drm/virtio/Makefile
+> +++ b/drivers/gpu/drm/virtio/Makefile
+> @@ -6,6 +6,7 @@
+>   virtio-gpu-y := virtgpu_drv.o virtgpu_kms.o virtgpu_gem.o virtgpu_vram.o \
+>   	virtgpu_display.o virtgpu_vq.o \
+>   	virtgpu_fence.o virtgpu_object.o virtgpu_debugfs.o virtgpu_plane.o \
+> -	virtgpu_ioctl.o virtgpu_prime.o virtgpu_trace_points.o virtgpu_submit.o
+> +	virtgpu_ioctl.o virtgpu_prime.o virtgpu_trace_points.o virtgpu_submit.o \
+> +	virtgpu_userptr.o
+>   
+>   obj-$(CONFIG_DRM_VIRTIO_GPU) += virtio-gpu.o
+> diff --git a/drivers/gpu/drm/virtio/virtgpu_drv.h b/drivers/gpu/drm/virtio/virtgpu_drv.h
+> index 9df4c71173..a29429b415 100644
+> --- a/drivers/gpu/drm/virtio/virtgpu_drv.h
+> +++ b/drivers/gpu/drm/virtio/virtgpu_drv.h
+> @@ -105,6 +105,7 @@ struct virtio_gpu_object_params {
+>   	uint32_t blob_flags;
+>   	uint64_t blob_id;
+>   	uint32_t blob_hints;
+> +	uint64_t userptr;
+>   };
+>   
+>   struct virtio_gpu_object {
+> @@ -138,12 +139,42 @@ struct virtio_gpu_object_vram {
+>   	struct drm_mm_node vram_node;
+>   };
+>   
+> +struct virtio_gpu_object_userptr;
+> +
+> +struct virtio_gpu_object_userptr_ops {
+> +	int (*get_pages)(struct virtio_gpu_object_userptr *userptr);
+> +	void (*put_pages)(struct virtio_gpu_object_userptr *userptr);
+> +};
+> +
+> +struct virtio_gpu_object_userptr {
+> +	struct virtio_gpu_object base;
+> +	const struct virtio_gpu_object_userptr_ops *ops;
+> +	/* Protects @pages, @sgt and @dma_mapped. */
+> +	struct mutex lock;
+> +
+> +	uint64_t start;
+> +	uint32_t npages;
+> +	uint32_t bo_handle;
+> +	uint32_t flags;
+> +
+> +	struct virtio_gpu_device *vgdev;
+> +	struct drm_file *file;
+> +	struct page **pages;
+> +	struct sg_table *sgt;
+> +	bool dma_mapped;
+> +	enum dma_data_direction dma_dir;
+> +	struct mm_struct *mm;
+> +};
+> +
+>   #define to_virtio_gpu_shmem(virtio_gpu_object) \
+>   	container_of((virtio_gpu_object), struct virtio_gpu_object_shmem, base)
+>   
+>   #define to_virtio_gpu_vram(virtio_gpu_object) \
+>   	container_of((virtio_gpu_object), struct virtio_gpu_object_vram, base)
+>   
+> +#define to_virtio_gpu_userptr(virtio_gpu_object) \
+> +	container_of((virtio_gpu_object), struct virtio_gpu_object_userptr, base)
+> +
+>   struct virtio_gpu_object_array {
+>   	struct ww_acquire_ctx ticket;
+>   	struct list_head next;
+> @@ -284,6 +315,7 @@ struct virtio_gpu_device {
+>   	bool has_host_visible;
+>   	bool has_context_init;
+>   	bool has_blob_alignment;
+> +	bool has_blob_readonly;
+>   	bool hibernated;
+>   	struct virtio_shm_region host_visible_region;
+>   	struct drm_mm host_visible_mm;
+> @@ -562,4 +594,14 @@ void virtio_gpu_vram_map_deferred(struct virtio_gpu_object_vram *vram);
+>   int virtio_gpu_execbuffer_ioctl(struct drm_device *dev, void *data,
+>   				struct drm_file *file);
+>   
+> +/* virtgpu_userptr.c */
+> +int virtio_gpu_userptr_create(struct virtio_gpu_device *vgdev,
+> +			      struct drm_file *file,
+> +			      struct virtio_gpu_object_params *params,
+> +			      struct virtio_gpu_object **bo_ptr);
+> +bool virtio_gpu_is_userptr(struct virtio_gpu_object *bo);
+> +int virtio_gpu_userptr_restore(struct virtio_gpu_device *vgdev,
+> +			       struct virtio_gpu_object *bo,
+> +			       struct virtio_gpu_mem_entry **ents,
+> +			       unsigned int *nents);
+>   #endif
+> diff --git a/drivers/gpu/drm/virtio/virtgpu_object.c b/drivers/gpu/drm/virtio/virtgpu_object.c
+> index 49899485be..ab21494b1c 100644
+> --- a/drivers/gpu/drm/virtio/virtgpu_object.c
+> +++ b/drivers/gpu/drm/virtio/virtgpu_object.c
+> @@ -91,6 +91,16 @@ void virtio_gpu_cleanup_object(struct virtio_gpu_object *bo)
+>   		drm_gem_free_mmap_offset(&vram->base.base.base);
+>   		drm_gem_object_release(&vram->base.base.base);
+>   		kfree(vram);
+> +	} else if (virtio_gpu_is_userptr(bo)) {
+> +		struct virtio_gpu_object_userptr *userptr =
+> +			to_virtio_gpu_userptr(bo);
+> +
+> +		mutex_lock(&userptr->lock);
+> +		userptr->ops->put_pages(userptr);
+> +		mutex_unlock(&userptr->lock);
+> +		mutex_destroy(&userptr->lock);
+> +		drm_gem_object_release(&userptr->base.base.base);
+> +		kfree(userptr);
+>   	} else {
+>   		drm_gem_object_release(&bo->base.base);
+>   		kfree(bo);
+> @@ -316,6 +326,18 @@ int virtio_gpu_object_restore_all(struct virtio_gpu_device *vgdev)
+>   			continue;
+>   		}
+>   
+> +		if (virtio_gpu_is_userptr(bo)) {
+> +			ret = virtio_gpu_userptr_restore(vgdev, bo, &ents,
+> +							 &nents);
+> +			if (ret)
+> +				break;
+> +
+> +			virtio_gpu_cmd_resource_create_blob(vgdev, bo,
+> +							    &bo->params,
+> +							    ents, nents);
+> +			continue;
+> +		}
+> +
+>   		if (bo->params.blob || bo->attached) {
+>   			ret = virtio_gpu_object_shmem_init(vgdev, bo, &ents,
+>   							   &nents);
+> diff --git a/drivers/gpu/drm/virtio/virtgpu_userptr.c b/drivers/gpu/drm/virtio/virtgpu_userptr.c
+> new file mode 100644
+> index 0000000000..b860693255
+> --- /dev/null
+> +++ b/drivers/gpu/drm/virtio/virtgpu_userptr.c
+> @@ -0,0 +1,350 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +#include <linux/dma-mapping.h>
+> +#include <linux/limits.h>
+> +#include <linux/mm.h>
+> +#include <linux/overflow.h>
+> +#include <linux/pid.h>
+> +#include <linux/sched/mm.h>
+> +#include <linux/sched/signal.h>
+> +#include <linux/vmalloc.h>
+> +
+> +#include "virtgpu_drv.h"
+> +#include <drm/drm_gem.h>
+> +
+> +static void virtio_gpu_userptr_free(struct drm_gem_object *obj)
+> +{
+> +	struct virtio_gpu_object *bo = gem_to_virtio_gpu_obj(obj);
+> +	struct virtio_gpu_device *vgdev = obj->dev->dev_private;
+> +
+> +	/*
+> +	 * Pages stay pinned until RESOURCE_UNREF finishes. Its callback
+> +	 * calls virtio_gpu_cleanup_object to drop them.
+> +	 */
+> +	if (bo->created) {
+> +		virtio_gpu_remove_from_restore_list(bo);
+> +		virtio_gpu_cmd_unref_resource(vgdev, bo, false);
+> +		virtio_gpu_notify(vgdev);
+> +		return;
+> +	}
+> +
+> +	virtio_gpu_cleanup_object(bo);
+> +}
+> +
+> +static struct dma_buf *
+> +virtio_gpu_userptr_prime_export(struct drm_gem_object *obj, int flags)
+> +{
+> +	return ERR_PTR(-EINVAL);
+> +}
+> +
+> +static const struct drm_gem_object_funcs virtio_gpu_userptr_funcs = {
+> +	.open = virtio_gpu_gem_object_open,
+> +	.close = virtio_gpu_gem_object_close,
+> +	.free = virtio_gpu_userptr_free,
+> +	.export = virtio_gpu_userptr_prime_export,
+> +};
+> +
+> +bool virtio_gpu_is_userptr(struct virtio_gpu_object *bo)
+> +{
+> +	return bo->base.base.funcs == &virtio_gpu_userptr_funcs;
+> +}
+> +
+> +static int
+> +virtio_gpu_userptr_get_pages(struct virtio_gpu_object_userptr *userptr)
+> +{
+> +	unsigned int flag = FOLL_LONGTERM;
+> +	unsigned int num_pages, pinned = 0;
+> +	int ret = 0;
+> +
+> +	if (userptr->pages)
+> +		return 0;
+> +
+> +	userptr->pages = kvmalloc_array(userptr->npages, sizeof(struct page *),
+> +					GFP_KERNEL);
+> +	if (!userptr->pages)
+> +		return -ENOMEM;
+> +
+> +	if (!(userptr->flags & VIRTGPU_BLOB_FLAG_USE_READONLY))
+> +		flag |= FOLL_WRITE;
+> +
+> +	do {
+> +		num_pages = userptr->npages - pinned;
+> +
+> +		ret = pin_user_pages_fast(userptr->start + pinned * PAGE_SIZE,
+> +					  num_pages, flag,
+> +					  userptr->pages + pinned);
+> +
+> +		if (ret < 0) {
+> +			if (pinned)
+> +				unpin_user_pages(userptr->pages, pinned);
+> +			kvfree(userptr->pages);
+> +			userptr->pages = NULL;
+> +			return ret;
+> +		}
+> +
+> +		pinned += ret;
+> +
+> +	} while (pinned < userptr->npages);
+> +
+> +	return 0;
+> +}
+> +
+> +static void
+> +virtio_gpu_userptr_unaccount(struct virtio_gpu_object_userptr *userptr)
+> +{
+> +	if (!userptr->mm)
+> +		return;
+> +
+> +	atomic64_sub(userptr->npages, &userptr->mm->pinned_vm);
+> +	mmdrop(userptr->mm);
+> +	userptr->mm = NULL;
+> +}
+> +
+> +static void
+> +virtio_gpu_userptr_put_pages(struct virtio_gpu_object_userptr *userptr)
+> +{
+> +	struct drm_device *dev = userptr->base.base.base.dev;
+> +
+> +	if (userptr->sgt) {
+> +		if (userptr->dma_mapped)
+> +			dma_unmap_sgtable(drm_dev_dma_dev(dev), userptr->sgt,
+> +					  userptr->dma_dir,
+> +					  DMA_ATTR_REQUIRE_COHERENT);
+> +		userptr->dma_mapped = false;
+> +		sg_free_table(userptr->sgt);
+> +		kfree(userptr->sgt);
+> +		userptr->sgt = NULL;
+> +	}
+> +
+> +	if (userptr->pages) {
+> +		bool dirty = !(userptr->flags & VIRTGPU_BLOB_FLAG_USE_READONLY);
+> +
+> +		unpin_user_pages_dirty_lock(userptr->pages, userptr->npages,
+> +					    dirty);
+> +		kvfree(userptr->pages);
+> +		userptr->pages = NULL;
+> +	}
+> +
+> +	virtio_gpu_userptr_unaccount(userptr);
+> +}
+> +
+> +static int
+> +virtio_gpu_userptr_get_entries(struct virtio_gpu_device *vgdev,
+> +			       struct virtio_gpu_object_userptr *userptr,
+> +			       struct virtio_gpu_mem_entry **ents,
+> +			       unsigned int *nents)
+> +{
+> +	bool use_dma_api = virtio_gpu_use_dma_api(vgdev->vdev);
+> +	struct scatterlist *sg;
+> +	unsigned int count;
+> +	int si;
+> +
+> +	count = use_dma_api ? userptr->sgt->nents : userptr->sgt->orig_nents;
+> +	if (!count)
+> +		return -EINVAL;
+> +
+> +	*ents = kvmalloc_array(count, sizeof(**ents), GFP_KERNEL);
+> +	if (!*ents)
+> +		return -ENOMEM;
+> +
+> +	if (use_dma_api) {
+> +		for_each_sgtable_dma_sg(userptr->sgt, sg, si) {
+> +			(*ents)[si].addr = cpu_to_le64(sg_dma_address(sg));
+> +			(*ents)[si].length = cpu_to_le32(sg_dma_len(sg));
+> +			(*ents)[si].padding = 0;
+> +		}
+> +	} else {
+> +		for_each_sgtable_sg(userptr->sgt, sg, si) {
+> +			(*ents)[si].addr = cpu_to_le64(sg_phys(sg));
+> +			(*ents)[si].length = cpu_to_le32(sg->length);
+> +			(*ents)[si].padding = 0;
+> +		}
+> +	}
+> +
+> +	*nents = count;
+> +	return 0;
+> +}
+> +
+> +int virtio_gpu_userptr_restore(struct virtio_gpu_device *vgdev,
+> +			       struct virtio_gpu_object *bo,
+> +			       struct virtio_gpu_mem_entry **ents,
+> +			       unsigned int *nents)
+> +{
+> +	struct virtio_gpu_object_userptr *userptr = to_virtio_gpu_userptr(bo);
+> +	int ret;
+> +
+> +	mutex_lock(&userptr->lock);
+> +	if (!userptr->sgt || !userptr->pages) {
+> +		mutex_unlock(&userptr->lock);
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (userptr->dma_mapped) {
+> +		struct device *dev = drm_dev_dma_dev(vgdev->ddev);
+> +
+> +		dma_unmap_sgtable(dev, userptr->sgt, userptr->dma_dir,
+> +				  DMA_ATTR_REQUIRE_COHERENT);
+> +		userptr->dma_mapped = false;
+> +
+> +		ret = dma_map_sgtable(dev, userptr->sgt, userptr->dma_dir,
+> +				      DMA_ATTR_REQUIRE_COHERENT);
+> +		if (ret) {
+> +			mutex_unlock(&userptr->lock);
+> +			return ret;
+> +		}
+> +		userptr->dma_mapped = true;
+> +	}
+> +
+> +	ret = virtio_gpu_userptr_get_entries(vgdev, userptr, ents, nents);
+> +	mutex_unlock(&userptr->lock);
+> +	return ret;
+> +}
+> +
+> +static int
+> +virtio_gpu_userptr_init(struct drm_device *dev, struct drm_file *file,
+> +			struct virtio_gpu_object_userptr *userptr,
+> +			struct virtio_gpu_object_params *params,
+> +			const struct virtio_gpu_object_userptr_ops *ops)
+> +{
+> +	struct drm_gem_object *obj;
+> +	int ret;
+> +
+> +	userptr->start = params->userptr;
+> +	userptr->npages = params->size >> PAGE_SHIFT;
+> +	userptr->flags = params->blob_flags;
+> +
+> +	mutex_init(&userptr->lock);
+> +	userptr->vgdev = dev->dev_private;
+> +	userptr->file = file;
+> +	userptr->ops = ops;
+> +
+> +	/*
+> +	 * Get the resource id before GEM init, so a failed call here
+> +	 * just needs a plain kfree and no special id zero check in the
+> +	 * shared resource_id_put helper.
+> +	 */
+> +	ret = virtio_gpu_resource_id_get(userptr->vgdev,
+> +					 &userptr->base.hw_res_handle);
+> +	if (ret) {
+> +		mutex_destroy(&userptr->lock);
+> +		return ret;
+> +	}
+> +
+> +	obj = &userptr->base.base.base;
+> +	obj->funcs = &virtio_gpu_userptr_funcs;
+> +
+> +	drm_gem_private_object_init(dev, obj, params->size);
+> +	INIT_LIST_HEAD(&userptr->base.restore_node);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct virtio_gpu_object_userptr_ops virtio_gpu_userptr_ops = {
+> +	.get_pages = virtio_gpu_userptr_get_pages,
+> +	.put_pages = virtio_gpu_userptr_put_pages,
+> +};
+> +
+> +int virtio_gpu_userptr_create(struct virtio_gpu_device *vgdev,
+> +			      struct drm_file *file,
+> +			      struct virtio_gpu_object_params *params,
+> +			      struct virtio_gpu_object **bo_ptr)
+> +{
+> +	struct virtio_gpu_object_userptr *userptr;
+> +	struct virtio_gpu_mem_entry *ents = NULL;
+> +	struct sg_table *sgt;
+> +	struct mm_struct *mm;
+> +	unsigned long lock_limit;
+> +	unsigned long start;
+> +	unsigned long end;
+> +	s64 new_pinned;
+> +	unsigned int nents;
+> +	int ret;
+> +
+> +	*bo_ptr = NULL;
+> +
+> +	if (!params->size || !IS_ALIGNED(params->size, PAGE_SIZE) ||
+> +	    params->userptr != (unsigned long)params->userptr)
+> +		return -EINVAL;
+> +
+> +	start = params->userptr;
+> +	if (!IS_ALIGNED(start, PAGE_SIZE) ||
+> +	    check_add_overflow(start, (unsigned long)params->size, &end))
+> +		return -EINVAL;
+> +
+> +	if (!can_do_mlock())
+> +		return -EPERM;
+> +
+> +	if (params->size >> PAGE_SHIFT > INT_MAX)
+> +		return -E2BIG;
+> +
+> +	if (!access_ok((void __user *)start, params->size))
+> +		return -EFAULT;
+> +
+> +	userptr = kzalloc_obj(*userptr);
+> +	if (!userptr)
+> +		return -ENOMEM;
+> +
+> +	ret = virtio_gpu_userptr_init(vgdev->ddev, file, userptr, params,
+> +				      &virtio_gpu_userptr_ops);
+> +	if (ret) {
+> +		kfree(userptr);
+> +		return ret;
+> +	}
+> +
+> +	mm = current->mm;
+> +	mmgrab(mm);
+> +	lock_limit = rlimit(RLIMIT_MEMLOCK) >> PAGE_SHIFT;
+> +	new_pinned = atomic64_add_return(userptr->npages, &mm->pinned_vm);
+> +	if (new_pinned > lock_limit && !capable(CAP_IPC_LOCK)) {
+> +		atomic64_sub(userptr->npages, &mm->pinned_vm);
+> +		mmdrop(mm);
+> +		ret = -ENOMEM;
+> +		goto err_cleanup;
+> +	}
+> +	userptr->mm = mm;
+> +
+> +	mutex_lock(&userptr->lock);
+> +	ret = userptr->ops->get_pages(userptr);
+> +	mutex_unlock(&userptr->lock);
+> +	if (ret)
+> +		goto err_cleanup;
+> +
+> +	sgt = drm_prime_pages_to_sg(vgdev->ddev, userptr->pages,
+> +				    userptr->npages);
+> +	if (IS_ERR(sgt)) {
+> +		ret = PTR_ERR(sgt);
+> +		goto err_cleanup;
+> +	}
+> +
+> +	userptr->sgt = sgt;
+> +
+> +	if (virtio_gpu_use_dma_api(vgdev->vdev)) {
+> +		enum dma_data_direction dir =
+> +			(userptr->flags & VIRTGPU_BLOB_FLAG_USE_READONLY) ?
+> +			DMA_TO_DEVICE : DMA_BIDIRECTIONAL;
+> +
+> +		ret = dma_map_sgtable(drm_dev_dma_dev(vgdev->ddev), sgt,
+> +				      dir, DMA_ATTR_REQUIRE_COHERENT);
+> +		if (ret)
+> +			goto err_cleanup;
+> +
+> +		userptr->dma_dir = dir;
+> +		userptr->dma_mapped = true;
+> +	}
+> +
+> +	ret = virtio_gpu_userptr_get_entries(vgdev, userptr, &ents, &nents);
+> +	if (ret)
+> +		goto err_cleanup;
+> +
+> +	virtio_gpu_cmd_resource_create_blob(vgdev, &userptr->base, params, ents,
+> +					    nents);
+> +
+> +	userptr->base.params = *params;
+> +	virtio_gpu_add_object_to_restore_list(vgdev, &userptr->base);
+> +
+> +	*bo_ptr = &userptr->base;
+> +	return 0;
+> +
+> +err_cleanup:
+> +	virtio_gpu_cleanup_object(&userptr->base);
+> +	return ret;
+> +}
 
-CSI-2 CMOS image sensor supporting 1280x720 binned 10-bit Bayer output.
+Reviewed-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+Tested-by: Dmitry Osipenko <dmitry.osipenko@collabora.com> # rocm + 
+userptr BO hibernation restore
 
-Signed-off-by: Hikmah Gumelar <hikmahgumelar@gmail.com>
----
- MAINTAINERS                 |   7 +
- drivers/media/i2c/Kconfig   |  10 +
- drivers/media/i2c/Makefile  |   1 +
- drivers/media/i2c/ov12a10.c | 770 ++++++++++++++++++++++++++++++++++++
- 4 files changed, 788 insertions(+)
- create mode 100644 drivers/media/i2c/ov12a10.c
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 2ac245d4ad7c..3918dcc96191 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20682,6 +20682,13 @@ S:	Maintained
- F:	drivers/media/i2c/ov08x40.c
- F:	Documentation/devicetree/bindings/media/i2c/ovti,ov08x40.yaml
- 
-+OMNIVISION OV12A10 CAMERA SENSOR DRIVER
-+M:	Hikmah Gumelar <hikmahgumelar@gmail.com>
-+L:	linux-media@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/media/i2c/ovti,ov12a10.yaml
-+F:	drivers/media/i2c/ov12a10.c
-+
- OMNIVISION OV13858 SENSOR DRIVER
- M:	Sakari Ailus <sakari.ailus@linux.intel.com>
- L:	linux-media@vger.kernel.org
-diff --git a/drivers/media/i2c/Kconfig b/drivers/media/i2c/Kconfig
-index 4c622e5eef73..338244aa23eb 100644
---- a/drivers/media/i2c/Kconfig
-+++ b/drivers/media/i2c/Kconfig
-@@ -538,6 +538,16 @@ config VIDEO_OV08X40
- 	  To compile this driver as a module, choose M here: the
- 	  module will be called ov08x40.
- 
-+config VIDEO_OV12A10
-+	tristate "OmniVision OV12A10 sensor support"
-+	select V4L2_CCI_I2C
-+	help
-+	  This is a Video4Linux2 sensor-level driver for the OmniVision
-+	  OV12A10 12MP camera.
-+
-+	  To compile this driver as a module, choose M here: the
-+	  module will be called ov12a10.
-+
- config VIDEO_OV13858
- 	tristate "OmniVision OV13858 sensor support"
- 	help
-diff --git a/drivers/media/i2c/Makefile b/drivers/media/i2c/Makefile
-index bdcb8f34aca3..8148ee872a31 100644
---- a/drivers/media/i2c/Makefile
-+++ b/drivers/media/i2c/Makefile
-@@ -99,6 +99,7 @@ obj-$(CONFIG_VIDEO_OV02E10) += ov02e10.o
- obj-$(CONFIG_VIDEO_OV05C10) += ov05c10.o
- obj-$(CONFIG_VIDEO_OV08D10) += ov08d10.o
- obj-$(CONFIG_VIDEO_OV08X40) += ov08x40.o
-+obj-$(CONFIG_VIDEO_OV12A10) += ov12a10.o
- obj-$(CONFIG_VIDEO_OV13858) += ov13858.o
- obj-$(CONFIG_VIDEO_OV13B10) += ov13b10.o
- obj-$(CONFIG_VIDEO_OV2640) += ov2640.o
-diff --git a/drivers/media/i2c/ov12a10.c b/drivers/media/i2c/ov12a10.c
-new file mode 100644
-index 000000000000..99580ceedcef
---- /dev/null
-+++ b/drivers/media/i2c/ov12a10.c
-@@ -0,0 +1,770 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/gpio/consumer.h>
-+#include <linux/i2c.h>
-+#include <linux/module.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/regulator/consumer.h>
-+#include <linux/unaligned.h>
-+#include <media/v4l2-ctrls.h>
-+#include <media/v4l2-device.h>
-+#include <media/v4l2-fwnode.h>
-+
-+#define OV12A10_CHIP_ID_REG		0x300a
-+#define OV12A10_CHIP_ID			0x5612
-+#define OV12A10_REG_MODE_SELECT		0x0100
-+#define OV12A10_MODE_STANDBY		0x00
-+#define OV12A10_REG_VTS			0x380e
-+#define OV12A10_REG_EXPOSURE		0x3500
-+#define OV12A10_REG_ANALOG_GAIN		0x3508
-+#define OV12A10_REG_TEST_PATTERN		0x5080
-+#define OV12A10_XVCLK_FREQ		24000000
-+#define OV12A10_LINK_FREQ_216MHZ		216000000ULL
-+#define OV12A10_PIXEL_RATE		144000000ULL
-+
-+struct ov12a10_reg {
-+	u16 address;
-+	u8 val;
-+};
-+
-+struct ov12a10_mode {
-+	u32 width, height, hts_def, num_regs;
-+	const struct ov12a10_reg *regs;
-+};
-+
-+static const char * const ov12a10_supply_names[] = { "avdd", "dvdd", "dovdd" };
-+#define OV12A10_NUM_SUPPLIES ARRAY_SIZE(ov12a10_supply_names)
-+
-+/* Register initialization tables derived from Xiaomi Mi A1 vendor configuration */
-+static const struct ov12a10_reg ov12a10_common_regs[] = {
-+	{ 0x0103, 0x01 },
-+	{ 0x0302, 0x49 },
-+	{ 0x0303, 0x00 },
-+	{ 0x0304, 0x00 },
-+	{ 0x0305, 0x01 },
-+	{ 0x0312, 0x11 },
-+	{ 0x030b, 0x06 },
-+	{ 0x030c, 0x02 },
-+	{ 0x030d, 0x88 },
-+	{ 0x030e, 0x02 },
-+	{ 0x0313, 0x05 },
-+	{ 0x3002, 0x21 },
-+	{ 0x3012, 0x40 },
-+	{ 0x3013, 0x72 },
-+	{ 0x3016, 0x72 },
-+	{ 0x301b, 0xd0 },
-+	{ 0x301d, 0xf0 },
-+	{ 0x301f, 0xd0 },
-+	{ 0x3021, 0x23 },
-+	{ 0x3022, 0x01 },
-+	{ 0x3106, 0x15 },
-+	{ 0x3107, 0x23 },
-+	{ 0x3500, 0x00 },
-+	{ 0x3501, 0xd0 },
-+	{ 0x3502, 0x00 },
-+	{ 0x3505, 0x83 },
-+	{ 0x3508, 0x02 },
-+	{ 0x3509, 0x00 },
-+	{ 0x3600, 0x43 },
-+	{ 0x3611, 0x8a },
-+	{ 0x3613, 0x97 },
-+	{ 0x3620, 0x80 },
-+	{ 0x3624, 0x2c },
-+	{ 0x3625, 0xa0 },
-+	{ 0x3626, 0x00 },
-+	{ 0x3631, 0x60 },
-+	{ 0x3632, 0x00 },
-+	{ 0x3641, 0x80 },
-+	{ 0x3642, 0x12 },
-+	{ 0x3644, 0x78 },
-+	{ 0x3645, 0xa7 },
-+	{ 0x364e, 0x44 },
-+	{ 0x364f, 0x44 },
-+	{ 0x3650, 0x11 },
-+	{ 0x3654, 0x00 },
-+	{ 0x3657, 0x31 },
-+	{ 0x3659, 0x0c },
-+	{ 0x365f, 0x07 },
-+	{ 0x3661, 0x17 },
-+	{ 0x3662, 0x17 },
-+	{ 0x3663, 0x17 },
-+	{ 0x3664, 0x17 },
-+	{ 0x3666, 0x08 },
-+	{ 0x366b, 0x20 },
-+	{ 0x366c, 0xa4 },
-+	{ 0x366d, 0x20 },
-+	{ 0x366e, 0xa4 },
-+	{ 0x3680, 0x00 },
-+	{ 0x3714, 0x24 },
-+	{ 0x371a, 0x3e },
-+	{ 0x3737, 0x04 },
-+	{ 0x3739, 0x12 },
-+	{ 0x3765, 0x20 },
-+	{ 0x3767, 0x00 },
-+	{ 0x37a1, 0x3e },
-+	{ 0x37a8, 0x4d },
-+	{ 0x37ab, 0x2c },
-+	{ 0x37c2, 0x04 },
-+	{ 0x37d8, 0x03 },
-+	{ 0x37d9, 0x0c },
-+	{ 0x37e0, 0x00 },
-+	{ 0x37e1, 0x0a },
-+	{ 0x37e2, 0x14 },
-+	{ 0x37e3, 0x04 },
-+	{ 0x37e4, 0x2a },
-+	{ 0x37e5, 0x03 },
-+	{ 0x37e6, 0x04 },
-+	{ 0x3800, 0x00 },
-+	{ 0x3801, 0x00 },
-+	{ 0x3802, 0x00 },
-+	{ 0x3803, 0x00 },
-+	{ 0x3804, 0x10 },
-+	{ 0x3805, 0x0f },
-+	{ 0x3806, 0x0c },
-+	{ 0x3807, 0x0f },
-+	{ 0x3808, 0x10 },
-+	{ 0x3809, 0x00 },
-+	{ 0x380a, 0x0c },
-+	{ 0x380b, 0x00 },
-+	{ 0x380c, 0x04 },
-+	{ 0x380d, 0x28 },
-+	{ 0x380e, 0x0d },
-+	{ 0x380f, 0x12 },
-+	{ 0x3811, 0x0a },
-+	{ 0x3813, 0x08 },
-+	{ 0x3814, 0x01 },
-+	{ 0x3815, 0x01 },
-+	{ 0x3816, 0x01 },
-+	{ 0x3817, 0x01 },
-+	{ 0x3820, 0xa8 },
-+	{ 0x3821, 0x00 },
-+	{ 0x3822, 0x91 },
-+	{ 0x3823, 0x18 },
-+	{ 0x3826, 0x00 },
-+	{ 0x3827, 0x00 },
-+	{ 0x3829, 0x03 },
-+	{ 0x3832, 0x08 },
-+	{ 0x3833, 0x30 },
-+	{ 0x3c80, 0x00 },
-+	{ 0x3c87, 0x01 },
-+	{ 0x3c8c, 0x1a },
-+	{ 0x3c8d, 0x68 },
-+	{ 0x3c97, 0x02 },
-+	{ 0x3cc0, 0x40 },
-+	{ 0x3cc1, 0x54 },
-+	{ 0x3cc2, 0x34 },
-+	{ 0x3cc3, 0x04 },
-+	{ 0x3cc4, 0x00 },
-+	{ 0x3cc5, 0x00 },
-+	{ 0x3cc6, 0x00 },
-+	{ 0x3cc7, 0x00 },
-+	{ 0x3cc8, 0x00 },
-+	{ 0x3cc9, 0x00 },
-+	{ 0x3d8c, 0x73 },
-+	{ 0x3d8d, 0xc0 },
-+	{ 0x4001, 0x2b },
-+	{ 0x4008, 0x02 },
-+	{ 0x4009, 0x0f },
-+	{ 0x4011, 0xff },
-+	{ 0x4013, 0x08 },
-+	{ 0x4014, 0x08 },
-+	{ 0x4015, 0x08 },
-+	{ 0x4017, 0x08 },
-+	{ 0x401a, 0x58 },
-+	{ 0x4050, 0x04 },
-+	{ 0x4051, 0x0b },
-+	{ 0x405e, 0x20 },
-+	{ 0x4501, 0x00 },
-+	{ 0x4503, 0x00 },
-+	{ 0x450a, 0x04 },
-+	{ 0x4601, 0x30 },
-+	{ 0x4800, 0x24 },
-+	{ 0x481f, 0x30 },
-+	{ 0x4837, 0x0d },
-+	{ 0x483c, 0x0f },
-+	{ 0x484b, 0x01 },
-+	{ 0x4d00, 0x05 },
-+	{ 0x4d01, 0x19 },
-+	{ 0x4d02, 0xfd },
-+	{ 0x4d03, 0xd1 },
-+	{ 0x4d04, 0xff },
-+	{ 0x4d05, 0xff },
-+	{ 0x5000, 0x09 },
-+	{ 0x5001, 0x42 },
-+	{ 0x5002, 0x45 },
-+	{ 0x5005, 0x00 },
-+	{ 0x5081, 0x04 },
-+	{ 0x5180, 0x00 },
-+	{ 0x5181, 0x10 },
-+	{ 0x5182, 0x02 },
-+	{ 0x5183, 0x0f },
-+	{ 0x5185, 0x6c },
-+	{ 0x5200, 0x03 },
-+	{ 0x5203, 0x7c },
-+	{ 0x5204, 0x1f },
-+	{ 0x5205, 0x41 },
-+	{ 0x520b, 0x07 },
-+	{ 0x520c, 0x0f },
-+	{ 0x0300, 0x02 },
-+	{ 0x0302, 0x53 },
-+	{ 0x380c, 0x04 },
-+	{ 0x380d, 0x90 },
-+	{ 0x380e, 0x0c },
-+	{ 0x380f, 0xe6 },
-+	{ 0x4837, 0x10 },
-+};
-+
-+static const struct ov12a10_reg ov12a10_1280x720_regs[] = {
-+	{ 0x0300, 0x06 },
-+	{ 0x0301, 0x02 },
-+	{ 0x0302, 0x48 },
-+	{ 0x0307, 0x01 },
-+	{ 0x0303, 0x01 },
-+	{ 0x030b, 0x06 },
-+	{ 0x030c, 0x02 },
-+	{ 0x030d, 0x88 },
-+	{ 0x0312, 0x11 },
-+	{ 0x0313, 0x09 },
-+	{ 0x3642, 0x10 },
-+	{ 0x3666, 0x00 },
-+	{ 0x366b, 0xa4 },
-+	{ 0x366c, 0x20 },
-+	{ 0x366d, 0xa4 },
-+	{ 0x366e, 0x20 },
-+	{ 0x3714, 0x28 },
-+	{ 0x371a, 0x3e },
-+	{ 0x3737, 0x08 },
-+	{ 0x3739, 0x20 },
-+	{ 0x37c2, 0x14 },
-+	{ 0x37d9, 0x0c },
-+	{ 0x37e3, 0x08 },
-+	{ 0x37e4, 0x36 },
-+	{ 0x37e6, 0x08 },
-+	{ 0x3800, 0x03 },
-+	{ 0x3801, 0x20 },
-+	{ 0x3802, 0x03 },
-+	{ 0x3803, 0x68 },
-+	{ 0x3804, 0x0d },
-+	{ 0x3805, 0x3f },
-+	{ 0x3806, 0x09 },
-+	{ 0x3807, 0x27 },
-+	{ 0x3808, 0x05 },
-+	{ 0x3809, 0x00 },
-+	{ 0x380a, 0x02 },
-+	{ 0x380b, 0xd0 },
-+	{ 0x380c, 0x04 },
-+	{ 0x380d, 0x28 },
-+	{ 0x380e, 0x03 },
-+	{ 0x380f, 0x4c },
-+	{ 0x3810, 0x00 },
-+	{ 0x3811, 0x08 },
-+	{ 0x3813, 0x08 },
-+	{ 0x3814, 0x03 },
-+	{ 0x3816, 0x03 },
-+	{ 0x3820, 0xab },
-+	{ 0x4009, 0x0d },
-+	{ 0x4050, 0x04 },
-+	{ 0x4051, 0x0b },
-+	{ 0x4501, 0x00 },
-+	{ 0x4837, 0x1b },
-+	{ 0x5001, 0x42 },
-+	{ 0x5002, 0x45 },
-+	{ 0x3501, 0x34 },
-+	{ 0x3502, 0x00 },
-+	{ 0x4800, 0x24 },
-+};
-+
-+static const struct ov12a10_mode default_mode = {
-+		.width = 1280, .height = 720, .hts_def = 1440,
-+			.num_regs = ARRAY_SIZE(ov12a10_1280x720_regs),
-+		.regs = ov12a10_1280x720_regs,
-+	};
-+
-+static const s64 link_freq_menu_items[] = { OV12A10_LINK_FREQ_216MHZ };
-+
-+struct ov12a10 {
-+	struct device *dev;
-+	struct v4l2_subdev sd;
-+	struct media_pad pad;
-+	struct clk *xvclk;
-+	struct gpio_desc *reset_gpio, *pwdn_gpio;
-+	struct regulator_bulk_data supplies[OV12A10_NUM_SUPPLIES];
-+	struct v4l2_ctrl_handler ctrl_handler;
-+	struct v4l2_ctrl *link_freq, *hblank, *exposure;
-+	const struct ov12a10_mode *cur_mode;
-+	/* Serialize access to sensor registers and streaming state */
-+	struct mutex mutex;
-+	bool streaming;
-+};
-+
-+static inline struct ov12a10 *to_ov12a10(struct v4l2_subdev *sd)
-+{
-+	return container_of(sd, struct ov12a10, sd);
-+}
-+
-+static int ov12a10_read_reg(struct ov12a10 *ov12a10, u16 reg, u32 len, u32 *val)
-+{
-+	struct i2c_client *client = v4l2_get_subdevdata(&ov12a10->sd);
-+	struct i2c_msg msgs[2];
-+	u8 addr_buf[2], data_buf[4] = { 0 };
-+	int ret;
-+
-+	put_unaligned_be16(reg, addr_buf);
-+	msgs[0].addr = client->addr;
-+	msgs[0].flags = 0;
-+	msgs[0].len = 2;
-+	msgs[0].buf = addr_buf;
-+	msgs[1].addr = client->addr;
-+	msgs[1].flags = I2C_M_RD;
-+	msgs[1].len = len;
-+	msgs[1].buf = &data_buf[4 - len];
-+	ret = i2c_transfer(client->adapter, msgs, 2);
-+	if (ret != 2)
-+		return ret < 0 ? ret : -EIO;
-+	*val = get_unaligned_be32(data_buf);
-+	return 0;
-+}
-+
-+static int ov12a10_write_reg(struct ov12a10 *ov12a10, u16 reg, u32 len, u32 val)
-+{
-+	struct i2c_client *client = v4l2_get_subdevdata(&ov12a10->sd);
-+	u8 buf[6];
-+	int ret;
-+
-+	put_unaligned_be16(reg, buf);
-+	put_unaligned_be32(val << (8 * (4 - len)), buf + 2);
-+	ret = i2c_master_send(client, buf, len + 2);
-+	return ret == len + 2 ? 0 : (ret < 0 ? ret : -EIO);
-+}
-+
-+static int ov12a10_write_regs(struct ov12a10 *ov12a10, const struct ov12a10_reg *regs, u32 len)
-+{
-+	u32 i;
-+	int ret;
-+
-+	for (i = 0; i < len; i++) {
-+		ret = ov12a10_write_reg(ov12a10, regs[i].address, 1, regs[i].val);
-+		if (!ret && regs[i].address == 0x0103)
-+			usleep_range(5000, 6000);
-+		if (ret)
-+			return ret;
-+	}
-+	return 0;
-+}
-+
-+static int ov12a10_power_on(struct device *dev)
-+{
-+	struct ov12a10 *ov12a10 = to_ov12a10(dev_get_drvdata(dev));
-+	int ret;
-+
-+	ret = regulator_bulk_enable(OV12A10_NUM_SUPPLIES, ov12a10->supplies);
-+	if (ret)
-+		return ret;
-+
-+	ret = clk_prepare_enable(ov12a10->xvclk);
-+	if (ret) {
-+		regulator_bulk_disable(OV12A10_NUM_SUPPLIES, ov12a10->supplies);
-+		return ret;
-+	}
-+
-+	msleep(35);
-+	if (ov12a10->pwdn_gpio)
-+		gpiod_set_value_cansleep(ov12a10->pwdn_gpio, 0);
-+	if (ov12a10->reset_gpio) {
-+		gpiod_set_value_cansleep(ov12a10->reset_gpio, 1);
-+		usleep_range(3000, 5000);
-+		gpiod_set_value_cansleep(ov12a10->reset_gpio, 0);
-+	}
-+	msleep(35);
-+	return 0;
-+}
-+
-+static int ov12a10_power_off(struct device *dev)
-+{
-+	struct ov12a10 *ov12a10 = to_ov12a10(dev_get_drvdata(dev));
-+
-+	if (ov12a10->reset_gpio)
-+		gpiod_set_value_cansleep(ov12a10->reset_gpio, 1);
-+	if (ov12a10->pwdn_gpio)
-+		gpiod_set_value_cansleep(ov12a10->pwdn_gpio, 1);
-+	clk_disable_unprepare(ov12a10->xvclk);
-+	regulator_bulk_disable(OV12A10_NUM_SUPPLIES, ov12a10->supplies);
-+	return 0;
-+}
-+
-+static int ov12a10_set_ctrl(struct v4l2_ctrl *ctrl)
-+{
-+	struct ov12a10 *ov12a10 = container_of(ctrl->handler, struct ov12a10, ctrl_handler);
-+	int ret = 0;
-+
-+	if (ctrl->id == V4L2_CID_VBLANK) {
-+		s64 exp_max = ov12a10->cur_mode->height + ctrl->val - 4;
-+
-+		ret = __v4l2_ctrl_modify_range(ov12a10->exposure, 4, exp_max, 1,
-+					       min_t(s64, 2400, exp_max));
-+		if (ret)
-+			return ret;
-+	}
-+	if (pm_runtime_get_if_active(ov12a10->dev) <= 0)
-+		return 0;
-+	switch (ctrl->id) {
-+	case V4L2_CID_ANALOGUE_GAIN:
-+		ret = ov12a10_write_reg(ov12a10, OV12A10_REG_ANALOG_GAIN, 2, ctrl->val);
-+	break;
-+	case V4L2_CID_EXPOSURE:
-+		ret = ov12a10_write_reg(ov12a10, OV12A10_REG_EXPOSURE, 3, ctrl->val << 4);
-+	break;
-+	case V4L2_CID_VBLANK:
-+		ret = ov12a10_write_reg(ov12a10, OV12A10_REG_VTS, 2,
-+					ov12a10->cur_mode->height + ctrl->val);
-+	break;
-+	case V4L2_CID_TEST_PATTERN:
-+		ret = ov12a10_write_reg(ov12a10, OV12A10_REG_TEST_PATTERN, 1,
-+					ctrl->val ? ((ctrl->val - 1) | BIT(7)) : 0);
-+	break;
-+	}
-+	pm_runtime_put(ov12a10->dev);
-+	return ret;
-+}
-+
-+static const struct v4l2_ctrl_ops ov12a10_ctrl_ops = { .s_ctrl = ov12a10_set_ctrl };
-+static const char * const ov12a10_test_pattern_menu[] = {
-+	"Disabled",
-+	"Solid Color",
-+	"100% Color Bars",
-+	"Fade to Grey",
-+	"PN9",
-+};
-+
-+static int ov12a10_init_controls(struct ov12a10 *ov12a10)
-+{
-+	struct v4l2_fwnode_device_properties props;
-+	struct v4l2_ctrl_handler *hdl = &ov12a10->ctrl_handler;
-+	s64 hblank = ov12a10->cur_mode->hts_def - ov12a10->cur_mode->width;
-+	int ret = v4l2_ctrl_handler_init(hdl, 8);
-+
-+	if (ret)
-+		return ret;
-+	hdl->lock = &ov12a10->mutex;
-+	ov12a10->link_freq = v4l2_ctrl_new_int_menu(hdl, &ov12a10_ctrl_ops, V4L2_CID_LINK_FREQ,
-+						    0, 0, link_freq_menu_items);
-+	if (ov12a10->link_freq)
-+		ov12a10->link_freq->flags |= V4L2_CTRL_FLAG_READ_ONLY;
-+	v4l2_ctrl_new_std(hdl, &ov12a10_ctrl_ops, V4L2_CID_PIXEL_RATE,
-+			  OV12A10_PIXEL_RATE, OV12A10_PIXEL_RATE, 1, OV12A10_PIXEL_RATE);
-+	v4l2_ctrl_new_std(hdl, &ov12a10_ctrl_ops, V4L2_CID_VBLANK, 124,
-+			  0x7fff - ov12a10->cur_mode->height, 1, 2656);
-+	ov12a10->hblank = v4l2_ctrl_new_std(hdl, &ov12a10_ctrl_ops, V4L2_CID_HBLANK, hblank,
-+					    hblank, 1, hblank);
-+	if (ov12a10->hblank)
-+		ov12a10->hblank->flags |= V4L2_CTRL_FLAG_READ_ONLY;
-+	v4l2_ctrl_new_std(hdl, &ov12a10_ctrl_ops, V4L2_CID_ANALOGUE_GAIN, 0x80, 0x7ff, 1, 0x300);
-+	ov12a10->exposure = v4l2_ctrl_new_std(hdl, &ov12a10_ctrl_ops, V4L2_CID_EXPOSURE, 4,
-+					      3372, 1, 2400);
-+	v4l2_ctrl_new_std_menu_items(hdl, &ov12a10_ctrl_ops, V4L2_CID_TEST_PATTERN, 4, 0, 0,
-+				     ov12a10_test_pattern_menu);
-+	if (hdl->error) {
-+		ret = hdl->error;
-+		goto err;
-+	}
-+	ret = v4l2_fwnode_device_parse(ov12a10->dev, &props);
-+	if (ret)
-+		goto err;
-+	ret = v4l2_ctrl_new_fwnode_properties(hdl, &ov12a10_ctrl_ops, &props);
-+	if (ret)
-+		goto err;
-+	ov12a10->sd.ctrl_handler = hdl;
-+	return 0;
-+err:
-+	v4l2_ctrl_handler_free(hdl);
-+	return ret;
-+}
-+
-+static void ov12a10_update_pad_format(const struct ov12a10_mode *mode,
-+				      struct v4l2_mbus_framefmt *fmt)
-+{
-+	fmt->width = mode->width;
-+	fmt->height = mode->height;
-+	fmt->code = MEDIA_BUS_FMT_SRGGB10_1X10;
-+	fmt->field = V4L2_FIELD_NONE;
-+	fmt->colorspace = V4L2_COLORSPACE_SRGB;
-+	fmt->ycbcr_enc = V4L2_MAP_YCBCR_ENC_DEFAULT(fmt->colorspace);
-+	fmt->quantization = V4L2_MAP_QUANTIZATION_DEFAULT(true, fmt->colorspace, fmt->ycbcr_enc);
-+	fmt->xfer_func = V4L2_MAP_XFER_FUNC_DEFAULT(fmt->colorspace);
-+}
-+
-+static int ov12a10_set_format(struct v4l2_subdev *sd,
-+			      const struct v4l2_subdev_client_info *ci,
-+			      struct v4l2_subdev_state *sd_state,
-+			      struct v4l2_subdev_format *fmt)
-+{
-+	struct ov12a10 *ov12a10 = to_ov12a10(sd);
-+
-+	mutex_lock(&ov12a10->mutex);
-+	if (fmt->which == V4L2_SUBDEV_FORMAT_ACTIVE && ov12a10->streaming) {
-+		mutex_unlock(&ov12a10->mutex);
-+		return -EBUSY;
-+	}
-+
-+	ov12a10_update_pad_format(&default_mode, &fmt->format);
-+	if (fmt->which != V4L2_SUBDEV_FORMAT_TRY)
-+		ov12a10->cur_mode = &default_mode;
-+	*v4l2_subdev_state_get_format(sd_state, fmt->pad) = fmt->format;
-+	mutex_unlock(&ov12a10->mutex);
-+
-+	return 0;
-+}
-+
-+static int ov12a10_enum_mbus_code(struct v4l2_subdev *sd, struct v4l2_subdev_state *sd_state,
-+				  struct v4l2_subdev_mbus_code_enum *code)
-+{
-+	if (code->index > 0)
-+		return -EINVAL;
-+	code->code = MEDIA_BUS_FMT_SRGGB10_1X10;
-+	return 0;
-+}
-+
-+static int ov12a10_enum_frame_size(struct v4l2_subdev *sd, struct v4l2_subdev_state *sd_state,
-+				   struct v4l2_subdev_frame_size_enum *fse)
-+{
-+	if (fse->index > 0 ||
-+	    fse->code != MEDIA_BUS_FMT_SRGGB10_1X10)
-+		return -EINVAL;
-+	fse->min_width = default_mode.width;
-+	fse->max_width = default_mode.width;
-+	fse->min_height = default_mode.height;
-+	fse->max_height = default_mode.height;
-+	return 0;
-+}
-+
-+static int ov12a10_set_stream(struct v4l2_subdev *sd, int enable)
-+{
-+	struct ov12a10 *ov12a10 = to_ov12a10(sd);
-+	int ret = 0;
-+
-+	mutex_lock(&ov12a10->mutex);
-+	if (ov12a10->streaming == enable) {
-+		mutex_unlock(&ov12a10->mutex);
-+		return 0;
-+	}
-+	if (enable) {
-+		ret = pm_runtime_resume_and_get(ov12a10->dev);
-+		if (ret < 0)
-+			goto out;
-+		ret = ov12a10_write_regs(ov12a10, ov12a10_common_regs,
-+					 ARRAY_SIZE(ov12a10_common_regs));
-+		if (!ret)
-+			ret = ov12a10_write_regs(ov12a10, ov12a10->cur_mode->regs,
-+						 ov12a10->cur_mode->num_regs);
-+		if (!ret)
-+			ret = __v4l2_ctrl_handler_setup(ov12a10->sd.ctrl_handler);
-+		if (!ret) {
-+			static const struct ov12a10_reg stream_on_regs[] = {
-+				{ 0x0100, 0x01 },
-+			};
-+			usleep_range(10000, 12000);
-+			ret = ov12a10_write_regs(ov12a10, stream_on_regs,
-+						 ARRAY_SIZE(stream_on_regs));
-+		}
-+		if (ret) {
-+			pm_runtime_put(ov12a10->dev);
-+			goto out;
-+		}
-+	} else {
-+		ov12a10_write_reg(ov12a10, OV12A10_REG_MODE_SELECT, 1, OV12A10_MODE_STANDBY);
-+		pm_runtime_put(ov12a10->dev);
-+	}
-+	ov12a10->streaming = enable;
-+out:
-+	mutex_unlock(&ov12a10->mutex);
-+	return ret;
-+}
-+
-+static int ov12a10_init_state(struct v4l2_subdev *sd,
-+			      struct v4l2_subdev_state *sd_state)
-+{
-+	ov12a10_update_pad_format(&default_mode,
-+				  v4l2_subdev_state_get_format(sd_state, 0));
-+	return 0;
-+}
-+
-+static const struct v4l2_subdev_video_ops ov12a10_video_ops = { .s_stream = ov12a10_set_stream };
-+
-+static int ov12a10_get_selection(struct v4l2_subdev *sd, const struct v4l2_subdev_client_info *ci,
-+				 struct v4l2_subdev_state *sd_state,
-+				struct v4l2_subdev_selection *sel)
-+{
-+	switch (sel->target) {
-+	case V4L2_SEL_TGT_CROP:
-+		sel->r.left = 800;
-+		sel->r.top = 872;
-+		sel->r.width = 2592;
-+		sel->r.height = 1472;
-+		return 0;
-+	case V4L2_SEL_TGT_CROP_DEFAULT:
-+	case V4L2_SEL_TGT_CROP_BOUNDS:
-+	case V4L2_SEL_TGT_NATIVE_SIZE:
-+		sel->r.left = 0;
-+		sel->r.top = 0;
-+		sel->r.width = 4096;
-+		sel->r.height = 3072;
-+		return 0;
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
-+static const struct v4l2_subdev_pad_ops ov12a10_pad_ops = {
-+	.get_selection = ov12a10_get_selection,
-+	.set_fmt = ov12a10_set_format, .get_fmt = v4l2_subdev_get_fmt,
-+	.enum_mbus_code = ov12a10_enum_mbus_code, .enum_frame_size = ov12a10_enum_frame_size,
-+};
-+
-+static const struct v4l2_subdev_ops ov12a10_subdev_ops = {
-+	.video = &ov12a10_video_ops,
-+	.pad = &ov12a10_pad_ops,
-+};
-+
-+static const struct media_entity_operations ov12a10_entity_ops = {
-+	.link_validate = v4l2_subdev_link_validate,
-+};
-+
-+static const struct v4l2_subdev_internal_ops ov12a10_internal_ops = {
-+	.init_state = ov12a10_init_state,
-+};
-+
-+static int ov12a10_probe(struct i2c_client *client)
-+{
-+	struct device *dev = &client->dev;
-+	struct fwnode_handle *endpoint;
-+	struct v4l2_fwnode_endpoint ep_cfg = {
-+		.bus_type = V4L2_MBUS_CSI2_DPHY,
-+	};
-+	struct ov12a10 *ov12a10;
-+	u32 val = 0;
-+	unsigned int i;
-+	int ret;
-+
-+	endpoint = fwnode_graph_get_next_endpoint(dev_fwnode(dev), NULL);
-+	if (!endpoint)
-+		return dev_err_probe(dev, -EINVAL, "endpoint node not found\n");
-+
-+	ret = v4l2_fwnode_endpoint_alloc_parse(endpoint, &ep_cfg);
-+	fwnode_handle_put(endpoint);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to parse endpoint\n");
-+
-+	if (ep_cfg.bus.mipi_csi2.num_data_lanes != 4 ||
-+	    ep_cfg.nr_of_link_frequencies != 1 ||
-+	    ep_cfg.link_frequencies[0] != OV12A10_LINK_FREQ_216MHZ) {
-+		v4l2_fwnode_endpoint_free(&ep_cfg);
-+		return dev_err_probe(dev, -EINVAL,
-+				     "unsupported CSI-2 configuration\n");
-+	}
-+	v4l2_fwnode_endpoint_free(&ep_cfg);
-+
-+	ov12a10 = devm_kzalloc(dev, sizeof(*ov12a10), GFP_KERNEL);
-+	if (!ov12a10)
-+		return -ENOMEM;
-+	ov12a10->dev = dev;
-+	v4l2_i2c_subdev_init(&ov12a10->sd, client, &ov12a10_subdev_ops);
-+	ov12a10->xvclk = devm_v4l2_sensor_clk_get(dev, NULL);
-+	if (IS_ERR(ov12a10->xvclk))
-+		return dev_err_probe(dev, PTR_ERR(ov12a10->xvclk), "xvclk\n");
-+	if (clk_get_rate(ov12a10->xvclk) != OV12A10_XVCLK_FREQ)
-+		return dev_err_probe(dev, -EINVAL, "unexpected xvclk rate\n");
-+	ov12a10->reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
-+	ov12a10->pwdn_gpio = devm_gpiod_get_optional(dev, "powerdown", GPIOD_OUT_HIGH);
-+	if (IS_ERR(ov12a10->reset_gpio))
-+		return dev_err_probe(dev, PTR_ERR(ov12a10->reset_gpio), "reset\n");
-+	if (IS_ERR(ov12a10->pwdn_gpio))
-+		return dev_err_probe(dev, PTR_ERR(ov12a10->pwdn_gpio), "powerdown\n");
-+	for (i = 0; i < OV12A10_NUM_SUPPLIES; i++)
-+		ov12a10->supplies[i].supply = ov12a10_supply_names[i];
-+	ret = devm_regulator_bulk_get(dev, OV12A10_NUM_SUPPLIES, ov12a10->supplies);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "regulators\n");
-+	ret = ov12a10_power_on(dev);
-+	if (ret)
-+		return ret;
-+	ret = ov12a10_read_reg(ov12a10, OV12A10_CHIP_ID_REG, 2, &val);
-+	if (ret || val != OV12A10_CHIP_ID) {
-+		dev_err(dev, "failed to identify ov12a10 (ret=%d, id=0x%04x)\n", ret, val);
-+		ret = ret ? ret : -ENXIO;
-+		goto err_power;
-+	}
-+	dev_dbg(dev, "identified OmniVision OV12A10 sensor (0x%04x)\n", val);
-+	mutex_init(&ov12a10->mutex);
-+	ov12a10->cur_mode = &default_mode;
-+	ret = ov12a10_init_controls(ov12a10);
-+	if (ret)
-+		goto err_mutex;
-+	ov12a10->sd.internal_ops = &ov12a10_internal_ops;
-+	ov12a10->sd.flags |= V4L2_SUBDEV_FL_HAS_DEVNODE;
-+	ov12a10->sd.entity.ops = &ov12a10_entity_ops;
-+	ov12a10->sd.entity.function = MEDIA_ENT_F_CAM_SENSOR;
-+	ov12a10->pad.flags = MEDIA_PAD_FL_SOURCE;
-+	ret = media_entity_pads_init(&ov12a10->sd.entity, 1, &ov12a10->pad);
-+	if (ret)
-+		goto err_ctrl;
-+	ov12a10->sd.state_lock = &ov12a10->mutex;
-+	ret = v4l2_subdev_init_finalize(&ov12a10->sd);
-+	if (ret)
-+		goto err_media;
-+	pm_runtime_set_active(dev);
-+	pm_runtime_enable(dev);
-+	ret = v4l2_async_register_subdev_sensor(&ov12a10->sd);
-+	if (ret)
-+		goto err_subdev;
-+	pm_runtime_idle(dev);
-+	return 0;
-+err_subdev:
-+	pm_runtime_disable(dev);
-+	pm_runtime_set_suspended(dev);
-+	v4l2_subdev_cleanup(&ov12a10->sd);
-+err_media:
-+	media_entity_cleanup(&ov12a10->sd.entity);
-+err_ctrl:
-+	v4l2_ctrl_handler_free(ov12a10->sd.ctrl_handler);
-+err_mutex:
-+	mutex_destroy(&ov12a10->mutex);
-+err_power:
-+	ov12a10_power_off(dev);
-+	return ret;
-+}
-+
-+static void ov12a10_remove(struct i2c_client *client)
-+{
-+	struct v4l2_subdev *sd = i2c_get_clientdata(client);
-+	struct ov12a10 *ov12a10 = to_ov12a10(sd);
-+
-+	v4l2_async_unregister_subdev(sd);
-+	v4l2_subdev_cleanup(sd);
-+	media_entity_cleanup(&sd->entity);
-+	v4l2_ctrl_handler_free(sd->ctrl_handler);
-+	mutex_destroy(&ov12a10->mutex);
-+	pm_runtime_disable(&client->dev);
-+	if (!pm_runtime_status_suspended(&client->dev))
-+		ov12a10_power_off(&client->dev);
-+	pm_runtime_set_suspended(&client->dev);
-+}
-+
-+static const struct dev_pm_ops ov12a10_pm_ops = { SET_RUNTIME_PM_OPS(ov12a10_power_off,
-+		ov12a10_power_on, NULL) };
-+static const struct of_device_id ov12a10_of_match[] = {
-+	{ .compatible = "ovti,ov12a10" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, ov12a10_of_match);
-+static struct i2c_driver ov12a10_i2c_driver = {
-+	.driver = {
-+		.name = "ov12a10",
-+		.pm = pm_ptr(&ov12a10_pm_ops),
-+		.of_match_table = ov12a10_of_match,
-+	},
-+	.probe = ov12a10_probe, .remove = ov12a10_remove,
-+};
-+module_i2c_driver(ov12a10_i2c_driver);
-+MODULE_DESCRIPTION("OmniVision OV12A10 12MP sensor driver");
-+MODULE_LICENSE("GPL");
 -- 
-2.47.3
-
+Best regards,
+Dmitry
