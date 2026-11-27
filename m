@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.224
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795781189;
-	b=XTu2egUyWhMDJBmiXIUBg04crAOYWl0qgvVkxlFe4GDE+1+zNXiZFInhWpKEyGpRBow6
-	 IBQZ81fAgOTxrl8uayB9pH87Pf9/yCfw1xBKYN3kYQaPT01LiuTPiTPJqLiQBCGaWN3IP
-	 sDOdkXgVn56ZRYQyK+i2OpKrXcXktlOTHqIy1pzdzmEUpX+RK5NsDK9dfks/qsK2fOEDl
-	 Y5T+Ruo/3n+Ts9pE9Qndm0TP6boD0nDpCNcHeTtzHGvIG/lkrwOcjHYxns2ETepZUxaBn
-	 6pSNdwF47Eshh8iIY9PL3CM4wcDxpVH/17LS8qqU6CG4Vq3/LvB/6dbTwxh5qXb724Q==
+	t=1795781188;
+	b=QEkyBRsZ5tNTXr8BmFhY5gozAKhdWOOOlkJtCcF0x5H/GX/rqyqxG0fhiyajIXH7qRiz
+	 uUQWGtim25GqD4L/zr7J2H/tuo61E1maNcNNeKTy4sY8aX6q60ektgOiCrjHv1wsrx2c2
+	 baKso49AhYrggTc/++QM/DKQ5BRm1Ao8dC26JklRgPH9i/4z3jzk03fsTHbWPxLqb5sZM
+	 8CUvXswMXPEMzl664bjJa/gZ7UTMeCShf576X7ji7XBHwvLBdCjnU2JIztKVoD9p4HSXl
+	 w8roowRlHnquZBBFpnF1cnqDSGYOTmswDlNmVP3GmYYVddspQ9H00j6F7+RvNgz6LKw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795781189;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795781188;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=z9q9jd84jaCoqubeBxx+V5v17+usCJpPuunEpG0X0oM=;
-	b=cODILNXNt6CPepKwC4XM0sPJ3/l433eYR+l3XfCM5mD/jjTyl7SLrzzMe9FblnGJlhNs
-	 MLY/76UPIsCA9dQejCs1kd084KS67oYjh79sIGuG0yTJhXH1cam9Qq5fts9uECylsd49B
-	 sLFs1SuBxgQaA68MwipVxemOCeZ2tTIYTAWAmdzh+ygX9Ao/pmoWXw60/mJpESxG8axRZ
-	 68FAF8OOiTte7Gfwym+R+HhnYhSJet0xMfehGdMPNOws6Lz/By+lfLtTrybHtel4upWQF
-	 4yQBpRShfvb7kX9zB61iPpUli8ORPZGg46YebLc7jtsVtIx9cLVbN2V1hAtH0JhQtBQ==
+	bh=BCDud0ma4gL3NvurX1mO3fYYWW6CTWqrWca8jGfBy/I=;
+	b=SWFA9yedPtMgX3+ZKjeGiomCaE+EScpextHpcGHhAOtjxUDJEsvJLaY+TuhGg7KYX1ve
+	 Mmbg8a7ELcYjoaqyEn1XJ1LdpWKBd81UTEw1DajBxNk/j4VS4AQdqkGs1KT1GUpbK6UyD
+	 vSayPjfGrynuTIUpw7l4l/giRi5/h+M/jlEmilHWcrU8AtOVWxDQ/1FSAMNGXFWx7HyJG
+	 3OXLRKOHEnFHAnoGGMWdWiAcJkDdgRJmIUHr3RcvJPCngw0mDKwssQ+znzHgr/JEZOpsZ
+	 Ktq/2p2fmedebIWyBr6yFQFVoN/97cnCJ8Uqk1HlU124TjsXKwBMtSckxcyljGwgbkw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=W1Bj1kr4;
-	arc=none smtp.remote-ip=91.218.175.12
-Received: from mta0.migadu.com (out-12.mta0.migadu.com [91.218.175.12])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="h/zQHzqw";
+	arc=none smtp.remote-ip=95.215.58.224
+Received: from mta1.migadu.com (out-224.mta1.migadu.com [95.215.58.224])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B402F606A337
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:06:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B402F606A337
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E944D606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:06:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E944D606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=W1Bj1kr4
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=h/zQHzqw
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=AS4+6+Tmk61XKYNBv6v+q6L2pUXMMn4YwtmRUcOY5Qg=;
+DKIM-Signature: a=rsa-sha256; bh=9wSce90jYtvUGi+gWq89MFzO5ynOmy1PX90qD9Hp7SM=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795781186; v=1; x=1796385986;
- b=W1Bj1kr4EK17mSfOzevq1hG9e2FXSvK7Rw0xD9VDUX2A+rzBkTbSHjyy07LbePIVld8nBu2N
- mO/KGUbi79OqNyqw4St34q8cLNlse565HHXbelVxLFyhrjRHpGUjUmrt3xE2f/uffyu42kY6ezT
- qhn/wDneQYbPaSjPPBPUINh8=
+ t=1795781185; v=1; x=1796385985;
+ b=h/zQHzqwxGv+m2J50HZC4HcchxvRaQjzw7MpYXydP6i0UkPafft2aiqwz9ZufikUHVXwHNLl
+ XieN6KPvvr9QcGN7zGTxhWtPU2/avF5bYw3aAXoD9HBlw4GaJTTXki4QjtddHatJGVfMhMjkfSt
+ atzZ0PWuLncnCZptZRfOv4qs=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id bda9cba14b9677bb;
-	Fri, 27 Nov 2026 12:06:26 +0000
-X-Mizu-Trace-ID: bda9cba14b9677bb
+Received: by smtp.migadu.com with ESMTPS id 648cc0375cc565d6;
+	Fri, 27 Nov 2026 12:06:25 +0000
+X-Mizu-Trace-ID: 648cc0375cc565d6
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -60,9 +60,9 @@ Cc: Radu Rendec <radu@rendec.net>,
 	Fuad Tabba <tabba@google.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 4/5] irqchip/gic-v3-its: Zero ITTs reused from the ITT pool
-Date: Fri, 27 Nov 2026 12:06:22 +0000
-Message-ID: <20261127120623.891129-5-fuad.tabba@linux.dev>
+Subject: [PATCH v3 1/5] irqchip/gic-v3-its: Order table zeroing before the GIC can see it
+Date: Fri, 27 Nov 2026 12:06:19 +0000
+Message-ID: <20261127120623.891129-2-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261127120623.891129-1-fuad.tabba@linux.dev>
 References: <20261127120623.891129-1-fuad.tabba@linux.dev>
@@ -77,44 +77,40 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Commit b08e2f42e86b5 ("irqchip/gic-v3-its: Share ITS tables with a
-non-trusted hypervisor") moved sub-page ITTs from kzalloc_node() to a
-genpool. An ITT freed back to the pool goes to the next device as the
-previous one left it. MAPD is then UNPREDICTABLE: "When V == 1, the
-specified ITT does not contain all zeros" (IHI 0069H.b, 5.3.10).
+The ITS driver allocates the ITS tables and the vPE tables as zeroed
+pages. It exposes each table with a single store: a relaxed
+GICR_VPROPBASER write with Valid set, the relaxed GITS_CTLR write that
+enables the ITS, or a valid level-1 entry for a level-2 page.
+However, on a shareable table the zeroing isn't ordered before that
+store, so the GIC can read the page's previous contents as table
+entries, which the spec makes UNPREDICTABLE (IHI 0069H.b 5.2.1, and
+GICR_VPROPBASER.Z in 12.11.39). A level-2 page is exposed at runtime,
+when the GIC may already be walking the level-1 table for other IDs.
 
-Zero every ITT that comes from the pool. The ITS then no longer needs
-the pages added to the pool zeroed, so drop __GFP_ZERO from their
-allocation. A pKVM guest shares each new pool page with the host,
-though, and pkvm_set_memory_decrypted() doesn't zero what it shares, so
-the host now sees that page's old contents.
+Add a dsb(ishst) at the end of its_alloc_pages_node(), as
+its_flush_cmd() does for a command. The allocator doesn't take a
+shareability argument, so the barrier is unconditional. On a
+non-shareable table it doesn't hurt.
 
-Fixes: b08e2f42e86b5 ("irqchip/gic-v3-its: Share ITS tables with a non-trusted hypervisor")
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 Reviewed-by: Zenghui Yu <yuzenghui@huawei.com>
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- drivers/irqchip/irq-gic-v3-its.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ drivers/irqchip/irq-gic-v3-its.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
 diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 5756ffe4ec13e..6eb2dbec5f0ed 100644
+index c952c069f9373..9900c6a53526e 100644
 --- a/drivers/irqchip/irq-gic-v3-its.c
 +++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -270,10 +270,12 @@ static void *itt_alloc_pool(int node, int size)
+@@ -233,6 +233,9 @@ static struct page *its_alloc_pages_node(int node, gfp_t gfp,
+ 	if (ret)
+ 		return NULL;
  
- 	do {
- 		addr = gen_pool_alloc(itt_pool, size);
--		if (addr)
-+		if (addr) {
-+			memset((void *)addr, 0, size);
- 			break;
-+		}
- 
--		page = its_alloc_pages_node(node, GFP_KERNEL | __GFP_ZERO, 0);
-+		page = its_alloc_pages_node(node, GFP_KERNEL, 0);
- 		if (!page)
- 			break;
++	/* Order the zeroing before any store that exposes the page to the GIC */
++	dsb(ishst);
++
+ 	return page;
+ }
  
 -- 
 2.47.3
