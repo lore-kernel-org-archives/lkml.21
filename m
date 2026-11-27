@@ -1,78 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=119.15.109.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795778764;
-	b=jBs3oh/Ce4C2geJ6FBS1J7qRQYxJBsC38rnh5VX1ZmUXB3MXYixuOqbj5YqFqUeh1KdA
-	 38MT2C8jEbX7hfBnTn6G/IJal5ENHACwS7VRxHv08fUQiryvpAqM1o/h+fhGOL50q366O
-	 pwnu6X1JVz1DRRXydiZrlRlxp5L8KNVHlD7DQWa1+KCaKzhUYhDdhdM0aoGmSoXb0iowZ
-	 ES+oYxCdths00DJbx68JJLrBbh8leDwfY1AYhXierbm5H/vKQjvazB9r13LQrgDbkMVM5
-	 K8CL06E/my2oG9aX0jUk7EQyO8G7yCdjUfw/nsxYlxc2NI4cp5gjCDN+Hd/IuQKX4sA==
+	t=1795778772;
+	b=WBEHVW2owaOCd1SyKDfqEGkQC8n4EO2rvnPELKgy5WuAio5ayZqulWDXVinjZnbEqtbk
+	 FVvH/HUiAN/M3BPTs5LdYQpRwyDfiS1SSdySOsnpWaiCRZvasQlY3RVLrn/AyIvMapRZh
+	 lL1t9t+muGgpU9TnJkdLPzwn5oF81pHOaC6M8BK7e44uSzOuXtdwbk1MFQa6lWcknzoSz
+	 YXx4QEEx1FDeYdH6yWSmgYT2kSsU0CU+pqR9r9VjiCozhz5DO/RFNUaltnXItDcLKdFGk
+	 zzwDfVstwS2vwi85Cv0OJJCTxggeyZy/ZYoPUdjivtsKnzpy737EDwCRAFkHincvW6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795778764;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Spam;
-	bh=gylHRjpeZgc0KMmOGoSwKhRI/dWgfEWcm+Z3zoHm3Xc=;
-	b=x/sdPNusPpxFI2gVABBpiqYXrRyp6VCF8j5WcJqItCWXillZI5MbcB6NZJkeGsyEJruM
-	 Q5oC/EJzj5wSe1OWZzbHegiQDz+s1PkcrEyoeDgkcc/aCpcZgffhRloelNohSLBKWQe0B
-	 y8VOmVjFZXJlA4GwvCt08UxqhLyn7RWpq+i4v2hOSuzpo5O4raVSIiCwhmJpLeXdXwy4Q
-	 soVeE6IIWI12YMH/443aIFJgFtRj7SOsrbiqhTuBMWhoLWObOE5zghUZlSmdeqzTa1TM/
-	 2fch3dVcEAzZhWAhBcz4hVBnQCbpLieLbrAZSbwJDSyBAw1jSXwrO5e5+e81ddAP8tA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795778772;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=hDmEatNY2XfDKoZo8j3BqPFFbPxVHs9szs48QcnIzVc=;
+	b=1K1nZjgBIvHvj/TaLX8NFIpkE1pWSOsDZsaTWD9nusSrnkdl7gf8G3CsFha5w6MOkXUL
+	 LHC2XCj5V06aqWeQeu2cYf1iSKwloPSXg0SNnwu0Bb+NAoAtySLEEyRKxutr3LZY9rBYy
+	 0t/6gKqgMpsIMougGg31xbSEoKYXr2DmHaJKlsCt4MPP4FF+xcGq6ZQjJrVhMZbBsNvB2
+	 UStF+7mQQ3JhvLtTR1xAL2uvLADE8S6qI8LlpqaeE66UHNR/kVl/3yvOEFJS99vhU5xlM
+	 aEOsFN1nGWPV9PQrLUlbP15pod9n8m/n7aLa6dF3UH9yB1qYgEBf9dQPs0tFrjgy7VA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=d-silva.org;
-	spf=pass smtp.mailfrom=d-silva.org;
-	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=WL26CJBI;
-	arc=none smtp.remote-ip=119.15.109.137
-Received: from www.nmnhosting.com (watt.d-silva.org [119.15.109.137])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Pu0IUCuR;
+	arc=none smtp.remote-ip=209.85.128.70
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com [209.85.128.70])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35E11606A6A8;
-	Fri, 27 Nov 2026 11:26:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35E11606A6A8
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=d-silva.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=d-silva.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78B97606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:26:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78B97606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=WL26CJBI
-Received: from Hawking.lan (hawking.lan [10.0.1.4])
-	by www.nmnhosting.com (Postfix) with ESMTP id 9DD344C995;
-	Fri, 27 Nov 2026 22:25:58 +1100 (AEDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
-	t=1795778758;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gylHRjpeZgc0KMmOGoSwKhRI/dWgfEWcm+Z3zoHm3Xc=;
-	b=WL26CJBInT1wxWKLJbeyA6lm6x5/tUst/LtvbJa5xiepEzREvugQdt+P4F5C6VeC/50zdy
-	cu2bS/D33g0ukplGQJmmibvm4kTgCsjFci0VsWaKC5yBkmfFUdNe6WN2Xu0akZQNQdqfVb
-	logrBI6sojYi02lEYb6jsfT0z0tpQzmTakCoWYXymH4KxWNMRxU1RF+2MAWX97ybbSA1ns
-	YiGymRriTH6Hrf03m92FWz9uX7iXGqPDTH0RSRV+SypXyvgrvYzLd82pNEhy/MSSdFtLJa
-	a1xyrOAg7c7BCNoPTjlWiUGP68ISGC+1e0UrLrVcpJxjSiWifzxHZPXa3jcIzw==
-From: Alastair D'Silva <alastair@d-silva.org>
-To: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
-Cc: linux-serial@vger.kernel.org,
-	gregkh@linuxfoundation.org,
-	jirislaby@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	andriy.shevchenko@linux.intel.com,
-	ilpo.jarvinen@linux.intel.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	Andre Przywara <andre.przywara@arm.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Enzo Adriano <enzo.adriano.code@gmail.com>,
-	Alastair D'Silva <alastair@d-silva.org>
-Subject: Re: [PATCH v2 2/4] serial: 8250_dw: Only accept a contiguous DLF readback
-Date: Fri, 27 Nov 2026 22:25:58 +1100
-Message-ID: <20261127112558.2585489-1-alastair@d-silva.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <a79114e72d029732db6764935dde12aa5d497706.1792439398.git.vinicius.eduardo.pedrosa@gmail.com>
-References: <cover.1792439398.git.vinicius.eduardo.pedrosa@gmail.com> <a79114e72d029732db6764935dde12aa5d497706.1792439398.git.vinicius.eduardo.pedrosa@gmail.com>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Pu0IUCuR
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-49febef74e3so60324095e9.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:26:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795778770; x=1796383570; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=hDmEatNY2XfDKoZo8j3BqPFFbPxVHs9szs48QcnIzVc=;
+        b=Pu0IUCuR/qs8R/S1A2LCQgtBAbTaY7OuVLXe41ybTSFKDf2CN5EhSaXbhbcVsEP66u
+         fdwewfntk84M2KGMnxgMhbLRjbwSav/do3j5KLXQFjDIteQzZHMgz8gnqteFcki+OmTU
+         KlFq1eSfluQpBtu/BT4h+A7KvTTHKzYFqEoCQ2fJ9lUptULLGzcSSCALF9nntPzQw+x9
+         adIJoOKT7NbuLxoLiGFeZIJOXDtWzVeiUGM5V+c+5ko9nJGf811ZffJkDwm4jlP1QhM0
+         isU40DdhCa7WmRtukIUJ8aV2D8uTWSM3+3sUtZtp4zhrgeVDkpcn26j0TbWaU+eclh6I
+         bRsA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795778770; x=1796383570;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hDmEatNY2XfDKoZo8j3BqPFFbPxVHs9szs48QcnIzVc=;
+        b=a+WkzYPtcnPLb3AEXb7FiL4kSP8sKIemfr942r/33Goof3c+VxWIHfcqh8NQjyW+Rz
+         Gig9Gk6yzh0Re4/rcgssTWJd6UWCj8lhBuBrPCzO0yI0liIC8OJjIKSec5V1j4CNiEHn
+         oiwoiFlYIq44QdvQWZuVsrjk7t6B6SuzL9vUwIxfx7aONXVqQaA/S3pzz9lYORiH3T+r
+         GgtVUHs7NfEzZcrfpZqpNnVVQ+GLL/5QeLB89MnNdyXNytmWmWZitWy9Fqw0RlZ1EWLC
+         tEwu8By7Fj1pSO7oS4cxJy7C9asYCQf+n4zQGtV8uVi4FMT+OX7T+6ZksBVkwk1f7M2W
+         y4hw==
+X-Forwarded-Encrypted: i=1; AL+hErGMvrveJrA1UJsFT8yAWhi9OKboLRVJbziG8AmyKI+/XPON0UJtMtCTXGrQHhrk8EQp1AjogGT4A3oeDhM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Sob+CzE1d14Dl8uXHHSeZ12zyQM0cF+Apvs3ZHzbcHh6a9zDx
+	KH6oYdpr4NzyOz8jbKDeiWsCHMOXLOu6Sy/V2NEdVyvYLiXMUqGk1AaOZPEvPW2siIgoTTqJoqi
+	OI0iK7ziBD+Zrjl/yMw==
+X-Received: from wmpo40.prod.google.com ([2002:a05:600c:33a8:b0:4bb:76bb:3497])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:4504:b0:4b4:a551:681a with SMTP id 5b1f17b1804b1-4bb887fc396mr493239585e9.3.1795778769532;
+ Fri, 27 Nov 2026 03:26:09 -0800 (PST)
+Date: Fri, 27 Nov 2026 11:26:08 +0000
+In-Reply-To: <20261127100846.67589-1-adhyanshverma2010@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,58 +78,50 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Spam: Yes
+Mime-Version: 1.0
+References: <20261127100846.67589-1-adhyanshverma2010@gmail.com>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+Message-ID: <20261127112608.1537695-1-aliceryhl@google.com>
+Subject: Re: [PATCH] rust_binder: fix process leak on proc file creation failure
+From: Alice Ryhl <aliceryhl@google.com>
+To: Adhyansh Verma <adhyanshverma2010@gmail.com>
+Cc: Alice Ryhl <aliceryhl@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Carlos Llamas <cmllamas@google.com>, 
+	"=?UTF-8?q?Arve=20Hj=C3=B8nnev=C3=A5g?=" <arve@android.com>, Todd Kjos <tkjos@android.com>, 
+	Christian Brauner <brauner@kernel.org>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Mon, 19 Oct 2026 17:06:11 -0300, Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com> wrote:
-> dw8250_setup_port() writes all ones to offset 0xc0 and treats any
-> nonzero readback as the DLF register. DLF is a bit field starting at
-> bit 0, so a real one reads back as a contiguous 2^n - 1 mask. On some
-> Allwinner SoCs offset 0xc0 is the RS485 control register instead
-> (UART_485_CTL in the A733 User Manual), whose implemented bits are not
-> contiguous. The probe still takes its readback for a DLF of fls(readback)
-> bits, and every later divisor change writes the fractional divisor into
-> the RS485 control register.
+On Fri, Nov 27, 2026 at 03:38:46PM +0530, Adhyansh Verma wrote:
+> In rust_binder_open(), Process::open() allocates and initializes a new
+> Process struct, registering it into the binder context's process list
+> (Context::manager.all_procs) via Context::register_process(). Because
+> Context holds an Arc<Process> in all_procs, and Process holds an
+> Arc<Context>, a cyclic reference is established.
 >
-> Only accept a readback of the form 2^n - 1.
+> Immediately following Process::open(), rust_binder_open() attempts to
+> create the proc file via BinderfsProcFile::new(). If this call fails
+> (e.g. under memory pressure when allocating the proc file dentry or
+> inode), rust_binder_open() returns err.to_errno() immediately.
 >
-> The probe itself is unchanged: it still writes all ones to offset 0xc0
-> and then restores the old value, so this only changes how the readback
-> is interpreted.
+> Because open() returned an error, VFS drops the struct file and will
+> never invoke the ->release() file operation (rust_binder_release()).
+> Consequently, Process::deferred_release() is never scheduled, and
+> Context::deregister_process() is never called to remove the Process
+> from all_procs.
 >
-> The A733 reads back 0x19f, and Andre Przywara observed 0x9f on the
-> A523. Without this check the A733 RS485 control register reads 0xb after
-> boot; with it, the register stays 0 across 300 termios toggle and
-> restore cycles.
+> As a result, the cyclic reference prevents the Process from being
+> dropped, permanently leaking the Process struct, credentials, and task
+> references in kernel memory, while leaving a stale entry in all_procs.
 >
-> Suggested-by: Andre Przywara <andre.przywara@arm.com>
-> Signed-off-by: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
-> ---
->  drivers/tty/serial/8250/8250_dwlib.c | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
+> Fix this by explicitly calling process.ctx.deregister_process(&process)
+> on the BinderfsProcFile::new() failure path to break the reference
+> cycle and allow the Process to be freed when exiting rust_binder_open().
 >
-> diff --git a/drivers/tty/serial/8250/8250_dwlib.c b/drivers/tty/serial/8250/8250_dwlib.c
-> index 325793f20256..1b0192efe162 100644
-> --- a/drivers/tty/serial/8250/8250_dwlib.c
-> +++ b/drivers/tty/serial/8250/8250_dwlib.c
-> @@ -225,7 +225,11 @@ void dw8250_setup_port(struct uart_port *p)
->  	reg = dw8250_readl_ext(p, DW_UART_DLF);
->  	dw8250_writel_ext(p, DW_UART_DLF, old_dlf);
->  
-> -	if (reg) {
-> +	/*
-> +	 * DLF is a bit field starting at bit 0, so a real one reads back as
-> +	 * 2^n - 1. Any other value means this offset is something else.
-> +	 */
-> +	if (reg && !(reg & (reg + 1))) {
->  		pd->dlf_size = fls(reg);
->  		p->get_divisor = dw8250_get_divisor;
->  		/* Keep a hook the driver has already installed */
+> Fixes: eafedbc7c050 ("rust_binder: add Rust Binder driver")
+> Signed-off-by: Adhyansh Verma <adhyanshverma2010@gmail.com>
 
-Tested on Xunlong OrangePi 4 Pro (Allwinner A733):
-- UART0 (2500000.serial, ttyS0, base_baud = 1500000) boots to shell and
-  echoes interactive console input at 115200 baud.
+Reviewed-by: Alice Ryhl <aliceryhl@google.com>
 
-Reviewed-by: Alastair D'Silva <alastair@d-silva.org>
-Tested-by: Alastair D'Silva <alastair@d-silva.org> # OrangePi 4 Pro
+Thanks!
+
+Alice
