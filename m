@@ -1,100 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.216.248.207
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795785906;
-	b=4FjCwpXGUS5UwioyB/QaajIE7sgL0RKmf0sZJIMYobEyRRd3vYCNRZp5L0ZAvg/t7xW7
-	 98TWUifs3LWn1EdXevBxssNAHp/DPT9CvHRdHBDL699Z0nsSuBYdpN6PO7sqteiDm076P
-	 FlgDwfgCzZvg5ZxeKjmqbvqy3mboE7DSX0OSsdOy7FIr+PJRUCcNZY8x7hFbEVIzNuuph
-	 S90BjmVaJ+PQAf1zXQH+OvpY+BdC9K7XsoaRMQQ6U4B8uMBbebnJsZwdIKshE63C0mz6U
-	 59V9UoGiZLh2H1ckgkp9vCtnmXJkILemCdAInzxBij6RqO/RiIkZHFUq+Dv+kvmem4A==
+	t=1795785910;
+	b=EntruoJN/0p5jpKtNazXAFIl811OGsvW73/05kHxxjEieQikjs6NxkKMGxyTleYA3r6U
+	 WyIHv0HQPNoEc/3iLuWUqP0m2PPZ3yeijBk59um1EZbP1ePt3kBp5G7PtnamUCQimgeH+
+	 9mRyjmO0vYk483lvwqN0Pt7PiG6ZJSGvfiZjIvfPX5S02ml22Om7kNPQwsXVxY3Hpmbig
+	 chnnB0GkypZsrBfNJJzntO4EjOzxkcLMtyCUKXkQ6B3BZrs5m8uXXk/FJO5YQ7d9DA+ny
+	 rvY1hGH8vUA5CZzIQ1X57/xxQBwRJStk+vZJSs9LOKOQDTvi6pZjQjxQaTB5le6UNkQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795785906;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=LwhKEHOyEO9+u42//0OCYUbCH+AxqOH0RbDIKj60/dQ=;
-	b=emgaCxZRrBKhkuGU5+fqWSGfWvwkTXEc/oEC6Qe46xd5VZMq9HN2SQazlxmwKW+EOkSN
-	 Q+SV+tBWJYAQZuCCZUPdMhV65tdcaX9uM/vEjlRcq597uNlUmlWXde/mSWPl3SuQ6Q6E3
-	 0caJqIOqh2M4HUTSEZUGA3bDcJ/i2B/7W8HvgU8VA83HaR1i0yrksylJ69Q5utGOA6N7Q
-	 yI+gzeT9n1O930fALFPVDc1XDnLm7opePDKfnrGlC04H01ehIEvcOt5CPDR+0n9PFEHQS
-	 TaD20KcvbQUhE3bHMkbtF6N5N5zh5IekIrb4VIwMqQiQkHyeKjVL9qQRmib5O7DDWdg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795785910;
+	h=DMARC-Filter:From:X-Lima-ML-UUID:DKIM-Signature:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=v3yEbC+AJmlftdTFGRLi1VzGahJ69Ti/aAE4/7WZpZ8=;
+	b=aR5s4/Iw86UqzRi7E4vNc9upw/CgqjoCwacod4tk0dFy+pX5eRTDN7uSEgR9p1o3wmUS
+	 ZCfT3z3nAgTKqLCl48fz29yOvWQt2uyqZDfyel6kMeuXfG34LDZ4L9c+sQc+i4oYJ1Atl
+	 4cspRwxY9D23B0YsWkdJJGsZz27xpjMgFdHsP77Ur31KZEAeugJU2Onx+UHijDwVGHlR3
+	 uWm4dim+buj9zBNtjGVtrrwi8bVs8IEgvQF/iG0BC+1QLmkeBdb7fydo5sC82j9mVADD1
+	 OxPVWzXDOJ8feQE50QLhBV3WSdfoaQLbmJIV3H/RdGJm8AzkEZNp+VN3mopFtJ3CteA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ASRq3L8l;
-	arc=none smtp.remote-ip=74.125.82.169
-Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=deq.rocks;
+	spf=none smtp.mailfrom=deq.rocks;
+	dkim=pass header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=XIee0nPO;
+	arc=none smtp.remote-ip=91.216.248.207
+Received: from mx5.mail-out.lima-city.de (mx5.mail-out.lima-city.de [91.216.248.207])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02A6C606A337
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:25:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02A6C606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55A21606A32E;
+	Fri, 27 Nov 2026 13:25:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55A21606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=deq.rocks
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=deq.rocks
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ASRq3L8l
-Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-3863db981d4so11384440eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:25:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795785905; x=1796390705; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LwhKEHOyEO9+u42//0OCYUbCH+AxqOH0RbDIKj60/dQ=;
-        b=ASRq3L8l9m3LcjNpF0t+eQQPUJ9Fwq8EvMwI0BCwjgm3gdwZXYXEOjfQMTMWra9hL0
-         8xz3OMkXgnsoDvetucfD9dY+3JNOzS2JndsgC9nZ40RTewuWaG1GIPQuulocrlONEYvY
-         aCDXfa9qMYpHATNUIfUftcvdb9G57omxSKu+LkTEArByW0vbZAg7A3DzhXNpkSmi2hbX
-         IjOLD14TmMQHkU7la0SUtLfkmt2vsMhcpNqaPBgvvP1MuSb+R8Rc5pdnchJiD0tK+yRe
-         FQ+6a5jX8pvoRDPRC5HmnxJkjfgGqqbw65ngjT0En8kdYFjSMES0sLeUKDp1hd9AbonI
-         4VIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795785905; x=1796390705;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LwhKEHOyEO9+u42//0OCYUbCH+AxqOH0RbDIKj60/dQ=;
-        b=h+4Y6WuelonWfQWYbmAlPcxyOJNHeLBEq/8MRMvnm3rpsw+Ozwvyr/U0jTfxZR6o/H
-         AjiqmaFQTmCJF7g/NSz1gvL1VFD1bHGkKLrjRz5bEX4YvE8Y2MaCt2L+98vX9uS/5sbq
-         ply2eIsb9EEAExmBwgmCKbVL514gwLO2aIJcRaie+4ARynmkOSJEBxZk3jFUDEi21cbz
-         pXfKG6/Twq2KexLfePJ4NKaROUgJMwUI/XsRSjOpnySQ7HNCJAnBGeLtp5W7en0BBF87
-         aqvOxW1xNDigNlArJf30MPdKUIwdx15myc8rlxTpPEQQxdOZZqovdWCsXtEZKolqoTxV
-         b+Eg==
-X-Forwarded-Encrypted: i=1; AL+hErEi/v3y9JSYZi/QzjvYxPhKqFfDuKaqeEuiXwYPHiO+XEn/VqnhvyxJAnXPV8Dhb1KnZSJeDigsOry0UdQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/IjHhpFRwTl9VSGVaVcq1/dBM5ehyJvjo9AxAyfoS+yWuCGwmp
-	EMNnneWwA8FoYOZOb/OtjdNdp5hq0eHBQWLLBK9nOJwiM5PlURFrYUL3
-X-Gm-Gg: AZFdTZfZPE3l9NfGBgnj4FY//5gb98eoA6DGFXdZeHVZtQS16Kc9Ginule+JvhkGSQ4
-	pd1Vhur+bc3c9Hwosy3lLWF+puJYAAn8GdsodFRgO1SEVYtFlPa9N0NgURfIjNViALSWtmJMzUr
-	+EM7x92ggJMxOjhHh6tl7qRcNlnJpLs7LQG9s9UEz9O0G/sx5gd3KZmkmLSuJ/TV7G4KGzfRPyY
-	PY3onPEW/Bz1of/jKzev4YL7OyhKIyBFonyNY3KgBSr53feyd3BwOMYRSZKckKhKWMhidKfhXAG
-	7Go3eW6orTvyoXTPtMom6197gTrZLD1PH422kaHWYjbfYY0cUXbp+KgXYtFOJCqOqOBN4cmuw9r
-	oEOosBOhY9W4usniueupV1CXmxIwQmXsYp85/BIqwWTkAwGVTrpLlR8Yk5xx//6n+5YZmMBoDOQ
-	SBueBiUrSkRnH9JKX4/uBT2mqEnxib/boZ2AS6ZKTNq1qHHa4cHpHmvZ1kYyBWfeir01gQ+R5NS
-	ua1x5nWdQzde/YinFE5VDyGalfWUpjX5IK9jwxB52Wrl79v9N6KixuftWIBZR7PjTydocujwtgW
-	SB79XN8QZ0TE9nookMcT6FAa+uhtVzZqi6zm5324yXI9028pG4hP
-X-Received: by 2002:a05:7300:a506:b0:386:c960:278 with SMTP id 5a478bee46e88-386c9600557mr13797608eec.17.1795785905017;
-        Fri, 27 Nov 2026 05:25:05 -0800 (PST)
-Received: from 192.168.1.36 ([2402:a00:163:2ce9:b15c:e4fe:6de1:494a])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386992b404bsm59082431eec.1.2026.11.27.05.25.00
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 27 Nov 2026 05:25:04 -0800 (PST)
-From: Ajit Singh <blfizzyy@gmail.com>
-To: romain.gantois@bootlin.com
-Cc: gregkh@linuxfoundation.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heikki.krogerus@linux.intel.com,
-	linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	dkim=pass (2048-bit key) header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=XIee0nPO
+From: Andre Eikmeyer <dev@deq.rocks>
+X-Lima-ML-UUID: be76e0bf-39fa-4763-b198-36333ccb8c8d
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=deq.rocks;
+	s=securedbylima-20251205; t=1795785905;
+	bh=jCbGfbLhz0HJs0XbEZQr5LjpS053K2gG8GUfQl41Qr0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=XIee0nPOFMYsVn0LGgyRbwD8r91BOqjTLtTGbqQmsNLRzh8eYtV+hjX+XvGwjd+lv
+	 3KUvI0EfxBWmO6WWZEr6pAmHVwxDOnhkdPu6EqnXv81YHXbEvCXzH6D6Jlj3h+0fHK
+	 a7Wuw5atrgwrygc/xxbVmxua/FcftRx5W//K1a29xiy1d1zTLlhnKg7Y2UNURE310O
+	 Huo1zb/ZTMWF25endityMHWoquAMfRCzNh1oWEVQ0cXUZQiqb49fzZx+9qw5B01oJT
+	 JwuJDH1YOTMk9VLE0FYsK5CKRRcdiFgCnN3PVXg1Hyg6Gavxz5rHSD93A8lVVw1yF5
+	 LFU2hbOFyuLXA==
+To: sven@kernel.org,
+	marcel@holtmann.org,
+	luiz.dentz@gmail.com
+Cc: j@jannau.net,
+	neal@gompa.dev,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-bluetooth@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Ajit Singh <blfizzyy@gmail.com>
-Subject: [PATCH v3 1/2] dt-bindings: usb: ti,tusb1046: Document no-hpd
-Date: Fri, 27 Nov 2026 18:54:48 +0530
-Message-ID: <20261127132449.89081-2-blfizzyy@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20261127132449.89081-1-blfizzyy@gmail.com>
-References: <20261127132449.89081-1-blfizzyy@gmail.com>
+	Andre Eikmeyer <dev@deq.rocks>
+Subject: [PATCH v3 0/3] Bluetooth: hci_bcm4377: resume after ACPI S3 and ASPM
+Date: Fri, 27 Nov 2026 14:24:58 +0100
+Message-ID: <20261127132501.262651-1-dev@deq.rocks>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,30 +69,45 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Describe boards where the TUSB1046 HPD_IN pin is not connected to a
-usable HPD signal.
+After ACPI S3 the Bluetooth function of the BCM4377 comes back without
+its firmware. Patch 2 probes it again after such a resume.
 
-Signed-off-by: Ajit Singh <blfizzyy@gmail.com>
----
- Documentation/devicetree/bindings/usb/ti,tusb1046.yaml | 5 +++++
- 1 file changed, 5 insertions(+)
+When the previous controller is still being released, the re-probe
+registers the new one under another index, which runs into the probe
+return check fixed in patch 1. Patch 1 is a fix on its own and goes
+first.
 
-diff --git a/Documentation/devicetree/bindings/usb/ti,tusb1046.yaml b/Documentation/devicetree/bindings/usb/ti,tusb1046.yaml
-index e1501ea6b50b..8d09c98ecd42 100644
---- a/Documentation/devicetree/bindings/usb/ti,tusb1046.yaml
-+++ b/Documentation/devicetree/bindings/usb/ti,tusb1046.yaml
-@@ -20,6 +20,11 @@ properties:
-   reg:
-     maxItems: 1
- 
-+  no-hpd:
-+    type: boolean
-+    description:
-+      The HPD_IN pin is not connected to a usable HPD signal.
-+
- required:
-   - compatible
-   - reg
--- 
-2.50.1 (Apple Git-155)
+Because of a hardware erratum the driver keeps ASPM disabled on the
+whole link to the Wi-Fi and Bluetooth chip for as long as it is bound,
+which holds the CPU package at PC3. Patch 3 disables ASPM only while
+the firmware boots and restores it once the firmware runs, also after
+the re-probe from patch 2.
 
+The Wi-Fi function of the same chip needs the same after S3 and goes to
+linux-wireless in "wifi: brcmfmac: pcie: S3 suspend and resume on the
+T2 Mac chips".
+
+Tested on MacBookAir9,1 and MacBookPro15,4.
+
+Changes in v3:
+- Rebase on bluetooth-next
+- Patch 1: shorter subject, add Sven's Reviewed-by from v1
+- Patch 3: add Sven's Acked-by
+
+Changes in v2:
+- Add patch 3, keep ASPM off only while the firmware boots
+- Patches 1 and 2 are unchanged
+
+v2: https://lore.kernel.org/all/20261111120248.21062-1-dev@deq.rocks/
+v1: https://lore.kernel.org/all/20261107154839.89941-1-dev@deq.rocks/
+
+Andre Eikmeyer (3):
+  Bluetooth: hci_bcm4377: check hci_register_dev() for a negative return
+  Bluetooth: hci_bcm4377: probe again after a resume through firmware
+  Bluetooth: hci_bcm4377: keep ASPM off only while the firmware boots
+
+ drivers/bluetooth/hci_bcm4377.c | 93 +++++++++++++++++++++++++++++----
+ 1 file changed, 83 insertions(+), 10 deletions(-)
+
+
+base-commit: f57f78086ab54f3b3122fbaeba2c842ba7bb6d00
