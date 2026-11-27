@@ -1,100 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795771720;
-	b=Mk8i5NIa8NziAC3HMFN2k01fyt5dA7fgcs8nqHQhmn1ScGnF0Pa9anhhDo/qy3LHQvYF
-	 EmGTnmIL56I71onJJLWzGayVZSj3xa5W6/suMSOeTJXYrS7SBTz4W/9E9nNEfH+ptKpbA
-	 uBbSw7VrOxXnC99735V6LMnU8VdWoO2jQkg1jyx6x0rQ8YP4+B6k4rw3lRWIqsZ0I9nvT
-	 K1BG2OI4GZZf5M+l5xyOZqzD+XdaNxDOKMA7UfD2UTCiIMbhOzFdIt5DSketr8XCduL+U
-	 iCr8b9gHLYTrD+wPPVfwbFQaly7BRqsX126dh7QlZBriAPmMw7mT5wwm6MV3SHEeYyg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795771720;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type;
-	bh=jasLtAoAN2ehO2HUA2d9AgFolPUIbV0VilFvPbWCDQI=;
-	b=kJh3weWoaq3o711mthVDdcFkgTp7YTcWDAHonM7kZ0ib7snOd5tarhhcif0oPz7QUwCC
-	 e01ti0JqWTdXsoMV7is0iJ94kH5mHBtK8QST1M7YEbkcV6zFi7SRF9hqblxV3P8AZc9tT
-	 A7+3JOxIVPJDpOi5cQaaE5ZDWEwjB7+spYlICNZ4ShxR+u+nN/ykMIFONDu4RXJpPc1Pt
-	 ySj6zg51SJTjJ8c+n7O5d7fiRys+CWhieguRWNzMoyyZCYIlogkk5QDEsl5vPk0KN2ad5
-	 TVPfltBMMny8EUyCRZmjNvas1wLjvO469E0YFku3lM1TQElULV+c2MaQ805ecNSWUOg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Rh16fdah;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.54
-Received: from mail-oo1-f54.google.com (mail-oo1-f54.google.com [209.85.161.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.159.59.229
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795771751;
+	b=FVU1WSd4Ev4bb+jcyIX2R1menAhvHiR9ZUAIt1jwVwUkrUQKE/FPJNee7qcyLGJPH9M2
+	 DbepakUufNd2xRK2Du9OJad/uQTOz2EfFxN5eoG1zy3ZbQJJ3C4J60mWRSYZ5V3lWqTXa
+	 VEpmWw3LJHJO67E8SyTV03AnoxUYhrR7Tsxo2RaaJp/PDa11/3rNBktVlNUIHEkyLlZvO
+	 VJuJk/9XkKXnv5W9NhtUbBqysB4Cx+LqH2YjO4MIKylJ4E31Oh4SwjcBnDQ8YXBIMigft
+	 OcuT2cTOBmpH8HY3F6KPh+wHgLAIJPxfWsSS6d381hYiRmbRMsG0lijBUCavUMGgzSw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795771751;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=OX368Eg4KtV1PPGO1H9XOYA5FgVsuvC3JtGRi1RdJBU=;
+	b=XwtA5ljFNY+/nRiHlsmppa+twUvir6a4tPZlCMMBVNWeVNhttq1ZKyfaEPL0dWo9QU5h
+	 1PjOb/VDDT4QdlUkp+qRAdpm2o0vgPfiHYSD6qgxldslHjHi1nUIJw9GLn6VzAAB8laVD
+	 22wEGDlKfcGD/NnJElcRY5u3nPkU4ZX9UOVKJQF4lgAOmw2Cr613YXTkcZtKhRs5zjbHq
+	 l8PTJ6oFIEJdKqAHwxI8zAQ0jGxcUHmdRvibDnsNXEASHqwi6e/MPdPz6SrJFC1i6hUfi
+	 lAtG990tjp0ivCpmN6KdvF4jDCgBSByFVX1tpUxqF2ToyBx0sUeN+hZsEAfzsIxj+/Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=1wt.eu;
+	spf=pass smtp.mailfrom=1wt.eu;
+	dkim=pass header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b=Z00DYon0;
+	arc=none smtp.remote-ip=51.159.59.229
+Received: from mta1.formilux.org (mta1.formilux.org [51.159.59.229])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84CB5606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:28:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84CB5606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78F6F606A31C;
+	Fri, 27 Nov 2026 09:29:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78F6F606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=1wt.eu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=1wt.eu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Rh16fdah
-Received: by mail-oo1-f54.google.com with SMTP id 006d021491bc7-71b30ed75a1so4485660eaf.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:28:40 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795771719; cv=none;
-        d=google.com; s=arc-20260327;
-        b=HXGeulJ5bJcYBRGEd7qd1jML2toof5rGct5VKWNEg8sLFwsxWl+BNef30qsfaAQm6e
-         jR8HMbOQ9SZfiTgtrhvAqDIHJRvWsc5Z+cr5dEKUOdQIPm7yeNVx7i6C90SzeNc42gQT
-         I+RzSo8JV2F2tPXlVIIcnHwRoPRc2NRKTKhQu4f9fXeYxIhdVphap9u6dyWwLYzDLGPl
-         EQiG4n09RNLoLS1XKerlUzhtlfO18MuTF9eyu1qkTWV4/E5EbRaPKb5U89ygcv4ZIvu8
-         oDTRastaZyQJOAFe0cs2snn5DABBiNiZHEZ5ejT/0eJTwqOQfrjuEZG8oI8Qt4Xef8GW
-         w9NA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=jasLtAoAN2ehO2HUA2d9AgFolPUIbV0VilFvPbWCDQI=;
-        fh=RKw2iBXXh1Q+hv8B/ukbCBgONDDQkppTuLIvwPV2mGw=;
-        b=aYe5FpeiGCRT0teVvWN+AcxRVLVpITsnlXNeJ8M8Ml3xb/e38dKXDWvzOt81rgNPx9
-         sAtVv8YBSIcn0si4hB+TOgt5mdvUxdf/Qck32wZs3YbJ41777fBpK9AnVVirqLnIoJD5
-         oZ9SQxnXpw1V6dmBgLtPUBF/d150AitxVL8mFydFOEl1aU7qPC3NGWkNdbY3fF+Q2L2t
-         JDKJh6K//I77Hi6OAghmBN16SA093nIR/n+dNVwkVttgR20f/hp2zCIQDTE5BzgPoBFO
-         Q4JM8rRj+i8qMUGN+AYatWDbIj+o64m4EYwU523os6Mo9b8tEW2nC8GQOPSSNTdfAJYl
-         gjig==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795771719; x=1796376519; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jasLtAoAN2ehO2HUA2d9AgFolPUIbV0VilFvPbWCDQI=;
-        b=Rh16fdahTkQEr2yvVBRJtwyGnSAEFnpmKRuEY4VXO7nsw7zB+ex9qefDx7s0fup7eE
-         HfvsT2dDX0gNl3efQY+ztdmRkgDrArOtyNy69FzG+zJGk0KYKOuRWHnJux4l7w1UQs1V
-         QQjjBGJPIfb0rn0PQop3avMkjA1j7sSSJ75oGJUS9ur0qpazQ1PyPXv+GrO8iVGds8OO
-         8qXtqT34EW3BOo5kmmYx9Z5JuRDIoUY/g7i6q8HXBXnftNXfZo9zQ4kz6Y1LgivYUgUe
-         hSixs2u7lgRAWet52bWJjfOHbqaIeieewDhqyDBPZYng4Rk5uzrebQ5B5rhSddKBuyfL
-         Psxw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795771719; x=1796376519;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=jasLtAoAN2ehO2HUA2d9AgFolPUIbV0VilFvPbWCDQI=;
-        b=UyqDbgOU2oTm8mqw9QNT5chBCYz7CTUycj4fqUo8IvXdvSIugdKqf1jD7BXaPLB6uV
-         Djtr4fGRDH9PCFbelEVM1S7n7hxgxBsn29Kz28OaJ69SmuHOXSNsgaKVi4MXMZd8+aiU
-         1x0G3Q01tvhh22OL8/U8rOeHFzPfigBX/cOhyKGN7AnnInrpaktU3wWfxEAF+bu6J4zl
-         cLBv6KLga6hnM88D5ABfmwhrpFiSLqR0Cyx/WX1LmYgsh/iMhlplQSTQXQBNyLf6lzlW
-         8zfP/oOPbv6Rcr002CGplBWGCgNAT9pRlmC9/ugu31ar3t8bYWmipc+GlhrnZGe9Vxd3
-         wZDw==
-X-Forwarded-Encrypted: i=1; AL+hErEBZiG7E7bm5wEfrJIf+iTWeP6L1341i39ONNEl4kcEJlgZiEZNWSAEJ2vR+VXjTJgYTnZvaYwbYLScWPM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8p2EFnOKcRgbLtQcmhIDugPMKhu1yIgfJUTJ7ANuwDlll7zF6x
-	AZaIwHDCrkPcQGCXMk4aBYl3xFPOZRJfrbeIAKin/IG1Q5jQQ+eRUh0CB6zB0i7hYoOqSjnZD+h
-	spr0EToFhaV1ZA9zUFFw+3nvowfm0HII=
-X-Gm-Gg: AZFdTZdkrjfLL6qzghp+w/wJeIYiCHSp77t3XhHb/oPoVl9m4DSQt+51iL1eOszFs5m
-	C6FSdDc6jq4xHShE+Jr5DH1jxDG9cLmxf2ClNdI0h70pk18DhIBQj/8KIm0g/mOWXRJHmFoUlct
-	FyjlgLFyXh2NmYsWFs51sA7BUCGfisz0KxjyK6Wqv+PwDKgIna/83QU3WCauNDcVKjELhD72yIb
-	HWNMRhHC4UXPOcwScMshMnZW+T02e3iZUT+gFuSNTPk/CZv/SliBL+ksukjz+aIOxl5TCX2KUsU
-	OL/hVHHCvUakSVHbiYD1l1rQHebzjuxf8zJWh08ZdkM0chHle9SwhQveHW4FOkTz2YiN54f4qSu
-	sJxWqD9cxQQFprWvekN5M7yu4mqNsQZBoWHzXOvARuR+KP5r5bC/iFIpytdtNx79k/uxSlntyBJ
-	TyOnT1YV1iuv0=
-X-Received: by 2002:a05:6820:5703:20b0:71a:ef4a:8684 with SMTP id
- 006d021491bc7-71b395213a7mr14074658eaf.59.1795771719556; Fri, 27 Nov 2026
- 01:28:39 -0800 (PST)
-Received: from 77377267392 named unknown by gmailapi.google.com with HTTPREST;
- Fri, 27 Nov 2026 04:28:38 -0500
+	dkim=pass (1024-bit key, unprotected) header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b=Z00DYon0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1wt.eu; s=mail;
+	t=1795771747; bh=OX368Eg4KtV1PPGO1H9XOYA5FgVsuvC3JtGRi1RdJBU=;
+	h=From:Message-ID:From;
+	b=Z00DYon0yhZcBFMUXmH1Uxo7qKMaMJCL6ZNXSF7cZ2638N/Bl5Pt6kP3ExZyCI/vz
+	 jMP3oakvif2netB9N/9II7zXnWMB7sSkKXHHo5cn2wz9iOL4MupjTUGpNWz6jOdIAA
+	 +aqGNDYL3Y2RFYZrh2ZleSoOCxQ3ZHpg4THgaebU=
+Received: from 1wt.eu (ded1.1wt.eu [163.172.96.212])
+	by mta1.formilux.org (Postfix) with ESMTP id 380B3C0716;
+	Fri, 27 Nov 2026 10:29:07 +0100 (CET)
+Date: Fri, 27 Nov 2026 10:29:06 +0100
+From: Willy Tarreau <w@1wt.eu>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Sasha Levin <sashal@kernel.org>, Borislav Petkov <bp@alien8.de>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Jonathan Corbet <corbet@lwn.net>,
+        Linus Torvalds <torvalds@linux-foundation.org>,
+        Leon Romanovsky <leon@kernel.org>, Mark Brown <broonie@kernel.org>,
+        Geert Uytterhoeven <geert@linux-m68k.org>,
+        Marc Zyngier <maz@kernel.org>, Eric Dumazet <edumazet@google.com>,
+        Hans de Goede <hansg@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+        Jonathan Cameron <jic23@kernel.org>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Shuah Khan <skhan@linuxfoundation.org>,
+        Randy Dunlap <rdunlap@infradead.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        "Theodore Ts'o" <tytso@mit.edu>, David Hildenbrand <david@kernel.org>,
+        Security Officers <security@kernel.org>, workflows@vger.kernel.org,
+        linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs
+ and a cover letter
+Message-ID: <awlNYsu1y8EhYgor@1wt.eu>
+References: <20261126171926.2766137-1-sashal@kernel.org>
+ <20261126171926.2766137-2-sashal@kernel.org>
+ <cf3596c6-742e-49c1-a90b-941d300d0b4a@kernel.org>
+ <20261127014955.GBawjhw2j2YEUeiG1G@fat_crate.local>
+ <awjopqoCJqwChwnF@laps>
+ <awlCy3vDs0fKx1ku@gremlin>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,49 +80,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: getfeus@gmail.com
-Date: Fri, 27 Nov 2026 04:28:38 -0500
-X-Gm-Features: Aa3M54pU1a7yp7wVeaxARQpBCGw-lDvj9PbMOs8vidCd9nBQqqFWYBMApYiimPo
-Message-ID: <CA+m4KrB1p2u_y92phm-xpn3up=kebi1OmiVc3X4CCdFzHT9-5Q@mail.gmail.com>
-Subject: [PATCH] arm64: dts: qcom: gaokun3: Disable the cluster idle state
-To: Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, linux-arm-msm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awlCy3vDs0fKx1ku@gremlin>
 
-The Huawei MateBook E Go fails to resume from suspend-to-idle when the
-SC8280XP cluster idle state (PSCI parameter 0x4100c344) is available.
-In a same-kernel and same-initramfs comparison with the RTC alarm
-disabled, the power-button wake led to the boot menu with the state
-available. With only the cluster idle state reference removed, the
-system resumed in the same boot.
+On Fri, Nov 27, 2026 at 09:18:34AM +0000, Lorenzo Stoakes (ARM) wrote:
+> +cc Laurent who is probably interested in this and AI policy stuff in general.
+> 
+> On Thu, Nov 26, 2026 at 09:19:18PM -0500, Sasha Levin wrote:
+> > 2. I'd argue that LLMs these days have the capability to write better
+> > changelogs and most of our human authors. We just need to be better about
+> > laying out our expectations of them.
+> 
+> Strongly disagree with this, it doesn't match what I see in practice at all.
+> 
+> I'd say that >50% of my review work is of AI-generated patches now, and the
+> commit messages and comments are consistently appalling + seriously painful to
+> deal with.
 
-Remove the cluster's domain-idle-states property from the gaokun3
-board description. Keep the CPU power-domain topology and per-CPU
-idle states. This also removes the shared cluster state from runtime
-idle on this board.
+Note that every word in Sasha's message counts. *capability* doesn't mean
+that it is commonly exploited. Commit messages are horrible most of the
+time but when properly explained over long sessions they can get amazingly
+better. The other word was *most* of our humans authors. The Linux kernel
+community isn't the largest set of commit message authors and is already
+doing very good at this. Look at many other projects to see absolute
+horrors like "update" or "rebase" for the most verbose ones, when it's
+not just "-".
 
-Verified on a GK-W7X with firmware 2.18. Using the same local kernel
-and a DTB differing only by this property, the system resumed in the
-same boot after 5 minutes and 19 minutes on AC power.
+Whenever I was given commit messages by an LLM, I had to reword them,
+but some were very close to what I could have written. And I must admit
+that a few times when I only reworded a part of the message first and
+came back to it later, I was no longer very sure where I stopped. *This*
+is a good indication that they can get better than what you usually face
+(or that mine are terrible as well, in which case we're back to first
+point and I'm part of "most").
 
-Signed-off-by: Lee Youngjoon <getfeus@gmail.com>
----
---- a/arch/arm64/boot/dts/qcom/sc8280xp-huawei-gaokun3.dts
-+++ b/arch/arm64/boot/dts/qcom/sc8280xp-huawei-gaokun3.dts
-@@ -365,6 +365,14 @@
- 	};
- };
-
-+/*
-+ * The cluster idle state prevents s2idle resume on this board.
-+ * Keep the per-CPU idle states available.
-+ */
-+&cluster_pd {
-+	/delete-property/ domain-idle-states;
-+};
-+
- &apps_rsc {
- 	regulators-0 {
- 		compatible = "qcom,pm8350-rpmh-regulators";
+Willy
