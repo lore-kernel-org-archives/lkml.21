@@ -1,60 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795800416;
-	b=IJZUUsJJVnw2sT0CXMsPonah/LspkyIvRTY10syqngKx/nav3E7y5dxABPWfMdqgTZCM
-	 ZWLxiSus/xLV1AWDkElg3GSnt4VApGBUeEAm1E8rFaIRKfTd0lhfJbTXNGNEeRv6ZkQXU
-	 sza2vVZNVp/LfRQPbl+TC27lN77j0IVL52AXuG7kOyCuGgKmiwrl9oNvp/nkF3xZzAtF1
-	 e4dbVkd4jL/KEtqpYJDpSTbYDgpw1TZZV6pksHN+5qQgvfS64ofw3PztOK00K00DC+JQ4
-	 dbQaccgfCJ4f6mM7gTkZnOURbd/8iGXFLmS0cCReWrt6P8v6shYdcBNROa2d5PaXTww==
+	t=1795800511;
+	b=AJ8D4LcIdD7U4bEHShFgrfeumbSCfT66DBes53oDOloc1iSnAK8IlaDNRJ2reBgnX6Vw
+	 UUYCDOHEMHhUc0Ng+RY+J0Fw+Lc+115+uzVmGfYaj09QUppPOCWTpPrWaWSe4fLSfPh/t
+	 aVpgnwvvPFecm2DOKj9UydAtOWJcBJYkcBkzDz5g9lMrWLEw/x8aInPVVjmdtgYq+M/Ma
+	 LlETVO4T3NvQblAcQlgW20zhG5PtoQu83ZHjacn6pRnH2Hr4tk2KkS4aCpQlO4pqvxG5+
+	 QJV2SN+7RKEiHmh++cd1DfQ+uQ+o6g4wPBjFVoPGe0MmPnLyxcd2BI+IVlKaeUPAcIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795800416;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=0XmBI/vsqTPBFjciFZ00jSFFbSfcYJDZA86bCCNbmx4=;
-	b=hzCA+/orQXi+pKPklQtyJRVmBoIJB36p58pXW+vkHpYLYvfMKaDDPUteqROwfiNQxexg
-	 fq20A4RZIlLH450usiajBYiL1hhaPUbSsla1zudHTumnAgYfH0HBRd/7mE7gPAjwwg+pB
-	 dMTNWowz0H2CZLsWpsVcsZH8Eu/HsXF7bybvdzibSnyVlyk4WA63DlR4dru1SY7ZKsTdn
-	 odGKOqz9D9/afzv0gtZtcuOd9nUeUPT1+u028zdG5SzVlSTKc6j/FLBHZhDz/I2ezJgz5
-	 n/RYY3+F70UA87JRPn8Jp4YjxO1R/5P5AbEf03LWMP+UyqfjBbmLhG6kA+rGE5TwWXw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795800511;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=IBu0HA6hJlpz85DSvdGM2TgmdFaDpZLyEz7AbufuMnU=;
+	b=TxLoQJpIt2FUEHxR8p6ch1ri+Jna9dWkB1z50N0wxDsnwrbGfEEeDa1hz46/kIGpszVY
+	 KoKrTBWbH7EbbxJtKU5b3vazuFMLWt28Y9mdjeRTZhsD5tw7Ts8dcmBrCBdlsE0kin7V5
+	 s4kY1JYtOzDZvYWucPYdnke033w7h74eTCbPR2zhZNc71isxo6VtTuPKwTeOy344QfbMs
+	 t+Jbh5ZcI0tHJ2HDozdQzQPAea/UBrHd0kcgb4tutZqovCMvx23jG/dB0Eelf90zQH/e8
+	 5avbv/VFwt7BuipDm1JWAbaiposP3bzzdyKFlh2TyW6JK2aUtEoyhkW5uG6kU5QcLsw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hAeX8wcz;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F3N3d1BY;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3DD5606A31F;
-	Fri, 27 Nov 2026 17:26:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 094BB606A333;
+	Fri, 27 Nov 2026 17:28:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hAeX8wcz
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 996B61F00899;
-	Fri, 27 Nov 2026 17:26:50 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F3N3d1BY
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2434F1F00898;
+	Fri, 27 Nov 2026 17:28:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795800415;
-	bh=0XmBI/vsqTPBFjciFZ00jSFFbSfcYJDZA86bCCNbmx4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hAeX8wczzScMlEi3kseFTivVf002FWoibXkMKuLG6apA2bRnJyiRirF5XbENTHJDp
-	 0x6ugFO3kD0HQzi3PtEw7kD20tOU2MDWYPDxSjhTAD2gZ8EqsSR2g9EAk+FsL2kiDy
-	 TZ1heB+nrzY+3cwOvy0TCS0afFYTdANPqm7LIu//Z1TZaK5oUXQ+ippkqyqynlQKRO
-	 PGQXOjOCEE1GkIQEiIyfpBvA5w4PolyCkmXNCsTfNj6edRzylITYCv5tBdxU5EYxOn
-	 B8bP4MOti4xv6qTcxcx/QnFGAKuL1NkuxFnkgsFMWDdRss1C4TXJnY+oCJ0T+I2Mt5
-	 J6lEthLHAmaGA==
-Date: Fri, 27 Nov 2026 17:26:47 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Usama Arif <usama.arif@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Christoffer Dall <christoffer.dall@linaro.org>, Jintack Lim <jintack.lim@linaro.org>, 
-	Leonardo Bras <leo.bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Top up the mmu memcache on user fault for NV
-Message-ID: <awm5PZYWxVOXdBfm@gremlin>
-References: <20261126-fix-nv-cache-topup-v1-1-a22c936872fe@kernel.org>
- <20261127152237.108363-1-usama.arif@linux.dev>
+	s=k20260515; t=1795800510;
+	bh=IBu0HA6hJlpz85DSvdGM2TgmdFaDpZLyEz7AbufuMnU=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=F3N3d1BYrocGazZc6rJVbSCw22opLG5i0HjtwWnTmvpvrOb5/Ds72dvVvTX52WErF
+	 bXadGhXXfyRg799SoQOyei8f9s4hiuVERBY5FTcvKFhf4RKmSJJxXewahBaV0q35Hz
+	 bY2ngZ1UkaamkyH459QT9Ugcmj/vRkl0eisBcEq0p+rBu/ekd8DtD662Sjso+G6K2g
+	 mEnmDt3d8bZEwwJCcBtrHJ7xCG9ocZOe/98gGEycq+/I1OmOrDB38WZe4piSAOl9dn
+	 UWDLv32YbBNMAbUyXtlWQJX2/9vsbYXCHSblcBPwdmjDHkKjnIT9fQ84jj3+JPVV9W
+	 xyAJK7xRTt+Jw==
+Message-ID: <sashiko-outbox-237990@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v12 31/43] sched/deadline: Restore the owner's period at
+ a deboost out of the class
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
+In-Reply-To: <a802201284a7bff640a793ee06356eda187bf59e.1795771148.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795771147.git.mathieu.desnoyers@efficios.com>
+ <a802201284a7bff640a793ee06356eda187bf59e.1795771148.git.mathieu.desnoyers@efficios.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 27 Nov 2026 17:28:29 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,103 +60,73 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261127152237.108363-1-usama.arif@linux.dev>
 
-On Fri, Nov 27, 2026 at 07:22:36AM -0800, Usama Arif wrote:
-> On Thu, 26 Nov 2026 17:28:29 +0000 "Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
->
-> > The S2 user fault path tops up the MMU memcache (used for page table
-> > pre-allocation as the point at which page tables are installed may not
-> > allocate) except when:
-> >
-> > * It's a permission fault AND
-> > * dirty page logging is disabled AND
-> > * pKVM is disabled
-> >
-> > At which point it is assumed no page table will be allocated.
-> >
-> > However nested virtualisation adds another edge case - the mapping size of
-> > a shadow S2 is clamped to that of the guest's own S2. If the guest
-> > hypervisor replaces a block mapping with a table, a permission fault on the
-> > shadow block has to be mapped at PAGE_SIZE, which requires a page table to
-> > collapse the block into.
-> >
-> > With the memcache empty, kvm_mmu_memory_cache_alloc() hits its
-> > guest-triggerable WARN_ON(!nobjs) and falls back to a GFP_ATOMIC allocation
-> > under mmu_lock, with a BUG_ON() if that fails.
-> >
-> > Therefore, also top up the memcache for permission faults taken on a
-> > shadow S2.
-> >
-> > Note that dirty logging had a similar issue, addressed in commit
-> > 56fd1fc526e6 ("KVM: arm64: Top up stage-2 memcache for dirty logging
-> > faults").
-> >
-> > Fixes: fd276e71d1e7 ("KVM: arm64: nv: Handle shadow stage 2 page faults")
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> > ---
-> >  arch/arm64/kvm/mmu.c | 8 +++++---
-> >  1 file changed, 5 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> > index a0d4981ebb99..e09a8f2c0482 100644
-> > --- a/arch/arm64/kvm/mmu.c
-> > +++ b/arch/arm64/kvm/mmu.c
-> > @@ -2256,16 +2256,18 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd,
-> >
-> >  	/*
-> >  	 * Permission faults just need to update the existing leaf entry,
-> > -	 * and so normally don't require allocations from the memcache. The
-> > -	 * only exception to this is when dirty logging is enabled at runtime
-> > +	 * and so normally don't require allocations from the memcache. One
-> > +	 * exception to this is when dirty logging is enabled at runtime
-> >  	 * and a fault needs to collapse a block entry into a table.
-> >  	 * Under pKVM a permission fault can also collapse pages into a block,
-> >  	 * which needs a fresh mapping object, and the hypervisor requires the
-> >  	 * min-pages memcache even when the install allocates nothing.
-> > +	 * With nested, a shadow stage-2 block may also need to be collapsed
-> > +	 * into a table if the guest's own stage-2 mapping has become smaller.
-> >  	 */
-> >  	memcache = get_mmu_memcache(s2fd->vcpu);
-> >  	if (!perm_fault || memslot_is_logging(s2fd->memslot) ||
-> > -	    is_protected_kvm_enabled()) {
-> > +	    is_protected_kvm_enabled() || s2fd->nested) {
-> >  		ret = topup_mmu_memcache(s2fd->mmu, memcache);
-> >  		if (ret)
-> >  			return ret;
-> >
->
-> Thanks for the fix!
->
-> On the narrow condition being the smaller backport: I don't think it
-> is. The hunk already conflicts on 7.3, where topup_mmu_memcache() still
-> takes the vCPU, and the condition looks different on 7.2 and older, so
-> every stable tree needs a small manual backport either way.
->
-> A permission fault can also allocate outside NV. For example, take an
-> exec permission fault on a THP block, where the VMM replaces that
-> memory with 64K hugetlb pages before the fault looks up the VMA:
->
->   - the MMU notifier unmaps the block, and mmu_seq is read afterwards
->   - kvm_s2_resolve_vma_size() forces PAGE_SIZE for the CONT_PTE hugetlb
->   - PAGE_SIZE != perm_fault_granule, so kvm_pgtable_stage2_map() runs
->     and allocates a table, with no top-up
->
-> That one is narrow and VMM-driven, but topping up for every fault would
-> cover it too, and it costs a single comparison when the cache already
-> holds enough pages.
->
-
-Reads a little schloppy ;) But I think you're right yeah.
-
-Good bloody lord @ 64 KiB hugetlb pages being a thing... obscene :)
-
-Anyway, I'll send an unconditional v2, it's really not that much delta in
-general.
-
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue to consider:
+- [Medium] sched/deadline: unreplenished wakeup of boosted task with
+  zero runtime
 --
-Cheers, Lorenzo
+
+commit 0aea8c212d9bcdc25976b70fd796e3d1b02c40e5
+Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+
+sched/deadline: Restore the owner's period at a deboost out of the class
+
+This commit restores a task's own deadline and runtime (or starts a new
+period) in switched_from_dl() when leaving SCHED_DEADLINE after a donor
+refill, and throttles unboosted tasks with no remaining runtime on
+enqueue.
+
+> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+> index 9c707512d93d8..6e20efb863594 100644
+> --- a/kernel/sched/deadline.c
+> +++ b/kernel/sched/deadline.c
+> @@ -3132,6 +3132,21 @@ enqueue_dl_entity(struct sched_dl_entity *dl_se, i=
+nt flags)
+>  		setup_new_dl_entity(dl_se);
+>  	}
+> =20
+> +	/*
+> +	 * A task can come back to the class with no runtime left, before its
+> +	 * deadline. It would run until the next tick. Throttle it now, until
+> +	 * its next period, as update_curr_dl_se() would.
+> +	 */
+> +	if (!dl_server(dl_se) && !is_dl_boosted(dl_se) &&
+> +	    !dl_entity_is_special(dl_se) && dl_se->dl_runtime &&
+> +	    !dl_se->dl_throttled && dl_se->runtime <=3D 0) {
+> +		struct rq *rq =3D rq_of_dl_se(dl_se);
+> +
+> +		dl_se->dl_throttled =3D 1;
+> +		if (task_current_donor(rq, dl_task_of(dl_se)))
+> +			resched_curr(rq);
+> +	}
+
+[Severity: Medium]
+Can a task waking up while boosted be enqueued onto dl_rq with
+dl_se->runtime =3D=3D 0 and its exhausted own_deadline instead of being
+replenished from its donor?
+
+When switched_from_dl() calls dl_end_held_boost(&p->dl, false), a task
+that exhausted its own runtime before the first donor refill leaves the
+class with p->dl.runtime =3D=3D 0, p->dl.deadline =3D=3D own_deadline in the
+future, and p->dl.dl_throttled =3D=3D 0.  If it then sleeps while holding an
+rt_mutex and a SCHED_DEADLINE waiter boosts it back into the class before
+own_deadline, neither rt_mutex_setprio() nor switched_to_dl() replenishes
+it while asleep (and in the later commit "sched/deadline: Boost an owner
+that cannot run on its own reservation", dl_boost_start() is skipped when
+!dl_prio(p->normal_prio) and also returns early when !dl_se->dl_throttled
+&& !dl_in_constrained_gap(dl_se)).
+
+When the task wakes up before own_deadline, enqueue_dl_entity() with
+ENQUEUE_WAKEUP calls update_dl_entity(), where both
+dl_time_before(dl_se->deadline, rq_clock(rq)) and dl_entity_overflow() are
+false because runtime is 0.  Because the new dl_se->runtime <=3D 0 check
+above skips is_dl_boosted(dl_se) without replenishing,
+__enqueue_dl_entity() queues the boosted task with runtime =3D=3D 0 and
+deadline =3D=3D own_deadline, causing EDF priority inversion when own_deadl=
+ine
+is later than a donor period's deadline.
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795771147.gi=
+t.mathieu.desnoyers@efficios.com?part=3D31
