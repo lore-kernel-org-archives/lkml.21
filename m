@@ -1,99 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795771321;
-	b=s47WvnmdNiWKQcdhEMfUp2K24qFxBzJ3iF8uVXcnS53VtYlcdri9QqXUSUdoNM85vWBo
-	 9xeDQRbgiyQh1wn8ef7fhH+Ib4BaG1owHvZFseliadtyYIab7aFYOyQ752Vxq+9Hs1YiH
-	 JAumIW+nrQ+NB35Qy0ScD2szXK8CFOgCIoGII41oQG+G6e/3KuBE4qUm+noVOwFFEEpIA
-	 lPicPVodv8sBOcDPgugzL+2PzmuFOHirWNlUnaJk55fVwzm3X/QlBEOBdiUGw5fuRpPfO
-	 Y1raz9ajmSGIkc7kV9trJmdfjTvpbYVmwxnW+0fChiZQXTiXjDfH1RZJhf0mveWn9cg==
+	t=1795771423;
+	b=pR7j8D0zxnA7169wse+Rxo3Cwb8nme067aiY3djgbPF6KC6b8tNhp6tpPVYvHRqf5007
+	 EwB9iIqQAg9uCQ0b0cHQ13aqT3Euu2C/NCbDbMoJQ8agI0Tp8ky7y4o68hbKLvO7yVwQF
+	 bQzbbab55X8P+cFRkj6uqvOEkwza5VzG8eBTVmYYekgHgtGYXJ4MBH77AffOGTlBnMR0u
+	 vZRs2orv1bEoeRXnBuXg+sutgQGzBYDKGNIB5oQluKvSYTb/fZIi8VF+Wc6IFXQ5JInOn
+	 UORmJXmWNjzXsmrXAy/0PDlOwZtdtW3n43AQXbAkH9RK+i8e4Um2iJtR8D1k/PSoqHw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795771321;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:In-Reply-To:References:Date:Message-ID:
-	 MIME-Version:Content-Type;
-	bh=XqN+LSE4nSI9/z7BXHGFyErjuKwOTgsn0qz0X0Y03jY=;
-	b=hQizeQmTk/sJxWR5BJvVA+yakPr/oF7145EgKYaF5jF5K8fC5EK6HC7A5P7PBsPB8m5n
-	 yR9tHpfZvFX+90r1oeKq/iTzqlEQApkqm4XPXkXOHcEham9d6436Wq/RHJ5RXU8hWjhZ4
-	 O7W/H8nnYTBl8a1Ih6rN7DVTvGFKM4jujlSjU7Na8WehWPS/mWNFNOiVOv5WPsd5aJ4p6
-	 PVsAmFBdKx7NvF64wu0dJ5RvgoyUMrNSRcegOcvHvXZXKhuexpBRrcl3WBz1O80Dhy7si
-	 va52AVGSUKVKk542jRh1WgmybPP7kwcTDxK0VFcTHhEhmC1zOftzSSa5AiQBPbvcQKw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795771423;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=PH+l0IfQ28b7UEDSOlC/cTnR6aoCEbyBOr2fiW8TlTU=;
+	b=hNbA5h9c96GJm26oVAWQbmr0nAcpyYj+5kxZZmqqNLXkEnP1Bg4/IKpLXlxvD4idayzf
+	 GreqkUoBuUAjkmBg1gUKSui842on4TzBLLhlTzBD2L8RZWvWs9g/HjJaDSCUzufnNC1c7
+	 4883L1rjAfak3uEGBW8WEYSz3uQtAMRTENTexg2C/x1VryiD0Wd3kgNgvzbytlPvy+9Fh
+	 YJ7m13rFdveCUdUIrqQfmrRCx96H0BqkDI+YDNbampJbbD8TL9S1mymnG96RwdSALQfw+
+	 sFs1QjhJ36k2e4ZYzmdJwDgTITL8el+BR4ax+I8jSIXoDj2Es9g/JpTQa8ICPnrcPxg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=ntrYKELj;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ff2U6hPn;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DFB6606A323
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:22:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9DFB6606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A3BC606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:23:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A3BC606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=ntrYKELj
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb6c7b6dbdso72844875e9.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:22:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795771319; x=1796376119; darn=vger.kernel.org;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=XqN+LSE4nSI9/z7BXHGFyErjuKwOTgsn0qz0X0Y03jY=;
-        b=ntrYKELjVyYmc5EIREXSJiz5LXrlRVwcqTuOc4K4L1xHE1tQ+xj25KrNTBRt35kFug
-         w2wLN+wqageIsfHvEhmshrL04ynMxt3sKEhqPIKw6B5ujjPKgehMtnQ3kNd6CBbh67+E
-         s83Sk+9+q6wTVCvt0iiHLxVIucsOhokGu5E3ZR+FgVqNXszbiJw1KkxhAsT/k11Vi5gh
-         srngCczt8bWD5XRdot7/7vD2Syc1ZP2ZKxK6bSg1GgflMct152fuhWnDQmcpcslHfgzi
-         tx6Jm8S2Cge8zyjiwuLBWKpV98Iw+4Tdn7hy6ns5bmpTZ9zk74rklc5wQUAEnes7Q/fm
-         PG5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795771319; x=1796376119;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=XqN+LSE4nSI9/z7BXHGFyErjuKwOTgsn0qz0X0Y03jY=;
-        b=BApsDTnyVA7l/rK8nAoHZocc+H39Fk6RGc1t/suDr1bObDGdeSiEghBHHw+JY2FZy1
-         ZC6zhHXB3VQxq95h+4uqgYZ+Sug2HhU3FhKsdaS6ni+yDErvaMi6wTygwc12ubd3dB/m
-         M70FVuPH5A5o3FnHyJTeA/FKL2oO0LWrvKLvh3k/qr+hQF9HDDz+04fyMqUs+57Dxo6b
-         yb5Tv+BjkW6spJhfLVA5CbJRH180ADNeKbwjxVYdiE9N3HcxYu8ZoHvbYAbgStFgdbVb
-         8mkYM+V0kTWKfwbGhfgeHq57pGvxkcdIyLkOB+ttG1SELQX2XNFIxt+TNEk6B0CdEoE3
-         jMfg==
-X-Forwarded-Encrypted: i=1; AL+hErEYN8QTxOf/dlxQjk76+7jKsMWNydfTNplDHptQsu6TpqwidFxYc9nA1TuZpmWJmmYAsHRLMX/AdrTgZp8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Q3hDCmsCNyq/UEOip/NFSl4xYaotiiG4jVQxYHvIiOrWWnnQY
-	dOXplEzydTIID5z/Wjyju/1mdjlh5M6nti9+9PCDVJxutTFQd/U+YZbuW/JbiWdyNm4=
-X-Gm-Gg: AZFdTZfgrX9JStQ+187ivzUkvH80Zuiq27hU4gB+nGKEeID06dGd1T+/vZ2JHPTFAXY
-	qdHBEwZdv/oMsAXCHqUqxMu6AhLFmTaNK4IWBtCIm+/YaMXGGvnGJMHIFnw/boOG4HbVY3y2kDw
-	phISb+urNdhL32mb2Zicb4ctQfKtC6np9dHlncj1G81ojDyri9Q3p8DbC2sYq83JdO60htw3/N5
-	IGNMOy9wW4ssYunDdks8u5p7/z4AdB6NB2PflEH/gURIOsCSgrPnJSWvW2PlrWa2Tn5lKsh64Wd
-	e/lbTFyZYr3AzRxCXWDokAYku5vRduZFP3cib+twSkqCk3TuUDIyi1G9sA8lY0IZjviCcPiCvkt
-	E5ckdQHZKEEyUUW9iCrfugaejsyGlz2EHdvtXCIwoslZ0QGwCAerQ3WeRLSvhcuMErv53Ft0cjI
-	VEuol80A07jbZMlldx83yB7gQd2TZ1HGXT0TSJqVgYJVYiwzizp0B7vGBJO6k0kmDSL+pJWO3RT
-	7+T57Rclx/L9nBoClUv4Tj3aT7ScQJQTn42nmjP2BZ4ZSctS0VwdSNB4AWOrYH6cREDuga6e8uI
-	O+d5TmYylX6qh7zuKZpctsKibs11fLRGtAccvwuw38yMz7RW
-X-Received: by 2002:a05:600c:4f10:b0:4bb:60bd:5398 with SMTP id 5b1f17b1804b1-4bb88804d35mr538864655e9.10.1795771318996;
-        Fri, 27 Nov 2026 01:21:58 -0800 (PST)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853c9170sm741305005e9.14.2026.11.27.01.21.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 01:21:58 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Lee Jones <lee@kernel.org>
-Cc: Andre Przywara <andre.przywara@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Liam Girdwood
- <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Hans de Goede
- <hansg@kernel.org>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, mfd@lists.linux.dev,
- linux-sunxi@lists.linux.dev, Sashiko <sashiko-bot@kernel.org>, Conor
- Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v8 0/5] regulator: Add X-Powers AXP318W PMIC support
-In-Reply-To: <20261127084820.GN38590@joneslee-macbookpro.roam.internal>
-References: <20260910-axp318-regulator-v8-0-e906a61a7f3d@baylibre.com>
- <20261127084820.GN38590@joneslee-macbookpro.roam.internal>
-Date: Fri, 27 Nov 2026 10:21:57 +0100
-Message-ID: <1jzeuu1vey.fsf@starbuckisacylon.baylibre.com>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ff2U6hPn
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 6BEF04E41795;
+	Fri, 27 Nov 2026 09:23:41 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3FD5D6049C;
+	Fri, 27 Nov 2026 09:23:41 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 997C311E69295;
+	Fri, 27 Nov 2026 10:23:30 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795771419; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=PH+l0IfQ28b7UEDSOlC/cTnR6aoCEbyBOr2fiW8TlTU=;
+	b=ff2U6hPnfdWAVrHeE+QURp8p7spbk1dJChI6RpTqx3eZ6Z3NSmqEVqcsrKBWqUpqwxoqWW
+	zc/fJA/3RG5rOfbi3GI0F41sSS9iHwSig5LSCGt1aXBDcpRxI3DT8e8RJknK0sQbIl5kfU
+	fdQvbBmJgmrJbK1tkN+JTKCuLjWJUt8EV3cO/KgSmj55J+HF2kejPGpxpzQJlPHmgFegnn
+	gT98jrBXT2PzOH6AL4wHjqlAbY+tfPkFyNcwy0ZMUmc8pSVOvdPYHQMXQlEU96yCUjPdH1
+	ZbVOCf20wWo+PSdFfV0SZC2WzOlKgPtH9tgx0ynelI4M7dV1719v3WkwGWwZmw==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Bough Chen <haibo.chen@oss.nxp.com>
+Cc: Mark Brown <broonie@kernel.org>,  Liang Yang <liang.yang@amlogic.com>,
+  Feng Chen <feng.chen@amlogic.com>,  Xianwei Zhao
+ <xianwei.zhao@amlogic.com>,  Han Xu <han.xu@nxp.com>,  Conor Dooley
+ <conor.dooley@microchip.com>,  Valentina Fernandez
+ <valentina.fernandezalanis@microchip.com>,  Daire McNamara
+ <daire.mcnamara@microchip.com>,  Haibo Chen <haibo.chen@nxp.com>,  Jyan
+ Chou <jyanchou@realtek.com>,  Yu-Chun Lin <eleanor.lin@realtek.com>,
+  Maxime Coquelin <mcoquelin.stm32@gmail.com>,  Alexandre Torgue
+ <alexandre.torgue@foss.st.com>,  Pratyush Yadav <pratyush@kernel.org>,
+  Michael Walle <mwalle@kernel.org>,  Takahiro Kuwano
+ <takahiro.kuwano@infineon.com>,  Richard Weinberger <richard@nod.at>,
+  Vignesh Raghavendra <vigneshr@ti.com>,  Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>,  Alvin Zhou <alvinzhou@mxic.com.tw>,
+  Cheng Ming Lin <chengminglin@mxic.com.tw>,  linux-spi@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  linux-amlogic@lists.infradead.org,
+  imx@lists.linux.dev,  linux-riscv@lists.infradead.org,
+  linux-stm32@st-md-mailman.stormreply.com,
+  linux-arm-kernel@lists.infradead.org,  linux-mtd@lists.infradead.org
+Subject: Re: [PATCH RFC 02/16] spi: spi-mem: Stop checking the dummy
+ buswidth against board wiring
+In-Reply-To: <20261127085359.euu6z5rydr655ycr@shlinux89> (Bough Chen's message
+	of "Fri, 27 Nov 2026 16:53:59 +0800")
+References: <20261125-macronix-upstreaming-spi-mem-cycles-v1-0-fd036402fd37@bootlin.com>
+	<20261125-macronix-upstreaming-spi-mem-cycles-v1-2-fd036402fd37@bootlin.com>
+	<20261127085359.euu6z5rydr655ycr@shlinux89>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Fri, 27 Nov 2026 10:23:30 +0100
+Message-ID: <875wxivd9p.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,28 +90,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-On ven. 27 nov. 2026 at 08:48, Lee Jones <lee@kernel.org> wrote:
 
-> On Thu, 10 Sep 2026, Jerome Brunet wrote:
+>> -	if (op->dummy.nbytes &&
+>> -	    spi_check_buswidth_req(mem, op->dummy.buswidth, true))
+>> -		return false;
+>> +	/*
+>> +	 * The dummy phase implies no actual transmission nor reception.
+>> +	 * Its buswidth therefore does not matter much.
+>> +	 */
+>>=20=20
+> Hi Miquel,
 >
->> This patch series adds support for the X-Powers AXP318W PMIC, which is
->> used recently on new boards with Allwinner SoCs (the A733).
->
-> Doesn't apply.  Please rebase onto v7.4-rc1 and submit a [RESEND].
+> With this change, do you plan to add the linked patch back?
+> Setting the dummy buswidth to match the data buswidth is more reasonable.
 
-No worries.
+No I do not. Doing this would only paper over the problem for certain
+cases and would for instance break many of the SPI NAND cases. Those
+chips currently derive a number of dummy bytes based on the dummy
+buswidth, which is the same as in the address phase. So changing this in
+spi-mem or drivers would break this assumption. Either your controller
+has a cycle oriented dummy phase, in which case there should be no
+problem once converted (see the patches below) or it is byte oriented
+and the mode should likely be refused.
 
-In this cycle, series based on -rc1 and devm_kzalloc() in them tend to
-conflict in next. This series would be impacted too. I can rebase on -rc2
-if you'd prefer to avoid this. Just tell which you prefer.
+But maybe if you tell me what you have in mind we can search for a
+solution for it.
 
-Cheers
-
->
-> -- 
-> Lee Jones
-
--- 
-Jerome
+Thanks,
+Miqu=C3=A8l
