@@ -1,77 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795780745;
-	b=3RQrJ6yYu/tK3GXajMohHMHH3prJpN+JJ2M3D7RK+u0W8wR1v94pqWJwO/dgqo6aL6al
-	 Sqsko84HuozZu8Rz1S8edJSqCE8hu18qg3qv65hlYFOif9VWjqdmzsRXaPrYxVDAKOPwu
-	 G5olvzdib3QWwf9ix9td5O8bWALoSVmuqLzybR9bZRV2fq4XjLT8oMo4gIWhrXYsaHaPZ
-	 +0AjH4ms+lE+XjKrIkhojMmG6vK5f5hlABx8Zhv+keDdC6fvAgeUq23hMs0HF6Vp62fB4
-	 awk41T6KP27TshulpHc4RpKHbuHpFSXzjwQJz9ffhMDSD4w0b63bwYpuCBBDQYOxK/w==
+	t=1795780754;
+	b=P5f22B0AvyO5Q7t9pENrhqTSfjp8Qh3HpW7z73MLNOL84c/qEhFRli4AeKmEtpENHCID
+	 FMO+ivBmrfWtRhO7Tophoj6mX340Poqg8zD+RoEJ78MIbA/Qg5a0lASl9R09hzUJLeNXH
+	 adz2LGHjg0k/4LpZV321XVZn7mvBVei0rwwcsMeDPCx7AzMD/94dqqt/Jaw7wey8TL0fn
+	 5SxqmhBS1rVkw8kHHq9bl/gNtJwyZPy3wdmAM/Ai65GCvG2rngJvOzNCROAo193mzJ8Qv
+	 RnvdtG7nGWjx6GwhD9qvYEc8cgZjPnkqXT5X0jm8YvWM9/wpYhZCsq6w0R2DcRX6nbw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795780745;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:MIME-Version:
-	 Content-Transfer-Encoding:X-CMS-MailID:X-Msg-Generator:Content-Type:
-	 X-RootMTR:X-EPHeader:X-CMS-RootMailID:References;
-	bh=kU/vWsvzp/oeLbWN7RubnpobMMTsDvkHbxerPWgHnis=;
-	b=mOtOyZiaEGEQkbuJX/ilwcFEWCl1icKjxbTzrTex9IA2166uJpsJAc/JVp2RD4IK8Uk6
-	 Z1yqPEQbYq7v80L79W+9zyzdQ7vi0vX0W0VzhuPwOYYRx79iANRamcNRAIodxCgUD4qcK
-	 crddG0FQN1oE9FrAxfJOix56AcS7WR3gIp4i10PcRAKPvOmCu3YkYKta3oY+qYNZK/3sn
-	 D60ohUOIMzPtqBUbir3uH/p9N30Nwt0i7IhpHF2ze7kYrbexe1ZqShfjNOb2gfkxvkx/I
-	 undurMWUwUydgDU3I0Ndd7avPOoA6F81yXftE3sNrTazcR/uul7TcuLLuz6TsuGwdqw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795780754;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=X4kfaiVur+cv7ACUutyaSv/1OtD9q8Aja3Q/LtqseRo=;
+	b=t4CiQXYgK4/umfX3y1FzDazv6s9SoOSQlmfAaZraKYHM5gY3KUqbR1WXa6hxSe/l/sh1
+	 l5D2DWk+7QpnwxMpk/YHScQixZxBCimrJk0xdg+BkpyAyDe20d769tl1Xj/rQu4/4eCxM
+	 CLCrirR5CSLTdhTL382xrHeq/Xi0hzR4C0bkYHqhiqvRj0UxSVDIMhaq3w2haaqTr/IRe
+	 bejQHiw6jQrnEJ9ugfc/6RysQqTv77HEzop1RsdwmNu9ETUzBuIzeNikc6iWX9GjSt43L
+	 RF/dfvouxNqbumWV6Rpr1S92E5sMALRBA/Rxkm0e+IlI7T0qkyjj4LsuDlak/IAKBhQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=samsung.com;
-	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b="g/ETUpOx";
-	arc=none smtp.remote-ip=210.118.77.12
-Received: from mailout2.w1.samsung.com (mailout2.w1.samsung.com [210.118.77.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dqG3yN7n;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BB9A606A69D
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:59:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BB9A606A69D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8E5D606A33E;
+	Fri, 27 Nov 2026 11:59:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=g/ETUpOx
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261127115859euoutp0296ac3ac25f3ce6d8635ed0881d8bf192~r5RGDRoo11470514705euoutp02w
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:58:59 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261127115859euoutp0296ac3ac25f3ce6d8635ed0881d8bf192~r5RGDRoo11470514705euoutp02w
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795780739;
-	bh=kU/vWsvzp/oeLbWN7RubnpobMMTsDvkHbxerPWgHnis=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=g/ETUpOxD/ZT0Oi4ngNjjkxmcCs2PjgFbZIjtugjnIvBV8v/PCWi5b70lRdHRBgEY
-	 J8aArwdHqiPq2Or+U5kHx6JPJhjRYBgyDw0xogGec9Df4A/835VSe/KLxsZCUQG9nX
-	 +p7D1rf4O8d4gCXWMoZUJMN75GEyngQrOh/tjRiU=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20261127115859eucas1p1ae20b01eec39080daf19dbd71aba10e9~r5RFsd37W0787907879eucas1p1w;
-	Fri, 27 Nov 2026 11:58:59 +0000 (GMT)
-Received: from AMDC4653.digital.local (unknown [106.120.51.32]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261127115858eusmtip1fe13b1aeb26ee1104c142b331f20a2bc~r5REtVNTR0670706707eusmtip1t;
-	Fri, 27 Nov 2026 11:58:58 +0000 (GMT)
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-To: iommu@lists.linux.dev, linux-media@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Robin Murphy
-	<robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, Will Deacon
-	<will@kernel.org>, Leon Romanovsky <leon@kernel.org>, Jason Gunthorpe
-	<jgg@nvidia.com>, Sibi Sankar <sibi.sankar@oss.qualcomm.com>, Honglei Huang
-	<honghuan@amd.com>, prakash.gupta@oss.qualcomm.com, Alex Williamson
-	<alex@shazbot.org>, Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
-	Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>, Abhinav Kumar
-	<abhinav.kumar@linux.dev>, Bryan O'Donoghue <bod@kernel.org>, Mauro Carvalho
-	Chehab <mchehab@kernel.org>, Hans Verkuil <hverkuil+cisco@kernel.org>,
-	stable@vger.kernel.org
-Subject: [PATCH 1/4] media: venus: use dma_iova_size() to check the reserved
- IOVA size
-Date: Fri, 27 Nov 2026 12:58:45 +0100
-Message-ID: <20261127115849.2780625-2-m.szyprowski@samsung.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261127115849.2780625-1-m.szyprowski@samsung.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dqG3yN7n
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40D8F1F02809;
+	Fri, 27 Nov 2026 11:59:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795780753;
+	bh=X4kfaiVur+cv7ACUutyaSv/1OtD9q8Aja3Q/LtqseRo=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=dqG3yN7nISyTWtF1R2GwmK98IjcPUPf+g/u6Xa+7tGyAu9kGwKnSdd8+pR/OCTM5r
+	 C+MRnamg2GnJpQdCm9K8ZqZQ0XVy4O8Uc9hsptJSsOar7xU/8PakvVGrMMVW7Z1Xj7
+	 nrsUWYoCh904bs216H+OOK94HEL9/ozFGAlEgtr/2XGQBsov6ThBTzI6lX4nlYfmTs
+	 GeSDJAuuxzgx01KiytAAGWaSkZYOFwJ3SooyCh+HhLudozH4+laiTE2LL8JKYEFjOD
+	 UXhp3f74E9cQaacOLzQLKJtswJu3mnKtnhYfytrHk98ybqxSpqtVAyEcLF4xfCFtVi
+	 6fqewrC/vb/fA==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,42 +49,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261127115859eucas1p1ae20b01eec39080daf19dbd71aba10e9
-X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20261127115859eucas1p1ae20b01eec39080daf19dbd71aba10e9
-X-EPHeader: CA
-X-CMS-RootMailID: 20261127115859eucas1p1ae20b01eec39080daf19dbd71aba10e9
-References: <20261127115849.2780625-1-m.szyprowski@samsung.com>
-	<CGME20261127115859eucas1p1ae20b01eec39080daf19dbd71aba10e9@eucas1p1.samsung.com>
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] phy: exynos5-usbdrd: fix HS phy init count imbalance
+ on Exynos2200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Soheyb <soheyb_boulaa@proton.me>
+Cc: Vinod Koul <vkoul@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+In-Reply-To: <20261109221522.2796426-1-soheyb_boulaa@proton.me>
+References: <20261109221522.2796426-1-soheyb_boulaa@proton.me>
+Date: Fri, 27 Nov 2026 17:29:04 +0530
+Message-Id: <179578074498.13164.12931562027223515149.b4-reply@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2175; i=mani@kernel.org;
+ h=from:subject:message-id; bh=p6d2iEwVEUY+/j47JyZwmjKq5uIbHpo82iXyjlHo0f8=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBrCXCM24kKb+8h2Bep4TN9AXjsVrm4SL3mhUnSz
+ vXEi2WOU/GJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCawlwjAAKCRBVnxHm/pHO
+ 9dQBB/0WrkCe5N23g0EgwH46xNiAYn2oau5oIDzwdoaiNTY0dT5C0USIEWwisI6MZz+rl8gt/J7
+ pTKxPbPQ0USEwZeyqgJ3r16Yz4Cd4yyJZ0pEHBpmNE+GZrBSATHRsDLjcxf424gLe/s29izVto8
+ redXPK8wu/48rx32TsUgqD/yzR3fv5H4H/UNLukf3J3dmvpBeX+Hs6bUnemnp0Jjk1IEwRoTcVA
+ IqUu20NINdpwqNn5q60FO0xVZ6sTBKBJQmc6oW9L9bJsioKSYbfTqw+9rqWnOXfGG0Kc+72ZSxn
+ Iu3sjdAw4F27Jwv95OrJg/YYk81I+3uRm4VqpuAcmqknzZSJ
+X-Developer-Key: i=mani@kernel.org; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
 
-The IOVA reservation code compares dma_iova_state::__size directly with
-the requested chunk size. __size is internal to the DMA IOVA API and may
-carry flags in its upper bits, so use the dma_iova_size() accessor
-instead.
+On 2026-11-09 22:15 +0000, Soheyb wrote:
+> exynos2200_usbdrd_utmi_init() calls phy_init() on the high-speed phy,
+> but exynos2200_usbdrd_phy_exit() never calls phy_exit() on it. The init
+> count of the high-speed phy therefore never drops back to zero: after
+> the first init, every later phy_init() of it returns early, and its
+> clocks and supplies stay enabled across an exit of the UTMI phy.
+> 
+> When the high-speed phy loses power while the controller is suspended,
+> it is thus not set up again on resume, and the DWC3 core soft reset
+> times out:
+> 
+>   dwc3 11210000.usb: DWC3 controller soft reset failed
+> 
+> Exit the high-speed phy when the UTMI phy exits, first, in the reverse
+> order of the init.
+> 
+> Fixes: cc52a697f87e ("phy: exynos5-usbdrd: support Exynos USBDRD 3.2 4nm controller")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Soheyb <soheyb_boulaa@proton.me>
+> ---
+> Tested on a Google Pixel 9 (Tensor G4) with an out-of-tree port that
+> uses the Exynos2200 phy ops and powers the USB block off in system
+> sleep: without this change the soft reset failed on the first resume;
+> with it, USB came back after each of two system sleeps. Not tested on
+> Exynos2200 hardware.
+> 
+>  drivers/phy/samsung/phy-exynos5-usbdrd.c | 7 +++++++
+>  1 file changed, 7 insertions(+)
+> 
+> diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> index 087d552..0bee928 100644
+> --- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> +++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> @@ -1486,6 +1486,13 @@ static int exynos2200_usbdrd_phy_exit(struct phy *phy)
+>  	u32 reg;
+>  	int ret;
+>  
+> +	/*
+> +	 * The UTMI init initializes the high-speed phy; exit it in turn, so
+> +	 * that the next init sets it up again after it lost power.
+> +	 */
 
-Fixes: 953439251b59 ("media: venus: Fix iova allocation from restrict region")
-Cc: stable@vger.kernel.org # v7.4+
-Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
----
- drivers/media/platform/qcom/venus/core.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Same comment as Ivaylo. Code is self explanatory, so comment here is a noise.
+LLMs tend to insert comments even when not needed. So you should trim them or
+ask them to not add comments where not really needed.
 
-diff --git a/drivers/media/platform/qcom/venus/core.c b/drivers/media/platform/qcom/venus/core.c
-index 7087af32060f..cec5db2bf755 100644
---- a/drivers/media/platform/qcom/venus/core.c
-+++ b/drivers/media/platform/qcom/venus/core.c
-@@ -408,7 +408,8 @@ static int venus_reserve_iova_region(struct device *dev, struct dma_iova_state *
- 		if (!dma_iova_try_alloc(dev, &state[count], 0, chunk))
- 			goto err_free_iova;
- 
--		if (state[count].addr != end - chunk || state[count].__size != chunk)
-+		if (state[count].addr != end - chunk ||
-+		    dma_iova_size(&state[count]) != chunk)
- 			goto err_free_iova;
- 
- 		rem -= chunk;
--- 
-2.43.0
+With the comment removed,
+
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+
+Please respin.
+
+- Mani
+
 
