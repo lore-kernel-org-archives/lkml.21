@@ -1,71 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=78.128.248.237
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795779707;
-	b=Bdw/ij3VNCucHE3u7Py9kt++cHGPvuIzD8hkqNtGbZkcl0EqsZIhpe+oOFqIxgbTGIRP
-	 XUQajQbkcb9DBavLI9+dNqa+sELKXSXGOqpYMYMnX73kyDHax3jGLih5iq/5axs7TQE9u
-	 HIaREUiXH678vrYdIUyqqr9gO6RGUzb6/h8iGrNDcd4qfxdYWMcZLSBzWqAlV5w2aHC5l
-	 KVVTpriPY54ljgN1xYPZoIFcY3RakqxrvMW5rTrD6CMBMJWd3sGq3/KasOebD4X8S1BPr
-	 de/mbf4Rned1xy9xOvHvh66LpFChliTlARSskvt6r6MIgGcPaEzELup3sV/myMv3NhQ==
+	t=1795779708;
+	b=FNnr7gMBxHHVG3EedqmUgO9QGXHsf3QmIDVVJeshsg68WW1MlV4BGFWM5VhS57SMpM+i
+	 M5WDbruj9h0JQTYOMS07qLHBAA5HttPv8ppRNoqJ7oYQVPoJA4ErNVolQFkBsHNHwB+MR
+	 T8R06yllNYNID8CTwXTq/JFXbSW7BrJuSFk+eGEpDrfdZ/nn4tPAI0ZUODRMqVx7xCYZj
+	 zpS6cFSkvQWWhgBztGQnm+phH2B3CNPE5RBFbNaMCKpWXgFovfCgrCx+geQ9ZeG21p+Wc
+	 shs8eUuYXrsifnOVgHsKBrZj6uTQkrlMOiCWtIXgEUTNugfxWQlX5iJeTvnfJQrjwSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795779707;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=0XGypaCJ7EJQifKr/qwYwdAUFvbJAWwik5NXmXNQWeA=;
-	b=tYv6PiaBuS+bjCkAe8c6ywbNWcwUBtnFdoGM6P+I76J3vPeNZURI/R4Sl0yz2RCeAWsG
-	 9Azg/Dr2zFAYCO4iMN+2oprplmESKcW/yWkPDU0g7mGIVKnmJfxtUSVummAI7Has1QY2q
-	 rKlS22WQytKRO7xFFYbz3W9HsZ9ZOmcN+rUrgenXOCCWgdFC3hIvZe08Idb5OtsE3aeuz
-	 6LBDEYQvnvUSCRsPe9cWCU66SDGSoi2RHF+d4sv3SqHcUg0qtK+nJ3izCifea6kOWzkNM
-	 tOWzDWBuRvORnuk5M4gku7oGfB0at3xhS8PEI8XR8UyEc+vVcfguZkI9jyJ6ZZC/mig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795779708;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=VlvsZhKQ5bte9z2ki1x34C633JPVJM4x+mie8ldYyLk=;
+	b=j7a4LY8Ak18KfNMz9PawaCuFKpB5Z7zPiKUTOcWmGLsDLzltW8ZviFnj0H/6LcyjDNUp
+	 lHVwZcNsZU1vf6wiVwweQ1zUPzM6nwV/Yvtg4igBgPY7boR6nYUmp9l1vPBvN8t6pGV7r
+	 raN8XG05PirXJ7vAyrUUbgf1vPudoLR6F/elY1lCbVg2upcUOKfGA3Nsrj9QsgeXH+gN8
+	 3hJpQmWE5XhDhxMQjEecBK6tSA1z6KDigZpqgAjsc0WJ5770S+ZW60oLlaDRjKdeuyZDz
+	 ghNb+RkHWKH/iBe3vuahlDNuga4hLq6vlKXTA86IdQkxz4uqABu+igdTYOHkoNV08rw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cesnet.cz;
-	spf=pass smtp.mailfrom=cesnet.cz;
-	dkim=pass header.d=cesnet.cz header.i=@cesnet.cz header.a=rsa-sha256 header.s=office2-2020 header.b=La4Cgz56;
-	arc=none smtp.remote-ip=78.128.248.237
-Received: from office2.cesnet.cz (office2.cesnet.cz [78.128.248.237])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=emAeV3+B;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=OgDP9Hv+;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B989A606A6A6;
-	Fri, 27 Nov 2026 11:41:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B989A606A6A6
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cesnet.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cesnet.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94A01606A6B8
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:41:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94A01606A6B8
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=cesnet.cz header.i=@cesnet.cz header.a=rsa-sha256 header.s=office2-2020 header.b=La4Cgz56
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cesnet.cz;
-	s=office2-2020; t=1795779704;
-	bh=0XGypaCJ7EJQifKr/qwYwdAUFvbJAWwik5NXmXNQWeA=;
-	h=From:To:Cc:Subject:Date;
-	b=La4Cgz560/hs2fK1204gQgoWc7x5S+YHF5BOLQvwmEqDXVHMojdu5d8dn8MXsh/Pa
-	 xnC3K8aDavr6nnLbiSagymIADfBNu5w0+aCr2C12JPmiGprqHz/tgowpYC9z2KYf9u
-	 I3M0DazwcRDJvQhZ7bUxm2UIGiao5Kcl8Jx89AsbY430kdH9uRn8R7PZ5jIrgG459g
-	 GLYGVgOxBMDYMXwe7yaLRbxZfY9OIOEu5fN5bMMQPLMI6Gl+G+k+FO5SpTxujoyxu9
-	 D9EqEnhrc4dBg6bn9JFODq/GmlrBxPruaHKohYccXn8yF6k3CAjgBmkIFrCl9W6gBv
-	 +F792sd0dPl7Q==
-Received: from localhost.localdomain (unknown [85.255.90.210])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by office2.cesnet.cz (Postfix) with ESMTPSA id B3501118007D;
-	Fri, 27 Nov 2026 12:41:43 +0100 (CET)
-From: Jaroslav Svoboda <jaroslav.svoboda@cesnet.cz>
-To: linux-media@vger.kernel.org,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Jaroslav Svoboda <jaroslav.svoboda@cesnet.cz>
-Subject: [PATCH] media: rkvdec: Reject 4:0:0 HEVC streams
-Date: Fri, 27 Nov 2026 12:41:30 +0100
-Message-ID: <20261127114130.1680888-1-jaroslav.svoboda@cesnet.cz>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=emAeV3+B;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=OgDP9Hv+
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARApNk02269151
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:41:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	VlvsZhKQ5bte9z2ki1x34C633JPVJM4x+mie8ldYyLk=; b=emAeV3+Bpc1PnQp6
+	VRf7r0qX7MoO5wXmTY/dQVSIXFKgAD1iYdydUzAbOYtlQ68YbOJUrLUK4TX6B4St
+	2NkSZF21iZdoWiBPuXPI6qkjm02zPD+ViUvxq56JuGqGcnm1qs/O9VDEuZJJFbCf
+	pXEaNe0zfBrgS/pSLZDGG/asw93JEKs2zjd5Gvbm+4qMKi7Zh3IHD8tYB23NB3s9
+	gfbEBegMAkocF+6ZNe2uko9p0sMeMw4PPzJlW0JcfXqf2WjLDUo7ZVvYAs0FK3rz
+	JR64o7NeK1noiXMLRoPEvH1RdjfDskb7XHdw7xRnBq4osXGwoSg/a1BANsimVOat
+	k19gpw==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j73uhhdwv-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:41:46 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-9493e89d4f9so1078539785a.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:41:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795779706; x=1796384506; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=VlvsZhKQ5bte9z2ki1x34C633JPVJM4x+mie8ldYyLk=;
+        b=OgDP9Hv+7kjT+EJK4s9oKTgMxB4rPz5aT7EvmRwtKEAuVlr0l7kZttr/VIqgVAbOhB
+         JUpCveo3lES70ZvnQLj+3jVzLHrUd8+Kj+/r6G5UfOiFSIlsbR5muKBC1NEgA02aBaNT
+         KsaOxLdN1MCUzWc98HcdLBdGir0dbvXFiujPLVHi/j75I+NSyZzZWDG4mRI76n99Z9ud
+         JxQVenUOFWxguD9gqedRXFmNskwJ7CJB6rBtxP7NlVI4dBtiEf0l5WYDaUzskwbpK8+R
+         gEKcPIaf8j76e/QP0EJ9fzat+hy9s6WJ/Ul/n/BOqcq24K9zdbM4fd7LGKHv5bZfhPYQ
+         N9Cg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795779706; x=1796384506;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=VlvsZhKQ5bte9z2ki1x34C633JPVJM4x+mie8ldYyLk=;
+        b=rwQdBUHq4vHdYR0U1hdc2My7kWnJrlukDh85eLgV1J/GZ6BGhHHEc1aWr3wluDxXAQ
+         pS39dOMZB1xR3UkfxI6GILMQvqeRvw8JM+lqZVYlUI9ZUQNb/FeHEUhX1+OmJ9VO7IlV
+         +IbW+x9Ymvyrw4fKXmh5pPGBpRAj3elsD/SejXVBWAkaUFrv6UTTwuT7yuEcor5ENszF
+         mRKvleVm5opCavMLJRSXTUlg+qryIH5CVxM/T20k0mxQzszfNoaqiUhgy1wl0QSSeQ46
+         t/KTaM/+c02ByyZYaKxSNjQrWdcg3nNjzjYJPfWlThWHtXRfqHATD5TmyPv1kfm2aN0X
+         fsXg==
+X-Forwarded-Encrypted: i=1; AL+hErFr7x5NUiS2RBcmcI4aorTVniMGEy8ug10L9Js62Fxc7u5OFwfAeCOwlDg1aZvZvwJIbXDQJRsu9hp8Sdg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Bc2wgKl+jcEtGfdwo4Kfjm/QHO4m9JbKSqXbHOXuvcYwxRyDa
+	7iMXZv/fuvsOR2BHQLuY0024XlFtkFjxV1sGxw09GSmyLlRSjzz0GOXO1gQxZmFeDR1FA3i4Fi6
+	s8Ia7Hts6Kk26Od7gnrrpNZfItjH01N/oRUk8Umsy7PwkVVRAB2NH0Vo9yUuIZhsPnzo=
+X-Gm-Gg: AZFdTZez/AKYBJnVCBX8Rr61GD2ROTjh40EqSiRmx36kWVsbVrgYfwB7uya3p/RKfRV
+	UDivd/HA+ybkdTk4LFt1eyuNaW1Fj/fFqwaAYx3lNSS3mRBBv/5WRWqaUQweg9Cqlsx2nPMi3au
+	uPovP1VZ4XjGLTSwS/U6aba/mCWlPuc4XNkZC3woeEtjpEHVEl4acJiTodFCL2c8V4WwvlkaS9x
+	3iLtIfFKs4ARAujHuHyH4FGlVa3ZXyG4cslqYMxMvjT1A484AjV73PnHzRoT5j9uNKpra7glGTZ
+	gLgyeL0sgHCRPYJJAqYctS2xu1QP1ZraSu81wwx9pUNoDJbFXXWlpMHDr8l1KPZSs+47+12N2hz
+	hRPgE6cCy773T64Ll9iNu35TDzTghcZ5Bjz8Etb6jWaqf11u2+xu829In7hrCvpaAFmCSfNZqGe
+	FNqcPnLNg53yx3hMks18sxAp+JSEhJQaGcqDuEXIKQfumFCjmlTrwjXyL0zaWPL/A=
+X-Received: by 2002:a05:620a:270d:b0:949:8109:8bcd with SMTP id af79cd13be357-949bab6d24dmr4114417985a.77.1795779705806;
+        Fri, 27 Nov 2026 03:41:45 -0800 (PST)
+X-Received: by 2002:a05:620a:270d:b0:949:8109:8bcd with SMTP id af79cd13be357-949bab6d24dmr4114412085a.77.1795779705324;
+        Fri, 27 Nov 2026 03:41:45 -0800 (PST)
+Received: from brgl-qcom.local (2a01cb1d00dc7e0089167b9b97a26c96.ipv6.abo.wanadoo.fr. [2a01:cb1d:dc:7e00:8916:7b9b:97a2:6c96])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab65cb41f4sm45137049f8f.7.2026.11.27.03.41.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 03:41:44 -0800 (PST)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Date: Fri, 27 Nov 2026 12:41:32 +0100
+Subject: [PATCH 3/6] dt-bindings: clock: qcom: document the Seca TCSR Clock
+ Controller
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,58 +117,183 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261127-seca-clocks-v1-3-1781298e658b@oss.qualcomm.com>
+References: <20261127-seca-clocks-v1-0-1781298e658b@oss.qualcomm.com>
+In-Reply-To: <20261127-seca-clocks-v1-0-1781298e658b@oss.qualcomm.com>
+To: Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+        Jerome Brunet <jbrunet+clk@baylibre.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Taniya Das <taniya.das@oss.qualcomm.com>
+Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        Tyler Baker <tyler.baker@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3511;
+ i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
+ bh=UU3EbnJaLdHT0l2zmjczzAnpGAGzw6I+1J+L+nykF9E=;
+ b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBrCWxwfy590nfgqX7sjByb+r7MdExcTAoxugkiV
+ vuu2zCSCUyJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCawlscAAKCRAFnS7L/zaE
+ w8ObD/9F59keoAIFgmv3etoAvDTpaxgoVCTgyH0PIKzceesdu5c+4Aj5Sb4YbsplXdl0X5qTgXf
+ y7vOgRz0pVvnbolF9ccfDYRKwTiX6Af8CuKnDqxeiTxmVY1V36OJQZJq0lpSqBlTUsjgCxFPP2j
+ Vr8wrZaWtj9KqakvaffOLEEO1IikjyIrHBLfs0rtJlPWvy6lN6qXRIUInkr0nsVxwWvSb2odC/Q
+ esd+dNwGZSjnSmkpaVUU3FLFYv6GmS5vh5Z/11egKboXlwEt/Sl26snJ5TILxmD7K5ulX6YCzvt
+ dkCD13I77zdCm44W4bau2PPwHZhAhab1jz8W/dg4/PCTgUsSx/Zi6BSLUl6ujW7K7FV95JfThji
+ EEzZ055SW5esI+yiz5nlpNPevn2jmHdtrIM179uqW5k9xuTBZp+f5/6GAdQX4wQS+3aLG+PqpBl
+ Fy5uVF5U1E42zkhMYntwrUDTBfwSPGABZlR30eg1XEI4ZgRzQkDk9UUIDfi2UBiCR2kAcEuOYb7
+ r2w05BWxshS3kIIOv6Kqm3YhsTZx0nHRpJqYVSm9CvZJ7cNgZMjFReBdd86ewHKZJan4ps1HtAk
+ 8bWbLapSKKpAprBveAgRJjfq35rm3HB+ElHE6AZHEeH1nc6rUfn/pVghRO+IG+S0eVoVsdbIMO/
+ hxZGxvZSRtK5Grw==
+X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA0NiBTYWx0ZWRfX9sV+zcLkQHwt
+ 5neOZIfA0EN8JXP7L0TNMh7Au9IJMSScU3zA3SFXsGlHvE8FFVYrmJOPYnfvQDULYAYQxC8YuB7
+ iWIffHaylIz8FpfNGhNLcAilBiEJasU=
+X-Proofpoint-ORIG-GUID: qQeHw9zMu9IVkgpsy1srqLEcogO4zd-q
+X-Proofpoint-GUID: qQeHw9zMu9IVkgpsy1srqLEcogO4zd-q
+X-Authority-Analysis: v=2.4 cv=BbBNQbt2 c=1 sm=1 tr=0 ts=6b096c7a cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22 a=gEfo2CItAAAA:8
+ a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=Eo1YCTbVZX2S2jacn6oA:9 a=QEXdDO2ut3YA:10
+ a=bTQJ7kPSJx9SKPbeHEYW:22 a=sptkURWiP4Gy88Gu7hUp:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA0NiBTYWx0ZWRfXxJUOxteNfR/e
+ uakI68ugHNUKjzCIowjELiB6R0AKFrFtI/9YcTEDC+DlmWyNcV0Zas3nVNRLzWLeu120HgaDbhd
+ 8viymmOo/EI/NM3UtAabgD6fSrOFFr+X5jzqzk1wcQlhyhnierh2BeyraTR4XYHP9aaeEfoZVVy
+ tvlPJG7feygrL6lCFDCZgB6AYaCntDYcp4abI4DtE1c5na8eDTXAGlYT2bDcqzEMmOzLzbkMbVv
+ OOEBw7+PEA9Z3Vd3CW03c/VpYdXsw1f7bTI/IiT1ZTqU8jjIDt2KMNiajJ1jamWOPkIkgoPB5wg
+ VVLPp578ncCnOBKXE5MPxD7Z1yTfiHUpjVbvrv0wmrlV/O7s+7MHLF0gJIdTMv0+8idSWPQoyy0
+ Fjtahmj/UD6RvrbSruR9xvae37lVoOHSnk+nUU0sPsGQLl3Qos4Ln15cPjogvLCQuGLdIJVngnv
+ Rk5rZqp8WrhkkTpEPmA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-27_02,2026-11-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 suspectscore=0 lowpriorityscore=0 bulkscore=0 adultscore=0
+ priorityscore=1501 phishscore=0 spamscore=0 impostorscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270046
 
-The HEVC backend of the first rkvdec variant (RK3288, RK3328, RK3399)
-accepts an SPS with chroma_format_idc 0, its comment reading "Only 4:0:0
-and 4:2:0 are supported". The hardware has no monochrome HEVC: the
-RK3328 and RK3399 datasheets list HEVC Main and Main 10 only, and
-Rockchip's MPP library notes that its HEVC decoders before the RV1126B
-do not support YUV400.
+Add devicetree bindings for the Top Control and Status Register Clock
+Controller on Qualcomm Seca SoCs.
 
-Given a monochrome HEVC stream (x265 fed gray or gray10le pictures),
-the RK3328 and the RK3399 decode every picture's luma as zeros, with
-IOMMU read faults at addresses near 0 and near the size of one luma
-plane. A 2160p stream hung both SoCs after a few seconds; only a power
-cycle brought them back.
-
-Reject chroma_format_idc 0, as the VDPU381 and VDPU383 backends already
-do, so that setting the SPS control fails and userspace can fall back
-to a software decoder.
-
-Tested with this change on v7.3.1, on an RK3328 board and on a Pinebook
-Pro (RK3399): a monochrome HEVC stream is now refused at the SPS
-control, and 8-bit and 10-bit 4:2:0 streams still decode bit-exact
-against FFmpeg. Not tested on linux-next itself, nor on the RK3288.
-
-The problem was found, and this fix and message written, with the help
-of an AI coding assistant (Claude Opus 5.5 in Claude Code) during
-hardware testing of the boards above.
-
-Fixes: 3595375c2301 ("media: rkvdec: Add HEVC backend")
-Cc: stable@vger.kernel.org
-Signed-off-by: Jaroslav Svoboda <jaroslav.svoboda@cesnet.cz>
+Co-developed-by: Tyler Baker <tyler.baker@oss.qualcomm.com>
+Signed-off-by: Tyler Baker <tyler.baker@oss.qualcomm.com>
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 ---
- drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ .../devicetree/bindings/clock/qcom,seca-tcsr.yaml  | 65 ++++++++++++++++++++++
+ include/dt-bindings/clock/qcom,seca-tcsrcc.h       | 25 +++++++++
+ 2 files changed, 90 insertions(+)
 
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
-index 88e90c438..97466705f 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
-@@ -487,8 +487,8 @@ static void config_registers(struct rkvdec_ctx *ctx,
- static int rkvdec_hevc_validate_sps(struct rkvdec_ctx *ctx,
- 				    const struct v4l2_ctrl_hevc_sps *sps)
- {
--	if (sps->chroma_format_idc > 1)
--		/* Only 4:0:0 and 4:2:0 are supported */
-+	if (sps->chroma_format_idc != 1)
-+		/* Only 4:2:0 is supported */
- 		return -EINVAL;
- 	if (sps->bit_depth_luma_minus8 != sps->bit_depth_chroma_minus8)
- 		/* Luma and chroma bit depth mismatch */
+diff --git a/Documentation/devicetree/bindings/clock/qcom,seca-tcsr.yaml b/Documentation/devicetree/bindings/clock/qcom,seca-tcsr.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..1349f70b5672a2de4e9388056e4c560cd1eacde2
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/qcom,seca-tcsr.yaml
+@@ -0,0 +1,65 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/qcom,seca-tcsr.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Top Control and Status Register Clock Controller on Qualcomm Seca SoC
++
++maintainers:
++  - Bartosz Golaszewski <brgl@kernel.org>
++
++description: |
++  Qualcomm TCSR clock control module provides the clocks, resets and power
++  domains on the Seca SoC.
++
++  See also:
++  - include/dt-bindings/clock/qcom,seca-tcsrcc.h
++
++properties:
++  compatible:
++    const: qcom,seca-tcsr
++
++  clocks:
++    items:
++      - description: TCXO pad clock
++
++  reg:
++    maxItems: 1
++
++  '#clock-cells':
++    const: 1
++
++  vdda-qref-1p2-supply: true
++  vdda-qref0-0p9-supply: true
++  vdda-qref1-0p9-supply: true
++  vdda-qref2-0p9-supply: true
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - '#clock-cells'
++  - vdda-qref-1p2-supply
++  - vdda-qref0-0p9-supply
++  - vdda-qref1-0p9-supply
++  - vdda-qref2-0p9-supply
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/qcom,rpmh.h>
++
++    clock-controller@f1d7000 {
++      compatible = "qcom,seca-tcsr";
++      reg = <0xf1d7000 0xf00c>;
++      clocks = <&rpmhcc RPMH_CXO_CLK>;
++      #clock-cells = <1>;
++      vdda-qref-1p2-supply = <&vreg_px11>;
++      vdda-qref0-0p9-supply = <&vreg_l1h>;
++      vdda-qref1-0p9-supply = <&vreg_l1h>;
++      vdda-qref2-0p9-supply = <&vreg_l1h>;
++    };
++
++...
+diff --git a/include/dt-bindings/clock/qcom,seca-tcsrcc.h b/include/dt-bindings/clock/qcom,seca-tcsrcc.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..ab77bb343a607813def35276fdbfda927accf346
+--- /dev/null
++++ b/include/dt-bindings/clock/qcom,seca-tcsrcc.h
+@@ -0,0 +1,25 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++#ifndef _DT_BINDINGS_CLK_QCOM_SECA_TCSRCC_H
++#define _DT_BINDINGS_CLK_QCOM_SECA_TCSRCC_H
++
++/* TCSR_CC clocks */
++#define TCSR_DP_RX_0_CLKREF_EN					0
++#define TCSR_DP_TX_0_CLKREF_EN					1
++#define TCSR_DP_TX_1_CLKREF_EN					2
++#define TCSR_DP_TX_2_CLKREF_EN					3
++#define TCSR_PCIE_CLKREF_EN					4
++#define TCSR_UFS_0_CLKREF_EN					5
++#define TCSR_UFS_1_CLKREF_EN					6
++#define TCSR_USB2_0_CLKREF_EN					7
++#define TCSR_USB2_1_CLKREF_EN					8
++#define TCSR_USB2_2_CLKREF_EN					9
++#define TCSR_USB3_0_CLKREF_EN					10
++#define TCSR_USB3_1_CLKREF_EN					11
++#define TCSR_UX_SGMII_0_CLKREF_EN				12
++#define TCSR_UX_SGMII_1_CLKREF_EN				13
++
++#endif
 
-base-commit: b4e3c4b6a36fd76f57bf3e48638f68ddecc54ba4
 -- 
-2.56.0
+2.47.3
 
