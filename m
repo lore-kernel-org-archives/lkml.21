@@ -1,79 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.138
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795778471;
-	b=2vVPvBGmJvGq7z2UmEQiJfB+POsjecZTQdc+/fk2SO94GNZRe2rPJYWHxGyICBk0HFvZ
-	 dmd7bmLH5EUIXi9pLEmTm8wdpsbRI89XA/BAq1YsTfIJmn8KFM790Q9VpWHuqHgYzB7Z+
-	 h5VIrphJogHQZ90p4tcDNWU97LJKB9zY0beN2kGKclGXHrZBpc7lVCvz9P4qloEIA+LUL
-	 /yo2MCpIjRvOvi9MGKv5D2HjA8Epdzb6o38qguAK9oebiyKp4XlZZVEfcnZH1INJcxFoH
-	 96dowIvfh5EWxEowT4/sTP2xFrY8UsUN2KEcrzsfRtVgYkeJ3bxiuBl366RgW8mRDZA==
+	t=1795778473;
+	b=D0O080fJ2irBMWO0bg77rvISQ9i6AHlyQfYI3sFB7JRaldOpiuyHahxAzOGCap8NzKWQ
+	 7ryNPi7gG1L4k0kRpnBrI6otxwk8+8IyInzbqY0yhCM5fzrr/uaii8tr9vLZ2d0525KXq
+	 aW4mh3tHNdGNWpp0zUjj63WX4ByiPB44a6Wsdm3x7saZKDeJl9Z3XFRZ2M5y2Zrxv7Bk7
+	 D2hWHo6kyyKnuBR3u1seFBH4kNk9faQttHIKiCMMaJVl3Oh4N3Bm2krCQkn7jGXD+byjV
+	 96acL2tdrx2/1TgfD7xPJWJLvnIW4apymaWExkxiGZ5Yh8Mq/h4xR6Bhp2xRDEkh1KA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795778471;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:X-ME-Sender:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=aaeUhKeDrrSBo/Rz/J3qjYEHU3boFvMweLYZrhK4Ugo=;
-	b=QhX8ZtI0IDAqGVO+7F+deNWiw2WVJx4M8xedO9AB59vIsfX8wpigUFBcauEgDFWmlRkH
-	 9MEH74lSRHktixXx9KrNIvsuaKnUdtNO+Y/HkO632+MikxN15wd9pZ1f0RprDXuHxexf6
-	 ywclM9zXjdKKUzSqvU1ZbJWRXy2UUNQynEy7N4zT3l1JxvZ6c9QUzhFiqElVQPvvcGuYu
-	 LFmqGJGZpc1DAt/0MrccApZss46voLbQ3Px02WHgKo+0OXXnChCjUjQvx9DGASEUes+MD
-	 tHHYRoBx5xNp3m9ArCwy5ZcsSUe8WbZx/AVFIydT1lvyZdBq89WReXjexnndPmOxuTA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795778473;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=Jix6Pz7UW5pobNRnrruUYw+ovR/f4EeQICu+13Oeqv4=;
+	b=Meu0Wjv1c1YX8Mv+31onGDTzi7i1onap6n6FhoIQPRd8PPnxwseS6jKAu5piVyiWqAB9
+	 nOkl5crlKZLFDFo5kVBo5EyJzxHQjw+dyPSgNdD6NW4wmOOkM9GpmPv3pA4Wj55M67Wu7
+	 lfvHhL3z1ZUGxlHw7wS2hH7cOlA7KcMGhK67kNUSkzODdEKsf90rmK0jvFjZiNi/VXxMA
+	 X2egCa90CowZqsFwj8KDi0VQ0GA2DrT08HkOyaPXUazT5Ps+qR5ICcat0VewP67+CUzqA
+	 G45wmizZoKBYzNHLHHBSLCYWHxrmqV8h3NAK7h7RHg+UuYoCRBjh7H0i4b3pQ+HDv8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=linux-m68k.org;
-	spf=none smtp.mailfrom=linux-m68k.org;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=YKkXEDlR;
-	arc=none smtp.remote-ip=202.12.124.138
-Received: from flow-b3-smtp.messagingengine.com (flow-b3-smtp.messagingengine.com [202.12.124.138])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=djKR8I6d;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C662606A32C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:21:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C662606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=linux-m68k.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9CE5606A335
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:21:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9CE5606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=YKkXEDlR
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailflow.stl.internal (Postfix) with ESMTP id 0325E130332A;
-	Fri, 27 Nov 2026 06:21:08 -0500 (EST)
-Received: from ams-imap-13 ([10.64.2.33])
-  by ams-compute-02.internal (MEProxy); Fri, 27 Nov 2026 06:21:10 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795778468; x=
-	1795782068; bh=aaeUhKeDrrSBo/Rz/J3qjYEHU3boFvMweLYZrhK4Ugo=; b=Y
-	KkXEDlRo6tKNuDRhR2h/KtTxsT1UpDoYMhQ8VLNet8DvUTZ+6Ps8VAPVIimYi6uA
-	Yr67xiWqBfIDm4MWDxPRzuaJdd1YoTdLWoqstsFlcKn2e/XqlALHPjKI8sLty4Sb
-	mlyIaXMZbAhoe63jic4XicF5aLUhCSJljAT69EGTAyp9M01cI4L2dGbHrtgPqHrN
-	8bPHah6V178IsVumQg0u/967iVGIqPZ1t4WyKyXBmKE9MdD8E+ykb79J40k3jGBQ
-	eK0IuSZ8xSzblXUhbinRUQz2o/Ni4ONjAp+6RDj3h5vID9u3JcLEJTS1Z85rQWQJ
-	EaTJkKUmPzBmwy/jB5NpQ==
-X-ME-Sender: <xms:nmcJa4-10tpsk3mHCuQcnHUUJdj7qx1vxe4b_Of24pYCwmd2yFhrQg>
-    <xme:nmcJa7ibOLiRQuBkd5aE5G7CTF1oV8pHbW8wor7Wz1Tu0bRehvS_n3MMY-ic5JDqk
-    nSFmmaQHv-PuYI1ldiNm_b_SY9f3IR_mFdEaj34ZKvaHsM9cr39lic>
-X-ME-Proxy-Cause: dmFkZTF2U5AMYftZOt8Vglhe2SxtmTOOCyjK4LdLtv9+sbLaQnXA31oCqLj50ya8iaVp3E
-    dcBL1UjTo8PQqRZx1+ljzg3Jl1CVQDP/ZoC84r6Mb3cvYsqvzHMGbHRznsW5BYlr7AwfbM
-    V1++REkcA0/eaTGOHmmfFuR2yPltM2s0WGpTnjkZAvLJrCuNrgkh5axnsx79yuKcddyHeU
-    OhcZLugqggeywcMGthFhHue0nr8mCnPciQuv3fdLpshDOKCvhWxT1I8TtmZVP/kPZ776Qp
-    xnENCvF9zN+nVhbk46G6Fuau8m/jQdpWOuVUrysC5GX/yq0zHrkqUfFFNsIoPaVbf+ZHpD
-    eGVGV1wTL7wiQayuba+YT7uD8MPs/46Sgyr04wwfVKLS1W4zJMFnnNNAKTFEwQ0+AUPPM0
-    PDlCkn4eKhsGHaEvHLvPz3ZY4Ltug8rMjiIH3834Mi2XVXWXGfkpCe+RZW3s2Ukj0EW25p
-    egPfc976RHU5afShL1zxcxZGSAmZVeQSKKalRTJC+bhgzgKyWERGBBgmy50lUwz9J45MzA
-    XiCy0DvfaE9sW8qS6NFAuTLcd7RP5SjR1XpSVKI97RaQTjAuHMl4q/QigtekjrbkXjU4Ai
-    oWiWawGP37LnPQxK8fEBg74D1TDhkt7Q9xbxNlqbUjopENte6L9jR8AtLW7g
-X-ME-Proxy: <xmx:oWcJa9U_sadOa1t-inhe6uMYTdBHTF2LTpBsew6wYeinWOHzow8sPQ>
-    <xmx:oWcJa1tdLF9dsyPVjxwd4IcKg3nJQvkdgkUB65jwda8cOGe70Htbig>
-    <xmx:oWcJa46PQCWPDBZPSwYViMTKz-DQxV5aCzmX-uQwYBzh4a5LYtJ2og>
-    <xmx:oWcJawQyyapqNb3sLMUiuwJjCYv_WCMsip-oe4QOYiuLwghNEE33uA>
-    <xmx:pGcJa7lKTtVBt7vl6i0iEBOAsZEktPsyZSi6AsCM00AgV1ORccb5ylfy>
-Feedback-ID: i59e84a84:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 782D0F8009E; Fri, 27 Nov 2026 06:21:02 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=djKR8I6d
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 5F8301A1834;
+	Fri, 27 Nov 2026 11:21:11 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2E4566049C;
+	Fri, 27 Nov 2026 11:21:11 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CEE4311E69318;
+	Fri, 27 Nov 2026 12:21:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795778469; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=Jix6Pz7UW5pobNRnrruUYw+ovR/f4EeQICu+13Oeqv4=;
+	b=djKR8I6dFfVi4JSDL2RujtjcTL3aNWdXrGLhBE04WDhnsnKieD252IL0pu7TXKw3XL49+p
+	8jYWdL9u+zaBaOpiRqnXTA1YiMbBxOM5F3QIodkJDvWzVl7CqMoFxudUyTjE2OH9N+d/Px
+	yd9SBXbSFZk4TAbna76F149P+//VsgKKnC4IELxkluAAyLnPUj26dGI/U+hpxOgQfrNdsz
+	7yqgptijrUiuxx+sYdHTUgowGaknln2JiWNKbV0p3/GiDFmFZzFZDUOxZZAO1qgdpl0mWa
+	b5hRrybkZO5YYwHzdKhWw1NObuaMWkgcE/d783xXjAhh4P7mpbb250KRKRct6Q==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Date: Fri, 27 Nov 2026 12:20:37 +0100
+Subject: [PATCH v2 2/4] drm/bridge: ite-it66121: simplify getting the chip
+ IDs
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,59 +64,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: APurPCBPjMZg
-Date: Fri, 27 Nov 2026 12:20:42 +0100
-From: "Geert Uytterhoeven" <geert@linux-m68k.org>
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: "Robin van der Gracht" <robin@protonic.nl>,
- "Danilo Krummrich" <dakr@kernel.org>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Takashi Sakamoto" <o-takashi@sakamocchi.jp>,
- "Randy Dunlap" <rdunlap@infradead.org>, "Wang Jun" <1742789905@qq.com>,
- "Bjorn Helgaas" <bhelgaas@google.com>,
- "Kees Cook" <kees+treewide@kernel.org>,
- "Pawel Zalewski" <pzalewski@thegoodpenguin.co.uk>,
- linux-kernel@vger.kernel.org, "Andy Shevchenko" <andy@kernel.org>
-Message-Id: <8ed51f54-ed79-4b1d-913f-2b6ddad9e568@app.fastmail.com>
-In-Reply-To: 
- <45e66776a1cb0fa54d1606b856887abe7e826ae6.1795776138.git.u.kleine-koenig@baylibre.com>
-References: 
- <45e66776a1cb0fa54d1606b856887abe7e826ae6.1795776138.git.u.kleine-koenig@baylibre.com>
-Subject: Re: [PATCH v1] auxdisplay: Use designated initializers for arrays of
- i2c_device_data
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261127-drm-ite-it66121-log-probe-errors-v2-2-dbe9b5a3c5df@bootlin.com>
+References: <20261127-drm-ite-it66121-log-probe-errors-v2-0-dbe9b5a3c5df@bootlin.com>
+In-Reply-To: <20261127-drm-ite-it66121-log-probe-errors-v2-0-dbe9b5a3c5df@bootlin.com>
+To: Phong LE <ple@baylibre.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Javier Martinez Canillas <javierm@redhat.com>, 
+ Julien Chauveau <chauveau.julien@gmail.com>
+Cc: Paul Cercueil <paul.cercueil@bootlin.com>, Nishanth Menon <nm@ti.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Fri, Nov 27, 2026, at 11:45, Uwe Kleine-K=C3=B6nig wrote:
-> While being less compact, using designated initializers allows to more
-> easily see which members of the structs are assigned which value witho=
-ut
-> having to lookup the declaration of the struct. And it's also more
-> robust against changes to the struct definition.
->
-> The mentioned robustness is relevant for a planned change to struct
-> i2c_device_id that replaces .driver_data by an anonymous union.
->
-> This patch doesn't modify the compiled arrays, only their representati=
-on
-> in source form benefits. The former was confirmed with x86 and arm64
-> builds.
->
-> Signed-off-by: Uwe Kleine-K=C3=B6nig <u.kleine-koenig@baylibre.com>
+Simplify how the vendor and device ID are computed by using
+get_unaligned_le16 instead of open-coded bit operations.
 
-Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
+While there, also store the IDs into variables and log them for debugging.
 
-Gr{oetje,eeting}s,
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
-                                                Geert
+---
 
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m=
-68k.org
+Changes in v2:
+- new patch, split out of v1 patch 1 (Javier)
+---
+ drivers/gpu/drm/bridge/ite-it66121.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
-In personal conversations with technical people, I call myself a hacker.=
- But
-when I'm talking to journalists I just say "programmer" or something lik=
-e that.
-                                                            -- Linus Tor=
-valds
+diff --git a/drivers/gpu/drm/bridge/ite-it66121.c b/drivers/gpu/drm/bridge/ite-it66121.c
+index 8bc96ef006f8..4642a32f1bd0 100644
+--- a/drivers/gpu/drm/bridge/ite-it66121.c
++++ b/drivers/gpu/drm/bridge/ite-it66121.c
+@@ -1573,6 +1573,7 @@ static const struct it66121_chip_info it66xx_chip_info[] = {
+ static int it66121_probe(struct i2c_client *client)
+ {
+ 	__u8 chip_id_regs[4];
++	u16 vendor_id, device_id;
+ 	u32 revision_id;
+ 	struct device_node *ep;
+ 	int ret, i;
+@@ -1646,10 +1647,14 @@ static int it66121_probe(struct i2c_client *client)
+ 	revision_id = FIELD_GET(IT66121_REVISION_MASK, chip_id_regs[3]);
+ 	chip_id_regs[3] &= IT66121_DEVICE_ID1_MASK;
+ 
++	vendor_id = get_unaligned_le16(&chip_id_regs[0]);
++	device_id = get_unaligned_le16(&chip_id_regs[2]);
++	dev_dbg(dev, "vendor %04x device %04x (rev %01x)\n", vendor_id, device_id, revision_id);
++
+ 	for (i = 0; i < ARRAY_SIZE(it66xx_chip_info); i++) {
+ 		chip_info = &it66xx_chip_info[i];
+-		if ((chip_id_regs[1] << 8 | chip_id_regs[0]) == chip_info->vid &&
+-		    (chip_id_regs[3] << 8 | chip_id_regs[2]) == chip_info->pid) {
++		if (vendor_id == chip_info->vid &&
++		    device_id == chip_info->pid) {
+ 			ctx->id = chip_info->id;
+ 			break;
+ 		}
+
+-- 
+2.56.1
+
