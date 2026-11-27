@@ -1,99 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=119.15.109.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795774066;
-	b=KDJ2xoLlyqqQykSGOrTIb8vekwuV69rEL/W/8dWh0GkVXuDGxkfdGHfzRqpVcw+XpRqH
-	 H0w11Z5x4ZObunyjVJ4Dpg7MPbwGxJ/v8Zlm+ZZvQwfmYFpqrfDaAZWKXsBNiP6q20EHV
-	 vOpY5RL2yK+2W8BKpqo145jAuddAjUnv9TpMYpbHJYantsRe2F4hDiuAgosPX3eN9yzUZ
-	 8bZC9dodzfxCJVn485PFfkhpZwuTTqb2NRfhmwps/40dYRxRIiLxgWKZ+YLHeXO5azR3+
-	 asyl7hP6rf/9k1+tqwItf9T6Rjn/yzdi8G/OUQExVGWQ7L7v/w39GwUPOwtf1NGCSUA==
+	t=1795774103;
+	b=H8LVZiEk1Y8SGLNWYf7jMI7/6dJn+ATgrMzd6hHluGQjG6LBPSDcFfuSeI+FSa7ceCAz
+	 FM3XYhiFbFnshpSz0c7WRNrK1JihAMSsuQTZt7Cj4ID+tIWkog9Me+Er8dtgclKasv/g+
+	 TECfOZSa9tMVXfzkn3GXcNo26jPidt8366lAdADJ0Jtb0m9d/s1L3b199gHknw7uHPrr0
+	 5RZDv3XgHqYk51tcjqugeEG1KW+ZWMKjWIuaEF4GuAAneG54HDRTrd2Sr+4fBJGZgWGXw
+	 uM5anJfZ3Pqxjqkv6zLinhoMNs2wFH6HHKx0OXXJla6d0xZrlnP7JnF9CBAT4ao0Bnw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795774066;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=r8jFUXiwbtLGEQsPs14IigckZt/ak7fASs6vSqAKnVg=;
-	b=iY7u5IyGRns6kYXU+aKzL0kCx3TlNu75MqdSzkyW77j/nWSjQXejjSrtTjtoXZgZYN0S
-	 sSd0rwaYU9WKGUkOv3pHg6hi4bKBklXrjuTTjm0uNJThE6CGOUDbnm0W1968L1yM2c4jY
-	 nq6Jv7cTVWcXaMpcxf/JbKI3/NE6+NiWrJIREar0OcA0nTzuY1tDIx7LtsLa+MG81rgzp
-	 ktLixUIIh8UpqcpDsGA+YBAnVSNmHNmlbwobxC781gAJdUgoEUp3HM9XpyF0Sx68FKTvt
-	 t41mrbbcpntBl4ym507N7XKKDK+o+Me6YXdsydpr5IiTZWWkOHB099bR5geqfEkuFaw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795774103;
+	h=DMARC-Filter:Received:DKIM-Signature:X-GPT-Reason:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=TeJd+vwhmTLCgDsuofMV5WXACzIkKKBVhaJxf8JRaIo=;
+	b=cAMoVktGHmjXFkh2vOs28Tegz4x+6XYFv9rKQ51/v0fYpf6jedXPH0Fv2xQtjd28KVSn
+	 pFEicMXVXXdD3JbwHB09OAYvr6a8jjgVNHZaGX8v/1hL8lXCSUJKntUJPqrxJDW1aknIJ
+	 1DbzF1thPKKZPCRFGp5CUGb4PJYiddnPLW+9aazyxwMoGojJTdH7oehDaE/o3rgbJxL46
+	 /vLZKD+ZAb/Sv+zdQyvrvVh5IhEvChBzRDukvWAo4mpg7lj8wp6aGQFC9kf1E1VjVAIp0
+	 tNCAv4/hBLIqAYGn3reNpTVYaoA4BCKhx0gDCbTTTop+ylXoJHDfogUt9zw4FmofEzw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dzYTgIJd;
-	arc=none smtp.remote-ip=74.125.82.47
-Received: from mail-dl1-f47.google.com (mail-dl1-f47.google.com [74.125.82.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=d-silva.org;
+	spf=pass smtp.mailfrom=d-silva.org;
+	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=uK5FUJ0u;
+	arc=none smtp.remote-ip=119.15.109.137
+Received: from www.nmnhosting.com (watt.d-silva.org [119.15.109.137])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D8BD606A323
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:07:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D8BD606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D06CC606A31E;
+	Fri, 27 Nov 2026 10:08:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D06CC606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=d-silva.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=d-silva.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dzYTgIJd
-Received: by mail-dl1-f47.google.com with SMTP id a92af1059eb24-1b563e32936so3789754c88.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:07:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795774065; x=1796378865; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=r8jFUXiwbtLGEQsPs14IigckZt/ak7fASs6vSqAKnVg=;
-        b=dzYTgIJdpufM0y1GczMQ3KPADpnRlHvaT/vswD1OVNnYdLGaEmIZKTO82G5I8k/PE/
-         d0e6Umjs1iJgBMlmvzmO0+5am/ZmHqMh4P5G81HrPCnCUjdQJKt9mkWe/OhHT0WRDYLl
-         8RYug8Gwt557Ms6ECYpJcqiQ4yuFtVgKsztUozVe40bIcdqLjw8MxrDqExjpTtpYl2dY
-         4VWmBJ4eA79pJZerC/VhLti/TB5JVuVrOsbVujUk7ZFzP/mAjzqQNJTa5OL8vigB62Iv
-         RpfeA/jNPB8HbUdEKc1yOa9Pbe96EslnOFPa4lXeo/QM1Bs/YMcB+lCO+Obo98oYcSav
-         cwKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795774065; x=1796378865;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=r8jFUXiwbtLGEQsPs14IigckZt/ak7fASs6vSqAKnVg=;
-        b=iTng2bguskOvmKdpcOj3BkQ9WNkP/M5PKqb77tFz49MVwUmKICy21GajQ9EPiiMMiQ
-         j+MDyeu0NQvlhrVuG3JRx7f7/dpT2eW0OSapSHQcdyReFs01inG5IWZ7ZRjfKuog//7R
-         sbMcRo1WvIR9fyRA9pY2jyDUrZoU7yXEdLm/67xWUNrwDsOfPoTcamFqT0ETuKIWUaO7
-         dYHkuumq/BCW7SPhSaeXXWQxl6Ad2wIEo3TOUUOgQPLEFs7VGQtpYiDIU7FpK7iCg9Mf
-         T0Wt2MphYF//z1EhEboYm+dfzMm7PnM1JpjRD4o0hZ8g+aStV8efOMciduuGYticF6lX
-         KYmQ==
-X-Forwarded-Encrypted: i=1; AL+hErFmO3gtNO4dm27h84IMqwPoAvr5665WjQ01kgqMVe03d7Zccy5a4Vkp/XiZol3T6Pjeipk1MVreGsDjyFE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8iKg+LA0jtp2jJ4IE7d22zaMPwfgZmrxyJALhsqGs1mNlYqMeD
-	JmJwBx83urQ+zQK+mhUIWBp4si0hz3uQAkeaHg1KpuWTDJgm3Mjimc9Y
-X-Gm-Gg: AZFdTZfb1lZBl+LDx86jDRdo7SCtvkY8yBb019Ap/jl9Q3NlyNv0rSjxQeJmXujHaw0
-	YSjFPsUAhlP9a6tsxUHWakXDjOWTS0m2QHFU6DvbggTUA5ikscT55cGsxiWswdJtAz5cDGSv/qi
-	600Yq5NbeZSk48tG/ybxQnxRxABVywInvSXsv8tLdOlFQ8mOCpzX+jnGLPpYKorWsPJnMXlU0xE
-	+9A4SNhsvIdxVECvXFqE2GQY38duKuvIPLSDQlfACE12BPyQia6e69F71bIWgGVKVBPVtUwRXMD
-	R+ggvK8T6m7wvavCAVDXtQBd2jJkBY3u9Xj6ZULCgxt75j9wOndeuK7KQ00QIm76EXcYK8faBH7
-	GddiVJXt+Q4FhApYAvUIgC+FR6lPaDNPRk/fuKPp/dTc58/Yx4MIFCXma1Jhg4IQ7q4Ce+s0E9I
-	p+rwChwI94osH8Fjkf0thT2JmuKUYVl2u65XSxyQNxTnIiM5W/lwxFJ9IBG6MIf1SyZ1JgHVvHc
-	VXWiDxu6bLpxaC6uMUqzGsDHINlVupwnq5rtFJajYr48x040xlNGhOcRnYwegCQBJGBEZzhh0xl
-	sCG70vEPdBW9vfsOKxhKFf5kN/pjeKAZTLbiOR4AeDcUF4LYl3dY
-X-Received: by 2002:a05:701b:42d4:20b0:1b5:43d8:b82a with SMTP id a92af1059eb24-1b55689e7b7mr23163707c88.9.1795774064568;
-        Fri, 27 Nov 2026 02:07:44 -0800 (PST)
-Received: from localhost.localdomain ([103.177.252.209])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556847fdasm62858991c88.13.2026.11.27.02.07.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 02:07:44 -0800 (PST)
-From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-To: sreekuttan2156239@gmail.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	nicolas.ferre@microchip.com,
-	perex@perex.cz,
-	tiwai@suse.de
-Cc: linux-arm-kernel@lists.infradead.org,
+	dkim=pass (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=uK5FUJ0u
+Received: from Hawking.lan (hawking.lan [10.0.1.4])
+	by www.nmnhosting.com (Postfix) with ESMTP id 112724C97C;
+	Fri, 27 Nov 2026 21:08:15 +1100 (AEDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
+	t=1795774095;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TeJd+vwhmTLCgDsuofMV5WXACzIkKKBVhaJxf8JRaIo=;
+	b=uK5FUJ0u0C2fHqW2Lyc3xF93LRwkRm3fAYhgg1ZC4HLOMYQrAQVoSIm08yOxUEyWXzq1NL
+	JUx0eJ74BhY4X7ONCy4FcS6S16VOeoN9YRPQz4D4+6FwlGeKcywh7NsJD0aXeHRFBQsmrR
+	UiIzzLguNCswXfFCCKNSDc9R7BFcjX/HdRpLW2lXYoHkPr3MMcs1zs/33MxB/gX9VEaJX4
+	neq7ycZnVh6b0lVj2A6RzoTcrbVpy4CrHoF9rKAZlTig/SQB7rPNXHEILwZclKLB7hHcTb
+	f26tbjl+aPxgKqEeC52+S2JInB3QLma8ucn1liDg4XibPexY8x6G10ZBozOLOA==
+X-GPT-Reason: This is a legitimate technical communication, specifically
+	a kernel patch or system driver update. The content is a professional
+	software change request regarding "dt-bindings: phy" and "Allwinner A733," which
+	aligns perfectly with the personal/professional mailbox of "alastair@d-silva.org." The
+	sender identity (From: alastair@d-silva.org) matches the mailbox
+	owner, there are no phishing indicators or marketing elements, and
+	the lack of URLs is consistent with a standard git-style patch
+	submission.
+From: Alastair D'Silva <alastair@d-silva.org>
+To: Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: Maxime Ripard <mripard@kernel.org>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Junhui Liu <junhui.liu@pigmoral.tech>,
+	linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-usb@vger.kernel.org,
+	linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org
-Subject: [PATCH v2] ALSA: atmel: ac97c: fix reset GPIO error handling
-Date: Fri, 27 Nov 2026 10:06:45 +0000
-Message-ID: <20261127100645.3564-1-sreekuttan2156239@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261127095029.3280-1-sreekuttan2156239@gmail.com>
-References: <20261127095029.3280-1-sreekuttan2156239@gmail.com>
+	Alastair D'Silva <alastair@d-silva.org>
+Subject: [PATCH 1/6] dt-bindings: phy: allwinner,sun50i-a64-usb-phy: Add Allwinner A733
+Date: Fri, 27 Nov 2026 21:08:03 +1100
+Message-ID: <20261127100808.2292229-2-alastair@d-silva.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261127100808.2292229-1-alastair@d-silva.org>
+References: <20261127100808.2292229-1-alastair@d-silva.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,57 +98,73 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The driver currently ignores errors returned by
-devm_gpiod_get_index() and continues probing. This can cause problems
-when the GPIO provider is not ready and the function returns
--EPROBE_DEFER.
+Add the Allwinner A733 (sun60i-a733) USB 2.0 PHY compatible string.
 
-Use devm_gpiod_get_index_optional() to handle the reset GPIO as
-optional. If the GPIO is not available, the driver can continue using
-the internal reset mechanism. If GPIO acquisition fails for another
-reason, return the error using dev_err_probe().
+The A733 USB PHY requires the OTG/PHY register bus clock (bus) in addition
+to the two PHY reference clocks.
 
-Also, check the GPIO descriptor for NULL in atmel_ac97c_reset(),
-because the optional GPIO API returns NULL when no GPIO is assigned.
-
-Fixes: 5f10e84934e4 ("ALSA: atmel: convert AC97c driver to GPIO descriptor API")
-Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+Signed-off-by: Alastair D'Silva <alastair@d-silva.org>
 ---
-v2:
- - Add Fixes trailer.
+ .../phy/allwinner,sun50i-a64-usb-phy.yaml     | 24 +++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
- sound/atmel/ac97c.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
-
-diff --git a/sound/atmel/ac97c.c b/sound/atmel/ac97c.c
-index 234549e17351..3ab6ddb3259f 100644
---- a/sound/atmel/ac97c.c
-+++ b/sound/atmel/ac97c.c
-@@ -670,7 +670,7 @@ static void atmel_ac97c_reset(struct atmel_ac97c *chip)
- 	ac97c_writel(chip, CAMR, 0);
- 	ac97c_writel(chip, COMR, 0);
+diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml
+index 580c3296a18d..4892c1766182 100644
+--- a/Documentation/devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml
+@@ -19,6 +19,7 @@ properties:
+       - enum:
+           - allwinner,sun20i-d1-usb-phy
+           - allwinner,sun50i-a64-usb-phy
++          - allwinner,sun60i-a733-usb-phy
+       - items:
+           - enum:
+               - allwinner,sun50i-a100-usb-phy
+@@ -38,14 +39,18 @@ properties:
+       - const: pmu1
  
--	if (!IS_ERR(chip->reset_pin)) {
-+	if (chip->reset_pin) {
- 		gpiod_set_value(chip->reset_pin, 0);
- 		/* AC97 v2.2 specifications says minimum 1 us. */
- 		udelay(2);
-@@ -743,9 +743,13 @@ static int atmel_ac97c_probe(struct platform_device *pdev)
- 	chip->pdev = pdev;
- 	chip->regs = regs;
+   clocks:
++    minItems: 2
+     items:
+       - description: USB OTG PHY bus clock
+       - description: USB Host 0 PHY bus clock
++      - description: USB OTG/PHY register bus clock
  
--	chip->reset_pin = devm_gpiod_get_index(dev, "ac97", 2, GPIOD_OUT_HIGH);
-+	chip->reset_pin = devm_gpiod_get_index_optional(dev,
-+							"ac97", 2,
-+							GPIOD_OUT_HIGH);
- 	if (IS_ERR(chip->reset_pin))
--		dev_dbg(dev, "reset pin not available\n");
-+		return dev_err_probe(dev,
-+				     PTR_ERR(chip->reset_pin),
-+				     "failed to get reset GPIO\n");
+   clock-names:
++    minItems: 2
+     items:
+       - const: usb0_phy
+       - const: usb1_phy
++      - const: bus
  
- 	atmel_ac97c_reset(chip);
+   resets:
+     items:
+@@ -84,6 +89,25 @@ required:
+   - resets
+   - reset-names
  
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: allwinner,sun60i-a733-usb-phy
++    then:
++      properties:
++        clocks:
++          minItems: 3
++        clock-names:
++          minItems: 3
++    else:
++      properties:
++        clocks:
++          maxItems: 2
++        clock-names:
++          maxItems: 2
++
+ additionalProperties: false
+ 
+ examples:
 -- 
-2.55.0
+2.53.0
 
