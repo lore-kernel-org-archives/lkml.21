@@ -1,60 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795796429;
-	b=AEOBMSiGJdAG3Au4XWPUhmJ5MsgJzNlw6jI2EBmEQ65z3HmB0TcNvYfCG+C6o1PcsYwq
-	 EujeOIwBOX0upINLg9BVse1efQg4saMsMlRw4LD14iGSvQpIIdNxO462vu2fAAYv6hqAB
-	 CGQQns4A7CU4zALyRhvnJYGVaJbwLL6X3WhRY71RrYJQ5D7iFtmKmxxzjs5JBZ3gNVAgs
-	 uM6/1K0v8+1M3A+39Nw6C1j/Ktl5QqS2Z3SVbNQdBslqr7DuNs00g7lnsiRkCRhyB6Ph+
-	 0iMRALX7zW8lFhlwh9ubJlZHEPHVWVClNg8e8WwpzhOG1Bq0fdHoIAbEXt1IuveyL+Q==
+	t=1795796449;
+	b=H6Vui0xFyxMkNstoAC0aPZfRgqa4YS3k3O4D0SOOCj1wTlMlxjaA9TRK0iCQMga2e/At
+	 7+o5Kq0U4V1a+PjKEF5SG7QA84VaEdzkmotGHQ1wY80yCwDYtxXdrqcjp+o1tSEpZD7kS
+	 2edG6jGH0NVf4kws01d+iK57jm5mir5sF9s2/khX7YOA4A3RA98hzWFk7ycbffK2NdIIl
+	 oXgIzxRtWN9h0fYMU+81VQjgOAbu8g4JFFe/cSgN7fHCabZbrTXDFZ1JKXoBIDJY1w8cP
+	 NTlloyqPaZSM5/+EaTEsAQr3TB6JE/GAIrrCyLMbSAiTZfWX8iA+8HSbE2KLZ7uf49w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795796429;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=MdSaMCAc+qzeX7UXVd3frQ4gh1bW5tiz+7uBp8jCnoY=;
-	b=o2z/VoLjp+CMMukRrJ+aSpfXZWDM2HNlTRLKAO6GTMyXuX6xdrj3p770nguWBi7IJKHf
-	 2vRRXHeyGar2hP/mtZ9Hh+dRLrtQAdQnkpmVCqEKdaRUtIh2xYtJjEv2mfqNt26nTQz9S
-	 yBc+UndjTbgSdbZDw7V+ulGBHDIoTs/NBWjCqlV0MmBPmd/JajKWYl+wlxmR0UgQylD2g
-	 e5uIxi4wnoNXcSLskAXjC6FsmmAxmuw+N3NcbKBXyzZoNUEZ3yU+kbVHjcu9J2zhVaAAK
-	 bfJFUmoYaOQBG5RVY6/8SlCsirS1tscjRyEkiw0gNNCv9e78y1qoamdBjP5nMLF4vFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795796449;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=K7pbcPEO9RAHcbUUDzVxbpJY0yDm0J0hZH2yEiq0dJg=;
+	b=4WjjBBjZ9rHF/YC63S8Fp3EFe0KLB0W5zugtpa4RS/u5v5o4pkuVwp3DsN/q9zfRRLP1
+	 eruX283vR8ZJGVBYXekAE5KaHa24NXUvdsAnfqgMcllKY+MIGmXOAd4k5SFZgMt+HodCn
+	 r071hrbRT23z9pW5qZkjERvn+ZpCwWoCR4u+XrhDYTCPwUBBvOKuNhlxpZUuA8m16MFsg
+	 MbhjOsEbZsdSmKKt/pZhzHCJNQ77o+cRb8MI9WfUEF+SKdmVbDj8DZXaHYQL0YZ/5PCSi
+	 FN+CJQ5KDh6O95TTlfBvTasd1QQrguf04lCR3gLWyplW5sE/DK16GYy2/7WlcfQhMfQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=proton.me;
-	spf=pass smtp.mailfrom=proton.me;
-	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=NneZHaJ4;
-	arc=none smtp.remote-ip=185.70.43.16
-Received: from mail-4316.protonmail.ch (mail-4316.protonmail.ch [185.70.43.16])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C936606A31E;
-	Fri, 27 Nov 2026 16:20:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C936606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=CeiOKUj3;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9258D606A31E;
+	Fri, 27 Nov 2026 16:20:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9258D606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=NneZHaJ4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail2; t=1795796417; x=1796055617;
-	bh=MdSaMCAc+qzeX7UXVd3frQ4gh1bW5tiz+7uBp8jCnoY=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=NneZHaJ4TbMuyTnToDQBhvty8HriP2vdPw0GaCzr3Jcy78uh8XzRN0kke4cETX6OG
-	 qyAVsB/+KaXdJo+ha6sM4xScSCF3ftOlPW3vZQDiPXA3unOb6kK5zYgVfnWAJf7vtv
-	 YERQKsmzS97jTLgkS05E2r7uWOm/B7goV47Q7urV0QdN2hyFLgUMVrVXIyv6HzBtjs
-	 +RVH1hb6tWWyPTYcF5NXD83t33+NZsDG4lsyMtVyA5URLSkVbmvS/dZDAQw0Wq/jbj
-	 Ep8cyoZb56ki7pdu5iaQ/WPt2bdXiSyjk4ts9YWx8zovFbaOsMCk/Dd1h9UvwJwWJY
-	 c9RcIpRv6mtXg==
-Date: Fri, 27 Nov 2026 16:20:10 +0000
-To: Jerome Brunet <jbrunet@baylibre.com>
-From: Norman Herms <dockseed@proton.me>
-Cc: Andre Przywara <andre.przywara@arm.com>, Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Hans de Goede <hansg@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, mfd@lists.linux.dev, linux-sunxi@lists.linux.dev, Sashiko <sashiko-bot@kernel.org>, Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v9 0/5] regulator: Add X-Powers AXP318W PMIC support
-Message-ID: <k4mfWv4pn__6O2VNVO0m6q9b_sQs51o8jXhfyLFIDj9kSZyQiS-2WoOhpH_0UJ3sAgd0g9_hmzmv6sXcAJItWvSZSfUoXLy9TeCoKpnENQo=@proton.me>
-In-Reply-To: <20261127-axp318-regulator-v9-0-986b68f3c4a0@baylibre.com>
-References: <20261127-axp318-regulator-v9-0-986b68f3c4a0@baylibre.com>
-Feedback-ID: 144388465:user:proton
-X-Pm-Message-ID: d35087955f693b2c24b74f0466b801600b1e84ae
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=CeiOKUj3
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8D2C41570;
+	Fri, 27 Nov 2026 08:20:44 -0800 (PST)
+Received: from [10.0.129.128] (e122027.cambridge.arm.com [10.0.129.128])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E60123F632;
+	Fri, 27 Nov 2026 08:20:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795796447; bh=YWYVJy6Zcj9T84QCaab6JYnUa5XB+sHSowf3FjvcGBM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CeiOKUj33P9EF1X+JNoBQhYtrJosCaT77qK+d0WZVUgKQm79E9K4QNYhMDqRs0pCE
+	 LFfyZOHUVxsM6YfM/Q/0lyxyw0INTOo7YgBb/eAATimHahf1DvcGcMsCdjJdg64GWy
+	 eQ6oyfgP0NxgCIK/Sh9UANOqD1az5Wfbl/zeRzxs=
+Message-ID: <819cab19-0756-4ba2-806a-dbeb7c5c2474@arm.com>
+Date: Fri, 27 Nov 2026 16:20:40 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,23 +53,165 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/panthor: Don't access gpu_contexts of a destroyed
+ heap pool
+To: Jiwoo Kim <arpe1618@gmail.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Liviu Dudau <liviu.dudau@arm.com>
+Cc: Akash Goel <akash.goel@arm.com>, Karunika Choo <karunika.choo@arm.com>,
+ Lukas Zapolskas <lukas.zapolskas@arm.com>,
+ Chris Diamand <chris.diamand@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20261113162648.110226253-1-arpe1618@gmail.com_quarantine>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20261113162648.110226253-1-arpe1618@gmail.com_quarantine>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Hi Jerome,
+On 13/11/2026 16:26, Jiwoo Kim wrote:
+> panthor_heap_grow() and panthor_heap_return_chunk() compute the heap
+> context offset from pool->gpu_contexts before taking pool->lock.
+> 
+> The tiler OOM work holds references on the group, its VM and the heap
+> pool when it calls these functions, but nothing stops
+> panthor_vm_destroy() from destroying the pool in the meantime.
+> panthor_heap_pool_destroy() frees the gpu_contexts BO under pool->lock
+> and marks the pool as destroyed by clearing pool->vm, but leaves
+> pool->gpu_contexts pointing to the freed BO. VM destruction doesn't
+> wait for the work either: panthor_sched_prepare_for_vm_destruction()
+> only flushes the scheduler tick work, and only when the VM is active,
+> and evicting the group doesn't help, as group_unbind_locked() uses
+> cancel_work(), which doesn't wait for a tiler OOM work that is already
+> running. Such a work can then read the freed BO.
+> 
+> Take pool->lock before dereferencing pool->gpu_contexts, and return
+> -EINVAL if the pool has been destroyed, as panthor_heap_create()
+> already does.
+> 
+> The problem was found through AI-assisted source code review. The fix
+> is compile-tested only and there is no reproducer, as I don't have
+> Mali CSF hardware.
 
-Tested on a Radxa Cubie A7S (A733). We run the same code as v9 (the
-+/- lines match; our tree is sunxi/for-next with the v8 patches) with
-Enzo's v6 board DT on top.
+This does look plausible, and doesn't break my hardware ;) I'm not sure
+how to actually test the described issue, so I haven't been able to test
+that.
 
-The PMIC probes on R-I2C0, all regulators in the DT come up, and the
-bounded ones are within their bounds. DCDC7 (1080 mV), DCDC9
-(1240 mV) and ELDO1 (1075 mV) keep the values the firmware set, and
-there are no warnings in dmesg.
+> Fixes: 9cca48fa4f89 ("drm/panthor: Add the heap logical block")
+> Cc: stable@vger.kernel.org
+> Assisted-by: Claude:claude-opus-5-5
 
-Tested-by: Norman Herms <dockseed@proton.me> # Radxa Cubie A7S (A733)
+Note that the requirement to include "Assisted-by" for LLM patches was
+dropped (and checkpatch now complains about these tags).
 
-Built and measured by AI agents (Claude) on my board.
+> Signed-off-by: Jiwoo Kim <arpe1618@gmail.com>
+
+Reviewed-by: Steven Price <steven.price@arm.com>
 
 Thanks,
-Norman
+Steve
+
+> ---
+> 
+> Notes:
+>     This conflicts trivially with Osama Abdelkader's pending "drm/panthor:
+>     Fix race when retrieving the new chunk in panthor_heap_grow()", as both
+>     change the local variables at the top of panthor_heap_grow(). I can
+>     rebase on top of it if it lands first.
+>     
+>     While looking at this, I also noticed that panthor_heap_create() reads
+>     pool->vm without pool->lock when allocating the initial chunks, in
+>     panthor_alloc_heap_chunk(), so a concurrent VM destroy can make
+>     panthor_kernel_bo_create() hit its drm_WARN_ON(!vm). That doesn't touch
+>     freed memory and is left for a separate patch.
+> 
+>  drivers/gpu/drm/panthor/panthor_heap.c | 44 +++++++++++++++++++-------
+>  1 file changed, 33 insertions(+), 11 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/panthor/panthor_heap.c b/drivers/gpu/drm/panthor/panthor_heap.c
+> index 99311abdf1..e55f7e648d 100644
+> --- a/drivers/gpu/drm/panthor/panthor_heap.c
+> +++ b/drivers/gpu/drm/panthor/panthor_heap.c
+> @@ -90,7 +90,7 @@ struct panthor_heap_pool {
+>  	/** @vm: VM this pool is bound to. */
+>  	struct panthor_vm *vm;
+>  
+> -	/** @lock: Lock protecting access to @xa. */
+> +	/** @lock: Lock protecting access to @xa, @vm and @gpu_contexts. */
+>  	struct rw_semaphore lock;
+>  
+>  	/** @xa: Array storing panthor_heap objects. */
+> @@ -371,16 +371,27 @@ int panthor_heap_return_chunk(struct panthor_heap_pool *pool,
+>  			      u64 heap_gpu_va,
+>  			      u64 chunk_gpu_va)
+>  {
+> -	u64 offset = heap_gpu_va - panthor_kernel_bo_gpuva(pool->gpu_contexts);
+> -	u32 heap_id = (u32)offset / panthor_heap_ctx_stride(pool->ptdev);
+>  	struct panthor_heap_chunk *chunk, *tmp, *removed = NULL;
+>  	struct panthor_heap *heap;
+> +	u32 heap_id;
+> +	u64 offset;
+>  	int ret;
+>  
+> -	if (offset > U32_MAX || heap_id >= MAX_HEAPS_PER_POOL)
+> -		return -EINVAL;
+> -
+>  	down_read(&pool->lock);
+> +
+> +	/* The heap contexts are gone if the pool has been destroyed. */
+> +	if (!pool->vm) {
+> +		ret = -EINVAL;
+> +		goto out_unlock;
+> +	}
+> +
+> +	offset = heap_gpu_va - panthor_kernel_bo_gpuva(pool->gpu_contexts);
+> +	heap_id = (u32)offset / panthor_heap_ctx_stride(pool->ptdev);
+> +	if (offset > U32_MAX || heap_id >= MAX_HEAPS_PER_POOL) {
+> +		ret = -EINVAL;
+> +		goto out_unlock;
+> +	}
+> +
+>  	heap = xa_load(&pool->xa, heap_id);
+>  	if (!heap) {
+>  		ret = -EINVAL;
+> @@ -435,16 +446,27 @@ int panthor_heap_grow(struct panthor_heap_pool *pool,
+>  		      u32 pending_frag_count,
+>  		      u64 *new_chunk_gpu_va)
+>  {
+> -	u64 offset = heap_gpu_va - panthor_kernel_bo_gpuva(pool->gpu_contexts);
+> -	u32 heap_id = (u32)offset / panthor_heap_ctx_stride(pool->ptdev);
+>  	struct panthor_heap_chunk *chunk;
+>  	struct panthor_heap *heap;
+> +	u32 heap_id;
+> +	u64 offset;
+>  	int ret;
+>  
+> -	if (offset > U32_MAX || heap_id >= MAX_HEAPS_PER_POOL)
+> -		return -EINVAL;
+> -
+>  	down_read(&pool->lock);
+> +
+> +	/* The heap contexts are gone if the pool has been destroyed. */
+> +	if (!pool->vm) {
+> +		ret = -EINVAL;
+> +		goto out_unlock;
+> +	}
+> +
+> +	offset = heap_gpu_va - panthor_kernel_bo_gpuva(pool->gpu_contexts);
+> +	heap_id = (u32)offset / panthor_heap_ctx_stride(pool->ptdev);
+> +	if (offset > U32_MAX || heap_id >= MAX_HEAPS_PER_POOL) {
+> +		ret = -EINVAL;
+> +		goto out_unlock;
+> +	}
+> +
+>  	heap = xa_load(&pool->xa, heap_id);
+>  	if (!heap) {
+>  		ret = -EINVAL;
+> 
+> base-commit: bafda823590ddf7031ecb765d673572fae7ab44a
+
