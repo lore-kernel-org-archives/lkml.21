@@ -1,65 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795781686;
-	b=Xrm4HW5mJk6bGnELPLT/Jtuf1Ffg6CdA6sNNLueAEsFRXWnVdfJiJD8x3ip7E5HqkPAn
-	 O0cF4yPNOonqQigpXYoU6lnvGF0PrJuCnfX4My2P4HF2seD9EGrq1ktCwYPZXfBtmocmG
-	 BgpxJ/dtB2sWFq+H52xZSxRCQEFW8POEUFSiEIZVkP00k28YqwbwPpaZFLRcv0GJob7rz
-	 IGKJeLR/29qBLlSz4YV5Y2B98cGOG6YEMITT/oryPRqQzohiFQWmXezneBvWsxobglIw6
-	 DWx6efTTjZ2X0gWHrLR2/lNd88605HmxrIFmMGofk4NnP4fxwqxLz5+srVQMvpDHe0A==
+	b=oevkK55jMkjnecOdHTj6dCl67UDFF/6Wa7ZiyUaNdX4Re1ftjDzboSnDPDxGL1gUk656
+	 L/ogpykISIw40FIR8cJvfS6/useVn6IJf98PkIctmP9Ub0xw1Ylky9NmBIqxPb4EcdgyU
+	 psLIgWbmxGBqZfDtMsi9qxTeLhjrLZh4ggQPP837UNJCIOlUiT7JJ3s/uF3lWbJKgzeEL
+	 NQer3E1QT34P1MYwkYsLGE/6jdjLqEuJ4g+b9TrUU6+8OZYM2YdPryE9OfQhKgjyN1i+n
+	 rQ+ufj89yiLdRQKi0u2u3865bdN//NEUG4wSzzvPj9xE2tc3U7farHCO5i+66UfxPyA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795781686;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=VV+35C0MvsxTapmXmpaf8AhrJo2KO0fBkkJmq50cT5w=;
-	b=z6F0PZKwytQB2/8OjeMv02EM6dMYqVBV1Z74WBJfwC5qAIxgrzUXS2Au0P2pmYr0SI7c
-	 /VmZ3PDwJ+t2jv3LLw9M/TiV9NEX6UXvcyaXTCt9u8SlUpGpBN6A4wXyY6QA2tP+bMRwz
-	 kEnVgheXtUZpXKn2W6pvD2q+cSWoSAOOM7v+kJWaVd/PU8LOzHyrT+XXKgUIzXwi+tDYh
-	 L7ItxuWnvYNg5zstZgyzt6JdVG6zeJK2aUpwexR9puIy3Tem8Vz2sdZNsqO5o/pQh0FmR
-	 HVbrHDjQ/n+115sBKaAgJcGCYHbqu/Ab+buY+WaNHE2EK9JP9prRuOdRdS21sH2TkWw==
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=3w20wn8ciMIi314K9ZKRgL922tIUAQ1fVj1q7jFt11I=;
+	b=YVbqdJTquLn3SjFgyy9SKFu4FYtxD+XqF/htujHQvVqAq/NxMzFUk6ITPp4HqP/5TgmS
+	 4/IDO1LWa8gz6HyKpcY3NgDtphsHzpNFTZ97VKHA+nm+YO38r56YWbOGejxfQ2d7WCSWn
+	 SIZ3jdKd6DPYjlM/L1301KESuQX/TzSqkbyPPHdpsaI67/yzC5iFPqliBzor3/85Jx822
+	 oVVpauVlisyHpD8bRejx4qrE8+pO2yMTe+3ryl0BghJegNDX7nUWmUz5VBn0iKzBeiwwi
+	 lBExA7t9PioPw0EWsPNjbbidw9NU/zYIyrJPE0GfKiwnwqHhDUXshPGPNHbU9qpkBIg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WWMc9vif;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JrGEsf9R;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 6F8CA606A324;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F8B3606A323;
 	Fri, 27 Nov 2026 12:14:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WWMc9vif
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 7FB111F0092F;
-	Fri, 27 Nov 2026 12:14:45 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JrGEsf9R
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AA841F000C1;
+	Fri, 27 Nov 2026 12:14:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795781686;
-	bh=VV+35C0MvsxTapmXmpaf8AhrJo2KO0fBkkJmq50cT5w=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=WWMc9vifFatAwSs+l2yKqgqXpFi498wBZ5KHRf9zZWpVwJDuxaiLB90kEaCqdxh6V
-	 lJzdQLdUg7J2tYpfNiIM22/BOnvpNusZMicsFh6LqkMlAbEIIQBA1ji3JkgBVkaMoB
-	 zn21RcN9r6H4t7lhz1+QrmUiAmDkqHYvh8MPEJ1u6lEFplL/8V68saGWrCXeL0Sr1s
-	 AjAoEPykflvNqRcT6tmo5DOfLOHBs+X2uCgpdNirRg0MBR5lN5lFj6zlK2seX0lSIm
-	 VQ1FDynJY/BWYnQruOhAB6qbmZddncAtiuj1Q1SjbUmBezpDSHhmyq/J7+oo1EGLFw
-	 LbPpBz3ylFz4w==
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: keyrings@vger.kernel.org
-Cc: Jarkko Sakkinen <jarkko@kernel.org>,
-	stable@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	David Howells <dhowells@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Paul Moore <paul@paul-moore.com>,
-	James Morris <jmorris@namei.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Jann Horn <jannh@google.com>
-Subject: [PATCH v4 2/2] KEYS: Reject keyring creation with overridden credentials
-Date: Fri, 27 Nov 2026 14:14:32 +0200
-Message-ID: <20261127121433.2400766-2-jarkko@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261127121433.2400766-1-jarkko@kernel.org>
-References: <20261127121433.2400766-1-jarkko@kernel.org>
+	s=k20260515; t=1795781685;
+	bh=3w20wn8ciMIi314K9ZKRgL922tIUAQ1fVj1q7jFt11I=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=JrGEsf9RGSAi95mThpsPZiqwBb8CPAROQvgPolW2qIJ2xXEk5VJKACzsGFeqPtsMk
+	 12STunPm5NpI3riSYWarempFNzU3lBP52Nu9ASxRNvvlCt5tbzD/Hw69Mx3qSnEwze
+	 Tixfxfhgo095X1TISXxrvq2kWiGqVrUKHT1E9npI8SB7mKrHS/umAuWt+Hx6/XLiPW
+	 CxkomSEuUSy3wQR8uAzWuBAWKwnbwVNUjdHwpE1WFY5jnYft8hPuN8KnQgWOuemKqt
+	 DFUFi5a6yGXRGOdEjpfbF1YQa23ZPwEuA+i7DRrh/a6UUpOg1fAbG/YbyqIeU2kgn0
+	 fWfCj2t0bN5wQ==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,86 +49,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v3 0/8] arm64: Unmap FF-A lent memory from direct map
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, rppt@kernel.org, 
+ akpm@linux-foundation.org, m.szyprowski@samsung.com, jenswi@kernel.org, 
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ mark.rutland@arm.com, robin.murphy@arm.com, hch@lst.de, 
+ ryan.roberts@arm.com, sumit.garg@kernel.org, sudeep.holla@kernel.org, 
+ ardb@kernel.org, thierry.reding@kernel.org, david@kernel.org, 
+ danielmentz@google.com, linux-arm-kernel@lists.infradead.org, 
+ linux-mm@kvack.org, iommu@lists.linux.dev, op-tee@lists.trustedfirmware.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261111110738.872947-1-vdonnefort@google.com>
+References: <20261111110738.872947-1-vdonnefort@google.com>
+Date: Fri, 27 Nov 2026 17:44:23 +0530
+Message-Id: <179578166371.172025.10770561998032628043.b4-review@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=764; i=sumit.garg@kernel.org;
+ h=from:subject:message-id; bh=H72B6Re7Lfo3dYJpngqffII6YfaUb4iqb0oxwd+0b1c=;
+ b=owGbwMvMwCV2RWpxpe9rmzmMp9WSGLI5SzTqKoX2v6poOjM7Tepq5Ht5my8u93hEPXlY96rGb
+ llxtjyvo5SFQYyLQVZMkSX167dp24T+1YZaneCBmcPKBDKEgYtTACZyuYeRYavT7sI3m/SebpyX
+ onf6hgPXAYGpWw5ElojkKeqEbHUztmH4w+Vd9c3uxqQ7AhKnb8xtPv11xZuQkk5zO+20IpOs84t
+ N+AA=
+X-Developer-Key: i=sumit.garg@kernel.org; a=openpgp;
+ fpr=65F5F696B612FE7D553AC80CD41AA3794DEB3C9C
 
-If the current task is running with overridden credentials calling
-commit_creds() is forbidden and triggers a BUG_ON().
+> This series is a follow-up to the discussion that has started here [1].
+> 
+> When memory is lent to the Secure world via FF-A, CPU speculative
+> accesses from NS to the lent pages can still occur as long as it retains
+> a cacheable mapping to it.
 
-Reject keyring creation with -EPERM when credentials are overridden.
+One thing I forgot to ask during last review, in case of hypervisor
+support like pKVM how are going to handle unmap from stage-2? As I can
+see from code pKVM doesn't support FF-A lend calls to unmap pages from
+stage-2.
 
-Cc: stable@vger.kernel.org # v5.10+
-Cc: David Howells <dhowells@redhat.com>
-Cc: Jarkko Sakkinen <jarkko@kernel.org>
-Cc: Jonathan Corbet <corbet@lwn.net>
-Cc: Shuah Khan <skhan@linuxfoundation.org>
-Cc: Randy Dunlap <rdunlap@infradead.org>
-Cc: Paul Moore <paul@paul-moore.com>
-Cc: James Morris <jmorris@namei.org>
-Cc: "Serge E. Hallyn" <serge@hallyn.com>
-Cc: keyrings@vger.kernel.org
-Cc: linux-doc@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-security-module@vger.kernel.org
-Fixes: 3b11a1decef0 ("CRED: Differentiate objective and effective subjective credentials on a task")
-Suggested-by: Jann Horn <jannh@google.com>
-Closes: https://lore.kernel.org/keyrings/CAG48ez0XjVSR=M--UBauTm8sJuc+ZbhKzaPa3a6wrSVHyoKevw@mail.gmail.com/
-Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
----
-v4:
-- No changes, resend.
-v3:
-- Collapse and open-code cred_overridden() to the entry point of
-  lookup_user_key() (David).
-v2:
-- Added mandatory tags.
-- No code changes.
-- Link: https://lore.kernel.org/keyrings/20261019145624.309790-2-jarkko@kernel.org/
- Documentation/security/keys/core.rst | 3 ++-
- security/keys/process_keys.c         | 6 +++++-
- 2 files changed, 7 insertions(+), 2 deletions(-)
----
- Documentation/security/keys/core.rst | 3 ++-
- security/keys/process_keys.c         | 6 +++++-
- 2 files changed, 7 insertions(+), 2 deletions(-)
+I think overall it is important to unmap memory from both stage-1 and
+stage-2 to avoid CPU speculative accesses from NS when memory is lent to
+the secure world. Is there plan to support stage-2 unmapping like in
+case of pKVM?
 
-diff --git a/Documentation/security/keys/core.rst b/Documentation/security/keys/core.rst
-index e3a215e55f81..a60b2f725a0b 100644
---- a/Documentation/security/keys/core.rst
-+++ b/Documentation/security/keys/core.rst
-@@ -168,7 +168,8 @@ The key service provides a number of features besides keys:
-      If a process attempts to access its session keyring when it doesn't have
-      one, the default user session keyring for its current UID is returned
-      without being installed into its credentials.  If creation is requested,
--     an anonymous session keyring is installed.
-+     an anonymous session keyring is installed, failing with -EPERM if
-+     credentials are overridden.
- 
-   *  Each user has two quotas against which the keys they own are tracked. One
-      limits the total number of keys and keyrings, the other limits the total
-diff --git a/security/keys/process_keys.c b/security/keys/process_keys.c
-index cdf03b8124d0..c878a5f8d47c 100644
---- a/security/keys/process_keys.c
-+++ b/security/keys/process_keys.c
-@@ -633,7 +633,8 @@ void key_register_fs_verity_keyring(struct key *keyring)
-  * to a key or the best found key was a negative key; -EKEYREVOKED or
-  * -EKEYEXPIRED if the best found key was revoked or expired; -EACCES if the
-  * found key doesn't grant the requested permit or the LSM denied access to it;
-- * or -ENOMEM if a special keyring couldn't be created.
-+ * -ENOMEM if a special keyring couldn't be created; or -EPERM if KEY_LOOKUP_CREATE
-+ * is requested while credentials are overridden.
-  *
-  * In the case of a successful return, the possession attribute is set on the
-  * returned key reference.
-@@ -652,6 +653,9 @@ key_ref_t lookup_user_key(key_serial_t id, unsigned long lflags,
- 	key_ref_t key_ref, skey_ref;
- 	int ret;
- 
-+	if ((lflags & KEY_LOOKUP_CREATE) && current_cred() != current_real_cred())
-+		return ERR_PTR(-EPERM);
-+
- try_again:
- 	ctx.cred = get_current_cred();
- 	key_ref = ERR_PTR(-ENOKEY);
+-Sumit
+
 -- 
-2.47.3
-
+Sumit Garg <sumit.garg@kernel.org>
