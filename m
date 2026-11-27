@@ -1,98 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.48
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795757050;
-	b=EtLgZw07ZapO+ub7LLWBnmdbehTZZCCWiwqDyBcd9LN1C+pqILR1mtqu9F5DZKmNzIQ7
-	 NJ/YHgZxNpurTa9Ss+aQmuUhRc84w83ZIPlolhswO79GPcCIY6KunKoK2UrEQkU+NQh2X
-	 sCsjDW/qJ7kEKM89Yh9VIkXGJIuCchflrmObJhs6LJ/Wns0sxaqqf5DCmFa0NNE2GgiM2
-	 2VM1pAVaYJuWfMXaoxSIINO0O10+Q1L2lqPfPCQL9qkE8mNlX0Fist2aPm7mP4uKa9zBI
-	 xc6qo7SqORuLl/QBUmbzEpyTiUox3MUtyLKwHkVXhPk8yyp0ToSYfLpV6aemKLW5vlw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795757050;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=VunIWhlXjqQbEeGcoAeOGcWx/ibG4ikraJURdAYqSgo=;
-	b=zHXVUrEuHYbXED3JJepJaHSQFzrL8HXZ8TMTXL5ErHzsrCsNADqfcUBAE+WPFNn7bWgK
-	 WCO07kqjXqgJlkuQIOFyoGVZVBv4/F120y5VdTtTuyyOrnZudNcJSSXAl7S9oyQ0oGd5i
-	 tZE5w3ZW3T6X5MS3esTRVjUxPXPZpshzTnVGgo2/bcsNCBtgVzd7GNQWvRaxiBPBAvvVn
-	 MQu6OYe/TNEp+0XyXEx6QFL0HOR7SIJQQXZB9lOnYcaQCtnx3TiEvkDKyqmllIDOwNdDw
-	 rr6a6F7F9HSebA8HB01LnZc6M3Q0rC6vI8a7QU0diUtYW+TckFZqX6twCcvRhBhyD2g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OW7OZpHq;
-	arc=none smtp.remote-ip=74.125.82.48
-Received: from mail-dl1-f48.google.com (mail-dl1-f48.google.com [74.125.82.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.46
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795757090;
+	b=YnuqgilqqhhgJAXD6a4FYh3Kqbfv8N5CzAsiLnRXgbH40ijfaDQgHcLNylA7E3Ly8zwK
+	 aFGIzH7dQnRA4+jALMjhrM+qRfLMK4ZXd/yBEguTjgl12uKxlWuBC0VwkWm+/wmxMd52M
+	 QvUUIa6qyW8ZOidbJtHn+MFORhtR3Vd7AdCa7PPyfHiCeMyazlH10cFyTC0yTrsJTgXDJ
+	 CUCiRlZHmT/HVnS3oHXvJ7hXidIGl43/pLtKU8FPIdJsbZWhwHvxvBx0s+cCfWtMIvnCI
+	 edFgQubP4e5JAxncDXxmBU+v7C13ZcXBzANMBMxCzcUl8fP7omQnUwAaKWurWsLgKrQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795757090;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:In-Reply-To:References:Content-Transfer-Encoding:
+	 Content-Type:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:
+	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=OcW1wa8yNSPpf4GQG7xYqrDfB/Q49hlkLmnT91a1PMM=;
+	b=t/VcyhmGlImibU2xvF8AP/W4FX1+/58wNL+/MyEJhkW7JQyh+B+MF0A2GI2Kk2802pi/
+	 1OQnKEw6YcSUkHkLXS/z7w22OIyTTBnj/Q28/xCt/ABwmqORy3GHq6t8CRMq3kghRm2PJ
+	 pGjhN98ZMXDfwkyH50T+fn8NV2fVIsxyeAUNaMZd1vbZepZdlowi1hzDxmWh3vt9OWXmh
+	 z+FR5o9AHHcNiDLbMFvegg/PHBkpv6iNZdjjiO/XDZRuzjZrBVzzB74YWlZdPozQx/j11
+	 TQpq7EGIKSSZX7F6CT2Ee2SKYtQAUHu43jluaoaJntmaXDAIrVwCZN9zxoIpgxN2uVQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=jhq3Rn4j;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.46
+Received: from DM1PR04CU001.outbound.protection.outlook.com (mail-centralusazon11010046.outbound.protection.outlook.com [52.101.61.46])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC1DA606A323
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:24:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC1DA606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB398606A31E;
+	Fri, 27 Nov 2026 05:24:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB398606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OW7OZpHq
-Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-170135e43c7so11963778c88.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:24:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795757049; x=1796361849; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VunIWhlXjqQbEeGcoAeOGcWx/ibG4ikraJURdAYqSgo=;
-        b=OW7OZpHq6pLeZ26SCI1axidR8ugMY3pm9kGLkjx/1OUX/nA+OpiM03FMnJfX5TYfwD
-         2Da6+vtIkUGBdiNgN1dCSO22IbNK1AG0A8EygW5bQu8bcyPqiiHaKXHi0CdsIhKxtlRI
-         ODG2AhVEjfkqcheF1QTm4cfU/DNzbrpM1mguWXPRsvSJUHy+03kYSBL8+XcVLJ2iXzoS
-         6WxbED/OAT0JjWsu1FVHVP2GXo5jggSbW8dhoqhCdJYRkmXj0Y8WO9oUA0PwKXiSugyr
-         JyOkBGnDoC8I64TWwFvRWlBMJL932qEvZgf6b/eHi2RRAZkKLMDKmxnuAyq1+/9ggQ58
-         tt9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795757049; x=1796361849;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VunIWhlXjqQbEeGcoAeOGcWx/ibG4ikraJURdAYqSgo=;
-        b=LgdP/zkVLyoBXkICujE6V+JzDCJh28lbPvgTRiaaZSFEO5R3RDABHkBpsoL6Broo3R
-         zNX6jKzj2Bv7njX8xnUdySuWdgRpnILZhZimUR9aJ+WeZtI8BBAWLNhkeLXvjPlEt9UN
-         n5oQFBxOMlWPeBheDWhYlR8J5DlcCFamTSJBCbG3keM6ywynYxmV7Z0SDGMB7VwtT13k
-         Dsdwn1BqBuwCfoLpfnFVawyZ/sJ54//ZktcirTKnVdTXTijb1WNRwAj62PiZqzY+XGpG
-         THWeqcHHVsQIfbWFw2qCmkrFqbq6eOrrWS4+CtMmHJyuyNh8fTz0IQUUkNFx0rwSlYh2
-         t3wA==
-X-Forwarded-Encrypted: i=1; AL+hErGA2Eq9+czgzNGS/T+iqHr9VB+9EqgjfX2MEfhRRf5hrUSToEAjYWp2KfsZToYrLXt2a3t7RiC+hITklSI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z85tRX0zdQHzGCvrPTCyzNSiAMcRnB8M60wMXmoTvH/nmXptMXB
-	tO3mYzWGDk4a00fHAlnb2hHCJpgP+gV5Jy7zPj0vnhN7fGwiBfdS0kNO
-X-Gm-Gg: AZFdTZdH8b2xcaIxTw1r29ZUT+E9LBDFihWvNnCs/AS3ArAxW/ks+GAYigR4LNBjbHS
-	byjFnOybOzMRlgWemAwBA8DkkM9Q+xavquSQRXNLrVGHZBA/b5WbTsi8LMeqauhEvbdHPy8ZyON
-	Ym7H33sEi4lEvUZU23VUXAl3sHIAWTz7Hf491PWHYV9g9O4egjfDjhq/w4mpQpUv2/YgagqIe95
-	UrvW01/odK6NYKjnNCgO8ljpg0p2UHWyHrmt0Y3LVMNd1oRwfzwhu6Q5IfPFuc91kPMfNw7wc7/
-	Ck5zGwVQmvDnXOgqH3Xdj5G94nFqCz62R5VijG1mp/H9mKVpZ7K1bVPc/ym8p0CdcvfZF2+AwcA
-	gkpDX+kpSC9A3gdZvHQCApLxffzJEj0PVtjfGSvD28hjwswBc2IX1WtwYqvyxV6uXj/hM9Nj9Cu
-	rvENv9KHZv42+E6y4V3sgf0m/yaiL0f4+T47JNYaiRyaU+OVb5f2aF+DF32Ob95J679zf7jnZ4D
-	DAPWF8FF4vf8TPBhGO5PnMZe2huHHY7U+h1yZvBwyxyCTVxnqismG1OvebwLfWepToRj960EBRA
-	CAXhUHPA5Ue/qyXyhFJEfcjlX+So
-X-Received: by 2002:a05:7023:a8b:b0:1b3:af3a:e784 with SMTP id a92af1059eb24-1b5568fe775mr26335922c88.32.1795757048934;
-        Thu, 26 Nov 2026 21:24:08 -0800 (PST)
-Received: from ubuntu.. ([2405:201:8026:213e:d3da:eb46:936a:228a])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386d605c894sm14736480eec.2.2026.11.26.21.24.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 21:24:08 -0800 (PST)
-From: mdshahid03@gmail.com
-To: maddy@linux.ibm.com
-Cc: mpe@ellerman.id.au,
-	npiggin@gmail.com,
-	chleroy@kernel.org,
-	ritesh.list@gmail.com,
-	sshegde@linux.ibm.com,
-	kjain@linux.ibm.com,
-	atrajeev@linux.ibm.com,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	Mohammad Shahid <mdshahid03@gmail.com>
-Subject: [PATCH v2] powerpc/perf: vpa-dtl: fix resource leak on allocation failure
-Date: Fri, 27 Nov 2026 10:53:45 +0530
-Message-ID: <20261127052345.23361-1-mdshahid03@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=jhq3Rn4j
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qDn9JV8D7/SiJUQKLHzNhhXtty7eGEgl0SjBIsDXc3M+lj5cjn1legWX8bUeGoWPjrSJhUaWduP7mo1J+Xi9rgyGStcEOAiaMDQa5GWjJTx6/6ch6my6p92ksPFmVCsG286c+AOZ4hhhK9LN4XBZLw2pO2QxFpa9BmGvbroq3V9xE9tUvuX9jxOVHzgig3ljD5PatIbnnCF0IJXAXnjfxac1CR8/vtWdNXqE1qsqBoSHVYT9RZ5TIJSX5mAjgep7TuWEMDW864vLkSmvzfIZBE2xjAJ+w6mAXxf2xaga8FL5vJZo7MZQjsaKwxlsjjw13zmzY09YJlr2Gn2fwP32Fg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OcW1wa8yNSPpf4GQG7xYqrDfB/Q49hlkLmnT91a1PMM=;
+ b=MyRjyMfu8nSMF+sNQjggrXq9mo6UkqFMNh+QU6FTSFR8VApUIMB8bn5jPubR0a5yTK+A1yL9oRONqXKfpYTGfCVqcVV8iQ0oyNyfsbjzmkDkMWEUANyLfdsq2CiozavMulHk3Ksnq2A2QzIUdpRjhWM3Q/sv3T9KRWJhs9xp6fU5V3aO85S2padVNt1ftYVXe/JKvUWAJUDy+wE+F2UJafYWqi6IfTNqlA2GaUimL56OnB0sh/cdKGgcwHc+i16Q4k9VIvDCGeP3o1TY/BFtlf6rZXrh0mhP3ekJfDWB32Fhmh6N1MbmtwNiUDrZeQR9Ak7p/H0JmDGgMM7ksKXtFQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OcW1wa8yNSPpf4GQG7xYqrDfB/Q49hlkLmnT91a1PMM=;
+ b=jhq3Rn4jkxgkE9nijH5SNiTAo2yUSY/58GtU9O3GcAKNw7ky8hGhN6kuZhk4ppB1sThwejbG5+D2rdDnUVfTouTGHCG/lhyYTXeiYU4l2CjxP/oqa2B8esj99EJN9wVBI57OZe9CC5BABtNyCDRSFtZTz5vWOQeL07fNnK3xTND9IopDapn/LPZn0dVLl3Z69TjnbLhSBNvY3IvdbnhBmWwy8FfDtv9AmPnOUnbbx1hbtj0S3A33ICs7evbmbG/BKsU/2N0FdfEpyamSy864qwhUeSbamcr9N/rYKYQjBanVGynFHN32kH4Cs8xUZUNOB/5bxcYnyvzXt47CFerx8A==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
+ by MW5PR12MB5597.namprd12.prod.outlook.com (2603:10b6:303:192::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 27 Nov
+ 2026 05:24:45 +0000
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
+ 05:24:45 +0000
+From: Mikko Perttunen <mperttunen@nvidia.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Thierry Reding <thierry.reding@kernel.org>,
+ Jonathan Hunter <jonathanh@nvidia.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Jessica Zhang <jesszhan0024@gmail.com>,
+ Svyatoslav Ryhel <clamor95@gmail.com>, devicetree@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Svyatoslav Ryhel <clamor95@gmail.com>
+Subject:
+ Re: [PATCH v8 09/12] drm/tegra: Convert to use atomic versions of
+ drm_encoder_helper_funcs
+Date: Fri, 27 Nov 2026 14:24:41 +0900
+Message-ID: <mxfdX1kqQz209wWYqFOofg@nvidia.com>
+In-Reply-To: <20261122081820.53199-10-clamor95@gmail.com>
+References:
+ <20261122081820.53199-1-clamor95@gmail.com>
+ <20261122081820.53199-10-clamor95@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-ClientProxiedBy: OSTPR01CA0036.jpnprd01.prod.outlook.com
+ (2603:1096:604:21b::9) To SJ2PR12MB9161.namprd12.prod.outlook.com
+ (2603:10b6:a03:566::20)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,80 +110,342 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|MW5PR12MB5597:EE_
+X-MS-Office365-Filtering-Correlation-Id: 052e5f8b-c966-4d71-44de-08df4c46bf6f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|10070799003|376014|1800799024|366016|7416014|22082099003|6133799003|10063799003|18002099003|3023799007|921020|261022075727099003|4143699003|56012099006|261028144727099003|11063799006|261009223027099003|261022105027099003|261021121427099003|261021123027099003|261026140227099003|261102123227099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	MTnMz/Afxv1Aloj1bEg4+qIh0W7gAKvnip/sKTSk14/WDgRBp0nBgl0d27C93/ezhlnQAHqrmosKtle2nogp8EkxX3CiiLC+vtfZCiAm5W94A78mCEc17dSYCD/jt2rSCxib1gChn9GPYvJ+ANxurVmniibb8L1d1lHtARTF1J2HkWRVM165KC3g3ib+M0ECgBPIOpfJ9O9Ur5royBl0zCB5pU8QoT1ieUDh7sxUSMbo62d0S7goWL2h9lb6ob0pOfwE0gbv2exgAWxqmbNq1C5M9nBKJq7uH3I7B/SZD6IHmLKV0h8DZ2b7b2K2lsDgwbcvoYmIC7F3v1FCMBpgnwtu0lg2376oc0CZqGnashR9qo91PSHE7tAkItaVPz3vMj1RqU4YM0D6IbiNz6pUq1ZDMgTSTN1jG77504cXk3FCvT74yfwWUoCIplxb7ToS8rl+gdKoMYS47Fp31hPSYK2KUJJzYPKvV1562SQ+J9mIIa6cpRTfUjoGKAZU9Y8ZtfFbC2Uo6FjmUKx+gBz5i6loNB5/BR4bys6loOx+REuDUijZXcOThLvE22npQQ/pP38LnaOSNPxejLKd2Vd7bCGRDsM48L3XkJb5aJSe9JSqovD3usF6vVyobQOdYd4hiVKv+EPoMdXWRKo4RnLRO9d53FuWAhD+yMEOD74o8aC1Clr+TqG/dye9s+Az0xMNDTHOA9AUiERZw9irBNEVpg==
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(10070799003)(376014)(1800799024)(366016)(7416014)(22082099003)(6133799003)(10063799003)(18002099003)(3023799007)(921020)(261022075727099003)(4143699003)(56012099006)(261028144727099003)(11063799006)(261009223027099003)(261022105027099003)(261021121427099003)(261021123027099003)(261026140227099003)(261102123227099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?OWloT1NkVHoyVDlKWjBjWXZ6TUhVMEJxMGw2a1JhRHlDOUxSUzhFY0FXWVlM?=
+ =?utf-8?B?a1VMTU1uek1ySkhnTjdlVmM5ZlFLVFlsVVBiL09EK1BrcTF0MStDUm8wNjRX?=
+ =?utf-8?B?a29tVmtLZUJXcjE4b1NxVUg5RGJVd1ZoZFpOV0VnZXBrdVk4Y3kvdWd2SENu?=
+ =?utf-8?B?RzhOSUdKNXJveWtjbXVQdEx0dm5SUUxRTVpmSlhKZ2hZQmlzRzZHU1hKMmdN?=
+ =?utf-8?B?ZHF1amxIcURHUTc3RklNdE94WkZTRjZNaDF5Z3dDbDU0OXRLc3R2Vjl2S2ky?=
+ =?utf-8?B?bk91OXI5bm04ZGZsM204akg2Y3VFU01JU0w2Z0lJWlJCQmRERGpicWdUeno4?=
+ =?utf-8?B?MGpTWlB3Y3RTSzdJWC9SWnovb2pRSm1xS3V4Nm41OWJCN3FHaURFbDVKdEFk?=
+ =?utf-8?B?ODV1WDBqSmNmeW1TeWZLaXVaUFA5SzYxL2c0dVZQOWlNK2I2dFhDT2ZnNUs1?=
+ =?utf-8?B?bXNibm1MSmVDTEw2d1JJU05OMUxQU25oS2hnSmJGdHRTM0xXVkpYUlNnUmJ1?=
+ =?utf-8?B?Qy9oM1BqZWNuMElOOW1IcVc1K2xoVlRRSzc5V3E0VTBHaHBSODJxbFAxdU9h?=
+ =?utf-8?B?MWV6WGtZL1JrUHkyaDJ3K0dTUUptVWFoNzdyNW9NUUNEaTlETTd2MnJvTTE4?=
+ =?utf-8?B?dzBJS0g3RWtkMlhScWdIQllxNTVYUWF3WjNRNTd5a1FMdzdzVjArZkVTZ0NU?=
+ =?utf-8?B?TFpJTHVsQlFLM290RnZDODRZdzM1UUVzeXJoZ3ZtK2pIQVZyd1Z5WkY0cnBB?=
+ =?utf-8?B?KytuZjc3QTdtNit3aEkram1jTkp2Z2FsUFhaMndtVFZuUmxiNDFFeVNveVE5?=
+ =?utf-8?B?WlJYRldTanhFeVEwUWEzbm9jNFAxVFQ3T2t3ejY3MWVGaWxYYXdaSlREUGpz?=
+ =?utf-8?B?T1R5WVV5eFBsaWtGa2ZoLzl1c3F6WTRhMnk3SktQWk1wRDF0Q05COFJnNkxh?=
+ =?utf-8?B?U0xnT3EybGxuaE50RElVc1FhU3hySTl3RjBVQ1pmSnJ5RHZZaE9teGNYVmky?=
+ =?utf-8?B?NEdKOFdRbHV1SEVzKzFKODRYUkxOc0hLTERwQ1kyaENzQS9RT2d0cC9Ud2I1?=
+ =?utf-8?B?WHZPd05zbGFLTGt2UUd0c0JXeW95WCt0WndIRjB4R0d2NXBjaUMycjZ4ZGRp?=
+ =?utf-8?B?bjlxVVVabEZpS3RnVHFuaDg4VDE0NjQ2RC9EcExSZnV5R2wxbzBmQ1pkWWF2?=
+ =?utf-8?B?QXdOS0lWNllvYW1BOWJyRTlNUkdKNE11Y0crYW9GZVpzMm5RemZlWmZVTE5G?=
+ =?utf-8?B?aUc1RjduSEdQZ1U2NjNPUlgyeXVQb01iZWIxUnZuWkQ0RmJrV2hsVXJBUXl5?=
+ =?utf-8?B?S0hwbkN2LysrOFZXdUdZUzVjZGkrZ2xpMllqdUlnZHRWYWgwYzUyaG9MV2Yv?=
+ =?utf-8?B?azFuM1MvM0lVdkhhTEo5NmlrQ3JkSjdRY3lQempERjBkVGNZRmJETit3Qmd4?=
+ =?utf-8?B?Tk83Wk5CazlOcStFcHNRVEdsVnR2Nkt3c3M0VUJmZkJMeENhcDhrQUF5OUln?=
+ =?utf-8?B?a3hlUVNjN3VoQ0NVWnJOT0dqV3VrQTZsdUU4d01GWkZHYmZNOHZuUml0SllU?=
+ =?utf-8?B?NHVvYTdaR2ZNaXNoOHJTZ1RhV3dtSTlOR0pydklKN1pCc2o2bmpxVU42cExk?=
+ =?utf-8?B?Q1FXaTljQzlDVlhPZElRZllhckE1Ly9yd3JUVkVuQmErUXlMQUV0OEE0VkNq?=
+ =?utf-8?B?aDl6YzhJaHlVVFk2LzBsYjROem1LTmc3RS9GcEpUUzNWbUVTbWtvQzdEZkN4?=
+ =?utf-8?B?MHJMZGQ4NXVCSWx4ZFFGSVVLNm1oNllnUzJBUFpGQzdmWTRiZXRlUnFGb2oz?=
+ =?utf-8?B?SkthdGhiMG45dDNIbklVTTc4OEdOcFZTdVRvOTRwM3ZadFJjenNpZklNbE45?=
+ =?utf-8?B?RUhjMWZZWjFaZWQ2L1M4YSt4cEN6QlpPZEFuL2ExY3R6Y3FBSkhvK0IvUllS?=
+ =?utf-8?B?bGdiZzVGdU1iS1dwckZ1L2RJRVI1Sm1nNkN6bW5HTU1sMm5kNjRTV05aanNt?=
+ =?utf-8?B?Y0JWNHpvUmMzdmdSOUZSdjZManVvbHdkVS93REE5NSs5S21yUWxqcVowZjVt?=
+ =?utf-8?B?bi9BUWZUUE1ReFE0Vm5yRnd5NVZTdG8vbUhhZldqV3BXTU9LY0piSnh5MDFH?=
+ =?utf-8?B?ejZLUW5HUVgxM1ZPeW14Z1MxT3B3eTZ5ek9hd3lpZlJCb1VBVTlOa2RWWS9s?=
+ =?utf-8?B?WFNYb2VPdXQzQlZBSUswdFJTQURtS0VFbUROWCtGZWhXbFp3US96aHFXaG5W?=
+ =?utf-8?B?OVlPSzVDMXpMU0ozbXd5K0ZIMklmU2M4OHVZQ3N4TkkwaFZGY1U2S3hwMldn?=
+ =?utf-8?B?WjZKVHdJUkV2bFZZUUFmMFY1UXVlTmV5L3RnZUtXcXF6Tjhvc0pWZlF2K3JJ?=
+ =?utf-8?Q?Pw+watB6yDZICcSR09MRw5s3Pa7cthZxWbwdFJ/JqUYKv?=
+X-MS-Exchange-AntiSpam-MessageData-1: C22mCmioxOehYQ==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 052e5f8b-c966-4d71-44de-08df4c46bf6f
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 05:24:45.3867
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OSOq1sAtlJFYfcA0zWLKsASZICTDhsTGPcDB7zKClbH2puu25q7pZz4HHurk5tu0I6YiZMp0f2Id3qZMDmUgng==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR12MB5597
 
-From: Mohammad Shahid <mdshahid03@gmail.com>
+On Sunday, November 22, 2026 5:18=E2=80=AFPM Svyatoslav Ryhel wrote:
+> Switch to using the atomic versions of the enable() and disable()
+> operations.
+>=20
+> This is required for acquiring the next bridge state without causing
+> crashes, in order to properly set up the encoder.
 
-vpa_dtl_event_init() allocates the DTL buffer while holding
-dtl_global_lock. Move the allocation before acquiring the spinlock
-to avoid performing memory allocation while holding a spinlock.
+This is a bit vague. I'd make an explicit reference to RGB needing=20
+access to the bridge state, which is not possible with the non-atomic=20
+functions, and then explaining that DSI / HDMI / SOR are converted for=20
+consistency.
 
-Since the buffer is allocated before acquiring dtl_access_lock
-allocation failure can be returned directly without releasing the
-semaphore.
+>=20
+> Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
+> ---
+>  drivers/gpu/drm/tegra/dsi.c  | 20 +++++++++++++++-----
+>  drivers/gpu/drm/tegra/hdmi.c | 20 +++++++++++++++-----
+>  drivers/gpu/drm/tegra/rgb.c  | 23 +++++++++++++++++------
+>  drivers/gpu/drm/tegra/sor.c  | 18 +++++++++++++-----
+>  4 files changed, 60 insertions(+), 21 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/tegra/dsi.c b/drivers/gpu/drm/tegra/dsi.c
+> index 6d6adc485e51e..cd61070072beb 100644
+> --- a/drivers/gpu/drm/tegra/dsi.c
+> +++ b/drivers/gpu/drm/tegra/dsi.c
+> @@ -855,7 +855,8 @@ static void tegra_dsi_unprepare(struct tegra_dsi *dsi=
+)
+>  		dev_err(dsi->dev, "failed to suspend: %d\n", err);
+>  }
+> =20
+> -static void tegra_dsi_encoder_disable(struct drm_encoder *encoder)
+> +static void tegra_dsi_encoder_disable(struct drm_encoder *encoder,
+> +				      struct drm_atomic_commit *comm_state)
+>  {
+>  	struct tegra_output *output =3D encoder_to_output(encoder);
+>  	struct tegra_dc *dc =3D to_tegra_dc(encoder->crtc);
+> @@ -919,16 +920,25 @@ static int tegra_dsi_prepare(struct tegra_dsi *dsi)
+>  	return 0;
+>  }
+> =20
+> -static void tegra_dsi_encoder_enable(struct drm_encoder *encoder)
+> +static void tegra_dsi_encoder_enable(struct drm_encoder *encoder,
+> +				     struct drm_atomic_commit *comm_state)
+>  {
+> -	struct drm_display_mode *mode =3D &encoder->crtc->state->adjusted_mode;
+>  	struct tegra_output *output =3D encoder_to_output(encoder);
+>  	struct tegra_dc *dc =3D to_tegra_dc(encoder->crtc);
+> +	struct drm_connector_state *conn_state;
+>  	struct tegra_dsi *dsi =3D to_dsi(output);
+> +	struct drm_crtc_state *crtc_state;
+> +	struct drm_connector *connector;
+>  	struct tegra_dsi_state *state;
+> +	struct drm_display_mode *mode;
+>  	u32 value;
+>  	int err;
+> =20
+> +	connector =3D drm_atomic_get_new_connector_for_encoder(comm_state, enco=
+der);
+> +	conn_state =3D drm_atomic_get_new_connector_state(comm_state, connector=
+);
+> +	crtc_state =3D drm_atomic_get_new_crtc_state(comm_state, conn_state->cr=
+tc);
+> +	mode =3D &crtc_state->adjusted_mode;
+> +
+>  	err =3D tegra_dsi_prepare(dsi);
+>  	if (err < 0) {
+>  		dev_err(dsi->dev, "failed to prepare: %d\n", err);
 
-Free the allocated buffer if acquiring dtl_access_lock fails.
+The function also uses encoder->crtc and tegra_dsi_get_state. Should=20
+these be changed to conn_state->crtc and to_dsi_state(conn_state)?
 
-Fixes: 4708fba19ade ("powerpc/vpa_dtl: Add interface to expose vpa dtl counters via perf")
-Suggested-by: Athira Rajeev <atrajeev@linux.ibm.com>
+Similarly for HDMI / SOR.
 
-Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
----
- arch/powerpc/perf/vpa-dtl.c | 19 ++++++++++---------
- 1 file changed, 10 insertions(+), 9 deletions(-)
+> @@ -1059,8 +1069,8 @@ static const struct drm_encoder_funcs tegra_dsi_enc=
+oder_funcs =3D {
+>  };
+> =20
+>  static const struct drm_encoder_helper_funcs tegra_dsi_encoder_helper_fu=
+ncs =3D {
+> -	.disable =3D tegra_dsi_encoder_disable,
+> -	.enable =3D tegra_dsi_encoder_enable,
+> +	.atomic_disable =3D tegra_dsi_encoder_disable,
+> +	.atomic_enable =3D tegra_dsi_encoder_enable,
+>  	.atomic_check =3D tegra_dsi_encoder_atomic_check,
+>  };
+> =20
+> diff --git a/drivers/gpu/drm/tegra/hdmi.c b/drivers/gpu/drm/tegra/hdmi.c
+> index e8c4347f09e69..a78279810dd82 100644
+> --- a/drivers/gpu/drm/tegra/hdmi.c
+> +++ b/drivers/gpu/drm/tegra/hdmi.c
+> @@ -1166,7 +1166,8 @@ tegra_hdmi_connector_helper_funcs =3D {
+>  	.mode_valid =3D tegra_hdmi_connector_mode_valid,
+>  };
+> =20
+> -static void tegra_hdmi_encoder_disable(struct drm_encoder *encoder)
+> +static void tegra_hdmi_encoder_disable(struct drm_encoder *encoder,
+> +				       struct drm_atomic_commit *comm_state)
+>  {
+>  	struct tegra_output *output =3D encoder_to_output(encoder);
+>  	struct tegra_dc *dc =3D to_tegra_dc(encoder->crtc);
+> @@ -1209,18 +1210,27 @@ static void tegra_hdmi_encoder_disable(struct drm=
+_encoder *encoder)
+>  		dev_err(hdmi->dev, "failed to suspend: %d\n", err);
+>  }
+> =20
+> -static void tegra_hdmi_encoder_enable(struct drm_encoder *encoder)
+> +static void tegra_hdmi_encoder_enable(struct drm_encoder *encoder,
+> +				      struct drm_atomic_commit *comm_state)
+>  {
+> -	struct drm_display_mode *mode =3D &encoder->crtc->state->adjusted_mode;
+>  	unsigned int h_sync_width, h_front_porch, h_back_porch, i, rekey;
+>  	struct tegra_output *output =3D encoder_to_output(encoder);
+>  	struct tegra_dc *dc =3D to_tegra_dc(encoder->crtc);
+>  	struct tegra_hdmi *hdmi =3D to_hdmi(output);
+> +	struct drm_connector_state *conn_state;
+> +	struct drm_crtc_state *crtc_state;
+>  	unsigned int pulse_start, div82;
+> +	struct drm_connector *connector;
+> +	struct drm_display_mode *mode;
+>  	int retries =3D 1000;
+>  	u32 value;
+>  	int err;
+> =20
+> +	connector =3D drm_atomic_get_new_connector_for_encoder(comm_state, enco=
+der);
+> +	conn_state =3D drm_atomic_get_new_connector_state(comm_state, connector=
+);
+> +	crtc_state =3D drm_atomic_get_new_crtc_state(comm_state, conn_state->cr=
+tc);
+> +	mode =3D &crtc_state->adjusted_mode;
+> +
+>  	err =3D host1x_client_resume(&hdmi->client);
+>  	if (err < 0) {
+>  		dev_err(hdmi->dev, "failed to resume: %d\n", err);
+> @@ -1460,8 +1470,8 @@ tegra_hdmi_encoder_atomic_check(struct drm_encoder =
+*encoder,
+>  }
+> =20
+>  static const struct drm_encoder_helper_funcs tegra_hdmi_encoder_helper_f=
+uncs =3D {
+> -	.disable =3D tegra_hdmi_encoder_disable,
+> -	.enable =3D tegra_hdmi_encoder_enable,
+> +	.atomic_disable =3D tegra_hdmi_encoder_disable,
+> +	.atomic_enable =3D tegra_hdmi_encoder_enable,
+>  	.atomic_check =3D tegra_hdmi_encoder_atomic_check,
+>  };
+> =20
+> diff --git a/drivers/gpu/drm/tegra/rgb.c b/drivers/gpu/drm/tegra/rgb.c
+> index 227a178f761bd..d48d498068ac8 100644
+> --- a/drivers/gpu/drm/tegra/rgb.c
+> +++ b/drivers/gpu/drm/tegra/rgb.c
+> @@ -90,7 +90,8 @@ static void tegra_dc_write_regs(struct tegra_dc *dc,
+>  		tegra_dc_writel(dc, table[i].value, table[i].offset);
+>  }
+> =20
+> -static void tegra_rgb_encoder_disable(struct drm_encoder *encoder)
+> +static void tegra_rgb_encoder_disable(struct drm_encoder *encoder,
+> +				      struct drm_atomic_commit *state)
+>  {
+>  	struct tegra_output *output =3D encoder_to_output(encoder);
+>  	struct tegra_rgb *rgb =3D to_rgb(output);
+> @@ -99,12 +100,22 @@ static void tegra_rgb_encoder_disable(struct drm_enc=
+oder *encoder)
+>  	tegra_dc_commit(rgb->dc);
+>  }
+> =20
+> -static void tegra_rgb_encoder_enable(struct drm_encoder *encoder)
+> +static void tegra_rgb_encoder_enable(struct drm_encoder *encoder,
+> +				     struct drm_atomic_commit *state)
+>  {
+> -	struct drm_display_mode *mode =3D &encoder->crtc->state->adjusted_mode;
+>  	struct tegra_output *output =3D encoder_to_output(encoder);
+>  	struct tegra_rgb *rgb =3D to_rgb(output);
+> -	u32 value;
+> +	struct drm_connector_state *conn_state;
+> +	struct drm_crtc_state *crtc_state;
+> +	struct drm_connector *connector;
+> +	struct drm_display_mode *mode;
+> +	u32 bus_flags, value;
+> +
+> +	/* Get mode flags */
+> +	connector =3D drm_atomic_get_new_connector_for_encoder(state, encoder);
+> +	conn_state =3D drm_atomic_get_new_connector_state(state, connector);
+> +	crtc_state =3D drm_atomic_get_new_crtc_state(state, conn_state->crtc);
+> +	mode =3D &crtc_state->adjusted_mode;
+> =20
+>  	tegra_dc_write_regs(rgb->dc, rgb_enable, ARRAY_SIZE(rgb_enable));
+> =20
+> @@ -201,8 +212,8 @@ static const struct drm_encoder_funcs tegra_rgb_encod=
+er_funcs =3D {
+>  };
+> =20
+>  static const struct drm_encoder_helper_funcs tegra_rgb_encoder_helper_fu=
+ncs =3D {
+> -	.disable =3D tegra_rgb_encoder_disable,
+> -	.enable =3D tegra_rgb_encoder_enable,
+> +	.atomic_disable =3D tegra_rgb_encoder_disable,
+> +	.atomic_enable =3D tegra_rgb_encoder_enable,
+>  	.atomic_check =3D tegra_rgb_encoder_atomic_check,
+>  };
+> =20
+> diff --git a/drivers/gpu/drm/tegra/sor.c b/drivers/gpu/drm/tegra/sor.c
+> index ebac9068b670f..45a9ea94c4355 100644
+> --- a/drivers/gpu/drm/tegra/sor.c
+> +++ b/drivers/gpu/drm/tegra/sor.c
+> @@ -2203,7 +2203,8 @@ static void tegra_sor_hdmi_scdc_start(struct tegra_=
+sor *sor)
+>  	}
+>  }
+> =20
+> -static void tegra_sor_hdmi_disable(struct drm_encoder *encoder)
+> +static void tegra_sor_hdmi_disable(struct drm_encoder *encoder,
+> +				   struct drm_atomic_commit *comm_state)
+>  {
+>  	struct tegra_output *output =3D encoder_to_output(encoder);
+>  	struct tegra_dc *dc =3D to_tegra_dc(encoder->crtc);
+> @@ -2244,13 +2245,17 @@ static void tegra_sor_hdmi_disable(struct drm_enc=
+oder *encoder)
+>  	host1x_client_suspend(&sor->client);
+>  }
+> =20
+> -static void tegra_sor_hdmi_enable(struct drm_encoder *encoder)
+> +static void tegra_sor_hdmi_enable(struct drm_encoder *encoder,
+> +				  struct drm_atomic_commit *comm_state)
+>  {
+>  	struct tegra_output *output =3D encoder_to_output(encoder);
+>  	unsigned int h_ref_to_sync =3D 1, pulse_start, max_ac;
+>  	struct tegra_dc *dc =3D to_tegra_dc(encoder->crtc);
+>  	struct tegra_sor_hdmi_settings *settings;
+> +	struct drm_connector_state *conn_state;
+>  	struct tegra_sor *sor =3D to_sor(output);
+> +	struct drm_crtc_state *crtc_state;
+> +	struct drm_connector *connector;
+>  	struct tegra_sor_state *state;
+>  	struct drm_display_mode *mode;
+>  	unsigned long rate, pclk;
+> @@ -2259,7 +2264,10 @@ static void tegra_sor_hdmi_enable(struct drm_encod=
+er *encoder)
+>  	int err;
+> =20
+>  	state =3D to_sor_state(output->connector.state);
+> -	mode =3D &encoder->crtc->state->adjusted_mode;
+> +	connector =3D drm_atomic_get_new_connector_for_encoder(comm_state, enco=
+der);
+> +	conn_state =3D drm_atomic_get_new_connector_state(comm_state, connector=
+);
+> +	crtc_state =3D drm_atomic_get_new_crtc_state(comm_state, conn_state->cr=
+tc);
+> +	mode =3D &crtc_state->adjusted_mode;
+>  	pclk =3D mode->clock * 1000;
+> =20
+>  	err =3D host1x_client_resume(&sor->client);
+> @@ -2657,8 +2665,8 @@ static void tegra_sor_hdmi_enable(struct drm_encode=
+r *encoder)
+>  }
+> =20
+>  static const struct drm_encoder_helper_funcs tegra_sor_hdmi_helpers =3D =
+{
+> -	.disable =3D tegra_sor_hdmi_disable,
+> -	.enable =3D tegra_sor_hdmi_enable,
+> +	.atomic_disable =3D tegra_sor_hdmi_disable,
+> +	.atomic_enable =3D tegra_sor_hdmi_enable,
+>  	.atomic_check =3D tegra_sor_encoder_atomic_check,
+>  };
+> =20
+> --=20
+> 2.53.0
+>=20
+>=20
 
-diff --git a/arch/powerpc/perf/vpa-dtl.c b/arch/powerpc/perf/vpa-dtl.c
-index 20eafeaffa6b..57bc5773949f 100644
---- a/arch/powerpc/perf/vpa-dtl.c
-+++ b/arch/powerpc/perf/vpa-dtl.c
-@@ -338,7 +338,7 @@ static int vpa_dtl_mem_alloc(int cpu)
- 	if (!dtl_cache)
- 		return -ENOMEM;
- 
--	buf = kmem_cache_alloc_node(dtl_cache, GFP_KERNEL | GFP_ATOMIC, cpu_to_node(cpu));
-+	buf = kmem_cache_alloc_node(dtl_cache, GFP_KERNEL, cpu_to_node(cpu));
- 	if (!buf) {
- 		pr_warn("buffer allocation failed for cpu %d\n", cpu);
- 		return -ENOMEM;
-@@ -350,6 +350,7 @@ static int vpa_dtl_mem_alloc(int cpu)
- static int vpa_dtl_event_init(struct perf_event *event)
- {
- 	struct hw_perf_event *hwc = &event->hw;
-+	struct vpa_dtl *dtl = &per_cpu(vpa_dtl_cpu, event->cpu);
- 
- 	/* test the event attr type for PMU enumeration */
- 	if (event->attr.type != event->pmu->type)
-@@ -377,6 +378,10 @@ static int vpa_dtl_event_init(struct perf_event *event)
- 		return -EINVAL;
- 	}
- 
-+	/* Allocate before taking the global spinlock */
-+	if (vpa_dtl_mem_alloc(event->cpu))
-+		return -ENOMEM;
-+
- 	spin_lock(&dtl_global_lock);
- 
- 	/*
-@@ -391,15 +396,11 @@ static int vpa_dtl_event_init(struct perf_event *event)
- 	 */
- 	if (dtl_global_refc == 0 && !down_write_trylock(&dtl_access_lock)) {
- 		spin_unlock(&dtl_global_lock);
--		return -EBUSY;
--	}
-+		/* Release the buffer allocated above */
-+		kmem_cache_free(dtl_cache, dtl->buf);
-+		dtl->buf = NULL;
- 
--	/* Allocate dtl buffer memory */
--	if (vpa_dtl_mem_alloc(event->cpu)) {
--		if (dtl_global_refc == 0)
--			up_write(&dtl_access_lock);
--		spin_unlock(&dtl_global_lock);
--		return -ENOMEM;
-+		return -EBUSY;
- 	}
- 
- 	/*
--- 
-2.43.0
+
+
 
