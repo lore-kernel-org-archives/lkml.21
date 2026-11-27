@@ -1,57 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795800511;
-	b=AJ8D4LcIdD7U4bEHShFgrfeumbSCfT66DBes53oDOloc1iSnAK8IlaDNRJ2reBgnX6Vw
-	 UUYCDOHEMHhUc0Ng+RY+J0Fw+Lc+115+uzVmGfYaj09QUppPOCWTpPrWaWSe4fLSfPh/t
-	 aVpgnwvvPFecm2DOKj9UydAtOWJcBJYkcBkzDz5g9lMrWLEw/x8aInPVVjmdtgYq+M/Ma
-	 LlETVO4T3NvQblAcQlgW20zhG5PtoQu83ZHjacn6pRnH2Hr4tk2KkS4aCpQlO4pqvxG5+
-	 QJV2SN+7RKEiHmh++cd1DfQ+uQ+o6g4wPBjFVoPGe0MmPnLyxcd2BI+IVlKaeUPAcIQ==
+	t=1795800587;
+	b=bhdr9F/rhSlnLCHYOK7r8s58JXbtMe+hzStz0zVIoG0V9c7ZK808X/oZ3z5yHwXsAagY
+	 ACLcM8Ov0BId5JTcp+JHWa9fEcrYVT/9izt+2FUUEJHVEErUSy8pbtDqJqcGAjT65VQou
+	 8naLbf+HELITvTkDm+38Calng5kOzR9XR3gEpfHYOV2Y3M6AV2i05beyKAU8iVVstpT/0
+	 ksa8fpljyJ6yG0cemePjmq35RV6tH4DqwjsehePslnTH7lWdAWR5I4t1yj0dzgDlfXr8a
+	 AkmWQ9KU+qlWUy7tFy/ZpFR5684icaTj8klglFS8KfZSwO08gMbKPHGlPm9DcGFK6bg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795800511;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=IBu0HA6hJlpz85DSvdGM2TgmdFaDpZLyEz7AbufuMnU=;
-	b=TxLoQJpIt2FUEHxR8p6ch1ri+Jna9dWkB1z50N0wxDsnwrbGfEEeDa1hz46/kIGpszVY
-	 KoKrTBWbH7EbbxJtKU5b3vazuFMLWt28Y9mdjeRTZhsD5tw7Ts8dcmBrCBdlsE0kin7V5
-	 s4kY1JYtOzDZvYWucPYdnke033w7h74eTCbPR2zhZNc71isxo6VtTuPKwTeOy344QfbMs
-	 t+Jbh5ZcI0tHJ2HDozdQzQPAea/UBrHd0kcgb4tutZqovCMvx23jG/dB0Eelf90zQH/e8
-	 5avbv/VFwt7BuipDm1JWAbaiposP3bzzdyKFlh2TyW6JK2aUtEoyhkW5uG6kU5QcLsw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795800587;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=htgkc1niw9wiArafcYtBRNur9uqGXrmAC1AoCVzanjA=;
+	b=U6eOxQGJPz8v+c3O1EV8Qf3esPf5aP7lWLeqJmb4ArafcHYw22EOpIsDpv1NBRE8jHNY
+	 o+Hc6geomoeBP4HnbNFtENQ/mHp4CzHLdGnUg4zUfye0ic2ZY6VypLJhW410ps2eVtFDY
+	 nRBqbDMqRfbkTVHqWSHfdYVvosFSufBpqgo7AAgjxxDurISHzYJEjuww+OU02maLrihOZ
+	 gKHlnm3JIpL4qZ77KrctoI1Y09lzlS2iToB1acj1AxlPhs5C8e1ibeuU3QfT60woh8Fb3
+	 5nVxzrYu0rZ9Y3wqNjN9hmWb9vhIuWuV3zNVQqA3metmMxnIyEx9J1gyuBKi2rUfOkA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F3N3d1BY;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iVLtX7+S;
+	arc=none smtp.remote-ip=209.85.215.174
+Received: from mail-pg1-f174.google.com (mail-pg1-f174.google.com [209.85.215.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 094BB606A333;
-	Fri, 27 Nov 2026 17:28:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B032606A31F
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:29:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B032606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F3N3d1BY
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2434F1F00898;
-	Fri, 27 Nov 2026 17:28:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795800510;
-	bh=IBu0HA6hJlpz85DSvdGM2TgmdFaDpZLyEz7AbufuMnU=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=F3N3d1BYrocGazZc6rJVbSCw22opLG5i0HjtwWnTmvpvrOb5/Ds72dvVvTX52WErF
-	 bXadGhXXfyRg799SoQOyei8f9s4hiuVERBY5FTcvKFhf4RKmSJJxXewahBaV0q35Hz
-	 bY2ngZ1UkaamkyH459QT9Ugcmj/vRkl0eisBcEq0p+rBu/ekd8DtD662Sjso+G6K2g
-	 mEnmDt3d8bZEwwJCcBtrHJ7xCG9ocZOe/98gGEycq+/I1OmOrDB38WZe4piSAOl9dn
-	 UWDLv32YbBNMAbUyXtlWQJX2/9vsbYXCHSblcBPwdmjDHkKjnIT9fQ84jj3+JPVV9W
-	 xyAJK7xRTt+Jw==
-Message-ID: <sashiko-outbox-237990@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v12 31/43] sched/deadline: Restore the owner's period at
- a deboost out of the class
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <a802201284a7bff640a793ee06356eda187bf59e.1795771148.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795771147.git.mathieu.desnoyers@efficios.com>
- <a802201284a7bff640a793ee06356eda187bf59e.1795771148.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 27 Nov 2026 17:28:29 +0000
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iVLtX7+S
+Received: by mail-pg1-f174.google.com with SMTP id 41be03b00d2f7-cdece95eca4so430342a12.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:29:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795800587; x=1796405387; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=htgkc1niw9wiArafcYtBRNur9uqGXrmAC1AoCVzanjA=;
+        b=iVLtX7+SSFDbYIrS6OVPSAo5t6IxcggXI+nGE07dNPr9uGcW/Z5pqy2m4To8SI3kuO
+         6mgwfgKRNKrR58YbGrnXgPu2bBDfl7qXjz+dqhZp3yyQKj4NXR3bjDGCzaJtUq24h19j
+         5h/vQ8hNQaZxnjcAVudhI973lqmvqx95HKJ0l7/TGFWbA3rKpEFC/zh7pc0Z4Kjk+OPr
+         w7VjHCAVeCmRUIdmpfnDvg+4v6FdRHO1Tej6Ju6r77R0i0IQmXVsCDsVGRWdKtMEsjza
+         nXEaoCIog6vYmZxx4ZJpVaBI/uv9S19AWgsfYrT0NYCj2YfVLnlJHX7oGsVrdKITx+T2
+         ol7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795800587; x=1796405387;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=htgkc1niw9wiArafcYtBRNur9uqGXrmAC1AoCVzanjA=;
+        b=dAALLvUF4UCgId+okiy4UPDqbcx76FSHyqaGRls4NEMPnRuVxthEl3VTlsHjwRUOmX
+         SoSAAOY0w1CnT67J1bDXqOnP9j8QGo/ATwgxozKKouC+Vnbt9r23YpWwVW6zyY3Z2DPV
+         eOyL6DxpWhkt/aEz5icNLOV77xh9Jol2sMzBbBk58KmMw1stYp3dybhdRd4pQF3ITzuA
+         RlTURGLNcmdOIeqQGl6ZLXCJ2azMVAM1k0N+23uK9eLpLru70cPnxCXTD42G/k9OVTu1
+         Pi4RIMYfiO6G4RcNnbCYUNFpNPo1oqNFH+TpS/MolRgxRetacFRHfKWglwfjJ+F4qwL1
+         dnGA==
+X-Forwarded-Encrypted: i=1; AL+hErHjJ2WbTuLLLHxPs0s4PJigyPvau3n+gVUMwxxKNRO6T4pfaQ7qr5xPl7knPRShR21yNPZf14c9+MXOQMQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+MKmZUUCIqsqkikI+lrcFHQWdtcaiXnQ9mdUMvEjXcTWlLY8Ab
+	LYJgTlNLVIkaSsIQtrCk2HC9oKguP86bP6+zw5vUCxD7Iptp4ZOy7Dpq
+X-Gm-Gg: AZFdTZerzDVMBaU76uSwPHJBmW4tQ7AVwAWtDWmSUj3poE5P0ihqglj63ZOWYeo9ShK
+	TbFgxPUZ17D3sg6YHtUH7eYSTw7tuoQEOHK4Dac2QRj3Tpl3LGMKTPtmbBuXzee28z0OXbso4jK
+	fYQAT20zbmQXBeKwmaldBGZMCEnLhdqWL7yKOfpqu8Ws7zeQpLRWubJjK+ukdRshEP4pcWKttYq
+	j00xrsrX3D8mol88sBmVB0t5HcbvjMuEteEyxlplaY8rdnMkupWZaj7ehkBD0uGmnlf7bWU37rb
+	B8ct8GEzhyOd+Uxvc2p2NTs96vdOa+bjG1ng1e0TniioA+1pGVX4we1A4Mxki45wjJ8G6R/VCAy
+	uA6mwmOfy6sYlxGvLmtshra+vogNSdgo6h+rfQBuDINFGdDEtkcqq9qXt1fJPPqnHznKXuXk5Q7
+	stc7asvOSaLKSTjsVPhG+tZk44mcBRQ2sxm4D7NZFoUmNWgEae81IkH00Zge9i0rJJOKp8wDYAx
+	JbCVFPTOUDowoXISEaFqDJyCkQeDQyV6lq42DcZy26/OegFQrujx8t4nO3jdS6b3JvfQuclP0eL
+	LtuJZsZh9lc3rtNhG42jBU8q0gnwvhcJq1vSkvYiFqEjzFL0YrI=
+X-Received: by 2002:a17:90b:248e:b0:3b5:35eb:5e85 with SMTP id 98e67ed59e1d1-3b535eb5f39mr2367200a91.2.1795800586587;
+        Fri, 27 Nov 2026 09:29:46 -0800 (PST)
+Received: from google.com ([118.150.148.19])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d05782asm12632435a12.24.2026.11.27.09.29.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 09:29:46 -0800 (PST)
+Date: Sat, 28 Nov 2026 01:29:42 +0800
+From: Kuan-Wei Chiu <visitorckw@gmail.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH RESEND] clocksource/timer-riscv: use
+ riscv_has_extension_likely
+Message-ID: <awm-BjjOPxHo2n2E@google.com>
+References: <20261107134952.17873-1-jszhang@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,73 +99,95 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261107134952.17873-1-jszhang@kernel.org>
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue to consider:
-- [Medium] sched/deadline: unreplenished wakeup of boosted task with
-  zero runtime
---
+Hi Jisheng,
 
-commit 0aea8c212d9bcdc25976b70fd796e3d1b02c40e5
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+On Sat, Nov 07, 2026 at 09:49:52PM +0800, Jisheng Zhang wrote:
+> Instead of static branch, use riscv_has_extension_likely() to check
+> whether SSTC is supported or not. For one thing, this is straight
+> forward, no need to add and enable/disable a static branch during
+> probe; For another, riscv_has_extension_likely() is based on
+> alternative mechanism, it avoid some downsides of static branch, for
+> example static branch's metadata in the __jump_table section, which is
+> not discarded after ISA extensions are finalized, wastes some space.
 
-sched/deadline: Restore the owner's period at a deboost out of the class
+After reading the __jump_table note above, I checked the generated
+timer-riscv.o. One side effect I noticed in the disassembly is that gcc
+stops inlining riscv_clock_event_stop() with the alternative asm, so
+riscv_timer_interrupt() ends up doing an extra call/ret plus a stack
+spill/reload on every timer irq.
 
-This commit restores a task's own deadline and runtime (or starts a new
-period) in switched_from_dl() when leaving SCHED_DEADLINE after a donor
-refill, and throttles unboosted tasks with no remaining runtime on
-enqueue.
+Not sure if it's worth worrying about, or if marking
+riscv_clock_event_stop() inline makes sense to keep the irq path flat.
 
-> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-> index 9c707512d93d8..6e20efb863594 100644
-> --- a/kernel/sched/deadline.c
-> +++ b/kernel/sched/deadline.c
-> @@ -3132,6 +3132,21 @@ enqueue_dl_entity(struct sched_dl_entity *dl_se, i=
-nt flags)
->  		setup_new_dl_entity(dl_se);
+Otherwise, I tested this on qemu virt smp for both rv64 and rv32 with
+sstc enabled and disabled, including cpu hotplug, and everything worked
+fine.
+
+Tested-by: Kuan-Wei Chiu <visitorckw@gmail.com>
+
+Regards,
+Kuan-Wei
+
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  drivers/clocksource/timer-riscv.c | 11 ++++-------
+>  1 file changed, 4 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+> index b310e6721fac..151f4f0cfd6c 100644
+> --- a/drivers/clocksource/timer-riscv.c
+> +++ b/drivers/clocksource/timer-riscv.c
+> @@ -29,12 +29,11 @@
+>  #include <asm/sbi.h>
+>  #include <asm/timex.h>
+>  
+> -static DEFINE_STATIC_KEY_FALSE(riscv_sstc_available);
+>  static bool riscv_timer_cannot_wake_cpu;
+>  
+>  static void riscv_clock_event_stop(void)
+>  {
+> -	if (static_branch_likely(&riscv_sstc_available)) {
+> +	if (riscv_has_extension_likely(RISCV_ISA_EXT_SSTC)) {
+>  		csr_write(CSR_STIMECMP, ULONG_MAX);
+>  		if (IS_ENABLED(CONFIG_32BIT))
+>  			csr_write(CSR_STIMECMPH, ULONG_MAX);
+> @@ -48,7 +47,7 @@ static int riscv_clock_next_event(unsigned long delta,
+>  {
+>  	u64 next_tval = get_cycles64() + delta;
+>  
+> -	if (static_branch_likely(&riscv_sstc_available)) {
+> +	if (riscv_has_extension_likely(RISCV_ISA_EXT_SSTC)) {
+>  #if defined(CONFIG_32BIT)
+>  		csr_write(CSR_STIMECMP, ULONG_MAX);
+>  		csr_write(CSR_STIMECMPH, next_tval >> 32);
+> @@ -112,7 +111,7 @@ static int riscv_timer_starting_cpu(unsigned int cpu)
+>  	ce->irq = riscv_clock_event_irq;
+>  	if (riscv_timer_cannot_wake_cpu)
+>  		ce->features |= CLOCK_EVT_FEAT_C3STOP;
+> -	if (static_branch_likely(&riscv_sstc_available))
+> +	if (riscv_has_extension_likely(RISCV_ISA_EXT_SSTC))
+>  		ce->rating = 450;
+>  	clockevents_config_and_register(ce, riscv_timebase, 100, ULONG_MAX);
+>  
+> @@ -186,10 +185,8 @@ static int __init riscv_timer_init_common(void)
+>  		return error;
 >  	}
-> =20
-> +	/*
-> +	 * A task can come back to the class with no runtime left, before its
-> +	 * deadline. It would run until the next tick. Throttle it now, until
-> +	 * its next period, as update_curr_dl_se() would.
-> +	 */
-> +	if (!dl_server(dl_se) && !is_dl_boosted(dl_se) &&
-> +	    !dl_entity_is_special(dl_se) && dl_se->dl_runtime &&
-> +	    !dl_se->dl_throttled && dl_se->runtime <=3D 0) {
-> +		struct rq *rq =3D rq_of_dl_se(dl_se);
-> +
-> +		dl_se->dl_throttled =3D 1;
-> +		if (task_current_donor(rq, dl_task_of(dl_se)))
-> +			resched_curr(rq);
-> +	}
-
-[Severity: Medium]
-Can a task waking up while boosted be enqueued onto dl_rq with
-dl_se->runtime =3D=3D 0 and its exhausted own_deadline instead of being
-replenished from its donor?
-
-When switched_from_dl() calls dl_end_held_boost(&p->dl, false), a task
-that exhausted its own runtime before the first donor refill leaves the
-class with p->dl.runtime =3D=3D 0, p->dl.deadline =3D=3D own_deadline in the
-future, and p->dl.dl_throttled =3D=3D 0.  If it then sleeps while holding an
-rt_mutex and a SCHED_DEADLINE waiter boosts it back into the class before
-own_deadline, neither rt_mutex_setprio() nor switched_to_dl() replenishes
-it while asleep (and in the later commit "sched/deadline: Boost an owner
-that cannot run on its own reservation", dl_boost_start() is skipped when
-!dl_prio(p->normal_prio) and also returns early when !dl_se->dl_throttled
-&& !dl_in_constrained_gap(dl_se)).
-
-When the task wakes up before own_deadline, enqueue_dl_entity() with
-ENQUEUE_WAKEUP calls update_dl_entity(), where both
-dl_time_before(dl_se->deadline, rq_clock(rq)) and dl_entity_overflow() are
-false because runtime is 0.  Because the new dl_se->runtime <=3D 0 check
-above skips is_dl_boosted(dl_se) without replenishing,
-__enqueue_dl_entity() queues the boosted task with runtime =3D=3D 0 and
-deadline =3D=3D own_deadline, causing EDF priority inversion when own_deadl=
-ine
-is later than a donor period's deadline.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795771147.gi=
-t.mathieu.desnoyers@efficios.com?part=3D31
+>  
+> -	if (riscv_isa_extension_available(NULL, SSTC)) {
+> +	if (riscv_isa_extension_available(NULL, SSTC))
+>  		pr_info("Timer interrupt in S-mode is available via sstc extension\n");
+> -		static_branch_enable(&riscv_sstc_available);
+> -	}
+>  
+>  	error = cpuhp_setup_state(CPUHP_AP_RISCV_TIMER_STARTING,
+>  			 "clockevents/riscv/timer:starting",
+> -- 
+> 2.53.0
+> 
+> 
