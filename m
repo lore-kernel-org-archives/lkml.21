@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795811194;
-	b=1NqougLIu9wtjbCXCZOczjcbFQyptPF7EDiUZWvhyF3TKxqURr2U0evhbOebW56cgTBO
-	 ZALX7SmWRxAQN0yujOMwCOWUVeMt5ksEuCKgX6BHYGRtlpll8KQ/yVsluDh8LPZdaJgIr
-	 X0AlYCk1PU6zuxqTq6wEzfW7Bz4QZncBw7NpQqcdDuMD0zNuNfCJwLotZYkEpEp3mgu1l
-	 HpSodXxa0cIDfS52oqTWiFqJT1pFd9mBItXH84khBE7jKfj1tkWZPwLLUdvFq5kISswbR
-	 g4pA6NQTM+dzBB/21DJHxoV+fsPd5ZYVP7Mf+fXMj7APeYyRC+6jcjLqHfDIZMJNMOQ==
+	t=1795811199;
+	b=KL+5UdteCxRy6cpiQY0hWbHzOQfHKW8WlKb1+ckfpM6j0+Pcd6c01L4U8Pd1EDxUXB1w
+	 pIv5FTGfLPRPknYnM+x555LvNEtj+BCiCRtrYYfsbGQ/BWPCHaYJ9/o1CDacb7tQ/RkU3
+	 B8e6iT2ikqHSCffah55/XjMFlw/DTl9pBlp8X25Ldfj0WPcEGMgWIlhQYEgmaVTiTrdRC
+	 CQza13PvP7Zu/2Y1OQBOaROpqQ7k04WChoBnLABmYXSu+CK/Fa4iNqj2eJO1AIPMsognr
+	 m0IBVduhgrj0U5g8oZM3X1BPLshjjSRkSp+o85Vj5Hj8HvcihjYKrQcGA2eLwqWjosA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795811194;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795811199;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=3TPqzwt0V/lnHcficPJAMhV5XdhUA2vaUdjT2YpenhI=;
-	b=fPOu+w/SpWd8sGhAlaftfWm3BMR6zq2ooUx6H6+snswRxFX1KNp0ER/A67KMml8pIvRf
-	 wlcf+0nvl23adrRyYHP3ykcEHATA4gw9VH9bu+IEobYdzq68Ik7BoTB22vN+q3hatx605
-	 JrQMpw6rwleQj7cgiU//QfVxdPl9Dd4V2xuexK4y2OPkyP4X/HAb2iaNB7ZtQe0NCe77P
-	 RE1s9mdkYuGjE708//BTldVzMCkerYcSmBI2kgdF7TvtTvS8ICpijlcntSxR/OGvWPNx5
-	 Dhe65gW8RSyfI6HFzh1BlXM7p/yVaNHI+rO737HYOvfwV8spmyNoP/YNAOiPSLaH1+Q==
+	bh=ly8M7WDe9raewO79Xxx2tl2wk76vWEwlI68RasMjz+k=;
+	b=ZWe44hOKiLb2d5Mx6E0NWNut0F95ITnN+EG1XSfbEzquSlZDLu2nP5yWrqHyNsVE5xet
+	 BU9fIKNt1PUOfU4NJrKIIe/r8M8Oas9Ke43xj+N7VpRX6Vs2rlpMR3A3pR+gQE0pVDxL1
+	 1WBam/DclS3v0PzAzwG3OKi3ktkJwUlx0h9WLGUnzZROa88MmF3citekeF9jKOSEqLgoM
+	 g6IaH2ZzDXJ8+uEqYAL21h+2E8cfq9lMzP9eNpAVgd/PAKl//tN9sQSuTmL3W47PGEyHW
+	 bKYLh1Ssqv4PxvG4/kQACcWnejloH1zuMP8LKHJtJNlFcflX5RV0JCpawBTjnPUWdPw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CjTeyOAN;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RHOlVkFf;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4987E606A31E;
-	Fri, 27 Nov 2026 20:26:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6043606A334;
+	Fri, 27 Nov 2026 20:26:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CjTeyOAN
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RHOlVkFf
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795811193;
-	b=VVjFe3gr6jXX5idxWMBXpgXwHIFfUPygkFnxxthzI4hPQkBPIyMzEPKuHx5qWJMuFV7R
-	 KTFTOMUJbcqupnvFae6FTBdyCpv6n0ZgC/RCopAW/L0uNdWJG7a3sP8hCkrVMs6GkjU3D
-	 pTfQZk+KzfVngjvfze1VItyqOb+H35FrMP8y2qG2WeAb1fEoLG1upydfikiIdRx/zhXFd
-	 H7eME6fWiqFiWkzLO2yoONUrLPGfiGWYfBLTF2LNz2qdNvRCmtUfMypK70t5CFtPwqeUi
-	 n8Bjplmr09NhnjqAWkuo3CnhVU4wzg9g+lP8TyXWbVARe3e0151Pl9luGzr40pSYQjA==
+	t=1795811199;
+	b=h2Q4Ls+v2WTmT9JVFS0cToCJCo1vJeU4O8BDmo95fcD8GAe2+Einr1MyYCn4Op/uHDd8
+	 UHq4gGyNxN+pkQAJ1uj9FO3Q5WUj/HEAWwPkYV8oIis9IGnjTbTWfolP0aEL2hadJ67Bc
+	 sdl1sVO2DzgZrKZS+AnDh5DHspB9lkFEOsRJpbcycK+BP9AC9in7xjzvUoHcCMkxzHo2Q
+	 bwEzwk0jZCHz6w4d+yRIgf6YUqfR1fLr4FMcqZZZwPgw04fDa4d4k5v/V700t1tPTHfc9
+	 lDqeDrtrULBg7z0TJ0hTVHZQyd/3R/XGEK9JTwK5KaH+HDLxoMdKDlV+7QUufV2W1dg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795811193;
+	c=relaxed/relaxed; t=1795811199;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=3TPqzwt0V/lnHcficPJAMhV5XdhUA2vaUdjT2YpenhI=;
-	b=hFO6Ak3FDLuJllUCVU7SG1OF7KOzuCXgl3fcVgAh9HvkzctxmJd+m8MLgNDBivq2JHVo
-	 LuPuhgX40xYcVoI9ZAAywNaJyCyhqP3+SevrpKC1ICZPjdNLyvPJOyG/3/jVA2nWxwgZR
-	 BS290RIj1BozL6BSV2ZcQy1Va98O//tYYiaCavcYJMxj2yWkNklal7gEhtaKnsPRW/QDF
-	 glXleNNbD0eDnp1FvzGonb8jSpvFmp0oZbnyYy50FGrLmKKX4DS/0ty8cfzINrLR8OaE4
-	 bkpyKihpvL73to7mZyb/oJfWyjUMaNHrT0Jb/9fkhGaXOwPALoScmCZSmuuN6HNN9tQ==
+	bh=ly8M7WDe9raewO79Xxx2tl2wk76vWEwlI68RasMjz+k=;
+	b=E/r2rKV0Vj/rFTMLhUPk2+fpGnNZ+A1MD1KjVghiuL8vxa1cPqDH4XqhYJzp7eb+bvzb
+	 Uiuk3q5tE/8hZabczcZilmmIJV96eZEQEW21HtHqoAlt3F4o43Hs0hTWsS2WL0UQcqDss
+	 mHcQXL8BEyOgtEnBjGgMszkc00ERXg1Kwy4AYxQfTACSGE4+W/OEDdGEDtKbNcuOdLqu9
+	 8W/oMkkxcuaL1HZTPb/y7X3kN4jx7T3OZyhFGalj7kT1FnFBe1qrKyvlZXQ/KgVPw3EFJ
+	 k/G6sHLiKQkrGmC1fHADbLh2g5HOHzbK9QERkBDbyzRFvJvhnwo65MyfmdQNDlX1Iyg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id ABE5B1F00893;
+	by smtp.kernel.org (Postfix) with ESMTPS id D34081F000C1;
 	Fri, 27 Nov 2026 20:26:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795811193;
-	bh=3TPqzwt0V/lnHcficPJAMhV5XdhUA2vaUdjT2YpenhI=;
+	s=k20260515; t=1795811199;
+	bh=ly8M7WDe9raewO79Xxx2tl2wk76vWEwlI68RasMjz+k=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=CjTeyOAN0dOT8l/4nLzwmhe9NNoD9Qf8UtaP7+ua98X3s8pWNakUMzL7PDNS8AY3R
-	 SyFOy3uFVyGgMY91vsVoc6Zk2lfK8WCurTcmsWwZTcWtHPqFr4ngENbbTHB3knv4RL
-	 w6u5phELtfCrRV/VXqpg+NZ1/RT1y81x5Jav34e7hy1prPtjcKt+Ud/tMnCmWc3nRA
-	 +XWT8IZDEPLJNDypc6u7OqGjNKdQOjScIPmmjTzYFFUhLS1xR4AZg9yd1zlKHoqG/v
-	 qS3mT345NSZdHHbVkFygzfFrY/tlSE3Y3bBfuwBtL4ZjlKU2tnOzSDMAdXavN0E5pq
-	 1pCZDbOSGVZTQ==
+	b=RHOlVkFfIIMcCikRZcWYVoqMR4DOsYmp6Z4Ku52IWYIUXuHUdgjjtti6Traev3jKY
+	 m2vmRKXuI0Oxa6UhM+ORDLoqqQeCAeqGE5VHyUkvwDF0CX0MP972c+IJHFHsk8+Zsp
+	 uG7SlWk6ahVSe+NPy++9+aG+TazbpM7Oll2ultvYdnwbiRGw3Rp6KyJt+YqgHLKQpD
+	 goJqDsAnLvYQMfapUQ7RSQ3oG6DuvXXJN3bUnIksPKVeM50w47yB3wxRavmEf5STas
+	 VZObVnJq66vfdpucx5D+eZyyJ1wELTmF7LBzq80LdVJNR4CobfuQ4DibV8k06eEAlq
+	 xrWLdJTojw6QQ==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 3D1F74DD84;
+	by lkml.kernel.org (Postfix) with ESMTP id 6444E4DDA9;
 	Fri, 27 Nov 2026 20:26:24 +0000 (UTC)
 From: Robert Ijtsma via B4 Relay <devnull+robertijtsma.gmail.com@kernel.org>
-Date: Fri, 27 Nov 2026 21:26:24 +0100
-Subject: [PATCH 1/5] media: qcom: camss: vfe-17x: fix VFE-Lite reset,
- debug, and bus IRQ handling
+Date: Fri, 27 Nov 2026 21:26:25 +0100
+Subject: [PATCH 2/5] media: qcom: camss: vfe: match numbered vfe_liteN
+ clock names
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-camss-titan17x-fixes-v1-1-541ab39e5889@gmail.com>
+Message-Id: <20261127-camss-titan17x-fixes-v1-2-541ab39e5889@gmail.com>
 References: <20261127-camss-titan17x-fixes-v1-0-541ab39e5889@gmail.com>
 In-Reply-To: <20261127-camss-titan17x-fixes-v1-0-541ab39e5889@gmail.com>
 To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
@@ -98,14 +98,13 @@ To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
  Gjorgji Rosikopulos <quic_grosikop@quicinc.com>
 Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
  linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Robert Ijtsma <robertijtsma@gmail.com>, 
- stable@vger.kernel.org
+ linux-kernel@vger.kernel.org, Robert Ijtsma <robertijtsma@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795811183; l=4436;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795811183; l=3348;
  i=robertijtsma@gmail.com; s=20261122; h=from:subject:message-id;
- bh=slCIoW8m+WuCtOrrO1UwNBrEMbQUo6Idymd4H2UtdxU=;
- b=mQQOZQs7cEzHmU9BAbADjuQLqPqZn/K3vrt6TffVHzZYl34A39Lc8ATvYO8p4ibECaF3bHEfJ
- Hl2sQTRHUB9CVgtIqO8+Pg2wpQbt49L8SEFJg+U2jgcf2P3BQwr9xbu
+ bh=IGn2MissXaSamQTI986UKKW4wZmXGmc2R/DeWGFygtc=;
+ b=JHiBPBmLyW/0sWrdZMUJc4q27EwzjTnxUfMkzGF5dLp8nZigPhOm0vLYYqCk7WGj90Rj5r/Kq
+ AGs0TLVgfz8AeqqKJxz3fcyvxEmMoZJf0HtUYzjZz5y0gKv2Pzfa5d9
 X-Developer-Key: i=robertijtsma@gmail.com; a=ed25519;
  pk=qiDyKVqFicxFIR5sB5m+p9SWPKL2/+mMoiQnUx0C9P0=
 X-Endpoint-Received: by B4 Relay for robertijtsma@gmail.com/20261122 with
@@ -116,108 +115,88 @@ Content-Transfer-Encoding: 7bit
 
 From: Robert Ijtsma <robertijtsma@gmail.com>
 
-Titan 17x VFE-Lite instances differ from the full VFE in several
-registers and bus master counts:
+On SoCs where VFE-Lite entries follow full VFE entries in vfe_res[]
+(such as SC8280XP), vfe->id starts after the full VFEs while the
+device clocks are named "vfe_lite0", "vfe_lite1", etc. Constructing
+"vfe_lite%d" from vfe->id fails to match those clocks, causing
+vfe_set_clock_rates() and vfe_check_clock_rates() to skip scaling
+VFE-Lite core clocks.
 
-- VFE-Lite does not implement CAMIF, bus bridge, testgen, or DSP blocks;
-  omit those bits from vfe_global_reset() when vfe_is_lite(vfe).
-- VFE-Lite lacks VFE_BUS_WM_DEBUG_STATUS_CFG (0x226c); guard writes to
-  it behind !vfe_is_lite(vfe).
-- VFE-Lite only has 4 write master clients rather than 24; program the
-  4-client WM_ADDR_NO_SYNC_LITE_VAL mask into
-  VFE_BUS_WM_ADDR_SYNC_NO_SYNC.
-- VFE_BUS_IRQ_STATUS(n) and VFE_BUS_IRQ_CLEAR(n) consist of 3 bus IRQ
-  registers (0..2), not vfe->res->line_num. On 4-line VFEs, iterating to
-  line_num reads/writes offset 0x2068 (VFE_BUS_IRQ_CLEAR_GLOBAL), and on
-  VFEs with fewer than 2 lines vfe_bus_status[1] would be left
-  uninitialized. Iterate over the 3 bus IRQ registers instead.
+Match any "vfe_lite<N>" clock name when vfe_is_lite(vfe) (without
+matching auxiliary clocks like "vfe_lite_ahb") in
+vfe_match_core_clock_name(), and reuse it from vfe_match_clock_names().
 
-Fixes: 7319cdf189bb ("media: camss: Add support for VFE hardware version Titan 170")
-Cc: stable@vger.kernel.org
+Fixes: 546e9ba08625 ("media: qcom: camss: clamp VFE clock rates to the highest level")
 Signed-off-by: Robert Ijtsma <robertijtsma@gmail.com>
 ---
- drivers/media/platform/qcom/camss/camss-vfe-17x.c | 30 ++++++++++++++---------
- 1 file changed, 19 insertions(+), 11 deletions(-)
+ drivers/media/platform/qcom/camss/camss-vfe.c | 44 ++++++++++++++-------------
+ 1 file changed, 23 insertions(+), 21 deletions(-)
 
-diff --git a/drivers/media/platform/qcom/camss/camss-vfe-17x.c b/drivers/media/platform/qcom/camss/camss-vfe-17x.c
-index 9606236046629c2210740d829bbf5f55cbc09f1a..304dafb39ad5121ade50cf278e0ada53f5e5203e 100644
---- a/drivers/media/platform/qcom/camss/camss-vfe-17x.c
-+++ b/drivers/media/platform/qcom/camss/camss-vfe-17x.c
-@@ -137,9 +137,12 @@
- #define VFE_BUS_WM_ADDR_SYNC_FRAME_HEADER	(0x2080)
+diff --git a/drivers/media/platform/qcom/camss/camss-vfe.c b/drivers/media/platform/qcom/camss/camss-vfe.c
+index 0d80e6f12274cbbb3c8f551a573fab2d482309ee..b5a8196c9145163dfa3ee1af549a4684901e2fa7 100644
+--- a/drivers/media/platform/qcom/camss/camss-vfe.c
++++ b/drivers/media/platform/qcom/camss/camss-vfe.c
+@@ -886,37 +886,39 @@ int vfe_pm_domain_on(struct vfe_device *vfe)
+ 	return 0;
+ }
  
- #define VFE_BUS_WM_ADDR_SYNC_NO_SYNC		(0x2084)
--#define		BUS_VER2_MAX_CLIENTS (24)
-+#define		BUS_VER2_MAX_CLIENTS		(24)
-+#define		BUS_VER2_LITE_MAX_CLIENTS	(4)
- #define		WM_ADDR_NO_SYNC_DEFAULT_VAL \
- 				((1 << BUS_VER2_MAX_CLIENTS) - 1)
-+#define		WM_ADDR_NO_SYNC_LITE_VAL \
-+				((1 << BUS_VER2_LITE_MAX_CLIENTS) - 1)
- 
- #define VFE_BUS_WM_CGC_OVERRIDE			(0x200c)
- #define		WM_CGC_OVERRIDE_ALL		(0xFFFFF)
-@@ -184,18 +187,20 @@ static inline void vfe_reg_set(struct vfe_device *vfe, u32 reg, u32 set_bits)
- static void vfe_global_reset(struct vfe_device *vfe)
+-static int vfe_match_clock_names(struct vfe_device *vfe,
+-				 struct camss_clock *clock)
++static bool vfe_match_core_clock_name(struct vfe_device *vfe,
++				      struct camss_clock *clock)
  {
- 	u32 reset_bits = GLOBAL_RESET_CMD_CORE		|
--			 GLOBAL_RESET_CMD_CAMIF		|
- 			 GLOBAL_RESET_CMD_BUS		|
--			 GLOBAL_RESET_CMD_BUS_BDG	|
- 			 GLOBAL_RESET_CMD_REGISTER	|
--			 GLOBAL_RESET_CMD_TESTGEN	|
--			 GLOBAL_RESET_CMD_DSP		|
- 			 GLOBAL_RESET_CMD_IDLE_CGC	|
- 			 GLOBAL_RESET_CMD_RDI0		|
- 			 GLOBAL_RESET_CMD_RDI1		|
- 			 GLOBAL_RESET_CMD_RDI2		|
- 			 GLOBAL_RESET_CMD_RDI3;
+ 	char vfe_name[7]; /* vfeXXX\0 */
+-	char vfe_lite_name[12]; /* vfe_liteXXX\0 */
+-	char vfe_areg_name[12]; /* vfeXXX_areg\0 */
++	unsigned int lite_idx;
  
-+	if (!vfe_is_lite(vfe))
-+		reset_bits |= GLOBAL_RESET_CMD_CAMIF	|
-+			      GLOBAL_RESET_CMD_BUS_BDG	|
-+			      GLOBAL_RESET_CMD_TESTGEN	|
-+			      GLOBAL_RESET_CMD_DSP;
+ 	snprintf(vfe_name, sizeof(vfe_name), "vfe%d", vfe->id);
+-	snprintf(vfe_lite_name, sizeof(vfe_lite_name), "vfe_lite%d", vfe->id);
+-	snprintf(vfe_areg_name, sizeof(vfe_areg_name), "vfe%d_areg", vfe->id);
+ 
+-	return (!strcmp(clock->name, vfe_name) ||
+-		!strcmp(clock->name, vfe_lite_name) ||
+-		!strcmp(clock->name, vfe_areg_name) ||
+-		!strcmp(clock->name, "vfe_lite") ||
+-		!strcmp(clock->name, "camnoc_axi") ||
+-		!strcmp(clock->name, "camnoc_rt_axi"));
++	if (!strcmp(clock->name, vfe_name) || !strcmp(clock->name, "vfe_lite"))
++		return true;
 +
- 	writel_relaxed(BIT(31), vfe->base + VFE_IRQ_MASK_0);
++	/*
++	 * VFE-Lite instances follow full VFEs in vfe_res[], so vfe->id does
++	 * not necessarily match the 0-based "vfe_liteN" clock suffix.
++	 */
++	if (vfe_is_lite(vfe) && !strncmp(clock->name, "vfe_lite", 8) &&
++	    !kstrtouint(clock->name + 8, 10, &lite_idx))
++		return true;
++
++	return false;
+ }
  
- 	/* Make sure IRQ mask has been written before resetting */
-@@ -208,10 +213,12 @@ static void vfe_wm_start(struct vfe_device *vfe, u8 wm, struct vfe_line *line)
+-static bool vfe_match_core_clock_name(struct vfe_device *vfe,
+-				      struct camss_clock *clock)
++static int vfe_match_clock_names(struct vfe_device *vfe,
++				 struct camss_clock *clock)
  {
- 	u32 val;
+-	char vfe_name[7]; /* vfeXXX\0 */
+-	char vfe_lite_name[12]; /* vfe_liteXXX\0 */
++	char vfe_areg_name[12]; /* vfeXXX_areg\0 */
  
--	/*Set Debug Registers*/
--	val = DEBUG_STATUS_CFG_STATUS0(1) |
--	      DEBUG_STATUS_CFG_STATUS0(7);
--	writel_relaxed(val, vfe->base + VFE_BUS_WM_DEBUG_STATUS_CFG);
-+	/* Set Debug Registers (Full VFE only; VFE Lite lacks 0x226c) */
-+	if (!vfe_is_lite(vfe)) {
-+		val = DEBUG_STATUS_CFG_STATUS0(1) |
-+		      DEBUG_STATUS_CFG_STATUS0(7);
-+		writel_relaxed(val, vfe->base + VFE_BUS_WM_DEBUG_STATUS_CFG);
-+	}
+-	snprintf(vfe_name, sizeof(vfe_name), "vfe%d", vfe->id);
+-	snprintf(vfe_lite_name, sizeof(vfe_lite_name), "vfe_lite%d", vfe->id);
++	snprintf(vfe_areg_name, sizeof(vfe_areg_name), "vfe%d_areg", vfe->id);
  
- 	/* BUS_WM_INPUT_IF_ADDR_SYNC_FRAME_HEADER */
- 	writel_relaxed(0, vfe->base + VFE_BUS_WM_ADDR_SYNC_FRAME_HEADER);
-@@ -223,7 +230,8 @@ static void vfe_wm_start(struct vfe_device *vfe, u8 wm, struct vfe_line *line)
- 	writel_relaxed(0x0, vfe->base + VFE_BUS_WM_TEST_BUS_CTRL);
+-	return (!strcmp(clock->name, vfe_name) ||
+-		!strcmp(clock->name, vfe_lite_name) ||
+-		!strcmp(clock->name, "vfe_lite"));
++	return (vfe_match_core_clock_name(vfe, clock) ||
++		!strcmp(clock->name, vfe_areg_name) ||
++		!strcmp(clock->name, "camnoc_axi") ||
++		!strcmp(clock->name, "camnoc_rt_axi"));
+ }
  
- 	/* if addr_no_sync has default value then config the addr no sync reg */
--	val = WM_ADDR_NO_SYNC_DEFAULT_VAL;
-+	val = vfe_is_lite(vfe) ? WM_ADDR_NO_SYNC_LITE_VAL :
-+				 WM_ADDR_NO_SYNC_DEFAULT_VAL;
- 	writel_relaxed(val, vfe->base + VFE_BUS_WM_ADDR_SYNC_NO_SYNC);
- 
- 	writel_relaxed(0xf, vfe->base + VFE_BUS_WM_BURST_LIMIT(wm));
-@@ -337,7 +345,7 @@ static irqreturn_t vfe_isr(int irq, void *dev)
- 	writel_relaxed(status0, vfe->base + VFE_IRQ_CLEAR_0);
- 	writel_relaxed(status1, vfe->base + VFE_IRQ_CLEAR_1);
- 
--	for (i = VFE_LINE_RDI0; i < vfe->res->line_num; i++) {
-+	for (i = 0; i < 3; i++) {
- 		vfe_bus_status[i] = readl_relaxed(vfe->base + VFE_BUS_IRQ_STATUS(i));
- 		writel_relaxed(vfe_bus_status[i], vfe->base + VFE_BUS_IRQ_CLEAR(i));
- 	}
+ /*
 
 -- 
 2.47.3
