@@ -1,134 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795768062;
-	b=q4evsgsx96Lg29T9N+RAN9lRVixSjp8LOlKvTPTo7iC3MvjOszRT2V+GLPBPdxvSxmRB
-	 R5Fpi+raPdmpmP60gSO3E9v8Is0nykjVgDBUeePGw7wxgD5LVi1Yy4Y+vtwy09FCbCQOj
-	 E3i4wKGxMclOmLEax99FHK1W1Ctk/vhcERnvlyekZtXVrunZviBa3e1Jnk39nYeqdqLhL
-	 JnYMvMhw6rBjZ2KkquSFHFJMyYy56VMd5fifUOEOe2L0vkOy1V8elz6GBRTnuWKK5m+ic
-	 sIHpUnQljMJCRmyrmFecBQhfq8iv80qpnV6LlVIssdSLVT7HxQmeliC2zUhvP6bHWdA==
+	t=1795768132;
+	b=xcAVPwAnv/bBsvux/0JXTB1tsP720iyr6o7jiIwwPa/rsbhJs8/eutGz3y9jRSyuVjbM
+	 vHqCoyh1EWoYea3wzOhAzipZdszAKQ1JjH7iAc+TdG/2jL28HB33/pwQ+n9foY4OJADoh
+	 vgsyVH5SA0Y9FkdkMksb+m13740nIy2+zcN+xwVv7gaPo65B0GKk6N9G9Aa5kCe5eowtq
+	 y5WAx9gdBTUyqcked3H7iBQYaY4pWDJXyLO6Svvl152N6w8CuxwBoeDp79sSU6kbrLOhu
+	 gdljjUruA1B+X95HX87e2Inmk2Mjo0gh5ZnQL7FxJk3p83AEeUs6rOGGla4hr7tgl2Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795768062;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
-	 References:Autocrypt:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version;
-	bh=SxaqJRgRU9lhQE08/YFU2De44zTG7wSWXgQ5bbce0Pk=;
-	b=L+JoYI1aClSV+6qicTKmwYj20pLzuZVuixGBwDo6Ms8nNUC9MBrobsJHgCLo09THMfLb
-	 VoU+oNoZ9Zu4R8tgo49kAXik8dpcrYRn+c1SRvjfXStlfv/b1NN7mtK05/J0zDjJct7dW
-	 Kj2xY6SKlV1E09QAXDZ5pYduui1+jlm8Ek+0Ff1OFSQWMNZHlNGyWrvvBqSp0qI2SjaU8
-	 8IWmmJFJaIHrH8AuHdtohDgWRaozXgL0B0DRAKpitkCkTFX5EQ4QwsWccvylCRfJRSGl8
-	 xZUBvlAIBpQBDM9oXz7yBY1tWBkgJy114dIGm8TkE3e4MI5FmZXu5VwcJ0d91T26PEw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795768132;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:Sender:
+	 X-CM-SenderInfo;
+	bh=iqNLEUfWhmOMSL23MOtwNVURYUmPLn8/4sm98DvyXcM=;
+	b=f8NrWdqMrD+XrN81j5ccp7cL0JbV6OVLXpGoCxAJ1LKeZfgUacCeXICxSWOZkZCPSvjq
+	 71BlNDQ+zRZ8qaouZFUhQTvmo6ANRJUPdUw8QmaYNc0hC+jqmOUWOgcEo0RsTuQG97C9d
+	 1L3ZiRlLlvLg5r/aWAIClwiFxp7B4SqGmjOiBhyo5Atoz1jLN3huRSLZRmFX7HOBHxJHZ
+	 ux8ai001YYsQCViePCT773URzEHXKZ2sZz/7BUTsBwmJPz6JAsgIUUSK9WoCgRzoFgI9m
+	 36RpXirv4YcSoX5sUaeWj+C4RYGTm3I74MPG3nnqpA+bbeitqG7STwWD2XOz8Vlt56A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=CyOnGuIH;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=XViJCix4;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=fail header.from=xiaomi.com;
+	spf=pass smtp.mailfrom=126.com;
+	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=WpohgH3S;
+	arc=none smtp.remote-ip=117.135.210.9
+Received: from m16.mail.126.com (m16.mail.126.com [117.135.210.9])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF3E1606A323
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:27:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF3E1606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB2D7606A31C;
+	Fri, 27 Nov 2026 08:28:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB2D7606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=xiaomi.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=CyOnGuIH;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=XViJCix4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795768061;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=SxaqJRgRU9lhQE08/YFU2De44zTG7wSWXgQ5bbce0Pk=;
-	b=CyOnGuIHrus8LR+63qVQCBenwX2CZyt/HkV773dLivNFz9njJhJ4VMBbvPzVvThHfF9pRG
-	ZUG/Z48a5n6Grbr0T//ff2ibjDV9cn+03FCK3z0rhJqWZ22otpN33fXgsRHnro7d+TgDhN
-	0aA9kK4b+QlFWdUfFleD5NEoqhJtTos=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-494-xt7Jg5C7MaCVsczjKS_r4A-1; Fri, 27 Nov 2026 08:27:38 +0000
-X-MC-Unique: xt7Jg5C7MaCVsczjKS_r4A-1
-X-Mimecast-MFC-AGG-ID: xt7Jg5C7MaCVsczjKS_r4A_1795768057
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4a1f03f2e8aso68053585e9.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:27:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795768057; x=1796372857; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SxaqJRgRU9lhQE08/YFU2De44zTG7wSWXgQ5bbce0Pk=;
-        b=XViJCix4Lit2FrWSfURaRWvQ4s8fMxUzboCDkqBYcjW1JlXA+XfTIghHWKRny9ITaa
-         Bk+vXor7lIbpnk6+qwKzGVtyPsOi/tDBAMoishNEgbs8/LgKXct56hohtPDyO88pwXqK
-         aLekpvvd140T1rGqyGVgDNW9E5Vwcac+33xEASa7PUirDhXzAf2ldM2fdaBA6JP95PIk
-         MdOYMkiwd5xtPrhrk7z3TkFBsH505oYDb6eFkeOzNMinWpzcjYI3Lm3WO29rtkDl+tAk
-         UBh/ziQTTrCLn8RJaXM0cARB2AZtHpcJqHFk8KIEdR20kYuT+zoh0+Nv+7x25bPxGL23
-         5UMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795768057; x=1796372857;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=SxaqJRgRU9lhQE08/YFU2De44zTG7wSWXgQ5bbce0Pk=;
-        b=ciFNzxuU5iGgVA0OeKguOGWAobztJ59xK8EUEU25eoORWpj8fL1jNVHqxW00RnTfdl
-         mwKr+Yyy75NQiE3XXi/vGFi8BXiT7IsSQFT+ihyxX20AGApCI6RODyQ0dGcVmp18URpW
-         SChJRx/3rrTFlbZUeWWzcQIsr3b7xoIV4oQYbKKuatpIiPZO7nohJlJkR8flx9opfTyh
-         I6d9aC6HXX6GaJpsCicB1LDTdCsc3LuqQ5wgBHHZCew1Lub1TwtnNWUJ1c9DEio/jsJQ
-         fD2ASEWkE6hJQBjaw9QVu2pe97q859S7PE02eimIAkfeotjUNmgQmm+NSNtc9AHo0MzX
-         exuQ==
-X-Forwarded-Encrypted: i=1; AL+hErEyxe2sQlNJdW1niMqJLoHrCtpHM8S1RNNmnp7wZF9VmfKAlk9OSAigTVZUXGPL1uR6UYaK3Uvs9xDBUlI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/yvJh5pFYoN4qcEsVws0z5QIP7u9CjSW2y4d28D30jAHBGv7XI
-	Uf+cUHvlQrVj17Kx13Af7x2+MzJRvxN6rjtR//hiiuyTeFnJOG/9JnIOfQ0+rdixYQ8ddxRKFMt
-	siu/kxCSqzIEwUSJTOFY0XuwZjdZBqb5kPv9dx5b5uFGnme/sjlBxTmlwJZY0pVwi4g==
-X-Gm-Gg: AZFdTZeI4uGAzTqrJ7D9YONhAtP/ypegDZqAVqgQ9x9p0Vvhf2P+RlB5cB/CimP7OEf
-	SQAzMl1Gf04aZIQ7bUZuIK+OF70pz7BveeShiXyWPzw27bFq7vAGiUriAQRgzpZDkHedQj0iMVq
-	fI7Z8u41FnvB+y5LQDb7jzezFYIosmBifiu4FP/cx1KDF7Co1eEbY4uF3mq5HsA9HtT0DYx5+mL
-	sHurXxv47jPklUdjCIHBoJX2f4SYuV3Gokc9DluzTiA4nl5xJTmD3WcLGTDJ53tzS3mxwX7QOBj
-	Na0+iVh9rlMIcTALEnG43R2/Hl1klZjLBAWvk6jKgyjdNJR66kx+597XmaYE53wbxjE+lIQQxgF
-	y/UbZNfWZBop1AafVv73DZMLapr2Dbcn5ZuDcVsmC4e6G5DmhhryhZPu8/V9A+lJ6jTNMQDDPxw
-	CR
-X-Received: by 2002:a05:600c:3b94:b0:4bb:6f41:39be with SMTP id 5b1f17b1804b1-4bb8880ca3cmr589964585e9.15.1795768057025;
-        Fri, 27 Nov 2026 00:27:37 -0800 (PST)
-X-Received: by 2002:a05:600c:3b94:b0:4bb:6f41:39be with SMTP id 5b1f17b1804b1-4bb8880ca3cmr589963995e9.15.1795768056658;
-        Fri, 27 Nov 2026 00:27:36 -0800 (PST)
-Received: from gmonaco-thinkpadt14gen3.rmtit.csb ([185.168.96.228])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bbab390cf5sm180472695e9.7.2026.11.27.00.27.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 00:27:36 -0800 (PST)
-Message-ID: <6ee9fd02caec10b09c8f25913a2c0e619f5dd4e7.camel@redhat.com>
-Subject: Re: [PATCH v4 3/4] rv: collect per-edge dwell time for per-cpu
- DA/HA monitors
-From: Gabriele Monaco <gmonaco@redhat.com>
-To: Tobias Schaffner <tobias.schaffner@siemens.com>, Steven Rostedt
-	 <rostedt@goodmis.org>
-Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, Randy
- Dunlap <rdunlap@infradead.org>, Masami Hiramatsu <mhiramat@kernel.org>,
- Mathieu Desnoyers	 <mathieu.desnoyers@efficios.com>,
- linux-trace-kernel@vger.kernel.org, 	linux-doc@vger.kernel.org,
- linux-kselftest@vger.kernel.org, 	linux-kernel@vger.kernel.org,
- rpm@xenomai.org, jan.kiszka@siemens.com, Shuah Khan	
- <skhan@linuxfoundation.org>
-Date: Fri, 27 Nov 2026 09:27:33 +0100
-In-Reply-To: <20261127070545.64265-4-tobias.schaffner@siemens.com>
-References: <20261127070545.64265-1-tobias.schaffner@siemens.com>
-	 <20261127070545.64265-4-tobias.schaffner@siemens.com>
-Autocrypt: addr=gmonaco@redhat.com; prefer-encrypt=mutual;
- keydata=mDMEZuK5YxYJKwYBBAHaRw8BAQdAmJ3dM9Sz6/Hodu33Qrf8QH2bNeNbOikqYtxWFLVm0
- 1a0JEdhYnJpZWxlIE1vbmFjbyA8Z21vbmFjb0BrZXJuZWwub3JnPoiZBBMWCgBBFiEEysoR+AuB3R
- Zwp6j270psSVh4TfIFAmjKX2MCGwMFCQWjmoAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgk
- Q70psSVh4TfIQuAD+JulczTN6l7oJjyroySU55Fbjdvo52xiYYlMjPG7dCTsBAMFI7dSL5zg98I+8
- cXY1J7kyNsY6/dcipqBM4RMaxXsOtCRHYWJyaWVsZSBNb25hY28gPGdtb25hY29AcmVkaGF0LmNvb
- T6InAQTFgoARAIbAwUJBaOagAULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgBYhBMrKEfgLgd0WcK
- eo9u9KbElYeE3yBQJoymCyAhkBAAoJEO9KbElYeE3yjX4BAJ/ETNnlHn8OjZPT77xGmal9kbT1bC1
- 7DfrYVISWV2Y1AP9HdAMhWNAvtCtN2S1beYjNybuK6IzWYcFfeOV+OBWRDQ==
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (1024-bit key) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=WpohgH3S
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=iq
+	NLEUfWhmOMSL23MOtwNVURYUmPLn8/4sm98DvyXcM=; b=WpohgH3S/haZ3aKn/R
+	Geq+08eDOGjhRJ3okZ33fPuxeTvb017d/H/tEglI8MeA2dh330MvSanbz6VIjvYq
+	A2+b2hVbPZd/4hJHIpPuwbObxFZdZmLPErxCXaYPDehGsrtjMRKmXtFMCXSwD3JM
+	IefMcfBCsBVtvbj5u9mR9OCvs=
+Received: from nzzhao-ThinkCentre-M760t.mioffice.cn (unknown [])
+	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wD3F6fFPglrbVuREA--.44951S2;
+	Fri, 27 Nov 2026 16:26:47 +0800 (CST)
+From: Nanzhe Zhao <zhaonanzhe@xiaomi.com>
+To: sashiko-bot@kernel.org
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Tangquan Zheng <zhengtangquan@oppo.com>,
+	linux-mm@kvack.org,
+	linux-block@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Jens Axboe <axboe@kernel.dk>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Minchan Kim <minchan@kernel.org>,
+	Kairui Song <kasong@tencent.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Nhat Pham <nphamcs@gmail.com>,
+	Usama Arif <usama.arif@linux.dev>,
+	Yosry Ahmed <yosry@kernel.org>,
+	Chengming Zhou <chengming.zhou@linux.dev>,
+	Chris Li <chrisl@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	Ying Huang <ying.huang@intel.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Kanchana P Sridhar <kanchana.p.sridhar@intel.com>,
+	Wajdi K Feghali <wajdi.k.feghali@intel.com>,
+	Bala Seshasayee <bala.seshasayee@linux.intel.com>,
+	Nick Terrell <terrelln@fb.com>,
+	Barry Song <baohua@kernel.org>,
+	Bo Zhang <zhangbo56@xiaomi.com>,
+	sashiko-reviews@lists.linux.dev
+Subject: Re: [RFC PATCH v4 2/4] zram: support compression at the granularity of multi-pages
+Date: Fri, 27 Nov 2026 16:26:41 +0800
+Message-ID: <20261127082645.3623843-1-zhaonanzhe@xiaomi.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <sashiko-outbox-216089@kernel.org>
+References: <20261115024455.1465726-1-zhaonanzhe@xiaomi.com> <20261115024455.1465726-3-zhaonanzhe@xiaomi.com> <sashiko-outbox-216089@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -138,158 +86,130 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wD3F6fFPglrbVuREA--.44951S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxtrWUCrW3Kw4DurWrKF18uFg_yoW7AF1kpF
+	4Ut390y3yrJrW8Cr17CFn3ur1Sy3ykCayUAFWxGw1Yqr93tF9Y9FyvyFy7CFnrGr1xCa9a
+	vrZ8A345XF1YvFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U9XocUUUUU=
+Sender: nzzhao@126.com
+X-CM-SenderInfo: xq22xtbr6rjloofrz/xtbBsQfdrWsJPsdFgQAA3Z
 
-On Fri, 2026-11-27 at 08:05 +0100, Tobias Schaffner wrote:
-> @@ -110,10 +111,11 @@ static inline void da_monitor_reset(struct da_monit=
-or
-> *da_mon)
-> =C2=A0 *
-> =C2=A0 * The monitor will ignore all events until monitoring is set to tr=
-ue. This
-> =C2=A0 * function needs to be called to tell the monitor to start monitor=
-ing.
-> + * @state is the initial state, stamped with its entry time if known.
-> =C2=A0 */
-> -static inline void da_monitor_start(struct da_monitor *da_mon)
-> +static inline void da_monitor_start(struct da_monitor *da_mon, da_state_=
-t
-> state)
+> If an unaligned write bio with bv_len >= ZCOMP_MULTI_PAGES_SIZE or a multi-bvec
+> bio enters the multi-page path
 
-So the idea is that monitors using da_handle_start_run_event() would end up=
- with
-a few nanoseconds more in their initial state instead of a 0. Right?
-Maybe more if preemption is possible.
+In __swap_writeout(), folios are added via bvec_set_folio(&sio->bvecs[...],
+folio, folio_size(folio), 0), which always starts at the folio-aligned base
+(offset 0) and covers the entire folio. Therefore, there are no unaligned
+writes, nor can a single folio be split across multiple bvecs.
 
-I don't particularly like changing the prototype of da_monitor_start(). It =
-isn't
-used by existing monitors, but is a public API, so I don't want to send the
-message that monitors can start from any state.
+> and lands on a head slot that holds a single-page (PAGE_SIZE) object
 
-We could either:
-1. document this timing discrepancy and live with it
-2. reset the timestamp just after da_monitor_start() (done only once)
-3. create another da_monitor_start_notime() (can share code in a
-__da_monitor_start())
+Swap cluster allocation for large folios (__swap_cluster_alloc_entries())
+only allocates naturally order-aligned slots from high-order clusters, so a
+large folio swapout cannot land unaligned on a single-page slot.
 
-What do you think?
+> When a single-page bio (bv_len == PAGE_SIZE) writes a subpage belonging to
+> a large folio
 
-Thanks,
-Gabriele
+Swap always writes a whole folio at once, so a bv_len == PAGE_SIZE bio can
+only be a whole order-0 folio, never a subpage of a large folio.
 
-> =C2=A0{
-> -=09da_mon->curr_state =3D model_get_initial_state();
-> +=09da_mon->curr_state =3D state;
-> =C2=A0=09da_monitor_init_hook(da_mon);
-> =C2=A0=09/* Pairs with smp_load_acquire in da_monitoring(). */
-> =C2=A0=09smp_store_release(&da_mon->monitoring, 1);
-> @@ -276,6 +278,11 @@ static inline void da_monitor_reset_state_all(void)
-> =C2=A0 */
-> =C2=A0static inline int da_monitor_init(void)
-> =C2=A0{
-> +=09int retval =3D rv_edge_stats_create(rv_this.root_d);
-> +
-> +=09if (retval)
-> +=09=09return retval;
-> +
-> =C2=A0=09da_monitor_reset_state_all();
-> =C2=A0=09return 0;
-> =C2=A0}
-> @@ -287,6 +294,7 @@ static inline void da_monitor_destroy(void)
-> =C2=A0{
-> =C2=A0=09da_monitor_reset_all();
-> =C2=A0=09da_monitor_sync_hook();
-> +=09rv_edge_stats_remove();
-> =C2=A0}
-> =C2=A0
-> =C2=A0#ifndef da_implicit_guard
-> @@ -689,9 +697,11 @@ static inline void da_trace_error(struct da_monitor
-> *da_mon,
-> =C2=A0static inline bool da_event(struct da_monitor *da_mon, enum events =
-event,
-> da_id_type id)
-> =C2=A0{
-> =C2=A0=09enum states curr_state, next_state;
-> +=09da_state_t old;
-> =C2=A0
-> -=09curr_state =3D READ_ONCE(da_mon->curr_state);
-> +=09old =3D READ_ONCE(da_mon->curr_state);
-> =C2=A0=09for (int i =3D 0; i < MAX_DA_RETRY_RACING_EVENTS; i++) {
-> +=09=09curr_state =3D da_state_of(old);
-> =C2=A0=09=09next_state =3D model_get_next_state(curr_state, event);
-> =C2=A0=09=09if (next_state =3D=3D INVALID_STATE) {
-> =C2=A0=09=09=09react(curr_state, event);
-> @@ -699,7 +709,8 @@ static inline bool da_event(struct da_monitor *da_mon=
-,
-> enum events event, da_id_
-> =C2=A0=09=09=09=09=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 model_get_event_na=
-me(event), id);
-> =C2=A0=09=09=09return false;
-> =C2=A0=09=09}
-> -=09=09if (likely(try_cmpxchg(&da_mon->curr_state, &curr_state,
-> next_state))) {
-> +=09=09if (likely(da_state_try_commit(&da_mon->curr_state, &old,
-> +=09=09=09=09=09=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 next_state, event)))=
+> [Severity: Critical]
+> Does zram_read_partial_from_zspool() ignore bvec->bv_len and
+> bvec->bv_offset?
+>
+> zram_bvec_read_multi_pages_partial() passes only bvec->bv_page and the
+> slot offset to zram_read_partial_from_zspool(), and all three branches
+> above always write PAGE_SIZE bytes to offset 0 of page.  When a partial
+> multi-page read has bv.bv_len > PAGE_SIZE (for example, 2 or 3 pages) or a
+> non-zero bvec->bv_offset, zram_bio_read_multi_pages() still advances the
+> bio iterator by bv.bv_len, writing to the wrong offset of bv_page or
+> leaving the remaining pages of the read uninitialized.
+
+Agreed. zram_read_partial_from_zspool() should respect bvec->bv_len and
+bvec->bv_offset instead of hardcoding PAGE_SIZE and offset 0. I will
+pass struct bio_vec *bvec and use its length and offset:
+
+--- a/drivers/block/zram/zram_drv.c
++++ b/drivers/block/zram/zram_drv.c
+@@ -2872,8 +2872,8 @@ static inline bool is_multi_pages_partial_io(struct bio_vec *bvec)
+ 	return bvec->bv_len != ZCOMP_MULTI_PAGES_SIZE;
+ }
+ 
+-static int zram_read_partial_from_zspool(struct zram *zram, struct page *page,
+-					unsigned long index, int offset)
++static int zram_read_partial_from_zspool(struct zram *zram, struct bio_vec *bvec,
++					unsigned long index, int offset)
  {
-> =C2=A0=09=09=09if (!da_monitor_event_hook(da_mon, curr_state, event,
-> next_state, id))
-> =C2=A0=09=09=09=09return false;
-> =C2=A0=09=09=09da_trace_event(da_mon,
-> model_get_state_name(curr_state),
-> @@ -737,7 +748,7 @@ static inline bool __da_handle_start_event(struct
-> da_monitor *da_mon,
-> =C2=A0=09if (!da_monitor_enabled())
-> =C2=A0=09=09return 0;
-> =C2=A0=09if (unlikely(!da_monitoring(da_mon))) {
-> -=09=09da_monitor_start(da_mon);
-> +=09=09da_monitor_start(da_mon,
-> da_state_entered(model_get_initial_state()));
-> =C2=A0=09=09return 0;
-> =C2=A0=09}
-> =C2=A0
-> @@ -751,8 +762,9 @@ static inline bool __da_handle_start_run_event(struct
-> da_monitor *da_mon,
-> =C2=A0{
-> =C2=A0=09if (!da_monitor_enabled())
-> =C2=A0=09=09return 0;
-> +=09/* In the initial state since an unknown time: do not time it. */
-> =C2=A0=09if (unlikely(!da_monitoring(da_mon)))
-> -=09=09da_monitor_start(da_mon);
-> +=09=09da_monitor_start(da_mon, model_get_initial_state());
-> =C2=A0
-> =C2=A0=09__da_handle_event_common(da_mon, event, id);
-> =C2=A0
-> diff --git a/include/rv/edge_stat.h b/include/rv/edge_stat.h
-> index 8b99e8520e1e..16c28aedabdd 100644
-> --- a/include/rv/edge_stat.h
-> +++ b/include/rv/edge_stat.h
-> @@ -145,7 +145,10 @@ static void rv_edge_stats_remove(void)
-> =C2=A0=09rv_this_stats_file =3D NULL;
-> =C2=A0}
-> =C2=A0
-> -/* A zero timestamp marks resets, which can run on a different CPU. */
-> +/*
-> + * A zero timestamp marks an unknown entry time: resets can run on a
-> different
-> + * CPU, and da_handle_start_run_event() starts in a state entered earlie=
-r.
-> + */
-> =C2=A0#define da_state_entered(s)=09da_state_pack((s), local_clock())
-> =C2=A0
-> =C2=A0static __always_inline void
-> diff --git a/include/rv/ha_monitor.h b/include/rv/ha_monitor.h
-> index 6e1c7fe5449a..78d1bb80aefd 100644
-> --- a/include/rv/ha_monitor.h
-> +++ b/include/rv/ha_monitor.h
-> @@ -312,7 +312,7 @@ static inline void __ha_monitor_timer_callback(struct
-> ha_monitor *ha_mon)
-> =C2=A0=09if (unlikely(READ_ONCE(ha_mon_destroying)))
-> =C2=A0=09=09return;
-> =C2=A0=09/* Ensure consistent curr_state if we race with da_monitor_reset=
- */
-> -=09curr_state =3D smp_load_acquire(&ha_mon->da_mon.curr_state);
-> +=09curr_state =3D da_state_of(smp_load_acquire(&ha_mon-
-> >da_mon.curr_state));
-> =C2=A0=09if (unlikely(!da_monitor_handling_event(&ha_mon->da_mon)))
-> =C2=A0=09=09return;
-> =C2=A0
+ 	struct zs_handle *handle = &zram->table[index].handle;
+ 	struct zcomp_dstrm *zstrm;
+@@ -2889,7 +2889,8 @@ static int zram_read_partial_from_zspool(struct zram *zram, struct page *page,
+ 		void *mem;
+ 
+-		mem = kmap_local_page(page);
+-		zram_fill_page(mem, PAGE_SIZE, zram->table[index].element);
++		mem = kmap_local_page(bvec->bv_page);
++		zram_fill_page(mem + bvec->bv_offset, bvec->bv_len,
++			       zram->table[index].element);
+ 		kunmap_local(mem);
+ 		return 0;
+ 	}
+@@ -2900,8 +2901,8 @@ static int zram_read_partial_from_zspool(struct zram *zram, struct page *page,
+ 	if (size == page_size) {
+ 		src = kmap_local_page(sg_page(sg));
+-		dst = kmap_local_page(page);
+-		memcpy(dst, src + offset, PAGE_SIZE);
++		dst = kmap_local_page(bvec->bv_page);
++		memcpy(dst + bvec->bv_offset, src + offset, bvec->bv_len);
+ 		kunmap_local(dst);
+ 		kunmap_local(src);
+ 		ret = 0;
+@@ -2917,8 +2918,8 @@ static int zram_read_partial_from_zspool(struct zram *zram, struct page *page,
+ 				       zstrm->decomp_buf, page_size);
+ 		if (!ret) {
+-			dst = kmap_local_page(page);
+-			memcpy(dst, zstrm->decomp_buf + offset, PAGE_SIZE);
++			dst = kmap_local_page(bvec->bv_page);
++			memcpy(dst + bvec->bv_offset, zstrm->decomp_buf + offset,
++			       bvec->bv_len);
+ 			kunmap_local(dst);
+ 		}
+@@ -2937,8 +2938,8 @@ static int zram_bvec_read_multi_pages_partial(struct zram *zram,
+ 	slot_lock(zram, index);
+ 	if (!test_slot_flag(zram, index, ZRAM_WB)) {
+-		ret = zram_read_partial_from_zspool(zram, bvec->bv_page,
++		ret = zram_read_partial_from_zspool(zram, bvec,
+ 						    index, offset);
+ 		slot_unlock(zram, index);
+
+> [Severity: Critical]
+> Does using mp_bvec_iter_page() in multi_pages_bvec_iter_bvec() keep
+> .bv_page stuck at the first page of a large folio across iterations?
+>
+> Unlike bvec_iter_page(), mp_bvec_iter_page(bvec, iter) always returns
+> bvec[iter.bi_idx].bv_page without adding mp_bvec_iter_page_idx(bvec,
+> iter), while multi_pages_bvec_iter_offset() wraps .bv_offset modulo
+> ZCOMP_MULTI_PAGES_SIZE.  When a folio larger than ZCOMP_MULTI_PAGES_SIZE
+> (such as a 64KiB or 128KiB folio in a single multi-page bvec) is read or
+> written, every iteration of zram_bio_write_multi_pages() and
+> zram_bio_read_multi_pages() accesses subpage 0 of the folio, repeatedly
+> compressing or overwriting the first ZCOMP_MULTI_PAGES_SIZE bytes and
+> leaving the rest of the folio unread or unwritten.
+
+Agreed. For multi-page bvecs spanning multiple compression windows,
+multi_pages_bvec_iter_bvec() needs to advance the subpage and offset.
+I will switch to bvec_iter_page() and bvec_iter_offset():
+
+--- a/drivers/block/zram/zram_drv.h
++++ b/drivers/block/zram/zram_drv.h
+@@ -194,5 +194,5 @@
+ #define multi_pages_bvec_iter_bvec(bvec, iter)				\
+ ((struct bio_vec) {							\
+-	.bv_page	= mp_bvec_iter_page((bvec), (iter)),		\
++	.bv_page	= bvec_iter_page((bvec), (iter)),		\
+ 	.bv_len		= multi_pages_bvec_iter_len((bvec), (iter)),	\
+-	.bv_offset	= multi_pages_bvec_iter_offset((bvec), (iter)),	\
++	.bv_offset	= bvec_iter_offset((bvec), (iter)),		\
+ })
 
