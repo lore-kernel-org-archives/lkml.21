@@ -1,46 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795795073;
-	b=PeI5VSoFZaU8fUpCJFCVE7HqkUbQ59Hr346Xhx9aBjOxvXMAL9ZJV4KK1a3x6w216KAp
-	 TnK7iUDomFFb2RSiHSX6zoIHnMbYMZzZZ8cDYS3fGpct7pRXIiM/YxAS5aj7ttKwzSuLx
-	 p/mqcKgCh3zcOVdw7RSMYZ6Pp1R5wqjP7oJ1xQk27pUoQRS7J0k4Ur5JoAtfDWx7CccrM
-	 fIvqVWDpVzrcLPuMouWzvF2j4V0B+KsLgwvPnORendvLBAwFc+qkzAfE4EJIcmi9YfHzG
-	 wOQrToY+01jMz4TXnwTfLz0i9B8NE538nbMzRBq1AlV1Xa93tdShtXapvRZT58VQ1QA==
+	t=1795795077;
+	b=UmkK/w0JRHWgssum+Buea+oB98hscKlsyva14xP4oFbEAx85s53MR9ybrmUkSKPqVx7P
+	 7DXxPnJvYoXHjXnhxv9uApAJzq1NTIXK19SPWUfimVatzirltAwR1dOvIQDT/rgYeNdgY
+	 h7eHV/oUiWvr0OjZ6Pnqrbwh92kBoiuydtvXh9Y7fBUER+Wc8FKn7ARDgBK3GI3N9NJ7g
+	 pzz1Y31b8Xk3wHCVpnLaIyhHcpUFM42sl0/lS8eGZs6HCxdXhg6djayi0lm4KLB/cDfyY
+	 opw0elwmmyMTmRiKN9jUDmNYDijfJFoxQCvecDA3wuUzwhn5T5LbOIF9AKFFSDA4NUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795795073;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795795077;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=x6kIKvotnGfyF+LHAJIdpxCafMgTkU1XXwAbkkw4uXo=;
-	b=v6Ge6PT//yGlTYxdEkWXDRA9mLIZ+jIfX/XO6OoBBtR1cvrthqno1czeY7ngQoAN+nR4
-	 Sol6EJ1bMAQUpF2Wrtj5G7oXDHE6VpVBo1jrdFI+knxDV5bO5GnJKw5BiBNG1rNpo7azL
-	 Q/QoV+r4C7L0+4pLmSZjPW5BeYrJXlkXBw3V/4aKHYNguGOxVsmRgZ73aPFphu9a8szFY
-	 mHEFj1bET9MKs8/1ZejN1EdRflp2JKRTYrQQen7+/3AgD5PlgVF7p0QXNpWWL6MtOrwBU
-	 8MxiHhIFOEANzqCs2km70y80B3QaO4gGZ4zdOCzrYwogalGta2ubKgvwPeGg+ICDdRA==
+	bh=cf7JuS+NnYETCz1KEqiSGwMRPJ8xUkXHOo7gTQoqojQ=;
+	b=SCGPblUW2lJ15U4XNVn8/08VDZDf8XAN2pk5o08JVWrvrwFmIKo+24nEuMJsZf48cKQK
+	 UsJr2FWH1ustRHR1EcEd39oqbbEit2MlWqlvJ+FKpsB/EihfRTKz6PG2fIVivT52gGDrI
+	 wL1vrSguX/OThiWI4xV11Su8jJEWVWOs1/9dTkVy8NsPZLT/tApEdtBb0IvfAII8sAD4c
+	 d35s4T0Jbx44vXj7O00VrJU30NBMA8lgB2ZuQCD3jW0CVi6arZc5T/LrGcS+hmXoTzVTc
+	 Ug592dvtDXQ5sHaoj8LyXev8tELSASWpXFHwLiDJMbLKdXLbgJiRwGFvWGcTt4XnFHw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iJhd2J6Z;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V4McVQhf;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 857CC606A32D;
-	Fri, 27 Nov 2026 15:57:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E080E606A688;
+	Fri, 27 Nov 2026 15:57:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iJhd2J6Z
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6222E1F000C1;
-	Fri, 27 Nov 2026 15:57:52 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V4McVQhf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 907C21F00925;
+	Fri, 27 Nov 2026 15:57:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795795073;
-	bh=x6kIKvotnGfyF+LHAJIdpxCafMgTkU1XXwAbkkw4uXo=;
+	s=k20260515; t=1795795076;
+	bh=cf7JuS+NnYETCz1KEqiSGwMRPJ8xUkXHOo7gTQoqojQ=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=iJhd2J6ZwGR4TusVgBY5fehf8HVUG98CxVUveO5nCAeCWbBql+Q3YoFrfFKuOhZ2s
-	 e5HRS1Ru2opXqPgVy/E+2dfyi8RWFJWdj6JJfzLUvkKMYs35RdoPbipf3E70+p6gQc
-	 g0+Y9n5VoKpSIEtwTew+SVIzMTDQ5AAGYLWgYwKoI/HgbX+67NVkzPJ2yEYpkA6wvD
-	 kAQnidXH3TJT382YdA5Rk5xuHX5V95kGDymJaX3Y9gKzlUGc1q9u8zueQm/hJnT9xi
-	 FVUO/O5jWoiOInZWwTXBQav9FnqWAW0Tdn3BtvXmdbqpW+dBPhQggrIPGxMwaY8mHh
-	 jSyMjNKlgeJ7Q==
-Subject: Re: [PATCH v2 03/11] net/xsc: add the command queue
+	b=V4McVQhfgwt1jXjagDkL9X1Mn+1hwbvI28ENHwCEC5bOc8m3YiUOk//vRCSfEqRYM
+	 cI4GIrENwEZZjNUdNAE8JY12JSwCCJCGYLSSSZRoCAw5u7FmbeQjhjdBrBu6YH16CZ
+	 +oTBbXA7Pn4guVY9qVcv/shg+xlmr4i0LoTiRT6A971S3qIbaudXvZWvFgNZ1RJFMA
+	 N3AOJs1uBW8m5rg73B4RQej0wsvokUArc4J420Fa7SjzkJxBthajLkG03h+4aeHzA7
+	 KVGy31GgYk+x7qQHpgr22Z+5savaEdokclZWmem8GNgmLTJq8FelCcCudlHUHj+yjj
+	 DT1CmnwAOlAFw==
+Subject: Re: [PATCH v2 05/11] net/xsc: add event queues and MSI-X
 From: netdev-bot+sashiko@kernel.org
 To: tianx@yunsilicon.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -48,11 +48,11 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  huangjunxian6@hisilicon.com, weihg@yunsilicon.com,
  linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
  linux-rdma@vger.kernel.org, kerneljasonxing@gmail.com
-Date: Fri, 27 Nov 2026 15:57:51 +0000
-Message-ID: <179579507193.3135.14971802624950078162@kernel.org>
-In-Reply-To: <20261126145718.70868-4-tianx@yunsilicon.com>
-References: <20261126145718.70868-4-tianx@yunsilicon.com>
-X-sashiko-severity: High
+Date: Fri, 27 Nov 2026 15:57:55 +0000
+Message-ID: <179579507511.3135.1874125473034318876@kernel.org>
+In-Reply-To: <20261126145724.70868-6-tianx@yunsilicon.com>
+References: <20261126145724.70868-6-tianx@yunsilicon.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -65,10 +65,10 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 8 potential
+Thank you for your contribution! Sashiko AI review found 7 potential
 issue(s) to consider.
 
-Critical: 0 · High: 2 · Medium: 5 · Low: 1
+Critical: 0 · High: 0 · Medium: 2 · Low: 5
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -76,360 +76,316 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] Race on cmd->ent_arr[idx] can leave a live command with a NULL
-  slot, and the polling kthread then dereferences NULL.
-- [High] xsc_cmd_cleanup() frees the request ring (cmd_buf), the response
-  ring (cq_buf), the dma_pool and the mailboxes of timed-out commands…
-- [Medium] One command timeout permanently disables the command
-  interface.
-- [Medium] A timed-out command's xsc_cmd_work_ent and its inb/outb
-  mailboxes can leak permanently.
-- [Medium] xsc_cmd_comp_handler() matches a response to a waiter using
-  only the device-supplied rsp->idx.
-- [Medium] The ring is sized so that a full ring cannot be told apart
-  from an empty one.
-- [Medium] xsc_cmd_cq_polling() learns the expected owner/phase bit from
-  the slot it is about to validate (cmd.c:450-452: `if…
-- [Low] The command-queue poller is one kthread per device, and it polls
-  even when no command is outstanding.
+- [Medium] xsc_buf_alloc()
+  (drivers/net/ethernet/yunsilicon/xsc/pci/alloc.c) handles buffers…
+- [Medium] xsc_create_map_eq()
+  (drivers/net/ethernet/yunsilicon/xsc/pci/eq.c) frees the EQ ring for…
+- [Low] In xsc_destroy_unmap_eq() (eq.c), the u32 eq->eqn is printed with
+  "%d", a signed specifier.
+- [Low] struct xsc_eq::index gets two different meanings.
+- [Low] The exported link-event callback API publishes the handler with a
+  plain WRITE_ONCE() in xsc_irq_event_register().
+- [Low] The EQ consumer-index doorbell field is only 11 bits wide
+  (XSC_EQ_DB_DATA0_NEXT_CID_MASK = GENMASK(10, 0), with eqn in…
+- [Low] xsc_irq_eq_destroy() tears down the async EQ (xsc_stop_eqs)
+  before the completion EQs (free_comp_eqs).
 
 --
 
-net/xsc: add the command queue
+net/xsc: add event queues and MSI-X
 
-This commit adds the mailbox-based firmware command interface for the xsc
-driver. A single polling kthread collects responses, command status is
-mapped to errno values, and the cmdq version is checked at probe time.
+This commit creates the asynchronous and completion event queues,
+allocates MSI-X vectors, and dispatches link events from a dedicated
+workqueue. The command queue remains polling-only.
 
-> diff --git a/drivers/net/ethernet/yunsilicon/xsc/pci/cmd.c b/drivers/net/ethernet/yunsilicon/xsc/pci/cmd.c
+> diff --git a/drivers/net/ethernet/yunsilicon/xsc/pci/alloc.c b/drivers/net/ethernet/yunsilicon/xsc/pci/alloc.c
 > new file mode 100644
-> index 0000000000000..45dcdb2b47eb0
+> index 0000000000000..46eb0b031511d
 > --- /dev/null
-> +++ b/drivers/net/ethernet/yunsilicon/xsc/pci/cmd.c
-> @@ -0,0 +1,708 @@
+> +++ b/drivers/net/ethernet/yunsilicon/xsc/pci/alloc.c
+> @@ -0,0 +1,123 @@
 
 [ ... ]
 
-> +static int xsc_cmd_invoke(struct xsc_core_device *xdev, struct xsc_cmd_msg *in,
-> +			  struct xsc_cmd_msg *out, u8 *status)
-> +{
+> +		for (i = 0; i < buf->nbufs; i++) {
+> +			buf->page_list[i].buf =
+> +				dma_alloc_coherent(&xdev->pdev->dev, PAGE_SIZE,
+> +						   &t, GFP_KERNEL);
 
 [ ... ]
 
-> +	ent->token = ent->idx + 1;
-> +	cmd->ent_arr[ent->idx] = ent;
+> +		for (i = 0; i < buf->nbufs; i++) {
+> +			void *addr = buf->page_list[i].buf;
 > +
-
-[ ... ]
-
-> +	timeout = msecs_to_jiffies(XSC_CMD_TIMEOUT_MSEC);
-> +	if (!wait_for_completion_timeout(&ent->done, timeout)) {
-> +		cmd->cmd_status = XSC_CMD_STATUS_TIMEDOUT;
-> +		pci_err(xdev->pdev, "wait for opcode 0x%x response timeout\n",
-> +			xsc_msg_to_opcode(in));
-> +		/* the entry stays registered for the completion handler */
-> +		return -ETIMEDOUT;
-> +	}
-> +
-> +	err = ent->ret;
-> +	*status = ent->status;
-> +
-> +	spin_lock_irqsave(&cmd->alloc_lock, flags);
-> +	if (cmd->ent_arr[ent->idx] == ent)
-> +		cmd->ent_arr[ent->idx] = NULL;
-> +	spin_unlock_irqrestore(&cmd->alloc_lock, flags);
-> +	kfree(ent);
-
-[Severity: High]
-Can a live command end up with a NULL slot here?
-
-xsc_cmd_comp_handler() releases the slot bit with xsc_free_ent() before it
-calls complete(). So xsc_alloc_ent() can give the same idx to another caller
-while this waiter still has its pointer in ent_arr[]. find_first_bit()
-always picks the lowest free bit, so reusing the same idx is the normal
-case.
-
-The new owner publishes its entry with the plain
-cmd->ent_arr[ent->idx] = ent store above, outside alloc_lock. That makes
-this compare-and-clear atomic only against other locked accessors:
-
-T1 (old waiter, idx 0)            T2 (new owner of idx 0)
-spin_lock(alloc_lock)
-ent_arr[0] == ent1 -> true
-                                  cmd->ent_arr[0] = ent2;
-ent_arr[0] = NULL
-spin_unlock(alloc_lock)
-
-When T2's response arrives, xsc_cmd_comp_handler() sees bit 0 allocated
-and does this with ent == NULL:
-
-	ent = cmd->ent_arr[idx];
-	memcpy(ent->out->first, rsp->out, sizeof(rsp->out));
-
-Wouldn't that oops the polling kthread? Every later command would then
-time out.
-
-If T2 times out instead, xsc_cmd_cleanup() can no longer reach its entry
-and mailboxes.
-
-The window is narrow. On PREEMPT_RT it is wider, because spinlock_t holders
-can be preempted. In this patch only the serial probe-time version check
-runs. However, the semaphore and bitmap allow 32 concurrent commands, and
-later patches in the series add concurrent xsc_cmd_exec() callers.
-
-> +
-> +	return err;
-> +}
-> +
-> +static void xsc_cmd_comp_handler(struct xsc_core_device *xdev, u8 idx,
-> +				 struct xsc_rsp_layout *rsp)
-> +{
-> +	struct xsc_cmd *cmd = xdev->cmd;
-> +	struct xsc_cmd_work_ent *ent;
-> +
-> +	if (idx >= cmd->max_reg_cmds || (cmd->cmd_entry_mask & BIT(idx))) {
-> +		pci_err(xdev->pdev, "idx[%d] exceeds max cmds or has no request\n",
-> +			idx);
-> +		return;
-> +	}
-> +	ent = cmd->ent_arr[idx];
-> +
-> +	memcpy(ent->out->first, rsp->out, sizeof(rsp->out));
-
-[Severity: Medium]
-Can a stale response be given to the wrong command here?
-
-The only matching is on the device-supplied rsp->idx, plus a lockless read
-of cmd_entry_mask. ent_arr[idx] is not checked for NULL.
-
-rsp->token is never compared with ent->token, even though xsc_cmd_invoke()
-writes the token into the request:
-
-	lay->token = ent->token;
-
-The token is idx + 1, so even if it were checked it could not tell two uses
-of the same slot apart.
-
-A late response can come from a command that timed out in this instance,
-or from a request the firmware still holds from a previous driver instance.
-Either one would complete whichever command now owns that idx.
-xsc_cmd_handle_rsp_before_reload() only skips responses that were already
-posted at load time. Allocation starts at bit 0, so the version check is the
-likely victim.
-
-There is also a duplicate-response case. Suppose the response arrives after
-the idx has been re-allocated, but while ent_arr[idx] still points at the
-previous entry that its waiter is freeing. Could the memcpy() into
-ent->out->first and complete(&ent->done) then write into freed memory?
-
-> +	ent->ret = 0;
-> +	ent->status = ((struct xsc_outbox_hdr *)ent->out->first)->status;
-> +	cmd->retry_cnt = 0;
-> +
-> +	xsc_free_ent(cmd, ent->idx);
-> +	complete(&ent->done);
-> +	up(&cmd->sem);
-> +}
-
-[Severity: Medium]
-Does this leak the timed-out command's xsc_cmd_work_ent and its inb/outb
-mailboxes?
-
-After a timeout, entA stays in cmd->ent_arr[X] and owns both mailboxes
-("the command owns both mailboxes now" in _xsc_cmd_exec()). When the late
-response arrives, this path frees bit X and returns a semaphore permit. It
-does not clear ent_arr[X] or free entA.
-
-The timeout check at the top of _xsc_cmd_exec() is a plain lockless read. A
-caller that already passed it can still get idx X from xsc_alloc_ent(), for
-example one sleeping in xsc_alloc_msg() or blocked in down().
-xsc_cmd_invoke() then overwrites the slot unconditionally:
-
-	cmd->ent_arr[ent->idx] = ent;
-
-That command NULLs the slot when it finishes. From then on, entA, its two
-xsc_cmd_msg chains and their dma_pool blocks are unreachable.
-xsc_cmd_cleanup() cannot free them, and dma_pool_destroy() would report a
-busy pool.
-
-[ ... ]
-
-> +static int xsc_cmd_cq_polling(void *data)
-> +{
-
-[ ... ]
-
-> +		cq_pid = xsc_get_cmdq_rsp_pid(xdev) & XSC_CMDQ_INDEX_MASK;
-> +		if (cmd->cq_cid == cq_pid) {
-> +			usleep_range(1000, 2000);
-> +			continue;
+> +			if (is_vmalloc_addr(addr))
+> +				pages[i] = vmalloc_to_page(addr);
+> +			else
+> +				pages[i] = virt_to_page(addr);
 > +		}
+> +		buf->direct.buf = vmap(pages, buf->nbufs, VM_MAP, PAGE_KERNEL);
+
+[Severity: Medium]
+Is it valid to call virt_to_page()/vmalloc_to_page() on memory returned by
+dma_alloc_coherent() and then vmap() it with PAGE_KERNEL?
+
+The DMA API doesn't guarantee that a coherent allocation sits behind a
+linear-map address with a valid struct page. It can be an uncached remap,
+memory from a memremap'd per-device or restricted pool, or a decrypted page
+on SEV/TDX guests. In those cases the derived struct page is wrong, or the
+new cacheable alias has attributes that don't match. vmap() can also fail,
+and then EQ creation fails.
+
+On 4K-page systems this path runs on every probe. Each completion EQ has
+nent = roundup_pow_of_two(1024 + 0x80) = 2048 entries of 8 bytes. That is
+16 KiB, which is more than the max_direct = PAGE_SIZE passed by
+xsc_create_map_eq().
+
+The vmap'd buffer also seems to be unused. xsc_buf_offset() in xsc_core.h
+never reads direct.buf when nbufs != 1:
+
+    if (likely(buf->nbufs == 1))
+        return buf->direct.buf + offset;
+    else
+        return buf->page_list[offset >> PAGE_SHIFT].buf +
+            (offset & (PAGE_SIZE - 1));
+
+So direct.buf is only ever passed to vunmap().
+
+Upstream removed the same pattern from mlx4_buf_alloc(). The current mlx4
+alloc.c uses per-page dma_alloc_coherent() fragments and no vmap.
+
+Could the vmap() step be dropped here too?
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/yunsilicon/xsc/pci/eq.c b/drivers/net/ethernet/yunsilicon/xsc/pci/eq.c
+> new file mode 100644
+> index 0000000000000..875a277a83cb8
+> --- /dev/null
+> +++ b/drivers/net/ethernet/yunsilicon/xsc/pci/eq.c
+> @@ -0,0 +1,217 @@
+
+[ ... ]
+
+> +int xsc_create_map_eq(struct xsc_core_device *xdev,
+> +		      struct xsc_eq *eq, u16 vecidx,
+> +		      u32 nent, const char *name)
+> +{
+
+[ ... ]
+
+> +	eq->nent = roundup_pow_of_two(nent + XSC_NUM_SPARE_EQE);
+> +	err = xsc_buf_alloc(xdev, eq->nent * XSC_EQE_SIZE, PAGE_SIZE, &eq->buf);
+
+[ ... ]
+
+> +	in->hdr.opcode = cpu_to_be16(XSC_CMD_OP_CREATE_EQ);
+> +	in->ctx.log_eq_sz = ilog2(eq->nent);
 
 [Severity: Low]
-This isn't a bug, but this loop keeps polling when no command is
-outstanding. Each idle iteration does two non-posted MMIO reads (the error
-status and RSP_PID), then usleep_range(1000, 2000).
+Can the consumer index doorbell describe a 2048-entry EQ? The CID field in
+doorbell.c is only 11 bits wide:
 
-That is roughly 500-1000 wakeups and 1000-2000 PCIe reads per second for
-each bound device, for as long as it stays bound. In this patch, commands
-are only issued at probe.
+    #define XSC_EQ_DB_DATA0_NEXT_CID_MASK	GENMASK(10, 0)
+    #define XSC_EQ_DB_DATA0_EQ_ID_MASK	GENMASK(21, 11)
 
-The commit message mentions "a single polling thread" but not this idle
-cost. Could the thread poll only while commands are outstanding, or back
-off when idle?
+xsc_update_eq_ci() fills that field from the free-running eq->cons_index
+using FIELD_PREP(), which silently masks non-constant values.
 
+The comp EQs have nent = 2048 (log_eq_sz = 11), so their doorbell carries
+only the slot index. Bit 11, the wrap/phase bit that next_eqe_sw() uses
+for ownership, is lost. The 512-entry async EQ keeps its index bits plus
+two wrap bits.
+
+Whether this matters depends on how the hardware reads CID, which the
+source doesn't show, and EQ occupancy is small today.
+
+Should the driver check the firmware-reported log_max_eq_sz before asking
+for a 2^11 EQ? The field is in the hca_cap layout in xsc_cmd.h, but it is
+not stored in xsc_caps.
+
+> +	in->ctx.vecidx = cpu_to_be16(msix_vec_offset);
+> +	in->ctx.pa_num = cpu_to_be16(hw_npages);
+> +	in->ctx.glb_func_id = cpu_to_be16(xdev->glb_func_id);
+> +	in->ctx.is_async_eq = (vecidx == XSC_EQ_VEC_ASYNC ? 1 : 0);
 > +
-> +		rsp = xsc_get_cq_inst(cmd, cmd->cq_cid);
-> +		if (!cmd->ownerbit_learned) {
-> +			cmd->ownerbit_learned = 1;
-> +			cmd->owner_bit = xsc_rsp_owner_bit(rsp);
+> +	err = xsc_cmd_exec(xdev, in, inlen, &out, sizeof(out));
+> +	if (err)
+> +		goto err_free_in;
+
+[Severity: Medium]
+What happens to the EQ ring when xsc_cmd_exec() returns -ETIMEDOUT here?
+
+The command layer treats a timeout as a command that is still in flight.
+In xsc_cmd_invoke():
+
+    if (!wait_for_completion_timeout(&ent->done, timeout)) {
+        cmd->cmd_status = XSC_CMD_STATUS_TIMEDOUT;
+        ...
+        /* the entry stays registered for the completion handler */
+        return -ETIMEDOUT;
+    }
+
+and _xsc_cmd_exec() keeps the mailboxes alive on a timeout:
+
+    if (err == -ETIMEDOUT)
+        /* the command owns both mailboxes now */
+        return err;
+
+Here the error path goes to err_free_in and then err_free_eq_buf, so
+xsc_buf_free() returns the ring pages with dma_free_coherent(). Their bus
+addresses were already passed to firmware in in->pas[].
+
+If the firmware completes the late CREATE_EQ, can it end up with an armed
+EQ that DMAs into freed pages? Once cmd_status is TIMEDOUT, every later
+xsc_cmd_exec() returns -ETIMEDOUT at once, so a DESTROY_EQ can never be
+sent to recover.
+
+The err_destroy_eq path and xsc_destroy_unmap_eq() already leak the buffer
+for this reason when DESTROY_EQ fails. Should a CREATE_EQ timeout leak
+eq->buf as well, instead of freeing it?
+
+[ ... ]
+
+> +	eq->index = vecidx;
+
+[ ... ]
+
+> +int xsc_destroy_unmap_eq(struct xsc_core_device *xdev, struct xsc_eq *eq)
+> +{
+> +	int err;
+> +
+> +	free_irq(eq->irqn, eq);
+> +	err = xsc_cmd_destroy_eq(xdev, eq->eqn);
+> +	if (err) {
+> +		pci_err(xdev->pdev, "failed to destroy a previously created eq: eqn %d\n",
+> +			eq->eqn);
+
+[Severity: Low]
+This isn't a bug, but eq->eqn is a u32 and is printed with %d. The caller
+free_comp_eqs() logs the same failure again as "failed to destroy EQ
+0x%x". A single DESTROY_EQ failure therefore produces two error lines,
+with the same EQ number shown once in decimal and once in hex.
+
+Could one of the messages be dropped, or both use the same format?
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/yunsilicon/xsc/pci/pci_irq.c b/drivers/net/ethernet/yunsilicon/xsc/pci/pci_irq.c
+> new file mode 100644
+> index 0000000000000..accc3e56ba46c
+> --- /dev/null
+> +++ b/drivers/net/ethernet/yunsilicon/xsc/pci/pci_irq.c
+> @@ -0,0 +1,345 @@
+
+[ ... ]
+
+> +int xsc_core_vector2eqn(struct xsc_core_device *xdev, int vector, u32 *eqn,
+> +			unsigned int *irqn)
+> +{
+
+[ ... ]
+
+> +	list_for_each_entry_safe(eq, n, &table->comp_eqs_list, list) {
+> +		if (eq->index == vector) {
+
+[ ... ]
+
+> +		snprintf(name, XSC_MAX_IRQ_NAME, "xsc_comp%d", i);
+> +		err = xsc_create_map_eq(xdev, eq,
+> +					i + table->eq_vec_comp_base,
+> +					nent, name);
+> +		if (err) {
+> +			kfree(eq);
+> +			goto err_free;
 > +		}
-> +		if (cmd->owner_bit != xsc_rsp_owner_bit(rsp)) {
-
-[Severity: Medium]
-The expected owner bit is learned from the same slot being validated, so the
-readiness check always passes for the first response. Is that safe?
-
-The "rsp doorbell advanced but buffer not ready" branch suggests RSP_PID can
-become visible before the slot contents. Suppose that happens on the first
-response after init:
-
-- The zeroed cq_buf slot is consumed with rsp->idx == 0 and status 0.
-- The version check completes with a zeroed payload (cmdq_ver == 0), so
-  probe fails.
-- owner_bit is learned as 0.
-
-The queue is never reset, so the hardware phase carries over from earlier
-driver instances. If that phase is 1, every later slot fails the owner
-check. The poller then loops on msleep(20) forever and every command times
-out.
-
-[ ... ]
-
-> +static int _xsc_cmd_exec(struct xsc_core_device *xdev,
-> +			 void *in, unsigned int in_size,
-> +			 void *out, unsigned int out_size)
-> +{
-
-[ ... ]
-
-> +	if (cmd->cmd_status == XSC_CMD_STATUS_TIMEDOUT)
-> +		return -ETIMEDOUT;
-
-[Severity: Medium]
-Is it intended that one timeout disables the command interface for good?
-
-xsc_cmd_invoke() sets cmd->cmd_status = XSC_CMD_STATUS_TIMEDOUT on timeout.
-Nothing outside xsc_cmd_init() ever sets it back to XSC_CMD_STATUS_NORMAL.
-That holds even when the late response arrives and xsc_cmd_comp_handler()
-frees the slot and calls up(&cmd->sem).
-
-After one firmware stall longer than XSC_CMD_TIMEOUT_MSEC, every later
-xsc_cmd_exec() returns -ETIMEDOUT until the device is unbound and rebound.
-Later in the series this covers CQ/QP/EQ create and destroy, MTU, port admin
-status, vport state and event query.
-
-The commit message only says "Event-driven mode is deferred". It does not
-mention that timeouts are terminal.
-
-[ ... ]
-
-> +int xsc_cmd_init(struct xsc_core_device *xdev)
-> +{
-
-[ ... ]
-
-> +	cmd->log_sz = XSC_CMDQ_Q_DEPTH_LOG;
-> +	cmd->log_stride = XSC_CMDQ_ELEMENT_SIZE_LOG;
-> +	cmd->max_reg_cmds = 1 << cmd->log_sz;
-> +	bitmap_fill(&cmd->cmd_entry_mask, cmd->max_reg_cmds);
 > +
-> +	spin_lock_init(&cmd->alloc_lock);
-> +	spin_lock_init(&cmd->doorbell_lock);
-> +	sema_init(&cmd->sem, cmd->max_reg_cmds);
+> +		eq->index = i;
 
-[Severity: Medium]
-With this sizing, can a full response ring be told apart from an empty one?
+[Severity: Low]
+This isn't a bug, but struct xsc_eq::index ends up with two meanings.
+xsc_create_map_eq() sets eq->index = vecidx, which is the absolute MSI-X
+table entry: 0 for async, and comp EQs starting at
+XSC_EQ_VEC_COMP_BASE = 4. This line then immediately overwrites it with
+the comp-relative i.
 
-max_reg_cmds and the semaphore both allow 32 outstanding commands. The
-request and response rings have exactly 32 slots, and indices are compared
-modulo 32 (XSC_CMDQ_INDEX_MASK). A permit is only returned after the poller
-consumes the response.
+The exported xsc_core_vector2eqn() compares vector against this field.
+That makes the store in xsc_create_map_eq() dead for comp EQs, and the API
+does not say that vector is comp-relative.
 
-xsc_cmd_cq_polling() treats cq_cid == cq_pid as empty:
+The in-tree callers added later in the series, xsc_eth_open_channel() and
+xsc_eth_set_cq(), pass comp-relative indices and work today.
 
-	if (cmd->cq_cid == cq_pid) {
-		usleep_range(1000, 2000);
-		continue;
-	}
-
-Suppose the device posts 32 responses while the poller is in
-usleep_range(). The masked RSP_PID wraps back to cq_cid, so all 32 responses
-are skipped. Every waiter then times out, the XSC_CMD_STATUS_TIMEDOUT latch
-disables the interface, and the owner phase no longer matches the hardware.
-
-The request side has the same issue. xsc_cmd_invoke() never compares cmd_pid
-with the hardware consumer index, so a 32nd unconsumed request also makes
-REQ_PID equal to the consumer index.
-
-The code does not show whether the hardware posts into all 32 slots. Would
-limiting outstanding commands to (1 << log_sz) - 1 avoid this?
+Could the field or the vector argument of xsc_core_vector2eqn() be
+documented, or split into two fields, so that a caller expecting MSI-X
+numbering is not misled?
 
 [ ... ]
 
-> +void xsc_cmd_cleanup(struct xsc_core_device *xdev)
+> +static void xsc_event_work(struct work_struct *work)
 > +{
 
 [ ... ]
 
-> +	/* a timed-out command stays registered for a response that may never
-> +	 * come; with the polling thread stopped nothing can touch it anymore
-> +	 */
-> +	for (i = 0; i < cmd->max_reg_cmds; i++) {
-> +		if (!cmd->ent_arr[i])
-> +			continue;
-> +		xsc_free_msg(xdev, cmd->ent_arr[i]->in);
-> +		xsc_free_msg(xdev, cmd->ent_arr[i]->out);
-> +		kfree(cmd->ent_arr[i]);
-> +		cmd->ent_arr[i] = NULL;
-> +	}
-> +
-> +	dma_free_coherent(&xdev->pdev->dev, PAGE_SIZE, cmd->cq_buf, cmd->cq_dma);
-> +	dma_free_coherent(&xdev->pdev->dev, PAGE_SIZE, cmd->cmd_buf, cmd->dma);
-> +	dma_pool_destroy(cmd->pool);
+> +			handler = READ_ONCE(xdev->link_event_handler);
+> +			if (handler)
+> +				handler(xdev);
 
-[Severity: High]
-Can the device still DMA into these buffers after they are freed?
+[ ... ]
 
-With the polling thread stopped, the host will not touch a timed-out entry.
-The device, though, still holds the ring and mailbox addresses. Nothing here
-does any of the following:
+> +void xsc_irq_event_register(struct xsc_core_device *xdev,
+> +			    void (*handler)(void *xdev))
+> +{
+> +	WRITE_ONCE(xdev->link_event_handler, handler);
+> +}
 
-- reset the queue
-- clear the CMDQM_HOST_REQ/RSP_BUF_BASE registers
-- drain outstanding commands
+[Severity: Low]
+Is there enough ordering between xsc_irq_event_register() and
+xsc_event_work()?
 
-Bus mastering is also still enabled, because xsc_pci_fini() only clears it
-afterwards:
+The handler is published with a plain WRITE_ONCE(), read with a plain
+READ_ONCE(), and called right away. It reaches the registrant's state
+through xdev (for example xdev->eth_priv), and that access has no address
+dependency on the function pointer.
 
-	xsc_cmd_cleanup(xdev);
-	pci_iounmap(pdev, xdev->bar);
-	pci_clear_master(pdev);
+There is no smp_store_release()/smp_load_acquire() pair, lock, or RCU
+here. A worker on another CPU could therefore see the new handler together
+with state written before the register call that is still stale.
 
-The xsc_pci_init() unwind uses the same order. The probe path reaches this
-directly when xsc_cmd_version_check() times out and jumps to
-err_cmd_cleanup.
+The in-tree user in xsc_eth_probe() happens to get a wmb() on the writer
+side from the xsc_cmd_exec() calls in between. Also,
+xsc_eth_link_event_handler() returns early when !adapter ||
+!adapter->opened, so at worst a link event is ignored today.
 
-On rebind, pci_set_master() runs before xsc_cmd_init() reprograms the base
-addresses. xsc_cmd_handle_rsp_before_reload() also writes RSP_CID before
-that. A response the firmware still holds could then be written into the
-previous instance's freed, and possibly reused, pages.
+The header comment describes a register/unregister contract, but nothing
+in the code orders it. Would release/acquire semantics be worth using
+here?
 
-The kthread_create() failure path in xsc_cmd_init() has the same problem,
-because the rings were already programmed into the device:
+[ ... ]
 
-err_free_cq:
-	dma_free_coherent(&xdev->pdev->dev, PAGE_SIZE, cmd->cq_buf, cmd->cq_dma);
+> +void xsc_irq_eq_destroy(struct xsc_core_device *xdev)
+> +{
+> +	xsc_stop_eqs(xdev);
+> +	free_comp_eqs(xdev);
+
+[Severity: Low]
+Should this teardown run in reverse creation order?
+xsc_irq_eq_create() creates the async EQ first and the comp EQs after it.
+Its own error unwind gets the order right:
+
+    err_free_comp_eqs:
+        free_comp_eqs(xdev);
+    err_stop_eqs:
+        xsc_stop_eqs(xdev);
+
+Here, the async EQ (is_async_eq = 1, where firmware reports CQ/QP error
+events) is destroyed while the comp EQs are still live in firmware.
+
+Later in the series xsc_pci_fini() calls xsc_adev_uninit() before this, so
+no concrete failure is known. The normal teardown and the error unwind
+still disagree.
+
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126145711.70868-1-tianx%40yunsilicon.com
