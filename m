@@ -1,107 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795771599;
-	b=YdSj03fkWyvsmCDBcfF89EymBfdfuDxmG9Fa/DxCwzxHdJbXottpKfDJbHcfrxf9/kWp
-	 CEFKm/Fa1XVNgSGT5vITNcX5aCw2BUZZd1K6BdeKT8hi/aRpW/LBRbRpVBmBuK6Gslh1X
-	 ymvej8uevjbrtnUjIuO9+uWyjls4okwQ+6VsSOAiKtXCpVB6BJK/4vaCEIciMHQIb2h+o
-	 7b+CwJqd7I0cK/YjxOCMJrCxI65Nm5A61/wMHLtONhiAywvZ+Q8RnnabX11n6HqdOxvEd
-	 c4iT1P59t/lIKYed2gF1T/IKvGlbppEgFiTRY+/rL7UVos08e0gsdluZGR1ADNKZ/6w==
+	t=1795771602;
+	b=bF0fX4Ldoi13vE619Kjv5GSbrXV06A7gv75k0OJ8HZo8ovgNFHphiXAPFmHfEj9fZdWt
+	 lJ3VUh2halu+99MOZ48juZVbGj3e+gnT6IgrZ/gaPFvFGv7ZSC2qZJQoy4hNZuTdCbvad
+	 sLDb434LHulMfDKlx5es7ytFzFMi4YiYkfc71kBJmO3mGt+zPsEvbSz744m/q5lSzjYIo
+	 mOOHedcWBIUsqdvNgXp7rAJpfPmV+6qyO8Hl5LR2dNwds7fk2oRL6FvFsJSTax5/eydwY
+	 mHaY2BhseTGLwq8O036vaAey5yysRF9dqNbvaYBrjKdpQFU7NQfRRmt0wAXlidlc3PA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795771599;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=hoxVon0gybDyq4RET65wbSko4AYZRSn5g8mIkbvH3EY=;
-	b=zL4V0E8gsorkFOIKC/viTQegj/Za+IWyXZXSku5OxdUyUzuahONZ17SPnh6vwaJV/klp
-	 oP0NpYNLGyCuTS36DaSX1IBfjZA0xAKv7m5hTzIiA+F/y95zuZspGOku/u0b5Of058XnU
-	 rpvhXtQl3ExM1dkZmf7OkSZ40/KUqx96HTNLHtIWUgRJXjh1KViLymtZ1Q57Drp90m6qW
-	 4JsHmjUY2c82eeuHn5EJ++0+puJY4bezpw6IS4MiGHM4BUzfr4VBU1LKdjBIKKd2sQQ3d
-	 j35ESnTh5oO0nOHqy4cm3L/Z49ptqDk5yZs3i2NDygWsBNGBUvRASdWeS/XJ7jrGMQA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795771602;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=UZ8b6FSjjztFRZRInOS21srAOCub1vYlaQEc7H442+0=;
+	b=0AbcHeHF4fXliilna4uoGaX79LEVTD9ch8N6aa8uMKCVhSMVQlyCGJsGkYAXiQDAv7nw
+	 Lxu7OKa5zWEVvY0fdwXEJJgqMGdk9DTkH4L7Qukj+GKGAdHf8RsvvwiEv5Mbuf0oPXyQu
+	 kGWCrm5wZzK47qBU+asLMJVM41NtoEOawX3ojo03lLr9KbFUMu5z4U6f31RBd81jcSINx
+	 nlHoK6PnG+lKaNYsHvgoJkJvMOHc75paHViCqwfT6++uwpKbrU57ChUFGZyn+aZclllYV
+	 AwYRhLsiGMCU17H6ZRfCOyUTQUkVT0+M4AtVkCzEj3HCcK9494ezBIBlj2vZ7+NNWqw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=Vir8602Q;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bC+k17hM;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65EAC606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:26:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65EAC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A886606A682;
+	Fri, 27 Nov 2026 09:26:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=Vir8602Q
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4bb70074ab2so83360215e9.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:26:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795771598; x=1796376398; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=hoxVon0gybDyq4RET65wbSko4AYZRSn5g8mIkbvH3EY=;
-        b=Vir8602QHCY48d/5HTYyW2E758IaVdN7MLnibn3ir1cJWZggbX2KVToMsfPGsh7pGH
-         uVifU8phq/aN6ngKAepiCcDCApwHqptT+9947BVDpB9JDCGrNUO5roI3BaFwvFJPLZMb
-         AQyrYQpnFsdckYnvvhPZW8ZXtQhubCiYIHiKhNnp/NFIYhqiDPhGX87HyiYxlODjBJOD
-         S1kGzSpdaDYnu7u8c2WCKaiHj31BSDwUli7/seZyzP/JEG1PoeJPVJ7FzD1bU7J51N7H
-         t9FQ+k3RLVI0qUN2/qRN3wFxmAMjVS9p0a9IBtakY94L4RiiL2dGtevWcQWAVe212VLE
-         JBDA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795771598; x=1796376398;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hoxVon0gybDyq4RET65wbSko4AYZRSn5g8mIkbvH3EY=;
-        b=LBslnWSOTaxUOwdDCKGdG8D7DhwHajcQWWzWVUk+uTKa14cRWNBpLncbRNMjItbVap
-         AnbiXZ15kAqdxhvPF4QiWJaPc7KKZ5EH2aWSXVxPQ9x7mFLhr/jIovB51SPGtG8NYxYf
-         IMk/fdxsU3MpDp1ao/50k5JoIOAGf8v9VXGg005u9dKHQriLi2VFl+mxCftJEbaCnxVA
-         zMFRJpNdMvy+ec6f44sTlm+wkKHmiYdBs2WaSSKIhZQPy74e/3zbRNhLcYd71YwxCkor
-         WuEkFMeiEYjKcG/xZ0QCBixWe38+GyL5Qr4HMV9gl1xLv/8RUZNl1XgsmjZ3e6+CoAbG
-         oqZA==
-X-Forwarded-Encrypted: i=1; AL+hErE+d6JQqh+U2iyQnkPEm1Pxv9LZvDMbwgKgl3tHRii0wsuhetUB0W3FT6yaSfcLY7Hv1VBJgle6k2KeIzM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/TWynYO1bMEk+b2QHmZwbtlEn8WVSPUR6lFyWipEr9EOVsIfCn
-	gBnhRvn2g2n7S9625wMgDYMicxLRwRJMc7Ua2JZ+Kktr0bUExmFB7WoUBf8ql/KXhC4=
-X-Gm-Gg: AZFdTZdTufda4HAJDr0QQCocHiAfrVt7rOVyitcreyYx8zr6ea+IGKWM6mdw1kc6Rbm
-	S5izglDxUBYCCZ7XvvAL25bkm2vZONi2aCXuXrYk/VEfmFJ6KCkxbNTR0/vrfsCPc/+Ha1nSmh9
-	CdBoGwTpkfDxCu/m7TXzYLryq3LXGwlEiuSE2hMp7TIeNC70lK9GyQne84WhVzUJ3NthHh6MI8G
-	iVVkeGHyE/5IpCeCESWmHaCGU+O+eUVGMRYU9GbP/dWXrsoFt8dA4ewe6/IlC943GkAcrtbT1y2
-	DyV2cp7tISjk5L9ILsTpjk/RlXOYz0rzLObhRDouuAbla00pEed/Wm3tuD+8TjTVdskLa/e9ssM
-	H6XoBshjc3Zcj/RnWW9erVu11Q0H9LYICallml2QdhCJg8NQK5Utm93J5H4f0oaPO26+5CBWKPn
-	Axpvevy9GrwVz9zsAFIP3JEGlpaG7dwGLSKmtPzrRDC8eJ4DTHuz/fIdxxsHEbTXABzMw3MTn81
-	6p/gLrLpxZYN5SVvsPgDvp4/N+klNbF401r4iHt7EKx1qewwuyNU035gLJ6192fvEp5GTsTMiZD
-	TdrvzYOe6bKevxh+42izH8/q4p6ScKpg8myWe0HV
-X-Received: by 2002:a05:600c:3ba5:b0:4b0:a307:46f8 with SMTP id 5b1f17b1804b1-4bb8880f29bmr537393335e9.10.1795771597616;
-        Fri, 27 Nov 2026 01:26:37 -0800 (PST)
-Received: from localhost (109-81-21-11.rct.o2.cz. [109.81.21.11])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2e6dsm44430440f8f.6.2026.11.27.01.26.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 01:26:37 -0800 (PST)
-Date: Fri, 27 Nov 2026 10:26:36 +0100
-From: Michal Hocko <mhocko@suse.com>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Muchun Song <muchun.song@linux.dev>,
-	David Hildenbrand <david@kernel.org>, Qi Zheng <qi.zheng@linux.dev>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Jan Kara <jack@suse.cz>, Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
-	Greg Thelen <gthelen@google.com>, Greg KH <greg@kroah.com>,
-	Ming Lei <tom.leiming@gmail.com>, linux-mm@kvack.org,
-	cgroups@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND] mm/vmscan: Fix legacy memcg reclaim deadlock
- against filesystem freeze
-Message-ID: <awlMzHMo6_Vj7gmq@tiehlicka>
-References: <17d0d1395c0237d201a1abb2473d51f5@kernel.org>
- <f188775aea9580f9ab2b477788503434@kernel.org>
- <20261126180228.9b672a945d480e3d3f301985@linux-foundation.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bC+k17hM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DD311F0089B;
+	Fri, 27 Nov 2026 09:26:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795771602;
+	bh=UZ8b6FSjjztFRZRInOS21srAOCub1vYlaQEc7H442+0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=bC+k17hMNjb1w1yolYbFgLSObI4G3G8VzkJiFWCKUKHDd6vAK/ElmmbDSU00uKI3i
+	 ETMnHH3o1JOr3W+PUMHeS/SX0iruS9euKG0+FjkSCnkh4d2sHThvCM/3JQGBMviXfx
+	 H5E+ImunTnB3ra+u1Ovjc4ramAYUUYxJ8Xf4mP4U6Y/ccpNELf77y28/SYo43gz6qM
+	 EeNl0BePh/cL18Du2oX0g9Zt8G0o5kSdgiP6LRiaPcazNpLRwGFDFpH2MHnhF9/XpG
+	 3+TAqP3Z0FR0u7unSCR4gXmtQ38uQciY6Z0H1hDEIbzfFd4PSgYZix/wHGpqVRMOa1
+	 37n9mz3eTI8fQ==
+Date: Fri, 27 Nov 2026 09:26:34 +0000
+From: Lee Jones <lee@kernel.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	=?iso-8859-1?Q?J=E9r=E9mie?= Dautheribes <jeremie.dautheribes@bootlin.com>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>, Frank Li <Frank.Li@nxp.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	"Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-watchdog@vger.kernel.org,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Miquel Raynal <miquel.raynal@bootlin.com>, mfd@lists.linux.dev,
+	linux-doc@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: Re: [PATCH v10 0/5] Add support for AAEON SRG-IMX8P MCU
+Message-ID: <20261127092634.GO38590@joneslee-macbookpro.roam.internal>
+References: <20261120-dev-b4-aaeon-mcu-driver-v10-0-a756687e7997@bootlin.com>
+ <179577149953.44397.11685484329530619531.b4-ty@b4>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,27 +81,40 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261126180228.9b672a945d480e3d3f301985@linux-foundation.org>
+In-Reply-To: <179577149953.44397.11685484329530619531.b4-ty@b4>
 
-On Thu 26-11-26 18:02:28, Andrew Morton wrote:
-> On Thu, 26 Nov 2026 02:17:38 -1000 Tejun Heo <tj@kernel.org> wrote:
-> 
-> > Hello, Andrew.
+On Fri, 27 Nov 2026, Lee Jones wrote:
+
+> On Fri, 20 Nov 2026 08:23:52 +0100, Thomas Perrot (Schneider Electric) wrote:
+> > This patch series introduces support for the AAEON SRG-IMX8P embedded
+> > controller (MCU). The MCU is connected via I2C and provides GPIO and
+> > watchdog functionality for the SRG-IMX8P board.
 > > 
-> > Your follow-up, "mm/vmscan: scope freeze writeback skip to the reclaim
-> > target", applies on top of this patch and tests fine here.
+> > The series includes:
+> > - Device tree binding for the MFD driver
+> > - MFD driver that serves as the core driver for the MCU
+> > - GPIO driver implementing the GPIO functionality
+> > - Watchdog driver for system monitoring
+> > - MAINTAINERS entry for the new drivers
+> > 
+> > [...]
 > 
-> Cool, thanks.  I'd forgotten about that ;) It was a hastily slop-coded
-> "maybe you'd like to include something like this in your patch" thing.
+> Applied, thanks!
 > 
-> Can people please take a look and suggest whether it should be a
-> standalone patch, or just fold it into this patch, "mm/vmscan: Fix
-> legacy memcg reclaim deadlock against filesystem freeze"?
+> [1/5] dt-bindings: vendor-prefixes: Add AAEON vendor prefix
+>       commit: 8754d4912daa776faa2525f5e6277a18d40fd939
+> [2/5] dt-bindings: mfd: Add AAEON embedded controller
+>       commit: 62eb7223813ba41684a22494de046e240f20240a
+> [3/5] mfd: aaeon: Add SRG-IMX8P MCU driver
+>       commit: 001731afc45c1d8b2724346cd806c02064032ed5
+> [4/5] gpio: aaeon: Add GPIO driver for SRG-IMX8P MCU
+>       commit: 10237675f88d8b90eb958ab123f2cdd2c61705d4
+> [5/5] watchdog: aaeon: Add watchdog driver for SRG-IMX8P MCU
+>       commit: 7f99cacfe2793d19acdea392b46592b0c605845c
 
-standalone patch. And quite honestly I am not convinced we need this.
-Let's see what other memcg maintainers think but I would keep the global
-thing as this is a global situation.
+Pull-request to follow after build testing.
+
+Note to self: ib-mfd-gpio-watchdog-7.5
 
 -- 
-Michal Hocko
-SUSE Labs
+Lee Jones
