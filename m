@@ -1,69 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.216.248.212
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795791628;
-	b=aGJVrhHQr35WabRMR9NogTlZ49PGmS+DgWfsGMb1GrsrIEVjx+bqZ5sm7kf0aPcDvVtl
-	 XkA32HUU01F6oBsOCIB5qtsxb396m1ZO0NcCmvdZp58AW694Cg4M3ps+9DJ4/PCYu1z53
-	 p4IfN63rd1rAXfH0B/kNV8SPM0sZlp5xE4IGc0bGX7eFQVUzITjLFlfVYPP/zFyiW7HrI
-	 wxWHba7Odqf4JDROgOJg3UrKjsWvgfKxR1HZ6cd5dViRNGw7p3uTARn7zEjZf6i8mGvs3
-	 zpV9hpUDxzHTwNIHh+JgL8aMFJJ8KdL3K48GLJ8lP+6LGVfBK9ASrpc6MD+ewqTEXkQ==
+	t=1795791629;
+	b=qd3vjLTHIxqxQejKIAt4U7Gfg+yb8+39MOzFLaagHYTq9iTs93yL++nEelJs+9w7OHjj
+	 VIO6hltV3TNMcks6PgDCjMqpJcz+AYvPfzE35qo4Q+AxFTuGOhtkjKhIcZDjdfMWY+MaS
+	 92V8zay26bfAmmB9BvlpCJMTbFCxxgUSzeI0Z7NLH92/eJphpXw3NTucHm4aXrSswB1Br
+	 Z8uLDZgVrdqyKYwaQPUgx44VG1M1ubqtff9LzlVJu/C2grnLv3tOZP7Zxth50bHWv5cJg
+	 SV5f+tcQEPPHwaGZvEQAtvraRq43HHrNbgK4UxxMwtGwKxZsnbK26HQl1uShZR/Rvjw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795791628;
-	h=DMARC-Filter:From:X-Lima-ML-UUID:DKIM-Signature:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795791629;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=FVEgFYoYhtqGyH1evmt7A9DFPvQCSlwryloZBMN/Syg=;
-	b=bQFUxLIGi+HNM+6cpwvSJAx7bXcwqgit1qV5c3YPPIP2rGjmqar+m4PNuTbUr0k+7zOq
-	 Tvn9t4bz7c3tDq43PVSHjvzHI88PZPSvuNaB8gQeQQ9jNjUkxUqULEhTIYfeXROZKBGt6
-	 onSr9BjetAFa+jmZSkbi2cfZklCL/ioSd/KgtCpfllq3a9xxt+73FwgjjClzFWrETev4r
-	 Y087tidynhVLJ1MoWGvQufgcPJZHZWGI7tsfrURSs9Ap2M30gr1hCi6ERhWDLq42+6aLu
-	 dQVZLRGG2dGy35mv1ZF0GPEVAqc4oEgnO7Kvpt7uqqlsEPA2dEOOJP7dGF0J887kujA==
+	bh=GthgD+rr8Ts23jACHfsBnyhBDzvrFr+XUGtZyIjqgMo=;
+	b=nM6gjp9rklTY/HzA0vAD6YQZgsIogsEiugmUtS+skej0kX5wn0G2/RrwGRNikK6J/eWf
+	 j/5er17AYvP/momXVZ8T393Ci12kavExi7ZKsUtTUpfewVAqE1RAgZ/FSaNYTddzp2OhN
+	 i5u5lAt59VW+XMQXRjOdGgOTFkc5P8lW1t9aHxyd6H7BhoTB+NfdiLRJRPaxTdcVW2llo
+	 P42zeNq+ruR/kw/2y6T7xsmrdpsWBK+O621DNiHh9be7zyL4OHD2ZqvBQJDyAaZYyrhkK
+	 HeZUOChtFYlDYFiKzsYFoE72SCglBRgC6zztwovjUPvA0fGE9e5QUwMfeVwSfcCB6UA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=deq.rocks;
-	spf=none smtp.mailfrom=deq.rocks;
-	dkim=pass header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=OE53mCew;
-	arc=none smtp.remote-ip=91.216.248.212
-Received: from bulk0.mail-out.lima-city.de (bulk0.mail-out.lima-city.de [91.216.248.212])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=rkbLcME8;
+	arc=none smtp.remote-ip=95.215.58.69
+Received: from mta1.migadu.com (out-69.mta1.migadu.com [95.215.58.69])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96E95606A32C;
-	Fri, 27 Nov 2026 15:00:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 96E95606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=deq.rocks
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=deq.rocks
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0CFD606A33B
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:00:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0CFD606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=OE53mCew
-From: Andre Eikmeyer <dev@deq.rocks>
-X-Lima-ML-UUID: be8926f0-53f7-4e49-afc6-deafbaf5e0c6
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=deq.rocks;
-	s=securedbylima-20251205; t=1795791625;
-	bh=uZFyBbuyMu6Q9xrtJRjlB0ZIJBs2x9cl6bdnwyfzNWI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OE53mCewgz9FxqJAMqkL85YVdwIcn6arhiTGcMwuK83w1YUOnHYxayXyylQN9Yxsy
-	 qwldsDFxnZw67lwTJYTKANzTIvTkcYIZBb1XgJT5LlD2pkvKW+B0/A3R4R6Q9LoXce
-	 H0ZQ2zX75xNxm1rXUfAtV+jdE/BGklHKa8AQyAiuDzvnx59VfWCsIGvlVnNTDlzb9D
-	 j0aBRQmLg5vwtW8Td4xohKT9ZfobCXr3fQdPL20cIKxMSmcf9uSJ/xaPFox6JsZliz
-	 hFSb8soUVfhdBtuuAxemRwoklrQpUvr+bmHgHQ7Z4wbCfJhZokRqxgvmBGKkzREL0n
-	 NYBtd6/pB3fLQ==
-To: jani.nikula@linux.intel.com,
-	rodrigo.vivi@intel.com,
-	joonas.lahtinen@linux.intel.com,
-	tursulin@ursulin.net
-Cc: airlied@gmail.com,
-	simona@ffwll.ch,
-	hansg@kernel.org,
-	ilpo.jarvinen@linux.intel.com,
-	intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
-	platform-driver-x86@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm/i915/backlight: restore the gmux brightness on dual GPU T2 MacBook Pros
-Date: Fri, 27 Nov 2026 16:00:21 +0100
-Message-ID: <20261127150021.285379-1-dev@deq.rocks>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261108100926.28950-1-dev@deq.rocks>
-References: <20261108100926.28950-1-dev@deq.rocks>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=rkbLcME8
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=p6CYSM6z+3P1wrsy7GHqsmhfWnUf8tlYrj8G63KyQcE=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795791626; v=1; x=1796396426;
+ b=rkbLcME8SXNcS7MZ5LfbHz07oPuGZ0Vom6VRcA/UOb3o02JLSTRBCWgDjBnfktjQxmo8j9eW
+ 5kFZEITQFxjpNaVF4JQuO/Zr5a8sqCDqJNL4OwsTnGnuXq4uwevQfP+paz1V+/IPWGmyOBcSVPd
+ 40grFe63Ws4OFV/VuoQhSC1k=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta12.migadu.com with ESMTPS id 4656ad381e0b016b;
+	Fri, 27 Nov 2026 15:00:25 +0000
+X-Mizu-Trace-ID: 4656ad381e0b016b
+X-Migadu-Flow: FLOW_OUT
+From: Usama Arif <usama.arif@linux.dev>
+To: Hungyu Lin <dennylin0707@gmail.com>
+Cc: Usama Arif <usama.arif@linux.dev>,
+	axboe@kernel.dk,
+	hch@infradead.org,
+	linux-block@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	dm-devel@lists.linux.dev,
+	mtsai@redhat.com,
+	stable@vger.kernel.org,
+	hch@lst.de
+Subject: Re: [PATCH v4] block: fix discard alignment for non-power-of-two granularities
+Date: Fri, 27 Nov 2026 07:00:21 -0800
+Message-ID: <20261127150023.3570227-1-usama.arif@linux.dev>
+X-Mailer: git-send-email 2.53.1
+In-Reply-To: <20261120101758.45513-1-dennylin0707@gmail.com>
+References: 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,15 +75,122 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hi,
+On Fri, 20 Nov 2026 10:17:58 +0000 Hungyu Lin <dennylin0707@gmail.com> wrote:
 
-gentle ping on this patch.
+> bio_discard_limit() uses round_up() and round_down(), which require a
+> power-of-two alignment. However, discard_granularity need not be a power
+> of two. For example, dm-thin supports data block sizes that are arbitrary
+> multiples of 64 KiB and advertises the block size as its granularity.
+> 
+> With a 192 KiB granularity, discarding one complete block at offset
+> 384 KiB is split into 128 KiB and 64 KiB bios. Neither covers a complete
+> thin block, so dm-thin ignores both and the mapping remains allocated.
+> 
+> Use div_u64_rem() to find the starting sector's remainder without
+> modifying the sector. Round the maximum bio size down with rounddown()
+> and subtract the remainder so that the next bio starts on a granularity
+> boundary. This handles non-power-of-two granularities and avoids a small
+> initial bio when a large discard starts at an unaligned sector.
+> 
+> When discard is unsupported or disabled, discard_granularity can be zero.
+> Return BIO_MAX_SECTORS in that case so the existing bio submission checks
+> can handle unsupported discard requests without dividing by zero.
+> 
+> Fixes: 9b15d109a6b2 ("block: improve discard bio alignment in __blkdev_issue_discard()")
+> Reported-by: Ming-Hung Tsai <mtsai@redhat.com>
+> Link: https://lore.kernel.org/r/CALjSBEvjbiGDVewuapWKhGDtaxZwcn4=22raUiBEOyj22rY7-g@mail.gmail.com
+> Suggested-by: Christoph Hellwig <hch@infradead.org>
+> Reviewed-by: Christoph Hellwig <hch@lst.de>
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
 
-The Intel CI reported VerificationFailed for it, but only because my
-address is not on the CI allowlist, so it wasn't tested. Could
-someone with Patchwork access click retest on
+This also fixes a 7.1 regression for us. Since commit 1029298da365
+("nvme: set discard_granularity from NPDG/NPDA"), NVMe namespaces can
+report a granularity well above the LBA size (128K on the drives we hit
+this on). The old code then split every unaligned discard in two, even
+when the range fits in one bio, so XFS online discard of unaligned 1 MiB
+extents sent two DSM ranges per extent and about twice the DSM commands
+after large unlinks. With this patch it is one range per extent again.
 
-  https://patchwork.freedesktop.org/series/178109/
-  https://patchwork.freedesktop.org/series/178113/
+Tested-by: Usama Arif <usama.arif@linux.dev>
 
-Andre
+> ---
+> Changes in v4:
+> - Add Christoph Hellwig's Reviewed-by.
+> 
+> v3: https://lore.kernel.org/r/20261103185909.71843-1-dennylin0707@gmail.com
+> 
+> Changes in v3:
+> - Use div_u64_rem() instead of sector_div(), as suggested by Christoph
+>   Hellwig, so the input sector is not modified.
+> - Subtract the starting-sector remainder from the rounded maximum size
+>   instead of emitting a short initial bio, following Christoph's proposal.
+> - Include <linux/math64.h> explicitly and retain v2's zero-granularity guard.
+> 
+> Changes in v2:
+> - Handle zero discard_granularity before dividing. Leave unsupported
+>   discard handling to the bio submission path.
+> 
+> v2: https://lore.kernel.org/r/20261026195131.46699-1-dennylin0707@gmail.com
+> 
+>  block/blk-lib.c | 28 ++++++++++++++--------------
+>  1 file changed, 14 insertions(+), 14 deletions(-)
+> 
+> diff --git a/block/blk-lib.c b/block/blk-lib.c
+> index 688bc67cbf7..e98aa483707 100644
+> --- a/block/blk-lib.c
+> +++ b/block/blk-lib.c
+> @@ -3,6 +3,7 @@
+>   * Functions related to generic helpers functions
+>   */
+>  #include <linux/kernel.h>
+> +#include <linux/math64.h>
+>  #include <linux/module.h>
+>  #include <linux/bio.h>
+>  #include <linux/blkdev.h>
+> @@ -13,26 +14,25 @@
+>  static sector_t bio_discard_limit(struct block_device *bdev, sector_t sector)
+>  {
+>  	unsigned int discard_granularity = bdev_discard_granularity(bdev);
+> -	sector_t granularity_aligned_sector;
+> +	u32 unaligned_sectors;
+> +
+> +	if (!discard_granularity)
+> +		return BIO_MAX_SECTORS;
+>  
+>  	if (bdev_is_partition(bdev))
+>  		sector += bdev->bd_start_sect;
+>  
+> -	granularity_aligned_sector =
+> -		round_up(sector, discard_granularity >> SECTOR_SHIFT);
+> -
+> -	/*
+> -	 * Make sure subsequent bios start aligned to the discard granularity if
+> -	 * it needs to be split.
+> -	 */
+> -	if (granularity_aligned_sector != sector)
+> -		return granularity_aligned_sector - sector;
+> -
+>  	/*
+> -	 * Align the bio size to the discard granularity to make splitting the bio
+> -	 * at discard granularity boundaries easier in the driver if needed.
+> +	 * Align the bio size to the discard granularity to make splitting the
+> +	 * bio at discard granularity boundaries easier in the driver if needed.
+> +	 *
+> +	 * If the current sector is not aligned, shorten the range so that the
+> +	 * next one is aligned.
+>  	 */
+> -	return round_down(BIO_MAX_SIZE, discard_granularity) >> SECTOR_SHIFT;
+> +	div_u64_rem(sector, discard_granularity >> SECTOR_SHIFT,
+> +		    &unaligned_sectors);
+> +	return (rounddown(BIO_MAX_SIZE, discard_granularity) >> SECTOR_SHIFT) -
+> +		unaligned_sectors;
+>  }
+>  
+>  struct bio *blk_alloc_discard_bio(struct block_device *bdev,
+> 
+> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+> -- 
+> 2.50.1 (Apple Git-155)
+> 
+> 
