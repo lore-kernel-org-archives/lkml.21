@@ -1,101 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.50
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795806132;
-	b=tBFU6LH4aZgSnsg2zDD2V8MAaihJUW++92ZIve4O5+xaxKknvpxZCyCPZZs1Zd+tQl7H
-	 dk0bj8/Kf0Ebwu6Nr3kvR7FNun31jIHfaMKdJME49D4BqQW0mmdTeIZoIx8h8DWHyzo2R
-	 1QfUxLwdiFug10CSOpmRY/cLDfZnVZ4VXzQUi3/6xbR0UibrZ09B/VWhYcUfWX+gWkHB7
-	 Hr7lL8B7V5m5aWnl4sMwH5tvFQGvEvgQXqR1pxy9OUywBUyflGOz5bGXJDIAfvPkp9uOd
-	 aQKAobC/SF7fxMlcig1uXDSWUBql/mFLkV8gkwe2VhMuiRapVfxd0/zr2tNZvMRGUKQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795806132;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=zkQBPyKgHhzReYEqUfH52eqklLDsrHQN3rdcMHP01SI=;
-	b=IckolRk0ga/UzrUpkHIgaiwLyRZhdipIOmiqmlR5jc45RtZzbTQ2wxH4RyiW8p+/AljS
-	 JckFjnBNwSAHa4EdH3DTQhsVbZcTAYvkfBGivD2iUnLoxZFUeR8k6gPqslS9C8+dKxhSl
-	 WNoyB4hZvUZEU6Iwf+NWlrMj0u3xpcpoEyAd7QA1n+vR/KO4aFp+OBpd9FZC1J3SMu8K7
-	 jlDxIrd7/IhkvLujReNeMHBlJ0Hh80kUqnQ8tM2n0eBFduUgywXaAJtKwEKG6fjMhqPvP
-	 Szgv6HTs+tadl/acbXXc8RXb/1gdU4YCx05NyvY+mH2Tx24qbYpTbEVFHmTcR5QPleg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ENoUf1Ar;
-	arc=none smtp.remote-ip=74.125.82.50
-Received: from mail-dl1-f50.google.com (mail-dl1-f50.google.com [74.125.82.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795806215;
+	b=C50Ton8OyFPicp0/PHY2z3kiJcYK3ZrKMK1iw6LONEvZosTA9qPc3lIZUM0OyPCtM+Ua
+	 888cMhF79ZsXcCwN1kmxjGoC4RtqTWsIcQqo1mqZ9lNO+tjohFk3RJQrsirnbpOE+Id07
+	 Yq7tiSiCCQymk/czg2v0INZSaqu0LuWJwz8+vvpLvoRXdWnV9AXl3jd2RSt1qqRHg0ULu
+	 cCWmVkzX0zqlPA9Q/POSu+6Jc82HWfnyKIKWrkdLacunnNy2eKFwydrXLz99VL7FRDBLk
+	 jMRL4B5HGfpJ4cWPA37HRxLUY/fAyL46bl+a+2jXvzJj+SFfBRWZT9g8KE1xgjV027A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795806215;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=oKg0XmsKV4XfBnWh2hNz4kuDsiTnanENrTKudHVyA+Y=;
+	b=fmcvWqRawfbwOj5hR09JeJBGlfQQEknNJQW42bk3k3JfgHcG9em7NYPrQMBLscNOrjVh
+	 PLUaw5SttpE5aKtIkff3wRBe4FE6JkpRHBJJNVMC7oNYa8Q80qzsJ0bCmzv/da4W0xO4F
+	 RJeKegw/tmUuQZcvEUVyU9GsnxyvO4y3pUD+AyWsp292rBJ2u9EGbOCL+RYnpSP3G2kuM
+	 ioREruXD+YDVDqxiWC/9KOhISPQ4DpfgAkDcM5tTlFf3jlimYAOc9n/GBj/fGjQE9mdil
+	 U/cSGo1V2aE6JFzaanX/OYUWWj7vW0u/W5rp6veOnkyLg5qpTLiMqaqPxCLl224BJaw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WKQhIzjy;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10092606A31C;
+	Fri, 27 Nov 2026 19:03:34 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WKQhIzjy
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795806214;
+	b=f4E9sj/eUZXsSWIveq/yUxbnwFTaQOF7208iutA9RuWCboqYw3mK1cbLzb/gilHycyRr
+	 n/ZbGpgMqM1VjayFRMcREUoKY92L9jsuYzkEVAcgu/IViimGCvfj73oULTIHQiBejZPZr
+	 ICg1ULiXo2CXndDjkzgTTrlxJmphl3IzMch3numXskKGIqa5A8Pf5Wc2ZpE8K1JXxNilm
+	 3vy8H44HsfeJPxynlxOcFQkxHM8krscmL3xTg4aCFSbPyuqKfu69lDEZPyJ37CrBzs73m
+	 SqptwFW7tJytEn5Zv1f6iLMHI4ZGM/9BTBElf0xBRftjZuDyYwojEzkg55fgMgkynLQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795806214;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=oKg0XmsKV4XfBnWh2hNz4kuDsiTnanENrTKudHVyA+Y=;
+	b=XBwPxcMRC7GOwbIftROuGU/At7kSbQTsUcUMIZjGccI+Q3/i49BLgssmj7g8ANRi1Nyu
+	 SUPczzO4UiNZY2IAjmZ5uAf/RSrv9z4Rk0jcof0tBK7k5IrVGCW2ndY24VgC7ZeoKWHz1
+	 pLR2019Xt8WY8hCp/1AzRne6+4dRqDOIyCmjuB2ixfXn6eJFlmVyo4LZe8cKIWdcOEBBp
+	 Sr8AaHiH6qQPHO0Ooi4J6ajjJsLgW4zJiP3AoIKU4SyEIhEvaDipBUXv0Z77VcBtko6fU
+	 GwB2ZR3KbrZuRgTHP6JTlGI+Qn0keoZRp5sUQ/Xw+QI0bqGfpr9kMKizVmcOadDwpWQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A2E1606A31F
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:02:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A2E1606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ENoUf1Ar
-Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-1b563e5cbc3so953088c88.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:02:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795806131; x=1796410931; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=zkQBPyKgHhzReYEqUfH52eqklLDsrHQN3rdcMHP01SI=;
-        b=ENoUf1ArcEfIE2J7WrvZgIIMCYa4qWfn/gtvnY4g+FpJfoheJfm9CBabxVkguJTPUP
-         YQfjn7Vl3LN6DzpCxX5sW7o/Ng56wA6wxD7Q2pWnbn94mfSHn5DyMQMO5IRoTlGV5Tu8
-         Q1/0fcIA69vkPToJSVsdZpA2IXZOFCoHOi89tSVF4pihin3oEpDQiZSI5plyB2rNVkPl
-         8HAxisjmU2AreweJcKethZOCv1qYvUvtH5JwBsXSvanho6QP2iyc+g0vEs/40RdCqhcj
-         h3RiNO1IlZDS8WBJQTRBBiITDlSwLsfeQlUOSEOCgy0ZToiTU7K6AjUsqfsZdegDpI2k
-         2/6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795806131; x=1796410931;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zkQBPyKgHhzReYEqUfH52eqklLDsrHQN3rdcMHP01SI=;
-        b=owk/gkxC43gndhNBu61ldJJ3O9iE4iylyQEDnKI7CycDp7yh5BO3e3K8bj9rHhNzlQ
-         UqUt1x0fEasrGXHYW1sOrLr78OY8dGEKQFqSwWDua/hPlLEBhFxJ584zNi+fRytCfFNv
-         /0VtsnJhlvzS9XasgFAeuMBacreMCouc05+AHm+dn+DPclXb9ZxNsCNDJgPOAcMNjXGL
-         zRvcb6UxksmzC8r8xuvieHOw9laKEVjhAHC/8Xmw/QUMMziT2QG2JNonUoHXAZH5oGiK
-         YOTJgkm0yz4Z5BKa95pSIkpq9yBAXGtn4VJGobC2QwGDnfdt5MRbNnKBzdsRkFpbVSH6
-         H3AQ==
-X-Forwarded-Encrypted: i=1; AL+hErG5QBc6eS5NurzhpX9XfWAMV0ZTAkQhRS9WquQrRP4yBnBaUYk1dkAs2Ue3uSguAaRKjyxgimdI7qhbiQg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ZtXY88Kfb28LUTgvKXA5wBGGFbsvGA7RcF1QKPXTQUmlr7WqO
-	A1ZqwfUSzCH34zWwZQr47NsPKxT650U25vivHs/N55XkCF6dI1fnw87B
-X-Gm-Gg: AZFdTZf0STG9GRnR737LFIU4c+OWRx9dtlNZxHTuEINgzHavxGH9eKcqnVa7om9+Q7m
-	1wS34rMNUhBCGt9pAF1aPKdZxMxuBCgNVJG2JWYhlm/yw6Sqh71Zc5tu+gdgN48zULWdP85Arvy
-	iHRZ6mkplDHDymJh9Lkqavu5fqwqukCKaOoHI3xTY0jjqEy2kwOxYhnohC3TAqBmt5T0WEdDy3m
-	RO3PXaevAH9CwWKi/Q43Wqr/A56p6/Y8ZCyo8ROu1aSqTQac/UGRIP1vPpWTV5ZFSQGxV3i35dk
-	Q724iHGBqsuvaRPTg1FtQj/FbgiVcIwWqA56MOowCceva7wC47BlhafjlmVNYfs/XJaevcDPk0X
-	KBquo0kMEOSNOlpJ2hzsYVo2D2OPn9rhoWaX5YigY471FtU75HhouA7IDc4ELFGchPzflbFwQmx
-	EKVU3Wl0JH9hs5RsC94XiPelZgSUYHANGGGrKay+GbjtwnRFK6MMLCVoYJgX2tT1xQQVZx6iDhk
-	eLRIhR+I2aTBkvZpnWiNmS7/nDYAmuF8bEAzQsJfki309kld6HXlvwS7/Wn0Ign7tpuw78RrLbH
-	XR/vgmSQUfvV9R89+X8B
-X-Received: by 2002:a05:7023:a41:b0:1b2:67f9:43cb with SMTP id a92af1059eb24-1b5525e786cmr25527192c88.17.1795806130946;
-        Fri, 27 Nov 2026 11:02:10 -0800 (PST)
-Received: from a1-free ([2603:c021:8021:f000:0:1865:8c38:18fc])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5566c3052sm58116574c88.1.2026.11.27.11.02.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 11:02:10 -0800 (PST)
-From: TAKANO Mitsuhiro <takano32@gmail.com>
-To: Jonathan Corbet <corbet@lwn.net>,
-	linux-doc@vger.kernel.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Oscar Salvador <osalvador@suse.de>,
-	Dan Williams <djbw@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	linux-mm@kvack.org,
-	linux-cxl@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	TAKANO Mitsuhiro <takano32@gmail.com>
-Subject: [PATCH v2] docs: Name the memory hotplug online type configs that exist
-Date: Fri, 27 Nov 2026 19:02:07 +0000
-Message-ID: <20261127190207.245175-1-takano32@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261125193039.2437025-1-takano32@gmail.com>
-References: <20261125193039.2437025-1-takano32@gmail.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 8CCA11F000C1;
+	Fri, 27 Nov 2026 19:03:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795806214;
+	bh=oKg0XmsKV4XfBnWh2hNz4kuDsiTnanENrTKudHVyA+Y=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=WKQhIzjyJyp1eflZGnyKxjxrpuseqwQeXaRJHw8ihepHZgJFYoQoXXlWA3nmvouzM
+	 5LSBNPwicnGf0ECB5JMZ2K9Xcg/z+qIVnqVxntsO6dPEJ7zwgfq2ggJoKSA3y2hkmQ
+	 Ropt867AyZcWT/FTn3X+VKzN638BlYW2sxG4ipLz7o+L8NsP2qQJaR0fw4M4R99pxO
+	 ZeB/cGGP6wP/BQxvpfPdCv5/U09bBb+l2pTaYwuy+x7lmuR3MpxftVfHgs5/DXgi8u
+	 H7KGLskEmiia7N9+I89C0mdviWeSQS/92xoTJbyOIgLwlxiVRM3MPP3L2NulGr3YoN
+	 sEYP5YY/BssLQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 0BA934DD1C;
+	Fri, 27 Nov 2026 19:03:31 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Date: Fri, 27 Nov 2026 22:03:31 +0300
+Subject: [PATCH] i2c: cs75xx: Disable the controller before releasing its
+ IRQ
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,123 +83,90 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261127-i2c-cs75xx-irq-teardown-v1-1-f6acd781af04@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQrCQAxA0auUrA00gWnBq4iLMY0aF1NNqg6U3
+ t1Rl2/x/wqhbhqw71ZwfVnYXBpo14Fcc7ko2tQM3PNAxCMaC0qMqVY0f+Ci2af5XTDlfmCVRIk
+ YWn13PVv9nQ/Hv+N5uqks3x1s2wdEWE97ewAAAA==
+X-Change-ID: 20261127-i2c-cs75xx-irq-teardown-5a062ec51512
+To: Andi Shyti <andi.shyti@kernel.org>
+Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795806210; l=2481;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=H8bWwANLWzhb+hTYvLCYBcRvBSWNfP9Xtsa2d31C1Nk=;
+ b=qmgG547+jw6GW3bGVGWtiElxcn0Eg/+RbwUnQ8zCGD0lg1HRXszHaKksLpZWE8u8Abjn/nER4
+ GxHNK5Wd9TrC1oldyPens+dZ/PQa64RtS3x+6C8T1R4qWLJ+wBOB89X
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Reply-To: filipp.dunsky@gmail.com
+Content-Transfer-Encoding: 7bit
 
-The default online type is a Kconfig choice, so the symbols it defines are
-CONFIG_MHP_DEFAULT_ONLINE_TYPE_OFFLINE, _ONLINE_AUTO, _ONLINE_KERNEL and
-_ONLINE_MOVABLE.  There is no CONFIG_MHP_DEFAULT_ONLINE_TYPE symbol, but
-five files name one.
+From: Fil Dunsky <filipp.dunsky@gmail.com>
 
-Where a file lists the config, name the family with a trailing _*.  Where
-it names a choice value, spell the whole symbol out: early-boot.rst gave
-the zone choices as _NORMAL and _MOVABLE, which are not suffixes.
+Managed resources are released in reverse registration order. Registering
+the disable action before the IRQ causes free_irq() to run while the
+controller is still enabled during probe failure or driver removal.
 
-Verification: a build of the tree defines
-CONFIG_MHP_DEFAULT_ONLINE_TYPE_OFFLINE and no bare
-CONFIG_MHP_DEFAULT_ONLINE_TYPE in include/generated/autoconf.h, and grep
-finds no reference to the bare symbol under Documentation/ afterwards.
+Register the disable action after devm_request_irq() so that the adapter
+is removed first, then the interrupt source is disabled, and finally the
+handler is freed and synchronized before the clock and mapping disappear.
+Disable the controller explicitly if requesting the IRQ fails.
 
-Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
+Fixes: 3fdb0e8ef0d4 ("i2c: Add Cortina Systems CS75xx I2C controller driver")
+Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
 ---
-v2: Spell the full config names in early-boot.rst.  David Hildenbrand pointed
-    out that CONFIG_MHP_DEFAULT_ONLINE_TYPE_* with _ONLINE_KERNEL appended
-    does not parse.  The other four files keep the _* form because they list
-    the config, not one of its values.
+This is a focused follow-up to the driver accepted in i2c/i2c as
+3fdb0e8ef0d4, rather than a reroll of the complete I2C series.
 
-    Written with Hermes Agent, an LLM assistant; the author reviewed the
-    wording and the diff.
+Move the managed disable action after the IRQ registration, and disable
+the configured controller explicitly if requesting the IRQ fails. The
+adapter is removed before the source is disabled, then free_irq() drains
+any handler before the clock and register mapping are released.
 
- Documentation/admin-guide/kernel-parameters.txt      |  2 +-
- Documentation/admin-guide/mm/memory-hotplug.rst      |  2 +-
- Documentation/driver-api/cxl/linux/early-boot.rst    | 12 +++++++-----
- .../driver-api/cxl/linux/memory-hotplug.rst          |  2 +-
- Documentation/driver-api/cxl/linux/overview.rst      |  2 +-
- 5 files changed, 11 insertions(+), 9 deletions(-)
+The driver postimage matches the correction already compiled in native
+ARM and OpenWrt 6.18.64 builds and installed on Almond+. Focused tests
+using the actual cleanup source cover successful teardown, request_irq
+failure, action-registration failure and adapter-registration failure.
+No hardware fault injection is claimed.
+---
+ drivers/i2c/busses/i2c-cs75xx.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 176648941aec..8580099b98c1 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -3948,7 +3948,7 @@ Kernel parameters
- 			[KNL] Set the initial state for the memory hotplug
- 			onlining policy. If not specified, the default value is
- 			set according to the
--			CONFIG_MHP_DEFAULT_ONLINE_TYPE kernel config
-+			CONFIG_MHP_DEFAULT_ONLINE_TYPE_* kernel config
- 			options.
- 			See Documentation/admin-guide/mm/memory-hotplug.rst.
+diff --git a/drivers/i2c/busses/i2c-cs75xx.c b/drivers/i2c/busses/i2c-cs75xx.c
+index 49a14f27b..c5365448c 100644
+--- a/drivers/i2c/busses/i2c-cs75xx.c
++++ b/drivers/i2c/busses/i2c-cs75xx.c
+@@ -344,12 +344,15 @@ static int cs75xx_i2c_probe(struct platform_device *pdev)
+ 	writel(0, i2c->base + CS75XX_I2C_IE);
+ 	writel(CS75XX_I2C_INT_DONE, i2c->base + CS75XX_I2C_INT);
  
-diff --git a/Documentation/admin-guide/mm/memory-hotplug.rst b/Documentation/admin-guide/mm/memory-hotplug.rst
-index 0207f8725142..c7de458a962f 100644
---- a/Documentation/admin-guide/mm/memory-hotplug.rst
-+++ b/Documentation/admin-guide/mm/memory-hotplug.rst
-@@ -280,7 +280,7 @@ The following files are currently defined:
- 		       blocks; configure auto-onlining.
+-	ret = devm_add_action_or_reset(dev, cs75xx_i2c_disable, i2c);
+-	if (ret)
+-		return ret;
+-
+ 	ret = devm_request_irq(dev, i2c->irq, cs75xx_i2c_isr, 0, dev_name(dev),
+ 			       i2c);
++	if (ret) {
++		cs75xx_i2c_disable(i2c);
++		return ret;
++	}
++
++	/* Quiesce the source before devres releases the interrupt handler. */
++	ret = devm_add_action_or_reset(dev, cs75xx_i2c_disable, i2c);
+ 	if (ret)
+ 		return ret;
  
- 		       The default value depends on the
--		       CONFIG_MHP_DEFAULT_ONLINE_TYPE kernel configuration
-+		       CONFIG_MHP_DEFAULT_ONLINE_TYPE_* kernel configuration
- 		       options.
- 
- 		       See the ``state`` property of memory blocks for details.
-diff --git a/Documentation/driver-api/cxl/linux/early-boot.rst b/Documentation/driver-api/cxl/linux/early-boot.rst
-index 414481f33819..c3a3def3b3c6 100644
---- a/Documentation/driver-api/cxl/linux/early-boot.rst
-+++ b/Documentation/driver-api/cxl/linux/early-boot.rst
-@@ -34,7 +34,7 @@ which dictate how memory will be managed by Linux during early boot.
-   * Linux Build config option that dictates whether the kernel supports
-     Specific Purpose memory.
- 
--* CONFIG_MHP_DEFAULT_ONLINE_TYPE
-+* CONFIG_MHP_DEFAULT_ONLINE_TYPE_*
- 
-   * Linux Build config that dictates whether and how Specific Purpose memory
-     converted to a dax device should be managed (left as DAX or onlined as
-@@ -58,10 +58,12 @@ SystemRAM.  This will expose the memory to the kernel page allocator in
- :code:`ZONE_NORMAL`, making it available for use for most allocations (including
- :code:`struct page` and page tables).
- 
--If `Specific Purpose` is set and supported, :code:`CONFIG_MHP_DEFAULT_ONLINE_TYPE_*`
--dictates whether the memory is onlined by default (:code:`_OFFLINE` or
--:code:`_ONLINE_*`), and if online which zone to online this memory to by default
--(:code:`_NORMAL` or :code:`_MOVABLE`).
-+If `Specific Purpose` is set and supported,
-+:code:`CONFIG_MHP_DEFAULT_ONLINE_TYPE_OFFLINE` leaves the memory offline,
-+:code:`CONFIG_MHP_DEFAULT_ONLINE_TYPE_ONLINE_KERNEL` onlines it by default to
-+:code:`ZONE_NORMAL`, and
-+:code:`CONFIG_MHP_DEFAULT_ONLINE_TYPE_ONLINE_MOVABLE` onlines it by default to
-+:code:`ZONE_MOVABLE`.
- 
- If placed in :code:`ZONE_MOVABLE`, the memory will not be available for most
- kernel allocations (such as :code:`struct page` or page tables).  This may
-diff --git a/Documentation/driver-api/cxl/linux/memory-hotplug.rst b/Documentation/driver-api/cxl/linux/memory-hotplug.rst
-index af368c2bc9cf..df27520b193f 100644
---- a/Documentation/driver-api/cxl/linux/memory-hotplug.rst
-+++ b/Documentation/driver-api/cxl/linux/memory-hotplug.rst
-@@ -19,7 +19,7 @@ Default Online Behavior
- The default-online behavior of hotplug memory is dictated by the following,
- in order of precedence:
- 
--- :code:`CONFIG_MHP_DEFAULT_ONLINE_TYPE` Build Configuration
-+- :code:`CONFIG_MHP_DEFAULT_ONLINE_TYPE_*` Build Configuration
- - :code:`memhp_default_state` Boot parameter
- - :code:`/sys/devices/system/memory/auto_online_blocks` value
- 
-diff --git a/Documentation/driver-api/cxl/linux/overview.rst b/Documentation/driver-api/cxl/linux/overview.rst
-index 648beb2c8c83..d567353e1dab 100644
---- a/Documentation/driver-api/cxl/linux/overview.rst
-+++ b/Documentation/driver-api/cxl/linux/overview.rst
-@@ -17,7 +17,7 @@ are generated.
- 
-     i) EFI_MEMORY_SP
-     ii) CONFIG_EFI_SOFT_RESERVE
--    iii) CONFIG_MHP_DEFAULT_ONLINE_TYPE
-+    iii) CONFIG_MHP_DEFAULT_ONLINE_TYPE_*
-     iv) nosoftreserve
- 
-   b) Memory Map Creation
 
-base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
--- 
-2.53.0
+---
+base-commit: 3fdb0e8ef0d477ce4b9a9c5ebd370e64d7ae4ed8
+change-id: 20261127-i2c-cs75xx-irq-teardown-5a062ec51512
+
+Best regards,
+--  
+Fil Dunsky <filipp.dunsky@gmail.com>
+
 
