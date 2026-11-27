@@ -1,59 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795799776;
-	b=WO3qmQsxKgR0lTL09VohRXvGhsxI1Gvr4IJ4szXTOzz8+oWzM4Q5D/G8Txab7CMLRCbV
-	 oo6ovWltWLmBTgbmy8p7Cn0La/IAaVuqQmUJCKYRTTyyzKjKxsA9saGc5gRZ47dI1eso6
-	 D+LczQsmT8J21trratWeVJ4wOn23e1edrb+hJZOrmNBEal5xT24ScDcmU1n9sMULeAZof
-	 IkVUdRYQnTmhODhGShnkgRVXupmNdRtdIEFHP3roYZG+pJfK8U4W/TPbQeWjVqm8UQ82n
-	 oUgPQeI9pksj1X9cpv+VknL4Sye3ap9qwlMzARC2OGL5YYG2dgA78L28t3avFhW9o9Q==
+	t=1795799835;
+	b=DslWL80IvFhxLQ2FgiVSYY6MDlfPU9Gx850KNksiRg8nCHB5xi2sz4qT0slIX2/+isMD
+	 3NYxn4+p3Oj7O9SCMhQC3VOZdJKDUYoWBDL4KOM2aXGxJdczxxluMo7HidziMBcerW8pw
+	 fyU0pdS3/DFoxTiaXuJ0zsVIDsKdysZgCiRgaAzui7B9b2yP21fsecMR7i+kYgPV/MLJZ
+	 wsIYNKxLztUftE0KII1jhDUyR1S1HeZbwpr4j5f5G7KWCblLahjC9+8xWbGd1HSRkxXFd
+	 OSwWFWBn37tNvnOxgMZ1pAvBm28zD1QVMIsRy1fDoj1/YJ05YzQd9tdKkdnP5pFa5rA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795799776;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer;
-	bh=/6ySv6RdxKdr3noRcdszgoEt5PV0BwNSBjkJVpTOjeU=;
-	b=ssxjX3C9tr6IcwSe8qNAe6AILwVmQ8vFm9J92/JU4BdlS0AO2exJt/hkiFpxXqrBRbwz
-	 M90m1r/ww9bVKmAfQp6W592u1ZY9o+H/iJgUDMcoukL+Ir9lvRDVx+YVoOJOM1WJKg5DN
-	 lvaTnrVxRHh3EM3XM62uIXCgxBqhaSqScyz3fB1ZpsepgK+jgsbTcoTvG6uSsKwvq/bHX
-	 4VnT4SDe6EiUWkuoLuFuR8i8WlywgTU3fdenm3HLYVP+V4+ZiqyUeV5vMxArx0BW2okXY
-	 2/5BVA5RVfwvVgVeX7Ebjt2m2iaIqBmxIOVWYFEHVdbwkwbBIgXiRDQAdnxT0SmnuRA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795799835;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=Bu2RPJeVRbnL5z1vo5s9lD3EAcTiSn64Ve67QHXyRfo=;
+	b=YT82nCLBzAr4FZDsJlpPbmugWhDmRhrg2dKsC84MgafTNoXzqdDn7r6Hg+w6nYGwEZAH
+	 Fz+Oq9CYVXeRN4yMsIdqE4JXLcdRN+YIafO2ESOWFR/MJGBrzgDGvQf8mxi+N1ZNM/cyQ
+	 5+nu4u98GCNCMiAHxvpbaHnZfcMr380tF9AOxdZVYdwx+nPuQUrpE/C2y9RuJCxB2hF49
+	 7+68IxUe1ktB90HbciccWthcUf5KQs4oa3IHxQiWDJs8EKlBPNB3nCITREFi9HRkbczQN
+	 xtvkGjVpLGmMp4rkdWs8dhEUQ7YdSSTj3LRcljlclRA1qkB2HTHWdUliF8jmYtKyflw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=qFinFgku;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aJoHidZd;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFFC4606A327;
-	Fri, 27 Nov 2026 17:16:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EFFC4606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF3F6606A329;
+	Fri, 27 Nov 2026 17:17:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=qFinFgku
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795799773;
-	bh=Br7d/EbtTMulCZaZxq3YC/liaH0efyOsf+b53eHwjkc=;
-	h=From:Subject:Date:To:Cc:From;
-	b=qFinFgkuYYSsiD4u53vG2Uf9KfX2AozTAapw8J6LzZqqY/14XvHm1at3WYvYY/E/E
-	 1AGZH7bctkZJyalXkSULe7R33miLQmC22Ku19XHQm9p1gWt7JYgsZhhQA9pukmKLlm
-	 vZ4433dIfVATPmFMdXlouwMYAVie0coX13xGlLCikeGt49Rc7g9NQRJqNr2f+GRwF+
-	 lM51YsQgVmmOiS9R6fF8H5nMQp6hO7Xi3WbK0M3JftOQh0f1kGwsumyde40APbekRv
-	 uLU/s6NF87sYx4iAclJ5Z3XhXKqsgDk2NAYN65NZQqXXdxfd7xyqRgP8jbWCD29iYb
-	 5pnlW6DtDgtDw==
-Received: from [192.168.0.15] (unknown [100.64.0.170])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 34E9217E0183;
-	Fri, 27 Nov 2026 18:16:12 +0100 (CET)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-Subject: [PATCH v2 0/4] media: Track v4l2 buffers through an allocator
-Date: Fri, 27 Nov 2026 12:16:09 -0500
-Message-Id: <20261127-v4l2-add-mem-tracker-v2-0-73b0494260e7@collabora.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aJoHidZd
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2823D1F0092A;
+	Fri, 27 Nov 2026 17:17:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795799835;
+	bh=Bu2RPJeVRbnL5z1vo5s9lD3EAcTiSn64Ve67QHXyRfo=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=aJoHidZdi0W/znZ2pZl8oxn+YTvEF87DRpmZS99d92hago7XPDKNdMmaFPGS2UO/5
+	 xGNmHwoew3q+CsBL7OYwaUTHVI1kkpH3hjVAbSxqFXjhjmDgfwR/MzAQfplhoGl5ej
+	 TMj2n/se89XCLKYyM01qk5C5WAVxD45c1WHydWEnqu/W8xmqhEHtXzyQVNnajUko/o
+	 NawcruPN3jQmgGtwgiTZFMJ5L7EqcmSOuoHE0izILkgCPj0hCAo5ClGeK2QGUpNExO
+	 /hsFsybyfnRY4c45j8dgGnSZ4PpbGStr5SVwGwNNVtjZewdIhw4jcV5igywITawDFa
+	 /YhNZoUxNH+Uw==
+Message-ID: <sashiko-outbox-237979@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v12 30/43] sched/deadline: Start a period for a task
+ that enters the class blocked
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
+In-Reply-To: <36173003b241b9b994997ab4edce8a5cff1895ad.1795771148.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795771147.git.mathieu.desnoyers@efficios.com>
+ <36173003b241b9b994997ab4edce8a5cff1895ad.1795771148.git.mathieu.desnoyers@efficios.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 27 Nov 2026 17:17:14 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,155 +60,71 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23PwW7DIAwG4FeJOI+JUEIgp71H1YNjzMqWlA7Sa
- FOVdx+hk3rZ8Zdsf7/vLFMKlNnQ3FmiNeQQLyXIl4bhGS7vxIMrmUkhtdCt5KuaJAfn+EwzXxL
- gJyXuQAhjsFegFSur10Q+fNezx9Mj59v4Qbjst/4mEn3dirc8xp5c0SsmzBPzu0QcCDX1XgvQO
- KyVGiETxzjPYRka43pP1pgOtfRowXaj7zpn3SiVclb3EgyAQ7aXOoe8xPRTX1/b2qHCttX/f7m
- 2XHArhAfV0YE0vGGcJhhjgtfSgJ22bfsF3x11A1EBAAA=
-X-Change-ID: 20260612-v4l2-add-mem-tracker-da0088c74a64
-To: Tomasz Figa <tfiga@chromium.org>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Heiko Stuebner <heiko@sntech.de>, 
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
-Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
- linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, 
- Detlev Casanova <detlev.casanova@collabora.com>
-X-Mailer: b4 0.15.2
 
-Hello,
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue to consider:
+- [Medium] sched/deadline: missing dl_boost_blocked() call in
+  __setscheduler_dl_pi()
+--
 
-Currently, the only way to track buffers allocated by v4l2 from usespace
-is to use the subsystem available debug information (e.g.:
-/sys/kernel/debug/dma_buf/bufinfo).
-But that information is generic and cannot be matched to a v4l2 driver or
-to a userspace application: It is merely information about the allocation.
+commit 5b744c28d31fd000da17d32b4f44f2734f91f651
+Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 
-Other types of allocations require the developper to find where they are
-exposed and how to link them to their test.
+sched/deadline: Start a period for a task that enters the class blocked
 
-This can become hard to track when mutliple drivers are working at the
-same time.
+This commit starts a deadline period for a task blocked on an rt_mutex
+when it enters SCHED_DEADLINE via sched_setattr() or when a priority
+inheritance boost gives it a new deadline donor, so that the rt_mutex
+chain walk sorts its waiter using a valid deadline rather than 0.
 
-To improve that, add a small wrapper around buffer allocations to keep
-track of them at the video device level so that we can add debug
-information to them like a name, userspace pid/fd that did the
-allocation,... and expose them to userspace via a debugfs entry.
+> diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+> index 7a3a7e755d20b..edd26b321feeb 100644
+> --- a/kernel/sched/core.c
+> +++ b/kernel/sched/core.c
+> @@ -7980,8 +7980,12 @@ void rt_mutex_setprio(struct task_struct *p, struc=
+t task_struct *pi_task)
+>  			if (!dl_prio(p->normal_prio) ||
+>  			    (pi_task && dl_prio(pi_task->prio) &&
+>  			     dl_entity_preempt(&pi_task->dl, &p->dl))) {
+> +				struct sched_dl_entity *old_donor =3D p->dl.pi_se;
+> +
+>  				dl_set_donor(&p->dl, pi_task);
+>  				scope->flags |=3D ENQUEUE_REPLENISH;
+> +				if (!scope->queued && p->dl.pi_se !=3D old_donor)
+> +					dl_boost_blocked(p);
+>  			} else {
+>  				dl_deboost(&p->dl);
+>  				/*
 
-It currently only supports DMA buffer allocations and adds support for
-VB2 allocations too.
-Other kind of memory tracking can be added later.
-The verisilicon and rkvdec drivers have been ported to use the tracked
-dma alloactions.
+[Severity: Medium]
+Should __setscheduler_dl_pi() also call dl_boost_blocked(p) when
+!scope->queued and p->dl.pi_se changes?
 
-Note that this depends on the ftrace support patch series[1] that
-provides fd/pid info in the v4l2_fh struct.
-That series is a bit old, so this is based on an older linux version, but
-that only changes things for the last 2 commits.
+kernel/sched/syscalls.c:__setscheduler_dl_pi() {
+    ...
+	if (dl_prio(newprio) && !dl_policy(policy)) {
+		struct task_struct *pi_task =3D rt_mutex_get_top_task(p);
 
-A v4l2top utility[2] has been made, to be used in parallel with the
-fdinfo patch series[3], to show the list of active streams with their HW
-and memory usage.
+		if (pi_task) {
+			dl_set_donor(&p->dl, pi_task);
+			scope->flags |=3D ENQUEUE_REPLENISH;
+		}
+	}
+    ...
+}
 
-With this, debugfs looks like this when decoding a HEVC 1080p stream with
-rkvdec on rk3588:
+If p is blocked on an rt_mutex while already boosted in dl_sched_class by
+an earlier deadline donor, and a new top waiter boosts p's lock waiter M,
+__sched_setscheduler() on p can run before M's preemptible chain walk
+reaches p.  __setscheduler_dl_pi() then updates p->dl.pi_se to the new
+donor without replenishing p->dl.deadline (since p is not queued and stays
+in dl_sched_class, neither enqueue nor switched_to_dl() runs).
+rt_mutex_adjust_pi(p) copies the new pi_se with the old donor's deadline
+into p's waiter, and when M's chain walk reaches rt_mutex_setprio(p, M),
+p->dl.pi_se =3D=3D old_donor is already true, so dl_boost_blocked(p) is
+skipped there as well and p's waiter stays sorted by the previous donor's
+stale deadline.
 
-  root # cat /sys/kernel/debug/v4l2/fdc38100.video-codec/mem 
-  created-by                      fd              pid             size            label
-  -------------------------------------------------------------------------------------
-  gst-launch-1.0                  7               635             39184           vdpu381-hevc-priv-tbl
-  gst-launch-1.0                  7               635             4177920         cap-00000000ac34392e-7
-  gst-launch-1.0                  7               635             4177920         cap-00000000ac34392e-6
-  gst-launch-1.0                  7               635             4177920         cap-00000000ac34392e-5
-  gst-launch-1.0                  7               635             4177920         cap-00000000ac34392e-4
-  gst-launch-1.0                  7               635             4177920         cap-00000000ac34392e-3
-  gst-launch-1.0                  7               635             4177920         cap-00000000ac34392e-2
-  gst-launch-1.0                  7               635             4177920         cap-00000000ac34392e-1
-  gst-launch-1.0                  7               635             4177920         cap-00000000ac34392e-0
-  gst-launch-1.0                  7               635             3133440         out-000000005c0230f6-1
-  gst-launch-1.0                  7               635             3133440         out-000000005c0230f6-0
-  =====================================================================================
-  Total size: 39729424
-
-[1]: https://lore.kernel.org/all/20260610-v4l2-add-ftrace-v2-0-9756edf72ac1@collabora.com/
-[2]: https://github.com/cazou/v4l2top/tree/upstream
-[3]: https://lore.kernel.org/all/20260706-v4l2-add-fdinfo-v3-0-d556568cf38e@collabora.com/
-
-Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
----
-Changes in v2:
-- Use the already created v4l2 debugfs directory.
-- Link to v1: https://patch.msgid.link/20260916-v4l2-add-mem-tracker-v1-0-900fa45e3e6a@collabora.com
-
-To: Tomasz Figa <tfiga@chromium.org>
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>
-To: Heiko Stuebner <heiko@sntech.de>
-To: Detlev Casanova <detlev.casanova@collabora.com>
-To: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
-Cc: kernel@collabora.com
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-media@vger.kernel.org
-Cc: linux-rockchip@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org
-
----
-Detlev Casanova (4):
-      media: Add a v4l2 memory allocations tracker
-      media: Store v4l2_fh in the vb_queue
-      media: verisilicon: Switch to tracked dma allocations
-      media: rkvdec: Switch to tracked dma allocations
-
- .../media/common/videobuf2/videobuf2-dma-contig.c  |  27 ++-
- .../media/platform/rockchip/rkvdec/rkvdec-h264.c   |  14 +-
- .../media/platform/rockchip/rkvdec/rkvdec-hevc.c   |  14 +-
- .../media/platform/rockchip/rkvdec/rkvdec-rcb.c    |  21 ++-
- .../platform/rockchip/rkvdec/rkvdec-vdpu381-h264.c |  14 +-
- .../platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c |  14 +-
- .../platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c |  14 +-
- .../platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c |  14 +-
- .../media/platform/rockchip/rkvdec/rkvdec-vp9.c    |  33 ++--
- drivers/media/platform/rockchip/rkvdec/rkvdec.c    |   4 +
- drivers/media/platform/verisilicon/hantro.h        |   1 +
- drivers/media/platform/verisilicon/hantro_drv.c    |   4 +
- drivers/media/platform/verisilicon/hantro_h264.c   |   7 +-
- drivers/media/platform/verisilicon/hantro_hevc.c   | 100 ++++++-----
- drivers/media/platform/verisilicon/hantro_mpeg2.c  |  16 +-
- .../media/platform/verisilicon/hantro_postproc.c   |  14 +-
- drivers/media/platform/verisilicon/hantro_vp8.c    |  25 +--
- drivers/media/platform/verisilicon/hantro_vp9.c    |  34 +++-
- .../verisilicon/rockchip_vpu981_hw_av1_dec.c       | 160 +++++++++++-------
- drivers/media/v4l2-core/Makefile                   |   1 +
- drivers/media/v4l2-core/v4l2-allocator.c           | 187 +++++++++++++++++++++
- drivers/media/v4l2-core/v4l2-device.c              |   4 +-
- include/media/v4l2-allocator.h                     |  26 +++
- include/media/v4l2-device.h                        |   3 +
- include/media/videobuf2-core.h                     |   5 +
- 25 files changed, 559 insertions(+), 197 deletions(-)
----
-base-commit: 8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
-change-id: 20260612-v4l2-add-mem-tracker-da0088c74a64
-prerequisite-change-id: 20260608-v4l2-add-ftrace-aec6e7f60a6c:v4
-prerequisite-patch-id: 1642377e7eb8e2b9c08ba2edfe1627f246d18dec
-prerequisite-patch-id: cbb31b868fe441e12390ed4f722c66a09d5da018
-prerequisite-patch-id: 9f311d567e9c362b5ed00330e5d6cc6de9c94118
-prerequisite-patch-id: fe7cd355f47da859fb1384cb02285f01ea230d35
-prerequisite-patch-id: a92d7089a6ddef832e764a958d83e0402f6d83f3
-prerequisite-patch-id: a9d89bb00db27935b66419eb3e6b225ef9381fe6
-prerequisite-patch-id: 4bec038b584ae24fe4127164998ff81e30fe14d6
-prerequisite-patch-id: 662455e7c49a81f89759dd6b576650d7803015d3
-prerequisite-patch-id: 088f331d5bc7ce94e392ec07d954838ee294aefa
-
-Best regards,
---  
-Detlev Casanova <detlev.casanova@collabora.com>
-
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795771147.gi=
+t.mathieu.desnoyers@efficios.com?part=3D30
