@@ -1,79 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795759408;
-	b=YGBKLVoXH9KUtV2VXjEPB39/cY0R6ekkb07lPe/CWcQB6BGrOFsEHl6Ty1h4rF+T4fQG
-	 C9YWO8O9d649pRL3/rRPuPvP8XCocoSUmjN/iLqFVW/gVZqG+2s9z3bd9t3SprotJ6tsV
-	 vemhpYjwo+T93ZzpDqtLmSRmRbq4WI2NxqBh8I2V2t2Z2SHWSBVNDH5bzGxs+QpjoLCNN
-	 wOumWjzXrdo7zUu0Udf/FXK9AzUnMiRvkG6Fq0MzjFuqHWdCyZDrLVtZOn/WNSjZpyimO
-	 xMRYP5tDF5m6vcfBBqshWwkXrAxnF4z4DkNxvEnA2TCoc3zhyfVhD9qqWemtcuToNBw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795759408;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=atoetghN1rZ2y5mnbOIg4F9lhKsi2yuFFQtuXNtre0c=;
-	b=bjauz/lkLcgz4yXTWFOGmlALanyc2aAm6MjfVx0HEZr5DzMpt9rRELVxz46XynUN7rLs
-	 CYcNBZ4D/tmFpe0+0mwPKAXhwx6NWApTCZLWYrKDskkkUUhx3WGD65zqiVTBrEnTpKwka
-	 +hawPStcXXs7iTIv78Rj2Bp+7n8gZhe1C+wK0Dfgyk94OfoBycOMH2OjRZlwCFkS+4fJ3
-	 kdX5TIMPq7Gdq0rt5bkzf4OrxgHLssKyciPupEfsW9NrWMjy4pQSLE1cF5vRUhiBC+FtO
-	 JuOKhQRr/hQoeCHlZLXsBIw/c9x56blvf6hmTr1RUxzvXoTWlgH0drKpFy4gwH0UyYw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lETBVbt7;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.207.19.206
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795759440;
+	b=xNH9OjIIKw/k2fHCjKXQMvav7kMNSHCtb575Bmhp20qwcetWM5ukzholdTWu+5QpDYUb
+	 DzCzSDlKa8Rw/uRgOXKjDxJWxkuR61P6vM+xId6Fq+L8UK3VpOcD0YFMdBbT1nsVVNUbT
+	 CECSKNHfsGe6au6aqUbLEWU6OH975fyIYcIa3Mqdm6CX+QMWd85BEA1T8YVCjZo1Cc0Js
+	 sDpZGd8hhXFCkGPjPjlydZJdHK5k/bwASomp6wQpFtN8PSuxyIATjt/hMYfoDEWtQReAx
+	 IIoKODY6g/nPmy6rObRhqDX1ZHDIdUykUYuRoQgR8f19fRsiCKI2oI5pbi/mdUjU0iw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795759440;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Mime-Version:
+	 Content-Type:Date:Message-Id:To:Cc:Subject:From:
+	 Content-Transfer-Encoding:X-Mailer:References:In-Reply-To:
+	 X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=+CoxtxAlXXTcTP7hM4mxLxfWNCL2jUGH6jwViGvzmUI=;
+	b=sBt7hIb362jRCUBm73o+G5OntGraaZmMuJmo1xqdSwmfCti7kyqBK0VN/o14fkXfIz1o
+	 QfFNHaNPvssS4tXYfDAGrYs95smaicAYnVparmLg071D/+dZk8gQaaweVEXuUebdwKPdC
+	 Hz8+TU5UZkQVYONGeFd1T5RLyF17u/Um6Hs/O/TCoSE//87ZmdyvKaQvV0DRxR0XCUlqK
+	 Ai7rfcBJWMCUdlNiQq5ehhH3kd76CWaAOTCKkV8mlGz94FCtcqmzkAgpmN4kst6Bd71cF
+	 ABgqkdBi+3pinGlKrW3izBPcDu9CM/4iRjuoArw3PY/ZcZcq4C7lh27JgoXhmkbXAJA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=linux.spacemit.com;
+	spf=none smtp.mailfrom=linux.spacemit.com;
+	dkim=pass header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=YEdZOqp3;
+	arc=none smtp.remote-ip=54.207.19.206
+Received: from smtpbgbr1.qq.com (smtpbgbr1.qq.com [54.207.19.206])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8C99606A31C;
-	Fri, 27 Nov 2026 06:03:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FDBB606A31C;
+	Fri, 27 Nov 2026 06:03:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7FDBB606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux.spacemit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=linux.spacemit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lETBVbt7
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795759407;
-	b=C5sqw/5iAbnnSAlmo5ENy4HLtgjHQdrt+CLQEKI7wMhPD8UygyEk4r9Pq9jpMujhbw8t
-	 rqLHVMiMtUs1OAqWya9n640qUM7+ZVs8U9KlFhSludGusO+krnpHHxtdIOAGr9d+vjSv2
-	 ClJs4n8qBCG9N8p5ef2CMeLKcN4kQZQKXgCUs6PitkAZznktP4KyNlpPy5A+wRkBbfxcu
-	 KRdcpvq4JAGlOg1FO6EHO8IyT1BHiYehqqR34CqlQuGLgxq0Jxsta5JBi7pDw3iq7XNz6
-	 g0Hrew3SDMxi7G2VyOo7idEoLuxDWGvC+h2YT3YX6xZrD5WcWTEdQGjK5R2ccIsKvlA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795759407;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=atoetghN1rZ2y5mnbOIg4F9lhKsi2yuFFQtuXNtre0c=;
-	b=UIqgRW5m6cqeNXLjWvkwJ18cUz1gBrSMlzSwHeDBtTyk177kzxy75E1ltAaLBwFB4+GV
-	 /ygOZbMQl4DUyQuo313ZmrH8Y3emieOKt14wICDtrX+4/NJPr/JDivj6CwNmzS6udRrV1
-	 iIKbA48vZh65Fe3C4UraJ8WWN8LcXjEZ6WtNNDxgeCeRdOXeCCYBHy44E9lOYoqpNsZT0
-	 V/Z2JW3qljCCoRT9fps5TQmFF8Am3YPc8RItg+Xf2WNLVHOXdbHYWgXgB7cygLO9RR0v1
-	 2d8TsLorTU/lSeUd93LreUnX9rmLwwqlPMPQR5sk7mLqbPN6zCzuKfLYazl+dVsRKbg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 0E6D01F00898;
-	Fri, 27 Nov 2026 06:03:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795759407;
-	bh=atoetghN1rZ2y5mnbOIg4F9lhKsi2yuFFQtuXNtre0c=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=lETBVbt7uwEm7/1uE/NlOXzRm21NGU63clgBvVuREFBVHgU2mdeA/ufObCu3rjba/
-	 JIkBWsI6ogCIVvJQP1cBJTlLe76A8caOCypJaXCeSWbHObvdu4kiJdKs3XH4KIuTIo
-	 76sgZ4s6xuP1r9sp/rYlFQYGccFJWn2aK+oODby7rFFMX3z0vNYie4Wz42FXTA+rFy
-	 7Bcuxo0zwxkjJB48XaKcLUAs5WKQjZaP+V+10ax7U8nTQw4ykYZ8BTLz/fOR6+lxLY
-	 6waa9tB5TioHSkxuAWqdat3KEOZdxohAjYQj1iqJ7LMOZ+0RdJHFjvJewQjlfAqFd2
-	 4FJFjXYATaW3A==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 832FE4B5A7;
-	Fri, 27 Nov 2026 06:03:14 +0000 (UTC)
-From: Sergei Khomenkov via B4 Relay <devnull+shomenkow.gmail.com@kernel.org>
-Date: Fri, 27 Nov 2026 09:03:12 +0300
-Subject: [PATCH] media: verisilicon: size the JPEG encoder's sizeimage by
- quality
+	dkim=pass (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=YEdZOqp3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1795759431;
+	bh=+CoxtxAlXXTcTP7hM4mxLxfWNCL2jUGH6jwViGvzmUI=;
+	h=Mime-Version:Date:Message-Id:To:Subject:From;
+	b=YEdZOqp37JkNLzFV/06Mky6834aXWGBw9sTNbXBpEEUxo6TiHAA076xIuPUNw2q4Y
+	 Wrf05N42UtQrtkpvk3s73LHxA4nspd4Fskd5YlWhfjACwX10r4x46L5oQ3xdHDF7Mz
+	 7eOucLA2zuL49xYBrUZUUqjm/cvbhWneqsGeEAM0=
+X-QQ-mid: esmtpsz20t1795759430t6776662d
+X-QQ-Originating-IP: mpmvFh0R3UtSvg9VqO4lkFODjR/FTtIIYNG//MpBlWc=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 27 Nov 2026 14:03:48 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 3646035124795458743
+EX-QQ-RecipientCnt: 13
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,182 +58,91 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-hantro-enc-sizestep-v1-1-7a732d1a4bbf@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/zWN0W7CMAxFf6XK8zzZaVqXakL8x8SDSV1mibYsK
- Wga4t+XwfZ2z5V97s1lTabZ9dXNJb1atmUuQC+Vix8yHxVsKOw8+pbIM5RyTQvoHCHbt+ZVzxB
- 82wxdo0I+uPJ5Tjra18P6vn9y0s9Lka/P0k2aszzkffX25w7/7sNlPNlkK1xrQOAON1hvGKPg7
- jiJnV7jMm1/dw6SFQqU274SwTHEQEPoGIU6bRtmXwKxjNQGzx6xZnL7+/0HPjC7+PcAAAA=
-X-Change-ID: 20261127-hantro-enc-sizestep-4265d85ea124
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Hans Verkuil <hverkuil@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Hugues Fruchet <hugues.fruchet@foss.st.com>, 
- Arun Iyengar <aiyengar1990@gmail.com>, linux-media@vger.kernel.org, 
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Sergei Khomenkov <shomenkow@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795759394; l=5937;
- i=shomenkow@gmail.com; s=20261104; h=from:subject:message-id;
- bh=v4JYN3YP75FPPDeInscD9Tx05Zfnftf4wowv5Ck5XCc=;
- b=H8XlpsNWAdXQENHAOEeE+KkW61TiJHBZUhsiu+rFCvKb8sRMwOJx45xk6MxI8bcKzKr7W24el
- OlsOoi/lUsYCAnCWMWpZ0LZsK8nfRRnwXW/A9ffgDHfds8iYVkCn4Ib
-X-Developer-Key: i=shomenkow@gmail.com; a=ed25519;
- pk=FwuHDVe7aiISDMLmQEcMC+RflEIJ6kEp/ekwznWXmI8=
-X-Endpoint-Received: by B4 Relay for shomenkow@gmail.com/20261104 with
- auth_id=1409
-X-Original-From: Sergei Khomenkov <shomenkow@gmail.com>
-Reply-To: shomenkow@gmail.com
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=dea23099e5428f6b7ac3e4e3b106bb44ea01804eae0a8ac0d378e215a0ec;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Fri, 27 Nov 2026 06:03:47 +0000
+Message-Id: <DN5RL82O9EER.3GGSSOY5NFUOP@linux.spacemit.com>
+To: "Yixun Lan" <dlan@kernel.org>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
+ <conor+dt@kernel.org>, "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt"
+ <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>, "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+Cc: <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/4] riscv: dts: spacemit: k3: Rename PMIC node
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: aerc 0.21.0-reader-ipc4
+References: <20261125-09-k3-dt-minor-misc-v1-0-dd887a8eb326@kernel.org>
+ <20261125-09-k3-dt-minor-misc-v1-1-dd887a8eb326@kernel.org>
+In-Reply-To: <20261125-09-k3-dt-minor-misc-v1-1-dd887a8eb326@kernel.org>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: OOJqM1zNNwXIERqHfeleDlcGZzFqEzZ2o5p/2U0K/OLFH/Y3mN1wYJmH
+	nP6j4vIwyJXmwouR8MOuTfGOxhvMX5ycbEeEOn55Bpf9tT+qTuBoI2W3uL7hbvo+b08p7eH
+	oVMI3WgzJtazFHs8f4zw9P4eajvJjVZ+JUDYxhsC8vRLdc1LlqjELrDrF/MPnUOvy+6ydUm
+	l9ulV9SpBGrNmhKI44CTaWsT24RIlk1pRW4lyNguanVz4EKN/YhPoLQtM/9/SIoYBFBtN7H
+	q9a2TkwXloH8zwNYUM5jOS+gBw2O8WFw6GWDxoJ62QXcEj4sLatsq38QQ+iVxOj+2Ifjm1+
+	0nE8NYMCkLPpVgJxGZyKEDrlVKO7yMduCGJFhwXJV2HpAwLoDkfelxmGWwoj9Tl5W/z2l6M
+	SKZMYpNNS6XjZfmw5F0l9g1vTlQK4f0UC57RvbO2FKRVzACLOlQDwBZzTHiQD22VcXh7T9K
+	R29picBQGTblpZCIwYzhdmThutP+3e/cCfMa/bzQ5Luujmt5GHeHja9QPuw6NDZR1Gz2QMv
+	irYDXBP7B+zO7OwhmRbK+aTobe8dwlB/jd/uAorkxw8MtuditjTeN2TqbooiJ8olh124foB
+	ZJ48/a2lTHidhHUCa5AikX4cCCxlGWwlVfVUTVgEw6/bGv4X9xaz41KvBB3co9AYcGi9Ou5
+	F8WECllOSdh1/cTogZbnHSkd/7R4ZLOCMWpM4882B/PxT1WhTQ24py5rNuVs0rves33NjhV
+	oh/6jcUkQtJFLgqo91zp+OUqyndYfxSp0vciiXaww4LYcLHJ3hAB54jkW+AUUsWUYxhvdMi
+	d7ZxvSO4nDQRx/1Jr9DeYGcLDqiZJ940pBa3ZznKVw8CrK8fC0HLjQ1Koo6YzPW8tnRNvHa
+	VwIWtlf132LWSWeVOAtqlV7oprq2VcPeuSAuUjKGB55XTNMMNmjc07vgdZyGAsCJ87AjatU
+	0DUOQdFboFu45a2uJUc+QiPdKwk9P50DGWYi0Fsogq5k4KBcBogLiitmrVOYrlSNavCZNpr
+	wV6qTYagHipDyevoKKSnQm6/tm2kkVtee/XlXgoFiNYG+1jpi/Nhl+xfbneB4jLgyvTRdrP
+	85+KEnq7gqa
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
+X-QQ-RECHKSPAM: 0
 
-From: Sergei Khomenkov <shomenkow@gmail.com>
+--dea23099e5428f6b7ac3e4e3b106bb44ea01804eae0a8ac0d378e215a0ec
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-The JPEG encoder's default CAPTURE sizeimage is header_size + width *
-height * 2, but the H1 (VEPU1) of an RK3026 writes up to 3.23 bytes per
-pixel at quality 100.
-
-Size it by the quality. With the 4:2:0 header and the Annex K tables
-this driver writes, an 8-bit frame needs at most 4.89 bytes per pixel at
-quality 100, 2.91 at 94 and 1.98 at 83, byte stuffing included. Use 5
-bytes per pixel from quality 95, 3 from 84 and 2 below as the default,
-when the client passes sizeimage 0. Below quality 84, the default 50
-included, the size is unchanged; from 95 it is 2.5 times larger, 10.4 MB
-instead of 4.2 MB for 1920x1080.
-
-A request was raised to min_size but had no upper bound. S_FMT and
-TRY_FMT now cap it at the quality 100 size: no frame of that size can
-use more, and a request sized for a later quality raise still fits.
-CREATE_BUFS still takes any larger size. The default follows the quality
-at the time of S_FMT, so set V4L2_CID_JPEG_COMPRESSION_QUALITY first; a
-frame that no longer fits after a later raise ends with an error at the
-stream limit.
-
-Fixes: 775fec69008d ("media: add Rockchip VPU JPEG encoder driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Sergei Khomenkov <shomenkow@gmail.com>
----
-Found with an LLM coding assistant while porting mainline Linux to a
-Rockchip RK3026 board; it also drafted the code and this message and
-computed the bounds (scripts on request). Tested on that board: 2316
-frames of 30 worst-case inputs, 640x480 and 1280x720, quality 80..100,
-all within the default size (largest 3.23 B/px at q100, 1.92 at q94,
-1.33 at q83); v4l2-compliance shows no new failure. Not tested on
-other SoCs.
-
-The bounds are a per-block maximum of the Huffman-coded bits at the
-quantizers of each quality, under the energy that 8-bit samples allow,
-DC difference and byte stuffing included; frames found by search reach
-about 0.7 of them.
-
-Where a ceiling matters: GStreamer up to 1.26.11 and 1.28.7 sizes the
-request from the largest enumerated frame, 8192x8192, and asks for
-32 MiB per buffer for a 640x480 JPEG; 1.28.8 sizes it from the
-negotiated frame:
-https://gitlab.freedesktop.org/gstreamer/gstreamer/-/commit/08ea5bc9fab9
-
-Depends on "media: verisilicon: fix JPEG encoder writes past the
-CAPTURE buffer" v3:
-https://lore.kernel.org/all/20261124-hantro-buflimit-v3-0-780903970ca0@gmail.com/
-It overlaps Arun Iyengar's "media: verisilicon: Fix the JPEG encoder
-format handling" v2 2/7 in hantro_try_fmt(); whichever goes second
-needs a rebase.
----
- drivers/media/platform/verisilicon/hantro_jpeg.c | 25 ++++++++++++++++++++++++
- drivers/media/platform/verisilicon/hantro_jpeg.h |  4 ++++
- drivers/media/platform/verisilicon/hantro_v4l2.c |  6 ++++++
- 3 files changed, 35 insertions(+)
-
-diff --git a/drivers/media/platform/verisilicon/hantro_jpeg.c b/drivers/media/platform/verisilicon/hantro_jpeg.c
-index 13a60638e43f..16ff9c49f889 100644
---- a/drivers/media/platform/verisilicon/hantro_jpeg.c
-+++ b/drivers/media/platform/verisilicon/hantro_jpeg.c
-@@ -243,3 +243,28 @@ void hantro_jpeg_header_assemble(struct hantro_jpeg_ctx *ctx)
- 
- 	jpeg_set_quality(ctx);
- }
-+
-+/*
-+ * Worst case for the quality set at the time of S_FMT, with the header
-+ * above: 4:2:0, the Annex K Huffman tables and the quantizers of
-+ * jpeg_set_quality(). A request is clamped to the quality 100 size, so
-+ * one sized for a later quality raise still fits.
-+ */
-+u32 hantro_jpeg_enc_sizeimage(const struct hantro_fmt *fmt, int quality,
-+			      u32 width, u32 height, u32 sizeimage)
-+{
-+	u32 bytes;
-+
-+	if (sizeimage)
-+		return clamp(sizeimage, fmt->min_size,
-+			     fmt->header_size + width * height * 5);
-+
-+	if (quality >= 95)
-+		bytes = 5;
-+	else if (quality >= 84)
-+		bytes = 3;
-+	else
-+		bytes = 2;
-+
-+	return fmt->header_size + width * height * bytes;
-+}
-diff --git a/drivers/media/platform/verisilicon/hantro_jpeg.h b/drivers/media/platform/verisilicon/hantro_jpeg.h
-index 0b49d0b82caa..1f5582df5244 100644
---- a/drivers/media/platform/verisilicon/hantro_jpeg.h
-+++ b/drivers/media/platform/verisilicon/hantro_jpeg.h
-@@ -1,5 +1,7 @@
- /* SPDX-License-Identifier: GPL-2.0+ */
- 
-+struct hantro_fmt;
-+
- #define JPEG_HEADER_SIZE	624
- #define JPEG_QUANT_SIZE		64
- 
-@@ -13,3 +15,5 @@ struct hantro_jpeg_ctx {
- };
- 
- void hantro_jpeg_header_assemble(struct hantro_jpeg_ctx *ctx);
-+u32 hantro_jpeg_enc_sizeimage(const struct hantro_fmt *fmt, int quality,
-+			      u32 width, u32 height, u32 sizeimage);
-diff --git a/drivers/media/platform/verisilicon/hantro_v4l2.c b/drivers/media/platform/verisilicon/hantro_v4l2.c
-index b3dbc0629d25..5e8d8de072a8 100644
---- a/drivers/media/platform/verisilicon/hantro_v4l2.c
-+++ b/drivers/media/platform/verisilicon/hantro_v4l2.c
-@@ -26,6 +26,7 @@
- 
- #include "hantro.h"
- #include "hantro_hw.h"
-+#include "hantro_jpeg.h"
- #include "hantro_v4l2.h"
- 
- #define  HANTRO_DEFAULT_BIT_DEPTH 8
-@@ -386,6 +387,11 @@ static int hantro_try_fmt(const struct hantro_ctx *ctx,
- 			pix_mp->plane_fmt[0].sizeimage +=
- 				hantro_av1_mv_size(pix_mp->width,
- 						   pix_mp->height);
-+	} else if (fmt->codec_mode == HANTRO_MODE_JPEG_ENC) {
-+		pix_mp->plane_fmt[0].sizeimage =
-+			hantro_jpeg_enc_sizeimage(fmt, ctx->jpeg_quality,
-+						  pix_mp->width, pix_mp->height,
-+						  pix_mp->plane_fmt[0].sizeimage);
- 	} else if (!pix_mp->plane_fmt[0].sizeimage) {
- 		/*
- 		 * For coded formats the application can specify
-
----
-base-commit: aa0f4c41d4870a18e65772a1817af16427200371
-change-id: 20261127-hantro-enc-sizestep-4265d85ea124
-prerequisite-message-id: <20261124-hantro-buflimit-v3-0-780903970ca0@gmail.com>
-prerequisite-patch-id: bbf362b5a6b3ef0c7424c424979bbbdb7934aaf1
-prerequisite-patch-id: 3d509ba55530afd4d418732df88696e105e36512
-prerequisite-patch-id: bb3462a5633f2af738ddecf3915a8a3121e20611
-
-Best regards,
--- 
-Sergei Khomenkov <shomenkow@gmail.com>
+On Wed Nov 25, 2026 at 7:46 AM GMT, Yixun Lan wrote:
+> Replace to a more descriptive name which follow Device Tree docs.
+>
+> Signed-off-by: Yixun Lan <dlan@kernel.org>
+> ---
+>  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/bo=
+ot/dts/spacemit/k3-pico-itx.dts
+> index 8d1cd468cf8c..a4afe24130ae 100644
+> --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> @@ -100,7 +100,7 @@ &i2c8 {
+>  	pinctrl-0 =3D <&i2c8_cfg>;
+>  	status =3D "okay";
+> =20
+> -	p1@41 {
+> +	pmic@41 {
+>  		compatible =3D "spacemit,p1";
+>  		reg =3D <0x41>;
+>  		interrupts =3D <64 IRQ_TYPE_LEVEL_HIGH>;
+Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
 
+--=20
+Troy Mitchell
+
+
+--dea23099e5428f6b7ac3e4e3b106bb44ea01804eae0a8ac0d378e215a0ec
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCawkdQyEcdHJveS5taXRj
+aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC+72AEA6xeu93yEEa++
+vdfWOF3LBT8G/QTUIuZMu/R3YlMKumEBAIRz1wtpkYvXtXK4vzdoyfE7b3gN3mcS
+f2FUy2P9NF0A
+=YDVA
+-----END PGP SIGNATURE-----
+
+--dea23099e5428f6b7ac3e4e3b106bb44ea01804eae0a8ac0d378e215a0ec--
