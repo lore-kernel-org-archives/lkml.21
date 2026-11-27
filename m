@@ -1,66 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.216.248.207
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795783285;
-	b=sH2kOtWD5kRdPHU69rybL6gqZMyvFdsXPDIOyfEAE3AnVBSGIqnULw8vejN8DMYOhoJb
-	 4WSMltnXL8QHI0EXU+rFai+Ee35ezQAvjePdPT75VQoIrlgYz5Y4S4qZ6hB4XBqE9wynb
-	 S6FQ94Ne8HLZilVnf06eWOnWDLgIXvCcRp5RDssZkz9KuGyZ/2eUbV97oJN2qt5qwwqzB
-	 RXdtASYlBm65m4aQlWPtVsa1zUcPATdmiSbteHI2hIvf8N0Wzw4gnrJOMe/bvi7Hcpm8J
-	 ffBLf5gdnLDbWkWvoNIrFuE91hOpoJCzA+V0lQvMeFkdobV3m00qGwELB44+HKVQ5JA==
+	t=1795783308;
+	b=IUMJkvK00Urt0/dBsEooX2NQwNafk/LdzaG/rRpx1/LD786XWrmzjovRgy0nVjayDQq9
+	 iApWIVrp6gT/h52NhuZkEvghbGSeQBf8RVn0HOQJSnN6LCa6tT/P6aLf5W46WhFhsWFwk
+	 eYx8aJGybimM2MCLgwyt88Ii6Ucz1mAAxaBoeumJZ7o5e+HJNw4au+z3vjNLI6Z6dIg9x
+	 z2FC39j9AX8+RBoA7Y8bqI/sNlUE8KGM4lSFFtAMDAe7hiJNYy1TjkGaleIdw0UfUQ2sW
+	 TywYfF9CFQ1P3kGWXfJdT2fu8e0CXwZR6JYP/6m6jwVDEfnt1axSwfAYMGZk1/VvtnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795783285;
-	h=DMARC-Filter:From:DKIM-Signature:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=zHI3cn66RSiDsJR7apWcYmASU6A60Knnp0cPtOX6jkM=;
-	b=gOrD4VFhuZ7UjgPUlYbyo1cVcrqut+ziaDubN03IpV7ZcHr9ueDvOyJ5mWUmdAL416Wt
-	 qudbv6PQqKoYRZr+aynXyEdpO2LkkzNhqLOsVgoV98vB9F/hZnxrhWpWqjm3wxPtFC0yT
-	 c/CzSahkJwoUePc80Uw9iryQJ2cxh9Zqxq+sMbai2jxvoJsJOfg9Lw1nTjA5/J4plIfuH
-	 CRNnBNfMWCgVcTdHbj1woTMbSnD07NcrNYD1/9Wi8FG5sch+lbBVaD+yrEii9QUrMW1zz
-	 Scppn6w7NbO3DBW0UT+XxA3anUmRgROrhlqEsff7MsypEt2k+GAf0rmyiIZHvwoiPQw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795783308;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=G7WfnYAAz9L7iq6xcuOnJKP+ixkbp4G3odLAKqkVuMg=;
+	b=mEiu5wKQTmZrRpxRzSQMuMUvBTC5y66PYlxDG2rHtjX6jRVjdtRzJEB0w8fOysbtnQGF
+	 Rsz71sU7v4Q3TES7XxQAh+YFF1RJ0KP1U5wFRFoyULQE3Ux4rPWdkTp48KW39zXTk9ze4
+	 hSl7dNKsF5A4XDI5vvAmzFe/QkuE7K8YSORjtYcrJ4N0YuknxIlGl7RmBt9GqczGQ4nkk
+	 oDMNhREdXoI3t9Xh21ZMkMeVy27JDUdX9NInlwBQ0fJ3y3gCqmGDZQ+MJgMSw6XVEUVaH
+	 MFAC+7Ko38Wy9IC1mWSXmgrm6y4nlSqIeJ1kPKettJ0Vzy+Rs9McRRK6OZ+0b5Rc8Jg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=deq.rocks;
-	spf=none smtp.mailfrom=deq.rocks;
-	dkim=pass header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=FJpMVw6d;
-	arc=none smtp.remote-ip=91.216.248.207
-Received: from mx5.mail-out.lima-city.de (mx5.mail-out.lima-city.de [91.216.248.207])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ksYuS3+N;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jEjY+FC8;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E752160A2630;
-	Fri, 27 Nov 2026 12:41:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E752160A2630
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=deq.rocks
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=deq.rocks
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0050606A327
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:41:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0050606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=FJpMVw6d
-From: Andre Eikmeyer <dev@deq.rocks>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=deq.rocks;
-	s=securedbylima-20251205; t=1795783283;
-	bh=jSoH/CB/7IptnipxgUuyAja1GpcqTwsCQdNyhyFt7K4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FJpMVw6dL/gszeidFd7fuHY084vr5kJyq0QCmvEigG9RAxZ/zJhU9cxGIWUH8aysD
-	 sbedIWRIgWTkXkqgQOLwF4Sveidlg37RRw9/Fy7wb+WRZ1g1ZcpcDkjx8cNCNvx6Xf
-	 Ui0bgI7wb2ZZVk6sf2JuQqSr3DwDpIUD9guZyWavzZVHrqfWa3wO0Di991iY9BPoTS
-	 mpth3um29/zxuRwlwtTG8KudxFHm7XLVagGH/kno/uIdMQnrTkop1+QJPLCSIvkdES
-	 lLuJUJ5XrD6jyySyQfgBKcc4Otbux1X9fGohzS8aNzGdAeUL6IJpiJrXrRvUoD10XL
-	 n0dPlpWcVMtWg==
-To: arend.vanspriel@broadcom.com
-Cc: linux-wireless@vger.kernel.org,
-	brcm80211@lists.linux.dev,
-	brcm80211-dev-list.pdl@broadcom.com,
-	linux-kernel@vger.kernel.org,
-	Sasha Finkelstein <k@chaosmail.tech>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Aditya Garg <aditya.garg@linux.dev>,
-	Andre Eikmeyer <dev@deq.rocks>,
-	Yossef Osman <Yossef.Osman@proton.me>
-Subject: [PATCH wireless-next v3 6/6] wifi: brcmfmac: pass AWDL frames and role changes to user space
-Date: Fri, 27 Nov 2026 13:41:04 +0100
-Message-ID: <20261127124104.233236-7-dev@deq.rocks>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261127124104.233236-1-dev@deq.rocks>
-References: <20261127124104.233236-1-dev@deq.rocks>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ksYuS3+N;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jEjY+FC8
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARAsHH53609882
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:41:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	G7WfnYAAz9L7iq6xcuOnJKP+ixkbp4G3odLAKqkVuMg=; b=ksYuS3+NdQcAkupq
+	UqtxonlxKl8nzWLPnjJ2cnDy4QMEFs8ukuo/xtyLmhlxavYzxHwouTzgqhYBoMbE
+	2FA5UbMyhVHF5c3ODFPVYbg9DjA9YSOu5EszWDVtsLgLG//r1U/pSoNXMRgZtA68
+	ePQQjJsazCF4H78cHmZmgZXN5kEbalgR4Q+rqk8JgnK5Wg7nRJAauY1hDBqouPYA
+	jrWUDUIIiP9xyUTXioJvgDZga74UZUqQzVAjVdS2/KZ9qzKXIXJHo162KVnU/xX+
+	c8g80b8Zvlp70HFSnj+8i8A9z5BKRrOev4mB8d/T1F6sBjKs22r5tNsBrlTg3Afa
+	Zgo9/w==
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j73dh9nh4-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:41:45 +0000 (GMT)
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-386b8624cf7so7019781eec.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:41:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795783305; x=1796388105; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=G7WfnYAAz9L7iq6xcuOnJKP+ixkbp4G3odLAKqkVuMg=;
+        b=jEjY+FC8/F6SyJENSeH/5Ipor9xyWqnnr0kYQ0vAXgWx6l39ZWH45sesJV9MrMRRRq
+         F4ZbARA7aUR+WmMqkpreph7pteI3BAyzoLIL6qIvSApjUESpkAWSO6kwuIqAZXzfrFvK
+         Um0Bf67ehWLPUavx8SKe8KnzjBP3E6ifMurS9Mj1DDcRiWGtsufEEI2r/p6FBCaDOacK
+         1Rl+uhpiTsR1WGDmIT9VGpmS8OJf/OEsoRvj6pO5E4qS8KJqlxkep7+fB0YdmaYpmZSO
+         LemZ+n+ryUjf80EDvuqcYBrycC5igh+nZx6t+2X+ivcZ5v8w4GFDXWeDQFz8Phl+Y22H
+         rXnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795783305; x=1796388105;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=G7WfnYAAz9L7iq6xcuOnJKP+ixkbp4G3odLAKqkVuMg=;
+        b=AGJ93+dA0E4lYh+t7Xkwu+kvVVagnMxtOsNUt41kPOhT8Ns2o4MOcGO/CUam/JF+TQ
+         3yY9dn00OxSKIgESdwCQUcrmex2w1dk6NmD4uydd5cvJ7tAKQHOHZSTcitjNIrAgDMkx
+         kSuEi0rxNdQU83CUUGKoV8b4aOhgrbqJWskmK4OFuTZCMgp+zJs+Czv16hDCLJ/iyNNg
+         a3BR1gYzFmhc9LpysVQCtZI1ah4tUxKMto2YSZHJS2471Lgjg8o+2WIRH5G71PVM/JD9
+         tVtUuyRUU9lfon3rGxuynFMV5j5wMPHWyTZeZlThWuRka9ZndR1Sik3CS+frdb0tk/TH
+         WWxg==
+X-Forwarded-Encrypted: i=1; AL+hErEZyMhHY3heRQfT+YtLQkVFjh2A8jjcZmA302yKhvnrOuxBp42O56MZ1CvU5MRwwVVx6k4v/ErWwWyE3DI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9vZ7aP7i7TZtPp1N5e75ybmQW+s9H6hs/MT51/ic9gWYWDBuOs
+	ohQnCioUctrA2TeX++muYhPiplVGfOpoN7ZdvK50l37qyRwG8icn6GTwqkCPs1IVJAmC94aqROy
+	OL7rs+it71aDIu5fSi9bsX1ILv2VbrghQtz75c44oU+pAxDBlhrU5JX0s2+BFTE71j/E=
+X-Gm-Gg: AZFdTZeFTsqMyZhB4R+sp2LaJbER8rfxoRe58HNXdJfT7+fj91sVFl3ggWqsd2LYgrl
+	+U3349sPtb94a/QGopD+Hq2q00n/qXtH2pnaqIy7P7054DfCbfy0WuA1yloONHVKAbEbbmriILq
+	uhvaJorGlxRlohW8zbbUloeWa2PX4QAXh7EybsPcpgtG9PA8JxaWNljBlOR0gDmhINQXBMJgHzP
+	MlZxFywsSVspq/8xYlPUH9djipfHZg865Uv4PeZejdxvLTMR6nci5Rj3yEaedkggtNZJgeX5bel
+	X1g1Mu+avzVUqJKSF8ucWdIOaLBO9Wv6hkMQiqyJyAfzUTJHwHrM6Uu4R3rzSib/keHL3D6JjCD
+	hpu7kzTPq5Ypk+zcVkDIgz3JRDr70ndcDBzbYCfYqjWrwPUidTT41x5OXUY+RwyhBgv+RFtfcz0
+	KxZk8EfA==
+X-Received: by 2002:a05:693c:65c3:b0:386:e9bb:d9d3 with SMTP id 5a478bee46e88-386e9bbda7dmr2871195eec.28.1795783304844;
+        Fri, 27 Nov 2026 04:41:44 -0800 (PST)
+X-Received: by 2002:a05:693c:65c3:b0:386:e9bb:d9d3 with SMTP id 5a478bee46e88-386e9bbda7dmr2871178eec.28.1795783304400;
+        Fri, 27 Nov 2026 04:41:44 -0800 (PST)
+Received: from [10.206.111.23] ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm74177848eec.28.2026.11.27.04.41.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 04:41:43 -0800 (PST)
+Message-ID: <1ea0310d-b25a-4e34-930e-7998eec03605@oss.qualcomm.com>
+Date: Fri, 27 Nov 2026 18:11:35 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,356 +116,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/4] media: iris: use dma_iova_size() to check the
+ reserved IOVA size
+To: Marek Szyprowski <m.szyprowski@samsung.com>, iommu@lists.linux.dev,
+        linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        kvm@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+        Will Deacon <will@kernel.org>, Leon Romanovsky <leon@kernel.org>,
+        Jason Gunthorpe <jgg@nvidia.com>,
+        Sibi Sankar
+ <sibi.sankar@oss.qualcomm.com>,
+        Honglei Huang <honghuan@amd.com>, prakash.gupta@oss.qualcomm.com,
+        Alex Williamson <alex@shazbot.org>,
+        Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Bryan O'Donoghue <bod@kernel.org>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Hans Verkuil <hverkuil+cisco@kernel.org>, stable@vger.kernel.org
+References: <20261127115849.2780625-1-m.szyprowski@samsung.com>
+ <CGME20261127115900eucas1p268ca3a6688c2fd99513317dfc99dbf59@eucas1p2.samsung.com>
+ <20261127115849.2780625-3-m.szyprowski@samsung.com>
+Content-Language: en-US
+From: Vikash Garodia <vikash.garodia@oss.qualcomm.com>
+In-Reply-To: <20261127115849.2780625-3-m.szyprowski@samsung.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1MCBTYWx0ZWRfX02nMYIpy/FXJ
+ iP1BhgKWNSZB9GOINH7I+Sccx0t1oJzKdn84rF8PqJwxu8qEZqmzWn40fnYQKGh5vQw6k7VJuWE
+ Ma3pUvnst4AhJA0tRjU4jMMLmd+XsI8xY5dbnwMQ8ixT5omi3ro5M2g6DKuyr2CjfkEkO1I5PsU
+ 7y9HUMjw/D1ZZmNcWLcdfrvWnGY8/BzG5YsejmyhU+cBhB7KCtjX5Po6rsBuMa6ji+YgYVF1CZw
+ UGTEzJSGdtWW43zn4/zrPZftGbztKA2v3vQM6rE/EuJX8MA0OK8B6Z5qW2t9yrHK4XNvw/jLmAY
+ CvdKDwScMN89flaVXu9evBs9nCFBAYnsk1Tsf1SoPRHkRDyMROSitTjAVcZocRnZMgL9Se3qcPR
+ x/ssQbCPflgW2iz4Y5faka4nMGFpUcTOtiotFQcJr2xNOLhysaqlAq/5bamHFjQT5vsQmC5PTt4
+ nLTiwlP//SzKFXvZf6A==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1MCBTYWx0ZWRfX8dQyOe9L8IJ2
+ eDAeyf94Bo8tDwB2RyIkAKzocj4tX7s6NfkUudVviz/9/0p12T8K3zrCIu3dBGb2Dmae2zuxZ1d
+ kYhZIBl+V9fXUXUZDv/seS8r0xOOKQU=
+X-Authority-Analysis: v=2.4 cv=FfiiV5+6 c=1 sm=1 tr=0 ts=6b097a89 cx=c_pps
+ a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=VwQbUJbxAAAA:8 a=hD80L64hAAAA:8 a=EUspDBNiAAAA:8 a=umoC_DmSGuEwgYlhGCYA:9
+ a=QEXdDO2ut3YA:10 a=ZXulRonScM0A:10 a=bBxd6f-gb0O0v-kibOvt:22
+X-Proofpoint-GUID: Z1XD5fnoOMMgppI1AZ1ATaXvIHEDanqr
+X-Proofpoint-ORIG-GUID: Z1XD5fnoOMMgppI1AZ1ATaXvIHEDanqr
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-27_02,2026-11-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 priorityscore=1501 suspectscore=0 lowpriorityscore=0
+ clxscore=1015 spamscore=0 impostorscore=0 adultscore=0 bulkscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611270050
 
-User space runs the AWDL election and peer discovery from the AWDL
-action frames of other devices. The firmware reports them on the AWDL
-interface with ACTION_FRAME_RX and AWDL_EVENT, behind a header of
-version 1 (16 bytes) or 2 (24 bytes), and its AWDL role with AWDL_ROLE.
 
-AWDL_AW, AWDL_ROLE, AWDL_EVENT, AWDL_STATS and SDB_STATE are event codes
-of the Apple firmware. Add them as abstract event codes, mapped and
-registered by the WCC vendor module like the CYW module does for its
-events.
+On 11/27/2026 5:28 PM, Marek Szyprowski wrote:
+> The IOVA reservation code compares dma_iova_state::__size directly with
+> the requested chunk size. __size is internal to the DMA IOVA API and may
+> carry flags in its upper bits, so use the dma_iova_size() accessor
+> instead.
+> 
+> Fixes: 200473c198b2 ("media: iris: Fix iova allocation from restrict region")
+> Cc:stable@vger.kernel.org # v7.4+
+> Signed-off-by: Marek Szyprowski<m.szyprowski@samsung.com>
+> ---
+>   drivers/media/platform/qcom/iris/iris_probe.c | 3 ++-
+>   1 file changed, 2 insertions(+), 1 deletion(-)
 
-Pass the AWDL action frames and role changes to user space as the
-vendor events AWDL_FRAME and AWDL_ROLE.
-
-Tested-by: Yossef Osman <Yossef.Osman@proton.me>
-Tested-by: Aditya Garg <aditya.garg@linux.dev>
-Acked-by: Arend van Spriel <arend.vanspriel@broadcom.com>
-Signed-off-by: Andre Eikmeyer <dev@deq.rocks>
----
- .../broadcom/brcm80211/brcmfmac/awdl.c        | 110 +++++++++++++++++-
- .../broadcom/brcm80211/brcmfmac/awdl.h        |   3 +
- .../broadcom/brcm80211/brcmfmac/fweh.c        |   8 +-
- .../broadcom/brcm80211/brcmfmac/fweh.h        |   7 +-
- .../broadcom/brcm80211/brcmfmac/vendor.c      |   8 ++
- .../broadcom/brcm80211/brcmfmac/vendor.h      |  12 ++
- .../broadcom/brcm80211/brcmfmac/wcc/core.c    |  39 +++++++
- 7 files changed, 177 insertions(+), 10 deletions(-)
-
-diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/awdl.c b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/awdl.c
-index b9f2ca319084..f157a247bd31 100644
---- a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/awdl.c
-+++ b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/awdl.c
-@@ -731,17 +731,113 @@ static void brcmf_awdl_settle_work(struct wiphy *wiphy,
- 		       sizeof(dwell_off));
- }
- 
-+/*
-+ * ACTION_FRAME_RX and AWDL_EVENT put a header in front of a received frame.
-+ * Its first 16 bits, high byte first, are the version: 1 is struct
-+ * brcmf_rx_mgmt_data with 16 bytes, 2 has 24 bytes.
-+ */
-+#define BRCMF_AWDL_RX_HDR_V1_LEN	16
-+#define BRCMF_AWDL_RX_HDR_V2_LEN	24
-+
-+/* AWDL action frame: vendor specific category, Apple OUI, type AWDL */
-+static const u8 brcmf_awdl_af[] = { 0x7f, 0x00, 0x17, 0xf2, 0x08 };
-+
-+static struct sk_buff *brcmf_awdl_event_alloc(struct brcmf_pub *drvr,
-+					      int event, int len)
-+{
-+	struct brcmf_if *pri = brcmf_get_ifp(drvr, 0);
-+
-+	return cfg80211_vendor_event_alloc(drvr->wiphy,
-+					   pri && pri->vif ? &pri->vif->wdev :
-+							     NULL,
-+					   len, event, GFP_KERNEL);
-+}
-+
-+/**
-+ * brcmf_awdl_fweh_event() - pass a firmware event of the AWDL interface on.
-+ *
-+ * @ifp: interface of the event.
-+ * @e: event message.
-+ * @data: event data.
-+ *
-+ * Called from the firmware event worker for the events of the AWDL
-+ * interface, which do not go to the cfg80211 handlers. Received AWDL action
-+ * frames and role changes become vendor events, other events are dropped.
-+ * AWDL_EVENT carries an AWDL action frame with some of its status values.
-+ * Return: 0 or a negative error code.
-+ */
-+int brcmf_awdl_fweh_event(struct brcmf_if *ifp,
-+			  const struct brcmf_event_msg *e, void *data)
-+{
-+	struct brcmf_pub *drvr = ifp->drvr;
-+	struct sk_buff *skb;
-+	u32 hdr;
-+
-+	if (!ifp->awdl)
-+		return 0;
-+
-+	switch (e->event_code) {
-+	case BRCMF_E_ACTION_FRAME_RX:
-+	case BRCMF_E_AWDL_EVENT:
-+		break;
-+	case BRCMF_E_AWDL_ROLE:
-+		skb = brcmf_awdl_event_alloc(drvr, BRCMF_VNDR_EVTS_AWDL_ROLE,
-+					     NLMSG_DEFAULT_SIZE);
-+		if (!skb) {
-+			bphy_err(drvr, "AWDL role event dropped\n");
-+			return -ENOMEM;
-+		}
-+		if (nla_put_u32(skb, BRCMF_AWDL_ATTR_ROLE, e->status)) {
-+			bphy_err(drvr, "AWDL role event too large\n");
-+			kfree_skb(skb);
-+			return -EMSGSIZE;
-+		}
-+		cfg80211_vendor_event(skb, GFP_KERNEL);
-+		return 0;
-+	default:
-+		return 0;
-+	}
-+
-+	if (e->datalen < 2)
-+		return 0;
-+	switch (get_unaligned_be16(data)) {
-+	case 1:
-+		hdr = BRCMF_AWDL_RX_HDR_V1_LEN;
-+		break;
-+	case 2:
-+		hdr = BRCMF_AWDL_RX_HDR_V2_LEN;
-+		break;
-+	default:
-+		return 0;
-+	}
-+	if (e->datalen < hdr + sizeof(brcmf_awdl_af) ||
-+	    memcmp((u8 *)data + hdr, brcmf_awdl_af, sizeof(brcmf_awdl_af)))
-+		return 0;
-+
-+	skb = brcmf_awdl_event_alloc(drvr, BRCMF_VNDR_EVTS_AWDL_FRAME,
-+				     e->datalen);
-+	if (!skb) {
-+		bphy_err(drvr, "AWDL frame from %pM dropped\n", e->addr);
-+		return -ENOMEM;
-+	}
-+	if (nla_put(skb, BRCMF_AWDL_ATTR_ADDR, ETH_ALEN, e->addr) ||
-+	    nla_put(skb, BRCMF_AWDL_ATTR_FRAME, e->datalen - hdr,
-+		    (u8 *)data + hdr)) {
-+		bphy_err(drvr, "AWDL frame from %pM too large\n", e->addr);
-+		kfree_skb(skb);
-+		return -EMSGSIZE;
-+	}
-+	cfg80211_vendor_event(skb, GFP_KERNEL);
-+	return 0;
-+}
-+BRCMF_EXPORT_SYMBOL_GPL(brcmf_awdl_fweh_event);
-+
- static void brcmf_awdl_send_result(struct brcmf_pub *drvr, int event,
- 				   int status, struct net_device *ndev)
- {
--	struct brcmf_if *pri = brcmf_get_ifp(drvr, 0);
- 	struct sk_buff *skb;
- 
--	skb = cfg80211_vendor_event_alloc(drvr->wiphy,
--					  pri && pri->vif ? &pri->vif->wdev :
--							    NULL,
--					  NLMSG_DEFAULT_SIZE, event,
--					  GFP_KERNEL);
-+	skb = brcmf_awdl_event_alloc(drvr, event, NLMSG_DEFAULT_SIZE);
- 	if (!skb)
- 		return;
- 	if (nla_put_s32(skb, BRCMF_AWDL_ATTR_STATUS, status) ||
-@@ -859,6 +955,8 @@ const struct nla_policy brcmf_awdl_vndr_policy[BRCMF_AWDL_ATTR_MAX + 1] = {
- 	[BRCMF_AWDL_ATTR_IFINDEX] = { .type = NLA_REJECT },
- 	[BRCMF_AWDL_ATTR_PEER_IES] = { .type = NLA_BINARY,
- 				       .len = BRCMF_AWDL_PEER_IES_MAX },
-+	[BRCMF_AWDL_ATTR_FRAME] = { .type = NLA_REJECT },
-+	[BRCMF_AWDL_ATTR_ROLE] = { .type = NLA_REJECT },
- };
- 
- /* The device of a vendor command and its parsed attributes */
-diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/awdl.h b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/awdl.h
-index e88549cee19f..9784fed21e49 100644
---- a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/awdl.h
-+++ b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/awdl.h
-@@ -18,6 +18,7 @@ struct brcmf_pub;
- struct brcmf_if;
- struct net_device;
- struct sk_buff;
-+struct brcmf_event_msg;
- 
- enum brcmf_awdl_op {
- 	BRCMF_AWDL_OP_NONE,
-@@ -98,6 +99,8 @@ int brcmf_awdl_add(struct brcmf_pub *drvr, const u8 *mac,
- 		   struct net_device **ndev);
- int brcmf_awdl_del(struct brcmf_pub *drvr);
- void brcmf_awdl_suspend(struct brcmf_pub *drvr);
-+int brcmf_awdl_fweh_event(struct brcmf_if *ifp,
-+			  const struct brcmf_event_msg *e, void *data);
- bool brcmf_awdl_if_added(struct brcmf_pub *drvr, struct brcmf_if *ifp);
- bool brcmf_awdl_if_removed(struct brcmf_pub *drvr, struct brcmf_if *ifp);
- int brcmf_awdl_encap(struct brcmf_if *ifp, struct sk_buff *skb);
-diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/fweh.c b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/fweh.c
-index 297590cebbdf..6cfe2cf1e22c 100644
---- a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/fweh.c
-+++ b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/fweh.c
-@@ -326,11 +326,13 @@ static void brcmf_fweh_event_worker(struct work_struct *work)
- 			ifp = drvr->iflist[0];
- 		else
- 			ifp = drvr->iflist[emsg.bsscfgidx];
--		/* The AWDL interface has no vif, its events are not for
--		 * the cfg80211 handlers
-+		/* The AWDL interface has no vif, its events go to user
-+		 * space and not to the cfg80211 handlers
- 		 */
--		if (ifp && ifp->awdl)
-+		if (ifp && ifp->awdl) {
-+			brcmf_awdl_fweh_event(ifp, &emsg, event->data);
- 			goto event_free;
-+		}
- 
- 		err = brcmf_fweh_call_event_handler(drvr, ifp, event->code,
- 						    &emsg, event->data);
-diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/fweh.h b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/fweh.h
-index 53c4b58e6323..2faa4215e9ab 100644
---- a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/fweh.h
-+++ b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/fweh.h
-@@ -98,7 +98,12 @@ struct brcmf_cfg80211_info;
- 	BRCMF_ABSTRACT_ENUM_DEF(EXT_AUTH_REQ, 0) \
- 	BRCMF_ABSTRACT_ENUM_DEF(EXT_AUTH_FRAME_RX, 1) \
- 	BRCMF_ABSTRACT_ENUM_DEF(MGMT_FRAME_TXSTATUS, 2) \
--	BRCMF_ABSTRACT_ENUM_DEF(MGMT_FRAME_OFFCHAN_DONE, 3)
-+	BRCMF_ABSTRACT_ENUM_DEF(MGMT_FRAME_OFFCHAN_DONE, 3) \
-+	BRCMF_ABSTRACT_ENUM_DEF(AWDL_AW, 4) \
-+	BRCMF_ABSTRACT_ENUM_DEF(AWDL_ROLE, 5) \
-+	BRCMF_ABSTRACT_ENUM_DEF(AWDL_EVENT, 6) \
-+	BRCMF_ABSTRACT_ENUM_DEF(AWDL_STATS, 7) \
-+	BRCMF_ABSTRACT_ENUM_DEF(SDB_STATE, 8)
- 
- #define BRCMF_ENUM_DEF(id, val) \
- 	BRCMF_E_##id = (val),
-diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/vendor.c b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/vendor.c
-index 34215aa4fe70..c4a8b68e520d 100644
---- a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/vendor.c
-+++ b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/vendor.c
-@@ -197,4 +197,12 @@ const struct nl80211_vendor_cmd_info brcmf_vendor_events[] = {
- 		.vendor_id = BROADCOM_OUI,
- 		.subcmd = BRCMF_VNDR_EVTS_AWDL_STOPPED
- 	},
-+	[BRCMF_VNDR_EVTS_AWDL_FRAME] = {
-+		.vendor_id = BROADCOM_OUI,
-+		.subcmd = BRCMF_VNDR_EVTS_AWDL_FRAME
-+	},
-+	[BRCMF_VNDR_EVTS_AWDL_ROLE] = {
-+		.vendor_id = BROADCOM_OUI,
-+		.subcmd = BRCMF_VNDR_EVTS_AWDL_ROLE
-+	},
- };
-diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/vendor.h b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/vendor.h
-index 4b372e0c7fe5..989232fc64e2 100644
---- a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/vendor.h
-+++ b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/vendor.h
-@@ -62,6 +62,11 @@ enum brcmf_vndr_cmds {
-  *	system sleep the status is 0 or the error of the removal. When the
-  *	firmware removed the interface on its own it is -%ENOLINK, sent once
-  *	the interface is gone on the host.
-+ * @BRCMF_VNDR_EVTS_AWDL_FRAME: AWDL action frame received from
-+ *	%BRCMF_AWDL_ATTR_ADDR, the frame body from the category on in
-+ *	%BRCMF_AWDL_ATTR_FRAME.
-+ * @BRCMF_VNDR_EVTS_AWDL_ROLE: the firmware changed its AWDL role to
-+ *	%BRCMF_AWDL_ATTR_ROLE.
-  * @BRCMF_VNDR_EVTS_LAST: number of vendor events.
-  *
-  * The value of an event is its index in the vendor events and its vendor
-@@ -71,6 +76,8 @@ enum brcmf_vndr_evts {
- 	BRCMF_VNDR_EVTS_UNSPEC,
- 	BRCMF_VNDR_EVTS_AWDL_STARTED,
- 	BRCMF_VNDR_EVTS_AWDL_STOPPED,
-+	BRCMF_VNDR_EVTS_AWDL_FRAME,
-+	BRCMF_VNDR_EVTS_AWDL_ROLE,
- 	BRCMF_VNDR_EVTS_LAST
- };
- 
-@@ -90,6 +97,9 @@ enum brcmf_vndr_evts {
-  * @BRCMF_AWDL_ATTR_IFINDEX: interface index of the AWDL interface (u32).
-  * @BRCMF_AWDL_ATTR_PEER_IES: HT and VHT capabilities elements of a peer,
-  *	built from the AWDL TLVs it sends, as macOS passes them.
-+ * @BRCMF_AWDL_ATTR_FRAME: received action frame body.
-+ * @BRCMF_AWDL_ATTR_ROLE: AWDL role of the firmware (u32), 0 slave, 1 master
-+ *	not taking part in the election, 2 master.
-  * @__BRCMF_AWDL_ATTR_AFTER_LAST: internal use.
-  * @BRCMF_AWDL_ATTR_MAX: highest attribute.
-  */
-@@ -105,6 +115,8 @@ enum brcmf_awdl_attrs {
- 	BRCMF_AWDL_ATTR_STATUS,
- 	BRCMF_AWDL_ATTR_IFINDEX,
- 	BRCMF_AWDL_ATTR_PEER_IES,
-+	BRCMF_AWDL_ATTR_FRAME,
-+	BRCMF_AWDL_ATTR_ROLE,
- 
- 	__BRCMF_AWDL_ATTR_AFTER_LAST,
- 	BRCMF_AWDL_ATTR_MAX = __BRCMF_AWDL_ATTR_AFTER_LAST - 1
-diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/wcc/core.c b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/wcc/core.c
-index e14b5530f720..0a14f318f14a 100644
---- a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/wcc/core.c
-+++ b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/wcc/core.c
-@@ -8,11 +8,30 @@
- #include <bus.h>
- #include <fwvid.h>
- #include <cfg80211.h>
-+#include <feature.h>
-+#include <fweh.h>
- 
- #include "vops.h"
- 
-+/* Firmware events of the Apple firmware for its AWDL interface */
-+#define BRCMF_WCC_E_AWDL_AW		96
-+#define BRCMF_WCC_E_AWDL_ROLE		97
-+#define BRCMF_WCC_E_AWDL_EVENT		98
-+#define BRCMF_WCC_E_AWDL_STATS		150
-+#define BRCMF_WCC_E_SDB_STATE		152
- #define BRCMF_WCC_E_LAST		213
- 
-+static const struct brcmf_fweh_event_map brcmf_wcc_event_map = {
-+	.items = {
-+		{ BRCMF_E_AWDL_AW, BRCMF_WCC_E_AWDL_AW },
-+		{ BRCMF_E_AWDL_ROLE, BRCMF_WCC_E_AWDL_ROLE },
-+		{ BRCMF_E_AWDL_EVENT, BRCMF_WCC_E_AWDL_EVENT },
-+		{ BRCMF_E_AWDL_STATS, BRCMF_WCC_E_AWDL_STATS },
-+		{ BRCMF_E_SDB_STATE, BRCMF_WCC_E_SDB_STATE },
-+	},
-+	.n_items = 5
-+};
-+
- static int brcmf_wcc_set_sae_pwd(struct brcmf_if *ifp,
- 				 struct cfg80211_crypto_settings *crypto)
- {
-@@ -29,11 +48,31 @@ static int brcmf_wcc_alloc_fweh_info(struct brcmf_pub *drvr)
- 		return -ENOMEM;
- 
- 	fweh->num_event_codes = BRCMF_WCC_E_LAST;
-+	fweh->event_map = &brcmf_wcc_event_map;
- 	drvr->fweh = fweh;
- 	return 0;
- }
- 
-+/*
-+ * The AWDL interface reports these events, they go to user space. The
-+ * firmware runs AWDL with all of them enabled in the event mask.
-+ */
-+static void brcmf_wcc_register_event_handlers(struct brcmf_pub *drvr)
-+{
-+	static const enum brcmf_fweh_event_code events[] = {
-+		BRCMF_E_AWDL_AW, BRCMF_E_AWDL_ROLE, BRCMF_E_AWDL_EVENT,
-+		BRCMF_E_AWDL_STATS, BRCMF_E_SDB_STATE,
-+	};
-+	int i;
-+
-+	if (!(drvr->feat_flags & BIT(BRCMF_FEAT_AWDL)))
-+		return;
-+	for (i = 0; i < ARRAY_SIZE(events); i++)
-+		brcmf_fweh_register(drvr, events[i], brcmf_awdl_fweh_event);
-+}
-+
- const struct brcmf_fwvid_ops brcmf_wcc_ops = {
- 	.set_sae_password = brcmf_wcc_set_sae_pwd,
- 	.alloc_fweh_info = brcmf_wcc_alloc_fweh_info,
-+	.register_event_handlers = brcmf_wcc_register_event_handlers,
- };
--- 
-2.56.0
-
+Reviewed-by: Vikash Garodia <vikash.garodia@oss.qualcomm.com>
