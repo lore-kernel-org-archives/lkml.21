@@ -1,54 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795789800;
-	b=TPYBnTxg+syuzR2CoTSBB6hsWHn9yc1L3DXwVMqkRpNYdC+ivsFlPQNtTB7d5JHffyZ4
-	 qo5LQnqGwEMdEEvMJNkvu9ESy4B9ivcidC+skJJ2ZBFY8r9S5I1Ds16MuvkVXquTD/Ezi
-	 PRF/NHdVd59lEz9DwS+6XlQ+LTct4RxrpONnJ9M+iIB6cutjtT55oWaN5Bxl9w1PXNGOw
-	 OJuU4FHcWh4JfuXLwJabUs9IpaXAvEPmAzxRxX067pKxUgZiYH5jLzqdOXgvh2ewy7sQ4
-	 JbZ5GJFL/yzi9wTa0yoh9FW/Ya4zp3Qo4nHayj2f+426L6Tpx+EpdsFtsoqJM6uSgyg==
+	t=1795789831;
+	b=aX/XOZcTwyYjB3NFgyI69JWGVC7IOq5o1GZ/H4f36Mgo51K159u5reQ+FgRbUTyNN15s
+	 fdL2adKipyps5f29z3KKWXko35yN9+uSmQz/zrljz7BGX8WvLBTLQql8tjkouRqnPHwtu
+	 Bf/8dpnjPKCSTp4B+0GVnSyJ41sUd5wSBhp1NmjErlDjQS1rQdJHsbTx2LbmDllAUnqGo
+	 3rgO9V3X/xui+UW6rMNAmzT7jQcjB3SGjABpqiwRgwPvPWKPMm/kFETXmlwFAlRG3pH/4
+	 y68soeJ/K+gIdqfW+RHkqzbTtQ0ih+GT2KK0n70qtEK7B7S/D5xKLNPbCmCOkISlnAA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795789800;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-AI-Review-Draft;
-	bh=OV62amTqoqN+ewSTRfp0O1PNmNfTA8XKczw4DCF9VmM=;
-	b=QvZYRHfuw1xCOyczYz7qNZtG1cbEOPFB/mRBwWM15LGM0y8ItM0KC0GbRlt5Xt7XpnM5
-	 KDwtVsLbBuHdjPS+afO15SXYy0I/MO3OvXREX8xibVwEExyRGwE/rBzKeuYO5TNqCaKvZ
-	 YdQZ/ohcxH88v3yw2JDy5sCNc2XI37rM7EI06XcL7+r+UKWs2UiX5ldYIo3qrT6MZrC2N
-	 hHLah41KHEVRiRaP82lKrzbOYBj1koTv6xRSZi0ogVoro74ddg20ho3pqDivRfCMl5qWv
-	 DwMV/CdYXSSSknc6LYmup1OndH3KKYYKJqNhd56PCU+CfTiebcjdUKw6ChV/Supccgg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795789831;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=yI0hKpV2K4KvtWkLJBjk4wFazIPvTqwqOPa5G/W8kos=;
+	b=CpvX0kbQ5x0yV1Cq/0zEFSX8WluZky9xJKaUXJkvuwCStLUYPbXA44rH+zPQekjvT0Id
+	 yEMWrDii7YF13fdfYnKbFnCyqk8j1fqy6S44spao564nuVXikiSkkduQiv+Si5IG5oucw
+	 9UalIEttTLo93MARcw8ethLScwol/IEaGVrl8g2gXP8WFBXgm1ejahgNuJs1tqjpLy2U2
+	 AhyrgxZ+jowFWlx0CIHYLbgYCv8lT28NqDrX5NIEUVDHQY42f0zsIC1f8DMHdOq7hF8NB
+	 OWwTmRwJC5int5qH2DAi0Y1sBl8Gcd1LARVHh6Me173gDuH5Ptnf4+E3ztfblZT6HcA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z1QKsWqy;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UIoHa0AE;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C2D1606A32D;
-	Fri, 27 Nov 2026 14:30:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27CCF606A32D;
+	Fri, 27 Nov 2026 14:30:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z1QKsWqy
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A07B91F00898;
-	Fri, 27 Nov 2026 14:29:52 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UIoHa0AE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FCB31F00897;
+	Fri, 27 Nov 2026 14:30:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795789799;
-	bh=OV62amTqoqN+ewSTRfp0O1PNmNfTA8XKczw4DCF9VmM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Z1QKsWqyCGev7jYT+VXVHzNFLCcUdi8BOFQxcEJmzyp5Y1XZbmaeBgGuYZ96fJPl6
-	 kU2Bwm/aq7ypeuhDtYw9mqs3AIPI0QQ1WMtE1MeAyLWLqa0qsFmtyKH9zCcEcP5vuY
-	 9iI9zZxPyyEjMibcBxM9L8gVFLQpEcToK5lywOg/WXhDcmr8faB9o5lFbZt1LHd831
-	 OHhKk7XmjVXnbXwWvvVMzhXVPy1P9YLrKQXHzS1chsHZ6zV9n2g1QjBUiUsrZRyFia
-	 BOUFlWHeLcj+vngnv16RC8gGqB0I6msO9KpL+MXQ6yG8V6+TYqpRL/Jk0xVLxHC+d/
-	 k6V+zw+gWsKtQ==
-Date: Fri, 27 Nov 2026 14:29:45 +0000
-From: Lee Jones <lee@kernel.org>
-To: pladow@gmail.com
-Cc: Nam Tran <trannamatk@gmail.com>, Pavel Machek <pavel@kernel.org>,
-	Griffin Kroah-Hartman <griffin@kroah.com>,
-	linux-kernel@vger.kernel.org, linux-leds@vger.kernel.org
-Subject: Re: [PATCH v2] leds: lp5860: Add I2C interface support
-Message-ID: <179568570057.32537.6911328929277957458@kernel.org>
-References: <20261120-add-i2c-support-for-lp5860-v2-1-bcb2ce00a7f5@gmail.com>
+	s=k20260515; t=1795789830;
+	bh=yI0hKpV2K4KvtWkLJBjk4wFazIPvTqwqOPa5G/W8kos=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=UIoHa0AEN/B73X/6sNIpmgs4uOBhm4M/vT55q/p7ewnqQtX0kEXsYJUq1hu1XxMZW
+	 IzHndPqV4IuPp7goVK1RKuNwvzr2FsjccDxrUMsn7yrOjqexl5c4awFmDAmkwOM9qv
+	 Lw1pjq4nPMOU26w35I9Lbj110eV2JaDXFS0GQ5EksQzZKPScf9gZ+aUIFOwjcX1q+C
+	 RBTbtCCSBgXo++J0o5/3Q1EOk+7rpC/lSedh3TCCmSCR8wH+bUN69wUfN/Tc02ni3k
+	 objuxBJVBatEf8RvfVmPlDth4efebu2CaNFmGuzSE4kkjBxAflUvxcxcOZcmbbZGQl
+	 ggaMIqqjRueXg==
+Subject: Re: [PATCH net-next] net: pse-pd: fix bogus budget evaluation
+ strategy check in IRQ handler
+From: netdev-bot+sashiko@kernel.org
+To: kory.maincent@bootlin.com
+Cc: o.rempel@pengutronix.de, kuba@kernel.org, pabeni@redhat.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org
+Date: Fri, 27 Nov 2026 14:30:29 +0000
+Message-ID: <179578982915.3135.16459182795663099712@kernel.org>
+In-Reply-To: <20261126143012.1595919-1-kory.maincent@bootlin.com>
+References: <20261126143012.1595919-1-kory.maincent@bootlin.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,276 +64,153 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120-add-i2c-support-for-lp5860-v2-1-bcb2ce00a7f5@gmail.com>
-X-AI-Review-Draft: <20261120-add-i2c-support-for-lp5860-v2-1-bcb2ce00a7f5@gmail.com>
 
-On Fri, 20 Nov 2026, Peter LaDow via B4 Relay wrote:
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-> From: Peter LaDow <pladow@gmail.com>
->
-> This patch adds I2C bus support to the Texas Instruments LP5860 RGB LED
+Critical: 0 · High: 0 · Medium: 2 · Low: 0
 
-Just tell us what's happening.  No "This patch ...".
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-> matrix driver.
->
-> The LP5860 supports both SPI and I2C interfaces depending on the hardware
-> IFS pin configuration, but the existing driver only implements the SPI
-> bus interface (leds-lp5860-spi).
->
-> Changes include:
-> - Adding the leds-lp5860-i2c bus driver module to handle the LP5860's
->   10-bit register addressing scheme over I2C.
-> - Updating Kconfig and Makefile so I2C and SPI bus support can be built
->   independently or together.
+- [Medium] The commit message says the bogus check "does not prevent the
+  TPS23881 from working properly" and sends the fix to net-next for that…
+- [Medium] With the early return removed, the simultaneity check at the
+  top of pse_set_config_isr() (`(notifs & DISCONNECTION) && ((notifs &…
 
-This is also not expected / wanted.
+--
 
-Take a look at the Git history to see how we usually describe changes.
+net: pse-pd: fix bogus budget evaluation strategy check in IRQ handler
 
-> Tested on ZymqMP (ZU3) with an LP5860 connected over an AXI IIC at
-> base address 0x40 (A1=0, A0=0) at 400kHz.
->
-> Signed-off-by: Peter LaDow <pladow@gmail.com>
-> ---
-> Changes in v2:
-> - Use designated initializer (.name = "lp5860") in i2c_device_id table
-> - Link to v1: https://patch.msgid.link/20261120-add-i2c-support-for-lp5860-v1-1-30bc97dcbf78@gmail.com
->
-> To: Nam Tran <trannamatk@gmail.com>
-> To: Lee Jones <lee@kernel.org>
-> To: Pavel Machek <pavel@kernel.org>
-> To: Griffin Kroah-Hartman <griffin@kroah.com>
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-leds@vger.kernel.org
-> ---
->  drivers/leds/rgb/Kconfig           |  12 ++++
->  drivers/leds/rgb/Makefile          |   1 +
->  drivers/leds/rgb/leds-lp5860-i2c.c | 139 +++++++++++++++++++++++++++++++++++++
->  3 files changed, 152 insertions(+)
->
-> diff --git a/drivers/leds/rgb/Kconfig b/drivers/leds/rgb/Kconfig
-> index 3f6786616a7d..5dfca8949464 100644
-> --- a/drivers/leds/rgb/Kconfig
-> +++ b/drivers/leds/rgb/Kconfig
-> @@ -78,6 +78,18 @@ config LEDS_LP5860_SPI
->  	  To compile this driver as a module, choose M here: the
->  	  module will be called leds-lp5860-spi.
->
-> +config LEDS_LP5860_I2C
-> +	tristate "LED Support for TI LP5860 I2C LED driver chip"
-> +	depends on I2C
-> +	depends on OF
-> +	select LEDS_LP5860_CORE
-> +	help
-> +	  If you say yes here you get support for the Texas Instruments
-> +	  LP5860 LED driver for I2C bus connections.
-> +
-> +	  To compile this driver as a module, choose M here: the
-> +	  module will be called leds-lp5860-i2c.
-> +
->  config LEDS_NCP5623
->  	tristate "LED support for NCP5623"
->  	depends on I2C
-> diff --git a/drivers/leds/rgb/Makefile b/drivers/leds/rgb/Makefile
-> index a59c13396a22..0e35bf16d615 100644
-> --- a/drivers/leds/rgb/Makefile
-> +++ b/drivers/leds/rgb/Makefile
-> @@ -6,6 +6,7 @@ obj-$(CONFIG_LEDS_KTD202X)		+= leds-ktd202x.o
->  obj-$(CONFIG_LEDS_LP5812)		+= leds-lp5812.o
->  obj-$(CONFIG_LEDS_LP5860_CORE)		+= leds-lp5860-core.o
->  obj-$(CONFIG_LEDS_LP5860_SPI)		+= leds-lp5860-spi.o
-> +obj-$(CONFIG_LEDS_LP5860_I2C)		+= leds-lp5860-i2c.o
->  obj-$(CONFIG_LEDS_NCP5623)		+= leds-ncp5623.o
->  obj-$(CONFIG_LEDS_PWM_MULTICOLOR)	+= leds-pwm-multicolor.o
->  obj-$(CONFIG_LEDS_QCOM_LPG)		+= leds-qcom-lpg.o
-> diff --git a/drivers/leds/rgb/leds-lp5860-i2c.c b/drivers/leds/rgb/leds-lp5860-i2c.c
-> new file mode 100644
-> index 000000000000..97948cde54a9
-> --- /dev/null
-> +++ b/drivers/leds/rgb/leds-lp5860-i2c.c
-> @@ -0,0 +1,139 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +
-> +#include <linux/i2c.h>
-> +#include <linux/module.h>
-> +#include <linux/mutex.h>
-> +#include <linux/of.h>
-> +#include <linux/property.h>
-> +#include <linux/regmap.h>
-> +#include <linux/slab.h>
-> +
-> +#include "leds-lp5860.h"
-> +
-> +#define LP5860_I2C_NUM_PAGES	4
-> +
-> +struct lp5860_i2c {
-> +	struct i2c_client *clients[LP5860_I2C_NUM_PAGES];
-> +};
-> +
-> +static int lp5860_i2c_reg_read(void *context, unsigned int reg, unsigned int *val)
-> +{
-> +	struct lp5860_i2c *i2c = context;
-> +	int ret;
-> +
-> +	ret = i2c_smbus_read_byte_data(i2c->clients[reg >> 8], reg & 0xff);
+This patch removes a check in pse_set_config_isr() that compared the PSE
+event notification mask against PSE_BUDGET_EVAL_STRAT_DYNAMIC. That
+constant and ETHTOOL_C33_PSE_EVENT_DETECTION are both BIT(2). As a result,
+any notification that included the detection event was skipped.
 
-What prevents 'reg >> 8' from exceeding 'LP5860_I2C_NUM_PAGES - 1' if a caller
-or debugfs passes an out-of-range register?  Setting 'max_register' in
-'lp5860_i2c_regmap_config' bounds normal regmap accesses as long as
-'LP5860_MAX_REG' is strictly less than 0x400, but guarding or masking the page
-index (or checking 'LP5860_MAX_REG') makes the invariant explicit.
+> The mistake went unnoticed because ETHTOOL_C33_PSE_EVENT_DETECTION and
+> PSE_BUDGET_EVAL_STRAT_DYNAMIC are both BIT(2) and, when only the
+> detection event is reported, the function performs no action anyway.
+> The check does not prevent the TPS23881 from working properly, but when
+> a controller reports the detection event together with other events,
+> the whole notification handling is skipped instead of processed.
 
-Also, no magic numbers.  You should define these.
+[Severity: Medium]
+Is the statement that the check does not affect the TPS23881 accurate?
 
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	*val = ret;
-> +	return 0;
-> +}
-> +
-> +static int lp5860_i2c_reg_write(void *context, unsigned int reg, unsigned int val)
-> +{
-> +	struct lp5860_i2c *i2c = context;
-> +
-> +	return i2c_smbus_write_byte_data(i2c->clients[reg >> 8], reg & 0xff, val);
-> +}
-> +
-> +static const struct regmap_bus lp5860_i2c_regmap_bus = {
-> +	.reg_read = lp5860_i2c_reg_read,
-> +	.reg_write = lp5860_i2c_reg_write,
-> +};
-> +
-> +static const struct regmap_config lp5860_i2c_regmap_config = {
-> +	.name = "lp5860",
-> +	.reg_bits = 16,
-> +	.val_bits = 8,
-> +	.max_register = LP5860_MAX_REG,
-> +};
-> +
-> +static int lp5860_i2c_probe(struct i2c_client *client)
-> +{
-> +	struct device *dev = &client->dev;
-> +	struct lp5860_i2c *i2c;
+The TPS23881 is the only in-tree user of devm_pse_irq_helper().
+tps23881_irq_event_handler() reads TPS23881_REG_DET_EVENT once and passes
+the same value to both parsers:
 
-'i2c' makes this sound like it's part of the I2C API, and it only
-contains an array of i2c_clients, making the whole thing superfluous.
+drivers/net/pse-pd/tps23881.c:tps23881_irq_event_handler() {
+    ...
+		ret = i2c_smbus_read_word_data(client, TPS23881_REG_DET_EVENT);
+		...
+		val = ret;
+		ret = tps23881_irq_event_detection(priv, val, notifs,
+						   notifs_mask);
+		...
+		ret = tps23881_irq_event_classification(priv, val, notifs,
+							notifs_mask);
+    ...
+}
 
-Why not just:
+Both parsers OR into the same notifs[i]. The retry loop in
+tps23881_irq_handler() also collects several interrupt rounds into the
+same notifs[] word. A detection-done event and a class-done event for one
+port can therefore arrive together as DETECTION | CLASSIFICATION. Whether
+this happens depends on hardware timing.
 
-	clients = devm_kcalloc(dev, LP5860_I2C_NUM_PAGES, sizeof(*clients), GFP_KERNEL);
+The TPS23881 sets supp_budget_eval_strategies to
+PSE_BUDGET_EVAL_STRAT_STATIC. That makes pse_pw_d_is_sw_pw_control()
+true, so pse_isr() calls pse_set_config_isr().
 
-> +	struct lp5860 *lp5860;
-> +	unsigned int multi_leds;
-> +	unsigned int page;
-> +	int ret;
-> +
-> +	if ((client->flags & I2C_CLIENT_TEN) ||
-> +	    client->addr < 0x40 || client->addr > 0x4c || (client->addr & 0x03))
+Before this patch, that mask hit the BIT(2) early return. The
+CLASSIFICATION branch never set isr_pd_detected and never called
+_pse_pi_delivery_power_sw_pw_ctrl(). No SW_PW_CONTROL_ERROR was reported
+either.
 
-Please define the magic numbers.
+Under software power control nothing else powers the port. A later admin
+enable cannot recover it, because pse_pi_enable() only delivers power when
+isr_pd_detected is set:
 
-Use tabs not spaces - and they are 8 not 4.
+drivers/net/pse-pd/pse_core.c:pse_pi_enable() {
+    ...
+		if (pcdev->pi[id].isr_pd_detected) {
+			struct netlink_ext_ack extack;
 
-> +		return dev_err_probe(dev, -EINVAL,
-> +				     "Use the page-zero I2C address (0x40, 0x44, 0x48 or 0x4c).\n");
+			ret = _pse_pi_delivery_power_sw_pw_ctrl(pcdev, id, &extack);
+		}
+    ...
+}
 
-Don't list out raw values in user-facing documentation like this.
+The note below the cut line says the fix goes to net-next because the
+TPS23881 works fine with the check. Since a classified PD on an
+admin-enabled TPS23881 port could be left unpowered, should this go to net
+instead, so that the Fixes: tag leads to a stable backport?
 
-> +	if (!i2c_check_functionality(client->adapter, I2C_FUNC_SMBUS_BYTE_DATA))
-> +		return dev_err_probe(dev, -EOPNOTSUPP,
-> +				     "SMBus byte-data transactions are not supported.\n");
-> +
-> +	multi_leds = device_get_child_node_count(dev);
-> +	if (!multi_leds)
-> +		return dev_err_probe(dev, -ENODEV, "LEDs are not defined in Device Tree!\n");
-> +
-> +	if (multi_leds > LP5860_MAX_LED)
-> +		return dev_err_probe(dev, -EINVAL, "Too many LEDs specified.\n");
-> +
-> +	lp5860 = devm_kzalloc(dev, struct_size(lp5860, leds, multi_leds), GFP_KERNEL);
-> +	if (!lp5860)
-> +		return -ENOMEM;
-> +
-> +	i2c = devm_kzalloc(dev, sizeof(*i2c), GFP_KERNEL);
-> +	if (!i2c)
-> +		return -ENOMEM;
-> +
-> +	i2c->clients[0] = client;
-> +	for (page = 1; page < LP5860_I2C_NUM_PAGES; page++) {
+> diff --git a/drivers/net/pse-pd/pse_core.c b/drivers/net/pse-pd/pse_core.c
+> index 0477cf6787bd3..ae31175921a07 100644
+> --- a/drivers/net/pse-pd/pse_core.c
+> +++ b/drivers/net/pse-pd/pse_core.c
+> @@ -1291,9 +1291,6 @@ static int pse_set_config_isr(struct pse_controller_dev *pcdev, int id,
+>  {
+>  	int ret = 0;
+>  
+> -	if (notifs & PSE_BUDGET_EVAL_STRAT_DYNAMIC)
+> -		return 0;
+> -
+>  	if ((notifs & ETHTOOL_C33_PSE_EVENT_DISCONNECTION) &&
+>  	    ((notifs & ETHTOOL_C33_PSE_EVENT_DETECTION) ||
+>  	     (notifs & ETHTOOL_C33_PSE_EVENT_CLASSIFICATION))) {
 
-for (int page = 1; ...
+[Severity: Medium]
+With the early return gone, the DETECTION part of this check can now be
+reached. A DETECTION | DISCONNECTION mask used to return 0. It now
+returns -EINVAL, and pse_isr() reports that to user space:
 
-> +		i2c->clients[page] = devm_i2c_new_dummy_device(dev, client->adapter,
-> +							       client->addr | page);
+drivers/net/pse-pd/pse_core.c:pse_isr() {
+    ...
+			ret = pse_set_config_isr(pcdev, i, notifs);
+			if (ret)
+				notifs |= ETHTOOL_PSE_EVENT_SW_PW_CONTROL_ERROR;
+    ...
+}
 
-This last part needs a comment.
+Is this change to the ethtool PSE netlink notifications intended? The
+commit message does not mention it.
 
-> +		if (IS_ERR(i2c->clients[page]))
-> +			return dev_err_probe(dev, PTR_ERR(i2c->clients[page]),
-> +					     "Failed to reserve I2C register page %u.\n", page);
-> +	}
-> +
-> +	lp5860->regmap = devm_regmap_init(dev, &lp5860_i2c_regmap_bus, i2c,
-> +					  &lp5860_i2c_regmap_config);
-> +	if (IS_ERR(lp5860->regmap))
-> +		return dev_err_probe(dev, PTR_ERR(lp5860->regmap),
-> +				     "Failed to initialise Regmap.\n");
-> +
-> +	lp5860->dev = dev;
-> +
-> +	ret = devm_mutex_init(dev, &lp5860->lock);
-> +	if (ret)
-> +		return ret;
-> +
-> +	i2c_set_clientdata(client, lp5860);
-> +
-> +	return lp5860_device_init(dev);
-> +}
-> +
-> +static void lp5860_i2c_remove(struct i2c_client *client)
-> +{
-> +	lp5860_device_remove(&client->dev);
-> +}
-> +
-> +static const struct of_device_id lp5860_i2c_of_match[] = {
-> +	{ .compatible = "ti,lp5860" },
-> +	{}
-> +};
-> +MODULE_DEVICE_TABLE(of, lp5860_i2c_of_match);
-> +
-> +static const struct i2c_device_id lp5860_i2c_ids[] = {
-> +	{ .name = "lp5860" },
-> +	{}
-> +};
-> +MODULE_DEVICE_TABLE(i2c, lp5860_i2c_ids);
-> +
-> +static struct i2c_driver lp5860_i2c_driver = {
-> +	.driver = {
-> +		.name = "lp5860-i2c",
-> +		.of_match_table = lp5860_i2c_of_match,
-> +	},
-> +	.probe = lp5860_i2c_probe,
-> +	.remove = lp5860_i2c_remove,
-> +	.id_table = lp5860_i2c_ids,
-> +};
-> +module_i2c_driver(lp5860_i2c_driver);
-> +
-> +MODULE_DESCRIPTION("TI LP5860 RGB LED I2C driver");
-> +MODULE_LICENSE("GPL");
->
-> ---
-> base-commit: c016466c8c8b01af27ac66d97b64fa9c9e431a3d
-> change-id: 20261120-add-i2c-support-for-lp5860-97f38b2ebe1c
->
-> Best regards,
-> --  
-> Peter LaDow <pladow@gmail.com>
->
->
+Can the TPS23881 produce this mask?
+
+- tps23881_irq_event_over_current() ORs in OVER_CURRENT | DISCONNECTION.
+- tps23881_irq_event_detection() ORs in either DETECTION or
+  DISCONNECTION, depending on the signature result.
+- tps23881_irq_handler() merges several interrupt rounds into one
+  notifs[] word and loses their order.
+
+An over-current shutdown followed by re-detection could be merged this
+way. So could an invalid detection followed by a valid one.
+
+In both the old and the new code, the DISCONNECTION is then not
+processed:
+
+- _pse_pi_disable() is not called.
+- The PI power budget is not released.
+- isr_pd_detected stays true even though the hardware has already turned
+  the port off.
+
+A later CLASSIFICATION would then allocate budget again without freeing
+the old allocation.
+
+DETECTION on its own takes no action in pse_set_config_isr(). The
+c33-pse-event-detection uAPI doc also only says that a detection process
+occurred on the PSE.
+
+Should DETECTION be dropped from this conflict check so that the
+DISCONNECTION gets handled? The commit message says combined events are
+now processed, but this combination still is not.
 
 -- 
-Lee Jones
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126143012.1595919-1-kory.maincent%40bootlin.com
