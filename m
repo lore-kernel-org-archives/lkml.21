@@ -1,99 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795777525;
-	b=KNjJU/O07vZILUrcF/7pxBNIMdNcFe2eU16mmp6x4QfKm2eSBqa9s8GpTeq+TMRfZpVK
-	 JVn07akUN2k9kW71+K6niFR1tgJZyOAXeyYCpea82SiiGpEd/Xx6bGGI2mMLMZlLcsIoQ
-	 23BIIdoOjIYqtIDFKItyJ7qgNe5t+ho8eqTPMXGhJoN2x+109ELwPo6+Ggg6G4tI964+8
-	 fnVK57TjTCID3/ln0ODyHRu27fY0mjkrUE5HdgRb/BfXLw73IrsEtGW1vKWCt2OLUb0jN
-	 M87YwUQf2QqsXm0RJApLMPOLjsHweXwxXwyxUeK0ppJ4cIvIr+eGbHyEyIU73a1yIog==
+	t=1795777534;
+	b=g9VvBAjVYOYIyP+lK+NUobhXR8Hccr2F5XTuVZi15QsVv1pD5Y+oTiNEE/xmhkrueLte
+	 DuDmK4iwGaxDe7IFgl+Mvbm6OT3h3eBAwlft1OT2O0NXhjt2Lmn3cuW//XdaDKv2qz9zH
+	 C7C2/X05sJMqCjUxVEikcvtYPiXzW/DprF7o3KMB2AmtaIgB841fyDBRUsQ9LE08C0JwL
+	 L0sr5OKsx5cMdUdtg6f3mVFcrqJB07MwSCvdDxDYErZvsiKaTIx5lIJ1raLXHxSFiNHm0
+	 UuANl7+qpnLq3RBcdkAijWqW/IfDIggg03fkFWuZg+yP4Gft9d7MVnOpnI3zeDTfu7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795777525;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=U9ANJ3B6+URyp8PWUZ9qIzc4cW2GM4LcDUwic8AgW+c=;
-	b=uKnSDwWxX6GlU7vU6vAtcTKk2KEy3vJ8yDvgWzp/JOjrwLzQ029prwG6f3QN1TDu4xfD
-	 +8W590LE7QqGwcjz1srlhOmN7nk8XWcx4/9JG6NnYMTTwPkT1Xx1M7inm9x6607IQIEvn
-	 LiKHSj1ApjOL5VyjzisSVQymixCfe3JjPXR6CCla8mDVcVORNJsYWj3b+SNcqT1EjHUBh
-	 JuyQrZBgg92aw4NvKEpLOmZysOTewBCn/J6iAS7etU4mY9TihbNXxNhvOdHBiUCAE4RPw
-	 W3EcC3ZuwHmLp3oBQlOEIuePznm9VYUEzhRjnWcl0o2c2tsf8ZHuBdjBKGZHjFojuwA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795777534;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=NozXVbWGPEdY7gxHDrA4RR7QdJYSBiFThdLGNmJHqSs=;
+	b=QCeYw2TUyhJLcOxQlUNFSlmTa7JndJJdL41y+sp06aey0/aTNu7gQ6rcc928UTJw8sD5
+	 XccwQvCsUwfff1taPDU33v8DrfDXhxDR5PEXGuDh2QIycrkx1m6kPiuKN0q/W9sO5MNt7
+	 dDxldwtHE4FJg8a8/iPyEgYBUJf+JAWmzkQTjbcOonI+CTSBkMeo99ogYMzC7ycKaxOny
+	 SwY30nBAfgKAVZ4LgwaNaFq81sCqYvobK6aXZVYt5k3nEXMGEvycQYXq173QjRCQS7FHe
+	 eNsSnzFEljSRYKt9RniAJ0oEIXekBRVmbqE250gLSLcONBVmSLogttkXBJMGfAvZaYw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=wkennington.com;
-	spf=none smtp.mailfrom=wkennington.com;
-	dkim=pass header.d=wkennington-com.20260707.gappssmtp.com header.i=@wkennington-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=eqeVT47p;
-	arc=none smtp.remote-ip=209.85.210.179
-Received: from mail-pf1-f179.google.com (mail-pf1-f179.google.com [209.85.210.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=O39GFyKj;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Of49x8QG;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3F94606A31F
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:05:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3F94606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=wkennington.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=wkennington.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7D73606A31F
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:05:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7D73606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=wkennington-com.20260707.gappssmtp.com header.i=@wkennington-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=eqeVT47p
-Received: by mail-pf1-f179.google.com with SMTP id d2e1a72fcca58-8b271e573adso3415512b3a.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:05:24 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=O39GFyKj;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Of49x8QG
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARApW9C1685597
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:05:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	NozXVbWGPEdY7gxHDrA4RR7QdJYSBiFThdLGNmJHqSs=; b=O39GFyKjt6GqYE7+
+	bPG3wEAtkP+fq5VkKq1lYvlTzW8q5knyUy3xUYvFoOZXICYA2voBqWiczSJEuNgs
+	jKQkIeHsdoVURJVRpbNlQuSgJk9gqFEs4n0o6qtuMnWozTieRz376IQ6JEHnjI9w
+	o+bAvIHY2OGbaC2CaNUiRhNlNwI5fLoiFAxSBJ1kX3iD/mto9WrQ+V8xotzq01VF
+	GE+JEl4wRx+TBMgfgwMLexyNvgo4l8NemXiX4c2LZhKb881x+6fpMQ5cunLP+5ZG
+	fvVk9s/59+D32il3Xm4U/5+mKEqbA6iFf98snlJ5OVpyHmoHhAS9yDYnzOg+e1Ib
+	loniLw==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j756k8xqx-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:05:32 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-53630cded29so24076311cf.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:05:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=wkennington-com.20260707.gappssmtp.com; s=20260707; t=1795777524; x=1796382324; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=U9ANJ3B6+URyp8PWUZ9qIzc4cW2GM4LcDUwic8AgW+c=;
-        b=eqeVT47pJpbojwUSkka7lRiGS7EKd7+nSow9IiGOrxs/BnWNagVHsdo3bsVJ/1UTXj
-         X6j1AtWOoBQdgX5JHb+WZWkVsvIEGTH+JTwfHsoCof3wZMitsBLcq/XwcpGt72jN6QHc
-         c1x3GpyI9qUlOVMV8bXWZ0YQ6OBKAZF1Rb62++h8AMmSr50VKSERLfpCB2IouGn4pZcr
-         BUpoWon/eA7/yWrJKdhlyVu1O0LSELrgdhhT/t+ASoq8CeoUr+vu+iqDsyljLZ6R9rY6
-         O7GM2CbeFVgWN9W5bhPotOYu93reY9sVItY8HBIhtDXdWVK0+4EzEJkxaz04pr3riehp
-         BpSw==
+        d=oss.qualcomm.com; s=google; t=1795777532; x=1796382332; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NozXVbWGPEdY7gxHDrA4RR7QdJYSBiFThdLGNmJHqSs=;
+        b=Of49x8QGVQ7XClZ6t43bAD15h9oT8ziX1Zuv0MJfnn74QeqoiZBiyJeDYZtQjvl+xS
+         qb2d+aqSw72YcRKZdFvmRE7vIqW91tFNy8gnqRabD0B6tTaXpS1JFRxlFEB/sjMWeZv3
+         JpqeSBXZ/0Y9d2PTeVAb/zFDLFTJPb6iopKuhCXcOZkHfxAPw2ivqo3EMkc5LjMg0gpF
+         k56J9/TeBNL0X/x+xzD9NmiVnOQvsJazBJ+MBw8DlbYAmoNvw5e8bR8tHL+PN1skSAon
+         JePf8AlN4c98/DbX0yqBITOb9zc2XL0NRhkZT5U4aCMcS5VEeqB5tWMhwBkVAMIYM7R4
+         gHdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795777524; x=1796382324;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795777532; x=1796382332;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=U9ANJ3B6+URyp8PWUZ9qIzc4cW2GM4LcDUwic8AgW+c=;
-        b=H8xgoruo5+cyOqmHg8Evo4bkTMOqT9F/IXC89pimWiVB3Ft2Iq3s0QMmoUu7szpIQ+
-         ELvB7UTtHq/ymB6Zpz7PXV/iqh9hVccYqNL1FMgwoaZD8lP/80y71EFvUm4OP6omwDea
-         GoWxjIG1Z7rhtwIy1bNeokSn8/Wd6wUQb5pz26e9yFMwrpMLGxgSOkUgfOPmJpE20z4T
-         sHQwsWQsYIwU8wOHx+EsuP9DFOhYFRnQYod4cIQsV7tOBmr79NgbIKvkirA+G/1cDX0a
-         yRnI/duhJlylK2hzwOERtqGpDiujQDx1HYLudu+Rr8/O3HutP7OgFwiVR8JJUsJIetMv
-         k+Gg==
-X-Forwarded-Encrypted: i=1; AL+hErFZ6be2OkT6PL+UImoaCFsikah29wz8cu9wvgTjHWphLMg82ZWusM+NfxDFLrP3kztw0WWepHqW04BLeIA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/FzhrsAMquCFpnHf2HloHK6uCGgK5eIJBlp+v+O8T9qUwqxuR1
-	BMtX3TucxhzuCMRbDDzb2biVC3HS+wsEuReoEnoHWAS1GKqpwc+RxZwsSl+MISsnm/ekjUCoXVU
-	jNA6xiGE=
-X-Gm-Gg: AZFdTZeJtx6lDksr9MnEHgCoQr4kqEc+uemVp6M+mtTTvkys3wKgYXjdvLm1edi1TIX
-	4+pUjUY4r1ezKjY9tqvcUP3t/CDgRlnfuDEP6U2kcnxfufcwwfGy51vNLaOITW2gu0bxD6oDEBd
-	DzONqaQS1eq1zGkDRLKo2cEzw04arNdxM29FlUnVoiPik2v2RFHwTH8vTN0Udm5IvHC7EoOGlV5
-	hitXTjcYDv04wwv4KmFdF+eDjzDdNygmmkj9AsiYmGUyKZP+4UF59iZZxaxIL8rYXexdaFxGyao
-	SkUUlSnpjq8Y9IK3XpRpi4lB4gCk3NwisoFvk0YcZsILBghIhDTw5jFy8de8zbHFGi+WO57Cxmf
-	kxeoBCiyss95w/bDhy0xve5AMBAg8ouhq3pgF6X9gqRWzmyX52cves+pAcf5uZfMusTf/mr4r+z
-	dyjZjAzDCyKBtQ3xgGbewtUezNUXXkEEq+oGGgq/dUX5F7cIEAEaAxmaYS/4ZFf6DUE2w09AmrG
-	q2mCG8nsE1u7Jz1onN2rq0Wx9Xt2auB1SGHO7UTyraUmVSuy5g2TxbJZGupgs6MRpy3v+ddIUp+
-	/Tly1Dww1jOEG9Mz68Pnnv0+Mwb7DOCQZ9M6wtHY29FiaB3qb+BJ2z3utC7r2OVcpk11B+bdbUn
-	Ha3H3NBYdai4CU3nxL2WUrmpU61O3gR3h1MU=
-X-Received: by 2002:a05:6a20:3d07:b0:3e1:89d6:ba1 with SMTP id adf61e73a8af0-401493a748cmr33033618637.3.1795777523884;
-        Fri, 27 Nov 2026 03:05:23 -0800 (PST)
-Received: from wak.c.googlers.com.com (246.21.127.34.bc.googleusercontent.com. [34.127.21.246])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cea7c38sm12857789a12.2.2026.11.27.03.05.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 03:05:23 -0800 (PST)
-From: "William A. Kennington III" <william@wkennington.com>
-To: Oliver Neukum <oliver@neukum.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: linux-usb@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	"William A. Kennington III" <william@wkennington.com>
-Subject: [PATCH net v2] net: usb: cdc_ncm: send the NTB once another datagram would not fit
-Date: Fri, 27 Nov 2026 11:05:21 +0000
-Message-ID: <20261127110521.1235409-1-william@wkennington.com>
-X-Mailer: git-send-email 2.56.0.567.gdb80ae8cd5-goog
+        bh=NozXVbWGPEdY7gxHDrA4RR7QdJYSBiFThdLGNmJHqSs=;
+        b=BR68J06s7H+nyXeghuzOJ/jN4dbCdDA6X5wrRh/HhihbM5LcvyQ3scQjcR5grEZPdQ
+         g6r16FLzjLGcOgHwcGo46Dgb4ZZBECiq2vCc7NVYoBwyEWa6TMrCFFnHyPxLj2CGRdxW
+         +B3mIB8Y0hZuGrRMuUdKO0c7JAPKZOGSWzm1mKEo+ip15uSOKuGWyCKcwXXh7oHmgLsz
+         x9o7j7bVjkTm4Lxhrx3luvrTaslDWRca/83MryazJIjhhIGWqsU65Sfydtf05XyJN8On
+         BFkOI2THY8e+qvRXaNo9NpqcpbwkZyVDM/QsmxMqdPb21RBTSEeinvs4VSr1ruJgEZpF
+         +toA==
+X-Forwarded-Encrypted: i=1; AL+hErGdc1V/qmhnph5Y+i8SBYEYFSgmFa3ZKBlyVpXrR+OW/zZ/sd87QsZ1z2HwqgqKwNyxY6GBArtxTSARR/Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9LykbLQlX4/LYmwG378rSGXu5+2q4FyzkvMekg6mN7ndihtVsV
+	rxQIzaf6XSihHBBkeG9JNfm+8T12tz7/VRp7MUuyYmcooJsi93htZE+2T2qMjKXrSilQkae/oPh
+	+ipiPzN8i3sYQ5OZuK0Ujh35dOeXKRbsAVyuAFoiEqSfGiU6f0pBlIoA85Ds6QEcx4B8=
+X-Gm-Gg: AZFdTZcLEyUqnAzcnOPuznsMYjvyVSP7cQ0OvX39cPIIyJa6ME4BHm640Wz89wMsRaA
+	6NdikB0FhZE/+IQE57JpDNk4xmuCDzAFhEO1R38Y2nxl0uVyT0fIbVp8DPNwllD2JsarMsVwfJM
+	I7Eonq3I26IAy7/wCEFJPFClTUC02olPBdoonewuzJdFl4CNlzVe2VLYKmwzVN+aa/sL0vZm4Zq
+	KA2Tv1iUrmogI/QXgZikmKolDH2t9Tgso1OajhUkkBNvN7Du46pCtAHA6i0oLg2PYYlL4ZKXydj
+	NK4ycSijPzyxjCOV3Orr49e+utBOvVC0l/zY+/eT1ejA4gagCPGySeX1UaTMGezLvq/Ryl/dQRX
+	dgSxBshYg8l5CqyYCrTaTV2AxX1oz3Bn52ibM8gi7zHbDL45xLkOIk9DP/KyX/EJzJoX8qUU=
+X-Received: by 2002:a05:620a:a801:b0:949:a385:d30e with SMTP id af79cd13be357-949baa12795mr4341418585a.4.1795777531941;
+        Fri, 27 Nov 2026 03:05:31 -0800 (PST)
+X-Received: by 2002:a05:620a:a801:b0:949:a385:d30e with SMTP id af79cd13be357-949baa12795mr4341414685a.4.1795777531467;
+        Fri, 27 Nov 2026 03:05:31 -0800 (PST)
+Received: from [192.168.226.72] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370e78a7sm10414924a12.16.2026.11.27.03.05.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 03:05:30 -0800 (PST)
+Message-ID: <8184404e-93f9-42c8-b10c-ccd88c7934cd@oss.qualcomm.com>
+Date: Fri, 27 Nov 2026 12:05:29 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,105 +115,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] interconnect: qcom: Don't read back BCMs without an RPMh
+ address
+To: Venkat Yadlapati <venkat.yadlapati@yahoo.com>
+Cc: Georgi Djakov <djakov@kernel.org>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Abel Vesa <abel.vesa@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org,
+        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261116-icc-bcm-readback-v1-1-36b533d66a69@yahoo.com>
+ <68573981-f9a0-480c-806a-0980cfbb6242@oss.qualcomm.com>
+ <20261125165310.1409251-1-venkat.yadlapati@yahoo.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20261125165310.1409251-1-venkat.yadlapati@yahoo.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA0MyBTYWx0ZWRfX4Wbg3I23AFn2
+ mePvSrmgZRzDleF37skLHmNt1l5ha8yS/3h51THwSSvm6swioo5YycZDd9nmYqcufiYydFM3Xh/
+ eY07Qyj+NwuUS/tGBrmk9NqurotQG18QNPdInd2iAZZJEbgTQS16jHJzf0nnmb1EqvrALWfsF7K
+ +3bc867epOfoHXsD9efvidhXmLZFRG/8SwSVQBNN54YQyTd09hJV6ySoPsnFujPMpCojwqW5C9U
+ S2H1CRvN7DUJEoqgl8LQT4EeHUPmXPpTSdaf2CtPWk94L9dBQIy/Hf3859zVCrw5W7slfF3XT9h
+ xW3YunltsoSjqx/fkiJcriHqnN+mJ44v9btNpEXC0rLVLHgnd+bA8Qbg9Yk0ROGa2k26nodtSDF
+ VM6Kbx27h98E7Khkn71fK7Rrg8F7LS5C1W7NNAspoiYXSwXDRg6e/XeOPSgl38dx4CuF/c8mpmH
+ ejMQTpk18JgS9/Ap0UQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA0MyBTYWx0ZWRfX35HLbfUcOmwo
+ kjLNu3RUTQrjzHSh088DPgpd0WbgIcyowge716pgjZd+03ZRpICY5AE3u9kQiJhQ0LSHJkUwiJV
+ O+fXHlsF86zOF1NQwXOEhWC5uGmkRRI=
+X-Authority-Analysis: v=2.4 cv=ebWo7LEH c=1 sm=1 tr=0 ts=6b0963fc cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=1c4igp43OoxjrLkunPQA:9 a=QEXdDO2ut3YA:10 a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-GUID: Zia-VpIWkvshfep-udhBGeNevEJ32T4_
+X-Proofpoint-ORIG-GUID: Zia-VpIWkvshfep-udhBGeNevEJ32T4_
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-27_02,2026-11-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 spamscore=0 priorityscore=1501 malwarescore=0 clxscore=1015
+ lowpriorityscore=0 phishscore=0 adultscore=0 impostorscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270043
 
-Observed on BMCs in real use communicating with a USB NCM gadget over an
-EHCI host controller, where bulk TCP traffic caused steady tx_dropped
-growth and retransmits. Tracing the link with kprobes and the kfree_skb
-tracepoint during iperf3 TCP runs confirmed that every drop came from
-cdc_ncm_txpath_bh() calling usbnet_start_xmit(NULL, ...) into a stopped
-TX queue.
+On 11/25/26 5:53 PM, Venkat Yadlapati wrote:
+> On Wed, Nov 25, 2026 at 10:45:29AM +0100, Konrad Dybcio wrote:
+>> Fix the driver instead, please.
+> 
+> You mean a separate Molokai icc driver instead of reusing the
+> Kaanapali one? Molokai also lacks QUP4, splits aggre_noc into
+> aggre1/aggre2 and has different QoS offsets, so that would be a new
+> binding + driver rather than just dropping QPC0.
 
-cdc_ncm_fill_tx_frame() only learns that an NTB is full when it is given
-a datagram that no longer fits. It then hands the NTB to usbnet and
-parks that datagram in tx_rem_skb for the next NTB. If the stack sends
-nothing more, only the TX timer is left to send it.
+Well, you made a great case for it being separate!
 
-With 16 KiB NTBs usbnet allows 5 TX URBs in flight at high speed. When
-the NTB that was just handed over is the fifth, usbnet stops the TX
-queue. The timer then builds an NTB for the parked datagram and calls
-usbnet_start_xmit(NULL, ...) directly, bypassing the qdisc. Since commit
-ad70411a978d ("usbnet: fix kernel crash after disconnect")
-usbnet_start_xmit() frees what it is given while the queue is stopped,
-so the datagram is lost and counted in tx_dropped. A bulk TCP sender
-hits this several times per second.
-
-Send the NTB as soon as another datagram of the interface MTU, with a
-VLAN tag, would not fit, provided no datagram is still parked in
-tx_rem_skb. Nothing is parked on that path, so cdc_ncm holds no
-datagram when usbnet stops the queue for a full TX queue, and the timer
-has nothing to flush into it. An NTB also no longer waits for the next
-datagram to arrive before it is sent.
-
-tx_rem_skb is still used when a datagram needs a new NDP that does not
-fit, as with several MBIM sessions.
-
-The cost is that an NTB is closed while it could still take a datagram
-smaller than the MTU. With 16 KiB NTBs and a 1500 byte MTU this does
-not change the 10 full size frames per NTB.
-
-Tested on an NPCM730 BMC (EHCI host, Linux 7.3.6 with BQL and fq_codel)
-running 30 s iperf3 IPv6 TCP streams to an NCM gadget, same board
-before and after:
-
-                        tx_dropped  Mbit/s (before -> after)
-  1 stream,  fwd        106 -> 0    119.8 -> 141.0
-  4 streams, fwd        128 -> 0    164.3 -> 172.4
-  1 stream,  bidir       51 -> 0     39.5/118.3 -> 73.0/107.7
-  4 streams, bidir       62 -> 0     36.7/150.3 -> 78.0/130.2
-  4 streams, MSS 512     81 -> 0    129.2 -> 152.8
-
-Fixes: ad70411a978d ("usbnet: fix kernel crash after disconnect")
-Signed-off-by: William A. Kennington III <william@wkennington.com>
----
-v2:
-  - Replace the timer re-arm polling from v1 with closing the NTB as
-    soon as another full-MTU (plus VLAN) datagram would not fit, so no
-    datagram is parked in tx_rem_skb when usbnet stops the TX queue.
-  - Add real-hardware discovery/trace validation and same-board Linux
-    7.3.6 (with BQL and fq_codel) test results. Mainline usbnet BQL
-    still hits these drops because DQL's limit exceeds the 5-URB
-    (80 KiB) TX ring cap.
-v1: https://lore.kernel.org/r/20261118034122.315979-1-william@wkennington.com
-
- drivers/net/usb/cdc_ncm.c | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
-
-diff --git a/drivers/net/usb/cdc_ncm.c b/drivers/net/usb/cdc_ncm.c
-index e92dc7f011ea..7fbce4846a04 100644
---- a/drivers/net/usb/cdc_ncm.c
-+++ b/drivers/net/usb/cdc_ncm.c
-@@ -43,6 +43,7 @@
- #include <linux/ctype.h>
- #include <linux/etherdevice.h>
- #include <linux/ethtool.h>
-+#include <linux/if_vlan.h>
- #include <linux/kstrtox.h>
- #include <linux/workqueue.h>
- #include <linux/mii.h>
-@@ -1369,6 +1370,22 @@ cdc_ncm_fill_tx_frame(struct usbnet *dev, struct sk_buff *skb, __le32 sign)
- 			ctx->tx_reason_ndp_full++;	/* count reason for transmitting */
- 			break;
- 		}
-+
-+		/* Send now if another full size datagram would not fit.
-+		 * Accepting one more would park it in tx_rem_skb after
-+		 * this NTB has been handed to usbnet. If that NTB fills
-+		 * the TX queue, usbnet stops the queue and drops the NTB
-+		 * the timer builds for the parked datagram.
-+		 */
-+		if (!ctx->tx_rem_skb && n + 1 < ctx->tx_max_datagrams &&
-+		    skb_out->len + ctx->tx_modulus + ctx->tx_remainder +
-+		    READ_ONCE(dev->net->mtu) + cdc_ncm_eth_hlen(dev) +
-+		    VLAN_HLEN + delayed_ndp_size > ctx->tx_curr_size) {
-+			ready2send = 1;
-+			ctx->tx_reason_ntb_full++;	/* count reason for transmitting */
-+			n++;
-+			break;
-+		}
- 	}
- 
- 	/* free up any dangling skb */
--- 
-2.56.1.839.g22a8290db9-goog
-
+Konrad
