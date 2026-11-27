@@ -1,70 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.135
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795765482;
-	b=HzDyhIuHIf6gP1nBWT0uLrWnYL4GpJutxIFM7Pu46mv9IgCZ5JFkZaWJAziLpY0sWZ7n
-	 uy686+OKaxsrc5xfvOmycWu6KKeUYPryg0w0fMXnh3jaMUeXm8Hx7JqxjgdUN4j2oggiI
-	 1VrTVhnIvyYJjH6i54UxogER9ubyLnlfSQWOlGPsFTK8jBtK2xoJx4kTpGlREBi1fGqjd
-	 k89C8yR9RZ9omjP/vKC1N3JHiDvBx6WlYTDw3yZIhfGAa4vRmhfnaCIDRyP6BwWR/pIdW
-	 t/3zAlCRYisS+d+liIQtF0GNlAqMOc8d2cwdeacUfJWkRFTGx7jKPcd8Y/5GWIFZTSw==
+	t=1795765478;
+	b=wXr33sWrz5YqGiKzx6TIt/bGAkF19+B9q38/XYBcF6+SQV4QU7zynvKKIFUxKKII7YVh
+	 pi37W0nSIou9aJmiejsaa1fw5LpaXIRsNl98nLHXc1Oy8jFcUAoFSQQ3nD8l2MPVszfYG
+	 OGPbMAV3nVkWRQnvDvBcC7JD6SYlNjPX/yvFueYfNv2S/78JwmLhsqw22LVTbXwgZGqfL
+	 x8BXQ9dNesH7PJGy6PbUEcrOQ7BYiRcnFqCx5790AX0kFkj7yBEW9VXhYTUkNUw6msAdj
+	 HS4i/XIn17i8O0bjho2yRU8rl90W6KzpbQuCCXnZu/jGXOdU1nZGGSa7wphz36laukg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795765482;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=wD0+PxnMuLm+M4cynxJmtK3MHUa9fIPsTXYebXefS1Q=;
-	b=IRF7TAk6n8htz1fHJPYTjBWeaSBYi4Mu7Rg/uP5ksLITq1NfqEo3PimtfF9RQX/EHYWt
-	 R42UMT1QUh+PXExRJyDJuuv293Xf2q9bO+hh2Mht+qR1mYKeV99OEBc8PhDVeY3T5Lf9d
-	 wna7CyD4mNiWWRvwA4kXYVZkuLljlxehlbkITAFDUCG5QfXvZnFadyEUiSjlEjuRWP0S3
-	 QfzEwaXMj4i7rde41bNnsOsysfHCWIRaRXdVD8wJiHgOCLyqo8Tdx1yFTv0RyIMszyvv9
-	 LwdPPZnUo7BKSn7DoxAHcb+Om8UthvkO74VKC3i3G1WzhMaET9fmThx0LFw1U98yBLQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795765478;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=FPV4ZeWzsKzafgZAHwIqdOFaSmYfPco7h5vg+lLApZ8=;
+	b=ehyxfwVBeNmB/b/HXeGV8wewZuv9Pm109J4Yig2lWFdBp9uzDt/lLRfTKHPdmgfz9laW
+	 x507Unvkn7xJm7LvzgUx1c9YVfxDBjZIGUVsbogc4DQnffwZOT7JaqwQkPK1ju+7rZJjb
+	 QG8wX8DDEdqSvnBrOPUsspPHsEkQrXjzV8g7hzvClfU5XOLvI+3qQ2qN4XAikZkoXlME+
+	 /Mi6lE9d9dzQIW7rLmSZ4JRvpgaUl9AgEOgPGEaOx+IZsKsZCxVe546uwEDiQL1Ky87BA
+	 oJoD4aE4M8pBEGsvoq30cQ9fZMmOvTvYx7tqIetUHqpZCkDSd8ilrV2BKl5saDfEoYA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=uJr78QnG;
-	arc=none smtp.remote-ip=91.218.175.135
-Received: from mta0.migadu.com (out-135.mta0.migadu.com [91.218.175.135])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=OtqegQ+W;
+	arc=none smtp.remote-ip=220.197.31.3
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.3])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C003606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:44:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C003606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 531DE606A683;
+	Fri, 27 Nov 2026 07:44:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 531DE606A683
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=uJr78QnG
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=pwxQp22NV+Zlu+S0Fd1cIALq98HnRL9je8Varj/Rr2w=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795765480; v=1; x=1796370280;
- b=uJr78QnGRFLJU/1dS8rGJXhm1Ge4o2o5F2l7mNrowTpkB6fUwA4UJ6IJSKnYg3EhwtcJlQop
- UFWLymw9KLXqHr1s2wP7WdHh8Zry8mY+UAm76smExl8hucniPyJlXchtRJHscbpH7QL37p4OjqD
- 3oMHan9gHJqLsJ1wK68REnTA=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 2237a9663b6448c9;
-	Fri, 27 Nov 2026 07:44:39 +0000
-X-Mizu-Trace-ID: 2237a9663b6448c9
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v2 03/10] arm64: sysreg: Reject a Sysreg and a SysregFields with the same name
-Date: Fri, 27 Nov 2026 07:44:19 +0000
-Message-ID: <20261127074426.50739-4-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261127074426.50739-1-fuad.tabba@linux.dev>
-References: <20261127074426.50739-1-fuad.tabba@linux.dev>
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=OtqegQ+W
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=FP
+	V4ZeWzsKzafgZAHwIqdOFaSmYfPco7h5vg+lLApZ8=; b=OtqegQ+WsoVQZC4jWs
+	fNL6ucp3gde4uh0U6/m8UPE6PjtxtuTNIRIFv2nlVU0nOtEncAoiorj2NfgV6uSV
+	zLcAkKd/bfVEVD6sLRewWwkMljY5HxrSGUEpLR8CxjPgw24qQQdv/OTv2Zg8c52V
+	jEic8T9D77GAxcNlB2TXLwpw0=
+Received: from Precision-7960.. (unknown [])
+	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wDnL2WhNAlr_sSUJw--.29769S2;
+	Fri, 27 Nov 2026 15:43:31 +0800 (CST)
+From: Hans Zhang <18255117159@163.com>
+To: andrew@lunn.ch,
+	hkallweit1@gmail.com,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	bhelgaas@google.com,
+	mani@kernel.org
+Cc: linux@armlinux.org.uk,
+	netdev@vger.kernel.org,
+	inux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [RFC] PCIe host controller async probe vs PHY request_module deadlock
+Date: Fri, 27 Nov 2026 15:43:29 +0800
+Message-ID: <20261127074329.747914-1-18255117159@163.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,51 +69,65 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wDnL2WhNAlr_sSUJw--.29769S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7KF45Ar15ur4xuF1rAr43Wrg_yoW5Jr4rpF
+	WrWa9Iyr4qqrZ2vr4kAr4DZFySg3yxCay7tFn5J3y5A3Z0y34q9FWjk3y3ZF4DGrZ2k3W2
+	qF4j9rW5u34DAFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jjuWLUUUUU=
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC6wRT9msJNKQLpQAA3W
 
-The generator rejects two Sysreg blocks, or two SysregFields blocks,
-with the same name, but tracks the two kinds separately. Both kinds name
-their macros for the block, so a Sysreg FOO and a SysregFields FOO that
-each have a field A both define FOO_A, as well as FOO_RES0 and the other
-masks, and the compiler warns only where the definitions differ.
+Hi Andrew, Bjorn, Mani,
 
-Track both kinds of name in defined_regs, so that a block is rejected
-when either kind already has its name, and leave the kind out of the
-error.
+I'd like to raise a cross-subsystem issue before sending a one-line fix.
 
-Suggested-by: Mark Rutland <mark.rutland@arm.com>
-Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- arch/arm64/tools/gen-sysreg.awk | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+Several PCIe host controller drivers set PROBE_PREFER_ASYNCHRONOUS so
+their root complexes are enumerated in parallel. On the CIX Sky1 SoC the
+driver probes up to five root complexes. When it enumerates an RTL8126A
+NIC, the NIC's mdiobus_register() runs in an async worker, and
+phy_device_create() then calls request_module() synchronously. That hits:
 
-diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
-index b299342463631..8ce4981273dd3 100755
---- a/arch/arm64/tools/gen-sysreg.awk
-+++ b/arch/arm64/tools/gen-sysreg.awk
-@@ -137,9 +137,9 @@ $1 == "SysregFields" && block_current() == "Root" {
- 	res1 = "UL(0)"
- 	unkn = "UL(0)"
- 
--	if (reg in defined_fields)
--		fatal("Duplicate SysregFields definition for " reg)
--	defined_fields[reg] = 1
-+	if (reg in defined_regs)
-+		fatal("Duplicate definition for " reg)
-+	defined_regs[reg] = 1
- 
- 	next_bit = 63
- 
-@@ -181,7 +181,7 @@ $1 == "Sysreg" && block_current() == "Root" {
- 	unkn = "UL(0)"
- 
- 	if (reg in defined_regs)
--		fatal("Duplicate Sysreg definition for " reg)
-+		fatal("Duplicate definition for " reg)
- 	defined_regs[reg] = 1
- 
- 	define_reg("REG_" reg, "S" op0 "_" op1 "_C" crn "_C" crm "_" op2)
--- 
-2.47.3
+  WARN_ON_ONCE(wait && current_is_async());
+
+and can deadlock, because module init may call async_synchronize_full().
+
+This is not specific to Sky1. The same pattern exists in many PCIe host
+drivers, for example:
+
+  pcie-mediatek-gen3.c, pcie-rzg3s-host.c, pcie-aspeed.c,
+  pcie-stm32.c, pcie-qcom.c, pcie-spacemit-k1.c, pcie-rcar-gen4.c,
+  pcie-andes-qilai.c, pci-layerscape.c, pci-imx6.c, pcie-nxp-s32g.c
+
+So any of them could hit the same problem when a downstream device probes
+an MDIO bus.
+
+I see two possible fixes:
+
+1. PCI side: force synchronous probing on the affected host controller
+   driver (PROBE_FORCE_SYNCHRONOUS). This is self-contained and low-risk,
+   but serializes the root complex enumeration. On sky1-xcp (three root
+   complexes) the measured boot time is close to the async baseline, but
+   that measurement does not include PCIe PHY enumeration or link-training
+   timeouts. Serializing the root complexes would sum those latencies, so
+   the real cost grows with the number of root complexes and PHYs.
+
+2. net/phy side: return -EPROBE_DEFER from __mdiobus_register() when
+   current_is_async() is true. This keeps async probing and fixes all MAC
+   drivers, but I audited the in-tree mdiobus_register() callers and found
+   some (lantiq_etop, smsc911x, smsc9420) that convert any error to
+   -ENXIO and would not defer correctly.
+
+Could you advise which layer should carry the fix? If the preference is
+the general net/phy approach, I can follow up with a more detailed audit
+of the callers.
+
+Test data on sky1-xcp:
+- unpatched async kernel: the kmod WARN is present;
+- PROBE_FORCE_SYNCHRONOUS: WARN is gone, both RTL8126A NICs still probe
+  and bind their PHY driver, NVMe/root and the serial console are normal.
+  Init starts at ~2.63s versus ~2.79s for the async baseline in this
+  three-root-complex configuration. This measurement has no PCIe PHY or
+  link-training timeout in the path, so it is a lower bound.
+
+Best regards,
+Hans
 
