@@ -1,88 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=119.15.109.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795775176;
-	b=trREsnsK2Y5vwrDB1xEsU67z1u+0JXoVYVTwQw/FP3NCxHKuohshGSPF+HFO7KyhVWd2
-	 pqMtc1FOh1miyDnuWVdmNUk5L7kCWJd6PvN7VXDBOIydFoAY0IBGlhREDGEDEYckc/DRl
-	 kdi33+jvVmFmmbQizM4OXhkCIYmkvDmTkqP3rjusQ8NWwxVhScMpnniBwuYADMnZje9B9
-	 c6Eteb49mjqe6BNZpee8Epfm3ZWpzv75+GdhgQ1EWAN0DTm3BJS+m2Qk3UMqhR12iXxga
-	 wn22rfUQDt8vuS7jS713wOMpuD9w3CJe25Mia+5mAIAdEVUqz1jYBmB8cFBBYtVAFaQ==
+	t=1795775222;
+	b=kXU5Ki4Q/pwkBsdQlytdPnELC1z3PWRxamojAVWpwK8Mnt53nbUC9UcbT8N7ZEtvuzYk
+	 Sm8PIeVecShQDoNWFLDneimWGJz8FumQ+gNPSXZ2s5dI4+vAxMHCAKxK+y5De+B30EdFc
+	 R6R2/7UCZT3OyHRQXfhV2gOwF3qyv+ac5ZJw0r+Y+OT/LrAA7vXdUGscxxDCegvz9ssbs
+	 xLovd0C2jIjAP6Pp6tkKXY82vSw5UCCCKiwCE251+AzBEqH7gJHm39SOi26XbIgcaVMUx
+	 eCTjoiSI5ylcr76J5cqC4j2gBmQQyCnjMCO81693zehNw4kIhesKF4Dekq6geIqRz8w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795775176;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=7iuTKetYgF0xuGtPMgy4x41+OjWK5q0whm0vMN/NHu4=;
-	b=pLhy5ayxdoHMxpvsIDhEQSp/BMu6Nj2iieY2IIO5LTbbp+7y7DNW4LYKF7AvP+cbJwRy
-	 ObiHR0X9EDMCFdYP0Ss/zClcfz3++TNvw7aORgUJxMN4PpedyZjlKP5CUlUk1drH+yask
-	 mO0Gkk31CtA5BkxOY4DgKKvwHO16aWCOkrpZIl0orAkG771j9r7ZPR3FjB0Lvc31vHUJ3
-	 WD9d0P7AM9VLUBLnZTYg/3xAyHV83GQOAsi+0dJzLoc1nq0C2ZIohQjs6KDHAcYnGkuOq
-	 HWBQ0W7gSMC900n6qLVe3Imz/HBnzNB7S+1TIVL8NshVItQ1FOECQzyCAqC8Al3Dv0g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795775222;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Content-Type:
+	 Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=kUqYMnBcsEL1do1DUDscVdbJ5Tov4SvgkfladUfWF4w=;
+	b=fj/tNQvMvzAfdh7uuIkDnovygqFjFEZZeFbX12jN9kiQvNJQ/RK/AgmJPbB8xw4R0W32
+	 TKbd89G7mpxaxu4de8kirTCKUr6nH/86SRUyVv95cidCdQJS5N7FSBPLVftdmjFxpQy+j
+	 wASZN/f6Culux0028XJ9hAUH60tlu9vYwO3gjtu9Bd316Skgz+PH/sydS967vo/PaYW+w
+	 r6VdsnyxN7Z0iHSrbf0VHATpI86tyc0jckWTUS2T8dMG/J3lAt5V+vUn1XjvA5YCBr04C
+	 uOTZuQX0KJEbkW05zEfx576nsuinXOUiAI3MCKFRAHEGhb+lNknBLqFaBjTyLLUA0Xw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=aIRKN3Qi;
-	arc=none smtp.remote-ip=209.85.167.45
-Received: from mail-lf1-f45.google.com (mail-lf1-f45.google.com [209.85.167.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=d-silva.org;
+	spf=pass smtp.mailfrom=d-silva.org;
+	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=jrjLNw6e;
+	arc=none smtp.remote-ip=119.15.109.137
+Received: from www.nmnhosting.com (watt.d-silva.org [119.15.109.137])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 739DD606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:26:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 739DD606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E373C606A31E;
+	Fri, 27 Nov 2026 10:27:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E373C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=d-silva.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=d-silva.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=aIRKN3Qi
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5c00c727a26so675014e87.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:26:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795775174; x=1796379974; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=7iuTKetYgF0xuGtPMgy4x41+OjWK5q0whm0vMN/NHu4=;
-        b=aIRKN3QigNuOJc7zHBz//H5yrJROVFHXN8VOTY54ffyPhOxfKZJtXIqSxLhnXFA2WE
-         xtPMndW4NGyrauXJoT/MprprmgGdWE8BMkydP9As1ttLIIwl/ndEtJUoLgfiYNu3El8T
-         +7RlbL2zPKRnCQYMUOB01cXx6dvMhcwwvLAgICD8nq/0o4jmpdbvJ4t/M6TBHXMktzA9
-         s6QbdyovHQAhsidmj8OfArvYlR0P1837HO8xlDcJo7LKUT+sCzmZQ0pcmMTf3qGsqSy9
-         JIPxOFO5m1s//Tduyj4xvWLUCoQanmjbDdCmpQr4Tl5tFyfv5zhVT3B1UFXZjyiWNJLb
-         RljA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795775174; x=1796379974;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7iuTKetYgF0xuGtPMgy4x41+OjWK5q0whm0vMN/NHu4=;
-        b=f0Zf/dszbAUp+eJ0lI1vEh3oudXA6y86EnJ8xBssaCBdlxcSxOZypv+ljhBMkngnUx
-         iXl+5TAUU847fE+t2qBF03tB2z1l3Wn167SLqv0Zt/2qRdrE9yA0nnDP7cA8PpdW8Jdy
-         FXtvIGgbaDbKwIEOiAYjNkosmeQaK1tRFjDRBS1+qJ9uYKyLLVoX4U6WwNnC7IbiUBrL
-         UR/c7q87FYzRIW3xJnspVGL6ib/X4eRh/omK0pbe0S5KcZvfEiQGh19k1lpcbGDyFTMJ
-         +hfFTO27Rs7kKJEdcYjEKkfhUcfzapiIgoTvFdIjeXR2kaIK6800t9+eYMccDe2NT0ct
-         iehQ==
-X-Forwarded-Encrypted: i=1; AL+hErH2iwm/NC5RTMrTQz4njeYMep+nKMtrjW05HrT1meunuR9Ib02+CJ0DgI8V1HR2ALbc0+6eCyjVXgdMefo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Te/wspMWHckHo/l/XL1sTSvtiK58yCQ5ewSUcEkewn9hennFy
-	RUmFhhtWft3iuh3zh901jYjsDMTwq0snWXf8bIRMOuSOYj1KJxlpPo9p2ryi+a6DKwETVlaVdz5
-	q0Q9iMvk=
-X-Gm-Gg: AZFdTZfcxcHSQymQTD8IfxRsJ1LPOz8hyCfO0mqJeWiqVBW/xLXLV0kYMChV5P+XJEm
-	FfixsS9tvY9DC2pm9ph6fNwuENPdcGYrapXilyUglHV8xv1hiTeGYZAWvieZFdArXZfTO9q7RUe
-	cFU8+ffaG3hWa+jSdYN5BvjBAgtg0Kc/J5RByPuMHZBcnTli+KQ5v4FevlkI2W7N9RcB6dIcM+Z
-	pwx1efp8XnwR7Wu0cQy9vmB1znzb6lAQ+ugpzmfcpIaKtnN1DT/H51yF8luEz1Kli/1vpRb4BsT
-	HukhR1Ggmcm9o/bgJgYQ1W11c8AvHBsrDCm49VHPVXkacBbG6yLUhmVQpO52Zwau0q8/PKQw4Oz
-	J2T6q/uUEVwhUG/YiNB1VlaVBUhmY30WvSKxdB55OzmvGaGnBwmyhAS8JWoC5LbcaJMJFf9OKC8
-	IGTAI9U972VMYn6WGN1MNVfBBQ5zlKMdgDaS8xqcVbtIVS1YF/uKjMU7AlgpvtQl0jjCkJoYVXw
-	WrVOxv00FLtdeb2nApvvmnX5at7iTJVZo/QQd44MzGsT+PmleoX6zuFty0i7dbjAMQwgcKd+tSk
-	5rY7UCjnMd48Q/gY+fWzBXuhMKfZnvfA/yF0tynNgkkU8SsSQFN7dx3Z4Tv37ly6iAe5XH/KKXe
-	9e5SZZ7hFEeR2NebjsIMFWxl65S3D
-X-Received: by 2002:a05:6512:304a:b0:5c1:57b9:90d3 with SMTP id 2adb3069b0e04-5c1bc6d29ffmr7771450e87.1.1795775173445;
-        Fri, 27 Nov 2026 02:26:13 -0800 (PST)
-Received: from [192.168.1.101] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd06d1efsm6095833e87.72.2026.11.27.02.26.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 02:26:13 -0800 (PST)
-Message-ID: <cf2be531-ab98-4e01-8933-71c0f40d5d7d@linaro.org>
-Date: Fri, 27 Nov 2026 12:26:12 +0200
+	dkim=pass (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=jrjLNw6e
+Received: from hawking.lan (ntp.lan [10.0.1.1])
+	by www.nmnhosting.com (Postfix) with ESMTPSA id E59604C984;
+	Fri, 27 Nov 2026 21:26:56 +1100 (AEDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
+	t=1795775217;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=kUqYMnBcsEL1do1DUDscVdbJ5Tov4SvgkfladUfWF4w=;
+	b=jrjLNw6eKElCiN4pO9MuTqz/brZEVVk50lfZTJGsbjjhfzMNjajs+kMzEnEVr36UQaNPAd
+	nOEVLJ/M88JLlyCuIwSwXUu1ZA3PQ+EYdmUkNGwKDkwtr9ak9HF6T3Kglac/NWdbYjkZtH
+	q5DMdp555iyOcUuG7vBJ6xU3PLC0bmtxq34fLN1dHPnt/R6jRkYql8jlkMdu+APeIKs8PN
+	I48OvspZvXO66wJQsL5/HBg+29IGL72D/fKTKFvzxdmcFNlid+WwZbJ/xOjHAKeS5/WQh2
+	BKVKyuMuRMywRRF5oTv4sFzNg812/uwlOYeHNPeFwqAfcSt92seyXrCPt571jQ==
+Message-ID: <645158cb30c2335a6f3d301d7ecf0aaacc28df5b.camel@d-silva.org>
+Subject: Re: [PATCH 00/11] arm64: dts: allwinner: Add Allwinner A733 USB 3.0
+ support
+From: Alastair D'Silva <alastair@d-silva.org>
+To: Andre Przywara <andre.przywara@arm.com>, Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai	 <wens@kernel.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland	 <samuel@sholland.org>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>,  Stephen Boyd
+ <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet	
+ <jbrunet+clk@baylibre.com>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+ Mathias Nyman <mathias.nyman@intel.com>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-usb@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Date: Fri, 27 Nov 2026 21:26:56 +1100
+In-Reply-To: <114b03ba-914f-4494-be12-d967be62da00@arm.com>
+References: <20261127073231.1776847-1-alastair@d-silva.org>
+	 <114b03ba-914f-4494-be12-d967be62da00@arm.com>
+Autocrypt: addr=alastair@d-silva.org; prefer-encrypt=mutual;
+ keydata=mQINBGactvoBEADBFM2HqfQUUM4j40ZQPyYzmnM8S6zrycO0ipDDPMs7nZMzyzGzOdqfS
+ VB/tuYvZOOKVWzJuWJ5aT/YyHx54r3L+D5hTkEG0sXPVJky3yTS9sbHEMSLBHb8TVVuhPVPuieV4g
+ Nkqg5POMTidk8xAw50WpV++tUlewXVSciehnuCQPXhXMP7FcCh4uO8LdN7E8m7ir1LafKTFfoWPah
+ KVT8NGG9r+ucrFcN5F+VnHxTDaI68yRPkNdtUWmp22wIX1KwDCtKFrndYO4p5Hv2hlDKomsuIIHHn
+ muQGRwuh0xpf0nVJNF8ETZHMzxQLfo3e/HvxBFOTkwY9w7CuuQFZchbhS0I3PfmGT0+jiNcdfqjDC
+ fPPB5uhy+DkR6wO72vuwFYUrpU2mdliDSdKEtWBHulnXMJjpBOXetfIwhI8G2dTVg59lN5i9DvJZc
+ 7y1Sp+qfZQ4P9qpYZyQEKR4GNDOdnm6F2LW2cZkcyAU/Ii765zdDMTQMIzZNSxT/FcDd0K1voTNRl
+ QHbQw+kmIMhzSv2JefcC9oNbE0XYzcBDNP5T3O/4itOQ90GCKQEPAbIPeBjlQif7kkyvo/H6yv4s9
+ duuK7zbJD9AID/+KGLkpU3p68VDB/C2ZSb9rQz3p1CJNSfsX/CPk7sPqA7RKZ4a2B0hSJ2pJCncNZ
+ KXtMlkkm/FmewARAQABtCdBbGFzdGFpciBEJ1NpbHZhIDxhbGFzdGFpckBkLXNpbHZhLm9yZz6JAl
+ EEEwEKADsWIQTQGemDFwqYyU/dBWv75AdnjVo60gUCZpy2+gIbAwULCQgHAgIiAgYVCgkICwIEFgI
+ DAQIeBwIXgAAKCRD75AdnjVo60qHZEACJnLfpS71Hk8bX0CLCNJ5wgqdZD3pBHEdbv9Ux9kRlZp4a
+ ZFwlg9ltwBjl2dZP3PLtD9xQdsdYKVippKd5a7ZZC2y81oDaHjeC9LnPYn8+ce3mGE/+gRyoNfToY
+ N06DeUNJKSlZ9t11UIqZCgfp12u16/Yrigy8C4ihEeHXlLhNX6JkeJR5gsHXJnC7vSuMZY+Qz2R72
+ ZidWg+cd2WDMGop5sbTvc+55q94A7vTMlWzaix5HdbEUA3sd2U0dMBju5QodRGGhDQMcCu64TydRD
+ MtMzzOk9ThJ036ze3HASWGOppyQmaw58k+XNzbHlr9Sc1LsFUNF7zpWXac2rzlywbyRAdFIT/TC76
+ hy9zOkwIo2nwA/tdIwLx1j0UZPpAMQmcDUvJqZh6sE+fv6HN0yMPr+sSYJmriMt8Z6leCEHQXOHVI
+ SI5z5FvV3coMmHYRq6aXpfs/8SLiYgkV3B0HE/E18Y3j1OkeLYoqIH1VfzQZeCSL/S77NYvk60/MV
+ 1HFSyqLdUR3uWZI4uZzoEcMoB0GX33uCTp2Ntc00+wSntwekCUQLCMLUb7dZrbpVuobHoWWtkiD2I
+ uE5kAiaVwwwzM0BUwiM6VzVoKbeECz93rdsNtwoDqM0NtzoISC46H/BKVQ9mRNXDO4ThEBpJ4H2Tn
+ mPNRYYcR0u2mNy1EJII04w==
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-9 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,346 +103,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7] media: qcom: camss: Add support for X1P42100 CAMSS
-To: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>,
- Bryan O'Donoghue <bod@kernel.org>,
- Loic Poulain <loic.poulain@oss.qualcomm.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261127-purwa_camss-v7-1-b28b72e05214@oss.qualcomm.com>
-From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-In-Reply-To: <20261127-purwa_camss-v7-1-b28b72e05214@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 
-Hi Wenmeng.
 
-On 11/27/26 07:17, Wenmeng Liu wrote:
-> Add CAMSS support for the Qualcomm X1P42100 (Purwa) SoC.
-> 
-> The X1P42100 CAMSS is a cut-down variant of the X1E80100 (Hamoa)
-> CAMSS. Compared to X1E80100 it has:
-> - 2 x CSIPHY (CSIPHY0 and CSIPHY4) instead of 4
-> - 1 x IFE instead of 2
-> - only the ahb and hf_mnoc interconnect paths
-> 
-> The CSID, CSID Lite, IFE Lite and TPG blocks are the same as on
-> X1E80100, so reuse the existing CSID/VFE 680 ops and the X1E80100
-> TPG and CSID wrapper resources.
-> 
-> CSID1 and CSID2 have no corresponding IFE on X1P42100, so they cannot
-> drive any write master. Leave them out of the CSID resources, keeping
-> the 1:1 CSID to VFE mapping CSID0->IFE0, CSID_LITE0->IFE_LITE0 and
-> CSID_LITE1->IFE_LITE1.
-> 
-> The CSIPHYs are handled through the PHY API, so no CSIPHY
-> resources other than the lane format are needed.
-> 
-> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-> Signed-off-by: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
-> ---
-> This patch adds camss support for purwa platform.
-> 
-> This series depends on:
-> https://lore.kernel.org/all/20261127-camss-routing-fixes-v2-0-b7152f0af49a@kernel.org/
-> ---
-> Changes in v7:
-> - Remove the duplicate patches and rebase on Bryan's changes.
-> - Base on bryan/camss-next
-> - Link to v6: https://lore.kernel.org/r/20261126-purwa_camss-v6-0-5ab97aea3832@oss.qualcomm.com
-> 
-> Changes in v6:
-> - Rebase on bryan/camss-next; drop the dt-bindings patch, already applied.
-> - Include Jesse's "x1e80100: Use the lite clocks for the lite CSIDs" as a
->    dependency, already reviewed:
->    https://lore.kernel.org/all/bf48f3c809f33c060e2944e5896f8a5a93fd78ea.1795196107.git.jesse.casco@gmail.com/
-> - New patch: use the HW CSID index for the CSID 680 wrapper IO path
->    config, the lite CSIDs program the wrong register since CSID2 was
->    dropped from the X1E80100 resources.
-> - X1P42100: set the CSID hw_id, and use the vfe_lite_csid and
->    vfe_lite_cphy_rx clocks for the lite CSIDs.
-> - X1P42100: align the clock rates with the X1P42100 camcc frequency tables.
-> - Link to v5: https://lore.kernel.org/r/20261009-purwa_camss-v5-0-58c13dc7c4d2@oss.qualcomm.com
-> 
-> Changes in v5:
-> - Set line_num of IFE0 to 3. -- Bryan
-> - Introduce CAMSS_CSIPHY_RES_PHY_API() to describe PHY API based csiphy
->    resources and use it for X1P42100. -- Bryan
-> - Link to v4: https://lore.kernel.org/r/20261008-purwa_camss-v4-0-bcf11bf2c650@oss.qualcomm.com
-> 
-> Changes in v4:
-> - Collect R-b tags from Bryan and Krzysztof on dt-bindings patch.
-> - Rebase on linux-next and add Bryan`s vfe patch.
-> - Link to v3: https://lore.kernel.org/all/20260930-purwa_camss-v3-0-0fe2a5b11208@oss.qualcomm.com
-> 
-> Changes in v3:
-> - Rebased on the latest CSIPHY code.
-> - Link to v2: https://lore.kernel.org/r/20260511-purwa_camss-v2-0-22608ab9126c@oss.qualcomm.com
-> 
-> Changes in v2:
-> - Based on the old version of csiphy.
-> - Remove Src clk. -- Bryan
-> - Extend the register block of the VFE. -- Bryan
-> - Add comments for IOMMU. -- Bryan
-> - Link to v1: https://lore.kernel.org/r/20260410-purwa_camss-v1-0-eedcf6d9d8ee@oss.qualcomm.com
-> ---
->   drivers/media/platform/qcom/camss/camss-vfe.c |   1 +
->   drivers/media/platform/qcom/camss/camss.c     | 176 ++++++++++++++++++++++++++
->   drivers/media/platform/qcom/camss/camss.h     |   1 +
->   3 files changed, 178 insertions(+)
-> 
-> diff --git a/drivers/media/platform/qcom/camss/camss-vfe.c b/drivers/media/platform/qcom/camss/camss-vfe.c
-> index 7183081e357846bbdbbc2c6bdf6e134d723e00da..c684de629e3a4685d4ff04b24db86c12f962b50c 100644
-> --- a/drivers/media/platform/qcom/camss/camss-vfe.c
-> +++ b/drivers/media/platform/qcom/camss/camss-vfe.c
-> @@ -2054,6 +2054,7 @@ static int vfe_bpl_align_rdi(struct vfe_device *vfe)
->   	case CAMSS_8775P:
->   	case CAMSS_KAANAPALI:
->   	case CAMSS_X1E80100:
-> +	case CAMSS_X1P42100:
->   		ret = 16;
->   		break;
->   	default:
-> diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
-> index 86bb1df811ea0e96357d18dae0a5bdce6507fb15..0404f95a35fe659c6f9d945ff5bd32ce749b0991 100644
-> --- a/drivers/media/platform/qcom/camss/camss.c
-> +++ b/drivers/media/platform/qcom/camss/camss.c
-> @@ -36,6 +36,13 @@
->   /* Top-level CAMSS version register */
->   #define CAMSS_HW_VERSION		0x0
->   
-> +/* CSIPHY resources for PHY API devices, only id and formats are needed */
-> +#define CAMSS_CSIPHY_RES_PHY_API(_id, _formats)		\
-> +	.csiphy = {					\
-> +		.id = (_id),				\
-> +		.formats = (_formats),			\
-> +	}
-> +
+On Fri, 2026-11-27 at 09:56 +0000, Andre Przywara wrote:
+> Hi Alastair,
+>=20
+> On 11/27/26 08:32, Alastair D'Silva wrote:
+> > This series adds USB 3.0 host support for the Allwinner A733 SoC and
+> > enables it on the Xunlong OrangePi 4 Pro.
+>=20
+> I think you should step on the brake for a bit, sending out (AI=20
+> generated?) patches like crazy is not going to make you friends with the=
+=20
+> maintainers and reviewers. At the moment we are trying to get the basic=
+=20
+> A733 DT merged (for v7.5), so anything non-essential has to wait. And=20
+> the list of out-of-tree dependencies below already shows that this is a=
+=20
+> bit early.
+>=20
 
-See a comment below.
+Ack. It is AI generated, but reviewed, restructured & tested by myself over
+the past few months.
 
->   static const struct parent_dev_ops vfe_parent_dev_ops;
->   
->   static const struct camss_subdev_resources csid_res_kaanapali[] = {
-> @@ -4859,6 +4866,158 @@ static const struct resources_wrapper csid_wrapper_res_x1e80100 = {
->   	.reg = "csid_wrapper",
->   };
->   
-> +static const struct camss_subdev_resources csiphy_res_x1p42100[] = {
-> +	/* CSIPHY0 */
-> +	{
-> +		CAMSS_CSIPHY_RES_PHY_API(0, &csiphy_formats_sdm845),
-> +	},
+It's been sitting around on my drive for a while (I was expecting to enable
+U-boot first, and that got tied up with reverse engineering the PMU,
+but it seems I got things backwards).
 
-To save more lines put the enclosing figure brackets under the macro.
+> So I'd say wait for v7.5-rc1, which is probably going to happen in early=
+=20
+> January, then you have a much saner base, and we have more time for=20
+> reviewing more fancy features.
+>=20
+> Oh, and also: please try to look beyond your particular board. It's not=
+=20
+> just the OrangePi 4A that is out there, we have other well documented=20
+> boards as well. Peeking at their schematics should make it easy to add=
+=20
+> the respective USB nodes to their DT.
+> The OPi 4A is benefiting from work of other people as well, so it would=
+=20
+> be nice to do the same for other boards. It's fine if you can't test it=
+=20
+> there, just mention that and others can test. That has also the=20
+> practical benefit of keeping the dependencies together.
 
-> +	/* CSIPHY4 */
-> +	{
-> +		CAMSS_CSIPHY_RES_PHY_API(4, &csiphy_formats_sdm845),
-> +	},
-> +};
-> +
-> +static const struct camss_subdev_resources csid_res_x1p42100[] = {
-> +	/* CSID0 */
-> +	{
-> +		.regulators = {},
-> +		.clock = { "gcc_axi_hf", "cpas_ahb", "cpas_fast_ahb",
-> +			   "csid", "csid_csiphy_rx" },
-> +		.clock_rate = { { 0 },
-> +				{ 80000000 },
-> +				{ 100000000, 200000000, 300000000, 400000000 },
-> +				{ 400000000, 480000000 },
-> +				{ 400000000, 480000000 }, },
-> +		.reg = { "csid0" },
-> +		.interrupt = { "csid0" },
-> +		.csid = {
-> +			.id = 0,
-> +			.hw_ops = &csid_ops_680,
-> +			.parent_dev_ops = &vfe_parent_dev_ops,
-> +			.formats = &csid_formats_gen2
-> +		},
-> +	},
-> +	/* CSID_LITE0 */
-> +	{
-> +		.regulators = {},
-> +		.clock = { "gcc_axi_hf", "cpas_ahb", "cpas_fast_ahb",
+Sure, I was not comfortable with pushing out untested code, but if we can
+offload testing to others, I can do that.
 
-"cpas_fast_ahb" clock is not needed for CSID Lite, I believe. If so,
-it should be removed from the list.
 
-> +			   "vfe_lite_csid", "vfe_lite_cphy_rx" },
-> +		.clock_rate = { { 0 },
-> +				{ 80000000 },
-> +				{ 100000000, 200000000, 300000000, 400000000 },
-> +				{ 400000000, 480000000 },
-> +				{ 400000000, 480000000 }, },
-> +		.reg = { "csid_lite0" },
-> +		.interrupt = { "csid_lite0" },
-> +		.csid = {
-> +			.id = 3,
-> +			.is_lite = true,
-> +			.hw_ops = &csid_ops_680,
-> +			.parent_dev_ops = &vfe_parent_dev_ops,
-> +			.formats = &csid_formats_gen2
-> +		}
-> +	},
-> +	/* CSID_LITE1 */
-> +	{
-> +		.regulators = {},
-> +		.clock = { "gcc_axi_hf", "cpas_ahb", "cpas_fast_ahb",
-> +			   "vfe_lite_csid", "vfe_lite_cphy_rx" },
-> +		.clock_rate = { { 0 },
-> +				{ 80000000 },
-> +				{ 100000000, 200000000, 300000000, 400000000 },
-> +				{ 400000000, 480000000 },
-> +				{ 400000000, 480000000 }, },
-> +		.reg = { "csid_lite1" },
-> +		.interrupt = { "csid_lite1" },
-> +		.csid = {
-> +			.id = 4,
-> +			.is_lite = true,
-> +			.hw_ops = &csid_ops_680,
-> +			.parent_dev_ops = &vfe_parent_dev_ops,
-> +			.formats = &csid_formats_gen2
-> +		}
-> +	},
-> +};
-> +
-> +static const struct camss_subdev_resources vfe_res_x1p42100[] = {
-> +	/* IFE0 */
-> +	{
-> +		.regulators = {},
-> +		.clock = { "camnoc_rt_axi", "cpas_ahb", "cpas_fast_ahb",
-> +			   "cpas_vfe0", "vfe0_fast_ahb", "vfe0" },
-> +		.clock_rate = { { 400000000 },
-> +				{ 0 },
-> +				{ 0 },
-> +				{ 0 },
-> +				{ 0 },
-> +				{ 432000000, 594000000, 675000000, 727000000 }, },
-> +		.reg = { "vfe0" },
-> +		.interrupt = { "vfe0" },
-> +		.vfe = {
-> +			.line_num = 3,
-> +			.pd_name = "ife0",
-> +			.hw_ops = &vfe_ops_680,
-> +			.formats_rdi = &vfe_formats_rdi_845,
-> +			.formats_pix = &vfe_formats_pix_845
-> +		},
-> +	},
-> +	/* IFE_LITE_0 */
-> +	{
-> +		.regulators = {},
-> +		.clock = { "camnoc_rt_axi", "cpas_ahb", "vfe_lite_ahb",
-> +			   "cpas_vfe_lite", "vfe_lite", "vfe_lite_csid" },
-> +		.clock_rate = { { 400000000 },
-> +				{ 0 },
-> +				{ 0 },
-> +				{ 0 },
-> +				{ 400000000, 480000000 },
-> +				{ 400000000, 480000000 }, },
-> +		.reg = { "vfe_lite0" },
-> +		.interrupt = { "vfe_lite0" },
-> +		.vfe = {
-> +			.is_lite = true,
-> +			.line_num = 4,
-> +			.hw_ops = &vfe_ops_680,
-> +			.formats_rdi = &vfe_formats_rdi_845,
-> +			.formats_pix = &vfe_formats_pix_845
-> +		},
-> +	},
-> +	/* IFE_LITE_1 */
-> +	{
-> +		.regulators = {},
-> +		.clock = { "camnoc_rt_axi", "cpas_ahb", "vfe_lite_ahb",
-> +			   "cpas_vfe_lite", "vfe_lite", "vfe_lite_csid" },
-> +		.clock_rate = { { 400000000 },
-> +				{ 0 },
-> +				{ 0 },
-> +				{ 0 },
-> +				{ 400000000, 480000000 },
-> +				{ 400000000, 480000000 }, },
-> +		.reg = { "vfe_lite1" },
-> +		.interrupt = { "vfe_lite1" },
-> +		.vfe = {
-> +			.is_lite = true,
-> +			.line_num = 4,
-> +			.hw_ops = &vfe_ops_680,
-> +			.formats_rdi = &vfe_formats_rdi_845,
-> +			.formats_pix = &vfe_formats_pix_845
-> +		},
-> +	},
-> +};
-> +
-> +static const struct resources_icc icc_res_x1p42100[] = {
-> +	{
-> +		.name = "ahb",
-> +		.icc_bw_tbl.avg = 150000,
-> +		.icc_bw_tbl.peak = 300000,
 
-What is the source or justification for these values? I believe it will
-be sufficient to set lower values for ICC, like it's done on other
-platforms.
+Cheers,
 
-> +	},
-> +	{
-> +		.name = "hf_mnoc",
-> +		.icc_bw_tbl.avg = 2097152,
-> +		.icc_bw_tbl.peak = 2097152,
-> +	},
-> +};
-> +
->   /*
->    * camss_add_clock_margin - Add margin to clock frequency rate
->    * @rate: Clock frequency rate
-> @@ -6264,6 +6423,22 @@ static const struct camss_resources x1e80100_resources = {
->   	.vfe_num = ARRAY_SIZE(vfe_res_x1e80100),
->   };
->   
-> +static const struct camss_resources x1p42100_resources = {
-> +	.version = CAMSS_X1P42100,
-> +	.pd_name = "top",
-> +	.csiphy_res = csiphy_res_x1p42100,
-> +	.tpg_res = tpg_res_x1e80100,
-> +	.csid_res = csid_res_x1p42100,
-> +	.vfe_res = vfe_res_x1p42100,
-> +	.csid_wrapper_res = &csid_wrapper_res_x1e80100,
-> +	.icc_res = icc_res_x1p42100,
-> +	.icc_path_num = ARRAY_SIZE(icc_res_x1p42100),
-> +	.csiphy_num = ARRAY_SIZE(csiphy_res_x1p42100),
-> +	.tpg_num = ARRAY_SIZE(tpg_res_x1e80100),
-> +	.csid_num = ARRAY_SIZE(csid_res_x1p42100),
-> +	.vfe_num = ARRAY_SIZE(vfe_res_x1p42100),
-> +};
-> +
->   static const struct of_device_id camss_dt_match[] = {
->   	{ .compatible = "qcom,kaanapali-camss", .data = &kaanapali_resources },
->   	{ .compatible = "qcom,msm8916-camss", .data = &msm8916_resources },
-> @@ -6284,6 +6459,7 @@ static const struct of_device_id camss_dt_match[] = {
->   	{ .compatible = "qcom,sm8550-camss", .data = &sm8550_resources },
->   	{ .compatible = "qcom,sm8650-camss", .data = &sm8650_resources },
->   	{ .compatible = "qcom,x1e80100-camss", .data = &x1e80100_resources },
-> +	{ .compatible = "qcom,x1p42100-camss", .data = &x1p42100_resources },
->   	{ .compatible = "qcom,glymur-camss", .data = &x1e80100_resources },
->   	{ }
->   };
-> diff --git a/drivers/media/platform/qcom/camss/camss.h b/drivers/media/platform/qcom/camss/camss.h
-> index 8154fab54f99b12456cb377dc4ddfcadfcf8278e..734023839abe9ec6a89b1a5c2a0bd5e545846c0e 100644
-> --- a/drivers/media/platform/qcom/camss/camss.h
-> +++ b/drivers/media/platform/qcom/camss/camss.h
-> @@ -99,6 +99,7 @@ enum camss_version {
->   	CAMSS_8775P,
->   	CAMSS_KAANAPALI,
->   	CAMSS_X1E80100,
-> +	CAMSS_X1P42100,
->   };
->   
->   enum icc_count {
-> 
-
--- 
-Best wishes,
-Vladimir
+--=20
+Alastair D'Silva
