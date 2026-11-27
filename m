@@ -1,60 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795747309;
-	b=UmOMK7j1OZg4W1Mz4Xlwyenx2JaSyexQCDceiJeZ0YGzS5HbtSnQHA43NfyeXvCTIF+n
-	 PLsALQWTVoBBmIFC/epZkfRIxFz+mTW66uDLtKjIoax/H2AsRoeDio8veCli86nRVea48
-	 B23mzSCUsVvgqPjw4p/Sf2TS4SRvrF36ZB9DsHG7K1xDrDmVecPIoDIlLN2YoYI6vkKzM
-	 jL0QWMhKg0LvoqdUn5WdCwtMsRUFWOIVgmny4l//sJYovbUuNczsZDS3dafGQYY7G3Iar
-	 9nkVbD4v9S3WupXVlCn8RPLyz2PSuegTQdK+UVGLL0gWTRlVw+fVkD7ZI+hTa3Ts+bA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795747309;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=VAR2rz8eXDLkPjCKjfmnvh48//s9d1yIgXhNth07Doc=;
-	b=vcdtmrobslrD114mM0wB0/o/sAuj9jA7tpAaluqtQrI/yGyz4ixoQTbCuwxjLqfDSGM7
-	 7V8YoGRK2eJGnUOAUlCNg7X4qaZYsfigTGVvHOlaBk9KhHvzOqFPAMdWL3fe6z+f6SMuX
-	 vIq4Z9E9fBYKA+NGO01ciNUkqXASzfHB5jeclevGBc/IYyweASMRTgEW8l/Kgu+QEXIq4
-	 0QpSJ+u8K2GOAKXu6JXP8lQWixwxr8KHu2Z7Jiwd0u1BQ/Lta+TBeQ7lbMVTHC4yLpDM6
-	 kSgLFMJzXv/XjdCQo03Fp9AA7+92Y5796g94jVGYvW/7XAH+uBbC5PglAJCZ/w7utZA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c0fyoVmX;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.51
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795747320;
+	b=rn7P3+GLF4eunZLSi1ZrjTQadlDSTZUoQGhgu5qfMzOwwmoo79YhJcwWgDc1KyR0rbqp
+	 Ar7HWvBNFDRuq9ZIj1m4Hs3v4bbSQXUXAqicfRCibWFaS8TtxqJHokzFvlXDciw2p/ap3
+	 orxlOR3KwPvJaSL8SPJLzCeEiShB+B+UEwcrlU+iPrLGrD8KExJfLnmjJcdX0mvDNNiyR
+	 i4lmvXgd8GKpLRY93UiQwFjiBjvAbOZgXI4cUfRmOhIVMz5wTmUyUoE0ZyjXnpz/0JFyy
+	 N7YMinMoivoyQEv8Wtlhzxt2a8AIU+UF8UBGWRLWCqheotV4AeoopsfbXaPDIC1/Vtg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795747320;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=mjTKmUue8uDRgqqOrMpuy+EJyNp8jfd045TOjApN2+M=;
+	b=dENoXVOQk0UagxO/AwMkcW9YSnPcyw53xMGI+gCwhmdZTthek57zgoL+biGCwVE5gfSR
+	 v3cLC2vI7YC0YP4OyPy4Bz736q2OA1C4fPU8vF9UaUvb9Xnuu1ZjR1YjQc0yB4/9fMA8/
+	 kTLWVuga8NLy3f0DNvcqi5JRX5Yrta5FeN2X/FsiQXsU7cixyZ6XcXZ3zKa0d4t8yEd3Z
+	 Gzq5t31pyAD/T11feyvMtOOm21m3USuyo5nwWd1U1chR2eBhacYdfJrcMg3FgFtDSyeWw
+	 lXgzZJ50FWZQXD/Nr56w0oTVFJCboY1M32KL/jkCQa7DoLpYiccwzxt3h4HNomZO9RA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LymxqVqE;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.51
+Received: from mail-qv1-f51.google.com (mail-qv1-f51.google.com [209.85.219.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35A6E606A31E;
-	Fri, 27 Nov 2026 02:41:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44152606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:41:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44152606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c0fyoVmX
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AE131F000C1;
-	Fri, 27 Nov 2026 02:41:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795747308;
-	bh=VAR2rz8eXDLkPjCKjfmnvh48//s9d1yIgXhNth07Doc=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=c0fyoVmXK60ROx38e7J/XKeMSPpRHy+ayOjW/uc+Rzp0silZ0W0jW/ycmbFx9DRSu
-	 RpCFRNZ0hKJkVSaqnTJJboOnqQRUrCHa1n3pNkYN/HBUJf2RkeOTOcKuyoIzY4fFJn
-	 FXKUN33u8uUXeSiGe8Od+RRHCH58DCWtpP7wWmHy8L7zV1zAHfwqNc1oVrXp0RQMxL
-	 xSzkSTCsMZZB7QYZs7DbAczm9y5qUc6iKBJCye2u2l/CW564qmPIFs2wjPEIw4v/Nw
-	 YC6cvMosL/kOgoP/f8XTIIBq85UvDT+O6/iN03xh0S87ytisuJJtlsj0btHqh//yuR
-	 Ob9aktQN50ipg==
-Subject:
- Re: [PATCH v2] net: ethtool: do not call get_regs() for zero-length dumps
-From: netdev-bot+sashiko@kernel.org
-To: 25031212351@stu.xidian.edu.cn
-Cc: andrew@lunn.ch, kuba@kernel.org, davem@davemloft.net, edumazet@kernel.org,
- pabeni@redhat.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, horms@kernel.org, byu@xidian.edu.cn,
- wencheng@xidian.edu.cn
-Date: Fri, 27 Nov 2026 02:41:47 +0000
-Message-ID: <179574730769.3135.6060942775562840087@kernel.org>
-In-Reply-To: <20261126015239.6038-1-25031212351@stu.xidian.edu.cn>
-References: <20261126015239.6038-1-25031212351@stu.xidian.edu.cn>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LymxqVqE
+Received: by mail-qv1-f51.google.com with SMTP id 6a1803df08f44-91f0274f88cso99929506d6.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:41:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795747319; cv=none;
+        d=google.com; s=arc-20260327;
+        b=IFpJnSRmimEuUqW5KfImFfBuRb2LEH976JlBL1vg9a2UmRX3GDy084dip8VzFi07QY
+         A0bCIUiFkDEc5czmOrSRh6N3gTnf5EYx4yUqtuhHK6iCoiuJ+zx3fQFbV0jfoeaYdBjy
+         /ftSF9MZefa/WH+6B300CVesAz6fogoC/Y6O3LiOhZz1SsUIrycmfdQMXWNKl75+QiNS
+         oQQCCLp+9qWthlA1OziEeg4Pd0Qj2VeFg2U2DisLreruCDd0e+YbeG9Sc09KI7XMZbD0
+         YIzLfChrfe59xm2F9ROhggm1X9MbHfqu9wFTuCcTOdCCJF8Gti0cwUrhBnb2LM+d8vmA
+         jeYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=mjTKmUue8uDRgqqOrMpuy+EJyNp8jfd045TOjApN2+M=;
+        fh=HrkUqq2P0UblkUs0ndfh/I6SXbVbTsXmOVFfs2CBcuU=;
+        b=lhzqERFrhYc5SZ3apwkgg4avamRNX/IEbFrMnXV/qzGzXbRqVDfPQw5ejdBbA78S0A
+         ImOru7uYKBBDIgorKi7L7i+xv+FVFkcFf2DW3JAhu83yB2tJeehE2xiF/ocapqUZkoAD
+         hu0xfqAdQOwHPxvcNH6FLhR/CyYMT7u9tbnB2k5Nmjmfp6jBkhbfWDIJMxbvHWni4h4R
+         TwsDea577D8JNGPVLpHacsLuIMSyVXqPUW3RO0DmEhafo3h2oLMOEMvUvSKx4622ZLhw
+         zdSVI0Y9nD+YvTLJPgfFJ7kCtEGel0W6isz0U6/nykpsb08fapo4EOSh84ctVDTu+9jf
+         ys1A==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795747319; x=1796352119; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mjTKmUue8uDRgqqOrMpuy+EJyNp8jfd045TOjApN2+M=;
+        b=LymxqVqE8yKkfvLJxa/4Kw1dQnzxd5RBz0e9MwTAJSaII/nSUMUacLxA9zWn8EPWwe
+         zpFBNAZV3BfX3VZc1Hj8PZ+ulZlE8v/3GYsYir0nI+k5hWw6F/yAfbVWLpRb+M+8ErMx
+         iyQmK4V13fSsxWaCEGvkvPt8FZdL7ZVe5QDsG5E/dAsmYgUI6r5U9szA+GiibPhPtL54
+         RXZWP0mZxAwCevEKiik7qpqlYgCAAvWBjlkp17PfAmqWk3eLX2mK06ZFqlhGMUYkP/1P
+         Igik/ouRyJ1oa86D0IM+0Bh4bQFIK/+szJkBgG40sOaWrTlENmsGeXYvK8ToxUtAV3S8
+         xt8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795747319; x=1796352119;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mjTKmUue8uDRgqqOrMpuy+EJyNp8jfd045TOjApN2+M=;
+        b=BPO5NJ+gHMlYu9ChwuhXuACWAMa9wixF44UCr5IBTvjiwSCzRK8gcp8NroPAUURLFr
+         w8gy663JgfYjQkuoLHAE2vSqM8XJqjU37DAUrdaP0GCaqhO+4zaDTFvlU2HG9hdP2ZcN
+         WaHF7ZbUuSLEtk6Lwul4udJfQNrVmDpZj8gAtzjHQbxYKhBX7bpvSWVA6GUtnfuiv+nF
+         row+wqSk7yPEWTRvOcOkktKv5r8y1/r1IEZPGiQsLXFMSEBNlubA1rqEaFuqu/8vqt8G
+         3W4P0aijcMK4UnIj70o1wgfTLEyxILX05v1YzFlyQf6G0Mi64ao+YyFOjYZjX8zbYW1U
+         p3Lw==
+X-Forwarded-Encrypted: i=1; AL+hErFkNsTQt7Iajk4RpmXfsLvdTqUhJj2qHsZtWmBIiGoV1J680mnelitMIBjJnSozFxzjsqsz7lAnDke+vD4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9GTZrigMLQBQrIXFaLYu6A9Lru2RDKeO5ZdyxrLZPlqUUM4Bt9
+	Z4srN9nyIh5yko5rhluqOTl9j6ZemwbYuZd8dDXiyHGPc9AaTdRBjxIddKOgX4fwgxEnpEbU5tX
+	kYqXA8EF2c51QoxAG/0LjZpGys7phzH3MIZuv44tTtA==
+X-Gm-Gg: AZFdTZcmIrD8tZ5cAjMbH+sZ+PJcKhMw3TqjuhcukSEbdJnKXqCTj4bVGn73cSQjcmO
+	elUCUTqTLisRW9VrFwxcxUAL9n1QhZclQBwyGWh349H0pApZ/M6JExC4aTEttDFp/wCloRMV3JM
+	h/kNSkQBerujgwGNHoLbFpAQ8QO8Hmb3b5jQzSH9SEtrib3kqGjTFjEhpJk3yYg+rzsroycnbt2
+	di437bNmyMld4425E6Gz8hs74V/KBFZXyIQ1rJ7AKWN01SqcIhYaCgfjyX1ZT/e/sC7CKzTQ1yJ
+	pZYvRzJSiylQ3JIsQZKWkByde3HCt+3v7/5mQEgvP2V5bQF54GVTcQWA1WDPt0QuoUl6HsrTkCO
+	S5AkUd8Z9AxCuv/2Dlf6TbGC3SRAR6/oX3eHo
+X-Received: by 2002:a05:6214:27c6:b0:921:7f88:9af2 with SMTP id
+ 6a1803df08f44-9217f889d57mr115043886d6.16.1795747318873; Thu, 26 Nov 2026
+ 18:41:58 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,150 +104,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261127004411.109585-1-artem122novak@gmail.com>
+ <awjaHB2ugCG_F3Io@google.com> <CAPufuhb9txcosy48VXtfxwnC7Ct448J=_HbR00JnZR1QG-NfHg@mail.gmail.com>
+ <awjlpLnyVmKRqhmQ@google.com>
+In-Reply-To: <awjlpLnyVmKRqhmQ@google.com>
+From: Artem Novak <artem122novak@gmail.com>
+Date: Thu, 26 Nov 2026 20:41:48 -0600
+X-Gm-Features: Aa3M54qy0vNlqas6YULOPcsNSCZ7uefCUSENGQM7ReO8lLzeNpabTmpK4rgiuJU
+Message-ID: <CAPufuhYd8daR2EPB=fE+g=Bejt=85pB3qvmOBdA-QzyO1Qx-yg@mail.gmail.com>
+Subject: Re: [PATCH] zram: validate decompressed page size
+To: Sergey Senozhatsky <senozhatsky@chromium.org>
+Cc: minchan@kernel.org, axboe@kernel.dk, linux-kernel@vger.kernel.org, 
+	linux-block@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Hello again,
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+> I would probably prefer to do nothing about it, IOW rely on the
+> backend contract.  Most of those compression libraries are used
+> in other places in the kernel (f2fs, squashfs, etc. etc.), zram
+> is not the only one to rely on them.
+LGTM; I'll drop this change.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Thanks for the explanation.
 
-- [Medium] In ethtool_get_regs() (net/ethtool/ioctl.c), the new `if
-  (!regs.len) return 0;` check runs before `ops->get_regs_len()` and its…
-- [Low] In ethtool_get_regs() (net/ethtool/ioctl.c), ETHTOOL_GREGS with
-  regs.len == 0 now returns success without calling ops->get_regs() and…
+Artem
 
---
 
-net: ethtool: do not call get_regs() for zero-length dumps
-
-This patch adds an early return to ethtool_get_regs() when the
-user-supplied regs.len is zero, so the driver's get_regs() is no longer
-called for a zero-length dump. The goal is to stop drivers such as mcs7830
-from issuing zero-length USB control transfers on the receive pipe. Those
-transfers trip a WARN in usb_submit_urb().
-
-> diff --git a/net/ethtool/ioctl.c b/net/ethtool/ioctl.c
-> index 80b7930b3fe0d..e8af861ee5de3 100644
-> --- a/net/ethtool/ioctl.c
-> +++ b/net/ethtool/ioctl.c
-> @@ -1779,6 +1779,10 @@ static int ethtool_get_regs(struct net_device *dev, char __user *useraddr)
->  	if (copy_from_user(&regs, useraddr, sizeof(regs)))
->  		return -EFAULT;
->  
-> +	/* A zero-length dump has nothing to fill in. */
-> +	if (!regs.len)
-> +		return 0;
-> +
->  	reglen = ops->get_regs_len(dev);
->  	if (reglen <= 0)
->  		return reglen;
-
-[Severity: Medium]
-Can this early return hide errors from get_regs_len()?
-
-The new check runs before ops->get_regs_len(). So when regs.len is 0, a
-negative return such as -EOPNOTSUPP is never passed back. The ioctl
-reports success and copies nothing back.
-
-A GREGS request with len == 0 is what a normal ethtool -d sends when
-get_regs_len() fails. That happens because ethtool_get_drvinfo() only sets
-regdump_len for positive values:
-
-net/ethtool/ioctl.c:ethtool_get_drvinfo() {
-    ...
-	if (ops->get_regs_len) {
-		int ret = ops->get_regs_len(dev);
-
-		if (ret > 0)
-			rsp->info.regdump_len = ret;
-	}
-    ...
-}
-
-Userspace then sees regdump_len == 0 and sends ETHTOOL_GREGS with
-regs.len == 0.
-
-There are two in-tree examples. DSA user ports always install
-dsa_user_get_regs(), so the !ops->get_regs check does not catch them, but:
-
-net/dsa/user.c:dsa_user_get_regs_len() {
-    ...
-	if (ds->ops->get_regs_len)
-		return ds->ops->get_regs_len(ds, dp->index);
-
-	return -EOPNOTSUPP;
-}
-
-And hns3:
-
-drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c:hns3_get_regs_len() {
-    ...
-	if (!h->ae_algo->ops->get_regs_len)
-		return -EOPNOTSUPP;
-
-	return h->ae_algo->ops->get_regs_len(h);
-}
-
-Before this patch, ethtool -d on these devices printed an error such as
-"Cannot get register dump: Operation not supported". With this patch,
-ethtool -d appears to succeed with an empty dump.
-
-In the standard ethtool flow, this seems to undo the error reporting that
-commit f9fc54d313fa ("ethtool: check the return value of get_regs_len")
-added for hns3. The commit message does not mention this.
-
-Would moving the zero-length check after the "if (reglen <= 0) return
-reglen;" check keep the error codes? It would still avoid calling
-get_regs() with len == 0.
-
-[Severity: Low]
-For drivers whose get_regs_len() returns a positive value, does this
-change what a len == 0 query returns in regs.version?
-
-Before this patch, such a request skipped the clamp and set reglen to 0.
-It then called ops->get_regs() and copied the ethtool_regs header back.
-For example, mcs7830 fills in the version:
-
-drivers/net/usb/mcs7830.c:mcs7830_get_regs() {
-    ...
-	regs->version = mcs7830_get_rev(dev);
-	mcs7830_get_reg(dev, 0, regs->len, data);
-}
-
-Now the ioctl returns success without calling get_regs() and without
-copying the header back. regs.version keeps whatever userspace passed in.
-
-The uAPI kernel-doc for struct ethtool_regs in
-include/uapi/linux/ethtool.h still describes @version as driver-specific
-output.
-
-Stock ethtool sends len = regdump_len, so it is not affected. This only
-affects callers that send len == 0 to read the version alone.
-
-The commit message says:
-
-    A zero-length dump cannot return any data, so there is nothing for the
-    driver to do.
-
-and:
-
-    Zero-length register dumps used to be issued so that drivers which only
-    report a revision ID could fill regs->version.  Those drivers return
-    zero from get_regs_len(), and the core has returned early for them
-    since commit f9fc54d313fa ("ethtool: check the return value of
-    get_regs_len").
-
-That covers the case where get_regs_len() returns 0. It does not cover
-the reglen > 0 case that this patch changes.
-
-Should the commit message or the uAPI documentation describe this change?
-Alternatively, should a len == 0 request fail instead of reporting success
-with the header left unfilled?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126015239.6038-1-25031212351%40stu.xidian.edu.cn
+On Thu, Nov 26, 2026 at 8:11=E2=80=AFPM Sergey Senozhatsky
+<senozhatsky@chromium.org> wrote:
+>
+> Hi Artem,
+>
+> On (26/11/26 19:34), Artem Novak wrote:
+> > Hey Sergey,
+> >
+> > On Thu, Nov 26, 2026 at 7:19=E2=80=AFPM Sergey Senozhatsky
+> > <senozhatsky@chromium.org> wrote:
+> > > Yeah, I don't think we should do this.  We only ever compress PAGE_SI=
+ZE
+> > > buffers, if some backend decompresses it to a something that is not
+> > > PAGE_SIZE and doesn't signal an error via "ret" then it's a bug in th=
+e
+> > > backend and zram should not cover it up.
+> >
+> > I see.
+> >
+> > I thought it might be worth having a defensive check here,
+> > since allowing an incorrectly sized result to propagate seems a bit slo=
+ppy.
+> >
+> > Do you consider this useful, or should I rely completely on the
+> > backend contract?
+>
