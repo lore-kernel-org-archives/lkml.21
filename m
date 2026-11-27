@@ -1,109 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.62
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795773006;
-	b=yfMH9tcwtRMDs4tZ1YX9fi8Txl/CMZWGN9CAXh4awkoZ+cN4rVogjKxgceO3qZD0xmYt
-	 7njYoEkgrnHLsVHk/oOoFjjJwAEOFRxuyaTM2zcyNasgY1rZV6GlhX+74+MWjl5nKvJvZ
-	 h3bODY1Lj/m0GLWz9CIgz7gBKzjHN4JKVziCFthtN/0k7tcUnvWsfwYeJtqs7KoNXeOyD
-	 v2zx0t44W5BBn2Ooji4K3dOpg+tRPx6+H6lHBiLB54WRevg1dzpvMDjvScguQaSBEyzPZ
-	 adZwszD048EqxDVHKpTQuEv0RJvGVVd4dlFW8fslIouO7wsWJ5dYSGUbBerpRrgibfw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795773006;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=zRPaWNHBIkBtjVgxRKLrKws8UEPpB0yJYcJ9pDpPxuM=;
-	b=rDZQNzAUQuJ4rBFGZbiW11SIsKlnxVAXO16V0biH4yKCe72rH6W2tOYDvxEht2LdcrtH
-	 DZvDyU9sgvWo2ltK1oCn5Og/DigIeLJTTFi0WY01n3qLcExa++HuyQ38XLiOh0g1Mgp5g
-	 1FRhyCXfO44sBnUd+q8nd75xeYODln97X+fcVIgWzaaNEXmULFKidy+HL+HoYbtyfzJEi
-	 WiZtzrORXo5SDu6nrrtYbTZEYCovWNt9A58wv+AkZVq/mHM1eQjZHtn/sJiCo9aT3eNEA
-	 Gb6BootzGHqZ2nmRXhZVv0+9GPzRbrPPU+0KWgINR/cnA8DCNg//dFDGn2hy4louQyA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=ToR22x6q;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.62
-Received: from MRWPR03CU001.outbound.protection.outlook.com (mail-francesouthazon11011062.outbound.protection.outlook.com [40.107.130.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795773018;
+	b=jjheNFOvlJuFXfqc/89T8UZGbJL3wCz4ve9YfVWAh5P3oDSIo7OYMuypFO7all5oL8rV
+	 x0w1U9lqCXu8zQSPoinff67Q8WgGtRGtqIllgngKepAiHCf7IVbKJblk//ttXZa9QFV93
+	 dJmivngVnJZlc7bNQduC/7x9CU/vjBuGnJDH2lFBNzrn3hlSIofeTpRQiJrbMBQsR+aKL
+	 CxqUnwHiutnccOeJQQw21f4oi+HLsEDezQS2t5Di2vE9u/R/Fac4Ti5eq42Nw4YN0hIhL
+	 JbC5Gv4T046kaC1bCSzcmgi//f7oFiM9XAydv1gYUuomMnwY4it4XyVHVfzH8ld98uA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795773018;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=boETkwQRINmTUcZXT+YyuDLBIOBuUgawyIhAIU5X7H8=;
+	b=Y0MD3ObjWlpgl6+Unq0JtGc3Xabdpwr5cZiORiTEHn7TM7rFoOyiUbfgmBnLS3wqWJwN
+	 z6HuHI8iulZPYV4XT9UTD0jg/4r6h45mZQxMxepQieQselRiqNWcbvELGkEemkwYneQvY
+	 IO3i3Lnl7xx6dc4cska7Km8wQpm6121m7sM7poQaxcrHXi61cB3H50abErmSVSQ3uJdWy
+	 4Wpc/r0/kvWgiAWTNGnqRxV80N8ofLRUT4asfnXJcum9cFpfDJiKkwndEZ16bSAdXjG/1
+	 rfpToezd28meUrF8GYuXK7+4U7HJDviGsIiFVGpL/Ta73Gys8IlWBpEs8GZ2KttZfyA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=WvufzrgU;
+	arc=none smtp.remote-ip=209.85.128.41
+Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66A5D606A690;
-	Fri, 27 Nov 2026 09:50:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66A5D606A690
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E11C606A6B3
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:50:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E11C606A6B3
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=ToR22x6q
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sjCWyxyf1Sl0vXJ7KjryHXVN1EtrrQdTbLqtfHocT88xJHgNfsdgIR08mq11gk2jqdQrE3KdX3yWV1Eyzdf0Oac4dHR9uBYjL1y+wJS9pgpiDWm/n2ILcEdgUKrmrGo7KvGbCYNvtYlpuLBmCBQbfyrT7tI2RvSlc0PxBJhLdmlRF13EGWZ/NmI2NC9ZQzx/qPpyBzcL/PGR3YcAp/2qzHklPFfqEgGyszGy6IemYavyStUyH8J/DFiO0+6fBq4UVLIStoDnBpdUrV+1f5MkDgi1L29ZKmnlmlpMdYmgrbLowuD9d5fuDcM5lMIk/37pFVkE96kAqybE3mvg0Sclag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zRPaWNHBIkBtjVgxRKLrKws8UEPpB0yJYcJ9pDpPxuM=;
- b=C24uREtX4nrt1ZiXDgFfYe4AZsq2zO7LU/+2D+pOHdHE5lCONLXVuBN8MEi6iBCuaXEWc/YXA2rGDiRmI2RebXb52EntikN7v1qSIs2Ud7uOpv2HRYSJaoEAZJNd45gZDThv1Yaw9S/+oqbJhHmz4jHDIV17Zznit2QQCnG+63NgZYIYqpHHtLkkAWXGe+fgNGQs2+pdUGCN6Hjr4XATpCjesOUtSvhQ+7IthgORABjUknVx/ofGMEhqk6ItHyRpM5PaIaQsaWjCRs/GXrH8D30bmDFktJr7BGebr83rsmNkJA/UW/ctbVw7M7txgSQDApZv8a+Lck+En6shlphmPg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zRPaWNHBIkBtjVgxRKLrKws8UEPpB0yJYcJ9pDpPxuM=;
- b=ToR22x6qHAUMIIA6dLWBOTl7qomcTYEWhPZ1bRImk0Jr3fAb2Y5n1qMrWO+2HUpnMbiHZjinXqV+EHnRUQXYUL936dOJ/lI7hBrjiTIz2u9X+EoSX2H6l+ReAoejzafQaGED0kwqarMa3W3DV+cxi/HLYf2nOWzlngBGZOFZLUf6syfDZo1BsaOzH5IcvPwHUHXfmJkpQVhh6CibU5spZQxs7HHC+T7L7hJ8/tZjvkmR3fJzPmj3+RwNZaZ5kKaD6ixqNjdC2mQdNKb4pxXtM7YE0q2orT+NVzQjS4bdhy8s2KJ/XyHuNXR5qa/pZ2WDe4U97WPIw1CNufy+yikcgQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from BR2PPF9D47B45B4.eurprd04.prod.outlook.com (2603:10a6:2d0::cd)
- by GV2PR04MB586427.eurprd04.prod.outlook.com (2603:10a6:150:606::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
- 2026 09:50:01 +0000
-Received: from BR2PPF9D47B45B4.eurprd04.prod.outlook.com
- ([fe80::6e42:6ee4:6b13:69cd]) by BR2PPF9D47B45B4.eurprd04.prod.outlook.com
- ([fe80::6e42:6ee4:6b13:69cd%7]) with mapi id 15.21.0639.012; Fri, 27 Nov 2026
- 09:50:01 +0000
-From: xiaoning.wang@oss.nxp.com
-To: netdev@vger.kernel.org,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	daniel.baluta@oss.nxp.com,
-	frieder.schrempf@kontron.de
-Cc: Claudiu Manoil <claudiu.manoil@nxp.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Wei Fang <wei.fang@nxp.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	imx@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Clark Wang <xiaoning.wang@nxp.com>
-Subject: [PATCH net-next V2 4/7] net: enetc: add i.MX952 NETC blocks control support
-Date: Fri, 27 Nov 2026 17:47:26 +0800
-Message-ID: <20261127094729.1061755-5-xiaoning.wang@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261127094729.1061755-1-xiaoning.wang@oss.nxp.com>
-References: <20261127094729.1061755-1-xiaoning.wang@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI6PR03CA0015.apcprd03.prod.outlook.com
- (2603:1096:4:285::19) To BR2PPF9D47B45B4.eurprd04.prod.outlook.com
- (2603:10a6:2d0::cd)
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=WvufzrgU
+Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4bb6c7b6dbdso73104925e9.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:50:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795773014; x=1796377814; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=boETkwQRINmTUcZXT+YyuDLBIOBuUgawyIhAIU5X7H8=;
+        b=WvufzrgUKcZmqK6huYPRAyEGEWCMv2xipmCmmU561BzYmqvZRQKI5SVTcTNmefn9iF
+         TRmoPqFL2ttAkRBKj4Ku/8D2zcguWoizTxnl2FmOln5Rr40MvrgvYH6ZQpodWeGl7BFE
+         rBMCUThY8fBhWCRnIVJ2XqrXF4v1bNvO+eE9+yBPpo0NA93N30gkIoj5jRzx2WDe+iyz
+         f4xldICCBGKTkOQVxyGNbd9GpuwPWBP8YJPTQq9kn2hsKf+2UuwYKJ6aZIT/Bi+nwY80
+         CHkgGa2psH/nWBqzV6kjHUtV8CNPRNDowWGBYCDUn5QLJ1O20XEsikS9kf3wDE6jr5o8
+         /sQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795773014; x=1796377814;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=boETkwQRINmTUcZXT+YyuDLBIOBuUgawyIhAIU5X7H8=;
+        b=q77QzwDikBwo8ZoHiKJPC380NGM4ZzjcpgT3FXc4ww9fCQDFMNebsD3c8kFHbDZO3q
+         a7AzIsafTjpO0IZZL6QFzL4ECTL1AJaYBgN/BPuel3UcUw0y4ZVDNkeJ1HSHW96BALay
+         eA2LfzZwokshnNGmW0E/uDuTrXA5bV1GuEAoATq5g877LwN/vd3iskGFklNGOFwqzWLp
+         2juxgieMa/628zhsXfH4UW+eHi+zY6eSqD9/gKAP68mFhro+khrHmO2e0MecBEDtJ7Uk
+         iyzHyDjn5eOjbjvpK6MamvqC5fCjI5wI5nj/lGtHMVsr17b0XI1M87QX9exKW5nJNVuG
+         cyyg==
+X-Gm-Message-State: APuU4Z92FXDcRbxMxX5xNdMsVfJNJXjqUWDSnN0u0MKQAQtfLaSOBsYJ
+	LgScLwfThq35lyZ3RyM1RN66nYdJksCc5ntUAOg4teHkrmaecljQI8QppTDuuprcl7k=
+X-Gm-Gg: AZFdTZdwjV9IzGy5v4DVYsiRFtDGPq3keNG/Slgu6gn48jU5v6o1Ffm5VYsjfQcjuY8
+	WlpErEiEYPUVq+HZhs/lNMunltSbQNWMjMyy0XCGH90yVOdxCAYWy7kCxy3U38RsKsN380umKOh
+	6LeE2dkkc3Fy/TIhe9+MITduUxzS2wNMh4eTnRUNcNBLiXopfxow+N+L2O4UtmZwFEmTLuZxoXN
+	5gBeb9vEJJg2dDM2AhedGMoeNv3AUkx8Da2p6NRp+wonsNMLdR1QRdkieYgeSYRxqAOhdelikRT
+	aYAXAx3c+jBVE/Mgv//uzqO/87oiIDg71Ef9c0Krf/9LjIf4LBOhVnNUS8h812lfK8Js4/M4mpI
+	WNbBK6ksLynqteCmz4FeBBuxcknFmbz0XyxdNUPUBFX2Ww2PIHgK1XgVSTqINiNUa+4gHrh/FbV
+	ZfhS+sJPIx+a/DgL004C9NuBIIC+eRx/3dfb0BuSaay7ZTp4v2v3A9Z/bAwjpFqCPgIAmIYS3RF
+	yU61q5E0sl9hIvqPWBwRS8zqN4wvFHIF1PXWN4jum+K1HM0XPxOQ70XX451asZV/7BP8KuRYs78
+	saugYBheqI4EMt2j6Z6Nspoc/1HpnMGn1ue3f24bLdWe6fbdgA/27w/DtuHlEd/ieJRsHnoRgVq
+	oli5Smy0fIZ9KrVVf
+X-Received: by 2002:a05:600d:82c5:b0:4a3:5aee:2c25 with SMTP id 5b1f17b1804b1-4bb88822642mr543720995e9.31.1795773014384;
+        Fri, 27 Nov 2026 01:50:14 -0800 (PST)
+Received: from localhost (p200300f65f044d084f6d53af9d755e3a.dip0.t-ipconnect.de. [2003:f6:5f04:4d08:4f6d:53af:9d75:5e3a])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb88f643adsm309326105e9.1.2026.11.27.01.50.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 01:50:13 -0800 (PST)
+Date: Fri, 27 Nov 2026 10:50:11 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
+To: MyungJoo Ham <myungjoo.ham@samsung.com>, 
+	Chanwoo Choi <cw00.choi@samsung.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+Subject: extcon still alive? [Was: Re: [PATCH v1 0/2] extcon: Rework
+ initialization of i2c_device_id]
+Message-ID: <awlOvzxRjyQo6fOI@monoceros>
+References: <cover.1779100597.git.u.kleine-koenig@baylibre.com>
+ <aimaTrJvXFjbDDTB@monoceros>
+ <aloDsjYyv3gCsx39@monoceros>
+ <avxptCL2mq7Z3vPi@monoceros>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,192 +101,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BR2PPF9D47B45B4:EE_|GV2PR04MB586427:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9f7118ff-f9b7-4246-088c-08df4c6bce59
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|19092799006|7416014|366016|376014|23010399003|1800799024|11063799006|6133799003|261009223027099003|18002099003|22082099003|3023799007|10067099003|56012099006|261102123227099003|261026121527099003|261028144727099003|261026140227099003|261021121427099003|261022113327099003|261022105027099003|261022075727099003;
-X-Microsoft-Antispam-Message-Info:
-	xOFwMCQLVziCfVNZdpRxLuWpGKC4v+ZPKOn6x7j2Ac+NEVUixi30A4NwZXnCTwqGGBHq8gZ4ddIXcwqOY9oL3h8oJZtIQ7oR02QQxDZk3F0+kowfIa/bOSSTZfjhWVT2zvc4ESoqjj4pbMOBft3loYGvieAWfw6f4slzJ2UqBNrvKmX0iHA30SELsMK4MB/fMd/a90Ey2JdGeeArlVxQIYROw5FsfcF3aFqVUW3HbBt/c3Yg841sGZTh4sp3iD09E8KBMLN2kxbr84A/hTH/yM5VCqbIlSejZMPq7cg4jUABvCHAQibpk3wpDr5RLtwN8ZgRAr2yrtl3gsMYfVti3Oq/kcPenaXY5rw6dkCmBaoWVWvP1vOiKv0lmhgj/JKCzQ5d9zxaV7dLzWAGUPoxSn0+ush7WTmCryYelMBeftpNQk8AnFuiuDdX7hE23IYmoSIfcWRaCZlmkgk5OqhR156nK68QidDgQL96QwjtsGcvJJHwKuYVp4/xZ3qjWnEyrB0Z8pqQS5MX0jhDW3MD05J5n3q5LeO9tvseD5MsE6k/8j5GC/4XcavZxZj0A+shdsIq75Ai0QMVWXpcf48nWx7QbdAb0TW6hatLxj11DLRQrlIPvs+47eaD8CyYEWNBhEwHktSG189uBxEEhtYoB9/JHKWmNJcu/QUj692t9ms=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BR2PPF9D47B45B4.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(366016)(376014)(23010399003)(1800799024)(11063799006)(6133799003)(261009223027099003)(18002099003)(22082099003)(3023799007)(10067099003)(56012099006)(261102123227099003)(261026121527099003)(261028144727099003)(261026140227099003)(261021121427099003)(261022113327099003)(261022105027099003)(261022075727099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?J5UOIUr7m8KREE4h+S6cZc4zyOF+ewC4pZZeAlsDa5nCmBZIL+BE1j0m4VLB?=
- =?us-ascii?Q?AEWpPMiaF8IKnI6y2QAC3P+BkLsJakyquRO3DkWjAFEgD2acweN9KwdiCB1E?=
- =?us-ascii?Q?NkahvOuXvqVeIZDiskk/p8YOcyHUNexOlS0UanDTomP6xfwa46SFR4JSu9cq?=
- =?us-ascii?Q?YBLYXxaE8j+jVmi869FHTirEH6F++j/XKCpKbVkgT0YiQECuLIYoyJqNRi0m?=
- =?us-ascii?Q?Tu6+sfTNOS/2ZaZT1Dv6laWxFGp7RuzBPK9GDTiC9P/j/U8oFm3Edqzosz4C?=
- =?us-ascii?Q?2sEujEJDgk0exIQGEGEvxbv8V1O7IZhGV6qQ1ghYnAyTZQl4nX0vXUs8y8r/?=
- =?us-ascii?Q?h3CYG8s5xki3CVVWml52+jbrWvbson/D0cwupH9pDzHgWM7DStHWdElNt+5Z?=
- =?us-ascii?Q?FDJz8g0JTDW6OY/Ivwdw5pXb+Hf1y8QuXl3ncZaXfiSHwcy/WY/vhcVbfRF1?=
- =?us-ascii?Q?CYVnLtwdHM6nwlU+4mojX7hsoxXI46g0cFgRdclEtoC9oHoYOGJSiqtqiMO4?=
- =?us-ascii?Q?obREqKeIczwSuIblP8vMU19CRKC7Y36eCD+PCP27juIZ9hlTjvJyeqLg8Bq2?=
- =?us-ascii?Q?x66FX/Blkeh7PxPVHCKN2fdG54zhkyY35TIbwJXr2+lT2ev7y+HWrcLcf+Js?=
- =?us-ascii?Q?z0vd6WEfZUQU9hELNAg8RGtUB1HUFY9wAK7geLu8Gti/r4NpR8UIWyJn2noo?=
- =?us-ascii?Q?E4W5tfaqTAkkcHqidwu/ppXDTiv0omPDtOPi1NwD52JNwmKulCsVV0QH2vFZ?=
- =?us-ascii?Q?YHiukrNmUAgCmcOSuppygOkrnwblAibilGQ9jKb/o7lz2cyVC49c89whTBvk?=
- =?us-ascii?Q?a+vhNQ4iVAehKUo+iHQkQa3pUo2LHNtOq+Qb5xtZ13YaU2EHZ0U5LuwljTKt?=
- =?us-ascii?Q?bYJVBcyvtnJSl6bY+xtD+bJtDQJcjz00hSTP+ZncyFoLuMQwniK3fvJNVeGb?=
- =?us-ascii?Q?/NUXCEfHZCCtQqVA2CzIKgC1iWCZbXnoCjHuidtvD+T+HFmMI2/LvyPYE0lV?=
- =?us-ascii?Q?C77m1Z/JsYx8B9SwS/cJ5BKlLj6ntz99HsPMzrrpuQjArZzBzBt5zh6O8Lr1?=
- =?us-ascii?Q?NAISVYP9oxbQTf73Htz5sluCNe8HG7FMTTjquAP29WqiuCojVMSuzw/UTV/U?=
- =?us-ascii?Q?wDQC/BfJCJh6HBV3WihemwPx6rCq7eueBdVJy4HIESYXinPRX/EgAPH3pAR3?=
- =?us-ascii?Q?hkxfEdxwTiIG1kzqZHhYRIyAmTYhf7MluncW6elc/uOn909HYPsepE9M01wF?=
- =?us-ascii?Q?hswTdfygKKazYnkaRcX5dp/0H6xeKd4A/tQTz07eQM4oOL7NfPsuQ49rdE0T?=
- =?us-ascii?Q?LrLjBkwaxTBqtIeyUD6+gc6cwvcbHLfzgaceA7tBgiBui+7CQHRB7OBE5jiC?=
- =?us-ascii?Q?C8D018csX0T8MiX5p8NCBkcCKGzKTF8PnShUQJqkQcjs9EkGXQqsY3ZM7AQe?=
- =?us-ascii?Q?L413rJRHx+/uEzGzn1eeenhDZIsVbk5s1+eJM8yfIm89GiazFHBe1haoyY5p?=
- =?us-ascii?Q?xSkbzIbs1E0Rn1Nocjvzi8jeeOZs9FWH/k0+lxBK0eqBgki835gscYlMwmLO?=
- =?us-ascii?Q?PfMsAmW61mvPObSARZD7S5WF/GZG1BpFCszZkLFSoWWfHHpscjWx4F3k98ud?=
- =?us-ascii?Q?qwZtO9vwURm1gRh7wMZlHQNAa+eQRPj0fpV9tDBCxXtWAglqibJarhtBXBNa?=
- =?us-ascii?Q?4bBHUYeiwHltCDSi723cDJoqmqxPXsEQeVbmpnDnRwvNOYjta+Ck+oXXpI2f?=
- =?us-ascii?Q?IJqVAMjSC1A6NMjFj6hXVwyN9Cjz83nTSGmx0teN6FltQSVDo86jhJYx+FpG?=
-X-MS-Exchange-AntiSpam-MessageData-1: 5dlkvv+NdgCwOw==
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9f7118ff-f9b7-4246-088c-08df4c6bce59
-X-MS-Exchange-CrossTenant-AuthSource: BR2PPF9D47B45B4.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 09:50:01.8676
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9Xu2J0P9du8M6iBoisSfcE+PZWp44t/avY+auOff3lIEEji7Uk3pLsJAemqZZWJNYfJXYFeSnur4skc/VdtPCMmN7A3foANjpw+dKCweruvC7mKUxcIPeCUlxuumzM/i
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB586427
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="xnk4q3g52uo3jksw"
+Content-Disposition: inline
+In-Reply-To: <avxptCL2mq7Z3vPi@monoceros>
 
-From: Clark Wang <xiaoning.wang@nxp.com>
 
-The NETC of i.MX952(v4.6) has two standalone ENETCs.
- - ENETC 0 is on PCIe bus 0 and supports RMII and RGMII.
- - ENETC 1 is on PCIe bus 1 and supports RMII, RGMII and SGMII.
-Add the netc_devinfo for i.MX952 to do the following pre-boot
-initialization.
+--xnk4q3g52uo3jksw
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: extcon still alive? [Was: Re: [PATCH v1 0/2] extcon: Rework
+ initialization of i2c_device_id]
+MIME-Version: 1.0
 
-1. Set the MII protocol of the links in NETCMIX according to the
-   'phy-mode' property of the ENETC nodes. RGMII is used by default.
-   The PCS configuration required by SGMII will be added separately.
+Hello,
 
-2. The reset value of the ENETC 0 transmit byte credit registers
-   (E0TXHPTBCR and E0TXLPTBCR) is 0x5dc, which is only suitable for a
-   maximum frame size of 1536 bytes. When jumbo frames are used, the
-   byte credits are exhausted too early, so HTA has to wait for the
-   credits to be returned, which reduces the transmit throughput. So
-   set them to 0xc35, the same as the reset value of the ENETC 1
-   registers.
+On Tue, Nov 17, 2026 at 03:53:17PM +0100, Uwe Kleine-K=F6nig (The Capable H=
+ub) wrote:
+> On Fri, Jul 17, 2026 at 12:31:20PM +0200, Uwe Kleine-K=F6nig (The Capable=
+ Hub) wrote:
+> > On Wed, Jun 10, 2026 at 07:10:51PM +0200, Uwe Kleine-K=F6nig (The Capab=
+le Hub) wrote:
+> > > On Mon, May 18, 2026 at 12:41:43PM +0200, Uwe Kleine-K=F6nig (The Cap=
+able Hub) wrote:
+> > > > Hello,
+> > > >=20
+> > > > I plan to do the following to the definition of i2c_device_id:
+> > > >=20
+> > > > 	diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_d=
+evicetable.h
+> > > > 	index 23ff24080dfd..aebd3a5e90af 100644
+> > > > 	--- a/include/linux/mod_devicetable.h
+> > > > 	+++ b/include/linux/mod_devicetable.h
+> > > > 	@@ -477,7 +477,11 @@ struct rpmsg_device_id {
+> > > >=20
+> > > > 	 struct i2c_device_id {
+> > > > 		char name[I2C_NAME_SIZE];
+> > > > 	-	kernel_ulong_t driver_data;	/* Data private to the driver */
+> > > > 	+	union {
+> > > > 	+		/* Data private to the driver */
+> > > > 	+		kernel_ulong_t driver_data;
+> > > > 	+		const void *driver_data_ptr;
+> > > > 	+	};
+> > > > 	 };
+> > > >=20
+> > > > 	 /* pci_epf */
+> > >=20
+> > > I want to work on that, but I'd need this patch series to be in for i=
+t.
+> > > Do you still have this patch on your radar?
+> >=20
+> > While I still have to make several patches land before I can modify
+> > struct i2c_device_id, getting the patches from this thread in would at
+> > least make my queue smaller.
+> >=20
+> > FTR: The series still applies fine to next-20260716.
+>=20
+> It's November and the series still applies to next-20261116. Does
+> someone still have this patch set on their radar?
 
-3. Configure the external PHY address in IERB LaBCR[MDIO_PHYAD_PRTAD]
-   for port MDIO usage.
+This patch blocks going on with the above mentioned quest. The patch
+we're discussing here (well actually that *I*'m discussing only) is
+IMHO trivial. The last patch applied to drivers/extcon that went through
+the hands of the registered maintainers was commit 1bf0ba46d9d2
+("extcon: usbc-tusb320: Make typec-power-opmode optional") from October
+2025 (picked up in March 2026).
 
-Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
----
- .../ethernet/freescale/enetc/netc_blk_ctrl.c  | 53 +++++++++++++++++++
- 1 file changed, 53 insertions(+)
+Greg's char-misc seems to be extcon's upstream, so I wonder if Greg
+knows something about the state of extcon? Greg, would you merge my
+patch without maintainer feedback? If yes I guess I should resend? If
+yes, I'd expand the patch to a series adressing all the needs for my
+quest also for other *_device_id structs.
 
-diff --git a/drivers/net/ethernet/freescale/enetc/netc_blk_ctrl.c b/drivers/net/ethernet/freescale/enetc/netc_blk_ctrl.c
-index 491340061b19..78a420416a1f 100644
---- a/drivers/net/ethernet/freescale/enetc/netc_blk_ctrl.c
-+++ b/drivers/net/ethernet/freescale/enetc/netc_blk_ctrl.c
-@@ -66,6 +66,8 @@
- #define IERB_EMDIOFAUXR			0x344
- #define IERB_T0FAUXR			0x444
- #define IERB_ETBCR(a)			(0x300c + 0x100 * (a))
-+#define IERB_ETXHPTBCR(a)		(0x3070 + 0x100 * (a))
-+#define IERB_ETXLPTBCR(a)		(0x3074 + 0x100 * (a))
- #define IERB_LBCR(a)			(0x1010 + 0x40 * (a))
- #define  LBCR_MDIO_PHYAD_PRTAD(addr)	(((addr) & 0x1f) << 8)
- 
-@@ -91,6 +93,12 @@
- #define IMX94_ENETC1_LINK		4
- #define IMX94_ENETC2_LINK		5
- 
-+#define IMX952_ENETC0_BUS_DEVFN		0x0
-+#define IMX952_ENETC1_BUS_DEVFN		0x100
-+#define IMX952_ENETC0_LINK		0
-+#define IMX952_ENETC1_LINK		1
-+#define IMX952_TX_BYTE_CREDIT		0xc35
-+
- #define NETC_ENETC_ID(a)		(a)
- #define NETC_TIMER_ID(a)		(a)
- 
-@@ -388,6 +396,24 @@ static int imx94_netcmix_init(struct platform_device *pdev)
- 	return 0;
- }
- 
-+static int imx952_netcmix_init(struct platform_device *pdev)
-+{
-+	struct netc_blk_ctrl *priv = platform_get_drvdata(pdev);
-+	u32 val;
-+	int err;
-+
-+	/* Default setting of MII protocol */
-+	val = MII_PROT(0, MII_PROT_RGMII) | MII_PROT(1, MII_PROT_RGMII);
-+
-+	err = imx95_netcmix_get_mii_prot(priv, &val, 0);
-+	if (err)
-+		return err;
-+
-+	netc_reg_write(priv->netcmix, IMX95_CFG_LINK_MII_PROT, val);
-+
-+	return 0;
-+}
-+
- static bool netc_ierb_is_locked(struct netc_blk_ctrl *priv)
- {
- 	return !!(netc_reg_read(priv->prb, PRB_NETCRR) & NETCRR_LOCK);
-@@ -756,6 +782,19 @@ static int imx94_ierb_init(struct platform_device *pdev)
- 	return 0;
- }
- 
-+static int imx952_ierb_init(struct platform_device *pdev)
-+{
-+	struct netc_blk_ctrl *priv = platform_get_drvdata(pdev);
-+
-+	/* The reset value of ENETC 0 Tx byte credits is too small for
-+	 * jumbo frames, so use the same value as ENETC 1.
-+	 */
-+	netc_reg_write(priv->ierb, IERB_ETXHPTBCR(0), IMX952_TX_BYTE_CREDIT);
-+	netc_reg_write(priv->ierb, IERB_ETXLPTBCR(0), IMX952_TX_BYTE_CREDIT);
-+
-+	return netc_ierb_enetc_mdio_phyaddr_config(pdev);
-+}
-+
- static int netc_ierb_init(struct platform_device *pdev)
- {
- 	struct netc_blk_ctrl *priv = platform_get_drvdata(pdev);
-@@ -855,6 +894,11 @@ static const struct netc_link imx94_links[] = {
- 	{ IMX94_ENETC2_BUS_DEVFN, IMX94_ENETC2_LINK },
- };
- 
-+static const struct netc_link imx952_links[] = {
-+	{ IMX952_ENETC0_BUS_DEVFN, IMX952_ENETC0_LINK },
-+	{ IMX952_ENETC1_BUS_DEVFN, IMX952_ENETC1_LINK },
-+};
-+
- static const struct netc_devinfo imx95_devinfo = {
- 	.flags = NETC_HAS_NETCMIX,
- 	.links = imx95_links,
-@@ -871,9 +915,18 @@ static const struct netc_devinfo imx94_devinfo = {
- 	.ierb_init = imx94_ierb_init,
- };
- 
-+static const struct netc_devinfo imx952_devinfo = {
-+	.flags = NETC_HAS_NETCMIX,
-+	.links = imx952_links,
-+	.num_links = ARRAY_SIZE(imx952_links),
-+	.netcmix_init = imx952_netcmix_init,
-+	.ierb_init = imx952_ierb_init,
-+};
-+
- static const struct of_device_id netc_blk_ctrl_match[] = {
- 	{ .compatible = "nxp,imx95-netc-blk-ctrl", .data = &imx95_devinfo },
- 	{ .compatible = "nxp,imx94-netc-blk-ctrl", .data = &imx94_devinfo },
-+	{ .compatible = "nxp,imx952-netc-blk-ctrl", .data = &imx952_devinfo },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, netc_blk_ctrl_match);
--- 
-2.43.0
+Best regards
+Uwe
 
+--xnk4q3g52uo3jksw
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsJUlAACgkQj4D7WH0S
+/k5u8ggAhAMRa2RDQM+0uMVow57L6ZvyxN0KRrVeHOQiCMJFNTCz2FHmd6H2Q2Tj
+VHvcQUSrRBX8vPfM4m0B/B2aZqn7D1UZTlENwLwL0ycrhFyoyyB6cSLFENUD1CeU
+g5X/6fnd7aVGdbZ0aviaJ+1RrTYhJ6+JLiExfLxjve4zO3MQ+L1BRtUeH3CAVPAn
+UqiXs4SxRGSc8zomoz1qSX2HXLMDnVwkjK4EKCNJYQwHV5ckqDCYbAMMF8xm9e5G
+0r6XgHcsF0dv05TFzutYZXqBvb065fDaUDpqmWE9GKKuTPIbeRj9ZBUsRIdvFman
+QzqzgBdumxgQdoigBQiYl9XLlpSfFQ==
+=3sgm
+-----END PGP SIGNATURE-----
+
+--xnk4q3g52uo3jksw--
