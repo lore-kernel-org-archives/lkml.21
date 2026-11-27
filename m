@@ -1,90 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795780731;
-	b=S93TstXuwTMfkMfDOM35lJpk9UlfObtUeh/Pwz8ytG+2eqf9iva9M3fjLUsnjRqSL9DO
-	 H5go5oPjv2e7he3141kJu59kkZebnK9OwNTOSUENExxqFZ/pARgBeZTku9c+iENuj074k
-	 Qkb12i5oBsDPUDKESLMCEp2w8nw7ozvrAMv5OjpjKE3lgLlSedQOhV8CIWg8OHZD708ih
-	 ngrJuRS4x7Q380Qadh5+VZxD4xeB34a1ChEEZtcTPh2XHHlVcAeAyz7m3noC2w7A41a9U
-	 nLMjJFx1EFraut3VHn0ckaguRbteNTOJIkVV/WIWE4bScvv0Odg36WsJ3XAIO7KxhVQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795780731;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=UQQOlPc1FtE9f588BBPhLMGb3qMOxVEpChgmo8GGpNg=;
-	b=MEL7PLz3yd9MN+YaGr79t9HaigZCY/vh8DxdCx6qU6EiOICryaEhVBxlby+ulz8JbMso
-	 GpsEG7XlOyF+iWuz7mcpLAsufSBDGzDnqEYWfsvC8H9phxLxdQ5EMeHu2ajkd0FJWQ6lW
-	 O7hPcTJZWw2/tyEWH8Ynfq4NgmfbKYvSjJZqUpK8+BC5J9za2ggJlWG32BbGW/4y6c2qq
-	 6mWiOUcHISbHwVRGzzyTQRYCXXgqnzGHz4Bcnc68CloavoW/rIQc0S/R2KS7NXnjq3Yaj
-	 Hp8EdSe7+Zpi8h5y7CQEw+jOMtXZwhGdiHyM74DIFy2I5NTmcC3qDrPFADLXIJ31ysw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=NQx+a7Vr;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.12
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795780744;
+	b=KYxXauOxbax9R9mgGzVeeZMdrrzY6iyNVcnMDTx8OZD0z3wJbtXyG/D2Ypm/mDlKOle1
+	 vLAwfAQRxxwp5swKPgzb2PzQBSDORemV0VRtmlMZAiEhDRxrJ30uKb0IsmZVXngRcNzec
+	 gbKVbIlB0vp5VnwTftQLW9IANPz/Qk26TeQEVe5CQINZHYLCRu1k1rSBse9ozR+Hidb5A
+	 qHUXrQINH4VGa7Fzmywa90s7MNv7Z6gsGp9tV3qgodhxZ7fL4aMcJbx0d+mZNk99ShaDx
+	 XYEL2Eug8gJy3bhvgbaHidpmjM+RBjSQlbAoAn5UqwIMM6RbEp0QlKzfYJn+AFSmYmA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795780744;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:MIME-Version:
+	 Content-Transfer-Encoding:X-CMS-MailID:X-Msg-Generator:Content-Type:
+	 X-RootMTR:X-EPHeader:X-CMS-RootMailID:References;
+	bh=Id3upqDD1i+LHsGcQdVswyP8vuaFBxcYGp5N04HwHyM=;
+	b=XtcVAnNDqjvnafdQ8OyP49Rc8BjY0VZBt4z0P2wlqeLV8Euv51nMbttofqiaSDQe7ynt
+	 qwFC2QLEawBxBiM60T7KyNaaKSR9kGWqEwZrw8EjNdYdcTQP7gMm5Ph9OoGYTVtvQIGdw
+	 attKeSpgPC+cq4HhDQqJP4KD2ChESd/a/gVjrGk4YsEFQisGl/SkSWAxGMnfvaNRxIFv6
+	 lzQ2nnX9rG8B1p9CWASyorGqdQ3nOsLVeSORwYHzARt8AC9z9/6Pj4G45MSzeEU8ufyxG
+	 xqrymHAyZdbjv7PPZORu4kwE4tk4V+bONLANS7nHsEqjiBNwemkEZUKqkxsNu6ElazA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=samsung.com;
+	spf=pass smtp.mailfrom=samsung.com;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=eTDDdgdJ;
+	arc=none smtp.remote-ip=210.118.77.12
+Received: from mailout2.w1.samsung.com (mailout2.w1.samsung.com [210.118.77.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31CEA606A31C;
-	Fri, 27 Nov 2026 11:58:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31CEA606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B3D2606A69C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:59:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B3D2606A69C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=NQx+a7Vr
-Received: from ptx.office.stw.pengutronix.de (ptx.office.stw.4.pengutronix.de [10.9.0.3])
-	(Authenticated sender: relay-from-ptx.office.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 59BB420002E;
-	Fri, 27 Nov 2026 12:58:48 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795780728;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UQQOlPc1FtE9f588BBPhLMGb3qMOxVEpChgmo8GGpNg=;
-	b=NQx+a7VrSQMZ6zxkNJCwPUUEfrHACu1zSNQZoPWnA8iu1RBSyErT/ZpwOnNPkyloZxefmK
-	7bQoxkmaslJ56DJGU56yUwPHxSzbFvOgxClfKz/JCsag7+ED5jl78DcUEbSPESYXOu2gCj
-	eUgqDQHJ9/v1Lj1Z+6yyqHjt7XE/B9/4HD86/YZcU+/PK5J8XpoFj8MnwvV8WHINqrohBl
-	3K4iADJVpCQNWMY4FW+5GL5Y95s930nSaDqSsy2QjPEkvbpvGSCwcqjhf4ZMV+sA295TV0
-	Wbjxc6CYy7Hbqs+rwXVlk/lKSSK6wZcnwwZ1Hi2eSYQyXTIkoUMtEsR9hsOO3Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795780728;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UQQOlPc1FtE9f588BBPhLMGb3qMOxVEpChgmo8GGpNg=;
-	b=ggmzWeDJ1qPG9udCZVE8HX2YczCsUwv7iA0cHokjt54p+oWQ1DTzU/3LBk0Y1yt2nmug8K
-	GEXmxsexOq0O+5Qo16zqlDoEBgav7KihKx3uS0gWjzfx7clnk3QissxstvafpDG1Jx80oK
-	U+qFNKNeEHaYJHjEvFpVhSbFwSGHF4n68PHvx5ZdHj5+6ZoaRQrzOa9av9dykNTK5Uvf03
-	WBkbcslCUNF+HyGcu7uoHoLJJTNOmc9MskYzY4T9PJLtOBSe1AiqqmESUlW29VlLe4ZbsU
-	fcbfTFmuJb1YRW9lS0WCeErgdAYEPRM4tkvtLfQsIh0OspVZy+WE3t1R/SJs2A==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=relay-from-ptx.office.stw.pengutronix.de smtp.mailfrom=ore@pengutronix.de
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795780728; a=rsa-sha256;
-	cv=none;
-	b=YLCNb6UM86Asg+YqY3toInqcHbXNGq34Yj9Ih81UCGHJ1vnQUOw72+vxtizitMCQq47gsS
-	9ozfGaVHqzXZkWZ4avuubLeOE+spjDnrtoOBu9sfa8fL6W+M9GwEQnhXGRV+1mj6G4O4Mj
-	Vk9TWc4hmBx/gCXjJBrpopNU+tGBUVS1/a6o/Ov7HRJb0Wp4HYpy6KBCpAD8IpGvWbR2mj
-	NIiWHLqlWIzvSC/r+IXAIQ5am6AKzE5XwQ7zjffyrRrami6cSNbYN7svHU6zAw5lfuZmi2
-	/vOrMGoPyGVCYhi49OFtaFAdzrhpnKHlSpknVM4OC6nds6kTv6aNtB6jb6954A==
-Received: by ptx.office.stw.pengutronix.de (Postfix, from userid 1058)
-	id 3E04D1BF4EE; Fri, 27 Nov 2026 12:58:48 +0100 (CET)
-Date: Fri, 27 Nov 2026 12:58:48 +0100
-From: Oleksij Rempel <o.rempel@pengutronix.de>
-To: Tetsuo Handa <penguin-kernel@i-love.sakura.ne.jp>
-Cc: Felix Hoffmann <f3lix.dev@gmx.de>,
-	Marc Kleine-Budde <mkl@pengutronix.de>, linux-can@vger.kernel.org,
-	Robin van der Gracht <robin@protonic.nl>, kernel@pengutronix.de,
-	Oliver Hartkopp <socketcan@hartkopp.net>,
+	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=eTDDdgdJ
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261127115902euoutp02f9fffcf65c65c6fc9e7220855c677a80~r5RIyFpYl1643816438euoutp02R
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:59:02 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261127115902euoutp02f9fffcf65c65c6fc9e7220855c677a80~r5RIyFpYl1643816438euoutp02R
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795780742;
+	bh=Id3upqDD1i+LHsGcQdVswyP8vuaFBxcYGp5N04HwHyM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=eTDDdgdJ9gPOOx7Xw2sMngNEd0oxJe1W9gj3acfWV4ZIIPZawecBhxm2tmZAPe5D4
+	 Mr6d8NPXukg82mYDgdIh30MdUfPD8obx07k9USmhKVWCJuASlFHqGczPi3hRN6shuX
+	 8wlZ3ncNeGtX/HG/xrhNoXuMLoemC0l92kG8WBFk=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20261127115901eucas1p22ee3dbe744707c23f8ac2442f755e041~r5RH9qnN12876328763eucas1p2J;
+	Fri, 27 Nov 2026 11:59:01 +0000 (GMT)
+Received: from AMDC4653.digital.local (unknown [106.120.51.32]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261127115900eusmtip1b004ba38c6e7a6b1daeab6d50a5c4eca~r5RG3wJIQ0138901389eusmtip1M;
+	Fri, 27 Nov 2026 11:59:00 +0000 (GMT)
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+To: iommu@lists.linux.dev, linux-media@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, kvm@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH can v2] can: j1939: avoid address-claim timer deadlock
-Message-ID: <awlweHXHEtTutiTz@pengutronix.de>
-References: <20260731134255.1002902-1-f3lix.dev@gmx.de>
- <20260803101503.21023-1-f3lix.dev@gmx.de>
- <awlYpT9xeUW6CCzQ@pengutronix.de>
- <fe95ba74-e195-477b-9ad5-c53d48446ae5@I-love.SAKURA.ne.jp>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Robin Murphy
+	<robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, Will Deacon
+	<will@kernel.org>, Leon Romanovsky <leon@kernel.org>, Jason Gunthorpe
+	<jgg@nvidia.com>, Sibi Sankar <sibi.sankar@oss.qualcomm.com>, Honglei Huang
+	<honghuan@amd.com>, prakash.gupta@oss.qualcomm.com, Alex Williamson
+	<alex@shazbot.org>, Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
+	Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>, Abhinav Kumar
+	<abhinav.kumar@linux.dev>, Bryan O'Donoghue <bod@kernel.org>, Mauro Carvalho
+	Chehab <mchehab@kernel.org>, Hans Verkuil <hverkuil+cisco@kernel.org>,
+	stable@vger.kernel.org
+Subject: [PATCH 3/4] dma-mapping: add DMA_IOVA_FLAGS mask for the
+ dma_iova_state size flags
+Date: Fri, 27 Nov 2026 12:58:47 +0100
+Message-ID: <20261127115849.2780625-4-m.szyprowski@samsung.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261127115849.2780625-1-m.szyprowski@samsung.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,51 +81,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <fe95ba74-e195-477b-9ad5-c53d48446ae5@I-love.SAKURA.ne.jp>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20261127115901eucas1p22ee3dbe744707c23f8ac2442f755e041
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20261127115901eucas1p22ee3dbe744707c23f8ac2442f755e041
+X-EPHeader: CA
+X-CMS-RootMailID: 20261127115901eucas1p22ee3dbe744707c23f8ac2442f755e041
+References: <20261127115849.2780625-1-m.szyprowski@samsung.com>
+	<CGME20261127115901eucas1p22ee3dbe744707c23f8ac2442f755e041@eucas1p2.samsung.com>
 
-On Fri, Nov 27, 2026 at 08:46:54PM +0900, Tetsuo Handa wrote:
-> On 2026/11/27 19:17, Oleksij Rempel wrote:
-> > On Mon, Aug 03, 2026 at 12:15:03PM +0200, Felix Hoffmann wrote:
-> >> Name the 1 ms retry interval J1939_ECU_TIMER_RETRY_DELAY_MS instead of
-> >> using a literal in the callback. Track consecutive failures per ECU, reset
-> >> the counter when its timer starts, and emit a warning guarded by
-> >> net_ratelimit() on the fifth retry. Five is a pragmatic threshold for
-> >> detecting unusual delay; it is not specified by J1939.
-> >>
-> >> The timer uses HRTIMER_MODE_REL_SOFT, so its callback runs from
-> >> HRTIMER_SOFTIRQ with bottom halves already disabled. write_trylock() does
-> >> not change bottom-half state and must therefore pair with write_unlock() on
-> >> success. The write_lock_bh()/write_unlock_bh() pair is unnecessary in this
-> >> context.
-> >>
-> >> Fixes: 9d71dd0c7009 ("can: add support of SAE J1939 protocol")
-> >> Cc: stable@vger.kernel.org
-> >> Assisted-by: Codex:GPT5.6-Sol
-> >> Signed-off-by: Felix Hoffmann <f3lix.dev@gmx.de>
-> >
-> > Hi Marc,
-> >
-> > this patch seems to have slipped through. As far as I can see, it still
-> > applies to net/main, and the bot findings on it are pre-existing
-> > issues. Could you please take it, if you see no problem with it?
-> >
-> > Tetsuo, if I read it right, your v15 3/3 fixes the same lockup. If
-> > Marc takes this patch, 3/3 would not be needed in your next version.
->
-> It seems that netdev-bot+sashiko@kernel.org failed to review the v2 patch.
-> In the v1 patch, netdev-bot+sashiko@kernel.org had a concern about likeliness of
-> write_trylock(&priv->lock) failure
-> ( https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260731134255.1002902-1-f3lix.dev@gmx.de ).
-> Asking for opinion from netdev-bot+sashiko@kernel.org by re-posting the v2 patch
-> after applying my "[PATCH v15 1/3]" and  "[PATCH v15 2/3]" would be preferable.
+dma_iova_state::__size uses its top bit to record that SWIOTLB was used
+for one of the linked ranges. Users that mask or validate sizes refer to
+DMA_IOVA_USE_SWIOTLB directly, so adding another flag would require
+updating all of them.
 
-Thank you, I missed that. If I read the v1 review right, the concern
-about the retry still applies to v2.
+Add DMA_IOVA_FLAGS covering all flags kept in __size and use it in
+dma_iova_size(), in the size check of dma_iova_try_alloc() and in the
+vfio-pci dma-buf length validation. No functional change.
 
-So let's keep your 3/3 for this lockup. Marc, please do not take this
-patch for now.
+Cc: stable@vger.kernel.org # v7.3+
+Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
+---
+ drivers/iommu/dma-iommu.c          | 8 ++++----
+ drivers/vfio/pci/vfio_pci_dmabuf.c | 2 +-
+ include/linux/dma-mapping.h        | 8 +++++++-
+ 3 files changed, 12 insertions(+), 6 deletions(-)
 
-Regards,
-Oleksij
+diff --git a/drivers/iommu/dma-iommu.c b/drivers/iommu/dma-iommu.c
+index 78742aeba932..99eb382a1359 100644
+--- a/drivers/iommu/dma-iommu.c
++++ b/drivers/iommu/dma-iommu.c
+@@ -1838,11 +1838,11 @@ bool dma_iova_try_alloc(struct device *dev, struct dma_iova_state *state,
+ 		return false;
+ 
+ 	/*
+-	 * DMA_IOVA_USE_SWIOTLB is flag which is set by dma-iommu
+-	 * internals, make sure that caller didn't set it and/or
+-	 * didn't use this interface to map SIZE_MAX.
++	 * DMA_IOVA_FLAGS are set by dma-iommu internals, make sure that
++	 * caller didn't set them and/or didn't use this interface to map
++	 * SIZE_MAX.
+ 	 */
+-	if (WARN_ON_ONCE((u64)size & DMA_IOVA_USE_SWIOTLB))
++	if (WARN_ON_ONCE((u64)size & DMA_IOVA_FLAGS))
+ 		return false;
+ 
+ 	addr = iommu_dma_alloc_iova(domain,
+diff --git a/drivers/vfio/pci/vfio_pci_dmabuf.c b/drivers/vfio/pci/vfio_pci_dmabuf.c
+index c16f460c01d6..8bda610dd988 100644
+--- a/drivers/vfio/pci/vfio_pci_dmabuf.c
++++ b/drivers/vfio/pci/vfio_pci_dmabuf.c
+@@ -211,7 +211,7 @@ static int validate_dmabuf_input(struct vfio_device_feature_dma_buf *dma_buf,
+ 	 * dma_iova_try_alloc() will WARN on if userspace proposes a size that
+ 	 * is too big, eg with lots of ranges.
+ 	 */
+-	if ((u64)(length) & DMA_IOVA_USE_SWIOTLB)
++	if ((u64)(length) & DMA_IOVA_FLAGS)
+ 		return -EINVAL;
+ 
+ 	*lengthp = length;
+diff --git a/include/linux/dma-mapping.h b/include/linux/dma-mapping.h
+index efde0e5a58dc..0ebf3090ea0f 100644
+--- a/include/linux/dma-mapping.h
++++ b/include/linux/dma-mapping.h
+@@ -135,10 +135,16 @@ struct dma_iova_state {
+  */
+ #define DMA_IOVA_USE_SWIOTLB		(1ULL << 63)
+ 
++/*
++ * All flags stored in the upper bits of dma_iova_state::__size. Sizes passed
++ * to dma_iova_try_alloc() must not overlap with them.
++ */
++#define DMA_IOVA_FLAGS			DMA_IOVA_USE_SWIOTLB
++
+ static inline size_t dma_iova_size(struct dma_iova_state *state)
+ {
+ 	/* Casting is needed for 32-bits systems */
+-	return (size_t)(state->__size & ~DMA_IOVA_USE_SWIOTLB);
++	return (size_t)(state->__size & ~DMA_IOVA_FLAGS);
+ }
+ 
+ #ifdef CONFIG_DMA_API_DEBUG
+-- 
+2.43.0
+
