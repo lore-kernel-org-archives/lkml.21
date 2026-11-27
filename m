@@ -1,88 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.225.139
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795771525;
-	b=4B5JeweqKovN4sIdqyQ//o0pc6U4mhPQ08Wm/iE6JKJV12M8ojAC+1NJ2+nzs8DjtXkk
-	 muxWR2ai3DaPCbnyekvX4qTE75p95eybP3k4EC3/tRIuCrT2M0IQOY9DLdEr0j7mhHn/E
-	 xe9jiGOGLhbe1VsNjBpfrDENord/MDB+C7FjX6p2ohfvdg2nDu54+uVoHlm3wxTPzRMlA
-	 BtgsSeMenN43bhVopiZax9EFbe1PUsiJ/DdNLxTngEiT8K/LiPksKpc4cgG2Ybdt+Lmrl
-	 5MyfB6Wam89mvSm8uVtd6Z0zPVp3+I7hXlPQC76I0S1DbWIwQUDrPBWzmgezHse5+hQ==
+	t=1795771532;
+	b=pyyj3kNxyTt0M7/EG4zOynkVXTFlZ/Sb1JpIL6C4hsSFrWyi33QeZbg4EZozVaJIr8PL
+	 mSwNuHU9LBUarMtItZ5WOZuxvMkozRSmBpoWO9L8EdeKup4fnchO9L9RPQiJFMg/rXoKN
+	 qE3ikgnun47oDZN54yOW7tawiiCNMvipXpoIiSW94Wsi06/ZyQmOkSCazoHRDoOel2KEj
+	 M9Eikir66SgKbKjhMHfxHuA2QZC0k07TLLdIEa2QLfIS29iJBTTIhbqNgWajc2GrdIfR7
+	 oiFeQbaziGjYTGC3y+vgXttt/3j6Fs2bUOpLjHxNc7aKFP7Akfmiwmnl8h51naKST0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795771525;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795771532;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=ksU77zdRcGEkDaOL3bOMHybdYo8q9JOlRC2jOXpEIBg=;
-	b=SE3oNq8RGBVIlBKVsMIuYGqgqbpoFJ86CleqP10qOxlAVCnodrIP1I3K3E7etOOboNlx
-	 +8CSyS0g48ywhPiR0C3h/dnd5W68m62uJxSAxS6sHj9d72KFd5X+huWnU8iNn0INYIjOj
-	 ZZ5FijHJCmnILenuM+lNnXHMfG6jkriCGJbHcwepe2zZ8GWtvxTngLK71zhDW2zyudhZl
-	 kv0fgxc8PLoS5DU2h5dHOUXo8Ufn5XWnAC/SzjDJ24lN6VrenXiH4FTJDjoGdc/3yy+9Y
-	 UluD8ldFEXSTBLQDxja5ShLAujL8NkS7cbQuytbgosbsWtzrHjKVKXVZH6MGGr3PCvA==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=lkg78SVa1VvZWM1qpB5F09DE1jX0V7/77oNZYtMWp3Q=;
+	b=YdZIqmIvwiQ9Y746dtlKGliu3/ysnuwacEkoav2+g/Aym+TQ9BvWTt/0FCQ6Hch3Xj8p
+	 MDOv1EjXjoox1I+y7bTo3Lzddi9+WZNnsp7P9Yw+cKiNHXSFdnqBgJ+XbsseOSEGqmDMr
+	 3jF8ew4GKsK9utXALkMTSJ70OxDDOsajIZwtMfiBIeZG1QHwyWHDmLF+YRbjSa+0+24N6
+	 V+g326PXDnPZWnPeK59yjdJ2yCAtXvgte6mbqB2OAIsCwxoXrW8A087pm0t5JGjKG4BCr
+	 nIZBZ9Sz3JdJYg1OvhTvh82x9jpc24J0TUIFZ440KOTvbNrmTczGRh+K7ZaTkkfsyqg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M0ibVAZ6;
-	arc=none smtp.remote-ip=74.125.225.139
-Received: from mail-wm2-f11.google.com (mail-wm2-f11.google.com [74.125.225.139])
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=fB21m6RG;
+	arc=none smtp.remote-ip=209.85.221.46
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44491606A321
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:25:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44491606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7F9C606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:25:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7F9C606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M0ibVAZ6
-Received: by mail-wm2-f11.google.com with SMTP id 5b1f17b1804b1-4a5f76661b5so28073475e9.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:25:24 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=fB21m6RG
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-490f38e9688so5443753f8f.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:25:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795771522; x=1796376322; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ksU77zdRcGEkDaOL3bOMHybdYo8q9JOlRC2jOXpEIBg=;
-        b=M0ibVAZ6C8OVUcl4EI3ZlwCkK+mJiNzkqZyIXFFvE9whZuTyfP3GfAqPNRZvSsHZRK
-         a3jDqgoFRFx9K/6vSiN1XtgUuixndOQauEmL7L4l+Vk5Ol+/UzLC5Yxh6Yb8TPCodR7R
-         1GhUAe5fGwTYfTmdIu4vda6wkEJJaTC5PvI4x19Ph5CL5Vn5PUoD0cd3ZL7DbYkBqUEN
-         MwSfWa6P0eWJcg6tp3puClL9opzAeEFE0QUiWYji+Ki1tJ2CWqaIo6B7aTOVWVRpcmPz
-         zpPo5GtMhg5iX8ucz1JjNsVITHX9zaji02AfCRkJoIZJ0Feibvw4xh0yKi/TYG3++f/W
-         g16Q==
+        d=suse.com; s=google; t=1795771530; x=1796376330; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=lkg78SVa1VvZWM1qpB5F09DE1jX0V7/77oNZYtMWp3Q=;
+        b=fB21m6RGRDcXRPyA/EBWMigyLQqGvB9zRj4XIHuXhCVyQcR2j3cAdoXL1vdtAPHZYS
+         hS+m+8gmxxeRkDwrw/pZ9Md7n9nG2mdKYahjAc7tyYfLolUm8zYFp57jl/M87odQ3sRE
+         p2W74AHXknKXYHrT1pzS34oootQtiwZzJ8tPOU3YBWgUW5fr3OlS21JdfBNCc27cgCop
+         74BBYtir0B58DN6k2tz8VO/xfnJVQ/VYkusqK6tc+IGaRFilxIYjnfJTPrT/pgv7dQHU
+         PzwY5opjMzU+4ydupSppaQ0nUVbXclK8ccuRcMmKqUXRmGvrFc+edgl06X7rSw96KujF
+         MC3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795771522; x=1796376322;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ksU77zdRcGEkDaOL3bOMHybdYo8q9JOlRC2jOXpEIBg=;
-        b=K4eDahYQTh9RvcUUbjP3EJyxAp1YBSmBfu9On+rCBq7deq6u3UEKcqf/YRHFf5yS5o
-         dstZw5nw9UTg4UD6cSfkjU117h8H0lT4PAr9hfmfZufYI4Iw4Fhf+G2PRMtfylTSI/Yf
-         GXh9D4QbV1KwJThqhlfWAloKdGk1DBF59IHsaJ/qSU0Z/faWQeeircUb4PilPPAg+8vM
-         3twHjytMsiTHLMmTSOnhTmtZt5shFQt9+dQdWEYV3v1REl6DEltBpP+Sy4du5rtNM1+c
-         G/IRKOaEckNBEXGIQlMoxhnDzUOld9OM6mNtVcLKFSi3bx21Cpz+pPMvzTJpLQpl0OKw
-         NqXw==
-X-Forwarded-Encrypted: i=1; AL+hErGakGP08uSb5gt106gh4EicSZG9rLXJYF6ChgI5LwoflyLWKDAkDZ+i1igaVWxtxWgxzmpXT0O8eOc8BR0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+B5kDY2V0rcFknPXgXDjtmgd1NgQ2/TYkRECHhHgtIVuKEpkGp
-	u8esNYo6Q/g5PFGlQLsBhc4ONvhjowqGxxxwvgy48uKLKdlZt/jvQFZj
-X-Gm-Gg: AZFdTZdu2ebISf5F9mxKJa8jfjYmMNeJYJLrx5JufvMfDk8J45p+X6Cn+ksEo7oz2xy
-	iIVkKnzbVQnVZomzCtzxJoreJrW/VtFYp5Bt96dZWEOVRRd1DaHq7yp37vAwwdb2Wl+PiKJRJjw
-	9AYRRvgc89WggNMD1VmTxU7Q5RFQ48HArp28DC74BykoHeIl5fHox7MZFfN8fucOPGiL70qByXb
-	826d81+19bzf3eSLvS3RrR+SFFj8hF7GW6TMTxIrNmzwj06G+W6HqOz7wzBcbh41VA0YSiPrZ42
-	ljvOpdFPIH9jazYQZLoCurh/spbm+OOpKprnFi/XFU2moaJWT7gyLbXUtZVu7T1T0z+p9Jy8awv
-	eUuecy6I3tDmb0TiB1qM19d2dzVv5tve/NC3vP35ACqayYsNg3S3fn0XZAvYZZG099fvyAWwFX7
-	V8DgiyGCWM2aODIhU628rGkGiJwAjUQBCU3vQWFzTHmFMDp94z0ja/fFfblzRzxA3/+zCLYJpHP
-	CFgk8AnHxLnZjklxWI62bK7iaIr9MVyOUfzIBfI77zHRpkSVX/l977Qidx3QuKkjafnExH+/9Yl
-	OSTdPyFGZ6vG7wkepv6dmC7SbwxUDk8KvK7P8w==
-X-Received: by 2002:a5d:584f:0:b0:4b9:8ac3:f5fa with SMTP id ffacd0b85a97d-4b98ac3f6d5mr16755716f8f.48.1795771522353;
-        Fri, 27 Nov 2026 01:25:22 -0800 (PST)
-Received: from [192.168.1.11] ([31.94.68.154])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa397asm46609335f8f.48.2026.11.27.01.25.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 01:25:21 -0800 (PST)
-Message-ID: <2e93336e-9983-4d20-96fe-515a6b5009b2@gmail.com>
-Date: Fri, 27 Nov 2026 09:25:20 +0000
+        d=1e100.net; s=20260707; t=1795771530; x=1796376330;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=lkg78SVa1VvZWM1qpB5F09DE1jX0V7/77oNZYtMWp3Q=;
+        b=ROHHAKXH8gOCb2jW5evjSx+TSlxkYAuv8Euwete8EDpcIyDgotIgw522NQ3SwhRZsm
+         Ib7hC3zAl/m/4w7Pyptnh1DZKY/cqrBmqGlvwhNCbrwEWojFE07KWlajiSDX6gC55N4O
+         3yV5NfgM0ASEu7dRQFcspBa911+kss/BLKURHXeBjKzws+xTqpPlrBWUkBzPRxSqSyuT
+         zJBBv0SqQXGAEWj7+WKOMiH+gxfToQpM36B9ksLkbrMETGQ/nHBwYmvayWfV7b/qOq/F
+         NFfFGKpuY3PsUCwYzraiZDKmF2OIgxqOTGe5rlKkspb9tuSLquZo9eL8Vg3UTk7r4w5K
+         IumQ==
+X-Forwarded-Encrypted: i=1; AL+hErE+WRp1mrNPrYjhvHxcDhaVSSYU9zMXpZeHR7Q1SFtGC7R7MeWfXiRYfFbyd7qR74X4ubO6TMS/vXge1s8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8tJjhh2uGm2QbTi2TsuQZFoEuY1DezJN/hVL/SVZe1UWC/Z/qc
+	TsOZAj5MgkEUp4GQj/fLaKXKYNrBQTV783vK+gDMa//yLIfvZxXH2ouZCXjF7hy2oiU=
+X-Gm-Gg: AZFdTZdPshV7Hn9AXPC3ONR4xHW7ZwJHKiXjPLa6hPHSKVcPtgfCJKVmHHwwlgCGdAH
+	SNrP6yqn2BKU+f3dGPBQMu+NSGywPomn+VTSyn5DpB+iXqDBIm4c4UUU96dLx63ePeCAmFHWmu4
+	Al89/WOAvwZsi3PwcT2vv9gmTlHRcd9UuBEIWIh4d/D758yTDx6Z7HgrbBGU+nm7jIrUZXKy7Fe
+	jkjCe7yoeC2eaL1YL7th4+aRRhRb7I7Uhtxg770nNApoz6SsI1t4fQ7gyIiWhbWROh79zxKSGwF
+	+v0SY3SgTya7yIaDQpKfIjwtVfvLfUjONMkXiXf8zfcoH+D8iG37pmtN/F96Tp6niDFYUXcoMNp
+	cXi6Q6f00MGFL+h1P60gT+rYFiGFlzvSmA/P3RXK2rPIDU2VmNvu/t7UGcKxCCpekvr+hOjxAP1
+	H01v92IRoAIyDeu8GUZMj+lutxfqwJx8LdHHeIZH5WtCdKDE0QQ8pWp7IlS7EqQ01bDU5xrO0XF
+	hI0MYB32Aj6/OG9Fnn0k6xc1c5gsGhwViLYX8SiToinN8K6uFUD/f3vYCnHChuZKiPqdpOJfqjn
+	hbVsSGhH/PKMfczD3Mkjv255T5Yq/gz7itNoWP8T
+X-Received: by 2002:a05:6000:2382:b0:4a7:1fca:e537 with SMTP id ffacd0b85a97d-4abb0886cbamr47878406f8f.9.1795771529952;
+        Fri, 27 Nov 2026 01:25:29 -0800 (PST)
+Received: from localhost (109-81-21-11.rct.o2.cz. [109.81.21.11])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c4353d6sm44226033f8f.56.2026.11.27.01.25.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 01:25:29 -0800 (PST)
+Date: Fri, 27 Nov 2026 10:25:28 +0100
+From: Michal Hocko <mhocko@suse.com>
+To: Tejun Heo <tj@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Muchun Song <muchun.song@linux.dev>,
+	David Hildenbrand <david@kernel.org>, Qi Zheng <qi.zheng@linux.dev>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Jan Kara <jack@suse.cz>, Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
+	Greg Thelen <gthelen@google.com>, Greg KH <greg@kroah.com>,
+	Ming Lei <tom.leiming@gmail.com>, linux-mm@kvack.org,
+	cgroups@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RESEND] mm/vmscan: Fix legacy memcg reclaim deadlock
+ against filesystem freeze
+Message-ID: <awlMiOQjOyTH3hQR@tiehlicka>
+References: <17d0d1395c0237d201a1abb2473d51f5@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,215 +110,277 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/3] drm/amd/display: unlock secondary tile on Apple
- 4K/5K iMac panels
-To: "amd-gfx@lists.freedesktop.org" <amd-gfx@lists.freedesktop.org>
-Cc: Alex Deucher <alexander.deucher@amd.com>,
- =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
- Rodrigo Siqueira <siqueira@igalia.com>,
- Mario Limonciello <mario.limonciello@amd.com>,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-References: <07e54333-2391-4e8f-8819-fa431d981430@gmail.com>
-Content-Language: en-US
-From: Richard Lane <richardlanedev@gmail.com>
-In-Reply-To: <07e54333-2391-4e8f-8819-fa431d981430@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <17d0d1395c0237d201a1abb2473d51f5@kernel.org>
 
-On 27/11/2026 00:05, Richard Lane wrote:
-> Apple 21.5" 4K (iMac18,2, iMac19,2) and 27" 5K (iMac15,1, iMac17,1,
-> iMac18,3, Polaris-based iMac19,1) Retina iMacs expose their internal
-> panel as a 2x1 tiled display over an eDP root link and a secondary DP
-> link. At boot, the panel TCON operates in single-pipe mode and holds the
-> secondary DP link's HPD line low until unlocked via DPCD registers.
+On Thu 26-11-26 02:08:56, Tejun Heo wrote:
+> Legacy memcg reclaim has no dirty throttling, and shrink_folio_list() waits
+> for a folio that is under writeback and already marked for reclaim (case 3
+> in its comment). That wait can deadlock against a filesystem freeze:
 > 
-> Enable native tiled detection and link training for DCE < 12 Apple 4K/5K
-> Retina iMac panels:
-> - Latch the root eDP link via DPCD 0x4F1 prior to reading its EDID in
->   dm_helpers_read_local_edid() on Apple hardware (DCE < 12) so the
->   TCON exposes its full DisplayID tile properties even when Apple and
->   OpenCore Legacy Patcher (OCLP) EFI folders are absent.
-> - Point the secondary DP dc_link to the root eDP dc_link
->   (apple_tcon_peer) during EDID quirk matching on DCE < 12 iMac15,1
->   (AE01/02), iMac17,1 (AE05/06), iMac18,3 (AE11/12), iMac18,2/19,2
->   (AE19/1A), and Polaris-based iMac19,1 (AE25/26), checking
->   connector_signal since panel IDs can flip across the two links after
->   S3 wake. DCE >= 12 support for Vega-based iMac19,1, iMacPro1,1, and
->   iMac20,x is documented as TODO.
-> - Avoid falling back to DVI and latch the secondary tile via DPCD 0x4F1
->   on the root eDP link when probing the secondary link, allowing the
->   secondary link to read its EDID and populate DRM's DisplayID tile
->   properties (has_tile, tile_group, and tile_is_single_monitor).
-> - Write the 3-byte Boot Camp source table (0x04, 0x1d, 0x03) to DPCD
->   0x310 in dpcd_set_source_specific_data() to unlock the secondary tile.
-> - Unlatch both tiles (0x4F1) and clear DP_SOURCE_TABLE_REVISION (0x310)
->   and DP_EDP_CONFIGURATION_SET (0x10A) in amdgpu_dm_apple_tcon_unlatch()
->   during dm_suspend() so the TCON returns to single-pipe mode for the
->   EFI boot screen across reboots.
+> 1. A task in write() to filesystem B holds freeze protection on B, enters
+>    memcg reclaim and waits for writeback of a folio of a filesystem on a
+>    loop device backed by a file on B.
 > 
-> Signed-off-by: Richard Lane <richardlanedev@gmail.com>
+> 2. A freeze of B waits for the task to drop its freeze protection.
+> 
+> 3. The loop worker has to take freeze protection on B to write the folio out
+>    and blocks behind the freeze.
+> 
+> The same applies to any driver that writes to a file on a local filesystem
+> to serve block I/O and takes freeze protection for it.
+> 
+> Reclaim can't tell which filesystem a writeback depends on. Count the
+> superblocks that are being frozen and make the wait time out after 15
+> seconds. If one is being frozen at that point, warn and give up. Until none
+> is, treat such folios like case 2 and skip the legacy writeback throttle, so
+> that the task a freeze may be waiting for isn't held up.
+> 
+> This trades the deadlock for premature memcg OOM kills during such a freeze.
+> The wait also no longer hits the folio_wait_writeback tracepoint, and the
+> hung task detector no longer reports a task stuck in it for another reason
+> as the task wakes up every 15 seconds.
+> 
+> Fixes: e62e384e9da8 ("memcg: prevent OOM with too many dirty pages")
+> Reported-by: Christian Brauner <brauner@kernel.org>
+> Signed-off-by: Tejun Heo <tj@kernel.org>
+> Reviewed-by: Johannes Weiner <hannes@cmpxchg.org>
+> Reviewed-by: Christian Brauner (Amutable) <brauner@kernel.org>
+
+Acked-by: Michal Hocko <mhocko@suse.com>
+Thanks!
+
 > ---
->  .../gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c | 19 ++++++++++
->  .../amd/display/amdgpu_dm/amdgpu_dm_helpers.c | 35 +++++++++++++++++++
->  drivers/gpu/drm/amd/display/dc/dc.h           |  1 +
->  .../drm/amd/display/dc/link/link_detection.c  |  7 +++-
->  .../dc/link/protocols/link_dp_capability.c    |  4 +++
->  5 files changed, 65 insertions(+), 1 deletion(-)
+> This was first posted in a private thread and is resent here for the lists,
+> rebased onto the current mainline. The only other change is the added
+> Reviewed-by tags.
 > 
-> diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-> index 3d2201285888..6275a585593c 100644
-> --- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-> +++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-> @@ -1610,6 +1610,23 @@ STATIC_IFN_KUNIT void dm_destroy_cached_state(struct amdgpu_device *adev)
->  }
->  EXPORT_IF_KUNIT(dm_destroy_cached_state);
+> This is on top of v7.4-rc4-388 (25faec9ce61c). In a test with a filesystem
+> on a loop device backed by a file on another filesystem, writers to both in
+> a v1 memcg and the backing filesystem frozen and thawed in a loop, the
+> unpatched kernel deadlocks within seconds. With the patch, a stuck freeze
+> gets through in 15 to 18 seconds.
+> 
+>  fs/super.c               |    7 +++++
+>  include/linux/fs/super.h |    1 
+>  mm/filemap.c             |   22 +++++++++++++++--
+>  mm/internal.h            |    1 
+>  mm/vmscan.c              |   58 ++++++++++++++++++++++++++++++++++++++++++++---
+>  5 files changed, 83 insertions(+), 6 deletions(-)
+> 
+> --- a/fs/super.c
+> +++ b/fs/super.c
+> @@ -48,6 +48,9 @@ static int thaw_super_locked(struct supe
+>  static LIST_HEAD(super_blocks);
+>  static DEFINE_SPINLOCK(sb_lock);
 >  
-> +static void amdgpu_dm_apple_imac_unlatch(struct dc *dc)
+> +/* nr of superblocks that freeze_super() is in the middle of freezing */
+> +atomic_t sb_nr_freezing;
+> +
+>  static char *sb_writers_name[SB_FREEZE_LEVELS] = {
+>  	"sb_writers",
+>  	"sb_pagefaults",
+> @@ -2235,6 +2238,7 @@ retry:
+>  		return 0;
+>  	}
+>  
+> +	atomic_inc(&sb_nr_freezing);
+>  	sb->s_writers.frozen = SB_FREEZE_WRITE;
+>  	/* Release s_umount to preserve sb_start_write -> s_umount ordering */
+>  	super_unlock_excl(sb);
+> @@ -2249,6 +2253,7 @@ retry:
+>  	ret = sync_filesystem(sb);
+>  	if (ret) {
+>  		sb->s_writers.frozen = SB_UNFROZEN;
+> +		atomic_dec(&sb_nr_freezing);
+>  		sb_freeze_unlock(sb, SB_FREEZE_PAGEFAULT);
+>  		wake_up_var(&sb->s_writers.frozen);
+>  		deactivate_locked_super(sb);
+> @@ -2265,6 +2270,7 @@ retry:
+>  			printk(KERN_ERR
+>  				"VFS:Filesystem freeze failed\n");
+>  			sb->s_writers.frozen = SB_UNFROZEN;
+> +			atomic_dec(&sb_nr_freezing);
+>  			sb_freeze_unlock(sb, SB_FREEZE_FS);
+>  			wake_up_var(&sb->s_writers.frozen);
+>  			deactivate_locked_super(sb);
+> @@ -2278,6 +2284,7 @@ retry:
+>  	WARN_ON_ONCE(freeze_inc(sb, who) > 1);
+>  	sb->s_writers.freeze_owner = freeze_owner;
+>  	sb->s_writers.frozen = SB_FREEZE_COMPLETE;
+> +	atomic_dec(&sb_nr_freezing);
+>  	wake_up_var(&sb->s_writers.frozen);
+>  	lockdep_sb_freeze_release(sb);
+>  	super_unlock_excl(sb);
+> --- a/include/linux/fs/super.h
+> +++ b/include/linux/fs/super.h
+> @@ -234,6 +234,7 @@ int freeze_super(struct super_block *sup
+>  		 const void *freeze_owner);
+>  int thaw_super(struct super_block *super, enum freeze_holder who,
+>  	       const void *freeze_owner);
+> +extern atomic_t sb_nr_freezing;
+>  
+>  int sb_init_dio_done_wq(struct super_block *sb);
+>  
+> --- a/mm/filemap.c
+> +++ b/mm/filemap.c
+> @@ -1245,8 +1245,8 @@ static inline bool folio_trylock_flag(st
+>  	return true;
+>  }
+>  
+> -static inline int folio_wait_bit_common(struct folio *folio, int bit_nr,
+> -		int state, enum behavior behavior)
+> +static inline int folio_wait_bit_common_timeout(struct folio *folio, int bit_nr, int state,
+> +		enum behavior behavior, long timeout)
+>  {
+>  	wait_queue_head_t *q = folio_waitqueue(folio);
+>  	int unfairness = sysctl_page_lock_unfairness;
+> @@ -1324,7 +1324,9 @@ repeat:
+>  			if (signal_pending_state(state, current))
+>  				break;
+>  
+> -			io_schedule();
+> +			timeout = io_schedule_timeout(timeout);
+> +			if (!timeout)
+> +				break;
+>  			continue;
+>  		}
+>  
+> @@ -1393,6 +1395,13 @@ repeat:
+>  	return wait->flags & WQ_FLAG_WOKEN ? 0 : -EINTR;
+>  }
+>  
+> +static inline int folio_wait_bit_common(struct folio *folio, int bit_nr, int state,
+> +		enum behavior behavior)
 > +{
-> +	const u8 zeros[3] = { 0 };
+> +	return folio_wait_bit_common_timeout(folio, bit_nr, state, behavior,
+> +					     MAX_SCHEDULE_TIMEOUT);
+> +}
 > +
-> +	for (int i = 0; i < dc->link_count; i++) {
-> +		struct dc_link *link = dc->links[i];
+>  #ifdef CONFIG_MIGRATION
+>  /**
+>   * softleaf_entry_wait_on_locked - Wait for a migration entry or
+> @@ -1490,6 +1499,13 @@ int folio_wait_bit_killable(struct folio
+>  }
+>  EXPORT_SYMBOL(folio_wait_bit_killable);
+>  
+> +/* wait up to @timeout jiffies for @bit_nr to clear, true if it cleared */
+> +bool folio_wait_bit_timeout(struct folio *folio, int bit_nr, long timeout)
+> +{
+> +	return !folio_wait_bit_common_timeout(folio, bit_nr, TASK_UNINTERRUPTIBLE, SHARED,
+> +					      timeout);
+> +}
 > +
-> +		if (link->apple_imac_peer) {
-> +			core_link_write_dpcd(link, DP_SOURCE_TABLE_REVISION, zeros, 3);
-> +			core_link_write_dpcd(link, DP_EDP_CONFIGURATION_SET, zeros, 1);
-> +			core_link_write_dpcd(link, 0x4F1, zeros, 1);
-> +			core_link_write_dpcd(link->apple_imac_peer, 0x4F1, zeros, 1);
-> +			break;
+>  /**
+>   * folio_put_wait_locked - Drop a reference and wait for it to be unlocked
+>   * @folio: The folio to wait for.
+> --- a/mm/internal.h
+> +++ b/mm/internal.h
+> @@ -1276,6 +1276,7 @@ struct migration_target_control {
+>   */
+>  ssize_t splice_folio_into_pipe(struct pipe_inode_info *pipe,
+>  			       struct folio *folio, loff_t fpos, size_t size);
+> +bool folio_wait_bit_timeout(struct folio *folio, int bit_nr, long timeout);
+>  
+>  static inline bool vma_is_single_threaded_private(struct vm_area_struct *vma)
+>  {
+> --- a/mm/vmscan.c
+> +++ b/mm/vmscan.c
+> @@ -1157,6 +1157,55 @@ static bool may_enter_fs(struct folio *f
+>  }
+>  
+>  /*
+> + * Legacy memcg reclaim has no dirty throttling and waits for writeback in
+> + * shrink_folio_list() instead. That wait can deadlock against a filesystem
+> + * freeze:
+> + *
+> + * 1. A task holds freeze protection on filesystem B, e.g. in write(), enters
+> + *    reclaim and waits for writeback of a folio whose I/O ends up as a write to
+> + *    B, e.g. through a loop device backed by a file on B.
+> + *
+> + * 2. A freeze of B waits for the task to drop its freeze protection.
+> + *
+> + * 3. The write to B waits for the freeze.
+> + *
+> + * Reclaim can't tell which filesystem a writeback depends on. As a crude
+> + * workaround, memcg_wait_writeback() times out and, if any filesystem is being
+> + * frozen at that point, sets memcg_wb_wait_skip. While it is set, legacy memcg
+> + * reclaim neither waits for nor throttles on writeback, so that the task a
+> + * freeze may be waiting for isn't held up in reclaim and can drop its freeze
+> + * protection. This can cause premature memcg OOM kills.
+> + */
+> +static bool memcg_wb_wait_skip;
+> +
+> +/*
+> + * Test memcg_wb_wait_skip. It takes effect only while a filesystem is being
+> + * frozen and is cleared here once none is. A freeze that starts before it is
+> + * cleared inherits the skip.
+> + */
+> +static bool memcg_skip_wb_wait(void)
+> +{
+> +	if (!READ_ONCE(memcg_wb_wait_skip))
+> +		return false;
+> +	if (atomic_read(&sb_nr_freezing))
+> +		return true;
+> +	WRITE_ONCE(memcg_wb_wait_skip, false);
+> +	return false;
+> +}
+> +
+> +/* wait for writeback of @folio, see memcg_wb_wait_skip for the timeout */
+> +static void memcg_wait_writeback(struct folio *folio)
+> +{
+> +	while (!folio_wait_bit_timeout(folio, PG_writeback, 15 * HZ)) {
+> +		if (atomic_read(&sb_nr_freezing)) {
+> +			WRITE_ONCE(memcg_wb_wait_skip, true);
+> +			pr_warn("memcg1 writeback wait timed out during fs freeze, skipping waits, may OOM early\n");
+> +			return;
 > +		}
 > +	}
 > +}
 > +
->  static int dm_suspend(struct amdgpu_ip_block *ip_block)
->  {
->  	struct amdgpu_device *adev = ip_block->adev;
-> @@ -1677,6 +1694,8 @@ static int dm_suspend(struct amdgpu_ip_block *ip_block)
+> +/*
+>   * shrink_folio_list() returns the number of reclaimed pages
+>   */
+>  static unsigned int shrink_folio_list(struct list_head *folio_list,
+> @@ -1277,7 +1326,9 @@ retry:
+>  		 *    reclaim flag set. memcg does not have any dirty folio
+>  		 *    throttling so we could easily OOM just because too many
+>  		 *    folios are in writeback and there is nothing else to
+> -		 *    reclaim. Wait for the writeback to complete.
+> +		 *    reclaim. Wait for the writeback to complete. If
+> +		 *    memcg_wait_writeback() gives up, such folios are treated
+> +		 *    as in case 2 until no filesystem is being frozen.
+>  		 *
+>  		 * In cases 1) and 2) we activate the folios to get them out of
+>  		 * the way while we continue scanning for clean folios on the
+> @@ -1300,6 +1351,7 @@ retry:
 >  
->  	amdgpu_dm_hpd_rx_irq_work_suspend(dm);
->  
-> +	amdgpu_dm_apple_imac_unlatch(dm->dc);
-> +
->  	dc_set_power_state(dm->dc, DC_ACPI_CM_POWER_STATE_D3);
->  
->  	if (dm->dc->caps.ips_support && adev->in_s0ix)
-> diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_helpers.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_helpers.c
-> index 6192c0f6086d..0863628c9d67 100644
-> --- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_helpers.c
-> +++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_helpers.c
-> @@ -29,6 +29,7 @@
->  #include <linux/string.h>
->  #include <linux/acpi.h>
->  #include <linux/i2c.h>
-> +#include <linux/dmi.h>
->  
->  #include <drm/drm_atomic.h>
->  #include <drm/drm_probe_helper.h>
-> @@ -173,6 +174,31 @@ STATIC_IFN_KUNIT void apply_edid_quirks(struct dc_link *link, struct edid *edid,
->  		drm_dbg_driver(dev, "Force FreeSync min to 60 Hz on panel id %X\n", panel_id);
->  		edid_caps->panel_patch.force_freesync_min_hz = 60;
->  		break;
-> +	/*
-> +	 * Workaround for Apple 21.5" 4K and 27" 5K iMac 2x1 tiled panels
-> +	 * (eDP root + secondary DP). Point secondary->apple_imac_peer to root
-> +	 * so detection/suspend can latch/unlatch the TCON via DPCD; match both
-> +	 * single/tiled IDs and gate on eDP so only root sets the peer.
-> +	 * IDs (Single/Tiled): iMac15,1 (AE01/02), iMac17,1 (AE05/06),
-> +	 * iMac18,3 (AE11/12), iMac18,2/19,2 (AE19/1A), iMac19,1 (AE25/26);
-> +	 * TODO (DCE >= 12): iMac19,1/19,2 Vega, iMacPro1,1 (AE1D/1E),
-> +	 * iMac20,x (AE31/32, AE35/36).
-> +	 */
-> +	case drm_edid_encode_panel_id('A', 'P', 'P', 0xAE01):
-> +	case drm_edid_encode_panel_id('A', 'P', 'P', 0xAE02):
-> +	case drm_edid_encode_panel_id('A', 'P', 'P', 0xAE05):
-> +	case drm_edid_encode_panel_id('A', 'P', 'P', 0xAE06):
-> +	case drm_edid_encode_panel_id('A', 'P', 'P', 0xAE11):
-> +	case drm_edid_encode_panel_id('A', 'P', 'P', 0xAE12):
-> +	case drm_edid_encode_panel_id('A', 'P', 'P', 0xAE19):
-> +	case drm_edid_encode_panel_id('A', 'P', 'P', 0xAE1A):
-> +	case drm_edid_encode_panel_id('A', 'P', 'P', 0xAE25):
-> +	case drm_edid_encode_panel_id('A', 'P', 'P', 0xAE26):
-> +		if (link->connector_signal == SIGNAL_TYPE_EDP &&
-> +		    link->ctx->dce_version < DCE_VERSION_12_0 &&
-> +		    (link->link_index ^ 1) < link->dc->link_count)
-> +			link->dc->links[link->link_index ^ 1]->apple_imac_peer = link;
-> +		break;
->  	default:
->  		return;
->  	}
-> @@ -1299,6 +1325,15 @@ enum dc_edid_status dm_helpers_read_local_edid(
->  	if (link->dc->hwss.prepare_ddc)
->  		link->dc->hwss.prepare_ddc(link);
->  
-> +	if (link->connector_signal == SIGNAL_TYPE_EDP &&
-> +	    link->ctx->dce_version < DCE_VERSION_12_0 &&
-> +	    dmi_match(DMI_SYS_VENDOR, "Apple Inc.")) {
-> +		const char *product = dmi_get_system_info(DMI_PRODUCT_NAME);
-> +
-> +		if (product && str_has_prefix(product, "iMac"))
-> +			dm_helpers_dp_write_dpcd(ctx, link, 0x4F1, &(const uint8_t){1}, 1);
-> +	}
-> +
->  	dm_helpers_wait_for_edid_ready(link, ddc);
->  
->  	/* some dongles read edid incorrectly the first time,
-> diff --git a/drivers/gpu/drm/amd/display/dc/dc.h b/drivers/gpu/drm/amd/display/dc/dc.h
-> index 8471dcfe24fd..bd3857267331 100644
-> --- a/drivers/gpu/drm/amd/display/dc/dc.h
-> +++ b/drivers/gpu/drm/amd/display/dc/dc.h
-> @@ -2018,6 +2018,7 @@ struct dc_scratch_space {
->  	bool skip_implict_edp_power_control;
->  	bool forced_psr_active;
->  	enum backlight_control_type backlight_control_type;
-> +	struct dc_link *apple_imac_peer;
->  };
->  
->  struct dc {
-> diff --git a/drivers/gpu/drm/amd/display/dc/link/link_detection.c b/drivers/gpu/drm/amd/display/dc/link/link_detection.c
-> index 5b257f003f13..02c6e5874c16 100644
-> --- a/drivers/gpu/drm/amd/display/dc/link/link_detection.c
-> +++ b/drivers/gpu/drm/amd/display/dc/link/link_detection.c
-> @@ -218,7 +218,7 @@ static enum signal_type link_detect_sink_signal_type(struct dc_link *link,
->  			 * we assume signal is DVI; it could be corrected
->  			 * to HDMI after dongle detection
->  			 */
-> -			if (!dm_helpers_is_dp_sink_present(link))
-> +			if (!link->apple_imac_peer && !dm_helpers_is_dp_sink_present(link))
->  				result = SIGNAL_TYPE_DVI_SINGLE_LINK;
->  		}
->  		break;
-
-I have also discovered that this modification to link_detection.c is not needed.
-
-Richard
-> @@ -1651,6 +1651,11 @@ bool link_detect_connection_type(struct dc_link *link, enum dc_connection_type *
->  		}
+>  			/* Case 2 above */
+>  			} else if (writeback_throttling_sane(sc) ||
+> +			    memcg_skip_wb_wait() ||
+>  			    !folio_test_reclaim(folio) ||
+>  			    !may_enter_fs(folio, sc->gfp_mask) ||
+>  			    (mapping &&
+> @@ -1325,7 +1377,7 @@ retry:
+>  			/* Case 3 above */
+>  			} else {
+>  				folio_unlock(folio);
+> -				folio_wait_writeback(folio);
+> +				memcg_wait_writeback(folio);
+>  				/* then go back and try same folio again */
+>  				list_add_tail(&folio->lru, folio_list);
+>  				continue;
+> @@ -2086,7 +2138,7 @@ static void handle_reclaim_writeback(uns
+>  		 * enough for cgroupv1 writeback throttling to work
+>  		 * on a large system.
+>  		 */
+> -		if (!writeback_throttling_sane(sc))
+> +		if (!writeback_throttling_sane(sc) && !memcg_skip_wb_wait())
+>  			reclaim_throttle(pgdat, VMSCAN_THROTTLE_WRITEBACK);
 >  	}
 >  
-> +	if (*type == dc_connection_none && link->apple_imac_peer) {
-> +		core_link_write_dpcd(link->apple_imac_peer, 0x4F1, &(const uint8_t){1}, 1);
-> +		*type = dc_connection_single;
-> +	}
-> +
->  	return true;
->  }
->  
-> diff --git a/drivers/gpu/drm/amd/display/dc/link/protocols/link_dp_capability.c b/drivers/gpu/drm/amd/display/dc/link/protocols/link_dp_capability.c
-> index c487c5b87dfd..74954702c5a9 100644
-> --- a/drivers/gpu/drm/amd/display/dc/link/protocols/link_dp_capability.c
-> +++ b/drivers/gpu/drm/amd/display/dc/link/protocols/link_dp_capability.c
-> @@ -1496,6 +1496,10 @@ void dpcd_set_source_specific_data(struct dc_link *link)
->  				link->dc->vendor_signature.data.raw,
->  				sizeof(link->dc->vendor_signature.data.raw));
->  	}
-> +
-> +	if (link->apple_imac_peer)
-> +		core_link_write_dpcd(link, DP_SOURCE_TABLE_REVISION,
-> +				     (const uint8_t[]){0x04, 0x1d, 0x03}, 3);
->  }
->  
->  void dpcd_write_cable_id_to_dprx(struct dc_link *link)
 
+-- 
+Michal Hocko
+SUSE Labs
