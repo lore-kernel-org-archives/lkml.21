@@ -1,90 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795771988;
-	b=gLbfqRTK+n1Jqcou6Kd9wyRdZycbh33RrYGS6mpxokfwk+BgYTvkyhqqSlaeHZ5JY9UU
-	 NiBCC59/mn/gZFE0FgyGGDsBKcg/kkV6qhlChdwTovsXn+oPzqISZ+8UvjGr1xMqvi6d7
-	 4bySxFWVPFAJCMYXuU+YmBQCqg9KvOQbNWe9ViSfKvgvx5ozvkXGHd44dpdDa0nVwFpxt
-	 zCIrwWm90ZEJK5XCWwuFGXfzMNAWnCXFF+SpNNk8r9MZjydArN7IAYTFk5HkdjraZ1ksJ
-	 toOUNFvgebPZARU/4e+Z0aFTJIzAqv7/wI3+E0FHxv0w99s8pcpnRSO7rvF72uMXKWw==
+	t=1795772002;
+	b=n6A+npZB6h/2QsJ8uNjwbtK6QclTdlE64nt1axpdi3bBu3Ccg1jgCIk7CGq0Jtb4lu58
+	 69IXy3MLcmvKHHLEIr+jRss4SUJ/7Laa++ObzlxXlQr07Q8ltdy7idF4B8DOin8kiDPdP
+	 BwEpRgb/NUnYwTDwJgzZ9Ac7FK5zJhoaErrY5pgSj4psdVL1ke4nPay+WNL5FI8T9RyB4
+	 71XZb+WoBVtAD5Ws9ijtZXW3aeX9+aZZsKiI5U9LOujMF0qRzvdaVQlcCjuRGXEbH8jKr
+	 g1/AEOQXKQBPt9DXmnuGZVije2cP2clvZw9UZPFPMiG9XU85Yvt0mi32HJ0VTDlPRNA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795771988;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795772002;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=z0HAmZPkkL929InieJ6NG6YqendguBQ6bWYFHNZs/RU=;
-	b=ww25bHha6NlGZwoF/z1UDzCK8gun7YzJU6BUaqYHNT/pDIalcJBPfFJLi2zhY9ruV7vc
-	 TmYta7WSNEBhLNj7GgVtMa36vAZZ6wR1Oih7LCuoBkQOaHqRzbzH3tQhfxhtZm+3fB28K
-	 xTxGTHiLX9UFsddMx/HBTaijN5vRwcRgMauegS2HHCaILTXstPGgF8JALD9sojiQtYsEv
-	 uapl0NG0rNU34PSgyzx8+me2M+G5zZDxrqlX9q8+/mocOR4HRAeuJMlOVa8TvCE2PrWmH
-	 EateIvHym3yiscJtUjNh0wpSUkoMXjE/yTb7x2zE4WL8EQSrSmvUdrp2NgDYpMTCGTA==
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=A6uudOphVfwIHGV1M9Y+fTURzZzdu6IHd2WuYguba9o=;
+	b=NoWODrt5TGqaxZXCVeQbZFJJSQlxlZX6QVJlksBKYrbZCM04EHXoEnk/ZfB5ICMSCpae
+	 Isw5scwuJhqiQLBST7F+yAZB1hH98OgADg7LOaFycRuIJNrdTkI5zYWJm1FhvOryeVz+n
+	 pYlqD/x/0yJXklSKlci12F0frgQvMSVtnMb7sZEVCA75C8OTcPkYw3ney9TsrixiEkHH1
+	 e3fdbx3X+fOz+OOBigsBS5F8ufIKY+HvjeLm+SehdYaH3OU3L09HzM3cYkvRg840DaFS/
+	 cdw3jEY4A4fOyawKkW0ZACUV6bFG9TFZNP1nQtWUbIBus25PMCUyEHFtzwpFOk09ldw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=ifWl3UT8;
-	arc=none smtp.remote-ip=209.85.216.51
-Received: from mail-pj1-f51.google.com (mail-pj1-f51.google.com [209.85.216.51])
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=rUPrkvfK;
+	arc=none smtp.remote-ip=209.85.221.51
+Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4449D606A32D
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:33:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4449D606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AB3A606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:33:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5AB3A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=ifWl3UT8
-Received: by mail-pj1-f51.google.com with SMTP id 98e67ed59e1d1-3b41e5a1719so3266360a91.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:33:08 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=rUPrkvfK
+Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-48e09aa5264so4606075f8f.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:33:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795771987; x=1796376787; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=z0HAmZPkkL929InieJ6NG6YqendguBQ6bWYFHNZs/RU=;
-        b=ifWl3UT8kJyC3f8Yg4b3QS+BfKyA2HKr8euTC1I/+uN+uQQkXtfJ4P5uYL6mOrGCiK
-         xT8HVo00+UAi84XWBHgMN6GnCJORydvsIHOAFRYfCrdMCM6TFW/aoiQnNkuvOh3Y1WsD
-         q7tX63D8OywcbGPq+Hz6qR0ItSkKvgLUdAe1c=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795771987; x=1796376787;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=linaro.org; s=google; t=1795772001; x=1796376801; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=z0HAmZPkkL929InieJ6NG6YqendguBQ6bWYFHNZs/RU=;
-        b=JKJf5bZ0uJHARoV3ls8KkPAtCXa1tjXNHBWsDI2tBlCHECvkcurJJQF4whKNN3hkG8
-         ZNqTfgtdXMeZ6ywhFIz3uYgyitjMiSr+XU3IkyxG2ntGaE7V++PdV+ROaBh61dm1atg9
-         fncxHPId1syk2CDGAdZ8pFswgEVluqQrywlIfZvyxB3+EVQCaa9BEPnKooCmryfIlSm7
-         EoVF3V0plyPHrmKTXoqSWTstlzmoUWXfx7CZ52orcTH08R3Nde5eo2B3SfmhKlzwkVAu
-         M9yHB0dUIf2vXnKTP6UilRhDbj1CKsx6fdTtF0+m+gEg7TbWtcH5WNf09r/89XoRl/Md
-         UOrQ==
-X-Forwarded-Encrypted: i=1; AL+hErGyKEUeScvgRK/fYhLFC9IGVe7dgWjlDp2EDUiffpMIm1kr+w6fQ6RWI2yo/z+AZ27ecCxbS4jjwHG1RTQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9H/9g06CBDJzrkz4yuxdNl5Kr1U1j5eCWdyUaoTXYvE+Hsq5Oc
-	4jrtpFQifS8pSOa2eDolcPjLRa+FUHhX4GtvuSTG1ly7UuX6f49AWdXH7k7DidOJCI4KeUwTCmr
-	lDPOyXA==
-X-Gm-Gg: AZFdTZfu7wqNJmnrGBl7XBhzXKAEYdwSvPMGCb4qCpAGhEgh5QRtQty3YM4shcONgAo
-	1Sa1FmVjSq1iGGxtvfEhX6bBGXRDbX8mKpVJubJu0FfDkpeHtO7kxgDomJwqZV0+dVY5MyHYwsd
-	vhZ4ROw9R9aXSZ1fdmIbi/KAP2a922k001CDgGsh2XObC0dpDdZXPS26zAIey+CsQYwUoRoN8lV
-	AhwnG1qdDbxoTbkZuGTO+aLjDNVlJLew2n7H0TPz41Wdp/+rny5wKQlYAempzmRfoywHzp7NPZE
-	dvvZKhyu+0CFoUwUvwFJSyFkLM+nkJEsD7JFbiwMnZTxQlhlWC4xFDP13NrPFPAjm/z/Jdgeuf0
-	vpFw7ML4iu4RgxOUu233WvZLf3gQJYAkGlN0zkiRIQn0E63OpL5Hf+LFGg6WWhwiidv/aJECbVp
-	sdNcI2rkbcpCV/MZa6S+AfkdPD3R6vsZnIqDxbH9lRLJIPUVByqr5snLC/vVVTyvnPX8/tRG3Vk
-	6DHq/JoMx2wgm64UGMZJM5zt9QqBPRd0OjEm4kRrOqDzVau/+0AErkUECm0JJwas4so34ilBL83
-	UJUPJHtxiy7UgRhIq+56ZByOkNL1tlhTJnLgZB4diP/SvWri7GAsKurJgPuBHGtD
-X-Received: by 2002:a17:90b:3810:b0:3b1:bee2:223d with SMTP id 98e67ed59e1d1-3b41c9bc27emr22782338a91.53.1795771987386;
-        Fri, 27 Nov 2026 01:33:07 -0800 (PST)
-Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com. [74.125.82.44])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4afeaaa84sm21437812a91.10.2026.11.27.01.33.06
-        for <linux-kernel@vger.kernel.org>
+        bh=A6uudOphVfwIHGV1M9Y+fTURzZzdu6IHd2WuYguba9o=;
+        b=rUPrkvfKizuSIqNH8jAU7CLSDMtHnPWScQPWSe7vozOJCzePlZwslsVwhr2heSoEWC
+         S9ZDtpfJxfgDsC290pS5b4hhM92cDcmJd2JsC7eBnBBsFyRBFgCacsG5R5DcyKgBOwNi
+         mlgYzZS+2yfu0X+Qn09MXDM+nPR4iCL3yKb79nGiecWOAfBfBS8VqZ1IuxLA2NWr+fMb
+         rvcAUdRk3a6sHt8XeQ8M3JeOo5wYWAekUX1RLdyWhKirsBtCd7AaLBhp21NI7UxEZnHY
+         IclN7pMEHCX4g74wO4cC7iQMd7UkY0zn5nIMMVKdLiNiQQpO3uxt1ZilT9NI7zuZEVgF
+         eaLA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795772001; x=1796376801;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=A6uudOphVfwIHGV1M9Y+fTURzZzdu6IHd2WuYguba9o=;
+        b=H3htFUAV5ZuAIOxxmUKCV/NfmgRZ0WGFCDX6+ErtX/mM1b1k9FFtn9XvNzlGbOZVSY
+         qHvyl07Yf0Dpv1tDn1oGOxzT0Elf3O0bd541VrOciYs9HkZazplga2HRmXMhhMjlKNc4
+         AVGY97qoN3sYuCrpZzNItjiJDuy7sY2XhNAhOojHPkMgGyDCwW4Bjk+sFJFdI2YwISEx
+         wcB0FOj89k2X5W81zS9RvAkaMi8UVcj0QqAVk9F3ZIH36lBI4HKvQpJ0sT9pNv6HdYP3
+         bQJbzgrnJkfHUqmxz2QiDBUWuMNPJTUvWEjklYBVo/m1NcQasHUdYJae6mgWF6sXbe74
+         /CKQ==
+X-Forwarded-Encrypted: i=1; AL+hErGz3zxSPVemSg3wxe8gCJ3duTg+grGxsx8+WePzHBlXwp+bvfNXx5uWH97JRhHfieGVH+0vytA4b6XRsWg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8sPR3mfCj10GUPEVra9O4AK+9uR1RCz3pqw8mKHZQKrbvx4Mz6
+	IccDhsywWipMcF3ACoQbR5ydU0VYkzFFL0XTtXRiarEgappz4+uXI8rztdBh+grw0hM=
+X-Gm-Gg: AZFdTZeYGHOi5xlHlgNKO2PIn3gkGjI6biIykKYeXYMR/VNbcat3FDQsDGMbJjRrRLd
+	AgNTzYmRsWnoDQA9MFEKub7QpuKV0ov6FWE6S0eBLWqYKUJ3g4dVxL/gh1wnm5KB/X9iSx3jgV/
+	x9O3LPCJTlbE9ptQbS0PElaaxC4mpozJFc3V/INF3oIz859AUwqqpDUdV0ocqyLnd/AfhNO+hP0
+	PH8F5gnD+FlJcR9ivaEsMwSYHHGrKKcJjtfXJ/Amw6VkJsKADebs6y8G/yL5V2V99UQKc9TOwal
+	w5rBa6kgN4cSk0/BZ0a3uqh8h/FzXpq3wp7WD/+bRR0eOnwUtX1W8CmqirXh98RNI7wXcEHUoxc
+	bXTiuNmkwvJeOw870Yi4LRDobMdabSyyzAaH8V9whhI0HGEtvfSY6eiU3omX5PtX7Rq3wfwpych
+	iPTMT9IA1Lu14Ho5MQGjhYIY4wrjXrjeUc3mp+KBH/bkdxudAOBBka8aBtf3BKPPqsKTeec2hbQ
+	XHSo+adKIdBqrmD4QkCwINJXZiawrbg5yz6r91ymqR60ZKqhId2zT7C/8pmnuB9mFsfRw0eOiSV
+	C4jTvPeOKRR3Wqq4Djt3BI27iCKc57/drOuUpMU=
+X-Received: by 2002:a05:6000:2903:b0:4b7:70aa:4553 with SMTP id ffacd0b85a97d-4b770aa4574mr22944028f8f.38.1795772000643;
+        Fri, 27 Nov 2026 01:33:20 -0800 (PST)
+Received: from [10.11.12.111] ([79.115.63.240])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b9add26sm46450336f8f.44.2026.11.27.01.33.14
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 01:33:06 -0800 (PST)
-Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1a2761c69fbso11215786c88.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:33:06 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGlLwI4ZI7uxG/dED8CPjvoZJjfGr+TAwVrKEvLGfZkpClBtKXgnanHgfLQS8hi67oxbZG73JqwroJmutg=@vger.kernel.org
-X-Received: by 2002:a05:693c:414e:10b0:386:a1ae:6762 with SMTP id
- 5a478bee46e88-386a1ae6d5fmr20784587eec.36.1795771985456; Fri, 27 Nov 2026
- 01:33:05 -0800 (PST)
+        Fri, 27 Nov 2026 01:33:20 -0800 (PST)
+Message-ID: <41962155-e78d-46b2-a58d-45282fdf1cca@linaro.org>
+Date: Fri, 27 Nov 2026 11:33:09 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,134 +92,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com> <20260714114414.184512-38-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20260714114414.184512-38-angelogioacchino.delregno@collabora.com>
-From: Fei Shao <fshao@chromium.org>
-Date: Fri, 27 Nov 2026 17:32:28 +0800
-X-Gmail-Original-Message-ID: <CAC=S1niK0HHMLpm+i9YLTeASvhM=qDy6oD2t24pa_32wKNsuqg@mail.gmail.com>
-X-Gm-Features: Aa3M54pRArGKHVMgeqwG1e8L5StTOP94fleg1U4pb_vICTi6qu6Nmly90U-l36k
-Message-ID: <CAC=S1niK0HHMLpm+i9YLTeASvhM=qDy6oD2t24pa_32wKNsuqg@mail.gmail.com>
-Subject: Re: [PATCH v2 37/46] drm/mediatek: Prepare path builder for
- multi-controller architecture
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
-	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
-	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	matthias.bgg@gmail.com, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	justin.yeh@mediatek.com, jason-jh.lin@mediatek.com, kernel@collabora.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 00/16] spi: spi-mem: Express the dummy phase using
+ cycles when relevant
+To: Miquel Raynal <miquel.raynal@bootlin.com>, Mark Brown
+ <broonie@kernel.org>, Liang Yang <liang.yang@amlogic.com>,
+ Feng Chen <feng.chen@amlogic.com>, Xianwei Zhao <xianwei.zhao@amlogic.com>,
+ Han Xu <han.xu@nxp.com>, Conor Dooley <conor.dooley@microchip.com>,
+ Valentina Fernandez <valentina.fernandezalanis@microchip.com>,
+ Daire McNamara <daire.mcnamara@microchip.com>,
+ Haibo Chen <haibo.chen@nxp.com>, Jyan Chou <jyanchou@realtek.com>,
+ Yu-Chun Lin <eleanor.lin@realtek.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>,
+ Takahiro Kuwano <takahiro.kuwano@infineon.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Alvin Zhou <alvinzhou@mxic.com.tw>, Cheng Ming Lin
+ <chengminglin@mxic.com.tw>, linux-spi@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org,
+ imx@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org
+References: <20261125-macronix-upstreaming-spi-mem-cycles-v1-0-fd036402fd37@bootlin.com>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20261125-macronix-upstreaming-spi-mem-cycles-v1-0-fd036402fd37@bootlin.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Tue, Jul 14, 2026 at 7:46=E2=80=AFPM AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
->
-> In preparation for adding support for the new display controllers
-> featuring multi-controller w/DirectLink architecture, expand the
-> path builder to recognize whether a hardware component in display
-> controller related output path is getting its input from internal
-> or from any external (to itself, but still internal to the SoC)
-> display controller component.
->
-> When an output path is found, it is also necessary to understand
-> the enablement order (in terms of mmsys/mutex other than PM) of
-> the controllers, as that cannot be done randomly: for this, the
-> initial path builder will start storing an indication to whether
-> a component is either in a leader or in a follower controller,
-> and then a new function mtk_drm_set_path_orders(), called when
-> binding all components, when initializing KMS, takes care of the
-> looping through the path and setting up the order between all
-> of the follower display controllers.
->
-> As of this point, no multi-controller SoCs are introduced yet,
-> so this code will not bring any functional change on any of the
-> currently supported SoCs / display controllers.
->
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
-> ---
->  drivers/gpu/drm/mediatek/mtk_ddp_comp.c   |   2 +
->  drivers/gpu/drm/mediatek/mtk_ddp_comp.h   |   2 +
->  drivers/gpu/drm/mediatek/mtk_drm_drv.c    | 374 ++++++++++++++++++++--
->  drivers/gpu/drm/mediatek/mtk_drm_drv.h    |   2 +
->  drivers/gpu/drm/mediatek/mtk_drm_legacy.c |   3 +-
->  5 files changed, 351 insertions(+), 32 deletions(-)
->
-[snip]
-> diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/med=
-iatek/mtk_drm_drv.c
-> index cccdd58b848a..75b3fd56d6af 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-> @@ -185,17 +185,26 @@ static int mtk_drm_match(struct device *dev, const =
-void *data)
->  static bool mtk_drm_get_all_drm_priv(struct device *dev)
->  {
->         struct mtk_drm_private *drm_priv =3D dev_get_drvdata(dev);
-> -       struct mtk_drm_private *all_drm_priv[MAX_CRTC];
-> +       struct mtk_drm_private **all_drm_priv;
->         struct mtk_drm_private *temp_drm_priv;
->         struct device_node *phandle =3D dev->parent->of_node;
->         const struct of_device_id *of_id;
->         struct device_node *node;
->         struct device *drm_dev;
->         unsigned int cnt =3D 0;
-> +       bool all_privs_found;
->         int i, j;
->
-> +       dev_vdbg(dev, "Populating private data for all controllers on ID%=
-u\n",
-> +                drm_priv->data->mmsys_id);
-> +
-> +       /* Avoid variable length arrays and allocate an array of pointers=
- to privs */
-> +       all_drm_priv =3D kmalloc_array(drm_priv->data->mmsys_dev_num,
-> +                                    sizeof(struct mtk_drm_private *), GF=
-P_KERNEL);
-> +       if (!all_drm_priv)
-> +               return -ENOMEM;
 
-mtk_drm_get_all_drm_priv() returns bool. Return false here or change
-it to return an int instead.
 
-> +static void mtk_drm_set_path_orders(struct mtk_drm_private **all_drm_pri=
-vate)
-> +{
-[snip]
-> +                               /*
-> +                                * Paths are per-output: set order for th=
-e new output
-> +                                * by finding the order of the same outpu=
-t number of
-> +                                * the previous controller and incrementi=
-ng it by one
-> +                                */
-> +                               src_path =3D &src_priv->data->output_path=
-s[i];
-> +                               src_order =3D src_path->len ? src_path->o=
-rder : 0;
-> +                               if (cur_path->order <=3D src_order) {
-> +                                       cur_path->order =3D src_order + 1=
-;
-> +
-> +                                       /* Order found: check next CRTC n=
-ow! */
-> +                                       order_found =3D true;
-> +                                       break;
-> +                               }
-> +                       }
-> +               } while (!order_found && max_iterations--);
+On 11/25/26 7:51 PM, Miquel Raynal wrote:
+> This is only build tested for the moment and sent as an RFC because this
+> topic has raised a lot of questions, there may be things I have
 
-IIUC, this only works for up to a 3-controller chain, which needs at
-most 1 update (0, 1, 1 -> 0, 1, 2). When there are 4 or more
-controllers in a chain, it needs at least 2 updates (0, 1, 1, 1 -> 0,
-1, 2, 3), but the loop stops after the first update (`break` +
-`!order_found`), leaving the orders as (0, 1, 2, 1). On the other
-hand, when no updates are needed, `!order_found` spins
-`max_iterations` times unnecessarily.
-We need a loop that stops only when no more updates are needed, i.e.,
-drop `break;` and loop `while (order_found && max_iterations--)`.
+There's no ambiguity that this is the right direction, change bytes with
+cycles. As a matter of fact I tried this in the past as well, posted
+something and then couldn't allocate time for a new revision. You may try
+to search the set, if you haven't already, and check what the feedback was
+at the time.
 
-Regards,
-Fei
+Cheers.
+ta
