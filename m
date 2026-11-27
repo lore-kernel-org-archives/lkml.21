@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.38.64.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795779130;
-	b=MbZkCwBSux+Izcblx4y+luDMeaFw1LjCHlL2HfXLFN/URUpwZp2OXP3Fuv/VE+aaez7K
-	 51l6lnkyi3YnWdZz0CwbyyBT6MR8i99rB92KqTsTkX/cIIsr17pI+fzDswD7nBEaaAJ25
-	 8Y8VWsRvOkWP3XOr6ufL1XTNbyO3awt7OFbuVsYXJ5waxB2Ob3Y9d2+cEfYSE0lUWxwSe
-	 qlFPu/5DWsyJhIWGeO+e8Qr+GwXoCTLv7KIEoT1hTjxJ/66Co/F7lJGmiiO301SU9x9Y+
-	 /JCHIF/jKomJzurm0BhlKLXf5FWdV/I7PViuUyAFWoUtgEKdBJ4tTHVaBq/eKlBZ6gQ==
+	b=XBV/D1OqeJhBYxunw4gKlCD5cMmkrZ2KDNs85YaK25eyM+O4KcBVBrAumNZj7ljiNljM
+	 Q/ifolAOOX/qwEWNfDv8a696OUGujUc5qcM4gfpTEoYYDRTdYSjyiQOxgidZuVnCib1ii
+	 Zk8HiWDI5LMTGuBzl4wurZnb7LJSinskYP4pT8DNa4iaoYi+eY9t6aJQC3zd2j4vOhY7f
+	 iMCYVnhHKChX2WoyAq9ACC4IvBhvOOz9rdBCXLx8GAczUKopewVOJ1yUCXKFDYJ/e8Tg4
+	 JFj0ThrAcgZ/akSvU5+J2v54Qp10oglvjXd8g91fmg1YC8vJwwGBscwdqVyHOzsOp+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795779130;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
 	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=qj8aF0ZP6+lijN1DbZs2T3P3vWSw28XF+y1LjHI/Bns=;
-	b=YFbFNMQEXomjkylxoqTeK6Z+53SFLc0Of19g12/tf7TUQppvxXp7VlbDcp9dKH7BCEuq
-	 VIacCSo2UdZkpYbGxDhOdE6vsBFYH9qp0qv+8l59DkO8aBbsUzSyofxjKYdGbsbjHDC0V
-	 yBjK8HKJTnHwqSbRzXW7n4HHzmuMzDIpZg3Z8u01zoAfrWIFqNiB/sPvTF/GD9mqG4yyL
-	 SCF3VFriUoxOY/mW0vVChKHsiiEHi2kIyu2JmfnsRDJPaDWZokHXpTqanBAWQqy7j3qW5
-	 qsigPfxQfubZ0GxDIcjvPrCxOBAAQZZ1tMRvPC/1GIOnGaedW0jIgjQDIRQ70N5XflQ==
+	bh=s9yp4SBxO/oHO8LIQtXVK8tFMz7ppzjwdoJtbh3yIDI=;
+	b=eCgXvDnVcLQM88b2k78iR2FyKgJJHC3zJTBxPBU8T/n9bX2+jzdVU5dvMrAHBZIaaW0s
+	 i9gEaqVEzAjdFkr3YsH519Kr5ZOl8RwIKakJ3mU9Gsra7K9mb9qaIk6ix1uoI2VZfiJ8m
+	 aA0JIAdIv9HGkHzqSrFIb3xkfI6MEnVEdYkAMN2M47y+wTbBU705aQKAhfX8qemiGa4HJ
+	 PWQOKxbNf0Wd5wvrb3wv18oRhhgaONNCEPGRlupEYPnz2FUfPOdroiHrkk1UFHZHmBO+d
+	 PVxrLhyrh8OODDpOvmZ6DpY1z6aPif0/V7ng3uHSTpmRpt0jumx/4qn/cg41D2VNtRw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=mail.ustc.edu.cn;
 	spf=pass smtp.mailfrom=mail.ustc.edu.cn;
-	dkim=pass header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=Ok8TsmMg;
+	dkim=pass header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=KqYjVDkN;
 	arc=none smtp.remote-ip=202.38.64.46
 Received: from ustc.edu.cn (smtp.ustc.edu.cn [202.38.64.46])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 7B022606A324;
-	Fri, 27 Nov 2026 11:32:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B022606A324
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 0C40B606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:32:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C40B606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.ustc.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=Ok8TsmMg
+	dkim=pass (1024-bit key) header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=KqYjVDkN
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=mail.ustc.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-ID:MIME-Version:Content-Transfer-Encoding; bh=qj8aF0ZP6+
-	lijN1DbZs2T3P3vWSw28XF+y1LjHI/Bns=; b=Ok8TsmMgcasG53maLoLffHfpF2
-	K/58JfIO9I5/omZ6gxRchvs8N+SoGedURFGpRqIVk6xeXwLCZfQYw8eam/WFPnM7
-	hDUYdu3g0UKlxEjVFv5jmng1+aoipgDPwbv9d94UUfJrf+xZ9C0L4GM3rY3taTYX
-	TvJDtPPvlIXJHwlCw=
+	Message-ID:MIME-Version:Content-Transfer-Encoding; bh=s9yp4SBxO/
+	oHO8LIQtXVK8tFMz7ppzjwdoJtbh3yIDI=; b=KqYjVDkN4u/lA5PmgbjVWBJZRL
+	MBZA+NugTE24LHVqbvSSspMInLleVwlNkzCfKsoC/nHvaHEj3DOiSHWBaymzq3oT
+	e2wmZPXyHV//yZEBcewcrGfSadgKbSSy2UnSEXD7nR3g+Jr/mzl9YhxMBn2l86kS
+	tJlaqVAe7z3A+jjgg=
 Received: from xuqianhui.ustc.edu.cn (unknown [114.214.180.66])
-	by mailimap2024 (Coremail) with SMTP id 3pYKCgD3cDUvaglr7nICAQ--.938S2;
-	Fri, 27 Nov 2026 19:31:59 +0800 (CST)
+	by mailimap2024 (Coremail) with SMTP id 3pYKCgAntEgZaglrkHICAQ--.2585S2;
+	Fri, 27 Nov 2026 19:31:37 +0800 (CST)
 From: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
-To: andersson@kernel.org
-Cc: konradybcio@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org,
+To: suzuki.poulose@arm.com
+Cc: mike.leach@arm.com,
+	james.clark@linaro.org,
+	leo.yan@arm.com,
+	alexander.shishkin@linux.intel.com,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/2] arm64: dts: qcom: sm8750: describe the TNOC AMBA periphid
-Date: Fri, 27 Nov 2026 19:31:56 +0800
-Message-ID: <20261127113158.932414-1-xiaqinghuan@mail.ustc.edu.cn>
+Subject: [PATCH 0/2] coresight: add missing MODULE_DEVICE_TABLE() for CTCU and TPDA
+Date: Fri, 27 Nov 2026 19:31:35 +0800
+Message-ID: <20261127113137.931578-1-xiaqinghuan@mail.ustc.edu.cn>
 X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -63,58 +63,68 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:3pYKCgD3cDUvaglr7nICAQ--.938S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7CFyrZr1DWw17Xry5JFWfAFb_yoW8Xw1fpa
-	98Kw4DGr1kKF1vyw12gr40q342vr4ktF4Y9r1DJry7Wa15JFs0vF1akF1FgFy7CrWxWa43
-	KFWUWr1DtF97Cw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkSb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+X-CM-TRANSID:3pYKCgAntEgZaglrkHICAQ--.2585S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Aw1Uuw17Jw15uFWkKF45ZFb_yoW8Ar1UpF
+	W5K3y5Crs8GFsYvan7AF1qq3yFyw4kKr4YqFn5J3y7u3Z0vr95ZF1jka1rG3ZrGr15K34S
+	kan0qryvqFyDAaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkab7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
 	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
 	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
 	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
 	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8Jw
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
 	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lc7CjxVAaw2AFwI0_JF0_Jw1l
 	42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJV
 	WUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAK
-	I48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F
+	I48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r
 	4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY
-	6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU7PEfUUUUU
-X-CM-SenderInfo: 50ld1x5qjk3t3q6ptxnoox23vfohv3gofq/1tbiAREDB2sHyZtdggAPs6
+	6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07jYlksUUUUU=
+X-CM-SenderInfo: 50ld1x5qjk3t3q6ptxnoox23vfohv3gofq/1tbiAREDB2sHyZtdggAMs5
 
 Hi,
 
-on SM8750 the Trace NOC at 109ab000 is an AMBA device, but without
-"arm,primecell-periphid" the AMBA core reads its ID as 0x00000000, so
-coresight-tnoc (amba_ids 0x000f0c00/0x001f0c00, mask 0x00ffff00) never
-matches and the node is left as "deferred probe pending: (reason
-unknown)".  The value below is the one the driver expects for this
-integration; sm8250 describes its funnel the same way.
+both the CTCU and the TPDA driver are matched through an ID table, but
+neither exports that table, so building them as modules produces a
+module without an "of:" / "amba:" modalias.  udev cannot autoload such a
+module, and the device stays unbound until somebody loads it by hand.
 
-Changing the DTS alone is not enough: qcom,coresight-tnoc.yaml sets
-additionalProperties: false without referencing the PrimeCell schema, so
-dtbs_check rejects the property.  1/2 adds the reference the other
-CoreSight AMBA bindings use and switches the root to
-unevaluatedProperties: false, 2/2 adds the property.
+This was found on an SM8750 based phone (mainline v7.3.1,
+CONFIG_CORESIGHT_CTCU=m and CONFIG_CORESIGHT_TPDA=m):
 
-Tested on SM8750 hardware: with both patches the TNOC binds to
-coresight-trace-noc and no Coresight AMBA device remains unbound (0 of
-28), where the TNOC itself stayed unbound before.  dtbs_check on
-sm8750-mtp.dtb and
-sm8750-qrd.dtb is silent, dt_binding_check passes.
+  # lsmod | grep -c coresight_ctcu
+  0
+  # modinfo -F alias coresight-ctcu
+  (empty)
+  # modprobe coresight-ctcu && readlink -f /sys/bus/platform/devices/10001000.ctcu/driver
+  .../drivers/coresight-ctcu
+
+Five tpda devices behave the same way.  With this series applied the
+modules carry "of:N*T*Cqcom,sa8775p-ctcu" and "amba:d???F0F??" aliases,
+and on the next boot both autoload with no modules-load.d help at all:
+
+  # lsmod | grep -E 'coresight_(ctcu|tpda)'
+  coresight_ctcu         16384  0
+  coresight_tpda         24576  0
+  # for f in /sys/bus/amba/devices/*; do [ -e $f/driver ] || n=$((n+1)); done; echo $n
+  0
+
+There is no functional change for built-in builds; MODULE_DEVICE_TABLE()
+is only used for module aliases.
 
 *** AI-assistance disclosure ***
 This series was prepared with the help of an LLM coding assistant.  The
-author reviewed every line and verified the binding on hardware.
+author reviewed every line, reproduced the before/after behaviour on
+hardware and is responsible for the content.
 
 Signed-off-by: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
 
 Qianhui Xu (2):
-  dt-bindings: arm: qcom,coresight-tnoc: allow the AMBA periphid
-  arm64: dts: qcom: sm8750: describe the TNOC AMBA periphid
+  coresight: ctcu: add missing MODULE_DEVICE_TABLE()
+  coresight: tpda: add missing MODULE_DEVICE_TABLE()
 
- .../bindings/arm/qcom,coresight-tnoc.yaml     | 5 ++++-
- arch/arm64/boot/dts/qcom/sm8750.dtsi          | 1 +
- 2 files changed, 5 insertions(+), 1 deletion(-)
+ drivers/hwtracing/coresight/coresight-ctcu-core.c | 1 +
+ drivers/hwtracing/coresight/coresight-tpda.c      | 1 +
+ 2 files changed, 2 insertions(+)
 
 -- 
 2.51.0
