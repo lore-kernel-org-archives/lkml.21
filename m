@@ -1,47 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.21.61.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795794870;
-	b=WHA6cWrbS1oleuGOSJEb3xQWnmeKUY7Hu5qEmGXJtzqNFoTj73/mODPU/6YxuzJBo2eJ
-	 Qi9hH1pVAjHMI1qpJ1H4YCeHt7+a+LVFG1WB4SxR62b6VjzdB/MRP36kEjJ3um+eq6QhW
-	 8yJ+NOvFf1vDDGx0zdyWhDnQrNBMtOXKgdhN9hIZ3H/thT7lYaxQSWSAreXv1YQqWqlaM
-	 QnERlTBL6N0VbHLqWWn7fkbKzZ1k7swri+6dw2JN384Ju3o498QaqjZpSTvYyIUcUnocr
-	 wwvBIe4hwWF0agJXgv2wbbQGTYE91a4wqnxqBX5F1ST3fCq4TjVG1nH8pjkqtBLzwkA==
+	t=1795794878;
+	b=AnuwfSPv3pKaHLcrab0BFNFAZMOx/c9TWmqP/ZirbB20MufrHRERUMhGkPzanVDOR8vT
+	 T57VTcYgA+q99JvZw77ErkJvrCwiVV36e7N6RSfb3JeNB1/mkVQOd8UmS/JrtaIZHE9Di
+	 DU+wY3M+a15R/JQOXRQo5NMZKxo2fEn1/WIwjBXmQrCPyJ83jZbXSGL2vHzXJ7E9Eg3XI
+	 Bl9bZIS/TAu4LK49VZiAcBsZK5W4jn+Dj9R6L2BPbQut1C4+2dOJPLAgJgtsaenlQt4BK
+	 BGA5C6BvVD+cO98XXbSJotlwahq2KhMB0bsBbpKxrddur1B3Zt+AOUxsf4ymZ9xwi+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795794870;
-	h=DMARC-Filter:Message-ID:DKIM-Signature:Date:MIME-Version:User-Agent:
-	 From:Subject:To:Cc:References:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=SPY0tuFdVHQ7dfLz2WNvVjcy7URWN4vydjod081DBsQ=;
-	b=zCM/w4TfshWgQFAu23YjcfqDSYJEbTXNr2me1bmKycvDZsGiuRsxoj1cVCfk1gCc8grL
-	 fjqZSc1e5LbkWnJ196Xr+p8JqqgBfF05AMtOov85H/VD8IwARvo36W4LgBn3JgaDJNKa2
-	 gtUXosvv0urDilRI0oWoT0F6bt63gnwVvOm1hnCxckChw7TSHqWbNn2rShjL3m9vdI5Ai
-	 IbKGX52aoHgKEUBWsSVRJ7XBb1KiIK0RVmy+CETWV8W2lNGfShqN1T6evEDyzX5uGP78k
-	 5Md/+tZ75UMI894xMSSqAgy+e3kOg9WWx4gl58tMc1Gky9nMCrpLCMrhA8MZmAvP1/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795794878;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=qT2SmpKT42/60ZCfaDo5yzFJNJBXnuaeiR7un/Ksq+A=;
+	b=PKATDjZDFkYtwAnehrGeMFjTelpLgU4F7wgU8D9bg+MY8dmMv42l1xMOkwoZUVY+5aeb
+	 ITAPFkkiSDBRpzGmFjXV5HFZa1K5BM7wVKBckX2mFcrkRHNwKileBfyQIEPKy2iM7/xuK
+	 U3TxLih4Eo+i46kYN8UShZJk11Ar1u1kJkIFQb8IdpeNOyymplspCC34sKKVT12jLksf+
+	 gmzwOEclspRDMg4qpAcZAriy9FcjPDak2E8WDm7Se63D3BYmNmXDOt/IMOjvx2/ln1cfu
+	 qGXh/S8WM8p6eqOJXXJBvmVfkKB6rM0tYtB0CVJNEDHYYpLGCDpvDi/9TETcHd75QhQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=aliel.fr;
-	spf=pass smtp.mailfrom=aliel.fr;
-	dkim=pass header.d=aliel.fr header.i=@aliel.fr header.a=rsa-sha256 header.s=courrier-s1 header.b=RN6aIDdV;
-	arc=none smtp.remote-ip=65.21.61.41
-Received: from courrier.aliel.fr (courrier.aliel.fr [65.21.61.41])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J5ZJTfSG;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E43C9606A33A;
-	Fri, 27 Nov 2026 15:54:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E43C9606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=aliel.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=aliel.fr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0ACAF606A321;
+	Fri, 27 Nov 2026 15:54:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=aliel.fr header.i=@aliel.fr header.a=rsa-sha256 header.s=courrier-s1 header.b=RN6aIDdV
-Message-ID: <0b4f724f-eabd-4c31-ad1a-25ab5ad886ab@aliel.fr>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1795794861;
-	bh=eq4MYrvq/ToRLquDKmYljBez1teYhq+T2UM45Ird1cI=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To;
-	b=RN6aIDdVUfsldjem/lBvO/YuGuppMEFMxBRI0FeZ8SbYPX/pTt73fyqnMcZJArL2g
-	 KQslF9ndJoXso9eghBaP9QV8QPyC8gzkjBdyHlgchm2pvZQ0F2Pi+cRZ88Wi8gZYCt
-	 rPdTTfHc+EI81PeJZorcfeYoPofseHnJ7uv0A2rI=
-Date: Fri, 27 Nov 2026 16:53:49 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J5ZJTfSG
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 436F61F00935;
+	Fri, 27 Nov 2026 15:54:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795794877;
+	bh=qT2SmpKT42/60ZCfaDo5yzFJNJBXnuaeiR7un/Ksq+A=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=J5ZJTfSGwyx7YP//jUdN0TD8TP+nVbpyO3+54YaVPHZoVlgYeQL7XshMdgm9nkZ7U
+	 MvaBjId+eZjehUOUGY9mLJ7DEmj9YpVyJDnKtTZ5DhR838Z39vjDlrzqsSbo/WcdX+
+	 /UyXE9Q+yGZ8flHpV7tkCQsd0kOr0jraNL+CnCTik9uJ+PMcPOjopRqFG9g+qYGkC+
+	 zVg4sMXLrWgEhOsXEnbNqY4RKJFztkt7qFfpMk7UqYKiUa63HtJ76BdAep6/pxP5KA
+	 UnCnh0s8wxbavMjIaNIXtAZsCJWRxiuIXGJpCPlH09t+P5yDq+1OBgGhWt4Xw+fUyG
+	 8VTAfjwyIMjrw==
+Subject: Re: [PATCH net v4] net/smc: bound the DMB-nocopy send-buffer credit
+ by what was sent
+From: netdev-bot+sashiko@kernel.org
+To: piyus@iiitd.ac.in
+Cc: wenjia@linux.ibm.com, jaka@linux.ibm.com, alibuda@linux.alibaba.com,
+ tonylu@linux.alibaba.com, guwen@linux.alibaba.com, netdev@vger.kernel.org,
+ linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ kapil@presceralabs.ai, stable@vger.kernel.org
+Date: Fri, 27 Nov 2026 15:54:35 +0000
+Message-ID: <179579487576.3135.5925577471148632436@kernel.org>
+In-Reply-To: <20261126150617.2113159-1-piyus@iiitd.ac.in>
+References: <20261126150617.2113159-1-piyus@iiitd.ac.in>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,194 +65,241 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-Subject: Re: [PATCH v5 00/12] phy/drm: amlogic: Extract Meson HDMI TX PHY into
- a dedicated driver
-To: Neil Armstrong <neil.armstrong@linaro.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, dri-devel@lists.freedesktop.org,
- linux-pm@vger.kernel.org, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Ulf Hansson <ulfh@kernel.org>
-References: <20261127-meson-drm-create-hdmitx-phy-v5-0-88c43eb95468@aliel.fr>
- <446fa440-1537-4b30-8429-4d72bb70029d@linaro.org>
-Content-Language: en-US
-In-Reply-To: <446fa440-1537-4b30-8429-4d72bb70029d@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
 
-On 11/27/26 16:35, Neil Armstrong wrote:
-> On 11/27/26 16:27, Ronald Claveau via B4 Relay wrote:
->> This series moves the Amlogic Meson HDMI TX PHY handling (covering GXBB,
->> GXL, GXM, and G12A SoCs) out of the meson_dw_hdmi DRM driver and into a
->> dedicated generic PHY driver.
->>
->> Until now, meson_dw_hdmi directly manipulated the HHI system controller
->> registers (HHI_HDMI_PHY_CNTL0..5) to configure analog parameters, toggle
->> resets, and manage power states, as well as manually ungating HDMI
->> clocks and power domains already described in the DT.
->>
->> By extracting this logic into a standalone PHY driver under
->> drivers/phy/amlogic/:
->> - Hardware representation in the DT is cleaner, modeling the HDMI TX PHY
->>    as a child node of the HHI syscon referenced via standard "phys"
->>    properties.
->> - The DRM bridge driver relies on the standard generic PHY API
->>    (phy_init, phy_configure, phy_power_on/off, phy_exit) rather than
->>    touching syscon registers directly.
->> - Legacy DTs lacking the "phys" property remain supported via a
->>    temporary fallback helper (meson_hdmi_phy_create_legacy) to preserve
->>    backward compatibility to be removed on next phase of component
->>    removal.
->>
->> Overview of the series:
->> - Patches 1-3: Fix compatible matching in meson-gx-hhi-sysctrl bindings,
->>    add the new amlogic,meson-hdmi-tx-phy DT schema, and allow the
->>    "hdmi-phy" child node under the HHI syscon.
->> - Patch 4: Rename the Meson8 HDMI TX PHY driver to be more SoC generic.
->> - Patch 5: Add GXBB, GXL, GXM and G12A SoCs to the Meson HDMI TX PHY
->>    driver, implementing the HDMI PHY configuration ops, along with the
->>    temporary legacy creation helper.
->> - Patch 6: Document the optional "phys" and properties in the
->>    amlogic,meson-dw-hdmi binding.
->> - Patch 7: Make meson-ee-pwrc power up the domain memories when the
->>    domain is already on at probe time, as this is a prerequisite for
->>    dropping the explicit write from meson_dw_hdmi
->> - Patches 8-9: Clean up manual HHI clock/power-domain writes in
->>    meson_dw_hdmi (relying on runtime PM instead) and convert the driver
->>    to use the generic PHY framework.
->> - Patches 10-12: Add the "hdmi-phy" child node and wire up the "phys"
->>    phandle for G12, GXBB, and GXL Device Trees.
->>
->> Tested on:
->> - Khadas VIM1 (GXL)
->> - dtbs_check and dt_binding_check run cleanly with no new warnings.
->>
->> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
->> ---
->> Changes in v5:
->> - Add Patch 4: Rename Meson8 HDMI TX driver to prepare other SoCs
->>                 integration. Martin's review.
->> - Patch 5: Adapt the GXBB, GXL, GXM and G12A SoCs code to Patch 4.
->> - Link to v4: https://patch.msgid.link/20261123-meson-drm-create-
->> hdmitx-phy-v4-0-3fb94f5534ca@aliel.fr
->>
->> Changes in v4:
->> - Patch 2: Change commit title. Sashiko and Neil review.
->> - Patch 4: Change the phy min_rate to 15.9 MHz mathematical limit.
->>             Thanks to Sashiko's review.
->> - Patch 8: Drop introduced double free with phy_destroy.
->>             Add missing device_link_remove()
->>             Change the device_link order and use prepare/complete in the
->>             VPU drv for drm_mode_config_helper. Sashiko's review.
->> - Link to v3: https://patch.msgid.link/20261121-meson-drm-create-
->> hdmitx-phy-v3-0-f8f471788076@aliel.fr
->>
->> Changes in v3:
->> - Patch 6: reuse meson_ee_pwrc_mem_power_up() in meson_ee_pwrc_on()
->>    function.
->> - Patch 8: revert the code to v1 and add a device link to solve
->>    suspend/resume order in dpm_list.
->> - Link to v2: https://patch.msgid.link/20261120-meson-drm-create-
->> hdmitx-phy-v2-0-93d622d9bb07@aliel.fr
->>
->> Changes in v2:
->> - Patches 5,9-11: Remove unecessary "phy-names" for uniq phy.
->>                    Thanks to Neil's feedback.
->> - Add Patch 6: Power up the memories when the domain is already on.
->>                 From Sashiko's feedback.
->> - Patch 4: Add a 600MHz max_rate and a 25Mhz min_rate check and
->>             exclude PHY_HDMI_MODE_FRL for phy_validate. Thx Sashiko.
->> - Patch 8: Move phy_init in dw_hdmi_phy_init and phy_exit
->>             in dw_hdmi_phy_disable. From Sashiko review.
->> - Link to v1: https://patch.msgid.link/20261117-meson-drm-create-
->> hdmitx-phy-v1-0-9e0ac931381c@aliel.fr
->>
->> To: Rob Herring <robh@kernel.org>
->> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
->> To: Conor Dooley <conor+dt@kernel.org>
->> To: Neil Armstrong <neil.armstrong@linaro.org>
->> To: Kevin Hilman <khilman@baylibre.com>
->> To: Jerome Brunet <jbrunet@baylibre.com>
->> To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
->> To: Vinod Koul <vkoul@kernel.org>
->> To: Manivannan Sadhasivam <mani@kernel.org>
->> To: Ronald Claveau <linux-kernel-dev@aliel.fr>
->> To: David Airlie <airlied@gmail.com>
->> To: Simona Vetter <simona@ffwll.ch>
->> To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
->> To: Maxime Ripard <mripard@kernel.org>
->> To: Thomas Zimmermann <tzimmermann@suse.de>
->> To: Ulf Hansson <ulfh@kernel.org>
->> Cc: devicetree@vger.kernel.org
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: linux-amlogic@lists.infradead.org
->> Cc: linux-kernel@vger.kernel.org
->> Cc: linux-phy@lists.infradead.org
->> Cc: dri-devel@lists.freedesktop.org
->> Cc: linux-pm@vger.kernel.org
->>
->> ---
->> Ronald Claveau (12):
->>        dt-bindings: soc: amlogic: meson-gx-hhi-sysctrl: Fix compatible
->> matching in conditionals
->>        dt-bindings: phy: amlogic: document the Amlogic Meson HDMI TX PHY
->>        dt-bindings: soc: amlogic: meson-gx-hhi-sysctrl: Add hdmi-phy
->> child node
->>        phy: amlogic: rename Meson8 HDMI TX PHY driver to be SoC-generic
->>        phy: amlogic: meson-hdmi-tx: Add GXBB, GXL, GXM and G12A support
->>        dt-bindings: display: amlogic,meson-dw-hdmi: Add phys
->>        pmdomain: amlogic: meson-ee-pwrc: power up memories for boot-
->> enabled domains
->>        drm/meson: dw-hdmi: Drop manual HHI clock and memory PD setup
->>        drm/meson: dw-hdmi: Use the generic PHY framework for the HDMI
->> TX PHY
->>        arm64: dts: amlogic: Add HDMI TX PHY node for G12
->>        arm64: dts: amlogic: Add HDMI TX PHY node for GXBB
->>        arm64: dts: amlogic: Add HDMI TX PHY node for GXL
->>
->>   .../bindings/display/amlogic,meson-dw-hdmi.yaml    |   4 +
->>   .../bindings/phy/amlogic,meson-hdmi-tx-phy.yaml    |  33 ++
->>   .../soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml  |  43 ++-
->>   arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi  |   6 +
->>   arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi        |   6 +
->>   arch/arm64/boot/dts/amlogic/meson-gxl.dtsi         |   6 +
->>   drivers/gpu/drm/meson/Kconfig                      |   2 +
->>   drivers/gpu/drm/meson/meson_drv.c                  |  16 +-
->>   drivers/gpu/drm/meson/meson_dw_hdmi.c              | 223 +++++-------
->>   drivers/phy/amlogic/Kconfig                        |   9 +-
->>   drivers/phy/amlogic/Makefile                       |   2 +-
->>   drivers/phy/amlogic/phy-meson-hdmi-tx.c            | 391 +++++++++++
->> ++++++++++
->>   drivers/phy/amlogic/phy-meson8-hdmi-tx.c           | 160 ---------
->>   drivers/pmdomain/amlogic/meson-ee-pwrc.c           |  19 +-
->>   include/linux/phy/phy-meson-hdmi-tx.h              |  19 +
->>   15 files changed, 627 insertions(+), 312 deletions(-)
->> ---
->> base-commit: 6d582d78fad9d828e575ca0cdcff8ea47a77220b
->> change-id: 20261115-meson-drm-create-hdmitx-phy-4ac40a654d09
->>
->> Best regards,
->> -- 
->> Ronald Claveau <linux-kernel-dev@aliel.fr>
-> 
-> We need to get the bindings reviewed first, then PHY drivers can be merged.
-> 
-> Afterwards I'll merge the DRM patch on the next cycle, then finally the DT.
-> 
-> Neil
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-Thanks for laying out the timeline, that works great for me.
+Critical: 0 (1) · High: 0 · Medium: 1 · Low: 2
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] The new clamp makes the sndbuf_space credit depend on the
+  tasklet seeing a tx_curs_sent at least as new as every prod the peer…
+- [Low] The commit message treats the DMB-nocopy consumer cursor as
+  untrusted remote input that "nothing bounds", and the Fixes: tag sends…
+- [Low] The new comment in smc_cdc_msg_recv_action()
+  (net/smc/smc_cdc.c:392-393) says the bound preserves "the fin <= sent…
+
+Pre-existing issues:
+- [Critical] This problem wasn't introduced by this patch, but the
+  producer cursor (prod) from the same CDC message, handled in the same…
+
+--
+
+net/smc: bound the DMB-nocopy send-buffer credit by what was sent
+
+This patch changes the SMC-D DMB-nocopy path in smc_cdc_msg_recv_action().
+The sndbuf_space credit is now bounded by the bytes between tx_curs_fin and
+tx_curs_sent, and tx_curs_fin is advanced by that bounded amount instead of
+being assigned the consumer cursor the peer reported. Both cursors are
+snapshotted with smc_curs_copy() before use.
+
+Link: https://lore.kernel.org/all/179552966151.3135.8162716126718648323@kernel.org/
+
+> The peer writes that cursor into the DMB itself, so under DMB-nocopy the
+> value is remote input and nothing bounds it.  A cursor reporting more
+> consumed than this side ever sent raises sndbuf_space past
+> sndbuf_desc->len, and the assignment moves tx_curs_fin past tx_curs_sent,
+> breaking the fin <= sent <= prep order the three cursors are documented
+> with.
+
+[Severity: Low]
+Does "remote input" describe where this cursor comes from accurately?
+
+smc_ism_support_dmb_nocopy() is only true when the dibs device implements
+ops->support_mmapped_rdmb:
+
+net/smc/smc_ism.c:smc_ism_support_dmb_nocopy() {
+	/* for now only loopback-ism supports
+	 * merging sndbuf with peer DMB to avoid
+	 * data copies between them.
+	 */
+	return (smcd->dibs->ops->support_mmapped_rdmb &&
+		smcd->dibs->ops->support_mmapped_rdmb(smcd->dibs));
+}
+
+The only in-tree provider is in drivers/dibs/dibs_loopback.c:
+
+	.support_mmapped_rdmb = dibs_lo_support_dmb_nocopy,
+
+So the peer that writes the cursor is the same kernel's SMC stack. It goes
+through smcd_cdc_msg_send()->smcd_tx_ism_write()->dibs_lo_move_data().
+
+The CDC header sits at offset 0 of the DMB. smcd_buf_attach() places the
+ghost sndbuf after sizeof(struct smcd_cdc_msg), so user data written through
+sendmsg cannot overwrite the header.
+
+The peer only advances cons through recvmsg. recvmsg is limited by
+bytes_to_rcv, which comes from the prod the peer received, and that prod is
+at or behind our tx_curs_sent.
+
+As a result, diff_tx <= unconfirmed always holds and the new min_t() never
+clamps. smc_curs_add(fin, diff_tx) gives the same tx_curs_fin as the old
+assignment from local_rx_ctrl.cons. Producing the forged CDC stream
+mentioned in the notes would need kernel-level injection.
+
+Could the changelog say that this path is only reachable with loopback-ism,
+and call the change hardening? If so, is the Fixes: tag still appropriate,
+since it sends this to stable as a bug fix?
+
+> diff --git a/net/smc/smc_cdc.c b/net/smc/smc_cdc.c
+> index 32d6d03df3214..8f4351e1d4adc 100644
+> --- a/net/smc/smc_cdc.c
+> +++ b/net/smc/smc_cdc.c
+> @@ -333,6 +333,8 @@ static void smc_cdc_msg_recv_action(struct smc_sock *smc,
+>  	union smc_host_cursor cons_old, prod_old;
+>  	struct smc_connection *conn = &smc->conn;
+>  	int diff_cons, diff_prod, diff_tx;
+> +	union smc_host_cursor fin, sent;
+> +	int unconfirmed;
+>  
+>  	smc_curs_copy(&prod_old, &conn->local_rx_ctrl.prod, conn);
+>  	smc_curs_copy(&cons_old, &conn->local_rx_ctrl.cons, conn);
+
+[Severity: Critical]
+This isn't a bug introduced by this patch, but the producer cursor from the
+same CDC message is never range-checked. It is handled a few lines further
+down in smc_cdc_msg_recv_action(). Can a remote peer use it to read past
+the end of the RMB?
+
+smcd_cdc_msg_to_host() copies peer->prod.wrap and count straight from the
+DMB. On SMC-R, smc_cdc_cursor_to_host() is reached from
+smc_cdc_rx_handler(), and it only rejects backward moves:
+
+	if ((old.wrap > temp.wrap) && temp.wrap)
+		return;
+	if ((old.wrap == temp.wrap) &&
+	    (old.count > temp.count))
+		return;
+	smc_curs_copy(local, &temp, conn);
+
+Any forward prod is accepted, for example the same wrap with
+count = 0x70000000. diff_prod then approaches INT_MAX and is added to
+bytes_to_rcv without a check, even though the comment says:
+
+	atomic_add(diff_prod, &conn->bytes_to_rcv);
+	/* guarantee 0 <= bytes_to_rcv <= rmb_desc->len */
+
+If the peer also sets prod_flags.urg_data_present,
+smc_cdc_handle_urg_data_arrival() does this:
+
+	base = (char *)conn->rmb_desc->cpu_addr + conn->rx_off;
+	if (conn->urg_curs.count)
+		conn->urg_rx_byte = *(base + conn->urg_curs.count - 1);
+
+urg_curs.count is never compared against rmb_desc->len. The read happens in
+softirq context and can land up to about 2 GiB past the RMB. It either oopses
+or leaks one byte to user space through recv(MSG_OOB) in smc_rx_recv_urg().
+
+There is a second path in smc_rx_recvmsg(). There, copylen is bounded only
+by the inflated bytes_to_rcv. When copylen > rmb_desc->len, the second
+chunk is:
+
+	chunk_len = copylen - chunk_len; /* remainder */
+	chunk_len_sum += chunk_len;
+	chunk_off = 0; /* modulo offset in recv ring buffer */
+
+memcpy_to_msg() or smc_rx_splice() copies it from the start of the RMB, and
+the copy runs past the end of the buffer.
+
+Should prod be checked against rmb_desc->len, and diff_prod against the
+free space in the RMB, before either is used here?
+
+> @@ -358,16 +360,55 @@ static void smc_cdc_msg_recv_action(struct smc_sock *smc,
+>  			/* Calculate consumed data and
+>  			 * increment free send buffer space.
+>  			 */
+
+[ ... ]
+
+> +			smc_curs_copy(&fin, &conn->tx_curs_fin, conn);
+> +			smc_curs_copy(&sent, &conn->tx_curs_sent, conn);
+>  			diff_tx = smc_curs_diff(conn->sndbuf_desc->len,
+> -						&conn->tx_curs_fin,
+> +						&fin,
+>  						&conn->local_rx_ctrl.cons);
+> +			/* This difference comes from the cursor the peer
+
+[ ... ]
+
+> +			 * would move tx_curs_fin past tx_curs_sent and break
+> +			 * the fin <= sent <= prep order the three cursors are
+> +			 * documented with.
+> +			 */
+
+[Severity: Low]
+Where is the fin <= sent <= prep ordering documented? Under net/smc/, this
+new comment is the only place the phrase appears.
+
+The field comments in struct smc_connection in net/smc/smc.h only give loose
+TCP analogies and state no invariant:
+
+	union smc_host_cursor	tx_curs_prep;	/* tx - prepared data
+						 * snd_max..wmem_alloc
+						 */
+	union smc_host_cursor	tx_curs_sent;	/* tx - sent data
+						 * snd_nxt ?
+						 */
+	union smc_host_cursor	tx_curs_fin;	/* tx - confirmed by peer
+						 * snd-wnd-begin ?
+						 */
+
+Could the invariant be written down next to these fields? Otherwise, could
+this comment and the matching sentence in the changelog be reworded so they
+don't say it is documented?
+
+> +			unconfirmed = smc_curs_diff(conn->sndbuf_desc->len,
+> +						    &fin, &sent);
+> +			diff_tx = min_t(int, diff_tx, unconfirmed);
+
+[Severity: Medium]
+Can this clamp drop a legitimate credit when the sent snapshot is stale?
+
+The bound assumes this tasklet sees a tx_curs_sent at least as new as any
+prod the peer has seen. On the writer side, nothing orders those two
+stores:
+
+smcd_tx_sndbuf_nonempty()        /* holds conn->send_lock */
+  smc_tx_rdma_writes()
+    smc_curs_copy(&conn->tx_curs_sent, &sent, conn);
+      /* relaxed atomic64_set() on 64-bit */
+  smcd_cdc_msg_send()
+    smcd_tx_ism_write()
+      dibs_lo_move_data()
+        read_lock_bh(&ldev->dmb_ht_lock);    /* acquire only */
+        memcpy((char *)rmb_node->cpu_addr + offset, data, size);
+          /* publishes prod into the peer DMB */
+
+On weakly ordered architectures such as arm64, ppc and riscv, the prod store
+can become visible before the tx_curs_sent store.
+
+Suppose the peer's rx tasklet is already running on another CPU. It reads
+the new prod in smcd_cdc_rx_tsklet(), consumes the data and reports cons
+back, all before the tx_curs_sent store has propagated. The sent snapshot is
+then behind, so unconfirmed < diff_tx and min_t() drops part of the credit.
+
+local_rx_ctrl.cons has already moved, and this block only runs when
+diff_cons is non-zero. The dropped part is only credited when the peer moves
+cons again.
+
+Take a sender that fills the whole sndbuf (sndbuf_space == 0), sends it in
+one smc_tx_rdma_writes() call and blocks in smc_tx_wait(). If the snapshot
+is a full write behind, unconfirmed is 0 and nothing is credited. The peer
+has nothing more to consume, so it sends no further cons update. Does the
+sender then stall for good?
+
+The old code assigned cons directly and never read tx_curs_sent here. The
+changelog covers tearing but not the order in which other CPUs see the
+stores. The timing is very tight and this hasn't been shown on real
+hardware, but LKMM allows it.
+
+Is an smp_wmb() or a store-release needed between the tx_curs_sent update
+and publishing the CDC? Alternatively, could the bound avoid depending on
+tx_curs_sent?
 
 -- 
-Best regards,
-Ronald
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126150617.2113159-1-piyus%40iiitd.ac.in
