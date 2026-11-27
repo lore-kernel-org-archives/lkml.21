@@ -1,108 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795795845;
-	b=2UA7hRt5hUwCIdFJAz4THdEFE1pTbbQ3U8393k+guvKouRDfvNBYUC0RlpKYHSty/aZ1
-	 jLpXqLXIViwcDpLXlSUdIPXddUSYhUXUIIeGIx8NQFXzdso4mMljKitWonG6kCTbuugpz
-	 sBGvVXzOo8rHKJLT7VoxGtsDiGrdCZlZfh0TfiTydYU+frnBd9ey6cZRdMJBsbphHMhyg
-	 OU13iin33VyjSDho+hkltEhA1KwPHZR8ugRkjSGWWSrM8FY9uqZHtxrQU/M65A+iJF/E3
-	 tUKO81KjKJyssqqTDi49KXe3kDrwSWewmKe9kDKrOMkM4hc3s6EY/LMRbkHfNy8cyTA==
+	t=1795795900;
+	b=P+crO44wwwSfCCUPK0qWUo4V/SQyyzyisjCQRzA3jSr79R5weFbVkWR22CXYcOVyN6SY
+	 fZKW19RxbmGF2xjm07ADE0Ke+MVT735CYYsQ5I3fDR6OM7RBXyJkrhnloZjd6UgLX/xJe
+	 rBpQZJXQET/3IqKQfr4ztjfwqi5HhkYEL7y8d3s3gLxt2KthLzwdXQT3nMkvt9Qvz2bLa
+	 bIYuT012R9oE6E0qcx3/8/ZMb/aH8unN+KD9N6cxIfGs5SBzbL5rv0v8jMcpGTYO8bdCP
+	 KX+8vxI8U11dRliJD9bXe63TxKmnklYNycMQ+16UF9EQpknW7OCIyx2zcoB+jGpxXjw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795795845;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=iVhsmly2cOT49BUGNNoiSt8eC/rvBwIir2jFZoGobdk=;
-	b=WMCqt1CK7aXisdubVNAXNpbE5YQRAl4FgTT4Pg+Rra7XFQLL/xBxjEG7Dv4oV5nHNPEZ
-	 iwBBoDCuUnCG0ZEc2cYzxWudIoXo6jfwjmCV+FRW9zAiJxNlDWX3+jYJMJsNhcuo2mvTO
-	 y0H2eLk6iuIpJB0FmIaCgdHm6w/76JDv4BfmaMCBz2oX/imHSP5vSqlup7bHRuCbWRzM1
-	 Vzs7H2Krdu21vYbesp6/in8kIfbU68nUX4FLVuNd50PzEIKAPC33eb65kkoHaBxp4Stb/
-	 g8gvWN/sYIfh/16R03u6QU47rk4rT3dZgWdF+sYA4nofynM0llrQbwnns5ZzUbJM1kA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795795900;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=W/uBD73Bs+VF3vdBsLFmIvE7l/eSTUyGu0zKLYYM6q0=;
+	b=J0sXIFs7ypAnejOYtLRclzWP4vSA7O+Gce+r853RrAGj0ehZw8J8xQO0KdU1GXCN74ou
+	 AqOW7ofLVCkzPPCqnCu6OLu4gaobm3frrwCoE5NkCYguF7GwS39rAjA7kUlVbKVInc+Vr
+	 oLZZv4PgGQXvfaOtzEWDqSB1vqSyQa7WSVrbSzs2wYVV/QuEb3HblTAhN6D46KnJeS17u
+	 9Rm4DhGxswkWzDNQwLu3NInbo3AdYfGVK8zcWCTBT4JT+ZPmXMa5DU64v+e0AIG8jJ/Eo
+	 te5uACxKVNh9uRd+sXJZedNfnG16OqLVA7mCbwgibbRt1/9jo3JLwpGEdl8/mUj/J7A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=GisTdvnI;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QwehBCuM;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC795606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:10:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC795606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 172D1606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:11:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=GisTdvnI
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-49d05d51553so58377255e9.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:10:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795795842; x=1796400642; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=iVhsmly2cOT49BUGNNoiSt8eC/rvBwIir2jFZoGobdk=;
-        b=GisTdvnIDRCUhv3R+I2OJ0AwssL5m38E6DNw06NjxXL9Rt2ti1b5mU01ujDGI39Wch
-         dI/SW4E4vevX5f3TxBlg8fUsT312YaEiUyl1R3ulTQadSYfBbl2bOByJnjkOoPGMfg+c
-         xTo7vvZ+MEFNWDt5xJ05IPOLT+hBTG1JLadCU4mH7FH6oMNkRt3/lq1FxzzlVxtaBYAs
-         xQmRKPQpd7dd9gXi5cer2vjteUh/4trlioaMxreIlG5SRyaWT1dIcpZ0H2FFLl9EiFr9
-         xMYYi8bqixWie4TzIOcHbscp1pQGiJXKQ0EtTBaNEBCqlBqhwbGX5kr2+KEQMjUB00qT
-         YOkQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795795842; x=1796400642;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=iVhsmly2cOT49BUGNNoiSt8eC/rvBwIir2jFZoGobdk=;
-        b=yLEq2WCX1KNdn41dQh80x5MgOcqWMGUANTFAJ1nIe/LNqFmnHB5V+BeI0qjbTG6y1N
-         lnfUNcm8Awmi1dDywumQJY3Slc4pNeEgRttSkv3mTEbOIdISe/sFO9a3VQnPvsTcRe1P
-         ci2Qm954bGitHmRai2Aj0H4TG5O2QpYa9ITyVI/cyoOcW4Qxbrhh5TsI4+JRUvOS0O3f
-         RH9H+CKaepQxgGw8M5LMTx2NnToLsbBSGrmM+/BO+JzSaL+AR9C9UcJSlhcaViwxt72H
-         bozQca63jaUzZzxv932ZxMcF43Pi/xzr7EyRfobtuJqhBaXuwdzuZSODj6b1PKtjvzDz
-         Y9Lg==
-X-Forwarded-Encrypted: i=1; AL+hErG0dHy0kh37Emv9Ui7pz8pvMoeikcBcrQ3/yvq4Bt1jUTs2Nqp095Y23wAhLJ6MIMZ7t8WIWbsRauMck+M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/d63Xu37wmxG/odOn4aqYd4Xu2/BHrWrPabzS9Hjvx1mnmDKLJ
-	iSicV45FccRzu0f/9m4kzC2wO1a1heukP+7kefPjsRbzaj1tdVN1M7NE8IC0Cu4Yfe4=
-X-Gm-Gg: AZFdTZdgtvN2i4QZl9kxklsAKev1vXhl+Zkq4FsNYK1uoBuxzg5+pUiYjkeOImQZaQ0
-	HHpabc5IfeJwmH76gp8iHnYw8KEQdhR7x7wC8EgUnVNnW6hCTy9yiPxF8lqXj+vJUV7mi1Siw+d
-	1Bkk/DlINNJ96oosCnkCbJO6DpMvRXCEdcK1uUqcxALvHqpKTHMPT037sWqUp5jX0H2pV4e1BA6
-	l7FRVYk4B+qvSmjcuGbqGPAHGmTISGNozkMeygR8YkWXaUT/gbwsPgGZ+7bMl8fN6DeFcSPq6mr
-	cNepOdZCIWdNb4Ii3lPOI3fLt2C/9pjsJtRNBsYDsWBTPZpQvd1dRQ4MofPQBzLG30ImK2J9Zo4
-	q/sawrN5w3fEgsnew8MgxKwig3ZIGWEzHiHZ0Z6EMPInAd8BS/QvceqjzOOc1rKYuEdXtokMUN/
-	HIr6gtKgs3o1pf+UdIEMKGD+4GdW44Qr4rY2GqLTEdPUdSLfAk1Z7PYHXvd6/BvM6AYW1lQhI3K
-	LADQ9JNYDmPKZmst5xQkhtMJTUw8TIyzhpsNemqK1A4+dkotNx5jyZOFRiqSERQIdOppSFHjTGz
-	ztFx/ubUK8OEaZHJrxdAMzda+y2Lrc8=
-X-Received: by 2002:a05:600c:3b9e:b0:4a1:cf60:dcc3 with SMTP id 5b1f17b1804b1-4bb88820687mr578562595e9.29.1795795841986;
-        Fri, 27 Nov 2026 08:10:41 -0800 (PST)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a12acsm733027025e9.8.2026.11.27.08.10.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 08:10:41 -0800 (PST)
-Date: Fri, 27 Nov 2026 17:10:38 +0100
-From: Petr Mladek <pmladek@suse.com>
-To: binoy@vt.edu
-Cc: "Paul E. McKenney" <paulmck@kernel.org>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Miroslav Benes <mbenes@suse.cz>,
-	Joe Lawrence <joe.lawrence@redhat.com>, Song Liu <song@kernel.org>,
-	Ingo Molnar <mingo@kernel.org>, Jiri Kosina <jikos@kernel.org>,
-	rcu@vger.kernel.org, linux-kernel@vger.kernel.org,
-	live-patching@vger.kernel.org, Yafang Shao <laoar.shao@gmail.com>,
-	Jaidev Shastri <jaidevshastri@vt.edu>
-Subject: Re: [PATCH v4 2/3] livepatch: Include exiting tasks in the transition
-Message-ID: <awmrfuzTlVWgGgEM@pathway.suse.cz>
-References: <20261126-klp-series-v3-v4-0-2ad73e9c9254@vt.edu>
- <20261126-klp-series-v3-v4-2-2ad73e9c9254@vt.edu>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QwehBCuM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2818B1F000C1;
+	Fri, 27 Nov 2026 16:11:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795795899;
+	bh=W/uBD73Bs+VF3vdBsLFmIvE7l/eSTUyGu0zKLYYM6q0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QwehBCuMTmhd1fPSQbQ4deY0LnTqqo31dsZ9VRZ+dWImDxXU/quXQx2ZBBbPuwbY9
+	 NWTh+TM23AmA+2GMEuBH455Pg05ooadfNkZS7IaMbQ2CioKJ3XkAcO73HZlPN0jOQC
+	 1fweE3nMu/gBJoIPeXOsZB8243v/eHFAv3gqJbbk2aTimHkllsrIa4FwCCOGCN56zx
+	 ThEVSHKI9Pckjz0hBDLGgBYfMEqU/JkFFzcokgfEZiYAPmVsX6gJF0ldMwNN0mG/n7
+	 k8CZiDuPdx3xtr8XVFKkPjBt/x2kjAAgMdX0lBw+WgEYgyo26rN2t247ehJfec6vK7
+	 FnqxskU/bMCxA==
+Date: Fri, 27 Nov 2026 17:11:36 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: =?utf-8?B?TcOgeGlt?= Pedraza Padilla <maximpedraza@gmail.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <jesszhan0024@gmail.com>, 
+	Jyri Sarha <jyri.sarha@iki.fi>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH 3/4] drm/tilcdc: Implement state readout support
+Message-ID: <awme8rFbamSrpyoQ@houat>
+References: <20261116142707.1299360-1-maximpedraza@gmail.com>
+ <20261116142707.1299360-4-maximpedraza@gmail.com>
+ <avs2dagfmQkv00H0@houat>
+ <20261118212114.150992-1-maximpedraza@gmail.com>
+ <20261124141119.441163-1-maximpedraza@gmail.com>
+ <e58a5ff5-9c1b-40cc-a65d-c7fbfdaf18d1@ideasonboard.com>
+ <awazkzDVZtpUsdQb@houat>
+ <d9a10f1f-7550-49ee-9085-6ad4c662080d@ideasonboard.com>
+ <awbOkmmNIp2ng97n@houat>
+ <4d93a4af-9e57-4394-913f-4f861e3e7954@ideasonboard.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,371 +72,322 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="cmhg4wk6rut72ne3"
 Content-Disposition: inline
-In-Reply-To: <20261126-klp-series-v3-v4-2-2ad73e9c9254@vt.edu>
-
-On Thu 2026-11-26 11:41:33, Binoy Ravindran via B4 Relay wrote:
-> From: Binoy Ravindran <binoy@vt.edu>
-> 
-> The transition walks tasks with for_each_process_thread(). A
-> self-reaping task is unhashed in exit_notify() but keeps running the rest
-> of do_exit(), so the walk never sees it. The transition can then
-> complete, and with atomic replace the previous patch module can be
-> freed, while that task is still executing, or about to return into, the
-> previous module's copy of a patched function. This is the race discussed
-> in the thread linked below.
-
-I would use [1] to reference the discussion, see below.
-
-> An exiting task is on an RCU-tasks exit list from exit_tasks_rcu_start(),
-> before exit_notify(), until exit_tasks_rcu_finish(). Make every step of
-> a transition also visit the tasks on these lists, using the helpers from
-> the previous patch.
-
-I would start another paragraph here.
-
-> klp_init_transition(), klp_start_transition(),
-> klp_complete_transition(), klp_reverse_transition() and
-> klp_force_transition() only set fields and flags. They walk the exit
-> lists in place, under tasklist_lock, and skip tasks that are still
-> hashed, so that each task is visited exactly once.
-
-I was confused by the meaning of "tasks still hashed".
-
-Later I realized that it pointed to __unhash_process() function.
-I heard about this function for the first time. I have never
-met a term "hashed process" before. I never needed to study pids this
-deeply.
-
-Honestly, I think that "hashed task" is a term invented by LLMS.
-It does not mean much. It is just a "poorly" chosen helper
-function name in kernel/exit.c. There is no counter part
-in kernel/fork.c...
-
-Instead, I would write something like: "skip tasks which are still
-accessible via the for_each_process_thread() walk, so that each
-task is visited only once."
-
-BTW: Would it hurt to process the same task twice?
-
-     I think that it should not be a big deal. It looks like an
-     optimization. But the dependence between pid_alive(),
-     for_each_process_thread(), and task_list lock is pretty
-     tricky. I am not sure if it is worth relying on it.
-
-Also I would start another paragraph here.
-
-> klp_try_complete_transition() may inspect a task's stack, so it takes a
-> snapshot with a reference on each task. If the snapshot cannot be
-> allocated, or more tasks start exiting than it has room for, the
-> transition is treated as incomplete and retried. An exiting task must
-> therefore switch, like any other task, before the transition can
-> complete.
-> 
-> Fixes: d83a7cb375ee ("livepatch: change to a per-task consistency model")
-> Link: https://lore.kernel.org/all/20250127063526.76687-1-laoar.shao@gmail.com/
-
-This points to the cover letter of a patchset. Many things were
-discussed there. It might be better to mention here the mail
-where the discussion about livepatching do_exit() started.
-
-Also I would use:
-
-[1] https://lore.kernel.org/...
-
-instead of "Link: " so that [1] can be used as a reference in
-the text above.
-
-> Assisted-by: Claude:claude-opus-5-5
-
-This is not needed.
-
-> Signed-off-by: Binoy Ravindran <binoy@vt.edu>
-> --- a/kernel/livepatch/transition.c
-> +++ b/kernel/livepatch/transition.c
-> @@ -74,6 +75,54 @@ static void klp_synchronize_transition(void)
->  	schedule_on_each_cpu(klp_sync);
->  }
->  
-> +/*
-> + * Tasks past exit_notify() are off the task list but still run do_exit() and its
-> + * callees, possibly from this patch's or a replaced patch's code, so the
-> + * transition must cover them too. The try step inspects stacks, which needs a
-> + * reference on each task, so klp_try_switch_exiting_tasks() works on a
-> + * snapshot of the exit lists.
-> + *
-> + * The other steps run with tasklist_lock held and skip tasks that are still
-> + * hashed, so every task is visited exactly once: an exiting task can be on
-> + * both lists until release_task() unhashes it.
-
-I would be more explicit here.
-
-  * Important: Both for_each_process_thread() and rcu_tasks_exit_list
-  *	must be traversed under tasklist_lock. It prevents calling
-  *	__unhash_process() so that pid_alive() can be used to detect
-  *	whether the task has already been proceed in
-  *	for_each_process_thread() cycle.
-
-But as I have said, I am not sure of it is worth it.
-
-> + */
-> +static void klp_exiting_init(struct task_struct *t, void *arg)
-> +{
-> +	if (pid_alive(t))
-> +		return;	/* still on the task list: already visited */
-> +	t->patch_state = *(int *)arg;
-> +}
-> +
-> +static void klp_exiting_start(struct task_struct *t, void *arg)
-> +{
-> +	if (pid_alive(t))
-> +		return;	/* still on the task list: already visited */
-> +	if (t->patch_state != klp_target_state)
-> +		set_tsk_thread_flag(t, TIF_PATCH_PENDING);
-> +}
-> +
-> +static void klp_exiting_complete(struct task_struct *t, void *arg)
-> +{
-> +	if (pid_alive(t))
-> +		return;	/* still on the task list: already visited */
-> +	clear_tsk_thread_flag(t, TIF_PATCH_PENDING);
-> +	t->patch_state = KLP_TRANSITION_IDLE;
-> +}
-> +
-> +static void klp_exiting_clear_pending(struct task_struct *t, void *arg)
-
-The name of other callbacks seems to follow the name of the function
-where they are called. This one is called in klp_reverse_transition()
-so I would call it:
-
-	klp_exiting_reverse();
-
-> +{
-> +	if (pid_alive(t))
-> +		return;	/* still on the task list: already visited */
-> +	clear_tsk_thread_flag(t, TIF_PATCH_PENDING);
-> +}
-> +
-> +static void klp_exiting_force(struct task_struct *t, void *arg)
-> +{
-> +	if (pid_alive(t))
-> +		return;	/* still on the task list: already visited */
-> +	klp_update_patch_state(t);
-> +}
-
-That said, the names look a bit confusing. It feels like these
-callbacks are initializing, starting, completing, ... some exit.
-
-I would use:
-
-   + prefix: "klp_exit_task_*" to make it more clear
-	that it is manipulating a task in some exit state.
-
-   + same suffix as the caller, .e.g "init_transition" to
-	make it clear which stage of the transition it
-	manipulates.
-
-So, rename:
-
-  + klp_exiting_init	 -> klp_exit_task_init_transition
-  + klp_exiting_start	 -> klp_exit_task_start_transition
-  + klp_exiting_complete -> klp_exit_task_complete_transition
-  ...
+In-Reply-To: <4d93a4af-9e57-4394-913f-4f861e3e7954@ideasonboard.com>
 
 
-> +
->  /*
->   * The transition to the target patch state is complete.  Clean up the data
->   * structures.
-> @@ -123,6 +172,7 @@ static void klp_complete_transition(void)
->  		WARN_ON_ONCE(test_tsk_thread_flag(task, TIF_PATCH_PENDING));
->  		task->patch_state = KLP_TRANSITION_IDLE;
->  	}
-> +	rcu_tasks_visit_exiting(klp_exiting_complete, NULL);
->  	read_unlock(&tasklist_lock);
->  
->  	for_each_possible_cpu(cpu) {
-> @@ -419,6 +469,35 @@ static void klp_send_signals(void)
->  	read_unlock(&tasklist_lock);
->  }
->  
-> +/*
-> + * Try to switch every task on the exit lists. Returns false if one of them
-> + * could not be switched yet, or if the snapshot could not be taken in full.
-> + */
-> +static bool klp_try_switch_exiting_tasks(void)
-> +{
-> +	struct task_struct **xt;
-> +	bool complete = true;
-> +	int i, n, max;
-> +
-> +	/*
-> +	 * Size the array from a count taken now, plus slack for tasks that
-> +	 * start exiting before the copy is made. If even more arrive, report
-> +	 * an incomplete walk: klp_try_complete_transition() runs again later.
-> +	 */
-> +	max = rcu_tasks_snapshot_exiting(NULL, 0) + 64;
-> +	xt = kvmalloc_array(max, sizeof(*xt), GFP_KERNEL);
-> +	if (!xt)
-> +		return false;
-> +	n = rcu_tasks_snapshot_exiting(xt, max);
-> +	for (i = 0; i < min(n, max); i++) {
-> +		if (!klp_try_switch_task(xt[i]))
-> +			complete = false;
-> +		put_task_struct(xt[i]);
-> +	}
-> +	kvfree(xt);
-> +	return complete && n <= max;
-> +}
+--cmhg4wk6rut72ne3
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [RFC PATCH 3/4] drm/tilcdc: Implement state readout support
+MIME-Version: 1.0
 
-I did not check this function. I think that we will do it another way,
-see my reply to the 1st patch.
+On Wed, Nov 25, 2026 at 04:55:51PM +0200, Tomi Valkeinen wrote:
+> Hi,
+>=20
+> On 25/11/2026 14:21, Maxime Ripard wrote:
+> > On Wed, Nov 25, 2026 at 01:43:55PM +0200, Tomi Valkeinen wrote:
+> > > Hi,
+> > >=20
+> > > On 25/11/2026 12:11, Maxime Ripard wrote:
+> > > > On Tue, Nov 24, 2026 at 04:38:43PM +0200, Tomi Valkeinen wrote:
+> > > > > Hi,
+> > > > >=20
+> > > > > On 24/11/2026 16:11, M=E0xim Pedraza Padilla wrote:
+> > > > > > On Wed, Nov 18, 2026 at 10:21:14PM +0100, M=E0xim Pedraza Padil=
+la wrote:
+> > > > > > > Makes sense, I'll use the same approach in tilcdc, and see if=
+ it can be
+> > > > > > > turned into a common helper along the way.
+> > > > > >=20
+> > > > > > A follow-up on this one, now that I've rebased on v9. I ended u=
+p doing
+> > > > > > it differently, so I'd rather explain why before sending the ne=
+xt
+> > > > > > version.
+> > > > > >=20
+> > > > > > The tidss approach rounds the clock to the closest standard ref=
+resh rate.
+> > > > > > Panels driven by tilcdc often don't use one: with the timings f=
+rom its
+> > > > > > datasheet, the panel on this board runs at 56.8 Hz (33.3 MHz), =
+which would
+> > > > > > be read back as 60 Hz and 35.19 MHz. The adopted mode would the=
+n never
+> > > > > > match the panel mode, even with U-Boot programming exactly the =
+same one.
+> > > > >=20
+> > > > > I felt that approach was a bit odd (and if I recall right, failed=
+ with my
+> > > > > OLDI panel), and in my tidss version I just used the clock rate d=
+irectly
+> > > > > from the clk_get_rate() (see dispc_vp_readout_mode):
+> > > >=20
+> > > > The problem is that you're losing information when setting the cloc=
+k.
+> > > > Especially for panels where you don't really have an established se=
+t of
+> > > > pixel clocks, the clock is very likely to not be able to give the e=
+xact
+> > > > frequency you asked for.
+> > > >=20
+> > > > So when you're reading the clock frequency, the mode you're reading=
+ and
+> > > > the one you'd set at first modeset will not necessarily match, so y=
+ou
+> > > > need to take that difference into account and try to get back on yo=
+ur
+> > > > feet.
+> > >=20
+> > > If I understand correctly, your code in tidss is trying to guess the =
+pclk
+> > > rate in (say) the simple-panel driver via assuming the refresh rate i=
+s one
+> > > of the standard ones?
+> >=20
+> > Yes, and I have yet to see a panel that would have a refresh rate that
+> > isn't one of the standard ones.
+>=20
+> They often have quite wide ranges, and don't define clear nominal timings
+> and refresh rate. But I agree, almost always one can have a 60Hz timing w=
+ith
+> them.
+>=20
+> That doesn't mean our panel/bridge drivers would define such neat clocks.=
+ In
+> my experience, the panel's timings are often based on X, which probably is
+> something that happened to work on one platform, and was good enough. Tho=
+se
+> can be fixed to result timings close to the 60 Hz, but then we risk break=
+ing
+> the panel for some platforms.
 
->  /*
->   * Try to switch all remaining tasks to the target patch state by walking the
->   * stacks of sleeping tasks and looking for any to-be-patched or
-> @@ -450,6 +529,8 @@ void klp_try_complete_transition(void)
->  		if (!klp_try_switch_task(task))
->  			complete = false;
->  	read_unlock(&tasklist_lock);
-> +	if (!klp_try_switch_exiting_tasks())
-> +		complete = false;
->  
->  	/*
->  	 * Ditto for the idle "swapper" tasks.
-> @@ -489,6 +570,13 @@ void klp_try_complete_transition(void)
->  	/* Done!  Now cleanup the data structures. */
->  	klp_resched_disable();
->  	patch = klp_transition_patch;
-> +	/*
-> +	 * A task can leave the exit lists unswitched after the snapshot. It
-> +	 * runs with preemption disabled until its final switch, so wait until
-> +	 * every CPU has switched context.
+I don't think we should accomodate those. If the pixel clock is not
+properly defined, then we need to fix the panel. And if some panel
+drivers make some controllers to setup something wrong, then we need to
+fix the controller too.
 
-Just imagine that you see this comment 2 years from now without
-the fresh context. "exit list" sounds a bit vague. Also "the snapshot"
-is a term that was not mentioned anywhere else.
+And it's not like having an off pixel clock is harmless, at the very
+least it means that the vblank interrupts don't get send at their
+expected frequency anymore.
 
-I would be more precise. I suggest something like:
+It would sound like a much better solution to me to have something that
+takes a display_timing and adjust the blanking periods and / or the
+porches within their acceptable range to make sure we always have the
+right refresh rate despite having a rounded clock.
 
-	* There might still be tasks which were already removed from
-	* rcu_tasks_exit_list and were not checked above. They run with
-	* the preemption disabled until they finally stop in TASK_DEAD state.
-	* Make sure that they stopped running and will never run again.
+> Bridge drivers can also adjust the adjusted_mode's clock when they have
+> special needs (DSI).
+>=20
+> > > I don't think that works... Even if the target refresh rate in the pa=
+nel
+> > > driver is close to (or exactly) those standard ones, it won't be the =
+same
+> > > clock rate except by luck. And u-boot may have a different PLL calcul=
+ation,
+> > > or different pclk in its dtso.
+> > >=20
+> > > I think the u-boot part should be fixed just by "fix your bootloader"=
+: if
+> > > you want SRO to work, make your bootloader use the same videomode (in=
+cluding
+> > > pclk) as the kernel.
+> > >=20
+> > > But even then it won't work. If the simple panel states pclk as 150.2=
+74 MHz,
+> > > it will cause the HW to set 150.0 MHz, and the SRO in this series will
+> > > calculate 150.124675 MHz. This will cause a full modeset, and also th=
+e SRO
+> > > check will given an error.
+> >=20
+> > Not really, because it will try to match the closest, and then try to
+> > keep that within a defined tolerance. So, in your example, if the
+> > expected pclk is 150.274MHz, and what's programmed in hardware is 150MHz
+> > (which also is the closest pick we can find), then it will be happy with
+> > 150MHz.
+>=20
+> What will be happy?
+>=20
+> *ERROR* crtc-0 configuration mismatch in mode expected "1920x1200": 60
+> 150274 1920 1952 2004 2028 1200 1224 1232 1235 0x48 0x0, got "1920x1200":=
+ 60
+> 150124 1920 1952 2004 2028 1200 1224 1232 1235 0x40 0x5
 
-Now the question is why we need to call it here and not,
-for example, in klp_start_transition() or klp_reverse_transition().
+Can you share more about what is going on here? What frequency is setup
+by U-Boot? is happening only for the first modeset, or all the others?
+Is the rounding of the clock similar between u-boot and the kernel?
 
-IMHO, we need it here to avoid removing the ftrace trampolines and
-the livepatch module when the code still might be in use.
+> > And let's turn this around: what happens if your expected pclk is
+> > 150.274MHz, and the actual rate programmed by u-boot is, say, 124MHz?
+> >=20
+> > Should we do a modeset then?
+>=20
+> If clk_set_rate(150274000) results in pclk of 124MHz, then it's the corre=
+ct
+> mode, no modeset needed. There are cases like that, but I'm fine with not
+> targeting them at least initially.
 
-BTW: Do we need it in all situations, for example, when the 1st
-     livepatch gets enabled? In this case, nothing is removed.
+No it's not the correct mode, it's completely off, a bootloader bug, and
+the best thing the kernel needs to be doing is go through a new modeset
+to fix it.
 
-Anyway, we should explain in the comment why exactly we need
-the synchronization here.
+> > It's also a matter of consistency within the framework. The framework
+> > expects the "ideal" mode everywhere. How is the pclk actually programmed
+> > isn't tracked anywhere. So, if you have a regular modeset, we'd have
+> > mode and adjusted_mode have the "ideal" pclk, but in the case of SRO
+> > we'd have the actual one, possibly forever?
+>=20
+> With regular modeset, we'd have the ideal pclk in mode, and the real pclk=
+ in
+> adjusted_mode, right?
 
-> synchronize_rcu() is not enough:
-> +	 * __schedule() reports the quiescent state before switch_to().
+Except that you have no way to make sure that the clock in adjusted_mode
+is going to be the "real" one.
 
-I would say that synchronize_rcu() is not enough by definition.
-We are waiting for tasks which are not longer visible for RCU.
+> My worry is that we'll not be able to guess the ideal pclk very well. May=
+be
+> that can be solved with fixing the panel drivers when we encounter non-id=
+eal
+> timings, and having a clear rule that the provided timings have to result=
+ in
+> a "normal" refresh rate, even if the platform has to adjust them when
+> applying.
 
-But I agree that the comment above rcu_tasks_postgp() might be confusing.
-I guess that RCU does not care about tracking the rest of __schedule().
+Time will tell I guess, but I'd rather keep that in the back of our
+heads as a last resort than admit defeat from the get-go :) Because,
+yes, I do believe a lot of drivers are broken and it's an opportunity to
+find and fix them.
 
-So, it makes sense to keep the comment here. I would just add it into
-a separate paragraph (after an empty line).
+> > > So... First, I think at least in the adjusted_mode we should have the=
+ real
+> > > pclk.
+> >=20
+> > You can't have that. The closest you'd have would be calling
+> > clk_round_rate() at atomic_check, but you have no guarantee that it's
+> > actually going to be the same rate by the time you call clk_set_rate().
+>=20
+> Why is that?
 
-> +	 */
-> +	klp_synchronize_transition();
+Because clk_round_rate() depends on the current context for that clock:
+its parent rates, the ranges the other users have requested, etc.
+Between atomic_check and atomic_commit, that context might have change
+and you might have a different result.
 
-Hmm, I would move this up, above the comment: "/* Done!  Now cleanup
-the data structures. */". Let's be on the safe side and
-make sure that all tasks are safe before we start the clean up...
+> Can't we do the clk_round_rate in SRO? The SRO state has the adjusted
+> timings, doesn't it?
 
-Or is there any reason why it is done here?
+I'm not really concerned about SRO, I'm concerned about everything after
+it: the mode we expose to userspace, the consistency between an SRO
+state and a committed state, etc.
 
->  	klp_complete_transition();
->  
->  	/*
-> @@ -526,6 +614,7 @@ void klp_start_transition(void)
->  	for_each_process_thread(g, task)
->  		if (task->patch_state != klp_target_state)
->  			set_tsk_thread_flag(task, TIF_PATCH_PENDING);
-> +	rcu_tasks_visit_exiting(klp_exiting_start, NULL);
->  	read_unlock(&tasklist_lock);
->  
->  	/*
-> @@ -579,6 +668,7 @@ void klp_init_transition(struct klp_patch *patch, int state)
->  		WARN_ON_ONCE(task->patch_state != KLP_TRANSITION_IDLE);
->  		task->patch_state = initial_state;
->  	}
-> +	rcu_tasks_visit_exiting(klp_exiting_init, &initial_state);
->  	read_unlock(&tasklist_lock);
->  
->  	/*
-> @@ -590,6 +680,16 @@ void klp_init_transition(struct klp_patch *patch, int state)
->  		task->patch_state = initial_state;
->  	}
->  
-> +	/*
-> +	 * A task that has passed exit_tasks_rcu_finish() is on neither list but
-> +	 * may still call patched code until its final switch, which it makes
-> +	 * with preemption disabled. This returns only after every CPU has
-> +	 * switched context, so every such task is gone. synchronize_rcu() is
-> +	 * not enough: __schedule() reports the quiescent state before
-> +	 * switch_to().
-> +	 */
-> +	klp_synchronize_transition();
+> Yes, I guess clk_round_rate() there and clk_set_rate() later might result=
+ in
+> different rates in theory, but can that happen in practice? If the clock =
+is
+> being kept on, it's unlikely that its parent clocks would change.
 
-Why exactly do we need the synchronization here, please?
+On some platforms, maybe. On others it's absolutely the case. That's why
+we have clk_set_rate_exclusive(), and why
+https://lore.kernel.org/linux-clk/20260327-clk-scaling-v8-0-86cd0aba3c5f@re=
+dhat.com/
+is a thing.
 
-We should not need this for livepatching of do_exit(). We do not care
-which do_exit() implementation is used by the about-to-die processes
-at this stage.
+> So it's not immediately clear to me when this could happen.
 
-The only problem might be if we want to livepatch a function which
-is called in do_exit() after the process gets removed from the
-rcu_tasks_exit_list. It might be only:
+Even from a purely software PoV, if you have two users, and one calls
+clk_round_rate for 42MHz which isn't rounded, and then the second does a
+clk_set_max_rate(40MHz), then clk_round_rate will now return 40MHz.
 
-  + raw_spin_unlock_irqrestore_rcu_node()
-  + lockdep_free_task()
-  + do_task_dead()
-  + set_special_state()
-  + __schedule()
+> > Either way, assuming we would do that, it would give you adjusted_mode.
+> > You'd still need mode, and mode is what is shown to userspace.
+>=20
+> Yes.
+>=20
+> > > The SRO check should pass only an equals check there. For mode's pclk,
+> > > I think setting the actual pclk makes sense, at least more than guess=
+ing it.
+> > > Or could we, at that stage, see what modes the connector advertises, =
+and
+> > > pick a clock from there?
+> >=20
+> > It's difficult, because then you assume that A) the bootloader will have
+> > used a mode reported by the monitor and B) crtcs need to be readout
+> > before connectors.
+>=20
+> Isn't A) needed anyway for fully working SRO and smooth transition to the
+> userspace app's display? The userspace's modeset will most likely use the
+> preferred mode from the display, and if that's different than the
+> bootloader's it will then cause a full modeset.
 
-They all might start calling klp_ftrace_handler() and could need to
-see consistent state current->patch_state.
+It's a reasonable assumption at first, but my point was more about "What
+happens if it isn't?"
 
-But wait! If this is the problem then we might need to call
-klp_synchronize_transition() in each stage which calls
-rcu_tasks_visit_exiting(). Otherwise, the klp_ftrace_handler()
-might see some inconsistence and trigger a WARN() or
-use an inconsistent task->patch_state.
+Also, once SRO works, I would expect the splash screen, plymouth, and so
+on to revert the logic and go for something like "if it's enabled, use
+that, otherwise use the preferred mode and do a modeset".
 
->  	/*
->  	 * Enforce the order of the task->patch_state initializations and the
->  	 * func->transition updates to ensure that klp_ftrace_handler() doesn't
-> @@ -642,6 +742,7 @@ void klp_reverse_transition(void)
->  	read_lock(&tasklist_lock);
->  	for_each_process_thread(g, task)
->  		clear_tsk_thread_flag(task, TIF_PATCH_PENDING);
-> +	rcu_tasks_visit_exiting(klp_exiting_clear_pending, NULL);
->  	read_unlock(&tasklist_lock);
->  
->  	for_each_possible_cpu(cpu)
-> @@ -714,6 +815,7 @@ void klp_force_transition(void)
->  	read_lock(&tasklist_lock);
->  	for_each_process_thread(g, task)
->  		klp_update_patch_state(task);
-> +	rcu_tasks_visit_exiting(klp_exiting_force, NULL);
->  	read_unlock(&tasklist_lock);
->  
->  	for_each_possible_cpu(cpu)
+> Or how do apps usually work? Do they try to get the current mode from the
+> crtc, and use that, even if it's not the connector's advertised default
+> mode?
+>=20
+> > > If we can't get the pclks from the connector, the mode->clock won't m=
+atch,
+> > > and we should either skip checking that in the SRO checks, or have pl=
+enty of
+> > > tolerance.
+> >=20
+> > tidss has 5% of tolerance when most of the drivers have .5%. How much do
+> > you need?
+>=20
+> I was referring to the SRO code, which currently gives errors if the modes
+> don't match exactly.
 
-Best Regards,
-Petr
+Which isn't true? There are warnings, and we're literally discussing a
+function that does introduce a tolerance when trying to match the modes.
 
-PS: It is an amazing work for a newcomer.
+Let's turn this around. I think we both agree that matching exactly
+won't work. I guess it wouldn't be hard to agree that a panel running at
+half the refresh rate, with different polarities, or with different
+timings shouldn't be considered a match.
+
+So my question is: where do you want to draw the line?
+
+> > > I think it still leads to a full modeset, but can the driver check if
+> > > setting the mode->clock would results in the current pclk, and somehow
+> > > abort the full modeset?
+> >=20
+> > I'd rather discuss an actual bug here. Do you have a case you can share
+> > where the logic we currently have doesn't work and is not an instance of
+> > poor panel timings?
+>
+> It's the case with the OLDI panel. You should be able to test it with
+> AM62-SK even without an actual panel, just load the
+> k3-am625-sk-microtips-mf101hie-panel.dtbo. Ah, actually, there's the
+> touchscreen in the dtbo, so you may need to disable that in the dtso.
+> Although I guess even if it's enabled, you'll just possibly see an error
+> from the touch driver, and it doesn't affect the display.
+>=20
+> So even if you don't have bootloader that enabled the OLDI panel, you sho=
+uld
+> see the configuration mismatch errors.
+
+But it wouldn't have enabled the clock at the right rate though, right?
+
+Maxime
+
+--cmhg4wk6rut72ne3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCawmrsgAKCRAnX84Zoj2+
+dkOCAYDa+ZIo+Psj8RHaKdhieo2xrkpEABr8rqdo/cc5Y5kjP23wg06UIPvs9Czv
+RCETyqMBgNR19kodDHhY6jP7AwgwLhdqY9zV4d0lZSl3/tdqDf6XH6WuMW/rNSwa
+P6s8tbEUtQ==
+=5SCy
+-----END PGP SIGNATURE-----
+
+--cmhg4wk6rut72ne3--
