@@ -1,47 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795767487;
-	b=ADv1L3mKKXa5o+5BsfHADP5bHixWSmW8Ndztm/wqAu2GhYX4AYXqkWtVbAa2z1I96VZQ
-	 lfIGo15uAY+Njy7qu/OhTQCRLnQs8UHQ7/QEjDMwlJuYcjHAauUVan9hQ4qRabTnAlvVs
-	 mY5kBFUkhv2JoDsyibZXKkcIci/mgwtWLByT9fT9Ok3NZT0XR+Pksk5n3BfEP8X39+kIi
-	 UjilfFdooy47+wbIO85ge5TCZlFex4JhMQiAsSLafWivaYPLA4i8jWkCtvSowN1h3GuKd
-	 KacAVgDuv2ZQVhJtK5DZ/1VD1um1tLaY63jwm1G2HkdI8zEmjlUFZzSKKc45Zxo3ecw==
+	t=1795767490;
+	b=O9L0gp44DmD+/5AUErFiTjfReSUVRAIq+g3SzUBwuDHx1GcJMkVex8xgZRdfyWeeCls0
+	 mJOBLenTxn9P2mlxAX8SJzMMHkZBo9PLmvYS5eeTmK+FdWdFvXOG55nI66QjpaIlb2Nu1
+	 E0K6cFqnyXb8Ey7Lne1J16tB1NFsw89lvmxMMvCYDbstmC1d2vswOIIhragw84mHwpPVQ
+	 6gcjd7keAilyAylBz9r1boHbYvYsOAM9nttf+pnR4+s/M2tcgC3doVDWskxt67NupG4Dq
+	 lvTTc+c1DFWi0sWqzEAjNpfAN0rE0zsTLYhezRZp31dKzAORAQDuA2R3cWGeRRm//og==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795767487;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795767490;
 	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=7QGeJWidz6c8FdxSEbDOXfVOMKv35Ol35h6d4CjOJEQ=;
-	b=WWwD6hllxu61V4zpM9xdXiQFvFh4y/Um8waKtT8OIl4jmeS627mzvn8CmuPBRWNtVdK4
-	 ru15SSX4cm7bO7M/HSmghGFZj23iLGEFND5fm9uvhY472N+oJ6YuDMkkhXRy6XemKkfsu
-	 Vee1MdMcAeUX8SW9Uq5zbqlNbjxkd87e9GE9meEeaq8mlWfC/NuVWIsmtsEpAkijWeDlg
-	 R8ZjunKRhdVc6kJ3kIpEGoIj/cmLTl/+TLxn76DtSbpOqGyZh8J+TPSul5QILDR9lF21a
-	 j36LFFcW/yMYpJ67jaMHh7DWYYUYCAvzPz01wB3ZSRlPhpN7bjes61lYxgEbbzL7hiA==
+	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=3P8dlx6RUw3egBBHkTAgLo306SxeNmauR7/fOiIjX38=;
+	b=YqzzNhqWc5KAwKSCLXigLYdyrT538/iH+I4O1JlGTK8K0epGWBDsiE4TCx1wukfYuoZh
+	 U2ZlOY1VGvjo24phSXJOI4QFG7vCceof68nXfAtsksHKTnvqM9eJegtLiqLbPKApI7Tnj
+	 mh/SkSsAIfCdnWoAKKo1w1CII774nlXVIPxZoqlur9316mBH6EPrz2OSzbFPpv5lkQCjh
+	 XySxH9XYchRmlBnq67s8dqzaQRC7AwgJpjV45Ni76tQIGYmNm0MQ4UcHOTSiVEEJxvs8d
+	 Y2EAKZt81VY3vhYwI/YHGrj393pgQr37uRgOUCjiDJ0M75LXB0HjbwpHzTQ2IrAKYuw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=arm.com;
 	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=cedO0Icf;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=cJYHwuYk;
 	arc=none smtp.remote-ip=217.140.110.172
 Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id D16E8606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:18:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D16E8606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id D2050606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:18:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2050606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=cedO0Icf
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=cJYHwuYk
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5AA571758;
-	Fri, 27 Nov 2026 00:18:03 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 63B161E4D;
+	Fri, 27 Nov 2026 00:18:06 -0800 (PST)
 Received: from e127648.arm.com (unknown [10.57.70.173])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8F8AB3F86C;
-	Fri, 27 Nov 2026 00:18:03 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A07863F86C;
+	Fri, 27 Nov 2026 00:18:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795767486; bh=w7s3+IlhcG15VASI78kwNc9Nt+mliWS8M9atS/fYjr4=;
+	t=1795767489; bh=ve38NyfFYP+82VX6doaeLkgUGf3FCNhBgYUKaQhXk9o=;
 	h=From:To:Cc:Subject:Date:From;
-	b=cedO0IcfIB/WwJeY1VD1nS21j9MSFTPvt+dYKglcR4hiSwxGowyEEruTR7diGbBW1
-	 r8F43H/TiPtEztrNt1KByRO0IhIwyYPvueFfWVrxcFkVfpxxTk2W+Ohn7/aikw0mMX
-	 0t88NknxQ8o3PHsjs5rt1IUr3NpnrX3FboTtZXo8=
+	b=cJYHwuYk224eX1W81WDTMaIe/zXMGJI3fkCDbxVmvasNJiQ2jhMndEY04SFCWDEt+
+	 pf4OaOJUlWev11fg7NQ13pBNhCa6ELUDcRqsJrsWO5CPm1NUkSi7FDgLy9rMle1Pjw
+	 5/3dcpQfiJoi2JwWw+6ZLbyMne4BE7NVGSsdnvDg=
 From: Christian Loehle <christian.loehle@arm.com>
 To: mingo@kernel.org,
 	peterz@infradead.org,
@@ -54,9 +53,9 @@ Cc: qyousef@layalina.io,
 	kayracizmeci@gmail.com,
 	wvw@google.com,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/2] sched/uclamp: Fix dequeue accounting across static-key updates
-Date: Fri, 27 Nov 2026 08:16:53 +0000
-Message-Id: <20261127081655.3159258-1-christian.loehle@arm.com>
+Subject: [PATCH 1/2] sched/uclamp: Always account active clamps on dequeue
+Date: Fri, 27 Nov 2026 08:16:54 +0000
+Message-Id: <20261127081655.3159258-2-christian.loehle@arm.com>
 X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -67,69 +66,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Static-key updates can let enqueue account a task before dequeue observes
-uclamp as enabled. Patch 1 checks the task's effective UCLAMP_MIN active
-flag on dequeue, so accounted clamps are released regardless of static-key
-update progress. The early check keeps the unused dequeue path short, and
-enqueue retains its static key.
+Enabling sched_uclamp_used does not update all static-key callsites
+atomically. An enqueue can observe the key enabled and increment a
+task's uclamp buckets while a subsequent dequeue still observes it
+disabled and skips the decrement. This leaves stale bucket references
+and active bits, which can keep the runqueue clamps elevated after the
+task sleeps or migrates.
 
-Patch 2 picks up Qais's idle-flag wrapper cleanup from v7 [1].
+Replace the static-key check in uclamp_rq_dec() with a check of the
+task's effective UCLAMP_MIN active flag. This records whether the task
+contributed to the runqueue accounting, so an accounted task releases
+its references regardless of static-key update progress.
 
-The measurements below are for patch 1 on v7.4-rc4, before adding patch 2
-and rebasing. Each cell gives fix / always-on percentage changes versus
-unfixed, with CONFIG_UCLAMP_TASK=y throughout. The unfixed and fixed
-kernels keep the uclamp key disabled while always-on performs accounting.
+Enqueue and dequeue update both effective clamps under rq->lock.
+Updates to an already active clamp complete their decrement and
+increment under the same lock, so dequeue cannot observe their
+temporary inactive state. At entry to uclamp_rq_dec(), either active
+flag therefore suffices to determine whether the task has accounting
+to release.
 
-Nine fresh boots per variant, 20 measured repetitions per boot. Changes
-are geometric means of paired boot-median ratios.
-Positive time/latency is slower, positive throughput is faster.
+Keep the static key on enqueue, so unused uclamp still skips enqueue
+accounting. On dequeue, the early active check returns before the
+scheduling-class and delayed-task checks or either per-ID helper call.
+Limiting the change to dequeue retains the enqueue benefit of the
+static key and reduces the unused dequeue path to an active-state
+check.
 
- Workload / metric              │ i7-13700K: fix / always-on │ Xeon: fix / always-on │ Orion: fix / always-on
-────────────────────────────────┼────────────────────────────┼───────────────────────┼────────────────────────
- messaging-processes / seconds  │        (-0.06%) / (+0.09%) │   (-0.40%) / (-0.21%) │      -0.38% / (-0.31%)
- messaging-threads / seconds    │        (-0.19%) / (+0.05%) │       -0.86% / -1.77% │    (+0.10%) / (+0.11%)
- pipe-processes / usec_per_op   │          (+0.18%) / +1.56% │    (-0.002%) / +2.41% │        -1.17% / +1.19%
- pipe-threads / usec_per_op     │            -0.78% / +0.88% │     (+0.01%) / +2.91% │    (-1.61%) / (+0.53%)
- schbench-256k / rps            │       (+0.002%) / (-0.04%) │    (+0.004%) / -0.05% │    (-0.20%) / (+0.03%)
- schbench-256k / wakeup_p99_us  │        (+0.42%) / (+0.51%) │    (+2.33%) / +10.62% │    (-1.44%) / (-0.37%)
- schbench-4096k / rps           │        (+0.00%) / (+0.00%) │   (+0.00%) / (+0.00%) │    (+0.00%) / (+0.00%)
- schbench-4096k / wakeup_p99_us │        +32.68% / (+12.93%) │  (-10.66%) / (+2.71%) │      (+3.03%) / -6.99%
- tcp-stream-1024 / Mbps         │          (-0.24%) / -0.69% │       -0.61% / +1.07% │      +0.36% / (-0.52%)
- tcp-stream-16384 / Mbps        │          (-0.03%) / -0.29% │       -0.57% / +0.23% │    (+1.04%) / (-0.82%)
- tcp-stream-64 / Mbps           │         (+3.05%) / +18.60% │    (+0.12%) / +23.54% │        +2.50% / +2.09%
- tcp_rr / transactions_per_sec  │          (-0.57%) / -1.68% │       -0.66% / -1.33% │      (+0.10%) / -1.58%
- udp-stream-1024 / rx_Mbps      │        (+0.19%) / (+0.17%) │   (-0.41%) / (+0.32%) │      -1.58% / (-0.63%)
- udp-stream-128 / rx_Mbps       │        (-0.82%) / (-0.15%) │     (-0.38%) / +1.54% │        -1.31% / -0.69%
- udp-stream-16384 / rx_Mbps     │        (-0.31%) / (-0.49%) │       -0.35% / +0.30% │        -1.52% / +0.61%
- udp-stream-2048 / rx_Mbps      │        (+0.02%) / (+0.06%) │   (-0.24%) / (-0.09%) │      -1.18% / (-0.74%)
- udp-stream-256 / rx_Mbps       │        (+0.33%) / (+0.29%) │       -0.72% / +1.56% │        -1.76% / -0.86%
- udp-stream-3312 / rx_Mbps      │        (+0.38%) / (-0.07%) │   (-0.04%) / (+0.14%) │      -1.18% / (-0.54%)
- udp-stream-4096 / rx_Mbps      │        (-0.06%) / (+0.22%) │   (-0.24%) / (+0.08%) │      -1.31% / (-0.66%)
- udp-stream-64 / rx_Mbps        │        (-0.18%) / (-0.17%) │       -0.57% / +1.20% │        -1.51% / -1.45%
- udp-stream-64-pinned / rx_Mbps │        (-0.94%) / (+0.90%) │     (-0.28%) / +1.63% │      -1.21% / (-0.30%)
- udp-stream-8192 / rx_Mbps      │          (-0.25%) / -0.39% │       -1.54% / -1.01% │      -0.96% / (+0.15%)
- udp_rr / transactions_per_sec  │          (-0.72%) / -1.69% │       -0.94% / -1.55% │        +0.44% / -1.84%
+Reported-by: Wei Wang <wvw@google.com>
+Closes: https://lore.kernel.org/all/CANDhNCqyXsZ6G77z+9s=rTO6BZifRG9+hVxMTah+tAv6pB6h3w@mail.gmail.com/
+Suggested-by: Wei Wang <wvw@google.com>
+Fixes: 46609ce22703 ("sched/uclamp: Protect uclamp fast path code with static key")
+Signed-off-by: Christian Loehle <christian.loehle@arm.com>
+---
+ kernel/sched/core.c | 13 ++++++-------
+ 1 file changed, 6 insertions(+), 7 deletions(-)
 
-Separately, paired log-ratio t-tests with Holm correction across the 69
-fix-versus-unfixed comparisons retained only significant regression:
-Xeon UDP_STREAM 8 KiB throughput −1.54%.
-
-[1] https://lore.kernel.org/r/20261126012836.15205-3-qyousef@layalina.io
-
-Christian Loehle (1):
-  sched/uclamp: Always account active clamps on dequeue
-
-Qais Yousef (1):
-  sched/uclamp: Use wrappers instead of open coding UCLAMP_FLAG_IDLE
-
- kernel/sched/core.c  | 27 +++++++++++++--------------
- kernel/sched/sched.h | 10 ++++++++++
- 2 files changed, 23 insertions(+), 14 deletions(-)
-
-
-base-commit: 029fd68a263364583b6f9b34d22761acf0a3940c
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index c9890ed35df7..05b092147c6f 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -1617,8 +1617,7 @@ static struct uclamp_se uclamp_default[UCLAMP_CNT];
+ 
+ /*
+  * This static key is used to reduce the uclamp overhead in the fast path. It
+- * primarily disables the call to uclamp_rq_{inc, dec}() in
+- * enqueue/dequeue_task().
++ * disables uclamp_rq_inc() accounting in enqueue_task().
+  *
+  * This allows users to continue to enable uclamp in their kernel config with
+  * minimum uclamp overhead in the fast path.
+@@ -1918,12 +1917,12 @@ static inline void uclamp_rq_dec(struct rq *rq, struct task_struct *p)
+ 	enum uclamp_id clamp_id;
+ 
+ 	/*
+-	 * Avoid any overhead until uclamp is actually used by the userspace.
+-	 *
+-	 * The condition is constructed such that a NOP is generated when
+-	 * sched_uclamp_used is disabled.
++	 * Static-key updates are not atomic across callsites. An enqueue may
++	 * have accounted this task before this callsite observes the key enabled.
++	 * Check the task's accounting state instead. Both clamps are updated
++	 * under the rq lock, so either active flag is sufficient here.
+ 	 */
+-	if (!uclamp_is_used())
++	if (!p->uclamp[UCLAMP_MIN].active)
+ 		return;
+ 
+ 	if (unlikely(!p->sched_class->uclamp_enabled))
 -- 
 2.34.1
+
