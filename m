@@ -1,80 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795770033;
-	b=lb7C4/WXND8+kAGczq5mdQA3DvUSgFKBBHODnfgNmQL7Egvw7xQPBn+3nZDoHeXfRPGF
-	 qE+hHJBu6WhRESa+qq4UgZOyuYuUcAj30DATW9uiWYA5FyUIkgxJSOQYoN8116+9nFVQi
-	 Q6iNa+qg1jQ4Mbnq2rFN0ulFS9opSaiD1CQM+IPh5RynUgWp9msxeLDorlLLMsnxMsU9u
-	 LscNkM7MmviD07ZnxAnnwlgXGs1bm0ThhnB4D3aCVBpXat9qoSKQ+O4RaEytecEBI9C8t
-	 c/JEv/a1BDbYUXkytztbNLE/0XRquMaK7NQhaCs/zHkpolY4KnTcfsk7JUWWGhFhPfw==
+	t=1795770044;
+	b=Y1Mz/h0jeQc9ano75W5+3Kt2tXnYGpLPbElxcPj1C8WBb/rqn+60J/+C/uH9YXAJ0knX
+	 hEcIvcg/ZGZoVZa3JgPKzH3VOzolYdd2b6ub0/0tlWNFYgXFaDDo8DKQQ1F7pcgovpH+1
+	 bBIqq7Eikz3HcPDMwuPzBjwljBfejaiNqu5wIDpItmtFtsf44W+YmRxBvha/hNurQZdzi
+	 39xmeHE8zJDNko47YJGRGH0L25a02SyVa2LVremBn3lOfO+PgR3vYL1b9XESZCPzK9GF9
+	 rD2pQLJdpu1RoTn4HiZE5qx5/R7Zk9XGwrjMSBPJaSym1hQtK6POsUFeBf1cju7YDig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795770033;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795770044;
 	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=rOPZg4MvcQV19PSyH//5nx2RfgdbxY+varkZNiQRKts=;
-	b=fIdR76IrIf8wn/TF4n9Da9CZIeuaiyao8ps+u2vXTaVSganGrhRp47Q4fsq2C+aLkjN5
-	 m4TLHbkUqOH0koborMV+Emi+5+1DVBIvJSHipJztYrfNAMEFPNIAnixkW+AIsUVaE98L1
-	 inXOvTjgL2WpB/BDZvtSimSokcdx7spPun4Upbou9NaIUAqeByQk06RtkV/i3js2kAGx8
-	 BhQr80xsSiQ+fK9ddixXpt5V4G4pQfk8//GhDhp6AjePjklB0uPpA2PDFAnx0hwYQCs9O
-	 X8LYp9P3WBOW66NT+fvYIW8PsxjX622DUfJY4NGyM3ZfDsRgqzpNqrUL5jUgtMBK44Q==
+	 Date:Message-ID:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=PemHAwyW+U+iybF7zh11klbOzuIEsXdauTMcn9jFZPg=;
+	b=g0xua+JHRBoumqn4cKS4ticopj0dJ8hbl15I05EhDU9IdOXAyWeSClz4ykW/04Gmw2SN
+	 9cSF1l8UO/0YqZTZeXWHT6Pvcdg0gco9tTnBDmLoTLMquTiuIcPzgBomkush62Tn/GS9c
+	 82ZJ5uwzqEpwa7ahVStpPe8Qzi9ZEsuikatFThyDtIdCF+3ELpRvGlKVbakVN6QZCpkJI
+	 mQaF7yskmyl6B0i3IhaIV7X/CrbKyRm2uggkWTBcfKOZAKMEZA2TJ7KiZmgWfkVWC+ff3
+	 mC4AFBySsFIqiNuBbJWDnTrPXucgroLgbUwb7HCfeDGiTggH/URb3P99+ZojIG3jMmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=kylinos.cn;
 	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=209.85.214.175
-Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
+	arc=none smtp.remote-ip=209.85.214.170
+Received: from mail-pl1-f170.google.com (mail-pl1-f170.google.com [209.85.214.170])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A974606A332
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:00:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7A974606A332
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1C4B606A695
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:00:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1C4B606A695
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2f07a960666so55073745ad.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:00:33 -0800 (PST)
+Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2f04b676219so43227275ad.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:00:39 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795770033; x=1796374833;
-        h=mime-version:content-transfer-encoding:content-type:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=rOPZg4MvcQV19PSyH//5nx2RfgdbxY+varkZNiQRKts=;
-        b=1pwMFajgfZp8kfqFvkDEAAGtS0u+vmvTUd3GhtGWt4MhWvimEqYQyNT/YgkqbP85/B
-         z0cXKSpvOyE7q+YYBR9/wn7XeBPC+2NlLbhAWGghjOpc1q/5c/Avg2NnXXIRA4r5SK3S
-         7Xh2WDj3RtwmctzGCmHgO8g9fjBjXvkU0n45nJuHZkCtGj9Hqy+Y5TRR/jYJPfLYKedg
-         SWLvigze7aalUz3LD7H1X6Y5aW0ZNiW2DYhXZrs7s4BA8qgYqwa4dWxRv52AF6Ah17yu
-         rG+MR6iSwfZa0M+PGwkNK6QDYZT2unTAMyk///KaNDrEcVXyBSe8SXLowogScn4MYTMj
-         z7Lw==
-X-Forwarded-Encrypted: i=1; AL+hErEgmYCrCqnzJM8jZO7cE2vqzU9lmrpXrzRaiZPq6gulI9bOreQg/XT6MYEy5KvhtKJWwNdsRczXTpZr4/k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9VDA6P1vnf6YtDgthzJ1mWaczoYCIxz8Vrw56+mfkb/upBn8qQ
-	qFlW24cNqDlD/o6zxie1hZNOHUPNQ8Bsa49tT7f2wEw9TozTKK/bZwrW
-X-Gm-Gg: AZFdTZf/RWjbwlnQGG7/NMuZF0ay60SMUr6KqWsyQo4XK2naheTReTjOyvKkoVLzlCe
-	C2tIvPzmdKsveE7X6+DG5Ltl6BxxzK6ZJ45Z6sdKAuTajgDDoCJFyTBvYjdLLX4khukP9Nbwxp+
-	OOfeT1bMOR+GxO12NKrdpL0oGVnF3WZug/PwW9zLKCFd+fzmRPm0pK7yLPzeboAQEzp7PKSvTgt
-	ibaag54AVZvr6XfGOKiAvrExpZqagOi57WxvJIQeNyALr2dnxWFwZAqyKGYdXWMOd6AqC6tJz69
-	xoaUq/YQPnUBHHqrfI8Ang7WU5oMd5q4/B6Uoyi3pawZw+1Ow8Th5VxzPQdopeGeirx49fwV3We
-	jZs4kz4ko0NfEQO/1B+guYyge5eBjNkv+XwDdw5TZrlSm1XwRs2HC1XuyDMHAJ79Q9f3lgpQaQG
-	A8Wv1Gp1r2c7BlPUhrOhPv69BWyADQePIre3eYanD/gRd9d79vVVuljeuAeqkTXJv7Xrd1khtqN
-	CLbViTGudxh7bpUdP1dVfYT46r/9XjPvtIOriU7oRjn2YUO03UHAajBmduXMK+csxSMve8AsoA6
-	j9azCAUaskWlyCFvVIzjFOomJv7k6skrOK4CQbOwJzdac0S8hPqxUGye17wUYUoFLSklk/mF0dO
-	iKaatUyYQIFwlph8AQAolwO6Gy+W2USkh0IGg+OUeQfyNUQ==
-X-Received: by 2002:a17:903:1c2:b0:2f0:5bc6:6bc8 with SMTP id d9443c01a7336-2f05bc66da3mr214174955ad.25.1795770032437;
-        Fri, 27 Nov 2026 01:00:32 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795770039; x=1796374839;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PemHAwyW+U+iybF7zh11klbOzuIEsXdauTMcn9jFZPg=;
+        b=JsB18/hbjXIIogC2uO2f9LE6dtr46BO07ow+l93PNYCUmSxNxB66mMrf5o2v/Xjcep
+         Z0RNgVPV5GDqg/kBPr+FRmU6z4vEUn8PQtSrIDEfVIPxJCqcy5jae0wfG32I3NQam+7b
+         DzW4Ki/g6AFmgfoU4GE3/bsBxjZrn98NCjaaRdD7NsQWqz9mO8ixhi0W1ABEbwrOKuQI
+         78lz8tRB4Sgni21HCz1NX9NM7MbRtDLRtK5gGK99Wf7hI9zX9DGitZ3KqZMA+QgMmCtK
+         npeC9zsfx1D/KTF3iqBaf/abqkkQqtbrXEzskm4SjT9Oz2wTqhobwN+Nz40SSn944ZkS
+         RSTQ==
+X-Forwarded-Encrypted: i=1; AL+hErHN4yis+cld4mq7LuosBZb/mexYCYGheMyw0Mkzyd7HjwWnUmuUg1uKCryAiTS8PeV8LgGDh3h0OLpVc4k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8bKVuWxkU4wxv97p+YGot0w8U9IclOmYVpwDLyN4n9OLR76+ja
+	Bmv6oDx0MBowMr86X3EDFtrYIAr/VhBMD9VtExkX1vbIdlbb7azkoIQr
+X-Gm-Gg: AZFdTZdlYpcjrnXomgaKJ2/TYTMy5IhyjVCsl3FvFpyStdkkpBocjBqcL+EM/Qm2st5
+	Gs8rYr4RNnttd5pLZ9kGeZwnGKkYA2l+cp91mW8KRF4xaFqrBbiNYjoLpOIZB2v1hNBqKIMMGkb
+	4qKKKvZ3Ivt+umXn8TwhwtcgpuQ2PRVaOx3j6rBYdoycIJyblQFas9bmkA1m+iKKWAScPV27kVm
+	xppl9IWuGhV8zyiihziu0zQRoXOE30XN/guuT/rFX7qelei3xADYiYUkBG2pMPJzQUDEce6kwwy
+	C7t9c39JOlaMZd76apZ+6EpglMoksGW/kkTtkd5gpD0h2JRHHd9VKd/U3H0e7mIIrQ6efy++GO5
+	1D4FLDM1AfmsxtSQSrLJ7jBdYH034Fa1i8MQTHFWbxfDrrJ2r+Xk2TOornNO8KAjuGSEcdvcIfb
+	NdvHDx3GoDQPqxsGGCYHwAPOkdrX5G4o1GWUgWg7ux4iQ49kESgPGYk411s+8GoimoW0PULPt7t
+	Yocsa93fm9kK9O2q76bfFhJlyCKB6EDz5005FGC33AkVyjdX8pK+ij/1aVUo6Bk9OditZFk8EnG
+	3Ddk0k5EJo6d7AJzTqft1GHFTZpR0TEoy0+aT1kgkuTvMwQp7jDER95BZNKvj6NhlKc73vgbBiG
+	OIN7n2Q+/xR7j5iYb6bM4QDPUIdcJ6QcLOmIy10ybf6Id/w==
+X-Received: by 2002:a17:903:3d06:b0:2e9:5ed2:c3a3 with SMTP id d9443c01a7336-2f03f188468mr235430835ad.37.1795770038979;
+        Fri, 27 Nov 2026 01:00:38 -0800 (PST)
 Received: from 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa ([216.236.36.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f120769sm117050725ad.57.2026.11.27.01.00.29
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f120769sm117050725ad.57.2026.11.27.01.00.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 01:00:32 -0800 (PST)
+        Fri, 27 Nov 2026 01:00:38 -0800 (PST)
 From: Hongyu Xie <xiehongyu1@kylinos.cn>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Samuel Thibault <samuel.thibault@ens-lyon.org>
 Cc: speakup@linux-speakup.org, linux-kernel@vger.kernel.org,
  chris@the-brannons.com, kirk@reisers.ca, w.d.hubbs@gmail.com,
  stable@vger.kernel.org
-Subject: [PATCH RESEND v3 0/4] speakup: fix hang and use-after-free around
- synth removal
-Date: Fri, 27 Nov 2026 17:00:28 +0800
-Message-ID: <179577002884.23588.802785530849276690@kylinos.cn>
+Subject:
+ [PATCH RESEND v3 1/4] speakup: Stop catch_up when the synth is not alive
+Date: Fri, 27 Nov 2026 17:00:35 +0800
+Message-ID: <179577003534.23588.5245624279568953026@kylinos.cn>
+In-Reply-To: <179577002884.23588.802785530849276690@kylinos.cn>
+References: <179577002884.23588.802785530849276690@kylinos.cn>
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,158 +89,179 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-This series fixes a speakup hang reported when a speakup synth module
-is unloaded while its output cannot make progress (e.g. a serial
-synth whose port has no consumer on the other end, so the tty write
-keeps returning 0).  rmmod then stays stuck in D state forever, and
-while the loop holds spk_mutex, any synth module load or sysfs synth
-switch hangs the same way.
+When the synth output cannot make progress, the catch-up loop in
+_spk_do_catch_up() (and its local copies in the serial synth drivers)
+can spin forever: nothing tells it that the synth is dead.  This
+happens when the tty write keeps returning 0 because nothing consumes
+the data (e.g. a serial port with no device attached), or when an I/O
+error deactivates the synth and the loop never notices that
+synth->alive became 0.
 
-Patch 1 stops the catch-up loops when the synth is not alive anymore.
-Patch 2 takes spk_mutex off the catch_up() call path, and makes
-synth_release() drain any in-flight catch_up() before releasing the
-synth resources, so loading, unloading and switching are no longer
-blocked by speech output, while the synth structures stay valid for
-the whole call.  It also guards the wake_up_process(speakup_task)
-sites against the kthread not being up (or having failed to be
-created) yet, pinning the task_struct with rcu_read_lock() so a
-concurrent module exit cannot free it mid-wakeup, and closes the
-SPEECH_KILL revival hole: spk_synth_is_alive_restart() could set
-synth->alive back to 1 from the unguarded key handler after
-synth_release() cleared it, which would make the drain wait forever;
-the revival is now serialized against the clearing under
-speakup_info.spinlock and skipped for a synth being released.
+While speakup_thread() holds spk_mutex across the loop, any
+synth_add(), synth_remove() or synth_init() then blocks forever,
+reported as a hung task on module unload:
 
-Patch 3 clears the global speakup_kobj after kobject_put() in both
-speakup_kobj_init()'s error path and speakup_kobj_exit(): after a
-late failure of a built-in speakup_init() the dangling pointer used
-to stay behind, and a later insmod of a synth driver would feed it
-to sysfs_create_group(); it now fails cleanly on the NULL check.
-The removal side gets the same guard: a synth left set by a failed
-do_synth_init() makes a later load go through synth_release(), whose
-sysfs_remove_group() would now meet a NULL speakup_kobj and crash;
-the group removal is skipped when the kobject is gone.
+ mutex_lock+0x54/0x68
+ synth_remove+0x28/0xb8 [speakup]
+ _spk_do_catch_up+... [speakup_apollo]
 
-Patch 4 closes a related hole in the keyboard path:
-speakup_key() checks the global synth before taking
-speakup_info.spinlock, but do_spkup() and its handlers dereference
-it inside the lock while synth_release() clears it under spk_mutex;
-a speakup key pressed while the synth is being removed could pass
-the unlocked check and oops.  The clear is now serialized against
-the locked readers: both NULL clears take speakup_info.spinlock,
-and every reader that dereferences synth inside that lock now
-rechecks it after acquiring it - do_spkup() at entry, the console
-notifier paths after their trylock, do_handle_shift(),
-do_handle_spec(), the speakup_key() special-handler dispatch, the
-synth_direct sysfs store, and the /dev/synth and /dev/synthu write
-paths - so a clear can no longer land between a reader's check
-and its dereference.
+Check synth->alive in the loops as well, so catch_up() stops as soon
+as the synth is dead.  synth_release() writes it under
+speakup_info.spinlock and the I/O error paths write it without the
+lock; the loops only need to eventually observe the change.
 
-The races the series covers, and the patch that closes each (the
-patches show the CPU0/CPU1 interleavings, before and after):
+On its own this fixes the I/O error case, where the synth is already
+deactivated when the loop retries.  In the no-room case nothing
+clears synth->alive and speakup_thread() still holds spk_mutex
+across the loop; the follow-up patch completes the fix by clearing
+synth->alive from synth_release() and by dropping spk_mutex from the
+catch_up() call.
 
-  R1  SPEECH_KILL revival vs. the release drain          patch 2
-  R2  wakeup of a not-yet-created or gone kthread        patch 2
-  R3  sysfs_create_group() on a freed kobject            patch 3
-  R3' sysfs_remove_group() on a NULL kobject             patch 3
-  R4  key path check vs. synth clearing                  patch 4
-  R5  console path check vs. synth clearing              patch 4
-  R6  catch_up() lifetime during unload/switch           patch 2
+Fixes: 2067fd92d75b6 ("staging/speakup: Move out of staging")
+Cc: stable@vger.kernel.org
+Cc: Samuel Thibault <samuel.thibault@ens-lyon.org>
+Reviewed-by: Samuel Thibault <samuel.thibault@ens-lyon.org>
+Signed-off-by: Hongyu Xie <xiehongyu1@kylinos.cn>
+---
+ drivers/accessibility/speakup/speakup_acntpc.c | 4 ++++
+ drivers/accessibility/speakup/speakup_apollo.c | 4 ++++
+ drivers/accessibility/speakup/speakup_decext.c | 4 ++++
+ drivers/accessibility/speakup/speakup_decpc.c  | 4 ++++
+ drivers/accessibility/speakup/speakup_dectlk.c | 4 ++++
+ drivers/accessibility/speakup/speakup_dtlk.c   | 4 ++++
+ drivers/accessibility/speakup/speakup_keypc.c  | 4 ++++
+ drivers/accessibility/speakup/synth.c          | 4 ++++
+ 8 files changed, 32 insertions(+)
 
-Patches 1 and 2 are both needed for the no-room hang: patch 1
-provides the loop exit but nothing clears synth->alive in that case,
-patch 2 provides the deactivation and the drain.  The drain of
-patch 2 relies on the loop exit of patch 1 to terminate, so the
-order is required, not merely convenient: without patch 1 first,
-patch 2 would trade the spk_mutex hang for a new one inside
-wait_event().  Patches 3 and 4 are independent fixes found while
-reviewing the init/exit and key paths.
-
-Tested on x86_64 (qemu, speakup + speakup_acntsa on a backpressured
-serial port): unload, second synth load and sysfs switch all hang on
-the unpatched kernel and complete on the patched one; soft synth
-operation and a 30-round insmod/write/rmmod stress loop with
-interleaved switches show no regression.  The whole series was also
-re-verified with an automated base/fix A/B boot test in QEMU: with a
-synth wedged on a stalled tty, rmmod never returns on the unpatched
-kernel (hung task reports with the stack pinned in synth_remove),
-and returns in all six trials with the series applied, with no oops.
-
-While testing the series I noticed a few preexisting issues that are
-NOT addressed here (kept out to keep the series focused, can be
-follow-ups if wanted):
-
-- the cursor_done timer callback still dereferences synth inside
-  speakup_info.spinlock with no synth check at all; closing it
-  needs the cursor_timer lifetime handled against synth teardown
-  and is left as a follow-up.
-
-- the serial read buffer handler (synth_readbuf_handler) also
-  dereferences synth inside the lock unchecked, but cannot run
-  in this tree: its only registration chain goes through
-  spk_serial_synth_probe(), which has no callers, and any
-  out-of-tree registration is serialized by the free_irq() in
-  the serial synth release path, which runs before the in-lock
-  clear.  Patch 4 discloses this in its commit message.
-
-- speakup_dtlk.c: synth_flush() and synth_read_tts() spin on
-  synth_writable()/synth_readable() with no timeout, so the catch-up
-  drain of patch 2 could still wait unboundedly if the DoubleTalk
-  hardware stops responding mid-flush.
-
-- do_synth_init() does not roll back on a sysfs_create_group()
-  failure (the global synth pointer stays set).  Patch 3 keeps that
-  dangling synth from crashing on the kobject side, but the synth is
-  still not cleaned up; the follow-up should make that error path
-  unwind like the probe failure path does.
-
-Changes in v2 (patch 4 only):
-
-- patch 4: per review, the unlocked synth checks that only
-  duplicated the in-lock rechecks are dropped; the only behavior
-  difference is that an empty write to /dev/synth or /dev/synthu
-  with no synth loaded now returns 0 instead of -ENODEV.  This was
-  sent earlier as a single [PATCH v2] reply on the subthread.
-
-Changes in v3:
-
-- no code change; the Reviewed-by tags received from Samuel for all
-  four patches are now carried in the commits.
-
-- commit messages trimmed throughout.
-
-RESEND note:
-
-- Resending v3 (originally posted on Nov 3 during the 7.4 merge window:
-  https://lore.kernel.org/r/179366847311.70545.1738521378158835923@kylinos.cn)
-  now that 7.4-rc is underway.  All four patches carry Samuel Thibault's
-  Reviewed-by tags with no further comments, and apply cleanly to
-  current mainline.
-
-Hongyu Xie (4):
-  speakup: Stop catch_up when the synth is not alive
-  speakup: Do not hold spk_mutex across catch_up()
-  speakup: Guard late sysfs operations on speakup_kobj
-  speakup: Serialize synth clearing against locked readers
-
- drivers/accessibility/speakup/devsynth.c      | 13 ++--
- drivers/accessibility/speakup/kobjects.c      | 10 ++-
- drivers/accessibility/speakup/main.c          | 31 +++++++--
- .../accessibility/speakup/speakup_acntpc.c    |  4 ++
- .../accessibility/speakup/speakup_apollo.c    |  4 ++
- .../accessibility/speakup/speakup_decext.c    |  4 ++
- drivers/accessibility/speakup/speakup_decpc.c |  4 ++
- .../accessibility/speakup/speakup_dectlk.c    |  4 ++
- drivers/accessibility/speakup/speakup_dtlk.c  |  4 ++
- drivers/accessibility/speakup/speakup_keypc.c |  4 ++
- drivers/accessibility/speakup/spk_priv.h      |  3 +
- drivers/accessibility/speakup/spk_types.h     |  1 +
- drivers/accessibility/speakup/synth.c         | 69 +++++++++++++++++--
- drivers/accessibility/speakup/thread.c        | 11 ++-
- 14 files changed, 146 insertions(+), 20 deletions(-)
-
-
-base-commit: 62f4c998b297cf233997a2b4cd6fc2d2df0319c9
--- 
+diff --git a/drivers/accessibility/speakup/speakup_acntpc.c b/drivers/accessi=
+bility/speakup/speakup_acntpc.c
+index a27e6bbf05da..fe19ba3f0005 100644
+--- a/drivers/accessibility/speakup/speakup_acntpc.c
++++ b/drivers/accessibility/speakup/speakup_acntpc.c
+@@ -192,6 +192,10 @@ static void do_catch_up(struct spk_synth *synth)
+ 	jiff_max =3D jiffies + jiffy_delta_val;
+ 	while (!kthread_should_stop()) {
+ 		spin_lock_irqsave(&speakup_info.spinlock, flags);
++		if (!synth->alive) {
++			spin_unlock_irqrestore(&speakup_info.spinlock, flags);
++			break;
++		}
+ 		if (speakup_info.flushing) {
+ 			speakup_info.flushing =3D 0;
+ 			spin_unlock_irqrestore(&speakup_info.spinlock, flags);
+diff --git a/drivers/accessibility/speakup/speakup_apollo.c b/drivers/accessi=
+bility/speakup/speakup_apollo.c
+index d2fbb3f57221..b62696e050fc 100644
+--- a/drivers/accessibility/speakup/speakup_apollo.c
++++ b/drivers/accessibility/speakup/speakup_apollo.c
+@@ -157,6 +157,10 @@ static void do_catch_up(struct spk_synth *synth)
+=20
+ 	while (!kthread_should_stop()) {
+ 		spin_lock_irqsave(&speakup_info.spinlock, flags);
++		if (!synth->alive) {
++			spin_unlock_irqrestore(&speakup_info.spinlock, flags);
++			break;
++		}
+ 		jiffy_delta_val =3D jiffy_delta->u.n.value;
+ 		full_time_val =3D full_time->u.n.value;
+ 		delay_time_val =3D delay_time->u.n.value;
+diff --git a/drivers/accessibility/speakup/speakup_decext.c b/drivers/accessi=
+bility/speakup/speakup_decext.c
+index 271bcf279bf9..e6be5a99670b 100644
+--- a/drivers/accessibility/speakup/speakup_decext.c
++++ b/drivers/accessibility/speakup/speakup_decext.c
+@@ -171,6 +171,10 @@ static void do_catch_up(struct spk_synth *synth)
+=20
+ 	while (!kthread_should_stop()) {
+ 		spin_lock_irqsave(&speakup_info.spinlock, flags);
++		if (!synth->alive) {
++			spin_unlock_irqrestore(&speakup_info.spinlock, flags);
++			break;
++		}
+ 		if (speakup_info.flushing) {
+ 			speakup_info.flushing =3D 0;
+ 			spin_unlock_irqrestore(&speakup_info.spinlock, flags);
+diff --git a/drivers/accessibility/speakup/speakup_decpc.c b/drivers/accessib=
+ility/speakup/speakup_decpc.c
+index 1bf36d1e5477..cfafd9475963 100644
+--- a/drivers/accessibility/speakup/speakup_decpc.c
++++ b/drivers/accessibility/speakup/speakup_decpc.c
+@@ -391,6 +391,10 @@ static void do_catch_up(struct spk_synth *synth)
+=20
+ 	while (!kthread_should_stop()) {
+ 		spin_lock_irqsave(&speakup_info.spinlock, flags);
++		if (!synth->alive) {
++			spin_unlock_irqrestore(&speakup_info.spinlock, flags);
++			break;
++		}
+ 		if (speakup_info.flushing) {
+ 			speakup_info.flushing =3D 0;
+ 			spin_unlock_irqrestore(&speakup_info.spinlock, flags);
+diff --git a/drivers/accessibility/speakup/speakup_dectlk.c b/drivers/accessi=
+bility/speakup/speakup_dectlk.c
+index 56334405d865..d9247c53d327 100644
+--- a/drivers/accessibility/speakup/speakup_dectlk.c
++++ b/drivers/accessibility/speakup/speakup_dectlk.c
+@@ -246,6 +246,10 @@ static void do_catch_up(struct spk_synth *synth)
+ 		spin_unlock_irqrestore(&flush_lock, flags);
+=20
+ 		spin_lock_irqsave(&speakup_info.spinlock, flags);
++		if (!synth->alive) {
++			spin_unlock_irqrestore(&speakup_info.spinlock, flags);
++			break;
++		}
+ 		if (speakup_info.flushing) {
+ 			speakup_info.flushing =3D 0;
+ 			spin_unlock_irqrestore(&speakup_info.spinlock, flags);
+diff --git a/drivers/accessibility/speakup/speakup_dtlk.c b/drivers/accessibi=
+lity/speakup/speakup_dtlk.c
+index fa826568937b..73cd39e781b8 100644
+--- a/drivers/accessibility/speakup/speakup_dtlk.c
++++ b/drivers/accessibility/speakup/speakup_dtlk.c
+@@ -206,6 +206,10 @@ static void do_catch_up(struct spk_synth *synth)
+ 	jiff_max =3D jiffies + jiffy_delta_val;
+ 	while (!kthread_should_stop()) {
+ 		spin_lock_irqsave(&speakup_info.spinlock, flags);
++		if (!synth->alive) {
++			spin_unlock_irqrestore(&speakup_info.spinlock, flags);
++			break;
++		}
+ 		if (speakup_info.flushing) {
+ 			speakup_info.flushing =3D 0;
+ 			spin_unlock_irqrestore(&speakup_info.spinlock, flags);
+diff --git a/drivers/accessibility/speakup/speakup_keypc.c b/drivers/accessib=
+ility/speakup/speakup_keypc.c
+index 9356f6379560..e229009107f7 100644
+--- a/drivers/accessibility/speakup/speakup_keypc.c
++++ b/drivers/accessibility/speakup/speakup_keypc.c
+@@ -193,6 +193,10 @@ static void do_catch_up(struct spk_synth *synth)
+ 	jiff_max =3D jiffies + jiffy_delta_val;
+ 	while (!kthread_should_stop()) {
+ 		spin_lock_irqsave(&speakup_info.spinlock, flags);
++		if (!synth->alive) {
++			spin_unlock_irqrestore(&speakup_info.spinlock, flags);
++			break;
++		}
+ 		if (speakup_info.flushing) {
+ 			speakup_info.flushing =3D 0;
+ 			spin_unlock_irqrestore(&speakup_info.spinlock, flags);
+diff --git a/drivers/accessibility/speakup/synth.c b/drivers/accessibility/sp=
+eakup/synth.c
+index 11cba1fd8715..6a49ff475c16 100644
+--- a/drivers/accessibility/speakup/synth.c
++++ b/drivers/accessibility/speakup/synth.c
+@@ -75,6 +75,10 @@ static void _spk_do_catch_up(struct spk_synth *synth, int =
+unicode)
+ 	jiff_max =3D jiffies + jiffy_delta_val;
+ 	while (!kthread_should_stop()) {
+ 		spin_lock_irqsave(&speakup_info.spinlock, flags);
++		if (!synth->alive) {
++			spin_unlock_irqrestore(&speakup_info.spinlock, flags);
++			break;
++		}
+ 		if (speakup_info.flushing) {
+ 			speakup_info.flushing =3D 0;
+ 			spin_unlock_irqrestore(&speakup_info.spinlock, flags);
+--=20
 2.32.0
 
