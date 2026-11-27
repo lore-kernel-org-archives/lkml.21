@@ -1,71 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=180.181.231.80
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795753534;
-	b=GR/FAA4K1tuR3DVR73IZmbmCq3vIxhtZABkY2HaPJWn2CItwkuK0RTF56iP2PtdebUON
-	 apePcUp9MXmcZ7fKz7Susqs3wTm97Y8OaRjXflXLfRx4BNU/J7+NRmUvgHYvEc2le7ouE
-	 1WpTjrAwCY1UrRW8PBizh5zZZ4/mb2LIMw+AUGEmPDtLMYeaCjxBI05nFkV//zXaQgqcW
-	 27QT+BtNI/VlHrv101iEegkkalSn0fESg2sF6zl2tsFudM9LWgsHfHVuwC9tSa6lIGuvJ
-	 AjuhDZ3kc3sxVF0vd20RUl3PMqDebJv9lK2kW5zNstuirBjPbOh3QZpvkcJaLaA3LOQ==
+	t=1795753585;
+	b=zsj83DfO9THl766xgo1EH31OdleZbXcKnYqwljElJDMtAoR/ijBRGXk3oJ8SNorhlTpa
+	 iMGFjqd/Cu8T/F7tR68Mz5XKj/OFwnNrAuLC0QnkkY21lMFv+jORFqXGATHFm5pE1DXMP
+	 f0VWQqZH3v5uNFYuMe03DhV8CQFfWEiVXuSlmUI/DoO6mUGVuZ1k1VyNR+vkQPo78NQiX
+	 sabZasKKHsu8lG0Ty2wXrKkfgAVP4noKtmWG19Zd8DmKLw2if/0Mzbi27gqECv2LfRLJc
+	 syXPsb5crAHVDgJOZ4XNf5akYcCNu6bItA/kaEMb0urP1kqlTtUBwHb05bOp7Ogu1PA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795753534;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:From:To:CC:Subject:In-Reply-To:References:Message-ID:Date:
-	 MIME-Version:Content-Type;
-	bh=4d6ATEu2hv57oCjVrORMP9uM03XTOdvaTYDAQMhdMuM=;
-	b=dDF6rIyGcZoqJDBiJ8rSnkUAQp5Fl90g2tF6kRWweAUkKMk+byWVIwkEqe9xN1hZTBaI
-	 oZLNf8geUvVLnVMdUGxtZ9s9HQBVUCW8S1OSfBs95kG5rW9ZRiQP8xxdE+M0puPH2VCNR
-	 kctDH206agnqrCtS+Q5arIoAvgZ42jEpjRsgQjtEnnREQsKmuyuL/2sblDtwbbIkfLuO1
-	 Ghm/U5U2u9hSBSs1fEA3ou+ESWobnrsaizE651TvXUfc9GTjYQEVB5vtdIyvXlj9tTOFR
-	 wSv7ekUHoOUvX9e6JkjsS9DZ67uqPl9Om0CbcihUs152Lo2ejypsNenVU8KenyZ/a0Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795753585;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=wroQkwyUmImSby60FSSEA23WGTsljWCUGSUqmlr+5fs=;
+	b=QtjmF6AWiQlfy6STKTv5+U9yzVfTORJhXiWkvKC8dMHdNPJoqdmE7g88rIhNfUBFryJN
+	 t1ZBfz1xaAnWIi/+HCAkWQxS85vfBnJNrwWJpb+4SuTakNLZb8j15FFb6xRGsrxXNWWQ9
+	 e2DOov0grkRA/qAoXqUDI6auMYlvoK/3Mkypp4o2xMhEhAqHTUPvFEcBCPZ0VTJgKsZCT
+	 wmL0gQVA/0wkVAP7WyNxjpv5nBcj2nll6mHeXdpbin1t9iJytKUV8qpW/nvd2uqend6a4
+	 bw4ekUu+0Ak4v01fEBnrSxehLN05kaJyGeFzBAeXcwQX5W5jeJ60B+n9f4cH237xdlg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=clYquv0N;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	dmarc=pass header.from=gondor.apana.org.au;
+	spf=pass smtp.mailfrom=gondor.apana.org.au;
+	dkim=pass header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=T+aOBZEX;
+	arc=none smtp.remote-ip=180.181.231.80
+Received: from abb.hmeau.com (abb.hmeau.com [180.181.231.80])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E853606A31C;
-	Fri, 27 Nov 2026 04:25:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E853606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BC9A606A31E;
+	Fri, 27 Nov 2026 04:26:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8BC9A606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gondor.apana.org.au
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gondor.apana.org.au
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=clYquv0N
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AR4P8Pj8632677, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795753508; bh=4d6ATEu2hv57oCjVrORMP9uM03XTOdvaTYDAQMhdMuM=;
-	h=From:To:CC:Subject:In-Reply-To:References:Message-ID:Date:
-	 MIME-Version:Content-Type;
-	b=clYquv0Np/eHolALbiGvCZokwjbQfyecCXG6Q1I44ZyC6WIm+7PlDmjWAwgjYYM7k
-	 ySJfjuStW/tgp3TDqWXNmaNMWR3FfacpFS6PoTJPcTdRD81x83uqofa5syjKtT0hIZ
-	 JuhJgZY7OhHDJEOkTGqgreHMljAZqHcEyUzVwtKTcRVKy54FMOhbDjVDI/cCthIP0g
-	 odN7PcG1hao+8kQbXX8+MUF67TKLr9VRUj04dSm2s6qujR2Rl2VQcUZY4VSK90Gmiu
-	 7qsrJ5ZZE32jlBNR/umta9Fc2DVFVyzWfME1Kyk/TrpFELW1i86GEbo3+teyceN7Na
-	 X3b9oPJ+Ot6CA==
-Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AR4P8Pj8632677
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 27 Nov 2026 12:25:08 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 27 Nov 2026 12:25:07 +0800
-Received: from [127.0.1.1] (172.21.40.75) by RTKEXHMBS05.realtek.com.tw
- (10.21.1.55) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56 via Frontend
- Transport; Fri, 27 Nov 2026 12:25:07 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: Zeshan Ahmed Nobin <zeshanahmednobin@gmail.com>,
-	<linux-wireless@vger.kernel.org>
-CC: Ping-Ke Shih <pkshih@realtek.com>, Luka Gejak <luka.gejak@linux.dev>,
-	Kalle Valo <kvalo@kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH rtw-next v4] wifi: rtw88: 8822c: validate bw and nrx read from registers
-In-Reply-To: <20261125203753.428868-1-zeshanahmednobin@gmail.com>
-References: <20261125203753.428868-1-zeshanahmednobin@gmail.com>
-Message-ID: <4db47594-0493-42ed-a727-d34fab8ef90e@RTKEXHMBS05.realtek.com.tw>
-Date: Fri, 27 Nov 2026 12:25:07 +0800
+	dkim=pass (2048-bit key, unprotected) header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=T+aOBZEX
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=wroQkwyUmImSby60FSSEA23WGTsljWCUGSUqmlr+5fs=; 
+	b=T+aOBZEX6uzmlDxlpiKDB9TunL9hzXwiHnKJ1On1QOse0ZeS/h3+Wb+Qgqb7EoVtcaQa/jbi9rR
+	0FFPOw3G5FfEuNYwz4rBR/oIsIplpf76eoqHuvJw2NckcqnjLNNYRO/tEnF9bT8D3ooCjHyl3mira
+	eDHz6AY1Geefx5nSl+Qrx68RxA/E86hQ3chi/oHU/UnMZ6sQq9S9pTvGrvC3VosQkM+e5ELB5VpGj
+	AWsEw0uYYsbniJvHhAQE5RK5AsJHVkNKPGcewZUGROL4sWi8bnn1Wo2CXpTHwKcIHDuEWWUhjWQ60
+	kv6SvYjF41mSKwKfT7Q2pv5XjhHi/GCAHjiw==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
+	id 1xWnXH-00000002Utb-1xXi;
+	Fri, 27 Nov 2026 12:26:12 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 27 Nov 2026 12:26:11 +0800
+Date: Fri, 27 Nov 2026 12:26:11 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Guicai Ma <maguicai@kylinos.cn>
+Cc: "David S . Miller" <davem@davemloft.net>, linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] crypto: af_alg - Fix data-race in af_alg_wait_for_data()
+ and af_alg_wait_for_wmem()
+Message-ID: <awkGY8QdvNxzTVHG@gondor.apana.org.au>
+References: <20261118154815.607879-1-maguicai@kylinos.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,49 +65,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118154815.607879-1-maguicai@kylinos.cn>
 
-Zeshan Ahmed Nobin <zeshanahmednobin@gmail.com> wrote:
-
-> rtw8822c_phy_cck_pd_set() reads nrx and bw from the chip with
-> rtw_read32_mask() and uses them as indexes into dm_info->cck_pd_lv[][]
-> and rtw8822c_cck_pd_reg[][].
+On Wed, Nov 18, 2026 at 10:48:15AM -0500, Guicai Ma wrote:
+> KCSAN reported a data-race between af_alg_sendmsg() and
+> af_alg_wait_for_data():
 > 
-> When the chip stops responding on the PCIe bus, register reads return
-> all ones, so bw and nrx both become 3. bw = 3 is past the end of both
-> arrays.  When the chip stopped responding on Ubuntu's 7.0.0-43 kernel,
-> UBSAN reported:
+>   BUG: KCSAN: data-race in af_alg_sendmsg / af_alg_wait_for_data
 > 
->   UBSAN: array-index-out-of-bounds in .../rtw88/rtw8822c.c:4407:21
->   index 3 is out of range for type 'u8 [2][4]'
->   Workqueue: phy0 rtw_watch_dog_work [rtw88_core]
->   Call Trace:
->    rtw8822c_phy_cck_pd_set+0x33c/0x510 [rtw88_8822c]
->    rtw_phy_dynamic_mechanism+0x310/0x330 [rtw88_core]
->    rtw_watch_dog_work+0x217/0x330 [rtw88_core]
+>   write to 0xffff8eec18118fa4 of 1 bytes by task 17152 on cpu 17:
+>    af_alg_sendmsg+0x1c7/0xfa0 crypto/af_alg.c:949
+>    skcipher_sendmsg+0x78/0x90 crypto/algif_skcipher.c:47
+>    ...
 > 
-> nrx = 3 fits in cck_pd_lv[][], but rtw8822c_cck_pd_reg[][] only has
-> registers for nrx 0 and 1. The entry for nrx 3 is empty: register 0,
-> mask 0. If bw is valid and the level changes, the driver uses that
-> empty entry. rtw_read32_mask() then shifts by __ffs(0), which is
-> undefined; in a test that faked only nrx 3, UBSAN reported "shift
-> exponent 64 is too large".
+>   read to 0xffff8eec18118fa4 of 1 bytes by task 17143 on cpu 1:
+>    af_alg_wait_for_data+0x1f9/0x3c0 crypto/af_alg.c:854
+>    _skcipher_recvmsg+0x52f/0x720 crypto/algif_skcipher.c:65
+>    ...
 > 
-> Return early if bw or nrx is out of range, before either is used as
-> an index.
+>   value changed: 0x13 -> 0x1b
 > 
-> Fixes: 479c4ee931a6 ("rtw88: add dynamic cck pd mechanism")
-> Reported-by: Luka Gejak <luka.gejak@linux.dev>
-> Closes: https://lore.kernel.org/linux-wireless/f6a7d3272fe7635c6a83698dfab5d85500437ca6@linux.dev/
+> Both af_alg_wait_for_data() and af_alg_wait_for_wmem() are called with
+> the socket lock held and use sk_wait_event() to wait for the condition.
+> However, sk_wait_event() calls release_sock() before evaluating the
+> condition expression for the first time, which reads ctx->init,
+> ctx->more, and ctx->used without the socket lock. Meanwhile,
+> af_alg_sendmsg() acquires the socket lock and modifies ctx->write (which
+> shares the same 1-byte bitfield as ctx->more and ctx->init), as well as
+> ctx->init, ctx->more, and ctx->used.
+> 
+> Unlike TCP/UDP sockets, af_alg updates these context fields only in
+> process context under lock_sock(sk). Since add_wait_queue() with
+> woken_wake_function is already done while holding the socket lock, check
+> the wait condition under lock_sock(sk) before calling release_sock(sk)
+> and wait_woken(), avoiding the lockless read entirely.
+> 
+> Fixes: 2d97591ef43d ("crypto: af_alg - consolidation of duplicate code")
 > Cc: stable@vger.kernel.org
-> Signed-off-by: Zeshan Ahmed Nobin <zeshanahmednobin@gmail.com>
-> Reviewed-by: Luka Gejak <luka.gejak@linux.dev>
-> Acked-by: Ping-Ke Shih <pkshih@realtek.com>
+> Signed-off-by: Guicai Ma <maguicai@kylinos.cn>
+> ---
+> Testing:
+> Verified with a concurrent AF_ALG skcipher (ecb(aes)) send/recv stress
+> test under CONFIG_KCSAN=y (QEMU arm64, 8 vCPUs, 60s per run, ~470k rounds):
+> - Baseline (6.6.156): 51 af_alg KCSAN data-race reports (both the 1-byte
+>   bitfield race and the 8-byte ctx->used race).
+> - Patched (6.6.156, 2 runs): 0 af_alg KCSAN reports; roundtrip
+>   functional check passed and unrelated KCSAN reports remained active.
+> - Upstream (20eef29b7c84, arm64 defconfig + KCSAN): compile-tested
+>   crypto/af_alg.o, crypto/algif_skcipher.o, and crypto/algif_aead.o
+>   with W=1 cleanly (0 warnings/errors).
+> 
+>  crypto/af_alg.c | 22 ++++++++++++----------
+>  1 file changed, 12 insertions(+), 10 deletions(-)
 
-1 patch(es) applied to rtw-next branch of rtw.git, thanks.
+This looks like a false-positive because sk_wait_event evaluates
+__condition twice, once without locks before the wait and once with
+locks.
 
-ae6b9e98b904 wifi: rtw88: 8822c: validate bw and nrx read from registers
+It's the evaluation within locks that is final so everything should
+be correct.
 
----
-https://github.com/pkshih/rtw.git
-
+Thanks,
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
