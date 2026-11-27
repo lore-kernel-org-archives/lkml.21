@@ -1,81 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795743118;
-	b=JMFD3YO7DXfykP4zmOfRXRDC3I5UlMHfFfljgpoZNm2XI0+QbK0KTcRGhcrK//Cnk4Xa
-	 pFhot27P1+i7C5CKgq49C8b16G7Z/evWV8/t+HHd09ZWO9n3PQ9WwulPMp8O99ECJNdlR
-	 jtsSZI9JnmEEgg02GdLluCgysh0vTiViyf29ZtnurCinJ8EqyiK7a+ozcfZ2AtS4vYgle
-	 6ja3h/ZJCYqu08fj59oAgQ09apoqfUsp86veg9eEo6/zTILliIhXFDAraNf6qVEB0zHq4
-	 PVSPBMUcnlTKojQC3Y4Ln9y88QFvBytXLXUiJUIP0G3kGLWH7+7mkr+wp65IAAPfpCg==
+	t=1795743272;
+	b=bAtP4umvFAkxUWjyfmuLxWEFtY6YTQvS5dvmHor+S0jvA30Fr3A+X2iT1OcH2N8yoweK
+	 XNRUB90zCCvp7vOK2UXfA9qEkL9FgW385+ATXrV2rBr1qp1j/Hxyr259AiYBSoKubOywE
+	 kji1ibC38u0G3gfyDmtWCYliIyhIo6f6M5hgBdNqeifNjRxj4voPqP6kK/K89SiUDlqBM
+	 CC83VI7TuQm9VX0d74rLP/SLY61t8OfvH1KWvinIqqxkPpBSxgGboADMVX81c1deZ36HN
+	 cXq2hp9Z3PP4nm2T0A+ySUIR4po9nBT8YF1LRNwYlCNBPUjBLWg0ziSZ/isOyl7Hxzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795743118;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=dvkunYYib3t+WNUNoyZI1SS+DixzPh3PWhvxSEZOv1g=;
-	b=O7+CCLdkI4ebJZpZI2cQ0z7xPMq1jz8/ywpGCvODROGiDSTS2vaf73gCfzVQve5ssSQR
-	 FNa0vewHXwGCXjAskPBCOupMLGdREhRfTqwEacGs0z9In17oWB0VQNQDf71pFzRet4qnY
-	 DCOLl/I2aHjQsW4Hf0c6RYuY/SIE0jc+PPdkZ0o0ihsKIQTC6XrM1Ox+5SweBObdB6o++
-	 MiXknb5TnzenRXoM7Dm7tvg7p6Y/Yi/lytSbuHoc9whtALXtPsYN6x4iYh+uv8mqaK2M2
-	 sf7J3cq/q+egU+vt6jTX4zAYNGWTidP9Ke8yJF4t89Z0Kl/R9GgRZNX4hGClFMF5d9g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795743272;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:X-Forwarded-Encrypted:X-Received:Received:From:In-Reply-To:
+	 References:MIME-Version:Date:X-Gmail-Original-Message-ID:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
+	bh=l7RO/X9hrpGm7U7ZvUyWBLz5rvKWH6VnYdq6Izp1zz4=;
+	b=uIhOAIBd4IA4QnxKUPI2SI96VQ/CaEbFexjl8KBaLbHnTtmCCe6gvRraubEbG/GV/v3p
+	 Fk4A1850ara76FDbtx1ZUG99efD3dOLlECllVs98Hcn5dgD/c6flVmOuz3hAjEunaDPti
+	 BcnGbFneQo9mNogJMacDiZijUho42AelLlLyklWs6E8hvpxmlwy4DzYx10D4pE1uGKUya
+	 RZ6wgfPnMB86s/K9N+NW9LL/Ow5bR7PvaMC0x/J9nu3SbXdxMDELqvT4aVK5LZMNj/db9
+	 P/PeUqPvCY8apiL3UytZkIOiTfaRMWVpUNP0q4cVjPz/4B7IvbvZtcB45kbGopn+OOw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=alien8.de;
-	spf=pass smtp.mailfrom=alien8.de;
-	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=dQUcRFdA;
-	arc=none smtp.remote-ip=65.109.113.108
-Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=linux-foundation.org;
+	spf=pass smtp.mailfrom=linuxfoundation.org;
+	arc=none smtp.remote-ip=209.85.218.43
+Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A2D3606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:31:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A2D3606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key, unprotected) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=dQUcRFdA
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id AED4740E0219;
-	Fri, 27 Nov 2026 01:31:54 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id PO4ih8q75Lpj; Fri, 27 Nov 2026 01:31:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1795743110; bh=dvkunYYib3t+WNUNoyZI1SS+DixzPh3PWhvxSEZOv1g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dQUcRFdA+ywc6OvDAjEpFVEEYQKM4HkSgKgdqoTJmegpIAstDje+ulre8823jAq8+
-	 3mgp8pes0/k5KZmURjF/oxQBIV/6SVQCTCDsxJjNq8UlLavALL3ARNRTiARbY3s3Cp
-	 EBh/nVhoYnOUbxWzXxyt/qPIN8Lvgdcax23tr26/cY4fLG0CYpXk760RwKepUlo8th
-	 cHJpST8atQb406XV917Mtl8IpY5XI5P9MsyK5R59g598t8pwG9CcDWr7gIAQwY/0zL
-	 YzaQlaplB+5loTfkUbGO/taWYvooU+R802TMEhC1uzN5P1ChIsSI78Mgwjiqr5j5o+
-	 PFtep5oZ9DXfq8xSOzEOsdHUtj+0Gk+Pl2LrX3uucLHJc8FhBLJdFRHvo2s8lHGC+w
-	 S2MPeQiMboYHtm/9hCcTUaAxOqJMtN8HlLz3gfXj9u6JUUh94VB5Z2uLmIYPOPm2R5
-	 AVZLg954fVy/P+pww/dlbNmn6oeoafSwAMW0FKdvDuq0Ky5wCbZeFUap4OSa0JFojw
-	 PgK59rsu+1OvtAvQo6pD4jAFPyp+ehKpKd6rFy75RSt35UtoabT8e9egAcvdKFAnrz
-	 nNwXCeyVoMAVuu3W784C2hGR5o2j4SCGU3iIDE+g6RUNrgPdX/AniRfk3rBrjemwDK
-	 bMwpwxvhsXamV55yq2VWoJmI=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id EB40340E015B;
-	Fri, 27 Nov 2026 01:31:41 +0000 (UTC)
-Date: Thu, 26 Nov 2026 17:31:38 -0800
-From: Borislav Petkov <bp@alien8.de>
-To: Erwan Velu <erwanaliasr1@gmail.com>
-Cc: x86@kernel.org, Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H . Peter Anvin" <hpa@zytor.com>, linux-kernel@vger.kernel.org,
-	Erwan Velu <e.velu@criteo.com>
-Subject: Re: [PATCH] x86/microcode/AMD: Warn when a patch is skipped because
- of the Entrysign cutoff
-Message-ID: <20261127013138.GAawjdekyHPeTYi5_C@fat_crate.local>
-References: <20261125175203.1003294-1-e.velu@criteo.com>
- <20261126004429.GCaweA7XoIaa5k_ZBh@fat_crate.local>
- <CAL2JzuyqD-2Ka-D4hhURtn892tDvHacz2C6V7a-wFMxQkEe_qg@mail.gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6288E606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:34:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6288E606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c505b2e1cb9so1362652666b.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:34:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1795743270; x=1796348070; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=l7RO/X9hrpGm7U7ZvUyWBLz5rvKWH6VnYdq6Izp1zz4=;
+        b=Zzq4TdtQDHxlk2/0GAZfU/sITg0WBdRE7Js2w4zGL9bZzaZK9/HzCNGSTFKiN+NEWG
+         Y8Oitwpp2w+96kxE6HA/b+FgPEnRIT0M+3ciT6AFZ6m4Hw8B+BSkciInk3R3Ml1qZtX1
+         uEI92xi33BYZ49B5QCQHEp9t48jGgJflte/eQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795743270; x=1796348070;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=l7RO/X9hrpGm7U7ZvUyWBLz5rvKWH6VnYdq6Izp1zz4=;
+        b=GZnJm8un8N6CN+nmhZBh6AWGRYy5ansnajlsT1rD1fzhWZQ6xKvXXonq6sMPnkGTRg
+         OVWhG573jq/4Q9fOEJ44VocC4M/t0oDsA5DEy9tAZbZj4hFnol38scWvjp6QzIiWEgZG
+         xab3WpLJiyoQaKrg4CvYjsy1zAwa9eu7Go6ECpW+3nukbvNScxjzjjdbcVlSb1Yw50N0
+         XWIlcmr03NhwDM27LHzjG9Ga8Zq6J4EgcGsUl5vnIsTwm1cW/N/tR+3SDansC7LmYHEG
+         zC+6OosB7seS1FpHLoj8s/Xs2lTIqkDAW+9hgaJx+u5I+h1f+ho2eBQRRfa7xxa2kFo9
+         Y9zg==
+X-Forwarded-Encrypted: i=1; AL+hErHEvHHk3PkmQIpAfzdV7bw0uL4B7cWAwH+0pF5zdyN5FESr6GtIvnFIzEmtk3+wSOqK+ap2Kl54jUd5I7Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+57m7WqLK6NpCIMMVno8yKrLMB/3i45FkZVbHsdapclkvfNgFz
+	9jVzBdntb4p8FBsGKMraxPAITd3yoWW7O//MsxMBDaYqBh7XDUqtavMJWu3OSnn/dqGrOkjZDW9
+	7zldranXE2w==
+X-Gm-Gg: AZFdTZfTBAQpA6nkAXqh90IfxTKVIEB1Gh7tO2TBmPbSHXNFaMokXYMVWjKpZEfXK2C
+	6eSkAa0iSFWe7gzagrU9Pm24q2BnKCb0qovKqNfDc4KF4UMV1n/Rbr0PSOFqPU5Fa8aH0ateCMe
+	NFDaepFvp0YLnyzg44fMTNxJboT9Fs3W7m8CVSw/355noGd+1mmK6ZNW4oq0QPIiveZuOnNS90f
+	1TiFBGiRs/f+Jqokgr25NT8AwT6XFzU8KJcutpw4hSK0LZGH/0qbVhvWbrXey6g4ZVqMLHUc3hM
+	VdTSF7Q46l957zFFLwmhSB+5dfxb4pvip73ccJJ/fAsf6dO1LCu4oSGH0k42lGElOohXyBalqtO
+	uqZE2frGtYG1/P9c48vBoiaKyA+2HwLagsFSkjrVM9pITXUyO7uXV0629liklcu/kIw3PiyDetg
+	WGmRrfU2zwcdKbjEvTP+rbMDoP0cBsd8NO2xSeayOdL0XkX0zUkriEsIAqFM09hzLXAaWI+GzlW
+	ncJdH0U4u1lM23cQO5VSrL4J8CMcCWPnujXA/5SdUhX8Tskz4yEbgEMscrul4uNZgpZL2xlFSjt
+	s42c/FDnxfTSZReXrpJ2l1vi/euoRx2jW76RVY7L48xSeDxQ/mdZoxdEyoTbM4FxH4zmdcOb3wt
+	PXRU=
+X-Received: by 2002:a17:906:694f:b0:c50:ff1c:22be with SMTP id a640c23a62f3a-c513aace676mr1368884166b.16.1795743269771;
+        Thu, 26 Nov 2026 17:34:29 -0800 (PST)
+Received: from mail-ej1-f53.google.com (mail-ej1-f53.google.com. [209.85.218.53])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ad010bcsm843207466b.1.2026.11.26.17.34.29
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 17:34:29 -0800 (PST)
+Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-c505b2e1cb9so1362650666b.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:34:29 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGz53mEOVGJWHg0M3GUrh+84nn3Jv4juW++0+V7rj/k0VrSwg7CbTV/HRwyuzLkGH26EgowRDmFYM0xZps=@vger.kernel.org
+X-Received: by 2002:a17:907:c491:b0:c25:91bc:ff55 with SMTP id
+ a640c23a62f3a-c513ab0c6b4mr1782417166b.23.1795743268984; Thu, 26 Nov 2026
+ 17:34:28 -0800 (PST)
+Received: from 425495914135 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 26 Nov 2026 20:34:27 -0500
+From: Linus Torvalds <torvalds@linux-foundation.org>
+In-Reply-To: <CAHk-=wjcmmgrJy6rknMOTJ76O92QSAMSUaUPKC6N=pASPsxPmA@mail.gmail.com>
+References: <20261127000015.3662267-1-julianbraha@gmail.com>
+ <20261127000015.3662267-2-julianbraha@gmail.com> <CAHk-=wjcmmgrJy6rknMOTJ76O92QSAMSUaUPKC6N=pASPsxPmA@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,32 +97,118 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <CAL2JzuyqD-2Ka-D4hhURtn892tDvHacz2C6V7a-wFMxQkEe_qg@mail.gmail.com>
+Date: Thu, 26 Nov 2026 20:34:26 -0500
+X-Gmail-Original-Message-ID: <CAHk-=wif1CNqxe19O=oCy87TZ_KQoGcoCaOchn-dk11hKoGbOQ@mail.gmail.com>
+X-Gm-Features: Aa3M54polP77YZQv9cchX6_j00EPygNp2BPE71doDMsazM4Dd6ppL9CR6_Xn25s
+Message-ID: <CAHk-=wif1CNqxe19O=oCy87TZ_KQoGcoCaOchn-dk11hKoGbOQ@mail.gmail.com>
+Subject: Re: [PATCH 1/5] scripts: add bit count parameter back to host hash functions
+To: Julian Braha <julianbraha@gmail.com>
+Cc: nathan@kernel.org, nsc@kernel.org, samitolvanen@google.com, ljs@kernel.org, 
+	david.laight.linux@gmail.com, sashal@kernel.org, lzsx618@gmail.com, 
+	zuoan.penguin@gmail.com, petr.pavlu@suse.com, jani.nikula@intel.com, 
+	xur@google.com, sidnayyar@google.com, robertusdchris@gmail.com, 
+	acourbot@nvidia.com, linux-modules@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Thu, Nov 26, 2026 at 11:00:59AM +0100, Erwan Velu wrote:
-> We can adjust the wording, but it's important for the user to understand
-> that the non microcode loading was done intentionally because of this trust
-> issue, and the only way to avoid it is a BIOS update.
+On Thu, 26 Nov 2026 at 17:16, Linus Torvalds
+<torvalds@linux-foundation.org> wrote:
+>
+> NOTE NOTE NOTE! This is untested crap.  It shows the *concept*.  It
+> might even work.  But it might also do unspeakable things to your pets.
+> Don't trust my word for it.  Look at the code and test it.
 
-I know what you wanna do. What will end up happening is something else, I'm
-afraid.
+Some more testing shows that it needs at least something like this on
+top..
 
-Because a single line in dmesg doesn't explain the situation but raises more
-questions. Now guess who will answer those? It won't be you... :)
+With this it *might* actually work.  But when I say "some more testing",
+that "some" is still carrying a lot of weight.  Not a lot of, IOW.
 
-And good luck explaining some poor folks that there'll be no more BIOS for
-them. "But but, my kernel just told me to update my BIOS. There is no more
-BIOS updates for my board... :-("
+I did say it was untested crap.  I guess I'm more of a "high-level
+concepts guy" than detail-oriented.
 
-So, pls send me dmesg from that machine you're poking at so that I can take
-a look. Privately is fine too.
+Users? I like to call them "Test subjects" or "Victims".
 
-Thx.
+              Linus
 
--- 
-Regards/Gruss,
-    Boris.
+---
 
-https://people.kernel.org/tglx/notes-about-netiquette
+
+diff --git a/scripts/include/hashtable.h b/scripts/include/hashtable.h
+index 0d8bb8eb178c..78d63eb96fc4 100644
+--- a/scripts/include/hashtable.h
++++ b/scripts/include/hashtable.h
+@@ -12,10 +12,14 @@
+ 	} name
+
+ #define HASHTABLE_DEFINE(name, bits) \
+-	HASHTABLE_DECLARE(name, bits) =	{ { [0 ... ((1 << (bits)) - 1)] =
+HLIST_HEAD_INIT } }
++	HASHTABLE_DECLARE(name, bits) = { { [0 ... ((1 << (bits)) - 1)] =
+HLIST_HEAD_INIT } }
++
++/* Define a table already declared extern with HASHTABLE_DECLARE() */
++#define HASHTABLE_DEFINE_EXTERN(name) \
++	typeof(name) name = { { [0 ... HASH_SIZE(name) - 1] = HLIST_HEAD_INIT } }
+
+ #define HASH_BITS(name) (sizeof((name).hash_bits))
+-#define HASH_SIZE(name) (1ul << HASH_BITS(name))
++#define HASH_SIZE(name) ARRAY_SIZE((name).hlist)
+
+ #define hash_head(table, key)	(&(table).hlist[(unsigned)(key) >>
+(32-HASH_BITS(table))])
+
+@@ -31,7 +35,7 @@ static inline void __hash_init(struct hlist_head
+*ht, unsigned int sz)
+  * hash_init - initialize a hash table
+  * @table: hashtable to be initialized
+  */
+-#define hash_init(table) __hash_init(table, HASH_SIZE(table))
++#define hash_init(table) __hash_init((table).hlist, HASH_SIZE(table))
+
+ /**
+  * hash_add - add an object to a hashtable
+@@ -59,7 +63,7 @@ static inline void hash_del(struct hlist_node *node)
+  */
+ #define hash_for_each(table, obj, member)				\
+ 	for (int _bkt = 0; _bkt < HASH_SIZE(table); _bkt++)		\
+-		hlist_for_each_entry(obj, &table[_bkt].hlist, member)
++		hlist_for_each_entry(obj, &(table).hlist[_bkt], member)
+
+ /**
+  * hash_for_each_safe - iterate over a hashtable safe against removal of
+@@ -71,7 +75,7 @@ static inline void hash_del(struct hlist_node *node)
+  */
+ #define hash_for_each_safe(table, obj, tmp, member)			\
+ 	for (int _bkt = 0; _bkt < HASH_SIZE(table); _bkt++)		\
+-		hlist_for_each_entry_safe(obj, tmp, &table[_bkt].hlist, member)
++		hlist_for_each_entry_safe(obj, tmp, &(table).hlist[_bkt], member)
+
+ /**
+  * hash_for_each_possible - iterate over all possible objects hashing to the
+diff --git a/scripts/kconfig/expr.c b/scripts/kconfig/expr.c
+index 27278830de98..26b0a64b5cb5 100644
+--- a/scripts/kconfig/expr.c
++++ b/scripts/kconfig/expr.c
+@@ -16,7 +16,7 @@
+
+ #define DEBUG_EXPR	0
+
+-HASHTABLE_DEFINE(expr_hashtable, EXPR_HASH_BITS);
++HASHTABLE_DEFINE_EXTERN(expr_hashtable);
+
+ static struct expr *expr_eliminate_yn(struct expr *e);
+
+diff --git a/scripts/kconfig/symbol.c b/scripts/kconfig/symbol.c
+index dec65c0d1181..2afe2be78a29 100644
+--- a/scripts/kconfig/symbol.c
++++ b/scripts/kconfig/symbol.c
+@@ -971,7 +971,7 @@ bool sym_is_choice_value(const struct symbol *sym)
+ 	return !list_empty(&sym->choice_link);
+ }
+
+-HASHTABLE_DEFINE(sym_hashtable, SYMBOL_HASH_BITS);
++HASHTABLE_DEFINE_EXTERN(sym_hashtable);
+
+ struct symbol *sym_lookup(const char *name, int flags)
+ {
