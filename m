@@ -1,54 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795747802;
-	b=CZ4mIn9esiGy65ObA9A4Z1Vpy17jKz92UZL2Q9Tkem+rK71dYTfuAkqGtUoj4lQpRPFH
-	 pu0SdKvbLnhhf2BkRk7/wBdLvFYX73dKohCQuoBYtqww9Hb70JoccPj6lkKOCBkCVo/Vl
-	 4mMWdqx5v4oaQRYNPqER04vR/wL2DH+DR2YQTw7GhdfzjZlj8CYTGwtMM1LEvK3j3KNqY
-	 pRhnFbZ0dQzMV4udGn7fXJ4/M8EWXJK5n/eRHwAdBf9JHWhxYJE1/I9rIKVu/72EevGBH
-	 YX724FjrxD4WXOMLE2nBYaMgwxIIBCzEh+kfVvqgcJuWcMXZ+yqXLECGDX2jMy2mytw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795747802;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=t+eUij82/QC/n+c9lQwrVzk3PSO0L0NTj3bs3PqbZcM=;
-	b=eGqJD5UMoHkBU0cYSfOSp3Bw7Mt6v/KERIBK8+J698ui0lT318XaF8N8U1dI3Xnne+eR
-	 hwLU0tIRAZG+0NMbK740dJ0dG+4wIuaGWJc4YooufWqX7KLJIiIJN5ByNZBcvKxISvu7S
-	 yLuvd9oA0UuZf3mHLi9s+7nXe1t9JZucRBNN0uwFxHNckR2v8JymVMQFFXj+jxdyMVTsi
-	 +0AZ5qYxJh6Y9M12pAguZ8MDR49BVI7Z4xFxIvWV97gVK8l+LKgFnTu6MT7yQnrNGs3hQ
-	 r+j/5sake2nQ8OZiMrpBtrcrYHufRZ99e5xXChAj+F6QF3DARW8qKLsP5H31Vj4GSUg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bB7Cp19Q;
-	arc=none smtp.remote-ip=198.137.202.133
-Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795747804;
+	b=rCHlR5zRnNy0P7mRQuKOP7WzuveMDP0tGxbDqddqUGAv3UaPgIriigkvoUOCwRDi8ilD
+	 YDmRS5jF0gEdXz7wP8V/DjW2Quic0gNI+ikX+iDD8hvovHY4qPm89RJg53pIvhOoc0jdP
+	 4yjdKFG8bclL1TmAXGvrcSv5D6C+AbxXTxUMFRTWq3LKts0T8jpMBkzGqQc0HaMjWAJ8J
+	 QlrSNW9HLEv4ZbYGm0MqIsH7Mo1ZHU3vEzUofwzBfFjy+CxCUqsrKaYIP8aT3bS4ozofO
+	 YYIuP1UKSHiAQDOQPJmZrhMlw+OwNcd7PEpoUMCtWQPh4dDWcTUy6T/6rNT0u13Kn9w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795747804;
+	h=Received:DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
+	 Content-Transfer-Encoding;
+	bh=2X8lINQUPwlfkcaoAYlh4FWfsAegOZJi9VEYSrxjRA8=;
+	b=OvfGbzSbqnZnEq4tOyhV/KcV40KGc0RSO3kUx7XFsqSrjQWdmlYhDrQ6CQ9Q31aeUh91
+	 QNYY2swKEcYU0I7KAVxo7/yoZKD5rqZC18oNM5vh0K2uVhW3OOh8BDElfQgoDwYNEeiwt
+	 e7KSkoBYzjVNG7EJasJea5E6RohzY0rk+00YKNXgVZyMv1PnDQpOWLtfmK+qu7DsgJ5jg
+	 N4ssKHUBHY5ECWAhirCl2aawEHWXIs66eByZKPUSY/UAo5zRDr3mIi7Mp3OuYakDuf9H8
+	 mSv+RyVA8GwD9VxwdVmWAl5imsTIBNWZI73q5huegiWTtg+l8ikA7NfxKiEr+6p30YQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PwEoHput;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2AEB5606A32E;
+	Fri, 27 Nov 2026 02:50:03 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PwEoHput
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795747803;
+	b=l4GUq02r983sILgWP3Qk6zWpUqMuBdT5m/lE00J+MUfgP5uJGOWSV4DNQKU5PgugecbO
+	 EsL14eht8yojZdTgu/7PlZlAMfR+wJKlRedbbUI1hSm+hm1T510vdgaC/13P8sMy2p7zv
+	 1oeOG39SbVExgRlsSrX7yIl3C5h2devwdes8B36ldMbD9aB/GBdJpPZNxWxSG5EIx3Ji2
+	 Yl8Vhc4WwPExEacpCekJwsp2OC8qObkRqJh8mlPmWF2Dezys78YJnV7hE4O6Fk/Cau/6V
+	 1OaA1TDtautWBS8XgqjLNTvDfO0BrGxhdoRx0MnIjxLFXC1FrRiGpHfMV+FAW7jHV+Q==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795747803;
+	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
+	 Content-Transfer-Encoding;
+	bh=2X8lINQUPwlfkcaoAYlh4FWfsAegOZJi9VEYSrxjRA8=;
+	b=ASN2iZ8pk1DtSdaEA4E3ODG9zTn+APBmCDxF7F8Vp8Lmb2ZWfKxNcSC6oq1pevIIUGvK
+	 nXPyORIs4CdXJhwNGeIsGWFqo92hoeXw4BFVYl7IbQyHp/75qNUSRBkkFRso2J+MpisMO
+	 vgUKDeLWucE31f6ipEbuN8M2HHrLe/sd0P8G5XkNx6DbU16BPvc5uijys0G2q0CAo9/u1
+	 kpXtSFEXGLv09lkTJDNKcZaY414ApYhT34GYd5DRblmTOTWVUVz/1tIVvax92ln3rai1l
+	 +Hn0AJCBwkP0zfs7YvztKenKai4dByJZAZLVBchcjriNAMGmCDnmqUJ3XIgx0wj1v/g==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28308606A31C;
-	Fri, 27 Nov 2026 02:50:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28308606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bB7Cp19Q
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Sender:Reply-To:Content-ID:Content-Description;
-	bh=t+eUij82/QC/n+c9lQwrVzk3PSO0L0NTj3bs3PqbZcM=; b=bB7Cp19QQYGBmc2YEYKhqLVQoe
-	AXQ9m420RBaP6JCLSVCoydmPkaabONkrdrM3aT0k7VeKiLa7j/SouUZhgtFavoQ6HXOCyD9Vbffsq
-	ic7tRgSW4NfnW+yPyZMqqWXekuCC0WPwFI5maaSfHQGl1wuvkYBLiLAMrPBfuR6BraTImMukY29W9
-	RUkHDEQiRgWg/+guSbWBwkhBG1qMhYOxnGgawp47iW6gVZ6tLg7a2V0jhdEeZSn8lTlee9jfeGc4A
-	8Hmq9y21dQzOPbHQOLpD3/EiDAhrqTcjVVBU9DqAmjp8KWMZY12FFON84jdyD2nzq9iHzmrgRpygx
-	eHtDjTMg==;
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWm2D-0000000EnwC-1iaC;
-	Fri, 27 Nov 2026 02:50:01 +0000
-Message-ID: <e201bf76-fda3-4fd0-95af-8d8f0f2a74f9@infradead.org>
-Date: Thu, 26 Nov 2026 18:50:00 -0800
+	by smtp.kernel.org (Postfix) with ESMTPS id 3197B1F000C1;
+	Fri, 27 Nov 2026 02:50:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795747803;
+	bh=2X8lINQUPwlfkcaoAYlh4FWfsAegOZJi9VEYSrxjRA8=;
+	h=From:To:Cc:Subject:Date:Reply-To;
+	b=PwEoHputZUrSoC/suScLk4e3ZgactoXgmM5L4ZN/dpEaUQpia4t/2pl42xJr009Cc
+	 MyoGcFnu3r/r0d7+yKQUxFqt1pMMXKdhRkYZZU+7xi/OrTEKJh7zDFNgfHuw6LgFIh
+	 zxb/30rZLa/3BvEDR1e6/k+ALKdiutaQKkk2Oa6cGT6++9IRVeySCfvZ25VBM+NXSi
+	 q5UvKn4xD3gqnpWzRL2zDSyPaCzfygx2XnCoiMhPbSu0J7gV5r6X5CU93ge2vrB97G
+	 DBFlAHFNS4FQUBWheNcrXgeJNkg3DTdRydl/Os2PnTvXAo/WnYuC+jlzIp+AYx+zae
+	 TuAFNHmnc5V9w==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id A40424B4DA;
+	Fri, 27 Nov 2026 02:49:59 +0000 (UTC)
+From: Ilia Snezhkov via B4 Relay <devnull+iasnezhkov.gmail.com@kernel.org>
+To: broonie@kernel.org
+Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
+ Roman Vivchar <rva333@protonmail.com>, linux-spi@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+Subject: [PATCH v2] spi: mt65xx: set host->max_speed_hz in probe
+Date: Fri, 27 Nov 2026 02:49:58 +0000
+Message-Id: <20261127024958.8686-1-iasnezhkov@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,148 +88,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] HID: Merge duplicated documentation for Lenovo Legion
-To: Ricardo Ribalda <ribalda@chromium.org>,
- "Derek J. Clark" <derekjohn.clark@gmail.com>,
- Mark Pearson <mpearson-lenovo@squebb.ca>, Jiri Kosina <jikos@kernel.org>
-Cc: Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org,
- linux-input@vger.kernel.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20261126-lenovo-go-v2-1-99db2904513e@chromium.org>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20261126-lenovo-go-v2-1-99db2904513e@chromium.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795747798; l=2087;
+ i=iasnezhkov@gmail.com; s=mindone2026; h=from:subject:message-id;
+ bh=BHEc+LMfLY+B72htL0cr2zKEFVE9SAYFoEO0zNM8fBc=;
+ b=DBC5DI8rLzSjNB7e94V8D1QT17kFycbLd5NUg1CceltKs4S3ZJvIEDGJUjybmYKQNV8H70PKs
+ Ypvz0G2lGCzDQsCq6+T5dew+szLokLaPehr+AAD1u1rH0Ynt2fNyw5X
+X-Developer-Key: i=iasnezhkov@gmail.com; a=ed25519;
+ pk=hQgXfiWi4ukk2jh4BHu1vRVhg9BUivo//AFp50AKMag=
+X-Endpoint-Received: by B4 Relay for iasnezhkov@gmail.com/mindone2026 with
+ auth_id=1643
+X-Original-From: Ilia Snezhkov <iasnezhkov@gmail.com>
+Reply-To: iasnezhkov@gmail.com
 Content-Transfer-Encoding: 7bit
 
+From: Ilia Snezhkov <iasnezhkov@gmail.com>
 
+spi-mt65xx leaves host->max_speed_hz unset (0). When a client device
+omits spi-max-frequency in DT, spi_setup() keeps spi->max_speed_hz == 0,
+and transfers or spi-mem ops without an explicit speed reach
+mtk_spi_prepare_transfer() with speed_hz == 0 and mtk_spi_transfer_wait()
+with mem->spi->max_speed_hz == 0, causing division by zero in both
+DIV_ROUND_UP(mdata->spi_clk_hz, speed_hz) and
+div_u64(ms, mem->spi->max_speed_hz).
 
-On 11/26/26 6:36 AM, Ricardo Ribalda wrote:
-> Lenovo Legion Go and Lenovo Legion Go S share some definitions. Merge them in
-> sysfs-driver-hid-lenovo-go to avoid this warning:
-> 
-> WARNING] /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/os_mode is defined 2 times: ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go:364; ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s:234
-> [WARNING] /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/os_mode_index is defined 2 times: ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go:373; ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s:243
-> [WARNING] /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/enabled is defined 2 times: ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go:636; ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s:252
-> [WARNING] /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/enabled_index is defined 2 times: ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go:645; ./Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s:261
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: 168c91839139 ("HID: Add documentation for Lenovo Legion Go drivers")
-> Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
-> Signed-off-by: Ricardo Ribalda <ribalda@chromium.org>
+Validate that spi_clk_hz is at least 2 Hz and set host->max_speed_hz to
+mdata->spi_clk_hz / 2 (the controller's maximum SCK rate at div = 1,
+sck_time = 1) so the SPI core populates spi->max_speed_hz,
+xfer->speed_hz, and op->max_freq for all transfer paths.
 
-LGTM. Thanks.
-Acked-by: Randy Dunlap <rdunlap@infradead.org>
-Tested-by: Randy Dunlap <rdunlap@infradead.org>
+Fixes: a568231f4632 ("spi: mediatek: Add spi bus for Mediatek MT8173")
+Suggested-by: Roman Vivchar <rva333@protonmail.com>
+Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
+---
+Changes in v2:
+- Set host->max_speed_hz = mdata->spi_clk_hz / 2 in mtk_spi_probe()
+  (and reject spi_clk_hz < 2) instead of only guarding speed_hz in
+  mtk_spi_prepare_transfer(), covering mtk_spi_transfer_wait() as well
+  (suggested by Roman Vivchar).
+- Move AI coding assistant disclosure below ---.
+- Link to v1: https://lore.kernel.org/r/20261126003314.49090-1-iasnezhkov@gmail.com
 
-> ---
-> Changes in v2:
-> - Revert unrelated "built in" -> "built-in" typo change in os_mode description (Mark Pearson)
-> - Pick up Reviewed-by from Mark Pearson
-> - Add Jonathan Corbet and linux-doc@vger.kernel.org to Cc (Mark Pearson)
-> - Link to v1: https://lore.kernel.org/r/20260831-lenovo-go-v1-1-e9526e88ee09@chromium.org
-> ---
->  .../ABI/testing/sysfs-driver-hid-lenovo-go         |  9 +++---
->  .../ABI/testing/sysfs-driver-hid-lenovo-go-s       | 35 ----------------------
->  2 files changed, 5 insertions(+), 39 deletions(-)
-> 
-> diff --git a/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go b/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go
-> index c8221373ef76..07f3ea054383 100644
-> --- a/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go
-> +++ b/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go
-> @@ -365,10 +365,11 @@ What:		/sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-
->  Date:		April 2026
->  Contact:	linux-input@vger.kernel.org
->  Description:	This controls the behavior of built in chord combinations.
-> +		For the Legion Go S, this controls the touchpad's operating mode.
->  
->  		Values are windows or linux.
->  
-> -		Applies to Lenovo Legion Go and Go 2 line of handheld devices.
-> +		Applies to Lenovo Legion Go, Go 2, and Go S line of handheld devices.
->  
->  What:		/sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/os_mode_index
->  Date:		April 2026
-> @@ -377,7 +378,7 @@ Description:	This displays the available options for the os_mode attribute.
->  
->  		Values are windows or linux.
->  
-> -		Applies to Lenovo Legion Go and Go 2 line of handheld devices.
-> +		Applies to Lenovo Legion Go, Go 2, and Go S line of handheld devices.
->  
->  What:		/sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/product_version
->  Date:		April 2026
-> @@ -640,7 +641,7 @@ Description:	This controls enabling or disabling the touchpad.
->  
->  		Values are true, false.
->  
-> -		Applies to Lenovo Legion Go and Go 2 line of handheld devices.
-> +		Applies to Lenovo Legion Go, Go 2, and Go S line of handheld devices.
->  
->  What:		/sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/enabled_index
->  Date:		April 2026
-> @@ -649,7 +650,7 @@ Description:	This displays the available options for the touchpad/enabled attrib
->  
->  		Values are true, false.
->  
-> -		Applies to Lenovo Legion Go and Go 2 line of handheld devices.
-> +		Applies to Lenovo Legion Go, Go 2, and Go S line of handheld devices.
->  
->  What:		/sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/vibration_enabled
->  Date:		April 2026
-> diff --git a/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s b/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s
-> index 4d317074bb7e..218164cfe544 100644
-> --- a/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s
-> +++ b/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s
-> @@ -231,41 +231,6 @@ Description:	This displays the available options for the mouse/step attribute.
->  
->  		Applies to Lenovo Legion Go S line of handheld devices.
->  
-> -What:		/sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/os_mode
-> -Date:		April 2026
-> -Contact:	linux-input@vger.kernel.org
-> -Description:	This controls which value is used for the touchpads operating mode.
-> -
-> -		Values are windows or linux.
-> -
-> -		Applies to Lenovo Legion Go S line of handheld devices.
-> -
-> -What:		/sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/os_mode_index
-> -Date:		April 2026
-> -Contact:	linux-input@vger.kernel.org
-> -Description:	This displays the available options for the os_mode attribute.
-> -
-> -		Values are windows or linux.
-> -
-> -		Applies to Lenovo Legion Go S line of handheld devices.
-> -
-> -What:		/sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/enabled
-> -Date:		April 2026
-> -Contact:	linux-input@vger.kernel.org
-> -Description:	This controls enabling or disabling the built-in touchpad.
-> -
-> -		Values are true or false.
-> -
-> -		Applies to Lenovo Legion Go S line of handheld devices.
-> -
-> -What:		/sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/enabled_index
-> -Date:		April 2026
-> -Contact:	linux-input@vger.kernel.org
-> -Description:	This displays the available options for the touchpad/enabled attribute.
-> -
-> -		Values are true or false.
-> -
-> -		Applies to Lenovo Legion Go S line of handheld devices.
->  
->  What:		/sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/linux_mode
->  Date:		April 2026
-> 
-> ---
-> base-commit: 25faec9ce61c01fb45abf812a222c5b43c3cd5c5
-> change-id: 20260831-lenovo-go-7b4ec4bf0cd5
-> 
-> Best regards,
+Found and drafted with an AI coding assistant.
 
+ drivers/spi/spi-mt65xx.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/drivers/spi/spi-mt65xx.c b/drivers/spi/spi-mt65xx.c
+index 8b4deef..7e94b4d 100644
+--- a/drivers/spi/spi-mt65xx.c
++++ b/drivers/spi/spi-mt65xx.c
+@@ -1285,6 +1285,14 @@ static int mtk_spi_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	mdata->spi_clk_hz = clk_get_rate(mdata->spi_clk);
++	if (mdata->spi_clk_hz < 2) {
++		clk_disable_unprepare(mdata->spi_clk);
++		clk_disable_unprepare(mdata->spi_hclk);
++		return dev_err_probe(dev, -EINVAL, "invalid spi-clk rate %u\n",
++				     mdata->spi_clk_hz);
++	}
++
++	host->max_speed_hz = mdata->spi_clk_hz / 2;
+ 
+ 	if (mdata->dev_comp->no_need_unprepare) {
+ 		clk_disable(mdata->spi_clk);
 -- 
-~Randy
+2.54.0 (Apple Git-157)
+
+
+
