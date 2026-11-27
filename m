@@ -1,113 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.76
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795789708;
-	b=FIAbELonCu14s0ksvKXU7NsrK4lSPNCLj9ARSu66DrfBq3nO7IpwxtRdk8QB3hb4kU5T
-	 /xrvPssNnFvIWZQpbPv+LLJBL78EPOcS6OyjNKCnLtHvPBn/H4SY9m7gjJ2Al0FPN7M1l
-	 ERX8FHkxSF4VvF3Kg5BW4kZ+BsHLnHh4klrOhRRgynzR42B6z9re4EfifFeFIihpVL+Gs
-	 +00mLwu1xZfSISqftfBQ0GgSZqo+lQ4H8VBYkygPaIhU+bTaXrwuI35Cwwtt5c4C91RGd
-	 /rlhVVh9jkye6dXmey0FxbEPo72ZFcKWc4J9LMGbnX1vI0l2m/fX7Ac2qlSsLygLrwA==
+	t=1795789721;
+	b=ctHI5G1JbebwyrwYdflVeF1/iB97JuK+TCUXRYZEk8dAkWhm0UoY4AIgIkEJa0dcM+ON
+	 GVlWK6HwECFGkMKW1A9YlCq19EVnYRnz2Pi142/e0FldGwumAr9wFYho0Xf06Dx7Qrxbo
+	 KIiNX6sgxToAjq2+wpKVyAtKumYQ1MykWSDvErBlbq3DB6EaoMlqS6j+J5FM0BKBvzine
+	 ULE9vLkM2PsL3Eoo9NzZHM7osOGZswYA6TRRB8tfgMPQn1C/S2I5RWTjDy/8Zx3suCnvr
+	 vx01zzV4k4CCQb8vxczxzgyGr7S7Mi/oYMNCgISrMctYmA5nKcqVBADkx9p5avEx4qQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795789708;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=jS9BluJCySaQDiQCJg/b5xIv0etaVg+CtYndynJGMRY=;
-	b=u5/q9iECxZ6hnPN8cDWtDV/tAhBPhh7mgXXgtEeT2OODVBvtvIAc16pZG0gva2bbhNpT
-	 XTvtDpnuQ4JS3WCofOnqKeMnA49ZFMTs0XlTDDF+41bIVBSMuEcoZU7mUvX+IOutGGBLA
-	 reo1mpM0ea4sDukA4wZ13ifu8NTnfLr7rtzvg5+p1uz3b1N29EsPWxDZu/ygbmvhblPbd
-	 WH1IsdFiC6401A/VEZdbCMHVB5N4xfsY/LWVyjDK4Y7g+X6wYPXMIF8EazVocSDf/10Tt
-	 ySk8gH5xIwDt4/obcRoFok9EQqExEcEYoiP/uBBvz40iA9gD008qotH86BfvBZzHtEw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795789721;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=TjVvH8NZqlBve9bypwBIcPsakGhfaX78G28bM4dn8ZY=;
+	b=MBK5VecIuQg7k5mL6Bkg79e12EV7AgcBjghrX7gcq0kSHDIVGc7PROk3S1ylebpqGXaP
+	 1MXTS8fydeC6olDIbpCvWwzQucGSgj9qd5+ggzwgEzO8LlxSXthWedGZvUC9DbfNbUXYx
+	 kanqayjeHjiYCyk4ZlAJER5izdigxGpHGoHL778FJqc7SXC26aMbkY1iOd1Jwhqv2KWQF
+	 5SR3WMR5I5SIcVuVd4mK5MTEH8Mt9v0+gMSJ/6gcaVA5yp/9Xp93buQ2Pyab/PYSACqjR
+	 EzqUJxc4fOL8wz2emGCzukYqhkOgtyy1a4/ALotiBeKEi7vEYGG+8HckMQQd8Wf45dg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=bPBsS79E;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Qg2qjCSm;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=DJLnuq5r;
+	arc=none smtp.remote-ip=95.215.58.76
+Received: from mta1.migadu.com (out-76.mta1.migadu.com [95.215.58.76])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC883606B40B
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:28:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC883606B40B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DC68606B439
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:28:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0DC68606B439
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=bPBsS79E;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Qg2qjCSm
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE1HBe2376270
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:28:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	jS9BluJCySaQDiQCJg/b5xIv0etaVg+CtYndynJGMRY=; b=bPBsS79EvMz4ITgt
-	ZIE9FSOFkFramLP0e2R0p2Nzd8F8UO2hZjbGFGgTr1PNVQKEZeJVZEUyVgqssqB2
-	kvwbvJhN4IzWO+rF0VZTPPUUjwVmkv6oFAbNJZXEoS5BqTQseEqiRum6Uc9YvFIJ
-	asWiZKJGLGkumLuTcUUS8qIafHn/sGvCZOm7+IxgHk59rd4ehGDLqE7Yf34j2IwC
-	7iKN4boWKj855Whq/gkD4wxbvXMrHU60QCkhXmqx6MyB+uXgi79wIMBo8YQOZr7L
-	loi56rLpUeOYoFI7vNYAL7bKS5uZMkAxFDDerHuHAUlJk/NhV2lo0WMkNIGUJkD5
-	eZurVg==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6u4huepa-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:28:27 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2f0467a525eso61256975ad.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:28:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795789706; x=1796394506; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=jS9BluJCySaQDiQCJg/b5xIv0etaVg+CtYndynJGMRY=;
-        b=Qg2qjCSmpdyWkeasQGxhK7wFbvsdElEv8MHT7JUOxPcFyy0CAe+f0YcBcl1c8wqEr4
-         t8QGMj4ZLIAKIQ5EahByd6sINERp1FhS/m/eGcGFVoc5kPtp5wHUnXXyQcK50hNSbrPY
-         1v2IPEQyxR4IkhnV33mXaUg4J+yMP23vrPALQlV+pK0+eqcTgNI5JmAk0+HGkEnaUB1U
-         TKpRSahA0on2YpeUI9bECv2iWidWwNDigBYPwO4zU2D2HIrUnM6zUmCNguM9G6dysiq/
-         NoQVAHBkEsGh01z8Myxsp+uo89acEKub0bTDarq2pOlFxK3dkNpkx1a+5MsGczPQS1YL
-         Gm5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795789706; x=1796394506;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jS9BluJCySaQDiQCJg/b5xIv0etaVg+CtYndynJGMRY=;
-        b=KKFI1F4xDSqnbCkoruy/wA9z1S8MoGMn9PTJSLsrW1jGUAXMNGQAI7bBHFYDMAspBK
-         9Jtj/KMml7p+87g8mPlQbZgK8z4cC0qOi645mHuaC3S6mTY3M97hCrwxSeHBPh92BOE+
-         FekUq8ZkvwdIzeNztEO4Xm06R1vlH9Tt1gSyccSTCANjyEZ2x99/IBaQJaBmEYztaxAA
-         BR6MkJpxuTFVvhHEusAF+5vUUZh84SSpjFyB4/r8Mo6B+OBghSIsTn6taS8RBg5Yjd8Z
-         myOKIr5FgxuTl3TW8VfpMr5pp7v0dnE+Y2yEgZIZwhVNmYOb3wlEQVz0SOXHOrBUJWh8
-         eeOw==
-X-Forwarded-Encrypted: i=1; AL+hErH2ZxJP9sItLyaWn5dMVjC6B21goIIslgm7SKwYQ3HBYnus/aE0TLJh9zr4C69OHZX+BdhDsA3owiYDJH8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8h5j/DihLk2JwzveQsTb/8qQnNIuJ0wKKswXPMw+oYu8RRJMZp
-	wvElgyM/Tv5X+548kSR1CMKmQ3huwIqSJLlMhuOg1E3Vy16wncva7d+X+TiYSlnPYQBdYOJXsxo
-	pvcwbA/sOfU4qL0ZACTJTkmWlTIQPj+fAv1y3abWibZABllsMZed7GnZYR/nGcAUeZ/I=
-X-Gm-Gg: AZFdTZfOJ4BFEbpt4+K9yK1mbtz0Q/Ws269exGQTGG31gx9l0YgtkZLB+/25eRuEJ7D
-	tngBdXyXk4/oPVd+XiE+zIXeouZFJx0PLRLb7MbaMg16UEmbNEzOEclwM4cvIQKrhN3/0ZeBL8G
-	BLeElwmfS721xrfIbphiCWjEbFO/4opAsdwe+lw+lOfopxcmLXt4RDlnYB4lpvft1nX59BfL98s
-	PJEUhvLIrBTKwr4e5UZ1Xp47X0AoHIZkd+rps5en5WVBMO2yFPNT3FCDuKHIrMYMxGQzYDRywsc
-	3CjxkNuwAPG6iTuFydpc/L/loxr4Prw8P9Hzo22CLagUp4IlBi4vzOZQi7N6b7NStAs+PaP8muq
-	FG1KfbBSayhN+pGC+NYA/NCG5+/oz+RyrwKOrJui8aYXnjWx2JM3NETA4QKLZnsMLhtiJ5B3LDL
-	grDu/gni9KOg==
-X-Received: by 2002:a17:903:1ac8:b0:2f0:a586:81d9 with SMTP id d9443c01a7336-2f0a58682a8mr170116055ad.50.1795789706106;
-        Fri, 27 Nov 2026 06:28:26 -0800 (PST)
-X-Received: by 2002:a17:903:1ac8:b0:2f0:a586:81d9 with SMTP id d9443c01a7336-2f0a58682a8mr170115435ad.50.1795789705484;
-        Fri, 27 Nov 2026 06:28:25 -0800 (PST)
-Received: from hu-spratap-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84285sm120324055ad.3.2026.11.27.06.28.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 06:28:25 -0800 (PST)
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 19:57:00 +0530
-Subject: [PATCH v28 07/10] arm64: dts: qcom: Add psci reboot-modes for
- kodiak boards
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=DJLnuq5r
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=LlRJdcs2tH2PBRhiheJnivWS5Dj9upnmbgY2TWeD+iQ=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795789717; v=1; x=1796394517;
+ b=DJLnuq5r/I4dQ9dXom2tD2xpCJ7hGrk2a70EGiSarbdEK02gxfA/8M3n+Eekp9SqWq+8YBuG
+ x/BFHNJ9L8uIxUxo82xhLQ/tKXO3RrV/swXIhlis463eibPM6b5HFLwL2qId4SpytkN942gBUSj
+ PVTwtxdWBvFuPfB/OWqP3W2Y=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id bdd05ed73b3b6aea;
+	Fri, 27 Nov 2026 14:28:37 +0000
+X-Mizu-Trace-ID: bdd05ed73b3b6aea
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <d2b6e735-a685-4e79-bb39-2fb75ebecd09@linux.dev>
+Date: Fri, 27 Nov 2026 14:28:32 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,149 +58,211 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: Reduce the stage-2 page cache on 64 KiB hosts
+To: Marc Zyngier <maz@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ Leonardo Bras <leo.bras@arm.com>
+Cc: oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com,
+ seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+ catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+ kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, riel@surriel.com, shakeel.butt@linux.dev,
+ kernel-team@meta.com, rkeilty@meta.com, atish.patra@linux.dev,
+ dgreid@meta.com, Lorenzo Stoakes <ljs@kernel.org>
+References: <20261124152842.2634495-1-usama.arif@linux.dev>
+ <86wlpzycnn.wl-maz@kernel.org>
+ <563d2406-dcfe-43b6-8f21-2a7694f1f266@linux.dev>
+ <86v75jy48c.wl-maz@kernel.org>
+Content-Language: en-US
+From: Usama Arif <usama.arif@linux.dev>
+In-Reply-To: <86v75jy48c.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-arm-psci-system_reset2-vendor-reboots-v28-7-da05a33b08d8@oss.qualcomm.com>
-References: <20261127-arm-psci-system_reset2-vendor-reboots-v28-0-da05a33b08d8@oss.qualcomm.com>
-In-Reply-To: <20261127-arm-psci-system_reset2-vendor-reboots-v28-0-da05a33b08d8@oss.qualcomm.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        John Stultz <john.stultz@linaro.org>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Christian Loehle <christian.loehle@arm.com>,
-        Lee Jones <lee@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
-        Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
-        Abel Vesa <abelvesa@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
-        Sudeep Holla <sudeep.holla@kernel.org>, Andy Yan <andyshrk@163.com>,
-        Ulf Hansson <ulfh@kernel.org>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org,
-        Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
-        Srinivas Kandagatla <srini@kernel.org>,
-        Abel Vesa <abel.vesa@oss.qualcomm.com>,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795789617; l=2209;
- i=shivendra.pratap@oss.qualcomm.com; s=20250710; h=from:subject:message-id;
- bh=0YQGDiz1F/FLEBDHTFy0NPa6QbvpSRgMVp0jR7EbIWg=;
- b=hH1f/4RdTgXXzUD3HLooxCXl7oj1YeLziyFQ1gZrW49x1biAd1StmoVIoK3SxAEPlFz4X4Fht
- FHtkMV+tGSPBpLein2a+YAXPEHX4HXgHfK3UpVGEududkLK7ut2VfC7
-X-Developer-Key: i=shivendra.pratap@oss.qualcomm.com; a=ed25519;
- pk=ssWsJFX3OM9pkdoe4+guOfGPaulHOFt0GVnVlB6on+s=
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1NyBTYWx0ZWRfX2LE2kMens7oE
- KjBnZ3rDzWpajV7J/37oD3D/Rpyc44oldpNb9e3Rr0o4zampb7MPebu+ZNrndjVKSirxhYQxNjC
- t42jc6a1QM6EihHWfWTLlNX09Djk7lM=
-X-Proofpoint-GUID: 8NY9WwsZE7J4DZm_nCv0aWSysJXROdQt
-X-Proofpoint-ORIG-GUID: 8NY9WwsZE7J4DZm_nCv0aWSysJXROdQt
-X-Authority-Analysis: v=2.4 cv=M9fYuCws c=1 sm=1 tr=0 ts=6b09938b cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=EUspDBNiAAAA:8 a=t9IVmYW30V31rltyR78A:9 a=QEXdDO2ut3YA:10
- a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1NyBTYWx0ZWRfXyenUtUZ+jDJ7
- wMK001tKMt4HluJU9vbffu18pieaNz4YCrC1EyrU7GScW1xo9sNnZK5BpChlYDRMHwR8L4JP8mK
- eME0J0E22DIh873IxjYUQ90nd6PK++/lRF02JCPo153D/Rd2ePYWKg+zG4UVyxI/E69v/XryAPT
- HDisUjdm0tuoCOCqGiLpyQW4rfGEVZg2SW0qTCvCDZ9ZcGhIdi49xaOSHlG/f9TrXE1sbG+Inoh
- Kn7koo9MeCAvLa5CbJRIBiA8Ta+wiUfkh+PZu/wDNCAoXOOmKqIxljajGNENHN/CtLI+5OOE3nZ
- 4Qw5c+sq+QwQrab2AB6Nmw05ODjPmcMiyQG6yY0WT6kabJdYqvH8y8ZklVfKLePokrKDPBjMBMQ
- h7Y7Ogs10wJiG8XGHPQ7k6yEpj88qywdvzZDiDSl28uqBrsj5T4eAh7suP/hXBeCddo5kDeYPiw
- pbQiz7SWvc73tz/kU4Q==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-27_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 adultscore=0 impostorscore=0 suspectscore=0 malwarescore=0
- spamscore=0 lowpriorityscore=0 priorityscore=1501 phishscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270057
 
-Add PSCI SYSTEM_RESET2 reboot-modes for qcm6490-idp and qcs6490-rb3gen2
-for use by the psci-reboot-mode driver.
-The following modes are defined:
-- bootloader: reboot into fastboot mode for fastboot flashing.
-- edl: reboot into emergency download mode for image loading via
-  the Firehose protocol.
 
-Support for these modes is firmware dependent and not available across
-all kodiak based boards.
 
-Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+On 26/11/2026 07:58, Marc Zyngier wrote:
+> On Thu, 26 Nov 2026 14:32:04 +0000,
+> Usama Arif <usama.arif@linux.dev> wrote:
+> 
+> [nonsense deleted]
+> 
+>>> Now, to the patch itself: I see no reason to special-case this. If
+>>> kvm_mmu_cache_min_pages() is an indication of what is needed, then
+>>> this macro should be driven by it, or the whole allocator take it into
+>>> account. And then you adjust it by whatever fudge factor seems
+>>> appropriate.
+>>>
+>>
+>> Completely agree! [1] does that: no page-size special case, and
+>> a capacity of KVM_PGTABLE_LAST_LEVEL - KVM_PGTABLE_FIRST_LEVEL for every
+>> page size.  It can't track kvm_mmu_cache_min_pages()
+>> at runtime: the vCPU's cache is shared by the canonical and NV shadow
+>> MMUs, and its capacity must stay fixed. So it has to cover the largest
+>> minimum, which stage-2 caps at 3, and 4 is that plus one page of fudge.
+> 
+> Of course it can. That's not exactly rock science to add, rather than
+> relying on another set of bad heuristics.
+
+You're right, it can. __kvm_mmu_topup_memory_cache() fixes a cache's
+capacity at its first refill, but nothing requires that to be a
+compile-time constant. Does something like the patch below work for
+you? Each VM records twice the largest kvm_mmu_cache_min_pages() of its
+stage-2s as they are initialised, and every top-up passes that to
+__kvm_mmu_topup_memory_cache(), as the eager-split cache already does.
+
+
+> And this must cover more
+> than a single mapping per top-up, because that has a ripple effect on
+> the speed at which we can split large blocks (funnily enough, people
+> care about that stuff).
+> 
+> 	M.
+> 
+
+With twice the minimum, each refill covers at least two worst-case
+maps. I asked a LLM to comeup with a way to time for block splitting and pagefaults
+and I found it reasonable, I have attached the results in the commit message.
+
+Does a factor of 2 sound reasonable to everyone?
+
+If this looks ok, happy to send as v2.
+
+
+From dad1d43f1c2dcb8ffbc8084ec19467731e8548f4 Mon Sep 17 00:00:00 2001
+From: Usama Arif <usama.arif@linux.dev>
+Date: Fri, 27 Nov 2026 06:07:35 -0800
+Subject: [PATCH] KVM: arm64: Size the stage-2 memcache from
+ kvm_mmu_cache_min_pages()
+
+When fewer than kvm_mmu_cache_min_pages() pages are left, a stage-2
+fault that may need new tables refills the vCPU's memcache to
+KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE, 40 on arm64. A map allocates at most
+one table per level below the preallocated root, which is
+kvm_mmu_cache_min_pages() and at most 3 pages. Only vCPU destruction
+frees the memcache, so whatever a refill leaves unused stays allocated:
+up to 2.5 MiB per vCPU with 64 KiB pages. On a 64 KiB host running 101
+VMs with 4 vCPUs and 1 GiB each, the memcaches held 986 MiB, against
+25 MiB of stage-2 tables in use.
+
+Size the memcache at twice the largest kvm_mmu_cache_min_pages() of the
+VM's stage-2s instead, so that each refill covers at least two
+worst-case maps. With NV, the vCPU's memcache also feeds the shadow
+stage-2s, and a memcache's capacity can't change once used, so record
+the largest value as each stage-2 is initialised. The VM's stage-2 is
+set up at VM creation and the first shadow stage-2s by the first
+KVM_ARM_VCPU_INIT, before any vCPU can fault, and later shadow stage-2s
+have the same size. kvm_phys_addr_ioremap()'s temporary memcache uses
+the same capacity, so arm64 no longer uses the value of
+KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE.
+
+With a 48-bit IPA, the capacity is 4 pages with 16 KiB and 64 KiB pages
+and 6 with 4 KiB pages; with the default 40-bit IPA, 2 and 4. On the
+host above and on a production host also running 101 VMs with 4 vCPUs
+each, both with 64 KiB pages and 48-bit IPA VMs:
+
+                     memcaches                saved
+                     before      after
+  host above         986 MiB     81 MiB       905 MiB
+  production host    869 MiB     <= 101 MiB   >= 768 MiB
+
+A memcache now refills at most once every two tables, as a capacity of
+4 does with 4 KiB pages and a 48-bit IPA. Measured that way, per fault
+for the median vCPU, one VM at a time:
+
+                                        40           4
+  2M blocks split under dirty logging   4.9-5.1 us   4.9-5.0 us
+  1G block split, then refaulted        2.7-2.8 us   2.8 us
+  every fault allocating a table        4.0-4.1 us   3.7-4.1 us
+
+Suggested-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Usama Arif <usama.arif@linux.dev>
 ---
- arch/arm64/boot/dts/qcom/kodiak.dtsi         | 2 +-
- arch/arm64/boot/dts/qcom/qcm6490-idp.dts     | 7 +++++++
- arch/arm64/boot/dts/qcom/qcs6490-rb3gen2.dts | 7 +++++++
- 3 files changed, 15 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/kvm_host.h  |  2 ++
+ arch/arm64/include/asm/kvm_types.h |  1 +
+ arch/arm64/kvm/mmu.c               | 19 +++++++++++++++----
+ 3 files changed, 18 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/qcom/kodiak.dtsi b/arch/arm64/boot/dts/qcom/kodiak.dtsi
-index 10e9a5279ed60..f1c27f9769fba 100644
---- a/arch/arm64/boot/dts/qcom/kodiak.dtsi
-+++ b/arch/arm64/boot/dts/qcom/kodiak.dtsi
-@@ -876,7 +876,7 @@ pmu-a78 {
- 		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW>;
- 	};
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 97332ffcb1300e..515869c190c66a 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -413,6 +413,8 @@ enum kvm_arm_vm_flavor {
  
--	psci {
-+	psci: psci {
- 		compatible = "arm,psci-1.0";
- 		method = "smc";
+ struct kvm_arch {
+ 	struct kvm_s2_mmu mmu;
++	/* Capacity of the vCPU stage-2 memcaches, see kvm_init_stage2_mmu() */
++	int mmu_page_cache_capacity;
+ 	const struct kvm_vm_s2_ops *vm_s2_ops;
  
-diff --git a/arch/arm64/boot/dts/qcom/qcm6490-idp.dts b/arch/arm64/boot/dts/qcom/qcm6490-idp.dts
-index cb90a83351c30..501e3c0d14028 100644
---- a/arch/arm64/boot/dts/qcom/qcm6490-idp.dts
-+++ b/arch/arm64/boot/dts/qcom/qcm6490-idp.dts
-@@ -791,6 +791,13 @@ &qup_uart7_tx {
- 	bias-disable;
- };
+ 	enum kvm_arm_vm_flavor vm_flavor;
+diff --git a/arch/arm64/include/asm/kvm_types.h b/arch/arm64/include/asm/kvm_types.h
+index 9a126b9e2d7c99..68472a593578f3 100644
+--- a/arch/arm64/include/asm/kvm_types.h
++++ b/arch/arm64/include/asm/kvm_types.h
+@@ -2,6 +2,7 @@
+ #ifndef _ASM_ARM64_KVM_TYPES_H
+ #define _ASM_ARM64_KVM_TYPES_H
  
-+&psci {
-+	reboot-mode {
-+		mode-bootloader = <0x80010001 0x2>;
-+		mode-edl = <0x80000000 0x1>;
-+	};
-+};
++/* Enables the generic MMU memory caches; arm64 passes its own capacity. */
+ #define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 40
+ 
+ #endif /* _ASM_ARM64_KVM_TYPES_H */
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 042dc53267cb36..cd0605cce45d2a 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1045,7 +1045,7 @@ static void kvm_stage2_destroy(struct kvm_pgtable *pgt)
+  */
+ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long type)
+ {
+-	int cpu, err;
++	int cpu, err, capacity;
+ 	struct kvm_pgtable *pgt;
+ 
+ 	/* Initialize the VM ops for the VM instance for the first time */
+@@ -1086,6 +1086,15 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
+ 		goto out_free_pgtable;
+ 
+ 	mmu->pgt = pgt;
 +
- &qupv3_id_0 {
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2.dts b/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2.dts
-index 682bcbc0b466b..3c05ead3a7ebb 100644
---- a/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2.dts
-+++ b/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2.dts
-@@ -1136,6 +1136,13 @@ &qup_spi3_data_clk {
- 	bias-disable;
- };
- 
-+&psci {
-+	reboot-mode {
-+		mode-bootloader = <0x80010001 0x2>;
-+		mode-edl = <0x80000000 0x1>;
-+	};
-+};
++	/*
++	 * The vCPU memcaches serve all of the VM's stage-2s and can't be
++	 * resized once used, so make them cover two maps on the deepest one.
++	 */
++	capacity = 2 * kvm_mmu_cache_min_pages(mmu);
++	if (capacity > kvm->arch.mmu_page_cache_capacity)
++		kvm->arch.mmu_page_cache_capacity = capacity;
 +
- &qup_uart7_cts {
- 	/*
- 	 * Configure a bias-bus-hold on CTS to lower power
-
+ 	if (is_protected_kvm_enabled())
+ 		return 0;
+ 
+@@ -1317,8 +1326,9 @@ int kvm_phys_addr_ioremap(struct kvm *kvm, phys_addr_t guest_ipa,
+ 	guest_ipa &= PAGE_MASK;
+ 
+ 	for (addr = guest_ipa; addr < guest_ipa + size; addr += PAGE_SIZE) {
+-		ret = kvm_mmu_topup_memory_cache(&cache,
+-						 kvm_mmu_cache_min_pages(mmu));
++		ret = __kvm_mmu_topup_memory_cache(&cache,
++						   kvm->arch.mmu_page_cache_capacity,
++						   kvm_mmu_cache_min_pages(mmu));
+ 		if (ret)
+ 			break;
+ 
+@@ -1669,10 +1679,11 @@ static void *get_mmu_memcache(struct kvm_vcpu *vcpu)
+ 
+ static int topup_mmu_memcache(struct kvm_s2_mmu *mmu, void *memcache)
+ {
++	int capacity = kvm_s2_mmu_to_kvm(mmu)->arch.mmu_page_cache_capacity;
+ 	int min_pages = kvm_mmu_cache_min_pages(mmu);
+ 
+ 	if (!is_protected_kvm_enabled())
+-		return kvm_mmu_topup_memory_cache(memcache, min_pages);
++		return __kvm_mmu_topup_memory_cache(memcache, capacity, min_pages);
+ 
+ 	return topup_hyp_memcache(memcache, min_pages);
+ }
 -- 
-2.34.1
+2.53.1-Meta
+
 
