@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795792331;
-	b=a7tudhmz9xdK27+Kri+qq8x0yRp/nHkbXS90LXLOIM8WVG3cj14IrSsv5kNIO/rmpvd0
-	 Eo8zZqSsSX+alcPKRXUGRCgMxFQldVS5mQu9v7D08otkSOciZitaSWhp7mC1Cc6xb6DHu
-	 nsn9/LO+QADT6a7KJj1hbH1PWMtNUtwwxEnA6GX7LaKcWU5ch6h1/vK+mrmgHR447kI5i
-	 1bWYV0wwqzfC64ABXktwaYl+ys9WEgqc9XF1GdvRXcB2hvrz3aOMmkcVaWSAsHL3B0N6r
-	 hhxS92y8HsqCT8WcQiRcShR7U2lJuY/wuQcgJh+hu3t2U/QuTHqv603aBwcxZ0To+ZA==
+	t=1795792333;
+	b=obtgL1ENb52BOBWqV+xc3MZiU+KFGEnZod8vokogfhU3bisJ6XjCST7VKDTFXsesLHr/
+	 8+Km9AWNzEyxrbI+xd3JcCoiACFP3J7zvd31NzRufFeIEm+9IJ+97EAKjCy38Hh1N4Gbu
+	 cswl9Hjgd9z4IqeqGRqJgZjrfPvFG9EjpXMK5X1mDwnQrBiOgnr4LQxOV8X3fo9ZAJRIs
+	 mmwmQ9HJ2mbGqohbE5Qh849VScX+qENEkUL++9HIl33V5CuTZaAG1wpucGy04POkBx1uv
+	 FlesIINPqTCJRQw6UmjFpO2uYCrLFwcqgTDe9rkTTcZwUvNb5gxPCZMsn1l93DHvqow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795792331;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795792333;
 	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=EW6O7IX+lZj9zLE/PiayELXWaVWN1Nbov8vCucdwVl4=;
-	b=5BZM1U0bt9QsFj4lpT43SqZBiv7T2u4S9fu2tI1JBfRvS9jqbey/YucBRpxsQtGeGA6E
-	 x5a6BDRpQP/F9Du1CH3U8mMgb4mjEYouczOXsZSWEzro3zDYNFa0h7ygc1uSr4uAOKejb
-	 NW0TPix14UzZaR/ghedbuVOBn42BiI8jM7762EsyaJR+4FHaYTGhUH24Pu8j91v1z0ilm
-	 liVzxoq700+2qvVbW61qK11ycMV2NQOezdSyCXnbVahfDltusOlFmm79D4eNOFUaF4gpE
-	 hYsrwk1vZ870hAbtFsyxX9vfbLnLO+jASgWBehCy+8kk4WkidVbQi9Bah6fHpu/hncQ==
+	bh=0pyZKqnDWMuc95St72Xgy3CQJky567UxPOLvnlQg5vw=;
+	b=QFKQZFyFn76cp8uDng08aiJx1UjwJljEoHFjuDsGuDMXxoSrgwp6GdSxetsTGZ02YwB5
+	 yL+K0QJG06/umm61sDhh9/UTMegxqlTpDm+wrvnjH7f7eaVBpgAPs7RMsQuA+j9wHosuG
+	 Qo0vF70SN7ALJCnRBdlCTLJMXSqkBqQE4BQOrAfk7Elf17rs4DrQUvY4ASZkWbuKFxDxw
+	 Z5FdXiNmLop24GZfG6tLjPbj6pUWNUjhBjt/PXS/gS95xzEGCRfXrV82GzR+DYhVKdKqx
+	 G338QR3cNyfaK1b9gyH5jhjTBiBgebrJvFG63+DG9IyJXja4SHTr/HntDDzFNsrElwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=arm.com;
 	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=A7gq8Wxq;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=JCuqdHno;
 	arc=none smtp.remote-ip=217.140.110.172
 Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 33714606A329
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:12:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33714606A329
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 0C32360A2613
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:12:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C32360A2613
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=A7gq8Wxq
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=JCuqdHno
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9DAD81758;
-	Fri, 27 Nov 2026 07:12:06 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A086E1DB5;
+	Fri, 27 Nov 2026 07:12:09 -0800 (PST)
 Received: from e144440.cambridge.arm.com (e144440.arm.com [10.2.199.104])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1FAEA3F632;
-	Fri, 27 Nov 2026 07:12:07 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 237B63F632;
+	Fri, 27 Nov 2026 07:12:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795792329; bh=CqJyYJhYvd31ezVbNyoKavdQzrZfJ6U+MBqZ2Ikozgo=;
+	t=1795792332; bh=MxCYFbgbltrmMMr0MHqOOsTbz5t4vRUGRW7Vw3l2Y7M=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=A7gq8WxqiRTqGer77NYMKxxKmoGbcn8544O0XLdXB/VqIc7TDuRTsbEJITz5jlm2k
-	 +0uiif8pbKmzVp9aQ5pg2uaif/CGy84d7zaQUSsZKvloa3UbLZPxnAIdLci3c5HuKd
-	 GfQ0ZKOp16414Hw7fN4gmWo55Y+lMZWLEbHw9QLQ=
+	b=JCuqdHnoNNtfuX/W8z7GpIPrdn5rStcDNgIcn42t7WOmlHpBZhcchQHWCjOO1We6P
+	 mjZ334e2vZCMWS5p0UpEhE6oVIOr2Mz8lEBkWbCnPstO4lEyN04kGKKRv6KXpyUI8c
+	 P7RgJoXCuiEX7VEKdI4D8DCvifO+TZGVNbSiciOI=
 From: Ryan Roberts <ryan.roberts@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -50,9 +50,9 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
 Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/3] arm64: cputype: Add Cortex-A320 definitions
-Date: Fri, 27 Nov 2026 15:11:54 +0000
-Message-ID: <20261127151157.406111-2-ryan.roberts@arm.com>
+Subject: [PATCH v2 3/3] arm64: cpufeature: Enable BBML3 on Cortex-A320, A520 and A720
+Date: Fri, 27 Nov 2026 15:11:56 +0000
+Message-ID: <20261127151157.406111-4-ryan.roberts@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261127151157.406111-1-ryan.roberts@arm.com>
 References: <20261127151157.406111-1-ryan.roberts@arm.com>
@@ -67,39 +67,45 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add the Cortex-A320 part number and MIDR definition. The MIDR_EL1
-description in the Cortex-A320 Technical Reference Manual specifies
-implementer 0x41 and part number 0xd8f.
-
-These definitions will be used to identify Cortex-A320 in the BBML3
+Cortex-A320, Cortex-A520 and Cortex-A720 advertise BBML2 and are known
+not to raise conflict aborts for mapping-granularity changes. They can
+therefore use the BBML3 semantics, but their MIDRs are missing from the
 allow list.
 
-Link: https://support.arm.com/documentation/109551/0002?lang=en&rev=0002-04
+Commit a7ac60414475 ("arm64: cpufeature: Extend bbml2_noabort support
+list") named A520(AE) and A720(AE), but added only the AE MIDRs. The
+non-AE CPUs have distinct MIDRs and need their own entries. Cortex-A320
+can now be identified using its new MIDR definition.
+
+Add all revisions of these three CPUs to the allow list. The reviewed
+SDENs identify no BBML3 exclusion erratum for them.
+
+Cortex-A510 remains excluded because it can raise conflict aborts.
+
+Link: https://support.arm.com/documentation/SDEN-2877630/0000?lang=en&rev=0000-06
+Link: https://support.arm.com/documentation/SDEN-2444153/0000?lang=en&rev=0000-12
+Link: https://support.arm.com/documentation/SDEN-2439421/0000?lang=en&rev=0000-17
 Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 ---
- arch/arm64/include/asm/cputype.h | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm64/kernel/cpufeature.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
-index 6002d1d5f55f..abff1ba1c305 100644
---- a/arch/arm64/include/asm/cputype.h
-+++ b/arch/arm64/include/asm/cputype.h
-@@ -103,6 +103,7 @@
- #define ARM_CPU_PART_C1_NANO		0xD8A
- #define ARM_CPU_PART_C1_PRO		0xD8B
- #define ARM_CPU_PART_C1_PREMIUM		0xD90
-+#define ARM_CPU_PART_CORTEX_A320	0xD8F
- 
- #define APM_CPU_PART_XGENE		0x000
- #define APM_CPU_VAR_POTENZA		0x00
-@@ -200,6 +201,7 @@
- #define MIDR_C1_NANO MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_C1_NANO)
- #define MIDR_C1_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_C1_PRO)
- #define MIDR_C1_PREMIUM MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_C1_PREMIUM)
-+#define MIDR_CORTEX_A320 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A320)
- #define MIDR_THUNDERX	MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX)
- #define MIDR_THUNDERX_81XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX_81XX)
- #define MIDR_THUNDERX_83XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX_83XX)
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 710d44a30d29..1c4e809f73e4 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -2037,8 +2037,11 @@ bool cpu_supports_bbml3(void)
+ 		MIDR_ALL_VERSIONS(MIDR_NVIDIA_RIGEL),
+ 		MIDR_ALL_VERSIONS(MIDR_AMPERE1),
+ 		MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
++		MIDR_ALL_VERSIONS(MIDR_CORTEX_A320),
++		MIDR_ALL_VERSIONS(MIDR_CORTEX_A520),
+ 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A520AE),
+ 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A715),
++		MIDR_ALL_VERSIONS(MIDR_CORTEX_A720),
+ 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A720AE),
+ 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A725),
+ 		MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N3),
 -- 
 2.43.0
 
