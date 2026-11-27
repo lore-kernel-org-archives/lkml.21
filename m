@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795761548;
-	b=Sv/0eljJKzvBQPSQutzkqFsNLnOaBcxx39fpNSah+9xMsqD4MNyYriEW99vmsMPs9pCW
-	 288U35ptU3pnkW5iUfyrmHo42VvjPmjDxeM5OlXdgI9ulEbV6/7BzVQz1fanHjmcZ9ND1
-	 B9t7VPbo1BgkNczlvjkZDpYP2Js5ag6rUEL4Ob8I2zA46DNbdxp5On+l04pAT3eDpR4M0
-	 kyaq1Rrj/vX5zLv1AliQyYuhsE/oKaA+I5GHlokFeBkC8f5tNa03ULKpR0VnHRrzrOCjT
-	 gtoD2k0bhfBfiQC09CXYGtp4FpR3wITc/BpenjU9GCC9Fi1GN9V3UILCHGC35QzEClQ==
+	t=1795761545;
+	b=la56DKxEyQLvVoFg7AYTcw+6zCLR1cBiVlOEjUNOWDW8Ruasp6gK+GcMXilq1ywxnz0Y
+	 T57t7iKufDHuUc/473VvG1jkI4yFyHg/3WHOa9ZNsUvV8OPP+H79HlvQ/Tdc5c/FuWwIx
+	 PFgvk42jgV7PsildvL9hc4Fm6IywSycVrmAJTRC4G7CxIQjre2dl+jUyUFtdf7m11r70k
+	 HxsSRy9BgQYlwIq0QSc9cNqXD+5vYPGGwlJPH2G9WV6fkxBILuQBCv7onlADaeftucZAP
+	 FL3JxEfrNln4mAK+3rHdjsdlRGDM8VOs5WrxUb4Lu/OfugVn0PIXLG8YUb11P6MkZNA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795761548;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795761545;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Ey0k0S1/JKzuAfyBJyhq5DEFGO4CvOGL3Jn4vzIFLG4=;
-	b=V+247k4jwaB9cDxSjQIjkGUA4JWojK98JivB/leXX4aWbhzuI32B55YREIPnp2gp5oD8
-	 w+DJUy+e0QwS0+SCjKsr9sUXf6l8XXmyniefK+sozGc0w65hM+fTt90sD2E3k0sqAuwD0
-	 +C2P+WXZQdZKW9/20/D1A0/Agmf/9u1w+nScFCzRvLzlMWmmTxQzGrvHMVnR2jKoqhx2m
-	 Hv0TuKpdD9j3VpvTW2JQWqIkoHdI8eXGdBNj5qhhjfMe632+xvK08bZZo2qkQSgy/5zjp
-	 CbVgZrAMFIecAn3K3aLzD2DT8S1QjfF8k6tvbq1Sn2TkjaU59dqLWnGBKIU5xjj9/Hg==
+	bh=QMVYWj4bXlkZEY5osWZHFiVPY11NYOtrpFxkEUnbsig=;
+	b=Kag+CERR3OKWmBLriim2wfLrXQ3A5Io/tk+SZ9pobAuLlGp/Tr+iu9yhJtNY1zl+c9dU
+	 97c1rGMUToNCkO/tRZ2Xcptp1OeiEr6Tc28c8wQLfSyONKKUrY1NDj3XoAw7/N7JfMIAv
+	 efKSLF3S16Dv6Sz9uZ0sGXCNEmZLEDYFPcqLT3d8t/6HDB8P8A1VyaM4xoJ0tpDjlUcjO
+	 71YHZokv6TZWvPQ+B8xurSThKiDCsdhIpOvNSBsttSn4s1Y4kU5jcXhQY7MZXV+2i5Zs7
+	 0oBVvOpXuzwwHsWc424DDAn/UYXl2x8H1F0lZFun9bjQ1KcWu3W6CsTP9EjJi+Clngg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Dg6Dd4h1;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nlNdl11d;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56617606A334;
-	Fri, 27 Nov 2026 06:39:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2117A606A329;
+	Fri, 27 Nov 2026 06:39:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Dg6Dd4h1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nlNdl11d
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795761547;
-	b=S5ilqtgBvPkEa1o7yYpBCDVO5CVlLBQ/3OZvLsI6JOKvTx8JG6kC4qLPl1xPtxwKTn4k
-	 gupKopHXCikS9nUVuVu3svVxfo0f29zTZBDieaQmh2ikxfNptdDyz/jX1cPArX2Z5/v5y
-	 +3Uh/uUtdOntSDQDGrREj9cf0daC8QJRcK3RVr3ZX3TIzue5cd/8gza0a4leUJLm7EBPG
-	 HACY3hySEAnwQ07WlRTqFUWDGAhXMwYR9t0jjlCvGQlyOCMD3by5SyGmvUQSjt63VyiSa
-	 iGi9tpCoMn5yNMjxWhdNbDWu+c+wIEVxKXUtLNqKd4yv6HlqoppJDi++GsTYhcUyfYg==
+	t=1795761544;
+	b=IqZHV9oOQlvU72sIHLjaHggl85RZGdygFqW9/i10ofJsBsHlyazP63v/hmSQNETnR/nw
+	 vOKVbrNnsJNQBWTDE1TXfBtOsnnuO3TJdJef2TMTTW6aIyPF8SbDz4BL0hj+cRIq+ugFW
+	 +gb6RFb4rMOVxuVgQX/COs/tLnm5D3zP4PmBa47P3o1z7Cr7jMt6SILdkIhcQSpTUjWQ8
+	 MRx+wS6zqjPjMdkm4yRPEyhIN0SezXQn/vYX9YGh/rvn3mF3sEnxoorcvH0f6oJdYDulz
+	 qbKF8xKn+84eE5wYbz/BtK+EWGKzJqTkmEJDGFinL/Oycf8XFsbBr+UltDvNSGbm9og==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795761547;
+	c=relaxed/relaxed; t=1795761544;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Ey0k0S1/JKzuAfyBJyhq5DEFGO4CvOGL3Jn4vzIFLG4=;
-	b=ypm7GmgyCGp4Of6UHuAJpXZCKm8HMcciJ/4erGgTrnwfDU/2gK/VzwEPIAvSiFwuBb7b
-	 34T2E+fc5HaOTzKliE3aTOAIUh0uE8Go4BhLUQUF3ARknqD4xjbivxgYQZndPGEESUaui
-	 w5JVc+dDG88pJaueZbB77ng0bZfob2jPjQzKQhvHm9Q1q3CVuarStdBY0N4qu+OL99mHZ
-	 195ncoMYc/9mXxXONpRaQoAUBZGcPEaoW7sO4666TT2XyqXbHhrmdR++n5ROHnsF1taX2
-	 /pbWpHcOCGsMSXuGHF929TYVUXwxNGcXS22TJBXQBuZYgVJ1UUj0DIJCEAHz8duZDzg==
+	bh=QMVYWj4bXlkZEY5osWZHFiVPY11NYOtrpFxkEUnbsig=;
+	b=tHotIQBJccm+UfH2BNkAG97HrpC0ZnRTfzyWCG4Hd+58a7KomozdzhxYkVN2K6Sp63Z8
+	 gd4rTGd4iJQO/Wo2mBz2/YI4RGJlFdctfnYU/5eFPReV/4CyRta0n8vnW0uSPOUfIsvZj
+	 lDsXuAXM5NjCZxNBwEDNaZDCJIjVCZUc6IAmJSsztY4B1e7D+11RBcnP7G3dcJ9tsJXWS
+	 ioLKlwanxvMA0yLqDHIvewqiKuGC8lniRzbYFHI4r45FmKqYE6GnTtpF8M+LsH/SyF19o
+	 bQmHbOTjtceo9u2mWJXYKI95Q33rW5FnkgtHL1EeSPM4zmLsECR5KnFgkbMbRoVTHeA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 12BB31F0089F;
+	by smtp.kernel.org (Postfix) with ESMTPS id 12AD71F0089B;
 	Fri, 27 Nov 2026 06:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795761547;
-	bh=Ey0k0S1/JKzuAfyBJyhq5DEFGO4CvOGL3Jn4vzIFLG4=;
+	s=k20260515; t=1795761544;
+	bh=QMVYWj4bXlkZEY5osWZHFiVPY11NYOtrpFxkEUnbsig=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Dg6Dd4h156juEu9ws0t5cBM9+1OZ3u//c+67d7uTaOvgZL2RMXL4ZZ8MJrBvQ0mpy
-	 4KYWNHoAE6NjafxoJv9R0RKUufiP3vcrhU6eOYmenPXreivO6xCv6HmV4u9Ugr18Tl
-	 cFBc5g2qIz/96dh/cO8R7ANUzcdCt6os1z5vY4y55MZetjTJktgOhFTR6uaNGEwe0W
-	 tocE/sEQlhuaHcVqL90r1d1apjT0Zl+dt1e1rFKxVO8Z+JBRTBqLvZYybMuVsxM/SX
-	 2Kxx4pEb8DMgfd3AsJUNdcXh7NHj0cMwmgmRlk9Df4P7s5fNQNH3wSxwYDm9njKdDc
-	 3gCnXlROUDeIQ==
+	b=nlNdl11dgwxet4s3nqSL17uio0jHoV9xg2pdk82pRoNs+sksrIIaEp2A8Jvwo+Yvc
+	 P65I1R/RF+PfIstoZ73A8FLcvP/wO91epxelI0l3THfQMCkuStW60+eFFFubyMlyvY
+	 xAAyUyDHPOG2g3NSNnq5zSkJljZW7QZTnClmrJAotyaGqzMJjiAiO2ZbaxBoTWSvsB
+	 FhIzYMzftgzmtt4IH3uq+edHOrtzdyhCju3x1Ug9tqsTlet49lw7NClGIXjGt1eEnC
+	 IVkaid3ypTUG07fzKyA0ZWHwsA/37YPpzWoboeQIc2XjYaweBoDqdjgIL/fT8jopUH
+	 AR/IcJOL8ipGA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id A49A74B5D0;
+	by lkml.kernel.org (Postfix) with ESMTP id 852E84B5CC;
 	Fri, 27 Nov 2026 06:38:46 +0000 (UTC)
 From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Date: Fri, 27 Nov 2026 08:38:43 +0200
-Subject: [PATCH RFC 06/10] coresight: cpu-debug: Factor out
- debug_read_pcsr()
+Date: Fri, 27 Nov 2026 08:38:42 +0200
+Subject: [PATCH RFC 05/10] coresight: cpu-debug: Do not sample a core that
+ is in reset
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-b4-coresight-cpu-debug-lockup-v1-6-69d3ad1e0fc8@iav.lv>
+Message-Id: <20261127-b4-coresight-cpu-debug-lockup-v1-5-69d3ad1e0fc8@iav.lv>
 References: <20261127-b4-coresight-cpu-debug-lockup-v1-0-69d3ad1e0fc8@iav.lv>
 In-Reply-To: <20261127-b4-coresight-cpu-debug-lockup-v1-0-69d3ad1e0fc8@iav.lv>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -98,13 +98,13 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  Douglas Anderson <dianders@chromium.org>, Petr Mladek <pmladek@suse.com>, 
  Feng Tang <feng.tang@linux.alibaba.com>, Igor Velkov <iav@iav.lv>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2394; i=iav@iav.lv;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3674; i=iav@iav.lv;
  h=from:subject:message-id;
- bh=B/rYUrk8vm3PL2FWwqb3V6PtGtt/Zu19DxNEfiWFah8=;
- b=owGbwMvMwCVmNH1q96v4SmbG02pJDNmcqkVrJ4Ycf5Oj86ShcQ3bDYO+bw8ecWvqC7JMu/Xd9
- OZPgXOVHaUsDGJcDLJiiiwTDmncylhy9a+/h/kDmDmsTCBDGLg4BWAiHusYGea66U0yWqCyNXdN
- 6365Z4ZXDsYzsSxQMWIQn/JscefjBfaMDAcu+x+P3q8keN+NgY3/9SFj6bU72Od5+M39ImFruNK
- /jB0A
+ bh=tmVd95P84NWuwX8kkEkvDAkpADpu+/ySXwvKuYqsquA=;
+ b=kA0DAAoWMpeVi+pfeQMByyZiAGsJJXKg9FySgRgbmMFUWOvWYE0orsAY00k/u3+touPMlk4B5
+ Ih1BAAWCgAdFiEEkMIo2mik1f1PSDfgMpeVi+pfeQMFAmsJJXIACgkQMpeVi+pfeQMN1wD/UpEA
+ FZm0PvjJa04cuKMqqOm4nD33RYPU2BkA8Wmw6EUA/1/s6XKuTmM6gF+QdwdvAb1B58oTyOLXyNZ
+ t1hM4TAoG
 X-Developer-Key: i=iav@iav.lv; a=openpgp;
  fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
 X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
@@ -114,90 +114,86 @@ Content-Transfer-Encoding: 7bit
 
 From: Igor Velkov <iav@iav.lv>
 
-Move the reads of EDPCSR and of the registers it latches out of
-debug_read_regs(), so that they can be reused without the EDPRCR power
-request.
+debug_access_permitted() lets the driver read the sampling registers
+when EDPRSR shows the core powered and the OS Double Lock clear. A core
+can be powered and held in reset: an idle Cortex-A72 on RK3399 reads
+PU = 1, R = 1, and a read of its EDPCSR aborts.
 
-No functional change.
+Treat a core that EDPRSR reports in reset as not accessible, and print
+the bit in the dump.
+
+debug_read_regs() writes EDOSLAR before it reads EDPRSR, and on RK3399
+that write already faults for such a core. The check covers the path
+added later in this series, which reads EDPRSR first.
 
 Signed-off-by: Igor Velkov <iav@iav.lv>
 ---
- drivers/hwtracing/coresight/coresight-cpu-debug.c | 46 ++++++++++++-----------
- 1 file changed, 24 insertions(+), 22 deletions(-)
+ Documentation/trace/coresight/coresight-cpu-debug.rst | 4 ++--
+ drivers/hwtracing/coresight/coresight-cpu-debug.c     | 9 ++++++++-
+ 2 files changed, 10 insertions(+), 3 deletions(-)
 
+diff --git a/Documentation/trace/coresight/coresight-cpu-debug.rst b/Documentation/trace/coresight/coresight-cpu-debug.rst
+index 32fbae244524..04bfd318cb2b 100644
+--- a/Documentation/trace/coresight/coresight-cpu-debug.rst
++++ b/Documentation/trace/coresight/coresight-cpu-debug.rst
+@@ -182,12 +182,12 @@ Here is an example of the debugging output format::
+ 
+   ARM external debug module:
+   coresight-cpu-debug 850000.debug: CPU[0]:
+-  coresight-cpu-debug 850000.debug:  EDPRSR:  00000001 (Power:On DLK:Unlock)
++  coresight-cpu-debug 850000.debug:  EDPRSR:  00000001 (Power:On Reset:No DLK:Unlock)
+   coresight-cpu-debug 850000.debug:  EDPCSR:  handle_IPI+0x174/0x1d8
+   coresight-cpu-debug 850000.debug:  EDCIDSR: 00000000
+   coresight-cpu-debug 850000.debug:  EDVIDSR: 90000000 (State:Non-secure Mode:EL1/0 Width:64bits VMID:0)
+   coresight-cpu-debug 852000.debug: CPU[1]:
+-  coresight-cpu-debug 852000.debug:  EDPRSR:  00000001 (Power:On DLK:Unlock)
++  coresight-cpu-debug 852000.debug:  EDPRSR:  00000001 (Power:On Reset:No DLK:Unlock)
+   coresight-cpu-debug 852000.debug:  EDPCSR:  debug_notifier_call+0x23c/0x358
+   coresight-cpu-debug 852000.debug:  EDCIDSR: 00000000
+   coresight-cpu-debug 852000.debug:  EDVIDSR: 90000000 (State:Non-secure Mode:EL1/0 Width:64bits VMID:0)
 diff --git a/drivers/hwtracing/coresight/coresight-cpu-debug.c b/drivers/hwtracing/coresight/coresight-cpu-debug.c
-index 64b5abe33aa8..63bc4cb8df52 100644
+index 9a8ce85fc468..64b5abe33aa8 100644
 --- a/drivers/hwtracing/coresight/coresight-cpu-debug.c
 +++ b/drivers/hwtracing/coresight/coresight-cpu-debug.c
-@@ -199,27 +199,8 @@ static void debug_force_cpu_powered_up(struct debug_drvdata *drvdata)
- 		goto try_again;
- }
+@@ -51,6 +51,7 @@
  
--static void debug_read_regs(struct debug_drvdata *drvdata)
-+static void debug_read_pcsr(struct debug_drvdata *drvdata)
- {
--	u32 save_edprcr;
--
--	CS_UNLOCK(drvdata->base);
--
--	/* Unlock os lock */
--	debug_os_unlock(drvdata);
--
--	/* Save EDPRCR register */
--	save_edprcr = readl_relaxed(drvdata->base + EDPRCR);
--
--	/*
--	 * Ensure CPU power domain is enabled to let registers
--	 * are accessiable.
--	 */
--	debug_force_cpu_powered_up(drvdata);
--
--	if (!debug_access_permitted(drvdata))
--		goto out;
--
- 	drvdata->edpcsr = readl_relaxed(drvdata->base + EDPCSR);
+ /* bits definition for EDPRSR */
+ #define EDPRSR_DLK			BIT(6)
++#define EDPRSR_R			BIT(2)
+ #define EDPRSR_PU			BIT(0)
  
- 	/*
-@@ -230,7 +211,7 @@ static void debug_read_regs(struct debug_drvdata *drvdata)
- 	 * UNKNOWN state. So directly bail out for this case.
- 	 */
- 	if (drvdata->edpcsr == EDPCSR_PROHIBITED)
--		goto out;
-+		return;
+ /* bits definition for EDVIDSR */
+@@ -129,6 +130,7 @@ static void debug_os_unlock(struct debug_drvdata *drvdata)
+  * registers to avoid lockup issue:
+  *
+  * - CPU power domain is powered off;
++ * - The CPU is in reset;
+  * - The OS Double Lock is locked;
+  *
+  * By checking EDPRSR can get to know if meet these conditions.
+@@ -139,6 +141,10 @@ static bool debug_access_permitted(struct debug_drvdata *drvdata)
+ 	if (!(drvdata->edprsr & EDPRSR_PU))
+ 		return false;
  
- 	/*
- 	 * A read of the EDPCSR normally has the side-effect of
-@@ -245,8 +226,29 @@ static void debug_read_regs(struct debug_drvdata *drvdata)
++	/* CPU is in reset */
++	if (drvdata->edprsr & EDPRSR_R)
++		return false;
++
+ 	/* The OS Double Lock is locked */
+ 	if (drvdata->edprsr & EDPRSR_DLK)
+ 		return false;
+@@ -293,9 +299,10 @@ static void debug_dump_regs(struct debug_drvdata *drvdata)
+ 	struct device *dev = drvdata->dev;
+ 	unsigned long pc;
  
- 	if (drvdata->edvidsr_present)
- 		drvdata->edvidsr = readl_relaxed(drvdata->base + EDVIDSR);
-+}
-+
-+static void debug_read_regs(struct debug_drvdata *drvdata)
-+{
-+	u32 save_edprcr;
-+
-+	CS_UNLOCK(drvdata->base);
-+
-+	/* Unlock os lock */
-+	debug_os_unlock(drvdata);
-+
-+	/* Save EDPRCR register */
-+	save_edprcr = readl_relaxed(drvdata->base + EDPRCR);
-+
-+	/*
-+	 * Ensure CPU power domain is enabled to let registers
-+	 * are accessiable.
-+	 */
-+	debug_force_cpu_powered_up(drvdata);
-+
-+	if (debug_access_permitted(drvdata))
-+		debug_read_pcsr(drvdata);
+-	dev_emerg(dev, " EDPRSR:  %08x (Power:%s DLK:%s)\n",
++	dev_emerg(dev, " EDPRSR:  %08x (Power:%s Reset:%s DLK:%s)\n",
+ 		  drvdata->edprsr,
+ 		  drvdata->edprsr & EDPRSR_PU ? "On" : "Off",
++		  drvdata->edprsr & EDPRSR_R ? "Yes" : "No",
+ 		  drvdata->edprsr & EDPRSR_DLK ? "Lock" : "Unlock");
  
--out:
- 	/* Restore EDPRCR register */
- 	writel_relaxed(save_edprcr, drvdata->base + EDPRCR);
- 
+ 	if (!debug_access_permitted(drvdata)) {
 
 -- 
 2.43.0
