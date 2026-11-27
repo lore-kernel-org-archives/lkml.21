@@ -1,132 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.120
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795801991;
-	b=Vrtbn2k4FVsA2e1gTlDweVISpaVfNqCkK/HxhPlNvPpOeuZv/HEziu/fnADKI0lf78x9
-	 RKxu0DGr9/v9tlwXORGJqnawThZ6RFwXUmzMKkZLLJ5hLNj9E5vT2tmnO7SPaE7vlM774
-	 U4BtxVw8UyI47v71WjfZScezTwB7SVKNmFUKIyRlH5r7MleFOQAQsUspvT+ZhC9ZWJVWv
-	 JsT7nBrjv+qxM2Ti5WG7dftusicHMX/M7k/3rMHU0Dp/gRLXgp7V5cSVBPMr3NvXmGWXQ
-	 P+bfF6yUcSV6eGe4t22F51qw8DQo33TrHTX2nUVQ+aQiLKBnghBfoLRvJTfM9WdmbfA==
+	t=1795802089;
+	b=s4j6tIFOfA5Yhohz8dkpBXMVILMmirjn/cYBt2VFOj+/WzN2OUGG6uT1boMaMichE8EH
+	 SFf0FprDQZo9ogASlRUZTlDByHT2YF3fwiR56kE8BQfdb/nsGXCO/CAeVySG0BlIgUyhw
+	 QaGUIEIQpQt1frq+o7mdEXHG+l9R9XpFzj7CENj7b4ZyEwYQkCelA6jrFzlHPerINg5eV
+	 wWUkoT5z5JooKqHLFPnqu+Eh9exF/yv/dAY1pju9aReBycmhJfTen160RNc0NDYaEz3mT
+	 KdrthcYv9YNz/1eqW5iAJoNfAXJpkbCz7Vemrl3G6HW6pP216PRUPL9oGktzyf2YZpA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795801991;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
-	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
-	bh=YbrJuZEMhARstEupCVWU0DhIXaBmHViQoAYzcKNfsOM=;
-	b=kzMigHAqP+oo00rjcTHUDavP9l7Vv70zr8j2/3435/sGULR0f8cFBcU1vJN81WKumf/5
-	 DFMEwgK9yHA9Dy8wr0Sz34p48HyQbwPpiCoI7sm5cc5tStYtrC/uh9oQjlhTbs1Sv38U2
-	 vxWszvSjGWmPjvpTRKjvLbBKZLR1gDx3HPICD1U/wjjU6LJcSPvsV1u+C6Y5I+A8Rq0TJ
-	 fbGpVrnnpx66hfTt2tDsbox5CswbFDjUJyzmLWASXZn8Jy8+EcsZQ3/vGgHquLQr2hdtv
-	 yWZ4NeJQqaWqVCoyUflAN1JDYrrGSQicUNf9TBnlzkFrhP6QdpDsmzZqkElUlBP5Gzg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795802089;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=MBpzvZy2ZJyn1GNW1kPyufscZwT3WxGJxcs/46l1sms=;
+	b=4c2eX8owTVajeRo8rwuVUHdl4YWwWvYIwWYYmiFYCj+EyRTsr14eIZbrbzkLw0wxfR2G
+	 MrlphtGalh1RcsBlMhz7ZY6JALgeUG4OYELd84f/JWxG+1quZrPAN/vlVtYt2l+MKFcko
+	 jzYPDUu0AScXouqwxgNJ6jdCt4sTq7jRWGViFGN5tZ0yORK8E2GfSH2PrDB0ywraSRS8P
+	 GxQC4Hk8d3of04nzfl9MYiSeooTDUppcshleg8rjPu5HRjKcbsDxRQLh7ZcxmidTcoIPJ
+	 2kWcrsSndfLEfjTUD4FP1GPBAo5Sz7vm5qSJVvhf56IdSmHpDvHsQiF6Ch5pZaDnY3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=dubeyko.com;
-	spf=pass smtp.mailfrom=dubeyko.com;
-	dkim=pass header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=XqGwfLa1;
-	arc=none smtp.remote-ip=209.85.128.176
-Received: from mail-yw1-f176.google.com (mail-yw1-f176.google.com [209.85.128.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=proton.me;
+	spf=pass smtp.mailfrom=proton.me;
+	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=WV9URbfw;
+	arc=none smtp.remote-ip=79.135.106.120
+Received: from mail-106120.protonmail.ch (mail-106120.protonmail.ch [79.135.106.120])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76C11606A321
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:53:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76C11606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dubeyko.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dubeyko.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43A5F606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:54:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43A5F606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=XqGwfLa1
-Received: by mail-yw1-f176.google.com with SMTP id 00721157ae682-8b502b9b702so96504397b3.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:53:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dubeyko-com.20260707.gappssmtp.com; s=20260707; t=1795801990; x=1796406790; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=YbrJuZEMhARstEupCVWU0DhIXaBmHViQoAYzcKNfsOM=;
-        b=XqGwfLa1x+D87QuNjXc3STVXQCwlI7b+ALlghhoR3qaGiEkDu1IkGQTVxwYicKtg5z
-         jb3/okLuFgV9l6E0R+AAblNKirURaT/8Fj9JUDQVwvSg3oGNPx65akzDFpXkihlcVDkz
-         ic3vZLPSLhmmcrVd52wdVqWUKt/YoLKEywbcq67LahocCVlHdEMei6mYJxScrqKyR/p1
-         B8ntmHtneZYepStIZ2kif3ddAiRQL3+LkP8vjbaeYShA6eS7nnXj4u3W8QwYwwDHFaVD
-         CZI3YD2MLcv2o/+wWJnV4WCqny9of4SzQQBHUAth0YfgA6UIJR1eB5+m5YLyQcqDNA3m
-         Yh3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795801990; x=1796406790;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=YbrJuZEMhARstEupCVWU0DhIXaBmHViQoAYzcKNfsOM=;
-        b=tK6huRIXQGLsxzeyRDA+DoME8NO8AHxKbe4tgJUKymkOunJD4iaUVDWNiscg3PkZM4
-         tcBr62DIU4NYz36f7jF8rD71Oj8MYZHmsndnTkRGCrYearTBX2TxNTCNexgd1Zk2oBVX
-         Ht7tQRxwTluP4HDp8sjLcvSY+zOS+Kp4R52V6S4brlD1znnY9Z2FqvvfhD1b90fZZx1+
-         0noyZERLm76MN1D01a3XcO8CEFMfb7UdAHlYdbRR0nR9TUMMuE3gx8VSDAW2uCd40Apn
-         yYlDA5LdQWCD0rc1TlLKZ3d9pDqqJ2iVf4tbF1yHSI/CNOBlLeTe95DRKH9lcEM14Flx
-         nP7Q==
-X-Forwarded-Encrypted: i=1; AL+hErECr8ouP1JwuAR2D7EawEOAiU0sPR2JATOOpAP0cZtIu+I66x6uuYwJRRC06Kzgzil4mApuVZARjsz4AIM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z80oDyrBU/CKWZ1LLfayvfSOOSOwfO0GTFNy2JVQHnwoD8D6fRi
-	u/se1rS3FeCXPMuRNRdFWqEdBusObae6hcGUBlNHWBucd5tDgAUD7YjIbjozEllfwHw=
-X-Gm-Gg: AZFdTZeQzEdJ/oQ+TPkiC0YoAeSgbQZWqqrBCWMr1RKT04dLxBGE/W3UcqEWxBFR3aC
-	4f3GESfwliTnna39wHsrHZej3NJRdUiLa4NBzs/nRxtT1EOjy0t58VW7J/umHAhp3CJATY2752p
-	VsOEIlPCRzNZrD6fCza+KKs4Hi0+R2gzh/9nCf8Pg7ICAUxDpOhyPWyi32NujxFToeh323ALtBD
-	jlUnWNzWqmjtBYpH543hGMDX8DHlTWoM5I3daT/e84/2oam8l0Il2/o0aA46hwK7N1I7TmK0RWs
-	5LwQ6bba3Qt1M/74XvZHZMas8EhIgKhW/k/xKuJvkLeaT39EBm6ttxzZfWrRhKWG4BbzBuBAtRz
-	vYJ0H7MxSP+8+bJdlAdfBTHjHlTuQ6xAg53QA2YK00mgmuhv65/tneBiEO9DA+PgrZZ0oqvnxXA
-	twdm283q3DnhEjmErH35VzK6GkVgEvJ1OWde9S6VW8PwEmtKSszZ9a2CTBqy7ctJSUocpGibZ+5
-	9shUaJ1WA/C9Gv5Nhr9CNbJsaFYRkad+8nSmqj5H77eM0pEXGVq+VaBrLUv+6r+4+DwuihOYyCS
-	Na5+Iai4JrcvDeNOCsbr3qCqXZKxikXvM4nHVOKM74iqCIz+3hqM6VOF9xF18SpyD04AsBa1bHG
-	2NirrU5loB4+z9MAy+kd2UZkyFlLRwWcJc8KwSuveNl7EcoUaV6fj2uIpmLkU3xnbk2RR/YIj
-X-Received: by 2002:a05:690c:dc1:b0:8b3:23f3:134d with SMTP id 00721157ae682-8b5204ba154mr89112077b3.42.1795801990329;
-        Fri, 27 Nov 2026 09:53:10 -0800 (PST)
-Received: from system76-laptop.attlocal.net ([2600:1700:6476:1430:1a5a:d5f7:70f5:514b])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b56fc6131fsm35622287b3.34.2026.11.27.09.53.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 09:53:09 -0800 (PST)
-Message-ID: <0e5898598e12940f4b33aebccabb6bd3a42565f2.camel@dubeyko.com>
-Subject: Re: [PATCH] hfsplus: reorder complete combining runs for dentry keys
-From: Viacheslav Dubeyko <slava@dubeyko.com>
-To: kernel test robot <lkp@intel.com>, shaos <shawnq1@163.com>, 
-	glaubitz@physik.fu-berlin.de, frank.li@vivo.com
-Cc: oe-kbuild-all@lists.linux.dev, linux-fsdevel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Date: Fri, 27 Nov 2026 09:53:08 -0800
-In-Reply-To: <20261127114353.IlT3o2gb-lkp@intel.com>
-References: <20261126160720.3007837-1-shawnq1@163.com>
-	 <20261127114353.IlT3o2gb-lkp@intel.com>
-Autocrypt: addr=slava@dubeyko.com; prefer-encrypt=mutual;
- keydata=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
- NFdvziOa4FgUBC4X71upsZIoZJeii2V/Jtc3B4g==
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-9 
+	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=WV9URbfw
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail2; t=1795802084; x=1796061284;
+	bh=MBpzvZy2ZJyn1GNW1kPyufscZwT3WxGJxcs/46l1sms=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=WV9URbfwJWMvgppCmeG6dN9HfAo+Ub5JejJNz1mG5l2s1pHBb6LLnUTPg91VaoXxa
+	 AeqhPesz+uhW3OQr16xDEpUWGBK7xxCLx7jRe+KJuwQ4jkMoZAU9Z0j4hkxew5lZ4G
+	 XcOgLet77UWkXaBlgg0YplyjpEky6wY0jTt/a2Lr4k16Q3Gd1MO12yrxi+zbeEaOPP
+	 I53M8ClJVixa4hSKKagtCloAK/kauHedhsO2bgbaY/uh8LmQmSFB++1oWti6PEQpue
+	 oARtboOlsJFB8JGPu6koj8BbMtoSQenWlVSOTTeXy86qzXKXmSdA/Y+AYkQFx9TZDY
+	 4bNHSFUGl40WQ==
+Date: Fri, 27 Nov 2026 17:54:35 +0000
+To: Andre Przywara <andre.przywara@arm.com>
+From: Norman Herms <dockseed@proton.me>
+Cc: Jerome Brunet <jbrunet@baylibre.com>, =?utf-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, samuel@sholland.org, Enzo Adriano <enzo.adriano.code@gmail.com>, Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, Junhui Liu <junhui.liu@pigmoral.tech>, Pablo Mazzini <pmazzini@gmail.com>, Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>, Alexander Sverdlin <alex@sverdlin.org>, Jun Yan <jerrysteve1101@gmail.com>, Lukas Schmid <lukas.schmid@netcube.li>, Cristian Filipescu <filipescu.cristian@gmail.com>
+Subject: Re: [PATCH v6 2/5] arm64: dts: allwinner: add A733 SoC description
+Message-ID: <0ZiLi25XUh_mAaMCw_YhXS3YA3FIj89dJfHVYgxGcBS3a5biGYvczbtTd9O3zus2A5Q1HQMkCaU7I9UU6Y50VGIZ_ltPsKx-7lHvtFtYcVQ=@proton.me>
+In-Reply-To: <682cee16-d56c-436a-8661-0cf511fa2e78@arm.com>
+References: <20261126-a733-cubie-a7s-dt-v6-0@gmail.com> <20261126-a733-cubie-a7s-dt-v6-2@gmail.com> <p3YaXlLJTguQBGnWyMpb1w@gmail.com> <1jld6eldic.fsf@starbuckisacylon.baylibre.com> <wzwsbUKM-fEhYpTIhswvHly5oyuMCPDOExJEWjbSf-OS3Lrwx2H_l9CUfuMITJUK5CyEz4pNojUFRzjDDczUQmX_LmSWwF7DVSceD34XeHY=@proton.me> <682cee16-d56c-436a-8661-0cf511fa2e78@arm.com>
+Feedback-ID: 144388465:user:proton
+X-Pm-Message-ID: e8432731c81dec984c084befc90a1a96ab850531
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -136,129 +64,78 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Somehow, I don't see this patch in my email client. Please, fix the
-issues and resend the patch. And, please, double check that you are
-sending the patch in plain text.
+Hi Andre,
+
+> What do you mean by that? The proper solution is to *create* a new
+> regulator driver, either embedded in the pinctrl driver (make the
+> pinctrl export a regulator device), or as a separate driver, using some
+> pinctrl provided regmap.
+[...]
+> Are you using a different approach?
+
+Yes, a different one: I only meant that there is no PMIC regulator
+whose voltage could be changed, the switch is inside the pin
+controller. We went with pinctrl states, and sunxi-mmc selects them in
+its voltage switch when there is no vqmmc. It works, but a regulator
+mux exported by the pin controller, with vqmmc pointing at it, looks
+cleaner to me and needs no change in sunxi-mmc. We are happy to test
+that.
+
+> Do you mean you use vmmc-supply to point to some 1.8V regulator?
+
+No, vmmc is SWOUT2 at 3.3 V. Without vqmmc, sunxi_mmc_volt_switch()
+returns -EINVAL for 1.8 V, so the card stays at 3.3 V without UHS.
+
+> Is that a timing issue, maybe? Maybe the sampling happens only so often,
+> and you just happen to miss the change, occasionally?
+
+We cannot rule that out. We read the detector at every SD interrupt
+while PF ran at 1.8 V: in the adaptive mode it said "not 1.8 V" at 2
+of 90 and 6 of 83 reads, and with the mode set by hand at 1 of 99 and
+3 of 103, where the card stayed clean. Right after a switch it already
+reported 1.8 V on the first read in our trace, so it does not look
+like a slow detector. The USB3 combo PHY points the same way, as it
+shares CLDO5 on this board: with the PHY running the failures go
+away, and in older traces the detector said 3.3 V in the first 25 ms
+at 1.8 V at 2 of 76 reads with the PHY off, but at 0 of 1137 with it
+running. Those two traces also differ in kernel and DT, though, and a
+run comparing both in the same boot never happened.
+
+> Just to clarify: "0 of 40" means *0 fails* here, so it works?
+
+Yes, 0 failures in 40 rebinds.
+
+> Do you mean your patch just badly hacks those two bits to do what you
+> want, by treating PortF separately, but it's not something that looks
+> nice and upstreamable?
+
+Yes, it is a special case for bank PF in the pinctrl driver. With a
+regulator mux, its set_voltage would be the natural place for the
+same order.
+
+> So according to the A7A schematics VCC18-PF is a separate power supply
+> pin on the SoC, and it's supplied by CLDO5.
+
+Same on the A7S. There CLDO5 also feeds VCC-PC (the eMMC VCCQ) and the
+combo PHY's analog supply, and v6 already references it as
+vcc-pc-supply.
+
+> But this is a firmware problem, then? As 0b10 is documented as 3.3V,
+> which is wrong if you use a 1.8V eMMC. So doesn't the new pinctrl fix
+> patch overwrite this with "auto" (0b01)?
+
+Yes, it is a firmware problem, and yes: with the pinctrl patch the
+register reads 0x05555555 under v6, so PC is in auto. Our boot chain
+writes auto too; we set PC to 10 by hand at runtime to see what
+happens. My point was only that 10 on PC does not behave as the
+adaptive mode that the manual text gives for C/E/K. Whether U-Boot
+fails with it too, we have not tested.
+
+Built and measured by AI agents (Claude) on my boards.
 
 Thanks,
-Slava.
+Norman
 
-On Fri, 2026-11-27 at 11:52 +0800, kernel test robot wrote:
-> Hi shaos,
->=20
-> kernel test robot noticed the following build warnings:
->=20
-> [auto build test WARNING on brauner-vfs/vfs.all]
-> [also build test WARNING on linus/master v7.4-rc4 next-20261126]
-> [If your patch is applied to the wrong git tree, kindly drop us a
-> note.
-> And when submitting patch, we suggest to use '--base' as documented
-> in
-> https://git-scm.com/docs/git-format-patch#_base_tree_information]
->=20
-> url:=C2=A0=C2=A0=C2=A0
-> https://github.com/intel-lab-lkp/linux/commits/shaos/hfsplus-reorder-comp=
-lete-combining-runs-for-dentry-keys/20261126-160720
-> base:=C2=A0=C2=A0
-> https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git=C2=A0vfs.all
-> patch link:=C2=A0=C2=A0=C2=A0
-> https://lore.kernel.org/r/20261126160720.3007837-1-shawnq1%40163.com
-> patch subject: [PATCH] hfsplus: reorder complete combining runs for
-> dentry keys
-> config: arm-allyesconfig
-> (https://download.01.org/0day-ci/archive/20261127/20261127114353.IlT3
-> o2gb-lkp@intel.com/config)
-> compiler: arm-linux-gnueabi-gcc (GCC) 16.2.0
-> reproduce (this is a W=3D1 build):
-> (https://download.01.org/0day-ci/archive/20261127/20261127114353.IlT3
-> o2gb-lkp@intel.com/reproduce)
->=20
-> If you fix the issue in a separate patch/commit (i.e. not just a new
-> version of
-> the same patch/commit), kindly add following tags
-> > Reported-by: kernel test robot <lkp@intel.com>
-> > Closes:
-> > https://lore.kernel.org/oe-kbuild-all/20261127114353.IlT3o2gb-lkp@intel=
-.com/
->=20
-> All warnings (new ones prefixed by >>):
->=20
-> =C2=A0=C2=A0 fs/hfsplus/unicode.c: In function 'hfsplus_compare_dentry':
-> > > fs/hfsplus/unicode.c:747:1: warning: the frame size of 1456 bytes
-> > > is larger than 1280 bytes [-Wframe-larger-than=3D]
-> =C2=A0=C2=A0=C2=A0=C2=A0 747 | }
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | ^
-> --
-> =C2=A0=C2=A0 fs/hfsplus/unicode_test.c: In function
-> 'hfsplus_dentry_combining_reorder_long_test':
-> > > fs/hfsplus/unicode_test.c:1547:1: warning: the frame size of 1680
-> > > bytes is larger than 1280 bytes [-Wframe-larger-than=3D]
-> =C2=A0=C2=A0=C2=A0 1547 | }
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | ^
->=20
->=20
-> vim +747 fs/hfsplus/unicode.c
->=20
-> d45bce8faf5551 Duane Griffin=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 2007-07-15=C2=
-=A0 721=C2=A0=20
-> d45bce8faf5551 Duane Griffin=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 2007-07-15=C2=
-=A0 722=C2=A0 /*
-> d45bce8faf5551 Duane Griffin=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 2007-07-15=C2=
-=A0 723=C2=A0=C2=A0 * Compare strings
-> with HFS+ filename ordering.
-> d45bce8faf5551 Duane Griffin=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 2007-07-15=C2=
-=A0 724=C2=A0=C2=A0 * Composed
-> unicode characters are decomposed and case-folding is performed
-> d45bce8faf5551 Duane Griffin=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 2007-07-15=C2=
-=A0 725=C2=A0=C2=A0 * if the
-> appropriate bits are (un)set on the superblock.
-> d45bce8faf5551 Duane Griffin=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 2007-07-15=C2=
-=A0 726=C2=A0=C2=A0 */
-> 6fa67e70755930 Al Viro=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 2016-07-31=C2=A0 727=C2=A0 int
-> hfsplus_compare_dentry(const struct dentry *dentry,
-> 621e155a359196 Nicholas Piggin=C2=A0=C2=A0=C2=A0 2011-01-07=C2=A0
-> 728=C2=A0=C2=A0		unsigned int len, const char *str, const struct qstr *na=
-me)
-> d45bce8faf5551 Duane Griffin=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 2007-07-15=C2=
-=A0 729=C2=A0 {
-> d3fe19852e96aa Al Viro=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 2016-07-29=C2=A0 730=C2=A0=C2=A0	struct
-> super_block *sb =3D dentry->d_sb;
-> bbe5ebcbc006ac Viacheslav Dubeyko 2026-09-18=C2=A0 731=C2=A0=C2=A0	int ca=
-sefold
-> =3D test_bit(HFSPLUS_SB_CASEFOLD, &HFSPLUS_SB(sb)->flags);
-> bbe5ebcbc006ac Viacheslav Dubeyko 2026-09-18=C2=A0 732=C2=A0=C2=A0	struct
-> hfsplus_decompose_iter it1, it2;
-> d45bce8faf5551 Duane Griffin=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 2007-07-15=C2=
-=A0 733=C2=A0=20
-> bbe5ebcbc006ac Viacheslav Dubeyko 2026-09-18=C2=A0
-> 734=C2=A0=C2=A0	hfsplus_decompose_iter_init(&it1, sb, str, len, HFS_REGUL=
-AR_NAME);
-> bbe5ebcbc006ac Viacheslav Dubeyko 2026-09-18=C2=A0
-> 735=C2=A0=C2=A0	hfsplus_decompose_iter_init(&it2, sb, name->name, name->l=
-en,
-> 897c2beb4a7799 Viacheslav Dubeyko 2026-03-23=C2=A0
-> 736=C2=A0=C2=A0				=C2=A0=C2=A0=C2=A0 HFS_REGULAR_NAME);
-> d45bce8faf5551 Duane Griffin=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 2007-07-15=C2=
-=A0 737=C2=A0=20
-> bbe5ebcbc006ac Viacheslav Dubeyko 2026-09-18=C2=A0 738=C2=A0=C2=A0	while =
-(1) {
-> bbe5ebcbc006ac Viacheslav Dubeyko 2026-09-18=C2=A0 739=C2=A0=C2=A0		int
-> c1 =3D hfsplus_decompose_iter_next_folded(&it1, casefold);
-> bbe5ebcbc006ac Viacheslav Dubeyko 2026-09-18=C2=A0 740=C2=A0=C2=A0		int
-> c2 =3D hfsplus_decompose_iter_next_folded(&it2, casefold);
-> d45bce8faf5551 Duane Griffin=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 2007-07-15=C2=
-=A0 741=C2=A0=20
-> bbe5ebcbc006ac Viacheslav Dubeyko 2026-09-18=C2=A0 742=C2=A0=C2=A0		if
-> (c1 < 0 || c2 < 0)
-> bbe5ebcbc006ac Viacheslav Dubeyko 2026-09-18=C2=A0
-> 743=C2=A0=C2=A0			return c1 =3D=3D c2 ? 0 : (c1 < 0 ? -1 : 1);
-> bbe5ebcbc006ac Viacheslav Dubeyko 2026-09-18=C2=A0 744=C2=A0=C2=A0		if
-> (c1 !=3D c2)
-> bbe5ebcbc006ac Viacheslav Dubeyko 2026-09-18=C2=A0
-> 745=C2=A0=C2=A0			return c1 < c2 ? -1 : 1;
-> bbe5ebcbc006ac Viacheslav Dubeyko 2026-09-18=C2=A0 746=C2=A0=C2=A0	}
-> d45bce8faf5551 Duane Griffin=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 2007-07-15 @74=
-7=C2=A0 }
