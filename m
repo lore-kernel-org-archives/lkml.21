@@ -1,62 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795776713;
-	b=k5P5/GwYd2wNlRbfURUma1qhi24LGbVB5fiDsGYci6XkN+9aK+jnnk1oybA33XgKUOcQ
-	 iNrMqWMfvZqDrjnZB6a0ViTtjYngQIa4CiMPk8SufuNhUuQ0MG0Xmw+0wN02r2gRTRm+s
-	 r0XWdEClyMttrccOL1XEDvvewFu9wcnZ7iHEpXgBlLfGQFnbRw2pno9gGju8h23siceeC
-	 d8Myz3hhNzRvkhxqhBtHUchJwJ18wQOKjZOAigfXsXXBDRDF16lZ1JeImvbiKOY3myTmG
-	 X9S2O0tPVhmPTCwJcrd2Amw1HwmUyn0xaQs2N9wAqbQ1PIVGqM8lQNtosH6BacfJSyA==
+	b=Wmf+nlsZ7Ka5N0zWjtnObZJzswMzrH4SZAYgJTMl/vaHGu12Rh8I4LMjw2BohcZ7eJVt
+	 lsgw6ZS7s9Szb/AglqMgsYVWqkEUPyn9GfuN4vMYbfOKODkQNdE2EWjQwMJYvHbtJCSLZ
+	 Sn+hi3A6Q3Nzv3OdjKNAismNVBohW4ehCwdkiYH5SmKJ67tRLneac/Gpv3+yYwEzCGUi6
+	 en9Ww9/VfrJwgzlaWFnb6//a4iIeMbft0oXOH6X7v0PhW5VU4kQYTMS3HTZ8o08yZ4mLi
+	 x1HAcXFxQO2wu29SVjGaSKg/QN6rcu8tc/V29gxIX7k2GzFKFAmrSuhhmz8MIRbEdbA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795776713;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Date:Subject:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
 	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
 	 X-Developer-Key;
-	bh=fCaiiusRdlicCo6MECTM+2JnaQvvuMfb57eq/XpLE10=;
-	b=pEm4CGXciN6UbiZISHg2QyY7sEvS8x7sFgFPMKyhvHIm5Cs5dP32iPETWIJrxKWc1Bh3
-	 VaOTrM4d75rMjo2QWyM5RSpdStMm1Qs4z+ke0APpsXbM5EF/9tScRMK+WTeH3/i3GE1IM
-	 qdQ/iWQjVReo3VGrAbHRq2jR+SIacbrw+LTShKZN4ydkagDGbCVcJj+LL7I2Bsmr7UEu4
-	 hqiLInROL+8td7tinXjq3BxzreikIuXoKTLU1Pwf5u753U0FV5JSosjoDkub+Lua4pY6f
-	 UdcqVJvdQoqqHSbdQRFOdm4f4KyoaJ2ieJAMkSNu8y/1FZ4TUPZEpSY8YGW7WntIR1g==
+	bh=WkHN9A3Y86juNKLrEVQSy/VEql3aXHqCYmFvIrSVDmo=;
+	b=P0NUscnretVKulVNTkL6vk/qS3W85DfBP0TmjPqfy27Zi/FqbxVRaSjsMb0rCmqEsJJC
+	 qssrtQ13YCKCJKyJ9DT8zu3aDujnNoByJAJxodP+wMCLejNFNf1iWIHAGsAtRU83Wza+M
+	 FsZpQ2mjOfi8K0DRVw5J2TcF336xHNo9QyCoH7qUEHVyVbC4JD1+ms3K9FqP0Z0EM90Lf
+	 gCL9+DR+vkO9gZJkC5C1Y4/NqVDqAQq4awuqKjlJ9jCTtC8XECk1u1X+ht/XJVbP3dPeC
+	 lPcxRLXyLmqqYUPbjwAzxeA+4zNcnVMuaMy+oBtjmJaOmaP9mGXrqOsIMaNu8THzABQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=collabora.com;
 	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=BHEjngSj;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=nAtZtks1;
 	arc=none smtp.remote-ip=148.251.105.195
 Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A33D8606A6A8;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6060606A6A9;
 	Fri, 27 Nov 2026 10:51:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A33D8606A6A8
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6060606A6A9
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=BHEjngSj
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=nAtZtks1
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1795776708;
-	bh=CB0vsMUuxXRz18p3cWYnUmFn+FTPu9FT98Oo9ipqsZg=;
+	bh=TReSjAabIH0w5Lp+llK+KbrOfk2KHaTLEr6xiB4QYtw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=BHEjngSjZ92TmZMFfl+uVy+tpCmv7II3QFzu2I6oTwp5J3F6eayyyVxtNgr909N3Q
-	 X0IIAzEBxmxp0z3jYB9eYZnZe8jy5BB8C2yp8qP1By27zg3NtEsK2cP0KUD8Ssq5sT
-	 fG8g/IOHkeCr8HBES5N0Eqh+7dGCO7bcyZQGJy7qpmv6evr5W8V40EuhPl3kjY9wfh
-	 m8HZwkOMUZAoXQ2uoME34NlxARSo0jRitlnMggZFJVk15Bd9rJjeudgFMkVDRXpspa
-	 OFBm2b0aSnSstP7+46JimOgRU5PDc7a2344u5107K1mw79RZa1VZ1VCP3WJLmZRfWm
-	 EzQNqy/Mxj47A==
+	b=nAtZtks14Tig29zzrdPMoTSclHymXU8DCkvjQxc3cboij1Ba9p/fRm69+ntLr3QeL
+	 b0s2p53P/aDGpBMroYk5xzvavodqkG14jTY66ebsMRPK1fLgDzg61Owwe8NmnglhjA
+	 3yvKgW6Rpx45a7KbeNKmT4wG4tPsnYLNg3JBet6z3thdw8udv0tXS1fsCH0UuvNlYO
+	 eVcsk1gIJaU5jCO3gaxZBH/KIPgoowWB1vBN8horf0rt3fTiif+0wREJbcv6MRHMzp
+	 amFiCUt/n3+mUV2NzrJn2QRetMNopbTP8MGyPow5b+ElUnqR/UljPEbe1a/cg9yd3q
+	 fJnu2IBZBBgUA==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9FA8317E08C6;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A14E317E090C;
 	Fri, 27 Nov 2026 11:51:48 +0100 (CET)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 111CE48003F; Fri, 27 Nov 2026 11:51:48 +0100 (CET)
+	id 12F60480041; Fri, 27 Nov 2026 11:51:48 +0100 (CET)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 27 Nov 2026 11:51:44 +0100
-Subject: [PATCH v2 07/11] arm64: dts: rockchip: Add USB-C DP AltMode for
- Gameforce Ace
+Date: Fri, 27 Nov 2026 11:51:45 +0100
+Subject: [PATCH v2 08/11] arm64: dts: rockchip: Add USB-C DP AltMode for
+ RG-Vita-Pro
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,7 +68,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-rockchip-usb-c-dp-altmode-v2-7-77ee78869307@collabora.com>
+Message-Id: <20261127-rockchip-usb-c-dp-altmode-v2-8-77ee78869307@collabora.com>
 References: <20261127-rockchip-usb-c-dp-altmode-v2-0-77ee78869307@collabora.com>
 In-Reply-To: <20261127-rockchip-usb-c-dp-altmode-v2-0-77ee78869307@collabora.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -78,46 +78,42 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
  kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3993;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3047;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=CB0vsMUuxXRz18p3cWYnUmFn+FTPu9FT98Oo9ipqsZg=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGsJYMMJtnUOwJZpbew3/YAMF1TlphH9YjTza
- 1H3llBAayr//okCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJrCWDDAAoJENju1/PI
- O/qaOWEQAISirkxFWyJip91NS54k8qrFMOOmNnz1Ax3E8dKnfNpwkhgW/J30oWSTZRiXxS+mslk
- 2v+EwFGQ1woSZ2WfnH3IE2b+eIYeSkn6zlFkFviFC1FRRt8YPoJB88d0efOWs8Sdtc6BKciq+Nb
- P2eWaSVf2uVoOvlsAoUgLZzOWYcvmA2fKThgciWLLTTYCR9Cmv4YPxOlZlPGyd1R4Xwq6oqloLw
- l1tXt+t0qyGBuJPmFqLtViYpzdwHMYdBZzpPBEoAKCAznqsHO3Rp48buDU85QD05rDd/JPVtrQe
- 8Af9KrmWWkPVeSmNBlhbUd/n3oXBhzcLiVz8hvZ2EyZGntQR+SdQCpQlTEpDZb313fhkFe6OnhJ
- meNjGMZVmet2VHs5wa3xmM0Im6lGXG6vzRLV5BkyHN0i1CWCu8LZhtsSMIe0Nm9mdBNUBIlLbZA
- w93g+i4uaeOg95KtRWPWSOA/zif+DvvwZibSIPmIf+xxuLmo0PQ61+t2q27G5eJCARaqh3vq2k2
- EHt+Uzv4OdBks5fmyQy5Fp+QYioNyYBTqB7f/567ax/69uqiOc8Zh3qAOjz1r3Y/LikdngfhwhE
- igrBMDFErIg4D++/d3ygawAOuat/XY3OX/dey4r+lB3tOoqbiXtI9IOJOHF5ZZ9jlodmM4RrqQJ
- 70JpF9znnuxvx4gG8sHsy/A==
+ bh=TReSjAabIH0w5Lp+llK+KbrOfk2KHaTLEr6xiB4QYtw=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGsJYMOa7mgy4eeLXkB9lcTJ8436MtVZSIPde
+ IxQXkciURPtkYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJrCWDDAAoJENju1/PI
+ O/qa9PQQAINZ7gBjhyGZyfY79H1PS4aNDXVunM6ZYZAzbFtiC868jmReX5kSwn6EAj6/nfsntMK
+ fUEfPpYa5p2rsDRa9vl40cOMXMbw91rKtf6L6CiNj1Yt0RnwWct45vGFCatcjMCv8oqFct/qSQy
+ WqmsVDf200Rr7pQnC410SDA9KZkk05fVRdh2x45zJl/0Bh8eW5Cqci/j1P42ceQLygUUZuk//W1
+ +2G1sG5lJqDTxLJje7+5L2S281Lcnc3codLqpLq0+zJ2PYEJyQHNKY8KuvRm+lOL+tCAkMVWB4X
+ +4XAUJFeII9QUVHzn1K4Ky8OReXVNDadlvwZz3RKUXw5uxkDUlM2dokpQToCmsKoBITvTSCPM24
+ X45oQf7PXOqqs4hTEmMQqox313Swd7rDSYjVtHatG1Xs2V8gnrvRlD0mbqwZv7L65+ANKXO14Bw
+ tt1rW8ZFf/LkDb4d+331si8MilMitwnKAgZ+mGfXvRZEvDDEt4HtU8EqkcdCmMTkb/xVO9tZZVO
+ 26xqmDH1pxRblRmnMLsc0ckWxaOASwRe7hQLQV8XQmkKoHdMcz2McvgspFMYs89q9txncoTv8Mf
+ lvP0z7bVng4MHfz8apAM+vxJ1je3gYg0mQJ2GnSjmYwqq/XdOX+71Jl9pl6JRsVsBtbyumTioKu
+ JtRrhVdSt5bTaSm1kKmkw6Q==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 
-Fix the USBDP PHY ports description for the Gameforce Ace, so that it
-follows the documented ABI. The current binding confuses endpoints with
-ports and makes no sense at all.
-
-While at it drop the rockchip,dp-lane-mux property, which makes no sense
-for USB-C as the DP lanes are routed dynamically based on negotiation
-via the USB-PD protocol.
+Properly describe the USB-C setup incl. DP AltMode support, which also
+fixes the USBDP PHY ports description for the RG-Vita-Pro, so that it
+follows the documented ABI.
 
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- .../boot/dts/rockchip/rk3588s-gameforce-ace.dts    | 94 ++++++++++++++++++----
- 1 file changed, 79 insertions(+), 15 deletions(-)
+ .../dts/rockchip/rk3576-anbernic-rg-vita-pro.dts   | 78 +++++++++++++++++++---
+ 1 file changed, 68 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dts b/arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dts
-index 5ffc94b70813..27b696b4b945 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dts
-@@ -504,6 +504,22 @@ dsi0_out_panel: endpoint {
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-anbernic-rg-vita-pro.dts b/arch/arm64/boot/dts/rockchip/rk3576-anbernic-rg-vita-pro.dts
+index 85576a437f7b..5da90f3792a1 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-anbernic-rg-vita-pro.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-anbernic-rg-vita-pro.dts
+@@ -469,6 +469,22 @@ mipi_out_panel: endpoint {
  	};
  };
  
-+&dp0 {
++&dp {
 +	status = "okay";
 +};
 +
@@ -129,119 +125,89 @@ index 5ffc94b70813..27b696b4b945 100644
 +
 +&dp0_out {
 +	dp0_out_con: endpoint {
-+		remote-endpoint = <&usbdp_phy0_dp_in>;
++		remote-endpoint = <&usbdp_phy_dp_in>;
 +	};
 +};
 +
  &gpu {
  	mali-supply = <&vdd_gpu_s0>;
  	status = "okay";
-@@ -679,28 +695,35 @@ PDO_FIXED(9000, 3000, PDO_FIXED_USB_COMM)
- 			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
- 			try-power-role = "sink";
- 
-+			altmodes {
-+				displayport {
-+					svid = /bits/ 16 <0xff01>;
-+					vdo = <0x00001c46>;
-+				};
-+			};
-+
- 			ports {
- 				#address-cells = <1>;
- 				#size-cells = <0>;
+@@ -932,22 +948,25 @@ ports {
  
  				port@0 {
  					reg = <0>;
--					usbc0_orien_sw: endpoint {
--						remote-endpoint = <&usbdp_phy0_orientation_switch>;
+-					usbc0_hs_ep: endpoint {
 +					usbc0_hs: endpoint {
-+						remote-endpoint = <&usb_host0_xhci_hs>;
+ 						remote-endpoint = <&usb_drd0_hs_ep>;
  					};
  				};
- 
++
  				port@1 {
  					reg = <1>;
--					usbc0_role_sw: endpoint {
--						remote-endpoint = <&dwc3_0_role_switch>;
+-					usbc0_ss_ep: endpoint {
+-						remote-endpoint = <&usb_drd0_ss_ep>;
 +					usbc0_ss: endpoint {
-+						remote-endpoint = <&usbdp_phy0_ss_out>;
++						remote-endpoint = <&usbdp_phy_ss_out>;
  					};
  				};
- 
++
  				port@2 {
  					reg = <2>;
--					dp_altmode_mux: endpoint {
--						remote-endpoint = <&usbdp_phy0_dp_altmode_mux>;
+-					usbc0_dp_ep: endpoint {
+-						remote-endpoint = <&usbdp_phy_ep>;
 +					usbc0_sbu: endpoint {
 +						remote-endpoint = <&usbdp_phy0_dp_out>;
  					};
  				};
++
  			};
-@@ -1466,12 +1489,24 @@ &usb_host0_xhci {
- 	usb-role-switch;
+ 		};
+ 	};
+@@ -1221,6 +1240,13 @@ vp1_out_dsi: endpoint@ROCKCHIP_VOP2_EP_MIPI0 {
+ 	};
+ };
+ 
++&vp2 {
++	vp2_out_dp0: endpoint@a {
++		reg = <ROCKCHIP_VOP2_EP_DP0>;
++		remote-endpoint = <&dp0_in_vp2>;
++	};
++};
++
+ &u2phy0 {
+ 	status = "okay";
+ };
+@@ -1258,9 +1284,40 @@ &usbdp_phy {
+ 	sbu2-dc-gpios = <&gpio4 RK_PB7 GPIO_ACTIVE_HIGH>;
  	status = "okay";
  
 -	port {
+-		usbdp_phy_ep: endpoint {
+-			remote-endpoint = <&usbc0_dp_ep>;
 +	ports {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
--		dwc3_0_role_switch: endpoint@0 {
++		#address-cells = <1>;
++		#size-cells = <0>;
 +
 +		port@0 {
- 			reg = <0>;
--			remote-endpoint = <&usbc0_role_sw>;
++			reg = <0>;
 +
-+			usb_host0_xhci_hs: endpoint {
-+				remote-endpoint = <&usbc0_hs>;
++			usbdp_phy_ss_out: endpoint {
++				remote-endpoint = <&usbc0_ss>;
 +			};
 +		};
 +
 +		port@1 {
 +			reg = <1>;
 +
-+			usb_host0_xhci_ss: endpoint {
-+				remote-endpoint = <&usbdp_phy0_ss_in>;
-+			};
- 		};
- 	};
- };
-@@ -1483,23 +1518,45 @@ &usbdp_phy0 {
- 	pinctrl-names = "default";
- 	sbu1-dc-gpios = <&gpio4 RK_PA0 GPIO_ACTIVE_HIGH>;
- 	sbu2-dc-gpios = <&gpio4 RK_PA1 GPIO_ACTIVE_HIGH>;
--	rockchip,dp-lane-mux = <2 3>;
- 	status = "okay";
- 
--	port {
-+	ports {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 
--		usbdp_phy0_orientation_switch: endpoint@0 {
-+		port@0 {
- 			reg = <0>;
--			remote-endpoint = <&usbc0_orien_sw>;
-+
-+			usbdp_phy0_ss_out: endpoint {
-+				remote-endpoint = <&usbc0_ss>;
-+			};
- 		};
- 
--		usbdp_phy0_dp_altmode_mux: endpoint@1 {
-+		port@1 {
- 			reg = <1>;
--			remote-endpoint = <&dp_altmode_mux>;
-+
-+			usbdp_phy0_ss_in: endpoint {
-+				remote-endpoint = <&usb_host0_xhci_ss>;
++			usbdp_phy_ss_in: endpoint {
++				remote-endpoint = <&usb_drd0_ss_ep>;
 +			};
 +		};
 +
 +		port@2 {
 +			reg = <2>;
 +
-+			usbdp_phy0_dp_in: endpoint {
++			usbdp_phy_dp_in: endpoint {
 +				remote-endpoint = <&dp0_out_con>;
 +			};
 +		};
@@ -254,24 +220,26 @@ index 5ffc94b70813..27b696b4b945 100644
 +			};
  		};
  	};
-+
  };
+@@ -1277,15 +1334,16 @@ ports {
+ 		port@0 {
+ 			reg = <0>;
+ 			usb_drd0_hs_ep: endpoint {
+-				remote-endpoint = <&usbc0_hs_ep>;
++				remote-endpoint = <&usbc0_hs>;
+ 			};
+ 		};
  
- &vop {
-@@ -1520,6 +1577,13 @@ vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
+ 		port@1 {
+ 			reg = <1>;
+ 			usb_drd0_ss_ep: endpoint {
+-				remote-endpoint = <&usbc0_ss_ep>;
++				remote-endpoint = <&usbdp_phy_ss_in>;
+ 			};
+ 		};
  	};
- };
- 
-+&vp2 {
-+	vp2_out_dp0: endpoint@a {
-+		reg = <ROCKCHIP_VOP2_EP_DP0>;
-+		remote-endpoint = <&dp0_in_vp2>;
-+	};
-+};
 +
- &vp3 {
- 	#address-cells = <1>;
- 	#size-cells = <0>;
+ };
 
 -- 
 2.53.0
