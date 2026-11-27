@@ -1,54 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.27.42.2
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795812094;
-	b=vIW4Kc+wMKOyG2vUsa4UOCB5LMcPO4++hUbNM3duB1adLcyS8X6xe0eMxqiZ5yz5+tx1
-	 qrLXbHEH/N7cJxdxRzYhXz68/ymegDqQ6MYxJvm09Yp/lnCsC1zVYBL3GhiYSXSSJxQk1
-	 QWmyjsFqqDAtTO4jDFPYFxpKOKcaBCmzW7OepGbzuZiER+9jo9uxHSiAxK47JxNGnQU3P
-	 RrF+q0g+9o+1cHmxaAIdnNNon4PxlyHUSx0cCYThO4e7EVqBL3f6upYCirsqIPLl+hUTK
-	 WmJy5IMFI8ZffcIlBpcaQtGdKWxD4LqelQCjWuY+zdSUqKer+umrzSUVB+bE5hDSFZg==
+	t=1795812156;
+	b=cZCTC8WV3vdx99WT99QlotjQvsNjcdtFuPJ2YcjYoVux10Q4IbHBmFKOohfTvO53Ip7m
+	 iXcbsXy/Lwvq4BvznZ4Xst8u0JPFiXp15GwLOw1ca6V11PpGZLyU9uQKsxCap0EKT7X5V
+	 1ql7Qik+emIZ2A2GcYJDKV0YyrUO7salnQ1xoBLgsqHoIH1Bqab0Tp59XrLwC/aZppf7t
+	 EEwPlM//u+lPAmzXEjyL8Lk0k7E3D8SftrF+0SzHNm3NbJQZl/RBdPQvHVDviYqKdnXcI
+	 I8tGp821iu1CsikEP6/O8srng0zmIaXydm0ipwepepy3jxnggvWU6aeq23Fv/Q9qh7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795812094;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795812156;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
 	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=7LbIq7QtBuD8l1ZM3ysDGC4GsDSWb7XrF/nM20+iPNU=;
-	b=i2ZTBmRTtM/rw1QnRD+v2TGBtFY0Vo0LbfkwcDgWjGV0Bf215JNKnsZhkmFexX9hJqrv
-	 +gi9fUPMBCSNsRZQ9ZgbkMd/mdSedmlZujcV7KeoodAhYLFZ95bkZoJratNqwPFt7q+l9
-	 iK1ubg7RAldmZQDL/QZTRe4DQrX95oB+EwstzonfDjkeLPvprHMlUxr318KYGEjJTZ0wF
-	 CW1OgrmWglZfb+7X7rqDZ442sThoKLrM8nzrXSZ/6SAys45ATPvbvNWT6j1iER1gVC0mC
-	 N+jHv0pIooIAzxxmYyHkn5nzHyOT01MI3kh3spSBeVqUoVP60YewMeAR3CqrHmmPn3A==
+	bh=Hk5ieqBBq3QVxwM7VrYWL5hHA+EffxIuZBip+/O7PRc=;
+	b=EqchnogqIGcZU1KtLmr5jHuLNB0b+Io1jrTG9PHksjEtYbQeR/slqKAcGvySivvEDSbu
+	 QLM/qxp3qSyye842hvuEfbHGp0x/UT929zdTuLueAmXzSNJ7z7ZtEIYYLmqBPRyFa+oxR
+	 L3A8/Yu88/slyXfQNEJr/EcDBG603KOXJXgYjVPL6n2EpcbO8cQS6sf4IotcSNtQgR90+
+	 Zxm5zdjarWdP2vTPBFWMW4hMbwVExSwvS5YE4t1DDdiG39sGvNghsAoMk87E89WmKXg+7
+	 StJ36YGl1wpFASu1ksZhy7GWEVAsNukTRnJ22kCP4DbSqwtaEBM7InDmendtjgmhP7g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZkDuJUxA;
-	arc=none smtp.remote-ip=198.137.202.133
-Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
+	dmarc=pass header.from=free.fr;
+	spf=pass smtp.mailfrom=free.fr;
+	dkim=pass header.d=free.fr header.i=@free.fr header.a=rsa-sha256 header.s=smtp-20201208 header.b=J2yUIkAn;
+	arc=none smtp.remote-ip=212.27.42.2
+Received: from smtp2-g21.free.fr (smtp2-g21.free.fr [212.27.42.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5691E606A31C;
-	Fri, 27 Nov 2026 20:41:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5691E606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6C76606A31C;
+	Fri, 27 Nov 2026 20:42:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6C76606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=free.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=free.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZkDuJUxA
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Sender:Reply-To:Content-ID:Content-Description;
-	bh=7LbIq7QtBuD8l1ZM3ysDGC4GsDSWb7XrF/nM20+iPNU=; b=ZkDuJUxA9cZyB5AMHphN927eCi
-	FYGWouY7hPHj6talUX8YvUrIt/dci8NmB4AqJtX5VgzGMt7CQpueHa9dyDeyYxvt5X4knIbwDsN3t
-	Zd/QNABiso4PIzKSRmG7Kkb63qiTjEuLOnd3aOPwwKA6e3yppVLCdqrIeuwqCTLRTKTqfWmZNa6RJ
-	JI4d8xTR9MzoNzvFEN6gSuVB7WKRbDF3Atbxztart7n4EWC5ZURYJOl0vGsUnZjjJMqGxT84xzXYS
-	K+TjfpXMAVrAdo6sdJeZzxapyG3oW+KfxdDEZ95tlOzcXKMpRX7u5GC0fISQH+1UCmTPXX2ypiY7O
-	Y6YYf5OA==;
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xX2l8-000000004Xo-3KUI;
-	Fri, 27 Nov 2026 20:41:30 +0000
-Message-ID: <17a9f3e0-f075-42de-b173-ae334b51d0bd@infradead.org>
-Date: Fri, 27 Nov 2026 12:41:29 -0800
+	dkim=pass (2048-bit key, unprotected) header.d=free.fr header.i=@free.fr header.a=rsa-sha256 header.s=smtp-20201208 header.b=J2yUIkAn
+Received: from [IPV6:2a01:e0a:1165:2d50::debd:3887] (unknown [IPv6:2a01:e0a:1165:2d50::debd:3887])
+	(Authenticated sender: jau@free.fr)
+	by smtp2-g21.free.fr (Postfix) with ESMTPSA id D6F182003CE;
+	Fri, 27 Nov 2026 21:42:22 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=free.fr;
+	s=smtp-20201208; t=1795812148;
+	bh=Hk5ieqBBq3QVxwM7VrYWL5hHA+EffxIuZBip+/O7PRc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=J2yUIkAnikCIMFhMnBXHPFvPsAybiM8fAZVDQ5gS5Xikt+pvbL6WatHlHNMs7uvlh
+	 EMVFTNFBQ2x9LmIPN4jh2BFRHvmyQScfiL7P3G0V7Y7h2IqeYMQw+h8N7HTo5Nx//O
+	 HMGcPDm4JnOVR+2QZ21rAQRf8d7J50Dx2SqX0RZA4NTaRpakSun5iJnyE6fC0HQYEc
+	 PG/qvdSqh+oyCY3laXVvbqm3y0UYRBHilnG1bFXCIdjRQTqE+m9fk5Ndgctm+iHtkm
+	 nmkJ+YcSsmf5AsBl37wViYde4aeIWBgWeXpc9qQQ94M3HXP4w79cZHUd7N9pI3fbAQ
+	 JmJwl2+kOKUeg==
+Message-ID: <4a83619d-cbc2-4fd1-8b0a-658348ece869@free.fr>
+Date: Fri, 27 Nov 2026 21:42:22 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,57 +59,51 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 01/10] Documentation: coresight: cpu-debug: Fix the
- module parameter name
-To: iav@iav.lv, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
- Leo Yan <leo.yan@arm.com>, Andrew Morton <akpm@linux-foundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Douglas Anderson <dianders@chromium.org>, Petr Mladek <pmladek@suse.com>,
- Feng Tang <feng.tang@linux.alibaba.com>
-References: <20261127-b4-coresight-cpu-debug-lockup-v1-0-69d3ad1e0fc8@iav.lv>
- <20261127-b4-coresight-cpu-debug-lockup-v1-1-69d3ad1e0fc8@iav.lv>
+Subject: Re: [PATCH] media: st-delta: fix decoder use-after-free on release
+To: Nicolas Dufresne <nicolas@ndufresne.ca>, Sicong Huang <congei42@163.com>,
+ linux-media@vger.kernel.org, "hugues.fruchet" <hugues.fruchet@foss.st.com>
+Cc: mchehab@kernel.org, linux-kernel@vger.kernel.org
+References: <20261028074439.2515928-1-congei42@163.com>
+ <efe647d6ebb9583696527ee044093ba54ff0b9a7.camel@ndufresne.ca>
 Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20261127-b4-coresight-cpu-debug-lockup-v1-1-69d3ad1e0fc8@iav.lv>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: =?UTF-8?B?SsOpcsO0bWUgQVVEVQ==?= <jau@free.fr>
+In-Reply-To: <efe647d6ebb9583696527ee044093ba54ff0b9a7.camel@ndufresne.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
+Hi Nicolas, Hugues, all,
 
+On Thu, 2026-11-26 at 16:47 -0500, Nicolas Dufresne wrote:
+ > All the changes in this driver since 2022 (and even there I'm not
+ > sure) are "found by code inspection". Is there any users left of
+ > this? Shall we just remove this driver ? I'll hold on any changes
+ > until I ear back from Hugues or someone at ST.
 
-On 11/26/26 10:38 PM, Igor Velkov via B4 Relay wrote:
-> From: Igor Velkov <iav@iav.lv>
-> 
-> The parameter that enables the debugging is "enable"; the module has no
-> "debug" parameter.
-> 
-> Fixes: 0cd555c35131 ("doc: Add documentation for Coresight CPU debug")
-> Signed-off-by: Igor Velkov <iav@iav.lv>
+Yes, there are still active users of st-delta on real hardware, so
+please keep it in mainline if possible!
 
-Acked-by: Randy Dunlap <rdunlap@infradead.org>
+There are at least 20 active boards — specifically STiH418-B2264
+(4kopen) and STiH410-B2260 — running kernels that have been tracking
+mainline closely for several years (currently on 7.3.y).
 
+Over the last 6 months, mostly as a hobby project, we have done quite a
+bit of work on top of the mainline STi drivers (st-delta, st-hva, bdisp,
+sti-drm) and completed hardware decoding support in st-delta for
+MPEG-1/2, MPEG-4 Part 2, H.264, H.265/HEVC, and VC-1/WMV9 (whereas
+upstream only had MJPEG), working end-to-end with GStreamer and
+FFmpeg/mpv. To be completely transparent, AI-assisted development
+helped a lot to make this feasible on spare time, and everything is
+thoroughly verified and validated on real hardware (including
+conformance bitstreams).
 
-> ---
->  Documentation/trace/coresight/coresight-cpu-debug.rst | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/trace/coresight/coresight-cpu-debug.rst b/Documentation/trace/coresight/coresight-cpu-debug.rst
-> index 836b35532667..32fbae244524 100644
-> --- a/Documentation/trace/coresight/coresight-cpu-debug.rst
-> +++ b/Documentation/trace/coresight/coresight-cpu-debug.rst
-> @@ -130,7 +130,7 @@ If you want to enable debugging functionality at boot time, you can add
->  The driver also can work as module, so can enable the debugging when insmod
->  module::
->  
-> -  # insmod coresight_cpu_debug.ko debug=1
-> +  # insmod coresight_cpu_debug.ko enable=1
->  
->  When boot time or insmod module you have not enabled the debugging, the driver
->  uses the debugfs file system to provide a knob to dynamically enable or disable
-> 
+Cleaning up and upstreaming our fixes and additions will take time
+since this is done on spare time, so I don't want to over-promise on a
+timeline, but it is definitely something we would like to do step by
+step.
 
--- 
-~Randy
+In the meantime, if it helps keep st-delta alive in mainline, I am
+happy to test patches on real hardware (including this use-after-free
+fix) so changes don't remain "code inspection only".
+
+Best regards,
+Jerome
