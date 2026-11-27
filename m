@@ -1,57 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795802337;
-	b=ptBlG4Jna6uKvLeleonQ/WXXE0VxDlDHdZTgdr2VdZBRF0t7mHR62VQmJtyDkH4P5F79
-	 If9KLw/32Qr+Eo8KBCkaLHBDgUH7JAISYRP5Cq6uOU+mfKzBmxutRHXqiP/11d0FnSUdk
-	 EOg3J49gqHC2dAkQqLgOln84ZEfTR+bWoL08A+a4AYNXeLA2ZGSf9XLAgjWCyJZXUjM8T
-	 WMoNZ9FBwqzGkW0cpDu85bAliEidFg/HmXOnNybqWtNvC/V9f8gvENWbtQZyxGqmdes2U
-	 9FchQrkmwPrnNBitXhNMz6EL6QQcsLqJ883U7R8bNPcmgLBjl7NZGWoZT2aNcb5os0g==
+	t=1795802501;
+	b=RepLD2puUhLr8iDPDcHUnoNy7BEvnnQp+lqQKnRR6t2LbOyfVYqj/wtYbBy+8wgBdokx
+	 gf1aBBwcnT5qBOC2plpIhG8jEWvL2EtTpTZ+JzVUlLxdeXiIVieghiUoDuoM5gjsm67cZ
+	 j04QrzPt1zb84kPuu5Ty/utQVqnjHFMYVOoufG9eg4vI7j6JW3kNL06bu1hpZv//YTkoD
+	 tBWCC8QAvcPO44Gcdn6gNqRLBF6HcCblpr9OmhgxI2guq1F7HKAyLnmgq+fdzHwB6PnXR
+	 p/kXyROlsJidH2iInEF5I88+fe9e6wtmAPcdEUfDMIOnhbnG5YXQArsjhfrUYS6/h0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795802337;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=+EOxcwUH6JJK6t1c97ePvVNSvzaZ0oqDaKNs55ZOceg=;
-	b=au+CqVr8zNFuQbNQ7mUeURBAt0X5GZ0/cGQG075NIWkDffcukLFYMTq/FPsUHKfxySaJ
-	 OM2Wg/2MyzectuSNiYOa/0iw8hwjvH9tFouXWZ0dlGqmj3L15gz/qfp9sUOlCdFst3YKP
-	 GzHzuSuISYHFh/6JubvAjgN76mfM/3l4EJMoih7hXQDQz8M+nu3pAw1HL6PJHw+XsgzvC
-	 vXhwQb64lM19hFwm6eOz9kWMR54YABAzYLtNmOOemJpfbj4iXGcBzbPdEKM623oShkz61
-	 FhIRmM8XFIRD4ReNrscC4X6iOmfNTmHQhkg0YQhwXeAV1OabDDJZU2Ukag9nZw3Hq1A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795802501;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
+	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=fsNoUHPpGo1gHz1gAcdVPTu3hkJcEuLuYD2db/66XEI=;
+	b=EsJDa2Ge5ENBfb6MBghutiteGTS0c8KFj6onaDmzZvPcaPEE0RZeBjXm3muFu3bj9jSE
+	 NRc93HW3iqt2KQSM9VIWVYCvtQm3okXc6L/vC9vY4JXUTsj9spnPV4inuJbYbs0AhdEE0
+	 ulOJZPD7hiRW8HOVHgMI8DbjP+jHuGOR9DMx9XM+fLuoZggCk6sYpT+yfSwEuySDRzXuD
+	 bDnq/wvsL2T8nYUPhSEVixZPMuef2h0tfOOYLrp2d7TwwL9kDsrU2Fz8Dg/bGuusgOn5t
+	 +MCdN/HSXLzIYjbiD7D7Bpl7hkBDQbJDYnzrVblYUmiPm7QKmDdf3+/88NrlVKGaBLg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ei3DjKaR;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=dKxCSoOQ;
+	arc=none smtp.remote-ip=209.85.128.51
+Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4183606A31C;
-	Fri, 27 Nov 2026 17:58:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACD1D606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:01:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ACD1D606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ei3DjKaR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3323A1F00893;
-	Fri, 27 Nov 2026 17:58:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795802335;
-	bh=+EOxcwUH6JJK6t1c97ePvVNSvzaZ0oqDaKNs55ZOceg=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=ei3DjKaRpt2WvLZE617weSRFUBAeE3T6Mky5slGAloXAiRUnZ7sKKM6o6M7GuHgFE
-	 GnFZfg9jyqufkRqb57D78GYFcvkbMRtFRkJcGdHVT9PZ/xBR67COqlFADPszkFn6Rj
-	 tD7EQRNI092VINdfiGgt4oFGecDMncMWLcHaSEvv13gtKhMQI78OT/9di6DjKLvtUt
-	 nwo2rRyEB+oTRBNgoamSHWtOG5PfV2ivxbmRsByedy7BD5jviWVsQyGDBg0HUnxeAY
-	 he3oT7qdscwTXbjN5DyZA7cl25G4oV3mmhhXRhdbpG9VlongwBkXTyztzILSz4C6NN
-	 LzuQyd0Bt4oVw==
-Message-ID: <sashiko-outbox-238021@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v12 39/43] sched/deadline: Boost an owner throttled
- after its waiter blocked
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <128cc48c0630c9f7197e29fab8cbc086ed34bd83.1795771148.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795771147.git.mathieu.desnoyers@efficios.com>
- <128cc48c0630c9f7197e29fab8cbc086ed34bd83.1795771148.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 27 Nov 2026 17:58:54 +0000
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=dKxCSoOQ
+Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso102579965e9.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:01:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795802499; x=1796407299; darn=vger.kernel.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=fsNoUHPpGo1gHz1gAcdVPTu3hkJcEuLuYD2db/66XEI=;
+        b=dKxCSoOQwJY4+C9ZrIn428uzPaSbrcuceYsjSLJIHTG8/Vl6PTA1WVNHaJUAa0sxVo
+         zs6EqHR9E8Wyd3mJva38/SQrjM4FzsDZbINuoFZNtQ8nQvSmGrlwYddn4uvg5mwizuFp
+         qsJhus/e5OKeyi5ElnkQ/2rMAH9ojoBaSw2eemDnCwYzeOGGufOxFE4fIhqxEeLu28Sh
+         guhaJd8c/DYLGSEEhLiy6uOGH9zL8hGUt3r/fKFRjlOch5ZidbPnbvaq4aB6RWgjnKLu
+         BaC2/RRPWCiW5kxsgkmSK34Bp5u9asihDQaF2LtMYpORq68eZwqB2dqUuwTNJ9iQs1eL
+         +W8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795802499; x=1796407299;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fsNoUHPpGo1gHz1gAcdVPTu3hkJcEuLuYD2db/66XEI=;
+        b=h3qulS+Oc8MY8M1Rf/l8qh2nvDluwHLO0lY+LG9Gn81J7HLOfqyFju0glM6pjNUjki
+         9HwswgPUAKwe4Lqqe3fhv1ZWrAnCjexxH/ICXdoke4mHmXXh1vZELL36elyAoJompEUy
+         Tkcrr0x9kIJv2R4jt3vS56g/nPkyFEFej1P4sCKFJIrHv2U0UCFB/VvTI9EIc7JGF7lq
+         skBdDFPHvZiZhu37E9s8/rXftn4j5aEYZyzjf1s9cUtQXGC0+WbaIy4p8dQyCbdIhny1
+         3ZEZiTHlwGhpkJ7LmWXNKP1yQptvOLPg65KXoDrgAnrHO8QPAAWXzTWkwv8Iir49zmmZ
+         LRzw==
+X-Forwarded-Encrypted: i=1; AL+hErHb+eeLWWl7W2ZYkfeY3OpVxc/v+P4QI+5iaNmTxH5knX11sWjtzWgV3LA3GGD9X0eMEAwAH/HfhKDWdyw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/V8ymSn4SyNyxNqjsZBxCgbqhfccJguk/00ozgu/a0xoMLeAsV
+	msJwTMcZSDC+hCNZklVrUcx18/fXup0uucY/47K7Yb9Yrn1/PDn84V762kBhZXfh/60=
+X-Gm-Gg: AZFdTZcuUxggC7vFe/PnrAKjU4/oIUuMzZ0hQS98ZctGX5a9OxWxMcJV15Q3kRVE+GL
+	LkfmpT1tz3cLEL6n1Ad7OfLPkmjnHhkABIJFpNDved5t2zSJDgdJgc7L7S3hTZnrmXrGvD5+I0g
+	CLncfvxUimVh9SvlgLF4T0Dq8tIl4Fi9E4106b7Wmunwn1J649KPcara0T9B/cuwP7A+1PmcpKD
+	XqW4F0/q+CTxvZPE35EdV7bun4Qnh0o0G6wGsXmkZgmQ8exmYI9gOoYW13fXO6iRjmh98el6eBf
+	3FN2nuruqynHrAicnYX3hF5V6ebA1AhvMWxt+C2FHR9cTbEJ7y/eltyW+Qkx7tmQwsxe3zH56Le
+	fclV8ByC3JPNo0/YJDaMgiztRHh87uxjynEz1Q6KS3GWAUESdloDJKGVt4OaEtDiqbnM52qICJB
+	VwHgQz4XK0wsethRmLIdNZI5xr8PrQ1UQoVuH6axPO+Ce8glZJ/0jWp3fcEaNproRVyZdmLQl21
+	JFE2Ehkpx8NoaeVy+xwd/A1Om5bz22K79ZwsRYZq0w0sa0q81nd/RcnsuUTNOru0OPY42sVBCWV
+	Y57BzgywMWKQcOI7i7b3antd+7YvX1uN+7wPUZmHRfDL+i4R
+X-Received: by 2002:a05:600c:8486:b0:4ac:aae6:6401 with SMTP id 5b1f17b1804b1-4bb8880606fmr521206445e9.12.1795802498933;
+        Fri, 27 Nov 2026 10:01:38 -0800 (PST)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a9846sm832738955e9.11.2026.11.27.10.01.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 10:01:38 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,158 +88,215 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v3 1/3] dt-bindings: toshiba: introduce
+ toshiba,tc9564-clock.yaml
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Alex Elder <elder@riscstar.com>
+Cc: sboyd@kernel.org, bmasney+clk@redhat.com, jbrunet+clk@baylibre.com, 
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ p.zabel@pengutronix.de, andersson@kernel.org, konradybcio@kernel.org, 
+ abelvesa@kernel.org, daniel@riscstar.com, mohd.anwar@oss.qualcomm.com, 
+ lorenzo.bianconi@oss.qualcomm.com, fabrice.gasnier@foss.st.com, 
+ alexandre.torgue@foss.st.com, marex@nabladev.com, 
+ changhuang.liang@starfivetech.com, devicetree@vger.kernel.org, 
+ linux-clk@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>
+In-Reply-To: <20261125202141.1288493-2-elder@riscstar.com>
+References: <20261125202141.1288493-1-elder@riscstar.com>
+ <20261125202141.1288493-2-elder@riscstar.com>
+Date: Fri, 27 Nov 2026 19:01:35 +0100
+Message-Id: <179580249573.2809466.11034484697919897942.b4-review@b4>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6124; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=geWxMicG6uVAdhcEualT0NzvyoAmaPCiuckBB8B5yvQ=;
+ b=owGbwMvMwCW2VtK+WnvWU3HG02pJDNmcRxul7Xh+dZasndPvIcma4mp8cO+Pq9KHrhavfhO6K
+ e9E7PaJHaUsDGJcDLJiiiw13NXi7yS1vsyarnMbZg4rE8gQBi5OAZjItimMDIuUQ7gT3BbFLlqw
+ 7s2d/5M/7/KoX7shWK5yVYKMkdrFVDWG/65Z13T7Xl9l7purknKx6MW58le7Tt+onPdZf3bbpYM
+ tDBwA
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issues to consider:
-- [Medium] locking/rtmutex: stale pi_tree.prio in
-  rt_mutex_ask_dl_boost() on handover
-- [Medium] sched/deadline: dl_boost_start() ignores runtime <=3D 0 boost
-  condition
---
-
-commit eaf42f89f7029cb15ae44695c0cca1de7ab04a1a
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-
-sched/deadline: Boost an owner throttled after its waiter blocked
-
-This commit queues a hard irq_work when a SCHED_DEADLINE rt_mutex owner
-is throttled or finishes a blocked wait, so that rt_mutex_adjust_owner()
-can boost the owner from its top waiter outside the rq lock.
-
-> diff --git a/kernel/locking/rtmutex.c b/kernel/locking/rtmutex.c
-> index 49caf38759f34..1deed8937e416 100644
-> --- a/kernel/locking/rtmutex.c
-> +++ b/kernel/locking/rtmutex.c
-> @@ -1086,6 +1086,20 @@ static int __sched rt_mutex_adjust_prio_chain(stru=
-ct task_struct *task,
->  	return ret;
->  }
-> =20
+> Define the binding for the clock and reset controller that present in
+> the Toshiba TC9564 SoC.
+> 
+> Reviewed-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+> Co-developed-by: Daniel Thompson <daniel@riscstar.com>
+> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
+> Signed-off-by: Alex Elder <elder@riscstar.com>
+> ---
+> v3: - Added Lorenzo's Reviewed-by
+>     - Changed to @kernel.org e-mails for Daniel and me
+>     - Only the gated clock IDs are now published in "toshiba,tc9564.h";
+>       the PLL and internal fixed clocks are implemented and accessed
+>       only within "clk-tc9564.c"
+> 
+>  .../bindings/clock/toshiba,tc9564-clock.yaml  | 73 +++++++++++++++++++
+>  MAINTAINERS                                   |  8 ++
+>  include/dt-bindings/clock/toshiba,tc9564.h    | 40 ++++++++++
+>  3 files changed, 121 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/toshiba,tc9564-clock.yaml
+>  create mode 100644 include/dt-bindings/clock/toshiba,tc9564.h
+>
+> diff --git a/Documentation/devicetree/bindings/clock/toshiba,tc9564-clock.yaml b/Documentation/devicetree/bindings/clock/toshiba,tc9564-clock.yaml
+> new file mode 100644
+> index 000000000000..026ed949f0f0
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/toshiba,tc9564-clock.yaml
+> @@ -0,0 +1,73 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/toshiba,tc9564-clock.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Toshiba TC9564 Clock and Reset Controller
+> +
+> +maintainers:
+> +  - Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+> +  - Alex Elder <elder@kernel.org>
+> +  - Daniel Thompson <danielt@kernel.org>
+> +
+> +description:
+> +  The Toshiba TC9564 is an SoC accessed by a host system through the
+> +  upstream PCIe port on the PCIe switch it implements.  The chip includes
+> +  an embedded PCIe endpoint that provides access to various peripherals
+> +  within the SoC via its BARs.  These peripherals include a simple
+> +  controller to gate internal clocks, and a reset controller.
+> +
+> +  The TC9564 chip has a single input clock.  Internally that clock is
+> +  multiplied by a PLL, and the PLL signal is divided internally into
+> +  a set of fixed rate, always-on clocks.
+> +
+> +  The clock controller exposes a set of simple gated clocks, which are
+> +  controlled by two registers.  Each is derived from one of the internal
+> +  fixed-rate clocks.  A total of 21 gated clocks are implemented within
+> +  the chip, but support for enabling and disabling only a subset of them
+> +  is provided at this time.  Two clocks (I2C and PCIE) are marked critical
+> +  to make it clear that they should never be disabled.
+> +
+> +  The reset controller uses two other registers to control a set of 13
+> +  resets that can be asserted or deasserted.  Here too, only a subset
+> +  of the resets can currently be managed, and the I2C and PCIE resets
+> +  are treated as critical.
+> +
+> +  Clock and reset IDs are defined <dt-bindings/clock/toshiba,tc9564.h>.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: toshiba,tc9564-clock
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  "#clock-cells":
+> +    const: 1
+> +
+> +  "#reset-cells":
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - "#clock-cells"
+> +  - "#reset-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    clock-controller@1004 {
+> +        compatible = "toshiba,tc9564-clock";
+> +        reg = <0x1004 0x10>;
+> +        clocks = <&tc9564_xo_board>;
+> +        #clock-cells = <1>;
+> +        #reset-cells = <1>;
+> +    };
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 93abbb315065..4d1f4cbfd731 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -28332,6 +28332,14 @@ F:	Documentation/devicetree/bindings/media/i2c/toshiba,tc358743.yaml
+>  F:	drivers/media/i2c/tc358743*
+>  F:	include/media/i2c/tc358743.h
+>  
+> +TOSHIBA TC9564 CLOCK/RESET CONTROLLER DRIVER
+> +M:	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+> +M:	Alex Elder <elder@kernel.org>
+> +M:	Daniel Thompson <danielt@kernel.org>
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/clock/toshiba,tc9564-clock.yaml
+> +F:	include/dt-bindings/clock/toshiba,tc9564.h
+> +
+>  TOSHIBA TC9564 PCI DRIVER
+>  M:	Alex Elder <elder@kernel.org>
+>  M:	Daniel Thompson <danielt@kernel.org>
+> diff --git a/include/dt-bindings/clock/toshiba,tc9564.h b/include/dt-bindings/clock/toshiba,tc9564.h
+> new file mode 100644
+> index 000000000000..7de8c8165199
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/toshiba,tc9564.h
+> @@ -0,0 +1,40 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +
 > +/*
-> + * Ask for a boost of @task, a deadline task with a deadline top waiter.
-> + * @task can be throttled already. Its throttle is only read under the
-> + * rq lock, so leave the check to the irq_work of
-> + * dl_request_owner_boost(). The caller holds the pi_lock of @task.
+> + * Copyright (C) 2026 by RISCstar Solutions Corporation.  All rights reserved.
 > + */
-> +static __always_inline void rt_mutex_ask_dl_boost(struct task_struct *ta=
-sk)
-> +{
-> +	lockdep_assert_held(&task->pi_lock);
-> +	if (dl_prio(task->normal_prio) && task_has_pi_waiters(task) &&
-> +	    dl_prio(task_top_pi_waiter(task)->pi_tree.prio))
-> +		dl_request_owner_boost(task);
-> +}
 > +
->  /*
->   * Try to take an rt-mutex
->   *
-> @@ -1195,6 +1209,13 @@ try_to_take_rt_mutex(struct rt_mutex_base *lock, s=
-truct task_struct *task,
->  	 */
->  	if (rt_mutex_has_waiters(lock))
->  		rt_mutex_enqueue_pi(task, rt_mutex_top_waiter(lock));
-> +	/*
-> +	 * @task took the lock ahead of the remaining waiters, so none of
-> +	 * them has a higher priority. A deadline task can still need a
-> +	 * boost: it can be throttled already. Its throttle found no waiter,
-> +	 * or it waited on this lock then. Ask for the boost again.
-> +	 */
-> +	rt_mutex_ask_dl_boost(task);
->  	raw_spin_unlock(&task->pi_lock);
-> =20
->  takeit:
-
-[Severity: Medium]
-Can rt_mutex_ask_dl_boost() observe a stale pi_tree.prio when a blocked
-waiter was promoted to SCHED_DEADLINE before becoming the lock's top
-waiter?
-
-In rt_mutex_adjust_prio_chain(), waiter_update_prio() updates
-waiter->tree.{prio,deadline}, whereas waiter_clone_prio() only copies
-those keys to waiter->pi_tree.{prio,deadline} when the lock has an owner
-and the waiter is the old or new top waiter.  If a second waiter becomes
-a deadline task while behind another waiter (or while the lock has no
-owner during wakeup handover), and the first waiter then takes the lock
-in try_to_take_rt_mutex() or aborts in remove_waiter(),
-rt_mutex_enqueue_pi() inserts the new top waiter into pi_waiters without
-calling waiter_clone_prio().  rt_mutex_ask_dl_boost() then reads the
-stale non-deadline pi_tree.prio and skips dl_request_owner_boost(),
-leaving a throttled deadline owner unboosted until its next period.
-
-> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-> index 7f839185eb381..6bb92dfecbb89 100644
-> --- a/kernel/sched/deadline.c
-> +++ b/kernel/sched/deadline.c
-> @@ -544,6 +544,82 @@ void dl_boost_start(struct sched_dl_entity *dl_se)
->  	dl_se->dl_yielded =3D 0;
->  	dl_boost_donor_period(dl_se);
->  }
+> +#ifndef __CLOCK_TOSHIBA_TC9564_H__
+> +#define __CLOCK_TOSHIBA_TC9564_H__
 > +
-[ ... ]
-> +bool dl_owner_needs_boost(struct task_struct *p, struct task_struct *pi_=
-task)
-> +{
-> +	struct rq_flags rf;
-> +	struct rq *rq;
-> +	bool ret =3D false;
+> +/* Clock IDs */
 > +
-> +	if (!dl_prio(p->normal_prio) || !dl_prio(pi_task->prio))
-> +		return false;
-> +	rq =3D __task_rq_lock(p, &rf);
-> +	if (!is_dl_boosted(&p->dl)) {
-> +		update_rq_clock(rq);
-> +		ret =3D dl_waiter_boosts(p, pi_task);
-> +	}
-> +	__task_rq_unlock(rq, p, &rf);
-> +	return ret;
-> +}
-[ ... ]
-> @@ -3611,6 +3700,8 @@ enqueue_dl_entity(struct sched_dl_entity *dl_se, in=
-t flags)
->  		dl_se->dl_throttled =3D 1;
->  		if (task_current_donor(rq, dl_task_of(dl_se)))
->  			resched_curr(rq);
-> +		/* A deadline waiter on an rt_mutex may boost it now. */
-> +		dl_request_owner_boost(dl_task_of(dl_se));
->  	}
+> +#define CLOCK_I2C		0	/* critical */
 
-[Severity: Medium]
-Should dl_boost_start() also hold the boost when dl_se->runtime <=3D 0?
+Name seems a touch too generic.
+If everybody named clock this way, we would be very likely to get collision
+in the DTS.
 
-dl_waiter_boosts() boosts an unboosted owner when (dl_se->dl_runtime &&
-dl_se->runtime <=3D 0), even if !dl_se->dl_throttled and
-!dl_in_constrained_gap(dl_se):
+suggest TC9564_CLK_XXX
 
-kernel/sched/deadline.c:dl_waiter_boosts() {
-    ...
-	if (!is_dl_boosted(dl_se)) {
-		if (dl_se->dl_throttled || dl_in_constrained_gap(dl_se) ||
-		    (dl_se->dl_runtime && dl_se->runtime <=3D 0))
-			return true;
-    ...
-}
+> +#define CLOCK_PCIE		1	/* critical */
+> +#define CLOCK_MSIGEN		2
+> +
+> +#define CLOCK_MAC0_TX		3
+> +#define CLOCK_MAC0_RX		4
+> +#define CLOCK_MAC0_125M		5
+> +#define CLOCK_MAC0_ALL		6
+> +
+> +#define CLOCK_MAC1_TX		7
+> +#define CLOCK_MAC1_RX		8
+> +#define CLOCK_MAC1_125M		9
+> +#define CLOCK_MAC1_ALL		10
+> +
+> +/* Reset IDs */
+> +
+> +#define RESET_I2C		0	/* critical */
+> +#define RESET_PCIE		1	/* critical */
+> +#define RESET_MSIGEN		2
+> +
+> +#define RESET_MAC0_MAC		3
+> +#define RESET_MAC0_PMA		4
+> +#define RESET_MAC0_XPCS		5
+> +
+> +#define RESET_MAC1_MAC		6
+> +#define RESET_MAC1_PMA		7
+> +#define RESET_MAC1_XPCS		8
 
-However, dl_boost_start() returns early without holding the boost or
-switching to a donor period when !dl_se->dl_throttled &&
-!dl_in_constrained_gap(dl_se):
+Those ids do not belong in include/dt-bindings/clock/
 
-kernel/sched/deadline.c:dl_boost_start() {
-	if (!dl_se->dl_runtime ||
-	    (!dl_se->dl_throttled && !dl_in_constrained_gap(dl_se)))
-		return;
-    ...
-}
+> +
+> +#endif /* __CLOCK_TOSHIBA_TC9564_H__*/
 
-If an asleep owner has runtime =3D=3D 0 and dl_throttled =3D=3D 0 before its
-deadline (for instance, after sched_setattr() leaves an asleep
-constrained-deadline owner with runtime =3D=3D 0 in dl_setattr_place()),
-rt_mutex_setprio() sets p->dl.pi_se to the donor while dl_boost_start()
-does nothing.  When the owner later wakes up before its deadline,
-update_dl_entity() does not replenish it (dl_entity_overflow() returns
-false for runtime =3D=3D 0) and enqueue_dl_entity() skips the runtime <=3D 0
-throttle check because is_dl_boosted(dl_se) is true, enqueuing the owner
-with zero runtime and its own deadline instead of the donor's parameters.
+Nit: missing space before the closing */ in the comment.
 
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795771147.gi=
-t.mathieu.desnoyers@efficios.com?part=3D39
+-- 
+Jerome
+
