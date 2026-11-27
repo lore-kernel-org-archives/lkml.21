@@ -1,57 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795788402;
-	b=dL23vLTnd0qQd8DFnaHrBSiR8X4LigPeZHx5Dt+2ImZC1Xtpatn74p6vBh49kPeVWn7+
-	 HSiJOVCq51+NPbKVfkCFj2IBLrbRcjqXreLQErKL5cCVzuPcZWZ/XZEiyNRpYh9ciFuwW
-	 sm9PRZX82OkoM21tZ+zG/yhEnzcJZ0sARAB2/Yfw9eqN+L5ZomrEv24etDUtrwlz/qq6r
-	 OV6dr3Ya+lE0z6X66ALFG09rWMbu8UiBzKdGaNkgU2TIhK6nrLzKDF3RD8BXP9O1kIa+c
-	 RP5D1UE6vnqaKi0mfCDFGWMyxqjQFkHZUQF2F+kx0LKFBMLkGeBSWotHzqSbNtw4AQg==
+	t=1795788421;
+	b=IWlpJbyxi6MLzXN8xuQAktUO8LBBnwumDiietTfZw+QrSkkE0RSd1KCooJUOr0jJOUQr
+	 TcZfBtXDy3qFbzkvTFMbneJQ7u5WpIfnMQ+Y1t16wevRx1LKl/ksA4WhDj7wu0uRrln3O
+	 pTzIwQu+FjhCkTW7CxTaLkdIf8vwCerLRIncTwNhk7YIZqx5VtL059cI/sOuB1nWnad1z
+	 bJtMziJvTZsWZpSdymzxk09mDTNRToO7aYE71Bp2olOKHG14zco5rv9tfFi/1TABkAweY
+	 TPJDPLyzGM13jTsvI+VNIULukd5IpOY9ghIGNchC/oCst4RznMAKF4WDbOqG4qJfGnw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795788402;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795788421;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=lEUdpCgYKRIjX6P3P4jjDUzJHQiGUBHPh97SAeo4M7M=;
-	b=x9lV7RYzNVmYbAv2qN3LmAvIAG68ikkToqjuy70MMS1dAuEkY3WwEjJVx/xvQdUfLxLL
-	 uXHVfG0oZ4bYfbPDZ/iLiw97+IZFI+DP5khXdZRpl1NrMnkLvIsNbzCTI6Tbh5ZBP0scW
-	 DZgeDrf72exdt5gvG+/YMZ9gy8LFxpi02eiW3w/S8nA2cXuRXVhO/7QMdeA43kUVtiJbW
-	 f/Ea/9lck5+B6xP+qn1CkytOQ3+eKqOvMQmtyGPCAfgHFtcbOXsJvkDMWd0d0YQ/T66mM
-	 7R2ccq7Ba95HzPSlSMN3uGNumyxoWMSNQRIUjhnmWmqXEvWl85xQCdNp4/a1gM4DcwA==
+	bh=uNUonCSje6cN/9VgWCRU4BluxhQF/CKb3stuIn8gK6A=;
+	b=rjspD+9w6HswIDY/7w1vsbDtqbl4hX6AUYR/G549bwqwNmBhlzF/83Ne9JrSdKKzrG3+
+	 /Ty9uPRulG+UgGRnDS0Qs4wMsk5fuS+AK2zV477UcZw7fXgxFL0uJTH8Iev1EL3t9TfT6
+	 1mp4/CR4AeRgaErbv+sQAteyJ27VT4kVYKMoces+E9kllxQbOiOKY/knxdd/GJpXV5EXD
+	 fEukYJ2yQRa5daUWRXUw7S9n+ENw8hPY0Pw08Bx1lwJqNkld4aps2OF0QGWs6TxRe8KIo
+	 w8pWkyyk0KATIW3820a73pC4LlRdsD4JVDvg+bEzXsbgr+2Orut3dXQjTRHCEp70yFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fhJANjTS;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bV36hIyA;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21232606A32D;
-	Fri, 27 Nov 2026 14:06:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28EF0606A31C;
+	Fri, 27 Nov 2026 14:07:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fhJANjTS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18A5B1F00899;
-	Fri, 27 Nov 2026 14:06:39 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bV36hIyA
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 267911F00924;
+	Fri, 27 Nov 2026 14:06:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795788401;
-	bh=lEUdpCgYKRIjX6P3P4jjDUzJHQiGUBHPh97SAeo4M7M=;
+	s=k20260515; t=1795788420;
+	bh=uNUonCSje6cN/9VgWCRU4BluxhQF/CKb3stuIn8gK6A=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=fhJANjTSb+fu3Z73pMqr1nzD7u3HmmWTI40B3AJC4pgJzDBVgAG1jp6z3gtMEQOAg
-	 cIoFn9weke4AuFiY8RxTnf+lJS3+Z7c4rvOGVU/S/6uQ6wgV0AlsbJRYeKMjckw01i
-	 5ureQdnfD+HzaXfUiYIBDanGpKtH/H9E4WBqkmNKiHI94ruQboNS25WRLbEffH3GAB
-	 RBBu1lqEBLsd/1MQqtn70gxMxsTx8VJkaS02/A7ahbz4LIpig+E9HBeM76dE0zQAXa
-	 0CteMqdug0w5/VhNt+dlJQ+V6ZCiAe4WloYsD8HFFh96W6sNTgywWYbRR57e3UGHaf
-	 Z/MtuFUfnLOug==
+	b=bV36hIyAeeaKzStqZ5R6BHZh20r32LzuGK4Gm68ZCpeAeuz4FlcKODY67wQXGl18L
+	 qhz/RMcxsxB2724fbx9/w2S823Krp92tbDIdz7Wjsp7zqt9DxL9qVLU9CACrhHmzre
+	 ylrGqUw3rUz1mT5iVjdTi2kG9bRir7oZ9jJcGOUJZ9wzlcSqTXcBfcllWsdXxF0IYP
+	 vVS+tuBbMdme5k8hVYX09rN3BdjAwFlZGDHjKU08CG72jY55vuxpuD3Wbf9jjHOiqY
+	 i4KEVyHPDf5If9Dyv63xi7Mkz1oJ8u0NkQ9XgA3FmY7Nj5bm41ELYUG4OuWMuL50X0
+	 hiAUZOS0GbEHA==
 From: Lee Jones <lee@kernel.org>
 To: lee@kernel.org,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Avi Fishman <avifishman70@gmail.com>,
+	Tomer Maimon <tmaimon77@gmail.com>,
+	Tali Perry <tali.perry1@gmail.com>,
+	Patrick Venture <venture@google.com>,
+	Nancy Yuen <yuenn@google.com>,
+	Benjamin Fair <benjaminfair@google.com>,
 	Linus Walleij <linusw@kernel.org>,
-	Harshit Mogalapalli <harshit.m.mogalapalli@oracle.com>,
-	linux-arm-kernel@lists.infradead.org,
+	tomer.maimon@nuvoton.com,
+	openbmc@lists.ozlabs.org,
 	linux-gpio@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: stable@vger.kernel.org
-Subject: [PATCH v3 05/12] pinctrl: nuvoton: ma35: Avoid leaking map when parent node is missing
-Date: Fri, 27 Nov 2026 14:04:53 +0000
-Message-ID: <20261127140602.2790001-6-lee@kernel.org>
+Subject: [PATCH v3 07/12] pinctrl: nuvoton: npcm8xx: Propagate npcm8xx_gpio_register() error in probe
+Date: Fri, 27 Nov 2026 14:04:55 +0000
+Message-ID: <20261127140602.2790001-8-lee@kernel.org>
 X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
 In-Reply-To: <20261127140602.2790001-1-lee@kernel.org>
 References: <20261127140602.2790001-1-lee@kernel.org>
@@ -66,56 +71,34 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Commit 3fd976afe974 ("pinctrl: nuvoton: fix a double free in
-ma35_pinctrl_dt_node_to_map_func()") switched new_map from
-devm_kcalloc() to unmanaged kcalloc() without freeing new_map on the
-!parent error path.  Because pinctrl_dt_to_map() does not invoke
-dt_free_map() when dt_node_to_map() returns an error, new_map is leaked
-if of_get_parent() returns NULL.
+npcm8xx_pinctrl_probe() logs an error with dev_err_probe() when
+npcm8xx_gpio_register() fails, but omits the return statement and
+returns 0 instead.  Propagate the error returned by dev_err_probe().
 
-Look up the parent node before allocating new_map, and release the
-parent node reference if the allocation fails.
-
-Fixes: 3fd976afe974 ("pinctrl: nuvoton: fix a double free in ma35_pinctrl_dt_node_to_map_func()")
-Closes: https://sashiko.dev/#/bug/linux-ae0c2737-0408-4808-9bae-f7389beb51d0
+Fixes: acf4884a5717 ("pinctrl: nuvoton: add NPCM8XX pinctrl and GPIO driver")
+Closes: https://sashiko.dev/#/bug/linux-cff468bb-80b4-4cb3-a5ff-2b3a8fdb151f
 Cc: stable@vger.kernel.org
 Signed-off-by: Lee Jones <lee@kernel.org>
 ---
 v2 => v3:
  - Rebase onto pinctrl/for-next; no functional changes.
 
- drivers/pinctrl/nuvoton/pinctrl-ma35.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
+ drivers/pinctrl/nuvoton/pinctrl-npcm8xx.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/pinctrl/nuvoton/pinctrl-ma35.c b/drivers/pinctrl/nuvoton/pinctrl-ma35.c
-index b6411fc4d98b..c20350bc1cdb 100644
---- a/drivers/pinctrl/nuvoton/pinctrl-ma35.c
-+++ b/drivers/pinctrl/nuvoton/pinctrl-ma35.c
-@@ -202,17 +202,19 @@ static int ma35_pinctrl_dt_node_to_map_func(struct pinctrl_dev *pctldev,
- 		return -EINVAL;
- 	}
+diff --git a/drivers/pinctrl/nuvoton/pinctrl-npcm8xx.c b/drivers/pinctrl/nuvoton/pinctrl-npcm8xx.c
+index 40315e89b839..bf9eb1f0e5aa 100644
+--- a/drivers/pinctrl/nuvoton/pinctrl-npcm8xx.c
++++ b/drivers/pinctrl/nuvoton/pinctrl-npcm8xx.c
+@@ -2597,7 +2597,7 @@ static int npcm8xx_pinctrl_probe(struct platform_device *pdev)
  
-+	parent = of_get_parent(np);
-+	if (!parent)
-+		return -EINVAL;
-+
- 	map_num += grp->grp.npins;
- 	new_map = kzalloc_objs(*new_map, map_num);
--	if (!new_map)
-+	if (!new_map) {
-+		of_node_put(parent);
- 		return -ENOMEM;
-+	}
+ 	ret = npcm8xx_gpio_register(pctrl);
+ 	if (ret < 0)
+-		dev_err_probe(dev, ret, "Failed to register gpio\n");
++		return dev_err_probe(dev, ret, "Failed to register gpio\n");
  
- 	*map = new_map;
- 	*num_maps = map_num;
--	/* create mux map */
--	parent = of_get_parent(np);
--	if (!parent)
--		return -EINVAL;
- 
- 	setting = grp->data;
- 
+ 	return 0;
+ }
 -- 
 2.56.1.839.g22a8290db9-goog
 
