@@ -1,64 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795794207;
-	b=xGY12gFXaXq2AOGZ7R3+wn8ntCBqe0QGU2QLaPhP2rmxL56k/FNyI8oAoMBRG6A0eFak
-	 8CtWqKF27pwvZJjnncv0bugBTzH+GWrvhxOu4KWlsRX+oUMpaaTEDMoeZKKTxlzbQXQdd
-	 VYmpq0ABgPEnwwydDvEU86qndY3s7ZtgPl1UX3JNKeo59DAoTM5pdGENsomEBNMpOQ4U6
-	 5ZGY0ihLOhMHK40GsgtynzkOHQCkrh77nmjQg9d9bokgHAAAMIL3hHGIHJbt0j5SzZAk9
-	 Rj/ozi89YCBT42KqAb7oUqOyv8cfwF6smpyxZ7fFFsA4w3sJqRKnWIMf0Syua2mUMGw==
+	t=1795794259;
+	b=4hED0607uAC7GZPALuv74zuYgBOTtO3qCTQUbygjiKG0RLESCcDVSxq+6l0tBPNOVm4f
+	 CJju4G4j6wWJ07nKa5q5VNhzvHKNhCNvaroR4QC1L76SSODZTp2WKvH8kerK8NGe2X1Dr
+	 m1LBYG+cIrZKb0DfP2DtIfUEwOc7GNcVHztiz5/sTsk4xa6CNo2UYxlZNcCA9sBZ8YgnR
+	 fkpWPjU+D/nXBUeoprybZ3dbIG5SnO9yhFhWlSbP1hX1RGzoXHkb/cPAtuSvWCACD+7Cu
+	 tcUYn5RMzmt1jZ39LFCmTy3DyRAY1uk4ymS6B9jkPf3VlMstRplSuXReuG0da8tGHIg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795794207;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=iUGcyMfD19/PP1wiChCcw/RYMLO+UZqeEGCaFbl4nkI=;
-	b=qNBmsUAkQeFsogyhNTeswwSFEzDzTlOx+rioSesF2uS6NP4+M58uRwwNuOcZSKVIc0fF
-	 mox9j3mBBvdA4TMvmkwvX96aPoBNrrlZSMH14dqphWBtIpnfs+SdKmNh2wGCqWop6rWvP
-	 rPSS3U5Az1G7H7/S/XS7Miyv87UYojYTRl6UmQIxM+lQIs9RP9+LAUGfLBP+2oeX5Zp3R
-	 I0GiNeLCTZzNj6G+MipPVlbDQNSZV63+jcmVSX0TU0kEagXZxLIgzbIJXnUJhsvjs7oFp
-	 ChufnUECgnQN57q/ruy8Nd1bIkLKTlslBTPUTqpZ2m8hZQ+JJk/BYsJ2PhrZcjdWEHQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795794259;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=X6AFLb9s7u+Xon8/nUZ2rh6cB0uMWRXakMaXootNgic=;
+	b=VEnDHuS2gTl7BOQT+HYQgnzsmfVtU9oJZ8W/Kw2ohhz0WebKlUITwjAaOSNXuwJPgEWG
+	 5gGG4bjOM1v7Suxft3NWVNTce/A1IbMq0ROCfQmCNlKz/0kp29QGiL/ko47ag9MFVxy0v
+	 65/EhwaykfKXYXn1LBY9uuAACOy8nn+7Rn+L9wqJKaKPu4i1+jOZS9E9OQj920zBK4KjH
+	 3GOh/IEm5GAyGgcCLDF+zkh0sDqylEB8k6NJ+yPpGLlEdogIE2leMaKnqTbYD0QPn/eWH
+	 E4bmgC93SazP+y0qqs0VNR9bgqcTG9g4D3bg0UFVBjHTIgDY2OJDPM83LVqgbAk75rg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=q1x9ig2S;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5D717606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:43:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D717606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U7WiL7JL;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B783606A31F;
+	Fri, 27 Nov 2026 15:44:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=q1x9ig2S
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B977A2F;
-	Fri, 27 Nov 2026 07:43:23 -0800 (PST)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F07213F632;
-	Fri, 27 Nov 2026 07:43:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795794206; bh=l48j5+xVhtpBW30PApGWL3ln8k0dE99HV1bHDBj1Dvo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=q1x9ig2SlfIy5gBXSTvTUQ/E32fDvv/Sczl0uhGpTeuazQYrQOCIgQTa/SG034aSs
-	 j4icBJYzIcwd2+rdPAs5bgd1Om1X+q9xqggLYbgY5fWOpNteq1Bg/UnMDhrKQwqZhg
-	 rIarodHEEEvrb3Y6jns7jr/kYgaMHb6adPdTO1aw=
-Date: Fri, 27 Nov 2026 15:43:23 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Tamas Petz <tamas.petz@arm.com>,
-	Tamas Zsoldos <tamas.zsoldos@arm.com>,
-	Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	coresight@lists.linaro.org
-Subject: Re: [PATCH v2 16/23] coresight: trbe: Always classify TRBSR when
- updating buffer
-Message-ID: <20261127154323.GF861809@e132581.arm.com>
-References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
- <20261016-trbe_enable_disable_irq_handle_refactor-v2-16-3f57cf3199b1@arm.com>
- <4dfed719-5f62-4ea3-8685-5dc4426ad3c9@arm.com>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U7WiL7JL
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B56E1F0089B;
+	Fri, 27 Nov 2026 15:44:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795794258;
+	bh=X6AFLb9s7u+Xon8/nUZ2rh6cB0uMWRXakMaXootNgic=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=U7WiL7JLSPg7FvatCbumCgs1MGCMjm9Nm5y728QK+G7lRYVXHxwktT87qi2z9USQK
+	 tDWnZL+HxqlZMLRFj1KJHedUeab6URm4r0Uv2OTQKVhpKQjWsCKzLcriLdjNAovbpK
+	 0R7JEoih7INrYNO47/8vIEr44ZIvoo2oHi/D3hfh9gMHjxju1dpUm/LvnJO/ZbrxN1
+	 pYO9eLVNLP7zSudBIgi2eY7O8asntAHPpJ1+hdfUVKUv73zm4JVJjU/3qcDuOARfKx
+	 BT+g4tF+qZn3EQpiudxCFZQ89wNGcDsvkp53ogmEhKowAHGut0cmezPb4vTRPERhta
+	 jkSwYk0a/Rrmw==
+Date: Fri, 27 Nov 2026 05:44:17 -1000
+From: Tejun Heo <tj@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: sched-ext@lists.linux.dev, David Vernet <void@manifault.com>,
+	Andrea Righi <arighi@nvidia.com>,
+	Changwoo Min <changwoo@igalia.com>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	David Dai <david.dai@linux.dev>, Ingo Molnar <mingo@redhat.com>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Hang Zhengyang <hang.zhengyang1010@gmail.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCHSET sched_ext/for-7.5] sched_ext: Start ext_server from
+ the tick
+Message-ID: <awmlUc3KmK8uSQoz@slm.duckdns.org>
+References: <20261125103420.2785659-1-tj@kernel.org>
+ <20261125135723.GD2668804@noisy.programming.kicks-ass.net>
+ <c3516afe34fa11bb42976188b7546233@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,43 +74,30 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <4dfed719-5f62-4ea3-8685-5dc4426ad3c9@arm.com>
+In-Reply-To: <c3516afe34fa11bb42976188b7546233@kernel.org>
 
-On Thu, Nov 26, 2026 at 03:00:46PM +0000, Suzuki K Poulose wrote:
-
-> > With classification on the no-IRQ path, a normal software stop can
-> > have TRBSR.S clear and an ignored detected trigger can set TRBSR.TRG.
-> > Neither should warn or discard valid trace. Mark fatal status as
-> > truncated and return zero.
+On Wed, Nov 25, 2026 at 06:56:14AM -1000, Tejun Heo wrote:
+> Hello, Peter.
 > 
-> > Use LIMIT for a filled WRAP and TRBPTR otherwise.
+> On Wed, Nov 25, 2026 at 02:57:23PM +0100, Peter Zijlstra wrote:
+> > Could you perhaps punt the responsibility to the DSQ? Each DSQ has both:
+> >
+> >  - a count of how many tasks it has
+> >  - a sense of what CPUs it targets
+> >
+> > Right? So can it make sure nr_tasks CPUs of its destination are running
+> > ext_server?
 > 
-> This is already the case, right. Please could we remove this bit ?
+> The problem is that runnable tasks may not be on any DSQ. The BPF scheduler
+> can hold tasks in its own data structures between ops.enqueue() and
+> ops.dispatch(), and the newer schedulers do. Also, only local DSQs have
+> target CPUs. Any CPU's ops.dispatch() can consume from a user DSQ. So, all
+> the kernel can tell is that something is runnable, and only ops.dispatch()
+> knows which CPU it is for.
 
-Yes, I'll drop it.
+Any thoughts on this?
 
-> > @@ -662,8 +662,6 @@ static enum trbe_fault_action trbe_get_fault_act(struct perf_output_handle *hand
-> >   	int ec = get_trbe_ec(trbsr);
-> >   	int bsc = get_trbe_bsc(trbsr);
-> > -	WARN_ON(is_trbe_running(trbsr));
-> > -
-> 
-> Why are we removing this ?  Do we expect to be called with TRBE running ?
-> Both trbe_update_buffer and the irq_handler stops the trbe. So this
-> must be held valid ?
+Thanks.
 
-Both paths disable the TRBE by clearing TRBLIMITR_EL1.E. With this patch,
-arm_trbe_update_buffer() can call trbe_get_fault_act() when no
-maintenance IRQ is pending. If no management event stopped collection,
-TRBSR_EL1.S can still be clear.
-
-Arm ARM DDI 0487 M.c, section D6.2, Table D6-1 shows:
-
-  TRBLIMITR_EL1.E = 0, TRBSR_EL1.S = X, and Running = False.
-  (X means either value of S bit)
- 
-Since is_trbe_running() tests only TRBSR_EL1.S, the warning would fire
-on a software stop.
-
-Thanks,
-Leo
+-- 
+tejun
