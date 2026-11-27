@@ -1,13 +1,13 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795783026;
-	b=T9G7jozPUtf5LTvFnuMi+GxJgLd8ctIaCihdK7Xn9g9ADX8Di5xf6rNB1tQO/L+T7JUn
-	 zseUqMrirTGmTznKjvFww36HMxTI6lq1ZhvyDCWbt33gbxASa1KoLh080oEI4sKTgc1o6
-	 F5w4p1QVMoCKLBEvTOJdJxwqj+YH2tGcjxLom4ccHPeFkwgwIaMz0/fvaj8+23V3uNTtQ
-	 7DHASuql3fSKiKvqSF/sGNT+S2BITiOI1OWscoumkQc+E9r3jhCC3+OovaetDc5OEYmjD
-	 K3N6r/YgyXCQDMqyJfMZDfkKmQ3BaMYYvJ935hw14SdrkmdcvJPUpA06xRbRJkXKmrw==
+	t=1795783115;
+	b=2st5pq0oSwNpLaZEhxUxWjwO9aosTGMa4AkkOp+4q0kAma5VC5Gm7jGP2jwnE6Gkgbsv
+	 GtojaW5JHQfwdor9cDOB2t8y5M9wyMXFrrSmqH431FMp1FgpmzunNTwJzdvo/nmpvUBLa
+	 FOv679kG7fH3d8oZFBbPmoNnB1Cff8SzXni1Ii+7FSYchDExqRp+eTI3YWeVwahUlKuaL
+	 coQk101KMw7rFflv/xGBr2JviEsUeGYNmHU1MXbZrBF3reSpD8RH3gaIMHsWo17kwvKiQ
+	 Mg2UiJqq0TqcxULjisxvtaK0jnQeOw6TDoM/2bILOpBsr94Fr55uncGTwIet+AWBIIg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795783026;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795783115;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
 	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
@@ -17,97 +17,96 @@ ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-GUID:
 	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
 	 X-Proofpoint-Spam-Details;
-	bh=Hh8c48r9GrudpQXzXEgvdFAldCpWfhxNFka640a82Bc=;
-	b=Zmnb2xu+KNZY98Vsq3a/dSTxlefqhnhltWq5P4Um840E1MsxZQMpMzf4gKVJNJowxfVa
-	 cCf1280bn5AoFZHcH05hUA/SIlJ5/X/xMALslvccOXQg5NuOFyPb3ZFBHQL+SF8yNIwnx
-	 l4kFTYmVtCLBcl5JhzpZd8UcCMsLT/Fb55KjDrIfZRaCTbyGABtikYrhAo+KnS3pO8iXU
-	 8b/EcFIdFzQpIXdxgOqPV9ZZoCZi0wyy8+yKTEHsfXtQlUuHvAj7/77WleSkWgkYjTrru
-	 CeYbblcD5qXjAV9MWq6LG01HXZ1UyUbOELJjvIFnYdTZnvqVlHn8+snNh3Um6SOj1oA==
+	bh=XMa2kCzEW/leD9xf1rjAeGaC0mopa8BovnBv42DRtl0=;
+	b=L7QAxg4SvJ+8w+xVo+sZHwAOOACTzO0O/kPsb++c+Ny7tjjxIn2K9thtKl8e7bekytlR
+	 G+HwNoptxqFQ2I4Wtiyto/VZOo3rLdvOCPwGx4W6RxrsVm/s2zi4xCf8JgNqHsMmNzNYQ
+	 EaTXNOpO0kXrIpYxKF7DniZLxie2mBQUM751KSTGW2L67Htk/dXFjWTl3pTwKJDWucaI+
+	 6nxF+ud49CW/XN/p1xI1UIxdR7S4zmRqS9ZwWyJC/M4meAZubiVhjgOnnKOOGPNrYyiTX
+	 KiG5/+agmT8GEO+Ei2Vkppgpk1IKVtIMK/J1YKiI9DiTEtrIS45kLyigz3AKDr+6ekw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=oss.qualcomm.com;
 	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="j1M/IWo+";
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=AVWT93Cq;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=OsVD7nYe;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=K7oTcFTg;
 	arc=none smtp.remote-ip=205.220.180.131
 Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34663606A323
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:37:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34663606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BC36606A324
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:38:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4BC36606A324
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=j1M/IWo+;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=AVWT93Cq
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=OsVD7nYe;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=K7oTcFTg
 Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARApYWa1685698
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:37:04 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARApVC11685549
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:38:34 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Hh8c48r9GrudpQXzXEgvdFAldCpWfhxNFka640a82Bc=; b=j1M/IWo+FcBGsw4+
-	K9HC2uueshvm5urAsoG24grMwN3cYSVizBuz1Ya5f/51SqolpAmiPif3k+QyAGKi
-	Tlkzjua7JsClhrlKnl9jM8PH/StObrmcOiA4h6nOGXdhN+BsCD03urAiWSqX1cBa
-	d8PNKBF+89kgtIOeS6Ge/XkfEQba7gsLk4Yg0aHHf8Ytwdvr3XYe4AChV0OBUpzL
-	wpxMB6Xmz9AP0BHsJAo8u0BbqyRASeiOol1II/HKVznBG1N+hZ1UHOzkPXSb1ZjD
-	WtJhI4qpyTCUU8Kvxt6Vnva9IMWGHGh8Y8ESpOWJEcYGJPkoA+dCttM3pAszqYRw
-	Lc/m0A==
-Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j756k98tg-1
+	XMa2kCzEW/leD9xf1rjAeGaC0mopa8BovnBv42DRtl0=; b=OsVD7nYemQhekW+f
+	MgqDMfW6xtVAqohPNaln/mjk0f598jSdZ3jjOLaW912eROmGX8PQz5nJXPGZey9w
+	l5B3qubGjlPmYQrNzOwF1gbwa0casEQjd+DYCODHkpz7FLDqX+DDcrDdtOnUzFxF
+	inYM9cv391V7CHSyJxl1nJrmwADZiR6SPcgVXAybDl0MAy5xmObe5I2eOeplFNsd
+	m9WM8zkFpJoG8GzwTPd4w5gs84DQPJraEqYP0QiGWnCtIbyhP25NykOV1KlinxsI
+	gVGCqMquxW4xtaH8eB7Ky8HP+4w2zOSXjuPlLavcdkkqhM+xv7X8SgzV9GLGnzIn
+	+ym14w==
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j756k98yh-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:37:04 +0000 (GMT)
-Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-1b55f4f3bb8so4818229c88.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:37:03 -0800 (PST)
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:38:34 +0000 (GMT)
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-384c78aa0dbso10107324eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:38:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795783023; x=1796387823; darn=vger.kernel.org;
+        d=oss.qualcomm.com; s=google; t=1795783113; x=1796387913; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Hh8c48r9GrudpQXzXEgvdFAldCpWfhxNFka640a82Bc=;
-        b=AVWT93CqGnjbYU+lgghuuQQ8G38o4CfXjYy2BwUSG183gqUEoBVqAIcQfuo6WCrMLG
-         TZgHY8/wL1viI7l3QFfmg45MRaaxSk0dsLEdVIiHp6no1/ItEADeaQlJZFTkjvBL3H2S
-         Xsjw7bgXQvUep4URxW1kJuG2jVU0iXI3O9dUEeGOpq2anlZEBPh5bXHVvay+tREc8Vol
-         If2dp6KSwKNJUPvC0Y1u+WiCsOmjJ2IKZvJFWw0ZCr/twGlM1LMiip1lpRd16eUIGRMX
-         vs/auD9CqFvM/8Jfd4CJwxmGUgaATauPSxy+nJKMKK/m7jWIvcN2R06FrMCnjti79qrs
-         88QQ==
+        bh=XMa2kCzEW/leD9xf1rjAeGaC0mopa8BovnBv42DRtl0=;
+        b=K7oTcFTgsrOKKNvyzFPX6UYCSKWWB7QEPTfnuYn7drrq9d5q6TNIwZ905xZrumFLD3
+         yhANAtknJcKw5/SPwfIoAXJVtUoyasynNDMNXa2bOiO9vFHFcLZYZj6Oh6lZxOVjprpl
+         R/DyvJDAn2D2KntHlj/dSjwZ1LYGZjTxcxI6XQQ0KH34Xu0L/LJzBYhqFDmtalqWOd7o
+         wFIMYlQqXFiJ/8tZxVUZPeB/Bi6ZBtW1hwK3bTAsIvj8K1CI5GbEVZ4n0FzUsWjURBZK
+         lc8VNtOA89TDj9YVWM4Ga0EnB58z9C2xn/ZLb6g1gJU4kfNjnf8jje67siyPoU1MsgfK
+         zfPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795783023; x=1796387823;
+        d=1e100.net; s=20260707; t=1795783113; x=1796387913;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Hh8c48r9GrudpQXzXEgvdFAldCpWfhxNFka640a82Bc=;
-        b=DoHDgDqAPTaQJ47Tbmx2Tf+mBAmWr6KwjYon12u1k/s581cUrKNDnqPhNetz3fN/po
-         00KQ4bsp3QcFAkF3wmFKyPWZCJLgN5kEQVDq0cpICF99awxL8M6NkFy71AGqprtbJj9K
-         UQnMrIFZVs74Smhkt3TZouDE60V3lQiuf1YATG/xCqw0gswxggCK03DOHbnVA9E8l6R+
-         eOtFVggfYk73SmIr3CsMwV3MicfPl1/xT0MeFCH+BlM5PPlmyWT9n0gZRmfXjTscqQgT
-         /nMlKmfBr/49ELe6K50qZsRSyi8QEP1gG/haILeeyyiaV5Kg3pT2Lrg3JbFHD2BtSW9+
-         OSRg==
-X-Forwarded-Encrypted: i=1; AL+hErHlpCGrQ4a053cJ9CpINDhWZEDuOdXBWsftpGWMYNOS7b+RfI4x4yWMSQxpK9j4Tie6hBG4p5nHDX8wczw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9qArEpYuz9xI8xTKpUAr81mdkB3npMvtMycPRr7f5+lZnmEfb9
-	lyRojrDuJfPZ6CZp7H/DuArb5ha68p/KZknCPbq2xwEWHhGvSMDw6Q/rasOWkRB7d4ZS5LaPeua
-	jqWHnEDCCwKoBKK4iz1PqoAASOjFjxJdt3gaR3PUEoKmLwL4DQ79XCiTKu1JLIcAjKXasbA0kKm
-	k=
-X-Gm-Gg: AZFdTZft7HEseULfv1lNEvoplfC5pL55eDtckfG34FDkDQbYr80V2YemceRwChJw6XQ
-	yc0qPHcxUXKD8HZh7+Q8/JZccsPDwgY+qi6IkJyFX/ZfXJ9B+ogkBC8wjf78mYgx2haHplBB9VG
-	Dhzi4NH+eHwauQGXI3MS6lPaik/jRt84T37ULr/7BMAhHf0GvxaBTANL+DVmR3cJPI4wIJL8BMq
-	NjzbRk3Xf3E1xl3+7iytB9+M2UAuJtB8Ns+H9fuPpj0cMGpmpE0xKmUXbQLkJrFs3yXhizxqRAl
-	qtN4Aeiy6a7KcSOWGp0g4ckM8DKmTWDYsfC4K57XNbc4XKW2Wf3zwOm75qFJHH76k+79ET5NzKY
-	1uA6cNkpBZks5b51L1Hhf0qWeks6JquHlt3maLYbLxkvtnSQnfvuiqB1kZCl4R19k9d3RfaxT3u
-	1L7nUa
-X-Received: by 2002:a05:7022:290:b0:1b5:dc3:209b with SMTP id a92af1059eb24-1b5568ac6b0mr22594257c88.22.1795783023100;
-        Fri, 27 Nov 2026 04:37:03 -0800 (PST)
-X-Received: by 2002:a05:7022:290:b0:1b5:dc3:209b with SMTP id a92af1059eb24-1b5568ac6b0mr22594243c88.22.1795783022646;
-        Fri, 27 Nov 2026 04:37:02 -0800 (PST)
+        bh=XMa2kCzEW/leD9xf1rjAeGaC0mopa8BovnBv42DRtl0=;
+        b=q/pbNglsICCh+Q2HgiDHgqBeqUh4S9FT8Pjjb/zicNGuLgN+V/BjMpAqTVwlGJiKyn
+         royhl28v/UhB+3KL1+4vuVLvHirHSKputjeG0R8nHZ7ToRtwaL23tbGLIr3VEoNj8vh/
+         PHOCx66V1xM7qJek7zPQxgfqicKNuJgXMsZgrdnhhlfXEwgjTWVO084sNISNt/Z6ED9U
+         uIDgFfH42XhPLoj7Cfc2+QIp+mO6QNF8efNpz7K9IzE9aD2I/QSDkjzZZ1ZiNEnd6WeY
+         +Wgud99QNITyLc6Be+Bae5vWQU9a+/4WyoNtxjZ8puthUDqhTIRwzCuAPKt+enVzf414
+         aofQ==
+X-Forwarded-Encrypted: i=1; AL+hErGaliQPWdakwzVJ2jSRzLIVtgEiUbL1hZVI8lQ61KfiCWL+K6wwd/3KMIioSvaw59G9u95evHhvVqOC9wk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9cUEG62rWL1KYIw1f+LC2gF4GpPNH9XfPI3BbDHxQ2sDQuznq/
+	10QzcFTuSKwG2PYNldXy23EVkwHbU3APsem+O96Ky4gpX5F4JnekH9pZx3GeDeYvFrWyWAzuZWH
+	Dc/2xXAlGpQBsJqwh81ZvmlJH5h9Z6w9yeu+OewjR5SvcsqgHl67jmk4klOMy165ZeNs=
+X-Gm-Gg: AZFdTZdkDKI3MH4xmBCucUvvB9x3JDPVlX/UvjHKk26IEaNdfAZzFCsmuisGCLiBRoj
+	jS3I2dHX0CBO2hQ11DZYbfFhmP9KlkArVh5z3lhu0tfT92JbD9blCtquRDWLza/oR04/W48rxo5
+	rP/T4+YbEe3b6pXsMJUDACrjjVsqoNoza2XIk18b1MNwXeK0i5mUlNXNV3CEILBk+MZxmg6GNER
+	mzjx3oqM8kQ7+ayoAjGZdL3A56cDTvKzpH8OyNJEnC5TBuVXxkQIYvg4CqTGMtI3AJR2Y4frmXe
+	X0ILcbB6QSKCwZL5qr9UcvqJKS6FbHI62RNe7ZfuFMGjyTsn38XSZXnkSd1HNP/k1FjFgtNUI41
+	fSjeSeUX/vj1TEnaisURN4kjMhhUOeF2ZaVPEINtyd+xjMCSnkMduzhVVLAYhI7DHLor3EGpFRj
+	1tYJ1E
+X-Received: by 2002:a05:7300:89:b0:386:c880:19b1 with SMTP id 5a478bee46e88-386c880248emr9901036eec.10.1795783112969;
+        Fri, 27 Nov 2026 04:38:32 -0800 (PST)
+X-Received: by 2002:a05:7300:89:b0:386:c880:19b1 with SMTP id 5a478bee46e88-386c880248emr9901006eec.10.1795783112393;
+        Fri, 27 Nov 2026 04:38:32 -0800 (PST)
 Received: from [10.206.111.23] ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b59d8c0cafsm3430688c88.7.2026.11.27.04.36.58
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd40c5sm88060568eec.10.2026.11.27.04.38.27
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 04:37:02 -0800 (PST)
-Message-ID: <fd5edb54-0ee9-4aaa-ad0d-9e92c15e6779@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 18:06:56 +0530
+        Fri, 27 Nov 2026 04:38:31 -0800 (PST)
+Message-ID: <ffdfe000-fff5-4498-a4d9-1de2e0f23707@oss.qualcomm.com>
+Date: Fri, 27 Nov 2026 18:08:25 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,41 +117,42 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] media: iris: Fix encoder reference buffer size
- calculation
+Subject: Re: [PATCH] Revert "media: iris: reject open() when the session limit
+ is reached"
 To: Vishnu Reddy <busanna.reddy@oss.qualcomm.com>,
         Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>,
         Abhinav Kumar <abhinav.kumar@linux.dev>,
         Bryan O'Donoghue <bod@kernel.org>,
         Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Hans Verkuil <hverkuil+cisco@kernel.org>
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
         linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20261031-fix_enc_ref_buf_calc-v1-1-54dcba5977a8@oss.qualcomm.com>
+References: <20261031-fix_v4l2_compliance_unlimited_opens-v1-1-f20cc9231ee3@oss.qualcomm.com>
 Content-Language: en-US
 From: Vikash Garodia <vikash.garodia@oss.qualcomm.com>
-In-Reply-To: <20261031-fix_enc_ref_buf_calc-v1-1-54dcba5977a8@oss.qualcomm.com>
+In-Reply-To: <20261031-fix_v4l2_compliance_unlimited_opens-v1-1-f20cc9231ee3@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1MCBTYWx0ZWRfXxs6OR0rXfM7T
- VDF0hkhCbhQDP+uAbPQdXHolquHzOoED6N/PKtIzqLvL7cRc6h5aJ8KPk7si4q11/SH5VkrLCYW
- R0rOGuUm/Lma7T3TxbPdwKBw96zfYbYUbVLGViDfOPcbWzjwa5/3yQ04QabnOIo6xSRi9zhd/Q8
- NdnAoSdXQ/0lhlW9NZ1hZCKmxNGHgSJjrowkTYsZkPL7AZscaAbTvCO39JzRe9fHnA/kH0IwJTj
- BQBZcRfPVw3UUTM5VmOdCeo1b6M7EFEOWM9uJjD1VkVguexYV8p/0wed2uUQ53ZwmvnVSbBeO+F
- zGi3by+ewDkdNQICyZdeNe+49hfQF9GrrrGX9lONScsWaRqapq1aBL50zHWJtTSFjA74RVQcJRi
- Vu+SnEXE4ye3JR0AgPQji7vdzn/gidcWSyFnNWdfIBzdDRSM2l4yXU5TTuUuUc3KV42FAVchjSM
- KyZq1rE42WfcOwOUhig==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1MCBTYWx0ZWRfX2eMgugX++niw
- +sniEBPKUwjLf5HnQyex4FuN4Zf1g3SMpfPIibGKy2h599b/jBsOdgZ5M+1K/+ZNQc254B3XyQ/
- KYy6tipp1LSiwxxhNh2w/dFGGXu1HhA=
-X-Authority-Analysis: v=2.4 cv=ebWo7LEH c=1 sm=1 tr=0 ts=6b097970 cx=c_pps
- a=JYo30EpNSr/tUYqK9jHPoA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1MCBTYWx0ZWRfX0X+Dnfm9Dx5M
+ HrZ+2zgE75W/47IdFrqItUqCu6dy+8rIbewHC5VSD4EAXRQQfNcA2Ns8rc6MGsTxtskwn726WJW
+ a0U8LNg+yL9cQL9o/aoo+xFYCQFX+ECAnXwqvg5XW2yMC+2wPAbW46967NE31+UMZp96YnLMQkw
+ hjlq2BEvzLJ5zi/SjwHaVjpkcmQdEbNjp02i88jy3gxj5L+VXO1AQGfiU2E7umja0s00ZoIX8ND
+ N17Cvkp4qysIKqMAMVnG8fqP2sqnpwYLvooMFCH/4hqtNiOEoN5uqMJtSVuGZqDVhS5PRuFGu7z
+ d1C4IIiXWlnaCR+JILB1PahzclGi/3DGLv/dR2SgoNrnw2nGmBW61+RZny3IsdxHXpoVcauz5Vy
+ yfj6MmXfx4IQa7tgkmJxAsYTfGeFYeGAy1DxcMFUu4ycnVQAvxQf1VLJ5P8TFN+WhKG51wZp73E
+ C2ApR/aJdtUkSFtvR5g==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1MCBTYWx0ZWRfX7CYqXXMzEX4j
+ yYK0DzR8G6iNinXK1umh8gwFTyHcHmxrIQaroZzfz9Q3siFuJ+M17wiQcYROv78vgqh21baSpjZ
+ NHWbVN/sKNKfOATj1a2gcm2S3fPm/28=
+X-Authority-Analysis: v=2.4 cv=ebWo7LEH c=1 sm=1 tr=0 ts=6b0979ca cx=c_pps
+ a=Uww141gWH0fZj/3QKPojxA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
  a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
  a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=1hkGSTuj8OjxEnJCJEIA:9 a=QEXdDO2ut3YA:10
- a=Fk4IpSoW4aLDllm1B1p-:22
-X-Proofpoint-GUID: -QjwtMVVYfo_syo72vN0RGG-r-ygyM47
-X-Proofpoint-ORIG-GUID: -QjwtMVVYfo_syo72vN0RGG-r-ygyM47
+ a=7GKYziPKAAAA:20 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=GeMy74hU6CVubCBKRZ8A:9
+ a=QEXdDO2ut3YA:10 a=PxkB5W3o20Ba91AHUih5:22 a=bA3UWDv6hWIuX7UZL3qL:22
+X-Proofpoint-GUID: LVG23_nbq3f58EWda8Ix3ZuYSVUeRB7n
+X-Proofpoint-ORIG-GUID: LVG23_nbq3f58EWda8Ix3ZuYSVUeRB7n
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-27_02,2026-11-26_02,2025-10-01_01
@@ -163,20 +163,34 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270050
 
 
-On 10/31/2026 1:43 AM, Vishnu Reddy wrote:
-> For frame widths that are not multiples of 128, such as 864, the
-> encoder reference buffer size is underestimated. As a result, the
-> firmware reports a session error when starting the encode session.
+
+On 10/31/2026 1:45 AM, Vishnu Reddy wrote:
+> This reverts commit 397ebadcbc21 ("media: iris: reject open() when the
+> session limit is reached").
 > 
-> The encoder requires the reference buffer width to be aligned to 128,
-> but the current calculation aligns it to only 32. Align the width to
-> 128 when calculating the reference buffer size.
+> V4L2 does not allow drivers to impose artificial limits on open().
+> Resource limits must be enforced where the resource is actually
+> consumed. v4l2-compliance verifies this through testUnlimitedOpens()
+> and now fails with:
 > 
-> Fixes: 61528e86687e ("media: iris: Allocate and queue internal buffers for encoder video device")
+>    fail: v4l2-compliance.cpp(773): !ok
+>          test for unlimited opens: FAIL
+> 
+> Link:https://github.com/gjasny/v4l-utils/blob/master/utils/v4l2-compliance/ 
+> v4l2-compliance.cpp#L747
+> 
+> The session limit is already enforced at the right place. An instance
+> that did not fit within max_session_count is not added to
+> core->instances, and iris_check_session_supported() rejects it with an
+> error from iris_vb2_queue_setup() and from iris_vb2_start_streaming(),
+> which is when a firmware session is really needed. Failing open() adds
+> nothing over that and breaks the compliance requirement.
+> 
+> Fixes: 397ebadcbc21 ("media: iris: reject open() when the session limit is reached")
 > Cc:stable@vger.kernel.org
 > Signed-off-by: Vishnu Reddy<busanna.reddy@oss.qualcomm.com>
 > ---
->   drivers/media/platform/qcom/iris/iris_vpu_buffer.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+>   drivers/media/platform/qcom/iris/iris_vidc.c | 19 ++++++-------------
+>   1 file changed, 6 insertions(+), 13 deletions(-)
 
 Reviewed-by: Vikash Garodia <vikash.garodia@oss.qualcomm.com>
