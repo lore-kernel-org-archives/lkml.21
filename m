@@ -1,82 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795748352;
-	b=pQyTX7duq89qm4YkPmkArpMKGGFTWpIRenzJM/VWBgTt+IBPZY+/UDupXm23HZyL/w2a
-	 CJ0wTYf5R7S5bsvw3f/A61+PNGj26dVq737grvAk7t8+cpK8ZTpY0LWDEuBnrGjqtqgid
-	 9QcSCwNn3N61j1OeRBNAAfmzHj47xkdxdTM/YnTV2+vX43Rzxrbbg4Z3QSC/3xVU9uiyc
-	 2Kswu1H7A2RVis7lGypJ965ncXLR1Q3xBMRxdtImonnYTLClK5Ry6tHt/d/mZ9sk1Wwxt
-	 kd48GfCdtGllmzgr8/ume33HfiWkJoiIExUOugf6V2g1sF8yZf/aWt8Bv7Y4gPQzYqQ==
+	t=1795748359;
+	b=ooookNgQsm19Iz0gqGI/zNPOsLDmUpiPBWwS0+loKSlrFSmgOx1F4FsAeaVEL1tn5HVq
+	 VoqiyazRkGwj5UpkQfmARWvoYT+vsfIEwFguBFlkhVqUnKvv/0I34hS/Sskm2IFXqDDbr
+	 9bTnG0ZbxJ31WcFNGgOny2v4o4cyEQIjdzl8H2T0BAl+3wz0OOU9wEhG/ZS6UHP/wBI01
+	 t/drmlA3dVfZ/55NqT8c5a333FIKdzNDt3hr8STIc/Y8DL6Ln7QWvGYtGQchWQI0hA5lM
+	 u2pUC07pzEyORnMcN+L9aLNoZ9hf0+TaXnbKA5GwXCv9QOEMaoYtdmg4obDvBkijjTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795748352;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795748359;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=btx3limhEerqDxGaD4XQgQujXJCSxle1lIB9AKeLA2k=;
-	b=kQ7dp/sEWrde1iI4IVfp3hXy3PcKBuVY+bYCbFFR98PXkDyQC0Shac4qTGUnQHvMphlY
-	 zk5QpNjvWYXV6x+BOToNlJxIzv3FsQNe2lUtedVBs3+F5HLiJGo/eewMynBlSzIJRnWdR
-	 08flSctsUZsWI8BBHoCz8SCffKv3wwTiqazv7QlxZTeG9dduYwwfnLHz5FrIUroX0k4Y7
-	 QfLkNV5qVHypvGF5C1se3VKAaB9pda3ddZB+6Z8gEqi/t7tfS0DzA1Ltk13lP5+orSfAD
-	 oFRU5cD1Y57tY3uoxCKOJFanp8+NUVhciWf/dspkcdc1NnDihrJYEHA0vQdnUiWeGWw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=y5ExnJt0qck3DRDUPFaDvu8b7KIWwdeeXU4WMSYgy3E=;
+	b=ez29CwhhqBasZJi69pNYd9CW2ydkxIejeqzchGuCcQTta6M0W9hbONBa47PRLZJ4Uopf
+	 uwkaZP+UOeXy/OqnfmR9tg0ucqQbUOHHxyuJ1irIw8yvaXOSvWnWunagjQqmYeWNlAAfA
+	 HqYExVPHkMaQkcmw7heu9RS5l+4ZIQK+FDF2oNjYdndwJj5W3rTs+hF5mS9qva8nmZypj
+	 LKrL/FFv7sjy8w7eA95M62f3gNl9n+aBkRO27fyC6FlU2DzMlz7YpMlI+L+MYfe/mGUUl
+	 gfHqsZolb2V3xUpqsBABw8duZHeo08PMV/c2mX/tuKwLLpu8tiKkdVEhpeDnUnhSdkw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=b0yiJj9l;
-	arc=none smtp.remote-ip=74.125.82.175
-Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=u7UWmy9z;
+	arc=none smtp.remote-ip=74.125.82.171
+Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08696606A321
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:59:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08696606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8ED55606A323
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:59:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8ED55606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=b0yiJj9l
-Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-3282db206d3so4328372eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:59:11 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=u7UWmy9z
+Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso16189612eec.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:59:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795748351; x=1796353151; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=btx3limhEerqDxGaD4XQgQujXJCSxle1lIB9AKeLA2k=;
-        b=b0yiJj9liKtG/KBF/XftFlq5Rz284tx1BiaI0oOkTm4BOWDc8pjvKd4OjnGfIBH3dT
-         zZWVqPVetb1yHamv9buz7hcY5Lwnr2A/yw1UgNYxuymWb0pi+HsPpEXB22HZsNxmpoxp
-         pBGFcVjsu39wYc7qYnMIEaAcTfmddA1Jmx5bw2OgtZFlTNCOZ9jkeRw8Uh4BdcuEI+Fb
-         5+uRmw7zsO75XK+zOhj0tVHUTDmO+q77YA77TQMbGQgHhsent25dW1gyBDdRchHGEZwF
-         gz+jVYjzOmoZVyfioFZrbgp5MERsWaC2KVKDq7VNZibdyXYkonFXLt0a4NN75Yu7EJDM
-         kjsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795748351; x=1796353151;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795748359; x=1796353159; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=btx3limhEerqDxGaD4XQgQujXJCSxle1lIB9AKeLA2k=;
-        b=nwpX9SwcNKbnIW6XM96RZTd6b5SDBvq38mFrsGCf7zDcjbBj2caMU96N1Ns+tPwTQL
-         S06uk/FfZ1pKh7KaWzNN4PzCjyqJEXHqTkewDoR5eF9M/Xq+zzVb+49XY7pigw4RhsuE
-         hy82MsnQlGay94a59eWkewDSMKdjh0mk9nwOjVUpL4eh9rKnOn+yg2leUFjDRrFO3SUZ
-         3XiYSqC8smfKHGvj2zEudXVAnMSZuGC2E1mL3Cma/bJE2wdv/9wATY+/FlPNW8EixxX4
-         qND8+73+edSSRGGUaFSgPlKcTrj4BX+4yo3wdsdfLuQwKryrZeg01uDmOWjarCtBTv7Z
-         Hn1Q==
-X-Forwarded-Encrypted: i=1; AL+hErEV6mRKbKvx40MddEnMr6VS9PBXcj5xpXvh6VEPVM/AxtvixRv8g4ItQvDe3++u+gezs6o2afH4eQo3G/U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8qUFVe8UxPKURHz0IFwnzN+gMBYeV74HYEXeq1ZrMU0LI+cxoH
-	M3OyPyThZ+muBFTdjpXyEg2gZ54LsqbXKHROYu+QZYA+Rn22XqZ1kwj8
-X-Gm-Gg: AZFdTZc2qIiM++Gebcrc9Tbuihhf4GbN7y8xjRwsqZTk0Rkikr1SQknFRzorMKbt0+J
-	G3UI2yjE6MrRl2KT9l7A9AOXL8vWCuTVcFEAyq43E965FTzN/49fPgDrQH9FxwbS6Z1TwvgyrNw
-	Wb4nb5FlKaGxKczRVBAyp1CZ3VE17FhfZM4iO93rpdHS9ujB8iIx4jU+zedqn2kvG6V0dL5/Fl/
-	+UJr7iQH4SuH2UCSKytxVKLj/TwblFG680j6XepG9U9LHYus4xcKkm4/4AFCC0lGFu36419A0B7
-	58y2T/ccZayVvj1tJwY4AoIEpVtmKvlK91iHPBrBeeanqjKQNAKw4cjQbHi/LpzM34B+FftQx8p
-	ajIBCmw1pIv8+OebbLe2uo5lsxq7ITO8YQfJwWBflCHQoTu7O4+tyFRzDqj7grw4Rct51RYEo3i
-	7H9XNRWNGM+M2bhD2exe4acAPpchqSsnNeeOfW7uFLtL7HfotQhtnFAMf3phQHnmiGxe0RxdmIz
-	F7bS45PQQNtwj92DQsmGaTOMDnOjNBT/PVEsYEMbqE3DttLgMOb8ya+GtI1plew2Z46VIhnbQhE
-	c1w4qpNFNd9giNbmaF77GHs4LA+vGVMgWciTlALZNcunvGQ=
-X-Received: by 2002:a05:693c:41d2:20b0:386:ebc5:4747 with SMTP id 5a478bee46e88-386ebc547e4mr1066918eec.11.1795748351083;
-        Thu, 26 Nov 2026 18:59:11 -0800 (PST)
+        bh=y5ExnJt0qck3DRDUPFaDvu8b7KIWwdeeXU4WMSYgy3E=;
+        b=u7UWmy9zeBeSOYShPfASmxB6MB79mAuvRSrMg5ptShul88p7K0FeVWEEuKP+nMH3AT
+         8NHIr6C8kkSn7PO1gMIwTzWF3z2mWlYY++50oj75CV0acS7S6ElLvdwQ5UKJHB23ltCi
+         oQcgyzs7pxcZcAt7GJ71IP7kcOZ9AZilZSmByfQHRvTp2sbhvAkF6XeZVEOF6dUcNH2p
+         XLBA81RWGXM+ixwiKnd7UEI1yV3eKV5/Gmi6/wb90j0bjlSG0viit36af8rtImPxgEug
+         eU3rf8RtjSFzZkncQhfvgXNAqHXL4vbrZKO3OemwSzLa1dXDHVYWvlxMaFwmoiSn6Tsu
+         5BkQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795748359; x=1796353159;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=y5ExnJt0qck3DRDUPFaDvu8b7KIWwdeeXU4WMSYgy3E=;
+        b=rv283V6I9bNqc6lxo3h/z86rxvgDoTdjDxNKmQaOXno2yuYyooUQ02mPQxD50+tOAD
+         QoQ5Bub1TX07HvQeYZqbrJKXdmXLLn5Jz6PmVHDVSjHnTn1MRsXy8kiPwyChpbRT43ux
+         WGuHsQyzuZGvTmj4TtRjcXuY5/wxOvxILVNTjQXAwYsIA8tsvs0l0rxhIZDJTQfnht+5
+         BQgh6BWD72pUezflgWNWQForXKVoHPHiNbrVlgo/5NaK+gqvvBGOigKU+2fL92/KaHlN
+         HAzuYoTh8YpCQncIlfTZ06EkzPW7NwVpKtvx449vVupK2lnAKaZthpPd7fxm+pDENRTj
+         iCcg==
+X-Forwarded-Encrypted: i=1; AL+hErH6hgOHQlB/6K9EebGj/EUxS6/NuuIpf0eQuiKuPW/HnZun638ldKl9nTDeTcjRYSgHSxPNbIxXalVXIT8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+LzL5EEA7SwB3YbDDcChoW6xX8tIZ9nOh7aScJ1xJVyoHDx5Nj
+	G2cIGKg0HqMeyUNvE24koFYLImj1mihwPd44X8oZ0h9AjiBrHAsqB5AY
+X-Gm-Gg: AZFdTZfpCieN4CckkJhPETJQ83WtLQr8hHFyRuzElOzerPJzpZVWm4AAPmG0Zns5Tac
+	inQkBWcyILqup31yLOI0JuUmNXDcqPs5b9bkiTlXGs6+9vrrcoYg9WPcpeDOkTJsEHuBptXJlro
+	bnNgh5zK1FNKvOnZ2I6wqqN7tUoPuxff503z1W4bi6nTC7PCSYRzrpqEOpVjbbiND6PjfI4rIV8
+	D8FrEBlTIYHWl+crDpm9PQAeIwxPh7rGcQpFZeE1OaYEYDQkRvr7gfbL+n7yIDBK9E+1fWHy2U7
+	PBOGVNhk1m+WTwrF0pT0P3wUhbiq6l+e+vV7/k5UiylCSXRUt+94ACdEdA2sqMz+7fdylGlt328
+	vKr82QwS31fFtxu5+BFWofLrD6o2w3chTSII8d4dIeIGj/sAoS4BYyQ4+UEChwkzHA9Lz8QJYeB
+	UE5nJIUAsEpVV32gJmeyp22OtqVVEKkdJCvz80BzlXxgCDd1g6L+xU80+qgpMkOeSp0mSGUEDim
+	wHlxActYj5gPOZhpUg2lcm3j9mhA6/t5sdUE/3glltwaR+W46XlsGFjbgr5RaV5NyDhJgXmsIwu
+	4js/wChTQaE5pct22e2fqOAUDsCecVcGqC1zu3F+p244k6k=
+X-Received: by 2002:a05:7300:cf1e:b0:36c:b138:651e with SMTP id 5a478bee46e88-3857093fd1cmr27144602eec.22.1795748358624;
+        Thu, 26 Nov 2026 18:59:18 -0800 (PST)
 Received: from debian.prasanth ([103.183.205.212])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566fdce48sm72013313eec.14.2026.11.26.18.59.05
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566fdce48sm72013313eec.14.2026.11.26.18.59.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 18:59:10 -0800 (PST)
+        Thu, 26 Nov 2026 18:59:18 -0800 (PST)
 From: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
 To: Srinivas Kandagatla <srini@kernel.org>
 Cc: Rob Herring <robh@kernel.org>,
@@ -94,10 +95,12 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-aspeed@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org,
 	Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
-Subject: [PATCH v4 0/2] nvmem: aspeed: Add read-only AST2600 OTP support
-Date: Fri, 27 Nov 2026 08:28:15 +0530
-Message-ID: <20261127025817.20090-1-prasanth.padarthi10@gmail.com>
+Subject: [PATCH v4 1/2] dt-bindings: arm: aspeed: sbc: Describe OTP NVMEM provider
+Date: Fri, 27 Nov 2026 08:28:16 +0530
+Message-ID: <20261127025817.20090-2-prasanth.padarthi10@gmail.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261127025817.20090-1-prasanth.padarthi10@gmail.com>
+References: <20261127025817.20090-1-prasanth.padarthi10@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,38 +112,55 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hi,
+The AST2600 secure boot controller also provides access to its OTP data
+region. Reference the NVMEM provider schema and use unevaluatedProperties
+so common NVMEM properties are accepted while unknown properties remain
+rejected. Cell offsets address OTP data rather than controller registers.
 
-Expose permitted AST2600 OTP data through root-only, read-only NVMEM
-for BMC bring-up diagnostics comparing raw offsets with reference reads.
-The series also describes the SBC's NVMEM-provider role in its binding.
+Signed-off-by: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
+---
+Validation: dt-doc-validate and the selected dt_binding_check target passed.
+The binding target used dtschema 2026.4 with a local diagnostic lookup fix
+for trailing # in schema IDs. No validation rules were disabled. Two
+unrelated TI type diagnostics remain; no SBC diagnostics were emitted.
+The valid example passed, and an unknown-property negative control failed
+as expected.
 
-Changes since v3:
-- Drop linux/mod_devicetable.h as requested by Uwe Kleine-Koenig;
-  linux/platform_device.h already provides the required declaration.
-- The binding patch is unchanged.
+ .../devicetree/bindings/arm/aspeed/aspeed,sbc.yaml     | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-The previous v3 series passed ARM W=1 and B650D4U/A3 read validation on
-upstream-based 7.4-rc1: repeated reads, pair boundaries, 40 concurrent
-reads and comparison of a 12-byte range with a vendor-derived reference.
-These hardware results are from v3, before the include-only change.
+diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed,sbc.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed,sbc.yaml
+index b8c5cac..d8e19c2 100644
+--- a/Documentation/devicetree/bindings/arm/aspeed/aspeed,sbc.yaml
++++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed,sbc.yaml
+@@ -13,7 +13,12 @@ maintainers:
+ 
+ description: |
+   The ASPEED SoCs have a register bank for interacting with the secure boot
+-  controller.
++  controller. The controller also provides access to the OTP data region
++  through NVMEM. NVMEM cell offsets are byte offsets within the OTP data
++  region, not offsets within the controller register bank.
++
++allOf:
++  - $ref: /schemas/nvmem/nvmem.yaml#
+ 
+ properties:
+   compatible:
+@@ -27,11 +32,12 @@ required:
+   - compatible
+   - reg
+ 
+-additionalProperties: false
++unevaluatedProperties: false
+ 
+ examples:
+   - |
+     sbc: secure-boot-controller@1e6f2000 {
+             compatible = "aspeed,ast2600-sbc";
+             reg = <0x1e6f2000 0x1000>;
++            read-only;
+     };
+-- 
+2.47.3
 
-For v4, ARM W=1 driver-object compilation passed. Strict checkpatch
-reported zero errors, warnings or checks for the binding patch, and zero
-errors/checks with one new-file/MAINTAINERS warning for the driver patch.
-The existing ASPEED MAINTAINERS matcher covers the driver.
-
-Previous revision and review:
-https://lore.kernel.org/all/20261121034053.39878-1-prasanth.padarthi10@gmail.com/
-
-ASPEED hardware clarification:
-https://lore.kernel.org/linux-aspeed/KL1PR0601MB3986A356BD06F98D0FF9AD5E80792@KL1PR0601MB3986.apcprd06.prod.outlook.com/
-
-AI assistance was used for driver revisions, validation tooling and patch
-text. Hardware tests were run by the submitter.
-
-Prasanth Kumar Padarthi (2):
-  dt-bindings: arm: aspeed: sbc: Describe OTP NVMEM provider
-  nvmem: aspeed: Add read-only AST2600 OTP support
-
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
