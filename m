@@ -1,100 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795798570;
-	b=XvlkA/de3VmrQkN2Fzn815voi+3gzbSw5p+rlvEeBlKOr+fFZUY6iW1VMd0VGvI4atfs
-	 aj2GqII1IiSuavmHCMiYR6052T0uKGbhSZSqzxPTEbqYZXhwFAhXuoY9R1Q6m8vumPYxn
-	 RJNiHTQAIXiMj6Z4TCWomB3HpYR4LyZ4q+lN2/N1hPq3QR6JMiMF9rL4Awil6jgSli2Bh
-	 ep+i8yOBUYRTClZmjua8hokzefwxA7UNTbCUQP567LGAQnRlq+pP0w6+O72QgGH4GmTaa
-	 ZWFa6/Zuut7xpMG7AjjilwH0gOuiL0eO9uKUSmNbwBZY929g0NcE1ZjR6t43npffWNQ==
+	t=1795798587;
+	b=CFZ1tcUaI5A7GvHUqFYSTxAbe0SVGrlaD0ovh1aOOXv1Nkj470W0rB3WoJA2+arnUT6K
+	 WJQUHGUbuERajE4+hJkGkSA6iKdA2NFtMiz5k4RMEg3iveX/iMi0LwS8I7vve/hdi8JMm
+	 pnpCrqbmUseNLjRSdPbP1FyKZdB6MzaeRs2NVPe2UBhDTZEFmL+t/p4LgmfL+qtzSX9eK
+	 GVhsBheoXqSnbjLYUZHCWXALTgLOv8LiVVDojDCdPEDhNX0mAgW/T76hzQNFRwroakA0l
+	 2xuVt/UI8q9CUmvS1/XeTwgmqulOmGHNFnLKC1UJ5Ac2z4VGHqHdU8BHpBarFEz8ISA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795798570;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=quHNvbQRn8H67Iq0kxiILrUyTDkIf1n5cs4RNseeoRo=;
-	b=1jjq/xMDk9SV63rRDakfDrelgRmlQCqFTH1iC1h63GdIz9jHXXGb7XYYARmY5J8lGX75
-	 9oMVo34zP2mufQqY7+bbaSgt4KUVlqOVX94ZBz/xwS2k4g9YR3znvAMHOX5ur43iUemzx
-	 qahEW8cxN3ciFGLHXyp6ekrh9qkOIqwRmxRJgENcBwkr91s0q1mXEImEjWPS3F2fuIAgV
-	 DgkMgyXCHbwgHA7MRJ4BnfioZVeCjUEyyPc0wZah0tV8r0hHGOk//zP2t5fRnI8jVTVlt
-	 3no+Yj0BK72G7/uQPljM8S0X91lQ7tpLUNgjKgAP8aGFxHziL8XNOoimT76H7tTtwEw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795798587;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:From:Date:
+	 X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type;
+	bh=Nm5GsoRVqPZjF7NiFim3iyXJW+IHzow3RlWZbSCsnE0=;
+	b=gDGhU54fR+CWC/KOITbYAwqlMGr/MbYpvTZL4PTdz9CvBM2Y5F/EAutTyWR7ZV3BwC7s
+	 ATK9ZgqHNqqcy0FA876lThT/JBtHbvaNzcIj69dC7k+g2rtOqBaXq2omw0KA4ANqY5c0C
+	 4WJSpOmQAf5X9LCYOatjNDrmfuOeevRDNG7MsEFJ3or15GtoocXEzGjqsEl/3R+5d2Gu6
+	 Bu82zE7+vlb1mAOzOiLo2cwlr9z4NXZ7YO0Aik0aAwybKlgz/7WdzRcTENZZysiJrTXtu
+	 stcqlGChhQoXR7x5g5KcoOgu8qvqqFwQLyQ3ryGu82MORYYjSKw+f6mHjmzvqCYA2iw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=slFQninl;
-	arc=none smtp.remote-ip=209.85.221.42
-Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mjskCGsz;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C60E9606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:56:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C60E9606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93C3F606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:56:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=slFQninl
-Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-490d59c3edaso5666697f8f.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:56:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795798568; x=1796403368; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=quHNvbQRn8H67Iq0kxiILrUyTDkIf1n5cs4RNseeoRo=;
-        b=slFQninlxmbGqzusDFzKTSdSae0xCitAw0Inxz2dycLHH2As7Sm/l7iooX9Hm3Tq8Z
-         bzViPFyQR+tpbRX/8ClszfCr0MBMfYFUBIEi/xTOfw1rpzVYmc2ZOiGlpqE/LNNUh20F
-         9pAUaRI6to5l9Il+y9wLkxzmF7jmQ/+BxZ0KQUQEcTEiyriEvPx4CL0ULqXoeTqpQjkr
-         yHNuG2fffgLge2SgbANo6vpwMV1KFb0h+QERfmfglck7DJDFE5wGJxwMSK4pWxzTjy7O
-         fwh+RqhlwkFkOsXHpFm1wc8YlUmeL4n+VTogBbI4OtB19fJVtfkctfE924xBnrmk78ph
-         F2tQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795798568; x=1796403368;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=quHNvbQRn8H67Iq0kxiILrUyTDkIf1n5cs4RNseeoRo=;
-        b=poIm7oHeBAh0MRrXaWPJa5garI06fMfncaDKMETx3ykQD3snBFnLgeKZsQKtB2RlJm
-         eu7pSqJHEGbVA+E4f40AOpemYXZRhe3H7B6UQB3ypjpz+Gasl9COpnSxdJkPP+EU9eBc
-         pg7cXAOtuHYS/IwzAhhgEC2P0c2W3IYS1jjLy4AOWlrcUWj1/OC9S+3Ki35OIzM5iZWX
-         DEl5SSp27pt82IwkBcwqhnCy5QY65fRGpdz1PFFsX/L9Q6PhxzvnIyH42pcgqTTYcJ+b
-         lVBx7xgb0HmDHBzDIxqtbUQb6VMITYURl1odLjnuXScqmLOYAk2gxT9w6yPTICs/sg4l
-         O59g==
-X-Forwarded-Encrypted: i=1; AL+hErHyCuK4OfbjKFmm949giPAC8ffU6ofv6upUa2ACl/PRwZAlrebO4Ca6mw2pV7FTCXO0R53xaMfwRi/K4gU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9pE2RfSnVUQDaZqRL/tKleSJCrB2W748ak7z7l6Y+Peo3k0GMx
-	i0QXP22LP+pqMDL/b6qzCKmENLrzWSoW9sV+aRDrKdSA1tkrQIMHTl0H
-X-Gm-Gg: AZFdTZcSrqlPyA7fOzNfKge1pVaECWuhaL2sAf2fkUc42YGAhGCQqgA0CGF+dqkrk1X
-	aSyjon1DjWKMjd4fVBxuIeRGrBh+zrY8o5ng9kYJwvyymJw+8qH2ZzAJ75mkAxL1+0dp0+If9iQ
-	hgq0zYDJr4thcf6HJq1SMAi3wGxaqks7pX/lPXqU/JR7PrTkO5b3uOVah+L5mTSCSZoeLw681/3
-	wjp7BpvizFjqMzI+6SWKAssQOkWmutLw0FbGyEcrNZUzK2pyPdsE237I9A1l+KQH7kq+bnekgyi
-	Xw5rh3SJWEPXteGi30NBB8eAfjttZ/coq3K+676/OezF+KoD3vOWMKaFCzE3P8ElLBGEsOJUxic
-	h66oJtAV922ikHtobphEMs7aedQCWRIafePNhPG2p60PKvKz2nDKEwPVplgnJlOp97NxIlcn8wF
-	/u0EAV6vJQcAzZQuwSSpz2C0uxDWyJHpQWNSC8npEBVRCg7vnhoou09g4qGHXxW4CJdxoZW6pBd
-	s3APPDiLSidYXrCkfvIwU/oc8DW9biFrEEDyKDksNPz6Ly5pDFYUbSWvpGY3GbXst/TG0tFEHW1
-	Hl8Fwimp4X4goqC1kZuJBYpkL7wlPwwqAFFeL5MLucZvG03KxmZ0eHYHOzYbU0dFTV/y19jgiAq
-	z/VL8tIX+3Or6MNy+8c09CteK0cKCY3O73mlaxO/JsylDRtZftet+
-X-Received: by 2002:a05:6000:1acc:b0:4a7:a8f:5297 with SMTP id ffacd0b85a97d-4aa57b91bbcmr55960348f8f.19.1795798568084;
-        Fri, 27 Nov 2026 08:56:08 -0800 (PST)
-Received: from othello.home (103.153.90.146.dyn.plus.net. [146.90.153.103])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa3c4dsm40575449f8f.46.2026.11.27.08.56.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 08:56:07 -0800 (PST)
-From: Cassio Neri <cassio.neri@gmail.com>
-To: thomas.weissschuh@linutronix.de
-Cc: jstultz@google.com,
-	tglx@kernel.org,
-	sboyd@kernel.org,
-	mlichvar@redhat.com,
-	alexandre.belloni@bootlin.com,
-	linux-kernel@vger.kernel.org,
-	linux-rtc@vger.kernel.org,
-	cassio.neri@gmail.com
-Subject: Re: [PATCH v2 2/4] time: test: Avoid unnecessary divisions in time64_to_tm() test
-Date: Fri, 27 Nov 2026 16:56:19 +0000
-Message-ID: <20261127165619.40736-1-cassio.neri@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260903-time-time64-to-tm-v1-2-660be972adfc@linutronix.de>
-References: <20260903-time-time64-to-tm-v1-2-660be972adfc@linutronix.de>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mjskCGsz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A00D1F000C1
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:56:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795798587;
+	bh=Nm5GsoRVqPZjF7NiFim3iyXJW+IHzow3RlWZbSCsnE0=;
+	h=From:Date:Subject:To:Cc;
+	b=mjskCGsz2pDTrTgeONRGn+PMQABd/uH6PeN26AYNzWZhyYa64nEaGLZzdHprB93bG
+	 NnJoYAKbEpMpV8rVn5tOtyhrpqQ8yl3LKf1UVC26d1ZyOzlL1xkNw/4WA5fL4CIazj
+	 V2rerAfFPSROYqP7t1y2wEnbMCBh9w9qJIFfbh156bu82NADA7VOSwrBfIbXbzoBWo
+	 WP2QxC2phptBQxl80m+85MZ8tfAcbvO1MQA8ev9tqjtithDksiJLsxxYGtiB/LZchR
+	 XvTsP+2k3fWZdcrJlAb8q2J6jpnqZnmP/ZWO7esQewRUInDG7nHDKq7zoVtWVbhJrD
+	 1XFlgCaPTKpoQ==
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5be3ed646a5so2196582e87.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:56:27 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGlur32BZ7OOczPs1x0BUDsD7w1kJAXhqEiuBhTeko2qizMKpF6rmphpTpqFJXuYo0QEQc6xjgzraXTBq4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+dIHRRGtLHYCpAUHsTaXBB9TzUXPOxdAbJdQw8KgU5wCe5pdB5
+	ggMexe0FUQVhrC5avofp+9RmILKjjhsw61emQFmFFkmfjav7YQjN3j2PjbPwNtoE+RRE5t1E9m5
+	RJS1lC9kJ95ylrP1+m4HgKZcGHt5fhN4=
+X-Received: by 2002:a05:6512:6695:10b0:5c0:bca:77cd with SMTP id
+ 2adb3069b0e04-5c1bc803ecamr5353701e87.42.1795798585547; Fri, 27 Nov 2026
+ 08:56:25 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,8 +59,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Fri, 27 Nov 2026 17:56:12 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0jwg0cGJgPnP2SaXdcHWpW_5FPq25McuQmh9794L5QWpQ@mail.gmail.com>
+X-Gm-Features: Aa3M54qnjPoJ8mF5BIzTgERRjtaFuU95ItH4SUcHBADTGze3jzpDHyS5YxxH9To
+Message-ID: <CAJZ5v0jwg0cGJgPnP2SaXdcHWpW_5FPq25McuQmh9794L5QWpQ@mail.gmail.com>
+Subject: [GIT PULL] Power management fixes for 7.4-rc5
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Linux PM <linux-pm@vger.kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
 
-I agree this is a good change.
+Hi Linus,
 
-Moreover, this test is overkill (my bad!): it loops through every single date in the range of [1,970-80,000, 1,970+80,000] years, i.e. a total of 160,000 years. I pragmatically suggest reducing the range to something more realistic. (Unfortunately, I don't have bandwidth to do it myself.)
+Please pull from the tag
+
+ git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git \
+ pm-7.4-rc5
+
+with top-most commit 569e1eb36b033f42a9c363ffe4bfbf50bdadae51
+
+ cpufreq: intel_pstate: Use dedicated lock in set_power_ctl_ee_state()
+
+on top of commit b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+
+ Linux 7.4-rc4
+
+to receive power management fixes for 7.4-rc5.
+
+These fix two issues in the intel_pstate driver including one recent
+regression:
+
+ - Prevent intel_pstate from triggering lockdep splats during system
+   resume due to suspicious ordering of locks that is a consequence
+   of a recent cpufreq core update (Rafael Wysocki)
+
+ - Make intel_pstate refresh cpuinfo.max_freq when a CPU goes online
+   to avoid using a stale value of it (Hugo Sales)
+
+Thanks!
+
+
+---------------
+
+Hugo Sales (1):
+      cpufreq: intel_pstate: Refresh cpuinfo.max_freq when a CPU goes online
+
+Rafael J. Wysocki (1):
+      cpufreq: intel_pstate: Use dedicated lock in set_power_ctl_ee_state()
+
+---------------
+
+ drivers/cpufreq/intel_pstate.c | 52 ++++++++++++++++++++++++++++++++++--------
+ 1 file changed, 42 insertions(+), 10 deletions(-)
