@@ -1,106 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.20
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795753402;
-	b=tFPACzOlipMKAE/TPBTuxK4/b82cLLwDd+Uzh7Pi2U6EeeWuvG5SHd9BEfbknYBVDjRi
-	 x3ItCyGIB45GQ+t+VrM+jc+UN1vlLFUBGLUgIOx9gU8Jfqry4ouXnZivzTDUBy+4S2PDn
-	 Nool84eTfldCx3QwvctgfnLZpfuiXUnXFgJs1+1zFsKQm1N05CayMvgN859Sjtahz24CH
-	 xDCEjqeXwoz0pD5GhHQsyDyxmz67yGx5N922Y28AG2Nj3Aika8VZkpu0SbUgiqWfRikgy
-	 eVujWXueLoqTV3JX0q7mTyRZE0ogQHq4Y2nA+WFyQp552ZejIXLQ/qIFvZX3dVHh+Mg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795753402;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:In-Reply-To:References:Content-Transfer-Encoding:
-	 Content-Type:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=wv3hLfr27B6NzlcW8dssAXAsKC/NEE7uUw5Wd4Z27cA=;
-	b=jYys6M6mP7ONnHmAbQQRjKBWN0tpOR3JrKBU+dyadc4j/vPnZcNRbzKYsCK5FnHHKFOI
-	 6RHK9S2nkE/RvdQElpKp8jRJR20GbOdbeI4wC+ZMdERToVbwrjql1p4phHkedcRqCobGQ
-	 C58MiKk3dr4G2Z+K1sQQtkawyyDIx4+6u13iVT/M35iMR9vmmJCUpnpImu+eVFCLQhCeu
-	 N4kt25AYo0v6irttHBYlG4zHiMcBwPKfSEgqnbSK8J6lrl/c38v40pCoFcjDGxmd1nOJ3
-	 qTGlgikAn/+0NSEIj+0bOfBTBVCSJX1vtYmoWykrUEGZu7+XlcGI/RVrgLFk+aCNPSg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=j1F0r1Ie;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.20
-Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazon11013020.outbound.protection.outlook.com [40.93.201.20])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.171
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795753404;
+	b=VM1euu+wSIFd2sGsTZ6Kc55SgHEta2CRVhdAIESsIN+teNkIyOsCGo5GheDc/OqWWH7V
+	 8SJRPr180JjxHKdrEjQC+tvoN6eDv9k7cAoAiExz53m88BFfdO9fXlQyscjZq7OltYg7M
+	 mP57ElTCs4bc2CnpFLFfxvk+72CveSSNDKf5V3+hztAnqhh4QTXn+0litZBt22Fh5lW1p
+	 zxDlApZm7TeEF1NPoMwrxa4EzlrJFYflGWCEeUEF8oaTfsOlVn+0C8CMz5eImEtqezXEA
+	 8kEl0SK1Vr0GR0FFnvomiGgJ1/UFaHY5a8QWW9zlakZZOQ2/mJycTUQCIP0AT8SbPPQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795753404;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=1BaKIU6RyHm4uLYL7siFlHHLhu8ysXSv7TovvsZd2hY=;
+	b=2vdajgBeT+ZmVPfXkWZk1JJ462DYL3YtIdLEdz9k6qRh5FiPOxWeiiD1FBUnBBp6Zu1M
+	 XYXZEuEorbaoy905wJad4l2cqPoNI8nn+8fsU3UmPAsVI+NT1RpsKxy9zXVI1N9Zl/la3
+	 mE9bFeRCduyLubCtr7q4ZImSHZvETARsy9uN8ABppS9tQHTPh/w4feBVLFOjuDCeZt0TR
+	 6oPNv76l63OG18na7t3ubDucVYkTkV8apXqM71nZ97xLUhU90F2wT9CC7nCtIu87bT9Rw
+	 dZelusNdJs+vjPKZNctM9S9olbeCQ3csanPY4x5mFNrI+sv0tqJSi1lDtNOr9AvJJTQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=y5IBny7H;
+	arc=none smtp.remote-ip=209.85.210.171
+Received: from mail-pf1-f171.google.com (mail-pf1-f171.google.com [209.85.210.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3946C606A321;
-	Fri, 27 Nov 2026 04:23:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3946C606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B624A606A32F
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:23:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B624A606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=j1F0r1Ie
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IL++x6tYHf4N8A53zzlCwdV6S4nAlMtHJ5aa5uGcYjEwqb28shZ4KE4ZajTAGOYeR+W5JX2Ry8203Zu8ZR4Ugmn3DYNrXYpG9P0yN5ZgTmtWF6Phm3trKTC+sN5gCDK0vcNkyefJJaI+VL9j7I64+0hUwbIEVACC+EaUkyOcbWIJWDU8VC1dK16M3xwYe0LIgtBCUd1lSuMbmBm1+7udOFq51BQxw6E7aHEBF2TEh1+FrCOUti7r8psNwwECv+wF5qVAgqJRT54kkjVqwS2ywgfioCDHbx9HG0VHXnjz9tycGzlUck2tizQ1C0Iup4JGe5OG7hyh20V4tm+Bq20gJQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wv3hLfr27B6NzlcW8dssAXAsKC/NEE7uUw5Wd4Z27cA=;
- b=K85FI6mvp+au5AVBsrI25ITA62QJRwKPGBfTHT95dNowr83ovVXfTsZbZHOb88YY+Zszh8PJcJqPNMFoPakuH84TXPYi1LOgKRlmz4m0QHItzR8lA5qgPFG0G/6VAce+xXP9gOhdzAsU1vzirAPMURnyaC/DWgzHB+umkEL0BctTytMjM9i8LNuOB5x74yZkJ9UZRNgTHFTxsMaeIWrpiAeDFxpdIFV6fIN7b0PHCQzAATqKdo/4bZsvDJEKBJkuwjfN6nifD9exWHmjw/l3Dfbiw5dBMWohGNOuYC/XpljkGzjEScHAww9AiWuSv4gadyP8KUS95XWhRpJsRiTD5Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wv3hLfr27B6NzlcW8dssAXAsKC/NEE7uUw5Wd4Z27cA=;
- b=j1F0r1Ie/bOVwnJxJhGaogYbZwhY+DsA5sSSqk2oxri0kzUlbFTNUcJAgVHmUYZbBnqp3u6p8wMN4fw2OTRxPMAW9RVzaVI00YoUGZ/raJYwYmgtRGzmzCiPkeHOmjCE348lCE5K57HF+o+YDPsBTOoWL9mLs4mSOhjwes431ATFvsKBww7jl6yZOh3+8LBVgQjNvTxj14q5oxtHjKt8Eb/vEWdwVQ4sI0Iifm+1pXgkDgf/zepuluqorrTIRvvSJKiABNr7O1sB7dpwa1F0DRqWsY2vtWkbGHqrtcH7Qa+slWTplVkLHaHIqbz9OYH9Oycd1lUxNxgv7s+qdHr91w==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
- by CH3PR12MB8584.namprd12.prod.outlook.com (2603:10b6:610:164::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Fri, 27 Nov
- 2026 04:23:15 +0000
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
- 04:23:15 +0000
-From: Mikko Perttunen <mperttunen@nvidia.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Thierry Reding <thierry.reding@kernel.org>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Jessica Zhang <jesszhan0024@gmail.com>,
- Svyatoslav Ryhel <clamor95@gmail.com>, devicetree@vger.kernel.org
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
- Svyatoslav Ryhel <clamor95@gmail.com>
-Subject:
- Re: [PATCH v8 02/12] drm/panel: panel-hitachi-tx10d07vm0baa: Convert to use
- MIPI DBI bus
-Date: Fri, 27 Nov 2026 13:23:11 +0900
-Message-ID: <hlO8KiQKSi62yShZAIyhpw@nvidia.com>
-In-Reply-To: <20261122081820.53199-3-clamor95@gmail.com>
-References:
- <20261122081820.53199-1-clamor95@gmail.com>
- <20261122081820.53199-3-clamor95@gmail.com>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-ClientProxiedBy: TYCP286CA0246.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:456::12) To SJ2PR12MB9161.namprd12.prod.outlook.com
- (2603:10b6:a03:566::20)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=y5IBny7H
+Received: by mail-pf1-f171.google.com with SMTP id d2e1a72fcca58-8a06e79e152so3716459b3a.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:23:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795753403; x=1796358203; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=1BaKIU6RyHm4uLYL7siFlHHLhu8ysXSv7TovvsZd2hY=;
+        b=y5IBny7HH68eK0w/Sp7pYtuYtVH8a2JBBKq7C6Dm+nXqGdCNMFMgfaRVW6NJN0RwtH
+         sqFcoGRIS0/SbdLn1rBLUewRUR9j9iiXradLxSlelYGbJJukpLS8pTqopzTTAJ//FBTR
+         nElerGAo+l7xbZMdRIcTEC8Q3wAP5FgrewZdXW5YHkm9IuyKAxiV2PurfbYzHSybkqG6
+         RkOxsBfmGVjepCUZjbbX7tiUflM47OK+6map9Cqu+jwI5plpvHAWjMqM4NRMwofoB+py
+         dUmP0KyotTXGyWz9Z/ZnaVdMhn1HFFZeNXdmveLakQO/4PX4QtmqlJTVkveKk7I/A+4p
+         TdXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795753403; x=1796358203;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=1BaKIU6RyHm4uLYL7siFlHHLhu8ysXSv7TovvsZd2hY=;
+        b=hcaujz4HNosW2GuFBYMfNMoi0RAziVyMXZCw1gV23B0nRC+/fwMXl9241+PvyAesiV
+         cmXw6YdFF3gE2I27yDdEbnNWo6eBHE0VQbFyCzjYunr+gidbnbgpSUcyx5Qlxh6APzlS
+         218PthmP/yjyhPApZnabQaWCPU+wBLrNTRQyfdIS2X2SE7A8a6lrL78LdiLMn6QZ37ed
+         AV8E+LXtA2rQuIFOqjzjgl2ugy8Dq+jni83pVq4h4ubuSTwE5hZpfaL4F2LxSYLhMcNj
+         2mGeFbwhMQm7gL5qJ/ViTjPeUKTXUKhvQ+/rjZR2T4tA6XyifJ5CIFaasm7e1/V3EAPw
+         mFmA==
+X-Forwarded-Encrypted: i=1; AL+hErHaMP8VxqfYMQREIvq9xPmLonBztzr+lc+v+Z6w2OTu8PB5xo1Q7Oky+EeCrbfWzAcxt7ABYY4w1M75SEM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9FzgvPXTBEF5y86w8x23obxPhej4xLC7YDCJ+trqP6+odV87qV
+	AOrRHB3A4eIdvS+4ROBGwvP0fjdbgf/7OJPDeoOXko4jMH9FWWwScXINOdSnUvOZ+tk=
+X-Gm-Gg: AZFdTZeW9arp1nHGhIPxLH3AxwDSazZEA77K80qxL0nYG0ZaLQYNKOaTLOCaDS2EAVD
+	a7BmRdLhYx2bGROGJ5eHoZIn+pmoawGtoLIEz6/MXnkxX0rZzgZ9iHZWC5rggqKBeHsZGKJFoS4
+	2gtD/2TuC89FWZP05Dlauzxdp7AqTB9y+XiY1djZZAM5VZ4fPvnMK+0Bfuqn/gpXrvZHCaYk+AC
+	a30K4yzJruM8i/J9xnBp1tO/C2op2uJlJlLO+oQTSHdofrqJyWj9tG/LnnHDng53rnSaOXPTJzY
+	O1AXUrlWpzlf5w78Z7O42zQA0fhLLgjPt9ea7ioK3/v2VK3RjuQ2SuxKypAD/24EnzSHwYc8lBr
+	has3Ppc09zia0EdW+LPUuN4df/tRrT0YUNDkbI5F9lvot+YNsvzdLhaNC+j4dOprdyWZuvGnVPV
+	kyv8YulWfe5GaFe/1Pn+RcMCXalPaGGNOk3/Xj/evOo2kL+9RZP6XGe+9BLLZs4QUzSKFw5W+JP
+	fpHBUSf9AQabMcqoD4N/DCN+0r7sqr9sByf1zCwXbE1IiWq8dot/Ghw1Pei3b+J8vjyKvc9q8se
+	CD6x9yo0c2og0HYdd9LSGGCiu/Q8jtQ+cytyl4PUGH/waYAfGiGDRjx2aVbxVEcd43w0wcs=
+X-Received: by 2002:a05:6a00:2e15:b0:89f:ed3b:df97 with SMTP id d2e1a72fcca58-8c87d5169bdmr20962882b3a.51.1795753402978;
+        Thu, 26 Nov 2026 20:23:22 -0800 (PST)
+Received: from fedora.tailc1fb0a.ts.net ([172.219.65.15])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87353b333sm11569218b3a.40.2026.11.26.20.23.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 20:23:22 -0800 (PST)
+From: Artem Novak <artem122novak@gmail.com>
+To: bcain@kernel.org
+Cc: linux-hexagon@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Artem Novak <artem122novak@gmail.com>
+Subject: [PATCH] hexagon: irq_cpu: fix typo in power management comment
+Date: Thu, 26 Nov 2026 22:23:19 -0600
+Message-ID: <20261127042319.129087-1-artem122novak@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,201 +95,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|CH3PR12MB8584:EE_
-X-MS-Office365-Filtering-Correlation-Id: 34e5bd54-1201-4aba-e8b5-08df4c3e27e2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|366016|10070799003|23010399003|7416014|376014|18002099003|22082099003|921020|56012099006|261022075727099003|4143699003|11063799006|261022113327099003|261026121527099003|261028144727099003|261021123027099003|261102123227099003|261026140227099003|261009223027099003|261021121427099003|261022105027099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	s1aIfb4U5ziA1fvfRUC/dKPWOQpUhKV5eD4KDAb73EpFj+RXZASfUfh4HFwmWdnWSclh8a19t8mIlNSpdYdL/9AEh5ioby1YoOIwVSoE5eAxoz6fzGhpLk073Tz3sUmi/8PFydQIJQUbdPbDxz3WHVS6IBSQdAg4IyRdN9XUjk46IdRSbXi2TVGXCkvFkcxV+bUAGnCv3G4mlpEgVx5vq6mgAD6DcUx1DxhNr+/2eIi6ePmaxTsz+jeEpHPqO5XLgMqIUGj8cMaPw+nEGKepswlQaMoWTlLNa9ZDzcL00u558+6i1e7eu5liDggVJP1aNlRE6wjlKeYzxcd5IrXVNhM5EKnAf+Irk9jwVW3zt0El5hFe8+woT0G3lwmsOXq9Byz+IS6Dl7gqukcQy6oZakBm2miRv2DBBdU5bhR7vCsmdn9WEKDFdLklZxclrYnESHhFmT4HC3fMhIV6kqfB6U3pzIkP9uWS+0S7YCl/8xPoKM72xClhzk/KGI8vZvegh4qPuN73NU4V1cgcUw4eRUj5QiYUPqdVTV3e/5iRkntq+ji4ei+cg1sSSM9hTM+/ezjJmOnMF9glMOpb4owQ7UNTlLJ55Jn/zXN4EMCNu/wzLpmS6jO3TJGyxBkLea+8tErEdKyFMXGgUobiKZeLwHcGFRudI+283NH3rqzM1301qqMpWtTyq9EPl41jQyEsYwATbIJdroR98Klsyy5eTw==
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(10070799003)(23010399003)(7416014)(376014)(18002099003)(22082099003)(921020)(56012099006)(261022075727099003)(4143699003)(11063799006)(261022113327099003)(261026121527099003)(261028144727099003)(261021123027099003)(261102123227099003)(261026140227099003)(261009223027099003)(261021121427099003)(261022105027099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?UE1Kd2FsWVFmMXErQzRuV21nM0xxU21wdEpESGpISEo1M090eTF5L3BGQ3JD?=
- =?utf-8?B?Rzh0My9uVUZObVk2SnJZYTNHK3FkY0NLUVluQU9xQUFpRG1lM0QydFQzdTVJ?=
- =?utf-8?B?Q3FxUTBvcEpvN2JaT2twSlYyZ3hJRERrYUJmWEZMSS9sUklRMGhRblNBejBP?=
- =?utf-8?B?dzdXbHdWcVhObDVPcWUzN3NYM0s1RFIzQmdOU0tNTVdsL1NVTUhFZ214RTJ6?=
- =?utf-8?B?VVlhSGFYSWhvYUQxdVlHUnpiVmg5L1BGbU01eDVhVXl1MFdGVEk0aUZmYkxm?=
- =?utf-8?B?QkJrOEVmN29uN2p5TmJqS0Y3RjR6eUVHcld5MldiekNTQmdpSEx2dHk2UHpP?=
- =?utf-8?B?d2V3VUN3VE16YTY2OVgraHBqWUVza3ZjUGhOTERvQ2pIbVFsMTlKNE9Eb1FW?=
- =?utf-8?B?bUNJZGZCT1ErcVdCOSsvRExGMWs5R0t1cm9TUDYxQ0ppbVg5N2dsRW0rSlhi?=
- =?utf-8?B?VE1rVHdwNkpTcEhsTklZMlB1M0pwbkxJUFVYN1VxakczSFJzbW55blFIazk4?=
- =?utf-8?B?NU1wR2E3aGZ2T0VpU2ZsVUJGYmlJaitoQUVEbFZjZEZ5MFhpYnJaUTJsL284?=
- =?utf-8?B?eWJ1a3JtWnZxdWtFcVVrK3VVK2hZUEJYbTd5Q214dEw2TXBjdHEyOTI1cGgy?=
- =?utf-8?B?QUhOODFNOVdxWmtDSHlIY2FVTmtTTnNOajZCdVJPMW9FUk42YWVwZVQ2cCtU?=
- =?utf-8?B?NHExWFdrOXQydGZaYTBSZm5JQk8zMVZKeW41cTA2WmZiYzhha3ZsNkFYTlVH?=
- =?utf-8?B?MWNKR0ZHYi9xcGVBVGdqSlRCNVIrYXp5UGhnU2puakVmcW9ZTnI3R1VHd0dN?=
- =?utf-8?B?UlltcHUvSFJ6aENwUTBEVDBwWUdoRU43clUwdjVFNUFrRTJOUEU5UFJPazhN?=
- =?utf-8?B?bStHS3NmdzJaMTNwTGJkUmx4U3FwSUhTZ2NjUVcyVFdHeHJoRExldk1WalBG?=
- =?utf-8?B?czB4UFVTd0VyZXczVWpGMFBxdUY2QU1NNzhVZmw1aTV6OU5JOU9ZMnRWZWVJ?=
- =?utf-8?B?S1hiWFluOHBTN05KZVNyMUtPRlk3MERqZ2NMOUxsd2FmbEQ5TWdUVzl6dXl0?=
- =?utf-8?B?OVY5a3RwMlREZWZJNHdQb0R0UVNQYUpuaEVNYlp3L0xrZmlSeG9EbGZjS0xL?=
- =?utf-8?B?UkFSTzdzeWRsNHdYalZuWnVnZU1QZGtWNnI2VDNESW5NaDR3THc5YXNIa2lx?=
- =?utf-8?B?M3p4SUluRnhmY0tIUWp1N1RSRWxnWTk1WXZKWEs0MGNDVVBnRXRrOGkzb2Rr?=
- =?utf-8?B?UTBldzVhcGZacHVQOS9Xb3creUxjRDk4a2R1dmtXY1h2WjVKbnpRZ01NSVFH?=
- =?utf-8?B?Z0FidTYwR05pMEZxV1VaVTk2SVViN253a0d1SEM1L2d1aE5ZRHVqUCsybmY0?=
- =?utf-8?B?anpEeVFvbEF1dm5obkUxZHZkOHJaaUMvN2hhanNaekkwbVkwTm9wSG0zZVBV?=
- =?utf-8?B?NnZpR1lzbVdibm94VUcwY1dqMEQ2SFBxMm9NcjRZWGdWOW41OVNaakpnSUVT?=
- =?utf-8?B?aWlvYzFVMEUwYU93bFZ0TGErUEhCK0hwYjk3Yk9CSkczdS9QbURreUI4WlJP?=
- =?utf-8?B?SmtTT3lQUjB1RDhmcWNBcmVwcndYd1dyWGt2RWJ2VmJCLzhocVdpNjlvZUs3?=
- =?utf-8?B?d21GOVI2YnVjYnRpajMxSHYwVHJsK0dXZzlqRldab0RSZmFwdTB1aE1jQXRu?=
- =?utf-8?B?dUpvR2lKRERKVXdqM2VHVHpmLzI4M0NsWlQyYU5lWldjZnE5VXRDbzhwU0l5?=
- =?utf-8?B?L3U2ckFQSEtDdTNBcDFlYThNaWZLN3hLbUw2T3BPNWMzcFNtTFp0eXpRMWt6?=
- =?utf-8?B?d3JSZ1NpbEJpbzlFMktJRzNwNGtyb3Q4RGNLRkVOTS9KVzIwdWNoQ3ljQzJI?=
- =?utf-8?B?UGtsVUhYTmQ5UVVJNVExOC8vYXZId3FFcmZKMFdYbFkzYU9pTmNJVms2N2Ju?=
- =?utf-8?B?K3JJR3JjOWVjUGIvR1dXczl4M2RGYUgwajhWN0U2ZFNITDJseGg1a2x0QmFj?=
- =?utf-8?B?ek1ITFNWM2xPRUJQUmdWVkRTRTJLOHdBcVJTRG85dEJ5WFBQSHRFaWZNMUFS?=
- =?utf-8?B?TElhTUp4MUx4OFF5Y0h4V0kvU2MvRkwyV0FZYU1NZ21kNzRKdlBvbGt4M3JP?=
- =?utf-8?B?Ri9qM3VhNStJWUlKelA2Wk1jc1Z5blNtU1RudXMvbnRRRWI2TU95N0tqMHA3?=
- =?utf-8?B?Q2J1UXF4MHMzdStnTkVPdFpnUVJ5eWZ3SE56TE51b0lVelU3d0dRaXRIZEJ6?=
- =?utf-8?B?L3FIVk9xaEZvMWJES01idFZIMDFScWlOellJdVlKaHBUOHpiWHRiOW5NbmUz?=
- =?utf-8?B?WE5JWGFOQVQxeEI4TVdNMHo0bVhYYnY2U2JJNjI3Tm1XWWJURDBlYjAxbWlD?=
- =?utf-8?Q?TBquAHVGm+neneT3cqKvNKrY/QYCZgiv5ZDdYbAb1kKfn?=
-X-MS-Exchange-AntiSpam-MessageData-1: 2WP9WCQ1R2WvxQ==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 34e5bd54-1201-4aba-e8b5-08df4c3e27e2
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 04:23:15.2776
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JrTrNI1KygeMlHwKohIyEqwzwOhAos0yjYBWVJAqHaJpJ6YmLK1+sBV8eyiKt380szD+FG0TtgP73GD/Ssr2dg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8584
+Content-Transfer-Encoding: 8bit
 
-On Sunday, November 22, 2026 5:18=E2=80=AFPM Svyatoslav Ryhel wrote:
-> Switch from a generic platform driver to a dedicated MIPI DBI Type B
-> driver.
->=20
-> Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
-> ---
->  .../drm/panel/panel-hitachi-tx10d07vm0baa.c   | 25 +++++++++----------
->  1 file changed, 12 insertions(+), 13 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/panel/panel-hitachi-tx10d07vm0baa.c b/driver=
-s/gpu/drm/panel/panel-hitachi-tx10d07vm0baa.c
-> index 83c2af1be9755..318ece68b7806 100644
-> --- a/drivers/gpu/drm/panel/panel-hitachi-tx10d07vm0baa.c
-> +++ b/drivers/gpu/drm/panel/panel-hitachi-tx10d07vm0baa.c
-> @@ -14,6 +14,7 @@
->  #include <video/mipi_display.h>
-> =20
->  #include <drm/drm_mipi_dbi.h>
-> +#include <drm/drm_mipi_dbi_bus.h>
->  #include <drm/drm_modes.h>
->  #include <drm/drm_of.h>
->  #include <drm/drm_panel.h>
+Correct the spelling of "management" in the wake call comment.
 
-You should now be able to get rid of includes of of_platform.h=20
-(replacing with of.h) and platform_device.h. Agent says drm_of.h and=20
-property.h are also unused.
+Signed-off-by: Artem Novak <artem122novak@gmail.com>
+---
+ arch/hexagon/kernel/irq_cpu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> @@ -25,7 +26,7 @@ static const struct regulator_bulk_data hitachi_tx10d07=
-vm0baa_supplies[] =3D {
-> =20
->  struct hitachi_tx10d07vm0baa {
->  	struct drm_panel panel;
-> -	struct mipi_dbi *dbi;
-> +	struct mipi_dbi_device *dbidev;
-> =20
->  	struct regulator_bulk_data *supplies;
->  	struct gpio_desc *reset_gpio;
-> @@ -40,9 +41,10 @@ static inline struct hitachi_tx10d07vm0baa *to_hitachi=
-_tx10d07vm0baa(struct drm_
->  ({ \
->  	const u8 d[] =3D { seq }; \
->  	struct drm_panel *panel =3D &(priv)->panel; \
-> +	struct mipi_dbi_device *dbidev =3D (priv)->dbidev; \
->  	struct device *dev =3D panel->dev; \
->  	int ret; \
-> -	ret =3D mipi_dbi_command_stackbuf((priv)->dbi, cmd, d, ARRAY_SIZE(d)); =
-\
-> +	ret =3D mipi_dbi_command_stackbuf((dbidev)->dbi, cmd, d, ARRAY_SIZE(d))=
-; \
->  	if (ret) \
->  		dev_err_ratelimited(dev, "error %d when sending command %#02x\n", ret,=
- cmd); \
->  	ret; \
-> @@ -54,10 +56,6 @@ static int hitachi_tx10d07vm0baa_prepare(struct drm_pa=
-nel *panel)
->  	struct device *dev =3D panel->dev;
->  	int ret;
-> =20
-> -	priv->dbi =3D dev_get_drvdata(dev->parent);
-> -	if (!priv->dbi)
-> -		return -ENODEV;
-> -
->  	gpiod_set_value_cansleep(priv->reset_gpio, 1);
-> =20
->  	ret =3D regulator_bulk_enable(ARRAY_SIZE(hitachi_tx10d07vm0baa_supplies=
-), priv->supplies);
-> @@ -243,9 +241,9 @@ static const struct drm_panel_funcs hitachi_tx10d07vm=
-0baa_panel_funcs =3D {
->  	.get_modes =3D hitachi_tx10d07vm0baa_get_modes,
->  };
-
-Unnecessary semicolon here.
-
-> =20
-> -static int hitachi_tx10d07vm0baa_probe(struct platform_device *pdev)
-> +static int hitachi_tx10d07vm0baa_probe(struct mipi_dbi_device *dbidev)
->  {
-> -	struct device *dev =3D &pdev->dev;
-> +	struct device *dev =3D &dbidev->dev;
->  	struct hitachi_tx10d07vm0baa *priv;
->  	int ret;
-> =20
-> @@ -264,6 +262,9 @@ static int hitachi_tx10d07vm0baa_probe(struct platfor=
-m_device *pdev)
->  		return dev_err_probe(dev, PTR_ERR(priv->reset_gpio),
->  				     "Failed to get reset gpio\n");
-> =20
-> +	priv->dbidev =3D dbidev;
-> +	mipi_dbi_set_drvdata(dbidev, priv);
-> +
->  	ret =3D drm_panel_of_backlight(&priv->panel);
->  	if (ret)
->  		return dev_err_probe(dev, ret, "Failed to get backlight\n");
-> @@ -272,9 +273,7 @@ static int hitachi_tx10d07vm0baa_probe(struct platfor=
-m_device *pdev)
->  	if (ret)
->  		return dev_err_probe(dev, ret, "Failed to add panel\n");
-> =20
-> -	platform_set_drvdata(pdev, priv);
-> -
-> -	return 0;
-> +	return devm_mipi_dbi_attach(dev, dbidev);
->  }
-> =20
->  static const struct of_device_id hitachi_tx10d07vm0baa_of_match[] =3D {
-> @@ -283,14 +282,14 @@ static const struct of_device_id hitachi_tx10d07vm0=
-baa_of_match[] =3D {
->  };
->  MODULE_DEVICE_TABLE(of, hitachi_tx10d07vm0baa_of_match);
-> =20
-> -static struct platform_driver hitachi_tx10d07vm0baa_driver =3D {
-> +static struct mipi_dbi_driver hitachi_tx10d07vm0baa_driver =3D {
->  	.driver =3D {
->  		.name =3D "panel-hitachi-tx10d07vm0baa",
->  		.of_match_table =3D hitachi_tx10d07vm0baa_of_match,
->  	},
->  	.probe =3D hitachi_tx10d07vm0baa_probe,
->  };
-> -module_platform_driver(hitachi_tx10d07vm0baa_driver);
-> +module_mipi_dbi_driver(hitachi_tx10d07vm0baa_driver);
-> =20
->  MODULE_AUTHOR("Svyatoslav Ryhel <clamor95@gmail.com>");
->  MODULE_DESCRIPTION("HITACHI TX10D07VM0BAA MIPI DBI Type B panel driver")=
-;
-> --=20
-> 2.53.0
->=20
->=20
-
-
-
+diff --git a/arch/hexagon/kernel/irq_cpu.c b/arch/hexagon/kernel/irq_cpu.c
+index 9c92f2fc7e05..8b18c046e323 100644
+--- a/arch/hexagon/kernel/irq_cpu.c
++++ b/arch/hexagon/kernel/irq_cpu.c
+@@ -30,7 +30,7 @@ static void eoi_irq(struct irq_data *data)
+ 	__vmintop_globen((long) data->irq);
+ }
+ 
+-/* Power mamangement wake call. We don't need this, however,
++/* Power management wake call. We don't need this, however,
+  * if this is absent, then an -ENXIO error is returned to the
+  * msm_serial driver, and it fails to correctly initialize.
+  * This is a bug in the msm_serial driver, but, for now, we
+-- 
+2.56.1
 
