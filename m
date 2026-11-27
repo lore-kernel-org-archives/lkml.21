@@ -1,123 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795776018;
-	b=sTCMzug5J4wtCoDKgJBXim6hL+PDEywKhPIo7H95O6HLtjd8kJpgEitOU1T7fFdO3yQx
-	 c4oTYTVt63Qpi2AIVZpIwH0ivQBQnPVc5fbuxhHsnjJOBP7u8pE9+aKM50P+EpJyXSTpn
-	 2ELDCtE0emQOR8DIb4LAttJnvjTb4SPAkpBgSUzwTOprKj1nJJZ2VcXciTUJqP70Nv4mA
-	 2dDnMkwkgxNmclJQ+DGINmmn69hDwVy0uywAdmc31YGMmZY/qNiHO9R+9cN+dtZ8+F8aX
-	 mTjjda8sHIku4EXa+vfdkTxQ9FpE3UbMN3u2KNE4NhPJiAijT+L9pDCrEeXwKlFdZZA==
+	t=1795776053;
+	b=tcO1W9ysMYJfyeZe8P7S+YoxIn/QaqoxYYenzZLGYlcJSRmY5M5Yp2X1jkzXAZYKc52h
+	 FabQw/WamQ3uCi5FFIuy9NMo+uyuYqC49zXjfMQTi+YCPjgielY9EwLmuH4Y4/9AFQGle
+	 LFjvpUdHWxk9/dz/39PLMMD8Od8cvJND4hmO1SGpO+3SdKM1jJyuKphE1kKuV9hGRG9ge
+	 3Vui0oZI3rO9LZPiLD5O6Ewj0zg/LZZI+QbNJxUEpQio61w1OyEblpAUYAO24j3mHmEkE
+	 OoSWQGBwd3GbiaQEGSSuKQA/nYudk8Q9zQOcbIlx1o1yCA+4cQ4Z5+qV7RYA7jNa5gA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795776018;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Disposition:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795776053;
+	h=DMARC-Filter:X-Alimail-AntiSpam:Received:Subject:To:Cc:References:
+	 From:Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=1AjK2nvlqvf8IJCDZeqJhDHtg4Ek4fFwEyf2Q1hpYQA=;
-	b=p5H1SEnWTNaGahvee7zpUrHNZnGeCU7wqeDxzzumscUSO63RQD+bDVRlNQaKedLHlYv/
-	 ZlAETdu/fsc8OrPqpYxaBwH8RWW3w0CWNSesEGKF+PgNHcYF56vfrMDyKDmx4876jBMTG
-	 3I3x+EKw8Uw5lRO++r5eKmMRh7BiVTv13ZuzVLxhEA9WlqtrxBJHthFegMH37ldz/cIeJ
-	 bMXtYY+HTxve06dD4RyWIJ4n4HhqVUknj9YbhD/cB/oNSgYBtbJ0Ij/MQ9yKKQsdeUfkc
-	 WrnxsTwbdzohYahuH1UO3ba7+v8HFoeYYhiDT2VotsTjKPQw6q/EIe/KMIEMgSHhuCg==
+	bh=5TANrIwwHSjXZfHd1jn1KNf/4swOD336NOoPhXDlR18=;
+	b=ttl88vg2DSEY/ENfp+tdKzsOeqPY3qPCDImAwOLt3utXRvjFq2Mv6rri3HUs3Kr70+49
+	 Q4QRuLMCP/6CSaWlU1bVK1bkxI+48bc9B00x5bB8Pjz4ZBYyHcJOAcJ/eDJIoi+bUwWZW
+	 qngrsAqmn6NLSemaMMeLGj2FMEMAM/LeOqb4QKmvWgSVDUqgduGVQpklCAd5jT8BmXlnd
+	 z8r518Zhr874cXlai5LwDw1tLw00cH+WPeFNkRsJTrDG8Aq9CSH16itw8w839Cf1AQGQX
+	 NGEY6R8C9oaC3R8NN/bgot1lAEKdvxu0Sr9viuRrqJ7zq1WDy8QujDKIqweCtDnYFQQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uVJJcr7e;
-	arc=none smtp.remote-ip=209.85.221.46
-Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=open-hieco.net;
+	spf=pass smtp.mailfrom=open-hieco.net;
+	arc=none smtp.remote-ip=115.124.28.172
+Received: from out28-172.mail.aliyun.com (out28-172.mail.aliyun.com [115.124.28.172])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2338F606A324
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:40:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2338F606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uVJJcr7e
-Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-48e09aa5264so4647139f8f.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:40:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795776016; x=1796380816; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-disposition:content-type
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1AjK2nvlqvf8IJCDZeqJhDHtg4Ek4fFwEyf2Q1hpYQA=;
-        b=uVJJcr7enYHb7QW0rIHvPMSQildPszsaUSPXO3RI/alO6ZX+tsFbU1Mj46g3n4n7Ga
-         mYYeS03YNTJrtg7VNmFl0QFjxZnyYmjb4JHPE7qMMYfjMXRMfnQplW4qEo1E5Hu2xNhR
-         oAFO6Bfr72CZ6PeE7INPejVMeqqwpje9TWokX/AGhw/ldNSi7lPOQLtpav12D+kq2AT9
-         IAzNpYhjj7QPJQy5tnI8aGL/Yb2VoGX86lSHCKSjJX5LdLqFxc3Qgtcy93AAwrOCKqoP
-         7kkGpaQ9PpI64wmDHptaWxe2mEUD2YX96YHDDiaAahT/++rZmGMeI1F9wgppqI1HeSOZ
-         DbVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795776016; x=1796380816;
-        h=content-transfer-encoding:content-disposition:content-type
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=1AjK2nvlqvf8IJCDZeqJhDHtg4Ek4fFwEyf2Q1hpYQA=;
-        b=1+CgFOwUyWTZ8Jcgl0BQrUrQDzCYf8f/jkhQ/CbjHJ50B5lkNkpUDzrTpTGsvi8meT
-         21XfKnAaJx/wyPuMRhsdBGYjBfJhPqwl/IjgfmeQ8J5XUTfNJdFnTESwxHvBUocJoW2E
-         QiAPq+ZNCNStBVkJv1H12MtwBnDO4mVFTMyL7hQ+DOwk3oLwx0ZmnwZwIZjl9+46p5YW
-         nzbPQp6o19fBv5/EiU88jvAlzjQw1IHiSzfeDLprRHbo3JD+3FC3MhFJbgW3+am8tP+r
-         vI2/ITWgoRUPuTi1TPCxaexS0NTtR8TPcc6AVU7/PrbpuUN86zX13CtVIAr1nUDrNc6C
-         OhiQ==
-X-Forwarded-Encrypted: i=1; AL+hErHwQbFVPpkCmQzGx4S6rlLHn6X2rutECUHkbXiIwLhRKnuy++0RreOtT8kJIkMlX7km57zyOrx10tYLwwk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9BPYEohh854u42nWZhFbZ4lLXIQU1I2UsBAyQjeZaqDX0XY3T+
-	ZPZC4wRQTuoVQ8F5pSKZ0c7xqWQjwnZQN5CKIT/Vn67ZlDOVrW3wAW4q
-X-Gm-Gg: AZFdTZfb6L0rM3LkeMRql3m6YhjjJ6CVVpZ9PiCSPWe5YwlGShRji7ThBtABWUbfSQ/
-	LLwtVR4EC5k4j1iOJfMmJ9qYpYrzKrnMSXtxNmGp97iiyxsQ4/kIY9xXIr8EOS2JtRyW2Cs4rPA
-	cO1ecUhKNUPDu7SUmvpWOiiiS2MgXh2h7XoeBlIcdglk1l4Dr2ErI3PAI9NYjgYvSf9vZCD6sbR
-	6az6DxWXJlagC8PG7sfZZn3eda2Nr/ab58y0CphW5MAsipGrh5e8/EXhDEqo1GBLTQY0dj9JMku
-	eE+QNqQSQW0S0P78tUsMSHweIZOf+BlN+IobQRQxta1a9xfOV7zA4Bx4G1aFG9qURtVyHptLgFL
-	7DxQpZfWS3ZZkboPTDj2ChUbf2HDqdjughyM04Dl8WqTdq5bzX0YnDlMHZj1fRolr30CUsxLf2i
-	sX1T0XtmHfGAN+sGCiKhCXpwxHoq8XzhC/gjpEOm3hZP16wTl8a6XY4rMeuo6H2SDzhYB08BDUy
-	RWwmobUkh3wPJv/qkYituyAZqCRHmtZvIAT4RmvH8QWlAzkYNLhHx50yMT9taOLCPtwIz+m+6mM
-	QRdzcgkGsP8gjcNCqvTXzASB6iQCOtc=
-X-Received: by 2002:a05:600c:4584:b0:4bb:6c71:b269 with SMTP id 5b1f17b1804b1-4bb8881fbd2mr479775985e9.28.1795776016441;
-        Fri, 27 Nov 2026 02:40:16 -0800 (PST)
-Received: from ArchOarora ([95.179.249.152])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab65cb4341sm46259273f8f.4.2026.11.27.02.40.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 02:40:15 -0800 (PST)
-From: Oarora Etimis <oaroraetimis@gmail.com>
-To: Louis Chauvet <louis.chauvet@bootlin.com>
-Cc: Haneen Mohammed <hamohammed.sa@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Melissa Wen <melissa.srw@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	jose.exposito89@gmail.com,
-	Jonathan Corbet <corbet@lwn.net>,
-	Harry Wentland <harry.wentland@amd.com>,
-	Lucas De Marchi <demarchi@kernel.org>,
-	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	sebastian.wick@redhat.com,
-	victoria@system76.com,
-	thomas.petazzoni@bootlin.com,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	llvm@lists.linux.dev,
-	=?utf-8?B?Sm9zw6kgRXhww7NzaXRv?= <jose.exposito@redhat.com>
-Subject: Re: [PATCH v7 15/43] drm/vkms: Explicitly display plane type
-Date: Fri, 27 Nov 2026 11:40:01 +0100
-Message-ID: <awld6GvGP5acwJxu@Oarora>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261126-vkms-all-config-v7-15-21194cda2468@bootlin.com>
-References: <20261126-vkms-all-config-v7-0-21194cda2468@bootlin.com> <20261126-vkms-all-config-v7-15-21194cda2468@bootlin.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A09A606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:40:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A09A606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=open-hieco.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=open-hieco.net
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.1049004|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_enroll_verification|0.0651852-0.00107401-0.933741;FP=16139449376992758363|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam011083012053;MF=likunyu@open-hieco.net;NM=1;PH=DS;RN=12;RT=12;SR=0;TI=SMTPD_---.kBRpYX-_1795776041;
+Received: from 172.18.25.145(mailfrom:likunyu@open-hieco.net fp:SMTPD_---.kBRpYX-_1795776041 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Fri, 27 Nov 2026 18:40:42 +0800
+Subject: Re: [PATCH] sched/fair: Simplify pref_llc_queued handling in
+ account_llc_enqueue()
+To: Kayra Cizmeci <kayracizmeci@gmail.com>
+Cc: mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com,
+ vincent.guittot@linaro.org, dietmar.eggemann@arm.com, rostedt@goodmis.org,
+ bsegall@google.com, mgorman@suse.de, vschneid@redhat.com,
+ kprateek.nayak@amd.com, linux-kernel@vger.kernel.org
+References: <20261127091146.3504-1-likunyu@open-hieco.net>
+ <awlMqTZK8_0gmSMC@scheduler.schedules>
+ <4432bc13-0d03-d4eb-0858-0efbccf6c697@open-hieco.net>
+ <awlZNYtxplGytTtP@scheduler.schedules>
+From: Li kunyu <likunyu@open-hieco.net>
+Message-ID: <46077e09-1b5b-7ef7-58d7-cca1681c013b@open-hieco.net>
+Date: Fri, 27 Nov 2026 18:40:47 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.14.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,39 +59,25 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+In-Reply-To: <awlZNYtxplGytTtP@scheduler.schedules>
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 26, 2026 at 12:28:58PM +0100, Louis Chauvet wrote:
-> Debug information are mainly read by human, so use full name instead
-> of values.
-> 
-> Reviewed-by: José Expósito <jose.exposito@redhat.com>
-> Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
-> ---
->  drivers/gpu/drm/vkms/vkms_config.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/vkms/vkms_config.c b/drivers/gpu/drm/vkms/vkms_config.c
-> index c5d90f7e934a..e933d61cb526 100644
-> --- a/drivers/gpu/drm/vkms/vkms_config.c
-> +++ b/drivers/gpu/drm/vkms/vkms_config.c
-> @@ -388,8 +388,8 @@ static int vkms_config_show(struct seq_file *m, void *data)
->  
->  		vkms_config_for_each_plane(vkmsdev->config, plane_cfg) {
->  			seq_puts(m, "plane:\n");
-> -			seq_printf(m, "\ttype=%d\n",
-> -				   vkms_config_plane_get_type(plane_cfg));
-> +			seq_printf(m, "\ttype=%s\n",
-> +				   drm_get_plane_type_name(vkms_config_plane_get_type(plane_cfg)));
->  		}
->  
->  		vkms_config_for_each_crtc(vkmsdev->config, crtc_cfg) {
-> 
-> -- 
-> 2.56.0
->
+Hi,
 
-Reviewed-by: Oarora Etimis <oaroraetimis@gmail.com>
+On 2026/11/27 18:22, Kayra Cizmeci wrote:
+>> I saw your reply on the cleanup patch in the linked thread and took it as a
+>> suggestion, which I then incorporated (hence the Suggested-by). If that wasn't
+>> the intent, let me know and I'll send a v2 to drop the tag.
+> Yeah, I want my tag removed :-). And I don't know
+> which part of my message was a suggestion to you...
+> 
+
+‘As I see and know, cleanups attend to get lost in sched's traffic.
+I don't like that. So I'll review this :-).’ I came across this comment and,
+since I happened to have some thoughts on it, I referenced it. I’ll post a v2
+under this thread shortly.
+
+-- 
+thanks,
+kunyu
