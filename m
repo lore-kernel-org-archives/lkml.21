@@ -1,78 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=119.15.109.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.61.82.184
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795761869;
-	b=rg8PYNQSDDBWft3H+pSdIzXbvVuBfVKfHMKC/EGX6ObrciAAkud2wwrHT0IaT0/M5R4u
-	 WA4CxRwiYsIbn0VhPzeFffsGleHuAVojR+7Ha7utsaqwHFlx8P4OHRpW42Pl4kjO82Sud
-	 TrjPVaWvdRcAuCy0ocBbLWyCXchqEl/Y6u85IxGG9f9bJPyW8UvzmaW/a2l77FVhS1ldv
-	 qxvbKgyjd/9rTfYl+19ETrxB0aRbcAMwi8car0rb2CbPKvCKqKykZf2c2PTys/rXLO78q
-	 DFY8N1Q35tki4ghVqhQ/8yGM5lj7QU0S2XfzVQUNHL7CioR6XY6+9/HxNoLe2zPCw0A==
+	t=1795761906;
+	b=OokcBeMFKZFHNZSmeaOcRDC959OS+0nmZQszEVeC2W+Km3fF00oboh3rkFhwUOP5LXcn
+	 mWYht2CIZVl/SA/X0TVFX/ucuLlzWeH7qndjHBIEACklMCYcN19ZrOCKVivbMk9oyvKFE
+	 mz3EJTHSpUwMoQcNe5yvZ/WHRbCB3o3oUJ4DXErJFS99yKebViMJD12svLBuaKUX62FuK
+	 uBwpU06Ac108NrjGAt4AEkLi0Jdy/AzIX/WZLiUguB1NxgZ3T+jyPeQNJZyfjmQ99vX2O
+	 zun5ooB5d+jzMM21YdEd+aa/q9Qlv5Sg9HXCdl7jQAURg+ZTxk70pnl5bkTyeTCJjPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795761869;
-	h=DMARC-Filter:Received:DKIM-Signature:X-GPT-Reason:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=k3KnFF+jQuMamSCMGRM4IiQplf2ksxu6lK+S7xvE/bE=;
-	b=XM+X1j5WcndoS3j7SsfNaQFgRHMI7iNdybs+mod4mhCfC4iIoFaxF76sNfPMfX/Is0Yq
-	 5iqrLx0c7k2N/JbXPkUwKJXRNezQF4+Ki46pEqS2zQ8k97xvNZB1e6PNHykXQNVtYhAsq
-	 dOGaRAWej1kQ/ee03hPDEvcvXzDWShiN4NsuwXd3HoY9PAFNOov1qJVbmleE0NrKyKkWU
-	 vdZxUdY1/6/zORMrEiyIh7+Ka6SsSBEzUEe2bmimGgXc8Ww5sUxSFRD7aIZxgsjRh3R/f
-	 VlAvaIGNPGPXGem/G4N5vU8A+JZ/YTQhAmkEXfy9myivuf3b9ZBFHcVQzPOrukObZkQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795761906;
+	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
+	 Received:Received:Message-ID:Subject:From:To:CC:Date:In-Reply-To:
+	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
+	 MIME-Version:X-MTK;
+	bh=773F4lyJ6saT/RbUKk1mmsiaJd9WVNhH/WCIiJ+eX08=;
+	b=phcCJEauviwYzW3368zdA4+lWLhFsrg/5CZdzADTO0vcwXH04EBxhURGu6QPIU6vdAXe
+	 /iOJRIwq24dw/J1X+JvVq1bKwU0/L6F9e9EDB5yP457dzs6mDm/UQrmEPWkHHb6ghKtgA
+	 gPygvYBb3C0Xg7wUcxQSE+s3nbxPnDyfJ6No56iSiKygiMZk4+w8cvk5DJmy71CnI/uys
+	 UxYYv/VaXsWOVFV6InNgqYh7O94kJsamPtsXmx/4vJPIKIuS0JUG3NwV9So6NOuFu+Ijj
+	 O7LErMohzYZELIe6vY+rBgz98XAhz2diXis6TBa1/UWO55/apczEspevtpk7x3OSSaQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=d-silva.org;
-	spf=pass smtp.mailfrom=d-silva.org;
-	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=tQv692Ii;
-	arc=none smtp.remote-ip=119.15.109.137
-Received: from www.nmnhosting.com (watt.d-silva.org [119.15.109.137])
+	dmarc=pass header.from=mediatek.com;
+	spf=pass smtp.mailfrom=mediatek.com;
+	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=o+SPqwlp;
+	arc=none smtp.remote-ip=210.61.82.184
+Received: from mailgw02.mediatek.com (unknown [210.61.82.184])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDD20606A324;
-	Fri, 27 Nov 2026 06:44:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDD20606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=d-silva.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=d-silva.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10E70606A321;
+	Fri, 27 Nov 2026 06:45:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10E70606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=tQv692Ii
-Received: from Hawking.lan (hawking.lan [10.0.1.4])
-	by www.nmnhosting.com (Postfix) with ESMTP id A439E4C94C;
-	Fri, 27 Nov 2026 17:44:21 +1100 (AEDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
-	t=1795761861;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=k3KnFF+jQuMamSCMGRM4IiQplf2ksxu6lK+S7xvE/bE=;
-	b=tQv692IiFOuy8Kf1yAEFScRgiuExVeO67dldVyYPJrCyDhthgPchtpKsRs7XjAamsIUgjX
-	fp6E3dR88Zgyr100OkD7XrgplKwSvjqFooEzyoJL7uIC4fRd6Xfw68+53EoQxFt2hc1oIZ
-	PRLbo3tMxe3gJiftDVpSwePELvvolyZzfJ3LBGO7JbohGbK0pdr1bjRoKDuDqU6IAswc58
-	e7J7HE/ZLptNf+lObCLP9yZhAiATmWlnvBm9fgVPaLVKmaHMgJJBWsB/gd8HrBlyQVBP6i
-	5rcrG3ujeTcMFw3wupZOPCGYB6jxrYtWvUVKCB478oozqJfRTbXv6sS9lquVzg==
-X-GPT-Reason: This is a legitimate personal/technical communication.
-	The mailbox (alastair@d-silva.org) matches the sender's identity
-	(alastair@d-silva.org) perfectly, and the content is a standard
-	Linux kernel-style patch for an "Orange Pi" hardware device. There
-	are no signs of phishing, no external links, no urgency/scare tactics,
-	and the technical nature of the "arm64: dts" subject line is consistent
-	with developer activity.
-From: Alastair D'Silva <alastair@d-silva.org>
-To: Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Alastair D'Silva <alastair@d-silva.org>
-Subject: [PATCH v2 2/2] arm64: dts: allwinner: sun60i-a733-orangepi-4-pro: Enable SPI0 NOR flash
-Date: Fri, 27 Nov 2026 17:44:08 +1100
-Message-ID: <20261127064408.1344250-3-alastair@d-silva.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261127064408.1344250-1-alastair@d-silva.org>
-References: <20261127064408.1344250-1-alastair@d-silva.org>
+	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=o+SPqwlp
+X-UUID: 112e51eaea2e11f1a7aecdb2598be72c-20261127
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID; bh=773F4lyJ6saT/RbUKk1mmsiaJd9WVNhH/WCIiJ+eX08=;
+	b=o+SPqwlpszB1NcPgKkLn4CW3CLu0BLqz2CkpgkOdTkqWeVRgTsL9HLb/MyJNO6UAnnsYxC51wefBb0cATYqEIGXJxmAIC3Rk3L+jKlyKFqRhHzMSeSiw654003/cxAdYkA1sCm73dv4L6ogl83l5TInl1Ekpkx3m1dXCpHCJL1g=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.21,REQID:1c583b22-d2ff-4680-8cb9-6840180f1726,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0318ac,CLOUDID:177edb66-4b51-4c95-bb1b-80ac6aad9c96,B
+	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|836|865|888|898,TC:-5,Content:
+	0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0
+	,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 112e51eaea2e11f1a7aecdb2598be72c-20261127
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
+	(envelope-from <peter.wang@mediatek.com>)
+	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 539966578; Fri, 27 Nov 2026 14:45:00 +0800
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Fri, 27 Nov 2026 14:44:59 +0800
+Received: from [10.233.130.16] (10.233.130.16) by mtkmbs11n2.mediatek.inc
+ (172.21.101.73) with Microsoft SMTP Server id 15.2.2562.56 via Frontend
+ Transport; Fri, 27 Nov 2026 14:44:59 +0800
+Message-ID: <484a58e10c4bc9cde24ef731a4bd3051b9decac6.camel@mediatek.com>
+Subject: Re: [PATCH v2 2/3] scsi: ufs: mediatek: allow clock scaling when
+ ufs_fde is absent
+From: Peter Wang <peter.wang@mediatek.com>
+To: Ilia Snezhkov <iasnezhkov@gmail.com>
+CC: <martin.petersen@oracle.com>, <James.Bottomley@HansenPartnership.com>,
+	<matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>,
+	<louisalexis.eyraud@collabora.com>, <linux-scsi@vger.kernel.org>,
+	<linux-mediatek@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Date: Fri, 27 Nov 2026 14:44:59 +0800
+In-Reply-To: <179574184161.52486.4990124402659702610@gmail.com>
+References: <20261126031008.27506-1-iasnezhkov@gmail.com>
+	 <20261126031008.27506-3-iasnezhkov@gmail.com>
+	 <7b7d94ab4283b82aec13eae3f9c1d2e77873d88f.camel@mediatek.com>
+	 <179574184161.52486.4990124402659702610@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,65 +90,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MTK: N
 
-Enable the SPI0 controller and onboard JEDEC SPI NOR flash on Orange
-Pi 4 Pro, supplied by AXP318W BLDO1 (1.8 V).
+On Fri, 2026-11-27 at 09:10 +0800, Ilia Snezhkov wrote:
+> Hi Peter,
+>=20
+> No =E2=80=94 this patch does not change whether UFSHCD_CAP_CLK_SCALING is
+> enabled.
+>=20
+> ufs_mtk_is_clk_scale_ready() only checks ufs_sel, ufs_sel_max_src,
+> and
+> ufs_sel_min_src, so on any platform (including MT6789) whose DT
+> provides those three clocks, UFSHCD_CAP_CLK_SCALING is already
+> enabled
+> today and devfreq already runs. Platforms that omit
+> ufs_sel_{min,max}_src
+> still have UFSHCD_CAP_CLK_SCALING cleared as before.
+>=20
+> What was broken without this patch is that when a DT provides ufs_sel
+> and its min/max sources without ufs_fde, _ufs_mtk_clk_scale()
+> returned
+> early on `!fde_clki`, so ufs_sel never actually switched parents
+> while
+> ufshcd still treated the scaling transition as successful and updated
+> clki->curr_freq.
+>=20
+> With this change, MT6789's already-enabled clock scaling actually
+> switches ufs_sel between 26 MHz (tck_26m_mx9) and 192 MHz
+> (msdcpll_d2)
+> as intended.
+>=20
+> Best regards,
+> Ilia
 
-Signed-off-by: Alastair D'Silva <alastair@d-silva.org>
----
- .../allwinner/sun60i-a733-orangepi-4-pro.dts  | 24 +++++++++++++++++++
- 1 file changed, 24 insertions(+)
+Hi Ilia,
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun60i-a733-orangepi-4-pro.dts b/arch/arm64/boot/dts/allwinner/sun60i-a733-orangepi-4-pro.dts
-index df70967264ed..92f31bf9f64d 100644
---- a/arch/arm64/boot/dts/allwinner/sun60i-a733-orangepi-4-pro.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun60i-a733-orangepi-4-pro.dts
-@@ -34,6 +34,10 @@ &mmc0 {
- 	status = "okay";
- };
- 
-+&pio {
-+	vcc-pc-supply = <&reg_bldo1>;
-+};
-+
- &r_i2c0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&r_i2c0_pins>;
-@@ -56,6 +60,13 @@ reg_dcdc2: dcdc2 {
- 				regulator-boot-on;
- 			};
- 
-+			reg_bldo1: bldo1 {
-+				regulator-name = "vcc-1v8-io";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-always-on;
-+			};
-+
- 			reg_dldo1: dldo1 {
- 				regulator-name = "vcc-sd";
- 				regulator-min-microvolt = <3300000>;
-@@ -76,6 +87,19 @@ reg_swout2: swout2 {
- 	};
- };
- 
-+&spi0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&spi0_pc_pins>, <&spi0_cs0_pc_pin>;
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+		spi-max-frequency = <50000000>;
-+		vcc-supply = <&reg_bldo1>;
-+	};
-+};
-+
- &uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0_pb_pins>;
--- 
-2.53.0
+Sorry, my question was not clear.
+Because MediaTek sets the minimum gear to G4:
+hba->clk_scaling.min_gear =3D UFS_HS_G4;
+So if the host does not support UFS 4.0 or above, there=20
+should be no reason to enable clock scaling.
+And MT6789 is UFSHCI 2.1, as I remember, so clock scaling
+should be disabled and ufs_sel_max_src/ufs_sel_min_src=20
+should not be set. So I am curious why they have been set,=20
+and what behavior would clock scaling change in the power mode?
 
+Thanks
+Peter
