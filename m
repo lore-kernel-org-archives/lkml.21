@@ -1,91 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795769339;
-	b=CcCnXj8NcJRkGTpnNnkK55Z+Dg1W4HoVGmDy5/s/TDkn6QsAVfv4wShk8/KoF1gefl4C
-	 DZeFJv4Jbiv1UmiVrhse3SrsPLXokkrsB1LXSHMU6eDydL4TCfAaMqnqgkKGWMwPi4BId
-	 9GOx0rOjSFeQ1I5+pTUfSeFl4pZGRzA0Kw1FIpPBos5QPHz98wCWVYTj57wCxeSfI8W/k
-	 TC3DLSMnr2v0N7AkfNpdR2juZYLBK52WgnOjP5/Tn/zstMizCVdopQt1CTwiXvHVZ/eLJ
-	 u+U8H8WMTuLDkprRtzCjxjqzOJ2vHms1gAHyFYIeN0Zgno4832Sp7gb8gAxXUKyQg7Q==
+	t=1795769335;
+	b=Lb0Pjz3cYfGOoXEQIqW/kkwIv7errS4MzGZWiiukZOSn5luJ6W8yKGGB8KictYOwWL87
+	 f/67drjkyIDFvJyISDBuJ60EQutx4xp3zextQNQIXB8Rx/EykGGzo62QUXy4D9qSGfWlg
+	 xmFZ9jHfkc7j2PvI3+A/Cy/GfoTLoIAJInO0i0pPSFtsWqg1mdmPSKLzIbIV4EZyvoRgZ
+	 EwpAoLpff5s/xoerBd4vPiIoosK5DCsV123dH4Q1SbSpSDWupahJNZAGjxk349aYhsL5g
+	 h/qusmeqpXF5zqNWvTjmzGJullYZ1q531OBUDPp5IksZqRWaXOXFbYeM7oPWjq9feiA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795769339;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:
-	 X-Proofpoint-Reinject:X-QCInternal:X-QCInternal:
-	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=K9GE5EqxXG5dSPh7D6jFDueWLhRzAd8DelVKAgzkI0Y=;
-	b=pp21ZN6sfHSuwh1q1sR7Nc2JUx32cxg1ChAtPYn88URYs8SgF3AoLSCnIo3TrWCAeVfD
-	 nb0zjVxTUxmiiUXqYmDbPp1FeQktGbrbX9OFcp8kUZb3kXpbqHjaG+X5lxFTY1eTmFadd
-	 jVUUszf0riMvXQ+DcNpTSH6zJNN3SDjaTiQ+tjYArdMTeuKjJXnAicanlLT7Yh+TJ+yDF
-	 Kw3DKaCVuyC4UoQXPIMl9RLWv0sfu1gQCQfVev+CpFWdB1CH21Ab/xBPhXXofVoUhehia
-	 9Z9cEbkANp0KFb9ZT1Us/NzOcLJKf4pSi4zMXksgEWLQPTaR6a8nvYbbZLkYacIGDHA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795769335;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=V20sSYH+TxrCV4unQJ7dg7ZdaFxiFFR+LbaIUnR8j9c=;
+	b=xfv/NYeWVQy9VHV/W5RT0V4D5+VvQ5uFYTWJipTumDgGNY3KBY22j2WYLoujrJc3XArq
+	 2uucdTAhws6vWOrZvJIsu+IM1hAQoHY4w/G1bSsqOs0QB8wFaUlCRYZarYWdSVXFxEpgp
+	 0AR180dBYupW+b4fiiZ/UGVPJhwH1B7P8nbBMf15+I5E9TShq2YmWBC0jpMWvrKfiBLdf
+	 o8ZRatH97TSu67f1esp1fAJBsrIyw8zlXxRqYunpcpcXSSIInBGlCEqqvOikTBqwmV57t
+	 0ngwXJwE24l2owY/ouoon8qLOEMimLG+FFnFlMT359FCyMOgHSjhEuPSFpZ4em+ZLbw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fq9D2Reh;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rv1OPzlL;
+	arc=none smtp.remote-ip=209.85.216.49
+Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39456606A688;
-	Fri, 27 Nov 2026 08:48:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39456606A688
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 074B2606A324
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:48:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 074B2606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fq9D2Reh
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AR7GbZ73759043;
-	Fri, 27 Nov 2026 08:48:31 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=K9GE5EqxXG5
-	dSPh7D6jFDueWLhRzAd8DelVKAgzkI0Y=; b=fq9D2Rehhh/KXAWWZ6ifmA40oz8
-	8ck1IWsOyJq7pKwhbs4wnamR8n90TCHhsTQTDC/nF4Q82+uRzgytw4A27JhZ2jZ6
-	uGM6X41COLW9NCOSKfgt4sY/asrwLKMoTY5krzMaqGI39N0KRx6EPU4gFANMRTpF
-	9PGF3xJBb2d+RZ/zS2IJi35mhcXS63wDS1ZewfChdpuYyLcZgW42acMt/IvXji0e
-	ARFEP3sMNTyx3Z8aQoMxPJjalGhAJQqwLq/zC7XuIAgqTfFKawjGgOO87njQguHb
-	fWryBjJlnQa6HAm0ezpG1rfoyj1vrdVjxMHgtzr8FkMiLC547jlP3+du6IQ==
-Received: from apblrppmta02.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j74g6rhvh-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 27 Nov 2026 08:48:30 +0000 (GMT)
-Received: from pps.filterd (apblrppmta02.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA02.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AR8mRbd1693407;
-	Fri, 27 Nov 2026 08:48:27 GMT
-Received: from hu-devc-hyd-u22-c.qualcomm.com (hu-mohis-hyd.qualcomm.com [10.147.253.64])
-	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 6AR8mR5G1693395
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 27 Nov 2026 08:48:27 +0000 (GMT)
-Received: by hu-devc-hyd-u22-c.qualcomm.com (Postfix, from userid 4840500)
-	id 98A246AD; Fri, 27 Nov 2026 14:18:26 +0530 (+0530)
-From: Mohit Sharma <mohit.sharma@oss.qualcomm.com>
-To: Srinivas Kandagatla <srini@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Mark Brown <broonie@kernel.org>
-Cc: Ajay Kumar Nandam <ajay.nandam@oss.qualcomm.com>,
-        Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Konrad Dybcio <konradybcio@kernel.org>,
-        Abel Vesa <abelvesa@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-        Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org,
-        Mohit Sharma <mohit.sharma@oss.qualcomm.com>
-Subject: [PATCH v2 3/4] arm64: dts: qcom: shikra: Add q6apm DAI compatible
-Date: Fri, 27 Nov 2026 14:18:25 +0530
-Message-Id: <20261127084826.916361-4-mohit.sharma@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261127084826.916361-1-mohit.sharma@oss.qualcomm.com>
-References: <20261119164705.1594066-1-mohit.sharma@oss.qualcomm.com>
- <20261127084826.916361-1-mohit.sharma@oss.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rv1OPzlL
+Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3b4021b572dso4857630a91.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:48:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795769334; x=1796374134; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=V20sSYH+TxrCV4unQJ7dg7ZdaFxiFFR+LbaIUnR8j9c=;
+        b=rv1OPzlLkeMojQwNzlK+naiity0+ZhuvitsfuYoiZykqG7hyKze1YUcsQxa5pVh7pB
+         ClC8NqEi2LoX9Gu5KsdHslyQwBffNItV2Phv1HQuYFabj0PurZIHGu8upGbDJQQ3gafV
+         6/FGJ83mkeV+P7Te5KQuDrIt2OupsaKqUeuqEibGamitTgM4lnwh34YE5mrTNvAriFpn
+         4yfPfS/jmW++py4tRKwH/wMfr7FMbNCfo8nkn4VF9BTYeTH56WUpJ/3F2mXsZ14xUY1L
+         k8jyhUVgICEsnwAaJhL3pKJlPsGSQvwC+W4u3dZiXGqzcpnPpVGtCVio4chZikqXbDbH
+         e/Lg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795769334; x=1796374134;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=V20sSYH+TxrCV4unQJ7dg7ZdaFxiFFR+LbaIUnR8j9c=;
+        b=Ay8ROE7zlczOYHs/wjwD8r8ZN+yrOM4Uc63TATUuT9K1jvy71nfCwISfJkS/1r21x7
+         eF6fn4JRvdMkuQXMbVrH1Tfo8gRi4m0bq3k8g5skkuGW9Ml2NlWXAx+k84jZrusY2OrE
+         TTPQgFnKc78+adD16hB18s2cyY6C//T13t/LPkRLvGRCL9hUVkNr8S3ZE4jXx+aiEzJU
+         t3CsL282OXOPJ2XnTOhE93Wc4I0G/Ex4eikaxeFb5hc6glNeVfiLhiXO38ajNuGKvqGV
+         /NzS9RoPux7QQBUmJQ7LbDRbuZ3EarNetMy/J2YVAX1kKkvOdS7PoTs2YxqmvTFvXILb
+         lxZQ==
+X-Forwarded-Encrypted: i=1; AL+hErGNNZ+znY8VmIQbId8wGysvdZrXyT72Sk9e3hxzjf8D73dhf/UV7Tk5DirQdWZgPLkWW44bQedbNUO8UMM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+IuYVql9nPnvsT4MnWen1+JlNwMIdBXdNYiOJYtUL7cyZ7ZEa8
+	wAgc2eKxetylrPSY5OnoOfN6+ntoMKhPEY0/hjDd+AzSRbGAJC6C5Kgf
+X-Gm-Gg: AZFdTZe5G9RiQ74JyZE09Li3asVqbr0vlqRzPyVoE/sPpTtBOMnO62WpcR2zv5XUWwu
+	MGQ6lbhiaD08fIMYNSRTlhQtEQuvkA9/vk4v+RFZZkgMIWKGL5ok59pUX3GzZQeHG6LBG1grETz
+	NNKirx+zROYACBNz7UQX+t2ImDuJFzgaTC3oB1rdK7zKIWvv9Ui2k5m/+Fxu434l/bASW5kPiPC
+	CSn2eVDObtBFDsYJiLh8a7pmses9R1Nf2O73aQblwC29zan0qWZde3hUoaiUf55QNdHeqsSnHB2
+	PWRyGtggNut0YnDIxj5zMl0bZk1F/ZsJHMtYhRUy/kK0PBjA0BP/xp8vWhkD2SXJFRHgc9azCgZ
+	iAY2h5RResyYKkvdnWQc1qHaDA8GGnhEcEM5HrYAaVuR7hKnQeYFPyot+gTfY8u8Q/TTSXajzZg
+	Slz8F/5mbgdj3LzK4Mi1PcUOfaKmjeHBVfITtvLgvxdTA625ydlBwKSCvx6IUSusgwmTxG0spN6
+	jW7C30l2AIE7hodc7OS7N0HXr/Esd8OevKSuHXQvKAQbxOzRZ47VrjGR4ZErm19h/A+CuVXpkbY
+	9N1w/fMeCIdcw5IQmv2LiV+riuM1duAaOwH+YlZy5/3AR00TuPFxPpGY26MY14k7MLW6B2B5tfI
+	YzOxwgaJkM2M=
+X-Received: by 2002:a17:90b:390e:b0:3b4:fcba:8f7d with SMTP id 98e67ed59e1d1-3b4fcba9627mr7869895a91.29.1795769334244;
+        Fri, 27 Nov 2026 00:48:54 -0800 (PST)
+Received: from qiwenjie-ThinkCentre-M760t.mioffice.cn ([43.224.245.241])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d0818c1sm12289058a12.30.2026.11.27.00.48.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 00:48:53 -0800 (PST)
+From: Wenjie Qi <qwjhust@gmail.com>
+X-Google-Original-From: Wenjie Qi <qiwenjie@xiaomi.com>
+To: jaegeuk@kernel.org,
+	chao@kernel.org
+Cc: linux-f2fs-devel@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org,
+	hch@lst.de,
+	jack@suse.cz,
+	axboe@kernel.dk,
+	tz2294@columbia.edu,
+	baohua@kernel.org,
+	linux-block@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-mm@kvack.org,
+	qiwenjie@xiaomi.com,
+	qwjhust@gmail.com
+Subject: [PATCH v6 0/2] f2fs: enable buffered RWF_DONTCACHE
+Date: Fri, 27 Nov 2026 16:48:43 +0800
+Message-ID: <cover.1795746008.git.qiwenjie@xiaomi.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1788795700.git.qiwenjie@xiaomi.com>
+References: <cover.1788438786.git.qiwenjie@xiaomi.com> <cover.1788795700.git.qiwenjie@xiaomi.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,64 +111,73 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-ORIG-GUID: 4iIrR8MRngmXFkn0F5oDF5dnEeXhAPMc
-X-Authority-Analysis: v=2.4 cv=U5kHnuru c=1 sm=1 tr=0 ts=6b0943de cx=c_pps
- a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=rJkE3RaqiGZ5pbrm-msn:22 a=EUspDBNiAAAA:8 a=5Lo-wh1e_jXiNIEOTl4A:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDAzNCBTYWx0ZWRfX9OK+pLiDFwuX
- sqe3XXrnK+X+5YlngN0OqbynT69tY97LPob5zLmwQZrGSS4VBrOunUA/dH06+Xkmgrbc5iH+k7g
- WFm4bgTxa3Dp+yzq68+0KUWhSIQoQ5I=
-X-Proofpoint-GUID: 4iIrR8MRngmXFkn0F5oDF5dnEeXhAPMc
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDAzNCBTYWx0ZWRfXw37i9MAKv+iY
- YUYtp34zo0dDsLt3nJC8hy8T7R0KV6Jgpxq7dOfy/1G7ZrSHUtES9BYX7VjQ4lJ9K5eVrSQyb2I
- BKrYF9PeTfEeoHhmvl5xzPGv5WgenmhGUkzS4UFBkrxOsUAGgjo/xa486X5oVbC75qdpKYTNZeE
- PLegaXSxWArOmOKIl5bogDTTFmcA0aaaoqjB5B7VJxkwFFQVjG6Dze+eDjuelgQvRYiKVcWR/YB
- 6d9ew9yoDEN2rozmOBJhmVNxUWzHbTgff/wTM0YFq8CGdYRiLWceM8/SELlM/+8d/wIFlgNopTc
- 4q3XRWErg1z/+ESMgXMvh7tfO8ymb1Q/AQFHzvHpoNAIyePONMo0aFazCawZwjpO8cJlKwS8LOO
- oqWqYnR0aVbTf4JCxz+pWVFN65TM8hlM9DXp867aDNSGjOYHSKJcZP2C4PoiTYpHuZ4K1GoU1/7
- O4MkViye2xJ7afIF4ZQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_01,2026-11-26_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 lowpriorityscore=0 bulkscore=0 impostorscore=0
- adultscore=0 suspectscore=0 malwarescore=0 priorityscore=1501 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270034
 
-Add the Shikra-specific compatible to the q6apm DAI node while retaining
-the generic fallback used by the ASoC driver.  The specific compatible
-lets arm-smmu-qcom select the identity domain required by the firmware
-ABI when the EL2 overlay describes this stream to the SMMU.
+This series enables buffered RWF_DONTCACHE on F2FS for one-pass streaming
+I/O, where retaining the transferred data can displace more useful cache.
 
-The EL2 stream description is part of the prerequisite Shikra EL2
-overlay series.
+Patch 1 marks dropbehind write bios with BIO_COMPLETE_IN_TASK. Normal and
+dropbehind folios may share otherwise mergeable IPU and OPU bios; the flag
+is set when a dropbehind folio joins a bio. The block layer handles
+deferral from unsafe completion contexts.
 
-Co-developed-by: Ajay Kumar Nandam <ajay.nandam@oss.qualcomm.com>
-Signed-off-by: Ajay Kumar Nandam <ajay.nandam@oss.qualcomm.com>
-Signed-off-by: Mohit Sharma <mohit.sharma@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/shikra.dtsi | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Patch 2 passes FGP_DONTCACHE to the buffered write folio lookup and
+advertises FOP_DONTCACHE, enabling buffered reads and writes. Internal
+write_begin callers that pass a NULL kiocb remain supported.
 
-diff --git a/arch/arm64/boot/dts/qcom/shikra.dtsi b/arch/arm64/boot/dts/qcom/shikra.dtsi
-index 0a95ad5a5582..796d5225d161 100644
---- a/arch/arm64/boot/dts/qcom/shikra.dtsi
-+++ b/arch/arm64/boot/dts/qcom/shikra.dtsi
-@@ -2358,7 +2358,8 @@ q6apmbedai: bedais {
- 						};
- 
- 						q6apmdai: dais {
--							compatible = "qcom,q6apm-dais";
-+							compatible = "qcom,shikra-q6apm-dais",
-+								     "qcom,q6apm-dais";
- 							memory-region = <&audio_heap_mem
- 									 &audio_mdsp_carveout_mem>;
- 						};
+Tests used x86-64 QEMU/KVM with two vCPUs, 2 GiB RAM, and an NVMe-backed
+F2FS image. Each attempt transferred a 1-GiB file sequentially in a fresh
+guest, with memory.max=255852544 (244 MiB) and memory.swap.max=0. Normal
+and dontcache each ran ten counterbalanced rounds. Values below are
+arithmetic means of the ten runs per mode. Write throughput excludes the
+final fdatasync().
+
+Throughput was:
+
+ Operation  I/O       Normal MiB/s  Dontcache MiB/s  Change
+ Read       1 MiB         4137.96          5869.38  +41.84%
+ Write      8 KiB          686.09          1752.24 +155.39%
+ Write      1 MiB          714.91          2161.02 +202.28%
+
+Average memory.current was:
+
+ Operation  I/O       Normal MiB  Dontcache MiB  Change
+ Read       1 MiB         197.26          13.70 -93.06%
+ Write      8 KiB         214.22          13.15 -93.86%
+ Write      1 MiB         215.20          19.52 -90.93%
+
+Mean reclaim counters per run were:
+
+ Operation  I/O       pgscan normal/DC   pgsteal normal/DC
+ Read       1 MiB          200999.7/0          200888.4/0
+ Write      8 KiB          201136.8/0          201120.8/0
+ Write      1 MiB          200899.3/0          200883.3/0
+
+Scan counts pages examined by reclaim; steal counts pages reclaimed.
+memory.current includes all memory charged to the workload, not only
+file-cache pages.
+
+Dontcache left zero target pages resident after reads and one 4-KiB page
+after write synchronization.
+
+Changes since v5:
+
+- Rebase onto the F2FS dev branch, adapting the bio tagging to the
+  sub-folio merge paths and excluding metadata-cache I/O.
+- Drop the Android 6.12 backport results, as its dropbehind implementation
+  differs substantially from that in the current dev branch.
+- Add memory-limited read results and update the write results,
+  reporting arithmetic means of ten runs per mode.
+
+Wenjie Qi (2):
+  f2fs: complete dropbehind write bios in task context
+  f2fs: enable buffered RWF_DONTCACHE
+
+ fs/f2fs/data.c | 10 ++++++++++
+ fs/f2fs/file.c |  2 +-
+ 2 files changed, 11 insertions(+), 1 deletion(-)
+
+
+base-commit: b61a029304bb5531312ebc133b2a895d14dc3fee
 -- 
-2.34.1
+2.43.0
 
