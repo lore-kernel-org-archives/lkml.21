@@ -1,76 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.21
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.230.111
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795764247;
-	b=ZG5PrRNoI4u+2c/OTHwioU0TmhF22EbaqQU8Br1Mge/DIhwXjXPjqZYtgwqVpp2z6vus
-	 KK46pYHFjdugt2IrI9WPqT3z+0P/zBLke3Q+NWrzJD2NLrdqWpd/PJUU77tk48H7YJ8Ks
-	 NkmE9CZp6mSsudnA+c69+SyhdbHzEzzd8u8obX8j/FkUrczrE1/1w/1zMYXqff2U88qy0
-	 7xVu542JGW9TjHi5FBcoHWEVvRUaBddxP105xyAWYokk2OWKenLUC0bbTH42FLJ2aIBZa
-	 aY+DohGvzJ+yrAxKEYRNOy12gh/sdoeb9mlkABn/jQyCShVZWVzMOj1ev9TkVYUlvJg==
+	t=1795764252;
+	b=jSurz7tOQlqW/we+MTH3PyxQ59doryzQOxLyGNX69M3jKGkY5pxwKF21fIVm97PXIvzg
+	 oUyWj20rXgxXixXrOHVCVBMRvo9fUTZh2Xm9Gppa/g0pAqPWmT2AEAt9sTfJmrSBJhCcC
+	 nSi5JC1tR9xy1nVfQRmBIjRtMp7G68xyV3CvH2AjcnMOyOUIpSPPFYbhIyysqjEgx4AUm
+	 kqxeSxSD+md+QQiDwcG+5B+Ddi79LNKxVkXbm/iAamO0p6v1IIJFRQexGuKOwr6Lh0Ieh
+	 o7+j76EFpShIM1i8usKmolsR5SDVuKgGkhme8Y/HjSlbRIBKa+soxQctC2HFc1Mb7sg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795764247;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Organization:
-	 Content-Transfer-Encoding;
-	bh=h+PlsLdgyPubSE9W5RzhP9wHPp8A1zGxxHPZ1Wn7124=;
-	b=h4SZyoSrXjggrBkz3MsIdYESdKJv3T3+mvrbKwd8v0DRzImHXquH8eS0SyrsMhjI182A
-	 I5xz6ncgnJFr48DJofSi5YBUYnrhPRZZyhsPmddGKDXtwFyr1SpSiUQjzNx5fKSy1BQy3
-	 l764h0vU0XKCg+3PeHbz4WabPJNzhqccJ7uQ1IdYICfaGPPmnL1j8dAuze4NVsR4x7yxN
-	 KJDukgl/ojeuhSryP1TJEhDgwGkocLFjuDqWZ5/TnHkWhPGyYtvOUbHCxjkNOx3mT7IkI
-	 fv5XFASkC1vZtP3DOofOGbzGkjxNYf3J0rAZ91u0EXvEjyNUlazO7OiDuWSWQaSPxgQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795764252;
+	h=DMARC-Filter:DKIM-Signature:Subject:Message-Id:
+	 Content-Transfer-Encoding:X-Original-From:X-Lms-Return-Path:
+	 Content-Type:From:Mime-Version:Date:X-Mailer:Cc:To;
+	bh=6Q8n/+0yzOS8zRUOgySzo3szziagZeOEeZ2s5FzRuXA=;
+	b=lwzvJRpUgKG+W2/E35I6n7w5Zd/tM2Qa8JBx7sRQ0aVvvjl26mBuEEDcJb8dyqoaMqZM
+	 rxn06zRmqmF4ru8SMGmLNedmT970teYxRsuRhlyggDQK+gS9A4li1Al1dPPb+5EHisFAp
+	 XCi3XAObKJkJugAAjCwpDUpp7NdKsj7vGyiI31/x0iOXrH/N5B2TcmjNpR9HRHFJuOj0O
+	 zgwP3s3sHUDxiORrIjqJi7vlatQl4gjkj/yzpGLfqu4SgfROH9kz+Gzm639RNYKd2273n
+	 upGd24hfDV3YEwoObfvGjfX95nTs3bieNpafa4poxjQVIgaLGFxK3DtFMXc+sq+MjPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LdIT7a+x;
-	arc=none smtp.remote-ip=198.175.65.21
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=bytedance.com;
+	spf=pass smtp.mailfrom=bytedance.com;
+	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=ipFr4Whr;
+	arc=none smtp.remote-ip=209.127.230.111
+Received: from va-1-111.ptr.blmpb.com (va-1-111.ptr.blmpb.com [209.127.230.111])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB35A606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:24:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB35A606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DEDF606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:24:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3DEDF606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=bytedance.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bytedance.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LdIT7a+x
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795764247; x=1827300247;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=CdhPn7XjVPpYlRJpk1QzpAsZZxBQ8609jkS+pXBm1O4=;
-  b=LdIT7a+x6XD744GovFgJWfMmvtx0SnyfqvjIJwwmgZGkDoG7s8Gcf9LC
-   vOoJt6+y9yX+dLZj/hg1YEZIKp5FlgtU17wIiWDGArI76BlPdTKnoLTJv
-   pmkJY30LRKYECmVQF1NjGuKkaJAHENPCBUwD1lU3iX2xMSyPxAeDkBlXL
-   I4nDJxGD9rchiU/034yByUwctutTfaltCHBh44v16mo7R7T3GlDrWF8t/
-   Z6Zt84QmcCArQhCcDm90qecFTdBm89p2ek1/leaiSFfaGzoJ74y6QwmUk
-   SkRtL3/a+FXHvNKwXLCiXvXIMt3ButkQMT4xLrmTnUNp0MXnxx4NN2eWr
-   A==;
-X-CSE-ConnectionGUID: wbWc8ZVcRjWUeImW//Jnpg==
-X-CSE-MsgGUID: BGNhLTzYSFWMelJFMK1crw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4759252"
-X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
-   d="scan'208";a="4759252"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 23:24:07 -0800
-X-CSE-ConnectionGUID: dRtPY4hyTmWlcVYhxOdQ9Q==
-X-CSE-MsgGUID: L2C64/5sQBiBX4Aml/UYvw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
-   d="scan'208";a="12486687"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO ahunter6-desk) ([10.245.245.50])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 23:24:04 -0800
-From: Adrian Hunter <adrian.hunter@intel.com>
-To: alexandre.belloni@bootlin.com
-Cc: Frank.Li@nxp.com,
-	billy_tsai@aspeedtech.com,
-	linux-i3c@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] i3c: mipi-i3c-hci-pci: Skip Intel bus instance whose SCL is not muxed
-Date: Fri, 27 Nov 2026 09:23:55 +0200
-Message-ID: <20261127072355.26331-1-adrian.hunter@intel.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key, unprotected) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=ipFr4Whr
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1795764242; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=6Q8n/+0yzOS8zRUOgySzo3szziagZeOEeZ2s5FzRuXA=;
+ b=ipFr4WhrIKSWDXWwamevVqpXU1lnOUkO6qAfltgOeDtDTRmyfzNj5kaoiy+Z85vCEi2d0V
+ ohNrTMQqSr3KI4j4PLVMvJBuSenuJs3CTd+6l5ir1WYfOkxVXVDWSbFrvUbe5UeUvs6Tx/
+ 7anRgRtnfNGnNw7QcawIwLPjs3lSatnBU9PrJPs40oAzg3KPS1uzcehbi0+XCYTp6qH7az
+ yHP9E+SeVSq4+7Er4+vZipLg+odSeRaMCehM1PAwUKlv1poyy8V8eJg6Ux3Y/+GRU6Gy2s
+ SQfwASnnv4S+UTRcjbS90hYT4gnMcpcfSetxvVESGwDlmivLy39L3V8yoQnpmQ==
+Subject: [PATCH] mm/readahead: read folio order limits under the invalidate lock
+Message-Id: <20261127072340.73758-1-zhaogongyi@bytedance.com>
+Content-Transfer-Encoding: 7bit
+X-Original-From: Zhao Gongyi <zhaogongyi@bytedance.com>
+X-Lms-Return-Path: <lba+26b093010+be7b16+vger.kernel.org+zhaogongyi@bytedance.com>
+Content-Type: text/plain; charset=UTF-8
+From: "Zhao Gongyi" <zhaogongyi@bytedance.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,114 +58,81 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 - 4, Domiciled in Helsinki
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+Date: Fri, 27 Nov 2026 15:23:40 +0800
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+Cc: "Jens Axboe" <axboe@kernel.dk>, 
+	"Jinchao Wang" <wangjinchao600@gmail.com>, <linux-mm@kvack.org>, 
+	<linux-fsdevel@vger.kernel.org>, <linux-block@vger.kernel.org>, 
+	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>
+To: "Matthew Wilcox" <willy@infradead.org>, "Jan Kara" <jack@suse.cz>, 
+	"Andrew Morton" <akpm@linux-foundation.org>
 
-Intel LPSS I3C PCI functions may expose a second bus instance even when
-it is not pinned out on the platform.  When the instance's SCL pad is not
-muxed to the controller, the mipi-i3c-hci driver still creates a device
-for it and probe eventually fails:
+Block device mmap readahead can race with set_blocksize(), which updates
+the block size and minimum folio order under the exclusive invalidate
+lock. page_cache_ra_order() reads the minimum before taking the shared
+lock and can allocate a folio smaller than the new block size. On the
+buffer-head path this can cause a NULL dereference in guard_bio_eod().
 
-  i3c intel-lpss-i3c.1: i3c_hci_process_xfer: timeout error
-  mipi-i3c-hci intel-lpss-i3c.1: probe with driver mipi-i3c-hci failed with error -110
+Take the existing shared invalidate lock before computing the folio order
+limits so they stay valid through allocation and I/O submission.
 
-The controller's SCL input is a clock loopback.  If the SCL pad is not
-muxed to the controller, the loopback input stays low, so the controller
-has no clock to sample the bus with and the first CCC transfer times out.
-
-This condition can be detected from the HCI Debug extended capability.
-After reset, the PRESENT_STATE_DEBUG register reports
-SCL_LINE_SIGNAL_LEVEL before the bus is enabled, and it reads low for an
-instance whose SCL pad is not muxed.
-
-Firmware does not describe which instances are pinned out, and MIPI
-DisCo provides no property for it.  Detect an unconnected second instance
-from the hardware instead by checking SCL_LINE_SIGNAL_LEVEL after reset.
-If the second instance reports SCL low, do not create a device for it.
-
-Signed-off-by: Adrian Hunter <adrian.hunter@intel.com>
+Fixes: 47dd67532303 ("block/bdev: lift block size restrictions to 64k")
+Cc: stable@vger.kernel.org # 7.3+
+Signed-off-by: Zhao Gongyi <zhaogongyi@bytedance.com>
 ---
- .../master/mipi-i3c-hci/mipi-i3c-hci-pci.c    | 32 +++++++++++++++++--
- 1 file changed, 30 insertions(+), 2 deletions(-)
+Earlier proposals:
+  https://lkml.iu.edu/hypermail/linux/kernel/2511.3/04090.html
+  https://lore.kernel.org/r/aUN9BFdxHQj8ThMS@ndev
 
-diff --git a/drivers/i3c/master/mipi-i3c-hci/mipi-i3c-hci-pci.c b/drivers/i3c/master/mipi-i3c-hci/mipi-i3c-hci-pci.c
-index 78fa42b2dc94..ea3e14c65313 100644
---- a/drivers/i3c/master/mipi-i3c-hci/mipi-i3c-hci-pci.c
-+++ b/drivers/i3c/master/mipi-i3c-hci/mipi-i3c-hci-pci.c
-@@ -39,6 +39,7 @@ struct mipi_i3c_hci_pci {
- 	void __iomem *base;
- 	const struct mipi_i3c_hci_pci_info *info;
- 	struct mipi_i3c_hci_pci_instance instance[INST_MAX];
-+	int instance_count;
- 	void *private;
- };
+The earlier syzbot retest hit a bug in the fallback path. Since
+b244c89a70b3, the caller holds invalidate_lock before the fallback reads
+min_nrpages. This patch covers the remaining mmap readahead path.
+
+A/B testing on arm64/QEMU at the declared base commit gave 10/10
+baseline hits via madvise and 6/10 via MAP_POPULATE. Both paths had
+0/10 hits with this patch. The 20 patched serial logs showed no kernel
+warnings or crashes.
+
+ mm/readahead.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
+
+diff --git a/mm/readahead.c b/mm/readahead.c
+index 6e5563290..80f3e141d 100644
+--- a/mm/readahead.c
++++ b/mm/readahead.c
+@@ -484,7 +484,7 @@ void page_cache_ra_order(struct readahead_control *ractl,
+ 	struct address_space *mapping = ractl->mapping;
+ 	pgoff_t start = readahead_index(ractl);
+ 	pgoff_t index = start;
+-	unsigned int min_order = mapping_min_folio_order(mapping);
++	unsigned int min_order;
+ 	pgoff_t limit = (i_size_read(mapping->host) - 1) >> PAGE_SHIFT;
+ 	pgoff_t mark;
+ 	unsigned int nofs;
+@@ -506,15 +506,17 @@ void page_cache_ra_order(struct readahead_control *ractl,
+ 		mark = ULONG_MAX;
+ 	}
  
-@@ -163,6 +164,29 @@ static void intel_reset(void __iomem *priv)
- 	writel(INTEL_RESETS_RESET, priv + INTEL_RESETS);
- }
- 
-+#define INTEL_PRESENT_STATE_DEBUG	0x24c
-+#define INTEL_SCL_LINE_SIGNAL_LEVEL	BIT(0)
++	/* See comment in page_cache_ra_unbounded() */
++	nofs = memalloc_nofs_save();
++	filemap_invalidate_lock_shared(mapping);
 +
-+/*
-+ * BIOS enables the PCI function only if the 1st instance is enabled, but the
-+ * 2nd instance may not be pinned out, in which case its probe times out.
-+ */
-+static void intel_check_2nd_instance(struct mipi_i3c_hci_pci *hci)
-+{
-+	for (int i = 1; i < hci->instance_count; i++) {
-+		void __iomem *base = hci->base + hci->info->instance_offset[i];
-+		u32 st = readl(base + INTEL_PRESENT_STATE_DEBUG);
-+
-+		/* Reads the SCL clock loopback, which is held low if SCL is not muxed */
-+		if (!(st & INTEL_SCL_LINE_SIGNAL_LEVEL)) {
-+			hci->instance_count = i;
-+			dev_notice(&hci->pci->dev, "%s.%d: SCL not connected, skipping\n",
-+				   hci->info->name, hci->info->id[i]);
-+			break;
-+		}
-+	}
-+}
-+
- static int intel_i3c_init(struct mipi_i3c_hci_pci *hci)
- {
- 	struct intel_host *host = devm_kzalloc_obj(&hci->pci->dev, *host);
-@@ -181,6 +205,8 @@ static int intel_i3c_init(struct mipi_i3c_hci_pci *hci)
++	/* Serialize with set_blocksize() updating the minimum folio order. */
++	min_order = mapping_min_folio_order(mapping);
+ 	new_order = min(mapping_max_folio_order(mapping), new_order);
+ 	new_order = min_t(unsigned int, new_order, ilog2(ra->size));
+ 	new_order = max(new_order, min_order);
+-
+ 	ra->order = new_order;
  
- 	intel_reset(priv);
- 
-+	intel_check_2nd_instance(hci);
-+
- 	intel_ltr_expose(&hci->pci->dev);
- 	intel_add_debugfs(hci);
- 
-@@ -402,14 +428,14 @@ static void mipi_i3c_hci_pci_setup_cell(struct mipi_i3c_hci_pci *hci, int idx,
- 	cell->resources = &data->res;
- }
- 
--#define mipi_i3c_hci_pci_alloc(h, x) kzalloc_objs(*(x), (h)->info->instance_count)
-+#define mipi_i3c_hci_pci_alloc(h, x) kzalloc_objs(*(x), (h)->instance_count)
- 
- static int mipi_i3c_hci_pci_add_instances(struct mipi_i3c_hci_pci *hci)
- {
- 	struct mipi_i3c_hci_pci_cell_data *data __free(kfree) = mipi_i3c_hci_pci_alloc(hci, data);
- 	struct mfd_cell *cells __free(kfree) = mipi_i3c_hci_pci_alloc(hci, cells);
- 	int irq = pci_irq_vector(hci->pci, 0);
--	int nr = hci->info->instance_count;
-+	int nr = hci->instance_count;
- 
- 	if (!cells || !data)
- 		return -ENOMEM;
-@@ -450,6 +476,8 @@ static int mipi_i3c_hci_pci_probe(struct pci_dev *pci,
- 
- 	hci->info = (const struct mipi_i3c_hci_pci_info *)id->driver_data;
- 
-+	hci->instance_count = hci->info->instance_count;
-+
- 	ret = hci->info->init ? hci->info->init(hci) : 0;
- 	if (ret)
- 		return ret;
+-	/* See comment in page_cache_ra_unbounded() */
+-	nofs = memalloc_nofs_save();
+-	filemap_invalidate_lock_shared(mapping);
+ 	/*
+ 	 * If the new_order is greater than min_order and index is
+ 	 * already aligned to new_order, then this will be noop as index
+
+base-commit: 29378f5cd79a27718ead9717fe7b094b651a8e1e
 -- 
-2.53.0
-
+2.39.5 (Apple Git-154)
