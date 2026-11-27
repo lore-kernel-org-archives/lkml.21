@@ -1,80 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795741898;
-	b=ZT2ZVBsgBFHkSi3Cg4LGdQoAT/2HyZsNuICFj52LzHHQpRYfCDjVXSDyei/+i38nCz9F
-	 /IwEifZJ3v9etDypOzr4ZWXa5hToT5tiTrOSbbKj6wybwGnXSWAL5u/8rx7Z4zr1gBHwf
-	 jAT7kuQ7WomSrNR5e+zmOY7bS31OGX1jJQ+YQxT2NjJ8sjd0PJbHJutbrBNi5UPDugvSl
-	 VpOSfo4MxhJu/lqREbh7y2zOmE5m8GocgTgYHxAEFV/JDoBCL0Nav41V5WjZuA4NWit++
-	 7eKgc3jTgFkaUAShT8jI+9c5Bglq2bUTTF5X6CYqem/0tC4AmxTofmeDUoM9/DTuPmQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795741898;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=I7wd8YBab4NQRi8qk+9Nq5Hm+sqxsp5LHKtCHvf0z00=;
-	b=33BDY/1sllM/pNM0Cao8elv119S7Q/qvc+Oof+r23zCUv6aXVaBRnljJjPD2eJo3Epbh
-	 i8EIWdyBulnXMiR4UhRs1kVK5htw5Ybi8zwXSic8peRIONTCV5GEdxuAtCrvX8RUKQyxc
-	 7/zcPWwLa3EF5d5pS5DbD2IarPDOiuseKnQId0UAz2rn5Kkx0JF3WxqYQd3O59vfUeO2J
-	 kmKg9mRJP7FsT8vCHimjMevYrMCmolefnHlTfTrH1t51yKf4BokDQ/Tw+nzsZCJ0zHflA
-	 7HRqLodEPbQJv8EbfwU88mTSQCkVPDaT2rIZ2xYOGAzE82IAHXQ87tkdyTOa0Cu0ZLQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GDk+kIQW;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D026606A31C;
-	Fri, 27 Nov 2026 01:11:37 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GDk+kIQW
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795741897;
-	b=UTvkWFvHa/NuhrpGw2g69euX2GDwK/oDw9Z3Ssf2Qtl2nwgR7J0TSBomTcIt1YacIsMr
-	 fMZaDALZibY06ay5QzICuvWi9tQT3gU/StOiwgahI1pew/IL1QD+PI92ECNVSM9iRx8C4
-	 Ttk0tM7lPIUbHcgS/lJGORZMk7Okfj+hmrahqReo+KEPnKMRuqr04ZrRR8is+dZuhSRIq
-	 qTWnApUM/oRqG1IzBD7UPUS8sswA06OH1zf2IhTV4nT+/WCkGI5jpIwagKZT05lQkFPaF
-	 8366zz5OolU3su/mlyUJZV6bTob2iyrkclJ1ukZbFpU8NMjZS+1XLqiHD1HQ6HHvWPg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795741897;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=I7wd8YBab4NQRi8qk+9Nq5Hm+sqxsp5LHKtCHvf0z00=;
-	b=Cr1L8gV90HDxAom2gTOI+iJtfAG+oDUczTlppBptv3FfwPiNnX6fdVlOhRMJFMZTqei7
-	 eHZ0sQ81DaBsB9R7ObmfrK5BLd5pjEW1UgC5c8Ozpt6ZZngFWRHKrCNGrzIjjAIfSNQqc
-	 OZQts3S/oFjQe6slQgxummAXbIXFCEFUXCwjZmMkvcYnutvjkzrdD345YrJdIKZuWPScE
-	 /iisY1tJ4pgBoF8MbnLgyHl2wwnqxUONZdCJSuwmredgSmY6Fa31TDcNs9ReV+EnklKiw
-	 HJsCq08pY5JpdmkDzrKwrZkQ513cyv+mQJOrVhNehb9SZIJwJay2ARuVhwfCX6L5O2A==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.181
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795741966;
+	b=PkhDnZlxsD9no/Gfjfk7V7+ULC75p8uqBZ06CoaE8zRo90GgiIZmm3w3AEVsfNsyLO2a
+	 2pSmjsKDAcEk9it6qTSx2qHcqyheZINzIHHOJ/NAPnYl5/a5tc646uTq0YoD3dw0N+LqL
+	 3Mr6G0J9Mhw23veHNGpnEFuWg16sTgmI96XCJoqQkVrQjVdBREe0+txgP3dYb5By/Nr1l
+	 go9fX1aX5tpyy3wjEEpfUlOGAsSxUzGWiIVS6fTyAPAmEtK4h/t6TG1GO4izl6+nvRjoI
+	 fBvMJqpKLO20rUsdHrYlQyfx0rrDZ/9dSKUeANt5mZNZo1WeKsadpWReF+dDipXM1jA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795741966;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=rOaXMWz/87oI93lqqKPMBOKv2/6Eat6aF1tKcKKMg6Y=;
+	b=4XvYUqB3RkWzSTuLDIdPjm79ETUuodFe26Nrp4KDgi4BpL7jdWGLrehQTOzCK1p4y4z1
+	 YJEprz5x69rPOU68skVv9ysniuv8UI3Q0ulIBSDhirXt+aZGViUjEj6U1CoKmBqgWLop8
+	 sCfZWEo+HXGgIClyZSLN1W5IismqASv/gSOmrve3s5oqHKNtv9aLgOFYcZXGbq3t1W7q3
+	 8DfCGYJ0k6E0t5Vjnzp3kZsjYNDYGVGkxUlGE4sc3OScbx0eFQNfii9W8T+UP2V0DvXoa
+	 +/DysSvytPqqVboSD4JFW+YLSJFRuFEHGTceMnUJoKx5AMAMA9DYQW1BkF/an0yTKsQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="p8M3/HG5";
+	arc=none smtp.remote-ip=209.85.210.181
+Received: from mail-pf1-f181.google.com (mail-pf1-f181.google.com [209.85.210.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 3F79B1F00893;
-	Fri, 27 Nov 2026 01:11:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795741897;
-	bh=I7wd8YBab4NQRi8qk+9Nq5Hm+sqxsp5LHKtCHvf0z00=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=GDk+kIQWCvjnlX3jPrJgaCTz/koNoGNgHqR1WAXSZ5WRk+yZO+lsgSDAUGWZJEgHd
-	 BeNkADDJXjUnn7ob8VfEjG9zUKVHWGZdINGALJ/wgXwpWeaMgMPKBI25D2rhAvc4OI
-	 2J9hF9z+50BEpAZrlvwLHQpNxiB76/cmaVZ75Ew5d9KI9iWJbqOvYw2wKUcSSTZqho
-	 NzFPLGFMOh0838lfXREs89+gAAXDU5Pc9Hr2Ws7hq1wS/UJu/FJR+PVFttt1V/8M0O
-	 J3yp77luvuJbXsoeolXVEqT2Aaw1W6RYHdPHtwventStaTQzAAH8FckCUedAnzttE8
-	 gbjQArgv0lQfw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id B2EB34B4CE;
-	Fri, 27 Nov 2026 01:11:31 +0000 (UTC)
-From: Ciro Pedrini via B4 Relay <devnull+ciro.pedrini.gmail.com@kernel.org>
-Subject: [PATCH v3 0/2] Keyboard backlight for the Lenovo Legion Pro 7 Gen
- 10
-Date: Fri, 27 Nov 2026 01:11:10 +0000
-Message-Id: <20261127-legion-lighting-rfc-v3-0-15c55d9f15b7@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D8CE606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:12:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D8CE606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=p8M3/HG5
+Received: by mail-pf1-f181.google.com with SMTP id d2e1a72fcca58-8c70c2ab5a2so2969855b3a.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:12:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795741965; x=1796346765; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=rOaXMWz/87oI93lqqKPMBOKv2/6Eat6aF1tKcKKMg6Y=;
+        b=p8M3/HG506gqQL/rWqvbZ0Qec/c5vpdIhPnwXHc8zIpU2EqDOO73Yk/HzuSXNDL2f2
+         TgSfQeCa0e4Ls4fkjbEHMMevixc2Z8VPcHkFgvp+daOQXljU7E1x33d/j3cmE4H7E/lu
+         0OD1TvMLqxZAkCgpo+dxU5iPY9d/y5g/GN5q6lPmmidbMQHS/KBQI+bvxIL4lbX+j10Q
+         /bm4T5nISmNA84j+6a7Q0HsQMAoZiDMN5U0KL8Wia9BHXWdGpCNuLU+dBaqbyj2V0+VZ
+         oKklRcW4j1C6KZgEigszHCfZDR7SVamsAPYMySo5gUCgRLYUAzhSZ3x2x8Co3lspQbNC
+         v1GA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795741965; x=1796346765;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=rOaXMWz/87oI93lqqKPMBOKv2/6Eat6aF1tKcKKMg6Y=;
+        b=Ri9vq1yjW4ZpUKNlOBr3yFRjPwGEWv9RjtCqyfQ5NcTF6iZ8k8CrxmThzJ9ohN2xel
+         d6MV7DY75CEZtsr7pb03NCggpgSdvAXPl6s3LGMts/3GhICRxc3zeqkiC5deuzN7cjCy
+         ZsOxePda3jVSA2HqWz39fjkdCKzzn63IY77v/x2eTNuyFFIHUfdBqC3qMuNBdxpnJ1tC
+         1ntlGu9pkgCpzcyii54HNpzVaAA7tzEAP6BQWb6LlNZLUz8d4af+GUefe2Q3hijoC9KP
+         BikbgZ2q0tksCCO8CuBUUe5ll7dKpecMSxoWiI+CXeVVjPxHuSjfoKxORbEdoQckxESD
+         5hpA==
+X-Forwarded-Encrypted: i=1; AL+hErGurcuXhmjgBtlgsARSe3xPAiP5GfPAFH3H3YAkqLbAGaxfO+DBM46KtUI5Hom2b1BazXoVlmM/HpKLNFU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/BVIreDLOcF7UllySGjEYIBtH09HPUUg4o99VqQhXO9ytMaInG
+	T/dy1VFZKhUdSOrtuOw9Bv/6mogLazaNHBQ3+7YVtFCiFE+5W40NE1eD2XMYmA==
+X-Gm-Gg: AZFdTZfwCMZ8ZYZi3nPvAl/NaiYUcmEpXCY/P3EdFvNuY+NvaeNn8tG5gaPN07YQLUR
+	piS1uPKw4OSs6qwD12hJKRAXfxZaPrhu6KS0zytpDa9Meznv1DsbptS5YLtpBqrKbDcDF6HBOKT
+	DVzeEpAH4QQygX440L4mWib7z6QmqplhbDTZ3GzD4RkMsWXr46LidvYmJPGmbERy9WBe80+9mxC
+	6ta5muyZ4T262OxT5G0rXWcHScVZZzrKHQa6CnYWMmI1cES41S9pcv0HBdkUhGvEGbZuThu5xCo
+	tVG5kcB/i3ipm6dTL5nukePjkVH7FI0/pSjidLcLZesCszqhp3ch7tRrNlYzdF9LihpThx9ucU2
+	p7QqXZ2ghl454LacmIXp2ONZZSzm0GqkGGF7t9PmkvIkjHW3MfkHObv2juezEsfJCHPEifcPgt5
+	OG+EJCDsdPFhsIkckYKaDvtPHx1zWMS5xc3ynoxMqK5XESmXZ2b8V5pNkXff1nzJrzoU4FZlShF
+	8YiQSMNqOgXUF5raYEKXx1BX+Iss//KeB8Sqs3xxWpMWBW80WOC9hWGGOp26OvfTlX2QSwtJKz6
+	/8y9KmE2KAHvym20+GzUo7DgsfUFf+tcKWBGw51b20ZN7oWDDw==
+X-Received: by 2002:a05:6a00:230b:b0:8a7:3c62:30f2 with SMTP id d2e1a72fcca58-8c87cc42cfcmr18473116b3a.36.1795741965249;
+        Thu, 26 Nov 2026 17:12:45 -0800 (PST)
+Received: from HP-Pro-Tower.mioffice.cn ([43.224.245.243])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e456a7sm11593461b3a.29.2026.11.26.17.12.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 17:12:44 -0800 (PST)
+From: Zhijun Li <zhijunli.leo@gmail.com>
+To: Jaegeuk Kim <jaegeuk@kernel.org>,
+	Chao Yu <chao@kernel.org>
+Cc: linux-f2fs-devel@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org,
+	Chen Zhangqi <chenzhangqi@xiaomi.com>,
+	Zhijun Li <lizhijun3@xiaomi.com>
+Subject: [PATCH v2] f2fs: stop checkpoint on pinned segment allocation failure
+Date: Fri, 27 Nov 2026 09:12:31 +0800
+Message-ID: <20261127011231.1564680-1-zhijunli.leo@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261022120833.1698722-1-lizhijun3@xiaomi.com>
+References: <20261022120833.1698722-1-lizhijun3@xiaomi.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,127 +100,117 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32Nyw6CMBBFf8V07Rha5KEr/8O46GNaJoFiWkIwh
- H+3ZcXCuDzJveesLGIgjOx+WlnAmSKNPkF5PjHdSe8QyCRmohA158UNenRpAj25biLvIFgNRpe
- C15WxlTAsPd8BLS279flKrGREUEF63WWXHQN4XKY87ShOY/js/Znnw//UzKEA2TbIjWp1heXDD
- ZL6ix4HllOzODh48dshkqO9Vo2opVUN10fHtm1fdWPvVRUBAAA=
-X-Change-ID: 20261109-legion-lighting-rfc-dc32165df52d
-To: Mark Pearson <mpearson-lenovo@squebb.ca>, 
- "Derek J. Clark" <derekjohn.clark@gmail.com>, Rong Zhang <i@rong.moe>, 
- Ike Panhc <ikepanhc@gmail.com>, Hans de Goede <hansg@kernel.org>, 
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>
-Cc: David Cemin <dcemin@nvidia.com>, 
- Werner Sembach <wse@tuxedocomputers.com>, 
- Aaron Erhardt <aer@tuxedocomputers.com>, 
- platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-input@vger.kernel.org, Ciro Pedrini <ciro.pedrini@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795741890; l=4542;
- i=ciro.pedrini@gmail.com; h=from:subject:message-id;
- bh=n6ZZHbFpHE2QvKDfMUFjU+60/18Xn8WyvZbla0npvuc=;
- b=vxhfV237oYB+dNCIQjpJPLLNEofcL2OcjPFdsTSxVwtr5bEb9ROmcQ35OLLikzcK7R9bx3Kw+
- bAYIFaVYljZAaL+FI/buQs6OOvsAJP7UAb+boBng+SQXXummh+Du7fP
-X-Developer-Key: i=ciro.pedrini@gmail.com; a=ed25519;
- pk=TOSFlPBon1xBHfTrhODxatabgwEJdgKEzG3jMoMQcbc=
-X-Endpoint-Received: by B4 Relay for ciro.pedrini@gmail.com/default with
- auth_id=1468
-X-Original-From: Ciro Pedrini <ciro.pedrini@gmail.com>
-Reply-To: ciro.pedrini@gmail.com
+Content-Transfer-Encoding: 8bit
 
-Hi,
+From: Zhijun Li <lizhijun3@xiaomi.com>
 
-This is v3 of the Legion keyboard backlight series. It has the changes
-Ilpo and Rong asked for on v2, and one fix I found while testing them.
+f2fs_allocate_data_block() updates SIT before rotating the current
+segment, since SSR needs the latest valid block information:
 
-Short background: on my laptop the keyboard backlight never turned on
-under Linux. The keyboard controller (048d:c197) stores a brightness from
-0 to 9 behind a vendor feature report (0x07), it was 0 from the factory,
-and nothing on Linux could change it. That brightness dims every LED of
-the machine. Fn+Up/Down/Space are handled by the firmware, which sends
-the new level on a vendor input report.
+	update_sit_entry(sbi, *new_blkaddr, 1);
+	update_sit_entry(sbi, old_blkaddr, -1);
 
-Patch 1 stops ideapad-laptop from sending KEY_UNKNOWN for those three
-keys. Patch 2 is the driver: the brightness as a kbd_backlight LED, plus
-brightness_hw_changed for the hotkeys so the desktop OSD works.
+If the rotation fails, it jumps to out_err without reverting the SIT
+update. This is fine as long as checkpoint has been stopped by then,
+because the stale SIT will never be persisted. do_write_page() asserts
+this with f2fs_bug_on(!CP_ERROR_FLAG), and every failure in the
+rotation path satisfies it: get_new_segment() stops checkpoint on
+-ENOSPC and -EFSCORRUPTED, and change_curseg() only fails after
+f2fs_get_meta_cache_retry() has stopped checkpoint.
 
-The fix: while testing v3 I found that the controller sends the same
-"brightness is now B" report after every brightness set, the host's
-own ones too, and also when the level doesn't change (Fn+Space sends
-it as well). v2 passed all of those to brightness_hw_changed, so the
-host's writes looked like hardware changes. v3 only reports a level
-that differs from the last one the driver knows.
+Pinned allocation is the exception. Since
+commit 48ea8b200414 ("f2fs: fix to avoid panic once fallocation fails for pinfile"),
+get_new_segment() does not stop checkpoint for pinned allocation, and
+since commit c966d29e01bb ("f2fs: support resizable tail section and unify pinned allocation"),
+it may also return -EAGAIN for it.
 
-David: patch 1 adds three KE_IGNORE entries to the ideapad WMI keymap,
-which your "architecture independent home for the Lenovo WMI drivers"
-series moves to wmi-fn-keys.c. Whichever goes first, I'm happy to
-rebase mine on yours; it's the same three lines in the new file.
+That is intended for f2fs_allocate_pinning_section(), which fails
+before any SIT update. But when a CURSEG_COLD_DATA_PINNED segment
+becomes full in the middle of a section, f2fs_allocate_data_block()
+calls new_curseg() after SIT is updated. If it fails, fallocate()
+returns an error and the filesystem keeps running, with a block marked
+valid in SIT that no node refers to, while __allocate_data_block() has
+already reverted valid_block_count. The next checkpoint persists the
+SIT, and the next mount fails in build_sit_entries():
 
-I tested it on my 16IAX10H (83F5, BIOS Q7CN77WW) with 7.3 as a module:
-brightness from sysfs and KDE, the hotkeys and the OSD, Fn+Space,
-suspend/resume, unbind and rebind, and the vendor report on the wire
-while doing that. It's based on pdx86 for-next and builds with W=1.
+  F2FS-fs (vda): SIT is corrupted data# 513 3 vs 515
+  F2FS-fs (vda): Failed to initialize F2FS segment manager (-117)
 
-About how this was made: I found the protocol with usbmon captures and
-by looking at Lenovo's Windows software. I wrote the code with help from
-Claude Code (Claude Opus 5.5). I went through all of it and tested it
-myself, and each patch has a short note about it below the ---.
+fsck.f2fs also reports "SIT valid block bitmap checking [Fail]".
 
-Thanks,
-Ciro
+It can be reproduced with CONFIG_F2FS_FAULT_INJECTION:
 
+  mkfs.f2fs -f -s 4 /dev/vda
+  mount -t f2fs /dev/vda /mnt
+  touch /mnt/pin; f2fs_io pinfile set /mnt/pin
+  echo 0x100000 > /sys/fs/f2fs/vda/inject_type   # FAULT_NO_SEGMENT
+  echo 2 > /sys/fs/f2fs/vda/inject_rate          # fail the 2nd segment
+  fallocate -l 64M /mnt/pin                       # fails with ENOSPC
+  echo 0 > /sys/fs/f2fs/vda/inject_rate
+  umount /mnt
+  mount -t f2fs /dev/vda /mnt                     # fails with EUCLEAN
+
+Fix it by stopping checkpoint when the rotation fails after SIT has
+been updated. The early -ENOSPC return for curseg->segno == NULL_SEGNO
+is not affected: it happens before any SIT update and is the expected
+path once a pinned section is used up. Pinned allocation failures in
+f2fs_allocate_pinning_section() still don't stop checkpoint.
+
+Fixes: 48ea8b200414 ("f2fs: fix to avoid panic once fallocation fails for pinfile")
+Co-developed-by: Chen Zhangqi <chenzhangqi@xiaomi.com>
+Signed-off-by: Chen Zhangqi <chenzhangqi@xiaomi.com>
+Signed-off-by: Zhijun Li <lizhijun3@xiaomi.com>
 ---
-Changes in v3:
-- Short reports: send only the request bytes and read only the answer
-  bytes, right after the request; no more 100 ms wait (Rong).
-- The buffer is allocated per exchange. Not on the stack as Rong
-  suggested: usbhid hands it to the USB core for DMA.
-- legion_raw_command() and legion_simple_command(), and the request
-  length checked against the 960-byte report with a static_assert
-  (Rong).
-- Out-of-range values and failed reads return errors instead of being
-  clamped or replaced; dbg messages, no hex dump (Ilpo, Rong).
-- devm for hid_hw_start()/hid_hw_open() and the LED; .remove stays,
-  empty, so hid-core doesn't stop the device twice (Ilpo, Rong).
-- Dropped the (int) casts and the "(2025)"; comments trimmed, the one
-  about HID_QUIRK_INPUT_PER_APP now says why; Kconfig help about what
-  the driver does (Ilpo, Rong).
-- New: only report a level change to brightness_hw_changed (see above).
-- Rebased on current pdx86 for-next; Rong's Acked-by on patch 1.
-- Link to v2: https://lore.kernel.org/r/20261110-legion-lighting-rfc-v2-0-845726afb71c@gmail.com
+v2:
+- Drop the SIT rollback. v1 claimed that change_curseg() may fail with
+  -ENOMEM without stopping checkpoint, which is wrong: the summary read
+  retries on allocation failure, and f2fs_get_meta_cache_retry() stops
+  checkpoint on any error. The only gap is pinned allocation.
+- Stop checkpoint instead of partially reverting SIT, which also left
+  ckpt_valid_map, discard_map, mtime and curseg state behind. This
+  matches the existing assumption in do_write_page().
+- Fix the Fixes tag, drop Cc: stable.
+- Add a reproducer. Tested in QEMU on top of f2fs/dev b61a029304bb with
+  and without this patch: 200 rounds of pinned fallocate with
+  FAULT_NO_SEGMENT at random rates (1..12) and sizes. Without the patch,
+  138 rounds left an image that failed to mount; with it, the same 138
+  rounds stopped checkpoint and the images passed fsck and mounted.
+  Rounds that failed in f2fs_allocate_pinning_section() did not stop
+  checkpoint either way. No lockdep/KASAN report with the patch.
 
-Changes in v2:
-- Only the keyboard controller (c197) now, as Rong suggested. No
-  LampArray, no colours, no lighting_mode, just a kbd_backlight LED.
-- Ilpo's comments: struct with __le16 for the request, guard(),
-  devm_mutex_init(), no magic numbers, includes.
-- Removed the "ready" flag, its spinlock and the work item. raw_event
-  can't run during probe/remove, so it notifies the LED directly.
-- Keep led_cdev.brightness in sync with the hotkeys (from the Sashiko
-  review).
-- Moved the note about the AI tool out of the changelogs, below the ---.
-- Link to v1: https://lore.kernel.org/r/20261109-legion-lighting-rfc-v1-0-a87e1db8c5e3@gmail.com
+Alternatively, we could check that the next segment can be allocated
+before updating SIT for the pinned curseg, so that fallocate() fails
+without shutting down the filesystem. I'm fine with either way.
 
----
-Ciro Pedrini (2):
-      platform/x86: ideapad-laptop: Ignore keyboard backlight hotkeys
-      HID: lenovo-legion: Add keyboard backlight driver for Legion Gen 10
+v1: https://lore.kernel.org/linux-f2fs-devel/20261022120833.1698722-1-lizhijun3@xiaomi.com/
 
- MAINTAINERS                                  |   1 +
- drivers/hid/Kconfig                          |  12 ++
- drivers/hid/Makefile                         |   1 +
- drivers/hid/hid-ids.h                        |   1 +
- drivers/hid/hid-lenovo-legion.c              | 293 +++++++++++++++++++++++++++
- drivers/platform/x86/lenovo/ideapad-laptop.c |   4 +
- 6 files changed, 312 insertions(+)
----
-base-commit: 61c0dac952b9308884936d05cce97565a5c89af4
-change-id: 20261109-legion-lighting-rfc-dc32165df52d
+ fs/f2fs/segment.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
 
-Best regards,
+diff --git a/fs/f2fs/segment.c b/fs/f2fs/segment.c
+index 066b7cf813d7..5499f20d6428 100644
+--- a/fs/f2fs/segment.c
++++ b/fs/f2fs/segment.c
+@@ -4051,8 +4051,18 @@ int f2fs_allocate_data_block(struct f2fs_sb_info *sbi,
+ 			stat_inc_seg_type(sbi, curseg);
+ 		}
+ 
+-		if (ret)
++		if (ret) {
++			/*
++			 * SIT has already been updated above, stop checkpoint
++			 * so that the inconsistent SIT won't be persisted.
++			 * Most failures have stopped checkpoint already,
++			 * except pinned allocation failure.
++			 */
++			if (!f2fs_cp_error(sbi))
++				f2fs_stop_checkpoint(sbi, false,
++						     STOP_CP_REASON_NO_SEGMENT);
+ 			goto out_err;
++		}
+ 	}
+ 
+ skip_new_segment:
 -- 
-Ciro Pedrini <ciro.pedrini@gmail.com>
-
+2.43.0
 
