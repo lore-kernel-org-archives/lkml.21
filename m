@@ -1,47 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795779871;
-	b=Q1d2AfacSPCGKm97+4DMa4ai1N/oW9b/wSgQ+4/J5JhwVsBeKM2NO/0riOuDYj1BLc8z
-	 BShqBxU5bxNRml25WUqQu0T5RxE82nFJoF/hacRnmvsyB5Te03gQD7UvKMd0v8/mlnlKj
-	 vbqb8vIrPiY4afXqBnWi+jOKEEedkyLWUurEzm2a+nqUEPDnrXYwkv6ydf4QOiBSzgob9
-	 LNGmjzo6LwvzufrsMdHNsek+Gw6+YJrDcX6Qzc/ktdzGnQEJ/Krcx7UpcIF2KwSxHGrHM
-	 lE0wm8ByC4RlU8tRQgvfhxDt4YKUhWVuh7EtzcIJD9p4ao8T0jkCfh+9HSTqVDA403g==
+	t=1795779884;
+	b=X/Z0l6quy+ySvUIIR8PhIeA8bji+O8gnjv5FwZAbNqt9K6Uz30pgebQqi0LNBzGlNkIY
+	 X2QvLr6Y/tNmtf3HBfgbnzvgg2VQ1Nlod31KVfoVKYHlr+S52jyixdW94BKjoWqYCVxYy
+	 bjbIYKQvrfmWoa1EHSufXy5asi3kkQ07mLurESvGQBcvfxLgDb/Bew43L+oq/UJSPopU9
+	 8onqCW/EpJ++IQ1Swr2hETyoDj5JALl3ZTVftSIHq9g48m1Alk7wueGFSaINtvGqROm5v
+	 XO86QZPvwCnm7A128XBm1g5+5u2p/RNmTFUFwg4jED3A03fbV+UBdERYtei+rSQ9icA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795779871;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=z8QPTJ81+fZJS4M7LndXTeeI+QYCXyZKcBukwunJ0Mo=;
-	b=KMzK4hFenOZ6cxuIXt43Bmnd6PlgsR4oWHtTFzktRboD6m/6MuytjtIUamOklkppvq2C
-	 REICAUi1muqI8xTM2FTElE8gCNUr81dlU7ysU1/BI0/2U3QChBgRH3mIJp6QRKfpY3eQs
-	 d6R8su2Y3qsmqZqqzsDC17LV0kPA+ZtBQQvTWTrMFI6PS48VhpXdcTIFeFLaoM6I+O959
-	 d1bIir4QEDv+Dqijbjxg/tvBgKD8myFuDtBCpdQD5wqlC3R8mYN97swwAwP6vv283b3Y/
-	 dcVBEFSqsR2P2Mq1cBnmo5RerzfZH2ie97YmFjjYEKW8GN8a3njtwIhyA7c20ltHWEQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795779884;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=whClQKJ7bilwLLcVXchgxYVKnvUQImcedOodgOWy20Q=;
+	b=bZQ7JYhaGu1JuvJcc968BOZVJkXZQIem9ZXuAiK4NN4oB87+O56cVb6oBL48O4hrNCs7
+	 NmiIqUYoYKgIX/7q6R6CTq8ImkeQdjz5ukxa4DB/OCtFxBFaRS+SpeQTRnQghcXfEtY0F
+	 p1S9DcETovB66u9L+k1b8huGHQuCN2MnhJ6TwikklTTgHjgb8VfuI+MUnr/diMVuhdQdI
+	 fgi9MQTZiRJzARDF914PJ2BELJn2DBG0kIma1/YKnRpu4bsJXRIs8Sm2M18fWzoIvGwqs
+	 /Kx8WtKcISi6OrUdf1WaNlEjaTnjbmWREjd50/ZCiChhuNwKVO2+WJXg2ySCsyVvpCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DsNaMaqb;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hVtAIhKT;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4261C606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:44:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D14E7606A31C;
+	Fri, 27 Nov 2026 11:44:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DsNaMaqb
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38F191F000C1;
-	Fri, 27 Nov 2026 11:44:29 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hVtAIhKT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A5191F00893;
+	Fri, 27 Nov 2026 11:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795779870;
-	bh=z8QPTJ81+fZJS4M7LndXTeeI+QYCXyZKcBukwunJ0Mo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=DsNaMaqbQhqgZ/Ezt8T6C+1adAo/0rtq5CADL6dxzf/QkEB7c/m7S8QChc/XnLxsz
-	 fbSljDXqtZoWlZgu8kNR5Vymo8xdeDLYdQJs0O9rt8+8QNlcV/eGc03YVXMBkarHkE
-	 4uwWBRN0hsVbvzwzvjjb7C1sQP75k3J2tqP+U2JoIRUH7Y89bmvP8spWfrRgQ+bcwe
-	 2xU11M+u+CTevLcbES3AAiW7795x86/9Lnq5hbK2gzNYeN09xEYt1ZXZhJYlP8VHZm
-	 xCQss/DAPkmpp2+jQXv5xJ28NaYbquwrhT8wUJr42YxYOA/ctxaGiYXJxUCeFnEPIN
-	 2vuhDuwMW3Y1A==
-Message-ID: <1c9d9335-14d0-4870-b83d-a5b69ba8d633@kernel.org>
-Date: Fri, 27 Nov 2026 11:44:28 +0000
+	s=k20260515; t=1795779884;
+	bh=whClQKJ7bilwLLcVXchgxYVKnvUQImcedOodgOWy20Q=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=hVtAIhKThEF0buv2a4dNOWJKjK8VSh1H/obscDvnse7JWoE6BgK/AX9d4fv8kgVFf
+	 CEoeGNFxtv1cUu2B6iQnyTEVmu5K24CJgqSz5N8lFb3oYAy3pgqdMW18/JsD8N/i+6
+	 rqXwrAhPtaCbRWyh4IghdyQgvMGscdkQKMkioFK5bDNAiPgGMwdgRzP/E3Gkfa2ZS2
+	 DSnr0OZiKgXsOSu8GtW7HwsW8DK9ZfFxBnCRHgGAFna/qpQkje2Eic6hx9YfMoawKh
+	 8S6iuXBAav742iqR6e2fYvvUl2fvYUa3PTeFjD349X5/o3iDkxUkfvymHakN5a6mda
+	 kDOBDFPvb9ytg==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,59 +49,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] nvmem: validate access ranges and fix SPRD reads
-To: "Pradhan, Sanman" <sanman.pradhan@hpe.com>,
- Srinivas Kandagatla <srini@kernel.org>, Orson Zhai <orsonzhai@gmail.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>
-Cc: Chunyan Zhang <zhang.lyra@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Freeman Liu <freeman.liu@unisoc.com>, Maxime Ripard <mripard@kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Sanman Pradhan <psanman@juniper.net>
-References: <20260921165055.421933-1-sanman.pradhan@hpe.com>
-From: Srinivas Kandagatla <srini@kernel.org>
-Content-Language: en-US
-In-Reply-To: <20260921165055.421933-1-sanman.pradhan@hpe.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] phy: ath79-usb: fix the suspend override reset name
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-phy@lists.infradead.org, Alban Bedel <albeu@free.fr>, 
+ Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, linux-arm-msm@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261106011142.516478-1-rosenp@gmail.com>
+References: <20261106011142.516478-1-rosenp@gmail.com>
+Date: Fri, 27 Nov 2026 17:14:37 +0530
+Message-Id: <179577987749.13164.3981219899044180404.b4-reply@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=753; i=mani@kernel.org;
+ h=from:subject:message-id; bh=k4r3F9uNkJHA54pn7+unObljLT9MHxgoO6rb9JuAa+4=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBrCW0ozuBOiQ6/3amQf8E4xn+/ypf5GromKFHCV
+ 7iWFLdlztaJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCawltKAAKCRBVnxHm/pHO
+ 9ShkB/9429HCrug9mkge5t/UM8prguPgQMDShIIqrqvP5co34oUjd5BvfriYwgcPjMu1IZl8jgH
+ p1VYVAnEgclnonaujDLDm2rd18ffY+mWH2H+8/fd3qVbVbVo9Gx7Bv6vDYULE3VVrFTIo1DDja5
+ iGLWNZbekjPJ4x4elE6WsOxNj5n9lOK5JYIQhJclKwSmdOtkYPMpgOCiRpeMhLCs6UBnWm7tDUn
+ D80SG4zU7NCgL/ZDmalAzFpN9VDRodBjJNwFDHp+dY2JcA4xQ4icQKilREz2RvOnjGHPpLGv3xq
+ jt5JHOmibcRrbVwq757q8Wdpf76yfi4wnxOLbbWZjMq/dRbk
+X-Developer-Key: i=mani@kernel.org; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
 
+On 2026-11-05 17:11 -0800, Rosen Penev wrote:
+> The driver gets the suspend override reset as "usb-suspend-override",
+> but the binding and both device trees that use it call it
+> "suspend-override". The reset is optional, so the lookup silently comes
+> back empty and the suspend override has never been used.
+> 
 
+Good catch!
 
-On 9/21/26 5:51 PM, Pradhan, Sanman wrote:
-> From: Sanman Pradhan <psanman@juniper.net>
+> This is the same binding update that commit 827cb0323928 ("phy:
+> ath79-usb: Fix the main reset name to match the DT binding") followed
+> for the main reset. Follow it for the suspend override as well.
 > 
-> Patch 1 adds a device-size bounds check to the two nvmem core read/write
-> functions, so an out-of-range request is rejected before it reaches a
-> provider. v1 open-coded this check in the sprd driver; this version puts
-> it in the core instead.
-> 
-> Patch 2 fixes sprd_efuse_read(), which reads one four-byte block but
-> copies the caller's full length from that stack variable, and never
-> advances past the first block. Its provider-side range check is removed
-> in favour of patch 1, so patch 2 should be applied after patch 1:
-> without the core check an out-of-range in-kernel request would let the
-> new block loop read past the eFuse region.
-> 
-> Both patches are compile-tested only. No Spreadtrum eFuse hardware was
-> available for runtime testing. The bounds check intentionally permits a
-> zero-length access at offset == size and rejects all ranges extending
-> past the device size.
-> 
-> Link for v1:https://lore.kernel.org/all/20260904003815.462352-1-sanman.pradhan@hpe.com/
-> 
-> Sanman Pradhan (2):
->   nvmem: core: reject reads and writes beyond the device size
->   nvmem: sprd: fix out-of-bounds read in sprd_efuse_read()
+> Fixes: cd3bf368aa7a ("phy: Add a driver for the ATH79 USB phy")
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
 
-does not apply cleanly, can you resend base on nvmem-next
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 
---srini
-> 
->  drivers/nvmem/core.c       |  6 ++++++
->  drivers/nvmem/sprd-efuse.c | 17 ++++++++++++++---
->  2 files changed, 20 insertions(+), 3 deletions(-)
-> 
-> 
-> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+- Mani
+
 
