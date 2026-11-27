@@ -1,57 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795780742;
-	b=n/TMftTOiGysHx4TKp2vHrkwq5s+xyE91XwaR9CN4ijvSjIujD0WnWh/Rz/UuTF7d9wz
-	 t565L3cBJGYIfyVZk1R0IRUScrhgGKJAZjhrt88KfONpxTwUwviuOqKdRIeMVPl+O3vBP
-	 /h4Z2hKmNNn6Fv5mqhOckqx0MfUltzfpSih/8Nc70bBZfc94sFouS0I1IMDus92Kn0AaO
-	 vxNUciPaHxYPfJv8ZyDouxWMnDGDEjwkSPpmJ5IYL0+BkDS1kIaqUOJ6kWt8x1HHQmdv3
-	 do40g0fbkjR+ifN25WOINy5omY7GG/3Jcnn/7+R3kF/+H48XG9K776WrW+b7CCOLdxg==
+	t=1795780745;
+	b=3RQrJ6yYu/tK3GXajMohHMHH3prJpN+JJ2M3D7RK+u0W8wR1v94pqWJwO/dgqo6aL6al
+	 Sqsko84HuozZu8Rz1S8edJSqCE8hu18qg3qv65hlYFOif9VWjqdmzsRXaPrYxVDAKOPwu
+	 G5olvzdib3QWwf9ix9td5O8bWALoSVmuqLzybR9bZRV2fq4XjLT8oMo4gIWhrXYsaHaPZ
+	 +0AjH4ms+lE+XjKrIkhojMmG6vK5f5hlABx8Zhv+keDdC6fvAgeUq23hMs0HF6Vp62fB4
+	 awk41T6KP27TshulpHc4RpKHbuHpFSXzjwQJz9ffhMDSD4w0b63bwYpuCBBDQYOxK/w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795780742;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795780745;
 	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:MIME-Version:
 	 Content-Transfer-Encoding:X-CMS-MailID:X-Msg-Generator:Content-Type:
 	 X-RootMTR:X-EPHeader:X-CMS-RootMailID:References;
-	bh=22tX+yU7I7HmNJKs5o0R5O/j6HPhCaItzCZ7BgwjO4k=;
-	b=V12Kjn//968WYpBqEm+PecQMDU7haNXxGn5Tp0oZRzRYu6jeSdUM2QId1wf0A2ySPTFs
-	 O49hj29hCPmbJqBAGRjBNZnMUua4EPsn+YfKqXZfj7RapSRfvMHAZriRNrKvbsqnw8HaV
-	 MXoZI+6t8uMQyO5Hnu0fwY3iWrN5MQxgOjzZsOMzChP2eXZ7tGY8qsmie37TnGWlraXZh
-	 E1e5adTxbnEPX9Si5G8iqK0WeXhFSCZvDV75Jyqpk3j4O9s/jhLuBYuii4Ckt/tF/BxKr
-	 7rIgtbP+bLs/CGjpfBlQdA8DFuBQgAYBnaaXGoZb+j8iwWx8iXn0UPHSqd51/raC5eQ==
+	bh=kU/vWsvzp/oeLbWN7RubnpobMMTsDvkHbxerPWgHnis=;
+	b=mOtOyZiaEGEQkbuJX/ilwcFEWCl1icKjxbTzrTex9IA2166uJpsJAc/JVp2RD4IK8Uk6
+	 Z1yqPEQbYq7v80L79W+9zyzdQ7vi0vX0W0VzhuPwOYYRx79iANRamcNRAIodxCgUD4qcK
+	 crddG0FQN1oE9FrAxfJOix56AcS7WR3gIp4i10PcRAKPvOmCu3YkYKta3oY+qYNZK/3sn
+	 D60ohUOIMzPtqBUbir3uH/p9N30Nwt0i7IhpHF2ze7kYrbexe1ZqShfjNOb2gfkxvkx/I
+	 undurMWUwUydgDU3I0Ndd7avPOoA6F81yXftE3sNrTazcR/uul7TcuLLuz6TsuGwdqw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=samsung.com;
 	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=RonQfvQ6;
-	arc=none smtp.remote-ip=210.118.77.11
-Received: from mailout1.w1.samsung.com (mailout1.w1.samsung.com [210.118.77.11])
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b="g/ETUpOx";
+	arc=none smtp.remote-ip=210.118.77.12
+Received: from mailout2.w1.samsung.com (mailout2.w1.samsung.com [210.118.77.12])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F304D606A327
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:59:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F304D606A327
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BB9A606A69D
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:59:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BB9A606A69D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=RonQfvQ6
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261127115858euoutp016b279a6f705e94407dd440d522991823~r5RFAcvSW2847428474euoutp01X
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:58:58 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261127115858euoutp016b279a6f705e94407dd440d522991823~r5RFAcvSW2847428474euoutp01X
+	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=g/ETUpOx
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261127115859euoutp0296ac3ac25f3ce6d8635ed0881d8bf192~r5RGDRoo11470514705euoutp02w
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:58:59 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261127115859euoutp0296ac3ac25f3ce6d8635ed0881d8bf192~r5RGDRoo11470514705euoutp02w
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795780738;
-	bh=22tX+yU7I7HmNJKs5o0R5O/j6HPhCaItzCZ7BgwjO4k=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=RonQfvQ6uYtleM8SVajLLe9ZIC2xv34em9i2BT75/+6eiWQIqGrI0jY1rEvBxMoyi
-	 jEAvBQ4Eqe7JrBaxVMgj8Bwmd7K9X09akl0DiPVrmnnJTAab/DdHuxJzhFAm2vVflN
-	 BhDXuisaKeCn6+9ozn/tNvuYZVYxmvaaknUhaVgE=
+	s=mail20170921; t=1795780739;
+	bh=kU/vWsvzp/oeLbWN7RubnpobMMTsDvkHbxerPWgHnis=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=g/ETUpOxD/ZT0Oi4ngNjjkxmcCs2PjgFbZIjtugjnIvBV8v/PCWi5b70lRdHRBgEY
+	 J8aArwdHqiPq2Or+U5kHx6JPJhjRYBgyDw0xogGec9Df4A/835VSe/KLxsZCUQG9nX
+	 +p7D1rf4O8d4gCXWMoZUJMN75GEyngQrOh/tjRiU=
 Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
 	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20261127115858eucas1p1ac63e4ce0f221453e8666ab9723a2ae0~r5REn8Iid0792807928eucas1p1q;
-	Fri, 27 Nov 2026 11:58:58 +0000 (GMT)
+	20261127115859eucas1p1ae20b01eec39080daf19dbd71aba10e9~r5RFsd37W0787907879eucas1p1w;
+	Fri, 27 Nov 2026 11:58:59 +0000 (GMT)
 Received: from AMDC4653.digital.local (unknown [106.120.51.32]) by
 	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261127115857eusmtip17e501e01b3810e026b6e3248567c99ee~r5RDrUILg0610906109eusmtip1o;
-	Fri, 27 Nov 2026 11:58:57 +0000 (GMT)
+	20261127115858eusmtip1fe13b1aeb26ee1104c142b331f20a2bc~r5REtVNTR0670706707eusmtip1t;
+	Fri, 27 Nov 2026 11:58:58 +0000 (GMT)
 From: Marek Szyprowski <m.szyprowski@samsung.com>
 To: iommu@lists.linux.dev, linux-media@vger.kernel.org,
 	linux-arm-msm@vger.kernel.org, kvm@vger.kernel.org,
@@ -64,12 +64,14 @@ Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Robin Murphy
 	<alex@shazbot.org>, Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
 	Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>, Abhinav Kumar
 	<abhinav.kumar@linux.dev>, Bryan O'Donoghue <bod@kernel.org>, Mauro Carvalho
-	Chehab <mchehab@kernel.org>, Hans Verkuil <hverkuil+cisco@kernel.org>
-Subject: [PATCH 0/4] iommu/dma: restore flush queue use in
- dma_iova_destroy()
-Date: Fri, 27 Nov 2026 12:58:44 +0100
-Message-ID: <20261127115849.2780625-1-m.szyprowski@samsung.com>
+	Chehab <mchehab@kernel.org>, Hans Verkuil <hverkuil+cisco@kernel.org>,
+	stable@vger.kernel.org
+Subject: [PATCH 1/4] media: venus: use dma_iova_size() to check the reserved
+ IOVA size
+Date: Fri, 27 Nov 2026 12:58:45 +0100
+Message-ID: <20261127115849.2780625-2-m.szyprowski@samsung.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261127115849.2780625-1-m.szyprowski@samsung.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,70 +82,41 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261127115858eucas1p1ac63e4ce0f221453e8666ab9723a2ae0
+X-CMS-MailID: 20261127115859eucas1p1ae20b01eec39080daf19dbd71aba10e9
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20261127115858eucas1p1ac63e4ce0f221453e8666ab9723a2ae0
+X-RootMTR: 20261127115859eucas1p1ae20b01eec39080daf19dbd71aba10e9
 X-EPHeader: CA
-X-CMS-RootMailID: 20261127115858eucas1p1ac63e4ce0f221453e8666ab9723a2ae0
-References: <CGME20261127115858eucas1p1ac63e4ce0f221453e8666ab9723a2ae0@eucas1p1.samsung.com>
+X-CMS-RootMailID: 20261127115859eucas1p1ae20b01eec39080daf19dbd71aba10e9
+References: <20261127115849.2780625-1-m.szyprowski@samsung.com>
+	<CGME20261127115859eucas1p1ae20b01eec39080daf19dbd71aba10e9@eucas1p1.samsung.com>
 
-Hi,
+The IOVA reservation code compares dma_iova_state::__size directly with
+the requested chunk size. __size is internal to the DMA IOVA API and may
+carry flags in its upper bits, so use the dma_iova_size() accessor
+instead.
 
-Commit 1acce29926d9 ("iommu/dma: simplify dma_iova_destroy() and drop
-the free_iova helper") made dma_iova_destroy() always invalidate the
-IOTLB synchronously and free the IOVA directly, bypassing the flush
-queue on DMA-FQ domains. As Sibi reported [1], this makes iommu.strict=0
-ineffective for NVMe I/O (blk_rq_dma_map()) and costs about 4x of
-sequential throughput on SMMUv3 without RANGE_INV.
+Fixes: 953439251b59 ("media: venus: Fix iova allocation from restrict region")
+Cc: stable@vger.kernel.org # v7.4+
+Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
+---
+ drivers/media/platform/qcom/venus/core.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-This series is an alternative to the revert proposed in [1]. Instead of
-restoring the free_iova flag, dma_iova_try_alloc() decides once whether
-the IOVA space is going to be released through the flush queue and
-records that in a new DMA_IOVA_USE_FQ flag in dma_iova_state::__size,
-next to DMA_IOVA_USE_SWIOTLB, so struct dma_iova_state does not grow.
-dma_iova_destroy() then unmaps with a gather queued according to that
-flag and retires it together with the IOVA free, exactly like
-__iommu_dma_unmap(): either by iommu_iotlb_sync() or by handing the
-IOVA (and any released page table pages) over to the flush queue. The
-gather is never left dangling and the IOVA is never returned to the
-allocator before a pending queued invalidation, as pointed out by Jason.
-dma_iova_unlink() stays strict, as the unlinked range remains owned by
-the caller and may be linked again right away. The whole reservation is
-still freed, keeping the size fix of the original cleanup.
-
-Storing a flag in the upper bits of __size requires that nobody reads
-__size directly, so patches 1-2 convert the venus and iris IOVA
-reservation code to dma_iova_size() and patch 3 adds a DMA_IOVA_FLAGS
-mask used by dma_iova_size(), dma_iova_try_alloc() and the vfio-pci
-dma-buf length check. Patch 4 is the actual fix.
-
-The series has been developped with an aid of LLM, build tested on arm64
-and x86_64. Sibi, it would be great if you could rerun your fio test on
-top of it.
-
-[1] https://lore.kernel.org/all/20261125135120.1126571-1-sibi.sankar@oss.qualcomm.com/
-
-Best regards
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
-
-
-Patch summary:
-
-Marek Szyprowski (4):
-  media: venus: use dma_iova_size() to check the reserved IOVA size
-  media: iris: use dma_iova_size() to check the reserved IOVA size
-  dma-mapping: add DMA_IOVA_FLAGS mask for the dma_iova_state size flags
-  iommu/dma: restore flush queue use in dma_iova_destroy()
-
- drivers/iommu/dma-iommu.c                     | 111 +++++++++++++-----
- drivers/media/platform/qcom/iris/iris_probe.c |   3 +-
- drivers/media/platform/qcom/venus/core.c      |   3 +-
- drivers/vfio/pci/vfio_pci_dmabuf.c            |   2 +-
- include/linux/dma-mapping.h                   |  14 ++-
- 5 files changed, 98 insertions(+), 35 deletions(-)
-
+diff --git a/drivers/media/platform/qcom/venus/core.c b/drivers/media/platform/qcom/venus/core.c
+index 7087af32060f..cec5db2bf755 100644
+--- a/drivers/media/platform/qcom/venus/core.c
++++ b/drivers/media/platform/qcom/venus/core.c
+@@ -408,7 +408,8 @@ static int venus_reserve_iova_region(struct device *dev, struct dma_iova_state *
+ 		if (!dma_iova_try_alloc(dev, &state[count], 0, chunk))
+ 			goto err_free_iova;
+ 
+-		if (state[count].addr != end - chunk || state[count].__size != chunk)
++		if (state[count].addr != end - chunk ||
++		    dma_iova_size(&state[count]) != chunk)
+ 			goto err_free_iova;
+ 
+ 		rem -= chunk;
 -- 
 2.43.0
 
