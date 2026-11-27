@@ -1,105 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.19
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795755709;
-	b=3GWmbN2prqK607AcxtK8D/SdL2SaYOCPh/1eA3Akc2shCl8tKciutYJHxWKu11P9dfG9
-	 1gfI5ubhYlybLFiJh2B9QMbRothHmULuEeh4ko20dNAGQ/3ZJ4CRqaFvKIH8pbTxw7+xB
-	 VE6rd7Bz8YPrqR86sE7ntRrHQWSxW36pxZSAhyFnp3Jmk+UM1j5gZ6DYCoUB7EgEVUC89
-	 rLjC1CjuM3HdMbPkyzrAvOQ7IxvNxRiPB7bstzo714xyhZ2EYbm6Gr9Z2tGscJzZflPgZ
-	 SDNI3E9y2Z279J2SA/78pR9ZRXBq5UkWUFDUf0hTaz/7KHoVCp46VTIBYmdLl5FdJHw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795755709;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:In-Reply-To:References:Content-Transfer-Encoding:
-	 Content-Type:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=o/boAQSUqApmk/GkfVOs3gP+uZfLp1k59AqBna71dfY=;
-	b=Aypc7Ij7kBCqO7ENKxAOKtptjkFAv5H5FXuWvrL6m9PBUQ4Zg5GS+wEYeafhULkVoUAp
-	 wPmeZ92r5zA/K0zVdU+JM0a7URVP+outizZXUzXwiqjJ6z8Xj8Ne8ZaIIco/SkJkkjnWz
-	 jMsIqAiqLK7FRqfk3Ovv4ojaYv3i7yXJYjjSh8+5rnPU+t90PlsQ34R4GCIWaA0/AfvP/
-	 y/j8BDUCe+u34E+T5AEQEKvCvNrYPPXAKh3Dhs3owwTttncHPn0jal1izTJqJY8Vjgw3w
-	 sTjhnnayAFQ5DQkYc/dJdGL7NMnSiVGQK5Wn35tI1L7Nxy2b3Q8MPwPDq67PWZ7UV3A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="jAzOV/4B";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.19
-Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazon11013019.outbound.protection.outlook.com [40.93.201.19])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.178
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795755779;
+	b=W3Pq2oNPLK0F3cymJxYkwNN+GBV5oNDn86NEcw5ljpzlsXzUprbMWL4zgt3sJW1uilZI
+	 6uvowjSM0Dp+Bjci4YKFb4szmpYAVjrQyAbZvm66UJ/KpSxn9iAGjpw30ajiXKSLdAiZq
+	 GZ3BpdKceQupRYriXpkE3dNOCHZtO2e8vK3ewXyk7EQ11PdFy2fRhhh1Ismh0IBjByYnh
+	 I3fxxluS54qM/5HnkQg33AiONShMVsl3n2uwvFKE3Y1EVGkr1fy7sBNY9fussbXBjqIx/
+	 eujR45pZvlX41LX7zusdrASTIJ+0PBe59ic9vgACnDLsKoJy9Ihl/JI+Yq4QoCVzgoQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795755779;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=ldZ8PCFlLZZkKJL96y+Yw4+DhZTFWMnWRQJQmc+WkI0=;
+	b=imWCmG/jCHMiLDu3no38BcWCr6ECdK1A86q7jRcnpIsSIKc7tv2+Du9IbHP0WPQJ6SqM
+	 Zc+cPWmNzMrFAD/z5DQM/89kg/iFaEq8YL+akHql7NcSRzZXPMFHkwj3d//k75ZxK4m3Z
+	 /z1ZYAl/WiwhIKngtkAQyrP0Zh7l/1u7vFCUf+w91/xLE3DpeXyNwdomB6kmhtPNpkif0
+	 vG9u2+0RO7q6C+5FHBin73UDQUi6h46J4cI3cEFXYRWLtdVvUZm8aYPotnRchHUB5xGr9
+	 nqhB7j5uRHCQZH2nwyVVJfkQThVTI2dCmrWulmERvqEtxLz8AiGfuaWsGtRc2LORFFA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=w02l4sOv;
+	arc=none smtp.remote-ip=209.85.128.178
+Received: from mail-yw1-f178.google.com (mail-yw1-f178.google.com [209.85.128.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F008606A31C;
-	Fri, 27 Nov 2026 05:01:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F008606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 612DD606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:02:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 612DD606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=jAzOV/4B
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xSWSjwKUk3sP8F8irgIw+wJk1Y7LhmE9oCPRC883pzOc3QMqf1pppmbo7XC2lIXEVGKCHuz2tnp+/VX4rhmYuiOzA8W5GIoIZiGKj+vexEwYESZanpUIlhop+46JkZ9IRFCXluM9UdL3gzKGKn8Fj2iNFRU6g+ctauQKrQCKAqSL3ltQoBWyNDeRHLhYTr8kz5f9UqOrDwI9alH3VY9d2UIFceJQSuthwoNoBAs7P+3560ZFrBnmJI4/xXCAXdaZoJgb8D0ghsNGqp0YtRXewC+A6jmmBLOOsrZy63RldFdchXDk2OyLDiYS/uyXOacvNC7BYLBORrEOpChC4dLLQw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=o/boAQSUqApmk/GkfVOs3gP+uZfLp1k59AqBna71dfY=;
- b=Ks4FD8KHTkgsOrZuxMI+2ji480HwTcRCTkYeatlpu+WVdDoS2ZuObfUQcOzjYNi4gS7RLDWNKGboM+bnRqUgXktXk5T3ZBjUqC1kpdc3GpAmwlL/ikX0CzK9y5zPAwb3CE6HyviVx+WnMVGuFxvmnkgmN2sLBUzWoCKZvJTyfwKiyQOUsB465blLI6fwd4dCgUaYa5YGFZnwSNLm9ln0nuiRspABwr3PQERhTVd+nyv59Qdc8xKT662odJp1Xy5UW1gPdijANTGq0ZK3kciFFxId2IjMHQmL1DmhgzT0GVisXziDW7X9+63tqGk6kxrqw5oGjwE6E0zMwYo8faJ69g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=o/boAQSUqApmk/GkfVOs3gP+uZfLp1k59AqBna71dfY=;
- b=jAzOV/4BH3ZG7W/auvSGNBNSL+mhItFX8f0czEIwyd36u53PEPrldZUmZhSR8RnvhxlKLULajfe4USr4B4cXlDBxaM2vmc8O5zH35960Lti7j2/JhnceFPLq2RPGr4KtF8gBtiSAXrxeLLcU9HRSCgjhfVGi3q3/GV7HHX+owKgFiZHNOp3Pf/FOrlj/GXe2JgMjL8YOmQafSEaP0E/hnioKQ6/395vvJT5yxUlbClwF2mCVsLJUeAkMTfJuDHoX1rB53hmr6tyEI8Y499hbNKTEVddAaXTVJ7+81vf+DAWtFEVHBBtmidhORG8hQpBm82Nd6erQfUyNveUdbwNbGA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
- by PH0PR12MB8098.namprd12.prod.outlook.com (2603:10b6:510:29a::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Fri, 27 Nov
- 2026 05:01:45 +0000
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
- 05:01:45 +0000
-From: Mikko Perttunen <mperttunen@nvidia.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Thierry Reding <thierry.reding@kernel.org>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Jessica Zhang <jesszhan0024@gmail.com>,
- Svyatoslav Ryhel <clamor95@gmail.com>, devicetree@vger.kernel.org
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
- Svyatoslav Ryhel <clamor95@gmail.com>
-Subject:
- Re: [PATCH v8 08/12] drm/tegra: output: Make panel parsing configurable
-Date: Fri, 27 Nov 2026 14:01:41 +0900
-Message-ID: <YNjEIJ2qT8OQf1jrgwTBHw@nvidia.com>
-In-Reply-To: <20261122081820.53199-9-clamor95@gmail.com>
-References:
- <20261122081820.53199-1-clamor95@gmail.com>
- <20261122081820.53199-9-clamor95@gmail.com>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-ClientProxiedBy: TYCP286CA0199.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:385::17) To SJ2PR12MB9161.namprd12.prod.outlook.com
- (2603:10b6:a03:566::20)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=w02l4sOv
+Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-8b2d14968c9so72718237b3.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:02:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795755778; x=1796360578; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=ldZ8PCFlLZZkKJL96y+Yw4+DhZTFWMnWRQJQmc+WkI0=;
+        b=w02l4sOv6l9Pylfx6A0Jef6M7ifhjoD7Kml0J3yWoQ6Bnq6K7Q2PFGDaM7u2ipRoql
+         5YfqyxV/dSZV2HVbT/z6WFzuFHgHrJuis9f6XI5jJo4exHO9pMUVifMnaZcwwWn2vh7x
+         9oED1NEtSnYTNpqEVFSWUEFDo0h1FbNbSL1qhSLDW606JDjw5WlcgwFtrBIci94PstNS
+         0QkD83HWM+HZBuwzmtj76ZB0B+xEomDKt1cB0TkH0BnHmNhq6Vd9DDOxArKsPu+E7abM
+         KGOp0y2rl8dzpoR2qvH7yp6RWJzCqjlLLZGjjmuEPUrXsBTuss8maH9bxZimU2irT6IC
+         sxWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795755778; x=1796360578;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=ldZ8PCFlLZZkKJL96y+Yw4+DhZTFWMnWRQJQmc+WkI0=;
+        b=q+bihIJNuBbT3m+bpobf7hC6bVphOy5MPAvzNr+q2sqpjH6uSy/34r0kXz956YL/XJ
+         aNpx8ajhgv3imp3trPheReyQHXQSIRRtnON3Va3Nuxc4QagPG+4lM4PMBxf8oHwYmhpf
+         SYKfJiuQC50aMNOzmwt1Gg/gPvDqLt873mfG7nbUHIyf1os81ZRnvaugww2IXakje6KB
+         G8/Pu5odIUFgD84W1egcZZHH6AS4HvXe7S8Kqg9E9t6ovXjZkdDvU+TyWpIDGaT81tMk
+         Ty1/vlwQUkPWpxiWZ7egSDEwKctdd95YWuBJR8gHF6Lv9GULIYLJOyoQWxwkqNknZx76
+         ediA==
+X-Forwarded-Encrypted: i=1; AL+hErF3Xw/HdjbY9qWVV7jfPEH1IPrJk+9xgSD+3PYXi2L1A/fk9cwo4ohvb3BT2urcOQoTBL6cVimI6nWziAQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+1PPtGaA8DI5g6N3n2vLeL7oTVs0Z7HEkUroM1ofoYFlYnuOeP
+	eeYkl2Om1pc1fedm2/TzKwGizc2ud5zlaAhB26NMmsRymTJHcKXEfC61
+X-Gm-Gg: AZFdTZe5sugDnOdvPYPFS4qUKgD84z3RCQ9meWhTUY9KoO31y+b18JLANYDdrhDB/lG
+	KaBslrBd9TMTFE1qr/RNKfymxkS1CyWk9fyGKeoS5Q96EQvROnvXtCMak8095WmMtBT67+GVkBa
+	41jL+nd5uQyZLXJ7T55sgvhVhRtS6BHSf+/7Z+eTS2+E7K9Sh3fMEFJc5BffLqZBa0SxE32mK2g
+	LjUTCKt8j/0aWfGWFud5Mx8h49/qB1uqp5D4b6YjGbrK2W0M1JRLpwd3DrZgOG1uZOcAZxhyU9j
+	tUzOUHCf/BcOutS8b1UVxiMLWqDgugN65obzAgh5OLCw80qDh3ionMft2E9QqViodC+qUDmC+Uh
+	Hy8e5q386lVQ4twi0ytNKDmXxazXBlztG2dh4kGCp3wAf/LYOGhDJiXRmMlGSvR9cay9yS20P36
+	y6DI/GJUuwLQ7BCODct2Px8SD3I2FxB8D7nefoNrtI8X0gc/6GM6q5kfcegcyHbqZXNhLLKyFFk
+	q7tiMKtYdNdtF6LMsWSeiZUgEguNC5TlwPyEG39dV2gciuIQHCdp2xUasrYW7oaxbzhA0QTnSi6
+	uYesx8vaxtDIpAJV/zB5Fm9DAYWi0lQwwoWTmqXWj27xRcScORF3Y4MBCRiAAZF4Zn8++bw/cey
+	R0L7ZqG1PUbdBQMTOUyXwgISDAtf4J3pdjrn+YxEASw==
+X-Received: by 2002:a05:690e:479f:20b0:67d:b472:88bf with SMTP id 956f58d0204a3-67df44e6c52mr5839588d50.162.1795755778290;
+        Thu, 26 Nov 2026 21:02:58 -0800 (PST)
+Received: from localhost ([2600:1702:7a90:6f9f:8bc4:8aec:108d:7a04])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df30e4407sm11064397d50.0.2026.11.26.21.02.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 21:02:56 -0800 (PST)
+From: Matt Turner <mattst88@gmail.com>
+Subject: [PATCH 0/7] parisc: perf: fix the RDR tables and add
+ PA-8800/PA-8900 counters
+Date: Fri, 27 Nov 2026 00:02:53 -0500
+Message-Id: <20261127-parisc-perf-pa8800-v1-0-4f3f077010ce@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,243 +94,119 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|PH0PR12MB8098:EE_
-X-MS-Office365-Filtering-Correlation-Id: 51c6c8f5-777a-47cb-0675-08df4c4388bc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|23010399003|7416014|10070799003|376014|1800799024|10067099003|4143699003|261026121527099003|56012099006|921020|11063799006|261009223027099003|261021121427099003|261022075727099003|261028144727099003|261022105027099003|261021123027099003|261102123227099003|261026140227099003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	J8Ps3Wdrj9iV7tk8kTaKFpZ8fsFfVv7jkpcTpRJt6D1rT3i3ox68eZGUXR7ziwZE5fhTrKBvu6xmV3czziM6fzYXszXkAoBwSGco+OnZx1R3HRj/+XpwKD/TTe4D0cG7MZPUQmpCGIXKXPacYQqXl+3KtcMTBGbFSYrzdIVcHXab7UFB1vqa9cIKCHjZCw8ZgH256Ah9+6MJZbHuptvMaU0WGhpHz2f1eMUmhYA4rwFt8y4o4fwWFfnD7GLqdkgsNzBCEOD9VKIFKlNy0gGSj1AtUv0KBmQrKEeJzfZboXuIH24JpVzmAkQyQfH2C2wXJGqQ/Q6y0tebYFnJOMN0UlMPMgws0TBIU5UYH9DICSRcxlje+EZ+JXHooFipk8zrPpkdZvpxDP5JMiA4NnEptGmoQInXHtlr/zo4sSYjqMQ6dtHpAoW4iXuHgArDYN7ZhdOOaONt2B47SPiBZaJt+tp0cXBk0GJFmR3AItE643Pf9J1+2SNEfc0zZt/HWhptUke+WLr9H98HfL7YJx1gPYPS6mM18ArLXb1/KBpHbJLri8aOgBw/sqE8qy887cU00bKgwQoFDy2P6rlUXLpywUWI68IpPLit5mqR5t3lyWl4Iw6tG7/UmvxR7igTwFVE7wPGPg78F9Ck/o5gQtVcUk9YNR9Btkfc+oEHP/MUhqcyZhMa9MnafJchjlFgluSxR7I4WPKc5YrHTB8z8qFDRg==
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(10070799003)(376014)(1800799024)(10067099003)(4143699003)(261026121527099003)(56012099006)(921020)(11063799006)(261009223027099003)(261021121427099003)(261022075727099003)(261028144727099003)(261022105027099003)(261021123027099003)(261102123227099003)(261026140227099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?K3Q1Sy9uOCtmbXdvVFhPRnppS1RZYWJuNm5mSjBGYkdJN1pzUm92MGl2am9p?=
- =?utf-8?B?eXhqRmpUa0N2aFJlSzNENUZIaUcwVDBwcXVxVTJtdk9URFZMRWdXNFJvbHIx?=
- =?utf-8?B?TENoc1FyYnROM1JaV2UzdGRXcU05czRJVlJRVUNWczJuMC9yUlhBR0pwMUJh?=
- =?utf-8?B?Q0FuNllmaHJZSlk0N081ZDIrZXBOa2NrZVlwNmh1RGJ1MnBWeGFUbGpESGR6?=
- =?utf-8?B?WGRRdFNYNVd3QXdhdjRST3h6Sk4reWtKMWZKY0pmUEFZcUtlYU1LdkE0YitM?=
- =?utf-8?B?V3pTb1ZOUlVYRGhZaVM3bFRhcnhNNExqSHZpdlN5KzBpSi9FU3pWeTd5TWM0?=
- =?utf-8?B?cGxTMmtoRnpEL09RZUlwTGVLQnNBL0czVHFMclY0SkdNZUpGcTIrM050WXhs?=
- =?utf-8?B?TWJTMUhIQWNoVW1wS2IvWnlxc25URExBQnlzOW5HUlBXOC9SeEgzSXU2VFdv?=
- =?utf-8?B?ejlMR0JyQ2U2ODFteld5K1ZZK2d2TmxXUGxNSjBsbCtJZWd3ZUp4ek5ucXg4?=
- =?utf-8?B?QW1ZWURmMzBESnBCejBqZHpiZkd4Z2h4TDdWa3JkSERKUXdXcVlFd1dtV3c0?=
- =?utf-8?B?Y29RMnhvd0ozKzhPYTAzNHJQTFF6cjN6YklGNjF0QjRaNE9yYy9lT09qa25J?=
- =?utf-8?B?bmVEOHJFTjRiNG5SVHI2VGsxaHNiWTdNdzFpYkVLNmZUYkRjUzl5SG9DMHJt?=
- =?utf-8?B?WXhyMktaUFhoSUJkNlFSR2tWSFZCbit3bHhza3p0Z0hYakdkZDlpK0pxRjFs?=
- =?utf-8?B?WTlhcnhaZ1dBdGpTS0RHU1VSNGVINTk0VzBMWjIvdXNvOVphVFNPR1kyYm5I?=
- =?utf-8?B?OVRnL2d3OXFudEt6Z3EvbVQxU0V3a24wNDZwZ1JxR1RMNTFGUlFSczN6endk?=
- =?utf-8?B?UFFNRVd4VzVDQ1E2T2dIN0psKzUweVUxMGkrZGJpdnVscWFkWGNTQzlWU3VX?=
- =?utf-8?B?OE9TN3ZhekZ6MmRFZjVPWWdvcWJXS05PSXhsa1AyZmkvT0xPczk1dGdFMzRP?=
- =?utf-8?B?QU5qVUduMCswZUd2NG1PZTJ4NDBITmh1RlhyNUhxaFVSQ2J1NWtZNjNsRThY?=
- =?utf-8?B?TEo3TEUyVXFpUDVjNm5ydi9nUUhLSnVpT3lnNGJtWlJ1QXdSVGZlTkJUMUha?=
- =?utf-8?B?dklYSjFUSVhBcGU5RnFKWFFhU3UwZnFPWGxVdHl1S1hmeEpCSUp4M3N6cHlT?=
- =?utf-8?B?cXVONjFiQ2NkVThNOXZwdFpCakJaZGhRaWlsMkN0MnE3alNDb3IyL2Z2SS9I?=
- =?utf-8?B?R2N2VmdVUDZ2RjJYZHprQ0R0aUxMWEJuTkhJZE1tUWdGTnArd1NqaEZZZ29C?=
- =?utf-8?B?cWwvU0QwS0FmamRPRURUSFBMWWFvNTdjMlF0eGxJTUFLdDA0cHBsTUQ2Wkw5?=
- =?utf-8?B?L3l5ajNuWFhzVE5LVVo4RXplV1ljVFRiVUMyd3Z4N1JuVTFyYmNFKzNRSHpx?=
- =?utf-8?B?aG5UbUNXdkdyY2ppWmF3K3VBRDBSMFY2LzBXTmJiQ3VGcVFkM01CWlFLK2lu?=
- =?utf-8?B?OWZQajFJZXpFVEhSYm1vSUhtcXg3UTBtZmMvNXkzSFNWTm1scUJJdU9KYjRu?=
- =?utf-8?B?YkZRdXZ2RkJ4aHVYMGJSd2xLU29OS2FqYWhlaURLbkZSZHcyeWNhNExKVUFC?=
- =?utf-8?B?Zmd1THBmWTBtZy9ETDI5Z3dLaXBiSGxaYjFqcmt4dG00WnFiWUtrdXI3VFIr?=
- =?utf-8?B?RmpmWnVzU0I4T0E4aXJQSVlKUHdSNDlYb2Y3UktlbG55SFNweGtWby9KVWhY?=
- =?utf-8?B?eXUyMWFvUlVqTzZib3hlZTAwcXQyQkx2L0lzeDBMRTRGT0dOdlZJNVlyWHJW?=
- =?utf-8?B?NkNYdUdlc3o4Q2xMZHB4TFFKWldCeGJzejAvMzF5a0xtV1pNK1pyMjJQYXJs?=
- =?utf-8?B?QkJqYW16eHdPVUU4byt5NWNjVHdnYW1PcnRyV0dROWoyTGpGcHNGRkVwNnEr?=
- =?utf-8?B?NVdxNlV0Y0VuaXYxdmVzNjVkakxwc0psbDEvRnNtUXYrL2loOThFQzZHVmhS?=
- =?utf-8?B?MTc5RTN4bWd6ZVYxZHR4b1NkbDBwN2VYdm1pM05lb0tmb0NwOG5NaVk4UVBh?=
- =?utf-8?B?WURvQmtJMmtRdzk0MGRyOVN6UkZmOFhXOWVIYUlxME41ZE9BTGt1a2x2ZG5J?=
- =?utf-8?B?YUMvSUI2RFhWdllsWU90NVl1TmhaK1pYNTZQaGRCT1UzMFZOTUQ2Q3lORjRz?=
- =?utf-8?B?UldwWXRJTWoya21YN2htNHdSOWI0SnBLcnA2SnVTSXUxTXc5OWY4SzNNSW1E?=
- =?utf-8?B?TFppcVRBSVpQRDNicGlwalNWcC9RdWNIVmwzSndHSmRheGdLRlErZmdMK1pD?=
- =?utf-8?B?L3NDb3Y5VnI0RWZVaGh5YkYwOVZhVS9YVXp1ZE8wQ0FWOCs3N2htTFUxSnQ5?=
- =?utf-8?Q?yyNBoHZgjeaEEwF9zQVAWDkxkjk6UBS0tQjvA910jF9IY?=
-X-MS-Exchange-AntiSpam-MessageData-1: i/xonhDTyYCocg==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 51c6c8f5-777a-47cb-0675-08df4c4388bc
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 05:01:45.2632
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MRwvYqLtdGImr4pXLwHWjTA+jIMF7DrKb8PWN07faDhZugy/jV4T9GEbELdRYqGq9ya3JEUmZXCpQwOeBUliNA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB8098
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ6DIBCF4auYWUsCxCDxKqYLwKGOCyQz1TQx3
+ r203b1v8f4LBJlQYOouYDxJaC8Npu8graE8UdHSDFZbZ4x1qgYmSaoi57a911rpMbpohmEJPkI
+ 7VsZM7190fvwtR9wwvb4luO8PONXj3XYAAAA=
+X-Change-ID: 20261126-parisc-perf-pa8800-07b6b144da8b
+To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ Helge Deller <deller@gmx.de>, Peter Zijlstra <peterz@infradead.org>, 
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ James Clark <james.clark@linaro.org>
+Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-perf-users@vger.kernel.org, Matt Turner <mattst88@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4750; i=mattst88@gmail.com;
+ h=from:subject:message-id; bh=8XZcFb1qpQxx4pRvdS1id0E+PcjfcsQRHzh889C9bUM=;
+ b=owGbwMvMwCW25rVmCc8sv+mMp9WSGLI5+f5tWiivvuWGOe8Ji8Pz+vvDM7PFt0v1pXQ8X/K8a
+ mOuygOnjo8sDGJcDDPFFFni1iuyzGrbsdTntPQvmDmsTCBDpEUaGICAhYEvNzGv1EjHSM9U21DP
+ EMjQMYqHyOkxaGQWF5emFummFRQ55OWXJJZk5ucV6+UXpOYVpBfopWWmlWRk5BcVpwKN0MtLLTF
+ 1dXQzMjQwsXS0MHOycDQ1cXZ2MnRyc3R0dnUysjQ3MXC2dDRxtTRn4OIUgLnmKSvD//A90isWLc
+ 7n+m78a06/C/f9CPe8naudXJqOqN51nuq5QYrhn/K+SyW/DVY/uum1e8Xdden7e4LNw2R6RWY2L
+ TML3dv/nBMA
+X-Developer-Key: i=mattst88@gmail.com; a=openpgp;
+ fpr=3BB639E56F861FA2E86505690FDD682D974CA72A
 
-On Sunday, November 22, 2026 5:18=E2=80=AFPM Svyatoslav Ryhel wrote:
-> The tegra_output_probe() function performs panel parsing unconditionally,
-> even for devices that do not require it or that handle panel parsing on
-> their own (like DSI).
->=20
-> This causes devices with dual DSI panels to fail, because they rely on th=
-e
-> OF graph to find the secondary DSI controller, whereas
-> tegra_output_probe() treats this port as a direct connection to the panel=
-.
-> An example of such a device is the Xiaomi Mi Pad. Make panel parsing
-> configurable.
->=20
-> Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
-> ---
->  drivers/gpu/drm/tegra/drm.h    |  2 +-
->  drivers/gpu/drm/tegra/dsi.c    |  2 +-
->  drivers/gpu/drm/tegra/hdmi.c   |  2 +-
->  drivers/gpu/drm/tegra/output.c | 52 ++++++++++++++++++----------------
->  drivers/gpu/drm/tegra/rgb.c    |  2 +-
->  drivers/gpu/drm/tegra/sor.c    |  2 +-
->  6 files changed, 32 insertions(+), 30 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/tegra/drm.h b/drivers/gpu/drm/tegra/drm.h
-> index bc720ae8d95e1..e53fe68161cb8 100644
-> --- a/drivers/gpu/drm/tegra/drm.h
-> +++ b/drivers/gpu/drm/tegra/drm.h
-> @@ -156,7 +156,7 @@ static inline struct tegra_output *connector_to_outpu=
-t(struct drm_connector *c)
->  }
-> =20
->  /* from output.c */
-> -int tegra_output_probe(struct tegra_output *output);
-> +int tegra_output_probe(struct tegra_output *output, bool get_panel);
->  void tegra_output_remove(struct tegra_output *output);
->  int tegra_output_init(struct drm_device *drm, struct tegra_output *outpu=
-t);
->  void tegra_output_exit(struct tegra_output *output);
-> diff --git a/drivers/gpu/drm/tegra/dsi.c b/drivers/gpu/drm/tegra/dsi.c
-> index b5806a53e75ac..6d6adc485e51e 100644
-> --- a/drivers/gpu/drm/tegra/dsi.c
-> +++ b/drivers/gpu/drm/tegra/dsi.c
-> @@ -1617,7 +1617,7 @@ static int tegra_dsi_probe(struct platform_device *=
-pdev)
->  	if (err < 0)
->  		return err;
-> =20
-> -	err =3D tegra_output_probe(&dsi->output);
-> +	err =3D tegra_output_probe(&dsi->output, false);
->  	if (err < 0)
->  		return err;
-> =20
-> diff --git a/drivers/gpu/drm/tegra/hdmi.c b/drivers/gpu/drm/tegra/hdmi.c
-> index 3a94968bd983a..e8c4347f09e69 100644
-> --- a/drivers/gpu/drm/tegra/hdmi.c
-> +++ b/drivers/gpu/drm/tegra/hdmi.c
-> @@ -1855,7 +1855,7 @@ static int tegra_hdmi_probe(struct platform_device =
-*pdev)
-> =20
->  	hdmi->output.dev =3D &pdev->dev;
-> =20
-> -	err =3D tegra_output_probe(&hdmi->output);
-> +	err =3D tegra_output_probe(&hdmi->output, true);
->  	if (err < 0)
->  		return err;
-> =20
-> diff --git a/drivers/gpu/drm/tegra/output.c b/drivers/gpu/drm/tegra/outpu=
-t.c
-> index eebf0ec0eea0a..d7d7f6ce0a8c3 100644
-> --- a/drivers/gpu/drm/tegra/output.c
-> +++ b/drivers/gpu/drm/tegra/output.c
-> @@ -93,7 +93,7 @@ static irqreturn_t hpd_irq(int irq, void *data)
->  	return IRQ_HANDLED;
->  }
-> =20
-> -int tegra_output_probe(struct tegra_output *output)
-> +int tegra_output_probe(struct tegra_output *output, bool get_panel)
->  {
->  	struct device_node *ddc, *panel;
->  	const void *edid;
-> @@ -103,31 +103,33 @@ int tegra_output_probe(struct tegra_output *output)
->  	if (!output->of_node)
->  		output->of_node =3D output->dev->of_node;
-> =20
-> -	err =3D drm_of_find_panel_or_bridge(output->of_node, -1, -1,
-> -					  &output->panel, &output->bridge);
-> -	if (err && err !=3D -ENODEV)
-> -		return err;
-> -
-> -	panel =3D of_parse_phandle(output->of_node, "nvidia,panel", 0);
-> -	if (panel) {
-> -		/*
-> -		 * Don't mix nvidia,panel phandle with the graph in a
-> -		 * device-tree.
-> -		 */
-> -		WARN_ON(output->panel || output->bridge);
-> -
-> -		if (output->panel) {
-> -			drm_panel_put(output->panel);
-> -			output->panel =3D NULL;
-> -		}
-> -
-> -		output->panel =3D of_drm_find_panel(panel);
-> -		of_node_put(panel);
-> -
-> -		if (IS_ERR(output->panel)) {
-> -			err =3D PTR_ERR(output->panel);
-> -			output->panel =3D NULL;
-> +	if (get_panel) {
-> +		err =3D drm_of_find_panel_or_bridge(output->of_node, -1, -1,
-> +						  &output->panel, &output->bridge);
-> +		if (err && err !=3D -ENODEV)
->  			return err;
-> +
-> +		panel =3D of_parse_phandle(output->of_node, "nvidia,panel", 0);
-> +		if (panel) {
-> +			/*
-> +			 * Don't mix nvidia,panel phandle with the graph in a
-> +			 * device-tree.
-> +			 */
-> +			WARN_ON(output->panel || output->bridge);
-> +
-> +			if (output->panel) {
-> +				drm_panel_put(output->panel);
-> +				output->panel =3D NULL;
-> +			}
-> +
-> +			output->panel =3D of_drm_find_panel(panel);
-> +			of_node_put(panel);
-> +
-> +			if (IS_ERR(output->panel)) {
-> +				err =3D PTR_ERR(output->panel);
-> +				output->panel =3D NULL;
-> +				return err;
-> +			}
->  		}
->  	}
-> =20
-> diff --git a/drivers/gpu/drm/tegra/rgb.c b/drivers/gpu/drm/tegra/rgb.c
-> index 40a02cf5939aa..227a178f761bd 100644
-> --- a/drivers/gpu/drm/tegra/rgb.c
-> +++ b/drivers/gpu/drm/tegra/rgb.c
-> @@ -236,7 +236,7 @@ int tegra_dc_rgb_probe(struct tegra_dc *dc)
->  	rgb->output.of_node =3D np;
->  	rgb->dc =3D dc;
-> =20
-> -	err =3D tegra_output_probe(&rgb->output);
-> +	err =3D tegra_output_probe(&rgb->output, true);
->  	if (err < 0)
->  		return err;
-> =20
-> diff --git a/drivers/gpu/drm/tegra/sor.c b/drivers/gpu/drm/tegra/sor.c
-> index 061c5dbb738be..ebac9068b670f 100644
-> --- a/drivers/gpu/drm/tegra/sor.c
-> +++ b/drivers/gpu/drm/tegra/sor.c
-> @@ -3803,7 +3803,7 @@ static int tegra_sor_probe(struct platform_device *=
-pdev)
->  	if (err < 0)
->  		goto put_aux;
-> =20
-> -	err =3D tegra_output_probe(&sor->output);
-> +	err =3D tegra_output_probe(&sor->output, true);
->  	if (err < 0) {
->  		dev_err_probe(&pdev->dev, err, "failed to probe output\n");
->  		goto put_aux;
-> --=20
-> 2.53.0
->=20
->=20
+The first two patches fix the RDR width tables of the existing /dev/perf
+driver: the PCX-U and PCX-W tables have been swapped since the driver
+was added, and PCX-W2 needs widths of its own. Both are taken from the
+RDR description tables in the PA-8500/PA-8600 and PA-8700 PDC firmware.
+I have no PA-8x00 machine older than PA-8800 to test them on.
 
-Reviewed-by: Mikko Perttunen <mperttunen@nvidia.com>
+The rest adds support for the PA-8800 and PA-8900 (Mako) counters, which
+/dev/perf claimed to support but could not program: they sit in RDR15
+of a second RDR chain that is shared by the two cores of a processor.
+The access sequences and the event image come from the C8000 PDC 2.13
+firmware's PDC_INTRIGUE implementation.
 
+The firmware's image counts only TLB misses and cycles, on the first
+core, and nothing documents the other event selections, so I found them
+on a C8000. I flipped every bit of the RDRs the image writes, one at a
+time, in sweeps of several thousand settings each, and compared the
+counts against about 30 small assembly loops with known numbers of
+loads, stores, branches, cache and TLB misses and nullified
+instructions. Many settings take an HPMC or hang the machine and need a
+reset through the BMC. The bits that select events turned out to be
+spread over three RDRs on both chains. This found cycles, stall and
+non-stall cycles, instructions with and without nullified ones, TLB
+misses of either kind, TLB handler cycles, loads and stores, D-cache
+misses, branches, taken branches and an instruction match filter.
 
+I expected to find at least what the PA-8500 to PA-8700 images in
+perf_images.h count, but mispredicted branches, I-cache misses, return
+stack predictions, branch abort stalls and D-cache misses inside the TLB
+handler are still missing. I also could not find any HP-UX tool that
+used the counters on PA-8800 or later. The last release of CXperf was in
+2001, two years before the PA-8800 came out, and its HP-UX 11.11 kernel
+module does not program the PA-8x00 counters at all. Caliper was to be
+ported to PA-RISC but only ever shipped for Itanium. The PA-RISC kernel
+of HP-UX 11.31 has a cpu_is_a_MAKO flag, but nothing reads it.
+
+On a Mako, PA_PERF_ON currently runs pmenb on counters that have never
+been configured, and that takes an HPMC on both cores of the processor.
+Patch 4 loads the firmware's image first. Getting a report out of that
+HPMC, and out of the ones the RDR bit sweep caused, took the HPMC
+handler fixes sent as "parisc: fix the TOC and HPMC handlers on 64-bit
+SMP":
+
+https://lore.kernel.org/r/20261126-parisc-hpmc-fixes-v1-0-80fb55336ac6@gmail.com
+
+The two series do not depend on each other.
+
+Patch 5 exposes the counters as a perf events "cpu" PMU, so that perf
+stat works, and patches 6 and 7 add the stall, TLB handler, filtered,
+memory and branch events. The counters cannot interrupt and do not
+distinguish privilege levels, so there is no sampling and no exclude_*
+support. /dev/perf only loads the firmware's image and gains no new ABI.
+
+Tested on a C8000 (2x PA-8900, 4 CPUs, 1.1 GHz) together with the cr16
+and HPMC series: on every CPU, alone and with all four counting at once,
+a pinned loop of known instructions counts 1.0011-1.0014 of them, also
+over 18 * 10^9 instructions and eight counter wraps, and the cycle count
+read through /dev/perf runs at 1100.6-1101.5 MHz. The memory, branch and
+filter events count the expected number per iteration of small loops of
+loads, stores, branches and adds. Events that would disturb the other
+core of a processor wait while it has events, and /dev/perf and perf
+events refuse each other with EBUSY.
+
+---
+Matt Turner (7):
+      parisc: perf: swap the PCX-U and PCX-W RDR tables
+      parisc: perf: add an RDR table for PCX-W2 (PA-8700)
+      parisc: perf: add PA-8800/PA-8900 RDR and DR2 access
+      parisc: perf: program the PA-8800/PA-8900 counters
+      parisc: perf: add a perf events PMU for PA-8800/PA-8900
+      parisc: perf: add PA-8800/PA-8900 event sets and an instruction filter
+      parisc: perf: add PA-8800/PA-8900 memory and branch events
+
+ arch/parisc/kernel/Makefile          |   5 +-
+ arch/parisc/kernel/perf.c            |  88 +++++-
+ arch/parisc/kernel/perf_asm.S        | 163 ++++++++++
+ arch/parisc/kernel/perf_event_mako.c | 586 +++++++++++++++++++++++++++++++++++
+ arch/parisc/kernel/perf_mako.c       | 565 +++++++++++++++++++++++++++++++++
+ arch/parisc/kernel/perf_mako.h       |  88 ++++++
+ arch/parisc/kernel/perf_mako_image.h | 208 +++++++++++++
+ 7 files changed, 1685 insertions(+), 18 deletions(-)
+---
+base-commit: 9437ee8b6cf607e883b36e44bd755968daaebd48
+change-id: 20261126-parisc-perf-pa8800-07b6b144da8b
+
+Best regards,
+--  
+Matt Turner <mattst88@gmail.com>
 
