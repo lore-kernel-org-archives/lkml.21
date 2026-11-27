@@ -1,63 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=139.150.92.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795759463;
-	b=i0i054/YgpLDLcwV2/unAylztBNJlCUjEDxdeJIzV179mGKVSdDMWQi0Yh+zPYIFnHe4
-	 vIs7008nMzeG02ejFgouH2klQ8uEMwdSlWMcGaAHZjEq01C40jX3/fNP4etjhjgEfUcYX
-	 wem9qfuNl4YHrDeEJ89Ogv+Kd7yWSlxL1ZTVMTY+FXqTR+CkR84XWW81sT7QoA6/Uxu+K
-	 VipULXKs3nuA8/kaZyrPHt02IaLv1H5aYLwGl4VxZnOIIjS6dfxnmH53UmQEz5M/wyrhx
-	 7RrnXMUJt1fyMOjUINWL+OxkAy5zoncCC6fPKky1Ug9Ev7uNOiMnum7gm9I3NDoXkNg==
+	t=1795759689;
+	b=DljVZVvdBd333n7Dc2v5tJFrq37xIsEPg0DLPgJyYP0t9x+0c8Uzq7ZMBHeYNHEzeqFd
+	 g5wIOS9R2PH1w1EOi30r7UboQjDU/7agmIvYw16EZtxXAPeiFQLu7oJZH0XJXzDKOFDUn
+	 0uIaa25YuGYm6Bj+9WoBgwIjkTPUJTi6EKjZGkv6yxpAaSBvRmm3aq7sxM139WmS2o7cq
+	 8NgFeTgq5ewsS3xjIyhxDvB0xCG6B5IM8p3+RX/1CnGqaEKzlxwaExd4vkpxmqt8pm+1Z
+	 633NGuy6WHCcl+DFGiluwBiCDyorqzmCYa/4lLts8nmpGQIMB3dMIIad2/2jmbOAFSg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795759463;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=U4HHDYIdWf0fz8S6410uXcXdDyUbeJMfeULhc7w7ooc=;
-	b=Z1gYGCRHhPM9SUFGl8m05CwHKMC01U5FTU9syJXJPNSnLkpF2YRUHVjy0z6XQivwlMBI
-	 qVsRK3/WQHNW/9Ku+QLGSaBqbDH4IleCew7j5z9EI5lQ9j5xellZr1ZV9kEpzXi+0nCSF
-	 r0lshcncVwa9L2xA3ED7rT7icTIl0pq/6UpjTHYGpnGM9tQ+HQBpskxsarEyspg7/iQCR
-	 KdX57Wlaz41ITE9054TpkPgGAP8xUnJhSaCVB7aoG5Sl9kHdI8xsMNoJoSb0GFszfrWIm
-	 YDLQQXe8LALG5z85mFCqyIyePg8FaiHgxsc0lYUqLPVI7znQIcXlM3WJq1FUQUywS+A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795759689;
+	h=DMARC-Filter:Received:Received:Received:Received:Date:From:Reply-To:
+	 To:Cc:Message-ID:Subject:MIME-Version:Content-Type:X-Priority:
+	 X-Authinfo;
+	bh=FyNUg7KEwhp2O2Gr7M5hNVmVgJh4CwY7tfs+an2x6Js=;
+	b=I5UU8WU58e+OXjisZcfQerwOGhwjWkH9GBR538Njk0R6v17koMJiVMm6Jo7g72q4bf2o
+	 9XtlPCOvZjLyFuvpK18YkbXbnYBmpHw26O545TWB1Ck7e7oUBw6zwe6Yx8wZsph2B3xgs
+	 Ngb+w4V6eLNtMP4nViSHqqEwivlrQ+UWw81e7wPQpnZ5D388mV958X8kHYuTzoOTfp3QU
+	 D475oBzZH/GsFeynKcyjvHPtTAP2uJZ3ZsP/DRKzMYHFDj2CACV8ato/XWyRvyIw+cNZk
+	 24FxTfnJDjVBZNi50zmrbSo9QvKXlNEqZNOw3NX9uqzyNlYFvOf53H1Rw6B2OnMYkqA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.alibaba.com;
-	spf=pass smtp.mailfrom=linux.alibaba.com;
-	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b="qT/Wz5Ue";
-	arc=none smtp.remote-ip=115.124.30.124
-Received: from out30-124.freemail.mail.aliyun.com (out30-124.freemail.mail.aliyun.com [115.124.30.124])
+	dmarc=none header.from=nirvanahyj.com;
+	spf=pass smtp.mailfrom=nirvanahyj.com;
+	arc=none smtp.remote-ip=139.150.92.16
+Received: from smtp92-16.hiworks.co.kr (smtp92-16.hiworks.co.kr [139.150.92.16])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F06BB606A321;
-	Fri, 27 Nov 2026 06:04:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F06BB606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=qT/Wz5Ue
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1795759458; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=U4HHDYIdWf0fz8S6410uXcXdDyUbeJMfeULhc7w7ooc=;
-	b=qT/Wz5Ue/SioA3mHn7QtQaoaTJMi0LCg297+T52I8+Ih3qxBwj+0zqEyH8vkUXMpoyp2GkfpICH7mqeW5VDuWWSml8lch/PPzTP2XmLgzAgUsP9GFoiKtNPz9HQQFLMk+rQgMku1aLLWMCcp0H0kGvGhZwGxPMibwYZ+/zVeB1A=
-X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R171e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=jiangtianfeng@linux.alibaba.com;NM=1;PH=DS;RN=9;SR=0;TI=SMTPD_---0XFWwdI-_1795759449;
-Received: from h68d07384.sqa.eu95.tbsite.net(mailfrom:jiangtianfeng@linux.alibaba.com fp:SMTPD_---0XFWwdI-_1795759449 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 27 Nov 2026 14:04:17 +0800
-From: Jiangtian Feng <jiangtianfeng@linux.alibaba.com>
-To: rafael@kernel.org,
-	viresh.kumar@linaro.org
-Cc: linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	christian.loehle@arm.com,
-	ananthu.cv@oss.qualcomm.com,
-	pierre.gondois@arm.com,
-	zhongqiu.han@oss.qualcomm.com,
-	jiangtianfeng@linux.alibaba.com
-Subject: [RFC PATCH v3] cpufreq: Keep global boost enabled after partial enable
-Date: Fri, 27 Nov 2026 14:03:59 +0800
-Message-ID: <20261127060407.732709-1-jiangtianfeng@linux.alibaba.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261127014937.413500-1-jiangtianfeng@linux.alibaba.com>
-References: <20261127014937.413500-1-jiangtianfeng@linux.alibaba.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E1A5606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:08:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0E1A5606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=nirvanahyj.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nirvanahyj.com
+Received: from hi-smtp-node4 (unknown [172.19.0.4])
+	by smtp92-16.hiworks.co.kr (Postfix) with ESMTPS id 4jbNJ00g2Gz1txgTg
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:08:00 +0900 (KST)
+Received: from hi-smtp-node1 (unknown [192.168.71.167])
+	by hi-smtp-node4 (Postfix) with ESMTP id 4jbNJ00CdKzQL3F6
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:08:00 +0900 (KST)
+Received: from split.smtp.hiworks.com (amphora-3294b420-308a-4b9e-8a1d-bf25580dae1f.openstack.gabia.io)
+ 	by hi-smtp-node1 with ESMTP id dszxmw7kbg54rezr;
+ 	Fri, 27 Nov 2026 15:07:59 +0900 (KST)
+Received: from hiworks-k8s (EHLO mail-api-v2-prod-84c9f6b4d9-lr22d) (10.251.58.128) 	by 0 (smtp-channel-split) with SMTP; 	Fri, 27 Nov 2026 15:07:59 +0900
+Date: Fri, 27 Nov 2026 15:07:59 +0900 (KST)
+From: Young-Jun Hong <nirvanah@nirvanahyj.com>
+Reply-To: Young-Jun Hong <young.j.hong@kaist.ac.kr>
+To: Steven Price <steven.price@arm.com>
+Cc: Boris Brezillon <boris.brezillon@collabora.com>,
+	Rob Herring <robh@kernel.org>,
+	=?UTF-8?Q?Adri=C3=A1n_Larumbe?= <adrian.larumbe@collabora.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Alexey Sheplyakov <asheplyakov@basealt.ru>,
+	"Vadim V. Vlasov" <vadim.vlasov@elpitech.ru>,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+Message-ID: <gab396278223.0.1795759679613@nirvanahyj.com>
+Subject: RE: Re: [PATCH 3/4] drm/panfrost: only put powered shader cores in
+ the job affinity
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,106 +66,159 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_58266_639132056.1795759679613"
+X-Priority: 3
+X-Authinfo: HIWORKS WEB authenticated <nirvanah@nirvanahyj.com|114.203.237.180>
 
-When global boost is enabled from the disabled state, a failure after
-one or more policies have been updated successfully currently restores
-the global flag to 0 without rolling back those policies. This leaves
-them locally enabled, with their boost-related driver/QoS updates
-retained, while the global flag rejects per-policy sysfs writes.
+------=_Part_58266_639132056.1795759679613
+Content-Type: multipart/related; 
+	boundary="----=_Part_58267_1592280802.1795759679613"
 
-Keep the global flag enabled if at least one policy_set_boost() call
-succeeded, while preserving the existing error return path. Global
-boost = 1 grants permission to boost; it does not require every policy
-to have boost enabled. The mixed per-policy state is therefore valid
-and individual policies remain accessible through per-policy sysfs.
+------=_Part_58267_1592280802.1795759679613
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: base64
 
-Restore the previous global state on disable and when no policy was
-enabled successfully. After a partial enable, keep global boost enabled
-so users can repair individual policies through sysfs. Do not roll back
-earlier policy updates.
+SGkgU3RldmUsCgpUaGFua3MgZm9yIGxvb2tpbmcgaW50byB0aGlzLgoKUmVnYXJkaW5nIChhKSwg
+SSBwZXJzb25hbGx5IHJhbiB0aG9zZSBleHBlcmltZW50cyBvbiB0aGUgaGFyZHdhcmUgYW5kIHJl
+dmlld2VkIHRoZSByZXN1bHRzLgoKVGhlIHB1cnBvc2Ugb2YgdGhlIHRlc3Rpbmcgd2FzIHRvIGRl
+dGVybWluZSB3aGV0aGVyIHRoZSB0d28gbm9uLWNvaGVyZW50IGNvcmUgZ3JvdXBzIG9mIHRoZSBN
+YWxpLVQ2MjggY2FuIGJlIHVzZWQgdG9nZXRoZXIgc2FmZWx5LCB3aGV0aGVyIGRvaW5nIHNvIHBy
+b3ZpZGVzIGEgbWVhbmluZ2Z1bCBwZXJmb3JtYW5jZSBiZW5lZml0LCBhbmQgd2hldGhlciBhbnkg
+Y29ycmVjdG5lc3MgaXNzdWVzIGNhbiBiZSBjb250cm9sbGVkIHRocm91Z2ggdXNlcnNwYWNlIHNj
+aGVkdWxpbmcgcnVsZXMuCgpUaGUgYWNjdXJhY3kgYW5kIHBlcmZvcm1hbmNlIGNvbXBhcmlzb24g
+d2FzIHBlcmZvcm1lZCBvbiB0aGUgc2FtZSBib2FyZCBhbmQgc29mdHdhcmUgc3RhY2sgYXQgNjAw
+IE1IeiB1bmRlciB0aHJlZSBjb25kaXRpb25zOgoKICBDb250cm9sIEEgOiBqb2IgcGxhY2VtZW50
+IGVxdWl2YWxlbnQgdG8gdXBzdHJlYW0gYmVoYXZpb3VyLCB1c2luZyBvbmx5IGNvcmUgZ3JvdXAg
+MCAoNCBjb3JlcykKICBDb250cm9sIEIgOiBib3RoIGNvcmUgZ3JvdXBzIGVuYWJsZWQsIHdpdGgg
+dGhlIGFkZGl0aW9uYWwgdXNlcnNwYWNlIGZpbHRlcmluZyBydWxlcyBkaXNhYmxlZAogIEZpbHRl
+cmVkICA6IGJvdGggY29yZSBncm91cHMgZW5hYmxlZCwgd2l0aCB1c2Vyc3BhY2UgZmlsdGVyaW5n
+IG9mIGtub3duLXJpc2sgam9icwoKQ29udHJvbCBBIGFjaGlldmVkIDI1LjY4IEdGTE9QUy4gRW5h
+YmxpbmcgYm90aCBjb3JlIGdyb3VwcyBpbmNyZWFzZWQgdGhyb3VnaHB1dCB0byAzNy42NyBHRkxP
+UFMgaW4gQ29udHJvbCBCIGFuZCAzNy41NiBHRkxPUFMgaW4gRmlsdGVyZWQsIGNvcnJlc3BvbmRp
+bmcgdG8gcm91Z2hseSBhIDEuNDZ4LTEuNDd4IHNwZWVkdXAuCgpIb3dldmVyLCBDb250cm9sIEIg
+YWxzbyByZXByb2R1Y2VkIGFsbCB0aHJlZSBwcmV2aW91c2x5IG9ic2VydmVkIGhhemFyZCBjbGFz
+c2VzOgoKICAtIFJlYWQtbW9kaWZ5LXdyaXRlIHRlc3QgKEQ4KTogbG9zdCB1cGRhdGVzIGluIDEw
+LzEwIHJ1bnMKICAtIFRMUyBzcGlsbC1yZWxhdGVkIHRlc3Q6IGluY29ycmVjdCByZXN1bHRzIGlu
+IDIvNSBydW5zCiAgLSBDTEJsYXN0IEZQNjQgcmVwbGF5IChQMTYpOiA1Ni81NiByZXBsYXllZCBw
+cm9ncmFtIGV4ZWN1dGlvbnMgcHJvZHVjZWQgbWlzbWF0Y2hlcwogIC0gR1BVIGZhdWx0czogMQoK
+V2l0aCB1c2Vyc3BhY2UgZmlsdGVyaW5nIGVuYWJsZWQsIHBlcmZvcm1hbmNlIHJlbWFpbmVkIGVz
+c2VudGlhbGx5IHVuY2hhbmdlZCB3aGlsZSBhbGwgb2JzZXJ2ZWQgY29ycmVjdG5lc3MgZmFpbHVy
+ZXMgYW5kIEdQVSBmYXVsdHMgd2VyZSByZWR1Y2VkIHRvIHplcm8uCgpSZWdhcmRpbmcgKGQpLCBt
+eSBtZWFzdXJlbWVudHMgYXJlIGNvbnNpc3RlbnQgd2l0aCB5b3VyIGV4cGxhbmF0aW9uIHRoYXQg
+dGhlIGhhcmR3YXJlIGVmZmVjdGl2ZWx5IEFORHMgdGhlIGpvYiBhZmZpbml0eSB3aXRoIHRoZSBw
+b3dlcmVkIHNoYWRlciBjb3Jlcy4KCldpdGggY29yZSBncm91cCAxIHBvd2VyZWQgb2ZmLCB3cml0
+aW5nIGFuIGFmZmluaXR5IG9mIDB4M2Ygc3RpbGwgcmVzdWx0ZWQgaW4gb25seSAweDBmIG9mIHNo
+YWRlciBjb3JlcyBiZWluZyBhY3RpdmUgZHVyaW5nIGV4ZWN1dGlvbi4gUGVyZm9ybWFuY2UgYW5k
+IG91dHB1dCBjb3JyZWN0bmVzcyB3ZXJlIGFsc28gdW5jaGFuZ2VkLiBCYXNlZCBvbiB0aGF0IHJl
+c3VsdCwgSSBhZ3JlZSB0aGF0IHBhdGNoIDMvNCBkb2VzIG5vdCBwcm92aWRlIGEgcHJhY3RpY2Fs
+IGJlbmVmaXQgYnkgaXRzZWxmLCBhbmQgSSBhbSB3aXRoZHJhd2luZyAzLzQuCgpSZWdhcmRpbmcg
+KGIpLCBJIGFsc28gYWdyZWUgdGhhdCA0LzQgZWZmZWN0aXZlbHkgc3Vic3VtZXMgdGhlIGludGVu
+dCBvZiAzLzQuIElmIGFmZmluaXR5IGlzIGV4cGxpY2l0bHkgcHJvZ3JhbW1lZCBvbiBhIHBlci1q
+b2IgYmFzaXMsIHRoZXJlIGlzIG5vIG5lZWQgZm9yIHRoZSBjaGFuZ2UgcHJvcG9zZWQgaW4gMy80
+LgoKRm9yIChjKSwgdGhlIG1lYXN1cmVtZW50cyBzdWdnZXN0IHRoYXQgc3VwcG9ydCBmb3IgdGhl
+IHNlY29uZCBjb3JlIGdyb3VwIGNhbiBwcm92aWRlIGEgc3Vic3RhbnRpYWwgcGVyZm9ybWFuY2Ug
+YmVuZWZpdCwgYnV0IGEga2VybmVsLXNpZGUgb3B0LWluIGFsb25lIGlzIG5vdCBzdWZmaWNpZW50
+LgoKV2l0aG91dCBhZGRpdGlvbmFsIHNjaGVkdWxpbmcgcnVsZXMsIEQ4LCBUTFMgYW5kIFAxNiB3
+b3JrbG9hZHMgY2FuIHByb2R1Y2UgaW5jb3JyZWN0IHJlc3VsdHMgYW5kIEdQVSBmYXVsdHMuIFdp
+dGggZmlsdGVyaW5nIGVuYWJsZWQsIHRoZSBzYW1lIHBlcmZvcm1hbmNlIGdhaW4gaXMgcmV0YWlu
+ZWQgd2hpbGUgdGhlIG9ic2VydmVkIGZhaWx1cmVzIGRpc2FwcGVhci4KClRoZXJlZm9yZSwgbXkg
+Y3VycmVudCB2aWV3IGlzIHRoYXQgYSBrZXJuZWwtc2lkZSBvcHQtaW4gaXMgb25seSBtZWFuaW5n
+ZnVsIHdoZW4gYWNjb21wYW5pZWQgYnkgY29ycmVzcG9uZGluZyB1c2Vyc3BhY2UgcnVsZXMgdGhh
+dCBkZWNpZGUgd2hpY2ggd29ya2xvYWRzIG1heSBiZSBkaXNwYXRjaGVkIHRvIGJvdGggY29yZSBn
+cm91cHMuIFRoZSB1c2Vyc3BhY2Ugc2lkZSBpcyBvdXRzaWRlIHRoZSBzY29wZSBvZiB0aGlzIGtl
+cm5lbCBzZXJpZXMsIHNvIEkgYW0gbm90IHByb3Bvc2luZyBzdWNoIGEgcG9saWN5IGFzIHBhcnQg
+b2YgdGhlc2UgcGF0Y2hlcy4KCklmIHRoZXJlIGlzIGludGVyZXN0IGluIHN1cHBvcnRpbmcgdGhp
+cyBjb25maWd1cmF0aW9uIGZ1cnRoZXIsIEkgd291bGQgYmUgaGFwcHkgdG8gc2hhcmUgdGhlIG1l
+YXN1cmVtZW50IG1ldGhvZG9sb2d5IGFuZCBvYnNlcnZhdGlvbnMgYmVoaW5kIHRoZXNlIHJlc3Vs
+dHMuCgpCZXN0IFJlZ2FyZHMsCllKCgotLcKgCllvdW5nLUp1biBIb25nIGZyb20gSGl3b3JrcwoK
+CgotLS0tLS0tLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0tLS0tLS0tClN1YmplY3QgOsKgUmU6
+IFtQQVRDSCAzLzRdIGRybS9wYW5mcm9zdDogb25seSBwdXQgcG93ZXJlZCBzaGFkZXIgY29yZXMg
+aW4gdGhlIGpvYiBhZmZpbml0eQpEYXRlIDrCoDIwMjYtMTEtMjQgMDA6Mzg6MDAKRnJvbSA6wqBT
+dGV2ZW4gUHJpY2UgPHN0ZXZlbi5wcmljZUBhcm0uY29tPgpUbyA6wqBZb3VuZy1KdW4gSG9uZyA8
+bmlydmFuYWhAbmlydmFuYWh5ai5jb20+CkNjIDrCoEJvcmlzIEJyZXppbGxvbiA8Ym9yaXMuYnJl
+emlsbG9uQGNvbGxhYm9yYS5jb20+LCBSb2IgSGVycmluZyA8cm9iaEBrZXJuZWwub3JnPiwgQWRy
+acOhbiBMYXJ1bWJlIDxhZHJpYW4ubGFydW1iZUBjb2xsYWJvcmEuY29tPiwgTWFhcnRlbiBMYW5r
+aG9yc3QgPG1hYXJ0ZW4ubGFua2hvcnN0QGxpbnV4LmludGVsLmNvbT4sIE1heGltZSBSaXBhcmQg
+PG1yaXBhcmRAa2VybmVsLm9yZz4sIFRob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNl
+LmRlPiwgRGF2aWQgQWlybGllIDxhaXJsaWVkQGdtYWlsLmNvbT4sIFNpbW9uYSBWZXR0ZXIgPHNp
+bW9uYUBmZndsbC5jaD4sIEFsZXhleSBTaGVwbHlha292IDxhc2hlcGx5YWtvdkBiYXNlYWx0LnJ1
+PiwgIlZhZGltIFYuIFZsYXNvdiIgPHZhZGltLnZsYXNvdkBlbHBpdGVjaC5ydT4sIGRyaS1kZXZl
+bEBsaXN0cy5mcmVlZGVza3RvcC5vcmcsIGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmcKT27C
+oDA2LzExLzIwMjbCoDA1OjQxLMKgWW91bmctSnVuwqBIb25nwqB3cm90ZToKPsKgT27CoEdQVXPC
+oHdpdGjCoG1vcmXCoHRoYW7CoG9uZcKgTDLCoChjb3JlwqBncm91cCkswqBwYW5mcm9zdMKgcG93
+ZXJzwqBvbmx5wqB0aGUKPsKgZmlyc3TCoGNvcmXCoGdyb3VwwqAocGFuZnJvc3RfZ2V0X2NvcmVf
+bWFzaygpKSzCoGJ1dMKgdGhlwqBqb2LCoGFmZmluaXR5wqBpcwo+wqB3cml0dGVuwqBmcm9twqBz
+aGFkZXJfcHJlc2VudCzCoGkuZS7CoGl0wqBhbHNvwqBuYW1lc8KgdGhlwqBjb3Jlc8Kgb2bCoHRo
+ZcKgc2Vjb25kLAo+wqB1bnBvd2VyZWTCoGdyb3VwwqAoTWFsaS1UNjI4wqBNUDbCoG9uwqBFeHlu
+b3PCoDU0MjI6wqBsMl9wcmVzZW50wqAweDExLMKgNCsyCj7CoGNvcmVzLMKgYWZmaW5pdHnCoDB4
+M2bCoHdoaWxlwqBvbmx5wqAweDBmwqBpc8KgcG93ZXJlZCkuCj7CoAo+wqBXcml0ZcKgdGhlwqBh
+ZmZpbml0ecKgZnJvbcKgdGhlwqBzYW1lwqBtYXNrwqB0aGF0wqB3YXPCoHBvd2VyZWQswqBzb8Kg
+YcKgam9iwqBuZXZlcgo+wqBuYW1lc8KgY29yZXPCoHRoYXTCoGFyZcKgb2ZmLgo+wqAKPsKgVGVz
+dGVkwqBvbsKgU2Ftc3VuZ8KgQVJUSUvCoDEwwqAoRXh5bm9zwqA1NDIyKSzCoE1hbGktVDYyOMKg
+TVA2Lgo+wqAKPsKgVGhlwqBhbmFseXNpcyzCoHRoZcKgY29kZcKgYW5kwqB0aGlzwqBjaGFuZ2Vs
+b2fCoHdlcmXCoHByb2R1Y2VkwqB3aXRowqBDbGF1ZGUKPsKgQ29kZcKgKEFudGhyb3BpYykswqBh
+wqBjb2RpbmfCoGFzc2lzdGFudC4KPsKgCj7CoEZpeGVzOsKgNmU1NWQyNzM3MDhiwqAoImRybS9w
+YW5mcm9zdDrCoGluaXRpYWzCoGR1YWzCoGNvcmXCoGdyb3VwwqBHUFVzwqBzdXBwb3J0IikKPsKg
+U2lnbmVkLW9mZi1ieTrCoFlvdW5nLUp1bsKgSG9uZ8KgPG5pcnZhbmFoQG5pcnZhbmFoeWouY29t
+PgoKU2/CoHRoaXPCoHBhdGNowqBtaWdodMKgYmXCoGHCoHZhbGlkwqBmaXguwqBCdXQ6CgphKcKg
+SXQnc8KgQUnCoGdlbmVyYXRlZMKgYW5kwqBJJ23CoG5vdMKgc3VyZcKgd2hldGhlcsKgYW55wqBo
+dW1hbsKgdGhvdWdodMKgaGFzwqBnb25lCmludG/CoGl0LgoKYinCoFRoZcKgbmV4dMKgcGF0Y2jC
+oGluwqB0aGXCoHNlcmllc8KgYmFzaWNhbGx5wqB1bmRvZXPCoHRoZcKgY2hhbmdlLgoKVGhlwqBU
+NjI4wqBpc8KgYW7CoGF3a3dhcmTCoGJlYXN0wqBiZWNhdXNlwqBpdMKgaGFzwqB0aGVzZcKgdHdv
+wqAobm9uLWNvaGVyZW50KQpjb3JlwqBncm91cHMuwqBTb8KgZmFywqB0aGVyZcKgaGFzbid0wqBi
+ZWVuwqBtdWNowqBhcHBldGl0ZcKgZm9ywqB0cnlpbmfCoHRvCnN1cHBvcnTCoGl0wqB3ZWxswqBi
+ZWNhdXNlwqBpdCdzwqBwcmV0dHnCoHJhcmXCoGFuZMKgQUZBSUvCoGl0J3PCoHRoZcKgb25secKg
+R1BVCndoaWNowqBoYXPCoHRoaXPCoHNldHVwLgoKTXnCoG93bsKgdW5kZXJzdGFuZGluZ8KgaXPC
+oHRoYXTCoHRoaXPCoHBhdGNowqBpc8KgYWxzb8KgaXJyZWxldmFudMKgaW7CoHRoYXTCoHRoZQpH
+UFXCoGhhcmR3YXJlwqB3aWxswqBlZmZlY3RpdmVsecKgQU5EwqB0aGXCoGFmZmluaXR5wqB3aXRo
+wqB0aGXCoHBvd2VyZWTCoG9uCnNoYWRlcnMuwqBIZW5jZcKgSSdkwqB3YW50wqB0b8Kgc2VlwqBh
+bsKgYWN0dWFswqB1c2VywqByZXBvcnTCoChub3TCoGFuwqBBSS1yZXBvcnQpCnRoYXTCoHRoaXPC
+oCJmaXgiwqBhY3R1YWxsecKgaGVscHMuwqBTYWRsecKgScKgZG9uJ3TCoGhhdmXCoGhhcmR3YXJl
+wqB0b8KgdGVzdMKgdGhpcy4KClRoYW5rcywKU3RldmUKCj7CoC0tLQo+IMKgZHJpdmVycy9ncHUv
+ZHJtL3BhbmZyb3N0L3BhbmZyb3N0X2dwdS5jwqB8wqA2wqArKysrKysKPiDCoGRyaXZlcnMvZ3B1
+L2RybS9wYW5mcm9zdC9wYW5mcm9zdF9ncHUuaMKgfMKgMcKgKwo+IMKgZHJpdmVycy9ncHUvZHJt
+L3BhbmZyb3N0L3BhbmZyb3N0X2pvYi5jwqB8wqAywqArLQo+IMKgM8KgZmlsZXPCoGNoYW5nZWQs
+wqA4wqBpbnNlcnRpb25zKCspLMKgMcKgZGVsZXRpb24oLSkKPsKgCj7CoGRpZmbCoC0tZ2l0wqBh
+L2RyaXZlcnMvZ3B1L2RybS9wYW5mcm9zdC9wYW5mcm9zdF9ncHUuY8KgYi9kcml2ZXJzL2dwdS9k
+cm0vcGFuZnJvc3QvcGFuZnJvc3RfZ3B1LmMKPsKgaW5kZXjCoDYwODFiMjc4MjllMS4uNDIwZDIy
+NDI3NmE1wqAxMDA2NDQKPsKgLS0twqBhL2RyaXZlcnMvZ3B1L2RybS9wYW5mcm9zdC9wYW5mcm9z
+dF9ncHUuYwo+wqArKyvCoGIvZHJpdmVycy9ncHUvZHJtL3BhbmZyb3N0L3BhbmZyb3N0X2dwdS5j
+Cj7CoEBAwqAtNDUyLDbCoCs0NTIsMTLCoEBAwqBzdGF0aWPCoHU2NMKgcGFuZnJvc3RfZ2V0X2Nv
+cmVfbWFzayhzdHJ1Y3TCoHBhbmZyb3N0X2RldmljZcKgKnBmZGV2KQo+wqAgwqByZXR1cm7CoGNv
+cmVfbWFzazsKPiDCoH0KPiDCoAo+wqArLyrCoGNvcmVzwqB0aGF0wqBwYW5mcm9zdF9ncHVfcG93
+ZXJfb24oKcKgcG93ZXJzwqAqLwo+wqArdTY0wqBwYW5mcm9zdF9wb3dlcmVkX2NvcmVfbWFzayhz
+dHJ1Y3TCoHBhbmZyb3N0X2RldmljZcKgKnBmZGV2KQo+wqArewo+wqArIHJldHVybsKgcGZkZXYt
+PmZlYXR1cmVzLnNoYWRlcl9wcmVzZW50wqAmwqBwYW5mcm9zdF9nZXRfY29yZV9tYXNrKHBmZGV2
+KTsKPsKgK30KPsKgKwo+IMKgdm9pZMKgcGFuZnJvc3RfZ3B1X3Bvd2VyX29uKHN0cnVjdMKgcGFu
+ZnJvc3RfZGV2aWNlwqAqcGZkZXYpCj4gwqB7Cj7CoCDCoGludMKgcmV0Owo+wqBkaWZmwqAtLWdp
+dMKgYS9kcml2ZXJzL2dwdS9kcm0vcGFuZnJvc3QvcGFuZnJvc3RfZ3B1LmjCoGIvZHJpdmVycy9n
+cHUvZHJtL3BhbmZyb3N0L3BhbmZyb3N0X2dwdS5oCj7CoGluZGV4wqBiNGZlZjExMjExZDUuLjc4
+YTYyNzBiN2ZjYsKgMTAwNjQ0Cj7CoC0tLcKgYS9kcml2ZXJzL2dwdS9kcm0vcGFuZnJvc3QvcGFu
+ZnJvc3RfZ3B1LmgKPsKgKysrwqBiL2RyaXZlcnMvZ3B1L2RybS9wYW5mcm9zdC9wYW5mcm9zdF9n
+cHUuaAo+wqBAQMKgLTEzLDbCoCsxMyw3wqBAQMKgdm9pZMKgcGFuZnJvc3RfZ3B1X2Zpbmkoc3Ry
+dWN0wqBwYW5mcm9zdF9kZXZpY2XCoCpwZmRldik7Cj4gwqB1MzLCoHBhbmZyb3N0X2dwdV9nZXRf
+bGF0ZXN0X2ZsdXNoX2lkKHN0cnVjdMKgcGFuZnJvc3RfZGV2aWNlwqAqcGZkZXYpOwo+IMKgCj4g
+wqBpbnTCoHBhbmZyb3N0X2dwdV9zb2Z0X3Jlc2V0KHN0cnVjdMKgcGFuZnJvc3RfZGV2aWNlwqAq
+cGZkZXYpOwo+wqArdTY0wqBwYW5mcm9zdF9wb3dlcmVkX2NvcmVfbWFzayhzdHJ1Y3TCoHBhbmZy
+b3N0X2RldmljZcKgKnBmZGV2KTsKPiDCoHZvaWTCoHBhbmZyb3N0X2dwdV9wb3dlcl9vbihzdHJ1
+Y3TCoHBhbmZyb3N0X2RldmljZcKgKnBmZGV2KTsKPiDCoHZvaWTCoHBhbmZyb3N0X2dwdV9wb3dl
+cl9vZmYoc3RydWN0wqBwYW5mcm9zdF9kZXZpY2XCoCpwZmRldik7Cj4gwqB2b2lkwqBwYW5mcm9z
+dF9ncHVfc3VzcGVuZF9pcnEoc3RydWN0wqBwYW5mcm9zdF9kZXZpY2XCoCpwZmRldik7Cj7CoGRp
+ZmbCoC0tZ2l0wqBhL2RyaXZlcnMvZ3B1L2RybS9wYW5mcm9zdC9wYW5mcm9zdF9qb2IuY8KgYi9k
+cml2ZXJzL2dwdS9kcm0vcGFuZnJvc3QvcGFuZnJvc3Rfam9iLmMKPsKgaW5kZXjCoDRkZGY0Yjcy
+MmRkZi4uMzNkYTg2NTg3ZGI3wqAxMDA2NDQKPsKgLS0twqBhL2RyaXZlcnMvZ3B1L2RybS9wYW5m
+cm9zdC9wYW5mcm9zdF9qb2IuYwo+wqArKyvCoGIvZHJpdmVycy9ncHUvZHJtL3BhbmZyb3N0L3Bh
+bmZyb3N0X2pvYi5jCj7CoEBAwqAtMTQzLDfCoCsxNDMsN8KgQEDCoHN0YXRpY8Kgdm9pZMKgcGFu
+ZnJvc3Rfam9iX3dyaXRlX2FmZmluaXR5KHN0cnVjdMKgcGFuZnJvc3RfZGV2aWNlwqAqcGZkZXYs
+Cj4gwqAgwqAqwqBFdmVudHVhbGx5wqB3ZcKgbWF5wqBuZWVkwqB0b8Kgc3VwcG9ydMKgdGlsZXLC
+oG9ubHnCoGpvYnPCoGFuZMKgaC93wqB3aXRoCj4gwqAgwqAqwqBtdWx0aXBsZcKgKDIpwqBjb2hl
+cmVudMKgY29yZcKgZ3JvdXBzCj4gwqAgwqAqLwo+wqAtIGFmZmluaXR5wqA9wqBwZmRldi0+ZmVh
+dHVyZXMuc2hhZGVyX3ByZXNlbnQ7Cj7CoCsgYWZmaW5pdHnCoD3CoHBhbmZyb3N0X3Bvd2VyZWRf
+Y29yZV9tYXNrKHBmZGV2KTsKPiDCoAo+wqAgwqBqb2Jfd3JpdGUocGZkZXYswqBKU19BRkZJTklU
+WV9ORVhUX0xPKGpzKSzCoGxvd2VyXzMyX2JpdHMoYWZmaW5pdHkpKTsKPsKgIMKgam9iX3dyaXRl
+KHBmZGV2LMKgSlNfQUZGSU5JVFlfTkVYVF9ISShqcykswqB1cHBlcl8zMl9iaXRzKGFmZmluaXR5
+KSk7
+------=_Part_58267_1592280802.1795759679613--
 
-Qoder, an AI coding assistant, helped analyze the issue, develop the fix
-and state matrix, and draft this description.
-
-Fixes: 218a06a79d9a ("cpufreq: Support per-policy performance boost")
-Signed-off-by: Jiangtian Feng <jiangtianfeng@linux.alibaba.com>
----
-This RFC discusses the user-visible partial-success semantics: a failed
-write of 1 can leave the global flag readable as 1 when at least one
-policy was enabled successfully.
-
-Changes in v3:
-- Correct the changelog and comment to describe restoration on disable
-  or when no policy was enabled successfully, and local repair after a
-  partial enable.
-- No code-logic change from v2.
-- Link: https://lore.kernel.org/linux-pm/20261127014937.413500-1-jiangtianfeng@linux.alibaba.com/
-
-Changes in v2:
-- Remove goto/out_err from the function using cleanup guards.
-- Simplify the restoration condition to !state || !policy_success.
-- Link: https://lore.kernel.org/linux-pm/20261126110903.3747240-1-jiangtianfeng@linux.alibaba.com/
-
-No normal in-tree trigger for the partial-enable sequence has been
-identified. Same-state global writes already provide a resynchronization
-mechanism. The same-state disable/resync failure noted by Zhongqiu is
-left for separate discussion instead of expanding this patch.
-
-This AI-assisted draft requires human review and DCO sign-off before
-submission.
-
-Validation:
-- mainline ARM64 defconfig build of the complete Image
-- checkpatch.pl
-- eight-case old-global/request/success state matrix
-- independent static control-flow and locking review
-
-NOT_RUN:
-- runtime fault injection or reproduction with multiple policies
-- global/local concurrency, hotplug, lockdep or KCSAN testing
-- CPPC, SW frequency-table, ACPI or AMD hardware frequency/QoS testing
-
- drivers/cpufreq/cpufreq.c | 12 +++++++++---
- 1 file changed, 9 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
-index 4332cb114070..57f1874e087a 100644
---- a/drivers/cpufreq/cpufreq.c
-+++ b/drivers/cpufreq/cpufreq.c
-@@ -2887,6 +2887,7 @@ static int cpufreq_boost_trigger_state(int state)
- 	struct cpufreq_policy *policy;
- 	unsigned long flags;
- 	bool boost_enabled;
-+	bool policy_success = false;
- 	int ret = -EOPNOTSUPP;
- 
- 	guard(mutex)(&cpufreq_boost_mutex);
-@@ -2911,6 +2912,8 @@ static int cpufreq_boost_trigger_state(int state)
- 		ret = policy_set_boost(policy, state);
- 		if (unlikely(ret))
- 			break;
-+
-+		policy_success = true;
- 	}
- 
- 	cpus_read_unlock();
-@@ -2918,9 +2921,12 @@ static int cpufreq_boost_trigger_state(int state)
- 	if (likely(!ret))
- 		return 0;
- 
--	write_lock_irqsave(&cpufreq_driver_lock, flags);
--	cpufreq_driver->boost_enabled = boost_enabled;
--	write_unlock_irqrestore(&cpufreq_driver_lock, flags);
-+	/* On failure, restore old state unless partial enable needs local repair. */
-+	if (!state || !policy_success) {
-+		write_lock_irqsave(&cpufreq_driver_lock, flags);
-+		cpufreq_driver->boost_enabled = boost_enabled;
-+		write_unlock_irqrestore(&cpufreq_driver_lock, flags);
-+	}
- 
- 	pr_err("%s: Cannot %s BOOST\n",
- 	       __func__, str_enable_disable(state));
--- 
-2.47.3
-
+------=_Part_58266_639132056.1795759679613--
