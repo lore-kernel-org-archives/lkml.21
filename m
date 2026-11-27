@@ -1,49 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795797399;
-	b=LDqeWncV71Kg+h8Q8k0brm26pxCkWvDP8LpQf+7dy7WQ47+HBcmdA8JJzJtuprkq1dR/
-	 Z9n0kLE9wP/tFzXGqqLcw7TT4t+5EFUR2X9+zQ7wcPQUoQ7QIXT3CIoDZMJymNHZQXhCY
-	 A+gjE+Mj9zE2Bfmca0dFhxEV0G8wBb5y2ABMp+SH0I1gACrOIrttEDr2LDUASzNByDoDL
-	 QOJeksXY6RYsahU5oKZLmIrzIdTf1CKsmGPCVAWWEG4lvF3UJwRmdq/TY/DFLDcB33jWp
-	 NpUWFgzWEXiE4shtBrZ67XLBeDfyg3JFMoJ04QOwYFDZHGrXxYNNi96rSBCSzO+3vUA==
+	b=HTb3O7CBp5BwcXa5IrGiilL2hZHb3XFAJkjcIRJHIM/fWWDKKAR5NBcVY8cZBJPQw28c
+	 +4ZpzGTGDhzcvIkRGeAUkC0Gy0LapKvIFFVGOZd22iB8f9HzwdG2fn+zXxZA73KFKTc3m
+	 hhXK55W7ZzqROJW7R5Fs+Q2CIfoUc1ke+tlyX1bxY6mkuDiNNXyb2tAzvWbu13RLVuWaF
+	 P7opZPUliHbJ9/GtWOTwmkDd9npwfm9whm3oIJx12NGRBA/S1otEJQ1tO8uJ4nshHBbcy
+	 w5OkjFrYvA1tych1fp2dnCx/QBmwiNauoOBRq0pWVe/o3JEygaIn9DoFsZZkPl/XHvw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795797399;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=nyxEO58jG2eRS60AFB3FuIq+ozdE/sL6szu/SNOCHkU=;
-	b=4qeLtaCd4IRxFvHDvcS7pGF1ESt9cTE+mf+SSnxU0yvB4WcZbDLWvHNZyFVfCo7zv0px
-	 zDUou+3nG9YH3WNP/xnqaZpZkIaSkX1OY8KKXT34H/MA5dgWXpyALhW33VhNkSmDAyN2d
-	 afz3RnGE+ztTMnvQUuhcqoluW7V+Hk7nNdPDoNNNiN/QBUCT/48dNl8Ysy4+1RF1ARMUp
-	 r/8+8nS7m3KQHSfn4f53iGYrf5unMMBq0fCuArAMC9Jb0XRNDNZHJ648WWAMpAUzq9wO8
-	 6Jx08WHW/aLa20dQMdDvstmF6TQ81h0GCtgYXIJwvl36YwC3W59hi3gDufE/50GLtDg==
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=tjOAhQdC0cg0LV1AxBgSqlMHlzoOkm0INHdUNMNhIOY=;
+	b=FB8vZtaTHUP093s5XfIYUnCIKhhWCClY5L5n091Kb/I6qvYeCBviuJiNmZ/eH3auJgMV
+	 irTKd+hi67FeXg8CVNtZFc4Mvo/tlIhKo0z2vT59UEEzawbFqKun3w4yfYfJzJJHECytd
+	 Z538blVAXCo0o0qEiFwhR1QS7cePr+8FESEpcfK4fTC2A5T1iM6oGSOOBSsqFDfmhXnhu
+	 /cF8kE+Sz0YlY3Ah+lMx+/df7LWZtotJEJ/7F8Rm/CVFFt42IzsymFiwztYuGTplru9FW
+	 x8gjD/U/jSLOGKhJFCyZBkxnITZcacGXpRz3cuYIjInVFDxQq5lxi0ABeYQ8p+V4aGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=RuXYDHbs;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 90A10606A32A;
-	Fri, 27 Nov 2026 16:36:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90A10606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cOTWacyc;
+	arc=none smtp.remote-ip=209.85.218.51
+Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com [209.85.218.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26E02606A334
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:36:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26E02606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=RuXYDHbs
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6C3E41570;
-	Fri, 27 Nov 2026 08:36:34 -0800 (PST)
-Received: from [10.0.129.128] (e122027.cambridge.arm.com [10.0.129.128])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 93AB23F632;
-	Fri, 27 Nov 2026 08:36:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795797397; bh=EFyjz5K6FQSICQk4qVCWxpHVr1zg47R7gms4zh34/8Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RuXYDHbs0klo6rqmTIFbWccVkoffHuEh+tKD+TdfkhY8pOhrThjyfqgwOEx3GX8i1
-	 p2OlSLNY5CUwgHLb95vhb/+eyNx9NsndsVzI9o5La3N5rsszhDPzN1YIj/7GLwZKYN
-	 A/eh1lMd9TGmf/KM8gzt0BrzFQAdsyDdQxgdCNNM=
-Message-ID: <3970b78c-b72a-49ca-9125-75d242508a9d@arm.com>
-Date: Fri, 27 Nov 2026 16:36:26 +0000
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cOTWacyc
+Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c51a14bd405so440052666b.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:36:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795797397; x=1796402197; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=tjOAhQdC0cg0LV1AxBgSqlMHlzoOkm0INHdUNMNhIOY=;
+        b=cOTWacycUrZnuCs2B2RKWuHRmIncyI0AtBdF8CI4VyB9txUVXVgwDPMZQ9Izod3ddL
+         5ixk59VwKGe/ksQqZ3VkH4jCiTeygGfZK2K3dxJv2VknC/MwH9VlyxZbpNjPwJEC3yu6
+         bdUgW3qc/6tEH2DPNdR5Km8bWtncLjYmHz3f3LxGGNBEIXCABiRqKjeC9oCjC0QErzpZ
+         icwZ7ymNoyf/YO9aVlZdV2uQt1vVULXdsgf5cM5UdhMt5QIB/i11rGjImGXIsrvy57qs
+         yc9HUPdigt6+xPJkOhquP02tOgkdrIfqpJpaCQg86noB7zNMDXa2BtwtSlCd2APfyLTn
+         3m5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795797397; x=1796402197;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=tjOAhQdC0cg0LV1AxBgSqlMHlzoOkm0INHdUNMNhIOY=;
+        b=I6+VJyFduBR1H2u9yyLyvZT23nDZ1MKqLTIqDBhUR7SDDNX8yUDcU0LfdtDf5s1rX4
+         +SrJkRhHKtV6OJ/JWcLER5wTk0EoRANRSiW1dHkeoG1RCEl9A9ngW8ZzbVBru5CmIpf/
+         mAsFBqQMhbcuvpyQ9Sfg8y3Al2xIabeMEy3miekOam66WcdJo8d14nAZ3HpbZ8h2WA1d
+         r1au/bA9hNOouHxzuiLJ3E0pc2QlgJZ2v5kNzZB66pSvYwsWY6KI6dapnej33TELyDUY
+         8zOR2BmPxkmoMYNVvaSdVHkfV6JCWdfrZUVjQaYIX/VyKsO0wG4qgCjV6NIIrVJXP/2H
+         OQUg==
+X-Gm-Message-State: APuU4Z9BeTEw0cYIosORqwVH7OzkwR7znNonY+n48uz/DUmLlo1OkCmY
+	l/IdLbxxSS3O0KlRtjzICog3NtqkOzs2npb62tOsum1e5JRNEopy0u9S
+X-Gm-Gg: AZFdTZeNw7CSxxHJdNymsuvNjeCFbuRx8Ie0IgfEVy6jg/OM/CAnzdHMrsaI3pELE2b
+	4T65/S9/+s9ipCQo068OYbuPldv42GnZOCEpSOKEMAYEpoprprr8yrNCCuxIA+C2qMK/e6Qk58h
+	ksHcuJYhmN4bj77LgijKkr/LQ4qEo+P92+hJa2S+ariXvX3yNWAzvun2k3ASzzQrrXwEbf0lfw0
+	v7GE4yfu1h2ARA7hre66u6rdZ7wjYLdNDreyvGSbKcHL8tEmIphPfu+zIn4WHEXAhtE2REJ6K0v
+	mKvM8/0CwXBnZy0SucVEE4+83neSutFFPy34fZyatStt2b2N5W+wIe1p3cw/YSyODskNC+UTSc3
+	oiSMvOzQxfTTYgBqLWdUKQXHTJfEkL1CK+BAPjLCQMCTPrbZEKKwjGOND/oVH5m0/neScXmQAkH
+	C+KYiysWMylX4g+TpKoObOP0F7Dqfo56UizuLlb25JzOHcmMm2oJematdEMK7xLvYGGDAQ6ibzy
+	W2cHlQA9WvP4yIJChGiJhR78O4DTav0Z9thGiEGTC1dPux74vu8eneM6YD+nu2SES9YxpPfFfwP
+	DBh1buorV5bjTcczmCVGAbSC8G70gtoXGe7CJYz/6uwCZa80nPIEmpVKzPrvzQ0AlsmCN/BHIO9
+	VLMkxDuzcVb8=
+X-Received: by 2002:a17:907:6ea8:b0:c51:3bde:bfd0 with SMTP id a640c23a62f3a-c513bdec070mr2097785866b.47.1795797397430;
+        Fri, 27 Nov 2026 08:36:37 -0800 (PST)
+Received: from xeon ([188.163.112.54])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae9dc7asm893079566b.41.2026.11.27.08.36.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 08:36:36 -0800 (PST)
+From: Svyatoslav Ryhel <clamor95@gmail.com>
+To: Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Svyatoslav Ryhel <clamor95@gmail.com>
+Cc: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH v1 2/3] regulator: dt-bindings: maxim,max8907: Document LED support
+Date: Fri, 27 Nov 2026 18:36:11 +0200
+Message-ID: <20261127163612.280186-3-clamor95@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261127163612.280186-1-clamor95@gmail.com>
+References: <20261127163612.280186-1-clamor95@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,241 +99,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 02/13] drm/panthor: Minor scheduler refactoring
-To: Ketil Johnsen <ketil.johnsen@arm.com>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Liviu Dudau <liviu.dudau@arm.com>, Akash Goel <akash.goel@arm.com>,
- Karunika Choo <karunika.choo@arm.com>,
- Lukas Zapolskas <lukas.zapolskas@arm.com>,
- Chris Diamand <chris.diamand@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Daniel Almeida <daniel.almeida@collabora.com>,
- Alice Ryhl <aliceryhl@google.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- rust-for-linux@vger.kernel.org, Florent Tomasin <florent.tomasin@arm.com>
-References: <20261116112601.3483649-1-ketil.johnsen@arm.com>
- <20261116112601.3483649-3-ketil.johnsen@arm.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20261116112601.3483649-3-ketil.johnsen@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 16/11/2026 11:25, Ketil Johnsen wrote:
-> From: Florent Tomasin <florent.tomasin@arm.com>
-> 
-> Refactor parts of the group scheduling logic into new helper functions.
-> This will simplify addition of the protected mode feature.
-> 
-> Remove redundant assignments of csg_slot.
-> 
-> Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
-> Signed-off-by: Florent Tomasin <florent.tomasin@arm.com>
-> Co-developed-by: Ketil Johnsen <ketil.johnsen@arm.com>
-> Signed-off-by: Ketil Johnsen <ketil.johnsen@arm.com>
+The Maxim MAX8907 PMIC supports a single LED; document it.
 
-Reviewed-by: Steven Price <steven.price@arm.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
+---
+ .../devicetree/bindings/regulator/maxim,max8907.yaml          | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-> 
-> ---
-> 
-> v5:
-> - Actually handle error from csg_slot_prog_locked()
-> 
-> v4:
-> - Handle error from csg_slot_prog_locked()
-> 
-> v3:
-> - Use panthor_fw_csg_endpoint_req_update() (was rebase mistake)
-> - Function rename to tick_ctx_update_group_prio()
-> 
-> v2:
-> - Moved option to ding only the CSG doorbell to later patch
-> ---
->  drivers/gpu/drm/panthor/panthor_sched.c | 135 +++++++++++++++---------
->  1 file changed, 83 insertions(+), 52 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/panthor/panthor_sched.c b/drivers/gpu/drm/panthor/panthor_sched.c
-> index a343c5180e01e..d632fe1bf4db8 100644
-> --- a/drivers/gpu/drm/panthor/panthor_sched.c
-> +++ b/drivers/gpu/drm/panthor/panthor_sched.c
-> @@ -2345,12 +2345,85 @@ tick_ctx_cleanup(struct panthor_scheduler *sched,
->  	}
->  }
->  
-> +static void
-> +tick_ctx_evict_group(struct panthor_scheduler *sched,
-> +		     struct panthor_csg_slots_upd_ctx *upd_ctx,
-> +		     struct panthor_group *group)
-> +{
-> +	struct panthor_device *ptdev = sched->ptdev;
-> +
-> +	if (drm_WARN_ON(&ptdev->base, group->csg_id < 0))
-> +		return;
-> +
-> +	csgs_upd_ctx_queue_reqs(ptdev, upd_ctx, group->csg_id,
-> +				group_can_run(group) ?
-> +				CSG_STATE_SUSPEND : CSG_STATE_TERMINATE,
-> +				CSG_STATE_MASK);
-> +}
-> +
-> +static void
-> +tick_ctx_update_group_prio(struct panthor_scheduler *sched,
-> +			   struct panthor_csg_slots_upd_ctx *upd_ctx,
-> +			   struct panthor_group *group,
-> +			   int new_csg_prio)
-> +{
-> +	struct panthor_device *ptdev = sched->ptdev;
-> +	struct panthor_fw_csg_iface *csg_iface;
-> +	struct panthor_csg_slot *csg_slot;
-> +
-> +	if (group->csg_id < 0)
-> +		return;
-> +
-> +	csg_iface = panthor_fw_get_csg_iface(ptdev, group->csg_id);
-> +	csg_slot = &sched->csg_slots[group->csg_id];
-> +
-> +	if (csg_slot->priority != new_csg_prio) {
-> +		panthor_fw_csg_endpoint_req_update(ptdev, csg_iface,
-> +						   CSG_EP_REQ_PRIORITY(new_csg_prio),
-> +						   CSG_EP_REQ_PRIORITY_MASK);
-> +		csgs_upd_ctx_queue_reqs(ptdev, upd_ctx, group->csg_id,
-> +					csg_iface->output->ack ^ CSG_ENDPOINT_CONFIG,
-> +					CSG_ENDPOINT_CONFIG);
-> +	}
-> +}
-> +
-> +static int
-> +tick_ctx_schedule_group(struct panthor_scheduler *sched,
-> +			struct panthor_csg_slots_upd_ctx *upd_ctx,
-> +			struct panthor_group *group,
-> +			int csg_id, int csg_prio)
-> +{
-> +	struct panthor_device *ptdev = sched->ptdev;
-> +	struct panthor_fw_csg_iface *csg_iface =
-> +		panthor_fw_get_csg_iface(ptdev, csg_id);
-> +	int ret;
-> +
-> +	ret = group_bind_locked(group, csg_id);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = csg_slot_prog_locked(ptdev, csg_id, csg_prio);
-> +	if (ret) {
-> +		group_unbind_locked(group);
-> +		return ret;
-> +	}
-> +
-> +	csgs_upd_ctx_queue_reqs(ptdev, upd_ctx, csg_id,
-> +				group->state == PANTHOR_CS_GROUP_SUSPENDED ?
-> +					CSG_STATE_RESUME : CSG_STATE_START,
-> +				CSG_STATE_MASK);
-> +	csgs_upd_ctx_queue_reqs(ptdev, upd_ctx, csg_id,
-> +				csg_iface->output->ack ^ CSG_ENDPOINT_CONFIG,
-> +				CSG_ENDPOINT_CONFIG);
-> +
-> +	return 0;
-> +}
-> +
->  static void
->  tick_ctx_apply(struct panthor_scheduler *sched, struct panthor_sched_tick_ctx *ctx)
->  {
->  	struct panthor_group *group, *tmp;
->  	struct panthor_device *ptdev = sched->ptdev;
-> -	struct panthor_csg_slot *csg_slot;
->  	int prio, new_csg_prio = MAX_CSG_PRIO, i;
->  	u32 free_csg_slots = 0;
->  	struct panthor_csg_slots_upd_ctx upd_ctx;
-> @@ -2360,44 +2433,13 @@ tick_ctx_apply(struct panthor_scheduler *sched, struct panthor_sched_tick_ctx *c
->  
->  	for (prio = PANTHOR_CSG_PRIORITY_COUNT - 1; prio >= 0; prio--) {
->  		/* Suspend or terminate evicted groups. */
-> -		list_for_each_entry(group, &ctx->old_groups[prio], run_node) {
-> -			bool term = !group_can_run(group);
-> -			int csg_id = group->csg_id;
-> -
-> -			if (drm_WARN_ON(&ptdev->base, csg_id < 0))
-> -				continue;
-> -
-> -			csg_slot = &sched->csg_slots[csg_id];
-> -			csgs_upd_ctx_queue_reqs(ptdev, &upd_ctx, csg_id,
-> -						term ? CSG_STATE_TERMINATE : CSG_STATE_SUSPEND,
-> -						CSG_STATE_MASK);
-> -		}
-> +		list_for_each_entry(group, &ctx->old_groups[prio], run_node)
-> +			tick_ctx_evict_group(sched, &upd_ctx, group);
->  
->  		/* Update priorities on already running groups. */
-> -		list_for_each_entry(group, &ctx->groups[prio], run_node) {
-> -			struct panthor_fw_csg_iface *csg_iface;
-> -			int csg_id = group->csg_id;
-> -
-> -			if (csg_id < 0) {
-> -				new_csg_prio--;
-> -				continue;
-> -			}
-> -
-> -			csg_slot = &sched->csg_slots[csg_id];
-> -			csg_iface = panthor_fw_get_csg_iface(ptdev, csg_id);
-> -			if (csg_slot->priority == new_csg_prio) {
-> -				new_csg_prio--;
-> -				continue;
-> -			}
-> -
-> -			panthor_fw_csg_endpoint_req_update(ptdev, csg_iface,
-> -							   CSG_EP_REQ_PRIORITY(new_csg_prio),
-> -							   CSG_EP_REQ_PRIORITY_MASK);
-> -			csgs_upd_ctx_queue_reqs(ptdev, &upd_ctx, csg_id,
-> -						csg_iface->output->ack ^ CSG_ENDPOINT_CONFIG,
-> -						CSG_ENDPOINT_CONFIG);
-> -			new_csg_prio--;
-> -		}
-> +		list_for_each_entry(group, &ctx->groups[prio], run_node)
-> +			tick_ctx_update_group_prio(sched, &upd_ctx, group,
-> +						   new_csg_prio--);
->  	}
->  
->  	ret = csgs_upd_ctx_apply_locked(ptdev, &upd_ctx);
-> @@ -2425,34 +2467,23 @@ tick_ctx_apply(struct panthor_scheduler *sched, struct panthor_sched_tick_ctx *c
->  	for (prio = PANTHOR_CSG_PRIORITY_COUNT - 1; prio >= 0; prio--) {
->  		list_for_each_entry(group, &ctx->groups[prio], run_node) {
->  			int csg_id = group->csg_id;
-> -			struct panthor_fw_csg_iface *csg_iface;
-> +			int csg_prio = new_csg_prio--;
->  
-> -			if (csg_id >= 0) {
-> -				new_csg_prio--;
-> +			if (csg_id >= 0)
->  				continue;
-> -			}
->  
->  			csg_id = ffs(free_csg_slots) - 1;
->  			if (drm_WARN_ON(&ptdev->base, csg_id < 0))
->  				break;
->  
-> -			csg_iface = panthor_fw_get_csg_iface(ptdev, csg_id);
-> -			csg_slot = &sched->csg_slots[csg_id];
-> -			ret = group_bind_locked(group, csg_id);
-> +			ret = tick_ctx_schedule_group(sched, &upd_ctx, group,
-> +						      csg_id, csg_prio);
->  			if (ret) {
->  				panthor_device_schedule_reset(ptdev);
->  				ctx->csg_upd_failed_mask |= BIT(csg_id);
->  				return;
->  			}
->  
-> -			csg_slot_prog_locked(ptdev, csg_id, new_csg_prio--);
-> -			csgs_upd_ctx_queue_reqs(ptdev, &upd_ctx, csg_id,
-> -						group->state == PANTHOR_CS_GROUP_SUSPENDED ?
-> -						CSG_STATE_RESUME : CSG_STATE_START,
-> -						CSG_STATE_MASK);
-> -			csgs_upd_ctx_queue_reqs(ptdev, &upd_ctx, csg_id,
-> -						csg_iface->output->ack ^ CSG_ENDPOINT_CONFIG,
-> -						CSG_ENDPOINT_CONFIG);
->  			free_csg_slots &= ~BIT(csg_id);
->  		}
->  	}
+diff --git a/Documentation/devicetree/bindings/regulator/maxim,max8907.yaml b/Documentation/devicetree/bindings/regulator/maxim,max8907.yaml
+index 6cf8e93867e1a..ee1a305d1c210 100644
+--- a/Documentation/devicetree/bindings/regulator/maxim,max8907.yaml
++++ b/Documentation/devicetree/bindings/regulator/maxim,max8907.yaml
+@@ -31,6 +31,10 @@ properties:
+     description:
+       The input supply for MBATT, BBAT, SDBY, VRTC.
+ 
++  led:
++    $ref: /schemas/leds/common.yaml#
++    unevaluatedProperties: false
++
+   regulators:
+     type: object
+     additionalProperties: false
+-- 
+2.53.0
 
