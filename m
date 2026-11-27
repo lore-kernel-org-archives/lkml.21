@@ -1,50 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795789616;
-	b=ggR+0LHQzKi0AEmtsDIgBssM40XLrWxCCIo5NYb21MuvlEt11V1I1XDtl5t0D6IAYyTs
-	 GFsJAGlTet4VIf9OQ+TKW9npYalZv2h7zQ+m5+WsAZZK6UsXpbmgpUDPokKT4dRWIM7GK
-	 lmsWveb5kG4+ezScWfJZDI88BnCdusVgKOhgbL0J7znSMSnpJ1yMWfcdlzPLcG8mM0qNJ
-	 7oE6gXHa/DBpDNw0bg7ItIpyVURw4VqaFXjKz3eTpnGXACh8v8dmW3jUO9TnvLHcF0CAg
-	 nCeNvVfKZOOhKCPX0w5bA+l74OyekiJ7Kq3Q3hhk+ZZF2qqwfo9pIlqmSEnrjoK0DQg==
+	t=1795789626;
+	b=LNfoFb9K19nKtabwYrXyiL/P8sBqnXPQRjvu1lyb8DGiOOLywcb0hjZ59/YWAL+vfOax
+	 i1vnlfBLgBXZWDnHHF4RH7Y5LfXmlWFXOWpviTqpoKhvcA7sSq6wyt0l70WVs5E7kK/NY
+	 FnhSS40NXQcS/JDnovPghduP1jqpYYOwoVT9SV4VIXptboQ+pdiIb1se72UuV3RcTZxDP
+	 409+xWoe5uLkm70GYFgICw8ITUav6+xKh/6nZX9NWE/lS0MU4QzrJzzsXiG/Q6HHfku/t
+	 SImsPIxnHiz6hn0jacjemNe2XN1IPpsygWRibiRy5iFk4Jv7ZqDmfOKYKxKxzBSUlnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795789616;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=/lq8ULz8zjfQnoeztcTZxgz4QJcRlHrCeg08ml2B5L0=;
-	b=cPrRmrLmiZgF/toVRHbLjKT4iSFRggJhu5DCKtM7WSk+KlrwNIzj52xWSGD6VUHY959H
-	 7nwD/EFhnp3/gXMKeI7Ev+9RM61za4WHVa1R6YjlDom+9cMtf4CB/Blk+B847VJ5Q/NCs
-	 LEI0PNWuzRVxgDd5OJ6F1dAf1IfwC/vmYm0zXX0LCenMNksF6JBWtw/h+hWl01S/AvTxz
-	 5CLvP9FqtxlHi8ST11s0wsQ4OynME1ki0zajfgYsfjhAMy8p2CB4OKKK75ShLqSLK+gru
-	 vo+W2JuQ0+5nVz1veuFSWyjVWygrbXIR5c7z+NkJbdSqqWJuISUNEllXQO6qU2SuG6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795789626;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=Yz6ZHF4IiJQgqN5fGyCKopgkxnOtrQuXNS72mjrBGKo=;
+	b=LKCQvMgOEE+zPuYz1p0nFKV5RHv56erUqI9BZniqWuzVBCpo+hIsea+QNsDPKVq7tEWv
+	 Nb+dt/75KRCgdgkNRkBYi5kjrToGRKKvkEi6I/lLTnGS9Mo6GTrUl2MZlj4TJwYH8/75w
+	 QMtysy6mLs6V5V1BAr7iOSWuZkEz/soINpDoMrqflZRSB1KZlq9Q7XxOjQyp7mEcqChMb
+	 qe3SnVJ87PJWTcIVi99FfZlUm0cBsDceqshZBswQN0vuh9a2js3yLOmZZxOTPRXyuMU8p
+	 QXHO4y7CphoSjChpqVz8/msMJC+58R/KUPafUPM8SPa5qoh5no5IWLhlNoo+mp+TO0A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NjqVj5W6;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=XaxpBtto;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB05E606A685;
-	Fri, 27 Nov 2026 14:26:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D49F160A2633
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:27:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D49F160A2633
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NjqVj5W6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E5E01F0092C;
-	Fri, 27 Nov 2026 14:26:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795789616;
-	bh=/lq8ULz8zjfQnoeztcTZxgz4QJcRlHrCeg08ml2B5L0=;
-	h=Date:From:To:Cc:Subject;
-	b=NjqVj5W6zzo0dLvv3rMdsUbokCD02sOfxNE+K6LY+SDFt8TEyDr5HStJ3uckCruvT
-	 mhGity2/XLZMWyZFFKI5PdBWSdXLHqDFtnpwegIyP4WEBAyZ/uA1OJNrWaoKJ1Ldvb
-	 FgCI6vCSQ838RynwHr3I3llfkHDO+CATNeZZ7CUh/gAxEMqGD9HycrB16WVn0ZysRD
-	 Gdjfe5chrc5+jg7f4OE1txgFQVcfr2yIkY9S9skdffil0V2/3FTg+brskDMKPaA+3l
-	 ZAg75zlPOu2MNj02aHIzYd5O7cuim8dFaJSPvV7nsORGjJllyR3H5MgA0ItwIgo/y8
-	 pCMbI/HrR1edQ==
-Date: Fri, 27 Nov 2026 14:26:53 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Konstantin Komarov <almaz.alexandrovich@paragon-software.com>
-Cc: linux-kernel@vger.kernel.org, linux-next@vger.kernel.org
-Subject: Missing signoff in the ntfs3 tree
-Message-ID: <awmTLWPbE1LXJJJp@sirena.org.uk>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=XaxpBtto
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 3F1DBC2AC4D;
+	Fri, 27 Nov 2026 14:27:13 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 739C36049C;
+	Fri, 27 Nov 2026 14:27:04 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A3B1411E68FF9;
+	Fri, 27 Nov 2026 15:26:54 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795789621; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=Yz6ZHF4IiJQgqN5fGyCKopgkxnOtrQuXNS72mjrBGKo=;
+	b=XaxpBttouWRivkGS5XBCoKMKjn9+r09abbOOcttCyqgQiDM47o2QC6SVNrFvwZBPSI60dJ
+	XsMCzDDNjhx7H8L+HmQYdSmfxQGo0gWzZJ3aqyOs5wBZSk/O9s4UeoTuEluIkz7Kj4yfXD
+	1MUrFpvv1HGNwcKhMLSZksf/tciwr2RDI12qctgPjNsotVQ24IADBG5mBAWgZ7Bw4xG9Sd
+	RM6F+MsWSqAxEd27wlNxwmKGTOMQ0+PLCX9HURsBYqdGS0n8dwNyxveIh1us4fMaeyWf9u
+	86oV9TcgN4S2eP+kPduNd4KKBgUcpBrfkkyNEVmiWZkMP7QRX/qgNpLcWdwTUw==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Date: Fri, 27 Nov 2026 15:22:50 +0100
+Subject: [PATCH RFC v2 28/35] spi: spi-qpic-snand: Drop redundant check
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,34 +63,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="C79mTcCN4on9QcGr"
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261127-macronix-upstreaming-spi-mem-cycles-v2-28-5c93f5e5d630@bootlin.com>
+References: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
+In-Reply-To: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
+To: Mark Brown <broonie@kernel.org>, Liang Yang <liang.yang@amlogic.com>, 
+ Feng Chen <feng.chen@amlogic.com>, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+ Han Xu <han.xu@nxp.com>, Conor Dooley <conor.dooley@microchip.com>, 
+ Valentina Fernandez <valentina.fernandezalanis@microchip.com>, 
+ Daire McNamara <daire.mcnamara@microchip.com>, 
+ Haibo Chen <haibo.chen@nxp.com>, Jyan Chou <jyanchou@realtek.com>, 
+ Yu-Chun Lin <eleanor.lin@realtek.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
+ Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Steven Rostedt <rostedt@goodmis.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, 
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Yogesh Gaur <yogeshgaur.83@gmail.com>, 
+ Chris Packham <chris.packham@alliedtelesis.co.nz>, 
+ =?utf-8?q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
+ Michal Simek <michal.simek@amd.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Alvin Zhou <alvinzhou@mxic.com.tw>, 
+ Cheng Ming Lin <chengminglin@mxic.com.tw>, linux-spi@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+ imx@lists.linux.dev, linux-riscv@lists.infradead.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org, 
+ linux-trace-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ openbmc@lists.ozlabs.org, Miquel Raynal <miquel.raynal@bootlin.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 
+The core already sanitizes the spi-mem operations, this check is
+redundant so let's drop it.
 
---C79mTcCN4on9QcGr
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+---
+ drivers/spi/spi-qpic-snand.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Commit
+diff --git a/drivers/spi/spi-qpic-snand.c b/drivers/spi/spi-qpic-snand.c
+index b03e2e4f0f0b..23f78171d27d 100644
+--- a/drivers/spi/spi-qpic-snand.c
++++ b/drivers/spi/spi-qpic-snand.c
+@@ -1531,7 +1531,7 @@ static bool qcom_spi_supports_op(struct spi_mem *mem, const struct spi_mem_op *o
+ 	if (!spi_mem_default_supports_op(mem, op))
+ 		return false;
+ 
+-	if (op->cmd.nbytes != 1 || op->cmd.buswidth != 1)
++	if (op->cmd.buswidth != 1)
+ 		return false;
+ 
+ 	if (qcom_spi_is_page_op(op))
 
-  bb27f0622d946 ("fs/ntfs3: refresh iomap before writeback submission")
+-- 
+2.56.0
 
-is missing a Signed-off-by from its author
-
---C79mTcCN4on9QcGr
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsJkywACgkQJNaLcl1U
-h9CD4wf/QjEv98Ix8U2rMoaZAL3NkyHrQaJuUdaEVWQC+XDZcnr759YSaDYiZlLT
-KUDXwN14juiTVeG231T8G7valxbLH4PKsZ6eokokQqWw+7WR5E26JmvB7pO6FII7
-Wd+s/9XNW2ngIz+AwO3p35Sgjn4e8D7fhiNMQ/G3dY53x0tl095Tab8N6QlmnZ1M
-D4NHBr3owzRMQcOsZpahMUup134to+y+G8FgMkqZ7uxYEZG18TYrWoa/6J009lZM
-U5mi6KAf4lIez3VZG7Ka2aAIjq68aZo5HFABKS8AOlUPAMpfdykzLIJ/XjdurFLI
-20+wr69ONB5/oeyWemo40Z/tmng/sw==
-=JP0i
------END PGP SIGNATURE-----
-
---C79mTcCN4on9QcGr--
