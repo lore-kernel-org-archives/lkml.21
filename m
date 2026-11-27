@@ -1,99 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.44
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795742188;
-	b=PgO19eEwoXVW5XKD3IiPPITWeK03rW3XHqWZVp6SY/RzoovbYNBzJN5xVu/xkzI1oe1e
-	 chRjDtU2Z6RSevmpK9zX0fCcC9GSCFmpgPwlQNV8NhrH+2Pfncd127ufqsiQez3rZcQKJ
-	 nN+EOv+MA4BfvQSY9e1+dX+TQDigvqfVP/bnNc27EZveOlimRPyv95tez5q8ex74j/rZJ
-	 Z0f8Nf+AfPmERjdkMjI7g7FUUrXc5S6mYCnkB7aqZAkK5Xpwio4ObQLnVUR/Vbp2lU2CH
-	 MkukSkq/HySwR3b5cC4HSNTyOZiPbrjyXP9MsubFNbYxKHSdCLckFunzuGN/9Y6ONAQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	b=GtgXSjLBd/EEyjCQ1+/5W3GkbxAf/sDM3H6AZl6mnDZ1wKb3xl0roY24JA1ZbCWSHZA1
+	 TWg8NZOvCFlkuACCByBlj683Im4sc1wl8JXSHcfK8S8/nugLGiyjrJ3QhWi8QF9I9HkqX
+	 y55fpvf/ae9KnLIcC5RE5N0yXig7TyWS8gINZbcKHRl8GzF/vNif6xP5g4FrYUP3Xfq/C
+	 nSG8L4fjx7Chl4/vL+duP5FhA3B1GpvPKJXY4JNvD57/NaWqdAGaq+7nx3e7jcfxb8ofo
+	 ggycnvHV5nyOVEg/BiRuaSTCned2cm6qVJrS/qukeV6HFguUxXddDyH5ydUXLH2msBQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795742188;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=oPod1KuFvBWGJsle2l5lTHqLGq3m5KHrsHkxQ2HP+ns=;
-	b=O3CEP1mvaaa35i4HZuu+eRgFil6ctEwBfQ1GZAK4cFelSVHLJXD4gl9bg1UAUio0Ww6p
-	 zWCCHjiquUEp67iLjHr2dK3xuc2TyQmhVRPQY5tPC590opVF2YCIaF4jRURPpD4yITqqf
-	 e3JRDlpIBcT6N79SgVmbKBmOhpTPfhe4IplwGEoqOpPttBzQ8u7WZ79fOB4eZUuI1tEFz
-	 Si95kMOPNNb1EzXAb6M6ewj0iliMF85ztn3ktQlBdDrW2DPOm7x9nFtDw/7blzam6k9yB
-	 5yDCed2ODNylGShlwuZG4oJEzNkqVl5H3Sr9jZL2TEy1OBO5euG4Nrg3vNl2DvhtMSQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yjACiQmb;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.44
-Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=uoROFmhP1WYJ0D7qo7bgDD0qrvZazeRoAO22rJ7paFI=;
+	b=Q69VuC7nurjTapIKybXYypZPd6TXw3sDkpaSJ+ULa7d0MGazishRMqkKJKr0LE2S49Eu
+	 p+8T1RxZcKTU3BWmpsWzZ/u/TPU196pW8qSVf7RdwfxcpnQjytnvVon24fSi0tGbwgaM3
+	 GhQfmvwy5mosw2PCCbnEdd4SxAnGVhsfMHc585qQbbjFRfGmYhNfplAg20JscS4BuIwLi
+	 aDlDQvHIB0vjuMH3rjuBH2TUaMbcEwMV+JY7mxpXgzOv/diQwwBAEVVHzoZByvQd7S6Sy
+	 2b0ngk4H7aIODjfZ2k+YLS9AHIZ9JpU/PlJ9hwzX2MQK5xN6rOhswWTssy+EWN9Ahmw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=dl3KjdNS;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 265F8606A323
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:16:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 265F8606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06CD0606A31E;
+	Fri, 27 Nov 2026 01:16:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06CD0606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yjACiQmb
-Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-15dd124bbe7so10960720c88.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:16:28 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795742187; cv=none;
-        d=google.com; s=arc-20260327;
-        b=iIBqrqUFgvmUKC7KlXkJIfuLn9qHHb6LH3DbuXhxBBDWu6nz8FPBGI7cUOD5U0ujju
-         g7UBug8fjRgX+TUBjlShme0l8+oYSGOsPbmZFs96jOy+8LGyythwLFo5AI9SAzIKioSz
-         odRZBQ4O0h9cztMoDNDM2NjUvIMw/D4S8+5foc6BxH1Mic5Fo0LHhb8UwZ0wNtHYz0W5
-         nCSLF5DHby/B8vDl/lnffLUu5YawfXj30ZPJ+t/XhBy87iuw3+yJrwkO6D4Qm2HOz23V
-         QUdvkYmKf/VMoE4Y3/ETwveRE2sQkvJxY/lkHYVMJpvOd4dhw4xAXcQy56lmk45QOQD0
-         zVrw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=oPod1KuFvBWGJsle2l5lTHqLGq3m5KHrsHkxQ2HP+ns=;
-        fh=fo8rqZc3a9eisoixNs+2TNXiAud2K+eGjElEAtSPWlU=;
-        b=SNcD8r6GlVaMMdgFrQ2NzGioDDwWroqDpckzv1B6yGyv4SlVnUXIo331YkKvBtxBPZ
-         Lk7fzOlPdYPInfzrexYbVflBFq5ZhBV5m4GVbM/NACWoEPDNl+wjezNqhRShcQG4JOuD
-         xKC1+4OUnHW/JHHl1F6Qb7k85k6K9xxhZEQe5hCS8S0qqTlYtwDQFrmmIwh5kRGuJ/cG
-         WkGzTfVyhx27fqQn7wNuA/M4r+Uz+5mOvxJejND2vgMhPCGy9/myNrRNwHXOmOMsOZyU
-         8rCBAmLZOIJml8B/JC85EACfsNgsE5E8awDjGA/pdKdMz2opT8hN8bJdk+v7BaqUWa5c
-         /45A==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795742187; x=1796346987; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=oPod1KuFvBWGJsle2l5lTHqLGq3m5KHrsHkxQ2HP+ns=;
-        b=yjACiQmb/PKrdFqXS/mutr6kBPsP1vGmCYqLSE97eXboBzbviACN/BujKGlE7x1Ndf
-         mQOozTdjoXimTbRYLMcxVD47jQiA8hZkiQOi0P4Eb6fZCfLIVHeyY9KUC9NeI8Mxk1zU
-         bSQihymHqpiucthKPUf75/FDSQ83Ex6n3rizJzs4qNkLXnDjly0FppZsFGLfjU6pMT87
-         nqIa24UonGOBw/vVYYr3lRkdUvgjx8FegLKMaPkb0KpNwHPqCtP9pgPmMrkfA+MTFHnq
-         6mvNBZcWpKrM/ropu7l4jcZ3beMOaA7D1bMhEfU5kCfi8ics0H2RAp1I6fWJJZAi0b6g
-         WqFg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795742187; x=1796346987;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=oPod1KuFvBWGJsle2l5lTHqLGq3m5KHrsHkxQ2HP+ns=;
-        b=2Q43Ex+yl+93Jbek0EP5X/FAz53dOmjuVXNLIXjMrabbUVxHvH7D7ps4JPYbgNvNXz
-         UCi/o/InRFbJmW4MgZXXUE9jb/Jv0lKhlIkSdiC174vlBjEu9HtZDoWisX8TPOGqgIwD
-         NlsX4GXqDqvZ7IKod717OMHk6wsTlvvz8RFpPsH0In8PKP//Is1/ZKFmsh/xUG2WcGqC
-         eIDDZPApV87T22AIWKRVyA8pjjEhzdZhghQwYzJJ2TtgD2bMOMdRgVkedo/++SN+yYlL
-         ZIiJDYs3cOTTp+9smqlxgwm+Z4WqlKPIaVkfUYLU/NKDad0KdZZf/EZWezkJ0OL7tEkg
-         wvNA==
-X-Forwarded-Encrypted: i=1; AL+hErHPX5kxZI0OnY4a3jhsDqe3Gyr43ppgD41hIpvv/ReKrslKGkO3yc/PAxWhXfok+NKVBnAus5iPjUGwecA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9ZEEua7pn+O7RSebMdyNB02d+sV39d8NHbQYuHEcHA6ZwIns4z
-	M1CV04QLNiwlKrd9VJNsEadyGptrVfIq7qeS9/gYTdzzpsBy1vcYZc88jLjk7zFtQg5ZErck6FO
-	d8o7RmON2TgXt0hzWkBvqyLVtMqDkM2eHfMPKxEpNLcGQ
-X-Gm-Gg: AZFdTZcUupXhWuah9AsaBaIcvLpcUgnM1lrWsLEJlh+JEKgWyE1kXx7nO3DV5plAypL
-	1wbmyUeXgPZkpCx78Sb9DDukmHTHFT7aBqOf+aHU6BhV8lYHcQZCcIE3p2RAWyJbkXu3mgXrraJ
-	D+dWjegXteX1Jg2QdcStAcriocJHfdsEc83cXVtXLpw+IxXcxjIIbvKq5xAq+pNZibWAbsaQwnI
-	wCbGHHTfyaTyuwccjarnnOA78Zfo7THdrin+xc+zktF2f75iyoOxG13UfmNGkUk3q9MR6N8dvdh
-	iLIf8fto9gYZdZVRw2nAm250HJa+L74zBeqKrmOnhpSsTEAXwkwT/W9u1dSH7oJHJISJj0kaDBh
-	AsneyRwi6lT0u266uqtzwyXYsexQU7umRW9NE
-X-Received: by 2002:a05:7022:1715:b0:144:f089:b189 with SMTP id
- a92af1059eb24-1b55691a623mr20952158c88.36.1795742187259; Thu, 26 Nov 2026
- 17:16:27 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=dl3KjdNS
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795742186;
+	bh=fnxwTCBIp/6YoseXa/LQt+NHKClglW/6bHL9ddm0ZqM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=dl3KjdNSiZycpI+uXT0jRnYMJ+k41eJauRhiAyE79eA0MtMLv6tnn1jPXX+rBshuW
+	 /cbOglNAFnWkksUMFhNsHobZHXfpqFD74RJ3yq1u4N6lvZKmMGxP14JtpWcrlnta3u
+	 bSX7fjPBjKMcaDS4WBP80mtK0w+xR5jaDOpuRVNX9hUmjbUrwhREhe7qfyn9wBQS4M
+	 BHAmNzGLd0FJLvd6vPuwEd5q5GqjMbhfANs/EzNN+nCJKDHx/XHqQe+5sRYcsUfz6u
+	 cOWcS0ICiNIGfTKdbHDbq4nOwTpXv2ebbIUsIO1V5IFvkf6VygA68FaL8S1ls/febq
+	 ibdhrWSTTyJLg==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4F64D17E0CF4;
+	Fri, 27 Nov 2026 02:16:24 +0100 (CET)
+Message-ID: <44f3c5e0117b9a3242bf247102df5000d009b721.camel@collabora.com>
+Subject: Re: [PATCH v2 5/9] media: chips-media: wave5: finish a job only once
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: "Jackson.lee" <jackson.lee@chipsnmedia.com>, mchehab@kernel.org, 
+	hverkuil-cisco@xs4all.nl, bob.beckett@collabora.com
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	lafley.kim@chipsnmedia.com, b-brnich@ti.com, hverkuil@xs4all.nl, 
+	nas.chung@chipsnmedia.com, stable@vger.kernel.org
+Date: Thu, 26 Nov 2026 20:16:22 -0500
+In-Reply-To: <20261109052853.110-6-jackson.lee@chipsnmedia.com>
+References: <20261109052853.110-1-jackson.lee@chipsnmedia.com>
+	 <20261109052853.110-6-jackson.lee@chipsnmedia.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-GVO2R+Bz5ri09iN1whnj"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,54 +88,314 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261110-legion-lighting-rfc-v2-0-845726afb71c@gmail.com>
- <20261110-legion-lighting-rfc-v2-2-845726afb71c@gmail.com>
- <9002537db845b7a0a900612fe3a4a3638f06cd37.camel@rong.moe> <CAPKD0HfHuv4vKWeff_uhGxXosuU279qB+kkmXNPXJYL2kxFR2w@mail.gmail.com>
- <47e0364e0de6b9c22b21019d3d7e506defe58964.camel@rong.moe>
-In-Reply-To: <47e0364e0de6b9c22b21019d3d7e506defe58964.camel@rong.moe>
-From: Ciro Pedrini <ciro.pedrini@gmail.com>
-Date: Thu, 26 Nov 2026 22:16:15 -0300
-X-Gm-Features: Aa3M54om4nbMxSWNQWs_ctJIhvW8looc3McNT0nMJFNk8E5-YxztbEXgt1ad9pI
-Message-ID: <CAPKD0HdL19j1CuTKJT2E0mQbYxkwPzX6=m7kmVx0ZLKp-mJ1og@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] HID: lenovo-legion: Add keyboard backlight driver
- for Legion Gen 10
-To: Rong Zhang <i@rong.moe>
-Cc: Mark Pearson <mpearson-lenovo@squebb.ca>, "Derek J. Clark" <derekjohn.clark@gmail.com>, 
-	Ike Panhc <ikepanhc@gmail.com>, Hans de Goede <hansg@kernel.org>, 
-	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
-	Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
-	Werner Sembach <wse@tuxedocomputers.com>, Aaron Erhardt <aer@tuxedocomputers.com>, 
-	platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-input@vger.kernel.org
+
+--=-GVO2R+Bz5ri09iN1whnj
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi Rong,
+Le lundi 09 novembre 2026 =C3=A0 14:28 +0900, Jackson.lee a =C3=A9crit=C2=
+=A0:
+> From: Jackson Lee <jackson.lee@chipsnmedia.com>
+>=20
+> v4l2_m2m_job_finish() checks that the context owns the current job, but
+> not which job it is, so a second finish from the same context clears
+> m2m_dev->curr_ctx all the same. v4l2_m2m_try_run() picks the next job
+> under job_spinlock, drops it, and only then reads curr_ctx again to hand
+> its priv to device_run(). A stray finish landing in that window makes
+> that read return NULL and the decoder oopses:
+>=20
+>   Unable to handle kernel NULL pointer dereference at virtual address
+>   0000000000000358
+>   Workqueue: events v4l2_m2m_device_run_work [v4l2_mem2mem]
+>   pc : v4l2_m2m_try_run+0x78/0x140 [v4l2_mem2mem]
+>=20
+> The decoder finishes jobs from seven places: device_run() itself, the
+> completion IRQ, and job_abort(). None of them tracked whether a job was
+> still outstanding, so the same job was finished twice whenever the IRQ
+> and device_run() both reached the end. Instrumenting the call sites over
+> 150 s of a three-stream run counted 63 finishes with no job to finish,
+> two of them a plain double finish.
+>=20
+> Take ownership of the slot once per device_run() and let only the winner
+> call in; whoever loses the race now returns without touching the shared
+> state. Also compare v4l2_m2m_get_curr_priv() against this instance rather
+> than testing it for NULL, which let one instance finish another's job.
+>=20
+> job_abort() must not end a job that device_run() is still running or is
+> about to run. v4l2_m2m_try_run() sets TRANS_RUNNING before it calls
+> device_run(), so v4l2_m2m_cancel_job() can get there first, and a finish
+> from job_abort() then releases cancel_job()'s wait early: try_run()
+> reads a curr_ctx that is already NULL, or release() frees the instance
+> under device_run(). Hold a per-instance run_lock across device_run() and
+> take it in job_abort(), which then finishes through the same ownership
+> check. The only job left for it to end is one device_run() handed over
+> to the DEC_PIC completion after EOS; device_run() finishes every other
+> one itself. job_abort() no longer returns early on a failed state
+> switch, so that held job is still ended and streamoff cannot hang on it.
+>=20
+> start_decode() no longer finishes the job when it fails: device_run()
+> does that on its way out, as for any run that queued no DEC_PIC.
+>=20
+> Fixes: a176ac5e701f ("media: chips-media: wave5: Improve performance of d=
+ecoder")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Jackson Lee <jackson.lee@chipsnmedia.com>
+> Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
+> ---
+>  .../chips-media/wave5/wave5-vpu-dec.c         | 93 ++++++++++++++-----
+>  .../platform/chips-media/wave5/wave5-vpuapi.c |  1 +
+>  .../platform/chips-media/wave5/wave5-vpuapi.h |  3 +
+>  3 files changed, 73 insertions(+), 24 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/chips-media/wave5/wave5-vpu-dec.c b/d=
+rivers/media/platform/chips-media/wave5/wave5-vpu-dec.c
+> index a314813a6b4d..3ecf535f5622 100644
+> --- a/drivers/media/platform/chips-media/wave5/wave5-vpu-dec.c
+> +++ b/drivers/media/platform/chips-media/wave5/wave5-vpu-dec.c
+> @@ -102,6 +102,29 @@ static const struct vpu_format dec_fmt_list[FMT_TYPE=
+S][MAX_FMTS] =3D {
+>  =09}
+>  };
+> =20
+> +/* bit in vpu_instance.job_flags */
+> +#define WAVE5_JOB_RUNNING=090
+> +
+> +/*
+> + * Hand the shared job slot back, exactly once per device_run().
+> + *
+> + * v4l2_m2m_job_finish() only checks that the *context* owns the current=
+ job,
+> + * not which job it is, so a second finish from the same context clears
+> + * m2m_dev->curr_ctx -- and it may do so for the job v4l2_m2m_try_run() =
+has just
+> + * put there and is about to hand to device_run(), which then dereferenc=
+es NULL.
+> + *
+> + * device_run(), the completion IRQ and job_abort() all reach for this a=
+nd any
+> + * of them may get there first, so ownership is taken atomically and onl=
+y the
+> + * winner calls in.
+> + */
+> +static void wave5_dec_finish_job(struct vpu_instance *inst)
+> +{
+> +=09if (!test_and_clear_bit(WAVE5_JOB_RUNNING, &inst->job_flags))
+> +=09=09return;
+> +
+> +=09v4l2_m2m_job_finish(inst->v4l2_m2m_dev, inst->v4l2_fh.m2m_ctx);
+> +}
 
-On Thu, 2026-11-12 at 01:36 +0800, Rong Zhang wrote:
-> ...though I won't insist if you still prefer kbd_backlight, as long as
-> others are not opposed to it.
+To me, the complexity is a side effect of how the performance issue was
+addressed without doing a redesign. I'm fine letting this go, but it will g=
+et
+harder and harder without a proper cleanup and redesign.
 
-Thanks. I kept kbd_backlight in v3, mostly so UPower and the desktops
-pick it up:
-https://lore.kernel.org/r/20261127-legion-lighting-rfc-v3-0-15c55d9f15b7@gmail.com
+> +
+>  /*
+>   * Make sure that the state switch is allowed and add logging for debugg=
+ing
+>   * purposes
+> @@ -245,8 +268,7 @@ static int start_decode(struct vpu_instance *inst, u3=
+2 *fail_res)
+>  =09=09mutex_unlock(&inst->feed_lock);
+>  =09=09set_instance_state(inst, VPU_INST_STATE_STOP);
+> =20
+> -=09=09dev_dbg(inst->dev->dev, "%s: pic run failed / finish job", __func_=
+_);
+> -=09=09v4l2_m2m_job_finish(inst->v4l2_m2m_dev, m2m_ctx);
+> +=09=09dev_dbg(inst->dev->dev, "%s: pic run failed", __func__);
+>  =09}
+> =20
+>  =09return ret;
+> @@ -375,7 +397,7 @@ static void wave5_vpu_dec_finish_decode(struct vpu_in=
+stance *inst)
+>  =09ret =3D wave5_vpu_dec_get_output_info(inst, &dec_info);
+>  =09if (ret) {
+>  =09=09dev_dbg(inst->dev->dev, "%s: could not get output info.", __func__=
+);
+> -=09=09v4l2_m2m_job_finish(inst->v4l2_m2m_dev, m2m_ctx);
+> +=09=09wave5_dec_finish_job(inst);
+>  =09=09return;
+>  =09}
+> =20
+> @@ -388,7 +410,7 @@ static void wave5_vpu_dec_finish_decode(struct vpu_in=
+stance *inst)
+> =20
+>  =09if (!vb2_is_streaming(dst_vq)) {
+>  =09=09dev_dbg(inst->dev->dev, "%s: capture is not streaming..", __func__=
+);
+> -=09=09v4l2_m2m_job_finish(inst->v4l2_m2m_dev, m2m_ctx);
+> +=09=09wave5_dec_finish_job(inst);
+>  =09=09return;
+>  =09}
+> =20
+> @@ -469,13 +491,13 @@ static void wave5_vpu_dec_finish_decode(struct vpu_=
+instance *inst)
+>  =09}
+> =20
+>  =09if (inst->sent_eos &&
+> -=09    v4l2_m2m_get_curr_priv(inst->v4l2_m2m_dev)) {
+> +=09    v4l2_m2m_get_curr_priv(inst->v4l2_m2m_dev) =3D=3D inst) {
+>  =09=09struct queue_status_info q_status;
+> =20
+>  =09=09wave5_vpu_dec_give_command(inst, DEC_GET_QUEUE_STATUS, &q_status);
+>  =09=09if (q_status.report_queue_count =3D=3D 0 &&
+>  =09=09    q_status.instance_queue_count =3D=3D 0)
+> -=09=09=09v4l2_m2m_job_finish(inst->v4l2_m2m_dev, m2m_ctx);
+> +=09=09=09wave5_dec_finish_job(inst);
+>  =09}
+> =20
+>  =09if (inst->queuing_fail) {
+> @@ -1685,6 +1707,9 @@ static void wave5_vpu_dec_device_run(void *priv)
+>  =09int ret =3D 0;
+>  =09bool cmd_issued =3D false;
+> =20
+> +=09mutex_lock(&inst->run_lock);
+> +=09set_bit(WAVE5_JOB_RUNNING, &inst->job_flags);
+> +
+>  =09dev_dbg(inst->dev->dev, "%s: Fill the ring buffer with new bitstream =
+data", __func__);
+>  =09pm_runtime_resume_and_get(inst->dev->dev);
+>  =09if (!inst->retry) {
+> @@ -1809,36 +1834,55 @@ static void wave5_vpu_dec_device_run(void *priv)
+>  =09 * stalling every instance sharing the VPU.
+>  =09 */
+>  =09if (!inst->sent_eos || !cmd_issued)
+> -=09=09v4l2_m2m_job_finish(inst->v4l2_m2m_dev, m2m_ctx);
+> +=09=09wave5_dec_finish_job(inst);
+> +=09mutex_unlock(&inst->run_lock);
+>  }
+> =20
+>  static void wave5_vpu_dec_job_abort(void *priv)
+>  {
+>  =09struct vpu_instance *inst =3D priv;
+> -=09struct v4l2_m2m_ctx *m2m_ctx =3D inst->v4l2_fh.m2m_ctx;
+>  =09int ret;
+> =20
+> -=09ret =3D set_instance_state(inst, VPU_INST_STATE_STOP);
+> -=09if (ret)
+> -=09=09return;
+> -
+>  =09/*
+> -=09 * job_abort() runs from the STREAMOFF path and may be called while t=
+he
+> -=09 * device is runtime suspended. Setting the EOS flag talks to the
+> -=09 * firmware (send_firmware_command() accesses VPU registers), so the
+> -=09 * device must be resumed first; otherwise the register access faults
+> -=09 * with an asynchronous SError.
+> +=09 * v4l2_m2m_cancel_job() calls this while the context owns the runnin=
+g
+> +=09 * job and then sleeps until a finish clears TRANS_RUNNING. Ending th=
+e
+> +=09 * job from here while device_run() is still executing -- or is about
+> +=09 * to be entered, v4l2_m2m_try_run() having set TRANS_RUNNING already=
+ --
+> +=09 * releases that wait early: try_run() then reads a curr_ctx that is
+> +=09 * already NULL, or release() frees the instance under device_run().
+> +=09 * So wait for device_run() to return first.
+>  =09 */
+> -=09pm_runtime_resume_and_get(inst->dev->dev);
+> +=09mutex_lock(&inst->run_lock);
+> =20
+> -=09ret =3D wave5_vpu_dec_set_eos_on_firmware(inst);
+> -=09if (ret)
+> -=09=09dev_warn(inst->dev->dev,
+> -=09=09=09 "Setting EOS for the bitstream, fail: %d\n", ret);
+> +=09ret =3D set_instance_state(inst, VPU_INST_STATE_STOP);
+> =20
+> -=09pm_runtime_put_autosuspend(inst->dev->dev);
+> +=09if (!ret) {
+> +=09=09/*
+> +=09=09 * job_abort() runs from the STREAMOFF path and may be called whil=
+e the
+> +=09=09 * device is runtime suspended. Setting the EOS flag talks to the
+> +=09=09 * firmware (send_firmware_command() accesses VPU registers), so t=
+he
+> +=09=09 * device must be resumed first; otherwise the register access fau=
+lts
+> +=09=09 * with an asynchronous SError.
+> +=09=09 */
+> +=09=09pm_runtime_resume_and_get(inst->dev->dev);
+> =20
+> -=09v4l2_m2m_job_finish(inst->v4l2_m2m_dev, m2m_ctx);
+> +=09=09ret =3D wave5_vpu_dec_set_eos_on_firmware(inst);
+> +=09=09if (ret)
+> +=09=09=09dev_warn(inst->dev->dev,
+> +=09=09=09=09 "Setting EOS for the bitstream, fail: %d\n", ret);
+> +
+> +=09=09pm_runtime_put_autosuspend(inst->dev->dev);
+> +=09}
+> +
+> +=09/*
+> +=09 * With device_run() out of the way, the job is either already finish=
+ed,
+> +=09 * still to be run -- device_run() then finds the instance stopped,
+> +=09 * issues nothing and finishes it itself -- or held for a DEC_PIC
+> +=09 * completion after EOS. Only the last one is left for us: end it now
+> +=09 * rather than leave streamoff or release() waiting on that IRQ.
+> +=09 */
+> +=09wave5_dec_finish_job(inst);
+> +=09mutex_unlock(&inst->run_lock);
+>  }
+> =20
+>  static int wave5_vpu_dec_job_ready(void *priv)
+> @@ -1920,6 +1964,7 @@ static int wave5_vpu_open_dec(struct file *filp)
+> =20
+>  =09spin_lock_init(&inst->state_spinlock);
+>  =09mutex_init(&inst->feed_lock);
+> +=09mutex_init(&inst->run_lock);
+>  =09INIT_LIST_HEAD(&inst->avail_src_bufs);
+> =20
+>  =09inst->codec_info =3D kzalloc_obj(*inst->codec_info);
+> diff --git a/drivers/media/platform/chips-media/wave5/wave5-vpuapi.c b/dr=
+ivers/media/platform/chips-media/wave5/wave5-vpuapi.c
+> index 397da200a9ed..c7e61e2b78eb 100644
+> --- a/drivers/media/platform/chips-media/wave5/wave5-vpuapi.c
+> +++ b/drivers/media/platform/chips-media/wave5/wave5-vpuapi.c
+> @@ -286,6 +286,7 @@ int wave5_vpu_dec_close(struct vpu_instance *inst, u3=
+2 *fail_res)
+>  =09wave5_vdi_free_dma_memory(vpu_dev, &p_dec_info->vb_task);
+> =20
+>  =09mutex_destroy(&inst->feed_lock);
+> +=09mutex_destroy(&inst->run_lock);
+> =20
+>  unlock_and_return:
+>  =09mutex_unlock(&vpu_dev->hw_lock);
+> diff --git a/drivers/media/platform/chips-media/wave5/wave5-vpuapi.h b/dr=
+ivers/media/platform/chips-media/wave5/wave5-vpuapi.h
+> index 7b08fef58217..2d515c9028a5 100644
+> --- a/drivers/media/platform/chips-media/wave5/wave5-vpuapi.h
+> +++ b/drivers/media/platform/chips-media/wave5/wave5-vpuapi.h
+> @@ -826,6 +826,9 @@ struct vpu_instance {
+>  =09struct mutex feed_lock; /* lock for feeding bitstream buffers */
+>  =09bool queuing_fail; /* if there is the queuing failure */
+>  =09bool empty_queue;
+> +=09unsigned long job_flags; /* bit 0: a device_run() job is ours to fini=
+sh */
+> +=09struct mutex run_lock; /* held across device_run(); job_abort() waits=
+ on it */
+> +=09struct delayed_work unstall_work; /* releases a stale empty_queue par=
+k */
 
-> In this case you don't need the pre-allocated buffer, too. Let's allocate
-> a tiny buffer on stack.
+This might belong to patch 6.
 
-The pre-allocated buffer is gone, but I allocate it per exchange instead
-of putting it on the stack: usbhid passes the buffer to usb_control_msg(),
-and the USB core refuses stack buffers for DMA (with VMAP_STACK they
-aren't DMA-able). Other HID drivers do the same for hid_hw_raw_request().
+Nicolas
 
-The short reports are in v3 as well, without the msleep(). The rest of
-your v2 comments are done too (raw_command/simple_command, the
-static_assert, errors instead of clamping, devm, comments, Kconfig).
+>  =09struct vpu_buf bitstream_vbuf;
+>  =09dma_addr_t last_rd_ptr;
+>  =09size_t remaining_consumed_bytes;
 
-One more thing I found while testing: the controller sends 05 02 B after
-every brightness set, the host's own ones too, and also when the level
-doesn't change (Fn+Space sends it the same way). v2 passed all of those
-to brightness_hw_changed, so v3 only reports a level that differs from
-the last one the driver knows.
+--=-GVO2R+Bz5ri09iN1whnj
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
-Thanks,
-Ciro
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawjZ5gAKCRDZQZRRKWBy
+9OueAQDqpFGgwJ8W1jTtpkk5RN03PhgujXm4WKjOco2NhcddnAD7BoIetzstKYvS
+PSBZLG2RjCLJzwQA7eTDLaMOfi1y0wc=
+=6eWI
+-----END PGP SIGNATURE-----
+
+--=-GVO2R+Bz5ri09iN1whnj--
