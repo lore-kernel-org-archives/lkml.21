@@ -1,63 +1,65 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795769864;
-	b=OzKWTEQ7Jhl8cPLwbAm1riW3THx8XouPprTlkJ18JAJw+hwzlzkAyq614pBMvslMKuWy
-	 47iwa11D9MukpspvhoWk1jimGPtvsDDE1e19UKQPrfpDruNJqTm1Vt6xJyxYnknK+ECm5
-	 HfDCX2aV+4CYmjIKtpSgk3xFsDrF8l6VXR2VL4cDS8nbBi1qRzbSLcMZF62FLqFllrMF+
-	 JeatVV7Noxp5QEs8EIMIIsOYzJmGypJNDc2CRdd+7F3Ch5bv5Q6Hkni2OkVtaQCwLnqkT
-	 FXynXdOoGNq/26qCSQPZ7qGbz7OOIDY9jtQzZt0zMjosXfCLQK+rfcJttG4aMy+jbgQ==
+	t=1795769869;
+	b=kD2q9ZxaSR6dBVHFDfCW5DhgDMVEtte5FSl0MTqWWBB+Jvotu9nR0FnJ+AyNpB3cGA1H
+	 ++Fyi/ATaZVDyGt+ZnlCeiFkFXLJCF5/9VTdYR/nCZMoPVISkGKati99I80XKQT3H1gYr
+	 9u5+Sj6slf468+bDUbRALJHkEiwZpMBzlMynXsol0vURtHiYKzL8rmx8pXB7n6k7yDAE8
+	 fInNUWtu+ibLJ+baZ02b+X+iXB9voirf1eZVeGtXHTJB9ygKBzbysrioBPFplHNJ4UfTv
+	 KZ8qBMrGiywX8RNqsuL/UGaGsTJmIQ5o9yCwdoF2yt1Dkmacy3CujsP51A19TOQJGgg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795769864;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795769869;
 	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
 	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:MIME-Version:Content-Transfer-Encoding:X-Scanned-By;
-	bh=/G+Xs6o+vba8qSnCFylsLowici9WWMguXuW+fm0sBPo=;
-	b=dVZSNykWQLSni9rZudacXo7giKhvYY1wZuyhrC1rVVmBtSngrwXjbzX/OuRXwZXR6Y8+
-	 uB2xhB/QlpVBP5yePa28ZIYKur4n3AQxOQPY//Qlls+JHCobpkQwhAOXxBDYjUJjPzweD
-	 VmYdc0WDzkynmXl+P3EifDnlXogKYxAXBESSdzZrmC03v1+fdwMTS7J4OEtub41+o37tQ
-	 UB0r7UOtdA/pwtD3ArX0YKSUTfMnvqrndif8T/jqTtnYPgVOy3lSfYHVaQznbUSU3PKxu
-	 t1BFYzCqmMsEorapOfq+3RraNhw/potDCchHEcRinScr8UCPeEZeeyV/IbQhNLkyP8g==
+	 Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Scanned-By;
+	bh=8v8Ip+plxXN89vEKmV5QJRl4QCWxKVrwNkDboP/e/Tk=;
+	b=O8ATJB7Ke4gDDvUATAZzwCrhHAI0NF3cMktY41wG2w5GWCAtZNT6gAaYUscfnL+KhcLS
+	 7evjvf6URclk1LMncnSh4stgUFCTdCrHQHHWqEFFKdMIobrHoVcBzM3DJ6cFH7YT1DUdR
+	 w5NoNlhTl629RGI1pcSdQD7wdthSh8vY/+L3UpY+r3QHNzkp9Flb5E5prW/Olh0pbNIve
+	 9Mv8STir94GlPgEkluCNr7MVazWnfYpTccAHZRRWQshZ97hplQ8BwLiobdGt5aHnr5RM0
+	 3td4psKmk4bKYg0vb5n2fU5Jn/8rIT2D9O7MTyMODoNJ5KznpbLjq/HVB5UBk9Ys5AQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=redhat.com;
 	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=GAom3ElN;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=QvolNq4v;
 	arc=none smtp.remote-ip=170.10.133.124
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3B4D606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:57:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3B4D606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70DC3606A33A
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:57:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70DC3606A33A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=GAom3ElN
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=QvolNq4v
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795769863;
+	s=mimecast20190719; t=1795769867;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=/G+Xs6o+vba8qSnCFylsLowici9WWMguXuW+fm0sBPo=;
-	b=GAom3ElNam8Ke7xhvAfQGaxPAM22BIqx3T0ZhG+96Dew+/BSEgN8n9kBAN6lMpw0SFfDy/
-	LOzFxbYEFFrtkEiPIwhKpT3x/1tpr9PLqfW+E8mFM+M8c6Acip3HnDJJORxhilz/kctjXC
-	cd7zG+Bwm2BryY14HnuDugHZCOgbcOY=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8v8Ip+plxXN89vEKmV5QJRl4QCWxKVrwNkDboP/e/Tk=;
+	b=QvolNq4v63Bo5RGFpq39bxePzS2rOg7QuGZTGheiC451AbuS/w5AZMDTk6vJWIQQ75cjem
+	o3Mih3mbEh2yalHN3SVANYq0lVleLpX6p4MnbKynXRwdcGDeFw73+8BphtEdY3DjdjiFTG
+	apZiaZvhJt+qMrH79yRuzHl6VqJlEMs=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-332-mkvI4AjPMM6S_gk3UoUF1w-1; Fri,
- 27 Nov 2026 08:57:37 +0000
-X-MC-Unique: mkvI4AjPMM6S_gk3UoUF1w-1
-X-Mimecast-MFC-AGG-ID: mkvI4AjPMM6S_gk3UoUF1w_1795769854
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-504-rGpobC8YPeCwkelkffy9sQ-1; Fri,
+ 27 Nov 2026 08:57:42 +0000
+X-MC-Unique: rGpobC8YPeCwkelkffy9sQ-1
+X-Mimecast-MFC-AGG-ID: rGpobC8YPeCwkelkffy9sQ_1795769859
 Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 915EF180060C;
-	Fri, 27 Nov 2026 08:57:25 +0000 (UTC)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id CC57F1955D8B;
+	Fri, 27 Nov 2026 08:57:38 +0000 (UTC)
 Received: from poros-thinkpadp16vgen1.tpbc.com (unknown [10.44.48.12])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id C5FCD589;
-	Fri, 27 Nov 2026 08:57:17 +0000 (UTC)
+	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id BB1B644B;
+	Fri, 27 Nov 2026 08:57:32 +0000 (UTC)
 From: Petr Oros <poros@redhat.com>
 To: netdev@vger.kernel.org
 Cc: Petr Oros <poros@redhat.com>,
@@ -85,9 +87,11 @@ Cc: Petr Oros <poros@redhat.com>,
 	Aaron Ma <aaron.ma@canonical.com>,
 	intel-wired-lan@lists.osuosl.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net v5 0/4] ice: fix DFLT Rx rule handling for promisc and switchdev
-Date: Fri, 27 Nov 2026 09:57:05 +0100
-Message-ID: <20261127085714.1207361-1-poros@redhat.com>
+Subject: [PATCH net v5 2/4] ice: do not leave switchdev mode while representors exist
+Date: Fri, 27 Nov 2026 09:57:07 +0100
+Message-ID: <20261127085714.1207361-3-poros@redhat.com>
+In-Reply-To: <20261127085714.1207361-1-poros@redhat.com>
+References: <20261127085714.1207361-1-poros@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,109 +104,58 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
 
-Fixes for the promiscuous and allmulticast handling of the ice PF VSI,
-and two fixes for the teardown paths they rely on.
+ice_eswitch_mode_set() refuses a mode change only while VFs exist, but a
+subfunction port has a representor and a switchdev session too. devlink
+core usually refuses the change first, because of the devlink rate nodes
+the representors export, but ice exports none while DCB is active. A
+switch to legacy then destroys the representor xarray under the running
+session, the representors leak, and the uplink stays in its switchdev
+configuration.
 
-Patch 1 stops the service task in ice_remove() before the PF is torn
-down, where it was stopped before commit 8a37f9e2ff40 ("ice: move
-ice_deinit_dev() to the end of deinit paths"). Patch 3 queues a filter
-sync when a switchdev session ends, and a session that still runs when
-the driver is removed ends in ice_remove().
+Refuse the mode change while the representor xarray is not empty.
 
-Patch 2 refuses to leave switchdev mode while subfunction ports exist.
-Leaving it then orphans the session, and patch 3 resyncs the uplink only
-when a session ends.
+Found by AI code review. Reproduced on an E810-C (FW 8.1.1, ICE COMMS
+package 1.3.55.0) with the firmware LLDP agent off, without kernel
+changes:
 
-Patch 3 lets the eswitch own the promiscuous configuration of the uplink
-while a switchdev session runs and resyncs the uplink filters from the
-netdev flags when the session ends, so the uplink no longer ends a
-session without its catch-all Rx rule or with a stale promisc state.
+  dcb ets set dev $PF tc-tsa all:ets tc-bw 0:50 1:50 prio-tc 1:1
+  devlink dev eswitch set pci/$BDF mode switchdev
+  devlink port add pci/$BDF flavour pcisf pfnum 0 sfnum 88
+  devlink dev eswitch set pci/$BDF mode legacy
 
-Patch 4 subscribes PF VSIs to multicast with one VLAN agnostic promisc
-rule pair instead of a pair per VID, so a wide VLAN trunk on several
-bridge ports no longer exhausts the switch lookup table. A port with a
-vid 2-4094 trunk goes from 12292 to 4104 FLU entries.
+The last command succeeded, the representor netdev stayed registered
+and promisc off no longer took effect on the PF. With this patch the
+command fails with "Remove all subfunction ports before changing
+eswitch mode". No kernel selftests cover this.
 
-v1 to v4 were posted to iwl-net, and v4 went into the iwl pull request
-of 2026-11-13, where the Sashiko review found real problems in both
-patches [1][2]. This version reworks both and replaces v4. It is posted
-directly to net, with intel-wired-lan in Cc, as discussed in the thread
-on that pull request [3].
+Fixes: 977514fb0fa8 ("ice: create port representor for SF")
+Signed-off-by: Petr Oros <poros@redhat.com>
+---
+v5:
+- New patch. Without it a switch to legacy can orphan a switchdev
+  session, and patch 3 resyncs the uplink only when a session ends.
+---
+ drivers/net/ethernet/intel/ice/ice_eswitch.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-The final v5 also differs from what I described in my replies to that
-review. Patch 4 no longer keeps per-VID rules for any PF VSI, so the
-per-VID re-add, the rollback and the vid 0 recipe swap handling I
-described there are gone, and ice_clear_promisc() clears only the VLAN
-agnostic pair. Instead of skipping the allmulti branch for a promiscuous
-VSI, the subscription is reconciled from both flags in one place, and
-with patch 4 the resync of patch 3 no longer drops the multicast rules
-or clears IFF_ALLMULTI. In patch 3 a new VSI state bit keeps every
-filter sync away from the uplink promisc configuration while a session
-runs, and patch 1 makes sure that the sync queued at the end of a
-session cannot use a freed netdev when the PF goes away.
-
-"ice: restore DDP state during PFR recovery", which Tony sent to net in
-the pull request of 2026-11-25 [4], also stops the service task in
-ice_remove(), but before ice_free_vfs(). Patch 1 keeps the place after
-ice_free_vfs() that commit f844d5212cb0 ("ice: Fix removing driver while
-bare-metal VFs pass traffic") chose, so that VF drivers in the host
-still get answers from the PF while they are removed. The two apply
-together without a conflict, and ice_remove() then stops the service
-task both before and after ice_free_vfs(), so one of the two calls
-should go.
-
-Patch 4 builds on the ice_vsi_sync_fltr() changes of patch 3, which
-needs the switchdev code from v6.10, so 6.6 and 6.1 need manual
-backports of patches 3 and 4. The loss of the uplink VLAN filters across
-a switchdev session that patch 3 mentions is older than this series, and
-with patch 3 it also shows after a promiscuous session. I will send a
-fix for it separately.
-
-Changes since v4:
-- Posted to net directly instead of iwl-net.
-- New patches 1 and 2, found while reworking the switchdev fix.
-- Patch order swapped, the switchdev fix goes before the multicast one.
-- Patch 3, previously "ice: preserve uplink DFLT Rx rule on switchdev
-  release", reworked as described above.
-- Patch 4, previously "ice: skip per-VLAN promisc rules when default VSI
-  Rx rule is set", reworked as described above. It now also keeps the
-  multicast subscription of a promiscuous VSI when allmulti is cleared,
-  unless another VSI holds the DFLT rule.
-- Dropped the Reviewed-by and Tested-by tags of v4, both patches changed
-  too much to keep them.
-- All commit messages say how the problems were found and how the fixes
-  were tested.
-
-Link to v4:
-https://lore.kernel.org/all/20260708125755.706263-1-poros@redhat.com/
-
-Link to v3:
-https://lore.kernel.org/all/20260701133601.2118382-1-poros@redhat.com/
-
-Link to v2:
-https://lore.kernel.org/all/20260622113428.2565255-1-poros@redhat.com/
-
-Link to v1:
-https://lore.kernel.org/all/cover.1781786935.git.poros@redhat.com/
-
-[1] https://lore.kernel.org/all/179495967132.3136.6714105968141020753@kernel.org/
-[2] https://lore.kernel.org/all/179495967304.3136.16113490698897758196@kernel.org/
-[3] https://lore.kernel.org/all/20261125124652.3843638-1-poros@redhat.com/
-[4] https://lore.kernel.org/all/20261125224428.4126195-1-anthony.l.nguyen@intel.com/
-
-Petr Oros (4):
-  ice: stop the service task before the PF is unloaded
-  ice: do not leave switchdev mode while representors exist
-  ice: resync uplink filters after a switchdev session
-  ice: use a VLAN agnostic multicast promisc rule pair for PF VSIs
-
- drivers/net/ethernet/intel/ice/ice.h         |   1 +
- drivers/net/ethernet/intel/ice/ice_eswitch.c |  39 ++++
- drivers/net/ethernet/intel/ice/ice_main.c    | 233 +++++++------------
- 3 files changed, 124 insertions(+), 149 deletions(-)
-
-
-base-commit: aa40afa831ebfe45e40a23721711059f2ac584d4
+diff --git a/drivers/net/ethernet/intel/ice/ice_eswitch.c b/drivers/net/ethernet/intel/ice/ice_eswitch.c
+index 6e7bba4738989b..c96b201901f48c 100644
+--- a/drivers/net/ethernet/intel/ice/ice_eswitch.c
++++ b/drivers/net/ethernet/intel/ice/ice_eswitch.c
+@@ -354,6 +354,13 @@ ice_eswitch_mode_set(struct devlink *devlink, u16 mode,
+ 		return -EOPNOTSUPP;
+ 	}
+ 
++	/* subfunction ports have representors too */
++	if (!xa_empty(&pf->eswitch.reprs)) {
++		NL_SET_ERR_MSG_MOD(extack,
++				   "Remove all subfunction ports before changing eswitch mode");
++		return -EOPNOTSUPP;
++	}
++
+ 	switch (mode) {
+ 	case DEVLINK_ESWITCH_MODE_LEGACY:
+ 		dev_info(ice_pf_to_dev(pf), "PF %d changed eswitch mode to legacy",
 -- 
 2.56.1
 
