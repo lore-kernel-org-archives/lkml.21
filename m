@@ -1,60 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795765493;
-	b=RpPjKGr4dpvnTEpkcWskQ2nvaptlLzm+5M/PW3t6CgkbFFgQiEO4LnK/DpGb4rLWxl0B
-	 424G58PFbhDjoaJ5bzEOWp1xxApBhKVgiJUSPLQ2GnDgLGe493NO5XDj1qNZv6tWHeDyt
-	 AGTEyNBJq8/UuG39dsV96d3JttMZMyq7jxLxh5u+tmTvGe+z6OqVT9x7WvYcdXWGAORdE
-	 sjcKcx2+YNnZsFMziFWuUhAjwpqP4P892pScq6+ewet5LW4AgA4fxJI/2+gzROO8HS228
-	 2f+cfq7ucAKb6+VDkXm1/MkRUjaLiUh83fbGBleFWAK94WKgdFYCeUxR2y3VzBvLOyg==
+	t=1795765499;
+	b=3+/40FBOPDJ1jBls7yQLzT3xSLCVBgOt8GfPpvAC0FTZo2hrBP2VHj0oO/OYB7wDqQI8
+	 zba4+KogCQqZu3GfOuyqJOA/IO68Rhk3IrmXJPJk1SzTWcxLT6e+70tvmlPqTsTAdXT/k
+	 My2R6sDUDCgXdxrWOVdVDB2BLmv8pMl7dF+dvL5qybdfWqir1y2XII34NRUT96X5noSt2
+	 vvKDX/sok8GBwl/bzamU8w93wAiuCciS5EprjM7IAJ6jvhhXq3DBLZIPYVhSsRN/IGPrj
+	 7QLtfNchd46lvCtybAo/TF4+FCzbsSBl2J00bY3g3b9pEc9Y/wY3Cyb6Aq77Oe06e5A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795765493;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795765499;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=5gz9cOzUlfBvDHMHhosMYEbuPfrjTFcnYAa9cwcoXlI=;
-	b=KO+3NeGkGE2D9KFz3Fp5OGc/gZgKKY2UWi0jI0czmm75rLWueHrsdECA2K1H7B/sEp30
-	 2bYwv1bnWAkAbqXIg4ybeyLNJS8Ala0aUIm+tPxhX47CDvqiZ8Ca/Qmsu1KpUFItdndwH
-	 jNtk9ID1tTpvxa8pPIFefNFztz2vYFfZb7c/dzCixAl1LqmfebLL7qdut0ITFHQSOkbDa
-	 l+GVDu2A26Y15yXlcw+kuaEtdZEE3Q+IZaBGy2qb8tFX3NHuEdKe1GKVqeVGJKfD0KGf+
-	 IKkEUm2lFIA6dUBq+MmjtKiigEY94+XdJ3q/z+sdc5bf1vzx1SKkDhXPSNEudrEVIpQ==
+	bh=mRhs8+NkIpWLpYOBzCKycgFylDjzXxuUt8PjUFydA1k=;
+	b=4l8dPvrsRyeoTSS24abEgHEKpoxkukCcnosDaMh2wjE6keA81k1sV9vy9EZqlBAVeJEz
+	 c9VZd9S2XMYJxeL8gRAxTt6Rw3sSpeAfXtPkvsPuVCz3SVOvbmbHaE0EtzcxqgQCTwvwk
+	 zTEhSwSN6RzvvQe0vJ9bLGtOvDCMsHx2gsDMXI9hW13v16yBwkiprBrZHwdcCQHPx9VK+
+	 mR06vBDoblLkyN/jK9zMxQqYOyp6wGW1l6pzJS/esP1EUPBgMKB1CcBXvTY+UkBOxTIvf
+	 RaNoEMtEcNRbexj6JSRyhWD28Jxk1AZ3fT7XioIjgYYg1UaGPwiXwqOEZbAmxyJbtHA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=yinhe.ht;
-	spf=pass smtp.mailfrom=yinhe.ht;
-	dkim=pass header.d=yinhe.ht header.i=@yinhe.ht header.a=rsa-sha256 header.s=default header.b="afBALMA/";
-	arc=none smtp.remote-ip=115.124.28.1
-Received: from out28-1.mail.aliyun.com (out28-1.mail.aliyun.com [115.124.28.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Rnd1BRq9;
+	arc=none smtp.remote-ip=95.215.58.108
+Received: from mta1.migadu.com (out-108.mta1.migadu.com [95.215.58.108])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F0D7606A323;
-	Fri, 27 Nov 2026 07:44:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F0D7606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=yinhe.ht
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yinhe.ht
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09BE5606A6A8
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:44:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 09BE5606A6A8
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yinhe.ht header.i=@yinhe.ht header.a=rsa-sha256 header.s=default header.b=afBALMA/
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=yinhe.ht; s=default;
-	t=1795765483; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=5gz9cOzUlfBvDHMHhosMYEbuPfrjTFcnYAa9cwcoXlI=;
-	b=afBALMA/mWCJ5xK/VIIz0tzXqbKAfc3C0R3d40ch9q7Gipm6ttuz0WLHQ0kXVvXrnr5uPMaKGu1M/aIh51NqexO9bh6Lo6vFivOIwGU47QVBcAi8waWUqmHmFDJ0h6EbW2T4PpQbOitezUbc/wixz/b6Pi/ksPcFDMgYQkYLAoY0996dGtVlKtXnixsvyy1J3vyERatO/qcC+DX1JApEYW6PX/S4kPyqjYYaW8yXvnJHY+KzpUSS9ateQhhVOtgPX1FtOSKtFOWjvDdEnr5CM6LbxuvKMfSWGpL6iXNQOsgYUfaglxXAkOX9xzPvZwMeNMEwfBZTbP0E9M8uzDTq3w==
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.07447876|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_regular_dialog|0.0727759-0.00276261-0.924461;FP=7825485084603504059|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033032106048;MF=chunyuzhiqiang@yinhe.ht;NM=1;PH=DS;RN=8;RT=8;SR=0;TI=SMTPD_---.kBFoykq_1795765482;
-Received: from galx..(mailfrom:chunyuzhiqiang@yinhe.ht fp:SMTPD_---.kBFoykq_1795765482 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Fri, 27 Nov 2026 15:44:43 +0800
-From: ChunYuZhiQiang <chunyuzhiqiang@yinhe.ht>
-To: Kees Cook <kees@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>
-Cc: Tony Luck <tony.luck@intel.com>,
-	"Guilherme G . Piccoli" <gpiccoli@igalia.com>,
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Rnd1BRq9
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=zMl0M0QUmSAz5mu18JLZEbsKm6FWjal0JM5qpuC24jA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795765497; v=1; x=1796370297;
+ b=Rnd1BRq91mfj5TWs00P8cD3c41mifRXjRQHxD377OghRsTogr8THsSAJmf6Xq1U++sH4/gOV
+ OxpClbM20st/lNWh5Hl3syyGItByRO59MWE24uafUJXLka1KbprxYgIO+hhAgYhg/iS+Hlxigm2
+ aQnE7tPFYSOM910NurCKAWGU=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id ad0523395ea71a30;
+	Fri, 27 Nov 2026 07:44:57 +0000
+X-Mizu-Trace-ID: ad0523395ea71a30
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
 	Mark Brown <broonie@kernel.org>,
-	linux-spi@vger.kernel.org,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH v2 0/4] pstore: NVMEM backend with panic writes
-Date: Fri, 27 Nov 2026 15:39:09 +0800
-Message-ID: <20261127073913.353407-1-chunyuzhiqiang@yinhe.ht>
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Fuad Tabba <tabba@google.com>
+Subject: [PATCH v2 05/10] arm64: sysreg: Reject a Fields or Mapping line with an undefined target
+Date: Fri, 27 Nov 2026 07:44:21 +0000
+Message-ID: <20261127074426.50739-6-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261127074426.50739-1-fuad.tabba@linux.dev>
+References: <20261127074426.50739-1-fuad.tabba@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,86 +76,63 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-This series adds the panic-time SPI entry point and its first user: a
-pstore backend over an SPI FRAM.  v1 was based on an earlier revision of
-Heiko Stuebner's atomic-transfer series and is superseded; this version is
-based on current broonie/spi for-next with Heiko's v4 applied
-(63083539d2bf).
+A Sysreg block can use another block's layout. "Fields X" names a
+SysregFields block and "Mapping X" another Sysreg. The generator emits
+the register's RESx and UNKN masks as X_RES0, X_RES1 and X_UNKN, but it
+doesn't check that X exists. A misspelt or missing X gives macros that
+expand to undefined names, and the build fails only once something uses
+them. MPAM1_EL12 had such a line.
 
-Patch 1 adds spi_sync_atomic() for panic and oops.  Heiko's shutdown path
-is gated on system_state being past SYSTEM_RUNNING, but panic and oops run
-while the system is still running, so they cannot use it.  The entry point
-reuses transfer_atomic(), takes the bus locks with trylock so a normal
-transfer in progress on another CPU returns -EBUSY instead of deadlocking,
-and validates without allocating or optimizing.
+Check every Fields and Mapping target once the whole file is read, since
+a target may be defined after the register that names it (MPAM1_EL1
+follows MPAM1_EL12). Either kind of block defines the masks, so the
+check accepts either kind as the target of a Fields or a Mapping line.
+Give fatal() an optional line number, so that the error is reported at
+the Fields or Mapping line.
 
-Patch 2 adds a panic write callback to nvmem_config and
-nvmem_device_write_panic().  Patch 3 implements it for FRAM in at25:
-FRAM has no write cycle, so WREN and WRITE are issued with
-spi_sync_atomic(); EEPROMs still need status polling and are rejected.
-Patch 4 adds the pstore/zone backend over NVMEM, selected by device name,
-with normal writes through the regular NVMEM path and panic writes
-through nvmem_device_write_panic().
+Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
+Reviewed-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ arch/arm64/tools/gen-sysreg.awk | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
-This avoids a private pstore-fram driver and a new devicetree binding,
-and reuses the existing at25 FRAM support.  The fsl_lpspi controller
-implementation is sent separately; this series only needs the
-transfer_atomic() callback.
-
-Testing:
-
-  - the series compiles on x86 with COMPILE_TEST and on arm64, including
-    against the for-next versions of the touched files;
-  - a mock SPI controller test in qemu passes (spi_sync_atomic and its
-    error paths);
-  - qemu boots with the pstore/nvmem backend built in and no regression;
-  - a mock NVMEM provider runtime test and the i.MX8QXP panic path are
-    still pending.
-
-Changes in v2:
-- rebased onto current for-next with Heiko's v4 applied;
-- include spi_sync_atomic() here so the panic API and its pstore user are
-  reviewed together;
-- the fsl_lpspi controller implementation is now a separate series.
-
-Questions:
-
-  1. Is the panic write operation at the NVMEM level the right layer, or
-     should pstore talk to the SPI device directly?
-  2. Is reg_write_panic in nvmem_config acceptable, or should it be a
-     separate provider operation?
-  3. Is selecting the NVMEM device by module parameter acceptable, or is
-     an NVMEM cell/devicetree nomination preferred?
-  4. Should the backend live in fs/pstore or drivers/nvmem?
-
-This cover letter and the patches were prepared with AI assistance; the
-submitter has reviewed and signed them.
-
-Thanks,
-ChunYuZhiQiang
-
-Signed-off-by: ChunYuZhiQiang <chunyuzhiqiang@yinhe.ht>
-
-ChunYuZhiQiang (4):
-  spi: add spi_sync_atomic() for panic and oops
-  nvmem: add panic write support
-  nvmem: at25: support panic writes for FRAM
-  pstore: add nvmem backend
-
- drivers/nvmem/at25.c           |  59 +++++++++
- drivers/nvmem/core.c           |  44 +++++++
- drivers/nvmem/internals.h      |   1 +
- drivers/spi/spi.c              |  69 +++++++++-
- fs/pstore/Kconfig              |  64 +++++++++
- fs/pstore/Makefile             |   3 +
- fs/pstore/nvmem.c              | 230 +++++++++++++++++++++++++++++++++
- include/linux/nvmem-consumer.h |   9 ++
- include/linux/nvmem-provider.h |   3 +
- include/linux/spi/spi.h        |   1 +
- 10 files changed, 479 insertions(+), 4 deletions(-)
- create mode 100644 fs/pstore/nvmem.c
-
-base-commit: 63083539d2bf955ccf84042d4b044d1133752bed
+diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
+index c4fa27cd9beff..1843d283192d2 100755
+--- a/arch/arm64/tools/gen-sysreg.awk
++++ b/arch/arm64/tools/gen-sysreg.awk
+@@ -9,8 +9,8 @@ function block_current() {
+ }
+ 
+ # Log an error and terminate
+-function fatal(msg) {
+-	print "Error at " NR ": " msg > "/dev/stderr"
++function fatal(msg, line) {
++	print "Error at " (line ? line : NR) ": " msg > "/dev/stderr"
+ 
+ 	printf "Current block nesting:"
+ 
+@@ -124,6 +124,11 @@ END {
+ 	if (__current_block_depth != 0)
+ 		fatal("Missing terminator for " block_current() " block")
+ 
++	# A Fields or Mapping target may be defined after its user.
++	for (line in refs)
++		if (!(refs[line] in defined_regs))
++			fatal("Undefined Fields or Mapping target " refs[line], line)
++
+ 	print "#endif /* __ASM_SYSREG_DEFS_H */"
+ }
+ 
+@@ -241,6 +246,8 @@ $1 == "EndSysreg" && block_current() == "Sysreg" {
+ 	print "/* For " reg " fields see " $2 " */"
+ 	print ""
+ 
++	refs[NR] = $2
++
+ 	next_bit = -1
+ 	res0 = $2 "_RES0"
+ 	res1 = $2 "_RES1"
 -- 
 2.47.3
 
