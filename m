@@ -1,65 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795787171;
-	b=EPRs+x7VVwz5vjWbJo/2G36kbEK3nFpY2UEHr3ThfTexL7Nd4NtSgV0taXt1IrKH6ctD
-	 UvVc6HYW7lIWmTmzhm524puhEC0Ck3aG4TWbDl4v87xoIxgDVnOj5N9H0aCU+jICdZQjU
-	 aijPnKappYNag50SwSpv01XIOhiM7cgz0/qAvbWeP7zLopdunC31XZGiywD/YBWRBGJhg
-	 +8KejFSQHLNbbCZogqex1Hue5EsXwWicQ/7o7D047iU6hzjeRgWS2/ApX/ff1Uh7IHMra
-	 1MWrwMZUnulusg9anpBuriGAMpjURSPR49k1UK4tBqGPJDQSY7TzgUA72J4aSAB8M1A==
+	t=1795787174;
+	b=PmQNlImuG1lRfi4Y+Kabh+lvPU8q07oU5IEx5069rzVXLn2CVQ3FehxYgJ7B3qvvA3Iz
+	 GuVje/2C3PYrVY4NsKAHKuD0S1eNl1CB5p9YxDvXyB/JdU6+Xg/QKPde8W5EyVqGRcdPO
+	 DuvwW4SyOVhfOALoI7qm++FU2Bi5ApYlsDT6wM16cyUxNbE2HvcDrVmrWAqsb2nEV9DOB
+	 neyUFsPoSuqu5vwLM8H2hA+hHjOUqyKjDRZAGH1bAMt9gtmJi/oFbo1mDAUjSDpoE9WcR
+	 xenxF79ScJPE9Y9Ke03oBeOdD+/C4mIsJJUQdm2p+vH2S5R40Gm9bOiGUqyMH7Jzu5A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795787171;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=xrboHXR9k3R5ZTIl0xnqUJBd88EpV7GBQtig56U+XN4=;
-	b=mDj8+oIGpDYi6mwKxd4NO5qDv/NT7nlsRXaefe93tNDIbK0IcEx5qW5JakG3OnX1eCJf
-	 J5ydZJCFfNHepGbFJ+8hfdbcR5XkxViF0VhOiogsSpygG06xx0/MwKgwWusre0nV0ykjY
-	 5c6qiw91kKt2WC1694dhWIXQC4OgKBokUkYR/BbaAGU/QjTLMd4ZR/9+i4zkbQSxXCo13
-	 JgSyU/59nei5Z3ZKkIdfHRiR2aUXg/bDm0aUwvsnX3HR3fSRKjb9CwRJ28kXuebFLgSDd
-	 4zWZ1PmDtuU7crbdFQL5N24S4r1ghJWQzXpesAy26Hnmdv0RnngvfHa6LEBV8KSsN1A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795787174;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=mIOi4XotjSG5N0aylWyaQJUjmIRTPs8fHeL4rfibqSA=;
+	b=e82fcVoj3PmwSdIy9PEw0Bnq2hyWBLAxuJ6XSE+sP78R2WIcCi+md22E97uRtxwWD4RY
+	 Eu2ea8SF5NaweyViKdQh+O4x3EoipMTO0Z/hv+WBk3PxQ2YAXw91SsBBoocIwYRE9elZ0
+	 c6DAgKPJQ20Ps8Vqhi11/eXG4qN2Vsk5+nynKNiczuCGVqyxJSBpsHTMwphPsRP8Stq72
+	 jqvH9cSZf6gkw2Sp7PObfWT5qTdFfwljVQekeZuziWqyRRrgG8a5BsupJ6XHkBVd5hv8R
+	 5PZ5r22NHV64hWV6AC5beW8Bta4y0HexAdR/TlU3Sqdlsr2wK1kH8BJzRCgkHQtd1Yw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="EuaFTw/m";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qsSgoHTp;
+	arc=none smtp.remote-ip=209.85.214.171
+Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE917606A330;
-	Fri, 27 Nov 2026 13:46:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E83E606A33C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:46:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E83E606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EuaFTw/m
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36C741F008A0;
-	Fri, 27 Nov 2026 13:46:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795787171;
-	bh=xrboHXR9k3R5ZTIl0xnqUJBd88EpV7GBQtig56U+XN4=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=EuaFTw/mGYQL2/05CbrkWyRgMBbiDWj9UOiQvddq3AJ4j7Hl5+Q47lP7dYEZ03YOx
-	 NDSKg8yNY2xKeasTib39XKFEklavOkRFFfTbopUMPrttMM6QtuAOnFdRdTkqn2P9is
-	 JP0I/KuMDAz/xJ5VePVHbwi7K1+7tdlSf/bmCbItxElk48g5JMziDEQaTGXMGCu06j
-	 JcquGad4zOc1T+F8Cpgll0uA7Ww0dZgzUzJL4+VpSMJd6RTl0HBrBCXQ1/u3flZSRb
-	 Fz08WMV9praCyjq8ScPS4/K5Ok05p6+e7r1dqUGvXVzXe0El9IX8/E63wiUVmoKpKM
-	 unSZA90TldV8A==
-Message-ID: <sashiko-outbox-237513@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [RFC PATCH 1/1] mm/vmstat: decay pcp->high of isolated CPUs
- from vmstat_shepherd
-Reply-To: sashiko-reviews@lists.linux.dev
-To: =?utf-8?b?SW9udXQgTmVjaGl0YSAoV2luZCBSaXZlcik=?= <ionut.nechita@windriver.com>, "Andrew
- Morton" <akpm@linux-foundation.org>, linux-mm@kvack.org
-Cc: "Vlastimil Babka" <vbabka@kernel.org>, "Michal Hocko" <mhocko@suse.com>, "Johannes
- Weiner" <hannes@cmpxchg.org>, "Suren Baghdasaryan" <surenb@google.com>, "Brendan
- Jackman" <brendan.jackman@linux.dev>, "Zi Yan" <ziy@nvidia.com>, "David
- Hildenbrand" <david@kernel.org>, "Liam R . Howlett" <liam@infradead.org>, "Mike
- Rapoport" <rppt@kernel.org>, "Huang Ying" <ying.huang@linux.alibaba.com>, "Marcelo
- Tosatti" <mtosatti@redhat.com>, "Frederic Weisbecker" <frederic@kernel.org>, "Sebastian
- Andrzej Siewior" <bigeasy@linutronix.de>, "Clark Williams" <clrkwllms@kernel.org>, "Steven
- Rostedt" <rostedt@goodmis.org>, linux-rt-devel@lists.linux.dev, ionut_n2001@yahoo.com, sunlightlinux@gmail.com, linux-kernel@vger.kernel.org
-In-Reply-To: <20261126134410.17447-2-ionut.nechita@windriver.com>
-References: <20261126134410.17447-1-ionut.nechita@windriver.com>
- <20261126134410.17447-2-ionut.nechita@windriver.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 27 Nov 2026 13:46:09 +0000
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qsSgoHTp
+Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2f0918f9e6cso23985585ad.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:46:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795787172; x=1796391972; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=mIOi4XotjSG5N0aylWyaQJUjmIRTPs8fHeL4rfibqSA=;
+        b=qsSgoHTpvT/9ctbzZttJZbtP2h5pd+ESqc8K/2LSApxjk/xCp20O7Fx9kzvh8G6913
+         7ZnaOx9ePfZQFSFrXeKpDFzMGe903VH/MGVYaeQN9rORudZ7+77YhFmlHb/7kXxEKLCM
+         DTG6EbON6clJR0AvkEmLs0oWREJkTIbwlTzyyNb2obn3/UfC2sGXsjUgAD8vQ/b+fObq
+         WGsVkxQf4nbTj6KKbRaJKRsxodoDy4rhSUX4QxsnplgzF/G/Ky6T81XzaoXbDStAZrq0
+         ua9/JpZIS5oTK/rksg14NStePupbw5EDsZXPQqpy3cyTW/kRk1fIQWZ0H/na+TYZCPXU
+         nhrA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795787172; x=1796391972;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=mIOi4XotjSG5N0aylWyaQJUjmIRTPs8fHeL4rfibqSA=;
+        b=Rhg9yq+GpBxDAUwPVbM1ykpz1PCcTqwbNJrhFEiimzCPe3H1+7tNqaIATKHXTQvbHi
+         2S9lTPBVfmFLWuryYPuUMCOprU7GSSNHnbxmTxj9wTvqcw8Kq0stKatgLtT9wCYwhkVW
+         ASZHN9SrhvJgscvUyV229GIFh3jNuNMHmIDU7U93MSDisQ2BjiDTB2kuzPGs6fKrTJmm
+         YHoPpqxFk8vqWbxwYzGgCrVqZcK+dmVVfT2cYSdikQ971QC+pvGyC73ZSj170Xk1QGYo
+         PfSDZIIZG0DuvnsJSto30Pu4k/TT8d5b6NVzuiukfgrJlhvPcKKZsB7aNN6cXXq7hiHE
+         XJWQ==
+X-Forwarded-Encrypted: i=1; AL+hErEQ49MvOmXrakuE2MBEImuOzesxcbCvoKX/JlipmDnECCW3tLCtFmYDCU6RDPVPabLTlkvO60tuWrXIzLU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+kGhFoXeWKMyZeeukfOI3ZAhS+9V/5wmWJ1ocQ7g82slxYmjqd
+	ClU5l0y4ZXLu9C/fxQEwGZh9Jb3TaRuzqPoU+5mCx1yT+m0pjP/gDBIl
+X-Gm-Gg: AZFdTZeHH1F8X1PeeoMPiQ339qfH9hOeHa56JrxuBRfBaNJypB8sEE0LY+VHEzc7KvD
+	W9Mvn9JvopdhllEV9pQUGo6JxwsakS92dFWXvpPMCfXmb6SIL5hscM+l1tcpLr+lHmL1tnS145g
+	vej6rwvwxBuRiXXDrKjHLrvlJOf065LSmkrW8bOwbCxgr7hlDRfYka8LqlTTtB2ZpFm0FzOSnIg
+	5bVApf+ybUUvokpjs5tSlXKU5qgsMBYXLDXEDzWYrPycw7RzVfUlb/RkNJ/x5qaCMtuKko5f+8P
+	rZwO6FP2b3zKox0WtDReyAKG2HfyHQh984+bbowEZGvoiVOUkS6epBZkQVmKaHedb3ySZjPLnbG
+	7Yn9M3qSYP9WlBZv51P7sTq6QwoNXZGs3V4ArS4ArGwJmJvlrzPZkuIh7rWWAI2OhZcyIn7q0B+
+	3bhEsCNNX15JFKeEWHf8IdTxloFIgKmPawhz1sSQCMHBFaINsAkG3ZDGBmVAllNqoiftmrxKCwV
+	eYjjoNByM1YUBD6+3m+SSE7MOby66+VQVsZgnGtVWRWOaE83NhQ2GnbVCXIk5HLiFYJunAGIdKj
+	1LKU4a0og8mpaNrTT2ArXSj9nNejNCkI3ee+LXzfDpnANw==
+X-Received: by 2002:a17:902:f792:b0:2ef:e864:e0fe with SMTP id d9443c01a7336-2f03f1d70abmr227466355ad.25.1795787171767;
+        Fri, 27 Nov 2026 05:46:11 -0800 (PST)
+Received: from localhost.localdomain ([2404:c0:aa07:12b3:e89:dfdd:d14b:d911])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1f2csm121741545ad.22.2026.11.27.05.46.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 05:46:11 -0800 (PST)
+From: Hikmah Gumelar <hikmahgumelar@gmail.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	Abel Vesa <abelvesa@kernel.org>
+Subject: [PATCH v5 6/7] arm64: dts: qcom: msm8953: add CAMSS node and MCLK pinctrl states
+Date: Fri, 27 Nov 2026 20:45:06 +0700
+Message-ID: <20261127134507.125513-7-hikmahgumelar@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261127134507.125513-1-hikmahgumelar@gmail.com>
+References: <20261127134507.125513-1-hikmahgumelar@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,99 +109,181 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issues to consider:
-- [Medium] mm: stale drain count and extra lock bounce in
-  decay_pcp_high()
-- [Low] mm: data race on pcp->high_min and pcp->batch in
-  decay_pcp_high()
---
+Add the camera subsystem (CAMSS) node and MCLK0/1/2 pin control states
 
-commit d20e26af9bbff82ca7f7d0c2d4fea5dc5d2bd609
-Author: Ionut Nechita <ionut.nechita@windriver.com>
+to the Qualcomm MSM8953 SoC Devicetree.
 
-mm/vmstat: decay pcp->high of isolated CPUs from vmstat_shepherd
+Signed-off-by: Hikmah Gumelar <hikmahgumelar@gmail.com>
+---
+ arch/arm64/boot/dts/qcom/msm8953.dtsi | 145 ++++++++++++++++++++++++++
+ 1 file changed, 145 insertions(+)
 
-This commit makes vmstat_shepherd() remotely decay pcp->high and drain
-excess per-CPU pages for isolated CPUs, acquiring pcp->lock while
-adjusting pcp->high in decay_pcp_high().
+diff --git a/arch/arm64/boot/dts/qcom/msm8953.dtsi b/arch/arm64/boot/dts/qcom/msm8953.dtsi
+index 753167c3f861..396472ba8f28 100644
+--- a/arch/arm64/boot/dts/qcom/msm8953.dtsi
++++ b/arch/arm64/boot/dts/qcom/msm8953.dtsi
+@@ -753,6 +753,27 @@ i2c_6_sleep: i2c-6-sleep-state {
+ 				bias-disable;
+ 			};
+ 
++			camss_mclk0_default: camss-mclk0-default-state {
++				pins = "gpio26";
++				function = "cam_mclk";
++				drive-strength = <2>;
++				bias-disable;
++			};
++
++			camss_mclk1_default: camss-mclk1-default-state {
++				pins = "gpio27";
++				function = "cam_mclk";
++				drive-strength = <2>;
++				bias-disable;
++			};
++
++			camss_mclk2_default: camss-mclk2-default-state {
++				pins = "gpio28";
++				function = "cam_mclk";
++				drive-strength = <2>;
++				bias-disable;
++			};
++
+ 			cci0_default: cci0-default-state {
+ 				pins = "gpio29", "gpio30";
+ 				function = "cci_i2c";
+@@ -1214,6 +1235,130 @@ mdss_dsi1_phy: phy@1a96400 {
+ 			};
+ 		};
+ 
++		camss: camss@1b00020 {
++			compatible = "qcom,msm8953-camss";
++
++			reg = <0x1b00020 0x10>,
++			      <0x1b30000 0x100>,
++			      <0x1b30400 0x100>,
++			      <0x1b30800 0x100>,
++			      <0x1b34000 0x1000>,
++			      <0x1b00030 0x4>,
++			      <0x1b35000 0x1000>,
++			      <0x1b00038 0x4>,
++			      <0x1b36000 0x1000>,
++			      <0x1b00040 0x4>,
++			      <0x1b31000 0x500>,
++			      <0x1b10000 0x1000>,
++			      <0x1b14000 0x1000>;
++			reg-names = "csi_clk_mux",
++				    "csid0",
++				    "csid1",
++				    "csid2",
++				    "csiphy0",
++				    "csiphy0_clk_mux",
++				    "csiphy1",
++				    "csiphy1_clk_mux",
++				    "csiphy2",
++				    "csiphy2_clk_mux",
++				    "ispif",
++				    "vfe0",
++				    "vfe1";
++
++			clocks = <&gcc GCC_CAMSS_AHB_CLK>,
++				 <&gcc GCC_CAMSS_CSI0_CLK>,
++				 <&gcc GCC_CAMSS_CSI0_AHB_CLK>,
++				 <&gcc GCC_CAMSS_CSI0PHY_CLK>,
++				 <&gcc GCC_CAMSS_CSI0PIX_CLK>,
++				 <&gcc GCC_CAMSS_CSI0RDI_CLK>,
++				 <&gcc GCC_CAMSS_CSI1_CLK>,
++				 <&gcc GCC_CAMSS_CSI1_AHB_CLK>,
++				 <&gcc GCC_CAMSS_CSI1PHY_CLK>,
++				 <&gcc GCC_CAMSS_CSI1PIX_CLK>,
++				 <&gcc GCC_CAMSS_CSI1RDI_CLK>,
++				 <&gcc GCC_CAMSS_CSI2_CLK>,
++				 <&gcc GCC_CAMSS_CSI2_AHB_CLK>,
++				 <&gcc GCC_CAMSS_CSI2PHY_CLK>,
++				 <&gcc GCC_CAMSS_CSI2PIX_CLK>,
++				 <&gcc GCC_CAMSS_CSI2RDI_CLK>,
++				 <&gcc GCC_CAMSS_CSI_VFE0_CLK>,
++				 <&gcc GCC_CAMSS_CSI_VFE1_CLK>,
++				 <&gcc GCC_CAMSS_CSI0PHYTIMER_CLK>,
++				 <&gcc GCC_CAMSS_CSI1PHYTIMER_CLK>,
++				 <&gcc GCC_CAMSS_CSI2PHYTIMER_CLK>,
++				 <&gcc GCC_CAMSS_ISPIF_AHB_CLK>,
++				 <&gcc GCC_CAMSS_MICRO_AHB_CLK>,
++				 <&gcc GCC_CAMSS_TOP_AHB_CLK>,
++				 <&gcc GCC_CAMSS_VFE0_CLK>,
++				 <&gcc GCC_CAMSS_VFE0_AHB_CLK>,
++				 <&gcc GCC_CAMSS_VFE0_AXI_CLK>,
++				 <&gcc GCC_CAMSS_VFE1_CLK>,
++				 <&gcc GCC_CAMSS_VFE1_AHB_CLK>,
++				 <&gcc GCC_CAMSS_VFE1_AXI_CLK>;
++			clock-names = "ahb",
++				      "csi0",
++				      "csi0_ahb",
++				      "csi0_phy",
++				      "csi0_pix",
++				      "csi0_rdi",
++				      "csi1",
++				      "csi1_ahb",
++				      "csi1_phy",
++				      "csi1_pix",
++				      "csi1_rdi",
++				      "csi2",
++				      "csi2_ahb",
++				      "csi2_phy",
++				      "csi2_pix",
++				      "csi2_rdi",
++				      "csi_vfe0",
++				      "csi_vfe1",
++				      "csiphy0_timer",
++				      "csiphy1_timer",
++				      "csiphy2_timer",
++				      "ispif_ahb",
++				      "micro_ahb",
++				      "top_ahb",
++				      "vfe0",
++				      "vfe0_ahb",
++				      "vfe0_axi",
++				      "vfe1",
++				      "vfe1_ahb",
++				      "vfe1_axi";
++
++			interrupts = <GIC_SPI 51 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 52 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 153 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 78 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 79 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 315 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 55 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 57 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 29 IRQ_TYPE_EDGE_RISING>;
++			interrupt-names = "csid0",
++					  "csid1",
++					  "csid2",
++					  "csiphy0",
++					  "csiphy1",
++					  "csiphy2",
++					  "ispif",
++					  "vfe0",
++					  "vfe1";
++
++			iommus = <&apps_iommu 0x14>;
++
++			power-domains = <&gcc VFE0_GDSC>,
++					<&gcc VFE1_GDSC>;
++			power-domain-names = "vfe0", "vfe1";
++
++			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++			};
++		};
++
+ 		cci: cci@1b0c000 {
+ 			compatible = "qcom,msm8953-cci";
+ 			reg = <0x1b0c000 0x4000>;
+-- 
+2.47.3
 
-> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-> index ce44b8fc45aaf..aa9904eaf6e62 100644
-> --- a/mm/page_alloc.c
-> +++ b/mm/page_alloc.c
-> @@ -2586,8 +2586,13 @@ bool decay_pcp_high(struct zone *zone, struct per_=
-cpu_pages *pcp)
->  	int high_min, to_drain, to_drain_batched, batch;
->  	bool todo =3D false;
-> =20
-> -	high_min =3D READ_ONCE(pcp->high_min);
-> -	batch =3D READ_ONCE(pcp->batch);
-> +	/*
-> +	 * pcp->lock is taken because the pageset may belong to a remote CPU,
-> +	 * see decay_pcp_high_cpu().
-> +	 */
-> +	pcp_spin_lock_nopin(pcp);
-> +	high_min =3D pcp->high_min;
-> +	batch =3D pcp->batch;
-
-[Severity: Low]
-Should pcp->high_min and pcp->batch still be read with READ_ONCE() here?
-
-pageset_update() updates pcp->batch and pcp->high_min with WRITE_ONCE()
-under pcp_batch_high_lock without taking pcp->lock, so plain loads can
-data race and allow the compiler to reload them across the comparisons
-and max3() / min() calls below.
-
->  	/*
->  	 * Decrease pcp->high periodically to try to free possible
->  	 * idle PCP pages.  And, avoid to free too many pages to
-> @@ -2601,6 +2606,7 @@ bool decay_pcp_high(struct zone *zone, struct per_c=
-pu_pages *pcp)
->  	}
-> =20
->  	to_drain =3D pcp->count - pcp->high;
-> +	pcp_spin_unlock_nopin(pcp);
->  	while (to_drain > 0) {
->  		to_drain_batched =3D min(to_drain, batch);
->  		pcp_spin_lock_nopin(pcp);
-
-[Severity: Medium]
-Can dropping pcp->lock before and between drain batches without
-rechecking pcp->count - pcp->high over-drain the remote PCP list and
-spin on pcp->lock and zone->lock?
-
-When decay_pcp_high() runs remotely from vmstat_shepherd(), the isolated
-CPU can allocate from PCP or drain its own PCP list in
-free_frozen_page_commit() while pcp->lock is dropped.  Because the loop
-keeps draining the stale to_drain count rather than re-evaluating
-pcp->count - pcp->high under pcp->lock, it can drain the isolated CPU's
-PCP cache down to 0, well below pcp->high:
-
-CPU0 (vmstat_shepherd)            CPU1 (isolated)
-decay_pcp_high_cpu(1)
-  decay_pcp_high(zone, pcp)
-    pcp_spin_lock_nopin(pcp)
-    pcp->high =3D ...
-    to_drain =3D pcp->count - pcp->high
-    pcp_spin_unlock_nopin(pcp)
-                                  rmqueue_pcplist() / free_frozen_page_comm=
-it()
-                                    /* lowers pcp->count to <=3D pcp->high =
-*/
-    while (to_drain > 0)
-      pcp_spin_lock_nopin(pcp)
-      free_pcppages_bulk(...)     <-- drains below pcp->high, down to 0
-      pcp_spin_unlock_nopin(pcp)
-
-Once pcp->count reaches 0 with to_drain > 0 remaining, the loop keeps
-running every remaining batch iteration, taking the remote pcp->lock and
-calling free_pcppages_bulk(), which unconditionally disables IRQs and
-takes zone->lock even when count is clamped to 0.  Also, unlocking
-pcp->lock right before the loop and immediately re-locking it for the
-first batch adds an extra remote lock bounce when to_drain > 0.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20261126134410.1744=
-7-1-ionut.nechita@windriver.com?part=3D1
