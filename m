@@ -1,70 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.41
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795805000;
-	b=t+6F+ode+pwxrRK5LLPpEhDc9b7mto/QQpq8XrCrKHz+R5X1I20cG4+Q0X+WGZjGugMK
-	 oAIfZ8dssaR14XN97OlPOyMhoRAYSK79bFbLyuXUvbuXm5VzZqwtYLzn+C7urZfCJnvsG
-	 pGvhOBB/MIiV1LrowC8JMvYvGaWyseCEmzdhwZsPh14FRcRbF9NMgwHxZrUa8B+bhm9y4
-	 OD5SiRjpnzWO4+2TmrEY8qrNLJcYJouRH+5tgKexVaEPVkEL+bBnXzFh6k/TeQH/c6QZN
-	 YyxEN2DvM/OwQLOiScW6kWEJBkWdyAdGjnaBJ3FzS2Ec2oykBjFkku6TI5Lf08URckg==
+	t=1795805082;
+	b=x9hVXIH7dgqZE1XhXvKOhqjMu6pXagwUSmsHRBEStBcA/kt7EeWuiKSp8wqtEK9oI1wz
+	 Q2QQrjQmmICgPxtf0QeqXsAOLYxYtdxDMNsiVE7cDko8FMtqedbXXJckvKKXV27atYIrd
+	 2hJgHkXAVKfODDQkdD2CevnbIstAYn/Xp7q1t4vRb9a/Ae/hydW1CEZjAIiL6AyuSA7ee
+	 lk1Ta+X44tMPXNNHdzWh5XOwDwaFcP7eEfX2gYnhvM24XPsyYp35qbOZYCfq1k4GKM/I4
+	 HmGn277g3IortSswjtYVGA5z5g8ynJDlYECYfLejUzemQVVf795B4kSLPjfJAkMaUAA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795805000;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-ZohoMailClient;
-	bh=RZV2Bz1rnR1nwBwCIHteBeBwrgGrqm/NvJnIi7wGD7A=;
-	b=ow4GKHWGiPz/uvEJHX+gBaCffoykr5nahkSKdkCW/SIDIJEztWBQwipP0vx7LoWfYlLV
-	 q7Cjp6olFj3vRC5RvDiZZhI88wpjZBBsysIhD6NIsUVI5Ppa2SQNb/r0Ubd4ZvHSaUCU4
-	 KAiXvEFnWgHhm/7HcvXXHczVnQJVoCyDWxxbaJbMhkBxu8+0oaXCxONXp+ak6mtNRyggR
-	 hFe3A74UNmFVpWHUjFjThXu5/NnigNj00w2X5pT6auccgU2LLsCep1DEBhO0i7DfpjN5t
-	 Pxn89bXI6m35wwQ0tE3gqK8NCFnqbEVnQPGZUHLwV/MZBVHU+wTtgE3/75zG/D2nBmA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795805082;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=zTjWzbnUUC8dN1QyYk20s5zHqmG8btAZ5mtIxbCNZ00=;
+	b=Ihx9z9nENRoxPxjFLUbl8aGwf+/gL/xkk3Dfs5AY+94yLDtq040jCob0QssBO04MJNa1
+	 a6x1d+dOUY4SXtEofGNgkdRZolGuA0K4AUYF6XjKdSqXXsSzKCBr8K+HjDq8+zvOWewXT
+	 NhgC6gpPFxQRzLQRKP/iMSClUqh+KfDGqmZO2Tu3sknw+hPgVwmXS1Yqzjbfa25hqRIea
+	 bDN/O9jl+sqpPGK1o07kad5UJYd/EES5hv5C5uQLNlGpLQcIlGNCGNx9PIdqSEqT4iUi4
+	 MlAgI6A+77LNT2p5x0TtTja7xyTItLXJPAB9guB9IRQDX665hvU/pGZToybO844Wszg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=AlhFf8zC;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
-Received: from sender6-op-o11.zoho.com (sender6-op-o11.zoho.com [165.173.180.11])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S+PtFEQk;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.41
+Received: from mail-qv1-f41.google.com (mail-qv1-f41.google.com [209.85.219.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0A39606A321;
-	Fri, 27 Nov 2026 18:43:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0A39606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DB33606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:44:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4DB33606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=AlhFf8zC
-ARC-Seal: i=1; a=rsa-sha256; t=1795804954; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=WcZtN3tD/zjvkk8uI44gdbTyPfvaOlx2Uyw+n6EalGUJfhu2vyRP3ATf6Fs40uUjjalYJ977Uv0z2PRkZEQd4IE76JryonkGpgoiw1qvX9Tjg50seYZmaLv9K8mvWj/gPVkYdhK0u8bXblt9FClGbhL12aU4fpfWVvHFl6VtlEk=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795804954; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=RZV2Bz1rnR1nwBwCIHteBeBwrgGrqm/NvJnIi7wGD7A=; 
-	b=msZ1BEW68rpZfIn05UPZaNVYPC8P2EHyim38o+oe5zt9X9dp44yOvAx9CnvPK5qD/D1GBqYnuT/2sBQJt4EHNFrJqJF3szqKvjcqHtF+1tXkCDkPW/S46i+J8E8M7FLiXTWXTUVGU/U0NSV+81pRf4Z5ehYkZFrVipV5e7U4UzA=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
-	dmarc=pass header.from=<detlev.casanova@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=AlhFf8zCtIALPrXe8zga3TTnuSQt0lRzQGYtAzDrHn++w3fCVG+LhzmCx3usebRtnZHI1BJiwQhUVIvcEw6uiMt6Y9Crx6rnJoiYG0SEBR0fRflpO+xdg7OInUwN4YW4I9QP9CdbTZaNb+O6aUic1mFDxOzvtuMlUIk52JxFIY4=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=RZV2Bz1rnR1nwBwCIHteBeBwrgGrqm/NvJnIi7wGD7A=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795804951277426.7074106650923;
-	Fri, 27 Nov 2026 10:42:31 -0800 (PST)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Heiko Stuebner <heiko@sntech.de>, Hans Verkuil <hverkuil+cisco@kernel.org>,
- Jonas Karlman <jonas@kwiboo.se>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Cc: Sven =?UTF-8?B?UMO8c2NoZWw=?= <s.pueschel@pengutronix.de>,
- kernel@collabora.com, linux-media@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/5] media: rkvdec: Remove unused need_reset
-Date: Fri, 27 Nov 2026 13:42:29 -0500
-Message-ID: <sHCcy4ZARIqHsoGbYpMAqg@collabora.com>
-In-Reply-To: <c0da8a7d22c6b837c2c8d62e6d267b54d6ed28f4.camel@collabora.com>
-References:
- <20260810-rkvdec-multicore-v2-0-986f89d22cdc@collabora.com>
- <20260810-rkvdec-multicore-v2-2-986f89d22cdc@collabora.com>
- <c0da8a7d22c6b837c2c8d62e6d267b54d6ed28f4.camel@collabora.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S+PtFEQk
+Received: by mail-qv1-f41.google.com with SMTP id 6a1803df08f44-9213fddb596so37925586d6.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:44:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795805081; cv=none;
+        d=google.com; s=arc-20260327;
+        b=rqJBorEJCuBMX3xRvGZB77bsvXeANPTyH4A1AATkpR90mnwiVFJE8F0PLfqc1G8HUX
+         rYw16UxZ74eW7tsIfU2ybzUhtvwssUpq+7tu227owkzlPR/0GycqFHmAK3QKas4vVBeH
+         qBeP01DLbFdwdSsAxSDS93RnfczHjTOKTgs0zGluSVVL8g4NUlbFDTOggK/F85fghjn3
+         Nq4mcf3ljyDW52AGuJPJNn3Y487TUXrXvfeXZ85lnAAKaEtx4QLevsqtnDL3ZIb1JmhJ
+         WDUO5g8okU+KvBUvvw3oWhDPhd4RwE/qqoMNXAHk/xtNSz0BUZSEz5cCflCcFMqpvc9Q
+         bunA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=zTjWzbnUUC8dN1QyYk20s5zHqmG8btAZ5mtIxbCNZ00=;
+        fh=vYJPeFufjxUqDSWW1EpSdSLVtMEGG3/8yqYHkPFk18Y=;
+        b=Hp3UB04bOb+YLhuJ8I+1qi1RgUpg494u4bf8x7Hp2dbxgnxRjt2fLf7GUdcqWKv6VJ
+         nZ3P4pahYkrUoAg0PqVZsDToZuHHp/qgxstLeXprZFRiePdm8cbgtR2keJw+c0GdZnE1
+         /uwtal41hgv2Tgejgz9MpH2W6cpes8029xmaLY6pH3Iep69frubb7kx3N84yW/Lz04uk
+         WzSFom6lTwAmJtfXBPJSMqcMY+kG/N8VCPyb22aU+SIVRyGbe3DWXdQeymJIXP6HkmFM
+         VL84VzHr2ClUwe4E0OJKX5Xsi4GlhtYYA/ID47uXPHsI23Mkm1WEmY5OSbfj0M/iDUXQ
+         D/gg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795805081; x=1796409881; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=zTjWzbnUUC8dN1QyYk20s5zHqmG8btAZ5mtIxbCNZ00=;
+        b=S+PtFEQkyzOCD9qVC/M0fxTz3Dk6GUpnzqvJ5FAG/DeDrvmbRS6p+tQvVhkOsLppkU
+         bDLbMkGr2Qs8jr0kf8bM7SFMTzuwWrtU8oLmjTBGOx4X45yr5q5JXqjD9/hpVveLOr/Y
+         BDEdk3YFCLUjE1Don6vh/0rTIyHmUG3C6XL23SIrXbj5u8aWuXfs70xdVpyrdbQ4agwf
+         +z4Lu1Cdq+fVVPxh0uHdP580aoXozNodSm2xFEtFJxl3rQQhSLRpG0BxXs7YEt8oIX64
+         0u83jrGtqFehNdLCsGTxS1xUwHa0FZwHr4pizt1fL4vrWaHIQxSdgP+UZvLY6WrLJGA0
+         pr1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795805081; x=1796409881;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zTjWzbnUUC8dN1QyYk20s5zHqmG8btAZ5mtIxbCNZ00=;
+        b=Krz09/GjGK5G+3o5zvOKSj4d85ooOq/nCBvnBqnGh232RYj/KfvTZoJzkt/wv4mpPl
+         qPT4S4W/XFntGLU0eBrSswWituW2h0NqodYQ47LjOVOfMsmacg+Nooyk1IFymOf6VenH
+         nQfROx81tGHz2wR+xlkkAdmlhSX+bxXwITM/qHt2yglJ/OPA/gpuLmVwDsdQwF8WjHeF
+         FB7hTtAEIFaySrgQqwXMBa35uKaD5EBgwdhKTb08ooFJKu21K8a4go4SSGhdkDJefdFe
+         bw4NA8Qz+8C64SBGTS4foiU4wlRASuuXAXti36ggzZOwnAwbdERDOU8biF8tsPiswrWv
+         0lEA==
+X-Forwarded-Encrypted: i=1; AL+hErGYzYMm7jZM8BBxs/SnSSmy8QlWiCPGDccuU6gDAdpIu0TJlfwPc+Cs3vRGuiTe2eOaWep0cLCrqkrH+ic=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+k/xzha3x/dkDu2lbFndq1wvohOBFY4uEoavM1SdCz54AwPyS/
+	w90TXTKCwPon9An/2UTI8QZNojhqW8IwEA4e+PgM2BJcBMAjt1LvMBVNHgagwx9WxsrCrOb6y/n
+	SXMpK2/kkp09k3qQ3wlsSEwxp4RVCgfM=
+X-Gm-Gg: AZFdTZd5lMOKH2kDHPRC+/qSiI0mv0lExP4nF9B6zcabVBXR2lrKfddLSDROUX2jRMy
+	opQVUCUdRSrEXtj7WeVdJue1S0yZbLBlxXIvKrGEiOnSdke5r2u1CTZGRCHHWjzqGitw1vmTFO6
+	FM2NM9J3vDdr3ETBe2+lP67nqKliBR8VuN3eifZ4gdhZzz3KNa77UsWTGUj84xr9bG5xqzM6tys
+	r19TkUD3dRSssFo7qkgetvxTns2j6zAO6RhWID91MQIzb15f+X9GmxZjX8NfIv28fQfPLwwGC+0
+	LRERYEOpXmUTUTQRAOZMGhqZnkRkDJB4h3EOpu94Zr0PxEpVE8YLFrSHekCJWfsHXMTnUI9buuR
+	OVSw3iMpyZPFw6BGqHyTkADlcprHTSHsoNuqI
+X-Received: by 2002:a05:6214:3107:b0:921:404d:f460 with SMTP id
+ 6a1803df08f44-921404e1bc5mr411681906d6.23.1795805081366; Fri, 27 Nov 2026
+ 10:44:41 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,31 +104,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261127041853.127855-1-artem122novak@gmail.com> <20261127184010.GA1974@quark>
+In-Reply-To: <20261127184010.GA1974@quark>
+From: Artem Novak <artem122novak@gmail.com>
+Date: Fri, 27 Nov 2026 12:44:30 -0600
+X-Gm-Features: Aa3M54rlpHYUJnbfYeC7GS2lHvHK4qXZFgCeLBOIW_h40HEFsgENFGq8tkyvopg
+Message-ID: <CAPufuha3cspM+oLjtb_P0u3H0ZchD0qDR9D6Js3LEW=HACc+Rw@mail.gmail.com>
+Subject: Re: [PATCH] crypto: sparc: remove trailing whitespace from AES assembly
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Jason@zx2c4.com, ardb@kernel.org, stian@itx.no, 
+	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-ZohoMailClient: External
 
-Hi !
+Hi Eric,
 
-On Thursday, 19 November 2026 12:35:43 EST Nicolas Dufresne wrote:
-> Le lundi 10 ao=C3=BBt 2026 =C3=A0 11:22 -0400, Detlev Casanova a =C3=A9cr=
-it :
-> > A left-over from the iommu restore mecanism was forgotten.
-> > As need_reset is never set to true, the if has no use.
-> >=20
-> > The actual restore function is called above it vase the IRQ isn't in a
->=20
-> Tell me what you wanted to say instead if "it vase the IRQ", or define the
-> verb "to vase"?
+On Fri, Nov 27, 2026 at 12:40=E2=80=AFPM Eric Biggers <ebiggers@kernel.org>=
+ wrote:>
+> I don't think a single trivial whitespace cleanup like this is worth a
+> commit.  (And the trailing tab here isn't new, either; it's inherited
+> from the original code from 2012.)
+>
+> - Eric
 
-It's not a verb, it is very ancient belgian English meaning "in case".
-
-> > success status.
-> >=20
-> > Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
->=20
-> Reviewed-by: Nicolas Duresne <nicolas.dufresne@collabora.com>
-
-Detlev.
+Alright, I'll drop this change.
+Artem
 
 
+>
+> On Thu, Nov 26, 2026 at 10:18:53PM -0600, Artem Novak wrote:
+> > Remove the trailing tab after the key expansion label in
+> > aes_asm.S.
+> >
+> > Signed-off-by: Artem Novak <artem122novak@gmail.com>
+> > ---
+> >  lib/crypto/sparc/aes_asm.S | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/lib/crypto/sparc/aes_asm.S b/lib/crypto/sparc/aes_asm.S
+> > index fd90b129972f..0ddf181f342e 100644
+> > --- a/lib/crypto/sparc/aes_asm.S
+> > +++ b/lib/crypto/sparc/aes_asm.S
+> > @@ -293,7 +293,7 @@ ENTRY(aes_sparc64_key_expand)
+> >       ba,pt   %xcc, 80f
+> >        std    %f58, [%o1 + 0xc8]
+> >
+> > -1:
+> > +1:
+> >       /* 192-bit key expansion */
+> >       ld      [%o0 + 0x10], %f4
+> >       ld      [%o0 + 0x14], %f5
+> > --
