@@ -1,125 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.7
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795809118;
-	b=I7F6KY7OH1wPWHhwF+6Op6SXsQ5WScIgy+7bxsXuU7/WvOFaZimGZuqRbDFZGtuybUzt
-	 u5Gs1Yl35nA+ioEJjV01j63RTa/DAyW9nnsdFIuTlG+5eM7xv/u20Ax7YqyjmbSJKBNYy
-	 uymy5xKQMOQELmEUu0+yWLM+Ho2OUFxIjVCWbU57zsVjiCt09e8iG5PnX+Drvq0Fn2nUJ
-	 oUVh1BxWf5JJD1sQ9qduudS9s4lMRFK3MYXkfd9fn0OIihOCvALbYjq1Hi1zk4gUOEFbr
-	 BINMZy3fcuK38uio9RzV0lrgDsydC5j4UiRqH8LRYnqum92HU7ODispOXbwLmBicP7Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795809118;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:Date:From:To:CC:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-NV-OnPremToCloud:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=sszx2dCOUrs1iIqSfZgFE+TowPKkpE+xPVt07ojtwj0=;
-	b=YIaTIZhMfjPMs4lExx7A0XleJtnkTEY6bJMGkD/7SaN6xrAAQeeBDVLcpVasY5RazoBR
-	 f1OueDVm3BIvrb5rvF1mjrQ3GDMJAF1HLFi1brjwdJC1bJtxpfyWJZ8QE4thciHiFJFce
-	 KHRkQNwtlKskBbhlF44HqJiDBuDSEsj2tv56LZhkT+K6X9gtV4OSml0FtPyRuMIzi/9Qr
-	 wwBMLsHiMVAfZ2thDr7Mxek8gtxuKE1NXp4zE0VRLOsVe8ZdsiyvQAdWFcj9RzpnBZkhE
-	 8Y0ew6lcy0Dl3qJjqdZVQfxJemfAOtdBuSuSE2toa0ORODk9SGCa1DXy/d5QUPqOo4Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=cDDGOJX+;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.7
-Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010007.outbound.protection.outlook.com [40.93.198.7])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795809306;
+	b=OrVEiDtFwWQOzKpC7Vk+kaOtdU+YCxp8ltCuBvOI+wclIo2j+BYjg4w7iz+VmNLBi5p2
+	 luyMbdI/4PfLdyqYXNHnDTq0tJOJRhlXpBGxhXuKmcWuGEy/feNkjqCq7kLK7KqQel26v
+	 X7VhpES16JGu26C0Fpp3j4xMGmPUgjIRP0Ci32XcO6ik0vjUTJm1S3MegbwsFjsZl4tPA
+	 FaLVFVO/76XxCWJD/K4kDFzM17cwXCDplBt9ZoF8OFD0RuXod+lkArLfYUQ6Tag/VbbZg
+	 +eHqhJ1gXZ0I4Y8WWANMiQI6IH8r+9aQ1+uWMsIu7DxEbEjPFzZdyEe4q86l8zlGQgw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795809306;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=3qVdKB6ysJiSAbj8SLymcIGNswAU+A4sxB14ghGct7M=;
+	b=FyZLNLdKvlsIVjjMY53RafQacGY5nItvUl3gDpfywqQNCrv9RY7+ZocQ5G2uwupu4vEX
+	 jqgZRJvv9zR1n4jbCiQ3nXrUKNdK2SkkYZpXBPKZY34+v10/DZ44jPXWeJT9cvGgjBb+i
+	 fnTfjuJ4nTJ+1Sp61APTVvKFC4mT8E8EEVkrsBLw29FuCnhAcIpHlieU9LDA4xB7szxtT
+	 r8lC6JNg7sKCYznd0bnoJ/dCzHCTsttWbBMw0ea3FnJvvz8VnmGiorueZJ0FQldp9fYjZ
+	 dmbKGSBmcWA3ul71dLYGTax7vwlCZq2UcmgvemL5EP9VCXRlg+Z4ynw+3o4M3TU7iVw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OfgwHbng;
+	arc=none smtp.remote-ip=209.85.128.46
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E37BF606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:51:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E37BF606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 184B4606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:55:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 184B4606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=cDDGOJX+
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NIbDN4HEmC1ZhAN58El6HGxhdx2XrBHfCeD2H8XNVD8wq+3pS8t0Qs7QPBAjFI8D57wmWsdCrrRfKfRlLcJTLM/psFNPnkrID9nIe5ICM1yousFuQFIIzopOcSvOro0gXzjESWr+VAPNWbnqOvTI42Y1uW9JLFmwhMPXEqyOrOV+0f9TdTs/gQhumoWXF8J8c6MkzDTryjy1fXqKjZ936xIvf5l0CE+iINd1i4QIK5QdO/rs3wht0wAlS9MJw+S/1Loi2VJXrT65tEw7n/jTIgtuCcCHvK2PjxuRo/vp9pWpu653BzVzjn5QFzy7p80nKvu22hK9u8dbvtZmJizOLg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sszx2dCOUrs1iIqSfZgFE+TowPKkpE+xPVt07ojtwj0=;
- b=buMM0vGDjif9IAVlvkXkldZJY83GVxqgALifJGGvQtK1hdvi61BZMopzqA6ivtyxbAiDvGwmFv3cqTNlGfvyqq7QSCsNA541YlxiS4bPmg1HJPIiCe7FaVa/P1nh+hg3YuzCwsxYBa9RllfeCX6gyHh+bC+8lsgqf3qtRHm/tkoCdakapfBVGvo8Bsl1DronAkw39hwyLaja0hdMhXi3/6sMxNytUyoVMxaRyRJsmHCyz75piWocgUDiT7vZAw6CGsrqjL6B/lt+SLqr5ICBeHzadlPpyd+73qaoC/YmkgoXplMdbXcYW4n5uBQepwkGsqPvIc5KhBv6JuB/xwR1SQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sszx2dCOUrs1iIqSfZgFE+TowPKkpE+xPVt07ojtwj0=;
- b=cDDGOJX+1tTlDnt5JA3ZpiL4exfgtqqp+4Hub/8b1KdHdVJN/xkm69hYozUPCr9aE/FOZU4PpBhMLCCHweHflRP1z+nmZiIzQFUYB2eR2hV61m30QVP5YYuJOZ9ibkhWWob7NAJdtpF0OUfRFPaiWlgcjTC39rgzUePeTTUogDWPGhI1MjRbufKnD3im3aIOOej8ZlODr8jlpyFH5vOW6uiK11k/z4a2XukTtn70LDoX3LUQa7ca3x/XJA2fKK8nO8QVoRcjfk7KwbXiSYoTRpIH77N4jc0hhecB+uOg1L1y3iQDyMQbxRZqdRHapGlGXjzJ9a4f4tPJSCnEPcox3Q==
-Received: from BN9P220CA0008.NAMP220.PROD.OUTLOOK.COM (2603:10b6:408:13e::13)
- by LY0PR12MB991900.namprd12.prod.outlook.com (2603:10b6:404:215::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 27 Nov
- 2026 19:51:53 +0000
-Received: from LV8PEPF0000006A.namprd03.prod.outlook.com
- (2603:10b6:408:13e:cafe::59) by BN9P220CA0008.outlook.office365.com
- (2603:10b6:408:13e::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
- 27 Nov 2026 19:51:53 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- LV8PEPF0000006A.mail.protection.outlook.com (10.167.248.43) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.688.5 via Frontend Transport; Fri, 27 Nov 2026 19:51:52 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 27 Nov
- 2026 11:51:39 -0800
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Fri, 27 Nov 2026 11:51:38 -0800
-Received: from nvidia.com (10.127.8.14) by mail.nvidia.com (10.126.190.181)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57 via Frontend
- Transport; Fri, 27 Nov 2026 11:51:37 -0800
-Date: Fri, 27 Nov 2026 11:51:35 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <joro@8bytes.org>, Will Deacon <will@kernel.org>, Robin Murphy
-	<robin.murphy@arm.com>, Catalin Marinas <catalin.marinas@arm.com>,
-	<rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Johan Hovold
-	<johan@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>, Mark Rutland
-	<mark.rutland@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Pranjal Shrivastava <praan@google.com>, Mostafa Saleh <smostafa@google.com>,
-	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<driver-core@lists.linux.dev>, Sonang Patel <sonangp@nvidia.com>, "Ankit
- Agrawal" <ankita@nvidia.com>, <shameerali.kolothum.thodi@huawei.com>
-Subject: Re: [PATCH v3 5/7] iommu: Introduce TDISP T=0 state for confidential
- IOMMUs
-Message-ID: <awnfR/U0Bi95B3UT@nvidia.com>
-References: <cover.1794343501.git.nicolinc@nvidia.com>
- <07ea92910895a2b0db33afefaa3a0ef182b2968c.1794343501.git.nicolinc@nvidia.com>
- <179563006502.253973.9155049351516451537.b4-review@b4>
- <awe6WgoiKaBTgINn@nvidia.com>
- <20261126145715.GG114472@nvidia.com>
- <awiLcoPfk0xxEL4A@nvidia.com>
- <20261126195346.GJ114472@nvidia.com>
- <awiaoX4RrQPP23OY@nvidia.com>
- <20261127174215.GR114472@nvidia.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OfgwHbng
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4bb606491faso44783945e9.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:55:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795809303; x=1796414103; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3qVdKB6ysJiSAbj8SLymcIGNswAU+A4sxB14ghGct7M=;
+        b=OfgwHbngyoP01J2mXTqm0yZjJp119A+MugO2h36TV9PYJG/god+vKoHsBwVKykQaVq
+         Kf6vfsUOUux5wWmQDX92x2QgZHy5hje4OXK1VW6zTLOkOvyPIeV5PiepvuJlCXcv9W+4
+         YeD45yil0FOIcnucvld0/QyU6DaxFTITn1jQNLfIKiDmTHiV6CJic7Ju2VqnQqDpzn8p
+         WFMCRb98E6LCKdY3OyJ3cXO4fCsXieDlbX6H8XP6TWc7oyql7XghG7yNs5L0j3AcobAI
+         q+xETJUu5XZog1JY4pVnpgdVSRszns53gyPxaZX9Ae1tfRIGsdbUyxEt+ziWM3zFk9KD
+         0q8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795809303; x=1796414103;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3qVdKB6ysJiSAbj8SLymcIGNswAU+A4sxB14ghGct7M=;
+        b=UoKOjlk93d6XMMFI8eQMOGk4bzJlN07R3whYBOmWsvjhODep7dUFennvHL6FMkVWw9
+         t3hr0PQeB4GdM9kEw6b/sW+ZZlNuB0GqhvmmTvDW5983fSMqeDELqM7NKishJa/sfG0/
+         ThlXD9cLaIwWyuYZkYQWmsH6xjws+g8tNUF0SoyBlXGkCExg2b8FKhuJg6XE9aJUojr5
+         /KBzrBBEl05WXxAmK/O9ONZgX86C4rYGezSvjHm3D2OaRUWIldk1i0wE++x3pqveiz79
+         AYkcf/MID3928KzrbWGYQknPdY1SN7i3XN0dcVLAhvlv8FgNZw2LsbKmIL+ec4eIJJ1K
+         xILQ==
+X-Forwarded-Encrypted: i=1; AL+hErFp08b6Q881AzeyzZ/EBrmd/TVIHuYyRBshRaegDaMgwnkCf4/OcqrDE23PLowbD/lqrayxVvj+NfSZDwQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+nDdj/oAXoC0hHJAEfFCQChVSnN2aujX29fvS+IbovuB5m15Vr
+	vHzkM3t8sl/xnzpAsghr/agw0+N1jbnQ36u4R9IkRXt2uZCGyE+SwEZgBTs0YYL+
+X-Gm-Gg: AZFdTZcLL04Lt9sqpPlSRF4ycwmffl397FyqS/AucN+S6ljU9Q9mLJ1I3XO9AipNZKo
+	rRfJ0L+z2Qif6kOfokXuG7n+zJlxVMRnUZJ5Uu0spI4MHuqXE0Q+akWlpkcnXF5w5x3zO/dO4PM
+	45T9I+MwyDj2zCGQpojM9HFsxo3l0s/s2XbcPhdNRU1gDKjscWOQe+dS5s+K2jMNA3xn6EYwpxz
+	sRYY0SbMfR7Dj5mR4zO6JjfCjrtCrHTRWM+FBMgvDvh2cOLgsdpG+/heYzZRz/OFrWl/Nc5tn/W
+	uto6G//VzCjgXKmfoFabKCsH+s6DUbHQ20QRQICRsMWMrqfx0ckfLfxwmfQABlJF47gYBnT3+GL
+	MHAQRcYUkuNpI4Gq/J++9ili+tGN+wcnBUkk0/CkRKf7cG5DBNpt2cvLRIqiXQYSF+mK5OOFCYC
+	dBuVRvVh/sDifWtZwNEqLOVMWI/bnpXdxmfCwfs31mDF2YOW5uCMKdhOzMtajT0gFG9KFTVcI22
+	RTzgWXoTECzvqaVAULax2J6+4jUant+Bia0EMPii7Pkl67r2MK/ImYQmCZo7/DDiaMJwStkZLup
+	JerUXCFT88dKtkpRdgPJuv163/iy9aINcgTwUpxQOQ5Lx6m+eA6Wiwye+xZ2fE9qaZPrlTIgucb
+	tXGbgqvW8srDgkYnuJlAslM9SfY7PWH+pXBDbqpkOraPMvfqU6g==
+X-Received: by 2002:a05:600c:1d86:b0:4bb:6a5a:7824 with SMTP id 5b1f17b1804b1-4bb8892099amr557005455e9.30.1795809303067;
+        Fri, 27 Nov 2026 11:55:03 -0800 (PST)
+Received: from DESKTOP-IR7J1S9.localdomain ([105.98.211.158])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b2c5sm702231675e9.5.2026.11.27.11.55.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 11:55:02 -0800 (PST)
+From: Drif Abdelmalek Mohamed Said <drifabdelmalekmohamedsaid@gmail.com>
+To: Tyler Hicks <code@tyhicks.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Thorsten Blum <thorsten.blum@linux.dev>
+Cc: ecryptfs@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Jan Kara <jack@suse.cz>,
+	Seth Forshee <sforshee@kernel.org>,
+	Drif Abdelmalek Mohamed Said <drifabdelmalekmohamedsaid@gmail.com>
+Subject: [PATCH] ecryptfs: freeze protection fixes for ecryptfs
+Date: Fri, 27 Nov 2026 20:54:59 +0100
+Message-ID: <20261127195500.1414-1-drifabdelmalekmohamedsaid@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261114-kranich-banknoten-anheuern-5d0a2354a51d@brauner>
+References: <20261114-kranich-banknoten-anheuern-5d0a2354a51d@brauner>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -129,128 +103,438 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261127174215.GR114472@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PEPF0000006A:EE_|LY0PR12MB991900:EE_
-X-MS-Office365-Filtering-Correlation-Id: f4dead4f-01e8-4709-8f4a-08df4cbfe274
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|23010399003|376014|7416014|36860700016|1800799024|6133799003|18002099003|22082099003|261028144727099003|11063799006|261022105027099003|4143699003|56012099006|261021121427099003|10067099003|261021135927099003|261026121527099003|261102123227099003|261026140227099003;
-X-Microsoft-Antispam-Message-Info:
-	Pnt1MOhHf2rDg5+LEdy4eCyxzHmjsU2v5GbrKZkilPeuK+Dto0IeTGdQcj99GfRar6PySYBxgPatVthAEDsAoFPCgNgfqf59hYgx4JG1T8pci5A8IB3WHFa5cPyMfzb7o8w26p+UvBPO4htxql1Jw0375MKasboJZD056rotwQ5LrZImI7Z7q3cl2LD9VbU2Yc5n/wm24Y+OXbuqFR91yfetebUdr0cYswSLJKr+pM464YGm1hDcyErOZKcKqxdCDsdsWpTT8GLGlnnp+o83yQ0IxVHRksfziHIJwnFHJa9CNwplqpdfTeyf4FPRvc98k/NTwuujZ75Qs6rfPnF/h6NIFZB5yY6lOwzwnMtWUlE2gz10jk+EsdimcuQu8pjo0cu088mf1rbjaqQ2Pdo2uNbIeTWxJASlzhVM9aYwWSU+EgaT34/f/kIRZ0fdrdt8q5ONkoBP6gMzth4eiOFzWpLA4oPJD6+SrgYzpSOMi5Uy5TrXfJDUal9AJRqGUouKlfHuKp764LNdzj8miWJb6rzfhUHK4uDJpQL6mfmFss84wA9bMqasvUe7jVfBM1gj/968FbwPindiB7pXKJrvQesuWuqvC1fsjPzoqLAigzPFkZxECKCcMUnYqZuND8dC9kFHbKFdUcuuNvgeeu0UKaUsQAXiGcBIf5r559u/roY+dYSVUFxDaVf/DxfE6bddoeA0LXWb37EEcrTTcEyc5A==
-X-Forefront-Antispam-Report:
-	CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(376014)(7416014)(36860700016)(1800799024)(6133799003)(18002099003)(22082099003)(261028144727099003)(11063799006)(261022105027099003)(4143699003)(56012099006)(261021121427099003)(10067099003)(261021135927099003)(261026121527099003)(261102123227099003)(261026140227099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	WJTLQJ2R2shfwyR6hO7MHawE/zb0wsCVcBwKuAsLaU3tsKMdDCXteJ9fg3J80s636PEy319FbNKQck/YUrTaHK6n3njL1DbsSp9EMSdLjszubCvBG8mt8DfS0U3Jht3LmNctKFHxlH3JP/e8NRxZT2cyICwRjGWdESC2eOZkjIYxRE5QX0S+Y5JJ/HiLh5Erls6l3fbHt4kjPkUhCUWXbsboM3H3WAn65mlDYqz0BSdFhnbxb17xWRcnWaBkRD+cUvJgGpBmGCPFluEnqSdAIyvmwMvhGiESaBgT0lLUPC6dJsSK7x4X0XYRkfi77Y2eWsvIFUxfzt0XlXfORfy5vu/XxlUrzeG4pvv5i36x9NwFqTEYR8I5dwHC2tgGRcAYdsw2tyPAh5RhRx4crmOL/WO56Z2n3HlGKYMWcMx2vk0/PkXb9aerEIzuBjrFDRwf
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 19:51:52.9589
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f4dead4f-01e8-4709-8f4a-08df4cbfe274
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	LV8PEPF0000006A.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LY0PR12MB991900
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 27, 2026 at 01:42:15PM -0400, Jason Gunthorpe wrote:
-> On Thu, Nov 26, 2026 at 12:46:25PM -0800, Nicolin Chen wrote:
-> > On Thu, Nov 26, 2026 at 03:53:46PM -0400, Jason Gunthorpe wrote:
-> > > On Thu, Nov 26, 2026 at 11:41:38AM -0800, Nicolin Chen wrote:
-> > > > On Thu, Nov 26, 2026 at 10:57:15AM -0400, Jason Gunthorpe wrote:
-> > > > > On Wed, Nov 25, 2026 at 08:49:30PM -0800, Nicolin Chen wrote:
-> > > > > > On Wed, Nov 25, 2026 at 02:07:45PM -0400, Jason Gunthorpe wrote:
-> > > > > > > Though I am wondering if we really need the ATS stuff. Why do we need
-> > > > > > > that? The pci_ats_required() in the hypervisor should force ATS since
-> > > > > > > the hypervisor is not going to construct a vSTE or use a nesting
-> > > > > > > domain that would inhibit that? Can we just drop this whole patch?
-> > > > > > 
-> > > > > > Ah, you're right. It was added for non-pci_ats_required (non-CXL)
-> > > > > > cases where the ATS state needs to be in sync with the hypervisor.
-> > > > > > 
-> > > > > > However, the justification/usecase here is pci_ats_required alone.
-> > > > > > 
-> > > > > > One small concern is whether VMM always exposes the underlying ATS
-> > > > > > state or not to the guest VM. QEMU seems to do so. I did a test by
-> > > > > > dropping the patch: lspci in the VM still shows: ATSCtl: Enable+
-> > > > > 
-> > > > > It probably shouldn't do that, but it is also not harmful. The guest
-> > > > > PCI controls should be fully ignored by the VMM..
-> > > > 
-> > > > Would a PCI device driver (running in the guest) check the guest
-> > > > level ATSCtl state for its ATS pathway?
-> > > > 
-> > > > If VMM is not supposed to read through the physical config space,
-> > > > without this patch, I suppose ATSCtl would be disabled and ATS on
-> > > > RID might not be functional?
-> > > 
-> > > VMM does not bind guest vPCI ATS Control to the physical ATS control.
-> > >
-> > > ATS is controlled through the vSTE only on all arches.
-> > > 
-> > > Without a vIOMMU ATS is controlled entirely by host preference ie
-> > > always on if available usualy.
-> > >
-> > > There is no need for the guest to read or write the vPCI ATS config
-> > > space, but it does anyhow because it doesn't know it is a guest.
-> > 
-> > Hmm, I think we are talking about different layers.
-> > 
-> > I get that the physical ATS control is decided by either vSTE or
-> > the hypervisor.
-> > 
-> > But both the ATSCtl state and pdev->ats_enabled, in the guest OS,
-> > reflect the vPCI status.
-> > 
-> > Since VMM isn't supposed to read through the physical PCI config
-> > space, the ATSCtl state would be disabled.
-> 
-> The VMM needs to see that ATS is available on the vPCI capabilities.
+The VFS only takes freeze protection on the eCryptfs superblock.
+Operations like mkdir, rename and chmod can still change the lower
+filesystem while it is frozen. On ext4 this can trigger a warning in
+ext4_journal_check_start().
 
-For cap, yes. I meant "Enable+" vs "Enable-".
+Add helpers to take and drop write access on the lower mount. Take it
+before locking the lower inodes and drop it after unlocking.
 
-> > And pdev->ats_enabled would not be set, after we drop this patch.
-> 
-> > I agree that there is no need for the guest PCI device driver to
-> > read those two vPCI-related states, but if it ever tests either
-> > of them and gates its ATS pathway on it, this can break, right?
-> 
-> Normally the guest without a viommu will not do anything with ATS, but
-> the hypervisor forces it on for the guest. This is OK because without
-> a viommu there is no invalidation to worry about.
-> 
-> So the ATS state in the guest was never correct anyhow and we just
-> happily ignore it and appreciate that the hypervisor forced it on for
-> us.
-> 
-> When we added the viommu then the viommu has to control the ATS
-> because it is responsible to issue the ATS invalidations, so now ATS
-> is controlled via the vSTE EATS, not through the PCIe config space.
-> 
-> When we add CC we create a new problem, the VMM no longer sees the
-> secure vSTE so it cannot use that to drive the ATS anymore.
-> 
-> Instead the VMM is going to have to emulate the ATS enable bit and
-> route to a VMM controlled vSTE for the T=0 translation. When the
-> device is in T=1 mode, and a vIOMMU is enabled then it should reflect
-> the ATS enable into EATS on the non-secure vIOMMU.
-> 
-> Otherwise, in T=0 mode, when there is no vIOMMU, it should continue to
-> rely on the host kernel to set ATS to whatever it wants when it
-> attaches a simple S2 domain.
-> 
-> Thus, in T=0 mode there is no reason for the VMM to manipulate the
-> ATS, just like it doesn't manipulate it when there is no IOMMU driver.
+Use one helper for the lower notify_change() calls in setattr and
+truncate.
 
-OK. Thanks for the explain. The takeaway is that the PCI device
-driver should not rely on ATSCtl or pdev->ats_enabled for ATS,
-like what they wouldn't do that when there is no IOMMU.
+Use mnt_want_write_file() when writing the inode size xattr. The lower
+file is already open.
 
-Nicolin
+Keep the new holds separate from kernel_write(). It takes its own freeze
+protection, and taking it twice on the same superblock can deadlock
+if a freeze is pending.
+
+Fixes: eb04c28288bb ("fs: Add freezing handling to mnt_want_write() / mnt_drop_write()")
+Signed-off-by: Drif Abdelmalek Mohamed Said <drifabdelmalekmohamedsaid@gmail.com>
+---
+ fs/ecryptfs/crypto.c          |   4 ++
+ fs/ecryptfs/ecryptfs_kernel.h |  15 +++++
+ fs/ecryptfs/inode.c           | 121 +++++++++++++++++++++++++++-------
+ fs/ecryptfs/mmap.c            |   9 ++-
+ 4 files changed, 124 insertions(+), 25 deletions(-)
+
+diff --git a/fs/ecryptfs/crypto.c b/fs/ecryptfs/crypto.c
+index e67119b6029c..52fa02ed0fba 100644
+--- a/fs/ecryptfs/crypto.c
++++ b/fs/ecryptfs/crypto.c
+@@ -995,12 +995,16 @@ ecryptfs_write_metadata_to_xattr(struct dentry *ecryptfs_dentry,
+ 		goto out;
+ 	}
+ 
++	rc = ecryptfs_want_write(ecryptfs_dentry);
++	if (rc)
++		goto out;
+ 	inode_lock(lower_inode);
+ 	rc = __vfs_setxattr(&nop_mnt_idmap, lower_dentry, lower_inode,
+ 			    ECRYPTFS_XATTR_NAME, page_virt, size, 0);
+ 	if (!rc && ecryptfs_inode)
+ 		fsstack_copy_attr_all(ecryptfs_inode, lower_inode);
+ 	inode_unlock(lower_inode);
++	ecryptfs_drop_write(ecryptfs_dentry);
+ out:
+ 	return rc;
+ }
+diff --git a/fs/ecryptfs/ecryptfs_kernel.h b/fs/ecryptfs/ecryptfs_kernel.h
+index 58165928ed1e..aae51cb465c0 100644
+--- a/fs/ecryptfs/ecryptfs_kernel.h
++++ b/fs/ecryptfs/ecryptfs_kernel.h
+@@ -22,6 +22,7 @@
+ #include <linux/fs.h>
+ #include <linux/fs_stack.h>
+ #include <linux/hex.h>
++#include <linux/mount.h>
+ #include <linux/namei.h>
+ #include <linux/scatterlist.h>
+ #include <linux/hash.h>
+@@ -463,6 +464,20 @@ ecryptfs_superblock_to_private(struct super_block *sb)
+ 	return (struct ecryptfs_sb_info *)sb->s_fs_info;
+ }
+ 
++static inline int ecryptfs_want_write(struct dentry *dentry)
++{
++	struct ecryptfs_sb_info *sbi = ecryptfs_superblock_to_private(dentry->d_sb);
++
++	return mnt_want_write(sbi->lower_mnt);
++}
++
++static inline void ecryptfs_drop_write(struct dentry *dentry)
++{
++	struct ecryptfs_sb_info *sbi = ecryptfs_superblock_to_private(dentry->d_sb);
++
++	mnt_drop_write(sbi->lower_mnt);
++}
++
+ static inline void
+ ecryptfs_set_superblock_private(struct super_block *sb,
+ 				struct ecryptfs_sb_info *sb_info)
+diff --git a/fs/ecryptfs/inode.c b/fs/ecryptfs/inode.c
+index 48e520960d66..4bd767b4bd95 100644
+--- a/fs/ecryptfs/inode.c
++++ b/fs/ecryptfs/inode.c
+@@ -149,9 +149,14 @@ static int ecryptfs_do_unlink(struct inode *dir, struct dentry *dentry,
+ 	struct inode *lower_dir;
+ 	int rc;
+ 
++	rc = ecryptfs_want_write(dentry);
++	if (rc)
++		return rc;
+ 	lower_dentry = ecryptfs_start_removing_dentry(dentry);
+-	if (IS_ERR(lower_dentry))
+-		return PTR_ERR(lower_dentry);
++	if (IS_ERR(lower_dentry)) {
++		rc = PTR_ERR(lower_dentry);
++		goto out_drop_write;
++	}
+ 
+ 	lower_dir = lower_dentry->d_parent->d_inode;
+ 	rc = vfs_unlink(&nop_mnt_idmap, lower_dir, lower_dentry, NULL);
+@@ -166,6 +171,8 @@ static int ecryptfs_do_unlink(struct inode *dir, struct dentry *dentry,
+ 	end_removing(lower_dentry);
+ 	if (!rc)
+ 		d_drop(dentry);
++out_drop_write:
++	ecryptfs_drop_write(dentry);
+ 	return rc;
+ }
+ 
+@@ -273,8 +280,12 @@ ecryptfs_create(const struct mnt_idmap *idmap,
+ 	struct inode *ecryptfs_inode;
+ 	int rc;
+ 
++	rc = ecryptfs_want_write(ecryptfs_dentry);
++	if (rc)
++		return rc;
+ 	ecryptfs_inode = ecryptfs_do_create(directory_inode, ecryptfs_dentry,
+ 					    mode);
++	ecryptfs_drop_write(ecryptfs_dentry);
+ 	if (IS_ERR(ecryptfs_inode)) {
+ 		ecryptfs_printk(KERN_WARNING, "Failed to create file in"
+ 				"lower filesystem\n");
+@@ -436,9 +447,14 @@ static int ecryptfs_link(struct dentry *old_dentry, struct inode *dir,
+ 
+ 	file_size_save = i_size_read(d_inode(old_dentry));
+ 	lower_old_dentry = ecryptfs_dentry_to_lower(old_dentry);
++	rc = ecryptfs_want_write(new_dentry);
++	if (rc)
++		return rc;
+ 	lower_new_dentry = ecryptfs_start_creating_dentry(new_dentry);
+-	if (IS_ERR(lower_new_dentry))
+-		return PTR_ERR(lower_new_dentry);
++	if (IS_ERR(lower_new_dentry)) {
++		rc = PTR_ERR(lower_new_dentry);
++		goto out_drop_write;
++	}
+ 	lower_dir = lower_new_dentry->d_parent->d_inode;
+ 	rc = vfs_link(lower_old_dentry, &nop_mnt_idmap, lower_dir,
+ 		      lower_new_dentry, NULL);
+@@ -454,6 +470,8 @@ static int ecryptfs_link(struct dentry *old_dentry, struct inode *dir,
+ 	i_size_write(d_inode(new_dentry), file_size_save);
+ out_lock:
+ 	end_creating(lower_new_dentry);
++out_drop_write:
++	ecryptfs_drop_write(new_dentry);
+ 	return rc;
+ }
+ 
+@@ -473,9 +491,14 @@ static int ecryptfs_symlink(const struct mnt_idmap *idmap,
+ 	size_t encoded_symlen;
+ 	struct ecryptfs_mount_crypt_stat *mount_crypt_stat = NULL;
+ 
++	rc = ecryptfs_want_write(dentry);
++	if (rc)
++		return rc;
+ 	lower_dentry = ecryptfs_start_creating_dentry(dentry);
+-	if (IS_ERR(lower_dentry))
+-		return PTR_ERR(lower_dentry);
++	if (IS_ERR(lower_dentry)) {
++		rc = PTR_ERR(lower_dentry);
++		goto out_drop_write;
++	}
+ 	lower_dir = lower_dentry->d_parent->d_inode;
+ 
+ 	mount_crypt_stat = &ecryptfs_superblock_to_private(
+@@ -500,6 +523,8 @@ static int ecryptfs_symlink(const struct mnt_idmap *idmap,
+ 	end_creating(lower_dentry);
+ 	if (d_really_is_negative(dentry))
+ 		d_drop(dentry);
++out_drop_write:
++	ecryptfs_drop_write(dentry);
+ 	return rc;
+ }
+ 
+@@ -511,9 +536,14 @@ static struct dentry *ecryptfs_mkdir(const struct mnt_idmap *idmap, struct inode
+ 	struct dentry *lower_dir_dentry;
+ 	struct inode *lower_dir;
+ 
++	rc = ecryptfs_want_write(dentry);
++	if (rc)
++		return ERR_PTR(rc);
+ 	lower_dentry = ecryptfs_start_creating_dentry(dentry);
+-	if (IS_ERR(lower_dentry))
+-		return lower_dentry;
++	if (IS_ERR(lower_dentry)) {
++		rc = PTR_ERR(lower_dentry);
++		goto out_drop_write;
++	}
+ 	lower_dir_dentry = dget(lower_dentry->d_parent);
+ 	lower_dir = lower_dir_dentry->d_inode;
+ 	lower_dentry = vfs_mkdir(&nop_mnt_idmap, lower_dir,
+@@ -535,6 +565,8 @@ static struct dentry *ecryptfs_mkdir(const struct mnt_idmap *idmap, struct inode
+ 	end_creating(lower_dentry);
+ 	if (d_really_is_negative(dentry))
+ 		d_drop(dentry);
++out_drop_write:
++	ecryptfs_drop_write(dentry);
+ 	return ERR_PTR(rc);
+ }
+ 
+@@ -544,9 +576,14 @@ static int ecryptfs_rmdir(struct inode *dir, struct dentry *dentry)
+ 	struct inode *lower_dir;
+ 	int rc;
+ 
++	rc = ecryptfs_want_write(dentry);
++	if (rc)
++		return rc;
+ 	lower_dentry = ecryptfs_start_removing_dentry(dentry);
+-	if (IS_ERR(lower_dentry))
+-		return PTR_ERR(lower_dentry);
++	if (IS_ERR(lower_dentry)) {
++		rc = PTR_ERR(lower_dentry);
++		goto out_drop_write;
++	}
+ 	lower_dir = lower_dentry->d_parent->d_inode;
+ 
+ 	rc = vfs_rmdir(&nop_mnt_idmap, lower_dir, lower_dentry, NULL);
+@@ -558,6 +595,8 @@ static int ecryptfs_rmdir(struct inode *dir, struct dentry *dentry)
+ 	end_removing(lower_dentry);
+ 	if (!rc)
+ 		d_drop(dentry);
++out_drop_write:
++	ecryptfs_drop_write(dentry);
+ 	return rc;
+ }
+ 
+@@ -569,9 +608,14 @@ ecryptfs_mknod(const struct mnt_idmap *idmap, struct inode *dir,
+ 	struct dentry *lower_dentry;
+ 	struct inode *lower_dir;
+ 
++	rc = ecryptfs_want_write(dentry);
++	if (rc)
++		return rc;
+ 	lower_dentry = ecryptfs_start_creating_dentry(dentry);
+-	if (IS_ERR(lower_dentry))
+-		return PTR_ERR(lower_dentry);
++	if (IS_ERR(lower_dentry)) {
++		rc = PTR_ERR(lower_dentry);
++		goto out_drop_write;
++	}
+ 	lower_dir = lower_dentry->d_parent->d_inode;
+ 
+ 	rc = vfs_mknod(&nop_mnt_idmap, lower_dir, lower_dentry, mode, dev, NULL);
+@@ -586,6 +630,8 @@ ecryptfs_mknod(const struct mnt_idmap *idmap, struct inode *dir,
+ 	end_creating(lower_dentry);
+ 	if (d_really_is_negative(dentry))
+ 		d_drop(dentry);
++out_drop_write:
++	ecryptfs_drop_write(dentry);
+ 	return rc;
+ }
+ 
+@@ -616,9 +662,12 @@ ecryptfs_rename(const struct mnt_idmap *idmap, struct inode *old_dir,
+ 	rd.mnt_idmap  = &nop_mnt_idmap;
+ 	rd.old_parent = lower_old_dir_dentry;
+ 	rd.new_parent = lower_new_dir_dentry;
+-	rc = start_renaming_two_dentries(&rd, lower_old_dentry, lower_new_dentry);
++	rc = ecryptfs_want_write(old_dentry);
+ 	if (rc)
+ 		return rc;
++	rc = start_renaming_two_dentries(&rd, lower_old_dentry, lower_new_dentry);
++	if (rc)
++		goto out_drop_write;
+ 
+ 	rc = vfs_rename(&rd);
+ 	if (rc)
+@@ -631,6 +680,8 @@ ecryptfs_rename(const struct mnt_idmap *idmap, struct inode *old_dir,
+ 		fsstack_copy_attr_all(old_dir, d_inode(lower_old_dir_dentry));
+ out_lock:
+ 	end_renaming(&rd);
++out_drop_write:
++	ecryptfs_drop_write(old_dentry);
+ 	return rc;
+ }
+ 
+@@ -718,6 +769,22 @@ upper_size_to_lower_size(struct ecryptfs_crypt_stat *crypt_stat,
+ 	return lower_size;
+ }
+ 
++static int ecryptfs_notify_change(struct dentry *dentry, struct iattr *lower_ia)
++{
++	struct dentry *lower_dentry = ecryptfs_dentry_to_lower(dentry);
++	struct inode *lower_inode = d_inode(lower_dentry);
++	int rc;
++
++	rc = ecryptfs_want_write(dentry);
++	if (rc)
++		return rc;
++	inode_lock(lower_inode);
++	rc = notify_change(&nop_mnt_idmap, lower_dentry, lower_ia, NULL);
++	inode_unlock(lower_inode);
++	ecryptfs_drop_write(dentry);
++	return rc;
++}
++
+ /**
+  * __ecryptfs_truncate
+  * @dentry: The ecryptfs layer dentry
+@@ -732,7 +799,6 @@ upper_size_to_lower_size(struct ecryptfs_crypt_stat *crypt_stat,
+  */
+ static int __ecryptfs_truncate(struct dentry *dentry, const struct iattr *ia)
+ {
+-	struct dentry *lower_dentry = ecryptfs_dentry_to_lower(dentry);
+ 	struct inode *inode = d_inode(dentry);
+ 	struct ecryptfs_crypt_stat *crypt_stat;
+ 	loff_t i_size = i_size_read(inode);
+@@ -820,9 +886,7 @@ static int __ecryptfs_truncate(struct dentry *dentry, const struct iattr *ia)
+ 	lower_ia.ia_size = lower_size_after_truncate;
+ set_size:
+ 	lower_ia.ia_valid |= ATTR_SIZE;
+-	inode_lock(d_inode(lower_dentry));
+-	rc = notify_change(&nop_mnt_idmap, lower_dentry, &lower_ia, NULL);
+-	inode_unlock(d_inode(lower_dentry));
++	rc = ecryptfs_notify_change(dentry, &lower_ia);
+ out:
+ 	ecryptfs_put_lower_file(inode);
+ 	return rc;
+@@ -873,7 +937,6 @@ static int ecryptfs_setattr(const struct mnt_idmap *idmap,
+ 			    struct dentry *dentry, struct iattr *ia)
+ {
+ 	struct inode *inode = d_inode(dentry);
+-	struct dentry *lower_dentry = ecryptfs_dentry_to_lower(dentry);
+ 	struct inode *lower_inode = ecryptfs_inode_to_lower(inode);
+ 	struct ecryptfs_crypt_stat *crypt_stat;
+ 	int rc;
+@@ -928,11 +991,7 @@ static int ecryptfs_setattr(const struct mnt_idmap *idmap,
+ 		struct iattr lower_ia;
+ 
+ 		ecryptfs_iattr_to_lower(&lower_ia, ia);
+-
+-		inode_lock(d_inode(lower_dentry));
+-		rc = notify_change(&nop_mnt_idmap, lower_dentry, &lower_ia,
+-				NULL);
+-		inode_unlock(d_inode(lower_dentry));
++		rc = ecryptfs_notify_change(dentry, &lower_ia);
+ 	}
+ out:
+ 	fsstack_copy_attr_all(inode, lower_inode);
+@@ -1000,9 +1059,13 @@ ecryptfs_setxattr(struct dentry *dentry, struct inode *inode,
+ 		rc = -EOPNOTSUPP;
+ 		goto out;
+ 	}
++	rc = ecryptfs_want_write(dentry);
++	if (rc)
++		goto out;
+ 	inode_lock(lower_inode);
+ 	rc = __vfs_setxattr_locked(&nop_mnt_idmap, lower_dentry, name, value, size, flags, NULL);
+ 	inode_unlock(lower_inode);
++	ecryptfs_drop_write(dentry);
+ 	if (!rc && inode)
+ 		fsstack_copy_attr_all(inode, lower_inode);
+ out:
+@@ -1066,9 +1129,13 @@ static int ecryptfs_removexattr(struct dentry *dentry, struct inode *inode,
+ 		rc = -EOPNOTSUPP;
+ 		goto out;
+ 	}
++	rc = ecryptfs_want_write(dentry);
++	if (rc)
++		goto out;
+ 	inode_lock(lower_inode);
+ 	rc = __vfs_removexattr(&nop_mnt_idmap, lower_dentry, name);
+ 	inode_unlock(lower_inode);
++	ecryptfs_drop_write(dentry);
+ out:
+ 	return rc;
+ }
+@@ -1084,7 +1151,11 @@ static int ecryptfs_fileattr_set(const struct mnt_idmap *idmap,
+ 	struct dentry *lower_dentry = ecryptfs_dentry_to_lower(dentry);
+ 	int rc;
+ 
++	rc = ecryptfs_want_write(dentry);
++	if (rc)
++		return rc;
+ 	rc = vfs_fileattr_set(&nop_mnt_idmap, lower_dentry, fa);
++	ecryptfs_drop_write(dentry);
+ 	fsstack_copy_attr_all(d_inode(dentry), d_inode(lower_dentry));
+ 
+ 	return rc;
+@@ -1105,8 +1176,12 @@ static int ecryptfs_set_acl(const struct mnt_idmap *idmap,
+ 	struct dentry *lower_dentry = ecryptfs_dentry_to_lower(dentry);
+ 	struct inode *lower_inode = d_inode(lower_dentry);
+ 
++	rc = ecryptfs_want_write(dentry);
++	if (rc)
++		return rc;
+ 	rc = vfs_set_acl(&nop_mnt_idmap, lower_dentry,
+ 			 posix_acl_xattr_name(type), acl);
++	ecryptfs_drop_write(dentry);
+ 	if (!rc)
+ 		fsstack_copy_attr_all(d_inode(dentry), lower_inode);
+ 	return rc;
+diff --git a/fs/ecryptfs/mmap.c b/fs/ecryptfs/mmap.c
+index 07a6c8448100..8daba46907fd 100644
+--- a/fs/ecryptfs/mmap.c
++++ b/fs/ecryptfs/mmap.c
+@@ -375,8 +375,8 @@ static int ecryptfs_write_inode_size_to_xattr(struct inode *ecryptfs_inode)
+ {
+ 	ssize_t size;
+ 	void *xattr_virt;
+-	struct dentry *lower_dentry =
+-		ecryptfs_inode_to_private(ecryptfs_inode)->lower_file->f_path.dentry;
++	struct file *lower_file = ecryptfs_inode_to_private(ecryptfs_inode)->lower_file;
++	struct dentry *lower_dentry = lower_file->f_path.dentry;
+ 	struct inode *lower_inode = d_inode(lower_dentry);
+ 	int rc;
+ 
+@@ -391,6 +391,9 @@ static int ecryptfs_write_inode_size_to_xattr(struct inode *ecryptfs_inode)
+ 		rc = -ENOMEM;
+ 		goto out;
+ 	}
++	rc = mnt_want_write_file(lower_file);
++	if (rc)
++		goto out_free;
+ 	inode_lock(lower_inode);
+ 	size = __vfs_getxattr(lower_dentry, lower_inode, ECRYPTFS_XATTR_NAME,
+ 			      xattr_virt, PAGE_SIZE);
+@@ -400,9 +403,11 @@ static int ecryptfs_write_inode_size_to_xattr(struct inode *ecryptfs_inode)
+ 	rc = __vfs_setxattr(&nop_mnt_idmap, lower_dentry, lower_inode,
+ 			    ECRYPTFS_XATTR_NAME, xattr_virt, size, 0);
+ 	inode_unlock(lower_inode);
++	mnt_drop_write_file(lower_file);
+ 	if (rc)
+ 		printk(KERN_ERR "Error whilst attempting to write inode size "
+ 		       "to lower file xattr; rc = [%d]\n", rc);
++out_free:
+ 	kmem_cache_free(ecryptfs_xattr_cache, xattr_virt);
+ out:
+ 	return rc;
+-- 
+2.47.3
+
