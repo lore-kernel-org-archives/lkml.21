@@ -1,51 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.160.73.65
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.75.19.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795810617;
-	b=bAVDBplQZtFgz3uybbwSc7sASIH0VDsIJnnwTSgViafeSSPnIEnQaZqn4Tz/1C4Gjp+g
-	 XEdjBb7Fjj+DxEMgOhbhC0htwH6KyX52CpsN0DUSRG6Mo9R7qF3pcpOhgbADznO93sN4C
-	 n5ycfaF19BZaoa9CcR3IeCEgUpcrbq1dTj2bR6W/VGESuanGUbjsqH15sEfTeM5rKdGI5
-	 CuO2m35me3ucg43JC/AlBLLjI77pmdBaAqiav0ARx8KPBOGYGlCdAnP8kEw02kKw6kR4z
-	 NJUSmOx2Jhn5dhfBUdel+pVBNmZHpbz1wdY/HF79dJZ04xILulOyi9ospNeHLXCvIqQ==
+	t=1795810630;
+	b=XOvtIvjNXwAiB5+/fmgYNYhaIQBjOAkoYZEme4uR4faGkEyo2u/Sge+g1l7PuSgMFSBl
+	 CugH/2D/hubZxl0V12OamaRQzp0OOd5/EOCPZ+lVfrElabeZctU9pHqy733GDnkkQHjMg
+	 RWCEdHktdwAOyDxpMasEcHHUH3QYUvNBB1IV8bND502gxSLjqQ/ZKsbWWZl8jdbArPWXO
+	 qcub9jxFIqRDNCCTeb2TQQJ/KvDz3IAeL9ijPNtoP0/PWDknbbesM3UDHdqN5rgDWqeCn
+	 t7vdids34OrGJ9H76g6VWRoegZm5jqEZ4/K0aaOfqgURvTBEibLr11r0wTYePfu6RSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795810617;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795810630;
 	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=RtbLAM89d2dB9De8r1I/XQmNGdhkH6iDFjH+hgQCrmI=;
-	b=bF6Gzygo5mdCDsUwDj98+4PBxvpbQAiz+qTjrINqFMpRakc4sECXR3PBCggFhu9oZBiu
-	 U3KrcEnx0bDnVUdg9IdSkaMuaQq3xD7FaDOsrmfc+Pb9GDPwEkHDzj1Ja7qi+Sqt1RqDx
-	 1euWHJZWWeCFl74z5ADqXFbU7ZmJMy4p+1s8MXsiO1Wle0x9hweEfu8HaeKUiIPEWj5bk
-	 cVh1KJUIeay61JDRv64H0s5YKjrfAMiuqj/hpLCDupRX5daeeNr0c7Z/GZrYCa3yJz6jT
-	 w+UKAPpu5vQ3iVNzEuBJALzuC10csgTDhF5j/LY4r3w9rGS+tkazYsFzMT3Q82k6MiA==
+	 Organization:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type;
+	bh=d2rlFPMn4FSWmLQ5qbUFGzJZoe7UzLFThA0r34II3cw=;
+	b=FdpKCidjKE4wUF85okXFxX77xOFB32GPUqdgnZzMlA+M0bCGpDBPoWRQ78eMLwyDTjs7
+	 NwKOt3N1MknpF4OU23RsZLAv2C+FfFf+YmNjyyd0V6JfBTpshV2OVzNsucXetjJQ5bVjd
+	 G2O/uEic1wk6iH5f/JGj3beWyS9aRvPpKEOM9zdWhgVbF9MnO0LsTyLQnOAHipqh5o9Yd
+	 zcCLSOoHs7cq2NU34jNVmSjSsGYaeI8eSYraehvtOLFdOycKooisy6R0s6kI79EOhhTDd
+	 Q+hoxB9etrqz7dnr9tcMH1DZd/QPXlGh58k/Uvcrduvo5iy+6FsaohXLsyrZXN6AigQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=blala.de;
-	spf=pass smtp.mailfrom=blala.de;
-	arc=none smtp.remote-ip=213.160.73.65
-Received: from vs81.iboxed.net (vs10.datenmanufaktur-hosting.net [213.160.73.65])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E936606A334;
-	Fri, 27 Nov 2026 20:16:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E936606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blala.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=blala.de
-Received: from blala.de (localhost [127.0.0.1])
-	by vs81.iboxed.net (8.18.1/8.18.1/Debian-6) with ESMTP id 6ARKGSbM026982;
-	Fri, 27 Nov 2026 20:16:28 GMT
-Received: (from akurz@localhost)
-	by blala.de (8.18.1/8.18.1/Submit) id 6ARKGRfp026979;
-	Fri, 27 Nov 2026 20:16:27 GMT
-From: Alexander Kurz <akurz@blala.de>
-To: linux-leds@vger.kernel.org
-Cc: Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>,
-        Griffin Kroah-Hartman <griffin@kroah.com>,
-        =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-        Bjorn Helgaas <bhelgaas@google.com>, linux-kernel@vger.kernel.org,
-        Alexander Kurz <akurz@blala.de>
-Subject: [PATCH v4 0/2] Modernize and fix mc13xxx-led driver
-Date: Fri, 27 Nov 2026 20:16:24 +0000
-Message-ID: <20261127201626.26970-1-akurz@blala.de>
-X-Mailer: git-send-email 2.47.3
+	dmarc=pass header.from=remlab.net;
+	spf=pass smtp.mailfrom=remlab.net;
+	arc=none smtp.remote-ip=51.75.19.47
+Received: from ursule.remlab.net (ursule.remlab.net [51.75.19.47])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 08FCC606A321;
+	Fri, 27 Nov 2026 20:17:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08FCC606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=remlab.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=remlab.net
+Received: from ursule.remlab.net (localhost [IPv6:::1])
+	by ursule.remlab.net (Postfix) with ESMTP id 3F47DC006B;
+	Fri, 27 Nov 2026 22:17:01 +0200 (EET)
+Received: from basile.remlab.net ([2001:14ba:a082:6301:c5d2:3c3d:3f09:1404])
+	by ursule.remlab.net with ESMTPSA
+	id 8ryDCD3lCWuxfAkAwZXkwQ
+	(envelope-from <remi@remlab.net>); Fri, 27 Nov 2026 22:17:01 +0200
+From: =?UTF-8?B?UsOpbWk=?= Denis-Courmont <remi@remlab.net>
+To: Remi Denis-Courmont <courmisch@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Willem de Bruijn <willemb@google.com>, Nathan Chancellor <nathan@kernel.org>,
+ Elkin Cruz <elkin@google.com>
+Cc: Simon Horman <horms@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
+ Justin Stitt <justinstitt@google.com>, netdev@vger.kernel.org,
+ llvm@lists.linux.dev, linux-kernel@vger.kernel.org, irogers@google.com,
+ Elkin Cruz <elkin@google.com>, stable@vger.kernel.org
+Subject: Re: [PATCH net] phonet: fix use-after-free in can_respond()
+Date: Fri, 27 Nov 2026 22:17:00 +0200
+Message-ID: <IJCtsfWGQROQ4yf6qjbzpw@remlab.net>
+Organization: Remlab
+In-Reply-To: <20261125221627.1419412-1-elkin@google.com>
+References: <20261125221627.1419412-1-elkin@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,41 +60,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 
-Main goal of this series is a fix enabling deferred probing of the
-mc13xxx-led driver. The previous implementation has been dependent
-on the MFD instance being present first and which has been changed
-by commit 78efa53e715e ("leds: Init leds class earlier"), breaking
-functionality. While working on it, replace the OF-specific API
-with the newerunified device property API.
+Le torstaina 26. marraskuuta 2026, 0.16.27 It=C3=A4-Euroopan normaaliaika E=
+lkin=20
+Cruz a =C3=A9crit :
+> In can_respond(), ph is cached before pskb_may_pull(skb, 5). When
+> ph->pn_res =3D=3D PN_PREFIX and pskb_may_pull() reallocates skb->head,
+> the check `if (ph->pn_res =3D=3D PN_COMMGR)` dereferences the dangling ph
+> pointer before the code re-acquires ph =3D pn_hdr(skb).
+>=20
+> Check for PN_COMMGR before calling pskb_may_pull() to avoid accessing
+> the potentially invalidated header pointer.
+>=20
+> This issue was found while trying out new Clang static analysis checks for
+> kernel bug classes. The finding was triaged and fixed, and this commit
+> description was drafted with the help of AI, then verified by code
+> inspection and compile-tested against linux-next (not reproduced and not
+> runtime-tested on hardware).
+>=20
+> Fixes: c3a90c788b74 ("Phonet: do not reply to indication reset packets")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Elkin Cruz <elkin@google.com>
 
-Signed-off-by: Alexander Kurz <akurz@blala.de>
+Acked-by: R=C3=A9mi Denis-Courmont <courmisch@gmail.com>
 
----
-Changes in v4:
-- Fix typo in commit message (Sashiko)
-- Rebase to for-leds-next (Lee)
-- Link to v3: https://lore.kernel.org/all/20261122170615.31710-1-akurz@blala.de/
+=2D-=20
+=E3=83=85=E3=83=8B-=E3=82=AF=E3=83=BC=E3=83=A2=E3=83=B3=E3=83=BB=E3=83=AC=
+=E3=83=9F
+https://www.remlab.net/
 
-Changes in v3:
-- use dev_fwnode() to check parent availability, replacing dev_of_node().
-  (Sashiko)
-- drop CONFIG_OF guard around mc13xxx_led_probe_dt() as all used. (Sashiko)
-  implementations should be safe for compilation with CONFIG_OF=n now.
-- Link to v2: https://lore.kernel.org/all/20261122073235.26707-1-akurz@blala.de/
 
-Changes in v2:
-- removed unintended change of property "led-control" (Sashiko)
-- Link to v1: https://lore.kernel.org/all/20261121074239.8745-1-akurz@blala.de/
-
-Alexander Kurz (2):
-  leds: mc13783: Use unified device property API
-  leds: leds-mc13783: Enable driver for deferred probe
-
- drivers/leds/leds-mc13783.c | 37 +++++++++++++++----------------------
- 1 file changed, 15 insertions(+), 22 deletions(-)
-
--- 
-2.39.5
 
