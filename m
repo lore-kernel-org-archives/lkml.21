@@ -1,85 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795737637;
-	b=0tCndZ/1R4vSGxt8tXX4l8p7c12cVu0vNGZrfiUHtsFrh/WcvGLI96/FjpWORybufoED
-	 ZwPeN+10F1iAm5JQbrb1f+cvmkbprl090uxOB7QY+7CG0K/7Tmtk9qaU4DIDv4+aUN+F0
-	 FpIsPq4KYz1GhC7IXRiHgbI+W0G/9QjuvMKBPhyKMRKqrpP+UktxKIGWmUKdSGodHqLAd
-	 1zlIHy3HtSZQXMGx239BzZNFLtinJUotWbyivry9EYokDDiyZAXbUvLIoxFF4tJaqpiXL
-	 f3KSIuzY3WSMXAcqhDVRHX88iUqpO1Oiy+9aInk71CmrGJJmbAfYc9bd0l25BzPeDeA==
+	t=1795737632;
+	b=gp78MeloeU2L+s1avZs/rsCO5Xb/wgxWM4GV7DzWEEJ2YEj/cYKS6sr1O4/PcKqFy7HB
+	 4dk2IyR59wvvKaTltneLNJa6l1Ek6wIQbXNQfz/a6DVsA6prjEND9DjrpYzfhmdGXRrj0
+	 UdrqG/a1Tuu5IX8JefpSeVwZfnPeJnksn+YN8amocUirLDfGTpgu5s5JrUUpsjkfAimbK
+	 bDdybUr9mYr1xL8goTGpvXVsMHEx3PsUXS+WNyQ5NJ2dkWNuyROGItt1wo61P8wG/FaAH
+	 ooCu59Yw8XMHdUoWl42/7qX0dUSjwSdtsmTF3z75VM48+LpAec5f4xpJJWqdn9FsnGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795737637;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795737632;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Sender:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
 	 References:MIME-Version:Content-Transfer-Encoding;
-	bh=bI5wgKSxHmXVhcmMGt1XWUXhGqSxXd41m+lLl/fjbr4=;
-	b=NGd0pC5NH8MqJ+DPXMgpUv3QvKShXcP4X+BsiVgSK0jPcwB5L3PwXw/xwX2Yfa/C8bXs
-	 36F2BUKq0OWgdfz3IP34XGK+YPeVnidOwIy86kzrinHvgf0EldiBXhcEataM4ygE3tA+r
-	 z1EgRS60hQhcLqZbN7BEHQsxSV2/IFsdF4Li0yeEmPUFjWD6krrQo8o6VFt6xjxHSWjoE
-	 tykE6PdrXSod5nLXy5TO3ADZNcfe7Vgrfqp4e2KfbNEYgPE3jBnPeAQUvDb9KsAWHivKB
-	 M2HdhNztmAXGCJNqgUIlaKOX8xMNltm/Uiazv82Eqcl/3D1BYM6TuDhlJ/4i4BP4DWw==
+	bh=zjADcQv0PXPBr760/0GxdOlxk/gXmgkzyQ+Htt+oaJE=;
+	b=sQ5ndqJnyT8qKWef+I4pnO1V+peW7W6DNlfnd4VYFUQsW93WAwjZifA4tolZGNtUXHpI
+	 +qknD5khYAONHkoHXWSEHeyJJ9L3ZiH/LQZteu3dUkMA8cDQ9DSOnKd6bTrl2trvHAF6x
+	 p3gXjDEXLtSZkbHkRAKJJSNDG2FNNDdY/DXwuaDy9XSFfy+coQ4AQjQPd7+qvmLWmZeMO
+	 BohgJriqU7wpgHmuD7WgPXe9eopCgzPjZXiUsFsLELnd7f95AUQFI4lJellyPxSga0CSm
+	 kzXISlf0AM26xVNm/2hToG+U389iT9eDUCTF7ml5s44cFuT57HgGr4DtEPMMDK6PQvA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QHUw1TNk;
-	arc=none smtp.remote-ip=209.85.221.53
-Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MRhZsKxa;
+	arc=none smtp.remote-ip=209.85.221.46
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6321606A334
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:00:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B6321606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CF58606A68C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:00:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1CF58606A68C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QHUw1TNk
-Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-48dfc0421d9so6909445f8f.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:00:36 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MRhZsKxa
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-4a42b34e930so6600413f8f.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:00:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795737635; x=1796342435; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795737630; x=1796342430; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=bI5wgKSxHmXVhcmMGt1XWUXhGqSxXd41m+lLl/fjbr4=;
-        b=QHUw1TNkXmTEOzQX8Nylpr11eeDYM5iLjNsukKHMgqk9V42oWhGyTLN+7wxZwRyM/w
-         3csjlbjRDgpgcdzNVGtjc6xfg7iGxplIXyqnVoDNO9456MxYBoXS+Ek22/v6q7/8VJHA
-         GzFR9sPBhg5pU+0egnAVpxipNLbXkj26Ol0V2GILslRJB+Gt3vIW4ckBRQW47yHxb1Bx
-         39SWXFGql0DWFd+CppzSC7mg92CTrdd6fyQeBO8+a4A5A8pyokNg4D6Ng+JdFVzRiRbG
-         BOOQl6M9H2JKfoQdZwiFMygnid5IGGZtPxuVlaeXlU5lm91lKTF88Ox3ZGXvxg1KAaLg
-         Qocg==
+        bh=zjADcQv0PXPBr760/0GxdOlxk/gXmgkzyQ+Htt+oaJE=;
+        b=MRhZsKxa+FIEQlod2OKgOuAGi/6Umf4nzxemGlio1KVqZfhrV2vABs9dht7AgcA/c+
+         wa91zzXWNaT7m1RtRk47z1JhnXEHkp4wIfpLcK2yn1hKDGYTnIlNbyup/JyYot3My2/l
+         vUEY4+2Ddr9G1idu+pKQPKYOVjgCx66UxhdIdczj51wVzcx74hOma4Iq4iZ4RpZdvI7J
+         BE3/xFCMg2kRnLKEq4Egl/EkyJ1tbGGMZiCgOwbOSnGCWiRLeyD1C7FtfaaSTvseSVFs
+         eoqrQ4CKAzZLPF11LcRWYUGe9WsJcArH5xIIthdOgLf2LwTanh+33v00Fcb1nXRkK8YA
+         t8/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795737635; x=1796342435;
+        d=1e100.net; s=20260707; t=1795737630; x=1796342430;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=bI5wgKSxHmXVhcmMGt1XWUXhGqSxXd41m+lLl/fjbr4=;
-        b=wtu5lFoecY2x2dbzMZoeBJB9riXjvX+c3xwht3D7Eo0eHZ39LLsn3XEioONKEP8zhC
-         mBeUPAdmUEp4q8TF3TMqd/nEaVOfYrAIYsSiGzT8ZQMQoUgZnsrapTVmajjnirpqiGwB
-         mQRGnRprj2Cc3eNUTNa+fjNE4zYvftQctl6NU6j79HW4pW1CIcTDCSwwmss90q/wV3Py
-         6SqLJe9FagJkDx+jKqrjQ+PGQiCFkFwSXxOvJcclftDpPrUvFmpEECC73pnke+7RUryi
-         1iiLFpdqTWLK7wgpFZcFAIDBCpE+paHVI6XA+Lu6S24YsuQxD32VU9f+yubI96BRrYZS
-         7mEw==
-X-Forwarded-Encrypted: i=1; AL+hErH6dywOzBE2TZj7L10sjbO1myNTWIq+HCgljwTxgWM6qcarE632ExrfzlfuC6Qxerb6ARLqwhjArLQl0hE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9C2uWS5Ll6LP9oYSkji5spo9EwkYG6/boivMQkLjDyYeCQ5gvi
-	hPFqgA8YL9xztMHJYHeOkBQn+EhAmdwlt5zcYLzdPjzQdo+dlZRKRo+E
-X-Gm-Gg: AZFdTZd5o/F5fAVVxn2GP5UiKesnIqvBTSvVXo3g64/iMTbkg3w5aEQA8dCh1wHJ1+t
-	BXvtHElBbuFBX5CQcd7ggF+utZB8dJGLXQ1DPZ3+rSvDudQAlqyUDk2lqbGJkVwUqICMIQM7ppd
-	Z0UoI4yj1OO5Fj4Wv6iA7QavclGz/FX9UA/LwqEtSuK3qvvQijjXiUTlrXE2v/w7lwDYsvbTc4k
-	vpp14k9YqmN6AZZrb8XKWmU2wpTXf6ivv3WCVYb0zH1Yk/DcfVFGumQvzEN3NcT8ggw/2l53IKA
-	gK6aIr8g789EOx6l9wfKsFHqJX9T4S9364AcTWvqOKf16Je79gYpMMlXovzt3Fi95Ts5LfsKWvt
-	++2gMy8O1XEWhHW3p0NXq7lVeZT1TdilnIzCL/VN7xJQjslU686bX+PJz6kHVMeKfGDkaWmk4HP
-	hTKou+nnQ7Il9TuCzrCQBiEeT3YpgFeX3EvG9r0Hxm5eD8zu0tV1SmkeSoDgWI5hbnG3Oqphz6A
-	6oOP1JzpfjYfQUuIb3L+Ypernidhb/zY/AfF9k5MTeh3BtS6KAwfnqQOAHOejvJFFCmawODJ0VX
-	FZVt3X1tsI89PxcYKpQAQFR86JVhMR+4MR7OMsgpzjdNObFBd7u081tT4S/MYaCrmg67vRD1X8X
-	xsX6oEoB2HILa5LyoDQ==
-X-Received: by 2002:a05:6000:4b15:b0:48d:df08:307c with SMTP id ffacd0b85a97d-4abb8ac0d92mr39000455f8f.44.1795737635110;
-        Thu, 26 Nov 2026 16:00:35 -0800 (PST)
+        bh=zjADcQv0PXPBr760/0GxdOlxk/gXmgkzyQ+Htt+oaJE=;
+        b=o9TAW3KXi5vZy7pkEzwyv6Lodx3AdNHfsumtYlXVUG+pWjgBD9pWAADtof8Ll7Ivfz
+         kCXviL5j7FEeTDsv8eocO0N8e8z/yVYZi08WLzkJHGuoZ15F25SGk1v4tGPltrzI7wQt
+         WmHHzpYNMm6H/H2eUK4VYO8s0zzvSwGeC7o2owLnmxAVrtPc+E/YiQAGUhDP4ti82p/V
+         t6fRvYH43SN+jPwiIgu8dUIdW1I5b3OKmaN6337eikNFJk5spG7hJTgYOpdcaIT9B/1H
+         FZ+bUWyoDgCdjb1tgFhTW31SsD86INw2kaA+/HIWajlJuWmBF0EjwI+g22JTt4KRk1tF
+         y/9g==
+X-Forwarded-Encrypted: i=1; AL+hErFWdaTmJNaD6BASd4lzMYxVngHwDZcbpbOnIBEVgHjv6odPE55WrKWZHsypdUDrgLE6QVuPuLMBZQGJRl0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9L865mEI9l8lcr/Sq+lewd4bWVZJ22yM6jSIUGc42BgUHMjFcG
+	AOOFz10rWR7DL0TR3ocHRc72kNhuoRcKiohfmVFY3ETK60HeV/dUoCvI
+X-Gm-Gg: AZFdTZeiZHOKWVub3NcP2/B0b85jWJ672L8ZR8QKC6pJc+QLYijTyj0V43IF7QaBoOg
+	x7LxvuTQCaci32L6mx93sBEZdIf7k5VkzMLt6byKTRgeXL8qBECjqXecnp7HYIys+uAsHQd6kBw
+	l8NulUm9D1cvU5eZNNmhPd3NGu/OfXcVhTA0QwhRlbY6wjcN5h6PDDkNR9spmcRpAmgZrCV7sOV
+	+G2NjrcNDm9uCEAs3z+PLD8gkSBQmpagVpXicaQqW0bfWob4jVZW//tAld0uX+Wu3/C12+dVz/T
+	zGGfTwOmKkmhScVH1bsdmkpXlWWaFnkCrmIJoWiv4sY+6cG4sxNRpCG9quTHPgEfVYWf+Tm5yIH
+	3NAvhmf1voB5ztOBCMuz5p9dzt2CWuUHRNqVknz/6kSj9Ipqlr1PD1wYF+lPFI90GyUefq9/97a
+	YJIGeDBM5Zg79i4UQzYKUnZCCYgGk10FLXfcxLeq9LkYLxedFPVhEyXWyxH/6NxnQP0Kb1Nt8Sl
+	sZWnjPvzetqTbcSzMcJeZRyuMANLDDZRpvgBD+Kzd18UPenYYyhn028IPwlDJSoktZBvq9eWvCa
+	Pv5ePPijMb3oCFS2Gi3gvvsS/kX/rN3wvmrwnfhEC8+ZvfekCfEDB1OO2hnNdI0qJZtcID/YBnI
+	8kSdshL938k8amEaoJawl9smqCy0LyNX3FmlqAqA=
+X-Received: by 2002:a05:6000:29d5:b0:4aa:5833:c0fd with SMTP id ffacd0b85a97d-4abb58ec23cmr26232284f8f.52.1795737630321;
+        Thu, 26 Nov 2026 16:00:30 -0800 (PST)
 Received: from nixos-office (195-23-151-163.net.novis.pt. [195.23.151.163])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a68048esm45536616f8f.29.2026.11.26.16.00.33
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a68048esm45536616f8f.29.2026.11.26.16.00.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 16:00:34 -0800 (PST)
+        Thu, 26 Nov 2026 16:00:29 -0800 (PST)
 Sender: Julian Braha <julian.braha@gmail.com>
 From: Julian Braha <julianbraha@gmail.com>
 To: nathan@kernel.org,
@@ -101,9 +101,9 @@ Cc: samitolvanen@google.com,
 	linux-kbuild@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Julian Braha <julianbraha@gmail.com>
-Subject: [PATCH 5/5] kconfig: replace XOR with addition for expr_lookup() key generation
-Date: Fri, 27 Nov 2026 00:00:15 +0000
-Message-ID: <20261127000015.3662267-6-julianbraha@gmail.com>
+Subject: [PATCH 3/5] scripts: restore host hash table macro names
+Date: Fri, 27 Nov 2026 00:00:13 +0000
+Message-ID: <20261127000015.3662267-4-julianbraha@gmail.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261127000015.3662267-1-julianbraha@gmail.com>
 References: <20261127000015.3662267-1-julianbraha@gmail.com>
@@ -118,33 +118,206 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-As Linus noted when reporting the 'make oldconfig' performance issue [1],
-XOR of the hash_ptr() values will clear the shared bits, increasing hash
-table collisions when l == r. In Kconfig, this happens when two sides of
-an expression are equal, for example 'range 1 1' in fs/erofs/Kconfig.
+This partially reverts commit 0a3128e75108 ("kconfig: add macros useful
+for hashtable").
 
-Let's replace the XOR usage with addition, as Linus suggested.
+Rename HASHTABLE_DECLARE() to DECLARE_HASHTABLE() and HASHTABLE_DEFINE()
+to DEFINE_HASHTABLE() in the host scripts/include/hashtable.h, bringing
+the signatures closer to the original in-kernel implementation, and update
+the callers, accordingly.
 
-Link: https://lore.kernel.org/all/CAHk-=wi_GuySe0L-uCAM2+nScCLYGBp5BLi6UUPR1gALmNM_3w@mail.gmail.com/ [1]
-Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
 Signed-off-by: Julian Braha <julianbraha@gmail.com>
 ---
- scripts/kconfig/expr.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+This patch isn't really necessary to fix the issue, but it does make
+maintenance a tad easier when you're looking at the two implementations
+side-by-side.
+---
+ scripts/gendwarfksyms/die.c           | 2 +-
+ scripts/gendwarfksyms/gendwarfksyms.h | 2 +-
+ scripts/gendwarfksyms/kabi.c          | 2 +-
+ scripts/gendwarfksyms/symbols.c       | 4 ++--
+ scripts/gendwarfksyms/types.c         | 2 +-
+ scripts/genksyms/genksyms.c           | 2 +-
+ scripts/include/hashtable.h           | 6 +++---
+ scripts/kconfig/expr.c                | 2 +-
+ scripts/kconfig/internal.h            | 4 ++--
+ scripts/kconfig/symbol.c              | 2 +-
+ scripts/kconfig/util.c                | 2 +-
+ scripts/mod/modpost.c                 | 2 +-
+ 12 files changed, 16 insertions(+), 16 deletions(-)
 
+diff --git a/scripts/gendwarfksyms/die.c b/scripts/gendwarfksyms/die.c
+index 4e390a6295a3..79d738e69ce5 100644
+--- a/scripts/gendwarfksyms/die.c
++++ b/scripts/gendwarfksyms/die.c
+@@ -9,7 +9,7 @@
+ #define DIE_HASH_BITS 16
+ 
+ /* {die->addr, state} -> struct die * */
+-static HASHTABLE_DEFINE(die_map, 1 << DIE_HASH_BITS);
++static DEFINE_HASHTABLE(die_map, 1 << DIE_HASH_BITS);
+ 
+ static unsigned int map_hits;
+ static unsigned int map_misses;
+diff --git a/scripts/gendwarfksyms/gendwarfksyms.h b/scripts/gendwarfksyms/gendwarfksyms.h
+index f4f21d6090e7..c987acbbf1ef 100644
+--- a/scripts/gendwarfksyms/gendwarfksyms.h
++++ b/scripts/gendwarfksyms/gendwarfksyms.h
+@@ -208,7 +208,7 @@ void die_map_free(void);
+ 
+ /* A cache for addresses we've already seen. */
+ struct cache {
+-	HASHTABLE_DECLARE(cache, 1 << CACHE_HASH_BITS);
++	DECLARE_HASHTABLE(cache, 1 << CACHE_HASH_BITS);
+ };
+ 
+ void cache_set(struct cache *cache, unsigned long key, int value);
+diff --git a/scripts/gendwarfksyms/kabi.c b/scripts/gendwarfksyms/kabi.c
+index 2d941ee13c9b..35c70a6230d9 100644
+--- a/scripts/gendwarfksyms/kabi.c
++++ b/scripts/gendwarfksyms/kabi.c
+@@ -87,7 +87,7 @@ struct rule {
+ };
+ 
+ /* { type, target } -> struct rule */
+-static HASHTABLE_DEFINE(rules, 1 << RULE_HASH_BITS);
++static DEFINE_HASHTABLE(rules, 1 << RULE_HASH_BITS);
+ 
+ static inline unsigned int rule_values_hash(enum kabi_rule_type type,
+ 					    const char *target)
+diff --git a/scripts/gendwarfksyms/symbols.c b/scripts/gendwarfksyms/symbols.c
+index b4110b0e12ce..a87444611bbd 100644
+--- a/scripts/gendwarfksyms/symbols.c
++++ b/scripts/gendwarfksyms/symbols.c
+@@ -9,9 +9,9 @@
+ #define SYMBOL_HASH_BITS 12
+ 
+ /* struct symbol_addr -> struct symbol */
+-static HASHTABLE_DEFINE(symbol_addrs, 1 << SYMBOL_HASH_BITS);
++static DEFINE_HASHTABLE(symbol_addrs, 1 << SYMBOL_HASH_BITS);
+ /* name -> struct symbol */
+-static HASHTABLE_DEFINE(symbol_names, 1 << SYMBOL_HASH_BITS);
++static DEFINE_HASHTABLE(symbol_names, 1 << SYMBOL_HASH_BITS);
+ 
+ static inline unsigned int symbol_addr_hash(const struct symbol_addr *addr)
+ {
+diff --git a/scripts/gendwarfksyms/types.c b/scripts/gendwarfksyms/types.c
+index 9c3b053bf061..db55c8ae57f8 100644
+--- a/scripts/gendwarfksyms/types.c
++++ b/scripts/gendwarfksyms/types.c
+@@ -100,7 +100,7 @@ static void type_expansion_append(struct type_expansion *type, const char *s,
+  * const char *name -> struct type_expansion *
+  */
+ #define TYPE_HASH_BITS 12
+-static HASHTABLE_DEFINE(type_map, 1 << TYPE_HASH_BITS);
++static DEFINE_HASHTABLE(type_map, 1 << TYPE_HASH_BITS);
+ 
+ static int __type_map_get(const char *name, struct type_expansion **res)
+ {
+diff --git a/scripts/genksyms/genksyms.c b/scripts/genksyms/genksyms.c
+index 83e48670c2fc..01bea2d91d7a 100644
+--- a/scripts/genksyms/genksyms.c
++++ b/scripts/genksyms/genksyms.c
+@@ -24,7 +24,7 @@
+ #include "genksyms.h"
+ /*----------------------------------------------------------------------*/
+ 
+-static HASHTABLE_DEFINE(symbol_hashtable, 1U << 12);
++static DEFINE_HASHTABLE(symbol_hashtable, 1U << 12);
+ static FILE *debugfile;
+ 
+ int cur_line = 1;
+diff --git a/scripts/include/hashtable.h b/scripts/include/hashtable.h
+index 45abcb12bfce..fa60976eae37 100644
+--- a/scripts/include/hashtable.h
++++ b/scripts/include/hashtable.h
+@@ -7,10 +7,10 @@
+ 
+ #define HASH_SIZE(name) (ARRAY_SIZE(name))
+ 
+-#define HASHTABLE_DECLARE(name, size)		struct hlist_head name[size]
++#define DECLARE_HASHTABLE(name, size)		struct hlist_head name[size]
+ 
+-#define HASHTABLE_DEFINE(name, size)						\
+-	HASHTABLE_DECLARE(name, size) =						\
++#define DEFINE_HASHTABLE(name, size)						\
++	DECLARE_HASHTABLE(name, size) =						\
+ 			{ [0 ... ((size) - 1)] = HLIST_HEAD_INIT }
+ 
+ #define hash_head(table, key)		(&(table)[(key) % HASH_SIZE(table)])
 diff --git a/scripts/kconfig/expr.c b/scripts/kconfig/expr.c
-index 8dc73acb08ad..e30554807d12 100644
+index ea93016b68d4..5938b775a3fc 100644
 --- a/scripts/kconfig/expr.c
 +++ b/scripts/kconfig/expr.c
-@@ -35,7 +35,7 @@ static struct expr *expr_lookup(enum expr_type type, void *l, void *r)
- 	struct expr *e;
- 	int hash;
+@@ -16,7 +16,7 @@
  
--	hash = hash_32((unsigned int)type ^ hash_ptr(l, 32) ^ hash_ptr(r, 32), 32);
-+	hash = hash_32((unsigned int)type + hash_ptr(l, 32) + hash_ptr(r, 32), 32);
+ #define DEBUG_EXPR	0
  
- 	hash_for_each_possible(expr_hashtable, e, node, hash) {
- 		if (e->type == type && e->left._initdata == l &&
+-HASHTABLE_DEFINE(expr_hashtable, EXPR_HASHSIZE);
++DEFINE_HASHTABLE(expr_hashtable, EXPR_HASHSIZE);
+ 
+ static struct expr *expr_eliminate_yn(struct expr *e);
+ 
+diff --git a/scripts/kconfig/internal.h b/scripts/kconfig/internal.h
+index d0ffce2dfbba..f7e660dbd299 100644
+--- a/scripts/kconfig/internal.h
++++ b/scripts/kconfig/internal.h
+@@ -6,14 +6,14 @@
+ 
+ #define SYMBOL_HASHSIZE		(1U << 14)
+ 
+-extern HASHTABLE_DECLARE(sym_hashtable, SYMBOL_HASHSIZE);
++extern DECLARE_HASHTABLE(sym_hashtable, SYMBOL_HASHSIZE);
+ 
+ #define for_all_symbols(sym) \
+ 	hash_for_each(sym_hashtable, sym, node)
+ 
+ #define EXPR_HASHSIZE		(1U << 14)
+ 
+-extern HASHTABLE_DECLARE(expr_hashtable, EXPR_HASHSIZE);
++extern DECLARE_HASHTABLE(expr_hashtable, EXPR_HASHSIZE);
+ 
+ void expr_invalidate_all(void);
+ 
+diff --git a/scripts/kconfig/symbol.c b/scripts/kconfig/symbol.c
+index 27138252c667..e46228d6348e 100644
+--- a/scripts/kconfig/symbol.c
++++ b/scripts/kconfig/symbol.c
+@@ -971,7 +971,7 @@ bool sym_is_choice_value(const struct symbol *sym)
+ 	return !list_empty(&sym->choice_link);
+ }
+ 
+-HASHTABLE_DEFINE(sym_hashtable, SYMBOL_HASHSIZE);
++DEFINE_HASHTABLE(sym_hashtable, SYMBOL_HASHSIZE);
+ 
+ struct symbol *sym_lookup(const char *name, int flags)
+ {
+diff --git a/scripts/kconfig/util.c b/scripts/kconfig/util.c
+index 0809aa061b6a..d2d17d9d37b9 100644
+--- a/scripts/kconfig/util.c
++++ b/scripts/kconfig/util.c
+@@ -14,7 +14,7 @@
+ #include "lkc.h"
+ 
+ /* hash table of all parsed Kconfig files */
+-static HASHTABLE_DEFINE(file_hashtable, 1U << 11);
++static DEFINE_HASHTABLE(file_hashtable, 1U << 11);
+ 
+ struct file {
+ 	struct hlist_node node;
+diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
+index 75374c64b8cc..92bcd2b3a08e 100644
+--- a/scripts/mod/modpost.c
++++ b/scripts/mod/modpost.c
+@@ -234,7 +234,7 @@ struct symbol {
+ 	char name[];
+ };
+ 
+-static HASHTABLE_DEFINE(symbol_hashtable, 1U << 10);
++static DEFINE_HASHTABLE(symbol_hashtable, 1U << 10);
+ 
+ /**
+  * Allocate a new symbols for use in the hash of exported symbols or
 -- 
 2.56.0
 
