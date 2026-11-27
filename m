@@ -1,84 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795774467;
-	b=tMd8gHx3lssObjMyT2HfAsCYQR2CpVLIqQCt4o+34stZIsyPqT0qLzmP3/TbcBTykMAc
-	 4k+pDWumQoRih850xcSDRXkgtmSVWcluFUM/vWs3s480NfG4dIF+xg/8qWJeMZNnrHmBb
-	 UN2xSX49w9fhMRf2umQoLS3h9GlHCT4Jtg0mHezB/BoQSCc1+bRr+oQxOC4vkjwdwY6dN
-	 ZVjhQzqlNSS3OZIghfoKXI37ztP3WKOS01zdxl7u2db0HlZhx8EMkQp1Ep4K9sL4Jqze/
-	 1LRRw7HwDg97+A/uQWvhqXh18DH6nrM0T9s9/CnHrIW1qB84KYgtlE+YmvecFFMkiLA==
+	t=1795774464;
+	b=sFGKkDFfLtfuhCMXGFey6JXbEFoqMlWzgFrjZYYg6vAC2gXvmkrChcVf/FwBTZHCzyA1
+	 jL+c26piCS0x4uK242OQpQFhni4uszf3yeSfONvqxzSQ2EXpzZmtAaooPOzoyj7C7NZLi
+	 ZrJQX/0n/NbdnsPs1gX2FNC2r4pCUX1UldLUbjeMPTHTvKTd7mPnx1M3IHoOAocHxElC+
+	 I9BGoa33TiZfo7J3G7AkEKlS892F//zYFMJS8apem6ZxbTrCW6VAdd+TEvGz9UUFbnDX/
+	 lctbODBAaI2mOA9hba35MuFujJMG9sscjrzvXb8oGggttwsHOJjqChRQLolEoX8Hz3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795774467;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795774464;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=K+81Uiocp4dxkgsx2JTIwt2UK6FDgoo8FjodVxd3QpA=;
-	b=5lJUMq6p+y+Uo9y6J/Q6mOxY89g9b/6KfJUuRG4DhUnPAP0xWDlg8c/mxdzkqtQIoJ4H
-	 EyvnqYL7d4m3aOwcgIK/Af4BshFX66pus1ZjH5JuKB0Mk3Z/U8MdlJCwM/+cTs24CgENP
-	 B8YelqDqVQ8tzZ1s8BqK0RDXozfQFW2kgbTCKrSziVaoCQpvMBY/IYPHwbh1ULGAPZhBd
-	 QxDOpBGO4zXXzAhtnicJdbdlaW4kaB0L0TLyKbS9kQyf7GvDA09Gamvc0+8O1BIqNXhdZ
-	 VFmRh3zuZuHoc1LKb8IIiDXG6rpTaLFRpf2XuHPJ2O04T4PpFbTWkSrQXb9iJ8/5kPQ==
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=N6GqXV/LyNS1eXCOHO9HEI0k077DJHCbRkOPximIJxE=;
+	b=R1cscthzHGqXx21JE55aFwhxFbD3sU++0565zPyl+9rs4CwfgVpA2VFl4xq2udkOhidt
+	 h025jfl45uN+FENW10PYGWbBJPkU3tmK+JXyKbmjXHe4G+oNGvBKu6sYLtxa2HA6CN26Y
+	 5Zzt443M5gzpVq3uGOs0ZBaSq6R7IKQLs0eGK7VkTrFnvDgo32EIVIJgbhU3geGjBpMDM
+	 5H9Qd8QhghCsz5W/tgapwEHZs2ar/1Xfy6Ev7yjuuuQp3emOYnmVJKYOOic2KMxkkp6Ty
+	 Y6BORAZ1uGeSvff1qlTR8Lzv8fX0AMtp+r3S/VJs9h+QuTRlcMMAw1ZVvOYDIZ0a2Fg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Yr2qcLJG;
-	arc=none smtp.remote-ip=209.85.221.51
-Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GbXH75zm;
+	arc=none smtp.remote-ip=209.85.221.52
+Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1EC5A606A6A6
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:14:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1EC5A606A6A6
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79ADA606A33B
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:14:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79ADA606A33B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Yr2qcLJG
-Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-49412eb1474so5205158f8f.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:14:26 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GbXH75zm
+Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-49a92144733so3962107f8f.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:14:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795774465; x=1796379265; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=K+81Uiocp4dxkgsx2JTIwt2UK6FDgoo8FjodVxd3QpA=;
-        b=Yr2qcLJGWt90C913ZTcfquLL9V1ErCVRN2Q9iByGp/xXDu4kOTiQ4za49q/1r9+X5H
-         LUuyKJjbq9XNsoZPwPvbPOk8eRy4N+SUg6v2Tk8MlQnCEjWsMZQcCoGYZFFEu61qKJ57
-         yHs8PiAGCxnflWvLqcTduOHw615SH75yv6Qhv+HEwLb2YnrYeKfprlpUIpnlT+jyCzz7
-         4cPJZ0GcCSeYME5VZ/fGjdIO8RTMW2PzMe6zqE/J+SMZ4gjVTHWHb3myvz2kv8sUpmwn
-         l20qWPJN2UIdMYgx0N/aVLIpAQ7letKegMjBCm2+p2CSb8tOUbPJbhiPxZSol+ldFJP4
-         MM5w==
+        d=gmail.com; s=20260707; t=1795774463; x=1796379263; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=N6GqXV/LyNS1eXCOHO9HEI0k077DJHCbRkOPximIJxE=;
+        b=GbXH75zmMZq1wH6lilVCPrq1meQRkGymzEwoGp022+Rs7/GpALnIWBBO6kh+GPhwUa
+         q+TeLZ7DENQDAAFV1C6mdk6CqJNXa6YjFNlwJR3yO0ZwIkInbzAhb0AH7HbG2ASoYXDq
+         UlzrE9o81lgR71VFUEmY2GtFkdqdURvxHisTtdsh+podXGA+rwGSTjHgILpcFfG/jyeA
+         REY8Sp+3soFJpYuWT60MCg9Vy23yjkdcjTo5vgn6+sAaf4PjgM5CHUM9g7dteli0tipP
+         IUc0uElq6JsJ1YsHI3eknwGfpvcEfckjlTd2u1VSrsMyLqmdf1MTktKewdjmPlGyelca
+         yfhQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795774465; x=1796379265;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=K+81Uiocp4dxkgsx2JTIwt2UK6FDgoo8FjodVxd3QpA=;
-        b=QyO5qyEkQ3Pi3bXVDgQuUine0b9M8O1Z+vOF/jRmFp2tG0tLKPl0LX5GkeZ+vPFTzN
-         r03kIROvKH6oGPF167OjB7C3WI2PjAT22aTXQ8qJ9V0DRLvmaJTkXYEbjSVw4bZOQDhE
-         PF4pEt++ybFnmarf3MBqfBL+kRb94PVuXOFuWwkCXPasjP1L4Q8K/FnON7rqoVRwOMcV
-         xLmS4WTY1FVz+IICxssRFydBnvBDuxt/n4Bq2znaQ+ERL8y1i8lsep3DAaLYk6tbosQw
-         LOMx3tB1u5c1xeCAn6JZCqn/GguOsQb9hf7EYUl5AoKav4SKaUvrCZDl0ffa0Q5U4TTX
-         TEqg==
-X-Forwarded-Encrypted: i=1; AL+hErHMoRIxKan2w/2Ai/L9ymarzlRM97zpGiZqgzUhlOxEdsohVuvlpzYBUFUhdMI5q67kY9vifQvo/Sf4M4I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/xcqfvXUYnkYxs6OFuwyLGArbfLw+cHMcEOYDul8SPMqvtXB4p
-	TZvkqTJvUm71pL0cNUWT7Y4kyb7ULbqWZ7V24NPLZaTAqIOpYMZEuNw=
-X-Gm-Gg: AZFdTZeMoIETAT9BrClIGlGQ8m0LJBjO7woeYjL0pstcjmBK9Xt7FEUlIMoTmaysyi8
-	OJjud2TdRl9mGXLeJhkGogiw0OqHG9Xz3Z6EjKCMP0nBFnFe4W+EV2xSBTXhpuqqNjmHsJWBCzf
-	Z85jeryOfvlY4OTUFTQIVWqllG3iwVAxVvE+K7EXLqsdxPPFjGdykIvI6zATc01x9842ZY/2xcJ
-	Dy5VNANHo+sODHN60U7wI5cEg+dnOIuorwizBtLVl8fp05iM4+zd30SrwMo4IaGORg50s//ERG0
-	DxwqeyLdSMCx2zsTwA8snUoSmMpt/LgCLbDx1NBwJ5A+HanKcB9r8iZi2jFU+msMbPoz54IZdsD
-	qpO1Vu7qpkoBLfRflI9xJruLCJrPH/omgfrWP8A009qrGttOQc9pSPbJVpyxYfsE/ZY4J2kQjLN
-	pecSfmPwIfBgg9498nZK8DtyC92jAZmA+e7SI6fHahDerfDk00q25y3j8k9P1iU7Gv94yECARCW
-	FCuPnyUuvDE2At+U5PLUYH3nCMXjAhZnY2Fcr+7+NM09QkxYXKWxQ+scqziUF3bMvb8ftFp5YBp
-	sFJP/afUp0N2EuUQw8cCh/6zTv7Qbj9BE0Pz2Eepg/DYY5km0esVGslMX1waRgYnLrvsALCoJcB
-	NLrFjEhjVQRjMy1A44dwZp1pHSABXzFtIpMT1zDktP09FiO26ybyIt/0zzvE=
-X-Received: by 2002:a05:6000:188b:b0:4af:e519:ccd7 with SMTP id ffacd0b85a97d-4afe519cf33mr36813384f8f.3.1795774465333;
-        Fri, 27 Nov 2026 02:14:25 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795774463; x=1796379263;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=N6GqXV/LyNS1eXCOHO9HEI0k077DJHCbRkOPximIJxE=;
+        b=z/O6BcZFNvd3bp+z4cmvwWoXUBaxLqBjBp9fFMid3m6tkx0GGqWjVsgF8uiWOG/zbG
+         GJa8kfrLTE50CFeHiaPPx1lGeOQIZxogFyTpFI5qzpz7j30DICHOhN4FrC9qKLdpfOHl
+         4/VQsSyTdYxKoYN+fHQqK6spu//UQeqsSn1PMwgPzeOphRoXoZS82JQvaW4+CfFd5QIJ
+         0PHZxg9mtLnuLjAESTwPfg/0rQEiGa6Sxny7DGJEbrYz9m8wPsrF1DVqYiOUG+yLUHiR
+         8vkAZoRV3N1THcC3lf7XVhncxAqa8tHfBWqrsBEdjB9smWZf92ud+0YveluGqUmqLIyl
+         fbpA==
+X-Forwarded-Encrypted: i=1; AL+hErFz4f1FyHXJ/YrDaCv+29QCfcsUZn5mnatGV1dppZHzAQv/9HfnD+Hr6ZrzrhxJDevnwDoZfUi0H8yo7+0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z91xowPbbXoRrrmJV4pSdJDPKUvT8LhHd2xow/gI+HiDYMbsUwk
+	Lr6w+fLBiT0dC9xAxfECEFPBeq/8Dvkr7Ch5mWq/eRaRkELhiTVo8V0=
+X-Gm-Gg: AZFdTZer2au2a5rL+kscDr0fPkEoTXrTITGLXWSp/JxxM4/AdrDOI7414lCI5oe7zuD
+	MDnmEjaYRL1fdGfQWpcGnbwf4uhDvnC+04iv7LNy8tBxr8u4K1iuUFnnr8zWRREz7uVMFJnGxQJ
+	TqINWHeqzYDj9qaC2dK5bXPg5tHRrJE4p24/d5JkiUzxUz3O3sBq55xO942ooblsvNWSoon7YNd
+	cRx6/B/cJMEXsidz1cGYNQAP/xvV9ZdLfh40BDmL1sofYLJRnA7a6Tjvu1N2kmSgYyPWjqQCI09
+	BEpaQ6vniOTN6nLmvWRv44u+IccZWYE71PvGe3PyuFsxw+0u6d+43X7qRfyFj2vbxClX9kNPzpy
+	JzgiNKfD0KnWa19oftEwdBMyKR9nfnJhG0OsfJ539mFezF6vQ2rDW9R4lhBb7kX59TPvG2rVgYz
+	EjmcpuQp5cgeZcc9ri1G/TrOa8xT+o8Thi0ZLkizctWXfFO+CQSZmsPLdn0gw2nNgip4rCMDsab
+	PuR6AxA4ApZQvxPLwWwKQVibjF8OPp2uIfVcr/8Cd8kEXBHF17NYk0VuSaV5TKepvlRt/cbOYFO
+	wQ7ml31JPwW748oPTu+HJek0Xa8QR/Vkr49Dmlbp/23TnC8aBjYRo+9Orll3MpIAMxpOhvyYQDH
+	jrN4hTtgfT0LQDdz+cu8Z6hRseDGb3A6gTfq/UQaQwy4OszRlYYqIAb33sos=
+X-Received: by 2002:a05:6000:2308:b0:49b:587:121a with SMTP id ffacd0b85a97d-4abb36787afmr49730970f8f.16.1795774462607;
+        Fri, 27 Nov 2026 02:14:22 -0800 (PST)
 Received: from localhost.localdomain (host-94-89-17-99.business.telecomitalia.it. [94.89.17.99])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fec7sm43651234f8f.26.2026.11.27.02.14.24
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fec7sm43651234f8f.26.2026.11.27.02.14.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 02:14:25 -0800 (PST)
+        Fri, 27 Nov 2026 02:14:22 -0800 (PST)
 From: Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
 To: Rob Clark <robin.clark@oss.qualcomm.com>,
 	Dmitry Baryshkov <lumag@kernel.org>,
@@ -98,12 +97,10 @@ Cc: Yongxing Mou <yongxing.mou@oss.qualcomm.com>,
 	freedreno@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org,
 	Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
-Subject: [PATCH v2 02/10] drm/msm/dp: reset cached link_info before reading DPCD capabilities
-Date: Fri, 27 Nov 2026 11:14:09 +0100
-Message-Id: <20261127101417.24303-3-gianfranco.mariotti94@gmail.com>
+Subject: [PATCH v2 00/10] drm/msm/dp: fix DisplayPort hotplug, link training, and multi-lane PHY setup
+Date: Fri, 27 Nov 2026 11:14:07 +0100
+Message-Id: <20261127101417.24303-1-gianfranco.mariotti94@gmail.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261127101417.24303-1-gianfranco.mariotti94@gmail.com>
-References: <20261127101417.24303-1-gianfranco.mariotti94@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,36 +112,110 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Commit ed100aa239be ("drm/msm/dp: Enable support for eDP v1.4+ link
-rates table") guarded the drm_dp_max_link_rate() fallback in
-msm_dp_panel_read_dpcd() behind if (!link_info->rate) so eDP v1.4+
-SUPPORTED_LINK_RATES entries take precedence when present.
+On platforms with a native DisplayPort connector using direct HPD
+interrupts, DisplayPort initializes on cold boot, but physical cable
+unplug and re-plug cycles leave the display blank even though link
+training and stream enable callbacks report success.
 
-However, link_info is not cleared across hotplug cycles. Once a monitor
-has been connected and link_info->rate is non-zero, unplugging it and
-connecting a different DisplayPort sink skips the fallback and reuses
-stale rate, use_rate_set, and capability flags from the previous sink.
+This series fixes the underlying PHY lane setup, DPCD link-info caching,
+SST training-pattern handover, link maintenance completion/stream
+handling, and HPD / sink_count / runtime-PM / PHY / EDID state tracking
+issues:
 
-Zero out link_info before parsing DPCD capabilities.
+1. Configure PHY voltage swing and pre-emphasis across all active lanes
+   and refresh lanes/link_rate in msm_dp_ctrl_set_vx_px().
+2. Zero out cached link_info in msm_dp_panel_read_dpcd() so re-plugging
+   a different sink does not reuse stale rate, use_rate_set, or
+   capability flags.
+3. Avoid redundant back-to-back link training in
+   msm_dp_display_prepare_link() and keep DP_TRAINING_PATTERN_SET active
+   until msm_dp_ctrl_on_stream() is ready to switch REG_DP_STATE_CTRL to
+   DP_STATE_CTRL_SEND_VIDEO.
+4. Guard msm_dp_ctrl_push_idle(), reinitialize ctrl->video_comp, and
+   keep training pattern active until stream clocks are enabled in
+   msm_dp_ctrl_link_maintenance().
+5. Use asynchronous pm_runtime_put() on HPD unplug/notify paths called
+   from msm_dp_display_irq_thread() to avoid a synchronous disable_irq()
+   self-deadlock in msm_dp_pm_runtime_suspend().
+6. Track drm_dp_read_sink_count_cap() in link->has_sink_count and keep
+   sink_count and prev_sink_count synchronized across plug and unplug.
+7. Keep dp->plugged, AUX transfer enablement, and runtime PM references
+   balanced across plug, unplug, detect, prepare_link, and empty branch
+   dongle notifications.
+8. Keep the DP PHY initialized across msm_dp_display_unprepare() and
+   system sleep while a sink remains plugged in (removing now-unused
+   msm_dp_ctrl_reinit_phy()).
+9. Re-read EDID on demand in msm_dp_display_get_modes() when
+   edid_blob_ptr is NULL (e.g. after DRM_FORCE_OFF).
+10. Dispatch DP_DP_IRQ_HPD_INT_MASK to msm_dp_irq_hpd_handle(), skipping
+    sink requests when mainlink clocks are off and emitting bridge HPD
+    notifications on branch DS_PORT_STATUS_CHANGED events (kept at the
+    end of the series so it can be dropped if superseded by in-flight
+    DRM_CONNECTOR_DP_IRQ_HPD changes).
 
-Fixes: ed100aa239be ("drm/msm/dp: Enable support for eDP v1.4+ link rates table")
+Changes in v2:
+- Add Jens Glathe's Tested-by on unchanged patches 1, 3, and 5.
+- Patch 1: clarify commit message regarding persistent ctrl->phy_opts
+  staleness on link maintenance and update Fixes tag to 937f941ca06f.
+- Patch 2: zero out the entire link_info struct (rate, use_rate_set,
+  and capabilities) before parsing DPCD.
+- Patch 4: drop redundant msm_dp_ctrl_configure_source_params() call (as
+  msm-next already calls msm_dp_ctrl_config_ctrl_streams() inside
+  msm_dp_ctrl_link_train(), avoiding unclocked pixel_base access when
+  no stream is active), guard msm_dp_ctrl_push_idle() and
+  msm_dp_ctrl_clear_training_pattern() / SEND_VIDEO with stream_clks_on,
+  and update Fixes tag to 8ede2ecc3e5e.
+- Reorder and split HPD changes (was patch 7) into four focused patches
+  (patches 6-9):
+  - Patch 6: DP_SINK_COUNT capability and prev_sink_count synchronization.
+  - Patch 7: dp->plugged, AUX gate, msm_dp_bridge_detect() runtime PM
+    release, prepare_link locking, and empty branch dongle handling.
+  - Patch 8: PHY lifecycle across msm_dp_display_unprepare(), unplug, and
+    system sleep, removing msm_dp_ctrl_reinit_phy().
+  - Patch 9: on-demand EDID re-read in msm_dp_display_get_modes() and
+    DRM_FORCE_OFF error log suppression.
+- Patch 10 (was 5): move to end of series, guard
+  msm_dp_ctrl_handle_sink_request() with ctrl->link_clks_on, guard
+  msm_dp_irq_hpd_handle() with dp->plugged, and handle branch
+  DS_PORT_STATUS_CHANGED connect/disconnect with non-reentrant
+  drm_bridge_hpd_notify().
+- Link to v1: https://lore.kernel.org/r/20261121214105.32596-1-gianfranco.mariotti94@gmail.com
+
+Testing:
+Hardware-tested across cold boot, unplug/re-plug, monitor swap (4K60
+native DP and DP-to-HDMI branch adapter), connector DPMS/off cycles, and
+IRQ_HPD link-retrain cycles on a QCS8275 (Monaco) SMARC board (SECO F86)
+with a native DisplayPort connector running v6.18 + the FROMLIST DP
+HPD/MST series (Qualcomm Linux / QLI 2.0), then forward-ported and
+build-tested against msm-next.
+
 Signed-off-by: Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
----
- drivers/gpu/drm/msm/dp/dp_panel.c | 1 +
- 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpu/drm/msm/dp/dp_panel.c b/drivers/gpu/drm/msm/dp/dp_panel.c
-index d3468b73fdc3..e633afdf2b47 100644
---- a/drivers/gpu/drm/msm/dp/dp_panel.c
-+++ b/drivers/gpu/drm/msm/dp/dp_panel.c
-@@ -195,6 +195,7 @@ static int msm_dp_panel_read_dpcd(struct msm_dp_panel *msm_dp_panel)
- 
- 	msm_dp_panel->vsc_sdp_supported = drm_dp_vsc_sdp_supported(panel->aux, dpcd);
- 	link_info = &msm_dp_panel->link_info;
-+	memset(link_info, 0, sizeof(*link_info));
- 	link_info->revision = dpcd[DP_DPCD_REV];
- 	major = (link_info->revision >> 4) & 0x0f;
- 	minor = link_info->revision & 0x0f;
+Gianfranco Mariotti (10):
+  drm/msm/dp: configure voltage swing and pre-emphasis for all active
+    lanes
+  drm/msm/dp: reset cached link_info before reading DPCD capabilities
+  drm/msm/dp: keep training pattern active until stream video is ready
+  drm/msm/dp: reinit video_comp and guard stream state on link
+    maintenance
+  drm/msm/dp: avoid synchronous runtime PM put from HPD IRQ thread
+  drm/msm/dp: track DP_SINK_COUNT capability and sync prev_sink_count
+  drm/msm/dp: fix HPD plugged, AUX gate, and runtime PM tracking
+  drm/msm/dp: keep PHY initialized while plugged across link unprepare
+  drm/msm/dp: re-read EDID on demand in get_modes when blob is missing
+  drm/msm/dp: dispatch native IRQ_HPD directly to
+    msm_dp_irq_hpd_handle()
+
+ drivers/gpu/drm/msm/dp/dp_ctrl.c    |  44 +++---
+ drivers/gpu/drm/msm/dp/dp_ctrl.h    |   1 -
+ drivers/gpu/drm/msm/dp/dp_display.c | 228 +++++++++++++++++++---------
+ drivers/gpu/drm/msm/dp/dp_link.c    |  26 +++-
+ drivers/gpu/drm/msm/dp/dp_link.h    |   2 +
+ drivers/gpu/drm/msm/dp/dp_panel.c   |  20 ++-
+ 6 files changed, 215 insertions(+), 106 deletions(-)
+
+
+base-commit: d024361c631b3f020a26c07d683e5103404b0fbf
 -- 
 2.25.1
 
