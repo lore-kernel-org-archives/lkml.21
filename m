@@ -1,96 +1,133 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.48
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795820423;
-	b=kXXRtapxR3/X4Rcw28aia6JnlNMzgcitAEIt1s5HtCihXjEhpEoQTzsOEf/cfGWTKO8+
-	 rh/6Y+SITs8ZZr37GLgevgdWEo9LyoNFIpgg/wqUWwtKnAHR+IcEz2yAdODHr3m6Ca0xr
-	 AfAJERK7qTFC/53NFvCFvUtYOYF7N1JcYPNNxzkOG33bH3n4l4sumoHz/oMokNgA0TjTn
-	 ffOkRqNgGoGqQL1cvrvlCrd6501O+tjpte+HITVaRA1qZrpCaZG6+qIQG/bxydQJVMIsE
-	 iiBq4IBXgjc3lSgab3O+HXg0idmeZf4HeE7qER+Ds2Tyk5FvknDbpJ0mAKb+do1y3Zg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795820423;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=ar+S5jk4rHH2V7R/Ok+7bDPoVRQ9mGkSVjC3XjNon4Y=;
-	b=GY91zDDh9E2V3iMay8UAUcJZjx0frJL+Bvl/L33VeE7nnfEB8mvVTk6Lio3pIG8uGIJk
-	 9QC7iRc3Sll+CleGQFuQCa5IQM/hWSninDYuMBEvzWXi2lyMXNVJAR+9ki3y5fvb5zLV7
-	 6U6GMqmmTkItDWeqX6i+xQUJYhdfdcA1RiWpwi5jYdniOqJy5cbf9iWYZ8qqXCWv6Qiu3
-	 bEjgZYh7fva7CMVR7C2gemyvPzRBzjp11RMZrNMVhnRDYECS2RBM+LpG5J6v/zIE+ylCN
-	 MAtbHB3qbENRFgi6QS2vWwGR80s2vpngZ7OnqvYcy7QodqeZ40GB/5XuYbu2NJer7/A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ggt+XXIa;
-	arc=none smtp.remote-ip=209.85.219.48
-Received: from mail-qv1-f48.google.com (mail-qv1-f48.google.com [209.85.219.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.55
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795820500;
+	b=T8UN1qomhFC1vA/gzECPWpfj32Gykv6m4qD5o+F6kxj48qea7iloEtTakbs8DHdT7EVm
+	 A5VY/NaAmOb3rikjZbAMBzcDMCaRTrArSlZVvFXe8A9kJ7R8L9dWqS0soMNTOyfoOl6Rs
+	 Pj8K5v2Qxl8nccEusCvlGrwxU2/9qil69Q59fjqNHIXjMNG5T8YcpQDMs+9wkFa8UCqgi
+	 gJdbQDdTPWSP9YYPWVzaVE7+80iF/sn0YqdiPJV3u3y5qDpMAIyImTHq08ijkOk8VnZ8j
+	 9tq+oi03iVjar19Ypg0rWbYdBF0y1O+t4WfEMvIeHndKJFqs0VObgoI7FJpjeJMBV2w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795820500;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=0Nkfh7aFSH4dYG9fbf2t6iHTBDBqn9Q5pE7e4HQM0bw=;
+	b=DBtrgEFaH3ZS7UZ/c0OfLFSncfKTl85wG7isGgEXiA+7yi7/P2K41iJBzDaLuizwq6Mq
+	 VceJrsq0HgkCGPHe7Pc635/uO2Gt2bjVdrQv/v7JSGLIZlKWuVLbz7Oh3eHyWp/TZSOP8
+	 1OMPjxv9KyJh69Y3WDFIFhE5oUZa6r6VhW8Fu53L/HHiuYJlkWYIWx/lyQ0sAXShc1+oq
+	 pjgBvaUyBqFjwR/cm2J3nyf1yy0cIYD6KWl0/UkOUYPusunfGn1ua40OZwoaGsiB/f2ks
+	 qNkxeg1CqxF+6JUEFvduGNL5EkCthckQxcUj2OYolfC7R0pf/7EeqL1WHvOEGaFJxJg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=iZqi7Bcv;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.55
+Received: from PH8PR06CU001.outbound.protection.outlook.com (mail-westus3azon11012055.outbound.protection.outlook.com [40.107.209.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF725606A321
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 23:00:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF725606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F088606A336;
+	Fri, 27 Nov 2026 23:01:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F088606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ggt+XXIa
-Received: by mail-qv1-f48.google.com with SMTP id 6a1803df08f44-92125687442so83484826d6.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:00:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795820422; x=1796425222; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ar+S5jk4rHH2V7R/Ok+7bDPoVRQ9mGkSVjC3XjNon4Y=;
-        b=Ggt+XXIaJGIhZbwCW5zxpNjFNYKQzpEO/tJK2TUY/2/Lj3O9AFEs307VHbTTbGMO/U
-         imXoJ7gXTjU/QQRMC+qWxvBRHOftWUZRJbK+sTMKdIRufqAy4MGwDDpHtj7TAlPxfMba
-         UAZGaZ9GnPu3vsk/HJjHYbFO8P0FufBc6TDKxEtHPIYqUwNplZcCfNlLQfczTAGZNzDZ
-         SH4Uv7IRgJHy1hQCH/Uexz4+rqGH3h5Nes1wzvkc1pgFGTybLyIo+hk5ADG5QrBbpd4M
-         PJe79wtowJbtyAF/NiYxRRaO7iLJbWTpBKOvKXDeVWQ2gThfqf/yoAXNATT9Z0A9zcxE
-         DdoQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795820422; x=1796425222;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ar+S5jk4rHH2V7R/Ok+7bDPoVRQ9mGkSVjC3XjNon4Y=;
-        b=1NXtACNn0uct3ONpq4P0oKUfPtnEUiVEuITkeW9cj1+F82edcopJcY8a5ktzNKID79
-         KEgouZP+xGKTmWJ8vpU/mSWCAnwLqr7mgdgu2hTvs2ObfJev7ZDjPgRc1+YGwtGtZ78q
-         uWWuNS2XdB2a6aoFnrN+o34ldMBDQ4kK6vr87P4gaQWHkHSUZsuKWN/v0te6ZrJ6Zfzc
-         e9gTVWovE8dY5pEVbyJdlfQ7xJbJ4B+2ehwYNlsmMbxkLi8kafyCfFn2tKiD44am5s9x
-         z+T2AgVdKu9ZXiaoiXZvb7FviBT7aMLn54L4mj89O0iI/OFfI2AgL2xnTt/7FtanchMS
-         m/iA==
-X-Forwarded-Encrypted: i=1; AL+hErFP5WEyYcMZNnFgAFQU0AezC6tw6qcfZVH2PdtCK2w9WiSZIrPtz3lof1LbV5rqJ9NGSzjvvb7+5SZ5uxw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z92ueRbFAIZDolHvMQmHI2H2u2j9ljSGjltUUftXjw+ieCiopwn
-	yOMY2RDJwGGLLOzTCRDJhN/O4XhrYfElanoZPJDZp5PVXUbeiAgxTSwx
-X-Gm-Gg: AZFdTZc1Zps28Niu8xdstJpGsBYDfvWFXoG+4PxQgmGA6jIgtC5uSITKjCGYmCzQp7Y
-	IoVcEms/oV0QX1FrTYXfqL3GkWip8cBNa8ZbTFKHxbHPFzvvRJnyuNsPsvfB/WoKApNqHiyYPgW
-	690nygGNu1Seo82nXnqArjoI+7xumovpmGxKkchU4q9ns4zodTEdON+fmcKxHu46UJ+pV9eTFc6
-	vyi1GTVUqrRxf0d0BYTahmtFKbH1ubrhk8QY6gdb17HtTHih3aXUtbs3NO/PhYE7JqkEBpye0vr
-	FaGjmOdtOzMssRGYOnBOdQlnFXmHTfBBGjKSqgexaVYDvvhSoACsbaCwCtzyp+atkzQL3L7q0aJ
-	YVgOddOJBgn5EAF9DXC2N9U1k/UIaigl1SFQ+KCkCDmVevSbxBDoHmLadPo3Q5PAuGDEZ+1PN85
-	kOLK9OWlULpya2SuXD09fUV4gXJp/LyXVCP4W7H8SLkQlIg7EBixIUK9D27fkh8mibU1eQSsz/W
-	lDS71G/VqziAJwAPcjC9opXGrsa0dWmUNWz5wZ3goNCKcRmAFxDi9JLnUwClu8kZasU44kryJMT
-	Sv3a/i6g7lkAkfOlv/sBr2wgOV1ixszGfZu2sOnK8SsfrpxwoPhmdzn/fdALmKZ/QbAWIMUZr0c
-	dOtFeJJzMMBYY1I8lvUzD+8aJwh//Dg==
-X-Received: by 2002:a05:6214:1242:b0:91e:a545:691b with SMTP id 6a1803df08f44-92134b5a208mr465954136d6.56.1795820421643;
-        Fri, 27 Nov 2026 15:00:21 -0800 (PST)
-Received: from localhost.localdomain ([71.18.96.11])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921787fd72asm88678026d6.12.2026.11.27.15.00.19
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 27 Nov 2026 15:00:21 -0800 (PST)
-From: Yifan Feng <evanfengff@gmail.com>
-To: Hugh Dickins <hughd@google.com>,
-	David Hildenbrand <david@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Greg Thelen <gthelen@google.com>,
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=iZqi7Bcv
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gZNCXf1hLFGxtJcvSJiHJbIWSGripTKXE8nFed0znORuz2XJB7YGn5O4tO9RNYcUF/oevF9DxUYYGomW5l/wfut64RBqMhcicTODXGscwf1pHZZ+os+AJDGSBoamtK7EeEnwuGsGaKrsFkfDHqArrBRttcfiBZojvbWqAkNzyRtbqDYa1iSl2fkqGYvwuB5iAI3oUah3UlzIKlyIcO8bUBFzC3ajpkiwN+uENobWPwagkcp00WJiQDlyQrqs8WhH16pNnqdPK/Srs826InpfhHP6hLQBvnJQPQJSKZkGIm4JEAVqJJzFktGR39bZ+cbU8c3DAWdliTAY6L7FsobRYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0Nkfh7aFSH4dYG9fbf2t6iHTBDBqn9Q5pE7e4HQM0bw=;
+ b=pTK0OhWefMNZuuaBHk6qLgp6cliw+F2lzwx48Yt7n7inDmCJsPyj4KmGl4yM5eJ+1A89Wd27f6O1K/ZtiuYu8xTe0AH1J2loUHkK6909/Hlykvd6TYpnY13OlYXVWNgYxkQNrs/UYM2y6Z4i5Ba/+MFYHfgmJbmsZreLsu87WH8R/bD9iI3XRjWyKFWnqUuNY2B9PP964lw/PUKotEMQ3tShUD21KoRk+1x3kxu3puM+0mwwPhUkgJk6kIgrPBKVOsuwRyfXfwXlcaSB3zGJVvPUBVmC8MF4dOH50+QOwZu+u1/StnkqMYc/cfT0kuwvupbp9dWj5iU+z3ZVraAN0Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0Nkfh7aFSH4dYG9fbf2t6iHTBDBqn9Q5pE7e4HQM0bw=;
+ b=iZqi7BcvtxVYQ4caVOESgelR5MdLVgfssDCsBzCZ3yLF87+1uR/5rh/RWBDrIFiSXwUzM8llgvOOWfonzfOu4A3J9E+hm0u2Um8crrNVxniEfv8xK22V5GzZDcgW8gXhM1o7iJ1M8iaEqjoLDK6XfJoDY2JZOB+IUU19k9h6LzslHRKaMesPE46BIJFYPcdLhjUSpSvfdEcMVxOEns7Rr34ljimtEvRDeZ/Q883Ikr2t38XN6PfexAvFhr401OKWH2+kV0EmAXWjZSFMXLWWrWpW8tJ5E6zzii/7MeMJ1CjzInSZzfPNovBKEz2r0o/IXA1yMtjTha+FYnmQFhFOUg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SN6PR12MB2814.namprd12.prod.outlook.com (2603:10b6:805:72::33)
+ by IA0PR12MB7505.namprd12.prod.outlook.com (2603:10b6:208:443::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.11; Fri, 27 Nov
+ 2026 23:01:36 +0000
+Received: from SN6PR12MB2814.namprd12.prod.outlook.com
+ ([fe80::9a18:413c:9702:8f59]) by SN6PR12MB2814.namprd12.prod.outlook.com
+ ([fe80::9a18:413c:9702:8f59%6]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
+ 23:01:36 +0000
+From: Yury Norov <ynorov@nvidia.com>
+To: linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
 	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Yifan Feng <evanfengff@gmail.com>
-Subject: [PATCH] tmpfs: reset the memory policy on remount with mpol=default
-Date: Fri, 27 Nov 2026 15:00:15 -0800
-Message-Id: <20261127230015.30733-1-evanfengff@gmail.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	David Hildenbrand <david@kernel.org>,
+	Gregory Price <gourry@gourry.net>,
+	Zi Yan <ziy@nvidia.com>,
+	Joshua Hahn <joshua.hahnjy@gmail.com>,
+	Rakie Kim <rakie.kim@sk.com>,
+	Ying Huang <ying.huang@linux.alibaba.com>,
+	Muchun Song <muchun.song@linux.dev>,
+	Oscar Salvador <osalvador@suse.de>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Kairui Song <kasong@tencent.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Mel Gorman <mgorman@suse.de>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	linux-mips@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-block@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org
+Cc: Yury Norov <ynorov@nvidia.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Barry Song <baohua@kernel.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Qi Zheng <qi.zheng@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Wei Xu <weixugc@google.com>,
+	Yuanchu Xie <yuanchu@google.com>,
+	Yury Norov <yury.norov@gmail.com>
+Subject: [PATCH 02/11] nodemask: pass nodemask length to node search functions
+Date: Fri, 27 Nov 2026 18:01:19 -0500
+Message-ID: <20261127230128.111933-3-ynorov@nvidia.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261127230128.111933-1-ynorov@nvidia.com>
+References: <20261127230128.111933-1-ynorov@nvidia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BLAPR03CA0136.namprd03.prod.outlook.com
+ (2603:10b6:208:32e::21) To SN6PR12MB2814.namprd12.prod.outlook.com
+ (2603:10b6:805:72::33)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,61 +137,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN6PR12MB2814:EE_|IA0PR12MB7505:EE_
+X-MS-Office365-Filtering-Correlation-Id: ffdbb042-f055-4273-4eb3-08df4cda635d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|10070799003|366016|23010399003|1800799024|376014|7416014|921020|10067099003|56012099006|261026140227099003|261026121527099003|261028144727099003|261021121427099003|261022105027099003|261021123027099003|261102123227099003|261009223027099003|18002099003|22082099003|11063799006|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	uxGYiZhoHQ7QY4+WfEdzAIlOFuMWe5oq4sQsfQJj9RecuTmNl7dq95GmdwWVR7sZn0jyw5HG7iAZLTAUoTl4zNyIDK3883dS7Q+aszQp2hdC0c2dTSs+ADDCgUZWRqVD1vSoxyR7A2Wr0ItSpW877GQ/b+ig6VAtHU6U7vovl8zol9Cc8dcLDuvc+U3F3PrIfiCZTwnyvqLh5Q4TwCagpR4a8E56Otz8AgJbOKSSampTvWzdu6falCL7aNtrnHxDO1vSgiN7RWsuEGNnw7+IMT62qRHIGbJtaCazD/GTU7EPfzRZ+etxDhbFcm77FLWYZ2zVYszXZoKSgoO2C5OkreqXu6dODGejOpHSNi2ePP53nQOff3P/iLmf5m6ji3hW8/i/BcVeBgwIh+m1JPsZnPyR4uAROAPjCTUmNiV+ZzdQ9ZG+Zj0VJ4xwO1T4hFPMhIW/Dtyx2pTMHl/q3ZFdLUiiHvpVt3rAo4FIsGI3E8TwYVB6ZlK+9CLNQPEH5ITSbiLZuls7U9WO4jnP9JjfanGiRuGMHT/jJEzBKnwAaREwUotNTcHiqeA+R+oaYS/KYrELCANcz+WrNSnZgLiNoN9qw0WRfCOowMWg6Ov+2qe3+hbYpwd7trvkytKeuTO6L2Rv5sj1u5oQuoTkO6eqQ7wT4BmGWft069Q/krFn/ufAWEYO1froa7pV1g2U1Ubzw+/IXv22RQYisvvc2y8bag==
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN6PR12MB2814.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(366016)(23010399003)(1800799024)(376014)(7416014)(921020)(10067099003)(56012099006)(261026140227099003)(261026121527099003)(261028144727099003)(261021121427099003)(261022105027099003)(261021123027099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(11063799006)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?3CpItdEPhlcYzmUogVFjK72qyvujCihvO60LqfUoVq1hBihsh7txDqX/FzYv?=
+ =?us-ascii?Q?mYRqtjh0XmRPMIY0l9xW/GpP63fQdQAA/xPxSMPuWuFF2MBhJxqp87sWMlIb?=
+ =?us-ascii?Q?m/j2KhJ5w+poyiGb7iXGn7fveadDcj9+NZfhKrhUvyf/pl4RBu7uKMivSMLD?=
+ =?us-ascii?Q?zQRYZ66CjXqLlPyvkzpmvDDZ6HOas/ytwFPlNsKPNHLDsl1OCEwRMlMNk9JI?=
+ =?us-ascii?Q?Lq+a6eGk/j0Cp1AdkiZUbzI1LWTKlHwKQHEEO6ckrY88CKOURcWltWIXVEoA?=
+ =?us-ascii?Q?vot4VJd317JIIXp0ijKXCYu79KD+QvnDj0b8kIfm6YrIcdSTX8KGdjteCE2F?=
+ =?us-ascii?Q?iDkiBc+/neQ+U7YjPjcRaDr/HgKMM/MH+8EiXe60yz+eBW0L/YFdyaklJTa8?=
+ =?us-ascii?Q?9q0+Hq/ui+dOWvKnk/KPJ1LzAPT5NqKNDE4IlnqZ7UFWjFQnIhvQifxZctyW?=
+ =?us-ascii?Q?814Z3xPvErLbgk0aR8X6MkorAg7Jk8spqYqISC8yH3VMeYu/0AWlaNchILNe?=
+ =?us-ascii?Q?qpoEJwTz26cAQQtFwhlxpCkBzGKA9W7/O+id+YFDPVktBC38LivZMy9RImKP?=
+ =?us-ascii?Q?rIZnMzMsJa/K+nTM4upuXt33yL041v9X7Src2e01jNjFtZ4Y9zxFdG1F9QT1?=
+ =?us-ascii?Q?5VrWehFnKLMQ8eRK1d4faQvkGAk9+/T9nJdyWBFBt9aG8qpFAa9aoyfIld0t?=
+ =?us-ascii?Q?D4NpAW/kEKcCwcyQQIPAntoog85bkHhoamZ9CekdI7ky1qDCl4d3n38NJMon?=
+ =?us-ascii?Q?R2jq+msQVZERkcb8y44zQT24ie2NhGguaUf43uN3hIuHp6I1+WdtSVnXFEIM?=
+ =?us-ascii?Q?z7gurrgyapGBmBgDF+cdtZ3MpH/1ix/aT4gCygoSdH/sfMcmH5AB4wyQbfN7?=
+ =?us-ascii?Q?oAnWsU8Csnok+hAWA/0Y1y8e009UXgtDQgy4/FZD/bRnewd47Spxq7jY2XlI?=
+ =?us-ascii?Q?PedWInTLFZMZ+SToIXr7Fb8TcrLlMJmQgvbLj6bAFiNm5lMevJlbo/f7t03K?=
+ =?us-ascii?Q?mqz6LvX6Wic1LVsjEa3L7I+Jo6fzWCblIPMjFoKSkJkUq61nTfdnq3okBWNv?=
+ =?us-ascii?Q?B1k+mrMf4YOEhbPMT3VJdQIslOn37j4rh327Eo/6hzxUh3Udy1Elm22etmS1?=
+ =?us-ascii?Q?euKUKwKQ/AIdHv+Ja+WzgxI2YFI0B7504zs6+iMRGcQ0WB9agu5VrwdDph5s?=
+ =?us-ascii?Q?hl07gMSZ9LX5AWXFQ2/KVSZOzyawed5nbyHlT8LhvdlD+Ekjd90SQqsgqa1B?=
+ =?us-ascii?Q?Sn1vi1rlt/6R8DHS/KAGgyXPglmJNi/8iSqV86bQ+KqhVz+tL/eiulV+JQ5C?=
+ =?us-ascii?Q?xwblNcjZuVdAM9JXskhpcwgIHxawftOjBNTsGzSM/Op0LO/+fOTcn3ZhzJJ2?=
+ =?us-ascii?Q?Iub7C6Tp182Scm9h+XlaqcRnmti5jhPOWbATjEw+N+BgWuREPb8KhqU+CVyM?=
+ =?us-ascii?Q?fjkxMgl8t9v/nnO7tKO/pqt5IitkrQrrUJ2YSFxq0A5EwOGnMolr755jBITR?=
+ =?us-ascii?Q?NUXz0PclGclmaiAqOw+XwWVF5y1kzLGDlnJsWufgP7HpaqwD2HJlfeCD9iDQ?=
+ =?us-ascii?Q?IWRzQiVbfFKL9UcM6JG+gn0mxpF4JM6UIauzFWVC/su1mc0VCiAEf8siPMFR?=
+ =?us-ascii?Q?r7321T6XsGdgDu2gBEeY73fZZbed+pWgnQjigkCFlo2uZVcIe05e9YMc4r9T?=
+ =?us-ascii?Q?R/cW9cV/53cRZRKkt+BRXbMMY459rUqT3TqPtR0mQtQEM6V6fPT9NzsmGjjX?=
+ =?us-ascii?Q?pbqC/cmhm7ZpLIxE0q6r61P7bw54dtrHyFXN1YORd7HV3LhhSqFP?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ffdbb042-f055-4273-4eb3-08df4cda635d
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR12MB2814.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 23:01:36.7350
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rAeXmPz+cQS6uw5DzAhwoVD9AE6fFsvdAE111XbGjJ2B3y6t7ToRfsnlYQREx6LmHROL2kUqen3unuNp0+uN0w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB7505
 
-mpol_parse_str() returns a NULL policy for "default", and
-shmem_reconfigure() takes a NULL ctx->mpol to mean that no mpol option
-was given.  So a remount with mpol=default succeeds but keeps the old
-policy:
+Contrary to other underscored nodemask functions, search API doesn't
+take the length of nodemask. This series switches the kernel to runtime
+nr_node_ids, and where the MAX_NUMNODES is required, the caller would
+need to pass it explicitly.
 
-  # mount -t tmpfs -o mpol=bind:1 none /mnt
-  # mount -o remount,mpol=default /mnt
-  # grep /mnt /proc/mounts
-  none /mnt tmpfs rw,relatime,mpol=bind:1 0 0
+Add the length argument to __first_node(), __next_node() and
+__next_node_in().
 
-Record that an mpol option was parsed, and replace the policy whenever
-one was.
-
-Fixes: 5f00110f7273 ("tmpfs: fix use-after-free of mempolicy object")
-Signed-off-by: Yifan Feng <evanfengff@gmail.com>
+Signed-off-by: Yury Norov <ynorov@nvidia.com>
 ---
-Tested in a 2-node NUMA QEMU guest: after remount,mpol=default new files are allocated on the node of the writing task, and a remount without mpol still keeps the policy. KASAN and kmemleak report nothing over 1500 remounts.
-Found and written with the help of an AI coding assistant.
+ include/linux/nodemask.h | 25 ++++++++++++++-----------
+ 1 file changed, 14 insertions(+), 11 deletions(-)
 
- mm/shmem.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/mm/shmem.c b/mm/shmem.c
-index a5713109c843..48d1eec43007 100644
---- a/mm/shmem.c
-+++ b/mm/shmem.c
-@@ -134,6 +134,7 @@ struct shmem_options {
- #define SHMEM_SEEN_HUGE 4
- #define SHMEM_SEEN_INUMS 8
- #define SHMEM_SEEN_QUOTA 16
-+#define SHMEM_SEEN_MPOL 32
- };
+diff --git a/include/linux/nodemask.h b/include/linux/nodemask.h
+index 37fd5ac957c0..a17aa5c2e562 100644
+--- a/include/linux/nodemask.h
++++ b/include/linux/nodemask.h
+@@ -271,29 +271,32 @@ static __always_inline int __nodes_weight(const nodemask_t *srcp, unsigned int n
+ /* FIXME: better would be to fix all architectures to never return
+           > MAX_NUMNODES, then the silly min()s could be dropped. */
  
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-@@ -4905,6 +4906,7 @@ static int shmem_parse_one(struct fs_context *fc, struct fs_parameter *param)
- 			ctx->mpol = NULL;
- 			if (mpol_parse_str(param->string, &ctx->mpol))
- 				goto bad_value;
-+			ctx->seen |= SHMEM_SEEN_MPOL;
- 			break;
- 		}
- 		goto unsupported_parameter;
-@@ -5117,7 +5119,7 @@ static int shmem_reconfigure(struct fs_context *fc)
- 	/*
- 	 * Preserve previous mempolicy unless mpol remount option was specified.
- 	 */
--	if (ctx->mpol) {
-+	if (ctx->seen & SHMEM_SEEN_MPOL) {
- 		mpol = sbinfo->mpol;
- 		sbinfo->mpol = ctx->mpol;	/* transfers initial ref */
- 		ctx->mpol = NULL;
-
-base-commit: 822ba3a89c7896b26e4beb70e2ebffb881924dfe
+-#define first_node(src) __first_node(&(src))
+-static __always_inline unsigned int __first_node(const nodemask_t *srcp)
++#define first_node(src) __first_node(&(src), MAX_NUMNODES)
++static __always_inline unsigned int __first_node(const nodemask_t *srcp,
++						unsigned int nbits)
+ {
+-	return min(MAX_NUMNODES, find_first_bit(srcp->bits, MAX_NUMNODES));
++	return min(nbits, find_first_bit(srcp->bits, nbits));
+ }
+ 
+-#define next_node(n, src) __next_node((n), &(src))
+-static __always_inline unsigned int __next_node(int n, const nodemask_t *srcp)
++#define next_node(n, src) __next_node((n), &(src), MAX_NUMNODES)
++static __always_inline unsigned int __next_node(int n, const nodemask_t *srcp,
++					       unsigned int nbits)
+ {
+-	return min(MAX_NUMNODES, find_next_bit(srcp->bits, MAX_NUMNODES, n+1));
++	return min(nbits, find_next_bit(srcp->bits, nbits, n + 1));
+ }
+ 
+ /*
+  * Find the next present node in src, starting after node n, wrapping around to
+  * the first node in src if needed.  Returns MAX_NUMNODES if src is empty.
+  */
+-#define next_node_in(n, src) __next_node_in((n), &(src))
+-static __always_inline unsigned int __next_node_in(int node, const nodemask_t *srcp)
++#define next_node_in(n, src) __next_node_in((n), &(src), MAX_NUMNODES)
++static __always_inline unsigned int __next_node_in(int node, const nodemask_t *srcp,
++						  unsigned int nbits)
+ {
+-	unsigned int ret = __next_node(node, srcp);
++	unsigned int ret = __next_node(node, srcp, nbits);
+ 
+-	if (ret == MAX_NUMNODES)
+-		ret = __first_node(srcp);
++	if (ret == nbits)
++		ret = __first_node(srcp, nbits);
+ 	return ret;
+ }
+ 
 -- 
-2.39.3 (Apple Git-146)
+2.53.0
 
