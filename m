@@ -1,113 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795776064;
-	b=Gsm721HDzAQydtPgQ0658ozNrYmqUS7Rr556YZPbz3EIvR4lgzg4MIZ3ZfY7CIu3xp7D
-	 /QfeCvw1Ay3l1e6QdkTD8SlN0dsbKb/EyewFlCnvtxbvejLuasUlgLJCDF6ZPmOua4KRJ
-	 f1U0+YcHjl79kwB9HyzJdVy5xlYjLGS82sb3pPxiPjgnkVfhDGpsJBdbouoMKR6V7TxGL
-	 K8wQ1ga1pxBPttemhNojKeCGkM2rW5ZuN+Ml4BeolbX+PfNXbwwHfZkDxEKHvp5KqlmkH
-	 sEkr23sLWCFeabuDXYqFskb56TjHz52+C38JPAYLDKK0vRkGpd6sWNroDT8BKtVYpZw==
+	t=1795776070;
+	b=pDTDkA4pdJLn1G8r7MvEyzFAtXfooJpAGEGBG9BvWeFurq0nZ3z+dtpAPv0tJOa4gCuI
+	 HfS9Sw6kH8UXjs60fzodY1ghExFVOud8hNZEVu2UhrGMSFizryC9cYcceYHhjaKT+iYMQ
+	 rPBppsEsz8kBMEArrMfW1iCuBBn+UUhEd5RicTwJBRkPL1c1LZuYd7WzsknC01UpkAR9o
+	 Z0HV1FXhokVl5ZdbourTe6GZ4mgAnBlxItIMtXrnJgv+njweGli7C2asPPeJaA8MDtMVv
+	 1Os/SU4eXCIcQqRMG4xN+gCEgvQdTNeXzmSTm1srOXJECHYm6fYwVyQowG2Ty3GuRyA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795776064;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795776070;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=46jt2PFBd8rULQ4Nt62VZapADm8oEY8BfGTGabREOUM=;
-	b=j1f5rqsI+DJboF1S75+i6gnwDMfjVrezDP5kuf2q5Y9OMyRvHIfo6+yRykm1zUw3uzC+
-	 N4KSB14EX821+0axLc4fCeOSWvNVa+MPgHkBsfyuOVV/eg18h5PiCt81kZlVrQxgZZYNI
-	 P9pv5WxQaDK78yUwta7Nf/viON2TYU4OMTyQ0VgTTpHC+ZzYQ9L53qWGvBzjgFRJmVdxc
-	 p3vsB0Otd4/ujFtZVR5053vSyOhksSziytJoJa9L+vDi2Y6mAh9egXgLh3BMe0laYE/x2
-	 +GpkMq9cgBMuK3fbknBLdmyXFiCUAXZ5Bxb8WRNphsyG3HZ95oAs5XOr/oFC+1pvDhg==
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=x6CnKCcRFlmFGMoJSdid1DPb05KDzJFKcZoIQ+AcWA0=;
+	b=457hiHrx04JflId6fbTNJ10588kS1IC+hewjARHENQkO0dWppYK0wp985T/tyd9UpnMN
+	 cEy0x2QlNNMYgG2YZWQ8E+gq56vQ01drfOtAQNJOCWsIZ50HKmO85Szbju5+aNO+68aQO
+	 kPyBTNvXugbHYygdVCMWZly4iZiZLTQsQ9O422/zcLLiK8D7b2Kh6jsr6bDA7+5VfHHwO
+	 oxN0Z8AURVtpGpgUx2PEdveKUCv6q7/NBD9RQYGL5zCJkl70D2bnhRkVXI65Ws5kRiojs
+	 UaJd860btStQXBe88/n5m9W0SBNay+cSQSZDgFzlZDZo8W3P7PsJFEQrd4LEV9Wy6iQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eDuPgHaR;
-	arc=none smtp.remote-ip=209.85.221.45
-Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45])
+	dmarc=pass header.from=flipper.net;
+	spf=pass smtp.mailfrom=flipper.net;
+	dkim=pass header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=x9eryqVG;
+	arc=none smtp.remote-ip=209.85.221.53
+Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55D88606A6A6
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:41:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55D88606A6A6
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 541BD606A33B
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:41:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 541BD606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=flipper.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flipper.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eDuPgHaR
-Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-490d59c3f0aso3639218f8f.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:41:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=x9eryqVG
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-4a7b8abe209so6174091f8f.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:41:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795776063; x=1796380863; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=46jt2PFBd8rULQ4Nt62VZapADm8oEY8BfGTGabREOUM=;
-        b=eDuPgHaRC2KPGtaz+A22NSuvwSL5c0S2/zFOdQyD6aCjOhVgcuVtQjzSvQec+NBskO
-         GFILsA7kxm2ho56P/w+E23h/xEs5Bem7Wa9d4t0P1GDu20HTExFjtSOd1tJGxqBAFBaO
-         d3L+OTKO/C+IgE/s+bt2WgS1WLbycp27c+LeGecVVa44T/RJWT0vWgzhEgwHJS1d562p
-         DGdJBkklROvvU8d8szblYMFAHpd/Wl1fSOK+1NkwhzPYY7haLhZraKOtRm5ar0keWauF
-         k6LnC66mvpVU018A014jCvDM4f8SusXUeDf/IQwGlUpr/Oh9R/TlCUeFQdOt6gadcfak
-         q22w==
+        d=flipper.net; s=google; t=1795776069; x=1796380869; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=x6CnKCcRFlmFGMoJSdid1DPb05KDzJFKcZoIQ+AcWA0=;
+        b=x9eryqVGh95VhxR+Uo1/GIG2AHHB1iJ0fFoK9ezZwy8eIIvQpO+1jnLhNJ6lHQxE5D
+         B4Fm0bNT3bCM8OSFC9g0+BzWdlfhUWXTu3UuzLg40omhGA8UaEteboJQBcVGGMN1kcTJ
+         xj903pEl8rNEIsM9fxVbLDARz3d9SVTORSI/M3D22YafjfVD4FNp+YK6QecILAoL62iz
+         /Zy1a99mefQVCGzyz/VEEl/G2b4lCasWXMIH2ydcdNUSxDfx3fEjjsMT54LzBTgB/2d0
+         9jpS+EkdBGtU8FmKRHyNJ2Hg5DAtF6tNnNlN1EZ0pQiCCooPb9F9LyCWhNVrYfAMhpB6
+         VfvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795776063; x=1796380863;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795776069; x=1796380869;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=46jt2PFBd8rULQ4Nt62VZapADm8oEY8BfGTGabREOUM=;
-        b=F2BXQlY+gFUmsQNODaDfq56nTOYHVurpivNjducMFc9cYGtuZqjTDOR8e3m/4P/+HA
-         jXRTrCJ/Be51qU1iSgQ+hbfPcpbWUm3GMWpRHio4tnBsiTJVVarmdZjgB24CqbscEcyl
-         CPq77T587RENoOA4bejy+Kr6t/JZgpYQ8ywJuDp8xRQphESJaDKFFZ02mso/pevZUvoN
-         UE/esPxn6WSJnmBQPSzP37m8uo+zCw7N5yUYI/Z16e/FSjCPvPjZ6XCTVQrRRyT9M7MJ
-         diUrg8km6vwcxvoHwhmrwNHoy+CG4TkS5NSBk2+SxI+l1YVpTtcyV6ljLEvvGifW8Z0m
-         I4aA==
-X-Forwarded-Encrypted: i=1; AL+hErFQxjNKjzuTpr2FKIEmcgJOFrqpH52KAAQ5mpiGb43ElFdbj8/7Jsu5f8j7hAPrKO2myJ2MKgdwTg36IgI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9fLwXRpshopOoIehMl/DJDnX4Wxrn3kkAD28f8ssrxbfHXtzxd
-	JfUW9yFAA7ua9H9hsCceBX1m/wSusewFgeUaziNSaIUtexzX7nCAd7/v
-X-Gm-Gg: AZFdTZdghRGGJLZII+XsCCHXTYEDARsu/fqu0K+YiaQ7m89AqC/qXpVYl7sQuPNb0iQ
-	TB9BDgP3ht7sTt3g3cI+2XOKYQjch2H912LqepSSm3W+7mz728cxxOhFI5wxnoGP67DEakhwsR8
-	LpDM+ciCr6SMBKFxFcp0LOcBpIPuqbEKpJg4fNEgpfeXzJ3oI9KYSGgQHt5LuUJmLDflEb3Yji4
-	jFRw1OGxHXALaqrQV7Dtx6EzqqwFUDw9yi8cU2EnvTpc9d1Ei9y+6tuDuwinUDeaMdj2i0xjfGl
-	a9KhKhcp1HZ8QzLr+ERlXLigtAVfMBgpcHtls6xflYEtPIQl00ifHFd4nW37gzmw8EsTFsMEXcY
-	PmL7zD2mzdQL3qMaGBUFDnxClbUiuT/7fLbfWXer/01zNyctnHaunr8bIqfq3bU30hxRGbMdP6u
-	/4kNZTvKfBpUp+KMuOyhveSm83UOfWeO1hEdHV/WqfVgt68V4CM49w7fnY8Jfve07m5iWlC9WXe
-	iiP8M1Ce0VYtF1rZkOGDPdTHlZzL2wfLUl5n5G/Bqgme7DExIBnXGI2enprHDXFo/HHDiKZaXZZ
-	uLEvyapcnkOOBazNX6Ftxqi4fLMDcsCaB99HSD6cNxCwospgaR+feQIvTbVXG5DzSA==
-X-Received: by 2002:a05:6000:470c:b0:4a7:593a:f421 with SMTP id ffacd0b85a97d-4abb73b557amr44307973f8f.47.1795776062532;
-        Fri, 27 Nov 2026 02:41:02 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b2c9sm47910577f8f.31.2026.11.27.02.41.01
+        bh=x6CnKCcRFlmFGMoJSdid1DPb05KDzJFKcZoIQ+AcWA0=;
+        b=oKNgrJeFfutzF28uTeAgEz7MzWRdwCiNTjY7MZT9Ji5cSZ+q/o01829H5kHU74UcNL
+         9ZB20M/seJ3RhtaApYHmAuTYxBuIFNJy5PH94ZWmDle+NOZm5Zz1+0Ppln6EsWoSHmqd
+         JrJuGQAzGuCwMq1unqWytX0tUjEwQdQFp4CGh+594YEYi2OIMh+J6q4A7fYXKUAr7l8Z
+         7n6EwEYkU4cmW7x/qmuEWXFaYwjfKIbtLPhNl0Lh3zOdvPGCsI/06ndr7rh0kUg7X9zY
+         IvLDZzluYl05es85coZsKN7OLdVzsP5Rswv6T0yh1Z9XALZzBg6/v1EnfQl81nScKa45
+         EalQ==
+X-Forwarded-Encrypted: i=1; AL+hErE4F+GZH9AS2Olplc6WgPRwMuTH/enAihh5hAg38cipXAWIGinLfRCLCkCq5OHyPuVONo5MEM851JqcHz8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/x0Rd+MIUrWRjBBhzW1z5e2up80eRKbet2fnoao5Uxh4QXRWyb
+	IYIT1cTybkBMXwp/F4mkfdzcDm721r4Rn4S1O7onvTaJk7U8i+Gc8f00yAuMb6l/ffs=
+X-Gm-Gg: AZFdTZeqV2Y9Zcrf1+X7AHByB45RN1ev6OVzmGXzix/kDGE55kU4ntrCTggyi4zAgv6
+	99NvxKDj/eTy0PnBqI7cdIc+YgIp4xFW1ikuf35LaXspyrpOCN5L2T4M6AxfpA1giUN2Cbpneod
+	owBlJoYAI/Wa0JuIvdMOxu+aaVYUWSRtpVe0qxicr5oj1aFAuXiGXjpsGwrCXZLl2KXhjCXxMnR
+	eAFO6QAMx5hwCRkUHxzef1+Nnzcbb2GsfbaKpFZ6O7A1GeyOdj7mtQSH4ALZQoAKwYkAwMZ5GhF
+	72bAC0ElHhGGYQbNzyLFRlDXdG23yIsM0bCVsTnvWMf3H03+hSgW1qy1ZkA46C+U5mxTPNYsO6W
+	5waURLa4/GmmMkjuo+mU820RTdOqW9o533KAWCea4i4FsV+nJf6xMeWgD2d75zte+HvdvLNBDfK
+	gsTra+85+/U8iGAVLknzJ4XyQDlwQRozOtBfLPdx00Gu1I7X1ypaw4PqJTkQMP1lTH0fdxOEfn2
+	4A0pfQ3DSNigZ602HrubhoPLzDiiIgGEmzY9yCjdLrdE8VWR2puEymfM6KlhV3rlAPiaGIU51kg
+	ytu6gBvPdAXB4ZDIENyb3t5hgo/SQXk1U64MzuyEmhRJO+/goSUUir6+gqAulxbHdFD+pSABMac
+	NEA7Thh4B
+X-Received: by 2002:adf:e186:0:b0:48e:20ed:d5e7 with SMTP id ffacd0b85a97d-4abb3a4d37dmr48804786f8f.34.1795776068653;
+        Fri, 27 Nov 2026 02:41:08 -0800 (PST)
+Received: from alchark-surface.localdomain (bba-86-98-194-229.alshamil.net.ae. [86.98.194.229])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6ae2dcf9sm45597649f8f.32.2026.11.27.02.41.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 02:41:02 -0800 (PST)
-Date: Fri, 27 Nov 2026 10:41:00 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Xuanqiang Luo <xuanqiang.luo@linux.dev>
-Cc: netdev@vger.kernel.org, "David S . Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Alexei
- Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, John
- Fastabend <john.fastabend@gmail.com>, Andrii Nakryiko <andrii@kernel.org>,
- Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi
- <memxor@gmail.com>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu
- <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa
- <jolsa@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai
- <ihor.solodrai@linux.dev>, Matthieu Baerts <matttbe@kernel.org>, Mat
- Martineau <martineau@kernel.org>, Geliang Tang <geliang@kernel.org>, David
- Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>, Stanislav
- Fomichev <sdf@fomichev.me>, Neal Cardwell <ncardwell@google.com>, Kuniyuki
- Iwashima <kuniyu@google.com>, Pablo Neira Ayuso <pablo@netfilter.org>,
- Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
- bpf@vger.kernel.org, linux-kernel@vger.kernel.org, mptcp@lists.linux.dev,
- netfilter-devel@vger.kernel.org, coreteam@netfilter.org, Xuanqiang Luo
- <luoxuanqiang@kylinos.cn>
-Subject: Re: [PATCH net-next v1 0/6] net: avoid stack canaries in TCP/IPv4
- fast paths
-Message-ID: <20261127104100.3c915088@pumpkin>
-In-Reply-To: <bffee809-2992-40eb-97c7-72d919de0aed@linux.dev>
-References: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
-	<20261126102058.1fecf50f@pumpkin>
-	<bffee809-2992-40eb-97c7-72d919de0aed@linux.dev>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+        Fri, 27 Nov 2026 02:41:08 -0800 (PST)
+From: Alexey Charkov <alchark@flipper.net>
+Date: Fri, 27 Nov 2026 14:40:50 +0400
+Subject: [PATCH v2 5/6] usb: typec: fusb302: Acknowledge
+ Get_Source_Cap_Extended from the driver
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,80 +94,391 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261127-fusb302-getsourcecap-v2-5-6770eb1e7945@flipper.net>
+References: <20261127-fusb302-getsourcecap-v2-0-6770eb1e7945@flipper.net>
+In-Reply-To: <20261127-fusb302-getsourcecap-v2-0-6770eb1e7945@flipper.net>
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Yueyao Zhu <yueyao@google.com>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Alexey Charkov <alchark@flipper.net>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=13656; i=alchark@flipper.net;
+ h=from:subject:message-id; bh=+EiLmfbwp2gS/KdLyt4fuAjUMNY2FeAAM1Q+xqJ0G4I=;
+ b=owGbwMvMwCW2adGNfoHIK0sZT6slMWRzxpkpTbTxXXNZ54XKg1eaCUzv/xw5pLPlNm/Ofp3V/
+ +fW/HgzuWMiC4MYF4OlmCLL3G9LbKca8c3a5eHxFWYOKxPIEGmRBgYgYGHgy03MKzXSMdIz1TbU
+ MzTSMdYxYuDiFICpZtNmZNifVFnL8tdYRuv8Rd8L29fcfS584GvgLi6NU/tj1f5t+CPP8E8psrr
+ y/r7Z7yZ+bbvrF2Ah0HDrXtQJv/cb89TfsXxWT2ICAA==
+X-Developer-Key: i=alchark@flipper.net; a=openpgp;
+ fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
 
-On Fri, 27 Nov 2026 15:33:15 +0900
-Xuanqiang Luo <xuanqiang.luo@linux.dev> wrote:
+The chip implements PD 2.0, whose Message Type field is four bits wide, so
+it decodes the PD 3.0 Get_Source_Cap_Extended (0x11) as a GoodCRC (0x1)
+and never acknowledges it. A PD 3.0 partner asking for the extended source
+capabilities then never sees the message delivered: an Apple Studio
+Display retries it, soft resets, and asks again after the new contract,
+every 94ms, so it never gets as far as DisplayPort.
 
-> On 2026/11/26 at 19:20 David Laight wrote:
-> > On Tue, 24 Nov 2026 22:06:25 +0900
-> > Xuanqiang Luo <xuanqiang.luo@linux.dev> wrote:
-> >   
-> >> From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
-> >>
-> >> With CONFIG_STACKPROTECTOR_STRONG=y, a function that has a local array or
-> >> passes the address of one of its locals to another function needs a stack
-> >> canary. The canary is set up and checked on every call, also when the
-> >> local is only used on a path that almost never runs.
-> >>
-> >> This series removes the canary from functions of the TCP/IPv4 fast paths,
-> >> by returning results by value, by using storage that is not on the stack,
-> >> or by not calling a function that has nothing to do.
-> >>
-> >> Patch 1 returns the two mptcp_space() values in a structure, so that
-> >> __tcp_select_window() no longer needs a canary.  
-> > 
-> > While all (I think) architectures can return a big integer in two
-> > registers (dx:ax on x86), not all ABI do the same for small structures.
-> > For those architectures returning a struct by value is implemented by
-> > passing the address of a hidden on stack structure.
-> > So code generation may be worse than passing the values by reference.
-> > I can't remember the list of architectures, mostly old ones - but not
-> > 32bit x86 because the compiler option was set when regparm=3 was added
-> > for 2.6.
-> > (Note that this is different from passing small structures by value.)
-> > 
-> > David  
-> 
-> Hi David,
-> 
-> Good point! thanks for bringing that up.
-> 
-> The small-struct-by-value pattern in patches 1 and 4 follows the same
-> approach Eric used in commit 7a4cd71fa451 ("net: add
-> vlan_get_protocol_offset_inline() helper"), which returns a 2-field
-> struct vlan_type_depth to avoid stack canaries in callers.
-> 
-> I did note the 8-byte struct ABI distinction you mentioned:
-> - On the main 64-bit targets (x86_64, arm64, riscv64, ppc64le, loongarch64)
->    as well as 32-bit x86 (with -mregparm=3 / reg-struct-return), both
->    8-byte structs (struct mptcp_space_info and struct skb_coalesce_res) are
->    returned in registers and the stack canaries are dropped cleanly.
-> - On ABIs that return structs (> 4 bytes on 32-bit ARM EABI, or any struct
->    on s390x) via a hidden stack buffer, it indeed falls back to a hidden
->    pointer. Even there, the callers previously passed *two* pointers to
->    locals (&space/&full_space in patch 1, &fragstolen/&delta_truesize in
->    patch 4), so passing one hidden 8-byte return slot should not be worse
->    than before, while keeping the code cleaner and type-safe.
+Send the GoodCRC from the driver once the message is read and its CRC
+checks out, and read the FIFO on CRC_CHK, which such a message still
+raises. Over a 400kHz I2C bus that takes 2ms and more, far beyond 195us
+(tTransmit), but the partner retries with the same MessageID and may
+accept a GoodCRC that comes while it waits for the one to a retry. That
+display sends its retries 0.97ms after each attempt ends, which puts most
+such late GoodCRCs within the window of its second or third attempt. As
+the FIFO is only read while CC is idle, the GoodCRC follows a retry
+already under way rather than colliding with it. Pass the message on to
+TCPM too, so the partner gets an answer rather than asking again.
 
-There might be a subtle difference in the function itself.
-I think the result structure gets allocated on stack and then a memcpy()
-used to copy that to the caller's buffer during the function return.
-That may, or may not, be faster.
+Hold the GoodCRC back while TCPM waits for the outcome of a transmission
+of its own, which that of the GoodCRC would pass for, unless TCPM has
+given up on it already. Keep a collision of the GoodCRC apart from one of
+the next transmission TCPM makes, so that the one does not fail that
+transmission and the other is not lost, also when the GoodCRC goes out
+from outside the IRQ thread, which then handles the interrupt flags read
+to tell them apart. Use revision 2.0 in the header, as the chip does for
+its own GoodCRCs.
 
-> 
-> That said, if maintainers prefer packing the two fields into a u64 so that
-> even 32-bit ARM / s390x return them in registers, I'd be happy to change
-> patches 1 and 4 to do that in v2.
+Signed-off-by: Alexey Charkov <alchark@flipper.net>
+---
+ drivers/usb/typec/tcpm/fusb302.c | 175 +++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 170 insertions(+), 5 deletions(-)
 
-That is horrid ... and you'd need to use a u128 on 64bit.
-It really is a shame that C doesn't have a syntax for returning 2 integers
-even though pretty much all ABI have always supported it.
+diff --git a/drivers/usb/typec/tcpm/fusb302.c b/drivers/usb/typec/tcpm/fusb302.c
+index aa0e4dbe31db..c98a74fc7a2a 100644
+--- a/drivers/usb/typec/tcpm/fusb302.c
++++ b/drivers/usb/typec/tcpm/fusb302.c
+@@ -124,12 +124,19 @@ struct fusb302_chip {
+ 	bool vbus_on;
+ 	bool charge_on;
+ 	bool pd_rx_on;
++	/* TCPM waits for the outcome of a transmission, started at tx_start */
++	bool tx_pending;
++	ktime_t tx_start;
++	/* The driver sent a GoodCRC, for fusb302_pd_check_ack() */
++	bool ack_check;
+ 	/*
+ 	 * Bytes read from the RX FIFO but not handled yet: the start of a
+ 	 * message to read on, or bytes to find the next message in
+ 	 */
+ 	u8 rx_buf[FUSB302_RX_MSG_MAX];
+ 	u8 rx_len;
++	/* The driver sent a GoodCRC to the message starting rx_buf */
++	bool rx_acked;
+ 	/*
+ 	 * The next message may not be at the start of the buffer.
+ 	 * Look for its start first before processing.
+@@ -143,6 +150,9 @@ struct fusb302_chip {
+ 	enum typec_cc_polarity cc_polarity;
+ 	enum typec_cc_status cc1;
+ 	enum typec_cc_status cc2;
++	/* for a GoodCRC sent by the driver, as the chip does for its own */
++	enum typec_role pwr_role;
++	enum typec_data_role data_role;
+ 	u32 snk_pdo[PDO_MAX_OBJECTS];
+ 
+ #ifdef CONFIG_DEBUG_FS
+@@ -869,6 +879,7 @@ static void fusb302_pd_rx_reset(struct fusb302_chip *chip, bool cut_short)
+ {
+ 	chip->rx_len = 0;
+ 	chip->rx_resync = cut_short;
++	chip->rx_acked = false;
+ }
+ 
+ static int fusb302_pd_set_auto_goodcrc(struct fusb302_chip *chip, bool on)
+@@ -883,7 +894,8 @@ static int fusb302_pd_set_auto_goodcrc(struct fusb302_chip *chip, bool on)
+ static int fusb302_pd_set_interrupts(struct fusb302_chip *chip, bool on)
+ {
+ 	int ret = 0;
+-	u8 mask_interrupts = FUSB_REG_MASK_COLLISION;
++	/* See fusb302_pd_rx_ack() for CRC_CHK */
++	u8 mask_interrupts = FUSB_REG_MASK_COLLISION | FUSB_REG_MASK_CRC_CHK;
+ 	u8 maska_interrupts = FUSB_REG_MASKA_RETRYFAIL |
+ 			      FUSB_REG_MASKA_HARDSENT |
+ 			      FUSB_REG_MASKA_TX_SUCCESS |
+@@ -907,6 +919,7 @@ static int fusb302_pd_set_interrupts(struct fusb302_chip *chip, bool on)
+ }
+ 
+ static int fusb302_pd_rx_start(struct fusb302_chip *chip);
++static void fusb302_pd_check_ack_async(struct fusb302_chip *chip);
+ 
+ static int tcpm_set_pd_rx(struct tcpc_dev *dev, bool on)
+ {
+@@ -936,6 +949,8 @@ static int tcpm_set_pd_rx(struct tcpc_dev *dev, bool on)
+ 		fusb302_log(chip, "cannot flush pd tx buffer, ret=%d", ret);
+ 		goto done;
+ 	}
++	/* Nothing flushed reports its outcome */
++	chip->tx_pending = false;
+ 	ret = on ? fusb302_pd_rx_start(chip) :
+ 		   fusb302_pd_set_auto_goodcrc(chip, false);
+ 	if (ret < 0) {
+@@ -994,6 +1009,8 @@ static int tcpm_set_roles(struct tcpc_dev *dev, bool attached,
+ 			    ret);
+ 		goto done;
+ 	}
++	chip->pwr_role = pwr;
++	chip->data_role = data;
+ 	fusb302_log(chip, "pd header := %s, %s", typec_role_name[pwr],
+ 		    typec_data_role_name[data]);
+ done:
+@@ -1128,6 +1145,13 @@ static int tcpm_pd_transmit(struct tcpc_dev *dev, enum tcpm_transmit_type type,
+ 	int ret = 0;
+ 
+ 	mutex_lock(&chip->lock);
++	/*
++	 * See whether a GoodCRC from the driver collided before this goes out:
++	 * a COLLISION from now on is this transmission's, even should the
++	 * check fail
++	 */
++	fusb302_pd_check_ack_async(chip);
++	chip->ack_check = false;
+ 	switch (type) {
+ 	case TCPC_TX_SOP:
+ 	case TCPC_TX_SOP_PRIME:
+@@ -1154,6 +1178,10 @@ static int tcpm_pd_transmit(struct tcpc_dev *dev, enum tcpm_transmit_type type,
+ 			    transmit_type_name[type]);
+ 		ret = -EINVAL;
+ 	}
++	if (ret >= 0) {
++		chip->tx_pending = true;
++		chip->tx_start = ktime_get();
++	}
+ 	mutex_unlock(&chip->lock);
+ 
+ 	return ret;
+@@ -1531,10 +1559,110 @@ static int fusb302_pd_reset(struct fusb302_chip *chip)
+ 				    FUSB_REG_RESET_PD_RESET);
+ }
+ 
++static void fusb302_pd_tx_complete(struct fusb302_chip *chip,
++				   enum tcpm_transmit_status status)
++{
++	chip->tx_pending = false;
++	tcpm_pd_transmit_complete(chip->tcpm_port, status);
++}
++
++/*
++ * See whether a GoodCRC the driver sent collided before releasing chip->lock:
++ * by the next interrupt, TCPM may have started a transmission, and the
++ * COLLISION would then be reported against it. The chip sets COLLISION when
++ * TXON finds CC busy, so it is there to see by now. Keep the other bits, which
++ * reading the register clears, pending for fusb302_irq_handle().
++ */
++static int fusb302_pd_check_ack(struct fusb302_chip *chip)
++{
++	u8 interrupt;
++	int ret;
++
++	/* Left set on an error, for fusb302_irq_handle() to tell COLLISION */
++	ret = fusb302_i2c_read(chip, FUSB_REG_INTERRUPT, &interrupt);
++	if (ret < 0)
++		return ret;
++	chip->ack_check = false;
++	if (interrupt & FUSB_REG_INTERRUPT_COLLISION)
++		fusb302_log(chip, "GoodCRC sent by the driver collided");
++	chip->pending_interrupt |= interrupt & ~FUSB_REG_INTERRUPT_COLLISION;
++
++	return 0;
++}
++
++/*
++ * As fusb302_pd_check_ack(), outside the IRQ thread: reading INTERRUPT clears
++ * the flags that raise the IRQ, so have the IRQ thread handle what it read
++ */
++static void fusb302_pd_check_ack_async(struct fusb302_chip *chip)
++{
++	if (!chip->ack_check || fusb302_pd_check_ack(chip) < 0)
++		return;
++	if (chip->pending_interrupt)
++		irq_wake_thread(chip->gpio_int_n_irq, chip);
++}
++
++/*
++ * TCPM waits for the outcome of its last transmission, unless it gave up after
++ * PD_T_TCPC_TX_TIMEOUT, which it does without telling the driver
++ */
++static bool fusb302_pd_tx_waiting(struct fusb302_chip *chip)
++{
++	return chip->tx_pending &&
++	       ktime_ms_delta(ktime_get(), chip->tx_start) <
++	       PD_T_TCPC_TX_TIMEOUT;
++}
++
++/*
++ * The chip only decodes the low four bits of the message type, so it mistakes
++ * Get_Source_Cap_Extended (0x11) for a GoodCRC (0x1): it neither acknowledges
++ * it nor raises GCRCSENT, only CRC_CHK, yet still queues it in the RX FIFO.
++ * Send the GoodCRC from here once the message checks out. It goes out well
++ * after 195us (tTransmit), but the partner retries with the same MessageID and
++ * usually accepts it then, rather than soft reset over and over.
++ */
++static void fusb302_pd_rx_ack(struct fusb302_chip *chip)
++{
++	u16 header = get_unaligned_le16(chip->rx_buf + 1);
++	struct pd_message ack = {};
++	int ret;
++
++	if (chip->rx_discard || chip->rx_acked || pd_header_cnt(header) ||
++	    pd_header_type(header) != PD_CTRL_GET_SOURCE_CAP_EXT ||
++	    (chip->rx_buf[0] & FUSB302_RX_TKN_MASK) == FUSB302_RX_TKN_SOP1)
++		return;
++	chip->rx_acked = true;
++
++	/*
++	 * The outcome of a GoodCRC sent now would pass for that of the
++	 * transmission TCPM waits for, so leave the partner to retry then
++	 */
++	if (fusb302_pd_tx_waiting(chip)) {
++		fusb302_log(chip, "not acknowledging PD message, TX pending");
++		return;
++	}
++
++	/*
++	 * The chip's own GoodCRCs go out as revision 2.0. As it decodes only
++	 * the low four bits of the message type, it treats any GoodCRC it
++	 * sends as one that needs no GoodCRC in return, so it sends this one
++	 * once, without retries or RETRYFAIL, whatever the retry count is.
++	 */
++	ack.header = PD_HEADER_LE(PD_CTRL_GOOD_CRC, chip->pwr_role,
++				  chip->data_role, PD_REV20,
++				  pd_header_msgid(header), 0);
++	ret = fusb302_pd_send_message(chip, TCPC_TX_SOP, &ack);
++	if (ret >= 0)
++		chip->ack_check = true;
++	else
++		fusb302_log(chip, "cannot acknowledge PD message, ret=%d", ret);
++}
++
+ static void fusb302_pd_rx_drop(struct fusb302_chip *chip, int n)
+ {
+ 	chip->rx_len -= n;
+ 	memmove(chip->rx_buf, chip->rx_buf + n, chip->rx_len);
++	chip->rx_acked = false;
+ }
+ 
+ static bool fusb302_pd_rx_is_token(u8 byte)
+@@ -1680,6 +1808,8 @@ static int fusb302_pd_read_message(struct fusb302_chip *chip)
+ 		dropped++;
+ 	}
+ 
++	/* The CRC checks out: acknowledge it, should the chip not have */
++	fusb302_pd_rx_ack(chip);
+ 	chip->rx_resync = false;
+ 	token = chip->rx_buf[0];
+ 	memcpy(&msg, chip->rx_buf + 1, len - 5);
+@@ -1705,7 +1835,7 @@ static int fusb302_pd_read_message(struct fusb302_chip *chip)
+ 	 * to check the message type to ensure correct reporting to TCPM.
+ 	 */
+ 	if (!len && pd_header_type_le(msg.header) == PD_CTRL_GOOD_CRC)
+-		tcpm_pd_transmit_complete(chip->tcpm_port, TCPC_TX_SUCCESS);
++		fusb302_pd_tx_complete(chip, TCPC_TX_SUCCESS);
+ 	else if ((token & FUSB302_RX_TKN_MASK) == FUSB302_RX_TKN_SOP1)
+ 		tcpm_pd_receive(chip->tcpm_port, &msg, TCPC_TX_SOP_PRIME);
+ 	else
+@@ -1847,6 +1977,7 @@ static void fusb302_pd_rx_recheck_work(struct work_struct *work)
+ 		if (ret < 0)
+ 			fusb302_log(chip, "cannot read in PD message, ret=%d",
+ 				    ret);
++		fusb302_pd_check_ack_async(chip);
+ 	}
+ 	mutex_unlock(&chip->lock);
+ }
+@@ -1943,6 +2074,11 @@ static int fusb302_pd_rx_start(struct fusb302_chip *chip)
+ 	if (ret < 0 && gcrc_on)
+ 		fusb302_pd_set_auto_goodcrc(chip, false);
+ 	chip->rx_discard = false;
++	/*
++	 * A GoodCRC sent while reading the FIFO out: see whether it collided
++	 * before TCPM may start a transmission the collision would pass for
++	 */
++	fusb302_pd_check_ack_async(chip);
+ 
+ 	return ret;
+ }
+@@ -1998,6 +2134,7 @@ static void fusb302_irq_handle(struct fusb302_chip *chip)
+ 	bool intr_comp_chng;
+ 
+ 	mutex_lock(&chip->lock);
++again:
+ 	/* grab a snapshot of intr flags */
+ 	intr_togdone = chip->intr_togdone;
+ 	intr_bc_lvl = chip->intr_bc_lvl;
+@@ -2014,6 +2151,22 @@ static void fusb302_irq_handle(struct fusb302_chip *chip)
+ 	chip->pending_interrupt = 0;
+ 	chip->pending_interrupta = 0;
+ 	chip->pending_interruptb = 0;
++
++	/*
++	 * A message the chip didn't acknowledge raises CRC_CHK alone: read it
++	 * out first thing, as its GoodCRC is past due already. Those that came
++	 * before PD was on, which nothing acknowledged, were dropped then.
++	 */
++	if (chip->pd_rx_on && (interrupt & FUSB_REG_INTERRUPT_CRC_CHK) &&
++	    !(interrupta & FUSB_REG_INTERRUPTA_TX_SUCCESS) &&
++	    !(interruptb & FUSB_REG_INTERRUPTB_GCRCSENT)) {
++		/* Still handle the other events then */
++		ret = fusb302_pd_rx_drain(chip);
++		if (ret < 0)
++			fusb302_log(chip,
++				    "cannot read in PD message, ret=%d", ret);
++	}
++
+ 	fusb302_log(chip,
+ 		    "IRQ: 0x%02x, a: 0x%02x, b: 0x%02x, status0: 0x%02x",
+ 		    interrupt, interrupta, interruptb, status0);
+@@ -2061,14 +2214,19 @@ static void fusb302_irq_handle(struct fusb302_chip *chip)
+ 		}
+ 	}
+ 
++	/* Not for TCPM if it came from a GoodCRC the driver sent */
+ 	if (interrupt & FUSB_REG_INTERRUPT_COLLISION) {
+ 		fusb302_log(chip, "IRQ: PD collision");
+-		tcpm_pd_transmit_complete(chip->tcpm_port, TCPC_TX_FAILED);
++		if (chip->ack_check)
++			chip->ack_check = false;
++		else if (chip->tx_pending)
++			fusb302_pd_tx_complete(chip, TCPC_TX_FAILED);
+ 	}
+ 
+ 	if (interrupta & FUSB_REG_INTERRUPTA_RETRYFAIL) {
+ 		fusb302_log(chip, "IRQ: PD retry failed");
+-		tcpm_pd_transmit_complete(chip->tcpm_port, TCPC_TX_FAILED);
++		if (chip->tx_pending)
++			fusb302_pd_tx_complete(chip, TCPC_TX_FAILED);
+ 	}
+ 
+ 	if (interrupta & FUSB_REG_INTERRUPTA_HARDSENT) {
+@@ -2078,7 +2236,7 @@ static void fusb302_irq_handle(struct fusb302_chip *chip)
+ 			fusb302_log(chip, "cannot PD reset, ret=%d", ret);
+ 			goto done;
+ 		}
+-		tcpm_pd_transmit_complete(chip->tcpm_port, TCPC_TX_SUCCESS);
++		fusb302_pd_tx_complete(chip, TCPC_TX_SUCCESS);
+ 	}
+ 
+ 	if (interrupta & FUSB_REG_INTERRUPTA_TX_SUCCESS) {
+@@ -2111,6 +2269,13 @@ static void fusb302_irq_handle(struct fusb302_chip *chip)
+ 		}
+ 	}
+ done:
++	/*
++	 * Not right after the GoodCRC, which would hold up the next one to a
++	 * retry queued meanwhile. Then handle what the check read.
++	 */
++	if (chip->ack_check && fusb302_pd_check_ack(chip) >= 0 &&
++	    chip->pending_interrupt)
++		goto again;
+ 	mutex_unlock(&chip->lock);
+ }
+ 
 
-	David
-
-> 
-> Thanks,
-> Xuanqiang
+-- 
+2.56.0
 
