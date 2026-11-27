@@ -1,60 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795789536;
-	b=cxxPniZXZ2q1XmEYXZYfebZ/N+F8JB+8v1FSPkiiHreamzi2aZ+0I0Mp39F5JtrsmL9S
-	 BiYizrjuQVku4EChHCHtQjmvT4D2/0DmXtMx5oph2QzICEwBGwncZKLV7j5JA11/QS8D4
-	 Gqz0TBSnXM3iCzlV2KkkLPjY7fFqBOntXDut/JaVJmEXeA4/w37Akuk3c5dgxLuSoSI29
-	 aFX5DzEgLRAkMLlYtVs9sR/0W2HGjquPgp9uLkMhH6/ZY0Gxp4w5kaluZ+q9oAjQycBrx
-	 pGUmVXG6Zn3bhq3gG5Iun4UGBVevYYmMe6TuTLEHu9iRldhm7ULWoPxYYJAppGtSKzg==
+	t=1795789537;
+	b=WSZOmJFsSnfzDacivF9eiZxP/qeIqXA8228iJosalCjmKgjlECCcgMwKps/GaYA4rM2h
+	 JKy93IsYDdbjrhiRgBMmZU5ntDHdmoPvtt1GgYhSIlbAF0HF9wqcf6ETqEnwJIkhok8LX
+	 3CQ2wUWtAOSDVDx2h499Gq18hs1UN3rTuZfL6E1wXnnWHsK4cVgdFunZ4VcyyXBh3g2eZ
+	 3r5TpVCXk3ABOggk0u7GT/RKdYZB09SIOk3Qa5RiYo+k5GybwDnlG0xIHfqP/y/oVhoQ5
+	 MuN2igCVY1nNLHXPrYt8utzxk96I3TzqTRM2993rNk+GmEBj4g1V/RQx0kggpT1b0Pg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795789536;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Last-TLS-Session-Version;
-	bh=oIP6YsVJ0tzemJtkR4/F0RGkjUMxie6otevjRQEs/Zw=;
-	b=Us4/82agtZClfenp0LYES53O34t1/AXhkzrWG4RekYZERrsUkzspF5HGQrEUHriPi8U6
-	 lv33c19M4H7TCfGiikFu4SfCrmY+UNA17wErxTe08RaqmCQfn/bqYBwLiBOBkpCLjrE/X
-	 rkNQFH4pdmDgC7m31y8UcrnTt7PbpnN9Le1x7e6cCxuhm7W5WHRBbjQZrFabKUjveKKY8
-	 M7TFzLUehoXX29HE8LXrxin+gV0cHqV6g5fwLQe4HqpUx91CjZLv4TwM/ecw1wTkRYHad
-	 NLFKBsSHHPrSSSFenXimoOzbXg5GUH40DvJSAPfPWTpJppM5rys4JH42jhgP7C5R5tw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795789537;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=t0LqT5w+izgEbYxz6PH+/Po+iDL6T8IFcLOSgldKdU0=;
+	b=HgHmxerZRbVVaCRq+PfxKc8nipQo98qo4nY/jGRn6V1a/9hsYXgnqwWYs4zSqRlgrbt7
+	 8osUSaHxMJsxH9dsHpEBlTaztXDXXzvyo3rGf+CrnDc0hzsm4rSkJG369zqfcLEFHcujx
+	 7nr875BJGB3GR56FO7JoLxKv9YsLuTg/RjlTBwq4XJW3ocQX5Jnv3QQPZOgwc99GKkZoN
+	 C+Yy9jVlrt7UD+kh32EDbV7gKeoXUiO+S6Isy70Ur27RcBLvDFzKKB5kU9+lstrjGLdf6
+	 rdWJDBnHXq3sumO5pSKYPA5tz27PnWoGkz2NP12eZ8gE9jHH0U4AmQcgrNOPAJYVxxg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Nbd+2k2z;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC96D606C2F5
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:25:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC96D606C2F5
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Ueg12IHl;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 96075606C2FE;
+	Fri, 27 Nov 2026 14:25:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 96075606C2FE
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Nbd+2k2z
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id B134B1A1838;
-	Fri, 27 Nov 2026 14:25:34 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 73B116049C;
-	Fri, 27 Nov 2026 14:25:34 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 026A611E68FF4;
-	Fri, 27 Nov 2026 15:25:20 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795789528; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=oIP6YsVJ0tzemJtkR4/F0RGkjUMxie6otevjRQEs/Zw=;
-	b=Nbd+2k2zRxfdX4N7PZuOesTe7y9uTS4XxFCrwjSo3LlykwttKnd2QBPXS7PTjAeHu+DGsh
-	ub3eIakOiP6Hwf4eE4KcQ6YASWe65YaVejiDLnN5qvyijvuYpqqX5380WkqD+LdzgSxTeG
-	hHVt7tbvP1wXmxEl3y3Xj1L7/yArHiTLqkQjyFNFVzowU47sJHCqDoz7MDVHrXwR9Q6Ng6
-	cFg4OluANdGXIR+2n8CHr79haJq9g91aU7IpYD0AKFqSBfvfRvX+SutHyxGkqrS9FR19y+
-	EaljxuCCa79rQSzyVe7u74NkZpnNJezBU/S5NAko5jt+NEUgcla3e/xg4+kB9w==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Fri, 27 Nov 2026 15:22:38 +0100
-Subject: [PATCH RFC v2 16/35] spi: microchip-core-qspi: Consume dummy
- cycles directly
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Ueg12IHl
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D3B1A169E;
+	Fri, 27 Nov 2026 06:25:32 -0800 (PST)
+Received: from [10.57.32.178] (unknown [10.57.32.178])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 26CA53F86C;
+	Fri, 27 Nov 2026 06:25:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795789535; bh=O8jYR5KANQCIvSrIeG5OfriFdRVmVqQWfvrqkrYXvuo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Ueg12IHlHHEZDlpOEoQvXC8ub3PsNq27pV+dWH2iERx1Q/qPVP7uMjlCI1vkzX+yC
+	 zoOtmpZ3zDbfQzXoh8lRMp+U244/KhLZMghOR7hOcjSSI0vrWM56/11SlNh4R2wufl
+	 fsapQtPd6gtq13Ncc2KWl8TU4QYP0DzGJewEsj4g=
+Message-ID: <6f52dbad-f3c6-4f62-862a-bed34c2d5922@arm.com>
+Date: Fri, 27 Nov 2026 14:25:31 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,109 +53,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 02/24] dt-bindings: media: Add bindings for Arm Mali-C720
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Nayden Kanchev <nayden.kanchev@arm.com>,
+ Konstantin Babin <konstantin.babin@arm.com>,
+ Linus Walleij <linusw@kernel.org>, jacopo.mondi@ideasonboard.com,
+ kieran.bingham@ideasonboard.com, dan.scally@ideasonboard.com,
+ Sakari Ailus <sakari.ailus@linux.intel.com>, Rob Herring <robh@kernel.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Hans Verkuil <hverkuil@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+References: <20261124-b4-initial-upstream-candidate-v1-0-0cb9bde1bd30@arm.com>
+ <20261124-b4-initial-upstream-candidate-v1-2-0cb9bde1bd30@arm.com>
+ <179559671799.14607.10622707622371448283.b4-reply@b4>
+ <0543d134-04d3-4e51-acd1-4fc39a0e522b@arm.com>
+ <4e8ecbe0-35bd-41d0-8546-4d99832e662b@kernel.org>
+ <9bb113e7-f88f-4616-b20a-74065cd755cf@arm.com>
+ <20261127124951.GC85756@killaraus.ideasonboard.com>
+Content-Language: en-GB
+From: Anthony McGivern <anthony.mcgivern@arm.com>
+In-Reply-To: <20261127124951.GC85756@killaraus.ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-macronix-upstreaming-spi-mem-cycles-v2-16-5c93f5e5d630@bootlin.com>
-References: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
-In-Reply-To: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
-To: Mark Brown <broonie@kernel.org>, Liang Yang <liang.yang@amlogic.com>, 
- Feng Chen <feng.chen@amlogic.com>, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
- Han Xu <han.xu@nxp.com>, Conor Dooley <conor.dooley@microchip.com>, 
- Valentina Fernandez <valentina.fernandezalanis@microchip.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>, 
- Haibo Chen <haibo.chen@nxp.com>, Jyan Chou <jyanchou@realtek.com>, 
- Yu-Chun Lin <eleanor.lin@realtek.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
- Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Yogesh Gaur <yogeshgaur.83@gmail.com>, 
- Chris Packham <chris.packham@alliedtelesis.co.nz>, 
- =?utf-8?q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
- Michal Simek <michal.simek@amd.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Alvin Zhou <alvinzhou@mxic.com.tw>, 
- Cheng Ming Lin <chengminglin@mxic.com.tw>, linux-spi@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, 
- imx@lists.linux.dev, linux-riscv@lists.infradead.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org, 
- linux-trace-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- openbmc@lists.ozlabs.org, Miquel Raynal <miquel.raynal@bootlin.com>
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
 
-The controller programs the dummy phase in clock cycles, but the driver
-converts the legacy dummy byte count into cycles. Advertise the
-dummy_cycles capability and use op->dummy.ncycles directly.
+Hi Laurent,
 
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
----
- drivers/spi/spi-microchip-core-qspi.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+On 27/11/2026 12:49, Laurent Pinchart wrote:
+> On Fri, Nov 27, 2026 at 12:32:32PM +0000, Anthony McGivern wrote:
+>> On 26/11/2026 15:12, Krzysztof Kozlowski wrote:
+>>> On 26/11/2026 15:55, Anthony McGivern wrote:
+>>>>>> +
+>>>>>> +  interrupts:
+>>>>>> +    minItems: 1
+>>>>>
+>>>>> Why is this flexible?
+>>>>
+>>>> The ISP has two interrupts - Main and fault. Currently the driver only
+>>>
+>>> If only writing bindings covered exactly such example. :/
+>>>
+>>> Hardware has two, so you need here to.
+>>
+>> Ok, understood on the part about driver support being independent here,
+>> I should clarify what I meant to say. This fault interrupt is only
+>> required for safety applications, and as such some integrations can
+>> leave this interrupt physically unconnected.
+>>
+>> That being said, it looks like in such case the device tree entry can
+>> use 'interrupts-extended' and set the phandle to <0> for those cases.
+>> So I will remove minItems here and for 'interrupt-names'.
+>> Apologies for the confusion on my side.
+> 
+> If SoC can integrate the ISP without the fault interrupt being wired to
+> the interrupt controller, then "minItems: 1" is correct.
+> 
 
-diff --git a/drivers/spi/spi-microchip-core-qspi.c b/drivers/spi/spi-microchip-core-qspi.c
-index c0ea65014d2e..80481011b83e 100644
---- a/drivers/spi/spi-microchip-core-qspi.c
-+++ b/drivers/spi/spi-microchip-core-qspi.c
-@@ -8,6 +8,7 @@
-  *
-  */
- 
-+#include <linux/bitfield.h>
- #include <linux/clk.h>
- #include <linux/err.h>
- #include <linux/init.h>
-@@ -420,7 +421,6 @@ static int mchp_coreqspi_setup_clock(struct mchp_coreqspi *qspi, struct spi_devi
- 
- static void mchp_coreqspi_config_op(struct mchp_coreqspi *qspi, const struct spi_mem_op *op)
- {
--	u32 idle_cycles = 0;
- 	int total_bytes, cmd_bytes, frames, ctrl;
- 
- 	cmd_bytes = op->cmd.nbytes + op->addr.nbytes;
-@@ -459,11 +459,7 @@ static void mchp_coreqspi_config_op(struct mchp_coreqspi *qspi, const struct spi
- 	writel_relaxed(frames, qspi->regs + REG_FRAMESUP);
- 	frames = total_bytes & BYTESLOWER_MASK;
- 	frames |= cmd_bytes << FRAMES_CMDBYTES_SHIFT;
--
--	if (op->dummy.buswidth)
--		idle_cycles = op->dummy.nbytes * 8 / op->dummy.buswidth;
--
--	frames |= idle_cycles << FRAMES_IDLE_SHIFT;
-+	frames |= op->dummy.ncycles << FRAMES_IDLE_SHIFT;
- 	ctrl = readl_relaxed(qspi->regs + REG_CONTROL);
- 
- 	if (ctrl & CONTROL_MODE12_MASK)
-@@ -561,6 +557,9 @@ static bool mchp_coreqspi_supports_op(struct spi_mem *mem, const struct spi_mem_
- 	if (!spi_mem_default_supports_op(mem, op))
- 		return false;
- 
-+	if (op->dummy.ncycles > FIELD_MAX(FRAMES_IDLE_MASK))
-+		return false;
-+
- 	if ((op->data.buswidth == 4 || op->data.buswidth == 2) &&
- 	    (op->cmd.buswidth == 1 && (op->addr.buswidth == 1 || op->addr.buswidth == 0))) {
- 		/*
-@@ -601,6 +600,7 @@ static const struct spi_controller_mem_ops mchp_coreqspi_mem_ops = {
- 
- static const struct spi_controller_mem_caps mchp_coreqspi_mem_caps = {
- 	.per_op_freq = true,
-+	.dummy_cycles = true,
- };
- 
- static int mchp_coreqspi_unprepare_message(struct spi_controller *ctlr, struct spi_message *m)
+Makes sense, I will leave it as-is but add a small description so this
+is clearer.
 
--- 
-2.56.0
+>> As a side note, there are some extra signals for a system timer clock
+>> and video output ports that should be added to these bindings also.
+>> I will address these in V2.
+>>
+>>>> uses the main interrupt, though we may wish to enable the fault
+>>>> interrupt in the future to detect errors on HW side. I will update
+>>>> this in V2 to use descriptions for each interrupt.
+>>>>
+>>>>>> +    items:
+>>>>>> +      - description: ISP main interrupt
+>>>>>> +      - description: ISP fault interrupt
+>>>>>> +
+>>>>>> +  interrupt-names:
+>>>>>> +    minItems: 1
+>>>
+>>> And please drop minItems here as well
+>>
+>> Agreed
+>>
+>>>>>> +    items:
+>>>>>> +      - const: isp
+>>>>>> +      - const: fault
+>>>>>> +
+> 
 
+Thanks,
+Anthony
