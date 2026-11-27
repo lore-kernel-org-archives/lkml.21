@@ -1,13 +1,13 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.27
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.31
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795797548;
-	b=NJly4VwtjcZClSPXNHFId0+4SRQKJA4asxo39L5ZttcGxxNjEFuu6+BxmzK83X9pUH2U
-	 VOiHMP221YXwD2L+jdGJr4f1tp+2ADDcMHORWp3CFxMp3k8Rn8QFwJuGSQjFmW1KT63Hw
-	 WCfmc79wlHxDx1sgZSzGfdXdvEWZUApZQZbZ+4c7uXaRKCqro9PjQ7BIGiueNVwxzMFOE
-	 Wg36Pwu4cyMzEqOIxO69oq50aGzFCQIHpzd7Jwia+oO4UgHwYHyFNEaGaTSoimDyqOaIQ
-	 T/uuPLdEwVZmZQ5/HQxu9OL3VbkFA7T3JDj9lg0R9N96qcHrWQyIMDlaWMfjEC2mLoA==
+	t=1795797553;
+	b=BRah+K3z0nKYbGB2lu7Qr/XHgxqwsPng3valrZW8sD8AYBU9mMikn5oZ7mHbq6TZoSlr
+	 cBGAWrLIZ9nY1ikW2DkAqz93rNwEN3ProzocbmdbAfnMmQRjvneMl6BKOh92d1zDH7+Dy
+	 Q4trVIgx2OKk1/9p5mmCgUW3xuhI1KKVX1QBxwrOsHZ+wU8b15+dLmgEXFs8XSUGBUE/K
+	 Zp7nXMCgnQLQcJfTiSsbM79Eyo/A9E/VQEQWhmHTyomiUEy6TtJ8q5pA/+YKyJqiU04ng
+	 CFRxYy2J2DQoU6KuQFfYS52hSTra/QkdbuOIxF+cDqIm7eoaNEmzlWcmhXVarTFTzaA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795797548;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795797553;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
 	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
 	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
@@ -26,53 +26,53 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=M76ls6J6Zl1fIuBTgz0vh0DvU/ty1Hve42VgNmX8Qr8=;
-	b=rJb3/FUU2kAgvw+wK5LzccnRu6zGF8/1jJBfVAEEX0xArAz6IOVV7PHD3mHW96zKFIMh
-	 SeaGy15bc2gRQMbcRO3XjXUw3xD1BWz7G0LcziPVq1KWr/BdnDHXXFBzRAuDWblAaFDd3
-	 vo2i6k/R1M6bs5DP5knlqb6P6m/XfagH9oHXGwcErOxXC+p1WKd/xrARRE00vXr3/Sig6
-	 /TqV1QyXOGVw9xIo9fEi5qQSzs94ET4PwuRr2dXxh31daDIuH29ANNXdGO0fRss0ijy12
-	 C/uESxG36/EeodlEL2FxDVC2lBnfPMCQp0uv7AyOvHYcDASfW3SX4mlrIskqogqzZHg==
+	bh=KMlzHqhd13YgyjAFr3WI6fQ2KkT0mfSqdXuXdvaYWr0=;
+	b=1HN1Ilz3BqNpU8A+iPCZTWvz6ePi696EHT1im9hA3VQ2v6p+7+uS3JX5Ssq74Ue6wpNa
+	 u4Ueuwvxl6xMcU4BVfykgMDhj5Z0AfhR37DHl98aJkwv9Z1+zEwRT2vCPJwuNOWaL9plK
+	 PwXAENMtTEHKvkJgSPJ9MXcvCnu6XgOMjQ1Y0KTZCYr81selKw1cIL+VqdYalUUSmn8Eu
+	 lGN9CxGA95C5UWRD2gWZ0xPhPnTYGF9wOrJGgwCljkTO7N5Zv5hCPtaO25+0uGeLN7d+m
+	 +GVPCfNsVQEfOVdZtYs6ujHMnqcQXkh7ddPpruVE6eF0pqY7bHlCAwXncCFt6uAM3lQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=amd.com;
 	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=RGtIx2sM;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.27
-Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011027.outbound.protection.outlook.com [40.93.194.27])
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=5B9iiphz;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.31
+Received: from PH8PR06CU001.outbound.protection.outlook.com (mail-westus3azon11012031.outbound.protection.outlook.com [40.107.209.31])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68E0B606A336;
-	Fri, 27 Nov 2026 16:39:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68E0B606A336
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9319A606A68D;
+	Fri, 27 Nov 2026 16:39:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9319A606A68D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=RGtIx2sM
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=5B9iiphz
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=doJjG20ebofVvBs2BkvwcDGZkYnaAsbQL9xILURYytA+YWhZO6Xu8dOAb8ee5IObCkhDMBqEfbAKjETxnBd0fuZwtVnlY7BW5gKpxvm90fNoJ4fbpCmkJRNnNzyZyiRHgXrDc6Wd97d4tHwz5qyjr44qrUmELGDDAA3F0M3Wm4tj3D60dhzijo5+1m3OKeTig+Va9oJ+fTlV3iOzXKeEKqeGLtdLlY3mdnokthTMZyJvDB+JO8gTM2FNet8Naxo+1SGNlH3oKx/2SY7XBLs/0TeSBwXy8QpsRrVVaaAmnJEs8hFKvy5SV/rjRl3KAvgPmEbaOrXQTnlshy+vsgfLVw==
+ b=ppfiGCH3Sbp9j1THWiBLk5l117y3FjWL2L+vAalaz3GG0ttwrgUutQCaSwtlE/SG1iwyIUJiKL4V+ffhYg/dELtzmYyNfDiJHH6ucWpmiwK0zrVHs3T4+//IHnH2/fwhFHd1VPDKUdxQXNC/9tQXYLmATLXSY2Oocl1Qk0kOJC77jg21Fvyw7KVk9BXQb3kDcGauzxJX0JZ2hzLZ633Fbu2yjlpJtrgPO5G2Y1mJJi5cvB1cgzkg2jzoaNIJz82GYhWPpFFt75tLQYGmxOa2dljK+Nf2VgL1ZiRExmhTlS+iVfxySzGJzWflJiemrDMJiyxOsT9sbvnf2YuaCbyE0g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=M76ls6J6Zl1fIuBTgz0vh0DvU/ty1Hve42VgNmX8Qr8=;
- b=nD9TUbyDVAeesZSZC8q0jthbtygBd9RpbgLOMIiKkQhGcr7wXXuG8Mfkx3M22o7TnwvUBNXsEH9LeeH2CEXZqZbp+NaOc4EYh2UFiy0lOkqTjpiZqspePmvkcMrPeB/fFZ/IVi9dOueA/HmXRtQyQp4pwr9KiAGe/VvYVtSwaJrjIoGwvp6+ykL62PFg0havo9ljkqt5ccoVwMgird9UoDYkVn+yEl45kG46PyX+aMKRHl18kOV4ue/3f6h7r97W88PNV5DcLT2gO4WM09nlUTd8IGJW8n9NnUWUNCqvmICAJ4bsmz+ECT8/WkI0Orl87Ww0Y6318xYpyRCMleJ4mA==
+ bh=KMlzHqhd13YgyjAFr3WI6fQ2KkT0mfSqdXuXdvaYWr0=;
+ b=Szr/1GtBVlrT3RrLwM2vy0JYfvgPVHNs0hq/h6i1aR/yiaVg82h88ylIIC9rGfsEqVEDE6nyx70jAmTmSzlK2UbYl0Lt34ze1L2qL24NpI4xTkwC/wDkQtqQN8VFU6dOBItxS12XjvnYelp2DBOh+UbbDmmi0tbH7iJhOg7BeHWaB9FJ/DzlaIc04TLREo2ULAkv1/axROaNbIkcYXs6dCBjvImoFRjuunwS9EG++0h4We4xOsjlzgMeDjFlngS3yz84jw1VeXqfoX5HpYo54w5ZTCeQmHSck5YNSqX/SdTgcs7zrM4c8eV0vrXeNuhvfP50Rq3QDdlxnr5OxvWpDg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=M76ls6J6Zl1fIuBTgz0vh0DvU/ty1Hve42VgNmX8Qr8=;
- b=RGtIx2sMySj3RhbGpEXmZaO8sFdQyQ4ZlBAy/U035e4tbdLKGJgkYKt/yyla2k3R8tupqN6O5NcbA05zYwgAgbuoTvb1rAPBd4pXF/8yHKmUC0l8ZOxDN0OjcrjO7+POgPnpIqUgnQ0Oy1GGCfc0g/UFFxwFeu2P5h2KWhF6luI=
-Received: from SJ0PR13CA0017.namprd13.prod.outlook.com (2603:10b6:a03:2c0::22)
- by CH3PR12MB8533.namprd12.prod.outlook.com (2603:10b6:610:159::16) with
+ bh=KMlzHqhd13YgyjAFr3WI6fQ2KkT0mfSqdXuXdvaYWr0=;
+ b=5B9iiphzLREkTs3VGhHRL7D6Nmk1JAzXxxM6kd7nREw9YtPP8pIuUw2H42GM+yyS0eCzwRkK3P5AwdPsNKJdz0l44bAQEG7W4iUTGE36qQbeiCPFOZkFSXzzN7UxJu6EpYlRakj1oB3+RJzrz/8pBteL+o3WGchJ4GFd+qlJHhw=
+Received: from BY3PR05CA0027.namprd05.prod.outlook.com (2603:10b6:a03:254::32)
+ by SA1PR12MB6701.namprd12.prod.outlook.com (2603:10b6:806:251::18) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.10; Fri, 27 Nov
- 2026 16:39:02 +0000
-Received: from PH1PEPF00062F2E.namprd03.prod.outlook.com
- (2603:10b6:a03:2c0:cafe::97) by SJ0PR13CA0017.outlook.office365.com
- (2603:10b6:a03:2c0::22) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 16:39:08 +0000
+Received: from PH1PEPF00062F2B.namprd03.prod.outlook.com
+ (2603:10b6:a03:254:cafe::93) by BY3PR05CA0027.outlook.office365.com
+ (2603:10b6:a03:254::32) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.688.5 via Frontend Transport; Fri, 27
- Nov 2026 16:39:02 +0000
+ Nov 2026 16:39:08 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -80,29 +80,29 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
 Received: from satlexmb08.amd.com (165.204.84.17) by
- PH1PEPF00062F2E.mail.protection.outlook.com (10.167.243.135) with Microsoft
+ PH1PEPF00062F2B.mail.protection.outlook.com (10.167.243.132) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.688.5 via Frontend Transport; Fri, 27 Nov 2026 16:39:01 +0000
+ 15.21.688.5 via Frontend Transport; Fri, 27 Nov 2026 16:39:07 +0000
 Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 27 Nov
- 2026 10:39:01 -0600
+ 2026 10:39:06 -0600
 Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
  (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 27 Nov
- 2026 10:39:00 -0600
+ 2026 10:39:06 -0600
 Received: from xhdshubhraj40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Fri, 27 Nov 2026 10:38:57 -0600
+ Transport; Fri, 27 Nov 2026 10:39:03 -0600
 From: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
 To: <linux-kernel@vger.kernel.org>, <linux-edac@vger.kernel.org>
 CC: <git@amd.com>, <shubhrajyoti.datta@gmail.com>, Radhey Shyam Pandey
 	<radhey.shyam.pandey@amd.com>, Borislav Petkov <bp@alien8.de>, Tony Luck
 	<tony.luck@intel.com>, Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
 	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-Subject: [PATCH v3 1/7] EDAC/versalnet: Add bounds validation in rpmsg_cb()
-Date: Fri, 27 Nov 2026 21:59:10 +0530
-Message-ID: <20261127163853.3563991-2-shubhrajyoti.datta@amd.com>
+Subject: [PATCH v3 3/7] EDAC/versalnet: Wait for RPMsg endpoint initialization
+Date: Fri, 27 Nov 2026 21:59:12 +0530
+Message-ID: <20261127163853.3563991-4-shubhrajyoti.datta@amd.com>
 X-Mailer: git-send-email 2.44.4
 In-Reply-To: <20261127163853.3563991-1-shubhrajyoti.datta@amd.com>
 References: <20261127163853.3563991-1-shubhrajyoti.datta@amd.com>
@@ -119,84 +119,335 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH1PEPF00062F2E:EE_|CH3PR12MB8533:EE_
-X-MS-Office365-Filtering-Correlation-Id: e7af34c1-3dda-4dc9-b2c7-08df4ca4f17f
+X-MS-TrafficTypeDiagnostic: PH1PEPF00062F2B:EE_|SA1PR12MB6701:EE_
+X-MS-Office365-Filtering-Correlation-Id: 93d2e125-f3e9-43dd-512b-08df4ca4f4dc
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|376014|1800799024|23010399003|82310400026|56012099006|11063799006|10067099003|261022113327099003|261021121427099003|261026140227099003|261022075727099003|261026121527099003|261022105027099003|261102123227099003|261028144727099003|261009223027099003|22082099003|18002099003;
+	BCL:0;ARA:13230040|36860700016|23010399003|82310400026|1800799024|376014|261102123227099003|261028144727099003|261022113327099003|261022105027099003|261022075727099003|261021121427099003|261021123027099003|261026121527099003|261026140227099003|11063799006|56012099006|10067099003|22082099003|18002099003|6133799003|261009223027099003;
 X-Microsoft-Antispam-Message-Info:
-	O2TM6ury8tC0LRmP0yZ+ACTMN082fhKjOJeQTld1DlyNEFXZHvZdoGp6QnvXrGPGVpGXrTsMRW3dbiUSBGRWT/UDFQ0+mbcJAy8/oxiMLLnqgB1Ni4GODajZtIO73iwQGS4jpQIckpgsKD/gmnSwrao1CdznAgHJXTk6vbPZmkvdR4xPvUpBN10MiJdNTWYJfhTqzyKPyFHC4TSqwCfr9+PRwMrO+EdUHJ0t7lnUbaYHYxmEZ8t4UokgkvPVw5P5c+8cLLdf5hugcdlQG/PJGYbF+IrUDsWZjVhhgZUmYpOFEi/XLiBkUiaxmIOe1QrjWz7ZnsK5bYiBMha3mS6BwggNpYmWKS4LqnGjRClql0slqTYSJ3CmtU0pX/ARhQ1yPQdb7i2iN1E3CnvLGF1z/kWUbsrHbP2sCmg/VATsYH67Y8FES1Un5eQqrsDL4Mn6+voNnCyZ9W7wb/1jGkQYI3UPNRLRkqYMCVg8aiEKmkz5m1SyALoINoDi2bDUIkZr7NYeKRv+5y3JdM2gYxkep4TIWgA10P4tmVKcVTeaWm/WoKAOvrK2Gj9OYHQ5HxeEPlStnNg1/V2Z5iT9smqXIh/nO3B3XG1GzvzgZLTcZ29MBU1yeCQ8Vh5KTrlrlmBggYcu4lTTPXSviq2LUy46OZbmrLovaqFMjnCG3k/GzX6QNnR6LM+bk+oojbFFsjztjLxnGPuVBBmaJz4eKw6V5w==
+	7FygIeiJeVMKDRVlloehg5Jdc/T6s5kFmFSNfW4P/I8K0h817i+J0lnBxUCaURCTJI3ujSadpivZ1czv8zKA3vHo3ebkUaULR+yBK+vRaA5+32GAQQN+Uf139axAetq0TcoBxvxVU2ntaK9PcYniT/rGMvZ1jmkB2Eqtn6GfFSeGulW+izThPXLxftPDIirFoGLD49XUDLe/OjcS7DTNEJVStggXlsfx/Ldat7Th94ZAj20ppucKtz2RJhXB/EpAEyC43JWSD7r4lKX+EOpOZChm2Ft5u7kubpm84KusQyCSuJRWbNSUWQDqwwoHx8K5fx3r+/jxvDEBDdEIZyFv+S3Vu2/dqhAg939VrS8m8r+RIH2MKmjwuqb1URUUovS2G5bOl0FK6Tb6W0wShAccHtS+nK8bKRKzW5WE8ZueJKCmeHy5E+HSpU1CWcW6D210gaVvARo4LJklsk+TBIJjN45ig3F5R/rdh0pJ0AaL2ZuCXeS4zt32asLRtjZHBg1JewEW1CgG6j9ryRanJzRn+mxWgdeQTjUMFYSlsbhTiQ82IvxbhKc9ZZ9qfwn9/4AqgFy2WLmdnhrG57hXzQpaL3IycwJan+3VCm4hf4wU/Rq2YfPnj8uMtyhdL7OykImUq3L07fKSLtnn2HZvc1FybYGGKbUZG77xlnqebZDnAPxR+lOaGYY41df8BQIoX4sa+72k6Pt4FGyX7lMmWB+iYw==
 X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(1800799024)(23010399003)(82310400026)(56012099006)(11063799006)(10067099003)(261022113327099003)(261021121427099003)(261026140227099003)(261022075727099003)(261026121527099003)(261022105027099003)(261102123227099003)(261028144727099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(82310400026)(1800799024)(376014)(261102123227099003)(261028144727099003)(261022113327099003)(261022105027099003)(261022075727099003)(261021121427099003)(261021123027099003)(261026121527099003)(261026140227099003)(11063799006)(56012099006)(10067099003)(22082099003)(18002099003)(6133799003)(261009223027099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	2AO0w6PMjB62GUy1ZYwqGgudUaSrQdXV2lUhBY/S+/4NwvaX+4JZVY8YwkRWDe8+nOeiD7DNzy5fNGjCdKigFiBhtFR2kMmqXzKFHFC/B7KB8a1EcqPnR3iiy5Gn645mGwouPwMu352vhq0Pm1EUXpfPKT0UGtwGoyc0y5UTu8gGgb0p6nyQDifb90ilc/gdPRwaqlGVrXC+G4z7s9MEjk4EyOwXRRXeLbM5I4OjOHleKPgGDJfrV7ipJSvPvY3/x3L3rNbsu0bgzGfk5llkhaRC5gS7IJLK7qRGRQLI14f7jUXPIRU5w/jzh6Ln5966umBaF/urllxkigLq1GH7L3JcMJE/FhGTAoIDlD+235MNY5L4vnPOPDP4igd9DcomdsKDISPucmGnDZQ6ixqB1AgBH/akO7Yh/Pp5hcsONGbl95h6GD8WYUBrwSKTGVXs
+	/5pCJ+FP9gqPj2GRXXs0uqwUGnvap5h6STUqm/1RKo5BCkNSKCUFu+NcE88h1LgDTkeoWMTOfJMUod6HN31AmU/d5JjoGBQF0QHMmvSEQqteCnD9ay51gRwkhU+zKDeyesV7aotSBRNqjG9mHOy/TNpCWCjku+KGdS9Tcap7M7nAt+nwMsldHlSRMq3Qcgg4gQaDGQ0M7eJUsW2KUyS0MgvidIa5LCQHA865+Gy4avqzSl1lOIMzaqznNLTU/YCkSyxxZo6TzXdDUyUCD/QDyhWVLlG/hvqO8vG8WDrTQsbLsF64t8T7Je9Il9m6VIDXGJATAxURWw6VxEgLhVi/qsMBQqFGac7WsNUOohk4+AwJb4CgeWH5n32S6gF/NVdzgifEwbQRE2sYNw68zLTp83LIGl4a1t2V99d/aZW54y5rBdlHMYAJGKuet/CqDTuZ
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 16:39:01.9142
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 16:39:07.5195
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e7af34c1-3dda-4dc9-b2c7-08df4ca4f17f
+X-MS-Exchange-CrossTenant-Network-Message-Id: 93d2e125-f3e9-43dd-512b-08df4ca4f4dc
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
 X-MS-Exchange-CrossTenant-AuthSource:
-	PH1PEPF00062F2E.namprd03.prod.outlook.com
+	PH1PEPF00062F2B.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8533
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6701
 
-The firmware-supplied offset and length values from the RPMsg payload
-are used without validation to index mc_priv->regs[] (REG_MAX entries).
-A malformed or buggy firmware message could access past the end of the
-array, corrupting adjacent structure members or kernel memory.
+From: Hayden Rinn <haydenrinn@microsoft.com>
 
-Add bounds checks for the offset and length before accessing the array.
+The rpmsg endpoint can be used before rpmsg_probe() completes, and
+can race with asynchronous rpmsg_remove() teardown (e.g. R5 crash
+or shutdown), both leading to use of an uninitialized or freed
+endpoint.
 
-rpmsg_cb() supports messages split across two RPMsg callbacks. If
-validation fails for either part of a split message, discard the entire
-message.
+Add a completion so mc_probe() waits for the endpoint, and a
+"ready" flag so rpmsg_cb() drops events until mci/adec are
+set up. Add ept_lock to serialize priv->ept and priv->mcdi->ept
+across mcdi_request(), rpmsg_probe(), and rpmsg_remove(), clearing
+them on removal if the channel is down.
+
+Split setup_mcdi() so that only MCDI allocation and initialization are
+performed before RPMsg registration. Update the error paths to match
+the new initialization order, ensuring resources are released in
+reverse order of acquisition.
 
 Fixes: d5fe2fec6c40 ("EDAC: Add a driver for the AMD Versal NET DDR controller")
+Signed-off-by: Hayden Rinn <haydenrinn@microsoft.com>
+Co-developed-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
 Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
 ---
 
 Changes in v3:
-If it is a split message tben discard both the messages
+Update the kfree sequence
+Squash the "EDAC/versalnet: Wait for RPMsg endpoint initialization"
 
 Changes in v2:
-Sashiko comment
-"This is a pre-existing issue, but are offset and length validated before
-being used as indices?"
+Patch addition for the rpmsg endpoint race
 
- drivers/edac/versalnet_edac.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ drivers/edac/versalnet_edac.c | 140 ++++++++++++++++++++++++++++------
+ 1 file changed, 115 insertions(+), 25 deletions(-)
 
 diff --git a/drivers/edac/versalnet_edac.c b/drivers/edac/versalnet_edac.c
-index 2019a0f102c6..405d994303c7 100644
+index 8decaba19048..c43104a5d9f0 100644
 --- a/drivers/edac/versalnet_edac.c
 +++ b/drivers/edac/versalnet_edac.c
-@@ -607,6 +607,22 @@ static int rpmsg_cb(struct rpmsg_device *rpdev, void *data,
- 	length = result[MSG_ERR_LENGTH];
- 	offset = result[MSG_ERR_OFFSET];
+@@ -5,8 +5,10 @@
+  */
  
+ #include <linux/cdx/edac_cdx_pcol.h>
++#include <linux/completion.h>
+ #include <linux/edac.h>
+ #include <linux/module.h>
++#include <linux/mutex.h>
+ #include <linux/of_device.h>
+ #include <linux/ras.h>
+ #include <linux/remoteproc.h>
+@@ -146,7 +148,15 @@ struct ecc_status {
+  * @adec:		Address decode registers.
+  * @mci:		Memory controller interface.
+  * @ept:		rpmsg endpoint.
++ * @ept_lock:		Protects @ept and @mcdi->ept against concurrent teardown
++ *			by rpmsg_remove() (e.g. remote processor crash/shutdown)
++ *			while mcdi_request() is sending on them.
++ * @rpmsg_ready:	Completion signaled once rpmsg_probe() has run to
++ *			completion success. @ept is only valid to check
++ *			once this is signaled.
+  * @mcdi:		The mcdi handle.
++ * @dev:		Platform device backing this driver instance.
++ * @ready:		Flag set once VersalNet edac is initialised.
+  */
+ struct mc_priv {
+ 	char message[256];
+@@ -159,7 +169,11 @@ struct mc_priv {
+ 	u32 adec[ADEC_MAX];
+ 	struct mem_ctl_info *mci[NUM_CONTROLLERS];
+ 	struct rpmsg_endpoint *ept;
++	struct mutex ept_lock; /* Protects endpoint */
++	struct completion rpmsg_ready;
+ 	struct cdx_mcdi *mcdi;
++	struct device *dev;
++	bool ready;
+ };
+ 
+ /*
+@@ -508,6 +522,12 @@ static void mc_init(struct mem_ctl_info *mci, struct device *dev,
+ 
+ #define to_mci(k) container_of(k, struct mem_ctl_info, dev)
+ 
++static struct rpmsg_device_id amd_rpmsg_id_table[] = {
++	{ .name = RPMSG_CHAN_NAME },
++	{ },
++};
++MODULE_DEVICE_TABLE(rpmsg, amd_rpmsg_id_table);
++
+ static unsigned int mcdi_rpc_timeout(struct cdx_mcdi *cdx, unsigned int cmd)
+ {
+ 	return MCDI_RPC_TIMEOUT;
+@@ -517,9 +537,27 @@ static void mcdi_request(struct cdx_mcdi *cdx,
+ 			 const struct cdx_dword *hdr, size_t hdr_len,
+ 			 const struct cdx_dword *sdu, size_t sdu_len)
+ {
++	struct mc_priv *mc_priv = (struct mc_priv *)amd_rpmsg_id_table[0].driver_data;
+ 	void *send_buf;
+ 	int ret;
+ 
++	guard(mutex)(&mc_priv->ept_lock);
++
 +	/*
-+	 * For a message that is part of a split sequence, offset must
-+	 * continue exactly where the previously accumulated data
-+	 * (mc_priv->part_len) left off; otherwise either a fragment was
-+	 * dropped or this is an unrelated/replayed message. Reject it and
-+	 * reset part_len so a bad fragment cannot desync, or be used to
-+	 * smuggle data into, subsequent split messages.
++	 * The rpmsg channel can be torn down asynchronously (e.g. the R5
++	 * remote processor crashing or being shut down) by rpmsg_remove(),
++	 * which clears both @cdx->ept and @mc_priv->ept under this same
++	 * lock. Bail out instead of sending on a destroyed endpoint.
++	 *
++	 * @cdx->rpdev is cleared by rpmsg_remove() together with @cdx->ept,
++	 * so it cannot be used for logging here; use the stable platform
++	 * device instead.
 +	 */
-+	if (length > REG_MAX || offset > REG_MAX - length ||
-+	    result[TOTAL_ERR_LENGTH] > REG_MAX || offset != mc_priv->part_len) {
-+		dev_warn_ratelimited(&rpdev->dev,
-+				     "Rejecting the faulty message\n");
-+		mc_priv->part_len = 0;
-+		return -EINVAL;
++	if (!cdx->ept) {
++		dev_err(mc_priv->dev, "Dropping rpmsg send, channel is down\n");
++		return;
 +	}
 +
- 	/*
- 	 * The data can come in two stretches. Construct the regs from two
- 	 * messages. The offset indicates the offset from which the data is to
+ 	send_buf = kzalloc(hdr_len + sdu_len, GFP_KERNEL);
+ 	if (!send_buf)
+ 		return;
+@@ -559,7 +597,7 @@ static void get_ddr_config(u32 index, u32 *buffer, struct cdx_mcdi *amd_mcdi)
+ static int setup_mcdi(struct mc_priv *mc_priv)
+ {
+ 	struct cdx_mcdi *amd_mcdi;
+-	int ret, i;
++	int ret;
+ 
+ 	amd_mcdi = kzalloc(sizeof(*amd_mcdi), GFP_KERNEL);
+ 	if (!amd_mcdi)
+@@ -572,12 +610,8 @@ static int setup_mcdi(struct mc_priv *mc_priv)
+ 		return ret;
+ 	}
+ 
+-	amd_mcdi->ept = mc_priv->ept;
+ 	mc_priv->mcdi = amd_mcdi;
+ 
+-	for (i = 0; i < NUM_CONTROLLERS; i++)
+-		get_ddr_config(i, &mc_priv->adec[ADEC_NUM * i], amd_mcdi);
+-
+ 	return 0;
+ }
+ 
+@@ -601,6 +635,18 @@ static int rpmsg_cb(struct rpmsg_device *rpdev, void *data,
+ 		cdx_mcdi_process_cmd(mc_priv->mcdi, (struct cdx_dword *)data, len);
+ 		return 0;
+ 	}
++	/*
++	 * The rpmsg channel (and thus this callback) can become live
++	 * before init_versalnet() has allocated priv->mci[] and
++	 * populated priv->adec[]. Drop reports that race ahead
++	 * of it instead of calling handle_error() against incomplete
++	 * state.
++	 */
++	if (!smp_load_acquire(&mc_priv->ready)) {
++		dev_warn_ratelimited(&rpdev->dev,
++				     "Dropping event, driver not ready yet\n");
++		return 0;
++	}
+ 
+ 	sec_sev = result[ERROR_LEVEL];
+ 	error_id = result[ERROR_ID];
+@@ -730,12 +776,6 @@ static int rpmsg_cb(struct rpmsg_device *rpdev, void *data,
+ 	return 0;
+ }
+ 
+-static struct rpmsg_device_id amd_rpmsg_id_table[] = {
+-	{ .name = RPMSG_CHAN_NAME },
+-	{ },
+-};
+-MODULE_DEVICE_TABLE(rpmsg, amd_rpmsg_id_table);
+-
+ static int rpmsg_probe(struct rpmsg_device *rpdev)
+ {
+ 	struct rpmsg_channel_info chinfo = {
+@@ -743,25 +783,56 @@ static int rpmsg_probe(struct rpmsg_device *rpdev)
+ 		.dst	= rpdev->dst,
+ 		.name	= RPMSG_CHAN_NAME,
+ 	};
++	struct rpmsg_endpoint *ept;
+ 	struct mc_priv *pg;
+ 
+ 	pg = (struct mc_priv *)amd_rpmsg_id_table[0].driver_data;
+ 
+-	pg->ept = rpmsg_create_ept(rpdev, rpmsg_cb, NULL, chinfo);
+-	if (!pg->ept)
+-		return dev_err_probe(&rpdev->dev, -ENXIO, "Failed to create ept for channel %s\n",
+-				     chinfo.name);
+-
+ 	dev_set_drvdata(&rpdev->dev, pg);
+ 
++	ept = rpmsg_create_ept(rpdev, rpmsg_cb, NULL, chinfo);
++	if (!ept) {
++		return dev_err_probe(&rpdev->dev, -ENXIO,
++				      "Failed to create ept for channel %s\n",
++				      chinfo.name);
++	}
++
++	/*
++	 * Link the new endpoint in under the lock. This also re-syncs
++	 * mcdi->ept on reconnection after the remote processor recovers
++	 * from a crash/shutdown, which previously only happened once,
++	 * during the initial mc_probe().
++	 */
++	scoped_guard(mutex, &pg->ept_lock) {
++		pg->ept = ept;
++		pg->mcdi->ept = ept;
++		pg->mcdi->rpdev = rpdev;
++	}
++
++	complete_all(&pg->rpmsg_ready);
++
+ 	return 0;
+ }
+ 
+ static void rpmsg_remove(struct rpmsg_device *rpdev)
+ {
+ 	struct mc_priv *mc_priv = dev_get_drvdata(&rpdev->dev);
++	struct rpmsg_endpoint *ept;
+ 
+-	rpmsg_destroy_ept(mc_priv->ept);
++	/*
++	 * Clear the shared endpoint pointers before destroying the
++	 * endpoint, so that mcdi_request() (serialised on the same lock)
++	 * cannot observe or send on a stale/freed endpoint if the remote
++	 * processor goes down concurrently.
++	 */
++	scoped_guard(mutex, &mc_priv->ept_lock) {
++		ept = mc_priv->ept;
++		mc_priv->ept = NULL;
++		mc_priv->mcdi->ept = NULL;
++		mc_priv->mcdi->rpdev = NULL;
++	}
++
++	rpmsg_destroy_ept(ept);
+ 	dev_set_drvdata(&rpdev->dev, NULL);
+ }
+ 
+@@ -906,7 +977,7 @@ static int mc_probe(struct platform_device *pdev)
+ 	struct device_node *r5_core_node;
+ 	struct mc_priv *priv;
+ 	struct rproc *rp;
+-	int rc;
++	int rc, i;
+ 
+ 	r5_core_node = of_parse_phandle(pdev->dev.of_node, "amd,rproc", 0);
+ 	if (!r5_core_node) {
+@@ -930,33 +1001,52 @@ static int mc_probe(struct platform_device *pdev)
+ 		goto err_alloc;
+ 	}
+ 
++	priv->dev = &pdev->dev;
++	mutex_init(&priv->ept_lock);
++	init_completion(&priv->rpmsg_ready);
+ 	amd_rpmsg_id_table[0].driver_data = (kernel_ulong_t)priv;
+ 
++	rc = setup_mcdi(priv);
++	if (rc)
++		goto err_alloc;
++
+ 	rc = register_rpmsg_driver(&amd_rpmsg_driver);
+ 	if (rc) {
+ 		edac_printk(KERN_ERR, EDAC_MC, "Failed to register RPMsg driver: %d\n", rc);
+-		goto err_alloc;
++		goto err_reg;
+ 	}
+ 
+-	rc = setup_mcdi(priv);
+-	if (rc)
+-		goto err_unreg;
++	if (!wait_for_completion_timeout(&priv->rpmsg_ready, MCDI_RPC_TIMEOUT)) {
++		dev_err(&pdev->dev, "Timed out waiting for RPMsg endpoint\n");
++		rc = -ENODEV;
++		goto err_init;
++	}
+ 
+ 	priv->mcdi->r5_rproc = rp;
+ 
++	for (i = 0; i < NUM_CONTROLLERS; i++)
++		get_ddr_config(i, &priv->adec[ADEC_NUM * i], priv->mcdi);
++
+ 	rc = init_versalnet(priv, pdev);
+ 	if (rc)
+ 		goto err_init;
+ 
++	/*
++	 * edac is initialised. Publish this with a release store so rpmsg_cb
++	 * running concurrently on the rpmsg worker thread, only calls
++	 * handle_error() once it observes @ready via a matching acquire load.
++	 */
++	smp_store_release(&priv->ready, true);
++
+ 	return 0;
+ 
+ err_init:
++	unregister_rpmsg_driver(&amd_rpmsg_driver);
++
++err_reg:
+ 	cdx_mcdi_finish(priv->mcdi);
+ 	kfree(priv->mcdi);
+ 
+-err_unreg:
+-	unregister_rpmsg_driver(&amd_rpmsg_driver);
+-
+ err_alloc:
+ 	rproc_shutdown(rp);
+ 
 -- 
 2.34.1
 
