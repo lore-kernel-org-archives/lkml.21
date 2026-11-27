@@ -1,65 +1,65 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795748401;
-	b=OnXy/mhM0yzR7yTMLSVY04LrOCJuFy7J9XZzxrZTuz1EZcif4i1FaHMZbCIxdMjogY8F
-	 wmt0SuWVtN/b4ogyirt7xJ+pPsFQXj9DduUbXljPtkX9JCoKPDlq7hwQeCa5o5kjTSz7M
-	 YYHJBIK/YgW5IR1erUiqGKN86Oid9MRwsYjcYPRGiZSFdbCMnJoyS1X8ImdABYomntgeJ
-	 Brx+f3oXT0e9GGI4n4JiIqocsVtqJRbL+8z8JWq1H2sXtqahweUcEMgUbXH24RA0R5KDE
-	 ph5eY8THQOjsnPa5T6DV1OErrDOgE41RmGwojebImrL3E9Z1eOWgXQa1SRxxZjQ/G6w==
+	t=1795748397;
+	b=a427id2dWQf0o/4ejVM9FJkxEfqXxBI0vMouqKbPRVMH8QfyFnjNGQcXWdiz7A0CEoIQ
+	 bEZVbZWW9viwGsxy7kouO8LzB1Bfj6+135a1Y19iRdzgpWOurWsn/nvygN7xP3MVGjKhE
+	 fEkfYGABVj6W6bkbksI4oLT3opyk8aLe6SVyNYOC1hcrl6HohuzhTP1NRTiF2BuYQKqdQ
+	 mLehrb6rAxKQWBNiUNX07msf9+JzXy72m6mQdevJEv4tiPZUf/JWncChVXRdjrkiB7Do2
+	 x578HrZXxlcdEzrXCWUbZdUnSNAOCyrDarY7QiFYzKiy1DOsctRr/DEy93BLr+vZocQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795748401;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795748397;
 	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
 	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
 	 Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=xHWWO6o99kjU2TzReE8Vn7pFee8z3fLYhbzMLKyNUlc=;
-	b=u97XyeDPiwqG/LvED9WYjklaY/5SupU2C5EW+9ejo3sJ6OzTj/TaHrxD8TCxOXsxESOM
-	 AAdiS83kGrgB/w31YoWEsqs0bwMQrVOFZIabSGMedZAbMY3c0kHJBYwkFPaeOZAE1hKLD
-	 oUbO3vgE3kJCffT7p1HbDxWiMCTqaSohdOgfDZvGZ+Ifc+SIPBlnDhWEBlwgAz8TNL4iy
-	 qdHmVLkZV8z87nPQ1Mnx+n0fqamfYhtpJ2iiwWSPXJ8x7dj3D/4jBPO/c6DknDefEarsC
-	 rCA+ykhGCQrG1QwkqNfnMQqH0M6qpEbRyN1n75RYzq2Ghi+cC1YASBAAylG6r+/nSsw==
+	bh=/9Mh6Wxu4Z/jsve9fIJULnjNQ4Rs7c/R79y9gFpmxBA=;
+	b=TenuPI0BpodpwDFXBamzsoE797e1P8u6Voq2giF++0A0k4kD6RU/oOeH9j8s0CjwBEMD
+	 2bMeEnGRLXaFhhd9l/4f+eekp1nr1Qr6OsS5dbHwYaDjMUWPPHqkuB7kOg5WVMX7vIzgn
+	 plrL26B//db1n12C3SKd9jLurvxM8dtWc/jXNdDAcbUX/1n5Wg9SIMUReGnFYOptl+TRt
+	 q87rPWaOYFGBz9FL+bfELbiA88yEvYhDTgLfIyacTQABPoZfh2MfKsQJua9zxh36KFF1M
+	 IMakjyid5sq1Yd5DlJu7Q3DCN6M4BF51xEA+kOyrL7Pe03WHp41nGIfhV5ek1o3TlDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=redhat.com;
 	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XB+hU1TG;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=IKPFrAhI;
 	arc=none smtp.remote-ip=170.10.129.124
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 892C6606A327
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:00:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 892C6606A327
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0D0A606A32F
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:59:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0D0A606A32F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XB+hU1TG
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=IKPFrAhI
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795748399;
+	s=mimecast20190719; t=1795748395;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=xHWWO6o99kjU2TzReE8Vn7pFee8z3fLYhbzMLKyNUlc=;
-	b=XB+hU1TGxEp0y5aAdOoxWuXsKRR0C/7wlZd4uwJJU6zud2RGOwTdaw+J7bx832PqVyO79r
-	Tds42gJBPPSF3H+4bNLgMqu1LA4fkXoa6kELuKV0NCwGmhuFH2MuGJyfhh1JhFem+Np2aS
-	Wj3ISXkvNg75ayvhzVarT+h/t9lIhLQ=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+	bh=/9Mh6Wxu4Z/jsve9fIJULnjNQ4Rs7c/R79y9gFpmxBA=;
+	b=IKPFrAhIsjxRVNJgosIk/NNasgUqoc7DZCvs+sn3mFpBPkhz/6MiDj0qWxizPoPrglqPlM
+	OqW/NVSvWODO4gZqoqcMSj51vqezWqes/02KpLZLdlZW6n+UM/OmUMFU8YXTYtSMYoSZ4x
+	Yk8W8KvJGlCPoeQe/r0XvEChZLcqZYU=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-607-nX4TE-hdPRS1qYNP4mdjcg-1; Fri,
- 27 Nov 2026 02:59:55 +0000
-X-MC-Unique: nX4TE-hdPRS1qYNP4mdjcg-1
-X-Mimecast-MFC-AGG-ID: nX4TE-hdPRS1qYNP4mdjcg_1795748394
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-637-6eMJdjT8OB2chWZreHWpXg-1; Fri,
+ 27 Nov 2026 02:59:51 +0000
+X-MC-Unique: 6eMJdjT8OB2chWZreHWpXg-1
+X-Mimecast-MFC-AGG-ID: 6eMJdjT8OB2chWZreHWpXg_1795748390
 Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 8A321195608C;
-	Fri, 27 Nov 2026 02:59:54 +0000 (UTC)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0DFC7195608B;
+	Fri, 27 Nov 2026 02:59:50 +0000 (UTC)
 Received: from localhost (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 00503180197D;
-	Fri, 27 Nov 2026 02:59:53 +0000 (UTC)
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 54A8C180054C;
+	Fri, 27 Nov 2026 02:59:49 +0000 (UTC)
 From: Bruno Meneguele <bmeneg@redhat.com>
 To: linux-integrity@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -69,9 +69,9 @@ Cc: linux-kernel@vger.kernel.org,
 	dhowells@redhat.com,
 	bauerman@linux.ibm.com,
 	Bruno Meneguele <bmeneg@redhat.com>
-Subject: [RFC PATCH 6/8] ima: add the 'd-modsig-list' template field
-Date: Thu, 26 Nov 2026 23:59:09 -0300
-Message-ID: <20261127025912.1383750-7-bmeneg@redhat.com>
+Subject: [RFC PATCH 4/8] ima: get the modsig content digest of each signer
+Date: Thu, 26 Nov 2026 23:59:07 -0300
+Message-ID: <20261127025912.1383750-5-bmeneg@redhat.com>
 In-Reply-To: <20261127025912.1383750-1-bmeneg@redhat.com>
 References: <20261127025912.1383750-1-bmeneg@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -86,231 +86,214 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 
-The 'd-modsig' field holds a single content digest, so it can't describe an
-appended signature with more than one signer, let alone signers using
-different algorithms. With that, add a 'd-modsig-list' field that records
-an entry per signer as the following length-value table:
+The current code supports only one signer through ima_collect_modsig(),
+which is used for the 'd-modsig' field (from 'ima-modsig' template) and the
+is_binary_blacklisted() check. This single signer digest is taken from the
+PKCS#7/CMS message and kept in the modsig structure. However, in case of
+multiple signatures, PKCS#7 code already keeps the digest of each signer,
+thus we can use pkcs7_get_digest() to collect the digest of any of them
+without storing the data anywhere.
 
-    <u32 count> x (<u32 entry_len><entry>)
-
-with the entries in the order of the signers in the 'modsig' field, so
-entry i describes signer i, and following the already known d-modsig
-format:
-
-    <hash algo>: <digest>
-
-for a signer that signs an usual digest, and:
-
-    <signature algo>: '\0'
-
-for a signer that signs data directly (eg. ML-DSA). The idea of adding an
-empty entry is to keep entries aligned with their signers in 'modsig'
-field, easing verifiers work.
+Stop keeping a copy of content digest in struct modsig and have
+ima_get_modsig_digest() get the digest lazily based on signer's index in
+the DER blob. To keep backwards compatibility, 'd-modsig' and the blacklist
+check still ask the digest of a single signed (index 0) modsig, so the
+behavior doesn't change.
 
 Signed-off-by: Bruno Meneguele <bmeneg@redhat.com>
 ---
- Documentation/security/IMA-templates.rst  |   3 +
- security/integrity/ima/ima_policy.c       |   3 +-
- security/integrity/ima/ima_template.c     |   6 +-
- security/integrity/ima/ima_template_lib.c | 103 ++++++++++++++++++++++
- security/integrity/ima/ima_template_lib.h |   4 +
- 5 files changed, 117 insertions(+), 2 deletions(-)
+ security/integrity/ima/ima.h              | 15 +++++--
+ security/integrity/ima/ima_appraise.c     |  8 ++--
+ security/integrity/ima/ima_modsig.c       | 54 ++++++++++-------------
+ security/integrity/ima/ima_template_lib.c | 10 ++++-
+ 4 files changed, 48 insertions(+), 39 deletions(-)
 
-diff --git a/Documentation/security/IMA-templates.rst b/Documentation/security/IMA-templates.rst
-index 4ec0440b27f1..161aed3da8b7 100644
---- a/Documentation/security/IMA-templates.rst
-+++ b/Documentation/security/IMA-templates.rst
-@@ -72,6 +72,9 @@ descriptors by adding their identifier to the format string
-  - 'd-modsig': the digest of the event without the appended modsig or a signature
-    algorithm name followed by an empty digest (<signing algo>: \0) when direct data
-    algorithms are used, e.g. ML-DSA;
-+ - 'd-modsig-list': a list of 'd-modsig' of each signer when multiple signatures are
-+   present and which may use different algorithms
-+   (field format: <entry count>[pairs of <entry length><d-modsig entry>]);
-  - 'n-ng': the name of the event, without size limitations;
-  - 'sig': the file signature, based on either the file's/fsverity's digest[1],
-    or the EVM portable signature, if 'security.ima' contains a file hash.
-diff --git a/security/integrity/ima/ima_policy.c b/security/integrity/ima/ima_policy.c
-index 2dc1d93aa768..bb68f78fdb0e 100644
---- a/security/integrity/ima/ima_policy.c
-+++ b/security/integrity/ima/ima_policy.c
-@@ -1242,7 +1242,8 @@ static void check_template_modsig(const struct ima_template_desc *template)
- 	for (i = 0; i < template->num_fields; i++) {
- 		if (!strcmp(template->fields[i]->field_id, "modsig"))
- 			has_modsig = true;
--		else if (!strcmp(template->fields[i]->field_id, "d-modsig"))
-+		else if (!strcmp(template->fields[i]->field_id, "d-modsig") ||
-+			 !strcmp(template->fields[i]->field_id, "d-modsig-list"))
- 			has_dmodsig = true;
- 	}
+diff --git a/security/integrity/ima/ima.h b/security/integrity/ima/ima.h
+index b502854f28ee..055a2a696071 100644
+--- a/security/integrity/ima/ima.h
++++ b/security/integrity/ima/ima.h
+@@ -560,8 +560,10 @@ static inline void __init init_ima_appraise_lsm(const struct lsm_id *lsmid)
+ int ima_read_modsig(enum ima_hooks func, const void *buf, loff_t buf_len,
+ 		    struct modsig **modsig);
+ void ima_collect_modsig(struct modsig *modsig, const void *buf, loff_t size);
+-int ima_get_modsig_digest(const struct modsig *modsig, enum hash_algo *algo,
+-			  const u8 **digest, u32 *digest_size);
++unsigned int ima_get_modsig_signer_count(const struct modsig *modsig);
++int ima_get_modsig_digest(const struct modsig *modsig, unsigned int index,
++			  enum hash_algo *algo, const u8 **digest,
++			  u32 *digest_size, const char **sig_algo);
+ int ima_get_raw_modsig(const struct modsig *modsig, const void **data,
+ 		       u32 *data_len);
+ void ima_free_modsig(struct modsig *modsig);
+@@ -577,9 +579,16 @@ static inline void ima_collect_modsig(struct modsig *modsig, const void *buf,
+ {
+ }
  
-diff --git a/security/integrity/ima/ima_template.c b/security/integrity/ima/ima_template.c
-index 16154078fd70..584f970e553e 100644
---- a/security/integrity/ima/ima_template.c
-+++ b/security/integrity/ima/ima_template.c
-@@ -50,6 +50,9 @@ static const struct ima_template_field supported_fields[] = {
- 	 .field_show = ima_show_template_buf},
- 	{.field_id = "d-modsig", .field_init = ima_eventdigest_modsig_init,
- 	 .field_show = ima_show_template_digest_ng},
-+	{.field_id = "d-modsig-list",
-+	 .field_init = ima_eventdigest_modsig_list_init,
-+	 .field_show = ima_show_template_modsig_list},
- 	{.field_id = "modsig", .field_init = ima_eventmodsig_init,
- 	 .field_show = ima_show_template_sig},
- 	{.field_id = "evmsig", .field_init = ima_eventevmsig_init,
-@@ -95,7 +98,8 @@ bool ima_template_has_modsig(const struct ima_template_desc *ima_template)
++static inline unsigned int
++ima_get_modsig_signer_count(const struct modsig *modsig)
++{
++	return 0;
++}
++
+ static inline int ima_get_modsig_digest(const struct modsig *modsig,
++					unsigned int index,
+ 					enum hash_algo *algo, const u8 **digest,
+-					u32 *digest_size)
++					u32 *digest_size, const char **sig_algo)
+ {
+ 	return -EOPNOTSUPP;
+ }
+diff --git a/security/integrity/ima/ima_appraise.c b/security/integrity/ima/ima_appraise.c
+index 134174d2e3f0..8aeec2778984 100644
+--- a/security/integrity/ima/ima_appraise.c
++++ b/security/integrity/ima/ima_appraise.c
+@@ -429,6 +429,7 @@ int ima_check_blacklist(struct ima_iint_cache *iint,
+ 			const struct modsig *modsig, int pcr)
+ {
+ 	enum hash_algo hash_algo;
++	const char *sig_algo;
+ 	const u8 *digest = NULL;
+ 	u32 digestsize = 0;
+ 	int rc = 0;
+@@ -437,9 +438,10 @@ int ima_check_blacklist(struct ima_iint_cache *iint,
+ 		return 0;
  
- 	for (i = 0; i < ima_template->num_fields; i++)
- 		if (!strcmp(ima_template->fields[i]->field_id, "modsig") ||
--		    !strcmp(ima_template->fields[i]->field_id, "d-modsig"))
-+		    !strcmp(ima_template->fields[i]->field_id, "d-modsig") ||
-+		    !strcmp(ima_template->fields[i]->field_id, "d-modsig-list"))
- 			return true;
+ 	if (iint->flags & IMA_MODSIG_ALLOWED && modsig) {
+-		ima_get_modsig_digest(modsig, &hash_algo, &digest, &digestsize);
+-
+-		rc = is_binary_blacklisted(digest, digestsize);
++		if (ima_get_modsig_signer_count(modsig) == 1 &&
++		    !ima_get_modsig_digest(modsig, 0, &hash_algo, &digest,
++					   &digestsize, &sig_algo))
++			rc = is_binary_blacklisted(digest, digestsize);
+ 	} else if (iint->flags & IMA_DIGSIG_REQUIRED && iint->ima_hash)
+ 		rc = is_binary_blacklisted(iint->ima_hash->digest, iint->ima_hash->length);
  
- 	return false;
+diff --git a/security/integrity/ima/ima_modsig.c b/security/integrity/ima/ima_modsig.c
+index 15e499f7dba1..f69102d6b0f0 100644
+--- a/security/integrity/ima/ima_modsig.c
++++ b/security/integrity/ima/ima_modsig.c
+@@ -18,11 +18,8 @@
+ struct modsig {
+ 	struct pkcs7_message *pkcs7_msg;
+ 
+-	enum hash_algo hash_algo;
+-
+-	/* This digest will go in the 'd-modsig' field of the IMA template. */
+-	const u8 *digest;
+-	u32 digest_size;
++	/* The file content was supplied datached. */
++	bool detached;
+ 
+ 	/*
+ 	 * This is what will go to the measurement list if the template requires
+@@ -79,47 +76,31 @@ int ima_read_modsig(enum ima_hooks func, const void *buf, loff_t buf_len,
+ 
+ 	memcpy(hdr->raw_pkcs7, buf + buf_len, sig_len);
+ 
+-	/* We don't know the hash algorithm yet. */
+-	hdr->hash_algo = HASH_ALGO__LAST;
+-
+ 	*modsig = hdr;
+ 
+ 	return 0;
+ }
+ 
+ /**
+- * ima_collect_modsig - Calculate the file hash without the appended signature.
++ * ima_collect_modsig - Supply the file content without the appended signature.
+  * @modsig: parsed module signature
+  * @buf: data to verify the signature on
+  * @size: data size
+  *
+  * Since the modsig is part of the file contents, the hash used in its signature
+  * isn't the same one ordinarily calculated by IMA. Therefore PKCS7 code
+- * calculates a separate one for signature verification.
++ * calculates a separate one for each signer when it's first needed.
+  */
+ void ima_collect_modsig(struct modsig *modsig, const void *buf, loff_t size)
+ {
+-	const char *pkey_algo;
+-	int rc;
+-
+ 	/*
+ 	 * Provide the file contents (minus the appended sig) so that the PKCS7
+ 	 * code can calculate the file hash.
+ 	 */
+ 	size -= modsig->raw_pkcs7_len + strlen(MODULE_SIGNATURE_MARKER) +
+ 		sizeof(struct module_signature);
+-	rc = pkcs7_supply_detached_data(modsig->pkcs7_msg, buf, size);
+-	if (rc)
+-		return;
+-
+-	/* There's room for the digest of a single signer only. */
+-	if (pkcs7_get_signer_count(modsig->pkcs7_msg) != 1)
+-		return;
+-
+-	/* Ask the PKCS7 code to calculate the file hash. */
+-	rc = pkcs7_get_digest(modsig->pkcs7_msg, 0, &modsig->digest,
+-			      &modsig->digest_size, &modsig->hash_algo,
+-			      &pkey_algo);
++	modsig->detached = !pkcs7_supply_detached_data(modsig->pkcs7_msg,
++						       buf, size);
+ }
+ 
+ int ima_modsig_verify(struct key *keyring, const struct modsig *modsig)
+@@ -128,14 +109,25 @@ int ima_modsig_verify(struct key *keyring, const struct modsig *modsig)
+ 					VERIFYING_MODULE_SIGNATURE, NULL, NULL);
+ }
+ 
+-int ima_get_modsig_digest(const struct modsig *modsig, enum hash_algo *algo,
+-			  const u8 **digest, u32 *digest_size)
++unsigned int ima_get_modsig_signer_count(const struct modsig *modsig)
+ {
+-	*algo = modsig->hash_algo;
+-	*digest = modsig->digest;
+-	*digest_size = modsig->digest_size;
++	return pkcs7_get_signer_count(modsig->pkcs7_msg);
++}
+ 
+-	return 0;
++/*
++ * ima_get_modsig_digest - Get the content digest of one signer of the modsig.
++ *
++ * See pkcs7_get_digest() for the results.
++ */
++int ima_get_modsig_digest(const struct modsig *modsig, unsigned int index,
++			  enum hash_algo *algo, const u8 **digest,
++			  u32 *digest_size, const char **sig_algo)
++{
++	if (!modsig->detached)
++		return -EBADMSG;
++
++	return pkcs7_get_digest(modsig->pkcs7_msg, index, digest, digest_size,
++				algo, sig_algo);
+ }
+ 
+ int ima_get_raw_modsig(const struct modsig *modsig, const void **data,
 diff --git a/security/integrity/ima/ima_template_lib.c b/security/integrity/ima/ima_template_lib.c
-index a2aeaae83065..eeb636155798 100644
+index 9bd80ca1159a..0609a8f7a127 100644
 --- a/security/integrity/ima/ima_template_lib.c
 +++ b/security/integrity/ima/ima_template_lib.c
-@@ -200,6 +200,40 @@ void ima_show_template_digest_ngv2(struct seq_file *m, enum ima_show_type show,
- 				     field_data);
- }
+@@ -471,10 +471,16 @@ int ima_eventdigest_modsig_init(struct ima_event_data *event_data,
+ 		cur_digest = NULL;
+ 		cur_digestsize = 0;
+ 	} else {
++		const char *sig_algo;
+ 		int rc;
  
-+void ima_show_template_modsig_list(struct seq_file *m, enum ima_show_type show,
-+				   struct ima_field_data *field_data)
-+{
-+	struct ima_field_data entry;
-+	u32 count, i;
-+	int parsed;
-+	void *p = field_data->data;
-+	void *end = p + field_data->len;
+-		rc = ima_get_modsig_digest(event_data->modsig, &hash_algo,
+-					   &cur_digest, &cur_digestsize);
++		/* 'd-modsig' supports the digest of a single signer only. */
++		if (ima_get_modsig_signer_count(event_data->modsig) != 1)
++			return -EINVAL;
 +
-+	if (show != IMA_SHOW_ASCII || field_data->len < sizeof(count)) {
-+		ima_show_template_field_data(m, show, DATA_FMT_HEX, field_data);
-+		return;
-+	}
-+
-+	memcpy(&count, p, sizeof(count));
-+	if (ima_canonical_fmt)
-+		count = le32_to_cpu((__force __le32)count);
-+	p += sizeof(count);
-+
-+	for (i = 0; i < count; i++) {
-+		ima_parse_buf(p, end, &p, 1, &entry, &parsed, NULL, 0,
-+			      "d-modsig-list");
-+		if (parsed != 1)
-+			break;
-+
-+		if (i)
-+			seq_putc(m, ',');
-+		if (entry.len)
-+			ima_show_template_data_ascii(m, show,
-+						     DATA_FMT_DIGEST_WITH_ALGO,
-+						     &entry);
-+	}
-+}
-+
- void ima_show_template_string(struct seq_file *m, enum ima_show_type show,
- 			      struct ima_field_data *field_data)
- {
-@@ -524,6 +558,75 @@ int ima_eventdigest_modsig_init(struct ima_event_data *event_data,
- 					     field_data);
- }
- 
-+/*
-+ *  ima_eventdigest_modsig_list_init - add the content digest of each modsig
-+ *  signer to the template data.
-+ *
-+ *  Unlike 'd-modsig', this field describes an appended signature with any
-+ *  number of signers, which may use different algorithms. It is a table as
-+ *  follows:
-+ *
-+ *      <u32 count> x (<u32 entry_len><entry>)
-+ *
-+ *  with one entry per signer, in the order of the 'modsig' field, so entry i
-+ *  describes signer i, and with the pair <entry_len><entry> repeating <count>
-+ *  times.
-+ *
-+ *  An entry has the 'd-modsig' format, see ima_modsig_digest_entry().
-+ */
-+int ima_eventdigest_modsig_list_init(struct ima_event_data *event_data,
-+				     struct ima_field_data *field_data)
-+{
-+	unsigned int count, i, err_count = 0;
-+	int len, rc;
-+	size_t buf_len;
-+	u8 *buf, *p;
-+	u32 val;
-+
-+	if (!event_data->modsig)
-+		return 0;
-+
-+	count = ima_get_modsig_signer_count(event_data->modsig);
-+	if (!count)
-+		return 0;
-+
-+	buf_len = size_add(sizeof(u32),
-+			   size_mul(count, sizeof(u32) +
-+				    IMA_MAX_DIGEST_ENTRY_SIZE - DIGEST_TYPE_NAME_LEN_MAX));
-+	buf = kmalloc(buf_len, GFP_KERNEL);
-+	if (!buf)
-+		return -ENOMEM;
-+
-+	p = buf;
-+	val = ima_canonical_fmt ? (__force u32)cpu_to_le32(count) : count;
-+	memcpy(p, &val, sizeof(val));
-+	p += sizeof(u32);
-+
-+	for (i = 0; i < count; i++) {
-+		len = ima_modsig_digest_entry(event_data->modsig, i,
-+					      p + sizeof(u32));
-+		if (len < 0) {
-+			/* Keep walking signers' list, even on failure, to
-+			 * maintain allignament with modsig.
-+			 */
-+			rc = len;
-+			len = 0;
-+			err_count++;
-+		}
-+
-+		val = ima_canonical_fmt ? (__force u32)cpu_to_le32(len) : len;
-+		memcpy(p, &val, sizeof(val));
-+		p += sizeof(u32) + len;
-+	}
-+
-+	/* Like 'd-modsig', don't measure if the list has only bad digests */
-+	if (err_count < count)
-+		rc = ima_write_template_field_data(buf, p - buf, DATA_FMT_HEX,
-+						   field_data);
-+	kfree(buf);
-+	return rc;
-+}
-+
- static int ima_eventname_init_common(struct ima_event_data *event_data,
- 				     struct ima_field_data *field_data,
- 				     bool size_limit)
-diff --git a/security/integrity/ima/ima_template_lib.h b/security/integrity/ima/ima_template_lib.h
-index 9f7c335f304f..cf3d453d4c37 100644
---- a/security/integrity/ima/ima_template_lib.h
-+++ b/security/integrity/ima/ima_template_lib.h
-@@ -23,6 +23,8 @@ void ima_show_template_digest_ng(struct seq_file *m, enum ima_show_type show,
- 				 struct ima_field_data *field_data);
- void ima_show_template_digest_ngv2(struct seq_file *m, enum ima_show_type show,
- 				   struct ima_field_data *field_data);
-+void ima_show_template_modsig_list(struct seq_file *m, enum ima_show_type show,
-+				   struct ima_field_data *field_data);
- void ima_show_template_string(struct seq_file *m, enum ima_show_type show,
- 			      struct ima_field_data *field_data);
- void ima_show_template_sig(struct seq_file *m, enum ima_show_type show,
-@@ -44,6 +46,8 @@ int ima_eventdigest_ngv2_init(struct ima_event_data *event_data,
- 			      struct ima_field_data *field_data);
- int ima_eventdigest_modsig_init(struct ima_event_data *event_data,
- 				struct ima_field_data *field_data);
-+int ima_eventdigest_modsig_list_init(struct ima_event_data *event_data,
-+				     struct ima_field_data *field_data);
- int ima_eventname_ng_init(struct ima_event_data *event_data,
- 			  struct ima_field_data *field_data);
- int ima_eventsig_init(struct ima_event_data *event_data,
++		rc = ima_get_modsig_digest(event_data->modsig, 0, &hash_algo,
++					   &cur_digest, &cur_digestsize,
++					   &sig_algo);
+ 		if (rc)
+ 			return rc;
+ 		else if (hash_algo == HASH_ALGO__LAST || cur_digestsize == 0)
 -- 
 2.55.0
 
