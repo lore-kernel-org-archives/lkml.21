@@ -1,112 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795783308;
-	b=IUMJkvK00Urt0/dBsEooX2NQwNafk/LdzaG/rRpx1/LD786XWrmzjovRgy0nVjayDQq9
-	 iApWIVrp6gT/h52NhuZkEvghbGSeQBf8RVn0HOQJSnN6LCa6tT/P6aLf5W46WhFhsWFwk
-	 eYx8aJGybimM2MCLgwyt88Ii6Ucz1mAAxaBoeumJZ7o5e+HJNw4au+z3vjNLI6Z6dIg9x
-	 z2FC39j9AX8+RBoA7Y8bqI/sNlUE8KGM4lSFFtAMDAe7hiJNYy1TjkGaleIdw0UfUQ2sW
-	 TywYfF9CFQ1P3kGWXfJdT2fu8e0CXwZR6JYP/6m6jwVDEfnt1axSwfAYMGZk1/VvtnA==
+	t=1795783331;
+	b=ZngVfS8NWZvzuw5lksOOzXLN1k408iqrUnrOINPhevuAfJFTiR2408D85AtQtB62FZeq
+	 G6zKWBiDFU1R5aO6XHeNTekVvX3KaJ5ESMc/GBPusqDFKfHOnTfvL/CpVeUkYOBoYb0Jg
+	 pPpS4MFr2ugPlwTiNiw8Isb9k9XyE72U6bvD26GNo7zEOv56N0IX49ZxLYuhAyLN+7YLe
+	 cxdBTiZSSsVFQ/bxF5zSwdM5bZ6llwUraOAqPObnemfvHBgWqMrJqez18pz/1IelMGBzt
+	 XT2oNTQHJzIfSpR0Ys57yS0ul+lDp2nkkSTYWNaIbQtziLVd9oLUKSR5VyxV/I+0YLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795783308;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=G7WfnYAAz9L7iq6xcuOnJKP+ixkbp4G3odLAKqkVuMg=;
-	b=mEiu5wKQTmZrRpxRzSQMuMUvBTC5y66PYlxDG2rHtjX6jRVjdtRzJEB0w8fOysbtnQGF
-	 Rsz71sU7v4Q3TES7XxQAh+YFF1RJ0KP1U5wFRFoyULQE3Ux4rPWdkTp48KW39zXTk9ze4
-	 hSl7dNKsF5A4XDI5vvAmzFe/QkuE7K8YSORjtYcrJ4N0YuknxIlGl7RmBt9GqczGQ4nkk
-	 oDMNhREdXoI3t9Xh21ZMkMeVy27JDUdX9NInlwBQ0fJ3y3gCqmGDZQ+MJgMSw6XVEUVaH
-	 MFAC+7Ko38Wy9IC1mWSXmgrm6y4nlSqIeJ1kPKettJ0Vzy+Rs9McRRK6OZ+0b5Rc8Jg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795783331;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=VtKiZFj6Ka7y5JG1hKNNq0d21tsqo0FM1O+R6HYWx5Q=;
+	b=Rhc2GzLDbt+1GWMVqNhG5e6ns8dVFxHKF0/H5TIrySzZ/5C8j9VQ7W3JqPK6b2P+NCBG
+	 wZWmnSFvJeN2UDv9HE9l4/++XZS4M2QGnOx+k6DgjefsW/OXr5C2esQb5LArEA53bawNP
+	 IJezjGnn74YchDDyKAwYe87UcLkhvytJWhdjcRsWSbQWpFMm5OJdySOqrG1ayMXXoe/96
+	 tZUU7F974StReilYwr/LjppvJp8qlxfRdAMUmMiUQj7vAQ8SXA39Jr2YVcUg44bSgiHyX
+	 XXSuuomsx5d5jna9VRZeVYMKwQdEhyvaJ4FnLb0RT6tlsfoUsIzRReGeZP84IsRVXSA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ksYuS3+N;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jEjY+FC8;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="Ucp/CYJo";
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=E4eROegs;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0050606A327
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:41:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0050606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0763606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:42:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0763606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ksYuS3+N;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jEjY+FC8
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARAsHH53609882
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:41:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	G7WfnYAAz9L7iq6xcuOnJKP+ixkbp4G3odLAKqkVuMg=; b=ksYuS3+NdQcAkupq
-	UqtxonlxKl8nzWLPnjJ2cnDy4QMEFs8ukuo/xtyLmhlxavYzxHwouTzgqhYBoMbE
-	2FA5UbMyhVHF5c3ODFPVYbg9DjA9YSOu5EszWDVtsLgLG//r1U/pSoNXMRgZtA68
-	ePQQjJsazCF4H78cHmZmgZXN5kEbalgR4Q+rqk8JgnK5Wg7nRJAauY1hDBqouPYA
-	jrWUDUIIiP9xyUTXioJvgDZga74UZUqQzVAjVdS2/KZ9qzKXIXJHo162KVnU/xX+
-	c8g80b8Zvlp70HFSnj+8i8A9z5BKRrOev4mB8d/T1F6sBjKs22r5tNsBrlTg3Afa
-	Zgo9/w==
-Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j73dh9nh4-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:41:45 +0000 (GMT)
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-386b8624cf7so7019781eec.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:41:45 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Ucp/CYJo;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=E4eROegs
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795783329;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VtKiZFj6Ka7y5JG1hKNNq0d21tsqo0FM1O+R6HYWx5Q=;
+	b=Ucp/CYJoG914xB7QGs+JeCmoNpHaTEEFVO/ApntzTbYgKQdFcmJi4k/dOikNajXgljyf7v
+	buyeXeokZpKdFUtYUum3hKEmRcxWn3SMYg7l8uxkLQkWoMEhzzcrvjARH3ElleRtwB32nM
+	5h9DH41MK1yCg+GoRMRalL7HMPu/5eM=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-551-hVMp24LrOSia7ZWt517w_A-1; Fri, 27 Nov 2026 12:42:08 +0000
+X-MC-Unique: hVMp24LrOSia7ZWt517w_A-1
+X-Mimecast-MFC-AGG-ID: hVMp24LrOSia7ZWt517w_A_1795783327
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-4bcda4c853aso1024070f8f.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:42:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795783305; x=1796388105; darn=vger.kernel.org;
+        d=redhat.com; s=google; t=1795783327; x=1796388127; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=G7WfnYAAz9L7iq6xcuOnJKP+ixkbp4G3odLAKqkVuMg=;
-        b=jEjY+FC8/F6SyJENSeH/5Ipor9xyWqnnr0kYQ0vAXgWx6l39ZWH45sesJV9MrMRRRq
-         F4ZbARA7aUR+WmMqkpreph7pteI3BAyzoLIL6qIvSApjUESpkAWSO6kwuIqAZXzfrFvK
-         Um0Bf67ehWLPUavx8SKe8KnzjBP3E6ifMurS9Mj1DDcRiWGtsufEEI2r/p6FBCaDOacK
-         1Rl+uhpiTsR1WGDmIT9VGpmS8OJf/OEsoRvj6pO5E4qS8KJqlxkep7+fB0YdmaYpmZSO
-         LemZ+n+ryUjf80EDvuqcYBrycC5igh+nZx6t+2X+ivcZ5v8w4GFDXWeDQFz8Phl+Y22H
-         rXnw==
+        bh=VtKiZFj6Ka7y5JG1hKNNq0d21tsqo0FM1O+R6HYWx5Q=;
+        b=E4eROegs6ZGwoV+d1p1kY2CbCj6zVEsViXMdACLbAQ995JTeoSmloMb2t5nLznG+5k
+         KARJFzv82PkZLVgn23CnRLly8B2qPu1qrDuMnmltfiEPOf6J+hj+EZSTdGEJWlqFEeIp
+         jtk1VmRnohsFacKH4FFd6REh84kcnjBCTWLpBi2+0Hk/OyC78npJqZjzDeeIzyrk1PTM
+         OJGkamaurryINYX2QI0w5tjorPj3dnPrzehzEt5wzcFphtiSFfzsp4YRknobprgcflw7
+         Nz+XlULpzOGK0jOA/jNqJRMvjWIlnMa/UlY9kXGjX0OsEScEdQ9TnRqij9904vpD6E9H
+         zlZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795783305; x=1796388105;
+        d=1e100.net; s=20260707; t=1795783327; x=1796388127;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=G7WfnYAAz9L7iq6xcuOnJKP+ixkbp4G3odLAKqkVuMg=;
-        b=AGJ93+dA0E4lYh+t7Xkwu+kvVVagnMxtOsNUt41kPOhT8Ns2o4MOcGO/CUam/JF+TQ
-         3yY9dn00OxSKIgESdwCQUcrmex2w1dk6NmD4uydd5cvJ7tAKQHOHZSTcitjNIrAgDMkx
-         kSuEi0rxNdQU83CUUGKoV8b4aOhgrbqJWskmK4OFuTZCMgp+zJs+Czv16hDCLJ/iyNNg
-         a3BR1gYzFmhc9LpysVQCtZI1ah4tUxKMto2YSZHJS2471Lgjg8o+2WIRH5G71PVM/JD9
-         tVtUuyRUU9lfon3rGxuynFMV5j5wMPHWyTZeZlThWuRka9ZndR1Sik3CS+frdb0tk/TH
-         WWxg==
-X-Forwarded-Encrypted: i=1; AL+hErEZyMhHY3heRQfT+YtLQkVFjh2A8jjcZmA302yKhvnrOuxBp42O56MZ1CvU5MRwwVVx6k4v/ErWwWyE3DI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9vZ7aP7i7TZtPp1N5e75ybmQW+s9H6hs/MT51/ic9gWYWDBuOs
-	ohQnCioUctrA2TeX++muYhPiplVGfOpoN7ZdvK50l37qyRwG8icn6GTwqkCPs1IVJAmC94aqROy
-	OL7rs+it71aDIu5fSi9bsX1ILv2VbrghQtz75c44oU+pAxDBlhrU5JX0s2+BFTE71j/E=
-X-Gm-Gg: AZFdTZeFTsqMyZhB4R+sp2LaJbER8rfxoRe58HNXdJfT7+fj91sVFl3ggWqsd2LYgrl
-	+U3349sPtb94a/QGopD+Hq2q00n/qXtH2pnaqIy7P7054DfCbfy0WuA1yloONHVKAbEbbmriILq
-	uhvaJorGlxRlohW8zbbUloeWa2PX4QAXh7EybsPcpgtG9PA8JxaWNljBlOR0gDmhINQXBMJgHzP
-	MlZxFywsSVspq/8xYlPUH9djipfHZg865Uv4PeZejdxvLTMR6nci5Rj3yEaedkggtNZJgeX5bel
-	X1g1Mu+avzVUqJKSF8ucWdIOaLBO9Wv6hkMQiqyJyAfzUTJHwHrM6Uu4R3rzSib/keHL3D6JjCD
-	hpu7kzTPq5Ypk+zcVkDIgz3JRDr70ndcDBzbYCfYqjWrwPUidTT41x5OXUY+RwyhBgv+RFtfcz0
-	KxZk8EfA==
-X-Received: by 2002:a05:693c:65c3:b0:386:e9bb:d9d3 with SMTP id 5a478bee46e88-386e9bbda7dmr2871195eec.28.1795783304844;
-        Fri, 27 Nov 2026 04:41:44 -0800 (PST)
-X-Received: by 2002:a05:693c:65c3:b0:386:e9bb:d9d3 with SMTP id 5a478bee46e88-386e9bbda7dmr2871178eec.28.1795783304400;
-        Fri, 27 Nov 2026 04:41:44 -0800 (PST)
-Received: from [10.206.111.23] ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm74177848eec.28.2026.11.27.04.41.37
+        bh=VtKiZFj6Ka7y5JG1hKNNq0d21tsqo0FM1O+R6HYWx5Q=;
+        b=TyraprV3zhXPoy9AvPrDlOOG5oUgf4F7lhITlm/h8hPxR35B6jRBKIEg3FX6Lr9ucI
+         ivGa0BgFUnzI5UrMPoUvBjIKVyPmpcVTenIJ+zjAmUNuQF5phyQBePNwoi8++7DptHcZ
+         mQ6R77YiczHL3htqP3BNeEmmqAPrl2fppQBSSYdfkxpIP8UGSND5JKIyo8afQGOKfocL
+         Mig0a2h/eNQWuMj5rAdZtSW1eW9LIdO1rGmmfTG8GPPCGPJK3L4SAuvVhmJaHjWMA1As
+         58Xs5MC7PDfiy5SpPfgQIy6gCHtdt3qQnscHggoWB13mfz4Q2yLh+eYp3XfZ2lezNmaK
+         HhkA==
+X-Forwarded-Encrypted: i=1; AL+hErFMnFNe1S+vVlTt7R56yDIachvfo/9+GcgtzEJYm1X0Ux+4ljijCyRRDYB86AUnFGunPhZcqupUz21sgG4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Q9FnP0mwnXX3dV9H6QLYFOeoLSttItJF1HDIWBzpSomBuEFv8
+	+d/rBmLXwGvUtQKM5hlm9LLQDVW8enNP9+GGUwWgkm5ojT5awFW4vszuX4bJVmlD6Ffb5q1WRrh
+	Y5B1WWcSJZEuilNp3+zfhH2tI7NAssGg5LFBrQY+8ZLePG5CDxcouCz6D8lzJrTruVw==
+X-Gm-Gg: AZFdTZegyCPvgIzR70Pa40VsBmthUck3hCzyktRZMQtU8+npc98a1KObpotymc1JBGu
+	AttAVaORobMmzzFhQmnEa+hy1xcZiRE79lh4v+YuAZNvL6G1thuNn95fLnkzG9MHlpJTzNFLySl
+	Rh3DJZeElH6IEpGo9hM3wy83Xul7bcp5DkGrmZQSks8umtWnSzLQYUVC7eNSJaNkusInPqlJUwy
+	Wm/jC+aHjDnJXnZ0LrxvgkrhIofOlXUJXHG7ft9BJnP8n8EghX2YVofSBjqEgPEsVVZd6oUhtIv
+	cT2Cl4fbxPqxZjHLjP3CffDhEXy8jXPM4Di39x/VLFoMYCpBvDB2I/j8sBFC5Vi70Kg/zqQduwG
+	FRJPKETwnE5e7PDCOl5xpoNw7IZa8LnVmlt0bTWFMWrhFkaxGrkifUPQenLVw/ZVGgm6XrR0KtW
+	n2pPIe8M3IyRP5vgG7Ee1G
+X-Received: by 2002:a05:600c:4e02:b0:4bb:8636:dd7d with SMTP id 5b1f17b1804b1-4bb88817f77mr489726735e9.24.1795783326729;
+        Fri, 27 Nov 2026 04:42:06 -0800 (PST)
+X-Received: by 2002:a05:600c:4e02:b0:4bb:8636:dd7d with SMTP id 5b1f17b1804b1-4bb88817f77mr489726405e9.24.1795783326379;
+        Fri, 27 Nov 2026 04:42:06 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:11aa:87f0:ea69:b2b0:2dae:5ef9? ([2a01:e0a:11aa:87f0:ea69:b2b0:2dae:5ef9])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8533579csm593732225e9.2.2026.11.27.04.42.05
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 04:41:43 -0800 (PST)
-Message-ID: <1ea0310d-b25a-4e34-930e-7998eec03605@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 18:11:35 +0530
+        Fri, 27 Nov 2026 04:42:06 -0800 (PST)
+Message-ID: <4ccdd654-f8af-4e51-a8ac-ae7f68f0db07@redhat.com>
+Date: Fri, 27 Nov 2026 13:42:04 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,72 +113,118 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] media: iris: use dma_iova_size() to check the
- reserved IOVA size
-To: Marek Szyprowski <m.szyprowski@samsung.com>, iommu@lists.linux.dev,
-        linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        kvm@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-        Will Deacon <will@kernel.org>, Leon Romanovsky <leon@kernel.org>,
-        Jason Gunthorpe <jgg@nvidia.com>,
-        Sibi Sankar
- <sibi.sankar@oss.qualcomm.com>,
-        Honglei Huang <honghuan@amd.com>, prakash.gupta@oss.qualcomm.com,
-        Alex Williamson <alex@shazbot.org>,
-        Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Bryan O'Donoghue <bod@kernel.org>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Hans Verkuil <hverkuil+cisco@kernel.org>, stable@vger.kernel.org
-References: <20261127115849.2780625-1-m.szyprowski@samsung.com>
- <CGME20261127115900eucas1p268ca3a6688c2fd99513317dfc99dbf59@eucas1p2.samsung.com>
- <20261127115849.2780625-3-m.szyprowski@samsung.com>
-Content-Language: en-US
-From: Vikash Garodia <vikash.garodia@oss.qualcomm.com>
-In-Reply-To: <20261127115849.2780625-3-m.szyprowski@samsung.com>
+Subject: Re: [PATCH 2/3] drm/panic: Apply the QR mask while drawing data
+ modules
+To: peder.bergan@gmail.com, Javier Martinez Canillas <javierm@redhat.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ dri-devel@lists.freedesktop.org, rust-for-linux@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261126-perf-drm-panic-qr-v1-0-51856937dc4d@gmail.com>
+ <20261126-perf-drm-panic-qr-v1-2-51856937dc4d@gmail.com>
+Content-Language: en-US, fr
+From: Jocelyn Falempe <jfalempe@redhat.com>
+In-Reply-To: <20261126-perf-drm-panic-qr-v1-2-51856937dc4d@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1MCBTYWx0ZWRfX02nMYIpy/FXJ
- iP1BhgKWNSZB9GOINH7I+Sccx0t1oJzKdn84rF8PqJwxu8qEZqmzWn40fnYQKGh5vQw6k7VJuWE
- Ma3pUvnst4AhJA0tRjU4jMMLmd+XsI8xY5dbnwMQ8ixT5omi3ro5M2g6DKuyr2CjfkEkO1I5PsU
- 7y9HUMjw/D1ZZmNcWLcdfrvWnGY8/BzG5YsejmyhU+cBhB7KCtjX5Po6rsBuMa6ji+YgYVF1CZw
- UGTEzJSGdtWW43zn4/zrPZftGbztKA2v3vQM6rE/EuJX8MA0OK8B6Z5qW2t9yrHK4XNvw/jLmAY
- CvdKDwScMN89flaVXu9evBs9nCFBAYnsk1Tsf1SoPRHkRDyMROSitTjAVcZocRnZMgL9Se3qcPR
- x/ssQbCPflgW2iz4Y5faka4nMGFpUcTOtiotFQcJr2xNOLhysaqlAq/5bamHFjQT5vsQmC5PTt4
- nLTiwlP//SzKFXvZf6A==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1MCBTYWx0ZWRfX8dQyOe9L8IJ2
- eDAeyf94Bo8tDwB2RyIkAKzocj4tX7s6NfkUudVviz/9/0p12T8K3zrCIu3dBGb2Dmae2zuxZ1d
- kYhZIBl+V9fXUXUZDv/seS8r0xOOKQU=
-X-Authority-Analysis: v=2.4 cv=FfiiV5+6 c=1 sm=1 tr=0 ts=6b097a89 cx=c_pps
- a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
- a=VwQbUJbxAAAA:8 a=hD80L64hAAAA:8 a=EUspDBNiAAAA:8 a=umoC_DmSGuEwgYlhGCYA:9
- a=QEXdDO2ut3YA:10 a=ZXulRonScM0A:10 a=bBxd6f-gb0O0v-kibOvt:22
-X-Proofpoint-GUID: Z1XD5fnoOMMgppI1AZ1ATaXvIHEDanqr
-X-Proofpoint-ORIG-GUID: Z1XD5fnoOMMgppI1AZ1ATaXvIHEDanqr
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-26_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 priorityscore=1501 suspectscore=0 lowpriorityscore=0
- clxscore=1015 spamscore=0 impostorscore=0 adultscore=0 bulkscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611270050
 
-
-On 11/27/2026 5:28 PM, Marek Szyprowski wrote:
-> The IOVA reservation code compares dma_iova_state::__size directly with
-> the requested chunk size. __size is internal to the DMA IOVA API and may
-> carry flags in its upper bits, so use the dma_iova_size() accessor
-> instead.
+On 11/26/26 17:53, Peder Bergan via B4 Relay wrote:
+> From: Peder Bergan <peder.bergan@gmail.com>
 > 
-> Fixes: 200473c198b2 ("media: iris: Fix iova allocation from restrict region")
-> Cc:stable@vger.kernel.org # v7.4+
-> Signed-off-by: Marek Szyprowski<m.szyprowski@samsung.com>
-> ---
->   drivers/media/platform/qcom/iris/iris_probe.c | 3 ++-
->   1 file changed, 2 insertions(+), 1 deletion(-)
+> After placing data and remainder modules, apply_mask() scans the whole
+> image to invert the unreserved modules covered by checkerboard mask 0.
+> Data placement already visits every unreserved module once.
+> 
+> Apply mask 0 while drawing each data module and each zero-valued
+> remainder module. This removes the separate image pass and its buffer
+> read-modify-write operations. The format information still advertises
+> mask 0.
+> 
+Thanks for your contribution.
+This code is executed only once when a panic occurs, so optimizations 
+are clearly not a priority.
+But this series looks good, and keeps the code simple.
 
-Reviewed-by: Vikash Garodia <vikash.garodia@oss.qualcomm.com>
+Reviewed-by: Jocelyn Falempe <jfalempe@redhat.com>
+
+> Signed-off-by: Peder Bergan <peder.bergan@gmail.com>
+> ---
+>   drivers/gpu/drm/drm_panic_helper_qr.rs | 35 +++++++++++-----------------------
+>   1 file changed, 11 insertions(+), 24 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/drm_panic_helper_qr.rs b/drivers/gpu/drm/drm_panic_helper_qr.rs
+> index c6ed395c05bd2..1d96ae855052a 100644
+> --- a/drivers/gpu/drm/drm_panic_helper_qr.rs
+> +++ b/drivers/gpu/drm/drm_panic_helper_qr.rs
+> @@ -691,12 +691,6 @@ fn set(&mut self, x: u8, y: u8) {
+>           self.data[off] = v;
+>       }
+>   
+> -    /// Invert a module color.
+> -    fn xor(&mut self, x: u8, y: u8) {
+> -        let off = y as usize * self.stride as usize + x as usize / 8;
+> -        self.data[off] ^= 0x80 >> (x % 8);
+> -    }
+> -
+>       /// Draw a light square at (x, y) top left corner.
+>       fn draw_square(&mut self, x: u8, y: u8, size: u8) {
+>           for k in 0..size {
+> @@ -864,37 +858,31 @@ fn next_available(&self, x: u8, y: u8) -> (u8, u8) {
+>           (x, y)
+>       }
+>   
+> +    /// Draw an unreserved module with checkerboard mask 0.
+> +    fn draw_data_module(&mut self, x: u8, y: u8, bit: bool) {
+> +        let invert = (x ^ y) % 2 == 0;
+> +        if !(bit ^ invert) {
+> +            self.set(x, y);
+> +        }
+> +    }
+> +
+>       fn draw_data(&mut self, data: impl Iterator<Item = u8>) {
+>           let (mut x, mut y) = (self.width - 1, self.width - 1);
+>           for byte in data {
+>               for s in 0..8 {
+> -                if byte & (0x80 >> s) == 0 {
+> -                    self.set(x, y);
+> -                }
+> +                self.draw_data_module(x, y, byte & (0x80 >> s) != 0);
+>                   (x, y) = self.next_available(x, y);
+>               }
+>           }
+> -        // Set the remaining modules (0, 3 or 7 depending on version).
+> -        // because 0 correspond to a light module.
+> +        // The remaining modules encode zero before masking.
+>           while !self.is_last(x, y) {
+>               if !self.is_reserved(x, y) {
+> -                self.set(x, y);
+> +                self.draw_data_module(x, y, false);
+>               }
+>               (x, y) = self.next(x, y);
+>           }
+>       }
+>   
+> -    /// Apply checkerboard mask to all non-reserved modules.
+> -    fn apply_mask(&mut self) {
+> -        for x in 0..self.width {
+> -            for y in 0..self.width {
+> -                if (x ^ y) % 2 == 0 && !self.is_reserved(x, y) {
+> -                    self.xor(x, y);
+> -                }
+> -            }
+> -        }
+> -    }
+> -
+>       /// Draw the QR code with the provided data iterator.
+>       fn draw_all(&mut self, data: impl Iterator<Item = u8>) {
+>           // First clear the table, as it may have already some data.
+> @@ -905,7 +893,6 @@ fn draw_all(&mut self, data: impl Iterator<Item = u8>) {
+>           self.draw_version_info();
+>           self.draw_data(data);
+>           self.draw_maskinfo();
+> -        self.apply_mask();
+>       }
+>   }
+>   
+> 
+
