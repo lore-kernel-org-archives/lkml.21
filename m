@@ -1,51 +1,51 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795790179;
-	b=r5klQzYLOit53EFkIAwHeZGM58MnGmtWStkhrXqs31P9RmXIhd049WJJQ54ayHUmhYiJ
-	 WGSnb2K4pX/H26/1cdcs9mbY59xnrXcQMBWwXAlYUTTMBET8wJPEOkgRaUzbVX6FH54AS
-	 sbtT/YER0bJY7BvESw831tpBWkGb2OBVMV46ZrvTgiFunSajIUy4Djhq0ZPo7NKNnChZs
-	 /9egy55xjze4NP5Ms3Kbb88SKlnCDz8SLKbP46aH9LmH/iC4GB5YLkTlI5d9CYHVMv5H8
-	 hf0U7dniaiK29dSBE350J1VpSJpVQmhrQYpyx81W4l/KnHIPN3WjJRIu46A36QlQL6w==
+	t=1795790180;
+	b=IQXRLQHt8hHazJZTB6f9yLeRn8n43Pc7zjQ4natDWsAnCZOHI4ARfCjxEMxEQj8WdKVV
+	 wgR/QCVu5RLonh2tyYAajt7BIkX5NS/QofV88T8UqIMBqvlbFkL176Md8qHX6KcgKXORJ
+	 TZxWIyUXN8rjXD04n0ruoGA4km/JMBZQl1PpO+5j0NL/112GAZqheYNu13WpbZeUcxh1L
+	 DMh1OK10HaG78Rg+0z57oG406jd/mXeZIpNHPXgelm4TBcPssDcgUeARW2sE3dKlXX4hp
+	 rPSSrBI8XolLZ0Ig9Q/GvaSMz4/nFee2TBs9HPv/6iidDvwtbcN0ptcw6gB0gOtZA9w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795790179;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795790180;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=aS0DvzBzgJqAo5jV2WE5g5pT36OWQ4iGj2FYA7gJd9U=;
-	b=YdjadfO1LgUTNxB6XdLvk/973OICDRy+yxpnVaNmMV1PAXrNvUV/LsubnX/RFwjeC5Y6
-	 401jZpIVZdXcVbUsbY9rkjDsz6OBOasyGSdliEsi1vDz44Fx5gyznEbDNfMr+vl1HCs5z
-	 DByDv+R7B7XuQGMUTqwLHp1d94tlPf02GliFzcu9Qs503Qir0LBEXeaZG/zEuA4j6260/
-	 XUDCAp+cKX3kCwxNvMmjDLetplxfmMjIDaup8MsSobKX5N2AAgS6GNK3hBkrm1EVwF6o2
-	 UjAUNNxhWt0LO8Vr1j5YNAXywcICyJY0k8wA2y1A+rfMFOk2/vCc9EVg8BMu1a2aA3g==
+	bh=xlit8UDlMgjmL1LAqwBre9uYWNjfJ8TZHFuYyxZD4Po=;
+	b=jYQVaxqYXOFffSKsG6JQp+M1Soe+vA00j3zh2h1xBj76hq8bw32sCsfW2o3LRx+5+xBc
+	 YKDcxzj/IE4sJVSIhgmP1NNGQ/H6OTqcGjKCpxFIRjW9Doo2Gv/ZK980jjd5Heat1wajt
+	 GNir/SesnGNmXeFXdavH6ZZjdb9CAvtS4vgvlr8EYP9UFcGVrhNkx8Es7AKcYUyf983/L
+	 YxalUsR9r3Rq/Nz6+kvHCZKoMBsX8Z4MYaaRBipgA1IyrwLhlY390bi1TTCblbSDi0h0m
+	 k0aeX1Wk1RSS/X56uZB8gJoY7svVIqIGo4xMGxExzOaYMa7gIZoCCaumOVoRK5hL+Jw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=efficios.com;
 	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=RdhxgKz7;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=FnZvydeN;
 	arc=none smtp.remote-ip=158.69.130.18
 Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E9D060A3834;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97EB360A5BD4;
 	Fri, 27 Nov 2026 14:36:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E9D060A3834
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97EB360A5BD4
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=RdhxgKz7
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=FnZvydeN
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795790176;
-	bh=aS0DvzBzgJqAo5jV2WE5g5pT36OWQ4iGj2FYA7gJd9U=;
+	s=smtpout1; t=1795790177;
+	bh=xlit8UDlMgjmL1LAqwBre9uYWNjfJ8TZHFuYyxZD4Po=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=RdhxgKz735W4EFzyAyZnHNswUpSHlEZwdWR1f96N1jLNFP2dwtgR1OW8ptgPvz39I
-	 eRj8K9t9mZ8mbzciqawLLrwXnv3TFS8zTN6NkojQzzXFgWSpTOqdjgHIklb61Jom+r
-	 Se5DF3JvY41vd6uAw+SkjCvc7JgsJ+qIGZKdit3SvKdIUFGGfYwvrGLxg8xg3CFNRR
-	 PRxq8RcR6mwmVaqPxkFQutV++gAM5n/j0Ms/PUUyZNAeSHQIDi7GagKxfHUSoh5Xtf
-	 hqH9wB3ifKo6s9EZCnfaVJ8vFAGN8AEi+//ch3zK9I8vcU8hHq7dvQVyGVyt5p1ZWq
-	 QQWlB+uEzSsfg==
+	b=FnZvydeNbOp/s4qJEjcZHaiNxr8GXCHNhCzAHyioMVElvRA0zqOeJ2bePfHA7Z6a/
+	 EqHxHuWDSu2Zi4vwGp5jjiZl3mmX1vyXrXm9HYHpkrsPyRitgD6lKdoSJUKj6MQorE
+	 6Kv7wT5HciYSs9znRUpr328giGu4xxAEcX5b7mueuJg4qraThmcn/RMN0z8LvufEBx
+	 ECU3cghNAyZ/N/KpiCPaZ5FVOiwCpn2bL3vTmIfhKNpS3lj/xvU6cZxWyoOoiMawhD
+	 REwxJWdzdPZijOoIhxKG14uTFRoYrkgYJuhA+Q4r9wmPnNF8SsZg4Q5FEyUuje/J6r
+	 PJ+kQDqrrWoag==
 Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jbbZS65myzXZK;
-	Fri, 27 Nov 2026 09:36:16 -0500 (EST)
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jbbZT0FTyzXFY;
+	Fri, 27 Nov 2026 09:36:17 -0500 (EST)
 From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 To: juri.lelli@redhat.com,
 	peterz@infradead.org,
@@ -81,9 +81,9 @@ Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
 	linux-kselftest@vger.kernel.org,
 	linux-rt-devel@lists.linux.dev,
 	stable@vger.kernel.org
-Subject: [PATCH v12 19/43] sched/deadline: Count only active CPUs when spreading extra_bw
-Date: Fri, 27 Nov 2026 09:35:46 -0500
-Message-ID: <019156e5ecd51a4b59b7bfdb6dde76fe549511c6.1795771148.git.mathieu.desnoyers@efficios.com>
+Subject: [PATCH v12 20/43] sched/deadline: Do not truncate a bandwidth to 32 bits in __dl_add/sub()
+Date: Fri, 27 Nov 2026 09:35:47 -0500
+Message-ID: <3300daac81b2483e451bca006dfaa2da5b21fced.1795771148.git.mathieu.desnoyers@efficios.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1795771147.git.mathieu.desnoyers@efficios.com>
 References: <cover.1795771147.git.mathieu.desnoyers@efficios.com>
@@ -98,63 +98,53 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-__dl_add() and __dl_sub() change the total_bw of a root domain. They
-also spread the change over the extra_bw of its CPUs, which GRUB uses
-for SCHED_FLAG_RECLAIM tasks. __dl_update() changes only the active
-CPUs, so the cpus argument must count those. Most callers pass
-dl_bw_cpus(), which does.
+__dl_add() and __dl_sub() spread a change of total_bw over the extra_bw
+of the active CPUs of the root domain. Commit daec57983670
+("sched/deadline: Reclaim bandwidth not used by dl tasks") added this,
+for the bandwidth of one task. That is at most 1 << 20, the bandwidth
+of one CPU.
 
-dl_task_offline_migration() and dl_add_task_root_domain() pass
-cpumask_weight(rd->span) instead. That also counts the inactive CPUs of
-the span. A span holds one while that CPU goes offline, which is when
-dl_task_offline_migration() runs. Each active CPU then gets a smaller
-share of the change than it should. A later change made with
-dl_bw_cpus() does not undo it exactly. extra_bw stays off until the
-next rebuild of the root domains resets it. SCHED_FLAG_RECLAIM tasks
-would reclaim a little more or less than their share meanwhile. This
-was found by reading.
+But cpuset_can_attach() reserves the sum of the bandwidths of all the
+deadline tasks it moves, with dl_bw_alloc(). __dl_add() and __dl_sub()
+cast the bandwidth to s32 before the division. Past S32_MAX, more than
+2048 CPUs of deadline bandwidth, the cast flips its sign. The extra_bw
+of each CPU then moves the wrong way. GRUB lets reclaiming tasks run
+more than the free bandwidth, or less. This was found by reading. It
+needs a machine with more than 2048 CPUs, so no case tests it.
 
-Fix this by passing dl_bw_cpus() of the CPU whose root domain changes.
+Fix this by dividing on 64 bits, with div_u64().
 
-Fixes: 59d06cea1198 ("sched/deadline: Fix bandwidth accounting at all levels after offline migration")
-Fixes: f9a25f776d78 ("cpusets: Rebuild root domain deadline accounting information")
+The Sashiko AI review of the first series found this.
+
+Fixes: daec57983670 ("sched/deadline: Reclaim bandwidth not used by dl tasks")
 Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 Cc: stable@vger.kernel.org
 ---
- kernel/sched/deadline.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ kernel/sched/deadline.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-index 882e7bc5a934..3f02d150e15d 100644
+index 3f02d150e15d..7a6057326611 100644
 --- a/kernel/sched/deadline.c
 +++ b/kernel/sched/deadline.c
-@@ -1076,7 +1076,7 @@ static struct rq *dl_task_offline_migration(struct rq *rq, struct task_struct *p
- 			dl_b = &src_rq->rd->dl_bw;
- 			raw_spin_lock(&dl_b->lock);
- 			__dl_sub(dl_b, p->dl.dl_bw,
--				 cpumask_weight(src_rq->rd->span));
-+				 dl_bw_cpus(cpu_of(src_rq)));
- 			raw_spin_unlock(&dl_b->lock);
- 		}
- 		/*
-@@ -1088,7 +1088,7 @@ static struct rq *dl_task_offline_migration(struct rq *rq, struct task_struct *p
- 		dl_b = &later_rq->rd->dl_bw;
- 		raw_spin_lock(&dl_b->lock);
- 		__dl_add(dl_b, p->dl.dl_bw,
--			 cpumask_weight(later_rq->rd->span));
-+			 dl_bw_cpus(cpu_of(later_rq)));
- 		raw_spin_unlock(&dl_b->lock);
- 		dl_record_bw_cpu(&p->dl, later_rq->cpu);
- 		p->dl.dl_bw_gen = dl_bw_gen;
-@@ -4366,7 +4366,7 @@ void dl_add_task_root_domain(struct task_struct *p)
- 	dl_b = &rq->rd->dl_bw;
+@@ -205,7 +205,7 @@ void __dl_sub(struct dl_bw *dl_b, u64 tsk_bw, int cpus)
+ {
+ 	dl_b->total_bw -= tsk_bw;
+ 	if (cpus)
+-		__dl_update(dl_b, (s32)tsk_bw / cpus);
++		__dl_update(dl_b, div_u64(tsk_bw, cpus));
+ }
  
- 	raw_spin_lock(&dl_b->lock);
--	__dl_add(dl_b, p->dl.dl_bw, cpumask_weight(rq->rd->span));
-+	__dl_add(dl_b, p->dl.dl_bw, dl_bw_cpus(cpu));
- 	raw_spin_unlock(&dl_b->lock);
- 	dl_record_bw_cpu(&p->dl, cpu);
- 	p->dl.dl_bw_gen = dl_bw_gen;
+ static inline
+@@ -213,7 +213,7 @@ void __dl_add(struct dl_bw *dl_b, u64 tsk_bw, int cpus)
+ {
+ 	dl_b->total_bw += tsk_bw;
+ 	if (cpus)
+-		__dl_update(dl_b, -((s32)tsk_bw / cpus));
++		__dl_update(dl_b, -(s64)div_u64(tsk_bw, cpus));
+ }
+ 
+ static inline bool
 -- 
 2.47.3
 
