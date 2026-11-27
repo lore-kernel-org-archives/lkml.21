@@ -1,16 +1,16 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.15
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.79
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795739153;
-	b=K/Eiq9b50zoRn8ZevvWgSKzFqlW3u0SsU7jq0jGdPceGfgyTMwKB4CvdlFpKFCU93Qwg
-	 y2wDBRbPm5c89g9E8uYvxdCAcJbTPDP13Q4BLVQ7ECd8HDZkmDoubqIwJwqSru4xsqsLh
-	 zEQSRg3DKhPOLSfB2x/7we8Oe6mMYb5dXawzWaKYzN60iNxB4kLAUNJXB+gFIwWAXwr9g
-	 JeUshH2dasSE4ULOuF9WB1zGJoDFMFsxmsowewZ+75HAdO+EVx8L3HRlFxIU6crFglcSA
-	 RotMQlI5Txwmn6qX8L9Sq3YsbS/PGlJ6STuQkCEKIjbOf1S3rXHeDk+fg2GTgF51SOA==
+	t=1795739224;
+	b=0lhrtx+34QG9Q29oB3sd7bEjzj79qR4vOrPBht9FImB2V412cxMLsxTCwZaMtJeRhAEw
+	 XiEIuXf98ub43RWdn4o5giPL2QJUmJpUNJrW2igDREwPc3SRevQwrar58SwJucI056Gry
+	 PmWv3xf99CIEYzwfF3QxZsQh/ih83Mn1RQoHmD7Ocxpfun1jCqNv0fj/QPckrTkP02+zM
+	 6GEpQ+VL+46hJ6Jpz+i+tq0yUt5rk2NXiI1+s8WE93Y7fYQs3OrbwtZI7D1q5rNUQhfYB
+	 cNeWwSmVBbVEf9EbefTFsWQShMzvE98vRJ9rQSTlBIGgdd8zcN24hHoGPWJFUwpPEpQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795739153;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-ClientProxiedBy:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795739224;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
 	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
 	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
 	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
@@ -24,83 +24,82 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
 	 X-MS-Exchange-CrossTenant-UserPrincipalName:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=gyBBuEqNOo6oS0WY2TUpfVOWyzRuNWgUlH7zs9cYBVQ=;
-	b=nXjLJyXYAH3yw8gllxvkwPjOMUIujmdlEgHpo1WZeFEx7Ky7adfv8aAdOq6BWCNF9Xpa
-	 jeYW1IaklUGpThi4pt33j5+O6WNocyBp8NyXHndTEeEsTC8Ok9WOhN8rhwX41Zu6SO0Pv
-	 X77CmkdeE8o6Ft9Zd69Ap9D6T0LDReQb4mHQY6FJqUBSFdiU19ZpjmfxY68HJpE2HBMlO
-	 SXKSFZh2CL0Ktw/9C8X0k3M8noprDlSL9kTb+yrIO/d0jJbzoMi/VCY9w5MjuAHGGqPPo
-	 YhbQtGSrjGfl1kFzSQRWGpge8Hlj+LRVmuoxnV4BpXaoEGYujZj13gF0kUY7K0j1UMg==
+	bh=3jGP3kpyU8qYNNLPxHIoPWDJhUz3M+x3GcD17xSIFgc=;
+	b=JtJW+3Hp9wHYvekwDy0fOt5BzR+5YD+Wb+CUzXQQEZ7pkBBxplUfQfP1hb9q4ixQ+1kX
+	 lsdcTXj3/DQOO7+v2BppCS3F7q2Ip1wXkNqTZbsCCE477DIalCHJEo+313FjTubS1pIyj
+	 YRIvJTOP9dzicx5lWpN8Aqkfkmtu7g0TydzebwltAkqdZUIEdxe2JqaRjXpuXfBfi04e/
+	 UarpjncctwD1wrTP9RMXLM2cdB3+l9C4ha6XHP/VmMUjoNHcPuBcRSz8ersWeNOa/entJ
+	 +fZJkK9WxQGBQbftU3ZdW2ak2nFnQjzo/8A/7GTdjiqh2ngtjlwIqpjT+3qHdPAot2A==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=mDFQfdEs;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.15
-Received: from PH8PR06CU001.outbound.protection.outlook.com (mail-westus3azon11012015.outbound.protection.outlook.com [40.107.209.15])
+	dmarc=pass header.from=phytec.de;
+	spf=pass smtp.mailfrom=phytec.de;
+	dkim=pass header.d=phytec.de header.i=@phytec.de header.a=rsa-sha256 header.s=selector2 header.b=iCOgIzel;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.79
+Received: from AM0PR83CU005.outbound.protection.outlook.com (mail-westeuropeazon11020079.outbound.protection.outlook.com [52.101.69.79])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84BDE606A31C;
-	Fri, 27 Nov 2026 00:25:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84BDE606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDF3F606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:27:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CDF3F606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=phytec.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=phytec.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=mDFQfdEs
+	dkim=pass (2048-bit key, unprotected) header.d=phytec.de header.i=@phytec.de header.a=rsa-sha256 header.s=selector2 header.b=iCOgIzel
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RNnNEdscVuKKtbKGTTsweI8+p3Eui1DffawJly6FCk+l0s46AisWpDeJAO+Bsta7NhXMu5UZXOB8UBbzSEvqdVOGye0v2qsf1IiggZZPK/ph86sCckS2PW1VKt7xCY8+VSpt2bCWOgsmgkDlhHCRGLNp45I3jqKqFEMQFDSvNtDp/vaViFBG14gLj0ysSZculbETzia1SOWAwAuvdzcK4/x+LUXQ6+dk+hJ1cY28JwlU3tmcaOIzD+e96sLsU/5JfvSM+Z4TMrCB7E4rcA54i7/RhfdEM/AXcEySNb8q6SMalP6EhYyXHde3pNr6JZKsHe/KRnou/O38b2qJBv3ZNg==
+ b=bwIzFa5DcD8XYlPg4odIpS3+8ihbiUoZRKOaqKA0Fr7QHyR/3r+Yvv0RcOLYs7/1DNTwPa6PjleVf+xEtrBfnOmdS39uSLtQvUUD0K+zapNm0sc8UtphxZIYypN5Magx2u7NSuU1QyUiqlClpuZ9kKR4U7JxCTkNnDEgYbr9+1FIvExTL9C711eI1gny5LNTpRNVaQLdhEThA1g1HbURwQNActB+fPYh1h6iy5jv23GsNQWPY0FI1JmCymoA6/BDeAac3fsh/GldJWkcqST0eTEkq+87ecAtnfYy0v+aQPWzj7fKNOEqd8fqjvzj4ci/eC2emcXKBijIr04Z2zy15w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gyBBuEqNOo6oS0WY2TUpfVOWyzRuNWgUlH7zs9cYBVQ=;
- b=wPg6KQq55CcfBiEZwLxNlAPKBq/eHc3QsXTZrLKj5OfAtxuzbljabEzCek17xwhDkNiFHBqf0R6DNlLR2F4T9Dj/lu/ZjYm49s6/saGAWCWcFtxwQj/58YM0YHwVJixttmD2M7dKxw9LS3QRgLM5K2fYVNYc+/bHeftm2TBUqiX9BwdaJpUWwogjM2Aw1yAkM32SkoNa5z7JEtL0uGq3dFpOm9z+5GgVWkDK3VPH4rqPUtKA1IdKKxwzzXFTPV5aGTJzhg9S8WKA/FXCm3t2ra/NX/zUk0cQojaYYIKTlSG0JoxOeVjtyuuwALVAnt0MUf+06J/nnt6nbWaJ3uNL5Q==
+ bh=3jGP3kpyU8qYNNLPxHIoPWDJhUz3M+x3GcD17xSIFgc=;
+ b=uJPfgzl7q0D8ZyimhQ5HAerPlUXe/N2reG3u28dgt4stRNWkkX1NHrYu8i8jpWLut6NBhyY8C2e1o46QhRV9rg01qPaJKDT4NlAXiMRmZ86oo3Jgm7x2F5r3aZFm6G8RwfnZ8EI8vOq23/o4gTfUErjyXyOBWDW5d2aVZypm8DOGu6TAeL7gcGInwCneuV18/pwX+NWwcaeivBXW1C3aRoggHK2yoPZxX4VwmKTsIZVMGAR0L3n2ejOe71zBm4bd7GHEQzZ5gp+iQdHbTrtmK6mK0hfDXalhpuAk3jpyDwQZzKaqoW+/5e77zpX0rhNf+wXEPej63kmi7ed7wV1KfQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
+ dkim=pass header.d=phytec.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gyBBuEqNOo6oS0WY2TUpfVOWyzRuNWgUlH7zs9cYBVQ=;
- b=mDFQfdEsNEdLbrjTuArSMQRfpbbOgxcXHVSBDRo/eVmbqntIpWqxTfrUTy1O+t1JP//SjZZNFkYExHcPvXS4BWCLZ5tzabXNuTG0ucVd+DnVAKnHNURLU6bMXnOYsQ+DpPwA55HnO0szm39u/MnGHFLtdrytbL/RXtRXlsdNvWyTS/yfrCMpJyqqzTuppmdVskx47zE//THqyAGC8qbR8nhKD4wZ+3tA9UsJVoPX0bmfAtBWrPyq9tNQzACJMntsJP3Zq9cTviXbzluu4r5P9AZXiTjiWa4vjA/UvhZw9acnSCobsHCwoWQg8bo8ncOHU5M1gzIRq1SEmjAHGe78nw==
+ bh=3jGP3kpyU8qYNNLPxHIoPWDJhUz3M+x3GcD17xSIFgc=;
+ b=iCOgIzel1w7k43qFV9vrWA/Wj0UzRwDGuo3fDJeq9R/UL6SwibvH+VHOntHq55OYLOmpLUn82gAP0WjWlZdYti1Pp1Rzcc1P5Qj2OK03E+cm6/xCUj5vpy8lRo46XBb3XFGfeDlQPNdoicEMBu0IZC720/K9DLB9zTSrUD3a5XP8PwQQrpo4UpoPbXe1csoqdXJVH7/On5AnW+S/DVoKF39aepAaIZR3UqIicz1QqMLp8OywsfOMsR5q9pBjb/wEGoDftxp4qj8nur0eBwuAWdMblZNlQHS2uUis5xJ59NYMVZXgf4Vx+WM4pwEVQCWqJ9v1ghjgWj9MNMOJ/+rx2Q==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12) by DM4PR12MB6326.namprd12.prod.outlook.com
- (2603:10b6:8:a3::15) with Microsoft SMTP Server (version=TLS1_2,
+ header.d=none;dmarc=none action=none header.from=phytec.de;
+Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:4b3::21)
+ by PR3P195MB0745.EURP195.PROD.OUTLOOK.COM (2603:10a6:102:3d::13) with
+ Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
- 2026 00:25:42 +0000
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0662.007; Fri, 27 Nov 2026
- 00:25:42 +0000
-Content-Type: text/plain; charset="utf-8"
+ 2026 00:26:59 +0000
+Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+ ([fe80::295f:9a59:b66a:621a]) by AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+ ([fe80::295f:9a59:b66a:621a%5]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
+ 00:26:58 +0000
+Message-ID: <b8d6e03a-90a5-48bf-a8c2-4493c52a45d0@phytec.de>
+Date: Fri, 27 Nov 2026 08:26:49 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: configs: defconfig: Convert TISCI to modules
+To: Nishanth Menon <nm@ti.com>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Siddharth Vadapalli <s-vadapalli@ti.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Bjorn Andersson <andersson@kernel.org>, alexander.sverdlin@siemens.com,
+ jan.kiszka@siemens.com, ayush@beagleboard.org, robertcnelson@gmail.com,
+ upstream@lists.phytec.de, francesco.dolcini@toradex.com,
+ leonardo.costa@toradex.com, matthias.schiffer@ew.tq-group.com,
+ stefano.r@variscite.com, eblanc@baylibre.com, msp@baylibre.com,
+ thomas.richard@bootlin.com, miquel.raynal@bootlin.com, mwalle@kernel.org
+References: <20260910134409.1713610-1-nm@ti.com>
+ <53d50a7c-4318-4705-ae21-780b04628742@phytec.de>
+ <59b8e9df-0f78-49eb-a23a-2b352a4a2333@kernel.org>
+ <20261123125515.55ozls7bvral2ukz@residue>
+From: Wadim Egorov <w.egorov@phytec.de>
+Content-Language: en-US
+In-Reply-To: <20261123125515.55ozls7bvral2ukz@residue>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH RFC v2 1/9] attestation: Add the base family
- specification and generated files
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Jiri Pirko <jiri@resnulli.us>
-Cc: linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
- linux-api@vger.kernel.org, x86@kernel.org, kvm@vger.kernel.org, 
- linux-doc@vger.kernel.org, jgg@ziepe.ca, david.quigley@intel.com, 
- lukas@wunner.de, ksinyuk@kernel.org, rodrigo.vivi@intel.com, 
- cedric.xing@intel.com, sameo@meta.com, drdeeglaze@gmail.com, 
- James.Bottomley@HansenPartnership.com, aik@amd.com, jpiotrowski@nvidia.com, 
- qinkun@google.com, pgonda@google.com, jic23@kernel.org, 
- alistair.francis@wdc.com, ankita@nvidia.com, suzuki.poulose@arm.com, 
- kas@kernel.org, rick.p.edgecombe@intel.com, elena.reshetova@intel.com, 
- dave.hansen@linux.intel.com, sathyanarayanan.kuppuswamy@linux.intel.com, 
- peter.fang@intel.com, jarkko@kernel.org, zohar@linux.ibm.com, 
- yeoreum.yun@arm.com, aneesh.kumar@kernel.org, dave.jiang@intel.com, 
- nik.borisov@suse.com, sergii.dmytruk@3mdeb.com, 
- Jason Gunthorpe <jgg@nvidia.com>
-In-Reply-To: <20261113160838.2512652-2-jiri@resnulli.us>
-References: <20261113160838.2512652-1-jiri@resnulli.us>
- <20261113160838.2512652-2-jiri@resnulli.us>
-Date: Thu, 26 Nov 2026 20:25:39 -0400
-Message-Id: <179573913907.519186.8407997114208887089.b4-review@b4>
-X-Mailer: b4 0.17-dev
-X-ClientProxiedBy: YT1PR01CA0089.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:2d::28) To CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12)
+X-ClientProxiedBy: LO4P123CA0431.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:18b::22) To AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:20b:4b3::21)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,539 +110,131 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|DM4PR12MB6326:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1c3b5f63-6cb4-40cb-34cd-08df4c1cf86c
+X-MS-TrafficTypeDiagnostic: AS4P195MB1456:EE_|PR3P195MB0745:EE_
+X-MS-Office365-Filtering-Correlation-Id: a0226002-ef92-48c8-4bff-08df4c1d25e9
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|7416014|376014|23010399003|366016|1800799024|11063799006|4143699003|6133799003|5023799004|261009223027099003|18002099003|22082099003|3023799007|10067099003|56012099006|261102124527099003|261102123227099003|261028144727099003|261022113327099003|261022105027099003|261022075727099003|261026121527099003|261026140227099003|261021135927099003|261021121427099003;
+	BCL:0;ARA:13230040|7416014|376014|366016|1800799024|23010399003|10067099003|56012099006|11063799006|261026140227099003|261021121427099003|261009223027099003|261022115727099003|261022075727099003|261022105027099003|261026121527099003|261028144727099003|261102123227099003|18002099003|22082099003|4143699003|6133799003;
 X-Microsoft-Antispam-Message-Info:
-	Hs3RdvEkYWr53thsz2V1IF69qAGS57O1RqM7Xl/5cd0zKUgg6iNr0y6seWmWw1OnZSmIP0k/DGVwYNsjyWA/E730bEKJIqf5mECCkJlAA0qDn82ovDoGcNexts2Wu+DQwBuVcJj1SbHeeWcsxiAV7bsATbTAp3OWRsub3A/s3rhu/spdSqfRf4nH55Oi0KoHmQwzjZCyirF91s0DxiIzE9xMvqMrDMQvsCeTPnDHuE3kvqW7Y6W2qB6mF0HXKBy8sDi3VIMjijMFC6AHDdAgjoT5Wg43hIRTG1WIPjOqcB5exrG3u9wZ845gkVtrNxFdS9Fx+6gfGvf3mq34WjdPEmhalf45UoqcdioInhNYkel9NrZEMQHXRgDDppFtaPiq3AlUHQFuJgwouSNgfzqhSQciWgjphMS72PjBOu2MdEc7EvNiCSe8LiYl4QOQ+GiNOf1gdos8jqKoZa+RZdib9BecITwxeK+XC3ldFZvnaKpNthyyNkXbXbILp4PGssqxowIsZavCfNukF9W1BKXl9KTZHoIdO+QF0Zsk1y/RWXbyVn/X3p1wi4eQHuCz52uiR6YsHP7wLNYanrI3gm+eINcBxhW9jU/4x7QzsnAxVKuVnW3JbblzpBqAxhceVu1fazR7GNaQe4lqT3MrDvdBFQeTS5XjclSrHeaQE33jUvA=
+	05kdDvyqQIctCWTa8M0iV5Ldj24cdHmFJP35iRXwOtCzpbGYGDu4kb5YB9i7nCyAIVYLXhfSJJxoBHqE8IifYJGxK0Co7WKysKYYjyiFldvbQVjx/pxcrY0T4HKU4BhF+dIhl5eEFUUKgXM6dniGemQjoC2pqW2yxqdnCG8toM5id9FE3H4OCPpXFAvLO3t9dat1iRgfEKVJondQwahoW5YWDD9u6ja1oiGv4BGwmGiaUzruQkkr18UjyTOL+4/PE6iapEhALWNsOJGut1GoJAfKGzntutKX21nNH3CtT2yPZfGZAe7r3VL1VF1ckrbXInleL1EjHscZRYfhMKGFPPI+GoDK49BB0/9SL5DXaJz1SXasX1ygkJnmdQyTXeVfVhoUE0nFGl5+F0Kctx5iELR7pm0OI2aPAbUGTb6/AHla//eJPbJ4WuI76oOzi6tbAlufONKdAuyy4LTSBCeUoHBrBnubmERlpv/UiiSLWQ+hazsoV3WvgPJBKc3wnR1oyiPGdYypkWHe5zSteV9TCCwvWePUm0L5VOEHZzl+oaSko7f7bqHsb/01HT73zBAeUAhTjoawWMMPoXN9c+6SnpYbMMmIY5bdx2jRelGym58=
 X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(366016)(1800799024)(11063799006)(4143699003)(6133799003)(5023799004)(261009223027099003)(18002099003)(22082099003)(3023799007)(10067099003)(56012099006)(261102124527099003)(261102123227099003)(261028144727099003)(261022113327099003)(261022105027099003)(261022075727099003)(261026121527099003)(261026140227099003)(261021135927099003)(261021121427099003);DIR:OUT;SFP:1101;
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4P195MB1456.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(23010399003)(10067099003)(56012099006)(11063799006)(261026140227099003)(261021121427099003)(261009223027099003)(261022115727099003)(261022075727099003)(261022105027099003)(261026121527099003)(261028144727099003)(261102123227099003)(18002099003)(22082099003)(4143699003)(6133799003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?WWx6Y1RITmd3TCtDRFZSMGM1NmVpdjErajZmNXlnVmVHQlo3WkphenF1blRx?=
- =?utf-8?B?bFNQYlZ3Y2ZJbk91elNTQ01LWkNpT1FoN2Z5MERZNTVCeEZXSGNaMForY2hN?=
- =?utf-8?B?Vkl6eWZMT1hPNVFDTDgyVDNuYU1sOUNxeXZka1FqTFF5QTdrY1MxazJZcGkw?=
- =?utf-8?B?VHFSeUdxRTlyY204ZklFb2JkVlh5MExEa1Y4T2tINm4wWnVMY1h2V0xCaVdN?=
- =?utf-8?B?b1RyZDRaOHFhb3drMGE1Ky9td1d3Mm05ZmlBaTcxR0JrTHRpcU5PQXdCbERZ?=
- =?utf-8?B?VkxKSllkR05YcEo1cVhKZjN3OEhXREI5VjI5eW54NGl0MW9rR0NHdHN1cmJV?=
- =?utf-8?B?RFIwUlhlZ3hKMS9YVEE1bkhDaHN5enVIN0NCbkFnZXhyaHdSaW01RkpqZjhq?=
- =?utf-8?B?cjVsN2Q2djB1M0tlZHdMb3RYWlNNR1JHcmc5MFhoL0UzaS9BN3RqeUdnRWhS?=
- =?utf-8?B?V0xiNEtDWFlScjNwcW1HYlo0b04wc2FuSEJuOU1DbWxsTEhiTENLZlRCQlA0?=
- =?utf-8?B?RCtYdlJFUWFLSTFSWFNqVEpQUVpuV0kyNEoxUmtwUFJLLzFiNjF4RlExcnkx?=
- =?utf-8?B?YTZZc1UwYStmRkErVm9vcW8wTG44TFp0QnBDL0xnRGhiTlhqRE5NZEN0aE5Y?=
- =?utf-8?B?NndXMW9oTkdoSHZ1UEh2cmR5UVJUWHVjc29Bajl3Q2VuWTBJc3IwSGdRRTQ2?=
- =?utf-8?B?cDdSM3c0dEtGT2p4NlVFeU9FVmpOd0ZBTnFjb2tDaWlDTEhsRWFmNjgyT2FX?=
- =?utf-8?B?N1ExSHV1M1RiTTFSTjUzUjFiR21ZdjF5V21EczV0K1U2NGwwd1hvRFFOUTNj?=
- =?utf-8?B?RXgzR2dRc25ESUY2aW4zdHQ5WTl2aWd6cW5Yc0VneEVUVHEwZ2p5MS9yc3lU?=
- =?utf-8?B?RXd5NjVtTzRwQkZRS01zRmhTc1lyNDJyejREYWtvSm95MXNlMDFSSm5MY3pm?=
- =?utf-8?B?blloQkFNYTd5SWdTZGpKME1oTC91aGEydUhvQ2hucmRSMHZaTkdpVEFqcUhG?=
- =?utf-8?B?UXBRRE83ei9Ub0F3WWY4ZFpqR0FzTmdXTWlsSHZhbm8yUnZxclZhRC9ldWhJ?=
- =?utf-8?B?ZGFpTk5LQ1dhZnlCWjBkV2VDckcwejNtdytWLzBjbGt0ZkExMzlyRFhJS2tJ?=
- =?utf-8?B?SkJKNjNsOW14NFYyRlR2QmRKRURsc2RqRm9DNVpzdDltTDlWNmRVRkpOZHFD?=
- =?utf-8?B?dG4wYXhsR2ZjaEFseGd3RFg4QzU1eWxncE9MczU4cVRBWG12T1BpNzR1YldW?=
- =?utf-8?B?aExqdXdwRStqa0hWWnZyQmVYeDRaMllKNitpWXk0WHhGTjIvZ3pkaUhCREZT?=
- =?utf-8?B?UGtOMlNyOURnN1FQRlo1NnJJOUJ3TjFZSE5Ybm9hY2dRTGNnbVhDbm9TRnds?=
- =?utf-8?B?UDN1eVBPQ2hkci9pV2hvV0pVUWlCYjhGemd1U3JKellpbmFXUnhkc0tmSnZT?=
- =?utf-8?B?RGlpUW15UmExeFVBTlphSmxmenAwUnBkVlZ1V2NEUVpHeXp2ZUtMZ2lrYXdx?=
- =?utf-8?B?cWgrM3g4ZmdsNDU3blVrd096anRoU2FXRS9UNkV1VEFDSFRZL2ZUb1VVVC95?=
- =?utf-8?B?bFUvZnBSQzJzRTc3eTcwQnB3OUdvbXhyck5Kdjl1ek5MaUtuak9ncFY1TG5y?=
- =?utf-8?B?U1VUcDBBejlmMklpaVlaN2svR2N6Q3prSmlTaXNtajBqMzh3b0xvRm9SMTlv?=
- =?utf-8?B?emtVbVpOL0lmTkZ0OE9oemNZOGtGaEFqVHV3RnluWnB4VWE3Z1J6a1JFUTl4?=
- =?utf-8?B?ZGFqUksrZDBZYmR1WlRKQnU0VDJoZlNiVlQ4ejArUlBzaEIvdFBHaktESVFJ?=
- =?utf-8?B?SEZKcld5T2YySXJsNFBhNVJ6VzJCKzQrLzE5akpRSXJrbmFTbUdScjVHQVNB?=
- =?utf-8?B?SGEwclMzQ3h0V0l1ZEo4aEVidUkxSGFWTnBpcy95OWhnMk5BZFZBbXVtMEVX?=
- =?utf-8?B?Mmt4LzdMYkhMNlE5OEVsNGNnaUZtL0Vxa0dGR1JPS3BhVjh1SUlzOUJHcnJq?=
- =?utf-8?B?K2ZGelBwckFwWnNra0RFT3o4V0thY1NpdDQzY3pzc0tsK2lCVEJnRWNOWXpq?=
- =?utf-8?B?VXpQQWtYdk9MZ3JyZmllQTIvN3cvZy84MmNoekJOU2dQTHZzVFV1dmozTUxu?=
- =?utf-8?B?V3ZXQ3FPeU85NWJYMzVsK2NZTUtkbGZSdGRVQXZZUVpFRytqRXVKQ2dQeStQ?=
- =?utf-8?B?eml4RjVRcElrWTFhUzNYKzYvalhBZ2dHU01KS1IveSthOUgzSzhTL25UYzB1?=
- =?utf-8?B?dDBXMFlkb1ZwYzZjb3B5OXRBbWY4bmNDOEVRbEg0NE5Fa3NhVWhlU0FwOUdP?=
- =?utf-8?Q?zaAqjf6vTdgtbp/QOS?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1c3b5f63-6cb4-40cb-34cd-08df4c1cf86c
-X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+	=?utf-8?B?eFIrM1hlYzRlLzRzbC9WeU9GTkhPWlI0M2FkTXFIZTFKQVZ4L0p0Q05IeFpY?=
+ =?utf-8?B?b3lFaVFTUjFNRmRxbFNwRmJKWXdteCtWZXBBVWN5dGE0cHZHU2QzWXl0eEl5?=
+ =?utf-8?B?eGd0aEJTWmFEbng2cVdCTkY0MmZQcmo5UlpmMXhTZHhxMkJIdnJOMU5nRWpy?=
+ =?utf-8?B?eXJWOUtoYXlnUFBqZk1LV0ZjNDZxL1owTVhWVmJ4VzhUWHRjaFEzTUFXTTlk?=
+ =?utf-8?B?ZlIxVDZkQkFqYk9iWDZhbFgrQzVUbXlBZytXT2pETnUyV2RqRnh6L2JnTk1x?=
+ =?utf-8?B?eUxDQlppZVR3RnRPeVZob1hsY3VWNGRGVG5sUEFNRkUzTElXRDFZTXNia2Vt?=
+ =?utf-8?B?aHNibktPUzlqZVl2UVZhTnpYZTBuNFdGdUtzTUNwMVNpQXlFd3lqNHdmemk1?=
+ =?utf-8?B?c0wxVEJ2R1Z6VHN5VVJHN3RkY2dNUStnU21RNy9WRGtGb1Rma2lxL0lMcHo4?=
+ =?utf-8?B?QTFqV1AwdVdHN1Q1V09rZGpFQ3BQZ1IrVFl1Wm5xdytyWkVnMFB0azdIZDV0?=
+ =?utf-8?B?NDNYUDNZNm9GbVFObExvVWhLVmU3MUYwWFJwSDYyNUNVS2F5aHlab3NYOHBx?=
+ =?utf-8?B?ZUNIM1NCaGhrWlg4WnQxQWovRWkyRDFIN1pwQy9mSUQ1K3B4NVdMV1lOdzhF?=
+ =?utf-8?B?WGJlQTlzQXJYb2NTanNOUTZXQ0VJcFRsREpFUE9udUs4Ry9xUUlOMXBNc0Zh?=
+ =?utf-8?B?RXVnaU94SG5YOHdKL0hCbXQrRThJMHpUS2poUkFpQ2UwYmt3b0pzQ3dkQVBN?=
+ =?utf-8?B?LzZZblI3UjNpQjZXY0Fod2IxUC9vanY5dE1lZUdnMW1sL3RTWm9xWVpXVFJ2?=
+ =?utf-8?B?bHc0VVV4V0NlbHpCZU14NEZxU1N6MkZ2NTJLNnhzeERKSmwyRmxLWnlNakox?=
+ =?utf-8?B?NEc3NHFFanY0QlNjdDhpSUoxdVpRR2hXaXVsVUc5d1hUTjBRK1IyV2VRR0Ri?=
+ =?utf-8?B?TzZCU3FVYjBWaHdLUzZJd3A2QXprb3JkekRRb1kzalRtanVzcmIwN013RTNk?=
+ =?utf-8?B?Vy95OFdkMVJ4OTdWelZBQ29XYmdOYmhFRllpQ2NScVhEdmRmUTBIZkFONzVB?=
+ =?utf-8?B?SEgwUWkxdTQ4N3VjY3AwV3hwbkJLMWZlaDdOTmFEWlNyVFRobmw5MFBvSnVr?=
+ =?utf-8?B?VXVlSHhjeW42UGRWaHRsUWlNLzQ5aVRkRVJ3Yi9rQW8rOVAxdXBSZE1XY2Vz?=
+ =?utf-8?B?dFVNUUx2N1YzZ1ppVFltWVoreGdhZXpLTlZxRE9jUXZpUENZYXFoZTkvaWVB?=
+ =?utf-8?B?eldlOFdtWDNJd3FKdzZXeFRqdTRxT3hiOWEyWDdwcFJ6SnMrODVaVnBRNFRr?=
+ =?utf-8?B?QkZPNzZYS0djek5nTWJjYytpRERpbmtYeWpyU0lYTUd4K1hVN1VyQ2Z4SUJh?=
+ =?utf-8?B?b0dlNXg1QUFXNFZLRU5tZDBXVGliRUtHNU1XUHBIQlJtOXMyS3VpOXRhaFBW?=
+ =?utf-8?B?MmxaOWZCR3B2cGt2dW0xN1ZhdVppVCs1eFJJRkQ0emUyVXBMMkpMMHVyNlcw?=
+ =?utf-8?B?NjA1UktadHY0WUsxSko1Yzl5RTRVL3hmZGlVYjF6N01QY1J6Z1RHaFd5QUNl?=
+ =?utf-8?B?bE9aSmRKZDhvZmlJUzBmSHNCWlBZYmZ0R296cmhpV2NQTXZCdk9VNStUZWQ3?=
+ =?utf-8?B?SDFrd052QWFVK0xiaThhNUFuRFArZ2w3L20zRGkwKzJmL1pVKzc5RU5pSnlE?=
+ =?utf-8?B?LzJ5bWs4NCszZW92WmRvTVB3bHJ1WkpWcVdvZENReHk0eEhLaVhrZ0tvTXhs?=
+ =?utf-8?B?K3FiQW85TDRKRGRrdDRlWloxaGIzTGpGOUxqOHZwUWFUYTRkQkpkUVQ3ZHRO?=
+ =?utf-8?B?dXM3L3YyL0pWRVJuREpRcjhTbWVOSmt4VGdIRzZNaE1BRm8wRjlQYXZyOVJ6?=
+ =?utf-8?B?elJVdW9MYXU5ZXBCeExjeXBKd1FYM1dKMXpaU1N4aFZIV1FHeVFpSHJCcXJx?=
+ =?utf-8?B?a2FDaDYyUUU3VlFWYmQ4STVtVTNhSWY1S28yS2IrN2o5akZDa1VCazhqUVk5?=
+ =?utf-8?B?d2lDWEhpMytINjZxSmYrMVFGK0lKcnpkSmVNeGJQbjFNbkgycUMyZE1GNlgy?=
+ =?utf-8?B?L3EvcGJyWnV2empZTHAxYmk5MVlFVWQwQVV3R2tYUHlWbmNwMUo0WThRQXhM?=
+ =?utf-8?B?WjNEb2hqc2YxaWtMMFRxclY1MEF1alVSWTdkdmVHL1lxeUN2UUpoay9CenE3?=
+ =?utf-8?B?UEw1LzlvNDBOTEY2RFExbmptaFpEeEdSZ0dNaEd0b3grV05xVzV2WGFQcmZq?=
+ =?utf-8?B?dGtFa1IyUEI0Yjh2c0R5RE5TeEJjbG1naVp6MVZGQ3BwRXNJTDNFSDUxSW5o?=
+ =?utf-8?B?dmtpbFpiS0JKelBkMVE5dStvUE9nWmNxQ05HWmN2TC95TzBEYjN2UT09?=
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: a0226002-ef92-48c8-4bff-08df4c1d25e9
+X-MS-Exchange-CrossTenant-AuthSource: AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 00:25:42.4546
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 00:26:58.7745
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HKeCVNjuX8b51BevBjVC4J+qpDpS0+vDeGwdq+9LW7NIIz9mWy/LMxH7YM9Cct1e
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6326
+X-MS-Exchange-CrossTenant-UserPrincipalName: JqO1Y+46dQRf8QwgW3AKx3qvyOsf+fQr+KORSHZ/i8DSaP+vs+HvEtRH/jBEGyqa9c8XVhmt+qRc2xlId/gp+w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3P195MB0745
 
-> [ ... 60 lines skipped ... ]
-> +++ b/Documentation/ctlv/abi/ctlv-attestation.yaml
-> @@ -0,0 +1,147 @@
-> +# SPDX-License-Identifier: ((GPL-2.0 WITH Linux-syscall-note) OR BSD-3-Clause)
-> +%YAML 1.2
-> +---
-> +# Checked-in ABI snapshot of the ctlv-attestation family, from
-> +# Documentation/ctlv/specs/ctlv-attestation.yaml, written by
-> +# "make -C tools/ctlv regen".
-> +#
-> +# Updating the file is how a UAPI change gets reviewed; an update that
-> +# removes or renumbers anything, narrows a bound, or makes a member required
-> +# is an ABI break, whatever the file says afterwards.
-> +family: {name: ctlv-attestation, id: 1, inherits: ctlv}
-> +enums:
-> +  evidence-class: {signed: 1, event-log: 2}
-> +  evidence-format: {ccel: 1}
-> +  hash-algo: {$header: linux/hash_info.h, $enum: hash_algo,
-> +              $end: HASH_ALGO__LAST}
 
-I feel like this should parse the C enum into numbers here so the ABI
-can be checked too?
 
-> +flags:
-> +  mr-device-caps: {extend: 0}
-> +  mr-caps: {extend: 0}
-> +records:
-> +  mr-desc:
-> +    id: 0x00010000
-> +    fields:
-> +      name: {number: 1, type: string, min-length: 1, max-length: 128}
-> +      supported-hash-algorithms: {number: 2, enum: hash-algo,
-> +                                  max-occurrences: hash-algo}
-> +      caps: {number: 3, flags: mr-caps}
-> +      register-index: {number: 4, type: uint, max: u32-max, optional: true}
-> +  mr-value:
-> +    id: 0x00020000
-> +    fields:
-> +      hash-algo: {number: 1, enum: hash-algo}
-> +      data: {number: 2, type: binary, min-length: 16, max-length: 64}
-> +  mr-generation:
-> +    id: 0x00030000
-> +    fields:
-> +      mr-generation: {number: 1, type: uint, max: u32-max}
-> +  mr-values:
-> +    id: 0x00040000
-> +    fields:
-> +      mr-values: {number: 1, record: mr-value, max-occurrences: hash-algo}
-> +  device-get request:
-> +    id: 0x80010000
-> +  device-get reply:
-> +    id: 0xc0010000
-> +    fields:
-> +      caps: {number: 1, record: device-get caps}
-> +      info: {number: 2, extension: device-info}
-> +  device-get caps:
-> +    id: 0xc0011000
-> +    fields:
-> +      evidence: {number: 1, record: device-get caps.evidence, optional: true}
-> +      mr: {number: 2, record: device-get caps.mr, optional: true}
-> +  device-get caps.evidence:
-> +    id: 0xc0011100
-> +    fields:
-> +      objects: {number: 1, record: device-get caps.evidence.objects,
-> +                max-occurrences: 16}
-> +  device-get caps.evidence.objects:
-> +    id: 0xc0011110
-> +    fields:
-> +      id: {number: 1, type: uint, max: 15}
-> +      class: {number: 2, enum: evidence-class}
-> +      formats: {number: 3, enum: evidence-format, max-occurrences: 4,
-> +                optional: true}
-> +      vendor-formats: {number: 4, enum: evidence-vendor-format,
-> +                       max-occurrences: 4, optional: true}
-> +      max-length: {number: 5, type: uint}
-> +      challenge-lengths:
-> +        {number: 6, record: device-get caps.evidence.objects.challenge-lengths,
-> +         max-occurrences: 8, optional: true}
-> +  device-get caps.evidence.objects.challenge-lengths:
-> +    id: 0xc0011111
-> +    fields:
-> +      length: {number: 1, type: uint, min: 1, max: 4K, unit: bytes,
-> +               optional: true}
-> +      min-length: {number: 2, type: uint, min: 1, max: 4K, unit: bytes,
-> +                   optional: true}
-> +      max-length: {number: 3, type: uint, min: 1, max: 4K, unit: bytes,
-> +                   optional: true}
-> +  device-get caps.mr:
-> +    id: 0xc0011200
-> +    fields:
-> +      flags: {number: 1, flags: mr-device-caps}
-> +  evidence-get request:
-> +    id: 0x80020000
-> +    fields:
-> +      challenge: {number: 1, type: binary, min-length: 1, max-length: 4K,
-> +                  optional: true}
-> +      objects: {number: 2, record: evidence-get objects, max-occurrences: 16}
-> +  evidence-get objects:
-> +    id: 0x80021000
-> +    fields:
-> +      id: {number: 1, type: uint, max: 15}
-> +      data: {number: 2, blob: output, backings: [va], max-length: u32-max}
-> +  evidence-get reply:
-> +    id: 0xc0020000
-> +    fields:
-> +      results: {number: 1, record: evidence-get results, max-occurrences: 16}
-> +    members: ['record mr-generation?']
-> +  evidence-get results:
-> +    id: 0xc0021000
-> +    fields:
-> +      format: {number: 1, enum: evidence-format, optional: true}
-> +      vendor-format: {number: 2, enum: evidence-vendor-format, optional: true}
-> +      length: {number: 3, type: uint}
-> +  mr-get request:
-> +    id: 0x80030000
-> +    fields:
-> +      id: {number: 1, type: uint, max: u32-max, optional: true}
-> +  mr-get reply:
-> +    id: 0xc0030000
-> +    fields:
-> +      items: {number: 1, record: mr-get items, max-occurrences: unlimited}
-> +  mr-get items:
-> +    id: 0xc0031000
-> +    fields:
-> +      id: {number: 1, type: uint, max: u32-max}
-> +    members: [$include mr-desc]
-> +  mr-read request:
-> +    id: 0x80040000
-> +    fields:
-> +      id: {number: 1, type: uint, max: u32-max}
-> +  mr-read reply:
-> +    id: 0xc0040000
-> +    members: [record mr-generation, record mr-values]
-> +  mr-extend request:
-> +    id: 0x80050000
-> +    fields:
-> +      id: {number: 1, type: uint, max: u32-max}
-> +    members: [record mr-values]
-> +  mr-extend reply:
-> +    id: 0xc0050000
-> +    members: [record mr-generation]
-> +extensions: {device-info: 1}
-> +enum-extensions: {evidence-vendor-format: 1}
-> +ops:
-> +  device-get: {id: 1, type: action, fd-access: read,
-> +               request: device-get request, reply: device-get reply}
-> +  evidence-get: {id: 2, type: action, availability: dynamic, optional: true,
-> +                 request: evidence-get request, reply: evidence-get reply}
-> +  mr-get: {id: 3, type: query, fd-access: read, optional: true,
-> +           request: mr-get request, reply: mr-get reply}
-> +  mr-read: {id: 4, type: query, fd-access: read, optional: true,
-> +            request: mr-read request, reply: mr-read reply}
-> +  mr-extend: {id: 5, type: action, optional: true, request: mr-extend request,
-> +              reply: mr-extend reply}
-> diff --git a/Documentation/ctlv/abi/families.registry.yaml b/Documentation/ctlv/abi/families.registry.yaml
-> index 5845e745777150..7a5c6af2956578 100644
-> --- a/Documentation/ctlv/abi/families.registry.yaml
-> +++ b/Documentation/ctlv/abi/families.registry.yaml
-> @@ -5,3 +5,4 @@
->  # Written by "make -C tools/ctlv regen".
->  families:
->    - ctlv
-> +  - ctlv-attestation
-> diff --git a/Documentation/ctlv/families.yaml b/Documentation/ctlv/families.yaml
-> index 4d219d7af74a79..dbb0243b873d68 100644
-> --- a/Documentation/ctlv/families.yaml
-> +++ b/Documentation/ctlv/families.yaml
-> @@ -15,3 +15,4 @@
->  
->  families:
->    - ctlv
-> +  - ctlv-attestation
-> diff --git a/Documentation/ctlv/generated-files.yaml b/Documentation/ctlv/generated-files.yaml
-> index d4766b176ceb98..00a56634805d40 100644
-> --- a/Documentation/ctlv/generated-files.yaml
-> +++ b/Documentation/ctlv/generated-files.yaml
-> @@ -16,3 +16,10 @@ families:
->        kernel-header: include/linux/ctlv_gen.h
->        kernel-source: lib/ctlv/ctlv_gen.c
->        user-source: tools/ctlv/libctlv/ctlv_user_gen.c
-> +
-> +  - name: ctlv-attestation
-> +    source: Documentation/ctlv/specs/ctlv-attestation.yaml
-> +    outputs:
-> +      uapi-header: include/uapi/ctlv/ctlv_attestation_gen.h
-> +      kernel-header: drivers/attestation/generated/ctlv_attestation_gen.h
-> +      kernel-source: drivers/attestation/generated/ctlv_attestation_gen.c
-> diff --git a/Documentation/ctlv/specs/ctlv-attestation.yaml b/Documentation/ctlv/specs/ctlv-attestation.yaml
-> new file mode 100644
-> index 00000000000000..78b2dad6318a6f
-> --- /dev/null
-> +++ b/Documentation/ctlv/specs/ctlv-attestation.yaml
-> @@ -0,0 +1,181 @@
-> +# SPDX-License-Identifier: ((GPL-2.0 WITH Linux-syscall-note) OR BSD-3-Clause)
-> +%YAML 1.2
-> +---
-> +# Attestation devices: evidence and measurement registers (MRs). The device's
-> +# family inherits this one, fills device-info and gives evidence-vendor-format
-> +# the formats its vendor defines.
-> +family: ctlv-attestation
-> +inherits: ctlv
+On 11/23/26 8:55 PM, Nishanth Menon wrote:
+> On 16:28-20261120, Krzysztof Kozlowski wrote:
+>> On 20/11/2026 15:42, Wadim Egorov wrote:
+>>>
+>>>
+>>> On 9/10/26 4:44 PM, Nishanth Menon wrote:
+>>>> Now that all relevant drivers have are ready, convert the
+>>>> TISCI drivers to modules. This impacts all K3 platforms for
+>>>> boot, recommendation (based on empirical evidence) is to use
+>>>> deferred_probe_timeout=60 in kernel command line to allow for driver
+>>>> probes to complete successfully based on the initrd used.
+>>>>
+>>>> NET Savings: (Ubuntu Clang 23.0.0)
+>>>> ./scripts/bloat-o-meter vmlinux_previous vmlinux
+>>>> add/remove: 4/380 grow/shrink: 0/5 up/down: 32/-143248 (-143216)
+>>>>
+>>>> Signed-off-by: Nishanth Menon <nm@ti.com>
+>>>> ---
+>>>>
+>>>> NOTE:
+>>>> a) This patch is based off v7.3-rc1 and will create a merge conflict
+>>>>   in linux-next (next-20260909), but the resolution is trivial (vs
+>>>>   bd94bea7165be450903c6d64bbcb4862e36798f9).
+>>>> b) Emperical experiments that Siddharth Vadapalli did,
+>>>>   it seems like some driver probes might be taking much
+>>>>   longer than the default deferred_probe_timeout of 10
+>>>>   seconds that is used when CONFIG_MODULES=y. Testing log[1]
+>>>>   a deferred_probe_timeout=60 seems to have worked fine.
+>>>> c) Full bloatometer report is available in [1] as well.
+>>>> d) related lore discussions[2]
+>>>>
+>>>> [1] https://gist.github.com/nmenon/5f1587b373e6ca27170593010188d968
+>>>> [2] https://lore.kernel.org/all/20260429-defconfig-v2-5-e4ed4186028b@oss.qualcomm.com/
+>>>>     See headsup I gave on #linux-ti irc channel https://libera.catirclogs.org/linux-ti/2026-05-20
+>>>>     https://lore.kernel.org/linux-arm-kernel/20240821110054.35u5ubgaogzjv6c4@rover/
+>>>>     (original thread that triggered various changes)
+>>>
+>>> I can't boot our boards anymore using the default defconfig. Is this forcing us to switch to an initramfs?
+>>
+>> arm64 targets long time ago were supposed to use initramfs. It's pretty
+>> easy to switch, honestly, yocto can give you a very small initramfs
+>> which will you can also extend to copy the modules to rootfs, if needed.
+> 
+> As mentioned, we are struggling to keep the Image size in control to be
+> able to add new SoCs and architectures. But yes, initramfs is the way to
+> go.
 
-This is much easier to read, I think it works well like this!
+Thanks, I understand the Image size argument and I know most of the options. My point is more the workflow: testing a mainline defconfig kernel on K3 used to be just Image + dtb. Now we need extra userspace in an initramfs to load the modules, and the modules have to be repacked for every kernel build.
 
-> +
-> +enums:
-> +  # What an evidence object is.
-> +  evidence-class:
-> +    # Made by evidence-get over its challenge, and signed by the root of
-> +    # trust.
-> +    - signed
-> +    # The platform's log of what firmware and the boot chain measured into
-> +    # the MRs. Later extends, through mr-extend or otherwise, are not in it.
-> +    - event-log
-> +  # A layout of an evidence object that a standard defines.
-> +  evidence-format:
-> +    # The log area of an ACPI CCEL table, a TCG crypto-agile event log.
-> +    - ccel
+I will probably go via 'make image.fit' + ramdisk. Simons make_fit series had patches to put the built modules into the FIT ramdisk. Something like that would bring back most of the old simplicity.
 
-Lets be in the habit of including a detailed spec reference for things
-that are standards.
+> 
+> 
+> If you are looking for something that might help pick the modules
+> needed, i found [1] (basic busybox) useful and I use this for daily
+> testing for all TI K3 EVMs. kernelci goes the other direction (vs
+> picking just the modules needed for a specific boot mode on a board)
+> of having all the modules in initramfs. Both directions have been
+> working for a few months now.
+> 
+> 
+> [1] https://github.com/nmenon/boardrd
 
-> +  # A layout of an evidence object that one vendor defines, given by the
-> +  # device's family.
-> +  evidence-vendor-format: extension
-
-I find this 'standard' 'vendor' distinction confusing. Is this an
-artifact of the compilation process?
-
-This would be more usable if there was one enum but both this yaml and
-the driver yaml can contribute values to it. If we made an 'extendable
-enum' then the values could be full 64 bit ID numbers with the tree
-coding so that the extension works the same way as a op and record?
-
-Though I'm a bit nervous about what happens if something in a driver
-turns into a standard. It would be nice to be able to make the
-driver's ID promoted to a global ID without changing the ID. That
-sounds like something the generator could learn to do later I guess.
-
-The comment should be improved to define what consitutes a 'format'. I
-was advocating that the format should define enough to check the
-signature and the challenge universally.
-
-Like Peter described the new TDX evidence as "tdx-quote-eat-cwt-1.0".
-
-Poking at the IETF RFCs with AI a bit I think it should be described
-as "CWT EAT" in this language. The EAT RFC defines the location of the
-challenge and uses the CWT packaging which defines how the signature
-is placed.
-
-I think ARM uses this format too, IDK what AMD uses.
-
-The EAT itself should have information inside that describes the
-"tdx-quote-1.0" idea, so we don't need it externally.
-
-> +  # The kernel's hash algorithms.
-> +  hash-algo:
-> +    $header: linux/hash_info.h
-> +    $enum: hash_algo
-> +    $end: HASH_ALGO__LAST
-> +
-> +flags:
-> +  # What a device offers for its MRs.
-> +  mr-device-caps:
-> +    # mr-extend is provided.
-> +    - extend
-
-I guessed the userspace should learn what operations are supported
-using introspection directly on the operation? Do we need to specify
-what ops are implemented in device-get?
-
-> [ ... 5 lines skipped ... ]
-> +records:
-> +  # One MR, as mr-get describes it.
-> +  mr-desc:
-> +    # The platform's name for the MR, such as rtmr0.
-> +    name: string(1..128)
-> +    # Its banks, each once, in the provider's order.
-> +    supported-hash-algorithms[hash-algo]: hash-algo
-
-I wonder if it would be wise to put a bit more syntax here:
-    supported-hash-algorithms[num_entries(hash-algo)]: hash-algo
-
-Just to be clear about exactly what is being extracted from
-hash_algo.. It is the total number of entries, not the maximum value
-or something else.
-
-> +    # What it allows.
-> +    caps: mr-caps
-> +    # The hardware's number for the MR, where it has one: 0 for rtmr0.
-> +    register-index?: uint(..u32-max)
-> +
-> +  # One bank of an MR.
-> +  mr-value:
-> +    # The bank's algorithm.
-> +    hash-algo: hash-algo
-> +    # The digest, as long as hash-algo's.
-> +    data: binary(16..64)
-> +
-> +  # The device's MR generation, which each extend bumps.
-> +  mr-generation: uint(..u32-max)
-> +
-> +  # Values for banks of the MR, each bank once.
-> +  mr-values[hash-algo]: record mr-value
-> +
-> +ops:
-> +  # What the device can do, and its family's fields.
-> +  device-get:
-> +    type: action
-> +    fd-access: read
-> +    reply:
-> +      # What the device supports, fixed for its life.
-> +      caps:
-> +        # Present when the device produces evidence.
-> +        evidence?:
-> +          # One per object evidence-get can produce.
-> +          objects[16]:
-> +            # The device's handle for the object in requests.
-> +            id: uint(..15)
-> +            # What the object is.
-> +            class: evidence-class
-> +            # The layouts a standard defines that the object may have. At
-> +            # least one of formats and vendor-formats is present.
-> +            formats[4]?: evidence-format
-> +            # The layouts its vendor defines that the object may have.
-> +            vendor-formats[4]?: evidence-vendor-format
-
-How do we want to fit AMD's unique GUID scheme into this?
-
-I'm not sure we should be passing a GUID from userspace to select an
-opaque blob. If not then the kernel could have the GUID list and
-report the correct evidence formats as options here?
-
-But then this is maybe a bit limiting because the format is supposed
-to be the basic envelope, but the AMD version uses almost the same
-format but they are still different. Though I suppose the difference
-in the nonce calculation warrants a second format.
-
-And then how does generic userspace even know which one to pick? List
-them all? Should kernel give some 'default signed evidence' ID ?
-
-So many questions :(
-
-> +            # The longest the object gets; a blob this long always holds it.
-> +            max-length: uint
-> +            # A signed object's challenge lengths: each entry is one length,
-> +            # or a range from min-length to max-length.
-> +            challenge-lengths[8]?:
-> +              # A single length.
-> +              length?: uint(1..4K, bytes)
-> +              # The shortest of a range.
-> +              min-length?: uint(1..4K, bytes)
-> +              # The longest of a range.
-> +              max-length?: uint(1..4K, bytes)
-
-The comments should be more prescriptive on how userspace has to
-handle this. I guess if length appears then that length must be used,
-otherwise within the range described by min/max length
-
-But I wonder if this is worth some additional schema support to define
-a tagged union?
-
-> +        # Present when the device has MRs.
-> +        mr?:
-> +          # The MR operations the device provides.
-> +          flags: mr-device-caps
-> +      # The device's family's fields.
-> +      info: extension device-info
-> +
-> +  # Evidence objects, written into the caller's blobs. A signed object is made
-> +  # by the call, over the challenge, and never reused; the others are read as
-> +  # they stand at the call.
-> +  evidence-get:
-> +    type: action
-> +    fd-access: read-write
-> +    availability: dynamic
-> +    optional: true
-> +    request:
-> +      # Bound into each signed object named: pass a verifier's nonce, or a hash
-> +      # binding one to your context, never data a peer chose. Present exactly
-> +      # when a signed object is named, and of a length each of them takes.
-> +      challenge?: binary(1..4K)
-> +      # The objects to produce, each named once.
-> +      objects[16]:
-> +        # The object, by the ID device-get lists.
-> +        id: uint(..15)
-> +        # Where the object is written. One too short for it fails the op with
-> +        # EMSGSIZE, and error-info's required-length says how long it has to
-> +        # be.
-> +        data: blob(out, va)
-
-What will this be like when we add memfd later?
-
-> +    reply:
-> +      # One per object, in request order.
-> +      results[16]:
-> +        # The layout it came in, where a standard defines it. Exactly one of
-> +        # format and vendor-format is present.
-> +        format?: evidence-format
-> +        # The layout it came in, where its vendor defines it.
-> +        vendor-format?: evidence-vendor-format
-> +        # The bytes written to its blob.
-> +        length: uint
-> +      # Present when the evidence depends on the MRs.
-> +      mr-generation?: record
-
-Later we will need to add 'tsm controlled challenge' meaning the challenge is
-an output not an input,
-
-> +
-> +  # The MRs' IDs and descriptions, which do not change; mr-read returns
-> +  # values, which change with every extension and are read from the hardware.
-> +  mr-get:
-> +    type: query
-> +    fd-access: read
-> +    optional: true
-> +    suggested-reply-length: 4K
-> +    request:
-> +      # Only this MR; every MR without it.
-> +      id?: uint(..u32-max)
-> +    reply:
-> +      # One per MR, ordered by ID.
-> +      items[]:
-> +        # The device's handle for the MR in requests.
-> +        id: uint(..u32-max)
-> +        $include: mr-desc
-> +
-> +  # One MR's values, and the MR generation they belong to.
-> +  mr-read:
-> +    type: query
-> +    fd-access: read
-> +    optional: true
-> +    suggested-reply-length: 4K
-> +    request:
-> +      # The MR to read, by the ID mr-get lists.
-> +      id: uint(..u32-max)
-> +    reply:
-> +      mr-generation: record
-> +      mr-values: record
-
-Can we leave the generation for a followup with more understanding
-what it will be used for and how it is computed?
-
-> +
-> +  # Extends banks of the MR by digests, as TPM2_PCR_Extend.
-> +  mr-extend:
-> +    type: action
-> +    fd-access: read-write
-> +    optional: true
-> +    request:
-> +      # The MR to extend, by the ID mr-get lists.
-> +      id: uint(..u32-max)
-> +      # For the banks to extend, each once, in any order.
-> +      mr-values: record
-> +    reply:
-> +      mr-generation: record
-
-The comment should say that mr-values must include exactly every bank
-inside the MR, not more or less.
-
-If we want to later add something like a log entry as an option this
-is easy to extend for that, right?
-
-This API eventually needs certificates. I expect that Intel is
-including the certificates embedded within the EAT returned here as
-signed evidence. AFAIK ARM does the same
-
-But AMD seems to pass them through 'auxblob' in tsm_report, so there
-should be a certificates API here to get them. SPDM also has them
-detached from the evidence.
-
--- 
-Jason
