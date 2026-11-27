@@ -1,63 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.206.34.216
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795759797;
-	b=KGf9BBCIurL81i3y8VEypKcbF58pbUrLxbp7P1GmPDVvIAahS+WEiw13YL2ay8Up3bGT
-	 w3PHsZeGsuNCm8WganHWZmsSfTBm7GcfYK+/8uhigmlmD49Kp1dax0hVtO9/fOO29pQbf
-	 cE3BBGQhXIKwSbeKRigLUuG11qvI4xjOJxY2S6JMZ/s9WY99YrUgXToIuSmzX+U6+RkF1
-	 ynStb3w4SdMPggm5Ubc+nfSmeT1TNeeKDMsXgTJFm+PIoWUlWkGqs50Z6mKE1087pXts1
-	 YXTnxsB+U5VxgxioF5hunFtipJqycguyxRxwutLsobejR1kEJQhXuYKHpJmqt+SnRXA==
+	t=1795759824;
+	b=1hCek6i3QBBy+BXSEN43J0+KfloEnu9ekdUeiFGrti4ftCZKJPFtWnVATVSscLJc9RQR
+	 4Wl6oaiae1a27UvNSqR1UVT1VxwjZvp4EkRRFyogrzQeAU6LKlbrZ6j8oX9q4t4uyKo9D
+	 SBjYuBQB2+ObNnTtTze4+38+pzHef+/hQmeAwb6xVpyaUysBah4xM9lQasVxsv1/gF0dD
+	 i/yWKKzCg65vR4RzboJQJZjwnpLYQYzH2EcdZrQNHUcDnQnxYZ3a5qgtjzVQQRd9f8bzc
+	 N9C2kmuC+Cu5KwlYyu7INlgZ5pH+pEZfoP6hq+eU3+TozLGt0qPhy+xL4xzUGrdjjkw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795759797;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=rylJ4EnxKNIcixfDOljd+e6hXXj/Ks5EE/NnudM1ajo=;
-	b=FaHRS1KFn+Q5pXDY5xxTWTbI0n/Uzv2kzXDUX8BODDbIZTL3Db63DIlcWNgfDuhKAxJ8
-	 /28nRNgsqwZDwa8Ge3unLIkaCVp1cvke4u2zdVbCBvFvf57N7NWcl/rSXbJjuNbKw4fmj
-	 mfsbanyixxBBxeoyE7avSsR3ZNoVoKFb5cGpp33gnP1UwzPJYsUz5B4smjd5aSrXbGGIe
-	 pgBCqD38HoqU5HyPvSvuZZyPZH23WoSOuB3kn/bJdLcVKWl3iMu2gKvFUQvYYxVHAr/V9
-	 UzdLJPcLD5BIvm1tyLzQMzujwvPJdw0avtWwm+BmkYrEFAjjSz93/Dp8kwbxrnoaVOQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795759824;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Mime-Version:
+	 Content-Type:Date:Message-Id:Cc:Subject:From:To:X-Mailer:References:
+	 In-Reply-To:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:
+	 X-QQ-RECHKSPAM;
+	bh=E2NeSLXfonrxSY+W49lO191CRD3CyOzI7hF6dMSOWd8=;
+	b=nWpR2MdnsuGcnOD7zq25vH7yI0c4uMncmKfzFUKrFhwHtM6qnkGBCuCKYkOh/Zhlx/i7
+	 krWw46etqdn+H1E27KZFF3H0A3+f39fOrH9DjiqvvqsL44DZoJEYZMiaQJOplA4BK2f57
+	 v3TRRH8Cj2GKhlrXLSNTWcFwmsKfxzd424zIUWo2SNgimk8d4E6LgGYsOhD54GPeixCIl
+	 2B45yGIjHbtJkLmo5qYKY1pELxxMEiLRF9ehGbXN/fuYUGb0uEkswAVDifaL2Oiwbn3FS
+	 cZ8B2f7qqcaZnl2AKUBpbAm+0aIvdDgG2LgsTWaQddj9vkoEHjcNiUJjJqRyLTEUR5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=m8FLExAR;
-	arc=none smtp.remote-ip=220.197.31.2
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=linux.spacemit.com;
+	spf=none smtp.mailfrom=linux.spacemit.com;
+	dkim=pass header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=IlGuBUNf;
+	arc=none smtp.remote-ip=54.206.34.216
+Received: from smtpbgau2.qq.com (smtpbgau2.qq.com [54.206.34.216])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70752606A31C;
-	Fri, 27 Nov 2026 06:09:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70752606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE4B6606A31C;
+	Fri, 27 Nov 2026 06:10:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE4B6606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux.spacemit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=linux.spacemit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=m8FLExAR
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=ry
-	lJ4EnxKNIcixfDOljd+e6hXXj/Ks5EE/NnudM1ajo=; b=m8FLExARKIB4aPMSQC
-	J8kBJZWZJFdvRxNIPKbUTBLMaQy7moE/YP6qql5TJFqbzYleirmF1bNBNTXkxAbJ
-	cGgeRU5sAy54BR2byhEeLVSKp79mQ6vTdbnRgZIqXAanDRy8RkOxCJ+gPVX/h1lC
-	tMS/f81cb6s4gOIVqdFBngUyU=
-Received: from ubuntu (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wD3f91fHglrpiWBKA--.777S2;
-	Fri, 27 Nov 2026 14:08:40 +0800 (CST)
-From: Shaopei Zhu <shaopei_1012@163.com>
-To: David Timber <dxdt@dev.snart.me>
-Cc: Namjae Jeon <linkinjeon@kernel.org>,
-	Sungjong Seo <sj1557.seo@samsung.com>,
-	Yuezhang Mo <yuezhang.mo@sony.com>,
-	exfat@lists.linux.dev,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH v7] exfat: add EXFAT_IOC_COMBINE to append a file's clusters to another
-Date: Fri, 27 Nov 2026 14:08:29 +0800
-Message-ID: <20261127060829.940607-1-shaopei_1012@163.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <059a0b05-2993-4e98-a640-c7c8364c7c69@dev.snart.me>
-References: <20261124230746.850528-1-shaopei_1012@163.com> <CAKYAXd_ap120uprmarov-GuO0fb1eXEgw-U8G08L1xRJ9bv18A@mail.gmail.com> <20261126075247.850895-1-shaopei_1012@163.com> <dcd27d38-60a2-4c1a-81ff-4a82e99520ab@dev.snart.me> <20261126190704.935716-1-shaopei_1012@163.com> <059a0b05-2993-4e98-a640-c7c8364c7c69@dev.snart.me>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=IlGuBUNf
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1795759815;
+	bh=E2NeSLXfonrxSY+W49lO191CRD3CyOzI7hF6dMSOWd8=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=IlGuBUNfuc0X+Pt3hn9np8itQgtiT5Y6SrDdfdiN0lIRUOz21aPe8g8Qgadna6M75
+	 bdn2tXw/j7r0us/0BtOSVxF1Yjyjb3TUWZxP8XiPP5Q5qt8PZW/QpXEI/b84/aI1Ze
+	 6Lxe3kwqdBXOal+B4RzUZg3Lpsm30yimKVcfbLH0=
+X-QQ-mid: zesmtpsz4t1795759813ta86aa600
+X-QQ-Originating-IP: n4795X9CtarIxKcBmI9iCqupaEOTuiKZlULc3AJEdYw=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 27 Nov 2026 14:10:11 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 10182266507146119862
+EX-QQ-RecipientCnt: 13
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,27 +58,95 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3f91fHglrpiWBKA--.777S2
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU5zuWDUUUU
-X-CM-SenderInfo: pvkd01phlbiiirs6il2tof0z/xtbC6gi+TWsJHmgYXAAA3B
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=26ed1f322d44d2ecd4a6afc050eef67eafba067d32d916536e0aeaac7c68;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Fri, 27 Nov 2026 06:10:10 +0000
+Message-Id: <DN5RQ489MNYL.1WRXDMIRHZK6I@linux.spacemit.com>
+Cc: <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 4/4] riscv: dts: spacemit: k3: Set CD pin bias
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Yixun Lan" <dlan@kernel.org>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
+ <conor+dt@kernel.org>, "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt"
+ <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>, "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+X-Mailer: aerc 0.21.0-reader-ipc4
+References: <20261125-09-k3-dt-minor-misc-v1-0-dd887a8eb326@kernel.org>
+ <20261125-09-k3-dt-minor-misc-v1-4-dd887a8eb326@kernel.org>
+In-Reply-To: <20261125-09-k3-dt-minor-misc-v1-4-dd887a8eb326@kernel.org>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: M2Wkd4xaa21sg9K06gNCQhOpy5NqUNeHylGFHTUHRUS54J/dciyOcK2m
+	9eXv4P3ojXND0Ganf0qXT4YAoWmg7RhiLAFRmtV5VXtG7uA39zD2Hr/MzOr7Uf37LALxSaB
+	wjoZOj7asVhHnimohIFUbN45xkyGvwUJNFe0ehm2dSmDIqOZ0ngnGbHjO5Z9QdrB5X3B9r9
+	M8DCKpmpqYTyGFgjuXmAAnCP7hAwGnUPY7lRSHe2XLPQAAGxAHkRb4UisLU9r+rkI+6fUhK
+	KGbCZLAUIYn4vgxUdAbtL8d8J1zwflTH0+VLb3P9n5r/we7TNMn8gl2gO3ZvUM767zRkHI8
+	SqDL0RmgWZ/jHcvoS/SFEIfDkkYmNu3iDB3OYFzS3GT2XXQs6dNmoDb7sdFki2Czldcfqof
+	T2k1bpHsw2MPQdp1UQbYryF5OtWXwfUj3WWINxkq2ZXYUkD0pVdkoyBwgwkuwLunBrsVz9u
+	Tx/+w97Ygw3LjhxO0/qXmdrFLy0PYSYV3APcc26ANRYu0mLLY9xSfX4BuIAD/sx66q+9vdC
+	AMsa3AzY9GwQQ/QlvlneFlxhCt+G6cGos1egbz5vFYzUxHKPsWdgEhhaZ90sfGbIK80yzfU
+	ehOKM+7oqy/l0Ectu1XZ6DNxeSwKbhsemW8k7HkgORyFeFFSyDZB9HLQkTMsnpkiQjl/DKy
+	0Ug37aVkif1KhBwUbXfKT5lTDaqGHpbxXqyd4OvsO3NHXLUHPcvAsz4KBgsBcc82Y4cKzIC
+	niPIRdN2qwy5c4QOp4RX0RltNDhlFWNFQU3jfn2ZBUFx2FAPmAiUSvK5Dj2cbYqW/rEDPcu
+	/YsqHuqCnYy+ra3xrA8RoyOVg/U71+lYHpmt+dc0w2f2wNA2RH4vsryNcEbvCQfFN/DhErl
+	POpTbnQmMw+6I3LuAx7LMbJ2JIDd7OvdARgMxHMZIBGLuARJzpLyflgYB7e1N34lXUi001X
+	PzWG5oZ1rex21hKaHvMa79U3A8/L9vPSxRPrWlsl2hrzW0Ogv7gJKHqJOxzuiEMlCxT71+e
+	ce7s3rebJKm3drU2s9sa65n6A0ItU+gOlEYFGe+zwRo/q5MwXoCSq10xUvZD3+vivfnuBZd
+	y7xDJVzXGPYEiS2wOXTgYWdtQfkdXwpRvEsPqQu4rL94TSdcJueQhM=
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-QQ-RECHKSPAM: 0
 
-Hi David,
+--26ed1f322d44d2ecd4a6afc050eef67eafba067d32d916536e0aeaac7c68
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-You are right, and I am sorry.
+On Wed Nov 25, 2026 at 7:46 AM GMT, Yixun Lan wrote:
+> Explicitly configure the bias settings of the CD (Card Detect) pin
+> for MicroSD card in CoM260-IFX board.
+>
+> During the GPIO pin request phase, the pinctrl driver disables bias
+> settings in function spacemit_request_gpio(), this happens to work
+> in kernel side, but doesn't for U-Boot. Adding a flag to fix this.
+>
+> Signed-off-by: Yixun Lan <dlan@kernel.org>
+>
+> ---
+> K3 Use same SD card slot as K1's MusePi-PRO, which needs PULL_UP.
+> ---
+>  arch/riscv/boot/dts/spacemit/k3-com260.dtsi | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/boot/dts/spacemit/k3-com260.dtsi b/arch/riscv/boo=
+t/dts/spacemit/k3-com260.dtsi
+> index 65c6f49f8591..598a53461afc 100644
+> --- a/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
+> +++ b/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
+> @@ -240,7 +240,7 @@ &sdhci0 {
+>  	pinctrl-0 =3D <&mmc1_cfg>;
+>  	pinctrl-1 =3D <&mmc1_uhs_cfg>;
+>  	bus-width =3D <4>;
+> -	cd-gpios =3D <&gpio K3_GPIO(4) GPIO_ACTIVE_HIGH>;
+> +	cd-gpios =3D <&gpio K3_GPIO(4) (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
-I do take your time and your comments seriously.  My English is not
-good, so I used a tool to turn my answers into English, and the result
-was much too long.  The facts and the decisions in them are my own.
 
-I am a developer and much of my work is on exfat, which is why I would
-like to contribute some of my ideas to it.  Your comments, and those
-of the other kernel developers, matter a lot to me.  I will think more
-carefully about my replies, and I am sorry for the trouble.
+--=20
+Troy Mitchell
 
-Thanks for telling me directly.
 
-Shaopei
+--26ed1f322d44d2ecd4a6afc050eef67eafba067d32d916536e0aeaac7c68
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCawkewiEcdHJveS5taXRj
+aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC/aXQEA1ljwDzb2fdP6
+XzncsQ9ip4r67ZDtHNdpKwFVYpXsXskBAJwpqVE+V9wjlbhp5FQodbaCyQVw4YuI
+iJup+srjnbgK
+=BeSR
+-----END PGP SIGNATURE-----
+
+--26ed1f322d44d2ecd4a6afc050eef67eafba067d32d916536e0aeaac7c68--
