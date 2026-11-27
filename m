@@ -1,45 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795776964;
-	b=uoC1lu/CPsELAVEafHe/nlhIp87PvsLDtxLYGGUaxelQpLee7QSBzDfOSplyIYn+rKIR
-	 wjF2d8k/NRpKEsC83petLRwgoWnZVHBE7R/1CZ1y+kzgQ2Uv6PCvrRXuXdsfPZdAMAgAS
-	 oB/VIvuQLbIvXC1ZOrk0N3ueOTVaRJiP3ANnxT5nRKtWY03WQGkNrgCObaOk81A2FZgdx
-	 /Pp0iOwyBPG+yW107oIv7GJStGnG4NV/M7pCe/qWQVFiytEAWRUXvUz39G/6tSypZDdEF
-	 3wcrCJZASX5g4gSeMu8hSXfTwQXGbsS7mg1rxUnwg/Q6O4Gq32IwXkd3tNR4AH8Xoaw==
+	t=1795776975;
+	b=3QKLh4kfVRY9IevQ9gmFS38RsMhjILz8JCueH/YW9w+Em9arWO2a46jLLjlWOq3wBTcK
+	 kbJRR2A/MWSvEXFdHMO2J8/JWmHSUV4jBTIUyCCTQMnOnGaQg0ucCnqmKKVK4lxWMI7AA
+	 MOd4BmY9NRJqocs2e2sMO8vS789RgemwuVcXXUNhPuyFN3DQn32NVJkiROqH7MBrYL6yl
+	 6PIqzwP6mTQ8QGRsEIRgnpDE/2WMPylAQ+bJY2gIo7XNb24tCKnguL31vO30lG/iT4aum
+	 Rhz37Mm+1FgiabDrOhNwvBAxdVXa4oMqZSIY9LNA2C5I2zYYT0uyZ+RhzhMmsSxDeKg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795776964;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=ZlegVpC4N6/+DVa9XykpigNYuit2LZU6A1aITfV+CFo=;
-	b=IFYX3RbxSUFTQ0LUXRH+L3E4DybKzHZVgaNOi5IselVZomtHyRednVxLH7j5YvEBjgPD
-	 w1KadTrWEnpNfUvH7uUPSbxx+ysMOK9p6/PP079OJIxI3KCSjnhvapvrcEkYGoWWCtLuI
-	 a2OC574/OVeb+9Vadi4a+c9364PnPNeYvYoeefJofqfUeSKTyytG31CDbpzoBXY8cxnUh
-	 pwaa0WjVEUemcURUIcoa9CAMPja/cFe3x421uHNgW05qO1NFXN5RSPfzCCsTOfEV5XN9J
-	 pYe0nckPesduXbiQ9E3woNaS8gF05DTbPyIo5F5Pt3FwH2WCD9K2zd/ZdapsWLxqlAQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795776975;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=4oPbOOVAXn271nhP2YycpBt+iE9P/WvywOYHMnBDwp0=;
+	b=qJnJJu3V5mSdgntuYVxB2FYgg+y5Wb7DxMCVIkVk6VdBXLtihY88UMyQbfcYTYW1qqhL
+	 R8x7fUGq+dhHma8iNuQeYZU2w8+KWyjX84wFXCW4aOWKXdHrtT6UnKPiG3N3MqJ1Y811M
+	 BFBuxn3z4BpHhTSzfFpz5dhhHj7ghbJoVJX05TrJSsWFfk+sExvyer/gVItIii3TQrKb0
+	 zeU2UEi4TQgYHExZa5r2AfEb3oHqjhKDh8+hfcU/Txx8PcxwhtmYgWdQI0ws0CXnJMIUN
+	 6aUgtHU68xt1gjhkyGIZiDD/JG3oPlWIapJWdo3tY7OZC9/Dg2ht1P+x/GXPgq31o7A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SnoD6zoT;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ob+34Da0;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC8F4606A31C;
-	Fri, 27 Nov 2026 10:56:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB2C8606A31C;
+	Fri, 27 Nov 2026 10:56:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SnoD6zoT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 341621F0089A;
-	Fri, 27 Nov 2026 10:55:58 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ob+34Da0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B5FB1F0089A;
+	Fri, 27 Nov 2026 10:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795776963;
-	bh=ZlegVpC4N6/+DVa9XykpigNYuit2LZU6A1aITfV+CFo=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=SnoD6zoT5DtXHoebBCaOXk5dnNGkPNYHPT1HRJWuuFhbdR4XpY93ug/4Gq5M8FFrN
-	 RLYY42k7RBR8m3r+XFy2JpaJ+RZ+rwdHraquLB0kt/emxtwdYX+bbxVk95X912+pwq
-	 YNckXLfN6Ep6DIrJTVjZ7zch4E3C9C6REPgucdlDjskd9jxpgXGTxUoxVs9KYEVmEn
-	 RQO+s5CutE/ZRQ5MnHxn/IM5IP9OyIt74hi5OupI9t5hhYIFyQIn+7huJcNjkV/iLL
-	 /9I8a8cuOeHmEJ7sSOKa6uFNwOH4IHWRGg0+TZAX10nKk7ZvLfJX9/XNUTEU2+2Uwi
-	 dsSzx4j6rw4xQ==
+	s=k20260515; t=1795776975;
+	bh=4oPbOOVAXn271nhP2YycpBt+iE9P/WvywOYHMnBDwp0=;
+	h=From:To:Cc:Subject:Date;
+	b=Ob+34Da0d99Fsv2BnaAwkRUkAuesw76TTUC0wV1t0WuZIt+gSPo+MVFKYx6n3ouAs
+	 t+jB+HqZWTMEZbWSUO0eu/Fqyj8EdgeOnsqW36J0t73uvvrYJC5gQMOrPJovkgGCyk
+	 OWRZ928IZUt0pri3ncjDJ2zDo8pwLZRqLxmoxK1nz1PpLL/qc3Iq8AxA15qali0ViM
+	 yM2PKFTBZdKJ3a18T9PlrTnzeuqankZubzN/5NtTlIrOKwhnHlBp66qp1iHTia5QlP
+	 abN+YxWCq+RLECnXWe+4ue3pm3UHPyL9nj+BRFgP3m81ZU3+Sj03n0qqW9WfPzHrTM
+	 Lpc6Ta8porAdg==
+From: Chao Yu <chao@kernel.org>
+To: jaegeuk@kernel.org
+Cc: linux-f2fs-devel@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org,
+	Chao Yu <chao@kernel.org>,
+	stable@vger.kernel.org
+Subject: [PATCH v2 1/7] f2fs: fix to persist i_size extended inside last block for fsync
+Date: Fri, 27 Nov 2026 10:56:08 +0000
+Message-ID: <20261127105608.537148-8-chao@kernel.org>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,67 +58,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v2 0/2] phy: cix: add Sky1 USB/DP combo PHY support
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Gary Yang <gary.yang@cixtech.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Fugang Duan <fugang.duan@cixtech.com>, 
- Luo Liu <Luo.Liu@cixtech.com>, 
- CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>, 
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261117083434.3414417-1-gary.yang@cixtech.com>
-References: <20261102082112.2306326-1-gary.yang@cixtech.com>
- <20261117083434.3414417-1-gary.yang@cixtech.com>
-Date: Fri, 27 Nov 2026 16:25:55 +0530
-Message-Id: <179577695532.3421.8058975724074009117.b4-reply@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1515; i=mani@kernel.org;
- h=from:subject:message-id; bh=nQgG+FcHfk3RKk15uM6aPDgBtFBZFTK+R8FuOdfx2EU=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBrCWG+tZ0DzfyeE6LZq3Ollpps4poHntGS6zVri
- 6cieyG3DoaJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCawlhvgAKCRBVnxHm/pHO
- 9SCaB/0QJA8FHipnJ95yVOBHp69LW3UvgkIeZhg5eSq9UaD4QhZwPoXl9N3B88zeqm9YiQgq4ju
- YdR9S3ADS5fa0M9iLKDDdHve6YPHPiXBVQjmY+1eqq614mCKHl6m1IfhWGmpCYjfP+lRTvDP5Ct
- XuYEaR2ZPTI4bA7R5i0bjkSpwBv+46FrLFAyEBrDrqSu0r5GKquGUA+FNsMEKmbvIOApgSLLcGY
- YvZnHL3VIfmviMb+6HREGJKBwFfK9GT1W7kZb2vZTEzpIlsRsjqQcwR0vKH88/E/hmYaYWA8Kqc
- a1bhnXnj4wYnMYDugM9AwO0oHG4Y5+zt3TnW711HugfIkIHE
-X-Developer-Key: i=mani@kernel.org; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
+Content-Transfer-Encoding: 8bit
 
-On 2026-11-17 16:34 +0800, Gary Yang wrote:
-> This series adds support for the USB/DP combo PHY of the CIX Sky1 SoC.
-> Each PHY instance drives one SuperSpeedPlus USB lane and up to four
-> DisplayPort lanes of a USB Type-C port. The USB and the DP controller get
-> their own PHY through the PHY_TYPE_USB3 and PHY_TYPE_DP cells. Plug
-> orientation and the USB/DP mode decision are taken by the Type-C connector
-> driver; the PHY consumes them through the Type-C switch and mux API.
-> 
-> The USB and the DisplayPort controllers and the Type-C connector are not
-> yet described in the CIX device trees. The graph links and the consumers
-> will be added together with them.
-> 
-> Patch 1 adds the binding and patch 2 the driver. The SoC and board nodes
-> are sent separately as a follow-up, since they go through the SoC tree.
-> 
-> Patch 2 builds on Luo Liu's "Add Sky1 DisplayPort PHY support" series:
-> 
-> https://lore.kernel.org/linux-phy/20261102030425.1957585-1-Luo.Liu@cixtech.com
-> 
-> That series creates drivers/phy/cix/ together with the PHY_CIX_DP Kconfig
-> symbol and the CIX SKY1 DISPLAYPORT PHY DRIVER MAINTAINERS entry. This
-> series adds the PHY_CIX_USBDP symbol and the new binding, and renames the
-> entry to CIX SKY1 PHY DRIVERS. It should be applied on top of Luo's series
-> to avoid conflicts in drivers/phy/cix/{Kconfig,Makefile} and MAINTAINERS.
-> 
+From: Chao Yu <chao@kernel.org>
 
-Please do not send new versions as a reply to the previous version. It makes it
-harder to spot new revisions.
+generic/737 fails on 16k block size f2fs, after writing a 1M file w/
+O_SYNC buffered or direct IO and shutdown, the file size is 0xff000
+rather than 0x100000, i.e. the last fsynced 4k data is lost.
 
-- Mani
+It can be reproduced as below w/ 16k block size:
 
+xfs_io -fs -c "pwrite -S 0x5a 0 32k" /mnt/f2fs/file
+xfs_io -x -c "shutdown" /mnt/f2fs
+umount /mnt/f2fs; mount /dev/vdd /mnt/f2fs
+stat -c %s /mnt/f2fs/file
+28672
+
+xfs_io writes 4k per pwrite() and fsyncs it, the 16k-sized 4k unaligned
+direct IO falls back to buffered IO as well:
+
+- pwrite [16k, 20k): allocates the block, last_disk_size = 32k (end of
+  the page) after writeback, i_size (20k) is unaligned, so fsync writes
+  the inode and its dnode w/ fsync mark
+- pwrite [20k, 24k), [24k, 28k): in-place update of the block, i_size is
+  unaligned, fsync writes the inode w/ i_size = 28k
+- pwrite [28k, 32k): in-place update of the block, f2fs_i_size_write()
+  sets FI_AUTO_RECOVER as the inode was clean; i_size (32k) is aligned
+  and equals last_disk_size, so f2fs_skip_inode_update() returns true,
+  and nothing is written for fsync since the in-place update doesn't
+  dirty the dnode
+
+After shutdown, roll-forward recovery restores i_size = 28k from the
+last fsynced inode, and do_recover_data() only extends i_size to the end
+of a recovered block when i_size doesn't exceed the block's start
+(28k > 16k), so i_size stays at 28k, losing the fsynced 4k data.
+
+FI_AUTO_RECOVER means that the dirtied inode can be recovered from data
+blocks via roll-forward recovery, it's not true when i_size is extended
+inside the old last block, let's clear FI_AUTO_RECOVER in that case, so
+that fsync will write the inode. It happens w/ 4k block size as well,
+e.g. w/ 1k O_SYNC appends.
+
+Cc: stable@vger.kernel.org
+Fixes: 26de9b117130 ("f2fs: avoid unnecessary updating inode during fsync")
+Signed-off-by: Chao Yu <chao@kernel.org>
+---
+v2:
+- rebase to the latest dev-test branch.
+
+ fs/f2fs/f2fs.h | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
+
+diff --git a/fs/f2fs/f2fs.h b/fs/f2fs/f2fs.h
+index 882ff2617531..d35149191625 100644
+--- a/fs/f2fs/f2fs.h
++++ b/fs/f2fs/f2fs.h
+@@ -3728,8 +3728,9 @@ static inline void f2fs_i_size_write(struct inode *inode, loff_t i_size)
+ {
+ 	bool clean = !is_inode_flag_set(inode, FI_DIRTY_INODE);
+ 	bool recover = is_inode_flag_set(inode, FI_AUTO_RECOVER);
++	loff_t old_size = i_size_read(inode);
+ 
+-	if (i_size_read(inode) == i_size)
++	if (old_size == i_size)
+ 		return;
+ 
+ 	i_size_write(inode, i_size);
+@@ -3738,7 +3739,18 @@ static inline void f2fs_i_size_write(struct inode *inode, loff_t i_size)
+ 		return;
+ 
+ 	f2fs_mark_inode_dirty_sync(inode, true);
+-	if (clean || recover)
++
++	/*
++	 * Roll-forward recovery only extends i_size to the end of a recovered
++	 * block if i_size doesn't exceed that block's start, so it can't
++	 * recover an extension inside the old last block, e.g. an O_SYNC 4k
++	 * append filling up a 16k block, which is an in-place update of an
++	 * already allocated block. Let fsync write the inode for it.
++	 */
++	if (i_size > old_size &&
++	    old_size > round_down(i_size - 1, i_blocksize(inode)))
++		clear_inode_flag(inode, FI_AUTO_RECOVER);
++	else if (clean || recover)
+ 		set_inode_flag(inode, FI_AUTO_RECOVER);
+ }
+ 
+
+base-commit: 9ad6c58bfbe5882b1aa0cbe2393dbfca89d2c199
+-- 
+2.49.0
 
