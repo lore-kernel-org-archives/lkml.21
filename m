@@ -1,50 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795801188;
-	b=Z4LrqVnADQBk8e0//Apckrs8qeTPitDfKvvDAxPRaxfsrf7rgMSWeHF7QX8KJqD32GCS
-	 QCP9JMFNlVEvR0Wb7P3KwLh4r9jJ6RI0kNqPu9PhVu7D+bVHxY/Zp8PkYiIyWaR8oGFT8
-	 Hhjo7jGG12sT5J81cpuzlVt2GTbrNo5ddAs2HOgLQ9/YL5E549GQarhvt9pSo5xZz4wCz
-	 JRL8JcaSzurUjH2iM5ZNutMXA8Jt/dan1dAQ1/5rbBM0NzFB63AVYtKXDhlnJaIjbsjFu
-	 tLMOj57+V4K0FbysvfXT17Bb9FJZKrnvxV/RseRlMdQXGWFP1xxpR1dMUrhAN7Jlu+w==
+	t=1795801211;
+	b=iA+JjuRSMCyFZr/GGJI6s3VZ5yg+pgB2gzVmw0zzyciE3f3SPkyXZRz8hBqRMFRnkdj9
+	 QqOb8vLaxgZgeUXGkO5CpZy+Rv3W5jHWrd4dSNKy1g28Fj5aYOwgqRzWmRkJUYYP4vF/O
+	 BZNsQnjYj7eQiyM4j4SxGcNVKeTF6rpECZyjBIme3oP/Gqv9CUuvB/Pe4ZIoLGzRTJkwd
+	 aAkRMqpZxiG8gxmYxsdvYiGPv9+thsO16NpFy7dS0mDSFtWgLPmJG0PdjzIl7/UN/6Tzq
+	 Iy+u40au6ihmEoHXzE8KRyfwAHKPHo0fiKqXKj4YcR6N0xB5/0eVlG5yElI+O8ryloQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795801188;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=S1T6TGSYrfskjIrAexTD+I9+Eq4AyHOQNMibTCrHmW4=;
-	b=CmaypGmW2hDpW1VFgU+U3JSo28V0+mMwfPlcjTrJ3NorpHoWbRy7RYlMAbR9M+Foxtqe
-	 Jj18HZkJVhUa1IBxnILMV2y1I/nVD7uf+aCDrHEuLYxT9+vI1hJLBRI5kohoMaIxjwj/U
-	 USNl7HDFJjUSWdzUrK8GaFWK3qPyvYqL4JyXUwj1Zw38NVIX/Hqf0+Cw5Y5tsRMkrO32o
-	 orF8iu3c4q6Psnkknv/Szh5dt1fHmL6NL9xQR8GyVQw5DbkCvIqT895qHZKI9WJL7QAuO
-	 SAQvHrHti8UFfWmYby5T/Ger+orW2GJSHQH8fhTtdn93dptV80paWjEY/Mgc5/rA2Uw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795801211;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 X-Developer-Signature:X-Developer-Key:Content-Transfer-Encoding;
+	bh=GcnQpQEXEsi+nvPttlap4C/vSdbuHSCBd/6D5U5RPLw=;
+	b=fIYh0oF9JzaugJUXhMwgokZTDvonvwI0Ec5hyn3F3UFExbvCxXUDVGEjL7TeyivgwUHK
+	 zk60uOjamhWSmw3Pijr2O8WGznco4MQEzMd3TdhbW/ufN8G85KthN3FoqDx76CmjQQTxA
+	 RBdnhyL81zdrVIVRhQGesjnjSfwne1oBpywqtktB1PFzagl5xKnh23hey+eNBKjEQDwcG
+	 xDgKq1dg3IOueV6yf8Po6HoLfvyBro0ZtVMPlQ366/EAYpVFTZiQ1t9XrWpSsN7aRg0wN
+	 ec+lqk4cMqwMqdh0nPzjku3KcoNBOKUMpGRQJyp3SbV6+mCJJ9mtecEhOPerAfn0BNA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ideasonboard.com;
-	spf=pass smtp.mailfrom=ideasonboard.com;
-	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=E0oOTNwq;
-	arc=none smtp.remote-ip=213.167.242.64
-Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=BOenXBKs;
+	arc=none smtp.remote-ip=209.85.221.44
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 797EE606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:39:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 797EE606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11B94606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:40:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11B94606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=E0oOTNwq
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id EE316C51;
-	Fri, 27 Nov 2026 18:37:08 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1795801029;
-	bh=CfMGeCRxn2dBlsYV0X+kisJYeGKSA+2kY+3iG0dhUNk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=E0oOTNwqF0k+EbBN1vMnbALT3dNT+x1am3P5bcbzF5XUw86z+U0jIzwt9eNJtCPSG
-	 J6wuK0sOiCwkJLaBHlj36fiI4I9g+PRUpEFauPef7VyljqcleFhpwUdUdAvZXuvgeb
-	 IApkUXfwFvJ3Lv9Hh17jI5JFRSHeGuuwweM4xAeg=
-Message-ID: <70541cfc-f7a3-4e90-a1f4-b4e1055971f2@ideasonboard.com>
-Date: Fri, 27 Nov 2026 19:39:41 +0200
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=BOenXBKs
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-48e20ed3b9dso7392450f8f.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:40:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795801208; x=1796406008; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=GcnQpQEXEsi+nvPttlap4C/vSdbuHSCBd/6D5U5RPLw=;
+        b=BOenXBKs540CBXJYvgFslWeU2CW9MAm0ao8OraihhQpQS/IC2hasWdF33kI53UbIpT
+         QHmY2Z8NWBeWtnpVakQZYnR0ycqdrPrruk288iuzx+x9b82ukdmSzIcqao9DxSoJiojF
+         L2YwfIvTqr9O/GgBGSojLHXhr5TdxzT48GO6UWBUbqXVZf+ga0086EwgvXlIf4Sinycw
+         R22/BDvEpddDu326sCpNtPIuifkyQAmMktB/Za1s5PkohI/amI+Lvhn6pCqGM/RRJEQL
+         YE+/xqPhgcA+iVTe8fjAyGM6hr3yalLiDCruDKJuYxmxeuZ2Og69p3b8O1cD45mTyq5o
+         0puw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795801208; x=1796406008;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=GcnQpQEXEsi+nvPttlap4C/vSdbuHSCBd/6D5U5RPLw=;
+        b=InpuTpdzATe6hK0GpCOc/dPVk8CTSfI3Q4NuK8OuxkEwO4t3fMFWCdVpq4YX5Sfn/X
+         oUBXIRkHj2t3hlvgvYK2UGJJpp9tgrj9U1lqIs2HPRMBQlgERG6DBrgtNY973dNkhV/v
+         XXiCv3lCz6kDuYljlSdcV+aFtBitdk6KYQbXDDqbPZqPoju06RrOeKm/X/y10jZ1BvyI
+         RPacgsxhOvCBLVBfHGbhmfSdEp6uc6uAH9Dec47R9mnUs8CnBAavXMWg9FyochK7relI
+         86bjlhM4/MiuXoEEDGqrrr6xSJKK6U3SIUNoH4XLx/JX1MP6NdCxOtxR4xBBf0j71jNF
+         A/HA==
+X-Forwarded-Encrypted: i=1; AL+hErEqqq9HRPli1CCkhhejCp7VHHWXhR3TX6abAdKwbo0bIQpKmZk4E8hNAX3TuNPcbvhfnI7JbmJhK+z3y0A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9WxePnPvwXMH8TS4ckzDrJr5HmcxNGxcRas+yu/B4u0CC8W042
+	85Yr+TRlNtNtxL4TZAqZq+4uTSalJktj4gAuGd06NNe4h4JBRjyXGJJnMZtwaZhUtK9aN5+8c/6
+	G7Kn+H2E=
+X-Gm-Gg: AZFdTZcidkvfYxWZ0b+jarqYf24K9JNKiBECNajoGIoulxCIec5ZdoE0ayCh9MQuF9F
+	51gmGt8Dwo4jxPtKJ/Xy13yJ0gWc0sYJQcgwYncrk0FozNK/lwZ77BwS2kWKGC0oulDvLJEhLmU
+	ou4Rkpa4epDUpo+ExXjNynkrq4ZmoJ1pqJnkDr72u7k/c882U3PqGxFbPHQ7KYCjF2SbWZTElnv
+	uqVwcottSDSCb7T0cSa1qtTdTHPZna3/WCsoyzlvmPJK+fZyWvjaerjljkMtrltdh03jNlOj2dp
+	oW4jQuUO+YmX0ehv7dnevFkFeH3VezK8cKsK2d7ejzFiQfTZGUdklqAefVzowSc66pgn4ddaPN/
+	jMthAOhSfXZyw9iRpETfzu6Oy+jSAsD6dRi2yPmgXeP6utzT+23u9/PSZh9BIW3qwrnxnMEwQ+S
+	2amZhPTbUwOBMdfvwrvFALL7xYpg8a8oKM+DBz9t3QANP8QrWKofSI1jbIFhrFIepdpaEWtyS1w
+	WITh8mHw5xVXPoI4KeXlj7I3azNfVXh/joqt3unOW/sy/V2jBWsu8OniGstZG40aWJLpnFMkF2E
+	p7KMPXGOtrdBTvq3f1FlLrIOi/SZlQ/jPFwVk0/LM2DuVHkOaDU4UpikgX/7Lq3sQJJrpnjMwYV
+	+nA3Iuvz5MhIH7/tY
+X-Received: by 2002:a05:6000:4381:b0:4a7:e4c7:2795 with SMTP id ffacd0b85a97d-4bb965c79f4mr15672379f8f.36.1795801208451;
+        Fri, 27 Nov 2026 09:40:08 -0800 (PST)
+Received: from localhost (p200300f65f044d0890ab5f15b7da13fe.dip0.t-ipconnect.de. [2003:f6:5f04:4d08:90ab:5f15:b7da:13fe])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4ab658e2e6dsm46652250f8f.6.2026.11.27.09.40.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 09:40:08 -0800 (PST)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: linux-pwm@vger.kernel.org
+Cc: =?utf-8?q?M=C3=A0xim_Pedraza_Padilla?= <maximpedraza@gmail.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 0/5] pwm: tiecap: Assorted fixes and improvements
+Date: Fri, 27 Nov 2026 18:39:39 +0100
+Message-ID: <cover.1795800756.git.u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,357 +97,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 3/4] drm/tilcdc: Implement state readout support
-To: Maxime Ripard <mripard@kernel.org>
-Cc: =?UTF-8?Q?M=C3=A0xim_Pedraza_Padilla?= <maximpedraza@gmail.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Jessica Zhang <jesszhan0024@gmail.com>, Jyri Sarha <jyri.sarha@iki.fi>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org
-References: <20261116142707.1299360-1-maximpedraza@gmail.com>
- <20261116142707.1299360-4-maximpedraza@gmail.com> <avs2dagfmQkv00H0@houat>
- <20261118212114.150992-1-maximpedraza@gmail.com>
- <20261124141119.441163-1-maximpedraza@gmail.com>
- <e58a5ff5-9c1b-40cc-a65d-c7fbfdaf18d1@ideasonboard.com>
- <awazkzDVZtpUsdQb@houat>
- <d9a10f1f-7550-49ee-9085-6ad4c662080d@ideasonboard.com>
- <awbOkmmNIp2ng97n@houat>
- <4d93a4af-9e57-4394-913f-4f861e3e7954@ideasonboard.com>
- <awme8rFbamSrpyoQ@houat>
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Content-Language: en-US
-In-Reply-To: <awme8rFbamSrpyoQ@houat>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=952; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=lwyyQjPMflqKxy+krxkobamP71JzUQng4Ev8FJqpSxo=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBrCcBbkdh7+Yic6qPU0TvIds2uMs5cGqaF1NkrA NWPlw3v2QmJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCawnAWwAKCRCPgPtYfRL+ TuixCACwtmwXDO2XbgeKmsVM294Aq4eyxfizgUsLoRfQF7uvH+/OROd3y7rkflkR6ddZy0MFJog u8q7ymSB9YC6LUizGhKaFi/PX0ht/OAJmeOmF4RfZBPaLZRziC861ghAem49UMsfbJmrfvCthz2 uAn8DDdAlfyfwc7s7GoRglNPASzFBKIaJhjaZnF8dmL5Z3M4H7jpS2X3zxzdAHBngD0+L6A0DZD KClKdqA/GU2/2k9XCLuIuD27e8ecRtXmxP7v3MwN6r0INbdOniGrajdwFrrl4HYHaj5abS6MBm9 b8tM9zxUdRZccQZMGGodnIuQ/gg+noqsfIJRfwZjvQPVQ/vQ
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 
-Hi,
+Hello,
 
-On 27/11/2026 18:11, Maxime Ripard wrote:
-> On Wed, Nov 25, 2026 at 04:55:51PM +0200, Tomi Valkeinen wrote:
->> Hi,
->>
->> On 25/11/2026 14:21, Maxime Ripard wrote:
->>> On Wed, Nov 25, 2026 at 01:43:55PM +0200, Tomi Valkeinen wrote:
->>>> Hi,
->>>>
->>>> On 25/11/2026 12:11, Maxime Ripard wrote:
->>>>> On Tue, Nov 24, 2026 at 04:38:43PM +0200, Tomi Valkeinen wrote:
->>>>>> Hi,
->>>>>>
->>>>>> On 24/11/2026 16:11, Màxim Pedraza Padilla wrote:
->>>>>>> On Wed, Nov 18, 2026 at 10:21:14PM +0100, Màxim Pedraza Padilla wrote:
->>>>>>>> Makes sense, I'll use the same approach in tilcdc, and see if it can be
->>>>>>>> turned into a common helper along the way.
->>>>>>>
->>>>>>> A follow-up on this one, now that I've rebased on v9. I ended up doing
->>>>>>> it differently, so I'd rather explain why before sending the next
->>>>>>> version.
->>>>>>>
->>>>>>> The tidss approach rounds the clock to the closest standard refresh rate.
->>>>>>> Panels driven by tilcdc often don't use one: with the timings from its
->>>>>>> datasheet, the panel on this board runs at 56.8 Hz (33.3 MHz), which would
->>>>>>> be read back as 60 Hz and 35.19 MHz. The adopted mode would then never
->>>>>>> match the panel mode, even with U-Boot programming exactly the same one.
->>>>>>
->>>>>> I felt that approach was a bit odd (and if I recall right, failed with my
->>>>>> OLDI panel), and in my tidss version I just used the clock rate directly
->>>>>> from the clk_get_rate() (see dispc_vp_readout_mode):
->>>>>
->>>>> The problem is that you're losing information when setting the clock.
->>>>> Especially for panels where you don't really have an established set of
->>>>> pixel clocks, the clock is very likely to not be able to give the exact
->>>>> frequency you asked for.
->>>>>
->>>>> So when you're reading the clock frequency, the mode you're reading and
->>>>> the one you'd set at first modeset will not necessarily match, so you
->>>>> need to take that difference into account and try to get back on your
->>>>> feet.
->>>>
->>>> If I understand correctly, your code in tidss is trying to guess the pclk
->>>> rate in (say) the simple-panel driver via assuming the refresh rate is one
->>>> of the standard ones?
->>>
->>> Yes, and I have yet to see a panel that would have a refresh rate that
->>> isn't one of the standard ones.
->>
->> They often have quite wide ranges, and don't define clear nominal timings
->> and refresh rate. But I agree, almost always one can have a 60Hz timing with
->> them.
->>
->> That doesn't mean our panel/bridge drivers would define such neat clocks. In
->> my experience, the panel's timings are often based on X, which probably is
->> something that happened to work on one platform, and was good enough. Those
->> can be fixed to result timings close to the 60 Hz, but then we risk breaking
->> the panel for some platforms.
-> 
-> I don't think we should accomodate those. If the pixel clock is not
-> properly defined, then we need to fix the panel. And if some panel
-> drivers make some controllers to setup something wrong, then we need to
-> fix the controller too.
-> 
-> And it's not like having an off pixel clock is harmless, at the very
-> least it means that the vblank interrupts don't get send at their
-> expected frequency anymore.
-> 
-> It would sound like a much better solution to me to have something that
-> takes a display_timing and adjust the blanking periods and / or the
-> porches within their acceptable range to make sure we always have the
-> right refresh rate despite having a rounded clock.
+while looking into the driver for the review of
+https://lore.kernel.org/linux-pwm/20261116142251.1296742-1-maximpedraza@gmail.com/
+I discovered the patch opportunies taken in this series.
 
-In my experience, changes to the blanking & porches will break the 
-display much more easily than changing the clock.
+I didn't mark the 2nd patch as a fix as it might result in power
+regressions during suspend as the clock is kept enabled there. So it
+would be awesome if someone with the hardware could test that.
 
-In any case, I'm not against the idea of calculating ideal pclk here, 
-and fixing the panel drivers. But I am saying that it may not be so easy 
-as it may feel =).
+Best regards
+Uwe
 
->> Bridge drivers can also adjust the adjusted_mode's clock when they have
->> special needs (DSI).
->>
->>>> I don't think that works... Even if the target refresh rate in the panel
->>>> driver is close to (or exactly) those standard ones, it won't be the same
->>>> clock rate except by luck. And u-boot may have a different PLL calculation,
->>>> or different pclk in its dtso.
->>>>
->>>> I think the u-boot part should be fixed just by "fix your bootloader": if
->>>> you want SRO to work, make your bootloader use the same videomode (including
->>>> pclk) as the kernel.
->>>>
->>>> But even then it won't work. If the simple panel states pclk as 150.274 MHz,
->>>> it will cause the HW to set 150.0 MHz, and the SRO in this series will
->>>> calculate 150.124675 MHz. This will cause a full modeset, and also the SRO
->>>> check will given an error.
->>>
->>> Not really, because it will try to match the closest, and then try to
->>> keep that within a defined tolerance. So, in your example, if the
->>> expected pclk is 150.274MHz, and what's programmed in hardware is 150MHz
->>> (which also is the closest pick we can find), then it will be happy with
->>> 150MHz.
->>
->> What will be happy?
->>
->> *ERROR* crtc-0 configuration mismatch in mode expected "1920x1200": 60
->> 150274 1920 1952 2004 2028 1200 1224 1232 1235 0x48 0x0, got "1920x1200": 60
->> 150124 1920 1952 2004 2028 1200 1224 1232 1235 0x40 0x5
-> 
-> Can you share more about what is going on here? What frequency is setup
-> by U-Boot? is happening only for the first modeset, or all the others?
-> Is the rounding of the clock similar between u-boot and the kernel?
+Uwe Kleine-König (5):
+  pwm: tiecap: Fix type of variable holding clock rate
+  pwm: tiecap: Ensure the input clock is enabled
+  pwm: tiecap: Use dev_err_probe() for error handling in .probe()
+  pwm: tiecap: Make sure the input clock doesn't change rate
+  pwm: tiecap: Improve period calculation around overflow handling
 
-This is with AM62-SK and OLDI. It's the example I gave. This happens 
-with every modeset, as the panel driver has a different clock than what 
-the SRO comes up with.
+ drivers/pwm/pwm-tiecap.c | 94 ++++++++++++++++++++++------------------
+ 1 file changed, 51 insertions(+), 43 deletions(-)
 
-But I think your point is that the panel driver has to be fixed, so that 
-it uses 150.124 MHz clock, which is the one the SRO will come up with.
 
-Even then, I'm not sure if it'll work. If the clock is supposed to be 60 
-Hz exact, but the actual clock in the HW is low enough, won't SRO then 
-think it's 60 * 1000/1001, which results in a different ideal clock?
-
->>> And let's turn this around: what happens if your expected pclk is
->>> 150.274MHz, and the actual rate programmed by u-boot is, say, 124MHz?
->>>
->>> Should we do a modeset then?
->>
->> If clk_set_rate(150274000) results in pclk of 124MHz, then it's the correct
->> mode, no modeset needed. There are cases like that, but I'm fine with not
->> targeting them at least initially.
-> 
-> No it's not the correct mode, it's completely off, a bootloader bug, and
-> the best thing the kernel needs to be doing is go through a new modeset
-> to fix it.
-
-It's either that or no display at all. The numbers were invented, but on 
-some platforms the clock rates can be very coarse, especially on higher 
-clocks. That's the origin of the 5% tolerance you've complained about. 
-K3 DSS doesn't need it as the PLL is quite ok, but OMAP DSS definitely 
-has very coarse clock rates (on some OMAP versions).
-
-That said, maybe those SoCs are not our prime targets here. But, again, 
-the point is, this may not be so easy to get right in a general sense as 
-it may sound.
-
->>> It's also a matter of consistency within the framework. The framework
->>> expects the "ideal" mode everywhere. How is the pclk actually programmed
->>> isn't tracked anywhere. So, if you have a regular modeset, we'd have
->>> mode and adjusted_mode have the "ideal" pclk, but in the case of SRO
->>> we'd have the actual one, possibly forever?
->>
->> With regular modeset, we'd have the ideal pclk in mode, and the real pclk in
->> adjusted_mode, right?
-> 
-> Except that you have no way to make sure that the clock in adjusted_mode
-> is going to be the "real" one.
-
-Indeed, for some reason I thought the drivers read it back. But it's 
-just an adjusted target clock.
-
->> My worry is that we'll not be able to guess the ideal pclk very well. Maybe
->> that can be solved with fixing the panel drivers when we encounter non-ideal
->> timings, and having a clear rule that the provided timings have to result in
->> a "normal" refresh rate, even if the platform has to adjust them when
->> applying.
-> 
-> Time will tell I guess, but I'd rather keep that in the back of our
-> heads as a last resort than admit defeat from the get-go :) Because,
-> yes, I do believe a lot of drivers are broken and it's an opportunity to
-> find and fix them.
-> 
->>>> So... First, I think at least in the adjusted_mode we should have the real
->>>> pclk.
->>>
->>> You can't have that. The closest you'd have would be calling
->>> clk_round_rate() at atomic_check, but you have no guarantee that it's
->>> actually going to be the same rate by the time you call clk_set_rate().
->>
->> Why is that?
-> 
-> Because clk_round_rate() depends on the current context for that clock:
-> its parent rates, the ranges the other users have requested, etc.
-> Between atomic_check and atomic_commit, that context might have change
-> and you might have a different result.
-> 
->> Can't we do the clk_round_rate in SRO? The SRO state has the adjusted
->> timings, doesn't it?
-> 
-> I'm not really concerned about SRO, I'm concerned about everything after
-> it: the mode we expose to userspace, the consistency between an SRO
-> state and a committed state, etc.
-> 
->> Yes, I guess clk_round_rate() there and clk_set_rate() later might result in
->> different rates in theory, but can that happen in practice? If the clock is
->> being kept on, it's unlikely that its parent clocks would change.
-> 
-> On some platforms, maybe. On others it's absolutely the case. That's why
-> we have clk_set_rate_exclusive(), and why
-> https://lore.kernel.org/linux-clk/20260327-clk-scaling-v8-0-86cd0aba3c5f@redhat.com/
-> is a thing.
-
-But is that an actual problem here? The main use case here is keeping 
-the display unchanged from bootloader to the first userspace modeset. If 
-the clock is changed while the bootsplash is being shown, the use case 
-is already broken.
-
->> So it's not immediately clear to me when this could happen.
-> 
-> Even from a purely software PoV, if you have two users, and one calls
-> clk_round_rate for 42MHz which isn't rounded, and then the second does a
-> clk_set_max_rate(40MHz), then clk_round_rate will now return 40MHz.
-> 
->>> Either way, assuming we would do that, it would give you adjusted_mode.
->>> You'd still need mode, and mode is what is shown to userspace.
->>
->> Yes.
->>
->>>> The SRO check should pass only an equals check there. For mode's pclk,
->>>> I think setting the actual pclk makes sense, at least more than guessing it.
->>>> Or could we, at that stage, see what modes the connector advertises, and
->>>> pick a clock from there?
->>>
->>> It's difficult, because then you assume that A) the bootloader will have
->>> used a mode reported by the monitor and B) crtcs need to be readout
->>> before connectors.
->>
->> Isn't A) needed anyway for fully working SRO and smooth transition to the
->> userspace app's display? The userspace's modeset will most likely use the
->> preferred mode from the display, and if that's different than the
->> bootloader's it will then cause a full modeset.
-> 
-> It's a reasonable assumption at first, but my point was more about "What
-> happens if it isn't?"
-
-My assumption is that for bootsplash and SRO to work, bootloader and 
-kernel must work correctly together, they have to do things just right 
-(e.g. the clock config has to be the same, including clock tree, etc). 
-That said, it's great if we can make this work more generally too =).
-
-> Also, once SRO works, I would expect the splash screen, plymouth, and so
-> on to revert the logic and go for something like "if it's enabled, use
-> that, otherwise use the preferred mode and do a modeset".
-
-Ok, that changes the case a bit, and allows a bit more leeway. But... If 
-we do that, isn't it the same or better to just use the HW clock rate as 
-the mode clock? Then the userspace sees the "real" mode. Then again, now 
-that I think about it, userspace doesn't see that for normal modesetting 
-either, does it... It just knows the mode it's trying to set. So a DRM 
-app can never know what the real refresh rate is, except measuring vblanks?
-
->> Or how do apps usually work? Do they try to get the current mode from the
->> crtc, and use that, even if it's not the connector's advertised default
->> mode?
->>
->>>> If we can't get the pclks from the connector, the mode->clock won't match,
->>>> and we should either skip checking that in the SRO checks, or have plenty of
->>>> tolerance.
->>>
->>> tidss has 5% of tolerance when most of the drivers have .5%. How much do
->>> you need?
->>
->> I was referring to the SRO code, which currently gives errors if the modes
->> don't match exactly.
-> 
-> Which isn't true? There are warnings, and we're literally discussing a
-
-Well, the warnings say "*ERROR*" =).
-
-> function that does introduce a tolerance when trying to match the modes.
-> 
-> Let's turn this around. I think we both agree that matching exactly
-> won't work. I guess it wouldn't be hard to agree that a panel running at
-> half the refresh rate, with different polarities, or with different
-> timings shouldn't be considered a match.
-
-I'm not sure about that. Depends =). We can never recreate the original 
-mode from the HW registers fully, but I think on some platforms it will 
-be further away than on some. The clock is the prime example. Without 
-display PLL, the pixel clock rates can be quite far away.
-
-> So my question is: where do you want to draw the line?
-
-I'm fine with the ideal mode calculations with some kind of small 
-tolerance. We can initially target platforms that have adequate hardware.
-
-But I feel that this could eventually have to be a platform specific 
-thing, unless SoCs without good video PLLs are a thing from the distant 
-past.
-
-Perhaps we can worry about them if we get there.
-
-In any case, if SRO is more an opt-in than enabled by default, we're safe.
-
->>>> I think it still leads to a full modeset, but can the driver check if
->>>> setting the mode->clock would results in the current pclk, and somehow
->>>> abort the full modeset?
->>>
->>> I'd rather discuss an actual bug here. Do you have a case you can share
->>> where the logic we currently have doesn't work and is not an instance of
->>> poor panel timings?
->>
->> It's the case with the OLDI panel. You should be able to test it with
->> AM62-SK even without an actual panel, just load the
->> k3-am625-sk-microtips-mf101hie-panel.dtbo. Ah, actually, there's the
->> touchscreen in the dtbo, so you may need to disable that in the dtso.
->> Although I guess even if it's enabled, you'll just possibly see an error
->> from the touch driver, and it doesn't affect the display.
->>
->> So even if you don't have bootloader that enabled the OLDI panel, you should
->> see the configuration mismatch errors.
-> 
-> But it wouldn't have enabled the clock at the right rate though, right?
-No, it wouldn't have OLDI enabled at all (nor the clocks), but you can 
-still test as you'll see the warnings in normal modesetting if the SRO 
-comparison doesn't match. So a normal modeset with panel's clock at e.g. 
-150.274 MHz, triggers the SRO, which comes up with 150.124 MHz, and the 
-check fails.
-
-  Tomi
+base-commit: 8c35f759bca417ab337f3c383be2d0a001a5ab25
+-- 
+2.47.3
 
