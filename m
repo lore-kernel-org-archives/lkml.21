@@ -1,24 +1,22 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.51
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.50
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795770186;
-	b=dS/C4mflSi/b2PM0VyOXmRq/cK4+UyeXq/F9J84lDnIrkmDyZepWBecKtXMf3N8KbqmC
-	 Td0e6rwb49Ytf7VuHzWLAc/7D4GTBXUq4PfQ7T9BxJR35r/DDdbNmRUamLiB2Gci3Nb8y
-	 Bw5E5r7nXewJ/j0xJLiF3bBrsr2Q1kUruiwxpCzDqVpEWznt9HY6eW9gfrTFln8C1ox/S
-	 RCoaGEnegs5+YErPcxsgL3H8MIYRHCEbnDSH7zJAImigCQySXQKuGLhUBtGNO5XuB+1ic
-	 BPF6dJ5XQHmbh5d0ftFP7pW+P52REhE5pOG4NlymS+Vsz2TKsml7e12V77t8EewTk3g==
+	t=1795770219;
+	b=mY7c76hmAGwIWiMAgJT8pUFQQwOLQPJ1A/5JxshVmvqNg0UIrabbH2SSYrafHGJicdew
+	 9GdFtPFmcxPKngQZHHMrjpFBd51hDWdac44OF6ZjdWSml4NrKB5P0aNZhZKp8ReUzLR5h
+	 qjZuDOxm0c3pAoHGByUPnd9e+quYYFhpaEV9Q0jKtoFxpxMgs3MQL8nu6bL3Ck3kUsciH
+	 7Y5XcMyz/3ANbvUo/BbusoY7jswmm4VKwKDPcWxEKxfAKy0mEg0cYn6e6Id3zuvJgWxO4
+	 Yq/rt80qHgxA9K5anULuPGKRpulgF6xQpPYTOeyxbUEXFXKGZa1nCfMJmFPKQV7rfmQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795770186;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-AtpMessageProperties:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795770219;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
 	 X-MS-Exchange-CrossTenant-Network-Message-Id:
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
@@ -26,78 +24,90 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
 	 X-MS-Exchange-CrossTenant-UserPrincipalName:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=cqVNK2B9ymBcUiHm7BYiOaN0S0OxDpBEFwHU9oPGGoI=;
-	b=r5N1lh+QFIvHOL9pEzlMnSAtfI13uNlHOtVU691+8GwLHYMMbY6D4LgyIJY5YlgZR+zs
-	 aYxU8FJK0XjES5FdnFdxGFnN8rnmcQd9/8MyPQfT964BS5kXUe0MDBOayaLBoaPcg7Dfe
-	 ZhOdg2F7xd2qkPyciwNZ5wviQ4VGBYPrfBRN3zVInoy5qJ/6FNQg2xV48ILg8x25IKTUn
-	 /GBDoqgeWLTt9JomjvlwdZKDfX4/xplcGV/xBQoMxaaG4npv6rY6516OCP5kcyOwtCM6E
-	 nOvZIHrTwuAatDT0ZEaC1k8H68hMiGWknjgFaFtm646dx7bEvu74P3VwfzLm9FkTMkQ==
+	bh=5TlQv6I1AXnZ8YsUFPt0kOq+A5eAwEgJYIg6NoF1pos=;
+	b=HVQl1Akkv1Y8uZrXFVyiMd1jtrBThqJgMum18n00C378wuZ8mtUoBx/BRzYUuvO/Qq0G
+	 j/b0fx9SWCLyaR0rwP0I9dIH6J8BeF/Uq/3rtKWztVvse6NBpsEWaEqIXhrSI4ZIH1pc3
+	 7qh5vpgDTr6GuHArEcY5CLS3cmkuv6EpDn7ARN171g79LlOyTYEjm2yr0vUezTGtJoPfM
+	 myOUwZItAfBwzjLyI2BbVDfZ5olYxnFIEWivqwX+yhBZRhx8Xe1K+pNgqzTKN2AL5yRmD
+	 R2l3Rkk3WN+XfqpUMVZhFGvlYQG3KdvEBXLrux7RUbybA/wFdE4gUPUTyQfx/R66tyQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=siemens.com;
-	spf=pass smtp.mailfrom=siemens.com;
-	dkim=pass header.d=siemens.com header.i=@siemens.com header.a=rsa-sha256 header.s=selector2 header.b=DKY0P+2n;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.51
-Received: from OSPPR02CU001.outbound.protection.outlook.com (mail-norwayeastazon11013051.outbound.protection.outlook.com [40.107.159.51])
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=wqA5a5+6;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.50
+Received: from MRWPR03CU001.outbound.protection.outlook.com (mail-francesouthazon11011050.outbound.protection.outlook.com [40.107.130.50])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B9C2606A338;
-	Fri, 27 Nov 2026 09:03:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B9C2606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=siemens.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=siemens.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 776BF606A32F;
+	Fri, 27 Nov 2026 09:03:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 776BF606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=siemens.com header.i=@siemens.com header.a=rsa-sha256 header.s=selector2 header.b=DKY0P+2n
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=wqA5a5+6
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RHnl5mfv0/5obb0SsZZtwRMNkK1uOSpVTog/Pqd/laWJsZEbPFuKXuOMaWcIYkndbabDCjCriQoNRjiK3djiDhxCh6OcFLi7D2cWKIQvtncGT7TeOr/R64NMYp0D7VQb9T0Fw9Id0OL7k371AacJEU56cSI8GNeQUqWC8EAshALo/Sl6bjlwatep2FfhP9S3YPMRcTcR4kloNxmTK2/45+EL4ITEcLiLLjdg/K7bP6RwbXOTkU2kLordnLYjSzuaM2SQZwQWPfkAjGwtgYsWjszPcIbkri0BK/FD3Q6GNx7m10JEF2bVSvePzygoll/VFHdos2vyuR+K8anWLPOF9Q==
+ b=bQY2tfHscyEizJokF5WAL5LtQmdg8gi+PkUwr/NOPF7CQD1AeTebdKAFXVn4OmyqdPw4RCPgf7olhig6J4A8HtqgC/SUNmay3A1m1q7U+2QR+rI+kt0oFlp4RAdE9TlRzfz3k96yKWobKMbzyYJQI23l2+LbvYhS8vPcTod4XajAQZukJTn0DyFeHVj6NOxxUvzAl9R2yBvYZ4RSvdBLmf7D4ZsUicbrQu7lOhy6X90MLu+ilM4lYeFbxhiLrrLg825eNnupiycQzxfsfLWPJW2Qv1UZ4+MROracKH/MGooJRfM1F/mcYLXS8ULyGNfl4Z8dc5w5bsMBfhss+EAKHA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cqVNK2B9ymBcUiHm7BYiOaN0S0OxDpBEFwHU9oPGGoI=;
- b=JAwrIvjDVL352Y2pRiDkERiNiF6AyAlqE6COZ2oUq8pefl5aXHMds2qnRtK24KM07XC+2j/RK1w9jjd1x5clwDWjUG8uKwCMvaPbPFoCTyBm5KhmaJHQ8xHN1kKHW9/wnpUigRKsE3mGfDMi0ekRa9rtJSME1Ho5yj+e7ebv9OWvhlPeV5GFnolc8z+JCdudqJiZqhBktMQlob2C43syjZkDaKt9w74nUUmWmSJild6aCuzn9YIWYfa49Lo65DAsyJRXSq5Tv5QU08fTHT2qu4ftCNiZWcyPYl3r1AnvrfHh2sR5AZyyP6GxJok9lMGL2jWE2EKb8rtZsEsyavHg0w==
+ bh=5TlQv6I1AXnZ8YsUFPt0kOq+A5eAwEgJYIg6NoF1pos=;
+ b=VComjTDyMPVa35JIdSyTPbWVoxAMLsGb7zTCj8ipYeRVWDvujpYw2fQzan88pjE/H2YUc0EQAYfHMLLb9qdEcQHPGoQuwqsfzPzNYGJiWftwF1Qt2mFaVeeHICAwRLXI/bSYJPFAGBF1MYOcdh75XvdidwtCxddgPzHV5oKkuYpwrPIZ3RvZIA9cBoJk7ApEwXrW/QDKvruu5YUbrgGCLQFwsF3isI3J9edlAXwKiwPucOfVlx0QTsy7jBSDmO+BQ0HHO5CakoH6VVx8VmACXz8lBD2yFqvUbonLhpm44GuLnPtj0vhd8aUy+yXvojO+ZK/9tenTeXjaKuHZ/TPEiA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=siemens.com; dmarc=pass action=none header.from=siemens.com;
- dkim=pass header.d=siemens.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=siemens.com;
- s=selector2;
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cqVNK2B9ymBcUiHm7BYiOaN0S0OxDpBEFwHU9oPGGoI=;
- b=DKY0P+2nWWOYJPI+aG+Z8ZkwD3fRP5ksfUzqQNixdpTlwxl4hMuaMY4AWBLANo3rX0J8t0NnCv7pYScUBsn4a+0S6ELf/zRcJhwGfo52OOJ7w5RsYv08RQ3e4UO7JHbNcScw4nzI9SGFmGlC8mezbU3dsz0i6jUL5RetU8p7eC+idR1Z6VLANU6faYZ9zWOayrjHKZjCya1hxeDWIHBlBsEuIRsqQFAj8dx4vyMk6DOkKKXkXr1MYocfL/3toTDL2LKJmvmRcVhFpHSGkLQrNTTK+1yerVLttxA9x6myLqqogn9nC2vwNF/s4qtUlU+bIk7bMmAoXIuJvetC96zH9Q==
+ bh=5TlQv6I1AXnZ8YsUFPt0kOq+A5eAwEgJYIg6NoF1pos=;
+ b=wqA5a5+6PRwpqleJE38nD3WcuRaF7lshBviypdVraSJVJXWaxg8LjaCKwTCvzH6Gucop1bR0qoWGlw1Z1mCz5aMWbz+5fiIYTONbRo1WQlyVvUbzaKdun4TvGSU0O+NkkLlHyk5/mWvP2nLm7uf/KJr8nWWqAufsYNblM+yHI4GoVJuvpxaiylKAfmEpd7pONdsvXbSeIloHv0mXFIUHakRWUqubr1XxdqPG/eB4qw0xPLTLD9Eu/zoeLjjb16PrsoehWcZ4rTs3r5qW9+s4+TtNgJ7PNWL9fUfIb0/3bcmekBNBFh4841Pz/AobKW7bLHNzQWaelmpQPMKpgWDkIA==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=siemens.com;
-Received: from AM9PR10MB4992.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:3dd::5)
- by DU0PR10MB9197.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:5dd::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.688.4; Fri, 27 Nov
- 2026 09:02:58 +0000
-Received: from AM9PR10MB4992.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::5f49:b0e9:d295:22d8]) by AM9PR10MB4992.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::5f49:b0e9:d295:22d8%6]) with mapi id 15.21.0688.001; Fri, 27 Nov 2026
- 09:02:57 +0000
-Message-ID: <9a1df2a6-27fb-4029-866d-c115d9f0b5f7@siemens.com>
-Date: Fri, 27 Nov 2026 10:03:20 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/4] rv: collect per-edge dwell time for per-cpu DA/HA
- monitors
-To: Gabriele Monaco <gmonaco@redhat.com>, Steven Rostedt <rostedt@goodmis.org>
-Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
- Randy Dunlap <rdunlap@infradead.org>, Masami Hiramatsu
- <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- linux-trace-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
- rpm@xenomai.org, jan.kiszka@siemens.com,
- Shuah Khan <skhan@linuxfoundation.org>
-References: <20261127070545.64265-1-tobias.schaffner@siemens.com>
- <20261127070545.64265-4-tobias.schaffner@siemens.com>
- <6ee9fd02caec10b09c8f25913a2c0e619f5dd4e7.camel@redhat.com>
-Content-Language: en-US
-From: Tobias Schaffner <tobias.schaffner@siemens.com>
-In-Reply-To: <6ee9fd02caec10b09c8f25913a2c0e619f5dd4e7.camel@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA4P292CA0004.ESPP292.PROD.OUTLOOK.COM
- (2603:10a6:250:2d::10) To AM9PR10MB4992.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:3dd::5)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PA6PR04MB11909.eurprd04.prod.outlook.com
+ (2603:10a6:102:51c::22) by VI0PR04MB10094.eurprd04.prod.outlook.com
+ (2603:10a6:800:247::5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
+ 2026 09:03:34 +0000
+Received: from PA6PR04MB11909.eurprd04.prod.outlook.com
+ ([fe80::a4b:fa4e:7fe7:e6a2]) by PA6PR04MB11909.eurprd04.prod.outlook.com
+ ([fe80::a4b:fa4e:7fe7:e6a2%7]) with mapi id 15.21.0662.007; Fri, 27 Nov 2026
+ 09:03:34 +0000
+Date: Fri, 27 Nov 2026 17:08:40 +0800
+From: Bough Chen <haibo.chen@oss.nxp.com>
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Mark Brown <broonie@kernel.org>, Liang Yang <liang.yang@amlogic.com>,
+	Feng Chen <feng.chen@amlogic.com>,
+	Xianwei Zhao <xianwei.zhao@amlogic.com>, Han Xu <han.xu@nxp.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Valentina Fernandez <valentina.fernandezalanis@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Haibo Chen <haibo.chen@nxp.com>, Jyan Chou <jyanchou@realtek.com>,
+	Yu-Chun Lin <eleanor.lin@realtek.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Michael Walle <mwalle@kernel.org>,
+	Takahiro Kuwano <takahiro.kuwano@infineon.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Alvin Zhou <alvinzhou@mxic.com.tw>,
+	Cheng Ming Lin <chengminglin@mxic.com.tw>,
+	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-amlogic@lists.infradead.org, imx@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org
+Subject: Re: [PATCH RFC 11/16] spi: nxp-xspi: Fix a comment
+Message-ID: <20261127090840.3wj6lnyn5m7bzbdg@shlinux89>
+References: <20261125-macronix-upstreaming-spi-mem-cycles-v1-0-fd036402fd37@bootlin.com>
+ <20261125-macronix-upstreaming-spi-mem-cycles-v1-11-fd036402fd37@bootlin.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261125-macronix-upstreaming-spi-mem-cycles-v1-11-fd036402fd37@bootlin.com>
+X-ClientProxiedBy: SIAPR04CA0007.apcprd04.prod.outlook.com
+ (2603:1096:4:28a::16) To PA6PR04MB11909.eurprd04.prod.outlook.com
+ (2603:10a6:102:51c::22)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,233 +118,90 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR10MB4992:EE_|DU0PR10MB9197:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6e4f38b3-acd8-4716-9079-08df4c653b15
-X-MS-Exchange-AtpMessageProperties: SA
+X-MS-TrafficTypeDiagnostic: PA6PR04MB11909:EE_|VI0PR04MB10094:EE_
+X-MS-Office365-Filtering-Correlation-Id: d0841c01-9507-4692-02a0-08df4c6550b3
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|10070799003|23010399003|366016|376014|1800799024|7416014|11063799006|4143699003|261009223027099003|18002099003|22082099003|55112099003|10067099003|56012099006|261028144727099003|261026140227099003|261026121527099003|261021123027099003|261022105027099003;
+	BCL:0;ARA:13230040|366016|1800799024|376014|7416014|23010399003|19092799006|10067099003|56012099006|261026140227099003|261028144727099003|261022105027099003|261022075727099003|261021123027099003|261021121427099003|261102123227099003|261009223027099003|22082099003|18002099003|11063799006|4143699003;
 X-Microsoft-Antispam-Message-Info:
-	FpHBtCmI1sBvm6yMZsEkADq8PsiKKKnsUySVIHKM0d84mVuIwfSTe/zUkB+++JIQUhTPw5Rhcpmke7LaqGQlmE3qOJesi7wfbV27wAnFLaPNhtnFOPy7Mlimka5UqQAv4Zgn6ZG5+Y52/OSl6FTYH5MbsghMYT58k9DosB0lbXak4PVEA9F5/2N+NBy2kZgRsP0eBCM+637KO0xvCJC8l8Jn77ZDbSyeVowJoDPFXvEhrto5c/1BvUFGnH3JE3L1HiTNKxYobW+9I2CzIAbbRaE6aMD+KXYCXPZdXEZparsOpifEa/kG7OAI6ioSCPLOfyIJBzB100d20Wkv15CfMFJ1vWvu4Cog5O4IpTtneBs29sVrGGlJ0/AMRD8KgRZKF07zM1v0sdQC7HqVF4pzthdkB83M7e2/Ei7Zg5CkXVr+CzT0d0s3yy6nHaLDBd5rLXuM8QdjzDcdyOrF6qdH3FNKshzjEOgakTMy8Losdf2AHB2OcgjAeMd8YDI6pw0kjl7QTm/BWtWx6INEqkqOX5qS0XjKGOI/Ztpt3QZdbr7xkLRXNZ0HF7QQrWibpP4eZmkaqwZGnJvhdOYcaUJD212VlFzZ+H0R8tBbWu1QjoqbyvwNXLpZ6nTeCUP68KsVqz3zoTqHN2MK2o74cfGO00vZQ7dM4MzCbiAHf3EIY+M=
+	pnTiosWm7cOld0pA+ZNngSRqgn2/JekkeWTOilERgt8l50/nHWYKIUB55HKUhQACbtgGH8+dji467MnQCNOudKCxCE9VsbkHztyYIRgsK6EYZlHrAIH6QQYrlIXD7ZBGm7v+I89gIxaiY5NyuBh0mUtbOY+ivB6hdSPV7I0Kua46uxfPI72LhpeicUQBfEq3NmjIm/4B/0egEWGKHC1SoJRAGr7QHBjDSHwqbb/sRmGmwkqPfnRz0kM2oB8UY273Mu2aFpCH7LH2oFeoMxIGMzw1zhFKtz71MDwCFP/6c37o+MeGAy/93U6zAVG8MVm+d70zL0cENwEmCYvUpgU9xFYsz6jS+Hj7HiM6xM9+aftT8JHqmumeze7yz6jPq3aK6Da6xxDRvV/pZrMe55iuOC4zPeBma0FwntaTIlm4KuPmTVx5oW5n4kBJLaXNGm9SWL/qwhNdlWFMzR0meC7s1ZFYmBll6ySig3anwqxNYaQYOYuSfzetBS5pgAkO8WgJ+uY/iplaSFaYGhh1MZ7XWpSHhiZXQ5d0LZuxUrW1AKUF1iZrjAoFdaCY4OBz7ZBXzx1kJOKaEoSZNkb1pzxiHyWbiFZ4g0tn0K2qb546EffULNQhVZPl2vgTkzIAc9B3qhzxYkLbsIwQ4ZsklWSC5orG/Rg5MsgCblT2hxNINUs=
 X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4992.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(23010399003)(366016)(376014)(1800799024)(7416014)(11063799006)(4143699003)(261009223027099003)(18002099003)(22082099003)(55112099003)(10067099003)(56012099006)(261028144727099003)(261026140227099003)(261026121527099003)(261021123027099003)(261022105027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA6PR04MB11909.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(23010399003)(19092799006)(10067099003)(56012099006)(261026140227099003)(261028144727099003)(261022105027099003)(261022075727099003)(261021123027099003)(261021121427099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003)(11063799006)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?QkFNU21SaDVXcUkva0pEUU1TVklrYU9LNGZmOHJXbzU2U1RZaXIyQ1JRaG9k?=
- =?utf-8?B?RngzYXFtMENtMHZQVWhrZzNLd1ZXMlh6SUZNNUUrQ3VOeG5EL1lQY0Z6NzBT?=
- =?utf-8?B?OHk3Rk9CYW54eUtWTmNsWTI2THpXUGlPTnRSTzhUczFIM09ra2cra1l3N1pI?=
- =?utf-8?B?UGNKY1c4OFdGcU9EY2FNTXkrakhDSDBGRkV6SE1DMzZwbkFGU1luZktSUzhG?=
- =?utf-8?B?eHl0TDVJVUhSV3JERkZid1dUVUhLR2kvMDNSZ3VGbW9leDVCcWJhMTI3aTdk?=
- =?utf-8?B?U2VEVm5adDFTbFczN1ZBK2RBWkxzZHNXeDF0WE95SGlaa1ZJZWt0UnJFU2Vp?=
- =?utf-8?B?QnIweUUyY1BPVkFpcTBValUwSzRCeEM0WlhXRElGdExnOUtHSkh2SmVOM3ph?=
- =?utf-8?B?aU90MW9MWGg3QjNlN3hNYld6bS9MSlFtWXRCOG12ajBVNDNIWCs4NEJteERU?=
- =?utf-8?B?Z2VwclIxeGNlUGhMV1phMmNWbUdaOW91YldPcEFNWnkrWFROL3A0alFFU1lK?=
- =?utf-8?B?ekhoVDJGZHNDaFpBMEkrMVAwWmk5SGxZMVNCS1FiK0xuMC9nOVo1RnY0eHp3?=
- =?utf-8?B?STdSM3lFUk80bEhJbWxDZzIxbUxZeHhEMVRsWU9HZTVtY2xGeWxGUjRYR2RQ?=
- =?utf-8?B?OS9Kb2xONEloWmFSYzlNWGJndjNjaVJhVEE5UVpMSVFCMlU5TnEyWkgrSE5k?=
- =?utf-8?B?TTVPeERyNTJRQ2hlZmdzVGYvb01ySHpzU1I3OStFZmN0UEdZb1p1S2M1VG5K?=
- =?utf-8?B?OTdOaXZua1poNDNabVVvNG1zL0NueTFTK29CcFowRllKTk5vbmpad01PSFkr?=
- =?utf-8?B?UGd3eXQ4RzJEWFVPSGdycnRUTlpiWFdrZlVFak5hK1gxUVpzSnR3L0F2bGZv?=
- =?utf-8?B?VHR0VUxkREZEWXp1eGh6bmZmd3BCMmJIVVRmaExadHdLWW9JSmovTyt0UVZG?=
- =?utf-8?B?czg0dFl4Q2dhZy9DWDNQUkpGcHdsTVdsYUNYbEJpWUlqVDNQcHZDZy80UUZa?=
- =?utf-8?B?TzhRUFVrOWh4ZUNGMWJrckM5bW4vVWREWjdvZHNWaTFUMXd5VDQzaXpMdGNT?=
- =?utf-8?B?aFlmL080cytiVWdrb1FKWUxUYTZ2VjZ6ZVdNQWFVd25kbWNqaWx3d0hmdmFj?=
- =?utf-8?B?S2dmQ2h4TE1VbkhPempSdlZqbkh0UENIclViT0l2cFV5aFFiaFltMzlROGw2?=
- =?utf-8?B?VElxaElFeUxiTFA0czc5YXJpcWcxMUNyNld4cXBtMlM5emN0KzRWUlhHdEo5?=
- =?utf-8?B?LzZrRnNheXcxcEExYlVSUUhRY01kUXdwOXVvSVBDOFZOWUZuVzJTc1YxYzJx?=
- =?utf-8?B?OGVzcHJPK2dKeWZBRWFYOXF6aUF4MzcwaS9HM1c0VWlraHNINFNBSDdCbjdl?=
- =?utf-8?B?bFdqRW96VXU5WWxkTGc5SVh0VVlzYWFBNmhyOHRHbFFNaWVIMi9sOVdIMFN0?=
- =?utf-8?B?SERJUm9jeUVzOEZWOFpHMHFMSmZ6T3JCdnlnbjdhekU4WVVkZm5qTjRYMFAr?=
- =?utf-8?B?V1p1djduZHNPbEh3UGpXblYybjMrZitFUit4S203cEF0SUN0dUVCWStCeFlt?=
- =?utf-8?B?RmJvVStNQ2gxbXJYMis0ek1HcnpxbnNOeVVrUmd5OWZpdlhEUTl2TDh5Q3Jq?=
- =?utf-8?B?MFNlWk9vendOZkoxcm0zTHBEeVp4QW95ZEU3cHZMRGFMb1NvY1dvZkhSci9o?=
- =?utf-8?B?VUsyVXFPVVk5d2kwUlNUMWFZb1BmV2YyQXd6eEROY2tKZ2tJaFhnSHIwRzlj?=
- =?utf-8?B?OE5CMTE5d0NUZjlOYTdTeHdMVUNCS09EKzdTWXRZbFAwZjRkTVRTMjBsWGtJ?=
- =?utf-8?B?RXlQS0pBeHh6L0pSdzVMRUsvVVNWVkpGSGlYSExlRWpEc1F0aDRjU1k4MFoy?=
- =?utf-8?B?SU9PMFRnb3k4VDFiOTFyNytLdEgwVmgyVVFmbGNrcWpsSGF3NXN0RjJEWmQ1?=
- =?utf-8?B?R3ZYRmNld2dkMzB4MkxiYmtHZ0lNbXVxOGJJWW1ETTFhZmYrdjlOMVVVd0U2?=
- =?utf-8?B?ek9NYnArTFg1V2dYVHZCOEU1MFRueVVWaTd4VlhtekdleW5SbGNJNHZWVGk4?=
- =?utf-8?B?U0JDSlhXOFpKRXJGc3FONmlmS1RoNkJKbWJuMU9pSDlGZmI2aVhpM3hPV2p6?=
- =?utf-8?B?anVUMVZqOTVpU0xBT0E3aHhPMEhJQzZOZTk2N2FJS1BlRmNSVlZ2NmprQmtO?=
- =?utf-8?B?NmlCWHhFelRkVUhiNUhidFBmNEdVQUxEckhDWkQzRWxJNUw5NU15RDZ5K0x5?=
- =?utf-8?B?UVVlSWo5NytjV01SSFZzL1BxK0xtMzQ1V3ppVG1STEdJNFVHbjdSUm5POVk5?=
- =?utf-8?B?NnZPWWErRnVYdy9FUER1Z2NXZHRYazBoS1hCY2pMRHdYdFR1YUJOZVBEWVg2?=
- =?utf-8?Q?hIPZKi+/e9kWybzYTaWK+mZQijqEc/pzvU90obKAoOx0s?=
-X-MS-Exchange-AntiSpam-MessageData-1: OZ2gwqyOygJ249EWK/7RvWNmYkLEe0Aqp20=
-X-OriginatorOrg: siemens.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6e4f38b3-acd8-4716-9079-08df4c653b15
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4992.EURPRD10.PROD.OUTLOOK.COM
+	=?us-ascii?Q?7QaO+OLaN+m/lbeO1i5klGgVLpSaHw37WQJ521lqOz1l+8f5qTNTT+dUy3t4?=
+ =?us-ascii?Q?v06+KQCA0UeMKl3SCC8wM4Aip7dGb3WejMKfnEqMJtqm5YuI5l5V2CauMqfK?=
+ =?us-ascii?Q?j6kWD+Vq4Dp/A+OBb9UuZBJT7G8DK0iGpdNtW0aNfUCESYzV5iEeFbsid6rH?=
+ =?us-ascii?Q?P3dC2trI/5h99UZ475u949LTxbO9sLV4CgZoI3bgH4JPSwDidt3BcC7jEVkY?=
+ =?us-ascii?Q?em7yOO6ciXlH0oM0ewKjkP6EfLXlK/OOTVi1K3x4EcpfXPHNsj6r/SXVwql2?=
+ =?us-ascii?Q?smaJF9bMWQNd3rPScH5aRGWLHHQVLrethJFU/mW0jfnNC3efmAIR0XKhXN8p?=
+ =?us-ascii?Q?NzSW0vHD5++85tW+asz4jrT2LuKdRFnlX0I+uD8autsKvGmABsWOFXh3udNc?=
+ =?us-ascii?Q?Vbe5PsZTKPVB1hnjSikR7Hl1Wp7ho+QuQpI75dCd0YPHOF3CZ4hvX/9A2+mG?=
+ =?us-ascii?Q?yZsx3j7BaLR1qlJDuqJraEAh23BbILuAzan+r7bufPw50Jp6P3YkcdRFHl3i?=
+ =?us-ascii?Q?XF7RhGyaWbOubE77v9W1wBA5kWZJ30zP08aTEVM3OScRGxTfa+yBSNgdHdSq?=
+ =?us-ascii?Q?8y3X/NnCv7qeXcx0M8BBwzymrSU/jGkUyIz+TtIPA16+sFZ+W7oUXz0ZXJLN?=
+ =?us-ascii?Q?mdDDosdE9Osy3OoFmRnXeU6CUsrbmSlC5k0MR+tMEb54KAqz4ClynA42RwTz?=
+ =?us-ascii?Q?c1jZJmJUiOPjmXqDXI4SFZeHSXGsmdMCHUCAopUMcAckdhu1QIaE/4X3jb2+?=
+ =?us-ascii?Q?XSmZ+HDrR5I7W02SCv4cJqwU/EWb+Z0erzvocG0wUtP9T4CgpIKvbB2cKx8D?=
+ =?us-ascii?Q?uksMDHDZ/D2ruml0uiTyuvWPDVZXnMXCMVPKVjSctfsCvKLkKTdHzIBHBxnE?=
+ =?us-ascii?Q?EzMNn0b8/iF9bOJ97ki1tlOwtje6yZLvz0OsZVsKEi0IOgbw2Rj2XwpaFqDG?=
+ =?us-ascii?Q?68n1SYK184fFWU/afgU7LBj6qapRJJRZg7pj+SAFjMDjdKq2oDOn9Y/lp1dk?=
+ =?us-ascii?Q?uTizQPnPzXWfduI2RH07nwUP+5I8zp+RnVDgDkxf9WXlSxTLmz7FgGCVTVVk?=
+ =?us-ascii?Q?/0BmOphR/dDWyVi6lexwFClrpOf4LR1ZjYKJrO9MX3JoGiPqNE6tI9LsBhLp?=
+ =?us-ascii?Q?fI09sSabDE74CVSmBSys7TWEfMkB0BDg8O7ag44SJy9yPqc+fTJth9CON2BG?=
+ =?us-ascii?Q?jbRqHWCLFwwZpGIUaoSQHnlAchi29Fv5xkz0dRq9v8Z8fKPy4IUszLgvc6Nb?=
+ =?us-ascii?Q?J8IZ7XBpFHk/tL2nGEU2TjLKlYw5oOPVgVuuYKFiK0ZFKrZPVDg5hUqG24TT?=
+ =?us-ascii?Q?ne/5h76s99xn7k990ijd0/krRk4hljUKBCr4GVvM5MaOiY/Q9TodA76P/rws?=
+ =?us-ascii?Q?DGjOnMn5oDjpyDlhpjiyPBJgujJhsztLSE/rI2Pog3wCCN9O58ppkMKwMu7Y?=
+ =?us-ascii?Q?3Yd/q5YlIyLM29Qg1b+3Fcolz5CG/ELNYrBqf6rViszZ8UJ6gY9ypFNJ56AU?=
+ =?us-ascii?Q?rePkD6lud7YU2QSc683t3THaFO5d46vmejLimQLS/9kMq/7u4/pyD+Pa7Bwd?=
+ =?us-ascii?Q?O7pqaEuqzDTG0DNBO770TroCWv5hrpAWvfsxm42hqohNOECQ54axBYSLMljb?=
+ =?us-ascii?Q?bNOo/rsoKpHVtDvQ/dlTIDUL6ARh2wGg+93OquAznYHS+dhPDYifTP0AGaNo?=
+ =?us-ascii?Q?CJtT4B2iIWxjUiJAfqL9fhqYi1aMSg3QVq6it5VN5lTkeEE87AS0wKRLgzoz?=
+ =?us-ascii?Q?kqJmXesSka35/93Y+Hihy20M7dE4ER8RKsjutnqrqpwDc3d2b1Qy?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d0841c01-9507-4692-02a0-08df4c6550b3
+X-MS-Exchange-CrossTenant-AuthSource: PA6PR04MB11909.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 09:02:57.8506
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 09:03:34.0807
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 38ae3bcd-9579-4fd4-adda-b42e1495d55a
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: W3nG34qo4xiJr6U2pvfEf6/5jiWa6x7kkyGkhg5e/zTOXH1yjA3sPDNbtjQLuwJYlnLGQNtn1kBuxQf/mq5dqP21gss1EPhrAPoZiDRYSjw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB9197
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5TZbJqpRGS1yvEdzIQMFhpyjOhXx6VAsWrNlcTFG5/aKHa4VSfMw5aX1cEcANYnHsJjZFuMtUR52+eT4ia+yJjrnPSCUc4KpDIxevU25YjEj5uZ617D6fP9/quZes0+w
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10094
 
-On 11/27/26 09:27, Gabriele Monaco wrote:
-> On Fri, 2026-11-27 at 08:05 +0100, Tobias Schaffner wrote:
->> @@ -110,10 +111,11 @@ static inline void da_monitor_reset(struct da_monitor
->> *da_mon)
->>    *
->>    * The monitor will ignore all events until monitoring is set to true. This
->>    * function needs to be called to tell the monitor to start monitoring.
->> + * @state is the initial state, stamped with its entry time if known.
->>    */
->> -static inline void da_monitor_start(struct da_monitor *da_mon)
->> +static inline void da_monitor_start(struct da_monitor *da_mon, da_state_t
->> state)
+On Wed, Nov 25, 2026 at 06:51:25PM +0100, Miquel Raynal wrote:
+> Looking at the i.MX952 TRM which is I believe one of the SoCs with this
+> controller inside, the maximum number of supported dummy clock cycles is
+> 64 and not 32, so the code seems more accurate than the comment, which
+> needs fixing.
 > 
-> So the idea is that monitors using da_handle_start_run_event() would end up with
-> a few nanoseconds more in their initial state instead of a 0. Right?
-> Maybe more if preemption is possible.
+> Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 
-Hi Gabriele,
+Reviewed-by: Haibo Chen <haibo.chen@nxp.com>
 
-thanks for the quick reply.
-
-Not quite. This was my attempt to fix the sashiko finding of the last
-version. With the timestamp set in da_monitor_start() the first edge out
-of the initial state would be counted with a dwell of a few nanoseconds,
-even if we do not really know how long we have been in that state. Now
-we just skip the first transition, so it is neither counted nor timed
-and the counts still match the model.
-
-> I don't particularly like changing the prototype of da_monitor_start(). It isn't
-> used by existing monitors, but is a public API, so I don't want to send the
-> message that monitors can start from any state.
+Regards
+Haibo Chen
+> ---
+>  drivers/spi/spi-nxp-xspi.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> We could either:
-> 1. document this timing discrepancy and live with it
-> 2. reset the timestamp just after da_monitor_start() (done only once)
-> 3. create another da_monitor_start_notime() (can share code in a
-> __da_monitor_start())
-
-Fair. Sorry for not having this on my radar.
-
-Do you agree that 3 is the cleanest option? I would prefer it over
-always having one wrong sample (option 1) and making sure that no event
-slips in between start and reset (option 2).
-
-Best,
-Tobias
-
-> What do you think?
+> diff --git a/drivers/spi/spi-nxp-xspi.c b/drivers/spi/spi-nxp-xspi.c
+> index 8b836662a5da..ccd00c744d18 100644
+> --- a/drivers/spi/spi-nxp-xspi.c
+> +++ b/drivers/spi/spi-nxp-xspi.c
+> @@ -407,7 +407,7 @@ static bool nxp_xspi_supports_op(struct spi_mem *mem,
+>  	if (op->addr.nbytes > 4)
+>  		return false;
+>  
+> -	/* Max 32 dummy clock cycles supported */
+> +	/* Max 64 dummy clock cycles supported */
+>  	if (op->dummy.ncycles > 64)
+>  		return false;
+>  
 > 
-> Thanks,
-> Gabriele
+> -- 
+> 2.56.0
 > 
->>   {
->> -	da_mon->curr_state = model_get_initial_state();
->> +	da_mon->curr_state = state;
->>   	da_monitor_init_hook(da_mon);
->>   	/* Pairs with smp_load_acquire in da_monitoring(). */
->>   	smp_store_release(&da_mon->monitoring, 1);
->> @@ -276,6 +278,11 @@ static inline void da_monitor_reset_state_all(void)
->>    */
->>   static inline int da_monitor_init(void)
->>   {
->> +	int retval = rv_edge_stats_create(rv_this.root_d);
->> +
->> +	if (retval)
->> +		return retval;
->> +
->>   	da_monitor_reset_state_all();
->>   	return 0;
->>   }
->> @@ -287,6 +294,7 @@ static inline void da_monitor_destroy(void)
->>   {
->>   	da_monitor_reset_all();
->>   	da_monitor_sync_hook();
->> +	rv_edge_stats_remove();
->>   }
->>   
->>   #ifndef da_implicit_guard
->> @@ -689,9 +697,11 @@ static inline void da_trace_error(struct da_monitor
->> *da_mon,
->>   static inline bool da_event(struct da_monitor *da_mon, enum events event,
->> da_id_type id)
->>   {
->>   	enum states curr_state, next_state;
->> +	da_state_t old;
->>   
->> -	curr_state = READ_ONCE(da_mon->curr_state);
->> +	old = READ_ONCE(da_mon->curr_state);
->>   	for (int i = 0; i < MAX_DA_RETRY_RACING_EVENTS; i++) {
->> +		curr_state = da_state_of(old);
->>   		next_state = model_get_next_state(curr_state, event);
->>   		if (next_state == INVALID_STATE) {
->>   			react(curr_state, event);
->> @@ -699,7 +709,8 @@ static inline bool da_event(struct da_monitor *da_mon,
->> enum events event, da_id_
->>   				       model_get_event_name(event), id);
->>   			return false;
->>   		}
->> -		if (likely(try_cmpxchg(&da_mon->curr_state, &curr_state,
->> next_state))) {
->> +		if (likely(da_state_try_commit(&da_mon->curr_state, &old,
->> +					       next_state, event))) {
->>   			if (!da_monitor_event_hook(da_mon, curr_state, event,
->> next_state, id))
->>   				return false;
->>   			da_trace_event(da_mon,
->> model_get_state_name(curr_state),
->> @@ -737,7 +748,7 @@ static inline bool __da_handle_start_event(struct
->> da_monitor *da_mon,
->>   	if (!da_monitor_enabled())
->>   		return 0;
->>   	if (unlikely(!da_monitoring(da_mon))) {
->> -		da_monitor_start(da_mon);
->> +		da_monitor_start(da_mon,
->> da_state_entered(model_get_initial_state()));
->>   		return 0;
->>   	}
->>   
->> @@ -751,8 +762,9 @@ static inline bool __da_handle_start_run_event(struct
->> da_monitor *da_mon,
->>   {
->>   	if (!da_monitor_enabled())
->>   		return 0;
->> +	/* In the initial state since an unknown time: do not time it. */
->>   	if (unlikely(!da_monitoring(da_mon)))
->> -		da_monitor_start(da_mon);
->> +		da_monitor_start(da_mon, model_get_initial_state());
->>   
->>   	__da_handle_event_common(da_mon, event, id);
->>   
->> diff --git a/include/rv/edge_stat.h b/include/rv/edge_stat.h
->> index 8b99e8520e1e..16c28aedabdd 100644
->> --- a/include/rv/edge_stat.h
->> +++ b/include/rv/edge_stat.h
->> @@ -145,7 +145,10 @@ static void rv_edge_stats_remove(void)
->>   	rv_this_stats_file = NULL;
->>   }
->>   
->> -/* A zero timestamp marks resets, which can run on a different CPU. */
->> +/*
->> + * A zero timestamp marks an unknown entry time: resets can run on a
->> different
->> + * CPU, and da_handle_start_run_event() starts in a state entered earlier.
->> + */
->>   #define da_state_entered(s)	da_state_pack((s), local_clock())
->>   
->>   static __always_inline void
->> diff --git a/include/rv/ha_monitor.h b/include/rv/ha_monitor.h
->> index 6e1c7fe5449a..78d1bb80aefd 100644
->> --- a/include/rv/ha_monitor.h
->> +++ b/include/rv/ha_monitor.h
->> @@ -312,7 +312,7 @@ static inline void __ha_monitor_timer_callback(struct
->> ha_monitor *ha_mon)
->>   	if (unlikely(READ_ONCE(ha_mon_destroying)))
->>   		return;
->>   	/* Ensure consistent curr_state if we race with da_monitor_reset */
->> -	curr_state = smp_load_acquire(&ha_mon->da_mon.curr_state);
->> +	curr_state = da_state_of(smp_load_acquire(&ha_mon-
->>> da_mon.curr_state));
->>   	if (unlikely(!da_monitor_handling_event(&ha_mon->da_mon)))
->>   		return;
->>   
-> 
-
